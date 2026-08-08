@@ -6,6 +6,13 @@ from .division import (
     multiple_collapse,
     reconstruct_euclidean,
 )
+from .scale_algebra import (
+    greatest_common_coarsening,
+    least_common_refinement,
+    project_scale_factor,
+    scale_factor,
+    scaled_root_factor,
+)
 from .signed import (
     signed_magnitude_collapse,
     signed_magnitude_root,
@@ -29,4 +36,9 @@ __all__ = [
     "division_gap",
     "euclidean_state",
     "reconstruct_euclidean",
+    "scale_factor",
+    "scaled_root_factor",
+    "project_scale_factor",
+    "greatest_common_coarsening",
+    "least_common_refinement",
 ]
