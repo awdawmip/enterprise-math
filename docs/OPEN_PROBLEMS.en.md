@@ -206,6 +206,36 @@ The first-stage construction and proved identities are developed in `docs/PRECIS
 
 Do not assume a hidden real completion or a `d -> infinity` limit. Prior art in filtrations, associated graded objects, multiresolution analysis, interval arithmetic, p-adic precision tracking, projective systems, and Möbius inversion must be credited rather than renamed.
 
+## P019 — Discrete black-hole horizon and causal-shell collapse
+
+Status: `ACTIVE RESEARCH NOTE / PHYSICAL INTERPRETATION TESTING`  
+Difficulty: research-hard  
+Issue: `#46`
+
+Use the Schwarzschild horizon as the first direct physics pressure test of the integer-first precision framework.
+
+The first-stage model defines
+
+\[
+q_\lambda(n;h)=\left\lfloor\frac{\lambda|n-h|}{n}\right\rfloor
+\]
+
+for positive radial state `n`, horizon state `h`, and integer precision `lambda`.
+
+Current proved targets and next problems are developed in `docs/P019_DISCRETE_BLACK_HOLE_HORIZON.en.md`:
+
+1. exact projection on divisible precision chains;
+2. exact finite zero-horizon fibers and the singleton threshold `lambda>=h+1`;
+3. integer-root clock shells, including skipped levels;
+4. a primitive outgoing causal phase with exterior expansion, zero horizon expansion, and interior contraction;
+5. general `Z^d` L1 shell counts generated from the one-dimensional kernel;
+6. strict separation of P018 precision ambiguity from P010/P011 forward-time history merging;
+7. coordinate-free reformulation, typed mass-to-horizon calibration, and quantitative redshift/geodesic recovery;
+8. Reissner–Nordström, Kerr, and dynamical-horizon pressure tests;
+9. physical kill tests for anisotropy, covariance failure, or disagreement with black-hole observations.
+
+Do not identify the `Z^3` benchmark count `4h^2+2` with physical Schwarzschild area or black-hole entropy. The boundary-count exponent is a structural result; the physical interpretation remains open.
+
 ## How to take a problem
 
 Open a GitHub issue with the problem ID in the title, or comment on an existing issue for that ID.
