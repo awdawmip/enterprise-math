@@ -26,5 +26,5 @@ jobs:
         run: lake update
       - name: Fetch mathlib cache
         run: lake exe cache get
-      - name: Compile Enterprise Math Lean layer
-        run: lake build
+      - name: Compile Enterprise Math Lean layer with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath
