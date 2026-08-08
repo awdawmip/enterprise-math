@@ -6,6 +6,17 @@ from .division import (
     multiple_collapse,
     reconstruct_euclidean,
 )
+from .lattice_geometry import (
+    a_ball_collapse,
+    a_ball_count,
+    a_ball_root,
+    a_collapsed_radial_distance,
+    a_coordinator_shell_count,
+    a_first_precision_shell_count,
+    a_graph_distance,
+    a_quadratic_separation,
+    a_triangle_carry,
+)
 from .scale_algebra import (
     greatest_common_coarsening,
     least_common_refinement,
@@ -41,4 +52,13 @@ __all__ = [
     "project_scale_factor",
     "greatest_common_coarsening",
     "least_common_refinement",
+    "a_graph_distance",
+    "a_quadratic_separation",
+    "a_collapsed_radial_distance",
+    "a_triangle_carry",
+    "a_coordinator_shell_count",
+    "a_ball_count",
+    "a_ball_root",
+    "a_ball_collapse",
+    "a_first_precision_shell_count",
 ]
