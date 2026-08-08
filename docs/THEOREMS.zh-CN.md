@@ -14,6 +14,8 @@ R_p(n)=k\iff k^p\le n<(k+1)^p.
 
 这与定义中的最大值性质等价。
 
+形式化：`EnterpriseMath.Arithmetic.IntegerRoot.root_eq_iff` 已通过 Lean 检查，并直接复用 Mathlib 已有的 `Nat.nthRoot` 定理。
+
 ## T002 —— 完全幂精确性
 
 状态：`PROVED`
@@ -192,6 +194,8 @@ M_t(x)=|[x]_t|
 
 单调不减。
 
+形式化：集合包含关系与有限状态域上的基数单调性均已分别由 `EnterpriseMath.History.mergedClass_subset_next` 和 `mergedMultiplicity_mono` 通过 Lean 检查。
+
 ## T013 —— 整数根按指数乘法复合
 
 状态：`PROVED`
@@ -264,4 +268,4 @@ P_p\circ M_b=M_{b^p}\circ P_p.
 
 Python 参考测试在有限范围内计算检查 T001 到 T010。这支持实现正确性，但不是数学证明的来源。
 
-P008 Lean 层固定到明确的 mathlib 版本，并直接复用 Mathlib 已有的 `Nat.nthRoot` 与 Galois connection API。目前 Lean 内核已检查 T002、T004、T005、T006、T010、T013、T014、T015，以及项目面向使用的通用伴随坍缩薄包装。Lean CI 已设置为 warning 即失败。T012 仍是后续 Lean 目标。
+P008 Lean 层固定到明确的 mathlib 版本，并直接复用 Mathlib 已有的 `Nat.nthRoot` 与 Galois connection API。目前 Lean 内核已检查 T001、T002、T004、T005、T006、T010、T012、T013、T014、T015，以及项目面向使用的通用伴随坍缩薄包装。Lean CI 已设置为 warning 即失败。
