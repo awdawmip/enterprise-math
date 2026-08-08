@@ -86,7 +86,7 @@ class PrecisionSystemTests(unittest.TestCase):
     def test_first_decision_shells_partition_terminal_states(self):
         states = list(range(0, 48))
         observations = [
-            scale_observation(12, scale) for scale in [1, 2, 3, 6, 12]
+            scale_observation(12, scale) for scale in [1, 2, 4, 12]
         ]
         predicate = lambda x: x < 23
         shells = first_decision_shells(states, observations, predicate)
