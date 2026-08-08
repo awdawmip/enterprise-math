@@ -160,6 +160,38 @@ for every \(n\).
 
 Counterexample: every state from 19881 through 20163 has the same image 19881, so no single value \(G(19881)\) can recover all of them.
 
+## C011 — Monotonicity alone does not make the maximum-formula right adjoint total
+
+Claim rejected: every monotone map \(F:\mathbb N\to\mathbb N\) admits a total right adjoint by
+
+\[
+F^\downarrow(n)=\max\{k:F(k)\le n\}.
+\]
+
+Counterexample: let \(F(k)=0\) for every \(k\). The map is monotone, but for every \(n\),
+
+\[
+\{k:F(k)\le n\}=\mathbb N
+\]
+
+has no maximum. Thus the concrete greatest-state construction requires more than monotonicity, for example the sufficient unboundedness condition used in P008.
+
+## C012 — Unboundedness without monotonicity does not yield the adjunction law
+
+Claim rejected: unboundedness and \(F(0)=0\) are enough for the greatest-admissible-state formula to satisfy
+
+\[
+F(k)\le n\iff k\le F^\downarrow(n).
+\]
+
+Counterexample: define
+
+\[
+F(0)=0,\qquad F(1)=2,\qquad F(2)=1,
+\]
+
+and \(F(k)=k\) for \(k\ge3\). The map is unbounded. For \(n=1\), the greatest admissible state is \(2\), but \(1\le2\) while \(F(1)=2\not\le1\). Hence the adjunction equivalence fails.
+
 ## Contribution rule
 
 A new algebraic identity should enter the theorem catalog only after explicit proof. If a finite counterexample exists, add it here with the smallest clear example when practical.

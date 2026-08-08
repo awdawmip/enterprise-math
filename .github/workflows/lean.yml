@@ -1,0 +1,30 @@
+name: lean
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Compile Enterprise Math Lean layer with warnings fatal
+        run: lake build --wfail -KCI EnterpriseMath

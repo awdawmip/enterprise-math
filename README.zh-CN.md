@@ -67,6 +67,8 @@ C_2(20000)=19881.
 - [前人工作](docs/REFERENCES.zh-CN.md)
 - [前人工作谱系与暂定创新边界](docs/PRIOR_ART_AND_NOVELTY.zh-CN.md)
 - [引用与思想谱系规则](docs/CITATION_POLICY.zh-CN.md)
+- [P008 序伴随框架](docs/P008_ORDER_ADJOINT_FRAMEWORK.zh-CN.md)
+- [P008 mathlib 审计](docs/P008_MATHLIB_AUDIT.zh-CN.md)
 
 ## 前人工作与创新纪律
 
@@ -114,6 +116,22 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
 参考实现是可执行规范和反例搜索器，不代替数学证明。
+
+## 形式化验证
+
+仓库现在还在 `EnterpriseMath/` 下提供 mathlib-native Lean 层。该层刻意复用 mathlib 已有对象，而不重复造轮子；特别是形式化整数根直接使用 Mathlib 的 `Nat.nthRoot`，而 `R_p` 继续作为进取数论自己的数学记号和内部语义。
+
+Lean 工程固定到明确的 mathlib 提交与匹配的 Lean 工具链，以保证结果可复现。当前形式化已经覆盖根刻画、完全幂精确恢复、坍缩向下收缩/幂等/不动点、尺度相容、历史合流数量单调、整数根指数复合、迭代根交换以及根/整数除法交换恒等式。
+
+运行：
+
+```bash
+lake update
+lake exe cache get
+lake build --wfail -KCI EnterpriseMath
+```
+
+Lean CI 把 warning 视为失败。形式化证明的是所列数学结论确实由定义推出；它并不证明项目更强的物理假说成立。
 
 ## 双语规则
 
