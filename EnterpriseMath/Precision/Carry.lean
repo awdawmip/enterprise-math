@@ -23,7 +23,8 @@ theorem carry_le_one {m u v : ℕ} (hm : 0 < m) (hu : u < m) (hv : v < m) :
     carry m u v ≤ 1 := by
   unfold carry
   rw [Nat.add_div hm]
-  simp [Nat.div_eq_of_lt hu, Nat.div_eq_of_lt hv]
+  simp only [Nat.div_eq_of_lt hu, Nat.div_eq_of_lt hv, zero_add]
+  by_cases h : m ≤ u % m + v % m <;> simp [h]
 
 /-- Carry is normalized at zero. -/
 @[simp] theorem carry_zero_left {m u : ℕ} (hu : u < m) :
@@ -41,7 +42,7 @@ theorem carry_comm (m u v : ℕ) : carry m u v = carry m v u := by
 
 /-- P018-T65: canonical carry satisfies the normalized 2-cocycle equation. -/
 theorem carry_cocycle {m u v w : ℕ} (hm : 0 < m)
-    (hu : u < m) (hv : v < m) (hw : w < m) :
+    (hu : u < m) (_hv : v < m) (hw : w < m) :
     carry m u v + carry m (digitAdd m u v) w =
       carry m v w + carry m u (digitAdd m v w) := by
   have hleft := div_add_defect (m := m) (x := u + v) (y := w) hm
