@@ -14,7 +14,11 @@ from .lattice_geometry import (
     a_coordinator_shell_count,
     a_first_precision_shell_count,
     a_graph_distance,
+    a_precision_distance_ball_count,
+    a_precision_distance_shell_count,
     a_quadratic_separation,
+    a_quadratic_shell_count,
+    a_quadratic_shell_counts,
     a_triangle_carry,
 )
 from .scale_algebra import (
@@ -66,4 +70,8 @@ __all__ = [
     "a_ball_root",
     "a_ball_collapse",
     "a_first_precision_shell_count",
+    "a_quadratic_shell_counts",
+    "a_quadratic_shell_count",
+    "a_precision_distance_shell_count",
+    "a_precision_distance_ball_count",
 ]
