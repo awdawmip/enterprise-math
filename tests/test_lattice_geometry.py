@@ -25,6 +25,26 @@ def a_points(p: int, bound: int):
         yield prefix + (-sum(prefix),)
 
 
+def unit_relation_signature(p: int):
+    zero = (0,) * (p + 1)
+    shell = [
+        v
+        for v in a_points(p, 2)
+        if v != zero and a_collapsed_radial_distance(zero, v) == 1
+    ]
+    shell_set = set(shell)
+    signature: dict[int, set[int]] = {}
+    for v in shell:
+        q = a_quadratic_separation(zero, v)
+        common = sum(
+            1
+            for w in shell
+            if tuple(w[i] - v[i] for i in range(p + 1)) in shell_set
+        )
+        signature.setdefault(q, set()).add(common)
+    return signature
+
+
 class LatticeGeometryTests(unittest.TestCase):
     def test_low_dimensional_coordinator_shells(self):
         self.assertEqual(
@@ -76,6 +96,13 @@ class LatticeGeometryTests(unittest.TestCase):
                 if v != zero and a_collapsed_radial_distance(zero, v) == 1
             )
             self.assertEqual(actual, a_first_precision_shell_count(p))
+
+    def test_unit_distance_collapse_does_not_imply_relation_homogeneity(self):
+        self.assertEqual(unit_relation_signature(3), {1: {24}, 2: {20}, 3: {14}})
+        signature_p5 = unit_relation_signature(5)
+        self.assertEqual(signature_p5[1], {132})
+        self.assertEqual(signature_p5[2], {94})
+        self.assertEqual(signature_p5[3], {54, 58})
 
     def test_finite_quadratic_shell_kernel(self):
         self.assertEqual(a_quadratic_shell_counts(1, 10), (1, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0))
