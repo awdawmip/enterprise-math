@@ -11,7 +11,7 @@ This file is the authoritative status ledger for numbered Enterprise Math resear
 |---|---|---|
 | P001 | `RESOLVED` | `docs/P001_ROOT_MULTIPLICATIVITY.en.md`: integer roots are supermultiplicative, and multiplicativity holds exactly when the basin-product carry load stays below the next perfect-power threshold; the note also gives the exact carry count, downward-closed no-carry region, and a floor-division boundary. |
 | P002 | `RESOLVED` | `docs/P002_COLLAPSE_GAP_BOUND.en.md`: the collapse gap has the sharp basin bound `0 <= G_p(n) <= (k+1)^p-k^p-1`, with equality exactly at the last basin state; the gap coordinate is a bijection across each basin. |
-| P003 | `OPEN` | Global collapse-commutation classification remains Draft/noncanonical. |
+| P003 | `RESOLVED` | `docs/P003_COLLAPSE_COMMUTATION.en.md`: perfect-power collapses commute globally iff their positive exponents are comparable under divisibility. If `p|q`, both compositions equal `C_q`; incomparable exponents have the explicit prime-power witness `2^max(p,q)`. The comparable direction is Lean-checked in `EnterpriseMath/Arithmetic/CollapseCommutation.lean`; the converse remains an ordinary proved theorem with executable witness regression. |
 | P004 | `OPEN` | Fixed points of arbitrary collapse words remain Draft/noncanonical. |
 | P005 | `RESOLVED` | `docs/P005_SCALE_LATTICE_CORE.en.md`: total positive scale factor, divisibility projections, gcd/lcm scale lattice, path independence, and nonunique inverse refinement. |
 | P006 | `RESOLVED` | `docs/P006_SIGNED_STATE_EXTENSION.en.md`: ordinary-order odd roots and signed-magnitude quantization are explicitly separated; even powers have no ordinary-order right adjoint on all signed states. |
