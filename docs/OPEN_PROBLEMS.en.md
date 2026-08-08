@@ -168,6 +168,35 @@ Priority subproblems:
 
 A result counts as progress even if it disproves the Enterprise Math route. Do not present finite computation, a renamed inclusion-exclusion identity, or a heuristic density model as a proof of Legendre's conjecture.
 
+## P018 — Finite-precision proof calculus
+
+Difficulty: research-hard
+
+Treat precision change itself as a mathematical operation rather than a numerical-error annotation.
+
+For comparable precision factors `d|e`, begin with
+
+\[
+\pi_{e\to d}(x)=x//(e/d),
+\qquad
+\delta_{e:d}(x)=x\bmod(e/d),
+\]
+
+and build a proof calculus in which:
+
+1. a proposition may become permanently decided at a coarse precision;
+2. unresolved common coarse structure is cancelled and the proof obligation passes to bounded detail;
+3. carry/borrow records exact information crossing precision layers;
+4. scale-linear bulk is annihilated by a transported Möbius shell on the divisibility lattice;
+5. integer-root scale states acquire exact nested precision details;
+6. failure of collapse/refinement commutation is represented by a finite basin coordinate rather than by an uncontrolled approximation error;
+7. refinement-recovery increments telescope and can potentially be paired or cancelled across scales;
+8. the P017 bulk/carry/shell machinery is tested as a possible special case of this more general precision calculus.
+
+The first-stage construction and proved identities are developed in `docs/PRECISION_CALCULUS.en.md`.
+
+Do not assume a hidden real completion or a `d -> infinity` limit.  Prior art in filtrations, associated graded objects, multiresolution analysis, interval arithmetic, p-adic precision tracking, projective systems, and Möbius inversion must be credited rather than renamed.
+
 ## How to take a problem
 
 Open a GitHub issue with the problem ID in the title, or comment on an existing issue for that ID.
