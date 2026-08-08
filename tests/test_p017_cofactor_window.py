@@ -81,6 +81,19 @@ class P017CofactorWindowTests(unittest.TestCase):
         self.assertTrue(saw_nonempty)
         self.assertTrue(saw_empty)
 
+    def test_p2_boundary_blocks_false_prime_degeneracy(self):
+        # k=2, p=2, r=1 satisfies p>r^2, but p-roughness is vacuous at p=2.
+        # The raw window {3,4} gives shell states {6,8}; c+r=4 is not prime.
+        data = centered_cofactor_window(2, 2)
+        self.assertEqual(data["radius"], 1)
+        self.assertGreater(2, data["radius"] ** 2)
+        self.assertEqual((data["q_min"], data["q_max"]), (3, 4))
+        self.assertEqual(cofactor_window_survivors(2, 2), [3, 4])
+        self.assertEqual(cofactor_window_shell(2, 2), [6, 8])
+        self.assertFalse(is_prime(4))
+        with self.assertRaises(ValueError):
+            near_diagonal_prime_degeneracy(2, 2)
+
     def test_k10_boundary_case_is_three_candidate_window(self):
         data = centered_cofactor_window(10, 7)
         self.assertEqual((data["q_min"], data["q_max"]), (15, 17))
