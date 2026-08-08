@@ -122,6 +122,67 @@ def naive_matrix_product_entry(left_count: int, right_count: int) -> int:
     return left_count * right_count
 
 
+def predecessor_witness_profile(
+    first: Iterable[DirectedEdge], middle: Iterable[DirectedEdge]
+) -> tuple[int, ...]:
+    """Count predecessor witnesses for each exact middle incidence."""
+    left = tuple(dict.fromkeys(first))
+    center = tuple(dict.fromkeys(middle))
+    if not left or not center:
+        raise ValueError("direction channels must be nonempty")
+    return tuple(sum(1 for edge in left if edge[1] == mid[0]) for mid in center)
+
+
+def successor_witness_profile(
+    middle: Iterable[DirectedEdge], third: Iterable[DirectedEdge]
+) -> tuple[int, ...]:
+    """Count successor witnesses for each exact middle incidence."""
+    center = tuple(dict.fromkeys(middle))
+    right = tuple(dict.fromkeys(third))
+    if not center or not right:
+        raise ValueError("direction channels must be nonempty")
+    return tuple(sum(1 for edge in right if mid[1] == edge[0]) for mid in center)
+
+
+def is_uniform_profile(profile: Iterable[int]) -> bool:
+    """Return whether a nonempty integer witness profile is constant."""
+    values = tuple(profile)
+    if not values:
+        raise ValueError("profile must be nonempty")
+    if any(value < 0 for value in values):
+        raise ValueError("profile values must be nonnegative")
+    return all(value == values[0] for value in values)
+
+
+def uniform_fiber_cross_multiplication_holds(
+    first: Iterable[DirectedEdge],
+    middle: Iterable[DirectedEdge],
+    third: Iterable[DirectedEdge],
+) -> bool:
+    """Verify the Stage-12 cardinality sufficiency identity under uniformity.
+
+    Let m be the number of exact middle incidences, L the first-to-middle witness
+    count, R the middle-to-third witness count, and N the exact three-path count.
+    If either the predecessor or successor witness profile is uniform, then
+
+        m * N = L * R.
+
+    The function rejects non-uniform instances instead of pretending the
+    identity is generally valid.
+    """
+    center = tuple(dict.fromkeys(middle))
+    if not center:
+        raise ValueError("middle direction channel must be nonempty")
+    predecessor = predecessor_witness_profile(first, center)
+    successor = successor_witness_profile(center, third)
+    if not (is_uniform_profile(predecessor) or is_uniform_profile(successor)):
+        raise ValueError("at least one middle witness profile must be uniform")
+    left_count = sum(predecessor)
+    right_count = sum(successor)
+    exact = sum(left * right for left, right in zip(predecessor, successor, strict=True))
+    return len(center) * exact == left_count * right_count
+
+
 def transport_support(matrix: Iterable[Iterable[int]]) -> tuple[tuple[bool, ...], ...]:
     """Return the zero/nonzero support of a transport matrix."""
     rows = tuple(tuple(row) for row in matrix)
