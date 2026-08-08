@@ -87,6 +87,20 @@ class CenteredPrimeRadiusTests(unittest.TestCase):
             saw = True
         self.assertTrue(saw)
 
+    def test_size_hypothesis_is_essential(self):
+        # Counterexample to the over-strong global identity rho(k+1)=sigma(k)+1.
+        # At k=10, sigma=3, but the first positive centered prime pair around 11
+        # is 5 and 17, at radius 6 rather than radius 4.
+        k = 10
+        self.assertEqual(factor_proof_slack(k), 3)
+        self.assertEqual(centered_prime_radius(k + 1), 6)
+        self.assertNotEqual(
+            centered_prime_radius(k + 1), factor_proof_slack(k) + 1
+        )
+        radius = factor_proof_slack(k) + 1
+        left = k + 1 - radius
+        self.assertLessEqual(left, radius * radius)
+
 
 if __name__ == "__main__":
     unittest.main()
