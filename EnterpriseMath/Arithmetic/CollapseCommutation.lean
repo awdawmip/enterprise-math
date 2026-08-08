@@ -16,12 +16,10 @@ theorem collapse_left_absorbs_of_dvd {p q : ℕ} (hp : p ≠ 0) (hpq : p ∣ q) 
   apply (collapse_eq_self_iff hp (collapse (p * r) n)).2
   refine ⟨root (p * r) n ^ r, ?_⟩
   unfold collapse
-  let x := root (p * r) n
-  change (x ^ r) ^ p = (x ^ p) ^ r
   calc
-    (x ^ r) ^ p = x ^ (r * p) := (pow_mul x r p).symm
-    _ = x ^ (p * r) := by rw [Nat.mul_comm r p]
-    _ = (x ^ p) ^ r := pow_mul x p r
+    (root (p * r) n ^ r) ^ p = root (p * r) n ^ (r * p) :=
+      (pow_mul (root (p * r) n) r p).symm
+    _ = root (p * r) n ^ (p * r) := by rw [Nat.mul_comm r p]
 
 /-- If `p ∣ q`, the `q`-collapse also absorbs a preceding `p`-collapse. -/
 theorem collapse_right_absorbs_of_dvd {p q : ℕ} (hp : p ≠ 0) (hq : q ≠ 0)
