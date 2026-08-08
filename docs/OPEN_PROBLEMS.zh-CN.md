@@ -174,6 +174,35 @@ M_{t+1}(x)\ge M_t(x).
 
 即使最终反驳“进取数论能沿这条路突破”的设想，也属于有效进展。有限计算、改名后的容斥恒等式或启发式密度模型均不得被写成 Legendre 猜想的证明。
 
+## P018 —— 有限精度证明演算
+
+难度：研究级困难
+
+把“精度变化”本身提升为数学运算，而不是数值计算之后附加的误差说明。
+
+对可比较精度因子 `d|e`，从
+
+\[
+\pi_{e\to d}(x)=x//(e/d),
+\qquad
+\delta_{e:d}(x)=x\bmod(e/d)
+\]
+
+出发，建立一套证明演算，使得：
+
+1. 某个命题可以在粗精度上永久决定；
+2. 未决定时，共同粗结构严格相消，证明义务下放给有界 detail；
+3. carry / borrow 精确记录跨精度层的信息传递；
+4. 在整除精度格上，尺度线性 bulk 可被带搬运的 Möbius shell 消去；
+5. 整数根尺度状态具有精确、可嵌套的 precision detail；
+6. collapse 与 refinement 不交换时，其缺陷被表示成有限盆地坐标，而不是失控的近似误差；
+7. refinement-recovery 增量可以严格望远镜相加，并进一步研究跨尺度配对/相消；
+8. 检验 P017 中 bulk/carry/shell/half-scale 结构是否是这套一般精度演算的特殊实例。
+
+第一阶段构造与已经证明的恒等式见 `docs/PRECISION_CALCULUS.zh-CN.md`。
+
+不得预设隐藏实数完成，也不得把 `d -> infinity` 极限当作核心定义。filtered/associated graded、multiresolution analysis、interval arithmetic、p-adic precision tracking、projective system、Möbius inversion 等成熟前人工作必须明确引用，不能换名后据为项目原创。
+
 ## 如何领取问题
 
 可以创建一个标题包含问题编号的 GitHub Issue，或者在已经存在的对应 Issue 下参与讨论。
