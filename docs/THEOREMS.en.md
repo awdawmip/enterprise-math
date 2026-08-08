@@ -134,6 +134,8 @@ Multiplying by \(b^p\) gives
 
 Hence the finer root lies in the integer interval from \(kb\) through \((k+1)b-1\), whose integer quotient by \(b\) is \(k\).
 
+P008 gives a second structural proof: the commuting square between the power map and multiplication by \(b\) transfers across their right adjoints, yielding the root/division identity T015 below.
+
 ## T011 — One-sided inverse law
 
 Status: `PROVED`
@@ -186,8 +188,76 @@ M_t(x)=|[x]_t|
 
 is nondecreasing.
 
+## T013 — Integer roots compose multiplicatively in the exponent
+
+Status: `PROVED`
+
+For \(p,q\ge1\),
+
+\[
+R_{pq}(n)=R_p(R_q(n)).
+\]
+
+Equivalently,
+
+\[
+R_{pq}=R_p\circ R_q.
+\]
+
+Proof: the power maps \(P_p(k)=k^p\) and \(P_q(k)=k^q\) have integer roots as their right adjoints. Since
+
+\[
+P_q\circ P_p=P_{pq},
+\]
+
+right adjoints compose in reverse order. This is an application of established Galois-connection theory, not a new order-theoretic principle.
+
+Formalization: Lean-checked against the pinned mathlib snapshot in `EnterpriseMath.Arithmetic.IntegerRoot.root_mul`.
+
+## T014 — Iterated positive integer roots commute
+
+Status: `PROVED`
+
+For \(p,q\ge1\),
+
+\[
+R_p(R_q(n))=R_q(R_p(n)).
+\]
+
+Proof: both sides equal \(R_{pq}(n)\) by T013 and commutativity of integer multiplication.
+
+Formalization: Lean-checked in `EnterpriseMath.Arithmetic.IntegerRoot.root_mul_comm`.
+
+## T015 — Root/division interchange
+
+Status: `PROVED`
+
+For \(p\ge1\), \(b\ge1\), and \(n\in\mathbb N\),
+
+\[
+R_p(n)\operatorname{//}b
+=
+R_p\!\left(n\operatorname{//}b^p\right).
+\]
+
+Equivalently, if \(D_b(n)=n\operatorname{//}b\), then
+
+\[
+D_b\circ R_p=R_p\circ D_{b^p}.
+\]
+
+Proof: multiplication by \(b\) is left adjoint to flooring division by \(b\), powering by \(p\) is left adjoint to \(R_p\), and
+
+\[
+P_p\circ M_b=M_{b^p}\circ P_p.
+\]
+
+The commuting square transfers to the right adjoints. T010 is a direct specialization.
+
+Formalization: Lean-checked in `EnterpriseMath.Scale.root_div_scale`; T010 is Lean-checked in `EnterpriseMath.Scale.scaledRoot_succ_div`.
+
 ## Verification status
 
 The Python reference tests computationally check T001–T010 over bounded finite domains. This supports implementation correctness but is not the proof source.
 
-The next formalization target is T001, T005, T010, and T012 in Lean.
+The P008 Lean layer is pinned to a specific mathlib revision and reuses Mathlib's existing `Nat.nthRoot` and Galois-connection APIs. It currently kernel-checks T002, T004, T005, T006, T010, T013, T014, and T015, together with project-facing generic adjoint-collapse lemmas. Lean CI builds with warnings fatal. T012 remains a later Lean target.
