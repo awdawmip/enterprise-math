@@ -138,6 +138,8 @@ k^p\le nb^{ps}<(k+1)^p.
 
 因此更细尺度的根必定位于从 \(kb\) 到 \((k+1)b-1\) 的整数区间中，而这些整数对 \(b\) 做整数除法后的商都等于 \(k\)。
 
+P008 又给出一个结构性证明：幂映射与“乘以 \(b\)”之间的交换方块跨越右伴随后，直接得到下文 T015 的根/整数除法交换恒等式。
+
 ## T011 —— 单侧逆规律
 
 状态：`PROVED`
@@ -190,8 +192,76 @@ M_t(x)=|[x]_t|
 
 单调不减。
 
+## T013 —— 整数根按指数乘法复合
+
+状态：`PROVED`
+
+对 \(p,q\ge1\)，
+
+\[
+R_{pq}(n)=R_p(R_q(n)).
+\]
+
+等价地，
+
+\[
+R_{pq}=R_p\circ R_q.
+\]
+
+证明：幂映射 \(P_p(k)=k^p\) 与 \(P_q(k)=k^q\) 的右伴随分别是相应整数根。由于
+
+\[
+P_q\circ P_p=P_{pq},
+\]
+
+右伴随按反序复合。本结论是成熟 Galois connection 理论的应用，不是新的序论原理。
+
+形式化：已由 `EnterpriseMath.Arithmetic.IntegerRoot.root_mul` 在固定 mathlib 版本上通过 Lean 内核检查。
+
+## T014 —— 正整数根的迭代顺序可交换
+
+状态：`PROVED`
+
+对 \(p,q\ge1\)，
+
+\[
+R_p(R_q(n))=R_q(R_p(n)).
+\]
+
+证明：由 T013 和整数乘法交换律，两边都等于 \(R_{pq}(n)\)。
+
+形式化：已由 `EnterpriseMath.Arithmetic.IntegerRoot.root_mul_comm` 通过 Lean 检查。
+
+## T015 —— 根与整数除法交换恒等式
+
+状态：`PROVED`
+
+对 \(p\ge1\)、\(b\ge1\) 和 \(n\in\mathbb N\)，
+
+\[
+R_p(n)\operatorname{//}b
+=
+R_p\!\left(n\operatorname{//}b^p\right).
+\]
+
+若记 \(D_b(n)=n\operatorname{//}b\)，则等价地有
+
+\[
+D_b\circ R_p=R_p\circ D_{b^p}.
+\]
+
+证明：“乘以 \(b\)”的右伴随是对 \(b\) 的向下整数除法，\(p\) 次幂的右伴随是 \(R_p\)，且
+
+\[
+P_p\circ M_b=M_{b^p}\circ P_p.
+\]
+
+左伴随上的交换方块传递到右伴随。T010 是其直接特例。
+
+形式化：`EnterpriseMath.Scale.root_div_scale` 已通过 Lean 检查；T010 对应的 `EnterpriseMath.Scale.scaledRoot_succ_div` 也已通过 Lean 检查。
+
 ## 验证状态
 
 Python 参考测试在有限范围内计算检查 T001 到 T010。这支持实现正确性，但不是数学证明的来源。
 
-下一批形式化目标是用 Lean 证明 T001、T005、T010 和 T012。
+P008 Lean 层固定到明确的 mathlib 版本，并直接复用 Mathlib 已有的 `Nat.nthRoot` 与 Galois connection API。目前 Lean 内核已检查 T002、T004、T005、T006、T010、T013、T014、T015，以及项目面向使用的通用伴随坍缩薄包装。Lean CI 已设置为 warning 即失败。T012 仍是后续 Lean 目标。
