@@ -4,11 +4,15 @@ import unittest
 
 import enterprise_math.directional_focusing as directional
 from enterprise_math.directional_focusing import (
+    causal_phase_role,
+    causal_role_channels,
     collision_rate_anisotropy_numerator,
     direction_resolution_no_go,
     directional_channel_data,
     incidence_orbits,
+    orbit_causal_phase_role,
     pair_collision_channel_decomposition,
+    phase_marked_direction_roles,
     section_stabilizer_automorphisms,
 )
 
@@ -58,6 +62,42 @@ class DirectionalFocusingTests(unittest.TestCase):
             {frozenset({("a", "x")}), frozenset({("b", "y")})},
         )
 
+    def test_phase_roles_are_coordinate_free_transition_labels(self):
+        marks = {"a": 0, "b": 1, "x": -1, "y": 1}
+        self.assertEqual(causal_phase_role(("a", "x"), marks), (0, -1))
+        self.assertEqual(causal_phase_role(("b", "y"), marks), (1, 1))
+
+    def test_causal_role_channels_group_exact_phase_transitions(self):
+        vertices = ["a", "b", "x", "y", "z"]
+        edges = [("a", "x"), ("a", "y"), ("b", "y"), ("b", "z")]
+        marks = {"a": 0, "b": 0, "x": -1, "y": 0, "z": 1}
+        channels = causal_role_channels(vertices, edges, ["a", "b"], marks)
+        self.assertEqual(
+            channels,
+            {
+                (0, -1): (("a", "x"),),
+                (0, 0): (("a", "y"), ("b", "y")),
+                (0, 1): (("b", "z"),),
+            },
+        )
+
+    def test_marked_direction_orbit_cannot_mix_causal_roles(self):
+        vertices = ["a", "b", "x", "y"]
+        edges = [("a", "x"), ("b", "y")]
+        marks = {"a": 0, "b": 0, "x": 1, "y": -1}
+        resolved = phase_marked_direction_roles(vertices, edges, ["a", "b"], marks)
+        self.assertEqual({item["role"] for item in resolved}, {(0, 1), (0, -1)})
+        for item in resolved:
+            self.assertEqual(orbit_causal_phase_role(item["orbit"], marks), item["role"])
+
+    def test_same_causal_role_may_still_contain_multiple_direction_orbits(self):
+        vertices = ["a", "b", "x", "y", "z"]
+        edges = [("a", "x"), ("b", "y"), ("a", "z"), ("b", "z")]
+        marks = {vertex: 0 for vertex in vertices}
+        resolved = phase_marked_direction_roles(vertices, edges, ["a", "b"], marks)
+        self.assertEqual({item["role"] for item in resolved}, {(0, 0)})
+        self.assertEqual(len(resolved), 2)
+
     def test_pair_collision_splits_into_internal_and_cross_channel_terms(self):
         first = [("a", "x"), ("b", "z")]
         second = [("a", "z"), ("b", "x")]
@@ -90,6 +130,12 @@ class DirectionalFocusingTests(unittest.TestCase):
         edges = [(0, 2), (1, 2)]
         with self.assertRaises(ValueError):
             incidence_orbits(vertices, edges, [0, 1], marks={0: 0, 1: 0})
+
+    def test_phase_marks_are_typed(self):
+        vertices = [0, 1]
+        edges = [(0, 1)]
+        with self.assertRaises(ValueError):
+            causal_role_channels(vertices, edges, [0], {0: 0, 1: 2})
 
     def test_reference_module_has_no_float_or_true_division(self):
         tree = ast.parse(inspect.getsource(directional))
