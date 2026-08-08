@@ -22,16 +22,16 @@ theorem div_add_defect {m x y : ℕ} (hm : 0 < m) :
 theorem carry_le_one {m u v : ℕ} (hm : 0 < m) (hu : u < m) (hv : v < m) :
     carry m u v ≤ 1 := by
   unfold carry
-  have huv : u + v < 2 * m := by omega
-  exact (Nat.div_lt_iff_lt_mul hm).2 (by simpa [Nat.mul_comm] using huv)
+  rw [Nat.add_div hm]
+  simp [Nat.div_eq_of_lt hu, Nat.div_eq_of_lt hv]
 
 /-- Carry is normalized at zero. -/
-@[simp] theorem carry_zero_left {m u : ℕ} (hm : 0 < m) (hu : u < m) :
+@[simp] theorem carry_zero_left {m u : ℕ} (hu : u < m) :
     carry m 0 u = 0 := by
   simp [carry, Nat.div_eq_of_lt hu]
 
 /-- Carry is normalized at zero. -/
-@[simp] theorem carry_zero_right {m u : ℕ} (hm : 0 < m) (hu : u < m) :
+@[simp] theorem carry_zero_right {m u : ℕ} (hu : u < m) :
     carry m u 0 = 0 := by
   simp [carry, Nat.div_eq_of_lt hu]
 
@@ -53,7 +53,6 @@ theorem carry_cocycle {m u v w : ℕ} (hm : 0 < m)
             simpa [carry, digitAdd, Nat.div_eq_of_lt hw, Nat.mod_eq_of_lt hw] using hleft
     _ = (u + (v + w)) / m := by rw [Nat.add_assoc]
     _ = carry m v w + carry m u (digitAdd m v w) := by
-            simpa [carry, digitAdd, Nat.div_eq_of_lt hu, Nat.mod_eq_of_lt hu,
-              Nat.add_comm, Nat.add_left_comm, Nat.add_assoc] using hright
+            simpa [carry, digitAdd, Nat.div_eq_of_lt hu, Nat.mod_eq_of_lt hu] using hright
 
 end EnterpriseMath.Precision
