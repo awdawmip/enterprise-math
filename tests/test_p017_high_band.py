@@ -3,6 +3,7 @@ from math import gcd, isqrt
 
 from enterprise_math.legendre import primes_up_to
 from enterprise_math.p017_high_band import (
+    cofactor_window_hit_identity,
     high_band_pairwise_coprime,
     high_band_second_factor_candidate,
     high_band_triple_resource_bound,
@@ -11,7 +12,13 @@ from enterprise_math.p017_rough_recursion import high_least_factor_band
 
 
 class P017HighBandTests(unittest.TestCase):
-    def test_binary_second_factor_candidate_matches_canonical_triples(self):
+    def test_cofactor_window_is_exact_legacy_hit_count(self):
+        for k in range(2, 180):
+            for p in primes_up_to(k):
+                data = cofactor_window_hit_identity(k, p)
+                self.assertEqual(data["N"], data["B"] - data["A"] + 1)
+
+    def test_binary_second_factor_candidate_matches_canonical_triples_and_legacy_hits(self):
         saw_hit = False
         saw_miss = False
         for k in range(3, 260):
@@ -30,7 +37,19 @@ class P017HighBandTests(unittest.TestCase):
                         continue
                     branch = high_band_second_factor_candidate(k, p, ell)
                     self.assertIn(branch["multiple_count"], (0, 1))
-                    self.assertEqual(branch["multiple_count"] == 1, branch["residue_step"] < branch["N"])
+                    self.assertEqual(
+                        branch["multiple_count"], branch["legacy_hit_count"]
+                    )
+                    self.assertEqual(
+                        branch["multiple_count"] == 1,
+                        branch["residue_step"] < branch["N"],
+                    )
+                    self.assertEqual(
+                        branch["multiple_count"] == 1,
+                        branch["center_hit"] is not None,
+                    )
+                    if branch["candidate_state"] is not None:
+                        self.assertEqual(branch["candidate_state"], branch["center_hit"])
                     if branch["triple_state"] is None:
                         saw_miss = True
                         self.assertNotIn(ell, expected)
