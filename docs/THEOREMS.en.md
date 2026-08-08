@@ -14,6 +14,8 @@ R_p(n)=k\iff k^p\le n<(k+1)^p.
 
 This is equivalent to the defining maximum property.
 
+Formalization: Lean-checked in `EnterpriseMath.Arithmetic.IntegerRoot.root_eq_iff`, directly reusing Mathlib's established `Nat.nthRoot` lemmas.
+
 ## T002 — Exact perfect powers
 
 Status: `PROVED`
@@ -188,6 +190,8 @@ M_t(x)=|[x]_t|
 
 is nondecreasing.
 
+Formalization: both the set inclusion and finite-cardinality monotonicity are Lean-checked in `EnterpriseMath.History.mergedClass_subset_next` and `mergedMultiplicity_mono`.
+
 ## T013 — Integer roots compose multiplicatively in the exponent
 
 Status: `PROVED`
@@ -260,4 +264,4 @@ Formalization: Lean-checked in `EnterpriseMath.Scale.root_div_scale`; T010 is Le
 
 The Python reference tests computationally check T001–T010 over bounded finite domains. This supports implementation correctness but is not the proof source.
 
-The P008 Lean layer is pinned to a specific mathlib revision and reuses Mathlib's existing `Nat.nthRoot` and Galois-connection APIs. It currently kernel-checks T002, T004, T005, T006, T010, T013, T014, and T015, together with project-facing generic adjoint-collapse lemmas. Lean CI builds with warnings fatal. T012 remains a later Lean target.
+The P008 Lean layer is pinned to a specific mathlib revision and reuses Mathlib's existing `Nat.nthRoot` and Galois-connection APIs. It currently kernel-checks T001, T002, T004, T005, T006, T010, T012, T013, T014, and T015, together with project-facing generic adjoint-collapse lemmas. Lean CI builds with warnings fatal.
