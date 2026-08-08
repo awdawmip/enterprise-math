@@ -217,6 +217,22 @@ For a real square-basin state at \(T=2k\), the dual threshold is then forced bel
 
 Accordingly, Enterprise Math does **not** claim novelty for Möbius inversion, sieve dynamics, square-interval sieving, quota/threshold complexes, LogPrime topology, shell-face bouquet decompositions, combinatorial Alexander duality, or computational verification. The current project-specific pressure-test package consists of exact Euclidean basin descent, square-carry observables, binary parity compression, anchor-face cancellation, root-cutoff coupling, integer-root stratification of threshold shells, and the square-basin half-scale specialization of Alexander duality. Historical novelty of that final combination remains `NOVELTY_UNVERIFIED`; its value must be judged by whether it yields new proof leverage.
 
+### 7.5 Finite-precision proof calculus / P018
+
+P018 also sits next to several mature theories and must not be presented as if “precision layers” were a new idea.
+
+- The Stacks Project gives the standard algebraic language of filtered objects and successive filtration layers. [SRC-STACKS-FILTRATIONS]
+- Mallat's multiresolution theory explicitly isolates the information difference between adjacent resolutions using wavelet detail spaces. [SRC-MALLAT-1989-MULTIRESOLUTION]
+- IEEE 1788 standardizes rigorous interval arithmetic with finite enclosures and propagation rules for interval-valued computation. [SRC-IEEE-1788-2015-INTERVAL]
+- Caruso, Roe, and Vaccon develop systematic propagation of p-adic precision through computations; the p-adic literature also supports precision models richer than a single digit count. [SRC-CARUSO-ROE-VACCON-2014-PADIC-PRECISION]
+- Euclidean quotient/remainder, floor adjunctions, scaled-integer arithmetic, and divisor-poset Möbius inversion are already recorded elsewhere in this lineage map. [SRC-MATHLIB-FLOORDIV] [SRC-NIST-INTEGER-DECIMAL] [SRC-ROTA-1964-MOBIUS]
+
+P018 therefore does **not** claim filtered/graded mathematics, multiresolution detail, rigorous interval computation, p-adic precision propagation, or Möbius inversion as inventions.
+
+The current project-specific question is narrower: whether finite integer precision factors ordered by divisibility can support one coherent proof calculus in which many-to-one projection has a unique bounded fiber detail, coarse proofs become stable when fibers separate, arithmetic carries and borrows are exact cross-layer events, scale-linear bulk cancels under transported signed shells, and the noncommutation of collapse with refinement is itself an exact coarse-basin coordinate whose recovered part grows monotonically with further finite refinement.
+
+This package does not require a hidden real or p-adic completion and does not use an infinite-precision limit as a definition. Its historical novelty remains `NOVELTY_UNVERIFIED`; the first criterion is mathematical reuse value, not naming priority.
+
 ## 8. What we must never misattribute
 
 Do not attribute the following to Enterprise Math as inventions:
@@ -237,6 +253,10 @@ Do not attribute the following to Enterprise Math as inventions:
 - Eratosthenes sieve or its discrete-dynamical reinterpretations;
 - quota/threshold complexes, LogPrime complexes, or their shell/bouquet theorem;
 - combinatorial Alexander duality;
+- filtered objects or associated-graded constructions;
+- multiresolution analysis or wavelet detail decomposition;
+- interval arithmetic or certified interval-enclosure computation;
+- p-adic precision propagation or ultrametric precision models;
 - prior almost-prime or computational results for intervals between consecutive squares.
 
 Our responsibility is to cite those lines clearly and state exactly where our use changes.
