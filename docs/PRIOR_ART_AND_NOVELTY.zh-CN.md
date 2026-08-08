@@ -219,6 +219,22 @@ K(G,T)^*=K\!\left(G,\left\lfloor\frac{G-1}{T}\right\rfloor\right).
 
 所以，进取数论**不**声称 Möbius 反演、筛法动力系统、平方区间筛选、quota/threshold complex、LogPrime 拓扑、shell-face bouquet 分解、combinatorial Alexander duality 或这些计算验证属于我们的创新。当前项目特有的压力测试组合包括：精确欧几里得盆地下降、平方进位观察量、二进制奇偶压缩、锚点面消去、根—截断耦合、threshold shell 的整数根分层，以及 Alexander 对偶在平方盆地中的半尺度专门化。最后这一组合的历史创新状态仍为 `NOVELTY_UNVERIFIED`；其价值必须由能否产生新的证明杠杆来检验。
 
+### 7.5 有限精度证明演算 / P018
+
+P018 同样直接邻接多条成熟理论，因此不能把“精度分层”本身包装成新发明。
+
+- Stacks Project 给出了 filtered object 以及逐层过滤的标准代数语言。[SRC-STACKS-FILTRATIONS]
+- Mallat 的 multiresolution 理论明确把相邻分辨率之间的信息差抽取为独立的 wavelet detail。[SRC-MALLAT-1989-MULTIRESOLUTION]
+- IEEE 1788 对严格 interval arithmetic、有限区间包围与区间运算传播建立了标准化框架。[SRC-IEEE-1788-2015-INTERVAL]
+- Caruso、Roe、Vaccon 系统研究 p-adic 计算中的 precision propagation；相关 p-adic 工作还发展了比单一“有效位数”更丰富的精度结构。[SRC-CARUSO-ROE-VACCON-2014-PADIC-PRECISION]
+- Euclidean 商余、floor/Galois 伴随、尺度整数以及除数格 Möbius 反演也都已经在本谱系中登记。[SRC-MATHLIB-FLOORDIV] [SRC-NIST-INTEGER-DECIMAL] [SRC-ROTA-1964-MOBIUS]
+
+所以 P018 **不**声称 filtered/graded 数学、multiresolution detail、严格区间计算、p-adic precision propagation 或 Möbius 反演属于进取数论的发明。
+
+当前真正要检验的是一个更窄的组合：在正整数整除精度格上，把多对一商投影与唯一有界 fiber detail、粗精度证明稳定性、精确 carry/borrow、带搬运的有符号 Möbius shell，以及 collapse/refinement 不交换所产生的粗盆地坐标统一起来；再证明这个被恢复的盆地坐标会随有限精化单调增加。
+
+这一组合的核心语义只需要有限整数状态，不要求隐藏 real 或 p-adic completion，也不把无限精度极限作为定义。其历史创新状态继续保持 `NOVELTY_UNVERIFIED`；首先应检验的是数学复用价值，而不是术语优先权。
+
 ## 8. 绝不能错误归因给我们的内容
 
 以下内容不得被写成进取数论的发明：
@@ -239,6 +255,10 @@ K(G,T)^*=K\!\left(G,\left\lfloor\frac{G-1}{T}\right\rfloor\right).
 - Eratosthenes 筛或其离散动力系统重述；
 - quota/threshold complex、LogPrime complex 及其 shell/bouquet 定理；
 - combinatorial Alexander duality；
+- filtered object 或 associated-graded 构造；
+- multiresolution analysis 或 wavelet detail 分解；
+- interval arithmetic 或严格区间包围计算；
+- p-adic precision propagation 或 ultrametric precision model；
 - 相邻平方区间已有的 almost-prime 与计算验证结果。
 
 我们的责任是把这些谱系引用清楚，并精确说明自己的使用究竟改变在哪里。
