@@ -36,13 +36,15 @@ These relation labels are about intellectual lineage, not copyright.
 
 The greatest-integer characterization of integer square root is established and appears in current Python documentation: the integer square root is the greatest integer \(a\) with \(a^2\le n\). [SRC-PYTHON-ISQRT]
 
+Mathlib also already provides the general natural-number `Nat.nthRoot` formalization and proves the order characterization `a ≤ Nat.nthRoot p b ↔ a^p ≤ b` for positive exponents, together with exact recovery on perfect powers and related lemmas. [SRC-MATHLIB-NTHROOT] Enterprise Math therefore reuses `Nat.nthRoot` as its Lean primitive rather than creating a parallel formal root implementation.
+
 Enterprise Math **adopts the inequality definition**, but changes the foundational reading. In ordinary numerical documentation the same operation may be described as flooring an exact real square root. Enterprise Math does not require that hidden real root as a primitive object.
 
 Therefore:
 
-- **prior work:** integer square root;
+- **prior work:** integer square root, general natural-number integer roots, and their formal order characterization;
 - **our combination:** use the order-defined integer operation as the root primitive of the state space;
-- **not our invention:** the algorithm or greatest-integer definition;
+- **not our invention:** the algorithms, greatest-integer definition, `Nat.nthRoot`, or its established order-theoretic lemmas;
 - **project-specific addition:** the claim that the integer result is exact in the chosen foundational semantics rather than an approximation to a more real underlying value.
 
 ### 3.2 Floor division and order adjoints
@@ -146,7 +148,7 @@ Enterprise Math uses semigroup language only as a structural neighbor for time c
 
 The current synthesis has five layers.
 
-1. **Order-defined integer operations** — integer roots and flooring-style adjoints are treated as exact state maps, not approximations to hidden continuous answers. [SRC-PYTHON-ISQRT] [SRC-MATHLIB-FLOORDIV]
+1. **Order-defined integer operations** — integer roots and flooring-style adjoints are treated as exact state maps, not approximations to hidden continuous answers. [SRC-PYTHON-ISQRT] [SRC-MATHLIB-NTHROOT] [SRC-MATHLIB-FLOORDIV]
 2. **Explicit finite scale** — integer-plus-scale engineering precedents are retained, while infinite real completion is not assumed to be physically primitive. [SRC-NIST-INTEGER-DECIMAL] [SRC-KOHL-BFP] [SRC-GISIN-2018] [SRC-DEL-SANTO-GISIN-2019]
 3. **Collapse as an algebraic operator** — \(C_p(n)=R_p(n)^p\) is studied with the language of monotone/idempotent order projections. [SRC-MATHLIB-CLOSURE]
 4. **Fundamental many-to-one dynamics as a hypothesis** — this is explicitly separated from reversible-computation and coarse-graining explanations. [SRC-BENNETT-1973] [SRC-ZWANZIG-1961] [SRC-MORI-1965]
@@ -192,7 +194,7 @@ Do not write “first”, “unprecedented”, or “never proposed before” wi
 
 Do not attribute the following to Enterprise Math as inventions:
 
-- integer square root;
+- integer square root or general natural-number integer roots;
 - Euclidean/floor division;
 - Galois adjoints;
 - closure/interior operators;
