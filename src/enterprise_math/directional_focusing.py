@@ -12,7 +12,7 @@ automorphism-covariant direction information available at this level.
 
 from __future__ import annotations
 
-from collections import Counter
+from collections import Counter, defaultdict
 from collections.abc import Hashable, Iterable, Mapping, Sequence
 from itertools import combinations, permutations
 from math import comb
@@ -61,6 +61,15 @@ def _marks(vertices: tuple[Vertex, ...], marks: Marks | None) -> Marks | None:
     if set(marks.keys()) != set(vertices):
         raise ValueError("marks must label every graph vertex exactly once")
     return marks
+
+
+def _phase_marks(vertices: tuple[Vertex, ...], marks: Marks) -> Marks:
+    mark_map = _marks(vertices, marks)
+    if mark_map is None:
+        raise ValueError("phase marks are required")
+    if any(value not in (-1, 0, 1) for value in mark_map.values()):
+        raise ValueError("causal phase marks must lie in {-1,0,1}")
+    return mark_map
 
 
 def outgoing_incidences(
@@ -156,7 +165,6 @@ def incidence_orbits(
     while unseen:
         seed = next(iter(unseen))
         orbit = {(mapping[seed[0]], mapping[seed[1]]) for mapping in family}
-        # A generating family may need repeated action to close the orbit.
         changed = True
         while changed:
             changed = False
@@ -175,6 +183,79 @@ def incidence_orbits(
         unseen -= orbit
     return tuple(
         sorted(orbits, key=lambda item: (len(item), repr(sorted(item, key=repr))))
+    )
+
+
+def causal_phase_role(edge: DirectedEdge, phase_marks: Marks) -> tuple[int, int]:
+    """Return the coordinate-free causal role ``(phase(source), phase(target))``."""
+    source, target = edge
+    if source not in phase_marks or target not in phase_marks:
+        raise ValueError("causal phase marks must cover edge endpoints")
+    left = phase_marks[source]
+    right = phase_marks[target]
+    if left not in (-1, 0, 1) or right not in (-1, 0, 1):
+        raise ValueError("causal phase marks must lie in {-1,0,1}")
+    return int(left), int(right)
+
+
+def causal_role_channels(
+    vertices: Iterable[Vertex],
+    edges: Iterable[DirectedEdge],
+    section: Iterable[Vertex],
+    phase_marks: Marks,
+) -> dict[tuple[int, int], tuple[DirectedEdge, ...]]:
+    """Group outgoing incidences by exact causal phase transition role."""
+    vertex_tuple, edge_tuple = _normalized_graph(vertices, edges)
+    current = _section(vertex_tuple, section)
+    marks = _phase_marks(vertex_tuple, phase_marks)
+    grouped: defaultdict[tuple[int, int], list[DirectedEdge]] = defaultdict(list)
+    for edge in outgoing_incidences(vertex_tuple, edge_tuple, current):
+        grouped[causal_phase_role(edge, marks)].append(edge)
+    return {role: tuple(channel) for role, channel in sorted(grouped.items())}
+
+
+def orbit_causal_phase_role(
+    orbit: Iterable[DirectedEdge], phase_marks: Marks
+) -> tuple[int, int]:
+    """Return the unique causal role of a phase-preserving automorphism orbit.
+
+    A marked automorphism orbit must lie entirely inside one exact phase-role
+    channel. The helper raises if an externally supplied orbit violates that
+    structural requirement.
+    """
+    edges = tuple(orbit)
+    if not edges:
+        raise ValueError("orbit must be nonempty")
+    roles = {causal_phase_role(edge, phase_marks) for edge in edges}
+    if len(roles) != 1:
+        raise ValueError("one marked direction orbit cannot mix causal phase roles")
+    return next(iter(roles))
+
+
+def phase_marked_direction_roles(
+    vertices: Iterable[Vertex],
+    edges: Iterable[DirectedEdge],
+    section: Iterable[Vertex],
+    phase_marks: Marks,
+) -> tuple[dict[str, object], ...]:
+    """Resolve phase-preserving direction orbits and attach causal roles.
+
+    This is the Stage-9 bridge from the existing phase/boundary layer to the
+    Stage-8 intrinsic direction layer. Multiple automorphism orbits may share
+    the same causal role; a causal role is therefore a coarse structural label,
+    not a complete direction identifier.
+    """
+    vertex_tuple, edge_tuple = _normalized_graph(vertices, edges)
+    current = _section(vertex_tuple, section)
+    marks = _phase_marks(vertex_tuple, phase_marks)
+    orbits = incidence_orbits(vertex_tuple, edge_tuple, current, marks=marks)
+    return tuple(
+        {
+            "role": orbit_causal_phase_role(orbit, marks),
+            "orbit": orbit,
+            "data": directional_channel_data(orbit),
+        }
+        for orbit in orbits
     )
 
 
