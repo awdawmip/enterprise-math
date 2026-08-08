@@ -124,6 +124,29 @@ def trapped_interval(
     return lower, upper
 
 
+def horizon_boundary_complex(
+    mass_coefficient: int, charge_square: int
+) -> dict[str, tuple[object, ...]]:
+    """Return a vertex-edge horizon boundary on the radial N_0 line graph.
+
+    Exact positive zeros are boundary vertices.  When no zero lies on the
+    lattice, adjacent states with opposite residual signs define boundary
+    edges.  Radius zero is never promoted to a horizon vertex here; it remains
+    the separate center/denominator boundary.
+    """
+    _positive("mass_coefficient", mass_coefficient)
+    _nonnegative("charge_square", charge_square)
+    vertices = positive_horizon_states(mass_coefficient, charge_square)
+    edges = tuple(
+        (left, left + 1)
+        for left in range(0, mass_coefficient + 1)
+        if charged_residual(left, mass_coefficient, charge_square)
+        * charged_residual(left + 1, mass_coefficient, charge_square)
+        < 0
+    )
+    return {"vertices": vertices, "edges": edges}
+
+
 def parity_square_floor(mass_coefficient: int, delta: int) -> int:
     """Largest u>=0 with u == a (mod 2) and u^2 <= Delta."""
     _nonnegative("mass_coefficient", mass_coefficient)
