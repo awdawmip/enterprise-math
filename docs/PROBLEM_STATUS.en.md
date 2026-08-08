@@ -27,6 +27,7 @@ This file is the authoritative status ledger for numbered Enterprise Math resear
 | P016 | `RESOLVED` at the protocol level | `docs/P016_PHYSICAL_FALSIFICATION_CONTRACT.en.md` and `falsification.schema.json` define F1–F9 quantitative kill-test requirements. This does not validate or falsify the physical hypothesis itself. |
 | P017 | `OPEN / ACTIVE RESEARCH` | The Legendre pressure test has many canonical structural lemmas but no proof of Legendre's conjecture; continue pressure-testing and counterexample-first work. |
 | P018 | `OPEN / ACTIVE RESEARCH` | The finite-precision proof calculus is an expanding foundational program; current stages are canonical results but the numbered research program remains active. |
+| P019 | `RESOLVED` | `docs/P019_COLLAPSE_WORD_STABILIZATION.en.md`: a monotone reductive self-map on a well-founded poset stabilizes at the greatest fixed point below the initial state; consequently every fixed collapse word stabilizes exactly at `C_L(n0)`, its eventual basins are the ordinary `L`-basins, and the collapse-word semigroup modulo stable equivalence is the lcm join-semilattice. |
 
 ## Status discipline
 
