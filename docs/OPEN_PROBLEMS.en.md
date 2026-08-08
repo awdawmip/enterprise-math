@@ -118,15 +118,14 @@ Difficulty: hard
 
 Propose an integer-valued distance or relation compatible with the finite-resolution philosophy, then prove which metric axioms survive.
 
-## P013 — Lean formalization of root/collapse fundamentals
+## P013 — Lean formalization of T001 and T005
 
 Difficulty: easy to medium  
-Good first formalization problem: yes  
-Current status: `PARTIAL-RESOLUTION`
+Current status: `RESOLVED`
 
-The P008 mathlib-native layer has now Lean-checked collapse contractivity, collapse idempotence, perfect-power fixed points, exact perfect-power recovery, and the general adjoint-collapse wrappers using Mathlib's existing `Nat.nthRoot` and Galois-connection APIs.
+T001 is Lean-checked as `EnterpriseMath.Arithmetic.IntegerRoot.root_eq_iff` and T005 is Lean-checked as `EnterpriseMath.Arithmetic.IntegerRoot.collapse_idempotent`.
 
-The remaining original target is to expose the exact interval form of T001 in the Enterprise Math namespace if doing so adds useful project API rather than duplicating mathlib unnecessarily. T012 is also a later formalization target.
+The formalization directly reuses Mathlib's existing `Nat.nthRoot` and order-theoretic lemmas rather than introducing a parallel root primitive or routing through real-number square roots. The same P008 formalization pass also checked T002, T004, T006, T012, T013, T014, and T015.
 
 ## P014 — Lean formalization of scale compatibility
 
