@@ -2,18 +2,26 @@ name: reference-integrity
 
 on:
   push:
+    branches:
+      - main
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
   workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}"
+  cancel-in-progress: true
 
 permissions:
   contents: read
 
 jobs:
   check:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Check citation and lineage integrity
