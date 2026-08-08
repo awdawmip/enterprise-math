@@ -9,7 +9,7 @@ This file is the authoritative status ledger for numbered Enterprise Math resear
 
 | Problem | Status | Canonical scope/result |
 |---|---|---|
-| P001 | `OPEN` | Root multiplicativity remains noncanonical research; a carry-threshold Draft exists but is not yet main. |
+| P001 | `RESOLVED` | `docs/P001_ROOT_MULTIPLICATIVITY.en.md`: integer roots are supermultiplicative, and multiplicativity holds exactly when the basin-product carry load stays below the next perfect-power threshold; the note also gives the exact carry count, downward-closed no-carry region, and a floor-division boundary. |
 | P002 | `RESOLVED` | `docs/P002_COLLAPSE_GAP_BOUND.en.md`: the collapse gap has the sharp basin bound `0 <= G_p(n) <= (k+1)^p-k^p-1`, with equality exactly at the last basin state; the gap coordinate is a bijection across each basin. |
 | P003 | `OPEN` | Global collapse-commutation classification remains Draft/noncanonical. |
 | P004 | `OPEN` | Fixed points of arbitrary collapse words remain Draft/noncanonical. |
