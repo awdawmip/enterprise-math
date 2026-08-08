@@ -9,10 +9,14 @@ from enterprise_math.direction_transport import (
     compose_two_path_witnesses,
     direction_transport_matrix,
     exact_three_path_count,
+    is_uniform_profile,
     naive_matrix_product_entry,
+    predecessor_witness_profile,
+    successor_witness_profile,
     transport_branching_profile,
     transport_merging_profile,
     transport_obstruction,
+    uniform_fiber_cross_multiplication_holds,
 )
 
 
@@ -83,6 +87,28 @@ class DirectionTransportTests(unittest.TestCase):
                 (("b", "y"), ("y", "q"), ("q", "s")),
             },
         )
+
+    def test_uniform_predecessor_profile_makes_cardinality_data_sufficient(self):
+        first = [("a", "x"), ("b", "y")]
+        middle = [("x", "p"), ("y", "q")]
+        third = [("p", "r"), ("p", "s"), ("q", "t")]
+        predecessor = predecessor_witness_profile(first, middle)
+        successor = successor_witness_profile(middle, third)
+        self.assertEqual(predecessor, (1, 1))
+        self.assertEqual(successor, (2, 1))
+        self.assertTrue(is_uniform_profile(predecessor))
+        self.assertFalse(is_uniform_profile(successor))
+        self.assertTrue(uniform_fiber_cross_multiplication_holds(first, middle, third))
+        self.assertEqual(2 * exact_three_path_count(first, middle, third), 2 * 3)
+
+    def test_nonuniform_both_sides_reject_cardinality_sufficiency(self):
+        first = [("a", "x"), ("b", "x"), ("c", "y")]
+        middle = [("x", "p"), ("y", "q")]
+        third = [("p", "r"), ("q", "s"), ("q", "t")]
+        self.assertEqual(predecessor_witness_profile(first, middle), (2, 1))
+        self.assertEqual(successor_witness_profile(middle, third), (1, 2))
+        with self.assertRaises(ValueError):
+            uniform_fiber_cross_multiplication_holds(first, middle, third)
 
     def test_reference_module_has_no_float_or_true_division(self):
         tree = ast.parse(inspect.getsource(transport))
