@@ -4,6 +4,11 @@ The identities here are exact finite Möbius cancellations on square-free diviso
 lattices.  They do not prove Legendre's conjecture.  Their purpose is to isolate
 the divisor terms that actually cross a chosen cutoff and to expose the integer
 root hierarchy forced on negative boundary terms.
+
+The threshold-shell helpers use only integer products.  Their topological
+interpretation is established prior art: finite multiplicative threshold
+complexes are scalar quota complexes after applying logarithmic prime weights.
+See SRC-PAKIANATHAN-WINFREE-2013-THRESHOLD in the project source map.
 """
 
 from __future__ import annotations
@@ -89,6 +94,61 @@ def cutoff_crossing_terms(
     return terms
 
 
+def threshold_shell_faces(
+    primes: list[int], threshold: int
+) -> list[tuple[int, int, int]]:
+    """Return shell faces as ``(product, dimension, Euler_sign)``.
+
+    Let p be the least vertex.  A shell face is a subset of the remaining prime
+    support with product c satisfying ``c<=T<p*c``.  In the scalar quota-complex
+    theorem this face contributes one sphere of dimension ``|face|-1``.
+
+    This helper assumes p<=T, as in the Legendre application T=2k and p<=k.
+    The Euler sign is ``(-1)^dimension`` and equals the Mobius sign of p*c.
+    """
+    _require_distinct_primes(primes)
+    _require_nonnegative("threshold", threshold)
+    if not primes:
+        return []
+    least = min(primes)
+    if least > threshold:
+        raise ValueError("least prime must not exceed threshold")
+    rest = [p for p in primes if p != least]
+    faces: list[tuple[int, int, int]] = []
+    for c, _mu_c in squarefree_divisors_with_mu(rest):
+        if not (c <= threshold < least * c):
+            continue
+        depth = sum(1 for p in rest if c % p == 0)
+        if depth == 0:
+            # Impossible when least<=threshold, kept as a defensive invariant.
+            raise AssertionError("empty shell face cannot cross this cutoff")
+        dimension = depth - 1
+        sign = -1 if dimension % 2 else 1
+        faces.append((c, dimension, sign))
+    return faces
+
+
+def threshold_shell_betti(primes: list[int], threshold: int) -> dict[int, int]:
+    """Return shell-sphere counts by dimension for the finite threshold complex."""
+    betti: dict[int, int] = {}
+    for _c, dimension, _sign in threshold_shell_faces(primes, threshold):
+        betti[dimension] = betti.get(dimension, 0) + 1
+    return betti
+
+
+def threshold_shell_reduced_euler(primes: list[int], threshold: int) -> int:
+    """Return the reduced Euler characteristic from shell-sphere counts.
+
+    By the quota-complex shell theorem this is the reduced Euler characteristic
+    of the threshold complex with faces whose prime product is <= threshold.
+    It also equals the Mobius divisor tail above the threshold.
+    """
+    return sum(
+        sign
+        for _c, _dimension, sign in threshold_shell_faces(primes, threshold)
+    )
+
+
 def distinct_prime_factors(n: int) -> list[int]:
     """Return the distinct prime factors of n in increasing order."""
     if isinstance(n, bool) or not isinstance(n, int) or n < 1:
@@ -159,3 +219,20 @@ def negative_boundary_root_bound(
     if least_prime > root_bound:
         raise ValueError("inputs violate the integer-root boundary theorem")
     return m, root_bound, reduced
+
+
+def shell_dimension_root_bound(
+    least_prime: int, dimension: int, threshold: int
+) -> int:
+    """Return R_{dimension+1}(threshold) for a threshold-shell sphere.
+
+    Any shell face of dimension s contains s+1 primes other than the least
+    vertex, all at least ``least_prime``.  Hence p^(s+1)<=T and necessarily
+    p<=R_{s+1}(T).  The caller can compare the returned bound with p.
+    """
+    if isinstance(least_prime, bool) or not isinstance(least_prime, int) or least_prime < 2:
+        raise ValueError("least_prime must be an integer >= 2")
+    if isinstance(dimension, bool) or not isinstance(dimension, int) or dimension < 0:
+        raise ValueError("dimension must be a non-negative integer")
+    _require_nonnegative("threshold", threshold)
+    return integer_nth_root(threshold, dimension + 1)
