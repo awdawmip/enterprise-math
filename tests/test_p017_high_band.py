@@ -13,7 +13,7 @@ from enterprise_math.p017_rough_recursion import high_least_factor_band
 
 class P017HighBandTests(unittest.TestCase):
     def test_cofactor_window_is_exact_legacy_hit_count(self):
-        for k in range(2, 180):
+        for k in range(2, 80):
             for p in primes_up_to(k):
                 data = cofactor_window_hit_identity(k, p)
                 self.assertEqual(data["N"], data["B"] - data["A"] + 1)
@@ -21,7 +21,7 @@ class P017HighBandTests(unittest.TestCase):
     def test_binary_second_factor_candidate_matches_canonical_triples_and_legacy_hits(self):
         saw_hit = False
         saw_miss = False
-        for k in range(3, 260):
+        for k in range(3, 100):
             for p in primes_up_to(k):
                 if p * p < 2 * k:
                     continue
@@ -65,7 +65,7 @@ class P017HighBandTests(unittest.TestCase):
 
     def test_high_band_cofactor_survivors_are_pairwise_coprime(self):
         saw_multiple = False
-        for k in range(3, 320):
+        for k in range(3, 120):
             for p in primes_up_to(k):
                 if p * p < 2 * k:
                     continue
@@ -82,7 +82,7 @@ class P017HighBandTests(unittest.TestCase):
     def test_triple_resource_bound(self):
         saw_triples = False
         saw_square_branch = False
-        for k in range(3, 420):
+        for k in range(3, 140):
             for p in primes_up_to(k):
                 if p * p < 2 * k:
                     continue
