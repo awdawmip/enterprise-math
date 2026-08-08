@@ -5,8 +5,6 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-SOURCES = ROOT / "sources.json"
-LINEAGE = ROOT / "lineage.json"
 DOCS = ROOT / "docs"
 SRC_RE = re.compile(r"\[(SRC-[A-Z0-9-]+)\]")
 
@@ -16,55 +14,79 @@ REQUIRED_SOURCE_FIELDS = {
 }
 
 
+def registry_files(stem: str) -> list[pathlib.Path]:
+    base = ROOT / f"{stem}.json"
+    shards = sorted(ROOT.glob(f"{stem}_*.json"))
+    return [base, *shards]
+
+
 def prior_art_files(suffix: str) -> list[pathlib.Path]:
     return sorted(DOCS.glob(f"PRIOR_ART*{suffix}"))
 
 
+def load_registry(paths: list[pathlib.Path]) -> list[dict]:
+    records = []
+    for path in paths:
+        if not path.exists():
+            continue
+        records.append(json.loads(path.read_text(encoding="utf-8")))
+    return records
+
+
 def main() -> int:
     errors = []
-    sources_data = json.loads(SOURCES.read_text(encoding="utf-8"))
-    lineage_data = json.loads(LINEAGE.read_text(encoding="utf-8"))
+    source_registries = load_registry(registry_files("sources"))
+    lineage_registries = load_registry(registry_files("lineage"))
 
     source_ids = set()
-    for source in sources_data.get("sources", []):
-        missing = REQUIRED_SOURCE_FIELDS - set(source)
-        if missing:
-            errors.append(f"{source.get('id', '<unknown>')}: missing fields {sorted(missing)}")
-        sid = source.get("id")
-        if not isinstance(sid, str) or not sid.startswith("SRC-"):
-            errors.append(f"invalid source id: {sid!r}")
-            continue
-        if sid in source_ids:
-            errors.append(f"duplicate source id: {sid}")
-        source_ids.add(sid)
-        if not source.get("primary_url"):
-            errors.append(f"{sid}: missing primary_url")
-        if not source.get("authors"):
-            errors.append(f"{sid}: missing authors")
-        if not source.get("role"):
-            errors.append(f"{sid}: missing role")
+    for registry in source_registries:
+        for source in registry.get("sources", []):
+            missing = REQUIRED_SOURCE_FIELDS - set(source)
+            if missing:
+                errors.append(f"{source.get('id', '<unknown>')}: missing fields {sorted(missing)}")
+            sid = source.get("id")
+            if not isinstance(sid, str) or not sid.startswith("SRC-"):
+                errors.append(f"invalid source id: {sid!r}")
+                continue
+            if sid in source_ids:
+                errors.append(f"duplicate source id across registries: {sid}")
+            source_ids.add(sid)
+            if not source.get("primary_url"):
+                errors.append(f"{sid}: missing primary_url")
+            if not source.get("authors"):
+                errors.append(f"{sid}: missing authors")
+            if not source.get("role"):
+                errors.append(f"{sid}: missing role")
 
-    relation_types = set(lineage_data.get("relation_types", []))
-    novelty_statuses = set(lineage_data.get("novelty_statuses", []))
+    relation_types = set()
+    novelty_statuses = set()
+    for registry in lineage_registries:
+        relation_types.update(registry.get("relation_types", []))
+        novelty_statuses.update(registry.get("novelty_statuses", []))
+
+    # Shards may omit the vocabulary and inherit it from the base lineage registry.
     component_ids = set()
+    for registry in lineage_registries:
+        for comp in registry.get("components", []):
+            cid = comp.get("id")
+            if cid in component_ids:
+                errors.append(f"duplicate component id across registries: {cid}")
+            component_ids.add(cid)
+            if comp.get("novelty_status") not in novelty_statuses:
+                errors.append(f"{cid}: unknown novelty_status {comp.get('novelty_status')}")
+            for rel in comp.get("source_relations", []):
+                sid = rel.get("source_id")
+                if sid not in source_ids:
+                    errors.append(f"{cid}: unknown source_id {sid}")
+                if rel.get("relation") not in relation_types:
+                    errors.append(f"{cid}: unknown relation {rel.get('relation')}")
 
-    for comp in lineage_data.get("components", []):
-        cid = comp.get("id")
-        if cid in component_ids:
-            errors.append(f"duplicate component id: {cid}")
-        component_ids.add(cid)
-        if comp.get("novelty_status") not in novelty_statuses:
-            errors.append(f"{cid}: unknown novelty_status {comp.get('novelty_status')}")
-        for rel in comp.get("source_relations", []):
-            sid = rel.get("source_id")
-            if sid not in source_ids:
-                errors.append(f"{cid}: unknown source_id {sid}")
-            if rel.get("relation") not in relation_types:
-                errors.append(f"{cid}: unknown relation {rel.get('relation')}")
-
-    overall = lineage_data.get("overall_novelty_claim", {})
-    if overall.get("status") not in novelty_statuses:
-        errors.append(f"unknown overall novelty status: {overall.get('status')}")
+    overall_claims = [r.get("overall_novelty_claim") for r in lineage_registries if r.get("overall_novelty_claim")]
+    if not overall_claims:
+        errors.append("missing overall novelty claim")
+    for overall in overall_claims:
+        if overall.get("status") not in novelty_statuses:
+            errors.append(f"unknown overall novelty status: {overall.get('status')}")
 
     prose_files = [
         ROOT / "README.md",
@@ -101,7 +123,8 @@ def main() -> int:
 
     print(
         f"PASS: {len(source_ids)} sources and {len(component_ids)} lineage components "
-        "form a valid bilingual citation/provenance graph."
+        f"across {len(source_registries)} source registry file(s) and "
+        f"{len(lineage_registries)} lineage registry file(s)."
     )
     return 0
 
