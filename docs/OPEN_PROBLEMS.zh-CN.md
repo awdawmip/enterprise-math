@@ -212,6 +212,31 @@ M_{t+1}(x)>M_t(x)
 
 不得预设隐藏实数完成，也不得把 `d -> infinity` 极限当作核心定义。filtered/associated graded、multiresolution analysis、interval arithmetic、p-adic precision tracking、projective system、Möbius inversion 等成熟前人工作必须明确引用，不能换名后据为项目原创。
 
+## P019 —— 固定坍缩词的精确稳定化
+
+状态：由 `docs/P019_COLLAPSE_WORD_STABILIZATION.zh-CN.md` `RESOLVED`  
+难度：中等到困难
+
+对固定的正指数有限坍缩词
+
+\[
+W=C_{p_m}\circ\cdots\circ C_{p_1},
+\qquad
+L=\operatorname{lcm}(p_1,\ldots,p_m),
+\]
+
+研究反复作用 \(W\) 后的精确最终状态，而不只是不动点集合。
+
+规范结果比原先挂在 P009 下的纯坍缩 Draft 更强：
+
+1. 在任意良基偏序上，单调向下自映射稳定到初态下方最大不动点；
+2. 任意固定坍缩词因此精确稳定到 \(C_L(n_0)\)；
+3. 最终吸引盆地恰好是普通 \(L\) 次坍缩盆地；
+4. 词序可以影响瞬态，但整个稳定输入—输出映射只依赖 \(L\)；
+5. 坍缩词按稳定等价取商后形成 lcm join-semilattice。
+
+P019 被刻意与 canonical P009 分开，避免悄悄扩大已经解决的 typed collapse+coarsening 范围。
+
 ## 如何领取问题
 
 可以创建一个标题包含问题编号的 GitHub Issue，或者在已经存在的对应 Issue 下参与讨论。
