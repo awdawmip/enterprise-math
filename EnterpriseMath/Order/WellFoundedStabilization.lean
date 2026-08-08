@@ -4,6 +4,8 @@ namespace EnterpriseMath.WellFoundedStabilization
 
 variable {α : Type*} [PartialOrder α] [WellFoundedLT α]
 
+local instance : DecidableEq α := Classical.decEq α
+
 /--
 Finite stabilization of a reductive endomap on a well-founded partial order.
 
@@ -25,7 +27,7 @@ theorem stabilize_eq_of_fixed (F : α → α) (hred : ∀ x, F x ≤ x) {x : α}
 theorem stabilize_fixed (F : α → α) (hred : ∀ x, F x ≤ x) (x : α) :
     F (stabilize F hred x) = stabilize F hred x := by
   induction x using WellFoundedLT.induction with
-  | h x ih =>
+  | ind x ih =>
       rw [stabilize]
       split
       next hfix => exact hfix
@@ -36,7 +38,7 @@ theorem stabilize_fixed (F : α → α) (hred : ∀ x, F x ≤ x) (x : α) :
 theorem stabilize_le (F : α → α) (hred : ∀ x, F x ≤ x) (x : α) :
     stabilize F hred x ≤ x := by
   induction x using WellFoundedLT.induction with
-  | h x ih =>
+  | ind x ih =>
       rw [stabilize]
       split
       next => exact le_rfl
@@ -48,7 +50,7 @@ theorem fixed_le_stabilize (F : α → α) (hmono : Monotone F) (hred : ∀ x, F
     {y x : α} (hyfix : F y = y) (hyx : y ≤ x) : y ≤ stabilize F hred x := by
   revert hyx
   induction x using WellFoundedLT.induction with
-  | h x ih =>
+  | ind x ih =>
       intro hyx
       rw [stabilize]
       split
@@ -80,7 +82,7 @@ theorem stabilize_mono (F : α → α) (hmono : Monotone F) (hred : ∀ x, F x �
   exact (stabilize_le F hred x).trans hxy
 
 /-- Stabilization has exactly the same fixed points as the original endomap. -/
-theorem stabilize_eq_self_iff (F : α → α) (hmono : Monotone F) (hred : ∀ x, F x ≤ x)
+theorem stabilize_eq_self_iff (F : α → α) (hred : ∀ x, F x ≤ x)
     (x : α) : stabilize F hred x = x ↔ F x = x := by
   constructor
   · intro h
