@@ -237,6 +237,40 @@ L=\operatorname{lcm}(p_1,\ldots,p_m),
 
 P019 被刻意与 canonical P009 分开，避免悄悄扩大已经解决的 typed collapse+coarsening 范围。
 
+## P020 —— 良基有限稳定化的 Lean 形式化
+
+状态：由 `docs/P020_WELL_FOUNDED_STABILIZATION.zh-CN.md` `RESOLVED`  
+难度：中等形式化
+
+在不特化到完全幂的情况下形式化 P019 的母定理。
+
+对严格序良基的偏序集，以及单调、向下收缩的自映射 `F`，在 Lean 中证明：
+
+1. 存在有限 `n`，使 `F^[n] x` 恰好是初态 `x` 下方最大的原始不动点；
+2. 因而“有限稳定化”本身是定理内容，不是无限极限约定；
+3. 所选稳定化映射单调、向下且幂等；
+4. 稳定化与原映射 `F` 具有完全相同的不动点集合。
+
+warnings-fatal 的 Lean 实现在 `EnterpriseMath/Order/WellFoundedStabilization.lean`，并复用成熟的 mathlib 良基归纳和有限迭代 API。
+
+## P021 —— 有限精度离散视界与因果聚焦
+
+状态：`RESERVED / ACTIVE RESEARCH`  
+难度：研究级困难
+
+预留给当前研究 PR #48 中保存的黑洞 / 因果聚焦路线。该路线研究有限因果边界、未来截面扩张、聚焦谱、方向轨道与因果角色，但不声称当前离散原型已经推导出广义相对论，也不把离散量直接认定为物理 shear 或 Ricci curvature。
+
+在下一次 clean semantic replay 之前，历史分支文件名和内部正文仍可能保留已被替代的 P019 编号。
+
+## P022 —— 最小精度晶格几何与距离进位
+
+状态：`RESERVED / ACTIVE RESEARCH`  
+难度：研究级困难
+
+预留给当前 PR #50 中保存的晶格几何路线：纯整数 `A_p` / root-lattice 候选、primitive graph distance、quadratic separation、有限精度径向距离、加一型 triangle carry、shell/ball 与 geometry-aware collapse。
+
+FCC/HCP/BCC/`A_p` 继续只是数学测试候选，并非已经确认的物理空间。在 clean replay 前，历史分支文件名和内部正文仍可能保留已被替代的 P019 编号。
+
 ## 如何领取问题
 
 可以创建一个标题包含问题编号的 GitHub Issue，或者在已经存在的对应 Issue 下参与讨论。
