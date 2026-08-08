@@ -44,6 +44,20 @@ class DirectionalFocusingTests(unittest.TestCase):
         self.assertTrue(direction_resolution_no_go(channels))
         self.assertEqual(collision_rate_anisotropy_numerator(channels), 0)
 
+    def test_causal_phase_marks_can_refine_an_unmarked_transitive_orbit(self):
+        vertices = ["a", "b", "x", "y"]
+        edges = [("a", "x"), ("b", "y")]
+        section = ["a", "b"]
+        unmarked = incidence_orbits(vertices, edges, section)
+        marks = {"a": 0, "b": 0, "x": 1, "y": -1}
+        marked = incidence_orbits(vertices, edges, section, marks=marks)
+        self.assertEqual(len(unmarked), 1)
+        self.assertEqual(len(marked), 2)
+        self.assertEqual(
+            {frozenset(channel) for channel in marked},
+            {frozenset({("a", "x")}), frozenset({("b", "y")})},
+        )
+
     def test_pair_collision_splits_into_internal_and_cross_channel_terms(self):
         first = [("a", "x"), ("b", "z")]
         second = [("a", "z"), ("b", "x")]
@@ -70,6 +84,12 @@ class DirectionalFocusingTests(unittest.TestCase):
         bad = {0: 2, 1: 1, 2: 0}
         with self.assertRaises(ValueError):
             incidence_orbits(vertices, edges, [0, 1], [bad])
+
+    def test_marks_must_cover_every_vertex(self):
+        vertices = [0, 1, 2]
+        edges = [(0, 2), (1, 2)]
+        with self.assertRaises(ValueError):
+            incidence_orbits(vertices, edges, [0, 1], marks={0: 0, 1: 0})
 
     def test_reference_module_has_no_float_or_true_division(self):
         tree = ast.parse(inspect.getsource(directional))
