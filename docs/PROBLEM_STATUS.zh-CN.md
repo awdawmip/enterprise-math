@@ -27,6 +27,7 @@
 | P016 | 协议层 `RESOLVED` | `docs/P016_PHYSICAL_FALSIFICATION_CONTRACT.zh-CN.md` 与 `falsification.schema.json` 定义 F1–F9 量化 kill-test 要求；这并不等于物理假说本身已被验证或证伪。 |
 | P017 | `OPEN / ACTIVE RESEARCH` | Legendre 压力测试已有大量进入 main 的结构结果，但没有 Legendre 猜想证明；继续坚持压力测试与反例优先。 |
 | P018 | `OPEN / ACTIVE RESEARCH` | 有限精度证明演算仍是持续扩展的基础研究计划；当前各阶段可以是规范结果，但整个编号计划保持活跃。 |
+| P019 | `RESOLVED` | `docs/P019_COLLAPSE_WORD_STABILIZATION.zh-CN.md`：良基偏序上的单调向下自映射会稳定到初态下方最大不动点；因此任意固定坍缩词精确稳定到 `C_L(n0)`，最终盆地就是普通 `L` 次盆地，且坍缩词半群按稳定等价取商后恰为 lcm join-semilattice。 |
 
 ## 状态纪律
 
