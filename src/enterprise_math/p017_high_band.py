@@ -4,6 +4,10 @@ This module adds no new sieve machinery.  It combines the already-proved exact
 P017 cofactor window with the high-band contraction p^2 >= 2k.  In that band a
 second least-prime-factor branch is a single binary quotient-response event, and
 distinct p-rough cofactor survivors are pairwise coprime.
+
+It also verifies that the newer cofactor-window representation is exactly the
+positive least-factor form of the older P017 square-basin hit-count machinery:
+raw window length is H_p(k), and a second-factor branch is H_{p*ell}(k).
 """
 
 from __future__ import annotations
@@ -11,14 +15,39 @@ from __future__ import annotations
 from math import gcd, isqrt
 
 from .factor_precision import smallest_prime_factor
-from .legendre import is_prime, primes_up_to
-from .p017_cofactor_window import cofactor_window_survivors
+from .legendre import interior_hit_count, is_prime, primes_up_to
+from .p017_cofactor_window import centered_cofactor_window, cofactor_window_survivors
 from .p017_rough_recursion import high_least_factor_band
 
 
 def _require_positive(name: str, value: int) -> None:
     if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
         raise ValueError(f"{name} must be a positive integer")
+
+
+def cofactor_window_hit_identity(k: int, prime: int) -> dict[str, int]:
+    """Identify W_p(k) with the quotient image of p-multiples in the square basin."""
+    _require_positive("k", k)
+    _require_positive("prime", prime)
+    if prime not in primes_up_to(k):
+        raise ValueError("prime must be a prime <= k")
+
+    data = centered_cofactor_window(k, prime)
+    direct_A = (k * k) // prime + 1
+    direct_B = (((k + 1) * (k + 1)) - 1) // prime
+    direct_N = interior_hit_count(k, prime, 2)
+
+    if int(data["q_min"]) != direct_A or int(data["q_max"]) != direct_B:
+        raise AssertionError("centered cofactor window disagrees with direct quotient endpoints")
+    if int(data["raw_count"]) != direct_N:
+        raise AssertionError("cofactor window length disagrees with square-basin hit count H_p(k)")
+
+    return {
+        "prime": prime,
+        "A": direct_A,
+        "B": direct_B,
+        "N": direct_N,
+    }
 
 
 def high_band_second_factor_candidate(k: int, prime: int, second_prime: int) -> dict[str, object]:
@@ -31,6 +60,9 @@ def high_band_second_factor_candidate(k: int, prime: int, second_prime: int) -> 
 
     If it is one, the unique raw multiple is q=A+d with d=(-A) mod ell.  It
     gives a genuine three-prime P017 state exactly when q/ell is a prime >=ell.
+
+    The same bit is exactly the older P017 square-basin hit count H_{p*ell}(k),
+    because q divisible by ell is equivalent to n=p*q divisible by p*ell.
     """
     _require_positive("k", k)
     _require_positive("prime", prime)
@@ -56,15 +88,39 @@ def high_band_second_factor_candidate(k: int, prime: int, second_prime: int) -> 
     if residue_hit != (multiple_count == 1):
         raise AssertionError("residue-hit and quotient-response branch tests disagree")
 
+    old_hit_count = interior_hit_count(k, prime * second_prime, 2)
+    if old_hit_count != multiple_count:
+        raise AssertionError("second-factor branch disagrees with legacy H_{p*ell}(k) hit count")
+
     candidate_q = A + step if residue_hit else None
     candidate_tail = None
+    candidate_state = None
     triple_state = None
     if candidate_q is not None:
         if candidate_q % second_prime != 0 or not (A <= candidate_q <= B):
             raise AssertionError("binary branch candidate left the parent interval")
+        candidate_state = prime * candidate_q
+        if candidate_state % (prime * second_prime) != 0:
+            raise AssertionError("candidate state lost the p*ell modulus hit")
         candidate_tail = candidate_q // second_prime
         if candidate_tail >= second_prime and is_prime(candidate_tail):
-            triple_state = prime * candidate_q
+            triple_state = candidate_state
+
+    # Recover the same unique large-modulus hit directly from the common square
+    # center M=k(k+1).  In the high band p*ell>=2k, the 2k-state basin can contain
+    # at most one multiple of the modulus.
+    modulus = prime * second_prime
+    center = k * (k + 1)
+    residue = center % modulus
+    center_hit = None
+    if residue < k:
+        center_hit = center - residue
+    elif residue >= modulus - k:
+        center_hit = center + (modulus - residue)
+    if (center_hit is not None) != (multiple_count == 1):
+        raise AssertionError("common-center unique-hit criterion disagrees with branch bit")
+    if center_hit is not None and center_hit != candidate_state:
+        raise AssertionError("cofactor-window candidate and common-center unique hit differ")
 
     canonical_triples = set(data["triple_prime_states"])
     if triple_state is not None and triple_state not in canonical_triples:
@@ -86,9 +142,13 @@ def high_band_second_factor_candidate(k: int, prime: int, second_prime: int) -> 
         "bulk": bulk,
         "carry": carry,
         "multiple_count": multiple_count,
+        "legacy_hit_count": old_hit_count,
         "residue_step": step,
         "candidate_q": candidate_q,
+        "candidate_state": candidate_state,
         "candidate_tail": candidate_tail,
+        "center_residue": residue,
+        "center_hit": center_hit,
         "triple_state": triple_state,
     }
 
