@@ -1,2 +1,3 @@
 import EnterpriseMath.Order.Adjoint
 import EnterpriseMath.Arithmetic.IntegerRoot
+import EnterpriseMath.Scale.Compatibility
