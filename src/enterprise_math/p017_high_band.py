@@ -25,6 +25,18 @@ def _require_positive(name: str, value: int) -> None:
         raise ValueError(f"{name} must be a positive integer")
 
 
+def _integer_power_capacity(base: int, limit: int) -> int:
+    """Return max t>=0 with base**t <= limit using integer arithmetic only."""
+    _require_positive("base", base)
+    _require_positive("limit", limit)
+    exponent = 0
+    power = 1
+    while power <= limit // base:
+        power *= base
+        exponent += 1
+    return exponent
+
+
 def cofactor_window_hit_identity(k: int, prime: int) -> dict[str, int]:
     """Identify W_p(k) with the quotient image of p-multiples in the square basin."""
     _require_positive("k", k)
@@ -245,4 +257,82 @@ def high_band_triple_resource_bound(k: int, prime: int) -> dict[str, object]:
         "square_branches": square_branches,
         "used_resource_count": used_count,
         "triple_bound": bound,
+    }
+
+
+def high_band_multiplicative_resource_bound(k: int, prime: int) -> dict[str, object]:
+    """Bound high-band three-prime branches by multiplicative resource capacity.
+
+    Let W_p(k)=[A,B], let K=floor(U/p^2), and let P be the product of all
+    primes in [p,K].  Distinct three-prime cofactors q_i are pairwise coprime,
+    so their prime supports do not reuse resources.  Every non-square q_i uses
+    each resource prime once.  At most one square cofactor r^2 can occur; when
+    it does, its prime root r is the only resource that needs one extra copy.
+
+    With xi=r for that unique prime square and xi=1 otherwise,
+
+        product(q_i) divides xi*P.
+
+    Since every q_i lies in [A,B], A^T <= product(q_i), where T is the number of
+    three-prime states.  Therefore T is at most the largest integer t with
+    A^t <= xi*P.  This is computed without logarithms.
+    """
+    parent = high_least_factor_band(k, prime)
+    additive = high_band_triple_resource_bound(k, prime)
+    A = int(parent["q_min"])
+    B = int(parent["q_max"])
+    K = int(additive["K"])
+    resources = list(additive["resource_primes"])
+
+    resource_product = 1
+    for resource in resources:
+        resource_product *= resource
+
+    square_roots = [
+        resource
+        for resource in resources
+        if resource <= isqrt(B) and A <= resource * resource <= B
+    ]
+    if len(square_roots) > 1:
+        raise AssertionError("high-band cofactor window contains multiple prime squares")
+    square_allowance = square_roots[0] if square_roots else 1
+    resource_limit = square_allowance * resource_product
+
+    triples = list(additive["triple_states"])
+    triple_cofactor_product = 1
+    for n in triples:
+        triple_cofactor_product *= n // prime
+
+    if resource_limit % triple_cofactor_product != 0:
+        raise AssertionError("three-prime cofactor product exceeds multiplicative resources")
+
+    T = len(triples)
+    if A**T > triple_cofactor_product:
+        raise AssertionError("cofactor lower-endpoint product bound failed")
+    if triple_cofactor_product > resource_limit:
+        raise AssertionError("cofactor product exceeded multiplicative resource limit")
+
+    multiplicative_capacity = _integer_power_capacity(A, resource_limit)
+    if T > multiplicative_capacity:
+        raise AssertionError("multiplicative resource capacity bound failed")
+
+    additive_bound = int(additive["triple_bound"])
+    combined_bound = min(additive_bound, multiplicative_capacity)
+    if T > combined_bound:
+        raise AssertionError("combined high-band resource bound failed")
+
+    return {
+        "prime": prime,
+        "A": A,
+        "B": B,
+        "K": K,
+        "resource_primes": resources,
+        "resource_product": resource_product,
+        "square_allowance": square_allowance,
+        "resource_limit": resource_limit,
+        "triple_states": triples,
+        "triple_cofactor_product": triple_cofactor_product,
+        "multiplicative_capacity": multiplicative_capacity,
+        "additive_bound": additive_bound,
+        "combined_bound": combined_bound,
     }
