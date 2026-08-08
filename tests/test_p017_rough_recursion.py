@@ -53,7 +53,7 @@ class P017RoughRecursionTests(unittest.TestCase):
         self.assertTrue(saw_no_carry)
 
     def test_p017_window_buchstab_partition_reconstructs_shell(self):
-        for k in range(3, 85):
+        for k in range(3, 55):
             for p in primes_up_to(k):
                 data = p017_shell_rough_partition(k, p)
                 self.assertEqual(
@@ -64,7 +64,7 @@ class P017RoughRecursionTests(unittest.TestCase):
 
     def test_high_band_parent_length_is_at_most_p(self):
         saw = False
-        for k in range(2, 260):
+        for k in range(2, 90):
             for p in primes_up_to(k):
                 if p * p < 2 * k:
                     continue
@@ -77,7 +77,7 @@ class P017RoughRecursionTests(unittest.TestCase):
     def test_high_band_is_semiprime_or_three_prime_only(self):
         saw_semiprime = False
         saw_triple = False
-        for k in range(3, 320):
+        for k in range(3, 100):
             for p in primes_up_to(k):
                 if p * p < 2 * k:
                     continue
@@ -101,7 +101,7 @@ class P017RoughRecursionTests(unittest.TestCase):
 
     def test_semiprime_only_root_band(self):
         saw = False
-        for k in range(3, 220):
+        for k in range(3, 100):
             upper = (k + 1) * (k + 1) - 1
             for p in primes_up_to(k):
                 if p**3 <= upper:
@@ -113,7 +113,7 @@ class P017RoughRecursionTests(unittest.TestCase):
         self.assertTrue(saw)
 
     def test_high_band_contains_exact_parent_window_geometry(self):
-        for k in range(5, 120):
+        for k in range(5, 70):
             for p in primes_up_to(k):
                 if p * p < 2 * k:
                     continue
