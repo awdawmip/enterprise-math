@@ -1,0 +1,38 @@
+name: 研究问题
+description: 提出或推进证明、定义、计算、形式化或前人工作问题
+title: "[研究] "
+body:
+  - type: input
+    id: problem
+    attributes:
+      label: 问题编号
+      description: 能对应已有问题时，请使用类似 P003 的编号。
+  - type: dropdown
+    id: status
+    attributes:
+      label: 结论状态
+      options:
+        - DEFINITION
+        - PROVED
+        - CONJECTURE
+        - COMPUTATIONAL
+        - PHYSICAL-HYPOTHESIS
+    validations:
+      required: true
+  - type: textarea
+    id: statement
+    attributes:
+      label: 精确表述
+      description: 写清楚具体问题或命题。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 证据或论证
+      description: 可以包含证明步骤、计算结果或前人资料。
+  - type: textarea
+    id: next
+    attributes:
+      label: 最小下一步
+      description: 其他参与者下一步可以具体做什么？

@@ -1,0 +1,30 @@
+name: Counterexample
+description: Break a proposed identity, definition, theorem, or physical interpretation
+title: "[Counterexample] "
+body:
+  - type: input
+    id: target
+    attributes:
+      label: Target claim
+      description: Give a theorem, conjecture, or problem ID when possible.
+    validations:
+      required: true
+  - type: textarea
+    id: values
+    attributes:
+      label: Explicit counterexample
+      description: Give the smallest clear integer example you know.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: Show the integer calculation or reproducible program output.
+    validations:
+      required: true
+  - type: textarea
+    id: implication
+    attributes:
+      label: What should change?
+      description: State whether the claim should be rejected, weakened, or redefined.

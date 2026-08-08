@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enterprise-math"
+version = "0.1.0"
+description = "Integer-only reference implementation for Enterprise Math Research Beta v0.1"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Enterprise Math contributors"}]
+
+[tool.setuptools.packages.find]
+where = ["src"]
