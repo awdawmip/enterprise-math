@@ -188,6 +188,17 @@ We have not performed an exhaustive-enough literature search to claim that no ea
 
 Do not write “first”, “unprecedented”, or “never proposed before” without a dedicated evidence review.
 
+### 7.4 Square-basin sieve pressure test
+
+The Legendre pressure test sits directly next to mature sieve theory rather than in an empty literature region.
+
+- Rota's Möbius-function framework supplies the established signed inclusion-exclusion/incidence-algebra language used by the divisor-lattice transform. [SRC-ROTA-1964-MOBIUS]
+- Campbell proves that every interval between consecutive squares contains an integer with at most three prime factors and explicitly records the limitations of the weighted-sieve route toward fewer factors. [SRC-CAMPBELL-2026-SQUARES]
+- Sorenson and Webster computationally verified Oppermann, and hence Legendre, through \(n=7.05\cdot10^{13}\); this is a finite benchmark, not an all-\(n\) proof. [SRC-SORENSON-WEBSTER-2025]
+- Holt independently studies Eratosthenes sieve as a discrete dynamical system and introduces quadratic-density models for consecutive-square intervals. [SRC-HOLT-2026-SIEVE-DYNAMICS]
+
+Accordingly, Enterprise Math does **not** claim novelty for Möbius inversion, sieve dynamics, square-interval sieving, or computational verification. The project-specific pressure-test package currently consists of the exact Euclidean basin-descent decomposition, square-carry observables, binary parity compression, anchor-face cancellation, and the root-cutoff coupling question. Their historical novelty is also `NOVELTY_UNVERIFIED`: elementary identities may have prior equivalents under other terminology, and the public value currently lies in whether this package yields new proof leverage.
+
 ## 8. What we must never misattribute
 
 Do not attribute the following to Enterprise Math as inventions:
@@ -203,7 +214,10 @@ Do not attribute the following to Enterprise Math as inventions:
 - logical irreversibility or reversible computation;
 - Mori-Zwanzig projection/coarse-graining;
 - dynamical semigroups;
-- preimage entropy or folding entropy.
+- preimage entropy or folding entropy;
+- Möbius inversion or incidence algebras;
+- Eratosthenes sieve or its discrete-dynamical reinterpretations;
+- prior almost-prime or computational results for intervals between consecutive squares.
 
 Our responsibility is to cite those lines clearly and state exactly where our use changes.
 
