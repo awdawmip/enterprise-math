@@ -4,6 +4,7 @@ from math import gcd, isqrt
 from enterprise_math.legendre import primes_up_to
 from enterprise_math.p017_high_band import (
     cofactor_window_hit_identity,
+    high_band_global_hit_union_bound,
     high_band_multiplicative_resource_bound,
     high_band_pairwise_coprime,
     high_band_second_factor_candidate,
@@ -143,6 +144,55 @@ class P017HighBandTests(unittest.TestCase):
         self.assertEqual(square_case["square_allowance"], 5)
         self.assertEqual(square_case["triple_cofactor_product"], 25)
         self.assertEqual(square_case["multiplicative_capacity"], 1)
+
+    def test_global_hit_union_bounds_all_high_band_triples(self):
+        for k in range(2, 90):
+            data = high_band_global_hit_union_bound(k)
+            upper = (k + 1) * (k + 1) - 1
+            total_triples = 0
+            square_triples = 0
+            for p in primes_up_to(k):
+                if p * p < 2 * k or p**3 > upper:
+                    continue
+                shell = high_least_factor_band(k, p)
+                triples = list(shell["triple_prime_states"])
+                total_triples += len(triples)
+                for n in triples:
+                    q = n // p
+                    root = isqrt(q)
+                    square_triples += root * root == q
+
+            self.assertEqual(square_triples, data["square_branch_count"])
+            self.assertLessEqual(
+                2 * total_triples - square_triples,
+                data["support_capacity"],
+            )
+            self.assertLessEqual(total_triples, data["global_triple_bound"])
+
+    def test_global_hit_union_deduplicates_cross_shell_hits(self):
+        data = high_band_global_hit_union_bound(110)
+        # The same basin state is the unique hit for 17*19 and 19*19.  The
+        # resource-19 capacity counts the state once, not the two moduli.
+        self.assertEqual(data["resource_hit_states"][19], (12274,))
+        self.assertEqual(data["resource_capacities"][19], 1)
+        self.assertEqual(data["support_capacity"], 7)
+        self.assertEqual(data["square_branch_count"], 1)
+        self.assertEqual(data["global_triple_bound"], 4)
+
+        per_shell_combined = 0
+        upper = 111 * 111 - 1
+        for p in primes_up_to(110):
+            if p * p >= 220 and p**3 <= upper:
+                per_shell_combined += high_band_multiplicative_resource_bound(
+                    110, p
+                )["combined_bound"]
+        self.assertEqual(per_shell_combined, 5)
+        self.assertLess(data["global_triple_bound"], per_shell_combined)
+
+        larger = high_band_global_hit_union_bound(500)
+        self.assertEqual(larger["support_capacity"], 33)
+        self.assertEqual(larger["square_branch_count"], 1)
+        self.assertEqual(larger["global_triple_bound"], 17)
 
 
 if __name__ == "__main__":
