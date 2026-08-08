@@ -40,6 +40,8 @@ C_p(C_q(n))=C_q(C_p(n))
 
 hold? Determine whether any nontrivial global commutation law exists.
 
+P008 now supplies the order-adjoint tools for this attack, but P003 remains a separate problem.
+
 ## P004 — Fixed points of collapse compositions
 
 Difficulty: medium
@@ -55,6 +57,8 @@ C_{p_m}\circ\cdots\circ C_{p_1}.
 Difficulty: medium
 
 Define compatible refinement and projection when two integer scale bases \(a\) and \(b\) coexist. Determine when the order of scale conversion matters.
+
+P008/T015 provides the first reusable commuting-square/right-adjoint identity for this work.
 
 ## P006 — Signed-state extension
 
@@ -72,9 +76,14 @@ Compare quotient-only, quotient-with-state-transition, and residuated approaches
 
 ## P008 — Minimal algebraic structure
 
-Difficulty: hard
+Difficulty: hard  
+Current status: `PARTIAL-RESOLUTION`
 
 Identify the weakest established algebraic or order-theoretic structure that contains the v0.1 root and collapse laws without adding unwanted continuum assumptions.
+
+The first-stage P008 result identifies a Galois connection between partial orders as sufficient for the root/collapse core; the power/integer-root case is a Galois coinsertion and collapse is the induced reductive idempotent projection. The associated general order theory is established mathlib mathematics, not an Enterprise Math invention. See `docs/P008_ORDER_ADJOINT_FRAMEWORK.*` and `docs/P008_MATHLIB_AUDIT.*`.
+
+The problem remains open only in the stronger “weakest” sense and for deciding which later scale/division structures truly require additional assumptions. Do not enlarge the answer to lattices, residuated lattices, or continuum structures without a demonstrated need.
 
 ## P009 — Collapse semigroup classification
 
@@ -109,18 +118,24 @@ Difficulty: hard
 
 Propose an integer-valued distance or relation compatible with the finite-resolution philosophy, then prove which metric axioms survive.
 
-## P013 — Lean formalization of T001 and T005
+## P013 — Lean formalization of root/collapse fundamentals
 
 Difficulty: easy to medium  
-Good first formalization problem: yes
+Good first formalization problem: yes  
+Current status: `PARTIAL-RESOLUTION`
 
-Formalize integer-root characterization and collapse idempotence in Lean, preferably reusing established natural-number order lemmas without importing a real-number square root.
+The P008 mathlib-native layer has now Lean-checked collapse contractivity, collapse idempotence, perfect-power fixed points, exact perfect-power recovery, and the general adjoint-collapse wrappers using Mathlib's existing `Nat.nthRoot` and Galois-connection APIs.
+
+The remaining original target is to expose the exact interval form of T001 in the Enterprise Math namespace if doing so adds useful project API rather than duplicating mathlib unnecessarily. T012 is also a later formalization target.
 
 ## P014 — Lean formalization of scale compatibility
 
-Difficulty: medium
+Difficulty: medium  
+Current status: `RESOLVED`
 
-Formalize T010 for general \(p\), integer base \(b\ge2\), and scale level \(s\).
+T010 has been formalized for general positive exponent \(p\), positive integer base \(b\), and scale level \(s\) in `EnterpriseMath.Scale.scaledRoot_succ_div`. The proof is derived structurally from the root/division interchange theorem `root_div_scale`, itself a specialization of Mathlib's adjoint commuting-square theorem.
+
+The v0.1 requirement \(b\ge2\) is therefore covered as a special case.
 
 ## P015 — Prior-art map
 
@@ -130,6 +145,8 @@ Good first research problem: yes
 Build a precise comparison table covering integer roots, Euclidean division, interior operators, Galois connections, residuated structures, irreversible semigroups, preimage entropy, and discrete geometry.
 
 For every connection, state both the similarity and the exact point where Enterprise Math currently makes a stronger or different interpretation.
+
+P015 intentionally remains open as a permanent prior-art correction and discovery entrypoint.
 
 ## P016 — Physical falsification criteria
 
