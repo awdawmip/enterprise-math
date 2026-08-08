@@ -16,6 +16,16 @@ theorem galoisConnection_pow_root {p : ℕ} (hp : p ≠ 0) :
   intro a b
   exact (Nat.le_nthRoot_iff (n := p) (a := a) (b := b) hp).symm
 
+/-- Exact interval characterization of the Enterprise Math integer root (T001). -/
+theorem root_eq_iff {p n k : ℕ} (hp : p ≠ 0) :
+    root p n = k ↔ k ^ p ≤ n ∧ n < (k + 1) ^ p := by
+  constructor
+  · intro h
+    subst k
+    exact ⟨Nat.pow_nthRoot_le (n := p) (a := n) (.inl hp), Nat.lt_pow_nthRoot_add_one hp n⟩
+  · rintro ⟨h₁, h₂⟩
+    exact Nat.nthRoot_eq_of_le_of_lt h₁ h₂
+
 /-- The Enterprise Math collapse is reductive. -/
 theorem collapse_le {p : ℕ} (hp : p ≠ 0) (n : ℕ) : collapse p n ≤ n := by
   exact Nat.pow_nthRoot_le (n := p) (a := n) (.inl hp)
