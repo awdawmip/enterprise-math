@@ -1,3 +1,4 @@
 import EnterpriseMath.Arithmetic.IntegerRoot
 import EnterpriseMath.Arithmetic.CollapseCommutation
 import EnterpriseMath.Scale.Compatibility
+import EnterpriseMath.Precision.Carry
