@@ -139,6 +139,35 @@ List observations that would contradict the stronger hypothesis that finite-reso
 
 This problem must separate mathematical inconsistency from physical falsification.
 
+## P017 — Legendre pressure test: signed square-carry balance
+
+Difficulty: research-hard
+
+Use the consecutive-square basin as an external stress test for the theory developed in `docs/LEGENDRE_PRESSURE_TEST.en.md`.
+
+The exact target is not to re-state Legendre's conjecture in new notation. Seek a genuinely useful structural result for
+
+\[
+\Pi(k)=2+\sum_{d\mid P_k}\mu(d)\kappa_d(k),
+\]
+
+or for its binary paired form
+
+\[
+\Pi(k)=2+\sum_{\substack{d\mid P_k\\d\text{ odd}}}
+\mu(d)(-1)^{\lfloor k/d\rfloor}\varepsilon_d(k).
+\]
+
+Priority subproblems:
+
+1. find a sign-reversing pairing or involution for a nontrivial class of the binary carry terms;
+2. exploit the self-consistency `root = sieve cutoff = k`, not merely square-residue or arbitrary common-root structure;
+3. bound or recursively classify the transverse anchor transfers \(\Lambda_b(k)\);
+4. identify a quotient-layer recursion that reduces the signed sum to smaller basin data;
+5. produce explicit counterexamples rapidly when a proposed inequality is too strong.
+
+A result counts as progress even if it disproves the Enterprise Math route. Do not present finite computation, a renamed inclusion-exclusion identity, or a heuristic density model as a proof of Legendre's conjecture.
+
 ## How to take a problem
 
 Open a GitHub issue with the problem ID in the title, or comment on an existing issue for that ID.
