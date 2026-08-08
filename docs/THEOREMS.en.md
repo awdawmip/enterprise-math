@@ -1,6 +1,6 @@
 # Proved Propositions for v0.1
 
-Status labels in this file refer to ordinary mathematical proofs from the v0.1 definitions. They are not yet Lean-checked unless explicitly stated.
+Status labels in this file refer to ordinary mathematical proofs from the v0.1 definitions. A proposition is Lean-checked only when explicitly stated below.
 
 ## T001 — Root characterization
 
@@ -14,6 +14,8 @@ R_p(n)=k\iff k^p\le n<(k+1)^p.
 
 This is equivalent to the defining maximum property.
 
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.root_eq_iff`.
+
 ## T002 — Exact perfect powers
 
 Status: `PROVED`
@@ -23,6 +25,8 @@ R_p(k^p)=k.
 \]
 
 Proof: \(k^p\le k^p<(k+1)^p\), so T001 applies.
+
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.root_pow`.
 
 ## T003 — Root monotonicity
 
@@ -46,6 +50,8 @@ C_p(n)\le n.
 
 Proof: by definition, \(R_p(n)^p\le n\).
 
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.collapse_le`.
+
 ## T005 — Collapse is idempotent
 
 Status: `PROVED`
@@ -56,6 +62,8 @@ C_p(C_p(n))=C_p(n).
 
 Proof: \(C_p(n)\) is already a perfect \(p\)-th power, then apply T002.
 
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.collapse_idempotent`.
+
 ## T006 — Fixed points are exactly perfect powers
 
 Status: `PROVED`
@@ -65,6 +73,8 @@ C_p(n)=n
 \]
 
 if and only if \(n=k^p\) for some \(k\in\mathbb N\).
+
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.collapse_fixed_iff`.
 
 ## T007 — Basin interval
 
@@ -134,6 +144,8 @@ Multiplying by \(b^p\) gives
 
 Hence the finer root lies in the integer interval from \(kb\) through \((k+1)b-1\), whose integer quotient by \(b\) is \(k\).
 
+P008/P014 also give a structural proof through T015 below. Formalization: Lean-checked as `EnterpriseMath.Scale.scaledRoot_succ_div`.
+
 ## T011 — One-sided inverse law
 
 Status: `PROVED`
@@ -186,8 +198,76 @@ M_t(x)=|[x]_t|
 
 is nondecreasing.
 
+## T013 — Integer roots compose multiplicatively in the exponent
+
+Status: `PROVED`
+
+For \(p,q\ge1\),
+
+\[
+R_{pq}(n)=R_p(R_q(n)).
+\]
+
+Equivalently,
+
+\[
+R_{pq}=R_p\circ R_q.
+\]
+
+Proof: the power maps \(P_p(k)=k^p\) and \(P_q(k)=k^q\) have integer roots as their right adjoints. Since
+
+\[
+P_q\circ P_p=P_{pq},
+\]
+
+right adjoints compose in reverse order. This uses established Galois-connection theory rather than a new order-theoretic principle.
+
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.root_mul`.
+
+## T014 — Iterated positive integer roots commute
+
+Status: `PROVED`
+
+For \(p,q\ge1\),
+
+\[
+R_p(R_q(n))=R_q(R_p(n)).
+\]
+
+Proof: both sides equal \(R_{pq}(n)\) by T013 and commutativity of integer multiplication.
+
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.root_mul_comm`.
+
+## T015 — Root/division interchange
+
+Status: `PROVED`
+
+For \(p\ge1\), \(b\ge1\), and \(n\in\mathbb N\),
+
+\[
+R_p(n)\operatorname{//}b
+=
+R_p\!\left(n\operatorname{//}b^p\right).
+\]
+
+Equivalently, if \(D_b(n)=n\operatorname{//}b\), then
+
+\[
+D_b\circ R_p=R_p\circ D_{b^p}.
+\]
+
+Proof: multiplication by \(b\) is left adjoint to flooring division by \(b\), powering by \(p\) is left adjoint to \(R_p\), and
+
+\[
+P_p\circ M_b=M_{b^p}\circ P_p.
+\]
+
+The commuting square transfers to the right adjoints. T010 is a direct specialization.
+
+Formalization: Lean-checked as `EnterpriseMath.Scale.root_div_comm`; T010 is Lean-checked as `EnterpriseMath.Scale.scaledRoot_succ_div`.
+
 ## Verification status
 
-The Python reference tests computationally check T001–T010 over bounded finite domains. This supports implementation correctness but is not the proof source.
+The Python reference tests computationally check the original arithmetic laws over bounded finite domains; those computations support implementation correctness but are not proof sources.
 
-The next formalization target is T001, T005, T010, and T012 in Lean.
+The pinned Lean/mathlib layer is compiled with warnings fatal in CI. It currently kernel-checks T001, T002, T004, T005, T006, T010, T013, T014, and T015. T003, T007, T008, T009, T011, and T012 remain ordinary proved propositions pending separate Lean promotion.
