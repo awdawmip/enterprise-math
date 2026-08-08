@@ -1,0 +1,38 @@
+name: Research problem
+description: Propose or work on a proof, definition, computation, formalization, or prior-art question
+title: "[Research] "
+body:
+  - type: input
+    id: problem
+    attributes:
+      label: Problem ID
+      description: Use an existing ID such as P003 when possible.
+  - type: dropdown
+    id: status
+    attributes:
+      label: Claim status
+      options:
+        - DEFINITION
+        - PROVED
+        - CONJECTURE
+        - COMPUTATIONAL
+        - PHYSICAL-HYPOTHESIS
+    validations:
+      required: true
+  - type: textarea
+    id: statement
+    attributes:
+      label: Precise statement
+      description: State the exact question or claim.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or argument
+      description: Include proof steps, computation, or prior-art sources.
+  - type: textarea
+    id: next
+    attributes:
+      label: Smallest next step
+      description: What could another contributor do next?

@@ -1,0 +1,30 @@
+name: 反例
+description: 用明确反例攻击候选恒等式、定义、定理或物理解释
+title: "[反例] "
+body:
+  - type: input
+    id: target
+    attributes:
+      label: 目标命题
+      description: 能对应编号时，请给出定理、猜想或问题编号。
+    validations:
+      required: true
+  - type: textarea
+    id: values
+    attributes:
+      label: 明确反例
+      description: 尽量给出你知道的最小清晰整数例子。
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: 验证
+      description: 写出整数计算过程或可重复的程序输出。
+    validations:
+      required: true
+  - type: textarea
+    id: implication
+    attributes:
+      label: 这会改变什么？
+      description: 说明该命题应被否定、弱化还是重新定义。
