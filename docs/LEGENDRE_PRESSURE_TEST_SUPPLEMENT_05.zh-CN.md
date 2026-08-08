@@ -1,32 +1,27 @@
 # Legendre 压力测试 —— 补充 05
 
 状态：`ACTIVE RESEARCH NOTE`  
-范围：完整平方盆地 smooth-tail 化约、精确 first-factor cofactor window、quotient-transport 窗口增长，以及正项 rough-window 素数计数恒等式  
-依赖：P017 L001–L019 与 P018 factor-precision 结果  
-纪律：**本文不证明 Legendre 猜想。** Rough number、最小素因子分割、smooth part 与 trial-division 逻辑都是成熟数论。项目要检验的是：它们在平方盆地中的精确有限组织是否能产生新的证明杠杆。
+范围：首因子壳层的精确 cofactor window 与正的 rough-window 归约  
+依赖：P017 L001–L019 与 canonical P018 精度/因子工具  
+纪律：**本文不证明 Legendre 猜想。**
 
-## 1. 审计：最近引入的哪些东西值得留下？
+## 1. 为什么这一部分值得从探索稿中保留
 
-最近的压力测试引入了多种数学上成立的结构，但它们不应获得相同的基础地位。
+记连续平方之间的开放盆地
 
-本补充只保留能够直接压缩 P017 证明问题的部分：
+\[
+B_k=\{n\in\mathbb N:k^2<n<(k+1)^2\}.
+\]
 
-1. 精确有限 factor horizon 与 least-factor partition；
-2. 平方盆地状态的完整 `k`-smooth core；
-3. 每个 first-factor shell 的精确 cofactor interval；
-4. 该 interval 如何扩张的精确 quotient-transport / carry 描述；
-5. 剩余素因子数量的 integer-root depth 上界。
+对每个素数 \(p\le k\)，令 \(L_p(k)\) 表示 \(B_k\) 中最小素因子恰好为 \(p\) 的状态。
 
-以下内容降为特例或证明语言：
+本补充真正保留的不是一个“新素性判据”，而是每个最小因子壳层的精确有限坐标：
 
-- centered symmetric prime pair —— 只在一般 cofactor window 已退化到两个 raw candidate 时有用；
-- carry cocycle / cohomology —— 属于成熟代数语言；只有 quotient-defect transport 再次出现在平方盆地窗口宽度中时才保留其实际用途；
-- threshold topology / Alexander duality —— 继续作为独立的前人工作化约工具，而不升格为底层本体；
-- CRT/idempotent 等坐标编码 —— 只有产生新上界时才继续使用。
+\[
+\boxed{\text{平方盆地几何}\longrightarrow\text{短 cofactor 区间}\longrightarrow\text{p-rough 幸存者}.}
+\]
 
-现在采用的规则是：
-
-> **只有当一个新结构能缩短精确有限障碍，或在已有 P017/P018 层之间搬运有用信息时，才值得保留。**
+rough number、最小素因子分拆、smooth part、整数除法与 trial division 都属于成熟数论。项目问题只在于：把这些结构精确组织到连续平方盆地后，是否能产生新的证明杠杆。
 
 ---
 
@@ -34,287 +29,189 @@
 
 状态：`PROVED`。
 
-对
+对 \(n\in B_k\)，定义完整的 \(k\)-smooth core
 
 \[
-k^2<n<(k+1)^2,
+S_k(n)=\prod_{p\le k}p^{v_p(n)}
 \]
 
-定义完整 `k`-smooth core：
+和剩余 tail
 
 \[
-S_k(n)=\prod_{p\le k}p^{v_p(n)},
-\]
-
-以及剩余 tail：
-
-\[
-Q_k(n)=\frac{n}{S_k(n)}.
+Q_k(n)=n/S_k(n).
 \]
 
 则
 
 \[
-\boxed{
-Q_k(n)=1
-\quad\text{或}\quad
-Q_k(n)\text{ 是一个 }>k\text{ 的素数}.
-}
+\boxed{Q_k(n)=1\quad\text{或}\quad Q_k(n)\text{ 是一个 }>k\text{ 的素数}.}
 \]
 
 ### 证明
 
-按定义，`Q_k(n)` 的每个素因子都严格大于 `k`。
-
-若 `Q_k(n)>1` 且为合数，则按重数至少含两个素因子，每个至少为 `k+1`。因此
+\(Q_k(n)\) 的每个素因子都大于 \(k\)。若 \(Q_k(n)>1\) 且为合数，则按重数至少含两个素因子，因此
 
 \[
 Q_k(n)\ge(k+1)^2.
 \]
 
-但
+但 \(Q_k(n)\le n<(k+1)^2\)，矛盾。证毕。
+
+于是
 
 \[
-Q_k(n)\le n<(k+1)^2,
+\boxed{n\text{ 为素数}\iff S_k(n)=1.}
 \]
-
-矛盾。∎
-
-### 素性推论
-
-对平方盆地状态，
-
-\[
-\boxed{
-n\text{ 为素数}
-\iff
-S_k(n)=1.
-}
-\]
-
-所以每个合数盆地状态都由以下两部分组成：
-
-- 一个非平凡 `k`-smooth core；
-- 再乘以 `1`，或者恰好一个大于 `k` 的素数 tail。
-
-这比只记录 square-free small-prime support 更强，因为所有小素数重数都被保留。
 
 ---
 
-## 3. L021 —— first-factor shell 的精确中心化 cofactor window
+## 3. L021 —— 精确 cofactor window
 
 状态：`PROVED`。
 
-令 `p<=k` 为素数，`L_p(k)` 表示平方盆地中最小素因子恰为 `p` 的状态。
-
-设
+固定素数 \(p\le k\)，令
 
 \[
-c=k+1,
-\qquad
-r=c-p,
-\qquad
-p=c-r.
+c=k+1,\qquad r=c-p,
 \]
 
-`L_p(k)` 中每个状态都可写成
+并把壳层候选写成 \(n=pq\)。
 
-\[
-n=pq.
-\]
-
-则平方盆地条件
+条件
 
 \[
 (c-1)^2<pq<c^2
 \]
 
-等价于如下精确有限 cofactor window：
+等价于
 
 \[
 \boxed{
-q_{\min}
-=
-c+r-1+\left\lfloor\frac{(r-1)^2}{p}\right\rfloor
+q_{\min}=c+r-1+\left\lfloor\frac{(r-1)^2}{p}\right\rfloor
 }
 \]
 
-以及
+与
 
 \[
 \boxed{
-q_{\max}
-=
-c+r+\left\lfloor\frac{r^2-1}{p}\right\rfloor.
+q_{\max}=c+r+\left\lfloor\frac{r^2-1}{p}\right\rfloor.
 }
 \]
 
-### 下端点
+### 证明
 
-由 `pq>(c-1)^2`，
-
-\[
-q
-\ge
-\left\lfloor\frac{(c-1)^2}{p}\right\rfloor+1.
-\]
-
-利用 `c=p+r`，
+下端点方面，
 
 \[
-(c-1)^2
-=(p+r-1)^2
-=p(p+2r-2)+(r-1)^2,
+(c-1)^2=(p+r-1)^2=p(p+2r-2)+(r-1)^2,
 \]
 
 所以
 
 \[
-\left\lfloor\frac{(c-1)^2}{p}\right\rfloor+1
-=
-p+2r-1+\left\lfloor\frac{(r-1)^2}{p}\right\rfloor
-=
-c+r-1+\left\lfloor\frac{(r-1)^2}{p}\right\rfloor.
+q\ge\left\lfloor\frac{(c-1)^2}{p}\right\rfloor+1
+=c+r-1+\left\lfloor\frac{(r-1)^2}{p}\right\rfloor.
 \]
 
-### 上端点
-
-由 `pq<c^2`，在整数中
+上端点方面，
 
 \[
-q\le\left\lfloor\frac{c^2-1}{p}\right\rfloor.
+c^2-1=p(p+2r)+(r^2-1),
 \]
 
-再次利用 `c=p+r`，
+所以
 
 \[
-c^2-1
-=p(p+2r)+(r^2-1),
+q\le\left\lfloor\frac{c^2-1}{p}\right\rfloor
+=c+r+\left\lfloor\frac{r^2-1}{p}\right\rfloor.
 \]
 
-于是
-
-\[
-\left\lfloor\frac{c^2-1}{p}\right\rfloor
-=
-p+2r+\left\lfloor\frac{r^2-1}{p}\right\rfloor
-=
-c+r+\left\lfloor\frac{r^2-1}{p}\right\rfloor.
-\]
-
-这个 window 对任意素数 shell `p<=k` 都精确成立，不使用 near-diagonal 假设。
+两端都是精确整数界。证毕。
 
 ---
 
-## 4. L022 —— first-factor shell 恰等于 p-rough cofactor window
+## 4. L022 —— 首因子壳层等于 p-rough window
 
 状态：`PROVED`。
 
-称整数 `q` 为 **p-rough**，若它不存在严格小于 `p` 的素因子。
-
-则
+若 \(q\) 不含任何严格小于 \(p\) 的素因子，称 \(q\) 为 **p-rough**。则
 
 \[
 \boxed{
-L_p(k)
-=
+L_p(k)=
 \left\{
-pq:
-q_{\min}\le q\le q_{\max},
-\ q\text{ 为 p-rough}
+pq:q_{\min}\le q\le q_{\max},\ q\text{ 为 p-rough}
 \right\}.
 }
 \]
 
 ### 证明
 
-若 `n=pq` 属于 `L_p(k)`，L021 把 `q` 放入上述窗口。若 `q` 有素因子 `<p`，该因子也整除 `n`，与 `p` 是最小素因子矛盾，所以 `q` 必为 `p`-rough。
+若 \(pq\in L_p(k)\)，L021 已把 \(q\) 限制在精确区间。若 \(q\) 含小于 \(p\) 的素因子，该因子也会整除 \(pq\)，与 \(p\) 是最小素因子矛盾。
 
-反过来，设 `q` 位于精确窗口且为 `p`-rough。L021 给出
+反过来，区间候选 \(pq\) 由 L021 保证位于 \(B_k\)；若 \(q\) 为 p-rough，则没有小于 \(p\) 的素数能整除两个因子的乘积，因此 \(pq\) 的最小素因子恰好是 \(p\)。证毕。
 
-\[
-k^2<pq<(k+1)^2.
-\]
-
-该状态被 `p` 整除，而 `q` 没有比 `p` 更小的素因子；因子 `p` 本身当然也没有。因此 `pq` 的最小素因子恰为 `p`，故 `pq in L_p(k)`。∎
-
-这是本补充的核心化约：
-
-> shell 的几何部分现在只是一个短而显式的整数区间；剩余算术障碍恰好是这个区间内的 roughness。
+所以平方几何被压缩后，剩余的算术障碍精确地变成了一个有限显式区间里的 roughness。
 
 ---
 
-## 5. L023 —— 中心 correction coordinate 与平方边界 offset
+## 5. L023 —— 中心修正坐标与精确平方边界距离
 
 状态：`PROVED`。
 
-把候选 cofactor 写成
+写成
 
 \[
 q=c+r+j.
 \]
 
-由 L021，correction coordinate 的范围为
+则
 
 \[
-\boxed{
-j_{\min}
-=-1+\left\lfloor\frac{(r-1)^2}{p}\right\rfloor}
+-1+\left\lfloor\frac{(r-1)^2}{p}\right\rfloor
+\le j\le
+\left\lfloor\frac{r^2-1}{p}\right\rfloor.
 \]
 
-到
-
-\[
-\boxed{
-j_{\max}
-=\left\lfloor\frac{r^2-1}{p}\right\rfloor.}
-\]
-
-因为 `p=c-r`，
+因为 \(p=c-r\)，
 
 \[
 pq=(c-r)(c+r+j)=c^2-r^2+jp.
 \]
 
-所以到两个平方边界的余量分别精确为
+所以距两个平方边界的精确整数偏移为
 
 \[
-\boxed{
-c^2-pq=r^2-jp}
+\boxed{c^2-pq=r^2-jp}
 \]
 
 以及
 
 \[
-\boxed{
-pq-(c-1)^2=p(j+2)-(r-1)^2.}
+\boxed{pq-(c-1)^2=p(j+2)-(r-1)^2.}
 \]
 
-因此偏离对称乘积 `c^2-r^2` 的量并不是模糊误差，而是整数 correction `jp`。
-
-centered-prime 公式只对应特殊情形 `j=0`。
+对称乘积 \(c^2-r^2\) 只是特殊坐标 \(j=0\)，不是一般壳层。
 
 ---
 
-## 6. L024 —— raw window 宽度是精确 quotient-transport 事件
+## 6. L024 —— window 增长 = bulk + 一个 carry
 
 状态：`PROVED`。
 
-在施加 `p`-rough 过滤前，raw integer cofactor 的数量为
+未经过 p-rough 筛选的整数 cofactor 数量为
 
 \[
-N_{\mathrm{raw}}
-=q_{\max}-q_{\min}+1.
+N_{\mathrm{raw}}=q_{\max}-q_{\min}+1,
 \]
 
-由 L021，
+因此
 
 \[
 \boxed{
 N_{\mathrm{raw}}
-=
-2
-+
+=2+
 \left\lfloor\frac{r^2-1}{p}\right\rfloor
 -
 \left\lfloor\frac{(r-1)^2}{p}\right\rfloor.
@@ -324,78 +221,47 @@ N_{\mathrm{raw}}
 令
 
 \[
-a=(r-1)^2,
-\qquad
-h=2r-2.
+a=(r-1)^2,\qquad h=2r-2.
 \]
 
-则
+因为 \(a+h=r^2-1\)，window 宽度修正正是精确商状态输运
 
 \[
-a+h=r^2-1,
+\left\lfloor\frac{a+h}{p}\right\rfloor-\left\lfloor\frac a p\right\rfloor.
 \]
 
-所以
+再写
 
 \[
-\boxed{
-N_{\mathrm{raw}}
-=
-2+\left(\left\lfloor\frac{a+h}{p}\right\rfloor-\left\lfloor\frac a p\right\rfloor\right).
-}
+a=pA+u,\qquad h=pH+v,
+\qquad 0\le u,v<p,
 \]
 
-括号中的量正是状态增加 `h` 后 quotient 的精确 transport。
-
-写成
-
-\[
-a=pA+u,
-\qquad
-h=pH+v,
-\qquad
-0\le u,v<p,
-\]
-
-可直接得到整数分解
+得到
 
 \[
 \boxed{
 N_{\mathrm{raw}}
-=
-2
-+
+=2+
 \left\lfloor\frac{2r-2}{p}\right\rfloor
 +
-\kappa_p
-\left(
-(r-1)^2\bmod p,
-(2r-2)\bmod p
-\right),
+\left\lfloor\frac{u+v}{p}\right\rfloor,
 }
 \]
 
-其中
+最后一项只能取 \(0\) 或 \(1\)。
+
+所以有限 window 具有精确分解
 
 \[
-\kappa_p(u,v)=\left\lfloor\frac{u+v}{p}\right\rfloor\in\{0,1\}.
+\boxed{\text{两个基础候选}+\text{整块增长}+\text{一个边界 carry}.}
 \]
 
-因此 cofactor-window 增长只有两部分：
-
-\[
-\boxed{
-\text{确定性的整块增长}
-+
-\text{一次剩余边界 carry}.
-}
-\]
-
-这正是 P018 审计后仍值得复用的 finite defect-transport 模式。上述公式在本文中直接证明，因此并不依赖那条分支的术语是否已经进入规范主干。
+这是 canonical P018 中精确 quotient-defect transport 的一个算术实例，不构成任何新的物理解释证据。
 
 ---
 
-## 7. L025 —— 两/三候选区间与 symmetric-prime 退化
+## 7. L025 —— 两/三候选区间与修正后的近对角退化
 
 状态：`PROVED`。
 
@@ -407,47 +273,37 @@ N_{\mathrm{raw}}
 p>2(r-1),
 \]
 
-则
-
-\[
-\left\lfloor\frac{2r-2}{p}\right\rfloor=0.
-\]
-
-由 L024，
+则 L024 中的整块增长项为 0，因此
 
 \[
 \boxed{N_{\mathrm{raw}}\in\{2,3\}.}
 \]
 
-究竟是哪一个值，完全由剩余 boundary carry 决定。
+取 2 还是 3，完全由最后一个边界 carry 决定。
 
-### 强 near-diagonal 情形
+### 强近对角定理
 
-若更强地满足
+要把一般 cofactor window 退化为对称素数条件，正确的充分条件是
 
 \[
-\boxed{p>r^2},
+\boxed{p\ge3\qquad\text{且}\qquad p>r^2.}
 \]
 
-则 L021 中两个 floor 项都归零。因此
+条件 \(p>r^2\) 让 L021 中两个 floor 项都归零，所以
 
 \[
-\boxed{
 q\in\{c+r-1,c+r\}.
-}
 \]
 
-当 `p>=3` 时，素数 `p=c-r` 为奇数。所以 `c+r=p+2r` 为奇数，而 `c+r-1` 为偶数。由于 shell cofactor 必须 `p`-rough 且大于 `p`，这个偶数候选不可能存活。
+由于 \(p\ge3\) 是奇素数，且 \(c+r=p+2r\) 为奇数，第一个候选 \(c+r-1\) 是大于 \(p\) 的偶数，因此不可能 p-rough。
 
-另外 `p>r^2` 推出
+第二个候选满足
 
 \[
-c+r=p+2r<p^2,
+p<c+r<p^2.
 \]
 
-所以 `c+r` 不可能是 `p`-rough 合数：任意大于 `p` 的 `p`-rough 合数至少为 `p^2`。
-
-因此
+任何大于 \(p\) 的 p-rough 合数至少为 \(p^2\)，故在该区间内 p-rough 与素数等价。因此
 
 \[
 \boxed{
@@ -457,120 +313,101 @@ c+r\text{ 为素数},
 }
 \]
 
-且此时
+并且非空时
 
 \[
-\boxed{
-L_p(k)=\{(c-r)(c+r)\}
-=\{c^2-r^2\}.
-}
+\boxed{L_p(k)=\{(c-r)(c+r)\}=\{c^2-r^2\}.}
 \]
 
-因此此前研究的 centered-prime radius 不是独立基础对象，而是**一般 cofactor window 的双候选退化**。
+### 为什么必须要求 \(p\ge3\)
 
-### 边界例子：k=10
-
-取
+不能只保留 \(p>r^2\)。取
 
 \[
-k=10,
-\quad c=11,
-\quad p=7,
-\quad r=4.
+k=2,\quad c=3,\quad p=2,\quad r=1.
 \]
 
-L021 给出
+此时确有 \(p>r^2\)，但 raw cofactor window 为
+
+\[
+\{3,4\}.
+\]
+
+当 \(p=2\) 时，不存在更小的素数可被 p-rough 条件排除，因此两个候选都幸存：
+
+\[
+L_2(2)=\{6,8\},
+\]
+
+而 \(c+r=4\) 是合数。这就是修正历史性过强表述所需的显式边界反例。
+
+### 三候选边界例
+
+取 \(k=10\)、\(c=11\)、\(p=7\)、\(r=4\)，L021 给出
 
 \[
 q\in\{15,16,17\}.
 \]
 
-其中只有 `17` 是 `7`-rough，所以
+其中只有 \(17\) 为 7-rough，所以
 
 \[
-L_7(10)=\{7\cdot17\}=\{119\}.
+L_7(10)=\{119\}.
 \]
 
-这里 centered-prime 特例公式失败，是因为 `7>4^2` 不成立；但一般 cofactor-window 定理仍然完全精确。
+强近对角条件不成立，但一般 window 公式仍保持精确。
 
 ---
 
-## 8. L026 —— Integer-root depth 限制剩余素因子数量
+## 8. L026 —— 整数根深度约束因子重数
 
 状态：`PROVED`。
 
-令
+记
 
 \[
 U=(k+1)^2-1.
 \]
 
-设 `p` 是某个 shell 状态的最小素因子，并且
+若
 
 \[
-\boxed{p^{m+1}>U.}
+\boxed{p^{m+1}>U,}
 \]
 
-等价地，
-
-\[
-p>R_{m+1}(U).
-\]
-
-则每个 `n in L_p(k)` 都满足
+则每个 \(n\in L_p(k)\) 都满足
 
 \[
 \boxed{\Omega(n)\le m,}
 \]
 
-其中 `Omega` 按重数计素因子个数。
+其中 \(\Omega\) 按重数统计素因子个数。
 
 ### 证明
 
-若 `Omega(n)>=m+1`，由于 `n` 的所有素因子都至少为最小素因子 `p`，有
+若 \(\Omega(n)\ge m+1\)，而 \(p\) 是最小素因子，则每个素因子都至少为 \(p\)，从而
 
 \[
-n\ge p^{m+1}>U.
+n\ge p^{m+1}>U,
 \]
 
-但每个盆地状态满足 `n<=U`，矛盾。∎
+与 \(n\le U\) 矛盾。证毕。
 
-因为 `n=pq`，cofactor 还满足
-
-\[
-\boxed{\Omega(q)\le m-1.}
-\]
-
-所以提高 least-factor precision 会产生一个精确有限层级：
-
-\[
-\text{一般 p-rough cofactor}
-\to
-\text{有界 factor depth}
-\to
-\text{prime cofactor}
-\to
-\text{symmetric-prime 退化}.
-\]
+等价地，可用整数根阈值写成 \(p>R_{m+1}(U)\)。若 \(n=pq\)，同一论证给出 \(\Omega(q)\le m-1\)。
 
 ---
 
-## 9. L027 —— 正项 rough-window 素数计数恒等式
+## 9. L027 —— 正的 rough-window prime-count 恒等式
 
 状态：`PROVED REINDEXING`。
 
-开放平方盆地恰含 `2k` 个状态。
-
-每个合数状态恰属于一个 first-factor shell `L_p(k)`，其中 `p<=k` 为素数。因此
+开放平方盆地恰有 \(2k\) 个状态。每个合数状态都唯一属于某个最小素因子 \(p\le k\) 的壳层 \(L_p(k)\)。所以
 
 \[
-\Pi(k)
-=
-2k-
-\sum_{p\le k}|L_p(k)|.
+\Pi(k)=2k-\sum_{p\le k}|L_p(k)|.
 \]
 
-代入 L022 得
+由 L022，
 
 \[
 \boxed{
@@ -578,73 +415,41 @@ n\ge p^{m+1}>U.
 =
 2k-
 \sum_{p\le k}
-\#\left\{
-q\in[q_{\min}(k,p),q_{\max}(k,p)]
-:
-q\text{ 为 p-rough}
-\right\}.
+\#\{q\in[q_{\min}(k,p),q_{\max}(k,p)]:q\text{ 为 p-rough}\}.
 }
 \]
 
-于是 Legendre 猜想等价于正项不等式
+于是 Legendre 猜想等价于
 
 \[
 \boxed{
 \sum_{p\le k}
-\#\{q\in W_p(k):q\text{ p-rough}\}
+\#\{q\in W_p(k):q\text{ 为 p-rough}\}
 \le2k-1.
 }
 \]
 
-因为合数按唯一最小素因子分割，这个表示中不再出现 Möbius 符号。
-
-这只是重述，不是证明。它的诊断价值在于：平方几何被压缩成精确有限窗口以后，剩余障碍被单独暴露出来。
+这是正的最小因子重排恒等式，不是对该不等式的证明。
 
 ---
 
-## 10. 现在几何上已经解决什么，真正困难还在哪里？
+## 10. 真正剩下的开放困难
 
-first-factor shell 的平方盆地几何已经不再开放：
+平方几何与壳层坐标现在已经显式化。尚未解决的证明内容被集中到一个位置：
 
-- 精确 cofactor endpoints 已知；
-- 精确 square offsets 已知；
-- 精确 raw candidate count 已知；
-- window widening 有精确 bulk-plus-carry law；
-- 高 least-factor shell 有有界 `Omega` depth；
-- centered-prime 公式已被理解成极限退化。
+> **控制所有相关短 window \(W_p(k)\) 中 p-rough 幸存者的总数。**
 
-真正困难现在被精确定位为：
+精确 window 公式把最小因子阈值 \(p\)、平方中心 \(c=k+1\) 和偏移 \(r=c-p\) 绑定在一起，这可能提供进一步杠杆；但本文目前没有任何已证明估计能够推出所有 \(k\) 都有
 
 \[
-\boxed{
-\text{控制所有精确窗口 }W_p(k)\text{ 中 p-rough survivors 的总数量。}
-}
+\Pi(k)>0.
 \]
 
-若要沿此路线证明 Legendre，必须对这个 total survivor count 得到真正新的上界。只是重新命名 roughness、逐项使用 inclusion-exclusion，或者把同一个 parity barrier 换一种记号带回来，都不算推进。
+所以当前状态仍然是：
 
-## 11. 下一步攻击
+- L020–L026：`PROVED` 结构归约；
+- L027：`PROVED REINDEXING`；
+- Legendre 猜想：仍然开放；
+- 这一精确组织方式的历史创新性：`NOVELTY_UNVERIFIED`。
 
-后续方向故意收窄为以下几项。
-
-1. **递归 rough-window factorization。** 若 `p`-rough cofactor `q` 仍为合数，暴露它的最小因子 `p_2>=p`，继续推导下一层精确 finite factor/cofactor window，而不是马上退回全局 inclusion-exclusion。
-2. **Root-depth aggregation。** 按允许的 `Omega` depth 汇总高 `p` shell，从 semiprime 层开始。
-3. **Smooth-core coupling。** 用 L020 检验可选的单个 `>k` prime tail 能否与完整 `k`-smooth core 分离，同时保留共同 square-center 约束。
-4. **Defect-transport 复用。** 只有当 P018 transport calculus 真正产生像 L024 这样的 shell-count 或 boundary-crossing 恒等式时才引入；不把整套 P018 术语搬进 P017。
-5. **Counterexample-first gate。** 任意针对 total rough-window count 的新上界都必须先经过有限盆地反例压力测试，再升格为定理候选。
-
-因此研究线现在只剩更少的对象：
-
-\[
-\boxed{
-\text{square basin}
-\to
-\text{least-factor shell}
-\to
-\text{exact cofactor window}
-\to
-\text{p-rough survivors}
-\to
-\text{root-depth recursion}.
-}
-\]
+实现 `src/enterprise_math/p017_cofactor_window.py` 与其回归测试会审计这些精确恒等式，并显式锁定 \(p=2\) 边界反例。
