@@ -1,13 +1,13 @@
 """Intrinsic directional focusing calculus for Enterprise Math P019.
 
-Directions are not imported from Euclidean coordinates.  They are equivalence
+Directions are not imported from Euclidean coordinates. They are equivalence
 classes of outgoing primitive incidences under automorphisms that preserve the
-directed graph and the chosen current section.  The resulting channel data are
-finite and integer-valued.
+directed graph, the chosen current section, and any mathematically justified
+vertex marks such as causal phase.
 
-A one-orbit result is intentionally treated as a resolution limit: an
-unmarked structure whose stabilizer is transitive on outgoing incidences has no
-finer automorphism-covariant direction information available at this level.
+A one-orbit result is intentionally treated as a resolution limit: a marked
+structure whose stabilizer is transitive on outgoing incidences has no finer
+automorphism-covariant direction information available at this level.
 """
 
 from __future__ import annotations
@@ -20,6 +20,7 @@ from math import comb
 Vertex = Hashable
 DirectedEdge = tuple[Vertex, Vertex]
 Automorphism = Mapping[Vertex, Vertex]
+Marks = Mapping[Vertex, Hashable]
 
 
 def _normalized_graph(
@@ -54,6 +55,14 @@ def _section(vertices: tuple[Vertex, ...], section: Iterable[Vertex]) -> frozens
     return result
 
 
+def _marks(vertices: tuple[Vertex, ...], marks: Marks | None) -> Marks | None:
+    if marks is None:
+        return None
+    if set(marks.keys()) != set(vertices):
+        raise ValueError("marks must label every graph vertex exactly once")
+    return marks
+
+
 def outgoing_incidences(
     vertices: Iterable[Vertex], edges: Iterable[DirectedEdge], section: Iterable[Vertex]
 ) -> tuple[DirectedEdge, ...]:
@@ -68,35 +77,45 @@ def is_section_automorphism(
     edges: Iterable[DirectedEdge],
     section: Iterable[Vertex],
     mapping: Automorphism,
+    marks: Marks | None = None,
 ) -> bool:
-    """Return whether ``mapping`` is a directed-graph automorphism preserving A setwise."""
+    """Return whether a map preserves graph, section, and optional vertex marks."""
     vertex_tuple, edge_tuple = _normalized_graph(vertices, edges)
     current = _section(vertex_tuple, section)
+    mark_map = _marks(vertex_tuple, marks)
     vertex_set = set(vertex_tuple)
     if set(mapping.keys()) != vertex_set or set(mapping.values()) != vertex_set:
         return False
     edge_set = set(edge_tuple)
     mapped_edges = {(mapping[u], mapping[v]) for u, v in edge_tuple}
-    return mapped_edges == edge_set and {mapping[v] for v in current} == set(current)
+    if mapped_edges != edge_set or {mapping[v] for v in current} != set(current):
+        return False
+    if mark_map is not None and any(mark_map[mapping[v]] != mark_map[v] for v in vertex_tuple):
+        return False
+    return True
 
 
 def section_stabilizer_automorphisms(
-    vertices: Iterable[Vertex], edges: Iterable[DirectedEdge], section: Iterable[Vertex]
+    vertices: Iterable[Vertex],
+    edges: Iterable[DirectedEdge],
+    section: Iterable[Vertex],
+    marks: Marks | None = None,
 ) -> tuple[dict[Vertex, Vertex], ...]:
-    """Enumerate the full section stabilizer for small finite reference graphs.
+    """Enumerate the full marked-section stabilizer for small finite graphs.
 
     This factorial reference implementation is deliberately bounded to at most
-    eight vertices.  Larger research graphs should supply an externally proved
+    eight vertices. Larger research graphs should supply an externally proved
     automorphism family to ``incidence_orbits`` rather than use brute force.
     """
     vertex_tuple, edge_tuple = _normalized_graph(vertices, edges)
     current = _section(vertex_tuple, section)
+    mark_map = _marks(vertex_tuple, marks)
     if len(vertex_tuple) > 8:
         raise ValueError("reference automorphism enumeration is limited to eight vertices")
     result: list[dict[Vertex, Vertex]] = []
     for image_tuple in permutations(vertex_tuple):
         mapping = dict(zip(vertex_tuple, image_tuple, strict=True))
-        if is_section_automorphism(vertex_tuple, edge_tuple, current, mapping):
+        if is_section_automorphism(vertex_tuple, edge_tuple, current, mapping, mark_map):
             result.append(mapping)
     return tuple(result)
 
@@ -106,34 +125,38 @@ def incidence_orbits(
     edges: Iterable[DirectedEdge],
     section: Iterable[Vertex],
     automorphisms: Sequence[Automorphism] | None = None,
+    marks: Marks | None = None,
 ) -> tuple[frozenset[DirectedEdge], ...]:
-    """Partition outgoing incidences into section-stabilizer automorphism orbits."""
+    """Partition outgoing incidences into marked-section stabilizer orbits."""
     vertex_tuple, edge_tuple = _normalized_graph(vertices, edges)
     current = _section(vertex_tuple, section)
+    mark_map = _marks(vertex_tuple, marks)
     incidences = outgoing_incidences(vertex_tuple, edge_tuple, current)
     family: Sequence[Automorphism]
     if automorphisms is None:
-        family = section_stabilizer_automorphisms(vertex_tuple, edge_tuple, current)
+        family = section_stabilizer_automorphisms(
+            vertex_tuple, edge_tuple, current, mark_map
+        )
     else:
         family = automorphisms
         if not family:
             raise ValueError("automorphism family must be nonempty")
         if any(
-            not is_section_automorphism(vertex_tuple, edge_tuple, current, mapping)
+            not is_section_automorphism(
+                vertex_tuple, edge_tuple, current, mapping, mark_map
+            )
             for mapping in family
         ):
-            raise ValueError("every supplied mapping must preserve the graph and section")
+            raise ValueError(
+                "every supplied mapping must preserve graph, section, and marks"
+            )
 
     unseen = set(incidences)
     orbits: list[frozenset[DirectedEdge]] = []
     while unseen:
         seed = next(iter(unseen))
-        orbit = {
-            (mapping[seed[0]], mapping[seed[1]])
-            for mapping in family
-        }
-        # A non-group family may fail closure.  Reject instead of silently
-        # pretending the resulting classes are canonical orbits.
+        orbit = {(mapping[seed[0]], mapping[seed[1]]) for mapping in family}
+        # A generating family may need repeated action to close the orbit.
         changed = True
         while changed:
             changed = False
@@ -150,7 +173,9 @@ def incidence_orbits(
             raise AssertionError("automorphism orbit cannot be empty")
         orbits.append(frozenset(orbit))
         unseen -= orbit
-    return tuple(sorted(orbits, key=lambda item: (len(item), repr(sorted(item, key=repr)))))
+    return tuple(
+        sorted(orbits, key=lambda item: (len(item), repr(sorted(item, key=repr))))
+    )
 
 
 def channel_multiplicities(channel: Iterable[DirectedEdge]) -> Counter[Vertex]:
@@ -184,13 +209,18 @@ def directional_channel_data(channel: Iterable[DirectedEdge]) -> dict[str, objec
 def cross_channel_pair_collision(
     first: Iterable[DirectedEdge], second: Iterable[DirectedEdge]
 ) -> int:
-    """Count cross-channel incidence pairs that land on the same future target."""
+    """Count cross-channel incidence pairs landing on the same future target."""
     first_counts = channel_multiplicities(first)
     second_counts = channel_multiplicities(second)
-    return sum(first_counts[target] * second_counts[target] for target in first_counts.keys() | second_counts.keys())
+    return sum(
+        first_counts[target] * second_counts[target]
+        for target in first_counts.keys() | second_counts.keys()
+    )
 
 
-def pair_collision_channel_decomposition(channels: Iterable[Iterable[DirectedEdge]]) -> dict[str, object]:
+def pair_collision_channel_decomposition(
+    channels: Iterable[Iterable[DirectedEdge]],
+) -> dict[str, object]:
     """Decompose total J2 into within-channel and cross-channel pair collisions."""
     channel_tuple = tuple(tuple(dict.fromkeys(channel)) for channel in channels)
     if not channel_tuple or any(not channel for channel in channel_tuple):
@@ -201,31 +231,35 @@ def pair_collision_channel_decomposition(channels: Iterable[Iterable[DirectedEdg
     total_counts = Counter(target for _, target in flattened)
     total_j2 = sum(comb(value, 2) for value in total_counts.values())
     internal = tuple(
-        sum(comb(value, 2) for value in channel_multiplicities(channel).values())
+        sum(
+            comb(value, 2)
+            for value in channel_multiplicities(channel).values()
+        )
         for channel in channel_tuple
     )
     cross = {
-        (left, right): cross_channel_pair_collision(channel_tuple[left], channel_tuple[right])
+        (left, right): cross_channel_pair_collision(
+            channel_tuple[left], channel_tuple[right]
+        )
         for left, right in combinations(range(len(channel_tuple)), 2)
     }
     if total_j2 != sum(internal) + sum(cross.values()):
         raise AssertionError("pair-collision channel decomposition failed")
-    return {
-        "total_j2": total_j2,
-        "internal_j2": internal,
-        "cross_j2": cross,
-    }
+    return {"total_j2": total_j2, "internal_j2": internal, "cross_j2": cross}
 
 
-def collision_rate_anisotropy_numerator(channels: Iterable[Iterable[DirectedEdge]]) -> int:
+def collision_rate_anisotropy_numerator(
+    channels: Iterable[Iterable[DirectedEdge]],
+) -> int:
     """Return a fraction-free anisotropy witness for directional collision rates.
 
-    For channel i let E_i be incidence count and C_i its collision excess.  The
-    witness is sum_{i<j}(E_j*C_i-E_i*C_j)^2.  It vanishes exactly when all
-    channel collision rates C_i/E_i are equal, without storing fractions.
+    For channel i let E_i be incidence count and C_i its collision excess. The
+    witness is sum_{i<j}(E_j*C_i-E_i*C_j)^2. It vanishes exactly when all
+    resolved channel collision rates C_i/E_i are equal, without storing
+    fractions.
 
     Zero is only isotropy relative to the supplied intrinsic direction
-    resolution.  A one-orbit partition gives zero vacuously and is a resolution
+    resolution. A one-orbit partition gives zero vacuously and is a resolution
     no-go, not proof of physical isotropy.
     """
     data = tuple(directional_channel_data(channel) for channel in channels)
