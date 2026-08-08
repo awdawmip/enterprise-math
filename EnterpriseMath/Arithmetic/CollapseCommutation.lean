@@ -6,7 +6,8 @@ open EnterpriseMath.IntegerRoot
 
 /-- Perfect-power collapse is monotone for every positive exponent. -/
 theorem collapse_mono {p : ℕ} (hp : p ≠ 0) : Monotone (collapse p) := by
-  simpa [collapse, Function.comp_def] using (galoisConnection_pow_root hp).monotone_l_comp_u
+  change Monotone (fun x : ℕ => root p x ^ p)
+  exact (galoisConnection_pow_root hp).monotone_l_comp_u
 
 /-- If `p ∣ q`, collapsing first to `q`-th powers and then to `p`-th powers changes nothing. -/
 theorem collapse_left_absorbs_of_dvd {p q : ℕ} (hp : p ≠ 0) (hpq : p ∣ q) (n : ℕ) :
@@ -14,7 +15,13 @@ theorem collapse_left_absorbs_of_dvd {p q : ℕ} (hp : p ≠ 0) (hpq : p ∣ q) 
   rcases hpq with ⟨r, rfl⟩
   apply (collapse_eq_self_iff hp (collapse (p * r) n)).2
   refine ⟨root (p * r) n ^ r, ?_⟩
-  simp [collapse, pow_mul, Nat.mul_comm]
+  unfold collapse
+  let x := root (p * r) n
+  change (x ^ r) ^ p = (x ^ p) ^ r
+  calc
+    (x ^ r) ^ p = x ^ (r * p) := (pow_mul x r p).symm
+    _ = x ^ (p * r) := by rw [Nat.mul_comm r p]
+    _ = (x ^ p) ^ r := pow_mul x p r
 
 /-- If `p ∣ q`, the `q`-collapse also absorbs a preceding `p`-collapse. -/
 theorem collapse_right_absorbs_of_dvd {p q : ℕ} (hp : p ≠ 0) (hq : q ≠ 0)
