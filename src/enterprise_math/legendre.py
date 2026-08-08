@@ -78,6 +78,22 @@ def square_carry(k: int, d: int) -> int:
     return interior_hit_count(k % d, d, 2)
 
 
+def centered_square_carry(k: int, d: int) -> int:
+    """Evaluate kappa_d(k) by the centered-residue boundary criterion.
+
+    If t=k mod d and a=t(t+1) mod d, the local centered interval is
+    {1-t,...,t}.  For t>0, the two possible representatives of -a mod d
+    enter this interval exactly when a<t and a>=d-t.
+    """
+    if d <= 0:
+        raise ValueError("d must be positive")
+    t = k % d
+    if t == 0:
+        return 0
+    a = (t * (t + 1)) % d
+    return int(a < t) + int(a >= d - t)
+
+
 def square_hit_count_from_carry(k: int, d: int) -> int:
     """Recover H_d(k)=2*(k//d)+kappa_d(k)."""
     if d <= 0:
@@ -132,6 +148,31 @@ def binary_carry_delta(k: int, odd_d: int) -> int:
     return square_carry(k, odd_d) - square_carry(k, 2 * odd_d)
 
 
+def binary_carry_event(k: int, odd_d: int) -> int:
+    """Return the explicit 0/1 event behind binary_carry_delta.
+
+    Write k=q*d+t, a=t(t+1) mod d, and h=floor(t(t+1)/d).
+    The result epsilon satisfies
+
+        kappa_d(k)-kappa_{2d}(k) = (-1)^q * epsilon.
+
+    The branch conditions locate which side of the centered local window is
+    crossed when the residue class is lifted from modulus d to 2d.
+    """
+    if odd_d <= 0 or odd_d % 2 == 0:
+        raise ValueError("odd_d must be a positive odd integer")
+    q, t = divmod(k, odd_d)
+    a = (t * (t + 1)) % odd_d
+    h = (t * (t + 1)) // odd_d
+    if q % 2 == 0:
+        if h % 2 == 0:
+            return int(a >= odd_d - t)
+        return int(a < t)
+    if h % 2 == 0:
+        return int(a >= t)
+    return int(a < odd_d - t)
+
+
 def binary_carry_square_interval_prime_count(k: int) -> int:
     """Exact prime count after pairing Möbius terms d <-> 2d."""
     if k < 1:
@@ -151,6 +192,14 @@ def anchor_primes(k: int) -> list[int]:
         raise ValueError("k must be positive")
     anchor = k * (k + 1)
     return [p for p in primes_up_to(k) if anchor % p == 0]
+
+
+def anchor_product(k: int) -> int:
+    """Return the square-free product of anchor primes."""
+    product = 1
+    for p in anchor_primes(k):
+        product *= p
+    return product
 
 
 def anchor_face_sum(k: int) -> int:
@@ -173,6 +222,52 @@ def anchor_transfer(k: int, transverse_d: int) -> int:
         mu * square_carry(k, a * transverse_d)
         for a, mu in squarefree_divisors_with_mu(anchor_primes(k))
     )
+
+
+def coprime_prefix_count(limit: int, modulus: int) -> int:
+    """Count 1<=m<=limit with gcd(m,modulus)=1."""
+    if modulus <= 0:
+        raise ValueError("modulus must be positive")
+    if limit <= 0:
+        return 0
+    return sum(gcd(m, modulus) == 1 for m in range(1, limit + 1))
+
+
+def centered_anchor_survivor_count(k: int, transverse_d: int) -> int:
+    """Count centered hits of transverse_d surviving all anchor primes.
+
+    The centered coordinate is n=k(k+1)+s with 1-k<=s<=k.  This function
+    requires transverse_d to be coprime to the square-free anchor product.
+    """
+    if k < 2:
+        raise ValueError("k must be at least 2")
+    if transverse_d <= 0:
+        raise ValueError("transverse_d must be positive")
+    anchor = anchor_product(k)
+    if gcd(transverse_d, anchor) != 1:
+        raise ValueError("transverse_d must be coprime to the anchor product")
+    center = k * (k + 1)
+    return sum(
+        (center + s) % transverse_d == 0 and gcd(s, anchor) == 1
+        for s in range(1 - k, k + 1)
+    )
+
+
+def anchor_transfer_discrepancy(k: int, transverse_d: int) -> int:
+    """Evaluate Lambda_b as a centered survivor discrepancy.
+
+    Lambda_b(k) equals the number of b-hits in the centered square interval
+    surviving all anchor primes, minus twice the anchor-coprime prefix count up
+    to floor(k/b).
+    """
+    if k < 2:
+        raise ValueError("k must be at least 2")
+    anchor = anchor_product(k)
+    if gcd(transverse_d, anchor) != 1:
+        raise ValueError("transverse_d must be coprime to the anchor product")
+    survivors = centered_anchor_survivor_count(k, transverse_d)
+    baseline = 2 * coprime_prefix_count(k // transverse_d, anchor)
+    return survivors - baseline
 
 
 def bounded_common_root_witness() -> tuple[int, int, int]:
