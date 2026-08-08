@@ -10,9 +10,7 @@ The goal is not merely to produce a bibliography. The goal is to make every borr
 
 Every external source used materially in canonical project prose must have one stable `SRC-*` record in `sources.json`.
 
-Canonical prose cites sources with the syntax:
-
-`[SRC-EXAMPLE-ID]`
+Canonical prose cites a real source with its registered bracketed source identifier. In documentation examples, use an unbracketed placeholder such as `SRC-EXAMPLE-ID` so that examples cannot be mistaken for registered citations.
 
 The source record must contain at least:
 
@@ -132,7 +130,7 @@ The CI workflow must fail when:
 - source IDs are duplicated;
 - required source metadata is missing;
 - a lineage relation points to an unknown source;
-- a canonical `[SRC-*]` citation points to an unknown source;
+- a canonical bracketed `SRC-*` citation points to an unknown source;
 - a project component uses an unknown novelty status;
 - a source listed in the provenance registry is absent from the main prior-art map.
 
