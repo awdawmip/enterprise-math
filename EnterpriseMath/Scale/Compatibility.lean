@@ -29,6 +29,7 @@ theorem scaledRoot_succ_div {p b : ℕ} (hp : p ≠ 0) (hb : 0 < b) (s n : ℕ) 
   rw [root_div_comm hp hb]
   congr 1
   rw [Nat.mul_add, Nat.mul_one, pow_add, ← Nat.mul_assoc]
+  rw [Nat.mul_comm (n * b ^ (p * s)) (b ^ p)]
   exact Nat.mul_div_right (n * b ^ (p * s)) (Nat.pow_pos hb)
 
 end EnterpriseMath.Scale
