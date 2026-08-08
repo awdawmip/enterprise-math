@@ -6,6 +6,7 @@ from .division import (
     multiple_collapse,
     reconstruct_euclidean,
 )
+from .geometry import graph_distance, l1_distance, lattice2_ball, lattice2_sphere
 from .lattice_geometry import (
     a_ball_collapse,
     a_ball_count,
@@ -61,6 +62,10 @@ __all__ = [
     "project_tagged",
     "collapse_tagged",
     "strict_rank_decrease",
+    "graph_distance",
+    "l1_distance",
+    "lattice2_sphere",
+    "lattice2_ball",
     "a_graph_distance",
     "a_quadratic_separation",
     "a_collapsed_radial_distance",
