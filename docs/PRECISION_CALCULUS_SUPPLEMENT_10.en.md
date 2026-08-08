@@ -122,6 +122,8 @@ Therefore
 
 ∎
 
+### Meaning
+
 General operation-scheduling nonconfluence therefore cannot be encoded by a natural-number-valued “loss” if path orientation is to be retained.
 
 ---
@@ -549,7 +551,6 @@ The key outcome is not “replace natural numbers by integers.” It is the oppo
 \[
 \boxed{
 \text{natural-number states can remain unchanged while oriented defects live in a separate integer difference layer.}
-}
 \]
 
 General P009 operation-scheduling holonomy genuinely takes both signs. Yet signed Euclidean transport is still controlled by the same carry cocycle as the nonnegative case and remains coherent across scales.
@@ -566,7 +567,6 @@ The candidate foundation therefore becomes
 +\text{coherent signed transport}
 +\text{representation obstruction}
 +\text{atlas/certificates/time}.
-}
 \]
 
 This gives P006 a stronger protection boundary and gives P009 general nonconfluence a unified quantitative language:
