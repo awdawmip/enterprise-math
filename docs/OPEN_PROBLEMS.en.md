@@ -188,7 +188,7 @@ For comparable precision factors `d|e`, begin with
 \[
 \pi_{e\to d}(x)=x//(e/d),
 \qquad
-\delta_{e:d}(x)=x\bmod(e/d),
+\delta_{e:d}(x)=x\bmod(e/d)
 \]
 
 and build a proof calculus in which:
@@ -205,6 +205,31 @@ and build a proof calculus in which:
 The first-stage construction and proved identities are developed in `docs/PRECISION_CALCULUS.en.md`.
 
 Do not assume a hidden real completion or a `d -> infinity` limit. Prior art in filtrations, associated graded objects, multiresolution analysis, interval arithmetic, p-adic precision tracking, projective systems, and Möbius inversion must be credited rather than renamed.
+
+## P019 — Exact stabilization of fixed collapse words
+
+Status: `RESOLVED` by `docs/P019_COLLAPSE_WORD_STABILIZATION.en.md`  
+Difficulty: medium to hard
+
+For a fixed finite word of positive-exponent collapse endomaps
+
+\[
+W=C_{p_m}\circ\cdots\circ C_{p_1},
+\qquad
+L=\operatorname{lcm}(p_1,\ldots,p_m),
+\]
+
+classify the exact eventual state under repeated iteration of \(W\), not merely its fixed-point set.
+
+The canonical result is stronger than the original collapse-only Draft attached to P009:
+
+1. on any well-founded partial order, a monotone reductive self-map stabilizes at the greatest fixed point below the initial state;
+2. every fixed collapse word therefore stabilizes exactly at \(C_L(n_0)\);
+3. its eventual basins are exactly the ordinary \(L\)-collapse basins;
+4. transient word order may differ while the entire stable input-output map depends only on \(L\);
+5. collapse words modulo stable equivalence form the lcm join-semilattice.
+
+P019 is deliberately separate from canonical P009 so that the already-resolved typed collapse+coarsening scope is not silently widened.
 
 ## How to take a problem
 
