@@ -7,6 +7,21 @@ from .division import (
     reconstruct_euclidean,
 )
 from .geometry import graph_distance, l1_distance, lattice2_ball, lattice2_sphere
+from .lattice_geometry import (
+    a_ball_collapse,
+    a_ball_count,
+    a_ball_root,
+    a_collapsed_radial_distance,
+    a_coordinator_shell_count,
+    a_first_precision_shell_count,
+    a_graph_distance,
+    a_precision_distance_ball_count,
+    a_precision_distance_shell_count,
+    a_quadratic_separation,
+    a_quadratic_shell_count,
+    a_quadratic_shell_counts,
+    a_triangle_carry,
+)
 from .scale_algebra import (
     greatest_common_coarsening,
     least_common_refinement,
@@ -51,4 +66,17 @@ __all__ = [
     "l1_distance",
     "lattice2_sphere",
     "lattice2_ball",
+    "a_graph_distance",
+    "a_quadratic_separation",
+    "a_collapsed_radial_distance",
+    "a_triangle_carry",
+    "a_coordinator_shell_count",
+    "a_ball_count",
+    "a_ball_root",
+    "a_ball_collapse",
+    "a_first_precision_shell_count",
+    "a_quadratic_shell_counts",
+    "a_quadratic_shell_count",
+    "a_precision_distance_shell_count",
+    "a_precision_distance_ball_count",
 ]
