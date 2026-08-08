@@ -16,7 +16,7 @@ from __future__ import annotations
 
 from collections.abc import Callable, Iterable
 
-from .core import collapse, integer_root
+from .core import collapse, integer_nth_root
 from .precision_signed_holonomy import signed_defect_transport
 
 NaturalOperation = Callable[[int], int]
@@ -229,7 +229,7 @@ def collapse_response_is_same_basin(
         raise ValueError("difference is not admissible from base_state")
     operation = lambda value: collapse(value, power)
     zero_response = response(operation, base_state, difference) == 0
-    same_basin = integer_root(base_state, power) == integer_root(
+    same_basin = integer_nth_root(base_state, power) == integer_nth_root(
         base_state + difference, power
     )
     if zero_response != same_basin:
