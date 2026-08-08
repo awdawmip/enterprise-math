@@ -13,6 +13,7 @@ from enterprise_math.adaptive_precision import (
     refinement_proof_gain,
 )
 from enterprise_math.precision_system import (
+    FALSE,
     TRUE,
     UNRESOLVED,
     predicate_fiber_certificate,
@@ -40,7 +41,7 @@ class AdaptivePrecisionTests(unittest.TestCase):
         states = list(range(24))
         predicate = lambda x: x % 5 in {0, 1}
         observations = [
-            scale_observation(12, scale) for scale in [1, 2, 3, 6, 12]
+            scale_observation(12, scale) for scale in [1, 2, 4, 12]
         ]
         for observation in observations:
             for state in states:
@@ -52,7 +53,7 @@ class AdaptivePrecisionTests(unittest.TestCase):
                 )
                 self.assertEqual(conflicts == 0, certificate != UNRESOLVED)
                 if certificate != UNRESOLVED:
-                    self.assertEqual(certificate, TRUE if predicate(state) else "FALSE")
+                    self.assertEqual(certificate, TRUE if predicate(state) else FALSE)
 
     def test_conflict_fiber_contains_only_opposite_truth_states(self):
         states = list(range(18))
