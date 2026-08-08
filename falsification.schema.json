@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/awdawmip/enterprise-math/falsification.schema.json",
+  "title": "Enterprise Math physical falsification contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "model_id",
+    "status",
+    "state_space",
+    "transition_law",
+    "observation_map",
+    "parameters",
+    "symmetries",
+    "conserved_quantities",
+    "predictions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "model_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "PHYSICAL-HYPOTHESIS",
+        "TESTING",
+        "PARTIALLY-EXCLUDED",
+        "FALSIFIED"
+      ]
+    },
+    "state_space": {
+      "type": "string",
+      "minLength": 1
+    },
+    "transition_law": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observation_map": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "prior_allowed_region"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "prior_allowed_region": {"type": "string", "minLength": 1},
+          "units": {"type": "string"}
+        }
+      }
+    },
+    "symmetries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "claim"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "claim": {"enum": ["EXACT", "EMERGENT", "BROKEN"]},
+          "residual_observable": {"type": "string"}
+        }
+      }
+    },
+    "conserved_quantities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "claim"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "claim": {"enum": ["EXACT", "STATISTICAL", "VIOLATED"]},
+          "defect_law": {"type": "string"}
+        }
+      }
+    },
+    "predictions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kill_test_class",
+          "observable",
+          "unavoidable_prediction",
+          "current_constraint",
+          "falsified_if",
+          "source_ids"
+        ],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "kill_test_class": {
+            "enum": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9"]
+          },
+          "observable": {"type": "string", "minLength": 1},
+          "unavoidable_prediction": {"type": "string", "minLength": 1},
+          "current_constraint": {"type": "string", "minLength": 1},
+          "excluded_parameter_region": {"type": "string"},
+          "falsified_if": {"type": "string", "minLength": 1},
+          "source_ids": {
+            "type": "array",
+            "items": {"type": "string", "pattern": "^SRC-"}
+          }
+        }
+      }
+    }
+  }
+}
