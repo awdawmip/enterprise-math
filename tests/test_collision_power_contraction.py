@@ -62,8 +62,6 @@ class CollisionPowerContractionTests(unittest.TestCase):
                 for right in range(1, 5):
                     for total in range(-8, 9):
                         actual = min(
-                            balanced_power_energy(left, split_power := split, power=power)
-                            if False else
                             balanced_power_energy(left, power, split)
                             + balanced_power_energy(right, power, total - split)
                             for split in range(-20, 21)
