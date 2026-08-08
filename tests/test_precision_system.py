@@ -86,7 +86,7 @@ class PrecisionSystemTests(unittest.TestCase):
     def test_first_decision_shells_partition_terminal_states(self):
         states = list(range(0, 48))
         observations = [
-            scale_observation(12, scale) for scale in [1, 2, 3, 6, 12]
+            scale_observation(12, scale) for scale in [1, 2, 4, 12]
         ]
         predicate = lambda x: x < 23
         shells = first_decision_shells(states, observations, predicate)
@@ -104,14 +104,11 @@ class PrecisionSystemTests(unittest.TestCase):
         ]
         for coarse, fine in zip(observations, observations[1:]):
             refinement_projection(states, coarse, fine)
-        # A composite with a visible factor becomes a constant-composite fiber.
         predicate = lambda n: any(n % p == 0 for p in range(2, k + 1))
         for state in states:
             profile = predicate_certificate_profile(
                 states, observations, predicate, state
             )
-            # Terminal factor observation may still group several primes together,
-            # so only require persistence, not terminal singleton fibers.
             decided = None
             for status in profile:
                 if decided is not None:
@@ -133,7 +130,6 @@ class PrecisionSystemTests(unittest.TestCase):
             self.assertTrue(set(early_fiber).issubset(later_fiber))
             self.assertLessEqual(len(early_fiber), len(later_fiber))
 
-        # Precision moves the other way on the same terminal set.
         coarse = scale_observation(8, 1)
         fine = scale_observation(8, 2)
         for state in states:
