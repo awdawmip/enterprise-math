@@ -1,7 +1,7 @@
 # 编号研究问题权威状态索引
 
 状态：`CANONICAL`  
-生效日期：2026-08-08
+生效日期：2026-08-09
 
 本文件是进取数论编号研究问题的**权威状态账本**。`OPEN_PROBLEMS.zh-CN.md` 保留各问题最初提出时的原始问题文本，其中可能带有当时的历史性措辞；当状态描述不一致时，以本索引为准。
 
@@ -28,6 +28,9 @@
 | P017 | `OPEN / ACTIVE RESEARCH` | Legendre 压力测试已有大量进入 main 的结构结果，但没有 Legendre 猜想证明；继续坚持压力测试与反例优先。 |
 | P018 | `OPEN / ACTIVE RESEARCH` | 有限精度证明演算仍是持续扩展的基础研究计划；当前各阶段可以是规范结果，但整个编号计划保持活跃。 |
 | P019 | `RESOLVED` | `docs/P019_COLLAPSE_WORD_STABILIZATION.zh-CN.md`：良基偏序上的单调向下自映射会稳定到初态下方最大不动点；因此任意固定坍缩词精确稳定到 `C_L(n0)`，最终盆地就是普通 `L` 次盆地，且坍缩词半群按稳定等价取商后恰为 lcm join-semilattice。 |
+| P020 | `RESOLVED` | `docs/P020_WELL_FOUNDED_STABILIZATION.zh-CN.md` 与 `EnterpriseMath/Order/WellFoundedStabilization.lean`：Lean 证明在 `WellFoundedLT` 偏序上，任意单调向下自映射的有限普通迭代会到达初态下方最大的原始不动点；所选稳定化映射单调、向下、幂等，并与原映射具有完全相同的不动点集合。 |
+| P021 | `RESERVED / ACTIVE RESEARCH` | 预留给当前研究 PR #48 中保存的有限精度离散黑洞视界 / 因果聚焦路线；在 clean replay 前，历史分支资产内部仍可能保留旧 P019 编号。 |
+| P022 | `RESERVED / ACTIVE RESEARCH` | 预留给当前 PR #50 中保存的最小精度晶格几何 / 距离进位路线；在 clean replay 前，历史分支资产内部仍可能保留旧 P019 编号。 |
 
 ## 状态纪律
 

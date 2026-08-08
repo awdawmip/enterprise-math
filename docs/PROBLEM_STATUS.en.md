@@ -1,7 +1,7 @@
 # Canonical Problem Status Index
 
 Status: `CANONICAL`  
-Effective: 2026-08-08
+Effective: 2026-08-09
 
 This file is the authoritative status ledger for numbered Enterprise Math research problems. `OPEN_PROBLEMS.en.md` preserves the original problem statements and may contain historical wording from the moment a problem was posed; when status wording differs, this index controls.
 
@@ -28,6 +28,9 @@ This file is the authoritative status ledger for numbered Enterprise Math resear
 | P017 | `OPEN / ACTIVE RESEARCH` | The Legendre pressure test has many canonical structural lemmas but no proof of Legendre's conjecture; continue pressure-testing and counterexample-first work. |
 | P018 | `OPEN / ACTIVE RESEARCH` | The finite-precision proof calculus is an expanding foundational program; current stages are canonical results but the numbered research program remains active. |
 | P019 | `RESOLVED` | `docs/P019_COLLAPSE_WORD_STABILIZATION.en.md`: a monotone reductive self-map on a well-founded poset stabilizes at the greatest fixed point below the initial state; consequently every fixed collapse word stabilizes exactly at `C_L(n0)`, its eventual basins are the ordinary `L`-basins, and the collapse-word semigroup modulo stable equivalence is the lcm join-semilattice. |
+| P020 | `RESOLVED` | `docs/P020_WELL_FOUNDED_STABILIZATION.en.md` plus `EnterpriseMath/Order/WellFoundedStabilization.lean`: Lean proves that finite ordinary iteration of any monotone reductive endomap on a `WellFoundedLT` partial order reaches the greatest original fixed point below the initial state; the selected stabilization map is monotone, reductive, idempotent and has exactly the original fixed points. |
+| P021 | `RESERVED / ACTIVE RESEARCH` | Reserved for the finite-precision discrete black-hole horizon / causal-focusing line currently preserved in research PR #48; historical branch assets may still carry the old P019 label until clean replay. |
+| P022 | `RESERVED / ACTIVE RESEARCH` | Reserved for minimum-precision lattice geometry / distance-carry research currently preserved in PR #50; historical branch assets may still carry the old P019 label until clean replay. |
 
 ## Status discipline
 
