@@ -11,7 +11,7 @@
 |---|---|---|
 | P001 | `RESOLVED` | `docs/P001_ROOT_MULTIPLICATIVITY.zh-CN.md`：整数根总是超乘性的；乘法性恰好等价于盆地乘积的 carry load 未跨越下一个完全幂阈值；同时得到精确 carry count、向下闭合的无进位区域和 floor-division 边界。 |
 | P002 | `RESOLVED` | `docs/P002_COLLAPSE_GAP_BOUND.zh-CN.md`：坍缩差具有紧盆地界 `0 <= G_p(n) <= (k+1)^p-k^p-1`，且仅在盆地最后一个状态取等号；gap 坐标在每个盆地内构成双射。 |
-| P003 | `OPEN` | 坍缩算子全局交换分类仍在 Draft/非规范状态。 |
+| P003 | `RESOLVED` | `docs/P003_COLLAPSE_COMMUTATION.zh-CN.md`：完全幂坍缩算子全局交换，当且仅当正指数在整除序下可比；若 `p|q`，两个复合都等于 `C_q`；指数不可比时由 `2^max(p,q)` 给出显式素数幂见证。可比方向已在 `EnterpriseMath/Arithmetic/CollapseCommutation.lean` 中通过 Lean 检查；反向分类仍由普通证明与可执行见证回归支撑。 |
 | P004 | `OPEN` | 任意有限坍缩词的不动点分类仍在 Draft/非规范状态。 |
 | P005 | `RESOLVED` | `docs/P005_SCALE_LATTICE_CORE.zh-CN.md`：用正整数总尺度因子统一尺度坐标，建立整除投影、gcd/lcm 尺度格、路径无关性及 inverse refinement 非唯一性。 |
 | P006 | `RESOLVED` | `docs/P006_SIGNED_STATE_EXTENSION.zh-CN.md`：明确区分通常整数序奇次根与带符号模长量化；偶次幂在整个有符号整数序上不存在通常序右伴随。 |
