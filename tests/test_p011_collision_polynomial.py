@@ -34,6 +34,7 @@ class TestP011CollisionPolynomial(unittest.TestCase):
                     (comb(a + b, k) if k <= a + b else 0)
                     - (comb(a, k) if k <= a else 0)
                     - (comb(b, k) if k <= b else 0)
+                    + (1 if k == 0 else 0)
                     for k in range(a + b + 1)
                 )
                 self.assertEqual(direct, self.pair_merge_increment(a, b))
