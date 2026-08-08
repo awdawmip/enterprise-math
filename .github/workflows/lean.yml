@@ -1,0 +1,65 @@
+name: lean
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.lean'
+      - 'lakefile.toml'
+      - 'lakefile.lean'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
+      - '.github/workflows/lean.yml'
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - '**/*.lean'
+      - 'lakefile.toml'
+      - 'lakefile.lean'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
+      - '.github/workflows/lean.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Detect Lean project
+        id: lean_project
+        shell: bash
+        run: |
+          if [[ -f lakefile.toml || -f lakefile.lean ]]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Set up Lean
+        if: steps.lean_project.outputs.present == 'true'
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        if: steps.lean_project.outputs.present == 'true'
+        run: lake update
+      - name: Fetch mathlib cache
+        if: steps.lean_project.outputs.present == 'true'
+        run: lake exe cache get
+      - name: Compile Enterprise Math Lean layer with warnings fatal
+        if: steps.lean_project.outputs.present == 'true'
+        run: lake build --wfail -KCI EnterpriseMath
