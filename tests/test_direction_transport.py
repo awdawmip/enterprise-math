@@ -5,7 +5,11 @@ import unittest
 import enterprise_math.direction_transport as transport
 from enterprise_math.direction_transport import (
     canonical_one_to_one_transport,
+    composable_two_path_witnesses,
+    compose_two_path_witnesses,
     direction_transport_matrix,
+    exact_three_path_count,
+    naive_matrix_product_entry,
     transport_branching_profile,
     transport_merging_profile,
     transport_obstruction,
@@ -54,6 +58,31 @@ class DirectionTransportTests(unittest.TestCase):
         matrix = direction_transport_matrix(current, nxt)
         self.assertEqual(matrix, ((4,),))
         self.assertEqual(canonical_one_to_one_transport(matrix), (0,))
+
+    def test_cardinality_matrix_product_overcounts_three_path_composition(self):
+        first = [("a", "x"), ("b", "y")]
+        second = [("x", "p"), ("y", "q")]
+        third = [("p", "r"), ("q", "s")]
+        left_count = len(composable_two_path_witnesses(first, second))
+        right_count = len(composable_two_path_witnesses(second, third))
+        self.assertEqual((left_count, right_count), (2, 2))
+        self.assertEqual(naive_matrix_product_entry(left_count, right_count), 4)
+        self.assertEqual(exact_three_path_count(first, second, third), 2)
+
+    def test_witness_join_composes_only_on_same_middle_incidence(self):
+        first = [("a", "x"), ("b", "y")]
+        second = [("x", "p"), ("y", "q")]
+        third = [("p", "r"), ("q", "s")]
+        left = composable_two_path_witnesses(first, second)
+        right = composable_two_path_witnesses(second, third)
+        composed = compose_two_path_witnesses(left, right)
+        self.assertEqual(
+            set(composed),
+            {
+                (("a", "x"), ("x", "p"), ("p", "r")),
+                (("b", "y"), ("y", "q"), ("q", "s")),
+            },
+        )
 
     def test_reference_module_has_no_float_or_true_division(self):
         tree = ast.parse(inspect.getsource(transport))
