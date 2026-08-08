@@ -11,7 +11,11 @@ from enterprise_math.lattice_geometry import (
     a_coordinator_shell_count,
     a_first_precision_shell_count,
     a_graph_distance,
+    a_precision_distance_ball_count,
+    a_precision_distance_shell_count,
     a_quadratic_separation,
+    a_quadratic_shell_count,
+    a_quadratic_shell_counts,
     a_triangle_carry,
 )
 
@@ -72,6 +76,56 @@ class LatticeGeometryTests(unittest.TestCase):
                 if v != zero and a_collapsed_radial_distance(zero, v) == 1
             )
             self.assertEqual(actual, a_first_precision_shell_count(p))
+
+    def test_finite_quadratic_shell_kernel(self):
+        self.assertEqual(a_quadratic_shell_counts(1, 10), (1, 2, 0, 0, 2, 0, 0, 0, 0, 2, 0))
+        self.assertEqual(a_quadratic_shell_counts(2, 10), (1, 6, 0, 6, 6, 0, 0, 12, 0, 6, 0))
+        self.assertEqual(a_quadratic_shell_counts(3, 10), (1, 12, 6, 24, 12, 24, 8, 48, 6, 36, 24))
+        for p in range(1, 5):
+            for q in range(0, 8):
+                zero = (0,) * (p + 1)
+                actual = sum(
+                    1
+                    for v in a_points(p, 4)
+                    if a_quadratic_separation(zero, v) == q
+                )
+                self.assertEqual(actual, a_quadratic_shell_count(p, q))
+
+    def test_precision_distance_shells_are_root_basins_of_q(self):
+        expected = {
+            1: [1, 2, 2, 2, 2],
+            2: [1, 12, 18, 24, 30],
+            3: [1, 42, 98, 228, 314],
+            4: [1, 110, 550, 1430, 3130],
+        }
+        for p, shells in expected.items():
+            self.assertEqual(
+                [a_precision_distance_shell_count(p, d) for d in range(5)],
+                shells,
+            )
+            running = 0
+            for d, shell in enumerate(shells):
+                running += shell
+                self.assertEqual(a_precision_distance_ball_count(p, d), running)
+        for p in range(1, 6):
+            self.assertEqual(a_precision_distance_shell_count(p, 0), 1)
+            self.assertEqual(
+                a_precision_distance_shell_count(p, 1),
+                a_first_precision_shell_count(p),
+            )
+
+    def test_graph_and_radial_distance_integer_bounds(self):
+        for p in range(1, 5):
+            points = list(a_points(p, 2))[:30]
+            for x in points:
+                for y in points:
+                    graph = a_graph_distance(x, y)
+                    q = a_quadratic_separation(x, y)
+                    radial = a_collapsed_radial_distance(x, y)
+                    self.assertLessEqual(graph, q)
+                    self.assertLessEqual(q, graph * graph if graph else 0)
+                    self.assertLessEqual(radial, graph)
+                    self.assertLessEqual(lattice_geometry.integer_nth_root(graph, 2), radial)
 
     def test_collapsed_radial_distance_has_additive_one_triangle_bound(self):
         for p in range(1, 4):
