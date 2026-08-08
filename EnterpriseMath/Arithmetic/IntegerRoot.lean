@@ -44,7 +44,7 @@ theorem root_mul {p q : ℕ} (hp : p ≠ 0) (hq : q ≠ 0) (n : ℕ) :
   have hpq : p * q ≠ 0 := Nat.mul_ne_zero hp hq
   have gcPQ := galoisConnection_pow_root hpq
   have gcComp := (galoisConnection_pow_root hp).compose (galoisConnection_pow_root hq)
-  exact gcPQ.u_unique gcComp (fun a => by simp [Function.comp_def, pow_mul])
+  exact gcPQ.u_unique gcComp (fun a => by simp [pow_mul])
 
 /-- The two possible orders of iterated positive integer roots agree. -/
 theorem root_mul_comm {p q : ℕ} (hp : p ≠ 0) (hq : q ≠ 0) (n : ℕ) :
