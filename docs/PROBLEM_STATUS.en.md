@@ -10,7 +10,7 @@ This file is the authoritative status ledger for numbered Enterprise Math resear
 | Problem | Status | Canonical scope/result |
 |---|---|---|
 | P001 | `OPEN` | Root multiplicativity remains noncanonical research; a carry-threshold Draft exists but is not yet main. |
-| P002 | `OPEN` | Sharp collapse-gap work remains Draft/noncanonical. |
+| P002 | `RESOLVED` | `docs/P002_COLLAPSE_GAP_BOUND.en.md`: the collapse gap has the sharp basin bound `0 <= G_p(n) <= (k+1)^p-k^p-1`, with equality exactly at the last basin state; the gap coordinate is a bijection across each basin. |
 | P003 | `OPEN` | Global collapse-commutation classification remains Draft/noncanonical. |
 | P004 | `OPEN` | Fixed points of arbitrary collapse words remain Draft/noncanonical. |
 | P005 | `RESOLVED` | `docs/P005_SCALE_LATTICE_CORE.en.md`: total positive scale factor, divisibility projections, gcd/lcm scale lattice, path independence, and nonunique inverse refinement. |

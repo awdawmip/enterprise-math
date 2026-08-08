@@ -10,7 +10,7 @@
 | 问题 | 状态 | 规范范围/结果 |
 |---|---|---|
 | P001 | `OPEN` | 整数根乘法性仍属于非规范研究；carry-threshold Draft 已存在，但尚未进入 main。 |
-| P002 | `OPEN` | 坍缩差紧上界仍在 Draft/非规范状态。 |
+| P002 | `RESOLVED` | `docs/P002_COLLAPSE_GAP_BOUND.zh-CN.md`：坍缩差具有紧盆地界 `0 <= G_p(n) <= (k+1)^p-k^p-1`，且仅在盆地最后一个状态取等号；gap 坐标在每个盆地内构成双射。 |
 | P003 | `OPEN` | 坍缩算子全局交换分类仍在 Draft/非规范状态。 |
 | P004 | `OPEN` | 任意有限坍缩词的不动点分类仍在 Draft/非规范状态。 |
 | P005 | `RESOLVED` | `docs/P005_SCALE_LATTICE_CORE.zh-CN.md`：用正整数总尺度因子统一尺度坐标，建立整除投影、gcd/lcm 尺度格、路径无关性及 inverse refinement 非唯一性。 |
