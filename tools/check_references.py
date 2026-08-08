@@ -7,14 +7,18 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SOURCES = ROOT / "sources.json"
 LINEAGE = ROOT / "lineage.json"
-PRIOR_EN = ROOT / "docs" / "PRIOR_ART_AND_NOVELTY.en.md"
-PRIOR_ZH = ROOT / "docs" / "PRIOR_ART_AND_NOVELTY.zh-CN.md"
+DOCS = ROOT / "docs"
 SRC_RE = re.compile(r"\[(SRC-[A-Z0-9-]+)\]")
 
 REQUIRED_SOURCE_FIELDS = {
     "id", "title", "authors", "year", "kind", "primary_url",
     "role", "enterprise_use", "not_claimed", "verified_at"
 }
+
+
+def prior_art_files(suffix: str) -> list[pathlib.Path]:
+    return sorted(DOCS.glob(f"PRIOR_ART*{suffix}"))
+
 
 def main() -> int:
     errors = []
@@ -67,7 +71,7 @@ def main() -> int:
         ROOT / "README.zh-CN.md",
         ROOT / "CONTRIBUTING.md",
         ROOT / "CONTRIBUTING.zh-CN.md",
-        *sorted((ROOT / "docs").glob("*.md")),
+        *sorted(DOCS.glob("*.md")),
     ]
     for path in prose_files:
         if not path.exists():
@@ -76,20 +80,31 @@ def main() -> int:
             if sid not in source_ids:
                 errors.append(f"{path.relative_to(ROOT)}: unknown citation [{sid}]")
 
-    for path in (PRIOR_EN, PRIOR_ZH):
-        text = path.read_text(encoding="utf-8")
-        cited = set(SRC_RE.findall(text))
+    # The canonical prior-art map may be split into bilingual appendices as it grows.
+    # Each language corpus must still cite every registered source at least once.
+    for label, suffix in (("English", ".en.md"), ("Chinese", ".zh-CN.md")):
+        paths = prior_art_files(suffix)
+        if not paths:
+            errors.append(f"missing {label} prior-art corpus")
+            continue
+        cited = set()
+        for path in paths:
+            cited.update(SRC_RE.findall(path.read_text(encoding="utf-8")))
         missing = sorted(source_ids - cited)
         if missing:
-            errors.append(f"{path.relative_to(ROOT)}: registered sources absent from main lineage map: {missing}")
+            errors.append(f"{label} prior-art corpus: registered sources absent from lineage prose: {missing}")
 
     if errors:
         for err in errors:
             print(f"ERROR: {err}")
         return 1
 
-    print(f"PASS: {len(source_ids)} sources and {len(component_ids)} lineage components form a valid citation/provenance graph.")
+    print(
+        f"PASS: {len(source_ids)} sources and {len(component_ids)} lineage components "
+        "form a valid bilingual citation/provenance graph."
+    )
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())
