@@ -188,7 +188,7 @@ For comparable precision factors `d|e`, begin with
 \[
 \pi_{e\to d}(x)=x//(e/d),
 \qquad
-\delta_{e:d}(x)=x\bmod(e/d)
+\delta_{e:d}(x)=x\bmod(e/d),
 \]
 
 and build a proof calculus in which:
@@ -230,6 +230,40 @@ The canonical result is stronger than the original collapse-only Draft attached 
 5. collapse words modulo stable equivalence form the lcm join-semilattice.
 
 P019 is deliberately separate from canonical P009 so that the already-resolved typed collapse+coarsening scope is not silently widened.
+
+## P020 — Lean formalization of well-founded finite stabilization
+
+Status: `RESOLVED` by `docs/P020_WELL_FOUNDED_STABILIZATION.en.md`  
+Difficulty: medium formalization
+
+Formalize the P019 mother theorem without specializing to perfect powers.
+
+For a partial order with well-founded strict order and a monotone reductive endomap `F`, prove in Lean that:
+
+1. there exists a finite `n` such that `F^[n] x` is the greatest original fixed point below `x`;
+2. finite stabilization is therefore theorem content, not an infinite-limit convention;
+3. the selected stabilization map is monotone, reductive and idempotent;
+4. stabilization has exactly the same fixed points as `F`.
+
+The warning-fatal Lean implementation is in `EnterpriseMath/Order/WellFoundedStabilization.lean` and uses the established mathlib well-founded and finite-iteration APIs.
+
+## P021 — Finite-precision discrete horizon and causal focusing
+
+Status: `RESERVED / ACTIVE RESEARCH`  
+Difficulty: research-hard
+
+Reserved for the black-hole / causal-focusing line currently preserved in research PR #48. The route studies finite causal boundaries, future-section expansion, focusing spectra, direction orbits and causal roles without claiming that a discrete prototype already derives general relativity or identifies physical shear/Ricci curvature.
+
+Historical branch filenames and internal prose may still contain the superseded P019 identifier until the next clean semantic replay.
+
+## P022 — Minimum-precision lattice geometry and distance carry
+
+Status: `RESERVED / ACTIVE RESEARCH`  
+Difficulty: research-hard
+
+Reserved for the lattice-geometry line currently preserved in research PR #50: integer-only `A_p`/root-lattice candidates, primitive graph distance, quadratic separation, finite-precision radial distance, additive-one triangle carry, shells/balls and geometry-aware collapse.
+
+FCC/HCP/BCC/`A_p` remain mathematical testing candidates rather than established physical space. Historical branch filenames and internal prose may still contain the superseded P019 identifier until clean replay.
 
 ## How to take a problem
 
