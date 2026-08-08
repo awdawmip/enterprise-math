@@ -1,0 +1,65 @@
+import Mathlib.Data.Set.Basic
+
+namespace EnterpriseMath.CompositionSafeCollapse
+
+variable {X Q R S : Type*}
+
+/-- `h` is constant on every fiber of `q`; equivalently, `h` may be observed
+without choosing a fine representative inside a `q`-class. -/
+def FiberConstant (q : X → Q) (h : X → R) : Prop :=
+  ∀ ⦃x y : X⦄, q x = q y → h x = h y
+
+/--
+A map on fine states factors uniquely through the represented range of a coarse
+map exactly when it is constant on every coarse fiber.
+-/
+theorem exists_range_factor_iff_fiberConstant (q : X → Q) (h : X → R) :
+    (∃ bar : Set.range q → R,
+        ∀ x : X, bar ⟨q x, ⟨x, rfl⟩⟩ = h x) ↔ FiberConstant q h := by
+  constructor
+  · rintro ⟨bar, hbar⟩ x y hxy
+    have hsub :
+        (⟨q x, ⟨x, rfl⟩⟩ : Set.range q) =
+          ⟨q y, ⟨y, rfl⟩⟩ := by
+      exact Subtype.ext hxy
+    calc
+      h x = bar ⟨q x, ⟨x, rfl⟩⟩ := (hbar x).symm
+      _ = bar ⟨q y, ⟨y, rfl⟩⟩ := congrArg bar hsub
+      _ = h y := hbar y
+  · intro hconst
+    classical
+    let preimage : Set.range q → X := fun z => Classical.choose z.property
+    refine ⟨fun z => h (preimage z), ?_⟩
+    intro x
+    apply hconst
+    change q (preimage ⟨q x, ⟨x, rfl⟩⟩) = q x
+    exact Classical.choose_spec (⟨q x, ⟨x, rfl⟩⟩ : Set.range q).property
+
+/-- The canonical one-step repair remembers the old coarse label and exactly
+one failed future observable. -/
+def repair (q : X → Q) (h : X → R) : X → Q × R :=
+  fun x => (q x, h x)
+
+/-- The repair never merges states that were already distinct at coarse level. -/
+theorem repair_refines_coarse (q : X → Q) (h : X → R) :
+    FiberConstant (repair q h) q := by
+  intro x y hxy
+  exact congrArg Prod.fst hxy
+
+/-- The failed observable always descends through the repaired state. -/
+theorem observable_descends_through_repair (q : X → Q) (h : X → R) :
+    FiberConstant (repair q h) h := by
+  intro x y hxy
+  exact congrArg Prod.snd hxy
+
+/--
+Coarsest-repair theorem: any state map `s` that already refines `q` and makes
+`h` fiber-constant must itself refine the pair repair `(q,h)`.
+-/
+theorem repair_coarsest (q : X → Q) (h : X → R) (s : X → S)
+    (hsq : FiberConstant s q) (hsh : FiberConstant s h) :
+    FiberConstant s (repair q h) := by
+  intro x y hxy
+  exact Prod.ext (hsq hxy) (hsh hxy)
+
+end EnterpriseMath.CompositionSafeCollapse
