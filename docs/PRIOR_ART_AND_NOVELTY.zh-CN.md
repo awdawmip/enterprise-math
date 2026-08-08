@@ -192,14 +192,23 @@ M_t(x)=|[x]_t|
 
 ### 7.4 平方盆地筛法压力测试
 
-Legendre 压力测试直接邻接成熟筛法文献，而不是处在没有前人工作的空白地带。
+Legendre 压力测试直接邻接成熟筛法与拓扑组合文献，而不是处在没有前人工作的空白地带。
 
 - Rota 的 Möbius 函数框架提供了除数格上有符号容斥与关联代数的成熟语言。[SRC-ROTA-1964-MOBIUS]
 - Campbell 证明每一对相邻平方之间都存在一个至多含三个素因子的整数，并明确说明继续减少素因子数时加权筛路线存在自然限制。[SRC-CAMPBELL-2026-SQUARES]
 - Sorenson 与 Webster 已经把 Oppermann 猜想、从而也把 Legendre 猜想的计算验证推进到 \(n=7.05\cdot10^{13}\)；这是有限验证，不是对所有 \(n\) 的证明。[SRC-SORENSON-WEBSTER-2025]
 - Holt 独立地把 Eratosthenes 筛研究为离散动力系统，并针对相邻平方区间提出 quadratic density 模型。[SRC-HOLT-2026-SIEVE-DYNAMICS]
+- Pakianathan 与 Winfree 已经建立 scalar quota/threshold complex 框架，证明其同伦等价于由狭窄 quota shell 所承载的一束球面，并明确研究以 \(\log p\) 为素数顶点权重、把素数乘积转化为 quota 条件的 `LogPrime` 复形。[SRC-PAKIANATHAN-WINFREE-2013-THRESHOLD]
 
-因此，进取数论**不**声称 Möbius 反演、筛法动力系统、平方区间筛选或这些计算验证属于我们的创新。当前项目特有的压力测试组合包括：精确的欧几里得盆地下降、平方进位观察量、二进制奇偶压缩、锚点面消去，以及“根—截断耦合”问题。它们的历史创新状态同样是 `NOVELTY_UNVERIFIED`：这些初等恒等式可能以其他语言早已出现；当前真正要检验的是，这套组合能否产生新的证明杠杆。
+因此，P017 中出现的截断穿越条件
+
+\[
+c\le T<pc
+\]
+
+并不是新发明的拓扑现象。在有限素数支撑上，使用权重 \(\log p\) 与 quota \(\log(T+1)\) 后，它正是成熟 quota-complex shell 条件的纯整数形式。L010 的符号反转配对可以理解为这一 shell 分解在 Euler 特征层面的影子。
+
+所以，进取数论**不**声称 Möbius 反演、筛法动力系统、平方区间筛选、quota/threshold complex、LogPrime 拓扑、shell-face bouquet 分解或这些计算验证属于我们的创新。当前项目特有的压力测试组合包括：精确欧几里得盆地下降、平方进位观察量、二进制奇偶压缩、锚点面消去、根—截断耦合，以及用整数根层级去分层哪些既有 threshold-complex shell 维数能够对 Euler 特征产生负贡献。最后这一组合的历史创新状态仍为 `NOVELTY_UNVERIFIED`；其价值必须由能否产生新的证明杠杆来检验。
 
 ## 8. 绝不能错误归因给我们的内容
 
@@ -219,6 +228,7 @@ Legendre 压力测试直接邻接成熟筛法文献，而不是处在没有前�
 - preimage entropy 或 folding entropy；
 - Möbius 反演或关联代数；
 - Eratosthenes 筛或其离散动力系统重述；
+- quota/threshold complex、LogPrime complex 及其 shell/bouquet 定理；
 - 相邻平方区间已有的 almost-prime 与计算验证结果。
 
 我们的责任是把这些谱系引用清楚，并精确说明自己的使用究竟改变在哪里。
