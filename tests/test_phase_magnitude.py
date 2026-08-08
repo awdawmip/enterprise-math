@@ -52,7 +52,7 @@ class PhaseMagnitudeTests(unittest.TestCase):
         self.assertEqual(schwarzschild_phase_magnitude(4, 4, horizon)[0], 1)
 
     def test_charged_zero_magnitude_does_not_determine_phase(self):
-        a, b, precision = 5, 5, 10
+        a, b, precision = 5, 5, 5
         observed = {
             radius: charged_phase_magnitude(precision, radius, a, b)
             for radius in range(1, 8)
@@ -62,8 +62,7 @@ class PhaseMagnitudeTests(unittest.TestCase):
             for phase, magnitude in observed.values()
             if magnitude == 0
         }
-        self.assertTrue(zero_magnitude_phases.issubset({-1, 0, 1}))
-        self.assertNotIn(0, zero_magnitude_phases)
+        self.assertEqual(zero_magnitude_phases, {-1, 1})
 
     def test_charged_exact_zero_vertex_requires_zero_phase(self):
         a, b = 10, 16  # roots 2 and 8
