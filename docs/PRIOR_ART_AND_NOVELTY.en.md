@@ -197,6 +197,7 @@ The Legendre pressure test sits directly next to mature sieve and topological-co
 - Sorenson and Webster computationally verified Oppermann, and hence Legendre, through \(n=7.05\cdot10^{13}\); this is a finite benchmark, not an all-\(n\) proof. [SRC-SORENSON-WEBSTER-2025]
 - Holt independently studies Eratosthenes sieve as a discrete dynamical system and introduces quadratic-density models for consecutive-square intervals. [SRC-HOLT-2026-SIEVE-DYNAMICS]
 - Pakianathan and Winfree establish scalar quota/threshold complexes, prove that they are homotopy equivalent to bouquets of spheres carried by a narrow quota shell, and explicitly study a `LogPrime` complex whose logarithmic prime weights convert prime products into quota conditions. [SRC-PAKIANATHAN-WINFREE-2013-THRESHOLD]
+- Björner and Tancer provide the standard finite combinatorial Alexander-duality theorem relating reduced homology of a simplicial complex to reduced cohomology of its Alexander dual in complementary dimension. [SRC-BJORNER-TANCER-2009-ALEXANDER]
 
 The cutoff-crossing condition appearing in P017,
 
@@ -206,7 +207,15 @@ c\le T<pc,
 
 is therefore not a newly invented topological phenomenon. On a finite prime support it is the integer form of the established quota-complex shell condition obtained by using weights \(\log p\) and quota \(\log(T+1)\). The L010 sign-reversing pairing is the Euler-characteristic shadow of that shell decomposition.
 
-Accordingly, Enterprise Math does **not** claim novelty for Möbius inversion, sieve dynamics, square-interval sieving, quota/threshold complexes, LogPrime topology, shell-face bouquet decompositions, or computational verification. The current project-specific pressure-test package consists of exact Euclidean basin descent, square-carry observables, binary parity compression, anchor-face cancellation, root-cutoff coupling, and the use of integer-root layers to stratify which established threshold-complex shell dimensions can contribute negative Euler characteristic. The historical novelty of that final combination remains `NOVELTY_UNVERIFIED`; its value must be judged by whether it yields new proof leverage.
+The Alexander-dual step is likewise grounded in prior art. The project-specific specialization begins by observing that for a finite prime support \(G\), the multiplicative threshold complex satisfies the exact identity
+
+\[
+K(G,T)^*=K\!\left(G,\left\lfloor\frac{G-1}{T}\right\rfloor\right).
+\]
+
+For a real square-basin state at \(T=2k\), the dual threshold is then forced below \(\lfloor(k+1)/2\rfloor\), matching the actual cofactor bound for every divisor above \(2k\). Combining that exact half-scale descent with the original and dual shell dimensions yields a two-sided integer-root filtration on the least prime.
+
+Accordingly, Enterprise Math does **not** claim novelty for Möbius inversion, sieve dynamics, square-interval sieving, quota/threshold complexes, LogPrime topology, shell-face bouquet decompositions, combinatorial Alexander duality, or computational verification. The current project-specific pressure-test package consists of exact Euclidean basin descent, square-carry observables, binary parity compression, anchor-face cancellation, root-cutoff coupling, integer-root stratification of threshold shells, and the square-basin half-scale specialization of Alexander duality. Historical novelty of that final combination remains `NOVELTY_UNVERIFIED`; its value must be judged by whether it yields new proof leverage.
 
 ## 8. What we must never misattribute
 
@@ -227,6 +236,7 @@ Do not attribute the following to Enterprise Math as inventions:
 - Möbius inversion or incidence algebras;
 - Eratosthenes sieve or its discrete-dynamical reinterpretations;
 - quota/threshold complexes, LogPrime complexes, or their shell/bouquet theorem;
+- combinatorial Alexander duality;
 - prior almost-prime or computational results for intervals between consecutive squares.
 
 Our responsibility is to cite those lines clearly and state exactly where our use changes.
