@@ -3,11 +3,11 @@
 A low-precision state denotes a finite fiber of compatible finer integer states.
 For coordinatewise monotone operations, evaluating the operation at the lower
 and upper corners of that finite cell gives an exact enclosure of every value in
-the cell.  A predicate whose decision boundary lies outside that enclosure is
+the cell. A predicate whose decision boundary lies outside that enclosure is
 therefore proved at the coarse precision and remains proved under all compatible
 refinements.
 
-This is a finite-state construction.  It does not interpret cells as enclosures
+This is a finite-state construction. It does not interpret cells as enclosures
 of hidden real numbers.
 """
 
@@ -63,7 +63,6 @@ def precision_cell_nesting(
     precision_ratio(middle, fine)
     coarse_cell = precision_cell(value, coarse, fine)
     middle_value = project_precision(value, middle, fine)
-    # Express the middle cell back in final fine coordinates.
     fine_per_middle = precision_ratio(middle, fine)
     refined_lower = fine_per_middle * middle_value
     refined_upper = fine_per_middle * (middle_value + 1) - 1
@@ -109,7 +108,7 @@ def monotone_cell_bounds(
 ) -> dict[str, int | list[int]]:
     """Evaluate a coordinatewise-monotone operation on the two cell corners.
 
-    The caller supplies the mathematical monotonicity contract.  The returned
+    The caller supplies the mathematical monotonicity contract. The returned
     bounds are exact consequences of that contract on this finite cell.
     """
     cell = vector_precision_cell(values, coarse, fine)
@@ -118,7 +117,11 @@ def monotone_cell_bounds(
     actual = operation(values)
     lower = operation(lower_args)
     upper = operation(upper_args)
-    for name, value in (("operation lower", lower), ("operation upper", upper), ("operation actual", actual)):
+    for name, value in (
+        ("operation lower", lower),
+        ("operation upper", upper),
+        ("operation actual", actual),
+    ):
         _require_natural(name, value)
     if lower > actual or actual > upper:
         raise ValueError(
@@ -199,16 +202,6 @@ def threshold_certificate_profile(
     for scale in scales:
         precision_ratio(previous, scale)
         precision_ratio(scale, finest_scale)
-        current_values = [
-            project_precision(value, scale, finest_scale)
-            for value in finest_values
-        ]
-        data = monotone_threshold_certificate(
-            operation, current_values, scale, scale, threshold
-        )
-        # The previous call uses the current states as exact states.  To retain
-        # the unresolved finer possibilities relative to the final precision,
-        # compute the cell directly in final coordinates.
         final_bounds = monotone_cell_bounds(
             operation, finest_values, scale, finest_scale
         )
@@ -217,7 +210,6 @@ def threshold_certificate_profile(
             int(final_bounds["image_upper"]),
             threshold,
         )
-        _ = data
         if decided is not None and status != decided:
             raise AssertionError("a coarse proof certificate was overturned")
         if status != UNRESOLVED:
@@ -253,9 +245,10 @@ def homogeneous_operation_defect(
       * operation is coordinatewise nondecreasing on N^m;
       * operation(r*x)=r^q operation(x) for positive integer r.
 
-    Under this contract the defect is bounded by one coarse output-cell image
-    width.  The implementation checks the resulting inequalities on the supplied
-    finite cell and raises if they fail.
+    The implementation verifies the homogeneity identity at both scaled corners
+    of the supplied coarse cell and verifies the monotone cell inequality at the
+    concrete fine point. Under the mathematical contract, the defect is bounded
+    by one coarse output-cell image width.
     """
     if not fine_values:
         raise ValueError("at least one input value is required")
@@ -266,22 +259,33 @@ def homogeneous_operation_defect(
     coarse_values = [
         project_precision(value, coarse, fine) for value in fine_values
     ]
-    coarse_output = operation(coarse_values)
-    fine_output = operation(fine_values)
     upper_corner = [value + 1 for value in coarse_values]
+    coarse_output = operation(coarse_values)
     upper_output = operation(upper_corner)
+    fine_output = operation(fine_values)
     for name, value in (
         ("coarse output", coarse_output),
-        ("fine output", fine_output),
         ("upper output", upper_output),
+        ("fine output", fine_output),
     ):
         _require_natural(name, value)
+
+    scaled_coarse_values = [ratio * value for value in coarse_values]
+    scaled_upper_values = [ratio * value for value in upper_corner]
+    if operation(scaled_coarse_values) != ratio**degree * coarse_output:
+        raise ValueError(
+            "operation violated degree-q homogeneity at the lower cell corner"
+        )
+    if operation(scaled_upper_values) != ratio**degree * upper_output:
+        raise ValueError(
+            "operation violated degree-q homogeneity at the upper cell corner"
+        )
 
     transported_lower = ratio**degree * coarse_output
     transported_upper = ratio**degree * upper_output
     if fine_output < transported_lower or fine_output > transported_upper:
         raise ValueError(
-            "operation violated its monotone homogeneous cell bounds"
+            "operation violated its coordinatewise-monotone homogeneous cell bounds"
         )
 
     recovered = fine_output // ratio**degree
