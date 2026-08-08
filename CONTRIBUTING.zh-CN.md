@@ -27,6 +27,7 @@
 2. `docs/THEOREMS.zh-CN.md`
 3. `docs/COUNTEREXAMPLES.zh-CN.md`
 4. `docs/OPEN_PROBLEMS.zh-CN.md`
+5. `docs/PRIOR_ART_AND_NOVELTY.zh-CN.md`
 
 尽可能选择一个已经编号的问题。
 
@@ -44,6 +45,22 @@
 不能把计算证据写成数学证明。
 
 不能把数学类比写成物理证据。
+
+## 前人工作与引用来源
+
+发现更早的前人工作本身就是一等贡献。
+
+如果你的变更实质使用了外部来源：
+
+1. 尽可能核验原始来源；
+2. 在 `sources.json` 中新增或复用稳定 `SRC-*` 记录；
+3. 在 `lineage.json` 中把来源连接到相关 `EM-COMP-*` 构件；
+4. 把关系标记为 `ADOPT`、`EXTEND`、`REINTERPRET`、`COMBINE`、`CONTRAST` 或 `INSPIRE`；
+5. 如果新来源改变了思想谱系或创新边界，同步更新双语前人工作/创新图。
+
+不能因为一次检索没有发现相同结果，就声称拥有历史优先权。
+
+修改创新表述前，请阅读 `docs/CITATION_POLICY.zh-CN.md`。
 
 ## 双语规范文档
 
@@ -69,6 +86,7 @@ v0.1 参考核心只允许整数运算。
 ```bash
 PYTHONPATH=src python -m unittest discover -s tests -v
 python tools/check_bilingual_pairs.py
+python tools/check_references.py
 ```
 
 ## Pull Request
@@ -81,6 +99,7 @@ python tools/check_bilingual_pairs.py
 - 它属于证明、反例、计算还是解释；
 - 测试或证明证据；
 - 相关的前人工作；
+- 使用外部工作时对应的 `SRC-*` / `EM-COMP-*` 谱系变更；
 - 它对应哪个开放问题编号。
 
 ## 贡献信用

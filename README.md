@@ -65,6 +65,19 @@ Read:
 - [open problems](docs/OPEN_PROBLEMS.en.md)
 - [roadmap](docs/ROADMAP.en.md)
 - [prior work](docs/REFERENCES.en.md)
+- [prior-art lineage and provisional novelty map](docs/PRIOR_ART_AND_NOVELTY.en.md)
+- [citation and intellectual-lineage policy](docs/CITATION_POLICY.en.md)
+
+## Prior art and novelty discipline
+
+The project does not treat neighboring mathematics as a threat to originality. It records exactly what is adopted, contrasted, reinterpreted, or combined.
+
+The machine-readable registries are:
+
+- `sources.json` — stable `SRC-*` bibliographic and usage records;
+- `lineage.json` — source-to-component relationships and novelty status.
+
+The overall historical novelty of the integrated framework is currently **`NOVELTY_UNVERIFIED`**. We may say “we define”, “we propose”, or “we combine”; we do not claim “first” or “unprecedented” without a dedicated priority review.
 
 ## Start contributing in five minutes
 

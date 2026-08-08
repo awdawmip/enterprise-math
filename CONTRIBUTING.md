@@ -27,6 +27,7 @@ Before proposing a broad new theory, read:
 2. `docs/THEOREMS.en.md`
 3. `docs/COUNTEREXAMPLES.en.md`
 4. `docs/OPEN_PROBLEMS.en.md`
+5. `docs/PRIOR_ART_AND_NOVELTY.en.md`
 
 Choose one numbered item when possible.
 
@@ -44,6 +45,22 @@ Every substantive claim should be labeled as one of:
 Do not present computational evidence as proof.
 
 Do not present a mathematical analogy as physical evidence.
+
+## Prior art and citation provenance
+
+Finding earlier work is a first-class contribution.
+
+If your change materially uses an external source:
+
+1. verify the primary source when possible;
+2. add or reuse its stable `SRC-*` entry in `sources.json`;
+3. connect it to the relevant `EM-COMP-*` component in `lineage.json`;
+4. classify the relationship as `ADOPT`, `EXTEND`, `REINTERPRET`, `COMBINE`, `CONTRAST`, or `INSPIRE`;
+5. update the bilingual prior-art/novelty map when the new source changes the lineage or novelty boundary.
+
+Do not claim historical priority merely because a search did not find a match.
+
+Read `docs/CITATION_POLICY.en.md` before changing novelty language.
 
 ## Bilingual canonical documents
 
@@ -69,6 +86,7 @@ Run:
 ```bash
 PYTHONPATH=src python -m unittest discover -s tests -v
 python tools/check_bilingual_pairs.py
+python tools/check_references.py
 ```
 
 ## Pull requests
@@ -81,6 +99,7 @@ A good pull request explains:
 - whether it is proof, counterexample, computation, or interpretation;
 - tests or proof evidence;
 - nearby prior work when relevant;
+- the `SRC-*` / `EM-COMP-*` lineage changes when external work is used;
 - which open-problem ID it addresses.
 
 ## Credit

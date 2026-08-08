@@ -65,6 +65,19 @@ C_2(20000)=19881.
 - [开放问题](docs/OPEN_PROBLEMS.zh-CN.md)
 - [研究路线](docs/ROADMAP.zh-CN.md)
 - [前人工作](docs/REFERENCES.zh-CN.md)
+- [前人工作谱系与暂定创新边界](docs/PRIOR_ART_AND_NOVELTY.zh-CN.md)
+- [引用与思想谱系规则](docs/CITATION_POLICY.zh-CN.md)
+
+## 前人工作与创新纪律
+
+项目不把“找到相邻数学”视为对原创性的威胁，而是明确记录每一项内容究竟属于采用、对照、重新解释还是组合。
+
+机器可读登记表为：
+
+- `sources.json`——稳定 `SRC-*` 书目与使用记录；
+- `lineage.json`——来源到项目构件的关系以及创新状态。
+
+当前整体框架的历史创新状态是 **`NOVELTY_UNVERIFIED`**。我们可以写“我们定义”“我们提出”“我们组合”，但在没有专门优先性审查前，不写“首次”或“前所未有”。
 
 ## 五分钟开始参与
 
