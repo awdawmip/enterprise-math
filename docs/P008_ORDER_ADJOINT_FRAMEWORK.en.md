@@ -1,6 +1,6 @@
 # P008 — Minimal Order-Theoretic Framework
 
-Status: `RESEARCH-DRAFT`  
+Status: `VERIFIED-RESEARCH`  
 Open problem: `P008`  
 Scope: mathematical structure only
 
@@ -12,7 +12,7 @@ The first-stage conclusion is deliberately small:
 
 > The v0.1 root/collapse core does not require a lattice, a complete lattice, a residuated lattice, a field, or a real-number completion. Its essential mature structure is a Galois connection between partially ordered sets. In the integer-root case the connection is a Galois coinsertion, and the induced collapse is an interior operator.
 
-This is established order theory, not a new Enterprise Math invention. Enterprise Math's project-specific contribution is the way this structure is selected and interpreted inside the finite-state / explicit-scale framework. Relevant registered prior art: `SRC-MATHLIB-FLOORDIV` and `SRC-MATHLIB-CLOSURE`.
+This is established order theory, not a new Enterprise Math invention. Enterprise Math's project-specific contribution is the way this structure is selected and interpreted inside the finite-state / explicit-scale framework. Relevant registered prior art includes `SRC-MATHLIB-NTHROOT`, `SRC-MATHLIB-FLOORDIV`, and `SRC-MATHLIB-CLOSURE`.
 
 ## 2. Right-adjoint notation
 
@@ -284,6 +284,8 @@ a\le F^\downarrow(G^\downarrow(c)).
 
 ∎
 
+This is already standard mathlib Galois-connection machinery; P008 does not claim it as new.
+
 ### Corollary P008-C01 — Integer roots compose multiplicatively in the exponent
 
 Status: `PROVED`
@@ -291,7 +293,7 @@ Status: `PROVED`
 For \(p,q\ge1\),
 
 \[
-R_{pq}=R_q\circ R_p=R_p\circ R_q.
+R_{pq}=R_p\circ R_q=R_q\circ R_p.
 \]
 
 Reason: the power maps satisfy
@@ -302,7 +304,7 @@ P_p\circ P_q=P_q\circ P_p=P_{pq},
 
 and right adjoints are unique.
 
-This is a new theorem in the Enterprise Math theorem inventory, but its proof is an application of established adjoint theory rather than a claim of a new order-theoretic principle.
+This result has been promoted to T013/T014. It is Lean-checked in `EnterpriseMath.Arithmetic.IntegerRoot.root_mul` and `root_mul_comm`. The underlying composition principle is established order theory; whether the specialized `Nat.nthRoot` composition statement is useful upstream remains under audit.
 
 ## 9. Scale compatibility as an adjoint identity
 
@@ -312,7 +314,7 @@ Let \(M_b(k)=bk\) and \(D_b(n)=n\operatorname{//}b\). For \(b\ge1\),
 P_p\circ M_b=M_{b^p}\circ P_p.
 \]
 
-Both sides have right adjoints. Applying P008-T08 and uniqueness of right adjoints gives
+Both sides have right adjoints. Existing mathlib commuting-square machinery transfers this equality to
 
 \[
 D_b\circ R_p=R_p\circ D_{b^p}.
@@ -335,6 +337,8 @@ More precisely, the operator identity is
 \[
 D_bR_p=R_pD_{b^p}.
 \]
+
+This result is now T015 and is Lean-checked as `EnterpriseMath.Scale.root_div_scale`.
 
 ### Corollary P008-C02 — Existing T010 is structural
 
@@ -362,7 +366,7 @@ So T010 is not an isolated property of powers. It is the right-adjoint shadow of
 P_pM_b=M_{b^p}P_p.
 \]
 
-This observation is likely the most useful P008 bridge into the future multi-scale algebra.
+The result is Lean-checked as `EnterpriseMath.Scale.scaledRoot_succ_div` and resolves P014.
 
 ## 10. Representation by fixed states
 
@@ -391,7 +395,7 @@ Therefore the two descriptions are equivalent at this level:
 - Galois coinsertion / coreflection onto a subposet;
 - monotone reductive idempotent interior operator.
 
-Again, this equivalence is established order theory. Enterprise Math should reuse it rather than invent a parallel vocabulary.
+Again, this equivalence is established order theory. Enterprise Math reuses it rather than inventing parallel vocabulary.
 
 ## 11. Why the framework should not yet be enlarged
 
@@ -420,6 +424,8 @@ Let \(F(k)=0\) for all \(k\). It is monotone, but for every \(n\ge0\),
 
 has no maximum. Thus monotonicity alone does not guarantee that the concrete max formula defines a right adjoint on \(\mathbb N\).
 
+Promoted to counterexample C011.
+
 ### P008-CE02 — Unboundedness without monotonicity does not give the adjunction law
 
 Define
@@ -436,20 +442,39 @@ F(k)\le n\iff k\le F^\downarrow(n)
 
 fails. Monotonicity is structurally essential to the greatest-state construction.
 
+Promoted to counterexample C012.
+
 ## 13. First-stage answer to P008
 
-The current best answer is:
+The verified first-stage answer is:
 
-> **The minimal mature structure for the v0.1 root/collapse core is a Galois connection between partial orders; the integer-root map is a Galois coinsertion, and its collapse is the corresponding interior/coreflection operator.**
+> **A Galois connection between partial orders is sufficient for the v0.1 root/collapse core; the integer-root map is a Galois coinsertion, and its collapse is the corresponding interior/coreflection projection.**
 
 For natural-number implementations, monotone unbounded maps with \(F(0)=0\) provide a broad constructive class whose right adjoints are greatest-admissible-state operators.
 
-This answer reduces, rather than enlarges, the theory. It also gives immediate reusable proofs for roots, flooring division, collapse idempotence, basin structure, composition, and scale compatibility.
+The order-theoretic mother results were found to be existing mathlib mathematics. P008 therefore reduced the required foundation rather than creating a parallel algebraic vocabulary. P008 remains `PARTIAL-RESOLUTION` only because the literal claim of *weakest possible structure for all future extensions* has not been proved.
 
-## 14. Next attacks
+## 14. Formal verification status
 
-1. Formalize P008-T02 through P008-T10 in Lean using Mathlib's existing Galois-connection API.
-2. Decide which results should be promoted into the main numbered theorem inventory after review.
-3. Use the framework to attack P003 (collapse commutation) without merging P003 conceptually into P008.
-4. Use the commuting-square/right-adjoint method to formulate P005 multi-base scale algebra.
-5. Search deeper order-theory literature only where Mathlib's established terminology does not already settle the structural question.
+The mathlib-native Lean layer now kernel-checks:
+
+- T001 root characterization;
+- T002 exact perfect powers;
+- T004 collapse contractivity;
+- T005 collapse idempotence;
+- T006 perfect-power fixed points;
+- T010 scale compatibility;
+- T012 history-merging monotonicity;
+- T013 integer-root exponent composition;
+- T014 iterated-root commutation;
+- T015 root/division interchange;
+- thin general adjoint-collapse wrappers.
+
+The build is pinned and runs with warnings fatal. P013 and P014 are therefore resolved.
+
+## 15. Next attacks
+
+1. Keep `root_mul` / `root_mul_comm` only as provisional mathlib upstream candidates until a mathlib-facing API review confirms absence and usefulness.
+2. Attack P003 (collapse commutation) using divisibility and the P008 projection structure, without merging P003 conceptually into P008.
+3. Use the commuting-square/right-adjoint method to formulate P005 multi-base scale algebra.
+4. Keep P008 open only for true minimality questions introduced by later structures; do not add heavier algebra pre-emptively.
