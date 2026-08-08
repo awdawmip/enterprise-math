@@ -67,6 +67,8 @@ Read:
 - [prior work](docs/REFERENCES.en.md)
 - [prior-art lineage and provisional novelty map](docs/PRIOR_ART_AND_NOVELTY.en.md)
 - [citation and intellectual-lineage policy](docs/CITATION_POLICY.en.md)
+- [P008 order-adjoint framework](docs/P008_ORDER_ADJOINT_FRAMEWORK.en.md)
+- [P008 mathlib audit](docs/P008_MATHLIB_AUDIT.en.md)
 
 ## Prior art and novelty discipline
 
@@ -114,6 +116,22 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
 The implementation is an executable specification and counterexample finder, not a substitute for proof.
+
+## Formal verification
+
+The repository now also contains a mathlib-native Lean layer under `EnterpriseMath/`. It deliberately reuses established mathlib objects instead of duplicating them; in particular, the formal integer root is Mathlib's `Nat.nthRoot`, while `R_p` remains the Enterprise Math mathematical notation and interpretation.
+
+The Lean project pins an exact mathlib revision and matching Lean toolchain for reproducibility. Current formalizations cover root characterization, perfect-power recovery, collapse contractivity/idempotence/fixed points, scale compatibility, merged-history monotonicity, exponent composition of integer roots, iterated-root commutation, and root/division interchange.
+
+Run:
+
+```bash
+lake update
+lake exe cache get
+lake build --wfail -KCI EnterpriseMath
+```
+
+Lean CI treats warnings as failures. Formal verification establishes the stated mathematical consequences of the definitions; it does not establish the project's stronger physical hypotheses.
 
 ## Bilingual rule
 
