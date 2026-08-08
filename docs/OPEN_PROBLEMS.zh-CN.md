@@ -122,15 +122,14 @@ M_{t+1}(x)\ge M_t(x).
 
 提出与有限分辨率思想相容的整数值距离或关系，然后证明哪些度量公理能够保留。
 
-## P013 —— 用 Lean 形式化根/坍缩基础
+## P013 —— 用 Lean 形式化 T001 与 T005
 
 难度：简单到中等  
-适合作为首个形式化问题：是  
-当前状态：`PARTIAL-RESOLUTION`
+当前状态：`RESOLVED`
 
-P008 的 mathlib-native 形式化层已经直接复用 Mathlib 的 `Nat.nthRoot` 与 Galois connection API，并由 Lean 检查了坍缩向下收缩、坍缩幂等、完全幂不动点、完全幂精确恢复以及通用伴随坍缩薄包装。
+T001 已由 `EnterpriseMath.Arithmetic.IntegerRoot.root_eq_iff` 通过 Lean 检查，T005 已由 `EnterpriseMath.Arithmetic.IntegerRoot.collapse_idempotent` 通过 Lean 检查。
 
-原问题剩余目标是：如果确实能增加项目 API 价值而不是重复 mathlib，则在进取数论命名空间中暴露 T001 的完整区间刻画。T012 也仍是后续 Lean 目标。
+形式化直接复用 Mathlib 已有的 `Nat.nthRoot` 与序论定理，没有另造平行根原语，也没有绕经实数平方根。同一轮 P008 形式化还检查了 T002、T004、T006、T012、T013、T014 与 T015。
 
 ## P014 —— 用 Lean 形式化尺度相容
 
