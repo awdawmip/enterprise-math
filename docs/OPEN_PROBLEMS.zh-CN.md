@@ -212,6 +212,36 @@ M_{t+1}(x)>M_t(x)
 
 不得预设隐藏实数完成，也不得把 `d -> infinity` 极限当作核心定义。filtered/associated graded、multiresolution analysis、interval arithmetic、p-adic precision tracking、projective system、Möbius inversion 等成熟前人工作必须明确引用，不能换名后据为项目原创。
 
+## P019 —— 离散黑洞视界与因果壳层坍缩
+
+状态：`ACTIVE RESEARCH NOTE / PHYSICAL INTERPRETATION TESTING`  
+难度：研究级困难  
+Issue：`#46`
+
+把 Schwarzschild 视界作为整数优先 finite-precision 框架第一次直接面对物理公式的压力测试。
+
+第一阶段模型定义
+
+\[
+q_\lambda(n;h)=\left\lfloor\frac{\lambda|n-h|}{n}\right\rfloor
+\]
+
+其中 `n` 是正径向状态，`h` 是视界状态，`lambda` 是整数 precision。
+
+当前已证明目标与下一批问题见 `docs/P019_DISCRETE_BLACK_HOLE_HORIZON.zh-CN.md`：
+
+1. 整除 precision 链上的精确 projection；
+2. 有限零视界 fiber 与 singleton 阈值 `lambda>=h+1`；
+3. 整数根钟速壳层及其跳级现象；
+4. 外部扩张、视界零扩张、内部收敛的 primitive outgoing causal phase；
+5. 从一维核生成的一般 `Z^d` L1 壳层计数；
+6. 严格区分 P018 precision ambiguity 与 P010/P011 forward-time history merging；
+7. coordinate-free 重写、typed mass-to-horizon 校准及定量 redshift/geodesic 恢复；
+8. Reissner–Nordström、Kerr 与 dynamical horizon 压力测试；
+9. 对各向异性、协变性失败以及与黑洞观测不一致建立物理 kill tests。
+
+不得把 `Z^3` benchmark 的 `4h^2+2` 直接认作物理 Schwarzschild 面积或黑洞熵。边界计数的指数是当前数学结构结果，物理解释仍开放。
+
 ## 如何领取问题
 
 可以创建一个标题包含问题编号的 GitHub Issue，或者在已经存在的对应 Issue 下参与讨论。
