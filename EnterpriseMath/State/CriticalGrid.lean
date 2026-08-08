@@ -1,3 +1,5 @@
+import Mathlib.Tactic
+
 namespace EnterpriseMath.CriticalGrid
 
 /-- Compose adjacent endpoint pairs.  The equality proof records that the
