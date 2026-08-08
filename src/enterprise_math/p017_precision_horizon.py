@@ -14,13 +14,14 @@ the P018 contribution under test is the proof-precision organization.
 
 from __future__ import annotations
 
+from functools import lru_cache
+
 from .adaptive_precision import conflict_multiplicity
 from .core import integer_nth_root
 from .factor_precision import (
     factor_survivors,
     factor_witness_state,
     first_factor_shell,
-    smallest_prime_factor,
     square_basin,
 )
 from .legendre import is_prime, primes_up_to
@@ -123,19 +124,28 @@ def witness_bit_chain_is_compatible(
     return True
 
 
+@lru_cache(maxsize=None)
 def survivor_prime_horizon(k: int) -> int:
     """Smallest cutoff after which every factor survivor is prime.
 
     Equivalently, this is the maximum least-prime-factor among composite states in
     the open square basin, with value 0 if the basin contains no composites.
+
+    The implementation deliberately reuses the proved square-basin root-factor
+    cutoff: every composite in the basin has a prime divisor <=k.  It therefore
+    builds the prime list only once up to k and scans each of the 2k basin states
+    for its first visible divisor, rather than generating primes up to each n.
     """
     _require_positive("k", k)
-    composite_spfs = [
-        smallest_prime_factor(n)
-        for n in square_basin(k)
-        if not is_prime(n)
-    ]
-    return max(composite_spfs, default=0)
+    tested = primes_up_to(k)
+    horizon = 0
+    for n in square_basin(k):
+        for p in tested:
+            if n % p == 0:
+                if p > horizon:
+                    horizon = p
+                break
+    return horizon
 
 
 def survivor_prime_horizon_data(k: int) -> dict[str, object]:
