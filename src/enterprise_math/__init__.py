@@ -30,6 +30,7 @@ from .signed import (
     signed_order_collapse,
     signed_order_root,
 )
+from .typed_scale import ScaleState, collapse_tagged, project_tagged, strict_rank_decrease
 
 __all__ = [
     "integer_nth_root",
@@ -52,6 +53,10 @@ __all__ = [
     "project_scale_factor",
     "greatest_common_coarsening",
     "least_common_refinement",
+    "ScaleState",
+    "project_tagged",
+    "collapse_tagged",
+    "strict_rank_decrease",
     "a_graph_distance",
     "a_quadratic_separation",
     "a_collapsed_radial_distance",
