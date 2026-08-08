@@ -252,6 +252,8 @@ G_1(F_1x)-G_0(F_0x)=\Omega(x).
 
 The second decomposition is symmetric. ∎
 
+### Interpretation
+
 The first route transports the first-stage displacement through `G_0` and then switches `G_0→G_1` at `F_1(x)`. The second route switches the operation family at `F_0(x)` and then transports the same displacement through `G_1`.
 
 ---
@@ -656,7 +658,6 @@ The current hierarchy is therefore more precise:
 \text{Difference/holonomy is its numeric coordinate;}
 \quad
 \text{nonconfluence means the outer pair is off the diagonal.}
-}
 \]
 
 This simultaneously contains P003, P009, P010, and P020 without deleting their more specific structures.
