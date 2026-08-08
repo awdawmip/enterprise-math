@@ -50,7 +50,10 @@ class CutoffPairingTests(unittest.TestCase):
                 )
                 betti = threshold_shell_betti(primes, threshold)
                 self.assertEqual(
-                    sum((1 if dim % 2 == 0 else -1) * rank for dim, rank in betti.items()),
+                    sum(
+                        (1 if dim % 2 == 0 else -1) * rank
+                        for dim, rank in betti.items()
+                    ),
                     mobius_divisor_tail(primes, threshold),
                 )
 
@@ -64,8 +67,12 @@ class CutoffPairingTests(unittest.TestCase):
         for primes in prime_sets:
             least = min(primes)
             for threshold in range(least, 250):
-                for c, dimension, _sign in threshold_shell_faces(primes, threshold):
-                    bound = shell_dimension_root_bound(least, dimension, threshold)
+                for c, dimension, _sign in threshold_shell_faces(
+                    primes, threshold
+                ):
+                    bound = shell_dimension_root_bound(
+                        least, dimension, threshold
+                    )
                     self.assertLessEqual(least, bound)
                     self.assertLessEqual(least ** (dimension + 1), c)
                     self.assertLessEqual(c, threshold)
@@ -86,15 +93,17 @@ class CutoffPairingTests(unittest.TestCase):
                 least = support[0]
                 self.assertEqual(
                     mobius_divisor_tail(support, threshold),
-                    cutoff_crossing_boundary_sum(support, least, threshold),
+                    cutoff_crossing_boundary_sum(
+                        support, least, threshold
+                    ),
                 )
                 self.assertEqual(
                     mobius_divisor_tail(support, threshold),
                     threshold_shell_reduced_euler(support, threshold),
                 )
 
-    def test_negative_boundary_terms_obey_root_hierarchy(self):
-        saw_depth = set()
+    def test_actual_negative_boundary_terms_obey_root_hierarchy(self):
+        saw_depth_three = False
         for k in range(8, 140):
             anchor = anchor_product(k)
             threshold = 2 * k
@@ -120,9 +129,25 @@ class CutoffPairingTests(unittest.TestCase):
                         root_bound,
                         integer_nth_root(threshold, 2 * m),
                     )
-                    saw_depth.add(2 * m + 1)
-        self.assertIn(3, saw_depth)
-        self.assertIn(5, saw_depth)
+                    if 2 * m + 1 == 3:
+                        saw_depth_three = True
+        self.assertTrue(saw_depth_three)
+
+    def test_constructed_depth_five_boundary_obeys_root_hierarchy(self):
+        # Generic L011 does not assert that every depth must occur in a tiny
+        # consecutive-square sample.  This explicit square-free boundary gives
+        # a depth-five negative edge: c=5*7*11*13<=6000<3*c.
+        least = 3
+        c = 5 * 7 * 11 * 13
+        boundary = least * c
+        threshold = 6000
+        m, root_bound, reduced = negative_boundary_root_bound(
+            least, boundary, threshold
+        )
+        self.assertEqual(m, 2)
+        self.assertEqual(reduced, c)
+        self.assertLessEqual(least, root_bound)
+        self.assertEqual(root_bound, integer_nth_root(threshold, 4))
 
     def test_every_negative_crossing_has_depth_at_least_three(self):
         for k in range(3, 100):
@@ -143,7 +168,9 @@ class CutoffPairingTests(unittest.TestCase):
                         # impossible because the least factor is <=k.
                         factors = [p for p in support if b % p == 0]
                         self.assertGreaterEqual(len(factors), 3)
-                        self.assertLessEqual(least, integer_nth_root(threshold, 2))
+                        self.assertLessEqual(
+                            least, integer_nth_root(threshold, 2)
+                        )
 
 
 if __name__ == "__main__":
