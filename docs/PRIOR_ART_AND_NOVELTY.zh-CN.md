@@ -199,6 +199,7 @@ Legendre 压力测试直接邻接成熟筛法与拓扑组合文献，而不是�
 - Sorenson 与 Webster 已经把 Oppermann 猜想、从而也把 Legendre 猜想的计算验证推进到 \(n=7.05\cdot10^{13}\)；这是有限验证，不是对所有 \(n\) 的证明。[SRC-SORENSON-WEBSTER-2025]
 - Holt 独立地把 Eratosthenes 筛研究为离散动力系统，并针对相邻平方区间提出 quadratic density 模型。[SRC-HOLT-2026-SIEVE-DYNAMICS]
 - Pakianathan 与 Winfree 已经建立 scalar quota/threshold complex 框架，证明其同伦等价于由狭窄 quota shell 所承载的一束球面，并明确研究以 \(\log p\) 为素数顶点权重、把素数乘积转化为 quota 条件的 `LogPrime` 复形。[SRC-PAKIANATHAN-WINFREE-2013-THRESHOLD]
+- Björner 与 Tancer 给出有限单纯复形上的标准 combinatorial Alexander duality，把一个复形的约化同调与其 Alexander dual 在互补维数上的约化上同调联系起来。[SRC-BJORNER-TANCER-2009-ALEXANDER]
 
 因此，P017 中出现的截断穿越条件
 
@@ -208,7 +209,15 @@ c\le T<pc
 
 并不是新发明的拓扑现象。在有限素数支撑上，使用权重 \(\log p\) 与 quota \(\log(T+1)\) 后，它正是成熟 quota-complex shell 条件的纯整数形式。L010 的符号反转配对可以理解为这一 shell 分解在 Euler 特征层面的影子。
 
-所以，进取数论**不**声称 Möbius 反演、筛法动力系统、平方区间筛选、quota/threshold complex、LogPrime 拓扑、shell-face bouquet 分解或这些计算验证属于我们的创新。当前项目特有的压力测试组合包括：精确欧几里得盆地下降、平方进位观察量、二进制奇偶压缩、锚点面消去、根—截断耦合，以及用整数根层级去分层哪些既有 threshold-complex shell 维数能够对 Euler 特征产生负贡献。最后这一组合的历史创新状态仍为 `NOVELTY_UNVERIFIED`；其价值必须由能否产生新的证明杠杆来检验。
+Alexander 对偶这一步同样建立在前人工作上。项目的专门化从如下精确恒等式开始：对有限素数支撑乘积 \(G\)，
+
+\[
+K(G,T)^*=K\!\left(G,\left\lfloor\frac{G-1}{T}\right\rfloor\right).
+\]
+
+当对象是真实平方盆地状态且 \(T=2k\) 时，对偶阈值被强制压到 \(\lfloor(k+1)/2\rfloor\) 以下；这与每一个 \(2k\) 以上真实除数的余因子上界完全对应。再把原复形与对偶复形的 shell 维数结合，就得到对最小素数的双侧整数根过滤。
+
+所以，进取数论**不**声称 Möbius 反演、筛法动力系统、平方区间筛选、quota/threshold complex、LogPrime 拓扑、shell-face bouquet 分解、combinatorial Alexander duality 或这些计算验证属于我们的创新。当前项目特有的压力测试组合包括：精确欧几里得盆地下降、平方进位观察量、二进制奇偶压缩、锚点面消去、根—截断耦合、threshold shell 的整数根分层，以及 Alexander 对偶在平方盆地中的半尺度专门化。最后这一组合的历史创新状态仍为 `NOVELTY_UNVERIFIED`；其价值必须由能否产生新的证明杠杆来检验。
 
 ## 8. 绝不能错误归因给我们的内容
 
@@ -229,6 +238,7 @@ c\le T<pc
 - Möbius 反演或关联代数；
 - Eratosthenes 筛或其离散动力系统重述；
 - quota/threshold complex、LogPrime complex 及其 shell/bouquet 定理；
+- combinatorial Alexander duality；
 - 相邻平方区间已有的 almost-prime 与计算验证结果。
 
 我们的责任是把这些谱系引用清楚，并精确说明自己的使用究竟改变在哪里。
