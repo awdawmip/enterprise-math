@@ -65,7 +65,7 @@ def residue_kernel(checks: Matrix, modulus: int) -> tuple[Word, ...]:
 
 
 def hamming_weight(word: Word) -> int:
-    return sum(value % 1 != 0 for value in ()) if False else sum(value != 0 for value in word)
+    return sum(value != 0 for value in word)
 
 
 def minimum_nonzero_support(codewords: tuple[Word, ...]) -> int | None:
