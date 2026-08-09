@@ -27,6 +27,18 @@ class P017P018BonferroniDefectTests(unittest.TestCase):
         self.assertEqual(odd_bonferroni_point_defect(6, 5)["defect"], 1)
         self.assertEqual(odd_bonferroni_point_defect(7, 5)["defect"], 6)
 
+    def test_odd_order_defect_is_not_monotone_before_exactness(self):
+        order_three = odd_bonferroni_point_defect(10, 3)
+        order_five = odd_bonferroni_point_defect(10, 5)
+        self.assertEqual(order_three["defect"], 84)
+        self.assertEqual(order_five["defect"], 126)
+        self.assertGreater(order_five["defect"], order_three["defect"])
+
+        # Once the truncation reaches the support size, all larger odd orders
+        # remain exact because there are no further nonzero binomial terms.
+        self.assertEqual(odd_bonferroni_point_defect(10, 11)["defect"], 0)
+        self.assertEqual(odd_bonferroni_point_defect(10, 13)["defect"], 0)
+
     def test_family_identity(self):
         data = family_bonferroni_defect((0, 1, 2, 5, 6, 7), 5)
         self.assertEqual(data["nonempty_union"], 5)
