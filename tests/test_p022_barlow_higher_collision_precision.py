@@ -6,6 +6,8 @@ from enterprise_math.p022_barlow_higher_collision_precision import (
     central_binomial_exchange_products,
     generalized_binomial_power_sum,
     minimal_spectrum_tradeoff,
+    one_three_exchange_phase,
+    one_three_to_two_two_moment_difference,
     ordered_equal_observation_tuple_count,
     selected_collision_count,
 )
@@ -124,21 +126,25 @@ def test_full_collision_spectrum_has_no_single_balanced_optimum() -> None:
     assert tradeoff["balanced_J1_J4"] == (16, 10, 4, 1)
     assert tradeoff["unbalanced_J1_J4"] == (16, 12, 4, 0)
 
-    # Balanced is strictly better for pair ambiguity but strictly worse at J4.
     assert tradeoff["balanced_J1_J4"][1] < tradeoff["unbalanced_J1_J4"][1]
     assert tradeoff["balanced_J1_J4"][3] > tradeoff["unbalanced_J1_J4"][3]
 
 
-def test_generalized_power_sum_exchange_already_reverses_at_order_five() -> None:
-    # F_5(1)=2, F_5(2)=34, F_5(3)=488.
+def test_shortest_balancing_exchange_has_exact_moment_phase_transition() -> None:
+    assert one_three_exchange_phase(1) == 0
+    for order in (2, 3, 4):
+        assert one_three_exchange_phase(order) == -1
+        assert one_three_to_two_two_moment_difference(order) < 0
+    for order in range(5, 20):
+        assert one_three_exchange_phase(order) == 1
+        assert one_three_to_two_two_moment_difference(order) > 0
+
+    assert one_three_to_two_two_moment_difference(4) == -16
+    assert one_three_to_two_two_moment_difference(5) == 180
+
+
+def test_order_five_values_match_the_phase_formula() -> None:
     assert generalized_binomial_power_sum(1, 5) == 2
     assert generalized_binomial_power_sum(2, 5) == 34
     assert generalized_binomial_power_sum(3, 5) == 488
-
-    balanced = generalized_binomial_power_sum(2, 5) ** 2
-    unbalanced = generalized_binomial_power_sum(
-        1, 5
-    ) * generalized_binomial_power_sum(3, 5)
-    assert balanced == 1156
-    assert unbalanced == 976
-    assert balanced > unbalanced
+    assert 34**2 - 2 * 488 == 180
