@@ -20,7 +20,11 @@ theorem div_square_le_square_div {k d : ℕ} (hd : 0 < d) :
 
 /-- P018-T110: dividing a complete square-collapse basin by any integer `d ≥ 2`
 can move the square-root index to only two adjacent values, and the base quotient
-root is strictly below the original basin index. -/
+root is strictly below the original basin index.
+
+If `j = R₂(⌊k²/d⌋)` and `k² ≤ n < (k+1)²`, then
+`R₂(⌊n/d⌋) ∈ {j,j+1}` and `j < k`.
+-/
 theorem square_basin_div_root_pair
     {k d n : ℕ} (hk : 0 < k) (hd : 2 ≤ d)
     (hnLower : k ^ 2 ≤ n) (hnUpper : n < (k + 1) ^ 2) :
@@ -101,7 +105,9 @@ theorem quotient_path_flat_two (n a b : ℕ) :
   rw [Nat.div_div_eq_div_mul]
 
 /-- P018-T111 consequence: factoring a nontrivial total divisor into two stages
-does not create four final square-root branches. -/
+does not create four final square-root branches.  After flattening the quotient
+path, T110 applies once to the product divisor, so the final root index is still
+one of two adjacent values. -/
 theorem square_basin_two_step_div_root_pair
     {k a b n : ℕ} (hk : 0 < k) (ha : 2 ≤ a) (hb : 2 ≤ b)
     (hnLower : k ^ 2 ≤ n) (hnUpper : n < (k + 1) ^ 2) :
@@ -120,6 +126,7 @@ theorem square_basin_two_step_div_root_pair
 
 /-- P018-T112: from root scale `k ≥ 3`, every nontrivial floor quotient of a
 state below `(k+1)^2` lands strictly below the original square boundary `k^2`.
+Hence its square-root index is strictly smaller than `k`.
 -/
 theorem square_basin_div_root_strict
     {k d n : ℕ} (hk : 3 ≤ k) (hd : 2 ≤ d)
@@ -137,11 +144,8 @@ theorem square_basin_div_root_strict
   exact (Nat.nthRoot_lt_iff (n := 2) (by decide)).2 hQuotLt
 
 /-- P018-T113: inside one square basin, the upper T110 root branch has one exact
-state threshold.  If `j = R₂(floor(k²/d))`, then the quotient root is `j+1`
-exactly when the original state has reached `d*(j+1)^2`.
-
-This turns the two-basin alternative into a one-switch response, and is the
-formal core of the shared-offset threshold coherence used later in P017.
+state threshold. If `j = R₂(floor(k²/d))`, the quotient root is `j+1` exactly
+when the original state has reached `d*(j+1)^2`.
 -/
 theorem square_basin_div_upper_root_iff
     {k d n : ℕ} (hk : 0 < k) (hd : 2 ≤ d)
