@@ -1,5 +1,6 @@
 import unittest
 
+from enterprise_math.material_fit import project_interval_nearest
 from enterprise_math.material_runtime import compile_root_basin_material_curve
 from enterprise_math.material_runtime_compressed import (
     compress_monotone_material_curve,
@@ -41,7 +42,7 @@ class MaterialRuntimeCompressedTests(unittest.TestCase):
         dense = compile_root_basin_material_curve(100, 761, 2048, 8, 3, 663)
         compressed = compress_monotone_material_curve(dense)
         for deformation in range(100, 762):
-            cell = (2 * (deformation - 100) * 2048 + 661) // (2 * 661)
+            cell = project_interval_nearest(deformation, 100, 761, 2048)
             self.assertEqual(
                 lookup_run_material_deformation(compressed, deformation),
                 dense.values[cell],
@@ -49,6 +50,8 @@ class MaterialRuntimeCompressedTests(unittest.TestCase):
 
     def test_nonmonotone_curve_is_rejected(self):
         dense = compile_root_basin_material_curve(0, 10, 16, 2, 2, 100)
+        broken_values = dense.values[:10] + (0,) + dense.values[11:]
+        self.assertGreater(dense.values[9], broken_values[10])
         broken = type(dense)(
             lower_deformation=dense.lower_deformation,
             upper_deformation=dense.upper_deformation,
@@ -56,7 +59,7 @@ class MaterialRuntimeCompressedTests(unittest.TestCase):
             input_root_power=dense.input_root_power,
             output_hardening_power=dense.output_hardening_power,
             output_scale=dense.output_scale,
-            values=dense.values[:5] + (0,) + dense.values[6:],
+            values=broken_values,
             bytes_per_value=dense.bytes_per_value,
         )
         with self.assertRaises(ValueError):
