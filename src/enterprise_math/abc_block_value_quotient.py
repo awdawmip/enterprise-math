@@ -195,7 +195,8 @@ def bounded_block_value_pareto_frontier(
         coefficients = raw_block_derivative_coefficients(n)
         bound = max_radius * sum(abs(value) for _prime, value in coefficients)
         generator = raw_block_derivative_image_generator(n)
-        return tuple(range(-bound, bound + 1, generator))
+        multiple_bound = bound // generator
+        return tuple(generator * multiple for multiple in range(-multiple_bound, multiple_bound + 1))
 
     values_a = candidates(a)
     values_b = candidates(b)
