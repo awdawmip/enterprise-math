@@ -1,4 +1,4 @@
-"""Componentwise exact future signatures for integer-box bounds under deletions.
+"""Coarsest extensional future signatures for integer-box bounds under deletions.
 
 The uniform ``h+1`` ranked-facet certificate in ``box_collapse`` is simple and
 worst-case sharp, but ties can make it larger than necessary for a concrete
@@ -8,11 +8,16 @@ each of the ``2n`` box bounds:
 * lower bound on axis j -> maximum future signature;
 * upper bound on axis j -> minimum future signature.
 
-The product of those signatures reconstructs the exact common-box bounds after
-any declared deletion set of size at most h.  It is called *componentwise exact
-sufficient*, not globally coarsest for the joint vector output, because shared
-box labels can induce cross-axis correlations that a product representation may
-still duplicate.
+The tuple of those scalar signatures reconstructs the exact common-box bounds
+after every declared deletion set of size at most h.  In the project's
+*extensional quotient* sense this tuple is also coarsest for the joint future
+bounds observable: two box families have the same complete future-bounds
+function iff every scalar bound-future function agrees, iff every compiled
+scalar signature agrees.
+
+This does not claim the serialized data structure uses the minimum possible
+number of bytes or label references.  Shared labels across axes may still admit
+implementation-level compression while representing the same quotient class.
 """
 
 from __future__ import annotations
@@ -63,7 +68,7 @@ def compile_box_deletion_future_signature(
     boxes: tuple[LabeledIntegerBox, ...] | list[LabeledIntegerBox],
     deletion_horizon: int,
 ) -> BoxDeletionFutureSignature:
-    """Compile exact per-bound future signatures for <=h labeled deletions."""
+    """Compile the extensional future-quotient signature for box bounds."""
     items = _validate_boxes(boxes, deletion_horizon)
     dimension = items[0].dimension
     lower = tuple(
