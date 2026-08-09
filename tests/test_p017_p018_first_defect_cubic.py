@@ -20,22 +20,32 @@ class P017P018FirstDefectCubicTests(unittest.TestCase):
         for value in (1, 2, 12, 15, 21, 45, 75, 105):
             self.assertIsNone(odd_prime_power_base(value))
 
-    def test_exact_label_cutoffs_and_transverse_budgets(self):
-        self.assertEqual(
-            first_band_order3_label_cutoff(65536),
-            {
-                "k": 65536,
-                "cubic_partner_ambiguity_cutoff": 64,
-                "four_prime_product_cutoff": 56,
-                "unresolved_prime_power_label_cutoff": 56,
-            },
-        )
-        budget = first_band_order3_ambiguity_budget(65536)
+    def test_critical_scale_retains_universal_prime_budget(self):
+        cutoffs = first_band_order3_label_cutoff(65_536)
+        self.assertEqual(cutoffs["cubic_partner_ambiguity_cutoff"], 64)
+        self.assertEqual(cutoffs["four_prime_transverse_primes"], (3, 5, 7, 11))
+        self.assertEqual(cutoffs["minimum_four_prime_core"], 1155)
+        self.assertEqual(cutoffs["minimum_five_prime_core_product"], 15015)
+        self.assertFalse(cutoffs["residual_order3_defect_impossible"])
+        self.assertEqual(cutoffs["four_prime_product_cutoff"], 56)
+        self.assertEqual(cutoffs["unresolved_prime_power_label_cutoff"], 56)
+
+        budget = first_band_order3_ambiguity_budget(65_536)
         self.assertEqual(
             budget["candidate_prime_power_labels"],
             (3, 5, 7, 9, 11, 13, 17, 19, 23, 25, 27, 29, 31, 37, 41, 43, 47, 49, 53),
         )
         self.assertEqual(budget["candidate_label_count"], 19)
+
+    def test_anchor_sensitive_transverse_product_can_empty_budget(self):
+        cutoffs = first_band_order3_label_cutoff(20_000)
+        self.assertEqual(cutoffs["four_prime_transverse_primes"], (7, 11, 13, 17))
+        self.assertEqual(cutoffs["minimum_four_prime_core"], 17_017)
+        self.assertEqual(cutoffs["minimum_five_prime_core_product"], 323_323)
+        self.assertTrue(cutoffs["residual_order3_defect_impossible"])
+        self.assertEqual(cutoffs["four_prime_product_cutoff"], 1)
+        self.assertEqual(first_band_order3_ambiguity_budget(20_000)["candidate_prime_power_labels"], ())
+        self.assertEqual(first_band_order3_ambiguity_budget(20_000)["candidate_label_count"], 0)
 
         self.assertEqual(
             transverse_odd_prime_power_labels(20_000, 17),
@@ -47,6 +57,7 @@ class P017P018FirstDefectCubicTests(unittest.TestCase):
         self.assertEqual(data["small_core"], 13)
         self.assertEqual(data["large_core"], 4515)
         self.assertEqual(data["small_core_prime_base"], 13)
+        self.assertEqual(data["minimum_four_prime_core"], 1155)
         self.assertEqual(data["total_pair_defect"], 1)
         self.assertFalse(data["fully_cubic_resolved"])
         self.assertTrue(data["inside_unresolved_prime_power_budget"])
