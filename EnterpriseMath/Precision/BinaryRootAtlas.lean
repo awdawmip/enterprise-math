@@ -14,7 +14,6 @@ Here
 with shifted Lean notation `r=s+1`. -/
 theorem high_denominator_root_above_horizon
     {s n d : ℕ}
-    (hn : 0 < n)
     (hd : 1 ≤ d) :
     let H := root (s + 2) ((s + 1) * n - 1)
     let D := n / (H + 1) ^ (s + 1)
@@ -23,7 +22,6 @@ theorem high_denominator_root_above_horizon
   let D := n / (H + 1) ^ (s + 1)
   change d ≤ D → H < root (s + 1) (n / d)
   intro hdD
-  have hPowPos : 0 < (H + 1) ^ (s + 1) := pow_pos (by omega) (s + 1)
   have hDLower : D * (H + 1) ^ (s + 1) ≤ n := by
     dsimp [D]
     exact Nat.div_mul_le_self n ((H + 1) ^ (s + 1))
@@ -55,34 +53,41 @@ theorem high_denominator_root_injective
   change d ≤ D → e ≤ D →
     root (s + 1) (n / d) = root (s + 1) (n / e) → d = e
   intro hdD heD hEq
-  by_contra hne
-  wlog hde : d < e generalizing d e
-  · have hed : e < d := by omega
-    exact this hn he hd heD hdD hEq.symm (by omega)
 
-  let t := root (s + 1) (n / d)
-  have htH : H < t := by
-    dsimp [t]
-    exact high_denominator_root_above_horizon hn hd hdD
-  have hGap := state_distinct_divisor_root_collision_gap
-    (n := n) (d := d) (e := e) (s := s)
-    hn (by omega) hde hEq
-  have hGapOne : 1 ≤ e - d := by omega
-  have hPowerLt : t ^ (s + 2) < (s + 1) * n := by
-    have hOneMul : t ^ (s + 2) ≤ (e - d) * t ^ (s + 2) := by
-      simpa using Nat.mul_le_mul_right (t ^ (s + 2)) hGapOne
-    exact hOneMul.trans_lt hGap
+  have hNoCollision :
+      ∀ {a b : ℕ},
+        1 ≤ a → 1 ≤ b → a ≤ D → b ≤ D → a < b →
+        root (s + 1) (n / a) = root (s + 1) (n / b) → False := by
+    intro a b ha hb haD hbD hab hRoot
+    let t := root (s + 1) (n / a)
+    have htH : H < t := by
+      dsimp [t]
+      exact high_denominator_root_above_horizon ha haD
+    have hGap := state_distinct_divisor_root_collision_gap
+      (n := n) (d := a) (e := b) (s := s)
+      hn (by omega) hab hRoot
+    have hGapOne : 1 ≤ b - a := by omega
+    have hPowerLt : t ^ (s + 2) < (s + 1) * n := by
+      have hOneMul : t ^ (s + 2) ≤ (b - a) * t ^ (s + 2) := by
+        simpa using Nat.mul_le_mul_right (t ^ (s + 2)) hGapOne
+      exact hOneMul.trans_lt hGap
 
-  have hParentOrder : s + 2 ≠ 0 := by omega
-  have hHUpper :
-      (s + 1) * n - 1 < (H + 1) ^ (s + 2) := by
-    dsimp [H]
-    exact Nat.lt_pow_nthRoot_add_one hParentOrder ((s + 1) * n - 1)
-  have hParentLe : (s + 1) * n ≤ (H + 1) ^ (s + 2) := by
-    have hProdPos : 0 < (s + 1) * n := Nat.mul_pos (by omega) hn
+    have hParentOrder : s + 2 ≠ 0 := by omega
+    have hHUpper :
+        (s + 1) * n - 1 < (H + 1) ^ (s + 2) := by
+      dsimp [H]
+      exact Nat.lt_pow_nthRoot_add_one hParentOrder ((s + 1) * n - 1)
+    have hParentLe : (s + 1) * n ≤ (H + 1) ^ (s + 2) := by
+      have hProdPos : 0 < (s + 1) * n := Nat.mul_pos (by omega) hn
+      omega
+    have hPowerLe : (H + 1) ^ (s + 2) ≤ t ^ (s + 2) := by
+      exact Nat.pow_le_pow_left (by omega) (s + 2)
     omega
-  have hPowerLe : (H + 1) ^ (s + 2) ≤ t ^ (s + 2) := by
-    exact Nat.pow_le_pow_left (by omega) (s + 2)
-  omega
+
+  by_contra hne
+  by_cases hde : d < e
+  · exact hNoCollision hd he hdD heD hde hEq
+  · have hed : e < d := by omega
+    exact hNoCollision he hd heD hdD hed hEq.symm
 
 end EnterpriseMath.Precision
