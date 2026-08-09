@@ -1,22 +1,23 @@
 """Separate causal LEGO factorization profiles from ADE geometry shadows.
 
 The same current root-lattice geometry can have different causal constructions.
-This module records several classical ADE constructions in a typed way:
+This module records several classical ADE constructions in a typed way.  A
+factorization profile stores not only local cell rank/count, but also any
+independent conservation constraint rank removed from the naive product.  This
+prevents a product-of-cells representation from being mistaken for the final
+relation rank.
 
-* A_r: r+1 one-dimensional integer slots with exact-total conserved unit transfer;
-* D_r: r one-dimensional integer cells with binary even-parity residue code;
+Examples:
+* A_r: r+1 one-dimensional integer slots with one exact-total constraint;
+* D_r: r one-dimensional integer cells with a binary parity residue code;
 * E6: three rank-two hex/A2 cells with ternary repetition code;
-* E7: seven rank-one integer cells with binary [7,3,4] simplex code;
-* E8(binary): eight rank-one integer cells with binary extended Hamming code;
-* E8(ternary): four rank-two hex/A2 cells with ternary [4,2,3] Hamming code.
+* E7: seven rank-one integer cells with binary simplex code;
+* E8 has both eight rank-one binary cells and four rank-two ternary-hex cells.
 
 The two E8 grammars have different factorization profiles but the same global
-rank, primitive-event count, and Coxeter root-count shadow.  This is explicit
-evidence that current geometry does not uniquely determine microscopic causal
-factorization.
-
-All ADE/code correspondences are classical prior mathematics; this module only
-organizes them under the project's causal ordering.
+rank, primitive-event count, and Coxeter root-count shadow.  All ADE/code
+correspondences are classical prior mathematics; this module organizes them under
+the project's causal ordering.
 """
 
 from __future__ import annotations
@@ -42,6 +43,7 @@ class CausalFactorizationProfile:
     name: str
     local_cell_rank: int
     cell_count: int
+    independent_constraint_rank_loss: int
     residue_alphabet_size: int
     code_name: str
     primitive_grade_channel: str
@@ -50,7 +52,10 @@ class CausalFactorizationProfile:
 
     @property
     def global_relation_rank(self) -> int:
-        return self.local_cell_rank * self.cell_count
+        rank = self.local_cell_rank * self.cell_count - self.independent_constraint_rank_loss
+        if rank < 0:
+            raise ValueError("constraint rank loss exceeds product relation rank")
+        return rank
 
 
 @dataclass(frozen=True)
@@ -67,6 +72,15 @@ def _coxeter_shadow(rank: int, primitive_count: int) -> int:
     return primitive_count // rank
 
 
+def _checked_pair(
+    factor: CausalFactorizationProfile,
+    shadow: GeometryShadowProfile,
+) -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
+    if factor.global_relation_rank != shadow.rank:
+        raise AssertionError("causal factorization rank must match geometry-shadow rank")
+    return factor, shadow
+
+
 def a_grammar(rank: int) -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
     if isinstance(rank, bool) or not isinstance(rank, int) or rank < 1:
         raise ValueError("A rank must be positive")
@@ -76,20 +90,20 @@ def a_grammar(rank: int) -> tuple[CausalFactorizationProfile, GeometryShadowProf
         name=f"A{rank}:exact-transfer",
         local_cell_rank=1,
         cell_count=cells,
+        independent_constraint_rank_loss=1,
         residue_alphabet_size=1,
         code_name="exact-total conservation",
         primitive_grade_channel="support",
         primitive_grade=2,
         primitive_grade_regime="conservation_forced",
     )
-    # One exact total relation removes one cell degree, so rank is not cells*1.
     shadow = GeometryShadowProfile(
         name=f"A{rank}",
         rank=rank,
         primitive_event_count=primitive_count,
         coxeter_root_count_shadow=_coxeter_shadow(rank, primitive_count),
     )
-    return factor, shadow
+    return _checked_pair(factor, shadow)
 
 
 def d_grammar(rank: int) -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
@@ -102,6 +116,7 @@ def d_grammar(rank: int) -> tuple[CausalFactorizationProfile, GeometryShadowProf
         name=f"D{rank}:binary-parity",
         local_cell_rank=1,
         cell_count=rank,
+        independent_constraint_rank_loss=0,
         residue_alphabet_size=2,
         code_name="binary even-parity code",
         primitive_grade_channel="binary-integer-square",
@@ -114,7 +129,7 @@ def d_grammar(rank: int) -> tuple[CausalFactorizationProfile, GeometryShadowProf
         primitive_event_count=primitive_count,
         coxeter_root_count_shadow=_coxeter_shadow(rank, primitive_count),
     )
-    return factor, shadow
+    return _checked_pair(factor, shadow)
 
 
 def e6_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
@@ -125,6 +140,7 @@ def e6_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
         name="E6:ternary-hex-repetition",
         local_cell_rank=2,
         cell_count=3,
+        independent_constraint_rank_loss=0,
         residue_alphabet_size=3,
         code_name="[3,1,3]_3 repetition",
         primitive_grade_channel="hex-normalized-quadratic",
@@ -132,7 +148,7 @@ def e6_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
         primitive_grade_regime=primitive_grade_regime(code, alphabet),
     )
     shadow = GeometryShadowProfile("E6", 6, primitive_count, _coxeter_shadow(6, primitive_count))
-    return factor, shadow
+    return _checked_pair(factor, shadow)
 
 
 def e7_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
@@ -143,6 +159,7 @@ def e7_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
         name="E7:binary-simplex",
         local_cell_rank=1,
         cell_count=7,
+        independent_constraint_rank_loss=0,
         residue_alphabet_size=2,
         code_name="[7,3,4]_2 simplex",
         primitive_grade_channel="binary-integer-square",
@@ -150,7 +167,7 @@ def e7_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
         primitive_grade_regime=primitive_grade_regime(code, alphabet),
     )
     shadow = GeometryShadowProfile("E7", 7, primitive_count, _coxeter_shadow(7, primitive_count))
-    return factor, shadow
+    return _checked_pair(factor, shadow)
 
 
 def e8_binary_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
@@ -161,6 +178,7 @@ def e8_binary_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProfi
         name="E8:binary-extended-hamming",
         local_cell_rank=1,
         cell_count=8,
+        independent_constraint_rank_loss=0,
         residue_alphabet_size=2,
         code_name="[8,4,4]_2 extended Hamming",
         primitive_grade_channel="binary-integer-square",
@@ -168,7 +186,7 @@ def e8_binary_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProfi
         primitive_grade_regime=primitive_grade_regime(code, alphabet),
     )
     shadow = GeometryShadowProfile("E8", 8, primitive_count, _coxeter_shadow(8, primitive_count))
-    return factor, shadow
+    return _checked_pair(factor, shadow)
 
 
 def e8_ternary_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProfile]:
@@ -179,6 +197,7 @@ def e8_ternary_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProf
         name="E8:ternary-hex-hamming",
         local_cell_rank=2,
         cell_count=4,
+        independent_constraint_rank_loss=0,
         residue_alphabet_size=3,
         code_name="[4,2,3]_3 Hamming",
         primitive_grade_channel="hex-normalized-quadratic",
@@ -186,7 +205,7 @@ def e8_ternary_grammar() -> tuple[CausalFactorizationProfile, GeometryShadowProf
         primitive_grade_regime=primitive_grade_regime(code, alphabet),
     )
     shadow = GeometryShadowProfile("E8", 8, primitive_count, _coxeter_shadow(8, primitive_count))
-    return factor, shadow
+    return _checked_pair(factor, shadow)
 
 
 def e8_factorizations_share_geometry_shadow() -> bool:
