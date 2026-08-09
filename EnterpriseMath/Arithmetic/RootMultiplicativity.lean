@@ -145,7 +145,7 @@ theorem le_rootCarry_iff_threshold_le {p a b c : ℕ} (hp : p ≠ 0) :
 
 /-- P001-T03: `rootCarry` is the greatest admissible integer carry under the exact load. -/
 theorem rootCarry_isGreatest {p a b : ℕ} (hp : p ≠ 0) :
-    Set.IsGreatest
+    IsGreatest
       {c : ℕ |
         (root p a * root p b + c) ^ p - (root p a * root p b) ^ p
           ≤ carryLoad p a b}
