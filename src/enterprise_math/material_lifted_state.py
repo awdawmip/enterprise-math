@@ -5,9 +5,13 @@ explicit positive scale coordinate ``sigma`` and evolve
 
     (x,y;sigma) -> (a*x-b*y, b*x+a*y; c*sigma).
 
-For an initial normalized amplitude A at scale 1, the exact invariant is
+For an arbitrary integer initial state with squared norm ``N0``, the exact
+invariant is
 
-    x^2+y^2 = A^2 * sigma^2.
+    x^2+y^2 = N0 * sigma^2.
+
+No integer-radius assumption is needed.  An axis-aligned amplitude state
+``(A,0;1)`` is just a convenient material-quarter-wave specialization.
 
 Only a later explicit projection to a coarser represented scale discards bounded
 detail.  This separates exact integer rotation geometry from finite-resolution
@@ -33,7 +37,7 @@ class LiftedRotationState2D:
     y: int
     scale: int
     step: int
-    amplitude: int
+    base_norm_sq: int
 
     def __post_init__(self) -> None:
         for name, value in (("x", self.x), ("y", self.y)):
@@ -43,10 +47,14 @@ class LiftedRotationState2D:
             raise ValueError("scale must be a positive integer")
         if isinstance(self.step, bool) or not isinstance(self.step, int) or self.step < 0:
             raise ValueError("step must be a non-negative integer")
-        if isinstance(self.amplitude, bool) or not isinstance(self.amplitude, int) or self.amplitude < 0:
-            raise ValueError("amplitude must be a non-negative integer")
-        if self.x * self.x + self.y * self.y != self.amplitude**2 * self.scale**2:
-            raise ValueError("lifted state violates exact radius/scale invariant")
+        if (
+            isinstance(self.base_norm_sq, bool)
+            or not isinstance(self.base_norm_sq, int)
+            or self.base_norm_sq < 0
+        ):
+            raise ValueError("base_norm_sq must be a non-negative integer")
+        if self.x * self.x + self.y * self.y != self.base_norm_sq * self.scale**2:
+            raise ValueError("lifted state violates exact norm/scale invariant")
 
 
 @dataclass(frozen=True)
@@ -60,11 +68,25 @@ class LiftedProjection2D:
     details: tuple[int, int]
 
 
-def initial_lifted_rotation_state(amplitude: int) -> LiftedRotationState2D:
-    """Return the exact axis-aligned initial state ``(A,0;1)``."""
+def initial_lifted_rotation_state(x: int, y: int) -> LiftedRotationState2D:
+    """Return one exact arbitrary integer initial state at scale 1."""
+    for name, value in (("x", x), ("y", y)):
+        if isinstance(value, bool) or not isinstance(value, int):
+            raise ValueError(f"{name} must be an integer")
+    return LiftedRotationState2D(
+        x=x,
+        y=y,
+        scale=1,
+        step=0,
+        base_norm_sq=x * x + y * y,
+    )
+
+
+def initial_axis_lifted_rotation_state(amplitude: int) -> LiftedRotationState2D:
+    """Return the material-specialized axis state ``(A,0;1)``."""
     if isinstance(amplitude, bool) or not isinstance(amplitude, int) or amplitude < 0:
         raise ValueError("amplitude must be a non-negative integer")
-    return LiftedRotationState2D(amplitude, 0, 1, 0, amplitude)
+    return initial_lifted_rotation_state(amplitude, 0)
 
 
 def advance_lifted_rotation_state(
@@ -79,24 +101,35 @@ def advance_lifted_rotation_state(
         y=raw_y,
         scale=next_scale,
         step=state.step + 1,
-        amplitude=state.amplitude,
+        base_norm_sq=state.base_norm_sq,
     )
 
 
 def lifted_rotation_orbit(
-    amplitude: int,
+    initial_state: tuple[int, int],
     rotation: PythagoreanRotation,
     steps: int,
 ) -> tuple[LiftedRotationState2D, ...]:
     """Return an exact no-loss scale-carrying rotation history."""
     if isinstance(steps, bool) or not isinstance(steps, int) or steps < 0:
         raise ValueError("steps must be a non-negative integer")
-    state = initial_lifted_rotation_state(amplitude)
+    state = initial_lifted_rotation_state(*initial_state)
     states = [state]
     for _ in range(steps):
         state = advance_lifted_rotation_state(state, rotation)
         states.append(state)
     return tuple(states)
+
+
+def axis_lifted_rotation_orbit(
+    amplitude: int,
+    rotation: PythagoreanRotation,
+    steps: int,
+) -> tuple[LiftedRotationState2D, ...]:
+    """Convenience wrapper for the axis-aligned material start ``(A,0)``."""
+    if isinstance(amplitude, bool) or not isinstance(amplitude, int) or amplitude < 0:
+        raise ValueError("amplitude must be a non-negative integer")
+    return lifted_rotation_orbit((amplitude, 0), rotation, steps)
 
 
 def project_lifted_state_toward_zero(
