@@ -223,10 +223,10 @@ theorem low_root_fiber_nonempty
   let d := n / B + 1
   have hdPos : 1 ≤ d := by
     dsimp [d]
-    omega
+    exact Nat.succ_pos _
   have hLower : n / B < d := by
     dsimp [d]
-    omega
+    exact Nat.lt_succ_self _
   have hUpper : d ≤ n / A := by
     dsimp [d]
     exact Nat.succ_le_of_lt hDivGap
