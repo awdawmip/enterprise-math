@@ -4,14 +4,17 @@ from itertools import count
 
 from enterprise_math.causal_block_future_budget import (
     budget_continuation_type,
+    budget_continuation_type_count,
     budget_cuts,
     budget_partition_is_nested,
     budget_remainder_intervals,
+    continuation_capacity_equals_residue_ball,
     cut_revelation_costs,
     eventual_intervals_match_gcd_scale,
     future_signature_for_remainder,
     remainder_distinguishing_cost,
     residue_minimum_costs,
+    residue_transport_ball,
     ultimate_refinement_scale,
 )
 
@@ -60,6 +63,25 @@ class CausalBlockFutureBudgetTests(unittest.TestCase):
             ((0, 4), (4, 8), (8, 12)),
         )
         self.assertTrue(eventual_intervals_match_gcd_scale(d, generators, costs))
+
+    def test_continuation_type_count_is_exact_residue_transport_ball_size(self):
+        cases = (
+            (12, (8,), (3,), 8),
+            (10, (4, 6), (2, 5), 15),
+            (18, (6, 10), (4, 3), 30),
+            (15, (6, 10), (4, 9), 30),
+        )
+        for d, generators, costs, maximum_budget in cases:
+            for budget in range(maximum_budget + 1):
+                self.assertTrue(
+                    continuation_capacity_equals_residue_ball(
+                        d, generators, costs, budget
+                    )
+                )
+                self.assertEqual(
+                    budget_continuation_type_count(d, generators, costs, budget),
+                    len(residue_transport_ball(d, generators, costs, budget)),
+                )
 
     def test_budget_interval_partition_matches_direct_future_signatures(self):
         cases = (
