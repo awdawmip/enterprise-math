@@ -161,8 +161,12 @@ def maximum_conflict_free_move_sets(
     ids = [motion.body_id for motion in motions]
     if len(ids) != len(set(ids)):
         raise ValueError("motion body ids must be unique")
-    moving_ids = tuple(sorted(motion.body_id for motion in motions if not motion.is_wait))
 
+    initial_waits = [BodyMotion2D(motion.body, (0, 0)) for motion in motions]
+    if motion_conflict_pairs(initial_waits):
+        raise ValueError("initial body supports must be pairwise conflict-free")
+
+    moving_ids = tuple(sorted(motion.body_id for motion in motions if not motion.is_wait))
     best_size = -1
     best: list[frozenset[int]] = []
     count = len(moving_ids)
@@ -183,5 +187,5 @@ def maximum_conflict_free_move_sets(
             best.append(accepted)
 
     if best_size < 0:
-        raise AssertionError("all-wait transition unexpectedly contains a conflict")
+        raise AssertionError("all-wait transition should be feasible after initial validation")
     return tuple(sorted(set(best), key=lambda item: tuple(sorted(item))))
