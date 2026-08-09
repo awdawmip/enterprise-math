@@ -110,8 +110,6 @@ def transport_cost(
     _validate(states, observation, generators, costs)
     if source not in observation or target not in observation:
         raise ValueError("source and target must belong to state set")
-    if source == target:
-        return 0
     serial = count()
     queue = [(0, next(serial), source)]
     best = {source: 0}
@@ -120,13 +118,13 @@ def transport_cost(
         distance, _, state = heapq.heappop(queue)
         if distance != best[state]:
             continue
+        if state == target:
+            return distance
         for label in labels:
             nxt = generators[label][state]
             candidate = distance + costs[label]
             if candidate >= best.get(nxt, candidate + 1):
                 continue
-            if nxt == target:
-                return candidate
             best[nxt] = candidate
             heapq.heappush(queue, (candidate, next(serial), nxt))
     return None
@@ -144,8 +142,6 @@ def distinguishing_cost(
     _validate(states, observation, generators, costs)
     if left not in observation or right not in observation:
         raise ValueError("states must belong to state set")
-    if observation[left] != observation[right]:
-        return 0
     serial = count()
     start = (left, right)
     queue = [(0, next(serial), start)]
@@ -155,12 +151,12 @@ def distinguishing_cost(
         distance, _, pair = heapq.heappop(queue)
         if distance != best[pair]:
             continue
+        if observation[pair[0]] != observation[pair[1]]:
+            return distance
         for label in labels:
             generator = generators[label]
             nxt = (generator[pair[0]], generator[pair[1]])
             candidate = distance + costs[label]
-            if observation[nxt[0]] != observation[nxt[1]]:
-                return candidate
             if candidate >= best.get(nxt, candidate + 1):
                 continue
             best[nxt] = candidate
