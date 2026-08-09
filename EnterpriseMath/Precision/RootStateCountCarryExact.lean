@@ -106,7 +106,9 @@ theorem root_state_horizon_quotient_threshold
       _ ≤ H * H ^ (s + 1) :=
         Nat.mul_le_mul_right (H ^ (s + 1)) hqLower
       _ = H ^ (s + 2) := by
-        rw [show s + 2 = (s + 1) + 1 by omega, pow_succ']
+        rw [show s + 2 = (s + 1) + 1 by omega]
+        conv_rhs => rw [pow_succ]
+        ring
   have hScaledLt :
       (s + 1) * (q * H ^ (s + 1)) < (s + 1) * n := by
     calc
