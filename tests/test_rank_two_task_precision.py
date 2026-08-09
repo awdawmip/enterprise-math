@@ -153,11 +153,11 @@ class RankTwoTaskPrecisionTests(unittest.TestCase):
         result = minimum_rank_two_task_precision(
             self.guards, self.parent, self.base, effects
         )
-        # Coordinate 1 and 2 have different hidden labels even though they lie
-        # on the same diagonal direction; to make the current branch pattern
-        # deterministic for every child fiber containing this state, zero hidden
-        # image is required here.
-        self.assertGreaterEqual(result.minimum_relation_rank_gain, 2)
+        self.assertEqual(result.minimum_relation_rank_gain, 3)
+        self.assertEqual(
+            {candidate.partition for candidate in result.candidates},
+            {((0,), (1,), (2,), (3,))},
+        )
 
 
 if __name__ == "__main__":
