@@ -8,6 +8,38 @@ from enterprise_math.causal_weighted_context_refinement import (
 )
 
 
+def _set_partitions(items):
+    if not items:
+        yield ()
+        return
+    first = items[0]
+    for rest in _set_partitions(items[1:]):
+        yield (frozenset({first}),) + rest
+        for index in range(len(rest)):
+            merged = list(rest)
+            merged[index] = frozenset(set(merged[index]) | {first})
+            yield tuple(merged)
+
+
+def _classes_from_partition(states, partition):
+    result = {}
+    for class_id, block in enumerate(partition):
+        for state in block:
+            result[state] = class_id
+    if set(result) != set(states):
+        raise AssertionError("partition did not cover states")
+    return result
+
+
+def _partition_refines(left, right, states):
+    """Whether `left` is finer than `right`."""
+    return all(
+        left[a] != left[b] or right[a] == right[b]
+        for a in states
+        for b in states
+    )
+
+
 class CausalWeightedContextRefinementTests(unittest.TestCase):
     def test_grade_channel_can_force_finer_types_than_value_observation(self):
         states = (0, 1, 2, 3)
@@ -72,6 +104,53 @@ class CausalWeightedContextRefinementTests(unittest.TestCase):
         observations = {0: 0, 1: 0}
         stable, _ = stable_weighted_contextual_types(states, observations, raw_kernel)
         self.assertEqual(len(set(stable.values())), 2)
+
+    def test_stable_partition_is_coarsest_safe_refinement_by_full_partition_oracle(self):
+        states = ("a0", "a1", "b")
+        observations = {"a0": "A", "a1": "A", "b": "B"}
+
+        def out(left, right):
+            left_b = left == "b"
+            right_b = right == "b"
+            return "b" if (left_b or right_b) else "a0"
+
+        raw_kernel = {
+            (left, right, out(left, right), 0): 1
+            for left in states
+            for right in states
+        }
+        stable, _ = stable_weighted_contextual_types(states, observations, raw_kernel)
+        self.assertEqual(stable["a0"], stable["a1"])
+        self.assertNotEqual(stable["a0"], stable["b"])
+
+        safe_partitions = []
+        seen = set()
+        for partition in _set_partitions(states):
+            canonical = tuple(sorted((tuple(sorted(block)) for block in partition)))
+            if canonical in seen:
+                continue
+            seen.add(canonical)
+            classes = _classes_from_partition(states, partition)
+            observation_safe = all(
+                classes[a] != classes[b] or observations[a] == observations[b]
+                for a in states
+                for b in states
+            )
+            if not observation_safe:
+                continue
+            try:
+                induced_weighted_type_kernel(states, raw_kernel, classes)
+            except ValueError:
+                continue
+            safe_partitions.append(classes)
+
+        self.assertTrue(safe_partitions)
+        # Every safe partition refines the automatically compiled stable one.
+        self.assertTrue(
+            all(_partition_refines(candidate, stable, states) for candidate in safe_partitions)
+        )
+        # The stable partition itself is safe.
+        induced_weighted_type_kernel(states, raw_kernel, stable)
 
 
 if __name__ == "__main__":
