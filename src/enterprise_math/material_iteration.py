@@ -5,8 +5,9 @@ For p>1 on the finite amplitude chain 0..A:
 * hardening H_p is reductive and strictly decreases every interior state, so
   repeated hardening reaches 0 in finitely many steps; its only fixed points
   are 0 and A;
-* softening G_p is extensive, so repeated softening reaches a fixed plateau in
-  finitely many steps.  Interior fixed plateaus can exist.
+* softening G_p is extensive.  Its positive fixed points form one terminal
+  interval ``tau..A``.  Every positive state below ``tau`` iterates exactly to
+  ``tau``; states at/above ``tau`` are already fixed.
 
 These are finite integer dynamics, not physical aging laws unless a material
 model explicitly chooses to iterate these operators over time/cycles.
@@ -60,6 +61,39 @@ def softening_fixed_by_basin(sample: int, amplitude: int, power: int) -> bool:
     return sample * amplitude ** (power - 1) < (sample + 1) ** power
 
 
+def softening_positive_fixed_threshold(amplitude: int, power: int) -> int:
+    """Return the smallest positive G_p fixed state ``tau``.
+
+    The positive fixed predicate is upward closed for p>1.  For s>=1,
+    ``(s+1)^p/s`` is nondecreasing: the adjacent inequality follows from
+    ``(1+1/(s+1))^p >= 1+p/(s+1) >= 1+1/s``.  Hence one binary search locates
+    the first positive fixed state without floating arithmetic.
+    """
+    _validate(0, amplitude, power)
+    lo = 1
+    hi = amplitude
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if softening_fixed_by_basin(mid, amplitude, power):
+            hi = mid
+        else:
+            lo = mid + 1
+    if not softening_fixed_by_basin(lo, amplitude, power):
+        raise AssertionError("positive softening fixed threshold was not found")
+    if lo > 1 and softening_fixed_by_basin(lo - 1, amplitude, power):
+        raise AssertionError("softening threshold is not minimal")
+    return lo
+
+
+def softening_stabilized_state(sample: int, amplitude: int, power: int) -> int:
+    """Closed-form eventual state of repeated G_p."""
+    _validate(sample, amplitude, power)
+    if sample == 0:
+        return 0
+    threshold = softening_positive_fixed_threshold(amplitude, power)
+    return max(sample, threshold)
+
+
 def iterate_hardening(sample: int, amplitude: int, power: int) -> MaterialIterationTrace:
     """Iterate H_p until its finite fixed point is reached."""
     _validate(sample, amplitude, power)
@@ -89,6 +123,7 @@ def iterate_hardening(sample: int, amplitude: int, power: int) -> MaterialIterat
 def iterate_softening(sample: int, amplitude: int, power: int) -> MaterialIterationTrace:
     """Iterate G_p until its finite fixed plateau is reached."""
     _validate(sample, amplitude, power)
+    expected_terminal = softening_stabilized_state(sample, amplitude, power)
     states = [sample]
     current = sample
     while True:
@@ -97,12 +132,16 @@ def iterate_softening(sample: int, amplitude: int, power: int) -> MaterialIterat
             break
         if not following > current:
             raise AssertionError("non-fixed softening failed strict extensivity")
+        if following > expected_terminal:
+            raise AssertionError("softening overshot its least reachable fixed plateau")
         states.append(following)
         current = following
         if len(states) > amplitude + 1:
             raise AssertionError("softening exceeded finite-chain stabilization bound")
     if not softening_fixed_by_basin(current, amplitude, power):
         raise AssertionError("softening fixed point disagrees with root-basin criterion")
+    if current != expected_terminal:
+        raise AssertionError("softening orbit disagrees with closed-form terminal state")
     return MaterialIterationTrace(
         operator=SOFTENING,
         amplitude=amplitude,
