@@ -6,18 +6,21 @@ possible suffix produces the same terminal observation.  The number of such
 classes is the minimum number of anonymous finite continuation labels needed at
 that depth for the declared terminal task.
 
-This distinguishes two notions of cross-dimensional simplicity:
+A prefix-to-continuation-class map is itself a finite causal collapse.  Hence its
+fiber multiplicities and P011-style collision spectrum quantify exactly how many
+distinct pasts may be forgotten without changing any declared future response.
 
-* bounded class count across N => a uniform finite-type law is possible;
-* unbounded class count rules out a fixed finite label set, but does **not** rule
-  out a fixed integer-state schema (for example an accumulated integer sum).
-
-No logarithm, entropy, probability, or continuous state is used.
+Bounded continuation-class count is a strong finite-type uniformity criterion.
+Unbounded count rules out a fixed finite label set, although a syntactically
+fixed integer update schema may still exist; such an encoding does not erase the
+representation-independent class-count capacity.
 """
 
 from __future__ import annotations
 
+from collections import Counter
 from itertools import product
+from math import comb
 from typing import Callable, Hashable
 
 Symbol = Hashable
@@ -96,3 +99,49 @@ def finite_type_complexity(
 ) -> int:
     """Maximum continuation-class count required over the fixed horizon."""
     return max(continuation_complexity_profile(alphabet, horizon, observation))
+
+
+def continuation_fiber_sizes(
+    alphabet: tuple[Symbol, ...],
+    horizon: int,
+    depth: int,
+    observation: TerminalObservation,
+) -> tuple[int, ...]:
+    """Sorted multiplicities of past prefixes per future continuation class."""
+    classes = continuation_classes_at_depth(alphabet, horizon, depth, observation)
+    counts = Counter(classes.values())
+    return tuple(sorted(counts.values(), reverse=True))
+
+
+def future_distinction_loss(
+    alphabet: tuple[Symbol, ...],
+    horizon: int,
+    depth: int,
+    observation: TerminalObservation,
+) -> int:
+    """First-order class-loss count |prefixes|-|continuation classes|."""
+    classes = continuation_classes_at_depth(alphabet, horizon, depth, observation)
+    return len(classes) - len(set(classes.values()))
+
+
+def future_collapse_spectrum(
+    alphabet: tuple[Symbol, ...],
+    horizon: int,
+    depth: int,
+    observation: TerminalObservation,
+    maximum_order: int | None = None,
+) -> tuple[int, ...]:
+    """P011-style J_k spectrum of the prefix -> continuation-type collapse.
+
+    J_k counts k-subsets of distinct past prefixes that are already identical
+    for every declared remaining future observation.
+    """
+    sizes = continuation_fiber_sizes(alphabet, horizon, depth, observation)
+    total = sum(sizes)
+    limit = total if maximum_order is None else maximum_order
+    if isinstance(limit, bool) or not isinstance(limit, int) or limit < 0:
+        raise ValueError("maximum_order must be a non-negative integer")
+    return tuple(
+        sum(comb(size, order) for size in sizes if size >= order)
+        for order in range(limit + 1)
+    )
