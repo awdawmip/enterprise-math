@@ -96,4 +96,25 @@ theorem repair_coarsest_transitionCompatible (T : X → X) (q : X → Q) (s : X 
   · intro x y hxy
     exact hsq (hsT hxy)
 
+/-- Universal quotient dynamics after idempotent repair: copy the future label
+into both coordinates. -/
+def diagonalStep (z : Q × Q) : Q × Q :=
+  (z.2, z.2)
+
+/-- The diagonal coarse step is itself idempotent. -/
+theorem diagonalStep_idempotent (z : Q × Q) :
+    diagonalStep (diagonalStep z) = diagonalStep z := by
+  rfl
+
+/--
+For an idempotent fine transition, the canonical repair semiconjugates the fine
+transition to the universal diagonal coarse step `(a,b) ↦ (b,b)`.
+-/
+theorem repair_semiconj_diagonal_of_idempotent (T : X → X) (q : X → Q)
+    (hT : ∀ x : X, T (T x) = T x) (x : X) :
+    repair q (fun y => q (T y)) (T x) =
+      diagonalStep (repair q (fun y => q (T y)) x) := by
+  change (q (T x), q (T (T x))) = (q (T x), q (T x))
+  exact Prod.ext rfl (congrArg q (hT x))
+
 end EnterpriseMath.CompositionSafeCollapse
