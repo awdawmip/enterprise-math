@@ -6,6 +6,8 @@ Enterprise Math is an open research program attempting to rebuild mathematical f
 
 [Chinese version](README.zh-CN.md)
 
+> **Non-mathematical reader entry:** [The World Through Enterprise Math](docs/THE_WORLD_IN_ENTERPRISE_MATH.en.md) — no advanced mathematics required; follow the worldview from precision and time to space, quantum phenomena, the universe, and extreme causal questions.
+
 ## Manifesto: the foundation of the mathematical building must be rebuilt
 
 We choose to state the position plainly.
