@@ -1,6 +1,6 @@
 # P002 —— 坍缩差的紧上界
 
-状态：`PROVED`  
+状态：`PROVED / LEAN-CHECKED T01–T02`  
 开放问题：`P002`  
 范围：普通数学
 
@@ -25,6 +25,8 @@ k=R_p(n).
 \[
 k^p\le n<(k+1)^p.
 \]
+
+Lean 表示为 `EnterpriseMath.CollapseGap.collapseGap`；盆地内紧上界由 `maxGapInBasin` 表示。
 
 ## 2. 盆地内紧上界
 
@@ -67,6 +69,8 @@ G_p(n)\le (k+1)^p-k^p-1.
 \]
 
 减法后的等号成立，当且仅当 \(n=(k+1)^p-1\)。该状态仍属于 \(k^p\) 的盆地，所以这个上界确实能够达到。证毕。
+
+形式化：已由 `EnterpriseMath.CollapseGap.collapseGap_le_max` 通过 Lean 检查；紧等号刻画由 `collapseGap_eq_max_iff` 核验。
 
 ## 3. 与盆地大小的关系
 
@@ -146,6 +150,8 @@ G_p(n)=g.
 
 逆映射就是 \(g\mapsto k^p+g\)。证毕。
 
+形式化：盆地状态的精确恢复由 `EnterpriseMath.CollapseGap.basin_state_eq_pow_add_gap` 核验；双射以 `∃!` 形式由 `existsUnique_basin_state_with_gap` 通过 Lean 检查——每个允许 gap 坐标在固定盆地中恰好对应一个状态，逆状态就是 `k^p+g`。
+
 所以，gap 可以作为**盆地内部显式状态之间的外部比较坐标**，而不需要把坍缩映射改写成保存余量的二元状态转移。
 
 ## 5. 纯整数闭式
@@ -180,6 +186,8 @@ p=4:\quad 4k^3+6k^2+4k.
 
 这里不需要任何实数近似或渐近估计。
 
+形式化状态：本轮尚未把这一未编号二项式闭式推论提升到 Lean；`LEAN-CHECKED T01–T02` 只精确指向上面的两个编号 P002 定理单元。
+
 ## 6. 与本体解释的边界
 
 P002 不能把旧的“隐藏余量”思路偷偷带回来。
@@ -213,6 +221,8 @@ G_p(n)\le (R_p(n)+1)^p-R_p(n)^p-1
 且等号恰好发生在下一个完全 \(p\) 次幂之前的最后一个整数状态。
 
 同一结论也就是“盆地大小减一”；并且 gap 坐标把盆地中每一个位置恰好枚举一次。
+
+P002-T01 与 P002-T02 现已由导入 root surface 的 warnings-fatal Lean build 覆盖，对应模块为 `EnterpriseMath.Arithmetic.CollapseGap`。
 
 ## 8. 前人工作纪律
 
