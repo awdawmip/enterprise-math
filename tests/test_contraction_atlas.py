@@ -77,7 +77,7 @@ class ContractionAtlasTests(unittest.TestCase):
                 left_total = leaves[0] + leaves[1]
                 right_total = leaves[2] + leaves[3]
                 expected = (
-                    right_total * 0 + 2 * left_total - 2 * root_total,
+                    2 * left_total - 2 * right_total,
                     leaves[0] - leaves[1],
                     leaves[2] - leaves[3],
                 )
