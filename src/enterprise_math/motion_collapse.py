@@ -75,6 +75,14 @@ class BodyMotion2D:
         return self.step == (0, 0)
 
 
+@dataclass(frozen=True)
+class MotionOutcome2D:
+    """One maximum-admission after-state of a finite primitive motion step."""
+
+    accepted_moving_ids: frozenset[int]
+    bodies: tuple[Body2D, ...]
+
+
 def _edge_target(start: Point2D, end: Point2D) -> MotionTarget:
     if start == end:
         raise ValueError("wait actions do not have an edge target")
@@ -146,6 +154,24 @@ def _effective_motions(
     return result
 
 
+def apply_accepted_move_set(
+    motions: list[BodyMotion2D], accepted_moving_ids: frozenset[int]
+) -> tuple[Body2D, ...]:
+    """Apply one explicit accepted-move set and return bodies sorted by id."""
+    ids = [motion.body_id for motion in motions]
+    if len(ids) != len(set(ids)):
+        raise ValueError("motion body ids must be unique")
+    moving_ids = {motion.body_id for motion in motions if not motion.is_wait}
+    if not accepted_moving_ids.issubset(moving_ids):
+        raise ValueError("accepted_moving_ids must contain only proposed nonzero moves")
+
+    bodies = [
+        motion.end_body if motion.body_id in accepted_moving_ids else motion.body
+        for motion in motions
+    ]
+    return tuple(sorted(bodies))
+
+
 def maximum_conflict_free_move_sets(
     motions: list[BodyMotion2D],
 ) -> tuple[frozenset[int], ...]:
@@ -189,3 +215,25 @@ def maximum_conflict_free_move_sets(
     if best_size < 0:
         raise AssertionError("all-wait transition should be feasible after initial validation")
     return tuple(sorted(set(best), key=lambda item: tuple(sorted(item))))
+
+
+def maximum_conflict_free_outcomes(
+    motions: list[BodyMotion2D],
+) -> tuple[MotionOutcome2D, ...]:
+    """Return every maximum-admission finite after-state for one primitive tick."""
+    outcomes = [
+        MotionOutcome2D(
+            accepted_moving_ids=accepted,
+            bodies=apply_accepted_move_set(motions, accepted),
+        )
+        for accepted in maximum_conflict_free_move_sets(motions)
+    ]
+    return tuple(
+        sorted(
+            outcomes,
+            key=lambda outcome: (
+                tuple(sorted(outcome.accepted_moving_ids)),
+                outcome.bodies,
+            ),
+        )
+    )
