@@ -49,8 +49,8 @@ class CertificateAdjugateCodeTests(unittest.TestCase):
     def test_adjugate_code_exact_for_nonsymmetric_basis(self) -> None:
         code = square_lattice_congruence_code(((2, 1), (1, 3)))
         self.assertEqual(abs(code.determinant), 5)
-        target = (7, 9)
-        # columns (2,1),(1,3) with coordinates (3,1)
+        target = (8, 9)
+        # columns (2,1),(1,3) with coordinates (3,2)
         self.assertTrue(certificate_target_is_attainable(code, target))
         self.assertEqual(certificate_target_coordinates(code, target), (3, 2))
 
