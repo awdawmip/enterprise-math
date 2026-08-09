@@ -1,19 +1,17 @@
 """Finite causal signature coupling without probabilistic primitives.
 
 A joint future-signature quotient Q_AB can be forgotten down to the pair of
-marginal signature classes actually reachable in the joint system.  The fibers
-of this forgetting map are the exact extra joint distinctions hidden by the
-marginals.  Their collision spectrum is therefore literally the P011 fiber
-collision spectrum of the cross-future-forgetting collapse.
+marginal signature classes.  Extend the resulting fiber multiplicity to the full
+marginal product by zero on unreachable pairs.  This gives the local integer
+coupling kernel
 
-Two different coupling mechanisms are kept separate:
+    kappa(a,b) = number of joint signature classes above marginal pair (a,b).
 
-* missing reachability: marginal pairs that cannot occur jointly;
-* signature splitting: one reachable marginal pair supports multiple distinct
-  joint future-signature classes.
+Its values retain causal type directly: 0 means forbidden/unreachable, 1 means
+locally factorized, and values >1 mean extra cross-future distinctions.
 
-No probability, correlation coefficient, entropy, tensor product, float, or
-continuous completion is assumed.
+The P011 collision spectrum of the forgetting map is the anonymous higher-order
+summary of the positive kernel values.
 """
 
 from __future__ import annotations
@@ -67,6 +65,42 @@ def coupling_fiber_multiplicities(
     return counts
 
 
+def coupling_kernel(
+    joint_to_marginal: dict[JointClass, MarginalPair],
+    left_classes: tuple[MarginalClass, ...],
+    right_classes: tuple[MarginalClass, ...],
+) -> dict[MarginalPair, int]:
+    """Return kappa on the full declared marginal product.
+
+    0 = unreachable pair, 1 = one joint class, >1 = cross-future split.
+    """
+    if not isinstance(left_classes, tuple) or not left_classes:
+        raise ValueError("left_classes must be a non-empty tuple")
+    if not isinstance(right_classes, tuple) or not right_classes:
+        raise ValueError("right_classes must be a non-empty tuple")
+    if len(set(left_classes)) != len(left_classes) or len(set(right_classes)) != len(right_classes):
+        raise ValueError("marginal class lists must contain unique values")
+    counts = coupling_fiber_multiplicities(joint_to_marginal)
+    declared_pairs = {(left, right) for left in left_classes for right in right_classes}
+    if not set(counts) <= declared_pairs:
+        raise ValueError("joint map references an undeclared marginal class")
+    return {
+        pair: counts.get(pair, 0)
+        for pair in declared_pairs
+    }
+
+
+def kernel_defects(kernel: dict[MarginalPair, int]) -> tuple[int, int]:
+    """Return (missing_reachability, signature_split_excess) from kappa."""
+    if not isinstance(kernel, dict) or not kernel:
+        raise ValueError("kernel must be a non-empty dict")
+    if any(isinstance(value, bool) or not isinstance(value, int) or value < 0 for value in kernel.values()):
+        raise ValueError("coupling-kernel values must be non-negative integers")
+    missing = sum(value == 0 for value in kernel.values())
+    split = sum(max(value - 1, 0) for value in kernel.values())
+    return missing, split
+
+
 def coupling_split_spectrum(
     joint_to_marginal: dict[JointClass, MarginalPair],
     maximum_order: int | None = None,
@@ -89,12 +123,7 @@ def coupling_certificate(
     right_class_count: int,
     maximum_order: int | None = None,
 ) -> CouplingCertificate:
-    """Typed finite coupling certificate.
-
-    missing_reachability counts absent combinations in Q_A x Q_B.
-    signature_split_excess counts extra joint classes inside reachable marginal
-    pairs.  The two mechanisms must not be collapsed into one scalar.
-    """
+    """Typed finite coupling certificate."""
     _require_positive_count(left_class_count, "left_class_count")
     _require_positive_count(right_class_count, "right_class_count")
     counts = coupling_fiber_multiplicities(joint_to_marginal)
@@ -142,11 +171,7 @@ def staged_forgetting_defects(
     fine_to_middle: dict[Hashable, Hashable],
     middle_to_coarse: dict[Hashable, Hashable],
 ) -> tuple[int, int, int]:
-    """Return (fine->middle, middle->coarse, fine->coarse) class-loss defects.
-
-    For maps whose middle domain is exactly the reachable image of the first map,
-    the third value equals the sum of the first two.
-    """
+    """Return (fine->middle, middle->coarse, fine->coarse) class-loss defects."""
     reachable_middle = set(fine_to_middle.values())
     if set(middle_to_coarse) != reachable_middle:
         raise ValueError("middle_to_coarse domain must equal the reachable middle image")
