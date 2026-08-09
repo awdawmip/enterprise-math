@@ -5,8 +5,8 @@ For a positive power p, the integer-root basin
     k**p <= n < (k+1)**p
 
 is transported by every nontrivial floor quotient n -> n//d into at most two
-adjacent p-th-root basins.  The proof is integer-only and extends the square
-case already used by P018.
+adjacent p-th-root basins. The proof is integer-only and extends the square case
+already used by P018.
 """
 
 from __future__ import annotations
@@ -22,12 +22,9 @@ def _require_nat(name: str, value: int, *, minimum: int = 0) -> None:
 def power_basin_quotient_window(power: int, k: int, divisor: int) -> dict[str, int]:
     """Return the exact quotient/root window of one p-th-power basin.
 
-    With
-
-        j = R_p(k**p // divisor),
-
-    every quotient state from the k-th p-power basin has p-root index j or j+1.
-    The returned ``split`` flag is one exactly when both root indices occur.
+    With j = R_p(k**p // divisor), every quotient state from the k-th
+    p-power basin has p-root index j or j+1. The returned ``split`` flag is one
+    exactly when both root indices occur.
     """
     _require_nat("power", power, minimum=1)
     _require_nat("k", k, minimum=1)
@@ -49,6 +46,10 @@ def power_basin_quotient_window(power: int, k: int, divisor: int) -> dict[str, i
     if split_criterion != (max_root == base_root + 1):
         raise AssertionError("exact split criterion disagrees with quotient window")
 
+    strict_descent = upper_exclusive <= divisor * lower
+    if strict_descent != (max_root < k):
+        raise AssertionError("strict root-descent criterion disagrees with quotient window")
+
     return {
         "power": power,
         "k": k,
@@ -58,7 +59,16 @@ def power_basin_quotient_window(power: int, k: int, divisor: int) -> dict[str, i
         "base_root": base_root,
         "max_root": max_root,
         "split": int(split_criterion),
+        "strict_root_descent": int(strict_descent),
     }
+
+
+def whole_basin_strict_root_descent(power: int, k: int, divisor: int) -> bool:
+    """Exact criterion that every quotient state has p-root strictly below k.
+
+    The criterion is (k+1)**p <= divisor*k**p.
+    """
+    return bool(power_basin_quotient_window(power, k, divisor)["strict_root_descent"])
 
 
 def power_basin_quotient_transport(power: int, k: int, divisor: int, n: int) -> dict[str, int]:
