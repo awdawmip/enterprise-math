@@ -3,8 +3,12 @@ from itertools import product
 
 from enterprise_math.p022_barlow_two_sided_repair import (
     diagonal_split_count,
+    maximum_two_sided_repair_bits,
     microscopic_word_pair_realizations,
+    minimum_two_sided_repair_bits,
     ordered_absolute_history_realizations,
+    total_diagonal_split_bit_load,
+    total_two_sided_repair_bit_load,
     total_zero_departure_events,
     two_sided_microscopic_fiber_size,
     two_sided_repair_bit_count,
@@ -60,8 +64,6 @@ def test_zero_departure_count_is_invariant_across_label_realizations() -> None:
 
 
 def test_split_bits_occur_only_when_equal_channels_break_symmetry() -> None:
-    # length three example:
-    # (1,1) -> (0,2) is a split and needs one side-label bit.
     left = (1, -1, 1)
     right = (1, 1, -1)
     history = unordered_absolute_pair_history(left, right)
@@ -71,8 +73,43 @@ def test_split_bits_occur_only_when_equal_channels_break_symmetry() -> None:
 
 def test_two_sided_fiber_profile_reconstructs_all_microscopic_pairs() -> None:
     for length in range(0, 7):
-        direct = Counter(
-            len(words) for words in _pair_fibers(length).values()
-        )
-        assert sum(fiber_size * history_count for fiber_size, history_count in direct.items()) == 4 ** length
+        direct = Counter(len(words) for words in _pair_fibers(length).values())
+        assert sum(
+            fiber_size * history_count
+            for fiber_size, history_count in direct.items()
+        ) == 4 ** length
         assert all(fiber_size & (fiber_size - 1) == 0 for fiber_size in direct)
+
+
+def test_sharp_repair_range_is_zero_or_two_through_n_plus_one() -> None:
+    assert minimum_two_sided_repair_bits(0) == 0
+    assert maximum_two_sided_repair_bits(0) == 0
+    for length in range(1, 10):
+        repairs = [
+            two_sided_repair_bit_count(history)
+            for history in _pair_fibers(length)
+        ]
+        assert min(repairs) == minimum_two_sided_repair_bits(length) == 2
+        assert max(repairs) == maximum_two_sided_repair_bits(length) == length + 1
+
+
+def test_alternating_equal_split_history_attains_upper_bound() -> None:
+    # Build the maximizer directly from microscopic words chosen so the
+    # absolute pair alternates (1,1),(0,2),(1,1),(0,2),...
+    for length in range(1, 9):
+        target = tuple((1, 1) if index % 2 == 1 else (0, 2) for index in range(1, length + 1))
+        assert two_sided_repair_bit_count(target) == length + 1
+
+
+def test_aggregate_split_and_total_repair_load_match_direct_enumeration() -> None:
+    for length in range(0, 7):
+        direct_split = 0
+        direct_total = 0
+        words = _words(length)
+        for left in words:
+            for right in words:
+                history = unordered_absolute_pair_history(left, right)
+                direct_split += diagonal_split_count(history)
+                direct_total += two_sided_repair_bit_count(history)
+        assert total_diagonal_split_bit_load(length) == direct_split
+        assert total_two_sided_repair_bit_load(length) == direct_total
