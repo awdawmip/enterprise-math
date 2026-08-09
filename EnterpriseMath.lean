@@ -5,6 +5,7 @@ import EnterpriseMath.Order.ReductiveCompositionStabilization
 import EnterpriseMath.Precision.Carry
 import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
+import EnterpriseMath.Precision.PowerQuotientCoalescence
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
