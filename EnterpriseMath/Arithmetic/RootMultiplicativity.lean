@@ -196,4 +196,61 @@ theorem noCarry_downward {p r s u v u' v' : ℕ}
     offsetLoad p r s u' v' < basinWidth p (r * s) :=
   lt_of_le_of_lt (offsetLoad_mono hu hv) hno
 
+/-- P001-T05 first case: once the fixed first-offset cost reaches the width, no second offset works. -/
+theorem no_second_offset_of_width_le_fixed {p r s u : ℕ}
+    (hfixed : basinWidth p (r * s) ≤ s ^ p * u) (v : ℕ) :
+    ¬ offsetLoad p r s u v < basinWidth p (r * s) := by
+  simp only [offsetLoad]
+  omega
+
+/-- P001-T05 floor-division boundary for the second offset. -/
+theorem second_offset_noCarry_iff_le_div {p r s u v : ℕ}
+    (ha : 0 < r ^ p + u)
+    (hfixed : s ^ p * u < basinWidth p (r * s)) :
+    offsetLoad p r s u v < basinWidth p (r * s) ↔
+      v ≤ (basinWidth p (r * s) - 1 - s ^ p * u) / (r ^ p + u) := by
+  have hload : offsetLoad p r s u v = s ^ p * u + (r ^ p + u) * v := by
+    simp only [offsetLoad]
+    ring
+  constructor
+  · intro hno
+    rw [hload] at hno
+    have hmul : (r ^ p + u) * v ≤ basinWidth p (r * s) - 1 - s ^ p * u := by
+      omega
+    have hmul' : v * (r ^ p + u) ≤ basinWidth p (r * s) - 1 - s ^ p * u := by
+      simpa [Nat.mul_comm] using hmul
+    exact ((Nat.galoisConnection_mul_div ha)
+      v (basinWidth p (r * s) - 1 - s ^ p * u)).mp hmul'
+  · intro hv
+    have hmul' : v * (r ^ p + u) ≤ basinWidth p (r * s) - 1 - s ^ p * u :=
+      ((Nat.galoisConnection_mul_div ha)
+        v (basinWidth p (r * s) - 1 - s ^ p * u)).mpr hv
+    have hmul : (r ^ p + u) * v ≤ basinWidth p (r * s) - 1 - s ^ p * u := by
+      simpa [Nat.mul_comm] using hmul'
+    rw [hload]
+    omega
+
+/-- Canonical P001-T05 maximum offset inside the actual `s`-basin. -/
+def maxSecondOffset (p r s u : ℕ) : ℕ :=
+  min
+    (basinWidth p s - 1)
+    ((basinWidth p (r * s) - 1 - s ^ p * u) / (r ^ p + u))
+
+/-- P001-T05: `maxSecondOffset` is the greatest actual-basin offset satisfying no carry. -/
+theorem maxSecondOffset_isGreatest {p r s u : ℕ}
+    (ha : 0 < r ^ p + u)
+    (hfixed : s ^ p * u < basinWidth p (r * s)) :
+    IsGreatest
+      {v : ℕ |
+        v ≤ basinWidth p s - 1 ∧
+          offsetLoad p r s u v < basinWidth p (r * s)}
+      (maxSecondOffset p r s u) := by
+  constructor
+  · constructor
+    · exact min_le_left _ _
+    · apply (second_offset_noCarry_iff_le_div ha hfixed).2
+      exact min_le_right _ _
+  · intro v hv
+    exact le_min hv.1 ((second_offset_noCarry_iff_le_div ha hfixed).1 hv.2)
+
 end EnterpriseMath.RootMultiplicativity
