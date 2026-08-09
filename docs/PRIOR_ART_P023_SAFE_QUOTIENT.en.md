@@ -17,7 +17,7 @@ P023 uses these established structures as mathematical infrastructure.
 
 ## 2. Paige–Tarjan partition refinement
 
-Robert Paige and Robert E. Tarjan, “Three Partition Refinement Algorithms,” *SIAM Journal on Computing* 16(6), 973–989 (1987), DOI `10.1137/0216062`, develops efficient partition-refinement algorithms including a coarsest-partition problem.
+Robert Paige and Robert E. Tarjan, “Three Partition Refinement Algorithms,” *SIAM Journal on Computing* 16(6), 973–989 (1987), DOI `10.1137/0216062`, develops efficient partition-refinement algorithms including a coarsest-partition problem. [SRC-PAIGE-TARJAN-1987]
 
 P023's current executable reference implementation is intentionally simple and finite; it does not claim Paige–Tarjan algorithmic novelty or complexity.
 
@@ -35,6 +35,6 @@ Accordingly:
 - P023-T03–T07 are finite partition-refinement/congruence results and are not priority claims;
 - the research question is whether integrating these tools with P010/P011 irreversible-history observables, P018 finite-precision state decomposition, and P021 witness transport yields useful new arithmetic classifications and a coherent precision-loss calculus.
 
-## 5. Source registration gate
+## 5. Source registration state
 
-Before P023 is promoted from Draft research to canonical main, the repository `sources.json` / `lineage.json` should receive stable source IDs for the partition-refinement and automata/congruence lineage used by the final prose. This note records the attribution target but does not bypass the machine-readable provenance gate.
+The direct partition-refinement prior art used here is registered in `sources_p023_safe_quotient.json`, and the P023 synthesis component is registered in `lineage_p023_safe_quotient.json`. These sidecars are intentionally supported by the repository reference-integrity checker and avoid unsafe whole-file overwrites of concurrently evolving shared registries.
