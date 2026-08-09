@@ -1,83 +1,93 @@
 # Legendre 压力测试 — 补充 19
 
 状态：`PROVED RESEARCH NOTE`  
-范围：保留 exact cofactor windows 后的实际 lower-band root-image separation  
+范围：lower-band 精确窗口 root separation 及其真实 shell 推论  
 依赖：P017 L051–L054、P007 quotient-window transport 补充 01、P023 image-separation 补充 08、P018 T113  
 纪律：只使用有限整数不等式；不使用素数分布估计，也不声称证明 Legendre 猜想。
 
 ## 1. 为什么重新检查 L052
 
-L052 对 lower-band prime `p` 定义
+对 lower-band prime `p`，L052 把可能 root 输出扩大为一个两点候选集，并证明只有从 `k>=15` 起才统一跨 shell 分离。
 
-\[
-j_p=R_2\!\left(\left\lfloor\frac{k^2}{p}\right\rfloor\right)
-\]
-
-并使用扩大后的候选 root pair
-
-\[
-C_p(k)=\{j_p,j_p+1\}.
-\]
-
-它证明从 `k>=15` 起这些 candidate pairs 两两不交，而且 `k=14` 时 `C_2(14)` 与 `C_3(14)` 都含 root 9。
-
-但 L054 随后证明真实 cofactor windows 本身已经严格分离。于是必须重新问：
-
-> `k=14` 的候选 root 9 是否真的同时被两个 exact windows 实现？
-
-答案是否定的：
-
-\[
-W_2(14)=[99,112]
-\quad\Longrightarrow\quad
-R_2(W_2)=\{9,10\},
-\]
-
-而
-
-\[
-W_3(14)=[66,74]
-\quad\Longrightarrow\quad
-R_2(W_3)=\{8\}.
-\]
-
-候选对发生了重叠，但实际 image 没有。
-
-这提示我们使用 P023-S8 的 actual-image separation，而不是继续对放大的 candidate superset 做碰撞计数。
-
-## 2. 实际 root image
-
-对 prime `p<=k`，仍定义 exact cofactor window
+L054 提供了更多信息：剥离 `p` 后，每个可能 cofactor 都落在精确 raw interval
 
 \[
 W_p(k)=
 \left[
 \left\lfloor\frac{k^2}{p}\right\rfloor+1,
-\left\lfloor\frac{k(k+2)}{p}\right\rfloor
+\left\lfloor\frac{k(k+2)}p\right\rfloor
 \right].
 \]
 
-定义其**实际平方根像**
+这个区间的 root image 可以远小于 L052 的扩大候选对。例如 `k=14` 时，`p=2,3` 的候选集合都包含 root 9，但
+
+\[
+R_2(W_2(14))=\{9,10\},
+\qquad
+R_2(W_3(14))=\{8\}.
+\]
+
+因此 candidate collision 在 exact-window 层已经是假的。
+
+## 2. 三个不同的状态层
+
+这里必须做一个语义区分。
+
+定义**精确窗口 root image**
 
 \[
 \boxed{
-G_p(k)=\{R_2(q):q\in W_p(k)\}.
+G_p^{\rm win}(k)=\{R_2(q):q\in W_p(k)\}.
 }
 \]
 
-由于 `R_2` 单调，`G_p(k)` 是一个连续整数 root 区间；由 T113，在当前 square-basin geometry 下它至多包含两个相邻 roots。
+真实 least-prime shell 更小。令
 
-## 3. L055 —— actual lower-band root images 从 k=9 起两两不交
+\[
+Q_p^{\rm sh}(k)
+=
+\{n/p:\ k^2<n<(k+1)^2,\ \operatorname{spf}(n)=p\}.
+\]
+
+则
+
+\[
+Q_p^{\rm sh}(k)\subseteq W_p(k),
+\]
+
+因为一个真实 shell cofactor 不仅要满足区间条件，还必须满足 `p`-roughness / admissibility。定义真实 root image
+
+\[
+\boxed{
+G_p^{\rm sh}(k)=\{R_2(q):q\in Q_p^{\rm sh}(k)\}.
+}
+\]
+
+因此
+
+\[
+\boxed{
+G_p^{\rm sh}(k)\subseteq G_p^{\rm win}(k).
+}
+\]
+
+正确的层级是
+
+\[
+\text{candidate root superset}
+\supseteq
+\text{exact-window root image}
+\supseteq
+\text{realized shell root image}.
+\]
+
+一个精确区间并不自动等于真实可实现 shell。
+
+## 3. L055 —— exact-window lower-band root images 从 k=9 起两两不交
 
 状态：`PROVED`。
 
-设
-
-\[
-k\ge9,
-\]
-
-并令 `p<r` 为不同 lower-band primes：
+设 `k>=9`，并令 `p<r` 为不同 lower-band primes：
 
 \[
 p^2<2k,
@@ -89,21 +99,23 @@ r^2<2k.
 
 \[
 \boxed{
-G_p(k)\cap G_r(k)=\varnothing.
+G_p^{\rm win}(k)\cap G_r^{\rm win}(k)=\varnothing.
 }
 \]
 
-因此从 `k>=9` 起，一个实际下降 root index 至多来自一条 lower-band least-prime shell。
-
-这把“实际 shell channel”的统一稳定阈值从 L052 candidate-pair 层的 `15` 降到 exact-window 层的
+因为真实 shell images 是 exact-window images 的子集，立即得到
 
 \[
-\boxed{9}.
+\boxed{
+G_p^{\rm sh}(k)\cap G_r^{\rm sh}(k)=\varnothing.
+}
 \]
 
-## 4. 共同 root 的三个必要整数条件
+所以从 `k>=9` 起，保留 root coordinate 已足以恢复 lower-band least-prime shell label。
 
-反设存在共同 root `s`。则存在
+## 4. exact-window collision 的必要条件
+
+反设两个 exact-window images 存在共同 root `s`。则存在
 
 \[
 q_p\in W_p(k),
@@ -117,241 +129,95 @@ q_r\in W_r(k)
 R_2(q_p)=R_2(q_r)=s.
 \]
 
-由 root basin
+因为
 
 \[
-s^2\le q\le(s+1)^2-1=s^2+2s
+s^2\le q\le s^2+2s,
 \]
 
-得到以下三个必要条件。
-
-### 4.1 来自 p-shell 左边界
-
-因为 `q_p in W_p(k)`，
+区间端点给出
 
 \[
-pq_p>k^2.
-\]
-
-又 `q_p<=s^2+2s`，所以
-
-\[
-\boxed{
-k^2<p\,s(s+2).}
+\boxed{k^2<p\,s(s+2),}
 \tag{A}
 \]
 
-### 4.2 来自 r-shell 右边界
-
-因为 `q_r>=s^2` 且
-
 \[
-rq_r\le k(k+2),
-\]
-
-所以
-
-\[
-\boxed{rs^2\le k^2+2k.}
+\boxed{rs^2\le k^2+2k,}
 \tag{B}
 \]
-
-### 4.3 来自 r-shell 左边界
-
-同时 `rq_r>k^2`，而 `q_r<(s+1)^2`，故
 
 \[
 \boxed{k^2<r(s+1)^2.}
 \tag{C}
 \]
 
-由 (A)、(B) 相减：
+由 (A)、(B) 得
 
 \[
 \boxed{(r-p)s^2<2ps+2k.}
 \tag{D}
 \]
 
-这四个整数不等式就是 actual collision 的完整压力入口。
+这些条件针对的是更强的 exact-window collision 问题，因此在这里得到矛盾会自动排除真实 shell collision。
 
-## 5. 所有 r>=5 的统一压缩
+## 5. 所有 r>=5 都不可能
 
-若 `r>=5`，则 `r` 为奇素数，且任意更小 prime `p` 都满足
+若 `r>=5`，prime spacing 给出
 
 \[
+r-p\ge2,
+\qquad
 p\le r-2.
 \]
 
-又有初等平方恒等式
+由 (C) 和
 
 \[
-(r+1)^2-4r=(r-1)^2\ge0.
+4r\le(r+1)^2
 \]
 
-由 (C)，
-
-\[
-4k^2<4r(s+1)^2\le(r+1)^2(s+1)^2,
-\]
-
-所以正整数比较给出
+得到
 
 \[
 \boxed{2k<(r+1)(s+1).}
 \tag{E}
 \]
 
-将 `r-p>=2`、`p<=r-2` 与 (D)、(E) 合并：
-
-\[
-\begin{aligned}
-2s^2
-&\le(r-p)s^2\\
-&<2ps+2k\\
-&\le2(r-2)s+2k\\
-&<(3r-3)s+r+1.
-\end{aligned}
-\]
-
-因此任何共同 root 都必须满足
+结合 (D)、(E)：
 
 \[
 \boxed{2s^2<(3r-3)s+r+1.}
 \tag{F}
 \]
 
-## 6. r>=11：lower-band 强迫 s 太大
-
-lower-band 条件给出
+对 `r>=11`，lower-band 条件与 (C) 推出
 
 \[
-r^2<2k
-\quad\Longrightarrow\quad
-r^4<4k^2.
+r^3<4(s+1)^2.
 \]
 
-结合 (C)：
+于是必须有
 
 \[
-r^4<4r(s+1)^2,
+2s\ge3r-1,
 \]
 
-即
+这会使 (F) 左侧不小于右侧，矛盾。
+
+对 `r=7`，(F) 给出 `s<=9`；再由 (A) 与 `p<=5` 得 `k<=22`，但 lower-band 要求 `k>=25`。
+
+对 `r=5`，(F) 给出 `s<=6`；再由 (A) 与 `p<=3` 得 `k<=11`，但 lower-band 要求 `k>=13`。
+
+所以
 
 \[
-\boxed{r^3<4(s+1)^2.}
-\tag{G}
+\boxed{r\ge5\Longrightarrow\text{不存在 exact-window lower-band root collision}.}
 \]
 
-对 `r>=11`，若有
+## 6. 最后只剩 (2,3)
 
-\[
-2(s+1)\le3r,
-\]
-
-则
-
-\[
-4(s+1)^2\le9r^2<r^3,
-\]
-
-与 (G) 矛盾。因此
-
-\[
-2(s+1)>3r,
-\]
-
-从而整数性给出
-
-\[
-\boxed{2s\ge3r-1.}
-\tag{H}
-\]
-
-现在
-
-\[
-\begin{aligned}
-&2s^2-(3r-3)s-(r+1)\\
-&=s(2s-3r+3)-(r+1)\\
-&\ge2s-r-1\\
-&\ge2r-2>0,
-\end{aligned}
-\]
-
-这与 (F) 直接矛盾。
-
-所以 `r>=11` 不可能存在实际共同 root。
-
-## 7. r=7
-
-(F) 变为
-
-\[
-2s^2<18s+8.
-\]
-
-当 `s=10` 时左减右已经为 `12>0`，且之后差值严格增加，因此必须
-
-\[
-s\le9.
-\]
-
-又 `p<=5`，由 (A)
-
-\[
-k^2<5\cdot9\cdot11=495,
-\]
-
-所以 `k<=22`。
-
-但 `r=7` 为 lower-band prime 要求
-
-\[
-49<2k,
-\]
-
-即 `k>=25`，矛盾。
-
-## 8. r=5
-
-(F) 变为
-
-\[
-2s^2<12s+6.
-\]
-
-`s=7` 时左减右已经为 `8>0`，以后继续增加，因此
-
-\[
-s\le6.
-\]
-
-又 `p<=3`，由 (A)
-
-\[
-k^2<3\cdot6\cdot8=144,
-\]
-
-故 `k<=11`。
-
-但 `r=5` lower-band 要求
-
-\[
-25<2k,
-\]
-
-即 `k>=13`，矛盾。
-
-## 9. 最后的小素数对 r=3, p=2
-
-只剩
-
-\[
-(p,r)=(2,3).
-\]
-
-(A)、(B) 分别成为
+对 `(p,r)=(2,3)`，(A)、(B) 变为
 
 \[
 \boxed{k^2<2s(s+2),}
@@ -363,149 +229,139 @@ k^2<3\cdot6\cdot8=144,
 \tag{J}
 \]
 
-### 9.1 先排除 s>=8
-
-由 (I)，
+一个纯整数比较排除 `s>=8`。由 (I) 与 `98<100` 得
 
 \[
-k^2<2(s+1)^2.
+7k<10(s+1),
 \]
 
-因为
+再与 (J) 合并得到
 
 \[
-49\cdot2=98<100,
+47s^2<340s+240,
 \]
 
-所以
+此式从 `s=8` 起即失败，并且之后越来越失败。
+
+因此 `s<=7`，再由 (I) 得 `k<=11`。在定理假设 `k>=9` 下，只剩 `k=9,10,11`；直接代入 (I)、(J) 即可逐一排除。因此 L055 得证。∎
+
+## 7. 真实 shell 层的 sharpness
+
+即使加上 `p`-rough 可实现性过滤，`k>=9` 仍是 sharp threshold。
+
+在 `k=8`，取
 
 \[
-49k^2<100(s+1)^2,
+n_2=66=2\cdot33,
+\qquad
+n_3=75=3\cdot25.
 \]
 
-即
+两者都位于平方盆地 `(64,81)`，而且
 
 \[
-7k<10(s+1).
+\operatorname{spf}(66)=2,
+\qquad
+\operatorname{spf}(75)=3.
 \]
 
-于是
+但
 
 \[
-49(k^2+2k)
-<100(s+1)^2+140(s+1).
+R_2(33)=R_2(25)=5.
 \]
-
-结合 (J)：
-
-\[
-147s^2
-<100(s+1)^2+140(s+1),
-\]
-
-整理为
-
-\[
-47s^2<340s+240.
-\]
-
-但 `s=8` 时
-
-\[
-47s^2-(340s+240)=48>0,
-\]
-
-且该差值对 `s>=8` 严格增加，矛盾。
 
 因此
 
 \[
-s\le7.
+\boxed{5\in G_2^{\rm sh}(8)\cap G_3^{\rm sh}(8).}
 \]
 
-### 9.2 剩余 k 只能是 9,10,11
+所以任何统一真实-shell 分离定理都不能从 9 以下开始。
 
-由 (I) 与 `s<=7`，
+## 8. exact-window collision 不一定可实现
 
-\[
-k^2<2\cdot7\cdot9=126,
-\]
+中间层与最底层的区别在 `k=6` 已经出现。
 
-所以在定理假设 `k>=9` 下，只可能
+精确窗口为
 
 \[
-k=9,10,11.
-\]
-
-- `k=9`：由 (J)，`3s^2<=99`，故 `s<=5`；但 (I) 右侧至多 `70<81`；
-- `k=10`：由 (J)，`s<=6`；但 (I) 右侧至多 `96<100`；
-- `k=11`：由 (J)，仍有 `s<=6`；但 `96<121`。
-
-全部矛盾。
-
-所以 `(2,3)` 在 `k>=9` 也不可能产生实际 root collision。L055 证毕。∎
-
-## 10. Sharpness：k=8 仍有真实 collision
-
-`k=8` 时 `2`、`3` 都属于 lower band，且
-
-\[
-W_2(8)=[33,40],
+W_2(6)=[19,24],
 \qquad
-R_2(W_2)=\{5,6\},
+W_3(6)=[13,16].
 \]
+
+所以两个 exact-window root images 都含 root 4。但 `p=3` 窗口中唯一产生 root 4 的 cofactor 是 `q=16`，对应
 
 \[
-W_3(8)=[22,26],
-\qquad
-R_2(W_3)=\{4,5\}.
+3q=48,
 \]
 
-所以
+而 `48` 的最小素因子是 2。因此 root 4 **并未**被 `p=3` 真实 shell 实现。
 
-\[
-5\in G_2(8)\cap G_3(8).
-\]
+所以 `k=6` 是 exact-window collision，却不是真实 shell collision。
 
-因此统一 eventual threshold `k>=9` 是 sharp 的。
-
-有界枚举进一步显示实际 lower-band cross-shell root collisions 只出现在
-
-\[
-k=5,6,8,
-\]
-
-并且全部来自 `(p,r)=(2,3)`；这一枚举只是审计，不参与证明。
-
-## 11. 与 L052 的精确关系
-
-L052 没有被废弃。
-
-它证明的是更粗的 candidate-pair statement：即使不知道 exact window 内哪一支真正被实现，从 `k>=15` 起 `{j_p,j_p+1}` 本身就已经跨 shell 不交。
-
-L055 使用更多已知信息——L054 的 exact windows——因此能把**实际 realized image**的分离阈值提前到 `9`。
-
-两者形成一个非常清楚的 precision hierarchy：
+这给出 L052 之后更细的一条 precision 纪律：
 
 \[
 \boxed{
-\text{candidate superset precision}:15
-\quad\longrightarrow\quad
-\text{actual-window precision}:9.
+\text{exact interval membership}
+\neq
+\text{admissible/realized state membership}.
 }
 \]
 
-这是“提高结构精度减少假 collision”的严格数论实例。
+## 9. 有限回归 profile
 
-## 12. A2 含义：root coordinate 已足以恢复 shell label
+可执行检查现在分别保存两个 collision profile。
 
-由 P023-S8-T02，L055 等价于：
+`k<9` 时，exact-window images 的 collision 出现在
 
-> 对 `k>=9` 的 lower band，经过 exact factor stripping 再取平方根以后，least-prime shell label `p` 仍然是 retained root coordinate 的函数。
+\[
+k=5,6,8.
+\]
 
-但 `R_2` 在单个窗口内部仍可能 many-to-one，所以这**不**意味着原始 cofactor 或 composite state 都可恢复。
+加入 least-prime / `p`-rough realizability filter 后，有界 profile 变为
 
-因此：
+\[
+k=5,8.
+\]
+
+这里它们只作为 regression evidence。补充 20 会进一步把全族分类升级成普通证明。
+
+## 10. 与 L052 的关系
+
+L052 仍然成立：它使用扩大后的两点 candidate set，在信息更少的情况下得到统一阈值 15。
+
+L055 使用 exact quotient windows，证明更强的算术结论
+
+\[
+\text{exact-window separation from }k=9.
+\]
+
+真实 shell 是其子集，因此继承同一阈值，而 `k=8` 的真实 witness 又证明 sharpness。
+
+层级现在应写成
+
+\[
+\boxed{
+\text{candidate superset}
+\to
+\text{exact-window image}
+\to
+\text{realized-shell image}.
+}
+\]
+
+每一步都加入了合法结构，也都可能删除假 collision。
+
+## 11. A2 含义
+
+P023-S8 在知道 admissibility 条件时，应当作用于**reachable/admissible shell state**。真实 shell images 两两不交，恰好就是删除 shell label 的 zero-repair criterion。
+
+对 `k>=9`，root coordinate 足够恢复 lower-band shell identity。但它仍然不能恢复原始 cofactor 或 composite state，因为 root map 在单 shell 内仍是 many-to-one。
+
+因此
 
 \[
 \boxed{
@@ -515,25 +371,12 @@ L055 使用更多已知信息——L054 的 exact windows——因此能把**实
 }
 \]
 
-## 13. 对 P017 下一步的影响
-
-从 `k>=9` 起，真实 lower-band root scale 上已经不存在跨 least-prime shell 的竞争。
-
-后续递归不应再为这种假竞争支付一个统一 multiplicity 2；真正剩余的困难转为：
-
-1. 每条唯一 shell 内 exact p-rough subwindow 的 composite capacity；
-2. 同 shell 内 root many-to-one 造成的局部状态合并；
-3. L053 multiplicity-sensitive mirror CRT 对这些实际 subwindows 的进一步压缩；
-4. singleton small-prime support 加大素数 tail 的 hard core。
-
-尤其禁止把 exact windows 再扩大成完整 target root basins，否则会重新制造 L055 已经消掉的假 collision。
-
-## 14. 可执行审计
+## 12. 可执行规范
 
 - `src/enterprise_math/p017_actual_root_separation.py`
 - `tests/test_p017_actual_root_separation.py`
 - `experiments/p017_actual_root_separation_probe.py`
 
-回归固定 `k=8,p=2,r=3,root=5` 的 sharp witness，并检查 `9<=k<2000` 全部 actual lower-band images 两两不交；独立 probe 扩展到 `k<5000` 并记录所有小值碰撞。
+可执行层现在同时暴露 exact-window root images 与真实 least-prime-shell root images；固定 `k=6` 的语义反例、`k=8` 的真实 sharp witness，以及 `k>=9` 的大范围分离回归。
 
-历史创新性继续标记为 `NOVELTY_UNVERIFIED`。这里的证明主要由初等整数不等式组成；项目新增价值首先是 exact-window / image-separation 工具促成的更强 P017 结构结论。
+历史创新性继续标记为 `NOVELTY_UNVERIFIED`。项目真正新增的价值是 theorem-lifting 纪律，以及保留正确状态层后显现出的更强 P017 结构。
