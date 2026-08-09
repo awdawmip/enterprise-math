@@ -1,130 +1,197 @@
 # Enterprise Math 当前研究分支账本
 
 状态：`CANONICAL OWNER-ISOLATION LEDGER / CURRENT WRITE SURFACE`  
-当前路由基线：`main@85919bbb939ac8155a37c70e088b15b15fab795f`  
-此前已审计 11 路快照：PR #215 / `main@683d6baaec90f4d59a5c3a64c9d40a6f3a24a337`  
+路由快照基线：`main@aec7f625e48eb8f93ba701ba57686a9e225efd17`  
+此前 canonical 账本刷新：PR #196、PR #215  
 日期：2026-08-09
 
-本账本记录当前语义写入面。PR #215 正确 canonicalize 了当时的 11 路审计快照；该审计完成后，P025 作为新的独立 L2 program owner 创建，因此当前活动面自然增长为 12 路。这是 Owner-Isolation 下的正常增量，并不意味着 #215 的审计错误。
+本账本是当前语义写入面的人工可读快照。实时机器权威仍然是：
 
-治理主规则保持不变：
+`branch_governance_overrides.json + research_scheduler.json + Issue #240 runtime events`。
 
-`owner research -> freeze exact payload -> fresh latest-main L4 replay -> exact merge-state gates -> canonical main`。
+开放 PR 数量、分支年龄与 Git ancestry 都不能决定 theorem ownership。治理生命周期保持：
 
-L1/L2/L3 owner 可以合法落后于移动中的 main；不得仅为“保持最新”而 whole-tree sync main。L4 全局 `NO NEW MATHEMATICS`。
+`owner research -> freeze exact payload -> fresh/latest-main L4 replay -> exact merge-state gates -> canonical main`。
 
-## 1. Canonical reusable layers
+L1/L2/L3 owner 可以有意落后于移动中的 `main`，不得仅为“保持最新”而 whole-tree sync。L4 publication 全局 `NO NEW MATHEMATICS`。
 
-当前 main 已包含 A2、A3、A4 第一代 canonical cores；thin A3->A4 generated-support B01-B06 bridge；P021 causal-boundary core；P022 `A_p`/root-lattice geometry core；Owner-Isolation 执行规则；scope-aware branch audit；E001 finite impulse-world integration；以及后续 P018 quotient-channel coalescence。
+## 1. 本快照下已 canonical 的可复用层
 
-本轮压缩/发布的重要 merges 包括 `87231d29`、`ca923d64`、`e8407882`、`21c1ef66`、`4a4a2fde`、`683d6baa` 与治理 merge `85919bbb`。
+当前 `main` 已包含以下代表性 canonical 资产：
 
-## 2. 当前活动写入面：12 条分支
+- A2 finite-arity / future-compatible quotient machinery；
+- A3 weighted relation-state、relation lattice/scale core；
+- A4 admissible correspondence / relational-spectrum core；
+- thin A3->A4 generated-support bridge；
+- P021 causal-boundary core；
+- P022 `A_p` / root-lattice geometry core；
+- 经 PR #262 / `fc81a15a` 进入 main 的 P022 geodesic-multiplicity + HCP executable core；
+- 经 PR #288 / `aec7f625` 进入 main 的 P022 Barlow stacking executable core；
+- 经 PR #270 / `b4801960` 进入 main 的 P018 centered-prime-radius executable layer；
+- Owner-Isolation、scope-aware branch auditing、scheduler / handoff control 与 Foundation Steward 规则；
+- 已登记在 owner registry 与 shared-surface machinery 中的当前 canonical E001 finite material/world slices。
 
-目标区间不是永久配额。12 条目前处于预期紧凑写入面的上沿，而且每条都有不同的 theorem/application home。
+P022 下一项有界 publication 是 task-relative Barlow precision。源 PR #265 已验证的 two-blob payload 已在 `main@aec7f625` 上重放为 fresh L4 PR #292；在 exact current-head promotion gates 全绿并完成 merge 前，它仍不是 canonical。
 
-### 2.1 Program owners — 6
+## 2. 当前活动语义写入面：13 条路线
+
+机器 owner registry 当前共有十三条 `ACTIVE_OWNER` / `ACTIVE_BRIDGE` 路线。长期紧凑运行面仍优先压在约 8–12 条可写 refs，因此 13 是暂时高沿，不是新的目标值。压缩必须遵守 semantic result conservation，不能靠任意删 branch 实现。
+
+### 2.1 Core owner — 1
+
+1. `core/a3-relation-lattice-v3`
+   - sparse integer relation-lattice continuation；
+   - 只拥有 spanning-tree integer coordinates、zero-total orbit/lattice reconstruction 及其直接依赖的 A3 invariants。
+
+### 2.2 Program owners — 6
 
 1. `program/p017-legendre`
-   - square-basin / Legendre pressure-test frontier；
-   - 当前 branch-side 工作仍属于 P017。
+   - square-basin / Legendre pressure-test frontier。
 
 2. `program/p018-precision-v2`
-   - precision-specific frontier；
-   - generic future quotient 仍归 A2/P023。
+   - precision-specific quotient/root-channel 与 carry frontier；
+   - generic future-compatible quotient theory 仍归 A2/P023。
 
-3. `program/p021-causal-focusing-v3` — Draft PR #213
-   - causal-boundary promotion 后的新 generation；
-   - 保留 focusing、direction-orbit/causal-role、causal witness 与受物理边界约束的应用路线。
+3. `program/p021-causal-focusing-v3`
+   - causal-boundary promotion 后的 focusing、direction、causal-role/witness 与受物理边界约束的 specialization continuation。
 
 4. `program/p022-geometry-v2`
-   - `A_p` lattice core 已 canonical；
-   - geodesic multiplicity、HCP 与 Barlow 继续作为同一 geometry owner 内的研究。
+   - intrinsic discrete geometry owner；
+   - `A_p` lattice、geodesic/HCP 与 Barlow stacking executable layers 已 canonical；
+   - Barlow precision/growth/coordination 以及后续 observation/collision/repair 仍是同一 owner 内研究，除非按 weakest hypotheses 明确重新归属。
 
 5. `program/p024-action-precision`
-   - closed-form action-language / boundary-precision specialization；
-   - generic quotient 与 adjunction 继续归上游 owner。
+   - state/action-language precision specialization；
+   - generic quotient/adjunction 仍归上游 owner。
 
-6. `program/p025-abc-support-collapse` — PR #216
-   - 在 #215 的 11 路审计完成后创建；
-   - 拥有 abc 压力测试：radical-support collapse、multiplicity residual、exact integer rational-exponent defect、relation-conditioned witness-precision candidates、P025 prior-art、lineage 与 regressions；
-   - 明确不把 radical 当成 addition congruence；
-   - generic correspondence / quotient mother theory 仍归上游 owner；
-   - 不声称证明 abc conjecture，也不改变 canonical problem status。
+6. `program/p025-abc-support-collapse`
+   - abc/radical-support pressure test 与 relation-conditioned bounded-witness precision candidates；
+   - 不代表已经证明 abc，也不改变 problem closure。
 
-### 2.2 Cross-owner bridges — 3
+### 2.3 Cross-owner bridges — 3
 
-1. `bridge/a3-a4-generated-support-v3` — thin A3 relation-state -> A4 generated-support bridge。
-2. `bridge/p017-p018-hard-core-v2` — arithmetic / precision hard-core、root-channel 与 tail-resource bridge。
-3. `bridge/a2-e001-material-markov` — future-compatible quotient -> material future-state specialization bridge。
+1. `bridge/a3-a4-generated-support-v3`
+   - 仅保留真正跨 owner 的 thin A3 relation-state -> A4 generated-support bridge。
 
-### 2.3 E001 engineering owners — 3
+2. `bridge/p017-p018-hard-core-v2`
+   - arithmetic / precision hard-core、root-channel 与 analytic tail-resource bridge。
 
-1. `engineering/e001-material-impulse-v2` — finite impulse/momentum、force activation、remainder 与 reversal-certificate frontier。
-2. `engineering/e001-material-pair-impulse` — bounded two-body equal-and-opposite impulse owner，PR #205。
-3. `engineering/e001-material-multiaction-protocol` — empirical multi-action protocol -> canonical P023 future partition adapter，PR #185。
+3. `bridge/a2-e001-material-markov`
+   - future-compatible quotient -> material future-state specialization bridge。
 
-## 3. 已耗尽或冻结的 generations
+### 2.4 E001 engineering owners — 3
 
-以下是 provenance，不再是当前写入点：
+1. `engineering/e001-material-impulse-v2`
+   - finite impulse/momentum、force activation、retained remainder 与 reversal-certificate frontier。
 
-- `core/a2-future-quotient-v2`、`core/a3-relation-state-v2`、`core/a4-admissible-support-v2` — 审计时均观察到 `ahead=0`；只有真正恢复新 mother-theorem work 时才从当时 current main 开新 generation。
-- `program/p021-causal-focusing-v2` — causal-boundary payload 已 promotion；PR #182 已关闭为 `PROMOTED / PROVENANCE`；v3 active。
-- `engineering/e001-material-impulse-world` — validated one-body wall-world payload 已 canonical；PR #194 是冻结 provenance，#205 是声明的下一代 pair-impulse generation。
+2. `engineering/e001-material-contact-network`
+   - bounded contact-network incidence/Gram、cycle-kernel 与 rank-duality owner。
 
-不要为了“看起来最新”而 fast-forward 旧 generations。
+3. `engineering/e001-measurement-area-refinement`
+   - exact measured-polyline area shells、refinement variation 及其 regressions。
 
-## 4. Replay-required / stacked sources
+此前 pair-impulse 与 multi-action owner generations 已不再是活动写入点；其有界结果已经 promotion，对应分支现在是 provenance。
 
-以下保留有价值历史，但不是 active mother-theorem home：
+## 3. 已耗尽、provenance 或 replay-required generations
 
-- `research/core/relation-quotient` — broad historical A3 source。
-- `research/core/relation-support-bridge` 与旧 `bridge/a3-a4-v2` — B01-B06 已通过 thin bridge；其余 B07-B58 必须按实际 owner 重新归属。
-- `engineering/e001-material-state-cost` — stacked benchmark/application，携带 upstream `material_future_precision` dependency；以后只 replay 独有 benchmark/test 资产。
+不要为了“看起来最新”而 fast-forward 以下 generations。
 
-## 5. 选定历史 PR 审计
+### Provenance / absorbed
 
-### 5.1 已按 absorbed 关闭
+- `core/a2-future-quotient-v2`；
+- `core/a3-relation-state-v2`；
+- `core/a4-admissible-support-v2`；
+- `program/p021-causal-focusing-v2`；
+- `engineering/e001-material-impulse-world`；
+- `engineering/e001-material-pair-impulse`；
+- `engineering/e001-material-multiaction-protocol`；
+- owner registry 中已机械/语义判定 absorbed 的 E002 v2 generations；
+- owner registry 中已 absorbed 的 P023 与 historical P018 all-power quotient generations。
 
-- #22 P005 — `ABSORBED / SEMANTIC`。
-- #23 P017 mirror support/incidence — `ABSORBED / STRICT_GENERALIZATION`。
-- #65 P017 rough/high-band — `ABSORBED / STRICT_GENERALIZATION`。
+### Replay-required / stacked sources
 
-### 5.2 继续保持 open
+- `research/core/relation-quotient` — broad historical A3 source；
+- `research/core/relation-support-bridge` 与旧 `bridge/a3-a4-v2` — B01-B06 已进入 thin v3 bridge，其余历史 metric/count/future-language 材料必须按真实 owner 重新归属；
+- `engineering/e001-material-state-cost` — 携带 upstream future-state dependency 的 stacked benchmark/application source；
+- validation/stacked PR 即使 tests 全绿，也不能因此被当作 canonical merge vehicle。
 
-- #21 — `PARTIAL ABSORPTION / CORRECTED / DEPENDENCY-BLOCKED WIP`，Draft。Old L023 已被包含；old L024 后来需要 anchor-survival 修正；L025 因历史 branch 缺少导入的 `four_support` dependency 而尚未验证。
-- #54 — `SPECIALIZATION / STILL-UNIQUE REPRESENTATION / UNVALIDATED DRAFT`。Centered-prime-radius 仍可能是有价值的 near-diagonal coordinate，但 replay 前必须重新验证、协调编号并完成 prior-art audit。
+## 4. 选定历史 PR 审计
 
-## 6. Scope-audit 修正
+结果守恒使用语义分类，不按 branch 年龄分类。
 
-当前机器路由记录：
+### 已按 absorbed / strict-generalization 关闭
 
-1. P022 `p022_hcp_*`、`p022_barlow_*`、`p022_geodesic_*`、P022 tests 与 bilingual registration 属于合法同 owner 资产。
-2. `bridge/a3-a4-generated-support-v3` 取代 broad v2 成为 active A3/A4 bridge。
-3. A2/A3/A4 v2 为已耗尽 generations。
-4. P021 v3 取代 v2 成为 active causal/focusing owner。
-5. P025 是 #215 快照后新建的 clean L2 owner，只允许 `P025_*`、`abc_*`、prior-art/lineage 与 registration 路径。
-6. E001 impulse-world 为 provenance；impulse-v2 / pair-impulse / multi-action active；state-cost 继续 replay-required。
+- #22 P005 — `ABSORBED / SEMANTIC`；
+- #23 P017 mirror support/incidence — `ABSORBED / STRICT_GENERALIZATION`；
+- #65 P017 rough/high-band resource route — `ABSORBED / STRICT_GENERALIZATION`。
 
-## 7. 当前 P022 发布顺序
+### 因仍有 unique 资产而保持 open
 
-禁止 wholesale 发布大型 P022 owner。下一步审定的切片顺序是：
+#### #21 — `STILL-UNIQUE / REPLAY-QUEUE`
 
-1. **Geodesic Multiplicity core** — `A_p` + simple-cubic distance/interval/path multiplicity，并由 recursive/direct-enumeration oracle 独立核验；
-2. **HCP extension** — exact integer HCP contact graph 与 geodesic-growth 层，明确依赖 GM core；
-3. **Barlow family** — 仅在 GM/HCP 分别验证后继续。
+仍有以下独有历史数学：
 
-## 8. Canonical promotion protocol
+- support product `G>2k` 下通过 centered carry 得到的 large-support hit；
+- 通过 smooth half-scale cofactor 得到的 exact-support closure；
+- four-prime support-set reindexing / basin contribution formula；
+- `basin_aggregate.py` + tests；
+- 尽管后续路径被复用，historical Supplement-06 text 本身仍保留 provenance。
+
+但 historical executable 现在不能原样 replay：`basin_aggregate.py` 导入 `.four_support`，而 current `main` 与 #21 head 都不存在 `src/enterprise_math/four_support.py`。因此旧 quality failure 是该历史切片的真实 dependency defect。它**不是** P017 的 HARD_BLOCK。owner 后续可以先单独 replay 不依赖该模块的 large-modulus / exact-support layer；在发布 aggregate tail layer 前，必须定位、重建或明确 supersede four-support tail dependency。
+
+因此不要把 #21 当 absorbed 关闭，也不要 wholesale merge。
+
+#### #54 — `EXECUTABLE PROMOTED / PROSE-PROVENANCE`
+
+- canonical `prime_gap_slack.py` 此前已经 exact-present on main；
+- 仍独有的 centered-prime-radius Stage-9 executable layer 已通过 L4 PR #270 replay，并在三门仓库 gate 全绿后以 `b4801960` 合入；
+- historical Supplement prose / numbering / lineage 被有意排除在 #270 之外，仍保留为 provenance，直到以后 selectively replay，或明确分类为 superseded/rejected。
+
+不要 wholesale merge #54。
+
+## 5. 当前 P022 publication chain
+
+P022 仍是一个 geometry theorem home，但 publication 必须按依赖与 payload 分切片。
+
+1. **`A_p` / root-lattice geometry** — 在本快照前已经 canonical。
+2. **Geodesic multiplicity + HCP executable core** — 经 PR #262 / `fc81a15a` canonical。
+3. **Barlow stacking executable core** — 经 fresh two-blob L4 PR #288 / `aec7f625` canonical；validation PR #261 已关闭为 publication provenance。
+4. **Barlow task-relative precision** — 源 PR #265 已独立三门全绿；其两个 frozen blobs 正在 L4 PR #292 中进行 current promotion。
+5. **Periodic growth 与 coordination observables** — stacked validation PR #267 与 #269 均已独立三门全绿，但在前置层 canonical 前必须保持 non-merge source；以后每层仍须单独 fresh bounded L4 publication。
+6. `program/p022-geometry-v2` 上当前 observation-history / collision / repair research 继续作为独立 owner work，由 scheduler Issue #240 协调。
+
+## 6. 相对旧 12-route ledger 的 scope-audit 修正
+
+当前机器路由相对旧账本有四项实质变化：
+
+1. `core/a3-relation-lattice-v3` 已成为活动 A3 owner generation。
+2. E001 pair-impulse 与 multi-action generations 已转 provenance，不再是 active owners。
+3. `engineering/e001-material-contact-network` 与 `engineering/e001-measurement-area-refinement` 是替代上述耗尽写入点的当前 bounded E001 owner generations。
+4. P022 geodesic/HCP 与 Barlow stacking 已 canonical；Barlow precision 是当前有界的下一 publication slice，而不是再做一次 broad-owner merge。
+
+因此，本快照中的 live semantic surface 是十三条路线，即使仓库中还存在更多用于 validation、provenance 或 stacked research 的 Git refs 与 open PRs。
+
+## 7. Canonical promotion protocol
 
 对每条 active owner 或 bridge：
 
-1. 本地研究，不 whole-main synchronization；
-2. relay 可复用结果；
-3. 冻结 exact publication payload；
-4. 从当时 current main 创建 fresh L4；
+1. 本地研究，不做 whole-main synchronization；
+2. 跨路线需要消费时，通过 Relay 发布可复用 proved WIP/counterexamples；
+3. freeze exact publication payload；
+4. 从当时 current `main` 启动一个 L4 integration；
 5. 只 replay owner-owned frozen assets；
-6. 在 exact merge state 上运行 quality、bilingual-sync、reference-integrity，并在适用时运行 Lean；
-7. 只 merge 该 L4；
-8. branch-side 资产全部归属后冻结/关闭耗尽 source generation。
+6. main 后续移动时检查实际 intervening deltas，不因为 main 自身移动而制造新的 replay generation；
+7. 在 final merge state 上运行 `quality`、`bilingual-sync`、`reference-integrity`，并在适用时运行 Lean 与 shared-surface gates；
+8. 只 merge 该 L4；
+9. asset conservation 明确后，将被替代的 validation/replay PR 标为 provenance；
+10. 只有 historical branch 的每一项 unique result 都明确归入 `INTEGRATE`、`SUPERSEDED`、`COMPARATOR-NEGATIVE`、`OWNER_MOVED` 或 `REJECTED` 后，才可关闭该历史 branch。
 
-移动中的 main 不是 research stop condition，只在最终 L4 combination gate 有意义。
+移动中的 `main`、CI、review、ACK latency 或其他路线的 publication queue 都不是 research stop condition。只有一个完整指定、并且确实消灭了所有 owner-local meaningful work 的 hard dependency 才构成 `HARD_BLOCK`。
+
+## 8. Authority rule
+
+本文件有意保持为快照。如果它与 current owner registry、scheduler 或 live runtime claims 冲突，应使用：
+
+`branch_governance_overrides.json -> research_scheduler.json -> Issue #240`
+
+确定当前 routing；数学真值则以 canonical `main` + `docs/PROBLEM_STATUS.*` / theorem documents 为准。
