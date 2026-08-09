@@ -213,6 +213,46 @@ def square_split_imbalance(
     return right_size * left_total - left_size * right_total
 
 
+def square_split_from_imbalance(
+    left_size: int, right_size: int, total: int, imbalance: int
+) -> tuple[int, int]:
+    """Recover an exact two-block split from parent total and imbalance tag.
+
+    A valid tag satisfies `(left_size*total + imbalance) % (left_size+right_size)=0`.
+    """
+    _require_positive("left_size", left_size)
+    _require_positive("right_size", right_size)
+    _require_integer("total", total)
+    _require_integer("imbalance", imbalance)
+    total_size = left_size + right_size
+    numerator = left_size * total + imbalance
+    if numerator % total_size != 0:
+        raise ValueError("imbalance tag is incompatible with block sizes and total")
+    left_total = numerator // total_size
+    right_total = total - left_total
+    return left_total, right_total
+
+
+def square_minimum_imbalance_profile(
+    left_size: int, right_size: int, total: int
+) -> tuple[tuple[int, int], ...]:
+    """Return `(imbalance, multiplicity)` for every square-energy minimizer.
+
+    The profile depends on the parent remainder (and sign), not on the bulk
+    quotient of `|total|` by the merged block size.
+    """
+    profile = two_block_argmin_profile(left_size, right_size, 2, total)
+    return tuple(
+        (
+            square_split_imbalance(
+                left_size, right_size, left_total, total - left_total
+            ),
+            multiplicity,
+        )
+        for left_total, multiplicity in profile
+    )
+
+
 def square_scaled_excess_identity(
     left_size: int, right_size: int, left_total: int, right_total: int
 ) -> tuple[int, int]:
