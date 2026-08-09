@@ -2,56 +2,37 @@
 
 Status: `PROVED`  
 Owner: A2 / P023 future-compatible quotient  
-Pressure source: P017 L054/L052 and P024 future-safe precision  
-Discipline: set images, injectivity, and decoder existence are elementary mature mathematics; the purpose here is to extract a reusable quotient/repair test.
+Pressure source: P017 L054/L052/L055 and P024 future-safe precision  
+Discipline: set images, injectivity, decoder existence, and subset monotonicity are elementary mathematics. The project contribution here is a reusable zero-repair and realizability-audit interface.
 
 ## 1. When can an auxiliary label actually be erased?
 
-Number-theoretic proofs often write a state as
+Write a tagged state as
 
 \[
 (i,x),
+\qquad x\in S_i,
 \]
 
-where `i` is a shell/factor/residue-class label and `x` is the coordinate that continues into later computation.
+where `i` is a shell/factor/residue label and `x` is the retained coordinate.
 
-Two unsafe defaults are common:
-
-- once `i` has been introduced, carry it forever; or
-- if the present `x` values do not collide, erase `i` forever.
-
-P023 future-safety asks the sharper question:
-
-> after erasing the label now, can the label still be uniquely recovered from the retained coordinate after every declared future map?
-
-The answer is exactly an **actual-image separation** test.
+The future-safe question is not whether the label was once useful, but whether it remains uniquely recoverable from the retained state after every declared future map.
 
 ## 2. Setup
 
-Let `I` be a label set, `X` a fine state space, and let
+Let the tagged state space be
 
 \[
-W_i\subseteq X
-\qquad(i\in I)
+S=\{(i,x):x\in S_i\}.
 \]
 
-be labeled shells.
-
-The tagged state space is the disjoint union
+The current erasure is
 
 \[
-S=\{(i,x):x\in W_i\}.
+E(i,x)=x,
 \]
 
-The current label-erasure map is
-
-\[
-E:S\to X,
-\qquad
-E(i,x)=x.
-\]
-
-Let
+and let
 
 \[
 G:X\to Y
@@ -59,216 +40,243 @@ G:X\to Y
 
 be a later deterministic map.
 
+The sets `S_i` in the theorem are the **actual admissible states** of each label. If only larger envelopes are known, Section 7 gives the correct one-way logic.
+
 ## 3. P023-S8-T01 — Current label-erasure criterion
 
 Status: `PROVED`.
 
-The following are equivalent:
+The map `E` is injective on the tagged state space if and only if
 
-1. `E(i,x)=x` is injective on `S`;
-2. for all `i!=j`,
-   \[
-   \boxed{W_i\cap W_j=\varnothing.}
-   \]
+\[
+\boxed{S_i\cap S_j=\varnothing\qquad(i\ne j).}
+\]
 
 ### Proof
 
-If two distinct shells share some `x`, then `(i,x)!=(j,x)` but both are sent to the same state by `E`, so `E` is not injective.
-
-Conversely, if the shells are pairwise disjoint and `E(i,x)=E(j,y)`, then `x=y`; that state belongs to only one shell, so `i=j`, and hence `(i,x)=(j,y)`. ∎
+If two labels share the same retained state `x`, then `(i,x)` and `(j,x)` are distinct tagged states erased to the same value. Conversely, if the actual shell sets are pairwise disjoint, equality of retained coordinates forces equality of labels and then equality of tagged states. ∎
 
 ### Meaning
 
-If the exact retained coordinate already encodes shell identity, carrying the shell label is a duplicate state dimension.
+When the retained coordinate already determines the shell, the explicit label is a redundant state dimension.
 
 ## 4. P023-S8-T02 — Label recovery after a future map
 
 Status: `PROVED`.
 
-The following are equivalent:
+A decoder
 
-1. there is a decoder, required only on the reachable image,
-   \[
-   D:G\!\left(\bigcup_iW_i\right)\to I
-   \]
-   such that
-   \[
-   D(G(x))=i
-   \qquad(x\in W_i);
-   \]
-2. distinct shell images are pairwise disjoint:
-   \[
-   \boxed{
-   G(W_i)\cap G(W_j)=\varnothing
-   \qquad(i\ne j).
-   }
-   \]
+\[
+D:G\!\left(\bigcup_iS_i\right)\to I
+\]
+
+with
+
+\[
+D(G(x))=i\qquad(x\in S_i)
+\]
+
+exists if and only if
+
+\[
+\boxed{
+G(S_i)\cap G(S_j)=\varnothing
+\qquad(i\ne j).
+}
+\]
 
 ### Proof
 
-If `y=G(x_i)=G(x_j)` is realized by two distinct labels, the decoder would have to satisfy both `D(y)=i` and `D(y)=j`, impossible.
+A common future image would require the decoder to return two different labels at one value. If the images are disjoint, every reachable output belongs to a unique shell image, which defines the decoder. ∎
 
-Conversely, when the images are pairwise disjoint, each reachable `y` comes from exactly one shell. Define `D(y)` to be that unique label. ∎
+Thus future-safe label deletion is exactly an image-separation test.
 
-Thus safe future label erasure is not a heuristic: it is an **image-separation test**.
-
-## 5. P023-S8-T03 — Label recovery and full-state recovery are different
+## 5. P023-S8-T03 — Label recovery is weaker than full-state recovery
 
 Status: `PROVED`.
 
-Define
+The map
 
 \[
-H:S\to Y,
-\qquad
-H(i,x)=G(x).
+H(i,x)=G(x)
 \]
 
-Then `H` is injective on `S` if and only if both hold:
+is injective on the full tagged state space if and only if both conditions hold:
 
 1. distinct shell images are pairwise disjoint;
-2. every restriction
-   \[
-   G|_{W_i}:W_i\to Y
-   \]
-   is injective.
+2. each restriction \(G|_{S_i}\) is injective.
 
 ### Proof
 
-This is the exact split of injectivity into cross-shell and within-shell directions.
-
-- a cross-shell image collision merges states with different labels;
-- noninjectivity within a shell merges different fine states with the same label;
-- if neither collision occurs, `H` is injective. ∎
+Cross-shell collisions destroy label recovery; within-shell collisions merge distinct fine states even when the label remains known. If neither type occurs, the tagged state is uniquely recovered. ∎
 
 Therefore
 
 \[
 \boxed{
-\text{shell label recoverable}
+\text{label recoverable}
 \not\Rightarrow
-\text{full original state recoverable}.
+\text{full state recoverable}.
 }
 \]
 
-This distinction matters for root, bucket, and basin coordinates.
+## 6. P023-S8-T04 — Context-safe label erasure
 
-## 6. P023-S8-T04 — Safe label erasure under a declared context family
+Status: `PROVED`.
 
-Status: `PROVED`, by applying T02 context by context.
-
-Let
+For a declared context family
 
 \[
-\mathcal G=\{G_c:X\to Y_c\}_{c\in C}
+\mathcal G=\{G_c:X\to Y_c\}_{c\in C},
 \]
 
-be the declared future contexts. If the task requires shell identity to remain recoverable after every context, then the label can be erased now if and only if for every `c` and every `i!=j`,
+the label can be erased while remaining recoverable after every context if and only if
 
 \[
 \boxed{
-G_c(W_i)\cap G_c(W_j)=\varnothing.
+G_c(S_i)\cap G_c(S_j)=\varnothing
+\quad\text{for every }c\text{ and }i\ne j.
 }
 \]
 
-The first context producing an overlap gives an exact witness that repair information is needed.
+Any nonempty overlap is an exact witness that zero repair fails for that context.
 
-This is the shell-label specialization of the P023 operation-word future quotient.
+## 7. P023-S8-T05 — Admissibility-filtered envelope principle
 
-## 7. A2 reinterpretation of P017 L054
+Status: `PROVED`.
 
-In the P017 open square basin, let the label be the least prime `p` and retain the stripped cofactor
+Suppose the true admissible shell is not immediately convenient, but one knows an envelope
 
 \[
-q=n/p.
+S_i\subseteq U_i.
 \]
 
-The shells are exactly
+Then for every deterministic map `G`,
 
 \[
-W_p(k)=
+G(S_i)\subseteq G(U_i).
+\]
+
+Hence
+
+\[
+\boxed{
+G(U_i)\cap G(U_j)=\varnothing
+\Longrightarrow
+G(S_i)\cap G(S_j)=\varnothing.
+}
+\]
+
+### Proof
+
+Images preserve set inclusion. If the larger image sets are already disjoint, their subsets must also be disjoint. ∎
+
+### Logical direction
+
+The converse is false in general. An overlap of envelopes proves only a **candidate collision**. It need not survive the realizability/admissibility filter.
+
+Therefore the safe research rule is
+
+\[
+\boxed{
+\text{envelope noncollision descends; envelope collision does not.}
+}
+\]
+
+This creates a three-level audit whenever both a coarse candidate and an exact arithmetic envelope are present:
+
+\[
+\text{candidate superset}
+\supseteq
+\text{exact envelope}
+\supseteq
+\text{actual admissible state}.
+\]
+
+## 8. P017 L054 reinterpretation
+
+In the open square basin, the true least-prime shell coordinate set is
+
+\[
+S_p(k)=
+\{n/p:\ k^2<n<(k+1)^2,\ \operatorname{spf}(n)=p\}.
+\]
+
+Its exact raw cofactor envelope is
+
+\[
+U_p(k)=
 \left[
 \left\lfloor\frac{k^2}{p}\right\rfloor+1,
-\left\lfloor\frac{k(k+2)}{p}\right\rfloor
+\left\lfloor\frac{k(k+2)}p\right\rfloor
 \right].
 \]
 
-L054 proves that all raw windows are pairwise disjoint for `k>=4`.
-
-By T01,
+L054 proves that the envelopes `U_p(k)` are pairwise disjoint for `k>=4`. Since
 
 \[
-\boxed{
-\text{for }k\ge4,\text{ the least-prime label }p
-\text{ is already a function of the exact cofactor }q.
-}
+S_p(k)\subseteq U_p(k),
 \]
 
-Within one `p` shell, `n=pq`, so `q` recovers not only the label but the full composite state.
+T05 implies the true shell coordinate sets are disjoint as well. Consequently least-prime label `p` is a function of the stripped cofactor `q` from `k>=4` onward.
 
-L054 can therefore be read as saying that the factor label is a redundant dimension in the exact stripped coordinate.
+Within a fixed shell, `n=pq`, so retaining `q` also recovers the composite state once its unique shell is decoded.
 
-## 8. Root projection shows that “erasable now” does not mean “erasable forever”
+## 9. Root projection and the three-layer P017 hierarchy
 
-If the next retained coordinate is only
+After retaining only
 
 \[
 G(q)=R_2(q),
 \]
 
-then T02 requires actual separation of
+three different objects must not be conflated:
 
-\[
-R_2(W_p(k)),
-\]
+1. L052's enlarged candidate root pair;
+2. the root image of the exact raw cofactor window;
+3. the root image actually realized by the `p`-rough least-prime shell.
 
-not merely separation of the original windows.
+L055 proves the stronger middle-layer statement that distinct lower-band **exact-window** root images are disjoint for `k>=9`; the realized shell images inherit this immediately.
 
-This explains three related but different P017 layers:
+The difference is real. At `k=6`, the exact `p=3` window reaches root 4 only through `q=16`, but `3*16=48` has least prime factor 2, so that root is not actually realized by the `p=3` shell.
 
-- L054: exact quotient shells are disjoint from `k>=4`;
-- L052: after enlarging each actual image to the candidate pair `{j_p,j_p+1}`, those coarse candidate pairs are uniformly disjoint only from `k>=15`;
-- new L055: if the exact window is retained before taking its actual root image, lower-band shell identity is already recoverable from `k>=9`.
+Thus actual-image discipline must include the admissibility filter, not merely exact interval endpoints.
 
-The improvement `15 -> 9` is a precision lesson rather than merely a tighter estimate:
+## 10. Repair interpretation
 
-> **enlarging candidate sets can manufacture collisions that no realized state ever attains.**
+If actual images overlap, one should not automatically restore the whole original label. The required extra state is the coarsest repair that separates the **realized** conflicting fibers for the declared task.
 
-## 9. What repair means
-
-If `G(W_i)` and `G(W_j)` overlap, it does not follow that the full original label must be retained. Only enough information to split the realized overlaps is required.
-
-General minimal repair remains owned by P023 future-compatible quotient theory. This supplement provides a fast zero-repair criterion:
+The zero-repair fast path is
 
 \[
 \boxed{
-\text{all relevant shell images pairwise disjoint}
+G(S_i)\cap G(S_j)=\varnothing\ \forall i\ne j
 \Longrightarrow
 \text{shell-label repair cost}=0.
 }
 \]
 
-## 10. Research-tool form
+P023 Supplement 09 supplies the finite minimum-alphabet counting layer when zero repair fails.
 
-For factor shells, residue shells, geometric sectors, collision modes, and similar explicit labels, use the same pipeline:
+## 11. Research-tool workflow
 
-1. write the actual fine-state sets `W_i`;
-2. test whether the retained present coordinate already separates them;
-3. for each declared future map `G_c`, compute the actual images `G_c(W_i)`;
-4. erase the label while those images remain disjoint;
-5. when images first overlap, compile repair only on the overlap region;
-6. do not replace actual images by enlarged candidate supersets unless the resulting false-collision cost is explicitly accepted.
+For shell, residue, geometric-sector, collision-mode, or other auxiliary labels:
 
-## 11. Executable audit
+1. write the actual admissible fine sets `S_i`;
+2. if only envelopes `U_i` are easy, record explicitly that `S_i subset U_i`;
+3. use envelope disjointness only as a sufficient certificate;
+4. if envelopes overlap, filter to actual admissible states before declaring a collision;
+5. apply each declared future map to the actual sets;
+6. delete the label when actual images stay disjoint;
+7. otherwise compile only the minimum repair needed on realized overlaps.
 
+Executable assets:
 - `src/enterprise_math/label_erasure.py`
 - `tests/test_p023_label_erasure.py`
 - P017 specialization: `src/enterprise_math/p017_actual_root_separation.py`
 
-The tests pin present shell disjointness, transformed label decoders, the strict difference between label recovery and full-state injectivity, and the sharp P017 actual-root threshold.
+## 12. Prior art and novelty discipline
 
-## 12. Prior-art and novelty discipline
+Disjoint images iff a label decoder exists, and image monotonicity under subset inclusion, are elementary set theory rather than new mathematics.
 
-“Pairwise disjoint images iff a label decoder exists” is elementary set theory, not a new theorem.
-
-The Enterprise Math contribution is to use it systematically as a **zero-repair compiler** for future-safe precision and to require actual-image separation audits before auxiliary labels are carried through number-theory or engineering proofs.
+Enterprise Math uses them as a disciplined future-safe precision compiler and, crucially, as a guard against promoting candidate/envelope collisions into claims about states that are not actually realizable.
