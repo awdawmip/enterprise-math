@@ -74,6 +74,23 @@ class MotionCollapseTests(unittest.TestCase):
             {frozenset({0}), frozenset({1})},
         )
 
+    def test_same_proposed_conflict_graph_can_have_different_response_capacity(self):
+        head_on = [
+            BodyMotion2D(Body2D(0, 0, 0, 0), (1, 0)),
+            BodyMotion2D(Body2D(1, 1, 0, 0), (-1, 0)),
+        ]
+        converge = [
+            BodyMotion2D(Body2D(0, -1, 0, 0), (1, 0)),
+            BodyMotion2D(Body2D(1, 1, 0, 0), (-1, 0)),
+        ]
+        self.assertEqual(motion_conflict_pairs(head_on), ((0, 1),))
+        self.assertEqual(motion_conflict_pairs(converge), ((0, 1),))
+        self.assertEqual(maximum_conflict_free_move_sets(head_on), (frozenset(),))
+        self.assertEqual(
+            set(maximum_conflict_free_move_sets(converge)),
+            {frozenset({0}), frozenset({1})},
+        )
+
     def test_independent_moves_are_all_accepted(self):
         motions = [
             BodyMotion2D(Body2D(0, 0, 0, 0), (1, 0)),
