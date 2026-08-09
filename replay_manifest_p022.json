@@ -1,0 +1,47 @@
+{
+  "schema": "ENTERPRISE_MATH_REPLAY_MANIFEST_V1",
+  "status": "ACTIVE_OWNER_REPLAY",
+  "no_new_mathematics_during_replay": true,
+  "target_branch": "program/p022-geometry-v2",
+  "target_home": "P022_MINIMUM_PRECISION_GEOMETRY",
+  "baseline_main": "196e4355ebb1a24d16f421b42cb50c47a1a3fb87",
+  "primary_source": {
+    "branch": "research/p022-minimum-precision-geometry",
+    "head": "6b0a6160ed96d397c84bcb03926e5267256dfa99",
+    "historical_pr": 50,
+    "historical_note": "source assets may still use obsolete P019 filenames; canonical replay target is P022"
+  },
+  "keep": [
+    "primitive adjacency and integer shortest-path geometry",
+    "A_p/root-lattice and explicit lattice candidates",
+    "finite balls/shells and coordinator counts",
+    "radial/quadratic distance observations",
+    "distance carry and geometry-specific triangle boundaries",
+    "geometry-aware collapse/contraction results whose hypotheses truly use the geometry"
+  ],
+  "defer": {
+    "A3": [
+      "capacity-weighted structured relation state",
+      "generic partition quotient/kernel/refinement forest",
+      "relation rank/scale and task-derived relation precision"
+    ],
+    "A4": ["generic admissible support/correspondence algebra"],
+    "A2_P023": ["generic future-compatible quotient and safe information erasure"],
+    "P016": ["physical realization/falsification policy"]
+  },
+  "audit_priority": [
+    "separate geometry-only modules from later A3 relation-state growth on the historical mixed branch",
+    "rename canonical replay assets from obsolete historical P019 labels to P022",
+    "preserve the distinction between integer metric results and stronger inner-product/Pythagorean assumptions",
+    "keep FCC/HCP/BCC/A_p as candidate geometries unless separately proved/validated"
+  ],
+  "forbid_wholesale_merge": true,
+  "source_branch_frozen_for_new_general_theorems": true,
+  "completion": [
+    "geometry-owned asset list extracted",
+    "A3/A4/A2 generic machinery excluded from P022 replay",
+    "canonical P022 naming restored",
+    "prior-art/provenance preserved",
+    "repository gates pass"
+  ]
+}
