@@ -17,6 +17,10 @@ from math import comb, factorial
 from .dimension_contraction import balanced_power_energy
 
 
+Block = tuple[int, ...]
+MergeStep = tuple[Block, Block]
+
+
 def _require_positive(name: str, value: int) -> None:
     if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
         raise ValueError(f"{name} must be a positive integer")
@@ -36,7 +40,7 @@ def balanced_minimizer_count(block_size: int, power: int, total: int) -> int:
     """Number of labeled slot-level minimizers for Psi_(m,s)(total).
 
     For power > 1 the minimizer is balanced: if |total| = m*q+r, exactly r
-    labeled slots carry magnitude q+1 and the remaining slots carry q.  For
+    labeled slots carry magnitude q+1 and the remaining slots carry q. For
     power = 1 every sign-consistent weak composition is minimizing.
     """
     _require_positive("block_size", block_size)
@@ -56,7 +60,7 @@ def two_block_argmin_profile(
 ) -> tuple[tuple[int, int], ...]:
     """Return (left_total, labeled multiplicity) for every min-plus minimizer.
 
-    For power > 1 the profile is the hypergeometric remainder allocation
+    For power > 1 the profile is the hypergeometric remainder-allocation
     profile. For power = 1 it is the weak-composition profile.
     """
     _require_positive("left_size", left_size)
@@ -65,10 +69,7 @@ def two_block_argmin_profile(
     _require_integer("total", total)
 
     if power == 1:
-        if total >= 0:
-            values = range(0, total + 1)
-        else:
-            values = range(total, 1)
+        values = range(0, total + 1) if total >= 0 else range(total, 1)
         result = []
         for left_total in values:
             right_total = total - left_total
@@ -152,6 +153,71 @@ def directed_boundary_split(
         receiver_size, donor_size, power, total, slack
     )
     return receiver_total, total - receiver_total
+
+
+def _normalize_block(block: Block) -> Block:
+    if not isinstance(block, tuple) or not block:
+        raise ValueError("each block must be a non-empty tuple")
+    if any(isinstance(index, bool) or not isinstance(index, int) or index < 0 for index in block):
+        raise ValueError("block indices must be non-negative integers")
+    if len(set(block)) != len(block):
+        raise ValueError("block indices must be unique")
+    return tuple(sorted(block))
+
+
+def reverse_boundary_witness(
+    slot_count: int,
+    power: int,
+    threshold: int,
+    history: tuple[MergeStep, ...],
+) -> tuple[int, ...]:
+    """Replay an oriented contraction history as exact right-boundary lifts.
+
+    Each forward merge step is `(receiver_block, donor_block)`. The history is
+    replayed backward. At each split, all other current blocks keep their
+    current totals; the remaining global threshold becomes a fiber slack and
+    the receiver child takes the unique right endpoint of that fiber interval.
+    """
+    _require_positive("slot_count", slot_count)
+    _require_positive("power", power)
+    _require_natural("threshold", threshold)
+    if len(history) != slot_count - 1:
+        raise ValueError("a complete history must contain slot_count-1 merges")
+
+    normalized = tuple(
+        (_normalize_block(receiver), _normalize_block(donor))
+        for receiver, donor in history
+    )
+    full = tuple(range(slot_count))
+    totals: dict[Block, int] = {full: 0}
+
+    for receiver, donor in reversed(normalized):
+        if set(receiver) & set(donor):
+            raise ValueError("merged blocks must be disjoint")
+        merged = tuple(sorted(receiver + donor))
+        if merged not in totals:
+            raise ValueError("history is not a valid ordered contraction chain")
+
+        total = totals.pop(merged)
+        other_energy = sum(
+            balanced_power_energy(len(block), power, value)
+            for block, value in totals.items()
+        )
+        merged_minimum = balanced_power_energy(len(merged), power, total)
+        slack = threshold - other_energy - merged_minimum
+        if slack < 0:
+            raise ValueError("threshold is inconsistent with the current coarse state")
+
+        receiver_total, donor_total = directed_boundary_split(
+            len(receiver), len(donor), power, total, slack
+        )
+        totals[receiver] = receiver_total
+        totals[donor] = donor_total
+
+    expected = {tuple((index,)) for index in range(slot_count)}
+    if set(totals) != expected:
+        raise ValueError("history did not refine to the singleton partition")
+    return tuple(totals[(index,)] for index in range(slot_count))
 
 
 def unoriented_partition_chain_count(slot_count: int) -> int:
