@@ -1,6 +1,6 @@
 # P001 — Exact multiplicativity criterion for integer roots
 
-Status: `PROVED`  
+Status: `PROVED / LEAN-CHECKED`  
 Open problem: `P001`  
 Scope: ordinary mathematics
 
@@ -86,6 +86,8 @@ R_p(ab)\ge rs.
 
 ∎
 
+Formalization: Lean-checked as `EnterpriseMath.RootMultiplicativity.root_supermultiplicative`, using the canonical power/root Galois connection.
+
 Thus multiplicativity can fail only by an **upward root carry**; it can never fail below the product \(rs\).
 
 ## 3. Exact carry load
@@ -117,6 +119,8 @@ The next possible root state after \(rs\) begins at
 \[
 (rs+1)^p=(rs)^p+\Delta_p(rs).
 \]
+
+The corresponding Lean coordinates are `rootGap`, `basinWidth`, `carryLoad`, and `offsetLoad` in `EnterpriseMath.Arithmetic.RootMultiplicativity`.
 
 ## 4. Complete multiplicativity characterization
 
@@ -172,6 +176,8 @@ L_p(a,b)<(rs+1)^p-(rs)^p=\Delta_p(rs).
 \]
 
 ∎
+
+Formalization: Lean-checked as `EnterpriseMath.RootMultiplicativity.root_mul_eq_iff_carryLoad_lt`. The decomposition-level arithmetic core is checked as `root_product_eq_of_basin_decomposition_iff`, with the exact product expansion checked as `product_eq_base_pow_add_carryLoad`.
 
 This gives the requested necessary and sufficient condition using integers only.
 
@@ -229,6 +235,8 @@ Using \(ab=(rs)^p+L_p(a,b)\), this is equivalent to
 
 Taking the greatest admissible \(c\) gives the result. ∎
 
+Formalization: Lean-checked pointwise as `EnterpriseMath.RootMultiplicativity.le_rootCarry_iff_threshold_le`; the maximum statement is kernel-checked in Lean-native order form as `rootCarry_isGreatest`; the zero-carry equivalence is `rootCarry_eq_zero_iff`.
+
 So the failure of root multiplicativity is not an unspecified rounding phenomenon. It is an exact integer threshold-crossing count.
 
 ## 6. Geometry inside a pair of basins
@@ -275,6 +283,8 @@ s^p u+r^p v+uv
 \]
 
 ∎
+
+Formalization: Lean-checked in the slightly stronger pure-integer form as `EnterpriseMath.RootMultiplicativity.offsetLoad_mono` and `noCarry_downward`; no extra basin-rectangle hypothesis is needed for the downward threshold implication itself.
 
 Thus the multiplicative pairs in each basin rectangle have a monotone staircase boundary rather than an arbitrary pattern.
 
@@ -335,6 +345,8 @@ av\le\Delta_p(rs)-1-s^p u.
 \]
 
 For positive \(a\), floor division gives the greatest admissible integer \(v\). The basin itself supplies the additional cap \(v\le\Delta_p(s)-1\). ∎
+
+Formalization: the impossible fixed-cost branch is Lean-checked as `EnterpriseMath.RootMultiplicativity.no_second_offset_of_width_le_fixed`; the exact floor-division equivalence is `second_offset_noCarry_iff_le_div`, using `Nat.galoisConnection_mul_div`; the actual basin-capped maximum is checked as `maxSecondOffset_isGreatest` for the definition `maxSecondOffset`.
 
 This connects P001 directly back to the P008 order-adjoint/floor-division framework.
 
@@ -413,10 +425,12 @@ R_p(b)^pG_p(a)
 
 The result also identifies a nonnegative carry count \(K_p(a,b)\), proves the multiplicative region is downward closed within every basin rectangle, and gives an exact floor-division boundary for one offset when the other is fixed.
 
+P001-T01 through P001-T05 are all checked by the imported warnings-fatal Lean build in `EnterpriseMath.Arithmetic.RootMultiplicativity`.
+
 No real-valued normalization or hidden fractional remainder is needed.
 
 ## 10. Prior-art discipline
 
 Integer nth roots, floor/root inequalities, unique integer threshold characterizations, and floor division are established mathematics. A targeted search of current mathlib APIs and integer-root literature during this pass did not locate this exact basin-offset carry formulation as a standard named result. That absence is not evidence of historical priority.
 
-Accordingly, P001-T01–T05 are ordinary mathematical consequences of the stated definitions and are `PROVED`; the exact packaging and historical novelty remain `NOVELTY_UNVERIFIED`.
+Accordingly, P001-T01–T05 are ordinary mathematical consequences of the stated definitions and are `PROVED / LEAN-CHECKED`; the exact packaging and historical novelty remain `NOVELTY_UNVERIFIED`.

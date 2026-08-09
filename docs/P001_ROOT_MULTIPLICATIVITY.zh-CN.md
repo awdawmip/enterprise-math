@@ -1,6 +1,6 @@
 # P001 —— 整数根乘法性的精确条件
 
-状态：`PROVED`  
+状态：`PROVED / LEAN-CHECKED`  
 开放问题：`P001`  
 范围：普通数学
 
@@ -86,6 +86,8 @@ R_p(ab)\ge rs.
 
 证毕。
 
+形式化：已由 `EnterpriseMath.RootMultiplicativity.root_supermultiplicative` 通过 Lean 检查，证明直接使用规范的幂映射/整数根 Galois connection。
+
 所以乘法性失败只可能发生**向上的根进位**，绝不会低于 \(rs\)。
 
 ## 3. 精确进位负载
@@ -117,6 +119,8 @@ ab=(rs)^p+L_p(a,b).
 \[
 (rs+1)^p=(rs)^p+\Delta_p(rs).
 \]
+
+对应的 Lean 整数坐标为 `EnterpriseMath.Arithmetic.RootMultiplicativity` 中的 `rootGap`、`basinWidth`、`carryLoad` 与 `offsetLoad`。
 
 ## 4. 乘法性的完整刻画
 
@@ -172,6 +176,8 @@ L_p(a,b)<(rs+1)^p-(rs)^p=\Delta_p(rs).
 \]
 
 证毕。
+
+形式化：规范判据已由 `EnterpriseMath.RootMultiplicativity.root_mul_eq_iff_carryLoad_lt` 通过 Lean 检查；盆地分解层的算术核心为 `root_product_eq_of_basin_decomposition_iff`，精确乘积展开为 `product_eq_base_pow_add_carryLoad`。
 
 这就是只使用整数的必要且充分条件。
 
@@ -229,6 +235,8 @@ rs+c\le R_p(ab)
 
 取最大的可容许 \(c\) 即得。证毕。
 
+形式化：逐点等价已由 `EnterpriseMath.RootMultiplicativity.le_rootCarry_iff_threshold_le` 通过 Lean 检查；最大值陈述以 Lean 原生序论形式由 `rootCarry_isGreatest` 核验；零进位等价由 `rootCarry_eq_zero_iff` 核验。
+
 所以根乘法性的失败不是模糊的“取整误差”，而是一个精确的整数阈值跨越次数。
 
 ## 6. 两个盆地乘积中的结构
@@ -275,6 +283,8 @@ s^p u+r^p v+uv
 \]
 
 证毕。
+
+形式化：已由 `EnterpriseMath.RootMultiplicativity.offsetLoad_mono` 与 `noCarry_downward` 以稍强的纯整数形式通过 Lean 检查；向下阈值蕴含本身不需要额外的盆地矩形假设。
 
 因此，每一个盆地矩形中的乘法性区域不是任意散乱分布，而具有单调阶梯边界。
 
@@ -335,6 +345,8 @@ av\le\Delta_p(rs)-1-s^p u.
 \]
 
 当 \(a>0\) 时，向下整数除法给出最大的整数 \(v\)；同时盆地本身还要求 \(v\le\Delta_p(s)-1\)。证毕。
+
+形式化：固定成本已越界时的“不存在第二偏移”由 `EnterpriseMath.RootMultiplicativity.no_second_offset_of_width_le_fixed` 核验；精确 floor-division 等价由 `second_offset_noCarry_iff_le_div` 核验，并直接使用 `Nat.galoisConnection_mul_div`；实际盆地上带 `min` 截断的最大值由定义 `maxSecondOffset` 和定理 `maxSecondOffset_isGreatest` 核验。
 
 这把 P001 再次直接连接到 P008 的序伴随/向下整数除法框架。
 
@@ -413,10 +425,12 @@ R_p(b)^pG_p(a)
 
 同时，我们得到非负进位量 \(K_p(a,b)\)，证明每个盆地矩形中的乘法区域向下闭合，并给出固定一侧偏移后的精确 floor-division 边界。
 
+P001-T01 至 P001-T05 现已全部由导入 root surface 的 warnings-fatal Lean build 覆盖，对应模块为 `EnterpriseMath.Arithmetic.RootMultiplicativity`。
+
 整个结论不需要实值归一化，也不需要隐藏分数余量。
 
 ## 10. 前人工作纪律
 
 整数 nth root、floor/root 不等式、整数阈值刻画以及向下整数除法都是成熟数学。本轮对当前 mathlib API 与整数根文献的定向检索，没有发现这一精确“盆地偏移—乘法进位阈值”形式的标准命名结果；检索未发现不构成历史优先权证据。
 
-因此 P001-T01–T05 都是从当前定义推出的普通数学 `PROVED` 结论；这一精确包装及其历史创新状态继续保持 `NOVELTY_UNVERIFIED`。
+因此 P001-T01–T05 都是从当前定义推出的普通数学 `PROVED / LEAN-CHECKED` 结论；这一精确包装及其历史创新状态继续保持 `NOVELTY_UNVERIFIED`。
