@@ -12,7 +12,10 @@ from enterprise_math.relation_field import (
     pair_dispersion_from_field,
     recover_values_from_anchor_coordinates,
     recover_values_from_field,
+    recover_values_from_tree_flows,
     relation_field_is_closed,
+    tree_flow_chart_index,
+    tree_flow_coordinates,
 )
 
 
@@ -64,6 +67,47 @@ class RelationFieldTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             recover_values_from_anchor_coordinates((0, 0), total=1)
         self.assertFalse(anchor_chart_is_legal((0, 0), total=1))
+
+    def test_tree_flow_chart_is_unimodular_for_path_and_star(self):
+        for size in range(1, 7):
+            # Path rooted at 0: 0->1->2->... .
+            path_parents = tuple(-1 if vertex == 0 else vertex - 1 for vertex in range(size))
+            # Star rooted at 0.
+            star_parents = tuple(-1 if vertex == 0 else 0 for vertex in range(size))
+            for parents in (path_parents, star_parents):
+                for values in itertools.product(range(-2, 3), repeat=size):
+                    total = sum(values)
+                    flows = tree_flow_coordinates(values, parents, root=0)
+                    self.assertEqual(
+                        recover_values_from_tree_flows(
+                            flows, total, parents, root=0
+                        ),
+                        values,
+                    )
+                self.assertEqual(tree_flow_chart_index(size), 1)
+
+    def test_arbitrary_tree_flows_are_legal_integer_states(self):
+        parents = (-1, 0, 0, 1, 1, 2)
+        for total in range(-3, 4):
+            for flows in itertools.product(range(-2, 3), repeat=5):
+                values = recover_values_from_tree_flows(
+                    flows, total, parents, root=0
+                )
+                self.assertEqual(sum(values), total)
+                self.assertEqual(
+                    tree_flow_coordinates(values, parents, root=0),
+                    flows,
+                )
+
+    def test_path_flow_chart_is_prefix_or_suffix_sum_basis(self):
+        # With path 0->1->2->3, the non-root flows are suffix sums.
+        values = (3, -2, 5, -6)
+        parents = (-1, 0, 1, 2)
+        self.assertEqual(tree_flow_coordinates(values, parents, 0), (-3, -1, -6))
+        self.assertEqual(
+            recover_values_from_tree_flows((-3, -1, -6), 0, parents, 0),
+            values,
+        )
 
     def test_every_block_imbalance_is_a_cut_sum(self):
         values = (3, -2, 5, -4, 1)
