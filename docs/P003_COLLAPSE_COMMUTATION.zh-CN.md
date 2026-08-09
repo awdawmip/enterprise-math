@@ -1,6 +1,6 @@
 # P003 —— 完全幂坍缩算子的交换性
 
-状态：`PROVED`  
+状态：`PROVED / LEAN-CHECKED T01–T03`  
 开放问题：`P003`  
 范围：普通数学
 
@@ -82,6 +82,8 @@ C_q(C_p(n))=C_q(n).
 
 当 \(q\mid p\) 时完全对称：两个复合都等于 \(C_p\)。
 
+形式化：两个吸收方向分别已由 `EnterpriseMath.CollapseCommutation.collapse_left_absorbs_of_dvd` 与 `collapse_right_absorbs_of_dvd` 通过 Lean 检查；单一整除方向的交换由 `collapse_commute_of_dvd` 核验，对称的可比指数形式由 `collapse_commute_of_dvd_or_dvd` 核验。
+
 ## 3. 不可比指数不可能全局交换
 
 ### P003-T02 —— 不交换的统一见证
@@ -148,6 +150,8 @@ C_p(C_q(n))=C_p(n)>1.
 
 因此两个复合不同。证毕。
 
+形式化：prime-power 障碍已由 `EnterpriseMath.CollapseCommutation.not_exists_pow_eq_two_pow_of_not_dvd` 通过 Lean 检查，并直接消费 mathlib 的既有定理 `Nat.exponent_dvd_of_prime_pow_eq_pow`。完整的统一见证论证由 `collapse_noncommute_two_pow_witness` 核验。
+
 ## 4. 完整分类
 
 ### P003-T03 —— 全局交换定理
@@ -166,6 +170,8 @@ C_p(C_q(n))=C_p(n)>1.
 若 \(p\mid q\) 或 \(q\mid p\)，由 P003-T01 可知交换成立。
 
 反过来，若二者互不整除，则在通常整数序中必有 \(p<q\) 或 \(q<p\)。第一种情形由 P003-T02 的 \(2^q\) 给出不交换见证；第二种情形对称地由 \(2^p\) 给出见证。因此不可能全局交换。证毕。
+
+形式化：已由 `EnterpriseMath.CollapseCommutation.collapse_commute_iff_dvd_or_dvd` 通过 Lean 检查。
 
 ## 5. 交换情形下的精确复合
 
@@ -199,6 +205,8 @@ C_3(C_2(8))=1.
 
 \(p=1\) 的情形自动包含在结论中，因为 \(C_1\) 是恒等映射，而 \(1\) 整除所有正指数。
 
+本节的一般吸收公式已经由上面的 P003-T01 Lean 定理覆盖；显示的具体数值例子仍只是解释性例子，不作为独立 theorem unit 计入形式化状态。
+
 ## 6. 结构解释
 
 因此，算子族 \(\{C_p:p\ge1\}\) 实际记住了指数集合上的整除序：
@@ -209,15 +217,15 @@ C_3(C_2(8))=1.
 
 因此，坍缩算子族的交换图恰好就是“正整数按整除偏序”的可比图。
 
-P003 因而可以在不引入额外代数结构的情况下完整解决，只需要 P008 的序投影视角和初等唯一分解。
+P003 因而可以在不引入额外项目自有代数结构的情况下完整解决，只需要 P008 的序投影视角与成熟的 prime-power 分解理论。
 
 ## 7. 前人工作纪律
 
-关于 Galois connection、interior operator、单调性、幂等性和嵌套投影的一般理论都是 P008 已经归因的成熟数学。本轮 P003 定向检索没有找到完全相同的“完全幂坍缩交换分类”标准陈述，但“没有搜到”**不**构成历史优先权结论。
+关于 Galois connection、interior operator、单调性、幂等性、嵌套投影以及 prime-power 指数整除的一般理论都是成熟数学。特别地，P003-T02 的 Lean 证明明确复用 mathlib 的 prime-power 定理，而不是把唯一分解重新包装成项目自有结果。本轮 P003 数学检索没有找到完全相同的“完全幂坍缩交换分类”标准陈述，但“没有搜到”**不**构成历史优先权结论。
 
 因此：
 
-- 上述数学定理从当前定义出发属于 `PROVED`；
+- P003-T01 至 P003-T03 从当前定义出发均处于 `PROVED / LEAN-CHECKED`；
 - 这一精确表述的历史创新性仍为 `NOVELTY_UNVERIFIED`；
 - 在没有专门优先性审查前，不允许使用“首次”“前所未有”等表述。
 
