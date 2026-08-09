@@ -21,8 +21,10 @@ class OperationQuotientTests(unittest.TestCase):
             "f": {0: 2, 1: 2, 2: 2, 3: 3},
             "g": {0: 2, 1: 3, 2: 2, 3: 3},
         }
-        observation = {0: 0, 1: 0, 2: 1, 3: 1}
+        observation = {0: "a", 1: "a", 2: "b", 3: "c"}
+        f_only = stable_family_partition(domain, {"f": operations["f"]}, observation)
         stable = stable_family_partition(domain, operations, observation)
+        self.assertEqual(f_only[0], f_only[1])
         self.assertNotEqual(stable[0], stable[1])
         self.assertTrue(family_descends(domain, operations, stable))
 
