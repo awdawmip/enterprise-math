@@ -201,7 +201,9 @@ theorem low_root_fiber_nonempty
       t * B ≤ t * H ^ (s + 1) := Nat.mul_le_mul_left t hBLe
       _ < H * H ^ (s + 1) :=
         Nat.mul_lt_mul_of_pos_right htH (pow_pos hHpos (s + 1))
-      _ = H ^ (s + 2) := by rw [pow_succ']
+      _ = H ^ (s + 2) := by
+        conv_rhs =>
+          rw [show s + 2 = (s + 1) + 1 by omega, pow_succ']
   have hHLower : H ^ (s + 2) ≤ (s + 1) * n - 1 := by
     dsimp [H]
     exact Nat.pow_nthRoot_le (Or.inl (by omega))
@@ -227,7 +229,7 @@ theorem low_root_fiber_nonempty
     omega
   have hUpper : d ≤ n / A := by
     dsimp [d]
-    omega
+    exact Nat.succ_le_of_lt hDivGap
   have hFiber : root (s + 1) (n / d) = t := by
     apply (quotient_root_fiber_iff
       (r := s + 1) (n := n) (d := d) (t := t)
