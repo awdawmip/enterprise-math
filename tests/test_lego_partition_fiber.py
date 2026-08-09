@@ -3,7 +3,10 @@ import unittest
 from enterprise_math.lego_partition_fiber import (
     allocation_growth_difference_order,
     balanced_minimizer_multiplicity,
+    composed_fiber_count,
+    fiber_composition_identity,
     hidden_allocation_multiplicity,
+    one_step_dimension_lowering_identity,
     partition_fiber_multiplicity,
 )
 
@@ -19,17 +22,14 @@ class LegoPartitionFiberTests(unittest.TestCase):
             self.assertEqual(hidden_allocation_multiplicity(2, total), total + 1)
 
     def test_three_slot_fiber_matches_exact_integer_sequence(self):
-        # C(c+2,2): 1,3,6,10,15,...
         self.assertEqual(
             tuple(hidden_allocation_multiplicity(3, total) for total in range(5)),
             (1, 3, 6, 10, 15),
         )
 
     def test_balanced_minimizer_count_only_depends_on_capacity_and_residue(self):
-        # total=3*q+1 -> choose which one of three slots gets q+1.
         for total in (1, 4, 7, 10):
             self.assertEqual(balanced_minimizer_multiplicity(3, total), 3)
-        # total divisible by capacity -> unique perfectly balanced allocation.
         for total in (0, 3, 6, 9):
             self.assertEqual(balanced_minimizer_multiplicity(3, total), 1)
 
@@ -42,6 +42,26 @@ class LegoPartitionFiberTests(unittest.TestCase):
             * hidden_allocation_multiplicity(3, 2),
         )
         self.assertEqual(partition_fiber_multiplicity(capacities, totals), 30)
+
+    def test_fiber_composition_generates_sum_product_convolution(self):
+        for left_capacity in range(1, 5):
+            for right_capacity in range(1, 5):
+                for total in range(8):
+                    self.assertTrue(
+                        fiber_composition_identity(left_capacity, right_capacity, total)
+                    )
+                    self.assertEqual(
+                        composed_fiber_count(left_capacity, right_capacity, total),
+                        hidden_allocation_multiplicity(
+                            left_capacity + right_capacity,
+                            total,
+                        ),
+                    )
+
+    def test_one_integer_difference_strips_one_hidden_slot_freedom(self):
+        for capacity in range(2, 7):
+            for total in range(8):
+                self.assertTrue(one_step_dimension_lowering_identity(capacity, total))
 
     def test_hidden_relation_count_equals_finite_difference_growth_order(self):
         for capacity in range(1, 7):
