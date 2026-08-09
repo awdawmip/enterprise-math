@@ -1,0 +1,63 @@
+{
+  "schema": "ENTERPRISE_MATH_REPLAY_MANIFEST_V1",
+  "status": "ACTIVE_BRIDGE_REPLAY",
+  "no_new_mathematics_during_replay": true,
+  "target_branch": "bridge/a3-a4-generated-support-v3",
+  "target_home": "A3_A4_GENERATED_SUPPORT_BRIDGE",
+  "baseline_main": "5bc6cb38d2e0e6e5f457da851197e5770f89a08d",
+  "canonical_dependencies": {
+    "A3": [
+      "src/enterprise_math/weighted_relation_field.py",
+      "src/enterprise_math/relation_lattice.py",
+      "src/enterprise_math/relation_scale.py"
+    ],
+    "A4": [
+      "src/enterprise_math/admissible_support.py",
+      "src/enterprise_math/relational_spectrum.py"
+    ]
+  },
+  "historical_source": {
+    "branch": "research/core/relation-support-bridge",
+    "head": "7d596b1a845ca5f878593940607ca6ed67210845",
+    "historical_pr": 83,
+    "selected_range": "B01-B06 generated-support / interpolation / coarse-cancellation layer"
+  },
+  "selected_first_slice": [
+    "zero A3 relation classes as the source quotient for generated A4 support",
+    "radius support |Z_ij| <= r*m_i*m_j on those classes",
+    "canonical A4 admissibility/common-target checks consumed by dependency rather than duplicated",
+    "split-completeness/interpolation check for the generated family",
+    "universal fine support implies coarse aggregated support",
+    "coarse support does not imply universal fine support because signed A3 relations can cancel"
+  ],
+  "defer": {
+    "A4_A5": [
+      "integer relation metric / unit-graph shortest-path equivalence / geodesic defect from historical B07-B09"
+    ],
+    "A4_A2": [
+      "staged MAY/MUST frontiers, arbitrary future-depth antichains, count tensors and equitability from B10-B58"
+    ],
+    "P021": [
+      "direction-witness and causal composition specializations"
+    ],
+    "A3": [
+      "selector/guard-image relation-state theorems that do not require A4"
+    ]
+  },
+  "forbid": [
+    "copying generic A4 relation composition/common-target implementations",
+    "copying entire A3 or A4 owner trees",
+    "replaying B10-B58 as bridge-owned mother theorems",
+    "whole-main synchronization into this bridge generation"
+  ],
+  "owned_assets": [
+    "src/enterprise_math/a3_a4_support_bridge.py",
+    "tests/test_a3_a4_support_bridge.py",
+    "replay_manifest_a3_a4_bridge.json"
+  ],
+  "completion": [
+    "first slice passes owner-level quality and metadata gates",
+    "bridge remains three-asset scope",
+    "canonical promotion uses a fresh latest-main L4 replay only after validation"
+  ]
+}
