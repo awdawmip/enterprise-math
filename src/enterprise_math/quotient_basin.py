@@ -3,6 +3,10 @@
 The core result is finite and integer-only: dividing every state in one square
 basin by an integer d>=2 can move the square-root index to only two adjacent
 values, and the new root index is strictly below the original basin index.
+
+The follow-up path results use only exact Euclidean division: iterated floor
+quotients equal one quotient by the product divisor, so repeated factor
+extraction does not multiply the number of possible final square-root indices.
 """
 
 from __future__ import annotations
@@ -106,3 +110,84 @@ def open_divisible_cofactor_window(k: int, divisor: int) -> dict[str, int]:
         "q_min_open": q_min_open,
         "nonempty": int(q_min_open <= q_max),
     }
+
+
+def iterated_quotient_flatness(n: int, divisors: list[int]) -> dict[str, object]:
+    """Verify that a quotient path depends only on the product divisor.
+
+    Every divisor is required to be at least two, matching the nontrivial
+    factor-extraction use case.  The exact identity is
+
+        (...((n // d1) // d2)...) // dh = n // (d1*d2*...*dh).
+
+    Therefore a multi-stage quotient path can be collapsed before applying the
+    two-basin theorem; intermediate two-way root choices never multiply into
+    2^h distinct final root scales.
+    """
+    _require_nat("n", n)
+    if not divisors:
+        raise ValueError("divisors must be a nonempty list")
+
+    value = n
+    product = 1
+    states = [n]
+    for index, divisor in enumerate(divisors):
+        _require_nat(f"divisors[{index}]", divisor, minimum=2)
+        product *= divisor
+        value //= divisor
+        states.append(value)
+
+    direct = n // product
+    if value != direct:
+        raise AssertionError("iterated floor quotient differs from quotient by product divisor")
+
+    return {
+        "n": n,
+        "divisors": tuple(divisors),
+        "divisor_product": product,
+        "path_states": tuple(states),
+        "iterated_quotient": value,
+        "direct_quotient": direct,
+    }
+
+
+def square_basin_iterated_quotient_transport(
+    k: int, divisors: list[int], n: int
+) -> dict[str, object]:
+    """Collapse an iterated quotient path to one two-basin transport.
+
+    This is the executable T111 consequence: the final quotient by any
+    factorization of a total divisor has exactly the same final state and hence
+    the same two possible square-root indices as one direct quotient.
+    """
+    flat = iterated_quotient_flatness(n, divisors)
+    product = int(flat["divisor_product"])
+    transported = square_basin_quotient_transport(k, product, n)
+    if int(flat["iterated_quotient"]) != transported["quotient"]:
+        raise AssertionError("flat quotient path disagrees with direct basin transport")
+    return {
+        **flat,
+        "k": k,
+        "base_root": transported["base_root"],
+        "quotient_root": transported["quotient_root"],
+    }
+
+
+def strict_square_root_descent(k: int, divisor: int, n: int) -> dict[str, int]:
+    """Verify strict descent of the actual quotient root for k>=3.
+
+    If k>=3, d>=2, and n lies in the k-th square basin, then
+
+        floor(n/d) < k^2,
+
+    hence R_2(floor(n/d)) < k.  This removes the apparent j+1=k edge allowed by
+    the coarse two-basin statement: that upper candidate is never realized once
+    k>=3.
+    """
+    _require_nat("k", k, minimum=3)
+    data = square_basin_quotient_transport(k, divisor, n)
+    if data["quotient"] >= k * k:
+        raise AssertionError("quotient did not fall below the original square boundary")
+    if data["quotient_root"] >= k:
+        raise AssertionError("actual quotient square-root index did not strictly descend")
+    return data
