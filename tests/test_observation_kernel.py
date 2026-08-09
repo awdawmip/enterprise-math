@@ -13,6 +13,11 @@ from enterprise_math.observation_kernel import (
 )
 
 
+def coefficient(coefficients: tuple[int, ...], degree: int) -> int:
+    index = degree - 1
+    return coefficients[index] if index < len(coefficients) else 0
+
+
 class ObservationKernelTests(unittest.TestCase):
     def test_fixed_time_postprocessing_only_coarsens_kernel(self) -> None:
         operation = lambda n: 2 * n + 1
@@ -73,8 +78,8 @@ class ObservationKernelTests(unittest.TestCase):
         states = (0, 1)
         at_zero = observed_collision_coefficients(fine, quotient2, states, 0)
         at_one = observed_collision_coefficients(fine, quotient2, states, 1)
-        self.assertEqual(at_zero[1], 1)
-        self.assertEqual(at_one[1], 0)
+        self.assertEqual(coefficient(at_zero, 2), 1)
+        self.assertEqual(coefficient(at_one, 2), 0)
 
     def test_compatible_observed_kernel_is_time_monotone(self) -> None:
         # Q2(max(n-2,0)) = max(Q2(n)-1,0), so the quotient observation
