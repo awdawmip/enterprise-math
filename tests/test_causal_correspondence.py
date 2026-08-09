@@ -3,6 +3,7 @@ import unittest
 from enterprise_math.causal_correspondence import (
     coarse_middle_shadow,
     composite_multiplicity_from_witnesses,
+    induced_continuation_profile,
     matrix_shadow_composition,
     witness_multiplicity,
 )
@@ -25,17 +26,13 @@ class CausalCorrespondenceTests(unittest.TestCase):
             witness_multiplicity(left),
             witness_multiplicity(right),
         )
-        # y0 contributes 2*1, y1 contributes 1*2.
         self.assertEqual(exact, {("x", "z"): 4})
         self.assertEqual(shadow, exact)
 
     def test_coarse_middle_can_create_false_cross_pairings(self):
-        # x0 can reach only y0, and y1 can reach only z1.  There is no exact
-        # two-step x0->z1 witness because y0 != y1.
         left = {"r": ("x0", "y0")}
         right = {"s": ("y1", "z1")}
-        exact = composite_multiplicity_from_witnesses(left, right)
-        self.assertEqual(exact, {})
+        self.assertEqual(composite_multiplicity_from_witnesses(left, right), {})
 
         middle_to_coarse = {"y0": "Y", "y1": "Y"}
         coarse_left = coarse_middle_shadow(
@@ -44,12 +41,14 @@ class CausalCorrespondenceTests(unittest.TestCase):
         coarse_right = coarse_middle_shadow(
             witness_multiplicity(right), middle_to_coarse, middle_is_target=False
         )
-        false_shadow = matrix_shadow_composition(coarse_left, coarse_right)
-        self.assertEqual(false_shadow, {("x0", "z1"): 1})
+        self.assertEqual(
+            matrix_shadow_composition(coarse_left, coarse_right),
+            {("x0", "z1"): 1},
+        )
+        with self.assertRaises(ValueError):
+            induced_continuation_profile(witness_multiplicity(right), middle_to_coarse)
 
-    def test_future_safe_middle_collapse_does_not_change_continuation_profile(self):
-        # y0 and y1 can be safely merged here because they have identical
-        # continuation profiles to z0,z1.
+    def test_future_safe_middle_uses_one_induced_profile_not_summed_profiles(self):
         left = {
             "r0": ("x", "y0"),
             "r1": ("x", "y1"),
@@ -67,16 +66,38 @@ class CausalCorrespondenceTests(unittest.TestCase):
         coarse_left = coarse_middle_shadow(
             witness_multiplicity(left), middle_to_coarse, middle_is_target=True
         )
-        coarse_right = coarse_middle_shadow(
+        induced_right = induced_continuation_profile(
+            witness_multiplicity(right), middle_to_coarse
+        )
+        self.assertEqual(induced_right, {("Y", "z0"): 1, ("Y", "z1"): 1})
+        self.assertEqual(
+            matrix_shadow_composition(coarse_left, induced_right),
+            exact,
+        )
+
+    def test_blindly_summing_both_sides_double_counts_safe_fiber(self):
+        left = {
+            "r0": ("x", "y0"),
+            "r1": ("x", "y1"),
+        }
+        right = {
+            "s00": ("y0", "z0"),
+            "s10": ("y1", "z0"),
+        }
+        middle_to_coarse = {"y0": "Y", "y1": "Y"}
+        coarse_left = coarse_middle_shadow(
+            witness_multiplicity(left), middle_to_coarse, middle_is_target=True
+        )
+        blindly_summed_right = coarse_middle_shadow(
             witness_multiplicity(right), middle_to_coarse, middle_is_target=False
         )
-        # Naively multiplying aggregated counts still overcounts by the fiber
-        # size (2): aggregation is not a normalization.  This is intentional and
-        # shows that anonymous matrix entries need a proved composition rule,
-        # not merely equal profiles.
         self.assertEqual(
-            matrix_shadow_composition(coarse_left, coarse_right),
-            {("x", "z0"): 4, ("x", "z1"): 4},
+            matrix_shadow_composition(coarse_left, blindly_summed_right),
+            {("x", "z0"): 4},
+        )
+        self.assertEqual(
+            composite_multiplicity_from_witnesses(left, right),
+            {("x", "z0"): 2},
         )
 
 
