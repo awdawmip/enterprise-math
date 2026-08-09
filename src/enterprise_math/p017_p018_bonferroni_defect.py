@@ -1,4 +1,4 @@
-"""Exact defect of odd Bonferroni proof precision.
+"""Exact defect of odd Bonferroni proof-precision truncation.
 
 For a single support of cardinality c and a positive odd truncation order m,
 
@@ -18,13 +18,22 @@ where U is the number of nonempty supports and
     E_m = sum_{c_x>=m+1} binom(c_x-1,m).
 
 Thus the complete error of an odd-order Bonferroni primality certificate is an
-integer high-support defect.  Raising precision from m to m+2 does not vaguely
-"improve an approximation": it removes a precisely identified layer of support
-multiplicity.
+integer high-support defect.
+
+Important correction: odd Bonferroni upper truncations are **not monotone in the
+odd order** before exactness.  The coordinate binom(c-1,m) can increase when m
+moves toward the middle of c-1; for example support size c=10 has defect 84 at
+order 3 and 126 at order 5.  Therefore ``least certifying order`` is an adaptive
+choice among finite odd truncations, not a nested monotone precision chain.
+
+There is, however, a genuine terminal exactness threshold: once m>=c the point
+defect is zero, and every larger odd order remains exact because all further
+binomial terms vanish.  The transverse-primorial bridge supplies a uniform
+residual bound on c and therefore a true stable exact-order ceiling.
 
 This is the classical alternating-binomial identity repackaged as a finite
-proof-precision defect coordinate.  It is intended to interface with P017 CG11,
-which constrains the orthogonal column/prime-power collision multiplicities.
+proof-truncation defect coordinate.  It is intended to interface with P017
+prime-product / collision capacities while keeping the nonmonotonicity explicit.
 """
 
 from __future__ import annotations
