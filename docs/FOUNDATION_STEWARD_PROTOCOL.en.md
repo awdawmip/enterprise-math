@@ -2,7 +2,8 @@
 
 Status: `ACTIVE / P0 MAINTENANCE CONTRACT`  
 Effective: 2026-08-09  
-Foundation problem set: GitHub Issue #164
+Foundation problem set: GitHub Issue #164  
+Backflow loop: `docs/FOUNDATION_BACKFLOW_LOOP.*` / `foundation_backflow.json`
 
 ## 1. Role
 
@@ -18,7 +19,8 @@ The steward is responsible for maintaining and verifying:
 - the project-wide shared theorem/tool surface;
 - reusable Python/Lean/reference tools and their declared scope;
 - cross-route foundational invariants and boundary language;
-- canonical routing needed so every research route can discover proved results and tools.
+- canonical routing needed so every research route can discover proved results and tools;
+- **active research-to-foundation backflow: extracting verified reusable tools, minimal state requirements, minimal repairs, repeated mechanisms and negative boundaries from existing research and using them to pressure-test the common foundation.**
 
 The steward is a **maintainer and verifier**, not another competing research route.
 
@@ -35,7 +37,7 @@ Examples:
 - registering an already-canonical tool in the shared surface;
 - removing ambiguous wording when no mathematical choice is involved.
 
-But when maintenance exposes a genuine unresolved mathematical choice, contradiction risk, missing hypothesis, cross-route incompatibility, new structural pattern, prior-art uncertainty, or tool/theorem sufficiency question, the steward **must not become the primary investigator**.
+But when maintenance or research backflow exposes a genuine unresolved mathematical choice, contradiction risk, missing hypothesis, cross-route incompatibility, new structural pattern, prior-art uncertainty, or tool/theorem sufficiency question, the steward **must not become the primary investigator**.
 
 Instead:
 
@@ -43,8 +45,9 @@ Instead:
 2. minimize the statement and separate verified facts from unknowns;
 3. record exact evidence and affected surfaces;
 4. post it to Foundation Problem Set Issue #164 using an `FQ-*` ID;
-5. stop researching that item and return to foundation maintenance;
-6. later verify researcher results before canonicalizing any resulting change.
+5. use `foundation_backflow.json` to link any FQ requiring execution to an appropriate `RESEARCH` task in the #240 scheduler;
+6. stop researching that item and return to foundation maintenance;
+7. after a researcher returns an answer, independently verify it through a governance task before canonicalizing any resulting change.
 
 ## 3. Verification threshold before escalation
 
@@ -133,6 +136,44 @@ Before accepting a new shared tool, check:
 
 Research-level uncertainty about tool sufficiency or equivalence is sent to #164.
 
+### 4.5 Research-to-foundation backflow integrity
+
+Existing research routes are also pressure tests of the foundation. The steward must not only route foundation knowledge outward; the steward must also inspect mature cross-route results for structures that should change the common bottom layer.
+
+The preferred extraction targets are:
+
+1. **minimal sufficient state** — the weakest state object actually required by a theorem or exact computation;
+2. **minimal repair / extension data** — the least carry, remainder, witness, history, relation coordinate, or other detail needed when a quotient/collapse loses the declared closure property;
+3. **cross-route invariant** — the same structural law recurring independently in different mathematical or engineering routes;
+4. **negative boundary** — a reusable counterexample, no-go theorem, or precise failure of an attractive generalization;
+5. **reusable tool** — an exact oracle, executable specification, Lean interface, counterexample generator, or finite compiler useful outside its source route;
+6. **layering law** — evidence that one object should be primitive while another is only a coordinate, observation, response law, or application semantics.
+
+A potential backflow result should be compressed into a **Foundation Feedback Packet** containing, when applicable:
+
+- `candidate_object_or_tool`;
+- `weakest_scope_hypotheses`;
+- `minimal_state`;
+- `minimal_repair_or_extension`;
+- `negative_boundary`;
+- `cross_route_evidence`;
+- `proof_status`;
+- `tool_surface`;
+- `prior_art_and_owner`;
+- `foundation_destination`.
+
+This packet is a compression format, not a new global barrier. A route does not wait for steward acknowledgement unless a separately valid `HARD_BLOCK` exists.
+
+Every backflow candidate is classified into exactly one handling class:
+
+- `DIRECT_FOUNDATION_MAINTENANCE` — existing canonical evidence already determines the change, so the steward may repair language, interfaces, routing, or an omitted proved layering directly;
+- `FOUNDATION_QUESTION` — the candidate could change primitives, layering, theorem interfaces, or a cross-route mother structure but still requires real research; create an `FQ-*` entry in #164 and hand it off;
+- `APPLICATION_LOCAL_OR_NOT_READY` — the candidate remains route-specific, testing/conjectural, tied to a special physical response law, or lacks cross-route necessity; keep it above the foundation.
+
+A useful application result is therefore **not** promoted merely because it is elegant. In particular, WIP structures, physical interpretations, or one-route response rules remain outside the canonical foundation until their required proof/status boundary is satisfied.
+
+The complete state machine, authority boundaries among #82/#164/#240, FQ-to-scheduler links, and canonicalization writeback rules are defined by `docs/FOUNDATION_BACKFLOW_LOOP.*` and `foundation_backflow.json`.
+
 ## 5. P0 Foundation Problem Set
 
 Canonical escalation surface: **GitHub Issue #164 — `[P0] Foundation Steward Problem Set`**.
@@ -161,11 +202,15 @@ Priority classes:
 
 The queue is high priority but is **not a global stop barrier**. Research scheduling still follows `RESEARCH_SCHEDULING_PROTOCOL`; only a complete explicit `HARD_BLOCK` can stop a route.
 
-## 6. Research handoff and return path
+## 6. Research handoff, return, and canonicalization path
 
-Researchers claim an `FQ-*` item in #164 and investigate on an appropriate L1/L2/L3 route.
+FQ mathematics and execution scheduling are recorded on separate but linked surfaces:
 
-A returned answer should include:
+- #164 stores the stable FQ statement, research evidence, semantic CLAIM/RETURN record, and final resolution;
+- `foundation_backflow.json` links FQs that need execution to tasks in `research_scheduler.json`;
+- #240 stores runtime `CLAIM/PROGRESS/HANDOFF/DONE` lease events for those tasks.
+
+Researchers investigate FQs on the appropriate L1/L2/L3 route. A returned answer should include:
 
 - proof, counterexample, or exact tool evidence;
 - weakest scope/hypotheses;
@@ -174,20 +219,19 @@ A returned answer should include:
 - prior-art boundary when relevant;
 - explicit recommendation for canonical language/formula/tool changes.
 
-The steward then verifies the answer independently enough to decide whether to:
+After a RETURN, the steward independently verifies through the governance side and decides:
 
-- canonicalize a maintenance change;
-- request a narrower proof/scope;
-- mark the issue rejected;
-- keep it open;
-- relay reusable results through Issue #82.
+- `ACCEPTED`: build the smallest canonical integration from the then-latest `main`;
+- `NEEDS_NARROWER_ANSWER`: request a narrower proof/scope;
+- `REJECTED`;
+- `KEEP_OPEN`.
 
-The steward does not treat a researcher's assertion as canonical merely because it answers an `FQ-*` item.
+A researcher RETURN, scheduler `DONE`, and steward `ACCEPTED` are all **not** canonical main. Only after the canonical patch passes applicable gates and enters source `main` may the FQ become `CANONICALIZED` and propagate through common-surface, tool/status/lineage, and GLOBAL_KNOWLEDGE surfaces.
 
-## 7. Continuous maintenance loop
+## 7. Continuous maintenance closed loop
 
 The steady-state loop is:
 
-`shared-surface preflight -> foundation audit -> mechanical maintenance OR FQ escalation -> researcher investigation -> steward verification -> canonical language/formula/theorem/tool update -> common-surface propagation`.
+`shared-surface preflight -> cross-route result extraction -> Feedback Packet -> classification -> direct maintenance OR FQ -> scheduler-linked researcher investigation -> RETURN -> steward verification -> latest-main integration -> gates -> canonical main -> common-surface/tool/global-knowledge propagation -> later research pressure-tests the revised foundation`.
 
-The desired outcome is that every research route can rely on a stable common mathematical language and discover the strongest currently justified theorem/tool interface without requiring the steward to conduct the research itself.
+The desired outcome is that every research route can rely on a stable common mathematical language and also return reusable structural discoveries to the bottom layer, with every critical stage recoverable from repository/Issue state rather than conversation memory.
