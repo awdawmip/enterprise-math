@@ -30,11 +30,21 @@ relative step magnitude ``s`` is guaranteed, for every phase, to sample at
 least one band state iff ``s <= h``.  If ``s>h``, the explicit one-step phase
 ``q0=H+1 -> q1=H+1-s`` with ``H=R+d-1`` skips the whole band.
 
-This is a static-sampling theorem, not a physical rebound law.  E001 primitive
-transition targets can still detect some crossings (e.g. an atomic edge swap)
-that static endpoint sampling misses.  Longer nonprimitive jumps remain outside
-the current transition contract and should be decomposed/refined rather than
-silently interpolated through a continuum.
+The resulting scale point is intentionally classified in terms of *contact
+opportunity*, not rebound physics:
+
+* MACRO_CONTACT_NOW: the current positive/zero primitive gap is collapsed;
+* SEPARATE_NO_RELATIVE_MOTION: resolved gap and no crossing progress;
+* SEPARATE_STATIC_CAPTURE_GUARANTEED: resolved now, but any monotone crossing
+  with this step magnitude must sample the interaction band;
+* SEPARATE_STATIC_SKIP_POSSIBLE: resolved now and some phase can skip the whole
+  static interaction band, requiring transition witnesses or temporal
+  refinement for a complete collision policy.
+
+E001 primitive transition targets can still detect some crossings (e.g. an
+atomic edge swap) that static endpoint sampling misses.  Longer nonprimitive
+jumps remain outside the current transition contract and should be decomposed
+rather than silently interpolated through a continuum.
 """
 
 from __future__ import annotations
@@ -42,6 +52,12 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .engineering_collision import Body2D
+
+MACRO_CONTACT_NOW = "MACRO_CONTACT_NOW"
+SEPARATE_NO_RELATIVE_MOTION = "SEPARATE_NO_RELATIVE_MOTION"
+SEPARATE_STATIC_CAPTURE_GUARANTEED = "SEPARATE_STATIC_CAPTURE_GUARANTEED"
+SEPARATE_STATIC_SKIP_POSSIBLE = "SEPARATE_STATIC_SKIP_POSSIBLE"
+ApproachPhaseStatus = str
 
 
 @dataclass(frozen=True)
@@ -54,6 +70,22 @@ class CollisionPhase1D:
     contact_half_width: int
     interaction_band_states: int
     static_no_skip_guaranteed: bool
+    skip_witness: tuple[int, int] | None
+
+
+@dataclass(frozen=True)
+class ApproachPhase1D:
+    """Current-gap plus future-crossing diagnostics at one finite scale point."""
+
+    primitive_gap: int
+    radius_sum: int
+    collapse_factor: int
+    relative_step: int
+    macro_contact_now: bool
+    status: ApproachPhaseStatus
+    first_resolving_factor: int | None
+    minimum_static_capture_factor: int
+    interaction_band_states: int
     skip_witness: tuple[int, int] | None
 
 
@@ -90,9 +122,7 @@ def finest_contact_factor(primitive_gap: int) -> int | None:
     """Smallest (finest) integer factor that still reports macro contact.
 
     ``None`` means primitive contact ``g=0`` persists even at terminal factor 1.
-    For positive ``g``, contact exists exactly for ``d>=g+1``, so ``g+1`` is the
-    finest still-contact factor and refinement to ``d=g`` is the first resolved
-    non-contact level when that integer level exists.
+    For positive ``g``, contact exists exactly for ``d>=g+1``.
     """
     _require_nonnegative_int("primitive_gap", primitive_gap)
     if primitive_gap == 0:
@@ -101,13 +131,7 @@ def finest_contact_factor(primitive_gap: int) -> int | None:
 
 
 def first_resolving_factor(primitive_gap: int) -> int | None:
-    """Largest threshold value at which positive clearance is no longer collapsed.
-
-    With all positive integer factors available, a positive gap ``g`` is
-    non-contact exactly for ``d<=g``.  Therefore ``d=g`` is the coarse-to-fine
-    threshold where the contact first disappears.  Primitive contact has no
-    resolving factor in this model.
-    """
+    """Coarse-to-fine threshold where positive clearance first becomes visible."""
     _require_nonnegative_int("primitive_gap", primitive_gap)
     return None if primitive_gap == 0 else primitive_gap
 
@@ -130,12 +154,7 @@ def static_no_skip_guaranteed_1d(
     collapse_factor: int,
     relative_step: int,
 ) -> bool:
-    """Phase-independent static-sampling criterion for monotone 1D crossing.
-
-    ``relative_step`` is the positive magnitude by which signed center
-    separation changes each tick.  Zero means no crossing progress and is
-    trivially non-skipping.
-    """
+    """Phase-independent static-sampling criterion for monotone 1D crossing."""
     _require_nonnegative_int("relative_step", relative_step)
     band = interaction_band_states_1d(radius_sum, collapse_factor)
     return relative_step <= band
@@ -147,8 +166,6 @@ def minimum_factor_for_static_no_skip_1d(radius_sum: int, relative_step: int) ->
     Solve ``s <= 2*(R+d)-1`` for integer ``d>=1``:
 
         d >= ceil((s+1)/2) - R.
-
-    The returned factor is clamped at terminal factor 1.
     """
     _require_nonnegative_int("radius_sum", radius_sum)
     _require_nonnegative_int("relative_step", relative_step)
@@ -190,5 +207,51 @@ def collision_phase_1d(
         contact_half_width=half_width,
         interaction_band_states=band,
         static_no_skip_guaranteed=no_skip,
+        skip_witness=witness,
+    )
+
+
+def approach_phase_1d(
+    primitive_gap: int,
+    radius_sum: int,
+    collapse_factor: int,
+    relative_step: int,
+) -> ApproachPhase1D:
+    """Classify current macro contact and conditional future crossing capture.
+
+    The capture statements are conditional on a future monotone signed-separation
+    crossing with the supplied positive step magnitude.  They do not assert that
+    such a crossing will occur, and they do not apply a rebound response law.
+    """
+    _require_nonnegative_int("primitive_gap", primitive_gap)
+    _require_nonnegative_int("radius_sum", radius_sum)
+    _require_positive_int("collapse_factor", collapse_factor)
+    _require_nonnegative_int("relative_step", relative_step)
+
+    contact_now = macro_contact_from_gap(primitive_gap, collapse_factor)
+    band = interaction_band_states_1d(radius_sum, collapse_factor)
+    witness = static_skip_witness_1d(radius_sum, collapse_factor, relative_step)
+
+    if contact_now:
+        status = MACRO_CONTACT_NOW
+    elif relative_step == 0:
+        status = SEPARATE_NO_RELATIVE_MOTION
+    elif witness is None:
+        status = SEPARATE_STATIC_CAPTURE_GUARANTEED
+    else:
+        status = SEPARATE_STATIC_SKIP_POSSIBLE
+
+    return ApproachPhase1D(
+        primitive_gap=primitive_gap,
+        radius_sum=radius_sum,
+        collapse_factor=collapse_factor,
+        relative_step=relative_step,
+        macro_contact_now=contact_now,
+        status=status,
+        first_resolving_factor=first_resolving_factor(primitive_gap),
+        minimum_static_capture_factor=minimum_factor_for_static_no_skip_1d(
+            radius_sum, relative_step
+        ),
+        interaction_band_states=band,
         skip_witness=witness,
     )
