@@ -214,17 +214,18 @@ def partition_collision_spectrum(
     partition: Partition,
     maximum_order: int | None = None,
 ) -> tuple[int, ...]:
+    """Return canonical P011-style J_1,...,J_K for a finite partition."""
     if set(partition) != set(states):
         raise ValueError("partition must cover the state set")
     grouped: dict[int, int] = defaultdict(int)
     for state in states:
         grouped[partition[state]] += 1
     limit = len(states) if maximum_order is None else maximum_order
-    if isinstance(limit, bool) or not isinstance(limit, int) or limit < 0:
-        raise ValueError("maximum_order must be a non-negative integer")
+    if isinstance(limit, bool) or not isinstance(limit, int) or limit < 1:
+        raise ValueError("maximum_order must be a positive integer")
     return tuple(
         sum(comb(size, order) for size in grouped.values() if size >= order)
-        for order in range(limit + 1)
+        for order in range(1, limit + 1)
     )
 
 
@@ -239,8 +240,9 @@ def operation_coupling_defect(
 
     Returns `(extra_class_count, lost_collision_spectrum)`, where the baseline is
     the static common refinement of the two separately minimized future states.
-    Every collision coordinate is nonnegative because the joint future quotient
-    refines that baseline.
+    Collision coordinates start at J_1; J_0=#classes is intentionally excluded
+    because refinement increases J_0 while genuine collision coordinates J_k,
+    k>=2, can only decrease.
     """
     overlap = set(left_generators) & set(right_generators)
     if overlap:
@@ -257,5 +259,5 @@ def operation_coupling_defect(
     joint_spectrum = partition_collision_spectrum(states, joint, maximum_order)
     lost = tuple(before - after for before, after in zip(static_spectrum, joint_spectrum))
     if any(value < 0 for value in lost):
-        raise AssertionError("future refinement cannot create new partition collisions")
+        raise AssertionError("future refinement cannot create new collision coordinates J_k, k>=1")
     return class_count(joint) - class_count(static), lost
