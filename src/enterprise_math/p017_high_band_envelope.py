@@ -1,7 +1,7 @@
-"""Exact finite envelopes for the P017 high-band hit-union bound.
+"""Exact finite envelopes for the P017 high-band pressure test.
 
 This module contains only the integer layer.  The asymptotic passage from the
-finite reciprocal-prime envelope to the constant log(2) uses classical prime
+finite reciprocal-prime envelopes to the constant log(2) uses classical prime
 estimates and is documented separately; it is not implemented numerically here.
 """
 
@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from .core import integer_nth_root
 from .legendre import interior_hit_count, primes_up_to
+from .p017_cofactor_window import cofactor_window_shell
 from .p017_high_band import high_band_global_hit_union_bound
 
 
@@ -25,7 +26,7 @@ def ceil_integer_sqrt(n: int) -> int:
 
 
 def high_band_resource_interval(k: int) -> tuple[int, int]:
-    """Return the universal prime-resource interval for L049.
+    """Return the universal cofactor-prime resource interval for L049.
 
     If a high-band triple resource r occurs with least prime p, then
 
@@ -41,8 +42,51 @@ def high_band_resource_interval(k: int) -> tuple[int, int]:
     return lower, upper
 
 
+def high_band_composite_envelope(k: int) -> dict[str, object]:
+    """Bound all high-band composite states by raw least-factor hit counts.
+
+    Let N_H(k) count all composite basin states whose least prime p satisfies
+    p^2>=2k.  Least-factor shells are disjoint, and each exact shell is a subset
+    of all basin multiples of p.  Hence
+
+        N_H(k) <= A_H(k) := sum H_p(k)
+
+    over primes sqrt(2k)<=p<=k.
+
+    This finite inequality includes both semiprime and three-prime high-band
+    states.  Classical Mertens estimates later imply A_H(k)/(2k) has limsup at
+    most log(2); that analytic step is deliberately not encoded here.
+    """
+    _require_positive("k", k)
+    lower = ceil_integer_sqrt(2 * k)
+    least_primes = [prime for prime in primes_up_to(k) if prime >= lower]
+    raw_hit_counts = {
+        prime: interior_hit_count(k, prime, 2)
+        for prime in least_primes
+    }
+    raw_hit_sum = sum(raw_hit_counts.values())
+
+    exact_shell_counts = {
+        prime: len(cofactor_window_shell(k, prime))
+        for prime in least_primes
+    }
+    exact_composite_count = sum(exact_shell_counts.values())
+    if exact_composite_count > raw_hit_sum:
+        raise AssertionError("high-band composite shells exceeded the raw H_p envelope")
+
+    return {
+        "k": k,
+        "least_prime_lower": lower,
+        "least_primes": least_primes,
+        "raw_hit_counts": raw_hit_counts,
+        "raw_hit_sum": raw_hit_sum,
+        "exact_shell_counts": exact_shell_counts,
+        "exact_composite_count": exact_composite_count,
+    }
+
+
 def high_band_hit_count_envelope(k: int) -> dict[str, object]:
-    """Return an exact finite envelope above the L049 support capacity.
+    """Return an exact finite envelope above the L049 triple support capacity.
 
     Let C_H(k)=sum_r c_r(k) be the exact L049 hit-union support capacity.  Every
     resource prime r lies in the universal interval returned above, and every
@@ -60,7 +104,7 @@ def high_band_hit_count_envelope(k: int) -> dict[str, object]:
 
     This is deliberately a coarse finite envelope.  It exists to separate the
     project-specific exact combinatorics from the classical analytic estimates
-    later used to obtain the asymptotic log(2) constant.
+    later used to obtain the stronger triple-only asymptotic log(2)/2 fraction.
     """
     _require_positive("k", k)
     lower, upper = high_band_resource_interval(k)
