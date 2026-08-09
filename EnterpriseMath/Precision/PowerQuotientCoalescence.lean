@@ -122,13 +122,14 @@ theorem power_basin_distinct_divisor_root_collision
   have hScale : t + 1 < (s + 1) * (d + 1) :=
     divisor_collision_root_scale hCollision
   have hLtE : t < (s + 1) * e := by
-    have : (s + 1) * (d + 1) ≤ (s + 1) * e :=
+    have hScaleE : (s + 1) * (d + 1) ≤ (s + 1) * e :=
       Nat.mul_le_mul_left (s + 1) hSuccDiv
     omega
   by_cases htZero : t = 0
   · subst t
-    simp
-    exact Nat.mul_pos (by omega) (pow_pos (by omega) p)
+    have hPos : 0 < (s + 1) * (k + 1) ^ p :=
+      Nat.mul_pos (by omega) (pow_pos (by omega) p)
+    simpa using hPos
   · have htPos : 0 < t := Nat.pos_of_ne_zero htZero
     have hMul0 : t * t ^ (s + 1) < ((s + 1) * e) * t ^ (s + 1) :=
       Nat.mul_lt_mul_of_pos_right hLtE (pow_pos htPos (s + 1))
@@ -138,7 +139,7 @@ theorem power_basin_distinct_divisor_root_collision
       Nat.mul_le_mul_left (s + 1) hLower
     have hParent : (s + 1) * n < (s + 1) * (k + 1) ^ p :=
       Nat.mul_lt_mul_of_pos_left hnUpper (by omega)
-    exact lt_of_lt_of_le hMul (le_trans hWeighted (Nat.le_of_lt hParent)) |>.trans hParent
+    exact lt_of_lt_of_le hMul (le_trans hWeighted (Nat.le_of_lt hParent))
 
 /-- Exact integer all-power coalescence horizon.
 
