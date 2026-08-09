@@ -62,9 +62,13 @@ class ExtremumFutureSignatureTests(unittest.TestCase):
     def test_minimum_future_uses_the_same_level_logic_in_reverse_order(self):
         values = {0: -5, 1: -5, 2: 0, 3: 4, 4: 9}
         signature = compile_extremum_future_signature(values, 2, maximize=False)
-        self.assertEqual(signature.exposed_levels, ())
-        self.assertEqual(signature.guard_value, -5)
-        self.assertEqual(extremum_after_deletions(signature, (0, 2)), -5)
+        self.assertEqual(
+            tuple((level.value, level.labels) for level in signature.exposed_levels),
+            ((-5, (0, 1)),),
+        )
+        self.assertEqual(signature.guard_value, 0)
+        self.assertEqual(extremum_after_deletions(signature, (0,)), -5)
+        self.assertEqual(extremum_after_deletions(signature, (0, 1)), 0)
 
     def test_compact_signature_partition_equals_complete_future_partition_on_small_domains(self):
         # This regression checks both sufficiency and coarseness by comparing
