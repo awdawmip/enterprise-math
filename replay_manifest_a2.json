@@ -17,34 +17,47 @@
   "historical_extension_sources": [
     {
       "branch": "agent/p018-critical-grid",
-      "head": "ee6d69fc2bb9894a47a3d5c6273d50d286047ca8",
-      "candidate_assets": [
-        "generic context separation relation",
-        "general k-ary operation congruence/descent",
-        "generic transport protocol lower bound",
-        "generic reusable-interface conditions"
-      ]
+      "head": "ee6d69fc2bb9894a47a3d5c6273d50d286047ca8"
     },
     {
-      "branch_family": "research/e001-e002-contact-*",
-      "candidate_assets": [
-        "future-language quotient specializations",
-        "action-semigroup/group-completion minimality examples"
-      ]
+      "branch_family": "research/e001-e002-contact-*"
     },
     {
-      "branch": "research/core/relation-support-bridge",
-      "candidate_assets": [
-        "equitability/witness-erasure specializations that may instantiate generic quotient safety"
-      ]
+      "branch": "research/core/relation-support-bridge"
     }
   ],
-  "audit_rule": "Main is authoritative. Historical assets are replayed only if they are not already the same theorem, an equivalent coordinate form, or a strict specialization of canonical P023 results.",
+  "audit_rule": "Main is authoritative. Historical assets are replayed only if they are not already the same theorem, an equivalent coordinate form, a corollary, or a strict specialization of canonical P023 results.",
+  "audit_results": {
+    "EnterpriseMath/State/OperationCongruence.lean": {
+      "relation": "STRICT_GENERALIZATION",
+      "basis": "Extends unary/family descent to one arbitrary finite-arity k-ary operation, proves descended-operation uniqueness under surjectivity, and gives a binary coordinatewise compatibility criterion.",
+      "target": "A2",
+      "action": "REPLAY_GENERIC_EXTENSION"
+    },
+    "EnterpriseMath/State/ContextSeparation.lean": {
+      "relation": "SAME_COORDINATE_PLUS_COROLLARIES",
+      "basis": "SameThrough over a finite alphabet of unary translations is the relation-level form of P023-T13 finite operation-word semantics; equivalence-relation and triangle consequences are derived structure.",
+      "target": "A2_P023",
+      "action": "CONSUME_P023_T13; replay Lean support only if it removes a formalization gap, not as a second mother theorem"
+    },
+    "EnterpriseMath/State/TransportProtocol.lean": {
+      "relation": "INDEPENDENT_GENERIC_EXTENSION",
+      "basis": "Introduces an explicit access model: decoder knows the coarse input tuple and receives one token from the fine tuple; proves token lower-bound separation and the one-symbol iff compatibility boundary.",
+      "target": "A2",
+      "action": "REPLAY_AFTER_PRIOR_ART_BOUNDARY"
+    },
+    "EnterpriseMath/State/ReusableInterface.lean": {
+      "relation": "REFORMULATION_COROLLARY",
+      "basis": "Reusable interface = raw observation factors through the interface plus operation-compatible kernel. Operation descent follows from k-ary congruence; minimum reusable state is already governed by P023-T14/coarsest compatible quotient.",
+      "target": "A2_P023",
+      "action": "DO_NOT_CREATE_DUPLICATE_MINIMALITY_THEOREM; retain interface vocabulary only if useful"
+    }
+  },
   "keep_if_general": [
     "operation/future-language factorization criteria",
     "coarsest compatible refinement and minimal repair",
-    "generic reusable state/interface sufficiency",
-    "generic finite distinguishing-context certificates when not already P023 word semantics",
+    "strict k-ary descent generalization beyond current main",
+    "access-model transport protocol results not already implied by quotient closure",
     "generic exact information-erasure conditions"
   ],
   "defer": {
@@ -56,6 +69,8 @@
   },
   "forbid": [
     "duplicating P023-T01/T02/T10-T14 under new names",
+    "treating ContextSeparation as a separate mother theory from P023 operation-word semantics",
+    "reproving minimum reusable quotient separately from P023-T14",
     "promoting application-specific quotient coordinates as universal precision laws",
     "wholesale merging historical branches into the core owner"
   ],
