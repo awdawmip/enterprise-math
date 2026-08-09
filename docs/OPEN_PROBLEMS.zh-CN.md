@@ -271,6 +271,31 @@ warnings-fatal 的 Lean 实现在 `EnterpriseMath/Order/WellFoundedStabilization
 
 FCC/HCP/BCC/`A_p` 继续只是数学测试候选，并非已经确认的物理空间。在 clean replay 前，历史分支文件名和内部正文仍可能保留已被替代的 P019 编号。
 
+## P023 —— 可复合安全坍缩与未来兼容商
+
+状态：`OPEN / ACTIVE RESEARCH`  
+难度：研究级困难
+
+精确刻画：一个有限精度商在什么条件下已经足以承载指定的未来运算族；若不足，**最少还需要补回什么 detail**。
+
+当前第一阶段结果见 `docs/P023_COMPOSITION_SAFE_COLLAPSE.zh-CN.md` 与补充 01–05，包括：
+
+1. fiber 常值是商上因子化的精确判据，`(q,h)` 是最粗的一步修复；
+2. 对单个确定转移及有限运算族，反复未来细化会有限稳定到最粗的未来兼容 refinement；
+3. floor 精度与 quotient / multiple-collapse 的精确算术兼容分类；
+4. 不兼容 multiple-collapse 情形下的 one-bit 最小修复与 split fiber 精确周期；
+5. reductive gap 到 coarse borrow 的精确搬运，以及局部 borrow 对首尾 coarse loss 的望远镜化；
+6. factorization 与最粗一步修复母命题已经通过 Lean warning-fatal 编译。
+
+一般 quotient factorization、congruence、automata distinguishability 与 partition refinement 属于成熟前人工作，不得作为进取数论原创主张。
+
+下一阶段优先问题：
+
+- 把 future-safe refinement 写成有限状态等价关系格上的单调向下算子，并与 P020 有限稳定化母定理严格连接；
+- 判断最小安全修复何时必然离开单一均匀 `Q_r` 尺度族，从而需要局部 bounded detail；
+- 通过不动点几何分类 P008 型单调、向下、幂等坍缩在 floor precision 上何时可下沉；
+- 把该判据反哺到 P021 的 phase/magnitude 与 witness-transport 纠偏，并与 P018 已有 finite-response 演算去重整合。
+
 ## 如何领取问题
 
 可以创建一个标题包含问题编号的 GitHub Issue，或者在已经存在的对应 Issue 下参与讨论。
