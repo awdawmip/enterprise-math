@@ -11,6 +11,7 @@ from enterprise_math.p022_barlow_fiber_convolution import (
     profile_from_selected_layers,
     profile_power_moment,
     recover_segment_multiset_from_profile,
+    recover_selected_geometry_from_profile,
     segment_binomial_fiber_profile,
     segment_minimal_nontrivial_multiplicity,
 )
@@ -18,7 +19,10 @@ from enterprise_math.p022_barlow_higher_collision_precision import (
     ordered_equal_observation_tuple_count,
     selected_collision_count,
 )
-from enterprise_math.p022_barlow_precision_fibers import selected_layer_observation
+from enterprise_math.p022_barlow_precision_fibers import (
+    selected_layer_observation,
+    selected_segment_lengths,
+)
 
 
 def _words(length: int):
@@ -41,6 +45,13 @@ def _compositions(length: int, parts: int):
             result.append(cut - previous)
             previous = cut
         yield tuple(result)
+
+
+def _selected_layer_sets(length: int):
+    yield ()
+    for count in range(1, min(length, 5) + 1):
+        for layers in combinations(range(1, length + 1), count):
+            yield tuple(layers)
 
 
 def test_one_segment_profile_is_binomial_row_size_distribution() -> None:
@@ -136,3 +147,22 @@ def test_complete_profile_recovers_segment_multiset_for_all_small_compositions()
                 assert recover_segment_multiset_from_profile(
                     profile
                 ) == tuple(sorted(segments))
+
+
+def test_complete_profile_recovers_selected_segment_multiset_and_hidden_tail() -> None:
+    for length in range(0, 11):
+        for selected_layers in _selected_layer_sets(length):
+            profile = profile_from_selected_layers(length, selected_layers)
+            segments, tail = selected_segment_lengths(length, selected_layers)
+            recovered_segments, recovered_tail = recover_selected_geometry_from_profile(
+                profile
+            )
+            assert recovered_segments == tuple(sorted(segments))
+            assert recovered_tail == tail
+            assert sum(recovered_segments) + recovered_tail == length
+
+
+def test_no_checkpoint_profile_is_identified_as_pure_hidden_tail() -> None:
+    for length in range(0, 12):
+        profile = profile_from_selected_layers(length, ())
+        assert recover_selected_geometry_from_profile(profile) == ((), length)
