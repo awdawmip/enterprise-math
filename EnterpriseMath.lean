@@ -4,6 +4,7 @@ import EnterpriseMath.Order.WellFoundedStabilization
 import EnterpriseMath.Precision.Carry
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Scale.Compatibility
+import EnterpriseMath.State.ContextSeparation
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.State.Coalescence
 import EnterpriseMath.State.ObservationClosure
