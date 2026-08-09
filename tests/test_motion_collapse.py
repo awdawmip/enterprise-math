@@ -11,6 +11,22 @@ from enterprise_math.motion_collapse import (
 )
 
 
+def point_motion_oracle(left, right):
+    """Independent radius-0 oracle: same end vertex or same non-wait undirected edge."""
+    left_start = (left.body.x, left.body.y)
+    right_start = (right.body.x, right.body.y)
+    left_end = (left.end_body.x, left.end_body.y)
+    right_end = (right.end_body.x, right.end_body.y)
+    if left_end == right_end:
+        return True
+
+    if left_start == left_end or right_start == right_end:
+        return False
+    left_edge = frozenset((left_start, left_end))
+    right_edge = frozenset((right_start, right_end))
+    return left_edge == right_edge
+
+
 class MotionCollapseTests(unittest.TestCase):
     def test_same_endpoint_is_vertex_conflict(self):
         left = BodyMotion2D(Body2D(0, 0, 0, 0), (1, 0))
@@ -26,6 +42,27 @@ class MotionCollapseTests(unittest.TestCase):
         witnesses = motion_conflict_witnesses(left, right)
         self.assertIn(("edge", ((0, 0), (1, 0))), witnesses)
         self.assertTrue(motion_conflict(left, right))
+
+    def test_point_motion_target_relation_matches_independent_small_domain_oracle(self):
+        points = [(x, y) for x in range(-1, 2) for y in range(-1, 2)]
+        steps = [(dx, dy) for dx in range(-1, 2) for dy in range(-1, 2)]
+        for left_point in points:
+            for right_point in points:
+                if left_point == right_point:
+                    continue
+                for left_step in steps:
+                    for right_step in steps:
+                        left = BodyMotion2D(
+                            Body2D(0, left_point[0], left_point[1], 0), left_step
+                        )
+                        right = BodyMotion2D(
+                            Body2D(1, right_point[0], right_point[1], 0), right_step
+                        )
+                        self.assertEqual(
+                            motion_conflict(left, right),
+                            point_motion_oracle(left, right),
+                            (left_point, right_point, left_step, right_step),
+                        )
 
     def test_distinct_diagonal_edges_do_not_conflict_without_extra_incidence(self):
         left = BodyMotion2D(Body2D(0, 0, 0, 0), (1, 1))
