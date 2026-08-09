@@ -64,14 +64,16 @@
     "runtime_claim_authority": "GitHub Issue #240",
     "task_definition_authority": "research_scheduler.json",
     "one_fq_one_permanent_branch_required": false,
-    "compatible_existing_owner_task_may_carry_fq": true,
+    "existing_owner_task_may_carry_fq_only_if_explicitly_declared": true,
+    "research_task_question_field": "foundation_questions",
+    "live_claim_scope_must_not_be_reinterpreted": true,
     "scope_drift_forbidden": true
   },
   "question_scheduler_links": [
     {
       "question_id": "FQ-20260809-005",
       "phase": "RESEARCH_SCHEDULED",
-      "scheduler_task_id": "RS-P022-OBSERVATION-HISTORY",
+      "scheduler_task_id": "RS-P022-GRAPH-DISTANCE-API",
       "scheduler_role": "RESEARCH",
       "research_owner": "program/p022-geometry-v2",
       "source_refs": [
