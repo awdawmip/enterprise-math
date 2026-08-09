@@ -60,12 +60,10 @@ def signed_prefix_history(word: StackingWord) -> tuple[int, ...]:
 
 
 def absolute_prefix_history(word: StackingWord) -> AbsoluteHistory:
-    """Return ``(|delta_1|,...,|delta_N|)``."""
     return tuple(abs(value) for value in signed_prefix_history(word))
 
 
 def excursion_count(history: AbsoluteHistory) -> int:
-    """Number of departures ``0 -> 1`` in the absolute drift path."""
     _require_absolute_history(history)
     previous = 0
     count = 0
@@ -79,14 +77,12 @@ def excursion_count(history: AbsoluteHistory) -> int:
 
 
 def orientation_fiber_size(history: AbsoluteHistory) -> int:
-    """Number of microscopic ±1 words represented by one absolute history."""
     return 2 ** excursion_count(history)
 
 
 def reconstruct_word_from_excursion_orientations(
     history: AbsoluteHistory, orientations: tuple[int, ...]
 ) -> StackingWord:
-    """Recover the unique stacking word for one orientation sign per excursion."""
     _require_absolute_history(history)
     expected = excursion_count(history)
     if (
@@ -101,7 +97,6 @@ def reconstruct_word_from_excursion_orientations(
     active_orientation = 0
     orientation_index = 0
     word = []
-
     for current_absolute in history:
         if previous_absolute == 0:
             active_orientation = orientations[orientation_index]
@@ -115,22 +110,15 @@ def reconstruct_word_from_excursion_orientations(
         previous_signed = current_signed
         if current_absolute == 0:
             active_orientation = 0
-
     return tuple(word)
 
 
 def absolute_history_image_size(length: int) -> int:
-    """Number of legal one-sided absolute histories of length ``length``.
-
-    These are nonnegative ±1 prefixes (Dyck prefixes). The classical reflection
-    count is ``C(length,floor(length/2))``.
-    """
     _require_natural("length", length)
     return comb(length, length // 2)
 
 
 def maximum_excursion_count(length: int) -> int:
-    """Largest possible number of independent orientation decisions."""
     _require_natural("length", length)
     return (length + 1) // 2
 
@@ -140,43 +128,21 @@ def maximum_orientation_fiber_size(length: int) -> int:
 
 
 def absolute_history_count_with_excursions(length: int, excursions: int) -> int:
-    """Number A_(N,e) of absolute histories with exactly ``e`` excursions.
-
-    For N=2m+1:
-
-        A_(N,e)=C(2m+1-e, m+1-e).
-
-    For N=2m>0:
-
-        A_(N,e)=2*C(2m-e-1, m-e).
-
-    The zero-length path has one history with zero excursions.
-
-    Generating-function proof: a complete positive excursion has half-length GF
-    ``I(z)=z*C(z)``.  For odd total length, the final incomplete positive tail
-    contributes ``1/sqrt(1-4z)``.  For even total length, the union of a final
-    complete excursion and an incomplete even tail simplifies to
-    ``2z/sqrt(1-4z)``.  Use
-
-        [z^n] C(z)^k / sqrt(1-4z) = C(2n+k,n).
-    """
+    """Number A_(N,e) of absolute histories with exactly e excursions."""
     _require_natural("length", length)
     _require_natural("excursions", excursions)
     if length == 0:
         return 1 if excursions == 0 else 0
     if excursions == 0 or excursions > maximum_excursion_count(length):
         return 0
-
     if length % 2:
         half = (length - 1) // 2
         return comb(2 * half + 1 - excursions, half + 1 - excursions)
-
     half = length // 2
     return 2 * comb(2 * half - excursions - 1, half - excursions)
 
 
 def excursion_count_spectrum(length: int) -> tuple[tuple[int, int], ...]:
-    """Return ``(excursion_count, absolute_history_count)``."""
     _require_natural("length", length)
     if length == 0:
         return ((0, 1),)
@@ -187,7 +153,6 @@ def excursion_count_spectrum(length: int) -> tuple[tuple[int, int], ...]:
 
 
 def absolute_history_fiber_profile(length: int) -> FiberProfile:
-    """Complete ``(fiber_size, number_of_absolute_histories)`` profile."""
     _require_natural("length", length)
     if length == 0:
         return ((1, 1),)
@@ -199,7 +164,6 @@ def absolute_history_fiber_profile(length: int) -> FiberProfile:
 
 
 def absolute_history_collision_count(length: int, order: int) -> int:
-    """P011 J_order of the quotient ``word -> absolute prefix history``."""
     _require_natural("length", length)
     _require_positive("order", order)
     return sum(
@@ -210,9 +174,44 @@ def absolute_history_collision_count(length: int, order: int) -> int:
 
 
 def absolute_history_collision_polynomial_coefficients(length: int) -> tuple[int, ...]:
-    """Return P011 coefficients ``(J_1,...,J_M)`` for this quotient."""
     maximum = maximum_orientation_fiber_size(length)
     return tuple(
         absolute_history_collision_count(length, order)
         for order in range(1, maximum + 1)
     )
+
+
+def total_orientation_repair_bit_load(length: int) -> int:
+    """Total excursion-orientation bits over all 2^N microscopic words.
+
+    A new repair bit is required at step k exactly when the signed prefix before
+    that step is zero.  Only even prefix lengths 2j can be zero.  Counting the
+    balanced prefix and arbitrary suffix gives
+
+        R_N = sum_{j=0}^{floor((N-1)/2)} C(2j,j) 2^(N-2j).
+
+    Using ``sum_{j=0}^m C(2j,j)/4^j = (2m+1)C(2m,m)/4^m`` gives the exact
+    integer closed form below.
+    """
+    _require_natural("length", length)
+    if length == 0:
+        return 0
+    half_index = (length - 1) // 2
+    return (
+        2 ** (length - 2 * half_index)
+        * (2 * half_index + 1)
+        * comb(2 * half_index, half_index)
+    )
+
+
+def average_orientation_repair_load_fraction(length: int) -> tuple[int, int]:
+    """Exact rational average ``R_N/2^N`` reduced only by powers of two."""
+    _require_natural("length", length)
+    if length == 0:
+        return 0, 1
+    numerator = total_orientation_repair_bit_load(length)
+    denominator = 2 ** length
+    while numerator % 2 == 0 and denominator % 2 == 0:
+        numerator //= 2
+        denominator //= 2
+    return numerator, denominator
