@@ -24,12 +24,8 @@ class CausalBulkResidualTests(unittest.TestCase):
         self.assertTrue(bounded_homomorphism_check(alphabet, 3, 3, observation, combine))
         reachable = bounded_reachable_values(alphabet, 3, observation)
         self.assertTrue(bounded_left_recovery_is_unique(reachable, reachable, combine))
-        left = residual_signature_under_bulk_law(
-            alphabet, (2, 1), 3, observation, combine
-        )
-        right = residual_signature_under_bulk_law(
-            alphabet, (0,), 3, observation, combine
-        )
+        left = residual_signature_under_bulk_law(alphabet, (2, 1), 3, observation, combine)
+        right = residual_signature_under_bulk_law(alphabet, (0,), 3, observation, combine)
         self.assertEqual(left, right)
 
     def test_word_length_is_another_bulk_law_with_one_structural_type(self):
@@ -65,8 +61,6 @@ class CausalBulkResidualTests(unittest.TestCase):
 
     def test_max_bulk_accumulation_can_only_coarsen_residual_precision(self):
         increments = tuple(range(9))
-        # max(2,5)=5: every residual collision already present at bulk 2 remains
-        # collided at bulk 5, while additional low increments are swallowed.
         self.assertTrue(bulk_extension_coarsens_residuals(2, 5, increments, max))
         self.assertTrue(
             collision_spectrum_nondecreasing_under_bulk_extension(
@@ -85,6 +79,24 @@ class CausalBulkResidualTests(unittest.TestCase):
         after = left_translation_collision_spectrum(6, increments, add, 3)
         self.assertEqual(before, after)
         self.assertEqual(before[2], 0)
+
+    def test_noncommutative_context_can_change_residual_partition_nonmonotonically(self):
+        # Transformation semigroup on {0,1,2}; tuple f stores f(0),f(1),f(2).
+        # Composition is f∘g.  It is associative but noncommutative.
+        compose = lambda f, g: tuple(f[g[index]] for index in range(3))
+        b = (0, 0, 1)
+        u = (0, 2, 0)
+        r = (0, 0, 0)
+        r_prime = (0, 0, 1)
+        increments = (r, r_prime)
+
+        self.assertTrue(bounded_associativity_check((b, u, r, r_prime, compose(b, u)), compose))
+        self.assertEqual(compose(b, r), compose(b, r_prime))
+        new_bulk = compose(b, u)
+        self.assertNotEqual(compose(new_bulk, r), compose(new_bulk, r_prime))
+        self.assertFalse(bulk_extension_coarsens_residuals(b, u, increments, compose))
+        # This compares two different left contexts.  It does not undo an already
+        # realized collapse; right-future extension of one realized total remains safe.
 
     def test_boolean_or_nonunique_residual_is_also_a_causal_collapse(self):
         combine = lambda left, right: bool(left or right)
