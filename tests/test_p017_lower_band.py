@@ -29,9 +29,9 @@ class P017LowerBandTests(unittest.TestCase):
         self.assertTrue(saw_double)
 
     def test_three_shell_endpoint_separation_on_larger_roots(self):
-        # The theorem is proved for all k; these are bounded regression witnesses,
-        # not an attempt to replace the proof with an expensive large finite scan.
-        for k in (1000, 5000, 10000, 20000):
+        # The proof is uniform in k. These large roots are inexpensive because
+        # lower-band primes only extend to floor(sqrt(2k-1)).
+        for k in (1000, 5000, 10000, 50000, 100000, 200000):
             data = lower_band_root_overlap_bound(k)
             primes = data["lower_band_primes"]
             roots = data["base_roots"]
