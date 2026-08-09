@@ -19,6 +19,10 @@ def carryLoad (p a b : ℕ) : ℕ :=
     + root p a ^ p * rootGap p b
     + rootGap p a * rootGap p b
 
+/-- The same P001 load written directly in fixed basin-root/offset coordinates. -/
+def offsetLoad (p r s u v : ℕ) : ℕ :=
+  s ^ p * u + r ^ p * v + u * v
+
 /-- The upward carry in root-state units created by multiplying two states. -/
 def rootCarry (p a b : ℕ) : ℕ :=
   root p (a * b) - root p a * root p b
@@ -171,5 +175,25 @@ theorem rootCarry_eq_zero_iff {p a b : ℕ} (hp : p ≠ 0) :
     have heq : root p (a * b) = root p a * root p b :=
       (root_mul_eq_iff_carryLoad_lt hp).2 hload
     simp [rootCarry, heq]
+
+/-- P001-T04 arithmetic core: fixed-basin carry load is monotone in both offsets. -/
+theorem offsetLoad_mono {p r s u v u' v' : ℕ}
+    (hu : u' ≤ u) (hv : v' ≤ v) :
+    offsetLoad p r s u' v' ≤ offsetLoad p r s u v := by
+  have h₁ : s ^ p * u' ≤ s ^ p * u :=
+    Nat.mul_le_mul (le_rfl) hu
+  have h₂ : r ^ p * v' ≤ r ^ p * v :=
+    Nat.mul_le_mul (le_rfl) hv
+  have h₃ : u' * v' ≤ u * v :=
+    Nat.mul_le_mul hu hv
+  simp only [offsetLoad]
+  omega
+
+/-- P001-T04: every smaller offset pair remains in the no-carry lower set. -/
+theorem noCarry_downward {p r s u v u' v' : ℕ}
+    (hu : u' ≤ u) (hv : v' ≤ v)
+    (hno : offsetLoad p r s u v < basinWidth p (r * s)) :
+    offsetLoad p r s u' v' < basinWidth p (r * s) :=
+  lt_of_le_of_lt (offsetLoad_mono hu hv) hno
 
 end EnterpriseMath.RootMultiplicativity
