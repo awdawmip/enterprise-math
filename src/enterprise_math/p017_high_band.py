@@ -37,6 +37,32 @@ def _integer_power_capacity(base: int, limit: int) -> int:
     return exponent
 
 
+def _unique_large_modulus_hit(k: int, modulus: int) -> int | None:
+    """Return the unique square-basin multiple when modulus>=2k, if it exists."""
+    _require_positive("k", k)
+    _require_positive("modulus", modulus)
+    if modulus < 2 * k:
+        raise ValueError("unique-hit helper requires modulus >= 2k")
+    center = k * (k + 1)
+    residue = center % modulus
+    if residue < k:
+        return center - residue
+    if residue >= modulus - k:
+        return center + (modulus - residue)
+    return None
+
+
+def _high_band_triple_primes(k: int) -> list[int]:
+    """Return least primes that can support a high-band three-prime state."""
+    _require_positive("k", k)
+    upper = (k + 1) * (k + 1) - 1
+    return [
+        p
+        for p in primes_up_to(k)
+        if p * p >= 2 * k and p**3 <= upper
+    ]
+
+
 def cofactor_window_hit_identity(k: int, prime: int) -> dict[str, int]:
     """Identify W_p(k) with the quotient image of p-multiples in the square basin."""
     _require_positive("k", k)
@@ -122,13 +148,8 @@ def high_band_second_factor_candidate(k: int, prime: int, second_prime: int) -> 
     # center M=k(k+1).  In the high band p*ell>=2k, the 2k-state basin can contain
     # at most one multiple of the modulus.
     modulus = prime * second_prime
-    center = k * (k + 1)
-    residue = center % modulus
-    center_hit = None
-    if residue < k:
-        center_hit = center - residue
-    elif residue >= modulus - k:
-        center_hit = center + (modulus - residue)
+    center_hit = _unique_large_modulus_hit(k, modulus)
+    residue = k * (k + 1) % modulus
     if (center_hit is not None) != (multiple_count == 1):
         raise AssertionError("common-center unique-hit criterion disagrees with branch bit")
     if center_hit is not None and center_hit != candidate_state:
@@ -335,4 +356,96 @@ def high_band_multiplicative_resource_bound(k: int, prime: int) -> dict[str, obj
         "multiplicative_capacity": multiplicative_capacity,
         "additive_bound": additive_bound,
         "combined_bound": combined_bound,
+    }
+
+
+def high_band_global_hit_union_bound(k: int) -> dict[str, object]:
+    """Bound all high-band three-prime states by cross-shell hit unions.
+
+    A triple state n=p*ell*s has cofactor-prime support {ell,s}.  Summed over all
+    high-band triple states, the support incidence count is 2T-E, where E counts
+    square cofactors ell=s.
+
+    Fix a possible cofactor resource prime r.  If an actual triple state with
+    least prime p uses r, then p<=r, p^2*r<=U, and p*r divides that state.  Since
+    p*r>=p^2>=2k, the modulus p*r has at most one square-basin hit.  Therefore
+    all actual states using r lie inside the union of these exact unique hits as
+    eligible p varies.  Calling that union X_r gives
+
+        2T-E <= sum_r |X_r|.
+
+    The square term E is itself exact from the cofactor windows: r^2 in W_p(k)
+    with r>=p is automatically p-rough and hence forces the triple state p*r^2.
+    """
+    _require_positive("k", k)
+    upper = (k + 1) * (k + 1) - 1
+    least_primes = _high_band_triple_primes(k)
+    if not least_primes:
+        return {
+            "least_primes": [],
+            "resource_hit_states": {},
+            "resource_capacities": {},
+            "support_capacity": 0,
+            "square_branches": [],
+            "square_branch_count": 0,
+            "global_triple_bound": 0,
+        }
+
+    max_resource = max(upper // (p * p) for p in least_primes)
+    all_resources = primes_up_to(max_resource)
+    resource_hit_states: dict[int, tuple[int, ...]] = {}
+    resource_capacities: dict[int, int] = {}
+
+    for resource in all_resources:
+        hit_states: set[int] = set()
+        for prime in least_primes:
+            if prime > resource or prime * prime * resource > upper:
+                continue
+            modulus = prime * resource
+            if modulus < 2 * k:
+                raise AssertionError("eligible global resource modulus left the high band")
+            hit = _unique_large_modulus_hit(k, modulus)
+            expected_count = interior_hit_count(k, modulus, 2)
+            if expected_count not in (0, 1):
+                raise AssertionError("large-modulus global hit count is not binary")
+            if (hit is not None) != (expected_count == 1):
+                raise AssertionError("global unique-hit state disagrees with H_(p*r)(k)")
+            if hit is not None:
+                hit_states.add(hit)
+        if hit_states:
+            ordered = tuple(sorted(hit_states))
+            resource_hit_states[resource] = ordered
+            resource_capacities[resource] = len(ordered)
+
+    square_branches: list[tuple[int, int, int]] = []
+    for prime in least_primes:
+        A = (k * k) // prime + 1
+        B = upper // prime
+        K = upper // (prime * prime)
+        roots = [
+            resource
+            for resource in all_resources
+            if prime <= resource <= K and A <= resource * resource <= B
+        ]
+        if len(roots) > 1:
+            raise AssertionError("one high-band cofactor window contains multiple prime squares")
+        if roots:
+            resource = roots[0]
+            state = prime * resource * resource
+            if not (k * k < state <= upper):
+                raise AssertionError("forced square branch left the square basin")
+            square_branches.append((prime, resource, state))
+
+    support_capacity = sum(resource_capacities.values())
+    square_branch_count = len(square_branches)
+    global_triple_bound = (support_capacity + square_branch_count) // 2
+
+    return {
+        "least_primes": least_primes,
+        "resource_hit_states": resource_hit_states,
+        "resource_capacities": resource_capacities,
+        "support_capacity": support_capacity,
+        "square_branches": square_branches,
+        "square_branch_count": square_branch_count,
+        "global_triple_bound": global_triple_bound,
     }
