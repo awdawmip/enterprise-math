@@ -1,0 +1,249 @@
+# Causal Absorption 02 — Deriving Finite Measure from Collapse Multiplicity, with Probability Only as a Later Rendering
+
+Status: `CROSS-ROUTE RESEARCH WIP / EXACT FINITE COUNTING THEOREMS + EXECUTABLE REFERENCE`
+
+Suggested ownership: general fiber multiplicity and collision mathematics belongs to A1/P010/P011. This document is authored on the A3 branch only as a cross-route experiment source; stable mother theorems should be relayed back to A1 rather than duplicated permanently here.
+
+## 1. Goal
+
+Traditional finite probability often starts with a probability space or measure and only then asks how a map pushes the distribution forward.
+
+Reverse the order.
+
+Enterprise Math already has a finite deterministic collapse
+
+\[
+F:X\to Y,\qquad |X|=N.
+\]
+
+Fine states are explicit discrete states. Each fine state contributes one unit count:
+
+\[
+1.
+\]
+
+No probability is assumed.
+
+## 2. CM-01 — Coarse weight arises from unit multiplicity
+
+For a reachable coarse state,
+
+\[
+m_F(y)=|F^{-1}(\{y\})|.
+\]
+
+For a coarse event
+
+\[
+A\subseteq\operatorname{im}(F),
+\]
+
+define
+
+\[
+\boxed{
+\mu_F(A)
+:=|F^{-1}(A)|
+=\sum_{y\in A}m_F(y).
+}
+\]
+
+This is not a prior measure. It simply asks:
+
+> how many fine unit states have been collapsed into this coarse event?
+
+Thus
+
+\[
+\mu_F(\{y\})=m_F(y),
+\qquad
+\boxed{\mu_F(\operatorname{im}(F))=N.}
+\]
+
+## 3. CM-02 — Finite additivity is a fiber-splitting theorem
+
+If
+
+\[
+A\cap B=\varnothing,
+\]
+
+then
+
+\[
+F^{-1}(A\cup B)=F^{-1}(A)\sqcup F^{-1}(B),
+\]
+
+hence
+
+\[
+\boxed{
+\mu_F(A\cup B)=\mu_F(A)+\mu_F(B).
+}
+\]
+
+Finite additivity is derived from disjoint preimage union rather than introduced as a separate measure axiom.
+
+## 4. CM-03 — Later collapse is integer pushforward
+
+Given
+
+\[
+G:Y\to Z,
+\]
+
+P011 already gives
+
+\[
+\boxed{
+m_{G\circ F}(z)=\sum_{G(y)=z}m_F(y).}
+\]
+
+Therefore weights evolve only by integer addition. For `B subset Z`,
+
+\[
+\boxed{
+\mu_{G\circ F}(B)=\mu_F(G^{-1}(B)).
+}
+\]
+
+The usual finite pushforward-measure formula is therefore a restatement of collapse multiplicity in this regime.
+
+## 5. CM-04 — Probability is not primitive
+
+If an external task asks for a conventional finite probability, first retain the exact count pair
+
+\[
+\boxed{
+P_F^\#(A)=(\mu_F(A),N).
+}
+\]
+
+Traditional `2/5` is stored at core level as `(2,5)`.
+
+Comparing
+
+\[
+(a,b)\ ?\ (c,d)
+\]
+
+requires only
+
+\[
+\boxed{ad\ ?\ cb.}
+\]
+
+No float or true division is necessary. Rational/decimal probability is only a later rendering when explicitly required.
+
+## 6. CM-05 — Conditional probability first becomes conditional counting
+
+For fine-state events `A,B subset X`, `B nonempty`, keep the primitive object
+
+\[
+\boxed{
+C^\#(A\mid B)=(|A\cap B|,|B|).
+}
+\]
+
+It remains an integer pair. Interpreting it as a stochastic probability requires the additional modeling convention that all fine states in the condition carry equal unit sampling weight.
+
+So conditional counting is combinatorial/causal; conditional probability adds stochastic semantics.
+
+## 7. Relation to the dimension-independent unit `1`
+
+Each fine state contributes only one unit:
+
+\[
+1.
+\]
+
+Collapse does not change the value of that unit. It merges distinct fine states into one coarse state, so the coarse weight becomes
+
+\[
+\boxed{1+1+\cdots+1=m_F(y).}
+\]
+
+Measure-like weight therefore comes from the accumulation of identical unit states under many-to-one collapse, not from a continuous density.
+
+## 8. P011 collision spectrum as a deeper integer state
+
+P011 defines
+
+\[
+J_k(F)=\sum_y\binom{m_F(y)}k.
+\]
+
+This is exactly the number of `k`-element fine-history subsets already collapsed into a common coarse state.
+
+Therefore the conventional statement "choose a uniform `k`-subset of fine histories and ask for the collision probability" first becomes the exact pair
+
+\[
+\boxed{
+P_k^\#=
+\left(J_k(F),\binom Nk\right).
+}
+\]
+
+No probability space is needed to define the numerator or denominator.
+
+P011 further proves that the complete collision spectrum determines the entire multiset of fiber sizes. Therefore any symmetric statistic depending only on fiber sizes — including power moments and many entropy-style scalar renderings after normalization/logarithms — contains no additional fiber-size information beyond that exact integer spectrum.
+
+This does **not** mean thermodynamic entropy has been derived.
+
+## 9. Current hierarchy
+
+The more intrinsic ordering is
+
+\[
+\boxed{
+\text{unit histories}
+\to
+\text{fiber multiplicity}
+\to
+\text{collision spectrum}
+\to
+\text{complete fiber-size statistics}
+\to
+\text{optional probability / entropy rendering}.
+}
+\]
+
+rather than beginning with a probability measure.
+
+## 10. Absorption boundary
+
+Only finite counting measure is absorbed at this stage.
+
+Do not generalize automatically to:
+
+- arbitrary non-uniform probability measure;
+- continuous probability density;
+- Lebesgue measure;
+- stochastic dynamics;
+- quantum amplitudes.
+
+Those carry extra structure not generated by finite collapse multiplicity alone.
+
+Current classification:
+
+- finite counting measure: `CAUSAL_DERIVED`;
+- uniform finite probability rendering: `SHADOW_FORMULA + extra sampling interpretation`;
+- general probability: not absorbed;
+- continuous measure: not absorbed.
+
+## 11. Executable reference
+
+Added:
+
+- `src/enterprise_math/causal_count_measure.py`;
+- `tests/test_causal_count_measure.py`.
+
+Coverage includes fiber multiplicity, event counts, integer pushforward, exact count ratios, fraction-free comparison, conditional count pairs, and exact P011 collision-count ratios `(J_k, C(N,k))`.
+
+## 12. Next
+
+1. Compare the P011 spectrum with finite higher moments / collision probabilities without normalizing first.
+2. Compare product-map multiplicity with the traditional independence product rule, separating structural independence from statistical independence.
+3. Determine whether general integer weights can themselves be generated by repeated unit collapse or require genuinely additional measure data.
+4. If extra weights are necessary, treat that as the precise boundary where pure collapse no longer absorbs probability.
+5. Relay stable results to A1/P010/P011.
