@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "model_id": "R004-ENVIRONMENT-RECORD-PREMODEL-V0",
+  "status": "PHYSICAL-HYPOTHESIS",
+  "state_space": "Finite typed precision state (lambda,x) plus finite environment record states and finite path-history multiplicities; no continuum state is primitive.",
+  "transition_law": "A predeclared serial state-extensional correspondence propagates current physical states and path multiplicities; environment interactions generate finite record maps. The current V0 premodel does not yet derive the record generator from apparatus variables.",
+  "observation_map": "For a two-alternative interference task, eta is the exact fraction of finite environment microstates on which the two record maps agree. Candidate visibility law: V_predicted = eta * V_ordinary, with V_ordinary supplied independently by the ordinary apparatus/environment model.",
+  "parameters": [
+    {
+      "name": "eta",
+      "prior_allowed_region": "rational numbers 0 <= eta <= 1 fixed before comparison for a declared apparatus/environment configuration",
+      "units": "dimensionless"
+    }
+  ],
+  "symmetries": [
+    {
+      "name": "spatial/kinematic symmetry",
+      "claim": "EMERGENT",
+      "residual_observable": "No symmetry claim is made until a concrete record-generation dynamics and geometry layer are supplied; any unavoidable anisotropy must be routed to P016-F1/F8."
+    }
+  ],
+  "conserved_quantities": [],
+  "predictions": [
+    {
+      "id": "R004-F3-ETA-VISIBILITY",
+      "kill_test_class": "F3",
+      "observable": "matter-wave fringe visibility relative to an independently calibrated ordinary-quantum/environment baseline",
+      "unavoidable_prediction": "For a predeclared eta, V_predicted = eta * V_ordinary. In particular eta = 0 predicts zero interference visibility whenever V_ordinary is nonzero.",
+      "current_constraint": "Pedalino et al. (Nature 2026) observe quantum-distinguishing sodium-nanoparticle interference around 172 kDa with representative fringe visibility V = 0.10 +/- 0.01 and report no breakdown related to mass or size alone.",
+      "excluded_parameter_region": "The point eta = 0 is incompatible with the reported nonzero quantum-distinguishing interference for that declared setup. No broader eta interval is claimed excluded here because R004 has not yet implemented the experiment-specific likelihood/calibration map.",
+      "falsified_if": "For any apparatus/environment configuration whose eta is fixed independently of the interference data, the experimentally allowed visibility interval is disjoint from eta times the independently calibrated ordinary visibility interval.",
+      "source_ids": [
+        "SRC-PEDALINO-2026-NANOPARTICLE"
+      ]
+    }
+  ]
+}
