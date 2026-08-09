@@ -2,6 +2,7 @@ import unittest
 
 from enterprise_math.certificate_image_index import (
     exact_certificate_image_profile,
+    lattice_defect_signature,
     lattice_image_invariant,
 )
 from enterprise_math.relation_shared_prime_rank import derivative_coefficient_matrix
@@ -14,6 +15,24 @@ class CertificateImageIndexTests(unittest.TestCase):
 
         rank_two = lattice_image_invariant(((2, 0), (0, 6)))
         self.assertEqual((rank_two.rank, rank_two.saturation_index), (2, 12))
+
+    def test_equal_index_can_hide_different_defect_groups(self) -> None:
+        cyclic_four = lattice_defect_signature(((4, 0), (0, 1)))
+        klein_four = lattice_defect_signature(((2, 0), (0, 2)))
+        self.assertEqual(cyclic_four.saturation_index, 4)
+        self.assertEqual(klein_four.saturation_index, 4)
+        self.assertEqual(cyclic_four.determinantal_divisors, (1, 4))
+        self.assertEqual(klein_four.determinantal_divisors, (2, 4))
+        self.assertEqual(cyclic_four.invariant_factors, (1, 4))
+        self.assertEqual(klein_four.invariant_factors, (2, 2))
+        self.assertNotEqual(cyclic_four.invariant_factors, klein_four.invariant_factors)
+
+    def test_rank_one_signature_reduces_to_scalar_index(self) -> None:
+        signature = lattice_defect_signature(((6,), (10,)))
+        self.assertEqual(signature.rank, 1)
+        self.assertEqual(signature.determinantal_divisors, (2,))
+        self.assertEqual(signature.invariant_factors, (2,))
+        self.assertEqual(signature.saturation_index, 2)
 
     def test_347_certificate_complete_precedes_relation_full_rank(self) -> None:
         _primes, matrix = derivative_coefficient_matrix((3, 4, 7))
