@@ -1,6 +1,11 @@
 import unittest
 
 from enterprise_math.collision_phase_diagram import (
+    MACRO_CONTACT_NOW,
+    SEPARATE_NO_RELATIVE_MOTION,
+    SEPARATE_STATIC_CAPTURE_GUARANTEED,
+    SEPARATE_STATIC_SKIP_POSSIBLE,
+    approach_phase_1d,
     coarse_clearance,
     collision_phase_1d,
     contact_half_width_1d,
@@ -127,12 +132,54 @@ class CollisionPhaseDiagramTests(unittest.TestCase):
                         static_no_skip_guaranteed_1d(radius_sum, factor - 1, step)
                     )
 
+    def test_combined_phase_separates_current_contact_from_future_sampling(self):
+        macro = approach_phase_1d(
+            primitive_gap=3,
+            radius_sum=0,
+            collapse_factor=4,
+            relative_step=2,
+        )
+        resolved_but_captured = approach_phase_1d(
+            primitive_gap=3,
+            radius_sum=0,
+            collapse_factor=3,
+            relative_step=2,
+        )
+        resolved_and_skippable = approach_phase_1d(
+            primitive_gap=3,
+            radius_sum=0,
+            collapse_factor=1,
+            relative_step=2,
+        )
+        self.assertEqual(macro.status, MACRO_CONTACT_NOW)
+        self.assertEqual(resolved_but_captured.status, SEPARATE_STATIC_CAPTURE_GUARANTEED)
+        self.assertEqual(resolved_and_skippable.status, SEPARATE_STATIC_SKIP_POSSIBLE)
+        self.assertEqual(macro.first_resolving_factor, 3)
+        self.assertEqual(macro.minimum_static_capture_factor, 2)
+
+    def test_resolved_gap_with_zero_relative_motion_is_not_called_crossing_capture(self):
+        phase = approach_phase_1d(
+            primitive_gap=2,
+            radius_sum=0,
+            collapse_factor=1,
+            relative_step=0,
+        )
+        self.assertEqual(phase.status, SEPARATE_NO_RELATIVE_MOTION)
+
     def test_point_swap_is_static_skip_at_terminal_factor_but_transition_conflict(self):
         phase = collision_phase_1d(radius_sum=0, collapse_factor=1, relative_step=2)
         self.assertEqual(phase.contact_half_width, 0)
         self.assertEqual(phase.interaction_band_states, 1)
         self.assertFalse(phase.static_no_skip_guaranteed)
         self.assertEqual(phase.skip_witness, (1, -1))
+
+        combined = approach_phase_1d(
+            primitive_gap=1,
+            radius_sum=0,
+            collapse_factor=1,
+            relative_step=2,
+        )
+        self.assertEqual(combined.status, SEPARATE_STATIC_SKIP_POSSIBLE)
 
         left = BodyMotion2D(Body2D(0, 0, 0, 0), (1, 0))
         right = BodyMotion2D(Body2D(1, 1, 0, 0), (-1, 0))
@@ -144,6 +191,10 @@ class CollisionPhaseDiagramTests(unittest.TestCase):
         self.assertFalse(terminal.static_no_skip_guaranteed)
         self.assertTrue(coarse.static_no_skip_guaranteed)
         self.assertEqual(coarse.interaction_band_states, 3)
+        self.assertEqual(
+            approach_phase_1d(1, 0, 2, 2).status,
+            MACRO_CONTACT_NOW,
+        )
 
     def test_invalid_inputs_are_rejected(self):
         with self.assertRaises(ValueError):
