@@ -28,7 +28,7 @@ class P017FullBlockCofactorWindowTests(unittest.TestCase):
         self.assertEqual(data["canonical_incidence"], 0)
 
     def test_k524287_order_five_reusable_candidate_windows_leave_exactly_five(self):
-        # These are all squarefree products of six odd primes <=524286.
+        # These are exactly the nine six-prime radicals below the parent cutoff.
         candidates = (
             255_255,
             285_285,
@@ -44,20 +44,24 @@ class P017FullBlockCofactorWindowTests(unittest.TestCase):
             255_255: (),
             285_285: (963_517,),
             345_345: (),
-            373_065: (736_633,),
-            435_435: (631_597,),
+            373_065: (736_807,),
+            435_435: (631_271,),
             440_895: (623_453,),
             451_605: (),
-            465_465: (590_557,),
+            465_465: (590_543,),
             504_735: (),
         }
         total = 0
+        raw_sizes = {}
         for block in candidates:
             data = canonical_full_block_cofactors(524_287, block)
-            self.assertLessEqual(data["raw_window_size"], 3)
+            self.assertLessEqual(data["raw_window_size"], 4)
             self.assertEqual(data["canonical_cofactors"], expected[block])
+            raw_sizes[block] = data["raw_window_size"]
             total += data["canonical_incidence"]
         self.assertEqual(total, 5)
+        self.assertEqual(raw_sizes[255_255], 4)
+        self.assertEqual(raw_sizes[285_285], 4)
 
     def test_window_endpoints_are_integer_only(self):
         data = full_block_cofactor_window(64, 105)
