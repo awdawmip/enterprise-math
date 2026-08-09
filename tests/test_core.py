@@ -26,6 +26,16 @@ class CoreTests(unittest.TestCase):
                 self.assertLessEqual(k**p, n)
                 self.assertLess(n, (k + 1) ** p)
 
+    def test_positive_exponent_identity_extension_and_zero_state(self):
+        for n in range(0, 200):
+            self.assertEqual(integer_nth_root(n, 1), n)
+            self.assertEqual(collapse(n, 1), n)
+            self.assertEqual(basin_for_root(n, 1), (n, n))
+            self.assertEqual(preimage_count(n, 1), 1)
+        for p in range(1, 6):
+            self.assertEqual(integer_nth_root(0, p), 0)
+            self.assertEqual(collapse(0, p), 0)
+
     def test_exact_powers(self):
         for p in range(1, 6):
             for k in range(0, 30):
