@@ -2,10 +2,15 @@ import itertools
 import unittest
 
 from enterprise_math.relation_field import (
+    anchor_chart_index,
+    anchor_chart_is_legal,
+    anchor_difference_coordinates,
     block_cut_sum,
     block_imbalance_from_values,
+    field_from_anchor_coordinates,
     pair_difference_field,
     pair_dispersion_from_field,
+    recover_values_from_anchor_coordinates,
     recover_values_from_field,
     relation_field_is_closed,
 )
@@ -21,6 +26,44 @@ class RelationFieldTests(unittest.TestCase):
                     recover_values_from_field(field, sum(values)),
                     values,
                 )
+
+    def test_anchor_coordinates_recover_state_for_every_anchor(self):
+        for size in range(1, 7):
+            for values in itertools.product(range(-2, 3), repeat=size):
+                total = sum(values)
+                for anchor in range(size):
+                    coordinates = anchor_difference_coordinates(values, anchor)
+                    self.assertTrue(anchor_chart_is_legal(coordinates, total))
+                    self.assertEqual(
+                        recover_values_from_anchor_coordinates(
+                            coordinates, total, anchor
+                        ),
+                        values,
+                    )
+                    self.assertEqual(
+                        field_from_anchor_coordinates(coordinates, total, anchor),
+                        pair_difference_field(values),
+                    )
+
+    def test_anchor_legality_has_exact_index_n(self):
+        # Modulo N, exactly N^(N-2) of N^(N-1) coordinate residues are legal.
+        for slot_count in range(1, 7):
+            coordinate_count = slot_count - 1
+            total = 3
+            legal = sum(
+                anchor_chart_is_legal(coordinates, total)
+                for coordinates in itertools.product(
+                    range(slot_count), repeat=coordinate_count
+                )
+            )
+            expected = 1 if slot_count == 1 else slot_count ** (slot_count - 2)
+            self.assertEqual(legal, expected)
+            self.assertEqual(anchor_chart_index(slot_count), slot_count)
+
+    def test_anchor_rejects_illegal_congruence(self):
+        with self.assertRaises(ValueError):
+            recover_values_from_anchor_coordinates((0, 0), total=1)
+        self.assertFalse(anchor_chart_is_legal((0, 0), total=1))
 
     def test_every_block_imbalance_is_a_cut_sum(self):
         values = (3, -2, 5, -4, 1)
