@@ -1,15 +1,23 @@
 """Exact shell-total geodesic formulas and periodic Barlow growth invariants.
 
-The finite formula uses only the prefix imbalance at each target layer.  For a
+The finite formula uses only the prefix imbalance at each target layer. For a
 periodic stacking, the imbalance differs from its linear drift by a bounded
 periodic term, which yields an exact exponential-growth constant depending only
 on the absolute drift density.
 
-The asymptotic constant is recorded without requiring floating-point state.  If
-period length is L and period drift is D, the growth constant lambda is the
-positive real root greater than two of
+Periodic stacking also makes the whole shell-total sequence eventually
+C-finite. If period length is L and absolute period drift is |D|, one universal
+integer characteristic polynomial is
 
-    (lambda - 2)^(2L) = 2^(L + |D|).
+    (x-1)(x-2)(x-3)
+    (x^L-A+)(x^L-A-)
+    ((x-2)^L-A+)((x-2)^L-A-),
+
+where A+ = 2^((L+|D|)/2) and A- = 2^((L-|D|)/2).
+
+The polynomial need not be minimal: repeated/cancelled factors depend on the
+specific period phase. It is a uniform annihilator for every stacking with the
+same period length and absolute drift.
 """
 
 from __future__ import annotations
@@ -18,6 +26,8 @@ from math import comb
 
 from .p022_barlow_precision import barlow_prefix_normal_form
 from .p022_barlow_stacking import StackingPattern, stacking_prefix_imbalance
+
+Polynomial = tuple[int, ...]  # ascending coefficients: p[power]
 
 
 def _require_natural(name: str, value: int) -> None:
@@ -32,23 +42,53 @@ def _require_pattern(pattern: StackingPattern) -> None:
         raise ValueError("stacking signs must be -1 or +1")
 
 
+def _poly_multiply(left: Polynomial, right: Polynomial) -> Polynomial:
+    output = [0] * (len(left) + len(right) - 1)
+    for left_power, left_value in enumerate(left):
+        for right_power, right_value in enumerate(right):
+            output[left_power + right_power] += left_value * right_value
+    return tuple(output)
+
+
+def _x_minus(constant: int) -> Polynomial:
+    return (-constant, 1)
+
+
+def _x_power_minus(power: int, constant: int) -> Polynomial:
+    _require_natural("power", power)
+    if power == 0:
+        raise ValueError("power must be positive")
+    coefficients = [-constant] + [0] * (power - 1) + [1]
+    return tuple(coefficients)
+
+
+def _shifted_x_power_minus(power: int, shift: int, constant: int) -> Polynomial:
+    """Ascending coefficients of ``(x-shift)^power-constant``."""
+    _require_natural("power", power)
+    if power == 0:
+        raise ValueError("power must be positive")
+    coefficients = [comb(power, exponent) * ((-shift) ** (power - exponent)) for exponent in range(power + 1)]
+    coefficients[0] -= constant
+    return tuple(coefficients)
+
+
 def barlow_layer_shell_total_geodesic_paths(
     radius: int, target_layer: int, pattern: StackingPattern
 ) -> int:
     """Exact shortest-path total on one target layer of one graph shell.
 
-    Let ``q=|k|``, ``d=|delta_k|`` and ``c=(q-d)/2``.  The vertical polynomial
+    Let ``q=|k|``, ``d=|delta_k|`` and ``c=(q-d)/2``. The vertical polynomial
     has normal form ``(A+3)^c B_sign^d``.
 
     If ``q=radius``, no in-layer step is possible in a shortest path; all
     ``3^q`` monotone vertical words end on the radius shell.
 
-    If ``q<radius``, put ``t=radius-q>0``.  The outer triangular boundary of a
+    If ``q<radius``, put ``t=radius-q>0``. The outer triangular boundary of a
     non-negative Laurent polynomial ``P A^t`` can be counted by its six exposed
-    faces minus their six corner overlaps.  ``A`` has face mass 2 and corner
-    mass 1.  ``A+3`` has the same exposed masses.  ``B_+`` and ``B_-`` each
+    faces minus their six corner overlaps. ``A`` has face mass 2 and corner
+    mass 1. ``A+3`` has the same exposed masses. ``B_+`` and ``B_-`` each
     have three face masses 1 and three face masses 2, while every corner mass
-    is 1.  Product faces multiply, hence
+    is 1. Product faces multiply, hence
 
         boundary_mass = 3*2^(c+t)*(1+2^d) - 6.
 
@@ -94,9 +134,26 @@ def period_drift(pattern: StackingPattern) -> int:
 
 
 def period_absolute_drift_data(pattern: StackingPattern) -> tuple[int, int]:
-    """Return the reduced conceptual pair ``(|D|, L)`` without real division."""
+    """Return the exact conceptual pair ``(|D|, L)`` without real division."""
     _require_pattern(pattern)
     return abs(period_drift(pattern)), len(pattern)
+
+
+def period_exponential_weights(pattern: StackingPattern) -> tuple[int, int]:
+    """Return ``(A_minus, A_plus)`` used by the universal recurrence.
+
+    Because a ±1 period has D congruent to L mod 2, both exponents below are
+    integers:
+
+        A_plus  = 2^((L+|D|)/2),
+        A_minus = 2^((L-|D|)/2).
+    """
+    drift, period = period_absolute_drift_data(pattern)
+    if (period + drift) % 2 or (period - drift) % 2:
+        raise AssertionError("period length and ±1 drift must have matching parity")
+    smaller = 2 ** ((period - drift) // 2)
+    larger = 2 ** ((period + drift) // 2)
+    return smaller, larger
 
 
 def growth_constant_integer_equation(pattern: StackingPattern) -> tuple[int, int]:
@@ -111,25 +168,93 @@ def growth_constant_integer_equation(pattern: StackingPattern) -> tuple[int, int
 
         power = 2L,
         rhs = 2^(L+|D|).
-
-    This keeps the canonical stored descriptor entirely integral.
     """
     drift, period = period_absolute_drift_data(pattern)
     return 2 * period, 2 ** (period + drift)
 
 
+def universal_growth_characteristic_polynomial(
+    pattern: StackingPattern,
+) -> Polynomial:
+    """Uniform eventual recurrence annihilator for one periodic-drift class.
+
+    Coefficients are returned in ascending powers. The monic polynomial is
+
+      Q(x)=(x-1)(x-2)(x-3)
+           (x^L-A+)(x^L-A-)
+           ((x-2)^L-A+)((x-2)^L-A-).
+
+    ``A+`` and ``A-`` are integer powers of two from
+    :func:`period_exponential_weights`.  The same Q works for every period word
+    with the same ``(L,|D|)``. It may have repeated or unnecessary factors.
+
+    The exact shell-total sequence satisfies ``Q(E)T=0`` for every index
+    strictly larger than ``deg(Q)=4L+3``.  The one-step warm-up reflects the
+    special radius-zero convention ``T(0)=1``.
+    """
+    _require_pattern(pattern)
+    period = len(pattern)
+    a_minus, a_plus = period_exponential_weights(pattern)
+    polynomial: Polynomial = (1,)
+    for factor in (
+        _x_minus(1),
+        _x_minus(2),
+        _x_minus(3),
+        _x_power_minus(period, a_plus),
+        _x_power_minus(period, a_minus),
+        _shifted_x_power_minus(period, 2, a_plus),
+        _shifted_x_power_minus(period, 2, a_minus),
+    ):
+        polynomial = _poly_multiply(polynomial, factor)
+    return polynomial
+
+
+def universal_growth_generating_denominator(
+    pattern: StackingPattern,
+) -> Polynomial:
+    """Reciprocal integer denominator associated with the universal recurrence.
+
+    If Q is monic of degree d, return ``z^d Q(1/z)`` in ascending powers. Thus
+    a formal ordinary generating function for the eventually recurrent shell
+    sequence has denominator dividing this polynomial after cancellation.
+    """
+    characteristic = universal_growth_characteristic_polynomial(pattern)
+    return tuple(reversed(characteristic))
+
+
+def recurrence_residual(
+    sequence: tuple[int, ...], index: int, characteristic: Polynomial
+) -> int:
+    """Return ``Q(E) sequence`` at one index for an ascending monic Q.
+
+    For ``Q(x)=q_0+...+q_d x^d``, this evaluates
+
+        q_d a_index + q_(d-1) a_(index-1) + ... + q_0 a_(index-d).
+    """
+    if not isinstance(sequence, tuple):
+        raise ValueError("sequence must be a tuple")
+    if not characteristic or characteristic[-1] != 1:
+        raise ValueError("characteristic polynomial must be nonempty and monic")
+    degree = len(characteristic) - 1
+    if isinstance(index, bool) or not isinstance(index, int) or index < degree:
+        raise ValueError("index must be at least the characteristic degree")
+    if index >= len(sequence):
+        raise ValueError("sequence does not contain requested index")
+    return sum(
+        characteristic[degree - lag] * sequence[index - lag]
+        for lag in range(degree + 1)
+    )
+
+
 def drift_deviation_bound(pattern: StackingPattern) -> int:
-    """Exact finite bound C with ||delta_k|-mu|k|| <= C in cross-multiplied form.
+    """Finite cross-multiplied bound for periodic absolute imbalance error.
 
-    To avoid rational arithmetic, return the maximum value of
+    Return a C such that
 
-        | L*|delta_r| - |D|*r |
+        |L*|delta_k| - |D|*|k|| <= C
 
-    across one upward period prefix ``0<=r<L`` and one downward period phase.
-    For arbitrary k, periodic decomposition shows the same bound controls the
-    numerator after subtracting the linear drift ``|D|*|k|/L``.
-
-    The bound is mainly an executable certificate used by the asymptotic proof.
+    for every target layer k. Periodic decomposition reduces the check to one
+    upward and one downward phase of the finite period.
     """
     _require_pattern(pattern)
     period = len(pattern)
