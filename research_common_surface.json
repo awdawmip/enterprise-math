@@ -34,17 +34,25 @@
     "machine_router": "foundation_steward.json",
     "document_en": "docs/FOUNDATION_STEWARD_PROTOCOL.en.md",
     "document_zh": "docs/FOUNDATION_STEWARD_PROTOCOL.zh-CN.md",
+    "backflow_router": "foundation_backflow.json",
+    "backflow_document_en": "docs/FOUNDATION_BACKFLOW_LOOP.en.md",
+    "backflow_document_zh": "docs/FOUNDATION_BACKFLOW_LOOP.zh-CN.md",
     "problem_set_issue": 164,
     "problem_id_prefix": "FQ-",
+    "research_relay_issue": 82,
+    "dispatch_issue": 240,
     "steward_solves_escalated_research": false,
     "steward_verifies_before_escalation": true,
-    "steward_verifies_before_canonicalization": true
+    "steward_verifies_before_canonicalization": true,
+    "research_backflow_enabled": true,
+    "fq_scheduler_links_required_for_executable_open_questions": true
   },
   "canonical_foundation_conventions": {
     "natural_numbers": "N = N_0 includes zero; positive integers are N_{>0}",
     "root_collapse_exponents": "primitive nontrivial p >= 2; positive algebra p >= 1 with R_1 = C_1 = id",
     "time_indexing": "T_t : X_t -> X_{t+1}; F_0 = id; F_{t+1} = T_t o F_t; merge time is least t in N_0",
-    "source": "Foundation Problem Set FQ-20260809-001 through FQ-20260809-003"
+    "functional_kernel_layer": "typed state -> deterministic/observation functional kernel -> declared future-signature kernel; Pair is derived, Difference/defect requires factorization; A3/A4 remain explicit extensions",
+    "source": "Foundation Problem Set FQ-20260809-001 through FQ-20260809-004"
   },
   "mandatory_preflight": [
     "docs/RESEARCH_COMMON_SURFACE.en.md",
@@ -55,7 +63,7 @@
     "relevant canonical theorem/result documents",
     "latest relevant Research Relay Issue #82 entries",
     "relevant executable specification/tests/Lean modules",
-    "when foundation-facing: docs/FOUNDATION_STEWARD_PROTOCOL.en.md and relevant Foundation Problem Set Issue #164 entries"
+    "when foundation-facing or a mature result may feed back: docs/FOUNDATION_STEWARD_PROTOCOL.en.md, docs/FOUNDATION_BACKFLOW_LOOP.en.md, foundation_backflow.json, and relevant Foundation Problem Set Issue #164 entries"
   ],
   "theorem_channels": {
     "canonical_base": [
@@ -72,7 +80,8 @@
       "EnterpriseMath/**.lean"
     ],
     "proved_wip_bus": "GitHub Issue #82 Research Relay",
-    "foundation_problem_bus": "GitHub Issue #164 Foundation Steward Problem Set"
+    "foundation_problem_bus": "GitHub Issue #164 Foundation Steward Problem Set",
+    "execution_bus": "GitHub Issue #240 Research Dispatch Board"
   },
   "result_statuses": [
     "CANONICAL_MAIN",
@@ -84,12 +93,20 @@
   ],
   "shared_theorem_families": {
     "A0": "roots, collapse, quotient/remainder, scale lattice, signed state, typed descent, adjoints",
-    "A1": "history merge, fibers/kernels, collision spectra, coalescence, stabilization",
-    "A2": "observation factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair",
-    "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory",
-    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra",
+    "A1": "deterministic maps, functional kernels, history merge, collision spectra, coalescence, stabilization",
+    "A2": "observation kernels, declared future signatures, observation factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair",
+    "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the A1/A2 functional-kernel layer",
+    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic functional kernel",
     "A5": "primitive adjacency, graph metric, finite balls/shells, lattice candidates, radial/distance structure"
   },
+  "foundation_backflow_extraction_targets": [
+    "minimal_sufficient_state",
+    "minimal_repair_or_extension_data",
+    "cross_route_invariant",
+    "negative_boundary",
+    "reusable_tool",
+    "layering_law"
+  ],
   "tool_roots": {
     "python_exact_reference": "src/enterprise_math/",
     "lean": "EnterpriseMath/",
