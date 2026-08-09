@@ -99,7 +99,7 @@ P012 给出**连通无向简单图**上的 canonical 普通度量基础。Canoni
 
 P022 仍为 `OPEN / ACTIVE RESEARCH`；当前 canonical executable slice 覆盖整数 `A_p` graph distance、quadratic separation、collapsed radial distance、shell/ball counts 与 distance-carry probes。更广的 lattice candidates、HCP/Barlow 与跨 owner 接口继续开放。
 
-**活跃接口警报：** `FQ-20260809-004` 正在判断稳定导出的 `geometry.graph_distance` 应收窄到 P012 无向 metric 定义域，还是应与更一般的 directed shortest-walk helper 分层。在解决前，非对称 adjacency 输入不得直接引用 P012 的 metric symmetry。
+**活跃接口警报：** `FQ-20260809-005` 正在判断稳定导出的 `geometry.graph_distance` 应收窄到 P012 无向 metric 定义域，还是应与更一般的 directed shortest-walk helper 分层。在解决前，非对称 adjacency 输入不得直接引用 P012 的 metric symmetry。
 
 ### P021 — causal-boundary specialization
 
@@ -169,8 +169,9 @@ Executable checks 服务于 discovery/falsification/regression，不能独立把
 
 机械性或已经由 canonical 证据唯一决定的底层漂移，由 foundation steward 直接修复。真正尚未解决的数学/接口选择，只验证到足够成立后进入 Issue #164，并交由其他研究员调查。
 
-当前活跃 foundation question：
+当前活跃 foundation questions：
 
-- `FQ-20260809-004` —— stable `graph_distance` API 定义域与 P012 普通 metric theorem 定义域之间的接口选择。
+- `FQ-20260809-004` —— 跨路线回流提出的 candidate minimal State/Pair/kernel → future-safe precision foundation interface；
+- `FQ-20260809-005` —— stable `graph_distance` API 定义域与 P012 普通 metric theorem 定义域之间的接口选择。
 
 FQ-001 至 FQ-003 的 canonical 约定仍按上文执行。
