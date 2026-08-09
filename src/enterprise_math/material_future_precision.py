@@ -22,13 +22,16 @@ step where the word differs from its initial sample and put
 
     H_R = h-c0+1.
 
-The coarsest named-axis material-future signature is
+Within the represented positive-clearance domain, the coarsest named-axis
+material-future signature is
 
     (W_h(k), min(r_1,H_R), ..., min(r_n,H_R)).
 
-Any deficit >=H_R cannot reach even the first material-visible response boundary
-within h actions.  Every smaller deficit is necessary: spending ``r_i+c0``
-actions on that named axis distinguishes it from any larger deficit.
+Raw geometric ``k`` is intentionally not retained in the represented quotient:
+two different depths that induce the same complete material future must compile
+to the same state.  Primitive-contact, underresolved and outside states remain
+explicit diagnostics around that represented domain; they are not claimed to be
+the coarsest pure-material quotient across those domain boundaries.
 
 The theorem does not require monotonic response values; only the finite response
 word is observed.  This module intentionally treats branch depth/capacity as
@@ -99,13 +102,12 @@ def material_visible_deficit_cap(response_word: tuple[int, ...] | list[int]) -> 
 
 @dataclass(frozen=True)
 class MaterialFuturePrecisionState:
-    """Coarsest named-axis future signature for one material response task."""
+    """Material-future quotient state plus explicit outer diagnostic status."""
 
     dimension: int
     collapse_factor: int
     horizon: int
     status: str
-    escape_depth: int | None
     response_word: tuple[int, ...]
     visible_deficit_cap: int
     capped_deficits: tuple[int, ...]
@@ -117,7 +119,12 @@ def compile_material_future_precision(
     response_samples: tuple[int, ...] | list[int],
     horizon: int,
 ) -> MaterialFuturePrecisionState:
-    """Compile one isotropic positive-clearance material-future quotient state."""
+    """Compile one isotropic material-future state.
+
+    On represented positive clearance states this is the coarsest extensional
+    future quotient for the declared material-response observable.  Outer states
+    are retained as explicit diagnostics rather than folded into that theorem.
+    """
     _require_positive("collapse_factor", collapse_factor)
     _require_nonnegative("horizon", horizon)
     samples = _validated_response_samples(response_samples)
@@ -133,7 +140,6 @@ def compile_material_future_precision(
             collapse_factor=collapse_factor,
             horizon=horizon,
             status=OUTSIDE,
-            escape_depth=0,
             response_word=material_response_word(samples, 0, horizon),
             visible_deficit_cap=0,
             capped_deficits=(),
@@ -144,7 +150,6 @@ def compile_material_future_precision(
             collapse_factor=collapse_factor,
             horizon=horizon,
             status=PRIMITIVE_CONTACT,
-            escape_depth=None,
             response_word=(),
             visible_deficit_cap=0,
             capped_deficits=(),
@@ -158,7 +163,6 @@ def compile_material_future_precision(
             collapse_factor=collapse_factor,
             horizon=horizon,
             status=UNDERRESOLVED,
-            escape_depth=depth,
             response_word=(),
             visible_deficit_cap=0,
             capped_deficits=(),
@@ -172,7 +176,6 @@ def compile_material_future_precision(
         collapse_factor=collapse_factor,
         horizon=horizon,
         status=REPRESENTED,
-        escape_depth=depth,
         response_word=word,
         visible_deficit_cap=cap,
         capped_deficits=tuple(min(deficit, cap) for deficit in deficits),
