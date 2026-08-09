@@ -8,7 +8,7 @@ from enterprise_math.p022_barlow_average_repair import (
     total_event_repair_mean,
 )
 from enterprise_math.p022_barlow_two_sided_repair import (
-    repair_bit_count,
+    two_sided_repair_bit_count,
     unordered_absolute_pair_history,
 )
 
@@ -43,7 +43,7 @@ def test_total_mean_matches_direct_two_sided_microscopic_grouping() -> None:
         for left in words:
             for right in words:
                 history = unordered_absolute_pair_history(left, right)
-                total += repair_bit_count(history)
+                total += two_sided_repair_bit_count(history)
         assert total_event_repair_mean(length) == _reduce(total, 4**length)
 
 
