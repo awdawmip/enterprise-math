@@ -1,296 +1,535 @@
-# Precision Calculus — Supplement 14
+# P018 — Finite-Precision Proof Calculus: Supplement 14
 
 Status: `ACTIVE RESEARCH NOTE`  
-Scope: exact one-threshold response inside the T110 two-basin image and shared-offset coherence across quotient divisors  
-Depends on: P018-T110–T112, T007 integer roots, P007 discrete division  
-Discipline: threshold comparisons and floor-division order laws are elementary established arithmetic. The project-specific content is the exact square-basin response law and its use as a common-offset coherence layer for later cross-scale arguments.
+Scope: finite coalescence time, P020 stabilization kernels, eventual kernels, integer ultrametrics, and finite-time saturation of P011 spectra  
+Depends on: P010, P011, P012, P018-T110–T128, P020  
+Prior-art boundary: see `docs/PRIOR_ART_P018_COALESCENCE.en.md`. General hierarchy/dendrogram/coalescent connections with ultrametrics are mature structures; this stage studies their exact finite interface with Enterprise Math deterministic kernel/stabilization dynamics.
 
-## 1. The missing information in a two-basin statement
+---
 
-T110 proves that for
+## 1. From whether trajectories merge to when they merge
+
+For a deterministic endomap
 
 \[
-k^2\le n<(k+1)^2,
-\qquad d\ge2,
+F:X\to X,
+\]
+
+write its `n`-fold iterate as
+
+\[
+F^{[n]}.
+\]
+
+Two states `(x,y)` **eventually coalesce** when some `n` satisfies
+
+\[
+F^{[n]}(x)=F^{[n]}(y).
+\]
+
+Define the first coalescence time by
+
+\[
+\boxed{
+\tau_F(x,y)
+=
+\min\{n\in\mathbb N:F^{[n]}(x)=F^{[n]}(y)\}.
+}
+\]
+
+If no such `n` exists, write `∞`.
+
+This definition lives entirely at the State Pair / diagonal layer and requires no subtraction, distance, or probability.
+
+---
+
+## 2. P018-T129 — Eventual coalescence is an equivalence relation
+
+Status: `PROVED`
+
+Define
+
+\[
+x\sim_\infty y
+\iff
+\exists n,\ F^{[n]}(x)=F^{[n]}(y).
+\]
+
+Then `~∞` is an equivalence relation.
+
+- Reflexivity: choose `n=0`.
+- Symmetry: equality is symmetric.
+- Transitivity: if `x,y` agree after `a` steps and `y,z` agree after `b` steps, then at
+
+\[
+N=\max(a,b)
+\]
+
+common deterministic suffixes preserve both equalities, so
+
+\[
+F^{[N]}x=F^{[N]}y=F^{[N]}z.
+\]
+
+Hence `x~∞z`. ∎
+
+Deterministic dynamics therefore partitions the state space into eventual-coalescence classes.
+
+---
+
+## 3. P018-T130 — First coalescence time is ultrametric on each coalescence class
+
+Status: `PROVED / ESTABLISHED STRUCTURAL PATTERN`
+
+Inside one `~∞` class,
+
+\[
+\tau_F(x,x)=0,
+\]
+
+\[
+\tau_F(x,y)=\tau_F(y,x),
+\]
+
+and for all `x,y,z`,
+
+\[
+\boxed{
+\tau_F(x,z)
+\le
+\max\bigl(\tau_F(x,y),\tau_F(y,z)\bigr).
+}
+\]
+
+### Proof
+
+Let
+
+\[
+a=\tau_F(x,y),
+\qquad
+b=\tau_F(y,z),
+\qquad
+N=\max(a,b).
+\]
+
+After step `a`, the `x,y` trajectories are identical forever; after step `b`, the `y,z` trajectories are identical forever. Thus at step `N`,
+
+\[
+F^{[N]}x=F^{[N]}y=F^{[N]}z.
+\]
+
+Therefore the first coalescence of `x,z` is no later than `N`. ∎
+
+Hence on every eventual-coalescence class,
+
+\[
+\boxed{
+\tau_F\text{ is an }\mathbb N\text{-valued ultrametric.}
+}
+\]
+
+This is not a novelty claim for the general coalescent-ultrametric phenomenon. Its role here is that the ultrametric is generated directly from Enterprise Math deterministic Pair/kernel dynamics rather than imposed as an external distance.
+
+---
+
+## 4. P018-T131 — The common-time kernel chain grows monotonically
+
+Status: `PROVED`
+
+Define
+
+\[
+K_n=\kerpair(F^{[n]}).
+\]
+
+If
+
+\[
+(x,y)\in K_n,
+\]
+
+then one more common application of `F` preserves equality, so
+
+\[
+\boxed{
+K_n\subseteq K_{n+1}.
+}
+\]
+
+Moreover,
+
+\[
+\boxed{
+x\sim_\infty y
+\iff
+(x,y)\in\bigcup_{n\in\mathbb N}K_n.
+}
+\]
+
+The union does not require an infinite computation: every concrete included pair has a finite witness `n`.
+
+---
+
+## 5. Add the P020 hypotheses
+
+Now let `X` be a well-founded partial order and assume
+
+\[
+F:X\to X
+\]
+
+is monotone and reductive:
+
+\[
+F(x)\le x.
+\]
+
+P020 proves that each state reaches in finitely many steps its canonical greatest fixed point
+
+\[
+S(x)=\operatorname{stabilize}_F(x),
+\]
+
+with a finite witness
+
+\[
+s(x)=\operatorname{stabilizationSteps}_F(x)
+\]
+
+such that
+
+\[
+F^{[s(x)]}(x)=S(x),
+\qquad
+F(S(x))=S(x).
+\]
+
+---
+
+## 6. P018-T132 — Under P020, eventual coalescence iff stabilization is equal
+
+Status: `PROVED`
+
+Under the P020 hypotheses,
+
+\[
+\boxed{
+x\sim_\infty y
+\iff
+S(x)=S(y).
+}
+\]
+
+### Forward direction
+
+Suppose some `n` satisfies
+
+\[
+F^{[n]}x=F^{[n]}y.
+\]
+
+The trajectories are identical from step `n` onward. P020 also says that each trajectory reaches and then remains at its stabilized fixed point in finite time. At a common time no smaller than `n`, `s(x)`, and `s(y)`, the two trajectories are both identical and already equal to their respective fixed endpoints, hence
+
+\[
+S(x)=S(y).
+\]
+
+### Reverse direction
+
+If
+
+\[
+S(x)=S(y)=z,
+\]
+
+let
+
+\[
+N=\max(s(x),s(y)).
+\]
+
+Because `z` is fixed, each trajectory remains at `z` after reaching it. Hence
+
+\[
+F^{[N]}x=z=F^{[N]}y.
+\]
+
+So the pair coalesces in finite time. ∎
+
+Therefore
+
+\[
+\boxed{
+\kerpair(S)
+=
+\bigcup_{n\in\mathbb N}\kerpair(F^{[n]}).
+}
+\]
+
+---
+
+## 7. P018-T133 — Canonical finite coalescence bound
+
+Status: `PROVED`
+
+If `S(x)=S(y)`, then
+
+\[
+\boxed{
+\tau_F(x,y)
+\le
+\max(s(x),s(y)).
+}
+\]
+
+This is a direct finite integer bound from the P020 witnesses, not an asymptotic estimate.
+
+---
+
+## 8. P018-C11 — An infinite state space need not have a uniform global coalescence bound
+
+Status: `COUNTEREXAMPLE / DESIGN WARNING`
+
+Take
+
+\[
+F(n)=\max(n-1,0)
+\]
+
+on `N`.
+
+It is monotone and reductive, and every state stabilizes at `0`, but state `n` requires at least `n` steps. For every proposed finite global bound `B`, choosing `n>B` violates it.
+
+Therefore
+
+\[
+\boxed{
+\text{a finite pair-specific bound for every pair}
+\not\Rightarrow
+\text{one uniform finite bound on the whole infinite state space}.
+}
+\]
+
+P020 pointwise finite stabilization must not be silently upgraded to uniform convergence.
+
+---
+
+## 9. P018-T134 — Every finite observation set has a finite saturation time
+
+Status: `PROVED`
+
+For a finite state set
+
+\[
+H\subseteq X,
+\]
+
+define
+
+\[
+\boxed{
+N_H=\max_{x\in H}s(x).
+}
+\]
+
+Then for every `x∈H`,
+
+\[
+F^{[N_H]}x=S(x).
+\]
+
+Hence on `H`,
+
+\[
+\boxed{
+\kerpair(F^{[N_H]}|_H)
+=
+\kerpair(S|_H).
+}
+\]
+
+For every `n≥N_H`, the kernel partition no longer changes.
+
+Thus even when the global state space is infinite, every finite observation set reaches its complete indistinguishability structure after a finite integer time.
+
+---
+
+## 10. P018-T135 — The P011 collision spectrum saturates in finite time on finite observations
+
+Status: `DERIVED FROM P011 + T134`
+
+P011 collision polynomials and all `J_k` depend only on finite-map fiber sizes.
+
+On finite `H`, T134 shows that
+
+\[
+F^{[N_H]}|_H
 \]
 
 and
 
 \[
-j_d=R_2\!\left(\left\lfloor\frac{k^2}{d}\right\rfloor\right),
+S|_H
 \]
 
-the quotient root can only be
-
-\[
-j_d\quad\text{or}\quad j_d+1.
-\]
-
-That is already a strong finite image theorem, but it does not yet say **where** the switch between the two values occurs.
-
-The switch is exact and occurs once.
-
----
-
-## 2. P018-T113 — Exact quotient-root switch threshold
-
-Status: `PROVED` and Lean-formalized.
-
-Under the T110 hypotheses,
+induce exactly the same kernel partition and fibers. Therefore
 
 \[
 \boxed{
-R_2\!\left(\left\lfloor\frac nd\right\rfloor\right)=j_d+1
-\iff
-d(j_d+1)^2\le n.
-}
-\]
-
-Equivalently, the lower branch holds exactly before that state threshold.
-
-### Proof
-
-T110 already restricts the quotient root to `j_d` or `j_d+1`.
-
-The upper value occurs if and only if
-
-\[
-(j_d+1)^2
-\le
-\left\lfloor\frac nd\right\rfloor.
-\]
-
-By the exact order adjunction for natural-number floor division, this is equivalent to
-
-\[
-d(j_d+1)^2\le n.
-\]
-
-No approximation is used. ∎
-
-The Lean theorem is
-
-`EnterpriseMath.Precision.square_basin_div_upper_root_iff`.
-
----
-
-## 3. Offset form
-
-Write a basin state as
-
-\[
-n=k^2+s,
-\qquad 0\le s\le2k.
-\]
-
-Define the positive offset threshold
-
-\[
-\boxed{
-\tau_d
-=d(j_d+1)^2-k^2.
-}
-\]
-
-Positivity follows from the defining upper inequality for `j_d`:
-
-\[
-\left\lfloor\frac{k^2}{d}\right\rfloor<(j_d+1)^2.
-\]
-
-T113 becomes
-
-\[
-\boxed{
-R_2\!\left(\left\lfloor\frac{k^2+s}{d}\right\rfloor\right)
-=j_d+\mathbf1[s\ge\tau_d].
-}
-\]
-
-If `tau_d>2k`, the upper branch is never reached anywhere in the basin.
-
-Thus the quotient-root response is a literal one-switch step function in the finite basin offset.
-
----
-
-## 4. Shared-offset coherence for many divisors
-
-Fix divisors
-
-\[
-d_1,\ldots,d_h\ge2.
-\]
-
-For each `d_i`, define its T113 upper-branch bit
-
-\[
-\varepsilon_i(s)
+K_{F^{[N_H]}|_H}(t)
 =
-\mathbf1[s\ge\tau_{d_i}].
-\]
-
-All coordinates are driven by the **same** offset `s`.
-
-Therefore the vector
-
-\[
-\boxed{
-\varepsilon(s)
-=(\varepsilon_1(s),\ldots,\varepsilon_h(s))
+K_{S|_H}(t).
 }
 \]
 
-is not an arbitrary element of `{0,1}^h`.
+P011 deterministic postcomposition monotonicity also gives
 
-As `s` increases through the finite basin, a coordinate can change only when `s` crosses its own threshold. After sorting the distinct thresholds, the vector is constant between successive threshold values. Hence
+\[
+K_{F^{[n]}|_H}(t)
+\preceq_{\rm coeff}
+K_{F^{[n+1]}|_H}(t).
+\]
+
+So the entire integer collision spectrum stops changing after the finite time `N_H`.
+
+This is a finite-time irreversibility saturation theorem requiring neither Shannon entropy nor a continuous limit.
+
+---
+
+## 11. P018-T136 — Stabilization fibers are exactly coalescence-ultrametric components
+
+Status: `PROVED SYNTHESIS`
+
+By T132,
+
+\[
+S(x)=S(y)
+\iff
+\tau_F(x,y)<\infty.
+\]
+
+Thus every stabilization fiber
+
+\[
+S^{-1}(z)
+\]
+
+is exactly one eventual-coalescence class.
+
+By T130, `τ_F` is an integer-valued ultrametric on that fiber.
+
+The P020 canonical fixed points therefore simultaneously provide:
+
+1. stable normal forms of the dynamics;
+2. labels for P010 eventual-kernel equivalence classes;
+3. an ultrametric geometry on each basin generated by first-merger time.
+
+This gives a strong feedback route into P012: some geometry can be **derived** from deterministic irreversibility history rather than postulated as a continuous background.
+
+It does not replace the P012 primitive-step graph metric. The two metrics have different meanings:
+
+- P012 graph distance measures shortest primitive-step path length;
+- `τ_F` measures the first time two states lose distinguishability under common dynamics.
+
+Their relation requires separate theorems and counterexamples.
+
+---
+
+## 12. A refined discrete-time layer
+
+P010 originally expresses the time arrow mainly through monotone coarsening of kernel partitions.
+
+The combined structure is now
 
 \[
 \boxed{
-\#\{\varepsilon(s):0\le s\le2k\}
-\le h+1.
+\text{State Pair}
+\to
+\text{kernel chain }K_0\subseteq K_1\subseteq\cdots
+\to
+\text{first diagonal-entry time }\tau
+\to
+\text{stabilization fiber}
+\to
+\text{finite collision-spectrum saturation}.
 }
 \]
 
-The naive independent-bit count would be `2^h`.
-
-This is stronger than T111 in a different direction:
-
-- T111 says a **final quotient state** is independent of factorization of the total divisor;
-- T113 says even a family of quotient-root branch bits for different divisors is constrained by one shared state coordinate.
-
-The Python reference tests this finite pattern bound directly.
+Time here is an integer sequence of events, not a continuous parameter.
 
 ---
 
-## 5. Divisibility and the large-modulus phase transition
+## 13. Executable pressure tests
 
-If in addition a divisor `D` actually divides the basin state
+Added:
 
-\[
-n=k^2+s,
-\]
+- `src/enterprise_math/coalescence_time.py`
+- `tests/test_coalescence_time.py`
 
-then
+The tests cover:
 
-\[
-\boxed{s\equiv-k^2\pmod D.}
-\]
-
-When
-
-\[
-D>2k,
-\]
-
-the allowed offset interval has length `2k+1`, so there is at most one admissible positive interior offset satisfying the congruence.
-
-This is the lower-square-boundary coordinate form of the same unique-large-modulus phenomenon already used in P017. T113 therefore does not create a competing large-hit mechanism; it supplies the root-response coordinate that lives on top of the same finite state.
+1. explicit stabilization steps for decrement dynamics;
+2. finite exhaustive checks of same stabilized state iff finite coalescence;
+3. kernel-chain monotonicity;
+4. exact finite-observation saturation at the maximum stabilization time;
+5. regression showing no uniform saturation bound on all of `N`;
+6. exhaustive checks of the coalescence-time ultrametric inequality.
 
 ---
 
-## 6. Mirror coordinates
+## 14. Next questions
 
-For the centered square-basin mirror decomposition,
+### P018-Q105 — Relation between coalescence ultrametric and P012 graph metric
+
+Find exact equivalence conditions, bounds, and counterexamples. Treat the two metrics as different by default.
+
+### P018-Q106 — Grid cancellation and coalescence time
+
+Study whether Supplement 13 local-defect cancellation changes outer coalescence time and whether an integer certificate separates local cancellation from genuine local flatness.
+
+### P018-Q107 — Time-increment formula for finite-history collision polynomials
+
+P011 gives the polynomial increment of one fiber merge. Determine whether
 
 \[
-M=k(k+1),
+K_{n+1}(t)-K_n(t)
+\]
+
+can be computed directly from pairs/higher tuples newly entering the diagonal at that step, and whether these increments sum exactly to the stabilization spectrum.
+
+### P018-Q108 — Nondeterministic dynamics
+
+The ultrametric proof relies crucially on the fact that once a pair enters the diagonal, a common deterministic suffix can never split it. Relations/spans would require a fresh analysis rather than automatic reuse.
+
+---
+
+## 15. Current conclusion
+
+Combining P020 with the Pair/kernel layer gives a completely finite closure:
+
+\[
+\boxed{
+S(x)=S(y)
+\iff
+\tau_F(x,y)<\infty,
 \qquad
-M-r,\ M+r,
-\qquad 1\le r<k,
-\]
-
-the offsets above `k^2` are
-
-\[
-\boxed{s_-=k-r,\qquad s_+=k+r.}
-\]
-
-If a divisor `p` acts on the lower mirror state, its T113 upper-root bit is
-
-\[
-\boxed{
-\varepsilon_p^-(r)
-=\mathbf1[k-r\ge\tau_p]
-=\mathbf1[r\le k-\tau_p].
+\tau_F(x,y)
+\le
+\max(s(x),s(y)).
 }
 \]
 
-For a divisor `q` on the upper state,
+and on every stabilization fiber,
 
 \[
 \boxed{
-\varepsilon_q^+(r)
-=\mathbf1[k+r\ge\tau_q]
-=\mathbf1[r\ge\tau_q-k].
+\tau_F(x,z)
+\le
+\max(\tau_F(x,y),\tau_F(y,z)).
 }
 \]
 
-Thus quotient-root branch selection becomes a **bounded radius half-interval condition** that can be intersected with the existing mirror CRT progressions.
+Thus every canonical stabilization basin carries an integer ultrametric generated by first coalescence time, while every finite observation set reaches exact kernel and P011 collision-spectrum saturation in finite time.
 
-This is the intended interface with the P017 mirror-certificate route: least-factor/second-factor constraints can now use both
-
-1. a CRT residue class for the radius, and
-2. an exact quotient-root threshold interval.
-
-Neither condition is probabilistic.
-
----
-
-## 7. P017 lower-band interpretation
-
-Suppose
-
-\[
-n=pq
-\]
-
-is a square-basin composite with least prime `p`.
-
-T110–T112 say the cofactor root descends. T113 adds the exact branch selector:
-
-\[
-R_2(q)
-=j_p+\mathbf1[n\ge p(j_p+1)^2].
-\]
-
-If `q` is composite, its next least prime is bounded by this exact descended root.
-
-Hence the next-factor cutoff is not merely `j_p+1`; it can be chosen statewise as either `j_p` or `j_p+1` from one integer threshold comparison.
-
-This is potentially useful for least-factor-gated mirror capacities, where the radius already determines the basin offset exactly.
-
----
-
-## 8. Executable validation
-
-The Python layer extends `src/enterprise_math/quotient_basin.py` with:
-
-- `quotient_root_threshold`;
-- `square_basin_offset_root_response`;
-- `quotient_root_threshold_pattern`.
-
-The tests check that:
-
-- the threshold is always above the lower square boundary;
-- the root response equals `base_root + 1[offset>=tau]` over bounded complete basins;
-- some thresholds occur inside the basin and some lie beyond it;
-- for fixed families of `h` divisors, the observed bit-vector family has size at most `h+1`.
-
-The Lean layer formalizes the exact upper-branch equivalence; the finite-vector pattern statement is an elementary corollary of threshold ordering and is kept at the documentation/reference-test level unless a later proof needs a typed finite-set theorem.
-
----
-
-## 9. Next target
-
-T110–T113 now settle the operation-level geometry of quotient transport strongly enough for the current lower-band route:
-
-- strict descent;
-- no factorization-path explosion;
-- exact one-threshold branch response;
-- shared-offset coherence.
-
-The next useful theorem should therefore be **cross-shell**, not another quotient identity.
-
-The leading P017 candidate is the lower-band root-target overlap bound: among least primes `p` with `p^2<2k`, every descended root index appears in the T110 candidate pair of at most two distinct least-prime shells.
-
-If proved, each lower square-root scale receives only constant-many shell channels, which is the right type of structural restriction for a recursive mass argument.
+This connects time, irreversibility, and geometry inside Enterprise Math through the same finite Pair/kernel mechanism rather than through a continuous limit or an external probabilistic model.

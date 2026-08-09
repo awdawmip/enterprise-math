@@ -1,281 +1,663 @@
-# Precision Calculus — Supplement 13
+# P018 — Finite-Precision Proof Calculus: Supplement 13
 
 Status: `ACTIVE RESEARCH NOTE`  
-Scope: quotient-path flatness and strict square-root descent after P018-T110  
-Depends on: P018-T110, P007 discrete division, and the canonical natural-number quotient law `Nat.div_div_eq_div_mul`  
-Discipline: the floor-division composition identity is established arithmetic and is **not** claimed as new. The project-specific content is its use with T110 to collapse apparent multi-stage root branching, together with the square-basin strict-descent consequence.
-
-## 1. Why T110 does not create a binary-tree explosion
-
-T110 says that a single nontrivial quotient of one square basin can meet at most two adjacent square-root indices.
-
-A naive recursive reading could suggest that after `h` successive factor extractions the number of possible final square-root indices might grow like `2^h`.
-
-That is false already at the quotient-state level.
-
-For natural-number floor division,
-
-\[
-\boxed{
-\left\lfloor
-\frac{\left\lfloor n/a\right\rfloor}{b}
-\right\rfloor
-=
-\left\lfloor\frac{n}{ab}\right\rfloor.
-}
-\]
-
-This is the standard Euclidean quotient identity formalized in mathlib as `Nat.div_div_eq_div_mul`. It is established mathematics.
-
-Its significance here is structural: a sequence of quotient steps has an exact one-step representative given by the product divisor.
+Scope: 2x2 typed critical grids, strict endpoint-pair composition, exact finite signed-holonomy rectangle identities, local-defect cancellation, and the boundary of foundational interchange  
+Depends on: P003, P005, P009, P010, P018-T99–T118, P020  
+Discipline: this stage proves only finite-state and endpoint identities. Rewriting critical pairs, finite differences, kernel pairs, and double-category/interchange language have mature prior art. Similar formulas do not by themselves establish a new 2-category or a new calculus.
 
 ---
 
-## 2. P018-T111 — Quotient-path flatness
+## 1. Why attack the 2x2 grid now
 
-Status: `PROVED / CLASSICAL QUOTIENT IDENTITY + PROJECT CONSEQUENCE`.
-
-For all natural numbers `n,a,b`,
+P018 Supplement 11 established exact finite response
 
 \[
-\boxed{
-Q_b(Q_a(n))=Q_{ab}(n),
-}
+\mathscr R_F(x,h)=F(x+h)-F(x),
 \]
 
-where `Q_d(n)=floor(n/d)`.
-
-By induction, for any finite list of nonzero divisors
+with strict composition
 
 \[
-d_1,\ldots,d_h,
-\]
-
-one has
-
-\[
-\boxed{
-Q_{d_h}\circ\cdots\circ Q_{d_1}
+\mathscr R_{G\circ F}(x,h)
 =
-Q_{d_1\cdots d_h}.
-}
+\mathscr R_G(F(x),\mathscr R_F(x,h)).
 \]
 
-The identity itself is prior arithmetic. The P018 consequence comes from combining it with T110.
-
-Suppose
+Supplement 12 then showed that signed difference is not the weakest structure. For an arbitrary state set `X`, State Pairs already exist:
 
 \[
-k^2\le n<(k+1)^2,
-\qquad a,b\ge2,
+(x,y)\in X\times X,
 \]
 
-and set
+and every deterministic map `F:X→Y` acts by
 
 \[
-D=ab,
-\qquad
-j=R_2\!\left(\left\lfloor\frac{k^2}{D}\right\rfloor\right).
+(x,y)\mapsto(F(x),F(y)).
 \]
 
-Then
+The correct next step for P018-Q97 is therefore not to assume a 2-category, but to build the smallest typed 2x2 rectangle and ask:
 
-\[
-\boxed{
-R_2\!\left(
-\left\lfloor
-\frac{\left\lfloor n/a\right\rfloor}{b}
-\right\rfloor
-\right)
-\in\{j,j+1\}.
-}
-\]
-
-Thus two quotient stages do **not** create four final root-index branches. They flatten to one quotient by `ab`, to which T110 applies once.
-
-The same logic holds for any finite quotient path: its final quotient state depends only on the total product divisor, so the final square-root image is still controlled by one two-basin T110 bound.
-
-This does not say that intermediate states are identical across different factorizations. It says that the final quotient projection is path-flat with respect to factorization of the total divisor.
+1. whether the two decompositions agree strictly at the endpoint-pair layer;
+2. how that agreement appears after adding integer Difference coordinates;
+3. whether zero outer holonomy forces every local defect to vanish;
+4. where P003 commutation, P009 nonconfluence, and P010 confluence sit in this hierarchy.
 
 ---
 
-## 3. P018-T112 — Actual quotient root strictly descends for k >= 3
-
-Status: `PROVED`.
-
-T110 gives a base root `j<k` but formally allows the actual quotient root to be `j+1`, which in principle could equal `k`.
-
-For square basins from `k>=3`, that edge case cannot occur.
+## 2. The typed 2x2 rectangle
 
 Let
 
 \[
-k\ge3,
-\qquad d\ge2,
-\qquad n<(k+1)^2.
+F_0,F_1:X\to Y,
+\qquad
+G_0,G_1:Y\to Z.
 \]
 
-Then
+For a fixed `x∈X`, write
 
 \[
-(k+1)^2\le2k^2\le dk^2.
+a=G_0(F_0(x)),
+\quad
+b=G_0(F_1(x)),
+\quad
+c=G_1(F_0(x)),
+\quad
+d=G_1(F_1(x)).
 \]
 
-Hence
+The proof uses only the four explicit endpoints:
 
-\[
-n<dk^2,
-\]
-
-so exact floor division gives
-
-\[
-\left\lfloor\frac nd\right\rfloor<k^2.
-\]
-
-Therefore
-
-\[
-\boxed{
-R_2\!\left(\left\lfloor\frac nd\right\rfloor\right)<k.
-}
-\]
-
-This is strict descent of the **actual transported state**, not merely of T110's base index.
-
-The cases `k=1,2` remain finite base cases and need no asymptotic or recursive treatment.
+- `(a,b)` along the upper comparison;
+- `(b,d)` down the right side;
+- `(a,c)` down the left side;
+- `(c,d)` along the lower comparison.
 
 ---
 
-## 4. Combined well-founded quotient skeleton
+## 3. P018-T119 — Strict composition of adjacent State Pairs
 
-T110–T112 now give a compact operation-level picture.
+Status: `PROVED / LEAN-CHECKED TARGET`
 
-For every square basin with `k>=3` and every nontrivial divisor `d>=2`:
+For adjacent endpoint pairs
 
-1. quotient transport is exact and integer-only;
-2. a whole basin meets at most two adjacent target root indices;
-3. the actual target root index is strictly smaller than `k`;
-4. splitting `d` into several quotient stages does not multiply the number of possible final root indices, because the stages flatten to one quotient by the product.
+\[
+(a,b),\qquad(b,c),
+\]
 
-Symbolically,
+define
+
+\[
+(a,b)\star(b,c):=(a,c).
+\]
+
+No subtraction, addition, order, metric, precision, or numeric state space is required.
+
+This says only that when two path pieces share an intermediate endpoint, comparison of the whole composite keeps the two outer endpoints.
+
+The operation is represented as `composeAdjacent` in
+
+`EnterpriseMath/State/CriticalGrid.lean`.
+
+---
+
+## 4. P018-T120 — Strict rectangle interchange at the endpoint-pair layer
+
+Status: `PROVED / LEAN-CHECKED TARGET`
+
+For arbitrary types `X,Y,Z`, arbitrary maps
+
+\[
+F_0,F_1:X\to Y,
+\qquad
+G_0,G_1:Y\to Z,
+\]
+
+and arbitrary `x∈X`,
 
 \[
 \boxed{
-B_k
-\xrightarrow{Q_{d_1}}
-\cdots
-\xrightarrow{Q_{d_h}}
-Q_D(B_k),
-\qquad
-D=\prod_i d_i,
+(a,b)\star(b,d)
+=
+(a,d)
+=
+(a,c)\star(c,d).
+}
+\]
+
+Equivalently,
+
+\[
+\boxed{
+(G_0F_0x,G_0F_1x)\star(G_0F_1x,G_1F_1x)
+=
+(G_0F_0x,G_1F_1x)
+}
+\]
+
+and
+
+\[
+\boxed{
+(G_0F_0x,G_1F_0x)\star(G_1F_0x,G_1F_1x)
+=
+(G_0F_0x,G_1F_1x).
+}
+\]
+
+### Proof
+
+By definition, both decompositions retain the common outer endpoints `a` and `d`. ∎
+
+### Meaning
+
+This is the weakest current sense of interchange:
+
+- no local square is assumed to commute;
+- `b=c` is not required;
+- no Difference object is required;
+- no Abelian group is required;
+- no order, metric, or topology is required;
+- the state spaces need not be numeric.
+
+Thus **endpoint-pair path composition is more primitive than numeric holonomy**.
+
+This still does not justify declaring a full double category. General 2-cells, all horizontal/vertical composites, units, and global interchange axioms remain unconstructed.
+
+---
+
+## 5. Adding integer coordinates
+
+Now specialize to natural-number states and allow signed differences as comparison coordinates.
+
+Let
+
+\[
+h=F_1(x)-F_0(x),
+\]
+
+and define the pointwise difference between the second-stage operation family by
+
+\[
+\delta_G(y):=G_1(y)-G_0(y).
+\]
+
+The outer signed holonomy is
+
+\[
+\Omega(x)
+:=
+G_1(F_1(x))-G_0(F_0(x)).
+\]
+
+The State Pair `(a,d)` is simply coordinatized as
+
+\[
+(a,d-a).
+\]
+
+Numeric holonomy is therefore not a new foundational object; it is an integer coordinate on an endpoint pair.
+
+---
+
+## 6. P018-T121 — Two exact finite decompositions of outer holonomy
+
+Status: `PROVED / EXECUTABLE`
+
+Exactly,
+
+\[
+\boxed{
+\Omega(x)
+=
+\mathscr R_{G_0}(F_0(x),h)
++
+\delta_G(F_1(x)).
+}
+\]
+
+Also,
+
+\[
+\boxed{
+\Omega(x)
+=
+\delta_G(F_0(x))
++
+\mathscr R_{G_1}(F_0(x),h).
+}
+\]
+
+### First proof
+
+By definition,
+
+\[
+\mathscr R_{G_0}(F_0x,h)
+=G_0(F_1x)-G_0(F_0x),
+\]
+
+while
+
+\[
+\delta_G(F_1x)
+=G_1(F_1x)-G_0(F_1x).
+\]
+
+Adding cancels the middle endpoint `G_0(F_1x)` and yields
+
+\[
+G_1(F_1x)-G_0(F_0x)=\Omega(x).
+\]
+
+The second decomposition is symmetric. ∎
+
+### Interpretation
+
+The first route transports the first-stage displacement through `G_0` and then switches `G_0→G_1` at `F_1(x)`. The second route switches the operation family at `F_0(x)` and then transports the same displacement through `G_1`.
+
+---
+
+## 7. P018-T122 — Exact finite rectangle-variation identity
+
+Status: `PROVED / EXECUTABLE`
+
+Subtracting the two T121 decompositions gives
+
+\[
+\boxed{
+\delta_G(F_1x)-\delta_G(F_0x)
+=
+\mathscr R_{G_1}(F_0x,h)
+-
+\mathscr R_{G_0}(F_0x,h).
 }
 \]
 
 with
 
 \[
-\boxed{
-Q_D(B_k)
-\text{ meeting at most two adjacent root indices, both below }k
-}
+h=F_1x-F_0x.
 \]
 
-for the actual final state when `k>=3`.
+The left side measures how the pointwise defect between `G_0` and `G_1` changes across the first-stage displacement. The right side measures how differently `G_1` and `G_0` transport that same displacement.
 
-The essential point is not that quotienting is small in magnitude. It is that the square-root precision coordinate carries a **well-founded descent** while quotient factorization itself is flat at the final state.
+They are exactly the same integer.
+
+This is an exact finite rectangle-variation law. We do not call it a curvature theorem because no additional geometric structure has been established.
 
 ---
 
-## 5. P017 lower-band implication
+## 8. P018-T123 — Common-suffix propagation is a degenerate rectangle
 
-Return to a square-basin composite
+Status: `PROVED / EXECUTABLE`
+
+If
 
 \[
-n=pq,
+G_0=G_1=G,
 \]
 
-where `p` is its least prime factor.
-
-T110 gives
+then
 
 \[
-j=R_2\!\left(\left\lfloor\frac{k^2}{p}\right\rfloor\right),
+\delta_G\equiv0
+\]
+
+and T121 reduces to
+
+\[
+\boxed{
+\Omega(x)
+=
+\mathscr R_G(F_0x,F_1x-F_0x).
+}
+\]
+
+This is exactly Supplement 11 T102 common-suffix holonomy propagation.
+
+---
+
+## 9. P018-T124 — Common-prefix degeneration
+
+Status: `PROVED / EXECUTABLE`
+
+If
+
+\[
+F_0=F_1=F,
+\]
+
+then `h=0`, hence both responses to the displacement vanish and
+
+\[
+\boxed{
+\Omega(x)=\delta_G(F(x)).
+}
+\]
+
+The rectangle reduces to a pointwise comparison of two second-stage operations at one intermediate state.
+
+---
+
+## 10. P018-C10 — Outer flatness does not imply local flatness
+
+Status: `COUNTEREXAMPLE / DESIGN WARNING`
+
+For any natural state `x≥1`, take
+
+\[
+F_0(x)=x,
 \qquad
-R_2(q)\in\{j,j+1\}.
+F_1(x)=x+1,
 \]
-
-If `k>=3`, T112 strengthens this to
 
 \[
-\boxed{R_2(q)<k.}
+G_0(y)=y,
+\qquad
+G_1(y)=\max(y-1,0).
 \]
 
-If `q` is still composite and `ell` is its least prime factor, the ordinary root-factor horizon at the lower state gives
+Then
 
 \[
-\ell\le R_2(q).
+G_0(F_0(x))=x
 \]
 
-Because `p` was the least prime factor of `n`, also `p<=ell`. Hence
+and
+
+\[
+G_1(F_1(x))=x,
+\]
+
+so
+
+\[
+\boxed{\Omega(x)=0.}
+\]
+
+Yet
+
+\[
+F_1(x)-F_0(x)=1\ne0
+\]
+
+and
+
+\[
+\delta_G(F_1(x))=-1\ne0.
+\]
+
+The two nonzero local defects cancel exactly.
+
+Therefore
 
 \[
 \boxed{
-p\le\ell\le R_2(q)<k.
+\text{outer confluence / zero holonomy}
+\not\Rightarrow
+\text{every local square is flat}.
 }
 \]
 
-So least-factor extraction simultaneously lowers the root scale and shrinks the range available to the next least prime factor.
-
-This is the intended bridge back to the P017 lower band. It is still not a Legendre proof: a useful recursive **mass bound** must be derived from this shrinking state space rather than merely enumerating the recursive branches.
+This is a hard boundary for future confluence arguments.
 
 ---
 
-## 6. What is and is not new
+## 11. P018-T125 — P003 collapse commutation is a zero-outer-holonomy classification
 
-Not claimed:
+Status: `DERIVED FROM P003`
 
-- Euclidean floor division;
-- `floor(floor(n/a)/b)=floor(n/(ab))`;
-- `Nat.div_div_eq_div_mul` or its formalization;
-- generic well-founded induction on natural numbers.
+Fix positive exponents `p,q` and take
 
-Project-specific content under test:
+\[
+F_0=C_q,
+\qquad
+F_1=C_p,
+\]
 
-- using quotient-path flatness to show that repeated T110 transport does not create exponential final root-scale branching;
-- the exact square-basin strict-root descent of T112;
-- the coupling of this descent to the least-factor horizon in the P017 lower band.
+\[
+G_0=C_p,
+\qquad
+G_1=C_q.
+\]
 
-Historical novelty remains `NOVELTY_UNVERIFIED`.
+Then
+
+\[
+\Omega_{p,q}(n)
+=
+C_q(C_p(n))-C_p(C_q(n)).
+\]
+
+P003 proves
+
+\[
+\boxed{
+\Omega_{p,q}(n)=0\ \forall n
+\iff
+p\mid q\ \text{or}\ q\mid p.
+}
+\]
+
+Thus P003 can be restated exactly as: the perfect-power collapse family is globally outer-flat on this operation rectangle exactly when the exponents are comparable in divisibility order.
+
+This is a reinterpretation, not a change to P003.
 
 ---
 
-## 7. Executable and formal validation
+## 12. P018-T126 — P009 nonconfluence is a non-diagonal outer pair, not failure of pair composition
 
-The Python layer extends `src/enterprise_math/quotient_basin.py` with:
+Status: `STRUCTURAL REINTERPRETATION`
 
-- `iterated_quotient_flatness`;
-- `square_basin_iterated_quotient_transport`;
-- `strict_square_root_descent`.
+P009 proves that mixed collapse/project scheduling is generally nonconfluent.
 
-The tests verify bounded multi-step paths, factorization-independent final quotients, the retained two-root bound, and strict descent from `k>=3`.
+Supplements 12–13 separate two facts:
 
-The Lean module extends `EnterpriseMath.Precision.QuotientBasin` with:
+- State Pair composition itself remains strict;
+- nonconfluence means the outer endpoint pair is not on the diagonal:
 
-- `quotient_path_flat_two`;
-- `square_basin_two_step_div_root_pair`;
-- `square_basin_div_root_strict`.
+\[
+(a,d)\notin\Delta;
+\]
 
-The formal layer intentionally proves the minimal two-stage path identity and its T110 consequence. Longer paths follow by ordinary induction and should not be expanded into redundant theorem families unless later applications require them.
+or, in integer coordinates,
+
+\[
+\Omega=d-a\ne0.
+\]
+
+So path composition may remain strict while path endpoints fail to coincide.
 
 ---
 
-## 8. Next target
+## 13. P018-T127 — P010 confluence is outer-pair entry into the diagonal
 
-The next meaningful research step is no longer to prove that lower-band factor extraction descends; T110–T112 already supply that skeleton.
+Status: `DERIVED FROM T110–T118 / P010`
 
-The remaining problem is quantitative:
+Two historical paths have merged exactly when their current endpoint pair lies on the diagonal:
 
-> Can the shrinking root scale and shrinking admissible least-factor interval be converted into a recursive upper bound on the total lower-band composite mass that is genuinely stronger than standard Buchstab/least-factor bookkeeping?
+\[
+\boxed{(a,d)\in\Delta\iff a=d.}
+\]
 
-A candidate recursion must be pressure-tested against established sieve theory. If it merely rewrites ordinary least-factor recursion in square-root coordinates, it should be demoted rather than expanded.
+A common deterministic suffix maps diagonal pairs to diagonal pairs. Hence P010's irreversible history merge becomes:
+
+> once an outer pair enters the diagonal, every later common deterministic suffix keeps it on the diagonal.
+
+C10 requires a strict distinction between outer diagonality and local flatness; the first does not imply the second.
+
+---
+
+## 14. P018-T128 — P020 stabilization supplies canonical diagonal sinks but does not erase path history
+
+Status: `DERIVED CONNECTION / NOT A NEW P020 THEOREM`
+
+P020 constructs finite stabilization for a monotone reductive map on a well-founded partial order:
+
+\[
+\operatorname{stabilize}_F.
+\]
+
+Applying the same stabilization suffix to a State Pair gives
+
+\[
+(\operatorname{stabilize}_F(x),
+ \operatorname{stabilize}_F(y)).
+\]
+
+If both states have the same greatest fixed point below them, the pair lands on the diagonal. This gives a canonical deterministic merging mechanism.
+
+But C10 prevents the converse inference that a diagonal final pair means every intermediate square commuted or every local defect vanished.
+
+P020 supplies canonical sinks/normal forms, not a local path-flatness theorem.
+
+---
+
+## 15. The substrate is now more sharply layered
+
+### Layer 1 — Path / Pair
+
+Only types and deterministic functions are needed:
+
+\[
+\boxed{
+\text{typed State}
++\text{parallel endpoint Pair}
++\text{adjacent-pair composition}.
+}
+\]
+
+This already expresses path comparison, kernel/diagonal structure, deterministic merging, and 2x2 outer endpoint interchange.
+
+### Layer 2 — Difference coordinates
+
+When integer coordinates are available,
+
+\[
+(a,d)\leftrightarrow(a,d-a).
+\]
+
+This adds signed holonomy, finite response, the rectangle-variation identity, and carry/borrow transport.
+
+### Layer 3 — Precision / operation structure
+
+Add P005 typed scales, P008 adjunction/projection, operation families, the carry cocycle, and atlas/representation obstruction.
+
+### Layer 4 — Global certificates / time
+
+Add P010 history merging, P011 irreversibility spectra, P017 global certificates, and P019/P020 stabilization.
+
+A more stable current ordering is therefore
+
+\[
+\boxed{
+\text{typed State}
+\to
+\text{Path Pair / kernel}
+\to
+\text{optional Difference coordinate}
+\to
+\text{response/holonomy}
+\to
+\text{precision/operation atlas}
+\to
+\text{global irreversibility/certificate/stabilization}.
+}
+\]
+
+---
+
+## 16. Why this still is not a declaration of a 2-category
+
+T120 proves a strict rectangle endpoint interchange, but a full categorical claim still requires answers to:
+
+1. whether a 2-cell is an endpoint pair, path pair, rewrite witness, or defect class;
+2. whether horizontal and vertical compositions are closed for all typed arrows;
+3. what the unit 2-cells are;
+4. what information is irreversibly lost if intermediate paths are quotiented away;
+5. whether numeric defects are natural under representation change;
+6. whether the same interchange survives after nondeterministic relations/spans are introduced.
+
+The strongest justified statement is therefore:
+
+> **We have proved a subtraction-free endpoint-pair rectangle interchange and its exact finite shadow in integer Difference coordinates.**
+
+---
+
+## 17. Executable and formal verification
+
+Added:
+
+- `src/enterprise_math/critical_grid.py`
+- `tests/test_critical_grid.py`
+- `EnterpriseMath/State/CriticalGrid.lean`
+
+The pressure tests cover:
+
+1. both generic State Pair rectangle decompositions equal the same outer pair;
+2. both numeric outer-holonomy decompositions agree exactly;
+3. the finite rectangle-variation identity;
+4. common-prefix and common-suffix degenerations;
+5. a zero-outer/nonzero-local cancellation counterexample;
+6. P003 comparable exponents producing zero outer holonomy;
+7. P003 incomparable exponents producing an explicit nonzero outer holonomy.
+
+Lean targets T119/T120 in a fully non-algebraic form and the integer telescoping shadow of the rectangle.
+
+---
+
+## 18. Next questions
+
+### P018-Q100 — Can rectangles extend to finite cell complexes?
+
+Do not assume topology first. Study whether finite path networks admit canonical outer endpoint-pair comparisons and whether different cell decompositions preserve the same pair/kernel information.
+
+### P018-Q101 — Kernel partitions under grid refinement
+
+When a coarse rectangle is subdivided, determine which kernel/diagonal facts remain invariant and which numeric local defects are redistributed.
+
+### P018-Q102 — Certificates for local-defect cancellation
+
+C10 shows that local defects can cancel. Seek a fully integer certificate distinguishing genuine local flatness, exact cancellation of nonzero defects, and defects that disappear only after coarse projection.
+
+### P018-Q103 — P011 higher-order irreversibility from the Pair layer
+
+Reconstruct higher-order fiber combinatorics from kernel pairs so that Pair/kernel is the substrate while P011 spectra remain higher-order integer statistics rather than being discarded.
+
+### P018-Q104 — P020 coalescence time
+
+For common deterministic dynamics, define the first finite time at which two initial states enter the diagonal. Study canonical bounds under P020's well-founded reductive hypotheses and their relation to `stabilizationSteps`.
+
+---
+
+## 19. Current conclusion
+
+The key result is not a new label but a finite fact that is almost impossible to weaken further:
+
+\[
+\boxed{
+(a,b)\star(b,d)
+=
+(a,d)
+=
+(a,c)\star(c,d).
+}
+\]
+
+As soon as two composite paths have explicit endpoints, the outer pair of a 2x2 rectangle is independent of which internal decomposition is used.
+
+Integer structure then yields two exact finite holonomy decompositions and the rectangle-variation identity.
+
+The current hierarchy is therefore more precise:
+
+\[
+\boxed{
+\text{Pair/kernel is path logic;}
+\quad
+\text{Difference/holonomy is its numeric coordinate;}
+\quad
+\text{nonconfluence means the outer pair is off the diagonal.}
+\]
+
+This simultaneously contains P003, P009, P010, and P020 without deleting their more specific structures.

@@ -6,7 +6,7 @@ namespace EnterpriseMath.Precision
 open EnterpriseMath.IntegerRoot
 
 /-- A floor quotient cannot push the quotient index beyond the square root of
-`k^2 / d`.  This helper is used to compare the Euclidean quotient scale with
+`k^2 / d`. This helper is used to compare the Euclidean quotient scale with
 square-root precision. -/
 theorem div_square_le_square_div {k d : ℕ} (hd : 0 < d) :
     (k / d) ^ 2 ≤ k ^ 2 / d := by
@@ -18,9 +18,14 @@ theorem div_square_le_square_div {k d : ℕ} (hd : 0 < d) :
     _ ≤ k * k := Nat.mul_le_mul_right k (Nat.div_le_self k d)
     _ = k ^ 2 := by simp [pow_two]
 
-/-- P018-T110: dividing a complete square-collapse basin by any integer `d ≥ 2`
+/-- P018-T182: dividing a complete square-collapse basin by any integer `d ≥ 2`
 can move the square-root index to only two adjacent values, and the base quotient
 root is strictly below the original basin index.
+
+This theorem entered `main` concurrently under the provisional identifier
+P018-T110. PR #68 already had an earlier validated T110–T181 sequence, so the
+integration relabels only this concurrent theorem as T182; the theorem statement
+and proof are unchanged.
 
 If `j = R₂(⌊k²/d⌋)` and `k² ≤ n < (k+1)²`, then
 `R₂(⌊n/d⌋) ∈ {j,j+1}` and `j < k`.
@@ -97,16 +102,21 @@ theorem square_basin_div_root_pair
   · omega
   · exact hjLt
 
-/-- P018-T111: two successive natural-number floor quotients are exactly one
-quotient by the product divisor.  This is established Euclidean-division
-machinery, recorded here because it makes quotient precision paths flat. -/
+/-- P018-T195: two successive natural-number floor quotients are exactly one
+quotient by the product divisor. This is established Euclidean-division
+machinery, recorded here because it makes quotient precision paths flat.
+
+This theorem entered `main` concurrently under provisional identifier T111 and
+is relabelled T195 in the integrated branch to preserve the earlier validated
+T111 in PR #68.
+-/
 theorem quotient_path_flat_two (n a b : ℕ) :
     n / a / b = n / (a * b) := by
   rw [Nat.div_div_eq_div_mul]
 
-/-- P018-T111 consequence: factoring a nontrivial total divisor into two stages
-does not create four final square-root branches.  After flattening the quotient
-path, T110 applies once to the product divisor, so the final root index is still
+/-- P018-T195 consequence: factoring a nontrivial total divisor into two stages
+does not create four final square-root branches. After flattening the quotient
+path, T182 applies once to the product divisor, so the final root index is still
 one of two adjacent values. -/
 theorem square_basin_two_step_div_root_pair
     {k a b n : ℕ} (hk : 0 < k) (ha : 2 ≤ a) (hb : 2 ≤ b)
@@ -124,9 +134,13 @@ theorem square_basin_two_step_div_root_pair
     (square_basin_div_root_pair (k := k) (d := a * b) (n := n)
       hk hd hnLower hnUpper)
 
-/-- P018-T112: from root scale `k ≥ 3`, every nontrivial floor quotient of a
+/-- P018-T196: from root scale `k ≥ 3`, every nontrivial floor quotient of a
 state below `(k+1)^2` lands strictly below the original square boundary `k^2`.
 Hence its square-root index is strictly smaller than `k`.
+
+This theorem entered `main` concurrently under provisional identifier T112 and
+is relabelled T196 in the integrated branch to preserve the earlier validated
+T112 in PR #68.
 -/
 theorem square_basin_div_root_strict
     {k d n : ℕ} (hk : 3 ≤ k) (hd : 2 ≤ d)
@@ -143,9 +157,13 @@ theorem square_basin_div_root_strict
     exact (Nat.div_lt_iff_lt_mul hd0).2 hnTarget
   exact (Nat.nthRoot_lt_iff (n := 2) (by decide)).2 hQuotLt
 
-/-- P018-T113: inside one square basin, the upper T110 root branch has one exact
+/-- P018-T197: inside one square basin, the upper T182 root branch has one exact
 state threshold. If `j = R₂(floor(k²/d))`, the quotient root is `j+1` exactly
 when the original state has reached `d*(j+1)^2`.
+
+This theorem entered `main` concurrently under provisional identifier T113 and
+is relabelled T197 in the integrated branch to preserve the earlier validated
+T113 in PR #68.
 -/
 theorem square_basin_div_upper_root_iff
     {k d n : ℕ} (hk : 0 < k) (hd : 2 ≤ d)
