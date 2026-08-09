@@ -24,15 +24,32 @@ capacity at most floor((k-1)/D)+1.  In particular, if the minimum possible
 (m+1)-prime transverse token product is greater than k-1, every order-m defect
 token is globally single-use across both mirror orientations.
 
-The token decomposition is exact.  The cross-branch capacity theorem remains a
-PROVED_WIP P017 input until separately promoted; this bridge does not duplicate
-its implementation or claim canonical status.
+The same threshold forces strict quotient descent.  If D>k-1 is an integer
+transverse to M=k(k+1), then D cannot equal k or k+1, so D>=k+2.  For a state in
+the open square basin,
+
+    n <= (k+1)^2-1 = k(k+2),
+
+and therefore
+
+    q=n/D <= k.
+
+Thus a globally single-use high-product defect token carries its state to an
+exact quotient at or below the parent scale.  More generally the minimum token
+product gives a finite quotient ceiling
+
+    Q_m(k)=floor(k(k+2)/P_perp(k,m+1)).
+
+The token decomposition and quotient inequalities are exact.  The cross-branch
+reuse-capacity theorem remains a PROVED_WIP P017 input until separately
+promoted; this bridge does not duplicate its implementation or claim canonical
+status.
 """
 
 from __future__ import annotations
 
 from itertools import combinations
-from math import comb, gcd, prod
+from math import comb, gcd, isqrt, prod
 
 from .legendre import is_prime
 from .p017_p018_bonferroni_defect import odd_bonferroni_point_defect
@@ -112,6 +129,67 @@ def defect_token_single_use_threshold(k: int, order: int) -> dict[str, object]:
     }
 
 
+def defect_token_quotient_horizon(k: int, order: int) -> dict[str, object]:
+    """Return Q_m(k)=floor(k(k+2)/minimum token product) exactly."""
+    threshold = defect_token_single_use_threshold(k, order)
+    if not bool(threshold["enough_transverse_primes"]):
+        return {
+            **threshold,
+            "defect_tokens_possible": False,
+            "quotient_ceiling": 0,
+            "quotient_root_ceiling": 0,
+            "strict_parent_scale_descent": True,
+        }
+    minimum = int(threshold["minimum_transverse_token_product"])
+    ceiling = (k * (k + 2)) // minimum
+    root_ceiling = isqrt(ceiling)
+    strict = minimum > k - 1
+    if strict and ceiling > k:
+        raise AssertionError("single-use token threshold failed to force q<=k")
+    return {
+        **threshold,
+        "defect_tokens_possible": True,
+        "quotient_ceiling": ceiling,
+        "quotient_root_ceiling": root_ceiling,
+        "strict_parent_scale_descent": strict,
+    }
+
+
+def defect_token_quotient_descent(k: int, state: int, divisor: int) -> dict[str, int | bool]:
+    """Certify q=state/D<=k for one transverse token with D>k-1."""
+    if isinstance(k, bool) or not isinstance(k, int) or k < 2:
+        raise ValueError("k must be an integer >=2")
+    if isinstance(state, bool) or not isinstance(state, int) or not (k * k < state < (k + 1) ** 2):
+        raise ValueError("state must lie in the open k-th square basin")
+    center = k * (k + 1)
+    if (
+        isinstance(divisor, bool)
+        or not isinstance(divisor, int)
+        or divisor <= k - 1
+        or divisor % 2 == 0
+        or gcd(divisor, center) != 1
+    ):
+        raise ValueError("divisor must be an odd transverse token with D>k-1")
+    if state % divisor:
+        raise ValueError("divisor must divide the square-basin state")
+    if divisor in (k, k + 1):
+        raise AssertionError("transverse token cannot equal an anchor factor")
+    if divisor < k + 2:
+        raise AssertionError("D>k-1 and transversality failed to imply D>=k+2")
+
+    quotient = state // divisor
+    if quotient > k:
+        raise AssertionError("single-use token quotient did not descend to q<=k")
+    return {
+        "k": k,
+        "state": state,
+        "divisor": divisor,
+        "quotient": quotient,
+        "quotient_root": isqrt(quotient),
+        "strict_parent_scale_descent": True,
+    }
+
+
 def signed_defect_token_profile(k: int, order: int) -> dict[str, object]:
     """Decompose the entire signed-state Bonferroni defect into divisor tokens."""
     if isinstance(k, bool) or not isinstance(k, int) or k < 2:
@@ -178,4 +256,5 @@ def signed_defect_token_profile(k: int, order: int) -> dict[str, object]:
         "defect_rows": tuple(token_rows),
         "token_signed_point_multiplicities": grouped,
         "single_use_threshold": defect_token_single_use_threshold(k, order),
+        "quotient_horizon": defect_token_quotient_horizon(k, order),
     }
