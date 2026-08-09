@@ -7,11 +7,13 @@ from enterprise_math.p018_power_coalescence import (
     coarse_sublinear_descent_threshold,
     cross_root_coalescence_horizon,
     cross_root_divisor_collision,
+    exact_root_fiber_capacity,
     observed_root_divisor_multiplicity,
     power_basin_cross_root,
     same_exponent_coalescence_horizon,
     sharp_adjacent_collision_family,
     sharp_consecutive_collision_block,
+    total_divisor_root_fiber,
     verify_coarse_sublinear_descent,
 )
 
@@ -22,6 +24,30 @@ class P018PowerCoalescenceTests(unittest.TestCase):
             [coalescence_root_constant(r) for r in range(1, 7)],
             [1, 2, 3, 4, 5, 6],
         )
+
+    def test_exact_total_divisor_root_fibers(self):
+        for root_exp in range(1, 6):
+            for n in range(1, 180):
+                max_root = max(1, int(n ** (1 / root_exp)) + 2)
+                for target in range(1, max_root + 1):
+                    data = total_divisor_root_fiber(n, root_exp, target)
+                    labels = data["positive_divisor_labels"]
+                    expected = tuple(
+                        d
+                        for d in range(1, n + 2)
+                        if power_basin_cross_root(
+                            max(1, n), n, 1, root_exp, d
+                        ) == target
+                    )
+                    self.assertEqual(labels, expected)
+                    self.assertEqual(
+                        data["positive_capacity"],
+                        exact_root_fiber_capacity(n, root_exp, target),
+                    )
+                    self.assertEqual(
+                        data["positive_capacity"],
+                        data["upper_inclusive"] - data["lower_exclusive"],
+                    )
 
     def test_exhaustive_small_cross_root_collisions(self):
         saw = False
@@ -123,6 +149,14 @@ class P018PowerCoalescenceTests(unittest.TestCase):
                         self.assertEqual(
                             block["divisor_hits"],
                             tuple(range(block["left"], block["right"] + 1)),
+                        )
+                        exact = total_divisor_root_fiber(
+                            block["n"], root_exp, block["common_root"]
+                        )
+                        self.assertTrue(
+                            set(block["divisor_hits"]).issubset(
+                                exact["positive_divisor_labels"]
+                            )
                         )
                         self.assertLessEqual(
                             block["multiplicity"], block["multiplicity_cap"]
@@ -236,6 +270,10 @@ class P018PowerCoalescenceTests(unittest.TestCase):
     def test_validation(self):
         with self.assertRaises(ValueError):
             coalescence_root_constant(0)
+        with self.assertRaises(ValueError):
+            total_divisor_root_fiber(10, 0, 1)
+        with self.assertRaises(ValueError):
+            total_divisor_root_fiber(10, 2, 0)
         with self.assertRaises(ValueError):
             cross_root_coalescence_horizon(0, 2, 2)
         with self.assertRaises(ValueError):
