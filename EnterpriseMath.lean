@@ -9,6 +9,7 @@ import EnterpriseMath.Precision.Carry
 import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.QuotientCoalescence
+import EnterpriseMath.Precision.QuotientRootFiber
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootAdjacentBoundary
 import EnterpriseMath.Quotient.PowerFreeActionBasis
