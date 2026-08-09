@@ -69,8 +69,8 @@ theorem root_state_horizon_tangent_gap
     calc
       (H - (s + 1)) * (H + 1) ^ (s + 1) +
           (s + 1) * (H + 1) ^ (s + 1)
-          = ((H - (s + 1)) + (s + 1)) * (H + 1) ^ (s + 1) := by
-              rw [Nat.add_mul]
+          = ((H - (s + 1)) + (s + 1)) * (H + 1) ^ (s + 1) :=
+            (Nat.add_mul (H - (s + 1)) (s + 1) ((H + 1) ^ (s + 1))).symm
       _ = H * (H + 1) ^ (s + 1) := by rw [← hDecomp]
       _ < H ^ (s + 2) + (s + 1) * (H + 1) ^ (s + 1) := hHX
   omega
@@ -90,8 +90,15 @@ theorem root_state_denominator_band_lower_kernel
   have hOrder : s + 1 ≤ H := by
     nlinarith [hqPos, hqLower]
   have hGap := root_state_horizon_tangent_gap hOrder
+  have hQDecomp : q = (q - 1) + 1 := by omega
+  have hQExpanded : (s + 1) * (q - 1) + (s + 1) ≤ H := by
+    calc
+      (s + 1) * (q - 1) + (s + 1)
+          = (s + 1) * ((q - 1) + 1) := by ring
+      _ = (s + 1) * q := by rw [← hQDecomp]
+      _ ≤ H := hqLower
   have hQSpan : (s + 1) * (q - 1) ≤ H - (s + 1) := by
-    nlinarith [hqLower]
+    omega
   have hScaledQ :
       (s + 1) * ((q - 1) * (H + 1) ^ (s + 1)) < (s + 1) * n := by
     calc
