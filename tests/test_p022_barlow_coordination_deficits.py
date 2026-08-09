@@ -69,10 +69,11 @@ def test_arithmetic_holes_appear_in_shell_cardinality_image() -> None:
     assert 3 not in possible_shell_cardinality_deficits(4)
 
     # Odd radius five has only even pronic-sum deficits and also additional
-    # holes inside that even range.
+    # holes inside that even range.  Here 8 is represented (2+6); 10 is not.
     deficits = possible_shell_cardinality_deficits(5)
     assert all(deficit % 2 == 0 for deficit in deficits)
-    assert 8 not in deficits
+    assert 8 in deficits
+    assert 10 not in deficits
 
 
 def test_multiple_arithmetic_representations_can_merge_drift_allocations() -> None:
