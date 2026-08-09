@@ -1,13 +1,18 @@
 """Exact coordination-shell precision for arbitrary Barlow stackings.
 
 Unlike geodesic path multiplicity, the number of vertices in a whole native
-graph shell collapses almost all intermediate stacking information.  At radius
+graph shell collapses almost all intermediate stacking information. At radius
 n it depends only on the squared imbalances of the two extreme layer prefixes:
 
     4*S_n = 42*n^2 + 8 - delta_n^2 - delta_-n^2.
 
 The corresponding ball count depends only on the cumulative quadratic drift
-energy.  These are geometry-specific task-relative precision coordinates.
+energy.
+
+A stricter coordinate-sensitive existence language retains more information:
+the first axial moment of either the mandatory vertical support or any selected
+shell layer recovers the signed prefix imbalance itself. Thus ``set`` and
+``cardinality(set)`` have different exact precision requirements.
 """
 
 from __future__ import annotations
@@ -31,9 +36,9 @@ def _require_imbalance(vertical_length: int, imbalance: int) -> None:
 def barlow_vertical_support_size(vertical_length: int, imbalance: int) -> int:
     """Number of endpoints reachable by the mandatory monotone vertical word.
 
-    Put ``d=|delta|`` and ``c=(vertical_length-d)/2``.  The vertical witness
+    Put ``d=|delta|`` and ``c=(vertical_length-d)/2``. The vertical witness
     support is the Minkowski sum of a triangular hex-ball ``H_c`` and an
-    oriented discrete triangle ``Delta_d``.  Its lattice-point count is
+    oriented discrete triangle ``Delta_d``. Its lattice-point count is
 
         K(c,d) = 3c^2 + 3(d+1)c + C(d+2,2).
     """
@@ -47,6 +52,48 @@ def barlow_vertical_support_size(vertical_length: int, imbalance: int) -> int:
     )
 
 
+def barlow_vertical_support_first_moment(
+    vertical_length: int, imbalance: int
+) -> int:
+    """Sum of either axial coordinate over the vertical support set.
+
+    For positive drift the support ``H_c+Delta_d^+`` is equivalent, after the
+    change of variables
+
+        x=q+c, y=r+c, z=c+d-q-r,
+
+    to triples with fixed sum ``x+y+z=3c+d`` and symmetric upper bounds. The
+    set is invariant under permutation of x,y,z, so their average is
+    ``(3c+d)/3``. Hence the q/r centroid is ``d/3``. Negative drift is the
+    reflected set. Therefore
+
+        sum q = sum r = delta*K/3.
+    """
+    size = barlow_vertical_support_size(vertical_length, imbalance)
+    numerator = imbalance * size
+    if numerator % 3:
+        raise AssertionError("Barlow support moment must be integral")
+    return numerator // 3
+
+
+def recover_imbalance_from_vertical_support_moment(
+    vertical_length: int, support_size: int, first_moment: int
+) -> int:
+    """Recover signed prefix imbalance from coordinate-sensitive support data."""
+    _require_natural("vertical_length", vertical_length)
+    _require_natural("support_size", support_size)
+    if isinstance(first_moment, bool) or not isinstance(first_moment, int):
+        raise ValueError("first_moment must be an integer")
+    if support_size == 0:
+        raise ValueError("support_size must be positive")
+    numerator = 3 * first_moment
+    if numerator % support_size:
+        raise ValueError("support moments are incompatible with a Barlow prefix")
+    imbalance = numerator // support_size
+    _require_imbalance(vertical_length, imbalance)
+    return imbalance
+
+
 def barlow_layer_shell_vertex_count(
     radius: int, target_layer: int, imbalance: int
 ) -> int:
@@ -56,7 +103,7 @@ def barlow_layer_shell_vertex_count(
     vertical support lies on the shell, so the answer is ``K(c,d)``.
 
     For a non-extreme layer, adding ``t=radius-|k|>0`` triangular steps expands
-    the support from ``H_c+Delta_d`` to ``H_(c+t)+Delta_d``.  Taking the
+    the support from ``H_c+Delta_d`` to ``H_(c+t)+Delta_d``. Taking the
     difference of consecutive support sizes gives
 
         3*(2*radius-|k|),
@@ -75,6 +122,49 @@ def barlow_layer_shell_vertex_count(
     if vertical == radius:
         return barlow_vertical_support_size(vertical, imbalance)
     return 3 * (2 * radius - vertical)
+
+
+def barlow_layer_shell_first_moment(
+    radius: int, target_layer: int, imbalance: int
+) -> int:
+    """Sum of either axial coordinate over one exact shell-layer set.
+
+    The expanded support ``H_s+Delta_d`` has the same centroid ``delta/3`` for
+    every s.  A non-extreme shell layer is the set difference of two nested
+    expanded supports, so its centroid remains ``delta/3``. Thus
+
+        M = delta * S_layer / 3.
+
+    For non-extreme layers, ``S_layer=3(2n-|k|)``, giving the especially simple
+
+        M = delta * (2n-|k|).
+    """
+    size = barlow_layer_shell_vertex_count(radius, target_layer, imbalance)
+    numerator = imbalance * size
+    if numerator % 3:
+        raise AssertionError("Barlow shell-layer first moment must be integral")
+    return numerator // 3
+
+
+def recover_imbalance_from_shell_layer_moment(
+    radius: int, target_layer: int, layer_size: int, first_moment: int
+) -> int:
+    """Recover signed imbalance from a coordinate-sensitive shell layer."""
+    _require_natural("radius", radius)
+    if isinstance(target_layer, bool) or not isinstance(target_layer, int):
+        raise ValueError("target_layer must be an integer")
+    _require_natural("layer_size", layer_size)
+    if isinstance(first_moment, bool) or not isinstance(first_moment, int):
+        raise ValueError("first_moment must be an integer")
+    vertical = abs(target_layer)
+    if vertical > radius or layer_size == 0:
+        raise ValueError("layer must be represented inside the shell")
+    numerator = 3 * first_moment
+    if numerator % layer_size:
+        raise ValueError("shell-layer moment is incompatible with Barlow geometry")
+    imbalance = numerator // layer_size
+    _require_imbalance(vertical, imbalance)
+    return imbalance
 
 
 def extreme_layer_vertex_count(radius: int, imbalance: int) -> int:
