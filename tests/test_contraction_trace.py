@@ -8,6 +8,7 @@ from enterprise_math.contraction_trace import (
     fiber_witness_interval,
     fiber_witness_multiplicity,
     oriented_contraction_history_count,
+    reverse_boundary_witness,
     two_block_argmin_profile,
     unoriented_partition_chain_count,
 )
@@ -108,6 +109,26 @@ class ContractionTraceTests(unittest.TestCase):
                             slack,
                         )
                         self.assertLessEqual(left, right)
+
+    def test_reverse_history_reproduces_nonassociative_witness_counterexample(self):
+        chain = (
+            ((0,), (1,)),
+            ((0, 1), (2,)),
+            ((0, 1, 2), (3,)),
+        )
+        balanced = (
+            ((0,), (1,)),
+            ((2,), (3,)),
+            ((0, 1), (2, 3)),
+        )
+        self.assertEqual(
+            reverse_boundary_witness(4, 2, 16, chain),
+            (2, 1, 0, -3),
+        )
+        self.assertEqual(
+            reverse_boundary_witness(4, 2, 16, balanced),
+            (2, 2, -2, -2),
+        )
 
     def test_partition_chain_counts(self):
         for slot_count in range(1, 9):
