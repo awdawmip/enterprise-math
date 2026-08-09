@@ -18,7 +18,7 @@ def ObservationCompatible {α β : Type*} (O : α → β) (F : α → α) : Prop
     SameObservedThrough O F 0 x y ↔ O x = O y := by
   constructor
   · intro h
-    simpa using h 0 le_rfl
+    simpa using h 0 (Nat.le_refl 0)
   · intro h i hi
     have : i = 0 := Nat.eq_zero_of_le_zero hi
     subst i
@@ -31,7 +31,7 @@ theorem sameObservedThrough_mono
     (h : SameObservedThrough O F n x y) :
     SameObservedThrough O F m x y := by
   intro i hi
-  exact h i (hi.trans hmn)
+  exact h i (Nat.le_trans hi hmn)
 
 /-- P018-T161 relation form: one extra observed step is current observation
 agreement plus horizon-`n` agreement after one deterministic step. -/
