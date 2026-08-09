@@ -1,24 +1,20 @@
 """Exact bulk/residual structure from a declared causal composition law.
 
-Integer subtraction is only one special way to remove already-settled bulk from
-a future observation.  The primitive object is a declared causal composition
-law
-
-    combine(bulk, increment) -> total.
-
 For fixed bulk b, left translation L_b:r -> combine(b,r) partitions reachable
-future increments into fibers.  A singleton fiber gives a uniquely recoverable
-residual.  A larger fiber is not automatically a defect: if future evolution
-continues through the same associative composition law, every increment in that
-fiber has already become causally indistinguishable after combining with b.
-Thus non-cancellativity is itself a causal collapse whose P011-style collision
-spectrum measures which future increments the current bulk has swallowed.
+future increments into residual fibers.  Singleton fibers recover an exact
+residual; larger fibers are legitimate causal collapse when future evolution
+continues through the same associative composition law.
 
-When combine is also commutative and a new bulk is obtained causally as
-`b'=combine(b,u)`, the residual partition can only coarsen: every collision under
-L_b remains a collision under L_b'.  Hence every P011 collision coordinate is
-nondecreasing along such bulk accumulation.  This is a derived precision law;
-no precision order is declared in advance.
+When combine is commutative and a new bulk is causally obtained as
+`b'=combine(b,u)`, the residual partition can only coarsen.  Therefore actual
+bulk contexts generate canonical quotient maps between residual-resolution
+states:
+
+    [r]_b -> [r]_b'.
+
+These maps compose exactly along further accumulation.  Precision/resolution is
+therefore derivable as a context-indexed family of causal quotient states rather
+than declared a priori.
 """
 
 from __future__ import annotations
@@ -49,7 +45,6 @@ def residual_candidates(
     candidate_increments: Iterable[Value],
     combine: Combine,
 ) -> tuple[Value, ...]:
-    """All distinct reachable increments r with combine(bulk,r)==total."""
     matches = []
     seen = set()
     for increment in candidate_increments:
@@ -110,7 +105,6 @@ def left_translation_partition(
     increment_values: tuple[Value, ...],
     combine: Combine,
 ) -> dict[Value, int]:
-    """Canonical finite class ids for residual increments under one bulk."""
     fibers = left_translation_fibers(bulk, increment_values, combine)
     result = {}
     for class_id, total in enumerate(sorted(fibers, key=repr)):
@@ -131,6 +125,46 @@ def partition_refines(
         for left in values
         for right in values
     )
+
+
+def residual_resolution_map(
+    fine_bulk: Value,
+    coarse_bulk: Value,
+    increment_values: tuple[Value, ...],
+    combine: Combine,
+) -> dict[int, int]:
+    """Canonical quotient map from residual classes at fine_bulk to coarse_bulk.
+
+    The map exists exactly when the first residual partition refines the second.
+    Class ids are local representation labels; the induced mapping itself is
+    representative-independent.
+    """
+    fine = left_translation_partition(fine_bulk, increment_values, combine)
+    coarse = left_translation_partition(coarse_bulk, increment_values, combine)
+    if not partition_refines(fine, coarse):
+        raise ValueError("residual partitions are not ordered by refinement")
+    mapping: dict[int, int] = {}
+    for increment in increment_values:
+        fine_class = fine[increment]
+        coarse_class = coarse[increment]
+        previous = mapping.get(fine_class)
+        if previous is not None and previous != coarse_class:
+            raise AssertionError("refinement failed to induce a class map")
+        mapping[fine_class] = coarse_class
+    return mapping
+
+
+def compose_class_maps(
+    first: dict[int, int],
+    second: dict[int, int],
+) -> dict[int, int]:
+    """Compose finite residual-resolution maps."""
+    result = {}
+    for source, middle in first.items():
+        if middle not in second:
+            raise ValueError("second class map must define every reachable middle class")
+        result[source] = second[middle]
+    return result
 
 
 def left_translation_collision_spectrum(
@@ -157,11 +191,6 @@ def bulk_extension_coarsens_residuals(
     increment_values: tuple[Value, ...],
     combine: Combine,
 ) -> bool:
-    """Check P_b refines P_(combine(b,absorbed)) on declared increments.
-
-    For an associative commutative combine this is a theorem.  The function
-    checks the resulting finite partition relation without assuming those laws.
-    """
     old = left_translation_partition(bulk, increment_values, combine)
     new_bulk = combine(bulk, absorbed)
     new = left_translation_partition(new_bulk, increment_values, combine)
@@ -217,7 +246,6 @@ def residual_signature_under_bulk_law(
     observation: Observation,
     combine: Combine,
 ) -> tuple[tuple[Value, ...], ...]:
-    """Unique-residual specialization of a declared bulk composition law."""
     if not isinstance(prefix, tuple) or any(symbol not in alphabet for symbol in prefix):
         raise ValueError("prefix symbols must belong to alphabet")
     candidates = bounded_reachable_values(alphabet, maximum_suffix_length, observation)
