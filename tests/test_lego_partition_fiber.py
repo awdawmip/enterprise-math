@@ -3,11 +3,14 @@ import unittest
 from enterprise_math.lego_partition_fiber import (
     allocation_growth_difference_order,
     balanced_minimizer_multiplicity,
+    coarse_total_allocations,
     composed_fiber_count,
     coupled_fiber_count_by_total_kernel,
+    decomposed_partition_fiber_count,
     fiber_composition_identity,
     hidden_allocation_multiplicity,
     one_step_dimension_lowering_identity,
+    partition_decomposition_identity,
     partition_fiber_multiplicity,
 )
 
@@ -43,6 +46,26 @@ class LegoPartitionFiberTests(unittest.TestCase):
             * hidden_allocation_multiplicity(3, 2),
         )
         self.assertEqual(partition_fiber_multiplicity(capacities, totals), 30)
+
+    def test_all_coarse_total_vectors_are_the_outer_lego_fiber(self):
+        for block_count in range(1, 5):
+            for total in range(6):
+                allocations = coarse_total_allocations(block_count, total)
+                self.assertTrue(all(sum(values) == total for values in allocations))
+                self.assertEqual(
+                    len(allocations),
+                    hidden_allocation_multiplicity(block_count, total),
+                )
+
+    def test_arbitrary_block_decomposition_recovers_direct_grand_total_fiber(self):
+        partitions = ((1,), (1, 2), (2, 3), (1, 2, 3), (2, 1, 2, 3))
+        for capacities in partitions:
+            for total in range(7):
+                self.assertTrue(partition_decomposition_identity(capacities, total))
+                self.assertEqual(
+                    decomposed_partition_fiber_count(capacities, total),
+                    hidden_allocation_multiplicity(sum(capacities), total),
+                )
 
     def test_fiber_composition_generates_sum_product_convolution(self):
         for left_capacity in range(1, 5):
