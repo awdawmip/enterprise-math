@@ -25,10 +25,11 @@ If ``C_R`` has full certificate rank, then
 
     [Sat(C) : C_R] = delta_H * J_H(R).
 
-For an integer generator matrix, the saturation index is the gcd of all
-maximal minors (equivalently the product of the nonzero Smith invariant
-factors).  Smith/determinantal-divisor theory is standard mathematics; this
-module is the P025 relation/certificate precision specialization.
+The scalar index alone can lose congruence structure.  The complete finite
+defect is retained by the nonzero Smith invariant factors of the labelled
+certificate-image generator matrix.  Smith/determinantal-divisor theory is
+standard mathematics; this module is the P025 relation/certificate precision
+specialization.
 """
 
 from __future__ import annotations
@@ -51,6 +52,14 @@ Matrix = tuple[tuple[int, ...], ...]
 @dataclass(frozen=True)
 class LatticeImageInvariant:
     rank: int
+    saturation_index: int
+
+
+@dataclass(frozen=True)
+class LatticeDefectSignature:
+    rank: int
+    determinantal_divisors: tuple[int, ...]
+    invariant_factors: tuple[int, ...]
     saturation_index: int
 
 
@@ -120,41 +129,79 @@ def _bareiss_determinant(rows: tuple[Vector, ...]) -> int:
     return sign * matrix[n - 1][n - 1]
 
 
-def lattice_image_invariant(generators: tuple[Vector, ...]) -> LatticeImageInvariant:
-    """Return rational rank and index in the saturated labelled lattice.
-
-    ``generators`` are integer vectors in a fixed labelled ambient ``Z^q``.
-    For rank ``d>0`` the saturation index is the gcd of all ``d x d`` minors
-    of the generator matrix.  Rank zero has the trivial index one inside its
-    zero-dimensional saturation.
-    """
+def _determinantal_divisor(generators: tuple[Vector, ...], size: int) -> int:
+    if size <= 0:
+        raise ValueError("minor size must be positive")
     if not generators:
-        return LatticeImageInvariant(rank=0, saturation_index=1)
+        return 0
     ambient = len(generators[0])
-    if any(len(vector) != ambient for vector in generators):
-        raise ValueError("all lattice generators must share labelled dimension")
-    if ambient == 0:
-        if any(vector for vector in generators):
-            raise AssertionError("zero-dimensional vector validation failed")
-        return LatticeImageInvariant(rank=0, saturation_index=1)
-    rank = rational_matrix_rank(generators)
-    if rank == 0:
-        return LatticeImageInvariant(rank=0, saturation_index=1)
-
-    minor_gcd = 0
-    row_indices = range(len(generators))
-    column_indices = range(ambient)
-    for selected_rows in combinations(row_indices, rank):
-        for selected_columns in combinations(column_indices, rank):
+    if size > min(len(generators), ambient):
+        return 0
+    divisor = 0
+    for selected_rows in combinations(range(len(generators)), size):
+        for selected_columns in combinations(range(ambient), size):
             square = tuple(
                 tuple(generators[i][j] for j in selected_columns)
                 for i in selected_rows
             )
-            determinant = abs(_bareiss_determinant(square))
-            minor_gcd = gcd(minor_gcd, determinant)
-    if minor_gcd <= 0:
-        raise AssertionError("positive-rank lattice image lost all maximal minors")
-    return LatticeImageInvariant(rank=rank, saturation_index=minor_gcd)
+            divisor = gcd(divisor, abs(_bareiss_determinant(square)))
+    return divisor
+
+
+def lattice_defect_signature(generators: tuple[Vector, ...]) -> LatticeDefectSignature:
+    """Return the complete nonzero Smith defect signature of a labelled image.
+
+    If the image has rank ``d`` and determinantal divisors ``Delta_i`` then
+
+        s_i = Delta_i / Delta_(i-1),   Delta_0 = 1
+
+    are the nonzero Smith invariant factors and
+
+        Sat(C)/C ~= direct_sum_i Z/s_i Z.
+
+    Factors equal to one are retained so rank information remains explicit.
+    """
+    if not generators:
+        return LatticeDefectSignature(0, (), (), 1)
+    ambient = len(generators[0])
+    if any(len(vector) != ambient for vector in generators):
+        raise ValueError("all lattice generators must share labelled dimension")
+    if ambient == 0:
+        return LatticeDefectSignature(0, (), (), 1)
+    rank = rational_matrix_rank(generators)
+    if rank == 0:
+        return LatticeDefectSignature(0, (), (), 1)
+
+    divisors: list[int] = []
+    previous = 1
+    factors: list[int] = []
+    for size in range(1, rank + 1):
+        current = _determinantal_divisor(generators, size)
+        if current <= 0:
+            raise AssertionError("positive-rank image lost required determinantal divisor")
+        if current % previous:
+            raise AssertionError("determinantal divisors must form a divisibility chain")
+        factor = current // previous
+        if factors and factor % factors[-1]:
+            raise AssertionError("Smith invariant factors must divide their successors")
+        divisors.append(current)
+        factors.append(factor)
+        previous = current
+    return LatticeDefectSignature(
+        rank=rank,
+        determinantal_divisors=tuple(divisors),
+        invariant_factors=tuple(factors),
+        saturation_index=divisors[-1],
+    )
+
+
+def lattice_image_invariant(generators: tuple[Vector, ...]) -> LatticeImageInvariant:
+    """Return rational rank and index in the saturated labelled lattice."""
+    signature = lattice_defect_signature(generators)
+    return LatticeImageInvariant(
+        rank=signature.rank,
+        saturation_index=signature.saturation_index,
+    )
 
 
 def certificate_basis_generators(
