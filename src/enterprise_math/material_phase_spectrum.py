@@ -13,8 +13,10 @@ There are ``C-1`` such phases.  Let ``g=min(g_pre,g_post)``.  At spatial factor
 * ``g<d`` enters interaction-layer depth ``k=d-g`` and returns integer motion
   budget ``floor(B*R_k/A)`` from the declared RETURNING material branch.
 
-This module counts phases by outcome exactly.  Counts are combinatorial, not
-probabilities unless an external phase distribution is separately declared.
+This module counts phases by outcome exactly and also sums returned integer
+budget over all represented phases.  Counts and sums are combinatorial; they are
+not probabilities, energy, or expected values unless an external interpretation
+is separately declared.
 """
 
 from __future__ import annotations
@@ -49,6 +51,7 @@ class MaterialPhaseSpectrum1D:
     transmitting_phases: int
     rebound_phases: int
     rebound_bins: tuple[ReboundPhaseBin, ...]
+    total_returned_budget_over_phases: int
 
 
 def controlling_gap_phase_multiplicity(clearance_sum: int, controlling_gap: int) -> int:
@@ -91,7 +94,6 @@ def material_phase_spectrum(
     effective = minimum_positive_clearance_crossing_displacement(wall, radius)
     clearance_sum = displacement - effective + 2
     if clearance_sum < 2:
-        positive_phases = 0
         return MaterialPhaseSpectrum1D(
             wall_thickness=wall.thickness_cells,
             body_diameter=2 * radius + 1,
@@ -103,6 +105,7 @@ def material_phase_spectrum(
             transmitting_phases=0,
             rebound_phases=0,
             rebound_bins=(),
+            total_returned_budget_over_phases=0,
         )
 
     if collapse_factor - 1 >= len(material_profile.returning):
@@ -142,6 +145,9 @@ def material_phase_spectrum(
         ReboundPhaseBin(returned_budget=budget, phase_count=count)
         for budget, count in sorted(rebound_counts.items())
     )
+    total_returned = sum(
+        item.returned_budget * item.phase_count for item in bins
+    )
     return MaterialPhaseSpectrum1D(
         wall_thickness=wall.thickness_cells,
         body_diameter=2 * radius + 1,
@@ -153,4 +159,5 @@ def material_phase_spectrum(
         transmitting_phases=transmitting,
         rebound_phases=rebound_phases,
         rebound_bins=bins,
+        total_returned_budget_over_phases=total_returned,
     )
