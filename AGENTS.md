@@ -6,11 +6,24 @@ Before substantive mathematical or engineering research:
 
 1. read `docs/RESEARCH_COMMON_SURFACE.en.md` (or the Chinese semantic pair);
 2. read `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`;
-3. read `docs/RESEARCH_OWNER_ISOLATION.en.md`;
-4. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
-5. read the latest relevant entries in Research Relay Issue #82;
-6. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family;
-7. when the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md` and relevant entries in Foundation Problem Set Issue #164.
+3. read `research_scheduler.json` and the live Research Dispatch Board Issue #240;
+4. read `docs/RESEARCH_OWNER_ISOLATION.en.md`;
+5. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
+6. read the latest relevant entries in Research Relay Issue #82;
+7. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family;
+8. when the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md` and relevant entries in Foundation Problem Set Issue #164.
+
+Dispatch and handoff rules:
+
+- an explicit current user task always overrides automatic dispatch;
+- when a new research conversation has no user-selected task, reduce the live Issue #240 scheduler events against `research_scheduler.json`, select the highest-ranked eligible `HANDOFF_READY`/`READY` research task, and post a valid `CLAIM` before substantive task-specific work;
+- a claim is a renewable lease, not permanent ownership; the default lease duration is defined by `research_scheduler.json`;
+- `PROGRESS` and `HEARTBEAT` renew a live claim; prefer `PROGRESS` whenever there is a meaningful mathematical or engineering checkpoint to record;
+- an unfinished session must end with `HANDOFF` containing the last progress reference and one concrete `next_action`; do not silently abandon a route;
+- if an executor disappears, claim expiry returns the task to `NEEDS_DISPATCH`; another conversation may then claim it;
+- `DONE` closes only the declared scheduler frontier; it does not by itself promote a theorem to canonical `main`;
+- a partial or informal blocker is invalid. Only the complete four-field `HARD_BLOCK` defined by the scheduling protocol and scheduler may stop dispatch;
+- runtime claim/heartbeat/handoff state belongs on Issue #240, not in theorem prose or branch history.
 
 Scheduling rules:
 
@@ -38,4 +51,4 @@ Foundation stewardship:
 - after minimum verification, such findings are posted to Issue #164 with a stable `FQ-*` ID for other researchers to claim;
 - researchers answering an `FQ-*` item supply proof/counterexample/tool evidence and scope; the steward verifies before canonicalization.
 
-If `hard_block = NONE`, continue the route's best available mathematical frontier rather than waiting for another branch, conversation, review, or integration replay.
+If `hard_block = NONE`, continue the route's best available mathematical frontier rather than waiting for another branch, conversation, review, CI checkpoint, or integration replay. If the current executor cannot continue in this session, hand the route back to the scheduler instead of leaving it silently unstaffed.
