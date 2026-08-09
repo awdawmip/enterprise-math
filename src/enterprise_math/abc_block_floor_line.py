@@ -18,10 +18,7 @@ from dataclasses import dataclass
 from math import gcd, lcm
 
 from .abc_block_value_lattice import block_value_lattice_invariants
-from .abc_block_value_quotient import (
-    block_derivative_access_value,
-    block_value_witness_state,
-)
+from .abc_block_value_quotient import block_value_witness_state
 from .abc_support import abc_support_state
 from .abc_unit_relation import (
     raw_block_derivative_coefficients,
@@ -84,11 +81,11 @@ def block_value_lattice_basis(a: int, b: int, c: int) -> tuple[tuple[int, int], 
 
     if A == 0:
         if a != 1 or B <= 0 or C <= 0:
-            raise AssertionError("unexpected zero block image generator")
+            raise ValueError("floor line requires at least two non-unit blocks")
         return ((0, lcm(B, C)),)
     if B == 0:
         if b != 1 or A <= 0 or C <= 0:
-            raise AssertionError("unexpected zero block image generator")
+            raise ValueError("floor line requires at least two non-unit blocks")
         return ((lcm(A, C), 0),)
     if C == 0:
         raise AssertionError("c=a+b cannot be a unit block")
@@ -178,33 +175,16 @@ def _coordinate_target_bound(n: int, radius: int) -> int:
     return radius * sum(abs(value) for _prime, value in coefficients)
 
 
-def _integer_parameter_interval(
-    origin: int, step: int, bound: int
-) -> tuple[int, int] | None:
-    """Return integer k with ``|origin+k*step|<=bound``."""
-    if bound < 0:
-        raise ValueError("bound must be non-negative")
-    if step == 0:
-        return None if abs(origin) > bound else (-10**100, 10**100)
-    if step > 0:
-        lo = -((-bound - origin) // step)
-        hi = (bound - origin) // step
-    else:
-        s = -step
-        lo = -((bound - origin) // s)
-        # Need ceil((origin-bound)/s) after rewriting origin-s*k.
-        lo = -((bound - origin) // s)
-        hi = (bound + origin) // s
-        # Re-derive robustly by sign flip: |origin-step_abs*k|<=bound.
-        lo = -((- (origin - bound)) // s)
-        hi = (origin + bound) // s
-    if lo > hi:
-        return None
-    return lo, hi
+def _ceil_div(numerator: int, positive_denominator: int) -> int:
+    if positive_denominator <= 0:
+        raise ValueError("denominator must be positive")
+    return -((-numerator) // positive_denominator)
 
 
 def _interval_for_abs_affine(origin: int, step: int, bound: int) -> tuple[int, int] | None:
-    """Robust integer interval for ``-bound <= origin+step*k <= bound``."""
+    """Return all integer ``k`` satisfying ``|origin+step*k|<=bound``."""
+    if bound < 0:
+        raise ValueError("bound must be non-negative")
     if step == 0:
         if abs(origin) > bound:
             return None
@@ -212,7 +192,7 @@ def _interval_for_abs_affine(origin: int, step: int, bound: int) -> tuple[int, i
     if step < 0:
         origin = -origin
         step = -step
-    lo = -((-bound - origin) // step)
+    lo = _ceil_div(-bound - origin, step)
     hi = (bound - origin) // step
     if lo > hi:
         return None
