@@ -1,17 +1,15 @@
-"""E001 finite material-curve composition over integer amplitude samples.
+"""E001 finite material-curve composition over integer response samples.
 
-The functions in this module are curve constructors and finite observables, not
-physical constitutive laws. They intentionally use only natural/integer
-arithmetic and the existing integer nth-root primitive.
+The functions in this module are finite curve constructors/observables, not
+physical constitutive laws.  A complete material profile has two explicit
+branches—loading/compression and returning/rebound—on one common finite response
+scale.
 
-A material response is kept as two explicit branches:
-
-* loading/compression;
-* return/rebound.
-
-Different transforms, retention factors, offsets, or future precision policies
-may be assigned to the two branches. Their difference is retained as finite
-history structure instead of being hidden inside one generic bounce command.
+A validated loading branch alone is deliberately **not** a complete profile.
+Empirical data may enter world dynamics only after a return branch is supplied
+by independent data or by an explicitly declared modeling/comparator policy.
+The helper ``explicit_material_curve_profile`` exists to make that assembly
+visible instead of silently inventing unloading behavior.
 """
 
 from __future__ import annotations
@@ -127,6 +125,32 @@ class MaterialCurveProfile:
     peak_returning: int
 
 
+def explicit_material_curve_profile(
+    loading: tuple[int, ...] | list[int],
+    returning: tuple[int, ...] | list[int],
+    amplitude: int,
+) -> MaterialCurveProfile:
+    """Assemble a complete profile from two explicitly supplied finite branches."""
+    _require_positive("amplitude", amplitude)
+    load = tuple(loading)
+    ret = tuple(returning)
+    if not load or len(load) != len(ret):
+        raise ValueError("loading and return branches must be equal nonempty sequences")
+    for sample in load:
+        _validate_sample(sample, amplitude)
+    for sample in ret:
+        _validate_sample(sample, amplitude)
+    return MaterialCurveProfile(
+        amplitude=amplitude,
+        loading=load,
+        returning=ret,
+        branch_gap=branch_gap_sum(load, ret),
+        signed_area=signed_branch_area(load, ret),
+        peak_loading=max(load),
+        peak_returning=max(ret),
+    )
+
+
 def material_curve_profile(
     base_samples: tuple[int, ...] | list[int],
     amplitude: int,
@@ -135,6 +159,7 @@ def material_curve_profile(
     return_retention: int | None = None,
     return_offset: int = 0,
 ) -> MaterialCurveProfile:
+    """Generate both branches from one declared intrinsic/program-like base curve."""
     _require_positive("amplitude", amplitude)
     _require_positive("loading_power", loading_power)
     _require_positive("return_power", return_power)
@@ -157,13 +182,4 @@ def material_curve_profile(
         returning = tuple(
             offset_sample(sample, amplitude, return_offset) for sample in returning
         )
-
-    return MaterialCurveProfile(
-        amplitude=amplitude,
-        loading=loading,
-        returning=returning,
-        branch_gap=branch_gap_sum(loading, returning),
-        signed_area=signed_branch_area(loading, returning),
-        peak_loading=max(loading, default=0),
-        peak_returning=max(returning, default=0),
-    )
+    return explicit_material_curve_profile(loading, returning, amplitude)

@@ -2,6 +2,7 @@ import unittest
 
 from enterprise_math.material_response import (
     branch_gap_sum,
+    explicit_material_curve_profile,
     hardening_branch,
     hardening_sample,
     material_curve_profile,
@@ -82,6 +83,34 @@ class MaterialResponseTests(unittest.TestCase):
         self.assertEqual(profile.branch_gap, 687)
         self.assertEqual(profile.signed_area, 624)
 
+    def test_explicit_profile_requires_both_branches_instead_of_inventing_return(self):
+        profile = explicit_material_curve_profile(
+            loading=(0, 20, 60, 100),
+            returning=(0, 10, 35, 70),
+            amplitude=100,
+        )
+        self.assertEqual(profile.loading, (0, 20, 60, 100))
+        self.assertEqual(profile.returning, (0, 10, 35, 70))
+        self.assertEqual(profile.peak_loading, 100)
+        self.assertEqual(profile.peak_returning, 70)
+        self.assertEqual(profile.branch_gap, 65)
+        self.assertEqual(profile.signed_area, 65)
+
+    def test_loading_only_data_cannot_be_promoted_to_complete_profile(self):
+        with self.assertRaises(ValueError):
+            explicit_material_curve_profile((0, 10, 20), (), amplitude=20)
+        with self.assertRaises(ValueError):
+            explicit_material_curve_profile((0, 10, 20), (0, 10), amplitude=20)
+
+    def test_response_amplitude_is_distinct_from_branch_length(self):
+        profile = explicit_material_curve_profile(
+            (0, 50, 100),
+            (0, 25, 75),
+            amplitude=100,
+        )
+        self.assertEqual(profile.amplitude, 100)
+        self.assertEqual(len(profile.loading), 3)
+
     def test_branch_gap_and_signed_area_are_distinct(self):
         self.assertEqual(branch_gap_sum((0, 2, 5, 4), (0, 3, 1, 4)), 4)
         self.assertEqual(signed_branch_area((0, 2, 5, 4), (0, 3, 1, 4)), 3)
@@ -101,6 +130,8 @@ class MaterialResponseTests(unittest.TestCase):
             softening_sample(1, 10, 0)
         with self.assertRaises(ValueError):
             retained_sample(1, 10, 11)
+        with self.assertRaises(ValueError):
+            explicit_material_curve_profile((0, 11), (0, 10), amplitude=10)
 
 
 if __name__ == "__main__":
