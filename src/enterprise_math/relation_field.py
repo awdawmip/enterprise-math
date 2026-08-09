@@ -4,10 +4,10 @@ For slot values x_i define d_ij=x_i-x_j. The full field is antisymmetric and
 cycle-closed, reconstructs the slot values once the root total is fixed, and
 produces every contraction imbalance as a cut sum.
 
-A complete field is symmetric but redundant. Choosing one anchor slot yields
-N-1 difference coordinates plus one modulo-N legality condition; this is a
-tight current-state coordinate chart, separate from hierarchical contraction
-charts used for local merge/split operations.
+A complete field is symmetric but redundant. Anchor differences use N-1
+coordinates plus one modulo-N legality condition. For a fixed total, an
+oriented spanning-tree subtree-sum chart is tighter still: arbitrary N-1
+integer flows reconstruct a unique integer state, so this chart is unimodular.
 """
 
 from __future__ import annotations
@@ -40,10 +40,7 @@ def _require_field(field: RelationField) -> None:
 def pair_difference_field(values: tuple[int, ...]) -> RelationField:
     """Return the complete integer relation field d_ij=x_i-x_j."""
     _require_values(values)
-    return tuple(
-        tuple(left - right for right in values)
-        for left in values
-    )
+    return tuple(tuple(left - right for right in values) for left in values)
 
 
 def relation_field_is_closed(field: RelationField) -> bool:
@@ -100,11 +97,7 @@ def anchor_difference_coordinates(
     if isinstance(anchor, bool) or not isinstance(anchor, int) or not 0 <= anchor < size:
         raise ValueError("anchor must index the values tuple")
     anchor_value = values[anchor]
-    return tuple(
-        values[index] - anchor_value
-        for index in range(size)
-        if index != anchor
-    )
+    return tuple(values[index] - anchor_value for index in range(size) if index != anchor)
 
 
 def recover_values_from_anchor_coordinates(
@@ -173,9 +166,118 @@ def field_from_anchor_coordinates(
     coordinates: tuple[int, ...], total: int, anchor: int | None = None
 ) -> RelationField:
     """Recover the complete pair relation field from a tight anchor chart."""
-    return pair_difference_field(
-        recover_values_from_anchor_coordinates(coordinates, total, anchor)
-    )
+    return pair_difference_field(recover_values_from_anchor_coordinates(coordinates, total, anchor))
+
+
+def _rooted_tree_children(
+    parents: tuple[int, ...], root: int
+) -> tuple[tuple[int, ...], ...]:
+    if not isinstance(parents, tuple) or not parents:
+        raise ValueError("parents must be a non-empty tuple")
+    size = len(parents)
+    if isinstance(root, bool) or not isinstance(root, int) or not 0 <= root < size:
+        raise ValueError("root must index the parent tuple")
+    if parents[root] != -1:
+        raise ValueError("the root parent must be -1")
+    children = [[] for _ in range(size)]
+    for vertex, parent in enumerate(parents):
+        if vertex == root:
+            continue
+        if isinstance(parent, bool) or not isinstance(parent, int) or not 0 <= parent < size:
+            raise ValueError("every non-root parent must be a valid vertex index")
+        children[parent].append(vertex)
+
+    visited: set[int] = set()
+
+    def visit(vertex: int) -> None:
+        if vertex in visited:
+            raise ValueError("parents must define an acyclic rooted tree")
+        visited.add(vertex)
+        for child in children[vertex]:
+            visit(child)
+
+    visit(root)
+    if len(visited) != size:
+        raise ValueError("parents must define one connected rooted tree")
+    return tuple(tuple(group) for group in children)
+
+
+def tree_flow_coordinates(
+    values: tuple[int, ...], parents: tuple[int, ...], root: int
+) -> tuple[int, ...]:
+    """Return N-1 subtree-sum flow coordinates on a rooted spanning tree.
+
+    For each non-root vertex v, the coordinate is the sum of x_i over the
+    rooted subtree below v. Coordinates are returned in increasing vertex order
+    with the root omitted.
+    """
+    _require_values(values)
+    if len(values) != len(parents):
+        raise ValueError("values and parents must have the same size")
+    children = _rooted_tree_children(parents, root)
+    subtree_sum = [0] * len(values)
+
+    def accumulate(vertex: int) -> int:
+        total = values[vertex]
+        for child in children[vertex]:
+            total += accumulate(child)
+        subtree_sum[vertex] = total
+        return total
+
+    accumulate(root)
+    return tuple(subtree_sum[vertex] for vertex in range(len(values)) if vertex != root)
+
+
+def recover_values_from_tree_flows(
+    flows: tuple[int, ...], total: int, parents: tuple[int, ...], root: int
+) -> tuple[int, ...]:
+    """Recover a fixed-total integer state from arbitrary tree-flow coordinates.
+
+    Every integer flow tuple is legal. For non-root v,
+
+        x_v = flow_v - sum(flow_child),
+
+    while
+
+        x_root = total - sum(flow_child_of_root).
+    """
+    if not isinstance(flows, tuple):
+        raise ValueError("flows must be a tuple")
+    if any(isinstance(value, bool) or not isinstance(value, int) for value in flows):
+        raise ValueError("flows must be integers")
+    if isinstance(total, bool) or not isinstance(total, int):
+        raise ValueError("total must be an integer")
+    children = _rooted_tree_children(parents, root)
+    size = len(parents)
+    if len(flows) != size - 1:
+        raise ValueError("a spanning-tree chart needs exactly N-1 flows")
+
+    flow_by_vertex: dict[int, int] = {}
+    flow_index = 0
+    for vertex in range(size):
+        if vertex == root:
+            continue
+        flow_by_vertex[vertex] = flows[flow_index]
+        flow_index += 1
+
+    values = [0] * size
+    for vertex in range(size):
+        child_flow = sum(flow_by_vertex[child] for child in children[vertex])
+        if vertex == root:
+            values[vertex] = total - child_flow
+        else:
+            values[vertex] = flow_by_vertex[vertex] - child_flow
+    result = tuple(values)
+    if sum(result) != total:
+        raise AssertionError("tree-flow reconstruction must preserve total")
+    return result
+
+
+def tree_flow_chart_index(slot_count: int) -> int:
+    """Fixed-total spanning-tree flow charts are unimodular: index one."""
+    if isinstance(slot_count, bool) or not isinstance(slot_count, int) or slot_count <= 0:
+        raise ValueError("slot_count must be a positive integer")
+    return 1
 
 
 def block_cut_sum(
