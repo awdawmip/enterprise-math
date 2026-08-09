@@ -166,6 +166,80 @@ If nature has a maximum resolution, this chain terminates. No infinite completio
 
 ## 5A. Represented precision and future-safe precision
 
+### Classical functional-kernel interface
+
+For the generic mathematical interface, let \(X\) be a typed state carrier. This does **not** replace the project-specific integer specialization \(X=\mathbb N_0\) where the primitive arithmetic/physical hypothesis applies.
+
+Any deterministic map
+
+\[
+f:X\to Y
+\]
+
+induces its ordinary functional kernel (fiber equivalence)
+
+\[
+x\sim_f y
+\quad\Longleftrightarrow\quad
+f(x)=f(y).
+\]
+
+For a current observation \(O:X\to A\), equality in \(\ker(O)\) is therefore **observational equality**, not exact state equality unless \(O\) is injective.
+
+Now declare a family/language \(W\) of deterministic future experiments together with the observations that are required after them. Package the required future outputs into a signature
+
+\[
+\Sigma_W:X\to S_W.
+\]
+
+The equality relation
+
+\[
+x\sim_W y
+\quad\Longleftrightarrow\quad
+\Sigma_W(x)=\Sigma_W(y)
+\]
+
+is the functional kernel for that **declared** future language. If the current observation is included among the outputs represented by \(\Sigma_W\), then, writing \(\Delta_X\) for exact equality,
+
+\[
+\boxed{
+\Delta_X\subseteq\ker(\Sigma_W)\subseteq\ker(O).
+}
+\]
+
+Thus exact state equality, current observational equality, and future-safe equality are distinct layers unless additional hypotheses make them coincide.
+
+Deterministic postcomposition cannot split a functional kernel: for any \(g\),
+
+\[
+\boxed{
+\ker(f)\subseteq\ker(g\circ f).
+}
+\]
+
+This is the generic kernel form of the history-merging law used in A1/T012.
+
+A coordinate \(\delta:X\to D\), or a pair coordinate \(\delta:X\times X\to D\), may replace the underlying state information for a declared task only after an explicit sufficiency/factorization theorem. For example,
+
+\[
+O=h\circ\delta
+\]
+
+is exact sufficiency for the current observation, while
+
+\[
+\Sigma_W=H\circ\delta
+\]
+
+is exact sufficiency for the declared future signature. Without such a factorization, a difference, defect, critical-grid coordinate, or other compressed diagnostic is not automatically a dynamically complete state.
+
+A **state pair** at this layer is simply an element of the ordinary product \(X\times X\); it is not a separate primitive ontology.
+
+This lower interface is deliberately functional. A3 structured/weighted relation-state may retain information beyond functional-kernel membership, and A4 multivalued support/correspondence may admit several future images. Neither is identified with one functional kernel without an explicit selection/factorization theorem.
+
+These kernel/fiber, factorization, future-distinguishability, and partition-refinement ideas are classical prior mathematics. Enterprise Math makes no novelty claim for the generic abstraction; P023/P024 and other owners provide the project-specific exact arithmetic specializations and repair results.
+
 A represented precision is an explicit many-to-one partition of the current fine state space. It says which current states are represented as the same state at the declared resolution.
 
 That partition is not automatically sufficient for every future computation.

@@ -164,6 +164,80 @@ Q_B(a)=\max\{q\in\mathbb N_0:qB\le a\}.
 
 ## 五-A、表示精度与未来安全精度
 
+### 经典 functional-kernel 接口
+
+对一般数学接口，令 \(X\) 为一个有类型的状态载体。这**不会**替代进取数论在原始算术/物理假设适用处采用的项目特定整数特化 \(X=\mathbb N_0\)。
+
+任意确定性映射
+
+\[
+f:X\to Y
+\]
+
+都诱导普通的 functional kernel（fiber 等价关系）
+
+\[
+x\sim_f y
+\quad\Longleftrightarrow\quad
+f(x)=f(y).
+\]
+
+因此，对于当前观测 \(O:X\to A\)，\(\ker(O)\) 中的相等是**观测相等**；除非 \(O\) 为单射，否则它不等于精确状态相等。
+
+现在声明一个确定性未来实验/运算的家族或语言 \(W\)，并同时声明这些未来之后需要读取的观测。把所需未来输出打包成 signature
+
+\[
+\Sigma_W:X\to S_W.
+\]
+
+则
+
+\[
+x\sim_W y
+\quad\Longleftrightarrow\quad
+\Sigma_W(x)=\Sigma_W(y)
+\]
+
+就是这个**已声明未来语言**对应的 functional kernel。如果当前观测已经包含在 \(\Sigma_W\) 所表示的输出中，并以 \(\Delta_X\) 表示精确相等，则
+
+\[
+\boxed{
+\Delta_X\subseteq\ker(\Sigma_W)\subseteq\ker(O).
+}
+\]
+
+所以，精确状态相等、当前观测相等与未来安全相等是三层不同对象；只有在额外假设成立时，它们才可能重合。
+
+确定性后复合不能把一个既有 functional kernel 拆开：对任意 \(g\)，
+
+\[
+\boxed{
+\ker(f)\subseteq\ker(g\circ f).
+}
+\]
+
+这正是 A1/T012 历史合流规律的一般 kernel 形式。
+
+一个坐标 \(\delta:X\to D\)，或 pair 坐标 \(\delta:X\times X\to D\)，只有在存在显式充分性/因子化定理后，才能替代底层状态信息完成某个声明任务。例如
+
+\[
+O=h\circ\delta
+\]
+
+是对当前观测的精确充分条件，而
+
+\[
+\Sigma_W=H\circ\delta
+\]
+
+是对声明未来 signature 的精确充分条件。没有这种 factorization 时，difference、defect、critical-grid coordinate 或其他压缩诊断量都不能自动被视为动力学完备状态。
+
+本层中的 **state pair** 只是普通乘积 \(X\times X\) 的一个元素，不构成单独的原始本体。
+
+这个底层接口被刻意限制为 functional。A3 的 structured/weighted relation-state 可以保留超出 functional-kernel 类成员关系的信息；A4 的 multivalued support/correspondence 可以允许多个未来像。若无显式 selection/factorization theorem，二者都不能与单个 functional kernel 直接等同。
+
+这些 kernel/fiber、factorization、future distinguishability 与 partition refinement 思想属于经典前人数学。进取数论不对这个一般抽象主张新颖性；P023/P024 及其他 owner 负责项目特定的精确算术特化与 repair 结果。
+
 **表示精度**是当前细状态空间上的一个显式多对一分割，它说明在声明的分辨率下，哪些当前状态被表示成同一个状态。
 
 但这个分割并不会自动支持所有未来计算。

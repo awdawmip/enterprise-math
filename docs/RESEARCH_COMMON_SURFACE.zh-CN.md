@@ -59,17 +59,29 @@ Canonical 接口约定：
 - 非平凡原始 root/collapse 使用 `p >= 2`；
 - 精确正指数代数使用 `p >= 1`，并有 `R_1 = C_1 = id`。
 
-### A1 — dynamics、kernels、collision、stabilization
+### A1 — dynamics、functional kernels、collision、stabilization
 
 确定性 history merge、fiber/kernel multiplicity、collision spectra、coalescence 与 well-founded stabilization。规范时间接口：
 
 `F_0 = id`，`F_{t+1} = T_t o F_t`；等价地，对 `t >= 1`，`F_t = T_{t-1} o ... o T_0`。
 
-主要入口：P010、P011、P019、P020。
+FQ-004 同时确定了项目范围内的通用 **functional-kernel 层**：对 typed carrier `X` 与确定性 `f:X->Y`，`f` 之后的当前相等关系是 `ker(f)`；除非 `f` 为单射，否则它不等于精确状态相等。确定性后复合满足
+
+`ker(f) subseteq ker(g o f)`。
+
+State pair 只是普通乘积记号 `X x X`，不是单独原语。
+
+主要入口：`docs/FOUNDATIONS.*`、T012/P010、P011、P019、P020。
 
 ### A2 — observation 与 future-compatible quotient
 
 Observation factorization、predictive/future closure、有限 operation-family compatibility、minimal repair 与 task-relative precision。P018/P023/P024 是主要入口。finite-arity quotient operation-congruence extension 已 canonical；其 Lean 资产为 `EnterpriseMath/Quotient/OperationCongruence.lean`，只有被 root build 实际导入时才可声称对应部分 Lean-checked。
+
+对声明的未来语言 `W`，把需要的未来输出打包成 `Sigma_W:X->S_W`。它的 kernel 就是**该声明语言**下的 future-safe equality。如果当前观测 `O` 已包含在 signature 中，则
+
+`精确相等 subseteq ker(Sigma_W) subseteq ker(O)`。
+
+Difference/defect/critical-grid 或其他压缩坐标，只有在所需当前/未来观测能够通过它 factorize 时，才可以替代状态信息。P023 拥有 factorization/coarsest-repair 理论；P024 拥有精确 translation-language 特化。这些一般 kernel/factorization/distinguishability 思想属于经典前人数学，不是进取数论的新颖性主张。
 
 ### A3 — structured relation-state algebra
 
@@ -82,7 +94,7 @@ Observation factorization、predictive/future closure、有限 operation-family 
 - `relation_scale.py`；
 - 对应 canonical regression suites。
 
-这些模块是全线路共享 executable specifications。任何仍只存在于 research branch/Relay 的 theorem statement，在单独 canonicalize 前仍保持 WIP。
+这些模块是全线路共享 executable specifications。任何仍只存在于 research branch/Relay 的 theorem statement，在单独 canonicalize 前仍保持 WIP。FQ-004 明确保留 A3 为可能比普通 functional-kernel membership 更丰富的扩展；除非 owner 证明精确 reduction，不得强行降成 functional kernel。
 
 ### A4 — admissible support / correspondence algebra
 
@@ -94,7 +106,7 @@ Finite multivalued relation、converse/composition、common-target structure、r
 - `relational_spectrum.py`；
 - 对应 canonical regression suites。
 
-A3→A4 executable bridge `a3_a4_support_bridge.py` 也已进入 `main`；其 theorem/proof 状态仍由 canonical result/Relay provenance 控制，不能仅凭 module 存在自动升级。
+A3→A4 executable bridge `a3_a4_support_bridge.py` 也已进入 `main`；其 theorem/proof 状态仍由 canonical result/Relay provenance 控制，不能仅凭 module 存在自动升级。FQ-004 不会把 multivalued correspondence semantics 压成一个确定性 kernel。
 
 ### A5 — intrinsic discrete geometry
 
@@ -126,6 +138,8 @@ P022 仍为 `OPEN / ACTIVE RESEARCH`；当前 canonical executable slice 覆盖�
 
 ## 5. 所有路线都必须知道的高价值负向边界
 
+- 精确状态相等、当前观测相等与声明未来语言下的 future-safe 相等不得被悄悄等同；
+- Difference/defect/critical-grid 坐标在没有 factorization/sufficiency theorem 时不是动力学完备状态；
 - coarse equality/support/cardinality 不自动保留后续 composition；
 - A3 signed relation data 在 quotient 时可能 cancellation，因此 coarse support 不能证明 universal fine support；
 - pairwise/common-target cardinality 可能丢失 multi-step composition 需要的 witness identity；
@@ -134,7 +148,7 @@ P022 仍为 `OPEN / ACTIVE RESEARCH`；当前 canonical executable slice 覆盖�
 - 普通 metric claim 必须满足其 graph/weight hypotheses；directed/asymmetric structure 不能悄悄继承 symmetry；
 - E001 engineering transition/result 不能仅因其 executable slice 已 canonical 就提升为通用物理定律；
 - 文件名相同、Git ancestry 或 `ahead(main)>0` 都不能证明存在新数学；
-- Galois connection、semigroup、numerical semigroup、partition refinement 等成熟结构继续属于 prior art。
+- function kernel、Galois connection、semigroup、automata distinguishability、numerical semigroup、partition refinement 等成熟结构继续属于 prior art。
 
 ## 6. 全线路共享 executable 工具面
 
@@ -150,6 +164,8 @@ P022 仍为 `OPEN / ACTIVE RESEARCH`；当前 canonical executable slice 覆盖�
 - P021：`causal_boundary.py`；
 - P017：mirror/cofactor/Legendre pressure-test modules；
 - E001 application：`material_impulse_accounting.py`、`material_impulse_world_1d.py`、`material_impulse_tick_order.py`、`material_impulse_wall_world_1d.py` 及对应 tests。
+
+FQ-004 不要求新建 Python/Lean subsystem：canonical functional-kernel 层是一项由现有 theorem owner 支撑的语言/接口澄清。
 
 `src/enterprise_math/__init__.py` 只导出紧凑 stable subset。未导出的 module 仍可能是 canonical internal executable specification；把它当 stable API 前先检查 scope/provenance。
 
@@ -186,9 +202,13 @@ Executable checks 服务于 discovery/falsification/regression，不能独立把
 
 机械性或已经由 canonical 证据唯一决定的底层漂移，由 foundation steward 直接修复。真正尚未解决的数学/接口选择，只验证到足够成立后进入 Issue #164，并交由其他研究员调查。
 
-当前活跃 foundation questions：
+FQ-001 至 FQ-004 的 canonical 约定现在分别确定：
 
-- `FQ-20260809-004` —— 跨路线回流提出的 candidate minimal State/Pair/kernel → future-safe precision foundation interface；
+- 正指数 primitive/algebra scope；
+- `N=N_0` 且包含 0；
+- 零基累计时间；
+- 上述最小经典 functional-kernel / declared-future-signature 分层。
+
+当前活跃 foundation question：
+
 - `FQ-20260809-005` —— stable `graph_distance` API 定义域与 P012 普通 metric theorem 定义域之间的接口选择。
-
-FQ-001 至 FQ-003 的 canonical 约定仍按上文执行。
