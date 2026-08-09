@@ -61,9 +61,6 @@ class IntrinsicCollapseTests(unittest.TestCase):
         self.assertTrue(shared)
 
     def test_pairwise_collisions_need_not_have_one_three_body_witness(self):
-        # Radius-1 balls centered at 0,2,4 on C5 intersect pairwise but have
-        # empty triple intersection.  Pair collision data therefore does not in
-        # general determine higher-order common-collapse witnesses.
         cycle5 = {
             0: {1, 4},
             1: {0, 2},
@@ -78,10 +75,6 @@ class IntrinsicCollapseTests(unittest.TestCase):
         self.assertFalse(supports[0].intersection(supports[1]).intersection(supports[2]))
 
     def test_e001_square_target_is_graph_ball_of_king_move_adjacency(self):
-        # This derives the existing square-body support from primitive adjacency:
-        # on the 8-neighbor integer lattice, one primitive step changes each
-        # coordinate by at most one, and the graph ball is exactly the finite
-        # Chebyshev square used by E001.
         points = [(x, y) for x in range(-5, 6) for y in range(-5, 6)]
         point_set = set(points)
         king_graph = {}
