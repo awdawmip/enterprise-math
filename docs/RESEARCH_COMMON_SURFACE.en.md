@@ -149,11 +149,16 @@ Canonical P022 families:
   - `tests/test_p022_hcp_geometry.py`
 - PR #288 / `main@aec7f625e48eb8f93ba701ba57686a9e225efd17`:
   - `src/enterprise_math/p022_barlow_stacking.py`
-  - `tests/test_p022_barlow_stacking.py`.
+  - `tests/test_p022_barlow_stacking.py`;
+- PR #292 / current L4:
+  - `src/enterprise_math/p022_barlow_precision.py`
+  - `tests/test_p022_barlow_precision.py`.
 
 PR #262 gives exact finite/combinatorial geodesic-multiplicity observables for `A_p` and simple-cubic geometry plus an integer-coordinate ABAB HCP contact graph with degree 12, exact graph distance/shells, and independently cross-checked shortest-path counts. Generic nonnegative witness-count/correspondence algebra belongs to A4/A2; P022 owns the geometry specialization. No floating-point Euclidean sphere-center model is assumed.
 
-PR #288 generalizes the close-packed executable layer to periodic Barlow stacking: periodic contact graphs, exact graph distance/geodesic multiplicity, FCC/HCP reconstruction, and the root-to-target-layer **cumulative interface-sign-count** compression for those declared queries. The compression is task-relative; Barlow precision, periodic-growth, coordination-observable and observation-history theories are not part of the promoted slice.
+PR #288 generalizes the close-packed executable layer to periodic Barlow stacking: periodic contact graphs, exact graph distance/geodesic multiplicity, FCC/HCP reconstruction, and the root-to-target-layer **cumulative interface-sign-count** compression for those declared queries.
+
+PR #292 adds the corresponding task-relative precision boundary. For one selected target layer, `(abs(k), delta_k)` exactly recovers the two effective interface-sign counts and therefore the vertical witness polynomial required by the declared root-to-layer distance/geodesic-count language; the same imbalance is recoverable from first moments of that polynomial. This is not whole-history sufficiency: the complete prefix-imbalance trajectory is strictly richer and reconstructs the literal stacking word. Periodic-growth, coordination-observable and observation-history theories remain outside this promotion.
 
 **Active interface alert — FQ-20260809-005:** stable exported `geometry.graph_distance` accepts general adjacency mappings, while P012 ordinary metric theorems assume connected undirected simple graphs. Until the research answer is steward-verified, do not cite P012 metric symmetry for asymmetric adjacency inputs.
 
