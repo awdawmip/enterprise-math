@@ -1,17 +1,24 @@
-"""Minimal repair for lower-band P017 root-shell identification.
+"""Minimal repair for lower-band P017 realized root-shell identification.
 
-The exact cofactor windows already separate least-prime shells.  Applying the
-integer square root can merge the realized images of the p=2 and p=3 shells at
-three small k values.  This module records the canonical one-bit repair used by
-P017 L057 and the exact local split multiplicity behind its minimality.
+The raw cofactor windows are arithmetic envelopes.  A true least-prime shell
+also satisfies the p-roughness/admissibility condition.  This module computes
+repair multiplicity on those actually realized shell states.
+
+The uniform threshold bit
+
+    beta_k(q) = 1[q > floor(k(k+2)/3)]
+
+is always the p=2 shell indicator for k>=4.  It is therefore informative at
+many k values, but it is task-necessary as a root-shell repair only when an
+actual root fiber contains both p=2 and p=3 shell states: exactly k=5 and k=8.
 """
 
 from __future__ import annotations
 
 from math import isqrt
 
+from .factor_precision import first_factor_shell
 from .p017_actual_root_separation import lower_band_primes
-from .quotient_window import square_basin_window
 from .task_precision_refinement import minimal_repair_alphabet_size
 
 
@@ -19,7 +26,7 @@ TaggedState = tuple[int, int]
 
 
 def p2_repair_threshold(k: int) -> int:
-    """Largest cofactor compatible with any shell p>=3."""
+    """Largest raw cofactor compatible with any shell p>=3."""
 
     if k < 1:
         raise ValueError("k must be positive")
@@ -27,7 +34,7 @@ def p2_repair_threshold(k: int) -> int:
 
 
 def p2_shell_bit(k: int, cofactor: int) -> int:
-    """Return the canonical bit ``1[q > floor(k(k+2)/3)]``."""
+    """Return the uniform p=2 indicator ``1[q > floor(k(k+2)/3)]``."""
 
     if k < 1:
         raise ValueError("k must be positive")
@@ -37,34 +44,61 @@ def p2_shell_bit(k: int, cofactor: int) -> int:
 
 
 def lower_band_tagged_states(k: int) -> tuple[TaggedState, ...]:
-    """Tagged exact cofactor states ``(least_prime, q)`` in the lower band."""
+    """Actually realized tagged states ``(least_prime, q)`` in the lower band."""
 
     states: list[TaggedState] = []
     for prime in lower_band_primes(k):
-        window = square_basin_window(k, prime)
-        if window is None:
-            continue
-        states.extend((prime, q) for q in range(window.lo, window.hi + 1))
+        states.extend((prime, n // prime) for n in first_factor_shell(k, prime))
     return tuple(states)
 
 
-def repaired_root_state(k: int, cofactor: int) -> tuple[int, int]:
+def uniform_repaired_root_state(k: int, cofactor: int) -> tuple[int, int]:
+    """Root plus the uniform p=2 feature bit."""
+
     return isqrt(cofactor), p2_shell_bit(k, cofactor)
 
 
-def repaired_root_images(k: int) -> dict[int, frozenset[tuple[int, int]]]:
-    """Actual repaired-root image of every lower-band prime shell."""
+def minimal_repair_symbol(k: int, cofactor: int) -> int:
+    """A minimum-alphabet root-shell repair for the realized lower band.
 
+    Actual root-shell ambiguity occurs only at k=5 and k=8.  Elsewhere a
+    constant repair symbol is sufficient and is strictly smaller than carrying
+    the otherwise informative p=2 feature.
+    """
+
+    if k < 4:
+        raise ValueError("the theorem is stated for k>=4")
+    if cofactor < 0:
+        raise ValueError("cofactor must be nonnegative")
+    if k in {5, 8}:
+        return p2_shell_bit(k, cofactor)
+    return 0
+
+
+def minimally_repaired_root_state(k: int, cofactor: int) -> tuple[int, int]:
+    return isqrt(cofactor), minimal_repair_symbol(k, cofactor)
+
+
+def _images(
+    k: int, state_fn,
+) -> dict[int, frozenset[tuple[int, int]]]:
     result: dict[int, set[tuple[int, int]]] = {}
     for prime, cofactor in lower_band_tagged_states(k):
-        result.setdefault(prime, set()).add(repaired_root_state(k, cofactor))
+        result.setdefault(prime, set()).add(state_fn(k, cofactor))
     return {prime: frozenset(images) for prime, images in result.items()}
 
 
-def repaired_root_overlaps(
-    k: int,
+def uniform_repaired_root_images(k: int) -> dict[int, frozenset[tuple[int, int]]]:
+    return _images(k, uniform_repaired_root_state)
+
+
+def minimally_repaired_root_images(k: int) -> dict[int, frozenset[tuple[int, int]]]:
+    return _images(k, minimally_repaired_root_state)
+
+
+def _overlaps(
+    images: dict[int, frozenset[tuple[int, int]]],
 ) -> tuple[tuple[int, int, frozenset[tuple[int, int]]], ...]:
-    images = repaired_root_images(k)
     primes = tuple(images)
     overlaps: list[tuple[int, int, frozenset[tuple[int, int]]]] = []
     for i, left in enumerate(primes):
@@ -75,8 +109,20 @@ def repaired_root_overlaps(
     return tuple(overlaps)
 
 
+def uniform_repaired_root_overlaps(
+    k: int,
+) -> tuple[tuple[int, int, frozenset[tuple[int, int]]], ...]:
+    return _overlaps(uniform_repaired_root_images(k))
+
+
+def minimally_repaired_root_overlaps(
+    k: int,
+) -> tuple[tuple[int, int, frozenset[tuple[int, int]]], ...]:
+    return _overlaps(minimally_repaired_root_images(k))
+
+
 def root_shell_split_multiplicities(k: int) -> dict[int, int]:
-    """Number of shell labels realized in each unrepaired root fiber."""
+    """Number of realized shell labels inside each unrepaired root fiber."""
 
     roots: dict[int, set[int]] = {}
     for prime, cofactor in lower_band_tagged_states(k):
@@ -85,7 +131,7 @@ def root_shell_split_multiplicities(k: int) -> dict[int, int]:
 
 
 def minimal_root_shell_repair_alphabet_size(k: int) -> int:
-    """Minimum repair alphabet needed while retaining the root coordinate."""
+    """Exact minimum repair alphabet while retaining the root coordinate."""
 
     states = lower_band_tagged_states(k)
     if not states:
@@ -96,7 +142,7 @@ def minimal_root_shell_repair_alphabet_size(k: int) -> int:
 
 
 def p2_bit_matches_shell(k: int) -> bool:
-    """Finite executable check that the repair bit is exactly the p=2 flag."""
+    """Whether the uniform threshold bit equals the p=2 flag on actual states."""
 
     if k < 4:
         raise ValueError("the theorem is stated for k>=4")
