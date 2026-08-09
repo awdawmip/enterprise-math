@@ -1,6 +1,7 @@
 import unittest
 
 from enterprise_math.p017_high_band_root_precision import (
+    diagonal_goldbach_slices,
     diagonal_raw_root_data,
     diagonal_realized_root_data,
     raw_root_prime_labels,
@@ -17,7 +18,7 @@ class P017HighBandRootPrecisionTests(unittest.TestCase):
             self.assertIn(data["count_difference"], (0, 1))
 
     def test_realized_shell_labels_are_a_subset_of_raw_window_labels(self) -> None:
-        for k, root in ((56, 8), (317, 18), (1737, 45)):
+        for k, root in ((56, 8), (317, 20), (1737, 45)):
             raw = set(raw_root_prime_labels(k, root))
             realized = set(realized_root_shell_labels(k, root))
             self.assertTrue(realized.issubset(raw))
@@ -40,6 +41,22 @@ class P017HighBandRootPrecisionTests(unittest.TestCase):
         data = diagonal_realized_root_data(200)
         self.assertEqual(data["raw_multiplicity"], 39)
         self.assertEqual(data["realized_multiplicity"], 6)
+
+    def test_two_goldbach_slices_exactly_reconstruct_diagonal_realizability(self) -> None:
+        for t in range(6, 101):
+            data = diagonal_goldbach_slices(t)
+            direct = diagonal_realized_root_data(t)
+            self.assertEqual(
+                tuple(data["goldbach_label_union"]),
+                tuple(direct["realized_prime_labels"]),
+            )
+
+    def test_same_shell_label_can_have_both_goldbach_witness_types(self) -> None:
+        data = diagonal_goldbach_slices(11)
+        self.assertIn(107, data["sum_2k_plus_2"])
+        self.assertIn(107, data["sum_2k_plus_4"])
+        self.assertEqual(data["sum_2k_plus_2"][107], 137)
+        self.assertEqual(data["sum_2k_plus_4"][107], 139)
 
 
 if __name__ == "__main__":
