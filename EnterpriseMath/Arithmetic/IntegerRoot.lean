@@ -69,6 +69,11 @@ theorem basin_card_one (k : ℕ) :
     (basin 1 k).card = 1 := by
   simp [basin]
 
+/-- T009: positive-exponent perfect-power collapse is monotone. -/
+theorem collapse_monotone {p : ℕ} (hp : p ≠ 0) : Monotone (collapse p) := by
+  intro a b hab
+  simpa [collapse] using Nat.pow_le_pow_left (root_monotone hp hab) p
+
 /-- Enterprise Math collapse is reductive. -/
 theorem collapse_le {p : ℕ} (hp : p ≠ 0) (n : ℕ) : collapse p n ≤ n := by
   exact Nat.pow_nthRoot_le (n := p) (a := n) (.inl hp)
