@@ -43,7 +43,7 @@ def test_two_sided_interface_windows_build_expected_trajectory() -> None:
     )
     # Downward effective signs are the negatives of the listed upward
     # interface signs. Upward effective signs are listed directly.
-    assert trajectory == (0, 1, 0, 1, 0, 1, 2, 1, 2)
+    assert trajectory == (0, -1, 0, 1, 0, 1, 2, 1, 2)
 
 
 def test_shell_total_reads_absolute_imbalance_not_sign() -> None:
