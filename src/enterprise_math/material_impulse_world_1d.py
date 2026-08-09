@@ -3,8 +3,13 @@
 This module explores the next E001 world-law layer without inserting a
 ``REBOUND -> reverse motion`` command.  A finite material response sample first
 passes through one declared integer impulse calibration.  The resulting signed
-impulse is added to momentum.  Rebound, stop, or continued approach are then
-*observed* from the momentum sign relative to an explicit wall normal.
+impulse is added to momentum.  Instantaneous motion relative to an explicit wall
+normal is classified only as ``APPROACHING``, ``STOPPED``, or ``OUTWARD``.
+
+``REBOUND`` is deliberately *not* an instantaneous momentum status: rebound is
+a history/episode statement requiring evidence that a body previously
+approached/contacted and later became outward-moving.  This prevents an object
+that was outward-moving from the beginning from being mislabeled as rebounding.
 
 Two bounded details remain first-class precision choices:
 
@@ -37,7 +42,7 @@ from .material_oscillator import signed_divmod_toward_zero
 
 APPROACHING = "APPROACHING"
 STOPPED = "STOPPED"
-REBOUND = "REBOUND"
+OUTWARD = "OUTWARD"
 
 
 def _require_integer(name: str, value: int) -> None:
@@ -142,7 +147,7 @@ def momentum_contact_status(
     momentum: int,
     outward_normal: int,
 ) -> str:
-    """Classify signed momentum relative to an explicit outward wall normal."""
+    """Classify instantaneous momentum relative to an explicit outward wall normal."""
     _require_integer("momentum", momentum)
     _require_integer("outward_normal", outward_normal)
     if outward_normal not in (-1, 1):
@@ -152,7 +157,7 @@ def momentum_contact_status(
         return APPROACHING
     if signed == 0:
         return STOPPED
-    return REBOUND
+    return OUTWARD
 
 
 @dataclass(frozen=True)
@@ -173,7 +178,7 @@ def apply_material_impulse_to_momentum(
     impulse_scale_magnitude: int,
     impulse_detail: int = 0,
 ) -> MomentumImpulseStep:
-    """Apply an outward material impulse; rebound is derived from the new sign."""
+    """Apply an outward material impulse and report the new instantaneous direction."""
     _require_integer("momentum", momentum)
     _require_positive("impulse_scale_magnitude", impulse_scale_magnitude)
     if outward_normal not in (-1, 1):

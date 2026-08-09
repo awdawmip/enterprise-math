@@ -18,7 +18,7 @@ from enterprise_math.material_impulse_wall_world_1d import (
 )
 from enterprise_math.material_impulse_world_1d import (
     APPROACHING,
-    REBOUND,
+    OUTWARD,
     MassDriftState1D,
 )
 from enterprise_math.material_response import explicit_material_curve_profile
@@ -47,7 +47,7 @@ def body(center, momentum, mass=1, radius=0, drift_detail=0, impulse_detail=0):
 
 
 class MaterialImpulseWallWorld1DTests(unittest.TestCase):
-    def test_same_state_coarse_rebounds_while_fine_transmits(self):
+    def test_same_state_coarse_turns_outward_while_fine_transmits(self):
         wall = Wall1D(0, 0)
         material = profile((0, 10), amplitude=10)
         initial = body(center=-2, momentum=4)
@@ -78,7 +78,7 @@ class MaterialImpulseWallWorld1DTests(unittest.TestCase):
         self.assertEqual(coarse.after.center, -3)
         self.assertEqual(coarse.after.motion.motion.momentum, -1)
         self.assertEqual(coarse.end_side, LEFT)
-        self.assertEqual(coarse.end_momentum_status, REBOUND)
+        self.assertEqual(coarse.end_momentum_status, OUTWARD)
         self.assertFalse(coarse.crossed_between_separated_sides)
 
         self.assertEqual(fine.kind, TRANSMIT)
@@ -87,10 +87,10 @@ class MaterialImpulseWallWorld1DTests(unittest.TestCase):
         self.assertEqual(fine.after.center, 2)
         self.assertEqual(fine.after.motion.motion.momentum, 4)
         self.assertEqual(fine.end_side, RIGHT)
-        self.assertEqual(fine.end_momentum_status, REBOUND)
+        self.assertEqual(fine.end_momentum_status, OUTWARD)
         self.assertTrue(fine.crossed_between_separated_sides)
 
-    def test_tick_order_can_change_bounce_versus_transmit_at_same_coarse_scale(self):
+    def test_tick_order_can_change_outward_turn_versus_transmit_at_same_coarse_scale(self):
         wall = Wall1D(0, 0)
         material = profile((0, 10), amplitude=10)
         initial = body(center=-2, momentum=4)
@@ -105,7 +105,7 @@ class MaterialImpulseWallWorld1DTests(unittest.TestCase):
         self.assertFalse(impulse_first.crossed_between_separated_sides)
         self.assertEqual(impulse_first.after.center, -3)
         self.assertEqual(impulse_first.after.motion.motion.momentum, -1)
-        self.assertEqual(impulse_first.end_momentum_status, REBOUND)
+        self.assertEqual(impulse_first.end_momentum_status, OUTWARD)
 
         self.assertEqual(drift_first.kind, TRANSMIT)
         self.assertTrue(drift_first.crossed_between_separated_sides)

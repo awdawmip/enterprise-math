@@ -2,7 +2,7 @@ import unittest
 
 from enterprise_math.material_impulse_world_1d import (
     APPROACHING,
-    REBOUND,
+    OUTWARD,
     STOPPED,
     MassDriftState1D,
     accumulate_material_impulses,
@@ -59,7 +59,7 @@ class MaterialImpulseWorld1DTests(unittest.TestCase):
         self.assertEqual(dropped.total_impulse_quanta, 0)
         self.assertEqual(dropped.final_detail, 0)
 
-    def test_rebound_emerges_from_momentum_sign_change_not_reverse_command(self):
+    def test_approach_to_outward_episode_emerges_from_momentum_sign_change(self):
         momentum = -1
         detail = 0
         statuses = []
@@ -75,8 +75,12 @@ class MaterialImpulseWorld1DTests(unittest.TestCase):
             momentum = step.momentum_after
             detail = step.impulse.detail_after
             statuses.append(step.status_after)
-        self.assertEqual(statuses, [APPROACHING, STOPPED, STOPPED, REBOUND])
+        self.assertEqual(statuses, [APPROACHING, STOPPED, STOPPED, OUTWARD])
         self.assertEqual(momentum, 1)
+        # Rebound is the history-level fact that this episode started approaching
+        # and later became outward; OUTWARD alone is only an instantaneous status.
+        self.assertEqual(statuses[0], APPROACHING)
+        self.assertEqual(statuses[-1], OUTWARD)
 
         dropped_momentum = -1
         for _ in range(4):
@@ -115,7 +119,7 @@ class MaterialImpulseWorld1DTests(unittest.TestCase):
     def test_contact_status_uses_explicit_outward_normal(self):
         self.assertEqual(momentum_contact_status(-2, 1), APPROACHING)
         self.assertEqual(momentum_contact_status(0, 1), STOPPED)
-        self.assertEqual(momentum_contact_status(2, 1), REBOUND)
+        self.assertEqual(momentum_contact_status(2, 1), OUTWARD)
         self.assertEqual(momentum_contact_status(2, -1), APPROACHING)
         with self.assertRaises(ValueError):
             momentum_contact_status(1, 0)
