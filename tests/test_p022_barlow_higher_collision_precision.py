@@ -6,6 +6,7 @@ from enterprise_math.p022_barlow_higher_collision_precision import (
     central_binomial_exchange_products,
     generalized_binomial_power_sum,
     minimal_spectrum_tradeoff,
+    near_dense_pair_fourway_tradeoff,
     one_three_exchange_phase,
     one_three_to_two_two_moment_difference,
     ordered_equal_observation_tuple_count,
@@ -119,15 +120,45 @@ def test_pair_exchange_is_strict_when_segment_gap_is_at_least_two() -> None:
             assert after < before
 
 
-def test_full_collision_spectrum_has_no_single_balanced_optimum() -> None:
+def test_minimal_full_spectrum_tradeoff() -> None:
     tradeoff = minimal_spectrum_tradeoff()
     assert tradeoff["balanced_layers"] == (2, 4)
-    assert tradeoff["unbalanced_layers"] == (1, 4)
+    assert tradeoff["concentrated_layers"] == (1, 4)
     assert tradeoff["balanced_J1_J4"] == (16, 10, 4, 1)
-    assert tradeoff["unbalanced_J1_J4"] == (16, 12, 4, 0)
+    assert tradeoff["concentrated_J1_J4"] == (16, 12, 4, 0)
 
-    assert tradeoff["balanced_J1_J4"][1] < tradeoff["unbalanced_J1_J4"][1]
-    assert tradeoff["balanced_J1_J4"][3] > tradeoff["unbalanced_J1_J4"][3]
+    assert tradeoff["balanced_J1_J4"][1] < tradeoff["concentrated_J1_J4"][1]
+    assert tradeoff["balanced_J1_J4"][3] > tradeoff["concentrated_J1_J4"][3]
+
+
+def test_pair_vs_fourway_tradeoff_persists_for_every_near_dense_family_member() -> None:
+    for checkpoint_count in range(2, 11):
+        data = near_dense_pair_fourway_tradeoff(checkpoint_count)
+        length = checkpoint_count + 2
+        balanced_layers = data["balanced_layers"]
+        concentrated_layers = data["concentrated_layers"]
+
+        assert selected_observation_image_size(
+            length, balanced_layers
+        ) == data["balanced_image"]
+        assert selected_observation_image_size(
+            length, concentrated_layers
+        ) == data["concentrated_image"]
+        assert data["balanced_image"] > data["concentrated_image"]
+
+        direct_balanced = tuple(
+            selected_collision_count(length, balanced_layers, order)
+            for order in range(1, 5)
+        )
+        direct_concentrated = tuple(
+            selected_collision_count(length, concentrated_layers, order)
+            for order in range(1, 5)
+        )
+        assert direct_balanced == data["balanced_J1_J4"]
+        assert direct_concentrated == data["concentrated_J1_J4"]
+        assert direct_balanced[1] < direct_concentrated[1]
+        assert direct_balanced[2] == direct_concentrated[2]
+        assert direct_balanced[3] > direct_concentrated[3] == 0
 
 
 def test_shortest_balancing_exchange_has_exact_moment_phase_transition() -> None:
