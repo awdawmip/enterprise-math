@@ -8,7 +8,8 @@ Before substantive mathematical or engineering research:
 2. read `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`;
 3. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
 4. read the latest relevant entries in Research Relay Issue #82;
-5. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family.
+5. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family;
+6. when the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md` and relevant entries in Foundation Problem Set Issue #164.
 
 Scheduling rules:
 
@@ -24,5 +25,13 @@ Knowledge propagation:
 - canonical theorem families and reusable executable tool families must remain discoverable through the common research surface;
 - do not duplicate a mother theorem merely to make a program branch self-contained;
 - distinguish `CANONICAL_MAIN`, `PROVED_WIP_RELAY`, `EXECUTABLE_CHECKED`, and conjectural claims.
+
+Foundation stewardship:
+
+- the foundation steward maintains and verifies shared mathematical language/notation, formula integrity, theorem statements/status/interfaces, and reusable tool routing;
+- mechanical or already-determined maintenance is fixed directly;
+- a genuine unresolved contradiction, mathematical choice, missing hypothesis, cross-route incompatibility, high-value new structure, prior-art uncertainty, or tool/theorem sufficiency question is **not** solved by the steward;
+- after minimum verification, such findings are posted to Issue #164 with a stable `FQ-*` ID for other researchers to claim;
+- researchers answering an `FQ-*` item supply proof/counterexample/tool evidence and scope; the steward verifies before canonicalization.
 
 If `hard_block = NONE`, continue the route's best available mathematical frontier rather than waiting for another branch, conversation, review, or integration replay.

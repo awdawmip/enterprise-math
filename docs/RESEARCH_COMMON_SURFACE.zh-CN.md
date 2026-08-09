@@ -15,7 +15,8 @@
 3. 阅读 `docs/PROBLEM_STATUS.*` 以及相关问题的 canonical result 文档；
 4. 检索 Research Relay Issue #82 中最新且相关的条目；
 5. 如果拟研究内容与已有工具/定理族重合，查看对应 executable specification/tests 或 Lean module；
-6. 然后才判断下一步究竟是新母定理、特化、bridge、counterexample，还是重复结果。
+6. 如果工作触及底层数学语言、符号、公式、定理/工具接口或已登记的矛盾，阅读 `docs/FOUNDATION_STEWARD_PROTOCOL.*` 与 Foundation Problem Set Issue #164 中相关 `FQ-*` 条目；
+7. 然后才判断下一步究竟是新母定理、特化、bridge、counterexample、重复结果，还是对基础问题的回答。
 
 不要求把整个仓库注入工作上下文。目标是“共享认知 + 选择性读取”。
 
@@ -170,3 +171,17 @@ Executable checks 用于 proof discovery、falsification 与 regression，不能
 知识共享的目的，是提高并行度，而不是制造全局 barrier。
 
 发现上游已有定理，就消费并继续；发现上游存在缺口，就隔离精确 missing lemma，然后继续其他可推进方向，除非确实可以按 `RESEARCH_SCHEDULING_PROTOCOL` 写出一个完整 `HARD_BLOCK`。
+
+## 9. 底层维护与 P0 问题升级
+
+项目公共底层由 `docs/FOUNDATION_STEWARD_PROTOCOL.*` 与机器路由 `foundation_steward.json` 管理。
+
+底层维护者负责语言/符号、定义/公式完整性、定理陈述/状态/接口、prose↔tool↔test↔Lean 一致性以及共享工具发现。机械性或已经由 canonical 证据确定的维护直接修复。
+
+一个问题经过最低验证后仍需要真正研究时，必须使用稳定 `FQ-*` ID 升级到 **Foundation Problem Set Issue #164**。典型包括：矛盾风险、未解决的定义域/类型选择、缺失 theorem hypothesis、跨路线 interface 不兼容、高价值新结构、prior-art 不确定性或 tool/theorem sufficiency 问题。
+
+底层维护者不负责求解这些研究问题。其他研究员 claim 后返回证据，底层维护者在修改 canonical language/formula/theorem/tool 前负责重新验证回答是否足够。
+
+因此形成刻意分工：
+
+`foundation maintenance and verification -> FQ escalation when research is needed -> independent researcher investigation -> steward verification -> canonical propagation`。

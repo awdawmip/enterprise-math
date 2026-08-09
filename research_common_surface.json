@@ -17,13 +17,24 @@
     ],
     "no_new_mathematics_scope": "L4_INTEGRATION_ONLY_OR_EXPLICIT_REPLAY_SLICE"
   },
+  "foundation_steward": {
+    "machine_router": "foundation_steward.json",
+    "document_en": "docs/FOUNDATION_STEWARD_PROTOCOL.en.md",
+    "document_zh": "docs/FOUNDATION_STEWARD_PROTOCOL.zh-CN.md",
+    "problem_set_issue": 164,
+    "problem_id_prefix": "FQ-",
+    "steward_solves_escalated_research": false,
+    "steward_verifies_before_escalation": true,
+    "steward_verifies_before_canonicalization": true
+  },
   "mandatory_preflight": [
     "docs/RESEARCH_COMMON_SURFACE.en.md",
     "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md",
     "docs/PROBLEM_STATUS.en.md",
     "relevant canonical theorem/result documents",
     "latest relevant Research Relay Issue #82 entries",
-    "relevant executable specification/tests/Lean modules"
+    "relevant executable specification/tests/Lean modules",
+    "when foundation-facing: docs/FOUNDATION_STEWARD_PROTOCOL.en.md and relevant Foundation Problem Set Issue #164 entries"
   ],
   "theorem_channels": {
     "canonical_base": [
@@ -39,7 +50,8 @@
       "EnterpriseMath.lean",
       "EnterpriseMath/**.lean"
     ],
-    "proved_wip_bus": "GitHub Issue #82 Research Relay"
+    "proved_wip_bus": "GitHub Issue #82 Research Relay",
+    "foundation_problem_bus": "GitHub Issue #164 Foundation Steward Problem Set"
   },
   "result_statuses": [
     "CANONICAL_MAIN",
