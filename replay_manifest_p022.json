@@ -19,6 +19,19 @@
     "distance carry and geometry-specific triangle boundaries",
     "geometry-aware collapse/contraction results whose hypotheses truly use the geometry"
   ],
+  "selected_first_slice": {
+    "name": "A_P_LATTICE_GEOMETRY_CORE",
+    "assets": [
+      "src/enterprise_math/lattice_geometry.py",
+      "tests/test_lattice_geometry.py"
+    ],
+    "reason": "This slice depends only on the integer-root core and the A_p zero-sum lattice representation. It contains graph distance, integer quadratic separation, collapsed radial distance, shell/ball counts and the sharp additive-one triangle-carry boundary without A3 relation-state or A4 support dependencies.",
+    "excluded_from_first_slice": [
+      "weighted_relation_geometry and relation_geometry A3×A5 interfaces",
+      "linear_relation_quotient and future_quotient A2/A3 interfaces",
+      "contraction/refinement modules whose owner boundary still needs audit"
+    ]
+  },
   "defer": {
     "A3": [
       "capacity-weighted structured relation state",
