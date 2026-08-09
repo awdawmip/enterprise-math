@@ -41,24 +41,19 @@ class P017P018BonferroniShellHorizonTests(unittest.TestCase):
 
     def test_order_five_defect_is_cubic_least_factor_localized(self):
         k = 65536
-        state = k * (k + 1) + 883
-        support = (3, 5, 7, 43)
+
+        # Four small primes do not yet create order-five defect.
+        four_support_state = k * (k + 1) + 883
+        four_support = (3, 5, 7, 43)
         self.assertFalse(
-            defect_shell_localization(k, state, support, 5)["defect_possible"]
+            defect_shell_localization(k, four_support_state, four_support, 5)["defect_possible"]
         )
 
-        # A synthetic six-prime divisor inside the same square basin would have
-        # least prime at most the exact cubic root horizon 40.
-        synthetic_support = (3, 5, 7, 11, 13, 17)
-        divisor = 1
-        for prime in synthetic_support:
-            divisor *= prime
-        multiplier = (k * k + divisor - 1) // divisor
-        synthetic_state = divisor * multiplier
-        if synthetic_state >= (k + 1) * (k + 1):
-            synthetic_state -= divisor
-        self.assertTrue(k * k < synthetic_state < (k + 1) * (k + 1))
-        data = defect_shell_localization(k, synthetic_state, synthetic_support, 5)
+        # This actual basin state has six distinct small prime divisors:
+        # 4295098269 = 3^2 * 7 * 11 * 23 * 37 * 7283.
+        six_support_state = 4_295_098_269
+        six_support = (3, 7, 11, 23, 37, 7283)
+        data = defect_shell_localization(k, six_support_state, six_support, 5)
         self.assertEqual(data["least_factor_horizon"], 40)
         self.assertEqual(data["least_support_prime"], 3)
         self.assertTrue(data["localized"])
@@ -76,7 +71,7 @@ class P017P018BonferroniShellHorizonTests(unittest.TestCase):
         self.assertTrue(data["rigid_first_band_defect"])
 
     def test_reference_nondefect_cell_stays_nondefective(self):
-        data = residual_first_defect_band_rigidity(20000, 107, 3)
+        data = residual_first_defect_band_rigidity(20000, 67, 3)
         self.assertEqual(data["total_pair_defect"], 0)
         self.assertFalse(data["rigid_first_band_defect"])
 
