@@ -191,3 +191,78 @@ def strict_square_root_descent(k: int, divisor: int, n: int) -> dict[str, int]:
     if data["quotient_root"] >= k:
         raise AssertionError("actual quotient square-root index did not strictly descend")
     return data
+
+
+def quotient_root_threshold(k: int, divisor: int) -> dict[str, int]:
+    """Return the unique state/offset threshold for the upper T110 root branch.
+
+    Let j=R_2(floor(k^2/d)). The upper root j+1 occurs exactly when
+    n >= d*(j+1)^2. Relative to the lower square boundary k^2, the same
+    condition is s=n-k^2 >= tau, where tau=d*(j+1)^2-k^2.
+    """
+    _require_nat("k", k, minimum=1)
+    _require_nat("divisor", divisor, minimum=2)
+    lower = k * k
+    base_quotient = lower // divisor
+    base_root = integer_nth_root(base_quotient, 2)
+    state_threshold = divisor * (base_root + 1) * (base_root + 1)
+    if state_threshold <= lower:
+        raise AssertionError("upper root threshold did not lie above the lower square boundary")
+    offset_threshold = state_threshold - lower
+    return {
+        "k": k,
+        "divisor": divisor,
+        "base_root": base_root,
+        "state_threshold": state_threshold,
+        "offset_threshold": offset_threshold,
+    }
+
+
+def square_basin_offset_root_response(
+    k: int, divisor: int, offset: int
+) -> dict[str, int]:
+    """Evaluate the exact one-threshold root response at a square-basin offset."""
+    _require_nat("k", k, minimum=1)
+    _require_nat("divisor", divisor, minimum=2)
+    _require_nat("offset", offset)
+    if offset > 2 * k:
+        raise ValueError("offset must satisfy 0 <= offset <= 2k")
+
+    threshold = quotient_root_threshold(k, divisor)
+    n = k * k + offset
+    transported = square_basin_quotient_transport(k, divisor, n)
+    upper_bit = int(offset >= threshold["offset_threshold"])
+    predicted_root = threshold["base_root"] + upper_bit
+    if transported["quotient_root"] != predicted_root:
+        raise AssertionError("quotient root disagrees with the one-threshold response")
+
+    return {
+        **transported,
+        "offset": offset,
+        "state_threshold": threshold["state_threshold"],
+        "offset_threshold": threshold["offset_threshold"],
+        "upper_bit": upper_bit,
+        "predicted_root": predicted_root,
+    }
+
+
+def quotient_root_threshold_pattern(
+    k: int, divisors: list[int], offset: int
+) -> dict[str, object]:
+    """Return shared-offset threshold bits for a finite quotient-divisor family."""
+    _require_nat("k", k, minimum=1)
+    _require_nat("offset", offset)
+    if offset > 2 * k:
+        raise ValueError("offset must satisfy 0 <= offset <= 2k")
+    if not divisors:
+        raise ValueError("divisors must be a nonempty list")
+
+    responses = [square_basin_offset_root_response(k, d, offset) for d in divisors]
+    return {
+        "k": k,
+        "offset": offset,
+        "divisors": tuple(divisors),
+        "thresholds": tuple(r["offset_threshold"] for r in responses),
+        "upper_bits": tuple(r["upper_bit"] for r in responses),
+        "quotient_roots": tuple(r["quotient_root"] for r in responses),
+    }
