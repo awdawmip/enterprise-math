@@ -18,7 +18,8 @@ The steward is responsible for maintaining and verifying:
 - the project-wide shared theorem/tool surface;
 - reusable Python/Lean/reference tools and their declared scope;
 - cross-route foundational invariants and boundary language;
-- canonical routing needed so every research route can discover proved results and tools.
+- canonical routing needed so every research route can discover proved results and tools;
+- **active research-to-foundation backflow: extracting verified reusable tools, minimal state requirements, minimal repairs, repeated mechanisms and negative boundaries from existing research and using them to pressure-test the common foundation.**
 
 The steward is a **maintainer and verifier**, not another competing research route.
 
@@ -35,7 +36,7 @@ Examples:
 - registering an already-canonical tool in the shared surface;
 - removing ambiguous wording when no mathematical choice is involved.
 
-But when maintenance exposes a genuine unresolved mathematical choice, contradiction risk, missing hypothesis, cross-route incompatibility, new structural pattern, prior-art uncertainty, or tool/theorem sufficiency question, the steward **must not become the primary investigator**.
+But when maintenance or research backflow exposes a genuine unresolved mathematical choice, contradiction risk, missing hypothesis, cross-route incompatibility, new structural pattern, prior-art uncertainty, or tool/theorem sufficiency question, the steward **must not become the primary investigator**.
 
 Instead:
 
@@ -133,6 +134,42 @@ Before accepting a new shared tool, check:
 
 Research-level uncertainty about tool sufficiency or equivalence is sent to #164.
 
+### 4.5 Research-to-foundation backflow integrity
+
+Existing research routes are also pressure tests of the foundation. The steward must not only route foundation knowledge outward; the steward must also inspect mature cross-route results for structures that should change the common bottom layer.
+
+The preferred extraction targets are:
+
+1. **minimal sufficient state** — the weakest state object actually required by a theorem or exact computation;
+2. **minimal repair / extension data** — the least carry, remainder, witness, history, relation coordinate, or other detail needed when a quotient/collapse loses the declared closure property;
+3. **cross-route invariant** — the same structural law recurring independently in different mathematical or engineering routes;
+4. **negative boundary** — a reusable counterexample, no-go theorem, or precise failure of an attractive generalization;
+5. **reusable tool** — an exact oracle, executable specification, Lean interface, counterexample generator, or finite compiler useful outside its source route;
+6. **layering law** — evidence that one object should be primitive while another is only a coordinate, observation, response law, or application semantics.
+
+A potential backflow result should be compressed into a **Foundation Feedback Packet** containing, when applicable:
+
+- `candidate_object_or_tool`;
+- `weakest_scope_hypotheses`;
+- `minimal_state`;
+- `minimal_repair_or_extension`;
+- `negative_boundary`;
+- `cross_route_evidence`;
+- `proof_status`;
+- `tool_surface`;
+- `prior_art_and_owner`;
+- `foundation_destination`.
+
+This packet is a compression format, not a new global barrier. A route does not wait for steward acknowledgement unless a separately valid `HARD_BLOCK` exists.
+
+Every backflow candidate is classified into exactly one handling class:
+
+- `DIRECT_FOUNDATION_MAINTENANCE` — existing canonical evidence already determines the change, so the steward may repair language, interfaces, routing, or an omitted proved layering directly;
+- `FOUNDATION_QUESTION` — the candidate could change primitives, layering, theorem interfaces, or a cross-route mother structure but still requires real research; create an `FQ-*` entry in #164 and hand it off;
+- `APPLICATION_LOCAL_OR_NOT_READY` — the candidate remains route-specific, testing/conjectural, tied to a special physical response law, or lacks cross-route necessity; keep it above the foundation.
+
+A useful application result is therefore **not** promoted merely because it is elegant. In particular, WIP structures, physical interpretations, or one-route response rules remain outside the canonical foundation until their required proof/status boundary is satisfied.
+
 ## 5. P0 Foundation Problem Set
 
 Canonical escalation surface: **GitHub Issue #164 — `[P0] Foundation Steward Problem Set`**.
@@ -188,6 +225,6 @@ The steward does not treat a researcher's assertion as canonical merely because 
 
 The steady-state loop is:
 
-`shared-surface preflight -> foundation audit -> mechanical maintenance OR FQ escalation -> researcher investigation -> steward verification -> canonical language/formula/theorem/tool update -> common-surface propagation`.
+`shared-surface preflight -> cross-route result extraction -> foundation-candidate classification -> mechanical maintenance OR FQ escalation -> researcher investigation -> steward verification -> canonical language/formula/theorem/tool update -> common-surface propagation -> later research pressure-tests the revised foundation`.
 
-The desired outcome is that every research route can rely on a stable common mathematical language and discover the strongest currently justified theorem/tool interface without requiring the steward to conduct the research itself.
+The desired outcome is that every research route can rely on a stable common mathematical language, discover the strongest currently justified theorem/tool interface, and return reusable structural discoveries to the bottom layer without requiring the steward to conduct the research itself.
