@@ -45,15 +45,17 @@ class P018RootStateExactCountTests(unittest.TestCase):
 
     def test_minimal_missing_horizon_example(self):
         # r=2,n=16: H=3. Roots 1,2 are forced; root 3 is absent because
-        # floor(16/9)=floor(16/16)=1.
+        # floor(16/9)=floor(16/16)=1. The high singleton branch contributes 4.
         closed = exact_distinct_root_state_count(16, 2)
         self.assertEqual(closed["horizon"], 3)
+        self.assertEqual(closed["high_denominator_max"], 1)
         self.assertFalse(closed["horizon_fiber_present"])
         self.assertFalse(horizon_fiber_present(16, 2))
         data = quotient_root_state_decomposition(16, 2)
         self.assertEqual(data["low_roots"], (1, 2))
-        self.assertEqual(data["distinct_root_count"], 4)
-        self.assertEqual(data["distinct_roots"], (1, 2, 3, 4))
+        self.assertEqual(data["high_roots"], (4,))
+        self.assertEqual(data["distinct_root_count"], 3)
+        self.assertEqual(data["distinct_roots"], (1, 2, 4))
 
     def test_r1_recovers_exact_classical_floor_quotient_counts(self):
         expected = {
