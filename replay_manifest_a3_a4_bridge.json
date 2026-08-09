@@ -1,0 +1,39 @@
+{
+  "schema": "ENTERPRISE_MATH_REPLAY_MANIFEST_V1",
+  "status": "ACTIVE_BRIDGE_REPLAY",
+  "no_new_mathematics_during_replay": true,
+  "target_branch": "bridge/a3-a4-v2",
+  "target_home": "A3_A4_BRIDGE_ONLY",
+  "baseline_main": "de49cb170111f5acb6bd9f62543c4509a8ced725",
+  "primary_source": {
+    "branch": "research/core/relation-support-bridge",
+    "head": "7d596b1a845ca5f878593940607ca6ed67210845"
+  },
+  "allowed": [
+    "conditions under which A3 state generates an A4 support family",
+    "conditions under which an A4 observable factors through an A3 quotient",
+    "A3 information required to preserve a declared A4 future query",
+    "strict non-equivalence counterexamples between A3 and A4",
+    "explicit specialization/generalization maps between owner theorems"
+  ],
+  "must_rehome_if_general": [
+    "generic equitability/lumpability",
+    "generic witness-count composition algebra",
+    "generic semantic-shadow homomorphisms",
+    "generic future-compatible quotient repair",
+    "standalone geometry theorems"
+  ],
+  "forbidden": [
+    "copying the whole A3 owner tree",
+    "copying the whole A4 owner tree",
+    "dependency-sync PRs used as permanent synchronization",
+    "new theorem families unrelated to the A3-A4 bridge question"
+  ],
+  "completion": [
+    "bridge-only theorem list extracted",
+    "every general theorem assigned to one owner",
+    "source provenance preserved",
+    "bridge remains small enough for one auditable PR",
+    "current-main gates pass"
+  ]
+}
