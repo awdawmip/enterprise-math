@@ -4,6 +4,8 @@ import unittest
 
 from enterprise_math import p017_p018_bonferroni_tokens as token_module
 from enterprise_math.p017_p018_bonferroni_tokens import (
+    defect_token_quotient_descent,
+    defect_token_quotient_horizon,
     defect_token_single_use_threshold,
     point_defect_tokens,
     signed_defect_token_profile,
@@ -42,12 +44,42 @@ class P017P018BonferroniTokenTests(unittest.TestCase):
     def test_order_five_token_single_use_threshold_matches_scale_transition(self):
         for k in (65_536, 131_071, 255_255):
             data = defect_token_single_use_threshold(k, 5)
-            self.assertEqual(data["minimum_transverse_token_primes"], (3, 5, 7, 11, 13, 17) if k != 255_255 else (19, 23, 29, 31, 37, 41))
+            expected_primes = (
+                (3, 5, 7, 11, 13, 17)
+                if k != 255_255
+                else (19, 23, 29, 31, 37, 41)
+            )
+            self.assertEqual(data["minimum_transverse_token_primes"], expected_primes)
             self.assertTrue(data["all_defect_tokens_globally_single_use_by_p017_capacity"])
 
         data = defect_token_single_use_threshold(524_287, 5)
         self.assertEqual(data["minimum_transverse_token_product"], 255_255)
         self.assertFalse(data["all_defect_tokens_globally_single_use_by_p017_capacity"])
+
+    def test_minimum_token_product_gives_exact_quotient_horizon(self):
+        data = defect_token_quotient_horizon(65_536, 5)
+        self.assertEqual(data["minimum_transverse_token_product"], 255_255)
+        self.assertEqual(data["quotient_ceiling"], 16_826)
+        self.assertEqual(data["quotient_root_ceiling"], 129)
+        self.assertTrue(data["strict_parent_scale_descent"])
+
+        data = defect_token_quotient_horizon(255_255, 5)
+        self.assertEqual(data["minimum_transverse_token_product"], 595_973_171)
+        self.assertEqual(data["quotient_ceiling"], 109)
+        self.assertEqual(data["quotient_root_ceiling"], 10)
+        self.assertTrue(data["strict_parent_scale_descent"])
+
+        data = defect_token_quotient_horizon(524_287, 5)
+        self.assertEqual(data["quotient_ceiling"], 1_076_875)
+        self.assertFalse(data["strict_parent_scale_descent"])
+
+    def test_actual_large_order_five_token_descends_to_small_integer_quotient(self):
+        state = 4_295_098_269
+        divisor = 1_431_699_423  # 3*7*11*23*37*7283
+        data = defect_token_quotient_descent(65_536, state, divisor)
+        self.assertEqual(data["quotient"], 3)
+        self.assertEqual(data["quotient_root"], 1)
+        self.assertTrue(data["strict_parent_scale_descent"])
 
     def test_invalid_support(self):
         with self.assertRaises(ValueError):
