@@ -91,4 +91,109 @@ theorem quotient_adjacent_jump_iff_dvd
     rw [hLeft, hRight]
     omega
 
+/-- If a positive action denominator divides a positive boundary `q`, the two
+adjacent floor quotients are exactly `k-1` and `k` for a positive quotient
+label `k`, with `q=a*k`. -/
+theorem quotient_adjacent_values_of_dvd
+    {q a : ℕ}
+    (hq : 1 ≤ q)
+    (ha : 1 ≤ a)
+    (hDvd : a ∣ q) :
+    ∃ k : ℕ,
+      1 ≤ k ∧ q = a * k ∧ (q - 1) / a = k - 1 ∧ q / a = k := by
+  rcases hDvd with ⟨k, rfl⟩
+  have haPos : 0 < a := by omega
+  have hProdPos : 0 < a * k := by omega
+  have hkPos : 1 ≤ k := by
+    by_contra hzero
+    have hkZero : k = 0 := by omega
+    simp [hkZero] at hProdPos
+  have hRight : (a * k) / a = k := by
+    simpa using Nat.mul_div_cancel_left k haPos
+  have hkDecomp : k = (k - 1) + 1 := by omega
+  have hLower : (k - 1) * a ≤ a * k - 1 := by omega
+  have hUpper : a * k - 1 < ((k - 1) + 1) * a := by
+    rw [← hkDecomp]
+    simpa [Nat.mul_comm] using (Nat.pred_lt (Nat.ne_of_gt hProdPos))
+  have hLeft : (a * k - 1) / a = k - 1 :=
+    Nat.div_eq_of_lt_le hLower hUpper
+  exact ⟨k, hkPos, rfl, hLeft, hRight⟩
+
+/-- Exact local boundary law for a quotient-root future action.
+
+Action `a` distinguishes exact adjacent states `q-1` and `q` through a positive
+`r`-th integer root if and only if the right endpoint has the form
+
+`q = a * t^r`
+
+for a positive integer `t`. -/
+theorem root_quotient_adjacent_jump_iff
+    {r q a : ℕ}
+    (hr : 1 ≤ r)
+    (hq : 1 ≤ q)
+    (ha : 1 ≤ a) :
+    root r ((q - 1) / a) ≠ root r (q / a) ↔
+      ∃ t : ℕ, 1 ≤ t ∧ q = a * t ^ r := by
+  constructor
+  · intro hJump
+    have hQuotNe : (q - 1) / a ≠ q / a := by
+      intro hEq
+      exact hJump (congrArg (root r) hEq)
+    have hDvd : a ∣ q :=
+      (quotient_adjacent_jump_iff_dvd hq ha).1 hQuotNe
+    obtain ⟨k, hkPos, hqEq, hLeft, hRight⟩ :=
+      quotient_adjacent_values_of_dvd hq ha hDvd
+    have hRootK : root r (k - 1) ≠ root r k := by
+      intro hEq
+      apply hJump
+      simpa [hLeft, hRight] using hEq
+    obtain ⟨t, htPos, hkPower⟩ :=
+      (root_adjacent_jump_iff_power hr hkPos).1 hRootK
+    refine ⟨t, htPos, ?_⟩
+    calc
+      q = a * k := hqEq
+      _ = a * t ^ r := by rw [hkPower]
+  · rintro ⟨t, htPos, hqEq⟩
+    have hDvd : a ∣ q := ⟨t ^ r, hqEq⟩
+    obtain ⟨k, hkPos, hqK, hLeft, hRight⟩ :=
+      quotient_adjacent_values_of_dvd hq ha hDvd
+    have hMul : a * k = a * t ^ r := hqK.symm.trans hqEq
+    have hkPower : k = t ^ r := by
+      nlinarith [ha, hMul]
+    have hRootK : root r (k - 1) ≠ root r k :=
+      (root_adjacent_jump_iff_power hr hkPos).2 ⟨t, htPos, hkPower⟩
+    intro hEq
+    apply hRootK
+    simpa [hLeft, hRight] using hEq
+
+/-- Positive `r`-power-free boundary: no nontrivial positive `r`-th power
+factor divides `b`.  This local predicate is intentionally narrower than a
+full factorization API; it is exactly what the forced-action theorem needs. -/
+def RPowerFree (r b : ℕ) : Prop :=
+  ∀ t : ℕ, 2 ≤ t → ¬t ^ r ∣ b
+
+/-- Every `r`-power-free boundary forces its own future quotient action.
+
+If action `a` distinguishes `b-1` from `b` through a positive `r`-th root and
+`b` has no nontrivial `r`-th-power divisor, then necessarily `a=b`. -/
+theorem rPowerFree_boundary_forces_action
+    {r b a : ℕ}
+    (hr : 1 ≤ r)
+    (hbPos : 1 ≤ b)
+    (ha : 1 ≤ a)
+    (hbFree : RPowerFree r b)
+    (hJump : root r ((b - 1) / a) ≠ root r (b / a)) :
+    a = b := by
+  obtain ⟨t, htPos, hbEq⟩ :=
+    (root_quotient_adjacent_jump_iff hr hbPos ha).1 hJump
+  have htOne : t = 1 := by
+    by_contra hnotOne
+    have htTwo : 2 ≤ t := by omega
+    have hDvd : t ^ r ∣ b := by
+      refine ⟨a, ?_⟩
+      simpa [Nat.mul_comm] using hbEq
+    exact hbFree t htTwo hDvd
+  subst t
+  simpa using hbEq.symm
+
 end EnterpriseMath.Quotient
