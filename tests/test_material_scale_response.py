@@ -1,6 +1,6 @@
 import unittest
 
-from enterprise_math.material_collapse_world_1d import REBOUND, TRANSMIT
+from enterprise_math.material_collapse_world_1d import REBOUND, TRANSMIT, ZERO_RETURN
 from enterprise_math.material_response import material_curve_profile
 from enterprise_math.material_scale_response import (
     refinement_rebound_profile,
@@ -34,9 +34,11 @@ class MaterialScaleResponseTests(unittest.TestCase):
         self.assertEqual(report.factors, (6, 5, 4, 3, 2, 1))
         self.assertEqual(
             [outcome.kind for outcome in report.outcomes],
-            [REBOUND, REBOUND, REBOUND, REBOUND, TRANSMIT, TRANSMIT],
+            [REBOUND, REBOUND, REBOUND, ZERO_RETURN, TRANSMIT, TRANSMIT],
         )
         self.assertEqual(report.rebound_budgets, (3, 2, 1, 0, None, None))
+        self.assertEqual(report.outcomes[3].rebound.returned_budget, 0)
+        self.assertNotEqual(report.outcomes[3].kind, REBOUND)
 
     def test_return_branch_from_standard_material_profile_is_monotone(self):
         profile = material_curve_profile(
