@@ -42,12 +42,12 @@ theorem compatible_operationDescends
     (hO : Surjective O) (hcomp : ObservationCompatible O μ) :
     OperationDescends O μ := by
   classical
-  choose section hsection using hO
-  refine ⟨fun observed ↦ O (μ (fun i ↦ section (observed i))), ?_⟩
+  choose lift hlift using hO
+  refine ⟨fun observed ↦ O (μ (fun i ↦ lift (observed i))), ?_⟩
   intro x
   apply hcomp
   intro i
-  exact (hsection (O (x i))).symm
+  exact (hlift (O (x i))).symm
 
 /-- P018-T169 relation core: for a surjective precision observation, exact
 multi-ary descent is equivalent to congruence of the observation kernel. -/
@@ -70,12 +70,12 @@ theorem descended_operation_unique
     (h₂ : ∀ x : Fin k → α, O (μ x) = ν₂ (fun i ↦ O (x i))) :
     ν₁ = ν₂ := by
   classical
-  choose section hsection using hO
+  choose lift hlift using hO
   funext observed
-  let x : Fin k → α := fun i ↦ section (observed i)
+  let x : Fin k → α := fun i ↦ lift (observed i)
   have hx : (fun i ↦ O (x i)) = observed := by
     funext i
-    exact hsection (observed i)
+    exact hlift (observed i)
   calc
     ν₁ observed = ν₁ (fun i ↦ O (x i)) := by rw [hx]
     _ = O (μ x) := (h₁ x).symm
