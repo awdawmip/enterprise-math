@@ -68,8 +68,15 @@ theorem quotient_adjacent_jump_iff_dvd
     have hModLt : q % a < a := Nat.mod_lt q haPos
     have hDecomp : q / a * a + q % a = q := by
       simpa [Nat.mul_comm] using Nat.div_add_mod q a
-    have hLower : (q / a) * a ≤ q - 1 := by omega
-    have hUpper : q - 1 < (q / a + 1) * a := by omega
+    have hLower : (q / a) * a ≤ q - 1 := by
+      omega
+    have hQltNext : q < q / a * a + a := by
+      omega
+    have hUpper : q - 1 < (q / a + 1) * a := by
+      calc
+        q - 1 < q := Nat.pred_lt (by omega)
+        _ < q / a * a + a := hQltNext
+        _ = (q / a + 1) * a := by ring
     have hPredDiv : (q - 1) / a = q / a :=
       Nat.div_eq_of_lt_le hLower hUpper
     exact hne hPredDiv
@@ -82,7 +89,12 @@ theorem quotient_adjacent_jump_iff_dvd
     have hRight : (a * k) / a = k := by
       simpa using Nat.mul_div_cancel_left k haPos
     have hkDecomp : k = (k - 1) + 1 := by omega
-    have hLower : (k - 1) * a ≤ a * k - 1 := by omega
+    have hProdDecomp : a * k = (k - 1) * a + a := by
+      calc
+        a * k = a * ((k - 1) + 1) := by rw [← hkDecomp]
+        _ = (k - 1) * a + a := by ring
+    have hLower : (k - 1) * a ≤ a * k - 1 := by
+      omega
     have hUpper : a * k - 1 < ((k - 1) + 1) * a := by
       rw [← hkDecomp]
       simpa [Nat.mul_comm] using (Nat.pred_lt (Nat.ne_of_gt hProdPos))
@@ -111,7 +123,12 @@ theorem quotient_adjacent_values_of_dvd
   have hRight : (a * k) / a = k := by
     simpa using Nat.mul_div_cancel_left k haPos
   have hkDecomp : k = (k - 1) + 1 := by omega
-  have hLower : (k - 1) * a ≤ a * k - 1 := by omega
+  have hProdDecomp : a * k = (k - 1) * a + a := by
+    calc
+      a * k = a * ((k - 1) + 1) := by rw [← hkDecomp]
+      _ = (k - 1) * a + a := by ring
+  have hLower : (k - 1) * a ≤ a * k - 1 := by
+    omega
   have hUpper : a * k - 1 < ((k - 1) + 1) * a := by
     rw [← hkDecomp]
     simpa [Nat.mul_comm] using (Nat.pred_lt (Nat.ne_of_gt hProdPos))
@@ -158,8 +175,8 @@ theorem root_quotient_adjacent_jump_iff
     obtain ⟨k, hkPos, hqK, hLeft, hRight⟩ :=
       quotient_adjacent_values_of_dvd hq ha hDvd
     have hMul : a * k = a * t ^ r := hqK.symm.trans hqEq
-    have hkPower : k = t ^ r := by
-      nlinarith [ha, hMul]
+    have hkPower : k = t ^ r :=
+      Nat.eq_of_mul_eq_mul_left (by omega) hMul
     have hRootK : root r (k - 1) ≠ root r k :=
       (root_adjacent_jump_iff_power hr hkPos).2 ⟨t, htPos, hkPower⟩
     intro hEq
