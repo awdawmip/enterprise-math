@@ -8,8 +8,9 @@ collision spectrum follows by the signed Stirling transform.
 
 Balancing checkpoint segments maximizes the number of observable states and
 minimizes pair collisions, but it does not componentwise minimize the full
-higher-collision spectrum.  The shortest nontrivial segment exchange already
-undergoes an exact power-moment phase transition between orders four and five.
+higher-collision spectrum. The pair-vs-four-way conflict persists as an exact
+infinite family, and the shortest nontrivial balancing exchange changes its
+power-moment direction exactly between orders four and five.
 """
 
 from __future__ import annotations
@@ -74,15 +75,7 @@ def signed_stirling_first_kind(order: int, power: int) -> int:
 def selected_collision_count(
     length: int, selected_layers: tuple[int, ...], collision_order: int
 ) -> int:
-    """P011 J_k for the selected-layer observation quotient.
-
-    For fiber sizes m_y,
-
-        J_k = sum_y C(m_y,k)
-            = (1/k!) sum_{r=1}^k s(k,r) M_r,
-
-    where M_r=sum_y m_y^r is supplied by the segment factorization above.
-    """
+    """P011 J_k for the selected-layer observation quotient."""
     _require_positive("collision_order", collision_order)
     numerator = sum(
         signed_stirling_first_kind(collision_order, power)
@@ -118,10 +111,7 @@ def selected_collision_spectrum(
 
 
 def balanced_segment_lengths(length: int, checkpoint_count: int) -> tuple[int, ...]:
-    """Most-even positive segment lengths summing to length.
-
-    This helper assumes the final layer is observed, so there is no hidden tail.
-    """
+    """Most-even positive segment lengths summing to length."""
     _require_natural("length", length)
     _require_natural("checkpoint_count", checkpoint_count)
     if checkpoint_count == 0:
@@ -157,13 +147,7 @@ def balanced_checkpoint_layers(length: int, checkpoint_count: int) -> tuple[int,
 
 
 def central_binomial_exchange_products(longer: int, shorter: int) -> tuple[int, int]:
-    """Pair-collision moment before/after one balancing exchange.
-
-    Requires ``longer>=shorter+2``. The returned values are the two affected
-    factors in M_2 before and after ``(longer,shorter)->(longer-1,shorter+1)``.
-    The second is strictly smaller because C(2n,n)/C(2n-2,n-1)=4-2/n is
-    strictly increasing in n.
-    """
+    """Pair-collision moment before/after one balancing exchange."""
     _require_positive("longer", longer)
     _require_positive("shorter", shorter)
     if longer < shorter + 2:
@@ -180,21 +164,11 @@ def central_binomial_exchange_products(longer: int, shorter: int) -> tuple[int, 
 def one_three_to_two_two_moment_difference(order: int) -> int:
     """M_order(2,2)-M_order(1,3) for the shortest balancing exchange.
 
-    Here
+    The exact difference is
 
-        F_r(1)=2,
-        F_r(2)=2+2^r,
-        F_r(3)=2+2*3^r,
+        4*(4^(r-1)+2^r-3^r).
 
-    hence
-
-        difference = (2+2^r)^2 - 2(2+2*3^r)
-                   = 4*(4^(r-1)+2^r-3^r).
-
-    It is negative for r=2,3,4 and positive for every r>=5.  The positive
-    half follows by induction from r=5: if
-    ``4^(r-1)+2^r>3^r``, then after multiplying the right side by three the
-    next left side exceeds it by ``4^(r-1)-2^r>0`` for r>=3.
+    It is zero for r=1, negative for r=2,3,4, and positive for every r>=5.
     """
     _require_positive("order", order)
     direct = generalized_binomial_power_sum(2, order) ** 2 - (
@@ -213,25 +187,55 @@ def one_three_exchange_phase(order: int) -> int:
     return (difference > 0) - (difference < 0)
 
 
-def minimal_spectrum_tradeoff() -> dict[str, tuple[int, ...] | int]:
-    """Smallest explicit conflict between pair and higher collision objectives.
+def near_dense_pair_fourway_tradeoff(checkpoint_count: int) -> dict[str, object]:
+    """Exact infinite family at total length N=m+2, m>=2 checkpoints.
 
-    N=4 with two final-observing checkpoints has only two segment types up to
-    order: balanced (2,2) and unbalanced (1,3). Balanced has more observable
-    states and fewer merged pairs, but one four-way collision remains while the
-    unbalanced schedule has none.
+    Up to segment order compare
+
+      balanced:   (2,2,1,...,1)
+      concentrated:(3,1,...,1).
+
+    Length-one segments have two singleton fibers and therefore only multiply
+    fiber *counts*.  The resulting complete nontrivial fiber profiles are
+
+      balanced:    c_1=2^m, c_2=2^m, c_4=2^(m-2)
+      concentrated:c_1=2^m, c_3=2^m.
+
+    Hence balanced has larger image and smaller J2, both have the same J3,
+    while concentrated kills J4 completely.
     """
-    balanced_layers = checkpoint_layers_from_segments((2, 2))
-    unbalanced_layers = checkpoint_layers_from_segments((1, 3))
+    _require_positive("checkpoint_count", checkpoint_count)
+    if checkpoint_count < 2:
+        raise ValueError("tradeoff family requires at least two checkpoints")
+    m = checkpoint_count
+    length = m + 2
+    balanced_segments = (1,) * (m - 2) + (2, 2)
+    concentrated_segments = (1,) * (m - 1) + (3,)
+    balanced_layers = checkpoint_layers_from_segments(balanced_segments)
+    concentrated_layers = checkpoint_layers_from_segments(concentrated_segments)
     return {
+        "length": length,
+        "balanced_segments": balanced_segments,
+        "concentrated_segments": concentrated_segments,
         "balanced_layers": balanced_layers,
-        "unbalanced_layers": unbalanced_layers,
-        "balanced_J1_J4": tuple(
-            selected_collision_count(4, balanced_layers, order)
-            for order in range(1, 5)
+        "concentrated_layers": concentrated_layers,
+        "balanced_image": 9 * (2 ** (m - 2)),
+        "concentrated_image": 8 * (2 ** (m - 2)),
+        "balanced_J1_J4": (
+            2 ** length,
+            5 * (2 ** (m - 1)),
+            2 ** m,
+            2 ** (m - 2),
         ),
-        "unbalanced_J1_J4": tuple(
-            selected_collision_count(4, unbalanced_layers, order)
-            for order in range(1, 5)
+        "concentrated_J1_J4": (
+            2 ** length,
+            3 * (2 ** m),
+            2 ** m,
+            0,
         ),
     }
+
+
+def minimal_spectrum_tradeoff() -> dict[str, object]:
+    """The m=2 member of :func:`near_dense_pair_fourway_tradeoff`."""
+    return near_dense_pair_fourway_tradeoff(2)
