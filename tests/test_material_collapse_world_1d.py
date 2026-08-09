@@ -4,7 +4,13 @@ from enterprise_math.material_collapse_world_1d import (
     ACCEPT,
     REBOUND,
     TRANSMIT,
+    UNDERRESOLVED,
     collapse_material_wall_step,
+)
+from enterprise_math.material_precision_compatibility import (
+    MATERIAL_UNDERRESOLVED,
+    REPRESENTED_CONTACT,
+    RESOLVED,
 )
 from enterprise_math.material_response import material_curve_profile
 from enterprise_math.scale_tunneling_1d import Wall1D
@@ -32,6 +38,17 @@ class MaterialCollapseWorld1DTests(unittest.TestCase):
         self.assertEqual(
             [outcome.kind for outcome in outcomes],
             [REBOUND, REBOUND, REBOUND, REBOUND, TRANSMIT, TRANSMIT],
+        )
+        self.assertEqual(
+            [outcome.material_precision_status for outcome in outcomes],
+            [
+                REPRESENTED_CONTACT,
+                REPRESENTED_CONTACT,
+                REPRESENTED_CONTACT,
+                REPRESENTED_CONTACT,
+                RESOLVED,
+                RESOLVED,
+            ],
         )
         self.assertEqual(
             [
@@ -72,6 +89,7 @@ class MaterialCollapseWorld1DTests(unittest.TestCase):
         )
         self.assertEqual(outcome.kind, ACCEPT)
         self.assertEqual(outcome.after_center, -4)
+        self.assertEqual(outcome.material_precision_status, RESOLVED)
         self.assertIsNone(outcome.layer_material)
 
     def test_primitive_endpoint_contact_is_outside_coarse_layer_helper(self):
@@ -80,15 +98,36 @@ class MaterialCollapseWorld1DTests(unittest.TestCase):
                 self.wall, -2, 0, 0, 5, self.profile
             )
 
-    def test_material_domain_must_cover_generated_layer_depth(self):
+    def test_triggered_contact_beyond_material_depth_is_explicitly_underresolved(self):
         short = material_curve_profile(
             (0, 100),
             amplitude=100,
             loading_power=1,
             return_power=1,
         )
-        with self.assertRaises(ValueError):
-            collapse_material_wall_step(self.wall, -2, 2, 0, 6, short)
+        outcome = collapse_material_wall_step(self.wall, -2, 2, 0, 6, short)
+        self.assertEqual(outcome.kind, UNDERRESOLVED)
+        self.assertEqual(outcome.material_precision_status, MATERIAL_UNDERRESOLVED)
+        self.assertIsNone(outcome.after_center)
+        self.assertIsNone(outcome.layer_material)
+        self.assertIsNone(outcome.rebound)
+
+    def test_retreat_can_leave_an_underresolved_layer_without_material_response(self):
+        short = material_curve_profile(
+            (0, 100),
+            amplitude=100,
+            loading_power=1,
+            return_power=1,
+        )
+        # start gap 1 -> end gap 2 moves away from the wall.  At d=6 the
+        # controlling depth would be 5, well beyond the represented max depth 1.
+        outcome = collapse_material_wall_step(self.wall, -1, -2, 0, 6, short)
+        self.assertEqual(outcome.kind, ACCEPT)
+        self.assertEqual(outcome.after_center, -2)
+        self.assertFalse(outcome.approaching_wall)
+        self.assertEqual(outcome.material_precision_status, MATERIAL_UNDERRESOLVED)
+        self.assertIsNone(outcome.layer_material)
+        self.assertIsNone(outcome.rebound)
 
 
 if __name__ == "__main__":
