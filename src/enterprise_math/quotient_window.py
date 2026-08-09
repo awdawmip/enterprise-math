@@ -1,8 +1,8 @@
 """Exact integer quotient-window transport.
 
 This module is an executable reference for the P007 quotient-window
-supplement.  It treats open-closed integer intervals ``(A, B]`` and the
-exact quotient coordinate forced by multiplication by a positive factor.
+supplements. It treats open-closed integer intervals ``(A, B]`` and the exact
+quotient/factor coordinates forced by multiplication by a positive integer.
 """
 
 from __future__ import annotations
@@ -46,6 +46,57 @@ def quotient_window(a: int, b: int, factor: int) -> IntegerWindow | None:
     return IntegerWindow(lo, hi)
 
 
+def factor_window_for_quotient_bucket(
+    a: int, b: int, quotient_lo: int, quotient_hi: int
+) -> IntegerWindow | None:
+    """Return factors whose quotient window meets one positive quotient bucket.
+
+    More explicitly, this returns the positive integers ``d`` for which there
+    exists ``q`` with
+
+        quotient_lo <= q <= quotient_hi
+        a < d*q <= b.
+
+    The exact answer is
+
+        [a//quotient_hi + 1, b//quotient_lo].
+
+    This is the factor-coordinate dual of :func:`quotient_window` for the same
+    multiplication incidence ``a < d*q <= b``.
+    """
+
+    if a < 0:
+        raise ValueError("a must be nonnegative")
+    if b <= a:
+        raise ValueError("require a < b")
+    if quotient_lo < 1:
+        raise ValueError("quotient_lo must be positive")
+    if quotient_hi < quotient_lo:
+        raise ValueError("require quotient_lo <= quotient_hi")
+
+    lo = a // quotient_hi + 1
+    hi = b // quotient_lo
+    lo = max(1, lo)
+    if lo > hi:
+        return None
+    return IntegerWindow(lo, hi)
+
+
+def factor_window_meets_bucket(
+    a: int,
+    b: int,
+    factor: int,
+    quotient_lo: int,
+    quotient_hi: int,
+) -> bool:
+    """Whether ``W_factor(a,b)`` intersects ``[quotient_lo,quotient_hi]``."""
+
+    if factor < 1:
+        raise ValueError("factor must be positive")
+    bucket = factor_window_for_quotient_bucket(a, b, quotient_lo, quotient_hi)
+    return bucket is not None and bucket.contains(factor)
+
+
 def exact_separation_criterion(a: int, b: int, d: int, e: int) -> bool:
     """Exact endpoint criterion for ``W_e`` to lie below ``W_d``.
 
@@ -85,7 +136,7 @@ def separation_gap(a: int, b: int, d: int, e: int) -> int | None:
     """Number of unused quotient states between separated nonempty windows.
 
     Returns ``None`` when either window is empty or when the windows are not
-    strictly ordered.  A return value of zero means that the windows are
+    strictly ordered. A return value of zero means that the windows are
     adjacent.
     """
 
@@ -105,6 +156,26 @@ def square_basin_window(k: int, factor: int) -> IntegerWindow | None:
     if k < 1:
         raise ValueError("k must be positive")
     return quotient_window(k * k, k * (k + 2), factor)
+
+
+def square_basin_root_factor_window(k: int, root: int) -> IntegerWindow | None:
+    """Factors whose square-basin quotient window can hit one root basin.
+
+    The retained root ``root`` corresponds to the quotient bucket
+
+        [root^2, (root+1)^2 - 1] = [root^2, root(root+2)].
+    """
+
+    if k < 1:
+        raise ValueError("k must be positive")
+    if root < 1:
+        raise ValueError("root must be positive")
+    return factor_window_for_quotient_bucket(
+        k * k,
+        k * (k + 2),
+        root * root,
+        root * (root + 2),
+    )
 
 
 def square_spacing_condition(k: int, d: int, e: int) -> bool:
