@@ -21,6 +21,11 @@ A3 partition coarsening has only a one-way compatibility with this support:
 if every fine pair across two coarse groups satisfies the radius bound, then
 the coarse pair satisfies it.  The converse can fail because signed relation
 entries may cancel under ``Z'_AB = sum Z_ij``.
+
+For this generated symmetric family, A4 common-target composition is simply
+``R_r ; R_s``.  Equality with ``R_(r+s)`` is therefore an interpolation
+property of the A3 zero-relation quotient: every endpoint pair inside the
+combined budget must admit an actual quotient class inside both sub-budgets.
 """
 
 from __future__ import annotations
@@ -51,7 +56,6 @@ def zero_relation_classes(
     while unseen:
         seed = min(unseen)
         group = tuple(index for index in sorted(unseen) if field[seed][index] == 0)
-        # Defensive executable check of representative independence/transitivity.
         if any(field[left][right] != 0 for left in group for right in group):
             raise AssertionError("zero relation must be transitive on a closed weighted field")
         classes.append(group)
@@ -62,12 +66,7 @@ def zero_relation_classes(
 def quotient_support_relation(
     block_sizes: tuple[int, ...], field: WeightedField, radius: int
 ) -> SupportRelation:
-    """Generate the A4 support relation induced by an A3 weighted field.
-
-    Relation vertices are indices of ``zero_relation_classes``.  The support
-    test is representative-independent; the implementation checks that fact
-    across every pair of members in the two classes.
-    """
+    """Generate the A4 support relation induced by an A3 weighted field."""
     _require_radius(radius)
     classes = zero_relation_classes(block_sizes, field)
     relation: set[tuple[int, int]] = set()
@@ -123,6 +122,56 @@ def support_family_is_admissible(
             ).issubset(family[left_radius + right_radius]):
                 return False
     return True
+
+
+def common_target_support(
+    block_sizes: tuple[int, ...],
+    field: WeightedField,
+    left_radius: int,
+    right_radius: int,
+) -> SupportRelation:
+    """A4 common-target relation for the symmetric A3-generated family."""
+    left = quotient_support_relation(block_sizes, field, left_radius)
+    right = quotient_support_relation(block_sizes, field, right_radius)
+    return compose_support(left, right)
+
+
+def split_complete_at(
+    block_sizes: tuple[int, ...],
+    field: WeightedField,
+    left_radius: int,
+    right_radius: int,
+) -> bool:
+    """Check whether every combined-budget pair has an actual intermediate class.
+
+    This is exactly ``R_left ; R_right == R_(left+right)`` for the generated
+    symmetric support family.
+    """
+    _require_radius(left_radius)
+    _require_radius(right_radius)
+    return common_target_support(
+        block_sizes, field, left_radius, right_radius
+    ) == quotient_support_relation(
+        block_sizes, field, left_radius + right_radius
+    )
+
+
+def missing_interpolations(
+    block_sizes: tuple[int, ...],
+    field: WeightedField,
+    left_radius: int,
+    right_radius: int,
+) -> SupportRelation:
+    """Return endpoint pairs inside total budget but lacking a split witness."""
+    _require_radius(left_radius)
+    _require_radius(right_radius)
+    combined = quotient_support_relation(
+        block_sizes, field, left_radius + right_radius
+    )
+    witnessed = common_target_support(
+        block_sizes, field, left_radius, right_radius
+    )
+    return frozenset(combined.difference(witnessed))
 
 
 def all_cross_pairs_supported(
