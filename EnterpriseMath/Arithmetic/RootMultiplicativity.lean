@@ -19,6 +19,10 @@ def carryLoad (p a b : ℕ) : ℕ :=
     + root p a ^ p * rootGap p b
     + rootGap p a * rootGap p b
 
+/-- The upward carry in root-state units created by multiplying two states. -/
+def rootCarry (p a b : ℕ) : ℕ :=
+  root p (a * b) - root p a * root p b
+
 /-- P001-T01: positive-exponent integer roots are supermultiplicative. -/
 theorem root_supermultiplicative {p a b : ℕ} (hp : p ≠ 0) :
     root p a * root p b ≤ root p (a * b) := by
@@ -29,6 +33,30 @@ theorem root_supermultiplicative {p a b : ℕ} (hp : p ≠ 0) :
   exact Nat.mul_le_mul
     (Nat.pow_nthRoot_le (n := p) (a := a) (.inl hp))
     (Nat.pow_nthRoot_le (n := p) (a := b) (.inl hp))
+
+/-- The product is its base perfect power plus exactly the P001 carry load. -/
+theorem product_eq_base_pow_add_carryLoad {p a b : ℕ} (hp : p ≠ 0) :
+    a * b = (root p a * root p b) ^ p + carryLoad p a b := by
+  let r := root p a
+  let s := root p b
+  let u := a - r ^ p
+  let v := b - s ^ p
+  have hra : r ^ p ≤ a := by
+    dsimp [r]
+    exact Nat.pow_nthRoot_le (n := p) (a := a) (.inl hp)
+  have hsb : s ^ p ≤ b := by
+    dsimp [s]
+    exact Nat.pow_nthRoot_le (n := p) (a := b) (.inl hp)
+  have ha : a = r ^ p + u := by
+    dsimp [u]
+    omega
+  have hb : b = s ^ p + v := by
+    dsimp [v]
+    omega
+  have hab : a * b = (r * s) ^ p + (s ^ p * u + r ^ p * v + u * v) := by
+    rw [ha, hb, mul_pow]
+    ring
+  simpa [r, s, u, v, carryLoad, rootGap] using hab
 
 /-- Arithmetic core of P001-T02 for two explicitly decomposed collapse basins. -/
 theorem root_product_eq_of_basin_decomposition_iff
@@ -81,5 +109,67 @@ theorem root_mul_eq_iff_carryLoad_lt {p a b : ℕ} (hp : p ≠ 0) :
   have h := root_product_eq_of_basin_decomposition_iff
     (p := p) (a := a) (b := b) (r := r) (s := s) (u := u) (v := v) hp ha hb
   simpa [r, s, u, v, carryLoad, rootGap] using h
+
+/-- P001-T03 pointwise form: admissible carry counts are exactly those below the exact root carry. -/
+theorem le_rootCarry_iff_threshold_le {p a b c : ℕ} (hp : p ≠ 0) :
+    c ≤ rootCarry p a b ↔
+      (root p a * root p b + c) ^ p - (root p a * root p b) ^ p
+        ≤ carryLoad p a b := by
+  have hsuper : root p a * root p b ≤ root p (a * b) :=
+    root_supermultiplicative hp
+  have hab :
+      a * b = (root p a * root p b) ^ p + carryLoad p a b :=
+    product_eq_base_pow_add_carryLoad hp
+  have hmono :
+      (root p a * root p b) ^ p ≤ (root p a * root p b + c) ^ p :=
+    Nat.pow_le_pow_left (by omega) p
+  constructor
+  · intro hc
+    have hstate : root p a * root p b + c ≤ root p (a * b) := by
+      dsimp [rootCarry] at hc
+      omega
+    have hpow : (root p a * root p b + c) ^ p ≤ a * b :=
+      ((galoisConnection_pow_root hp)
+        (root p a * root p b + c) (a * b)).mpr hstate
+    rw [hab] at hpow
+    omega
+  · intro hthreshold
+    have hpow : (root p a * root p b + c) ^ p ≤ a * b := by
+      rw [hab]
+      omega
+    have hstate : root p a * root p b + c ≤ root p (a * b) :=
+      ((galoisConnection_pow_root hp)
+        (root p a * root p b + c) (a * b)).mp hpow
+    dsimp [rootCarry]
+    omega
+
+/-- P001-T03: `rootCarry` is the greatest admissible integer carry under the exact load. -/
+theorem rootCarry_isGreatest {p a b : ℕ} (hp : p ≠ 0) :
+    Set.IsGreatest
+      {c : ℕ |
+        (root p a * root p b + c) ^ p - (root p a * root p b) ^ p
+          ≤ carryLoad p a b}
+      (rootCarry p a b) := by
+  constructor
+  · exact (le_rootCarry_iff_threshold_le hp).1 le_rfl
+  · intro c hc
+    exact (le_rootCarry_iff_threshold_le hp).2 hc
+
+/-- P001-T03 zero-carry corollary: zero exact carry is equivalent to the T02 no-carry inequality. -/
+theorem rootCarry_eq_zero_iff {p a b : ℕ} (hp : p ≠ 0) :
+    rootCarry p a b = 0 ↔
+      carryLoad p a b < basinWidth p (root p a * root p b) := by
+  have hsuper : root p a * root p b ≤ root p (a * b) :=
+    root_supermultiplicative hp
+  constructor
+  · intro hzero
+    have heq : root p (a * b) = root p a * root p b := by
+      dsimp [rootCarry] at hzero
+      omega
+    exact (root_mul_eq_iff_carryLoad_lt hp).1 heq
+  · intro hload
+    have heq : root p (a * b) = root p a * root p b :=
+      (root_mul_eq_iff_carryLoad_lt hp).2 hload
+    simp [rootCarry, heq]
 
 end EnterpriseMath.RootMultiplicativity
