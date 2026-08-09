@@ -10,14 +10,22 @@ The v0.1 core is a discrete arithmetic experiment. It does not assume a complete
 The primitive state domain is
 
 \[
-\mathbb N=\{0,1,2,\ldots\}.
+\mathbb N=\mathbb N_0=\{0,1,2,\ldots\}.
 \]
+
+A bare \(\mathbb N\) therefore includes zero; positive integers are written \(\mathbb N_{>0}\).
 
 Scale is represented by integers and integer bases. No decimal or floating-point object is required by the core.
 
 ## 2. Integer root
 
-For \(n\in\mathbb N\) and integer \(p\ge1\), define
+The nontrivial primitive root/collapse family uses integer exponents \(p\ge2\). For algebraic closure, theorem reuse, Python, and Lean, the same exact root notation extends to every positive exponent \(p\ge1\), with the identity case
+
+\[
+R_1(n)=n.
+\]
+
+For \(n\in\mathbb N\) and positive integer \(p\), define
 
 \[
 R_p(n)=\max\{k\in\mathbb N:k^p\le n\}.
@@ -39,7 +47,13 @@ Define the perfect-power collapse
 C_p(n)=R_p(n)^p.
 \]
 
-The output is the greatest perfect \(p\)-th power not exceeding \(n\).
+The output is the greatest perfect \(p\)-th power not exceeding \(n\). In the positive-exponent algebra,
+
+\[
+C_1=\operatorname{id}.
+\]
+
+Thus \(p=1\) is an identity member, not an additional nontrivial primitive collapse. The many-to-one primitive collapse interpretation concerns \(p\ge2\).
 
 For \(p=2\),
 
@@ -63,7 +77,7 @@ Its cardinality is
 |B_{p,k}|=(k+1)^p-k^p.
 \]
 
-This cardinality is a property of the map. The v0.1 ontology does not require a hidden remainder state to survive after collapse.
+At \(p=1\), every basin has one state. For nontrivial \(p\ge2\), the cardinality records the many-to-one collapse basin. The v0.1 ontology does not require a hidden remainder state to survive after a nontrivial collapse.
 
 ## 5. Scale refinement
 
@@ -93,21 +107,33 @@ No infinite refinement limit is part of v0.1.
 
 ## 6. Forward dynamics
 
-A state evolution step is a function
+Time indices lie in \(\mathbb N_0\). A transition
 
 \[
-T:X\to X
+T_t:X_t\to X_{t+1}
 \]
 
-that is not required to be injective or invertible.
+is not required to be injective or invertible.
 
-A sequence of forward steps is
+The canonical cumulative map is
 
 \[
-F_t=T_t\circ T_{t-1}\circ\cdots\circ T_1.
+F_0=\operatorname{id},
 \]
 
-For an initial state \(x\), define its merged-history class at step \(t\):
+and, for \(t\ge1\),
+
+\[
+F_t=T_{t-1}\circ\cdots\circ T_0.
+\]
+
+Equivalently,
+
+\[
+F_{t+1}=T_t\circ F_t.
+\]
+
+For an initial state \(x\), define its merged-history class at time \(t\):
 
 \[
 [x]_t=\{y:F_t(y)=F_t(x)\}.
@@ -158,7 +184,7 @@ v0.1 does not yet define:
 - thermodynamic entropy;
 - a fundamental law of time.
 
-Those belong to later research only after the core survives proof and counterexample pressure.
+Those belong to later research only after the core survives proof and counterexample pressure. Later canonical P/E programs may extend this frozen v0.1 core without retroactively changing its scope.
 
 ## 10. Reference implementation rule
 
