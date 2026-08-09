@@ -82,6 +82,44 @@ theorem collapse_le {p : ℕ} (hp : p ≠ 0) (n : ℕ) : collapse p n ≤ n := b
 theorem root_pow {p : ℕ} (hp : p ≠ 0) (n : ℕ) : root p (n ^ p) = n := by
   exact Nat.nthRoot_pow hp n
 
+/-- T011 positive half: integer root is a left inverse of positive powering. -/
+theorem root_leftInverse_pow {p : ℕ} (hp : p ≠ 0) :
+    Function.LeftInverse (root p) (fun n : ℕ => n ^ p) := by
+  intro n
+  exact root_pow hp n
+
+/-- Every nontrivial exponent sends state 2 to the first perfect-power state. -/
+theorem collapse_two_eq_one {p : ℕ} (hp : 2 ≤ p) : collapse p 2 = 1 := by
+  have hp0 : p ≠ 0 := by omega
+  have hpow : 2 < 2 ^ p := by
+    calc
+      2 < 2 ^ 2 := by decide
+      _ ≤ 2 ^ p := Nat.pow_le_pow_right (by decide) hp
+  have hcollapse : collapse p 2 = 1 ^ p :=
+    (collapse_eq_pow_iff (p := p) (n := 2) (k := 1) hp0).2 ⟨by simp, hpow⟩
+  simpa using hcollapse
+
+/-- T011 negative half: state 2 is a uniform counterexample to two-sided inversion for every p>=2. -/
+theorem collapse_two_ne_self {p : ℕ} (hp : 2 ≤ p) : collapse p 2 ≠ 2 := by
+  rw [collapse_two_eq_one hp]
+  decide
+
+/-- T011: for every nontrivial exponent, power-after-root is not the identity on all states. -/
+theorem root_pow_not_two_sided {p : ℕ} (hp : 2 ≤ p) :
+    ¬ ∀ n : ℕ, root p n ^ p = n := by
+  intro h
+  have h2 : collapse p 2 = 2 := by
+    simpa [collapse] using h 2
+  exact collapse_two_ne_self hp h2
+
+/-- The algebraic p=1 member is exactly the identity root. -/
+theorem root_one (n : ℕ) : root 1 n = n := by
+  simpa using root_pow (p := 1) (by decide) n
+
+/-- The algebraic p=1 collapse member is exactly the identity. -/
+theorem collapse_one (n : ℕ) : collapse 1 n = n := by
+  simp [collapse, root]
+
 /-- Perfect-power collapse is idempotent. -/
 theorem collapse_idempotent {p : ℕ} (hp : p ≠ 0) (n : ℕ) :
     collapse p (collapse p n) = collapse p n := by
