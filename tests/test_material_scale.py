@@ -36,10 +36,11 @@ class MaterialScaleTests(unittest.TestCase):
         self.assertTrue(saw_positive_defect)
 
     def test_softening_exact_homogeneity_is_zero_carry_special_case(self):
-        exact = softening_scale_report(50, 100, power=2, refinement=7)
+        exact = softening_scale_report(25, 100, power=2, refinement=7)
+        self.assertEqual(exact.base_value, 50)
         self.assertEqual(exact.base_root_remainder, 0)
         self.assertEqual(exact.defect, 0)
-        self.assertEqual(exact.scaled_value, 7 * exact.base_value)
+        self.assertEqual(exact.scaled_value, 350)
 
         shell = softening_scale_report(1, 3, power=2, refinement=2)
         self.assertEqual(shell.base_value, 1)
