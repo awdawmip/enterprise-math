@@ -9,7 +9,8 @@ from enterprise_math.material_scale import (
 
 
 class MaterialScaleTests(unittest.TestCase):
-    def test_softening_is_exactly_homogeneous_under_integer_refinement(self):
+    def test_softening_refinement_has_exact_bounded_root_carry(self):
+        saw_positive_defect = False
         for amplitude in range(1, 18):
             for sample in range(amplitude + 1):
                 for power in range(1, 5):
@@ -17,11 +18,33 @@ class MaterialScaleTests(unittest.TestCase):
                         report = softening_scale_report(
                             sample, amplitude, power, refinement
                         )
-                        self.assertEqual(report.defect, 0)
+                        self.assertEqual(
+                            report.defect,
+                            report.expected_defect_from_remainder,
+                        )
+                        self.assertGreaterEqual(report.defect, 0)
+                        self.assertLess(report.defect, refinement)
                         self.assertEqual(
                             report.scaled_value,
-                            refinement * report.base_value,
+                            report.transported_base + report.defect,
                         )
+                        self.assertEqual(
+                            report.base_argument,
+                            report.base_value**power + report.base_root_remainder,
+                        )
+                        saw_positive_defect |= report.defect > 0
+        self.assertTrue(saw_positive_defect)
+
+    def test_softening_exact_homogeneity_is_zero_carry_special_case(self):
+        exact = softening_scale_report(50, 100, power=2, refinement=7)
+        self.assertEqual(exact.base_root_remainder, 0)
+        self.assertEqual(exact.defect, 0)
+        self.assertEqual(exact.scaled_value, 7 * exact.base_value)
+
+        shell = softening_scale_report(3, 3, power=2, refinement=2)
+        self.assertGreater(shell.base_root_remainder, 0)
+        self.assertGreater(shell.defect, 0)
+        self.assertLess(shell.defect, 2)
 
     def test_hardening_defect_is_exact_bounded_remainder_carry(self):
         saw_positive_defect = False
@@ -88,7 +111,7 @@ class MaterialScaleTests(unittest.TestCase):
         self.assertEqual(report.defect, 0)
         self.assertEqual(report.scaled_value, 7 * report.base_value)
 
-    def test_nonzero_remainder_can_create_refinement_shell(self):
+    def test_nonzero_remainder_can_create_hardening_refinement_shell(self):
         report = hardening_scale_report(33, 100, power=2, refinement=7)
         self.assertGreater(report.base_remainder, 0)
         self.assertGreater(report.defect, 0)

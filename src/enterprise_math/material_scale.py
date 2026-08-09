@@ -1,8 +1,19 @@
 """Exact integer scale transport for E001 material curves and oscillators.
 
-The root-based softening transform is exactly homogeneous under an integer
-refinement ``(s,A)->(lambda*s,lambda*A)``.  The quotient-based hardening
-transform instead acquires one explicit bounded remainder/carry defect.
+Both material transforms have explicit finite refinement carries:
+
+* quotient/power hardening gets a carry from its Euclidean remainder;
+* root softening gets a carry from the unresolved remainder inside the coarse
+  integer-root basin.
+
+For ``N=s*A^(p-1)=q^p+delta`` and integer refinement ``lambda``:
+
+    R_p(lambda^p*N) = lambda*q + kappa,
+
+where ``0 <= kappa < lambda`` and ``kappa`` is the largest integer in that range
+whose p-th-power increment over ``(lambda*q)^p`` fits inside the refined
+remainder budget ``lambda^p*delta``.  Exact homogeneity is therefore a special
+zero-carry case, not the generic law.
 
 The projected Pythagorean oscillator has a related coordinatewise law: scaling
 the input state by ``lambda`` transports the projected output by ``lambda`` plus
@@ -51,12 +62,16 @@ class HardeningScaleReport:
 
 @dataclass(frozen=True)
 class SofteningScaleReport:
-    """Exact integer homogeneity report for the root softening transform."""
+    """Exact bounded root-carry report for the softening transform."""
 
     base_value: int
     scaled_value: int
     transported_base: int
     defect: int
+    base_argument: int
+    base_root_remainder: int
+    refined_remainder_budget: int
+    expected_defect_from_remainder: int
 
 
 @dataclass(frozen=True)
@@ -112,18 +127,47 @@ def hardening_scale_report(
     )
 
 
+def _expected_root_refinement_carry(
+    base_root: int,
+    base_remainder: int,
+    power: int,
+    refinement: int,
+) -> int:
+    """Largest ``k<lambda`` supported by the refined root-basin remainder."""
+    transported = refinement * base_root
+    budget = refinement**power * base_remainder
+    expected = 0
+    for carry in range(1, refinement):
+        increment = (transported + carry) ** power - transported**power
+        if increment <= budget:
+            expected = carry
+        else:
+            break
+    return expected
+
+
 def softening_scale_report(
     sample: int,
     amplitude: int,
     power: int,
     refinement: int,
 ) -> SofteningScaleReport:
-    """Verify G_p(lambda*s;lambda*A)=lambda*G_p(s;A)."""
+    """Return the exact root-refinement carry of ``G_p``.
+
+    If ``N=s*A^(p-1)=q^p+delta`` then the refined argument is
+    ``lambda^p*N`` and the refined root has the form ``lambda*q+kappa`` with
+    ``0<=kappa<lambda``.  The carry is exactly determined by ``delta``.
+    """
     _validate_sample(sample, amplitude)
     _require_positive("power", power)
     _require_positive("refinement", refinement)
 
+    base_argument = sample * amplitude ** (power - 1)
     base = softening_sample(sample, amplitude, power)
+    base_remainder = base_argument - base**power
+    if base_remainder < 0:
+        raise AssertionError("integer root exceeded its argument")
+
     scaled = softening_sample(
         refinement * sample,
         refinement * amplitude,
@@ -131,14 +175,26 @@ def softening_scale_report(
     )
     transported = refinement * base
     defect = scaled - transported
-    if defect != 0:
-        raise AssertionError("root softening lost exact integer scale homogeneity")
+    expected = _expected_root_refinement_carry(
+        base,
+        base_remainder,
+        power,
+        refinement,
+    )
+    if defect != expected:
+        raise AssertionError("root refinement carry disagrees with basin remainder")
+    if not 0 <= defect < refinement:
+        raise AssertionError("root refinement carry escaped its finite shell")
 
     return SofteningScaleReport(
         base_value=base,
         scaled_value=scaled,
         transported_base=transported,
         defect=defect,
+        base_argument=base_argument,
+        base_root_remainder=base_remainder,
+        refined_remainder_budget=refinement**power * base_remainder,
+        expected_defect_from_remainder=expected,
     )
 
 
