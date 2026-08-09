@@ -2,9 +2,9 @@
 
 Status: `ACTIVE / REQUIRED PREFLIGHT`  
 Effective: 2026-08-09  
-Purpose: give every research route the same compact view of reusable mathematics, executable tools, negative boundaries, active interface alerts, and live cross-route results.
+Purpose: give every research route the same compact view of reusable mathematics, executable tools, negative boundaries, active interface alerts, dispatch state, and live cross-route results.
 
-This file is a router, not a replacement for proofs. Exact theorem scope remains controlled by canonical result documents; branch-proved results remain explicitly WIP until promoted.
+This file is a router, not a replacement for proofs. Exact theorem scope remains controlled by canonical result documents; branch-proved results remain explicitly WIP until promoted. Scheduler state coordinates work but does not promote mathematical truth.
 
 ## 1. Mandatory preflight
 
@@ -12,11 +12,13 @@ Before starting a new L1/L2/L3 theorem line:
 
 1. read this common surface;
 2. read `docs/RESEARCH_SCHEDULING_PROTOCOL.*`;
-3. read `docs/PROBLEM_STATUS.*` and the relevant canonical result document;
-4. read the latest relevant Research Relay Issue #82 entries;
-5. inspect overlapping executable specs/tests and imported Lean modules;
-6. for foundational language/formula/theorem/tool-interface work, read `docs/FOUNDATION_STEWARD_PROTOCOL.*` and relevant Foundation Problem Set Issue #164 `FQ-*` entries;
-7. then classify the work as a mother theorem, specialization, bridge, counterexample, tool, duplicate, or answer to a foundation question.
+3. read `research_scheduler.json` and the live Research Dispatch Board Issue #240;
+4. read `docs/RESEARCH_OWNER_ISOLATION.*`;
+5. read `docs/PROBLEM_STATUS.*` and the relevant canonical result document;
+6. read the latest relevant Research Relay Issue #82 entries;
+7. inspect overlapping executable specs/tests and imported Lean modules;
+8. for foundational language/formula/theorem/tool-interface work, read `docs/FOUNDATION_STEWARD_PROTOCOL.*` and relevant Foundation Problem Set Issue #164 `FQ-*` entries;
+9. then classify the work as a mother theorem, specialization, bridge, counterexample, tool, duplicate, or answer to a foundation question.
 
 Use selective retrieval; do not inject the whole repository into working context.
 
@@ -31,7 +33,7 @@ Keep these distinct:
 - `COUNTEREXAMPLE / NEGATIVE_BOUNDARY`: reusable impossibility/failure result;
 - `CONJECTURAL`: research target only.
 
-A **canonical executable asset** is a source/test artifact integrated on `main`; its presence does not by itself promote every statement encoded by that module to `PROVED`.
+A **canonical executable asset** is a source/test artifact integrated on `main`; its presence does not by itself promote every statement encoded by that module to `PROVED`. Likewise, a scheduler claim/lease records who is working, not what has been proved.
 
 ## 3. Canonical knowledge channels
 
@@ -40,7 +42,8 @@ A **canonical executable asset** is a source/test artifact integrated on `main`;
 - canonical `docs/Pxxx_*.{en,zh-CN}.md`: exact modern theorem families and hypotheses;
 - `EnterpriseMath.lean` plus imported `EnterpriseMath/**.lean`: Lean-checked subset;
 - Research Relay Issue #82: proved WIP results/counterexamples with source commit and relation class;
-- Foundation Problem Set Issue #164: verified bottom-layer questions needing research.
+- Foundation Problem Set Issue #164: verified bottom-layer questions needing research;
+- `research_scheduler.json` plus Issue #240: live dispatch/lease/handoff coordination only.
 
 Never infer “unknown” merely because a result or tool is absent from the current branch.
 
@@ -110,6 +113,17 @@ Canonical executable core on `main`:
 
 It consumes P018 observation/refinement machinery and owns the finite graph + integer expansion boundary specialization. Broader causal focusing, direction/witness composition and physical interpretation remain open.
 
+### E001 — finite material-impulse application specialization
+
+The following eight-file slice is canonical executable application machinery on `main`:
+
+- `material_impulse_accounting.py` + regression;
+- `material_impulse_world_1d.py` + regression;
+- `material_impulse_tick_order.py` + regression;
+- `material_impulse_wall_world_1d.py` + regression.
+
+This slice is reusable for exact retained-detail impulse accounting, discrete momentum drift, explicit tick-order comparison, and contact/wall-world experiments. It is **not** a general mechanics/material theorem and does not by itself validate a physical model. In particular, `OUTWARD` momentum is not silently identified with a physical `REBOUND`; contact history/transmission state remains part of the richer event semantics.
+
 ## 5. High-value negative boundaries
 
 - coarse equality/support/cardinality does not automatically preserve later composition;
@@ -118,6 +132,7 @@ It consumes P018 observation/refinement machinery and owns the finite graph + in
 - geometry-only contact/collision facts may be insufficient to select a unique response;
 - a quotient safe for one future language can fail for a richer language;
 - ordinary metric claims require their graph/weight hypotheses; directed/asymmetric structures must not silently inherit symmetry;
+- an E001 engineering transition/result must not be promoted to a universal physical law merely because its executable slice is canonical;
 - file-name equality, Git ancestry or `ahead(main)>0` is not proof of new mathematics;
 - established machinery such as Galois connections, semigroups, numerical semigroups and partition refinement remains prior art.
 
@@ -133,7 +148,8 @@ Python roots under `src/enterprise_math/` include:
 - A4: `admissible_support.py`, `relational_spectrum.py`;
 - A3→A4: `a3_a4_support_bridge.py`;
 - P021: `causal_boundary.py`;
-- P017: mirror/cofactor/Legendre pressure-test modules.
+- P017: mirror/cofactor/Legendre pressure-test modules;
+- E001 application: `material_impulse_accounting.py`, `material_impulse_world_1d.py`, `material_impulse_tick_order.py`, `material_impulse_wall_world_1d.py` and their tests.
 
 `src/enterprise_math/__init__.py` exports only a compact stable subset. A non-exported module may still be a canonical internal executable specification; check scope/provenance before treating it as a stable API.
 
@@ -143,16 +159,17 @@ Lean:
 - `EnterpriseMath/**.lean` contains formalization assets;
 - claim `LEAN_CHECKED_MAIN` only for statements actually covered by the imported/warning-fatal build.
 
-Validation/reconstruction:
+Validation/reconstruction/governance tools:
 
 - `tests/`: exact regression/counterexample suites;
 - `experiments/`: bounded pressure tests and engineering probes;
 - `tools/check_bilingual_pairs.py`: bilingual gate;
-- `tools/check_references.py`: reference-integrity gate.
+- `tools/check_references.py`: reference-integrity gate;
+- `tools/research_scheduler.py`: live dispatch/lease/handoff state-machine helper; it coordinates execution and does not certify theorem truth.
 
 Executable checks support discovery/falsification/regression; they do not independently upgrade a claim to `PROVED`.
 
-## 7. Propagation and nonblocking rules
+## 7. Propagation, dispatch and nonblocking rules
 
 When a reusable result appears:
 
@@ -163,7 +180,7 @@ When a reusable result appears:
 5. register reusable executable tool families here;
 6. never wait for consumer ACK unless a complete `HARD_BLOCK` exists.
 
-Research is parallel; canonical promotion is serialized. `defer` is routing, not blocking.
+Research is parallel; canonical promotion is serialized. `defer` is routing, not blocking. Claims on Issue #240 are renewable execution leases; unfinished sessions must hand the route back rather than silently leaving it unstaffed. Scheduler events (`CLAIM`, `HEARTBEAT`, `PROGRESS`, `HANDOFF`, `HARD_BLOCK`, `UNBLOCK`, `DONE`, `SUPERSEDE`) coordinate execution only.
 
 ## 8. Foundation stewardship
 
