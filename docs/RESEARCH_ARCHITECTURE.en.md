@@ -16,6 +16,10 @@ The governing rule is:
 
 A problem branch keeps its domain-specific corollary, examples, counterexamples, motivation, and provenance even when its mother theorem is lifted into a reusable core.
 
+A second rule is equally important:
+
+> Similar vocabulary is not evidence of identical mathematics. Two routes are merged only after an explicit equivalence, specialization, or strict-generalization theorem is established.
+
 ## 2. Two orthogonal axes
 
 ### Axis A — reusable mathematical homes
@@ -46,33 +50,68 @@ This home contains finite observations, refinement fibers, exact defect/response
 
 `P018` remains the finite-precision calculus. `P023` is the candidate home for the most general future-compatible quotient theorem family. Until `P023` is integrated, this is an ownership plan rather than a canonical renumbering of already proved P018 statements.
 
-#### A3. Relation/support and partition-quotient core — candidate reusable core
+#### A3. Partition relation-state algebra — candidate reusable core
 
-Sources currently include the former minimum-precision-geometry research line, E001 relational-collapse work, `P011`, `P012`, `P018`, `P021`, and `P023`.
+Primary source: the later stages of the former minimum-precision-geometry branch, now continued on `research/core/relation-quotient`, with links to `P018/P022/P023`.
 
-This candidate home is necessary because two independently growing routes have exceeded their original application labels:
+Its central object is a **structured integer relation field**, not an arbitrary binary relation. For positive block capacities `m_i` and integer block totals `c_i`, the current route uses
 
-1. the former `P019_MINIMUM_PRECISION_LATTICE_GEOMETRY` branch has developed capacity-weighted relation fields, partition quotients, integer kernel lattices, refinement memory, relation scale, and witness/value separation;
-2. E001 has developed admissible support relations, common-target composition, MAY/MUST support precision, and relation spectra whose functional special case is exactly the P011 collision spectrum.
+`Z_ij = m_j c_i - m_i c_j`.
 
-The candidate core is **not yet a new foundation and is not yet assigned a new `P` number**. Its immediate job is to distill shared mother statements without forcing either source branch to lose its history.
+Together with capacities and grand total, a legal `Z` reconstructs the current block totals. Partition coarsening acts by aggregating capacities/totals and by `Z' = A Z A^T`; the associated integer partition kernel describes both the state fiber and coarse-invisible additive motion.
 
-Its current conceptual split is:
+Current A3 candidates include:
 
-- relation representation and partition quotient: weighted relation state, `Q_A`, `K_A`, relation rank, exact present-state refinement data;
-- admissible finite relations/supports: functional versus multivalued collapse, common-target relation, split-completeness, target incidence;
-- relation observations: functional collision spectrum as a special case, witness versus group/event spectra, geometric observation channels;
-- witness/provenance: information required for exact later composition versus information sufficient only for present coarse values.
+- tree-independent weighted relation state `(m,C,Z)`;
+- arbitrary partition quotient and composition;
+- partition kernel `K_A`, relation rank, and relation-scale quantum;
+- exact present-state refinement data and Refinement Forest;
+- minimum exact partition/relation precision required by declared linear operations and observations;
+- geometry-independent observation channels defined on the structured relation state.
 
-Future-operational safety itself remains in A2: A3 supplies the relation state and quotient; A2 decides whether a requested future language permits that quotient to forget internal detail.
+A3 is **not yet a Foundation and is not assigned a new `P` number**. It must first be distilled from historical P019/P022 naming and audited against prior art.
 
-#### A4. Intrinsic discrete geometry
+#### A4. Admissible support / correspondence algebra — candidate reusable core
 
-Primary sources: `P012` and `P022`, consuming A0/A2/A3 where useful.
+Primary source: E001 relational-collapse work, now continued on `research/core/admissible-support-relations`, with links to `P011/P012/P018`.
+
+Its central object is a **finite binary relation / correspondence** `R ⊆ X×Z`, generally multivalued. A source may have several allowed target states. This is not the same object as A3's skew integer field `Z_ij`.
+
+Current A4 candidates include:
+
+- functional collapse versus multivalued relational support;
+- radius-indexed admissible relation families `R_r`;
+- monotonicity and relational subadditivity `R_r ; R_s ⊆ R_(r+s)`;
+- split-completeness as the stronger equality case rather than a universal axiom;
+- common-target composition `R_r ; converse(R_s)`;
+- target-incidence representations;
+- witness spectrum `W_k` and group/event spectrum `G_k`;
+- exact degeneration `W_k=G_k=J_k` when the relation is the graph of a total function;
+- higher-order common-target structure and admissibility constraints.
+
+A4 is also **RESEARCH WIP**, not a Foundation or a newly numbered problem.
+
+#### A3/A4 bridge — explicitly open
+
+The word “relation” is overloaded across A3 and A4. No equivalence is currently assumed.
+
+A3 is a structured numeric state representation derived from capacities and totals. A4 is a set-valued incidence/correspondence between sources and allowed targets.
+
+A bridge theorem would need to answer questions such as:
+
+- when is an A4 support family generated completely from an A3 state plus declared geometry/operations?
+- when does an A4 observation factor through an A3 partition quotient?
+- which A3 internal relations are necessary to reconstruct or decide an A4 common-target query?
+
+Until such statements are proved, the two cores remain siblings rather than one merged “relation theory.”
+
+#### A5. Intrinsic discrete geometry
+
+Primary sources: `P012` and `P022`, consuming A0/A2/A3/A4 where useful.
 
 This home is for primitive adjacency, integer shortest-path metrics, lattice/root-lattice geometry, finite balls and shells, distance carry, radial/quadratic observations, and geometry-specific contraction results.
 
-Geometry may generate admissible support relations and relation observations, but the general theory of finite relations or partition quotients should not remain trapped inside a geometry-numbered branch.
+Geometry may generate A4 admissible support relations and may be observed through A3 structured relation states, but neither general relation-state algebra nor general support/correspondence algebra should remain trapped inside a geometry-numbered branch.
 
 ### Axis B — research and application programs
 
@@ -111,39 +150,49 @@ P021 direction transport produced an important negative result: count matrices c
 
 The general quotient-safety rule belongs in A2/P023. P021 keeps direction-orbit, causal-role, focusing, and witness-join applications.
 
-### 3.4 P011 → relation spectra: functional maps are a special case
+### 3.4 P011 → A4 relation spectra: functional maps are a special case
 
 For a finite relation `R ⊆ X×Z`, E001 relational work separates witness multiplicity `W_k` from common-target group/event count `G_k`. When `R` is the graph of a total function `F`, both reduce exactly to P011's `J_k(F)`.
 
-Therefore P011 remains the canonical single-valued/function-partition spectrum. A3 may generalize it to relations, but must state the degeneration theorem explicitly and must not silently replace P011's monotonicity results by claims that fail for multivalued relations.
+Therefore P011 remains the canonical single-valued/function-partition spectrum. A4 may generalize it to relations, but must state the degeneration theorem explicitly and must not silently replace P011's monotonicity results by claims that fail for multivalued relations.
 
-### 3.5 E001 ↔ P018 ↔ A3
+### 3.5 E001 ↔ P018 ↔ A4
 
 E001 no longer owns an independent precision calculus. P018 already supplies finite observation/refinement logic, including MAY/MUST-style refinement behavior once the observation is applied to finite supports.
 
 The split is:
 
-- A3 owns admissible target/support relations and common-target mathematics;
+- A4 owns admissible target/support relations and common-target mathematics;
 - P018/A2 owns observation/refinement and future compatibility;
 - E001 owns the executable collision workload, certificates, schedules, benchmarks, and engineering falsification.
 
-### 3.6 Former P019 relation work ↔ P022 ↔ P023
+### 3.6 Former P019 relation-state work ↔ P022 ↔ P023
 
 The former geometry branch discovered tree-independent weighted relation state `(m,C,Z)`, partition quotient `Q_A`, integer kernel `K_A`, and exact refinement-memory results. Those are more general than lattice geometry.
 
 The split is:
 
-- A3 owns the abstract relation/partition representation and kernel algebra;
+- A3 owns the abstract structured relation-state/partition representation and kernel algebra;
 - P022 owns root-lattice, metric, ball, radial, distance-carry, and geometry-specific contraction statements;
 - A2/P023 owns the future-language condition determining when A3's erased internal relations may actually be forgotten.
 
-### 3.7 P012 → E001/P022: geometry as a generator of admissible relations
+The post-split relation branch has already continued this direction with observation-aware minimum exact relation precision; this is A3/A2 work, not new P022 geometry.
 
-P012's primitive adjacency can generate finite graph balls and hence admissible target-support relations. E001's square supports are one concrete instance. This makes the dependency direction explicit:
+### 3.7 P012 → A4/E001/P022: geometry as a generator of admissible supports
 
-`primitive geometry -> admissible supports -> relation observations -> precision/refinement -> application decision`.
+P012's primitive adjacency can generate finite graph balls and hence A4 target-support relations. E001's square supports are one concrete instance. This makes the dependency direction explicit:
+
+`primitive geometry -> admissible supports -> support observations -> precision/refinement -> application decision`.
 
 It prevents an application-specific collision formula from being mistaken for a new primitive geometry.
+
+### 3.8 A3 ↔ A4: bridge required, not assumed
+
+A3 and A4 may interact strongly, but their current objects are not interchangeable.
+
+A3 can reconstruct a present block-total state from structured weighted relations. A4 asks which target states are admissible for each source and how those target sets compose/intersect. A future result may show that a particular A4 family is a derived observation of a particular A3 state, but that must be proved for the declared generator/geometry.
+
+This distinction prevents a terminology-driven false unification.
 
 ## 4. Theorem lifting protocol
 
@@ -152,11 +201,12 @@ When a branch appears to discover a reusable result:
 1. **Preserve the discovery branch and exact commit.** Do not force-rebase it merely to rename the idea.
 2. **Identify the weakest hypotheses.** Remove domain assumptions one at a time and retain explicit counterexamples for assumptions that cannot be removed.
 3. **Compare against existing routes.** Search for equivalent invariants, coordinate transforms, special cases, and already-known prior art.
-4. **Choose one mother statement.** The most general proved statement gets one reusable home; original programs retain corollaries and provenance.
-5. **Record both directions of reuse.** The source program cites the lifted theorem; the reusable core cites the source discovery and application.
-6. **Replay semantically onto latest main.** Never merge a highly diverged historical branch wholesale when a clean current-main replay can isolate the result.
-7. **Pass ordinary repository gates.** Bilingual pairing, reference/lineage integrity, tests, and applicable Lean gates remain unchanged.
-8. **Do not promote vocabulary into ontology.** Coordinates, charts, witnesses, observations, and physical interpretations stay separated unless a theorem proves an invariant identification.
+4. **Classify the relationship before merging.** Use at least `same`, `strict generalization`, `specialization`, `independent`, or `conflict`.
+5. **Choose one mother statement only after Step 4.** The most general proved statement gets one reusable home; original programs retain corollaries and provenance.
+6. **Record both directions of reuse.** The source program cites the lifted theorem; the reusable core cites the source discovery and application.
+7. **Replay semantically onto latest main.** Never merge a highly diverged historical branch wholesale when a clean current-main replay can isolate the result.
+8. **Pass ordinary repository gates.** Bilingual pairing, reference/lineage integrity, tests, and applicable Lean gates remain unchanged.
+9. **Do not promote vocabulary into ontology.** Coordinates, charts, witnesses, observations, relations, and physical interpretations stay separated unless a theorem proves an invariant identification.
 
 ## 5. Non-destructive migration rules
 
@@ -166,17 +216,18 @@ When a branch appears to discover a reusable result:
 - No existing open PR is closed merely because a better branch name now exists. Close/supersede only after a clean replay or explicit equivalence audit identifies what has been preserved.
 - No historical `P019_*` geometry/relation file may be promoted to main under that number. Canonical `P019` already means collapse-word stabilization.
 - `P021` physical interpretations remain downstream of mathematical statements and the P016 falsification contract.
-- A3 relation/support work remains `RESEARCH WIP` until theorem boundaries, prior art, and clean integration are audited.
+- A3/A4 work remains `RESEARCH WIP` until theorem boundaries, prior art, and clean integration are audited.
 
 ## 6. Immediate research frontiers after migration
 
-1. Distill the A3 relation/support core from the two independent source routes without importing geometry- or collision-specific assumptions.
-2. Prove or refute the exact equivalence between P018 predictive closure and the relevant P023 operation-language closure statements; keep only one general theorem family.
-3. Generalize P011 to relations only with separate `W_k` and `G_k` semantics and explicit monotonicity boundaries.
-4. Replay P022 geometry from the mixed historical branch onto current main using A3 abstractions only where they genuinely reduce the geometry.
-5. Replay P021 onto current main under its canonical number while preserving witness identity and physical/falsification boundaries.
-6. Keep E001 engineering measurements separate from mathematical claims; use the extracted relation core as a dependency rather than growing a second theory inside the benchmark branch.
-7. Continue P017 as a pressure test: lift general results upward, retain square-basin-specific constraints locally, and stop duplicate coordinate routes once equivalence has been proved.
+1. Build a theorem-by-theorem lineage matrix for A3 and A4 separately before attempting any bridge theorem.
+2. Determine whether any A4 admissible-support family relevant to E001/P022 factors through A3 weighted relation state, and what information is lost when it does not.
+3. Prove or refute the exact equivalence between P018 predictive closure and the relevant P023 operation-language closure statements; keep only one general theorem family.
+4. Generalize P011 to A4 relations only with separate `W_k` and `G_k` semantics and explicit monotonicity boundaries.
+5. Replay P022 geometry from the mixed historical branch onto current main using A3/A4 abstractions only where they genuinely reduce the geometry.
+6. Replay P021 onto current main under its canonical number while preserving witness identity and physical/falsification boundaries.
+7. Keep E001 engineering measurements separate from mathematical claims; use extracted reusable cores as dependencies rather than growing duplicate theory inside the benchmark branch.
+8. Continue P017 as a pressure test: lift general results upward, retain square-basin-specific constraints locally, and stop duplicate coordinate routes once equivalence has been proved.
 
 ## 7. Architecture invariant
 
