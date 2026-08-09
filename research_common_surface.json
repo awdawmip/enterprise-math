@@ -26,8 +26,12 @@
     "steward_solves_escalated_research": false,
     "steward_verifies_before_escalation": true,
     "steward_verifies_before_canonicalization": true,
+    "active_foundation_questions": [
+      "FQ-20260809-004",
+      "FQ-20260809-005"
+    ],
     "active_interface_alerts": [
-      "FQ-20260809-004"
+      "FQ-20260809-005"
     ]
   },
   "canonical_foundation_conventions": {
@@ -113,7 +117,7 @@
     ]
   },
   "tool_scope_alerts": {
-    "FQ-20260809-004": "stable geometry.graph_distance accepts general adjacency mappings while P012 ordinary metric theorems assume connected undirected simple graphs; do not inherit metric symmetry on asymmetric inputs until API layering is resolved"
+    "FQ-20260809-005": "stable geometry.graph_distance accepts general adjacency mappings while P012 ordinary metric theorems assume connected undirected simple graphs; do not inherit metric symmetry on asymmetric inputs until API layering is resolved"
   },
   "tool_roots": {
     "python_exact_reference": "src/enterprise_math/",
