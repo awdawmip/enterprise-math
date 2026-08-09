@@ -14,14 +14,11 @@ fiber has already become causally indistinguishable after combining with b.
 Thus non-cancellativity is itself a causal collapse whose P011-style collision
 spectrum measures which future increments the current bulk has swallowed.
 
-If the observation respects word composition,
-
-    O(p+s) = combine(O(p), O(s)),
-
-then a left-cancellative reachable regime is the special case where all these
-residual fibers are singletons and the future residual is exactly O(s).
-Traditional cancellation/quotient language is therefore a shadow of fiber
-structure, not a primitive requirement.
+When combine is also commutative and a new bulk is obtained causally as
+`b'=combine(b,u)`, the residual partition can only coarsen: every collision under
+L_b remains a collision under L_b'.  Hence every P011 collision coordinate is
+nondecreasing along such bulk accumulation.  This is a derived precision law;
+no precision order is declared in advance.
 """
 
 from __future__ import annotations
@@ -74,7 +71,6 @@ def unique_residual(
     candidate_increments: Iterable[Value],
     combine: Combine,
 ) -> Value:
-    """Return the unique reachable residual, raising on empty or non-singleton fiber."""
     matches = residual_candidates(bulk, total, candidate_increments, combine)
     if not matches:
         raise ValueError("no reachable residual reconstructs the total from the bulk")
@@ -88,7 +84,6 @@ def left_translation_fibers(
     increment_values: tuple[Value, ...],
     combine: Combine,
 ) -> dict[Value, tuple[Value, ...]]:
-    """Fibers of r -> combine(bulk,r) on declared reachable increments."""
     if not isinstance(increment_values, tuple) or not increment_values:
         raise ValueError("increment_values must be a non-empty tuple")
     grouped: dict[Value, list[Value]] = defaultdict(list)
@@ -107,10 +102,35 @@ def left_translation_fibers(
         except TypeError as error:
             raise ValueError("combined totals must be hashable") from error
         grouped[total].append(increment)
-    return {
-        total: tuple(values)
-        for total, values in grouped.items()
-    }
+    return {total: tuple(values) for total, values in grouped.items()}
+
+
+def left_translation_partition(
+    bulk: Value,
+    increment_values: tuple[Value, ...],
+    combine: Combine,
+) -> dict[Value, int]:
+    """Canonical finite class ids for residual increments under one bulk."""
+    fibers = left_translation_fibers(bulk, increment_values, combine)
+    result = {}
+    for class_id, total in enumerate(sorted(fibers, key=repr)):
+        for increment in fibers[total]:
+            result[increment] = class_id
+    return result
+
+
+def partition_refines(
+    finer: dict[Value, int],
+    coarser: dict[Value, int],
+) -> bool:
+    if set(finer) != set(coarser):
+        raise ValueError("partitions must cover the same increment set")
+    values = tuple(finer)
+    return all(
+        finer[left] != finer[right] or coarser[left] == coarser[right]
+        for left in values
+        for right in values
+    )
 
 
 def left_translation_collision_spectrum(
@@ -119,7 +139,6 @@ def left_translation_collision_spectrum(
     combine: Combine,
     maximum_order: int | None = None,
 ) -> tuple[int, ...]:
-    """P011-style collision spectrum of the bulk left-translation collapse."""
     fibers = left_translation_fibers(bulk, increment_values, combine)
     total = len(increment_values)
     limit = total if maximum_order is None else maximum_order
@@ -132,12 +151,44 @@ def left_translation_collision_spectrum(
     )
 
 
+def bulk_extension_coarsens_residuals(
+    bulk: Value,
+    absorbed: Value,
+    increment_values: tuple[Value, ...],
+    combine: Combine,
+) -> bool:
+    """Check P_b refines P_(combine(b,absorbed)) on declared increments.
+
+    For an associative commutative combine this is a theorem.  The function
+    checks the resulting finite partition relation without assuming those laws.
+    """
+    old = left_translation_partition(bulk, increment_values, combine)
+    new_bulk = combine(bulk, absorbed)
+    new = left_translation_partition(new_bulk, increment_values, combine)
+    return partition_refines(old, new)
+
+
+def collision_spectrum_nondecreasing_under_bulk_extension(
+    bulk: Value,
+    absorbed: Value,
+    increment_values: tuple[Value, ...],
+    combine: Combine,
+    maximum_order: int | None = None,
+) -> bool:
+    old = left_translation_collision_spectrum(
+        bulk, increment_values, combine, maximum_order
+    )
+    new = left_translation_collision_spectrum(
+        combine(bulk, absorbed), increment_values, combine, maximum_order
+    )
+    return all(new_value >= old_value for old_value, new_value in zip(old, new))
+
+
 def bounded_reachable_values(
     alphabet: tuple[Symbol, ...],
     maximum_length: int,
     observation: Observation,
 ) -> tuple[Value, ...]:
-    """All distinct observation values reachable by suffixes up to a finite length."""
     if (
         isinstance(maximum_length, bool)
         or not isinstance(maximum_length, int)
@@ -192,7 +243,6 @@ def bounded_homomorphism_check(
     observation: Observation,
     combine: Combine,
 ) -> bool:
-    """Finite pressure test of O(p+s)==combine(O(p),O(s))."""
     for left_length in range(maximum_left_length + 1):
         for right_length in range(maximum_right_length + 1):
             for left in words(alphabet, left_length):
@@ -206,7 +256,6 @@ def bounded_associativity_check(
     values: tuple[Value, ...],
     combine: Combine,
 ) -> bool:
-    """Finite pressure test of combine(combine(a,b),c)==combine(a,combine(b,c))."""
     for first in values:
         for second in values:
             for third in values:
@@ -224,12 +273,6 @@ def same_bulk_fiber_is_future_safe_under_associative_extension(
     future_increments: tuple[Value, ...],
     combine: Combine,
 ) -> bool:
-    """Check the causal consequence of associativity for two collided residuals.
-
-    If both residuals produce the same current total after the bulk, then every
-    later right-composition by the same future increment must also agree under an
-    associative combine law.  This function checks the finite declared future set.
-    """
     left_total = combine(bulk, left_increment)
     right_total = combine(bulk, right_increment)
     if left_total != right_total:
@@ -245,7 +288,6 @@ def bounded_left_recovery_is_unique(
     increment_values: tuple[Value, ...],
     combine: Combine,
 ) -> bool:
-    """Whether each reachable bulk has injective left translation on tested increments."""
     for bulk in bulk_values:
         outputs = [combine(bulk, increment) for increment in increment_values]
         if len(set(outputs)) != len(outputs):
