@@ -59,10 +59,19 @@ theorem square_basin_div_root_pair
       _ ≤ (j + 1) * d := Nat.mul_le_mul_right d (Nat.add_le_add_right hFloorLeRoot 1)
 
   have hGap : 2 * k < (2 * j + 3) * d := by
-    nlinarith
+    have hCoef : 2 * (j + 1) < 2 * j + 3 := by omega
+    calc
+      2 * k < 2 * ((j + 1) * d) := Nat.mul_lt_mul_of_pos_left hkLtBlock (by norm_num)
+      _ = (2 * (j + 1)) * d := by ring
+      _ < (2 * j + 3) * d := Nat.mul_lt_mul_of_pos_right hCoef hd0
 
+  have hkSqSuccLe : k ^ 2 + 1 ≤ (j + 1) ^ 2 * d := by omega
   have hkNextSqLe : (k + 1) ^ 2 ≤ (j + 2) ^ 2 * d := by
-    nlinarith
+    calc
+      (k + 1) ^ 2 = (k ^ 2 + 1) + 2 * k := by ring
+      _ ≤ (j + 1) ^ 2 * d + (2 * j + 3) * d :=
+        Nat.add_le_add hkSqSuccLe (Nat.le_of_lt hGap)
+      _ = (j + 2) ^ 2 * d := by ring
 
   have hnLtTarget : n < (j + 2) ^ 2 * d := lt_of_lt_of_le hnUpper hkNextSqLe
   have hQuotLt : n / d < (j + 2) ^ 2 := by
@@ -71,7 +80,10 @@ theorem square_basin_div_root_pair
     exact (Nat.nthRoot_lt_iff (n := 2) (by decide)).2 hQuotLt
 
   have hkSqPos : 0 < k ^ 2 := by positivity
-  have hBaseDivLt : k ^ 2 / d < k ^ 2 := Nat.div_lt_self hkSqPos hd1
+  have hkSqLtMul : k ^ 2 < k ^ 2 * d := by
+    simpa using Nat.mul_lt_mul_of_pos_left hd1 hkSqPos
+  have hBaseDivLt : k ^ 2 / d < k ^ 2 := by
+    exact (Nat.div_lt_iff_lt_mul hd0).2 hkSqLtMul
   have hjLt : j < k := by
     dsimp [j]
     exact (Nat.nthRoot_lt_iff (n := 2) (by decide)).2 hBaseDivLt
