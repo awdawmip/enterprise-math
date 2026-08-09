@@ -3,7 +3,10 @@ import unittest
 from enterprise_math.quotient_basin import (
     iterated_quotient_flatness,
     open_divisible_cofactor_window,
+    quotient_root_threshold,
+    quotient_root_threshold_pattern,
     square_basin_iterated_quotient_transport,
+    square_basin_offset_root_response,
     square_basin_quotient_transport,
     square_basin_quotient_window,
     strict_square_root_descent,
@@ -87,6 +90,37 @@ class QuotientBasinTests(unittest.TestCase):
                     self.assertLess(data["quotient"], k * k)
                     self.assertLess(data["quotient_root"], k)
 
+    def test_upper_root_branch_has_one_exact_offset_threshold(self):
+        saw_reached = False
+        saw_beyond_basin = False
+        for k in range(1, 90):
+            for divisor in range(2, min(3 * k + 10, 90) + 1):
+                threshold = quotient_root_threshold(k, divisor)
+                self.assertGreater(threshold["offset_threshold"], 0)
+                saw_beyond_basin |= threshold["offset_threshold"] > 2 * k
+                for offset in range(0, 2 * k + 1):
+                    data = square_basin_offset_root_response(k, divisor, offset)
+                    expected = int(offset >= threshold["offset_threshold"])
+                    self.assertEqual(data["upper_bit"], expected)
+                    self.assertEqual(
+                        data["quotient_root"], data["base_root"] + expected
+                    )
+                    saw_reached |= expected == 1
+        self.assertTrue(saw_reached)
+        self.assertTrue(saw_beyond_basin)
+
+    def test_shared_offset_threshold_vectors_have_at_most_h_plus_one_patterns(self):
+        divisor_families = ([2, 3], [2, 3, 5], [2, 4, 7, 11], [3, 6, 10, 15, 21])
+        for k in range(2, 80):
+            for divisors in divisor_families:
+                patterns = {
+                    quotient_root_threshold_pattern(k, list(divisors), offset)[
+                        "upper_bits"
+                    ]
+                    for offset in range(0, 2 * k + 1)
+                }
+                self.assertLessEqual(len(patterns), len(divisors) + 1)
+
     def test_input_validation(self):
         with self.assertRaises(ValueError):
             square_basin_quotient_window(0, 2)
@@ -102,6 +136,12 @@ class QuotientBasinTests(unittest.TestCase):
             iterated_quotient_flatness(10, [2, 1])
         with self.assertRaises(ValueError):
             strict_square_root_descent(2, 2, 4)
+        with self.assertRaises(ValueError):
+            quotient_root_threshold(3, 1)
+        with self.assertRaises(ValueError):
+            square_basin_offset_root_response(3, 2, 7)
+        with self.assertRaises(ValueError):
+            quotient_root_threshold_pattern(3, [], 0)
 
 
 if __name__ == "__main__":
