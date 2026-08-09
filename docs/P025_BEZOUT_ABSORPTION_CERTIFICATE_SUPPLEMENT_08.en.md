@@ -418,7 +418,7 @@ The following are established mathematics and not P025 novelty:
 - syzygies of one integer row;
 - determinantal divisors;
 - affine lattice closest-vector/minimum-norm problems;
-- Geometry-of-Numbers methods for short vectors, including Pasten's arithmetic-derivative application. citeturn379997academia11
+- Geometry-of-Numbers methods for short vectors, including Pasten's arithmetic-derivative application [SRC-PASTEN-2021-ARITHMETIC-DERIVATIVES].
 
 The exact use of the floor image generator, the access radius `nu`, and the quantified existence-versus-minimum-precision gap remain `NOVELTY_UNVERIFIED` as an Enterprise Math synthesis.
 
