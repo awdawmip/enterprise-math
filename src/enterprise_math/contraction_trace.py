@@ -12,6 +12,7 @@ No floating point values or true division are used.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from math import comb, factorial
 
 from .dimension_contraction import balanced_power_energy
@@ -19,6 +20,19 @@ from .dimension_contraction import balanced_power_energy
 
 Block = tuple[int, ...]
 MergeStep = tuple[Block, Block]
+
+
+@dataclass(frozen=True)
+class BoundaryTraceStep:
+    receiver: Block
+    donor: Block
+    total: int
+    slack_before: int
+    receiver_total: int
+    donor_total: int
+    consumed_excess: int
+    slack_after: int
+    next_gap: int
 
 
 def _require_positive(name: str, value: int) -> None:
@@ -155,6 +169,30 @@ def directed_boundary_split(
     return receiver_total, total - receiver_total
 
 
+def directed_boundary_decomposition(
+    receiver_size: int, donor_size: int, power: int, total: int, slack: int
+) -> tuple[int, int, int, int, int]:
+    """Return boundary split plus exact consumed/slack remainder decomposition.
+
+    Returns `(receiver_total, donor_total, consumed_excess, remainder, next_gap)`.
+    The remainder satisfies `0 <= remainder < next_gap`.
+    """
+    receiver_total, donor_total = directed_boundary_split(
+        receiver_size, donor_size, power, total, slack
+    )
+    consumed = fiber_excess_energy(
+        receiver_size, donor_size, power, total, receiver_total
+    )
+    remainder = slack - consumed
+    next_excess = fiber_excess_energy(
+        receiver_size, donor_size, power, total, receiver_total + 1
+    )
+    next_gap = next_excess - consumed
+    if not (0 <= remainder < next_gap):
+        raise AssertionError("directed boundary remainder must lie inside the next basin")
+    return receiver_total, donor_total, consumed, remainder, next_gap
+
+
 def _normalize_block(block: Block) -> Block:
     if not isinstance(block, tuple) or not block:
         raise ValueError("each block must be a non-empty tuple")
@@ -165,19 +203,13 @@ def _normalize_block(block: Block) -> Block:
     return tuple(sorted(block))
 
 
-def reverse_boundary_witness(
+def reverse_boundary_witness_with_trace(
     slot_count: int,
     power: int,
     threshold: int,
     history: tuple[MergeStep, ...],
-) -> tuple[int, ...]:
-    """Replay an oriented contraction history as exact right-boundary lifts.
-
-    Each forward merge step is `(receiver_block, donor_block)`. The history is
-    replayed backward. At each split, all other current blocks keep their
-    current totals; the remaining global threshold becomes a fiber slack and
-    the receiver child takes the unique right endpoint of that fiber interval.
-    """
+) -> tuple[tuple[int, ...], tuple[BoundaryTraceStep, ...]]:
+    """Replay an oriented history and expose the exact slack-remainder cascade."""
     _require_positive("slot_count", slot_count)
     _require_positive("power", power)
     _require_natural("threshold", threshold)
@@ -190,6 +222,7 @@ def reverse_boundary_witness(
     )
     full = tuple(range(slot_count))
     totals: dict[Block, int] = {full: 0}
+    trace: list[BoundaryTraceStep] = []
 
     for receiver, donor in reversed(normalized):
         if set(receiver) & set(donor):
@@ -208,16 +241,45 @@ def reverse_boundary_witness(
         if slack < 0:
             raise ValueError("threshold is inconsistent with the current coarse state")
 
-        receiver_total, donor_total = directed_boundary_split(
-            len(receiver), len(donor), power, total, slack
+        receiver_total, donor_total, consumed, remainder, next_gap = (
+            directed_boundary_decomposition(
+                len(receiver), len(donor), power, total, slack
+            )
         )
         totals[receiver] = receiver_total
         totals[donor] = donor_total
+        trace.append(
+            BoundaryTraceStep(
+                receiver=receiver,
+                donor=donor,
+                total=total,
+                slack_before=slack,
+                receiver_total=receiver_total,
+                donor_total=donor_total,
+                consumed_excess=consumed,
+                slack_after=remainder,
+                next_gap=next_gap,
+            )
+        )
 
     expected = {tuple((index,)) for index in range(slot_count)}
     if set(totals) != expected:
         raise ValueError("history did not refine to the singleton partition")
-    return tuple(totals[(index,)] for index in range(slot_count))
+    witness = tuple(totals[(index,)] for index in range(slot_count))
+    return witness, tuple(trace)
+
+
+def reverse_boundary_witness(
+    slot_count: int,
+    power: int,
+    threshold: int,
+    history: tuple[MergeStep, ...],
+) -> tuple[int, ...]:
+    """Replay an oriented contraction history as exact right-boundary lifts."""
+    witness, _ = reverse_boundary_witness_with_trace(
+        slot_count, power, threshold, history
+    )
+    return witness
 
 
 def unoriented_partition_chain_count(slot_count: int) -> int:
