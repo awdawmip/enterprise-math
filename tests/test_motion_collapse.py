@@ -4,6 +4,7 @@ from enterprise_math.engineering_collision import Body2D
 from enterprise_math.motion_collapse import (
     BodyMotion2D,
     maximum_conflict_free_move_sets,
+    maximum_conflict_free_outcomes,
     motion_conflict,
     motion_conflict_pairs,
     motion_conflict_witnesses,
@@ -25,6 +26,12 @@ class MotionCollapseTests(unittest.TestCase):
         witnesses = motion_conflict_witnesses(left, right)
         self.assertIn(("edge", ((0, 0), (1, 0))), witnesses)
         self.assertTrue(motion_conflict(left, right))
+
+    def test_distinct_diagonal_edges_do_not_conflict_without_extra_incidence(self):
+        left = BodyMotion2D(Body2D(0, 0, 0, 0), (1, 1))
+        right = BodyMotion2D(Body2D(1, 0, 1, 0), (1, -1))
+        self.assertFalse(motion_conflict(left, right))
+        self.assertEqual(motion_conflict_witnesses(left, right), frozenset())
 
     def test_following_move_uses_distinct_atomic_edges(self):
         left = BodyMotion2D(Body2D(0, 0, 0, 0), (1, 0))
@@ -63,6 +70,10 @@ class MotionCollapseTests(unittest.TestCase):
             BodyMotion2D(Body2D(1, 1, 0, 0), (-1, 0)),
         ]
         self.assertEqual(maximum_conflict_free_move_sets(motions), (frozenset(),))
+        outcomes = maximum_conflict_free_outcomes(motions)
+        self.assertEqual(len(outcomes), 1)
+        self.assertEqual(outcomes[0].accepted_moving_ids, frozenset())
+        self.assertEqual(outcomes[0].bodies, (Body2D(0, 0, 0, 0), Body2D(1, 1, 0, 0)))
 
     def test_symmetric_competition_preserves_both_maximum_admission_choices(self):
         motions = [
@@ -72,6 +83,18 @@ class MotionCollapseTests(unittest.TestCase):
         self.assertEqual(
             set(maximum_conflict_free_move_sets(motions)),
             {frozenset({0}), frozenset({1})},
+        )
+        outcomes = maximum_conflict_free_outcomes(motions)
+        self.assertEqual(
+            {(outcome.accepted_moving_ids, outcome.bodies) for outcome in outcomes},
+            {
+                (frozenset({0}), (Body2D(0, 0, 0, 0), Body2D(1, 1, 0, 0))),
+                (frozenset({1}), (Body2D(0, -1, 0, 0), Body2D(1, 0, 0, 0))),
+            },
+        )
+        self.assertEqual(
+            maximum_conflict_free_outcomes(list(reversed(motions))),
+            outcomes,
         )
 
     def test_same_proposed_conflict_graph_can_have_different_response_capacity(self):
