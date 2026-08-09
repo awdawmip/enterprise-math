@@ -36,13 +36,37 @@ Thus the fact that bad states can be quantitatively sparse is prior number theor
 
 Kikteva studies an ABC-type generalization for locally nilpotent derivations [SRC-KIKTEVA-2023-ABC-DERIVATION]. Merely replacing the ordinary derivative in Mason–Stothers by a more abstract derivation is therefore not a valid P025 novelty boundary.
 
-## 5. Current project-specific candidate
+## 5. Restricted successive minima already own the forbidden-sublattice minimum
+
+Henk and Thiel study **restricted successive minima**: shortest lattice points in a symmetric convex body subject to the requirement that the realizing points avoid one or more forbidden sublattices [SRC-HENK-THIEL-2014-RESTRICTED-MINIMA]. Their framework explicitly includes shortest-vector questions outside proper sublattices and belongs to the Geometry-of-Numbers / Siegel-lemma-avoidance literature.
+
+For the P025 witness flag, let
+
+- `K=[-1,1]^S` in the real span of the prime-coordinate witness lattice;
+- `Lambda=T=ker_Z(alpha)`;
+- forbidden sublattice `Lambda_1=T^circ=T intersect ker_Z(beta)`.
+
+Then P025's exact witness precision is precisely the corresponding restricted first minimum:
+
+`mu = lambda_1(K, T \ T^circ)`.
+
+The ordinary additive radius `rho` is the unrestricted first minimum `lambda_1(K,T)`.
+
+Therefore P025 cannot claim as new:
+
+- the invariant “shortest witness outside a forbidden sublattice”;
+- general Geometry-of-Numbers bounds for that invariant;
+- avoidance/Siegel-lemma methods for producing small non-degenerate lattice points.
+
+The project-specific question is narrower: the `abc` relation itself generates `T^circ subset T`, arithmetic multiplicity demand supplies an independent lower certificate, and the same restricted minimum is then routed into exact proof-budget / future-precision semantics.
+
+## 6. Current project-specific candidate
 
 Within the present search, P025 provisionally marks only the following **combined architecture** as `NOVELTY_UNVERIFIED`:
 
 1. express quotient-forgotten information as an explicit finite/integer residual;
-2. attach a multivalued admissible witness family to a selected relation/task;
-3. treat `min witness cost` as a task-relative precision/horizon;
+2. derive a relation-conditioned witness/forbidden-sublattice flag from the arithmetic task itself;
+3. connect arithmetic demand, the restricted first minimum, compact generator certificates, and exact proof-loss shells;
 4. compare `refine state until exact descent` with `keep coarse state + attach bounded witness`;
 5. add scale-dependent exceptional incidence to obtain an exact / bounded-witness / sparse-exception hierarchy.
 
