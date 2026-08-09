@@ -4,6 +4,7 @@ import unittest
 from enterprise_math.rank_two_guard_reachability import (
     rank_two_basis_coordinates,
     rank_two_lattice_basis,
+    rank_two_threshold_pattern_face_bound,
     rank_two_threshold_pattern_reachable,
     rank_two_threshold_pattern_witness,
 )
@@ -98,6 +99,31 @@ class RankTwoGuardReachabilityTests(unittest.TestCase):
         pattern = (False, True, False)
         self.assertFalse(
             rank_two_threshold_pattern_reachable(base, generators, pattern)
+        )
+
+    def test_face_bound_is_quadratic_in_nonconstant_guard_count(self):
+        generators = (
+            (1, 0, 1, -1, 2, 0),
+            (0, 1, 1, 1, -1, 0),
+        )
+        # Five nonconstant threshold lines and one constant guard.
+        self.assertEqual(rank_two_threshold_pattern_face_bound(generators), 51)
+        self.assertLess(51, 2 ** 6)
+
+    def test_actual_reachable_pattern_count_respects_face_bound(self):
+        generators = (
+            (1, 0, 1, -1, 2),
+            (0, 1, 1, 1, -1),
+        )
+        base = (0, 0, 0, 0, 0)
+        reachable = {
+            pattern
+            for pattern in itertools.product((False, True), repeat=5)
+            if rank_two_threshold_pattern_reachable(base, generators, pattern)
+        }
+        self.assertLessEqual(
+            len(reachable),
+            rank_two_threshold_pattern_face_bound(generators),
         )
 
     def test_closed_solver_matches_bounded_parameter_enumeration_on_small_cases(self):
