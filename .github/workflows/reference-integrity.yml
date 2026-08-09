@@ -26,3 +26,5 @@ jobs:
           python-version: '3.12'
       - name: Check citation and lineage integrity
         run: python tools/check_references.py
+      - name: Check shared theorem and tool routing
+        run: python tools/check_research_common_surface.py
