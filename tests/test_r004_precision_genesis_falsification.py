@@ -46,13 +46,18 @@ class R004PrecisionGenesisFalsificationTests(unittest.TestCase):
             self.assertTrue(prediction["source_ids"])
             self.assertTrue(set(prediction["source_ids"]).issubset(self.source_ids))
 
-    def test_v0_f3_rule_is_predeclared_and_does_not_claim_global_exclusion(self):
+    def test_v0_f3_rule_predeclares_calibration_independent_eta_bound(self):
         prediction = self.model["predictions"][0]
         self.assertEqual(prediction["kill_test_class"], "F3")
         self.assertIn("V_predicted = eta * V_ordinary", prediction["unavoidable_prediction"])
-        self.assertIn("eta = 0", prediction["excluded_parameter_region"])
+        self.assertIn("V_predicted <= eta", prediction["unavoidable_prediction"])
+        self.assertIn("eta < 0.09", prediction["excluded_parameter_region"])
         self.assertIn(
-            "No broader eta interval is claimed excluded",
+            "algebraic range exclusion",
+            prediction["excluded_parameter_region"],
+        )
+        self.assertIn(
+            "not a confidence-level or full-likelihood statement",
             prediction["excluded_parameter_region"],
         )
 
