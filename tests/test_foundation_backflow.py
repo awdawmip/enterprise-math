@@ -42,6 +42,22 @@ class FoundationBackflowValidationTests(unittest.TestCase):
         errors = common.validate_backflow(broken, scheduler)
         self.assertTrue(any("must match task owner" in error for error in errors))
 
+    def test_same_owner_but_unrelated_task_cannot_carry_fq(self):
+        backflow, scheduler = self.load_repository_state()
+        broken = copy.deepcopy(backflow)
+        link = next(item for item in broken["question_scheduler_links"] if item["question_id"] == "FQ-20260809-005")
+        link["scheduler_task_id"] = "RS-P022-OBSERVATION-HISTORY"
+        errors = common.validate_backflow(broken, scheduler)
+        self.assertTrue(any("must explicitly declare" in error for error in errors))
+
+    def test_research_task_must_explicitly_declare_fq(self):
+        backflow, scheduler = self.load_repository_state()
+        broken_scheduler = copy.deepcopy(scheduler)
+        task = next(item for item in broken_scheduler["tasks"] if item["task_id"] == "RS-P022-GRAPH-DISTANCE-API")
+        task.pop("foundation_questions", None)
+        errors = common.validate_backflow(backflow, broken_scheduler)
+        self.assertTrue(any("must explicitly declare" in error for error in errors))
+
     def test_question_links_are_unique(self):
         backflow, scheduler = self.load_repository_state()
         broken = copy.deepcopy(backflow)
@@ -63,7 +79,7 @@ class FoundationBackflowValidationTests(unittest.TestCase):
         broken["question_scheduler_links"].append(
             {
                 "question_id": canonical["question_id"],
-                "scheduler_task_id": "RS-P022-OBSERVATION-HISTORY",
+                "scheduler_task_id": "RS-P022-GRAPH-DISTANCE-API",
                 "scheduler_role": "RESEARCH",
                 "research_owner": "program/p022-geometry-v2",
                 "source_refs": ["synthetic regression"],
