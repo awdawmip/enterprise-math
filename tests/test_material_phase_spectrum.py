@@ -47,8 +47,9 @@ class MaterialPhaseSpectrumTests(unittest.TestCase):
             tuple((item.returned_budget, item.phase_count) for item in report.rebound_bins),
             ((1, 2), (3, 2), (4, 2)),
         )
+        self.assertEqual(report.total_returned_budget_over_phases, 16)
 
-    def test_refinement_moves_phase_mass_from_rebound_to_transmission(self):
+    def test_refinement_moves_phase_mass_and_total_returned_budget_downward(self):
         reports = [
             material_phase_spectrum(
                 self.wall,
@@ -62,8 +63,12 @@ class MaterialPhaseSpectrumTests(unittest.TestCase):
         ]
         transmitting = [report.transmitting_phases for report in reports]
         rebound = [report.rebound_phases for report in reports]
+        returned_totals = [
+            report.total_returned_budget_over_phases for report in reports
+        ]
         self.assertEqual(transmitting, sorted(transmitting))
         self.assertEqual(rebound, sorted(rebound, reverse=True))
+        self.assertEqual(returned_totals, sorted(returned_totals, reverse=True))
         for report in reports:
             self.assertEqual(
                 report.transmitting_phases + report.rebound_phases,
@@ -81,6 +86,7 @@ class MaterialPhaseSpectrumTests(unittest.TestCase):
                 material_profile=self.profile,
             )
             self.assertEqual(report.rebound_phases, 0)
+            self.assertEqual(report.total_returned_budget_over_phases, 0)
             self.assertEqual(
                 report.transmitting_phases,
                 report.positive_clearance_phases,
@@ -98,6 +104,7 @@ class MaterialPhaseSpectrumTests(unittest.TestCase):
         # H=T+D=1+3=4, so s=3 cannot have both endpoints separated on opposite sides.
         self.assertEqual(report.positive_clearance_phases, 0)
         self.assertEqual(report.rebound_bins, ())
+        self.assertEqual(report.total_returned_budget_over_phases, 0)
 
     def test_material_curve_must_cover_possible_layer_depths(self):
         short = material_curve_profile(
