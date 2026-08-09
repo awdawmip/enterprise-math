@@ -1,12 +1,12 @@
 """Finite causal counting weights derived from collapse multiplicity.
 
-No probability measure is assumed.  Fine states are explicit unit states.  For a
+No probability measure is assumed. Fine states are explicit unit states. For a
 finite collapse F:X->Y, the weight of a coarse event A is simply the number of
 fine unit states whose image lies in A:
 
     mu_F(A) = |F^{-1}(A)|.
 
-Postcomposition pushes these integer counts forward by addition.  Conventional
+Postcomposition pushes these integer counts forward by addition. Conventional
 finite probabilities can be rendered later as exact count pairs (n,N); no float
 or true division is needed by the causal core.
 """
@@ -14,7 +14,7 @@ or true division is needed by the causal core.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import gcd
+from math import comb, gcd
 from typing import Hashable
 
 
@@ -90,6 +90,31 @@ def event_count_ratio(
     return ExactCountRatio(event_count(mapping, coarse_event), len(mapping))
 
 
+def collision_count(mapping: dict[State, State], order: int) -> int:
+    """Number J_k of k-subsets of fine histories collapsed to one coarse state."""
+    if isinstance(order, bool) or not isinstance(order, int) or order <= 0:
+        raise ValueError("order must be a positive integer")
+    counts = fiber_multiplicities(mapping)
+    return sum(comb(count, order) for count in counts.values() if count >= order)
+
+
+def collision_count_ratio(
+    mapping: dict[State, State], order: int
+) -> ExactCountRatio:
+    """Exact pair `(J_k, C(N,k))` for a uniform k-subset collision shadow.
+
+    The returned object is still combinatorial. Calling it a probability needs
+    the additional sampling convention that every k-subset of fine histories is
+    given equal unit sampling weight.
+    """
+    if isinstance(order, bool) or not isinstance(order, int) or order <= 0:
+        raise ValueError("order must be a positive integer")
+    total = len(mapping)
+    if order > total:
+        raise ValueError("order cannot exceed the number of fine states")
+    return ExactCountRatio(collision_count(mapping, order), comb(total, order))
+
+
 def pushforward_multiplicities(
     fine_counts: dict[State, int],
     post_map: dict[State, State],
@@ -134,7 +159,7 @@ def conditional_count_ratio(
 ) -> ExactCountRatio:
     """Exact finite conditional-count pair |A∩B| / |B| without division.
 
-    This is a counting object only.  A probabilistic interpretation requires an
+    This is a counting object only. A probabilistic interpretation requires an
     additional modeling choice that all fine states in the condition are sampled
     with equal unit weight.
     """
