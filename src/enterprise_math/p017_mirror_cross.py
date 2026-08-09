@@ -1,9 +1,9 @@
-"""Cross-side mirror incidence and factorized prime-free slacks for P017.
+"""Cross-side mirror incidence and factorized aggregate certificates for P017.
 
 L051 evaluates ordered lower/upper transverse-prime incidences by exact CRT.
-L052 factors the prime-free obstruction into two primitive nonnegative slacks:
-U=J-2|S| and V=E-J+|S|. L053 uses negativity of either slack as a
-sufficient prime-existence certificate; L054 records the factorization boundary.
+L052 factors prime-free behavior into U=J-2|S| and V=E-J+|S|. L054 adds the
+aggregate quadratic bound 4V<=U^2. L055 certifies a basin prime whenever any
+of these necessary prime-free constraints is violated.
 """
 
 from __future__ import annotations
@@ -63,7 +63,7 @@ def ordered_cross_incidence_formula(k: int, lower_prime: int, upper_prime: int) 
 
 
 def cross_side_incidence_formula(k: int) -> dict[str, object]:
-    """Evaluate L051 and the L052-L054 factorized mirror slacks."""
+    """Evaluate L051 and all L052-L055 aggregate slacks/certificates."""
     _require_k(k)
     trans = _transverse_primes(k)
     per_pair: dict[tuple[int, int], int] = {}
@@ -85,7 +85,15 @@ def cross_side_incidence_formula(k: int) -> dict[str, object]:
     raw_cross_slack = cross_incidence - surviving
 
     if raw_cross_slack != first_slack + simultaneous_excess_slack:
-        raise AssertionError("L054 factorization E-|S| = U+V failed")
+        raise AssertionError("factorization E-|S| = U+V failed")
+
+    quadratic_violation = (
+        first_slack >= 0
+        and simultaneous_excess_slack >= 0
+        and 4 * simultaneous_excess_slack > first_slack * first_slack
+    )
+    first_certificate = first_slack < 0
+    simultaneous_certificate = simultaneous_excess_slack < 0
 
     return {
         "k": k,
@@ -96,15 +104,18 @@ def cross_side_incidence_formula(k: int) -> dict[str, object]:
         "first_slack": first_slack,
         "simultaneous_excess_slack": simultaneous_excess_slack,
         "raw_cross_slack": raw_cross_slack,
-        "first_channel_certificate": first_slack < 0,
-        "simultaneous_excess_certificate": simultaneous_excess_slack < 0,
+        "first_channel_certificate": first_certificate,
+        "simultaneous_excess_certificate": simultaneous_certificate,
+        "quadratic_violation_certificate": quadratic_violation,
         "raw_cross_certificate": raw_cross_slack < 0,
-        "factorized_certificate": first_slack < 0 or simultaneous_excess_slack < 0,
+        "three_channel_certificate": (
+            first_certificate or simultaneous_certificate or quadratic_violation
+        ),
     }
 
 
-def two_slack_certificate(k: int) -> dict[str, object]:
-    """Alias the L053 factorized certificate with compact output."""
+def aggregate_mirror_certificate(k: int) -> dict[str, object]:
+    """Compact L055 three-channel certificate output."""
     data = cross_side_incidence_formula(k)
     return {
         "k": k,
@@ -116,5 +127,6 @@ def two_slack_certificate(k: int) -> dict[str, object]:
         "raw_cross_slack": data["raw_cross_slack"],
         "first_channel_certificate": data["first_channel_certificate"],
         "simultaneous_excess_certificate": data["simultaneous_excess_certificate"],
-        "factorized_certificate": data["factorized_certificate"],
+        "quadratic_violation_certificate": data["quadratic_violation_certificate"],
+        "three_channel_certificate": data["three_channel_certificate"],
     }

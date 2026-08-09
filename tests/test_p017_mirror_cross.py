@@ -4,9 +4,9 @@ import unittest
 from enterprise_math.cutoff_pairing import transverse_prime_support
 from enterprise_math.legendre import anchor_product, is_prime, primes_up_to
 from enterprise_math.p017_mirror_cross import (
+    aggregate_mirror_certificate,
     cross_side_incidence_formula,
     ordered_cross_incidence_formula,
-    two_slack_certificate,
 )
 from enterprise_math.p017_mirror_incidence import surviving_radii
 
@@ -65,11 +65,11 @@ class P017MirrorCrossTests(unittest.TestCase):
                 data["first_slack"] + data["simultaneous_excess_slack"],
             )
 
-    def test_factorized_certificate_implies_prime_on_bounded_domain(self):
+    def test_three_channel_certificate_implies_prime_on_bounded_domain(self):
         saw = False
-        for k in range(5, 160):
-            data = two_slack_certificate(k)
-            if not data["factorized_certificate"]:
+        for k in range(5, 180):
+            data = aggregate_mirror_certificate(k)
+            if not data["three_channel_certificate"]:
                 continue
             saw = True
             self.assertTrue(
@@ -78,7 +78,7 @@ class P017MirrorCrossTests(unittest.TestCase):
         self.assertTrue(saw)
 
     def test_k37_is_first_slack_only_example(self):
-        data = two_slack_certificate(37)
+        data = aggregate_mirror_certificate(37)
         self.assertEqual(data["surviving_radius_count"], 17)
         self.assertEqual(data["first_incidence"], 33)
         self.assertEqual(data["cross_incidence"], 18)
@@ -88,7 +88,7 @@ class P017MirrorCrossTests(unittest.TestCase):
         self.assertFalse(data["simultaneous_excess_certificate"])
 
     def test_k46_is_simultaneous_excess_only_example(self):
-        data = two_slack_certificate(46)
+        data = aggregate_mirror_certificate(46)
         self.assertEqual(data["surviving_radius_count"], 22)
         self.assertEqual(data["first_incidence"], 47)
         self.assertEqual(data["cross_incidence"], 18)
@@ -99,41 +99,60 @@ class P017MirrorCrossTests(unittest.TestCase):
         self.assertTrue(is_prime(2129))
 
     def test_k31_is_noncharacterization_boundary(self):
-        data = two_slack_certificate(31)
+        data = aggregate_mirror_certificate(31)
         self.assertEqual(data["surviving_radius_count"], 15)
         self.assertEqual(data["first_incidence"], 30)
         self.assertEqual(data["cross_incidence"], 15)
         self.assertEqual(data["first_slack"], 0)
         self.assertEqual(data["simultaneous_excess_slack"], 0)
-        self.assertFalse(data["factorized_certificate"])
+        self.assertFalse(data["three_channel_certificate"])
         self.assertTrue(is_prime(967))
 
-    def test_factorized_certificate_strictly_dominates_raw_cross_certificate(self):
+    def test_quadratic_bound_on_uncertified_bounded_data(self):
         for k in range(3, 400):
-            data = two_slack_certificate(k)
-            raw_cross = data["raw_cross_slack"] < 0
-            if raw_cross:
-                self.assertTrue(data["factorized_certificate"])
+            data = aggregate_mirror_certificate(k)
+            u = data["first_slack"]
+            v = data["simultaneous_excess_slack"]
+            if u >= 0 and v >= 0 and not data["quadratic_violation_certificate"]:
+                self.assertLessEqual(4 * v, u * u)
+
+    def test_raw_cross_certificate_is_redundant(self):
+        for k in range(3, 400):
+            data = cross_side_incidence_formula(k)
+            if data["raw_cross_certificate"]:
+                self.assertTrue(
+                    data["first_channel_certificate"]
+                    or data["simultaneous_excess_certificate"]
+                )
 
     def test_bounded_coverage_statistics_through_1000(self):
         u_negative = 0
         v_negative = 0
         both_negative = 0
-        factorized_union = 0
+        negative_union = 0
+        quadratic_only = 0
+        full_union = 0
         raw_cross = 0
         for k in range(3, 1001):
             surviving, first, cross = _direct_moments(k)
             u = first - 2 * surviving
             v = cross - first + surviving
-            u_negative += int(u < 0)
-            v_negative += int(v < 0)
-            both_negative += int(u < 0 and v < 0)
-            factorized_union += int(u < 0 or v < 0)
+            u_neg = u < 0
+            v_neg = v < 0
+            quad = u >= 0 and v >= 0 and 4 * v > u * u
+            u_negative += int(u_neg)
+            v_negative += int(v_neg)
+            both_negative += int(u_neg and v_neg)
+            negative_union += int(u_neg or v_neg)
+            quadratic_only += int(quad)
+            full_union += int(u_neg or v_neg or quad)
             raw_cross += int(cross < surviving)
         self.assertEqual(u_negative, 273)
         self.assertEqual(v_negative, 594)
         self.assertEqual(both_negative, 140)
-        self.assertEqual(factorized_union, 727)
+        self.assertEqual(negative_union, 727)
+        self.assertEqual(quadratic_only, 6)
+        self.assertEqual(full_union, 733)
         self.assertEqual(raw_cross, 323)
 
 
