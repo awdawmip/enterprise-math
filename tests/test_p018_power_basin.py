@@ -7,6 +7,7 @@ from enterprise_math.p018_power_basin import (
     iterated_power_basin_quotient_transport,
     power_basin_quotient_transport,
     power_basin_quotient_window,
+    whole_basin_strict_root_descent,
 )
 
 
@@ -45,6 +46,17 @@ class AllPowerQuotientBasinTests(unittest.TestCase):
                     self.assertEqual(
                         data["max_root"], data["base_root"] + expected
                     )
+
+    def test_strict_root_descent_criterion_is_exact(self):
+        for power in range(1, 8):
+            for k in range(1, 70):
+                for divisor in range(2, 35):
+                    expected = (k + 1) ** power <= divisor * k**power
+                    self.assertEqual(
+                        whole_basin_strict_root_descent(power, k, divisor), expected
+                    )
+                    data = power_basin_quotient_window(power, k, divisor)
+                    self.assertEqual(bool(data["strict_root_descent"]), data["max_root"] < k)
 
     def test_iterated_quotients_flatten_before_root_transport(self):
         cases = [
