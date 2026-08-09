@@ -7,6 +7,7 @@ from enterprise_math.material_clearance_spectrum import (
     RETURNING,
     material_clearance_coverage,
     material_clearance_spectrum,
+    minimum_material_depth_for_coverage,
 )
 from enterprise_math.material_response import material_curve_profile
 
@@ -43,6 +44,46 @@ class MaterialClearanceSpectrumTests(unittest.TestCase):
                 )
                 self.assertEqual(report.underresolved_states, 0)
                 self.assertEqual(report.represented_states, factor**dimension - 1)
+
+    def test_integer_root_sizing_returns_the_minimum_depth_for_exact_rational_coverage(self):
+        fractions = ((0, 1), (1, 4), (1, 2), (2, 3), (3, 4), (1, 1))
+        for dimension in range(1, 5):
+            for factor in range(1, 9):
+                for numerator, denominator in fractions:
+                    sizing = minimum_material_depth_for_coverage(
+                        dimension,
+                        factor,
+                        numerator,
+                        denominator,
+                    )
+                    total = factor**dimension - 1
+                    required = (numerator * total + denominator - 1) // denominator
+                    brute = next(
+                        depth
+                        for depth in range(factor)
+                        if material_clearance_coverage(
+                            dimension, factor, depth
+                        ).represented_states
+                        >= required
+                    )
+                    self.assertEqual(sizing.minimum_material_depth, brute)
+                    self.assertEqual(sizing.minimum_branch_samples, brute + 1)
+                    self.assertGreaterEqual(
+                        sizing.achieved_represented_states,
+                        required,
+                    )
+
+    def test_full_coverage_requires_exactly_d_minus_one_material_depth(self):
+        for dimension in range(1, 6):
+            for factor in range(1, 9):
+                sizing = minimum_material_depth_for_coverage(
+                    dimension, factor, 1, 1
+                )
+                self.assertEqual(
+                    sizing.minimum_material_depth,
+                    max(0, factor - 1),
+                )
+                self.assertEqual(sizing.minimum_branch_samples, factor)
 
     def test_response_bins_match_direct_shell_mapping(self):
         profile = material_curve_profile(
@@ -121,6 +162,10 @@ class MaterialClearanceSpectrumTests(unittest.TestCase):
             material_clearance_coverage(2, 0, 1)
         with self.assertRaises(ValueError):
             material_clearance_coverage(2, 3, -1)
+        with self.assertRaises(ValueError):
+            minimum_material_depth_for_coverage(2, 3, 2, 1)
+        with self.assertRaises(ValueError):
+            minimum_material_depth_for_coverage(2, 3, 1, 0)
 
 
 if __name__ == "__main__":
