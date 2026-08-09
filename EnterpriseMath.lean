@@ -1,3 +1,5 @@
+-- Validation ref: import the cubic coalescence module so the latest head is
+-- compiled by the repository Lean gate. This comment is transport-only.
 import EnterpriseMath.Arithmetic.IntegerRoot
 import EnterpriseMath.Arithmetic.CollapseCommutation
 import EnterpriseMath.Order.WellFoundedStabilization
