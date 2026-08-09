@@ -519,3 +519,20 @@ def rank_two_threshold_pattern_reachable(
 ) -> bool:
     """Whether a threshold pattern occurs in a rank-two affine guard lattice."""
     return rank_two_threshold_pattern_witness(base_scores, generators, true_flags) is not None
+
+
+def rank_two_threshold_pattern_face_bound(generators: IntMatrix) -> int:
+    """Upper bound on distinct binary threshold patterns in a rank-two fiber.
+
+    After choosing the exact two-parameter lattice basis, every nonconstant
+    guard defines one affine line in the parameter plane. An arrangement of q
+    real lines has at most 2*q*q+1 faces in total (regions + edges + vertices).
+    The binary >=0/<0 pattern is constant on each relative-open face. Integer
+    lattice sampling can only remove faces, never create new patterns.
+    """
+    first_basis, second_basis = rank_two_lattice_basis(generators)
+    nonconstant_guards = sum(
+        first_basis[index] != 0 or second_basis[index] != 0
+        for index in range(len(first_basis))
+    )
+    return 2 * nonconstant_guards * nonconstant_guards + 1
