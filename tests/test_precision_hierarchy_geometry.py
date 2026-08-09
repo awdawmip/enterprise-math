@@ -58,6 +58,22 @@ class PrecisionHierarchyGeometryTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             hierarchy_distance((1, 3, 4), self.signatures, 0, 1)
 
+    def test_non_nested_signatures_fail_closed(self):
+        bad = {
+            0: (0, "A", "same", 0),
+            1: (0, "B", "same", 1),
+        }
+        with self.assertRaises(ValueError):
+            hierarchy_distance((1, 2, 4, 8), bad, 0, 1)
+
+    def test_multiple_precision_one_roots_fail_closed(self):
+        bad = {
+            0: ("root-a", 0, 0, 0),
+            1: ("root-b", 1, 1, 1),
+        }
+        with self.assertRaises(ValueError):
+            ultrametric_holds((1, 2, 4, 8), bad)
+
 
 if __name__ == "__main__":
     unittest.main()
