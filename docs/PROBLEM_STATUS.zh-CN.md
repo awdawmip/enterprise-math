@@ -31,6 +31,7 @@
 | P020 | `RESOLVED` | `docs/P020_WELL_FOUNDED_STABILIZATION.zh-CN.md` 与 `EnterpriseMath/Order/WellFoundedStabilization.lean`：Lean 证明在 `WellFoundedLT` 偏序上，任意单调向下自映射的有限普通迭代会到达初态下方最大的原始不动点；所选稳定化映射单调、向下、幂等，并与原映射具有完全相同的不动点集合。 |
 | P021 | `RESERVED / ACTIVE RESEARCH` | 预留给当前研究 PR #48 中保存的有限精度离散黑洞视界 / 因果聚焦路线；在 clean replay 前，历史分支资产内部仍可能保留旧 P019 编号。 |
 | P022 | `RESERVED / ACTIVE RESEARCH` | 预留给当前 PR #50 中保存的最小精度晶格几何 / 距离进位路线；在 clean replay 前，历史分支资产内部仍可能保留旧 P019 编号。 |
+| P023 | `OPEN / ACTIVE RESEARCH` | `docs/P023_COMPOSITION_SAFE_COLLAPSE.zh-CN.md` 及补充：只有相关未来观察/运算能够通过粗商下沉时，该有限精度商才对所要求的未来计算合法；当前规范阶段覆盖 fiber 常值因子化、最粗修复、有限运算族闭包、商/倍数坍缩的精确兼容分类、one-bit 最小修复、reductive gap 到 borrow 的搬运以及 borrow 望远镜化。母层因子化/最粗修复已经 Lean 检查；一般 partition-refinement 属于前人工作，更广义 safe-precision 结构继续保持活跃研究。 |
 
 ## 状态纪律
 

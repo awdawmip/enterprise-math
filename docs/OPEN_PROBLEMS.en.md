@@ -265,6 +265,31 @@ Reserved for the lattice-geometry line currently preserved in research PR #50: i
 
 FCC/HCP/BCC/`A_p` remain mathematical testing candidates rather than established physical space. Historical branch filenames and internal prose may still contain the superseded P019 identifier until clean replay.
 
+## P023 — Composition-safe collapse and future-compatible quotients
+
+Status: `OPEN / ACTIVE RESEARCH`  
+Difficulty: research-hard
+
+Determine exactly when a finite-resolution quotient is sufficiently informative for a required family of future operations, and what the **least additional detail** is when it is not.
+
+The current first-stage result stack is developed in `docs/P023_COMPOSITION_SAFE_COLLAPSE.en.md` and Supplements 01–05. It includes:
+
+1. fiber constancy as the exact quotient-factorization criterion and `(q,h)` as the coarsest one-step repair;
+2. finite stabilization to the coarsest future-compatible refinement for one transition and for finite operation families;
+3. exact arithmetic classifications for quotient and multiple-collapse interaction with floor precision;
+4. one-bit minimal repairs and exact split-fiber periodicity for incompatible multiple-collapse parameters;
+5. reductive gap-to-borrow transport and telescoping of coarse endpoint loss;
+6. Lean-checked mother statements for factorization and coarsest one-step repair.
+
+General quotient factorization, congruence, automata distinguishability and partition refinement are established prior art and must not be claimed as Enterprise Math inventions.
+
+Priority next questions are:
+
+- express future-safe refinement as a monotone reductive operator on the finite lattice of state equivalence relations and connect it cleanly to P020 finite stabilization;
+- determine when the minimal safe repair leaves the uniform `Q_r` scale family and therefore requires localized bounded detail;
+- classify safe floor-precision quotients for P008-style monotone reductive idempotent collapses through their fixed-point geometry;
+- feed the criterion back into P021 phase/magnitude and witness-transport corrections and into P018's existing finite-response calculus.
+
 ## How to take a problem
 
 Open a GitHub issue with the problem ID in the title, or comment on an existing issue for that ID.
