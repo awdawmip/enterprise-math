@@ -1,180 +1,169 @@
 # Enterprise Math Current Research Branch Ledger
 
-Status: `MIGRATION LEDGER / AUDITED SUBSET`  
-Initial audit baseline: `main@fbd95bc3d119c2429d3e83825b5cd44cd044e501`  
-Current recheck baseline: `main@c8aae69491fe50b107ca98b5777b9653be9f9aaf`  
+Status: `CANONICAL MIGRATION LEDGER / AUDITED STATE`  
+Snapshot: `main@7ca013f461716e0f9d3050e26970d598ef20ff8b`  
 Date: 2026-08-09
 
-This ledger records critical refs already checked through Git compare, exact blob comparison, PR metadata, or theorem/path semantic audit. `ahead/behind` values are governance signals only; actual absorption follows `RESEARCH_BRANCH_LIFECYCLE` semantic audit.
+This ledger records the current **ownership topology and audited migration state**. Exact live branch heads may move after this snapshot; use the read-only branch governance auditor for current ancestry/scope data. `ahead/behind` alone is never a mathematical absorption proof.
 
-## 1. Confirmed `ABSORBED`
+The governing documents are:
 
-### 1.1 Mechanical absorption: `ahead(main)=0`
+- `RESEARCH_ARCHITECTURE`: A0–A5 mathematical ownership;
+- `RESEARCH_BRANCH_LIFECYCLE`: L0–L5 branch lifecycle;
+- `RESEARCH_SCHEDULING_PROTOCOL`: parallel research / serialized promotion;
+- `RESEARCH_COMMON_SURFACE`: shared research knowledge;
+- `RESEARCH_OWNER_ISOLATION`: owners research, L4 integrations transport;
+- `branch_governance_overrides.json` + `tools/audit_branch_lifecycle.py`: ancestry and scope-drift audit.
 
-| Branch | Result | Action |
+## 1. Canonical reusable homes already on `main`
+
+### A2 — observation / future-compatible quotient
+
+Canonical main now includes:
+
+- P023 fiber/descent, minimal repair, operation-family refinement, word semantics, and coarsest compatible quotient;
+- the finite-arity extension in `EnterpriseMath/Quotient/OperationCongruence.lean`.
+
+`core/a2-future-quotient-v2` remains a research owner/source, not a rolling mirror of main. P024/material/contact specializations are not A2-owned files merely because they consume A2.
+
+### A3 — structured relation state
+
+Canonical main includes the first clean A3 core:
+
+- `weighted_relation_field.py`;
+- `relation_lattice.py`;
+- `relation_scale.py`;
+- their regression suites and replay provenance.
+
+This core owns the capacity-weighted signed relation state, partition coarsening, primitive capacity shift, relation quantum, and relation-scale carry. `core/a3-relation-state-v2` remains the owner/source for further A3 research.
+
+### A4 — admissible support / correspondence
+
+Canonical main includes the first clean A4 core:
+
+- `admissible_support.py`;
+- `relational_spectrum.py`;
+- self-contained finite-relation regression suites and replay provenance.
+
+A4 owns finite correspondence composition/common-target structure, the split-completeness boundary, witness spectrum `W_k`, source-group spectrum `G_k`, and exact total-function degeneration to P011. `core/a4-admissible-support-v2` remains the owner/source for further A4 research.
+
+## 2. Current long-lived research owners
+
+| Home | Current owner | Current role |
 |---|---|---|
-| `agent/e001-material-foundation` | ahead=0 | provenance only |
-| `agent/p017-multiplicative-resource-capacity` | ahead=0 | provenance only |
-| `research/p018-all-power-quotient-basin-final` | ahead=0 | provenance only |
-| `research/p023-composition-safe-collapse` | ahead=0 | provenance only |
-| `research/p023-safe-selector-semigroup` | ahead=0 | provenance only |
-| `research/e002-horizon-saturation-v2` | ahead=0 | absorbed E002 generation |
-| `research/e002-precision-locked-actuation-v2` | ahead=0 | absorbed E002 generation |
-| `research/e002-precision-native-hysteresis-v2` | ahead=0 | absorbed E002 generation |
-| `research/e002-predictive-quotient-compiler-v2` | ahead=0 | absorbed E002 generation |
-| `research/e002-vector-actuation-v2` | ahead=0 | absorbed E002 generation |
+| A2 | `core/a2-future-quotient-v2` | Generic quotient/factorization/compatibility extensions beyond canonical P023 |
+| A3 | `core/a3-relation-state-v2` | Structured relation-state, partition kernel/selector extensions |
+| A4 | `core/a4-admissible-support-v2` | Correspondence/support, witness and relation-algebra extensions |
+| P017 | `program/p017-legendre` | Consecutive-square/Legendre pressure test; active discovery frontier |
+| P018 | `program/p018-precision-v2` | Precision-specific pair/kernel/defect/transport and proof applications |
+| P021 | `program/p021-causal-focusing-v2` | Causal/focusing application owner; first causal-boundary slice validated at owner level |
+| P022 | `program/p022-geometry-v2` | Intrinsic geometry owner; A_p lattice core plus active HCP/Barlow routes |
+| P024 | `program/p024-action-precision` | Closed-form action-language / threshold / boundary-pullback specialization program |
 
-### 1.2 Semantic absorption: different ancestry, same assets on main
+Owners may legitimately be behind `main`. They MUST NOT whole-tree synchronize moving main merely to stay current.
 
-`research/e002-task-observable-v2` still reports `ahead=2`, but this audit confirmed:
+## 3. Active bridge topology
 
-- `docs/E002_TASK_RELATIVE_OBSERVABLE_SUPPLEMENT_05.en.md` is the exact same blob on main;
-- `src/enterprise_math/precision_task_observable.py` is the exact same blob on main;
-- `tests/test_precision_task_observable.py` is the exact same blob on main.
+### A3 ↔ A4
 
-Its ahead commits therefore do not represent unique mathematics. State: `ABSORBED / SEMANTIC`; **do not create a duplicate integration replay**.
+Current thin generation:
 
-Conclusion: the old E002 v2 generation has left the active research surface. Future E002 work should start from current main on a short task/program branch.
+`bridge/a3-a4-generated-support-v3`
 
-## 2. Synchronization shells actually closed
+First slice is intentionally limited to three assets:
 
-### PR #56 — `Sync canonical main into P018 Stage 9`
+- generated A4 support from canonical A3 `Z_ij`;
+- regression tests;
+- replay manifest.
 
-State: `CLOSED / PROVENANCE`.
+It consumes canonical A4 relation/common-target operations rather than duplicating them. Historical B07+ metric/frontier/count/equitability work remains unpromoted until owner classification is complete.
 
-Reason: synchronization-only PR with no new mathematics; Architecture v2 replaces wholesale sync with latest-main semantic replay.
+Historical umbrella PR #83 is provenance/replay source only.
 
-### PR #85 — `A3 dependency sync into relation-support bridge`
+### P017 ↔ P018
 
-State: `CLOSED / PROVENANCE`.
+P017/P018 bridge work may continue where hypotheses genuinely require both square-basin arithmetic and P018 quotient/root structure. Such results remain L3 and must not become a second P017 or P018 owner.
 
-Reason: dependency-only owner→bridge synchronization; latest-main semantic replay replaces this pattern.
+## 4. Validated owner slices not yet canonical
 
-## 3. Zero-risk closure audit of old PRs
+### P021 first slice
 
-The following old heads were recomputed against current main. They still contain unique mathematics and therefore **must not be closed yet**:
+`program/p021-causal-focusing-v2` has an owner-level green checkpoint for:
 
-| PR / Branch | ahead | behind | Current decision |
-|---|---:|---:|---|
-| #22 `research/p005-multibase-scale-algebra` | 3 | 372 | `SEMANTIC_REPLAY_AUDIT_REQUIRED` |
-| #21 `agent/legendre-basin-aggregate` | 4 | 372 | `SEMANTIC_REPLAY_AUDIT_REQUIRED` |
-| #23 `agent/legendre-mirror-separation` | 6 | 372 | `SEMANTIC_REPLAY_AUDIT_REQUIRED` |
-| #54 `research/p018-centered-prime-radius` | 35 | 317 | `REPLAY_REQUIRED` |
-| #65 `research/p017-rough-window-recursion` | 20 | 262 | `REPLAY_REQUIRED` |
+- replay manifest;
+- `causal_boundary.py`;
+- `test_causal_boundary.py`.
 
-Important boundary: old P017 history contains cases where a later route reused the **same Supplement filename** for different mathematics. For example, historical `LEGENDRE_PRESSURE_TEST_SUPPLEMENT_06` and current-main Supplement 06 are not the same blob/theorem family. **Filename equality is not absorption evidence.**
+The PR is Draft by design after validation. Canonical promotion requires a future fresh L4 replay from then-current main.
 
-## 4. P018
+### P022 current owner
 
-### `agent/p018-critical-grid` / PR #68
+P022 is actively advancing within one theorem home. The owner currently combines:
 
-Current scale: roughly `ahead=121`, with more than one hundred behind commits; changed files span pair/kernel, coalescence, context separation, operation congruence, predictive closure, transport, reusable interface, quotient basin, and Supplements 12–26.
+- replayed A_p/root-lattice geometry;
+- HCP/geodesic multiplicity and Barlow-stacking research.
 
-State: `REPLAY_REQUIRED / FROZEN`.
+This is legal same-owner growth, not cross-home scope drift. Canonical promotion should freeze and replay selected validated slices separately rather than merge the whole moving owner.
 
-Do not append Supplement 27+ to #68.
+## 5. Confirmed provenance / superseded integration history
 
-Replay routing:
+The following classes must not return to the active owner surface:
 
-- general A2/P023 future-compatible quotient / congruence / minimal repair → core owner;
-- P018 precision-specific pair/kernel/context-depth/transport → `program/p018-precision-v2`;
-- quotient-basin/factor/proof specializations → P018 application layer.
+- historical P018 #68 long tree: replay/provenance source only;
+- historical A3/A4 #83 bridge tree: replay/provenance source only;
+- historical P021 #48 and P022 #50 umbrellas: provenance until unique assets are fully classified;
+- obsolete whole-main synchronization PRs such as #56, #85 and #123: closed by Owner-Isolation;
+- superseded Architecture v1 #81: replaced by canonical Architecture v2;
+- polluted/stale integration vehicles: kept as provenance, not merge vehicles;
+- old A2/A3/A4 validation/release PRs once their exact payload was absorbed canonically.
 
-### Small historical P018 branches
+Deleting a branch ref is optional cleanup; mathematical provenance is carried by commits, closed PRs, lineage and manifests.
 
-| Branch | Unique scale | State |
-|---|---:|---|
-| `research/p018-graded-precision` | 5 commits | replay audit |
-| `research/p018-proof-certificates` | 6 commits | replay audit |
-| `research/p018-factor-precision` | 5 commits | replay audit |
-| `research/p018-centered-prime-radius` | 35 commits | replay audit |
+## 6. Semantic absorption rule
 
-Treat them and #68 as source history; do not rebase the old trees.
+`ahead(main)=0` is a sufficient mechanical absorption signal, but not necessary.
 
-## 5. A3 / A4
+A branch with different commit ancestry may still be `ABSORBED` when theorem/doc/code/test assets are already on main as exact blobs or an explicitly audited equivalent/generalized canonical result. E002 task-observable history is the canonical example.
 
-### `research/core/relation-quotient`
+Conversely, a path or filename collision is not absorption. Historical P017/P018 branches reused Supplement numbers and filenames for different mathematics; theorem/content audit controls.
 
-State: `REPLAY_REQUIRED / FROZEN`.
+## 7. Scope-drift rule
 
-The tree now has hundreds of ahead/behind commits and mixes relation-state, guard, causal, geometry, and other assets.
+Owner purity and ancestry are separate dimensions.
 
-Target owner: `core/a3-relation-state-v2`; replay only A3 structured relation-state / partition quotient / kernel / guard-image / task-derived relation precision.
+A branch is `SCOPE_DRIFT` when its branch-side changes contain unrelated theorem homes because another owner or whole main was synchronized into it. Live migration reproduced this defect on A2, A3, A4 and a lifecycle-tooling L4 branch.
 
-### `research/core/admissible-support-relations`
+Recovery preserves history and restores the current tree to the declared owner/integration asset set. It does not force-rewrite history.
 
-State: `ACTIVE_OWNER -> MIGRATE TO core/a4-admissible-support-v2`.
+The canonical auditor now measures branch-side changes from merge-base to owner head and compares them with declared allowed paths/prefixes.
 
-It still contains unique admissible-support/common-collapse assets; the new owner should no longer inherit E001 engineering history.
+## 8. Promotion pipeline
 
-### `research/core/relation-support-bridge` / PR #83
+For L1/L2/L3 work:
 
-State: `REPLAY_REQUIRED / FROZEN`.
+`owner research -> freeze exact payload -> fresh L4 from latest main -> replay owner-only assets -> final combination gates -> main`.
 
-Target: `bridge/a3-a4-v2`, retaining bridge theorems only. General witness/count/shadow/equitability mathematics must be assigned to an L1 owner.
+Only L4 must chase current main. Owner branches do not.
 
-## 6. P017
+A multi-owner L4 release is exceptional and allowed only when every included payload was independently validated first and the combined release is explicit/auditable.
 
-P017 remains a program owner, but historical stage refs no longer all remain active.
+## 9. Next compaction batches
 
-Audited examples:
+1. finish the three-asset A3↔A4 bridge validation, then promote it through a fresh L4 if selected;
+2. promote the validated P021 causal-boundary slice when its program boundary/prior-art note is ready;
+3. split P022 canonical promotion into bounded slices instead of waiting for the entire active geometry owner to stop moving;
+4. audit old P017/P018 PRs by theorem/blob equivalence and close only genuinely absorbed histories;
+5. route generic P024 adjoint/stabilization formalizations upward to A0/A1 while P024 keeps only action-language specializations;
+6. continue retiring pure synchronization PRs and stale integration vehicles;
+7. keep E001 engineering/material owners separate from reusable A2/A3/A4 mathematics.
 
-| Branch | ahead | behind | Action |
-|---|---:|---:|---|
-| `agent/p017-lower-band-root-overlap` | 6 | 148 (earlier audit) | small semantic replay |
-| `agent/p017-full-core-crt-stacked` | 6 | 96 (earlier audit) | small semantic replay |
-| `agent/p017-multiplicative-resource-capacity` | 0 | — | absorbed |
-| `agent/legendre-basin-aggregate` | 4 | 372 | replay audit |
-| `agent/legendre-mirror-separation` | 6 | 372 | replay audit |
-| `research/p017-rough-window-recursion` | 20 | 262 | replay audit |
+## 10. Target active surface
 
-Future P017 research should run from `program/p017-legendre` or a short latest-main task branch.
+Long-lived writable refs should remain approximately:
 
-## 7. E001 / E002 contact stack
+- A2 / A3 / A4 core owners;
+- P017 / P018 / P021 / P022 / P024 program owners;
+- bounded E001 engineering/material owners;
+- 0–2 genuinely thin bridges.
 
-Current stack: PR #101 → #108 → #113.
-
-State: short `ACTIVE_BRIDGE` chain.
-
-Allow the current T38–T42 pressure test to finish, then:
-
-1. lift general future-language quotient/gcd/semigroup mathematics to A2/P023;
-2. keep the contact specialization in E001/E002;
-3. create one latest-main clean replay;
-4. archive #101/#108/#113.
-
-## 8. E001 engineering/material
-
-- PR #70: `PROVENANCE + REPLAY SOURCE`; stop adding general mathematics there;
-- PR #95: `PROVENANCE / REVIEW UNIQUE DELTA`;
-- PR #114/#115: current-main clean replay; preferred future pattern.
-
-## 9. P021 / P022
-
-Historical PR #48/#50 remain provenance sources and must not be wholesale merged.
-
-- P021 → `program/p021-causal-focusing-v2`: replay only causal/direction-specific results;
-- P022 → `program/p022-geometry-v2`: replay only lattice/metric/balls/radial/distance-carry; route generic A3 machinery away.
-
-## 10. Architecture
-
-Old PR #81 / `chore/research-architecture-v1`: `SUPERSEDED BY V2 REPLAY`.
-
-New PR #121 / `chore/research-architecture-v2`: current-main two-parent synchronization, carrying the A0–A5 mathematical ownership axis, L0–L5 Git lifecycle, and this ledger.
-
-Close #81 after #121 passes gates.
-
-## 11. Next migration batch
-
-1. run real gates on #121;
-2. archive E002 v2 refs as semantically absorbed, with no duplicate replay;
-3. create the `program/p018-precision-v2` semantic replay manifest;
-4. freeze #68 and build a source→owner map;
-5. create A3/A4 v2 owners plus a thin bridge;
-6. audit old P017 stages theorem by theorem;
-7. clean replay P021/P022;
-8. remove absorbed branch refs / convert checkpoints to tags.
-
-## 12. Target active surface
-
-Keep roughly 8–12 long-lived writable refs. Git/PR/tag history stores provenance; branch refs represent only the live research frontier or short-lived transport work.
+`integration/*` and short `agent/*` branches are transport/execution refs and should exit after their task. Historical discovery remains recoverable without remaining an active branch.
