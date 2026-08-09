@@ -8,6 +8,7 @@ from enterprise_math.p017_p018_bonferroni_tokens import (
     defect_token_quotient_horizon,
     defect_token_single_use_threshold,
     point_defect_tokens,
+    point_full_block_defect_tokens,
     signed_defect_token_profile,
 )
 
@@ -27,6 +28,21 @@ class P017P018BonferroniTokenTests(unittest.TestCase):
             product *= prime
         self.assertEqual(data["defect"], 1)
         self.assertEqual(data["tokens"], (product,))
+
+    def test_full_prime_power_block_removal_collapses_actual_six_support_state_to_one(self):
+        state = 4_295_098_269  # 3^2*7*11*23*37*7283
+        support = (3, 7, 11, 23, 37, 7283)
+        data = point_full_block_defect_tokens(65_536, state, support, 5)
+        self.assertEqual(data["defect"], 1)
+        self.assertEqual(len(data["token_rows"]), 1)
+        row = data["token_rows"][0]
+        self.assertEqual(row["squarefree_token"], 1_431_699_423)
+        self.assertEqual(row["full_block_token"], state)
+        self.assertEqual(row["quotient"], 1)
+        self.assertEqual(row["omitted_support_primes"], ())
+        self.assertTrue(row["single_use_product_regime"])
+        self.assertTrue(row["fully_k_smooth"])
+        self.assertEqual(row["quotient_support"], ())
 
     def test_defect_free_rows_have_no_tokens(self):
         for support in ((), (3,), (3, 5, 7), (3, 5, 7, 11, 13)):
@@ -73,7 +89,7 @@ class P017P018BonferroniTokenTests(unittest.TestCase):
         self.assertEqual(data["quotient_ceiling"], 1_076_875)
         self.assertFalse(data["strict_parent_scale_descent"])
 
-    def test_actual_large_order_five_token_descends_to_small_integer_quotient(self):
+    def test_actual_large_order_five_squarefree_token_descends_to_small_integer_quotient(self):
         state = 4_295_098_269
         divisor = 1_431_699_423  # 3*7*11*23*37*7283
         data = defect_token_quotient_descent(65_536, state, divisor)
