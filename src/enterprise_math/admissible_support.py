@@ -12,6 +12,16 @@ Exact equality in (3) is a stronger *split-complete* property, not a universal
 axiom.  Unit-step graph balls have it.  Integer-weight atomic geometries can
 satisfy the basic contract while failing split-completeness.
 
+For two support relations, the common-target relation is
+
+    C_(r,s) = R_r ; converse(R_s).
+
+Thus ``(a,b) in C_(r,s)`` exactly when some terminal state ``z`` is reachable
+from ``a`` under ``R_r`` and from ``b`` under ``R_s``.  In a symmetric,
+split-complete family this reduces to ``R_(r+s)``.  Without symmetry or split
+completeness the common-target relation remains well-defined while that shortcut
+need not hold.
+
 These checks are finite diagnostics for candidate Enterprise Math geometry.
 They do not claim that filtered relations, graph balls, or relation composition
 are new mathematics.
@@ -47,6 +57,16 @@ def compose_relations(left: Relation, right: Relation) -> Relation:
         for source, middle in left
         for target in right_by_source.get(middle, ())
     )
+
+
+def converse_relation(relation: Relation) -> Relation:
+    """Reverse every ordered pair in one finite relation."""
+    return frozenset((target, source) for source, target in relation)
+
+
+def common_target_relation(left: Relation, right: Relation) -> Relation:
+    """Relate source states that have at least one shared terminal target."""
+    return compose_relations(left, converse_relation(right))
 
 
 def analyze_admissible_support_family(
