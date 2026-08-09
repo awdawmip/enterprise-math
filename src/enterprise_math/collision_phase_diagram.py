@@ -30,21 +30,22 @@ relative step magnitude ``s`` is guaranteed, for every phase, to sample at
 least one band state iff ``s <= h``.  If ``s>h``, the explicit one-step phase
 ``q0=H+1 -> q1=H+1-s`` with ``H=R+d-1`` skips the whole band.
 
-The resulting scale point is intentionally classified in terms of *contact
-opportunity*, not rebound physics:
+For positive current gap and positive relative step, refinement is therefore
+partitioned by two exact integer thresholds:
 
-* MACRO_CONTACT_NOW: the current positive/zero primitive gap is collapsed;
-* SEPARATE_NO_RELATIVE_MOTION: resolved gap and no crossing progress;
-* SEPARATE_STATIC_CAPTURE_GUARANTEED: resolved now, but any monotone crossing
-  with this step magnitude must sample the interaction band;
-* SEPARATE_STATIC_SKIP_POSSIBLE: resolved now and some phase can skip the whole
-  static interaction band, requiring transition witnesses or temporal
-  refinement for a complete collision policy.
+* ``d >= g+1``: current macro contact;
+* ``d_capture <= d <= g``: current gap resolved, but a future monotone crossing
+  is statically guaranteed to sample the interaction band;
+* ``1 <= d < d_capture``: current gap resolved and some phase can skip the
+  complete static band.
 
-E001 primitive transition targets can still detect some crossings (e.g. an
-atomic edge swap) that static endpoint sampling misses.  Longer nonprimitive
-jumps remain outside the current transition contract and should be decomposed
-rather than silently interpolated through a continuum.
+Here ``d_capture=max(1,ceil((s+1)/2)-R)``.  The middle interval may be empty.
+
+These statuses describe contact opportunity, not rebound physics.  E001
+primitive transition targets can still detect some crossings (e.g. an atomic
+edge swap) that static endpoint sampling misses.  Longer nonprimitive jumps
+remain outside the current transition contract and should be decomposed rather
+than silently interpolated through a continuum.
 """
 
 from __future__ import annotations
@@ -119,11 +120,7 @@ def macro_contact_from_gap(primitive_gap: int, collapse_factor: int) -> bool:
 
 
 def finest_contact_factor(primitive_gap: int) -> int | None:
-    """Smallest (finest) integer factor that still reports macro contact.
-
-    ``None`` means primitive contact ``g=0`` persists even at terminal factor 1.
-    For positive ``g``, contact exists exactly for ``d>=g+1``.
-    """
+    """Smallest (finest) integer factor that still reports macro contact."""
     _require_nonnegative_int("primitive_gap", primitive_gap)
     if primitive_gap == 0:
         return None
@@ -173,6 +170,30 @@ def minimum_factor_for_static_no_skip_1d(radius_sum: int, relative_step: int) ->
     return max(1, required)
 
 
+def resolved_static_capture_factor_window_1d(
+    primitive_gap: int,
+    radius_sum: int,
+    relative_step: int,
+) -> tuple[int, int] | None:
+    """Inclusive factor interval where gap is resolved but crossing capture is guaranteed.
+
+    For positive ``g,s`` this is exactly
+
+        d_capture <= d <= g.
+
+    ``None`` means the interval is empty or the crossing question is not active
+    (`g=0` primitive contact or `s=0` no relative progress).
+    """
+    _require_nonnegative_int("primitive_gap", primitive_gap)
+    _require_nonnegative_int("radius_sum", radius_sum)
+    _require_nonnegative_int("relative_step", relative_step)
+    if primitive_gap == 0 or relative_step == 0:
+        return None
+    lower = minimum_factor_for_static_no_skip_1d(radius_sum, relative_step)
+    upper = primitive_gap
+    return None if lower > upper else (lower, upper)
+
+
 def static_skip_witness_1d(
     radius_sum: int,
     collapse_factor: int,
@@ -219,7 +240,7 @@ def approach_phase_1d(
 ) -> ApproachPhase1D:
     """Classify current macro contact and conditional future crossing capture.
 
-    The capture statements are conditional on a future monotone signed-separation
+    Capture statements are conditional on a future monotone signed-separation
     crossing with the supplied positive step magnitude.  They do not assert that
     such a crossing will occur, and they do not apply a rebound response law.
     """
