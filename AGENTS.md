@@ -6,9 +6,10 @@ Before substantive mathematical or engineering research:
 
 1. read `docs/RESEARCH_COMMON_SURFACE.en.md` (or the Chinese semantic pair);
 2. read `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`;
-3. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
-4. read the latest relevant entries in Research Relay Issue #82;
-5. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family.
+3. read `docs/RESEARCH_OWNER_ISOLATION.en.md`;
+4. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
+5. read the latest relevant entries in Research Relay Issue #82;
+6. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family.
 
 Scheduling rules:
 
@@ -16,7 +17,11 @@ Scheduling rules:
 - `defer`, `consume from`, `owner moved`, `audit against`, or `replay after` are routing instructions, not stop conditions;
 - only a complete explicit `HARD_BLOCK` may stop a route;
 - `no_new_mathematics_during_replay=true` on an owner branch constrains only the identified replay slice; only L4 integration is globally `NO NEW MATHEMATICS`;
-- moving `main` does not restart research; require one final current-main combination gate before canonical merge unless a genuine semantic conflict appears.
+- moving `main` does not restart research;
+- L1/L2/L3 owner branches may legitimately be behind `main` and MUST NOT merge/rebase/copy the whole moving `main` merely to stay current;
+- canonical promotion freezes the owner payload and uses a fresh L4 branch from then-current `main`, replaying only owner-owned assets and required registration/provenance changes;
+- if an owner or integration branch acquires unrelated theorem-home files through synchronization, treat that as `SCOPE_DRIFT`: preserve the history, restore the current tree to its declared scope, and route off-owner assets back to their real owner/source;
+- require one final current-main combination gate before canonical merge unless a genuine semantic conflict appears.
 
 Knowledge propagation:
 
