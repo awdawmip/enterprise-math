@@ -12,15 +12,21 @@ of Boolean constraints:
 A body whose proposed move conflicts with an explicitly waiting body is forced
 to wait.  Initial WAIT/WAIT conflicts are rejected before this reduction.
 
+The same report can be built in two ways:
+
+1. ``binary_motion_constraints`` is the direct pairwise definition/oracle;
+2. ``binary_motion_constraints_target_first`` inverts finite action-target
+   incidence and emits mutex/implication/forced-wait constraints locally at the
+   shared targets, avoiding a required all-pairs scan in the construction.
+
 The resulting clauses are Horn 2-CNF forms ``~x_i``, ``~x_i or ~x_j``, and
 ``~x_i or x_j``.  The implication relation therefore gives a finite required-
 move closure for any seed set.  If that closure reaches a forced wait or
 contains a mutex pair, the seed is already impossible before global search.
 
-The constraint structure is exactly equivalent to the original transition-
-target feasibility for binary move/wait choices.  Boolean implication/Horn
-logic is established prior art; this module records the E001 engineering
-factorization and does not claim the general logic as new mathematics.
+Boolean implication/Horn logic and incidence inversion are established prior
+art.  This module records the E001 engineering factorization and does not claim
+the general logic as new mathematics.
 """
 
 from __future__ import annotations
@@ -29,7 +35,7 @@ from dataclasses import dataclass
 from itertools import combinations
 
 from .engineering_collision import Pair
-from .motion_collapse import BodyMotion2D, motion_conflict
+from .motion_collapse import BodyMotion2D, motion_conflict, motion_target_set
 
 Implication = tuple[int, int]
 
@@ -48,10 +54,24 @@ def _wait_variant(motion: BodyMotion2D) -> BodyMotion2D:
     return BodyMotion2D(motion.body, (0, 0))
 
 
+def _finalize_report(
+    moving_ids: tuple[int, ...],
+    forced_waits: set[int],
+    mutex_pairs: set[Pair],
+    implications: set[Implication],
+) -> BinaryMotionConstraintReport:
+    return BinaryMotionConstraintReport(
+        moving_ids=moving_ids,
+        forced_wait_ids=tuple(sorted(forced_waits)),
+        mutex_pairs=tuple(sorted(mutex_pairs)),
+        implications=tuple(sorted(implications)),
+    )
+
+
 def binary_motion_constraints(
     motions: list[BodyMotion2D],
 ) -> BinaryMotionConstraintReport:
-    """Factor exact move/wait target conflicts into unary/binary constraints."""
+    """Pairwise oracle: factor exact move/wait conflicts into constraints."""
     ids = [motion.body_id for motion in motions]
     if len(ids) != len(set(ids)):
         raise ValueError("motion body ids must be unique")
@@ -91,12 +111,68 @@ def binary_motion_constraints(
             if motion_conflict(left_wait, right_move):
                 forced_waits.add(right_id)
 
-    return BinaryMotionConstraintReport(
-        moving_ids=moving_ids,
-        forced_wait_ids=tuple(sorted(forced_waits)),
-        mutex_pairs=tuple(sorted(mutex_pairs)),
-        implications=tuple(sorted(implications)),
-    )
+    return _finalize_report(moving_ids, forced_waits, mutex_pairs, implications)
+
+
+def binary_motion_constraints_target_first(
+    motions: list[BodyMotion2D],
+) -> BinaryMotionConstraintReport:
+    """Build the same exact report by inverting MOVE/WAIT transition targets.
+
+    For each finite target ``z`` retain the bodies whose MOVE variant uses ``z``
+    and the bodies whose WAIT variant uses ``z``.  Local occupancy then gives:
+
+    * pairs of movers at ``z`` -> mutex;
+    * mover ``i`` and waiter ``j`` at ``z`` -> ``i -> j`` when ``j`` has a
+      nonzero proposal, otherwise ``i`` is forced to wait;
+    * pairs of waiters at any target -> invalid initial overlap.
+
+    Constraint sets are deduplicated across targets.
+    """
+    ids = [motion.body_id for motion in motions]
+    if len(ids) != len(set(ids)):
+        raise ValueError("motion body ids must be unique")
+
+    by_id = {motion.body_id: motion for motion in motions}
+    moving_ids = tuple(sorted(body_id for body_id, motion in by_id.items() if not motion.is_wait))
+    moving_set = set(moving_ids)
+
+    move_by_target: dict[object, set[int]] = {}
+    wait_by_target: dict[object, set[int]] = {}
+    for body_id, motion in by_id.items():
+        wait = _wait_variant(motion)
+        for target in motion_target_set(wait):
+            wait_by_target.setdefault(target, set()).add(body_id)
+        if body_id in moving_set:
+            for target in motion_target_set(motion):
+                move_by_target.setdefault(target, set()).add(body_id)
+
+    for waiters in wait_by_target.values():
+        if len(waiters) > 1:
+            raise ValueError("initial body supports must be pairwise conflict-free")
+
+    forced_waits: set[int] = set()
+    mutex_pairs: set[Pair] = set()
+    implications: set[Implication] = set()
+
+    all_targets = set(move_by_target).union(wait_by_target)
+    for target in all_targets:
+        movers = sorted(move_by_target.get(target, ()))
+        waiters = sorted(wait_by_target.get(target, ()))
+
+        for left_id, right_id in combinations(movers, 2):
+            mutex_pairs.add((left_id, right_id))
+
+        for mover_id in movers:
+            for waiter_id in waiters:
+                if mover_id == waiter_id:
+                    continue
+                if waiter_id in moving_set:
+                    implications.add((mover_id, waiter_id))
+                else:
+                    forced_waits.add(mover_id)
+
+    return _finalize_report(moving_ids, forced_waits, mutex_pairs, implications)
 
 
 def required_move_closure(
