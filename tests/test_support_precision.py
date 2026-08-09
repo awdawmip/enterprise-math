@@ -5,9 +5,11 @@ from enterprise_math.support_precision import (
     EMPTY,
     FULL,
     PARTIAL,
+    support_abstraction,
     support_block_statuses,
     support_overlap_certificate,
     support_overlap_certificate_profile,
+    support_refinement_consistency,
 )
 
 
@@ -33,10 +35,21 @@ class SupportPrecisionTests(unittest.TestCase):
 
     def test_block_statuses_have_three_exact_states(self):
         support = self.square_support(0, 0, 4)
-        statuses = support_block_statuses(self.states, cell_observation(4), support)
+        observation = cell_observation(4)
+        statuses = support_block_statuses(self.states, observation, support)
+        abstraction = support_abstraction(self.states, observation, support)
         self.assertIn(EMPTY, statuses.values())
         self.assertIn(FULL, statuses.values())
         self.assertIn(PARTIAL, statuses.values())
+        self.assertEqual(
+            abstraction.may_blocks,
+            frozenset(key for key, status in statuses.items() if status != EMPTY),
+        )
+        self.assertEqual(
+            abstraction.must_blocks,
+            frozenset(key for key, status in statuses.items() if status == FULL),
+        )
+        self.assertTrue(abstraction.must_blocks.issubset(abstraction.may_blocks))
 
     def test_terminal_identity_decides_exact_support_intersection(self):
         supports = [
@@ -79,6 +92,24 @@ class SupportPrecisionTests(unittest.TestCase):
         )
         self.assertEqual(profile[first_decided], TRUE)
         self.assertTrue(all(status == TRUE for status in profile[first_decided:]))
+
+    def test_refinement_preserves_exact_may_coverage_and_must_evidence(self):
+        support = self.square_support(0, 0, 4)
+        coarse = cell_observation(4)
+        fine = cell_observation(2)
+        data = support_refinement_consistency(self.states, coarse, fine, support)
+        self.assertEqual(
+            data["projected_fine_may"], data["coarse"].may_blocks
+        )
+        self.assertTrue(
+            data["coarse"].must_blocks.issubset(data["projected_fine_must"])
+        )
+
+    def test_identity_abstraction_is_exact_support(self):
+        support = self.square_support(-1, 2, 2)
+        abstraction = support_abstraction(self.states, self.identity, support)
+        self.assertEqual(abstraction.may_blocks, support)
+        self.assertEqual(abstraction.must_blocks, support)
 
     def test_support_must_lie_inside_terminal_state_set(self):
         with self.assertRaises(ValueError):
