@@ -28,12 +28,12 @@ theorem left_fixed_iff_right_fixed {l u : α → α} (gc : GaloisConnection l u)
   · intro hl
     have hxle : x ≤ u x := by
       apply (gc x x).mp
-      simpa [hl]
+      rw [hl]
     exact le_antisymm (hred x) hxle
   · intro hu
     have hlx : l x ≤ x := by
       apply (gc x x).mpr
-      simpa [hu]
+      rw [hu]
     exact le_antisymm hlx hext
 
 variable [WellFoundedGT α]
@@ -78,8 +78,8 @@ noncomputable def coStabilize (L : α → α) (hmono : Monotone L)
 /-- The selected upward finite iterate is the least fixed point above the initial state. -/
 theorem coStabilize_isLeast (L : α → α) (hmono : Monotone L) (hext : ∀ x, x ≤ L x)
     (x : α) : IsLeast {y : α | L y = y ∧ x ≤ y} (coStabilize L hmono hext x) := by
-  simpa [coStabilize] using
-    (Classical.choose_spec (exists_iterate_isLeast L hmono hext x))
+  unfold coStabilize coStabilizationSteps
+  exact Classical.choose_spec (exists_iterate_isLeast L hmono hext x)
 
 /-- Upward stabilization always lands at an original fixed point. -/
 theorem coStabilize_fixed (L : α → α) (hmono : Monotone L) (hext : ∀ x, x ≤ L x)
@@ -137,8 +137,9 @@ theorem coStabilize_stabilize_gc {l u : α → α} (gc : GaloisConnection l u)
       coStabilize_fixed l gc.monotone_l hext x
     have hufixed : u (coStabilize l gc.monotone_l hext x) = coStabilize l gc.monotone_l hext x :=
       (left_fixed_iff_right_fixed gc hred (coStabilize l gc.monotone_l hext x)).mp hlfixed
-    apply fixed_le_stabilize u gc.monotone_u hred hufixed
-    exact (le_coStabilize l gc.monotone_l hext x).trans hxy
+    have hfixed_le : coStabilize l gc.monotone_l hext x ≤ stabilize u gc.monotone_u hred y :=
+      fixed_le_stabilize u gc.monotone_u hred hufixed hxy
+    exact (le_coStabilize l gc.monotone_l hext x).trans hfixed_le
   · intro hxy
     have hufixed : u (stabilize u gc.monotone_u hred y) = stabilize u gc.monotone_u hred y :=
       stabilize_fixed u gc.monotone_u hred y
