@@ -16,7 +16,7 @@ The gap-one theorem in `PowerQuotientCoalescence` is the specialization `g=1`.
 -/
 theorem divisor_gap_collision_root_scale
     {d g t s : ℕ}
-    (hg : 1 ≤ g)
+    (_hg : 1 ≤ g)
     (hcollision : (d + g) * t ^ (s + 1) < d * (t + 1) ^ (s + 1)) :
     g * (t + 1) < (s + 1) * (d + g) := by
   by_contra hnot
