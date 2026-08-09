@@ -71,6 +71,31 @@ class CausalContinuationRefinementTests(unittest.TestCase):
         stable, _ = stable_continuation_types(observations, actions)
         self.assertNotEqual(stable["a"], stable["b"])
 
+    def test_stacking_toy_same_local_registry_can_hide_different_continuation(self):
+        # Pure combinatorial stacking skeleton inspired by close-packed A/B/C
+        # registries, not a full physical FCC/HCP model.  Both AB states currently
+        # expose registry B, but their declared continuation laws differ.
+        observations = {
+            "AB_fcc": "B",
+            "BC_fcc": "C",
+            "CA_fcc": "A",
+            "AB_hcp": "B",
+            "BA_hcp": "A",
+        }
+        actions = {
+            "add_layer": {
+                "AB_fcc": "BC_fcc",
+                "BC_fcc": "CA_fcc",
+                "CA_fcc": "AB_fcc",
+                "AB_hcp": "BA_hcp",
+                "BA_hcp": "AB_hcp",
+            }
+        }
+        initial = initial_observation_partition(observations)
+        self.assertEqual(initial["AB_fcc"], initial["AB_hcp"])
+        stable, _ = stable_continuation_types(observations, actions)
+        self.assertNotEqual(stable["AB_fcc"], stable["AB_hcp"])
+
     def test_no_actions_reduces_to_current_observation_classes(self):
         observations = {"a": 0, "b": 0, "c": 1}
         stable, _ = stable_continuation_types(observations, {})
