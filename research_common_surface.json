@@ -101,7 +101,7 @@
     "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
     "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel",
-    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP contact-graph geometry, finite balls/shells, radial/distance structure"
+    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure"
   },
   "canonical_specializations": {
     "P018_P023_power_free_action_basis": {
@@ -122,6 +122,12 @@
       "merge": "PR #262 / main@fc81a15a0fc7a76d1d2b44e7d9a41b699863ef22",
       "scope": "exact finite/combinatorial P022 executable formulas for A_p and simple-cubic geodesic multiplicity plus an integer-coordinate ABAB HCP contact graph with degree 12, exact graph distance, shells, and independently cross-checked shortest-path counts",
       "boundary": "geometry executable specialization only; generic witness-count/correspondence algebra belongs to A4/A2, and no floating-point Euclidean sphere-center model is being smuggled in"
+    },
+    "P022_barlow_stacking_core": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "merge": "PR #288 / main@aec7f625e48eb8f93ba701ba57686a9e225efd17",
+      "scope": "periodic Barlow close-packed contact graph with exact integer/combinatorial graph distance and geodesic multiplicity, FCC/HCP reconstruction, and root-to-target-layer cumulative interface-sign-count compression for those queries",
+      "boundary": "the cumulative-prefix compression is task-relative to the declared root-to-layer distance/geodesic-count queries; Barlow precision, periodic-growth, coordination-observable and observation-history theories are not included"
     },
     "E001_residual_conservation_slice": {
       "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED + ONE_COMPARATOR_NEGATIVE",
@@ -157,6 +163,7 @@
       "tests/test_p022_geodesic_multiplicity.py",
       "tests/test_p022_hcp_geometry.py"
     ],
+    "P022_barlow_stacking_core": ["src/enterprise_math/p022_barlow_stacking.py", "tests/test_p022_barlow_stacking.py"],
     "P021": ["src/enterprise_math/causal_boundary.py", "tests/test_causal_boundary.py"],
     "E001_material_impulse_application": [
       "src/enterprise_math/material_impulse_accounting.py",
