@@ -221,6 +221,8 @@ this becomes the exact finite threshold
 
 This is P025's first direct bridge back to the existing integer-root foundation: an abc-type high-quality event forces at least one multiplicity residual across an explicit integer root horizon.
 
+### Small working sample
+
 A small working example is
 
 \[
