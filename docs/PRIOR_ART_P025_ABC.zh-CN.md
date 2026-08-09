@@ -36,13 +36,37 @@ Bernert、Browning、Lichtman、Teräväinen 对满足 `rad(abc)<c^(1-epsilon)` 
 
 Kikteva 已研究 locally nilpotent derivations 上的 ABC-type generalization [SRC-KIKTEVA-2023-ABC-DERIVATION]。因此仅仅把 Mason–Stothers 从普通导数推广到更抽象 derivation，并不能作为 P025 的创新边界。
 
-## 5. 当前项目新增候选
+## 5. Restricted successive minima 已经覆盖 forbidden-sublattice minimum
+
+Henk 与 Thiel 研究 **restricted successive minima**：在 symmetric convex body 中寻找最短 lattice points，同时要求这些 realizing points 避开一个或多个 forbidden sublattices [SRC-HENK-THIEL-2014-RESTRICTED-MINIMA]。他们的框架明确包含“避开 proper sublattice 的 shortest-vector”问题，属于 Geometry-of-Numbers / Siegel-lemma avoidance 的既有研究邻域。
+
+对 P025 witness flag，取
+
+- real prime-coordinate witness space 中的 `K=[-1,1]^S`；
+- `Lambda=T=ker_Z(alpha)`；
+- forbidden sublattice `Lambda_1=T^circ=T intersect ker_Z(beta)`。
+
+则 P025 定义的精确 witness precision 正好就是对应的 restricted first minimum：
+
+`mu = lambda_1(K, T \ T^circ)`。
+
+普通 additive radius `rho` 则是 unrestricted first minimum `lambda_1(K,T)`。
+
+因此以下内容不能作为 P025 新发明：
+
+- “避开 forbidden sublattice 的最短 witness”这个 invariant；
+- 该 invariant 的一般 Geometry-of-Numbers bounds；
+- 用 avoidance/Siegel-lemma 方法寻找小 non-degenerate lattice points。
+
+项目真正剩下的问题更窄：`abc` relation 自身生成 `T^circ subset T`，arithmetic multiplicity demand 又给出独立 lower certificate，然后把同一个 restricted minimum 接入 exact proof-budget / future-precision semantics。
+
+## 6. 当前项目新增候选
 
 在当前检索范围内，P025 暂时只把以下**组合性架构**列为 `NOVELTY_UNVERIFIED`：
 
 1. 把 quotient 遗忘信息写成显式 finite/integer residual；
-2. 对给定 relation/task 建立 multivalued admissible witness family；
-3. 把 `min witness cost` 作为一个 task-relative precision/horizon；
+2. 让 arithmetic task 自身生成 relation-conditioned witness / forbidden-sublattice flag；
+3. 把 arithmetic demand、restricted first minimum、compact generator certificate 与 exact proof-loss shells 接成同一条有限结构链；
 4. 比较两种恢复方式：`refine state until exact descent` 与 `keep coarse state + attach bounded witness`；
 5. 再增加 scale-dependent exceptional incidence，形成 exact / bounded-witness / sparse-exception 分层。
 
