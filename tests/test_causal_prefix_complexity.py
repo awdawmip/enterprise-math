@@ -2,7 +2,10 @@ import unittest
 
 from enterprise_math.causal_prefix_complexity import (
     continuation_complexity_profile,
+    continuation_fiber_sizes,
     finite_type_complexity,
+    future_collapse_spectrum,
+    future_distinction_loss,
 )
 
 
@@ -45,6 +48,31 @@ class CausalPrefixComplexityTests(unittest.TestCase):
             # suffix, so all 2^half prefixes have distinct future signatures.
             self.assertEqual(profile[half], 2**half)
             self.assertGreaterEqual(finite_type_complexity(alphabet, horizon, copy_observation), 2**half)
+
+    def test_parity_future_collapse_forgets_many_histories_exactly(self):
+        alphabet = (0, 1)
+        horizon = 6
+        depth = 5
+        observation = lambda word: sum(word) % 2
+        sizes = continuation_fiber_sizes(alphabet, horizon, depth, observation)
+        self.assertEqual(sizes, (16, 16))
+        self.assertEqual(future_distinction_loss(alphabet, horizon, depth, observation), 30)
+        spectrum = future_collapse_spectrum(alphabet, horizon, depth, observation, 3)
+        self.assertEqual(spectrum[1], 32)
+        self.assertEqual(spectrum[2], 2 * (16 * 15 // 2))
+        self.assertEqual(spectrum[3], 2 * (16 * 15 * 14 // 6))
+
+    def test_full_identity_future_collapse_has_no_higher_collisions(self):
+        alphabet = (0, 1)
+        horizon = 5
+        depth = 5
+        observation = lambda word: word
+        self.assertEqual(continuation_fiber_sizes(alphabet, horizon, depth, observation), (1,) * 32)
+        self.assertEqual(future_distinction_loss(alphabet, horizon, depth, observation), 0)
+        spectrum = future_collapse_spectrum(alphabet, horizon, depth, observation, 3)
+        self.assertEqual(spectrum[1], 32)
+        self.assertEqual(spectrum[2], 0)
+        self.assertEqual(spectrum[3], 0)
 
     def test_constant_observation_collapses_every_prefix_depth_to_one_type(self):
         alphabet = ("A", "B", "C")
