@@ -7,7 +7,8 @@
   "baseline_main": "de49cb170111f5acb6bd9f62543c4509a8ced725",
   "primary_source": {
     "branch": "research/core/relation-support-bridge",
-    "head": "7d596b1a845ca5f878593940607ca6ed67210845"
+    "head": "7d596b1a845ca5f878593940607ca6ed67210845",
+    "historical_pr": 83
   },
   "allowed": [
     "conditions under which A3 state generates an A4 support family",
@@ -16,18 +17,64 @@
     "strict non-equivalence counterexamples between A3 and A4",
     "explicit specialization/generalization maps between owner theorems"
   ],
+  "historical_range_routing": {
+    "B01-B09": {
+      "provisional_owner": "A3_A4_BRIDGE",
+      "reason": "These results explicitly derive an A4 radius-indexed support family/metric from the A3 weighted relation state and classify split-completeness/geodesicity of that generated family. They intrinsically mention both endpoint theories."
+    },
+    "B10-B23": {
+      "provisional_owner": "A4_X_A2_INTERFACE",
+      "reason": "Endpoint MAY/MUST, Pareto staged-existence frontiers, and finite-future existence compression are statements about what support information a declared future query must retain. They are not A3-specific once the support family is supplied."
+    },
+    "B24-B31": {
+      "provisional_owner": "A4",
+      "reason": "Exact support-language state and associative antichain convolution are correspondence/support algebra once the relation family exists; retain A3 only as one generator/example."
+    },
+    "B32-B40": {
+      "provisional_owner": "A4_COUNT_EXTENSION",
+      "reason": "Staged witness-count histograms/tensors and coefficient convolution are count-enriched correspondence structure; they do not require the A3 weighted state after the support/count data is given."
+    },
+    "B41-B46": {
+      "provisional_owner": "A4_X_A2_WITH_P021_SPECIALIZATION",
+      "reason": "The coupling defect measures exact count loss when hidden witness identity is collapsed. The generic count-repair statement is support/quotient mathematics; P021 keeps the direction-transport specialization and discovery provenance."
+    },
+    "B47-B52": {
+      "provisional_owner": "A2_X_A4_COUNT_QUOTIENT",
+      "reason": "Equitability/lumpability is a quotient-safety criterion for count operations. It should be audited against established lumpability/equitable-partition prior art and the canonical A2 quotient owner before any replay."
+    },
+    "B53-B58": {
+      "provisional_owner": "A4",
+      "reason": "Positive support, achievable-cost support, Pareto projection, and compositional semantic shadows are homomorphic projections of non-negative correspondence/count structure. The signed A3 cancellation boundary remains a bridge counterexample rather than making the whole theorem A3-owned."
+    }
+  },
+  "bridge_keep_candidates": [
+    "A3 weighted relation state generates A4 support by a proved formula",
+    "A3-derived rho exactly generates the A4 radius family",
+    "conditions equating A3-generated rho with the radius-one intrinsic graph metric",
+    "counterexamples showing A3 present-state sufficiency does not imply A4 future-support sufficiency",
+    "factorization statements for A4 observations through an A3 quotient"
+  ],
   "must_rehome_if_general": [
     "generic equitability/lumpability",
     "generic witness-count composition algebra",
     "generic semantic-shadow homomorphisms",
     "generic future-compatible quotient repair",
-    "standalone geometry theorems"
+    "standalone geometry theorems",
+    "support-only Pareto/frontier theorems",
+    "count-only coefficient convolution"
   ],
   "forbidden": [
     "copying the whole A3 owner tree",
     "copying the whole A4 owner tree",
     "dependency-sync PRs used as permanent synchronization",
-    "new theorem families unrelated to the A3-A4 bridge question"
+    "new theorem families unrelated to the A3-A4 bridge question",
+    "keeping a theorem in the bridge solely because it was historically numbered Bxx on PR #83"
+  ],
+  "audit_before_replay": [
+    "check each B-range against current A2/A3/A4 main/owners",
+    "perform prior-art audit for equitability/lumpability and semiring/support homomorphisms",
+    "preserve P021 discovery provenance for witness coupling defect",
+    "only replay statements whose weakest assumptions still require both A3 and A4"
   ],
   "completion": [
     "bridge-only theorem list extracted",
