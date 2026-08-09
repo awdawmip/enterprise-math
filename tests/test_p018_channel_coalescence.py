@@ -1,10 +1,16 @@
 import unittest
+from math import isqrt
 
 from enterprise_math.p018_channel_coalescence import (
+    actual_coalescence_horizon,
     actual_collision_horizon_chain,
+    actual_divisor_root,
+    actual_divisor_root_collision,
     actual_horizon_strict_descent,
     candidate_coalescence_horizon,
     candidate_horizon_strict_descent,
+    divisor_root_channel,
+    high_scale_actual_divisor_root_injectivity,
     high_scale_candidate_channel_multiplicity,
     nonadjacent_candidate_overlap_cubic_contraction,
 )
@@ -63,13 +69,74 @@ class P018ChannelCoalescenceTests(unittest.TestCase):
         self.assertTrue(saw_odd_single)
 
     def test_k14_adjacent_collision_remains_above_cubic_candidate_horizon(self):
-        # The known p=2,3 candidate collision is precisely the adjacent-label
-        # exception.  Odd-label injectivity does not have this escape hatch.
         self.assertEqual(candidate_coalescence_horizon(14), 8)
         data = high_scale_candidate_channel_multiplicity(14, 9)
         self.assertEqual(data["divisor_hits"], (2, 3))
         self.assertEqual(data["multiplicity"], 2)
         self.assertEqual(data["odd_divisor_hits"], (3,))
+
+    def test_actual_collision_has_exact_cubic_bound(self):
+        self.assertEqual(actual_coalescence_horizon(97), 26)
+        data = actual_divisor_root_collision(97, 9464, 13, 14)
+        self.assertTrue(data["coalesces"])
+        self.assertEqual(data["common_root"], 26)
+        self.assertEqual(data["common_root"], data["actual_coalescence_horizon"])
+        self.assertLess(data["common_root"] ** 3, 2 * 98**2)
+
+    def test_actual_collision_bound_exhaustive_small_range(self):
+        saw = False
+        for k in range(2, 36):
+            horizon = actual_coalescence_horizon(k)
+            for n in range(k * k, (k + 1) * (k + 1)):
+                owner: dict[int, int] = {}
+                for divisor in range(2, min(n + 1, 2 * k + 12)):
+                    root = actual_divisor_root(k, n, divisor)
+                    if root in owner:
+                        data = actual_divisor_root_collision(
+                            k, n, owner[root], divisor
+                        )
+                        self.assertTrue(data["coalesces"])
+                        self.assertLessEqual(root, horizon)
+                        self.assertLess(root**3, 2 * (k + 1) ** 2)
+                        saw = True
+                    else:
+                        owner[root] = divisor
+        self.assertTrue(saw)
+
+    def test_adjacent_collision_family_makes_cubic_constant_asymptotically_sharp(self):
+        for m in range(2, 90):
+            d = m
+            e = m + 1
+            target = 2 * m
+            n = 4 * m * m * (m + 1)
+            k = isqrt(n)
+            self.assertEqual(n // e, target * target)
+            self.assertEqual(n // d, (target + 1) ** 2 - 1)
+            data = actual_divisor_root_collision(k, n, d, e)
+            self.assertTrue(data["coalesces"])
+            self.assertEqual(data["common_root"], target)
+            self.assertEqual(m * (2 * n), (m + 1) * target**3)
+            self.assertLessEqual(target, actual_coalescence_horizon(k))
+
+    def test_high_scale_actual_roots_are_injective_in_total_divisor(self):
+        saw_high = False
+        for k in range(8, 55):
+            samples = (
+                k * k,
+                k * k + k,
+                (k + 1) * (k + 1) - 1,
+            )
+            divisors = tuple(range(2, 2 * k + 5))
+            for n in samples:
+                data = high_scale_actual_divisor_root_injectivity(k, n, divisors)
+                high_roots = [
+                    root
+                    for root in data["roots_by_divisor"].values()
+                    if root > data["actual_coalescence_horizon"]
+                ]
+                self.assertEqual(len(high_roots), len(set(high_roots)))
+                saw_high |= bool(high_roots)
+        self.assertTrue(saw_high)
 
     def test_candidate_and_actual_horizons_strictly_descend(self):
         for k in range(5, 2000):
@@ -86,8 +153,17 @@ class P018ChannelCoalescenceTests(unittest.TestCase):
             self.assertLess(chain[-1], 4)
             for left, right in zip(chain, chain[1:]):
                 self.assertLess(right, left)
-        # The contraction is very fast even at a huge root scale.
         self.assertLess(len(actual_collision_horizon_chain(10**18)), 20)
+
+    def test_complete_basin_includes_lower_square_boundary(self):
+        self.assertEqual(actual_divisor_root(5, 25, 3), isqrt(25 // 3))
+        with self.assertRaises(ValueError):
+            actual_divisor_root(5, 24, 3)
+
+    def test_candidate_channel_is_boundary_based_not_exact_cofactor_window(self):
+        data = divisor_root_channel(3, 3)
+        self.assertEqual(data["base_root"], 1)
+        self.assertEqual(data["candidates"], (1, 2))
 
     def test_validation(self):
         with self.assertRaises(ValueError):
@@ -98,6 +174,10 @@ class P018ChannelCoalescenceTests(unittest.TestCase):
             candidate_horizon_strict_descent(4)
         with self.assertRaises(ValueError):
             actual_horizon_strict_descent(3)
+        with self.assertRaises(ValueError):
+            divisor_root_channel(5, 1)
+        with self.assertRaises(ValueError):
+            actual_divisor_root_collision(10, 100, 3, 3)
 
 
 if __name__ == "__main__":
