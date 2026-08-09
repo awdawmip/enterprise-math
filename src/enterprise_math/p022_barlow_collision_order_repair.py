@@ -10,7 +10,7 @@ checkpoint-geometry fiber has exactly
     m! / product_ell t_ell!
 
 distinct members.  This module keeps that last identifiability loss finite and
-integer-valued.
+integer-valued and solves its minimum at fixed total length/checkpoint count.
 """
 
 from __future__ import annotations
@@ -31,6 +31,18 @@ def _require_segments(segments: tuple[int, ...]) -> None:
         for value in segments
     ):
         raise ValueError("segments must be a tuple of positive integers")
+
+
+def _require_nm(length: int, checkpoint_count: int) -> None:
+    if isinstance(length, bool) or not isinstance(length, int) or length <= 0:
+        raise ValueError("length must be positive")
+    if (
+        isinstance(checkpoint_count, bool)
+        or not isinstance(checkpoint_count, int)
+        or checkpoint_count <= 0
+        or checkpoint_count > length
+    ):
+        raise ValueError("checkpoint_count must lie in 1..length")
 
 
 def checkpoint_layers_from_ordered_segments(
@@ -93,21 +105,52 @@ def balanced_schedule_order_fiber_size(
     """Order ambiguity of the ordinary balanced final-observing schedule.
 
     If ``N=q*m+r`` with ``0<=r<m``, balanced segment lengths are ``q`` repeated
-    ``m-r`` times and ``q+1`` repeated ``r`` times.  Hence the number of
-    distinct ordered placements is exactly ``C(m,r)``.  When ``r=0`` the
-    collision polynomial identifies the unique equal-spacing schedule fully.
+    ``m-r`` times and ``q+1`` repeated ``r`` times. Hence the number of
+    distinct ordered placements is exactly ``C(m,r)``.
     """
-    if isinstance(length, bool) or not isinstance(length, int) or length <= 0:
-        raise ValueError("length must be positive")
-    if (
-        isinstance(checkpoint_count, bool)
-        or not isinstance(checkpoint_count, int)
-        or checkpoint_count <= 0
-        or checkpoint_count > length
-    ):
-        raise ValueError("checkpoint_count must lie in 1..length")
+    _require_nm(length, checkpoint_count)
     _base, remainder = divmod(length, checkpoint_count)
     return comb(checkpoint_count, remainder)
+
+
+def minimum_order_fiber_size(
+    length: int, checkpoint_count: int
+) -> int:
+    """Exact minimum order ambiguity at fixed total N and checkpoint count m.
+
+    A fiber has size one iff all m segment lengths are equal, possible exactly
+    when ``m`` divides ``N``.  Otherwise every multiset has at least two value
+    classes.  Among nontrivial multiplicity partitions of m, the largest
+    denominator ``product t_i!`` is ``(m-1)!``, so every order fiber has size
+    at least m.  The witness ``(1,...,1,N-m+1)`` has multiplicities ``m-1,1``
+    and attains exactly m.
+    """
+    _require_nm(length, checkpoint_count)
+    if checkpoint_count == 1 or length % checkpoint_count == 0:
+        return 1
+    return checkpoint_count
+
+
+def minimum_order_fiber_witness_segments(
+    length: int, checkpoint_count: int
+) -> tuple[int, ...]:
+    """One segment multiset attaining :func:`minimum_order_fiber_size`."""
+    _require_nm(length, checkpoint_count)
+    if length % checkpoint_count == 0:
+        part = length // checkpoint_count
+        return (part,) * checkpoint_count
+    return (1,) * (checkpoint_count - 1) + (
+        length - checkpoint_count + 1,
+    )
+
+
+def balanced_order_is_minimal(
+    length: int, checkpoint_count: int
+) -> bool:
+    """Whether ordinary balanced spacing also minimizes order-repair cardinality."""
+    return balanced_schedule_order_fiber_size(
+        length, checkpoint_count
+    ) == minimum_order_fiber_size(length, checkpoint_count)
 
 
 def collision_coefficients_ignore_segment_order(
