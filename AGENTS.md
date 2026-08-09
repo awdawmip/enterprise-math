@@ -46,6 +46,10 @@ Knowledge propagation and promotion sync:
 - adding/removing a root import in `EnterpriseMath.lean` requires the same PR to update the exact `lean_root_imports` machine/human indexes;
 - adding/removing a repository Python tool under `tools/*.py` requires the same PR to update the exact shared repository-tool machine/human indexes;
 - `tools/check_research_common_surface.py` is a mechanical promotion gate: it checks declared-path existence, exact root-Lean imports, exact repository Python tools, active FQ-set agreement, and active-alert validity; it does not prove theorem truth or decide semantic reusability;
+- overlapping/diverged source or convergence owners are retired by **result conservation**, not by Git cleanliness: before closing such an owner, freeze its exact source head, complete a semantic-result inventory, and assign every unique result exactly one fate from `INTEGRATE / SUPERSEDED / COMPARATOR-NEGATIVE / OWNER_MOVED / REJECTED`;
+- when that retirement state is promoted to canonical `main`, record it in a `result_conservation_*.json` closure certificate with `inventory_complete=true`, no unresolved results, and explicit source evidence, targets, rationale, and validation evidence for every semantic result ID;
+- the result-conservation checks in `tools/check_references.py` validate the declared closure ledger only; they do **not** prove that the inventory is mathematically complete or that a chosen fate is correct. That semantic judgment remains a research/review responsibility;
+- a clean L4 replay, green CI, cherry-pick, or closed PR is insufficient by itself to retire an overlapping source owner if any unique result still lacks an explicit fate;
 - do not duplicate a mother theorem merely to make a program branch self-contained;
 - distinguish `CANONICAL_MAIN`, `LEAN_CHECKED_MAIN`, `PROVED_WIP_RELAY`, `EXECUTABLE_CHECKED`, and conjectural claims.
 
