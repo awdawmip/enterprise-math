@@ -36,6 +36,17 @@ exactly; no hidden intermediate saved state is inserted.  The price is that the
 endpoint law is a finite relation: for a fixed start/momentum there may be zero,
 one, or (for sufficiently nonmonotone tables) multiple represented endpoints.
 
+Branch-memory boundary
+----------------------
+A loading energy candidate with ``p_1<0`` has already reversed momentum before
+the saved tick ends.  For an elastic single-branch law, endpoint work may still
+be meaningful.  For a genuine loading/returning material, however, that candidate
+requires an unrepresented within-tick turning event followed by a returning
+segment.  It is therefore marked ``requires_within_tick_branch_switch`` and is
+not branch-consistent unless a separate within-tick turning policy is explicitly
+declared.  ``p_1=0`` is an exact turn at the saved endpoint and is branch-
+consistent.
+
 For a nondecreasing loading force, doubled work increments are nondecreasing.
 Since the required kinetic-loss curve ``4*dx*(p_0-dx)`` has strictly decreasing
 secant slopes from the origin, there can be at most one positive loading endpoint.
@@ -104,6 +115,14 @@ class MaterialEdgeWorkCandidate:
     edge_impulse_numerator: int
     edge_impulse_denominator: int
     edge_impulse_is_integer: bool
+
+    @property
+    def requires_within_tick_branch_switch(self) -> bool:
+        return self.branch == LOADING and self.oriented_momentum_after < 0
+
+    @property
+    def branch_consistent(self) -> bool:
+        return not self.requires_within_tick_branch_switch
 
 
 def _reduced_fraction(numerator: int, denominator: int) -> tuple[int, int]:
@@ -206,6 +225,15 @@ class MaterialEdgeWorkRelationReport:
     oriented_momentum_before: int
     candidates: tuple[MaterialEdgeWorkCandidate, ...]
     relation_status: str
+
+    @property
+    def branch_consistent_candidates(self) -> tuple[MaterialEdgeWorkCandidate, ...]:
+        return tuple(candidate for candidate in self.candidates if candidate.branch_consistent)
+
+    @property
+    def branch_consistent_relation_status(self) -> str:
+        count = len(self.branch_consistent_candidates)
+        return NO_ENDPOINT if count == 0 else UNIQUE_ENDPOINT if count == 1 else MULTIPLE_ENDPOINTS
 
 
 def material_edge_work_relation_report(
