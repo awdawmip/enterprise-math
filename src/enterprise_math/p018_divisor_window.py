@@ -6,9 +6,10 @@ quotients n//d lie in
     W_d(k) = [floor(k^2/d)+1, floor(k(k+2)/d)].
 
 This module records elementary separation criteria for exact quotient windows
-and, in the odd small-product regime relevant to the P017 residual mirror hard
-core, for the associated T110 candidate root pairs. It is discovery-stage
-evidence, not a canonical theorem module.
+and a stronger root-level statement in the small-product regime.  The latter no
+longer needs primality or parity: nonadjacent divisors d<e with de<k already
+have disjoint T110 candidate root pairs.  It is discovery-stage evidence, not a
+canonical theorem module.
 """
 
 from __future__ import annotations
@@ -65,7 +66,7 @@ def divisor_window_separation(k: int, left: int, right: int) -> dict[str, object
 
 
 def same_parity_divisor_windows(k: int) -> dict[str, object]:
-    """Executable candidate corollary: same-parity divisor windows are disjoint."""
+    """Executable corollary: same-parity divisor windows are disjoint."""
     _require_int("k", k)
     if k < 3:
         raise ValueError("k must be at least 3")
@@ -80,49 +81,74 @@ def same_parity_divisor_windows(k: int) -> dict[str, object]:
     return {"k": k, "checked_pairs": tuple(checked), "pair_count": len(checked)}
 
 
-def odd_small_product_root_pair_separation(
+def nonadjacent_small_product_root_pair_separation(
     k: int, left: int, right: int
 ) -> dict[str, object]:
-    """WIP candidate: odd divisors with de<k have disjoint T110 root pairs.
+    """WIP candidate: e>=d+2 and de<k force disjoint T110 root pairs.
 
-    Assume 3<=d<e are odd and d*e<k. Put
+    Put
 
         j_d = R_2(floor(k^2/d)),
         j_e = R_2(floor(k^2/e)).
 
-    Then j_d>=j_e+2, so {j_d,j_d+1} and {j_e,j_e+1} are disjoint.
+    For integers 2<=d<e with e>=d+2 and d*e<k, one has
 
-    The integer proof first shows j_e>=2d+1. Since k>=de+1 and e>=d+2,
-    the minimum case is controlled by
+        j_d >= j_e + 2.
 
-        (d(d+2)+1)^2 - (d+2)(2d+1)^2
-        = d^4 - 6d^2 - 5d - 1 > 0      (d>=3).
+    Hence {j_d,j_d+1} and {j_e,j_e+1} are disjoint.
 
-    Hence e(2d+1)^2<=k^2. With u=j_e and e-d>=2,
+    For d>=3, first show j_e>=2d+1.  Since k>=de+1 and e>=d+2,
+
+        (de+1)^2 >= e(2d+1)^2.
+
+    The left-minus-right polynomial is increasing in e on e>=d+2 and at the
+    minimum e=d+2 equals
+
+        d^4 - 6d^2 - 5d - 1 > 0    (d>=3).
+
+    With u=j_e and e-d>=2,
 
         e*u^2 - d(u+2)^2
         >= 2(u^2-2du-2d) > 0,
 
-    giving d(u+2)^2<k^2 and therefore j_d>=u+2.
+    so d(u+2)^2<k^2 and j_d>=u+2.
+
+    The only missing base family is d=2.  Then e>=4 and de<k imply k>=9.
+    Since j_e<=floor(k/2), the elementary parity split k=2m or 2m+1 gives
+
+        (floor(k/2)+2)^2 <= floor(k^2/2)    for k>=9,
+
+    hence j_2>=j_e+2 as well.
     """
     _require_int("k", k)
     _require_int("left", left)
     _require_int("right", right)
     d = left
     e = right
-    if not (3 <= d < e <= k):
-        raise ValueError("require 3 <= left < right <= k")
-    if d % 2 == 0 or e % 2 == 0:
-        raise ValueError("both divisors must be odd")
+    if not (2 <= d < e <= k):
+        raise ValueError("require 2 <= left < right <= k")
+    if e < d + 2:
+        raise ValueError("require nonadjacent divisors: right >= left + 2")
     if d * e >= k:
         raise ValueError("require left*right < k")
 
     j_left = isqrt((k * k) // d)
     j_right = isqrt((k * k) // e)
-    if j_right < 2 * d + 1:
-        raise AssertionError("odd small-product lower-root estimate failed")
+
+    if d == 2:
+        half = k // 2
+        if k < 9:
+            raise AssertionError("d=2 small-product assumptions should force k>=9")
+        if j_right > half:
+            raise AssertionError("d=2 upper-divisor root exceeded floor(k/2)")
+        if (half + 2) ** 2 > (k * k) // 2:
+            raise AssertionError("d=2 base square inequality failed")
+    else:
+        if j_right < 2 * d + 1:
+            raise AssertionError("small-product lower-root estimate failed")
+
     if j_left < j_right + 2:
-        raise AssertionError("odd small-product root candidate pairs overlap")
+        raise AssertionError("small-product root candidate pairs overlap")
 
     return {
         "k": k,
@@ -134,3 +160,14 @@ def odd_small_product_root_pair_separation(
         "left_candidates": (j_left, j_left + 1),
         "right_candidates": (j_right, j_right + 1),
     }
+
+
+def odd_small_product_root_pair_separation(
+    k: int, left: int, right: int
+) -> dict[str, object]:
+    """Backward-compatible P017 corollary for distinct odd full cores."""
+    _require_int("left", left)
+    _require_int("right", right)
+    if left < 3 or left % 2 == 0 or right % 2 == 0:
+        raise ValueError("both divisors must be odd and left must be at least 3")
+    return nonadjacent_small_product_root_pair_separation(k, left, right)
