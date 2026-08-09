@@ -7,6 +7,7 @@ from enterprise_math.p017_p018_bonferroni_tokens import (
     defect_token_quotient_descent,
     defect_token_quotient_horizon,
     defect_token_single_use_threshold,
+    high_product_token_singleton_state,
     point_defect_tokens,
     point_full_block_defect_tokens,
     signed_defect_token_profile,
@@ -41,8 +42,21 @@ class P017P018BonferroniTokenTests(unittest.TestCase):
         self.assertEqual(row["quotient"], 1)
         self.assertEqual(row["omitted_support_primes"], ())
         self.assertTrue(row["single_use_product_regime"])
+        self.assertFalse(row["reusable_product_regime"])
         self.assertTrue(row["fully_k_smooth"])
+        self.assertTrue(row["l053_singleton_side"])
         self.assertEqual(row["quotient_support"], ())
+
+    def test_high_product_token_forces_fully_smooth_singleton_side(self):
+        state = 4_295_098_269
+        divisor = 1_431_699_423
+        data = high_product_token_singleton_state(65_536, state, divisor)
+        self.assertEqual(data["quotient"], 1)
+        self.assertEqual(data["full_core"], state)
+        self.assertTrue(data["fully_k_smooth"])
+        self.assertTrue(data["full_core_exceeds_k"])
+        self.assertTrue(data["l053_singleton_for_any_mirror_partner"])
+        self.assertTrue(data["cannot_belong_to_repeated_residual_S_lt_k_cell"])
 
     def test_defect_free_rows_have_no_tokens(self):
         for support in ((), (3,), (3, 5, 7), (3, 5, 7, 11, 13)):
