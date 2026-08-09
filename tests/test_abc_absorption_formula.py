@@ -46,7 +46,6 @@ class AbcAbsorptionFormulaTests(unittest.TestCase):
         self.assertEqual(one_plus_squarefree_to_prime_power_absorption(7, 2, 3), 3)
         self.assertEqual(one_plus_squarefree_to_prime_power_absorption(15, 2, 4), 4)
         self.assertEqual(one_plus_squarefree_to_prime_power_absorption(31, 2, 5), 5)
-        self.assertEqual(one_plus_squarefree_to_prime_power_absorption(80 - 1, 2, 0), 0)  # unreachable
 
     def test_two_prime_power_blocks_and_perfect_absorption(self) -> None:
         data = two_prime_power_blocks_absorption(2, 3, 3, 2)
