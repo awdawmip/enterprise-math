@@ -19,18 +19,28 @@ smallest J-s original primes and inserting the smallest s outsiders:
     R_s(k)
       = (p_1...p_{J-s}) (p_{J+1}...p_{J+s}).
 
-Therefore
+The sequence R_s is strictly increasing, since
 
-    R_s(k) >= k
+    R_s/R_{s-1} = p_{J+s}/p_{J-s+1} > 1.
 
-excludes every candidate with s or more?  More precisely, it excludes every
-candidate with exactly s outsiders; because R_s is strictly increasing once the
-prime list is fixed in this replacement construction, the first failing s also
-excludes all larger replacement counts.  Define the replacement depth T as the
-largest s for which R_s<k.
+Therefore the first s with R_s>=k excludes every candidate with s or more
+outsider replacements.  Define the replacement depth T as the largest s with
+R_s<k.  Every reusable terminal radical differs from P_J by at most T outsider
+replacements.
 
-Then every reusable terminal radical differs from the minimal primorial P_J by
-at most T replacements from outside the first J primes.
+There is also an exact replacement formula.  If O is an s-subset of the first
+J primes and V is an s-subset of the outsider primes, then replacing O by V
+gives
+
+    D = P_J * product(V) / product(O),
+
+and D<k is equivalent, without division, to
+
+    P_J * product(V) < k * product(O).
+
+Every J-prime radical D<k has a unique pair (O,V), namely its symmetric
+difference with the first-J prime set.  Thus the terminal radical shell is the
+disjoint union of these finite replacement classes for 0<=s<=T.
 
 This creates a third finite precision coordinate after support depth J and
 product cutoff k: the near-primorial shell has bounded replacement depth before
@@ -39,6 +49,7 @@ any CRT/cofactor test is applied.
 
 from __future__ import annotations
 
+from itertools import combinations
 from math import prod
 
 from .legendre import primes_up_to
@@ -71,7 +82,7 @@ def near_primorial_replacement_profile(k: int) -> dict[str, object]:
 
     rows: list[dict[str, object]] = []
     depth = 0
-    previous = base
+    previous = 0
     for replacements in range(0, j + 1):
         if replacements == 0:
             minimum = base
@@ -84,10 +95,7 @@ def near_primorial_replacement_profile(k: int) -> dict[str, object]:
             outsiders = tuple(primes[j : j + replacements])
             minimum = prod(kept) * prod(outsiders)
         feasible = minimum < k
-        if replacements > 0 and minimum <= previous:
-            # R_s need not be compared to arbitrary candidate products, but the
-            # canonical minimum replacement sequence itself must strictly grow:
-            # R_s/R_{s-1}=p_{J+s}/p_{J-s+1}>1.
+        if minimum <= previous:
             raise AssertionError("minimum replacement product failed to increase")
         previous = minimum
         if feasible:
@@ -106,10 +114,81 @@ def near_primorial_replacement_profile(k: int) -> dict[str, object]:
 
     return {
         **data,
+        "base_primorial_primes": tuple(primes[:j]),
         "base_primorial_product": base,
         "replacement_rows": tuple(rows),
         "replacement_depth": depth,
         "first_forbidden_replacement_count": depth + 1,
+    }
+
+
+def near_primorial_radical_candidates(k: int) -> dict[str, object]:
+    """Enumerate the exact J-prime D<k shell through the replacement formula."""
+    profile = near_primorial_replacement_profile(k)
+    j = int(profile["transverse_primorial_depth"])
+    depth = int(profile["replacement_depth"])
+    base_primes = tuple(int(p) for p in profile["base_primorial_primes"])
+    base = int(profile["base_primorial_product"])
+    primes = _transverse_odd_primes(k)
+    outsider_primes = primes[j:]
+
+    rows: list[dict[str, object]] = []
+    for replacements in range(0, depth + 1):
+        if replacements == 0:
+            rows.append(
+                {
+                    "radical": base,
+                    "radical_primes": base_primes,
+                    "replacements": 0,
+                    "omitted_base_primes": (),
+                    "outside_primes": (),
+                }
+            )
+            continue
+
+        for omitted in combinations(base_primes, replacements):
+            omitted_product = prod(omitted)
+            # From base*out_product < k*omitted_product, each outsider is below
+            # this integer cutoff.  It makes the exact combination search small.
+            outsider_cutoff = (k * omitted_product - 1) // base
+            eligible = tuple(p for p in outsider_primes if p <= outsider_cutoff)
+            if len(eligible) < replacements:
+                continue
+            for outside in combinations(eligible, replacements):
+                outside_product = prod(outside)
+                if base * outside_product >= k * omitted_product:
+                    continue
+                kept = tuple(p for p in base_primes if p not in omitted)
+                radical_primes = tuple(sorted((*kept, *outside)))
+                radical = prod(radical_primes)
+                if radical >= k or len(radical_primes) != j:
+                    raise AssertionError("replacement formula produced an invalid terminal radical")
+                rows.append(
+                    {
+                        "radical": radical,
+                        "radical_primes": radical_primes,
+                        "replacements": replacements,
+                        "omitted_base_primes": tuple(omitted),
+                        "outside_primes": tuple(outside),
+                    }
+                )
+
+    rows.sort(key=lambda row: int(row["radical"]))
+    radicals = tuple(int(row["radical"]) for row in rows)
+    if len(set(radicals)) != len(radicals):
+        raise AssertionError("replacement formula produced duplicate terminal radicals")
+
+    by_depth: dict[int, int] = {}
+    for row in rows:
+        count = int(row["replacements"])
+        by_depth[count] = by_depth.get(count, 0) + 1
+
+    return {
+        **profile,
+        "candidate_rows": tuple(rows),
+        "candidate_radicals": radicals,
+        "candidate_count": len(rows),
+        "candidate_count_by_replacement_depth": tuple(sorted(by_depth.items())),
     }
 
 
