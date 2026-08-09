@@ -1,7 +1,7 @@
-"""Adaptive Bonferroni proof precision for the P017 mirror basin.
+"""Adaptive Bonferroni truncation order for the P017 mirror basin.
 
 This bridge turns a classical finite inclusion--exclusion fact into a task-relative
-proof-precision observable.
+proof-order observable.
 
 For every anchor-surviving mirror radius r, consider the two signed basin states
 M-r and M+r and their transverse prime supports among primes <= k.  Let c(x) be
@@ -27,15 +27,22 @@ and U is the number of composite signed states.  Therefore
     B_{2h+1}(k) < N_signed(k)
 
 is an exact certificate that at least one signed state is prime.  The least odd
-order that certifies this is the **Bonferroni proof-precision horizon** for this
-declared observable family.
+order that certifies this is the declared **adaptive Bonferroni certifying
+order** for this observable family.
+
+Important: odd Bonferroni upper truncations are not a monotone refinement chain.
+For a point of support size c their exact excess is binom(c-1,m), which can grow
+when m increases toward the middle of c-1.  Thus a certificate at one odd order
+need not be interpreted as part of a nested precision lattice, and moving from
+m to m+2 is not automatically an improvement.  What *is* monotone/stable is the
+terminal exact regime: once m reaches every relevant support size, all higher
+odd truncations remain exact.  The transverse-primorial bridge supplies such a
+uniform exact-order ceiling on the residual S<k hard core.
 
 This is not a new inclusion--exclusion theorem and not a proof of Legendre's
-conjecture.  The project-specific use is the adaptive precision viewpoint: low
-moment order can be insufficient even when a slightly finer finite order
-certifies the same basin.  In bounded pressure tests the first order-5 case is
-k=862; known anchor-critical scales 8191, 65536, 131071 and 524287 also pass at
-order five in independent discovery probes, but those large computations are
+conjecture.  In bounded pressure tests the first order-5 certifying case is
+k=862; known anchor-critical scales 8191, 65536, 131071 and 524287 also certify
+at order five in independent discovery probes, but those large computations are
 not promoted as theorem proof here.
 """
 
