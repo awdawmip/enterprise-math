@@ -41,21 +41,32 @@ class PrecisionPartitionMarginTests(unittest.TestCase):
             data["child_margin_sum"] + data["cross_compensation"],
         )
 
-    def test_prime_free_positive_cone_has_nonnegative_merge_compensation(self):
-        # The MC08 prime-free cone corresponds to nonnegative child X and Y.
+    def test_four_coordinate_positive_cone_is_merge_closed(self):
+        # Each child has X,Y,Z,D >= 0.  The parent must remain in the same cone.
         left_x, left_y = (0, 1, 2), (1, 0, 1)
         right_x, right_y = (3, 0), (0, 2)
-        data = binary_margin_identity(left_x, left_y, right_x, right_y)
-        self.assertGreaterEqual(data["left_to_right"], 0)
-        self.assertGreaterEqual(data["right_to_left"], 0)
-        self.assertGreaterEqual(data["cross_compensation"], 0)
-        self.assertGreaterEqual(data["parent_margin"], data["child_margin_sum"])
+        left = block_margin(left_x, left_y)
+        right = block_margin(right_x, right_y)
+        parent = block_margin(left_x + right_x, left_y + right_y)
+        for child in (left, right):
+            self.assertGreaterEqual(child["X"], 0)
+            self.assertGreaterEqual(child["Y"], 0)
+            self.assertGreaterEqual(child["Z"], 0)
+            self.assertGreaterEqual(child["D"], 0)
+        self.assertGreaterEqual(parent["X"], 0)
+        self.assertGreaterEqual(parent["Y"], 0)
+        self.assertGreaterEqual(parent["Z"], 0)
+        self.assertGreaterEqual(parent["D"], 0)
+
+        transport = binary_margin_identity(left_x, left_y, right_x, right_y)
+        self.assertGreaterEqual(transport["left_to_right"], 0)
+        self.assertGreaterEqual(transport["right_to_left"], 0)
+        self.assertGreaterEqual(transport["cross_compensation"], 0)
+        self.assertGreaterEqual(transport["parent_margin"], transport["child_margin_sum"])
 
     def test_signed_cross_compensation_can_mask_fine_negative_margin(self):
         # Left child has D=-1.  The right singleton contributes no own margin,
         # but the sibling cross term is +3, so the coarse parent has D=+2.
-        # Refinement therefore exposes a certificate hidden by exact coarse
-        # cross-block compensation.
         data = binary_margin_identity(
             (-1, 0),
             (0, 1),
@@ -66,6 +77,14 @@ class PrecisionPartitionMarginTests(unittest.TestCase):
         self.assertEqual(data["right_margin"], 0)
         self.assertEqual(data["cross_compensation"], 3)
         self.assertEqual(data["parent_margin"], 2)
+
+    def test_additive_signed_coordinate_can_be_masked_by_sibling(self):
+        left = block_margin((-2,), (0,))
+        right = block_margin((3,), (0,))
+        parent = block_margin((-2, 3), (0, 0))
+        self.assertLess(left["X"], 0)
+        self.assertGreaterEqual(parent["X"], 0)
+        self.assertEqual(parent["X"], left["X"] + right["X"])
 
     def test_dyadic_shells_telescope_to_singletons(self):
         x = (-1, 0, 2, 1, -1, 3, 0)
