@@ -1,81 +1,84 @@
-"""Exact residue phase diagram for refined symmetric-star contact response.
+"""Exact denominator-residue phase for the E001 branching-star response.
 
-This E001 generation continues the branching-star response relation from
-``material_star_response_precision``.  It keeps the same equal-mass star but
-allows an arbitrary positive integer closing quantum ``q`` and a declared
-common impulse denominator ``s``.
+This generation is a precision-lattice extension of
+``material_star_response_spectrum``.  It does not re-own the arbitrary-closing
+integer star theorem.  Instead, for a positive closing quantum ``q`` and a
+declared common impulse denominator ``s``, it consumes that theorem at the
+scaled closing demand
 
-There are ``k>=2`` identical leaves.  In denominator-scaled impulse numerators
-``a_i>=0`` the contact constraints are
+    Q = q*s.
 
-    -q*s + A + a_i >= 0,       A = sum_i a_i.
+For ``k>=2`` identical leaves, the scaled integer constraints are
 
-Write the scaled closing demand as
+    -Q + A + a_i >= 0,       A = sum_i a_i.
 
-    q*s = (k+1)*t + r,         0 <= r <= k.
+The upstream star-spectrum theorem applied to ``Q`` gives the minimum relation.
+Writing
 
-Then the exact minimum total numerator is
+    Q = (k+1)*t + r,         0 <= r <= k,
 
-    A* = k*t + r = q*s - t,
+its exact parameters become
 
-and every minimum response is uniquely of the form
-
+    A* = k*t + r,
     a_i = t + x_i,
     x_i >= 0,
     sum_i x_i = r.
 
-Most importantly, substituting this minimum response back into the contact
-scores gives
+The extra observation of this generation is what these scaled parameters mean
+across precision denominators.  Substitution gives
 
     final_score_numerator_i = x_i.
 
-Thus the Euclidean residue ``r=(q*s) mod (k+1)`` is not bookkeeping noise: at
-minimum total response it is exactly the total unavoidable outward-score mass,
-and the response witness ambiguity is exactly the set of weak compositions of
-that residue among the contact channels.
+Thus ``r=(q*s) mod (k+1)`` is exactly the total unavoidable outward-score mass
+at minimum delivered impulse, while the minimum-response witness ambiguity is
+the upstream weak-composition relation for distributing that residue.
 
-The full leaf-permutation group has a fixed minimum response exactly in the two
+A minimum response fixed by every leaf permutation exists exactly in the two
 residue phases
 
     r = 0    or    r = k,
 
-equivalently
+or equivalently
 
-    (k+1) | q*s    or    (k+1) | (q*s + 1).
+    (k+1) | q*s    or    (k+1) | (q*s+1).
 
-At ``r=0`` the minimum is unique and every contact is comoving.  At ``r=k`` a
-symmetric minimum exists with one unit of scaled outward score on every
-contact, although nonsymmetric minimizers also exist.  For ``1<=r<=k-1`` no
-deterministic leaf-permutation-equivariant selector can choose a minimum
-response without extra symmetry-breaking state.
+At ``r=0`` the minimum is unique and all contact scores vanish.  At ``r=k`` a
+symmetric minimum exists with one scaled outward-score unit on each contact,
+though nonsymmetric minimizers also remain.  For ``1<=r<=k-1`` the minimum
+relation has no permutation-fixed member.
 
-The least symmetric feasible response has equal numerator
-``ceil(q*s/(k+1))`` on every contact.  Relative to the unrestricted minimum its
-extra total numerator is exactly ``k-r`` when ``r>0`` and zero when ``r=0``.
-
-The residue phase is periodic in the denominator with exact period
+The residue phase has exact denominator period
 
     (k+1) / gcd(q,k+1).
 
-Finally, denominator magnitude is not the refinement order.  A true lattice
-refinement is divisibility ``s | s'``: every coarse response remains
-representable after multiplying its numerators by ``s'/s``, so the exact
-minimum physical impulse cannot increase along that partial order.  Merely
-replacing ``s`` by a larger non-multiple can increase the optimum (for example
-``k=3,q=1`` from ``s=4`` to ``s=5``).  This is an E001 specialization of the
-project's existing scale-lattice viewpoint, not a new generic divisibility
-lattice theorem.
+Finally, denominator magnitude is not the precision order.  True rational
+lattice refinement is divisibility ``s | s'``.  Any coarse numerator vector
+remains representable after multiplying by ``s'/s``, so the minimum physical
+impulse cannot increase along this partial order.  A numerically larger
+non-multiple denominator may increase the optimum; for ``k=3,q=1``, the minimum
+moves from ``3/4`` at ``s=4`` to ``4/5`` at ``s=5``.  This is an E001 backflow
+example for the existing Enterprise Math scale-lattice viewpoint, not a new
+generic divisibility theorem.
 
-No continuum force, fractional canonical momentum state, restitution law, or
-physical uniqueness is introduced here.  Rationally refined impulse vectors
-remain a representation-layer pressure test until a compatible world state is
-declared.
+No fractional canonical momentum state, continuum force, restitution law or
+physical uniqueness is introduced.  Refined impulse numerators remain a
+representation-layer pressure test until the world state is refined compatibly.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import comb, gcd
+from math import gcd
+
+from .material_star_response_spectrum import (
+    star_minimum_relation_cardinality,
+    star_minimum_relation_parameters,
+    star_minimum_symmetric_integer_total,
+    star_minimum_total_has_symmetric_integer_selector,
+    star_minimum_total_impulse,
+    star_minimum_total_integer_relation,
+    star_score_vector,
+)
 
 
 def _require_positive(name: str, value: int) -> None:
@@ -88,14 +91,10 @@ def _require_leaf_count(leaf_count: int) -> None:
         raise ValueError("leaf_count must be an integer at least two")
 
 
-def _weak_compositions(total: int, length: int) -> tuple[tuple[int, ...], ...]:
-    if length == 1:
-        return ((total,),)
-    result: list[tuple[int, ...]] = []
-    for first in range(total + 1):
-        for tail in _weak_compositions(total - first, length - 1):
-            result.append((first,) + tail)
-    return tuple(result)
+def _scaled_closing(closing_quantum: int, denominator: int) -> int:
+    _require_positive("closing_quantum", closing_quantum)
+    _require_positive("denominator", denominator)
+    return closing_quantum * denominator
 
 
 def star_scaled_closing_phase(
@@ -103,15 +102,18 @@ def star_scaled_closing_phase(
     closing_quantum: int,
     denominator: int,
 ) -> tuple[int, int]:
-    """Return ``(t,r)`` from ``q*s=(k+1)t+r``."""
+    """Return ``(t,r)`` from ``q*s=(k+1)t+r`` via the upstream spectrum."""
     _require_leaf_count(leaf_count)
-    _require_positive("closing_quantum", closing_quantum)
-    _require_positive("denominator", denominator)
-    return divmod(closing_quantum * denominator, leaf_count + 1)
+    scaled = _scaled_closing(closing_quantum, denominator)
+    _, baseline, excess = star_minimum_relation_parameters(leaf_count, scaled)
+    quotient, residue = divmod(scaled, leaf_count + 1)
+    if (baseline, excess) != (quotient, residue):
+        raise AssertionError("scaled star spectrum disagrees with Euclidean phase")
+    return quotient, residue
 
 
 def star_refinement_phase_period(leaf_count: int, closing_quantum: int) -> int:
-    """Return the exact denominator period of the residue phase."""
+    """Return the exact denominator period of ``q*s mod (k+1)``."""
     _require_leaf_count(leaf_count)
     _require_positive("closing_quantum", closing_quantum)
     return (leaf_count + 1) // gcd(closing_quantum, leaf_count + 1)
@@ -123,8 +125,9 @@ def star_minimum_total_numerator_at_precision(
     denominator: int,
 ) -> int:
     """Return the least total impulse numerator on the denominator-``s`` lattice."""
-    t, _ = star_scaled_closing_phase(leaf_count, closing_quantum, denominator)
-    return closing_quantum * denominator - t
+    _require_leaf_count(leaf_count)
+    scaled = _scaled_closing(closing_quantum, denominator)
+    return star_minimum_total_impulse(leaf_count, scaled)
 
 
 def star_general_final_score_numerators(
@@ -133,15 +136,8 @@ def star_general_final_score_numerators(
     denominator: int,
 ) -> tuple[int, ...]:
     """Return denominator-scaled final contact scores for closing quantum ``q``."""
-    values = tuple(impulse_numerators)
-    _require_leaf_count(len(values))
-    _require_positive("closing_quantum", closing_quantum)
-    _require_positive("denominator", denominator)
-    if any(isinstance(value, bool) or not isinstance(value, int) or value < 0 for value in values):
-        raise ValueError("impulse numerators must be non-negative integers")
-    total = sum(values)
-    scaled_closing = closing_quantum * denominator
-    return tuple(-scaled_closing + total + value for value in values)
+    scaled = _scaled_closing(closing_quantum, denominator)
+    return star_score_vector(tuple(impulse_numerators), scaled)
 
 
 def star_minimum_response_relation_at_precision(
@@ -150,21 +146,23 @@ def star_minimum_response_relation_at_precision(
     denominator: int,
 ) -> tuple[tuple[int, ...], ...]:
     """Return every minimum-total numerator vector at one precision denominator."""
-    t, residue = star_scaled_closing_phase(leaf_count, closing_quantum, denominator)
-    relation = tuple(
-        tuple(t + value for value in composition)
-        for composition in _weak_compositions(residue, leaf_count)
-    )
-    expected_total = star_minimum_total_numerator_at_precision(
+    _require_leaf_count(leaf_count)
+    scaled = _scaled_closing(closing_quantum, denominator)
+    relation = star_minimum_total_integer_relation(leaf_count, scaled)
+    quotient, residue = star_scaled_closing_phase(
         leaf_count, closing_quantum, denominator
     )
-    if any(sum(vector) != expected_total for vector in relation):
-        raise AssertionError("star minimum relation lost exact total numerator")
+    if len(relation) != star_minimum_relation_cardinality(leaf_count, scaled):
+        raise AssertionError("scaled minimum relation lost upstream cardinality")
     for vector in relation:
-        residual = tuple(value - t for value in vector)
+        residual_distribution = tuple(value - quotient for value in vector)
+        if any(value < 0 for value in residual_distribution):
+            raise AssertionError("scaled minimum response fell below baseline")
+        if sum(residual_distribution) != residue:
+            raise AssertionError("scaled minimum response lost residue mass")
         if star_general_final_score_numerators(
             vector, closing_quantum, denominator
-        ) != residual:
+        ) != residual_distribution:
             raise AssertionError("star residue no longer equals final score witness")
     return relation
 
@@ -175,12 +173,14 @@ def star_symmetric_minimum_numerators(
     denominator: int,
 ) -> tuple[int, ...] | None:
     """Return the permutation-fixed minimum response when one exists."""
-    t, residue = star_scaled_closing_phase(leaf_count, closing_quantum, denominator)
-    if residue == 0:
-        return (t,) * leaf_count
-    if residue == leaf_count:
-        return (t + 1,) * leaf_count
-    return None
+    _require_leaf_count(leaf_count)
+    scaled = _scaled_closing(closing_quantum, denominator)
+    if not star_minimum_total_has_symmetric_integer_selector(leaf_count, scaled):
+        return None
+    total = star_minimum_total_impulse(leaf_count, scaled)
+    if total % leaf_count != 0:
+        raise AssertionError("upstream symmetric-selector criterion lost divisibility")
+    return (total // leaf_count,) * leaf_count
 
 
 def star_least_symmetric_feasible_numerators(
@@ -189,9 +189,12 @@ def star_least_symmetric_feasible_numerators(
     denominator: int,
 ) -> tuple[int, ...]:
     """Return the least feasible vector fixed by every leaf permutation."""
-    t, residue = star_scaled_closing_phase(leaf_count, closing_quantum, denominator)
-    coordinate = t if residue == 0 else t + 1
-    result = (coordinate,) * leaf_count
+    _require_leaf_count(leaf_count)
+    scaled = _scaled_closing(closing_quantum, denominator)
+    symmetric_total = star_minimum_symmetric_integer_total(leaf_count, scaled)
+    if symmetric_total % leaf_count != 0:
+        raise AssertionError("upstream symmetric integer total lost equal coordinates")
+    result = (symmetric_total // leaf_count,) * leaf_count
     if any(
         score < 0
         for score in star_general_final_score_numerators(
@@ -209,10 +212,9 @@ def star_first_symmetric_minimum_denominator(
     """Return the first denominator whose minimum relation has a symmetric fixed point."""
     period = star_refinement_phase_period(leaf_count, closing_quantum)
     for denominator in range(1, period + 1):
-        _, residue = star_scaled_closing_phase(
+        if star_symmetric_minimum_numerators(
             leaf_count, closing_quantum, denominator
-        )
-        if residue in (0, leaf_count):
+        ) is not None:
             return denominator
     raise AssertionError("zero-residue phase must occur by the exact period")
 
@@ -223,11 +225,7 @@ def star_true_refinement_cost_drop_cross_numerator(
     coarse_denominator: int,
     fine_denominator: int,
 ) -> int:
-    """Return the non-negative cross-multiplied cost drop for ``s | s'``.
-
-    Physical minimum totals are ``A_s/s`` and ``A_s'/s'``.  The returned
-    integer is ``A_s*s' - A_s'*s``.
-    """
+    """Return ``A_s*s' - A_s'*s`` for a true divisibility refinement ``s|s'``."""
     _require_positive("coarse_denominator", coarse_denominator)
     _require_positive("fine_denominator", fine_denominator)
     if fine_denominator % coarse_denominator != 0:
@@ -277,10 +275,11 @@ def star_response_refinement_phase(
     closing_quantum: int,
     denominator: int,
 ) -> StarResponseRefinementPhase:
-    """Return the exact residue/symmetry/minimum-response phase."""
-    t, residue = star_scaled_closing_phase(
+    """Return the exact residue/symmetry/minimum-response precision phase."""
+    quotient, residue = star_scaled_closing_phase(
         leaf_count, closing_quantum, denominator
     )
+    scaled = closing_quantum * denominator
     minimum_total = star_minimum_total_numerator_at_precision(
         leaf_count, closing_quantum, denominator
     )
@@ -295,16 +294,19 @@ def star_response_refinement_phase(
     if overresponse != expected_overresponse:
         raise AssertionError("symmetric overresponse lost residue formula")
 
-    response_count = comb(residue + leaf_count - 1, leaf_count - 1)
+    modular_gate = scaled % (leaf_count + 1) == 0 or (scaled + 1) % (leaf_count + 1) == 0
+    if (symmetric_minimum is not None) != modular_gate:
+        raise AssertionError("upstream symmetric selector lost modular phase criterion")
+
     return StarResponseRefinementPhase(
         leaf_count=leaf_count,
         closing_quantum=closing_quantum,
         denominator=denominator,
-        scaled_closing=closing_quantum * denominator,
-        quotient_level=t,
+        scaled_closing=scaled,
+        quotient_level=quotient,
         residue=residue,
         minimum_total_numerator=minimum_total,
-        minimum_response_count=response_count,
+        minimum_response_count=star_minimum_relation_cardinality(leaf_count, scaled),
         symmetric_minimum_numerators=symmetric_minimum,
         least_symmetric_feasible_numerators=least_symmetric,
         symmetric_overresponse_numerator=overresponse,
