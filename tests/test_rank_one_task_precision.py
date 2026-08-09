@@ -100,6 +100,42 @@ class RankOneTaskPrecisionTests(unittest.TestCase):
         self.assertEqual(solver.minimum_relation_rank_gain, minimum_brute_gain)
         self.assertEqual(solver_minimum, brute_minimum)
 
+    def test_minimum_rank_frontier_can_have_incomparable_partitions(self):
+        guards = (
+            (0, 1, 3),
+            (0, -1, -3),
+        )
+        parent = ((0, 1, 2),)
+        base = (1, -1)
+        effects = complete_effect_table(2, "same")
+        effects[(True, True)] = "different"
+        effects[(False, False)] = "unreachable"
+
+        result = minimum_rank_one_task_precision(
+            guards, parent, base, effects
+        )
+        self.assertEqual(result.minimum_relation_rank_gain, 1)
+        frontier = {candidate.partition for candidate in result.candidates}
+        self.assertEqual(
+            frontier,
+            {
+                ((0,), (1, 2)),   # label residues mod 2
+                ((0, 2), (1,)),   # label residues mod 3
+            },
+        )
+        partitions = tuple(frontier)
+        self.assertFalse(partition_refines(partitions[0], partitions[1]))
+        self.assertFalse(partition_refines(partitions[1], partitions[0]))
+
+        brute = brute_safe_partitions(guards, parent, base, effects)
+        minimum_brute_gain = min(len(partition) - 1 for partition in brute)
+        brute_frontier = {
+            partition
+            for partition in brute
+            if len(partition) - 1 == minimum_brute_gain
+        }
+        self.assertEqual(frontier, brute_frontier)
+
     def test_already_safe_parent_returns_zero_precision_gain(self):
         guards = (
             (0, 1, 2),
