@@ -15,8 +15,8 @@
 3. 阅读 `docs/PROBLEM_STATUS.*` 以及相关问题的 canonical result 文档；
 4. 检索 Research Relay Issue #82 中最新且相关的条目；
 5. 如果拟研究内容与已有工具/定理族重合，查看对应 executable specification/tests 或 Lean module；
-6. 如果工作触及底层数学语言、符号、公式、定理/工具接口或已登记的矛盾，阅读 `docs/FOUNDATION_STEWARD_PROTOCOL.*` 与 Foundation Problem Set Issue #164 中相关 `FQ-*` 条目；
-7. 然后才判断下一步究竟是新母定理、特化、bridge、counterexample、重复结果，还是对基础问题的回答。
+6. 如果工作触及底层数学语言、符号、公式、定理/工具接口、已登记矛盾，或成熟结果可能反哺公共底层，阅读 `docs/FOUNDATION_STEWARD_PROTOCOL.*`、`docs/FOUNDATION_BACKFLOW_LOOP.*`、`foundation_backflow.json` 与 Foundation Problem Set Issue #164 中相关 `FQ-*` 条目；
+7. 然后才判断下一步究竟是新母定理、特化、bridge、counterexample、重复结果、基础问题回答，还是 Foundation Feedback Packet。
 
 不要求把整个仓库注入工作上下文。目标是“共享认知 + 选择性读取”。
 
@@ -67,22 +67,27 @@
 
 主要 canonical 入口：P001–P009 result docs 与 `docs/THEOREMS.*`。
 
-### A1 — dynamics、kernels、collision、stabilization
+### A1 — dynamics、functional kernels、collision、stabilization
 
 可复用工具/结果包括：
 
+- 通用确定性函数核 `x ~_f y iff f(x)=f(y)`，以及确定性后复合下 `ker(f) ⊆ ker(g∘f)`；
 - deterministic history merging：在相同后续 deterministic composition 下，已经合并的状态不会重新分裂；
 - exact collision/fiber multiplicity observables 与 collision spectra；
 - finite/eventual coalescence structures；
 - well-founded order 上 monotone reductive stabilization；
 - stable collapse-word behavior 与 lcm fixed-point structure。
 
-主要 canonical 入口：P010、P011、P019、P020。
+State Pair 只是用于询问此类关系的派生积载体 `X×X`，不是另一个 Foundation 原语。
 
-### A2 — observation 与 future-compatible quotient
+主要 canonical 入口：`docs/FOUNDATIONS.*`、P010、P011、P019、P020。
+
+### A2 — observation、future signature 与 future-compatible quotient
 
 可复用工具/结果包括：
 
+- 当前观测相等写成函数核 `ker(O)`；除非 `O` 单射，否则它不同于真实状态相等；
+- 把声明的未来行为打包成签名 `Σ_W`，未来安全等价为 `ker(Σ_W)`；若当前观测属于该签名，则 `Δ_X ⊆ ker(Σ_W) ⊆ ker(O)`；
 - 所需 observable/operation 能通过 quotient 下沉，当且仅当其在 quotient fibers 上保持一致；
 - 针对声明 future task 的 coarsest exact repair/refinement；
 - finite predictive/future-signature refinement 与 stabilization；
@@ -90,7 +95,9 @@
 - arithmetic 特化中的 exact quotient/multiple-collapse compatibility 与 minimal boundary-bit repair；
 - task-relative precision：脱离 future language 不存在一个普适 scalar precision。
 
-主要 canonical 入口：P018 precision-state 结果、P023 及其 canonical supplements、P024 specializations。branch extension 通过 Relay #82 传播。
+Difference/defect/其他坐标只有在所需当前观测或未来签名被证明能够通过该坐标 factorize 后，才是相应任务的完整状态。
+
+主要 canonical 入口：`docs/FOUNDATIONS.*`、P018 precision-state 结果、P023 及其 canonical supplements、P024 specializations。branch extension 通过 Relay #82 传播。
 
 ### A3 — structured relation-state algebra
 
@@ -100,27 +107,33 @@
 
 partition coarsening `Z' = A Z A^T`、partition kernels、integer relation scale/rank、refinement memory 与 task-derived exact relation precision。
 
+A3 structured relation-state 可以保存超出某一个 functional equivalence membership 的信息；不得把它与 A1/A2 functional-kernel 层等同。
+
 在 canonical replay 完成前，消费 A3 结果必须显式保留 `PROVED_WIP_RELAY`/branch provenance，不能把它们伪装成 main theorem。
 
 ### A4 — admissible support / correspondence algebra
 
 共享 WIP/core 概念包括 finite multivalued relations、relation composition/converse、common-target structure、radius-indexed supports、split-completeness boundaries、MAY/MUST semantics、witness/group spectra，以及在 total-function graph 上退化回 P011。
 
+multivalued correspondence 可以具有多个未来像，不得与一个确定性函数的 kernel 混同。
+
 同样必须区分 WIP 已证明结果与 canonical-main 结果。
 
 ### A5 — intrinsic discrete geometry
 
-可复用 canonical/WIP 工具包括 primitive adjacency、graph distance、finite balls/shells、lattice/root-lattice candidates、radial/quadratic observations、distance carry 与 geometry-specific contraction。P012 给出 canonical metric foundation；更广的 P022 geometry 仍在 active research。
+可复用 canonical/WIP 工具包括 primitive adjacency、graph distance、finite balls/shells、lattice/root-lattice candidates、radial/quadratic observations、distance carry 与 geometry-specific contraction。P012 给出 canonical metric foundation；更广的 P022 geometry 仍在 active research。FQ-20260809-005 正在审计稳定 `graph_distance` API 的运行域与 P012 metric theorem domain 之间的边界，并已路由给 P022 geometry owner 研究。
 
 ## 5. 所有路线都必须知道的高价值负向边界
 
 - coarse equality/support/cardinality 不自动保留后续 composition；必须针对声明的 operation language 证明 future sufficiency；
+- Difference/defect 坐标不自动成为完整状态；当前或未来充分性必须有显式 factorization theorem；
 - A3 signed relation information 在 quotient 时会 cancellation，因此 coarse support 不能证明 universal fine support；
 - pairwise/common-target cardinality shadow 可能丢失 multi-step composition 所需的 witness identity；
 - 单纯 geometry collision fact 可能不足以唯一选择 response，可能还需要 action/material/symmetry-breaking state；
 - 对一个 observable 安全的 quotient，面对更丰富 future language 可能失效；
+- functional kernel、A3 relation-state 与 A4 multivalued support 是不同层，不能因为都使用 relation 语言就合并；
 - 文件名相同、branch ancestry 或 `ahead(main)>0` 都不能证明存在新数学；semantic identity 才控制 replay；
-- Galois connection、semigroup、numerical semigroup、partition refinement 等成熟一般工具，即使被 Enterprise Math 使用，仍属于 prior art。
+- functional kernel、quotient/congruence、semiconjugacy/factorization、behavioral equivalence、partition refinement、Galois connection、semigroup、numerical semigroup 等成熟一般工具，即使被 Enterprise Math 使用，仍属于 prior art。
 
 ## 6. 全线路共享的 executable 工具面
 
@@ -151,7 +164,9 @@ partition coarsening `Z' = A Z A^T`、partition kernels、integer relation scale
 - `tests/`：exact regression/counterexample suites；
 - `experiments/`：bounded pressure tests 与 engineering probes；
 - `tools/check_bilingual_pairs.py`：中英文 pairing gate；
-- `tools/check_references.py`：reference-integrity gate。
+- `tools/check_references.py`：reference-integrity gate；
+- `tools/research_scheduler.py`：scheduler 配置/runtime-state validator 与 reducer；
+- `tools/foundation_backflow.py`：静态 FQ↔scheduler/backflow authority-link validator。
 
 Executable checks 用于 proof discovery、falsification 与 regression，不能单独把 `EXECUTABLE_CHECKED` 升级为 `PROVED`。
 
@@ -162,36 +177,42 @@ Executable checks 用于 proof discovery、falsification 与 regression，不能
 1. 如果其他 active route 可能受益，立即 Relay；
 2. 把 downstream action 标为 `INFORM`、`CONSUME`、`TEST` 或 `HARD_DEPENDENCY`；
 3. 标明 mother-theorem owner 与 relation class；
-4. 若结果进入 canonical `main`，必须保证未来路线能通过 `PROBLEM_STATUS`、canonical theorem/result doc、lineage/prior-art 与本共享面发现它；
-5. 若形成可复用 executable method/tool，在下一次 common-surface update 中登记对应 canonical module/tool family；
-6. 不等待所有 consumer ACK 才继续推进。
+4. 检查该结果是否暴露 minimal sufficient state、minimal repair/extension、cross-route invariant、negative boundary、reusable tool 或 layering law；若是，形成或路由 Foundation Feedback Packet，而不是只把结构留在原 program branch；
+5. 若结果进入 canonical `main`，必须保证未来路线能通过 `PROBLEM_STATUS`、canonical theorem/result doc、lineage/prior-art 与本共享面发现它；
+6. 若形成可复用 executable method/tool，在下一次 common-surface update 中登记对应 canonical module/tool family；
+7. 不等待所有 consumer 或 foundation steward ACK 才继续推进，除非另有独立成立的 `HARD_BLOCK`。
 
 ## 8. 非阻断规则
 
-知识共享的目的，是提高并行度，而不是制造全局 barrier。
+知识共享与底层反哺的目的，是提高并行度，而不是制造全局 barrier。
 
 发现上游已有定理，就消费并继续；发现上游存在缺口，就隔离精确 missing lemma，然后继续其他可推进方向，除非确实可以按 `RESEARCH_SCHEDULING_PROTOCOL` 写出一个完整 `HARD_BLOCK`。
 
-## 9. 底层维护与 P0 问题升级
+## 9. 底层维护、研究反哺与 P0 问题升级
 
-项目公共底层由 `docs/FOUNDATION_STEWARD_PROTOCOL.*` 与机器路由 `foundation_steward.json` 管理。
+项目公共底层由 `docs/FOUNDATION_STEWARD_PROTOCOL.*`、`docs/FOUNDATION_BACKFLOW_LOOP.*` 与机器路由 `foundation_steward.json` / `foundation_backflow.json` 管理。
 
-底层维护者负责语言/符号、定义/公式完整性、定理陈述/状态/接口、prose↔tool↔test↔Lean 一致性以及共享工具发现。机械性或已经由 canonical 证据确定的维护直接修复。
+底层维护者负责语言/符号、定义/公式完整性、定理陈述/状态/接口、prose↔tool↔test↔Lean 一致性、共享工具发现，以及 research-to-Foundation backflow。机械性或已经由 canonical 证据确定的维护直接修复。
 
-一个问题经过最低验证后仍需要真正研究时，必须使用稳定 `FQ-*` ID 升级到 **Foundation Problem Set Issue #164**。典型包括：矛盾风险、未解决的定义域/类型选择、缺失 theorem hypothesis、跨路线 interface 不兼容、高价值新结构、prior-art 不确定性或 tool/theorem sufficiency 问题。
+一个问题经过最低验证后仍需要真正研究时，必须使用稳定 `FQ-*` ID 升级到 **Foundation Problem Set Issue #164**。每个需要执行的 open FQ 都应通过 `foundation_backflow.json` 链接到 #240 scheduler 的合适 task：真正数学研究使用 L1/L2/L3 `RESEARCH` task；steward verification/integration 使用 `GOVERNANCE`。
 
-底层维护者不负责求解这些研究问题。其他研究员 claim 后返回证据，底层维护者在修改 canonical language/formula/theorem/tool 前负责重新验证回答是否足够。
+研究员 `RETURN`、scheduler `DONE` 与 steward `ACCEPTED` 是三个不同的非 canonical 状态。只有通过 latest-main integration 和适用门禁进入 source `main` 后，才允许标记 `CANONICALIZED` 并传播到 common surface / GLOBAL_KNOWLEDGE。
 
 ### 9.1 已解决的规范底层约定
 
-前三个 Foundation Question 在其解决性集成进入 `main` 后建立以下全项目统一约定：
+前四个 Foundation Question 在各自解决性集成进入 `main` 后建立以下全项目统一接口：
 
 - **自然状态：** \(\mathbb N=\mathbb N_0=\{0,1,2,\ldots\}\)；正整数记为 \(\mathbb N_{>0}\)。因此裸写 \(\mathbb N\) 包含零。
 - **根/坍缩指数：** 非平凡原始族为 \(p\ge2\)；精确代数/形式化扩展为全部 \(p\ge1\)，并有 \(R_1=C_1=\operatorname{id}\)。
 - **时间：** \(T_t:X_t\to X_{t+1}\)，\(F_0=\operatorname{id}\)，且 \(F_{t+1}=T_t\circ F_t\)；等价地，对 \(t\ge1\)，\(F_t=T_{t-1}\circ\cdots\circ T_0\)。合流时间取累计像第一次相等的最小 \(t\in\mathbb N_0\)。
+- **最小 functional-kernel 层：** 通用 typed state 进入 deterministic/observation functional kernel 与声明的 future-signature kernel；State Pair 为派生积，Difference/defect 需要 factorization/sufficiency，A3/A4 保持显式扩展层。
 
-这些是接口规范，不是新的母定理族。它们保留现有算术与历史合流结论，只消除定义域和 off-by-one 歧义。
+这些接口保留更具体的算术、动力学、精度与 relation 理论，不把 P018/P023/P024/A3/A4 的 owner-specific 数学整包搬入 Foundation。
 
-因此形成刻意分工：
+### 9.2 闭环路由
 
-`foundation maintenance and verification -> FQ escalation when research is needed -> independent researcher investigation -> steward verification -> canonical propagation`。
+稳定工作循环为：
+
+`shared-surface preflight -> cross-route result extraction -> Foundation Feedback Packet -> direct maintenance OR FQ -> scheduler-linked research -> RETURN -> steward verification -> latest-main integration -> gates -> canonical main -> common-surface/tool/global-knowledge propagation -> later research pressure-test`。
+
+精确状态机与 FQ↔scheduler role 规则见 `docs/FOUNDATION_BACKFLOW_LOOP.*` 与 `foundation_backflow.json`。如果任一阶段只能依赖某个对话的记忆才能恢复，闭环仍未完成。
