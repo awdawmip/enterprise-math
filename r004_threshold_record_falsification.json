@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "model_id": "R004-THRESHOLD-RECORD-PREMODEL-V1",
+  "status": "PHYSICAL-HYPOTHESIS",
+  "state_space": "Two declared system alternatives x in {0,delta} with nonnegative integer separation delta, plus one finite environment cell e in {0,...,d-1} at positive integer record resolution d.",
+  "transition_law": "The candidate environment record is generated deterministically by record_d(x,e)=floor((e+x)/d), implemented by exact integer division. The environment microstate is taken uniformly over the declared d-state cell only inside this toy subfamily.",
+  "observation_map": "The two alternatives have exact finite record overlap eta=max(d-delta,0)/d because exactly max(d-delta,0) of the d environment microstates produce equal records. The declared visibility premodel remains V_predicted=eta*V_ordinary with 0<=V_ordinary<=1.",
+  "parameters": [
+    {
+      "name": "d",
+      "prior_allowed_region": "positive integers fixed independently for a declared apparatus/environment configuration",
+      "units": "toy record-resolution states"
+    },
+    {
+      "name": "delta",
+      "prior_allowed_region": "nonnegative integers fixed independently for the two declared alternatives",
+      "units": "toy system-state separation"
+    }
+  ],
+  "symmetries": [
+    {
+      "name": "translation within one declared quotient-record coordinate",
+      "claim": "EMERGENT",
+      "residual_observable": "Only the finite quotient record is defined. No spatial Lorentz/rotation/translation symmetry of a physical universe is claimed by this toy record generator."
+    }
+  ],
+  "conserved_quantities": [],
+  "predictions": [
+    {
+      "id": "R004-F3-THRESHOLD-RECORD-VISIBILITY",
+      "kill_test_class": "F3",
+      "observable": "matter-wave fringe visibility relative to the declared ordinary-quantum/environment baseline",
+      "unavoidable_prediction": "For predeclared integer d and delta, eta=max(d-delta,0)/d and V_predicted=eta*V_ordinary with 0<=V_ordinary<=1, so V_predicted<=max(d-delta,0)/d.",
+      "current_constraint": "Pedalino et al. (Nature 2026) report representative sodium-nanoparticle matter-wave visibility V=0.10 +/- 0.01 in the stated high-mass regime. R004 reads only the published numerical range [0.09,0.11] for this algebraic toy comparison.",
+      "excluded_parameter_region": "For the representative numerical range, every predeclared pair (d,delta) with eta<0.09 is algebraically unable to reach the observed lower endpoint. Equivalently, because d>0, the exact integer condition is 100*delta>91*d. This is not a confidence-level/full-likelihood exclusion and does not calibrate d or delta to the real apparatus.",
+      "falsified_if": "For an independently calibrated apparatus-to-(d,delta) map, the experimentally allowed visibility interval is disjoint from [0,max(d-delta,0)/d] times the independently calibrated ordinary-visibility interval.",
+      "source_ids": [
+        "SRC-PEDALINO-2026-NANOPARTICLE"
+      ]
+    }
+  ]
+}
