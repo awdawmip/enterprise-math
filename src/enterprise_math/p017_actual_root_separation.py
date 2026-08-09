@@ -4,17 +4,16 @@ L055 works first with the exact raw cofactor window
 
     W_p(k) = [floor(k^2/p)+1, floor(k(k+2)/p)].
 
-Its root image is a strong arithmetic superset of the root image realized by
-the actual least-prime shell, because a real shell cofactor must also satisfy
-the p-roughness condition.  Keeping these two levels separate prevents an
-exact interval from being mislabeled as an actually realized shell state.
+A real least-prime shell is the admissible subset of that window whose
+cofactors have no prime divisor below p.  Keeping the arithmetic envelope and
+its p-rough realizability filter separate prevents exact interval states from
+being mislabeled as actually realized shell states.
 """
 
 from __future__ import annotations
 
 from math import isqrt
 
-from .factor_precision import first_factor_shell
 from .quotient_window import IntegerWindow, square_basin_window
 
 
@@ -29,6 +28,10 @@ def is_prime(n: int) -> bool:
             return False
         d += 2
     return True
+
+
+def primes_below(n: int) -> tuple[int, ...]:
+    return tuple(p for p in range(2, n) if is_prime(p))
 
 
 def lower_band_primes(k: int) -> tuple[int, ...]:
@@ -83,14 +86,29 @@ def exact_window_lower_band_root_images_disjoint(k: int) -> bool:
     return not exact_window_lower_band_overlaps(k)
 
 
-def actual_shell_root_image(k: int, prime: int) -> frozenset[int]:
-    """Root image actually realized by the least-prime shell ``prime``.
+def actual_shell_cofactors(k: int, prime: int) -> frozenset[int]:
+    """Cofactors actually realized by the least-prime shell ``prime``.
 
-    A realized shell state is ``n`` in the square basin with least prime factor
-    ``prime``; its retained cofactor is ``q=n/prime``.
+    For ``n=prime*q`` inside the basin, ``spf(n)=prime`` iff no prime below
+    ``prime`` divides ``q``.  Thus the true shell is obtained by filtering the
+    exact quotient window with the p-roughness predicate.
     """
 
-    return frozenset(isqrt(n // prime) for n in first_factor_shell(k, prime))
+    window = square_basin_window(k, prime)
+    if window is None:
+        return frozenset()
+    smaller_primes = primes_below(prime)
+    return frozenset(
+        q
+        for q in range(window.lo, window.hi + 1)
+        if all(q % smaller != 0 for smaller in smaller_primes)
+    )
+
+
+def actual_shell_root_image(k: int, prime: int) -> frozenset[int]:
+    """Root image actually realized by the least-prime shell ``prime``."""
+
+    return frozenset(isqrt(q) for q in actual_shell_cofactors(k, prime))
 
 
 def actual_lower_band_root_images(k: int) -> dict[int, frozenset[int]]:
