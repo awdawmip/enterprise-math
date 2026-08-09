@@ -72,6 +72,7 @@
     "docs/PROBLEM_STATUS.en.md",
     "relevant canonical theorem/result documents",
     "latest relevant Research Relay Issue #82 entries",
+    "research_common_surface.json lean_root_imports and canonical_executable_modules",
     "relevant executable specification/tests/Lean modules",
     "when foundation-facing: docs/FOUNDATION_STEWARD_PROTOCOL.en.md and relevant Foundation Problem Set Issue #164 entries"
   ],
@@ -92,6 +93,25 @@
     "proved_wip_bus": "GitHub Issue #82 Research Relay",
     "foundation_problem_bus": "GitHub Issue #164 Foundation Steward Problem Set"
   },
+  "lean_root_imports": [
+    "EnterpriseMath/Arithmetic/CollapseCommutation.lean",
+    "EnterpriseMath/Arithmetic/CollapseGap.lean",
+    "EnterpriseMath/Arithmetic/IntegerRoot.lean",
+    "EnterpriseMath/Arithmetic/RootMultiplicativity.lean",
+    "EnterpriseMath/Dynamics/HistoryMerge.lean",
+    "EnterpriseMath/Order/ReductiveCompositionStabilization.lean",
+    "EnterpriseMath/Order/WellFoundedStabilization.lean",
+    "EnterpriseMath/Precision/Carry.lean",
+    "EnterpriseMath/Precision/CompositionSafeCollapse.lean",
+    "EnterpriseMath/Precision/QuotientBasin.lean",
+    "EnterpriseMath/Precision/QuotientCoalescence.lean",
+    "EnterpriseMath/Quotient/OperationCongruence.lean",
+    "EnterpriseMath/Quotient/PowerFreeActionBasis.lean",
+    "EnterpriseMath/Quotient/RootAdjacentBoundary.lean",
+    "EnterpriseMath/Quotient/RootFutureClosure.lean",
+    "EnterpriseMath/Scale/Compatibility.lean",
+    "EnterpriseMath/State/CriticalGrid.lean"
+  ],
   "result_statuses": [
     "CANONICAL_MAIN",
     "LEAN_CHECKED_MAIN",
@@ -103,10 +123,19 @@
   "shared_theorem_families": {
     "A0": "roots, collapse, quotient/remainder, scale lattice, signed state, typed descent, adjoints",
     "A1": "deterministic functional kernels, history merge, fibers/kernel multiplicity, collision spectra, coalescence, stabilization",
-    "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair",
+    "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
     "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel",
     "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, finite balls/shells, radial/distance structure"
+  },
+  "canonical_specializations": {
+    "P018_P023_power_free_action_basis": {
+      "status": "LEAN_CHECKED_MAIN",
+      "merge": "PR #249 / main@c9b39069917c32b8a02a1bbdf6297ca5e43c9438",
+      "statement": "for O_a(q)=R_r(floor(q/a)) on 0..N, a positive action set separates every exact state iff it contains every positive r-power-free b<=N; the positive r-power-free actions are the unique least separating set under inclusion",
+      "local_boundary": "O_a(q-1) != O_a(q) iff q=a*t^r for some t>=1",
+      "prior_art_boundary": "power-free arithmetic and generic distinguishing/Test-Cover/minimal-language machinery are prior mathematics; novelty of the exact quotient-root packaging remains unverified"
+    }
   },
   "canonical_executable_modules": {
     "A0_A5_primitives": [
@@ -120,6 +149,16 @@
     "A2": [
       "src/enterprise_math/composition_safe_collapse.py",
       "EnterpriseMath/Quotient/OperationCongruence.lean"
+    ],
+    "P018_P023_power_free_action_basis": [
+      "src/enterprise_math/p018_p023_power_free_action_basis.py",
+      "tests/test_p018_p023_power_free_action_basis.py",
+      "EnterpriseMath/Quotient/RootAdjacentBoundary.lean",
+      "EnterpriseMath/Quotient/PowerFreeActionBasis.lean",
+      "docs/PRIOR_ART_P018_P023_POWER_FREE_ACTION_BASIS.en.md",
+      "docs/PRIOR_ART_P018_P023_POWER_FREE_ACTION_BASIS.zh-CN.md",
+      "sources_p018_p023_power_free_action_basis.json",
+      "lineage_p018_p023_power_free_action_basis.json"
     ],
     "A3": [
       "src/enterprise_math/weighted_relation_field.py",
@@ -150,10 +189,17 @@
       "tests/test_material_impulse_world_1d.py",
       "tests/test_material_impulse_tick_order.py",
       "tests/test_material_impulse_wall_world_1d.py"
+    ],
+    "E001_measurement_refinement_application": [
+      "src/enterprise_math/material_measurement_area_refinement.py",
+      "src/enterprise_math/material_measurement_refinement_variation.py",
+      "tests/test_material_measurement_area_refinement.py",
+      "tests/test_material_measurement_refinement_variation.py"
     ]
   },
   "application_tool_scope": {
-    "E001_material_impulse_application": "canonical executable engineering specialization; reusable for finite impulse accounting, explicit tick-order comparison, momentum drift, and wall-world tests, but module presence is not a general mechanics/material theorem or physical validation"
+    "E001_material_impulse_application": "canonical executable engineering specialization; reusable for finite impulse accounting, explicit tick-order comparison, momentum drift, and wall-world tests, but module presence is not a general mechanics/material theorem or physical validation",
+    "E001_measurement_refinement_application": "canonical exact finite-measurement specialization for measured-polyline area-refinement shells and variation diagnostics; it consumes newly supplied measurements and does not interpolate or recover an unknown continuum curve"
   },
   "tool_scope_alerts": {
     "FQ-20260809-005": "stable geometry.graph_distance accepts general adjacency mappings while P012 ordinary metric theorems assume connected undirected simple graphs; do not inherit metric symmetry on asymmetric inputs until API layering is resolved"
@@ -165,10 +211,20 @@
     "tests": "tests/",
     "experiments": "experiments/",
     "repo_tools": [
+      "tools/audit_branch_lifecycle.py",
       "tools/check_bilingual_pairs.py",
       "tools/check_references.py",
+      "tools/check_research_common_surface.py",
       "tools/research_scheduler.py"
     ]
+  },
+  "promotion_sync": {
+    "rule": "every canonical promotion of a reusable theorem, formalization, executable tool family, negative boundary, or active interface alert must update the shared human/machine surface or explicitly justify N/A",
+    "mechanical_gate": "tools/check_research_common_surface.py",
+    "lean_root_imports_exact": true,
+    "repo_tools_exact": true,
+    "declared_paths_must_exist": true,
+    "active_foundation_question_sets_must_match": true
   },
   "relay_action_classes": [
     "INFORM",
