@@ -4,8 +4,10 @@ from enterprise_math.causal_signature_coupling import (
     compose_forgetting,
     coupling_certificate,
     coupling_fiber_multiplicities,
+    coupling_kernel,
     coupling_split_spectrum,
     forgetting_defect,
+    kernel_defects,
     staged_forgetting_defects,
 )
 
@@ -23,6 +25,13 @@ class CausalSignatureCouplingTests(unittest.TestCase):
         self.assertEqual(certificate.missing_reachability, 0)
         self.assertEqual(certificate.signature_split_excess, 0)
         self.assertEqual(certificate.split_spectrum, (4, 4, 0, 0))
+        kernel = coupling_kernel(
+            joint_to_marginal,
+            ("a0", "a1"),
+            ("b0", "b1"),
+        )
+        self.assertEqual(set(kernel.values()), {1})
+        self.assertEqual(kernel_defects(kernel), (0, 0))
 
     def test_reachability_coupling_and_signature_splitting_are_distinct(self):
         constrained = {
@@ -44,8 +53,21 @@ class CausalSignatureCouplingTests(unittest.TestCase):
         self.assertEqual(split_certificate.missing_reachability, 0)
         self.assertEqual(split_certificate.signature_split_excess, 1)
         self.assertEqual(coupling_fiber_multiplicities(split)[("a0", "b0")], 2)
-        # Exactly one pair of joint classes is hidden by marginal forgetting.
         self.assertEqual(split_certificate.split_spectrum[2], 1)
+
+    def test_kernel_values_keep_support_and_split_mechanisms_local(self):
+        mixed = {
+            "j0": ("a0", "b0"),
+            "j1": ("a0", "b0"),
+            "j2": ("a1", "b1"),
+            "j3": ("a1", "b1"),
+        }
+        kernel = coupling_kernel(mixed, ("a0", "a1"), ("b0", "b1"))
+        self.assertEqual(kernel[("a0", "b0")], 2)
+        self.assertEqual(kernel[("a1", "b1")], 2)
+        self.assertEqual(kernel[("a0", "b1")], 0)
+        self.assertEqual(kernel[("a1", "b0")], 0)
+        self.assertEqual(kernel_defects(kernel), (2, 2))
 
     def test_higher_split_spectrum_is_p011_collision_spectrum_of_forgetting(self):
         mapping = {
@@ -55,7 +77,6 @@ class CausalSignatureCouplingTests(unittest.TestCase):
             "j3": ("a1", "b1"),
             "j4": ("a1", "b1"),
         }
-        # Fiber sizes are (3,2): C1=5, C2=3+1=4, C3=1.
         self.assertEqual(coupling_split_spectrum(mapping, 3), (2, 5, 4, 1))
 
     def test_first_order_split_excess_is_class_loss_under_cross_forgetting(self):
@@ -93,7 +114,6 @@ class CausalSignatureCouplingTests(unittest.TestCase):
         self.assertEqual(forgetting_defect(composed), 4)
 
     def test_scalar_joint_minus_product_is_not_a_valid_coupling_summary(self):
-        # Missing reachability and extra splitting can cancel in raw cardinality.
         mixed = {
             "j0": ("a0", "b0"),
             "j1": ("a0", "b0"),
