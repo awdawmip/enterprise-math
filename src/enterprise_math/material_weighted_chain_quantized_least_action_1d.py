@@ -1,46 +1,45 @@
 """Material-driven finite least action on one weighted 1D contact chain.
 
 The weighted-chain owner proves a unique componentwise-least delivered impulse
-``j*`` when the aligned path contact Gram is a Z-matrix.  This module asks how a
-finite material channel delivers those integer impulse quanta over time.
+``j*`` for the aligned Z-path.  This module asks how finite contact-local
+material quantizers deliver those integer impulse quanta over time.
 
-Each contact ``i`` has one fixed repulsive material channel
+Contact ``i`` has one fixed repulsive channel with amplitude ``A_i``, response
+sample ``r_i``, scale ``S_i`` and pending detail ``delta_i``.  We restrict the
+one-evaluation numerator increment
 
-    amplitude A_i > 0,
-    response sample r_i in 0..A_i,
-    impulse scale S_i > 0,
-    raw increment a_i = S_i*r_i,
+    a_i = S_i*r_i
 
-with the bounded one-event condition ``0 <= a_i <= A_i``.  A contact-local
-pending detail ``delta_i`` lies in ``0..A_i-1``.  When that contact is currently
-violated, one material evaluation applies the canonical positive quotient
+to ``0 <= a_i <= A_i``.  One evaluation on a currently violated contact uses the
+canonical positive quotient
 
     delta_i + a_i = A_i*q_i + delta_i',
 
-where ``q_i`` is necessarily zero or one.  Only ``q_i`` is delivered to the
-contact-network impulse state.
+so ``q_i`` is zero or one.  Only ``q_i`` enters the contact impulse vector.
 
-With retained detail and ``a_i>0``, the contact evaluations required to deliver
-exactly ``j_i*`` quanta are
+With retained detail and ``a_i>0``, exactly ``j_i*`` delivered quanta require
 
-    N_i = ceil((A_i*j_i* - delta_i(0)) / a_i)
+    N_i = ceil((A_i*j_i* - delta_i(0))/a_i)
 
-for ``j_i*>0``.  The value is zero when ``j_i*=0``.  Because every positive
-delivery is exactly one legal unit least-action update, arbitrary violated-
-contact priorities still terminate at the same ``j*``.  The total number of
-material evaluations is ``sum_i N_i`` and is schedule-independent, although the
-intermediate score path need not be.
+evaluations (zero when ``j_i*=0``).  Every positive delivery is one legal unit
+least-action update, hence arbitrary violated-contact priorities still terminate
+at the same ``j*``.  The per-contact and total material evaluation counts are
+therefore schedule-independent even though intermediate score histories need
+not be.
 
-If pending detail is deliberately discarded after every evaluation, a channel
-with ``a_i<A_i`` can never deliver even one integer impulse quantum.  If the
-least solution needs ``j_i*>0`` on such a contact, the declared lower-precision
-policy is exactly ``MATERIAL_CHANNEL_STALLED``.  A full-quantum channel
-``a_i=A_i`` still delivers one quantum per selected evaluation without retained
-detail.
+Two explicit lower-precision stalls are kept separate:
 
-This result is specific to the aligned Z-path least-action setting.  On a
-branching non-Z network, response timing/capacity can select among multiple
-minimum responses; schedule-independence is not silently generalized there.
+* ``a_i=0`` cannot deliver a required positive quantum even with retained detail;
+* if detail is discarded each evaluation, any subquantum ``0<a_i<A_i`` channel
+  also delivers zero forever.
+
+Both return ``MATERIAL_CHANNEL_STALLED`` rather than looping or fabricating a
+response.  A full-quantum channel ``a_i=A_i`` still delivers one quantum per
+selected evaluation without retained detail.
+
+This result is specific to the aligned Z-path least-action setting.  Branching
+non-Z networks can have several incomparable minimum responses, so timing and
+material asymmetry can become outcome-determining there.
 """
 
 from __future__ import annotations
@@ -94,16 +93,14 @@ class ContactMaterialUnitChannel1D:
         if not 0 <= self.initial_detail < self.amplitude:
             raise ValueError("initial_detail must lie in 0..amplitude-1")
         if self.raw_increment > self.amplitude:
-            raise ValueError(
-                "unit-channel probe requires response*scale <= amplitude"
-            )
+            raise ValueError("unit-channel probe requires response*scale <= amplitude")
 
     @property
     def raw_increment(self) -> int:
         return self.response_sample * self.impulse_scale_magnitude
 
     def evaluations_for_delivered_quanta(self, quanta: int) -> int | None:
-        """Exact retained-detail evaluation count, or ``None`` if delivery is impossible."""
+        """Exact retained-detail evaluations needed to deliver ``quanta``."""
         if isinstance(quanta, bool) or not isinstance(quanta, int) or quanta < 0:
             raise ValueError("quanta must be a non-negative integer")
         if quanta == 0:
@@ -156,7 +153,8 @@ class QuantizedMaterialLeastActionSolution1D:
 
 def _validate_channels(
     state: ContactNetworkMomentum1D,
-    channels: tuple[ContactMaterialUnitChannel1D, ...] | list[ContactMaterialUnitChannel1D],
+    channels: tuple[ContactMaterialUnitChannel1D, ...]
+    | list[ContactMaterialUnitChannel1D],
 ) -> tuple[ContactMaterialUnitChannel1D, ...]:
     result = tuple(channels)
     if len(result) != len(state.contacts):
@@ -166,54 +164,78 @@ def _validate_channels(
     return result
 
 
+def _stalled_result(
+    state: ContactNetworkMomentum1D,
+    order: tuple[int, ...],
+    retain_detail: bool,
+    least: tuple[int, ...],
+    channels: tuple[ContactMaterialUnitChannel1D, ...],
+    expected: tuple[int | None, ...],
+    stalled_contact: int,
+) -> QuantizedMaterialLeastActionSolution1D:
+    step = apply_contact_impulse_vector(state, (0,) * len(state.contacts))
+    return QuantizedMaterialLeastActionSolution1D(
+        status=MATERIAL_CHANNEL_STALLED,
+        before=state,
+        priority=order,
+        retain_detail=retain_detail,
+        least_impulse_oracle=least,
+        impulse_vector=(0,) * len(state.contacts),
+        final_scores=step.relative_scores_after,
+        final_momenta=step.after.momenta,
+        initial_details=tuple(channel.initial_detail for channel in channels),
+        final_details=(
+            tuple(channel.initial_detail for channel in channels)
+            if retain_detail
+            else (0,) * len(channels)
+        ),
+        evaluations_per_contact=(0,) * len(channels),
+        expected_evaluations_per_contact=expected,
+        events=(),
+        stalled_contact=stalled_contact,
+    )
+
+
 def solve_weighted_chain_quantized_least_action(
     state: ContactNetworkMomentum1D,
-    channels: tuple[ContactMaterialUnitChannel1D, ...] | list[ContactMaterialUnitChannel1D],
+    channels: tuple[ContactMaterialUnitChannel1D, ...]
+    | list[ContactMaterialUnitChannel1D],
     priority: tuple[int, ...] | list[int] | None = None,
     retain_detail: bool = True,
 ) -> QuantizedMaterialLeastActionSolution1D:
-    """Drive the Z-path least action through finite contact-local material quantizers."""
+    """Drive Z-path least action through contact-local finite material channels."""
     if not isinstance(retain_detail, bool):
         raise ValueError("retain_detail must be boolean")
     channel_tuple = _validate_channels(state, channels)
     order = weighted_chain_priority(len(state.contacts), priority)
     oracle = solve_weighted_chain_least_action(state, order)
     least = oracle.impulse_vector
+    initial_scores = contact_relative_scores(state)
     gram = contact_coupling_gram(state)
-    scores = list(contact_relative_scores(state))
-    impulses = [0] * len(state.contacts)
-    details = [channel.initial_detail for channel in channel_tuple]
-    evaluations = [0] * len(state.contacts)
     expected = tuple(
         channel.evaluations_for_delivered_quanta(least[index])
         for index, channel in enumerate(channel_tuple)
     )
 
-    # Under the dropped-detail unit-channel policy, a subquantum channel can
-    # never deliver.  Z off-diagonal entries are non-positive, so other contacts
-    # cannot repair a coordinate that itself can never fire enough.
-    if not retain_detail:
-        for index, required in enumerate(least):
-            if required > 0 and channel_tuple[index].raw_increment < channel_tuple[index].amplitude:
-                step = apply_contact_impulse_vector(state, tuple(impulses))
-                return QuantizedMaterialLeastActionSolution1D(
-                    status=MATERIAL_CHANNEL_STALLED,
-                    before=state,
-                    priority=order,
-                    retain_detail=False,
-                    least_impulse_oracle=least,
-                    impulse_vector=tuple(impulses),
-                    final_scores=step.relative_scores_after,
-                    final_momenta=step.after.momenta,
-                    initial_details=tuple(channel.initial_detail for channel in channel_tuple),
-                    final_details=(0,) * len(channel_tuple),
-                    evaluations_per_contact=tuple(evaluations),
-                    expected_evaluations_per_contact=expected,
-                    events=(),
-                    stalled_contact=index,
-                )
+    for index, required in enumerate(least):
+        if required == 0:
+            continue
+        channel = channel_tuple[index]
+        if channel.raw_increment == 0:
+            return _stalled_result(
+                state, order, retain_detail, least, channel_tuple, expected, index
+            )
+        if not retain_detail and channel.raw_increment < channel.amplitude:
+            return _stalled_result(
+                state, order, False, least, channel_tuple, expected, index
+            )
 
+    scores = list(initial_scores)
+    impulses = [0] * len(state.contacts)
+    details = [channel.initial_detail for channel in channel_tuple]
+    evaluations = [0] * len(state.contacts)
     events: list[QuantizedLeastActionEvent1D] = []
+
     while True:
         violated = {index for index, score in enumerate(scores) if score < 0}
         if not violated:
@@ -223,6 +245,7 @@ def solve_weighted_chain_quantized_least_action(
         if impulses[chosen] >= least[chosen]:
             raise AssertionError("violated contact reached its least feasible impulse")
 
+        score_before = scores[chosen]
         detail_before = details[chosen] if retain_detail else 0
         report = material_impulse_quantization(
             channel.response_sample,
@@ -235,7 +258,7 @@ def solve_weighted_chain_quantized_least_action(
         evaluations[chosen] += 1
         details[chosen] = report.detail_after if retain_detail else 0
 
-        if report.impulse_quanta == 1:
+        if report.impulse_quanta:
             impulses[chosen] += 1
             if impulses[chosen] > least[chosen]:
                 raise AssertionError("material delivery overshot least-action impulse")
@@ -246,7 +269,7 @@ def solve_weighted_chain_quantized_least_action(
             QuantizedLeastActionEvent1D(
                 event_index=len(events),
                 contact_index=chosen,
-                score_before=events[-1].scores_after[chosen] if events else contact_relative_scores(state)[chosen],
+                score_before=score_before,
                 detail_before=detail_before,
                 delivered_quanta=report.impulse_quanta,
                 detail_after=details[chosen],
@@ -256,9 +279,9 @@ def solve_weighted_chain_quantized_least_action(
         )
 
         if retain_detail:
-            bound = sum(value for value in expected if value is not None)
-            if len(events) > bound:
-                raise AssertionError("retained material scheduler exceeded exact evaluation bound")
+            exact_bound = sum(value for value in expected if value is not None)
+            if len(events) > exact_bound:
+                raise AssertionError("retained material scheduler exceeded exact event count")
 
     result = tuple(impulses)
     if result != least:
