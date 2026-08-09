@@ -99,7 +99,7 @@ P012 supplies the canonical ordinary metric foundation on connected undirected s
 
 P022 remains `OPEN / ACTIVE RESEARCH`; the canonical executable slice covers integer `A_p` graph distance, quadratic separation, collapsed radial distance, shell/ball counts and distance-carry probes. Broader lattice candidates, HCP/Barlow and cross-owner interfaces remain open.
 
-**Active interface alert:** `FQ-20260809-004` asks whether stable exported `geometry.graph_distance` should enforce the P012 undirected metric domain or be explicitly layered from a more general directed shortest-walk helper. Until resolved, do not cite P012 metric symmetry for asymmetric adjacency inputs.
+**Active interface alert:** `FQ-20260809-005` asks whether stable exported `geometry.graph_distance` should enforce the P012 undirected metric domain or be explicitly layered from a more general directed shortest-walk helper. Until resolved, do not cite P012 metric symmetry for asymmetric adjacency inputs.
 
 ### P021 — causal-boundary specialization
 
@@ -169,8 +169,9 @@ Research is parallel; canonical promotion is serialized. `defer` is routing, not
 
 Mechanical or already-determined bottom-layer drift is fixed directly. Genuine unresolved mathematical/interface choices are minimally verified and escalated to Issue #164, then handed to another researcher.
 
-Current active foundation question:
+Current active foundation questions:
 
-- `FQ-20260809-004` — stable `graph_distance` API domain versus the P012 ordinary metric theorem domain.
+- `FQ-20260809-004` — candidate minimal State/Pair/kernel → future-safe precision foundation interface from cross-route backflow;
+- `FQ-20260809-005` — stable `graph_distance` API domain versus the P012 ordinary metric theorem domain.
 
 Resolved canonical conventions remain FQ-001 through FQ-003 as stated above.
