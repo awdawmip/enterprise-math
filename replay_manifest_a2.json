@@ -1,0 +1,69 @@
+{
+  "schema": "ENTERPRISE_MATH_REPLAY_MANIFEST_V1",
+  "status": "ACTIVE_OWNER_REPLAY",
+  "no_new_mathematics_during_replay": true,
+  "target_branch": "core/a2-future-quotient-v2",
+  "target_home": "A2_OBSERVATION_FUTURE_COMPATIBLE_QUOTIENT",
+  "baseline_main": "de49cb170111f5acb6bd9f62543c4509a8ced725",
+  "canonical_main_core": [
+    "P023-T01 fiber-constancy/descent criterion",
+    "P023-T02 coarsest one-step repair",
+    "P023-T10 family monotone refinement",
+    "P023-T11 finite stabilization",
+    "P023-T12 generator descent at stability",
+    "P023-T13 operation-word semantics",
+    "P023-T14 coarsest common compatible refinement"
+  ],
+  "historical_extension_sources": [
+    {
+      "branch": "agent/p018-critical-grid",
+      "head": "ee6d69fc2bb9894a47a3d5c6273d50d286047ca8",
+      "candidate_assets": [
+        "generic context separation relation",
+        "general k-ary operation congruence/descent",
+        "generic transport protocol lower bound",
+        "generic reusable-interface conditions"
+      ]
+    },
+    {
+      "branch_family": "research/e001-e002-contact-*",
+      "candidate_assets": [
+        "future-language quotient specializations",
+        "action-semigroup/group-completion minimality examples"
+      ]
+    },
+    {
+      "branch": "research/core/relation-support-bridge",
+      "candidate_assets": [
+        "equitability/witness-erasure specializations that may instantiate generic quotient safety"
+      ]
+    }
+  ],
+  "audit_rule": "Main is authoritative. Historical assets are replayed only if they are not already the same theorem, an equivalent coordinate form, or a strict specialization of canonical P023 results.",
+  "keep_if_general": [
+    "operation/future-language factorization criteria",
+    "coarsest compatible refinement and minimal repair",
+    "generic reusable state/interface sufficiency",
+    "generic finite distinguishing-context certificates when not already P023 word semantics",
+    "generic exact information-erasure conditions"
+  ],
+  "defer": {
+    "P018": ["precision-specific pair/kernel interpretation", "carry/defect/radix transport", "precision applications"],
+    "A3": ["structured weighted relation-state"],
+    "A4": ["multivalued admissible support/correspondence"],
+    "E001_E002": ["contact/material/control specializations"],
+    "P021": ["causal/direction-specific witness semantics"]
+  },
+  "forbid": [
+    "duplicating P023-T01/T02/T10-T14 under new names",
+    "promoting application-specific quotient coordinates as universal precision laws",
+    "wholesale merging historical branches into the core owner"
+  ],
+  "completion": [
+    "canonical P023 theorem map recorded",
+    "every historical candidate classified same/generalization/specialization/independent/conflict",
+    "only strict generic extensions replayed",
+    "prior-art and provenance preserved",
+    "current-main gates pass"
+  ]
+}
