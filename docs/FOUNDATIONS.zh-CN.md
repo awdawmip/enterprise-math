@@ -190,6 +190,88 @@ P023 给出这一差异的一般 quotient / congruence 判据。P024 给出整�
 
 特别地，即使名义测量尺度没有变化，动作语言与状态拓扑也可以改变最小未来安全精度。这首先是一条关于**预测充分性**的数学结论，并不自动等于“自然的物理本体会随任务任意变化”的物理主张。
 
+## 五-B、函数核、当前观测与声明的未来签名
+
+在通用数学接口中，令 \(X\) 为一个带类型的状态载体。这里**不会**取代进取数论在整数状态假说适用范围内的原始算术特化 \(X=\mathbb N_0\)。
+
+对任意确定性映射
+
+\[
+f:X\to Y,
+\]
+
+定义其函数核关系
+
+\[
+x\sim_f y
+\quad\Longleftrightarrow\quad
+f(x)=f(y).
+\]
+
+这就是普通函数的 fiber/kernel 等价关系。若 \(O:X\to A\) 是当前观测，则 \(\ker(O)\) 表示当前观测相等；除非 \(O\) 是单射，否则不得把它等同于真实状态相等。
+
+现在固定一个**明确声明的**确定性未来实验/运算语言 \(W\)，以及未来必须保留的观测，并把这些未来输出打包成一个签名
+
+\[
+\Sigma_W:X\to S_W.
+\]
+
+对应的未来安全等价关系为
+
+\[
+x\sim_W y
+\quad\Longleftrightarrow\quad
+\Sigma_W(x)=\Sigma_W(y).
+\]
+
+因此，未来安全仍然是一个函数核问题，但它相对于声明的未来语言。当当前观测 \(O\) 本身被包含在该未来签名中时，
+
+\[
+\boxed{
+\Delta_X\subseteq\ker(\Sigma_W)\subseteq\ker(O),
+}
+\]
+
+其中 \(\Delta_X\) 是真实状态相等关系；在关系包含序中，越小表示保留的区别越细。
+
+确定性的后复合只能继续合并已有 fiber，不能把已经被函数合并的 fiber 重新拆开：
+
+\[
+\boxed{
+\ker(f)\subseteq\ker(g\circ f).
+}
+\]
+
+这就是确定性历史合流背后的通用函数核形式。P023 继续拥有 factorization、最小修复与 future-compatible refinement 的一般构造；P024 继续拥有整数动作语言特化。
+
+这里不把 State Pair 提升为新的原语：`(x,y)` 只是普通积 \(X\times X\) 的一个元素，用来询问两个状态是否位于同一个 kernel/equivalence class 中。同样，Difference/defect/critical-grid 坐标只有在针对明确任务证明所需信息能够通过该坐标 factorize 后，才可以替代底层状态或 state pair。例如，一个观测坐标 \(\delta\) 只有在存在适当的 \(h\) 使
+
+\[
+O=h\circ\delta
+\]
+
+时才足以承担当前观测；只有在存在适当的 \(H\) 使
+
+\[
+\Sigma_W=H\circ\delta
+\]
+
+时才是未来充分状态。没有这样的定理，它仍然只是 diagnostic/representation，而不是完整动态状态。
+
+这层接口刻意保持为 functional。A3 的 structured relation-state 可以保存超出等价类 membership 的信息；A4 的 multivalued support/correspondence 可以允许多个未来像。因此
+
+\[
+\boxed{
+\text{functional kernel/future signature}
+\neq
+\text{任意 A3 relation-state}
+\neq
+\text{A4 multivalued support}.
+}
+\]
+
+函数核/商/合同关系、factorization/semiconjugacy、behavioral equivalence、future signature 与 partition refinement 均属于成熟前人数学；本项目不把这些一般抽象本身声称为原创。进取数论在该接口之上的项目特定工作，是精确整数特化、精度规则、修复代价以及跨路线应用。
+
 ## 六、不预设传统恒等式
 
 由于整数根不是乘方运算的双侧逆，传统实数体系中的恒等式必须重新证明，不能直接搬入。
