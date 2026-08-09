@@ -31,7 +31,7 @@ theorem root_state_denominator_band_upper_kernel
     nlinarith [hScaled, hPowPos]
   by_contra hnot
   have hHigh : q + 2 ≤ D := by omega
-  nlinarith [hqUpper, hCoeff]
+  nlinarith [hqUpper, hCoeff, hHigh]
 
 /-- Discrete tangent estimate in the form needed for the lower denominator
 band.  If the horizon `H` has reached the root order `s+1`, then removing one
@@ -69,7 +69,9 @@ theorem root_state_horizon_tangent_gap
     calc
       (H - (s + 1)) * (H + 1) ^ (s + 1) +
           (s + 1) * (H + 1) ^ (s + 1)
-          = H * (H + 1) ^ (s + 1) := by rw [hDecomp, Nat.add_mul]
+          = ((H - (s + 1)) + (s + 1)) * (H + 1) ^ (s + 1) := by
+              rw [Nat.add_mul]
+      _ = H * (H + 1) ^ (s + 1) := by rw [← hDecomp]
       _ < H ^ (s + 2) + (s + 1) * (H + 1) ^ (s + 1) := hHX
   omega
 
@@ -88,11 +90,8 @@ theorem root_state_denominator_band_lower_kernel
   have hOrder : s + 1 ≤ H := by
     nlinarith [hqPos, hqLower]
   have hGap := root_state_horizon_tangent_gap hOrder
-  have hQDecomp : q = (q - 1) + 1 := by omega
-  have hHDecomp : H = (H - (s + 1)) + (s + 1) := by omega
   have hQSpan : (s + 1) * (q - 1) ≤ H - (s + 1) := by
     nlinarith [hqLower]
-  have hPowPos : 0 < (H + 1) ^ (s + 1) := pow_pos (by omega) (s + 1)
   have hScaledQ :
       (s + 1) * ((q - 1) * (H + 1) ^ (s + 1)) < (s + 1) * n := by
     calc
@@ -105,7 +104,12 @@ theorem root_state_denominator_band_lower_kernel
       _ < (s + 1) * n := by
         have hPos : 0 < (s + 1) * n := by
           by_contra hzero
-          have : (s + 1) * n = 0 := by omega
+          have hProdZero : (s + 1) * n = 0 := by omega
+          have hHZero : H ^ (s + 2) = 0 := by omega
+          have hH : H = 0 := by
+            by_contra hHne
+            have : 0 < H ^ (s + 2) := pow_pos (Nat.pos_of_ne_zero hHne) (s + 2)
+            omega
           omega
         omega
   have hQCell : (q - 1) * (H + 1) ^ (s + 1) < n := by
