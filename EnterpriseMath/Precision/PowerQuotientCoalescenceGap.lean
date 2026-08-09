@@ -55,25 +55,27 @@ theorem divisor_gap_collision_root_scale
     omega
   omega
 
-/-- Sharp graded all-power divisor-span coalescence law.
+/-- State-specific graded quotient-root coalescence kernel.
 
-For source upper bound `n < (k+1)^p`, if `2≤d<e` give the same actual
-`(s+1)`-root after floor division, then
+No source power basin is needed. For one positive integer state `n`, if two
+positive denominator labels `d<e` give the same actual `(s+1)`-root after floor
+division, then
 
-`(e-d) * t^(s+2) < (s+1) * (k+1)^p`.
+`(e-d) * t^(s+2) < (s+1) * n`.
 
-This is the mother inequality behind the graded multiplicity profile. -/
-theorem power_basin_distinct_divisor_root_collision_gap
-    {p k n d e s : ℕ}
-    (hd : 2 ≤ d) (hde : d < e)
-    (hnUpper : n < (k + 1) ^ p)
+This is the arithmetic mother inequality. Basin-scale horizons and application
+specializations should be derived from it by adding only their own upper bounds
+or label-spacing information. -/
+theorem state_distinct_divisor_root_collision_gap
+    {n d e s : ℕ}
+    (hn : 0 < n)
+    (hd : 0 < d)
+    (hde : d < e)
     (hroot : root (s + 1) (n / d) = root (s + 1) (n / e)) :
-    (e - d) * (root (s + 1) (n / d)) ^ (s + 2) <
-      (s + 1) * (k + 1) ^ p := by
+    (e - d) * (root (s + 1) (n / d)) ^ (s + 2) < (s + 1) * n := by
   let t := root (s + 1) (n / d)
   let g := e - d
-  change g * t ^ (s + 2) < (s + 1) * (k + 1) ^ p
-  have hd0 : 0 < d := by omega
+  change g * t ^ (s + 2) < (s + 1) * n
   have he0 : 0 < e := by omega
   have hg : 1 ≤ g := by
     dsimp [g]
@@ -96,7 +98,7 @@ theorem power_basin_distinct_divisor_root_collision_gap
     dsimp [t]
     exact Nat.lt_pow_nthRoot_add_one (by omega) (n / d)
   have hUpperMul : n < (t + 1) ^ (s + 1) * d :=
-    (Nat.div_lt_iff_lt_mul hd0).1 hQuotUpper
+    (Nat.div_lt_iff_lt_mul hd).1 hQuotUpper
   have hUpper : n < d * (t + 1) ^ (s + 1) := by
     simpa [Nat.mul_comm] using hUpperMul
   have hCollision : (d + g) * t ^ (s + 1) < d * (t + 1) ^ (s + 1) := by
@@ -111,7 +113,7 @@ theorem power_basin_distinct_divisor_root_collision_gap
   by_cases htZero : t = 0
   · have hs2 : s + 2 ≠ 0 := by omega
     rw [htZero, zero_pow hs2, Nat.mul_zero]
-    exact Nat.mul_pos (by omega) (pow_pos (by omega) p)
+    exact Nat.mul_pos (by omega) hn
   · have htPos : 0 < t := Nat.pos_of_ne_zero htZero
     have hMul0 :
         (g * t) * t ^ (s + 1) < ((s + 1) * e) * t ^ (s + 1) :=
@@ -120,8 +122,38 @@ theorem power_basin_distinct_divisor_root_collision_gap
       simpa [pow_succ, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm] using hMul0
     have hWeighted : (s + 1) * (e * t ^ (s + 1)) ≤ (s + 1) * n :=
       Nat.mul_le_mul_left (s + 1) hLower
+    exact lt_of_lt_of_le hMul hWeighted
+
+/-- Sharp graded all-power divisor-span coalescence law.
+
+For source upper bound `n < (k+1)^p`, if `2≤d<e` give the same actual
+`(s+1)`-root after floor division, then
+
+`(e-d) * t^(s+2) < (s+1) * (k+1)^p`.
+
+This is the basin-scale corollary used by the graded multiplicity profile. -/
+theorem power_basin_distinct_divisor_root_collision_gap
+    {p k n d e s : ℕ}
+    (hd : 2 ≤ d) (hde : d < e)
+    (hnUpper : n < (k + 1) ^ p)
+    (hroot : root (s + 1) (n / d) = root (s + 1) (n / e)) :
+    (e - d) * (root (s + 1) (n / d)) ^ (s + 2) <
+      (s + 1) * (k + 1) ^ p := by
+  by_cases hn0 : n = 0
+  · subst n
+    have hs2 : s + 2 ≠ 0 := by omega
+    have hr0 : s + 1 ≠ 0 := by omega
+    have hrootzero : root (s + 1) 0 = 0 := by
+      exact (EnterpriseMath.IntegerRoot.root_eq_iff
+        (p := s + 1) (n := 0) (k := 0) hr0).2 (by simp [zero_pow hr0])
+    rw [Nat.zero_div, hrootzero, zero_pow hs2, Nat.mul_zero]
+    exact Nat.mul_pos (by omega) (pow_pos (by omega) p)
+  · have hn : 0 < n := Nat.pos_of_ne_zero hn0
+    have hState := state_distinct_divisor_root_collision_gap
+      (n := n) (d := d) (e := e) (s := s)
+      hn (by omega) hde hroot
     have hParent : (s + 1) * n < (s + 1) * (k + 1) ^ p :=
       Nat.mul_lt_mul_of_pos_left hnUpper (by omega)
-    exact lt_of_lt_of_le hMul (le_trans hWeighted (Nat.le_of_lt hParent))
+    exact hState.trans hParent
 
 end EnterpriseMath.Precision
