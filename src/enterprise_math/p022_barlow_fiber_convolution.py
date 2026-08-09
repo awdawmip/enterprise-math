@@ -9,10 +9,10 @@ Independent checkpoint segments multiply fiber sizes, so complete fiber-size
 profiles compose by finite Dirichlet/multiplicative convolution. Power moments
 are multiplicative characters of this convolution.
 
-For final-observing schedules the complete profile also determines the segment-
-length multiset exactly. The recovery is triangular because every length-ell
-segment has exactly two singleton fibers and its smallest non-singleton fiber
-size is ell itself.
+The complete selected-layer profile also determines the checkpoint geometry up
+to segment order: its smallest fiber recovers the fully unobserved tail length,
+and a triangular peeling algorithm recovers the multiset of observed segment
+lengths.
 """
 
 from __future__ import annotations
@@ -37,7 +37,6 @@ def _exact_power_of_two_exponent(value: int) -> int:
 
 
 def segment_binomial_fiber_profile(segment_length: int) -> FiberProfile:
-    """Complete fiber-size profile of one observed prefix-imbalance segment."""
     _require_positive("segment_length", segment_length)
     counts: dict[int, int] = {}
     for plus_count in range(segment_length + 1):
@@ -49,7 +48,6 @@ def segment_binomial_fiber_profile(segment_length: int) -> FiberProfile:
 def multiplicative_profile_convolution(
     left: FiberProfile, right: FiberProfile
 ) -> FiberProfile:
-    """Finite multiplicative/Dirichlet convolution of two fiber profiles."""
     counts: dict[int, int] = {}
     for left_size, left_count in left:
         for right_size, right_count in right:
@@ -59,7 +57,6 @@ def multiplicative_profile_convolution(
 
 
 def profile_from_segments(segments: tuple[int, ...]) -> FiberProfile:
-    """Complete fiber-size distribution for final-observing segment lengths."""
     if not isinstance(segments, tuple) or not segments or any(
         isinstance(value, bool) or not isinstance(value, int) or value <= 0
         for value in segments
@@ -74,7 +71,6 @@ def profile_from_segments(segments: tuple[int, ...]) -> FiberProfile:
 
 
 def scale_profile_fiber_sizes(profile: FiberProfile, factor: int) -> FiberProfile:
-    """Multiply every represented fiber size by one positive integer factor."""
     _require_positive("factor", factor)
     return tuple((size * factor, count) for size, count in profile)
 
@@ -82,7 +78,6 @@ def scale_profile_fiber_sizes(profile: FiberProfile, factor: int) -> FiberProfil
 def profile_from_selected_layers(
     length: int, selected_layers: tuple[int, ...]
 ) -> FiberProfile:
-    """Complete selected-layer fiber profile, including an unobserved tail."""
     segments, tail = selected_segment_lengths(length, selected_layers)
     profile = profile_from_segments(segments) if segments else ((1, 1),)
     if tail:
@@ -91,23 +86,19 @@ def profile_from_selected_layers(
 
 
 def profile_image_size(profile: FiberProfile) -> int:
-    """Number of observable quotient states."""
     return sum(count for _, count in profile)
 
 
 def profile_domain_size(profile: FiberProfile) -> int:
-    """Number of microscopic states reconstructed by the fiber profile."""
     return sum(size * count for size, count in profile)
 
 
 def profile_power_moment(profile: FiberProfile, order: int) -> int:
-    """M_order=sum_s c_s s^order; a character of multiplicative convolution."""
     _require_positive("order", order)
     return sum(count * (size ** order) for size, count in profile)
 
 
 def profile_collision_count(profile: FiberProfile, order: int) -> int:
-    """P011 J_order directly from the complete fiber-size profile."""
     _require_positive("order", order)
     return sum(
         count * comb(size, order)
@@ -119,7 +110,6 @@ def profile_collision_count(profile: FiberProfile, order: int) -> int:
 def profile_character_product_identity(
     left: FiberProfile, right: FiberProfile, order: int
 ) -> tuple[int, int]:
-    """Return both sides of M_r(f *_x g)=M_r(f)M_r(g)."""
     convolution = multiplicative_profile_convolution(left, right)
     lhs = profile_power_moment(convolution, order)
     rhs = profile_power_moment(left, order) * profile_power_moment(right, order)
@@ -129,48 +119,26 @@ def profile_character_product_identity(
 
 
 def segment_minimal_nontrivial_multiplicity(segment_length: int) -> int:
-    """Multiplicity of fiber size ``segment_length`` in one segment profile.
-
-    For length two the central entry occurs once. For every length >=3,
-    C(ell,1)=C(ell,ell-1)=ell gives exactly two occurrences; all other interior
-    binomial coefficients are at least ell and strictly larger except this
-    symmetric boundary pair.
-    """
+    """Multiplicity of fiber size ``segment_length`` in one segment profile."""
     if segment_length < 2:
         raise ValueError("nontrivial segment length must be at least two")
     return 1 if segment_length == 2 else 2
 
 
 def recover_segment_multiset_from_profile(profile: FiberProfile) -> tuple[int, ...]:
-    """Recover the final-observing segment-length multiset exactly.
-
-    Let c_s be the complete profile.  Since every positive-length segment has
-    exactly two singleton fibers, ``c_1=2^m`` recovers the number m of segments.
-    The microscopic domain size is ``2^N`` and recovers total length N.
-
-    Proceed upward through candidate segment lengths n=2,...,N.  Suppose all
-    shorter nontrivial segment counts are known and let P_<n be their convolved
-    profile.  Any unknown segment of length >n must choose a singleton to
-    contribute to full fiber size n.  Thus the already-known contribution is
-
-        2^(m-m_known) * P_<n(n).
-
-    A length-n segment contributes fiber size n only by choosing its smallest
-    nontrivial binomial fiber while every other segment chooses a singleton.
-    Hence the residual is
-
-        t_n * beta_n * 2^(m-1),
-
-    with beta_2=1 and beta_n=2 for n>=3.  This determines t_n uniquely.  After
-    n=N, the remaining segment count is t_1.
-    """
+    """Recover a final-observing segment-length multiset exactly."""
     if not isinstance(profile, tuple) or not profile:
         raise ValueError("profile must be a nonempty finite fiber profile")
     profile_map = dict(profile)
     singleton_count = profile_map.get(1, 0)
     segment_count = _exact_power_of_two_exponent(singleton_count)
     total_length = _exact_power_of_two_exponent(profile_domain_size(profile))
-    if segment_count <= 0 or segment_count > total_length:
+
+    if segment_count == 0:
+        if profile != ((1, 1),) or total_length != 0:
+            raise ValueError("zero-segment normalized profile must be ((1,1),)")
+        return ()
+    if segment_count > total_length:
         raise ValueError("profile is incompatible with positive final-observing segments")
 
     known_profile: FiberProfile = ((1, 1),)
@@ -216,3 +184,32 @@ def recover_segment_multiset_from_profile(profile: FiberProfile) -> tuple[int, .
     if profile_from_segments(segments) != profile:
         raise ValueError("profile is not exactly reproduced by recovered segments")
     return segments
+
+
+def recover_selected_geometry_from_profile(
+    profile: FiberProfile,
+) -> tuple[tuple[int, ...], int]:
+    """Recover ``(observed_segment_multiset, unobserved_tail_length)``.
+
+    The normalized constrained-segment profile always contains singleton fibers.
+    A tail of length u multiplies every fiber size by 2^u, so the smallest
+    represented fiber size is exactly 2^u.  Divide out that scale and apply the
+    triangular final-observing recovery.
+    """
+    if not isinstance(profile, tuple) or not profile:
+        raise ValueError("profile must be nonempty")
+    minimum_size = min(size for size, _ in profile)
+    tail = _exact_power_of_two_exponent(minimum_size)
+    scale = 2 ** tail
+    normalized_items = []
+    for size, count in profile:
+        if size % scale:
+            raise ValueError("profile fiber sizes do not share one tail scale")
+        normalized_items.append((size // scale, count))
+    normalized = tuple(normalized_items)
+    segments = recover_segment_multiset_from_profile(normalized)
+
+    original_length = _exact_power_of_two_exponent(profile_domain_size(profile))
+    if sum(segments) + tail != original_length:
+        raise ValueError("recovered geometry does not match microscopic domain length")
+    return segments, tail
