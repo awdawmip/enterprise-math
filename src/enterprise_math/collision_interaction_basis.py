@@ -13,9 +13,17 @@ Therefore for a finite collapse F with fiber sizes m_y,
 
     sum_y phi(m_y) = sum_k a_k J_k(F),
 
-where J_k is the P011 collision spectrum.  Thus J_k is an exact universal basis
-for every bounded symmetric integer fiber-local response.  No labels on the
+where J_k is the P011 collision spectrum. Thus J_k is an exact universal basis
+for every bounded symmetric integer fiber-local response. No labels on the
 individual unit histories are needed.
+
+For one merge of old fiber sizes b_1,...,b_r, the exact response defect is
+
+    Delta R_phi = sum_k a_k Delta J_k.
+
+Since every Delta J_k is a nonnegative count of newly cross-fiber k-subsets,
+nonnegative higher-order interaction coefficients give a direct causal
+sufficient condition for monotone irreversibility.
 """
 
 from __future__ import annotations
@@ -31,6 +39,16 @@ def _require_values(values: tuple[int, ...]) -> None:
         raise ValueError("values must be a non-empty tuple indexed from n=0")
     if any(isinstance(value, bool) or not isinstance(value, int) for value in values):
         raise ValueError("response values must be integers")
+
+
+def _require_positive_counts(counts: Counts) -> None:
+    if not isinstance(counts, tuple) or not counts:
+        raise ValueError("counts must be a non-empty tuple")
+    if any(
+        isinstance(value, bool) or not isinstance(value, int) or value <= 0
+        for value in counts
+    ):
+        raise ValueError("counts must be positive integers")
 
 
 def binomial_interaction_coefficients(
@@ -128,3 +146,66 @@ def symmetric_fiber_response_from_collisions(
         coefficients[order] * spectrum[order]
         for order in range(1, len(values))
     )
+
+
+def merge_collision_increments(
+    old_fiber_sizes: Counts,
+    maximum_order: int | None = None,
+) -> tuple[int, ...]:
+    """Exact Delta J_k caused by merging all supplied old fibers into one."""
+    _require_positive_counts(old_fiber_sizes)
+    merged = sum(old_fiber_sizes)
+    limit = merged if maximum_order is None else maximum_order
+    if isinstance(limit, bool) or not isinstance(limit, int) or limit < 0:
+        raise ValueError("maximum_order must be a non-negative integer")
+    return tuple(
+        comb(merged, order)
+        - sum(comb(size, order) for size in old_fiber_sizes if size >= order)
+        for order in range(limit + 1)
+    )
+
+
+def merge_response_defect(
+    old_fiber_sizes: Counts,
+    values: tuple[int, ...],
+) -> int:
+    """Direct phi(sum b_i)-sum_i phi(b_i)."""
+    _require_positive_counts(old_fiber_sizes)
+    _require_values(values)
+    merged = sum(old_fiber_sizes)
+    if merged >= len(values):
+        raise ValueError("response table must cover the merged fiber size")
+    return values[merged] - sum(values[size] for size in old_fiber_sizes)
+
+
+def merge_response_defect_from_collisions(
+    old_fiber_sizes: Counts,
+    values: tuple[int, ...],
+) -> int:
+    """Exact same defect as sum_k a_k Delta J_k."""
+    _require_positive_counts(old_fiber_sizes)
+    _require_values(values)
+    merged = sum(old_fiber_sizes)
+    if merged >= len(values):
+        raise ValueError("response table must cover the merged fiber size")
+    coefficients = binomial_interaction_coefficients(values)
+    increments = merge_collision_increments(
+        old_fiber_sizes,
+        maximum_order=len(values) - 1,
+    )
+    return sum(
+        coefficients[order] * increments[order]
+        for order in range(1, len(values))
+    )
+
+
+def higher_interactions_nonnegative(values: tuple[int, ...]) -> bool:
+    """Whether every a_k for k>=2 is nonnegative."""
+    coefficients = binomial_interaction_coefficients(values)
+    return all(coefficient >= 0 for coefficient in coefficients[2:])
+
+
+def pair_interaction_strict(values: tuple[int, ...]) -> bool:
+    """Whether a_2>0, sufficient for strict growth under every genuine merge."""
+    coefficients = binomial_interaction_coefficients(values)
+    return len(coefficients) > 2 and coefficients[2] > 0
