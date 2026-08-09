@@ -110,7 +110,7 @@
     "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
     "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel",
-    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure, task-relative Barlow stacking precision"
+    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure, task-relative Barlow stacking precision, periodic-drift growth equations and eventual C-finite recurrence classes"
   },
   "canonical_specializations": {
     "P018_P023_power_free_action_basis": {
@@ -140,10 +140,17 @@
     },
     "P022_barlow_task_relative_precision": {
       "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
-      "promotion": "PR #292 / current L4",
+      "merge": "PR #292 / main@04a3baa2f47981a752e4fbaa50c9166a06690d36",
       "scope": "for a selected target layer, (abs(k), delta_k) exactly recovers the two effective interface-sign counts and therefore the vertical witness polynomial required by the declared root-to-layer distance/geodesic-count language; first moments recover delta_k; selected-layer imbalance vectors are coarser than the complete prefix trajectory",
       "negative_boundary": "the complete prefix-imbalance trajectory reconstructs the literal stacking word, so selected-layer precision is not whole-history sufficiency",
       "publication_boundary": "periodic-growth, coordination-observable and observation-history descendants remain separate later P022 promotions"
+    },
+    "P022_barlow_periodic_growth": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "promotion": "PR #296 / current L4 from source validation PR #267",
+      "scope": "exact periodic Barlow shell-total geodesic formulas from prefix imbalance, period drift D, positive growth equation (lambda-2)^(2L)=2^(L+|D|), finite drift-deviation bounds, and a universal eventual C-finite annihilator/recurrence class determined by period length and absolute drift",
+      "negative_boundary": "the universal annihilator may be nonminimal, and equal (L,|D|) can give the same class-level growth equation/universal recurrence space while finite shell-total sequences and phases still differ",
+      "publication_boundary": "coordination-observable and observation-history descendants remain separate later P022 promotions"
     },
     "E001_residual_conservation_slice": {
       "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED + ONE_COMPARATOR_NEGATIVE",
@@ -189,6 +196,7 @@
     ],
     "P022_barlow_stacking_core": ["src/enterprise_math/p022_barlow_stacking.py", "tests/test_p022_barlow_stacking.py"],
     "P022_barlow_task_relative_precision": ["src/enterprise_math/p022_barlow_precision.py", "tests/test_p022_barlow_precision.py"],
+    "P022_barlow_periodic_growth": ["src/enterprise_math/p022_barlow_growth.py", "tests/test_p022_barlow_growth.py"],
     "P021": ["src/enterprise_math/causal_boundary.py", "tests/test_causal_boundary.py"],
     "E001_material_impulse_application": [
       "src/enterprise_math/material_impulse_accounting.py",

@@ -150,15 +150,24 @@ Canonical P022 families:
 - PR #288 / `main@aec7f625e48eb8f93ba701ba57686a9e225efd17`:
   - `src/enterprise_math/p022_barlow_stacking.py`
   - `tests/test_p022_barlow_stacking.py`;
-- PR #292 / current L4:
+- PR #292 / `main@04a3baa2f47981a752e4fbaa50c9166a06690d36`:
   - `src/enterprise_math/p022_barlow_precision.py`
-  - `tests/test_p022_barlow_precision.py`.
+  - `tests/test_p022_barlow_precision.py`;
+- PR #296 / current L4:
+  - `src/enterprise_math/p022_barlow_growth.py`
+  - `tests/test_p022_barlow_growth.py`.
 
 PR #262 gives exact finite/combinatorial geodesic-multiplicity observables for `A_p` and simple-cubic geometry plus an integer-coordinate ABAB HCP contact graph with degree 12, exact graph distance/shells, and independently cross-checked shortest-path counts. Generic nonnegative witness-count/correspondence algebra belongs to A4/A2; P022 owns the geometry specialization. No floating-point Euclidean sphere-center model is assumed.
 
 PR #288 generalizes the close-packed executable layer to periodic Barlow stacking: periodic contact graphs, exact graph distance/geodesic multiplicity, FCC/HCP reconstruction, and the root-to-target-layer **cumulative interface-sign-count** compression for those declared queries.
 
-PR #292 adds the corresponding task-relative precision boundary. For one selected target layer, `(abs(k), delta_k)` exactly recovers the two effective interface-sign counts and therefore the vertical witness polynomial required by the declared root-to-layer distance/geodesic-count language; the same imbalance is recoverable from first moments of that polynomial. This is not whole-history sufficiency: the complete prefix-imbalance trajectory is strictly richer and reconstructs the literal stacking word. Periodic-growth, coordination-observable and observation-history theories remain outside this promotion.
+PR #292 adds the corresponding task-relative precision boundary. For one selected target layer, `(abs(k), delta_k)` exactly recovers the two effective interface-sign counts and therefore the vertical witness polynomial required by the declared root-to-layer distance/geodesic-count language; the same imbalance is recoverable from first moments of that polynomial. This is not whole-history sufficiency: the complete prefix-imbalance trajectory is strictly richer and reconstructs the literal stacking word.
+
+PR #296 adds the periodic-growth layer on top of that exact precision normal form. For a periodic sign pattern of length `L` and period drift `D`, the executable layer gives exact shell-total geodesic formulas from prefix imbalance, the exact positive growth constant through
+
+`(lambda - 2)^(2L) = 2^(L+|D|)`,
+
+and a universal eventual C-finite annihilator/recurrence class built from the period blocks. That annihilator may be nonminimal. Equal period length and equal absolute drift therefore force the same class-level growth equation and the same universal recurrence space, but **do not** force the same finite shell-total sequence or phase: finite periodic cancellations can still differ. Coordination-observable and observation-history theories remain outside this promotion.
 
 **Active interface alert — FQ-20260809-005:** stable exported `geometry.graph_distance` accepts general adjacency mappings, while P012 ordinary metric theorems assume connected undirected simple graphs. Until the research answer is steward-verified, do not cite P012 metric symmetry for asymmetric adjacency inputs.
 
@@ -219,6 +228,7 @@ All routes must remember:
 - geometry-only collision/contact facts may not determine unique response;
 - a quotient safe for one future language can fail for a richer one;
 - ordinary metric claims require the P012 graph hypotheses;
+- same periodic Barlow `(L,|D|)` growth/recurrence class does not determine the finite shell-total sequence or phase;
 - finite measured-polyline refinement does not reveal an unmeasured continuum;
 - canonical engineering code does not become a universal physical law merely by entering `main`;
 - Git ancestry/file-name equality is not proof of new mathematics or semantic absorption;

@@ -150,15 +150,24 @@ Canonical P022 families：
 - PR #288 / `main@aec7f625e48eb8f93ba701ba57686a9e225efd17`：
   - `src/enterprise_math/p022_barlow_stacking.py`
   - `tests/test_p022_barlow_stacking.py`；
-- PR #292 / 当前 L4：
+- PR #292 / `main@04a3baa2f47981a752e4fbaa50c9166a06690d36`：
   - `src/enterprise_math/p022_barlow_precision.py`
-  - `tests/test_p022_barlow_precision.py`。
+  - `tests/test_p022_barlow_precision.py`；
+- PR #296 / 当前 L4：
+  - `src/enterprise_math/p022_barlow_growth.py`
+  - `tests/test_p022_barlow_growth.py`。
 
 PR #262 给出 `A_p` 与 simple-cubic geometry 的精确有限/组合 geodesic-multiplicity observable，以及整数坐标 ABAB HCP contact graph：degree 12、精确 graph distance/shells，并以独立算法交叉检查 shortest-path counts。通用非负 witness-count/correspondence algebra 属于 A4/A2；P022 拥有 geometry specialization。这里没有偷偷引入浮点 Euclidean sphere-center 模型。
 
 PR #288 把 close-packed executable 层推广到 periodic Barlow stacking：periodic contact graph、精确 graph distance/geodesic multiplicity、FCC/HCP reconstruction，以及针对声明的 root-to-target-layer distance/geodesic-count query 的**累计 interface-sign-count**压缩。
 
-PR #292 加入对应的 task-relative precision 边界。对一个选定 target layer，`(abs(k), delta_k)` 可精确恢复两类 effective interface-sign counts，从而恢复声明的 root-to-layer distance/geodesic-count language 所需的 vertical witness polynomial；同一 imbalance 也可由该 polynomial 的一阶矩恢复。这不是 whole-history sufficiency：完整 prefix-imbalance trajectory 严格更丰富，并可重建 literal stacking word。Periodic-growth、coordination-observable 与 observation-history theory 仍在本次 promotion 之外。
+PR #292 加入对应的 task-relative precision 边界。对一个选定 target layer，`(abs(k), delta_k)` 可精确恢复两类 effective interface-sign counts，从而恢复声明的 root-to-layer distance/geodesic-count language 所需的 vertical witness polynomial；同一 imbalance 也可由该 polynomial 的一阶矩恢复。这不是 whole-history sufficiency：完整 prefix-imbalance trajectory 严格更丰富，并可重建 literal stacking word。
+
+PR #296 在上述精确 precision normal form 上加入 periodic-growth 层。对长度为 `L`、period drift 为 `D` 的周期 sign pattern，executable layer 从 prefix imbalance 给出精确 shell-total geodesic formulas，并由
+
+`(lambda - 2)^(2L) = 2^(L+|D|)`
+
+给出精确正增长常数，同时构造按 period blocks 得到的 universal eventual C-finite annihilator/recurrence class。该 annihilator 可能不是 minimal。因而，相同 period length 与相同 absolute drift 会强制相同的 class-level growth equation 和 universal recurrence space，但**不**强制相同有限 shell-total sequence 或 phase：有限周期 cancellation 仍可不同。Coordination-observable 与 observation-history theory 仍在本次 promotion 之外。
 
 **活跃接口警报 — FQ-20260809-005：**稳定导出的 `geometry.graph_distance` 接受一般 adjacency mapping，而 P012 普通 metric theorem 假设连通无向简单图。在研究答案经 steward 验证前，对非对称 adjacency 输入不得引用 P012 metric symmetry。
 
@@ -219,6 +228,7 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 - geometry-only collision/contact fact 可能不足以确定唯一 response；
 - 对一种 future language 安全的 quotient，对更丰富语言可能失效；
 - 普通 metric claim 必须满足 P012 graph hypotheses；
+- 相同 periodic Barlow `(L,|D|)` growth/recurrence class 不决定有限 shell-total sequence 或 phase；
 - finite measured-polyline refinement 不会揭示未测量 continuum；
 - engineering code 进入 `main` 不会自动成为通用物理定律；
 - Git ancestry/同名文件不证明新数学或 semantic absorption；
