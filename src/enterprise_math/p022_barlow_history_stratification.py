@@ -2,8 +2,9 @@
 
 For fixed final radius n, every non-extreme unsigned height q<n carries a
 shortest-path total that is strictly increasing with the absolute prefix drift
-d=|delta_q|.  The extreme height q=n is the one boundary where path total is
-always 3^n, but its layer cardinality is strictly decreasing in d.
+d=|delta_q|.  More strongly, d is decoded by an exact 2-adic formula.  The
+extreme height q=n is the one boundary where path total is always 3^n, but its
+layer cardinality recovers d by one integer square root.
 
 Hence one terminal stratified profile -- non-extreme layer path totals plus
 extreme layer cardinalities, retaining unsigned height but not side labels --
@@ -12,6 +13,8 @@ positive/negative side exchange already present in whole-shell observations.
 """
 
 from __future__ import annotations
+
+from math import comb, isqrt
 
 from .p022_barlow_coordination import (
     barlow_shell_vertex_count_from_extreme_imbalances,
@@ -23,7 +26,7 @@ from .p022_barlow_layer_tradeoff import (
 )
 
 LayerPair = tuple[int, int]
-TerminalProfile = tuple[LayerPair, ...]  # index q=0..n; q=0 uses one duplicated fixed value
+TerminalProfile = tuple[LayerPair, ...]
 
 
 def _normalize_pair(left: int, right: int) -> LayerPair:
@@ -33,12 +36,7 @@ def _normalize_pair(left: int, right: int) -> LayerPair:
 def terminal_stratified_profile_from_drift_history(
     radius: int, drift_history: DriftHistory
 ) -> TerminalProfile:
-    """Encode full drift history into one radius-n height-stratified profile.
-
-    Entry q<n is the unordered pair of shell-layer geodesic totals at heights
-    +q and -q.  Entry q=n is instead the unordered pair of extreme-layer vertex
-    counts, because extreme path totals are drift-independent.
-    """
+    """Encode full drift history into one radius-n height-stratified profile."""
     if isinstance(radius, bool) or not isinstance(radius, int) or radius < 0:
         raise ValueError("radius must be non-negative")
     if len(drift_history) <= radius or drift_history[0] != (0, 0):
@@ -67,30 +65,73 @@ def terminal_stratified_profile_from_drift_history(
     return tuple(output)
 
 
-def _allowed_absolute_drifts(height: int) -> tuple[int, ...]:
-    return tuple(range(height % 2, height + 1, 2))
+def _is_power_of_two(value: int) -> bool:
+    return value > 0 and value & (value - 1) == 0
 
 
 def _invert_nonextreme_path_total(radius: int, height: int, value: int) -> int:
-    candidates = [
-        drift
-        for drift in _allowed_absolute_drifts(height)
-        if layer_shell_geodesic_total(radius, height, drift) == value
-    ]
-    if len(candidates) != 1:
-        raise ValueError("non-extreme path total does not encode one legal drift")
-    return candidates[0]
+    """Closed 2-adic inversion of one non-extreme layer path total.
+
+    From
+
+      L=C(n,q)[3*2^(n-q+(q-d)/2)(1+2^d)-6]
+
+    form
+
+      Y=(L/C(n,q)+6)/(3*2^(n-q))
+       =2^((q-d)/2)+2^((q+d)/2).
+
+    If Y is a power of two, the two exponents coincide and d=0. Otherwise
+    v2(Y) is the smaller exponent and ``Y/2^v2(Y)-1`` is exactly ``2^d``.
+    """
+    if not (0 <= height < radius):
+        raise ValueError("2-adic path inversion requires 0<=height<radius")
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise ValueError("path total must be a positive integer")
+    binomial = comb(radius, height)
+    if value % binomial:
+        raise ValueError("path total is incompatible with layer interleaving")
+    scaled = value // binomial + 6
+    denominator = 3 * (2 ** (radius - height))
+    if scaled % denominator:
+        raise ValueError("path total is incompatible with Barlow powers of two")
+    encoded = scaled // denominator
+
+    if _is_power_of_two(encoded):
+        if height % 2:
+            raise ValueError("odd height cannot have zero absolute drift")
+        expected = 2 ** (height // 2 + 1)
+        if encoded != expected:
+            raise ValueError("power-of-two layer total has the wrong exponent")
+        return 0
+
+    low_bit = encoded & -encoded
+    odd_part = encoded // low_bit
+    drift_power = odd_part - 1
+    if not _is_power_of_two(drift_power):
+        raise ValueError("layer total does not encode one Barlow drift power")
+    drift = drift_power.bit_length() - 1
+    smaller_exponent = low_bit.bit_length() - 1
+    if drift > height or (height - drift) % 2:
+        raise ValueError("decoded drift has incompatible height parity")
+    if smaller_exponent != (height - drift) // 2:
+        raise ValueError("decoded 2-adic exponent is inconsistent with height")
+    return drift
 
 
 def _invert_extreme_vertex_count(radius: int, value: int) -> int:
-    candidates = [
-        drift
-        for drift in _allowed_absolute_drifts(radius)
-        if layer_ball_slice_count(radius, radius, drift) == value
-    ]
-    if len(candidates) != 1:
-        raise ValueError("extreme layer count does not encode one legal drift")
-    return candidates[0]
+    """Closed integer-square inversion of one extreme layer cardinality."""
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise ValueError("extreme layer count must be a positive integer")
+    square = 3 * radius * radius + 6 * radius + 4 - 4 * value
+    if square < 0:
+        raise ValueError("extreme layer count exceeds the Barlow bound")
+    drift = isqrt(square)
+    if drift * drift != square:
+        raise ValueError("extreme layer count does not encode an integral drift")
+    if drift > radius or (radius - drift) % 2:
+        raise ValueError("extreme drift has incompatible radius parity")
+    return drift
 
 
 def drift_history_from_terminal_stratified_profile(
