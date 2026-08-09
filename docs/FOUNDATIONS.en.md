@@ -140,6 +140,34 @@ is a compatible family of integer states for progressively refined square-root q
 
 If nature has a maximum resolution, this chain terminates. No infinite completion is required inside the theory.
 
+## 5A. Represented precision and future-safe precision
+
+A represented precision is an explicit many-to-one partition of the current fine state space. It says which current states are represented as the same state at the declared resolution.
+
+That partition is not automatically sufficient for every future computation.
+
+Given a declared family of future operations and observations, define the **future-safe precision** to be the coarsest refinement of the represented precision for which all required future behavior descends to the retained state.
+
+Therefore Enterprise Math distinguishes
+
+\[
+\boxed{
+\text{represented precision}
+\neq
+\text{future-safe precision in general}.
+}
+\]
+
+P023 gives the generic quotient/congruence criterion for this distinction. P024 gives an exact integer-translation specialization: when observations are cut by integer boundaries `B` and the declared future action language has reachable cumulative translations `M`, the present distinctions that can still be read by the future are the pulled-back boundary orbit
+
+\[
+\boxed{B-M.}
+\]
+
+The resulting precision cells need not be globally uniform. A uniform scale is one possible precision geometry, not a foundational requirement.
+
+In particular, action language and state topology can change the minimal safe precision even when the nominal measurement scale is unchanged. This is a mathematical statement about predictive sufficiency, not by itself a claim that nature selects a task-dependent physical ontology.
+
 ## 6. Classical identities are not assumed
 
 Because integer root is not a two-sided inverse of exponentiation, classical real identities must be re-proved rather than imported.
@@ -234,6 +262,7 @@ which remains an integer map.
 6. Can the monotonic growth of preimage classes be connected to thermodynamic entropy under explicit physical assumptions?
 7. Which observed physical laws contradict an ontologically non-invertible foundation?
 8. Which parts of calculus can be reconstructed as finite-scale difference and accumulation operators?
+9. Which future-safe precision objects admit compact structured representations, and when must a nonuniform boundary/detail layer be retained?
 
 ## 10. Status discipline
 
