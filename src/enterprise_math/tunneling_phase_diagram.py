@@ -29,6 +29,15 @@ Hence at least one sampled transmitting phase exists iff
 
     s >= H + 2*(d-1).
 
+Equivalently, for fixed ``s,H`` with ``s>=H``, the coarsest spatial factor that
+still admits at least one transmitting phase is
+
+    d_max_trans = floor((s-H+2)/2).
+
+Coarser factors have zero transmitting phases; refinement from that threshold
+toward ``d=1`` releases two additional phase choices per factor until all
+positive-clearance crossing phases transmit at terminal spatial precision.
+
 The remaining positive-clearance crossing phases are macro-contact phases at
 that scale.  These are combinatorial counts, not probabilities unless an
 external phase distribution is separately supplied.
@@ -55,6 +64,23 @@ class TunnelingPhaseDiagram1D:
     macro_contact_phases: int
     transmission_start_clearance_range: tuple[int, int] | None
     minimum_displacement_for_any_transmission: int
+    coarsest_factor_with_any_transmission: int | None
+
+
+def coarsest_factor_with_any_transmission(
+    wall: Wall1D,
+    radius: int,
+    displacement: int,
+) -> int | None:
+    """Return the largest spatial factor admitting at least one tunneling phase."""
+    if isinstance(radius, bool) or not isinstance(radius, int) or radius < 0:
+        raise ValueError("radius must be a non-negative integer")
+    if isinstance(displacement, bool) or not isinstance(displacement, int) or displacement < 0:
+        raise ValueError("displacement must be a non-negative integer")
+    effective = minimum_positive_clearance_crossing_displacement(wall, radius)
+    if displacement < effective:
+        return None
+    return (displacement - effective + 2) // 2
 
 
 def tunneling_phase_diagram(
@@ -100,6 +126,14 @@ def tunneling_phase_diagram(
         transmission_range = None
 
     minimum_transmission_displacement = effective + 2 * (collapse_factor - 1)
+    coarsest = coarsest_factor_with_any_transmission(
+        wall, radius, displacement
+    )
+    if (transmitting > 0) != (
+        coarsest is not None and collapse_factor <= coarsest
+    ):
+        raise AssertionError("phase count and coarsest transmission factor disagree")
+
     return TunnelingPhaseDiagram1D(
         wall_thickness=wall.thickness_cells,
         body_diameter=body_diameter,
@@ -111,6 +145,7 @@ def tunneling_phase_diagram(
         macro_contact_phases=macro_contact,
         transmission_start_clearance_range=transmission_range,
         minimum_displacement_for_any_transmission=minimum_transmission_displacement,
+        coarsest_factor_with_any_transmission=coarsest,
     )
 
 
