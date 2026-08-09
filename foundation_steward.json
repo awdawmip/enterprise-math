@@ -16,7 +16,6 @@
     "priority_classes": ["P0-C", "P0-I", "P1-R", "P2-A"],
     "status_classes": ["OPEN", "CLAIMED", "RESEARCHING", "ANSWERED", "REJECTED", "CANONICALIZED"],
     "active_questions": [
-      "FQ-20260809-004",
       "FQ-20260809-005"
     ],
     "research_handoff_required": true,
@@ -43,6 +42,19 @@
       "expanded": "F_t = T_{t-1} o ... o T_0 for t >= 1",
       "merge_time": "min{t in N_0 : F_t(x) = F_t(y)} when nonempty",
       "resolved_by": "FQ-20260809-003"
+    },
+    "functional_kernel_layering": {
+      "generic_state": "typed carrier X; does not replace the N_0 specialization where the primitive integer-state hypothesis applies",
+      "functional_kernel": "x ~_f y iff f(x)=f(y) for deterministic f:X->Y",
+      "postcomposition": "ker(f) subseteq ker(g o f)",
+      "future_signature": "declared future language W is compared through Sigma_W:X->S_W",
+      "future_safe_equality": "ker(Sigma_W)",
+      "refinement_chain_when_current_observation_included": "exact equality subseteq ker(Sigma_W) subseteq ker(O)",
+      "pair": "X x X is a derived product carrier, not a new primitive",
+      "compressed_coordinate_rule": "Difference/defect/critical-grid or other coordinate replaces state information only after current/future factorization sufficiency is proved",
+      "owner_boundary": "functional kernels A1/A2 != arbitrary structured relation-state A3 != multivalued correspondence/support A4 without an explicit reduction theorem",
+      "novelty": "classical prior mathematics; no Enterprise Math priority claim for the generic abstraction",
+      "resolved_by": "FQ-20260809-004"
     }
   },
   "direct_maintenance_when": [
