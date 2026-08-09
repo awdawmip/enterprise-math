@@ -42,6 +42,8 @@ R_p(a)\le R_p(b).
 
 Proof: every \(k\) satisfying \(k^p\le a\) also satisfies \(k^p\le b\).
 
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.root_monotone`, derived from the power/root Galois connection.
+
 ## T004 — Collapse is contractive
 
 Status: `PROVED`
@@ -94,6 +96,8 @@ k^p\le n<(k+1)^p.
 
 Thus each collapse basin is one consecutive integer interval.
 
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.collapse_eq_pow_iff`; finite-basin membership is also checked as `EnterpriseMath.IntegerRoot.mem_basin_iff`.
+
 ## T008 — Basin cardinality
 
 Status: `PROVED`
@@ -110,6 +114,8 @@ For \(p=2\),
 
 Therefore the basin of \(141^2=19881\) contains 283 states. For the algebraic identity case \(p=1\), every basin has cardinality \(1\).
 
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.basin_card`; the square and identity specializations are checked as `basin_card_square` and `basin_card_one`.
+
 ## T009 — Collapse monotonicity
 
 Status: `PROVED`
@@ -121,6 +127,8 @@ C_p(a)\le C_p(b).
 \]
 
 Proof: combine T003 with monotonicity of \(k\mapsto k^p\) on \(\mathbb N_0\).
+
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.collapse_monotone`.
 
 ## T010 — Scale compatibility
 
@@ -164,6 +172,8 @@ R_p(n)^p\ne n.
 
 Thus integer root is a left inverse of perfect-power formation on its image, not a two-sided inverse on all natural states when \(p\ge2\). At \(p=1\), both maps are the identity.
 
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.root_leftInverse_pow` and `root_pow_not_two_sided`. The stronger uniform witness \(C_p(2)=1\ne2\) for every \(p\ge2\) is checked by `collapse_two_eq_one` and `collapse_two_ne_self`; the identity member is checked by `root_one` and `collapse_one`.
+
 ## T012 — Merged histories never split under deterministic forward composition
 
 Status: `PROVED`
@@ -203,6 +213,8 @@ M_t(x)=|[x]_t|
 \]
 
 is nondecreasing.
+
+Formalization: Lean-checked in the more general heterogeneous postcomposition form as `EnterpriseMath.HistoryMerge.merged_never_split`; finite fiber inclusion and cardinality monotonicity are checked as `fiberFinset_subset_postcompose` and `fiberCard_mono_postcompose`.
 
 ## T013 — Integer roots compose multiplicatively in the exponent
 
@@ -276,4 +288,4 @@ Formalization: Lean-checked as `EnterpriseMath.Scale.root_div_comm`; T010 is Lea
 
 The Python reference tests computationally check the original arithmetic laws over bounded finite domains; those computations support implementation correctness but are not proof sources.
 
-The pinned Lean/mathlib layer is compiled with warnings fatal in CI. It currently kernel-checks T001, T002, T004, T005, T006, T010, T013, T014, and T015. T003, T007, T008, T009, T011, and T012 remain ordinary proved propositions pending separate Lean promotion.
+The pinned Lean/mathlib layer is compiled with warnings fatal in CI. Every proposition in the base v0.1 catalogue, T001 through T015, is now covered by the imported Lean build. T003, T007, T008, T009, T011, and T012 were promoted in the incremental theorem-catalogue verification pass; their exact theorem names are recorded above.
