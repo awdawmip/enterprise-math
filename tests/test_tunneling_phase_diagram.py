@@ -2,6 +2,7 @@ import unittest
 
 from enterprise_math.scale_tunneling_1d import Wall1D
 from enterprise_math.tunneling_phase_diagram import (
+    coarsest_factor_with_any_transmission,
     enumerate_positive_clearance_phases,
     tunneling_phase_diagram,
 )
@@ -69,10 +70,33 @@ class TunnelingPhaseDiagramTests(unittest.TestCase):
                         (factor, factor),
                     )
 
+    def test_coarsest_factor_with_any_transmission_is_exact_inverse_threshold(self):
+        for thickness in range(1, 6):
+            wall = Wall1D(0, thickness - 1)
+            for radius in range(4):
+                effective = thickness + (2 * radius + 1)
+                for displacement in range(0, effective + 14):
+                    coarsest = coarsest_factor_with_any_transmission(
+                        wall, radius, displacement
+                    )
+                    if displacement < effective:
+                        self.assertIsNone(coarsest)
+                        continue
+                    self.assertEqual(
+                        coarsest,
+                        (displacement - effective + 2) // 2,
+                    )
+                    at = tunneling_phase_diagram(
+                        wall, radius, displacement, coarsest
+                    )
+                    above = tunneling_phase_diagram(
+                        wall, radius, displacement, coarsest + 1
+                    )
+                    self.assertGreater(at.transmitting_phases, 0)
+                    self.assertEqual(above.transmitting_phases, 0)
+
     def test_point_wall_phase_diagram(self):
         wall = Wall1D(0, 0)
-        # H=T+D=2.  At d=2, displacement 4 is the first one with a
-        # transmitting phase: g_pre=g_post=2.
         d2_s3 = tunneling_phase_diagram(wall, 0, 3, 2)
         d2_s4 = tunneling_phase_diagram(wall, 0, 4, 2)
         self.assertEqual(d2_s3.positive_clearance_crossing_phases, 2)
@@ -80,6 +104,7 @@ class TunnelingPhaseDiagramTests(unittest.TestCase):
         self.assertEqual(d2_s3.macro_contact_phases, 2)
         self.assertEqual(d2_s4.transmitting_phases, 1)
         self.assertEqual(d2_s4.transmission_start_clearance_range, (2, 2))
+        self.assertEqual(d2_s4.coarsest_factor_with_any_transmission, 2)
 
     def test_terminal_factor_transmits_every_positive_clearance_crossing_phase(self):
         wall = Wall1D(0, 3)
@@ -109,7 +134,7 @@ class TunnelingPhaseDiagramTests(unittest.TestCase):
         displacement = 10
         reports = [
             tunneling_phase_diagram(wall, radius, displacement, factor)
-            for factor in range(1, 6)
+            for factor in range(1, 7)
         ]
         positive = reports[0].positive_clearance_crossing_phases
         for report in reports:
@@ -126,6 +151,8 @@ class TunnelingPhaseDiagramTests(unittest.TestCase):
             tunneling_phase_diagram(wall, 0, -1, 1)
         with self.assertRaises(ValueError):
             tunneling_phase_diagram(wall, 0, 2, 0)
+        with self.assertRaises(ValueError):
+            coarsest_factor_with_any_transmission(wall, -1, 2)
 
 
 if __name__ == "__main__":
