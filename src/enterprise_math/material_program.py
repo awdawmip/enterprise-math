@@ -14,6 +14,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .material_response import (
+    MaterialCurveProfile,
     branch_gap_sum,
     hardening_sample,
     offset_sample,
@@ -69,6 +70,18 @@ class MaterialProgramProfile:
     returning: tuple[int, ...]
     branch_gap: int
     signed_area: int
+
+    def as_curve_profile(self) -> MaterialCurveProfile:
+        """Adapt this explicit program to the shared branch/history interface."""
+        return MaterialCurveProfile(
+            amplitude=self.amplitude,
+            loading=self.loading,
+            returning=self.returning,
+            branch_gap=self.branch_gap,
+            signed_area=self.signed_area,
+            peak_loading=max(self.loading, default=0),
+            peak_returning=max(self.returning, default=0),
+        )
 
 
 def _validate_amplitude_sample(sample: int, amplitude: int) -> None:
