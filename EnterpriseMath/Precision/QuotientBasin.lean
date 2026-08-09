@@ -157,4 +157,43 @@ theorem square_basin_div_root_strict
     exact (Nat.div_lt_iff_lt_mul hd0).2 hnTarget
   exact (Nat.nthRoot_lt_iff (n := 2) (by decide)).2 hQuotLt
 
+/-- P018-T197: inside one square basin, the upper T182 root branch has one exact
+state threshold. If `j = R₂(floor(k²/d))`, the quotient root is `j+1` exactly
+when the original state has reached `d*(j+1)^2`.
+
+This theorem entered `main` concurrently under provisional identifier T113 and
+is relabelled T197 in the integrated branch to preserve the earlier validated
+T113 in PR #68.
+-/
+theorem square_basin_div_upper_root_iff
+    {k d n : ℕ} (hk : 0 < k) (hd : 2 ≤ d)
+    (hnLower : k ^ 2 ≤ n) (hnUpper : n < (k + 1) ^ 2) :
+    let j := root 2 (k ^ 2 / d)
+    root 2 (n / d) = j + 1 ↔ d * (j + 1) ^ 2 ≤ n := by
+  let j := root 2 (k ^ 2 / d)
+  have hd0 : 0 < d := by omega
+  have hpair :
+      (root 2 (n / d) = j ∨ root 2 (n / d) = j + 1) ∧ j < k := by
+    simpa [j] using
+      (square_basin_div_root_pair (k := k) (d := d) (n := n)
+        hk hd hnLower hnUpper)
+  constructor
+  · intro hroot
+    have hpow : (j + 1) ^ 2 ≤ n / d := by
+      rw [← hroot]
+      exact Nat.pow_nthRoot_le (Or.inl (by decide))
+    have hmul : (j + 1) ^ 2 * d ≤ n :=
+      (Nat.le_div_iff_mul_le hd0).1 hpow
+    simpa [Nat.mul_comm] using hmul
+  · intro hthreshold
+    have hmul : (j + 1) ^ 2 * d ≤ n := by
+      simpa [Nat.mul_comm] using hthreshold
+    have hpow : (j + 1) ^ 2 ≤ n / d :=
+      (Nat.le_div_iff_mul_le hd0).2 hmul
+    have hrootLower : j + 1 ≤ root 2 (n / d) :=
+      (Nat.le_nthRoot_iff (n := 2) (by decide)).2 hpow
+    rcases hpair.1 with hroot | hroot
+    · omega
+    · exact hroot
+
 end EnterpriseMath.Precision
