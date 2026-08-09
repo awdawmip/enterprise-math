@@ -5,6 +5,7 @@ from enterprise_math.engineering_collision import Body2D
 from enterprise_math.motion_action_constraints import (
     accepted_set_satisfies_constraints,
     binary_motion_constraints,
+    binary_motion_constraints_target_first,
     individually_feasible_move_ids,
     maximum_constraint_solutions,
     move_closure_is_feasible,
@@ -20,6 +21,7 @@ class MotionActionConstraintTests(unittest.TestCase):
             BodyMotion2D(Body2D(1, 1, 0, 0), (-1, 0)),
         ]
         report = binary_motion_constraints(motions)
+        self.assertEqual(report, binary_motion_constraints_target_first(motions))
         self.assertEqual(report.mutex_pairs, ((0, 1),))
         self.assertEqual(set(report.implications), {(0, 1), (1, 0)})
         self.assertEqual(report.forced_wait_ids, ())
@@ -35,6 +37,7 @@ class MotionActionConstraintTests(unittest.TestCase):
             BodyMotion2D(Body2D(1, 1, 0, 0), (-1, 0)),
         ]
         report = binary_motion_constraints(motions)
+        self.assertEqual(report, binary_motion_constraints_target_first(motions))
         self.assertEqual(report.mutex_pairs, ((0, 1),))
         self.assertEqual(report.implications, ())
         self.assertEqual(required_move_closure(report, frozenset({0})), frozenset({0}))
@@ -50,6 +53,7 @@ class MotionActionConstraintTests(unittest.TestCase):
             BodyMotion2D(Body2D(1, 1, 0, 0), (1, 0)),
         ]
         report = binary_motion_constraints(motions)
+        self.assertEqual(report, binary_motion_constraints_target_first(motions))
         self.assertEqual(report.mutex_pairs, ())
         self.assertEqual(report.implications, ((0, 1),))
         self.assertEqual(required_move_closure(report, frozenset({0})), frozenset({0, 1}))
@@ -67,6 +71,7 @@ class MotionActionConstraintTests(unittest.TestCase):
             BodyMotion2D(Body2D(2, 2, 0, 0), (0, 0)),
         ]
         report = binary_motion_constraints(motions)
+        self.assertEqual(report, binary_motion_constraints_target_first(motions))
         self.assertIn((0, 1), report.implications)
         self.assertIn(1, report.forced_wait_ids)
         self.assertEqual(required_move_closure(report, frozenset({0})), frozenset({0, 1}))
@@ -80,12 +85,13 @@ class MotionActionConstraintTests(unittest.TestCase):
             BodyMotion2D(Body2D(1, 1, 0, 0), (0, 0)),
         ]
         report = binary_motion_constraints(motions)
+        self.assertEqual(report, binary_motion_constraints_target_first(motions))
         self.assertEqual(report.moving_ids, (0,))
         self.assertEqual(report.forced_wait_ids, (0,))
         self.assertEqual(individually_feasible_move_ids(report), ())
         self.assertEqual(maximum_constraint_solutions(report), (frozenset(),))
 
-    def test_constraint_factorization_matches_target_oracle_on_small_1d_domain(self):
+    def test_target_first_and_pairwise_factorizations_match_target_oracle_on_small_1d_domain(self):
         positions = [-2, -1, 0, 1, 2]
         steps = [(-1, 0), (0, 0), (1, 0)]
         for points in combinations(positions, 3):
@@ -95,20 +101,24 @@ class MotionActionConstraintTests(unittest.TestCase):
                     BodyMotion2D(body, step)
                     for body, step in zip(bodies, proposed, strict=True)
                 ]
-                report = binary_motion_constraints(motions)
+                pairwise = binary_motion_constraints(motions)
+                target_first = binary_motion_constraints_target_first(motions)
+                self.assertEqual(target_first, pairwise, (points, proposed))
                 self.assertEqual(
-                    maximum_constraint_solutions(report),
+                    maximum_constraint_solutions(target_first),
                     maximum_conflict_free_move_sets(motions),
-                    (points, proposed, report),
+                    (points, proposed, target_first),
                 )
 
-    def test_initial_overlap_is_rejected(self):
+    def test_initial_overlap_is_rejected_by_both_builders(self):
         motions = [
             BodyMotion2D(Body2D(0, 0, 0, 1), (0, 0)),
             BodyMotion2D(Body2D(1, 1, 0, 1), (0, 0)),
         ]
         with self.assertRaises(ValueError):
             binary_motion_constraints(motions)
+        with self.assertRaises(ValueError):
+            binary_motion_constraints_target_first(motions)
 
 
 if __name__ == "__main__":
