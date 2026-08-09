@@ -1,3 +1,4 @@
+import itertools
 import unittest
 
 from enterprise_math.contraction_atlas import (
@@ -6,6 +7,10 @@ from enterprise_math.contraction_atlas import (
     chart_matrix,
     imbalance_tags,
     internal_block_sizes,
+    recover_leaf_totals_from_split_flows,
+    split_flow_coordinates,
+    split_flow_transform_determinant,
+    split_flows_to_preorder_imbalances,
 )
 
 
@@ -29,6 +34,8 @@ class ContractionAtlasTests(unittest.TestCase):
         self.assertEqual(chart_index_product(balanced), 16)
         self.assertEqual(chart_index_identity(chain), (24, 24))
         self.assertEqual(chart_index_identity(balanced), (16, 16))
+        self.assertEqual(split_flow_transform_determinant(chain), 24)
+        self.assertEqual(split_flow_transform_determinant(balanced), 16)
 
     def test_chart_determinant_equals_internal_size_product(self):
         for leaf_count in range(1, 7):
@@ -36,6 +43,45 @@ class ContractionAtlasTests(unittest.TestCase):
             for tree in ordered_binary_trees(labels):
                 determinant, product = chart_index_identity(tree)
                 self.assertEqual(determinant, product, msg=tree)
+                self.assertEqual(
+                    split_flow_transform_determinant(tree),
+                    product,
+                    msg=tree,
+                )
+
+    def test_split_flow_chart_accepts_arbitrary_integer_coordinates(self):
+        trees = (
+            (((0, 1), 2), 3),
+            ((0, 1), (2, 3)),
+            (0, (1, (2, 3))),
+        )
+        for tree in trees:
+            for root_total in range(-3, 4):
+                for flows in itertools.product(range(-2, 3), repeat=3):
+                    leaves = recover_leaf_totals_from_split_flows(
+                        tree, root_total, flows
+                    )
+                    self.assertEqual(sum(leaves.values()), root_total)
+                    self.assertEqual(split_flow_coordinates(tree, leaves), flows)
+
+    def test_split_flow_to_imbalance_tags_matches_leaf_state(self):
+        tree = ((0, 1), (2, 3))
+        for root_total in range(-3, 4):
+            for flows in itertools.product(range(-2, 3), repeat=3):
+                leaves = recover_leaf_totals_from_split_flows(
+                    tree, root_total, flows
+                )
+                preorder_tags = split_flows_to_preorder_imbalances(
+                    tree, root_total, flows
+                )
+                left_total = leaves[0] + leaves[1]
+                right_total = leaves[2] + leaves[3]
+                expected = (
+                    right_total * 0 + 2 * left_total - 2 * root_total,
+                    leaves[0] - leaves[1],
+                    leaves[2] - leaves[3],
+                )
+                self.assertEqual(preorder_tags, expected)
 
     def test_chart_matrix_maps_zero_sum_basis_to_tags(self):
         tree = ((0, 1), (2, 3))
