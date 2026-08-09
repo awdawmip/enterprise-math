@@ -1,7 +1,7 @@
 # Enterprise Math Current Research Branch Ledger
 
 Status: `CANONICAL OWNER-ISOLATION LEDGER / CURRENT WRITE SURFACE`  
-Routing snapshot base: `main@fc81a15a0fc7a76d1d2b44e7d9a41b699863ef22`  
+Routing snapshot base: `main@aec7f625e48eb8f93ba701ba57686a9e225efd17`  
 Prior canonical ledger refreshes: PR #196, PR #215  
 Date: 2026-08-09
 
@@ -26,11 +26,12 @@ Current `main` includes, among other already-canonical assets:
 - P021 causal-boundary core;
 - P022 `A_p` / root-lattice geometry core;
 - P022 geodesic-multiplicity + HCP executable core via PR #262 / `fc81a15a`;
+- P022 Barlow stacking executable core via PR #288 / `aec7f625`;
 - P018 centered-prime-radius executable layer via PR #270 / `b4801960`;
 - Owner-Isolation, scope-aware branch auditing, scheduler / handoff control and Foundation Steward rules;
 - the current canonical E001 finite material/world slices already registered in the owner registry and shared-surface machinery.
 
-A fresh two-file P022 Barlow stacking L4 is open as PR #288. It is not canonical until its exact current-head gates pass and the PR merges.
+The next bounded P022 publication is task-relative Barlow precision. Its validated two-blob payload from source PR #265 has been replayed onto `main@aec7f625` as fresh L4 PR #292; it remains non-canonical until the exact current-head promotion gates pass and the PR merges.
 
 ## 2. Current active semantic write surface: 13 routes
 
@@ -56,8 +57,8 @@ The machine owner registry currently contains thirteen `ACTIVE_OWNER` / `ACTIVE_
 
 4. `program/p022-geometry-v2`
    - intrinsic discrete geometry owner;
-   - `A_p` lattice and geodesic/HCP executable layers are canonical;
-   - Barlow and later observation/collision/repair work remain same-owner research unless a theorem is rehomed by weakest hypotheses.
+   - `A_p` lattice, geodesic/HCP and Barlow stacking executable layers are canonical;
+   - Barlow precision/growth/coordination and later observation/collision/repair work remain same-owner research unless a theorem is rehomed by weakest hypotheses.
 
 5. `program/p024-action-precision`
    - state/action-language precision specializations;
@@ -154,9 +155,10 @@ P022 remains one geometry theorem home, but publication is sliced by dependency 
 
 1. **`A_p` / root-lattice geometry** — canonical before this snapshot.
 2. **Geodesic multiplicity + HCP executable core** — canonical through PR #262 / `fc81a15a`.
-3. **Barlow stacking executable core** — validated source PR #261; exact two-blob latest-main replay is PR #288. Source and replay blob SHAs were rechecked equal. #261 is validation provenance, not a merge vehicle.
-4. **Barlow precision / periodic growth / coordination-observable descendants** — remain stacked validation/research sources; promote only in dependency order after their prerequisites are canonical and only by fresh bounded L4 payloads.
-5. Current observation-history / collision / repair research on `program/p022-geometry-v2` remains independent owner work and is coordinated by scheduler Issue #240.
+3. **Barlow stacking executable core** — canonical through fresh two-blob L4 PR #288 / `aec7f625`; validation PR #261 is closed publication provenance.
+4. **Barlow task-relative precision** — source PR #265 is independently three-gate green; its exact two frozen blobs are under current L4 promotion in PR #292.
+5. **Periodic growth and coordination observables** — stacked validation PRs #267 and #269 are independently three-gate green, but must remain non-merge sources until their prerequisite layers are canonical; each later publication must be a separate bounded L4.
+6. Current observation-history / collision / repair research on `program/p022-geometry-v2` remains independent owner work and is coordinated by scheduler Issue #240.
 
 ## 6. Scope-audit corrections relative to the older 12-route ledger
 
@@ -165,7 +167,7 @@ The current machine routing changes the earlier ledger in four material ways:
 1. `core/a3-relation-lattice-v3` is now an active A3 owner generation.
 2. E001 pair-impulse and multi-action generations are provenance, not active owners.
 3. `engineering/e001-material-contact-network` and `engineering/e001-measurement-area-refinement` are the current bounded E001 owner generations replacing those exhausted write points.
-4. P022 geodesic/HCP is no longer merely queued owner-side research: it is canonical as of #262; Barlow is the bounded next publication slice.
+4. P022 geodesic/HCP and Barlow stacking are canonical; Barlow precision is the bounded next publication slice rather than another broad-owner merge.
 
 Therefore the live semantic surface is thirteen routes at this snapshot, even though many more Git refs and open PRs exist for validation, provenance or stacked research.
 
