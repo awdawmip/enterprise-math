@@ -166,6 +166,151 @@ P023 给出这一差异的一般 quotient / congruence 判据。P024 给出整�
 
 特别地，即使名义测量尺度没有变化，动作语言与状态拓扑也可以改变最小未来安全精度。这首先是一条关于**预测充分性**的数学结论，并不自动等于“自然的物理本体会随任务任意变化”的物理主张。
 
+## 五-B、未来充分性的四条结构原则
+
+P007/P008/P018/P023/P024 与 P017/E002 的交叉研究已经把“五-A”的抽象定义进一步压成四条可直接使用的数学原则。这些原则属于证明状态与 quotient 的数学，不自动升级为物理本体公理。
+
+### 1. 状态向前，边界与证明义务向后
+
+若前向动作 `F` 存在左伴随 `lambda_F`：
+
+\[
+\lambda_F(b)\le x
+\iff
+b\le F(x),
+\]
+
+则未来阈值 `b` 在当前状态上的精确义务就是 `lambda_F(b)`。
+
+因此 forward dynamics 与 query obligation 具有相反的复合方向：
+
+\[
+\boxed{
+\lambda_{G\circ F}
+=
+\lambda_F\circ\lambda_G.
+}
+\]
+
+P008 的整数根、整数商与 P024 的 boundary pullback 因而属于同一结构：算术状态向前演化，未来查询的边界反向搬运。
+
+### 2. 不交换缺陷是精确 repair state，而不是近似误差
+
+如果粗表示 `q` 与未来动作 `F` 不能满足
+
+\[
+q\circ F=\bar F\circ q,
+\]
+
+正确做法不是把差异叫作“误差”，也不是默认恢复完整 fine state，而是只保留 coarse fiber 内真正决定 `q(F(x))` 的最小 repair。
+
+P018/P023 已出现的 carry、borrow、crossing bit、commutation defect 都是这种**精确有限 witness**。
+
+因此基础研究默认采用：
+
+\[
+\boxed{
+\text{defect}=\text{explicit finite information obligation},
+}
+\]
+
+而不是“隐藏真值与近似值之间的连续误差”。
+
+### 3. actual image 优先于 candidate superset
+
+若状态带有 shell label `i` 且内部坐标属于 `W_i`，则经过后续映射 `G` 后，shell label 能从保留坐标恢复，当且仅当不同 shell 的真实 images 两两不交：
+
+\[
+\boxed{
+G(W_i)\cap G(W_j)=\varnothing
+\qquad(i\ne j).
+}
+\]
+
+因此，用一个严格更大的 candidate superset 替代 actual image，可能制造原状态系统从未实现的 collision 与 multiplicity。
+
+这意味着 coarse representation 不只是“少看一些信息”；不受控制的 over-approximation 还可能**主动制造假结构**。
+
+### 4. 有限性首先可以是任务局部的
+
+未来安全演算不要求整个状态宇宙有限。
+
+只要本次任务真正访问的 state orbit、boundary orbit、quotient window、guard slice 或 fixed interval 落在有限闭包中，就可以获得完全有限、精确的证明过程。
+
+例如 P019 的自然数 collapse orbit 被困在
+
+\[
+[C_L(n_0),n_0]
+\]
+
+中；P024 则只要求相关 boundary orbit 达到有限闭包。
+
+所以更弱、更适合基础层的研究目标是
+
+\[
+\boxed{
+\text{task-local finite closure},
+}
+\]
+
+而不是预设全局有限世界。
+
+## 五-C、一个数论反例：粗化会制造假 collision
+
+P017 的连续平方盆地给出目前最清楚的纯整数例子。
+
+对 least prime `p`，exact stripped cofactor window 为
+
+\[
+W_p(k)=
+\left[
+\left\lfloor\frac{k^2}{p}\right\rfloor+1,
+\left\lfloor\frac{k(k+2)}{p}\right\rfloor
+\right].
+\]
+
+P007 的 quotient-window 母定理与 P017 L054 给出：
+
+\[
+\boxed{k\ge4\Longrightarrow W_p(k)\text{ 跨 prime shells 两两不交}.}
+\]
+
+因此 exact cofactor `q=n/p` 已经编码 least-prime shell label。
+
+若把每个窗口经过平方根后的真实 image 进一步扩大成候选 pair `{j_p,j_p+1}`，L052 需要到
+
+\[
+k\ge15
+\]
+
+才保证这些粗候选对不交。
+
+但保留 exact window 再计算真实 root image，新 L055 证明实际 lower-band shell images 从
+
+\[
+\boxed{k\ge9}
+\]
+
+起已经两两不交；`k=8,p=2,r=3,root=5` 是 sharp witness。
+
+因此三个阈值描述的是三种不同的状态精度：
+
+\[
+\boxed{
+\text{exact quotient}:4,
+\qquad
+\text{actual root image}:9,
+\qquad
+\text{enlarged candidate pair}:15.
+}
+\]
+
+它们并不矛盾。相反，它们严格展示：
+
+> **降低结构精度可以制造原系统不存在的碰撞；保留真正相关的 exact subwindow 可以消除这些假碰撞。**
+
+这是一条关于证明状态充分性的数学事实，不应自动解释成物理世界会按研究任务改变本体。
+
 ## 六、不预设传统恒等式
 
 由于整数根不是乘方运算的双侧逆，传统实数体系中的恒等式必须重新证明，不能直接搬入。
@@ -263,6 +408,8 @@ L_B(m)=\min\{\ell\in\mathbb N_0:m\le B^\ell\},
 7. 哪些已知实验事实会直接反驳本体不可逆的数学底层？
 8. 微积分中的哪些结构可以重建成有限尺度的差分与累积运算？
 9. 哪些未来安全精度对象存在紧凑的结构化表示，哪些情形必须保留非均匀边界层或局域 detail？
+10. 哪些 infinite state systems 的声明任务具有有限 boundary/orbit closure，从而允许完全有限的精确编译？
+11. 怎样系统量化 candidate superset 相对 actual image 制造的 false-collision / false-multiplicity 成本？
 
 ## 十、状态纪律
 
