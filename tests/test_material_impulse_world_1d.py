@@ -75,7 +75,7 @@ class MaterialImpulseWorld1DTests(unittest.TestCase):
             momentum = step.momentum_after
             detail = step.impulse.detail_after
             statuses.append(step.status_after)
-        self.assertEqual(statuses, (APPROACHING, STOPPED, STOPPED, REBOUND))
+        self.assertEqual(statuses, [APPROACHING, STOPPED, STOPPED, REBOUND])
         self.assertEqual(momentum, 1)
 
         dropped_momentum = -1
