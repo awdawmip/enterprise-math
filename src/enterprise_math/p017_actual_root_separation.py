@@ -1,7 +1,7 @@
 """Actual lower-band root images for the P017 square basin.
 
 Unlike the two-point candidate pair used by L052, this module keeps the exact
-cofactor window before applying the square-root coordinate.  It is the
+cofactor window before applying the square-root coordinate. It is the
 executable companion to L055.
 """
 
@@ -26,11 +26,12 @@ def is_prime(n: int) -> bool:
 
 
 def lower_band_primes(k: int) -> tuple[int, ...]:
-    """Primes ``p <= k`` satisfying the P017 lower-band condition ``p^2 < 2k``."""
+    """Primes satisfying the P017 lower-band condition ``p^2 < 2k``."""
 
     if k < 1:
         raise ValueError("k must be positive")
-    return tuple(p for p in range(2, k + 1) if p * p < 2 * k and is_prime(p))
+    limit = isqrt(2 * k - 1)
+    return tuple(p for p in range(2, limit + 1) if is_prime(p))
 
 
 def actual_root_image_of_window(window: IntegerWindow | None) -> frozenset[int]:
