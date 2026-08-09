@@ -16,13 +16,11 @@ def intervalMap (L : α → α) (hmono : Monotone L) (hext : ∀ z, z ≤ L z)
     {x y : α} (hxy : x ≤ y) (hyfix : L y = y) :
     {z : α // z ∈ Finset.Icc x y} → {z : α // z ∈ Finset.Icc x y} := fun z => by
   refine ⟨L z.1, ?_⟩
-  rw [Finset.mem_Icc]
-  rw [Finset.mem_Icc] at z
-  constructor
-  · exact z.2.1.trans (hext z.1)
-  · calc
-      L z.1 ≤ L y := hmono z.2.2
-      _ = y := hyfix
+  have hz := Finset.mem_Icc.mp z.2
+  exact Finset.mem_Icc.mpr ⟨hz.1.trans (hext z.1), by
+    calc
+      L z.1 ≤ L y := hmono hz.2
+      _ = y := hyfix⟩
 
 @[simp]
 theorem intervalMap_val (L : α → α) (hmono : Monotone L) (hext : ∀ z, z ≤ L z)
@@ -79,18 +77,20 @@ theorem exists_iterate_isLeast_of_fixed_upper_bound
   refine ⟨n, ?_⟩
   have hval : ((Lβ^[n]) xβ).1 = (L^[n]) x := by
     exact intervalMap_iterate_val L hmono hext hxy hyfix xβ n
+  have hcandIcc := Finset.mem_Icc.mp ((Lβ^[n]) xβ).2
   constructor
-  · have hmem := hn.1
-    rw [Finset.mem_Icc] at hmem
-    constructor
-    · have hfixβ := hn.1.1
-      apply Subtype.ext_iff.mp at hfixβ
-      change L ((Lβ^[n]) xβ).1 = ((Lβ^[n]) xβ).1 at hfixβ
-      simpa [hval] using hfixβ
+  · constructor
+    · have hfixval := congrArg Subtype.val hn.1.1
+      change L ((Lβ^[n]) xβ).1 = ((Lβ^[n]) xβ).1 at hfixval
+      rw [hval] at hfixval
+      exact hfixval
     · constructor
       · have hxle : xβ ≤ (Lβ^[n]) xβ := hn.1.2
-        exact hval ▸ hxle
-      · exact hval ▸ hmem.2
+        change x ≤ ((Lβ^[n]) xβ).1 at hxle
+        rw [hval] at hxle
+        exact hxle
+      · rw [hval] at hcandIcc
+        exact hcandIcc.2
   · intro z hz
     let zβ : β := ⟨z, Finset.mem_Icc.mpr ⟨hz.2.1, hz.2.2⟩⟩
     have hzfixβ : Lβ zβ = zβ := by
@@ -98,6 +98,8 @@ theorem exists_iterate_isLeast_of_fixed_upper_bound
       exact hz.1
     have hxzβ : xβ ≤ zβ := hz.2.1
     have hleastβ : (Lβ^[n]) xβ ≤ zβ := hn.2 ⟨hzfixβ, hxzβ⟩
-    exact hval ▸ hleastβ
+    change ((Lβ^[n]) xβ).1 ≤ z at hleastβ
+    rw [hval] at hleastβ
+    exact hleastβ
 
 end EnterpriseMath.LocallyFiniteBoundedStabilization
