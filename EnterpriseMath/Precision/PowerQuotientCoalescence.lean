@@ -28,7 +28,7 @@ theorem pow_succ_le_pow_add_tangent (t r : ℕ) :
               ring
         _ ≤ t ^ (r + 1) + (t + 1) ^ r + r * (t + 1) ^ r := by
           gcongr
-          exact Nat.pow_le_pow_left (Nat.le_succ t) r
+          omega
         _ = t ^ (r + 1) + (r + 1) * (t + 1) ^ r := by ring
 
 /-- Collision-scale lemma with the sharp root-order constant.
@@ -45,8 +45,10 @@ theorem divisor_collision_root_scale
     (hcollision : (d + 1) * t ^ (s + 1) < d * (t + 1) ^ (s + 1)) :
     t + 1 < (s + 1) * (d + 1) := by
   by_contra hnot
-  have hCoeff : (d + 1) * (s + 1) ≤ t + 1 := by
+  have hCoeff' : (s + 1) * (d + 1) ≤ t + 1 := by
     omega
+  have hCoeff : (d + 1) * (s + 1) ≤ t + 1 := by
+    simpa [Nat.mul_comm] using hCoeff'
   have hStep := pow_succ_le_pow_add_tangent t (s + 1)
   have hScaled :
       (d + 1) * (t + 1) ^ (s + 1) ≤
@@ -71,7 +73,7 @@ theorem divisor_collision_root_scale
         d * (t + 1) ^ (s + 1) + (t + 1) ^ (s + 1) ≤
           (d + 1) * t ^ (s + 1) + (t + 1) ^ (s + 1) := by
       simpa [Nat.add_mul, Nat.one_mul, Nat.add_assoc] using hCombined
-    exact (Nat.add_le_add_iff_right ((t + 1) ^ (s + 1))).1 hCancel
+    omega
   omega
 
 /-- All-power cross-divisor quotient-root coalescence law.
@@ -92,6 +94,7 @@ theorem power_basin_distinct_divisor_root_collision
     (hroot : root (s + 1) (n / d) = root (s + 1) (n / e)) :
     (root (s + 1) (n / d)) ^ (s + 2) < (s + 1) * (k + 1) ^ p := by
   let t := root (s + 1) (n / d)
+  change t ^ (s + 2) < (s + 1) * (k + 1) ^ p
   have hd0 : 0 < d := by omega
   have he0 : 0 < e := by omega
   have hRootE : root (s + 1) (n / e) = t := by
