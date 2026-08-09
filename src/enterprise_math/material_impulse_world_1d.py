@@ -111,12 +111,7 @@ def _branch_from_motion(
 
 
 def _motion_reversed(before: int, after: int, start_side: int) -> bool:
-    """Whether this tick first enters nonzero outward whole momentum.
-
-    ``before`` may already be the finite zero-momentum stall state.  That stall
-    must not hide a later material-driven outward onset, so the previous state is
-    required only to be *not outward*, rather than strictly inward.
-    """
+    """Whether this tick first enters nonzero outward whole momentum."""
     return before * start_side <= 0 and after * start_side > 0
 
 
@@ -198,9 +193,7 @@ def impulse_material_step_1d(
         samples = material_profile.loading if branch == LOADING else material_profile.returning
         sample = samples[depth]
         if sample == 0:
-            # A represented material state with zero force is not a kick.  Keep
-            # the state evidence (depth/sample) while leaving momentum and the
-            # impulse-detail coordinate exactly unchanged.
+            # The material state is sampled but exerts exactly zero force.
             kind = MATERIAL_ZERO_FORCE
         else:
             impulse = project_material_impulse(
@@ -256,15 +249,15 @@ def impulse_material_step_1d(
         before=state,
         after=after,
         kind=kind,
-        start_center if False else state.center,
-        end_center if False else end_gap,
-        depth,
-        sample,
-        impulse,
-        drift,
-        start_side,
-        end_side,
-        reversed_now,
+        start_clearance=start_gap,
+        end_clearance=end_gap,
+        layer_depth=depth,
+        response_sample=sample,
+        impulse=impulse,
+        drift_cells=drift,
+        start_side=start_side,
+        end_side=end_side,
+        momentum_reversed=reversed_now,
     )
 
 
