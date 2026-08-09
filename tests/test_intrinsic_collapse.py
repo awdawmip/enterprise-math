@@ -1,5 +1,7 @@
 import unittest
 
+from enterprise_math.common_collapse import iter_terminal_collapse_targets
+from enterprise_math.engineering_collision import Body2D
 from enterprise_math.geometry import graph_distance
 from enterprise_math.intrinsic_collapse import (
     graph_collapse_targets,
@@ -57,6 +59,50 @@ class IntrinsicCollapseTests(unittest.TestCase):
         right = graph_collapse_targets(self.graph, "g", 3)
         self.assertEqual(shared, left.intersection(right))
         self.assertTrue(shared)
+
+    def test_pairwise_collisions_need_not_have_one_three_body_witness(self):
+        # Radius-1 balls centered at 0,2,4 on C5 intersect pairwise but have
+        # empty triple intersection.  Pair collision data therefore does not in
+        # general determine higher-order common-collapse witnesses.
+        cycle5 = {
+            0: {1, 4},
+            1: {0, 2},
+            2: {1, 3},
+            3: {2, 4},
+            4: {3, 0},
+        }
+        supports = [graph_collapse_targets(cycle5, center, 1) for center in (0, 2, 4)]
+        self.assertTrue(supports[0].intersection(supports[1]))
+        self.assertTrue(supports[1].intersection(supports[2]))
+        self.assertTrue(supports[0].intersection(supports[2]))
+        self.assertFalse(supports[0].intersection(supports[1]).intersection(supports[2]))
+
+    def test_e001_square_target_is_graph_ball_of_king_move_adjacency(self):
+        # This derives the existing square-body support from primitive adjacency:
+        # on the 8-neighbor integer lattice, one primitive step changes each
+        # coordinate by at most one, and the graph ball is exactly the finite
+        # Chebyshev square used by E001.
+        points = [(x, y) for x in range(-5, 6) for y in range(-5, 6)]
+        point_set = set(points)
+        king_graph = {}
+        for x, y in points:
+            neighbors = {
+                (x + dx, y + dy)
+                for dx in (-1, 0, 1)
+                for dy in (-1, 0, 1)
+                if (dx, dy) != (0, 0) and (x + dx, y + dy) in point_set
+            }
+            king_graph[(x, y)] = neighbors
+
+        body = Body2D(0, 0, 0, 3)
+        graph_targets = graph_collapse_targets(king_graph, (body.x, body.y), body.radius)
+        e001_targets = frozenset(iter_terminal_collapse_targets(body))
+        self.assertEqual(graph_targets, e001_targets)
+        for target in e001_targets:
+            self.assertEqual(
+                graph_distance(king_graph, (0, 0), target),
+                max(abs(target[0]), abs(target[1])),
+            )
 
     def test_invalid_graph_inputs_are_rejected(self):
         with self.assertRaises(ValueError):
