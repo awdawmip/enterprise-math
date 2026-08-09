@@ -1,0 +1,271 @@
+# A3 ↔ A4 ↔ A2/P023 Bridge — Supplement 06
+
+Status: `ACTIVE RESEARCH NOTE`  
+Scope: arbitrary finite stage-depth budget frontiers and the future-depth collapse theorem
+
+## 1. From two stages to `k` stages
+
+Stage 05 treated two support stages. The construction has an exact finite-depth extension.
+
+Fix integer `k>=1`, endpoints `x,z`, and a budget vector
+
+\[
+\mathbf r=(r_1,\ldots,r_k)\in\mathbb N^k.
+\]
+
+A represented `k`-stage chain is
+
+\[
+x=x_0,x_1,\ldots,x_{k-1},x_k=z.
+\]
+
+Its exact cost vector is
+
+\[
+\boxed{
+\mathbf c(x_0,\ldots,x_k)
+=(\rho(x_0,x_1),\ldots,\rho(x_{k-1},x_k)).
+}
+\]
+
+The chain fits budget `r` iff its cost vector is coordinatewise below `r`.
+
+## 2. B21 — `k`-stage Pareto frontier
+
+Let `C^(k)_xz` be the finite set of all cost vectors of represented `k`-stage chains from `x` to `z` and define
+
+\[
+\boxed{
+F^{(k)}_{xz}
+=\operatorname{Min}_{\preceq} C^{(k)}_{xz}
+\subset\mathbb N^k.
+}
+\]
+
+Then
+
+\[
+\boxed{
+(x,z)\in R_{r_1};\cdots;R_{r_k}
+\iff
+\exists\mathbf a\in F^{(k)}_{xz}:\mathbf a\preceq\mathbf r.
+}
+\]
+
+The proof is the same finite upward-closure argument as B13: dominated chain-cost vectors never change a budget query.
+
+For `k=1`, the frontier is the singleton
+
+\[
+F^{(1)}_{xz}=\{(\rho(x,z))\}.
+\]
+
+For `k=2`, B21 is exactly the Stage-05 frontier `F_xz`.
+
+## 3. B22 — task-minimality at fixed future depth
+
+The complete truth function
+
+\[
+H^{(k)}_{xz}(\mathbf r)
+=1[(x,z)\in R_{r_1};\cdots;R_{r_k}]
+\]
+
+uniquely determines `F^(k)_xz` as its coordinatewise-minimal true budgets, and the frontier reconstructs the truth function.
+
+Therefore, up to finite re-encoding,
+
+\[
+\boxed{F^{(k)}_{xz}}
+\]
+
+is the P023 task-minimal coordinate for the complete `k`-stage integer-budget language on that endpoint pair.
+
+This gives a precise **future-language depth filtration**:
+
+\[
+F^{(1)},F^{(2)},F^{(3)},\ldots
+\]
+
+The filtration is semantic rather than merely numerical: a state sufficient at depth one need not be sufficient at depth two.
+
+## 4. Triangle simplex boundary
+
+For every cost vector
+
+\[
+\mathbf a=(a_1,\ldots,a_k)\in C^{(k)}_{xz},
+\]
+
+repeated triangle inequality gives
+
+\[
+\boxed{
+\sum_{t=1}^k a_t\ge\rho(x,z).
+}
+\]
+
+Let `n=rho(x,z)` and define the integer simplex layer of weak compositions
+
+\[
+\boxed{
+\Sigma_k(n)
+=\left\{
+(a_1,\ldots,a_k)\in\mathbb N^k:
+\sum_t a_t=n
+\right\}.
+}
+\]
+
+Every element of `Sigma_k(n)` is pairwise incomparable with every distinct element under coordinatewise order.
+
+## 5. B23 — geodesic future-depth collapse theorem
+
+Assume the Stage-03 global geodesic condition
+
+\[
+d_{G1}=\rho,
+\]
+
+equivalently A4 split-completeness for every two-stage integer budget split.
+
+Then for every `k>=1`, every endpoint pair `x,z`, and every budget vector `r`,
+
+\[
+\boxed{
+R_{r_1};\cdots;R_{r_k}
+=R_{r_1+\cdots+r_k}.
+}
+\]
+
+Equivalently,
+
+\[
+\boxed{
+F^{(k)}_{xz}=\Sigma_k(\rho(x,z)).
+}
+\]
+
+### Proof
+
+Let `n=rho(x,z)` and choose a unit geodesic of length `n`.
+
+For every weak composition
+
+\[
+n=a_1+\cdots+a_k,
+\]
+
+cut the unit geodesic after cumulative lengths
+
+\[
+a_1,\ a_1+a_2,\ldots.
+\]
+
+The selected intermediate vertices realize exact segment costs `(a_1,...,a_k)`. Thus every point in `Sigma_k(n)` is represented.
+
+Conversely any represented chain cost has coordinate sum at least `n`. Given any non-negative vector `c` with sum at least `n`, one can choose a weak composition `a` of `n` satisfying `a_t<=c_t` coordinatewise by distributing `n` units inside the available coordinate capacities. The corresponding exact geodesic cost therefore dominates no simplex point; rather, a simplex point lies below every cost. Hence all above-simplex costs are Pareto-dominated, and the frontier is exactly `Sigma_k(n)`.
+
+For a budget vector `r`, a weak composition of `n` fits under `r` iff
+
+\[
+n\le\sum_t r_t.
+\]
+
+Therefore the `k`-fold relation product equals `R_(sum r)`.
+
+## 6. Converse and exact compression meaning
+
+The `k=2` case of B23 is Stage-03 split-completeness. Therefore the following are equivalent:
+
+1. the radius-one graph realizes `rho` intrinsically;
+2. every two-stage budget language collapses to total budget;
+3. every finite-stage budget language collapses to total budget.
+
+So geodesicity is not merely a geometric nicety. It is an exact **future-depth compression theorem**:
+
+> once geodesicity is proved, endpoint `rho` plus the sum of future budgets is sufficient for support composition at every finite depth.
+
+No intermediate witness identity or higher-dimensional frontier must be retained for this operation language.
+
+When geodesicity fails, the failure already appears at depth two, and richer antichain state is required for exact staged semantics.
+
+## 7. Canonical frontier size versus information size
+
+The geodesic frontier has
+
+\[
+|\Sigma_k(n)|=\binom{n+k-1}{k-1}
+\]
+
+canonical antichain points.
+
+This does **not** mean the minimal information state must store all those points. Under the proved geodesic law, the whole simplex is generated by the single scalar `n=rho(x,z)`.
+
+This distinction is important:
+
+- a canonical explicit truth-boundary representation may be large;
+- a structural theorem can compress it dramatically.
+
+This is exactly the kind of compression Enterprise Math seeks: remove detail only after proving the law that reconstructs all required future behavior.
+
+## 8. Negative example
+
+For represented unit states `{0,2}`, `rho(0,2)=2` but the midpoint is absent.
+
+At depth `k=3`, the exact simplex layer is
+
+\[
+\Sigma_3(2)=
+\{(2,0,0),(1,1,0),(1,0,1),(0,2,0),(0,1,1),(0,0,2)\}.
+\]
+
+Only the three endpoint-stuttering costs
+
+\[
+(2,0,0),\quad(0,2,0),\quad(0,0,2)
+\]
+
+are Pareto-minimal. The three costs containing two unit stages are missing because no midpoint state exists.
+
+Thus knowing only `rho=2` does not reconstruct depth-three semantics without the geodesic/split-complete theorem.
+
+## 9. Relation to the A3 piecewise non-monotonicity result
+
+The future-depth collapse theorem is a theorem about one declared operation language: compositions of the generated support relations with additive integer budgets.
+
+It must **not** be generalized to “more precision is always safer.” A3 piecewise affine research has independently proved that exact quotient compatibility can be lost under an arbitrary refinement when branch effects become visible before the hidden selector becomes visible.
+
+Therefore the correct project-wide rule remains:
+
+\[
+\boxed{
+\text{refine according to the declared future semantics and prove factorization.}
+}
+\]
+
+## 10. Cross-route consequences
+
+### A2/P023
+
+B23 is an explicit example where a structural compatibility theorem collapses an infinite family of finite-depth future queries to one scalar state coordinate.
+
+### A4
+
+Split-completeness is now seen as closure under arbitrary finite support-word composition, not only one two-stage equality.
+
+### A5/P022
+
+A geometry satisfying `Gamma=0` automatically gets exact additive support composition at every finite stage. Geometry with holes requires richer future state.
+
+### P018
+
+This gives a clean example of “precision detail disappears after a closure theorem”: the need for higher-stage antichains is a semantic defect, not an intrinsic demand to store all possible paths.
+
+## 11. Prior-art discipline
+
+Relation powers, path metrics, weak compositions and Pareto antichains are established mathematics. The project-specific contribution under test is their integration into the A3→A4→P023 legal-collapse chain and the interpretation of geodesicity as a finite-future state-compression certificate.
+
+## 12. Executable reference
+
+The reference layer adds a generic `k`-stage Pareto frontier and checks the simplex-collapse theorem on finite examples.
