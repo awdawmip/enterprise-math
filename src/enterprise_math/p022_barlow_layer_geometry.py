@@ -13,6 +13,8 @@ filled-slice cardinality retains the anisotropy ``long-short=d``.
 
 from __future__ import annotations
 
+from math import isqrt
+
 from .p022_barlow_coordination import barlow_vertical_support_size
 
 
@@ -64,19 +66,14 @@ def layer_ball_vertex_count(
 ) -> int:
     """Exact vertex count in the radius ball restricted to one target layer.
 
-    Put ``P=2n-|k|`` and ``d=|delta_k|``.  The drifted hex is
+    Put ``P=2n-|k|`` and ``d=|delta_k|``. The drifted hex is
     ``H_short + Delta_d`` and has
 
         4*A = 3P^2 + 6P + 4 - d^2.
     """
     _, drift = _require_state(radius, target_layer, imbalance)
     perimeter = 2 * radius - abs(target_layer)
-    numerator = (
-        3 * perimeter * perimeter
-        + 6 * perimeter
-        + 4
-        - drift * drift
-    )
+    numerator = 3 * perimeter * perimeter + 6 * perimeter + 4 - drift * drift
     if numerator % 4:
         raise AssertionError("Barlow slice count must be integral")
     return numerator // 4
@@ -87,7 +84,7 @@ def layer_shell_vertex_count(
 ) -> int:
     """Exact shell-slice cardinality from the ball-slice difference.
 
-    For ``|k|<n`` this is the boundary length ``3(2n-|k|)``.  For an extreme
+    For ``|k|<n`` this is the boundary length ``3(2n-|k|)``. For an extreme
     layer there is no radius-(n-1) slice on that layer, so the shell slice is
     the entire drifted support.
     """
@@ -103,27 +100,20 @@ def recover_absolute_imbalance_from_ball_slice_count(
     radius: int, target_layer: int, slice_vertex_count: int
 ) -> int:
     """Recover ``|delta_k|`` from the filled ball-slice cardinality."""
-    if isinstance(slice_vertex_count, bool) or not isinstance(slice_vertex_count, int) or slice_vertex_count <= 0:
+    if (
+        isinstance(slice_vertex_count, bool)
+        or not isinstance(slice_vertex_count, int)
+        or slice_vertex_count <= 0
+    ):
         raise ValueError("slice_vertex_count must be positive")
     vertical = abs(target_layer)
     if radius < 0 or vertical > radius:
         raise ValueError("target layer lies outside the radius ball")
     perimeter = 2 * radius - vertical
-    square = (
-        3 * perimeter * perimeter
-        + 6 * perimeter
-        + 4
-        - 4 * slice_vertex_count
-    )
+    square = 3 * perimeter * perimeter + 6 * perimeter + 4 - 4 * slice_vertex_count
     if square < 0:
         raise ValueError("slice count is incompatible with Barlow geometry")
-    drift = int(square ** 0.5)
-    # Avoid trusting floating sqrt: certify exactly and repair around the cast
-    # for arbitrarily large integers.
-    while (drift + 1) * (drift + 1) <= square:
-        drift += 1
-    while drift * drift > square:
-        drift -= 1
+    drift = isqrt(square)
     if drift * drift != square:
         raise ValueError("slice count does not encode an integral drift square")
     if drift > vertical or (vertical - drift) % 2:
