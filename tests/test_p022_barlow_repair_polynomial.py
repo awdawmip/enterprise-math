@@ -7,7 +7,10 @@ from enterprise_math.p022_barlow_repair_polynomial import (
     coordination_history_image_size,
     coordination_history_image_size_closed,
     evaluate_repair_polynomial,
+    maximum_fiber_microscopic_mass_fraction,
+    maximum_repair_coefficient_closed,
     microscopic_domain_from_repair_polynomial,
+    minimum_repair_coefficient_closed,
     repair_polynomial_coefficients,
     total_repair_load_from_polynomial,
 )
@@ -91,3 +94,30 @@ def test_collision_coefficients_from_repair_profile_match_direct_fiber_counts() 
                 if fiber_size >= order
             )
             assert coefficient == direct
+
+
+def test_lowest_and_highest_nonzero_coefficients_match_closed_forms() -> None:
+    for length in range(0, 30):
+        coefficients = repair_polynomial_coefficients(length)
+        if length == 0:
+            assert coefficients == (1,)
+            assert minimum_repair_coefficient_closed(length) == 1
+            assert maximum_repair_coefficient_closed(length) == 1
+            continue
+
+        assert coefficients[2] == minimum_repair_coefficient_closed(length)
+        assert len(coefficients) - 1 == length + 1
+        assert coefficients[length + 1] == maximum_repair_coefficient_closed(length)
+
+
+def test_maximum_fiber_microscopic_mass_fraction_has_closed_parity_forms() -> None:
+    assert maximum_fiber_microscopic_mass_fraction(0) == (1, 1)
+    for half in range(1, 15):
+        even = 2 * half
+        assert maximum_fiber_microscopic_mass_fraction(even) == (1, 2 ** half)
+
+        odd = 2 * half + 1
+        assert maximum_fiber_microscopic_mass_fraction(odd) == (
+            3,
+            2 ** (half + 1),
+        )
