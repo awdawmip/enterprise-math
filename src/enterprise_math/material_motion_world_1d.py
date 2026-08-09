@@ -8,7 +8,9 @@ At each tick the budget proposes one sampled displacement.  Under the declared
 policy:
 
 * ACCEPT/TRANSMIT keeps the same signed motion budget for the next tick;
-* REBOUND replaces it by the returned integer budget in the opposite direction.
+* REBOUND replaces it by the returned integer budget in the opposite direction;
+* MATERIAL_UNDERRESOLVED records the proposal and halts the represented history
+  without inventing an after-state.
 
 This persistence rule is an explicit engineering world policy, not Newton's law.
 The automaton intentionally delegates primitive endpoint contact to another
@@ -23,6 +25,7 @@ from .material_collapse_world_1d import (
     ACCEPT,
     REBOUND,
     TRANSMIT,
+    UNDERRESOLVED,
     CollapseMaterialWorldOutcome1D,
     collapse_material_wall_step,
 )
@@ -48,24 +51,26 @@ class MotionBudgetState1D:
 
 @dataclass(frozen=True)
 class MotionBudgetTransition1D:
-    """One sampled proposal/outcome and next motion state."""
+    """One sampled proposal/outcome and optional next motion state."""
 
     before: MotionBudgetState1D
     proposed_end_center: int
     wall_outcome: CollapseMaterialWorldOutcome1D
-    after: MotionBudgetState1D
+    after: MotionBudgetState1D | None
 
 
 @dataclass(frozen=True)
 class MotionBudgetHistory1D:
-    """Finite multi-tick history of the sampled material world."""
+    """Finite multi-tick history, possibly halted by material underresolution."""
 
     initial: MotionBudgetState1D
     transitions: tuple[MotionBudgetTransition1D, ...]
-    final: MotionBudgetState1D
+    final: MotionBudgetState1D | None
     rebound_count: int
     transmission_count: int
     accept_count: int
+    underresolved_count: int
+    halted_underresolved: bool
 
 
 def step_motion_budget_world(
@@ -75,7 +80,7 @@ def step_motion_budget_world(
     collapse_factor: int,
     material_profile: MaterialCurveProfile,
 ) -> MotionBudgetTransition1D:
-    """Advance one tick under explicit sampled motion-budget persistence."""
+    """Advance one represented tick, or return an explicit unresolved transition."""
     proposed = state.center + state.signed_motion_budget
     outcome = collapse_material_wall_step(
         wall,
@@ -85,6 +90,18 @@ def step_motion_budget_world(
         collapse_factor,
         material_profile,
     )
+    if outcome.kind == UNDERRESOLVED:
+        if outcome.after_center is not None or outcome.rebound is not None:
+            raise AssertionError("underresolved outcome must not invent response state")
+        return MotionBudgetTransition1D(
+            before=state,
+            proposed_end_center=proposed,
+            wall_outcome=outcome,
+            after=None,
+        )
+
+    if outcome.after_center is None:
+        raise AssertionError("resolved material wall outcome lost its after-state")
     if outcome.kind == REBOUND:
         if outcome.rebound is None:
             raise AssertionError("rebound outcome lost returned budget")
@@ -119,12 +136,14 @@ def run_motion_budget_world(
     material_profile: MaterialCurveProfile,
     ticks: int,
 ) -> MotionBudgetHistory1D:
-    """Run a fixed number of represented ticks; no hidden substeps are inserted."""
+    """Run represented ticks, halting rather than guessing on underresolution."""
     if isinstance(ticks, bool) or not isinstance(ticks, int) or ticks < 0:
         raise ValueError("ticks must be a non-negative integer")
-    state = initial
+    state: MotionBudgetState1D | None = initial
     transitions: list[MotionBudgetTransition1D] = []
     for _ in range(ticks):
+        if state is None:
+            break
         transition = step_motion_budget_world(
             state,
             wall,
@@ -134,7 +153,12 @@ def run_motion_budget_world(
         )
         transitions.append(transition)
         state = transition.after
+        if state is None:
+            break
 
+    underresolved_count = sum(
+        transition.wall_outcome.kind == UNDERRESOLVED for transition in transitions
+    )
     return MotionBudgetHistory1D(
         initial=initial,
         transitions=tuple(transitions),
@@ -148,4 +172,6 @@ def run_motion_budget_world(
         accept_count=sum(
             transition.wall_outcome.kind == ACCEPT for transition in transitions
         ),
+        underresolved_count=underresolved_count,
+        halted_underresolved=underresolved_count > 0,
     )
