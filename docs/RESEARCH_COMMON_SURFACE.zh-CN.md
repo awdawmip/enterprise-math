@@ -182,6 +182,16 @@ Executable checks 用于 proof discovery、falsification 与 regression，不能
 
 底层维护者不负责求解这些研究问题。其他研究员 claim 后返回证据，底层维护者在修改 canonical language/formula/theorem/tool 前负责重新验证回答是否足够。
 
+### 9.1 已解决的规范底层约定
+
+前三个 Foundation Question 在其解决性集成进入 `main` 后建立以下全项目统一约定：
+
+- **自然状态：** \(\mathbb N=\mathbb N_0=\{0,1,2,\ldots\}\)；正整数记为 \(\mathbb N_{>0}\)。因此裸写 \(\mathbb N\) 包含零。
+- **根/坍缩指数：** 非平凡原始族为 \(p\ge2\)；精确代数/形式化扩展为全部 \(p\ge1\)，并有 \(R_1=C_1=\operatorname{id}\)。
+- **时间：** \(T_t:X_t\to X_{t+1}\)，\(F_0=\operatorname{id}\)，且 \(F_{t+1}=T_t\circ F_t\)；等价地，对 \(t\ge1\)，\(F_t=T_{t-1}\circ\cdots\circ T_0\)。合流时间取累计像第一次相等的最小 \(t\in\mathbb N_0\)。
+
+这些是接口规范，不是新的母定理族。它们保留现有算术与历史合流结论，只消除定义域和 off-by-one 歧义。
+
 因此形成刻意分工：
 
 `foundation maintenance and verification -> FQ escalation when research is needed -> independent researcher investigation -> steward verification -> canonical propagation`。
