@@ -1,21 +1,22 @@
 import unittest
 
 from enterprise_math.p017_root_shell_repair import (
+    minimal_repair_symbol,
     minimal_root_shell_repair_alphabet_size,
+    minimally_repaired_root_images,
+    minimally_repaired_root_overlaps,
     p2_bit_matches_shell,
     p2_shell_bit,
-    repaired_root_images,
-    repaired_root_overlaps,
     root_shell_split_multiplicities,
+    uniform_repaired_root_images,
+    uniform_repaired_root_overlaps,
 )
-from enterprise_math.quotient_window import square_basin_window
 
 
 class RootShellRepairTests(unittest.TestCase):
-    def test_complete_small_collision_classification_is_pinned(self) -> None:
+    def test_complete_small_actual_collision_classification_is_pinned(self) -> None:
         expected = {
             5: {3: 2},
-            6: {4: 2},
             8: {5: 2},
         }
         actual = {}
@@ -29,43 +30,66 @@ class RootShellRepairTests(unittest.TestCase):
                 actual[k] = splits
         self.assertEqual(actual, expected)
 
+    def test_k6_has_no_realized_root_shell_split(self) -> None:
+        self.assertTrue(
+            all(value == 1 for value in root_shell_split_multiplicities(6).values())
+        )
+        self.assertEqual(minimal_root_shell_repair_alphabet_size(6), 1)
+
     def test_p2_bit_is_exact_shell_indicator(self) -> None:
         for k in range(4, 500):
             self.assertTrue(p2_bit_matches_shell(k), k)
 
-    def test_p2_threshold_separates_actual_p2_and_p3_windows(self) -> None:
-        for k in range(4, 100):
-            w2 = square_basin_window(k, 2)
-            if w2 is not None:
-                self.assertTrue(
-                    all(p2_shell_bit(k, q) == 1 for q in range(w2.lo, w2.hi + 1)),
-                    k,
-                )
-            w3 = square_basin_window(k, 3)
-            if w3 is not None:
-                self.assertTrue(
-                    all(p2_shell_bit(k, q) == 0 for q in range(w3.lo, w3.hi + 1)),
-                    k,
-                )
+    def test_uniform_p2_feature_repairs_all_realized_shells(self) -> None:
+        for k in range(4, 1000):
+            self.assertEqual(
+                uniform_repaired_root_overlaps(k),
+                (),
+                (k, uniform_repaired_root_overlaps(k)),
+            )
 
-    def test_repaired_root_images_are_disjoint_from_k4_onward(self) -> None:
-        for k in range(4, 2000):
-            self.assertEqual(repaired_root_overlaps(k), (), (k, repaired_root_overlaps(k)))
+    def test_minimal_repair_repairs_all_realized_shells(self) -> None:
+        for k in range(4, 1000):
+            self.assertEqual(
+                minimally_repaired_root_overlaps(k),
+                (),
+                (k, minimally_repaired_root_overlaps(k)),
+            )
 
     def test_exact_minimum_repair_alphabet_profile(self) -> None:
         for k in range(4, 500):
-            expected = 2 if k in {5, 6, 8} else 1
+            expected = 2 if k in {5, 8} else 1
             self.assertEqual(minimal_root_shell_repair_alphabet_size(k), expected, k)
 
-    def test_repaired_images_pin_the_three_collision_repairs(self) -> None:
-        self.assertIn((3, 1), repaired_root_images(5)[2])
-        self.assertIn((3, 0), repaired_root_images(5)[3])
+    def test_minimal_repair_symbol_activates_only_at_actual_collisions(self) -> None:
+        for k in range(4, 20):
+            images = minimally_repaired_root_images(k)
+            used_symbols = {symbol for shell in images.values() for _, symbol in shell}
+            if k in {5, 8}:
+                self.assertEqual(used_symbols, {0, 1}, k)
+            else:
+                self.assertEqual(used_symbols, {0}, k)
 
-        self.assertIn((4, 1), repaired_root_images(6)[2])
-        self.assertIn((4, 0), repaired_root_images(6)[3])
+    def test_uniform_feature_can_be_informative_when_repair_is_unnecessary(self) -> None:
+        uniform_symbols = {
+            symbol for shell in uniform_repaired_root_images(6).values() for _, symbol in shell
+        }
+        minimal_symbols = {
+            symbol for shell in minimally_repaired_root_images(6).values() for _, symbol in shell
+        }
+        self.assertEqual(uniform_symbols, {0, 1})
+        self.assertEqual(minimal_symbols, {0})
 
-        self.assertIn((5, 1), repaired_root_images(8)[2])
-        self.assertIn((5, 0), repaired_root_images(8)[3])
+    def test_collision_repairs_at_k5_and_k8(self) -> None:
+        self.assertIn((3, 1), uniform_repaired_root_images(5)[2])
+        self.assertIn((3, 0), uniform_repaired_root_images(5)[3])
+
+        self.assertIn((5, 1), uniform_repaired_root_images(8)[2])
+        self.assertIn((5, 0), uniform_repaired_root_images(8)[3])
+
+        self.assertEqual(minimal_repair_symbol(5, 13), p2_shell_bit(5, 13))
+        self.assertEqual(minimal_repair_symbol(8, 33), p2_shell_bit(8, 33))
+        self.assertEqual(minimal_repair_symbol(6, 19), 0)
 
 
 if __name__ == "__main__":
