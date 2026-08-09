@@ -6,16 +6,19 @@
 
 本文件是路由器，不替代正式证明。精确定理陈述仍以 canonical theorem/problem 文档为准；尚未进入 main 的 branch 结果则以带 source commit provenance 的 Research Relay 条目为准。
 
+`docs/RESEARCH_TOOLKIT.*` 是本共享面的操作方法伴随文档：**Common Surface 回答“已经有什么、去哪里找”，Research Toolkit 回答“拿到一个新问题后按什么顺序使用这些工具”。** 两者不得互相复制完整索引或证明。
+
 ## 1. 所有 L1/L2/L3 研究路线的强制预检
 
 开始新的 theorem line 前：
 
 1. 阅读本共享研究面；
 2. 阅读 `docs/RESEARCH_SCHEDULING_PROTOCOL.*`；
-3. 阅读 `docs/PROBLEM_STATUS.*` 以及相关问题的 canonical result 文档；
-4. 检索 Research Relay Issue #82 中最新且相关的条目；
-5. 如果拟研究内容与已有工具/定理族重合，查看对应 executable specification/tests 或 Lean module；
-6. 然后才判断下一步究竟是新母定理、特化、bridge、counterexample，还是重复结果。
+3. 当任务涉及 theorem lifting、quotient、precision、repair、boundary、shell 或 stabilization 时，阅读 `docs/RESEARCH_TOOLKIT.*` 的相应操作段；
+4. 阅读 `docs/PROBLEM_STATUS.*` 以及相关问题的 canonical result 文档；
+5. 检索 Research Relay Issue #82 中最新且相关的条目；
+6. 如果拟研究内容与已有工具/定理族重合，查看对应 executable specification/tests 或 Lean module；
+7. 然后才判断下一步究竟是新母定理、特化、bridge、counterexample，还是重复结果。
 
 不要求把整个仓库注入工作上下文。目标是“共享认知 + 选择性读取”。
 
@@ -41,6 +44,10 @@
 - `PROBLEM_STATUS` 指向的 canonical `docs/Pxxx_*.{en,zh-CN}.md`：现代 theorem families 的精确陈述与 scope；
 - `EnterpriseMath.lean` 及其导入的 `EnterpriseMath/**.lean`：Lean-checked 子集。
 
+### 操作方法入口
+
+- `docs/RESEARCH_TOOLKIT.en.md` / `docs/RESEARCH_TOOLKIT.zh-CN.md`：future-context quotient、boundary pullback、minimal repair、actual-image separation、stable skeleton 与 task-local finite closure 的统一研究流水线，以及 theorem lifting 的成功判据与强制反例轴。
+
 ### 已证明但尚未 canonical 的实时通道
 
 - Research Relay Issue #82：带 source branch/commit、最弱假设、relation class 与 requested action 的跨路线精确定理/反例。
@@ -59,12 +66,13 @@
 - basin characterization/cardinality 与 collapse-gap coordinates；
 - root exponent composition 与 commutation；
 - quotient/remainder 与 multiple-collapse 的不同语义；
+- **open-closed integer quotient-window transport**：`W_d(A,B)=[Q_d(A)+1,Q_d(B)]`，以及 exact endpoint separation、纯整数 cross-product sufficient condition 与 separation-gap resource；
 - total scale-factor algebra、divisibility projection、gcd/lcm scale lattice、path independence 与 nonunique inverse refinement；
 - signed-state distinctions；
 - typed strict-rank descent；
 - order-adjoint/right-adjoint 表述与 reductive idempotent collapse。
 
-主要 canonical 入口：P001–P009 result docs 与 `docs/THEOREMS.*`。
+主要 canonical 入口：P001–P009 result docs、`docs/P007_QUOTIENT_WINDOW_TRANSPORT_SUPPLEMENT_01.*` 与 `docs/THEOREMS.*`。
 
 ### A1 — dynamics、kernels、collision、stabilization
 
@@ -87,9 +95,11 @@
 - finite predictive/future-signature refinement 与 stabilization；
 - finite operation-family compatibility 与 operation-word semantics；
 - arithmetic 特化中的 exact quotient/multiple-collapse compatibility 与 minimal boundary-bit repair；
+- **actual-image label-erasure zero-repair test**：shell label 在未来映射后可恢复，当且仅当不同 shells 的 realized images 两两不交；完整状态恢复还必须检查 shell 内 injectivity；
+- P024 material-observable future quotient：complete response future word 可以严格删除 task-invisible raw depth 与不可见 axis deficits；响应值不必单调；
 - task-relative precision：脱离 future language 不存在一个普适 scalar precision。
 
-主要 canonical 入口：P018 precision-state 结果、P023 及其 canonical supplements、P024 specializations。branch extension 通过 Relay #82 传播。
+主要 canonical 入口：P018 precision-state 结果、P023 及其 canonical supplements（含 `P023_LABEL_ERASURE_IMAGE_SEPARATION_SUPPLEMENT_08`）、P024 specializations。branch extension 通过 Relay #82 传播。
 
 ### A3 — structured relation-state algebra
 
@@ -114,10 +124,12 @@ partition coarsening `Z' = A Z A^T`、partition kernels、integer relation scale
 ## 5. 所有路线都必须知道的高价值负向边界
 
 - coarse equality/support/cardinality 不自动保留后续 composition；必须针对声明的 operation language 证明 future sufficiency；
+- **candidate superset 可以制造实际状态从未实现的 collision / multiplicity**；在把候选集合用于资源计数前，优先检查 realized image；P017 的 exact quotient / actual root image / enlarged candidate pair 阈值 `4/9/15` 是 canonical pressure example；
+- shell label 可恢复不等于完整原状态可恢复；还要检查 shell 内 retained map 是否单射；
 - A3 signed relation information 在 quotient 时会 cancellation，因此 coarse support 不能证明 universal fine support；
 - pairwise/common-target cardinality shadow 可能丢失 multi-step composition 所需的 witness identity；
 - 单纯 geometry collision fact 可能不足以唯一选择 response，可能还需要 action/material/symmetry-breaking state；
-- 对一个 observable 安全的 quotient，面对更丰富 future language 可能失效；
+- 对一个 observable 安全的 quotient，面对更丰富 future language 可能失效；反过来，任务不可见的 raw geometry 也不应被无条件保留；
 - 文件名相同、branch ancestry 或 `ahead(main)>0` 都不能证明存在新数学；semantic identity 才控制 replay；
 - Galois connection、semigroup、numerical semigroup、partition refinement 等成熟一般工具，即使被 Enterprise Math 使用，仍属于 prior art。
 
@@ -132,9 +144,11 @@ partition coarsening `Z' = A Z A^T`、partition kernels、integer relation scale
 重要工具族包括：
 
 - `core.py`、`division.py`、`scale_algebra.py`、`signed.py`、`typed_scale.py`、`geometry.py` —— A0/A5 primitive tools；
+- `quotient_window.py` —— A0 exact interval-to-quotient transport、shell separation 与 gap-resource compiler；
 - `composition_safe_collapse.py` 与 predictive/future-signature modules —— A2 quotient-safety tools；
-- `action_language_precision.py`、clearance/guard/boundary precision modules —— P024/A2 specializations；
-- P017 mirror/cofactor/Legendre modules —— square-basin pressure-test tools；
+- `label_erasure.py` —— A2 realized-image separation / zero-repair shell-label compiler；
+- `action_language_precision.py`、clearance/guard/boundary precision modules、`material_future_precision.py` —— P024/A2 specializations；
+- P017 mirror/cofactor/Legendre modules 与 `p017_actual_root_separation.py` —— square-basin pressure-test tools；
 - relation/support modules —— 在其已 canonical，或被显式从 WIP owner 消费时可跨路线复用。
 
 `src/enterprise_math/__init__.py` 只导出一个紧凑 stable subset；未 export 的 module 仍可能是合法 internal executable specification。把它当 canonical API 前必须先检查 theorem/provenance status。
@@ -163,7 +177,8 @@ Executable checks 用于 proof discovery、falsification 与 regression，不能
 3. 标明 mother-theorem owner 与 relation class；
 4. 若结果进入 canonical `main`，必须保证未来路线能通过 `PROBLEM_STATUS`、canonical theorem/result doc、lineage/prior-art 与本共享面发现它；
 5. 若形成可复用 executable method/tool，在下一次 common-surface update 中登记对应 canonical module/tool family；
-6. 不等待所有 consumer ACK 才继续推进。
+6. 如果一个应用定理可以删除领域假设并提升为 mother theorem，优先回灌 A0–A5 owner；应用路线只保留 sharp specialization、counterexample 与 provenance；
+7. 不等待所有 consumer ACK 才继续推进。
 
 ## 8. 非阻断规则
 

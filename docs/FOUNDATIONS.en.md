@@ -166,7 +166,152 @@ P023 gives the generic quotient/congruence criterion for this distinction. P024 
 
 The resulting precision cells need not be globally uniform. A uniform scale is one possible precision geometry, not a foundational requirement.
 
-In particular, action language and state topology can change the minimal safe precision even when the nominal measurement scale is unchanged. This is a mathematical statement about predictive sufficiency, not by itself a claim that nature selects a task-dependent physical ontology.
+The canonical P024 material-observable specialization gives a strict example of **task-invisible state deletion**. Even when the geometric layer distinguishes two raw depths, those depths belong to the same coarsest exact material quotient whenever they induce the same complete material-response future word over the declared horizon. The response values need not even be monotone; the complete future response word, rather than undeclared internal geometric detail, controls the task quotient.
+
+In particular, action language, observation language, and state topology can change the minimal safe precision even when the nominal measurement scale is unchanged. This is a mathematical statement about predictive sufficiency, not by itself a claim that nature selects a task-dependent physical ontology.
+
+## 5B. Four structural principles of future sufficiency
+
+Cross-route work in P007/P008/P018/P023/P024 and P017/E002 compresses the abstract definition in 5A into four directly usable mathematical principles. These are principles of proof state and quotient sufficiency; they are not automatically physical-ontology axioms.
+
+### 1. States move forward; boundaries and proof obligations move backward
+
+If a forward action `F` has a left adjoint `lambda_F`,
+
+\[
+\lambda_F(b)\le x
+\iff
+b\le F(x),
+\]
+
+then the exact present obligation induced by a future threshold `b` is `lambda_F(b)`.
+
+Forward dynamics and query obligations therefore compose in opposite directions:
+
+\[
+\boxed{
+\lambda_{G\circ F}
+=
+\lambda_F\circ\lambda_G.
+}
+\]
+
+The integer-root and integer-quotient adjunctions of P008 and the P024 boundary-pullback calculus are consequently two views of one structure: arithmetic states evolve forward while future query boundaries are transported backward.
+
+### 2. A noncommutation defect is an exact repair state, not approximation error
+
+If a coarse representation `q` and a future action `F` cannot satisfy
+
+\[
+q\circ F=\bar F\circ q,
+\]
+
+the correct response is not to call the discrepancy an “error,” nor to restore the entire fine state by default. One should retain only the minimum repair inside each coarse fiber that determines `q(F(x))`.
+
+Carry, borrow, crossing bits, and commutation defects already appearing in P018/P023 are such **exact finite witnesses**.
+
+The foundational research default is therefore
+
+\[
+\boxed{
+\text{defect}=\text{explicit finite information obligation},
+}
+
+rather than a continuous discrepancy between a hidden truth and an approximation.
+
+### 3. Prefer actual images to candidate supersets
+
+Suppose a state carries a shell label `i` and an internal coordinate in `W_i`. After a later map `G`, the shell label is recoverable from the retained coordinate exactly when distinct realized shell images are pairwise disjoint:
+
+\[
+\boxed{
+G(W_i)\cap G(W_j)=\varnothing
+\qquad(i\ne j).
+}
+\]
+
+Replacing the realized image by a strict candidate superset can therefore manufacture collisions and multiplicities never realized by the original state system.
+
+Coarse representation does more than “see less” when implemented as uncontrolled over-approximation: it can actively manufacture false structure.
+
+### 4. Finiteness may be task-local first
+
+Future-safe calculus does not require the whole state universe to be finite.
+
+It is enough that the state orbit, boundary orbit, quotient window, guard slice, or fixed interval actually reachable by the declared task lies in a finite closure.
+
+For example, a P019 collapse orbit on the natural numbers is trapped in
+
+\[
+[C_L(n_0),n_0],
+\]
+
+while P024 needs only the relevant boundary orbit to close finitely.
+
+A weaker and more appropriate foundational research target is therefore
+
+\[
+\boxed{
+\text{task-local finite closure},
+}
+
+rather than a globally finite world.
+
+## 5C. A number-theory example: coarsening can manufacture false collisions
+
+The P017 consecutive-square basin gives the clearest current pure-integer example.
+
+For least prime `p`, the exact stripped cofactor window is
+
+\[
+W_p(k)=
+\left[
+\left\lfloor\frac{k^2}{p}\right\rfloor+1,
+\left\lfloor\frac{k(k+2)}{p}\right\rfloor
+\right].
+\]
+
+The P007 quotient-window mother theorem together with P017 L054 gives
+
+\[
+\boxed{k\ge4\Longrightarrow W_p(k)\text{ are pairwise disjoint across prime shells}.}
+\]
+
+Thus the exact cofactor `q=n/p` already encodes the least-prime shell label.
+
+If each exact window is first enlarged, after square-root projection, to the candidate pair `{j_p,j_p+1}`, L052 needs
+
+\[
+k\ge15
+\]
+
+to make those coarse candidate pairs pairwise disjoint.
+
+But retaining the exact window and then computing the realized root image, L055 proves that actual lower-band shell images are already pairwise disjoint from
+
+\[
+\boxed{k\ge9},
+\]
+
+with `k=8,p=2,r=3,root=5` as a sharp witness.
+
+The three thresholds describe three different retained precisions:
+
+\[
+\boxed{
+\text{exact quotient}:4,
+\qquad
+\text{actual root image}:9,
+\qquad
+\text{enlarged candidate pair}:15.
+}
+\]
+
+They do not conflict. Instead they show rigorously that
+
+> **lower structural precision can manufacture collisions absent from the realized system, while retaining the relevant exact subwindow can eliminate those false collisions.**
+
+This is a mathematical statement about proof-state sufficiency, not a claim that physical ontology changes with the research task.
 
 ## 6. Classical identities are not assumed
 
@@ -263,6 +408,8 @@ which remains an integer map.
 7. Which observed physical laws contradict an ontologically non-invertible foundation?
 8. Which parts of calculus can be reconstructed as finite-scale difference and accumulation operators?
 9. Which future-safe precision objects admit compact structured representations, and when must a nonuniform boundary/detail layer be retained?
+10. Which infinite state systems have declared tasks with finite boundary/orbit closure and therefore admit completely finite exact compilation?
+11. How should the false-collision / false-multiplicity cost created by candidate supersets relative to actual images be quantified systematically?
 
 ## 10. Status discipline
 
