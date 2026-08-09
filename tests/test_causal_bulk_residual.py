@@ -7,9 +7,11 @@ from enterprise_math.causal_bulk_residual import (
     bounded_reachable_values,
     bulk_extension_coarsens_residuals,
     collision_spectrum_nondecreasing_under_bulk_extension,
+    compose_class_maps,
     left_translation_collision_spectrum,
     left_translation_fibers,
     residual_candidates,
+    residual_resolution_map,
     residual_signature_under_bulk_law,
     same_bulk_fiber_is_future_safe_under_associative_extension,
     unique_residual,
@@ -71,6 +73,16 @@ class CausalBulkResidualTests(unittest.TestCase):
         after = left_translation_collision_spectrum(5, increments, max, 2)
         self.assertGreater(after[2], before[2])
 
+    def test_residual_resolution_maps_compose_along_max_bulk_growth(self):
+        increments = tuple(range(9))
+        map_2_to_5 = residual_resolution_map(2, 5, increments, max)
+        map_5_to_7 = residual_resolution_map(5, 7, increments, max)
+        map_2_to_7 = residual_resolution_map(2, 7, increments, max)
+        self.assertEqual(
+            compose_class_maps(map_2_to_5, map_5_to_7),
+            map_2_to_7,
+        )
+
     def test_additive_bulk_keeps_residual_precision_exact_under_accumulation(self):
         increments = tuple(range(6))
         add = lambda left, right: left + right
@@ -79,10 +91,10 @@ class CausalBulkResidualTests(unittest.TestCase):
         after = left_translation_collision_spectrum(6, increments, add, 3)
         self.assertEqual(before, after)
         self.assertEqual(before[2], 0)
+        resolution = residual_resolution_map(2, 6, increments, add)
+        self.assertEqual(len(resolution), len(increments))
 
     def test_noncommutative_context_can_change_residual_partition_nonmonotonically(self):
-        # Transformation semigroup on {0,1,2}; tuple f stores f(0),f(1),f(2).
-        # Composition is f∘g.  It is associative but noncommutative.
         compose = lambda f, g: tuple(f[g[index]] for index in range(3))
         b = (0, 0, 1)
         u = (0, 2, 0)
@@ -95,8 +107,8 @@ class CausalBulkResidualTests(unittest.TestCase):
         new_bulk = compose(b, u)
         self.assertNotEqual(compose(new_bulk, r), compose(new_bulk, r_prime))
         self.assertFalse(bulk_extension_coarsens_residuals(b, u, increments, compose))
-        # This compares two different left contexts.  It does not undo an already
-        # realized collapse; right-future extension of one realized total remains safe.
+        with self.assertRaises(ValueError):
+            residual_resolution_map(b, new_bulk, increments, compose)
 
     def test_boolean_or_nonunique_residual_is_also_a_causal_collapse(self):
         combine = lambda left, right: bool(left or right)
