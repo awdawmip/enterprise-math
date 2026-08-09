@@ -1,4 +1,4 @@
-"""E001.7 response-trigger diagnostics across spatial and transition semantics.
+"""E001.8 response-trigger diagnostics across spatial and transition semantics.
 
 Spatial collapse-contact extinction does not by itself imply that an effective
 hard-exclusion response disappears.  A response policy may subscribe to more
@@ -7,14 +7,22 @@ than one finite witness class:
 * sampled macro contact at the start/end body supports;
 * primitive transition conflict (shared endpoint/atomic-edge target).
 
-This module keeps those witnesses separate and exposes simple trigger policies
-without assigning them physical truth.  In particular, a point swap can lose
-sampled static contact when refining from ``d=2`` to ``d=1`` while retaining a
-primitive edge conflict.  A transition-aware hard-exclusion policy would still
-trigger; a static-only policy would not.
+For a fixed one-tick pair, the sampled-static trigger depends only on
 
-Therefore a claimed rebound-extinction threshold is incomplete unless it names
-both the spatial collapse semantics and the transition witness/response policy.
+    g_sample = min(g_start, g_end).
+
+If ``g_sample>0``, sampled-static triggering exists exactly for spatial factors
+``d>=g_sample+1`` and first extinguishes on refinement to ``d=g_sample``.  If
+``g_sample=0``, sampled-static triggering persists at terminal factor 1.
+
+For ``TRANSITION_AWARE``, a primitive transition conflict is independent of
+spatial collapse factor in the current model.  Such a conflict therefore has no
+pure-spatial extinction factor; if no transition conflict exists, the policy
+shares the sampled-static threshold.
+
+These are trigger thresholds, not physical rebound laws.  A named response law
+may consume the trigger later, but no force/impulse/elasticity semantics is
+assigned here.
 """
 
 from __future__ import annotations
@@ -49,6 +57,19 @@ class CollisionTriggerProfile2D:
     def transition_aware_trigger(self) -> bool:
         return self.sampled_static_trigger or self.transition_conflict
 
+    @property
+    def sampled_static_primitive_gap(self) -> int:
+        return min(self.start_primitive_gap, self.end_primitive_gap)
+
+
+def _require_positive_factor(collapse_factor: int) -> None:
+    if (
+        isinstance(collapse_factor, bool)
+        or not isinstance(collapse_factor, int)
+        or collapse_factor <= 0
+    ):
+        raise ValueError("collapse_factor must be a positive integer")
+
 
 def collision_trigger_profile(
     left: BodyMotion2D,
@@ -58,6 +79,7 @@ def collision_trigger_profile(
     """Collect distinct static-collapse and primitive-transition pair witnesses."""
     if left.body_id == right.body_id:
         raise ValueError("trigger pair must contain distinct body ids")
+    _require_positive_factor(collapse_factor)
     start_gap = primitive_clearance(left.body, right.body)
     end_gap = primitive_clearance(left.end_body, right.end_body)
     return CollisionTriggerProfile2D(
@@ -77,4 +99,44 @@ def response_triggered(profile: CollisionTriggerProfile2D, policy: TriggerPolicy
         return profile.sampled_static_trigger
     if policy == TRANSITION_AWARE:
         return profile.transition_aware_trigger
+    raise ValueError("unknown trigger policy")
+
+
+def sampled_static_trigger_first_resolving_factor(
+    left: BodyMotion2D,
+    right: BodyMotion2D,
+) -> int | None:
+    """First coarse-to-fine factor where sampled-static triggering disappears.
+
+    ``None`` means at least one sampled endpoint has primitive contact, so the
+    sampled-static trigger persists at terminal spatial factor 1.
+    """
+    if left.body_id == right.body_id:
+        raise ValueError("trigger pair must contain distinct body ids")
+    gap = min(
+        primitive_clearance(left.body, right.body),
+        primitive_clearance(left.end_body, right.end_body),
+    )
+    return None if gap == 0 else gap
+
+
+def policy_spatial_extinction_factor(
+    left: BodyMotion2D,
+    right: BodyMotion2D,
+    policy: TriggerPolicy,
+) -> int | None:
+    """Return the first factor where this trigger policy is spatially extinguished.
+
+    ``None`` means the named trigger remains active at terminal spatial factor 1
+    for this fixed pair motion.  For transition-aware policy this happens when
+    the primitive transition relation itself conflicts, regardless of sampled
+    endpoint gaps.
+    """
+    sampled = sampled_static_trigger_first_resolving_factor(left, right)
+    if policy == SAMPLED_STATIC:
+        return sampled
+    if policy == TRANSITION_AWARE:
+        if motion_conflict(left, right):
+            return None
+        return sampled
     raise ValueError("unknown trigger policy")
