@@ -32,6 +32,20 @@ class CausalPrefixComplexityTests(unittest.TestCase):
             self.assertEqual(profile, tuple(depth + 1 for depth in range(horizon + 1)))
             self.assertEqual(finite_type_complexity(alphabet, horizon, observation), horizon + 1)
 
+    def test_copy_constraint_requires_exponential_midpoint_continuation_capacity(self):
+        alphabet = (0, 1)
+        for half in range(1, 6):
+            horizon = 2 * half
+
+            def copy_observation(word, half=half):
+                return word[:half] == word[half:]
+
+            profile = continuation_complexity_profile(alphabet, horizon, copy_observation)
+            # At the midpoint each different first half accepts a different unique
+            # suffix, so all 2^half prefixes have distinct future signatures.
+            self.assertEqual(profile[half], 2**half)
+            self.assertGreaterEqual(finite_type_complexity(alphabet, horizon, copy_observation), 2**half)
+
     def test_constant_observation_collapses_every_prefix_depth_to_one_type(self):
         alphabet = ("A", "B", "C")
         for horizon in range(0, 5):
