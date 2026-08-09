@@ -13,6 +13,21 @@ from enterprise_math.causal_additive_precision_refinement import (
 )
 
 
+def _is_generated_sum(total: int, generators: tuple[int, ...]) -> bool:
+    if total < 0:
+        return False
+    positive = tuple(value for value in generators if value > 0)
+    reachable = [False] * (total + 1)
+    reachable[0] = True
+    for amount in range(total + 1):
+        if not reachable[amount]:
+            continue
+        for generator in positive:
+            if amount + generator <= total:
+                reachable[amount + generator] = True
+    return reachable[total]
+
+
 class CausalAdditivePrecisionRefinementTests(unittest.TestCase):
     def test_scale_six_plus_two_needs_three_not_six_continuation_types(self):
         d = 6
@@ -69,16 +84,28 @@ class CausalAdditivePrecisionRefinementTests(unittest.TestCase):
                 for right in range(left + 1, count):
                     future_sum = distinguishing_future_sum(left, right, d, generators)
                     self.assertIsNotNone(future_sum)
+                    self.assertTrue(_is_generated_sum(future_sum, generators))
                     self.assertTrue(types_are_future_distinguishable(left, right, d, generators))
                     self.assertNotEqual(
                         future_quotient_after_sum(left, future_sum, d, generators),
                         future_quotient_after_sum(right, future_sum, d, generators),
                     )
 
+    def test_generator_larger_than_modulus_never_fabricates_residue_only_witness(self):
+        d = 12
+        generators = (8, 18)
+        # g=2 and D=6.  The normalized generator 4 must remain the actual value
+        # 4 in normalized units; it must not be replaced by a smaller residue-only
+        # move when constructing a future witness.
+        count = continuation_type_count(d, generators)
+        for left in range(count):
+            for right in range(left + 1, count):
+                future_sum = distinguishing_future_sum(left, right, d, generators)
+                self.assertTrue(_is_generated_sum(future_sum, generators))
+
     def test_equal_types_remain_future_equivalent_under_generated_sums(self):
         d = 6
         generators = (2, 4)
-        # Units 0 and 1 share type 0; 2 and 3 share type 1, etc.
         pairs = ((0, 1), (2, 3), (4, 5))
         future_sums = tuple(2 * a + 4 * b for a in range(6) for b in range(6))
         for left, right in pairs:
