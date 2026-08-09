@@ -62,4 +62,38 @@ theorem repair_coarsest (q : X → Q) (h : X → R) (s : X → S)
   intro x y hxy
   exact Prod.ext (hsq hxy) (hsh hxy)
 
+/-- A quotient is transition-compatible when the transition induces a
+well-defined endomap on quotient classes. -/
+def TransitionCompatible (T : X → X) (q : X → Q) : Prop :=
+  FiberConstant q (fun x => q (T x))
+
+/--
+For an idempotent transition, the one-step repair `(q, q ∘ T)` is already fully
+transition-compatible. No second future-refinement round is needed.
+-/
+theorem repair_transitionCompatible_of_idempotent (T : X → X) (q : X → Q)
+    (hT : ∀ x : X, T (T x) = T x) :
+    TransitionCompatible T (repair q (fun x => q (T x))) := by
+  intro x y hxy
+  have hnext : q (T x) = q (T y) := congrArg Prod.snd hxy
+  apply Prod.ext
+  · exact hnext
+  · calc
+      q (T (T x)) = q (T x) := congrArg q (hT x)
+      _ = q (T y) := hnext
+      _ = q (T (T y)) := (congrArg q (hT y)).symm
+
+/--
+Any quotient `s` that already refines `q` and supports `T` must refine the
+canonical pair repair `(q, q ∘ T)`. Combined with idempotence, this makes the
+pair repair the full coarsest `T`-compatible refinement of `q`.
+-/
+theorem repair_coarsest_transitionCompatible (T : X → X) (q : X → Q) (s : X → S)
+    (hsq : FiberConstant s q) (hsT : TransitionCompatible T s) :
+    FiberConstant s (repair q (fun x => q (T x))) := by
+  apply repair_coarsest
+  · exact hsq
+  · intro x y hxy
+    exact hsq (hsT hxy)
+
 end EnterpriseMath.CompositionSafeCollapse
