@@ -1,64 +1,74 @@
-"""Discovery-stage P018 all-power cross-divisor coalescence law.
+"""Discovery-stage P018 all-power quotient-root coalescence algebra.
 
-Let a source state lie in the complete power basin
+There are two dual finite-precision views of integer quotient transport.
 
-    k^p <= n < (k+1)^p
+* Canonical T110/APQ fixes a denominator and varies the source state across one
+  power basin: only two adjacent target root indices are possible.
+* This module also fixes the state and a positive target root and varies the
+  *total denominator*: the entire denominator fiber is one exact integer
+  interval.
 
-and observe floor quotients through an ``r``-th integer root.  The basic actual
-cross-divisor collision law is
+For ``t>0`` and root exponent ``r>=1``,
 
-    R_r(n//d) = R_r(n//e) = t,   2<=d<e
-        =>
-    (e-d) * t^(r+1) < r*n < r*(k+1)^p.
+    R_r(floor(n/d)) = t
 
-Thus the *divisor-span* of a root collision is itself controlled by the target
-root scale.  The pair theorem ``t^(r+1)<r(k+1)^p`` is only the gap-one case.
+is equivalent to
 
-For any finite set of distinct total divisors coalescing at the same positive
-root t, if the multiplicity is ``m`` then its span is at least ``m-1``. Hence
+    floor(n/(t+1)^r) < d <= floor(n/t^r).
 
-    (m-1) * t^(r+1) < r*(k+1)^p
+Thus the full positive-denominator fiber is
 
-and therefore
+    F_{n,r}(t)
+      = [ floor(n/(t+1)^r)+1 , floor(n/t^r) ]
+
+with exact cardinality
+
+    M_{n,r}(t)
+      = floor(n/t^r) - floor(n/(t+1)^r).
+
+This exact interval is the natural coalescence cell in total-divisor space.  A
+factor-extraction path is first flattened by T111 to its total divisor and then
+lands in one such cell.
+
+The sharp graded law bounds the diameter/capacity of this exact fiber.  If two
+fiber labels ``2<=d<e`` share root ``t`` then
+
+    (e-d) * t^(r+1) < r*n.
+
+For a source basin ``k^p<=n<(k+1)^p`` this gives
+
+    (e-d) * t^(r+1) < r*(k+1)^p.
+
+Hence any set of ``m`` distinct nontrivial total divisors coalescing at a
+positive root obeys
+
+    (m-1) * t^(r+1) < r*(k+1)^p,
+
+so
 
     m <= 1 + floor((r*(k+1)^p - 1) / t^(r+1)).
 
-This is a graded path-coalescence capacity law.  With canonical quotient-path
-flatness, the same bound applies to distinct factor-extraction paths after they
-are identified by their total divisors.
-
-The law is asymptotically sharp at every multiplicity scale.  Fix an integer
-gap ``g>=1`` and parameter ``a>=2``.  Put
-
-    d = g*a,
-    e = g*(a+1),
-    t = r*a - 1,
-    n = e*t^r.
-
-The endpoint divisors d,e have the same actual r-root t; monotonicity then puts
-every integer divisor in the consecutive block [d,e] into the same root cell,
-so the multiplicity is exactly ``g+1``.  Moreover
-
-    g*t^(r+1)/(r*n)
-      = (r*a-1)/(r*(a+1)) -> 1.
-
-For any fixed source exponent p, assigning n to its canonical p-root basin gives
-``t asymp k^(p/(r+1))``.  Consequently the leading constant r, exponent
-``p/(r+1)``, and the graded multiplicity profile all have the correct asymptotic
-shape for this mechanism.
-
 The exact two-divisor horizon is
 
-    H_{p,r}(k) = R_{r+1}(r*(k+1)^p - 1).
+    H_{p,r}(k)=R_{r+1}(r*(k+1)^p-1),
 
-The phase boundary is governed by ``p/(r+1)``: ``r+1>p`` is sublinear,
-``r+1=p`` is linear, and ``r+1<p`` is not forced to contract.  In particular,
-the same-exponent family r=p always contracts as ``O(k^(p/(p+1)))``.
+and the collision exponent is ``gamma(p,r)=p/(r+1)``.  The phase boundary is
+``r+1>p`` (sublinear), ``r+1=p`` (linear), ``r+1<p`` (no forced contraction).
 
-All reference functions use exact integer roots and floor division. Classical
-Bernoulli/difference-of-powers inequalities are prior art; the project-specific
-candidate contribution is the finite-precision coalescence packaging, sharp
-integer horizons/capacities, and their use as a well-founded recursion skeleton.
+The capacity law is asymptotically sharp at every multiplicity scale.  For gap
+``g>=1`` and parameter ``a>=2``, put
+
+    d=g*a, e=g*(a+1), t=r*a-1, n=e*t^r.
+
+The endpoint labels share root t; monotonicity makes every integer label in
+[d,e] share it, producing exactly ``g+1`` consecutive coalescing labels, while
+
+    g*t^(r+1)/(r*n)=(r*a-1)/(r*(a+1))->1.
+
+For fixed source exponent p and k=R_p(n), this also realizes the exponent
+``p/(r+1)`` asymptotically.  Classical floor-division order and Bernoulli /
+difference-of-powers inequalities are prior art; the candidate project result
+is their exact finite-precision coalescence packaging and recursion interface.
 """
 
 from __future__ import annotations
@@ -77,6 +87,64 @@ def coalescence_root_constant(root_exp: int) -> int:
     if root_exp < 1:
         raise ValueError("root_exp must be positive")
     return root_exp
+
+
+def total_divisor_root_fiber(n: int, root_exp: int, target_root: int) -> dict[str, object]:
+    """Return the exact positive-denominator fiber for one positive root.
+
+    For t>0,
+
+        R_r(n//d)=t
+        iff
+        floor(n/(t+1)^r) < d <= floor(n/t^r).
+
+    The returned tuple contains every positive denominator in the fiber.  For
+    factor-extraction paths one normally consumes the subfiber ``d>=2`` and may
+    further intersect with actual divisors of ``n``.
+    """
+    for name, value in (
+        ("n", n),
+        ("root_exp", root_exp),
+        ("target_root", target_root),
+    ):
+        _require_int(name, value)
+    if n < 0 or root_exp < 1 or target_root < 1:
+        raise ValueError("n must be nonnegative; root_exp/target_root positive")
+
+    lower_exclusive = n // (target_root + 1) ** root_exp
+    upper_inclusive = n // target_root**root_exp
+    if upper_inclusive < lower_exclusive:
+        raise AssertionError("quotient-root fiber endpoints reversed")
+    labels = tuple(range(lower_exclusive + 1, upper_inclusive + 1))
+    for divisor in labels:
+        if integer_nth_root(n // divisor, root_exp) != target_root:
+            raise AssertionError("exact divisor fiber admitted a wrong root")
+    if lower_exclusive >= 1:
+        if integer_nth_root(n // lower_exclusive, root_exp) == target_root:
+            raise AssertionError("exclusive lower neighbor remained in root fiber")
+    if integer_nth_root(n // (upper_inclusive + 1), root_exp) == target_root:
+        raise AssertionError("upper neighbor remained in root fiber")
+
+    return {
+        "n": n,
+        "root_exp": root_exp,
+        "target_root": target_root,
+        "lower_exclusive": lower_exclusive,
+        "upper_inclusive": upper_inclusive,
+        "positive_divisor_labels": labels,
+        "positive_capacity": len(labels),
+        "nontrivial_divisor_labels": tuple(d for d in labels if d >= 2),
+        "nontrivial_capacity": sum(d >= 2 for d in labels),
+    }
+
+
+def exact_root_fiber_capacity(n: int, root_exp: int, target_root: int) -> int:
+    """Return floor(n/t^r)-floor(n/(t+1)^r) for t>0."""
+    data = total_divisor_root_fiber(n, root_exp, target_root)
+    expected = int(data["upper_inclusive"]) - int(data["lower_exclusive"])
+    if expected != data["positive_capacity"]:
+        raise AssertionError("exact root-fiber capacity identity failed")
+    return expected
 
 
 def cross_root_coalescence_horizon(
@@ -130,27 +198,19 @@ def cross_root_divisor_collision(
 ) -> dict[str, object]:
     """Validate the sharp divisor-span collision law.
 
-    If the quotient roots coincide at ``t`` and ``g=right-left``, verify
+    If the quotient roots coincide at t and ``g=right-left``, verify
 
         g * t^(r+1) < r*(k+1)^p.
 
-    The proof-scale inequality is
-
-        g*(t+1) < r*right.
-
-    For g=1 this gives the earlier ``t+1<r(d+1)`` theorem.
+    The proof-scale inequality is ``g*(t+1)<r*right``.
     """
     for name, value in (("left", left), ("right", right)):
         _require_int(name, value)
     if not 2 <= left < right:
         raise ValueError("require 2 <= left < right")
 
-    left_root = power_basin_cross_root(
-        k, n, source_exp, root_exp, left
-    )
-    right_root = power_basin_cross_root(
-        k, n, source_exp, root_exp, right
-    )
+    left_root = power_basin_cross_root(k, n, source_exp, root_exp, left)
+    right_root = power_basin_cross_root(k, n, source_exp, root_exp, right)
     horizon = cross_root_coalescence_horizon(k, source_exp, root_exp)
     gap = right - left
     result: dict[str, object] = {
@@ -180,10 +240,6 @@ def cross_root_divisor_collision(
     delta = (t + 1) ** root_exp - t**root_exp
     if gap * t**root_exp >= left * delta:
         raise AssertionError("divisor-gap difference inequality failed")
-
-    # Generalized Bernoulli contradiction: if
-    # r*right <= gap*(t+1), then the tangent bound at x=t+1 gives
-    # left*(t+1)^r <= right*t^r, contradicting the exact collision cell.
     if gap * (t + 1) >= root_exp * right:
         raise AssertionError("collision violated g*(t+1)<r*e")
 
@@ -213,9 +269,10 @@ def coalescence_multiplicity_cap(
     root_exp: int,
     target_root: int,
 ) -> int | None:
-    """Return the sharp graded cap for a positive target root.
+    """Return the graded cap for a positive target root.
 
-    For t>0, any set of distinct total divisors coalescing at t has size at most
+    For t>0, any set of distinct nontrivial total denominators coalescing at t
+    has size at most
 
         1 + floor((r*(k+1)^p - 1) / t^(r+1)).
 
@@ -246,7 +303,7 @@ def observed_root_divisor_multiplicity(
     target_root: int,
     max_divisor: int,
 ) -> dict[str, object]:
-    """Audit actual divisor multiplicity against the graded cap on a finite range."""
+    """Audit actual total-denominator multiplicity against the graded cap."""
     for name, value in (("target_root", target_root), ("max_divisor", max_divisor)):
         _require_int(name, value)
     if target_root <= 0:
@@ -256,13 +313,9 @@ def observed_root_divisor_multiplicity(
     hits = tuple(
         divisor
         for divisor in range(2, max_divisor + 1)
-        if power_basin_cross_root(
-            k, n, source_exp, root_exp, divisor
-        ) == target_root
+        if power_basin_cross_root(k, n, source_exp, root_exp, divisor) == target_root
     )
-    cap = coalescence_multiplicity_cap(
-        k, source_exp, root_exp, target_root
-    )
+    cap = coalescence_multiplicity_cap(k, source_exp, root_exp, target_root)
     if cap is None:
         raise AssertionError("positive target unexpectedly lost its cap")
     if len(hits) > cap:
@@ -288,12 +341,7 @@ def observed_root_divisor_multiplicity(
 def sharp_consecutive_collision_block(
     source_exp: int, root_exp: int, gap: int, parameter: int
 ) -> dict[str, object]:
-    """Construct a sharp block of gap+1 consecutive coalescing divisors.
-
-    Put ``d=gap*parameter``, ``e=gap*(parameter+1)``, ``t=r*parameter-1``
-    and ``n=e*t^r``. The endpoint collision implies every integer divisor in
-    ``[d,e]`` has the same actual root t by monotonicity.
-    """
+    """Construct a sharp block of gap+1 consecutive coalescing denominators."""
     for name, value in (
         ("source_exp", source_exp),
         ("root_exp", root_exp),
@@ -315,10 +363,11 @@ def sharp_consecutive_collision_block(
         raise AssertionError("constructed state escaped its canonical source basin")
 
     hits = tuple(range(d, e + 1))
+    exact_fiber = total_divisor_root_fiber(n, root_exp, t)
+    exact_labels = set(exact_fiber["positive_divisor_labels"])
     for divisor in hits:
-        quotient = n // divisor
-        if not t**root_exp <= quotient < (t + 1) ** root_exp:
-            raise AssertionError("intermediate divisor escaped the common root cell")
+        if divisor not in exact_labels:
+            raise AssertionError("sharp block escaped the exact root fiber")
     cap = coalescence_multiplicity_cap(k, source_exp, root_exp, t)
     if cap is None or len(hits) > cap:
         raise AssertionError("sharp block exceeded the proved multiplicity cap")
@@ -336,6 +385,8 @@ def sharp_consecutive_collision_block(
         "divisor_hits": hits,
         "multiplicity": len(hits),
         "multiplicity_cap": cap,
+        "exact_fiber_lower_exclusive": exact_fiber["lower_exclusive"],
+        "exact_fiber_upper_inclusive": exact_fiber["upper_inclusive"],
         "weighted_ratio_numerator": gap * t,
         "weighted_ratio_denominator": root_exp * e,
     }
@@ -355,9 +406,7 @@ def sharp_adjacent_collision_family(
         "left": int(data["left"]),
         "right": int(data["right"]),
         "common_root": int(data["common_root"]),
-        "horizon": cross_root_coalescence_horizon(
-            int(data["k"]), source_exp, root_exp
-        ),
+        "horizon": cross_root_coalescence_horizon(int(data["k"]), source_exp, root_exp),
         "sharp_ratio_numerator": int(data["weighted_ratio_numerator"]),
         "sharp_ratio_denominator": int(data["weighted_ratio_denominator"]),
     }
@@ -382,15 +431,7 @@ def coalescence_phase(source_exp: int, root_exp: int) -> str:
 
 
 def coarse_sublinear_descent_threshold(source_exp: int, root_exp: int) -> int:
-    """Return a simple sufficient k-threshold for H_{p,r}(k)<k.
-
-    If ``s=r+1-p>=1``, then ``k+1<=2k`` gives
-
-        r*(k+1)^p <= r*2^p*k^p.
-
-    Therefore ``k^s >= r*2^p`` is sufficient. This threshold is deliberately
-    simple rather than optimal.
-    """
+    """Return a simple sufficient k-threshold for H_{p,r}(k)<k."""
     _require_int("source_exp", source_exp)
     _require_int("root_exp", root_exp)
     if source_exp < 1 or root_exp < 1:
