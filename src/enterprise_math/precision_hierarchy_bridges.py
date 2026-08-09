@@ -68,16 +68,18 @@ def _connected_vertices(vertices: Sequence[Hashable], edges: set[frozenset[Hasha
 
 
 def leaf_graph_connected(
-    signatures: Mapping[State, Sequence[Hashable]], edges: Sequence[Edge]
+    scales: Sequence[int],
+    signatures: Mapping[State, Sequence[Hashable]],
+    edges: Sequence[Edge],
 ) -> bool:
-    validate_signatures(tuple(range(1, len(next(iter(signatures.values()))) + 1)), signatures)
-    # Only the nested signatures matter here; use a simple synthetic divisibility
-    # chain for validation of nesting/root/final distinction below.
+    """Check ordinary leaf-graph connectivity after validating the hierarchy."""
+    validate_signatures(scales, signatures)
     states = tuple(signatures)
     if len(states) == 1:
         return True
     edge_set = set(edges)
-    if any(len(edge) != 2 or not edge.issubset(set(states)) for edge in edge_set):
+    state_set = set(states)
+    if any(len(edge) != 2 or not edge.issubset(state_set) for edge in edge_set):
         raise ValueError("every bridge edge must join two declared leaves")
     return _connected_vertices(states, edge_set)
 
@@ -154,6 +156,8 @@ def canonical_minimal_bridge_edges(
         raise AssertionError("minimal bridge construction must have |X|-1 edges")
     if not refinement_bridge_certificate_holds(scales, signatures, tuple(edges)):
         raise AssertionError("constructed bridges must connect every child quotient")
+    if not leaf_graph_connected(scales, signatures, tuple(edges)):
+        raise AssertionError("constructed bridges must connect the leaf graph")
     return frozenset(edges)
 
 
@@ -179,6 +183,8 @@ def boundary_minimal_bridge_edges(
         raise AssertionError("boundary bridge construction must be minimal")
     if not refinement_bridge_certificate_holds(scales, signatures, tuple(edges)):
         raise AssertionError("boundary bridges must connect every child quotient")
+    if not leaf_graph_connected(scales, signatures, tuple(edges)):
+        raise AssertionError("boundary bridges must connect the leaf graph")
     return frozenset(edges)
 
 
