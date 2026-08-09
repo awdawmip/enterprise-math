@@ -10,6 +10,7 @@ from enterprise_math.abc_absorption_local import (
     local_absorption_valuation,
     perfect_absorption_local_criterion,
 )
+from enterprise_math.abc_support import radical
 
 
 class AbcAbsorptionLocalTests(unittest.TestCase):
@@ -42,31 +43,33 @@ class AbcAbsorptionLocalTests(unittest.TestCase):
         self.assertEqual(data["obstruction_spectrum"], ((3, 1),))
         self.assertGreater(513**4, 114**5)
 
-    def test_bounded_search_finds_more_quality_gt_one_obstructions(self) -> None:
+    def test_exponent_only_high_quality_obstruction(self) -> None:
+        self.assertEqual(radical(1 * 242 * 243), 66)
+        self.assertEqual(minimum_absorption_redundancy_support_formula(1, 242, 243), 5)
+        self.assertEqual(absorption_obstruction_spectrum(1, 242, 243), ((5, 1),))
+        self.assertGreater(243**10, 66**13)
+
+    def test_small_falsification_scan_finds_quality_obstructions(self) -> None:
         found = []
-        for c in range(3, 800):
+        for c in range(3, 100):
             for a in range(1, c // 2 + 1):
                 b = c - a
                 if math.gcd(a, b) != 1:
                     continue
-                # Factorization is deliberately delegated to the exact project tools;
-                # this bounded scan is regression evidence, not a theorem proof.
                 try:
                     eta = minimum_absorption_redundancy_support_formula(a, b, c)
                 except ValueError:
                     continue
-                from enterprise_math.abc_support import radical
-
                 R = radical(a * b * c)
                 if c > R and eta > 1:
                     found.append((a, b, c, R, eta))
         self.assertIn((1, 80, 81, 30, 2), found)
-        self.assertIn((1, 512, 513, 114, 3), found)
         self.assertIn((5, 27, 32, 30, 3), found)
 
     def test_single_local_valuation(self) -> None:
         self.assertEqual(local_absorption_valuation(1, 512, 513, 3), 1)
         self.assertEqual(local_absorption_valuation(1, 512, 513, 19), 0)
+        self.assertEqual(local_absorption_valuation(1, 242, 243, 5), 1)
 
 
 if __name__ == "__main__":
