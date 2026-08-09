@@ -1,0 +1,53 @@
+{
+  "schema": "ENTERPRISE_MATH_REPLAY_MANIFEST_V1",
+  "status": "ACTIVE_OWNER_REPLAY",
+  "no_new_mathematics_during_replay": true,
+  "target_branch": "core/a4-admissible-support-v2",
+  "target_home": "A4_ADMISSIBLE_SUPPORT_CORRESPONDENCE",
+  "baseline_main": "ded16b559f956f0d382eb2ed418fc7411be23eac",
+  "primary_source": {
+    "branch": "research/core/admissible-support-relations",
+    "head": "6e2dc72e46885c081278228838831cd87eb8167c"
+  },
+  "historical_discovery_source": "agent/e001-multires-collision",
+  "keep": [
+    "functional versus multivalued relational support",
+    "admissible support/correspondence families",
+    "relation composition and common-target structure",
+    "relational subadditivity and split-completeness boundary",
+    "MAY/MUST support semantics",
+    "witness/event spectra and total-function degeneration to P011",
+    "higher-order common-target constraints"
+  ],
+  "first_replay_slice": {
+    "classification": "A4_CORE_SELF_CONTAINED",
+    "assets": [
+      "src/enterprise_math/admissible_support.py",
+      "src/enterprise_math/relational_spectrum.py",
+      "tests/test_admissible_support.py",
+      "tests/test_relational_spectrum.py"
+    ],
+    "reason": "These assets use only finite relations/correspondences, relation composition/converse, common targets, finite witness/group spectra, and the explicit function-graph degeneration to P011. Tests use hand-built relations and no longer depend on E001 geometry fixtures."
+  },
+  "audit_deferrals": {
+    "src/enterprise_math/support_precision.py": {
+      "relation": "A4_X_A2_INTERFACE",
+      "reason": "It applies observations to support relations and therefore belongs to the A4↔A2/P018 interface, not the correspondence core itself."
+    }
+  },
+  "defer": {
+    "A2_P023": ["generic observation/refinement/future-compatible quotient", "support_precision observation layer until A2 comparison is complete"],
+    "A3": ["structured weighted relation-state and partition kernel"],
+    "A5_P022": ["primitive geometry that generates supports"],
+    "E001": ["collision engine, schedules, benchmarks, implementation performance"]
+  },
+  "forbid_wholesale_merge": true,
+  "source_branch_frozen_for_new_general_theorems": true,
+  "completion": [
+    "every source asset classified",
+    "general support theorems separated from E001 engineering",
+    "function-graph degeneration to P011 preserved",
+    "prior-art and lineage preserved",
+    "current-main gates pass"
+  ]
+}
