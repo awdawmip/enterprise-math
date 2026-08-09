@@ -3,6 +3,7 @@ import unittest
 from enterprise_math.p018_divisor_window import (
     divisor_quotient_window,
     divisor_window_separation,
+    nonadjacent_small_product_root_pair_separation,
     odd_small_product_root_pair_separation,
     same_parity_divisor_windows,
 )
@@ -34,31 +35,59 @@ class P018DivisorWindowTests(unittest.TestCase):
                 self.assertEqual((e - d) % 2, 0)
                 self.assertGreaterEqual(k * (e - d), 2 * d)
 
-    def test_odd_small_product_root_pairs_are_disjoint(self):
-        saw = False
-        for k in range(16, 500):
-            for d in range(3, k, 2):
-                for e in range(d + 2, k, 2):
+    def test_nonadjacent_small_product_root_pairs_are_disjoint(self):
+        saw_d2 = False
+        saw_general = False
+        for k in range(7, 500):
+            for d in range(2, k):
+                for e in range(d + 2, k + 1):
                     if d * e >= k:
                         break
-                    data = odd_small_product_root_pair_separation(k, d, e)
-                    self.assertGreaterEqual(data["right_root"], 2 * d + 1)
+                    data = nonadjacent_small_product_root_pair_separation(k, d, e)
                     self.assertGreaterEqual(data["root_gap"], 2)
                     self.assertTrue(
                         set(data["left_candidates"]).isdisjoint(
                             data["right_candidates"]
                         )
                     )
-                    saw = True
-        self.assertTrue(saw)
+                    if d == 2:
+                        saw_d2 = True
+                    else:
+                        self.assertGreaterEqual(data["right_root"], 2 * d + 1)
+                        saw_general = True
+        self.assertTrue(saw_d2)
+        self.assertTrue(saw_general)
 
-    def test_minimal_odd_small_product_case(self):
-        data = odd_small_product_root_pair_separation(16, 3, 5)
-        self.assertEqual(data["left_root"], 9)
-        self.assertEqual(data["right_root"], 7)
+    def test_sharp_small_product_base_families(self):
+        data = nonadjacent_small_product_root_pair_separation(9, 2, 4)
+        self.assertEqual((data["left_root"], data["right_root"]), (6, 4))
         self.assertEqual(data["root_gap"], 2)
 
-    def test_adjacent_opposite_parity_can_overlap(self):
+        data = nonadjacent_small_product_root_pair_separation(16, 3, 5)
+        self.assertEqual((data["left_root"], data["right_root"]), (9, 7))
+        self.assertEqual(data["root_gap"], 2)
+
+    def test_odd_corollary_routes_to_general_theorem(self):
+        general = nonadjacent_small_product_root_pair_separation(52, 3, 7)
+        odd = odd_small_product_root_pair_separation(52, 3, 7)
+        self.assertEqual(general, odd)
+
+    def test_adjacent_divisors_are_a_real_boundary(self):
+        # de<k alone is insufficient when e=d+1.
+        self.assertLess(
+            abs(
+                ((13 * 13) // 3) ** 0
+            ),
+            2,
+        )
+        left_root = int(((13 * 13) // 3) ** 0.5)
+        right_root = int(((13 * 13) // 4) ** 0.5)
+        self.assertEqual((left_root, right_root), (7, 6))
+        self.assertEqual(left_root - right_root, 1)
+        with self.assertRaises(ValueError):
+            nonadjacent_small_product_root_pair_separation(13, 3, 4)
+
+    def test_adjacent_opposite_parity_can_overlap_windows(self):
         self.assertEqual(divisor_quotient_window(3, 2), (5, 7))
         self.assertEqual(divisor_quotient_window(3, 3), (4, 5))
         self.assertEqual(
@@ -72,9 +101,11 @@ class P018DivisorWindowTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             divisor_window_separation(10, 6, 7)
         with self.assertRaises(ValueError):
-            odd_small_product_root_pair_separation(16, 2, 5)
+            nonadjacent_small_product_root_pair_separation(13, 3, 4)
         with self.assertRaises(ValueError):
-            odd_small_product_root_pair_separation(16, 3, 7)
+            nonadjacent_small_product_root_pair_separation(16, 3, 7)
+        with self.assertRaises(ValueError):
+            odd_small_product_root_pair_separation(16, 2, 5)
 
 
 if __name__ == "__main__":
