@@ -78,12 +78,15 @@ A candidate requiring real research receives a stable `FQ-*` entry in #164. The 
 Every OPEN/CLAIMED/RESEARCHING FQ that needs execution must be traceable through `foundation_backflow.json` to a #240 scheduler task:
 
 - mathematical research links to a `RESEARCH` task owned by the appropriate L1/L2/L3 active owner or bridge;
+- the task itself explicitly declares that FQ in its `foundation_questions` field;
+- an existing owner task may carry the FQ only when the FQ is genuinely inside that task's declared frontier; sharing an owner is not enough;
+- a live claimed task is never retroactively reinterpreted to solve a different FQ; use a distinct bounded scheduler task when the question is separate;
 - the steward does not impersonate a research owner;
 - once an FQ has returned an answer, it moves to governance-side steward verification rather than being automatically re-dispatched as the same research.
 
 ### `RESEARCHING`
 
-Execution follows the #240 `CLAIM -> PROGRESS/HEARTBEAT -> HANDOFF/DONE` lease machine. #164 remains the mathematical question/answer record; #240 remains the execution-continuity record. Neither replaces the other.
+Execution follows the #240 lease machine when that runtime surface is available. #164 remains the mathematical question/answer record; #240 remains the execution-continuity record. Scheduler availability is not a research startup gate, and neither surface replaces the other.
 
 ### `ANSWERED`
 
@@ -111,7 +114,7 @@ After applicable gates pass and the patch enters main:
 1. the corresponding #164 FQ is marked `CANONICALIZED`;
 2. the common research surface and machine routers expose the new bottom-layer interface;
 3. theorem/tool/status/lineage surfaces are updated as needed;
-4. the relevant #240 governance frontier is completed or handed off;
+4. the relevant #240 governance frontier is completed or handed off when the runtime path is available;
 5. GLOBAL_KNOWLEDGE records the durable architecture/state;
 6. later research consumes the revised Foundation and continues pressure-testing it.
 
@@ -119,7 +122,7 @@ This closes back into `DETECTED`: revised Foundation is an input to the next rou
 
 ## 4. Scheduler integration
 
-`research_scheduler.json` remains the durable task/frontier definition and #240 remains the runtime event log.
+`research_scheduler.json` remains the durable task/frontier definition and #240 remains the runtime event log when available.
 
 `foundation_backflow.json` adds only **semantic links**; it does not duplicate the scheduler state machine. Each active FQ link records at least:
 
@@ -133,11 +136,15 @@ This closes back into `DETECTED`: revised Foundation is an input to the next rou
 Rules:
 
 - `scheduler_role=RESEARCH` must reference a scheduler `kind=RESEARCH` task;
+- the referenced research task must explicitly list the FQ in `foundation_questions`;
 - `scheduler_role=STEWARD_VERIFICATION` or `INTEGRATION` must reference a `kind=GOVERNANCE` task;
 - an FQ may change links as its phase changes, but research answer and steward acceptance must never be collapsed into one state;
-- an existing owner task may carry a compatible FQ to avoid creating a permanent branch per question, but its `next_action/source_refs` must explicitly mention the FQ;
+- an existing owner task may carry a compatible FQ only when that FQ is explicitly declared in the task; `owner` equality by itself is insufficient;
+- do not mutate the meaning of an already-live claim merely to reuse its task ID; create a distinct bounded task for a distinct question;
 - if carrying the FQ would create owner scope drift, create a bounded L3 bridge/probe rather than forcing it into an unrelated owner;
 - after an FQ is canonicalized, remove it from the active scheduler-link set and retain it under `canonicalized_examples`/provenance instead of pretending it still needs execution.
+
+These links are durable recovery metadata. Failure to read or write #240 is a coordination degradation, not a mathematical `HARD_BLOCK` and not a reason to stop an explicit user task.
 
 ## 5. Relay integration
 
@@ -189,7 +196,7 @@ This example now lives under `canonicalized_examples`, not the active scheduler-
 
 FQ-005 remains at `FQ_OPEN -> RESEARCH_SCHEDULED`: the stable `graph_distance` API has a broader operational domain than the P012 ordinary-metric theorem domain.
 
-A5/P012/P022 geometry research must decide the API/domain layering. The foundation steward must not silently choose between narrowing the stable API and retaining a separately named directed shortest-walk helper. `foundation_backflow.json` links this question to the existing P022 geometry research task.
+A5/P012/P022 geometry research must decide the API/domain layering. The foundation steward must not silently choose between narrowing the stable API and retaining a separately named directed shortest-walk helper. `foundation_backflow.json` links this question to the dedicated `RS-P022-GRAPH-DISTANCE-API` research task under `program/p022-geometry-v2`. This deliberately does **not** reinterpret the separate `RS-P022-OBSERVATION-HISTORY` frontier or any live lease on it.
 
 The two examples intentionally occupy opposite ends of the loop so the mechanism stays regression-testable.
 
@@ -200,7 +207,7 @@ A healthy loop lets a maintainer answer for every important Foundation candidate
 1. where did it first appear?
 2. where is its Feedback Packet?
 3. why was it direct maintenance, an FQ, or local/not-ready?
-4. if research is needed, which #240 task/owner continues it?
+4. if research is needed, which explicitly-declared #240 task/owner continues it?
 5. where was the answer returned and what is its proof status?
 6. has the steward independently accepted it?
 7. which current-main integration made it canonical?
