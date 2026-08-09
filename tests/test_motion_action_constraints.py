@@ -5,7 +5,10 @@ from enterprise_math.engineering_collision import Body2D
 from enterprise_math.motion_action_constraints import (
     accepted_set_satisfies_constraints,
     binary_motion_constraints,
+    individually_feasible_move_ids,
     maximum_constraint_solutions,
+    move_closure_is_feasible,
+    required_move_closure,
 )
 from enterprise_math.motion_collapse import BodyMotion2D, maximum_conflict_free_move_sets
 
@@ -20,6 +23,10 @@ class MotionActionConstraintTests(unittest.TestCase):
         self.assertEqual(report.mutex_pairs, ((0, 1),))
         self.assertEqual(set(report.implications), {(0, 1), (1, 0)})
         self.assertEqual(report.forced_wait_ids, ())
+        self.assertEqual(required_move_closure(report, frozenset({0})), frozenset({0, 1}))
+        self.assertFalse(move_closure_is_feasible(report, frozenset({0})))
+        self.assertFalse(move_closure_is_feasible(report, frozenset({1})))
+        self.assertEqual(individually_feasible_move_ids(report), ())
         self.assertEqual(maximum_constraint_solutions(report), (frozenset(),))
 
     def test_convergence_has_mutex_without_move_dependencies(self):
@@ -30,6 +37,8 @@ class MotionActionConstraintTests(unittest.TestCase):
         report = binary_motion_constraints(motions)
         self.assertEqual(report.mutex_pairs, ((0, 1),))
         self.assertEqual(report.implications, ())
+        self.assertEqual(required_move_closure(report, frozenset({0})), frozenset({0}))
+        self.assertEqual(individually_feasible_move_ids(report), (0, 1))
         self.assertEqual(
             set(maximum_constraint_solutions(report)),
             {frozenset({0}), frozenset({1})},
@@ -43,10 +52,27 @@ class MotionActionConstraintTests(unittest.TestCase):
         report = binary_motion_constraints(motions)
         self.assertEqual(report.mutex_pairs, ())
         self.assertEqual(report.implications, ((0, 1),))
+        self.assertEqual(required_move_closure(report, frozenset({0})), frozenset({0, 1}))
+        self.assertEqual(required_move_closure(report, frozenset({1})), frozenset({1}))
+        self.assertEqual(individually_feasible_move_ids(report), (0, 1))
         self.assertTrue(accepted_set_satisfies_constraints(report, frozenset({0, 1})))
         self.assertFalse(accepted_set_satisfies_constraints(report, frozenset({0})))
         self.assertTrue(accepted_set_satisfies_constraints(report, frozenset({1})))
         self.assertEqual(maximum_constraint_solutions(report), (frozenset({0, 1}),))
+
+    def test_dependency_into_explicit_wait_marks_source_individually_impossible(self):
+        motions = [
+            BodyMotion2D(Body2D(0, 0, 0, 0), (1, 0)),
+            BodyMotion2D(Body2D(1, 1, 0, 0), (1, 0)),
+            BodyMotion2D(Body2D(2, 2, 0, 0), (0, 0)),
+        ]
+        report = binary_motion_constraints(motions)
+        self.assertIn((0, 1), report.implications)
+        self.assertIn(1, report.forced_wait_ids)
+        self.assertEqual(required_move_closure(report, frozenset({0})), frozenset({0, 1}))
+        self.assertFalse(move_closure_is_feasible(report, frozenset({0})))
+        self.assertFalse(move_closure_is_feasible(report, frozenset({1})))
+        self.assertEqual(individually_feasible_move_ids(report), ())
 
     def test_explicit_waiting_body_can_force_proposed_move_to_wait(self):
         motions = [
@@ -56,6 +82,7 @@ class MotionActionConstraintTests(unittest.TestCase):
         report = binary_motion_constraints(motions)
         self.assertEqual(report.moving_ids, (0,))
         self.assertEqual(report.forced_wait_ids, (0,))
+        self.assertEqual(individually_feasible_move_ids(report), ())
         self.assertEqual(maximum_constraint_solutions(report), (frozenset(),))
 
     def test_constraint_factorization_matches_target_oracle_on_small_1d_domain(self):
