@@ -51,6 +51,18 @@ class CommonCollapseTests(unittest.TestCase):
         self.assertIsNone(common_collapse_witness(left, right))
         self.assertFalse(common_collapse_collision(left, right))
 
+    def test_common_collapse_relation_can_be_nontransitive(self):
+        # Equality under any one deterministic collapse/projection is transitive.
+        # Local collision is not: A overlaps B and B overlaps C while A and C
+        # remain separate.  This is the minimal witness that collision cannot in
+        # general be represented as equality of one globally single-valued image.
+        left = Body2D(0, 0, 0, 1)
+        middle = Body2D(1, 2, 0, 1)
+        right = Body2D(2, 4, 0, 1)
+        self.assertTrue(common_collapse_collision(left, middle))
+        self.assertTrue(common_collapse_collision(middle, right))
+        self.assertFalse(common_collapse_collision(left, right))
+
     def test_inverted_target_index_finds_exact_pairs(self):
         bodies = [
             Body2D(0, -8, -8, 1),
