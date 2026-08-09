@@ -82,22 +82,28 @@ A bridge must stay thin. It may own factorization/specialization/reconstruction/
 
 ### L4 — Integration Replay
 
-A one-shot transport layer created from **latest main**.
+A one-shot canonical transport layer. Freeze the exact proved source payload/provenance first, then create or reconcile the L4 integration against a **current `main` snapshot when promotion begins**.
 
 Its only jobs are:
 
 1. semantic replay of selected theorems;
-2. canonical numbering;
+2. canonical numbering/status routing;
 3. bilingual synchronization;
 4. implementation/test/Lean replay;
 5. lineage/prior-art updates;
-6. repository gates.
+6. shared theorem/tool surface synchronization in `docs/RESEARCH_COMMON_SURFACE.*` and `research_common_surface.json`, or an explicit `N/A` rationale when the promoted item is genuinely not reusable;
+7. exact root-Lean/repository-tool index synchronization when `EnterpriseMath.lean` imports or `tools/*.py` membership change;
+8. repository gates, including `tools/check_research_common_surface.py` for the mechanically checkable shared-surface contract.
 
-Hard rule:
+Hard rules:
 
 > **An integration branch may not create new mathematics.**
 
-If replay exposes a new theorem, return to the appropriate L1/L2/L3 owner first. Delete the integration branch after merge; keep the PR as history.
+> **Unrelated movement of `main` during L4 validation does not create a new replay generation.**
+
+If replay exposes a new theorem, return to the appropriate L1/L2/L3 owner first. If `main` advances while validation is running, keep the frozen source-result identity, inspect only the actual intervening delta, reconcile a real semantic/file overlap in the same L4 line, and perform one final current-main combination gate before merge. Rebuild/replay only when there is a genuine semantic conflict, file conflict, or failed final gate.
+
+Delete the integration branch after merge; keep the PR as history.
 
 ### L5 — Provenance / Archive
 
@@ -129,11 +135,11 @@ Bounded bridge question with unabsorbed results.
 
 ### `INTEGRATION`
 
-Current-main semantic replay; no new mathematics.
+One-shot canonical transport; no new mathematics. It may be behind moving `main` during validation without becoming invalid; the required invariant is the frozen source payload plus the final current-main combination gate.
 
 ### `REPLAY_REQUIRED`
 
-Semantic audit confirms mathematics still missing from main, but the branch is highly diverged or mixes multiple owners; freeze new research and replay from latest main.
+Semantic audit confirms mathematics still missing from main, but the historical branch is highly diverged or mixes multiple owners; freeze new research **on that historical tree**, route new mathematics to the appropriate writable L1/L2/L3 owner, and replay the selected source payload through L4 when promotion is ready.
 
 Default triggers include:
 
@@ -200,7 +206,7 @@ Recommended state flow:
 
 → `PROVENANCE`.
 
-`REPLAY_REQUIRED` may spawn a clean owner or integration branch, but a historical large tree must not be made current again through repeated wholesale merges.
+`REPLAY_REQUIRED` may spawn a clean writable owner for continuing research and a one-shot L4 integration for promotion, but a historical large tree must not be made current again through repeated wholesale merges.
 
 ---
 
@@ -208,8 +214,8 @@ Recommended state flow:
 
 - `ahead=0`: mechanical absorption; default `ABSORBED`.
 - `ahead>0`: perform semantic-equivalence audit before choosing `ABSORBED` or `REPLAY_REQUIRED`.
-- `ahead>0, behind<20`: if unique mathematics remains, usually suitable for a short current-main owner/replay branch.
-- `ahead>0, behind>=50`: if unique mathematics remains, default `REPLAY_REQUIRED`.
+- `ahead>0, behind<20`: if unique mathematics remains, usually suitable for a short owner distillation and later one-shot L4 promotion.
+- `ahead>0, behind>=50`: if unique mathematics remains, default the historical tree to `REPLAY_REQUIRED`.
 - `ahead>100` or changes span multiple theorem homes: distill semantically; stop expanding the old PR.
 
 These are Git-governance triggers, not mathematical-quality judgments.
@@ -272,6 +278,8 @@ Do not create new `checkpoint/*` branches; use immutable annotated tags.
 
 - L1/L2/L3 PRs may contain new mathematics.
 - L4 PRs must declare `NO NEW MATHEMATICS`.
+- Every reusable L4 promotion must include its common-surface delta, including result/tool status and exact reusable asset paths, or explicitly justify `N/A`.
+- A root Lean import or repository Python-tool membership change is incomplete until the exact human/machine shared indexes are synchronized in the same PR.
 - A PR spanning multiple theorem homes must be split or marked `REPLAY_REQUIRED`.
 - `ABSORBED` PRs should not remain open merely because their history matters; the closed PR is the history.
 - Stacked PR chains must remain short and temporary; no long-lived dependency DAG.
@@ -300,5 +308,6 @@ Any cleanup must preserve the ability to answer:
 2. Who owns the most general proved form now?
 3. Which current owner continues the research?
 4. Which programs/applications consume it?
+5. Where can every route discover the canonical theorem/tool after promotion?
 
-If deleting a branch ref would make any answer unrecoverable from Git/PR/tag/lineage, record provenance first.
+If deleting a branch ref would make any answer unrecoverable from Git/PR/tag/lineage/common-surface routing, record provenance/routing first.
