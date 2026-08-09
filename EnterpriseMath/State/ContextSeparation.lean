@@ -107,7 +107,7 @@ theorem not_sameThrough_triangle
     (hxz : ¬ SameThrough O τ n x z) :
     ¬ SameThrough O τ n x y ∨ ¬ SameThrough O τ n y z := by
   by_contra h
-  push_neg at h
+  push Not at h
   exact hxz (sameThrough_trans h.1 h.2)
 
 end EnterpriseMath.ContextSeparation
