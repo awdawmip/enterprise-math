@@ -1,6 +1,6 @@
 # P002 — Sharp collapse-gap bound
 
-Status: `PROVED`  
+Status: `PROVED / LEAN-CHECKED T01–T02`  
 Open problem: `P002`  
 Scope: ordinary mathematics
 
@@ -25,6 +25,8 @@ Then \(C_p(n)=k^p\), and T001 gives
 \[
 k^p\le n<(k+1)^p.
 \]
+
+Lean representation: `EnterpriseMath.CollapseGap.collapseGap`; the sharp basin endpoint is represented by `maxGapInBasin`.
 
 ## 2. Sharp basin bound
 
@@ -67,6 +69,8 @@ G_p(n)\le (k+1)^p-k^p-1.
 \]
 
 Equality after subtraction occurs exactly when \(n=(k+1)^p-1\). That state is still in the basin of \(k^p\), so the bound is attained. ∎
+
+Formalization: Lean-checked as `EnterpriseMath.CollapseGap.collapseGap_le_max`; sharp equality is checked as `collapseGap_eq_max_iff`.
 
 ## 3. Basin size interpretation
 
@@ -146,6 +150,8 @@ G_p(n)=g.
 
 The inverse map is \(g\mapsto k^p+g\). ∎
 
+Formalization: exact recovery of a basin state is checked by `EnterpriseMath.CollapseGap.basin_state_eq_pow_add_gap`. The bijection is kernel-checked in `∃!` form by `existsUnique_basin_state_with_gap`: every admissible gap coordinate has exactly one state in the fixed basin, with inverse state `k^p+g`.
+
 Thus the gap can be used as an **external coordinate for comparing states within a basin** without changing the collapse map into a pair-valued state transition.
 
 ## 5. Pure-integer closed form
@@ -180,6 +186,8 @@ p=4:\quad 4k^3+6k^2+4k.
 
 No real-valued approximation or asymptotic estimate is required.
 
+Formalization status: this unnumbered binomial closed-form corollary remains ordinary-proved in the present pass; `LEAN-CHECKED T01–T02` refers specifically to the two numbered P002 theorem units above.
+
 ## 6. Relation to the ontology boundary
 
 P002 must not reintroduce the old hidden-remainder interpretation.
@@ -213,6 +221,8 @@ G_p(n)\le (R_p(n)+1)^p-R_p(n)^p-1
 with equality exactly at the last integer state before the next perfect \(p\)-th power.
 
 The same result is equivalently “basin size minus one”, and the gap coordinate enumerates every location inside the basin exactly once.
+
+P002-T01 and P002-T02 are covered by the imported warnings-fatal Lean build in `EnterpriseMath.Arithmetic.CollapseGap`.
 
 ## 8. Prior-art discipline
 
