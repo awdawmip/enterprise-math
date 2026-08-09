@@ -107,8 +107,12 @@ theorem cubic_coalescence_horizon_lt_parent
     root 3 (2 * (k + 1) ^ 2 - 1) < k := by
   have hArgBound : 2 * (k + 1) ^ 2 ≤ k ^ 3 := by
     nlinarith
-  have hArgLt : 2 * (k + 1) ^ 2 - 1 < k ^ 3 := by
-    omega
+  have hArgPos : 0 < 2 * (k + 1) ^ 2 := by
+    positivity
+  have hSubLt : 2 * (k + 1) ^ 2 - 1 < 2 * (k + 1) ^ 2 := by
+    exact Nat.sub_lt hArgPos (by decide)
+  have hArgLt : 2 * (k + 1) ^ 2 - 1 < k ^ 3 :=
+    lt_of_lt_of_le hSubLt hArgBound
   by_contra hnot
   have hkRoot : k ≤ root 3 (2 * (k + 1) ^ 2 - 1) := by
     omega
