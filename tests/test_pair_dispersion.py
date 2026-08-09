@@ -83,6 +83,46 @@ class PairDispersionTests(unittest.TestCase):
                                 )
                                 self.assertEqual(identity_left, identity_right)
 
+    def test_four_block_pentagon_coherence(self):
+        for sizes in itertools.product(range(1, 3), repeat=4):
+            m, n, k, ell = sizes
+            for totals in itertools.product(range(-2, 3), repeat=4):
+                a, b, c, d = totals
+
+                # T1 = (((A,B),C),D)
+                u_ab = square_split_imbalance(m, n, a, b)
+                v_abc = square_split_imbalance(m + n, k, a + b, c)
+                w_abcd = square_split_imbalance(m + n + k, ell, a + b + c, d)
+
+                # Long path T1 -> T2 -> T3 -> T4.
+                u_bc, v_a_bc = reassociate_imbalances(
+                    m, n, k, u_ab, v_abc
+                )
+                v_bc_d, w_a_bcd = reassociate_imbalances(
+                    m, n + k, ell, v_a_bc, w_abcd
+                )
+                u_cd_long, v_b_cd_long = reassociate_imbalances(
+                    n, k, ell, u_bc, v_bc_d
+                )
+                long_path = (u_cd_long, v_b_cd_long, w_a_bcd)
+
+                # Short path T1 -> T5 -> T4.
+                u_cd_short, v_ab_cd = reassociate_imbalances(
+                    m + n, k, ell, v_abc, w_abcd
+                )
+                v_b_cd_short, w_a_bcd_short = reassociate_imbalances(
+                    m, n, k + ell, u_ab, v_ab_cd
+                )
+                short_path = (u_cd_short, v_b_cd_short, w_a_bcd_short)
+
+                expected = (
+                    square_split_imbalance(k, ell, c, d),
+                    square_split_imbalance(n, k + ell, b, c + d),
+                    square_split_imbalance(m, n + k + ell, a, b + c + d),
+                )
+                self.assertEqual(long_path, short_path)
+                self.assertEqual(long_path, expected)
+
     def test_unit_slot_rotation_matches_closed_example(self):
         # ((x,y),z) -> (x,(y,z))
         for x in range(-4, 5):
