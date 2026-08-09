@@ -15,7 +15,8 @@ Before starting a new theorem line:
 3. read `docs/PROBLEM_STATUS.*` and the canonical result document for the relevant problem;
 4. search the latest relevant entries in Research Relay Issue #82;
 5. inspect the relevant executable specification/tests or Lean module when the proposed result overlaps an existing tool/theorem family;
-6. only then decide whether the next step is a new mother theorem, specialization, bridge, counterexample, or duplicate.
+6. if the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.*` and the relevant `FQ-*` entries in Foundation Problem Set Issue #164;
+7. only then decide whether the next step is a new mother theorem, specialization, bridge, counterexample, duplicate, or an answer to a foundation problem.
 
 Do not inject the whole repository into working context. The point is shared awareness plus selective retrieval.
 
@@ -170,3 +171,17 @@ When any route proves or finds something reusable:
 Knowledge sharing increases parallelism; it must never create a global barrier.
 
 A route that discovers an upstream theorem should consume it and continue. A route that discovers an upstream gap should isolate the exact missing lemma and continue elsewhere unless it can honestly record a `HARD_BLOCK` under `RESEARCH_SCHEDULING_PROTOCOL`.
+
+## 9. Foundation stewardship and P0 escalation
+
+The project-wide bottom layer is maintained under `docs/FOUNDATION_STEWARD_PROTOCOL.*` and machine routing `foundation_steward.json`.
+
+The steward maintains language/notation, definition/formula integrity, theorem statements/status/interfaces, prose↔tool↔test↔Lean consistency, and shared tool discovery. Mechanical or already-determined maintenance is repaired directly.
+
+A concern that survives minimum verification and still requires genuine research is escalated to **Foundation Problem Set Issue #164** with a stable `FQ-*` ID. Examples include contradiction risk, unresolved domain/type choice, missing theorem hypothesis, cross-route interface incompatibility, high-value new structure, prior-art uncertainty, or a tool/theorem sufficiency question.
+
+The steward does not solve those research questions. Other researchers claim them, return evidence, and the steward verifies the answer before any canonical language/formula/theorem/tool change.
+
+This creates a deliberate separation:
+
+`foundation maintenance and verification -> FQ escalation when research is needed -> independent researcher investigation -> steward verification -> canonical propagation`.
