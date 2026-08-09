@@ -15,6 +15,8 @@ pairs.  No prime-distribution estimate is used.
 
 from __future__ import annotations
 
+from math import isqrt
+
 from .core import integer_nth_root
 from .legendre import is_prime, primes_up_to
 
@@ -25,16 +27,22 @@ def _require_positive(name: str, value: int) -> None:
 
 
 def lower_band_primes(k: int) -> list[int]:
-    """Return least-prime candidates p<=k with p^2 < 2k."""
+    """Return least-prime candidates p with p^2 < 2k.
+
+    The exact cutoff is floor(sqrt(2k-1)), so there is no reason to construct a
+    prime table up to k.  Keeping the implementation aligned with the theorem's
+    integer-root horizon also keeps large-root regression tests inexpensive.
+    """
     _require_positive("k", k)
-    return [p for p in primes_up_to(k) if p * p < 2 * k]
+    cutoff = isqrt(2 * k - 1)
+    return primes_up_to(cutoff)
 
 
 def lower_band_base_root(k: int, prime: int) -> int:
     """Return j_p = R_2(floor(k^2/p)) for a lower-band prime p."""
     _require_positive("k", k)
     _require_positive("prime", prime)
-    if prime > k or not is_prime(prime) or prime * prime >= 2 * k:
+    if not is_prime(prime) or prime * prime >= 2 * k:
         raise ValueError("prime must be a lower-band prime with p^2 < 2k")
     return integer_nth_root((k * k) // prime, 2)
 
