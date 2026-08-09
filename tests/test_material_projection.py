@@ -6,7 +6,10 @@ from enterprise_math.material_oscillator import (
     PythagoreanRotation,
     projected_rotation_step,
 )
-from enterprise_math.material_projection import rotation_projection_loss_identity
+from enterprise_math.material_projection import (
+    rotation_projection_loss_identity,
+    trace_toward_zero_projection_loss,
+)
 
 
 class MaterialProjectionTests(unittest.TestCase):
@@ -27,6 +30,34 @@ class MaterialProjectionTests(unittest.TestCase):
                 self.assertGreaterEqual(identity.scaled_norm_sq_loss, 0)
                 saw_strict_loss |= identity.scaled_norm_sq_loss > 0
         self.assertTrue(saw_strict_loss)
+
+    def test_local_projection_losses_telescope_to_endpoint_radius_loss(self):
+        rotation = PythagoreanRotation(399, 40, 401)
+        for steps in (0, 1, 2, 16, 100, 500):
+            trace = trace_toward_zero_projection_loss((1000, 0), rotation, steps)
+            self.assertEqual(
+                trace.norm_sq_loss,
+                trace.initial_norm_sq - trace.final_norm_sq,
+            )
+            self.assertEqual(
+                trace.scaled_norm_sq_loss,
+                sum(trace.local_scaled_losses),
+            )
+            self.assertEqual(
+                trace.scaled_norm_sq_loss,
+                sum(trace.local_cross_terms) + sum(trace.local_detail_square_terms),
+            )
+            self.assertTrue(all(loss >= 0 for loss in trace.local_scaled_losses))
+
+    def test_full_reference_extinction_accounts_for_entire_initial_radius(self):
+        rotation = PythagoreanRotation(399, 40, 401)
+        trace = trace_toward_zero_projection_loss((1000, 0), rotation, 1570)
+        self.assertEqual(trace.final_state, (0, 0))
+        self.assertEqual(trace.norm_sq_loss, 1_000_000)
+        self.assertEqual(
+            trace.scaled_norm_sq_loss,
+            rotation.c * rotation.c * 1_000_000,
+        )
 
     def test_floor_growth_is_explained_by_negative_quotient_detail_cross_term(self):
         rotation = PythagoreanRotation(3, 4, 5)
