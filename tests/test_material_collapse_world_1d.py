@@ -5,6 +5,7 @@ from enterprise_math.material_collapse_world_1d import (
     REBOUND,
     TRANSMIT,
     UNDERRESOLVED,
+    ZERO_RETURN,
     collapse_material_wall_step,
 )
 from enterprise_math.material_precision_compatibility import (
@@ -27,7 +28,7 @@ class MaterialCollapseWorld1DTests(unittest.TestCase):
             return_retention=500,
         )
 
-    def test_same_jump_changes_rebound_depth_then_transmits_under_refinement(self):
+    def test_same_jump_changes_rebound_depth_then_zero_return_then_transmits_under_refinement(self):
         # start/end gaps both 2; incoming budget is 4.
         outcomes = [
             collapse_material_wall_step(
@@ -37,7 +38,7 @@ class MaterialCollapseWorld1DTests(unittest.TestCase):
         ]
         self.assertEqual(
             [outcome.kind for outcome in outcomes],
-            [REBOUND, REBOUND, REBOUND, REBOUND, TRANSMIT, TRANSMIT],
+            [REBOUND, REBOUND, ZERO_RETURN, ZERO_RETURN, TRANSMIT, TRANSMIT],
         )
         self.assertEqual(
             [outcome.material_precision_status for outcome in outcomes],
@@ -62,6 +63,8 @@ class MaterialCollapseWorld1DTests(unittest.TestCase):
             [None if outcome.rebound is None else outcome.rebound.returned_budget for outcome in outcomes],
             [1, 1, 0, 0, None, None],
         )
+        self.assertEqual(outcomes[2].after_center, -2)
+        self.assertEqual(outcomes[3].after_center, -2)
         self.assertEqual(outcomes[-1].after_center, 2)
 
     def test_coarser_factor_can_create_deeper_material_layer_and_stronger_rebound(self):
@@ -80,7 +83,9 @@ class MaterialCollapseWorld1DTests(unittest.TestCase):
         self.assertEqual(d6.layer_material.material_state.response_sample, 800)
         self.assertEqual(d3.layer_material.material_state.response_sample, 200)
         self.assertEqual(d6.rebound.returned_budget, 3)
+        self.assertEqual(d6.kind, REBOUND)
         self.assertEqual(d3.rebound.returned_budget, 0)
+        self.assertEqual(d3.kind, ZERO_RETURN)
         self.assertLess(d6.after_center, d3.after_center)
 
     def test_resolved_same_side_move_is_plain_accept(self):
@@ -128,6 +133,19 @@ class MaterialCollapseWorld1DTests(unittest.TestCase):
         self.assertEqual(outcome.material_precision_status, MATERIAL_UNDERRESOLVED)
         self.assertIsNone(outcome.layer_material)
         self.assertIsNone(outcome.rebound)
+
+    def test_zero_material_return_is_not_labeled_rebound(self):
+        zero_return = material_curve_profile(
+            (0, 100, 200, 300),
+            amplitude=300,
+            return_retention=0,
+        )
+        outcome = collapse_material_wall_step(
+            self.wall, -2, 2, 0, 4, zero_return
+        )
+        self.assertEqual(outcome.kind, ZERO_RETURN)
+        self.assertEqual(outcome.rebound.returned_budget, 0)
+        self.assertEqual(outcome.after_center, -2)
 
 
 if __name__ == "__main__":

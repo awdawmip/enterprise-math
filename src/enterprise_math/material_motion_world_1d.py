@@ -8,13 +8,16 @@ At each tick the budget proposes one sampled displacement.  Under the declared
 policy:
 
 * ACCEPT/TRANSMIT keeps the same signed motion budget for the next tick;
-* REBOUND replaces it by the returned integer budget in the opposite direction;
+* REBOUND replaces it by a strictly positive returned integer budget in the
+  opposite direction;
+* ZERO_RETURN keeps the represented body at the start and sets the next motion
+  budget to zero;
 * MATERIAL_UNDERRESOLVED records the proposal and halts the represented history
   without inventing an after-state.
 
 This persistence rule is an explicit engineering world policy, not Newton's law.
 The automaton intentionally delegates primitive endpoint contact to another
-future rule; the coarse-layer helper requires positive primitive pre/post gaps.
+rule; the coarse-layer helper requires positive primitive pre/post gaps.
 """
 
 from __future__ import annotations
@@ -26,6 +29,7 @@ from .material_collapse_world_1d import (
     REBOUND,
     TRANSMIT,
     UNDERRESOLVED,
+    ZERO_RETURN,
     CollapseMaterialWorldOutcome1D,
     collapse_material_wall_step,
 )
@@ -67,6 +71,7 @@ class MotionBudgetHistory1D:
     transitions: tuple[MotionBudgetTransition1D, ...]
     final: MotionBudgetState1D | None
     rebound_count: int
+    zero_return_count: int
     transmission_count: int
     accept_count: int
     underresolved_count: int
@@ -103,14 +108,20 @@ def step_motion_budget_world(
     if outcome.after_center is None:
         raise AssertionError("resolved material wall outcome lost its after-state")
     if outcome.kind == REBOUND:
-        if outcome.rebound is None:
-            raise AssertionError("rebound outcome lost returned budget")
+        if outcome.rebound is None or outcome.rebound.returned_budget <= 0:
+            raise AssertionError("rebound outcome must carry a positive returned budget")
         if state.signed_motion_budget > 0:
             next_budget = -outcome.rebound.returned_budget
         elif state.signed_motion_budget < 0:
             next_budget = outcome.rebound.returned_budget
         else:
-            next_budget = 0
+            raise AssertionError("zero incoming budget cannot produce positive rebound")
+    elif outcome.kind == ZERO_RETURN:
+        if outcome.rebound is None or outcome.rebound.returned_budget != 0:
+            raise AssertionError("zero-return outcome must carry exactly zero returned budget")
+        if outcome.after_center != state.center:
+            raise AssertionError("zero-return blocking policy must remain at represented start")
+        next_budget = 0
     elif outcome.kind in (ACCEPT, TRANSMIT):
         next_budget = state.signed_motion_budget
     else:
@@ -165,6 +176,9 @@ def run_motion_budget_world(
         final=state,
         rebound_count=sum(
             transition.wall_outcome.kind == REBOUND for transition in transitions
+        ),
+        zero_return_count=sum(
+            transition.wall_outcome.kind == ZERO_RETURN for transition in transitions
         ),
         transmission_count=sum(
             transition.wall_outcome.kind == TRANSMIT for transition in transitions

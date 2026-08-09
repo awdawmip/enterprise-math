@@ -11,12 +11,15 @@ There are ``C-1`` such phases.  Let ``g=min(g_pre,g_post)``.  At spatial factor
 
 * ``g>=d`` transmits;
 * ``g<d`` enters interaction-layer depth ``k=d-g`` and returns integer motion
-  budget ``floor(B*R_k/A)`` from the declared RETURNING material branch.
+  budget ``floor(B*R_k/A)`` from the declared RETURNING material branch;
+* a represented interaction with returned budget 0 is counted as ZERO_RETURN,
+  not as a true rebound;
+* only strictly positive returned budget contributes to REBOUND phase mass.
 
-This module counts phases by outcome exactly and also sums returned integer
-budget over all represented phases.  Counts and sums are combinatorial; they are
-not probabilities, energy, or expected values unless an external interpretation
-is separately declared.
+This module counts phases exactly and sums returned integer budget over all
+represented phases.  Counts and sums are combinatorial; they are not
+probabilities, energy, or expected values unless an external interpretation is
+separately declared.
 """
 
 from __future__ import annotations
@@ -31,7 +34,7 @@ from .scale_tunneling_1d import Wall1D, minimum_positive_clearance_crossing_disp
 
 @dataclass(frozen=True)
 class ReboundPhaseBin:
-    """Number of crossing phases producing one integer returned budget."""
+    """Number of crossing phases producing one strictly positive returned budget."""
 
     returned_budget: int
     phase_count: int
@@ -39,7 +42,7 @@ class ReboundPhaseBin:
 
 @dataclass(frozen=True)
 class MaterialPhaseSpectrum1D:
-    """Exact transmission/rebound histogram for one finite parameter tuple."""
+    """Exact transmission/zero-return/rebound histogram for one finite tuple."""
 
     wall_thickness: int
     body_diameter: int
@@ -49,9 +52,14 @@ class MaterialPhaseSpectrum1D:
     incoming_budget: int
     positive_clearance_phases: int
     transmitting_phases: int
+    zero_return_phases: int
     rebound_phases: int
     rebound_bins: tuple[ReboundPhaseBin, ...]
     total_returned_budget_over_phases: int
+
+    @property
+    def interaction_phases(self) -> int:
+        return self.zero_return_phases + self.rebound_phases
 
 
 def controlling_gap_phase_multiplicity(clearance_sum: int, controlling_gap: int) -> int:
@@ -103,6 +111,7 @@ def material_phase_spectrum(
             incoming_budget=incoming_budget,
             positive_clearance_phases=0,
             transmitting_phases=0,
+            zero_return_phases=0,
             rebound_phases=0,
             rebound_bins=(),
             total_returned_budget_over_phases=0,
@@ -115,6 +124,7 @@ def material_phase_spectrum(
 
     positive_phases = clearance_sum - 1
     transmitting = 0
+    zero_return = 0
     rebound_counts: Counter[int] = Counter()
     max_gap = clearance_sum // 2
     counted = 0
@@ -133,12 +143,15 @@ def material_phase_spectrum(
             response_sample,
             material_profile.amplitude,
         ).returned_budget
-        rebound_counts[returned] += multiplicity
+        if returned == 0:
+            zero_return += multiplicity
+        else:
+            rebound_counts[returned] += multiplicity
 
     if counted != positive_phases:
         raise AssertionError("controlling-gap multiplicities lost crossing phases")
     rebound_phases = sum(rebound_counts.values())
-    if transmitting + rebound_phases != positive_phases:
+    if transmitting + zero_return + rebound_phases != positive_phases:
         raise AssertionError("phase spectrum failed total-count conservation")
 
     bins = tuple(
@@ -157,6 +170,7 @@ def material_phase_spectrum(
         incoming_budget=incoming_budget,
         positive_clearance_phases=positive_phases,
         transmitting_phases=transmitting,
+        zero_return_phases=zero_return,
         rebound_phases=rebound_phases,
         rebound_bins=bins,
         total_returned_budget_over_phases=total_returned,

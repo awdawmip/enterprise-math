@@ -5,6 +5,7 @@ from enterprise_math.material_collapse_world_1d import (
     REBOUND,
     TRANSMIT,
     UNDERRESOLVED,
+    ZERO_RETURN,
 )
 from enterprise_math.material_motion_world_1d import (
     MotionBudgetState1D,
@@ -54,6 +55,7 @@ class MaterialMotionWorld1DTests(unittest.TestCase):
         self.assertEqual(coarse.final, MotionBudgetState1D(-11, -3))
         self.assertFalse(coarse.halted_underresolved)
         self.assertEqual(coarse.underresolved_count, 0)
+        self.assertEqual(coarse.zero_return_count, 0)
 
         self.assertEqual(
             [transition.wall_outcome.kind for transition in fine.transitions],
@@ -64,7 +66,7 @@ class MaterialMotionWorld1DTests(unittest.TestCase):
         self.assertFalse(fine.halted_underresolved)
         self.assertNotEqual(coarse.final, fine.final)
 
-    def test_rebound_replaces_motion_budget_with_opposite_returned_budget(self):
+    def test_rebound_replaces_motion_budget_with_opposite_positive_returned_budget(self):
         initial = MotionBudgetState1D(-2, 4)
         history = run_motion_budget_world(
             initial, self.wall, 0, 5, self.profile, ticks=1
@@ -73,6 +75,7 @@ class MaterialMotionWorld1DTests(unittest.TestCase):
         self.assertEqual(transition.wall_outcome.kind, REBOUND)
         self.assertEqual(transition.after.signed_motion_budget, -3)
         self.assertEqual(history.rebound_count, 1)
+        self.assertEqual(history.zero_return_count, 0)
 
     def test_transmission_preserves_signed_motion_budget(self):
         initial = MotionBudgetState1D(-2, 4)
@@ -84,7 +87,7 @@ class MaterialMotionWorld1DTests(unittest.TestCase):
         self.assertEqual(transition.after.signed_motion_budget, 4)
         self.assertEqual(history.transmission_count, 1)
 
-    def test_zero_return_can_stop_motion_at_represented_start(self):
+    def test_zero_return_stops_motion_without_counting_as_rebound(self):
         zero_return = material_curve_profile(
             (0, 250, 500, 750, 1000),
             amplitude=1000,
@@ -100,10 +103,12 @@ class MaterialMotionWorld1DTests(unittest.TestCase):
             zero_return,
             ticks=2,
         )
-        self.assertEqual(history.transitions[0].wall_outcome.kind, REBOUND)
+        self.assertEqual(history.transitions[0].wall_outcome.kind, ZERO_RETURN)
         self.assertEqual(history.transitions[0].after, MotionBudgetState1D(-2, 0))
+        self.assertEqual(history.rebound_count, 0)
+        self.assertEqual(history.zero_return_count, 1)
         # A zero-budget second tick is a HOLD, so contact state alone does not
-        # trigger another rebound; unloading/HOLD may remain inside the layer.
+        # trigger another response; unloading/HOLD may remain inside the layer.
         self.assertEqual(history.transitions[1].wall_outcome.kind, ACCEPT)
         self.assertEqual(history.transitions[1].after, MotionBudgetState1D(-2, 0))
 
@@ -131,6 +136,7 @@ class MaterialMotionWorld1DTests(unittest.TestCase):
         self.assertTrue(history.halted_underresolved)
         self.assertEqual(history.underresolved_count, 1)
         self.assertEqual(history.rebound_count, 0)
+        self.assertEqual(history.zero_return_count, 0)
         self.assertEqual(history.transmission_count, 0)
         self.assertEqual(history.accept_count, 0)
 
@@ -142,6 +148,7 @@ class MaterialMotionWorld1DTests(unittest.TestCase):
         self.assertEqual(history.final, initial)
         self.assertEqual(history.transitions, ())
         self.assertEqual(history.rebound_count, 0)
+        self.assertEqual(history.zero_return_count, 0)
         self.assertEqual(history.underresolved_count, 0)
         self.assertFalse(history.halted_underresolved)
 

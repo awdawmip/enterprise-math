@@ -1,7 +1,8 @@
-"""Automatic coarse-layer material rebound world for sampled 1D wall jumps.
+"""Automatic coarse-layer material response world for sampled 1D wall jumps.
 
 This composes explicit E001 engineering policies while separating *contact state*
-from *response trigger* and from *material representability*:
+from *response trigger*, *material representability*, and *nonzero kinematic
+return*:
 
 1. positive sampled gap ``g`` belongs to the coarse interaction layer iff ``g<d``;
 2. coarse-only layer depth is ``kappa=d-g``;
@@ -13,8 +14,11 @@ from *response trigger* and from *material representability*:
 5. if a triggered coarse layer asks for deformation depth beyond the finite
    material profile, the result is explicit ``MATERIAL_UNDERRESOLVED`` rather
    than clamping/saturating to the deepest represented material state;
-6. only a represented triggered layer may evaluate the RETURNING branch and map
-   that finite response sample into an opposite-direction returned budget.
+6. a represented triggered layer evaluates the RETURNING branch and maps that
+   finite response sample into an opposite-direction returned budget;
+7. only a strictly positive returned budget is called ``REBOUND``.  A represented
+   interaction whose returned budget quantizes to zero is ``ZERO_RETURN`` and
+   remains at the represented start under the current explicit blocking policy.
 
 If a crossing proposal is resolved at the current factor it transmits directly.
 Primitive endpoint contact ``g=0`` remains outside this coarse positive-gap helper
@@ -45,6 +49,7 @@ from .scale_tunneling_1d import BodyInterval1D, Wall1D, interval_wall_clearance
 TRANSMIT = "TRANSMIT"
 ACCEPT = "ACCEPT"
 REBOUND = "REBOUND"
+ZERO_RETURN = "ZERO_RETURN"
 UNDERRESOLVED = MATERIAL_UNDERRESOLVED
 NO_TRIGGER = "NO_TRIGGER"
 CROSSING_CONTACT = "CROSSING_CONTACT"
@@ -91,8 +96,8 @@ def collapse_material_wall_step(
 
     Material underresolution is only blocking when the proposal actually needs a
     material response.  HOLD/retreat may leave an underresolved coarse layer
-    without synthesizing a rebound because no loading/crossing response is being
-    requested on that step.
+    without synthesizing a response because no loading/crossing response is
+    being requested on that step.
     """
     start = BodyInterval1D(start_center, radius)
     end = BodyInterval1D(proposed_end_center, radius)
@@ -112,9 +117,9 @@ def collapse_material_wall_step(
         material_profile,
     )
     layer_contact = compatibility.status != RESOLVED
-    should_rebound = layer_contact and (crosses or approaching)
+    should_respond = layer_contact and (crosses or approaching)
 
-    if not should_rebound:
+    if not should_respond:
         return CollapseMaterialWorldOutcome1D(
             kind=TRANSMIT if crosses else ACCEPT,
             trigger_reason=NO_TRIGGER,
@@ -163,7 +168,7 @@ def collapse_material_wall_step(
         RETURNING,
     )
     if observation is None:
-        raise AssertionError("represented rebound trigger lost its coarse layer material state")
+        raise AssertionError("represented response trigger lost its coarse layer material state")
 
     delta = proposed_end_center - start_center
     direction = 0 if delta == 0 else 1 if delta > 0 else -1
@@ -174,8 +179,9 @@ def collapse_material_wall_step(
         material_profile.amplitude,
     )
     after = start_center - direction * rebound.returned_budget
+    kind = REBOUND if rebound.returned_budget > 0 else ZERO_RETURN
     return CollapseMaterialWorldOutcome1D(
-        kind=REBOUND,
+        kind=kind,
         trigger_reason=trigger_reason,
         start_center=start_center,
         proposed_end_center=proposed_end_center,
