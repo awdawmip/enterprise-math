@@ -16,7 +16,7 @@ pairs.  No prime-distribution estimate is used.
 from __future__ import annotations
 
 from .core import integer_nth_root
-from .legendre import primes_up_to
+from .legendre import is_prime, primes_up_to
 
 
 def _require_positive(name: str, value: int) -> None:
@@ -34,7 +34,7 @@ def lower_band_base_root(k: int, prime: int) -> int:
     """Return j_p = R_2(floor(k^2/p)) for a lower-band prime p."""
     _require_positive("k", k)
     _require_positive("prime", prime)
-    if prime not in lower_band_primes(k):
+    if prime > k or not is_prime(prime) or prime * prime >= 2 * k:
         raise ValueError("prime must be a lower-band prime with p^2 < 2k")
     return integer_nth_root((k * k) // prime, 2)
 
@@ -54,8 +54,9 @@ def lower_band_root_channels(k: int) -> dict[int, tuple[int, ...]]:
     _require_positive("k", k)
     channels: dict[int, list[int]] = {}
     for prime in lower_band_primes(k):
-        for target in lower_band_candidate_roots(k, prime):
-            channels.setdefault(target, []).append(prime)
+        base = lower_band_base_root(k, prime)
+        channels.setdefault(base, []).append(prime)
+        channels.setdefault(base + 1, []).append(prime)
 
     frozen = {target: tuple(primes) for target, primes in channels.items()}
     if any(len(primes) > 2 for primes in frozen.values()):
@@ -88,8 +89,13 @@ def lower_band_root_overlap_bound(k: int) -> dict[str, object]:
             if base_roots[p] < base_roots[r] + 2:
                 raise AssertionError("three-shell endpoint separation failed")
 
-    channels = lower_band_root_channels(k)
-    max_multiplicity = max((len(v) for v in channels.values()), default=0)
+    channels: dict[int, list[int]] = {}
+    for prime in primes:
+        base = base_roots[prime]
+        channels.setdefault(base, []).append(prime)
+        channels.setdefault(base + 1, []).append(prime)
+    frozen = {target: tuple(shells) for target, shells in channels.items()}
+    max_multiplicity = max((len(v) for v in frozen.values()), default=0)
     if max_multiplicity > 2:
         raise AssertionError("L051 root-target overlap bound failed")
 
@@ -97,6 +103,6 @@ def lower_band_root_overlap_bound(k: int) -> dict[str, object]:
         "k": k,
         "lower_band_primes": primes,
         "base_roots": base_roots,
-        "root_channels": channels,
+        "root_channels": frozen,
         "max_multiplicity": max_multiplicity,
     }
