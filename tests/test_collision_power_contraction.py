@@ -2,7 +2,9 @@ import itertools
 import unittest
 
 from enterprise_math.dimension_contraction import (
+    balanced_power_defect,
     balanced_power_energy,
+    balanced_power_residue_shell,
     min_plus_merge_power_energy,
     partition_power_energy,
 )
@@ -55,6 +57,43 @@ class CollisionPowerContractionTests(unittest.TestCase):
         for block_size in range(1, 10):
             for total in range(-30, 31):
                 self.assertEqual(balanced_power_energy(block_size, 1, total), abs(total))
+                self.assertEqual(balanced_power_defect(block_size, 1, total), 0)
+                self.assertEqual(balanced_power_residue_shell(block_size, 1, total), 0)
+
+    def test_general_residue_shell_matches_scaled_power_defect(self):
+        for block_size in range(1, 10):
+            for power in range(2, 8):
+                for total in range(-50, 51):
+                    defect = balanced_power_defect(block_size, power, total)
+                    shell = balanced_power_residue_shell(block_size, power, total)
+                    self.assertEqual(defect, shell)
+                    self.assertGreaterEqual(defect, 0)
+                    self.assertEqual(
+                        defect == 0,
+                        abs(total) % block_size == 0,
+                    )
+
+    def test_square_layer_is_the_bounded_residue_special_case(self):
+        for block_size in range(1, 20):
+            for total in range(-100, 101):
+                remainder = abs(total) % block_size
+                self.assertEqual(
+                    balanced_power_defect(block_size, 2, total),
+                    remainder * (block_size - remainder),
+                )
+
+    def test_cubic_layer_keeps_same_residue_gate_but_has_lower_degree_bulk(self):
+        for block_size in range(1, 10):
+            for total in range(-100, 101):
+                magnitude = abs(total)
+                q, r = divmod(magnitude, block_size)
+                expected = r * (block_size - r) * (
+                    3 * block_size * q + block_size + r
+                )
+                self.assertEqual(
+                    balanced_power_defect(block_size, 3, total),
+                    expected,
+                )
 
     def test_min_plus_dimension_addition_for_multiple_powers(self):
         for power in range(1, 6):
