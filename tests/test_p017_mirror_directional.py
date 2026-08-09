@@ -4,7 +4,11 @@ from enterprise_math.p017_mirror_cross import aggregate_mirror_certificate
 from enterprise_math.p017_mirror_directional import (
     directional_first_moments,
     directional_mirror_certificate,
+    directional_precision_blocks,
     directional_prime_incidence_formula,
+    dyadic_radius_block_index,
+    minimum_directional_precision_level,
+    terminal_radius_precision_level,
 )
 
 
@@ -59,11 +63,69 @@ class P017MirrorDirectionalTests(unittest.TestCase):
         self.assertEqual(data["simultaneous_excess_slack"], 0)
         self.assertFalse(data["directional_certificate"])
 
+    def test_mc08_level_zero_is_mc07(self):
+        for k in (31, 137, 233):
+            global_data = directional_mirror_certificate(k)
+            precision = directional_precision_blocks(k, 0)
+            self.assertEqual(
+                precision["precision_certificate"],
+                global_data["directional_certificate"],
+            )
+            self.assertEqual(len(precision["blocks"]), 1)
+            block = precision["blocks"][0]
+            self.assertEqual(block["lower_slack"], global_data["lower_slack"])
+            self.assertEqual(block["upper_slack"], global_data["upper_slack"])
+            self.assertEqual(
+                block["simultaneous_excess_slack"],
+                global_data["simultaneous_excess_slack"],
+            )
+
+    def test_dyadic_partition_is_nested(self):
+        for k in range(3, 80):
+            for level in range(0, 5):
+                for radius in range(1, k):
+                    parent = dyadic_radius_block_index(k, radius, level)
+                    child = dyadic_radius_block_index(k, radius, level + 1)
+                    self.assertEqual(child // 2, parent)
+
+    def test_precision_certificate_persists_under_refinement(self):
+        for k in range(3, 140):
+            seen = False
+            for level in range(0, min(6, terminal_radius_precision_level(k)) + 1):
+                certified = directional_precision_blocks(k, level)["precision_certificate"]
+                if seen:
+                    self.assertTrue(certified, msg=f"k={k}, level={level}")
+                seen |= certified
+
+    def test_known_first_precision_levels(self):
+        # These are fixed regression witnesses from the bounded pressure test.
+        self.assertEqual(minimum_directional_precision_level(31, 3), 1)
+        self.assertEqual(minimum_directional_precision_level(127, 4), 3)
+        self.assertEqual(minimum_directional_precision_level(625, 5), 4)
+        self.assertEqual(minimum_directional_precision_level(982, 5), 5)
+
+    def test_terminal_level_has_singleton_nonempty_blocks(self):
+        for k in range(3, 80):
+            level = terminal_radius_precision_level(k)
+            data = directional_precision_blocks(k, level)
+            for block in data["blocks"]:
+                self.assertEqual(block["surviving_radius_count"], 1)
+
+    def test_fixed_low_precision_is_not_claimed_universal(self):
+        # 32 blocks certify every k<=1000 in the research pressure test, but not
+        # larger k uniformly.  k=2896 is a fixed counterexample to level 5.
+        self.assertFalse(directional_precision_blocks(2896, 5)["precision_certificate"])
+        self.assertTrue(directional_precision_blocks(2896, 6)["precision_certificate"])
+
     def test_validation(self):
         with self.assertRaises(ValueError):
             directional_mirror_certificate(1)
         with self.assertRaises(ValueError):
             directional_prime_incidence_formula(11, 4)
+        with self.assertRaises(ValueError):
+            directional_precision_blocks(11, -1)
+        with self.assertRaises(ValueError):
+            dyadic_radius_block_index(11, 0, 2)
 
 
 if __name__ == "__main__":
