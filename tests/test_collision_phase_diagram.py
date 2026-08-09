@@ -13,7 +13,13 @@ from enterprise_math.collision_phase_diagram import (
     static_no_skip_guaranteed_1d,
     static_skip_witness_1d,
 )
-from enterprise_math.engineering_collision import Body2D, exact_collision
+from enterprise_math.engineering_collision import (
+    COLLIDES,
+    UNRESOLVED,
+    Body2D,
+    collision_certificate_at_scale,
+    exact_collision,
+)
 from enterprise_math.motion_collapse import BodyMotion2D, motion_conflict
 
 
@@ -51,6 +57,18 @@ class CollisionPhaseDiagramTests(unittest.TestCase):
                 self.assertEqual(macro_contact_from_gap(gap, factor), gap < factor)
                 self.assertEqual(coarse_clearance(gap, factor), gap // factor)
 
+    def test_collapse_contact_is_not_the_must_terminal_truth_certificate(self):
+        left = Body2D(0, 0, 0, 0)
+        right = Body2D(1, 1, 0, 0)
+        gap = primitive_clearance(left, right)
+        self.assertEqual(gap, 1)
+        self.assertTrue(macro_contact_from_gap(gap, collapse_factor=2))
+
+        must = collision_certificate_at_scale(left, right, cell_size=2)
+        self.assertEqual(must.status, UNRESOLVED)
+        self.assertNotEqual(must.status, COLLIDES)
+        self.assertFalse(exact_collision(left, right))
+
     def test_primitive_contact_persists_at_every_factor(self):
         self.assertIsNone(finest_contact_factor(0))
         self.assertIsNone(first_resolving_factor(0))
@@ -71,8 +89,6 @@ class CollisionPhaseDiagramTests(unittest.TestCase):
                 half_width = contact_half_width_1d(radius_sum, factor)
                 band_size = interaction_band_states_1d(radius_sum, factor)
                 for step in range(1, 13):
-                    # One representative of every arithmetic-progression phase
-                    # that can first enter from above lies in H+1 .. H+s.
                     all_phases_hit = all(
                         sampled_crossing_hits_band(start, step, half_width)
                         for start in range(half_width + 1, half_width + step + 1)
