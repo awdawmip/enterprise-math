@@ -9,12 +9,14 @@ from enterprise_math.p022_barlow_excursion_repair import (
     absolute_history_fiber_profile,
     absolute_history_image_size,
     absolute_prefix_history,
+    average_orientation_repair_load_fraction,
     excursion_count,
     excursion_count_spectrum,
     maximum_excursion_count,
     maximum_orientation_fiber_size,
     orientation_fiber_size,
     reconstruct_word_from_excursion_orientations,
+    total_orientation_repair_bit_load,
 )
 
 
@@ -103,3 +105,20 @@ def test_maximum_excursion_and_fiber_are_attained() -> None:
             default=1,
         )
         assert direct_fiber == maximum_orientation_fiber_size(length)
+
+
+def test_total_repair_load_matches_direct_word_excursions() -> None:
+    for length in range(0, 13):
+        direct = sum(excursion_count(absolute_prefix_history(word)) for word in _words(length))
+        assert total_orientation_repair_bit_load(length) == direct
+        numerator, denominator = average_orientation_repair_load_fraction(length)
+        assert numerator * (2 ** length) == direct * denominator
+
+
+def test_closed_total_repair_load_matches_central_binomial_sum() -> None:
+    for length in range(1, 30):
+        direct_formula = sum(
+            comb(2 * index, index) * 2 ** (length - 2 * index)
+            for index in range((length - 1) // 2 + 1)
+        )
+        assert total_orientation_repair_bit_load(length) == direct_formula
