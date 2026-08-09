@@ -112,8 +112,23 @@ class MaterialForceActivationSamplingTests(unittest.TestCase):
             mass_quanta=2,
             max_impulse_per_tick=2,
         )
-        self.assertEqual(certificate.engagement.first_positive_sample_depth, 3)
-        self.assertIsNotNone(certificate.reversal)
+        engagement = certificate.engagement
+        reversal = certificate.reversal
+        self.assertEqual(engagement.status, SAMPLED_AFTER_ZERO_PREFIX)
+        self.assertEqual(engagement.first_positive_sample_tick, 1)
+        self.assertEqual(engagement.first_positive_sample_depth, 3)
+        self.assertEqual(engagement.first_positive_sample_gap, 3)
+        self.assertIsNotNone(reversal)
+        self.assertEqual(reversal.current_depth, 3)
+        self.assertEqual(reversal.primitive_clearance, 3)
+        self.assertEqual(reversal.current_loading_sample, 4)
+        self.assertEqual(reversal.minimum_impulse_numerator_per_tick, 8)
+        self.assertEqual(reversal.comparison_positive_drift_ticks, 2)
+        self.assertEqual(reversal.maximum_inward_drift_cells, 1)
+        self.assertEqual(reversal.maximum_reached_depth_before_noninward, 4)
+        self.assertTrue(reversal.clearance_sufficient)
+        self.assertTrue(reversal.material_depth_sufficient)
+        self.assertTrue(reversal.guaranteed_precontact_reversal)
         self.assertTrue(certificate.guaranteed_precontact_reversal)
 
         history = run_impulse_material_world_1d(
