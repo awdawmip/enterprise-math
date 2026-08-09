@@ -64,7 +64,10 @@ def forward_difference(values: tuple[int, ...] | list[int], order: int = 1) -> t
     if order >= len(current):
         raise ValueError("difference order must be smaller than value count")
     for _ in range(order):
-        current = tuple(right - left for left, right in zip(current, current[1:], strict=True))
+        current = tuple(
+            current[index + 1] - current[index]
+            for index in range(len(current) - 1)
+        )
     return current
 
 
