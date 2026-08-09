@@ -4,7 +4,7 @@ namespace EnterpriseMath.ReductiveCompositionStabilization
 
 open EnterpriseMath.WellFoundedStabilization
 
-variable {α : Type*} [PartialOrder α] [WellFoundedLT α]
+variable {α : Type*} [PartialOrder α]
 
 /--
 For two reductive endomaps, a fixed point of their composition is exactly a
@@ -39,6 +39,8 @@ theorem comp_reductive (F G : α → α)
     ∀ x, G (F x) ≤ x := by
   intro x
   exact (hGred (F x)).trans (hFred x)
+
+variable [WellFoundedLT α]
 
 /--
 Repeated composition stabilizes at the greatest common fixed point below the
