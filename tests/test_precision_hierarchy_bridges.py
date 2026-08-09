@@ -5,6 +5,7 @@ from enterprise_math.precision_hierarchy_bridges import (
     boundary_minimal_bridge_edges,
     canonical_minimal_bridge_edges,
     graph_diameter,
+    leaf_graph_connected,
     minimum_bridge_edge_count,
     refinement_bridge_certificate_holds,
 )
@@ -25,6 +26,7 @@ class PrecisionHierarchyBridgeTests(unittest.TestCase):
         self.assertTrue(
             refinement_bridge_certificate_holds(self.scales, self.signatures, tuple(edges))
         )
+        self.assertTrue(leaf_graph_connected(self.scales, self.signatures, tuple(edges)))
         self.assertEqual(
             edges,
             frozenset(
@@ -47,6 +49,7 @@ class PrecisionHierarchyBridgeTests(unittest.TestCase):
         self.assertTrue(
             refinement_bridge_certificate_holds(self.scales, self.signatures, tuple(edges))
         )
+        self.assertTrue(leaf_graph_connected(self.scales, self.signatures, tuple(edges)))
         self.assertEqual(
             edges,
             frozenset(
@@ -63,10 +66,11 @@ class PrecisionHierarchyBridgeTests(unittest.TestCase):
         )
         self.assertEqual(graph_diameter(tuple(self.signatures), tuple(edges)), 7)
 
-    def test_hierarchy_alone_fails_bridge_certificate(self):
+    def test_hierarchy_alone_fails_bridge_certificate_and_leaf_connectivity(self):
         self.assertFalse(
             refinement_bridge_certificate_holds(self.scales, self.signatures, ())
         )
+        self.assertFalse(leaf_graph_connected(self.scales, self.signatures, ()))
 
     def test_missing_one_root_bridge_breaks_certificate(self):
         edges = set(canonical_minimal_bridge_edges(self.scales, self.signatures))
@@ -74,6 +78,7 @@ class PrecisionHierarchyBridgeTests(unittest.TestCase):
         self.assertFalse(
             refinement_bridge_certificate_holds(self.scales, self.signatures, tuple(edges))
         )
+        self.assertFalse(leaf_graph_connected(self.scales, self.signatures, tuple(edges)))
 
 
 if __name__ == "__main__":
