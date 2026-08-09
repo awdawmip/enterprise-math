@@ -31,9 +31,17 @@ corresponding full-block quotient satisfies
 Canonical L020 then forces the original square-basin state to have no large
 prime tail >k, because that tail would survive the selected small-prime block
 removal and divide q.  Thus every high-product single-use defect row is fully
-k-smooth.  Moreover the small-prime support of q is exactly the complement of
-the selected support primes.  Full-block descent therefore deletes precisely
-m+1 support directions.  If c=m+1, then q=1 and D_full=n.
+k-smooth.  Its full k-smooth core is therefore the state itself, which is >k^2;
+hence any mirror full-core product containing this side is already >k and the
+canonical L053 full-core progression is singleton.  Consequently every defect
+token that can participate in a repeated residual S<k hard-core cell must lie
+in the complementary reusable regime
+
+    D_rad <= k-1.
+
+Moreover the small-prime support of q is exactly the complement of the selected
+support primes.  Full-block descent deletes precisely m+1 support directions.
+If c=m+1, then q=1 and D_full=n.
 
 The token decomposition and quotient inequalities are exact.  The cross-branch
 reuse-capacity theorem remains a PROVED_WIP P017 input until separately
@@ -113,6 +121,51 @@ def point_defect_tokens(support: tuple[int, ...], order: int) -> dict[str, objec
     }
 
 
+def high_product_token_singleton_state(k: int, state: int, radical_token: int) -> dict[str, int | bool]:
+    """Certify that D_rad>k-1 forces a fully-smooth L053-singleton side."""
+    if isinstance(k, bool) or not isinstance(k, int) or k < 2:
+        raise ValueError("k must be an integer >=2")
+    if isinstance(state, bool) or not isinstance(state, int) or not (k * k < state < (k + 1) ** 2):
+        raise ValueError("state must lie in the open k-th square basin")
+    center = k * (k + 1)
+    if (
+        isinstance(radical_token, bool)
+        or not isinstance(radical_token, int)
+        or radical_token <= k - 1
+        or radical_token % 2 == 0
+        or gcd(radical_token, center) != 1
+        or state % radical_token
+    ):
+        raise ValueError("radical_token must be an odd transverse divisor >k-1 of state")
+
+    # Remove complete blocks for every selected prime represented in the squarefree token.
+    selected = tuple(distinct_prime_factors(radical_token))
+    if prod(selected) != radical_token:
+        raise ValueError("radical_token must be squarefree")
+    full_token = prod(_prime_power_block(state, prime) for prime in selected)
+    descent = defect_token_quotient_descent(k, state, full_token)
+    smooth = square_basin_smooth_tail(k, state)
+    if int(smooth["tail"]) != 1:
+        raise AssertionError("high-product token side retained an L020 large tail")
+    if int(smooth["smooth_core"]) != state:
+        raise AssertionError("fully smooth state did not equal its L020 full core")
+    if state <= k:
+        raise AssertionError("square-basin full core did not exceed k")
+
+    return {
+        "k": k,
+        "state": state,
+        "squarefree_token": radical_token,
+        "full_block_token": full_token,
+        "quotient": int(descent["quotient"]),
+        "fully_k_smooth": True,
+        "full_core": state,
+        "full_core_exceeds_k": True,
+        "l053_singleton_for_any_mirror_partner": True,
+        "cannot_belong_to_repeated_residual_S_lt_k_cell": True,
+    }
+
+
 def point_full_block_defect_tokens(
     k: int,
     state: int,
@@ -159,14 +212,15 @@ def point_full_block_defect_tokens(
             single_use_product_regime = radical_token > k - 1
             fully_k_smooth = False
             quotient_support: tuple[int, ...] | None = None
+            l053_singleton = False
             if single_use_product_regime:
-                descent = defect_token_quotient_descent(k, state, full_token)
-                if int(descent["quotient"]) != quotient:
-                    raise AssertionError("full-block quotient disagrees with token descent")
-                smooth = square_basin_smooth_tail(k, state)
-                if int(smooth["tail"]) != 1:
-                    raise AssertionError("high-product full-block defect row retained a large tail")
+                singleton = high_product_token_singleton_state(k, state, radical_token)
+                if int(singleton["full_block_token"]) != full_token:
+                    raise AssertionError("singleton full-block token disagrees with selected block product")
+                if int(singleton["quotient"]) != quotient:
+                    raise AssertionError("singleton quotient disagrees with selected block quotient")
                 fully_k_smooth = True
+                l053_singleton = True
                 quotient_support = tuple(distinct_prime_factors(quotient)) if quotient > 1 else ()
                 if quotient_support != omitted:
                     raise AssertionError("full-block quotient support is not the exact support complement")
@@ -181,7 +235,9 @@ def point_full_block_defect_tokens(
                     "full_block_token": full_token,
                     "quotient": quotient,
                     "single_use_product_regime": single_use_product_regime,
+                    "reusable_product_regime": radical_token <= k - 1,
                     "fully_k_smooth": fully_k_smooth,
+                    "l053_singleton_side": l053_singleton,
                     "quotient_support": quotient_support,
                 }
             )
