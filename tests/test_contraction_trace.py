@@ -11,6 +11,12 @@ from enterprise_math.contraction_trace import (
     oriented_contraction_history_count,
     reverse_boundary_witness,
     reverse_boundary_witness_with_trace,
+    square_imbalance_bound,
+    square_minimum_imbalance_profile,
+    square_residue_correction,
+    square_scaled_excess_identity,
+    square_split_from_imbalance,
+    square_split_imbalance,
     two_block_argmin_profile,
     unoriented_partition_chain_count,
 )
@@ -115,6 +121,67 @@ class ContractionTraceTests(unittest.TestCase):
                     )
                     self.assertEqual(next_gap, 2)
                     self.assertEqual(remainder, slack % 2)
+
+    def test_square_residue_identity_and_imbalance_bound(self):
+        for left_size in range(1, 6):
+            for right_size in range(1, 6):
+                for left_total in range(-12, 13):
+                    for right_total in range(-12, 13):
+                        left_side, right_side = square_scaled_excess_identity(
+                            left_size, right_size, left_total, right_total
+                        )
+                        self.assertEqual(left_side, right_side)
+
+                        total = left_total + right_total
+                        excess = fiber_excess_energy(
+                            left_size,
+                            right_size,
+                            2,
+                            total,
+                            left_total,
+                        )
+                        imbalance = square_split_imbalance(
+                            left_size, right_size, left_total, right_total
+                        )
+                        self.assertLessEqual(
+                            abs(imbalance),
+                            square_imbalance_bound(
+                                left_size, right_size, total, excess
+                            ),
+                        )
+                        recovered = square_split_from_imbalance(
+                            left_size, right_size, total, imbalance
+                        )
+                        self.assertEqual(recovered, (left_total, right_total))
+
+    def test_square_minimum_imbalance_profile_ignores_bulk_quotient(self):
+        for left_size in range(1, 6):
+            for right_size in range(1, 6):
+                total_size = left_size + right_size
+                for remainder in range(total_size):
+                    base = remainder
+                    reference = square_minimum_imbalance_profile(
+                        left_size, right_size, base
+                    )
+                    for bulk in (1, 3, 9, 50):
+                        total = bulk * total_size + remainder
+                        self.assertEqual(
+                            square_minimum_imbalance_profile(
+                                left_size, right_size, total
+                            ),
+                            reference,
+                        )
+
+    def test_square_residue_correction_is_bounded_detail(self):
+        for block_size in range(1, 20):
+            bound = (block_size * block_size) // 4
+            for total in range(-100, 101):
+                correction = square_residue_correction(block_size, total)
+                self.assertLessEqual(correction, bound)
+                self.assertEqual(
+                    block_size * balanced_power_energy(block_size, 2, total),
+                    total * total + correction,
+                )
 
     def test_reverse_history_reproduces_nonassociative_witness_counterexample(self):
         chain = (
