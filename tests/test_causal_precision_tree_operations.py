@@ -24,7 +24,10 @@ class CausalPrecisionTreeOperationsTests(unittest.TestCase):
             states, observation, generators, costs, 7
         )
         levels = precision_tree_levels(states, partitions)
-        self.assertEqual(tuple(sorted(map(len, level)) for level in levels), ((1, 3), (1, 1, 2), (1, 1, 1, 1)))
+        self.assertEqual(
+            tuple(tuple(sorted(map(len, level))) for level in levels),
+            ((1, 3), (1, 1, 2), (1, 1, 1, 1)),
+        )
 
         recursive_count = zero_grade_map_count_from_tower(states, partitions)
         depth = distinguishing_depth_matrix(
