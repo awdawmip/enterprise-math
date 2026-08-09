@@ -2,6 +2,8 @@ import unittest
 
 from enterprise_math.causal_count_measure import (
     ExactCountRatio,
+    collision_count,
+    collision_count_ratio,
     compose_mapping,
     conditional_count_ratio,
     event_count,
@@ -35,6 +37,22 @@ class CausalCountMeasureTests(unittest.TestCase):
         ratio = event_count_ratio(mapping, frozenset({"a"}))
         self.assertEqual(ratio, ExactCountRatio(2, 5))
         self.assertEqual(ratio.reduced(), ExactCountRatio(2, 5))
+
+    def test_collision_count_ratio_is_p011_spectrum_over_exact_subset_count(self):
+        # Fiber sizes 3,2,1. Then J2=C(3,2)+C(2,2)=4 out of C(6,2)=15
+        # unordered fine-history pairs.
+        mapping = {
+            0: "a",
+            1: "a",
+            2: "a",
+            3: "b",
+            4: "b",
+            5: "c",
+        }
+        self.assertEqual(collision_count(mapping, 2), 4)
+        self.assertEqual(collision_count_ratio(mapping, 2), ExactCountRatio(4, 15))
+        self.assertEqual(collision_count(mapping, 3), 1)
+        self.assertEqual(collision_count_ratio(mapping, 3), ExactCountRatio(1, 20))
 
     def test_fraction_comparison_uses_cross_products(self):
         two_fifths = ExactCountRatio(2, 5)
