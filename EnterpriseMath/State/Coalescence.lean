@@ -52,6 +52,59 @@ theorem eventuallyCoalesce_trans {α : Type*} {F : α → α} {x y z : α}
   obtain ⟨b, hb⟩ := hyz
   exact ⟨max a b, coalescedBy_max ha hb⟩
 
+/-- A semiconjugacy transports every finite coalescence witness at the same
+common time.  In merger-time coordinates this is the relation-level form of
+nonexpansion under deterministic coarse representation. -/
+theorem coalescedBy_semiconj
+    {α β : Type*} {F : α → α} {G : β → β} {φ : α → β}
+    {n : ℕ} {x y : α} (hsem : Function.Semiconj φ F G)
+    (hxy : CoalescedBy F n x y) : CoalescedBy G n (φ x) (φ y) := by
+  unfold CoalescedBy at hxy ⊢
+  have hn := hsem.iterate_right n
+  calc
+    G^[n] (φ x) = φ (F^[n] x) := (hn x).symm
+    _ = φ (F^[n] y) := congrArg φ hxy
+    _ = G^[n] (φ y) := hn y
+
+/-- An injective semiconjugacy preserves every finite coalescence level exactly. -/
+theorem coalescedBy_iff_of_injective_semiconj
+    {α β : Type*} {F : α → α} {G : β → β} {φ : α → β}
+    {n : ℕ} {x y : α} (hsem : Function.Semiconj φ F G)
+    (hinj : Function.Injective φ) :
+    CoalescedBy F n x y ↔ CoalescedBy G n (φ x) (φ y) := by
+  constructor
+  · exact coalescedBy_semiconj hsem
+  · intro hxy
+    unfold CoalescedBy at hxy ⊢
+    apply hinj
+    have hn := hsem.iterate_right n
+    calc
+      φ (F^[n] x) = G^[n] (φ x) := hn x
+      _ = G^[n] (φ y) := hxy
+      _ = φ (F^[n] y) := (hn y).symm
+
+/-- Eventual finite coalescence is preserved by every deterministic
+semiconjugacy. -/
+theorem eventuallyCoalesce_semiconj
+    {α β : Type*} {F : α → α} {G : β → β} {φ : α → β}
+    {x y : α} (hsem : Function.Semiconj φ F G)
+    (hxy : EventuallyCoalesce F x y) : EventuallyCoalesce G (φ x) (φ y) := by
+  obtain ⟨n, hn⟩ := hxy
+  exact ⟨n, coalescedBy_semiconj hsem hn⟩
+
+/-- Injective semiconjugacy, and hence bijective change of chart by conjugacy,
+preserves eventual coalescence exactly. -/
+theorem eventuallyCoalesce_iff_of_injective_semiconj
+    {α β : Type*} {F : α → α} {G : β → β} {φ : α → β}
+    {x y : α} (hsem : Function.Semiconj φ F G)
+    (hinj : Function.Injective φ) :
+    EventuallyCoalesce F x y ↔ EventuallyCoalesce G (φ x) (φ y) := by
+  constructor
+  · exact eventuallyCoalesce_semiconj hsem
+  · intro hxy
+    obtain ⟨n, hn⟩ := hxy
+    exact ⟨n, (coalescedBy_iff_of_injective_semiconj hsem hinj).mpr hn⟩
+
 /-- Stabilizing after one ordinary step gives the same canonical fixed point. -/
 theorem stabilize_step_invariant
     {α : Type*} [PartialOrder α] [WellFoundedLT α]
