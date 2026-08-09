@@ -1,5 +1,6 @@
 import unittest
 
+from enterprise_math.causal_code_lattice import construction_a_primitive_events
 from enterprise_math.causal_code_relaxation import (
     e8_nested_subcodes,
     primitive_graph_component_sizes,
@@ -30,7 +31,10 @@ class CausalSupportConnectivityTests(unittest.TestCase):
             supports = minimum_weight_supports(code)
             self.assertTrue(every_slot_is_glued(8, supports))
             self.assertTrue(support_hypergraph_connected(8, supports))
-            self.assertEqual(primitive_graph_component_sizes(code), (len(__import__('enterprise_math.causal_code_lattice', fromlist=['construction_a_primitive_events']).construction_a_primitive_events(code)),))
+            self.assertEqual(
+                primitive_graph_component_sizes(code),
+                (len(construction_a_primitive_events(code)),),
+            )
 
 
 if __name__ == "__main__":
