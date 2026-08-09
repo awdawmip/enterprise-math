@@ -183,6 +183,28 @@ class MaterialImpulseWorld1DTests(unittest.TestCase):
         self.assertEqual(dropped.final.center, -1)
         self.assertEqual(dropped.final.momentum_quanta, 0)
 
+    def test_current_saved_state_alone_decides_current_material_kick(self):
+        # Start gap 5 is outside the d=3 material layer.  The free drift lands on
+        # the opposite side at gap 2, which would itself be inside that layer.
+        # The future endpoint must not retroactively trigger a current material kick.
+        outcome = impulse_material_step_1d(
+            MomentumMaterialState1D(-5, 7),
+            self.wall,
+            0,
+            3,
+            self.profile,
+            mass_quanta=1,
+            max_impulse_per_tick=4,
+        )
+        self.assertEqual(outcome.start_clearance, 5)
+        self.assertEqual(outcome.kind, CROSSING_TRANSMIT)
+        self.assertIsNone(outcome.layer_depth)
+        self.assertIsNone(outcome.response_sample)
+        self.assertIsNone(outcome.impulse)
+        self.assertEqual(outcome.after.center, 2)
+        self.assertEqual(outcome.end_clearance, 2)
+        self.assertEqual(outcome.after.momentum_quanta, 7)
+
     def test_outside_layer_is_free_drift_until_saved_endpoint_hits_terminal_geometry(self):
         initial = MomentumMaterialState1D(center=-3, momentum_quanta=3)
         outcome = impulse_material_step_1d(
