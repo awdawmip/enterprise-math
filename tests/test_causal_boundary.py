@@ -5,6 +5,7 @@ from enterprise_math.causal_boundary import (
     causal_boundary_complex,
     opposite_endpoint_path_has_boundary,
     path_crosses_causal_boundary,
+    phase,
     phase_ambiguity,
     phase_possibilities_on_fiber,
     phase_refinement_profile,
@@ -14,6 +15,17 @@ from enterprise_math.causal_boundary import (
 
 
 class CausalBoundaryTests(unittest.TestCase):
+    def test_phase_accepts_integer_field_and_rejects_bool(self):
+        self.assertEqual(phase(-4), -1)
+        self.assertEqual(phase(0), 0)
+        self.assertEqual(phase(7), 1)
+        with self.assertRaises(TypeError):
+            phase(True)
+        with self.assertRaises(TypeError):
+            phase(False)
+        with self.assertRaises(TypeError):
+            phase(1.0)
+
     def test_discrete_intermediate_value_property_exhaustively(self):
         for length in range(2, 8):
             path = list(range(length))
