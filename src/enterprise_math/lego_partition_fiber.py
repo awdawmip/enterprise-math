@@ -8,9 +8,11 @@ minimum collision cost, and the number of balanced minimizers.
 
 The primary composition law is at the fiber level: an (m+n)-slot lift with total
 c is uniquely a choice of left total a, an m-slot lift of a, and an n-slot lift
-of c-a.  Cardinality therefore produces ordinary convolution as a shadow.  The
-same decomposition produces min-plus convolution when the observation is an
-additive minimum cost.
+of c-a.  Cardinality therefore produces ordinary convolution as a shadow.  A
+nonnegative integer coupling multiplicity over each total split produces weighted
+convolution as a further shadow: 0 forbids the split, 1 is independent product,
+and values >1 represent multiple joint causal states over the same marginal
+split.
 """
 
 from __future__ import annotations
@@ -32,12 +34,7 @@ def hidden_allocation_multiplicity(capacity: int, total: int) -> int:
 
 
 def balanced_minimizer_multiplicity(capacity: int, total: int) -> int:
-    """Number of most-even allocations of `total` units among `capacity` slots.
-
-    If total=capacity*q+r, every square/power-balanced minimizer has r slots at
-    q+1 and the remaining slots at q.  The only choice is which r slots receive
-    the extra unit, hence C(capacity,r).
-    """
+    """Number of most-even allocations of `total` units among `capacity` slots."""
     _require_capacity_total(capacity, total)
     _, residue = divmod(total, capacity)
     return comb(capacity, residue)
@@ -65,6 +62,42 @@ def composed_fiber_count(left_capacity: int, right_capacity: int, total: int) ->
         raise ValueError("right_capacity must be a positive integer")
     return sum(
         hidden_allocation_multiplicity(left_capacity, left_total)
+        * hidden_allocation_multiplicity(right_capacity, total - left_total)
+        for left_total in range(total + 1)
+    )
+
+
+def coupled_fiber_count_by_total_kernel(
+    left_capacity: int,
+    right_capacity: int,
+    total: int,
+    coupling_by_split: dict[tuple[int, int], int],
+) -> int:
+    """Weighted counting shadow when coupling depends only on block totals.
+
+    For every split (a,c-a), kappa(a,c-a) is the number of joint causal states
+    above each independent left/right fine-lift pair at that split.  Thus
+
+        H_coupled(c)=sum_a kappa(a,c-a) H_m(a) H_n(c-a).
+
+    The kernel is causal multiplicity data, not an assumed convolution weight.
+    """
+    _require_capacity_total(left_capacity, total)
+    if isinstance(right_capacity, bool) or not isinstance(right_capacity, int) or right_capacity <= 0:
+        raise ValueError("right_capacity must be a positive integer")
+    if not isinstance(coupling_by_split, dict):
+        raise ValueError("coupling_by_split must be a dict")
+    required = {(left_total, total - left_total) for left_total in range(total + 1)}
+    if set(coupling_by_split) != required:
+        raise ValueError("coupling_by_split must define every total split exactly once")
+    if any(
+        isinstance(value, bool) or not isinstance(value, int) or value < 0
+        for value in coupling_by_split.values()
+    ):
+        raise ValueError("coupling multiplicities must be non-negative integers")
+    return sum(
+        coupling_by_split[(left_total, total - left_total)]
+        * hidden_allocation_multiplicity(left_capacity, left_total)
         * hidden_allocation_multiplicity(right_capacity, total - left_total)
         for left_total in range(total + 1)
     )
@@ -103,11 +136,7 @@ def finite_difference(values: tuple[int, ...]) -> tuple[int, ...]:
 
 
 def allocation_growth_difference_order(capacity: int) -> int:
-    """Exact difference depth of the hidden-allocation multiplicity.
-
-    The result is capacity-1.  This is the number of hidden relation freedoms in
-    an m-slot block after only the total has been retained.
-    """
+    """Exact difference depth of the hidden-allocation multiplicity."""
     if isinstance(capacity, bool) or not isinstance(capacity, int) or capacity <= 0:
         raise ValueError("capacity must be a positive integer")
     degree = capacity - 1
