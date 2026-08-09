@@ -97,4 +97,50 @@ theorem square_basin_div_root_pair
   · omega
   · exact hjLt
 
+/-- P018-T111: two successive natural-number floor quotients are exactly one
+quotient by the product divisor.  This is established Euclidean-division
+machinery, recorded here because it makes quotient precision paths flat. -/
+theorem quotient_path_flat_two (n a b : ℕ) :
+    n / a / b = n / (a * b) := by
+  rw [Nat.div_div_eq_div_mul]
+
+/-- P018-T111 consequence: factoring a nontrivial total divisor into two stages
+does not create four final square-root branches.  After flattening the quotient
+path, T110 applies once to the product divisor, so the final root index is still
+one of two adjacent values. -/
+theorem square_basin_two_step_div_root_pair
+    {k a b n : ℕ} (hk : 0 < k) (ha : 2 ≤ a) (hb : 2 ≤ b)
+    (hnLower : k ^ 2 ≤ n) (hnUpper : n < (k + 1) ^ 2) :
+    let d := a * b
+    let j := root 2 (k ^ 2 / d)
+    (root 2 (n / a / b) = j ∨ root 2 (n / a / b) = j + 1) ∧ j < k := by
+  have hbOne : 1 ≤ b := by omega
+  have hd : 2 ≤ a * b := by
+    calc
+      2 ≤ a := ha
+      _ = a * 1 := by simp
+      _ ≤ a * b := Nat.mul_le_mul_left a hbOne
+  simpa [Nat.div_div_eq_div_mul] using
+    (square_basin_div_root_pair (k := k) (d := a * b) (n := n)
+      hk hd hnLower hnUpper)
+
+/-- P018-T112: from root scale `k ≥ 3`, every nontrivial floor quotient of a
+state below `(k+1)^2` lands strictly below the original square boundary `k^2`.
+Hence its square-root index is strictly smaller than `k`.
+-/
+theorem square_basin_div_root_strict
+    {k d n : ℕ} (hk : 3 ≤ k) (hd : 2 ≤ d)
+    (hnUpper : n < (k + 1) ^ 2) :
+    root 2 (n / d) < k := by
+  have hd0 : 0 < d := by omega
+  have hkTwo : (k + 1) ^ 2 ≤ k ^ 2 * 2 := by
+    nlinarith
+  have hTwoLeD : k ^ 2 * 2 ≤ k ^ 2 * d :=
+    Nat.mul_le_mul_left (k ^ 2) hd
+  have hnTarget : n < k ^ 2 * d :=
+    lt_of_lt_of_le hnUpper (le_trans hkTwo hTwoLeD)
+  have hQuotLt : n / d < k ^ 2 := by
+    exact (Nat.div_lt_iff_lt_mul hd0).2 hnTarget
+  exact (Nat.nthRoot_lt_iff (n := 2) (by decide)).2 hQuotLt
+
 end EnterpriseMath.Precision
