@@ -48,7 +48,7 @@ theorem collapse_commute_of_dvd_or_dvd {p q : ℕ} (hp : p ≠ 0) (hq : q ≠ 0)
   · exact (collapse_commute_of_dvd hq hp hqp n).symm
 
 /-- A power of two cannot be a perfect `p`-th power unless `p` divides its exponent. -/
-theorem not_exists_pow_eq_two_pow_of_not_dvd {p q : ℕ} (hp : p ≠ 0) (hpdvd : ¬ p ∣ q) :
+theorem not_exists_pow_eq_two_pow_of_not_dvd {p q : ℕ} (hpdvd : ¬ p ∣ q) :
     ¬ ∃ a : ℕ, a ^ p = 2 ^ q := by
   rintro ⟨a, ha⟩
   apply hpdvd
@@ -66,7 +66,7 @@ theorem collapse_noncommute_two_pow_witness {p q : ℕ}
     intro hfix
     have hex : ∃ a : ℕ, a ^ p = 2 ^ q :=
       (collapse_eq_self_iff hp0 (2 ^ q)).1 hfix
-    exact not_exists_pow_eq_two_pow_of_not_dvd hp0 hpdvd hex
+    exact not_exists_pow_eq_two_pow_of_not_dvd hpdvd hex
   have hpCollapseLt : collapse p (2 ^ q) < 2 ^ q :=
     lt_of_le_of_ne (collapse_le hp0 (2 ^ q)) hpNotFixed
   have hpowLe : 2 ^ p ≤ 2 ^ q :=
@@ -80,13 +80,15 @@ theorem collapse_noncommute_two_pow_witness {p q : ℕ}
     have h : (2 : ℕ) ^ 1 ≤ 2 ^ p := Nat.pow_le_pow_right (by decide) hp
     simpa using h
   have honeLtCollapse : 1 < collapse p (2 ^ q) := by omega
-  have hqAfterP : collapse q (collapse p (2 ^ q)) = 1 := by
-    have h := (collapse_eq_pow_iff
+  have hqAfterPRaw : collapse q (collapse p (2 ^ q)) = 1 ^ q := by
+    apply (collapse_eq_pow_iff
       (p := q) (n := collapse p (2 ^ q)) (k := 1) hq0).2
-    refine h ⟨?_, ?_⟩
+    constructor
     · simp
       omega
     · simpa using hpCollapseLt
+  have hqAfterP : collapse q (collapse p (2 ^ q)) = 1 := by
+    simpa using hqAfterPRaw
   rw [hqFixed, hqAfterP]
   exact ne_of_gt honeLtCollapse
 
