@@ -12,6 +12,7 @@
     "common_surface": "docs/RESEARCH_COMMON_SURFACE.en.md",
     "research_relay_issue": 82,
     "foundation_problem_issue": 164,
+    "foundation_backflow_router": "foundation_backflow.json",
     "note": "Scheduler state coordinates work; it does not promote mathematical truth or canonical status."
   },
   "task_states": [
@@ -62,6 +63,13 @@
     "required_fields": ["missing_object", "owner", "necessity", "unblock_condition"],
     "only_hard_dependency_can_block": true,
     "ci_review_moving_main_are_not_hard_blocks": true
+  },
+  "foundation_link_contract": {
+    "router": "foundation_backflow.json",
+    "research_fq_must_link_to_kind": "RESEARCH",
+    "steward_verification_or_integration_must_link_to_kind": "GOVERNANCE",
+    "question_status_authority": "GitHub Issue #164",
+    "runtime_execution_authority": "GitHub Issue #240"
   },
   "tasks": [
     {
@@ -149,23 +157,25 @@
     },
     {
       "task_id": "RS-P022-OBSERVATION-HISTORY",
-      "title": "P022 observation-history and collision-geometry continuation",
+      "title": "P022 geometry continuation and FQ-005 tool-domain resolution",
       "kind": "RESEARCH",
       "owner": "program/p022-geometry-v2",
       "base_state": "HANDOFF_READY",
       "priority": "P1",
       "leverage": "HIGH",
-      "frontier": "Continue the P022 geometry chain after the observation-history/collision/repair checkpoint; CI and review are verification checkpoints, not research stop conditions.",
-      "next_action": "Refresh PR #235 and its newest checkpoint, then extend the strongest surviving theorem direction among collision-spectrum reconstruction, event-driven repair, and geometry-identifiability; preserve the explicit low-order insufficiency boundaries.",
+      "frontier": "Resolve FQ-20260809-005 inside the geometry owner without losing the existing P022 observation-history/collision/repair frontier: decide the stable graph-distance API/domain layering, then continue the strongest surviving P022 geometry theorem direction.",
+      "next_action": "First resolve FQ-20260809-005: compare P012 metric hypotheses with actual P022/E001 consumers, choose an explicit layered API/domain contract for undirected metric versus directed shortest-walk semantics, add an asymmetric-input regression, and return the result to Issue #164. Then resume PR #235 observation-history/collision-geometry work from its newest checkpoint.",
       "dependencies": [
-        {"target": "P011 collision polynomial", "action": "CONSUME", "satisfied": true}
+        {"target": "P011 collision polynomial", "action": "CONSUME", "satisfied": true},
+        {"target": "P012 ordinary-metric theorem scope", "action": "CONSUME", "satisfied": true},
+        {"target": "FQ-20260809-005 tool/API-domain question", "action": "INFORM", "satisfied": true}
       ],
-      "source_refs": ["PR #235", "program/p022-geometry-v2"],
-      "evidence_status": "PROVED_WIP_AND_EXECUTABLE_CHECKED",
-      "last_progress_ref": "PR #235",
+      "source_refs": ["PR #235", "program/p022-geometry-v2", "Issue #164 FQ-20260809-005", "src/enterprise_math/geometry.py", "tests/test_p012_geometry.py"],
+      "evidence_status": "PROVED_WIP_AND_EXECUTABLE_CHECKED_PLUS_FOUNDATION_QUESTION",
+      "last_progress_ref": "PR #235 / FQ-20260809-005",
       "last_progress_at": "2026-08-09T21:33:00+08:00",
       "hard_block": null,
-      "tags": ["P022", "geometry", "observation", "collision", "repair"]
+      "tags": ["P022", "P012", "geometry", "observation", "collision", "repair", "FQ-20260809-005"]
     },
     {
       "task_id": "RS-P024-HIGHER-ACTION-PRECISION",
@@ -322,6 +332,27 @@
       "last_progress_at": "2026-08-09T17:00:00+08:00",
       "hard_block": null,
       "tags": ["A2", "E001", "material", "future-state"]
+    },
+    {
+      "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+      "title": "Foundation backflow verification and canonicalization",
+      "kind": "GOVERNANCE",
+      "owner": "governance",
+      "base_state": "READY",
+      "priority": "P0",
+      "leverage": "HIGH",
+      "frontier": "Close the research-to-Foundation loop for returned FQs and mature Feedback Packets: independently verify scope/evidence, build minimal latest-main integration for accepted results, and complete post-merge propagation without becoming the theorem research owner.",
+      "next_action": "Use FQ-20260809-004 as the first closed-loop integration: verify the returned minimal functional-kernel/observation/future-signature interface, keep Pair derived and A3/A4 separate, integrate only the accepted Foundation/common-surface/backflow surfaces, run applicable gates, then mark the FQ canonical only after merge. Continue by auditing the next ANSWERED FQ or mature packet.",
+      "dependencies": [
+        {"target": "FQ-20260809-004 returned answer comment 5231561135", "action": "CONSUME", "satisfied": true},
+        {"target": "canonical P023/P024 factorization and future-safe precision", "action": "CONSUME", "satisfied": true}
+      ],
+      "source_refs": ["Issue #164 FQ-20260809-004", "Issue #82", "foundation_backflow.json", "docs/FOUNDATION_BACKFLOW_LOOP.en.md"],
+      "evidence_status": "STEWARD_VERIFICATION_AND_INTEGRATION",
+      "last_progress_ref": "FQ-20260809-004 RETURN 5231561135",
+      "last_progress_at": "2026-08-09T22:42:00+08:00",
+      "hard_block": null,
+      "tags": ["governance", "foundation", "backflow", "FQ-20260809-004", "canonicalization"]
     },
     {
       "task_id": "RS-GOV-CONTROL-SURFACE",

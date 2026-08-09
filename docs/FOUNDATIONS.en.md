@@ -192,6 +192,88 @@ The resulting precision cells need not be globally uniform. A uniform scale is o
 
 In particular, action language and state topology can change the minimal safe precision even when the nominal measurement scale is unchanged. This is a mathematical statement about predictive sufficiency, not by itself a claim that nature selects a task-dependent physical ontology.
 
+## 5B. Functional kernels, observations, and declared future signatures
+
+For generic mathematical interfaces, let \(X\) be a typed state carrier. This does **not** replace the primitive Enterprise Math arithmetic specialization \(X=\mathbb N_0\) where the integer-state hypothesis applies.
+
+For any deterministic map
+
+\[
+f:X\to Y,
+\]
+
+define its functional kernel relation by
+
+\[
+x\sim_f y
+\quad\Longleftrightarrow\quad
+f(x)=f(y).
+\]
+
+This is the ordinary fiber/kernel equivalence of a function. If \(O:X\to A\) is a current observation, then \(\ker(O)\) records current observational equality. It must not be identified with exact state equality unless \(O\) is injective.
+
+Now fix a **declared** family/language \(W\) of deterministic future experiments together with the observations to be retained, and package their outputs into one future signature
+
+\[
+\Sigma_W:X\to S_W.
+\]
+
+The corresponding future-safe equivalence is
+
+\[
+x\sim_W y
+\quad\Longleftrightarrow\quad
+\Sigma_W(x)=\Sigma_W(y).
+\]
+
+Thus future safety is again a functional-kernel statement, but it is relative to the declared future language. When the present observation \(O\) is included in that signature,
+
+\[
+\boxed{
+\Delta_X\subseteq\ker(\Sigma_W)\subseteq\ker(O),
+}
+\]
+
+where \(\Delta_X\) is exact equality and the smaller relation represents finer distinction.
+
+Deterministic postcomposition can merge existing fibers but cannot split one:
+
+\[
+\boxed{
+\ker(f)\subseteq\ker(g\circ f).
+}
+\]
+
+This is the generic functional-kernel form underlying deterministic history merging. P023 owns the constructive theory of factorization, minimal repair, and future-compatible refinement; P024 owns integer action-language specializations.
+
+A state pair is not introduced as a new primitive here: `(x,y)` is simply an element of the ordinary product \(X\times X\) used to test a kernel relation. Likewise, a Difference/defect/critical-grid coordinate may replace the underlying state or pair for a declared task **only after** the required information is proved to factor through that coordinate. For example, an observation coordinate \(\delta\) is sufficient only when an appropriate map \(h\) exists with
+
+\[
+O=h\circ\delta,
+\]
+
+and it is future-sufficient only when
+
+\[
+\Sigma_W=H\circ\delta
+\]
+
+for an appropriate \(H\). Without such a theorem, the coordinate remains a diagnostic or representation, not a complete state.
+
+This lower interface is deliberately functional. A3 structured relation-state may retain information beyond equivalence-class membership, while A4 multivalued support/correspondence may admit several future images. Therefore
+
+\[
+\boxed{
+\text{functional kernel/future signature}
+\neq
+\text{arbitrary A3 relation-state}
+\neq
+\text{A4 multivalued support}.
+}
+\]
+
+Kernel equivalence, quotient/congruence, factorization/semiconjugacy, behavioral equivalence, future signatures, and partition refinement are established prior mathematics. Their generic abstraction is not claimed as novel here. Enterprise Math-specific work lies in the exact integer specializations, precision rules, repair costs, and cross-route applications built on this interface.
+
 ## 6. Classical identities are not assumed
 
 Because integer root is not a two-sided inverse of exponentiation, classical real identities must be re-proved rather than imported.

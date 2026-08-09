@@ -2,7 +2,8 @@
 
 状态：`ACTIVE / P0 MAINTENANCE CONTRACT`  
 生效：2026-08-09  
-基础问题集：GitHub Issue #164
+基础问题集：GitHub Issue #164  
+反哺闭环：`docs/FOUNDATION_BACKFLOW_LOOP.*` / `foundation_backflow.json`
 
 ## 1. 职责
 
@@ -17,8 +18,9 @@
 - prose ↔ executable specification ↔ test ↔ Lean 的一致性；
 - 全项目共享 theorem/tool surface；
 - 可复用 Python/Lean/reference 工具及其声明适用范围；
-- 跨路线基础不变量与边界语言；
-- 让所有研究路线都能发现已证明结果与工具的 canonical 路由。
+- 跨研究路线的底层不变量与边界语言；
+- 让所有研究路线都能发现已证明结果与工具的 canonical 路由；
+- **主动执行 research-to-foundation backflow：从已有研究中抽取经过验证的可复用工具、最小状态要求、最小修复、重复机制和失败边界，并用它们反向压力测试公共底层。**
 
 底层维护者的身份是**维护者与验证者**，不是另一条竞争研究路线。
 
@@ -35,7 +37,7 @@
 - 把已经 canonical 的工具登记到共享研究面；
 - 不涉及数学选择的歧义语言清理。
 
-但当维护过程中暴露出真正尚未解决的数学选择、矛盾风险、缺失假设、跨路线不兼容、新结构模式、prior-art 不确定性、工具/定理充分性问题时，底层维护者**不得转而成为主要研究者**。
+但当维护过程或研究回流暴露出真正尚未解决的数学选择、矛盾风险、缺失假设、跨路线不兼容、新结构模式、prior-art 不确定性、工具/定理充分性问题时，底层维护者**不得转而成为主要研究者**。
 
 此时必须：
 
@@ -43,8 +45,9 @@
 2. 把问题压缩成最小陈述，并区分已验证事实与未知项；
 3. 记录精确证据和影响面；
 4. 使用 `FQ-*` ID 登记到 Foundation Problem Set Issue #164；
-5. 停止继续研究该问题，回到底层维护工作；
-6. 其他研究员返回结果后，再由底层维护者验证是否足以 canonicalize 相应修改。
+5. 通过 `foundation_backflow.json` 把需要执行的 FQ 链接到 #240 scheduler 中合适的 `RESEARCH` task；
+6. 停止继续研究该问题，回到底层维护工作；
+7. 其他研究员返回结果后，再由底层维护者通过治理任务独立验证是否足以 canonicalize 相应修改。
 
 ## 3. 升级问题前的最低验证门槛
 
@@ -135,6 +138,44 @@
 
 若“工具是否充分/等价”本身需要研究，则进入 #164。
 
+### 4.5 研究成果反哺底层的完整性
+
+已有研究路线本身也是 Foundation 的压力测试。底层维护者不能只把基础知识向外路由，还必须审计成熟的跨路线研究成果，检查其中是否出现了应当改变公共底层的结构。
+
+优先抽取以下六类对象：
+
+1. **最小充分状态（minimal sufficient state）** —— 某个定理或精确计算真正需要保存的最弱状态对象；
+2. **最小修复/扩展数据（minimal repair / extension data）** —— quotient/collapse 丢失声明闭包性质时，最少需要补回的 carry、remainder、witness、history、relation coordinate 或其他 detail；
+3. **跨路线不变量（cross-route invariant）** —— 在不同数学或工程路线中独立重复出现的同一结构规律；
+4. **失败边界（negative boundary）** —— 可复用反例、no-go theorem，或某个看似自然推广的精确失效条件；
+5. **可复用工具（reusable tool）** —— 可跨路线使用的 exact oracle、executable specification、Lean interface、counterexample generator 或 finite compiler；
+6. **分层规律（layering law）** —— 说明某个对象应当是原语，而另一个对象只是坐标、观测、响应律或应用语义的证据。
+
+一个可能反哺底层的结果，应尽可能压缩成 **Foundation Feedback Packet**，包含适用项：
+
+- `candidate_object_or_tool`；
+- `weakest_scope_hypotheses`；
+- `minimal_state`；
+- `minimal_repair_or_extension`；
+- `negative_boundary`；
+- `cross_route_evidence`；
+- `proof_status`；
+- `tool_surface`；
+- `prior_art_and_owner`；
+- `foundation_destination`。
+
+该信息包只是压缩格式，不是新的全局 barrier。除非另有独立成立的 `HARD_BLOCK`，研究路线不需要等待底层维护者 ACK 才能继续。
+
+每个回流候选必须且只能进入以下三类处理之一：
+
+- `DIRECT_FOUNDATION_MAINTENANCE` —— 现有 canonical 证据已经机械决定修改内容，底层维护者可直接修复语言、接口、路由或遗漏的已证明分层；
+- `FOUNDATION_QUESTION` —— 候选可能改变原语、分层、定理接口或跨路线母结构，但仍需要真实研究；建立 `FQ-*` 登记到 #164 并移交；
+- `APPLICATION_LOCAL_OR_NOT_READY` —— 候选仍属于单一路线、testing/conjectural、依赖特殊物理响应律，或缺乏跨路线必要性；继续保留在 Foundation 之上。
+
+因此，一个应用结果不能仅因为“很漂亮”就进入底层。尤其是 WIP 结构、物理解释或单一路线 response rule，在满足对应 proof/status 边界前不得进入 canonical Foundation。
+
+完整状态机、#82/#164/#240 的职责边界、FQ↔scheduler 链接和 canonicalization 回写规则由 `docs/FOUNDATION_BACKFLOW_LOOP.*` 与 `foundation_backflow.json` 统一规定。
+
 ## 5. P0 基础问题集
 
 规范升级面：**GitHub Issue #164 — `[P0] Foundation Steward Problem Set / 底层维护高优先级问题集`**。
@@ -163,11 +204,15 @@
 
 问题集本身优先级高，但**不是全局停止 barrier**。研究调度仍由 `RESEARCH_SCHEDULING_PROTOCOL` 控制；只有完整显式 `HARD_BLOCK` 才能使一条路线停止。
 
-## 6. 研究交接与返回路径
+## 6. 研究交接、返回与规范化路径
 
-其他研究员在 #164 中 claim `FQ-*` 条目，并在合适的 L1/L2/L3 路线调查。
+FQ 的数学内容与执行调度必须双轨记录：
 
-返回结果应包含：
+- #164 保存稳定 FQ 问题、研究证据、CLAIM/RETURN 语义记录与最终 resolution；
+- `foundation_backflow.json` 把需要执行的 FQ 链接到 `research_scheduler.json` 中的 task；
+- #240 保存该 task 的 runtime `CLAIM/PROGRESS/HANDOFF/DONE` lease 事件。
+
+其他研究员在合适的 L1/L2/L3 路线调查 FQ。返回结果应包含：
 
 - proof、counterexample 或 exact tool evidence；
 - 最弱 scope/hypotheses；
@@ -176,20 +221,19 @@
 - 需要时的 prior-art boundary；
 - 对 canonical language/formula/tool 修改的明确建议。
 
-底层维护者随后独立做足够验证，再决定：
+FQ 返回后，底层维护者通过 governance-side verification 独立核对，再决定：
 
-- canonicalize maintenance change；
-- 要求更窄证明/范围；
-- 标记问题 rejected；
-- 保持 open；
-- 将可复用研究结果 Relay 到 Issue #82。
+- `ACCEPTED`：从当时 latest `main` 构造最小 canonical integration；
+- `NEEDS_NARROWER_ANSWER`：要求更窄证明/范围；
+- `REJECTED`；
+- `KEEP_OPEN`。
 
-某个研究员声称“已回答”并不自动把内容变成 canonical truth。
+研究员的 `RETURN`、scheduler 的 `DONE`、steward 的 `ACCEPTED` 都**不等于** canonical main。只有规范补丁通过适用门禁并进入 source `main` 后，才能把 FQ 标为 `CANONICALIZED` 并传播 common surface / tool/status/lineage / GLOBAL_KNOWLEDGE。
 
-## 7. 持续维护循环
+## 7. 持续维护闭环
 
 稳定工作循环为：
 
-`shared-surface preflight -> foundation audit -> mechanical maintenance OR FQ escalation -> researcher investigation -> steward verification -> canonical language/formula/theorem/tool update -> common-surface propagation`。
+`shared-surface preflight -> cross-route result extraction -> Feedback Packet -> classification -> direct maintenance OR FQ -> scheduler-linked researcher investigation -> RETURN -> steward verification -> latest-main integration -> gates -> canonical main -> common-surface/tool/global-knowledge propagation -> later research pressure-tests the revised foundation`。
 
-目标是：所有研究路线都能依赖稳定一致的公共数学语言，并能找到当前证据支持下最强的 theorem/tool interface，而不需要底层维护者自己承担具体研究路线。
+目标是：所有研究路线既能依赖稳定一致的公共数学语言，又能把可复用的结构性发现送回底层；任何关键阶段都可以从仓库/Issue 状态恢复，而不依赖某个对话的记忆。
