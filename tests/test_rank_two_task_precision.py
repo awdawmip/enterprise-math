@@ -10,6 +10,7 @@ from enterprise_math.guard_image_lattice import (
     guard_kernel_image_rank,
     guard_rank_one_step,
 )
+from enterprise_math.rank_two_guard_reachability import rank_two_basis_coordinates
 from enterprise_math.rank_two_guard_refinement import (
     canonical_z2_subgroup,
     rank_two_canonical_sublattice_refinement,
@@ -111,6 +112,23 @@ class RankTwoTaskPrecisionTests(unittest.TestCase):
         self.assertIn((), subgroups)
         self.assertIn(((1, 1),), subgroups)
         self.assertIn(((1, 0), (0, 1)), subgroups)
+
+    def test_realizable_subgroup_enumeration_matches_all_partition_images(self):
+        hidden = rank_two_guard_labels(self.guards, self.parent)
+        parent_basis = hidden.parent_basis
+        brute_subgroups = set()
+        for partition in set_partitions(range(4)):
+            generators = guard_kernel_image_generators(self.guards, partition)
+            coordinate_generators = []
+            for generator in generators:
+                coordinates = rank_two_basis_coordinates(generator, parent_basis)
+                self.assertIsNotNone(coordinates)
+                coordinate_generators.append(coordinates)
+            brute_subgroups.add(canonical_z2_subgroup(tuple(coordinate_generators)))
+        self.assertEqual(
+            set(rank_two_realizable_image_subgroups(self.guards, self.parent)),
+            brute_subgroups,
+        )
 
     def test_rank_two_task_solver_finds_rank_gain_one_without_full_visibility(self):
         effects = complete_effect_table(2, "same")
