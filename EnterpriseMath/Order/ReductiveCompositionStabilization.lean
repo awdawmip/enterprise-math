@@ -8,7 +8,7 @@ variable {α : Type*} [PartialOrder α] [WellFoundedLT α]
 
 /--
 For two reductive endomaps, a fixed point of their composition is exactly a
-common fixed point.  No commutation assumption is needed.
+common fixed point. No commutation assumption is needed.
 -/
 theorem comp_fixed_iff_common (F G : α → α)
     (hFred : ∀ x, F x ≤ x) (hGred : ∀ x, G x ≤ x) (x : α) :
@@ -56,12 +56,19 @@ theorem stabilize_comp_isGreatest_common (F G : α → α)
   have hHred : ∀ z, H z ≤ z := comp_reductive F G hFred hGred
   have hgreat := stabilize_isGreatest H hHmono hHred x
   refine ⟨?_, ?_⟩
-  · have hcommon :=
-      (comp_fixed_iff_common F G hFred hGred (stabilize H hHmono hHred x)).mp hgreat.1.1
+  · have hHfix : H (stabilize H hHmono hHred x) = stabilize H hHmono hHred x :=
+      hgreat.1.1
+    have hcommon :
+        F (stabilize H hHmono hHred x) = stabilize H hHmono hHred x ∧
+          G (stabilize H hHmono hHred x) = stabilize H hHmono hHred x := by
+      apply (comp_fixed_iff_common F G hFred hGred
+        (stabilize H hHmono hHred x)).mp
+      simpa [H] using hHfix
     exact ⟨hcommon.1, hcommon.2, hgreat.1.2⟩
   · intro y hy
     apply hgreat.2
     refine ⟨?_, hy.2.2⟩
+    change G (F y) = y
     exact (comp_fixed_iff_common F G hFred hGred y).mpr ⟨hy.1, hy.2.1⟩
 
 /--
@@ -77,28 +84,10 @@ theorem stabilize_comp_order_independent (F G : α → α)
       stabilize (fun z => F (G z))
         (comp_monotone G F hGmono hFmono)
         (comp_reductive G F hGred hFred) x := by
-  let HFG : α → α := fun z => G (F z)
-  let HGF : α → α := fun z => F (G z)
-  have hFGmono : Monotone HFG := comp_monotone F G hFmono hGmono
-  have hGFmono : Monotone HGF := comp_monotone G F hGmono hFmono
-  have hFGred : ∀ z, HFG z ≤ z := comp_reductive F G hFred hGred
-  have hGFred : ∀ z, HGF z ≤ z := comp_reductive G F hGred hFred
-  let left := stabilize HFG hFGmono hFGred x
-  let right := stabilize HGF hGFmono hGFred x
-  have hleftFix : HFG left = left := stabilize_fixed HFG hFGmono hFGred x
-  have hrightFix : HGF right = right := stabilize_fixed HGF hGFmono hGFred x
-  have hleftCommon := (comp_fixed_iff_common F G hFred hGred left).mp hleftFix
-  have hrightCommon := (comp_fixed_iff_common G F hGred hFred right).mp hrightFix
-  have hleftLe : left ≤ x := stabilize_le HFG hFGmono hFGred x
-  have hrightLe : right ≤ x := stabilize_le HGF hGFmono hGFred x
+  have hFG := stabilize_comp_isGreatest_common F G hFmono hGmono hFred hGred x
+  have hGF := stabilize_comp_isGreatest_common G F hGmono hFmono hGred hFred x
   apply le_antisymm
-  · apply fixed_le_stabilize HGF hGFmono hGFred
-    · exact (comp_fixed_iff_common G F hGred hFred left).mpr
-        ⟨hleftCommon.2, hleftCommon.1⟩
-    · exact hleftLe
-  · apply fixed_le_stabilize HFG hFGmono hFGred
-    · exact (comp_fixed_iff_common F G hFred hGred right).mpr
-        ⟨hrightCommon.2, hrightCommon.1⟩
-    · exact hrightLe
+  · exact hGF.2 ⟨hFG.1.2.1, hFG.1.1, hFG.1.2.2⟩
+  · exact hFG.2 ⟨hGF.1.2.1, hGF.1.1, hGF.1.2.2⟩
 
 end EnterpriseMath.ReductiveCompositionStabilization
