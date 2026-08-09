@@ -29,7 +29,7 @@ theorem exists_rPowerFree_decomposition
       · exact ⟨q, 1, hq, by omega, hFree, by simp⟩
       · have hFactor : ∃ u : ℕ, 2 ≤ u ∧ u ^ r ∣ q := by
           unfold RPowerFree at hFree
-          push_neg at hFree
+          push Not at hFree
           exact hFree
         obtain ⟨u, hu, hUDvd⟩ := hFactor
         rcases hUDvd with ⟨c, hqFactor⟩
@@ -118,7 +118,7 @@ theorem separating_actions_contain_powerFree
     (hSep : SeparatesRootQuotientUpTo r N A) :
     ∀ b : ℕ, 1 ≤ b → b ≤ N → RPowerFree r b → b ∈ A := by
   intro b hbPos hbN hbFree
-  have hPredLt : b - 1 < b := Nat.pred_lt (by omega)
+  have hPredLt : b - 1 < b := by omega
   obtain ⟨a, haA, haPos, hJump⟩ := hSep hPredLt hbN
   have haEq : a = b :=
     rPowerFree_boundary_forces_action hr hbPos haPos hbFree hJump
