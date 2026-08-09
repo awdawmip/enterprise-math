@@ -1,3 +1,4 @@
+# Validation trigger only: no mathematical or executable semantics changed.
 import unittest
 
 from enterprise_math.abc_apery_tail_precision import (
