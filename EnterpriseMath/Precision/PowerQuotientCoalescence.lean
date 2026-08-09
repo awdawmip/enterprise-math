@@ -5,19 +5,14 @@ namespace EnterpriseMath.Precision
 
 open EnterpriseMath.IntegerRoot
 
-/-- Discrete one-step Bernoulli upper bound.
-
-For natural `t,r`, the increment from `t^r` to `(t+1)^r` is bounded by
-`r*(t+1)^(r-1)`.  The subtraction-free form below is convenient for exact
-integer collision arguments. -/
+/-- Discrete one-step Bernoulli upper bound. -/
 theorem pow_succ_le_pow_add_tangent (t r : ℕ) :
     (t + 1) ^ r ≤ t ^ r + r * (t + 1) ^ (r - 1) := by
   induction r with
   | zero => simp
   | succ r ih =>
       calc
-        (t + 1) ^ (r + 1) = (t + 1) * (t + 1) ^ r := by
-          rw [pow_succ']
+        (t + 1) ^ (r + 1) = (t + 1) * (t + 1) ^ r := by rw [pow_succ']
         _ ≤ (t + 1) * (t ^ r + r * (t + 1) ^ (r - 1)) :=
           Nat.mul_le_mul_left (t + 1) ih
         _ = t ^ (r + 1) + t ^ r + r * (t + 1) ^ r := by
@@ -31,22 +26,13 @@ theorem pow_succ_le_pow_add_tangent (t r : ℕ) :
           omega
         _ = t ^ (r + 1) + (r + 1) * (t + 1) ^ r := by ring
 
-/-- Collision-scale lemma with the sharp root-order constant.
-
-If two adjacent-or-wider divisor strips can place the same `r`-root cell `t`
-between `(d+1)*t^r` and `d*(t+1)^r`, then
-
-`t+1 < r*(d+1)`.
-
-The proof is the exact integer Bernoulli argument used by the all-power
-coalescence theorem. -/
+/-- Gap-one collision scale bound. -/
 theorem divisor_collision_root_scale
     {d t s : ℕ}
     (hcollision : (d + 1) * t ^ (s + 1) < d * (t + 1) ^ (s + 1)) :
     t + 1 < (s + 1) * (d + 1) := by
   by_contra hnot
-  have hCoeff' : (s + 1) * (d + 1) ≤ t + 1 := by
-    omega
+  have hCoeff' : (s + 1) * (d + 1) ≤ t + 1 := by omega
   have hCoeff : (d + 1) * (s + 1) ≤ t + 1 := by
     simpa [Nat.mul_comm] using hCoeff'
   have hStep := pow_succ_le_pow_add_tangent t (s + 1)
@@ -54,8 +40,12 @@ theorem divisor_collision_root_scale
       (d + 1) * (t + 1) ^ (s + 1) ≤
         (d + 1) * t ^ (s + 1) +
           (d + 1) * ((s + 1) * (t + 1) ^ s) := by
-    simpa [Nat.succ_sub_one, Nat.mul_add, Nat.mul_assoc] using
-      Nat.mul_le_mul_left (d + 1) hStep
+    calc
+      (d + 1) * (t + 1) ^ (s + 1)
+          ≤ (d + 1) * (t ^ (s + 1) + (s + 1) * (t + 1) ^ s) :=
+            Nat.mul_le_mul_left (d + 1) hStep
+      _ = (d + 1) * t ^ (s + 1) +
+          (d + 1) * ((s + 1) * (t + 1) ^ s) := by ring
   have hError :
       (d + 1) * ((s + 1) * (t + 1) ^ s) ≤ (t + 1) ^ (s + 1) := by
     calc
@@ -63,7 +53,7 @@ theorem divisor_collision_root_scale
           = ((d + 1) * (s + 1)) * (t + 1) ^ s := by ring
       _ ≤ (t + 1) * (t + 1) ^ s :=
         Nat.mul_le_mul_right ((t + 1) ^ s) hCoeff
-      _ = (t + 1) ^ (s + 1) := by rw [pow_succ']
+      _ = (t + 1) ^ (s + 1) := by rw [← pow_succ']
   have hCombined :
       (d + 1) * (t + 1) ^ (s + 1) ≤
         (d + 1) * t ^ (s + 1) + (t + 1) ^ (s + 1) :=
@@ -72,21 +62,14 @@ theorem divisor_collision_root_scale
     have hCancel :
         d * (t + 1) ^ (s + 1) + (t + 1) ^ (s + 1) ≤
           (d + 1) * t ^ (s + 1) + (t + 1) ^ (s + 1) := by
-      simpa [Nat.add_mul, Nat.one_mul, Nat.add_assoc] using hCombined
+      calc
+        d * (t + 1) ^ (s + 1) + (t + 1) ^ (s + 1)
+            = (d + 1) * (t + 1) ^ (s + 1) := by ring
+        _ ≤ (d + 1) * t ^ (s + 1) + (t + 1) ^ (s + 1) := hCombined
     omega
   omega
 
-/-- All-power cross-divisor quotient-root coalescence law.
-
-Let the source state satisfy `n < (k+1)^p`.  If two distinct natural divisors
-`2 ≤ d < e` give the same actual `(s+1)`-root after floor division, then the
-common root `t` obeys
-
-`t^(s+2) < (s+1)*(k+1)^p`.
-
-Equivalently, for root exponent `r=s+1`, actual coalescence is confined to the
-sharp order `O(k^(p/(r+1)))` with leading constant `r` in the power inequality.
-No real root is used. -/
+/-- All-power cross-divisor quotient-root coalescence law. -/
 theorem power_basin_distinct_divisor_root_collision
     {p k n d e s : ℕ}
     (hd : 2 ≤ d) (hde : d < e)
@@ -102,19 +85,16 @@ theorem power_basin_distinct_divisor_root_collision
     exact hroot.symm
   have hPowE0 : (root (s + 1) (n / e)) ^ (s + 1) ≤ n / e := by
     exact Nat.pow_nthRoot_le (Or.inl (by omega))
-  have hPowE : t ^ (s + 1) ≤ n / e := by
-    simpa [hRootE] using hPowE0
+  have hPowE : t ^ (s + 1) ≤ n / e := by simpa [hRootE] using hPowE0
   have hLowerMul : t ^ (s + 1) * e ≤ n :=
     (Nat.le_div_iff_mul_le he0).1 hPowE
-  have hLower : e * t ^ (s + 1) ≤ n := by
-    simpa [Nat.mul_comm] using hLowerMul
+  have hLower : e * t ^ (s + 1) ≤ n := by simpa [Nat.mul_comm] using hLowerMul
   have hQuotUpper : n / d < (t + 1) ^ (s + 1) := by
     dsimp [t]
     exact Nat.lt_pow_nthRoot_add_one (by omega) (n / d)
   have hUpperMul : n < (t + 1) ^ (s + 1) * d :=
     (Nat.div_lt_iff_lt_mul hd0).1 hQuotUpper
-  have hUpper : n < d * (t + 1) ^ (s + 1) := by
-    simpa [Nat.mul_comm] using hUpperMul
+  have hUpper : n < d * (t + 1) ^ (s + 1) := by simpa [Nat.mul_comm] using hUpperMul
   have hSuccDiv : d + 1 ≤ e := by omega
   have hCollision : (d + 1) * t ^ (s + 1) < d * (t + 1) ^ (s + 1) := by
     calc
@@ -129,25 +109,26 @@ theorem power_basin_distinct_divisor_root_collision
       Nat.mul_le_mul_left (s + 1) hSuccDiv
     omega
   by_cases htZero : t = 0
-  · subst t
-    have hPos : 0 < (s + 1) * (k + 1) ^ p :=
-      Nat.mul_pos (by omega) (pow_pos (by omega) p)
-    simpa using hPos
+  · have hs2 : s + 2 ≠ 0 := by omega
+    rw [htZero, zero_pow hs2]
+    exact Nat.mul_pos (by omega) (pow_pos (by omega) p)
   · have htPos : 0 < t := Nat.pos_of_ne_zero htZero
     have hMul0 : t * t ^ (s + 1) < ((s + 1) * e) * t ^ (s + 1) :=
       Nat.mul_lt_mul_of_pos_right hLtE (pow_pos htPos (s + 1))
     have hMul : t ^ (s + 2) < (s + 1) * (e * t ^ (s + 1)) := by
-      simpa [pow_succ, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm] using hMul0
+      calc
+        t ^ (s + 2) = t * t ^ (s + 1) := by
+          have hs : s + 2 = (s + 1) + 1 := by omega
+          rw [hs, pow_succ']
+        _ < ((s + 1) * e) * t ^ (s + 1) := hMul0
+        _ = (s + 1) * (e * t ^ (s + 1)) := by ring
     have hWeighted : (s + 1) * (e * t ^ (s + 1)) ≤ (s + 1) * n :=
       Nat.mul_le_mul_left (s + 1) hLower
     have hParent : (s + 1) * n < (s + 1) * (k + 1) ^ p :=
       Nat.mul_lt_mul_of_pos_left hnUpper (by omega)
     exact lt_of_lt_of_le hMul (le_trans hWeighted (Nat.le_of_lt hParent))
 
-/-- Exact integer all-power coalescence horizon.
-
-Every collision root is at most
-`R_(s+2)((s+1)*(k+1)^p - 1)`. -/
+/-- Exact integer all-power coalescence horizon. -/
 theorem power_basin_distinct_divisor_root_collision_horizon
     {p k n d e s : ℕ}
     (hd : 2 ≤ d) (hde : d < e)
@@ -158,14 +139,10 @@ theorem power_basin_distinct_divisor_root_collision_horizon
     (p := p) (k := k) (n := n) (d := d) (e := e) (s := s)
     hd hde hnUpper hroot
   have hLe : (root (s + 1) (n / d)) ^ (s + 2) ≤
-      (s + 1) * (k + 1) ^ p - 1 := by
-    omega
+      (s + 1) * (k + 1) ^ p - 1 := by omega
   exact (Nat.le_nthRoot_iff (n := s + 2) (by omega)).2 hLe
 
-/-- Exact strict-descent criterion for the all-power horizon.
-
-Whenever the horizon argument already lies below the parent `(s+2)`-power,
-actual cross-divisor collisions must strictly reduce the parent root scale. -/
+/-- Exact strict-descent criterion for the all-power horizon. -/
 theorem power_basin_collision_strict_descent_of_bound
     {p k n d e s : ℕ}
     (hk : (s + 1) * (k + 1) ^ p ≤ k ^ (s + 2))
