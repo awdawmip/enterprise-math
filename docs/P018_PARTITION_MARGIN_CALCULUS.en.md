@@ -1,11 +1,11 @@
 # P018 — Exact Partition-Margin Calculus
 
 Status: `ACTIVE RESEARCH NOTE`  
-Scope: exact coarse/fine proof-margin transport under finite partition refinement  
-Origin: distilled from the P017 MC08 precision hierarchy  
-Novelty: `NOVELTY_UNVERIFIED`; the identities are elementary finite algebra, while the project-specific content is their role as an exact precision-compensation calculus.
+Scope: exact coarse/fine proof-observable transport under finite partition refinement  
+Origin: distilled from the canonical P017 MC08 precision hierarchy  
+Novelty: `NOVELTY_UNVERIFIED`; the algebraic identities are elementary finite algebra, while the project-specific content is their use as an exact precision-compensation calculus.
 
-## 1. Block margin
+## 1. Four block observables
 
 Let a finite precision block `B` carry signed integer coordinates `x_s,y_s`. Define
 
@@ -17,13 +17,13 @@ Y_B=\sum_{s\in B}y_s,
 Z_B=\sum_{s\in B}x_sy_s.
 \]
 
-The block capacity margin is
+Define the capacity margin
 
 \[
 \boxed{D_B=X_BY_B-Z_B.}
 \]
 
-Expanding the product gives
+Expanding the product gives the exact off-diagonal form
 
 \[
 \boxed{
@@ -31,7 +31,15 @@ D_B=\sum_{s\ne t\in B}x_sy_t.
 }
 \]
 
-Thus the margin is exactly the off-diagonal interaction removed by retaining only the diagonal observable `Z_B`.
+The natural block observation is therefore
+
+\[
+\boxed{
+\Phi(B)=(X_B,Y_B,Z_B,D_B).
+}
+\]
+
+The first three coordinates are additive signed observables; the fourth records the off-diagonal interaction created by coarse aggregation.
 
 ## 2. Exact partition transport
 
@@ -41,7 +49,19 @@ For any finite partition
 B=\bigsqcup_i B_i,
 \]
 
-write `X_i=X_{B_i}`, and similarly for `Y_i,D_i`. Then
+write `X_i=X_{B_i}` and similarly for the other coordinates. Then
+
+\[
+\boxed{
+X_B=\sum_iX_i,
+\quad
+Y_B=\sum_iY_i,
+\quad
+Z_B=\sum_iZ_i,
+}
+\]
+
+while
 
 \[
 \boxed{
@@ -53,7 +73,7 @@ D_B
 }
 \]
 
-This is an identity, not an estimate.
+These are identities, not estimates.
 
 For a binary split `B=L sqcup R`,
 
@@ -65,60 +85,102 @@ D_B
 }
 \]
 
-The two final terms are the exact sibling compensation present at coarse precision and removed when `L` and `R` are observed separately.
+The last two terms are the exact sibling compensation present at coarse precision and removed when the children are observed separately.
 
-## 3. Positive-cone persistence
+## 3. Merge-closed proof cone
 
-Suppose a hypothesis forces every child block into
-
-\[
-X_i\ge0,
-\qquad Y_i\ge0,
-\qquad D_i\ge0.
-\]
-
-Then every cross term `X_iY_j` is nonnegative. Hence
+Define the admissible cone
 
 \[
-D_B\ge\sum_iD_i\ge0.
+\boxed{
+\mathcal K
+=
+\{(X,Y,Z,D)\in\mathbb Z^4:
+X\ge0,\ Y\ge0,\ Z\ge0,\ D\ge0\}.
+}
 \]
+
+Suppose every child observation `Phi(B_i)` lies in `K`. Then the additive coordinates of the parent satisfy
+
+\[
+X_B\ge0,
+\qquad Y_B\ge0,
+\qquad Z_B\ge0.
+\]
+
+Also every `X_iY_j` is nonnegative, so the transport identity gives
+
+\[
+D_B
+=
+\sum_iD_i+\sum_{i\ne j}X_iY_j
+\ge0.
+\]
+
+Hence
+
+\[
+\boxed{
+\Phi(B_i)\in\mathcal K\ \forall i
+\Longrightarrow
+\Phi(B)\in\mathcal K.
+}
+\]
+
+The admissible proof cone is therefore **closed under coarse merging**.
 
 Contrapositively,
 
 \[
 \boxed{
-D_B<0
+\Phi(B)\notin\mathcal K
 \Longrightarrow
-\text{at least one refined child also leaves the admissible cone.}
+\text{at least one refined child lies outside }\mathcal K.
 }
 \]
 
-So a coarse certificate cannot disappear under compatible refinement. The persistence follows from the exact transport law rather than from an independent monotonicity assumption.
+So a proof certificate obtained at coarse precision cannot disappear under compatible refinement. This is a structural consequence of the exact merge law, not an independently imposed monotonicity principle.
 
-## 4. Exact masking and unmasking
+## 4. Two distinct kinds of coarse masking
 
-Outside the positive cone, a fine negative margin can be hidden by a positive coarse compensation term.
+The four-coordinate form exposes two mechanisms by which low precision can hide fine information.
 
-Take
+### 4.1 Additive sign cancellation
+
+Because `X`, `Y`, and `Z` are additive, a negative child contribution can be hidden by positive sibling contributions:
+
+\[
+X_B=\sum_iX_i,
+\qquad
+Y_B=\sum_iY_i,
+\qquad
+Z_B=\sum_iZ_i.
+\]
+
+Refinement does not change the total; it localizes the signed contributions so a negative block can become visible.
+
+### 4.2 Bilinear sibling compensation
+
+The capacity margin has an additional coarse interaction term. For example take
 
 - left block: `x=(-1,0)`, `y=(0,1)`, giving `D_L=-1`;
 - right singleton: `x=(3)`, `y=(0)`, giving `D_R=0`.
 
-The sibling compensation equals
+The sibling compensation is
 
 \[
-X_LY_R+X_RY_L=3.
+X_LY_R+X_RY_L=3,
 \]
 
-Therefore
+so
 
 \[
 \boxed{D_B=-1+0+3=2.}
 \]
 
-The coarse observation has positive margin even though the left child already carries a negative certificate. Refinement does not merely improve a numerical approximation: it removes a precisely identified integer interaction term.
+The parent margin is positive even though one child has a negative margin. Refinement removes a precisely identified integer interaction; it is not merely a better numerical approximation.
 
-## 5. Telescoping precision shells
+## 5. Telescoping precision shells for the margin channel
 
 Repeatedly refine blocks until singleton resolution. Let
 
@@ -126,9 +188,9 @@ Repeatedly refine blocks until singleton resolution. Let
 M_m=\sum_{B\in\mathcal P_m}D_B
 \]
 
-be the total block margin at precision level `m`.
+be the total margin at precision level `m`.
 
-For one binary refinement step define the shell compensation
+For one binary refinement step define
 
 \[
 C_m
@@ -139,13 +201,13 @@ C_m
 
 with zero contribution from blocks already singleton.
 
-The binary transport identity gives
+Then
 
 \[
 \boxed{M_m=M_{m+1}+C_m.}
 \]
 
-At singleton resolution every block contains one state, so `D=xy-xy=0` and `M_term=0`. Therefore
+At singleton resolution `D=xy-xy=0`, hence `M_term=0` and
 
 \[
 \boxed{
@@ -153,46 +215,64 @@ M_0=\sum_{m<\mathrm{term}}C_m.
 }
 \]
 
-The entire coarse margin is exactly decomposed into precision-shell compensation. No limit, derivative, probability model, or hidden continuum is required.
+The coarse bilinear margin is therefore exactly decomposed into precision-shell compensation. No limit, derivative, probability model, or hidden continuum is required.
+
+The additive coordinates have an even simpler transport law: their global sums are invariant across refinement, while refinement changes only **where** the signed mass is visible.
 
 ## 6. P017 MC08 specialization
 
-For the canonical P017 mirror precision certificate, put
+For the canonical P017 mirror precision certificate, set
 
 \[
 x_r=a_r-1,
-\qquad y_r=b_r-1.
+\qquad
+y_r=b_r-1.
 \]
 
-Then on each radius block `B`,
+Then for each radius block `B`,
 
 \[
 X_B=U_-^{(B)},
 \qquad
 Y_B=U_+^{(B)},
+\qquad
+Z_B=V^{(B)},
 \]
 
 and
 
 \[
-D_B=U_-^{(B)}U_+^{(B)}-V^{(B)}.
+D_B
+=U_-^{(B)}U_+^{(B)}-V^{(B)}.
 \]
 
-The MC08 product certificate is exactly `D_B<0`. Under hypothetical prime-free behavior every singleton `x_r,y_r` is nonnegative, so all compatible merge compensations lie in the nonnegative cone and certificate persistence follows immediately.
+Thus the four MC08 certificate channels are exactly the four ways in which `Phi(B)` can leave `K`:
 
-This identifies what the precision hierarchy is doing algebraically: coarse blocks contain cross-radius compensation terms; refinement removes those terms layer by layer until the signed local structure becomes visible.
+\[
+U_-^{(B)}<0,
+\quad
+U_+^{(B)}<0,
+\quad
+V^{(B)}<0,
+\quad
+U_-^{(B)}U_+^{(B)}-V^{(B)}<0.
+\]
+
+Under hypothetical prime-free behavior every singleton has `x_r,y_r>=0`, so every compatible block lies in the merge-closed cone. MC08 refinement persistence is therefore an instance of the general P018 transport law.
+
+This also explains why higher precision can reveal a certificate: it removes additive sign masking and bilinear sibling compensation without changing the underlying finite state set.
 
 ## 7. Scope boundary
 
-The partition identity is valid for arbitrary signed integer sequences and therefore cannot by itself prove the P017 prime target. It is a foundational accounting law, not a hidden number-theoretic theorem.
+The partition identities hold for arbitrary signed integer sequences and therefore cannot by themselves prove the P017 prime target. They are foundational accounting laws, not hidden number-theoretic theorems.
 
-Its value is structural: it gives P018 an explicit answer to the question “what information is removed when proof precision is lowered?” for a nontrivial class of bilinear proof margins.
+Their value is structural: P018 can now identify two exact mechanisms lost under coarse proof precision—signed aggregation and cross-block compensation—and represent their removal by finite integer transport rather than informal approximation language.
 
-The next foundation question is whether other P018 proof observables admit exact merge laws of the same type, so that low/high precision cancellation can be represented by finite shell terms rather than informal approximation language.
+The next foundation question is which other proof observables admit merge-closed cones or exact shell laws of this type.
 
 ## 8. Executable assets
 
 - `src/enterprise_math/precision_partition_margin.py`
 - `tests/test_precision_partition_margin.py`
 
-The tests verify the general partition identity, the binary transport law, positive-cone persistence, a genuine coarse-masking example, and exact telescoping to singleton precision.
+The tests verify the general partition identity, binary transport, off-diagonal form, positive-cone merge behavior, a genuine coarse-masking example, and exact telescoping to singleton precision.
