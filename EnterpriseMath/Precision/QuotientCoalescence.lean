@@ -96,4 +96,45 @@ theorem square_basin_distinct_divisor_root_collision_horizon
     omega
   exact (Nat.le_nthRoot_iff (n := 3) (by decide)).2 hLe
 
+/-- From parent root scale `k >= 4`, the cubic collision horizon itself is
+strictly below `k`.
+
+Thus cross-divisor quotient-root coalescence is not merely bounded by a
+sublinear asymptotic expression: it is a genuinely reductive scale map on all
+nontrivial parent scales beyond the finite base cases. -/
+theorem cubic_coalescence_horizon_lt_parent
+    {k : ℕ} (hk : 4 ≤ k) :
+    root 3 (2 * (k + 1) ^ 2 - 1) < k := by
+  have hArgBound : 2 * (k + 1) ^ 2 ≤ k ^ 3 := by
+    nlinarith
+  have hArgLt : 2 * (k + 1) ^ 2 - 1 < k ^ 3 := by
+    omega
+  by_contra hnot
+  have hkRoot : k ≤ root 3 (2 * (k + 1) ^ 2 - 1) := by
+    omega
+  have hkPow : k ^ 3 ≤ (root 3 (2 * (k + 1) ^ 2 - 1)) ^ 3 :=
+    Nat.pow_le_pow_left hkRoot 3
+  have hRootPow : (root 3 (2 * (k + 1) ^ 2 - 1)) ^ 3 ≤
+      2 * (k + 1) ^ 2 - 1 := by
+    exact Nat.pow_nthRoot_le (Or.inl (by decide))
+  omega
+
+/-- Every actual distinct-divisor root collision strictly descends the parent
+square-root scale once `k >= 4`.
+
+Together with T111 path flatness, this gives a well-founded collision skeleton:
+any two factor-extraction paths with different total divisors can merge only
+strictly below the current parent root scale. -/
+theorem square_basin_distinct_divisor_root_collision_strict_descent
+    {k n d e : ℕ}
+    (hk : 4 ≤ k)
+    (hd : 2 ≤ d) (hde : d < e)
+    (hnLower : k ^ 2 ≤ n) (hnUpper : n < (k + 1) ^ 2)
+    (hroot : root 2 (n / d) = root 2 (n / e)) :
+    root 2 (n / d) < k := by
+  exact lt_of_le_of_lt
+    (square_basin_distinct_divisor_root_collision_horizon
+      hd hde hnLower hnUpper hroot)
+    (cubic_coalescence_horizon_lt_parent hk)
+
 end EnterpriseMath.Precision
