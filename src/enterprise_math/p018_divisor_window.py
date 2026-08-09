@@ -1,22 +1,35 @@
 """WIP P018 discovery: quotient-window and root-channel separation.
 
-For a square basin k^2 < n < (k+1)^2 and divisor d>=2, the possible integer
-quotients n//d lie in
+For a square basin k^2 <= n < (k+1)^2 and divisor d>=2, quotient/root transport
+has much stronger cross-divisor structure than the canonical one-divisor T110
+pair bound alone reveals.
 
-    W_d(k) = [floor(k^2/d)+1, floor(k(k+2)/d)].
+This module records:
 
-This module records elementary separation criteria for exact quotient windows
-and stronger root-channel consequences.  Nonadjacent divisors d<e with de<k
-have disjoint T110 candidate root pairs.  Therefore any overlap is either the
-adjacent-divisor exception e=d+1 or occurs only after the divisor product has
-reached k; the latter forces the descended root below a universal quartic
-horizon R_4(k^3)+1.  It is discovery-stage evidence, not a canonical theorem
-module.
+* exact quotient-window separation;
+* nonadjacent small-product separation of T110 candidate root pairs;
+* a candidate-channel overlap dichotomy and a quartic candidate horizon;
+* a stronger **actual quotient coalescence** theorem: if two different divisors
+  give the same actual quotient root t on one square-basin state, then
+
+      t^3 < 2 (k+1)^2.
+
+  Hence actual root coalescence is confined below the cubic horizon
+
+      H_3(k) = R_3(2(k+1)^2 - 1) = O(k^(2/3)).
+
+Combined with canonical T111 quotient-path flatness, roots above H_3(k) uniquely
+identify the nontrivial total divisor, independent of how that divisor was
+factorized along the path.
+
+This is discovery-stage evidence, not a canonical theorem module.
 """
 
 from __future__ import annotations
 
 from math import isqrt
+
+from .core import integer_nth_root
 
 
 def _require_int(name: str, value: int) -> None:
@@ -25,11 +38,19 @@ def _require_int(name: str, value: int) -> None:
 
 
 def fourth_root(value: int) -> int:
-    """Return floor(value^(1/4)) using nested exact integer square roots."""
+    """Return floor(value^(1/4)) using exact integer square roots."""
     _require_int("value", value)
     if value < 0:
         raise ValueError("value must be nonnegative")
     return isqrt(isqrt(value))
+
+
+def actual_coalescence_horizon(k: int) -> int:
+    """Return H_3(k)=R_3(2(k+1)^2-1), the actual collision ceiling."""
+    _require_int("k", k)
+    if k < 1:
+        raise ValueError("k must be positive")
+    return integer_nth_root(2 * (k + 1) ** 2 - 1, 3)
 
 
 def divisor_quotient_window(k: int, divisor: int) -> tuple[int, int]:
@@ -58,6 +79,20 @@ def divisor_root_channel(k: int, divisor: int) -> dict[str, object]:
         "base_root": base,
         "candidates": (base, base + 1),
     }
+
+
+def actual_divisor_root(k: int, n: int, divisor: int) -> int:
+    """Return R_2(floor(n/divisor)) for a state in the k-th square basin."""
+    _require_int("k", k)
+    _require_int("n", n)
+    _require_int("divisor", divisor)
+    if k < 1:
+        raise ValueError("k must be positive")
+    if not k * k <= n < (k + 1) * (k + 1):
+        raise ValueError("n must lie in the complete k-th square basin")
+    if divisor < 2:
+        raise ValueError("divisor must be at least 2")
+    return isqrt(n // divisor)
 
 
 def divisor_window_separation(k: int, left: int, right: int) -> dict[str, object]:
@@ -124,7 +159,7 @@ def nonadjacent_small_product_root_pair_separation(
 
     Hence {j_d,j_d+1} and {j_e,j_e+1} are disjoint.
 
-    For d>=3, first show j_e>=2d+1.  Since k>=de+1 and e>=d+2,
+    For d>=3, first show j_e>=2d+1. Since k>=de+1 and e>=d+2,
 
         (de+1)^2 >= e(2d+1)^2.
 
@@ -140,12 +175,9 @@ def nonadjacent_small_product_root_pair_separation(
 
     so d(u+2)^2<k^2 and j_d>=u+2.
 
-    The only missing base family is d=2.  Then e>=4 and de<k imply k>=9.
-    Since j_e<=floor(k/2), the elementary parity split k=2m or 2m+1 gives
+    The d=2 family follows from k>=9, j_e<=floor(k/2), and
 
-        (floor(k/2)+2)^2 <= floor(k^2/2)    for k>=9,
-
-    hence j_2>=j_e+2 as well.
+        (floor(k/2)+2)^2 <= floor(k^2/2).
     """
     _require_int("k", k)
     _require_int("left", left)
@@ -170,9 +202,8 @@ def nonadjacent_small_product_root_pair_separation(
             raise AssertionError("d=2 upper-divisor root exceeded floor(k/2)")
         if (half + 2) ** 2 > (k * k) // 2:
             raise AssertionError("d=2 base square inequality failed")
-    else:
-        if j_right < 2 * d + 1:
-            raise AssertionError("small-product lower-root estimate failed")
+    elif j_right < 2 * d + 1:
+        raise AssertionError("small-product lower-root estimate failed")
 
     if j_left < j_right + 2:
         raise AssertionError("small-product root candidate pairs overlap")
@@ -190,19 +221,7 @@ def nonadjacent_small_product_root_pair_separation(
 
 
 def divisor_channel_overlap_dichotomy(k: int, left: int, right: int) -> dict[str, object]:
-    """Classify overlap of two divisor root channels.
-
-    For 2<=d<e<=k, if C_d(k) and C_e(k) overlap, then either
-
-        e=d+1
-
-    or
-
-        d*e>=k.
-
-    This is the contrapositive interface of the nonadjacent small-product
-    separation theorem.
-    """
+    """If two candidate channels overlap, labels are adjacent or de>=k."""
     _require_int("k", k)
     _require_int("left", left)
     _require_int("right", right)
@@ -217,7 +236,6 @@ def divisor_channel_overlap_dichotomy(k: int, left: int, right: int) -> dict[str
     product_threshold = left * right >= k
 
     if overlap and not adjacent and not product_threshold:
-        # The branch assumptions now satisfy the proved separation theorem.
         nonadjacent_small_product_root_pair_separation(k, left, right)
         raise AssertionError("overlapping nonadjacent small-product channels survived")
 
@@ -237,20 +255,7 @@ def divisor_channel_overlap_dichotomy(k: int, left: int, right: int) -> dict[str
 def product_threshold_overlap_quartic_contraction(
     k: int, left: int, right: int
 ) -> dict[str, object]:
-    """A non-small-product overlap forces the larger channel below R_4(k^3)+1.
-
-    Assume C_d(k) and C_e(k) overlap for 2<=d<e<=k and k<=de.  Since d<e,
-    k<=de<=e^2.  If j_e=R_2(floor(k^2/e)), then
-
-        e*j_e^2 <= k^2.
-
-    Squaring and using k<=e^2 gives
-
-        k*j_e^4 <= e^2*j_e^4 <= k^4,
-
-    hence j_e^4<=k^3 and j_e<=R_4(k^3).  Every common candidate root is at
-    most j_e+1, so it is at most R_4(k^3)+1.
-    """
+    """A product-threshold candidate overlap lies below R_4(k^3)+1."""
     data = divisor_channel_overlap_dichotomy(k, left, right)
     if not data["overlap"]:
         raise ValueError("the two divisor channels do not overlap")
@@ -281,13 +286,7 @@ def product_threshold_overlap_quartic_contraction(
 
 
 def high_scale_divisor_channel_multiplicity(k: int, target_root: int) -> dict[str, object]:
-    """Above R_4(k^3)+1, at most two divisor channels hit one target root.
-
-    Moreover, if two channels hit, their divisor labels are consecutive.  If
-    three distinct labels hit the same high target, the smallest and largest are
-    nonadjacent; their overlap would force the quartic contraction and contradict
-    the high-target assumption.
-    """
+    """Above R_4(k^3)+1, candidate multiplicity is <=2 and doubles are adjacent."""
     _require_int("k", k)
     _require_int("target_root", target_root)
     if k < 2:
@@ -301,8 +300,7 @@ def high_scale_divisor_channel_multiplicity(k: int, target_root: int) -> dict[st
 
     hits: list[int] = []
     for divisor in range(2, k + 1):
-        channel = divisor_root_channel(k, divisor)["candidates"]
-        if target_root in channel:
+        if target_root in divisor_root_channel(k, divisor)["candidates"]:
             hits.append(divisor)
 
     if len(hits) > 2:
@@ -317,6 +315,115 @@ def high_scale_divisor_channel_multiplicity(k: int, target_root: int) -> dict[st
         "divisor_hits": tuple(hits),
         "multiplicity": len(hits),
         "adjacent_double": len(hits) == 2,
+    }
+
+
+def actual_divisor_root_collision(
+    k: int, n: int, left: int, right: int
+) -> dict[str, object]:
+    """Classify an actual cross-divisor quotient-root collision.
+
+    Let 2<=d<e and assume both quotients have the same root t. Exact root
+    intervals give
+
+        e t^2 <= n < d(t+1)^2.
+
+    Therefore
+
+        (e-d)t^2 < d(2t+1).
+
+    Since e-d>=1, t>=2d+1 would contradict this inequality, so t<=2d<2e.
+    Multiplying the strict inequality t<2e by t^2 and using e t^2<=n gives
+
+        t^3 < 2e t^2 <= 2n < 2(k+1)^2.
+
+    Hence every actual collision satisfies
+
+        t <= R_3(2(k+1)^2 - 1).
+
+    No primality, parity, d<=k, or factorization assumption is needed.
+    """
+    _require_int("left", left)
+    _require_int("right", right)
+    if not 2 <= left < right:
+        raise ValueError("require 2 <= left < right")
+
+    left_root = actual_divisor_root(k, n, left)
+    right_root = actual_divisor_root(k, n, right)
+    coalesces = left_root == right_root
+    horizon = actual_coalescence_horizon(k)
+
+    result: dict[str, object] = {
+        "k": k,
+        "n": n,
+        "left": left,
+        "right": right,
+        "left_root": left_root,
+        "right_root": right_root,
+        "coalesces": coalesces,
+        "actual_coalescence_horizon": horizon,
+    }
+    if not coalesces:
+        return result
+
+    t = left_root
+    if right * t * t > n:
+        raise AssertionError("common root lower interval failed")
+    if n >= left * (t + 1) * (t + 1):
+        raise AssertionError("common root upper interval failed")
+    if (right - left) * t * t >= left * (2 * t + 1):
+        raise AssertionError("collision spacing inequality failed")
+    if t > 2 * left:
+        raise AssertionError("actual collision root exceeded 2d")
+    if t**3 >= 2 * (k + 1) ** 2:
+        raise AssertionError("actual collision escaped the cubic basin bound")
+    if t > horizon:
+        raise AssertionError("actual collision exceeded H_3(k)")
+
+    return {
+        **result,
+        "common_root": t,
+        "spacing_margin": left * (2 * t + 1) - (right - left) * t * t,
+    }
+
+
+def high_scale_actual_divisor_root_injectivity(
+    k: int, n: int, divisors: tuple[int, ...]
+) -> dict[str, object]:
+    """Above H_3(k), actual quotient roots uniquely identify total divisors.
+
+    Canonical T111 says any repeated floor-division path equals division by its
+    product divisor. Therefore this finite direct-divisor statement is also a
+    path statement: two factorization paths with distinct nontrivial total
+    divisors cannot coalesce at an actual root above H_3(k).
+    """
+    if len(set(divisors)) != len(divisors):
+        raise ValueError("divisors must be distinct")
+    if any(isinstance(d, bool) or not isinstance(d, int) or d < 2 for d in divisors):
+        raise ValueError("all divisors must be integers >=2")
+
+    horizon = actual_coalescence_horizon(k)
+    owner: dict[int, int] = {}
+    roots: dict[int, int] = {}
+    for divisor in divisors:
+        root = actual_divisor_root(k, n, divisor)
+        roots[divisor] = root
+        if root <= horizon:
+            continue
+        if root in owner:
+            collision = actual_divisor_root_collision(
+                k, n, min(owner[root], divisor), max(owner[root], divisor)
+            )
+            if collision["coalesces"]:
+                raise AssertionError("distinct divisors coalesced above H_3(k)")
+        owner[root] = divisor
+
+    return {
+        "k": k,
+        "n": n,
+        "actual_coalescence_horizon": horizon,
+        "roots_by_divisor": roots,
+        "high_root_owner": owner,
     }
 
 
