@@ -32,8 +32,8 @@ theorem exists_range_factor_iff_fiberConstant (q : X → Q) (h : X → R) :
     refine ⟨fun z => h (preimage z), ?_⟩
     intro x
     apply hconst
-    change q (preimage ⟨q x, ⟨x, rfl⟩⟩) = q x
-    exact Classical.choose_spec (⟨q x, ⟨x, rfl⟩⟩ : Set.range q).property
+    simpa [preimage] using
+      (Classical.choose_spec (⟨q x, ⟨x, rfl⟩⟩ : Set.range q).property)
 
 /-- The canonical one-step repair remembers the old coarse label and exactly
 one failed future observable. -/
