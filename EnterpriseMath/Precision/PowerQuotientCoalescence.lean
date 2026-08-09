@@ -109,9 +109,8 @@ theorem power_basin_distinct_divisor_root_collision
       Nat.mul_le_mul_left (s + 1) hSuccDiv
     omega
   by_cases htZero : t = 0
-  · subst t
-    have hs2 : s + 2 ≠ 0 := by omega
-    rw [zero_pow hs2]
+  · have hs2 : s + 2 ≠ 0 := by omega
+    rw [htZero, zero_pow hs2]
     exact Nat.mul_pos (by omega) (pow_pos (by omega) p)
   · have htPos : 0 < t := Nat.pos_of_ne_zero htZero
     have hMul0 : t * t ^ (s + 1) < ((s + 1) * e) * t ^ (s + 1) :=
