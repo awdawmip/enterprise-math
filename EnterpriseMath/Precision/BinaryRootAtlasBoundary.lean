@@ -39,6 +39,26 @@ theorem denominator_after_cutoff_root_at_most_horizon
     Nat.pow_le_pow_left hHLe (s + 1)
   omega
 
+/-- Any positive denominator that realizes a positive quotient-root state lies
+inside the physical denominator domain `1,...,n` automatically. -/
+theorem denominator_le_state_of_positive_root
+    {r n d t : ℕ}
+    (hr : 1 ≤ r)
+    (hd : 1 ≤ d)
+    (ht : 1 ≤ t)
+    (hRoot : root r (n / d) = t) :
+    d ≤ n := by
+  have hRootPow : (root r (n / d)) ^ r ≤ n / d := by
+    exact Nat.pow_nthRoot_le (Or.inl (by omega))
+  have htPowPos : 1 ≤ t ^ r := by
+    have : 0 < t ^ r := pow_pos (by omega) r
+    omega
+  have hOneQuot : 1 ≤ n / d := by
+    rw [hRoot] at hRootPow
+    exact htPowPos.trans hRootPow
+  have hMul : 1 * d ≤ n := (Nat.le_div_iff_mul_le (by omega)).1 hOneQuot
+  simpa using hMul
+
 /-- Exact binary condition for the final low root `H`.
 
 Assume `H>0`.  The horizon root occurs for some positive denominator iff the
