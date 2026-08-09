@@ -1,15 +1,15 @@
 """Higher collision structure of selected-layer Barlow precision.
 
 A length-N stacking word is observed only through prefix imbalances at selected
-layers.  The observation fibers factor over the induced positive segment
-lengths, with an arbitrary unobserved tail.  Ordered equal-observation tuple
+layers. The observation fibers factor over the induced positive segment
+lengths, with an arbitrary unobserved tail. Ordered equal-observation tuple
 counts therefore factor through generalized binomial power sums, and the P011
 collision spectrum follows by the signed Stirling transform.
 
-The module also records an exact negative boundary: balancing checkpoint
-segments maximizes the number of observable states and minimizes pair
-collisions, but it does not componentwise minimize the full higher-collision
-spectrum.
+Balancing checkpoint segments maximizes the number of observable states and
+minimizes pair collisions, but it does not componentwise minimize the full
+higher-collision spectrum.  The shortest nontrivial segment exchange already
+undergoes an exact power-moment phase transition between orders four and five.
 """
 
 from __future__ import annotations
@@ -159,7 +159,7 @@ def balanced_checkpoint_layers(length: int, checkpoint_count: int) -> tuple[int,
 def central_binomial_exchange_products(longer: int, shorter: int) -> tuple[int, int]:
     """Pair-collision moment before/after one balancing exchange.
 
-    Requires ``longer>=shorter+2``.  The returned values are the two affected
+    Requires ``longer>=shorter+2``. The returned values are the two affected
     factors in M_2 before and after ``(longer,shorter)->(longer-1,shorter+1)``.
     The second is strictly smaller because C(2n,n)/C(2n-2,n-1)=4-2/n is
     strictly increasing in n.
@@ -177,11 +177,47 @@ def central_binomial_exchange_products(longer: int, shorter: int) -> tuple[int, 
     return before, after
 
 
+def one_three_to_two_two_moment_difference(order: int) -> int:
+    """M_order(2,2)-M_order(1,3) for the shortest balancing exchange.
+
+    Here
+
+        F_r(1)=2,
+        F_r(2)=2+2^r,
+        F_r(3)=2+2*3^r,
+
+    hence
+
+        difference = (2+2^r)^2 - 2(2+2*3^r)
+                   = 4*(4^(r-1)+2^r-3^r).
+
+    It is negative for r=2,3,4 and positive for every r>=5.  The positive
+    half follows by induction from r=5: if
+    ``4^(r-1)+2^r>3^r``, then after multiplying the right side by three the
+    next left side exceeds it by ``4^(r-1)-2^r>0`` for r>=3.
+    """
+    _require_positive("order", order)
+    direct = generalized_binomial_power_sum(2, order) ** 2 - (
+        generalized_binomial_power_sum(1, order)
+        * generalized_binomial_power_sum(3, order)
+    )
+    closed = 4 * (4 ** (order - 1) + 2 ** order - 3 ** order)
+    if direct != closed:
+        raise AssertionError("closed exchange difference must match power sums")
+    return closed
+
+
+def one_three_exchange_phase(order: int) -> int:
+    """Return -1,0,+1 according to the balancing-moment direction."""
+    difference = one_three_to_two_two_moment_difference(order)
+    return (difference > 0) - (difference < 0)
+
+
 def minimal_spectrum_tradeoff() -> dict[str, tuple[int, ...] | int]:
     """Smallest explicit conflict between pair and higher collision objectives.
 
     N=4 with two final-observing checkpoints has only two segment types up to
-    order: balanced (2,2) and unbalanced (1,3).  Balanced has more observable
+    order: balanced (2,2) and unbalanced (1,3). Balanced has more observable
     states and fewer merged pairs, but one four-way collision remains while the
     unbalanced schedule has none.
     """
