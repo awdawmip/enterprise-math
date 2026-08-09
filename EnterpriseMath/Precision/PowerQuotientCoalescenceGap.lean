@@ -16,7 +16,7 @@ The gap-one theorem in `PowerQuotientCoalescence` is the specialization `g=1`.
 -/
 theorem divisor_gap_collision_root_scale
     {d g t s : ℕ}
-    (hg : 1 ≤ g)
+    (_hg : 1 ≤ g)
     (hcollision : (d + g) * t ^ (s + 1) < d * (t + 1) ^ (s + 1)) :
     g * (t + 1) < (s + 1) * (d + g) := by
   by_contra hnot
@@ -48,8 +48,11 @@ theorem divisor_gap_collision_root_scale
     have hCancel :
         d * (t + 1) ^ (s + 1) + g * (t + 1) ^ (s + 1) ≤
           (d + g) * t ^ (s + 1) + g * (t + 1) ^ (s + 1) := by
-      simpa [Nat.add_mul, Nat.add_assoc] using hCombined
-    exact (Nat.add_le_add_iff_right (g * (t + 1) ^ (s + 1))).1 hCancel
+      calc
+        d * (t + 1) ^ (s + 1) + g * (t + 1) ^ (s + 1)
+            = (d + g) * (t + 1) ^ (s + 1) := by ring
+        _ ≤ (d + g) * t ^ (s + 1) + g * (t + 1) ^ (s + 1) := hCombined
+    omega
   omega
 
 /-- Sharp graded all-power divisor-span coalescence law.
@@ -69,6 +72,7 @@ theorem power_basin_distinct_divisor_root_collision_gap
       (s + 1) * (k + 1) ^ p := by
   let t := root (s + 1) (n / d)
   let g := e - d
+  change g * t ^ (s + 2) < (s + 1) * (k + 1) ^ p
   have hd0 : 0 < d := by omega
   have he0 : 0 < e := by omega
   have hg : 1 ≤ g := by
@@ -105,10 +109,9 @@ theorem power_basin_distinct_divisor_root_collision_gap
   have hLt : g * t < (s + 1) * e := by
     nlinarith [hg, hScaleE]
   by_cases htZero : t = 0
-  · subst t
-    have hPos : 0 < (s + 1) * (k + 1) ^ p :=
-      Nat.mul_pos (by omega) (pow_pos (by omega) p)
-    simpa [g] using hPos
+  · have hs2 : s + 2 ≠ 0 := by omega
+    rw [htZero, zero_pow hs2, Nat.mul_zero]
+    exact Nat.mul_pos (by omega) (pow_pos (by omega) p)
   · have htPos : 0 < t := Nat.pos_of_ne_zero htZero
     have hMul0 :
         (g * t) * t ^ (s + 1) < ((s + 1) * e) * t ^ (s + 1) :=
@@ -119,8 +122,6 @@ theorem power_basin_distinct_divisor_root_collision_gap
       Nat.mul_le_mul_left (s + 1) hLower
     have hParent : (s + 1) * n < (s + 1) * (k + 1) ^ p :=
       Nat.mul_lt_mul_of_pos_left hnUpper (by omega)
-    have hFinal : g * t ^ (s + 2) < (s + 1) * (k + 1) ^ p :=
-      lt_of_lt_of_le hMul (le_trans hWeighted (Nat.le_of_lt hParent))
-    simpa [g, t] using hFinal
+    exact lt_of_lt_of_le hMul (le_trans hWeighted (Nat.le_of_lt hParent))
 
 end EnterpriseMath.Precision
