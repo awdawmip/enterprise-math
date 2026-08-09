@@ -8,7 +8,7 @@ P024 把成熟的加法半群/群事实与 Enterprise Math 的未来兼容精度
 
 ## 2. 数值半群
 
-Rosales 与 García-Sánchez 的专著 *Numerical Semigroups* 被登记为有限生成数值半群、gaps、Frobenius 型结构、Apéry 集与 conductor 的主要前人工作来源（`SRC-ROSALES-GARCIA-SANCHEZ-2009-NUMERICAL-SEMIGROUPS`）。
+Rosales 与 García-Sánchez 的专著 *Numerical Semigroups* 被登记为有限生成数值半群、gaps、Frobenius 型结构、Apéry 集与 conductor 的主要前人工作来源 [SRC-ROSALES-GARCIA-SANCHEZ-2009-NUMERICAL-SEMIGROUPS]。
 
 因此 P024 **不把以下内容声明为发明**：
 
