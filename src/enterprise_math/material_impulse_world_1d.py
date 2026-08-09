@@ -2,20 +2,22 @@
 
 This is an E001 engineering pressure test of a stronger material-world idea.  It
 does **not** prescribe a returned velocity.  Instead, a saved material state
-produces a finite impulse that updates signed momentum, and position drifts from
-that momentum through an integer mass quotient.
+produces a finite force sample which, when nonzero, projects to signed impulse,
+updates momentum, and then drifts position through an integer mass quotient.
 
 For a body on one separated side of a wall:
 
 1. positive gap ``g<d`` gives coarse material depth ``k=d-g``;
 2. inward motion selects LOADING, outward motion selects RETURNING, while zero
    momentum preserves the stored branch;
-3. the branch sample is projected to an outward signed impulse by
-   ``material_impulse_coupling``;
-4. momentum changes by that impulse;
-5. one saved drift is ``trunc(momentum / mass_quanta)`` cells.
+3. a zero branch sample is explicit ``MATERIAL_ZERO_FORCE``: the material state
+   is sampled but no impulse event is created and momentum/detail are unchanged;
+4. a positive branch sample is projected to an outward signed impulse by
+   ``material_impulse_coupling`` and is ``MATERIAL_KICK``;
+5. momentum changes only under a nonzero kick;
+6. one saved drift is ``trunc(momentum / mass_quanta)`` cells.
 
-If the accumulated material impulse changes the represented momentum from an
+If accumulated material impulse changes the represented momentum from an
 inward/stalled state into a nonzero outward state, rebound has emerged without a
 ``REBOUND -> reverse velocity`` rule.  The finite zero-momentum stall band is a
 legal intermediate state and does not erase a later outward onset.
@@ -25,7 +27,7 @@ transmission is legal here; no hidden continuous path is reconstructed.  A saved
 endpoint touching/overlapping the primitive wall is returned as explicit
 TERMINAL_CONTACT for the terminal geometry layer.
 
-Crucially, the current material kick is selected only from the **current saved
+Crucially, the current material force is selected only from the **current saved
 state**.  A future post-drift endpoint cannot retroactively trigger force in the
 current tick.
 
@@ -48,6 +50,7 @@ from .material_response import MaterialCurveProfile
 from .scale_tunneling_1d import BodyInterval1D, Wall1D, interval_wall_clearance
 
 FREE_DRIFT = "FREE_DRIFT"
+MATERIAL_ZERO_FORCE = "MATERIAL_ZERO_FORCE"
 MATERIAL_KICK = "MATERIAL_KICK"
 CROSSING_TRANSMIT = "CROSSING_TRANSMIT"
 TERMINAL_CONTACT = "TERMINAL_CONTACT"
@@ -127,7 +130,7 @@ def impulse_material_step_1d(
     max_impulse_per_tick: int,
     retain_impulse_detail: bool = True,
 ) -> ImpulseMaterialTransition1D:
-    """Advance one saved tick using causal kick-then-drift finite dynamics."""
+    """Advance one saved tick using causal force/kick-then-drift finite dynamics."""
     for name, value in (
         ("radius", radius),
         ("collapse_factor", collapse_factor),
@@ -174,7 +177,7 @@ def impulse_material_step_1d(
     branch = _branch_from_motion(state.branch, state.momentum_quanta, start_side)
     kind = FREE_DRIFT
 
-    # Causal rule: only the current saved clearance decides the current kick.
+    # Causal rule: only the current saved clearance decides current material force.
     if start_gap < collapse_factor:
         depth = collapse_factor - start_gap
         if depth >= len(material_profile.loading) or depth >= len(material_profile.returning):
@@ -194,17 +197,23 @@ def impulse_material_step_1d(
             )
         samples = material_profile.loading if branch == LOADING else material_profile.returning
         sample = samples[depth]
-        impulse = project_material_impulse(
-            sample,
-            material_profile.amplitude,
-            max_impulse_per_tick,
-            start_side,
-            state.impulse_detail_numerator,
-            retain_impulse_detail,
-        )
-        momentum_after_kick += impulse.impulse_quanta
-        detail_after = impulse.next_detail_numerator
-        kind = MATERIAL_KICK
+        if sample == 0:
+            # A represented material state with zero force is not a kick.  Keep
+            # the state evidence (depth/sample) while leaving momentum and the
+            # impulse-detail coordinate exactly unchanged.
+            kind = MATERIAL_ZERO_FORCE
+        else:
+            impulse = project_material_impulse(
+                sample,
+                material_profile.amplitude,
+                max_impulse_per_tick,
+                start_side,
+                state.impulse_detail_numerator,
+                retain_impulse_detail,
+            )
+            momentum_after_kick += impulse.impulse_quanta
+            detail_after = impulse.next_detail_numerator
+            kind = MATERIAL_KICK
 
     drift, _mass_detail = signed_toward_zero_divmod(momentum_after_kick, mass_quanta)
     end_center = state.center + drift
@@ -247,15 +256,15 @@ def impulse_material_step_1d(
         before=state,
         after=after,
         kind=kind,
-        start_clearance=start_gap,
-        end_clearance=end_gap,
-        layer_depth=depth,
-        response_sample=sample,
-        impulse=impulse,
-        drift_cells=drift,
-        start_side=start_side,
-        end_side=end_side,
-        momentum_reversed=reversed_now,
+        start_center if False else state.center,
+        end_center if False else end_gap,
+        depth,
+        sample,
+        impulse,
+        drift,
+        start_side,
+        end_side,
+        reversed_now,
     )
 
 
@@ -279,7 +288,7 @@ def run_impulse_material_world_1d(
     ticks: int,
     retain_impulse_detail: bool = True,
 ) -> ImpulseMaterialHistory1D:
-    """Run a finite number of causal kick-then-drift material ticks."""
+    """Run a finite number of causal material force/kick/drift ticks."""
     if isinstance(ticks, bool) or not isinstance(ticks, int) or ticks < 0:
         raise ValueError("ticks must be a non-negative integer")
     current: MomentumMaterialState1D | None = initial
