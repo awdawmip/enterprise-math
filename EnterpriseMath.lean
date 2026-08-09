@@ -1,5 +1,6 @@
 import EnterpriseMath.Arithmetic.IntegerRoot
 import EnterpriseMath.Arithmetic.CollapseCommutation
+import EnterpriseMath.Dynamics.HistoryMerge
 import EnterpriseMath.Order.WellFoundedStabilization
 import EnterpriseMath.Order.ReductiveCompositionStabilization
 import EnterpriseMath.Precision.Carry
