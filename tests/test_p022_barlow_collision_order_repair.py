@@ -1,14 +1,17 @@
-from itertools import permutations
+from itertools import combinations, permutations
 from math import comb
 
 from enterprise_math.p022_barlow_collision_geometry import (
     collision_coefficients_from_selected_layers,
 )
 from enterprise_math.p022_barlow_collision_order_repair import (
+    balanced_order_is_minimal,
     balanced_schedule_order_fiber_size,
     checkpoint_layers_from_ordered_segments,
     collision_coefficients_ignore_segment_order,
     complete_geometry_state_cardinality_from_collision,
+    minimum_order_fiber_size,
+    minimum_order_fiber_witness_segments,
     ordered_geometry_fiber_size_from_collision_coefficients,
     ordered_segment_geometry_fiber_size,
 )
@@ -16,6 +19,16 @@ from enterprise_math.p022_barlow_collision_order_repair import (
 
 def _distinct_permutations(segments: tuple[int, ...]):
     return set(permutations(segments))
+
+
+def _compositions(total: int, parts: int):
+    for cuts in combinations(range(1, total), parts - 1):
+        previous = 0
+        segments = []
+        for cut in cuts + (total,):
+            segments.append(cut - previous)
+            previous = cut
+        yield tuple(segments)
 
 
 def test_multinomial_order_fiber_size_matches_direct_distinct_permutations() -> None:
@@ -88,11 +101,58 @@ def test_balanced_schedule_order_fiber_has_closed_binomial_count() -> None:
             ) == comb(checkpoints, remainder)
 
 
+def test_minimum_order_fiber_formula_matches_all_small_compositions() -> None:
+    for length in range(1, 16):
+        for checkpoints in range(1, length + 1):
+            direct = min(
+                ordered_segment_geometry_fiber_size(segments)
+                for segments in _compositions(length, checkpoints)
+            )
+            assert minimum_order_fiber_size(length, checkpoints) == direct
+            witness = minimum_order_fiber_witness_segments(
+                length, checkpoints
+            )
+            assert sum(witness) == length
+            assert len(witness) == checkpoints
+            assert ordered_segment_geometry_fiber_size(witness) == direct
+
+
+def test_minimum_order_fiber_is_one_or_checkpoint_count() -> None:
+    for length in range(1, 40):
+        for checkpoints in range(1, length + 1):
+            expected = 1 if length % checkpoints == 0 else checkpoints
+            assert minimum_order_fiber_size(length, checkpoints) == expected
+
+
+def test_balanced_order_objective_can_conflict_with_image_and_pair_balance() -> None:
+    # N=10,m=4: ordinary balanced spacing has remainder r=2 and therefore
+    # C(4,2)=6 order states. The concentrated multiplicity pattern (1,3,3,3)
+    # has only four order states and is the exact order-fiber minimizer.
+    assert balanced_schedule_order_fiber_size(10, 4) == 6
+    assert minimum_order_fiber_size(10, 4) == 4
+    assert minimum_order_fiber_witness_segments(10, 4) == (1, 1, 1, 7)
+    assert not balanced_order_is_minimal(10, 4)
+
+
+def test_when_balanced_order_is_minimal() -> None:
+    for length in range(1, 40):
+        for checkpoints in range(1, length + 1):
+            _base, remainder = divmod(length, checkpoints)
+            expected = (
+                remainder == 0
+                or remainder == 1
+                or remainder == checkpoints - 1
+                or checkpoints <= 3
+            )
+            assert balanced_order_is_minimal(length, checkpoints) == expected
+
+
 def test_exact_equal_spacing_has_no_order_ambiguity() -> None:
     for checkpoints in range(1, 12):
         for base in range(1, 8):
             length = checkpoints * base
             assert balanced_schedule_order_fiber_size(length, checkpoints) == 1
+            assert minimum_order_fiber_size(length, checkpoints) == 1
 
 
 def test_hidden_tail_does_not_change_order_fiber_cardinality() -> None:
