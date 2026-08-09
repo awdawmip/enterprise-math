@@ -3,4 +3,5 @@ import EnterpriseMath.Arithmetic.CollapseCommutation
 import EnterpriseMath.Order.WellFoundedStabilization
 import EnterpriseMath.Precision.Carry
 import EnterpriseMath.Precision.CompositionSafeCollapse
+import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Scale.Compatibility

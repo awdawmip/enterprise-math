@@ -1,0 +1,61 @@
+import unittest
+
+from enterprise_math.quotient_basin import (
+    open_divisible_cofactor_window,
+    square_basin_quotient_transport,
+    square_basin_quotient_window,
+)
+
+
+class QuotientBasinTests(unittest.TestCase):
+    def test_statewise_two_basin_transport(self):
+        saw_upper = False
+        for k in range(1, 80):
+            upper = (k + 1) * (k + 1)
+            for divisor in range(2, min(2 * upper, 80) + 1):
+                window = square_basin_quotient_window(k, divisor)
+                for n in range(k * k, upper):
+                    data = square_basin_quotient_transport(k, divisor, n)
+                    self.assertLess(data["base_root"], k)
+                    self.assertIn(
+                        data["quotient_root"],
+                        (data["base_root"], data["base_root"] + 1),
+                    )
+                    saw_upper |= data["quotient_root"] == data["base_root"] + 1
+                self.assertEqual(window["q_min"], (k * k) // divisor)
+                self.assertEqual(window["q_max"], (upper - 1) // divisor)
+        self.assertTrue(saw_upper)
+
+    def test_open_cofactor_window_lies_between_two_square_boundaries(self):
+        saw_nonempty = False
+        for k in range(1, 160):
+            upper = (k + 1) * (k + 1) - 1
+            for divisor in range(2, min(k + 20, 80) + 1):
+                data = open_divisible_cofactor_window(k, divisor)
+                if not data["nonempty"]:
+                    continue
+                saw_nonempty = True
+                j = data["base_root"]
+                self.assertLess(j * j, data["q_min_open"])
+                self.assertLessEqual(data["q_min_open"], data["q_max"])
+                self.assertLess(data["q_max"], (j + 2) * (j + 2))
+                for q in range(data["q_min_open"], data["q_max"] + 1):
+                    n = divisor * q
+                    if k * k < n <= upper:
+                        transported = square_basin_quotient_transport(k, divisor, n)
+                        self.assertEqual(transported["quotient"], q)
+        self.assertTrue(saw_nonempty)
+
+    def test_input_validation(self):
+        with self.assertRaises(ValueError):
+            square_basin_quotient_window(0, 2)
+        with self.assertRaises(ValueError):
+            square_basin_quotient_window(3, 1)
+        with self.assertRaises(ValueError):
+            square_basin_quotient_transport(3, 2, 8)
+        with self.assertRaises(ValueError):
+            square_basin_quotient_transport(3, 2, 16)
+
+
+if __name__ == "__main__":
+    unittest.main()
