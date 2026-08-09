@@ -11,6 +11,7 @@ from enterprise_math.p022_barlow_coordination import (
     periodic_shell_quadratic_coefficient,
     shell_drift_energy_from_vertex_count,
 )
+from enterprise_math.p022_barlow_growth import barlow_shell_total_geodesic_paths_closed
 from enterprise_math.p022_barlow_stacking import (
     barlow_shell,
     stacking_prefix_imbalance,
@@ -24,6 +25,18 @@ HCP = (-1, 1)
 
 def _support_size(polynomial) -> int:
     return sum(1 for coefficient in polynomial.values() if coefficient > 0)
+
+
+def _shell_count(pattern, radius: int) -> int:
+    positive = stacking_prefix_imbalance(pattern, radius)
+    negative = stacking_prefix_imbalance(pattern, -radius)
+    return barlow_shell_vertex_count_from_extreme_imbalances(
+        radius, positive, negative
+    )
+
+
+def _ball_count(pattern, radius: int) -> int:
+    return sum(_shell_count(pattern, current) for current in range(radius + 1))
 
 
 def test_vertical_support_closed_form_matches_exact_witness_polynomial_support() -> None:
@@ -98,18 +111,10 @@ def test_whole_shell_formula_matches_all_short_periodic_barlow_shells() -> None:
 def test_fcc_and_hcp_coordination_sequences_are_special_cases() -> None:
     expected_fcc = (1, 12, 42, 92, 162, 252, 362, 492)
     for radius, expected in enumerate(expected_fcc):
-        positive = stacking_prefix_imbalance(FCC, radius)
-        negative = stacking_prefix_imbalance(FCC, -radius)
-        assert barlow_shell_vertex_count_from_extreme_imbalances(
-            radius, positive, negative
-        ) == expected
+        assert _shell_count(FCC, radius) == expected
 
     for radius in range(0, 8):
-        positive = stacking_prefix_imbalance(HCP, radius)
-        negative = stacking_prefix_imbalance(HCP, -radius)
-        assert barlow_shell_vertex_count_from_extreme_imbalances(
-            radius, positive, negative
-        ) == hcp_shell_count(radius)
+        assert _shell_count(HCP, radius) == hcp_shell_count(radius)
 
 
 def test_ball_count_uses_only_cumulative_quadratic_drift_energy() -> None:
@@ -140,6 +145,48 @@ def test_same_shell_energy_can_hide_top_bottom_allocation() -> None:
     second = barlow_shell_vertex_count_from_extreme_imbalances(radius, 1, 5)
     assert first == second
     assert shell_drift_energy_from_vertex_count(radius, first) == 26
+
+
+def test_same_shell_cardinality_can_hide_geodesic_multiplicity() -> None:
+    first = (-1, -1, 1)
+    second = (-1, 1, -1)
+    radius = 3
+
+    assert _shell_count(first, radius) == _shell_count(second, radius) == 96
+    assert barlow_shell_total_geodesic_paths_closed(
+        radius, first
+    ) == 402
+    assert barlow_shell_total_geodesic_paths_closed(
+        radius, second
+    ) == 384
+
+    # The extreme quadratic energy agrees while the intermediate absolute
+    # imbalance trajectories differ.
+    first_energy = (
+        stacking_prefix_imbalance(first, radius) ** 2
+        + stacking_prefix_imbalance(first, -radius) ** 2
+    )
+    second_energy = (
+        stacking_prefix_imbalance(second, radius) ** 2
+        + stacking_prefix_imbalance(second, -radius) ** 2
+    )
+    assert first_energy == second_energy == 2
+
+
+def test_same_ball_cardinality_can_hide_current_shell_and_path_structure() -> None:
+    first = (-1, -1, 1)
+    second = (-1, 1, -1)
+    radius = 4
+
+    assert _ball_count(first, radius) == _ball_count(second, radius) == 321
+    assert _shell_count(first, radius) == 169
+    assert _shell_count(second, radius) == 168
+    assert barlow_shell_total_geodesic_paths_closed(
+        radius, first
+    ) == 1596
+    assert barlow_shell_total_geodesic_paths_closed(
+        radius, second
+    ) == 1524
 
 
 def test_periodic_asymptotic_coefficients_are_exact_rational_data() -> None:
