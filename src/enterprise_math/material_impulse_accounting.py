@@ -13,19 +13,21 @@ split across several ticks.
 
 For a fixed positive response ``r``, positive outward impulse-scale magnitude
 ``J`` and an initially approaching normal momentum ``-m`` (m>0), retained
-detail therefore gives exact event thresholds:
+detail gives exact *momentum* event thresholds:
 
-    N_stop    = ceil(A*m       / (J*r)),
-    N_rebound = ceil(A*(m + 1) / (J*r)).
+    N_nonnegative = ceil(A*m       / (J*r)),
+    N_outward     = ceil(A*(m + 1) / (J*r)).
 
-``N_stop`` is the first event at which normal momentum is non-negative;
-``N_rebound`` is the first event at which it is strictly positive.  A zero
+The first is when the delivered integer normal momentum becomes non-negative;
+the second is when it becomes strictly outward.  Calling the latter a physical
+``rebound`` additionally requires wall/contact history and no transmission, so
+that richer event is intentionally left to the wall/world layer.  A zero
 response has no finite threshold.
 
 If detail is deliberately discarded after every event, each event contributes
 only ``floor(J*r/A)`` outward quanta.  When ``J*r < A`` this is zero forever,
-while retained detail still reaches the finite thresholds above.  This is an
-explicit precision-policy effect, not a constitutive or SI-unit claim.
+while retained detail still reaches the finite momentum thresholds above.  This
+is an explicit precision-policy effect, not a constitutive or SI-unit claim.
 """
 
 from __future__ import annotations
@@ -115,10 +117,10 @@ class ConstantResponseMomentumThresholds:
     outward_impulse_scale_magnitude: int
     inward_normal_momentum_magnitude: int
     retained_first_nonnegative_event: int | None
-    retained_first_rebound_event: int | None
+    retained_first_outward_event: int | None
     dropped_impulse_per_event: int
     dropped_first_nonnegative_event: int | None
-    dropped_first_rebound_event: int | None
+    dropped_first_outward_event: int | None
 
 
 def constant_response_momentum_thresholds(
@@ -127,11 +129,12 @@ def constant_response_momentum_thresholds(
     outward_impulse_scale_magnitude: int,
     inward_normal_momentum_magnitude: int,
 ) -> ConstantResponseMomentumThresholds:
-    """Return exact retained/dropped event thresholds for one constant response.
+    """Return exact retained/dropped delivered-momentum thresholds.
 
     ``inward_normal_momentum_magnitude=m`` represents initial normal momentum
-    ``-m`` with ``m>0``.  The wall-normal sign itself is unnecessary after this
-    coordinate change.
+    ``-m`` with ``m>0``.  These thresholds say only when the delivered integer
+    momentum reaches zero or becomes outward; rebound remains a world/history
+    classification.
     """
     for name, value in (
         ("amplitude", amplitude),
@@ -145,28 +148,28 @@ def constant_response_momentum_thresholds(
 
     per_event_numerator = outward_impulse_scale_magnitude * response_sample
     if per_event_numerator == 0:
-        retained_stop = None
-        retained_rebound = None
+        retained_nonnegative = None
+        retained_outward = None
     else:
-        retained_stop = _ceil_div_positive(
+        retained_nonnegative = _ceil_div_positive(
             amplitude * inward_normal_momentum_magnitude,
             per_event_numerator,
         )
-        retained_rebound = _ceil_div_positive(
+        retained_outward = _ceil_div_positive(
             amplitude * (inward_normal_momentum_magnitude + 1),
             per_event_numerator,
         )
 
     dropped_per_event = per_event_numerator // amplitude
     if dropped_per_event == 0:
-        dropped_stop = None
-        dropped_rebound = None
+        dropped_nonnegative = None
+        dropped_outward = None
     else:
-        dropped_stop = _ceil_div_positive(
+        dropped_nonnegative = _ceil_div_positive(
             inward_normal_momentum_magnitude,
             dropped_per_event,
         )
-        dropped_rebound = _ceil_div_positive(
+        dropped_outward = _ceil_div_positive(
             inward_normal_momentum_magnitude + 1,
             dropped_per_event,
         )
@@ -176,9 +179,9 @@ def constant_response_momentum_thresholds(
         response_sample=response_sample,
         outward_impulse_scale_magnitude=outward_impulse_scale_magnitude,
         inward_normal_momentum_magnitude=inward_normal_momentum_magnitude,
-        retained_first_nonnegative_event=retained_stop,
-        retained_first_rebound_event=retained_rebound,
+        retained_first_nonnegative_event=retained_nonnegative,
+        retained_first_outward_event=retained_outward,
         dropped_impulse_per_event=dropped_per_event,
-        dropped_first_nonnegative_event=dropped_stop,
-        dropped_first_rebound_event=dropped_rebound,
+        dropped_first_nonnegative_event=dropped_nonnegative,
+        dropped_first_outward_event=dropped_outward,
     )

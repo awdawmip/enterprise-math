@@ -51,14 +51,17 @@ class MaterialImpulseAccountingTests(unittest.TestCase):
                             self.assertIsNone(
                                 thresholds.retained_first_nonnegative_event
                             )
-                            self.assertIsNone(thresholds.retained_first_rebound_event)
+                            self.assertIsNone(thresholds.retained_first_outward_event)
                             continue
 
-                        stop = thresholds.retained_first_nonnegative_event
-                        rebound = thresholds.retained_first_rebound_event
-                        self.assertIsNotNone(stop)
-                        self.assertIsNotNone(rebound)
-                        for event_count, target in ((stop, inward), (rebound, inward + 1)):
+                        nonnegative = thresholds.retained_first_nonnegative_event
+                        outward = thresholds.retained_first_outward_event
+                        self.assertIsNotNone(nonnegative)
+                        self.assertIsNotNone(outward)
+                        for event_count, target in (
+                            (nonnegative, inward),
+                            (outward, inward + 1),
+                        ):
                             report = accumulate_material_impulses(
                                 (response,) * event_count,
                                 amplitude,
@@ -75,7 +78,7 @@ class MaterialImpulseAccountingTests(unittest.TestCase):
                                 )
                                 self.assertLess(before.total_impulse_quanta, target)
 
-    def test_subquantum_response_has_finite_retained_rebound_but_no_dropped_rebound(self):
+    def test_subquantum_response_has_finite_retained_outward_threshold_but_no_dropped_one(self):
         report = constant_response_momentum_thresholds(
             amplitude=10,
             response_sample=3,
@@ -83,12 +86,12 @@ class MaterialImpulseAccountingTests(unittest.TestCase):
             inward_normal_momentum_magnitude=1,
         )
         self.assertEqual(report.retained_first_nonnegative_event, 2)
-        self.assertEqual(report.retained_first_rebound_event, 4)
+        self.assertEqual(report.retained_first_outward_event, 4)
         self.assertEqual(report.dropped_impulse_per_event, 0)
         self.assertIsNone(report.dropped_first_nonnegative_event)
-        self.assertIsNone(report.dropped_first_rebound_event)
+        self.assertIsNone(report.dropped_first_outward_event)
 
-    def test_superquantum_dropped_policy_has_its_own_exact_threshold(self):
+    def test_superquantum_dropped_policy_has_its_own_exact_momentum_threshold(self):
         report = constant_response_momentum_thresholds(
             amplitude=5,
             response_sample=4,
@@ -97,14 +100,14 @@ class MaterialImpulseAccountingTests(unittest.TestCase):
         )
         self.assertEqual(report.dropped_impulse_per_event, 2)
         self.assertEqual(report.dropped_first_nonnegative_event, 3)
-        self.assertEqual(report.dropped_first_rebound_event, 3)
+        self.assertEqual(report.dropped_first_outward_event, 3)
         self.assertLessEqual(
             report.retained_first_nonnegative_event,
             report.dropped_first_nonnegative_event,
         )
         self.assertLessEqual(
-            report.retained_first_rebound_event,
-            report.dropped_first_rebound_event,
+            report.retained_first_outward_event,
+            report.dropped_first_outward_event,
         )
 
     def test_invalid_telescope_and_threshold_inputs_are_rejected(self):
