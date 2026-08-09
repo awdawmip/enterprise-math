@@ -1,4 +1,5 @@
 import EnterpriseMath.Arithmetic.IntegerRoot
+import EnterpriseMath.Arithmetic.RootMultiplicativity
 import EnterpriseMath.Arithmetic.CollapseCommutation
 import EnterpriseMath.Dynamics.HistoryMerge
 import EnterpriseMath.Order.WellFoundedStabilization
