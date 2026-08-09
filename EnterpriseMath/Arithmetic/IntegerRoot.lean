@@ -15,6 +15,10 @@ theorem galoisConnection_pow_root {p : ℕ} (hp : p ≠ 0) :
   intro a b
   exact (Nat.le_nthRoot_iff (n := p) (a := a) (b := b) hp).symm
 
+/-- T003: the positive-exponent integer root is monotone in its state argument. -/
+theorem root_monotone {p : ℕ} (hp : p ≠ 0) : Monotone (root p) :=
+  (galoisConnection_pow_root hp).monotone_u
+
 /-- Exact basin characterization of the integer root. -/
 theorem root_eq_iff {p n k : ℕ} (hp : p ≠ 0) :
     root p n = k ↔ k ^ p ≤ n ∧ n < (k + 1) ^ p := by
