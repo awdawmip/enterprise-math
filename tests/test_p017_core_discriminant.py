@@ -3,6 +3,7 @@ import unittest
 
 from enterprise_math.p017_core_cell_lattice import exact_full_core_pair
 from enterprise_math.p017_core_discriminant import (
+    prime_power_collision_capacity,
     prime_power_overlap_exponent,
     signed_core_discriminant,
 )
@@ -57,6 +58,52 @@ class P017CoreDiscriminantTests(unittest.TestCase):
                     direct += 1
                     value //= prime
                 self.assertEqual(exponent, direct)
+
+    def test_prime_power_level_capacity_reconstructs_collision_exponent(self) -> None:
+        saw_reuse = False
+        for k in range(8, 85):
+            center = k * (k + 1)
+            radii = [r for r in range(1, k) if math.gcd(r, center) == 1]
+            incidences = tuple(
+                item
+                for radius in radii[: min(12, len(radii))]
+                for item in ((radius, "lower"), (radius, "upper"))
+            )
+            for prime in (3, 5, 7, 11):
+                if prime > k or center % prime == 0:
+                    continue
+                data = prime_power_collision_capacity(k, incidences, prime)
+                self.assertEqual(
+                    data["actual_overlap_exponent"],
+                    sum(level["collisions"] for level in data["levels"]),
+                )
+                self.assertLessEqual(
+                    data["actual_overlap_exponent"], data["universal_collision_bound"]
+                )
+                for level in data["levels"]:
+                    self.assertLessEqual(level["multiplicity"], level["capacity"])
+                    if level["power"] > k - 1:
+                        self.assertLessEqual(level["multiplicity"], 1)
+                    if level["multiplicity"] >= 2:
+                        saw_reuse = True
+        self.assertTrue(saw_reuse)
+
+    def test_full_signed_population_obeys_prime_power_packing(self) -> None:
+        for k in (20, 37, 64, 100):
+            center = k * (k + 1)
+            radii = [r for r in range(1, k) if math.gcd(r, center) == 1]
+            incidences = tuple(
+                item
+                for radius in radii
+                for item in ((radius, "lower"), (radius, "upper"))
+            )
+            for prime in (3, 5, 7, 11, 13):
+                if prime > k or center % prime == 0:
+                    continue
+                data = prime_power_collision_capacity(k, incidences, prime)
+                for level in data["levels"]:
+                    expected_capacity = (k - 1) // level["power"] + 1
+                    self.assertEqual(level["capacity"], expected_capacity)
 
     def test_same_exact_pair_discriminant_contains_fixed_cell_spacing(self) -> None:
         saw = False
