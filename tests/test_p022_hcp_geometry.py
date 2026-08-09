@@ -1,14 +1,17 @@
-from collections import Counter, deque
+from collections import deque
 
 from enterprise_math.p022_geodesic_multiplicity import a3_shell_total_geodesic_paths
 from enterprise_math.p022_hcp_geometry import (
     hcp_geodesic_path_count,
+    hcp_geodesic_path_count_coefficient,
     hcp_graph_distance,
     hcp_neighbors,
     hcp_shell,
     hcp_shell_count,
     hcp_shell_multiplicity_spectrum,
     hcp_shell_total_geodesic_paths,
+    hcp_shell_total_geodesic_paths_closed,
+    hcp_shell_total_geodesic_paths_recurrence,
 )
 
 
@@ -64,18 +67,33 @@ def test_hcp_coordination_shell_sequence() -> None:
     assert tuple(hcp_shell_count(radius) for radius in range(len(expected))) == expected
 
 
-def test_recursive_geodesic_counts_match_independent_bfs_counts() -> None:
+def test_recursive_and_coefficient_geodesic_counts_match_independent_bfs() -> None:
     distances, path_counts = _bfs_distances_and_counts(6)
     for point, distance in distances.items():
         if distance <= 6:
             assert hcp_geodesic_path_count(point) == path_counts[point]
+            assert hcp_geodesic_path_count_coefficient(point) == path_counts[point]
 
 
 def test_hcp_shell_total_geodesic_counts() -> None:
-    expected = (1, 12, 84, 384, 1524, 5592, 19812)
+    expected = (1, 12, 84, 384, 1524, 5592, 19812, 68808, 236628)
     assert tuple(
         hcp_shell_total_geodesic_paths(radius) for radius in range(len(expected))
     ) == expected
+    assert tuple(
+        hcp_shell_total_geodesic_paths_closed(radius) for radius in range(len(expected))
+    ) == expected
+    assert tuple(
+        hcp_shell_total_geodesic_paths_recurrence(radius)
+        for radius in range(len(expected))
+    ) == expected
+
+
+def test_closed_shell_formula_and_recurrence_agree_beyond_enumerated_range() -> None:
+    for radius in range(0, 31):
+        assert hcp_shell_total_geodesic_paths_closed(
+            radius
+        ) == hcp_shell_total_geodesic_paths_recurrence(radius)
 
 
 def test_hcp_multiplicity_spectra_begin_to_differ_from_fcc_at_radius_two() -> None:
@@ -96,10 +114,14 @@ def test_hcp_multiplicity_spectra_begin_to_differ_from_fcc_at_radius_two() -> No
     )
 
     # FCC/A_3 and HCP have the same first coordination number and, more
-    # surprisingly, the same radius-two total geodesic count.  The full
+    # surprisingly, the same radius-two total geodesic count. The full
     # multiplicity spectrum still separates them at radius two.
     assert a3_shell_total_geodesic_paths(2) == 84
     assert hcp_shell_total_geodesic_paths(2) == 84
+
+    # At radius three even the shell-total multiplicity separates them.
+    assert a3_shell_total_geodesic_paths(3) == 420
+    assert hcp_shell_total_geodesic_paths(3) == 384
 
 
 def test_radius_two_special_endpoints_expose_hcp_only_multiplicity_three() -> None:
