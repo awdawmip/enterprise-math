@@ -12,11 +12,15 @@ of Boolean constraints:
 A body whose proposed move conflicts with an explicitly waiting body is forced
 to wait.  Initial WAIT/WAIT conflicts are rejected before this reduction.
 
-The resulting implication/mutex/forced-wait structure is exactly equivalent to
-the original target-intersection feasibility for binary move/wait choices.  It
-is a compact engineering representation of the future action language; Boolean
-implication/2-CNF machinery is established prior art, and no novelty claim is
-made for that general logic.
+The resulting clauses are Horn 2-CNF forms ``~x_i``, ``~x_i or ~x_j``, and
+``~x_i or x_j``.  The implication relation therefore gives a finite required-
+move closure for any seed set.  If that closure reaches a forced wait or
+contains a mutex pair, the seed is already impossible before global search.
+
+The constraint structure is exactly equivalent to the original transition-
+target feasibility for binary move/wait choices.  Boolean implication/Horn
+logic is established prior art; this module records the E001 engineering
+factorization and does not claim the general logic as new mathematics.
 """
 
 from __future__ import annotations
@@ -92,6 +96,51 @@ def binary_motion_constraints(
         forced_wait_ids=tuple(sorted(forced_waits)),
         mutex_pairs=tuple(sorted(mutex_pairs)),
         implications=tuple(sorted(implications)),
+    )
+
+
+def required_move_closure(
+    report: BinaryMotionConstraintReport,
+    seed_ids: frozenset[int],
+) -> frozenset[int]:
+    """Return the least implication-closed MOVE superset of ``seed_ids``."""
+    moving = set(report.moving_ids)
+    if not seed_ids.issubset(moving):
+        raise ValueError("seed_ids must contain only moving ids")
+
+    required = set(seed_ids)
+    changed = True
+    while changed:
+        changed = False
+        for source_id, required_id in report.implications:
+            if source_id in required and required_id not in required:
+                required.add(required_id)
+                changed = True
+    return frozenset(required)
+
+
+def move_closure_is_feasible(
+    report: BinaryMotionConstraintReport,
+    seed_ids: frozenset[int],
+) -> bool:
+    """Whether the implication closure of seeds avoids forced waits and mutexes."""
+    closure = required_move_closure(report, seed_ids)
+    if closure.intersection(report.forced_wait_ids):
+        return False
+    return all(
+        not (left_id in closure and right_id in closure)
+        for left_id, right_id in report.mutex_pairs
+    )
+
+
+def individually_feasible_move_ids(
+    report: BinaryMotionConstraintReport,
+) -> tuple[int, ...]:
+    """Return moves whose own required closure is not already contradictory."""
+    return tuple(
+        body_id
+        for body_id in report.moving_ids
+        if move_closure_is_feasible(report, frozenset({body_id}))
     )
 
 
