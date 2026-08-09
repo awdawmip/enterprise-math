@@ -14,6 +14,16 @@ and ``K'=min(K,d-1)``, exact coverage is
     represented   = d^n - (d-K')^n,
     underresolved = (d-K')^n - 1.
 
+For an exact required coverage fraction ``P/Q``, the minimum represented material
+depth can be solved without scanning depths.  With ``N=d^n-1`` and
+``T=ceil(P*N/Q)``, the smallest K satisfying represented>=T is
+
+    K_min = d - R_n(d^n-T),
+
+where ``R_n`` is the existing integer nth-root primitive.  This sizes the number
+of represented deformation-depth states only; it does not identify the material
+amplitude precision ``A`` with the spatial factor or with measurement scale.
+
 Response plateaus aggregate shell multiplicities with no vector enumeration.
 The counts are combinatorial state counts, not probabilities or physical
 weights.
@@ -25,6 +35,7 @@ from collections import Counter
 from dataclasses import dataclass
 
 from .clearance_precision import clearance_shell_multiplicity
+from .core import integer_nth_root
 from .material_response import MaterialCurveProfile
 
 LOADING = "LOADING"
@@ -53,6 +64,19 @@ class MaterialClearanceSpectrum:
     coverage: MaterialClearanceCoverage
     branch: str
     bins: tuple[MaterialResponseStateBin, ...]
+
+
+@dataclass(frozen=True)
+class MaterialDepthSizing:
+    dimension: int
+    collapse_factor: int
+    required_numerator: int
+    required_denominator: int
+    coarse_only_states: int
+    required_represented_states: int
+    minimum_material_depth: int
+    minimum_branch_samples: int
+    achieved_represented_states: int
 
 
 def _require_positive(name: str, value: int) -> None:
@@ -87,6 +111,64 @@ def material_clearance_coverage(
         coarse_only_states=total,
         represented_states=represented,
         underresolved_states=underresolved,
+    )
+
+
+def minimum_material_depth_for_coverage(
+    dimension: int,
+    collapse_factor: int,
+    required_numerator: int,
+    required_denominator: int,
+) -> MaterialDepthSizing:
+    """Solve the minimum represented deformation depth for exact count coverage.
+
+    ``required_numerator/required_denominator`` is an exact rational requirement
+    on the fraction of positive coarse-only clearance states that must have a
+    represented material depth.  No floating-point ratio is formed.
+    """
+    _require_positive("dimension", dimension)
+    _require_positive("collapse_factor", collapse_factor)
+    _require_positive("required_denominator", required_denominator)
+    if (
+        isinstance(required_numerator, bool)
+        or not isinstance(required_numerator, int)
+        or required_numerator < 0
+        or required_numerator > required_denominator
+    ):
+        raise ValueError("required_numerator must lie in 0..required_denominator")
+
+    total = collapse_factor**dimension - 1
+    required = (
+        required_numerator * total + required_denominator - 1
+    ) // required_denominator
+    remaining_power_budget = collapse_factor**dimension - required
+    inner_side = integer_nth_root(remaining_power_budget, dimension)
+    minimum_depth = collapse_factor - inner_side
+    coverage = material_clearance_coverage(
+        dimension,
+        collapse_factor,
+        minimum_depth,
+    )
+    if coverage.represented_states < required:
+        raise AssertionError("integer-root sizing failed its requested coverage")
+    if minimum_depth > 0:
+        previous = material_clearance_coverage(
+            dimension,
+            collapse_factor,
+            minimum_depth - 1,
+        )
+        if previous.represented_states >= required:
+            raise AssertionError("integer-root sizing did not return the minimum depth")
+    return MaterialDepthSizing(
+        dimension=dimension,
+        collapse_factor=collapse_factor,
+        required_numerator=required_numerator,
+        required_denominator=required_denominator,
+        coarse_only_states=total,
+        required_represented_states=required,
+        minimum_material_depth=minimum_depth,
+        minimum_branch_samples=minimum_depth + 1,
+        achieved_represented_states=coverage.represented_states,
     )
 
 
