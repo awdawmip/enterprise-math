@@ -112,10 +112,17 @@ def _normalized_residue_witness(
     normalized_generators: tuple[int, ...],
     target_residue: int,
 ) -> int:
-    """Nonnegative generated normalized sum with requested residue modulo modulus."""
+    """Return an actually generated nonnegative sum with the requested residue.
+
+    The BFS state is a residue modulo ``modulus``, but the stored witness remains
+    the sum of the original normalized generators.  Replacing a generator by its
+    residue when accumulating the witness would fabricate sums that are only
+    congruent to a legal future, not necessarily reachable by the declared
+    causal operations.
+    """
     if modulus == 1:
         return 0
-    generators = tuple(value % modulus for value in normalized_generators if value % modulus != 0)
+    generators = tuple(value for value in normalized_generators if value % modulus != 0)
     if not generators:
         raise ValueError("normalized generators do not generate a nontrivial residue group")
     queue = deque([0])
@@ -141,11 +148,7 @@ def distinguishing_future_sum(
     block_capacity: int,
     generators: tuple[int, ...],
 ) -> int | None:
-    """Construct one future sum separating two distinct continuation types.
-
-    The returned sum is a nonnegative combination modulo D of normalized
-    generators.  For equal types no future can distinguish them, so returns None.
-    """
+    """Construct one *actually generated* future sum separating two types."""
     g = minimal_refinement_scale(block_capacity, generators)
     D = block_capacity // g
     if any(
@@ -159,8 +162,6 @@ def distinguishing_future_sum(
     if not positive:
         raise ValueError("distinct types cannot occur without positive generators")
     normalized = tuple(value // g for value in positive)
-    # Aim to place the larger type exactly on a D-boundary; the smaller then lies
-    # strictly below it.  Swap if needed.
     high = max(left_type, right_type)
     normalized_sum = _normalized_residue_witness(
         D,
