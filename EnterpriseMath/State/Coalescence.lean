@@ -19,7 +19,7 @@ def EventuallyCoalesce {α : Type*} (F : α → α) (x y : α) : Prop :=
   rfl
 
 /-- Once a pair has entered the diagonal, every later common iterate keeps it
-there.  This is the subtraction-free kernel-filtration monotonicity law. -/
+there. This is the subtraction-free kernel-filtration monotonicity law. -/
 theorem coalescedBy_mono {α : Type*} {F : α → α} {n m : ℕ} {x y : α}
     (hnm : n ≤ m) (hxy : CoalescedBy F n x y) : CoalescedBy F m x y := by
   obtain ⟨k, rfl⟩ := Nat.exists_eq_add_of_le hnm
@@ -28,23 +28,24 @@ theorem coalescedBy_mono {α : Type*} {F : α → α} {n m : ℕ} {x y : α}
     Function.iterate_add_apply F k n y, hxy]
 
 /-- Two finite coalescence witnesses can always be transported to their common
-maximum time. -/
+maximum time. This is the relation-level precursor of the merger-time
+ultrametric inequality. -/
 theorem coalescedBy_max {α : Type*} {F : α → α} {a b : ℕ} {x y z : α}
     (hxy : CoalescedBy F a x y) (hyz : CoalescedBy F b y z) :
     CoalescedBy F (max a b) x z := by
   exact (coalescedBy_mono (Nat.le_max_left _ _) hxy).trans
     (coalescedBy_mono (Nat.le_max_right _ _) hyz)
 
-@[refl] theorem eventuallyCoalesce_refl {α : Type*} (F : α → α) (x : α) :
+theorem eventuallyCoalesce_refl {α : Type*} (F : α → α) (x : α) :
     EventuallyCoalesce F x x := by
   exact ⟨0, rfl⟩
 
-@[symm] theorem eventuallyCoalesce_symm {α : Type*} {F : α → α} {x y : α}
+theorem eventuallyCoalesce_symm {α : Type*} {F : α → α} {x y : α}
     (h : EventuallyCoalesce F x y) : EventuallyCoalesce F y x := by
   obtain ⟨n, hn⟩ := h
   exact ⟨n, hn.symm⟩
 
-@[trans] theorem eventuallyCoalesce_trans {α : Type*} {F : α → α} {x y z : α}
+theorem eventuallyCoalesce_trans {α : Type*} {F : α → α} {x y z : α}
     (hxy : EventuallyCoalesce F x y) (hyz : EventuallyCoalesce F y z) :
     EventuallyCoalesce F x z := by
   obtain ⟨a, ha⟩ := hxy
@@ -97,30 +98,52 @@ theorem eventuallyCoalesce_stabilize_eq
     _ = stabilize F hmono hred (F^[n] y) := congrArg (stabilize F hmono hred) hn
     _ = stabilize F hmono hred y := stabilize_iterate_invariant F hmono hred n y
 
-/-- If two states have the same P020 stabilized state, the sum of their selected
-finite stabilization witnesses is already a common finite coalescence time. -/
+/-- Each state is coalesced with its canonical stabilized state by the selected
+finite P020 stabilization witness. -/
+theorem coalescedBy_stabilizationSteps
+    {α : Type*} [PartialOrder α] [WellFoundedLT α]
+    (F : α → α) (hmono : Monotone F) (hred : ∀ x, F x ≤ x) (x : α) :
+    CoalescedBy F (stabilizationSteps F hmono hred x) x
+      (stabilize F hmono hred x) := by
+  unfold CoalescedBy
+  calc
+    F^[stabilizationSteps F hmono hred x] x = stabilize F hmono hred x :=
+      (stabilize_eq_iterate F hmono hred x).symm
+    _ = F^[stabilizationSteps F hmono hred x] (stabilize F hmono hred x) :=
+      (Function.iterate_fixed (stabilize_fixed F hmono hred x)
+        (stabilizationSteps F hmono hred x)).symm
+
+/-- P018-T133 formalized without introducing a minimum-time operator: if two
+states have the same stabilized state, the maximum of their selected finite
+P020 stabilization witnesses is already a common coalescence time. -/
+theorem stabilize_eq_coalescedBy_max
+    {α : Type*} [PartialOrder α] [WellFoundedLT α]
+    (F : α → α) (hmono : Monotone F) (hred : ∀ x, F x ≤ x) {x y : α}
+    (hstab : stabilize F hmono hred x = stabilize F hmono hred y) :
+    CoalescedBy F
+      (max (stabilizationSteps F hmono hred x) (stabilizationSteps F hmono hred y))
+      x y := by
+  let m := max (stabilizationSteps F hmono hred x) (stabilizationSteps F hmono hred y)
+  have hx : CoalescedBy F m x (stabilize F hmono hred x) :=
+    coalescedBy_mono (Nat.le_max_left _ _)
+      (coalescedBy_stabilizationSteps F hmono hred x)
+  have hy : CoalescedBy F m y (stabilize F hmono hred y) :=
+    coalescedBy_mono (Nat.le_max_right _ _)
+      (coalescedBy_stabilizationSteps F hmono hred y)
+  unfold CoalescedBy at hx hy ⊢
+  calc
+    F^[m] x = F^[m] (stabilize F hmono hred x) := hx
+    _ = F^[m] (stabilize F hmono hred y) := congrArg (F^[m]) hstab
+    _ = F^[m] y := hy.symm
+
+/-- Equality of P020 stabilized states therefore implies finite eventual
+coalescence, witnessed at the explicit max time above. -/
 theorem stabilize_eq_eventuallyCoalesce
     {α : Type*} [PartialOrder α] [WellFoundedLT α]
     (F : α → α) (hmono : Monotone F) (hred : ∀ x, F x ≤ x) {x y : α}
     (hstab : stabilize F hmono hred x = stabilize F hmono hred y) :
     EventuallyCoalesce F x y := by
-  let sx := stabilizationSteps F hmono hred x
-  let sy := stabilizationSteps F hmono hred y
-  refine ⟨sx + sy, ?_⟩
-  unfold CoalescedBy
-  calc
-    F^[sx + sy] x = F^[sy + sx] x := by rw [Nat.add_comm]
-    _ = F^[sy] (F^[sx] x) := Function.iterate_add_apply F sy sx x
-    _ = F^[sy] (stabilize F hmono hred x) := by
-      rw [stabilize_eq_iterate F hmono hred x]
-    _ = stabilize F hmono hred x :=
-      Function.iterate_fixed (stabilize_fixed F hmono hred x) sy
-    _ = stabilize F hmono hred y := hstab
-    _ = F^[sx] (stabilize F hmono hred y) :=
-      (Function.iterate_fixed (stabilize_fixed F hmono hred y) sx).symm
-    _ = F^[sx] (F^[sy] y) := by
-      rw [← stabilize_eq_iterate F hmono hred y]
-    _ = F^[sx + sy] y := (Function.iterate_add_apply F sx sy y).symm
+  exact ⟨_, stabilize_eq_coalescedBy_max F hmono hred hstab⟩
 
 /-- P018-T132 formalized: under P020's well-founded monotone reductive
 hypotheses, two states coalesce in finite common time iff their canonical
