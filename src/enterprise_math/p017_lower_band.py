@@ -8,9 +8,9 @@ For each lower-band prime p, let
 
     j_p = R_2(floor(k^2 / p)).
 
-P018-T110 says the cofactor root can lie only in {j_p, j_p+1}.  The result here
-is cross-shell: every target root index belongs to at most two such candidate
-pairs.  No prime-distribution estimate is used.
+P018-T110 says the cofactor root can lie only in {j_p, j_p+1}. L051 gives a
+uniform multiplicity-two packing bound. L052 sharpens the stable range k>=15:
+distinct lower-band prime shells have disjoint candidate-root pairs.
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ def lower_band_primes(k: int) -> list[int]:
     """Return least-prime candidates p with p^2 < 2k.
 
     The exact cutoff is floor(sqrt(2k-1)), so there is no reason to construct a
-    prime table up to k.  Keeping the implementation aligned with the theorem's
+    prime table up to k. Keeping the implementation aligned with the theorem's
     integer-root horizon also keeps large-root regression tests inexpensive.
     """
     _require_positive("k", k)
@@ -75,21 +75,20 @@ def lower_band_root_channels(k: int) -> dict[int, tuple[int, ...]]:
 def lower_band_root_overlap_bound(k: int) -> dict[str, object]:
     """Return the L051 cross-shell root packing data.
 
-    If p<q<r are three distinct lower-band primes and u=j_r, then u>=r.  Except
+    If p<q<r are three distinct lower-band primes and u=j_r, then u>=r. Except
     for the special prime triple (2,3,5), prime spacing gives r-p>=4; in both the
     general and special cases one obtains
 
         p*(u+2)^2 < r*u^2 <= k^2.
 
-    Therefore j_p>=u+2=j_r+2.  Three candidate pairs {j_p,j_p+1},
-    {j_q,j_q+1}, {j_r,j_r+1} cannot have a common integer.  Consequently every
+    Therefore j_p>=u+2=j_r+2. Three candidate pairs {j_p,j_p+1},
+    {j_q,j_q+1}, {j_r,j_r+1} cannot have a common integer. Consequently every
     target root index has channel multiplicity at most two.
     """
     _require_positive("k", k)
     primes = lower_band_primes(k)
     base_roots = {prime: lower_band_base_root(k, prime) for prime in primes}
 
-    # Stronger three-shell endpoint separation used in the paper proof.
     for left_index in range(len(primes) - 2):
         p = primes[left_index]
         for right_index in range(left_index + 2, len(primes)):
@@ -106,6 +105,48 @@ def lower_band_root_overlap_bound(k: int) -> dict[str, object]:
     max_multiplicity = max((len(v) for v in frozen.values()), default=0)
     if max_multiplicity > 2:
         raise AssertionError("L051 root-target overlap bound failed")
+
+    return {
+        "k": k,
+        "lower_band_primes": primes,
+        "base_roots": base_roots,
+        "root_channels": frozen,
+        "max_multiplicity": max_multiplicity,
+    }
+
+
+def lower_band_root_disjoint_bound(k: int) -> dict[str, object]:
+    """Return the L052 stable-range disjoint-root packing data.
+
+    For k>=15 and any distinct lower-band primes p<q,
+
+        j_p >= j_q + 2.
+
+    Hence their candidate pairs {j_p,j_p+1} and {j_q,j_q+1} are disjoint, so
+    every target root index receives at most one lower-band prime-shell channel.
+    The threshold k>=15 is sharp for the uniform statement: at k=14 the shells
+    p=2 and p=3 both contain target root 9 in their candidate pairs.
+    """
+    _require_positive("k", k)
+    if k < 15:
+        raise ValueError("L052 stable-range disjointness requires k >= 15")
+
+    primes = lower_band_primes(k)
+    base_roots = {prime: lower_band_base_root(k, prime) for prime in primes}
+    for left_index, p in enumerate(primes):
+        for q in primes[left_index + 1 :]:
+            if base_roots[p] < base_roots[q] + 2:
+                raise AssertionError("L052 pairwise lower-band root separation failed")
+
+    channels: dict[int, list[int]] = {}
+    for prime in primes:
+        base = base_roots[prime]
+        channels.setdefault(base, []).append(prime)
+        channels.setdefault(base + 1, []).append(prime)
+    frozen = {target: tuple(shells) for target, shells in channels.items()}
+    max_multiplicity = max((len(v) for v in frozen.values()), default=0)
+    if max_multiplicity > 1:
+        raise AssertionError("L052 lower-band target pairs are not disjoint")
 
     return {
         "k": k,
