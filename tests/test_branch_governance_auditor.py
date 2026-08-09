@@ -1,28 +1,22 @@
-import importlib.util
-from pathlib import Path
 import unittest
 
-
-ROOT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location(
-    "audit_branch_lifecycle",
-    ROOT / "tools" / "audit_branch_lifecycle.py",
+from tools.audit_branch_lifecycle import (
+    classify_branch,
+    mechanical_candidate,
+    scope_status,
 )
-assert SPEC is not None and SPEC.loader is not None
-AUDIT = importlib.util.module_from_spec(SPEC)
-SPEC.loader.exec_module(AUDIT)
 
 
 class BranchGovernanceAuditorTests(unittest.TestCase):
     def test_owner_can_be_behind_without_becoming_replay_required(self):
         self.assertEqual(
-            AUDIT.mechanical_candidate("core/a3-relation-state-v2", ahead=4, behind=37),
+            mechanical_candidate("core/a3-relation-state-v2", ahead=4, behind=37),
             "ACTIVE_OWNER",
         )
 
     def test_large_historical_divergence_is_replay_candidate(self):
         self.assertEqual(
-            AUDIT.mechanical_candidate("research/old-tree", ahead=7, behind=200),
+            mechanical_candidate("research/old-tree", ahead=7, behind=200),
             "REPLAY_REQUIRED",
         )
 
@@ -35,7 +29,7 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
                 "allowed_prefixes": [],
             }
         }
-        result = AUDIT.classify_branch(
+        result = classify_branch(
             "research/example",
             ahead=3,
             behind=10,
@@ -52,7 +46,7 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
             "allowed_paths": ("owned.py", "tests/test_owned.py"),
             "allowed_prefixes": (),
         }
-        scope, unexpected = AUDIT.scope_status(
+        scope, unexpected = scope_status(
             "core/example",
             "ACTIVE_OWNER",
             ("owned.py", "tests/test_owned.py"),
@@ -68,7 +62,7 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
             "allowed_paths": ("owned.py",),
             "allowed_prefixes": (),
         }
-        result = AUDIT.classify_branch(
+        result = classify_branch(
             "core/example",
             ahead=2,
             behind=0,
@@ -86,7 +80,7 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
             "allowed_paths": (),
             "allowed_prefixes": ("src/enterprise_math/p017_",),
         }
-        scope, unexpected = AUDIT.scope_status(
+        scope, unexpected = scope_status(
             "program/p017-legendre",
             "ACTIVE_OWNER",
             (
@@ -99,7 +93,7 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
         self.assertEqual(unexpected, ())
 
     def test_unconfigured_scope_is_not_silently_pure(self):
-        scope, unexpected = AUDIT.scope_status(
+        scope, unexpected = scope_status(
             "core/example",
             "ACTIVE_OWNER",
             ("owned.py",),
