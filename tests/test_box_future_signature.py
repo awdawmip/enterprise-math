@@ -1,5 +1,5 @@
 import unittest
-from itertools import combinations
+from itertools import combinations, product
 
 from enterprise_math.box_collapse import LabeledIntegerBox
 from enterprise_math.box_future_signature import (
@@ -15,6 +15,15 @@ def direct_bounds(boxes, removed):
     lows = tuple(max(box.lows[axis] for box in remaining) for axis in range(dimension))
     highs = tuple(min(box.highs[axis] for box in remaining) for axis in range(dimension))
     return lows, highs
+
+
+def full_bounds_future_signature(boxes, horizon):
+    labels = tuple(sorted(box.label for box in boxes))
+    return tuple(
+        (removed, direct_bounds(boxes, frozenset(removed)))
+        for count in range(horizon + 1)
+        for removed in combinations(labels, count)
+    )
 
 
 class BoxFutureSignatureTests(unittest.TestCase):
@@ -43,7 +52,36 @@ class BoxFutureSignatureTests(unittest.TestCase):
                         all(lo <= hi for lo, hi in zip(lows, highs, strict=True)),
                     )
 
-    def test_ties_can_make_componentwise_signature_smaller_than_uniform_h_plus_one_labels(self):
+    def test_compiled_box_signature_partition_equals_complete_bounds_future_partition(self):
+        # Exhaustively compare extensional quotient classes for three fixed
+        # labels over a small 1D interval catalog.  This checks coarseness, not
+        # merely reconstruction: compact signatures and complete future output
+        # functions induce exactly the same partition of concrete box states.
+        interval_shapes = ((0, 0), (0, 1), (1, 1), (1, 2))
+        labels = (0, 1, 2)
+        families = tuple(
+            tuple(
+                LabeledIntegerBox(label, (lo,), (hi,))
+                for label, (lo, hi) in zip(labels, shapes, strict=True)
+            )
+            for shapes in product(interval_shapes, repeat=len(labels))
+        )
+        for horizon in range(len(labels)):
+            compact_to_full = {}
+            full_to_compact = {}
+            for boxes in families:
+                compact = compile_box_deletion_future_signature(boxes, horizon)
+                full = full_bounds_future_signature(boxes, horizon)
+                compact_to_full.setdefault(compact, set()).add(full)
+                full_to_compact.setdefault(full, set()).add(compact)
+            self.assertTrue(
+                all(len(outputs) == 1 for outputs in compact_to_full.values())
+            )
+            self.assertTrue(
+                all(len(signatures) == 1 for signatures in full_to_compact.values())
+            )
+
+    def test_ties_can_make_signature_smaller_than_uniform_h_plus_one_labels(self):
         boxes = (
             LabeledIntegerBox(0, (5, 0), (20, 10)),
             LabeledIntegerBox(1, (5, 0), (20, 10)),
