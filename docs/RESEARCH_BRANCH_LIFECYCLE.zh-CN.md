@@ -113,7 +113,7 @@ merge 后 integration branch 删除，PR 保留历史。
 
 包含：
 
-- 已被 main 完全吸收的旧 branch；
+- 已被 main 完全吸收或语义吸收的旧 branch；
 - superseded research branch；
 - historical PR；
 - immutable checkpoint tag；
@@ -125,7 +125,7 @@ L5 不再接收新研究提交。
 
 - `checkpoint/*` 逐步改成 immutable tag；
 - `agent/*` 若被吸收或 superseded，关闭 PR 后删除 branch ref；
-- Git/PR/tag 历史承担 provenance，不依赖 branch 永久存在。
+- Git/PR/tag/lineage 承担 provenance，不依赖 branch 永久存在。
 
 ---
 
@@ -147,18 +147,27 @@ L5 不再接收新研究提交。
 
 ### `REPLAY_REQUIRED`
 
-有独有提交，但已高度分叉或混合多个 owner，禁止继续追加研究，必须从 latest main clean replay。
+经语义审计确认仍有 main 缺失的独有数学，但 branch 已高度分叉或混合多个 owner，禁止继续追加研究，必须从 latest main clean replay。
 
 默认触发条件之一：
 
-- `behind(main) >= 50` 且 branch 仍有独有提交；
+- `behind(main) >= 50` 且语义审计仍确认有独有资产；
 - 一个 branch 同时包含两个以上 theorem owner；
 - PR 已大到无法作为可审计的单一研究增量；
 - branch 出现 canonical numbering/file-path collision。
 
 ### `ABSORBED`
 
-`ahead(main)=0`。branch 对当前 main 已无独有提交。
+定义为：**当前 branch 已不存在 main 缺失的独有语义资产。**
+
+有两种常见证明方式：
+
+1. **机械吸收**：`ahead(main)=0`；
+2. **语义吸收**：虽然 `ahead(main)>0`，但 branch-owned theorem/doc/implementation/test/lineage 已通过另一条 replay 历史进入 main，并经 exact blob / theorem-equivalence / strict-generalization audit 证明没有独有内容。
+
+因此：
+
+> `ahead(main)=0` 是 `ABSORBED` 的充分条件，不是必要条件；`ahead(main)>0` 也不是“必有独有数学”的证明。
 
 处理：关闭/标注对应 PR，必要时留 tag，然后删除 branch ref。
 
@@ -168,7 +177,28 @@ L5 不再接收新研究提交。
 
 ---
 
-## 4. 单向状态机
+## 4. 语义吸收审计
+
+当 `ahead(main)>0` 时，禁止直接根据 commit ancestry 决定是否 replay。
+
+至少检查：
+
+1. theorem statement 是否已经以同一陈述、等价坐标或严格推广进入 main；
+2. implementation/test 是否 exact blob 相同，或被明确 supersede；
+3. prior-art / lineage 是否仍能恢复 discovery provenance；
+4. 同路径文件名是否发生过**语义复用/覆盖**——文件名相同不构成吸收证据；
+5. 若 main 中是 strict generalization，source specialization 是否仍有独有应用/反例需要保留。
+
+只有结论为“无独有语义资产”时，才标 `ABSORBED`。
+
+这一步同时防止两类错误：
+
+- Git ahead 导致重复 replay 已经吸收的数学；
+- 同名文件/同编号导致误删实际上不同的历史 theorem。
+
+---
+
+## 5. 单向状态机
 
 推荐生命周期：
 
@@ -188,18 +218,19 @@ L5 不再接收新研究提交。
 
 ---
 
-## 5. ahead/behind 不是数学真理，但必须触发治理动作
+## 6. ahead/behind 是治理信号，不是语义真理
 
-- `ahead=0`：机械地说明当前 branch 没有 main 缺失的提交；默认降为 `ABSORBED`。
-- `ahead>0, behind<20`：通常可作为普通 current-main replay / short program branch。
-- `ahead>0, behind>=50`：默认进入 `REPLAY_REQUIRED`，除非有明确理由证明整条 history 仍应作为 owner。
-- `ahead>100` 或 changed files 跨多个 theorem homes：无论 behind 数，优先 semantic distillation，不再扩大原 PR。
+- `ahead=0`：机械吸收，默认 `ABSORBED`。
+- `ahead>0`：先做 semantic-equivalence audit，再判断 `ABSORBED` 或 `REPLAY_REQUIRED`。
+- `ahead>0, behind<20`：若确有独有数学，通常适合作为普通 current-main replay / short program branch。
+- `ahead>0, behind>=50`：若确有独有数学，默认进入 `REPLAY_REQUIRED`。
+- `ahead>100` 或 changed files 跨多个 theorem homes：优先 semantic distillation，不再扩大原 PR。
 
-这些阈值是 Git 治理阈值，不是数学质量评价。
+这些阈值只是 Git 治理触发器，不评价数学质量。
 
 ---
 
-## 6. 当前大树的直接处置原则
+## 7. 当前大树的直接处置原则
 
 ### P018 `agent/p018-critical-grid`
 
@@ -221,7 +252,7 @@ L5 不再接收新研究提交。
 
 新 owner：`core/a3-relation-state-v2`。
 
-只 replay structured relation-state / partition quotient / kernel / guard-image 等 A3 所有内容；geometry、A4 correspondence、causal application 分流。
+只 replay structured relation-state / partition quotient / kernel / guard-image 等 A3 内容；geometry、A4 correspondence、causal application 分流。
 
 ### A3/A4 `research/core/relation-support-bridge`
 
@@ -231,11 +262,11 @@ L5 不再接收新研究提交。
 
 ### E002 v2 历史分支
 
-多数 `ahead(main)=0`，应降为 `ABSORBED`；只保留仍有独有提交的当前小增量，再 clean replay 到统一 E002 program/integration branch。
+大多数已机械 `ahead=0`。`task-observable-v2` 虽仍显示 ahead commits，但文档/implementation/tests 已验证为与 main 同 blob，属于**语义吸收**而非 replay 候选。整个旧 E002 v2 generation 应降为 `ABSORBED/PROVENANCE`。
 
 ---
 
-## 7. 分支命名
+## 8. 分支命名
 
 长期可写 owner 只使用：
 
@@ -253,7 +284,7 @@ L5 不再接收新研究提交。
 
 ---
 
-## 8. PR 规则
+## 9. PR 规则
 
 - L1/L2/L3 PR 可以包含新数学。
 - L4 integration PR 必须声明 `NO NEW MATHEMATICS`。
@@ -263,7 +294,7 @@ L5 不再接收新研究提交。
 
 ---
 
-## 9. 目标活动面
+## 10. 目标活动面
 
 长期可写 branch 目标控制在约 8–12 条，而不是让每个阶段留下永久 ref。
 
@@ -279,7 +310,7 @@ Integration/agent branch 不计入长期活动面，完成后退出。
 
 ---
 
-## 10. 不变量
+## 11. 不变量
 
 任何整理都必须保持四个问题可回答：
 
