@@ -64,7 +64,8 @@ def a_triangle_carry(
 ) -> int:
     """Positive triangle defect of collapsed radial distance.
 
-    P019 proves that this value is always 0 or 1.
+    The bounded carry result belongs to the P022 geometry line; historical
+    source assets may still refer to the obsolete P019 numbering.
     """
     direct = a_collapsed_radial_distance(x, z)
     via = a_collapsed_radial_distance(x, y) + a_collapsed_radial_distance(y, z)
