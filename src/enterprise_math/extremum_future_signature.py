@@ -18,9 +18,20 @@ multiplicity, so at least one guard label must survive.  Conversely, every
 exposed level's labels are necessary in general because a future deletion can
 remove that whole level and expose the next value.
 
-Thus this is the coarsest exact state for the declared scalar extremum-output
-language, not merely the uniform ``h+1`` order-statistic upper bound.  The result
-is an E001/P023 specialization of finite future distinguishability; order
+The compact state is also closed under the declared online operation language:
+
+* INSERT(label,value) may be processed from exposed levels + guard alone; values
+  weaker than the guard can never become future extrema inside the remaining
+  deletion budget, while stronger inserted levels are re-ranked explicitly;
+* DELETE(label) consumes one unit of deletion horizon.  Removing an exposed
+  label updates its known level; removing a non-exposed label does not require
+  knowing whether it was a guard or hidden label.  Re-scanning exposed levels at
+  horizon ``h-1`` either exposes the old guard again or promotes a known exposed
+  level to guard before any deleted unique guard could matter.
+
+Thus the per-state coarsest deletion signature is a future-compatible Markov
+state for arbitrary insertions and at most ``h`` subsequent labeled deletions.
+This is an E001/P023 specialization of finite future distinguishability; order
 statistics themselves are established mathematics.
 """
 
@@ -66,6 +77,47 @@ def _validate_values(
     if deletion_horizon >= len(items):
         raise ValueError("deletion_horizon must leave at least one label")
     return items
+
+
+def _is_more_extreme(value: int, reference: int, maximize: bool) -> bool:
+    return value > reference if maximize else value < reference
+
+
+def _recompile_from_known_levels(
+    maximize: bool,
+    deletion_horizon: int,
+    labels: tuple[int, ...],
+    known_levels: tuple[ExtremumLevel, ...],
+    fallback_guard_value: int,
+) -> ExtremumFutureSignature:
+    """Rebuild exposed/guard boundary from known levels plus one safe guard value."""
+    grouped: dict[int, set[int]] = {}
+    for level in known_levels:
+        grouped.setdefault(level.value, set()).update(level.labels)
+
+    exposed: list[ExtremumLevel] = []
+    used = 0
+    for value in sorted(grouped, reverse=maximize):
+        level_labels = tuple(sorted(grouped[value]))
+        if used + len(level_labels) <= deletion_horizon:
+            exposed.append(ExtremumLevel(value=value, labels=level_labels))
+            used += len(level_labels)
+        else:
+            return ExtremumFutureSignature(
+                maximize=maximize,
+                deletion_horizon=deletion_horizon,
+                labels=labels,
+                exposed_levels=tuple(exposed),
+                guard_value=value,
+            )
+
+    return ExtremumFutureSignature(
+        maximize=maximize,
+        deletion_horizon=deletion_horizon,
+        labels=labels,
+        exposed_levels=tuple(exposed),
+        guard_value=fallback_guard_value,
+    )
 
 
 def compile_extremum_future_signature(
@@ -117,6 +169,79 @@ def extremum_after_deletions(
         if not set(level.labels).issubset(removed):
             return level.value
     return signature.guard_value
+
+
+def insert_extremum_value(
+    signature: ExtremumFutureSignature,
+    label: int,
+    value: int,
+) -> ExtremumFutureSignature:
+    """Update the compact future state after inserting one new labeled value."""
+    if isinstance(label, bool) or not isinstance(label, int):
+        raise ValueError("label must be an integer")
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise ValueError("value must be an integer")
+    if label in signature.labels:
+        raise ValueError("inserted label must be new")
+    labels = tuple(sorted(signature.labels + (label,)))
+
+    if not _is_more_extreme(value, signature.guard_value, signature.maximize):
+        # Equal/less-extreme values cannot become visible within the remaining
+        # deletion horizon because the guard level is already undeletable.
+        return ExtremumFutureSignature(
+            maximize=signature.maximize,
+            deletion_horizon=signature.deletion_horizon,
+            labels=labels,
+            exposed_levels=signature.exposed_levels,
+            guard_value=signature.guard_value,
+        )
+
+    levels = list(signature.exposed_levels)
+    for index, level in enumerate(levels):
+        if level.value == value:
+            levels[index] = ExtremumLevel(
+                value=value,
+                labels=tuple(sorted(level.labels + (label,))),
+            )
+            break
+    else:
+        levels.append(ExtremumLevel(value=value, labels=(label,)))
+    return _recompile_from_known_levels(
+        signature.maximize,
+        signature.deletion_horizon,
+        labels,
+        tuple(levels),
+        signature.guard_value,
+    )
+
+
+def delete_extremum_label(
+    signature: ExtremumFutureSignature,
+    label: int,
+) -> ExtremumFutureSignature:
+    """Consume one deletion and update the compact state without hidden values."""
+    if isinstance(label, bool) or not isinstance(label, int):
+        raise ValueError("label must be an integer")
+    if label not in signature.labels:
+        raise ValueError("deleted label must belong to the signature")
+    if signature.deletion_horizon <= 0:
+        raise ValueError("no deletion budget remains")
+
+    labels = tuple(item for item in signature.labels if item != label)
+    new_horizon = signature.deletion_horizon - 1
+    levels = []
+    for level in signature.exposed_levels:
+        remaining = tuple(item for item in level.labels if item != label)
+        if remaining:
+            levels.append(ExtremumLevel(value=level.value, labels=remaining))
+
+    return _recompile_from_known_levels(
+        signature.maximize,
+        new_horizon,
+        labels,
+        tuple(levels),
+        signature.guard_value,
+    )
 
 
 def worst_case_labeled_candidate_count(deletion_horizon: int) -> int:
