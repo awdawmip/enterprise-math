@@ -56,9 +56,9 @@ class P017P018TailResourceTests(unittest.TestCase):
         self.assertEqual(data["side"], -1)
 
     def test_prime_tail_recovery_requires_actual_hard_core_candidate(self):
-        self.assertTrue(is_prime(67))
+        self.assertTrue(is_prime(83))
         with self.assertRaises(ValueError):
-            recover_hard_core_state_from_prime_tail(64, 67)
+            recover_hard_core_state_from_prime_tail(64, 83)
         with self.assertRaises(ValueError):
             recover_hard_core_state_from_prime_tail(64, 600)
 
