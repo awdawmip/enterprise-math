@@ -6,8 +6,12 @@ from enterprise_math.guard_image_lattice import (
     guard_image_is_full_rank,
     guard_kernel_image_generators,
     guard_kernel_image_rank,
+    guard_rank_one_step,
     integer_matrix_rank,
     partition_kernel_basis,
+    rank_one_lattice_step,
+    rank_one_threshold_pattern_interval,
+    rank_one_threshold_pattern_reachable,
 )
 
 
@@ -76,7 +80,7 @@ class GuardImageLatticeTests(unittest.TestCase):
             self.assertEqual(integer_matrix_rank(matrix), 2)
 
     def test_full_rank_guard_cosets_hit_every_open_orthant_in_reference_case(self):
-        # Here W(K_A)=2 Z^2.  Every affine coset g+2 Z^2 reaches all four
+        # Here W(K_A)=2 Z^2. Every affine coset g+2 Z^2 reaches all four
         # strict sign patterns by choosing sufficiently large signed integers.
         for base in itertools.product(range(-2, 3), repeat=2):
             hits = set()
@@ -90,6 +94,94 @@ class GuardImageLatticeTests(unittest.TestCase):
                 hits,
                 {(False, False), (False, True), (True, False), (True, True)},
             )
+
+    def test_rank_one_step_recovers_exact_subgroup_generator(self):
+        self.assertEqual(
+            rank_one_lattice_step(((4, 6), (-6, -9), (2, 3))),
+            (2, 3),
+        )
+        self.assertEqual(
+            rank_one_lattice_step(((-8, 4, 0), (12, -6, 0))),
+            (4, -2, 0),
+        )
+
+    def test_guard_rank_one_step_from_partition_coefficients(self):
+        partition = ((0, 1, 2),)
+        guards = (
+            (0, 1, 2),
+            (0, 2, 4),
+        )
+        self.assertEqual(guard_kernel_image_rank(guards, partition), 1)
+        self.assertEqual(guard_rank_one_step(guards, partition), (1, 2))
+
+    def test_rank_one_threshold_pattern_interval_matches_bruteforce(self):
+        steps = ((1, 1), (1, -1), (2, 3), (0, 2), (3, 0))
+        for step in steps:
+            for base in itertools.product(range(-3, 4), repeat=2):
+                for pattern in itertools.product((False, True), repeat=2):
+                    interval = rank_one_threshold_pattern_interval(
+                        base, step, pattern
+                    )
+                    brute = [
+                        t
+                        for t in range(-60, 61)
+                        if all(
+                            (base[index] + t * step[index] >= 0)
+                            if pattern[index]
+                            else (base[index] + t * step[index] < 0)
+                            for index in range(2)
+                        )
+                    ]
+                    if interval is None:
+                        self.assertEqual(brute, [], msg=(base, step, pattern))
+                        self.assertFalse(
+                            rank_one_threshold_pattern_reachable(
+                                base, step, pattern
+                            )
+                        )
+                        continue
+
+                    lower, upper = interval
+                    self.assertTrue(
+                        rank_one_threshold_pattern_reachable(base, step, pattern)
+                    )
+                    self.assertTrue(brute, msg=(base, step, pattern, interval))
+                    for t in brute:
+                        if lower is not None:
+                            self.assertGreaterEqual(t, lower)
+                        if upper is not None:
+                            self.assertLessEqual(t, upper)
+
+                    # Every point in the finite part of the predicted interval
+                    # must realize the pattern exactly.
+                    check_lower = lower if lower is not None else -20
+                    check_upper = upper if upper is not None else 20
+                    for t in range(max(check_lower, -20), min(check_upper, 20) + 1):
+                        self.assertTrue(
+                            all(
+                                (base[index] + t * step[index] >= 0)
+                                if pattern[index]
+                                else (base[index] + t * step[index] < 0)
+                                for index in range(2)
+                            )
+                        )
+
+    def test_same_rank_one_rank_can_have_different_reachable_patterns(self):
+        base = (0, 0)
+        diagonal = (1, 1)
+        anti_diagonal = (1, -1)
+        patterns = tuple(itertools.product((False, True), repeat=2))
+        diagonal_reachable = {
+            pattern
+            for pattern in patterns
+            if rank_one_threshold_pattern_reachable(base, diagonal, pattern)
+        }
+        anti_reachable = {
+            pattern
+            for pattern in patterns
+            if rank_one_threshold_pattern_reachable(base, anti_diagonal, pattern)
+        }
+        self.assertNotEqual(diagonal_reachable, anti_reachable)
 
 
 if __name__ == "__main__":
