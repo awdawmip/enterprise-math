@@ -1,12 +1,15 @@
 import unittest
 from math import isqrt
 
+from enterprise_math.dimension_contraction import balanced_power_energy
 from enterprise_math.graded_lego_fiber import (
     add_one_slot,
     exact_grade_count,
     graded_ball_count,
     graded_fiber_counts,
     graded_shell_counts,
+    minimum_grade_multiplicity,
+    minimum_reachable_grade,
     one_slot_graded_counts,
     power_grade,
 )
@@ -14,6 +17,7 @@ from enterprise_math.lattice_geometry import (
     a_ball_count,
     a_quadratic_shell_count,
 )
+from enterprise_math.lego_partition_fiber import balanced_minimizer_multiplicity
 
 
 class GradedLegoFiberTests(unittest.TestCase):
@@ -69,6 +73,33 @@ class GradedLegoFiberTests(unittest.TestCase):
                     exact_grade_count(slots, 0, 2 * q, power_grade(2)),
                     a_quadratic_shell_count(p, q),
                 )
+
+    def test_p019_balanced_power_energy_is_lowest_occupied_grade(self):
+        for slots in range(1, 6):
+            for power in (2, 3, 4):
+                grade = power_grade(power)
+                for total in range(0, 9):
+                    budget = total ** power
+                    expected = balanced_power_energy(slots, power, total)
+                    self.assertEqual(
+                        minimum_reachable_grade(slots, total, budget, grade),
+                        expected,
+                    )
+
+    def test_balanced_minimizer_multiplicity_is_minimum_grade_shell_count(self):
+        for slots in range(1, 6):
+            for power in (2, 3):
+                grade = power_grade(power)
+                for total in range(0, 9):
+                    budget = total ** power
+                    minimum, multiplicity = minimum_grade_multiplicity(
+                        slots, total, budget, grade
+                    )
+                    self.assertEqual(minimum, balanced_power_energy(slots, power, total))
+                    self.assertEqual(
+                        multiplicity,
+                        balanced_minimizer_multiplicity(slots, total),
+                    )
 
 
 if __name__ == "__main__":
