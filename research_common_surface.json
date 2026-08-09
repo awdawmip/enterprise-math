@@ -101,7 +101,7 @@
     "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
     "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel",
-    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, finite balls/shells, radial/distance structure"
+    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP contact-graph geometry, finite balls/shells, radial/distance structure"
   },
   "canonical_specializations": {
     "P018_P023_power_free_action_basis": {
@@ -110,6 +110,18 @@
       "statement": "for O_a(q)=R_r(floor(q/a)) on 0..N, a positive action set separates every exact state iff it contains every positive r-power-free b<=N; the positive r-power-free actions are the unique least separating set under inclusion",
       "local_boundary": "O_a(q-1) != O_a(q) iff q=a*t^r for some t>=1",
       "prior_art_boundary": "power-free arithmetic and generic distinguishing/Test-Cover/minimal-language machinery are prior mathematics; novelty of the exact quotient-root packaging remains unverified"
+    },
+    "P018_centered_prime_radius": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "merge": "PR #270 / main@b48019603c3c39332be97a5769e811f33d884296",
+      "scope": "elementary centered-coordinate re-expression of P018 Stage-8 near-diagonal factor-proof slack: under the stated left-prime and size-range hypotheses, the minimal positive symmetric prime radius is slack+1 and the shell state is localized by a difference of squares",
+      "boundary": "does not assert a symmetric prime pair for every center and does not prove Goldbach-type statements"
+    },
+    "P022_geodesic_hcp_core": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "merge": "PR #262 / main@fc81a15a0fc7a76d1d2b44e7d9a41b699863ef22",
+      "scope": "exact finite/combinatorial P022 executable formulas for A_p and simple-cubic geodesic multiplicity plus an integer-coordinate ABAB HCP contact graph with degree 12, exact graph distance, shells, and independently cross-checked shortest-path counts",
+      "boundary": "geometry executable specialization only; generic witness-count/correspondence algebra belongs to A4/A2, and no floating-point Euclidean sphere-center model is being smuggled in"
     },
     "E001_residual_conservation_slice": {
       "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED + ONE_COMPARATOR_NEGATIVE",
@@ -134,10 +146,17 @@
       "sources_p018_p023_power_free_action_basis.json",
       "lineage_p018_p023_power_free_action_basis.json"
     ],
+    "P018_centered_prime_radius": ["src/enterprise_math/centered_prime_radius.py", "tests/test_centered_prime_radius.py"],
     "A3": ["src/enterprise_math/weighted_relation_field.py", "src/enterprise_math/relation_lattice.py", "src/enterprise_math/relation_scale.py"],
     "A4": ["src/enterprise_math/admissible_support.py", "src/enterprise_math/relational_spectrum.py"],
     "A3_A4_bridge": ["src/enterprise_math/a3_a4_support_bridge.py"],
     "A5_P022": ["src/enterprise_math/lattice_geometry.py", "tests/test_lattice_geometry.py"],
+    "P022_geodesic_hcp_core": [
+      "src/enterprise_math/p022_geodesic_multiplicity.py",
+      "src/enterprise_math/p022_hcp_geometry.py",
+      "tests/test_p022_geodesic_multiplicity.py",
+      "tests/test_p022_hcp_geometry.py"
+    ],
     "P021": ["src/enterprise_math/causal_boundary.py", "tests/test_causal_boundary.py"],
     "E001_material_impulse_application": [
       "src/enterprise_math/material_impulse_accounting.py",
