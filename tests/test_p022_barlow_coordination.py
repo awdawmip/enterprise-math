@@ -2,13 +2,17 @@ from itertools import product
 
 from enterprise_math.p022_barlow_coordination import (
     barlow_ball_vertex_count_from_cumulative_energy,
+    barlow_layer_shell_first_moment,
     barlow_layer_shell_vertex_count,
     barlow_shell_vertex_count_from_extreme_imbalances,
+    barlow_vertical_support_first_moment,
     barlow_vertical_support_size,
     cumulative_drift_energy_from_ball_vertex_count,
     extreme_layer_vertex_count,
     periodic_ball_cubic_coefficient,
     periodic_shell_quadratic_coefficient,
+    recover_imbalance_from_shell_layer_moment,
+    recover_imbalance_from_vertical_support_moment,
     shell_drift_energy_from_vertex_count,
 )
 from enterprise_math.p022_barlow_growth import barlow_shell_total_geodesic_paths_closed
@@ -23,8 +27,12 @@ FCC = (-1,)
 HCP = (-1, 1)
 
 
+def _support_points(polynomial):
+    return tuple(point for point, coefficient in polynomial.items() if coefficient > 0)
+
+
 def _support_size(polynomial) -> int:
-    return sum(1 for coefficient in polynomial.values() if coefficient > 0)
+    return len(_support_points(polynomial))
 
 
 def _shell_count(pattern, radius: int) -> int:
@@ -39,31 +47,52 @@ def _ball_count(pattern, radius: int) -> int:
     return sum(_shell_count(pattern, current) for current in range(radius + 1))
 
 
-def test_vertical_support_closed_form_matches_exact_witness_polynomial_support() -> None:
+def test_vertical_support_closed_form_and_moment_match_exact_polynomial_support() -> None:
     for period in range(1, 6):
         for pattern in product((-1, 1), repeat=period):
             pattern = tuple(pattern)
             for layer in range(-8, 9):
                 imbalance = stacking_prefix_imbalance(pattern, layer)
-                direct = _support_size(vertical_witness_polynomial(pattern, layer))
-                assert barlow_vertical_support_size(abs(layer), imbalance) == direct
+                polynomial = vertical_witness_polynomial(pattern, layer)
+                points = _support_points(polynomial)
+                direct_size = len(points)
+                direct_q_moment = sum(q for q, _ in points)
+                direct_r_moment = sum(r for _, r in points)
+
+                assert barlow_vertical_support_size(abs(layer), imbalance) == direct_size
+                assert barlow_vertical_support_first_moment(
+                    abs(layer), imbalance
+                ) == direct_q_moment == direct_r_moment
+                assert recover_imbalance_from_vertical_support_moment(
+                    abs(layer), direct_size, direct_q_moment
+                ) == imbalance
 
 
-def test_layer_shell_formula_matches_direct_shell_enumeration() -> None:
+def test_layer_shell_formula_and_moment_match_direct_shell_enumeration() -> None:
     for period in range(1, 5):
         for pattern in product((-1, 1), repeat=period):
             pattern = tuple(pattern)
             for radius in range(0, 7):
                 shell = barlow_shell(radius, pattern)
                 for layer in range(-radius, radius + 1):
-                    direct = sum(1 for point in shell if point[2] == layer)
+                    points = tuple(point for point in shell if point[2] == layer)
+                    direct_size = len(points)
+                    direct_q_moment = sum(point[0] for point in points)
+                    direct_r_moment = sum(point[1] for point in points)
                     imbalance = stacking_prefix_imbalance(pattern, layer)
+
                     assert barlow_layer_shell_vertex_count(
                         radius, layer, imbalance
-                    ) == direct
+                    ) == direct_size
+                    assert barlow_layer_shell_first_moment(
+                        radius, layer, imbalance
+                    ) == direct_q_moment == direct_r_moment
+                    assert recover_imbalance_from_shell_layer_moment(
+                        radius, layer, direct_size, direct_q_moment
+                    ) == imbalance
 
 
-def test_nonextreme_layer_cardinality_is_stacking_independent() -> None:
+def test_nonextreme_layer_cardinality_is_stacking_independent_but_moment_is_not() -> None:
     radius = 6
     patterns = (
         (-1,),
@@ -73,14 +102,20 @@ def test_nonextreme_layer_cardinality_is_stacking_independent() -> None:
         (-1, 1, 1, -1, 1),
     )
     for layer in range(-radius + 1, radius):
-        expected = 3 * (2 * radius - abs(layer))
-        values = set()
+        expected_size = 3 * (2 * radius - abs(layer))
+        sizes = set()
+        moments = set()
         for pattern in patterns:
             imbalance = stacking_prefix_imbalance(pattern, layer)
-            value = barlow_layer_shell_vertex_count(radius, layer, imbalance)
-            values.add(value)
-            assert value == expected
-        assert values == {expected}
+            size = barlow_layer_shell_vertex_count(radius, layer, imbalance)
+            moment = barlow_layer_shell_first_moment(radius, layer, imbalance)
+            sizes.add(size)
+            moments.add(moment)
+            assert size == expected_size
+            assert moment == imbalance * (2 * radius - abs(layer))
+        assert sizes == {expected_size}
+        if layer != 0:
+            assert len(moments) >= 1
 
 
 def test_extreme_layer_count_is_exact_quadratic_drift_observable() -> None:
