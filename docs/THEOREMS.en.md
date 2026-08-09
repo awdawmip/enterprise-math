@@ -2,6 +2,8 @@
 
 Status labels in this file refer to ordinary mathematical proofs from the v0.1 definitions. A proposition is Lean-checked only when explicitly stated below.
 
+Canonical scope conventions follow `FOUNDATIONS`: \(\mathbb N=\mathbb N_0=\{0,1,2,\ldots\}\), while \(\mathbb N_{>0}\) denotes the positive integers. The physically nontrivial primitive root/collapse family starts at \(p\ge2\), while this theorem catalogue uses the exact positive-exponent algebra \(p\ge1\) whenever the stated law remains valid; its identity member is \(R_1=C_1=\operatorname{id}\).
+
 ## T001 — Root characterization
 
 Status: `PROVED`
@@ -72,9 +74,9 @@ Status: `PROVED`
 C_p(n)=n
 \]
 
-if and only if \(n=k^p\) for some \(k\in\mathbb N\).
+if and only if \(n=k^p\) for some \(k\in\mathbb N_0\). In particular, \(0\) is included and is fixed for every positive exponent.
 
-Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.collapse_fixed_iff`.
+Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.collapse_eq_self_iff`.
 
 ## T007 — Basin interval
 
@@ -106,7 +108,7 @@ For \(p=2\),
 |B_{2,k}|=2k+1.
 \]
 
-Therefore the basin of \(141^2=19881\) contains 283 states.
+Therefore the basin of \(141^2=19881\) contains 283 states. For the algebraic identity case \(p=1\), every basin has cardinality \(1\).
 
 ## T009 — Collapse monotonicity
 
@@ -118,7 +120,7 @@ If \(a\le b\), then
 C_p(a)\le C_p(b).
 \]
 
-Proof: combine T003 with monotonicity of \(k\mapsto k^p\) on \(\mathbb N\).
+Proof: combine T003 with monotonicity of \(k\mapsto k^p\) on \(\mathbb N_0\).
 
 ## T010 — Scale compatibility
 
@@ -154,23 +156,27 @@ Status: `PROVED`
 R_p(k^p)=k,
 \]
 
-but in general
+but in general for nontrivial exponents \(p\ge2\),
 
 \[
 R_p(n)^p\ne n.
 \]
 
-Thus integer root is a left inverse of perfect-power formation on its image, not a two-sided inverse on all natural states.
+Thus integer root is a left inverse of perfect-power formation on its image, not a two-sided inverse on all natural states when \(p\ge2\). At \(p=1\), both maps are the identity.
 
 ## T012 — Merged histories never split under deterministic forward composition
 
 Status: `PROVED`
 
-Let
+Use the canonical time convention
 
 \[
-F_t=T_t\circ\cdots\circ T_1.
+F_0=\operatorname{id},
+\qquad
+F_{t+1}=T_t\circ F_t,
 \]
+
+so equivalently \(F_t=T_{t-1}\circ\cdots\circ T_0\) for \(t\ge1\).
 
 If
 
@@ -181,7 +187,7 @@ F_t(x)=F_t(y),
 then
 
 \[
-F_{t+1}(x)=F_{t+1}(y).
+F_{t+1}(x)=T_t(F_t(x))=T_t(F_t(y))=F_{t+1}(y).
 \]
 
 Therefore
@@ -242,7 +248,7 @@ Formalization: Lean-checked as `EnterpriseMath.IntegerRoot.root_mul_comm`.
 
 Status: `PROVED`
 
-For \(p\ge1\), \(b\ge1\), and \(n\in\mathbb N\),
+For \(p\ge1\), \(b\ge1\), and \(n\in\mathbb N_0\),
 
 \[
 R_p(n)\operatorname{//}b
