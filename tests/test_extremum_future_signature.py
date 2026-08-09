@@ -3,7 +3,9 @@ from itertools import combinations, product
 
 from enterprise_math.extremum_future_signature import (
     compile_extremum_future_signature,
+    delete_extremum_label,
     extremum_after_deletions,
+    insert_extremum_value,
     worst_case_labeled_candidate_count,
 )
 
@@ -94,7 +96,85 @@ class ExtremumFutureSignatureTests(unittest.TestCase):
                         all(len(signatures) == 1 for signatures in full_to_compact.values())
                     )
 
-    def test_invalid_horizon_or_deletions_are_rejected(self):
+    def test_online_insertion_matches_fresh_recompile_on_small_domains(self):
+        labels = (0, 1, 2)
+        new_label = 3
+        for assignment in product(range(4), repeat=len(labels)):
+            values = dict(zip(labels, assignment, strict=True))
+            for horizon in range(len(labels)):
+                for maximize in (True, False):
+                    signature = compile_extremum_future_signature(
+                        values, horizon, maximize
+                    )
+                    for new_value in range(4):
+                        updated = insert_extremum_value(
+                            signature, new_label, new_value
+                        )
+                        expected_values = dict(values)
+                        expected_values[new_label] = new_value
+                        expected = compile_extremum_future_signature(
+                            expected_values, horizon, maximize
+                        )
+                        self.assertEqual(updated, expected)
+
+    def test_online_deletion_matches_fresh_recompile_on_small_domains(self):
+        for label_count in range(2, 6):
+            labels = tuple(range(label_count))
+            for assignment in product(range(4), repeat=label_count):
+                values = dict(zip(labels, assignment, strict=True))
+                for horizon in range(1, label_count):
+                    for maximize in (True, False):
+                        signature = compile_extremum_future_signature(
+                            values, horizon, maximize
+                        )
+                        for deleted in labels:
+                            updated = delete_extremum_label(signature, deleted)
+                            expected_values = {
+                                label: value
+                                for label, value in values.items()
+                                if label != deleted
+                            }
+                            expected = compile_extremum_future_signature(
+                                expected_values, horizon - 1, maximize
+                            )
+                            self.assertEqual(updated, expected)
+
+    def test_hidden_or_guard_deletion_never_requires_recovering_lower_values(self):
+        # h=1 exposes top=50 and has guard=40.  Deleting the unique guard label
+        # makes the surviving known top level the new guard at horizon zero.
+        values = {0: 50, 1: 40, 2: 30, 3: 20}
+        signature = compile_extremum_future_signature(values, 1, maximize=True)
+        self.assertEqual(signature.guard_value, 40)
+        updated = delete_extremum_label(signature, 1)
+        expected = compile_extremum_future_signature(
+            {0: 50, 2: 30, 3: 20}, 0, maximize=True
+        )
+        self.assertEqual(updated, expected)
+        self.assertEqual(updated.guard_value, 50)
+
+    def test_insert_then_delete_sequence_matches_full_state_recompile(self):
+        values = {0: 7, 1: 7, 2: 3, 3: 1}
+        signature = compile_extremum_future_signature(values, 2, maximize=True)
+        signature = insert_extremum_value(signature, 4, 9)
+        values[4] = 9
+        self.assertEqual(
+            signature,
+            compile_extremum_future_signature(values, 2, maximize=True),
+        )
+        signature = delete_extremum_label(signature, 0)
+        del values[0]
+        self.assertEqual(
+            signature,
+            compile_extremum_future_signature(values, 1, maximize=True),
+        )
+        signature = insert_extremum_value(signature, 5, 2)
+        values[5] = 2
+        self.assertEqual(
+            signature,
+            compile_extremum_future_signature(values, 1, maximize=True),
+        )
+
+    def test_invalid_horizon_or_updates_are_rejected(self):
         values = {0: 3, 1: 2}
         with self.assertRaises(ValueError):
             compile_extremum_future_signature(values, 2)
@@ -103,6 +183,13 @@ class ExtremumFutureSignatureTests(unittest.TestCase):
             extremum_after_deletions(signature, (0, 1))
         with self.assertRaises(ValueError):
             extremum_after_deletions(signature, (99,))
+        with self.assertRaises(ValueError):
+            insert_extremum_value(signature, 0, 9)
+        with self.assertRaises(ValueError):
+            delete_extremum_label(signature, 99)
+        no_budget = compile_extremum_future_signature(values, 0)
+        with self.assertRaises(ValueError):
+            delete_extremum_label(no_budget, 0)
 
 
 if __name__ == "__main__":
