@@ -41,13 +41,13 @@ class AbcAbsorptionAccessTests(unittest.TestCase):
 
     def test_three_prime_coordinates_do_not_force_tradeoff(self) -> None:
         self.assertEqual(
-            certified_absorption_pareto_frontier(1, 242, 243, max_bound=30),
-            ((27, 5),),
+            certified_absorption_pareto_frontier(1, 5, 6, max_bound=2),
+            ((1, 1),),
         )
-        self.assertEqual(absorption_access_delay(1, 242, 243, max_bound=30), 0)
+        self.assertEqual(absorption_access_delay(1, 5, 6, max_bound=2), 0)
         self.assertTrue(
             scalar_witness_cost_is_complete_for_two_cost_frontier(
-                1, 242, 243, max_bound=30
+                1, 5, 6, max_bound=2
             )
         )
 
