@@ -7,31 +7,33 @@ Let
 
     k^p <= n < (k+1)^p
 
-with source-basin exponent ``p>=1``.  Observe the quotient through an ``r``-th
-integer root, ``r>=1``.  If two distinct divisors ``2<=d<e`` give the same
+with source-basin exponent ``p>=1``. Observe the quotient through an ``r``-th
+integer root, ``r>=1``. If two distinct divisors ``2<=d<e`` give the same
 actual quotient-root ``t`` then
 
     e*t^r <= n < d*(t+1)^r.
 
-Because ``e>=d+1``, subtraction gives
+The collision itself supplies the sharp scale constant. Since ``e>=d+1``, if
+``t+1 >= r(d+1)`` then the standard finite-difference/Bernoulli estimate gives
 
-    t^r < d * ((t+1)^r - t^r).
-
-For ``t>0`` the binomial theorem gives the elementary uniform estimate
-
-    (t+1)^r - t^r <= (2^r-1) * t^(r-1).
-
-Writing ``C_r=2^r-1`` therefore yields
-
-    t < C_r*d < C_r*e
+    d*((t+1)^r - t^r) <= t^r,
 
 and hence
 
-    t^(r+1) < C_r * e*t^r <= C_r*n < C_r*(k+1)^p.
+    d*(t+1)^r <= (d+1)*t^r <= e*t^r <= n,
+
+contradicting ``n < d*(t+1)^r``. Therefore
+
+    t+1 < r(d+1),
+
+so in particular ``t < r*e``. Multiplying by ``t^r`` yields the all-power
+cross-root coalescence law
+
+    t^(r+1) < r*e*t^r <= r*n < r*(k+1)^p.
 
 Thus every actual cross-divisor collision lies below the exact integer horizon
 
-    H_{p,r}(k) = R_{r+1}(C_r*(k+1)^p - 1).
+    H_{p,r}(k) = R_{r+1}(r*(k+1)^p - 1).
 
 The asymptotic collision exponent is
 
@@ -39,15 +41,31 @@ The asymptotic collision exponent is
 
 Consequently ``r+1>p`` is the sublinear/coalescence-contraction regime;
 ``r+1=p`` is the linear boundary; and ``r+1<p`` is not forced to contract by
-this argument.  In the same-exponent family ``r=p`` one obtains
-``O(k^(p/(p+1)))``.  The square specialization ``p=r=2`` gives the same 2/3
-exponent as the sharper square theorem, but its generic binomial constant is 3;
-the square-specific argument improves that constant to the asymptotically sharp
-value 2.
+this mechanism. In the same-exponent family ``r=p`` one obtains the strictly
+sublinear law ``O(k^(p/(p+1)))``.
 
-All statements here use only exact integer roots/division.  The binomial and
-order inequalities are classical; the research value is the finite-precision
-coalescence packaging and the exponent/phase-boundary interpretation.
+Both the exponent and the leading root-order constant ``r`` are asymptotically
+sharp. For every ``r,m>=1`` (using ``m>=2`` in the executable witness), put
+
+    d=m,  e=m+1,  t=r*m-1,
+    n=(m+1)*(r*m-1)^r.
+
+Bernoulli's inequality applied to ``rm/(rm-1)=1+1/(rm-1)`` gives
+
+    m*(r*m)^r > (m+1)*(r*m-1)^r,
+
+so division by both ``m`` and ``m+1`` has exact ``r``-root ``t``. Moreover
+
+    t^(r+1)/(r*n) = (r*m-1)/(r*(m+1)) -> 1.
+
+For any fixed source exponent ``p``, assigning this ``n`` to its canonical
+``p``-root basin also makes ``t`` scale as ``k^(p/(r+1))``. Hence neither the
+exponent nor the leading constant can be improved uniformly for the general
+cross-divisor collision mechanism.
+
+All statements use exact integer roots/division. Bernoulli/difference-of-powers
+inequalities are classical; the project-specific value is the finite-precision
+coalescence packaging, exact integer horizon, and exponent/phase-boundary law.
 """
 
 from __future__ import annotations
@@ -60,18 +78,18 @@ def _require_int(name: str, value: int) -> None:
         raise ValueError(f"{name} must be an integer")
 
 
-def coalescence_binomial_constant(root_exp: int) -> int:
-    """Return C_r=2^r-1 for r>=1."""
+def coalescence_root_constant(root_exp: int) -> int:
+    """Return the sharp general cross-divisor constant C_r=r."""
     _require_int("root_exp", root_exp)
     if root_exp < 1:
         raise ValueError("root_exp must be positive")
-    return (1 << root_exp) - 1
+    return root_exp
 
 
 def cross_root_coalescence_horizon(
     k: int, source_exp: int, root_exp: int
 ) -> int:
-    """Return H_{p,r}(k)=R_{r+1}(C_r*(k+1)^p-1)."""
+    """Return H_{p,r}(k)=R_{r+1}(r*(k+1)^p-1)."""
     for name, value in (
         ("k", k),
         ("source_exp", source_exp),
@@ -80,12 +98,17 @@ def cross_root_coalescence_horizon(
         _require_int(name, value)
     if k < 1 or source_exp < 1 or root_exp < 1:
         raise ValueError("k and both exponents must be positive")
-    constant = coalescence_binomial_constant(root_exp)
-    argument = constant * (k + 1) ** source_exp - 1
+    argument = root_exp * (k + 1) ** source_exp - 1
     return integer_nth_root(argument, root_exp + 1)
 
 
-def power_basin_cross_root(k: int, n: int, source_exp: int, root_exp: int, divisor: int) -> int:
+def power_basin_cross_root(
+    k: int,
+    n: int,
+    source_exp: int,
+    root_exp: int,
+    divisor: int,
+) -> int:
     """Return R_r(floor(n/d)) for n in the complete p-power basin at k."""
     for name, value in (
         ("k", k),
@@ -112,13 +135,13 @@ def cross_root_divisor_collision(
     left: int,
     right: int,
 ) -> dict[str, object]:
-    """Validate the all-power actual cross-divisor collision bound.
+    """Validate the all-power actual cross-divisor collision law.
 
-    When the two actual quotient roots differ, the function simply reports the
-    two values.  When they coincide at ``t``, it verifies the exact root-cell
-    inequalities and the bound
+    If the two quotient roots coincide at ``t``, verify
 
-        t^(r+1) < (2^r-1)*(k+1)^p.
+        t^(r+1) < r*(k+1)^p
+
+    and the stronger local scale fact ``t+1 < r*(d+1)``.
     """
     for name, value in (("left", left), ("right", right)):
         _require_int(name, value)
@@ -150,7 +173,6 @@ def cross_root_divisor_collision(
         return result
 
     t = left_root
-    constant = coalescence_binomial_constant(root_exp)
     if right * t**root_exp > n:
         raise AssertionError("common root lower interval failed")
     if n >= left * (t + 1) ** root_exp:
@@ -160,16 +182,15 @@ def cross_root_divisor_collision(
     if t**root_exp >= left * delta:
         raise AssertionError("divisor-spacing difference inequality failed")
 
-    if t > 0:
-        binomial_ceiling = constant * t ** (root_exp - 1)
-        if delta > binomial_ceiling:
-            raise AssertionError("uniform binomial increment bound failed")
-        if t >= constant * left:
-            raise AssertionError("collision root exceeded C_r*d")
-        if t >= constant * right:
-            raise AssertionError("collision root exceeded C_r*e")
+    # Mathematical proof boundary: if t+1 were at least r(d+1), the standard
+    # difference-of-powers/Bernoulli estimate would imply
+    # d*(t+1)^r <= (d+1)t^r, contradicting the exact collision interval.
+    if t + 1 >= root_exp * (left + 1):
+        raise AssertionError("collision violated the sharp t+1<r(d+1) bound")
+    if t >= root_exp * right:
+        raise AssertionError("collision root exceeded the sharp r*e scale")
 
-    argument_exclusive = constant * (k + 1) ** source_exp
+    argument_exclusive = root_exp * (k + 1) ** source_exp
     if t ** (root_exp + 1) >= argument_exclusive:
         raise AssertionError("cross-root collision escaped the all-power bound")
     if t > horizon:
@@ -178,12 +199,63 @@ def cross_root_divisor_collision(
     return {
         **result,
         "common_root": t,
-        "binomial_constant": constant,
+        "root_order_constant": root_exp,
         "root_increment": delta,
         "collision_power": t ** (root_exp + 1),
         "horizon_argument": argument_exclusive - 1,
         "sublinear_regime": root_exp + 1 > source_exp,
         "linear_boundary": root_exp + 1 == source_exp,
+    }
+
+
+def sharp_adjacent_collision_family(
+    source_exp: int, root_exp: int, m: int
+) -> dict[str, int]:
+    """Return an explicit asymptotically sharp adjacent-divisor collision.
+
+    ``d=m``, ``e=m+1``, ``t=r*m-1`` and
+    ``n=(m+1)t^r``.  Both quotient roots are exactly ``t``.  The returned
+    ``k`` is the canonical source ``p``-root index of ``n``.
+    """
+    for name, value in (
+        ("source_exp", source_exp),
+        ("root_exp", root_exp),
+        ("m", m),
+    ):
+        _require_int(name, value)
+    if source_exp < 1 or root_exp < 1 or m < 2:
+        raise ValueError("source_exp/root_exp must be positive and m>=2")
+
+    d = m
+    e = m + 1
+    t = root_exp * m - 1
+    n = e * t**root_exp
+    if n >= d * (t + 1) ** root_exp:
+        raise AssertionError("sharp adjacent collision interval is empty")
+    if n // e != t**root_exp:
+        raise AssertionError("upper-divisor quotient is not the exact lower root power")
+    if not t**root_exp <= n // d < (t + 1) ** root_exp:
+        raise AssertionError("lower-divisor quotient escaped the common root cell")
+
+    k = integer_nth_root(n, source_exp)
+    if not k**source_exp <= n < (k + 1) ** source_exp:
+        raise AssertionError("constructed state escaped its canonical source basin")
+    horizon = cross_root_coalescence_horizon(k, source_exp, root_exp)
+    if t > horizon:
+        raise AssertionError("sharp witness escaped the general horizon")
+
+    return {
+        "source_exp": source_exp,
+        "root_exp": root_exp,
+        "m": m,
+        "k": k,
+        "n": n,
+        "left": d,
+        "right": e,
+        "common_root": t,
+        "horizon": horizon,
+        "sharp_ratio_numerator": t,
+        "sharp_ratio_denominator": root_exp * (m + 1),
     }
 
 
@@ -193,7 +265,7 @@ def same_exponent_coalescence_horizon(k: int, exponent: int) -> int:
 
 
 def coalescence_phase(source_exp: int, root_exp: int) -> str:
-    """Classify the exponent p/(r+1) relative to one."""
+    """Classify the sharp exponent p/(r+1) relative to one."""
     _require_int("source_exp", source_exp)
     _require_int("root_exp", root_exp)
     if source_exp < 1 or root_exp < 1:
@@ -208,13 +280,12 @@ def coalescence_phase(source_exp: int, root_exp: int) -> str:
 def coarse_sublinear_descent_threshold(source_exp: int, root_exp: int) -> int:
     """Return a simple sufficient k-threshold for H_{p,r}(k)<k.
 
-    This is intentionally coarse.  If ``r+1>p``, put ``s=r+1-p>=1`` and
-    ``C=2^r-1``.  For ``k>=1`` one has ``k+1<=2k``, hence
+    If ``s=r+1-p>=1``, then ``k+1<=2k`` gives
 
-        C*(k+1)^p <= C*2^p*k^p.
+        r*(k+1)^p <= r*2^p*k^p.
 
-    Therefore ``k^s >= C*2^p`` suffices for the horizon argument to be below
-    ``k^(r+1)``.  We return the least integer k satisfying this simple bound.
+    Therefore ``k^s >= r*2^p`` is sufficient.  This threshold is deliberately
+    simple rather than optimal.
     """
     _require_int("source_exp", source_exp)
     _require_int("root_exp", root_exp)
@@ -223,7 +294,7 @@ def coarse_sublinear_descent_threshold(source_exp: int, root_exp: int) -> int:
     gap = root_exp + 1 - source_exp
     if gap <= 0:
         raise ValueError("no sublinear descent threshold when r+1<=p")
-    target = coalescence_binomial_constant(root_exp) * (1 << source_exp)
+    target = root_exp * (1 << source_exp)
     return integer_nth_root(target - 1, gap) + 1
 
 
