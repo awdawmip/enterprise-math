@@ -51,6 +51,40 @@ class MultiscaleCollapseTests(unittest.TestCase):
         report = multiscale_common_collapse(bodies, (16, 8, 4, 2, 1))
         self.assertEqual(report.collision_pairs, exact_collision_pairs(bodies))
 
+    def test_collision_semantics_do_not_depend_on_refinement_schedule(self):
+        bodies = [
+            Body2D(0, -11, -7, 3),
+            Body2D(1, -6, -5, 2),
+            Body2D(2, 0, 0, 4),
+            Body2D(3, 7, 5, 3),
+            Body2D(4, 22, -3, 5),
+            Body2D(5, 28, 1, 2),
+        ]
+        expected = exact_collision_pairs(bodies)
+        for schedule in ((2, 1), (4, 2, 1), (16, 4, 2, 1), (64, 16, 4, 2, 1)):
+            with self.subTest(schedule=schedule):
+                report = multiscale_common_collapse(bodies, schedule)
+                self.assertEqual(report.collision_pairs, expected)
+
+    def test_collision_semantics_are_translation_invariant_even_when_tree_work_changes(self):
+        bodies = [
+            Body2D(0, -9, -1, 2),
+            Body2D(1, -6, 0, 2),
+            Body2D(2, 4, 7, 3),
+            Body2D(3, 9, 8, 2),
+            Body2D(4, 25, -4, 1),
+        ]
+        schedule = (32, 16, 8, 4, 2, 1)
+        base = multiscale_common_collapse(bodies, schedule)
+        shifted = [
+            Body2D(body.body_id, body.x + 13, body.y - 7, body.radius)
+            for body in bodies
+        ]
+        moved = multiscale_common_collapse(shifted, schedule)
+        self.assertEqual(base.collision_pairs, moved.collision_pairs)
+        self.assertEqual(base.collision_pairs, exact_collision_pairs(bodies))
+        self.assertEqual(moved.collision_pairs, exact_collision_pairs(shifted))
+
     def test_large_target_domains_are_compressed_before_terminal_emission(self):
         bodies = []
         body_id = 0
