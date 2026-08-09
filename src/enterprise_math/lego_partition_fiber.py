@@ -2,9 +2,9 @@
 
 A coarse block of capacity m remembers only the total c of indistinguishable
 unit-1 objects placed among m fine slots.  The number of fine lifts is the exact
-integer stars-and-bars count C(c+m-1,m-1).  The same (m,c) pair already used by
-tagged contraction therefore determines both fiber multiplicity and, in the
-collision-power family, the minimum collision cost.
+integer count C(c+m-1,m-1).  The same (m,c) pair already used by tagged
+contraction therefore determines the whole fiber multiplicity, the balanced
+minimum collision cost, and the number of balanced minimizers.
 """
 
 from __future__ import annotations
@@ -12,13 +12,29 @@ from __future__ import annotations
 from math import comb
 
 
-def hidden_allocation_multiplicity(capacity: int, total: int) -> int:
-    """Number of nonnegative fine-slot allocations with one coarse total."""
+def _require_capacity_total(capacity: int, total: int) -> None:
     if isinstance(capacity, bool) or not isinstance(capacity, int) or capacity <= 0:
         raise ValueError("capacity must be a positive integer")
     if isinstance(total, bool) or not isinstance(total, int) or total < 0:
         raise ValueError("total must be a non-negative integer")
+
+
+def hidden_allocation_multiplicity(capacity: int, total: int) -> int:
+    """Number of nonnegative fine-slot allocations with one coarse total."""
+    _require_capacity_total(capacity, total)
     return comb(total + capacity - 1, capacity - 1)
+
+
+def balanced_minimizer_multiplicity(capacity: int, total: int) -> int:
+    """Number of most-even allocations of `total` units among `capacity` slots.
+
+    If total=capacity*q+r, every square/power-balanced minimizer has r slots at
+    q+1 and the remaining slots at q.  The only choice is which r slots receive
+    the extra unit, hence C(capacity,r).
+    """
+    _require_capacity_total(capacity, total)
+    _, residue = divmod(total, capacity)
+    return comb(capacity, residue)
 
 
 def partition_fiber_multiplicity(
@@ -58,7 +74,7 @@ def allocation_growth_difference_order(capacity: int) -> int:
         for total in range(2 * capacity + 2)
     )
     current = values
-    for order in range(degree):
+    for _ in range(degree):
         current = finite_difference(current)
     if len(set(current)) != 1 or current[0] == 0:
         raise AssertionError("expected nonzero constant at the hidden relation degree")
