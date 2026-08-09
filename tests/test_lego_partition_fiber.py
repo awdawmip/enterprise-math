@@ -4,6 +4,7 @@ from enterprise_math.lego_partition_fiber import (
     allocation_growth_difference_order,
     balanced_minimizer_multiplicity,
     composed_fiber_count,
+    coupled_fiber_count_by_total_kernel,
     fiber_composition_identity,
     hidden_allocation_multiplicity,
     one_step_dimension_lowering_identity,
@@ -57,6 +58,39 @@ class LegoPartitionFiberTests(unittest.TestCase):
                             total,
                         ),
                     )
+
+    def test_constant_one_coupling_kernel_recovers_independent_convolution(self):
+        total = 5
+        kernel = {(left, total - left): 1 for left in range(total + 1)}
+        self.assertEqual(
+            coupled_fiber_count_by_total_kernel(2, 3, total, kernel),
+            composed_fiber_count(2, 3, total),
+        )
+
+    def test_zero_one_kernel_is_support_constrained_convolution(self):
+        total = 4
+        kernel = {
+            (left, total - left): int(left % 2 == 0)
+            for left in range(total + 1)
+        }
+        expected = sum(
+            hidden_allocation_multiplicity(2, left)
+            * hidden_allocation_multiplicity(2, total - left)
+            for left in range(total + 1)
+            if left % 2 == 0
+        )
+        self.assertEqual(coupled_fiber_count_by_total_kernel(2, 2, total, kernel), expected)
+
+    def test_multiplicity_kernel_counts_multiple_joint_states_over_one_split(self):
+        total = 3
+        kernel = {(left, total - left): 1 for left in range(total + 1)}
+        kernel[(1, 2)] = 3
+        independent = composed_fiber_count(1, 1, total)
+        extra = 2 * hidden_allocation_multiplicity(1, 1) * hidden_allocation_multiplicity(1, 2)
+        self.assertEqual(
+            coupled_fiber_count_by_total_kernel(1, 1, total, kernel),
+            independent + extra,
+        )
 
     def test_one_integer_difference_strips_one_hidden_slot_freedom(self):
         for capacity in range(2, 7):
