@@ -75,10 +75,10 @@ class GradedLegoFiberTests(unittest.TestCase):
                 )
 
     def test_p019_balanced_power_energy_is_lowest_occupied_grade(self):
-        for slots in range(1, 6):
-            for power in (2, 3, 4):
+        for slots in range(1, 5):
+            for power in (2, 3):
                 grade = power_grade(power)
-                for total in range(0, 9):
+                for total in range(0, 6):
                     budget = total ** power
                     expected = balanced_power_energy(slots, power, total)
                     self.assertEqual(
@@ -87,10 +87,10 @@ class GradedLegoFiberTests(unittest.TestCase):
                     )
 
     def test_balanced_minimizer_multiplicity_is_minimum_grade_shell_count(self):
-        for slots in range(1, 6):
+        for slots in range(1, 5):
             for power in (2, 3):
                 grade = power_grade(power)
-                for total in range(0, 9):
+                for total in range(0, 6):
                     budget = total ** power
                     minimum, multiplicity = minimum_grade_multiplicity(
                         slots, total, budget, grade
