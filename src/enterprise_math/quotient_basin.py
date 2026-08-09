@@ -7,11 +7,6 @@ values, and the new root index is strictly below the original basin index.
 The follow-up path results use only exact Euclidean division: iterated floor
 quotients equal one quotient by the product divisor, so repeated factor
 extraction does not multiply the number of possible final square-root indices.
-
-The threshold layer makes the remaining binary choice exact: for each divisor,
-the upper root index turns on at one integer threshold inside (or beyond) the
-original basin.  A family of quotient-root bits is therefore driven by one
-shared basin offset rather than by independent binary choices.
 """
 
 from __future__ import annotations
@@ -25,7 +20,16 @@ def _require_nat(name: str, value: int, *, minimum: int = 0) -> None:
 
 
 def square_basin_quotient_transport(k: int, divisor: int, n: int) -> dict[str, int]:
-    """Transport one state from the k-th square basin through floor division."""
+    """Transport one state from the k-th square basin through floor division.
+
+    Preconditions:
+        k >= 1,
+        divisor >= 2,
+        k^2 <= n < (k+1)^2.
+
+    If j=R_2(floor(k^2/divisor)), then the returned quotient root is exactly
+    j or j+1, and j<k.
+    """
     _require_nat("k", k, minimum=1)
     _require_nat("divisor", divisor, minimum=2)
     _require_nat("n", n)
@@ -81,7 +85,15 @@ def square_basin_quotient_window(k: int, divisor: int) -> dict[str, int]:
 
 
 def open_divisible_cofactor_window(k: int, divisor: int) -> dict[str, int]:
-    """Return the quotient window for divisible states strictly inside the square basin."""
+    """Return the quotient window for divisible states strictly inside the square basin.
+
+    This is the P017 specialization when ``divisor`` is the chosen least prime:
+
+        floor(k^2/d)+1 <= q <= floor(((k+1)^2-1)/d).
+
+    Every such q satisfies j^2 < q < (j+2)^2 for
+    j=R_2(floor(k^2/d)).
+    """
     data = square_basin_quotient_window(k, divisor)
     q_min_open = (k * k) // divisor + 1
     q_max = data["q_max"]
@@ -101,7 +113,17 @@ def open_divisible_cofactor_window(k: int, divisor: int) -> dict[str, int]:
 
 
 def iterated_quotient_flatness(n: int, divisors: list[int]) -> dict[str, object]:
-    """Verify that a quotient path depends only on the product divisor."""
+    """Verify that a quotient path depends only on the product divisor.
+
+    Every divisor is required to be at least two, matching the nontrivial
+    factor-extraction use case.  The exact identity is
+
+        (...((n // d1) // d2)...) // dh = n // (d1*d2*...*dh).
+
+    Therefore a multi-stage quotient path can be collapsed before applying the
+    two-basin theorem; intermediate two-way root choices never multiply into
+    2^h distinct final root scales.
+    """
     _require_nat("n", n)
     if not divisors:
         raise ValueError("divisors must be a nonempty list")
@@ -132,7 +154,12 @@ def iterated_quotient_flatness(n: int, divisors: list[int]) -> dict[str, object]
 def square_basin_iterated_quotient_transport(
     k: int, divisors: list[int], n: int
 ) -> dict[str, object]:
-    """Collapse an iterated quotient path to one two-basin transport."""
+    """Collapse an iterated quotient path to one two-basin transport.
+
+    This is the executable T111 consequence: the final quotient by any
+    factorization of a total divisor has exactly the same final state and hence
+    the same two possible square-root indices as one direct quotient.
+    """
     flat = iterated_quotient_flatness(n, divisors)
     product = int(flat["divisor_product"])
     transported = square_basin_quotient_transport(k, product, n)
@@ -147,7 +174,16 @@ def square_basin_iterated_quotient_transport(
 
 
 def strict_square_root_descent(k: int, divisor: int, n: int) -> dict[str, int]:
-    """Verify strict descent of the actual quotient root for k>=3."""
+    """Verify strict descent of the actual quotient root for k>=3.
+
+    If k>=3, d>=2, and n lies in the k-th square basin, then
+
+        floor(n/d) < k^2,
+
+    hence R_2(floor(n/d)) < k.  This removes the apparent j+1=k edge allowed by
+    the coarse two-basin statement: that upper candidate is never realized once
+    k>=3.
+    """
     _require_nat("k", k, minimum=3)
     data = square_basin_quotient_transport(k, divisor, n)
     if data["quotient"] >= k * k:
@@ -160,17 +196,9 @@ def strict_square_root_descent(k: int, divisor: int, n: int) -> dict[str, int]:
 def quotient_root_threshold(k: int, divisor: int) -> dict[str, int]:
     """Return the unique state/offset threshold for the upper T110 root branch.
 
-    Let j=R_2(floor(k^2/d)).  The upper root j+1 occurs exactly when
-
-        n >= d*(j+1)^2.
-
-    Relative to the lower square boundary k^2, the same condition is
-
-        s=n-k^2 >= tau,
-        tau=d*(j+1)^2-k^2.
-
-    The threshold is positive.  It may exceed 2k, in which case the upper branch
-    is never reached inside the k-th square basin.
+    Let j=R_2(floor(k^2/d)). The upper root j+1 occurs exactly when
+    n >= d*(j+1)^2. Relative to the lower square boundary k^2, the same
+    condition is s=n-k^2 >= tau, where tau=d*(j+1)^2-k^2.
     """
     _require_nat("k", k, minimum=1)
     _require_nat("divisor", divisor, minimum=2)
@@ -193,13 +221,7 @@ def quotient_root_threshold(k: int, divisor: int) -> dict[str, int]:
 def square_basin_offset_root_response(
     k: int, divisor: int, offset: int
 ) -> dict[str, int]:
-    """Evaluate the exact one-threshold root response at basin offset ``offset``.
-
-    For 0<=offset<=2k, n=k^2+offset lies in the complete half-open square basin.
-    The quotient root is base_root plus the single threshold bit
-
-        1[offset >= offset_threshold].
-    """
+    """Evaluate the exact one-threshold root response at a square-basin offset."""
     _require_nat("k", k, minimum=1)
     _require_nat("divisor", divisor, minimum=2)
     _require_nat("offset", offset)
@@ -227,13 +249,7 @@ def square_basin_offset_root_response(
 def quotient_root_threshold_pattern(
     k: int, divisors: list[int], offset: int
 ) -> dict[str, object]:
-    """Return the shared-offset threshold bits for several quotient divisors.
-
-    Every bit is a comparison of the *same* basin offset against one divisor's
-    threshold.  Thus for a fixed divisor family the vector cannot realize 2^h
-    unrelated choices as the basin state moves; coordinates flip only when the
-    common offset crosses their thresholds.
-    """
+    """Return shared-offset threshold bits for a finite quotient-divisor family."""
     _require_nat("k", k, minimum=1)
     _require_nat("offset", offset)
     if offset > 2 * k:
