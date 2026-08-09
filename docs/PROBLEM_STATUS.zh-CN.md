@@ -29,8 +29,8 @@
 | P018 | `OPEN / ACTIVE RESEARCH` | 有限精度证明演算仍是持续扩展的基础研究计划；当前各阶段可以是规范结果，但整个编号计划保持活跃。 |
 | P019 | `RESOLVED` | `docs/P019_COLLAPSE_WORD_STABILIZATION.zh-CN.md`：良基偏序上的单调向下自映射会稳定到初态下方最大不动点；因此任意固定坍缩词精确稳定到 `C_L(n0)`，最终盆地就是普通 `L` 次盆地，且坍缩词半群按稳定等价取商后恰为 lcm join-semilattice。 |
 | P020 | `RESOLVED` | `docs/P020_WELL_FOUNDED_STABILIZATION.zh-CN.md` 与 `EnterpriseMath/Order/WellFoundedStabilization.lean`：Lean 证明在 `WellFoundedLT` 偏序上，任意单调向下自映射的有限普通迭代会到达初态下方最大的原始不动点；所选稳定化映射单调、向下、幂等，并与原映射具有完全相同的不动点集合。 |
-| P021 | `RESERVED / ACTIVE RESEARCH` | 预留给当前研究 PR #48 中保存的有限精度离散黑洞视界 / 因果聚焦路线；在 clean replay 前，历史分支资产内部仍可能保留旧 P019 编号。 |
-| P022 | `RESERVED / ACTIVE RESEARCH` | 预留给当前 PR #50 中保存的最小精度晶格几何 / 距离进位路线；在 clean replay 前，历史分支资产内部仍可能保留旧 P019 编号。 |
+| P021 | `OPEN / ACTIVE RESEARCH` | 有限 causal-boundary 可执行核心已经进入 `main`：`src/enterprise_math/causal_boundary.py` 与 `tests/test_causal_boundary.py` 给出 program-specific 的有限无向图 + 整数 expansion boundary 层，并复用 P018 observation/refinement 工具。更广的 causal focusing、方向/witness 复合及物理解释继续保持活跃研究。 |
+| P022 | `OPEN / ACTIVE RESEARCH` | `A_p` / root-lattice 可执行几何核心已经进入 `main`：`src/enterprise_math/lattice_geometry.py` 与 `tests/test_lattice_geometry.py` 覆盖精确整数 `A_p` graph distance、quadratic separation、collapsed radial distance、shell/ball 计数与 distance-carry probes。更广的 lattice candidates、HCP/Barlow、跨 owner 接口及更强几何继续保持活跃研究。 |
 | P023 | `OPEN / ACTIVE RESEARCH` | `docs/P023_COMPOSITION_SAFE_COLLAPSE.zh-CN.md` 及补充：只有相关未来观察/运算能够通过粗商下沉时，该有限精度商才对所要求的未来计算合法；当前规范阶段覆盖 fiber 常值因子化、最粗修复、有限运算族闭包、商/倍数坍缩的精确兼容分类、one-bit 最小修复、reductive gap 到 borrow 的搬运、borrow 望远镜化，以及 safe-selector semigroup 的稳定等价。母层因子化/最粗修复已经 Lean 检查；一般 partition-refinement 属于前人工作，更广义 safe-precision 结构继续保持活跃研究。 |
 | P024 | `OPEN / ACTIVE RESEARCH` | `docs/P024_ACTION_LANGUAGE_PRECISION.zh-CN.md`：把 P023 特化到整数平移动作语言与有序阈值观测。当前已证明范围把精度胞元识别为可达边界轨道 `B-M`，给出单向 numerical-semigroup 精确类别数、gcd 过细缺陷等于相关 semigroup holes 数、conductor 局域非均匀边界层、真正双向动作完备化为 `g Z`，以及有限循环周期化后的自动子群完备化。state-dependent 与高维动作语言精度仍保持开放。 |
 
