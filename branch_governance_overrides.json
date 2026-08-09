@@ -52,62 +52,32 @@
     "bridge/a3-a4-generated-support-v3": {
       "state": "ACTIVE_BRIDGE",
       "reason": "Current thin A3/A4 bridge generation; first three-asset generated-support slice is canonical, and future bridge work must remain cross-owner only.",
-      "allowed_paths": [
-        "replay_manifest_a3_a4_bridge.json"
-      ],
-      "allowed_prefixes": [
-        "docs/A3_A4_",
-        "src/enterprise_math/a3_a4_",
-        "tests/test_a3_a4_"
-      ]
+      "allowed_paths": ["replay_manifest_a3_a4_bridge.json"],
+      "allowed_prefixes": ["docs/A3_A4_", "src/enterprise_math/a3_a4_", "tests/test_a3_a4_"]
     },
     "bridge/p017-p018-hard-core-v2": {
       "state": "ACTIVE_BRIDGE",
       "reason": "Current P017/P018 arithmetic-precision bridge; branch-side assets are confined to explicit p017_p018 theorem/test families.",
       "allowed_paths": [],
-      "allowed_prefixes": [
-        "docs/P017_P018_",
-        "src/enterprise_math/p017_p018_",
-        "tests/test_p017_p018_"
-      ]
+      "allowed_prefixes": ["docs/P017_P018_", "src/enterprise_math/p017_p018_", "tests/test_p017_p018_"]
     },
     "bridge/a2-e001-material-markov": {
       "state": "ACTIVE_BRIDGE",
       "reason": "Current A2/E001 future-material bridge; generic quotient theory remains upstream-owned while material future-state specializations stay here.",
       "allowed_paths": [],
-      "allowed_prefixes": [
-        "docs/A2_E001_",
-        "src/enterprise_math/material_future_",
-        "tests/test_material_future_"
-      ]
+      "allowed_prefixes": ["docs/A2_E001_", "src/enterprise_math/material_future_", "tests/test_material_future_"]
     },
     "program/p017-legendre": {
       "state": "ACTIVE_OWNER",
       "reason": "Current P017 square-basin/Legendre pressure-test frontier.",
       "allowed_paths": [],
-      "allowed_prefixes": [
-        "docs/LEGENDRE_",
-        "docs/P017_",
-        "src/enterprise_math/p017_",
-        "tests/test_p017_",
-        "experiments/p017_",
-        "lineage_p017_",
-        "sources_p017_"
-      ]
+      "allowed_prefixes": ["docs/LEGENDRE_", "docs/P017_", "src/enterprise_math/p017_", "tests/test_p017_", "experiments/p017_", "lineage_p017_", "sources_p017_"]
     },
     "program/p018-precision-v2": {
       "state": "ACTIVE_OWNER",
       "reason": "Current P018 precision-specific owner; generic quotient theorems belong to A2/P023.",
-      "allowed_paths": [
-        "replay_manifest_p018.json"
-      ],
-      "allowed_prefixes": [
-        "docs/P018_",
-        "docs/PRECISION_CALCULUS",
-        "src/enterprise_math/precision_",
-        "tests/test_precision_",
-        "EnterpriseMath/Precision/"
-      ]
+      "allowed_paths": ["replay_manifest_p018.json"],
+      "allowed_prefixes": ["docs/P018_", "docs/PRECISION_CALCULUS", "src/enterprise_math/precision_", "tests/test_precision_", "EnterpriseMath/Precision/"]
     },
     "program/p021-causal-focusing-v2": {
       "state": "PROVENANCE",
@@ -118,51 +88,26 @@
     "program/p021-causal-focusing-v3": {
       "state": "ACTIVE_OWNER",
       "reason": "Current P021 continuation after causal-boundary promotion; retains focusing, direction, causal-role and physically bounded application routes.",
-      "allowed_paths": [
-        "owner_manifest_p021_v3.json"
-      ],
-      "allowed_prefixes": [
-        "docs/P021_",
-        "src/enterprise_math/causal_",
-        "src/enterprise_math/direction_",
-        "tests/test_causal_",
-        "tests/test_direction_"
-      ]
+      "allowed_paths": ["owner_manifest_p021_v3.json"],
+      "allowed_prefixes": ["docs/P021_", "src/enterprise_math/causal_", "src/enterprise_math/direction_", "tests/test_causal_", "tests/test_direction_"]
     },
     "program/p022-geometry-v2": {
       "state": "ACTIVE_OWNER",
       "reason": "Current P022/A5 intrinsic geometry owner. A_p lattice core is canonical; HCP/Barlow/geodesic work remains same-owner active research.",
-      "allowed_paths": [
-        "replay_manifest_p022.json",
-        "bilingual_pairs.json"
-      ],
-      "allowed_prefixes": [
-        "docs/P022_",
-        "src/enterprise_math/geometry_",
-        "src/enterprise_math/lattice_",
-        "src/enterprise_math/p022_",
-        "tests/test_geometry_",
-        "tests/test_lattice_",
-        "tests/test_p022_"
-      ]
+      "allowed_paths": ["replay_manifest_p022.json", "bilingual_pairs.json"],
+      "allowed_prefixes": ["docs/P022_", "src/enterprise_math/geometry_", "src/enterprise_math/lattice_", "src/enterprise_math/p022_", "tests/test_geometry_", "tests/test_lattice_", "tests/test_p022_"]
     },
     "program/p024-action-precision": {
       "state": "ACTIVE_OWNER",
       "reason": "P024 closed-form action-language/boundary precision specialization owner; generic quotient and adjunction remain upstream-owned.",
-      "allowed_paths": [
-        "replay_manifest_p024.json"
-      ],
-      "allowed_prefixes": [
-        "docs/P024_",
-        "docs/PRIOR_ART_P024_",
-        "src/enterprise_math/action_language_precision",
-        "src/enterprise_math/adjoint_boundary_precision",
-        "src/enterprise_math/lattice_guard_precision",
-        "tests/test_p024_",
-        "experiments/p024_",
-        "lineage_p024_",
-        "sources_p024_"
-      ]
+      "allowed_paths": ["replay_manifest_p024.json"],
+      "allowed_prefixes": ["docs/P024_", "docs/PRIOR_ART_P024_", "src/enterprise_math/action_language_precision", "src/enterprise_math/adjoint_boundary_precision", "src/enterprise_math/lattice_guard_precision", "tests/test_p024_", "experiments/p024_", "lineage_p024_", "sources_p024_"]
+    },
+    "program/p025-abc-support-collapse": {
+      "state": "ACTIVE_OWNER",
+      "reason": "P025 L2 abc pressure-test owner created after the 11-route #215 snapshot; owns radical-support collapse, relation-conditioned witness precision, P025 prior-art and exact program regressions while generic correspondence/quotient mother theory remains upstream-owned.",
+      "allowed_paths": ["bilingual_pairs.json", "lineage_p025_abc.json", "sources_p025_abc.json"],
+      "allowed_prefixes": ["docs/P025_", "docs/PRIOR_ART_P025_", "src/enterprise_math/abc_", "tests/test_abc_", "experiments/p025_"]
     },
     "engineering/e001-material-impulse-world": {
       "state": "PROVENANCE",
@@ -174,30 +119,19 @@
       "state": "ACTIVE_OWNER",
       "reason": "Active E001 finite impulse/momentum research owner for force activation, remainder accumulation, precision re-entry and reversal certificates not exhausted by the canonical wall-world slice.",
       "allowed_paths": [],
-      "allowed_prefixes": [
-        "src/enterprise_math/material_impulse_",
-        "src/enterprise_math/material_force_",
-        "tests/test_material_impulse_",
-        "tests/test_material_force_"
-      ]
+      "allowed_prefixes": ["src/enterprise_math/material_impulse_", "src/enterprise_math/material_force_", "tests/test_material_impulse_", "tests/test_material_force_"]
     },
     "engineering/e001-material-pair-impulse": {
       "state": "ACTIVE_OWNER",
       "reason": "Current bounded two-body equal-and-opposite impulse owner following the canonical one-body wall generation.",
       "allowed_paths": [],
-      "allowed_prefixes": [
-        "src/enterprise_math/material_pair_impulse_",
-        "tests/test_material_pair_impulse_"
-      ]
+      "allowed_prefixes": ["src/enterprise_math/material_pair_impulse_", "tests/test_material_pair_impulse_"]
     },
     "engineering/e001-material-multiaction-protocol": {
       "state": "ACTIVE_OWNER",
       "reason": "Independent E001 empirical multi-action protocol owner consuming canonical P023 minimization rather than redefining it.",
       "allowed_paths": [],
-      "allowed_prefixes": [
-        "src/enterprise_math/material_empirical_",
-        "tests/test_material_empirical_"
-      ]
+      "allowed_prefixes": ["src/enterprise_math/material_empirical_", "tests/test_material_empirical_"]
     },
     "engineering/e001-material-state-cost": {
       "state": "REPLAY_REQUIRED",
