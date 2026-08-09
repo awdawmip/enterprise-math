@@ -1,8 +1,13 @@
 """Tree-independent integer pair-relation field for P019.
 
-For slot values x_i define d_ij=x_i-x_j.  The full field is antisymmetric and
+For slot values x_i define d_ij=x_i-x_j. The full field is antisymmetric and
 cycle-closed, reconstructs the slot values once the root total is fixed, and
 produces every contraction imbalance as a cut sum.
+
+A complete field is symmetric but redundant. Choosing one anchor slot yields
+N-1 difference coordinates plus one modulo-N legality condition; this is a
+tight current-state coordinate chart, separate from hierarchical contraction
+charts used for local merge/split operations.
 """
 
 from __future__ import annotations
@@ -82,6 +87,95 @@ def recover_values_from_field(field: RelationField, total: int) -> tuple[int, ..
     if sum(result) != total or pair_difference_field(result) != field:
         raise AssertionError("recovered state must reproduce the relation field")
     return result
+
+
+def anchor_difference_coordinates(
+    values: tuple[int, ...], anchor: int | None = None
+) -> tuple[int, ...]:
+    """Return N-1 differences x_i-x_anchor in increasing non-anchor order."""
+    _require_values(values)
+    size = len(values)
+    if anchor is None:
+        anchor = size - 1
+    if isinstance(anchor, bool) or not isinstance(anchor, int) or not 0 <= anchor < size:
+        raise ValueError("anchor must index the values tuple")
+    anchor_value = values[anchor]
+    return tuple(
+        values[index] - anchor_value
+        for index in range(size)
+        if index != anchor
+    )
+
+
+def recover_values_from_anchor_coordinates(
+    coordinates: tuple[int, ...], total: int, anchor: int | None = None
+) -> tuple[int, ...]:
+    """Recover N integer slots from N-1 anchor differences and the root total.
+
+    If delta_i=x_i-x_anchor, then
+
+        total = N*x_anchor + sum(delta_i).
+
+    Hence legality is one exact congruence
+
+        sum(delta_i) == total (mod N).
+    """
+    if not isinstance(coordinates, tuple):
+        raise ValueError("coordinates must be a tuple")
+    if any(isinstance(value, bool) or not isinstance(value, int) for value in coordinates):
+        raise ValueError("coordinates must be integers")
+    if isinstance(total, bool) or not isinstance(total, int):
+        raise ValueError("total must be an integer")
+    size = len(coordinates) + 1
+    if anchor is None:
+        anchor = size - 1
+    if isinstance(anchor, bool) or not isinstance(anchor, int) or not 0 <= anchor < size:
+        raise ValueError("anchor must index the reconstructed tuple")
+
+    numerator = total - sum(coordinates)
+    if numerator % size != 0:
+        raise ValueError("anchor differences and total violate the modulo-N legality condition")
+    anchor_value = numerator // size
+    result = []
+    coordinate_index = 0
+    for index in range(size):
+        if index == anchor:
+            result.append(anchor_value)
+        else:
+            result.append(anchor_value + coordinates[coordinate_index])
+            coordinate_index += 1
+    values = tuple(result)
+    if sum(values) != total:
+        raise AssertionError("anchor reconstruction must preserve the root total")
+    return values
+
+
+def anchor_chart_is_legal(coordinates: tuple[int, ...], total: int) -> bool:
+    """Test the single modulo-N legality condition for an anchor chart."""
+    if not isinstance(coordinates, tuple):
+        raise ValueError("coordinates must be a tuple")
+    if any(isinstance(value, bool) or not isinstance(value, int) for value in coordinates):
+        raise ValueError("coordinates must be integers")
+    if isinstance(total, bool) or not isinstance(total, int):
+        raise ValueError("total must be an integer")
+    size = len(coordinates) + 1
+    return (total - sum(coordinates)) % size == 0
+
+
+def anchor_chart_index(slot_count: int) -> int:
+    """Index of legal fixed-total anchor differences inside ambient Z^(N-1)."""
+    if isinstance(slot_count, bool) or not isinstance(slot_count, int) or slot_count <= 0:
+        raise ValueError("slot_count must be a positive integer")
+    return slot_count
+
+
+def field_from_anchor_coordinates(
+    coordinates: tuple[int, ...], total: int, anchor: int | None = None
+) -> RelationField:
+    """Recover the complete pair relation field from a tight anchor chart."""
+    return pair_difference_field(
+        recover_values_from_anchor_coordinates(coordinates, total, anchor)
+    )
 
 
 def block_cut_sum(
