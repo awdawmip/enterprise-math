@@ -59,17 +59,29 @@ Canonical interface conventions:
 - nontrivial primitive root/collapse uses `p >= 2`;
 - exact positive-exponent algebra uses `p >= 1` with `R_1 = C_1 = id`.
 
-### A1 — dynamics, kernels, collision and stabilization
+### A1 — dynamics, functional kernels, collision and stabilization
 
 Deterministic history merge, fiber/kernel multiplicity, collision spectra, coalescence and well-founded stabilization. Canonical time interface:
 
 `F_0 = id`, `F_{t+1} = T_t o F_t`, equivalently `F_t = T_{t-1} o ... o T_0` for `t >= 1`.
 
-Primary entry: P010, P011, P019, P020.
+FQ-004 also fixes the project-wide generic **functional-kernel layer**. For a typed carrier `X` and deterministic `f:X->Y`, current equality after `f` is `ker(f)`, not exact state equality unless `f` is injective. Deterministic postcomposition satisfies
+
+`ker(f) subseteq ker(g o f)`.
+
+A state pair is ordinary product notation `X x X`, not a separate primitive.
+
+Primary entry: `docs/FOUNDATIONS.*`, T012/P010, P011, P019, P020.
 
 ### A2 — observation and future-compatible quotient
 
 Observation factorization, predictive/future closure, finite operation-family compatibility, minimal repair and task-relative precision. P018/P023/P024 are primary entry points. The finite-arity quotient operation-congruence extension is canonical and Lean-routed through `EnterpriseMath/Quotient/OperationCongruence.lean` when imported by the root build.
+
+For a declared future language `W`, package the required future outputs as `Sigma_W:X->S_W`. Its kernel is the future-safe equality for **that declared language**. If current observation `O` is included in the signature, then
+
+`exact equality subseteq ker(Sigma_W) subseteq ker(O)`.
+
+A Difference/defect/critical-grid or other compressed coordinate may replace state information only after the required current/future observable factors through it. P023 owns the factorization/coarsest-repair theory; P024 owns the exact translation-language specialization. These generic kernel/factorization/distinguishability ideas are classical prior mathematics, not Enterprise Math novelty.
 
 ### A3 — structured relation-state algebra
 
@@ -82,7 +94,7 @@ Canonical executable core on `main`:
 - `relation_scale.py`;
 - their canonical regression suites.
 
-These modules are shared executable specifications. Any theorem statement still living only in a research branch/Relay keeps its WIP status until separately canonicalized.
+These modules are shared executable specifications. Any theorem statement still living only in a research branch/Relay keeps its WIP status until separately canonicalized. FQ-004 explicitly preserves A3 as an extension richer than ordinary functional-kernel membership unless an owner proves an exact reduction.
 
 ### A4 — admissible support / correspondence algebra
 
@@ -94,7 +106,7 @@ Canonical executable core on `main`:
 - `relational_spectrum.py`;
 - their canonical regression suites.
 
-The A3→A4 executable bridge `a3_a4_support_bridge.py` is also canonical on `main`; theorem/proof status remains controlled by canonical result/Relay provenance rather than module presence.
+The A3→A4 executable bridge `a3_a4_support_bridge.py` is also canonical on `main`; theorem/proof status remains controlled by canonical result/Relay provenance rather than module presence. FQ-004 does not collapse multivalued correspondence semantics into one deterministic kernel.
 
 ### A5 — intrinsic discrete geometry
 
@@ -126,6 +138,8 @@ This slice is reusable for exact retained-detail impulse accounting, discrete mo
 
 ## 5. High-value negative boundaries
 
+- exact state equality, current observational equality and declared-future-safe equality must not be silently identified;
+- a Difference/defect/critical-grid coordinate is not dynamically complete without a factorization/sufficiency theorem;
 - coarse equality/support/cardinality does not automatically preserve later composition;
 - A3 signed relation data can cancel under quotient, so coarse support does not certify universal fine support;
 - pairwise/common-target cardinality can lose witness identity needed by multi-step composition;
@@ -134,7 +148,7 @@ This slice is reusable for exact retained-detail impulse accounting, discrete mo
 - ordinary metric claims require their graph/weight hypotheses; directed/asymmetric structures must not silently inherit symmetry;
 - an E001 engineering transition/result must not be promoted to a universal physical law merely because its executable slice is canonical;
 - file-name equality, Git ancestry or `ahead(main)>0` is not proof of new mathematics;
-- established machinery such as Galois connections, semigroups, numerical semigroups and partition refinement remains prior art.
+- established machinery such as function kernels, Galois connections, semigroups, automata distinguishability, numerical semigroups and partition refinement remains prior art.
 
 ## 6. Shared executable tool surface
 
@@ -150,6 +164,8 @@ Python roots under `src/enterprise_math/` include:
 - P021: `causal_boundary.py`;
 - P017: mirror/cofactor/Legendre pressure-test modules;
 - E001 application: `material_impulse_accounting.py`, `material_impulse_world_1d.py`, `material_impulse_tick_order.py`, `material_impulse_wall_world_1d.py` and their tests.
+
+No new Python/Lean subsystem is required by FQ-004: the canonical functional-kernel layer is a language/interface clarification backed by existing theorem owners.
 
 `src/enterprise_math/__init__.py` exports only a compact stable subset. A non-exported module may still be a canonical internal executable specification; check scope/provenance before treating it as a stable API.
 
@@ -186,9 +202,13 @@ Research is parallel; canonical promotion is serialized. `defer` is routing, not
 
 Mechanical or already-determined bottom-layer drift is fixed directly. Genuine unresolved mathematical/interface choices are minimally verified and escalated to Issue #164, then handed to another researcher.
 
-Current active foundation questions:
+Canonicalized foundation questions FQ-001 through FQ-004 now establish:
 
-- `FQ-20260809-004` — candidate minimal State/Pair/kernel → future-safe precision foundation interface from cross-route backflow;
+- positive-exponent primitive/algebra scope;
+- `N=N_0` including zero;
+- zero-based cumulative time;
+- the minimal classical functional-kernel / declared-future-signature layering described above.
+
+Current active foundation question:
+
 - `FQ-20260809-005` — stable `graph_distance` API domain versus the P012 ordinary metric theorem domain.
-
-Resolved canonical conventions remain FQ-001 through FQ-003 as stated above.
