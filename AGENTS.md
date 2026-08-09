@@ -6,12 +6,13 @@ Before substantive mathematical or engineering research:
 
 1. read `docs/RESEARCH_COMMON_SURFACE.en.md` (or the Chinese semantic pair);
 2. read `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`;
-3. read `research_scheduler.json`; read the live Research Dispatch Board Issue #240 when it is available through a non-blocking read path;
-4. read `docs/RESEARCH_OWNER_ISOLATION.en.md`;
-5. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
-6. read the latest relevant entries in Research Relay Issue #82 when available;
-7. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family;
-8. when the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md` and relevant entries in Foundation Problem Set Issue #164.
+3. read `docs/RESEARCH_SCHEDULER_NONBLOCKING_STARTUP.md`; this later narrow addendum controls new-conversation startup, scheduler writes, and handoff liveness where the older scheduling protocol conflicts;
+4. read `research_scheduler.json`; read the live Research Dispatch Board Issue #240 when it is available through a non-blocking read path;
+5. read `docs/RESEARCH_OWNER_ISOLATION.en.md`;
+6. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
+7. read the latest relevant entries in Research Relay Issue #82 when available;
+8. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family;
+9. when the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md` and relevant entries in Foundation Problem Set Issue #164.
 
 Scheduler availability is never a startup gate. Failure to read Issue #240, failure to write scheduler events, an interactive connector/workflow approval requirement, rate limits, network errors, or tool unavailability are coordination degradations only. They must not stop a new conversation, stop an explicit user task, or be represented as a mathematical `HARD_BLOCK`.
 
