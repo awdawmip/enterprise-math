@@ -1,71 +1,64 @@
 """Discovery-stage P018 all-power cross-divisor coalescence law.
 
-This module generalizes the square-basin cubic collision mechanism to arbitrary
-source power basins and arbitrary quotient-root observations.
-
-Let
+Let a source state lie in the complete power basin
 
     k^p <= n < (k+1)^p
 
-with source-basin exponent ``p>=1``. Observe the quotient through an ``r``-th
-integer root, ``r>=1``. If two distinct divisors ``2<=d<e`` give the same
-actual quotient-root ``t`` then
+and observe floor quotients through an ``r``-th integer root.  The basic actual
+cross-divisor collision law is
 
-    e*t^r <= n < d*(t+1)^r.
+    R_r(n//d) = R_r(n//e) = t,   2<=d<e
+        =>
+    (e-d) * t^(r+1) < r*n < r*(k+1)^p.
 
-The collision itself supplies the sharp scale constant. Since ``e>=d+1``, if
-``t+1 >= r(d+1)`` then the standard finite-difference/Bernoulli estimate gives
+Thus the *divisor-span* of a root collision is itself controlled by the target
+root scale.  The pair theorem ``t^(r+1)<r(k+1)^p`` is only the gap-one case.
 
-    d*((t+1)^r - t^r) <= t^r,
+For any finite set of distinct total divisors coalescing at the same positive
+root t, if the multiplicity is ``m`` then its span is at least ``m-1``. Hence
 
-and hence
+    (m-1) * t^(r+1) < r*(k+1)^p
 
-    d*(t+1)^r <= (d+1)*t^r <= e*t^r <= n,
+and therefore
 
-contradicting ``n < d*(t+1)^r``. Therefore
+    m <= 1 + floor((r*(k+1)^p - 1) / t^(r+1)).
 
-    t+1 < r(d+1),
+This is a graded path-coalescence capacity law.  With canonical quotient-path
+flatness, the same bound applies to distinct factor-extraction paths after they
+are identified by their total divisors.
 
-so in particular ``t < r*e``. Multiplying by ``t^r`` yields the all-power
-cross-root coalescence law
+The law is asymptotically sharp at every multiplicity scale.  Fix an integer
+gap ``g>=1`` and parameter ``a>=2``.  Put
 
-    t^(r+1) < r*e*t^r <= r*n < r*(k+1)^p.
+    d = g*a,
+    e = g*(a+1),
+    t = r*a - 1,
+    n = e*t^r.
 
-Thus every actual cross-divisor collision lies below the exact integer horizon
+The endpoint divisors d,e have the same actual r-root t; monotonicity then puts
+every integer divisor in the consecutive block [d,e] into the same root cell,
+so the multiplicity is exactly ``g+1``.  Moreover
+
+    g*t^(r+1)/(r*n)
+      = (r*a-1)/(r*(a+1)) -> 1.
+
+For any fixed source exponent p, assigning n to its canonical p-root basin gives
+``t asymp k^(p/(r+1))``.  Consequently the leading constant r, exponent
+``p/(r+1)``, and the graded multiplicity profile all have the correct asymptotic
+shape for this mechanism.
+
+The exact two-divisor horizon is
 
     H_{p,r}(k) = R_{r+1}(r*(k+1)^p - 1).
 
-The asymptotic collision exponent is
+The phase boundary is governed by ``p/(r+1)``: ``r+1>p`` is sublinear,
+``r+1=p`` is linear, and ``r+1<p`` is not forced to contract.  In particular,
+the same-exponent family r=p always contracts as ``O(k^(p/(p+1)))``.
 
-    gamma(p,r) = p/(r+1).
-
-Consequently ``r+1>p`` is the sublinear/coalescence-contraction regime;
-``r+1=p`` is the linear boundary; and ``r+1<p`` is not forced to contract by
-this mechanism. In the same-exponent family ``r=p`` one obtains the strictly
-sublinear law ``O(k^(p/(p+1)))``.
-
-Both the exponent and the leading root-order constant ``r`` are asymptotically
-sharp. For every ``r,m>=1`` (using ``m>=2`` in the executable witness), put
-
-    d=m,  e=m+1,  t=r*m-1,
-    n=(m+1)*(r*m-1)^r.
-
-Bernoulli's inequality applied to ``rm/(rm-1)=1+1/(rm-1)`` gives
-
-    m*(r*m)^r > (m+1)*(r*m-1)^r,
-
-so division by both ``m`` and ``m+1`` has exact ``r``-root ``t``. Moreover
-
-    t^(r+1)/(r*n) = (r*m-1)/(r*(m+1)) -> 1.
-
-For any fixed source exponent ``p``, assigning this ``n`` to its canonical
-``p``-root basin also makes ``t`` scale as ``k^(p/(r+1))``. Hence neither the
-exponent nor the leading constant can be improved uniformly for the general
-cross-divisor collision mechanism.
-
-All statements use exact integer roots/division. Bernoulli/difference-of-powers
-inequalities are classical; the project-specific value is the finite-precision
-coalescence packaging, exact integer horizon, and exponent/phase-boundary law.
+All reference functions use exact integer roots and floor division. Classical
+Bernoulli/difference-of-powers inequalities are prior art; the project-specific
+candidate contribution is the finite-precision coalescence packaging, sharp
+integer horizons/capacities, and their use as a well-founded recursion skeleton.
 """
 
 from __future__ import annotations
@@ -79,7 +72,7 @@ def _require_int(name: str, value: int) -> None:
 
 
 def coalescence_root_constant(root_exp: int) -> int:
-    """Return the sharp general cross-divisor constant C_r=r."""
+    """Return the sharp gap-one cross-divisor constant C_r=r."""
     _require_int("root_exp", root_exp)
     if root_exp < 1:
         raise ValueError("root_exp must be positive")
@@ -135,13 +128,17 @@ def cross_root_divisor_collision(
     left: int,
     right: int,
 ) -> dict[str, object]:
-    """Validate the all-power actual cross-divisor collision law.
+    """Validate the sharp divisor-span collision law.
 
-    If the two quotient roots coincide at ``t``, verify
+    If the quotient roots coincide at ``t`` and ``g=right-left``, verify
 
-        t^(r+1) < r*(k+1)^p
+        g * t^(r+1) < r*(k+1)^p.
 
-    and the stronger local scale fact ``t+1 < r*(d+1)``.
+    The proof-scale inequality is
+
+        g*(t+1) < r*right.
+
+    For g=1 this gives the earlier ``t+1<r(d+1)`` theorem.
     """
     for name, value in (("left", left), ("right", right)):
         _require_int(name, value)
@@ -155,6 +152,7 @@ def cross_root_divisor_collision(
         k, n, source_exp, root_exp, right
     )
     horizon = cross_root_coalescence_horizon(k, source_exp, root_exp)
+    gap = right - left
     result: dict[str, object] = {
         "k": k,
         "n": n,
@@ -162,6 +160,7 @@ def cross_root_divisor_collision(
         "root_exp": root_exp,
         "left": left,
         "right": right,
+        "divisor_gap": gap,
         "left_root": left_root,
         "right_root": right_root,
         "coalesces": left_root == right_root,
@@ -179,22 +178,21 @@ def cross_root_divisor_collision(
         raise AssertionError("common root upper interval failed")
 
     delta = (t + 1) ** root_exp - t**root_exp
-    if t**root_exp >= left * delta:
-        raise AssertionError("divisor-spacing difference inequality failed")
+    if gap * t**root_exp >= left * delta:
+        raise AssertionError("divisor-gap difference inequality failed")
 
-    # Mathematical proof boundary: if t+1 were at least r(d+1), the standard
-    # difference-of-powers/Bernoulli estimate would imply
-    # d*(t+1)^r <= (d+1)t^r, contradicting the exact collision interval.
-    if t + 1 >= root_exp * (left + 1):
-        raise AssertionError("collision violated the sharp t+1<r(d+1) bound")
-    if t >= root_exp * right:
-        raise AssertionError("collision root exceeded the sharp r*e scale")
+    # Generalized Bernoulli contradiction: if
+    # r*right <= gap*(t+1), then the tangent bound at x=t+1 gives
+    # left*(t+1)^r <= right*t^r, contradicting the exact collision cell.
+    if gap * (t + 1) >= root_exp * right:
+        raise AssertionError("collision violated g*(t+1)<r*e")
 
     argument_exclusive = root_exp * (k + 1) ** source_exp
-    if t ** (root_exp + 1) >= argument_exclusive:
-        raise AssertionError("cross-root collision escaped the all-power bound")
-    if t > horizon:
-        raise AssertionError("cross-root collision exceeded H_{p,r}(k)")
+    if t > 0:
+        if gap * t ** (root_exp + 1) >= argument_exclusive:
+            raise AssertionError("collision escaped the graded all-power bound")
+        if gap == 1 and t > horizon:
+            raise AssertionError("gap-one collision exceeded H_{p,r}(k)")
 
     return {
         **result,
@@ -202,60 +200,166 @@ def cross_root_divisor_collision(
         "root_order_constant": root_exp,
         "root_increment": delta,
         "collision_power": t ** (root_exp + 1),
+        "weighted_collision_power": gap * t ** (root_exp + 1),
         "horizon_argument": argument_exclusive - 1,
         "sublinear_regime": root_exp + 1 > source_exp,
         "linear_boundary": root_exp + 1 == source_exp,
     }
 
 
-def sharp_adjacent_collision_family(
-    source_exp: int, root_exp: int, m: int
-) -> dict[str, int]:
-    """Return an explicit asymptotically sharp adjacent-divisor collision.
+def coalescence_multiplicity_cap(
+    k: int,
+    source_exp: int,
+    root_exp: int,
+    target_root: int,
+) -> int | None:
+    """Return the sharp graded cap for a positive target root.
 
-    ``d=m``, ``e=m+1``, ``t=r*m-1`` and
-    ``n=(m+1)t^r``.  Both quotient roots are exactly ``t``.  The returned
-    ``k`` is the canonical source ``p``-root index of ``n``.
+    For t>0, any set of distinct total divisors coalescing at t has size at most
+
+        1 + floor((r*(k+1)^p - 1) / t^(r+1)).
+
+    Root zero is the terminal degenerate cell and has no finite cap from this
+    inequality, so the function returns ``None`` there.
+    """
+    for name, value in (
+        ("k", k),
+        ("source_exp", source_exp),
+        ("root_exp", root_exp),
+        ("target_root", target_root),
+    ):
+        _require_int(name, value)
+    if k < 1 or source_exp < 1 or root_exp < 1 or target_root < 0:
+        raise ValueError("k/exponents must be positive and target_root nonnegative")
+    if target_root == 0:
+        return None
+    numerator = root_exp * (k + 1) ** source_exp - 1
+    denominator = target_root ** (root_exp + 1)
+    return 1 + numerator // denominator
+
+
+def observed_root_divisor_multiplicity(
+    k: int,
+    n: int,
+    source_exp: int,
+    root_exp: int,
+    target_root: int,
+    max_divisor: int,
+) -> dict[str, object]:
+    """Audit actual divisor multiplicity against the graded cap on a finite range."""
+    for name, value in (("target_root", target_root), ("max_divisor", max_divisor)):
+        _require_int(name, value)
+    if target_root <= 0:
+        raise ValueError("target_root must be positive")
+    if max_divisor < 2:
+        raise ValueError("max_divisor must be at least 2")
+    hits = tuple(
+        divisor
+        for divisor in range(2, max_divisor + 1)
+        if power_basin_cross_root(
+            k, n, source_exp, root_exp, divisor
+        ) == target_root
+    )
+    cap = coalescence_multiplicity_cap(
+        k, source_exp, root_exp, target_root
+    )
+    if cap is None:
+        raise AssertionError("positive target unexpectedly lost its cap")
+    if len(hits) > cap:
+        raise AssertionError("observed divisor multiplicity exceeded graded cap")
+    if len(hits) >= 2:
+        collision = cross_root_divisor_collision(
+            k, n, source_exp, root_exp, hits[0], hits[-1]
+        )
+        if not collision["coalesces"]:
+            raise AssertionError("extreme hit divisors failed to coalesce")
+    return {
+        "k": k,
+        "n": n,
+        "source_exp": source_exp,
+        "root_exp": root_exp,
+        "target_root": target_root,
+        "divisor_hits": hits,
+        "multiplicity": len(hits),
+        "multiplicity_cap": cap,
+    }
+
+
+def sharp_consecutive_collision_block(
+    source_exp: int, root_exp: int, gap: int, parameter: int
+) -> dict[str, object]:
+    """Construct a sharp block of gap+1 consecutive coalescing divisors.
+
+    Put ``d=gap*parameter``, ``e=gap*(parameter+1)``, ``t=r*parameter-1``
+    and ``n=e*t^r``. The endpoint collision implies every integer divisor in
+    ``[d,e]`` has the same actual root t by monotonicity.
     """
     for name, value in (
         ("source_exp", source_exp),
         ("root_exp", root_exp),
-        ("m", m),
+        ("gap", gap),
+        ("parameter", parameter),
     ):
         _require_int(name, value)
-    if source_exp < 1 or root_exp < 1 or m < 2:
-        raise ValueError("source_exp/root_exp must be positive and m>=2")
+    if source_exp < 1 or root_exp < 1 or gap < 1 or parameter < 2:
+        raise ValueError("exponents/gap must be positive and parameter>=2")
 
-    d = m
-    e = m + 1
-    t = root_exp * m - 1
+    d = gap * parameter
+    e = gap * (parameter + 1)
+    t = root_exp * parameter - 1
     n = e * t**root_exp
     if n >= d * (t + 1) ** root_exp:
-        raise AssertionError("sharp adjacent collision interval is empty")
-    if n // e != t**root_exp:
-        raise AssertionError("upper-divisor quotient is not the exact lower root power")
-    if not t**root_exp <= n // d < (t + 1) ** root_exp:
-        raise AssertionError("lower-divisor quotient escaped the common root cell")
-
+        raise AssertionError("sharp collision block interval is empty")
     k = integer_nth_root(n, source_exp)
     if not k**source_exp <= n < (k + 1) ** source_exp:
         raise AssertionError("constructed state escaped its canonical source basin")
-    horizon = cross_root_coalescence_horizon(k, source_exp, root_exp)
-    if t > horizon:
-        raise AssertionError("sharp witness escaped the general horizon")
+
+    hits = tuple(range(d, e + 1))
+    for divisor in hits:
+        quotient = n // divisor
+        if not t**root_exp <= quotient < (t + 1) ** root_exp:
+            raise AssertionError("intermediate divisor escaped the common root cell")
+    cap = coalescence_multiplicity_cap(k, source_exp, root_exp, t)
+    if cap is None or len(hits) > cap:
+        raise AssertionError("sharp block exceeded the proved multiplicity cap")
 
     return {
         "source_exp": source_exp,
         "root_exp": root_exp,
-        "m": m,
+        "gap": gap,
+        "parameter": parameter,
         "k": k,
         "n": n,
         "left": d,
         "right": e,
         "common_root": t,
-        "horizon": horizon,
-        "sharp_ratio_numerator": t,
-        "sharp_ratio_denominator": root_exp * (m + 1),
+        "divisor_hits": hits,
+        "multiplicity": len(hits),
+        "multiplicity_cap": cap,
+        "weighted_ratio_numerator": gap * t,
+        "weighted_ratio_denominator": root_exp * e,
+    }
+
+
+def sharp_adjacent_collision_family(
+    source_exp: int, root_exp: int, m: int
+) -> dict[str, int]:
+    """Backward-compatible gap-one sharp family."""
+    data = sharp_consecutive_collision_block(source_exp, root_exp, 1, m)
+    return {
+        "source_exp": source_exp,
+        "root_exp": root_exp,
+        "m": m,
+        "k": int(data["k"]),
+        "n": int(data["n"]),
+        "left": int(data["left"]),
+        "right": int(data["right"]),
+        "common_root": int(data["common_root"]),
+        "horizon": cross_root_coalescence_horizon(
+            int(data["k"]), source_exp, root_exp
+        ),
+        "sharp_ratio_numerator": int(data["weighted_ratio_numerator"]),
+        "sharp_ratio_denominator": int(data["weighted_ratio_denominator"]),
     }
 
 
@@ -284,7 +388,7 @@ def coarse_sublinear_descent_threshold(source_exp: int, root_exp: int) -> int:
 
         r*(k+1)^p <= r*2^p*k^p.
 
-    Therefore ``k^s >= r*2^p`` is sufficient.  This threshold is deliberately
+    Therefore ``k^s >= r*2^p`` is sufficient. This threshold is deliberately
     simple rather than optimal.
     """
     _require_int("source_exp", source_exp)
