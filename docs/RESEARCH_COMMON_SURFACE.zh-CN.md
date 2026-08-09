@@ -2,196 +2,193 @@
 
 状态：`ACTIVE / REQUIRED PREFLIGHT`  
 生效：2026-08-09  
-目的：让每一条研究路线在开始新的 theorem line 之前，都能看到同一份紧凑的可复用已证明数学、可执行工具、负向边界以及跨路线实时结果。
+目的：让每一条研究路线在开始新的 theorem line 前，都能看到同一份紧凑的可复用数学、可执行工具、负向边界、活跃接口警报、dispatch 状态与跨路线实时结果。
 
-本文件是路由器，不替代正式证明。精确定理陈述仍以 canonical theorem/problem 文档为准；尚未进入 main 的 branch 结果则以带 source commit provenance 的 Research Relay 条目为准。
+本文件是路由器，不替代正式证明。精确定理范围仍由 canonical result 文档控制；branch 上已证明结果在正式晋升前必须继续显式保持 WIP 身份。Scheduler 只协调工作，不会提升数学真值状态。
 
-## 1. 所有 L1/L2/L3 研究路线的强制预检
+## 1. 强制预检
 
-开始新的 theorem line 前：
+开始新的 L1/L2/L3 theorem line 前：
 
 1. 阅读本共享研究面；
 2. 阅读 `docs/RESEARCH_SCHEDULING_PROTOCOL.*`；
-3. 阅读 `docs/PROBLEM_STATUS.*` 以及相关问题的 canonical result 文档；
-4. 检索 Research Relay Issue #82 中最新且相关的条目；
-5. 如果拟研究内容与已有工具/定理族重合，查看对应 executable specification/tests 或 Lean module；
-6. 如果工作触及底层数学语言、符号、公式、定理/工具接口或已登记的矛盾，阅读 `docs/FOUNDATION_STEWARD_PROTOCOL.*` 与 Foundation Problem Set Issue #164 中相关 `FQ-*` 条目；
-7. 然后才判断下一步究竟是新母定理、特化、bridge、counterexample、重复结果，还是对基础问题的回答。
+3. 阅读 `research_scheduler.json` 与实时 Research Dispatch Board Issue #240；
+4. 阅读 `docs/RESEARCH_OWNER_ISOLATION.*`；
+5. 阅读 `docs/PROBLEM_STATUS.*` 以及相关 canonical result 文档；
+6. 阅读 Research Relay Issue #82 中最新且相关的条目；
+7. 检查重叠的 executable specs/tests 与 root build 实际导入的 Lean 模块；
+8. 若工作触及底层语言、公式、定理/工具接口，阅读 `docs/FOUNDATION_STEWARD_PROTOCOL.*` 与 Foundation Problem Set Issue #164 中相关 `FQ-*`；
+9. 然后才判断工作属于母定理、特化、bridge、counterexample、tool、重复结果，还是基础问题回答。
 
-不要求把整个仓库注入工作上下文。目标是“共享认知 + 选择性读取”。
+采用选择性读取，不把整个仓库注入工作上下文。
 
-## 2. 状态分类
+## 2. 认识论/状态纪律
 
-通过共享面遇到的可复用结果必须明确属于以下一种：
+必须区分：
 
-- `CANONICAL_MAIN`：已证明并集成到 `main`；在声明 scope 内所有路线可直接消费；
-- `LEAN_CHECKED_MAIN`：canonical result 且已由 root Lean build 覆盖；
-- `PROVED_WIP_RELAY`：已在 research branch 证明并通过 Relay 传播，但尚未 canonical；可以作为显式 branch/WIP 输入使用，不得悄悄冒充 main truth；
-- `EXECUTABLE_CHECKED`：有精确有限/参考实现验证支持，但不能替代证明；
-- `COUNTEREXAMPLE / NEGATIVE_BOUNDARY`：可复用的不可能性或失败结果，传播优先级与正定理相同；
-- `CONJECTURAL`：仅为研究目标。
+- `CANONICAL_MAIN`：在声明 scope 内已经证明并进入 `main`；
+- `LEAN_CHECKED_MAIN`：canonical 且被实际 imported/warning-fatal Lean build 覆盖；
+- `PROVED_WIP_RELAY`：branch 已证明并带 source provenance，但尚未 canonical；
+- `EXECUTABLE_CHECKED`：有精确 executable/finite validation 支持，但不能单独替代证明；
+- `COUNTEREXAMPLE / NEGATIVE_BOUNDARY`：可复用的不可能性/失败结果；
+- `CONJECTURAL`：研究目标。
 
-## 3. Canonical 已证明定理知识通道
+**canonical executable asset** 指已经把 source/test 资产集成进 `main`；它本身不自动把模块中体现的每一个数学陈述升级为 `PROVED`。同样，scheduler 的 claim/lease 只记录谁在工作，不代表已经证明了什么。
 
-所有路线必须知道：canonical 已证明数学绝不只存在于 `docs/THEOREMS.*`。
+## 3. Canonical 知识通道
 
-### 基础 theorem catalogue
+- `docs/THEOREMS.*`：原始 core 的紧凑 theorem catalogue；
+- `docs/PROBLEM_STATUS.*`：编号问题的权威状态/router；
+- canonical `docs/Pxxx_*.{en,zh-CN}.md`：现代 theorem families 的精确陈述与假设；
+- `EnterpriseMath.lean` 及其实际 import 的 `EnterpriseMath/**.lean`：Lean-checked 子集；
+- Research Relay Issue #82：带 source commit/relation class 的 branch 已证明 WIP 结果/反例；
+- Foundation Problem Set Issue #164：经过最低验证、需要研究处理的底层问题；
+- `research_scheduler.json` 与 Issue #240：仅用于实时 dispatch/lease/handoff 协调。
 
-- `docs/THEOREMS.en.md` / `docs/THEOREMS.zh-CN.md`：最初 core 的紧凑 proved propositions；
-- `docs/PROBLEM_STATUS.en.md` / `docs/PROBLEM_STATUS.zh-CN.md`：编号问题状态与 canonical result pointer 的权威账本；
-- `PROBLEM_STATUS` 指向的 canonical `docs/Pxxx_*.{en,zh-CN}.md`：现代 theorem families 的精确陈述与 scope；
-- `EnterpriseMath.lean` 及其导入的 `EnterpriseMath/**.lean`：Lean-checked 子集。
+不能因为某结果或工具不在当前 branch 就推断“项目里未知”。
 
-### 已证明但尚未 canonical 的实时通道
-
-- Research Relay Issue #82：带 source branch/commit、最弱假设、relation class 与 requested action 的跨路线精确定理/反例。
-
-任何路线都不得因为“自己的 branch 里没有”就推断某个结果“项目里未知”。
-
-## 4. 全线路共享的可复用定理族
-
-本节按 theorem-family 粒度列出；精确假设和编号必须回到相应 canonical 文档。
+## 4. 全线路共享数学归属面
 
 ### A0 — primitive discrete state algebra
 
-可复用工具/结果包括：
+整数根/坍缩、basin/gap 坐标、quotient/remainder、scale factor 与 gcd/lcm lattice、signed state、typed descent、adjoint、commutation 与 fixed points。主要 canonical 入口：P001–P009 与 `docs/THEOREMS.*`。
 
-- integer roots 与 exact perfect-power collapse；
-- basin characterization/cardinality 与 collapse-gap coordinates；
-- root exponent composition 与 commutation；
-- quotient/remainder 与 multiple-collapse 的不同语义；
-- total scale-factor algebra、divisibility projection、gcd/lcm scale lattice、path independence 与 nonunique inverse refinement；
-- signed-state distinctions；
-- typed strict-rank descent；
-- order-adjoint/right-adjoint 表述与 reductive idempotent collapse。
+Canonical 接口约定：
 
-主要 canonical 入口：P001–P009 result docs 与 `docs/THEOREMS.*`。
+- `N = N_0 = {0,1,2,...}`；正整数记为 `N_{>0}`；
+- 非平凡原始 root/collapse 使用 `p >= 2`；
+- 精确正指数代数使用 `p >= 1`，并有 `R_1 = C_1 = id`。
 
 ### A1 — dynamics、kernels、collision、stabilization
 
-可复用工具/结果包括：
+确定性 history merge、fiber/kernel multiplicity、collision spectra、coalescence 与 well-founded stabilization。规范时间接口：
 
-- deterministic history merging：在相同后续 deterministic composition 下，已经合并的状态不会重新分裂；
-- exact collision/fiber multiplicity observables 与 collision spectra；
-- finite/eventual coalescence structures；
-- well-founded order 上 monotone reductive stabilization；
-- stable collapse-word behavior 与 lcm fixed-point structure。
+`F_0 = id`，`F_{t+1} = T_t o F_t`；等价地，对 `t >= 1`，`F_t = T_{t-1} o ... o T_0`。
 
-主要 canonical 入口：P010、P011、P019、P020。
+主要入口：P010、P011、P019、P020。
 
 ### A2 — observation 与 future-compatible quotient
 
-可复用工具/结果包括：
-
-- 所需 observable/operation 能通过 quotient 下沉，当且仅当其在 quotient fibers 上保持一致；
-- 针对声明 future task 的 coarsest exact repair/refinement；
-- finite predictive/future-signature refinement 与 stabilization；
-- finite operation-family compatibility 与 operation-word semantics；
-- arithmetic 特化中的 exact quotient/multiple-collapse compatibility 与 minimal boundary-bit repair；
-- task-relative precision：脱离 future language 不存在一个普适 scalar precision。
-
-主要 canonical 入口：P018 precision-state 结果、P023 及其 canonical supplements、P024 specializations。branch extension 通过 Relay #82 传播。
+Observation factorization、predictive/future closure、有限 operation-family compatibility、minimal repair 与 task-relative precision。P018/P023/P024 是主要入口。finite-arity quotient operation-congruence extension 已 canonical；其 Lean 资产为 `EnterpriseMath/Quotient/OperationCongruence.lean`，只有被 root build 实际导入时才可声称对应部分 Lean-checked。
 
 ### A3 — structured relation-state algebra
 
-共享 WIP/core 概念包括整数 weighted relation field
+核心对象：`Z_ij = m_j*c_i - m_i*c_j`，并包括 partition coarsening `Z' = A Z A^T`、relation scale/rank 与 refinement structure。
 
-`Z_ij = m_j*c_i - m_i*c_j`，
+已经进入 `main` 的 canonical executable core：
 
-partition coarsening `Z' = A Z A^T`、partition kernels、integer relation scale/rank、refinement memory 与 task-derived exact relation precision。
+- `weighted_relation_field.py`；
+- `relation_lattice.py`；
+- `relation_scale.py`；
+- 对应 canonical regression suites。
 
-在 canonical replay 完成前，消费 A3 结果必须显式保留 `PROVED_WIP_RELAY`/branch provenance，不能把它们伪装成 main theorem。
+这些模块是全线路共享 executable specifications。任何仍只存在于 research branch/Relay 的 theorem statement，在单独 canonicalize 前仍保持 WIP。
 
 ### A4 — admissible support / correspondence algebra
 
-共享 WIP/core 概念包括 finite multivalued relations、relation composition/converse、common-target structure、radius-indexed supports、split-completeness boundaries、MAY/MUST semantics、witness/group spectra，以及在 total-function graph 上退化回 P011。
+Finite multivalued relation、converse/composition、common-target structure、radius-indexed support、split-completeness boundary、MAY/MUST semantics 与 witness/group spectra。
 
-同样必须区分 WIP 已证明结果与 canonical-main 结果。
+已经进入 `main` 的 canonical executable core：
+
+- `admissible_support.py`；
+- `relational_spectrum.py`；
+- 对应 canonical regression suites。
+
+A3→A4 executable bridge `a3_a4_support_bridge.py` 也已进入 `main`；其 theorem/proof 状态仍由 canonical result/Relay provenance 控制，不能仅凭 module 存在自动升级。
 
 ### A5 — intrinsic discrete geometry
 
-可复用 canonical/WIP 工具包括 primitive adjacency、graph distance、finite balls/shells、lattice/root-lattice candidates、radial/quadratic observations、distance carry 与 geometry-specific contraction。P012 给出 canonical metric foundation；更广的 P022 geometry 仍在 active research。
+P012 给出**连通无向简单图**上的 canonical 普通度量基础。Canonical 工具包括 `geometry.py`，以及已经进入 `main` 的 P022 `A_p` / root-lattice executable core `lattice_geometry.py` 与其 regression suite。
+
+P022 仍为 `OPEN / ACTIVE RESEARCH`；当前 canonical executable slice 覆盖整数 `A_p` graph distance、quadratic separation、collapsed radial distance、shell/ball counts 与 distance-carry probes。更广的 lattice candidates、HCP/Barlow 与跨 owner 接口继续开放。
+
+**活跃接口警报：** `FQ-20260809-005` 正在判断稳定导出的 `geometry.graph_distance` 应收窄到 P012 无向 metric 定义域，还是应与更一般的 directed shortest-walk helper 分层。在解决前，非对称 adjacency 输入不得直接引用 P012 的 metric symmetry。
+
+### P021 — causal-boundary specialization
+
+已经进入 `main` 的 canonical executable core：
+
+- `causal_boundary.py`；
+- `test_causal_boundary.py`。
+
+它复用 P018 observation/refinement machinery，并拥有有限图 + 整数 expansion boundary 的 program-specific 特化。更广的 causal focusing、方向/witness 复合及物理解释继续开放。
+
+### E001 — 有限材料冲量应用特化
+
+以下八文件 slice 已作为 canonical executable application machinery 进入 `main`：
+
+- `material_impulse_accounting.py` + regression；
+- `material_impulse_world_1d.py` + regression；
+- `material_impulse_tick_order.py` + regression；
+- `material_impulse_wall_world_1d.py` + regression。
+
+这组资产可复用于 retained-detail 冲量精确记账、离散动量漂移、显式 tick-order 比较以及 contact/wall-world 实验。它**不是**通用 mechanics/material theorem，也不会仅凭进入 `main` 就完成物理模型验证。尤其 `OUTWARD` 动量不能被悄悄等同于物理 `REBOUND`；更丰富事件仍需要 contact history / transmission state。
 
 ## 5. 所有路线都必须知道的高价值负向边界
 
-- coarse equality/support/cardinality 不自动保留后续 composition；必须针对声明的 operation language 证明 future sufficiency；
-- A3 signed relation information 在 quotient 时会 cancellation，因此 coarse support 不能证明 universal fine support；
-- pairwise/common-target cardinality shadow 可能丢失 multi-step composition 所需的 witness identity；
-- 单纯 geometry collision fact 可能不足以唯一选择 response，可能还需要 action/material/symmetry-breaking state；
-- 对一个 observable 安全的 quotient，面对更丰富 future language 可能失效；
-- 文件名相同、branch ancestry 或 `ahead(main)>0` 都不能证明存在新数学；semantic identity 才控制 replay；
-- Galois connection、semigroup、numerical semigroup、partition refinement 等成熟一般工具，即使被 Enterprise Math 使用，仍属于 prior art。
+- coarse equality/support/cardinality 不自动保留后续 composition；
+- A3 signed relation data 在 quotient 时可能 cancellation，因此 coarse support 不能证明 universal fine support；
+- pairwise/common-target cardinality 可能丢失 multi-step composition 需要的 witness identity；
+- geometry-only contact/collision fact 可能不足以唯一选择 response；
+- 对一个 future language 安全的 quotient，面对更丰富语言可能失效；
+- 普通 metric claim 必须满足其 graph/weight hypotheses；directed/asymmetric structure 不能悄悄继承 symmetry；
+- E001 engineering transition/result 不能仅因其 executable slice 已 canonical 就提升为通用物理定律；
+- 文件名相同、Git ancestry 或 `ahead(main)>0` 都不能证明存在新数学；
+- Galois connection、semigroup、numerical semigroup、partition refinement 等成熟结构继续属于 prior art。
 
-## 6. 全线路共享的 executable 工具面
+## 6. 全线路共享 executable 工具面
 
-所有路线都可以复用 canonical executable assets；它们不归“最初发现它们的 branch”独占。
+所有路线都可以复用 canonical executable assets；发现 branch 不产生独占权。
 
-### Python exact/reference tools
+`src/enterprise_math/` 下的重要 Python 工具族包括：
 
-根目录：`src/enterprise_math/`
+- A0/A5 primitives：`core.py`、`division.py`、`scale_algebra.py`、`signed.py`、`typed_scale.py`、`geometry.py`、`lattice_geometry.py`；
+- A2：`composition_safe_collapse.py`、precision/predictive/future-signature modules，以及 action-language/clearance/guard/boundary specializations；
+- A3：`weighted_relation_field.py`、`relation_lattice.py`、`relation_scale.py`；
+- A4：`admissible_support.py`、`relational_spectrum.py`；
+- A3→A4：`a3_a4_support_bridge.py`；
+- P021：`causal_boundary.py`；
+- P017：mirror/cofactor/Legendre pressure-test modules；
+- E001 application：`material_impulse_accounting.py`、`material_impulse_world_1d.py`、`material_impulse_tick_order.py`、`material_impulse_wall_world_1d.py` 及对应 tests。
 
-重要工具族包括：
+`src/enterprise_math/__init__.py` 只导出紧凑 stable subset。未导出的 module 仍可能是 canonical internal executable specification；把它当 stable API 前先检查 scope/provenance。
 
-- `core.py`、`division.py`、`scale_algebra.py`、`signed.py`、`typed_scale.py`、`geometry.py` —— A0/A5 primitive tools；
-- `composition_safe_collapse.py` 与 predictive/future-signature modules —— A2 quotient-safety tools；
-- `action_language_precision.py`、clearance/guard/boundary precision modules —— P024/A2 specializations；
-- P017 mirror/cofactor/Legendre modules —— square-basin pressure-test tools；
-- relation/support modules —— 在其已 canonical，或被显式从 WIP owner 消费时可跨路线复用。
-
-`src/enterprise_math/__init__.py` 只导出一个紧凑 stable subset；未 export 的 module 仍可能是合法 internal executable specification。把它当 canonical API 前必须先检查 theorem/provenance status。
-
-### Lean tools
+Lean：
 
 - `EnterpriseMath.lean` 是 root import surface；
-- `EnterpriseMath/**.lean` 是 formalized subset；
-- 只有 module 被 root build 导入，或被仓库 warnings-fatal formalization gate 显式覆盖时，才可以声称 “Lean-checked”。
+- `EnterpriseMath/**.lean` 保存 formalization assets；
+- 只有实际被 imported/warning-fatal build 覆盖的 statement 才能标记 `LEAN_CHECKED_MAIN`。
 
-### Tests 与 reconstruction tools
+Validation/reconstruction/governance tools：
 
 - `tests/`：exact regression/counterexample suites；
 - `experiments/`：bounded pressure tests 与 engineering probes；
-- `tools/check_bilingual_pairs.py`：中英文 pairing gate；
-- `tools/check_references.py`：reference-integrity gate。
+- `tools/check_bilingual_pairs.py`：bilingual gate；
+- `tools/check_references.py`：reference-integrity gate；
+- `tools/research_scheduler.py`：实时 dispatch/lease/handoff 状态机辅助工具；它只协调执行，不认证 theorem truth。
 
-Executable checks 用于 proof discovery、falsification 与 regression，不能单独把 `EXECUTABLE_CHECKED` 升级为 `PROVED`。
+Executable checks 服务于 discovery/falsification/regression，不能独立把 claim 升级为 `PROVED`。
 
-## 7. 共享知识传播规则
+## 7. 传播、dispatch 与非阻断规则
 
-任意路线证明或发现了可复用结果后：
+出现可复用结果时：
 
-1. 如果其他 active route 可能受益，立即 Relay；
-2. 把 downstream action 标为 `INFORM`、`CONSUME`、`TEST` 或 `HARD_DEPENDENCY`；
-3. 标明 mother-theorem owner 与 relation class；
-4. 若结果进入 canonical `main`，必须保证未来路线能通过 `PROBLEM_STATUS`、canonical theorem/result doc、lineage/prior-art 与本共享面发现它；
-5. 若形成可复用 executable method/tool，在下一次 common-surface update 中登记对应 canonical module/tool family；
-6. 不等待所有 consumer ACK 才继续推进。
+1. 若其他 active route 可能受益，立即 Relay；
+2. downstream action 标为 `INFORM`、`CONSUME`、`TEST` 或 `HARD_DEPENDENCY`；
+3. 标明 mother-theorem owner/relation class；
+4. canonical promotion 后按需要更新 status/result routing 与本共享面；
+5. 新的可复用 executable tool family 在这里登记；
+6. 除非存在完整 `HARD_BLOCK`，不等待 consumer ACK。
 
-## 8. 非阻断规则
+研究并行，canonical promotion 串行；`defer` 是路由，不是 blocker。Issue #240 上的 claim 是可续期 execution lease；若本会话无法继续，必须 HANDOFF 回 scheduler，不能让路线静默无人负责。Scheduler 事件（`CLAIM`、`HEARTBEAT`、`PROGRESS`、`HANDOFF`、`HARD_BLOCK`、`UNBLOCK`、`DONE`、`SUPERSEDE`）只用于协调执行。
 
-知识共享的目的，是提高并行度，而不是制造全局 barrier。
+## 8. 底层维护
 
-发现上游已有定理，就消费并继续；发现上游存在缺口，就隔离精确 missing lemma，然后继续其他可推进方向，除非确实可以按 `RESEARCH_SCHEDULING_PROTOCOL` 写出一个完整 `HARD_BLOCK`。
+机械性或已经由 canonical 证据唯一决定的底层漂移，由 foundation steward 直接修复。真正尚未解决的数学/接口选择，只验证到足够成立后进入 Issue #164，并交由其他研究员调查。
 
-## 9. 底层维护与 P0 问题升级
+当前活跃 foundation questions：
 
-项目公共底层由 `docs/FOUNDATION_STEWARD_PROTOCOL.*` 与机器路由 `foundation_steward.json` 管理。
+- `FQ-20260809-004` —— 跨路线回流提出的 candidate minimal State/Pair/kernel → future-safe precision foundation interface；
+- `FQ-20260809-005` —— stable `graph_distance` API 定义域与 P012 普通 metric theorem 定义域之间的接口选择。
 
-底层维护者负责语言/符号、定义/公式完整性、定理陈述/状态/接口、prose↔tool↔test↔Lean 一致性以及共享工具发现。机械性或已经由 canonical 证据确定的维护直接修复。
-
-一个问题经过最低验证后仍需要真正研究时，必须使用稳定 `FQ-*` ID 升级到 **Foundation Problem Set Issue #164**。典型包括：矛盾风险、未解决的定义域/类型选择、缺失 theorem hypothesis、跨路线 interface 不兼容、高价值新结构、prior-art 不确定性或 tool/theorem sufficiency 问题。
-
-底层维护者不负责求解这些研究问题。其他研究员 claim 后返回证据，底层维护者在修改 canonical language/formula/theorem/tool 前负责重新验证回答是否足够。
-
-### 9.1 已解决的规范底层约定
-
-前三个 Foundation Question 在其解决性集成进入 `main` 后建立以下全项目统一约定：
-
-- **自然状态：** \(\mathbb N=\mathbb N_0=\{0,1,2,\ldots\}\)；正整数记为 \(\mathbb N_{>0}\)。因此裸写 \(\mathbb N\) 包含零。
-- **根/坍缩指数：** 非平凡原始族为 \(p\ge2\)；精确代数/形式化扩展为全部 \(p\ge1\)，并有 \(R_1=C_1=\operatorname{id}\)。
-- **时间：** \(T_t:X_t\to X_{t+1}\)，\(F_0=\operatorname{id}\)，且 \(F_{t+1}=T_t\circ F_t\)；等价地，对 \(t\ge1\)，\(F_t=T_{t-1}\circ\cdots\circ T_0\)。合流时间取累计像第一次相等的最小 \(t\in\mathbb N_0\)。
-
-这些是接口规范，不是新的母定理族。它们保留现有算术与历史合流结论，只消除定义域和 off-by-one 歧义。
-
-因此形成刻意分工：
-
-`foundation maintenance and verification -> FQ escalation when research is needed -> independent researcher investigation -> steward verification -> canonical propagation`。
+FQ-001 至 FQ-003 的 canonical 约定仍按上文执行。

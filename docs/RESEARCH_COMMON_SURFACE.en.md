@@ -2,196 +2,193 @@
 
 Status: `ACTIVE / REQUIRED PREFLIGHT`  
 Effective: 2026-08-09  
-Purpose: give every research route the same compact view of reusable proved mathematics, executable tools, negative boundaries, and live cross-route results before it starts a new theorem line.
+Purpose: give every research route the same compact view of reusable mathematics, executable tools, negative boundaries, active interface alerts, dispatch state, and live cross-route results.
 
-This file is a router, not a replacement for proofs. Exact statements remain in their canonical theorem/problem documents or, for not-yet-canonical branch results, in the Research Relay with source commit provenance.
+This file is a router, not a replacement for proofs. Exact theorem scope remains controlled by canonical result documents; branch-proved results remain explicitly WIP until promoted. Scheduler state coordinates work but does not promote mathematical truth.
 
-## 1. Mandatory preflight for every L1/L2/L3 research route
+## 1. Mandatory preflight
 
-Before starting a new theorem line:
+Before starting a new L1/L2/L3 theorem line:
 
 1. read this common surface;
 2. read `docs/RESEARCH_SCHEDULING_PROTOCOL.*`;
-3. read `docs/PROBLEM_STATUS.*` and the canonical result document for the relevant problem;
-4. search the latest relevant entries in Research Relay Issue #82;
-5. inspect the relevant executable specification/tests or Lean module when the proposed result overlaps an existing tool/theorem family;
-6. if the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.*` and the relevant `FQ-*` entries in Foundation Problem Set Issue #164;
-7. only then decide whether the next step is a new mother theorem, specialization, bridge, counterexample, duplicate, or an answer to a foundation problem.
+3. read `research_scheduler.json` and the live Research Dispatch Board Issue #240;
+4. read `docs/RESEARCH_OWNER_ISOLATION.*`;
+5. read `docs/PROBLEM_STATUS.*` and the relevant canonical result document;
+6. read the latest relevant Research Relay Issue #82 entries;
+7. inspect overlapping executable specs/tests and imported Lean modules;
+8. for foundational language/formula/theorem/tool-interface work, read `docs/FOUNDATION_STEWARD_PROTOCOL.*` and relevant Foundation Problem Set Issue #164 `FQ-*` entries;
+9. then classify the work as a mother theorem, specialization, bridge, counterexample, tool, duplicate, or answer to a foundation question.
 
-Do not inject the whole repository into working context. The point is shared awareness plus selective retrieval.
+Use selective retrieval; do not inject the whole repository into working context.
 
-## 2. Status classes
+## 2. Epistemic/status discipline
 
-Every reusable result encountered through this surface belongs to one of these classes:
+Keep these distinct:
 
-- `CANONICAL_MAIN`: proved result integrated on `main`; safe for all routes to consume at its stated scope.
-- `LEAN_CHECKED_MAIN`: canonical result also checked by the imported Lean build.
-- `PROVED_WIP_RELAY`: proved on a research branch and relayed with source commit, but not yet canonical; may be used explicitly as branch/WIP input, never silently promoted to main truth.
-- `EXECUTABLE_CHECKED`: supported by exact finite/reference checks but not a substitute for proof.
-- `COUNTEREXAMPLE / NEGATIVE_BOUNDARY`: reusable impossibility or failure result; must be shared with the same priority as a positive theorem.
+- `CANONICAL_MAIN`: proved result integrated on `main` at its stated scope;
+- `LEAN_CHECKED_MAIN`: canonical result covered by the imported/warning-fatal Lean build;
+- `PROVED_WIP_RELAY`: proved branch result with source provenance, not yet canonical;
+- `EXECUTABLE_CHECKED`: exact executable/finite validation, not proof by itself;
+- `COUNTEREXAMPLE / NEGATIVE_BOUNDARY`: reusable impossibility/failure result;
 - `CONJECTURAL`: research target only.
 
-## 3. Canonical theorem knowledge channels
+A **canonical executable asset** is a source/test artifact integrated on `main`; its presence does not by itself promote every statement encoded by that module to `PROVED`. Likewise, a scheduler claim/lease records who is working, not what has been proved.
 
-All routes should know that canonical proved mathematics is not confined to `docs/THEOREMS.*`.
+## 3. Canonical knowledge channels
 
-### Base theorem catalogue
+- `docs/THEOREMS.*`: compact original theorem catalogue;
+- `docs/PROBLEM_STATUS.*`: authoritative numbered-problem router;
+- canonical `docs/Pxxx_*.{en,zh-CN}.md`: exact modern theorem families and hypotheses;
+- `EnterpriseMath.lean` plus imported `EnterpriseMath/**.lean`: Lean-checked subset;
+- Research Relay Issue #82: proved WIP results/counterexamples with source commit and relation class;
+- Foundation Problem Set Issue #164: verified bottom-layer questions needing research;
+- `research_scheduler.json` plus Issue #240: live dispatch/lease/handoff coordination only.
 
-- `docs/THEOREMS.en.md` / `docs/THEOREMS.zh-CN.md`: compact proved propositions from the original core.
-- `docs/PROBLEM_STATUS.en.md` / `docs/PROBLEM_STATUS.zh-CN.md`: authoritative numbered-problem status and canonical result pointers.
-- the canonical `docs/Pxxx_*.{en,zh-CN}.md` files named by `PROBLEM_STATUS`: exact modern theorem families and scope.
-- `EnterpriseMath.lean` plus imported `EnterpriseMath/**.lean`: Lean-checked subset.
+Never infer “unknown” merely because a result or tool is absent from the current branch.
 
-### Live proved-but-not-yet-canonical channel
-
-- Research Relay Issue #82: exact cross-route theorem/counterexample statements with source branch/commit, weakest hypotheses, relation class, and requested action.
-
-A route must never infer “unknown” merely because a result is absent from its own branch.
-
-## 4. Shared reusable theorem families
-
-This list is intentionally at theorem-family granularity. Use the referenced canonical documents for exact hypotheses and numbering.
+## 4. Shared reusable mathematical homes
 
 ### A0 — primitive discrete state algebra
 
-Reusable tools/results include:
+Roots/collapse, basin/gap coordinates, quotient/remainder, scale factors and gcd/lcm lattice, signed state, typed descent, adjoints, commutation and fixed points. Canonical entry: P001–P009 plus `docs/THEOREMS.*`.
 
-- integer roots and exact perfect-power collapse;
-- basin characterization/cardinality and collapse gap coordinates;
-- root exponent composition and commutation;
-- quotient/remainder versus multiple-collapse semantics;
-- total scale-factor algebra, divisibility projection, gcd/lcm scale lattice, path independence and nonunique inverse refinement;
-- signed-state distinctions;
-- typed strict-rank descent;
-- order-adjoint/right-adjoint formulations and reductive idempotent collapse.
+Canonical interface conventions:
 
-Primary canonical entry points: P001–P009 result docs and `docs/THEOREMS.*`.
+- `N = N_0 = {0,1,2,...}`; positive integers are `N_{>0}`;
+- nontrivial primitive root/collapse uses `p >= 2`;
+- exact positive-exponent algebra uses `p >= 1` with `R_1 = C_1 = id`.
 
 ### A1 — dynamics, kernels, collision and stabilization
 
-Reusable tools/results include:
+Deterministic history merge, fiber/kernel multiplicity, collision spectra, coalescence and well-founded stabilization. Canonical time interface:
 
-- deterministic history merging: merged states never split under the same later deterministic composition;
-- exact collision/fiber multiplicity observables and collision spectra;
-- finite/eventual coalescence structures;
-- monotone reductive stabilization on well-founded orders;
-- stable collapse-word behavior and lcm fixed-point structure.
+`F_0 = id`, `F_{t+1} = T_t o F_t`, equivalently `F_t = T_{t-1} o ... o T_0` for `t >= 1`.
 
-Primary canonical entry points: P010, P011, P019, P020.
+Primary entry: P010, P011, P019, P020.
 
 ### A2 — observation and future-compatible quotient
 
-Reusable tools/results include:
-
-- factorization through a quotient iff the required observable/operation is constant on quotient fibers;
-- coarsest exact repair/refinement for a declared future task;
-- finite predictive/future-signature refinement and stabilization;
-- finite operation-family compatibility and operation-word semantics;
-- exact quotient/multiple-collapse compatibility and minimal boundary-bit repairs in arithmetic specializations;
-- task-relative precision: there is no universal scalar precision independent of the future language.
-
-Primary canonical entry points: P018 precision-state results, P023 and its canonical supplements, P024 specializations. Branch extensions are routed through Relay #82.
+Observation factorization, predictive/future closure, finite operation-family compatibility, minimal repair and task-relative precision. P018/P023/P024 are primary entry points. The finite-arity quotient operation-congruence extension is canonical and Lean-routed through `EnterpriseMath/Quotient/OperationCongruence.lean` when imported by the root build.
 
 ### A3 — structured relation-state algebra
 
-Shared WIP/core concepts include the integer weighted relation field
+Core object: `Z_ij = m_j*c_i - m_i*c_j`, with partition coarsening `Z' = A Z A^T`, relation scale/rank and refinement structure.
 
-`Z_ij = m_j*c_i - m_i*c_j`,
+Canonical executable core on `main`:
 
-partition coarsening `Z' = A Z A^T`, partition kernels, integer relation scale/rank, refinement memory and task-derived exact relation precision.
+- `weighted_relation_field.py`;
+- `relation_lattice.py`;
+- `relation_scale.py`;
+- their canonical regression suites.
 
-Until canonical replay completes, consume A3 results with their explicit `PROVED_WIP_RELAY`/branch provenance rather than pretending they are main theorems.
+These modules are shared executable specifications. Any theorem statement still living only in a research branch/Relay keeps its WIP status until separately canonicalized.
 
 ### A4 — admissible support / correspondence algebra
 
-Shared WIP/core concepts include finite multivalued relations, relation composition/converse, common-target structure, radius-indexed supports, split-completeness boundaries, MAY/MUST semantics, witness/group spectra, and degeneration to P011 on total-function graphs.
+Finite multivalued relations, converse/composition, common-target structure, radius-indexed support, split-completeness boundaries, MAY/MUST semantics and witness/group spectra.
 
-Again, distinguish WIP proved results from canonical-main results.
+Canonical executable core on `main`:
+
+- `admissible_support.py`;
+- `relational_spectrum.py`;
+- their canonical regression suites.
+
+The A3→A4 executable bridge `a3_a4_support_bridge.py` is also canonical on `main`; theorem/proof status remains controlled by canonical result/Relay provenance rather than module presence.
 
 ### A5 — intrinsic discrete geometry
 
-Reusable canonical and WIP tools include primitive adjacency, graph distance, finite balls/shells, lattice/root-lattice candidates, radial/quadratic observations, distance carry and geometry-specific contraction. P012 gives the canonical metric foundation; broader P022 geometry remains active.
+P012 supplies the canonical ordinary metric foundation on connected undirected simple graphs. Canonical tools include `geometry.py` and the P022 `A_p` / root-lattice executable core `lattice_geometry.py` with its regression suite.
 
-## 5. High-value cross-route negative boundaries everyone must know
+P022 remains `OPEN / ACTIVE RESEARCH`; the canonical executable slice covers integer `A_p` graph distance, quadratic separation, collapsed radial distance, shell/ball counts and distance-carry probes. Broader lattice candidates, HCP/Barlow and cross-owner interfaces remain open.
 
-- Coarse equality/support/cardinality does not automatically preserve later composition; future sufficiency must be proved for the declared operation language.
-- A3 signed relation information can cancel under quotient, so coarse support does not certify universal fine support.
-- Pairwise/common-target cardinality shadows can lose witness identity needed for multi-step composition.
-- A geometry-only collision fact may be insufficient to select a unique response; additional action/material/symmetry-breaking state may be required.
-- A safe quotient for one observable can fail for a richer future language.
-- File-name equality, branch ancestry, or `ahead(main)>0` is not proof of new mathematical content; semantic identity controls replay.
-- Established general machinery (Galois connections, semigroups, numerical semigroups, partition refinement, etc.) remains prior art even when used inside Enterprise Math.
+**Active interface alert:** `FQ-20260809-005` asks whether stable exported `geometry.graph_distance` should enforce the P012 undirected metric domain or be explicitly layered from a more general directed shortest-walk helper. Until resolved, do not cite P012 metric symmetry for asymmetric adjacency inputs.
+
+### P021 — causal-boundary specialization
+
+Canonical executable core on `main`:
+
+- `causal_boundary.py`;
+- `test_causal_boundary.py`.
+
+It consumes P018 observation/refinement machinery and owns the finite graph + integer expansion boundary specialization. Broader causal focusing, direction/witness composition and physical interpretation remain open.
+
+### E001 — finite material-impulse application specialization
+
+The following eight-file slice is canonical executable application machinery on `main`:
+
+- `material_impulse_accounting.py` + regression;
+- `material_impulse_world_1d.py` + regression;
+- `material_impulse_tick_order.py` + regression;
+- `material_impulse_wall_world_1d.py` + regression.
+
+This slice is reusable for exact retained-detail impulse accounting, discrete momentum drift, explicit tick-order comparison, and contact/wall-world experiments. It is **not** a general mechanics/material theorem and does not by itself validate a physical model. In particular, `OUTWARD` momentum is not silently identified with a physical `REBOUND`; contact history/transmission state remains part of the richer event semantics.
+
+## 5. High-value negative boundaries
+
+- coarse equality/support/cardinality does not automatically preserve later composition;
+- A3 signed relation data can cancel under quotient, so coarse support does not certify universal fine support;
+- pairwise/common-target cardinality can lose witness identity needed by multi-step composition;
+- geometry-only contact/collision facts may be insufficient to select a unique response;
+- a quotient safe for one future language can fail for a richer language;
+- ordinary metric claims require their graph/weight hypotheses; directed/asymmetric structures must not silently inherit symmetry;
+- an E001 engineering transition/result must not be promoted to a universal physical law merely because its executable slice is canonical;
+- file-name equality, Git ancestry or `ahead(main)>0` is not proof of new mathematics;
+- established machinery such as Galois connections, semigroups, numerical semigroups and partition refinement remains prior art.
 
 ## 6. Shared executable tool surface
 
-All routes may reuse canonical executable assets; they are not owned by the branch where they were first discovered.
+All routes may reuse canonical executable assets; discovery branch does not create exclusive ownership.
 
-### Python exact/reference tools
+Python roots under `src/enterprise_math/` include:
 
-Root: `src/enterprise_math/`
+- A0/A5 primitives: `core.py`, `division.py`, `scale_algebra.py`, `signed.py`, `typed_scale.py`, `geometry.py`, `lattice_geometry.py`;
+- A2: `composition_safe_collapse.py`, precision/predictive/future-signature modules, action-language/clearance/guard/boundary specializations;
+- A3: `weighted_relation_field.py`, `relation_lattice.py`, `relation_scale.py`;
+- A4: `admissible_support.py`, `relational_spectrum.py`;
+- A3→A4: `a3_a4_support_bridge.py`;
+- P021: `causal_boundary.py`;
+- P017: mirror/cofactor/Legendre pressure-test modules;
+- E001 application: `material_impulse_accounting.py`, `material_impulse_world_1d.py`, `material_impulse_tick_order.py`, `material_impulse_wall_world_1d.py` and their tests.
 
-Important families include:
+`src/enterprise_math/__init__.py` exports only a compact stable subset. A non-exported module may still be a canonical internal executable specification; check scope/provenance before treating it as a stable API.
 
-- `core.py`, `division.py`, `scale_algebra.py`, `signed.py`, `typed_scale.py`, `geometry.py` — A0/A5 primitive tools;
-- `composition_safe_collapse.py` and predictive/future-signature modules — A2 quotient-safety tools;
-- `action_language_precision.py`, clearance/guard/boundary precision modules — P024/A2 specializations;
-- P017 mirror/cofactor/Legendre modules — square-basin pressure-test tools;
-- relation/support modules when and where they are canonical or explicitly consumed from a WIP owner.
+Lean:
 
-`src/enterprise_math/__init__.py` exports only a compact stable subset; non-exported modules may still be legitimate internal executable specifications. Check their theorem/provenance status before treating them as canonical APIs.
+- `EnterpriseMath.lean` is the root import surface;
+- `EnterpriseMath/**.lean` contains formalization assets;
+- claim `LEAN_CHECKED_MAIN` only for statements actually covered by the imported/warning-fatal build.
 
-### Lean tools
-
-- `EnterpriseMath.lean` is the root import surface.
-- `EnterpriseMath/**.lean` contains the formalized subset.
-- “Lean-checked” may be claimed only when the module is imported by the root build or otherwise explicitly covered by the repository's warning-fatal formalization gate.
-
-### Tests and reconstruction tools
+Validation/reconstruction/governance tools:
 
 - `tests/`: exact regression/counterexample suites;
 - `experiments/`: bounded pressure tests and engineering probes;
-- `tools/check_bilingual_pairs.py`: bilingual-pair gate;
-- `tools/check_references.py`: reference-integrity gate.
+- `tools/check_bilingual_pairs.py`: bilingual gate;
+- `tools/check_references.py`: reference-integrity gate;
+- `tools/research_scheduler.py`: live dispatch/lease/handoff state-machine helper; it coordinates execution and does not certify theorem truth.
 
-Executable checks support proof discovery, falsification and regression. They do not by themselves upgrade a statement from `EXECUTABLE_CHECKED` to `PROVED`.
+Executable checks support discovery/falsification/regression; they do not independently upgrade a claim to `PROVED`.
 
-## 7. Shared knowledge propagation rule
+## 7. Propagation, dispatch and nonblocking rules
 
-When any route proves or finds something reusable:
+When a reusable result appears:
 
-1. relay it immediately if another active route may benefit;
-2. label the downstream action `INFORM`, `CONSUME`, `TEST`, or `HARD_DEPENDENCY`;
-3. identify the mother-theorem owner and relation class;
-4. if it enters canonical `main`, ensure `PROBLEM_STATUS`, the canonical theorem/result doc, lineage/prior-art, and this common surface are sufficient for future routes to discover it;
-5. if it creates a reusable executable method/tool, register the canonical module/tool family here at the next common-surface update;
-6. do not wait for every consumer to acknowledge it.
+1. Relay it if another active route may benefit;
+2. classify downstream action as `INFORM`, `CONSUME`, `TEST`, or `HARD_DEPENDENCY`;
+3. identify mother-theorem owner/relation class;
+4. after canonical promotion, update status/result routing and this surface as needed;
+5. register reusable executable tool families here;
+6. never wait for consumer ACK unless a complete `HARD_BLOCK` exists.
 
-## 8. Nonblocking rule
+Research is parallel; canonical promotion is serialized. `defer` is routing, not blocking. Claims on Issue #240 are renewable execution leases; unfinished sessions must hand the route back rather than silently leaving it unstaffed. Scheduler events (`CLAIM`, `HEARTBEAT`, `PROGRESS`, `HANDOFF`, `HARD_BLOCK`, `UNBLOCK`, `DONE`, `SUPERSEDE`) coordinate execution only.
 
-Knowledge sharing increases parallelism; it must never create a global barrier.
+## 8. Foundation stewardship
 
-A route that discovers an upstream theorem should consume it and continue. A route that discovers an upstream gap should isolate the exact missing lemma and continue elsewhere unless it can honestly record a `HARD_BLOCK` under `RESEARCH_SCHEDULING_PROTOCOL`.
+Mechanical or already-determined bottom-layer drift is fixed directly. Genuine unresolved mathematical/interface choices are minimally verified and escalated to Issue #164, then handed to another researcher.
 
-## 9. Foundation stewardship and P0 escalation
+Current active foundation questions:
 
-The project-wide bottom layer is maintained under `docs/FOUNDATION_STEWARD_PROTOCOL.*` and machine routing `foundation_steward.json`.
+- `FQ-20260809-004` — candidate minimal State/Pair/kernel → future-safe precision foundation interface from cross-route backflow;
+- `FQ-20260809-005` — stable `graph_distance` API domain versus the P012 ordinary metric theorem domain.
 
-The steward maintains language/notation, definition/formula integrity, theorem statements/status/interfaces, prose↔tool↔test↔Lean consistency, and shared tool discovery. Mechanical or already-determined maintenance is repaired directly.
-
-A concern that survives minimum verification and still requires genuine research is escalated to **Foundation Problem Set Issue #164** with a stable `FQ-*` ID. Examples include contradiction risk, unresolved domain/type choice, missing theorem hypothesis, cross-route interface incompatibility, high-value new structure, prior-art uncertainty, or a tool/theorem sufficiency question.
-
-The steward does not solve those research questions. Other researchers claim them, return evidence, and the steward verifies the answer before any canonical language/formula/theorem/tool change.
-
-### 9.1 Resolved canonical foundation conventions
-
-The first three foundation questions establish the following project-wide conventions once their resolving integration is on `main`:
-
-- **Natural states:** \(\mathbb N=\mathbb N_0=\{0,1,2,\ldots\}\); positive integers are \(\mathbb N_{>0}\). Bare \(\mathbb N\) therefore includes zero.
-- **Root/collapse exponents:** the nontrivial primitive family is \(p\ge2\); the exact algebraic/formal extension is all \(p\ge1\), with \(R_1=C_1=\operatorname{id}\).
-- **Time:** \(T_t:X_t\to X_{t+1}\), \(F_0=\operatorname{id}\), and \(F_{t+1}=T_t\circ F_t\), equivalently \(F_t=T_{t-1}\circ\cdots\circ T_0\) for \(t\ge1\). Merge time is the least \(t\in\mathbb N_0\) at which the cumulative images agree.
-
-These are interface conventions, not new theorem families. They preserve the existing arithmetic and history-merging results while removing domain and off-by-one ambiguity.
-
-This creates a deliberate separation:
-
-`foundation maintenance and verification -> FQ escalation when research is needed -> independent researcher investigation -> steward verification -> canonical propagation`.
+Resolved canonical conventions remain FQ-001 through FQ-003 as stated above.

@@ -38,7 +38,14 @@
     "problem_id_prefix": "FQ-",
     "steward_solves_escalated_research": false,
     "steward_verifies_before_escalation": true,
-    "steward_verifies_before_canonicalization": true
+    "steward_verifies_before_canonicalization": true,
+    "active_foundation_questions": [
+      "FQ-20260809-004",
+      "FQ-20260809-005"
+    ],
+    "active_interface_alerts": [
+      "FQ-20260809-005"
+    ]
   },
   "canonical_foundation_conventions": {
     "natural_numbers": "N = N_0 includes zero; positive integers are N_{>0}",
@@ -88,7 +95,57 @@
     "A2": "observation factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory",
     "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra",
-    "A5": "primitive adjacency, graph metric, finite balls/shells, lattice candidates, radial/distance structure"
+    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, finite balls/shells, radial/distance structure"
+  },
+  "canonical_executable_modules": {
+    "A0_A5_primitives": [
+      "src/enterprise_math/core.py",
+      "src/enterprise_math/division.py",
+      "src/enterprise_math/scale_algebra.py",
+      "src/enterprise_math/signed.py",
+      "src/enterprise_math/typed_scale.py",
+      "src/enterprise_math/geometry.py"
+    ],
+    "A2": [
+      "src/enterprise_math/composition_safe_collapse.py",
+      "EnterpriseMath/Quotient/OperationCongruence.lean"
+    ],
+    "A3": [
+      "src/enterprise_math/weighted_relation_field.py",
+      "src/enterprise_math/relation_lattice.py",
+      "src/enterprise_math/relation_scale.py"
+    ],
+    "A4": [
+      "src/enterprise_math/admissible_support.py",
+      "src/enterprise_math/relational_spectrum.py"
+    ],
+    "A3_A4_bridge": [
+      "src/enterprise_math/a3_a4_support_bridge.py"
+    ],
+    "A5_P022": [
+      "src/enterprise_math/lattice_geometry.py",
+      "tests/test_lattice_geometry.py"
+    ],
+    "P021": [
+      "src/enterprise_math/causal_boundary.py",
+      "tests/test_causal_boundary.py"
+    ],
+    "E001_material_impulse_application": [
+      "src/enterprise_math/material_impulse_accounting.py",
+      "src/enterprise_math/material_impulse_world_1d.py",
+      "src/enterprise_math/material_impulse_tick_order.py",
+      "src/enterprise_math/material_impulse_wall_world_1d.py",
+      "tests/test_material_impulse_accounting.py",
+      "tests/test_material_impulse_world_1d.py",
+      "tests/test_material_impulse_tick_order.py",
+      "tests/test_material_impulse_wall_world_1d.py"
+    ]
+  },
+  "application_tool_scope": {
+    "E001_material_impulse_application": "canonical executable engineering specialization; reusable for finite impulse accounting, explicit tick-order comparison, momentum drift, and wall-world tests, but module presence is not a general mechanics/material theorem or physical validation"
+  },
+  "tool_scope_alerts": {
+    "FQ-20260809-005": "stable geometry.graph_distance accepts general adjacency mappings while P012 ordinary metric theorems assume connected undirected simple graphs; do not inherit metric symmetry on asymmetric inputs until API layering is resolved"
   },
   "tool_roots": {
     "python_exact_reference": "src/enterprise_math/",
