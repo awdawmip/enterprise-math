@@ -18,6 +18,29 @@
     "research_handoff_required": true,
     "steward_primary_investigator": false
   },
+  "canonical_foundation_conventions": {
+    "natural_numbers": {
+      "nonnegative": "N = N_0 = {0,1,2,...}",
+      "positive": "N_{>0} = {1,2,3,...}",
+      "bare_N_includes_zero": true,
+      "resolved_by": "FQ-20260809-002"
+    },
+    "root_collapse_exponents": {
+      "primitive_nontrivial": "p >= 2",
+      "positive_exponent_algebra": "p >= 1",
+      "identity_case": "R_1 = C_1 = id",
+      "resolved_by": "FQ-20260809-001"
+    },
+    "time_indexing": {
+      "index_set": "N_0",
+      "transition": "T_t : X_t -> X_{t+1}",
+      "F_0": "id",
+      "recurrence": "F_{t+1} = T_t o F_t",
+      "expanded": "F_t = T_{t-1} o ... o T_0 for t >= 1",
+      "merge_time": "min{t in N_0 : F_t(x) = F_t(y)} when nonempty",
+      "resolved_by": "FQ-20260809-003"
+    }
+  },
   "direct_maintenance_when": [
     "mechanical_or_already_determined_by_canonical_evidence",
     "bilingual_or_reference_repair",

@@ -6,11 +6,21 @@ Scope: finite deterministic forward dynamics
 
 ## 1. Setup
 
-Let \(X\) be finite and
+Let \(X\) be finite. Use the project-wide canonical time convention
 
 \[
-F_t=T_t\circ\cdots\circ T_1.
+F_0=\operatorname{id},
+\qquad
+F_t=T_{t-1}\circ\cdots\circ T_0\quad(t\ge1),
 \]
+
+so
+
+\[
+F_{t+1}=T_t\circ F_t.
+\]
+
+Here \(T_t\) is the transition from time \(t\) to time \(t+1\).
 
 For \(x\in X\), define
 
@@ -26,7 +36,7 @@ Write
 
 \[
 z_x=F_t(x),
-\qquad T=T_{t+1}.
+\qquad T=T_t.
 \]
 
 Define the reachable collision set
@@ -56,12 +66,12 @@ where the union is disjoint.
 A state \(y\) lies in \([x]_{t+1}\) exactly when
 
 \[
-T(F_t(y))=T(F_t(x)).
+T_t(F_t(y))=T_t(F_t(x)).
 \]
 
-Set \(z=F_t(y)\). Then \(z\in\operatorname{im}(F_t)\) and \(T(z)=T(z_x)\), so \(z\in K_{t+1}(x)\), and \(y\in F_t^{-1}(\{z\})\). The converse is immediate. Fibers over distinct values of a function are disjoint. ∎
+Set \(z=F_t(y)\). Then \(z\in\operatorname{im}(F_t)\) and \(T_t(z)=T_t(z_x)\), so \(z\in K_{t+1}(x)\), and \(y\in F_t^{-1}(\{z\})\). The converse is immediate. Fibers over distinct values of a function are disjoint. ∎
 
-Thus a new merged-history class is literally formed by gluing together the old \(F_t\)-fibers whose current reachable states collide under the next map.
+Thus a new merged-history class is literally formed by gluing together the old \(F_t\)-fibers whose current reachable states collide under the transition \(T_t\).
 
 ## 3. Strict-growth criterion
 
@@ -83,7 +93,7 @@ F_t(y)\ne F_t(x)
 but
 
 \[
-T_{t+1}(F_t(y))=T_{t+1}(F_t(x)).
+T_t(F_t(y))=T_t(F_t(x)).
 \]
 
 ### Proof
@@ -92,9 +102,9 @@ Because the classes are finite and T012 gives inclusion, strict cardinal growth 
 
 By P010-T01, the old class is exactly the fiber over \(z_x\), while the new class is the disjoint union of all fibers indexed by \(K_{t+1}(x)\). Every \(z\in\operatorname{im}(F_t)\) has a nonempty fiber. Therefore the union is strictly larger exactly when \(K_{t+1}(x)\) contains some \(z\ne z_x\). Choosing any \(y\) from that fiber gives condition 4, and conversely condition 4 supplies such a \(z\). ∎
 
-So strict growth occurs exactly when the next transition is noninjective **on the currently reachable image in the particular output fiber containing \(F_t(x)\)**.
+So strict growth occurs exactly when the next transition \(T_t\) is noninjective **on the currently reachable image in the particular output fiber containing \(F_t(x)\)**.
 
-Global noninjectivity of \(T_{t+1}\) outside \(\operatorname{im}(F_t)\) is irrelevant.
+Global noninjectivity of \(T_t\) outside \(\operatorname{im}(F_t)\) is irrelevant.
 
 ## 4. Exact integer increment
 
@@ -148,13 +158,13 @@ For every \(x\in X\),
 M_{t+1}(x)=M_t(x)
 \]
 
-if and only if \(T_{t+1}\) is injective on \(\operatorname{im}(F_t)\).
+if and only if \(T_t\) is injective on \(\operatorname{im}(F_t)\).
 
 ### Proof
 
 If the restriction is injective, every reachable collision set \(K_{t+1}(x)\) is the singleton \(\{F_t(x)\}\), so P010-T02 gives equality for all \(x\).
 
-Conversely, if the restriction is not injective, choose distinct reachable states \(z,z'\) with equal \(T_{t+1}\)-image. Pick \(x\) with \(F_t(x)=z\). Then \(z'\in K_{t+1}(x)\), and P010-T02 gives strict growth. ∎
+Conversely, if the restriction is not injective, choose distinct reachable states \(z,z'\) with equal \(T_t\)-image. Pick \(x\) with \(F_t(x)=z\). Then \(z'\in K_{t+1}(x)\), and P010-T02 gives strict growth. ∎
 
 Hence a deterministic step can be globally many-to-one while creating **zero new history merging** if all of its collisions occur on states that are no longer reachable at time \(t\).
 
@@ -197,7 +207,7 @@ P010 is completely resolved by the reachable-collision criterion:
 M_{t+1}(x)>M_t(x)
 \iff
 \exists y:\ F_t(y)\ne F_t(x),\ 
-T_{t+1}(F_t(y))=T_{t+1}(F_t(x)).
+T_t(F_t(y))=T_t(F_t(x)).
 }
 \]
 

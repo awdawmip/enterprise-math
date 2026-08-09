@@ -27,6 +27,21 @@ class TestP010HistoryMerge(unittest.TestCase):
         values = [mapping[z] for z in reachable]
         return len(values) == len(set(values))
 
+    def test_canonical_time_zero_and_transition_indexing(self):
+        identity = (0, 1, 2, 3)
+        t0 = (0, 0, 2, 3)
+        t1 = (0, 1, 1, 3)
+
+        f0 = identity
+        f1 = self.compose(f0, t0)
+        f2 = self.compose(f1, t1)
+
+        self.assertEqual(f0, identity)
+        self.assertEqual(f1, t0)
+        self.assertEqual(f2, self.compose(t0, t1))
+        self.assertEqual(self.multiplicity(f0, 0), 1)
+        self.assertEqual(self.multiplicity(f1, 0), 2)
+
     def test_strict_growth_criterion_exhaustive_on_three_states(self):
         size = 3
         for current in self.all_maps(size):
