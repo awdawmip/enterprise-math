@@ -7,6 +7,7 @@ from enterprise_math.p017_mirror import (
 from enterprise_math.p017_mirror_crt import (
     bounded_sign_pattern_lifts,
     exact_support_lifts,
+    observed_mirror_full_core_idempotent,
     observed_mirror_idempotent,
     sign_pattern_capacity,
 )
@@ -89,13 +90,60 @@ class P017MirrorCRTTests(unittest.TestCase):
         self.assertEqual(cap["sign_lifts"], [17])
         self.assertEqual(cap["exact_lifts"], [17])
 
+    def test_full_core_idempotent_recovers_prime_power_cores(self):
+        data = observed_mirror_full_core_idempotent(16, 7)
+        self.assertEqual(data["lower_core"], 5)
+        self.assertEqual(data["upper_core"], 9)
+        self.assertEqual(data["lower_tail"], 53)
+        self.assertEqual(data["upper_tail"], 31)
+        self.assertEqual(data["modulus"], 45)
+        self.assertEqual(data["squarefree_modulus"], 15)
+        self.assertEqual(data["idempotent"] * data["idempotent"] % 45, data["idempotent"])
+        self.assertIn(7, data["full_core_lifts"])
+        self.assertLessEqual(
+            data["full_core_capacity"], data["squarefree_sign_capacity"]
+        )
+
+    def test_full_core_capacity_never_exceeds_squarefree_capacity(self):
+        saw = False
+        for k in range(5, 80):
+            for r in range(1, k):
+                if not anchor_surviving_radius(k, r):
+                    continue
+                lower_support, upper_support = mirror_transverse_supports(k, r)
+                if not lower_support or not upper_support:
+                    continue
+                data = observed_mirror_full_core_idempotent(k, r)
+                self.assertGreaterEqual(data["modulus"], data["squarefree_modulus"])
+                self.assertTrue(
+                    set(data["full_core_lifts"]).issubset(
+                        data["squarefree_sign_lifts"]
+                    )
+                )
+                self.assertLessEqual(
+                    data["full_core_capacity"], data["squarefree_sign_capacity"]
+                )
+                saw = True
+        self.assertTrue(saw)
+
+    def test_full_core_capacity_can_be_strictly_stronger(self):
+        # k=31,r=7 gives 985=5*197 and 999=3^3*37.
+        # Squarefree D=15 permits radii 7 and 22, while full S=135 permits only 7.
+        data = observed_mirror_full_core_idempotent(31, 7)
+        self.assertEqual(data["lower_core"], 5)
+        self.assertEqual(data["upper_core"], 27)
+        self.assertEqual(data["modulus"], 135)
+        self.assertEqual(data["squarefree_modulus"], 15)
+        self.assertEqual(data["squarefree_sign_lifts"], [7, 22])
+        self.assertEqual(data["full_core_lifts"], [7])
+        self.assertEqual(data["squarefree_sign_capacity"], 2)
+        self.assertEqual(data["full_core_capacity"], 1)
+
     def test_invalid_patterns_are_rejected(self):
-        # 2 is an anchor prime for every k>=2 and cannot enter transverse D.
         with self.assertRaises(ValueError):
             sign_pattern_capacity(20, [2, 13], 1)
         with self.assertRaises(ValueError):
             sign_pattern_capacity(20, [13, 13], 1)
-        # e=0 or 1 is trivial and does not encode two nonempty sides.
         with self.assertRaises(ValueError):
             sign_pattern_capacity(20, [13, 19], 0)
         with self.assertRaises(ValueError):
