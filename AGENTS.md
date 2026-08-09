@@ -6,14 +6,18 @@ Before substantive mathematical or engineering research:
 
 1. read `docs/RESEARCH_COMMON_SURFACE.en.md` (or the Chinese semantic pair);
 2. read `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`;
-3. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
-4. read the latest relevant entries in Research Relay Issue #82;
-5. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family;
-6. when the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md` and relevant entries in Foundation Problem Set Issue #164.
+3. read `docs/RESEARCH_OWNER_ISOLATION.en.md`;
+4. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
+5. read the latest relevant entries in Research Relay Issue #82;
+6. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family;
+7. when the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md` and relevant entries in Foundation Problem Set Issue #164.
 
 Scheduling rules:
 
 - research on L1/L2/L3 is parallel by default;
+- L1/L2/L3 owners may legitimately be behind `main`; do not whole-tree synchronize moving `main` into an owner merely to keep it current;
+- canonical promotion freezes the exact owner payload and replays only that payload on a fresh latest-main L4 integration branch;
+- synchronization-induced off-owner files are `SCOPE_DRIFT`; route them back to their real owner/source while preserving provenance rather than continuing the synchronization;
 - `defer`, `consume from`, `owner moved`, `audit against`, or `replay after` are routing instructions, not stop conditions;
 - only a complete explicit `HARD_BLOCK` may stop a route;
 - `no_new_mathematics_during_replay=true` on an owner branch constrains only the identified replay slice; only L4 integration is globally `NO NEW MATHEMATICS`;
