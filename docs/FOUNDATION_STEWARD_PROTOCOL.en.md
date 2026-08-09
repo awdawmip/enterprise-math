@@ -135,7 +135,7 @@ Research-level uncertainty about tool sufficiency or equivalence is sent to #164
 
 ## 5. P0 Foundation Problem Set
 
-Canonical escalation surface: **GitHub Issue #164 — `[P0] Foundation Steward Problem Set / 底层维护高优先级问题集`**.
+Canonical escalation surface: **GitHub Issue #164 — `[P0] Foundation Steward Problem Set`**.
 
 Each finding receives a stable `FQ-YYYYMMDD-NNN` ID with:
 
