@@ -53,7 +53,7 @@ root interval on the observed state. -/
 theorem square_basin_distinct_divisor_root_collision_cubic
     {k n d e : ℕ}
     (hd : 2 ≤ d) (hde : d < e)
-    (hnLower : k ^ 2 ≤ n) (hnUpper : n < (k + 1) ^ 2)
+    (_hnLower : k ^ 2 ≤ n) (hnUpper : n < (k + 1) ^ 2)
     (hroot : root 2 (n / d) = root 2 (n / e)) :
     (root 2 (n / d)) ^ 3 < 2 * (k + 1) ^ 2 := by
   let t := root 2 (n / d)
@@ -117,7 +117,9 @@ theorem cubic_coalescence_horizon_lt_parent
   have hRootPow : (root 3 (2 * (k + 1) ^ 2 - 1)) ^ 3 ≤
       2 * (k + 1) ^ 2 - 1 := by
     exact Nat.pow_nthRoot_le (Or.inl (by decide))
-  omega
+  have hRootPowLt : (root 3 (2 * (k + 1) ^ 2 - 1)) ^ 3 < k ^ 3 :=
+    lt_of_le_of_lt hRootPow hArgLt
+  exact (not_lt_of_ge hkPow) hRootPowLt
 
 /-- Every actual distinct-divisor root collision strictly descends the parent
 square-root scale once `k >= 4`.
