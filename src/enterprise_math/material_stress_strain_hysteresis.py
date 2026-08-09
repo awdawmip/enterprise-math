@@ -90,14 +90,15 @@ def measured_branch_trapezoid_area(
         responses = tuple(reversed(responses))
     responses = tuple(response_sign * value for value in responses)
 
+    # FiniteMaterialDataset already guarantees equal response/deformation lengths.
+    # The adjacent-interval views each have length n-1, so strict zip belongs on
+    # those views only, not on the original n-element arrays.
     area2 = 0
-    for left_e, right_e, left_s, right_s in zip(
-        deformations,
-        deformations[1:],
-        responses,
-        responses[1:],
-        strict=True,
-    ):
+    for index in range(len(deformations) - 1):
+        left_e = deformations[index]
+        right_e = deformations[index + 1]
+        left_s = responses[index]
+        right_s = responses[index + 1]
         area2 += (left_s + right_s) * (right_e - left_e)
 
     denominator = 2 * dataset.deformation_axis.scale_factor * dataset.response_axis.scale_factor
