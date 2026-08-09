@@ -54,7 +54,7 @@ theorem square_basin_div_root_pair
 
   have hkLtBlock : k < (j + 1) * d := by
     calc
-      k < k / d * d + d := Nat.lt_div_mul_add k d hd0
+      k < k / d * d + d := @Nat.lt_div_mul_add k d hd0
       _ = (k / d + 1) * d := by ring
       _ ≤ (j + 1) * d :=
         Nat.mul_le_mul_right d (Nat.add_le_add_right hFloorLeRoot 1)
@@ -81,7 +81,7 @@ theorem square_basin_div_root_pair
 
   have hkSqPos : 0 < k ^ 2 := by positivity
   have hkSqLtDouble : k ^ 2 < k ^ 2 + k ^ 2 :=
-    Nat.lt_add_of_pos_right _ hkSqPos
+    Nat.lt_add_of_pos_right hkSqPos
   have hDoubleLeMul : k ^ 2 + k ^ 2 ≤ k ^ 2 * d := by
     calc
       k ^ 2 + k ^ 2 = k ^ 2 * 2 := by simp [Nat.mul_two]
