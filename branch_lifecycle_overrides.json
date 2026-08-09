@@ -1,0 +1,81 @@
+{
+  "schema": "ENTERPRISE_MATH_BRANCH_LIFECYCLE_OVERRIDES_V1",
+  "branches": {
+    "agent/p018-critical-grid": {
+      "state": "REPLAY_REQUIRED",
+      "reason": "Historical P018 tree spans multiple theorem homes; PR #68 is frozen and successor owner is program/p018-precision-v2."
+    },
+    "research/core/relation-quotient": {
+      "state": "REPLAY_REQUIRED",
+      "reason": "Historical A3 tree mixes relation-state, guard, geometry and causal assets; successor owner is core/a3-relation-state-v2."
+    },
+    "research/core/relation-support-bridge": {
+      "state": "REPLAY_REQUIRED",
+      "reason": "Historical bridge accumulated general theorem families; successor bridge/a3-a4-v2 must replay bridge-only results."
+    },
+    "research/core/admissible-support-relations": {
+      "state": "PROVENANCE",
+      "reason": "Historical A4 continuation is frozen as a replay source; successor owner is core/a4-admissible-support-v2."
+    },
+    "program/p018-precision-v2": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current P018 precision-specific owner created from current main under Architecture v2."
+    },
+    "core/a2-future-quotient-v2": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current A2 owner for generic future-compatible quotient extensions over canonical P023 main."
+    },
+    "core/a3-relation-state-v2": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current A3 structured relation-state replay owner."
+    },
+    "core/a4-admissible-support-v2": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current A4 admissible-support/correspondence replay owner."
+    },
+    "bridge/a3-a4-v2": {
+      "state": "ACTIVE_BRIDGE",
+      "reason": "Current thin A3/A4 bridge replay branch."
+    },
+    "integration/branch-lifecycle-auditor": {
+      "state": "INTEGRATION",
+      "reason": "One-shot current-main tooling integration for the Architecture v2 lifecycle audit."
+    },
+    "research/e002-horizon-saturation-v2": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found ahead(main)=0."
+    },
+    "research/e002-precision-locked-actuation-v2": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found ahead(main)=0."
+    },
+    "research/e002-precision-native-hysteresis-v2": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found ahead(main)=0."
+    },
+    "research/e002-predictive-quotient-compiler-v2": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found ahead(main)=0."
+    },
+    "research/e002-vector-actuation-v2": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found ahead(main)=0."
+    },
+    "research/e002-task-observable-v2": {
+      "state": "ABSORBED",
+      "reason": "Semantic audit found the task-observable bilingual document, implementation and tests are exact blobs already present on main despite different commit ancestry."
+    },
+    "research/p023-composition-safe-collapse": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found ahead(main)=0; canonical P023 assets are on main."
+    },
+    "research/p023-safe-selector-semigroup": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found ahead(main)=0."
+    },
+    "research/p018-all-power-quotient-basin-final": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found ahead(main)=0; canonical all-power quotient transport is on main."
+    }
+  }
+}
