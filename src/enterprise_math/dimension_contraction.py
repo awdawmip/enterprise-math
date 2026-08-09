@@ -1,12 +1,14 @@
 """Integer-only dimension-contraction tools for P019.
 
 The core object is the balanced fiber-minimum power energy Psi_{m,s}(c): the
-least possible sum of |a_i|**s over m integer slots with total c.  The square
+least possible sum of |a_i|**s over m integer slots with total c. The square
 case s=2 recovers the radial contraction model; s=1 recovers block-insensitive
 relation cost up to the usual factor-of-two on zero-sum states.
 """
 
 from __future__ import annotations
+
+from math import comb
 
 
 def _require_positive(name: str, value: int) -> None:
@@ -31,6 +33,49 @@ def balanced_power_energy(block_size: int, power: int, total: int) -> int:
     magnitude = abs(total)
     q, r = divmod(magnitude, block_size)
     return (block_size - r) * q**power + r * (q + 1) ** power
+
+
+def balanced_power_defect(block_size: int, power: int, total: int) -> int:
+    """Exact scaled defect m^(s-1)*Psi_(m,s)(c)-|c|^s."""
+    _require_positive("block_size", block_size)
+    _require_positive("power", power)
+    _require_integer("total", total)
+    if power == 1:
+        return 0
+    return (
+        block_size ** (power - 1)
+        * balanced_power_energy(block_size, power, total)
+        - abs(total) ** power
+    )
+
+
+def balanced_power_residue_shell(block_size: int, power: int, total: int) -> int:
+    """Closed finite residue-shell formula for the scaled power defect.
+
+    If |c|=m*q+r, then for s>=2 the defect is
+
+        r*(m-r) * sum_{j=2}^s C(s,j) q^(s-j)
+                    * sum_{h=0}^{j-2} r^h m^(s-2-h).
+
+    The expression is zero exactly when the block divides |total| (or s=1).
+    """
+    _require_positive("block_size", block_size)
+    _require_positive("power", power)
+    _require_integer("total", total)
+    if power == 1:
+        return 0
+    magnitude = abs(total)
+    q, r = divmod(magnitude, block_size)
+    if r == 0:
+        return 0
+    shell = 0
+    for j in range(2, power + 1):
+        inner = sum(
+            r**h * block_size ** (power - 2 - h)
+            for h in range(j - 1)
+        )
+        shell += comb(power, j) * q ** (power - j) * inner
+    return r * (block_size - r) * shell
 
 
 def balanced_square_energy(block_size: int, total: int) -> int:
