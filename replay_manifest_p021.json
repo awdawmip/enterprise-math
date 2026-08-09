@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_MATH_REPLAY_MANIFEST_V1",
+  "status": "ACTIVE_OWNER_REPLAY",
+  "no_new_mathematics_during_replay": true,
+  "target_branch": "program/p021-causal-focusing-v2",
+  "target_home": "P021_CAUSAL_FOCUSING_APPLICATION",
+  "baseline_main": "196e4355ebb1a24d16f421b42cb50c47a1a3fb87",
+  "primary_source": {
+    "branch": "research/p021-causal-focusing",
+    "head": "e8d176b30e7e52ca75b2ae9467066ea4f8f5af6c",
+    "historical_pr": 48,
+    "historical_note": "source assets may still use obsolete P019 filenames; canonical replay target is P021"
+  },
+  "keep": [
+    "finite causal-boundary/horizon constructions",
+    "future-section expansion and focusing observables",
+    "direction-orbit and causal-role structures",
+    "direction-specific witness transport and composability",
+    "physical/causal application counterexamples and finite spectra"
+  ],
+  "defer": {
+    "A2_P023": [
+      "generic future-compatible quotient and information-erasure sufficiency",
+      "generic minimum repair/reusable interface"
+    ],
+    "A4": [
+      "generic multivalued witness/correspondence composition",
+      "count/enriched support algebra independent of causal semantics"
+    ],
+    "A3": ["structured weighted relation-state/partition kernel"],
+    "P016": ["physical falsification and empirical-validation policy"]
+  },
+  "audit_priority": [
+    "separate causal/direction-specific witness identity from generic A4 witness algebra",
+    "retain the counterexample that adjacent count matrices need not determine multi-step witness composition",
+    "classify uniform-fiber/cardinality reduction as specialization of a generic owner theorem where possible",
+    "rename canonical replay assets from obsolete historical P019 labels to P021"
+  ],
+  "forbid_wholesale_merge": true,
+  "source_branch_frozen_for_new_general_theorems": true,
+  "completion": [
+    "every historical asset classified by owner",
+    "causal/direction-specific layer replayed on current main",
+    "generic quotient/witness results consumed from core owners rather than duplicated",
+    "prior-art/provenance preserved",
+    "repository gates pass"
+  ]
+}
