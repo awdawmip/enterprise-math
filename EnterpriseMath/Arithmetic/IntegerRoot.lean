@@ -28,6 +28,19 @@ theorem root_eq_iff {p n k : ℕ} (hp : p ≠ 0) :
   · rintro ⟨h₁, h₂⟩
     exact Nat.nthRoot_eq_of_le_of_lt h₁ h₂
 
+/-- T007: a collapse basin is exactly the half-open interval between consecutive p-th powers. -/
+theorem collapse_eq_pow_iff {p n k : ℕ} (hp : p ≠ 0) :
+    collapse p n = k ^ p ↔ k ^ p ≤ n ∧ n < (k + 1) ^ p := by
+  constructor
+  · intro h
+    have hpow : root p n ^ p = k ^ p := by
+      simpa [collapse] using h
+    have hroot : root p n = k := Nat.pow_left_injective hp hpow
+    exact (root_eq_iff hp).1 hroot
+  · intro h
+    have hroot : root p n = k := (root_eq_iff hp).2 h
+    simp [collapse, hroot]
+
 /-- Enterprise Math collapse is reductive. -/
 theorem collapse_le {p : ℕ} (hp : p ≠ 0) (n : ℕ) : collapse p n ≤ n := by
   exact Nat.pow_nthRoot_le (n := p) (a := n) (.inl hp)
