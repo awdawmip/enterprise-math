@@ -72,7 +72,7 @@ For an idempotent transition, the one-step repair `(q, q ∘ T)` is already full
 transition-compatible. No second future-refinement round is needed.
 -/
 theorem repair_transitionCompatible_of_idempotent (T : X → X) (q : X → Q)
-    (hT : Function.Idempotent T) :
+    (hT : ∀ x : X, T (T x) = T x) :
     TransitionCompatible T (repair q (fun x => q (T x))) := by
   intro x y hxy
   have hnext : q (T x) = q (T y) := congrArg Prod.snd hxy
