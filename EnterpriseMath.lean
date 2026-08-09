@@ -10,6 +10,7 @@ import EnterpriseMath.Precision.PowerQuotientCoalescenceGap
 import EnterpriseMath.Precision.QuotientRootFiber
 import EnterpriseMath.Precision.BinaryRootAtlas
 import EnterpriseMath.Precision.BinaryRootAtlasBoundary
+import EnterpriseMath.Precision.BinaryRootAtlasCardinality
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
