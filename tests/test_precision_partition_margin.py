@@ -52,19 +52,20 @@ class PrecisionPartitionMarginTests(unittest.TestCase):
         self.assertGreaterEqual(data["parent_margin"], data["child_margin_sum"])
 
     def test_signed_cross_compensation_can_mask_fine_negative_margin(self):
-        # A negative fine margin can be hidden at the coarser parent by a
-        # positive sibling compensation term.  This is the exact algebraic
-        # mechanism behind proof resolution under precision refinement.
+        # Left child has D=-1.  The right singleton contributes no own margin,
+        # but the sibling cross term is +3, so the coarse parent has D=+2.
+        # Refinement therefore exposes a certificate hidden by exact coarse
+        # cross-block compensation.
         data = binary_margin_identity(
-            (-1,),
-            (2,),
+            (-1, 0),
+            (0, 1),
             (3,),
-            (-1,),
+            (0,),
         )
-        self.assertEqual(data["left_margin"], 0)
+        self.assertEqual(data["left_margin"], -1)
         self.assertEqual(data["right_margin"], 0)
-        self.assertEqual(data["cross_compensation"], 7)
-        self.assertEqual(data["parent_margin"], 7)
+        self.assertEqual(data["cross_compensation"], 3)
+        self.assertEqual(data["parent_margin"], 2)
 
     def test_dyadic_shells_telescope_to_singletons(self):
         x = (-1, 0, 2, 1, -1, 3, 0)
