@@ -84,7 +84,13 @@ theorem observationCompatible_iff_zero_stable
     · intro hzero
       have hxy : O x = O y := (sameObservedThrough_zero_iff O F x y).mp hzero
       intro i hi
-      interval_cases i <;> simp_all [ObservationCompatible, Function.iterate_succ_apply]
+      cases i with
+      | zero => simpa using hxy
+      | succ i =>
+          have hi0 : i ≤ 0 := Nat.succ_le_succ_iff.mp hi
+          have hieq : i = 0 := Nat.eq_zero_of_le_zero hi0
+          subst i
+          simpa [Function.iterate_succ_apply] using hcomp hxy
     · exact sameObservedThrough_mono (Nat.zero_le 1)
   · intro hstable x y hxy
     have hzero : SameObservedThrough O F 0 x y :=
@@ -107,7 +113,7 @@ theorem stable_horizon_forward_compatible
   exact (sameObservedThrough_succ_iff O F n x y).mp hsucc |>.2
 
 /-- P018-T162/T164 relation core: once a finite horizon relation is stable, its
-members have equal observations at every later finite time.  No infinite limit
+members have equal observations at every later finite time. No infinite limit
 or topology is used. -/
 theorem stable_horizon_all_future
     {α β : Type*} {O : α → β} {F : α → α} {n : ℕ}
