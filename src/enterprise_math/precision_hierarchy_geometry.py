@@ -36,11 +36,29 @@ def validate_signatures(
     if not signatures:
         raise ValueError("signatures must be nonempty")
     width = len(chain)
-    if any(len(tuple(signature)) != width for signature in signatures.values()):
+    normalized = {state: tuple(signature) for state, signature in signatures.items()}
+    if any(len(signature) != width for signature in normalized.values()):
         raise ValueError("every signature must contain one coordinate per scale")
-    final_coordinates = [tuple(signature)[-1] for signature in signatures.values()]
+
+    roots = {signature[0] for signature in normalized.values()}
+    if len(roots) != 1:
+        raise ValueError("R004 hierarchy signatures need one precision-one root class")
+
+    final_coordinates = [signature[-1] for signature in normalized.values()]
     if len(final_coordinates) != len(set(final_coordinates)):
         raise ValueError("final coordinates must distinguish declared current states")
+
+    states = tuple(normalized)
+    for index, left in enumerate(states):
+        for right in states[index + 1 :]:
+            left_signature = normalized[left]
+            right_signature = normalized[right]
+            for level in range(width - 1):
+                if (
+                    left_signature[level + 1] == right_signature[level + 1]
+                    and left_signature[level] != right_signature[level]
+                ):
+                    raise ValueError("signature equivalence classes must be nested")
     return chain
 
 
