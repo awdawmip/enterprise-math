@@ -5,24 +5,27 @@ Date: 2026-08-09
 
 ## Retained core
 
-The research line currently retains only the following primitives:
+The research line retains the following generic primitives:
 
 1. a finite fine state space;
 2. an explicit coarse quotient / observation partition;
-3. the operation(s) the coarse state is required to support;
+3. the operation(s) and observations the coarse state is required to support in the declared future language;
 4. fiber constancy / congruence as the safety criterion;
-5. minimal partition refinement when the criterion fails.
+5. minimal partition refinement when that criterion fails;
+6. safe-precision selectors as monotone reductive idempotent maps on the finite lattice of equivalence relations.
 
 No metric error, probability, entropy, continuum limit, or physical interpretation is required for the core theorem.
 
-## Current theorem stack
+## Current canonical theorem stack
 
 - T01: fiber constancy iff an observable descends through a quotient;
 - T02: `(old coarse label, failed future observable)` is the coarsest one-step repair;
 - T03–T07: finite deterministic future refinement stabilizes to the coarsest transition-compatible refinement;
 - T08: exact quotient is compatible with every floor-precision quotient;
 - T09: same-space multiple collapse descends through floor precision iff the two integer parameters are comparable by divisibility;
-- T10–T14: the same finite closure extends to a finite family of deterministic operations, with operation-word future semantics.
+- T10–T14: finite closure extends to a finite family of deterministic operations, with operation-word future semantics;
+- Stage 2: the safe-precision interior is the largest compatible relation below the supplied precision relation; uniform divisibility scales need not be closed under minimal repair, so localized bounded detail is a legitimate precision object;
+- Stage 3 / Supplement 07: repeated fixed safe-selector words stabilize to the joint safe precision for the union of their operation requirements; one-pass selector order may matter while stable safe precision does not.
 
 ## Independent bounded checks
 
@@ -35,10 +38,35 @@ No counterexample was found in those bounded domains.
 
 These checks are supporting evidence, not substitutes for proof or repository CI.
 
-## Current blocker / next theorem target
+## Ownership split after P024
 
-The next target is arithmetic minimal repair:
+P023 remains the **generic** theory.  It should not absorb every arithmetic specialization of a future-safe quotient.
 
-> when a P018 floor-precision quotient is not compatible with an Enterprise Math operation, can the coarsest repair be represented canonically by existing bounded detail coordinates such as Euclidean remainder, basin position, carry, or collision spectrum rather than by an arbitrary partition label?
+P024 (`docs/P024_ACTION_LANGUAGE_PRECISION.en.md`) owns the one-dimensional additive/ordered-threshold specialization:
 
-A positive answer would connect general quotient compatibility directly to the project's integer precision calculus. A negative answer should identify the smallest counterexample and the missing detail type.
+- integer translation action monoids;
+- reachable boundary orbits `B-M`;
+- one-sided numerical-semigroup holes;
+- exact gcd over-refinement defect;
+- conductor-localized irregular boundary layers;
+- genuine two-sided group completion;
+- automatic subgroup completion after finite cyclic periodicization.
+
+The boundary is therefore:
+
+```text
+P023: which equivalence relation is future-safe / coarsest?
+P024: for integer translations + ordered threshold observations,
+      what arithmetic geometry does that relation have?
+```
+
+E001 Boolean-contact and E002 actuation results may use P024 as an arithmetic specialization, but they retain ownership of their own engineering/physical semantics.
+
+## Current next theorem target
+
+The generic P023 route should now move beyond the additive threshold case already factored into P024.  High-value targets are:
+
+1. state-dependent operation families whose safe relation cannot be reduced to a state-independent additive monoid;
+2. efficient canonical representations of nonuniform/localized safe precision without falling back to arbitrary database-like labels;
+3. formal abstraction shared by P019 collapse-word stabilization and P023 selector-word stabilization;
+4. interaction between multiple independent safe-precision requirements when their minimal repairs live in different structured state families.
