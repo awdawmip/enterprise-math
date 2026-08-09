@@ -18,6 +18,19 @@
     "direction-specific witness transport and composability",
     "physical/causal application counterexamples and finite spectra"
   ],
+  "selected_first_slice": {
+    "name": "CAUSAL_BOUNDARY_CORE",
+    "assets": [
+      "src/enterprise_math/causal_boundary.py",
+      "tests/test_causal_boundary.py"
+    ],
+    "reason": "This is the smallest program-specific graph + integer-expansion boundary layer. It consumes canonical P018 observation/refinement helpers but does not define a second generic precision or correspondence theory.",
+    "excluded_from_first_slice": [
+      "black-hole physical interpretation",
+      "charged/phase/focusing specializations",
+      "direction witness composition whose generic parts require A4/A2 audit"
+    ]
+  },
   "defer": {
     "A2_P023": [
       "generic future-compatible quotient and information-erasure sufficiency",
