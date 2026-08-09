@@ -5,12 +5,17 @@ guards W, the hidden score variation inside one coarse fiber is the lattice
 
     L_G = W(K_A) subset Z^r.
 
-The partition kernel has the canonical within-block basis e_i-e_anchor.  The
+The partition kernel has the canonical within-block basis e_i-e_anchor. The
 image generators are therefore just guard-coefficient differences inside each
 coarse block.
 
-This module keeps the analysis integer-only.  Rank is computed by fraction-free
+This module keeps the analysis integer-only. Rank is computed by fraction-free
 integer row elimination; no floating point or rational arithmetic is used.
+
+For rank-one hidden guard images, the full affine lattice is an arithmetic line
+`g+t*h`. Threshold-pattern reachability is therefore exactly one-dimensional:
+each guard contributes an integer lower or upper bound on t and the bounds are
+intersected.
 """
 
 from __future__ import annotations
@@ -77,7 +82,7 @@ def guard_kernel_image_generators(
     """Generators of W(K_A) in guard-score coordinates.
 
     One generator is produced for each non-anchor fine coordinate in every
-    coarse block.  Its guard-space components are coefficient differences.
+    coarse block. Its guard-space components are coefficient differences.
     """
     size = _require_guards(guards)
     _require_partition(size, partition)
@@ -113,7 +118,7 @@ def integer_matrix_rank(rows: IntMatrix, column_count: int | None = None) -> int
 
         (a/g)*row - (b/g)*pivot_row,
 
-    where g=gcd(|a|,|b|).  This is fraction-free and preserves rational rank.
+    where g=gcd(|a|,|b|). This is fraction-free and preserves rational rank.
     """
     if not isinstance(rows, tuple):
         raise ValueError("rows must be a tuple")
@@ -185,3 +190,134 @@ def all_guards_descend(guards: GuardFamily, partition: Partition) -> bool:
 def guard_image_is_full_rank(guards: GuardFamily, partition: Partition) -> bool:
     """Whether hidden motion spans a full-rank sublattice of guard-score space."""
     return guard_kernel_image_rank(guards, partition) == len(guards)
+
+
+def rank_one_lattice_step(generators: IntMatrix, coordinate_count: int | None = None) -> tuple[int, ...]:
+    """Canonical nonzero step h for a rank-one integer lattice.
+
+    If generators span a rank-one subgroup L of Z^r, return h with first
+    nonzero component positive such that L=Z*h.
+    """
+    if not isinstance(generators, tuple):
+        raise ValueError("generators must be a tuple")
+    if generators:
+        width = len(generators[0])
+        if any(not isinstance(row, tuple) or len(row) != width for row in generators):
+            raise ValueError("generators must have a common width")
+        if any(
+            isinstance(value, bool) or not isinstance(value, int)
+            for row in generators
+            for value in row
+        ):
+            raise ValueError("generator entries must be integers")
+        if coordinate_count is not None and coordinate_count != width:
+            raise ValueError("coordinate_count does not match generator width")
+    else:
+        raise ValueError("rank-one lattice requires a nonzero generator")
+
+    if integer_matrix_rank(generators, width) != 1:
+        raise ValueError("generators must span rank one")
+
+    first = next(row for row in generators if any(row))
+    divisor = 0
+    for value in first:
+        divisor = gcd(divisor, abs(value))
+    primitive = tuple(value // divisor for value in first)
+    first_nonzero = next(value for value in primitive if value != 0)
+    if first_nonzero < 0:
+        primitive = tuple(-value for value in primitive)
+
+    pivot_index = next(index for index, value in enumerate(primitive) if value != 0)
+    coefficients = []
+    for generator in generators:
+        if not any(generator):
+            coefficients.append(0)
+            continue
+        pivot = primitive[pivot_index]
+        if generator[pivot_index] % pivot != 0:
+            raise AssertionError("rank-one integer generator must be an integer multiple of primitive direction")
+        coefficient = generator[pivot_index] // pivot
+        if tuple(coefficient * value for value in primitive) != generator:
+            raise AssertionError("rank-one generator reconstruction failed")
+        coefficients.append(coefficient)
+
+    step_factor = 0
+    for coefficient in coefficients:
+        step_factor = gcd(step_factor, abs(coefficient))
+    if step_factor == 0:
+        raise AssertionError("rank-one lattice cannot have zero step factor")
+    return tuple(step_factor * value for value in primitive)
+
+
+def guard_rank_one_step(guards: GuardFamily, partition: Partition) -> tuple[int, ...]:
+    """Canonical arithmetic-line step of W(K_A) when hidden guard rank is one."""
+    generators = guard_kernel_image_generators(guards, partition)
+    return rank_one_lattice_step(generators, coordinate_count=len(guards))
+
+
+def _ceil_div(numerator: int, denominator: int) -> int:
+    if denominator <= 0:
+        raise ValueError("denominator must be positive")
+    return -((-numerator) // denominator)
+
+
+def rank_one_threshold_pattern_interval(
+    base_scores: tuple[int, ...],
+    step: tuple[int, ...],
+    true_flags: tuple[bool, ...],
+) -> tuple[int | None, int | None] | None:
+    """Exact integer t-interval realizing a threshold pattern on g+t*h.
+
+    `True` means score >= 0; `False` means score < 0, equivalently score <= -1.
+    The returned pair is `(lower, upper)` with `None` for an unbounded side.
+    `None` as the whole return value means the pattern is unreachable.
+    """
+    if not isinstance(base_scores, tuple) or not isinstance(step, tuple):
+        raise ValueError("base_scores and step must be tuples")
+    if len(base_scores) != len(step) or len(true_flags) != len(step):
+        raise ValueError("base_scores, step, and true_flags must have equal length")
+    if any(isinstance(value, bool) or not isinstance(value, int) for value in base_scores + step):
+        raise ValueError("base_scores and step entries must be integers")
+    if any(not isinstance(flag, bool) for flag in true_flags):
+        raise ValueError("true_flags entries must be booleans")
+    if not any(step):
+        raise ValueError("step must be nonzero")
+
+    lower: int | None = None
+    upper: int | None = None
+
+    for base, delta, wants_true in zip(base_scores, step, true_flags):
+        if wants_true:
+            # base + delta*t >= 0
+            if delta > 0:
+                candidate = _ceil_div(-base, delta)
+                lower = candidate if lower is None else max(lower, candidate)
+            elif delta < 0:
+                candidate = base // (-delta)
+                upper = candidate if upper is None else min(upper, candidate)
+            elif base < 0:
+                return None
+        else:
+            # base + delta*t <= -1
+            if delta > 0:
+                candidate = (-1 - base) // delta
+                upper = candidate if upper is None else min(upper, candidate)
+            elif delta < 0:
+                candidate = _ceil_div(base + 1, -delta)
+                lower = candidate if lower is None else max(lower, candidate)
+            elif base >= 0:
+                return None
+
+        if lower is not None and upper is not None and lower > upper:
+            return None
+
+    return lower, upper
+
+
+def rank_one_threshold_pattern_reachable(
+    base_scores: tuple[int, ...],
+    step: tuple[int, ...],
+    true_flags: tuple[bool, ...],
+) -> bool:
+    """Whether one threshold branch pattern occurs in the rank-one guard coset."""
+    return rank_one_threshold_pattern_interval(base_scores, step, true_flags) is not None
