@@ -182,6 +182,16 @@ A concern that survives minimum verification and still requires genuine research
 
 The steward does not solve those research questions. Other researchers claim them, return evidence, and the steward verifies the answer before any canonical language/formula/theorem/tool change.
 
+### 9.1 Resolved canonical foundation conventions
+
+The first three foundation questions establish the following project-wide conventions once their resolving integration is on `main`:
+
+- **Natural states:** \(\mathbb N=\mathbb N_0=\{0,1,2,\ldots\}\); positive integers are \(\mathbb N_{>0}\). Bare \(\mathbb N\) therefore includes zero.
+- **Root/collapse exponents:** the nontrivial primitive family is \(p\ge2\); the exact algebraic/formal extension is all \(p\ge1\), with \(R_1=C_1=\operatorname{id}\).
+- **Time:** \(T_t:X_t\to X_{t+1}\), \(F_0=\operatorname{id}\), and \(F_{t+1}=T_t\circ F_t\), equivalently \(F_t=T_{t-1}\circ\cdots\circ T_0\) for \(t\ge1\). Merge time is the least \(t\in\mathbb N_0\) at which the cumulative images agree.
+
+These are interface conventions, not new theorem families. They preserve the existing arithmetic and history-merging results while removing domain and off-by-one ambiguity.
+
 This creates a deliberate separation:
 
 `foundation maintenance and verification -> FQ escalation when research is needed -> independent researcher investigation -> steward verification -> canonical propagation`.
