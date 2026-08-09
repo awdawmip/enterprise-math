@@ -20,7 +20,6 @@ from fractions import Fraction
 from math import gcd
 
 from .abc_block_floor_line import block_value_lattice_basis
-from .abc_block_value_quotient import block_value_lattice_membership
 from .abc_support import abc_support_state
 
 
@@ -195,7 +194,7 @@ def same_smith_different_labelled_image_counterexample() -> dict[str, object]:
     second = multi_certificate_image(*triple, second_rows)
     if first.invariant_factors != (1, 2) or second.invariant_factors != (1, 2):
         raise AssertionError("counterexample lost equal Smith invariants")
-    witness_target = (0, 2)
+    witness_target = (1, 0)
     first_contains = labelled_image_membership_by_small_coefficients(first, witness_target)
     second_contains = labelled_image_membership_by_small_coefficients(second, witness_target)
     if not first_contains or second_contains:
