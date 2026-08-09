@@ -77,14 +77,13 @@ def rank_one_reachable_patterns(
     for index, (base, delta) in enumerate(zip(base_scores, step)):
         if delta > 0:
             current.append(False)
-            switch = -((-(-base)) // delta)  # ceil(-base/delta)
-            # Written explicitly below to keep the integer threshold obvious.
-            switch = -((base) // delta) if base % delta == 0 else -((base) // delta)
-            # Python floor division makes the compact identity ceil(-base/d)=-(base//d).
+            # First integer t with base+delta*t >= 0:
+            # ceil(-base/delta) = -(base // delta) for delta>0.
             switch = -(base // delta)
             switches.setdefault(switch, []).append((index, True))
         elif delta < 0:
             current.append(True)
+            # Last true value is floor(base/(-delta)); the next t turns false.
             switch = base // (-delta) + 1
             switches.setdefault(switch, []).append((index, False))
         else:
