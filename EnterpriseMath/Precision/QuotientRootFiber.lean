@@ -55,16 +55,12 @@ theorem quotient_root_fiber_iff
       simpa [Nat.mul_comm] using hUpperMul
     exact ⟨hRootLower, hRootUpper⟩
 
-/-- The exact positive fiber capacity is the difference of the two quotient
-endpoints.  This theorem packages only the interval cardinality arithmetic;
-`quotient_root_fiber_iff` supplies the semantic identification with root states.
--/
-theorem quotient_root_fiber_capacity
-    {r n t : ℕ}
-    (hr : 1 ≤ r)
-    (ht : 0 < t) :
-    ((n / t ^ r) + 1) - ((n / (t + 1) ^ r) + 1) =
-      n / t ^ r - n / (t + 1) ^ r := by
+/-- Shifting both interval endpoints by one does not change their natural-number
+width.  This is the pure arithmetic identity used when the exact denominator
+fiber is represented as the closed interval
+`[n/(t+1)^r + 1, n/t^r]`. -/
+theorem shifted_interval_width {upper lower : ℕ} :
+    (upper + 1) - (lower + 1) = upper - lower := by
   omega
 
 end EnterpriseMath.Precision
