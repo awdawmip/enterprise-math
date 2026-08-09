@@ -1,4 +1,5 @@
 import Mathlib.Analysis.SpecialFunctions.Pow.NthRootLemmas
+import Mathlib.Order.Interval.Finset.Nat
 
 namespace EnterpriseMath.IntegerRoot
 
@@ -40,6 +41,33 @@ theorem collapse_eq_pow_iff {p n k : ℕ} (hp : p ≠ 0) :
   · intro h
     have hroot : root p n = k := (root_eq_iff hp).2 h
     simp [collapse, hroot]
+
+/-- Finite state set of the basin with root index `k` at exponent `p`. -/
+def basin (p k : ℕ) : Finset ℕ :=
+  Finset.Ico (k ^ p) ((k + 1) ^ p)
+
+/-- Positive-exponent collapse membership agrees exactly with the finite basin interval. -/
+theorem mem_basin_iff {p n k : ℕ} (hp : p ≠ 0) :
+    n ∈ basin p k ↔ collapse p n = k ^ p := by
+  rw [collapse_eq_pow_iff hp]
+  simp [basin]
+
+/-- T008: the exact number of states in a perfect-power collapse basin. -/
+theorem basin_card (p k : ℕ) :
+    (basin p k).card = (k + 1) ^ p - k ^ p := by
+  simp [basin]
+
+/-- T008 square specialization: the k-th square basin contains exactly `2k+1` states. -/
+theorem basin_card_square (k : ℕ) :
+    (basin 2 k).card = 2 * k + 1 := by
+  rw [basin_card, Nat.sq_sub_sq]
+  simp
+  omega
+
+/-- T008 identity specialization: every p=1 basin is a singleton. -/
+theorem basin_card_one (k : ℕ) :
+    (basin 1 k).card = 1 := by
+  simp [basin]
 
 /-- Enterprise Math collapse is reductive. -/
 theorem collapse_le {p : ℕ} (hp : p ≠ 0) (n : ℕ) : collapse p n ≤ n := by
