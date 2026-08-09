@@ -1,0 +1,370 @@
+# Legendre Pressure Test — Supplement 16
+
+Status: `ACTIVE RESEARCH NOTE`  
+Scope: exact cross-shell separation of first-factor cofactor windows  
+Depends on: canonical P017 cofactor-window formula L020–L027 and L051 lower-band root packing  
+Discipline: this note proves an elementary finite inequality. It does **not** prove Legendre's conjecture and uses no prime-distribution estimate.
+
+## 1. Motivation
+
+L051 shows that, in the lower least-factor band, a descended square-root index can receive candidate channels from at most two least-prime shells.
+
+That is a root-coordinate packing theorem. The next question is finer:
+
+> Can two different first-prime shells produce the same stripped cofactor value?
+
+For one first-factor prime `p<=k`, write every shell state as
+
+\[
+n=pq,
+\qquad
+k^2<n<(k+1)^2.
+\]
+
+The exact raw cofactor window is
+
+\[
+\boxed{
+W_p(k)=
+\left[
+\left\lfloor\frac{k^2}{p}\right\rfloor+1,
+\left\lfloor\frac{k(k+2)}{p}\right\rfloor
+\right].
+}
+\]
+
+The first-factor shell is obtained from this raw interval by retaining the `p`-rough cofactors.
+
+The new observation is that, except for the finite basin `k=3`, these raw intervals are already pairwise disjoint before roughness is imposed.
+
+---
+
+## 2. L052 — Strict separation of raw cofactor windows
+
+Status: `PROVED`.
+
+Let
+
+\[
+k\ge4,
+\qquad
+p<r\le k,
+\]
+
+where `p` and `r` are primes.
+
+Then
+
+\[
+\boxed{
+\max W_r(k)<\min W_p(k).
+}
+\]
+
+Equivalently,
+
+\[
+\boxed{
+\left\lfloor\frac{k(k+2)}r\right\rfloor
+\le
+\left\lfloor\frac{k^2}p\right\rfloor.
+}
+\]
+
+Thus the cofactor windows move strictly downward on the integer `q` axis as the least prime increases.
+
+### Proof
+
+It is enough to prove
+
+\[
+\frac{k(k+2)}r\le\frac{k^2}p.
+\]
+
+Since all quantities are positive, this is equivalent to
+
+\[
+p(k+2)\le rk,
+\]
+
+or
+
+\[
+\boxed{2p\le k(r-p).}
+\]
+
+There are two cases.
+
+### Case 1: `p=2`
+
+Since `r>p`,
+
+\[
+r-p\ge1.
+\]
+
+Because `k>=4`,
+
+\[
+k(r-p)\ge k\ge4=2p.
+\]
+
+### Case 2: `p>=3`
+
+Both `p` and `r` are odd primes, so
+
+\[
+r-p\ge2.
+\]
+
+Also `p<=k`. Hence
+
+\[
+k(r-p)
+\ge2k
+\ge2p.
+\]
+
+Therefore in every case
+
+\[
+2p\le k(r-p),
+\]
+
+and so
+
+\[
+\frac{k(k+2)}r\le\frac{k^2}p.
+\]
+
+Taking floors gives
+
+\[
+\left\lfloor\frac{k(k+2)}r\right\rfloor
+\le
+\left\lfloor\frac{k^2}p\right\rfloor
+=
+\min W_p(k)-1.
+\]
+
+Hence
+
+\[
+\boxed{
+\max W_r(k)<\min W_p(k).
+}
+\]
+
+∎
+
+---
+
+## 3. Sharp finite exception at k=3
+
+The condition `k>=4` cannot simply be deleted.
+
+At
+
+\[
+k=3,
+\]
+
+one has
+
+\[
+W_2(3)=[5,7],
+\qquad
+W_3(3)=[4,5].
+\]
+
+They meet at
+
+\[
+q=5.
+\]
+
+Indeed the two square-basin composite states
+
+\[
+10=2\cdot5,
+\qquad
+15=3\cdot5
+\]
+
+both lie strictly between `3^2` and `4^2`.
+
+So `k=3` is a genuine smallest overlap example rather than a proof artifact.
+
+---
+
+## 4. Corollary — Least-factor stripping is cross-shell injective
+
+Let
+
+\[
+I_k=\{k^2+1,\ldots,(k+1)^2-1\},
+\qquad k\ge4.
+\]
+
+For a composite state `n in I_k`, let
+
+\[
+p=\operatorname{spf}(n),
+\qquad
+q=n/p.
+\]
+
+Then the map
+
+\[
+\boxed{
+\Psi_k(n)=q=n/\operatorname{spf}(n)
+}
+\]
+
+is injective across distinct first-prime shells.
+
+More explicitly, if
+
+\[
+n_1=p_1q,
+\qquad
+n_2=p_2q,
+\qquad
+p_1\ne p_2,
+\]
+
+and each `p_i` is the least prime factor of its state, then both occurrences of `q` would have to lie in the raw windows `W_{p_1}(k)` and `W_{p_2}(k)`. L052 says these windows are disjoint. Therefore this cannot happen.
+
+Within one fixed shell the map `n=pq -> q` is obviously injective as well. Hence the full least-factor stripping map on square-basin composites is injective for `k>=4`.
+
+This is stronger than merely saying that first-factor shells are disjoint as sets of original states. It says their **quotient images are also disjoint**.
+
+---
+
+## 5. Relation to L051 root-target packing
+
+L051 works after applying the square-root coordinate to the stripped cofactor.
+
+For lower-band prime `p`,
+
+\[
+j_p
+=R_2\!\left(\left\lfloor\frac{k^2}{p}\right\rfloor\right),
+\]
+
+and T110 confines the cofactor root to
+
+\[
+\{j_p,j_p+1\}.
+\]
+
+L051 proves that any one target root index can receive at most two such prime-shell channels.
+
+L052 now adds a finer statement below that coarse root coordinate:
+
+\[
+\boxed{
+\text{even when two shells share a target root basin, their exact q-subwindows do not overlap.}
+}
+\]
+
+Thus a target square basin can contain pieces from two parent shells, but the parent pieces are ordered disjoint subintervals.
+
+This is exactly the kind of geometry needed for a recursive capacity argument: we no longer need to replace each shell by the entire target square basin.
+
+---
+
+## 6. Relation to T113 exact branch thresholds
+
+P018-T113 writes the quotient-root response inside one parent shell as one threshold in the original basin offset.
+
+For each first prime `p`, the exact cofactor window can therefore be split into at most two pieces, one in root basin `j_p` and one in root basin `j_p+1`.
+
+L052 says those exact pieces remain disjoint from the pieces generated by every other first-prime shell.
+
+Combining the two results gives a finite picture:
+
+1. every first-prime shell has one exact raw cofactor interval;
+2. T113 splits that interval at at most one root boundary;
+3. L051 says one root basin receives at most two parent shells in the lower band;
+4. L052 says the parent subwindows inside that root basin are disjoint.
+
+So the lower-band recursion is not an arbitrary branching tree. It is a collection of ordered, non-overlapping subintervals carried into strictly smaller root scales.
+
+---
+
+## 7. Why this still does not prove Legendre
+
+The injection
+
+\[
+n\mapsto n/\operatorname{spf}(n)
+\]
+
+lands in much larger numerical territory than the original `2k`-state basin. A global injection into cofactors alone therefore gives no useful cardinality deficit.
+
+Likewise, summing full lower target-basin sizes would throw away the exact-window information and lose the gain.
+
+The useful next object must retain the **local occupancy ratio** inside each descended root basin.
+
+For target root `t`, let the exact incoming cofactor pieces be
+
+\[
+J_{p,t}(k)
+=
+W_p(k)\cap[t^2,(t+1)^2-1].
+\]
+
+By L051 there are at most two relevant lower-band primes `p`, and by L052 those intervals are disjoint.
+
+The next quantitative question is therefore:
+
+> How much of a target square basin can the union of its one or two exact incoming windows occupy, after retaining the parent `p`-rough condition?
+
+A useful bound must improve on replacing the union by the entire target basin. If it reduces to ordinary Buchstab bookkeeping after summation, it should be demoted.
+
+---
+
+## 8. Executable validation
+
+The reference implementation adds
+
+- `raw_cofactor_interval(k,p)`;
+- `cofactor_window_pair_separation(k,p,r)`;
+- `all_cofactor_windows_separated(k)`;
+- `least_factor_strip_injection(k)`.
+
+The regression suite checks:
+
+- strict ordering for bounded `k>=4`;
+- both touching (`integer_gap=0`) and positive-gap cases;
+- the nonnegative arithmetic margin `k(r-p)-2p`;
+- the cross-shell least-factor stripping injection;
+- the sharp `k=3`, `q=5` exception.
+
+The computation is implementation validation. The proof is the finite inequality above.
+
+---
+
+## 9. Current conclusion
+
+L051 and L052 now provide two complementary cross-shell restrictions:
+
+\[
+\boxed{
+\text{root coordinate: at most two lower-band parent shells per target root}
+}
+\]
+
+and
+
+\[
+\boxed{
+\text{cofactor coordinate: exact parent windows are pairwise disjoint for }k\ge4.
+}
+\]
+
+Together with T112 strict descent and T113 one-threshold splitting, this turns the lower-band geometry into a well-founded family of disjoint exact subwindows rather than a flat sum over small primes.
+
+The next step should attack local target-basin occupancy, not introduce another representation.
