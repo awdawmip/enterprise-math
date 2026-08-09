@@ -98,7 +98,7 @@ def canonical_full_block_cofactors(k: int, full_block: int) -> dict[str, object]
     if len(cofactors) != int(owner["exact_full_block_incidence"]):
         raise AssertionError("cofactor-window count disagrees with CG14 exact incidence")
 
-    signed_points = tuple(center - full_block * q for q in cofactors)
+    signed_points = tuple(sorted(center - full_block * q for q in cofactors))
     if signed_points != tuple(owner["canonical_signed_points"]):
         raise AssertionError("cofactor window and CG14 signed points disagree")
     for point in signed_points:
