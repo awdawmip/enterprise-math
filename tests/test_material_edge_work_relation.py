@@ -16,7 +16,7 @@ from enterprise_math.material_response import explicit_material_curve_profile
 
 
 class MaterialEdgeWorkRelationTests(unittest.TestCase):
-    def test_hooke_loading_has_one_exact_endpoint_for_reference_momentum(self):
+    def test_hooke_loading_has_one_exact_branch_consistent_endpoint_for_reference_momentum(self):
         law = uniform_force_law(
             explicit_material_curve_profile(
                 loading=(0, 1, 2, 3, 4),
@@ -26,6 +26,7 @@ class MaterialEdgeWorkRelationTests(unittest.TestCase):
         )
         report = material_edge_work_relation_report(law, 0, 5, LOADING)
         self.assertEqual(report.relation_status, UNIQUE_ENDPOINT)
+        self.assertEqual(report.branch_consistent_relation_status, UNIQUE_ENDPOINT)
         candidate = report.candidates[0]
         self.assertEqual(candidate.end_depth, 4)
         self.assertEqual(candidate.deformation_displacement, 4)
@@ -33,6 +34,8 @@ class MaterialEdgeWorkRelationTests(unittest.TestCase):
         self.assertEqual(candidate.branch_work_numerator2, 16)
         self.assertEqual(candidate.kinetic_square_change, -16)
         self.assertEqual((candidate.edge_impulse_numerator, candidate.edge_impulse_denominator), (2, 1))
+        self.assertTrue(candidate.branch_consistent)
+        self.assertFalse(candidate.requires_within_tick_branch_switch)
 
     def test_same_hooke_law_can_have_no_endpoint_at_fixed_unit_time(self):
         law = uniform_force_law(
@@ -46,7 +49,7 @@ class MaterialEdgeWorkRelationTests(unittest.TestCase):
         self.assertEqual(report.relation_status, NO_ENDPOINT)
         self.assertEqual(report.candidates, ())
 
-    def test_nonmonotone_loading_can_have_multiple_energy_consistent_endpoints(self):
+    def test_nonmonotone_loading_can_have_multiple_energy_candidates_but_both_cross_branch(self):
         law = uniform_force_law(
             explicit_material_curve_profile(
                 loading=(0, 18, 12, 0, 17),
@@ -60,6 +63,28 @@ class MaterialEdgeWorkRelationTests(unittest.TestCase):
             [(c.end_depth, c.oriented_momentum_after, c.branch_work_numerator2) for c in report.candidates],
             [(2, -4, 48), (3, -2, 60)],
         )
+        self.assertTrue(all(c.requires_within_tick_branch_switch for c in report.candidates))
+        self.assertEqual(report.branch_consistent_candidates, ())
+        self.assertEqual(report.branch_consistent_relation_status, NO_ENDPOINT)
+
+    def test_negative_loading_endpoint_is_not_a_single_branch_hysteresis_step(self):
+        law = uniform_force_law(
+            explicit_material_curve_profile(
+                loading=(0, 1, 2, 3, 4),
+                returning=(0, 0, 0, 0, 0),
+                amplitude=4,
+            )
+        )
+        candidates = loading_edge_work_candidates(law, 0, 5)
+        # At depth 4, both +3 and -3 solve the work square, but only +3 is the
+        # unit-time endpoint.  In the time-free relation the negative root would
+        # imply an unrepresented turn/return subsegment and must be marked so.
+        from enterprise_math.material_edge_time_compatibility import loading_endpoint_time_candidates
+        timed = loading_endpoint_time_candidates(law, 0, 5)
+        negative = [c for c in timed if c.end_depth == 4 and c.momentum_after < 0]
+        self.assertEqual(len(negative), 1)
+        # material_edge_work_candidates fixes unit time, so its p1=+3 candidate is branch-consistent.
+        self.assertTrue(all(c.branch_consistent for c in candidates))
 
     def test_every_candidate_closes_midpoint_and_energy_identities_exactly(self):
         laws = [
@@ -99,6 +124,7 @@ class MaterialEdgeWorkRelationTests(unittest.TestCase):
                             - candidate.oriented_momentum_before ** 2,
                             candidate.branch_work_numerator2,
                         )
+                        self.assertTrue(candidate.branch_consistent)
 
     def test_hardening_loading_has_at_most_one_exact_endpoint_in_bounded_exhaustion(self):
         for length in range(2, 7):
@@ -121,7 +147,6 @@ class MaterialEdgeWorkRelationTests(unittest.TestCase):
                         )
 
     def test_returning_candidate_can_release_exact_static_branch_work(self):
-        # Build a branch chosen so one unit-time return step exists from depth 2.
         law = uniform_force_law(
             explicit_material_curve_profile(
                 loading=(0, 1, 4),
@@ -135,6 +160,7 @@ class MaterialEdgeWorkRelationTests(unittest.TestCase):
                 candidates.append(candidate)
                 self.assertEqual(candidate.branch, RETURNING)
                 self.assertGreaterEqual(candidate.kinetic_square_change, 0)
+                self.assertTrue(candidate.branch_consistent)
         self.assertTrue(candidates)
 
     def test_invalid_branch_and_start_are_rejected(self):
