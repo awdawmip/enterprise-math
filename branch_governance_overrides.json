@@ -1,0 +1,211 @@
+{
+  "schema": "ENTERPRISE_MATH_BRANCH_GOVERNANCE_OVERRIDES_V2",
+  "branches": {
+    "agent/p018-critical-grid": {
+      "state": "PROVENANCE",
+      "reason": "Historical P018 tree is frozen; clean P018 v2 has already replayed its first canonical slice.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/core/relation-quotient": {
+      "state": "REPLAY_REQUIRED",
+      "reason": "Historical A3 source mixes multiple theorem homes; replay only selected A3 assets.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/core/relation-support-bridge": {
+      "state": "REPLAY_REQUIRED",
+      "reason": "Historical A3/A4 bridge accumulated independent theorem families; thin replay required.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/core/admissible-support-relations": {
+      "state": "PROVENANCE",
+      "reason": "Historical A4 continuation is a replay source; current owner is core/a4-admissible-support-v2.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "core/a2-future-quotient-v2": {
+      "state": "ACTIVE_OWNER",
+      "reason": "A2 generic future-compatible quotient owner; application specializations are off-owner.",
+      "allowed_paths": [
+        "replay_manifest_a2.json",
+        "EnterpriseMath.lean"
+      ],
+      "allowed_prefixes": [
+        "EnterpriseMath/Quotient/",
+        "docs/A2_",
+        "src/enterprise_math/future_quotient",
+        "src/enterprise_math/operation_quotient",
+        "tests/test_future_quotient",
+        "tests/test_operation_quotient"
+      ]
+    },
+    "core/a3-relation-state-v2": {
+      "state": "ACTIVE_OWNER",
+      "reason": "A3 structured relation-state owner; first slice is weighted field/lattice/scale only.",
+      "allowed_paths": [
+        "replay_manifest_a3.json",
+        "src/enterprise_math/weighted_relation_field.py",
+        "src/enterprise_math/relation_lattice.py",
+        "src/enterprise_math/relation_scale.py",
+        "tests/test_weighted_relation_field.py",
+        "tests/test_relation_lattice.py",
+        "tests/test_relation_scale.py"
+      ],
+      "allowed_prefixes": [
+        "docs/A3_",
+        "EnterpriseMath/RelationState/"
+      ]
+    },
+    "core/a4-admissible-support-v2": {
+      "state": "ACTIVE_OWNER",
+      "reason": "A4 finite correspondence/support owner; first slice excludes geometry and observation-precision bridges.",
+      "allowed_paths": [
+        "replay_manifest_a4.json",
+        "src/enterprise_math/admissible_support.py",
+        "src/enterprise_math/relational_spectrum.py",
+        "tests/test_admissible_support.py",
+        "tests/test_relational_spectrum.py"
+      ],
+      "allowed_prefixes": [
+        "docs/A4_",
+        "EnterpriseMath/Correspondence/"
+      ]
+    },
+    "bridge/a3-a4-v2": {
+      "state": "ACTIVE_BRIDGE",
+      "reason": "Thin bridge only; general owner theorems must be rehomed.",
+      "allowed_paths": [
+        "replay_manifest_a3_a4_bridge.json"
+      ],
+      "allowed_prefixes": [
+        "docs/A3_A4_",
+        "src/enterprise_math/a3_a4_",
+        "tests/test_a3_a4_"
+      ]
+    },
+    "program/p017-legendre": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current P017 square-basin/Legendre pressure-test frontier.",
+      "allowed_paths": [],
+      "allowed_prefixes": [
+        "docs/LEGENDRE_",
+        "docs/P017_",
+        "src/enterprise_math/p017_",
+        "tests/test_p017_",
+        "experiments/p017_",
+        "lineage_p017_",
+        "sources_p017_"
+      ]
+    },
+    "program/p018-precision-v2": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current P018 precision-specific owner; generic quotient theorems belong to A2/P023.",
+      "allowed_paths": [
+        "replay_manifest_p018.json"
+      ],
+      "allowed_prefixes": [
+        "docs/P018_",
+        "docs/PRECISION_CALCULUS",
+        "src/enterprise_math/precision_",
+        "tests/test_precision_",
+        "EnterpriseMath/Precision/"
+      ]
+    },
+    "program/p021-causal-focusing-v2": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current P021 causal/focusing program owner.",
+      "allowed_paths": ["replay_manifest_p021.json"],
+      "allowed_prefixes": [
+        "docs/P021_",
+        "src/enterprise_math/causal_",
+        "src/enterprise_math/direction_",
+        "tests/test_causal_",
+        "tests/test_direction_"
+      ]
+    },
+    "program/p022-geometry-v2": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current P022/A5 intrinsic geometry program owner.",
+      "allowed_paths": ["replay_manifest_p022.json"],
+      "allowed_prefixes": [
+        "docs/P022_",
+        "src/enterprise_math/geometry_",
+        "src/enterprise_math/lattice_",
+        "tests/test_geometry_",
+        "tests/test_lattice_"
+      ]
+    },
+    "program/p024-action-precision": {
+      "state": "ACTIVE_OWNER",
+      "reason": "P024 closed-form action-language/boundary precision specialization owner; generic quotient and adjunction remain upstream-owned.",
+      "allowed_paths": ["replay_manifest_p024.json"],
+      "allowed_prefixes": [
+        "docs/P024_",
+        "docs/PRIOR_ART_P024_",
+        "src/enterprise_math/action_language_precision",
+        "src/enterprise_math/adjoint_boundary_precision",
+        "src/enterprise_math/lattice_guard_precision",
+        "tests/test_p024_",
+        "experiments/p024_",
+        "lineage_p024_",
+        "sources_p024_"
+      ]
+    },
+    "research/e002-horizon-saturation-v2": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found no unique main-missing payload.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/e002-precision-locked-actuation-v2": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found no unique main-missing payload.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/e002-precision-native-hysteresis-v2": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found no unique main-missing payload.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/e002-predictive-quotient-compiler-v2": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found no unique main-missing payload.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/e002-vector-actuation-v2": {
+      "state": "ABSORBED",
+      "reason": "Mechanical audit found no unique main-missing payload.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/e002-task-observable-v2": {
+      "state": "ABSORBED",
+      "reason": "Semantic audit found the task-observable doc, implementation and tests already present on main as exact blobs despite different ancestry.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/p023-composition-safe-collapse": {
+      "state": "ABSORBED",
+      "reason": "Canonical P023 assets are already on main.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/p023-safe-selector-semigroup": {
+      "state": "ABSORBED",
+      "reason": "Canonical safe-selector result is already on main.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    },
+    "research/p018-all-power-quotient-basin-final": {
+      "state": "ABSORBED",
+      "reason": "Canonical all-power quotient transport is already on main.",
+      "allowed_paths": [],
+      "allowed_prefixes": []
+    }
+  }
+}
