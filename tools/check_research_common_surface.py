@@ -149,6 +149,11 @@ def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> li
     if handling != required_handling:
         errors.append("foundation handling classes drifted from the three-way classification")
 
+    link_contract = backflow.get("scheduler_link_contract", {})
+    question_field = link_contract.get("research_task_question_field")
+    if question_field != "foundation_questions":
+        errors.append("research_task_question_field must be 'foundation_questions'")
+
     task_by_id = {task.get("task_id"): task for task in scheduler.get("tasks", [])}
     seen_questions: set[str] = set()
     active_links = backflow.get("question_scheduler_links", [])
@@ -183,6 +188,12 @@ def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> li
             if owner != task.get("owner"):
                 errors.append(
                     f"{prefix}: research_owner {owner!r} must match task owner {task.get('owner')!r}"
+                )
+            declared_questions = task.get(question_field, []) if isinstance(question_field, str) else []
+            if not isinstance(declared_questions, list) or question_id not in declared_questions:
+                errors.append(
+                    f"{prefix}: research task {task_id!r} must explicitly declare "
+                    f"{question_id!r} in foundation_questions"
                 )
 
         refs = link.get("source_refs")
