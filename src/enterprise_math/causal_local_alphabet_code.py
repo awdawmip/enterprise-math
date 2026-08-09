@@ -15,24 +15,24 @@ The global primitive grade is the minimum of the zero-sector local primitive
 grade and all nonzero codeword lift grades.  Primitive event multiplicity is the
 sum of all families attaining that grade.
 
-Two classical specializations are used as executable shadows:
+Three causal regimes are distinguished by comparing the minimum nonzero code lift
+grade d_C with the local zero-sector primitive grade g_0:
 
-* binary integer cell: zero-sector +/-2 events have normalized square grade 4
-  and multiplicity 2 per slot; nonzero residue has grade 1 and multiplicity 2;
-  [7,3,4] simplex and [8,4,4] extended Hamming codes give 126 and 240.
-* ternary hexagonal/A2 cell: after multiplying the natural shell grading by 3,
-  local A2 roots have grade 3 and multiplicity 6, while each of the two nonzero
-  deep-hole residue sectors has grade 1 and multiplicity 3; the [3,1,3]_3
-  repetition code gives 3*6 + 2*3^3 = 72, the E6 root count.
+* d_C < g_0: glue/code events dominate the primitive shell;
+* d_C > g_0: local-cell events dominate;
+* d_C = g_0: local and glue channels resonate in the same primitive shell.
 
-The code-lattice constructions are classical prior mathematics.  The project
-uses this factorization as a causal ordering: local unit alphabet and residue
-conservation are primitive, exceptional lattice data are shadows.
+Classical exceptional examples E6/E7/E8 used here all lie in the resonance
+regime, while the binary single-parity D_n construction is code-dominated.
+These code-lattice constructions are prior mathematics.  The project-specific
+ordering is causal: local unit alphabet and residue conservation are primary;
+root-lattice data are shadows.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
+from itertools import product
 from math import prod
 from typing import Hashable, Mapping
 
@@ -94,6 +94,31 @@ def codeword_minimum_lift_multiplicity(word: Codeword, alphabet: LocalResidueAlp
         raise ValueError("codeword uses a symbol outside the local residue alphabet") from error
 
 
+def minimum_nonzero_code_grade(
+    codewords: tuple[Codeword, ...],
+    alphabet: LocalResidueAlphabet,
+) -> int | None:
+    alphabet.validate()
+    grades = [
+        codeword_grade(word, alphabet)
+        for word in codewords
+        if any(symbol != alphabet.zero_symbol for symbol in word)
+    ]
+    return min(grades) if grades else None
+
+
+def primitive_grade_regime(
+    codewords: tuple[Codeword, ...],
+    alphabet: LocalResidueAlphabet,
+) -> str:
+    code_grade = minimum_nonzero_code_grade(codewords, alphabet)
+    if code_grade is None or code_grade > alphabet.zero_sector_primitive_grade:
+        return "local_dominated"
+    if code_grade < alphabet.zero_sector_primitive_grade:
+        return "code_dominated"
+    return "resonant"
+
+
 def primitive_grade_and_multiplicity(
     codewords: tuple[Codeword, ...],
     alphabet: LocalResidueAlphabet,
@@ -146,8 +171,43 @@ def ternary_repetition_3_code() -> tuple[Codeword, ...]:
     )
 
 
+def ternary_span(generator_rows: tuple[tuple[int, ...], ...]) -> tuple[Codeword, ...]:
+    if not generator_rows:
+        raise ValueError("at least one ternary generator row is required")
+    width = len(generator_rows[0])
+    if width == 0 or any(len(row) != width for row in generator_rows):
+        raise ValueError("generator rows must have equal positive width")
+    if any(value not in (0, 1, 2) for row in generator_rows for value in row):
+        raise ValueError("generator rows must be ternary")
+    code = set()
+    for coefficients in product((0, 1, 2), repeat=len(generator_rows)):
+        word = tuple(
+            sum(coef * row[index] for coef, row in zip(coefficients, generator_rows)) % 3
+            for index in range(width)
+        )
+        code.add(word)
+    return tuple(sorted(code))
+
+
+def ternary_hamming_4_code() -> tuple[Codeword, ...]:
+    # A [4,2,3]_3 ternary Hamming code.  All eight nonzero words have weight 3.
+    return ternary_span(
+        (
+            (1, 0, 1, 1),
+            (0, 1, 1, 2),
+        )
+    )
+
+
 def e6_primitive_shadow() -> tuple[int, int]:
     return primitive_grade_and_multiplicity(
         ternary_repetition_3_code(),
+        ternary_hexagonal_alphabet(),
+    )
+
+
+def ternary_e8_primitive_shadow() -> tuple[int, int]:
+    return primitive_grade_and_multiplicity(
+        ternary_hamming_4_code(),
         ternary_hexagonal_alphabet(),
     )
