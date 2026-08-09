@@ -101,7 +101,78 @@ shared_surface_seen: <main SHA or common-surface revision>
 
 If `hard_block = NONE`, the route should continue research rather than waiting for another conversation, branch, review, or replay.
 
-## 8. Relationship to Architecture v2
+## 8. Dispatch state machine and conversation handoff
+
+The route heartbeat is made executable by `research_scheduler.json`, `tools/research_scheduler.py`, and the live Research Dispatch Board Issue #240.
+
+The scheduler coordinates **who continues which frontier**. It does not decide whether a theorem is proved, canonical, novel, or ready for promotion.
+
+### 8.1 Task states
+
+The durable task frontier uses the states:
+
+`BACKLOG -> READY -> CLAIMED -> IN_PROGRESS -> HANDOFF_READY -> DONE`
+
+with two exceptional exits:
+
+- `BLOCKED` — only after a complete four-field `HARD_BLOCK`;
+- `SUPERSEDED` — the task frontier has been replaced by another explicit task.
+
+`READY` and `HANDOFF_READY` are dispatchable. `BACKLOG` is intentionally dormant. A task with a live claim is leased to one executor. A completed or superseded task is never automatically selected again.
+
+### 8.2 Claims are renewable leases
+
+A `CLAIM` is a temporary execution lease, not permanent ownership. Its default duration is declared in `research_scheduler.json`.
+
+- `PROGRESS` renews the lease and records a real checkpoint;
+- `HEARTBEAT` renews the lease when no better progress event exists;
+- `HANDOFF` releases the claim deliberately and must state one concrete `next_action`;
+- if a claimant disappears without handoff, lease expiry automatically returns the task to `HANDOFF_READY / NEEDS_DISPATCH`;
+- a second claim cannot preempt a live lease;
+- after expiry, handoff, unblock, or other valid release, another conversation may claim the task.
+
+Runtime events are append-only comments on Issue #240 using schema `ENTERPRISE_MATH_SCHEDULER_EVENT_V1`. Event ordering is GitHub comment creation order, with comment ID breaking any timestamp tie.
+
+### 8.3 New-conversation automatic selection
+
+A current explicit user task always overrides automatic selection.
+
+If a new Enterprise Math research conversation has no user-selected task, it must:
+
+1. read the common surface, this scheduling protocol, `research_scheduler.json`, owner isolation, and live Issue #240 events;
+2. reduce all valid runtime events to the current task states;
+3. ignore tasks with a live lease, complete tasks, blocked tasks, and dormant `BACKLOG` tasks;
+4. prefer `HANDOFF_READY` over fresh `READY` work so interrupted research is continued before opening another frontier;
+5. within that state order, rank by scheduler priority, then cross-route leverage, then oldest last-progress time, then stable task ID;
+6. post a valid `CLAIM` before substantive task-specific research begins;
+7. refresh the selected task's source PR/branch/Relay/canonical dependencies before proving anything new.
+
+This selection rule is deterministic so multiple agents inspecting the same state choose the same first candidate; the live-claim race is resolved by the first valid GitHub claim event.
+
+### 8.4 Session exit contract
+
+A research session must not silently disappear from the control plane.
+
+Before ending an unfinished task, post `HANDOFF` with:
+
+- task ID and current claim ID;
+- last meaningful commit/PR/Relay or other progress reference;
+- one concrete next mathematical/engineering action;
+- `hard_block = NONE` unless the full exceptional block record is justified.
+
+Use `DONE` only when the scheduler task's declared frontier is actually complete. Canonical promotion remains a separate L4 lifecycle operation unless promotion was itself the declared scheduler task.
+
+No downstream ACK is required for handoff. The scheduler, not another conversation's acknowledgement, is the continuation mechanism.
+
+### 8.5 Control-plane consistency
+
+`branch_governance_overrides.json` is the machine owner registry; every `ACTIVE_OWNER`/`ACTIVE_BRIDGE` must have scheduler coverage, even when its scheduler task is deliberately `BACKLOG`. `tools/research_scheduler.py validate` enforces this coverage and rejects partial hard-block records.
+
+Historical branch ledgers remain useful provenance/snapshots, but they are not the live executor assignment surface. Live dispatch authority is the combination of current owner registry + `research_scheduler.json` + Issue #240 runtime events.
+
+CI, review, L4 replay, or moving `main` may affect evidence/promotion status, but they do not silently mutate a research task into `BLOCKED`.
+
+## 9. Relationship to Architecture v2
 
 This protocol preserves Architecture v2's theorem ownership and non-destructive replay rules. It changes only the mistaken scheduling interpretation:
 
