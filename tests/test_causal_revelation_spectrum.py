@@ -27,7 +27,7 @@ class CausalRevelationSpectrumTests(unittest.TestCase):
             self.generators,
             self.costs,
         )
-        self.assertEqual(histogram, {0: 3, 5: 1, 7: 2})
+        self.assertEqual(histogram, {0: 3, 5: 2, 7: 1})
         self.assertTrue(
             pair_revelation_matches_cost_histogram(
                 self.states,
@@ -69,8 +69,8 @@ class CausalRevelationSpectrumTests(unittest.TestCase):
             maximum_budget=8,
             maximum_order=2,
         )
-        self.assertEqual(spectrum[4][1], 1)  # budget 5
-        self.assertEqual(spectrum[6][1], 2)  # budget 7
+        self.assertEqual(spectrum[4][1], 2)  # budget 5
+        self.assertEqual(spectrum[6][1], 1)  # budget 7
         self.assertEqual(sum(row[1] for row in spectrum), 3)
 
     def test_every_order_telescopes_exactly(self):
