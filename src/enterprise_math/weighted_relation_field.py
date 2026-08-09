@@ -4,15 +4,16 @@ For blocks with positive capacities m_i and integer totals c_i define
 
     Z_ij = m_j*c_i - m_i*c_j.
 
-Unit blocks recover ordinary differences. Merging blocks adds capacities and
-external relation rows exactly; the discarded internal relation is the same
-imbalance tag used by Contraction Atlas.
+Unit blocks recover ordinary differences. Coarsening a partition adds
+capacities, totals, and cross-block relation entries. Binary merge is the
+smallest instance of this tree-independent quotient rule.
 """
 
 from __future__ import annotations
 
 
 WeightedField = tuple[tuple[int, ...], ...]
+Partition = tuple[tuple[int, ...], ...]
 
 
 def _require_state(block_sizes: tuple[int, ...], totals: tuple[int, ...]) -> None:
@@ -42,6 +43,28 @@ def _require_field(block_sizes: tuple[int, ...], field: WeightedField) -> None:
         for value in row
     ):
         raise ValueError("field entries must be integers")
+
+
+def _require_partition(block_count: int, partition: Partition) -> None:
+    if not isinstance(partition, tuple) or not partition:
+        raise ValueError("partition must be a non-empty tuple of blocks")
+    flattened = []
+    for group in partition:
+        if not isinstance(group, tuple) or not group:
+            raise ValueError("each partition block must be a non-empty tuple")
+        if len(set(group)) != len(group):
+            raise ValueError("partition block indices must be unique")
+        if any(
+            isinstance(index, bool)
+            or not isinstance(index, int)
+            or index < 0
+            or index >= block_count
+            for index in group
+        ):
+            raise ValueError("partition index out of range")
+        flattened.extend(group)
+    if sorted(flattened) != list(range(block_count)):
+        raise ValueError("partition must cover every current block exactly once")
 
 
 def weighted_relation_field(
@@ -115,6 +138,39 @@ def recover_totals_from_weighted_field(
     return result
 
 
+def coarsen_weighted_relation_field(
+    block_sizes: tuple[int, ...], field: WeightedField, partition: Partition
+) -> tuple[tuple[int, ...], WeightedField]:
+    """Quotient a weighted relation field by any partition of current blocks.
+
+    For coarse groups A,B,
+
+        Z'_AB = sum_{i in A, j in B} Z_ij.
+
+    This equals m'_B*c'_A-m'_A*c'_B for the aggregated capacities/totals.
+    """
+    _require_field(block_sizes, field)
+    _require_partition(len(block_sizes), partition)
+    new_sizes = tuple(
+        sum(block_sizes[index] for index in group)
+        for group in partition
+    )
+    new_field = tuple(
+        tuple(
+            sum(
+                field[i][j]
+                for i in left_group
+                for j in right_group
+            )
+            for right_group in partition
+        )
+        for left_group in partition
+    )
+    if not weighted_relation_field_is_closed(new_sizes, new_field):
+        raise AssertionError("partition coarsening must preserve weighted closure")
+    return new_sizes, new_field
+
+
 def merge_weighted_relation_field(
     block_sizes: tuple[int, ...],
     field: WeightedField,
@@ -138,24 +194,10 @@ def merge_weighted_relation_field(
         raise ValueError("merge blocks must be distinct")
 
     keep = tuple(index for index in range(count) if index not in (left, right))
-    merged_capacity = block_sizes[left] + block_sizes[right]
-    new_sizes = tuple(block_sizes[index] for index in keep) + (merged_capacity,)
-    new_count = len(new_sizes)
-    new_field = [[0 for _ in range(new_count)] for _ in range(new_count)]
-
-    for new_i, old_i in enumerate(keep):
-        for new_j, old_j in enumerate(keep):
-            new_field[new_i][new_j] = field[old_i][old_j]
-
-    merged_index = new_count - 1
-    for new_i, old_i in enumerate(keep):
-        merged_to_old = field[left][old_i] + field[right][old_i]
-        new_field[merged_index][new_i] = merged_to_old
-        new_field[new_i][merged_index] = -merged_to_old
-
-    result = tuple(tuple(row) for row in new_field)
-    if not weighted_relation_field_is_closed(new_sizes, result):
-        raise AssertionError("weighted field merge must preserve closure")
+    partition = tuple((index,) for index in keep) + ((left, right),)
+    new_sizes, result = coarsen_weighted_relation_field(
+        block_sizes, field, partition
+    )
     return new_sizes, result, field[left][right]
 
 
