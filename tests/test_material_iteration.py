@@ -8,6 +8,8 @@ from enterprise_math.material_iteration import (
     iterate_softening,
     softening_fixed,
     softening_fixed_by_basin,
+    softening_positive_fixed_threshold,
+    softening_stabilized_state,
 )
 
 
@@ -47,6 +49,35 @@ class MaterialIterationTests(unittest.TestCase):
                         softening_fixed_by_basin(sample, amplitude, power),
                     )
 
+    def test_positive_softening_fixed_points_form_one_terminal_interval(self):
+        for amplitude in range(1, 40):
+            for power in range(2, 6):
+                threshold = softening_positive_fixed_threshold(amplitude, power)
+                positive_fixed = [
+                    sample
+                    for sample in range(1, amplitude + 1)
+                    if softening_fixed(sample, amplitude, power)
+                ]
+                self.assertEqual(
+                    positive_fixed,
+                    list(range(threshold, amplitude + 1)),
+                )
+
+    def test_softening_closed_form_terminal_state_matches_iteration(self):
+        for amplitude in range(1, 35):
+            for power in range(2, 5):
+                threshold = softening_positive_fixed_threshold(amplitude, power)
+                for sample in range(amplitude + 1):
+                    expected = 0 if sample == 0 else max(sample, threshold)
+                    self.assertEqual(
+                        softening_stabilized_state(sample, amplitude, power),
+                        expected,
+                    )
+                    self.assertEqual(
+                        iterate_softening(sample, amplitude, power).stabilized_at,
+                        expected,
+                    )
+
     def test_softening_orbits_are_strictly_increasing_until_fixed_plateau(self):
         for amplitude in range(1, 30):
             for power in range(2, 5):
@@ -57,11 +88,11 @@ class MaterialIterationTests(unittest.TestCase):
                     self.assertEqual(trace.states, tuple(sorted(trace.states)))
                     self.assertLessEqual(trace.strict_steps, amplitude - sample)
 
-    def test_softening_can_stabilize_below_full_amplitude(self):
+    def test_reference_softening_threshold_is_998(self):
+        self.assertEqual(softening_positive_fixed_threshold(1000, 2), 998)
         trace = iterate_softening(500, 1000, 2)
-        self.assertLess(trace.stabilized_at, 1000)
-        self.assertTrue(softening_fixed(trace.stabilized_at, 1000, 2))
-        self.assertGreater(trace.stabilized_at, 500)
+        self.assertEqual(trace.stabilized_at, 998)
+        self.assertEqual(trace.states[-3:], (996, 997, 998))
 
     def test_invalid_power_is_rejected(self):
         with self.assertRaises(ValueError):
