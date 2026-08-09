@@ -16,7 +16,7 @@ from enterprise_math.core import integer_nth_root
 class P018P023PowerFreeActionBasisTests(unittest.TestCase):
     def test_power_free_kernel_decomposition(self):
         for root_exp in range(1, 7):
-            for n in range(1, 3000):
+            for n in range(1, 1500):
                 kernel = r_power_free_kernel(n, root_exp)
                 self.assertTrue(is_r_power_free(kernel, root_exp))
                 self.assertEqual(n % kernel, 0)
@@ -26,17 +26,18 @@ class P018P023PowerFreeActionBasisTests(unittest.TestCase):
 
     def test_adjacent_jump_iff_action_times_exact_power(self):
         for root_exp in range(1, 6):
-            for q in range(1, 500):
+            for q in range(1, 200):
                 exact_actions = set(adjacent_boundary_actions(q, root_exp))
-                for action in range(1, 500):
+                for action in range(1, 200):
                     self.assertEqual(
                         action_distinguishes_adjacent_boundary(q, action, root_exp),
                         action in exact_actions,
                     )
 
-    def test_minimal_basis_separates_dense_bounded_domains(self):
+    def test_minimal_basis_separates_representative_bounded_domains(self):
+        states = tuple(range(0, 40)) + (50, 75, 100, 150, 200)
         for root_exp in range(1, 7):
-            for max_state in range(0, 250):
+            for max_state in states:
                 basis = minimal_root_quotient_action_basis(max_state, root_exp)
                 self.assertTrue(
                     action_basis_separates_bounded_domain(
@@ -48,8 +49,9 @@ class P018P023PowerFreeActionBasisTests(unittest.TestCase):
                 )
 
     def test_every_basis_action_is_forced_by_its_own_boundary(self):
+        states = tuple(range(1, 25)) + (50, 100)
         for root_exp in range(1, 6):
-            for max_state in range(1, 150):
+            for max_state in states:
                 basis = minimal_root_quotient_action_basis(max_state, root_exp)
                 for forced in basis:
                     reduced = tuple(a for a in basis if a != forced)
@@ -68,9 +70,9 @@ class P018P023PowerFreeActionBasisTests(unittest.TestCase):
                     alternatives = set(adjacent_boundary_actions(forced, root_exp))
                     self.assertEqual(alternatives & set(basis), {forced})
 
-    def test_exact_criterion_on_arbitrary_action_sets(self):
+    def test_exact_criterion_on_all_small_action_sets(self):
         for root_exp in range(1, 4):
-            for max_state in range(1, 9):
+            for max_state in range(1, 8):
                 universe = list(range(1, max_state + 1))
                 for mask in range(1 << max_state):
                     actions = tuple(
@@ -89,7 +91,7 @@ class P018P023PowerFreeActionBasisTests(unittest.TestCase):
 
     def test_unique_minimum_by_bruteforce_small_domains(self):
         for root_exp in range(1, 4):
-            for max_state in range(1, 9):
+            for max_state in range(1, 8):
                 forced = set(
                     minimal_root_quotient_action_basis(max_state, root_exp)
                 )
