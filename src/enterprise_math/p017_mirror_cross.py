@@ -1,8 +1,9 @@
-"""Second-order cross-side mirror incidence for P017.
+"""Cross-side mirror incidence and factorized prime-free slacks for P017.
 
-L052 evaluates ordered lower/upper transverse-prime incidences by exact CRT
-residue classes. L053 uses their sum E_k as a second sufficient prime-existence
-certificate, and L054 combines it with the L051 first-moment certificate.
+L051 evaluates ordered lower/upper transverse-prime incidences by exact CRT.
+L052 factors the prime-free obstruction into two primitive nonnegative slacks:
+U=J-2|S| and V=E-J+|S|. L053 uses negativity of either slack as a
+sufficient prime-existence certificate; L054 records the factorization boundary.
 """
 
 from __future__ import annotations
@@ -27,7 +28,7 @@ def _transverse_primes(k: int) -> list[int]:
 
 
 def ordered_cross_incidence_formula(k: int, lower_prime: int, upper_prime: int) -> int:
-    """L052 formula for N_{p->q}(k) with p on M-r and q on M+r."""
+    """L051 formula for N_{p->q}(k) with p on M-r and q on M+r."""
     _require_k(k)
     trans = set(_transverse_primes(k))
     if lower_prime not in trans or upper_prime not in trans:
@@ -62,11 +63,11 @@ def ordered_cross_incidence_formula(k: int, lower_prime: int, upper_prime: int) 
 
 
 def cross_side_incidence_formula(k: int) -> dict[str, object]:
-    """Evaluate L052 and the L053 cross-side prime-existence certificate."""
+    """Evaluate L051 and the L052-L054 factorized mirror slacks."""
     _require_k(k)
     trans = _transverse_primes(k)
     per_pair: dict[tuple[int, int], int] = {}
-    total = 0
+    cross_incidence = 0
     for p in trans:
         for q in trans:
             if p == q:
@@ -74,32 +75,46 @@ def cross_side_incidence_formula(k: int) -> dict[str, object]:
             count = ordered_cross_incidence_formula(k, p, q)
             if count:
                 per_pair[(p, q)] = count
-                total += count
+                cross_incidence += count
 
     first = mirror_incidence_formula(k)
     surviving = int(first["surviving_radius_count"])
+    first_incidence = int(first["incidence"])
+    first_slack = first_incidence - 2 * surviving
+    simultaneous_excess_slack = cross_incidence - first_incidence + surviving
+    raw_cross_slack = cross_incidence - surviving
+
+    if raw_cross_slack != first_slack + simultaneous_excess_slack:
+        raise AssertionError("L054 factorization E-|S| = U+V failed")
+
     return {
         "k": k,
         "surviving_radius_count": surviving,
-        "cross_incidence": total,
+        "first_incidence": first_incidence,
+        "cross_incidence": cross_incidence,
         "per_ordered_pair": per_pair,
-        "cross_prime_certificate": total < surviving,
-        "cross_slack": surviving - total,
+        "first_slack": first_slack,
+        "simultaneous_excess_slack": simultaneous_excess_slack,
+        "raw_cross_slack": raw_cross_slack,
+        "first_channel_certificate": first_slack < 0,
+        "simultaneous_excess_certificate": simultaneous_excess_slack < 0,
+        "raw_cross_certificate": raw_cross_slack < 0,
+        "factorized_certificate": first_slack < 0 or simultaneous_excess_slack < 0,
     }
 
 
-def two_moment_certificate(k: int) -> dict[str, object]:
-    """L054 combined certificate using either the L051 or L053 moment."""
-    first = mirror_incidence_formula(k)
-    second = cross_side_incidence_formula(k)
-    first_certificate = bool(first["prime_certificate"])
-    second_certificate = bool(second["cross_prime_certificate"])
+def two_slack_certificate(k: int) -> dict[str, object]:
+    """Alias the L053 factorized certificate with compact output."""
+    data = cross_side_incidence_formula(k)
     return {
         "k": k,
-        "surviving_radius_count": first["surviving_radius_count"],
-        "first_incidence": first["incidence"],
-        "cross_incidence": second["cross_incidence"],
-        "first_certificate": first_certificate,
-        "cross_certificate": second_certificate,
-        "combined_certificate": first_certificate or second_certificate,
+        "surviving_radius_count": data["surviving_radius_count"],
+        "first_incidence": data["first_incidence"],
+        "cross_incidence": data["cross_incidence"],
+        "first_slack": data["first_slack"],
+        "simultaneous_excess_slack": data["simultaneous_excess_slack"],
+        "raw_cross_slack": data["raw_cross_slack"],
+        "first_channel_certificate": data["first_channel_certificate"],
+        "simultaneous_excess_certificate": data["simultaneous_excess_certificate"],
+        "factorized_certificate": data["factorized_certificate"],
     }

@@ -1,11 +1,11 @@
 # Legendre Pressure Test — Supplement 14
 
 Status: `ACTIVE RESEARCH NOTE`  
-Scope: exact first- and second-order centered-mirror incidence certificates  
+Scope: exact centered-mirror incidence formulas and a factorized two-slack prime certificate  
 Depends on: P017 L042–L045 and canonical L049  
-Discipline: **this note does not prove Legendre's conjecture.** Möbius inclusion-exclusion and the Chinese remainder theorem are classical. The project-specific result is the finite certificate obtained by combining them with the already-proved centered-mirror obstruction.
+Discipline: **this note does not prove Legendre's conjecture.** Möbius inclusion-exclusion and the Chinese remainder theorem are classical. The project-specific result is the finite obstruction obtained by combining them with the centered-mirror separation theorem.
 
-## 1. From mirror separation to a certificate
+## 1. Mirror support counts
 
 Let
 
@@ -27,7 +27,7 @@ P_-(r)=\operatorname{Supp}_{\mathrm{tr}}(M-r),
 P_+(r)=\operatorname{Supp}_{\mathrm{tr}}(M+r),
 \]
 
-and
+and their cardinalities
 
 \[
 a_r=|P_-(r)|,
@@ -35,7 +35,7 @@ a_r=|P_-(r)|,
 b_r=|P_+(r)|.
 \]
 
-L043 proves \(P_-(r)\cap P_+(r)=\varnothing\). If the square basin were prime-free, L044 would force
+L043 proves the two support sets are disjoint. If the square basin were prime-free, L044 would force
 
 \[
 a_r\ge1,
@@ -45,7 +45,7 @@ b_r\ge1
 
 for every surviving radius.
 
-This gives two finite obstruction moments:
+Define the first and cross-side moments
 
 \[
 J_k=\sum_{r\in S_k}(a_r+b_r),
@@ -53,21 +53,13 @@ J_k=\sum_{r\in S_k}(a_r+b_r),
 E_k=\sum_{r\in S_k}a_rb_r.
 \]
 
-Under hypothetical prime-free behavior they must satisfy
-
-\[
-J_k\ge2|S_k|,
-\qquad
-E_k\ge|S_k|.
-\]
-
-The purpose of this supplement is to evaluate both moments exactly from small-prime residue data, without factoring or primality-testing the states in the square basin.
+We will evaluate both exactly from small-prime residue data and then extract the **primitive nonnegative slacks** forced by hypothetical prime-free behavior.
 
 ---
 
 ## 2. Residue-class counter
 
-For \(K\ge0\), \(m\ge1\), and a canonical positive residue \(1\le\rho<m\), define
+For \(K\ge0\), \(m\ge1\), and \(1\le\rho<m\), define
 
 \[
 \mathcal C(K;m,\rho)
@@ -98,7 +90,7 @@ Put \(K=k-1\).
 
 ### Surviving radii
 
-Möbius inclusion-exclusion on the square-free anchor product gives
+Möbius inclusion-exclusion gives
 
 \[
 \boxed{
@@ -112,22 +104,21 @@ Möbius inclusion-exclusion on the square-free anchor product gives
 
 ### Incidence of one transverse prime
 
-Fix a transverse prime
+Fix a transverse prime \(p\le k\), so \(p\nmid M\). Let \(N_p(k)\) count surviving radii for which \(p\) divides one mirror state.
 
-\[
-p\le k,
-\qquad p\nmid M.
-\]
-
-Let \(N_p(k)\) count surviving radii for which \(p\) divides one mirror state. For each square-free divisor \(a\mid A_k\), impose \(a\mid r\) together with
+For each square-free \(a\mid A_k\), impose \(a\mid r\) together with either
 
 \[
 r\equiv M\pmod p
-\quad\text{or}\quad
+\]
+
+or
+
+\[
 r\equiv-M\pmod p.
 \]
 
-Because \(\gcd(a,p)=1\), define
+Since \(\gcd(a,p)=1\), define
 
 \[
  t^+_{a,p}=(Ma^{-1})\bmod p,
@@ -135,7 +126,7 @@ Because \(\gcd(a,p)=1\), define
  t^-_{a,p}=(-Ma^{-1})\bmod p.
 \]
 
-Both lie in \(\{1,\ldots,p-1\}\). The canonical positive representatives modulo \(ap\) are
+Both are nonzero modulo \(p\). The canonical positive representatives modulo \(ap\) are
 
 \[
 \rho^+_{a,p}=a t^+_{a,p},
@@ -143,7 +134,7 @@ Both lie in \(\{1,\ldots,p-1\}\). The canonical positive representatives modulo 
 \rho^-_{a,p}=a t^-_{a,p}.
 \]
 
-Hence
+Therefore
 
 \[
 \boxed{
@@ -159,7 +150,7 @@ N_p(k)
 }
 \]
 
-L043 guarantees that the plus and minus channels never describe the same radius for a transverse prime. Therefore
+L043 guarantees that the plus and minus channels never describe the same radius for a transverse prime. Hence
 
 \[
 \boxed{
@@ -171,63 +162,15 @@ J_k
 
 ### Proof
 
-The formula for \(|S_k|\) is the standard identity
+The formula for \(|S_k|\) is the standard Möbius indicator for \(\gcd(r,A_k)=1\), summed over \(1\le r\le K\). For \(N_p(k)\), apply the same indicator while imposing one mirror congruence; writing \(r=at\) gives the displayed representatives. The last equality is the L045 prime-indexed reindexing. ∎
 
-\[
-\mathbf 1_{\gcd(r,A_k)=1}
-=
-\sum_{a\mid\gcd(r,A_k)}\mu(a)
-\]
-
-summed over \(1\le r\le K\). The formula for \(N_p(k)\) applies the same identity while imposing one of the two mirror congruences. Writing \(r=at\) gives the displayed residues. Summing over transverse primes is exactly the L045 prime-indexed reindexing. ∎
-
-No state in \((k^2,(k+1)^2)\) is factored in these formulas.
+No state in the square basin is factored by this formula.
 
 ---
 
-## 4. L051 — First-moment prime certificate
-
-Status: `PROVED`.
-
-If
-
-\[
-\boxed{J_k<2|S_k|,}
-\]
-
-then
-
-\[
-\boxed{
-\exists q\text{ prime with }k^2<q<(k+1)^2.
-}
-\]
-
-### Proof
-
-If the basin were prime-free, every surviving mirror pair would be double-composite. L044 would give \(a_r+b_r\ge2\) for every \(r\in S_k\), hence L045 would force \(J_k\ge2|S_k|\), contradiction. ∎
-
-This certificate is sufficient, not necessary. At \(k=31\),
-
-\[
-|S_{31}|=15,
-\qquad
-J_{31}=30,
-\]
-
-so the certificate does not fire, although \(967\) is prime and satisfies \(31^2<967<32^2\).
-
----
-
-## 5. L052 — Exact ordered cross-side prime-pair formula
+## 4. L051 — Exact ordered cross-side prime-pair formula
 
 Status: `PROVED / CLASSICAL CRT SPECIALIZATION`.
-
-The first moment forgets that the small-prime resources must occur on opposite sides of the **same** radius. The first genuinely cross-side moment is
-
-\[
-E_k=\sum_{r\in S_k}a_rb_r.
-\]
 
 Fix distinct transverse primes \(p,q\le k\). Let \(N_{p\to q}(k)\) count surviving radii satisfying
 
@@ -237,7 +180,7 @@ p\mid M-r,
 q\mid M+r.
 \]
 
-For each square-free \(a\mid A_k\), write \(r=at\) and define
+For each square-free \(a\mid A_k\), write \(r=at\) and set
 
 \[
 c_p=(Ma^{-1})\bmod p,
@@ -274,7 +217,15 @@ N_{p\to q}(k)
 }
 \]
 
-Double-counting ordered choices of one lower-side and one upper-side transverse prime gives
+At a fixed radius, the number of ordered choices \((p,q)\) with
+
+\[
+p\in P_-(r),
+\qquad
+q\in P_+(r)
+\]
+
+is exactly \(a_rb_r\). Therefore double counting gives
 
 \[
 \boxed{
@@ -285,75 +236,189 @@ N_{p\to q}(k).
 }
 \]
 
-### Proof
-
-The CRT formula is the two-congruence version of L050. Because \(a,p,q\) are pairwise coprime, there is exactly one residue modulo \(apq\). L043 excludes \(p=q\). At a fixed radius, the number of ordered pairs \((p,q)\) with \(p\in P_-(r)\), \(q\in P_+(r)\) is exactly \(a_rb_r\); summing over radii or ordered prime pairs gives the same integer. ∎
+L043 is exactly what removes the diagonal \(p=q\). ∎
 
 ---
 
-## 6. L053 — Cross-side product certificate
+## 5. L052 — The two primitive prime-free slacks
+
+Status: `PROVED`.
+
+Define
+
+\[
+\boxed{U_k=J_k-2|S_k|}
+\]
+
+and
+
+\[
+\boxed{V_k=E_k-J_k+|S_k|.}
+\]
+
+If the square basin is prime-free, then
+
+\[
+\boxed{U_k\ge0,
+\qquad
+V_k\ge0.}
+\]
+
+### Proof
+
+Under prime-free behavior, L044 gives \(a_r,b_r\ge1\) for every \(r\in S_k\). Hence
+
+\[
+U_k
+=
+\sum_{r\in S_k}
+\bigl[(a_r-1)+(b_r-1)\bigr]
+\ge0.
+\]
+
+Also
+
+\[
+V_k
+=
+\sum_{r\in S_k}
+(a_r-1)(b_r-1)
+\ge0.
+\]
+
+Both are sums of explicit nonnegative integers. ∎
+
+This factorization is stronger and conceptually cleaner than treating \(E_k\ge|S_k|\) as an independent primitive inequality. Indeed
+
+\[
+\boxed{
+E_k-|S_k|=U_k+V_k.
+}
+\]
+
+Thus the older cross-product certificate \(E_k<|S_k|\) is automatically implied by the failure of at least one primitive slack.
+
+---
+
+## 6. L053 — Factorized two-slack prime certificate
 
 Status: `PROVED`.
 
 If
 
 \[
-\boxed{E_k<|S_k|,}
+\boxed{
+U_k<0
+\quad\text{or}\quad
+V_k<0,
+}
 \]
 
-then the open square basin contains a prime.
+then
+
+\[
+\boxed{
+\exists q\text{ prime with }k^2<q<(k+1)^2.
+}
+\]
 
 ### Proof
 
-Under prime-free behavior, every surviving mirror pair is double-composite, so L044 gives \(a_r,b_r\ge1\). Thus \(a_rb_r\ge1\) for every \(r\in S_k\), hence \(E_k\ge|S_k|\), contradiction. ∎
+Contrapositive of L052. ∎
 
-This certificate is independent of L051. For \(k=46\),
-
-\[
-|S_{46}|=22,
-\qquad
-J_{46}=47\ge44,
-\]
-
-so L051 fails, while
-
-\[
-E_{46}=18<22,
-\]
-
-so L053 proves prime existence. Indeed \(2129\) lies in \((46^2,47^2)\).
-
-Conversely, for \(k=37\),
-
-\[
-|S_{37}|=17,
-\qquad
-J_{37}=33<34,
-\qquad
-E_{37}=18\ge17.
-\]
-
-Here L051 fires while L053 does not.
-
----
-
-## 7. L054 — Two-moment certificate
-
-Status: `PROVED`.
-
-Combining the two independent sufficient conditions:
+Written directly in terms of the exact moments:
 
 \[
 \boxed{
 J_k<2|S_k|
 \quad\text{or}\quad
-E_k<|S_k|
+E_k<J_k-|S_k|
 \Longrightarrow
-\exists q\text{ prime with }k^2<q<(k+1)^2.
+\exists q\text{ prime in the square basin.}
 }
 \]
 
-Neither branch dominates the other.
+The two channels are genuinely independent.
+
+### `U`-channel example
+
+For \(k=37\),
+
+\[
+|S_{37}|=17,
+\qquad
+J_{37}=33,
+\qquad
+E_{37}=18.
+\]
+
+Hence
+
+\[
+U_{37}=-1<0,
+\qquad
+V_{37}=2\ge0.
+\]
+
+The first channel certifies a prime.
+
+### `V`-channel example
+
+For \(k=46\),
+
+\[
+|S_{46}|=22,
+\qquad
+J_{46}=47,
+\qquad
+E_{46}=18.
+\]
+
+Therefore
+
+\[
+U_{46}=3\ge0,
+\qquad
+V_{46}=18-47+22=-7<0.
+\]
+
+The second channel certifies a prime even though the first channel fails. Indeed \(2129\) lies in \((46^2,47^2)\).
+
+---
+
+## 7. L054 — Boundary and relation to the raw cross-product certificate
+
+Status: `PROVED`.
+
+The factorization
+
+\[
+E_k-|S_k|=U_k+V_k
+\]
+
+shows:
+
+1. the raw condition \(E_k<|S_k|\) is sufficient but not fundamental;
+2. whenever it fires, at least one of \(U_k<0\) or \(V_k<0\) already fires;
+3. the converse fails, so the factorized certificate is strictly stronger.
+
+At \(k=31\),
+
+\[
+|S_{31}|=15,
+\qquad
+J_{31}=30,
+\qquad
+E_{31}=15,
+\]
+
+so
+
+\[
+U_{31}=V_{31}=0.
+\]
+
+The factorized certificate does not fire, yet \(967\) is prime and lies in \((31^2,32^2)\). Therefore L053 remains a sufficient certificate, not a characterization of prime existence.
 
 ---
 
@@ -361,7 +426,7 @@ Neither branch dominates the other.
 
 Status: `COMPUTATIONAL`, not a theorem.
 
-On the bounded range
+For
 
 \[
 3\le k\le1000,
@@ -369,30 +434,33 @@ On the bounded range
 
 the reference implementation gives:
 
-- L051 first-moment certificate: 273 roots;
-- L053 cross-side certificate: 323 roots;
-- both: 269 roots;
-- L053-only: 54 roots;
-- L051-only: 4 roots;
-- combined L054 coverage: 327 roots.
+- \(U_k<0\): 273 roots;
+- \(V_k<0\): 594 roots;
+- both negative: 140 roots;
+- factorized union \(U_k<0\) or \(V_k<0\): **727 roots**;
+- the weaker raw cross-product condition \(E_k<|S_k|\): 323 roots.
 
-Thus the cross-side product moment strictly adds proving power, but the combined first two moments still certify only a minority of roots in this bounded range.
+So the algebraic factorization more than doubles the coverage of the raw two-moment union previously considered. More importantly, it identifies the actual missing structure:
 
-This is a useful negative boundary: the next step should not be an unstructured tower of moments. It should exploit information deliberately forgotten by these two moments, such as same-side joint collisions, exact-support closure, least-factor depth, or correlations between different radii.
+- \(U_k\) measures total excess support beyond one transverse resource per side;
+- \(V_k\) measures **simultaneous excess on both sides of the same surviving radius**.
+
+The 271 roots not certified in this bounded range satisfy both nonnegative slack conditions. Any next step should target those residual roots directly rather than adding another arbitrary moment.
 
 ---
 
-## 9. Relation to the other P017 cross-state tools
+## 9. Relation to the current P017 routes
 
-The current layers have distinct roles:
+The cross-state layers now have distinct jobs:
 
-- L041: exact-support closure after one large support hit;
+- L041: exact-support closure after a large support hit;
 - L042–L045: centered mirror separation and the basic resource obstruction;
 - L046–L048: bounded CRT capacity of a whole side-sign pattern;
 - canonical L049: high-band resource occupancy by realized hit-state unions;
-- L050–L054: exact additive first- and second-order mirror certificates.
+- L050–L051: exact additive formulas for first and cross-side mirror incidence;
+- L052–L054: factorized nonnegative slacks and the stronger finite prime certificate.
 
-L052 is deliberately between the coarse first moment and the full CRT support cell: it fixes one ordered opposite-side prime pair, which retains real cross-state structure while remaining summable over the basin.
+The most promising next object is no longer “another moment.” It is a structural upper bound on one of the two primitive slacks for the roots that survive L053, using exact-support closure, least-factor depth, or correlations among different radii.
 
 ---
 
@@ -400,11 +468,12 @@ L052 is deliberately between the coarse first moment and the full CRT support ce
 
 `src/enterprise_math/p017_mirror_certificate.py`, `src/enterprise_math/p017_mirror_cross.py`, and their tests check that:
 
-- the L050 formulas for \(|S_k|\), every \(N_p(k)\), and \(J_k\) agree with direct mirror-support counts on bounded domains;
-- the L052 ordered-prime-pair CRT formula agrees with direct surviving-radius enumeration;
-- summing ordered pair counts equals \(\sum_r a_rb_r\);
-- whenever either certificate fires on bounded domains, direct inspection confirms at least one basin prime;
-- \(k=31\), \(k=37\), and \(k=46\) lock the stated boundaries;
-- the `3<=k<=1000` coverage counts equal 273, 323, 269, 54, 4, and 327 as stated above.
+- the L050 formulas for \(|S_k|\), every \(N_p(k)\), and \(J_k\) agree with direct mirror-support counts;
+- the L051 ordered-prime-pair CRT formula agrees with direct surviving-radius enumeration;
+- the ordered-pair sum equals \(E_k=\sum_r a_rb_r\);
+- the identities for \(U_k\), \(V_k\), and \(E_k-|S_k|=U_k+V_k\) hold exactly;
+- whenever L053 fires on bounded domains, direct inspection confirms a basin prime;
+- \(k=31\), \(37\), and \(46\) lock the stated boundaries;
+- the `3<=k<=1000` counts equal 273, 594, 140, 727, and 323.
 
-Finite computation audits implementation and coverage statistics; L050–L054 are proved by the exact inclusion-exclusion, CRT, and double-counting arguments above.
+Finite computation audits implementation and coverage statistics; L050–L054 are proved by exact inclusion-exclusion, CRT, double counting, and the displayed integer factorization.
