@@ -32,11 +32,24 @@ class MaterialPeakWaveTests(unittest.TestCase):
                     else:
                         self.fail("unknown peak status")
 
-    def test_negative_x_nonnegative_y_forces_next_y_fall(self):
+    def test_negative_x_positive_y_forces_next_y_fall(self):
         rotation = PythagoreanRotation(399, 40, 401)
         for x in range(-10, 0):
-            for y in range(0, 11):
+            for y in range(1, 11):
                 self.assertEqual(peak_step(x, y, rotation).status, FALL)
+
+    def test_negative_x_zero_axis_has_exact_toward_zero_dead_zone(self):
+        rotation = PythagoreanRotation(399, 40, 401)
+        first_fall_magnitude = (rotation.c + rotation.b - 1) // rotation.b
+        for magnitude in range(1, first_fall_magnitude):
+            report = peak_step(-magnitude, 0, rotation)
+            self.assertEqual(report.status, PLATEAU)
+            self.assertEqual(report.after[1], 0)
+            self.assertGreater(report.rise_margin, -rotation.c)
+        boundary = peak_step(-first_fall_magnitude, 0, rotation)
+        self.assertEqual(boundary.status, FALL)
+        self.assertLess(boundary.after[1], 0)
+        self.assertLessEqual(boundary.rise_margin, -rotation.c)
 
     def test_peak_trace_always_finds_finite_nonrise_on_small_amplitudes(self):
         rotations = (

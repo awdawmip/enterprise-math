@@ -36,10 +36,10 @@ class CollapseInteractionLayerTests(unittest.TestCase):
 
     def test_refinement_monotonically_reduces_depth_until_extinction(self):
         gap = 3
-        depths = [
+        depths = tuple(
             collapse_layer_depth(gap, factor)
             for factor in range(8, 0, -1)
-        ]
+        )
         self.assertEqual(depths, (5, 4, 3, 2, 1, None, None, None))
         self.assertEqual(refinement_layer_depth(gap, 8, 4), (5, 1))
         self.assertEqual(refinement_layer_depth(gap, 8, 3), (5, None))

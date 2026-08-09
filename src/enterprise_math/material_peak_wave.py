@@ -1,21 +1,29 @@
-"""Corrected intrinsic peak tracer for projected Pythagorean material waves.
+"""Intrinsic peak tracer for projected Pythagorean material waves.
 
-The y rise-margin identity does not require x>=0.  For any integer x and y>=0,
+For any integer ``x`` and ``y>=0`` under toward-zero projected rotation, write
 
-    m = b*x - (c-a)*y
+    raw_y = b*x + a*y = c*y + m,
+    m = b*x - (c-a)*y.
 
-classifies the next toward-zero projected y exactly:
+The rise margin ``m`` classifies the next represented y exactly, but the zero
+axis has an additional toward-zero plateau on its negative side:
 
-* m>=c       <=> y_next>y;
-* 0<=m<c     <=> y_next==y;
-* m<0        <=> y_next<y.
+* ``m>=c``                         iff ``y_next>y``;
+* ``y>0`` and ``0<=m<c``          iff ``y_next==y``;
+* ``y>0`` and ``m<0``             iff ``y_next<y``;
+* ``y=0`` and ``-c<m<c``          iff ``y_next==0``;
+* ``y=0`` and ``m<=-c``           iff ``y_next<0``.
 
-A discrete step can cross from x>0 to x<0 while y still rises.  Therefore an
-intrinsic peak tracer must not stop merely because the first-quadrant x sign was
-lost.  Once x<0 and y>=0, however, m<0 automatically, so the next step is a
-strict fall.  Starting from (A,0), positive x strictly decreases while y>=0; a
-first non-rise is therefore reached after finitely many integer steps without
-using an angle or pi/2 target.
+The ``y=0`` negative-margin plateau is not a numerical accident.  It is exactly
+the signed toward-zero quotient dead zone: negative raw values with magnitude
+strictly below one divisor quantum still project to zero.
+
+A discrete step may cross from ``x>0`` to ``x<0`` while y still rises.  The
+intrinsic peak tracer therefore does not stop merely because the x sign changes;
+it stops at the first represented y plateau or fall.  If ``x<0,y>0`` the margin
+is negative and the next y strictly falls; if ``x<0,y=0`` a finite zero-axis
+plateau may occur, which is already a non-rise and therefore also terminates the
+peak trace.  No angle, real sine, or pi/2 target is used.
 """
 
 from __future__ import annotations
@@ -56,24 +64,35 @@ def peak_step(
     y: int,
     rotation: PythagoreanRotation,
 ) -> PeakStep:
-    """Classify the next projected y move exactly for y>=0."""
+    """Classify the next toward-zero projected y move exactly for ``y>=0``."""
     if y < 0:
         raise ValueError("peak tracer requires y>=0 before the turning point")
     report = projected_rotation_step(x, y, rotation, TOWARD_ZERO)
-    next_x, next_y = report.after
+    _next_x, next_y = report.after
     margin = rotation.b * x - (rotation.c - rotation.a) * y
+
     if margin >= rotation.c:
         status = RISE
         if not next_y > y:
             raise AssertionError("rise margin failed strict-y prediction")
+    elif y == 0:
+        if margin > -rotation.c:
+            status = PLATEAU
+            if next_y != 0:
+                raise AssertionError("zero-axis dead-zone margin failed plateau prediction")
+        else:
+            status = FALL
+            if not next_y < 0:
+                raise AssertionError("zero-axis negative-quantum margin failed fall prediction")
     elif margin >= 0:
         status = PLATEAU
         if next_y != y:
-            raise AssertionError("plateau margin failed equal-y prediction")
+            raise AssertionError("positive-y plateau margin failed equal-y prediction")
     else:
         status = FALL
         if not next_y < y:
-            raise AssertionError("negative margin failed falling-y prediction")
+            raise AssertionError("positive-y negative margin failed falling-y prediction")
+
     return PeakStep(
         before=(x, y),
         after=report.after,
@@ -86,7 +105,7 @@ def projected_peak_trace(
     amplitude: int,
     rotation: PythagoreanRotation,
 ) -> ProjectedPeakTrace:
-    """Trace from (A,0) until the first plateau/fall and return the sampled peak."""
+    """Trace from ``(A,0)`` until the first plateau/fall and return the sampled peak."""
     if isinstance(amplitude, bool) or not isinstance(amplitude, int) or amplitude < 0:
         raise ValueError("amplitude must be a non-negative integer")
     if amplitude == 0:
@@ -103,9 +122,9 @@ def projected_peak_trace(
     states = [state]
     steps: list[PeakStep] = []
 
-    # While x>0 and y>=0, x_next<x, so after at most A steps x<=0.
-    # If x<0 while y is still nonnegative, the next margin is automatically
-    # negative.  A+2 steps therefore suffice as a structural guard.
+    # While x>0 and y>=0, x_next<x.  Once x becomes negative, either y>0 and
+    # the next y step falls, or y=0 and the zero-axis signed projection is a
+    # plateau/fall.  A+2 steps therefore remain a finite structural guard.
     for step_index in range(1, amplitude + 3):
         x, y = state
         if y < 0:
