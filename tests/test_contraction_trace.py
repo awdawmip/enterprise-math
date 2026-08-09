@@ -3,12 +3,14 @@ import unittest
 
 from enterprise_math.contraction_trace import (
     balanced_minimizer_count,
+    directed_boundary_decomposition,
     directed_boundary_split,
     fiber_excess_energy,
     fiber_witness_interval,
     fiber_witness_multiplicity,
     oriented_contraction_history_count,
     reverse_boundary_witness,
+    reverse_boundary_witness_with_trace,
     two_block_argmin_profile,
     unoriented_partition_chain_count,
 )
@@ -75,7 +77,7 @@ class ContractionTraceTests(unittest.TestCase):
                                 len(actual),
                             )
 
-    def test_directed_boundary_is_right_endpoint(self):
+    def test_directed_boundary_is_right_endpoint_and_bounded_remainder(self):
         for power in range(1, 5):
             for receiver_size, donor_size in ((1, 1), (2, 1), (2, 3)):
                 for total in range(-5, 6):
@@ -88,27 +90,31 @@ class ContractionTraceTests(unittest.TestCase):
                         )
                         self.assertEqual(receiver_total, right)
                         self.assertEqual(donor_total, total - right)
-                        self.assertLessEqual(
-                            fiber_excess_energy(
-                                receiver_size,
-                                donor_size,
-                                power,
-                                total,
-                                right,
-                            ),
-                            slack,
+                        (
+                            receiver_total_2,
+                            donor_total_2,
+                            consumed,
+                            remainder,
+                            next_gap,
+                        ) = directed_boundary_decomposition(
+                            receiver_size, donor_size, power, total, slack
                         )
-                        self.assertGreater(
-                            fiber_excess_energy(
-                                receiver_size,
-                                donor_size,
-                                power,
-                                total,
-                                right + 1,
-                            ),
-                            slack,
-                        )
+                        self.assertEqual(receiver_total_2, receiver_total)
+                        self.assertEqual(donor_total_2, donor_total)
+                        self.assertEqual(consumed + remainder, slack)
+                        self.assertLess(remainder, next_gap)
+                        self.assertGreater(next_gap, 0)
                         self.assertLessEqual(left, right)
+
+    def test_power_one_boundary_remainder_is_binary(self):
+        for receiver_size, donor_size in ((1, 1), (2, 3), (5, 2)):
+            for total in range(-10, 11):
+                for slack in range(0, 20):
+                    _, _, _, remainder, next_gap = directed_boundary_decomposition(
+                        receiver_size, donor_size, 1, total, slack
+                    )
+                    self.assertEqual(next_gap, 2)
+                    self.assertEqual(remainder, slack % 2)
 
     def test_reverse_history_reproduces_nonassociative_witness_counterexample(self):
         chain = (
@@ -129,6 +135,34 @@ class ContractionTraceTests(unittest.TestCase):
             reverse_boundary_witness(4, 2, 16, balanced),
             (2, 2, -2, -2),
         )
+
+    def test_reverse_trace_is_a_telescoping_slack_cascade(self):
+        history = (
+            ((0,), (1,)),
+            ((0, 1), (2,)),
+            ((0, 1, 2), (3,)),
+        )
+        for power in range(1, 5):
+            for threshold in range(0, 40):
+                witness, trace = reverse_boundary_witness_with_trace(
+                    4, power, threshold, history
+                )
+                previous_slack = threshold
+                consumed_total = 0
+                for step in trace:
+                    self.assertEqual(step.slack_before, previous_slack)
+                    self.assertEqual(
+                        step.slack_before,
+                        step.consumed_excess + step.slack_after,
+                    )
+                    self.assertLess(step.slack_after, step.next_gap)
+                    consumed_total += step.consumed_excess
+                    previous_slack = step.slack_after
+                self.assertEqual(
+                    sum(abs(value) ** power for value in witness),
+                    consumed_total,
+                )
+                self.assertEqual(threshold, consumed_total + previous_slack)
 
     def test_partition_chain_counts(self):
         for slot_count in range(1, 9):
