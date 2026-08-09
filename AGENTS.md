@@ -17,6 +17,7 @@ Dispatch and handoff rules:
 
 - an explicit current user task always overrides automatic dispatch;
 - when a new research conversation has no user-selected task, reduce the live Issue #240 scheduler events against `research_scheduler.json`, select the highest-ranked eligible `HANDOFF_READY`/`READY` research task, and post a valid `CLAIM` before substantive task-specific work;
+- after posting `CLAIM`, immediately re-read Issue #240 through the new comment and reduce the state again; begin research only if that `claim_id` is the winning live lease. If another claim won the race, do not work that task: select the next eligible task and claim again;
 - a claim is a renewable lease, not permanent ownership; the default lease duration is defined by `research_scheduler.json`;
 - `PROGRESS` and `HEARTBEAT` renew a live claim; prefer `PROGRESS` whenever there is a meaningful mathematical or engineering checkpoint to record;
 - an unfinished session must end with `HANDOFF` containing the last progress reference and one concrete `next_action`; do not silently abandon a route;
