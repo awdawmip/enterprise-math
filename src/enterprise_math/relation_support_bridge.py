@@ -4,36 +4,47 @@ Given positive capacities ``m_i`` and a closed A3 weighted relation field
 
     Z_ij = m_j*c_i - m_i*c_j,
 
-define zero-density equivalence by ``Z_ij == 0``.  On the quotient classes,
+define zero-density equivalence by ``Z_ij == 0``. On the quotient classes,
 for an integer radius ``r >= 0`` define
 
-    [i] R_r [j]  iff  |Z_ij| <= r*m_i*m_j.
+    [i] R_r [j] iff |Z_ij| <= r*m_i*m_j.
 
 The weighted three-block closure law implies the integer triangle inequality
 
     m_j*|Z_ik| <= m_k*|Z_ij| + m_i*|Z_jk|,
 
 so the induced family is identity at radius zero, monotone, and subadditive
-under relational composition.  No floating-point density or hidden rational
+under relational composition. No floating-point density or hidden rational
 state is required.
 
 A3 partition coarsening has only a one-way compatibility with this support:
 if every fine pair across two coarse groups satisfies the radius bound, then
-the coarse pair satisfies it.  The converse can fail because signed relation
+the coarse pair satisfies it. The converse can fail because signed relation
 entries may cancel under ``Z'_AB = sum Z_ij``.
 
 For this generated symmetric family, A4 common-target composition is simply
-``R_r ; R_s``.  Equality with ``R_(r+s)`` is therefore an interpolation
-property of the A3 zero-relation quotient: every endpoint pair inside the
-combined budget must admit an actual quotient class inside both sub-budgets.
+``R_r ; R_s``. Equality with ``R_(r+s)`` is therefore an interpolation
+property of the A3 zero-relation quotient.
+
+The support filtration also induces a canonical integer metric
+
+    rho(i,j) = min {r : i R_r j}
+             = ceil(|Z_ij| / (m_i*m_j)),
+
+computed by exact ceiling division. Global A4 split-completeness is equivalent
+to this metric being the shortest-path metric of its radius-one support graph.
 """
 
 from __future__ import annotations
+
+from collections import deque
 
 from .weighted_relation_field import WeightedField, weighted_relation_field_is_closed
 
 SupportRelation = frozenset[tuple[int, int]]
 Partition = tuple[tuple[int, ...], ...]
+DistanceMatrix = tuple[tuple[int, ...], ...]
+GraphDistanceMatrix = tuple[tuple[int | None, ...], ...]
 
 
 def _require_radius(radius: int) -> None:
@@ -78,7 +89,9 @@ def quotient_support_relation(
                 for j in right_members
             }
             if len(decisions) != 1:
-                raise AssertionError("normalized support must be class-representative independent")
+                raise AssertionError(
+                    "normalized support must be class-representative independent"
+                )
             if True in decisions:
                 relation.add((left_class, right_class))
     return frozenset(relation)
@@ -172,6 +185,92 @@ def missing_interpolations(
         block_sizes, field, left_radius, right_radius
     )
     return frozenset(combined.difference(witnessed))
+
+
+def integer_relation_distance_matrix(
+    block_sizes: tuple[int, ...], field: WeightedField
+) -> DistanceMatrix:
+    """Return rho=ceil(|Z_ij|/(m_i*m_j)) on zero-relation classes.
+
+    The implementation remains integer-only. Representative independence is
+    checked across every raw member pair of each quotient-class pair.
+    """
+    classes = zero_relation_classes(block_sizes, field)
+    rows: list[tuple[int, ...]] = []
+    for left_members in classes:
+        row: list[int] = []
+        for right_members in classes:
+            distances = set()
+            for i in left_members:
+                for j in right_members:
+                    denominator = block_sizes[i] * block_sizes[j]
+                    numerator = abs(field[i][j])
+                    distances.add((numerator + denominator - 1) // denominator)
+            if len(distances) != 1:
+                raise AssertionError(
+                    "integer relation distance must be representative independent"
+                )
+            row.append(next(iter(distances)))
+        rows.append(tuple(row))
+    return tuple(rows)
+
+
+def unit_graph_shortest_distances(
+    block_sizes: tuple[int, ...], field: WeightedField
+) -> GraphDistanceMatrix:
+    """Shortest-path distances in the rho=1 graph; None represents infinity."""
+    metric = integer_relation_distance_matrix(block_sizes, field)
+    size = len(metric)
+    adjacency = tuple(
+        tuple(j for j in range(size) if j != i and metric[i][j] == 1)
+        for i in range(size)
+    )
+    result: list[tuple[int | None, ...]] = []
+    for source in range(size):
+        distances: list[int | None] = [None] * size
+        distances[source] = 0
+        queue: deque[int] = deque([source])
+        while queue:
+            current = queue.popleft()
+            current_distance = distances[current]
+            if current_distance is None:
+                raise AssertionError("visited graph vertex must have a distance")
+            for target in adjacency[current]:
+                if distances[target] is None:
+                    distances[target] = current_distance + 1
+                    queue.append(target)
+        result.append(tuple(distances))
+    return tuple(result)
+
+
+def geodesic_defect_matrix(
+    block_sizes: tuple[int, ...], field: WeightedField
+) -> GraphDistanceMatrix:
+    """Return d_G1-rho; None means the unit graph disconnects the pair."""
+    metric = integer_relation_distance_matrix(block_sizes, field)
+    graph = unit_graph_shortest_distances(block_sizes, field)
+    defects: list[tuple[int | None, ...]] = []
+    for i in range(len(metric)):
+        row: list[int | None] = []
+        for j in range(len(metric)):
+            graph_distance = graph[i][j]
+            if graph_distance is None:
+                row.append(None)
+                continue
+            if graph_distance < metric[i][j]:
+                raise AssertionError("unit graph path cannot beat the direct metric")
+            row.append(graph_distance - metric[i][j])
+        defects.append(tuple(row))
+    return tuple(defects)
+
+
+def unit_graph_realizes_integer_metric(
+    block_sizes: tuple[int, ...], field: WeightedField
+) -> bool:
+    """Audit B08: rho equals the intrinsic shortest-path metric of R_1."""
+    metric = integer_relation_distance_matrix(block_sizes, field)
+    graph = unit_graph_shortest_distances(block_sizes, field)
+    return all(graph[i][j] == metric[i][j] for i in range(len(metric)) for j in range(len(metric)))
 
 
 def all_cross_pairs_supported(
