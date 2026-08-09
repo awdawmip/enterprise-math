@@ -35,7 +35,7 @@ Many A0 results are already canonical on main. Exact resolved scope remains cont
 
 Primary sources: P010, P011, canonical P019, P020, with links to P018.
 
-Objects include deterministic functions, fibers/kernels, strict history merge, collision spectra, eventual coalescence, and finite stabilization.
+Objects include deterministic functions, functional kernels/fibers, strict history merge, collision spectra, eventual coalescence, and finite stabilization. The project-wide generic functional-kernel / declared-future-signature language is canonicalized in `FOUNDATIONS` through FQ-004.
 
 A function graph may later be recognized as a special case of a broader relation theory, but A1 remains the canonical home for the single-valued theory.
 
@@ -50,7 +50,8 @@ Objects include:
 - finite predictive/contextual closure;
 - minimum exact repair;
 - reusable interface;
-- future-language sufficiency.
+- future-language sufficiency;
+- exact bounded future-action language results such as the canonical P018↔P023 quotient-root power-free action basis.
 
 Ownership discipline:
 
@@ -60,7 +61,7 @@ Ownership discipline:
 
 ### A3 — Structured Relation-State Algebra
 
-Historical source: `research/core/relation-quotient`.
+Historical source: `research/core/relation-quotient`; current reusable executable assets are routed through `docs/RESEARCH_COMMON_SURFACE.*` and `research_common_surface.json`.
 
 The core object is a structured weighted integer state, for example
 
@@ -68,17 +69,17 @@ The core object is a structured weighted integer state, for example
 
 not an arbitrary binary relation.
 
-Candidate contents include partition quotient, kernel, relation rank/scale, guard-image lattice, refinement memory, and task-derived exact relation precision.
+The first canonical executable core is already on `main` (`weighted_relation_field.py`, `relation_lattice.py`, `relation_scale.py`). Broader candidate theorem families include partition quotient, kernel, relation rank/scale, guard-image lattice, refinement memory, and task-derived exact relation precision. Each theorem keeps its actual canonical/WIP status; executable presence does not upgrade an unpromoted theorem.
 
-A3 receives no new P number yet and is not a Foundation. It must first be cleanly replayed, audited against prior art, and stated under weakest proved hypotheses.
+A3 receives no new P number yet and is not a Foundation. Further reusable mathematics must be stated under weakest proved hypotheses and audited against prior art before canonical promotion.
 
 ### A4 — Admissible Support / Correspondence Algebra
 
-Historical source: E001 relational-collapse work and its admissible-support continuation.
+Historical source: E001 relational-collapse work and its admissible-support continuation; the first canonical executable core is already on `main` (`admissible_support.py`, `relational_spectrum.py`).
 
 Core object: a finite multivalued correspondence `R ⊆ X×Y`.
 
-Candidate contents include:
+Candidate theorem families include:
 
 - functional versus relational collapse;
 - admissible support families;
@@ -88,7 +89,7 @@ Candidate contents include:
 - witness/event spectra;
 - exact degeneration back to P011 on total-function graphs.
 
-A4 and A3 remain sibling cores. Sharing the word “relation” is not evidence of mathematical identity.
+A4 and A3 remain sibling cores. Sharing the word “relation” is not evidence of mathematical identity. Canonical executable assets are reusable immediately; broader theorem statements retain their own proof/promotion status.
 
 ### A3↔A4 Bridge
 
@@ -99,7 +100,7 @@ Only statements of the following form belong to the bridge:
 - A3 internal relations that must be retained for a declared A4 future query;
 - counterexamples proving strict non-equivalence.
 
-If a bridge theorem becomes generally reusable independently of the two endpoint semantics, it must move up to an explicit core owner.
+The first executable bridge slice `a3_a4_support_bridge.py` is canonical on `main`. That does not collapse A3 and A4 into one owner or promote every historical bridge theorem. If a bridge theorem becomes generally reusable independently of the two endpoint semantics, it must move up to an explicit core owner.
 
 ### A5 — Intrinsic Discrete Geometry
 
@@ -140,7 +141,7 @@ Square-basin quotient/root transport that no longer needs a prime hypothesis bel
 
 ### P018 ↔ P023
 
-Unary predictive closure and operation-family quotient safety are different scopes of the same mother problem. General operation-language closure should be maintained once; P018 keeps precision interpretation and defect/transport consequences.
+Unary predictive closure and operation-family quotient safety are different scopes of the same mother problem. General operation-language closure should be maintained once; P018 keeps precision interpretation and defect/transport consequences. The bounded quotient-root power-free action basis is a canonical shared specialization and must remain discoverable to both routes.
 
 ### P021 → A2 / witness algebra
 
@@ -152,7 +153,7 @@ Multivalued support may generalize collision/witness spectra, but total-function
 
 ### E001/E002 → A2
 
-Contact/action-family/gcd/semigroup results that are really future-language minimal-quotient theorems belong in A2/P023. Contact/material/collision specializations remain engineering-owned.
+Contact/action-family/gcd/semigroup results that are really future-language minimal-quotient theorems belong in A2/P023. Contact/material/collision specializations remain engineering-owned. Canonical E001 executable specializations may still be shared as pressure tests/tools without becoming universal physical laws.
 
 ### P022 ↔ A3/A4/A2
 
@@ -164,18 +165,19 @@ Geometry-only results remain P022. Structured relation-state mathematics moves t
 
 When a program or bridge discovers reusable mathematics:
 
-1. fix the source branch and commit;
+1. freeze the exact source branch/commit/result payload and provenance;
 2. remove domain assumptions one by one to identify weakest proved hypotheses;
-3. search lineage, Relay, and existing theorem families;
+3. search lineage, Relay, common surface, and existing theorem families;
 4. classify the relation as `same / strict generalization / specialization / independent / conflict`;
 5. choose exactly one mother-statement owner;
 6. keep a corollary plus provenance in the source program;
-7. create an integration replay from **latest main**;
-8. replay theorem, implementation, tests, Lean, bilingual prose, lineage, and prior-art records;
-9. pass repository gates and merge to main;
-10. move historical branches to `ABSORBED/PROVENANCE` according to the lifecycle contract.
+7. when promotion begins, create or reconcile one L4 integration against a current `main` snapshot while keeping the frozen source-result identity;
+8. replay theorem, implementation, tests, Lean, bilingual prose, lineage, prior-art, and the shared theorem/tool surface;
+9. if `main` advances during validation, inspect only the actual intervening delta; unrelated movement does not generate a new replay generation;
+10. pass repository gates, including the shared-surface integrity gate where applicable, then perform one final current-main combination gate and merge;
+11. move historical branches to `ABSORBED/PROVENANCE` according to the lifecycle contract.
 
-Highly diverged mathematical ownership is never resolved merely by merge or rebase.
+Highly diverged mathematical ownership is never resolved merely by merge or rebase. Canonical promotion is incomplete if a reusable result enters `main` but cannot be discovered through `docs/RESEARCH_COMMON_SURFACE.*` / `research_common_surface.json`.
 
 ---
 
@@ -187,10 +189,10 @@ Mathematical ownership and branch lifecycle must agree:
 - active A2/A3/A4/A5 mother theorems live on L1 core-owner branches;
 - P/E frontiers live on L2 program-owner branches;
 - bridge theorems live on L3;
-- promotion to main goes only through L4 clean integration;
+- promotion to main goes only through one-shot L4 canonical integration;
 - historical branches/PRs/checkpoints end in L5.
 
-Exact lifecycle states, thresholds, naming, and the current migration batch are defined in `RESEARCH_BRANCH_LIFECYCLE.*` and `RESEARCH_BRANCH_LEDGER.*`.
+Exact lifecycle states, thresholds, naming, moving-main combination rules, and the current migration batch are defined in `RESEARCH_BRANCH_LIFECYCLE.*`, `RESEARCH_SCHEDULING_PROTOCOL.*`, and `RESEARCH_BRANCH_LEDGER.*`.
 
 ---
 
@@ -202,7 +204,7 @@ The following historical trees must not be expanded by appending new theorem fam
 - `research/core/relation-quotient`;
 - `research/core/relation-support-bridge` / PR #83.
 
-They are semantic-replay sources, not future canonical owners.
+They are semantic-replay sources, not future canonical owners. Their historical freeze does not block new mathematics on the current writable L1/L2/L3 owners.
 
 ---
 
@@ -222,6 +224,8 @@ Each reusable theorem should record at least:
 - affected consumers;
 - requested downstream action.
 
+Canonical promotion must then move reusable results from Relay-only discoverability into the common human/machine surface.
+
 ---
 
 ## 9. Compression success criteria
@@ -233,6 +237,7 @@ A researcher entering the repository should quickly determine:
 3. which A-layer owner maintains each general theorem family;
 4. that long-lived writable branches stay near 8–12;
 5. why an integration/agent branch exists and when it exits;
-6. how historical results are recovered from PR/tag/lineage.
+6. how historical results are recovered from PR/tag/lineage;
+7. where every canonical reusable theorem, root formalization, tool family, negative boundary, and active foundation alert is discoverable.
 
-If a result can only be found by remembering a 300-commit historical branch, the architecture is not yet compressed enough.
+If a result can only be found by remembering a 300-commit historical branch or a past Relay comment, the architecture is not yet compressed enough.
