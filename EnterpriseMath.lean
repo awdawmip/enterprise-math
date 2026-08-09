@@ -4,3 +4,4 @@ import EnterpriseMath.Order.WellFoundedStabilization
 import EnterpriseMath.Precision.Carry
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
+import EnterpriseMath.State.Coalescence
