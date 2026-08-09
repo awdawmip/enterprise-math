@@ -37,6 +37,17 @@
       "allowed_paths": [],
       "allowed_prefixes": []
     },
+    "core/a3-relation-lattice-v3": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current A3 sparse relation-lattice generation; owns spanning-tree integer coordinates and zero-total relation-orbit lattice results only.",
+      "allowed_paths": [
+        "src/enterprise_math/relation_tree_lattice.py",
+        "tests/test_relation_tree_lattice.py",
+        "src/enterprise_math/relation_zero_total_orbit.py",
+        "tests/test_relation_zero_total_orbit.py"
+      ],
+      "allowed_prefixes": []
+    },
     "core/a4-admissible-support-v2": {
       "state": "PROVENANCE",
       "reason": "A4 v2 generation is fully absorbed in main (ahead=0 at the 2026-08-09 surface audit). Start a new A4 generation from then-current main if new owner work resumes.",
@@ -111,7 +122,7 @@
     },
     "engineering/e001-material-impulse-world": {
       "state": "PROVENANCE",
-      "reason": "Frozen one-body impulse-world generation was promoted by L4 and is canonical in main@683d6baa; PR #194 explicitly names #205 as the next pair-impulse generation.",
+      "reason": "Frozen one-body impulse-world generation was promoted by L4 and is canonical in main@683d6baa; PR #194 is L5 provenance.",
       "allowed_paths": [],
       "allowed_prefixes": []
     },
@@ -122,16 +133,40 @@
       "allowed_prefixes": ["src/enterprise_math/material_impulse_", "src/enterprise_math/material_force_", "tests/test_material_impulse_", "tests/test_material_force_"]
     },
     "engineering/e001-material-pair-impulse": {
-      "state": "ACTIVE_OWNER",
-      "reason": "Current bounded two-body equal-and-opposite impulse owner following the canonical one-body wall generation.",
+      "state": "PROVENANCE",
+      "reason": "Scope-pure two-body pair-impulse generation was promoted by L4 PR #230 and is canonical in main@438a26de; PR #205 is L5 provenance.",
       "allowed_paths": [],
-      "allowed_prefixes": ["src/enterprise_math/material_pair_impulse_", "tests/test_material_pair_impulse_"]
+      "allowed_prefixes": []
+    },
+    "engineering/e001-material-contact-network": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current bounded E001 contact-network generation replaying incidence/Gram, cycle-kernel and rank-duality results on canonical pair impulse.",
+      "allowed_paths": [
+        "src/enterprise_math/material_contact_network_impulse_1d.py",
+        "tests/test_material_contact_network_impulse_1d.py",
+        "src/enterprise_math/material_contact_network_cycle_kernel.py",
+        "tests/test_material_contact_network_cycle_kernel.py",
+        "src/enterprise_math/material_contact_network_rank_duality.py",
+        "tests/test_material_contact_network_rank_duality.py"
+      ],
+      "allowed_prefixes": []
     },
     "engineering/e001-material-multiaction-protocol": {
-      "state": "ACTIVE_OWNER",
-      "reason": "Independent E001 empirical multi-action protocol owner consuming canonical P023 minimization rather than redefining it.",
+      "state": "PROVENANCE",
+      "reason": "Frozen multi-action empirical generation was promoted by L4 PR #222; PR #185 is L5 provenance and newer empirical work continues on separate owners.",
       "allowed_paths": [],
-      "allowed_prefixes": ["src/enterprise_math/material_empirical_", "tests/test_material_empirical_"]
+      "allowed_prefixes": []
+    },
+    "engineering/e001-measurement-area-refinement": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Current bounded E001 measurement-refinement generation; owns exact area shells, witness variation and their regressions only.",
+      "allowed_paths": [
+        "src/enterprise_math/material_measurement_area_refinement.py",
+        "tests/test_material_measurement_area_refinement.py",
+        "src/enterprise_math/material_measurement_refinement_variation.py",
+        "tests/test_material_measurement_refinement_variation.py"
+      ],
+      "allowed_prefixes": []
     },
     "engineering/e001-material-state-cost": {
       "state": "REPLAY_REQUIRED",
