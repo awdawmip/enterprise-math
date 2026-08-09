@@ -1,0 +1,113 @@
+{
+  "schema": "ENTERPRISE_MATH_FOUNDATION_BACKFLOW_V1",
+  "status": "ACTIVE",
+  "effective": "2026-08-09",
+  "documents": {
+    "en": "docs/FOUNDATION_BACKFLOW_LOOP.en.md",
+    "zh": "docs/FOUNDATION_BACKFLOW_LOOP.zh-CN.md"
+  },
+  "surfaces": {
+    "research_relay_issue": 82,
+    "foundation_problem_issue": 164,
+    "research_dispatch_issue": 240,
+    "scheduler_config": "research_scheduler.json",
+    "scheduler_tool": "tools/research_scheduler.py",
+    "foundation_steward": "foundation_steward.json",
+    "common_surface": "research_common_surface.json",
+    "canonical_source": "main"
+  },
+  "authority_boundaries": {
+    "relay_proved_is_canonical": false,
+    "scheduler_done_is_theorem_proof": false,
+    "scheduler_done_is_canonical_promotion": false,
+    "foundation_answered_is_steward_accepted": false,
+    "steward_accepted_is_main": false,
+    "canonical_truth": "gated source-repository main"
+  },
+  "feedback_packet_fields": [
+    "candidate_object_or_tool",
+    "weakest_scope_hypotheses",
+    "minimal_state",
+    "minimal_repair_or_extension",
+    "negative_boundary",
+    "cross_route_evidence",
+    "proof_status",
+    "tool_surface",
+    "prior_art_and_owner",
+    "foundation_destination"
+  ],
+  "handling_classes": [
+    "DIRECT_FOUNDATION_MAINTENANCE",
+    "FOUNDATION_QUESTION",
+    "APPLICATION_LOCAL_OR_NOT_READY"
+  ],
+  "logical_phases": [
+    "DETECTED",
+    "PACKETIZED",
+    "CLASSIFIED",
+    "FQ_OPEN",
+    "RESEARCH_SCHEDULED",
+    "RESEARCHING",
+    "ANSWERED",
+    "STEWARD_VERIFICATION",
+    "INTEGRATION",
+    "CANONICALIZED",
+    "REJECTED",
+    "APPLICATION_LOCAL_OR_NOT_READY"
+  ],
+  "scheduler_roles": ["RESEARCH", "STEWARD_VERIFICATION", "INTEGRATION"],
+  "scheduler_link_contract": {
+    "research_role_requires_task_kind": "RESEARCH",
+    "steward_verification_requires_task_kind": "GOVERNANCE",
+    "integration_requires_task_kind": "GOVERNANCE",
+    "question_status_authority": "GitHub Issue #164",
+    "runtime_claim_authority": "GitHub Issue #240",
+    "task_definition_authority": "research_scheduler.json",
+    "one_fq_one_permanent_branch_required": false,
+    "existing_owner_task_may_carry_fq_only_if_explicitly_declared": true,
+    "research_task_question_field": "foundation_questions",
+    "live_claim_scope_must_not_be_reinterpreted": true,
+    "scope_drift_forbidden": true
+  },
+  "question_scheduler_links": [
+    {
+      "question_id": "FQ-20260809-005",
+      "phase": "RESEARCH_SCHEDULED",
+      "scheduler_task_id": "RS-P022-GRAPH-DISTANCE-API",
+      "scheduler_role": "RESEARCH",
+      "research_owner": "program/p022-geometry-v2",
+      "source_refs": [
+        "Issue #164 comment 5231423831",
+        "P012 intrinsic discrete geometry",
+        "src/enterprise_math/geometry.py",
+        "tests/test_p012_geometry.py"
+      ]
+    }
+  ],
+  "canonicalized_examples": [
+    {
+      "question_id": "FQ-20260809-004",
+      "phase": "CANONICALIZED",
+      "canonical_pr": 268,
+      "canonical_merge": "fe94a3201c4f6ca996c78cb55e719709d5144a54",
+      "final_gates": ["quality", "bilingual-sync", "reference-integrity"],
+      "foundation_result": "typed state -> deterministic/observation functional kernel -> declared future-signature kernel; State Pair derived; compressed coordinates require factorization; A3/A4 remain extensions",
+      "source_refs": [
+        "Issue #164 RETURN comment 5231561135",
+        "Issue #164 CANONICALIZED comment 5232265107",
+        "PR #268"
+      ]
+    }
+  ],
+  "post_merge_propagation": [
+    "Foundation Problem Set status",
+    "common research surface and machine routers",
+    "theorem/tool/status/lineage surfaces when applicable",
+    "Research Dispatch Board governance progress",
+    "GLOBAL_KNOWLEDGE durable project state"
+  ],
+  "nonblocking": {
+    "backflow_ack_is_required_for_research_progress": false,
+    "only_complete_hard_block_can_stop_route": true
+  }
+}

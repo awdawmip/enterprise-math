@@ -29,11 +29,19 @@
     "machine_router": "foundation_steward.json",
     "document_en": "docs/FOUNDATION_STEWARD_PROTOCOL.en.md",
     "document_zh": "docs/FOUNDATION_STEWARD_PROTOCOL.zh-CN.md",
+    "backflow_router": "foundation_backflow.json",
+    "backflow_document_en": "docs/FOUNDATION_BACKFLOW_LOOP.en.md",
+    "backflow_document_zh": "docs/FOUNDATION_BACKFLOW_LOOP.zh-CN.md",
+    "backflow_validator": "tools/check_research_common_surface.py",
     "problem_set_issue": 164,
     "problem_id_prefix": "FQ-",
+    "research_relay_issue": 82,
+    "dispatch_issue": 240,
     "steward_solves_escalated_research": false,
     "steward_verifies_before_escalation": true,
     "steward_verifies_before_canonicalization": true,
+    "research_backflow_enabled": true,
+    "fq_scheduler_links_required_for_executable_open_questions": true,
     "active_foundation_questions": ["FQ-20260809-005"],
     "active_interface_alerts": ["FQ-20260809-005"]
   },
@@ -65,7 +73,7 @@
     "latest relevant Research Relay Issue #82 entries",
     "research_common_surface.json lean_root_imports and canonical_executable_modules",
     "relevant executable specification/tests/Lean modules",
-    "when foundation-facing: docs/FOUNDATION_STEWARD_PROTOCOL.en.md and relevant Foundation Problem Set Issue #164 entries"
+    "when foundation-facing or a mature result may feed back: docs/FOUNDATION_STEWARD_PROTOCOL.en.md, docs/FOUNDATION_BACKFLOW_LOOP.en.md, foundation_backflow.json, and relevant Foundation Problem Set Issue #164 entries"
   ],
   "theorem_channels": {
     "canonical_base": ["docs/THEOREMS.en.md", "docs/THEOREMS.zh-CN.md"],
@@ -73,7 +81,8 @@
     "canonical_problem_documents": "docs/Pxxx_*.{en,zh-CN}.md referenced by PROBLEM_STATUS",
     "formalized_subset": ["EnterpriseMath.lean", "EnterpriseMath/**.lean"],
     "proved_wip_bus": "GitHub Issue #82 Research Relay",
-    "foundation_problem_bus": "GitHub Issue #164 Foundation Steward Problem Set"
+    "foundation_problem_bus": "GitHub Issue #164 Foundation Steward Problem Set",
+    "execution_bus": "GitHub Issue #240 Research Dispatch Board"
   },
   "lean_root_imports": [
     "EnterpriseMath/Arithmetic/CollapseCommutation.lean",
@@ -146,6 +155,14 @@
       "physical_boundary": "finite application specialization only; no hidden continuum, probability law, laminate constitutive law, or universal material physics is inferred"
     }
   },
+  "foundation_backflow_extraction_targets": [
+    "minimal_sufficient_state",
+    "minimal_repair_or_extension_data",
+    "cross_route_invariant",
+    "negative_boundary",
+    "reusable_tool",
+    "layering_law"
+  ],
   "canonical_executable_modules": {
     "A0_A5_primitives": ["src/enterprise_math/core.py", "src/enterprise_math/division.py", "src/enterprise_math/scale_algebra.py", "src/enterprise_math/signed.py", "src/enterprise_math/typed_scale.py", "src/enterprise_math/geometry.py"],
     "A2": ["src/enterprise_math/composition_safe_collapse.py", "EnterpriseMath/Quotient/OperationCongruence.lean"],

@@ -5,7 +5,7 @@ These are execution rules, not a research roadmap.
 Before substantive mathematical or engineering research:
 
 1. read `docs/RESEARCH_COMMON_SURFACE.en.md` (or the Chinese semantic pair);
-2. read `research_common_surface.json`, especially its root-Lean import index, registered executable families, active interface alerts, and repository-tool index;
+2. read `research_common_surface.json`, especially its root-Lean import index, registered executable families, active interface alerts, repository-tool index, and Foundation backflow pointers;
 3. read `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`;
 4. read `docs/RESEARCH_SCHEDULER_NONBLOCKING_STARTUP.md`; this later narrow addendum controls new-conversation startup, scheduler writes, and handoff liveness where the older scheduling protocol conflicts;
 5. read `research_scheduler.json`; read the live Research Dispatch Board Issue #240 when it is available through a non-blocking read path;
@@ -13,7 +13,7 @@ Before substantive mathematical or engineering research:
 7. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
 8. read the latest relevant entries in Research Relay Issue #82 when available;
 9. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family;
-10. when the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md` and relevant entries in Foundation Problem Set Issue #164.
+10. when the work touches foundational language, notation, formulas, theorem/tool interfaces, a flagged contradiction, or a mature cross-route result that may change the common bottom layer, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md`, `docs/FOUNDATION_BACKFLOW_LOOP.en.md`, `foundation_backflow.json`, and relevant entries in Foundation Problem Set Issue #164.
 
 Scheduler availability is never a startup gate. Failure to read Issue #240, failure to write scheduler events, an interactive connector/workflow approval requirement, rate limits, network errors, or tool unavailability are coordination degradations only. They must not stop a new conversation, stop an explicit user task, or be represented as a mathematical `HARD_BLOCK`.
 
@@ -52,16 +52,23 @@ Knowledge propagation and promotion sync:
 - a canonical promotion of a reusable theorem, formalization, executable family, negative boundary, or active interface alert must include a shared-surface delta, or explicitly justify why the delta is `N/A`;
 - adding/removing a root import in `EnterpriseMath.lean` requires the same PR to update the exact `lean_root_imports` machine/human indexes;
 - adding/removing a repository Python tool under `tools/*.py` requires the same PR to update the exact shared repository-tool machine/human indexes;
-- `tools/check_research_common_surface.py` is a mechanical promotion gate: it checks declared-path existence, exact root-Lean imports, exact repository Python tools, active FQ-set agreement, and active-alert validity; it does not prove theorem truth or decide semantic reusability;
+- `tools/check_research_common_surface.py` is the mechanical shared-surface/control-plane gate: it checks declared-path existence, exact root-Lean imports, exact repository Python tools, active FQ-set agreement, active-alert validity, and Foundation FQ-to-scheduler backflow-link integrity; it does not prove theorem truth or decide semantic reusability;
+- when a mature result exposes a weaker primitive, minimal sufficient state, minimal repair, reusable tool, cross-route invariant, negative boundary, or layering law, emit a Foundation Feedback Packet or route the finding to the steward rather than leaving it only in the source program;
 - do not duplicate a mother theorem merely to make a program branch self-contained;
 - distinguish `CANONICAL_MAIN`, `LEAN_CHECKED_MAIN`, `PROVED_WIP_RELAY`, `EXECUTABLE_CHECKED`, and conjectural claims.
 
-Foundation stewardship:
+Foundation stewardship and backflow:
 
-- the foundation steward maintains and verifies shared mathematical language/notation, formula integrity, theorem statements/status/interfaces, and reusable tool routing;
+- the foundation steward maintains and verifies shared mathematical language/notation, formula integrity, theorem statements/status/interfaces, reusable tool routing, and the research-to-foundation backflow surface;
+- compress serious backflow candidates using the Foundation Feedback Packet in `docs/FOUNDATION_STEWARD_PROTOCOL.*`;
+- classify each candidate as `DIRECT_FOUNDATION_MAINTENANCE`, `FOUNDATION_QUESTION`, or `APPLICATION_LOCAL_OR_NOT_READY`;
 - mechanical or already-determined maintenance is fixed directly;
 - a genuine unresolved contradiction, mathematical choice, missing hypothesis, cross-route incompatibility, high-value new structure, prior-art uncertainty, or tool/theorem sufficiency question is **not** solved by the steward;
-- after minimum verification, such findings are posted to Issue #164 with a stable `FQ-*` ID for other researchers to claim;
-- researchers answering an `FQ-*` item supply proof/counterexample/tool evidence and scope; the steward verifies before canonicalization.
+- after minimum verification, such findings are posted to Issue #164 with a stable `FQ-*` ID and linked through `foundation_backflow.json` to the appropriate scheduler task;
+- the static FQ-to-task link is durable recovery metadata even if live #240 reads/writes are temporarily unavailable; scheduler availability never blocks the research itself;
+- mathematical FQ research runs in the compatible L1/L2/L3 research scope; steward verification/integration remains governance and must not impersonate theorem ownership;
+- a researcher RETURN, scheduler `DONE`, and steward `ACCEPTED` are distinct states and none is canonical by itself;
+- after a returned FQ answer, the steward independently verifies before any latest-main integration; only a gated merge to source `main` permits `CANONICALIZED` status and common-surface/global-knowledge propagation;
+- application elegance, WIP status, or a physical interpretation alone never justifies foundation promotion.
 
 If `hard_block = NONE`, continue the route's best available mathematical frontier rather than waiting for another branch, conversation, review, CI checkpoint, integration replay, scheduler event, connector workflow, or GitHub write. If the current executor cannot continue in this session, preserve a concrete continuation point and use scheduler handoff when available instead of turning scheduler availability into a stop condition.

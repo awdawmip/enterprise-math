@@ -12,6 +12,7 @@
     "common_surface": "docs/RESEARCH_COMMON_SURFACE.en.md",
     "research_relay_issue": 82,
     "foundation_problem_issue": 164,
+    "foundation_backflow_router": "foundation_backflow.json",
     "note": "Scheduler state coordinates work; it does not promote mathematical truth or canonical status."
   },
   "task_states": [
@@ -62,6 +63,16 @@
     "required_fields": ["missing_object", "owner", "necessity", "unblock_condition"],
     "only_hard_dependency_can_block": true,
     "ci_review_moving_main_are_not_hard_blocks": true
+  },
+  "foundation_link_contract": {
+    "router": "foundation_backflow.json",
+    "research_fq_must_link_to_kind": "RESEARCH",
+    "research_task_must_explicitly_declare_question": true,
+    "research_task_question_field": "foundation_questions",
+    "live_claim_scope_must_not_be_reinterpreted": true,
+    "steward_verification_or_integration_must_link_to_kind": "GOVERNANCE",
+    "question_status_authority": "GitHub Issue #164",
+    "runtime_execution_authority": "GitHub Issue #240"
   },
   "tasks": [
     {
@@ -166,6 +177,34 @@
       "last_progress_at": "2026-08-09T21:33:00+08:00",
       "hard_block": null,
       "tags": ["P022", "geometry", "observation", "collision", "repair"]
+    },
+    {
+      "task_id": "RS-P022-GRAPH-DISTANCE-API",
+      "title": "P022/P012 graph-distance API and theorem-domain resolution",
+      "kind": "RESEARCH",
+      "owner": "program/p022-geometry-v2",
+      "base_state": "READY",
+      "priority": "P0",
+      "leverage": "HIGH",
+      "frontier": "Resolve FQ-20260809-005 without reinterpreting the live P022 observation-history lease: determine the stable API/domain layering between the general directed shortest-walk helper and the P012 connected-undirected-simple-graph metric contract.",
+      "next_action": "Work on a dedicated short task branch rather than changing the live observation-history task scope. Audit P012 theorem hypotheses and actual P022/E001 consumers; choose either a narrowed metric-only graph_distance contract or an explicitly layered directed-shortest-walk plus undirected-metric API; add asymmetric-input regression coverage; return the proof/counterexample/tool evidence and canonical-change recommendation to Issue #164 for steward verification.",
+      "dependencies": [
+        {"target": "P012 ordinary metric theorem scope", "action": "CONSUME", "satisfied": true},
+        {"target": "stable geometry.graph_distance implementation/export", "action": "TEST", "satisfied": true}
+      ],
+      "source_refs": [
+        "Issue #164 FQ-20260809-005 / comment 5231423831",
+        "docs/P012_INTRINSIC_DISCRETE_GEOMETRY.en.md",
+        "src/enterprise_math/geometry.py",
+        "src/enterprise_math/__init__.py",
+        "tests/test_p012_geometry.py"
+      ],
+      "foundation_questions": ["FQ-20260809-005"],
+      "evidence_status": "FOUNDATION_QUESTION_OPEN",
+      "last_progress_ref": "Issue #164 FQ-20260809-005",
+      "last_progress_at": "2026-08-09T23:28:00+08:00",
+      "hard_block": null,
+      "tags": ["P022", "P012", "geometry", "graph-distance", "API", "FQ-20260809-005"]
     },
     {
       "task_id": "RS-P024-HIGHER-ACTION-PRECISION",
@@ -322,6 +361,27 @@
       "last_progress_at": "2026-08-09T17:00:00+08:00",
       "hard_block": null,
       "tags": ["A2", "E001", "material", "future-state"]
+    },
+    {
+      "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
+      "title": "Foundation backflow verification and canonicalization",
+      "kind": "GOVERNANCE",
+      "owner": "governance",
+      "base_state": "READY",
+      "priority": "P0",
+      "leverage": "HIGH",
+      "frontier": "Close the research-to-Foundation loop for returned FQs and mature Feedback Packets: independently verify scope/evidence, build minimal latest-main integration for accepted results, and complete post-merge propagation without becoming the theorem research owner.",
+      "next_action": "Treat FQ-20260809-004 as a closed regression example. For the next ANSWERED FQ or mature Foundation Feedback Packet, independently verify the returned evidence and weakest scope, accept or reject the minimal interface, integrate accepted governance/Foundation surfaces through current-main L4, and only mark CANONICALIZED after merge and propagation.",
+      "dependencies": [
+        {"target": "canonical FQ-20260809-004 result / PR #268", "action": "CONSUME", "satisfied": true},
+        {"target": "canonical shared-surface promotion gate / PR #282", "action": "CONSUME", "satisfied": true}
+      ],
+      "source_refs": ["Issue #164", "Issue #82", "foundation_backflow.json", "docs/FOUNDATION_BACKFLOW_LOOP.en.md", "PR #282"],
+      "evidence_status": "FOUNDATION_BACKFLOW_CONTROL_PLANE",
+      "last_progress_ref": "FQ-20260809-004 canonical / PR #282",
+      "last_progress_at": "2026-08-09T23:28:00+08:00",
+      "hard_block": null,
+      "tags": ["governance", "foundation", "backflow", "verification", "canonicalization"]
     },
     {
       "task_id": "RS-GOV-CONTROL-SURFACE",
