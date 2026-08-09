@@ -1,12 +1,16 @@
 """Arithmetic fiber spectrum of the Barlow shell-cardinality quotient.
 
 At radius n, a two-sided microscopic stacking window consists of two independent
-length-n ±1 words.  Whole-shell cardinality sees them only through
+length-n ±1 words. Whole-shell cardinality sees them only through
 
     Q = delta_plus^2 + delta_minus^2.
 
 Hence shell-cardinality fibers are binomial-weighted representations of Q as a
-sum of two parity-compatible squares.
+sum of two parity-compatible squares. Relative to the maximal shell, the same
+state has an especially simple arithmetic form:
+
+- even n=2m: deficit = u^2+v^2;
+- odd n=2m+1: deficit = u(u+1)+v(v+1).
 """
 
 from __future__ import annotations
@@ -40,7 +44,9 @@ def absolute_imbalance_fiber_size(radius: int, absolute_imbalance: int) -> int:
 def possible_shell_drift_energies(radius: int) -> tuple[int, ...]:
     """All Q=d_plus^2+d_minus^2 represented by finite two-sided windows."""
     values = admissible_absolute_imbalances(radius)
-    return tuple(sorted({left * left + right * right for left in values for right in values}))
+    return tuple(
+        sorted({left * left + right * right for left in values for right in values})
+    )
 
 
 def shell_energy_fiber_size(radius: int, drift_energy: int) -> int:
@@ -130,3 +136,86 @@ def energy_congruence_class(radius: int) -> tuple[int, int]:
     """
     _require_natural("radius", radius)
     return (0, 4) if radius % 2 == 0 else (2, 8)
+
+
+def shell_cardinality_deficit(radius: int, shell_vertex_count: int) -> int:
+    """Deficit from the maximal Barlow shell at one fixed radius."""
+    _require_natural("radius", radius)
+    _require_natural("shell_vertex_count", shell_vertex_count)
+    maximum = maximum_shell_cardinality(radius)
+    if shell_vertex_count > maximum:
+        raise ValueError("shell count exceeds the Barlow maximum")
+    return maximum - shell_vertex_count
+
+
+def deficit_from_absolute_imbalances(
+    radius: int, left: int, right: int
+) -> int:
+    """Exact cardinality deficit carried by a pair of absolute drifts.
+
+    At even radius, write left=2u and right=2v; the deficit is u^2+v^2.
+    At odd radius, write left=2u+1 and right=2v+1; the deficit is
+    u(u+1)+v(v+1).
+    """
+    _require_natural("radius", radius)
+    _require_natural("left", left)
+    _require_natural("right", right)
+    allowed = set(admissible_absolute_imbalances(radius))
+    if left not in allowed or right not in allowed:
+        raise ValueError("absolute drifts are incompatible with radius")
+    energy = left * left + right * right
+    difference = energy - minimum_drift_energy(radius)
+    if difference < 0 or difference % 4:
+        raise AssertionError("Barlow parity must make the deficit integral")
+    return difference // 4
+
+
+def possible_shell_cardinality_deficits(radius: int) -> tuple[int, ...]:
+    """All represented shell-cardinality deficits at one radius."""
+    values = admissible_absolute_imbalances(radius)
+    return tuple(
+        sorted(
+            {
+                deficit_from_absolute_imbalances(radius, left, right)
+                for left in values
+                for right in values
+            }
+        )
+    )
+
+
+def deficit_representation_pairs(
+    radius: int, deficit: int
+) -> tuple[tuple[int, int], ...]:
+    """Return normalized arithmetic coordinates representing one deficit.
+
+    For even radius the returned pair is (u,v) with D=u^2+v^2.
+    For odd radius it is (u,v) with D=u(u+1)+v(v+1).
+    Ordered pairs are retained because the two Barlow sides are labelled in the
+    microscopic model even when whole-shell cardinality later forgets them.
+    """
+    _require_natural("radius", radius)
+    _require_natural("deficit", deficit)
+    bound = radius // 2
+    if radius % 2 == 0:
+        return tuple(
+            (left, right)
+            for left in range(bound + 1)
+            for right in range(bound + 1)
+            if left * left + right * right == deficit
+        )
+    return tuple(
+        (left, right)
+        for left in range(bound + 1)
+        for right in range(bound + 1)
+        if left * (left + 1) + right * (right + 1) == deficit
+    )
+
+
+def odd_deficit_sum_of_odd_squares(radius: int, deficit: int) -> int:
+    """Odd-radius equivalent ``4D+2=(2u+1)^2+(2v+1)^2`` target."""
+    _require_natural("radius", radius)
+    _require_natural("deficit", deficit)
+    if radius % 2 == 0:
+        raise ValueError("odd-square form applies only at odd radius")
+    return 4 * deficit + 2
