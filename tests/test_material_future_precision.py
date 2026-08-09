@@ -1,6 +1,9 @@
 import unittest
 from itertools import product
 
+from enterprise_math.clearance_horizon_precision import (
+    isotropic_named_horizon_class_count,
+)
 from enterprise_math.material_future_precision import (
     PRIMITIVE_CONTACT,
     REPRESENTED,
@@ -15,27 +18,30 @@ from enterprise_math.material_future_precision import (
 
 
 class MaterialFuturePrecisionTests(unittest.TestCase):
-    def test_constant_response_word_erases_all_direction_deficits(self):
+    def test_constant_response_word_erases_direction_and_raw_depth(self):
         samples = (0, 10, 10, 10, 20)
-        word = material_response_word(samples, depth=3, horizon=2)
-        self.assertEqual(word, (10, 10, 10))
-        self.assertEqual(material_visible_deficit_cap(word), 0)
-        first = compile_material_future_precision((3, 0), 5, samples, 2)
-        second = compile_material_future_precision((3, 3), 5, samples, 2)
-        self.assertEqual(first.response_word, second.response_word)
+        first = compile_material_future_precision((3, 0), 5, samples, 1)
+        second = compile_material_future_precision((2, 2), 5, samples, 1)
+        # Raw depths are 2 and 3, but both material futures are (10,10).
+        self.assertEqual(first.status, REPRESENTED)
+        self.assertEqual(second.status, REPRESENTED)
+        self.assertEqual(first.response_word, (10, 10))
+        self.assertEqual(second.response_word, (10, 10))
+        self.assertEqual(first.visible_deficit_cap, 0)
+        self.assertEqual(second.visible_deficit_cap, 0)
         self.assertEqual(first.capped_deficits, (0, 0))
         self.assertEqual(second.capped_deficits, (0, 0))
         self.assertEqual(first, second)
 
     def test_first_visible_material_boundary_reduces_raw_horizon_cap(self):
-        # depth 4 response stays 9 for two decrements, then changes at step 3.
-        samples = (0, 4, 7, 9, 9)
+        # Depth-4 response stays 9 for two decrements, then changes at step 3.
+        samples = (0, 4, 9, 9, 9)
         word = material_response_word(samples, depth=4, horizon=4)
         self.assertEqual(word, (9, 9, 9, 4, 0))
         self.assertEqual(material_visible_deficit_cap(word), 2)
         state = compile_material_future_precision((3, 0, 1), 7, samples, 4)
         self.assertEqual(state.status, REPRESENTED)
-        self.assertEqual(state.escape_depth, 4)
+        self.assertEqual(state.response_word, word)
         self.assertEqual(state.visible_deficit_cap, 2)
         self.assertEqual(state.capped_deficits, (0, 2, 2))
 
@@ -86,33 +92,50 @@ class MaterialFuturePrecisionTests(unittest.TestCase):
                             ),
                         )
 
+    def test_nonmonotone_material_words_are_supported(self):
+        samples = (0, 1, 0, 1, 0)
+        for dimension in range(1, 4):
+            for factor in range(2, 6):
+                max_depth = min(len(samples) - 1, factor - 1)
+                represented = [
+                    state
+                    for state in product(range(factor), repeat=dimension)
+                    if any(state) and factor - max(state) <= max_depth
+                ]
+                for horizon in range(4):
+                    compact_to_full = {}
+                    full_to_compact = {}
+                    for state in represented:
+                        compact = compile_material_future_precision(
+                            state, factor, samples, horizon
+                        )
+                        full = full_material_future_signature(
+                            state, factor, samples, horizon
+                        )
+                        compact_to_full.setdefault(compact, set()).add(full)
+                        full_to_compact.setdefault(full, set()).add(compact)
+                    self.assertTrue(
+                        all(len(outputs) == 1 for outputs in compact_to_full.values())
+                    )
+                    self.assertTrue(
+                        all(len(signatures) == 1 for signatures in full_to_compact.values())
+                    )
+
     def test_strictly_distinguishing_response_recovers_raw_horizon_precision(self):
-        # R(k)=k makes material response injective in scalar depth, so no raw
-        # capped-deficit class can merge for represented depths.
+        # R(k)=k is injective in represented scalar depth, so material-aware
+        # quotient must exactly recover canonical raw P024 horizon precision.
         for dimension in range(1, 5):
             for factor in range(2, 8):
                 samples = tuple(range(factor))
                 for horizon in range(4):
-                    material_count = material_future_class_count(
-                        dimension, factor, samples, horizon
+                    self.assertEqual(
+                        material_future_class_count(
+                            dimension, factor, samples, horizon
+                        ),
+                        isotropic_named_horizon_class_count(
+                            dimension, factor, horizon
+                        ),
                     )
-                    raw_signatures = set()
-                    for state in product(range(factor), repeat=dimension):
-                        if not any(state):
-                            continue
-                        compiled = compile_material_future_precision(
-                            state, factor, samples, horizon
-                        )
-                        raw_signatures.add(
-                            (
-                                compiled.escape_depth,
-                                tuple(
-                                    min(max(state) - value, horizon)
-                                    for value in state
-                                ),
-                            )
-                        )
-                    self.assertEqual(material_count, len(raw_signatures))
 
     def test_h1_plateau_erases_active_set_exactly_when_adjacent_response_is_equal(self):
         samples = (0, 10, 10, 20, 30)
@@ -162,7 +185,7 @@ class MaterialFuturePrecisionTests(unittest.TestCase):
                         ),
                     )
 
-    def test_underresolved_and_primitive_contact_are_explicit_outer_states(self):
+    def test_underresolved_and_primitive_contact_are_explicit_diagnostic_states(self):
         samples = (0, 100)
         under = compile_material_future_precision((1, 0), 5, samples, 2)
         self.assertEqual(under.status, UNDERRESOLVED)
