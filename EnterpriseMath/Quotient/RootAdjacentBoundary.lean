@@ -48,4 +48,52 @@ theorem root_adjacent_jump_iff_power
     have hPowPos : 0 < t ^ r := pow_pos (by omega) r
     omega
 
+/-- A positive floor quotient changes across the adjacent exact-state boundary
+`q-1 | q` exactly when the action denominator divides the right endpoint.
+
+This is the quotient-side local atom behind the bounded future-action basis. -/
+theorem quotient_adjacent_jump_iff_dvd
+    {q a : ℕ}
+    (hq : 1 ≤ q)
+    (ha : 1 ≤ a) :
+    (q - 1) / a ≠ q / a ↔ a ∣ q := by
+  have haPos : 0 < a := by omega
+  constructor
+  · intro hne
+    by_contra hnotDvd
+    have hModNe : q % a ≠ 0 := by
+      intro hModZero
+      exact hnotDvd (Nat.dvd_of_mod_eq_zero hModZero)
+    have hModPos : 1 ≤ q % a := by omega
+    have hModLt : q % a < a := Nat.mod_lt q haPos
+    have hDecomp : q / a * a + q % a = q := Nat.div_add_mod q a
+    have hLower : (q / a) * a ≤ q - 1 := by omega
+    have hNext : (q / a + 1) * a = q / a * a + a := by ring
+    have hUpper : q - 1 < (q / a + 1) * a := by omega
+    have hPredDiv : (q - 1) / a = q / a :=
+      Nat.div_eq_of_lt_le hLower hUpper
+    exact hne hPredDiv
+  · rintro ⟨k, rfl⟩
+    have hProdPos : 0 < a * k := by omega
+    have hkPos : 1 ≤ k := by
+      by_contra hzero
+      have hkZero : k = 0 := by omega
+      simp [hkZero] at hProdPos
+    have hRight : (a * k) / a = k := by
+      simpa using Nat.mul_div_cancel_left k haPos
+    have hkDecomp : k = (k - 1) + 1 := by omega
+    have hProdDecomp : a * k = (k - 1) * a + a := by
+      calc
+        a * k = a * ((k - 1) + 1) := by rw [← hkDecomp]
+        _ = a * (k - 1) + a := by ring
+        _ = (k - 1) * a + a := by ring
+    have hLower : (k - 1) * a ≤ a * k - 1 := by omega
+    have hUpper : a * k - 1 < ((k - 1) + 1) * a := by
+      rw [← hkDecomp]
+      simpa [Nat.mul_comm] using (Nat.pred_lt hProdPos)
+    have hLeft : (a * k - 1) / a = k - 1 :=
+      Nat.div_eq_of_lt_le hLower hUpper
+    rw [hLeft, hRight]
+    omega
+
 end EnterpriseMath.Quotient
