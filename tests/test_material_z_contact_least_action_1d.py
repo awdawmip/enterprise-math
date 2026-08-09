@@ -104,7 +104,10 @@ class MaterialZContactLeastAction1DTests(unittest.TestCase):
         self.assertEqual(tuple(component.kind for component in report.components), (PATH, PATH))
         solution = solve_z_contact_network_least_action(state)
         self.assertEqual(solution.impulse_vector, (2, 2))
-        self.assertEqual(solution.final_scores, (0, 0))
+        # Each isolated weighted pair has K=(3) and initial score -4, so the
+        # least integer impulse is ceil(4/3)=2 and leaves the exact unavoidable
+        # positive surplus -4+3*2=+2.  Independence does not imply exact zero.
+        self.assertEqual(solution.final_scores, (2, 2))
 
     def test_coherent_cycle_with_all_nonpositive_scores_is_already_zero(self):
         state = ContactNetworkMomentum1D(
