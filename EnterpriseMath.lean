@@ -6,3 +6,4 @@ import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.State.Coalescence
 import EnterpriseMath.State.ObservationClosure
+import EnterpriseMath.State.OperationCongruence
