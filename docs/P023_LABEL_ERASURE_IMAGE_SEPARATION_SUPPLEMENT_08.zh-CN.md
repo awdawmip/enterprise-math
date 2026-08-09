@@ -2,271 +2,281 @@
 
 状态：`PROVED`  
 归属：A2 / P023 future-compatible quotient  
-来源压力：P017 L054/L052 与 P024 future-safe precision  
-纪律：集合像、单射与 decoder 存在性属于初等成熟数学；这里提炼的是可重复的 quotient/repair 判据。
+来源压力：P017 L054/L052/L055 与 P024 future-safe precision  
+纪律：集合像、单射、decoder 存在性与子集单调性都属于初等成熟数学；这里提炼的是可复用的 zero-repair 与 realizability-audit 接口。
 
-## 1. 问题：辅助标签什么时候真的可以删掉
+## 1. 辅助标签什么时候真的可以删掉
 
-数论证明中经常把状态写成
+把带标签状态写成
 
 \[
 (i,x),
+\qquad x\in S_i,
 \]
 
-其中 `i` 是 shell / factor / residue-class label，而 `x` 是真正继续参与后续运算的坐标。
+其中 `i` 是 shell / factor / residue label，`x` 是继续保留的坐标。
 
-一个常见但危险的习惯是：
-
-- 一旦引入了 `i`，以后一直携带；或者
-- 看到当前 `x` 不冲突，就永久删除 `i`。
-
-P023 的未来安全纪律要求更精确地问：
-
-> 当前删除标签以后，经过声明的后续映射，标签是否仍能从保留坐标中唯一恢复？
-
-答案完全由不同 shell 的**实际像是否相交**决定。
+future-safe 问题不是“这个标签曾经有没有用”，而是：经过所有声明的后续映射以后，它是否仍然能从保留状态中唯一恢复。
 
 ## 2. 设置
 
-令 `I` 为标签集合，`X` 为细状态空间，并给定一族 shell
+令带标签状态空间为
 
 \[
-W_i\subseteq X
-\qquad(i\in I).
+S=\{(i,x):x\in S_i\}.
 \]
 
-带标签状态空间为不交并
+当前删除映射为
 
 \[
-S=\{(i,x):x\in W_i\}.
+E(i,x)=x,
 \]
 
-当前标签删除映射为
-
-\[
-E:S\to X,
-\qquad
-E(i,x)=x.
-\]
-
-再令
+并令
 
 \[
 G:X\to Y
 \]
 
-为某个后续确定性映射。
+为后续确定性映射。
+
+定理中的 `S_i` 指每个标签下的**真实 admissible states**。如果手里只有更大的 envelope，正确的单向逻辑见第 7 节。
 
 ## 3. P023-S8-T01 —— 当前标签删除判据
 
 状态：`PROVED`。
 
-以下等价：
+`E` 在带标签状态空间上单射，当且仅当
 
-1. `E(i,x)=x` 在 `S` 上为单射；
-2. 对任意 `i!=j`，
-   \[
-   \boxed{W_i\cap W_j=\varnothing.}
-   \]
+\[
+\boxed{S_i\cap S_j=\varnothing\qquad(i\ne j).}
+\]
 
 ### 证明
 
-若两个不同 shells 有共同 `x`，则 `(i,x)!=(j,x)` 却被 `E` 送到同一状态，所以不单射。
-
-反之若 shells 两两不交，`E(i,x)=E(j,y)` 给出 `x=y`；这个状态只能属于一个 shell，故 `i=j`，于是 `(i,x)=(j,y)`。∎
+若两个标签共享同一个保留状态 `x`，则 `(i,x)` 与 `(j,x)` 是不同 tagged states，却被删除映射送到同一值。反之，若真实 shell sets 两两不交，则保留坐标相等会强迫标签相等，继而 tagged state 相等。∎
 
 ### 含义
 
-如果 exact coordinate 本身已经编码 shell identity，那么继续携带 shell label 只是重复状态维度。
+当保留坐标本身已经决定 shell identity 时，显式 label 就是冗余状态维度。
 
-## 4. P023-S8-T02 —— 经过后续映射后的标签可恢复判据
+## 4. P023-S8-T02 —— 后续映射后的标签恢复
 
 状态：`PROVED`。
 
-以下等价：
+存在 decoder
 
-1. 存在一个只在 reachable image 上需要定义的 decoder
-   \[
-   D:G\!\left(\bigcup_iW_i\right)\to I
-   \]
-   使得
-   \[
-   D(G(x))=i
-   \qquad(x\in W_i);
-   \]
-2. 不同 shell 的实际 images 两两不交：
-   \[
-   \boxed{
-   G(W_i)\cap G(W_j)=\varnothing
-   \qquad(i\ne j).
-   }
-   \]
+\[
+D:G\!\left(\bigcup_iS_i\right)\to I
+\]
+
+满足
+
+\[
+D(G(x))=i\qquad(x\in S_i)
+\]
+
+当且仅当
+
+\[
+\boxed{
+G(S_i)\cap G(S_j)=\varnothing
+\qquad(i\ne j).
+}
+\]
 
 ### 证明
 
-若存在共同 image `y=G(x_i)=G(x_j)`，其中 `x_i in W_i`、`x_j in W_j` 且 `i!=j`，则 decoder 必须同时满足 `D(y)=i` 与 `D(y)=j`，矛盾。
+若存在共同 future image，则 decoder 必须在同一个值上返回两个不同标签，矛盾。若 images 两两不交，则每个 reachable output 只属于唯一 shell image，据此定义 decoder 即可。∎
 
-反之若 images 两两不交，则每个 reachable `y` 只来自唯一 shell。把 `D(y)` 定义为该唯一标签即可。∎
+所以 future-safe label deletion 正是一个 image-separation test。
 
-因此“标签删除后未来仍安全”不是抽象直觉，而是一个**image separation test**。
-
-## 5. P023-S8-T03 —— 标签恢复与完整状态恢复必须分开
+## 5. P023-S8-T03 —— 标签恢复弱于完整状态恢复
 
 状态：`PROVED`。
 
 映射
 
 \[
-H:S\to Y,
-\qquad
 H(i,x)=G(x)
 \]
 
-在 `S` 上单射，当且仅当同时满足：
+在完整 tagged state space 上单射，当且仅当同时满足：
 
 1. 不同 shell images 两两不交；
-2. 每个限制
-   \[
-   G|_{W_i}:W_i\to Y
-   \]
-   都是单射。
+2. 每个限制 \(G|_{S_i}\) 都是单射。
 
 ### 证明
 
-这是单射在“跨 shell”与“shell 内部”两个方向的精确分解。
+跨 shell collision 会破坏标签恢复；shell 内 collision 即使不丢标签，也会合并不同细状态。两类 collision 都不存在时，完整 tagged state 才能唯一恢复。∎
 
-- 跨 shell image 相交会合并不同标签状态；
-- 同一 shell 内 `G` 不单射会合并同标签的不同细状态；
-- 两类碰撞都不存在时，`H` 显然单射。∎
-
-所以必须区分：
+因此
 
 \[
 \boxed{
-\text{shell label 可恢复}
+\text{label 可恢复}
 \not\Rightarrow
-\text{完整原状态可恢复}.
+\text{完整状态可恢复}.
 }
 \]
 
-这在 coarse root、bucket、basin coordinate 中尤其重要。
-
 ## 6. P023-S8-T04 —— 声明 context 下的安全标签删除
 
-状态：`PROVED`，是 T02 的逐 context 应用。
+状态：`PROVED`。
 
-给定一族声明的后续 context maps
+给定声明 context family
 
 \[
 \mathcal G=\{G_c:X\to Y_c\}_{c\in C},
 \]
 
-如果任务要求在每个 context 输出后仍能恢复 shell label，则当前标签可以安全删除，当且仅当对每个 `c` 与每对 `i!=j`，
+要使标签删除后在每一个 context 输出上仍可恢复，充要条件是
 
 \[
 \boxed{
-G_c(W_i)\cap G_c(W_j)=\varnothing.
+G_c(S_i)\cap G_c(S_j)=\varnothing
+\quad\text{对所有 }c\text{ 与 }i\ne j.
 }
 \]
 
-一旦某个 context 出现 image overlap，该 overlap 就是需要 repair 的**精确见证**。
+任意一个非空 overlap 都是 zero repair 失败的精确见证。
 
-这与 P023 operation-word future quotient 完全一致：这里把“未来可区分”专门压成 shell-label query 的 image language。
+## 7. P023-S8-T05 —— admissibility-filtered envelope principle
 
-## 7. P017 L054 的 A2 重解释
+状态：`PROVED`。
 
-在 P017 的 open square basin 中，令 label 为 least prime `p`，保留坐标为 stripped cofactor
+设真实 admissible shell 不方便直接处理，但知道一个外包络
 
 \[
-q=n/p.
+S_i\subseteq U_i.
 \]
 
-对应 shells 正是
+则对任意确定性映射 `G`，
 
 \[
-W_p(k)=
+G(S_i)\subseteq G(U_i).
+\]
+
+因此
+
+\[
+\boxed{
+G(U_i)\cap G(U_j)=\varnothing
+\Longrightarrow
+G(S_i)\cap G(S_j)=\varnothing.
+}
+\]
+
+### 证明
+
+集合像保持子集关系。若更大的 image sets 已经不交，它们的子集当然也不交。∎
+
+### 逻辑方向
+
+逆命题一般不成立。envelope overlap 只能证明一个**候选 collision**，它可能在 realizability / admissibility filter 后完全消失。
+
+所以安全的研究规则是
+
+\[
+\boxed{
+\text{envelope 不碰撞可向下传；envelope 碰撞不能向下传。}
+}
+\]
+
+当同时存在粗 candidate 与精确算术 envelope 时，应该做三层审计：
+
+\[
+\text{candidate superset}
+\supseteq
+\text{exact envelope}
+\supseteq
+\text{actual admissible state}.
+\]
+
+## 8. P017 L054 的重解释
+
+在 open square basin 中，真实 least-prime shell coordinate set 是
+
+\[
+S_p(k)=
+\{n/p:\ k^2<n<(k+1)^2,\ \operatorname{spf}(n)=p\}.
+\]
+
+它的精确 raw cofactor envelope 是
+
+\[
+U_p(k)=
 \left[
 \left\lfloor\frac{k^2}{p}\right\rfloor+1,
-\left\lfloor\frac{k(k+2)}{p}\right\rfloor
+\left\lfloor\frac{k(k+2)}p\right\rfloor
 \right].
 \]
 
-L054 证明 `k>=4` 后所有这些 raw windows 两两不交。
-
-由 T01：
+L054 证明 `k>=4` 后所有 envelopes `U_p(k)` 两两不交。因为
 
 \[
-\boxed{
-\text{从 }k\ge4\text{ 起，least-prime label }p
-\text{ 已经是 exact cofactor }q\text{ 的函数。}
-}
+S_p(k)\subseteq U_p(k),
 \]
 
-而且同一 `p` shell 内 `n=pq`，所以此时 `q` 不仅恢复 label，也恢复完整 composite state。
+T05 立即推出真实 shell coordinate sets 也两两不交。因此从 `k>=4` 起，least-prime label `p` 是 stripped cofactor `q` 的函数。
 
-因此 L054 可以解释为：**factor label 在 exact stripped coordinate 中已经成为冗余维度。**
+固定 shell 内还有 `n=pq`，所以一旦由 `q` 解码出唯一 shell，也能恢复 composite state。
 
-## 8. Root projection 说明“当前可删”不等于“未来永远可删”
+## 9. Root projection 与 P017 三层结构
 
-后续若只保留
+后续如果只保留
 
 \[
 G(q)=R_2(q),
 \]
 
-则 T02 要求检查的不是原窗口是否不交，而是
+必须区分三个对象：
 
-\[
-R_2(W_p(k))
-\]
+1. L052 扩大后的 candidate root pair；
+2. exact raw cofactor window 的 root image；
+3. `p`-rough least-prime shell 实际实现的 root image。
 
-这些**实际 images**是否不交。
+L055 证明更强的中间层结论：不同 lower-band **exact-window** root images 从 `k>=9` 起不交；真实 shell images 作为子集立即继承。
 
-这一点立即解释 P017 两种看似相近、实际不同的结论：
+两层确实不同。`k=6` 时，exact `p=3` window 只有通过 `q=16` 才能命中 root 4，但 `3*16=48` 的最小素因子是 2，因此 root 4 并未被 `p=3` shell 真实实现。
 
-- L054：exact quotient shells 从 `k>=4` 起不交；
-- L052：把每个 actual image 先扩大为候选 pair `{j_p,j_p+1}` 后，要到 `k>=15` 才能保证这些粗候选对不交；
-- 新的 L055：保留真实窗口再取 actual root image，只需要 `k>=9` 即可保证 lower-band shell label 可恢复。
+所以 actual-image discipline 必须包含 admissibility filter，而不能只保留 exact interval endpoints。
 
-所以 `15 -> 9` 不是“同一个不等式算得更紧”这么简单，而是一个 precision lesson：
+## 10. Repair 的含义
 
-> **扩大候选集会制造真实状态从未实现的假 collision。**
+若真实 images 相交，也不应该自动恢复整个原标签。真正需要补回的只是足以拆开**真实冲突 fibers**、并满足声明 task 的最粗 repair。
 
-## 9. Repair 的正确含义
-
-如果 `G(W_i)` 与 `G(W_j)` 相交，不能马上得出“必须保留整个原标签”。真正需要保留的信息只是足以拆开这些实际 overlaps 的最小 repair partition。
-
-一般最小 repair 仍由 P023 的 future-compatible quotient 负责。本补充只提供一个快速 zero-repair 判据：
+zero-repair fast path 为
 
 \[
 \boxed{
-\text{所有相关 shell images 两两不交}
+G(S_i)\cap G(S_j)=\varnothing\ \forall i\ne j
 \Longrightarrow
-\text{shell label repair cost}=0.
+\text{shell-label repair cost}=0.
 }
 \]
 
-## 10. 研究工具化
+P023 补充 09 在 zero repair 失败时进一步给出有限最小 alphabet 的精确计量。
 
-面对 factor shell、residue shell、geometric sector、collision mode 等显式标签，统一流程应为：
+## 11. 研究工具流程
 
-1. 写出 label 对应的真实细状态集合 `W_i`；
-2. 先检查 `W_i` 是否已经在保留坐标上两两不交；
-3. 对每个声明 future map `G_c` 计算 actual image `G_c(W_i)`；
-4. image 仍不交，则删除标签；
-5. image 开始相交时，只对相交区域编译 minimal repair；
-6. 不使用人为放大的 candidate superset 替代 actual image，除非明确接受它带来的假 collision 成本。
+面对 shell、residue、geometric sector、collision mode 等辅助标签：
 
-## 11. 可执行审计
+1. 写出真实 admissible fine sets `S_i`；
+2. 若只方便得到 envelopes `U_i`，必须显式记录 `S_i subset U_i`；
+3. envelope disjointness 只能作为充分证书；
+4. envelope overlap 时，先过滤到真实 admissible states，再宣告 collision；
+5. 对每个声明 future map 作用于真实集合；
+6. actual images 仍不交，就删除标签；
+7. 否则只在真实 overlaps 上编译最小 repair。
 
+可执行资产：
 - `src/enterprise_math/label_erasure.py`
 - `tests/test_p023_label_erasure.py`
 - P017 特化：`src/enterprise_math/p017_actual_root_separation.py`
 
-测试分别固定：当前 shell disjointness、变换后 label decoder、label recovery 与 full-state injectivity 的严格区别，以及 P017 actual root image 的 sharp threshold。
-
 ## 12. 前人工作与新颖性纪律
 
-“disjoint images iff a label decoder exists”本身是初等集合论，不是新数学。
+“images 两两不交当且仅当 label decoder 存在”以及“集合像对包含关系单调”都属于初等集合论，不是新数学。
 
-Enterprise Math 的研究价值在于把它提升为 future-safe precision 的一个**零 repair 编译器**，并系统性要求数论/工程路线在携带辅助标签之前先做 actual-image separation audit。
+Enterprise Math 的价值在于把它们固定成 future-safe precision 的研究编译器，并特别用于防止把 candidate/envelope collision 错升格成不可实现状态之间的真实 collision。
