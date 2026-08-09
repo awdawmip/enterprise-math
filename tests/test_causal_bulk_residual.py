@@ -5,6 +5,8 @@ from enterprise_math.causal_bulk_residual import (
     bounded_homomorphism_check,
     bounded_left_recovery_is_unique,
     bounded_reachable_values,
+    bulk_extension_coarsens_residuals,
+    collision_spectrum_nondecreasing_under_bulk_extension,
     left_translation_collision_spectrum,
     left_translation_fibers,
     residual_candidates,
@@ -50,8 +52,6 @@ class CausalBulkResidualTests(unittest.TestCase):
         self.assertFalse(bounded_left_recovery_is_unique((5,), increments, max))
         self.assertTrue(bounded_associativity_check(increments, max))
 
-        # Once bulk=5 has collapsed all increments <=5 to the same current max,
-        # any later max-extension sees them identically.
         futures = (0, 2, 5, 6, 9)
         self.assertTrue(
             same_bulk_fiber_is_future_safe_under_associative_extension(
@@ -59,10 +59,32 @@ class CausalBulkResidualTests(unittest.TestCase):
             )
         )
         spectrum = left_translation_collision_spectrum(5, increments, max, 3)
-        # Six increments are swallowed into the same current total 5.
         self.assertEqual(spectrum[1], 8)
         self.assertEqual(spectrum[2], 15)
         self.assertEqual(spectrum[3], 20)
+
+    def test_max_bulk_accumulation_can_only_coarsen_residual_precision(self):
+        increments = tuple(range(9))
+        # max(2,5)=5: every residual collision already present at bulk 2 remains
+        # collided at bulk 5, while additional low increments are swallowed.
+        self.assertTrue(bulk_extension_coarsens_residuals(2, 5, increments, max))
+        self.assertTrue(
+            collision_spectrum_nondecreasing_under_bulk_extension(
+                2, 5, increments, max, 4
+            )
+        )
+        before = left_translation_collision_spectrum(2, increments, max, 2)
+        after = left_translation_collision_spectrum(5, increments, max, 2)
+        self.assertGreater(after[2], before[2])
+
+    def test_additive_bulk_keeps_residual_precision_exact_under_accumulation(self):
+        increments = tuple(range(6))
+        add = lambda left, right: left + right
+        self.assertTrue(bulk_extension_coarsens_residuals(2, 4, increments, add))
+        before = left_translation_collision_spectrum(2, increments, add, 3)
+        after = left_translation_collision_spectrum(6, increments, add, 3)
+        self.assertEqual(before, after)
+        self.assertEqual(before[2], 0)
 
     def test_boolean_or_nonunique_residual_is_also_a_causal_collapse(self):
         combine = lambda left, right: bool(left or right)
@@ -77,13 +99,9 @@ class CausalBulkResidualTests(unittest.TestCase):
     def test_bulk_law_must_match_actual_word_composition(self):
         alphabet = (0, 1)
         binary_code = lambda word: sum(bit << index for index, bit in enumerate(reversed(word)))
-        # Plain integer addition is not the causal concatenation law for a binary
-        # positional code, so the homomorphism gate correctly rejects it.
         self.assertFalse(bounded_homomorphism_check(alphabet, 2, 2, binary_code, lambda a, b: a + b))
 
     def test_unique_recovery_is_about_reachable_increment_values_not_all_mathematical_values(self):
-        # Even if a global operation has collisions elsewhere, only increments that
-        # the declared future can actually produce matter to the exact residual gate.
         combine = lambda bulk, increment: (bulk + increment) % 5
         reachable = (0, 1, 2)
         self.assertTrue(bounded_left_recovery_is_unique((0, 1, 2), reachable, combine))
