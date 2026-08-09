@@ -1,7 +1,9 @@
 import unittest
 
+from enterprise_math.material_oscillator import PythagoreanRotation
 from enterprise_math.material_scale import (
     hardening_scale_report,
+    rotation_scale_report,
     softening_scale_report,
 )
 
@@ -42,6 +44,43 @@ class MaterialScaleTests(unittest.TestCase):
                         )
                         saw_positive_defect |= report.defect > 0
         self.assertTrue(saw_positive_defect)
+
+    def test_rotation_refinement_defect_is_exactly_determined_by_base_details(self):
+        rotation = PythagoreanRotation(3, 4, 5)
+        saw_nonzero = False
+        saw_negative = False
+        saw_positive = False
+        for x in range(-6, 7):
+            for y in range(-6, 7):
+                for refinement in range(1, 8):
+                    report = rotation_scale_report((x, y), rotation, refinement)
+                    self.assertEqual(
+                        report.defects,
+                        report.expected_defects_from_details,
+                    )
+                    self.assertEqual(
+                        report.refined_after,
+                        (
+                            report.transported_base_after[0] + report.defects[0],
+                            report.transported_base_after[1] + report.defects[1],
+                        ),
+                    )
+                    self.assertTrue(
+                        all(abs(defect) < refinement for defect in report.defects)
+                    )
+                    saw_nonzero |= report.defects != (0, 0)
+                    saw_negative |= any(defect < 0 for defect in report.defects)
+                    saw_positive |= any(defect > 0 for defect in report.defects)
+        self.assertTrue(saw_nonzero)
+        self.assertTrue(saw_negative)
+        self.assertTrue(saw_positive)
+
+    def test_exact_rotation_divisibility_removes_refinement_defect(self):
+        rotation = PythagoreanRotation(3, 4, 5)
+        report = rotation_scale_report((1, 2), rotation, refinement=7)
+        self.assertEqual(report.base_details, (0, 0))
+        self.assertEqual(report.defects, (0, 0))
+        self.assertEqual(report.refined_after, report.transported_base_after)
 
     def test_exact_divisibility_removes_hardening_scale_defect(self):
         report = hardening_scale_report(50, 100, power=2, refinement=7)
