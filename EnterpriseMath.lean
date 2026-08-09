@@ -2,6 +2,7 @@ import EnterpriseMath.Arithmetic.IntegerRoot
 import EnterpriseMath.Arithmetic.CollapseCommutation
 import EnterpriseMath.Order.WellFoundedStabilization
 import EnterpriseMath.Order.ReductiveCompositionStabilization
+import EnterpriseMath.Order.AdjointReductiveDuality
 import EnterpriseMath.Precision.Carry
 import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
