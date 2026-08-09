@@ -32,7 +32,7 @@ class SupportPrecisionTests(unittest.TestCase):
         )
 
     def test_block_statuses_have_three_exact_states(self):
-        support = self.square_support(0, 0, 2)
+        support = self.square_support(0, 0, 4)
         statuses = support_block_statuses(self.states, cell_observation(4), support)
         self.assertIn(EMPTY, statuses.values())
         self.assertIn(FULL, statuses.values())
@@ -53,8 +53,8 @@ class SupportPrecisionTests(unittest.TestCase):
                 self.assertEqual(certificate, expected)
 
     def test_coarse_partial_overlap_refines_to_exact_answer(self):
-        left = self.square_support(-2, 0, 1)
-        right = self.square_support(1, 0, 1)
+        left = self.square_support(1, 0, 1)
+        right = self.square_support(4, 0, 1)
         observations = [
             cell_observation(8),
             cell_observation(4),
