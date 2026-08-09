@@ -9,9 +9,10 @@ from enterprise_math.p022_barlow_fiber_convolution import (
     profile_domain_size,
     profile_from_segments,
     profile_from_selected_layers,
-    profile_image_size,
     profile_power_moment,
+    recover_segment_multiset_from_profile,
     segment_binomial_fiber_profile,
+    segment_minimal_nontrivial_multiplicity,
 )
 from enterprise_math.p022_barlow_higher_collision_precision import (
     ordered_equal_observation_tuple_count,
@@ -45,7 +46,14 @@ def _compositions(length: int, parts: int):
 def test_one_segment_profile_is_binomial_row_size_distribution() -> None:
     for length in range(1, 12):
         direct = Counter(comb(length, index) for index in range(length + 1))
-        assert segment_binomial_fiber_profile(length) == tuple(sorted(direct.items()))
+        profile = segment_binomial_fiber_profile(length)
+        assert profile == tuple(sorted(direct.items()))
+        assert dict(profile)[1] == 2
+        if length >= 2:
+            assert min(size for size, _ in profile if size > 1) == length
+            assert dict(profile)[length] == segment_minimal_nontrivial_multiplicity(
+                length
+            )
 
 
 def test_multiplicative_convolution_matches_direct_segment_products() -> None:
@@ -113,20 +121,18 @@ def test_profile_moments_and_collisions_match_higher_collision_layer() -> None:
                 ) == selected_collision_count(length, selected_layers, order)
 
 
-def test_segment_order_is_invisible_to_complete_fiber_profile() -> None:
+def test_segment_order_is_the_only_lost_geometry_in_complete_final_profile() -> None:
     assert profile_from_segments((1, 2, 3, 4)) == profile_from_segments((4, 2, 1, 3))
+    assert recover_segment_multiset_from_profile(
+        profile_from_segments((4, 2, 1, 3))
+    ) == (1, 2, 3, 4)
 
 
-def test_no_distinct_segment_multiset_profile_collision_in_small_complete_search() -> None:
-    # Bounded evidence only: this is intentionally not promoted to a theorem.
-    # It motivates the open identifiability question in the accompanying note.
-    for length in range(1, 13):
-        for parts in range(1, min(length, 6) + 1):
-            seen = {}
+def test_complete_profile_recovers_segment_multiset_for_all_small_compositions() -> None:
+    for length in range(1, 16):
+        for parts in range(1, min(length, 7) + 1):
             for segments in _compositions(length, parts):
-                multiset = tuple(sorted(segments))
                 profile = profile_from_segments(segments)
-                if profile in seen:
-                    assert seen[profile] == multiset
-                else:
-                    seen[profile] = multiset
+                assert recover_segment_multiset_from_profile(
+                    profile
+                ) == tuple(sorted(segments))
