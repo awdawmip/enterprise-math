@@ -42,6 +42,8 @@ R_p(a)\le R_p(b).
 
 证明：任何满足 \(k^p\le a\) 的 \(k\)，也一定满足 \(k^p\le b\)。
 
+形式化：已由 `EnterpriseMath.IntegerRoot.root_monotone` 通过 Lean 检查；该证明直接来自幂映射/整数根的 Galois connection。
+
 ## T004 —— 坍缩向下收缩
 
 状态：`PROVED`
@@ -100,6 +102,8 @@ k^p\le n<(k+1)^p.
 
 因此每一个坍缩盆地都是一个连续整数区间。
 
+形式化：已由 `EnterpriseMath.IntegerRoot.collapse_eq_pow_iff` 通过 Lean 检查；有限盆地成员关系也已由 `EnterpriseMath.IntegerRoot.mem_basin_iff` 检查。
+
 ## T008 —— 盆地状态数量
 
 状态：`PROVED`
@@ -116,6 +120,8 @@ k^p\le n<(k+1)^p.
 
 所以 \(141^2=19881\) 的盆地包含 283 个状态。对代数恒等情形 \(p=1\)，每个盆地的基数都是 \(1\)。
 
+形式化：一般基数公式已由 `EnterpriseMath.IntegerRoot.basin_card` 通过 Lean 检查；平方与恒等特例分别由 `basin_card_square`、`basin_card_one` 检查。
+
 ## T009 —— 坍缩单调
 
 状态：`PROVED`
@@ -127,6 +133,8 @@ C_p(a)\le C_p(b).
 \]
 
 证明：结合 T003 与 \(\mathbb N_0\) 上 \(k\mapsto k^p\) 的单调性。
+
+形式化：已由 `EnterpriseMath.IntegerRoot.collapse_monotone` 通过 Lean 检查。
 
 ## T010 —— 尺度相容
 
@@ -169,6 +177,8 @@ R_p(n)^p=n.
 \]
 
 因此当 \(p\ge2\) 时，整数根在完全幂像集上是完全幂构造的左逆，但在所有自然状态上不是双侧逆；当 \(p=1\) 时，两边都是恒等映射。
+
+形式化：左逆与非双侧逆分别已由 `EnterpriseMath.IntegerRoot.root_leftInverse_pow`、`root_pow_not_two_sided` 通过 Lean 检查。更强的统一见证“对每个 \(p\ge2\)，\(C_p(2)=1\ne2\)”由 `collapse_two_eq_one`、`collapse_two_ne_self` 检查；恒等成员由 `root_one`、`collapse_one` 检查。
 
 ## T012 —— 确定性前向复合中已经合流的历史不会再次分开
 
@@ -213,6 +223,8 @@ M_t(x)=|[x]_t|
 \]
 
 单调不减。
+
+形式化：已在更一般的异类型后复合形式下由 `EnterpriseMath.HistoryMerge.merged_never_split` 通过 Lean 检查；有限纤维包含和基数单调分别由 `fiberFinset_subset_postcompose`、`fiberCard_mono_postcompose` 检查。
 
 ## T013 —— 整数根按指数乘法复合
 
@@ -286,4 +298,4 @@ P_p\circ M_b=M_{b^p}\circ P_p.
 
 Python 参考测试在有限范围内计算检查原始算术规律；这些计算支持实现正确性，但不是数学证明来源。
 
-当前固定版本的 Lean/mathlib 层在 CI 中以 warnings fatal 编译。它已经由 Lean 内核检查 T001、T002、T004、T005、T006、T010、T013、T014、T015。T003、T007、T008、T009、T011、T012 仍是普通已证明命题，等待后续独立形式化提升。
+当前固定版本的 Lean/mathlib 层在 CI 中以 warnings fatal 编译。v0.1 基础定理目录 T001 至 T015 现已全部由 root Lean build 覆盖。T003、T007、T008、T009、T011、T012 在本轮逐一定理目录形式化中完成提升，各自对应的精确 Lean theorem 名称已在上文登记。
