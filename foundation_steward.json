@@ -3,7 +3,7 @@
   "status": "ACTIVE",
   "effective": "2026-08-09",
   "role": "FOUNDATION_STEWARD",
-  "mission": "Maintain and verify shared mathematical language, notation, formulas, theorem interfaces/status, and reusable tools without becoming the primary investigator of newly exposed research problems.",
+  "mission": "Maintain and verify shared mathematical language, notation, formulas, theorem interfaces/status, and reusable tools; actively extract verified cross-route tools and structural logic back into foundation maintenance without becoming the primary investigator of newly exposed research problems.",
   "protocol": {
     "en": "docs/FOUNDATION_STEWARD_PROTOCOL.en.md",
     "zh": "docs/FOUNDATION_STEWARD_PROTOCOL.zh-CN.md"
@@ -56,6 +56,38 @@
     "prior_art_or_lineage_uncertainty",
     "tool_or_theorem_sufficiency_question"
   ],
+  "research_backflow": {
+    "enabled": true,
+    "purpose": "Treat mature research routes as pressure tests of the common foundation and extract reusable structural results back into foundation maintenance.",
+    "extraction_targets": [
+      "minimal_sufficient_state",
+      "minimal_repair_or_extension_data",
+      "cross_route_invariant",
+      "negative_boundary",
+      "reusable_tool",
+      "layering_law"
+    ],
+    "feedback_packet_fields": [
+      "candidate_object_or_tool",
+      "weakest_scope_hypotheses",
+      "minimal_state",
+      "minimal_repair_or_extension",
+      "negative_boundary",
+      "cross_route_evidence",
+      "proof_status",
+      "tool_surface",
+      "prior_art_and_owner",
+      "foundation_destination"
+    ],
+    "handling_classes": [
+      "DIRECT_FOUNDATION_MAINTENANCE",
+      "FOUNDATION_QUESTION",
+      "APPLICATION_LOCAL_OR_NOT_READY"
+    ],
+    "does_not_create_global_barrier": true,
+    "application_elegance_is_not_promotion_evidence": true,
+    "wip_or_physical_interpretation_requires_independent_promotion_evidence": true
+  },
   "verification_sources": [
     "docs/FOUNDATIONS.*",
     "docs/THEOREMS.*",
@@ -77,7 +109,8 @@
     "shared_theorem_tool_surface": true,
     "python_lean_reference_tools": true,
     "cross_route_foundation_invariants": true,
-    "canonical_discovery_routing": true
+    "canonical_discovery_routing": true,
+    "research_to_foundation_backflow": true
   },
   "research_return_requires": [
     "proof_counterexample_or_exact_tool_evidence",
