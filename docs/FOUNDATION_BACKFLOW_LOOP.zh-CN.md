@@ -78,12 +78,15 @@
 每个需要执行的 OPEN/CLAIMED/RESEARCHING FQ 必须能通过 `foundation_backflow.json` 找到一个 #240 scheduler task：
 
 - 真正数学研究链接到 `RESEARCH` task，由合适的 L1/L2/L3 active owner/bridge 承担；
+- task 自身必须在 `foundation_questions` 字段显式声明所承载的 FQ；
+- 现有 owner task 只有当该 FQ 真正属于它已声明的 frontier 时才能承载；owner 相同本身不够；
+- 已有 live claim 的 task 不得被静态配置事后改题；不同问题应使用独立的 bounded scheduler task；
 - steward 不把自己伪装成 research owner；
 - 若 FQ 已经返回答案，则进入 governance-side steward verification，而不是再次自动派发同一研究。
 
 ### `RESEARCHING`
 
-研究执行遵守 #240 的 `CLAIM -> PROGRESS/HEARTBEAT -> HANDOFF/DONE` lease 状态机。#164 保持数学问题/回答记录；#240 保持执行连续性。两者不得互相替代。
+当 #240 运行面可用时，研究执行遵守其 lease 状态机。#164 保持数学问题/回答记录；#240 保持执行连续性。Scheduler 可用性不是研究启动门禁，两者也不得互相替代。
 
 ### `ANSWERED`
 
@@ -111,7 +114,7 @@
 1. #164 对应 FQ 标为 `CANONICALIZED`；
 2. common research surface / machine router 暴露新底层接口；
 3. theorem/tool/status/lineage 按需要更新；
-4. #240 对应治理 frontier 记录完成或 handoff；
+4. 当运行面可用时，#240 对应治理 frontier 记录完成或 handoff；
 5. GLOBAL_KNOWLEDGE 记录 durable architecture/state；
 6. 后续所有研究 preflight 消费新 Foundation，继续压力测试。
 
@@ -119,7 +122,7 @@
 
 ## 4. Scheduler 接入规则
 
-`research_scheduler.json` 继续是 durable task/frontier 定义；#240 继续是 runtime event log。
+`research_scheduler.json` 继续是 durable task/frontier 定义；#240 在可用时继续是 runtime event log。
 
 `foundation_backflow.json` 只增加**语义链接**，不复制 scheduler 状态机。每个 active FQ link 至少记录：
 
@@ -133,11 +136,15 @@
 规则：
 
 - `scheduler_role=RESEARCH` 必须指向 scheduler 的 `kind=RESEARCH` task；
+- 被引用的 research task 必须在 `foundation_questions` 中显式列出该 FQ；
 - `scheduler_role=STEWARD_VERIFICATION` 或 `INTEGRATION` 必须指向 `kind=GOVERNANCE` task；
 - 一个 FQ 可以随阶段改变链接，但不能同时把“research answer”和“steward acceptance”混成同一状态；
-- 一个现有 owner task 可以承载与其 frontier 相容的 FQ，避免为了每个 FQ 新建永久 branch；此时 task 的 `next_action/source_refs` 必须明确该 FQ；
+- 一个现有 owner task 只有在 task 显式声明该 FQ 时才能承载它；仅 owner 相同不是充分条件；
+- 不得为了复用 task ID 而事后改写一个已经 live claimed task 的语义；不同问题应建立独立 bounded task；
 - 若承载会造成 owner scope drift，则新建明确的 L3 bridge/probe，而不是挤进不相关 owner；
 - FQ canonicalize 后必须移出 active scheduler link，改由 `canonicalized_examples`/provenance 保留，不能继续伪装成待执行任务。
+
+这些链接是 durable recovery metadata。无法读取或写入 #240 只属于协调降级，不是数学 `HARD_BLOCK`，也不能阻止用户明确任务继续推进。
 
 ## 5. Relay 接入规则
 
@@ -189,7 +196,7 @@ FQ-004 是第一条已经完整走通的 research-to-Foundation 样板。A1/A2 �
 
 FQ-005 仍处于 `FQ_OPEN -> RESEARCH_SCHEDULED`：稳定 `graph_distance` API 的运行域比 P012 ordinary metric theorem domain 更宽。
 
-它应由 A5/P012/P022 几何 owner 研究 API/domain layering，而不是由 foundation steward 直接选择“收窄 API”或“保留 directed helper”。`foundation_backflow.json` 已将该问题链接到现有 P022 geometry research task。
+它应由 A5/P012/P022 几何 owner 研究 API/domain layering，而不是由 foundation steward 直接选择“收窄 API”或“保留 directed helper”。`foundation_backflow.json` 已将该问题链接到 `program/p022-geometry-v2` 下独立的 `RS-P022-GRAPH-DISTANCE-API` research task；这**不会**改写另一条 `RS-P022-OBSERVATION-HISTORY` frontier，也不会事后重解释其任何 live lease。
 
 这两个实例故意位于闭环两端，用于持续回归整条流程。
 
@@ -200,7 +207,7 @@ FQ-005 仍处于 `FQ_OPEN -> RESEARCH_SCHEDULED`：稳定 `graph_distance` API �
 1. 它最初在哪条研究/工具线上出现？
 2. Feedback Packet 在哪里？
 3. 为什么它是 direct maintenance、FQ，还是 local/not-ready？
-4. 若需要研究，#240 哪个 task/owner 负责继续？
+4. 若需要研究，#240 哪个**显式声明该 FQ**的 task/owner 负责继续？
 5. 研究答案在哪里返回，proof status 是什么？
 6. steward 是否已经独立接受？
 7. 哪个 current-main integration 把它变成 canonical？
