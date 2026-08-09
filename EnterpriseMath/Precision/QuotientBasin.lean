@@ -20,11 +20,7 @@ theorem div_square_le_square_div {k d : ℕ} (hd : 0 < d) :
 
 /-- P018-T110: dividing a complete square-collapse basin by any integer `d ≥ 2`
 can move the square-root index to only two adjacent values, and the base quotient
-root is strictly below the original basin index.
-
-If `j = R₂(⌊k²/d⌋)` and `k² ≤ n < (k+1)²`, then
-`R₂(⌊n/d⌋) ∈ {j,j+1}` and `j < k`.
--/
+root is strictly below the original basin index. -/
 theorem square_basin_div_root_pair
     {k d n : ℕ} (hk : 0 < k) (hd : 2 ≤ d)
     (hnLower : k ^ 2 ≤ n) (hnUpper : n < (k + 1) ^ 2) :
@@ -105,9 +101,7 @@ theorem quotient_path_flat_two (n a b : ℕ) :
   rw [Nat.div_div_eq_div_mul]
 
 /-- P018-T111 consequence: factoring a nontrivial total divisor into two stages
-does not create four final square-root branches.  After flattening the quotient
-path, T110 applies once to the product divisor, so the final root index is still
-one of two adjacent values. -/
+does not create four final square-root branches. -/
 theorem square_basin_two_step_div_root_pair
     {k a b n : ℕ} (hk : 0 < k) (ha : 2 ≤ a) (hb : 2 ≤ b)
     (hnLower : k ^ 2 ≤ n) (hnUpper : n < (k + 1) ^ 2) :
@@ -126,7 +120,6 @@ theorem square_basin_two_step_div_root_pair
 
 /-- P018-T112: from root scale `k ≥ 3`, every nontrivial floor quotient of a
 state below `(k+1)^2` lands strictly below the original square boundary `k^2`.
-Hence its square-root index is strictly smaller than `k`.
 -/
 theorem square_basin_div_root_strict
     {k d n : ℕ} (hk : 3 ≤ k) (hd : 2 ≤ d)
@@ -142,5 +135,43 @@ theorem square_basin_div_root_strict
   have hQuotLt : n / d < k ^ 2 := by
     exact (Nat.div_lt_iff_lt_mul hd0).2 hnTarget
   exact (Nat.nthRoot_lt_iff (n := 2) (by decide)).2 hQuotLt
+
+/-- P018-T113: inside one square basin, the upper T110 root branch has one exact
+state threshold.  If `j = R₂(floor(k²/d))`, then the quotient root is `j+1`
+exactly when the original state has reached `d*(j+1)^2`.
+
+This turns the two-basin alternative into a one-switch response, and is the
+formal core of the shared-offset threshold coherence used later in P017.
+-/
+theorem square_basin_div_upper_root_iff
+    {k d n : ℕ} (hk : 0 < k) (hd : 2 ≤ d)
+    (hnLower : k ^ 2 ≤ n) (hnUpper : n < (k + 1) ^ 2) :
+    let j := root 2 (k ^ 2 / d)
+    root 2 (n / d) = j + 1 ↔ d * (j + 1) ^ 2 ≤ n := by
+  let j := root 2 (k ^ 2 / d)
+  have hd0 : 0 < d := by omega
+  have hpair :
+      (root 2 (n / d) = j ∨ root 2 (n / d) = j + 1) ∧ j < k := by
+    simpa [j] using
+      (square_basin_div_root_pair (k := k) (d := d) (n := n)
+        hk hd hnLower hnUpper)
+  constructor
+  · intro hroot
+    have hpow : (j + 1) ^ 2 ≤ n / d := by
+      rw [← hroot]
+      exact Nat.pow_nthRoot_le (Or.inl (by decide))
+    have hmul : (j + 1) ^ 2 * d ≤ n :=
+      (Nat.le_div_iff_mul_le hd0).1 hpow
+    simpa [Nat.mul_comm] using hmul
+  · intro hthreshold
+    have hmul : (j + 1) ^ 2 * d ≤ n := by
+      simpa [Nat.mul_comm] using hthreshold
+    have hpow : (j + 1) ^ 2 ≤ n / d :=
+      (Nat.le_div_iff_mul_le hd0).2 hmul
+    have hrootLower : j + 1 ≤ root 2 (n / d) :=
+      (Nat.le_nthRoot_iff (n := 2) (by decide)).2 hpow
+    rcases hpair.1 with hroot | hroot
+    · omega
+    · exact hroot
 
 end EnterpriseMath.Precision
