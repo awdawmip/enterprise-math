@@ -17,6 +17,19 @@
     ],
     "no_new_mathematics_scope": "L4_INTEGRATION_ONLY_OR_EXPLICIT_REPLAY_SLICE"
   },
+  "dispatch_scheduler": {
+    "config": "research_scheduler.json",
+    "runtime_issue": 240,
+    "event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+    "tool": "tools/research_scheduler.py",
+    "default_claim_semantics": "RENEWABLE_LEASE",
+    "auto_select_when_user_task_absent": true,
+    "explicit_user_task_overrides": true,
+    "handoff_required_for_unfinished_session": true,
+    "expired_claim_returns_to_dispatch": true,
+    "live_dispatch_authority": "current owner registry + research_scheduler.json + Issue #240 runtime events",
+    "historical_branch_ledger_is_live_dispatch_authority": false
+  },
   "foundation_steward": {
     "machine_router": "foundation_steward.json",
     "document_en": "docs/FOUNDATION_STEWARD_PROTOCOL.en.md",
@@ -36,6 +49,8 @@
   "mandatory_preflight": [
     "docs/RESEARCH_COMMON_SURFACE.en.md",
     "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md",
+    "research_scheduler.json and live Research Dispatch Board Issue #240",
+    "docs/RESEARCH_OWNER_ISOLATION.en.md",
     "docs/PROBLEM_STATUS.en.md",
     "relevant canonical theorem/result documents",
     "latest relevant Research Relay Issue #82 entries",
@@ -83,7 +98,8 @@
     "experiments": "experiments/",
     "repo_tools": [
       "tools/check_bilingual_pairs.py",
-      "tools/check_references.py"
+      "tools/check_references.py",
+      "tools/research_scheduler.py"
     ]
   },
   "relay_action_classes": [
@@ -97,5 +113,15 @@
     "hard_block",
     "last_progress",
     "shared_surface_seen"
+  ],
+  "runtime_handoff_events": [
+    "CLAIM",
+    "HEARTBEAT",
+    "PROGRESS",
+    "HANDOFF",
+    "HARD_BLOCK",
+    "UNBLOCK",
+    "DONE",
+    "SUPERSEDE"
   ]
 }
