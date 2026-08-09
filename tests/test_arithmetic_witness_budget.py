@@ -103,7 +103,7 @@ class ArithmeticWitnessBudgetTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             pair_budget_profile(2, 3, 5, {2: 1, 3: 1, 5: 1}, (2, 3))
         with self.assertRaises(ValueError):
-            pair_budget_profile(2, 3, 5, {2: 1, 3: 2, 5: 3}, (2, 3))
+            pair_budget_profile(2, 3, 5, {2: 2, 3: 3, 5: 5}, (2, 3))
 
     def test_arithmetic_derivative_formula(self) -> None:
         psi = {2: 1, 3: 2}
