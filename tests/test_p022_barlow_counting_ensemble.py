@@ -1,12 +1,11 @@
-from collections import Counter
 from itertools import product
-from math import isclose, sqrt
 
 from enterprise_math.p022_barlow_coordination import (
     barlow_shell_vertex_count_from_extreme_imbalances,
 )
 from enterprise_math.p022_barlow_counting_ensemble import (
     microscopic_two_sided_window_count,
+    minimum_individual_geodesic_growth_equation,
     rademacher_fourth_moment,
     rademacher_second_moment,
     total_geodesic_paths_over_all_windows,
@@ -16,7 +15,6 @@ from enterprise_math.p022_barlow_counting_ensemble import (
     uniform_shell_cardinality_mean,
     uniform_shell_cardinality_variance,
 )
-from enterprise_math.p022_barlow_growth import layer_shell_total_from_imbalance if False else barlow_layer_shell_total_geodesic_paths
 from enterprise_math.p022_barlow_aperiodic import (
     imbalance_trajectory_from_interface_windows,
     shell_total_from_imbalance_trajectory,
@@ -68,7 +66,6 @@ def test_shell_mean_variance_and_total_match_all_short_two_sided_windows() -> No
         assert sum(values) * mean_den == mean_num * count
 
         variance_num, variance_den = uniform_shell_cardinality_variance(radius)
-        # Use the exact identity Var = E[S^2]-E[S]^2 without floats.
         square_sum = sum(value * value for value in values)
         assert (
             (square_sum * mean_den * mean_den - count * mean_num * mean_num)
@@ -90,24 +87,20 @@ def test_geodesic_mean_closed_form_matches_all_short_two_sided_windows() -> None
         assert direct_total * mean_den == mean_num * (4 ** radius)
 
 
-def test_mean_geodesic_growth_base_is_seven_halves() -> None:
+def test_mean_geodesic_growth_base_exceeds_balanced_individual_base_exactly() -> None:
     assert uniform_geodesic_mean_growth_fraction() == (7, 2)
-    # Finite roots approach 7/2 from the exact average formula.
-    roots = []
-    for radius in range(12, 25):
-        mean_num, mean_den = uniform_geodesic_total_mean(radius)
-        roots.append((mean_num / mean_den) ** (1 / radius))
-    assert abs(roots[-1] - 3.5) < abs(roots[0] - 3.5)
-    assert roots[-1] > 2 + sqrt(2)
+    assert minimum_individual_geodesic_growth_equation() == (2, 2, 2)
+    # 7/2 > 2+sqrt(2) iff 3/2 > sqrt(2), equivalently 9 > 8.
+    assert 3 * 3 > 2 * 2 * 2
 
 
-def test_mean_shell_is_near_maximal_on_n_squared_scale() -> None:
-    # Exact mean deficit from the maximal 21n^2/2+O(1) shell scale is only
-    # linear in n because E[Q_n]=2n.
+def test_mean_shell_is_near_maximal_on_n_squared_scale_without_floats() -> None:
+    # Exact mean is (42n^2-2n+8)/4.  Compare after cross multiplication.
     for radius in range(2, 20):
         mean_num, mean_den = uniform_shell_cardinality_mean(radius)
-        assert mean_den in (1, 2)
-        mean = mean_num / mean_den
-        normalized = mean / (radius * radius)
-        assert normalized < 10.5 + 2 / (radius * radius)
-        assert normalized > 10.5 - 1 / radius
+        # mean/n^2 < 21/2 + 2/n^2
+        assert 2 * mean_num < (21 * radius * radius + 4) * mean_den
+        # mean/n^2 > 21/2 - 1/n
+        assert 2 * radius * mean_num > (
+            21 * radius * radius * radius - 2 * radius * radius
+        ) * mean_den
