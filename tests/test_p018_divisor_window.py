@@ -1,4 +1,5 @@
 import unittest
+from math import isqrt
 
 from enterprise_math.p018_divisor_window import (
     divisor_quotient_window,
@@ -74,18 +75,13 @@ class P018DivisorWindowTests(unittest.TestCase):
 
     def test_adjacent_divisors_are_a_real_boundary(self):
         # de<k alone is insufficient when e=d+1.
-        self.assertLess(
-            abs(
-                ((13 * 13) // 3) ** 0
-            ),
-            2,
-        )
-        left_root = int(((13 * 13) // 3) ** 0.5)
-        right_root = int(((13 * 13) // 4) ** 0.5)
+        k = 13
+        left_root = isqrt((k * k) // 3)
+        right_root = isqrt((k * k) // 4)
         self.assertEqual((left_root, right_root), (7, 6))
         self.assertEqual(left_root - right_root, 1)
         with self.assertRaises(ValueError):
-            nonadjacent_small_product_root_pair_separation(13, 3, 4)
+            nonadjacent_small_product_root_pair_separation(k, 3, 4)
 
     def test_adjacent_opposite_parity_can_overlap_windows(self):
         self.assertEqual(divisor_quotient_window(3, 2), (5, 7))
