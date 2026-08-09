@@ -17,8 +17,7 @@ from __future__ import annotations
 
 from math import isqrt
 
-from .factor_precision import first_factor_shell
-from .p017_actual_root_separation import lower_band_primes
+from .p017_actual_root_separation import actual_shell_cofactors, lower_band_primes
 from .task_precision_refinement import minimal_repair_alphabet_size
 
 
@@ -48,7 +47,7 @@ def lower_band_tagged_states(k: int) -> tuple[TaggedState, ...]:
 
     states: list[TaggedState] = []
     for prime in lower_band_primes(k):
-        states.extend((prime, n // prime) for n in first_factor_shell(k, prime))
+        states.extend((prime, q) for q in sorted(actual_shell_cofactors(k, prime)))
     return tuple(states)
 
 
