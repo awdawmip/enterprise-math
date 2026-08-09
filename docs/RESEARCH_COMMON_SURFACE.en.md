@@ -6,16 +6,19 @@ Purpose: give every research route the same compact view of reusable proved math
 
 This file is a router, not a replacement for proofs. Exact statements remain in their canonical theorem/problem documents or, for not-yet-canonical branch results, in the Research Relay with source commit provenance.
 
+`docs/RESEARCH_TOOLKIT.*` is the operational companion to this surface: **the Common Surface answers “what already exists and where is it?”, while the Research Toolkit answers “in what order should a new problem use those tools?”** They must not duplicate full inventories or proofs.
+
 ## 1. Mandatory preflight for every L1/L2/L3 research route
 
 Before starting a new theorem line:
 
 1. read this common surface;
 2. read `docs/RESEARCH_SCHEDULING_PROTOCOL.*`;
-3. read `docs/PROBLEM_STATUS.*` and the canonical result document for the relevant problem;
-4. search the latest relevant entries in Research Relay Issue #82;
-5. inspect the relevant executable specification/tests or Lean module when the proposed result overlaps an existing tool/theorem family;
-6. only then decide whether the next step is a new mother theorem, specialization, bridge, counterexample, or duplicate.
+3. when the task involves theorem lifting, quotient, precision, repair, boundary, shell structure, or stabilization, read the relevant operational part of `docs/RESEARCH_TOOLKIT.*`;
+4. read `docs/PROBLEM_STATUS.*` and the canonical result document for the relevant problem;
+5. search the latest relevant entries in Research Relay Issue #82;
+6. inspect the relevant executable specification/tests or Lean module when the proposed result overlaps an existing tool/theorem family;
+7. only then decide whether the next step is a new mother theorem, specialization, bridge, counterexample, or duplicate.
 
 Do not inject the whole repository into working context. The point is shared awareness plus selective retrieval.
 
@@ -41,6 +44,10 @@ All routes should know that canonical proved mathematics is not confined to `doc
 - the canonical `docs/Pxxx_*.{en,zh-CN}.md` files named by `PROBLEM_STATUS`: exact modern theorem families and scope.
 - `EnterpriseMath.lean` plus imported `EnterpriseMath/**.lean`: Lean-checked subset.
 
+### Operational method entry point
+
+- `docs/RESEARCH_TOOLKIT.en.md` / `docs/RESEARCH_TOOLKIT.zh-CN.md`: unified workflow for future-context quotients, boundary pullback, minimum repair, actual-image separation, stable skeletons, task-local finite closure, theorem-lifting success criteria, and mandatory counterexample axes.
+
 ### Live proved-but-not-yet-canonical channel
 
 - Research Relay Issue #82: exact cross-route theorem/counterexample statements with source branch/commit, weakest hypotheses, relation class, and requested action.
@@ -59,12 +66,13 @@ Reusable tools/results include:
 - basin characterization/cardinality and collapse gap coordinates;
 - root exponent composition and commutation;
 - quotient/remainder versus multiple-collapse semantics;
+- **open-closed integer quotient-window transport**: `W_d(A,B)=[Q_d(A)+1,Q_d(B)]`, together with exact endpoint separation, a pure-integer cross-product sufficient condition, and a separation-gap resource;
 - total scale-factor algebra, divisibility projection, gcd/lcm scale lattice, path independence and nonunique inverse refinement;
 - signed-state distinctions;
 - typed strict-rank descent;
 - order-adjoint/right-adjoint formulations and reductive idempotent collapse.
 
-Primary canonical entry points: P001–P009 result docs and `docs/THEOREMS.*`.
+Primary canonical entry points: P001–P009 result docs, `docs/P007_QUOTIENT_WINDOW_TRANSPORT_SUPPLEMENT_01.*`, and `docs/THEOREMS.*`.
 
 ### A1 — dynamics, kernels, collision and stabilization
 
@@ -87,9 +95,11 @@ Reusable tools/results include:
 - finite predictive/future-signature refinement and stabilization;
 - finite operation-family compatibility and operation-word semantics;
 - exact quotient/multiple-collapse compatibility and minimal boundary-bit repairs in arithmetic specializations;
+- **actual-image label-erasure zero-repair test**: a shell label remains recoverable after a future map iff distinct shell realized images are pairwise disjoint; full-state recovery additionally requires within-shell injectivity;
+- P024 material-observable future quotient: the complete response future word can strictly erase task-invisible raw depth and invisible axis deficits; response values need not be monotone;
 - task-relative precision: there is no universal scalar precision independent of the future language.
 
-Primary canonical entry points: P018 precision-state results, P023 and its canonical supplements, P024 specializations. Branch extensions are routed through Relay #82.
+Primary canonical entry points: P018 precision-state results, P023 and its canonical supplements including `P023_LABEL_ERASURE_IMAGE_SEPARATION_SUPPLEMENT_08`, and P024 specializations. Branch extensions are routed through Relay #82.
 
 ### A3 — structured relation-state algebra
 
@@ -114,10 +124,12 @@ Reusable canonical and WIP tools include primitive adjacency, graph distance, fi
 ## 5. High-value cross-route negative boundaries everyone must know
 
 - Coarse equality/support/cardinality does not automatically preserve later composition; future sufficiency must be proved for the declared operation language.
+- **A candidate superset can manufacture collision/multiplicity that no realized state ever attains**; audit realized images before using candidate sets for resource counting. P017's exact quotient / actual root image / enlarged candidate pair thresholds `4/9/15` are the canonical pressure example.
+- Shell-label recovery is not full original-state recovery; within-shell injectivity of the retained map must also be checked.
 - A3 signed relation information can cancel under quotient, so coarse support does not certify universal fine support.
 - Pairwise/common-target cardinality shadows can lose witness identity needed for multi-step composition.
 - A geometry-only collision fact may be insufficient to select a unique response; additional action/material/symmetry-breaking state may be required.
-- A safe quotient for one observable can fail for a richer future language.
+- A safe quotient for one observable can fail for a richer future language; conversely, task-invisible raw geometry should not be retained unconditionally.
 - File-name equality, branch ancestry, or `ahead(main)>0` is not proof of new mathematical content; semantic identity controls replay.
 - Established general machinery (Galois connections, semigroups, numerical semigroups, partition refinement, etc.) remains prior art even when used inside Enterprise Math.
 
@@ -132,9 +144,11 @@ Root: `src/enterprise_math/`
 Important families include:
 
 - `core.py`, `division.py`, `scale_algebra.py`, `signed.py`, `typed_scale.py`, `geometry.py` — A0/A5 primitive tools;
+- `quotient_window.py` — A0 exact interval-to-quotient transport, shell separation, and gap-resource compiler;
 - `composition_safe_collapse.py` and predictive/future-signature modules — A2 quotient-safety tools;
-- `action_language_precision.py`, clearance/guard/boundary precision modules — P024/A2 specializations;
-- P017 mirror/cofactor/Legendre modules — square-basin pressure-test tools;
+- `label_erasure.py` — A2 realized-image separation / zero-repair shell-label compiler;
+- `action_language_precision.py`, clearance/guard/boundary precision modules, and `material_future_precision.py` — P024/A2 specializations;
+- P017 mirror/cofactor/Legendre modules and `p017_actual_root_separation.py` — square-basin pressure-test tools;
 - relation/support modules when and where they are canonical or explicitly consumed from a WIP owner.
 
 `src/enterprise_math/__init__.py` exports only a compact stable subset; non-exported modules may still be legitimate internal executable specifications. Check their theorem/provenance status before treating them as canonical APIs.
@@ -163,7 +177,8 @@ When any route proves or finds something reusable:
 3. identify the mother-theorem owner and relation class;
 4. if it enters canonical `main`, ensure `PROBLEM_STATUS`, the canonical theorem/result doc, lineage/prior-art, and this common surface are sufficient for future routes to discover it;
 5. if it creates a reusable executable method/tool, register the canonical module/tool family here at the next common-surface update;
-6. do not wait for every consumer to acknowledge it.
+6. if an application theorem can remove its domain assumptions and lift into a mother theorem, feed it back to the A0–A5 owner first; the application keeps the sharp specialization, counterexample, and provenance;
+7. do not wait for every consumer to acknowledge it.
 
 ## 8. Nonblocking rule
 
