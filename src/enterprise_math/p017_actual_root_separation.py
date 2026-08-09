@@ -1,14 +1,20 @@
-"""Actual lower-band root images for the P017 square basin.
+"""Lower-band root images for exact windows and realized P017 shells.
 
-Unlike the two-point candidate pair used by L052, this module keeps the exact
-cofactor window before applying the square-root coordinate. It is the
-executable companion to L055.
+L055 works first with the exact raw cofactor window
+
+    W_p(k) = [floor(k^2/p)+1, floor(k(k+2)/p)].
+
+Its root image is a strong arithmetic superset of the root image realized by
+the actual least-prime shell, because a real shell cofactor must also satisfy
+the p-roughness condition.  Keeping these two levels separate prevents an
+exact interval from being mislabeled as an actually realized shell state.
 """
 
 from __future__ import annotations
 
 from math import isqrt
 
+from .factor_precision import first_factor_shell
 from .quotient_window import IntegerWindow, square_basin_window
 
 
@@ -34,28 +40,27 @@ def lower_band_primes(k: int) -> tuple[int, ...]:
     return tuple(p for p in range(2, limit + 1) if is_prime(p))
 
 
-def actual_root_image_of_window(window: IntegerWindow | None) -> frozenset[int]:
-    """Exact image of an integer interval under floor square root."""
+def root_image_of_window(window: IntegerWindow | None) -> frozenset[int]:
+    """Exact image of one closed integer window under floor square root."""
 
     if window is None:
         return frozenset()
     return frozenset(range(isqrt(window.lo), isqrt(window.hi) + 1))
 
 
-def actual_root_image(k: int, prime: int) -> frozenset[int]:
-    """Actual square-root image of the exact P017 quotient window for ``prime``."""
+def exact_window_root_image(k: int, prime: int) -> frozenset[int]:
+    """Root image of the full exact cofactor window for ``prime``."""
 
-    return actual_root_image_of_window(square_basin_window(k, prime))
-
-
-def actual_lower_band_root_images(k: int) -> dict[int, frozenset[int]]:
-    return {p: actual_root_image(k, p) for p in lower_band_primes(k)}
+    return root_image_of_window(square_basin_window(k, prime))
 
 
-def actual_lower_band_overlaps(
-    k: int,
+def exact_window_lower_band_root_images(k: int) -> dict[int, frozenset[int]]:
+    return {p: exact_window_root_image(k, p) for p in lower_band_primes(k)}
+
+
+def _overlaps(
+    images: dict[int, frozenset[int]],
 ) -> tuple[tuple[int, int, frozenset[int]], ...]:
-    images = actual_lower_band_root_images(k)
     primes = tuple(images)
     overlaps: list[tuple[int, int, frozenset[int]]] = []
     for i, p in enumerate(primes):
@@ -64,6 +69,40 @@ def actual_lower_band_overlaps(
             if common:
                 overlaps.append((p, r, common))
     return tuple(overlaps)
+
+
+def exact_window_lower_band_overlaps(
+    k: int,
+) -> tuple[tuple[int, int, frozenset[int]], ...]:
+    """Cross-prime collisions between exact-window root images."""
+
+    return _overlaps(exact_window_lower_band_root_images(k))
+
+
+def exact_window_lower_band_root_images_disjoint(k: int) -> bool:
+    return not exact_window_lower_band_overlaps(k)
+
+
+def actual_shell_root_image(k: int, prime: int) -> frozenset[int]:
+    """Root image actually realized by the least-prime shell ``prime``.
+
+    A realized shell state is ``n`` in the square basin with least prime factor
+    ``prime``; its retained cofactor is ``q=n/prime``.
+    """
+
+    return frozenset(isqrt(n // prime) for n in first_factor_shell(k, prime))
+
+
+def actual_lower_band_root_images(k: int) -> dict[int, frozenset[int]]:
+    return {p: actual_shell_root_image(k, p) for p in lower_band_primes(k)}
+
+
+def actual_lower_band_overlaps(
+    k: int,
+) -> tuple[tuple[int, int, frozenset[int]], ...]:
+    """Cross-prime collisions between actually realized shell root images."""
+
+    return _overlaps(actual_lower_band_root_images(k))
 
 
 def actual_lower_band_root_images_disjoint(k: int) -> bool:
