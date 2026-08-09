@@ -7,5 +7,6 @@ import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.QuotientCoalescence
 import EnterpriseMath.Quotient.OperationCongruence
+import EnterpriseMath.Quotient.RootFutureClosure
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
