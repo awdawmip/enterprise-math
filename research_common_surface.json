@@ -9,12 +9,7 @@
     "canonical_promotion": "SERIALIZED_FINAL_GATE",
     "defer_is_blocker": false,
     "only_blocker": "HARD_BLOCK",
-    "hard_block_required_fields": [
-      "missing_object",
-      "owner",
-      "necessity",
-      "unblock_condition"
-    ],
+    "hard_block_required_fields": ["missing_object", "owner", "necessity", "unblock_condition"],
     "no_new_mathematics_scope": "L4_INTEGRATION_ONLY_OR_EXPLICIT_REPLAY_SLICE"
   },
   "dispatch_scheduler": {
@@ -37,6 +32,7 @@
     "backflow_router": "foundation_backflow.json",
     "backflow_document_en": "docs/FOUNDATION_BACKFLOW_LOOP.en.md",
     "backflow_document_zh": "docs/FOUNDATION_BACKFLOW_LOOP.zh-CN.md",
+    "backflow_validator": "tools/foundation_backflow.py",
     "problem_set_issue": 164,
     "problem_id_prefix": "FQ-",
     "research_relay_issue": 82,
@@ -66,19 +62,10 @@
     "when foundation-facing or a mature result may feed back: docs/FOUNDATION_STEWARD_PROTOCOL.en.md, docs/FOUNDATION_BACKFLOW_LOOP.en.md, foundation_backflow.json, and relevant Foundation Problem Set Issue #164 entries"
   ],
   "theorem_channels": {
-    "canonical_base": [
-      "docs/THEOREMS.en.md",
-      "docs/THEOREMS.zh-CN.md"
-    ],
-    "canonical_status_router": [
-      "docs/PROBLEM_STATUS.en.md",
-      "docs/PROBLEM_STATUS.zh-CN.md"
-    ],
+    "canonical_base": ["docs/THEOREMS.en.md", "docs/THEOREMS.zh-CN.md"],
+    "canonical_status_router": ["docs/PROBLEM_STATUS.en.md", "docs/PROBLEM_STATUS.zh-CN.md"],
     "canonical_problem_documents": "docs/Pxxx_*.{en,zh-CN}.md referenced by PROBLEM_STATUS",
-    "formalized_subset": [
-      "EnterpriseMath.lean",
-      "EnterpriseMath/**.lean"
-    ],
+    "formalized_subset": ["EnterpriseMath.lean", "EnterpriseMath/**.lean"],
     "proved_wip_bus": "GitHub Issue #82 Research Relay",
     "foundation_problem_bus": "GitHub Issue #164 Foundation Steward Problem Set",
     "execution_bus": "GitHub Issue #240 Research Dispatch Board"
@@ -116,29 +103,11 @@
     "repo_tools": [
       "tools/check_bilingual_pairs.py",
       "tools/check_references.py",
-      "tools/research_scheduler.py"
+      "tools/research_scheduler.py",
+      "tools/foundation_backflow.py"
     ]
   },
-  "relay_action_classes": [
-    "INFORM",
-    "CONSUME",
-    "TEST",
-    "HARD_DEPENDENCY"
-  ],
-  "route_heartbeat_fields": [
-    "frontier",
-    "hard_block",
-    "last_progress",
-    "shared_surface_seen"
-  ],
-  "runtime_handoff_events": [
-    "CLAIM",
-    "HEARTBEAT",
-    "PROGRESS",
-    "HANDOFF",
-    "HARD_BLOCK",
-    "UNBLOCK",
-    "DONE",
-    "SUPERSEDE"
-  ]
+  "relay_action_classes": ["INFORM", "CONSUME", "TEST", "HARD_DEPENDENCY"],
+  "route_heartbeat_fields": ["frontier", "hard_block", "last_progress", "shared_surface_seen"],
+  "runtime_handoff_events": ["CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE"]
 }
