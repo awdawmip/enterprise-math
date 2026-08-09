@@ -11,6 +11,7 @@ from enterprise_math.material_force_activation_sampling import (
 )
 from enterprise_math.material_impulse_world_1d import (
     MATERIAL_KICK,
+    MATERIAL_ZERO_FORCE,
     TERMINAL_CONTACT,
     MomentumMaterialState1D,
     run_impulse_material_world_1d,
@@ -50,9 +51,8 @@ class MaterialForceActivationSamplingTests(unittest.TestCase):
         self.assertEqual(report.status, SKIPPED_POSITIVE_FORCE_WINDOW)
         self.assertFalse(report.force_layer_sampled)
 
-        # The causal world confirms the interpretation: the current zero-force
-        # state drifts straight to terminal geometry before any positive-force
-        # saved state can be sampled.
+        # The causal world samples a represented zero-force material state, then
+        # drifts straight to terminal geometry before any positive-force state.
         history = run_impulse_material_world_1d(
             MomentumMaterialState1D(-5, 5),
             Wall1D(0, 0),
@@ -63,8 +63,32 @@ class MaterialForceActivationSamplingTests(unittest.TestCase):
             2,
             ticks=1,
         )
+        transition = history.transitions[0]
         self.assertEqual(history.halted_kind, TERMINAL_CONTACT)
-        self.assertIsNone(history.transitions[0].impulse)
+        self.assertEqual(transition.response_sample, 0)
+        self.assertEqual(transition.layer_depth, 1)
+        self.assertIsNone(transition.impulse)
+        # Terminal geometry owns the final kind, but the retained response/depth
+        # witnesses prove that the pre-drift material sample was exactly zero.
+
+    def test_zero_force_nonterminal_tick_is_distinct_from_free_drift(self):
+        history = run_impulse_material_world_1d(
+            MomentumMaterialState1D(-5, 2),
+            Wall1D(0, 0),
+            0,
+            6,
+            self.profile,
+            2,
+            2,
+            ticks=1,
+        )
+        transition = history.transitions[0]
+        self.assertEqual(transition.kind, MATERIAL_ZERO_FORCE)
+        self.assertEqual(transition.response_sample, 0)
+        self.assertEqual(transition.layer_depth, 1)
+        self.assertIsNone(transition.impulse)
+        self.assertEqual(transition.after.momentum_quanta, 2)
+        self.assertEqual(transition.after.impulse_detail_numerator, 0)
 
     def test_jump_may_skip_first_positive_depth_but_still_sample_a_deeper_positive_depth(self):
         report = force_activation_sampling_report(
