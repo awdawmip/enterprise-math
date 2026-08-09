@@ -1,52 +1,74 @@
 # Enterprise Math 当前研究分支账本
 
 状态：`MIGRATION LEDGER / AUDITED SUBSET`  
-审计基线：`main@fbd95bc3d119c2429d3e83825b5cd44cd044e501`  
+首次审计基线：`main@fbd95bc3d119c2429d3e83825b5cd44cd044e501`  
+当前复核主干：`main@c8aae69491fe50b107ca98b5777b9653be9f9aaf`  
 日期：2026-08-09
 
-本账本不是永久手工真相；它记录本轮已经通过 Git `compare` / PR 元数据确认的关键 refs，并为后续自动 ledger 提供初始分类。
-
-状态定义见 `RESEARCH_BRANCH_LIFECYCLE`。
+本账本记录已经通过 Git compare、blob 对比、PR 元数据或 theorem/path 语义检查确认的关键 refs。`ahead/behind` 只是治理信号；是否真正吸收以 `RESEARCH_BRANCH_LIFECYCLE` 的 semantic audit 为准。
 
 ## 1. 已确认 `ABSORBED`
 
-以下 branch 在本轮 compare 中满足 `ahead(main)=0`，即当前 main 已包含其全部提交：
+### 1.1 机械吸收：`ahead(main)=0`
 
 | Branch | 结果 | 处置 |
 |---|---|---|
-| `agent/e001-material-foundation` | ahead=0 | 历史 provenance；不再作为活动 owner |
-| `agent/p017-multiplicative-resource-capacity` | ahead=0 | 归档 branch ref |
-| `research/p018-all-power-quotient-basin-final` | ahead=0 | 归档；all-power 结果以后只从 main 消费 |
-| `research/p023-composition-safe-collapse` | ahead=0 | 归档；P023 后续从 current main 新 owner 继续 |
-| `research/p023-safe-selector-semigroup` | ahead=0 | 归档 |
-| `research/e002-horizon-saturation-v2` | ahead=0 | E002 generation 已吸收 |
-| `research/e002-precision-locked-actuation-v2` | ahead=0 | E002 generation 已吸收 |
-| `research/e002-precision-native-hysteresis-v2` | ahead=0 | E002 generation 已吸收 |
-| `research/e002-predictive-quotient-compiler-v2` | ahead=0 | E002 generation 已吸收 |
-| `research/e002-vector-actuation-v2` | ahead=0 | E002 generation 已吸收 |
+| `agent/e001-material-foundation` | ahead=0 | provenance only |
+| `agent/p017-multiplicative-resource-capacity` | ahead=0 | provenance only |
+| `research/p018-all-power-quotient-basin-final` | ahead=0 | provenance only |
+| `research/p023-composition-safe-collapse` | ahead=0 | provenance only |
+| `research/p023-safe-selector-semigroup` | ahead=0 | provenance only |
+| `research/e002-horizon-saturation-v2` | ahead=0 | absorbed E002 generation |
+| `research/e002-precision-locked-actuation-v2` | ahead=0 | absorbed E002 generation |
+| `research/e002-precision-native-hysteresis-v2` | ahead=0 | absorbed E002 generation |
+| `research/e002-predictive-quotient-compiler-v2` | ahead=0 | absorbed E002 generation |
+| `research/e002-vector-actuation-v2` | ahead=0 | absorbed E002 generation |
 
-规则：确认相关 PR/lineage 能恢复 provenance 后，关闭 stale PR 并删除 branch ref；必要时以 tag 固定审计锚。
+### 1.2 语义吸收：Git ancestry 不同，但资产已进 main
 
-## 2. E002 generation 尾部
+`research/e002-task-observable-v2`：Git 仍显示 `ahead=2`，但本轮已确认：
 
-`research/e002-task-observable-v2`：
+- `docs/E002_TASK_RELATIVE_OBSERVABLE_SUPPLEMENT_05.en.md` 与 main blob 完全相同；
+- `src/enterprise_math/precision_task_observable.py` 与 main blob 完全相同；
+- `tests/test_precision_task_observable.py` 与 main blob 完全相同。
 
-- `ahead=2`
-- `behind=64`
+因此其独有 commit ancestry 不代表独有数学；当前归类为 `ABSORBED / SEMANTIC`，**不再建立重复 integration replay**。
 
-状态：`REPLAY_REQUIRED`，但体量很小。
+结论：旧 E002 v2 generation 已整体退出活动研究面；未来 E002 从 current main 新建短 task/program branch。
 
-处置：从 latest main 建一次性 `integration/e002-task-observable-current`，只 replay 这 2 个独有提交对应的 task-observable theorem/doc/test/lineage；通过门禁后整个旧 E002 v2 branch family 退出活动面。
+## 2. 已实际关闭的同步壳
 
-## 3. P018
+### PR #56 — `Sync canonical main into P018 Stage 9`
+
+状态：`CLOSED / PROVENANCE`。
+
+原因：纯同步 PR，无新数学；Architecture v2 禁止继续用 wholesale sync 维持长期分支。
+
+### PR #85 — `A3 dependency sync into relation-support bridge`
+
+状态：`CLOSED / PROVENANCE`。
+
+原因：dependency-only owner→bridge 同步；以后由 latest-main semantic replay 替代。
+
+## 3. 老 PR 的零风险关闭审计
+
+本轮对以下旧分支重新 compare current main。它们**仍有独有数学，不能关闭**：
+
+| PR / Branch | ahead | behind | 当前结论 |
+|---|---:|---:|---|
+| #22 `research/p005-multibase-scale-algebra` | 3 | 372 | `SEMANTIC_REPLAY_AUDIT_REQUIRED` |
+| #21 `agent/legendre-basin-aggregate` | 4 | 372 | `SEMANTIC_REPLAY_AUDIT_REQUIRED` |
+| #23 `agent/legendre-mirror-separation` | 6 | 372 | `SEMANTIC_REPLAY_AUDIT_REQUIRED` |
+| #54 `research/p018-centered-prime-radius` | 35 | 317 | `REPLAY_REQUIRED` |
+| #65 `research/p017-rough-window-recursion` | 20 | 262 | `REPLAY_REQUIRED` |
+
+特别边界：P017 历史中存在**同一个 Supplement 文件名后来承载不同研究内容**的情况。例如 old `LEGENDRE_PRESSURE_TEST_SUPPLEMENT_06` 与 current main 同名文件并非同 blob/同 theorem family。因此**文件名相同绝不是吸收证据**。
+
+## 4. P018
 
 ### `agent/p018-critical-grid` / PR #68
 
-审计：
-
-- `ahead=121`
-- `behind=146`
-- changed files 横跨 pair/kernel、coalescence、context separation、operation congruence、predictive closure、transport、reusable interface、quotient basin、Supplements 12–26。
+当前审计量级：约 `ahead=121`，且 behind 已超过 100；changed files 横跨 pair/kernel、coalescence、context separation、operation congruence、predictive closure、transport、reusable interface、quotient basin、Supplements 12–26。
 
 状态：`REPLAY_REQUIRED / FROZEN`。
 
@@ -60,123 +82,99 @@
 
 ### P018 小历史分支
 
-| Branch | ahead | behind | 状态 |
-|---|---:|---:|---|
-| `research/p018-graded-precision` | 5 | 337 | `REPLAY_REQUIRED` |
-| `research/p018-proof-certificates` | 6 | 336 | `REPLAY_REQUIRED` |
-| `research/p018-factor-precision` | 5 | 335 | `REPLAY_REQUIRED` |
+| Branch | 独有量级 | 状态 |
+|---|---:|---|
+| `research/p018-graded-precision` | 5 commits | replay audit |
+| `research/p018-proof-certificates` | 6 commits | replay audit |
+| `research/p018-factor-precision` | 5 commits | replay audit |
+| `research/p018-centered-prime-radius` | 35 commits | replay audit |
 
-三者不 rebase/merge；与 #68 的有效资产一起从 latest main 组装 P018 v2。
+它们与 #68 一起作为 source，不 rebase 旧历史。
 
-## 4. A3 / A4
+## 5. A3 / A4
 
 ### `research/core/relation-quotient`
 
-审计：数百 commits ahead/behind，且 tree 已混入 relation-state、guard、causal、geometry 等多类资产。
-
 状态：`REPLAY_REQUIRED / FROZEN`。
 
-目标 owner：`core/a3-relation-state-v2`。
+树已达到数百 ahead/behind commits 并混入 relation-state、guard、causal、geometry 等多类资产。
 
-只 replay A3 structured relation-state / partition quotient / kernel / guard-image / task-derived relation precision。
+目标 owner：`core/a3-relation-state-v2`；只 replay A3 structured relation-state / partition quotient / kernel / guard-image / task-derived relation precision。
 
 ### `research/core/admissible-support-relations`
 
-审计：仍有独有 admissible-support/common-collapse 资产。
+状态：`ACTIVE_OWNER -> MIGRATE TO core/a4-admissible-support-v2`。
 
-状态：`ACTIVE_OWNER`，但应在 architecture v2 生效后迁为 `core/a4-admissible-support-v2`，避免继续从 E001 历史继承工程资产。
+仍有独有 admissible-support/common-collapse 资产；新 owner 不再继承 E001 工程历史。
 
 ### `research/core/relation-support-bridge` / PR #83
 
-审计：高度分叉且已拥有大量 staged support/count/witness/equitability/semantic-shadow 结果。
-
 状态：`REPLAY_REQUIRED / FROZEN`。
 
-目标：`bridge/a3-a4-v2`。
+目标：`bridge/a3-a4-v2`，只保留真正 bridge theorem。一般 witness/count/shadow/equitability theorem 必须明确归一个 L1 owner。
 
-只保留真正 bridge theorem；一般 witness/count/shadow theorem 必须明确归 A2/A3/A4 或其他 core owner。
+## 6. P017
 
-### PR #85 `A3 dependency sync into relation-support bridge`
-
-状态：`OBSOLETE SYNC PATTERN`。
-
-新 lifecycle 禁止用长期 wholesale sync PR 维持 bridge；应关闭，以 semantic replay 代替。
-
-## 5. P017
-
-P017 继续是 program owner，但历史大量 `agent/legendre-*` / `integration/p017-*` 不应全部保持活跃。
+P017 继续是 program owner，但历史 Stage refs 不再全部保持 active。
 
 已抽查：
 
 | Branch | ahead | behind | 处置 |
 |---|---:|---:|---|
-| `agent/p017-lower-band-root-overlap` | 6 | 148 | small semantic replay |
-| `agent/p017-full-core-crt-stacked` | 6 | 96 | small semantic replay |
-| `agent/p017-multiplicative-resource-capacity` | 0 | 198 | `ABSORBED` |
+| `agent/p017-lower-band-root-overlap` | 6 | 148（早期审计） | small semantic replay |
+| `agent/p017-full-core-crt-stacked` | 6 | 96（早期审计） | small semantic replay |
+| `agent/p017-multiplicative-resource-capacity` | 0 | — | absorbed |
+| `agent/legendre-basin-aggregate` | 4 | 372 | replay audit |
+| `agent/legendre-mirror-separation` | 6 | 372 | replay audit |
+| `research/p017-rough-window-recursion` | 20 | 262 | replay audit |
 
-目标：所有 P017 新研究从 `program/p017-legendre` 或从 latest main 的短 task branch 继续；不再让每个 Stage 成为长期 branch。
+未来 P017 新研究从 `program/p017-legendre` 或 latest-main 短 task branch 继续。
 
-## 6. E001 / E002 contact stack
+## 7. E001 / E002 contact stack
 
-当前：
+当前：PR #101 → #108 → #113。
 
-- PR #101 `predictive Boolean-contact quotient bridge`；
-- PR #108 `symmetric contact action-family gcd quotient`；
-- PR #113 `contact semigroup versus group-completion precision`。
+状态：`ACTIVE_BRIDGE` 短链。
 
-这是一条短期 stacked bridge 链，不应成为长期三 owner。
-
-状态：`ACTIVE_BRIDGE`，允许完成当前 T38–T42 压力测试；完成后：
+允许完成当前 T38–T42 压力测试；完成后：
 
 1. 一般 future-language quotient/gcd/semigroup 结果上移 A2/P023；
 2. contact specialization 留 E001/E002；
-3. 从 latest main 建一个 clean replay PR；
-4. #101/#108/#113 全部归档。
+3. 从 latest main 建单一 clean replay；
+4. #101/#108/#113 归档。
 
-## 7. E001 engineering/material
+## 8. E001 engineering/material
 
-### PR #70 historical E001 collision
+- PR #70：`PROVENANCE + REPLAY SOURCE`，不再增长一般数学；
+- PR #95：`PROVENANCE / REVIEW UNIQUE DELTA`；
+- PR #114/#115：current-main clean replay，作为推荐模式。
 
-状态：`PROVENANCE + REPLAY SOURCE`。
-
-工程 workload 与 benchmark 继续属于 E001；一般 support/correspondence 数学已迁 A4。禁止继续在 #70 扩大一般理论。
-
-### PR #95 stacked material response
-
-状态：`PROVENANCE / REVIEW FOR UNIQUE DELTA`。
-
-已有 current-main clean replay 的 material foundation/validation PR，应只审计 #95 是否还有未重放的独有 material-response probe；无独有资产后关闭。
-
-### PR #114 / #115
-
-属于正确模式：从 current main clean replay、增量小、边界明确。作为未来 E-series integration 范例。
-
-## 8. P021 / P022
+## 9. P021 / P022
 
 历史 PR #48/#50 保留 provenance，不 wholesale merge。
 
-- P021 下一 owner：`program/p021-causal-focusing-v2`，从 latest main clean replay causal/direction 专属结果；一般 witness-sufficiency 上移 core。
-- P022 下一 owner：`program/p022-geometry-v2`，只 replay lattice/metric/balls/radial/distance-carry；A3 generic relation machinery 不跟随。
+- P021 → `program/p021-causal-focusing-v2`：只 replay causal/direction 专属结果；
+- P022 → `program/p022-geometry-v2`：只 replay lattice/metric/balls/radial/distance-carry；A3 generic machinery 分流。
 
-## 9. Architecture
+## 10. Architecture
 
-旧 PR #81 / `chore/research-architecture-v1`：
+旧 PR #81 / `chore/research-architecture-v1`：`SUPERSEDED BY V2 REPLAY`。
 
-状态：`SUPERSEDED BY V2 REPLAY`。
+新 PR #121 / `chore/research-architecture-v2`：current-main 双亲同步，承载 A0–A5 数学归属轴 + L0–L5 Git 生命周期轴 + 本 ledger。
 
-本轮 `chore/research-architecture-v2` 从 current main 重放数学归属原则，并新增 Git lifecycle。V2 门禁通过后关闭 #81。
+#121 通过门禁后关闭 #81。
 
-## 10. 第一批动作顺序
+## 11. 下一批动作
 
-1. 合入 architecture v2 + lifecycle + ledger。
-2. 关闭明确 obsolete 的 sync/provenance PR（优先 #56、#85；再审计 ahead=0 对应 PR）。
-3. replay `e002-task-observable-v2` 的 2 个独有提交。
-4. 建 `program/p018-precision-v2`，冻结 #68。
-5. 建 A3/A4 v2 owners + 薄 bridge。
-6. P017 小批 replay。
-7. P021/P022 clean replay。
-8. branch refs 最终清壳。
+1. #121 真实门禁；
+2. E002 v2 refs 按 semantic-absorbed 归档，不重复 replay；
+3. 建 `program/p018-precision-v2` semantic replay manifest；
+4. 冻结 #68 并建立 source→owner 映射；
+5. 建 A3/A4 v2 owners + thin bridge；
+6. P017 old stages 逐 theorem audit；
+7. P021/P022 clean replay；
+8. 最终删除 absorbed branch refs / checkpoint 改 tag。
 
-## 11. 活动面目标
+## 12. 活动面目标
 
-长期 writable refs 控制在约 8–12 条；其余要么是短期 agent/integration，要么是 Git/PR/tag provenance，不再被下一位研究员误认作并行 current owner。
+长期 writable refs 控制在约 8–12 条。Git/PR/tag 保存历史；branch refs 只表示当前研究前沿或短期运输任务。
