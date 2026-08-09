@@ -5,9 +5,15 @@ target signature classes.  Two correspondences compose by matching the exact
 intermediate signature class.  Counting composite witnesses yields ordinary
 nonnegative-integer matrix multiplication as a shadow.
 
-If intermediate signature classes are prematurely collapsed, anonymous matrix
-multiplication can create false cross-pairings.  Thus shape-compatible matrices
-are not enough: the intermediate quotient must be future-safe for composition.
+If intermediate signature classes are collapsed, two distinct operations must
+not be confused:
+
+* incoming witness multiplicities push forward by addition;
+* a future transition descends only when all fine middle states in one coarse
+  class have the same continuation profile, in which case the coarse transition
+  is that common profile once, not the sum of repeated equal profiles.
+
+Blindly aggregating both sides and multiplying can double-count a coarse fiber.
 """
 
 from __future__ import annotations
@@ -87,7 +93,7 @@ def coarse_middle_shadow(
     middle_to_coarse: dict[State, State],
     middle_is_target: bool,
 ) -> dict[Edge, int]:
-    """Forget exact middle identity in one correspondence by adding multiplicities."""
+    """Push multiplicities through a coarse middle label by addition."""
     result: dict[Edge, int] = defaultdict(int)
     for (left, right), count in counts.items():
         middle = right if middle_is_target else left
@@ -97,3 +103,37 @@ def coarse_middle_shadow(
         edge = (left, coarse) if middle_is_target else (coarse, right)
         result[edge] += count
     return dict(result)
+
+
+def induced_continuation_profile(
+    right_counts: dict[Edge, int],
+    middle_to_coarse: dict[State, State],
+) -> dict[Edge, int]:
+    """Descend an outgoing relation through a future-safe middle quotient.
+
+    Every fine middle state in one coarse class must have the same target-count
+    profile.  The induced coarse transition stores that common profile once.
+    """
+    profiles: dict[State, dict[State, int]] = defaultdict(dict)
+    used_middles: set[State] = set()
+    for (middle, target), count in right_counts.items():
+        if isinstance(count, bool) or not isinstance(count, int) or count < 0:
+            raise ValueError("multiplicities must be non-negative integers")
+        if middle not in middle_to_coarse:
+            raise ValueError("middle_to_coarse must define every used middle class")
+        used_middles.add(middle)
+        if count != 0:
+            profiles[middle][target] = count
+
+    coarse_to_middles: dict[State, list[State]] = defaultdict(list)
+    for middle in used_middles:
+        coarse_to_middles[middle_to_coarse[middle]].append(middle)
+
+    result: dict[Edge, int] = {}
+    for coarse, middles in coarse_to_middles.items():
+        first_profile = profiles[middles[0]]
+        if any(profiles[middle] != first_profile for middle in middles[1:]):
+            raise ValueError("middle quotient is not future-safe for this continuation")
+        for target, count in first_profile.items():
+            result[(coarse, target)] = count
+    return result
