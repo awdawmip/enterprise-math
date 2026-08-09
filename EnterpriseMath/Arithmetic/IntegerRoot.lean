@@ -113,8 +113,7 @@ theorem root_pow_not_two_sided {p : ℕ} (hp : 2 ≤ p) :
   exact collapse_two_ne_self hp h2
 
 /-- The algebraic p=1 member is exactly the identity root. -/
-theorem root_one (n : ℕ) : root 1 n = n := by
-  simpa using root_pow (p := 1) (by decide) n
+theorem root_one (n : ℕ) : root 1 n = n := rfl
 
 /-- The algebraic p=1 collapse member is exactly the identity. -/
 theorem collapse_one (n : ℕ) : collapse 1 n = n := by
