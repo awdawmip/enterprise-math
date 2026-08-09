@@ -18,7 +18,8 @@
 - 全项目共享 theorem/tool surface；
 - 可复用 Python/Lean/reference 工具及其声明适用范围；
 - 跨路线基础不变量与边界语言；
-- 让所有研究路线都能发现已证明结果与工具的 canonical 路由。
+- 让所有研究路线都能发现已证明结果与工具的 canonical 路由；
+- **主动执行 research-to-foundation backflow：从已有研究中抽取经过验证的可复用工具、最小状态要求、最小修复、重复机制和失败边界，并用它们反向压力测试公共底层。**
 
 底层维护者的身份是**维护者与验证者**，不是另一条竞争研究路线。
 
@@ -35,7 +36,7 @@
 - 把已经 canonical 的工具登记到共享研究面；
 - 不涉及数学选择的歧义语言清理。
 
-但当维护过程中暴露出真正尚未解决的数学选择、矛盾风险、缺失假设、跨路线不兼容、新结构模式、prior-art 不确定性、工具/定理充分性问题时，底层维护者**不得转而成为主要研究者**。
+但当维护过程或研究回流暴露出真正尚未解决的数学选择、矛盾风险、缺失假设、跨路线不兼容、新结构模式、prior-art 不确定性、工具/定理充分性问题时，底层维护者**不得转而成为主要研究者**。
 
 此时必须：
 
@@ -135,6 +136,42 @@
 
 若“工具是否充分/等价”本身需要研究，则进入 #164。
 
+### 4.5 研究成果反哺底层的完整性
+
+已有研究路线本身也是 Foundation 的压力测试。底层维护者不能只把基础知识向外路由，还必须审计成熟的跨路线研究成果，检查其中是否出现了应当改变公共底层的结构。
+
+优先抽取以下六类对象：
+
+1. **最小充分状态（minimal sufficient state）** —— 某个定理或精确计算真正需要保存的最弱状态对象；
+2. **最小修复/扩展数据（minimal repair / extension data）** —— quotient/collapse 丢失声明闭包性质时，最少需要补回的 carry、remainder、witness、history、relation coordinate 或其他 detail；
+3. **跨路线不变量（cross-route invariant）** —— 在不同数学或工程路线中独立重复出现的同一结构规律；
+4. **失败边界（negative boundary）** —— 可复用反例、no-go theorem，或某个看似自然推广的精确失效条件；
+5. **可复用工具（reusable tool）** —— 可跨路线使用的 exact oracle、executable specification、Lean interface、counterexample generator 或 finite compiler；
+6. **分层规律（layering law）** —— 说明某个对象应当是原语，而另一个对象只是坐标、观测、响应律或应用语义的证据。
+
+一个可能反哺底层的结果，应尽可能压缩成 **Foundation Feedback Packet**，包含适用项：
+
+- `candidate_object_or_tool`；
+- `weakest_scope_hypotheses`；
+- `minimal_state`；
+- `minimal_repair_or_extension`；
+- `negative_boundary`；
+- `cross_route_evidence`；
+- `proof_status`；
+- `tool_surface`；
+- `prior_art_and_owner`；
+- `foundation_destination`。
+
+该信息包只是压缩格式，不是新的全局 barrier。除非另有独立成立的 `HARD_BLOCK`，研究路线不需要等待底层维护者 ACK 才能继续。
+
+每个回流候选必须且只能进入以下三类处理之一：
+
+- `DIRECT_FOUNDATION_MAINTENANCE` —— 现有 canonical 证据已经机械决定修改内容，底层维护者可直接修复语言、接口、路由或遗漏的已证明分层；
+- `FOUNDATION_QUESTION` —— 候选可能改变原语、分层、定理接口或跨路线母结构，但仍需要真实研究；建立 `FQ-*` 登记到 #164 并移交；
+- `APPLICATION_LOCAL_OR_NOT_READY` —— 候选仍属于单一路线、testing/conjectural、依赖特殊物理响应律，或缺乏跨路线必要性；继续保留在 Foundation 之上。
+
+因此，一个应用结果不能仅因为“很漂亮”就进入底层。尤其是 WIP 结构、物理解释或单一路线 response rule，在满足对应 proof/status 边界前不得进入 canonical Foundation。
+
 ## 5. P0 基础问题集
 
 规范升级面：**GitHub Issue #164 — `[P0] Foundation Steward Problem Set / 底层维护高优先级问题集`**。
@@ -190,6 +227,6 @@
 
 稳定工作循环为：
 
-`shared-surface preflight -> foundation audit -> mechanical maintenance OR FQ escalation -> researcher investigation -> steward verification -> canonical language/formula/theorem/tool update -> common-surface propagation`。
+`shared-surface preflight -> cross-route result extraction -> foundation-candidate classification -> mechanical maintenance OR FQ escalation -> researcher investigation -> steward verification -> canonical language/formula/theorem/tool update -> common-surface propagation -> later research pressure-tests the revised foundation`。
 
-目标是：所有研究路线都能依赖稳定一致的公共数学语言，并能找到当前证据支持下最强的 theorem/tool interface，而不需要底层维护者自己承担具体研究路线。
+目标是：所有研究路线都能依赖稳定一致的公共数学语言，找到当前证据支持下最强的 theorem/tool interface，并把可复用的结构性发现送回底层，而不需要底层维护者自己承担具体研究路线。
