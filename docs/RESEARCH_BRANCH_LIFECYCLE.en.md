@@ -103,7 +103,7 @@ If replay exposes a new theorem, return to the appropriate L1/L2/L3 owner first.
 
 Contains:
 
-- branches completely absorbed by main;
+- branches fully or semantically absorbed by main;
 - superseded research branches;
 - historical PRs;
 - immutable checkpoint tags;
@@ -119,23 +119,72 @@ Prefer immutable tags over new `checkpoint/*` branches. Once an `agent/*` branch
 
 Every non-main branch must be classified as exactly one of:
 
-- `ACTIVE_OWNER` — unique current L1/L2 owner with unabsorbed mathematics;
-- `ACTIVE_BRIDGE` — bounded bridge question with unabsorbed results;
-- `INTEGRATION` — current-main semantic replay, no new mathematics;
-- `REPLAY_REQUIRED` — unabsorbed but highly diverged or mixed-owner tree; frozen for new research;
-- `ABSORBED` — `ahead(main)=0`;
-- `PROVENANCE` — explicitly frozen historical ref.
+### `ACTIVE_OWNER`
 
-Default `REPLAY_REQUIRED` triggers include:
+Unique current L1/L2 owner with unabsorbed mathematics.
 
-- `behind(main) >= 50` while still ahead;
+### `ACTIVE_BRIDGE`
+
+Bounded bridge question with unabsorbed results.
+
+### `INTEGRATION`
+
+Current-main semantic replay; no new mathematics.
+
+### `REPLAY_REQUIRED`
+
+Semantic audit confirms mathematics still missing from main, but the branch is highly diverged or mixes multiple owners; freeze new research and replay from latest main.
+
+Default triggers include:
+
+- `behind(main) >= 50` and semantic audit still finds unique assets;
 - more than one theorem owner in the same branch;
 - a PR too large to represent one auditable research increment;
-- canonical numbering/path collisions.
+- canonical numbering or path collisions.
+
+### `ABSORBED`
+
+Definition: **the branch contains no semantic asset still missing from main.**
+
+Two common proof modes:
+
+1. **Mechanical absorption** — `ahead(main)=0`;
+2. **Semantic absorption** — `ahead(main)>0`, but branch-owned theorem/doc/implementation/test/lineage assets entered main through another replay history, and exact-blob / theorem-equivalence / strict-generalization audit shows no unique content remains.
+
+Therefore:
+
+> `ahead(main)=0` is sufficient but not necessary for `ABSORBED`; `ahead(main)>0` is not proof that unique mathematics remains.
+
+Action: close/annotate the PR, retain a tag if useful, then remove the branch ref.
+
+### `PROVENANCE`
+
+Explicitly frozen historical branch/checkpoint; not scheduled for new research.
 
 ---
 
-## 4. One-way lifecycle
+## 4. Semantic absorption audit
+
+When `ahead(main)>0`, commit ancestry alone is not enough to decide whether replay is needed.
+
+Audit at least:
+
+1. whether the theorem statement already exists on main as the same statement, an equivalent coordinate form, or a strict generalization;
+2. whether implementation/tests are exact blobs or explicitly superseded;
+3. whether prior-art/lineage still recover discovery provenance;
+4. whether a path/name was later **reused for different mathematics** — identical filenames are not absorption evidence;
+5. when main contains a strict generalization, whether the source specialization still has a unique application or counterexample worth retaining.
+
+Only branches with no unique semantic assets become `ABSORBED`.
+
+This prevents both errors:
+
+- replaying already-absorbed mathematics merely because Git history is different;
+- deleting unique mathematics merely because a later file reused the same name/number.
+
+---
+
+## 5. One-way lifecycle
 
 Recommended state flow:
 
@@ -155,30 +204,31 @@ Recommended state flow:
 
 ---
 
-## 5. Git divergence as a governance trigger
+## 6. Git divergence is a governance signal, not semantic truth
 
-Git metrics are not mathematical quality, but they must trigger action.
+- `ahead=0`: mechanical absorption; default `ABSORBED`.
+- `ahead>0`: perform semantic-equivalence audit before choosing `ABSORBED` or `REPLAY_REQUIRED`.
+- `ahead>0, behind<20`: if unique mathematics remains, usually suitable for a short current-main owner/replay branch.
+- `ahead>0, behind>=50`: if unique mathematics remains, default `REPLAY_REQUIRED`.
+- `ahead>100` or changes span multiple theorem homes: distill semantically; stop expanding the old PR.
 
-- `ahead=0`: branch has no commit missing from current main; default to `ABSORBED`.
-- `ahead>0, behind<20`: usually acceptable as a short current-main owner/replay branch.
-- `ahead>0, behind>=50`: default `REPLAY_REQUIRED` unless explicitly justified.
-- `ahead>100` or changes spanning multiple theorem homes: distill semantically; stop expanding the old PR.
+These are Git-governance triggers, not mathematical-quality judgments.
 
 ---
 
-## 6. Immediate classification of major current trees
+## 7. Immediate classification of major current trees
 
 ### P018 `agent/p018-critical-grid`
 
 `REPLAY_REQUIRED`.
 
-The tree now spans pair/kernel, coalescence, contextual closure, operation congruence, transport/reusable-interface, and quotient-basin work and has diverged strongly from main.
+The tree spans pair/kernel, coalescence, contextual closure, operation congruence, transport/reusable-interface, and quotient-basin work and has diverged strongly from main.
 
 Next ownership:
 
 - general future-compatible quotient mother theorems → A2/P023 owner;
 - precision-specific state/kernel/context/transport → `program/p018-precision-v2`;
-- square-basin/factor/proof specializations → P018 application supplements.
+- square-basin/factor/proof specializations → P018 application layer.
 
 Freeze PR #68 as provenance; do not append further Supplements to the historical tree.
 
@@ -196,11 +246,11 @@ Next bridge: `bridge/a3-a4-v2`, containing only true bridge theorems. Semantic-s
 
 ### E002 v2 historical branches
 
-Most now satisfy `ahead(main)=0` and should become `ABSORBED`. Preserve only still-unabsorbed small deltas, replay them cleanly, then close this generation.
+Most are mechanically `ahead=0`. `task-observable-v2` still shows ahead commits, but its document/implementation/tests were verified as the same blobs already on main, so it is **semantically absorbed** rather than a replay candidate. The old E002 v2 generation should therefore move to `ABSORBED/PROVENANCE`.
 
 ---
 
-## 7. Naming
+## 8. Naming
 
 Long-lived writable owners:
 
@@ -218,7 +268,7 @@ Do not create new `checkpoint/*` branches; use immutable annotated tags.
 
 ---
 
-## 8. PR rules
+## 9. PR rules
 
 - L1/L2/L3 PRs may contain new mathematics.
 - L4 PRs must declare `NO NEW MATHEMATICS`.
@@ -228,7 +278,7 @@ Do not create new `checkpoint/*` branches; use immutable annotated tags.
 
 ---
 
-## 9. Target active surface
+## 10. Target active surface
 
 The long-lived writable set should stay near 8–12 branches:
 
@@ -242,7 +292,7 @@ Integration and agent branches do not count toward the long-lived surface and mu
 
 ---
 
-## 10. Preservation invariant
+## 11. Preservation invariant
 
 Any cleanup must preserve the ability to answer:
 
