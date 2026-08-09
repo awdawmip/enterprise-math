@@ -10,19 +10,37 @@ The initial numerical state space is the set of nonnegative integers
 \mathbb N_0=\{0,1,2,\ldots\}.
 \]
 
+**Canonical natural-number convention.** Throughout canonical Enterprise Math mathematics,
+
+\[
+\mathbb N=\mathbb N_0=\{0,1,2,\ldots\},
+\qquad
+\mathbb N_{>0}=\{1,2,3,\ldots\}.
+\]
+
+Thus a bare \(\mathbb N\) includes zero. Statements requiring positivity use \(\mathbb N_{>0}\), `positive integer`, or an explicit inequality. This convention matches Python's non-negative natural-state inputs and Lean's `Nat` carrier.
+
 Integers are not encodings of hidden real numbers. They are primitive states of the theory.
 
 A scale may be attached to an integer state when comparing different resolutions, but scale is metadata of the state system, not permission to assume an infinitely refinable continuum.
 
 ## 2. Exact integer inverse operations
 
-For an integer power \(p\ge2\), define the integer root
+The **primitive nontrivial root/collapse family** uses integer exponents \(p\ge2\). For such an exponent, define the integer root
 
 \[
 R_p(n)=\max\{k\in\mathbb N_0:k^p\le n\}.
 \]
 
 This is an exact operation in the theory. It is not defined as an approximation to a hidden real root.
+
+For algebraic closure, theorem reuse, and formalization, the same notation is extended to every positive exponent \(p\in\mathbb N_{>0}\). The only added case is
+
+\[
+R_1(n)=n.
+\]
+
+Accordingly, \(p=1\) is the identity member of the positive-exponent algebra; it is **not** an additional nontrivial primitive collapse. Unless a statement explicitly says `primitive` or `nontrivial`, theorem/Python/Lean statements quantified over positive exponents may include \(p=1\).
 
 For \(p=2\):
 
@@ -34,7 +52,7 @@ R_2(200)=14,
 R_2(20000)=141.
 \]
 
-The defining relation is
+For every positive exponent, the defining relation is
 
 \[
 k^p\le n<(k+1)^p
@@ -48,6 +66,12 @@ Define the power-collapse operator
 
 \[
 C_p(n)=R_p(n)^p.
+\]
+
+In the positive-exponent extension,
+
+\[
+C_1=\operatorname{id}.
 \]
 
 For squares,
@@ -76,13 +100,13 @@ Therefore the state 19881 has 283 direct preimages under this collapse map.
 
 ### Immediate properties
 
-For every \(p\ge2\), \(C_p\) is:
+For every positive exponent \(p\ge1\), \(C_p\) is:
 
 - reductive: \(C_p(n)\le n\);
 - monotone: \(n\le m\Rightarrow C_p(n)\le C_p(m)\);
 - idempotent: \(C_p(C_p(n))=C_p(n)\).
 
-Its fixed points are exactly the perfect \(p\)-th powers.
+Its fixed points are exactly the perfect \(p\)-th powers. At \(p=1\) every state is a fixed point and every basin has one state, so all of these laws reduce to the identity case. The physically nontrivial many-to-one collapse discussion below therefore concerns \(p\ge2\) unless another map is explicitly supplied.
 
 This is structurally close to an interior operator on an ordered set. That mathematical similarity is useful prior art; it does not by itself establish the physical interpretation proposed here.
 
@@ -90,13 +114,13 @@ This is structurally close to an interior operator on an ordered set. That mathe
 
 The current physical interpretation under test is stronger than ordinary quantization or coarse-graining.
 
-If
+If a nontrivial collapse
 
 \[
-n\rightarrow C_p(n),
+n\rightarrow C_p(n),\qquad p\ge2,
 \]
 
-the difference
+occurs, the difference
 
 \[
 n-C_p(n)
@@ -194,7 +218,13 @@ These are not numerical errors. They are algebraic features of a different opera
 
 ## 7. Forward dynamics
 
-Let a state evolve through maps
+Time indices lie in \(\mathbb N_0\). Let
+
+\[
+T_t:X_t\to X_{t+1}
+\]
+
+be the transition carrying the state from time \(t\) to time \(t+1\), so
 
 \[
 X_{t+1}=T_t(X_t).
@@ -202,10 +232,24 @@ X_{t+1}=T_t(X_t).
 
 The maps are allowed to be non-injective. No inverse map is required.
 
-Define the cumulative map
+The canonical cumulative-map convention is
+
+\[
+F_0=\operatorname{id},
+\]
+
+and, for \(t\ge1\),
 
 \[
 F_t=T_{t-1}\circ\cdots\circ T_0.
+\]
+
+Equivalently,
+
+\[
+F_{t+1}=T_t\circ F_t,
+\qquad
+X_t=F_t(X_0).
 \]
 
 For two initial states, define
@@ -225,6 +269,14 @@ Therefore the equivalence class
 \]
 
 can only remain the same size or grow.
+
+When two histories eventually merge, their **merge time** is the least
+
+\[
+\tau(x,y)=\min\{t\in\mathbb N_0:F_t(x)=F_t(y)\}.
+\]
+
+Hence histories equal initially have merge time \(0\); a collision caused by the first transition \(T_0\) has merge time \(1\). Any historical one-based transition notation is translated by \(T_j^{\mathrm{old}}=T_{j-1}\) while retaining the same cumulative time label \(F_t\).
 
 ## 8. Integer irreversibility measures
 
