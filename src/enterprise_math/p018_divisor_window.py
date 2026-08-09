@@ -5,11 +5,15 @@ quotients n//d lie in
 
     W_d(k) = [floor(k^2/d)+1, floor(k(k+2)/d)].
 
-This module records an elementary sufficient separation criterion for two such
-windows. It is discovery-stage evidence, not a canonical theorem module.
+This module records elementary separation criteria for exact quotient windows
+and, in the odd small-product regime relevant to the P017 residual mirror hard
+core, for the associated T110 candidate root pairs. It is discovery-stage
+evidence, not a canonical theorem module.
 """
 
 from __future__ import annotations
+
+from math import isqrt
 
 
 def _require_int(name: str, value: int) -> None:
@@ -74,3 +78,59 @@ def same_parity_divisor_windows(k: int) -> dict[str, object]:
             divisor_window_separation(k, left, right)
             checked.append((left, right))
     return {"k": k, "checked_pairs": tuple(checked), "pair_count": len(checked)}
+
+
+def odd_small_product_root_pair_separation(
+    k: int, left: int, right: int
+) -> dict[str, object]:
+    """WIP candidate: odd divisors with de<k have disjoint T110 root pairs.
+
+    Assume 3<=d<e are odd and d*e<k. Put
+
+        j_d = R_2(floor(k^2/d)),
+        j_e = R_2(floor(k^2/e)).
+
+    Then j_d>=j_e+2, so {j_d,j_d+1} and {j_e,j_e+1} are disjoint.
+
+    The integer proof first shows j_e>=2d+1. Since k>=de+1 and e>=d+2,
+    the minimum case is controlled by
+
+        (d(d+2)+1)^2 - (d+2)(2d+1)^2
+        = d^4 - 6d^2 - 5d - 1 > 0      (d>=3).
+
+    Hence e(2d+1)^2<=k^2. With u=j_e and e-d>=2,
+
+        e*u^2 - d(u+2)^2
+        >= 2(u^2-2du-2d) > 0,
+
+    giving d(u+2)^2<k^2 and therefore j_d>=u+2.
+    """
+    _require_int("k", k)
+    _require_int("left", left)
+    _require_int("right", right)
+    d = left
+    e = right
+    if not (3 <= d < e <= k):
+        raise ValueError("require 3 <= left < right <= k")
+    if d % 2 == 0 or e % 2 == 0:
+        raise ValueError("both divisors must be odd")
+    if d * e >= k:
+        raise ValueError("require left*right < k")
+
+    j_left = isqrt((k * k) // d)
+    j_right = isqrt((k * k) // e)
+    if j_right < 2 * d + 1:
+        raise AssertionError("odd small-product lower-root estimate failed")
+    if j_left < j_right + 2:
+        raise AssertionError("odd small-product root candidate pairs overlap")
+
+    return {
+        "k": k,
+        "left": d,
+        "right": e,
+        "left_root": j_left,
+        "right_root": j_right,
+        "root_gap": j_left - j_right,
+        "left_candidates": (j_left, j_left + 1),
+        "right_candidates": (j_right, j_right + 1),
+    }
