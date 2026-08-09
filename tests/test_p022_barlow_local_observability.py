@@ -41,8 +41,6 @@ def _direct_history(downward_word, upward_word):
 
 
 def test_energy_step_decoder_matches_every_short_legal_transition() -> None:
-    # Exhaust absolute current pairs reachable at each parity and every legal
-    # predecessor choice.  The decoder sees only the two scalar energies.
     for current_radius in range(1, 25):
         current_values = range(current_radius % 2, current_radius + 1, 2)
         previous_values = set(range((current_radius - 1) % 2, current_radius, 2))
@@ -85,18 +83,10 @@ def test_sliding_two_shell_decoder_matches_direct_microscopic_histories() -> Non
 
 def test_depth_one_fails_at_radius_seven_but_depth_two_separates() -> None:
     assert uniform_hidden_state_observation_depth() == 2
-
-    # Same current energy Q_7=50 but distinct hidden current states.
     assert 1**2 + 7**2 == 5**2 + 5**2 == 50
 
-    # Legal predecessors can be chosen with different previous energies, which
-    # the two-shell decoder uses to disambiguate them.
-    first = recover_current_drift_pair_from_consecutive_energies(
-        0**2 + 6**2, 50
-    )
-    second = recover_current_drift_pair_from_consecutive_energies(
-        4**2 + 4**2, 50
-    )
+    first = recover_current_drift_pair_from_consecutive_energies(0**2 + 6**2, 50)
+    second = recover_current_drift_pair_from_consecutive_energies(4**2 + 4**2, 50)
     assert first == (1, 7)
     assert second == (5, 5)
 
@@ -106,5 +96,5 @@ def test_two_shell_formula_covers_sum_difference_and_zero_cases() -> None:
     assert recover_current_drift_pair_from_consecutive_energies(36, 50) == (1, 7)
     # |L|=|a-b|
     assert recover_current_drift_pair_from_consecutive_energies(16, 10) == (1, 3)
-    # L^2=Q: one coordinate is zero.
-    assert recover_current_drift_pair_from_consecutive_energies(5, 4) == (0, 2)
+    # L^2=Q: current pair (0,2) has legal predecessor (1,1), so Q_prev=2.
+    assert recover_current_drift_pair_from_consecutive_energies(2, 4) == (0, 2)
