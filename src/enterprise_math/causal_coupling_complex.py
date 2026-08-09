@@ -1,10 +1,19 @@
-"""Irreducible coupling groups from causal signature factorization failures.
+"""Factorization failures in the currently exposed causal state language.
 
-For a coherent family of subsystem restrictions, the subsets whose signatures
-factor independently are downward closed.  Their abstract simplicial complex is
-therefore derived from causal factorization rather than assumed as an interaction
-hypergraph.  Minimal nonfaces are the smallest subsystem groups whose joint
-future cannot be reconstructed from independent component futures.
+For a coherent family of subsystem restrictions, the subsets whose *current
+exposed signatures* factor independently are downward closed.  Their abstract
+simplicial complex is therefore derived from causal factorization rather than
+assumed as an interaction hypergraph.  Minimal nonfaces are the smallest
+subsystem groups whose joint future cannot be reconstructed from the currently
+exposed component signatures.
+
+Important boundary: a minimal nonface of size q is **language-relative coupling
+order**, not proof of an absolute q-body composition primitive.  A finer but
+still identity-free continuation type may localize an apparent higher-order
+constraint into a lower-order recursive law.  The even-parity three-bit example
+is the minimal counterexample: all pairs factor in the marginal language, yet a
+two-state parity continuation type generates the full triple constraint through
+an associative binary XOR law.
 """
 
 from __future__ import annotations
@@ -52,7 +61,7 @@ def minimal_coupling_groups(
     universe: tuple[Subsystem, ...],
     independent_subsets: frozenset[Subset],
 ) -> tuple[Subset, ...]:
-    """Minimal nonfaces of the causal independence complex."""
+    """Minimal nonfaces of the current causal-independence complex."""
     if not is_downward_closed(universe, independent_subsets):
         raise ValueError("independent_subsets must be downward closed")
     independent = set(independent_subsets)
@@ -75,6 +84,11 @@ def coupling_order(
     universe: tuple[Subsystem, ...],
     independent_subsets: frozenset[Subset],
 ) -> int | None:
-    """Smallest irreducible factorization-failure order, or None if fully independent."""
+    """Smallest current-language factorization-failure order.
+
+    This is not an absolute primitive arity.  Refining the exposed state to the
+    minimal continuation type can reduce the order required for recursive
+    generation.
+    """
     groups = minimal_coupling_groups(universe, independent_subsets)
     return None if not groups else min(len(group) for group in groups)
