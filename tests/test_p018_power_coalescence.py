@@ -1,5 +1,6 @@
 import unittest
 
+from enterprise_math.core import integer_nth_root
 from enterprise_math.p018_power_coalescence import (
     coalescence_multiplicity_cap,
     coalescence_phase,
@@ -28,16 +29,14 @@ class P018PowerCoalescenceTests(unittest.TestCase):
     def test_exact_total_divisor_root_fibers(self):
         for root_exp in range(1, 6):
             for n in range(1, 180):
-                max_root = max(1, int(n ** (1 / root_exp)) + 2)
+                max_root = integer_nth_root(n, root_exp) + 2
                 for target in range(1, max_root + 1):
                     data = total_divisor_root_fiber(n, root_exp, target)
                     labels = data["positive_divisor_labels"]
                     expected = tuple(
                         d
                         for d in range(1, n + 2)
-                        if power_basin_cross_root(
-                            max(1, n), n, 1, root_exp, d
-                        ) == target
+                        if integer_nth_root(n // d, root_exp) == target
                     )
                     self.assertEqual(labels, expected)
                     self.assertEqual(
