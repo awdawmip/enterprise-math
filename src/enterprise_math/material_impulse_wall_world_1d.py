@@ -11,10 +11,15 @@ This E001 pressure-test composes already explicit finite layers:
       -> sampled end state.
 
 No rule says ``contact => rebound`` and no rule says ``REBOUND => reverse``.
-Rebound is only a momentum-sign observation after the material impulse has been
-applied.  A coarse interaction with zero/insufficient response can still
-transmit, and a fine state that no longer belongs to the interaction layer can
-legally make one long saved-state jump through the wall.
+Instantaneous momentum direction is only ``APPROACHING / STOPPED / OUTWARD``.
+A one-tick rebound episode is a richer history/topology statement: an
+approaching state must undergo a represented material interaction, remain on the
+same side of the wall, and finish OUTWARD.  A transmitted state can also finish
+OUTWARD on the opposite side and is therefore not a rebound.
+
+A coarse interaction with zero/insufficient response can still transmit, and a
+fine state that no longer belongs to the interaction layer can legally make one
+long saved-state jump through the wall.
 
 This module intentionally handles only positive-clearance start states.  A
 primitive touch/overlap is returned as ``PRIMITIVE_CONTACT`` and delegated to
@@ -25,7 +30,7 @@ invented after-state.
 
 If a tick crosses the wall, the end-side normal is recomputed from the saved end
 state.  The old-side normal is not reused to describe post-crossing approach or
-separation.
+outward motion.
 
 The contact-local impulse remainder is merely carried through this one-tick
 operator.  Its lifetime after separation (reset versus retained contact memory)
@@ -42,7 +47,7 @@ from .material_impulse_tick_order import (
     TickOrder,
     material_impulse_drift_tick,
 )
-from .material_impulse_world_1d import momentum_contact_status
+from .material_impulse_world_1d import OUTWARD, momentum_contact_status
 from .material_response import MaterialCurveProfile
 from .scale_tunneling_1d import (
     BodyInterval1D,
@@ -96,6 +101,18 @@ class MaterialImpulseWallTick1D:
     end_momentum_status: str | None
     end_clearance: int | None
     crossed_between_separated_sides: bool
+
+    @property
+    def rebound_episode(self) -> bool:
+        """Whether this tick is a same-side material reversal episode."""
+        return (
+            self.kind == MATERIAL_INTERACTION
+            and self.approaching
+            and self.start_side is not None
+            and self.end_side == self.start_side
+            and self.end_momentum_status == OUTWARD
+            and not self.crossed_between_separated_sides
+        )
 
 
 def _positive_clearance_side(
