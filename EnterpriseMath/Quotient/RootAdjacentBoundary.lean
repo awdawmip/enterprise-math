@@ -66,9 +66,9 @@ theorem quotient_adjacent_jump_iff_dvd
       exact hnotDvd (Nat.dvd_of_mod_eq_zero hModZero)
     have hModPos : 1 ≤ q % a := by omega
     have hModLt : q % a < a := Nat.mod_lt q haPos
-    have hDecomp : q / a * a + q % a = q := Nat.div_add_mod q a
+    have hDecomp : q / a * a + q % a = q := by
+      simpa [Nat.mul_comm] using Nat.div_add_mod q a
     have hLower : (q / a) * a ≤ q - 1 := by omega
-    have hNext : (q / a + 1) * a = q / a * a + a := by ring
     have hUpper : q - 1 < (q / a + 1) * a := by omega
     have hPredDiv : (q - 1) / a = q / a :=
       Nat.div_eq_of_lt_le hLower hUpper
@@ -82,15 +82,10 @@ theorem quotient_adjacent_jump_iff_dvd
     have hRight : (a * k) / a = k := by
       simpa using Nat.mul_div_cancel_left k haPos
     have hkDecomp : k = (k - 1) + 1 := by omega
-    have hProdDecomp : a * k = (k - 1) * a + a := by
-      calc
-        a * k = a * ((k - 1) + 1) := by rw [← hkDecomp]
-        _ = a * (k - 1) + a := by ring
-        _ = (k - 1) * a + a := by ring
     have hLower : (k - 1) * a ≤ a * k - 1 := by omega
     have hUpper : a * k - 1 < ((k - 1) + 1) * a := by
       rw [← hkDecomp]
-      simpa [Nat.mul_comm] using (Nat.pred_lt hProdPos)
+      simpa [Nat.mul_comm] using (Nat.pred_lt (Nat.ne_of_gt hProdPos))
     have hLeft : (a * k - 1) / a = k - 1 :=
       Nat.div_eq_of_lt_le hLower hUpper
     rw [hLeft, hRight]
