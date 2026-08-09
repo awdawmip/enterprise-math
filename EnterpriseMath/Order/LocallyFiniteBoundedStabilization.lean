@@ -13,7 +13,7 @@ Restrict an extensive monotone map to a finite closed interval `[x,y]` when `y`
 is a fixed upper bound.  The lifted map is still monotone and extensive.
 -/
 def intervalMap (L : α → α) (hmono : Monotone L) (hext : ∀ z, z ≤ L z)
-    {x y : α} (hxy : x ≤ y) (hyfix : L y = y) :
+    {x y : α} (hyfix : L y = y) :
     {z : α // z ∈ Finset.Icc x y} → {z : α // z ∈ Finset.Icc x y} := fun z => by
   refine ⟨L z.1, ?_⟩
   have hz := Finset.mem_Icc.mp z.2
@@ -24,36 +24,37 @@ def intervalMap (L : α → α) (hmono : Monotone L) (hext : ∀ z, z ≤ L z)
 
 @[simp]
 theorem intervalMap_val (L : α → α) (hmono : Monotone L) (hext : ∀ z, z ≤ L z)
-    {x y : α} (hxy : x ≤ y) (hyfix : L y = y)
+    {x y : α} (hyfix : L y = y)
     (z : {z : α // z ∈ Finset.Icc x y}) :
-    (intervalMap L hmono hext hxy hyfix z).1 = L z.1 := rfl
+    (intervalMap L hmono hext hyfix z).1 = L z.1 := rfl
 
 theorem intervalMap_mono (L : α → α) (hmono : Monotone L) (hext : ∀ z, z ≤ L z)
-    {x y : α} (hxy : x ≤ y) (hyfix : L y = y) :
-    Monotone (intervalMap L hmono hext hxy hyfix) := by
+    {x y : α} (hyfix : L y = y) :
+    Monotone (intervalMap L hmono hext hyfix) := by
   intro a b hab
   exact hmono hab
 
 theorem intervalMap_extensive (L : α → α) (hmono : Monotone L) (hext : ∀ z, z ≤ L z)
-    {x y : α} (hxy : x ≤ y) (hyfix : L y = y) :
-    ∀ z, z ≤ intervalMap L hmono hext hxy hyfix z := by
+    {x y : α} (hyfix : L y = y) :
+    ∀ z, z ≤ intervalMap L hmono hext hyfix z := by
   intro z
   exact hext z.1
 
 /-- Iterating the interval lift and then forgetting the subtype is ordinary iteration of `L`. -/
 theorem intervalMap_iterate_val (L : α → α) (hmono : Monotone L) (hext : ∀ z, z ≤ L z)
-    {x y : α} (hxy : x ≤ y) (hyfix : L y = y)
+    {x y : α} (hyfix : L y = y)
     (z : {z : α // z ∈ Finset.Icc x y}) :
     ∀ n : ℕ,
-      (((intervalMap L hmono hext hxy hyfix)^[n]) z).1 = (L^[n]) z.1 := by
+      (((intervalMap L hmono hext hyfix)^[n]) z).1 = (L^[n]) z.1 := by
   intro n
-  induction n with
+  induction n generalizing z with
   | zero => rfl
   | succ n ih =>
       rw [Function.iterate_succ_apply]
       rw [Function.iterate_succ_apply]
-      change L ((((intervalMap L hmono hext hxy hyfix)^[n]) z).1) = L ((L^[n]) z.1)
-      rw [ih]
+      have h := ih (intervalMap L hmono hext hyfix z)
+      rw [intervalMap_val] at h
+      exact h
 
 /--
 Local bounded stabilization: a monotone extensive map needs no global
@@ -70,13 +71,13 @@ theorem exists_iterate_isLeast_of_fixed_upper_bound
       IsLeast {z : α | L z = z ∧ x ≤ z ∧ z ≤ y} ((L^[n]) x) := by
   let β := {z : α // z ∈ Finset.Icc x y}
   let xβ : β := ⟨x, Finset.mem_Icc.mpr ⟨le_rfl, hxy⟩⟩
-  let Lβ : β → β := intervalMap L hmono hext hxy hyfix
-  have hmonoβ : Monotone Lβ := intervalMap_mono L hmono hext hxy hyfix
-  have hextβ : ∀ z, z ≤ Lβ z := intervalMap_extensive L hmono hext hxy hyfix
+  let Lβ : β → β := intervalMap L hmono hext hyfix
+  have hmonoβ : Monotone Lβ := intervalMap_mono L hmono hext hyfix
+  have hextβ : ∀ z, z ≤ Lβ z := intervalMap_extensive L hmono hext hyfix
   obtain ⟨n, hn⟩ := exists_iterate_isLeast Lβ hmonoβ hextβ xβ
   refine ⟨n, ?_⟩
   have hval : ((Lβ^[n]) xβ).1 = (L^[n]) x := by
-    exact intervalMap_iterate_val L hmono hext hxy hyfix xβ n
+    exact intervalMap_iterate_val L hmono hext hyfix xβ n
   have hcandIcc := Finset.mem_Icc.mp ((Lβ^[n]) xβ).2
   constructor
   · constructor
