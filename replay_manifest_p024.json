@@ -1,0 +1,49 @@
+{
+  "schema": "ENTERPRISE_MATH_REPLAY_MANIFEST_V1",
+  "status": "ACTIVE_OWNER",
+  "no_new_mathematics_during_replay": true,
+  "target_branch": "program/p024-action-precision",
+  "target_home": "P024_ACTION_LANGUAGE_BOUNDARY_PRECISION",
+  "baseline_main": "3b817cf5c093ac85a9683c9be51e7ca300134a8e",
+  "canonical_main_assets": [
+    "docs/P024_ACTION_LANGUAGE_PRECISION.en.md",
+    "docs/P024_ACTION_LANGUAGE_PRECISION.zh-CN.md",
+    "docs/P024_LATTICE_GUARD_PRECISION_SUPPLEMENT_01.en.md",
+    "docs/P024_LATTICE_GUARD_PRECISION_SUPPLEMENT_01.zh-CN.md",
+    "docs/P024_ADJOINT_BOUNDARY_PULLBACK_SUPPLEMENT_02.en.md",
+    "docs/P024_ADJOINT_BOUNDARY_PULLBACK_SUPPLEMENT_02.zh-CN.md"
+  ],
+  "owns": [
+    "closed-form future-safe precision for declared integer action languages",
+    "reachable boundary-orbit formulas and numerical-semigroup/group-completion specializations",
+    "ordered-threshold and lattice-guard precision specializations",
+    "principal-boundary pullback calculus as a P024 interpretation/application of established adjunction structure",
+    "finite arithmetic counterexamples and exact class-count laws specific to these action/observation languages"
+  ],
+  "consumes": {
+    "A2_P023": [
+      "generic future-compatible quotient/descent/minimal-repair theorem",
+      "operation-language closure and coarsest compatible refinement"
+    ],
+    "A0_P008": [
+      "order adjunction/Galois-connection structure",
+      "integer root/quotient/collapse adjoint examples"
+    ],
+    "A1_P020": [
+      "finite stabilization where applicable"
+    ]
+  },
+  "must_not_duplicate": [
+    "generic quotient safety already owned by A2/P023",
+    "general Galois-connection or adjunction theory already owned by A0/P008 / established mathematics",
+    "material/collision constitutive semantics owned by E001",
+    "P017 square-basin arithmetic unless used only as a consumer/specialization"
+  ],
+  "program_boundary": "P024 is a closed-form arithmetic/order specialization program, not a fourth generic quotient theory.",
+  "integration_rule": "New P024 results may be proved on this owner or a short task branch. Promotion to main must use a latest-main L4 replay with no new mathematics.",
+  "completion": [
+    "future P024 work starts from this owner/current main rather than old stacked branches",
+    "generic results relay upward to A0/A2 as appropriate",
+    "P024 keeps only specialization statements, applications, boundaries and provenance"
+  ]
+}
