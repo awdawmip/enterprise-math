@@ -43,7 +43,7 @@ class InteriorPrecisionTests(unittest.TestCase):
 
     def test_invalid_interior_map_rejected_by_theorem_audit(self):
         with self.assertRaises(ValueError):
-            interior_alignment_theorem_holds({0: 0, 1: 1, 2: 1}, 2)
+            interior_alignment_theorem_holds({0: 0, 1: 0, 2: 1}, 2)
 
     def test_reference_module_has_no_float_or_true_division(self):
         tree = ast.parse(inspect.getsource(interior))
