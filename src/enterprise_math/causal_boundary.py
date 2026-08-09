@@ -20,7 +20,7 @@ Edge = frozenset[Vertex]
 
 def phase(value: int) -> int:
     """Return -1, 0, or +1 for an integer expansion value."""
-    if not isinstance(value, int):
+    if isinstance(value, bool) or not isinstance(value, int):
         raise TypeError("expansion value must be an integer")
     return (value > 0) - (value < 0)
 
