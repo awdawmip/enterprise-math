@@ -43,8 +43,8 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
         override = {
             "state": "ACTIVE_OWNER",
             "reason": "test",
-            "allowed_paths": ("owned.py", "tests/test_owned.py"),
-            "allowed_prefixes": (),
+            "allowed_paths": ["owned.py", "tests/test_owned.py"],
+            "allowed_prefixes": [],
         }
         scope, unexpected = scope_status(
             "core/example",
@@ -59,8 +59,8 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
         override = {
             "state": "ACTIVE_OWNER",
             "reason": "test",
-            "allowed_paths": ("owned.py",),
-            "allowed_prefixes": (),
+            "allowed_paths": ["owned.py"],
+            "allowed_prefixes": [],
         }
         result = classify_branch(
             "core/example",
@@ -77,8 +77,8 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
         override = {
             "state": "ACTIVE_OWNER",
             "reason": "test",
-            "allowed_paths": (),
-            "allowed_prefixes": ("src/enterprise_math/p017_",),
+            "allowed_paths": [],
+            "allowed_prefixes": ["src/enterprise_math/p017_"],
         }
         scope, unexpected = scope_status(
             "program/p017-legendre",
