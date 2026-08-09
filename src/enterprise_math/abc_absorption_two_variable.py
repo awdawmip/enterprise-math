@@ -136,6 +136,114 @@ def minimum_linf_diophantine_solution(A: int, B: int, N: int) -> TwoVariableLinf
     )
 
 
+def lower_bound_sharp_modular_criterion(A: int, B: int, N: int) -> dict[str, int | bool]:
+    """Decide exactly whether the triangle lower bound contains a solution.
+
+    This specialization assumes positive coefficients/target.  After dividing
+    by ``g=gcd(A,B)``, solve ``A'*u+B'*v=N'``.  At the lower radius ``L`` the
+    ``v`` bound turns into one interval for ``u``; sharpness is exactly whether
+    that interval contains the required residue class modulo ``B'``.
+    """
+    if any(isinstance(value, bool) or not isinstance(value, int) or value <= 0 for value in (A, B, N)):
+        raise ValueError("A, B, N must be positive integers")
+    g = gcd(A, B)
+    if N % g != 0:
+        raise ValueError("Diophantine equation has no integer solution")
+    A0, B0, N0 = A // g, B // g, N // g
+    L = _ceil_div(N0, A0 + B0)
+    lower_u = max(-L, _ceil_div(N0 - B0 * L, A0))
+    upper_u = min(L, (N0 + B0 * L) // A0)
+    if lower_u > upper_u:
+        return {
+            "lower_bound": L,
+            "interval_lower": lower_u,
+            "interval_upper": upper_u,
+            "residue_modulus": B0,
+            "residue": 0,
+            "sharp": False,
+        }
+
+    if B0 == 1:
+        residue = 0
+        candidate = lower_u
+    else:
+        eg, inverse, _ = _extended_gcd(A0, B0)
+        if eg != 1:
+            raise AssertionError("reduced coefficients must be coprime")
+        residue = (inverse * N0) % B0
+        candidate = residue + B0 * _ceil_div(lower_u - residue, B0)
+    sharp = candidate <= upper_u
+    return {
+        "lower_bound": L,
+        "interval_lower": lower_u,
+        "interval_upper": upper_u,
+        "residue_modulus": B0,
+        "residue": residue,
+        "sharp": sharp,
+    }
+
+
+def integrality_access_defect_bound(A: int, B: int, N: int) -> dict[str, int | bool]:
+    """Return the exact defect and its sharp universal coefficient bound.
+
+    For positive solvable ``A*u+B*v=N``, reduce by ``g=gcd(A,B)`` and put
+    ``M=max(A/g,B/g)``.  If ``nu`` is the minimum L-infinity radius and
+    ``L=ceil(N/(A+B))``, then
+
+        0 <= Gamma = nu-L <= floor((M-1)/2).
+
+    The coefficient-only upper bound is sharp over the class of positive
+    solvable two-variable Diophantine equations.
+    """
+    if any(isinstance(value, bool) or not isinstance(value, int) or value <= 0 for value in (A, B, N)):
+        raise ValueError("A, B, N must be positive integers")
+    g = gcd(A, B)
+    if N % g != 0:
+        raise ValueError("Diophantine equation has no integer solution")
+    solution = minimum_linf_diophantine_solution(A, B, N)
+    reduced_max = max(A // g, B // g)
+    defect = solution.radius - solution.triangle_lower_bound
+    upper = (reduced_max - 1) // 2
+    if not (0 <= defect <= upper):
+        raise AssertionError("integrality defect violated the universal bound")
+    criterion = lower_bound_sharp_modular_criterion(A, B, N)
+    if bool(criterion["sharp"]) != (defect == 0):
+        raise AssertionError("modular sharpness criterion disagrees with exact optimum")
+    return {
+        "radius": solution.radius,
+        "lower_bound": solution.triangle_lower_bound,
+        "defect": defect,
+        "reduced_max_coefficient": reduced_max,
+        "universal_defect_upper_bound": upper,
+        "lower_bound_is_sharp": defect == 0,
+    }
+
+
+def sharp_integrality_defect_example(reduced_max: int) -> dict[str, int]:
+    """Return a positive coprime equation attaining the universal defect bound."""
+    if isinstance(reduced_max, bool) or not isinstance(reduced_max, int) or reduced_max < 2:
+        raise ValueError("reduced_max must be an integer >= 2")
+    M = reduced_max
+    if M % 2 == 0:
+        h = M // 2
+        A, B, N = M, 1, h
+    else:
+        h = (M - 1) // 2
+        A, B, N = M - 1, M, 3 * h + 1
+    data = integrality_access_defect_bound(A, B, N)
+    target = (M - 1) // 2
+    if data["defect"] != target or data["universal_defect_upper_bound"] != target:
+        raise AssertionError("sharp defect family failed")
+    return {
+        "A": A,
+        "B": B,
+        "N": N,
+        "radius": int(data["radius"]),
+        "lower_bound": int(data["lower_bound"]),
+        "defect": int(data["defect"]),
+    }
+
+
 def one_plus_two_primes_prime_power_access(
     q: int,
     r: int,
@@ -173,11 +281,14 @@ def one_plus_two_primes_prime_power_access(
     nu = max(1, solution.radius)
     lower_bound = max(1, solution.triangle_lower_bound)
     witness = (solution.u, solution.v, 1)
+    defect_data = integrality_access_defect_bound(r, q, target)
     return {
         "eta_min": eta,
         "nu": nu,
         "triangle_lower_bound": lower_bound,
         "lower_bound_is_sharp": nu == lower_bound,
+        "integrality_access_defect": nu - lower_bound,
+        "universal_defect_upper_bound": int(defect_data["universal_defect_upper_bound"]),
         "witness_q_r_p": witness,
         "target": target,
     }
