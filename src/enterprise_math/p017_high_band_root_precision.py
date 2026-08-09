@@ -16,7 +16,7 @@ from __future__ import annotations
 from collections import defaultdict
 from math import isqrt
 
-from .legendre import primes_up_to
+from .legendre import is_prime, primes_up_to
 from .p017_cofactor_window import is_p_rough
 from .quotient_window import (
     IntegerWindow,
@@ -165,4 +165,52 @@ def diagonal_realized_root_data(t: int) -> dict[str, object]:
         **raw,
         "realized_prime_labels": labels,
         "realized_multiplicity": len(labels),
+    }
+
+
+def diagonal_goldbach_slices(t: int) -> dict[str, object]:
+    """Exact two-slice prime-pair normal form of the realized diagonal burden.
+
+    Put ``K=t^2`` and ``p=K-a``.  Any realized prime cofactor in root bucket
+    ``t`` must be either
+
+        q = K+a+2,  with a(a+2) < 2K,
+
+    or
+
+        q = K+a+4,  with 2K <= a(a+4) < 4K.
+
+    Equivalently, the only possible prime-pair sums are ``2K+2`` and
+    ``2K+4``.  The returned union of left-prime labels is checked against the
+    direct p-rough shell compiler.
+    """
+
+    raw = diagonal_raw_root_data(t)
+    k = int(raw["k"])
+    slice2: dict[int, int] = {}
+    slice4: dict[int, int] = {}
+
+    for p in raw["raw_prime_labels"]:
+        prime = int(p)
+        a = k - prime
+
+        q2 = k + a + 2
+        if a * (a + 2) < 2 * k and is_prime(q2):
+            slice2[prime] = q2
+
+        q4 = k + a + 4
+        if 2 * k <= a * (a + 4) < 4 * k and is_prime(q4):
+            slice4[prime] = q4
+
+    union = tuple(sorted(set(slice2) | set(slice4)))
+    direct = tuple(diagonal_realized_root_data(t)["realized_prime_labels"])
+    if union != direct:
+        raise AssertionError("two Goldbach slices do not reconstruct the realized diagonal shell labels")
+
+    return {
+        **raw,
+        "sum_2k_plus_2": slice2,
+        "sum_2k_plus_4": slice4,
+        "goldbach_label_union": union,
+        "realized_multiplicity": len(union),
     }
