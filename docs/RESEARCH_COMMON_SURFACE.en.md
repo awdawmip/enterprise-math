@@ -15,8 +15,8 @@ Before starting a new theorem line:
 3. read `docs/PROBLEM_STATUS.*` and the canonical result document for the relevant problem;
 4. search the latest relevant entries in Research Relay Issue #82;
 5. inspect the relevant executable specification/tests or Lean module when the proposed result overlaps an existing tool/theorem family;
-6. if the work touches foundational language, notation, formulas, theorem/tool interfaces, or a flagged contradiction, read `docs/FOUNDATION_STEWARD_PROTOCOL.*` and the relevant `FQ-*` entries in Foundation Problem Set Issue #164;
-7. only then decide whether the next step is a new mother theorem, specialization, bridge, counterexample, duplicate, or an answer to a foundation problem.
+6. if the work touches foundational language, notation, formulas, theorem/tool interfaces, a flagged contradiction, or a mature result that may feed back into the common bottom layer, read `docs/FOUNDATION_STEWARD_PROTOCOL.*`, `docs/FOUNDATION_BACKFLOW_LOOP.*`, `foundation_backflow.json`, and the relevant `FQ-*` entries in Foundation Problem Set Issue #164;
+7. only then decide whether the next step is a new mother theorem, specialization, bridge, counterexample, duplicate, answer to a foundation problem, or a Foundation Feedback Packet.
 
 Do not inject the whole repository into working context. The point is shared awareness plus selective retrieval.
 
@@ -67,22 +67,27 @@ Reusable tools/results include:
 
 Primary canonical entry points: P001–P009 result docs and `docs/THEOREMS.*`.
 
-### A1 — dynamics, kernels, collision and stabilization
+### A1 — dynamics, functional kernels, collision and stabilization
 
 Reusable tools/results include:
 
+- generic deterministic functional kernel `x ~_f y iff f(x)=f(y)` and monotonicity under deterministic postcomposition `ker(f) ⊆ ker(g∘f)`;
 - deterministic history merging: merged states never split under the same later deterministic composition;
 - exact collision/fiber multiplicity observables and collision spectra;
 - finite/eventual coalescence structures;
 - monotone reductive stabilization on well-founded orders;
 - stable collapse-word behavior and lcm fixed-point structure.
 
-Primary canonical entry points: P010, P011, P019, P020.
+A State Pair is the derived product carrier `X×X` used to query such relations; it is not a separate primitive Foundation object.
 
-### A2 — observation and future-compatible quotient
+Primary canonical entry points: `docs/FOUNDATIONS.*`, P010, P011, P019, P020.
+
+### A2 — observations, future signatures and future-compatible quotient
 
 Reusable tools/results include:
 
+- current observation equality as a functional kernel `ker(O)`, distinct from exact state equality unless `O` is injective;
+- declared future behavior packaged as a signature `Σ_W`, with future-safe equivalence `ker(Σ_W)`; if the current observation is part of the signature, `Δ_X ⊆ ker(Σ_W) ⊆ ker(O)`;
 - factorization through a quotient iff the required observable/operation is constant on quotient fibers;
 - coarsest exact repair/refinement for a declared future task;
 - finite predictive/future-signature refinement and stabilization;
@@ -90,7 +95,9 @@ Reusable tools/results include:
 - exact quotient/multiple-collapse compatibility and minimal boundary-bit repairs in arithmetic specializations;
 - task-relative precision: there is no universal scalar precision independent of the future language.
 
-Primary canonical entry points: P018 precision-state results, P023 and its canonical supplements, P024 specializations. Branch extensions are routed through Relay #82.
+A Difference/defect/other coordinate is complete for a task only after the required observation/future signature is proved to factor through that coordinate.
+
+Primary canonical entry points: `docs/FOUNDATIONS.*`, P018 precision-state results, P023 and its canonical supplements, P024 specializations. Branch extensions are routed through Relay #82.
 
 ### A3 — structured relation-state algebra
 
@@ -100,27 +107,33 @@ Shared WIP/core concepts include the integer weighted relation field
 
 partition coarsening `Z' = A Z A^T`, partition kernels, integer relation scale/rank, refinement memory and task-derived exact relation precision.
 
+A3 structured relation-state can retain information beyond membership in one functional equivalence relation; it is not identified with the A1/A2 functional-kernel layer.
+
 Until canonical replay completes, consume A3 results with their explicit `PROVED_WIP_RELAY`/branch provenance rather than pretending they are main theorems.
 
 ### A4 — admissible support / correspondence algebra
 
 Shared WIP/core concepts include finite multivalued relations, relation composition/converse, common-target structure, radius-indexed supports, split-completeness boundaries, MAY/MUST semantics, witness/group spectra, and degeneration to P011 on total-function graphs.
 
+A multivalued correspondence can admit several future images and is not identified with the kernel of one deterministic function.
+
 Again, distinguish WIP proved results from canonical-main results.
 
 ### A5 — intrinsic discrete geometry
 
-Reusable canonical and WIP tools include primitive adjacency, graph distance, finite balls/shells, lattice/root-lattice candidates, radial/quadratic observations, distance carry and geometry-specific contraction. P012 gives the canonical metric foundation; broader P022 geometry remains active.
+Reusable canonical and WIP tools include primitive adjacency, graph distance, finite balls/shells, lattice/root-lattice candidates, radial/quadratic observations, distance carry and geometry-specific contraction. P012 gives the canonical metric foundation; broader P022 geometry remains active. FQ-20260809-005 tracks the current stable `graph_distance` API-domain versus P012 metric-domain boundary and is routed to the P022 geometry owner for research.
 
 ## 5. High-value cross-route negative boundaries everyone must know
 
 - Coarse equality/support/cardinality does not automatically preserve later composition; future sufficiency must be proved for the declared operation language.
+- A Difference/defect coordinate is not automatically complete state; current or future sufficiency requires an explicit factorization theorem.
 - A3 signed relation information can cancel under quotient, so coarse support does not certify universal fine support.
 - Pairwise/common-target cardinality shadows can lose witness identity needed for multi-step composition.
 - A geometry-only collision fact may be insufficient to select a unique response; additional action/material/symmetry-breaking state may be required.
 - A safe quotient for one observable can fail for a richer future language.
+- Functional kernels, A3 relation-state and A4 multivalued support are distinct layers and must not be collapsed merely because all use relation language.
 - File-name equality, branch ancestry, or `ahead(main)>0` is not proof of new mathematical content; semantic identity controls replay.
-- Established general machinery (Galois connections, semigroups, numerical semigroups, partition refinement, etc.) remains prior art even when used inside Enterprise Math.
+- Established general machinery (functional kernels, quotient/congruence, semiconjugacy/factorization, behavioral equivalence, partition refinement, Galois connections, semigroups, numerical semigroups, etc.) remains prior art even when used inside Enterprise Math.
 
 ## 6. Shared executable tool surface
 
@@ -151,7 +164,9 @@ Important families include:
 - `tests/`: exact regression/counterexample suites;
 - `experiments/`: bounded pressure tests and engineering probes;
 - `tools/check_bilingual_pairs.py`: bilingual-pair gate;
-- `tools/check_references.py`: reference-integrity gate.
+- `tools/check_references.py`: reference-integrity gate;
+- `tools/research_scheduler.py`: scheduler configuration/runtime-state validator and reducer;
+- `tools/foundation_backflow.py`: static FQ↔scheduler/backflow authority-link validator.
 
 Executable checks support proof discovery, falsification and regression. They do not by themselves upgrade a statement from `EXECUTABLE_CHECKED` to `PROVED`.
 
@@ -162,36 +177,42 @@ When any route proves or finds something reusable:
 1. relay it immediately if another active route may benefit;
 2. label the downstream action `INFORM`, `CONSUME`, `TEST`, or `HARD_DEPENDENCY`;
 3. identify the mother-theorem owner and relation class;
-4. if it enters canonical `main`, ensure `PROBLEM_STATUS`, the canonical theorem/result doc, lineage/prior-art, and this common surface are sufficient for future routes to discover it;
-5. if it creates a reusable executable method/tool, register the canonical module/tool family here at the next common-surface update;
-6. do not wait for every consumer to acknowledge it.
+4. ask whether the result exposes a minimal sufficient state, minimal repair/extension, cross-route invariant, negative boundary, reusable tool, or layering law; if so, create or route a Foundation Feedback Packet rather than leaving the structure only in the program branch;
+5. if it enters canonical `main`, ensure `PROBLEM_STATUS`, the canonical theorem/result doc, lineage/prior-art, and this common surface are sufficient for future routes to discover it;
+6. if it creates a reusable executable method/tool, register the canonical module/tool family here at the next common-surface update;
+7. do not wait for every consumer or the foundation steward to acknowledge it unless a separately valid `HARD_BLOCK` exists.
 
 ## 8. Nonblocking rule
 
-Knowledge sharing increases parallelism; it must never create a global barrier.
+Knowledge sharing and foundation backflow increase parallelism; they must never create a global barrier.
 
 A route that discovers an upstream theorem should consume it and continue. A route that discovers an upstream gap should isolate the exact missing lemma and continue elsewhere unless it can honestly record a `HARD_BLOCK` under `RESEARCH_SCHEDULING_PROTOCOL`.
 
-## 9. Foundation stewardship and P0 escalation
+## 9. Foundation stewardship, backflow and P0 escalation
 
-The project-wide bottom layer is maintained under `docs/FOUNDATION_STEWARD_PROTOCOL.*` and machine routing `foundation_steward.json`.
+The project-wide bottom layer is maintained under `docs/FOUNDATION_STEWARD_PROTOCOL.*`, `docs/FOUNDATION_BACKFLOW_LOOP.*`, and machine routers `foundation_steward.json` / `foundation_backflow.json`.
 
-The steward maintains language/notation, definition/formula integrity, theorem statements/status/interfaces, prose↔tool↔test↔Lean consistency, and shared tool discovery. Mechanical or already-determined maintenance is repaired directly.
+The steward maintains language/notation, definition/formula integrity, theorem statements/status/interfaces, prose↔tool↔test↔Lean consistency, shared tool discovery, and the research-to-Foundation backflow surface. Mechanical or already-determined maintenance is repaired directly.
 
-A concern that survives minimum verification and still requires genuine research is escalated to **Foundation Problem Set Issue #164** with a stable `FQ-*` ID. Examples include contradiction risk, unresolved domain/type choice, missing theorem hypothesis, cross-route interface incompatibility, high-value new structure, prior-art uncertainty, or a tool/theorem sufficiency question.
+A concern that survives minimum verification and still requires genuine research is escalated to **Foundation Problem Set Issue #164** with a stable `FQ-*` ID. Every executable open FQ is linked through `foundation_backflow.json` to an appropriate #240 scheduler task. Mathematical FQ research uses an L1/L2/L3 `RESEARCH` task; steward verification/integration uses `GOVERNANCE`.
 
-The steward does not solve those research questions. Other researchers claim them, return evidence, and the steward verifies the answer before any canonical language/formula/theorem/tool change.
+A researcher RETURN, scheduler `DONE`, and steward `ACCEPTED` are distinct noncanonical states. Only a gated latest-main merge permits `CANONICALIZED` status and common-surface/global-knowledge propagation.
 
 ### 9.1 Resolved canonical foundation conventions
 
-The first three foundation questions establish the following project-wide conventions once their resolving integration is on `main`:
+The first four foundation questions, once their resolving integrations are on `main`, establish the following project-wide interfaces:
 
 - **Natural states:** \(\mathbb N=\mathbb N_0=\{0,1,2,\ldots\}\); positive integers are \(\mathbb N_{>0}\). Bare \(\mathbb N\) therefore includes zero.
 - **Root/collapse exponents:** the nontrivial primitive family is \(p\ge2\); the exact algebraic/formal extension is all \(p\ge1\), with \(R_1=C_1=\operatorname{id}\).
 - **Time:** \(T_t:X_t\to X_{t+1}\), \(F_0=\operatorname{id}\), and \(F_{t+1}=T_t\circ F_t\), equivalently \(F_t=T_{t-1}\circ\cdots\circ T_0\) for \(t\ge1\). Merge time is the least \(t\in\mathbb N_0\) at which the cumulative images agree.
+- **Minimal functional-kernel layer:** generic typed state feeds deterministic/observation functional kernels and a declared future-signature kernel; State Pair is derived, Difference/defect requires factorization/sufficiency, and A3/A4 remain explicit extensions.
 
-These are interface conventions, not new theorem families. They preserve the existing arithmetic and history-merging results while removing domain and off-by-one ambiguity.
+These interfaces preserve the more specific arithmetic, dynamics, precision and relation theories; they do not transfer P018/P023/P024/A3/A4 owner-specific mathematics wholesale into Foundation.
 
-This creates a deliberate separation:
+### 9.2 Closed-loop routing
 
-`foundation maintenance and verification -> FQ escalation when research is needed -> independent researcher investigation -> steward verification -> canonical propagation`.
+The stable loop is:
+
+`shared-surface preflight -> cross-route result extraction -> Foundation Feedback Packet -> direct maintenance OR FQ -> scheduler-linked research -> RETURN -> steward verification -> latest-main integration -> gates -> canonical main -> common-surface/tool/global-knowledge propagation -> later research pressure-test`.
+
+The exact state machine and FQ↔scheduler role rules are in `docs/FOUNDATION_BACKFLOW_LOOP.*` and `foundation_backflow.json`. If any stage can be recovered only from one conversation's memory, the loop is incomplete.
