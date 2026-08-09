@@ -1,32 +1,38 @@
-"""Box common-target existence under deletions as a finite conflict-graph problem.
+"""Exact multibody common-target repair for axis-aligned integer boxes.
 
-Axis-aligned integer boxes have Helly number 2.  Therefore a remaining box
-family has one whole-family common target iff every remaining pair intersects.
-Create the conflict graph whose edges are disjoint box pairs.  For a deletion
-set D:
+Two complementary finite representations are kept explicit.
 
-    remaining boxes have a common target
-      iff every conflict edge touches D
-      iff D is a vertex cover of the conflict graph.
+**Pair-first.**  Axis-aligned boxes have Helly number 2.  Build the conflict
+graph whose edges are disjoint box pairs.  A deletion set restores one
+whole-family common target iff it is a vertex cover of that conflict graph.
 
-Thus the pairwise conflict graph is an exact sufficient state for the future
-language “delete labeled boxes, then observe only common-target existence”.  It
-is generally much smaller in semantic content than the extremal numeric state
-needed to reconstruct the future common box or its target multiplicity.
+**Target-first.**  For any finite source-to-target relation, minimum source
+deletions needed to obtain a whole-family common target are
 
-Minimum deletion-to-common-target is exactly the graph vertex-cover number.  The
-small exact oracle below is intentionally exponential and only supports finite
-pressure tests; vertex cover is established graph theory, not a novelty claim.
+    |X| - max_z c_z,
+
+where ``c_z`` is target occupancy.  For boxes, a maximum-occupancy witness can
+always be chosen at a point whose coordinate on each axis is one of the input
+lower bounds: take the componentwise maximum lower bound of any maximum common
+subfamily.  Thus a finite product of lower-bound coordinates is an exact target
+candidate set independent of the ambient coordinate span.
+
+The pair-first minimum vertex-cover oracle is exponential and used only as a
+small reference.  The target-first candidate-grid oracle is polynomial in the
+number of boxes for fixed dimension (naively O(N^(n+1))) and is retained as the
+engineering counterpart of common-collapse incidence inversion.  Neither graph
+vertex cover nor box stabbing/depth is claimed as new mathematics.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
-from itertools import combinations
+from itertools import combinations, product
 
 from .box_collapse import LabeledIntegerBox, pair_intersection_cardinality
 
 ConflictEdge = tuple[int, int]
+Point = tuple[int, ...]
 
 
 @dataclass(frozen=True)
@@ -34,6 +40,15 @@ class BoxConflictRepair:
     labels: tuple[int, ...]
     conflict_edges: tuple[ConflictEdge, ...]
     minimum_deletions: int
+    minimum_deletion_sets: tuple[frozenset[int], ...]
+
+
+@dataclass(frozen=True)
+class BoxTargetOccupancyRepair:
+    labels: tuple[int, ...]
+    maximum_occupancy: int
+    minimum_deletions: int
+    witness_points: tuple[Point, ...]
     minimum_deletion_sets: tuple[frozenset[int], ...]
 
 
@@ -109,3 +124,63 @@ def minimum_common_target_deletion_sets(
                 minimum_deletion_sets=repairs,
             )
     raise AssertionError("deleting all but one box must always cover every conflict edge")
+
+
+def box_contains_point(box: LabeledIntegerBox, point: Point) -> bool:
+    """Whether one integer point lies in one inclusive box."""
+    if len(point) != box.dimension:
+        raise ValueError("point dimension must match box dimension")
+    for coordinate in point:
+        if isinstance(coordinate, bool) or not isinstance(coordinate, int):
+            raise ValueError("point coordinates must be integers")
+    return all(
+        lo <= coordinate <= hi
+        for coordinate, lo, hi in zip(point, box.lows, box.highs, strict=True)
+    )
+
+
+def target_first_common_target_repair(
+    boxes: tuple[LabeledIntegerBox, ...] | list[LabeledIntegerBox],
+) -> BoxTargetOccupancyRepair:
+    """Return exact maximum occupancy and optimal deletion sets from target incidence.
+
+    Candidate points are the Cartesian product of unique lower-bound coordinates
+    on every axis.  At least one maximum-occupancy common-target witness occurs
+    on this finite grid.
+    """
+    items = _validated_boxes(boxes)
+    labels = frozenset(box.label for box in items)
+    coordinates = tuple(
+        tuple(sorted({box.lows[axis] for box in items}))
+        for axis in range(items[0].dimension)
+    )
+
+    best_occupancy = -1
+    witness_points: list[Point] = []
+    deletion_sets: set[frozenset[int]] = set()
+    for point in product(*coordinates):
+        occupants = frozenset(
+            box.label for box in items if box_contains_point(box, point)
+        )
+        occupancy = len(occupants)
+        if occupancy > best_occupancy:
+            best_occupancy = occupancy
+            witness_points = [point]
+            deletion_sets = {labels - occupants}
+        elif occupancy == best_occupancy:
+            witness_points.append(point)
+            deletion_sets.add(labels - occupants)
+
+    if best_occupancy <= 0:
+        raise AssertionError("candidate lower-bound grid lost every box")
+    minimum_deletions = len(items) - best_occupancy
+    repairs = tuple(sorted(deletion_sets, key=lambda item: tuple(sorted(item))))
+    if any(len(repair) != minimum_deletions for repair in repairs):
+        raise AssertionError("maximum occupancy produced nonminimum deletion set")
+    return BoxTargetOccupancyRepair(
+        labels=tuple(sorted(labels)),
+        maximum_occupancy=best_occupancy,
+        minimum_deletions=minimum_deletions,
+        witness_points=tuple(sorted(set(witness_points))),
+        minimum_deletion_sets=repairs,
+    )
