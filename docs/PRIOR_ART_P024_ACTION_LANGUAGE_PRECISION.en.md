@@ -8,7 +8,7 @@ Historical novelty of the combined interpretation remains `NOVELTY_UNVERIFIED`.
 
 ## 2. Numerical semigroups
 
-Rosales and García-Sánchez's monograph *Numerical Semigroups* is registered as the main prior-art reference for finitely generated numerical semigroups, gaps, Frobenius-type structure, Apéry sets, and conductors (`SRC-ROSALES-GARCIA-SANCHEZ-2009-NUMERICAL-SEMIGROUPS`).
+Rosales and García-Sánchez's monograph *Numerical Semigroups* is registered as the main prior-art reference for finitely generated numerical semigroups, gaps, Frobenius-type structure, Apéry sets, and conductors [SRC-ROSALES-GARCIA-SANCHEZ-2009-NUMERICAL-SEMIGROUPS].
 
 P024 therefore does **not** claim as inventions:
 
