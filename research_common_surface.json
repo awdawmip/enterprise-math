@@ -1,0 +1,83 @@
+{
+  "schema": "ENTERPRISE_MATH_COMMON_RESEARCH_SURFACE_V1",
+  "status": "ACTIVE",
+  "effective": "2026-08-09",
+  "scheduling_protocol": {
+    "document_en": "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md",
+    "document_zh": "docs/RESEARCH_SCHEDULING_PROTOCOL.zh-CN.md",
+    "research_default": "PARALLEL",
+    "canonical_promotion": "SERIALIZED_FINAL_GATE",
+    "defer_is_blocker": false,
+    "only_blocker": "HARD_BLOCK",
+    "hard_block_required_fields": [
+      "missing_object",
+      "owner",
+      "necessity",
+      "unblock_condition"
+    ],
+    "no_new_mathematics_scope": "L4_INTEGRATION_ONLY_OR_EXPLICIT_REPLAY_SLICE"
+  },
+  "mandatory_preflight": [
+    "docs/RESEARCH_COMMON_SURFACE.en.md",
+    "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md",
+    "docs/PROBLEM_STATUS.en.md",
+    "relevant canonical theorem/result documents",
+    "latest relevant Research Relay Issue #82 entries",
+    "relevant executable specification/tests/Lean modules"
+  ],
+  "theorem_channels": {
+    "canonical_base": [
+      "docs/THEOREMS.en.md",
+      "docs/THEOREMS.zh-CN.md"
+    ],
+    "canonical_status_router": [
+      "docs/PROBLEM_STATUS.en.md",
+      "docs/PROBLEM_STATUS.zh-CN.md"
+    ],
+    "canonical_problem_documents": "docs/Pxxx_*.{en,zh-CN}.md referenced by PROBLEM_STATUS",
+    "formalized_subset": [
+      "EnterpriseMath.lean",
+      "EnterpriseMath/**.lean"
+    ],
+    "proved_wip_bus": "GitHub Issue #82 Research Relay"
+  },
+  "result_statuses": [
+    "CANONICAL_MAIN",
+    "LEAN_CHECKED_MAIN",
+    "PROVED_WIP_RELAY",
+    "EXECUTABLE_CHECKED",
+    "COUNTEREXAMPLE_NEGATIVE_BOUNDARY",
+    "CONJECTURAL"
+  ],
+  "shared_theorem_families": {
+    "A0": "roots, collapse, quotient/remainder, scale lattice, signed state, typed descent, adjoints",
+    "A1": "history merge, fibers/kernels, collision spectra, coalescence, stabilization",
+    "A2": "observation factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair",
+    "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory",
+    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra",
+    "A5": "primitive adjacency, graph metric, finite balls/shells, lattice candidates, radial/distance structure"
+  },
+  "tool_roots": {
+    "python_exact_reference": "src/enterprise_math/",
+    "lean": "EnterpriseMath/",
+    "lean_root": "EnterpriseMath.lean",
+    "tests": "tests/",
+    "experiments": "experiments/",
+    "repo_tools": [
+      "tools/check_bilingual_pairs.py",
+      "tools/check_references.py"
+    ]
+  },
+  "relay_action_classes": [
+    "INFORM",
+    "CONSUME",
+    "TEST",
+    "HARD_DEPENDENCY"
+  ],
+  "route_heartbeat_fields": [
+    "frontier",
+    "hard_block",
+    "last_progress",
+    "shared_surface_seen"
+  ]
+}
