@@ -7,6 +7,9 @@ from enterprise_math.causal_boundary_pullback import (
     pullback_partition_matches_direct_signatures,
     reachable_additive_sums,
     square_growth,
+    unit_increment_continuation_type_count,
+    unit_increment_formula_matches_pullback,
+    unit_increment_full_revelation_budget,
 )
 
 
@@ -31,6 +34,29 @@ class CausalBoundaryPullbackTests(unittest.TestCase):
             (22, 23, 24),
         )
 
+    def test_square_growth_revelation_type_count_is_basin_width_limited_linear_budget(self):
+        growth = square_growth(30)
+        level = 4
+        width = growth[level + 1] - growth[level]
+        self.assertEqual(width, 9)
+        for unit_cost in (1, 2, 5):
+            self.assertEqual(
+                unit_increment_full_revelation_budget(growth, level, unit_cost),
+                unit_cost * (width - 1),
+            )
+            for budget in range(0, unit_cost * (width + 2)):
+                self.assertEqual(
+                    unit_increment_continuation_type_count(
+                        growth, level, unit_cost, budget
+                    ),
+                    min(width, budget // unit_cost + 1),
+                )
+                self.assertTrue(
+                    unit_increment_formula_matches_pullback(
+                        growth, level, unit_cost, budget
+                    )
+                )
+
     def test_pullback_intervals_match_direct_future_signatures_for_nonlinear_growth(self):
         growth = square_growth(30)
         for level in range(1, 9):
@@ -49,7 +75,6 @@ class CausalBoundaryPullbackTests(unittest.TestCase):
         growth = square_growth(30)
         level = 2  # [4,9)
         future_sums = (0, 20)
-        # 25-20=5 lies inside [4,9), so a boundary farther in the future can matter.
         self.assertIn(5, basin_pullback_cuts_from_sums(growth, level, future_sums))
         intervals = basin_pullback_intervals_from_sums(growth, level, future_sums)
         self.assertEqual(intervals, ((4, 5), (5, 9)))
@@ -62,7 +87,6 @@ class CausalBoundaryPullbackTests(unittest.TestCase):
         growth = tuple(12 * level for level in range(20))
         level = 3
         sums = (0, 8, 16)
-        # Boundary pullbacks of multiples of 12 create local cuts at remainder 4 and 8.
         self.assertEqual(
             tuple(cut - growth[level] for cut in basin_pullback_cuts_from_sums(growth, level, sums)),
             (4, 8),
@@ -77,6 +101,16 @@ class CausalBoundaryPullbackTests(unittest.TestCase):
                 generators=(10,),
                 costs=(1,),
                 budget=1,
+            )
+
+    def test_decreasing_next_width_blocks_the_closed_unit_formula_gate(self):
+        growth = (0, 5, 8, 10)  # widths 5,3,2
+        with self.assertRaises(ValueError):
+            unit_increment_continuation_type_count(
+                growth,
+                level=0,
+                unit_cost=1,
+                budget=2,
             )
 
 
