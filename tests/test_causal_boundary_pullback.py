@@ -49,14 +49,14 @@ class CausalBoundaryPullbackTests(unittest.TestCase):
         growth = square_growth(30)
         level = 2  # [4,9)
         future_sums = (0, 20)
-        # 25-20=5 lies inside [4,9), so a boundary two levels ahead can matter.
+        # 25-20=5 lies inside [4,9), so a boundary farther in the future can matter.
         self.assertIn(5, basin_pullback_cuts_from_sums(growth, level, future_sums))
         intervals = basin_pullback_intervals_from_sums(growth, level, future_sums)
         self.assertEqual(intervals, ((4, 5), (5, 9)))
 
     def test_reachable_future_sums_are_actual_nonnegative_generator_combinations(self):
         sums = reachable_additive_sums((4, 7), (3, 5), budget=11)
-        self.assertEqual(sums, (0, 4, 7, 8, 11, 12))
+        self.assertEqual(sums, (0, 4, 7, 8, 11, 12, 14, 15))
 
     def test_linear_growth_recovers_periodic_block_cut_pattern(self):
         growth = tuple(12 * level for level in range(20))
