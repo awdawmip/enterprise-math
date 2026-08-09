@@ -15,6 +15,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from math import comb, factorial
 
+from .core import integer_nth_root
 from .dimension_contraction import balanced_power_energy
 
 
@@ -191,6 +192,75 @@ def directed_boundary_decomposition(
     if not (0 <= remainder < next_gap):
         raise AssertionError("directed boundary remainder must lie inside the next basin")
     return receiver_total, donor_total, consumed, remainder, next_gap
+
+
+def square_residue_correction(block_size: int, total: int) -> int:
+    """Bounded remainder epsilon_m(c) in m*Psi_(m,2)(c)=c^2+epsilon."""
+    _require_positive("block_size", block_size)
+    _require_integer("total", total)
+    remainder = abs(total) % block_size
+    return remainder * (block_size - remainder)
+
+
+def square_split_imbalance(
+    left_size: int, right_size: int, left_total: int, right_total: int
+) -> int:
+    """Cross-multiplied deviation from proportional block allocation."""
+    _require_positive("left_size", left_size)
+    _require_positive("right_size", right_size)
+    _require_integer("left_total", left_total)
+    _require_integer("right_total", right_total)
+    return right_size * left_total - left_size * right_total
+
+
+def square_scaled_excess_identity(
+    left_size: int, right_size: int, left_total: int, right_total: int
+) -> tuple[int, int]:
+    """Return both sides of the exact scaled square-excess identity."""
+    _require_positive("left_size", left_size)
+    _require_positive("right_size", right_size)
+    _require_integer("left_total", left_total)
+    _require_integer("right_total", right_total)
+    total_size = left_size + right_size
+    total = left_total + right_total
+    excess = fiber_excess_energy(left_size, right_size, 2, total, left_total)
+    left_side = left_size * right_size * total_size * excess
+    imbalance = square_split_imbalance(
+        left_size, right_size, left_total, right_total
+    )
+    right_side = (
+        imbalance * imbalance
+        + right_size
+        * total_size
+        * square_residue_correction(left_size, left_total)
+        + left_size
+        * total_size
+        * square_residue_correction(right_size, right_total)
+        - left_size
+        * right_size
+        * square_residue_correction(total_size, total)
+    )
+    return left_side, right_side
+
+
+def square_imbalance_bound(
+    left_size: int, right_size: int, total: int, slack: int
+) -> int:
+    """Integer bound for |(m+n)*left_total-m*total| at given square slack."""
+    _require_positive("left_size", left_size)
+    _require_positive("right_size", right_size)
+    _require_integer("total", total)
+    _require_natural("slack", slack)
+    total_size = left_size + right_size
+    bound_square = (
+        left_size
+        * right_size
+        * (
+            total_size * slack
+            + square_residue_correction(total_size, total)
+        )
+    )
+    return integer_nth_root(bound_square, 2)
 
 
 def _normalize_block(block: Block) -> Block:
