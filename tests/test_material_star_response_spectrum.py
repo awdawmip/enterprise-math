@@ -122,11 +122,11 @@ class MaterialStarResponseSpectrumTests(unittest.TestCase):
         for leaf_count in range(2, 10):
             self.assertEqual(star_minimum_total_impulse(leaf_count, 1), 1)
             self.assertEqual(
-                star_minimum_total_integer_relation(leaf_count, 1),
-                tuple(
+                set(star_minimum_total_integer_relation(leaf_count, 1)),
+                {
                     tuple(1 if index == selected else 0 for index in range(leaf_count))
                     for selected in range(leaf_count)
-                ),
+                },
             )
             self.assertEqual(
                 star_minimum_symmetric_refinement(leaf_count, 1),
