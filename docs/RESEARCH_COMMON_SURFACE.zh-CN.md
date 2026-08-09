@@ -149,11 +149,16 @@ Canonical P022 families：
   - `tests/test_p022_hcp_geometry.py`
 - PR #288 / `main@aec7f625e48eb8f93ba701ba57686a9e225efd17`：
   - `src/enterprise_math/p022_barlow_stacking.py`
-  - `tests/test_p022_barlow_stacking.py`。
+  - `tests/test_p022_barlow_stacking.py`；
+- PR #292 / 当前 L4：
+  - `src/enterprise_math/p022_barlow_precision.py`
+  - `tests/test_p022_barlow_precision.py`。
 
 PR #262 给出 `A_p` 与 simple-cubic geometry 的精确有限/组合 geodesic-multiplicity observable，以及整数坐标 ABAB HCP contact graph：degree 12、精确 graph distance/shells，并以独立算法交叉检查 shortest-path counts。通用非负 witness-count/correspondence algebra 属于 A4/A2；P022 拥有 geometry specialization。这里没有偷偷引入浮点 Euclidean sphere-center 模型。
 
-PR #288 把 close-packed executable 层推广到 periodic Barlow stacking：periodic contact graph、精确 graph distance/geodesic multiplicity、FCC/HCP reconstruction，以及针对声明的 root-to-target-layer distance/geodesic-count query 的**累计 interface-sign-count**压缩。该压缩是 task-relative；Barlow precision、periodic-growth、coordination-observable 与 observation-history theory 不在此次 promotion 范围内。
+PR #288 把 close-packed executable 层推广到 periodic Barlow stacking：periodic contact graph、精确 graph distance/geodesic multiplicity、FCC/HCP reconstruction，以及针对声明的 root-to-target-layer distance/geodesic-count query 的**累计 interface-sign-count**压缩。
+
+PR #292 加入对应的 task-relative precision 边界。对一个选定 target layer，`(abs(k), delta_k)` 可精确恢复两类 effective interface-sign counts，从而恢复声明的 root-to-layer distance/geodesic-count language 所需的 vertical witness polynomial；同一 imbalance 也可由该 polynomial 的一阶矩恢复。这不是 whole-history sufficiency：完整 prefix-imbalance trajectory 严格更丰富，并可重建 literal stacking word。Periodic-growth、coordination-observable 与 observation-history theory 仍在本次 promotion 之外。
 
 **活跃接口警报 — FQ-20260809-005：**稳定导出的 `geometry.graph_distance` 接受一般 adjacency mapping，而 P012 普通 metric theorem 假设连通无向简单图。在研究答案经 steward 验证前，对非对称 adjacency 输入不得引用 P012 metric symmetry。
 

@@ -101,7 +101,7 @@
     "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
     "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel",
-    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure"
+    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure, task-relative Barlow stacking precision"
   },
   "canonical_specializations": {
     "P018_P023_power_free_action_basis": {
@@ -128,6 +128,13 @@
       "merge": "PR #288 / main@aec7f625e48eb8f93ba701ba57686a9e225efd17",
       "scope": "periodic Barlow close-packed contact graph with exact integer/combinatorial graph distance and geodesic multiplicity, FCC/HCP reconstruction, and root-to-target-layer cumulative interface-sign-count compression for those queries",
       "boundary": "the cumulative-prefix compression is task-relative to the declared root-to-layer distance/geodesic-count queries; Barlow precision, periodic-growth, coordination-observable and observation-history theories are not included"
+    },
+    "P022_barlow_task_relative_precision": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "promotion": "PR #292 / current L4",
+      "scope": "for a selected target layer, (abs(k), delta_k) exactly recovers the two effective interface-sign counts and therefore the vertical witness polynomial required by the declared root-to-layer distance/geodesic-count language; first moments recover delta_k; selected-layer imbalance vectors are coarser than the complete prefix trajectory",
+      "negative_boundary": "the complete prefix-imbalance trajectory reconstructs the literal stacking word, so selected-layer precision is not whole-history sufficiency",
+      "publication_boundary": "periodic-growth, coordination-observable and observation-history descendants remain separate later P022 promotions"
     },
     "E001_residual_conservation_slice": {
       "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED + ONE_COMPARATOR_NEGATIVE",
@@ -164,6 +171,7 @@
       "tests/test_p022_hcp_geometry.py"
     ],
     "P022_barlow_stacking_core": ["src/enterprise_math/p022_barlow_stacking.py", "tests/test_p022_barlow_stacking.py"],
+    "P022_barlow_task_relative_precision": ["src/enterprise_math/p022_barlow_precision.py", "tests/test_p022_barlow_precision.py"],
     "P021": ["src/enterprise_math/causal_boundary.py", "tests/test_causal_boundary.py"],
     "E001_material_impulse_application": [
       "src/enterprise_math/material_impulse_accounting.py",
