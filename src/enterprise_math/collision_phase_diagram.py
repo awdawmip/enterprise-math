@@ -1,4 +1,4 @@
-"""E001.6 spatial-collapse x primitive-motion integer phase diagnostics.
+"""E001.6 spatial-collapse x sampled-motion integer phase diagnostics.
 
 This module follows the active E001 precision-direction decision:
 
@@ -15,8 +15,8 @@ integer graph-step separation.  The candidate macro contact law is
 Thus a positive terminal clearance may collapse to contact at coarse scales and
 then disappear under refinement once ``d <= g``.
 
-The 1D crossing model also keeps a separate transition/time coordinate.  For
-support radii ``r_left,r_right``, let ``R=r_left+r_right`` and signed center
+The 1D crossing model also keeps a separate sampled-transition/time coordinate.
+For support radii ``r_left,r_right``, let ``R=r_left+r_right`` and signed center
 separation be ``q``.  Macro contact at factor ``d`` is
 
     |q| <= R + d - 1.
@@ -41,11 +41,15 @@ partitioned by two exact integer thresholds:
 
 Here ``d_capture=max(1,ceil((s+1)/2)-R)``.  The middle interval may be empty.
 
-These statuses describe contact opportunity, not rebound physics.  E001
-primitive transition targets can still detect some crossings (e.g. an atomic
-edge swap) that static endpoint sampling misses.  Longer nonprimitive jumps
-remain outside the current transition contract and should be decomposed rather
-than silently interpolated through a continuum.
+These statuses describe sampled contact opportunity, not rebound physics.
+E001's separate primitive-transition module can optionally detect explicitly
+declared atomic incidence (for example an edge swap), but that module is no
+longer a mandatory completion rule for every motion.  Under the active world-
+engine semantics, arbitrary finite jumps may remain single saved transitions;
+if their represented pre/post states have no collapse-contact and no additional
+transition incidence is explicitly declared, tunneling/skipping is a legal
+scale-dependent outcome rather than an error to be repaired by hidden
+intermediate states.
 """
 
 from __future__ import annotations
