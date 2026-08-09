@@ -15,12 +15,19 @@ For a body on one separated side of a wall:
 4. momentum changes by that impulse;
 5. one saved drift is ``trunc(momentum / mass_quanta)`` cells.
 
-If the accumulated material impulse changes the momentum sign, rebound emerges
-without a ``REBOUND -> reverse velocity`` rule.  If a saved drift jumps from one
-separated side of the wall to the other, that transmission is legal here; no
-hidden continuous path is reconstructed.  A saved endpoint touching/overlapping
-the primitive wall is returned as explicit TERMINAL_CONTACT for the terminal
-geometry layer.
+If the accumulated material impulse changes the represented momentum from an
+inward/stalled state into a nonzero outward state, rebound has emerged without a
+``REBOUND -> reverse velocity`` rule.  The finite zero-momentum stall band is a
+legal intermediate state and does not erase a later outward onset.
+
+If a saved drift jumps from one separated side of the wall to the other, that
+transmission is legal here; no hidden continuous path is reconstructed.  A saved
+endpoint touching/overlapping the primitive wall is returned as explicit
+TERMINAL_CONTACT for the terminal geometry layer.
+
+Crucially, the current material kick is selected only from the **current saved
+state**.  A future post-drift endpoint cannot retroactively trigger force in the
+current tick.
 
 The declared maximum impulse-per-tick is still a calibration/policy boundary.
 This module is therefore a finite world-engine experiment, not yet a complete
@@ -101,8 +108,13 @@ def _branch_from_motion(
 
 
 def _motion_reversed(before: int, after: int, start_side: int) -> bool:
-    """Whether inward nonzero momentum became outward nonzero momentum."""
-    return before * start_side < 0 and after * start_side > 0
+    """Whether this tick first enters nonzero outward whole momentum.
+
+    ``before`` may already be the finite zero-momentum stall state.  That stall
+    must not hide a later material-driven outward onset, so the previous state is
+    required only to be *not outward*, rather than strictly inward.
+    """
+    return before * start_side <= 0 and after * start_side > 0
 
 
 def impulse_material_step_1d(
@@ -115,7 +127,7 @@ def impulse_material_step_1d(
     max_impulse_per_tick: int,
     retain_impulse_detail: bool = True,
 ) -> ImpulseMaterialTransition1D:
-    """Advance one saved tick using kick-then-drift finite material dynamics."""
+    """Advance one saved tick using causal kick-then-drift finite dynamics."""
     for name, value in (
         ("radius", radius),
         ("collapse_factor", collapse_factor),
@@ -162,6 +174,7 @@ def impulse_material_step_1d(
     branch = _branch_from_motion(state.branch, state.momentum_quanta, start_side)
     kind = FREE_DRIFT
 
+    # Causal rule: only the current saved clearance decides the current kick.
     if start_gap < collapse_factor:
         depth = collapse_factor - start_gap
         if depth >= len(material_profile.loading) or depth >= len(material_profile.returning):
@@ -266,7 +279,7 @@ def run_impulse_material_world_1d(
     ticks: int,
     retain_impulse_detail: bool = True,
 ) -> ImpulseMaterialHistory1D:
-    """Run a finite number of kick-then-drift material ticks."""
+    """Run a finite number of causal kick-then-drift material ticks."""
     if isinstance(ticks, bool) or not isinstance(ticks, int) or ticks < 0:
         raise ValueError("ticks must be a non-negative integer")
     current: MomentumMaterialState1D | None = initial
