@@ -17,15 +17,22 @@ theorem root_observation_future_separates
     (hr : 1 ≤ r)
     (hlt : q₁ < q₂) :
     root r (q₁ / (q₁ + 1)) ≠ root r (q₂ / (q₁ + 1)) := by
+  have hr0 : r ≠ 0 := by omega
   have ha : 0 < q₁ + 1 := by omega
   have hleft : q₁ / (q₁ + 1) = 0 := Nat.div_eq_of_lt (by omega)
   have hq : q₁ + 1 ≤ q₂ := by omega
   have hright : 1 ≤ q₂ / (q₁ + 1) := by
     exact (Nat.le_div_iff_mul_le ha).2 (by simpa using hq)
   have hrootright : 1 ≤ root r (q₂ / (q₁ + 1)) := by
-    exact (Nat.le_nthRoot_iff (n := r) (by omega)).2 (by simpa using hright)
+    exact (Nat.le_nthRoot_iff (n := r) hr0).2 (by simpa using hright)
+  have hrootzero : root r 0 = 0 := by
+    exact (EnterpriseMath.IntegerRoot.root_eq_iff (p := r) (n := 0) (k := 0) hr0).2 (by
+      constructor
+      · simp [zero_pow hr0]
+      · simp)
   have hrootleft : root r (q₁ / (q₁ + 1)) = 0 := by
-    simp [hleft, root]
+    rw [hleft]
+    exact hrootzero
   omega
 
 /-- Full future quotient signatures under a positive-order root observation are
