@@ -1,16 +1,22 @@
 """Automatic coarse-layer material rebound world for sampled 1D wall jumps.
 
-This composes three already-declared E001 engineering policies:
+This composes explicit E001 engineering policies while separating *contact state*
+from *response trigger*:
 
-1. positive sampled gap ``g`` enters macro contact iff ``g<d``;
-2. coarse-only interaction-layer depth is ``kappa=d-g``;
-3. the RETURNING branch sample at that depth splits the incoming displacement
-   budget by ``floor(B*r/A)`` and sends the returned budget opposite the proposal.
+1. positive sampled gap ``g`` belongs to the coarse interaction layer iff ``g<d``;
+2. coarse-only layer depth is ``kappa=d-g``;
+3. a response is triggered only when a proposal crosses the wall between
+   separated sampled sides or moves closer to the wall while the controlling
+   sampled gap lies in the layer;
+4. same-side HOLD or retreat is accepted, even if the represented start state is
+   still inside the coarse layer, so unloading can leave the interaction layer;
+5. on trigger, the RETURNING branch sample at layer depth splits the incoming
+   displacement budget by ``floor(B*r/A)`` and sends the returned budget opposite
+   the proposal.
 
-If both sampled gaps are resolved at the current factor, the proposed state is
-accepted directly, including legal wall transmission.  Primitive endpoint
-contact ``g=0`` is rejected from this coarse-layer helper and must use explicit
-terminal contact geometry instead.
+If a crossing proposal is resolved at the current factor it transmits directly.
+Primitive endpoint contact ``g=0`` is rejected from this coarse-layer helper and
+must use explicit terminal contact geometry instead.
 
 This is a fully explicit toy world law, not a physical constitutive model.
 """
@@ -28,13 +34,17 @@ from .scale_tunneling_1d import BodyInterval1D, Wall1D, interval_wall_clearance
 TRANSMIT = "TRANSMIT"
 ACCEPT = "ACCEPT"
 REBOUND = "REBOUND"
+NO_TRIGGER = "NO_TRIGGER"
+CROSSING_CONTACT = "CROSSING_CONTACT"
+APPROACH_CONTACT = "APPROACH_CONTACT"
 
 
 @dataclass(frozen=True)
 class CollapseMaterialWorldOutcome1D:
-    """One finite after-state with the material state derived from collapse depth."""
+    """One finite after-state with material state derived from collapse depth."""
 
     kind: str
+    trigger_reason: str
     start_center: int
     proposed_end_center: int
     after_center: int
@@ -43,6 +53,7 @@ class CollapseMaterialWorldOutcome1D:
     start_clearance: int
     end_clearance: int
     crosses_between_separated_sides: bool
+    approaching_wall: bool
     layer_material: CollapseLayerMaterialObservation1D | None
     rebound: ReboundBudget | None
 
@@ -74,6 +85,28 @@ def collapse_material_wall_step(
         )
 
     crosses = _crosses(start, end, wall)
+    approaching = end_gap < start_gap
+    controlling_gap = min(start_gap, end_gap)
+    layer_contact = controlling_gap < collapse_factor
+    should_rebound = layer_contact and (crosses or approaching)
+
+    if not should_rebound:
+        return CollapseMaterialWorldOutcome1D(
+            kind=TRANSMIT if crosses else ACCEPT,
+            trigger_reason=NO_TRIGGER,
+            start_center=start_center,
+            proposed_end_center=proposed_end_center,
+            after_center=proposed_end_center,
+            radius=radius,
+            collapse_factor=collapse_factor,
+            start_clearance=start_gap,
+            end_clearance=end_gap,
+            crosses_between_separated_sides=crosses,
+            approaching_wall=approaching,
+            layer_material=None,
+            rebound=None,
+        )
+
     observation = sampled_wall_layer_material(
         wall,
         start_center,
@@ -84,19 +117,7 @@ def collapse_material_wall_step(
         RETURNING,
     )
     if observation is None:
-        return CollapseMaterialWorldOutcome1D(
-            kind=TRANSMIT if crosses else ACCEPT,
-            start_center=start_center,
-            proposed_end_center=proposed_end_center,
-            after_center=proposed_end_center,
-            radius=radius,
-            collapse_factor=collapse_factor,
-            start_clearance=start_gap,
-            end_clearance=end_gap,
-            crosses_between_separated_sides=crosses,
-            layer_material=None,
-            rebound=None,
-        )
+        raise AssertionError("rebound trigger did not produce a coarse layer material state")
 
     delta = proposed_end_center - start_center
     direction = 0 if delta == 0 else 1 if delta > 0 else -1
@@ -109,6 +130,7 @@ def collapse_material_wall_step(
     after = start_center - direction * rebound.returned_budget
     return CollapseMaterialWorldOutcome1D(
         kind=REBOUND,
+        trigger_reason=CROSSING_CONTACT if crosses else APPROACH_CONTACT,
         start_center=start_center,
         proposed_end_center=proposed_end_center,
         after_center=after,
@@ -117,6 +139,7 @@ def collapse_material_wall_step(
         start_clearance=start_gap,
         end_clearance=end_gap,
         crosses_between_separated_sides=crosses,
+        approaching_wall=approaching,
         layer_material=observation,
         rebound=rebound,
     )
