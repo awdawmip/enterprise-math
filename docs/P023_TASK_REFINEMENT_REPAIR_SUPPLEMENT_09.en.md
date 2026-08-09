@@ -68,7 +68,11 @@ For any family of task languages,
 \boxed{E_{\bigcup_i\mathcal L_i}=\bigcap_i E_{\mathcal L_i}.}
 \]
 
+### Proof
+
 Two states are equivalent on the left exactly when they answer every query in the union identically, which is equivalent to lying in every individual relation. ∎
+
+### Meaning
 
 Thus increasing horizon, adding action generators, and adding observables are all the same order-theoretic move: the safe quotient can only refine.
 
@@ -92,11 +96,15 @@ If \(C_i=|X/E_i|\), then
 \boxed{\max(C_1,C_2)\le C_{12}\le C_1C_2.}
 \]
 
+### Key point
+
 The product is only the candidate Cartesian product. Actual combined states are the tuples reached by `X`.
 
 \[
 \boxed{\text{formal product candidates}\neq\text{realized combined states}.}
 \]
+
+### Many-task version
 
 For finitely many quotients,
 
@@ -148,7 +156,13 @@ R(E\to F)
 }
 \]
 
-Necessity is the pigeonhole principle inside each old block: distinct target blocks inside one coarse block need distinct repair symbols. Sufficiency follows by numbering the target subblocks locally inside each coarse block and reusing the same symbol alphabet across different coarse blocks. ∎
+### Necessity
+
+Inside one old coarse block, distinct target blocks require distinct repair symbols. Otherwise the pigeonhole principle forces two target blocks to have the same old coarse label and the same repair symbol, contradicting \(F=E\cap\ker\rho\). Hence every repair alphabet has at least the maximum local split multiplicity.
+
+### Sufficiency
+
+Number the target subblocks locally inside each coarse block and reuse the same symbol alphabet across different coarse blocks. With exactly \(R(E\to F)\) symbols, equality of the old coarse label plus repair symbol is then exactly target equivalence. ∎
 
 ## 7. General criterion for a one-bit repair
 
@@ -172,7 +186,11 @@ For \(G\subseteq F\subseteq E\),
 \boxed{R(E\to G)\le R(E\to F)R(F\to G).}
 \]
 
+### Proof
+
 An `E`-block contains at most \(R(E\to F)\) `F`-blocks, each containing at most \(R(F\to G)\) `G`-blocks. Taking the maximum proves the bound. ∎
+
+### Strict inequality can occur
 
 The inequality may be strict when the worst split at each stage occurs on different local branches. Stagewise worst cases therefore need not multiply to the exact direct repair cost.
 
@@ -199,6 +217,8 @@ Hence \(\mathfrak P_Q\) is a closure system inside the equivalence-relation latt
 \]
 
 Its join is the intersection of all query-generated relations simultaneously coarser than the supplied relations.
+
+### Project meaning
 
 This suggests a more foundational proof-state notion:
 
