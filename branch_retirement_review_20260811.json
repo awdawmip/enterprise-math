@@ -1,0 +1,92 @@
+{
+  "schema": "ENTERPRISE_MATH_BRANCH_RETIREMENT_REVIEW_V1",
+  "status": "FIRST_REVIEW_COMPLETE_SECOND_REVIEW_REQUIRED",
+  "audit_date": "2026-08-11",
+  "repository": "awdawmip/enterprise-math",
+  "census": {
+    "total_refs_including_main": 492,
+    "non_main_refs": 491,
+    "registered_active_owner_or_bridge": 14,
+    "registered_replay_required": 4,
+    "registered_provenance": 9,
+    "registered_absorbed": 9,
+    "first_pass_compare_base": "4859bc5a15c58b7487ec65430c977d3a7d5debbe"
+  },
+  "retirement_policy": {
+    "first_review_can_retire": false,
+    "formal_lifecycle_states_unchanged": true,
+    "second_review_required": true,
+    "second_review_verdicts": [
+      "APPROVE_RETIRE",
+      "REJECT_RETIRE",
+      "HARVEST_REQUIRED",
+      "KEEP_ACTIVE"
+    ],
+    "delete_ref_only_after_approve_retire": true
+  },
+  "registered_deep_review": {
+    "core/a3-relation-lattice-v3": "PROMOTION_READY_SURFACE_SYNC_REQUIRED",
+    "bridge/a3-a4-generated-support-v3": "RETIRE_REVIEW_PENDING",
+    "bridge/p017-p018-hard-core-v2": "HARVEST_REQUIRED",
+    "bridge/a2-e001-material-markov": "RETIRE_REVIEW_PENDING",
+    "program/p017-legendre": "KEEP_ACTIVE",
+    "program/p018-precision-v2": "KEEP_ACTIVE",
+    "program/p021-causal-focusing-v3": "RETIRE_REVIEW_PENDING",
+    "program/p022-geometry-v2": "HARVEST_REQUIRED",
+    "program/p024-action-precision": "RETIRE_REVIEW_PENDING",
+    "program/p025-abc-support-collapse": "HARVEST_REQUIRED",
+    "research/r004-causal-identifiability-v1": "KEEP_ACTIVE",
+    "engineering/e001-material-impulse-v2": "HARVEST_REQUIRED",
+    "engineering/e001-material-contact-network": "PROMOTION_READY_SURFACE_SYNC_REQUIRED",
+    "engineering/e001-measurement-area-refinement": "RETIRE_REVIEW_PENDING",
+    "research/core/relation-quotient": "HARVEST_REQUIRED",
+    "research/core/relation-support-bridge": "HARVEST_REQUIRED",
+    "bridge/a3-a4-v2": "RETIRE_REVIEW_PENDING",
+    "engineering/e001-material-state-cost": "RETIRE_REVIEW_PENDING"
+  },
+  "completed_harvests": [
+    {
+      "source": "engineering/e001-material-state-cost@99537ae04c1f1c84dfb8beb4219d9faa4e24aa4d",
+      "selected_assets": [
+        "experiments/e001_treloar_state_precision_benchmark.py",
+        "tests/test_e001_material_state_pareto.py"
+      ],
+      "not_replayed_already_canonical": [
+        "src/enterprise_math/material_future_precision.py",
+        "tests/test_material_future_precision.py"
+      ],
+      "l4_pr": 451,
+      "merge_commit": "9730c385115440f49b03f3de9d1cf2509682737b",
+      "source_retired": false
+    }
+  ],
+  "namespace_first_review": {
+    "operational_short_lived": {
+      "prefixes": ["agent/", "integration/", "validation/", "checkpoint/", "maintenance/", "chore/", "ci/"],
+      "disposition": "SECOND_REVIEW_CLEANUP_CANDIDATE",
+      "condition": "second review must prove completed/superseded task, canonical or superseded payload, and recoverable provenance"
+    },
+    "mathematical_unregistered": {
+      "prefixes": ["core/", "program/", "research/", "bridge/", "engineering/"],
+      "disposition": "HARVEST_OR_SUPERSESSION_PROOF_REQUIRED",
+      "condition": "absence from current registry is never sufficient for deletion"
+    }
+  },
+  "second_review_required_fields": [
+    "branch",
+    "source_head",
+    "second_review_main_sha",
+    "source_provenance",
+    "branch_owned_assets",
+    "relation_to_main",
+    "remaining_replay",
+    "owner_frontier_after_retirement",
+    "verdict"
+  ],
+  "notes": [
+    "RETIRE_REVIEW_PENDING and PROMOTION_READY_SURFACE_SYNC_REQUIRED are audit markers, not formal branch lifecycle states.",
+    "No source branch lifecycle state or branch ref was changed by first review.",
+    "Do not poll CI or chase moving main during second review.",
+    "Do not wholesale merge HARVEST_REQUIRED historical trees."
+  ]
+}
