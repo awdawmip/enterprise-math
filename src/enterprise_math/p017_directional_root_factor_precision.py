@@ -16,7 +16,7 @@ from __future__ import annotations
 from math import isqrt
 
 from .legendre import primes_up_to
-from .p017_cofactor_window import cofactor_window_survivors
+from .p017_cofactor_window import centered_cofactor_window, is_p_rough
 from .precision_incidence_geometry import (
     directed_repair_depth,
     directed_repair_factor,
@@ -26,13 +26,21 @@ TaggedState = tuple[int, int]
 
 
 def root_factor_tagged_states(k: int) -> tuple[TaggedState, ...]:
-    """Return actual `(least_prime, cofactor)` states in the open square basin."""
+    """Return actual `(least_prime, cofactor)` states in the open square basin.
+
+    The implementation uses the proved exact cofactor envelope followed by the
+    p-rough realizability predicate.  It intentionally does not call the slower
+    legacy shell enumerator, whose equality is already a separate regression.
+    """
 
     if isinstance(k, bool) or not isinstance(k, int) or k < 2:
         raise ValueError("k must be an integer >=2")
     states: list[TaggedState] = []
     for prime in primes_up_to(k):
-        states.extend((prime, q) for q in cofactor_window_survivors(k, prime))
+        window = centered_cofactor_window(k, prime)
+        for q in range(int(window["q_min"]), int(window["q_max"]) + 1):
+            if is_p_rough(q, prime):
+                states.append((prime, q))
     if not states:
         raise ValueError("square basin contains no composite shell states")
     return tuple(states)
