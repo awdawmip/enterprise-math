@@ -130,7 +130,8 @@ theorem prime_union_penultimateMacroCover_separates
     intro g hg
     rcases hg with hgPrime | hgS
     · exact hgPrime.1.one_le
-    · exact (hMacro.1 hgS).1.trans (by omega)
+    · have hgTwo : 2 ≤ g := (hMacro.1 hgS).1
+      omega
   apply (separatesRootQuotientWordsUpTo_iff_powerFree_reachable
     (r := r) (N := N)
     (h := rootQuotientPrimeHorizon r N - 1)
