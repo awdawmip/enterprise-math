@@ -1,9 +1,9 @@
-# P022 — Target-Family Unit Crossing: No Universal Parity Protection
+# P022 — Target-Family Unit Crossing with an Unconditionally Positive Marker
 
-Status: `COUNTEREXAMPLE / NEGATIVE BOUNDARY / EXACT SMALL-FRANEL CERTIFICATE`  
+Status: `PROVED WIP / NEGATIVE BOUNDARY + POSITIVE MARKER CERTIFICATE`  
 Owner: `program/p022-geometry-v2`  
 Affected candidate: `all nonzero target-family crossing coefficients have a common factor >1`  
-Unaffected target: exact marker nonvanishing `kappa_p != 0`
+Positive conclusion: `g_p=1` can coexist with an exact positive half-defect marker.
 
 ## 1. Explicit target prime
 
@@ -39,87 +39,117 @@ is divisible by `p` exactly once:
 \boxed{v_p(F_{50})=1.}
 \]
 
-At the zero boundary `j=50`,
-
-\[
-2j-1=99
-\]
-
-is composite, while
-
-\[
-2j+1=101
-\]
-
-is prime.
-
-Thus the only possible boundary edge is the `q=101` edge, with the negative sign in
-
-\[
-c_x(j)=w_{2j-1}(x)-w_{2j+1}(x).
-\]
-
-## 3. P022-NB — the crossing coefficient is a unit
+At the zero boundary `j=50`, `2j-1=99` is composite while `2j+1=101` is prime.
 
 Exact prime-halving recursion gives
 
 \[
 w_{101}(m)=0,
 \qquad
-w_{101}(p-2)=1.
+w_{101}(p-2)=1,
 \]
 
-Therefore
+so
 
 \[
-\begin{aligned}
-\Delta c_p(50)
-&=c_m(50)-c_{p-2}(50)\\
-&=(-0)-(-1)\\
-&=\boxed{1}.
-\end{aligned}
+\boxed{\Delta c_p(50)=1.}
 \]
 
-Hence the set of nonzero crossing coefficients contains an integer unit. Whatever other crossings may exist,
+Thus the crossing set contains an integer unit and therefore
 
 \[
 \boxed{g_p=1.}
 \]
 
-No complete zero-alphabet scan is required for this conclusion: a gcd over a set containing `1` is already one.
+This disproves any global target-family parity or `g_p>1` strategy.
 
-## 4. Consequence
+## 3. P022-LI43 — all transfer-boundary zero candidates are explicitly resolved
 
-The potential global strategy
+A Franel zero can affect the transfer only at an endpoint of one of the two finite prime-halving DAGs rooted at `m` and `p-2`.
 
-> selected primes `p=5,23 (mod 24)` have even crossing correction, or at least crossing-lattice modulus `g_p>1`
+For this prime there are exactly 21 left-side boundary candidate indices. The largest is
 
-is false.
+\[
+\boxed{2591104.}
+\]
 
-Thus the exact marker problem cannot be solved by one universal parity or gcd obstruction.
+Advancing the exact Franel recurrence modulo `p` only to that endpoint gives
 
-This sharpens the hierarchy of failed overstrong routes:
+\[
+\boxed{
+\{j:\ j\text{ is a transfer-boundary candidate and }p\mid F_j\}
+=\{50\}.
+}
+\]
+
+The executable certificate uses an integer modular-inverse recurrence and sparse checkpoint reads; it does not enumerate the full midpoint interval.
+
+Therefore `j=50` is not merely one unit crossing among unknown corrections. It is the **only** earlier zero boundary that contributes to this defect.
+
+## 4. P022-LI44 — the full marker is positive without knowing midpoint depth
+
+Let
+
+\[
+z_m=v_p(F_m).
+\]
+
+The forced-midpoint theorem gives
+
+\[
+z_m\ge1.
+\]
+
+Since `v_p(F_50)=1` and the unique crossing coefficient is `+1`, the exact marker is
+
+\[
+\boxed{
+\kappa_p=v_p(D_m)=z_m+1>0.
+}
+\]
+
+No modulo-`p^2` calculation at the enormous midpoint is required. Even if the midpoint were an exceptional higher-depth zero, the conclusion only becomes stronger.
+
+Thus this example simultaneously proves:
+
+1. crossing-lattice congruence protection can disappear completely (`g_p=1`);
+2. signed coefficient geometry plus positivity of p-adic zero depths can still certify the marker unconditionally.
+
+## 5. Updated boundary hierarchy
+
+The half-index marker route has now falsified several attractive but excessive invariants:
 
 1. global support disjointness — false (`p=369581`);
 2. global zero transfer correction — false (`p=369581`);
 3. fixed `+1` marker — false (`p=369581` gives `-1`);
 4. universal nontrivial crossing-lattice modulus — false (`p=518220701` gives `g_p=1`).
 
-The surviving statement remains only
+But the exact target
 
 \[
-\boxed{\kappa_p=v_p(D_m)\ne0?}
+\boxed{\kappa_p\ne0}
 \]
 
-for the selected target family.
+survives both explicit target-family collisions examined so far:
 
-## 5. What this does and does not show
+- `369581`: negative marker `-1`, protected already by positive-depth load / parity;
+- `518220701`: positive marker `z_m+1`, despite `g_p=1`.
 
-A unit **positive** crossing coefficient does not itself make cancellation likely. Since every earlier zero depth is positive, that contribution raises the marker. Other negative crossings could still exist, so this note does not claim the full marker is positive or nonzero.
+The out-of-target control `p=157` still shows that exact cancellation can occur, so global nonvanishing is not formal or automatic.
 
-The point is narrower and exact: **congruence protection can disappear completely inside the target family.** Any global proof of nonvanishing must use signed crossing geometry and positive-depth arithmetic, not only `g_p`.
+## 6. Precision interpretation
 
-## 6. Executable assets
+For this prime, the future query “is the marker nonzero?” does **not** require the exact midpoint depth. The smaller state
+
+\[
+(\text{unique boundary coefficient }+1,\ z_m>0)
+\]
+
+already decides the query.
+
+This is strictly stronger than the crossing-lattice quotient, which is completely inconclusive at `g_p=1`.
+
+## 7. Executable assets
 
 - `src/enterprise_math/p022_barlow_target_unit_crossing.py`
 - `tests/test_p022_barlow_target_unit_crossing.py`
