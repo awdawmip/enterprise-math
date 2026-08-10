@@ -17,6 +17,9 @@ from enterprise_math.p022_barlow_low_order_defect_reduction import _is_prime
 from enterprise_math.p022_barlow_low_order_identifiability import (
     triple_moment_factor,
 )
+from enterprise_math.p022_barlow_primitive_defect_criterion import (
+    primitive_defect_pivot,
+)
 
 
 def test_bailey_tail_matches_small_third_index_franel_values() -> None:
@@ -42,6 +45,7 @@ def test_p149_is_a_simple_primitive_composite_boundary_witness() -> None:
     value = triple_moment_factor(50)
     assert value % 149 == 0
     assert value % (149 * 149) != 0
+    assert primitive_defect_pivot(50, 149) == 1
 
 
 def test_p17_is_not_a_third_index_zero() -> None:
