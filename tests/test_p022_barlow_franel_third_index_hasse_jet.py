@@ -5,14 +5,21 @@ from enterprise_math.p022_barlow_franel_third_index_fixed_hypergeom import (
     fixed_parameter_full_truncation_residue,
 )
 from enterprise_math.p022_barlow_franel_third_index_hasse_jet import (
+    canonical_hasse_zero_is_simple,
+    canonical_period_coefficients_residue,
     canonical_period_jet_residue,
+    canonical_period_jets_residue,
     canonical_period_term_ratio,
     canonical_period_terminates_before_franel_tail,
+    canonical_picard_fuchs_relation_at_one,
     contiguous_gosper_reduction,
     franel_obstruction_from_hasse_jet,
     franel_to_canonical_term_ratio,
+    franel_zero_avoids_scalar_hasse_zero,
     franel_zero_is_fixed_log_derivative,
     gosper_boundary_factor,
+    polynomial_root_multiplicity_at_one,
+    pulled_back_critical_curvature,
     pulled_back_hasse_polynomial_critical_at_one,
 )
 
@@ -99,9 +106,51 @@ def test_mod_p_first_jet_bridge_on_small_and_distinguishing_primes() -> None:
             row[3],
         )
         assert canonical_period_terminates_before_franel_tail(prime)
+        assert canonical_picard_fuchs_relation_at_one(prime)
 
 
-def test_scalar_hasse_zero_and_franel_zero_are_independent_conditions() -> None:
+def test_second_jet_is_forced_by_picard_fuchs_at_one() -> None:
+    expected = {
+        11: (2, 7, 6, 6),
+        17: (3, 13, 11, 9),
+        23: (4, 15, 11, 1),
+        29: (5, 20, 4, 2),
+        41: (7, 1, 13, 22),
+        107: (18, 0, 39, 54),
+        149: (25, 91, 88, 73),
+    }
+    for prime, row in expected.items():
+        assert canonical_period_jets_residue(prime) == row
+        assert (81 * row[3] + 36 * row[2] + 5 * row[1]) % prime == 0
+
+
+def test_canonical_coefficients_match_independent_fraction_oracle() -> None:
+    for prime in (11, 17, 23, 29, 41):
+        coefficients = canonical_period_coefficients_residue(prime)
+        expected = []
+        for index in range(len(coefficients)):
+            value = _canonical_term(index)
+            expected.append(
+                value.numerator
+                * pow(value.denominator % prime, -1, prime)
+                % prime
+            )
+        assert coefficients == tuple(expected)
+
+
+def test_scalar_hasse_zeros_are_simple_and_disjoint_from_franel_zeros() -> None:
+    # p=107 is a concrete scalar-Hasse zero.
+    assert polynomial_root_multiplicity_at_one(107) == 1
+    assert canonical_hasse_zero_is_simple(107)
+    assert franel_zero_avoids_scalar_hasse_zero(107)
+
+    # The theorem is vacuous but still certified when the scalar is nonzero.
+    for prime in (5, 11, 17, 23, 29, 41, 149):
+        assert canonical_hasse_zero_is_simple(prime)
+        assert franel_zero_avoids_scalar_hasse_zero(prime)
+
+
+def test_scalar_hasse_zero_and_franel_zero_are_opposite_examples() -> None:
     # p=107: canonical scalar period vanishes, but Franel obstruction does not.
     _, obstruction_107, period_107, _ = franel_obstruction_from_hasse_jet(107)
     assert period_107 == 0
@@ -113,12 +162,14 @@ def test_scalar_hasse_zero_and_franel_zero_are_independent_conditions() -> None:
     assert obstruction_149 == 0
 
 
-def test_p149_is_the_fixed_log_derivative_and_critical_point_witness() -> None:
+def test_p149_is_ordinary_fixed_log_derivative_and_nondegenerate_critical() -> None:
     assert franel_zero_is_fixed_log_derivative(149)
     assert pulled_back_hasse_polynomial_critical_at_one(149)
+    first, second = pulled_back_critical_curvature(149)
+    assert first == 0
+    assert second == (-10 * 91) % 149
+    assert second != 0
 
-    for prime in (5, 11, 17, 23, 29, 41, 107):
-        if canonical_period_jet_residue(prime)[1] != 0:
-            assert not franel_zero_is_fixed_log_derivative(prime)
-        if prime != 5:
-            assert not pulled_back_hasse_polynomial_critical_at_one(prime)
+    for prime in (11, 17, 23, 29, 41, 107):
+        assert not franel_zero_is_fixed_log_derivative(prime)
+        assert not pulled_back_hasse_polynomial_critical_at_one(prime)
