@@ -8,12 +8,14 @@ from enterprise_math.interval_guarded_translation_precision import (
     apply_interval_guarded_word,
     compose_interval_guarded_profiles,
     empty_interval_guarded_profile,
-    interval_guarded_boundary_equivalent,
+    interval_guarded_breakpoint_cell_equivalent,
     interval_guarded_domain,
+    interval_guarded_future_equivalent,
+    interval_guarded_future_signature,
+    interval_guarded_profile_breakpoints,
     interval_guarded_profile_count_upper_bound,
-    interval_guarded_profile_effective_cuts,
     interval_guarded_profiles,
-    interval_guarded_reachable_cuts,
+    interval_guarded_reachable_breakpoints,
     interval_guarded_word_profile,
 )
 
@@ -112,7 +114,7 @@ class IntervalGuardedTranslationPrecisionTests(unittest.TestCase):
         self.assertEqual(profile, IntervalGuardedProfile(0, 0, 3))
         self.assertIsNone(interval_guarded_domain(profile, 0, 2))
         self.assertEqual(
-            interval_guarded_profile_effective_cuts(
+            interval_guarded_profile_breakpoints(
                 profile, (0, 1), 0, 2
             ),
             (),
@@ -124,20 +126,20 @@ class IntervalGuardedTranslationPrecisionTests(unittest.TestCase):
                 ).defined
             )
 
-    def test_effective_cuts_keep_domain_edges_and_only_interior_thresholds(self):
+    def test_breakpoints_keep_domain_edges_and_only_interior_thresholds(self):
         profile = interval_guarded_word_profile((2,))
         # Domain is [0,5); final shift is +2.  Boundaries 1 and 7 shift to -1
         # and 5 and are masked by the domain edges; boundary 4 shifts to 2 and
         # remains visible in the interior.
         self.assertEqual(interval_guarded_domain(profile, 0, 5), (0, 5))
         self.assertEqual(
-            interval_guarded_profile_effective_cuts(
+            interval_guarded_profile_breakpoints(
                 profile, (1, 4, 7), 0, 5
             ),
             (0, 2, 5),
         )
 
-    def test_cut_union_equals_complete_literal_future_partition(self):
+    def test_profile_signature_equals_complete_literal_future_signature(self):
         cases = (
             ((-1, 1), -2, 3, (0,)),
             ((-2, 3), 0, 5, (-1, 2)),
@@ -145,15 +147,8 @@ class IntervalGuardedTranslationPrecisionTests(unittest.TestCase):
         )
         for actions, lower, upper, boundaries in cases:
             for horizon in range(4):
-                cuts = interval_guarded_reachable_cuts(
-                    boundaries,
-                    actions,
-                    lower,
-                    upper,
-                    horizon,
-                )
                 values = tuple(range(-6, 8))
-                signatures = {
+                direct = {
                     value: direct_signature(
                         value,
                         actions,
@@ -164,14 +159,25 @@ class IntervalGuardedTranslationPrecisionTests(unittest.TestCase):
                     )
                     for value in values
                 }
+                compiled = {
+                    value: interval_guarded_future_signature(
+                        value,
+                        boundaries,
+                        actions,
+                        lower,
+                        upper,
+                        horizon,
+                    )
+                    for value in values
+                }
                 for left in values:
                     for right in values:
-                        direct_equal = signatures[left] == signatures[right]
-                        lo, hi = sorted((left, right))
-                        cut_equal = not any(lo < cut <= hi for cut in cuts)
-                        self.assertEqual(direct_equal, cut_equal)
                         self.assertEqual(
-                            interval_guarded_boundary_equivalent(
+                            direct[left] == direct[right],
+                            compiled[left] == compiled[right],
+                        )
+                        self.assertEqual(
+                            interval_guarded_future_equivalent(
                                 left,
                                 right,
                                 boundaries,
@@ -180,8 +186,101 @@ class IntervalGuardedTranslationPrecisionTests(unittest.TestCase):
                                 upper,
                                 horizon,
                             ),
-                            direct_equal,
+                            direct[left] == direct[right],
                         )
+
+    def test_breakpoint_arrangement_refines_but_need_not_equal_future_quotient(self):
+        cases = (
+            ((-1, 1), -2, 3, (0,)),
+            ((-2, 3), 0, 5, (-1, 2)),
+            ((0, 2), -1, 4, ()),
+        )
+        for actions, lower, upper, boundaries in cases:
+            for horizon in range(4):
+                breakpoints = interval_guarded_reachable_breakpoints(
+                    boundaries,
+                    actions,
+                    lower,
+                    upper,
+                    horizon,
+                )
+                values = tuple(range(-6, 8))
+                signatures = {
+                    value: interval_guarded_future_signature(
+                        value,
+                        boundaries,
+                        actions,
+                        lower,
+                        upper,
+                        horizon,
+                    )
+                    for value in values
+                }
+                for left in values:
+                    for right in values:
+                        same_cell = interval_guarded_breakpoint_cell_equivalent(
+                            left,
+                            right,
+                            boundaries,
+                            actions,
+                            lower,
+                            upper,
+                            horizon,
+                        )
+                        lo, hi = sorted((left, right))
+                        self.assertEqual(
+                            same_cell,
+                            not any(lo < cut <= hi for cut in breakpoints),
+                        )
+                        if same_cell:
+                            self.assertEqual(signatures[left], signatures[right])
+
+    def test_interval_guard_can_have_disconnected_future_fiber(self):
+        # With no terminal observation, every one-step action is undefined both
+        # below the lower edge and at/above the upper edge.  Those two exterior
+        # regions are future-equivalent even though the breakpoint arrangement
+        # separates them by the entire legal interval.
+        actions = (0, 2)
+        lower, upper = -1, 4
+        boundaries = ()
+        horizon = 1
+        self.assertEqual(
+            interval_guarded_reachable_breakpoints(
+                boundaries, actions, lower, upper, horizon
+            ),
+            (-1, 4),
+        )
+        left, right = -6, 4
+        self.assertTrue(
+            interval_guarded_future_equivalent(
+                left,
+                right,
+                boundaries,
+                actions,
+                lower,
+                upper,
+                horizon,
+            )
+        )
+        self.assertFalse(
+            interval_guarded_breakpoint_cell_equivalent(
+                left,
+                right,
+                boundaries,
+                actions,
+                lower,
+                upper,
+                horizon,
+            )
+        )
+        self.assertEqual(
+            direct_signature(
+                left, actions, horizon, lower, upper, boundaries
+            ),
+            direct_signature(
+                right, actions, horizon, lower, upper, boundaries
+            ),
+        )
 
     def test_profile_count_has_cubic_horizon_bound(self):
         for actions in ((-3, 2), (-1, 1), (0,), (0, 2), (1, 4)):
@@ -208,7 +307,7 @@ class IntervalGuardedTranslationPrecisionTests(unittest.TestCase):
         empty = empty_interval_guarded_profile()
         self.assertIsNone(interval_guarded_domain(empty, 0, 1))
         self.assertEqual(
-            interval_guarded_profile_effective_cuts(
+            interval_guarded_profile_breakpoints(
                 empty, (-2, 3), 0, 1
             ),
             (-2, 3),
@@ -230,11 +329,11 @@ class IntervalGuardedTranslationPrecisionTests(unittest.TestCase):
                 interval_guarded_word_profile((1,)), 2, 2
             )
         with self.assertRaises(ValueError):
-            interval_guarded_profile_effective_cuts(
+            interval_guarded_profile_breakpoints(
                 IntervalGuardedProfile(0, 1, 0), (), 0, 3
             )
         with self.assertRaises(ValueError):
-            interval_guarded_profile_effective_cuts(
+            interval_guarded_profile_breakpoints(
                 IntervalGuardedProfile(1, None, None), (), 0, 3
             )
         with self.assertRaises(TypeError):
