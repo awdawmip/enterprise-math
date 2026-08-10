@@ -184,6 +184,48 @@ class PartialSafeOperationSpectrumTests(unittest.TestCase):
                 size**size,
             )
 
+    def test_total_operation_freedom_is_maximal_exactly_at_both_partition_extremes(self):
+        # On n states there are n^n total endomaps.  Every one is safe at the
+        # indiscrete partition (all outputs look equal) and at the discrete
+        # partition (source fibers are singletons).  Every genuine intermediate
+        # partition has at least two target blocks and one source block of size
+        # >=2, so some map can split that source block across target blocks.
+        checked = 0
+        for size in range(2, 7):
+            universe = size**size
+            for partition in set_partitions(tuple(range(size))):
+                shape = partition_block_sizes(partition)
+                is_indiscrete = shape == (size,)
+                is_discrete = shape == (1,) * size
+                self.assertEqual(
+                    safe_total_endomap_count(partition) == universe,
+                    is_indiscrete or is_discrete,
+                )
+                if not (is_indiscrete or is_discrete):
+                    self.assertLess(
+                        safe_total_endomap_count(partition),
+                        universe,
+                    )
+                checked += 1
+        self.assertGreater(checked, 200)
+
+    def test_partial_operation_freedom_is_universal_only_at_discrete_precision(self):
+        # The discrete partition accepts every partial endomap: (n+1)^n choices.
+        # Any nondiscrete partition has two states in one fiber, so a domain that
+        # enables exactly one of those states gives an explicit unsafe partial map.
+        checked = 0
+        for size in range(2, 7):
+            universe = (size + 1) ** size
+            for partition in set_partitions(tuple(range(size))):
+                shape = partition_block_sizes(partition)
+                is_discrete = shape == (1,) * size
+                self.assertEqual(
+                    safe_partial_endomap_count(partition) == universe,
+                    is_discrete,
+                )
+                checked += 1
+        self.assertGreater(checked, 200)
+
     def test_three_state_intermediate_partition_already_has_count_valley(self):
         coarse = {0: 0, 1: 0, 2: 0}
         middle = {0: 0, 1: 0, 2: 1}
