@@ -1,7 +1,7 @@
 """Minimal rational linear predictive state for exact weighted terminal traces.
 
 Start with an exact integer weighted quotient machine with b discrete branching
-states, action matrices B_a and current observation rows C.  Terminal weighted
+states, action matrices B_a and current observation rows C. Terminal weighted
 word outputs are the rows
 
     C B_w.
@@ -11,7 +11,7 @@ Let
     W = span_Q { C B_w : all words w }.
 
 W is finite-dimensional and invariant under right multiplication by every B_a.
-Choose an integer row basis R of W, with r=rank_Q(W).  Then for every action
+Choose an integer row basis R of W, with r=rank_Q(W). Then for every action
 there is a unique rational matrix T_a satisfying
 
     R B_a = T_a R,
@@ -20,27 +20,27 @@ and the current observation rows factor as
 
     C = H R.
 
-For a discrete quotient source j, the predictive state is the r-vector
+For a discrete quotient source j, the predictive state is
 
     s_j = R e_j.
 
-It evolves exactly by ``s -> T_a s`` and emits current observations by ``H s``.
-Thus every exact terminal weighted trace factors through an r-dimensional
-rational predictive state.
+It evolves exactly by ``s -> T_a s`` and emits observations by ``H s``. Hence
+every exact terminal weighted trace factors through an r-dimensional rational
+predictive state.
 
-The dimension r is minimal among **linear** predictive quotients over Q.  Any
+The dimension r is minimal among **linear** predictive quotients over Q. Any
 linear state map S through which every row C B_w factors must have row span
 containing W, so rank(S)>=r.
 
 This representation is intentionally weaker than the branching-operation state:
 it need not retain enough information to execute the original relation/weighted
-transition interface as a discrete quotient.  It is the canonical representation
+transition interface as a discrete quotient. It is the canonical representation
 type for the declared linear terminal-trace language.
 
 Finite-dimensional observability, weighted automata minimization and linear
-systems realization are standard prior mathematics/CS.  The project value is
-the explicit semantic-precision route from reflected local machine to minimal
-linear predictive state.
+systems realization are standard prior mathematics/CS. The project value is the
+explicit semantic-precision route from reflected local machine to minimal linear
+predictive state.
 """
 
 from __future__ import annotations
@@ -147,7 +147,10 @@ def weighted_quotient_trace_closure(
         )
     ]
     horizon = 0
-    action_order = tuple(matrix for _, matrix in sorted(matrices.items(), key=lambda item: repr(item[0])))
+    action_order = tuple(
+        matrix
+        for _, matrix in sorted(matrices.items(), key=lambda item: repr(item[0]))
+    )
 
     while True:
         generated = list(basis)
@@ -201,8 +204,8 @@ def _row_coordinates_in_basis(
     if rational_matrix_rank((*basis, vector_values)) != rank:
         raise ValueError("vector does not lie in row span of basis")
 
-    # Solve B^T c = vector^T.  There are ``width`` equations in r unknowns and
-    # the solution is unique because basis rows are independent.
+    # Solve B^T c = vector^T. There are ``width`` equations in r unknowns and
+    # the solution is unique because the basis rows are independent.
     variable_count = len(basis)
     work = [
         [Fraction(basis[column][equation]) for column in range(variable_count)]
@@ -223,8 +226,8 @@ def _row_coordinates_in_basis(
         if pivot is None:
             raise AssertionError("independent basis transpose lost a pivot")
         work[pivot_row], work[pivot] = work[pivot], work[pivot_row]
-        value = work[pivot_row][variable]
-        work[pivot_row] = [entry / value for entry in work[pivot_row]]
+        pivot_value = work[pivot_row][variable]
+        work[pivot_row] = [entry / pivot_value for entry in work[pivot_row]]
         for row in range(len(work)):
             if row == pivot_row:
                 continue
@@ -242,7 +245,6 @@ def _row_coordinates_in_basis(
         work[pivot_for_variable[variable]][-1]
         for variable in range(variable_count)
     )
-
     reconstructed = tuple(
         sum(solution[index] * basis[index][column] for index in range(variable_count))
         for column in range(width)
@@ -259,11 +261,10 @@ def induced_predictive_action_matrices(
     basis = tuple(tuple(row) for row in basis_rows)
     result: dict[Action, RationalMatrix] = {}
     for action, matrix in action_matrices.items():
-        rows = []
-        for basis_row in basis:
-            moved = row_times_matrix(basis_row, matrix)
-            rows.append(_row_coordinates_in_basis(moved, basis))
-        result[action] = tuple(rows)
+        result[action] = tuple(
+            _row_coordinates_in_basis(row_times_matrix(basis_row, matrix), basis)
+            for basis_row in basis
+        )
     return result
 
 
@@ -335,6 +336,7 @@ class LinearPredictiveStateReport:
     trace_horizon_bound: int
     stable_partition: Partition
     quotient_action_matrices: dict[Action, Matrix]
+    observation_rows: tuple[tuple[int, ...], ...]
     basis_rows: tuple[tuple[int, ...], ...]
     predictive_action_matrices: dict[Action, RationalMatrix]
     observation_decoder: RationalMatrix
@@ -372,6 +374,7 @@ def compile_linear_predictive_state(
         trace_horizon_bound=closure.theorem_horizon_bound,
         stable_partition=stable,
         quotient_action_matrices=quotient_matrices,
+        observation_rows=observation_rows,
         basis_rows=basis,
         predictive_action_matrices=actions,
         observation_decoder=decoder,
@@ -396,6 +399,7 @@ def predictive_trace_matches_exact_quotient(
     source: State,
     word: Sequence[Action],
 ) -> bool:
+    """Check both predictive-state intertwining and emitted terminal outputs."""
     source_block = next(
         (index for index, block in enumerate(report.stable_partition) if source in block),
         None,
@@ -408,36 +412,31 @@ def predictive_trace_matches_exact_quotient(
         source_block,
         word,
     )
-    observation_rows = tuple(
-        tuple(int(value) for value in row)
-        for row in quotient_observation_indicator_rows(
-            report.stable_partition,
-            lambda state: next(
-                label
-                for label, block in enumerate(report.stable_partition)
-                if state in block
-            ),
-        )
-    )
-    # The helper above cannot recover the original observation labels from the
-    # report alone.  Compare instead at the basis-coordinate level: R B_w e_j
-    # must equal T_w R e_j.  This is the exact predictive-state intertwining law.
     exact_basis_state = tuple(
-        Fraction(
-            sum(
-                report.basis_rows[row][target] * quotient_state[target]
-                for target in range(report.branching_state_count)
-            )
+        sum(
+            Fraction(report.basis_rows[row][target]) * quotient_state[target]
+            for target in range(report.branching_state_count)
         )
         for row in range(report.predictive_dimension)
     )
-    predictive = predictive_word_state(
+    predicted_state = predictive_word_state(
         predictive_state_for_quotient_index(report.basis_rows, source_block),
         word,
         report.predictive_action_matrices,
     )
-    if exact_basis_state != predictive:
+    if exact_basis_state != predicted_state:
         raise AssertionError("predictive action failed exact quotient intertwining")
+
+    exact_output = tuple(
+        sum(
+            Fraction(row[target]) * quotient_state[target]
+            for target in range(report.branching_state_count)
+        )
+        for row in report.observation_rows
+    )
+    predicted_output = predictive_output(predicted_state, report.observation_decoder)
+    if exact_output != predicted_output:
+        raise AssertionError("predictive state emitted the wrong terminal output")
     return True
 
 
