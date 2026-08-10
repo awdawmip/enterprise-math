@@ -1,3 +1,5 @@
+from math import factorial
+
 from enterprise_math.p022_barlow_franel_gap_continuant import (
     eliminated_gap_transfer,
 )
@@ -10,6 +12,8 @@ from enterprise_math.p022_barlow_franel_tail_continuant import (
     franel_tail_continuant,
     primitive_large_gap_is_projective_return,
     reflection_scale_ratio_identity,
+    source_denominator_residue,
+    terminal_franel_residue_from_gap,
 )
 
 
@@ -71,8 +75,24 @@ def test_fixed_gap_is_exact_euler_wallis_cross_determinant() -> None:
         assert determinant == predicted
         assert determinant == (
             2 ** (rank + 6)
-            * __import__("math").factorial(rank) ** 4
+            * factorial(rank) ** 4
             * eliminated_gap_transfer(rank)
+        )
+
+
+def test_source_denominator_and_terminal_unit_normalization() -> None:
+    expected = {
+        (6, 73): (11, 57),
+        (9, 937): (484, 709),
+        (15, 179): (164, 137),
+        (21, 3019): (1149, 2112),
+        (30, 2593): (2340, 1840),
+    }
+    for (rank, prime), (source_denominator, terminal) in expected.items():
+        assert source_denominator_residue(rank, prime) == source_denominator
+        assert terminal_franel_residue_from_gap(rank, prime) == (
+            terminal,
+            terminal,
         )
 
 
