@@ -10,6 +10,7 @@ from enterprise_math.causal_primitive_link_profile import (
     neighborhood_signature,
     pair_context_histogram,
     primitive_direction_graph,
+    primitive_isotropy_contract,
     primitive_link_profile,
 )
 
@@ -35,6 +36,7 @@ class CausalPrimitiveLinkProfileTests(unittest.TestCase):
             ({4: 12}, {1: 24}, {0: 8}),
         )
         self.assertIsNone(profile.first_flag_split_order)
+        self.assertTrue(primitive_isotropy_contract(profile, 3))
 
     def test_a4_and_d4_are_both_locally_uniform_but_have_different_flag_laws(self):
         a4 = primitive_link_profile(a_roots(4))
@@ -51,6 +53,8 @@ class CausalPrimitiveLinkProfileTests(unittest.TestCase):
             tuple(dict(hist) for hist in d4.flag_extension_histograms),
             ({8: 24}, {3: 96}, {0: 96}),
         )
+        self.assertTrue(primitive_isotropy_contract(a4, 4))
+        self.assertTrue(primitive_isotropy_contract(d4, 3))
 
     def test_d5_first_higher_order_flag_split_occurs_at_triangles(self):
         profile = primitive_link_profile(d_roots(5), maximum_flag_size=4)
@@ -61,6 +65,8 @@ class CausalPrimitiveLinkProfileTests(unittest.TestCase):
             ({12: 40}, {5: 240}, {0: 80, 2: 320}, {0: 160}),
         )
         self.assertEqual(profile.first_flag_split_order, 3)
+        self.assertTrue(primitive_isotropy_contract(profile, 2))
+        self.assertFalse(primitive_isotropy_contract(profile, 3))
 
     def test_e6_is_flag_uniform_through_its_maximal_compatible_flags(self):
         profile = primitive_link_profile(e6_scaled_roots())
@@ -72,6 +78,7 @@ class CausalPrimitiveLinkProfileTests(unittest.TestCase):
             ({20: 72}, {9: 720}, {4: 2160}, {1: 2160}, {0: 432}),
         )
         self.assertIsNone(profile.first_flag_split_order)
+        self.assertTrue(primitive_isotropy_contract(profile, 5))
 
     def test_exceptional_root_counts_and_low_order_contexts(self):
         self.assertEqual(len(e6_scaled_roots()), 72)
@@ -105,6 +112,8 @@ class CausalPrimitiveLinkProfileTests(unittest.TestCase):
         adjacency = primitive_direction_graph(e8_scaled_roots())
         histograms = flag_extension_histograms(adjacency, maximum_size=2)
         self.assertEqual(histograms, ({56: 240}, {27: 6720}))
+        profile = primitive_link_profile(e8_scaled_roots(), maximum_flag_size=2)
+        self.assertTrue(primitive_isotropy_contract(profile, 2))
 
 
 if __name__ == "__main__":
