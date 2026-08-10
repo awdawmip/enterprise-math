@@ -30,6 +30,11 @@ has zero Bonferroni defect on *every* residual hard-core state.  At that order
 the Bonferroni row value is the exact nonempty-support indicator, not merely an
 upper approximation.
 
+The prime-prefix implementation is deliberately local in scale: it generates
+odd candidates only until the requested prefix is filled or the primorial first
+reaches k.  It does not construct the complete prime list up to k.  This keeps
+large critical scales executable without changing any arithmetic statement.
+
 This is a genuinely joint finite-boundary effect: independent one-prime local
 marginals are exactly calibrated, but the requirement that many distinct
 transverse primes coexist in one residual core product can be too expensive.
@@ -41,7 +46,7 @@ universal 3*5*7*11=1155 when small primes divide the anchor.
 
 from __future__ import annotations
 
-from .legendre import primes_up_to
+from .legendre import is_prime
 from .p017_p018_bonferroni_primorial import distinct_prime_count
 from .p017_p018_hard_core_partition import residual_hard_core_record
 
@@ -56,15 +61,22 @@ def _require_count(count: int) -> None:
         raise ValueError("count must be a nonnegative integer")
 
 
+def _transverse_odd_prime_stream(k: int):
+    """Yield odd primes <=k that do not divide M, without sieving all the way to k."""
+    center = k * (k + 1)
+    candidate = 3
+    while candidate <= k:
+        if center % candidate != 0 and is_prime(candidate):
+            yield candidate
+        candidate += 2
+
+
 def transverse_odd_prime_prefix(k: int, count: int) -> tuple[int, ...]:
     """Return up to the first ``count`` odd primes <=k transverse to M."""
     _require_k(k)
     _require_count(count)
-    center = k * (k + 1)
     result: list[int] = []
-    for prime in primes_up_to(k):
-        if prime == 2 or center % prime == 0:
-            continue
+    for prime in _transverse_odd_prime_stream(k):
         result.append(prime)
         if len(result) == count:
             break
@@ -91,17 +103,16 @@ def transverse_primorial_depth(k: int) -> dict[str, object]:
 
     Products increase strictly with every newly included prime, so once the next
     transverse prime would make the product reach or exceed k, no longer prefix
-    can fit below the residual product cutoff.
+    can fit below the residual product cutoff.  The generator stops at that
+    first blocking prime, so runtime depends on the small transverse prefix
+    rather than on enumerating every prime up to k.
     """
     _require_k(k)
-    center = k * (k + 1)
     product = 1
     used: list[int] = []
     blocking_prime: int | None = None
     blocking_product: int | None = None
-    for prime in primes_up_to(k):
-        if prime == 2 or center % prime == 0:
-            continue
+    for prime in _transverse_odd_prime_stream(k):
         candidate = product * prime
         if candidate >= k:
             blocking_prime = prime
