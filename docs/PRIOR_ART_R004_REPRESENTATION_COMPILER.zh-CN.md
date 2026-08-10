@@ -2,7 +2,7 @@
 
 状态：`RESEARCH PRIOR-ART MAP / NOVELTY_UNVERIFIED`
 
-本说明把 R004 compiler package 与成熟的 quotient、p-adic、product、finite-abelian、normal-form 数学分开。即使得到 closed-form finite compiler specialization，也不能据此把底层代数宣称为项目发明。
+本说明把 R004 compiler package 与成熟的 quotient、p-adic、product、finite-abelian、exact-linear-algebra、normal-form 数学分开。即使得到 closed-form finite compiler specialization，也不能据此把底层代数宣称为项目发明。
 
 ## 1. Generic future-safe quotient 属于上游
 
@@ -12,7 +12,7 @@ Generic statement
 
 属于现有 P023/FQ-004 future-compatible quotient layer，R004 不重新取得该 mother theorem 的所有权。
 
-P024 也已经把同一原则专门化到 integer translation languages 与 reachable boundary orbits。因此 R004 compiler 工作属于 consumer / specialization：它问的是，哪些特定 arithmetic future kernels 可以直接得到 structured normal form，而不是最后只剩一次 opaque partition-refinement 结果。
+P024 也已经把同一原则专门化到 integer translation languages 与 reachable boundary orbits。因此 R004 compiler 工作属于 consumer / specialization：它问的是，哪些特定 future kernels 可以直接得到 structured normal form，而不是最后只剩一次 opaque partition-refinement 结果。
 
 ## 2. P-adic valuation 与 prefix geometry 是成熟数学
 
@@ -80,16 +80,45 @@ Mathlib 官方文档已经记录 finite abelian groups 分解为 prime-power cyc
 
 R004 只把这些 counts 当 **compiler extraction method**：generic future kernel 一旦通过 additive-congruence gate，就可以不预先声明 relation matrix、也不使用 real logarithm，直接恢复 structured quotient exponent profile。
 
-## 7. Fail-closed compiler ladder 才是项目级 architecture
+## 7. Determinant / exterior linear-lift coordinates 属于成熟 linear algebra
+
+一个不是 modular group congruence 的 finite partition，仍可能是在 integer lift 中 rational subspace cosets 的 restriction。用 exact rank 检查 rational-span membership、用 cofactors 构造 codimension-one normal、用 minors / exterior coordinates 表示 quotient directions，都是成熟 exact linear algebra。
+
+Mathlib 已正式暴露 exterior algebras / exterior powers 与 finite free-module determinants [SRC-MATHLIB-EXTERIOR-ALGEBRA; SRC-MATHLIB-DETERMINANT]。Bareiss-style fraction-free elimination 也属于成熟 symbolic computation [SRC-BAREISS-1968-FRACTION-FREE]。
+
+所以 R004 不主张 exterior algebra、wedge product、cofactor、Plücker/minor coordinates 或 fraction-free determinant 是新发明。
+
+项目级新增是 compiler gate：
+
+`future partition -> intra-class difference span -> exact inter-class separation test -> determinant relation token`，
+
+以及与现有 A3 的 exact cross-owner identity：
+
+`Z_ij = -(rank-one determinant token)_ij`。
+
+A3 weighted closure law 在该表示下就是 `m wedge (m wedge c)=0` 的 coordinate identity。这是对现有 A3 object 的 reduction / recognition，不改变 A3 ownership。
+
+## 8. Bare kernel 不能恢复 typed quotient semantics
+
+Equivalence kernel 只能确定 unlabeled quotient set，不能决定 future language 在 quotient 上要求哪一种 operation、relation、order 或 witness semantics。
+
+R004 记录一个最小例子：`Z/4Z` 的 parity kernel 固定不变，而 addition 与 multiplication 都能合法下降；它们在 quotient 上产生不同 operation tables，分别为 XOR 与 AND。
+
+这不是新的 universal-algebra theorem，而是一条 compiler-interface boundary。R004 因此要求 compiler 保留 **typed future language** 作为 semantic input，不能试图仅从 partition 猜 intended operations。
+
+## 9. Fail-closed compiler ladder 才是项目级 architecture
 
 当前 R004 package 为：
 
 1. one p-power axis + arbitrary translations -> p-adic trie compiler；
 2. product/full-vector future -> product of marginal compilers，即使 joint actions correlated；
-3. proved linear coupled future -> relation-rank compiler；
-4. generic future kernel 是 additive congruence -> quotient module -> invariant exponent profile；
-5. noncongruent coupled kernel -> 不强行套 exponent/module coordinates，保留 richer relation/witness state。
+3. proved modular linear coupled future -> relation-rank compiler；
+4. additive-congruence future kernel -> quotient module -> invariant exponent profile；
+5. noncongruent finite partition -> integer-lift rational-span gate -> 可行时输出 determinant relation token；
+6. rank-one positive-capacity determinant token -> 精确退化为 A3 weighted relation field；
+7. 只有这些 structured gates 都失败后 -> richer A3/A4 relation / witness state；
+8. 全过程 typed future operations / relations 都继续作为 compiler input，并在 output 上获得显式 descent certificate。
 
-前四层都使用成熟数学。R004 当前真正研究的是：**typed fail-closed compilation architecture**、若干 exact closed-form specializations、finite operation/state-complexity laws，以及何时必须升级到 A3/A4-style state 的明确边界。
+这些 stages 的数学 ingredients 几乎都有大量 prior art。R004 当前真正研究的是：**typed fail-closed compilation architecture**、exact finite specializations、state-complexity formulas、cross-owner reduction identities，以及何时允许/必须升级 state type 的明确边界。
 
-目前没有任何 compiler result 是 `CANONICAL_MAIN`。整套架构的历史 novelty 继续标记 `NOVELTY_UNVERIFIED`。
+目前没有任何 compiler result 是 `CANONICAL_MAIN`。整套 architecture 的历史 novelty 继续标记 `NOVELTY_UNVERIFIED`。
