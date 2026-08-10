@@ -45,7 +45,6 @@ the exact precision split between breadth and p-adic depth.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import isqrt
 from typing import Sequence
 
 from .integer_affine_fiber_diagnostic import integrally_reachable, modularly_reachable
