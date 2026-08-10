@@ -18,7 +18,7 @@ Enterprise Math already has a reusable prime capability layer, but it is not one
 6. canonical P018/P023 one-step power-free semantic action basis;
 7. a provenance/status registry that prevents WIP and classical baselines from being silently promoted.
 
-The important negative result of the harvest is equally concrete: the prime primitive-generator / Omega-word / prime-support compiler family is not yet canonical. It lives on Draft #333 and must not be confused with the merged #249 power-free one-step action basis. R005-A experiments on Draft #364 are capability probes, not theorem owners or canonical prime infrastructure.
+The important negative result of the harvest is equally concrete: the prime primitive-generator / Omega-word / prime-support compiler family is not yet canonical. It lives on Draft #333 and must not be confused with the merged #249 power-free one-step action basis. Separately, the divisor-token route belongs to the P017/P018 owner-local Drafts #191/#170, not to #333. R005-A experiments on Draft #364 are capability probes, not theorem owners or canonical prime infrastructure.
 
 ## Public callable surface
 
@@ -58,6 +58,8 @@ Both remain registry-visible as `NEEDS_AUDIT` rather than being opportunisticall
 ### WIP / application-local only
 
 - Draft #333: prime primitive generator basis, Omega-word compiler, prime-support quotient-word compilation. These are a second-layer instruction compiler, not a replacement statement for #249.
+- Draft #191 + Draft #170: CG12 arbitrary composite-divisor signed capacity plus exact Bonferroni-defect → squarefree/full-block divisor-token interface. This is an owner-local P017/P018 WIP route and is registry-visible, but it is not executable from the Prime Toolkit.
+- No standalone `centered-prime compiler` API was recovered. The canonical centered-prime result is a coordinate converter; R005-C does not relabel it as a compiler.
 - Draft #241: P025 arithmetic-Wronskian witness-budget specialization. Exact within owner hypotheses, application-local and noncanonical.
 - Draft #364: R005-A bounded oracle/benchmark and `WitnessCover.lean` skeleton. Capability evidence only; no general coverage/existence theorem.
 - Historical quotient-root denominator-fiber concept: no auditable current-main symbol was recovered under that name, so it remains `NEEDS_AUDIT` rather than being guessed into an API.
@@ -85,11 +87,11 @@ Use the toolkit rather than rebuilding experiment-local versions for:
 - exact square-basin direct/Möbius/carry/binary-carry count cross-check;
 - centered-prime/slack coordinates when the size hypothesis is satisfied;
 - bounded one-step quotient-root semantic action basis via r-power-free integers;
-- status/provenance discovery for the noncanonical compiler layer.
+- status/provenance discovery for noncanonical prime compiler and divisor-token WIP layers.
 
 ### Canonical status boundary
 
-Canonical executable status belongs to the merged main owner surfaces above. Draft #333 and Draft #364 remain WIP even if their tests/Lean files are useful. R005-A should consume their registry status, not import their experiment implementations as if they were main.
+Canonical executable status belongs to the merged main owner surfaces above. Draft #333, #191/#170, and #364 remain WIP even where their tests or proof artifacts are useful. R005-A should consume their registry status, not import their implementations as if they were main.
 
 ### Obvious traditional capability gaps
 
