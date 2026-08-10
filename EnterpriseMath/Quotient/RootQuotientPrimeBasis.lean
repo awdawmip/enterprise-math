@@ -28,7 +28,6 @@ theorem exists_prime_word_product
       b = rootQuotientWordProduct w := by
   induction b using Nat.strong_induction_on with
   | h b ih =>
-      intro hb
       by_cases hbOne : b = 1
       · subst b
         exact ⟨[], by simp, by simp [RootQuotientWordOver], by simp [rootQuotientWordProduct]⟩
