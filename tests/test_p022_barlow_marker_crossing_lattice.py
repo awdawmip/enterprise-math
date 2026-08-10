@@ -2,6 +2,8 @@ from enterprise_math.p022_barlow_marker_crossing_lattice import (
     boundary_zero_coefficients,
     crossing_lattice_certifies_nonzero,
     crossing_lattice_modulus,
+    explicit_vanishing_control_marker,
+    explicit_vanishing_control_midpoint_quotient,
     marker_congruence_residue,
 )
 
@@ -23,11 +25,14 @@ def test_explicit_target_collision_has_even_crossing_lattice() -> None:
 def test_outside_target_vanishing_example_has_no_lattice_protection() -> None:
     # p=157 is forced-midpoint and p-2=155 is composite, but p=1 mod 3.
     # The single crossing coefficient has gcd one, so the criterion is
-    # correctly inconclusive; the exact marker is known to vanish.
+    # correctly inconclusive; the exact recurrence/defect oracle confirms that
+    # complete cancellation really happens.
     assert boundary_zero_coefficients(157) == ((16, -1),)
     assert crossing_lattice_modulus(157) == 1
     assert marker_congruence_residue(157, 1) == (1, 0)
     assert not crossing_lattice_certifies_nonzero(157, 1)
+    assert explicit_vanishing_control_midpoint_quotient() == 111
+    assert explicit_vanishing_control_marker() == 0
 
 
 def test_lattice_certificate_is_sufficient_not_necessary() -> None:
