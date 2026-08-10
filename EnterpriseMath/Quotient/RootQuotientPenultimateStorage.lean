@@ -107,7 +107,7 @@ theorem exists_semiprime_cover_le_nonprime_storage_of_penultimate_separator
     dsimp [C]
     exact rootQuotientUsefulCompositePart_subset_primeComplement
   have hDiffFinite : (G \ RootQuotientPrimeBasis N).Finite :=
-    hGFinite.sdiff rootQuotientPrimeBasis_finite
+    hGFinite.sdiff
   have hPartCard : C.ncard ≤ (G \ RootQuotientPrimeBasis N).ncard :=
     Set.ncard_le_ncard hCSubDiff hDiffFinite
   exact ⟨S, hSFinite, hSemi, hCover, hImageCard.trans hPartCard⟩
