@@ -1,15 +1,16 @@
 import unittest
 from itertools import product
 
-from enterprise_math.causal_transfer_graph_geometry import (
-    complete_transfer_edges,
-    star_transfer_edges,
-)
+from enterprise_math.causal_conserved_transfer_geometry import a3_to_d3_fcc
+from enterprise_math.causal_transfer_graph_geometry import complete_transfer_edges, star_transfer_edges
 from enterprise_math.causal_transfer_quadratic_shadow import (
     complete_dispersion_identity,
     complete_edge_dispersion,
+    complete_zero_sum_bilinear_identity,
+    complete_zero_sum_bilinear_shadow,
     complete_zero_sum_quadratic_shadow,
     edge_dispersion,
+    polarized_edge_dispersion,
     primitive_second_moment_matrix,
     quadratic_from_second_moment,
     second_moment_matches_edge_dispersion,
@@ -27,14 +28,33 @@ class CausalTransferQuadraticShadowTests(unittest.TestCase):
             for state in product(range(-2, 3), repeat=slots):
                 if sum(state) != 0:
                     continue
+                self.assertEqual(complete_edge_dispersion(state), slots * sum(value * value for value in state))
+                self.assertEqual(complete_zero_sum_quadratic_shadow(state), sum(value * value for value in state))
+
+    def test_polarization_recovers_complete_zero_sum_bilinear_shadow(self):
+        states = [state for state in product((-1, 0, 1), repeat=4) if sum(state) == 0]
+        edges = complete_transfer_edges(4)
+        for left in states:
+            for right in states:
                 self.assertEqual(
-                    complete_edge_dispersion(state),
-                    slots * sum(value * value for value in state),
+                    polarized_edge_dispersion(left, right, edges),
+                    4 * sum(a * b for a, b in zip(left, right)),
                 )
+                self.assertTrue(complete_zero_sum_bilinear_identity(left, right))
                 self.assertEqual(
-                    complete_zero_sum_quadratic_shadow(state),
-                    sum(value * value for value in state),
+                    complete_zero_sum_bilinear_shadow(left, right),
+                    4 * sum(a * b for a, b in zip(left, right)),
                 )
+
+    def test_a3_to_d3_fcc_bridge_preserves_integer_square_grade(self):
+        for state in product(range(-2, 3), repeat=4):
+            if sum(state) != 0:
+                continue
+            image = a3_to_d3_fcc(state)
+            self.assertEqual(
+                sum(value * value for value in state),
+                sum(value * value for value in image),
+            )
 
     def test_star_mark_is_visible_in_second_order_relation_observation(self):
         edges = star_transfer_edges(4, hub=0)
@@ -55,10 +75,7 @@ class CausalTransferQuadraticShadowTests(unittest.TestCase):
         ):
             matrix = primitive_second_moment_matrix(slots, edges)
             for state in product((-1, 0, 1), repeat=slots):
-                self.assertEqual(
-                    quadratic_from_second_moment(state, matrix),
-                    edge_dispersion(state, edges),
-                )
+                self.assertEqual(quadratic_from_second_moment(state, matrix), edge_dispersion(state, edges))
                 self.assertTrue(second_moment_matches_edge_dispersion(state, edges))
 
     def test_complete_second_moment_has_expected_integer_entries(self):
