@@ -12,24 +12,29 @@ so every signed point is odd.  The two conditions
     x = M (mod D),
     x = 1 (mod 2)
 
-therefore combine, because D is odd and M is even, into one residue class modulo
-2D.  All signed points lie in
+combine into one *fixed* residue class modulo 2D.  Intersecting that class with
 
-    -(k-1) <= x <= k-1.
+    -(k-1) <= x <= k-1
 
-Hence any such divisor can occur on at most
+therefore gives the exact raw aligned capacity for D; filtering those finitely
+many points by gcd(|x|,M)=1 gives the exact anchor-surviving aligned capacity.
+Any selected valid signed-incidence family is a subset of this anchor list.
 
-    floor((k-1)/D)+1
+The older universal estimate
 
-signed incidences.  In particular D>k-1 has total reuse capacity one across
+    m_D <= floor((k-1)/D)+1
+
+remains a convenient alignment-free corollary.  The exact aligned/anchor count
+can be strictly smaller and is the preferred finite capacity when k and D are
+known.  In particular D>k-1 still has total reuse capacity at most one across
 *both* mirror orientations.
 
 This simultaneously:
 
 * extends CG11's prime-power packing bound to arbitrary odd transverse divisors;
 * sharpens the cross-orientation part of CG04 by using mandatory odd parity;
-* supplies a column-capacity interface for squarefree multi-prime subset
-  products, which can be consumed by higher-moment / Bonferroni bridges.
+* supplies exact aligned and anchor-filtered column capacities for multi-prime
+  products consumed by the P017/P018 terminal-capacity bridge.
 
 The congruence argument is elementary CRT/parity arithmetic.  This module is a
 P017 owner-local discovery result and reserves no canonical L-number.
@@ -77,13 +82,12 @@ def signed_divisor_residue(k: int, divisor: int) -> dict[str, int]:
 
 
 def raw_signed_divisor_points(k: int, divisor: int) -> tuple[int, ...]:
-    """Enumerate signed odd points in the divisor residue class before anchor filtering."""
+    """Enumerate every signed odd point in the divisor residue class."""
     data = signed_divisor_residue(k, divisor)
     residue = int(data["residue"])
     modulus = int(data["modulus"])
     radius_limit = k - 1
 
-    # Start with the least representative >= -radius_limit.
     start = residue
     while start - modulus >= -radius_limit:
         start -= modulus
@@ -103,14 +107,14 @@ def raw_signed_divisor_points(k: int, divisor: int) -> tuple[int, ...]:
 
 
 def signed_divisor_capacity(k: int, divisor: int) -> dict[str, object]:
-    """Return raw and anchor-filtered signed incidences plus the universal capacity."""
+    """Return exact aligned capacities and the alignment-free universal bound."""
     _require_divisor(k, divisor)
     center = k * (k + 1)
     raw = raw_signed_divisor_points(k, divisor)
     anchor = tuple(point for point in raw if gcd(abs(point), center) == 1)
-    capacity = (k - 1) // divisor + 1
+    universal = (k - 1) // divisor + 1
 
-    if len(raw) > capacity:
+    if len(raw) > universal:
         raise AssertionError("signed divisor progression exceeded floor((k-1)/D)+1")
     if len(anchor) > len(raw):
         raise AssertionError("anchor filtering increased signed divisor incidence")
@@ -126,7 +130,9 @@ def signed_divisor_capacity(k: int, divisor: int) -> dict[str, object]:
         "anchor_signed_points": anchor,
         "raw_count": len(raw),
         "anchor_count": len(anchor),
-        "universal_capacity": capacity,
+        "exact_aligned_capacity": len(raw),
+        "exact_anchor_capacity": len(anchor),
+        "universal_capacity": universal,
         "globally_single_use": divisor > k - 1,
     }
 
@@ -136,7 +142,7 @@ def selected_signed_divisor_incidence_capacity(
     divisor: int,
     signed_points: tuple[int, ...],
 ) -> dict[str, object]:
-    """Certify the packing bound for a selected family of valid signed incidences."""
+    """Certify a selected incidence family against exact and universal capacities."""
     _require_divisor(k, divisor)
     if len(set(signed_points)) != len(signed_points):
         raise ValueError("signed points must be distinct")
@@ -152,13 +158,19 @@ def selected_signed_divisor_incidence_capacity(
         if (center - point) % divisor:
             raise ValueError("divisor must divide M-x at every selected incidence")
 
-    capacity = (k - 1) // divisor + 1
-    if len(signed_points) > capacity:
-        raise AssertionError("selected signed divisor incidences exceeded universal capacity")
+    capacity = signed_divisor_capacity(k, divisor)
+    anchor_points = tuple(int(point) for point in capacity["anchor_signed_points"])
+    if any(point not in anchor_points for point in signed_points):
+        raise AssertionError("selected valid incidence escaped the exact anchor residue list")
+    if len(signed_points) > int(capacity["exact_anchor_capacity"]):
+        raise AssertionError("selected incidences exceeded exact anchor capacity")
+
     return {
         "k": k,
         "divisor": divisor,
         "selected_signed_points": signed_points,
         "selected_count": len(signed_points),
-        "universal_capacity": capacity,
+        "exact_aligned_capacity": int(capacity["exact_aligned_capacity"]),
+        "exact_anchor_capacity": int(capacity["exact_anchor_capacity"]),
+        "universal_capacity": int(capacity["universal_capacity"]),
     }
