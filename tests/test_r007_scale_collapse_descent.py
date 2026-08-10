@@ -142,3 +142,54 @@ def test_translation_language_scale_spectrum_is_divisor_lattice_of_gcd() -> None
         assert spectrum == [r for r in range(1, g + 1) if g % r == 0]
         for r in range(1, g + 3):
             assert (r in spectrum) == all(t % r == 0 for t in steps)
+
+
+def test_rational_split_points_are_coherent_on_both_boundary_sides() -> None:
+    points = [
+        (0, 1, "right"),
+        (1, 1, "left"),
+        (1, 2, "left"),
+        (1, 2, "right"),
+        (2, 3, "left"),
+        (2, 3, "right"),
+        (1, 7, "left"),
+        (1, 7, "right"),
+    ]
+    for num, den, side in points:
+        for d in range(1, 15):
+            assert 0 <= r007.rational_split_cut(d, num, den, side) < d
+            for ratio in range(1, 10):
+                assert r007.split_cut_coherent(num, den, side, d, ratio)
+
+
+def test_split_cut_lower_clamps_are_natural_downward_and_idempotent() -> None:
+    points = [(1, 2, "left"), (1, 2, "right"), (2, 3, "left"), (2, 3, "right")]
+    for num, den, side in points:
+        cut = lambda d, num=num, den=den, side=side: r007.rational_split_cut(d, num, den, side)
+        rho = r007.residue_lower_clamp(cut)
+        for d in range(1, 12):
+            assert r007.residue_policy_idempotent_on_scale(rho, d)
+            assert r007.residue_policy_downward_on_scale(rho, d)
+            for ratio in range(1, 8):
+                for u in range(d * ratio):
+                    assert r007.residue_policy_coherent(rho, d, ratio, u)
+                for p in range(2, 5):
+                    coarse_map = lambda a, p=p: r007.collapse(a, p)
+                    for m in range(0, 250, 23):
+                        assert r007.check_natural_lift_square(m, d, ratio, coarse_map, rho)
+                        out = r007.natural_lift_with_residue(m, d, coarse_map, rho)
+                        assert out <= m
+                        assert r007.natural_lift_with_residue(out, d, coarse_map, rho) == out
+
+
+def test_coherent_interval_clamps_are_natural_idempotent_retractions() -> None:
+    lo = lambda d: r007.rational_split_cut(d, 1, 3, "right")
+    hi = lambda d: r007.rational_split_cut(d, 2, 3, "left")
+    rho = r007.residue_interval_clamp(lo, hi)
+    for d in range(1, 15):
+        assert r007.residue_policy_idempotent_on_scale(rho, d)
+        for s in range(d):
+            assert lo(d) <= rho(d, s) <= hi(d)
+        for ratio in range(1, 10):
+            for u in range(d * ratio):
+                assert r007.residue_policy_coherent(rho, d, ratio, u)
