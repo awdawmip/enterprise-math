@@ -28,6 +28,23 @@ def next_prime_after(n: int) -> int:
     return q
 
 
+def _integer_cuberoot(n: int) -> int:
+    """Return floor(cuberoot(n)) exactly by integer binary search."""
+    if n < 0:
+        raise ValueError("n must be nonnegative")
+    lo = 0
+    hi = 1
+    while hi**3 <= n:
+        hi *= 2
+    while lo + 1 < hi:
+        mid = (lo + hi) // 2
+        if mid**3 <= n:
+            lo = mid
+        else:
+            hi = mid
+    return lo
+
+
 def _validate_candidate(k: int, power: int, q: int) -> int:
     if k < 1:
         raise ValueError("k must be positive")
@@ -122,22 +139,54 @@ def pure_cofactor_cap_certificate(k: int, power: int, q: int) -> int | None:
     return n if n <= upper else None
 
 
-def pure_cofactor_cap_nonforced_candidates(k: int, power: int) -> tuple[int, ...]:
-    """Enumerate pure-cap candidate primes with no singleton-support witness.
+def pure_cofactor_cap_nonforced_interval(k: int, power: int) -> tuple[int, int]:
+    """Return the exact integer interval containing all non-forced pure-cap q.
 
-    This is an exact bounded explorer, not an efficient large-scale search.
+    Let ``R=nextprime(F)`` and ``S=floor(sqrt(A))``.  The pure-cap conditions
+    plus non-forcing are exactly the strict inequalities
+
+        q > A/F,
+        q^3 > U,
+        q^2*(F+1) > U,
+        q > U/R,
+
+    together with ``q<=S`` and primality.  Therefore the eligible integer slice
+    is the contiguous interval ``[L,S]`` where
+
+        L = 1 + max(
+            floor(A/F),
+            floor(cuberoot(U)),
+            floor(sqrt(floor(U/(F+1)))),
+            floor(U/R),
+        ).
+
+    Since ``A<U``, ``S<=F`` and the candidate bound q<=F is automatic.
+    The interval can be empty when ``L>S``.
     """
     if k < 1:
         raise ValueError("k must be positive")
     if power < 2:
         raise ValueError("power must be at least 2")
-    upper_q = min(factor_horizon(k, power), isqrt(k**power))
-    return tuple(
-        q
-        for q in primes_up_to(upper_q)
-        if is_pure_cofactor_cap_candidate(k, power, q)
-        and pure_cofactor_cap_certificate(k, power, q) is None
+    lower_basin = k**power
+    upper_basin = (k + 1) ** power - 1
+    horizon = factor_horizon(k, power)
+    root_lower = isqrt(lower_basin)
+    successor = next_prime_after(horizon)
+    lower_q = 1 + max(
+        lower_basin // horizon,
+        _integer_cuberoot(upper_basin),
+        isqrt(upper_basin // (horizon + 1)),
+        upper_basin // successor,
     )
+    return lower_q, root_lower
+
+
+def pure_cofactor_cap_nonforced_candidates(k: int, power: int) -> tuple[int, ...]:
+    """Enumerate exactly the prime slice of non-forced pure-cap candidates."""
+    lower_q, upper_q = pure_cofactor_cap_nonforced_interval(k, power)
+    if lower_q > upper_q:
+        return ()
+    return tuple(q for q in primes_up_to(upper_q) if q >= lower_q)
 
 
 def horizon_gap_threshold(k: int, power: int) -> tuple[int, int]:
