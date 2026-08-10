@@ -208,7 +208,7 @@ theorem rootQuotientMinimumCompositeMacroCount_pos_of_belowPrimeHorizon
   have hGCardPrime : G.ncard = (RootQuotientPrimeBasis N).ncard := by
     rw [hGCard, hStorage]
   have hEq : RootQuotientPrimeBasis N = G :=
-    Set.eq_of_subset_of_ncard_le hPrimeSubG hGCardPrime.symm.le hG.2.1
+    Set.eq_of_subset_of_ncard_le hPrimeSubG hGCardPrime.le hG.2.1
   have hPrimeSep : SeparatesRootQuotientWordsUpTo
       r N h (RootQuotientPrimeBasis N) := by
     rw [hEq]
