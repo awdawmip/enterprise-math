@@ -6,6 +6,7 @@ from enterprise_math.prime_collapse_field import factor_horizon, interior_width
 from enterprise_math.prime_horizon_gap import (
     COFACTOR_GAP,
     HORIZON_GAP,
+    cubic_pure_cap_nonforced_interval,
     exclusive_cofactor_certificate,
     exclusive_cofactor_regime,
     first_exclusive_cofactor_prime,
@@ -104,7 +105,28 @@ class PrimeHorizonGapTests(unittest.TestCase):
         }
         for k, (interval, candidates) in expected.items():
             self.assertEqual(pure_cofactor_cap_nonforced_interval(k, 3), interval)
+            self.assertEqual(cubic_pure_cap_nonforced_interval(k), interval)
             self.assertEqual(pure_cofactor_cap_nonforced_candidates(k, 3), candidates)
+
+    def test_cubic_cap_four_cutoffs_collapse_to_two(self):
+        for k in range(3, 1000):
+            generic = pure_cofactor_cap_nonforced_interval(k, 3)
+            collapsed = cubic_pure_cap_nonforced_interval(k)
+            self.assertEqual(generic, collapsed)
+
+            lower = k**3
+            upper = (k + 1) ** 3 - 1
+            horizon = factor_horizon(k, 3)
+            self.assertLess(horizon, k * k)
+
+            # Any integer q in the horizon-gap / lower-root band already has
+            # the two higher-power exclusions required by the pure cap.
+            lower_q, upper_q = collapsed
+            for q in (lower_q, upper_q):
+                if q <= upper_q and q * horizon > lower:
+                    self.assertGreaterEqual(q, k + 1)
+                    self.assertGreater(q**3, upper)
+                    self.assertGreater(q * q * (horizon + 1), upper)
 
     def test_prime_slice_compiler_matches_predicate_definition(self):
         comparisons = 0
