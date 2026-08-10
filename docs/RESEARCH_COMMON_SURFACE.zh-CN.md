@@ -312,10 +312,13 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 
 ## 10. Foundation stewardship
 
-FQ-001 至 FQ-004 与 FQ-006 已 canonicalized。目前唯一 active foundation question：
+FQ-001 至 FQ-004 与 FQ-006 已 canonicalized。目前 active foundation questions 为：
 
 - `FQ-20260809-005` —— stable `graph_distance` API 定义域与 P012 ordinary-metric theorem 定义域。
+- `FQ-20260810-007` —— 研究是否存在一个最弱的项目原生有限 causal/relational primitive，使任意有限预采样在操作上可被证伪；若不存在，则证明当前 Foundation 需要额外物理/因果公理才能区分在线生成与有限 latent completion。
 
 FQ-006 在不改变 FQ-004 actual-state / observation / future-safe 分层的前提下，为 P023 增加合法性敏感的部分确定性未来语言；它也不把 A4 multivalued correspondence 压缩成 partial function model。
+
+FQ-007 路由到 clean owner `research/r004-causal-identifiability-v1` 与 durable task `RS-R004-CAUSAL-IDENTIFIABILITY`。历史 R004 PR #302 仅作为 evidence/provenance；Bell locality 与 measurement independence 是压力测试限制，不是 Foundation 公理，也不是项目原创主张。
 
 Steward 直接修机械漂移，但不替研究员选择尚未解决的研究答案。FQ 回报必须先经 steward 验证，才能 canonicalize。
