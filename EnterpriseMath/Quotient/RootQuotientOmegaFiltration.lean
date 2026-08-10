@@ -204,8 +204,7 @@ theorem rootQuotientOmegaFilteredBasis_reachable_of_factorCount_le_mul
           obtain ⟨w, hwLen, hwG, hProd⟩ :=
             ih (by omega) hcN hcFree hcCountBound
           refine ⟨a :: w, ?_, ?_, ?_⟩
-          · simp
-            exact hwLen
+          · simpa using Nat.succ_le_succ hwLen
           · intro g hg
             simp at hg
             rcases hg with rfl | hgTail
