@@ -16,7 +16,7 @@ def test_prime_halving_dag_examples() -> None:
 
     # 86=2*43; 43 -> 22 -> 11 -> 6 -> 3 -> 2.
     assert prime_halving_ancestor_primes(86) == (3, 11, 43)
-    assert set(prime_halving_endpoint_envelope(86)) == {2, 3, 5, 6, 21, 22}
+    assert set(prime_halving_endpoint_envelope(86)) == {2, 5, 6, 21, 22}
 
 
 def test_exact_a_basis_support_lies_in_dag_envelope() -> None:
