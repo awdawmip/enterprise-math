@@ -36,7 +36,12 @@ Therefore H_d agrees modulo p with the terminating value
 The two rational numbers H_d and S_M are generally not equal over Q; only
 their reductions modulo p agree.  Keeping that distinction explicit prevents
 an exact-rational oracle from being confused with the modular parameter
-transformation.
+transformation.  A classical terminating 3F2 transformation further gives
+
+    S_M = (2M+1)_M/(M+1)_M *
+          3F2(-M,-M,-M;-3M,3M;1),
+
+whose prefactor is a p-unit when p=6M-1.
 
 Prior-art boundary: the Bailey q-supercongruence used as input is due to
 Xiaoxia Wang and Chang Xu, "New q-supercongruences from the Bailey
@@ -160,6 +165,70 @@ def bailey_terminating_tail_sum(prime: int) -> Fraction:
             )
         )
     return total
+
+
+def bailey_symmetric_tail_factor(prime: int) -> Fraction:
+    """Return the exact prefactor (2M+1)_M/(M+1)_M."""
+    _, _, M = _require_third_index_prime(prime)
+    return (
+        _pochhammer(Fraction(2 * M + 1, 1), M)
+        / _pochhammer(Fraction(M + 1, 1), M)
+    )
+
+
+def bailey_symmetric_tail_sum(prime: int) -> Fraction:
+    """Return T_M=3F2(-M,-M,-M;-3M,3M;1) exactly."""
+    _, _, M = _require_third_index_prime(prime)
+    total = Fraction(0, 1)
+    for j in range(M + 1):
+        total += (
+            _pochhammer(Fraction(-M, 1), j) ** 3
+            / (
+                _pochhammer(Fraction(-3 * M, 1), j)
+                * _pochhammer(Fraction(3 * M, 1), j)
+                * factorial(j)
+            )
+        )
+    return total
+
+
+def bailey_symmetric_transform(prime: int) -> tuple[Fraction, Fraction]:
+    """Certify the exact terminating Weber--Erdelyi 3F2 transform."""
+    terminating = bailey_terminating_tail_sum(prime)
+    transformed = (
+        bailey_symmetric_tail_factor(prime)
+        * bailey_symmetric_tail_sum(prime)
+    )
+    if terminating != transformed:
+        raise AssertionError("terminating 3F2 symmetrization failed")
+    return terminating, transformed
+
+
+def bailey_symmetric_tail_residue(prime: int) -> tuple[int, int, int]:
+    """Return (S_M, prefactor, T_M) modulo p with a unit prefactor."""
+    terminating, _ = bailey_symmetric_transform(prime)
+    factor = bailey_symmetric_tail_factor(prime)
+    symmetric = bailey_symmetric_tail_sum(prime)
+    terminating_residue = _fraction_mod_prime(terminating, prime)
+    factor_residue = _fraction_mod_prime(factor, prime)
+    symmetric_residue = _fraction_mod_prime(symmetric, prime)
+    if factor_residue == 0:
+        raise AssertionError("symmetric terminating prefactor must be a p-unit")
+    if terminating_residue != factor_residue * symmetric_residue % prime:
+        raise AssertionError("symmetric terminating residues disagree")
+    return terminating_residue, factor_residue, symmetric_residue
+
+
+def third_index_zero_via_symmetric_tail(prime: int) -> bool:
+    """Certify one-third Franel divisibility via the symmetric tail T_M."""
+    terminating, _, symmetric = bailey_symmetric_tail_residue(prime)
+    predicted = symmetric == 0
+    if (terminating == 0) != predicted:
+        raise AssertionError("unit prefactor must preserve tail vanishing")
+    actual = third_index_zero_via_bailey_tail(prime)
+    if actual != predicted:
+        raise AssertionError("symmetric tail and Franel zero disagree")
+    return actual
 
 
 def bailey_tail_modular_bridge(prime: int) -> tuple[int, int]:
