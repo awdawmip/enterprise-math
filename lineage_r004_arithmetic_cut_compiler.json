@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-ARITHMETIC-CUT-COMPILER",
+      "name": "Arithmetic carrier-cut compiler from dissociated weight supports",
+      "source_relations": [
+        {"source_id": "SRC-DUTTA-2026-DISSOCIATED-GREEDY", "relation": "DIRECT_PRIOR"},
+        {"source_id": "SRC-MENDOZA-SMITH-TANNER-2015-DISSOCIATED", "relation": "FORMAL_PRIOR"},
+        {"source_id": "SRC-SHKREDOV-2007-DISSOCIATED-SUMSETS", "relation": "FORMAL_PRIOR"}
+      ],
+      "project_addition": "For binary exact state, weighted integer observation L_a, and coordinate bit-flip future generators, the retained-language quotient is exactly (L_a,x|_S). Deleted coordinate set H breaks the discrete carrier iff its weight subfamily is non-dissociated, so minimal carrier cuts are exactly support-minimal nontrivial {-1,0,1} relations among the observation weights. This is the first closed-form algebraic cut compiler consuming the generic structural-obstruction interface from Supplements 16-17.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "relation_to_owners": {
+        "P023": "SPECIALIZATION_OF_TYPED_FUTURE_SAFE_QUOTIENT",
+        "P024": "INFORM_ACTION_LANGUAGE_PRECISION_BY_ARITHMETIC_DEPENDENCY",
+        "R004": "OWNER_OF_CROSS_SURFACE_ARITHMETIC_SPECIALIZATION"
+      }
+    }
+  ]
+}
