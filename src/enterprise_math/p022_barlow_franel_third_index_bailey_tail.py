@@ -25,19 +25,18 @@ Consequently
 
     p | F_((p+1)/3)    iff    p | H_d.
 
-This is useful because the moving Franel index has disappeared.  Moreover
-M=d+1=(p+1)/6, so modulo p
+The rational parameters of H_d are congruent modulo p to
 
-    (-1/6,-1/6,2/3; 7/6,1/2)
-      = (-M,-M,4M; M+1,3M).
+    (-M,-M,4M; M+1,3M).
 
-Thus H_d is the natural terminating value
+Therefore H_d agrees modulo p with the terminating value
 
-    3F2(-M,-M,4M; M+1,3M; 1),
+    S_M = 3F2(-M,-M,4M; M+1,3M; 1).
 
-with M=(p+1)/6.  The remaining P022 boundary problem is therefore a fixed
-terminating hypergeometric nonvanishing problem rather than an arbitrary
-Franel special value.
+The two rational numbers H_d and S_M are generally not equal over Q; only
+their reductions modulo p agree.  Keeping that distinction explicit prevents
+an exact-rational oracle from being confused with the modular parameter
+transformation.
 
 Prior-art boundary: the Bailey q-supercongruence used as input is due to
 Xiaoxia Wang and Chang Xu, "New q-supercongruences from the Bailey
@@ -132,23 +131,68 @@ def bailey_tail_integer_parameters(prime: int) -> tuple[int, int, int, int, int]
         Fraction(7, 6),
         Fraction(1, 2),
     )
-    for integer_parameter, rational_parameter in zip(residues, rational_parameters):
-        if integer_parameter % prime != _fraction_mod_prime(rational_parameter, prime):
-            raise AssertionError("terminating integer parameters do not match modulo p")
+    for integer_parameter, rational_parameter in zip(
+        residues,
+        rational_parameters,
+    ):
+        if (
+            integer_parameter % prime
+            != _fraction_mod_prime(rational_parameter, prime)
+        ):
+            raise AssertionError(
+                "terminating integer parameters do not match modulo p"
+            )
     return residues
+
+
+def bailey_terminating_tail_sum(prime: int) -> Fraction:
+    """Return S_M=3F2(-M,-M,4M;M+1,3M;1) as an exact rational."""
+    _, _, M = _require_third_index_prime(prime)
+    total = Fraction(0, 1)
+    for j in range(M + 1):
+        total += (
+            _pochhammer(Fraction(-M, 1), j) ** 2
+            * _pochhammer(Fraction(4 * M, 1), j)
+            / (
+                _pochhammer(Fraction(M + 1, 1), j)
+                * _pochhammer(Fraction(3 * M, 1), j)
+                * factorial(j)
+            )
+        )
+    return total
+
+
+def bailey_tail_modular_bridge(prime: int) -> tuple[int, int]:
+    """Return the equal mod-p residues of H_d and the terminating S_M."""
+    _, offset, _ = _require_third_index_prime(prime)
+    rational_tail = _fraction_mod_prime(
+        bailey_pole_tail_sum(offset),
+        prime,
+    )
+    terminating_tail = _fraction_mod_prime(
+        bailey_terminating_tail_sum(prime),
+        prime,
+    )
+    if rational_tail != terminating_tail:
+        raise AssertionError("Bailey rational and terminating tails must agree mod p")
+    return rational_tail, terminating_tail
 
 
 def bailey_pole_tail_residue(prime: int) -> tuple[int, int, int, int]:
     """Return (rank,d,C_d mod p,H_d mod p) and certify F_r=-C_d H_d."""
     rank, offset, _ = _require_third_index_prime(prime)
     unit = _fraction_mod_prime(bailey_pole_tail_unit(offset), prime)
-    tail = _fraction_mod_prime(bailey_pole_tail_sum(offset), prime)
+    tail, terminating_tail = bailey_tail_modular_bridge(prime)
+    if tail != terminating_tail:
+        raise AssertionError("Bailey tail bridge failed")
     actual = triple_moment_factor(rank) % prime
     predicted = (-unit * tail) % prime
     if unit == 0:
         raise AssertionError("the extracted Bailey prefactor must be a p-adic unit")
     if actual != predicted:
-        raise AssertionError("Bailey pole-tail reduction disagrees with the Franel value")
+        raise AssertionError(
+            "Bailey pole-tail reduction disagrees with the Franel value"
+        )
     return rank, offset, unit, tail
 
 
