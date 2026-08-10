@@ -168,6 +168,17 @@ def first_flag_split_order(flag_histograms: tuple[dict[int, int], ...]) -> int |
     return None
 
 
+def flag_uniform_through(
+    flag_histograms: tuple[dict[int, int], ...],
+    horizon: int,
+) -> bool:
+    if isinstance(horizon, bool) or not isinstance(horizon, int) or horizon < 0:
+        raise ValueError("horizon must be a non-negative integer")
+    if horizon > len(flag_histograms):
+        raise ValueError("requested horizon exceeds the enumerated flag depth")
+    return all(len(flag_histograms[size - 1]) == 1 for size in range(1, horizon + 1))
+
+
 @dataclass(frozen=True)
 class PrimitiveLinkProfile:
     primitive_count: int
@@ -197,6 +208,29 @@ def primitive_link_profile(
         pair_context_histogram=tuple(pair_context_histogram(adjacency).items()),
         flag_extension_histograms=tuple(tuple(hist.items()) for hist in flag_histograms),
         first_flag_split_order=first_flag_split_order(flag_histograms),
+    )
+
+
+def primitive_isotropy_contract(
+    profile: PrimitiveLinkProfile,
+    flag_horizon: int,
+) -> bool:
+    """Finite causal-horizon candidate, not a physical isotropy theorem.
+
+    Requires one connected primitive-direction relation component, one primitive
+    degree type, one rooted edge-context type, and uniform compatible-flag
+    continuation counts through the requested horizon.
+    """
+    if isinstance(flag_horizon, bool) or not isinstance(flag_horizon, int) or flag_horizon < 0:
+        raise ValueError("flag_horizon must be a non-negative integer")
+    histograms = tuple(dict(histogram) for histogram in profile.flag_extension_histograms)
+    if flag_horizon > len(histograms):
+        raise ValueError("profile was not enumerated deeply enough for requested horizon")
+    return (
+        len(profile.link_component_sizes) == 1
+        and len(profile.link_degree_histogram) == 1
+        and len(profile.edge_context_histogram) == 1
+        and flag_uniform_through(histograms, flag_horizon)
     )
 
 
