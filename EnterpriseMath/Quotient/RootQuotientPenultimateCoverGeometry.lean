@@ -45,7 +45,9 @@ theorem singleton_semiprime_divisorCover_of_common
   constructor
   · constructor
     · intro g hg
-      simpa using hg ▸ hd.1
+      have hgd : g = d := by simpa using hg
+      subst g
+      exact hd.1
     · intro g hg
       have hgd : g = d := by simpa using hg
       subst g
@@ -64,7 +66,7 @@ theorem rootQuotientPenultimateSemiprimeCoverNumber_eq_one_iff_common
       ∃ d : ℕ, RootQuotientCommonMaximalSemiprimeDivisor r N d := by
   constructor
   · intro hTauOne
-    obtain ⟨S, hSFinite, hSemi, hCover, hSCard⟩ :=
+    obtain ⟨S, _hSFinite, hSemi, hCover, hSCard⟩ :=
       exists_rootQuotientPenultimateMinimumSemiprimeCover hHorizon
     have hSOne : S.ncard = 1 := by
       rw [hSCard, hTauOne]
