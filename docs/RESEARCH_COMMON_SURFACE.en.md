@@ -185,6 +185,35 @@ Canonical executable core:
 
 A4 multivalued correspondence is not silently identified with one deterministic functional kernel or one partial deterministic operation family.
 
+#### A4 ↔ P023 relation-observable powerset bridge — `EXECUTABLE_CHECKED + PRIOR_ART BRIDGE / NOT LEAN-CHECKED`
+
+Validated source generation: PR #368 / frozen head `0095979b377c9ea1bd005582a682b7a2e33ea5ad`.
+
+For a finite A4 relation `R subseteq X x Y` and a declared target observation `O:Y->A`, define the one-step reachable-observation support
+
+`Sigma_(R,O)(x) = { O(y) : (x,y) in R }`.
+
+Once `R` and `O` are declared, this is an ordinary function from `X` into a powerset carrier. Its functional kernel is therefore the coarsest source quotient preserving exactly the declared one-step reachable-observation support, while the underlying object remains the A4 multivalued relation. The empty support is an explicit no-target/undefined observable and is not silently treated as identity.
+
+The validated composition layer shows that, when the chosen coarse relation is compatible with the quotient, later set-valued behavior composes by union of successor support signatures. The powerset compiler gives an exact deterministic representation for declared **reachable-support semantics** over relation words.
+
+This bridge is deliberately lossy outside that language. It does not preserve path multiplicity, branch identity, or intermediate branch-definedness unless those are included explicitly in the declared future observation. Hidden branch reactivation supplies the reusable negative boundary against treating a one-step set summary as universally future-complete.
+
+Shared assets:
+
+- `src/enterprise_math/relation_observable_signature.py`
+- `tests/test_relation_observable_signature.py`
+- `src/enterprise_math/relation_observable_composition.py`
+- `tests/test_relation_observable_composition.py`
+- `src/enterprise_math/relation_future_powerset.py`
+- `tests/test_relation_future_powerset.py`
+
+Ownership boundary:
+
+`A4 relation/correspondence -> powerset-valued declared observation signature -> A1/A2 functional kernel / P023 future-safe quotient`.
+
+The bridge does not reduce A4 to a deterministic function and does not create a second FQ-006 partial-operation ontology. Finite relations, powerset-valued maps, relational image, set union and generic quotient factorization are prior mathematics.
+
 ### A5 — intrinsic discrete geometry
 
 P012 supplies the ordinary metric foundation on **connected undirected simple graphs**. P022 remains `OPEN / ACTIVE RESEARCH`; canonical executable geometry does not close the broader program.
@@ -277,6 +306,7 @@ All routes must remember:
 - scalar precision/scale does not replace the future-safe quotient plus declared future-operation structure;
 - for a declared partial action language, disabledness/domain membership is observable future behavior and must not be silently treated as identity;
 - an absorbing `UNDEFINED` sink is only an equivalent verification representation when it is explicitly distinguished and absorbing; it is not a new ontic state;
+- a powerset-valued relation-observable signature preserves declared reachable support, not path multiplicity or branch identity unless those are explicitly observed;
 - coarse equality/support/cardinality need not preserve later composition or witness identity;
 - A3 signed relation data may cancel under quotient;
 - geometry-only collision/contact facts may not determine unique response;
@@ -286,7 +316,7 @@ All routes must remember:
 - finite measured-polyline refinement does not reveal an unmeasured continuum;
 - canonical engineering code does not become a universal physical law merely by entering `main`;
 - Git ancestry/file-name equality is not proof of new mathematics or semantic absorption;
-- function kernels, Galois connections, semigroups, partial transition systems, automata distinguishability, equivalence polymorphisms/clones, Test Cover, power-free arithmetic, numerical semigroups and partition refinement remain prior art.
+- function kernels, Galois connections, semigroups, partial transition systems, automata distinguishability, equivalence polymorphisms/clones, finite relations/powerset semantics, Test Cover, power-free arithmetic, numerical semigroups and partition refinement remain prior art.
 
 ## 7. Root Lean import index
 
@@ -351,5 +381,7 @@ FQ-006 adds legality-sensitive partial deterministic future languages to P023 wi
 FQ-007 is routed to clean owner `research/r004-causal-identifiability-v1` and durable task `RS-R004-CAUSAL-IDENTIFIABILITY`. Historical R004 PR #302 is evidence/provenance only; Bell locality and measurement independence are pressure-test restrictions, not Foundation axioms or project novelty.
 
 The A2 safe-operation packet is steward-classified as a direct-maintenance candidate rather than a new FQ: the future/context language and observation remain logically prior to the operational future-safe quotient, while `Spec_A(q)` is a derived surviving-operation spectrum. Its P008 rigidity theorem prose retains its stated proof status until separately upgraded.
+
+The relation-valued future-observable packet is a direct A4→P023 bridge candidate rather than a new FQ: powerset-valued declared observation signatures reuse the existing functional-kernel/future-safe layer while the underlying relation remains A4-owned.
 
 The steward fixes mechanical drift directly, but does not choose unresolved research answers. Returned FQ answers require steward verification before canonicalization.
