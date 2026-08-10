@@ -45,8 +45,8 @@ theorem quotientTripleMergeFree_iff_proper_dvd
     exact ⟨haLtN, hDvd⟩
   · rintro ⟨haLtN, hDvd⟩
     have haLePred : a ≤ n - 1 := by omega
-    have hPredPos : 0 < (n - 1) / a := Nat.div_pos haPos haLePred
-    have hTopPos : 0 < n / a := Nat.div_pos haPos (by omega)
+    have hPredPos : 0 < (n - 1) / a := Nat.div_pos haLePred haPos
+    have hTopPos : 0 < n / a := Nat.div_pos (by omega) haPos
     have hPredTop : (n - 1) / a ≠ n / a :=
       (quotient_adjacent_jump_iff_dvd (q := n) (a := a) (by omega) (by omega)).2
         hDvd
