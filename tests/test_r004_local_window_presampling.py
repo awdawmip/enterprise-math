@@ -8,12 +8,15 @@ from enterprise_math.r004_local_window_presampling import (
     cyclic_window_counts,
     decompose_stationary_block_counts,
     eulerian_stationary_period,
+    finite_record_periodic_shadow,
+    linear_window_counts,
     minimum_uniform_window_width_exceeding_atom_budget,
     periodic_cycle_mixture_block_law,
     reduced_stationary_window_counts,
     stationary_block_counts_balanced,
     stationary_rational_window_presampling_certificate,
     stationary_window_atom_rank_bounds,
+    total_variation_distance,
     uniform_full_support_window_rank,
 )
 
@@ -110,16 +113,10 @@ class R004LocalWindowPresamplingTests(unittest.TestCase):
         self.assertEqual(cyclic_window_counts(period, 2), counts)
 
     def test_uniform_binary_triples_have_one_de_bruijn_type_period(self):
-        counts = {
-            block: 1
-            for block in itertools.product((0, 1), repeat=3)
-        }
+        counts = {block: 1 for block in itertools.product((0, 1), repeat=3)}
         period = eulerian_stationary_period(counts)
         self.assertEqual(len(period), 8)
-        self.assertEqual(
-            cyclic_window_counts(period, 3),
-            counts,
-        )
+        self.assertEqual(cyclic_window_counts(period, 3), counts)
 
     def test_disconnected_stationary_flow_needs_ensemble_not_one_orbit(self):
         counts = {(0, 0): 1, (1, 1): 1}
@@ -147,6 +144,31 @@ class R004LocalWindowPresamplingTests(unittest.TestCase):
             {block: Fraction(count, total) for block, count in reduced.items()},
         )
 
+    def test_finite_record_periodic_shadow_is_exact_for_width_one(self):
+        record = (0, 1, 1, 0, 1)
+        linear, cyclic, distance, bound = finite_record_periodic_shadow(record, 1)
+        self.assertEqual(linear, cyclic)
+        self.assertEqual(distance, Fraction(0))
+        self.assertEqual(bound, Fraction(0))
+
+    def test_finite_record_periodic_shadow_tv_bound_is_exact_fraction(self):
+        record = (0, 0, 1, 1, 1)
+        linear, cyclic, distance, bound = finite_record_periodic_shadow(record, 3)
+        self.assertEqual(linear_window_counts(record, 3), {(0, 0, 1): 1, (0, 1, 1): 1, (1, 1, 1): 1})
+        self.assertLessEqual(distance, bound)
+        self.assertEqual(bound, Fraction(2, 5))
+        self.assertEqual(total_variation_distance(linear, cyclic), distance)
+
+    def test_periodic_shadow_bound_holds_for_every_small_binary_record(self):
+        checked = 0
+        for size in range(1, 8):
+            for record in itertools.product((0, 1), repeat=size):
+                for width in range(1, size + 1):
+                    _, _, distance, bound = finite_record_periodic_shadow(record, width)
+                    self.assertLessEqual(distance, bound)
+                    checked += 1
+        self.assertEqual(checked, sum(size * (2**size) for size in range(1, 8)))
+
     def test_unbalanced_local_law_is_rejected(self):
         counts = {(0, 1): 1}
         self.assertFalse(stationary_block_counts_balanced(counts))
@@ -162,6 +184,8 @@ class R004LocalWindowPresamplingTests(unittest.TestCase):
             stationary_block_counts_balanced({(0,): 1, (0, 1): 1})
         with self.assertRaises(ValueError):
             stationary_block_counts_balanced({(0,): -1})
+        with self.assertRaises(ValueError):
+            linear_window_counts((0, 1), 3)
         with self.assertRaises(ValueError):
             uniform_full_support_window_rank(0, 2)
         with self.assertRaises(ValueError):
