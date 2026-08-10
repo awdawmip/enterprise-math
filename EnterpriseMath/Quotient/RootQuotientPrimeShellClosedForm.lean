@@ -110,8 +110,8 @@ theorem rootQuotientPrimePrefixPowers_coprime_nextPrimePower
         Disjoint
           ((rootQuotientPrimePrefixProduct q) ^ c).primeFactors
           ((Nat.nth Nat.Prime q) ^ s).primeFactors := by
-      rw [Nat.primeFactors_pow _ _ (by omega),
-        Nat.primeFactors_pow _ _ hsZero]
+      rw [Nat.primeFactors_pow _ (by omega),
+        Nat.primeFactors_pow _ hsZero]
       exact hBaseDisjoint
     exact (Nat.disjoint_primeFactors (by positivity) (by positivity)).1
       hPowerDisjoint
