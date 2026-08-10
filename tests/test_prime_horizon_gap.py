@@ -15,6 +15,7 @@ from enterprise_math.prime_horizon_gap import (
     next_prime_after,
     pure_cofactor_cap_certificate,
     pure_cofactor_cap_nonforced_candidates,
+    pure_cofactor_cap_nonforced_interval,
 )
 
 
@@ -86,6 +87,7 @@ class PrimeHorizonGapTests(unittest.TestCase):
         self.assertIsNone(exclusive_cofactor_certificate(k, power, q))
         self.assertTrue(is_pure_cofactor_cap_candidate(k, power, q))
         self.assertIsNone(pure_cofactor_cap_certificate(k, power, q))
+        self.assertEqual(pure_cofactor_cap_nonforced_interval(k, power), (109, 110))
 
     def test_both_exclusive_cofactor_regimes_occur(self):
         self.assertEqual(exclusive_cofactor_regime(23, 3, 2), COFACTOR_GAP)
@@ -93,19 +95,48 @@ class PrimeHorizonGapTests(unittest.TestCase):
 
     def test_selected_cubic_nonforced_pure_cap_examples(self):
         expected = {
-            23: (109,),
-            64: (509,),
-            120: (1303, 1307),
-            138: (1621,),
-            1005: (31859,),
+            23: ((109, 110), (109,)),
+            64: ((508, 512), (509,)),
+            120: ((1302, 1314), (1303, 1307)),
+            138: ((1621, 1621), (1621,)),
+            1005: ((31859, 31860), (31859,)),
         }
-        for k, candidates in expected.items():
+        for k, (interval, candidates) in expected.items():
+            self.assertEqual(pure_cofactor_cap_nonforced_interval(k, 3), interval)
             self.assertEqual(pure_cofactor_cap_nonforced_candidates(k, 3), candidates)
+
+    def test_prime_slice_compiler_matches_predicate_definition(self):
+        comparisons = 0
+        for power in range(2, 6):
+            for k in range(2, 120):
+                lower_q, upper_q = pure_cofactor_cap_nonforced_interval(k, power)
+                compiled = (
+                    tuple(q for q in primes_up_to(upper_q) if q >= lower_q)
+                    if lower_q <= upper_q
+                    else ()
+                )
+                literal = []
+                horizon = factor_horizon(k, power)
+                for q in primes_up_to(min(horizon, isqrt(k**power))):
+                    if (
+                        is_pure_cofactor_cap_candidate(k, power, q)
+                        and pure_cofactor_cap_certificate(k, power, q) is None
+                    ):
+                        literal.append(q)
+                self.assertEqual(compiled, tuple(literal))
+                self.assertEqual(
+                    pure_cofactor_cap_nonforced_candidates(k, power),
+                    tuple(literal),
+                )
+                comparisons += 1
+        self.assertEqual(comparisons, 472)
 
     def test_square_pure_horizon_cap_is_empty(self):
         for k in range(2, 100):
             horizon = factor_horizon(k, 2)
             self.assertEqual(horizon, k)
+            lower_q, upper_q = pure_cofactor_cap_nonforced_interval(k, 2)
+            self.assertGreater(lower_q, upper_q)
             for q in primes_up_to(horizon):
                 self.assertFalse(is_pure_cofactor_cap_candidate(k, 2, q))
 
@@ -145,7 +176,7 @@ class PrimeHorizonGapTests(unittest.TestCase):
                         self._direct_singleton_support_exists(k, power, q),
                     )
                     comparisons += 1
-        self.assertGreater(comparisons, 0)
+        self.assertEqual(comparisons, 325)
 
 
 if __name__ == "__main__":
