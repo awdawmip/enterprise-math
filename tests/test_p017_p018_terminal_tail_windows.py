@@ -10,16 +10,29 @@ from enterprise_math.p017_p018_terminal_tail_windows import terminal_tail_window
 class P017P018TerminalTailWindowsTests(unittest.TestCase):
     def test_reference_window_masses_and_exact_terminal_tail_counts(self):
         expected = {
-            31: (7, 2),
-            8191: (245, 24),
-            524_287: (25, 2),
+            31: (7, 6, 1, 2),
+            8191: (245, 216, 29, 24),
+            524_287: (25, 22, 3, 2),
         }
-        for k, (integer_mass, prime_tails) in expected.items():
+        for k, (integer_mass, bulk, carry, prime_tails) in expected.items():
             data = terminal_tail_window_profile(k)
             self.assertEqual(data["total_window_integer_mass"], integer_mass)
+            self.assertEqual(data["total_window_bulk_mass"], bulk)
+            self.assertEqual(data["total_window_carry_mass"], carry)
+            self.assertEqual(integer_mass, bulk + carry)
             self.assertEqual(data["terminal_prime_tail_count"], prime_tails)
             self.assertTrue(data["tail_windows_pairwise_disjoint"])
             self.assertTrue(data["prime_tails_globally_distinct"])
+
+    def test_every_window_is_one_quotient_response_bulk_plus_binary_carry(self):
+        for k in (31, 8191, 524_287):
+            data = terminal_tail_window_profile(k)
+            for row in data["window_rows"]:
+                self.assertIn(row["window_carry"], (0, 1))
+                self.assertEqual(
+                    row["window_size"],
+                    row["window_bulk"] + row["window_carry"],
+                )
 
     def test_prime_tail_window_count_equals_terminal_core_residual(self):
         for k in (31, 8191):
