@@ -60,7 +60,6 @@ LEGACY_RETIREMENT_HEADS = {
     "engineering/e001-material-pair-impulse": "e408d200c76e68f1ea1af67d93dbb2a4c63a4431",
     "program/p021-causal-focusing-v2": "2f1fc93111a3a8c8f80a2fe57ab5d7cbf3e5799d",
     "research/core/admissible-support-relations": "6e2dc72e46885c081278228838831cd87eb8167c",
-    "research/e002-task-observable-v2": "5609acbde6b203550e08f70057890fa868a0b565",
 }
 LEGACY_RETIREMENT_ALLOWLIST = frozenset(LEGACY_RETIREMENT_HEADS)
 
