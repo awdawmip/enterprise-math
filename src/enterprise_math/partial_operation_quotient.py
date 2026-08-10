@@ -37,9 +37,13 @@ one common quotient class.
 
 If every operation is total, the construction reduces exactly to the canonical
 ``operation_quotient`` future refinement up to partition-label renaming.
-An absorbing-UNDEFINED totalization can be used as a verification construction
-provided the added state has a distinguished observation and remains absorbing;
-it is not promoted here to an actual Enterprise Math world state.
+More generally every partial family has an exact compiler reduction to that
+same total theory: add one fresh absorbing state ``bottom``; send every disabled
+transition to ``bottom``; and give ``bottom`` an observation label distinct from
+every ordinary state observation.  On the original states, bounded future-word
+partitions and the stable quotient are then exactly the genuine partial-family
+partitions.  This lifted state is a verification/compiler device, not an
+additional Enterprise Math physical/world state.
 """
 
 from __future__ import annotations
@@ -95,6 +99,50 @@ def _partial_operations(
             raise ValueError("partial operation targets must lie inside the state domain")
         result.append((name, operation))
     return tuple(result)
+
+
+def totalize_partial_family(
+    domain: Iterable[Vertex],
+    operations: Mapping[OperationName, PartialOperation],
+    observation: Partition,
+    *,
+    undefined_state: Vertex,
+    undefined_observation: Hashable,
+) -> tuple[
+    tuple[Vertex, ...],
+    dict[OperationName, dict[Vertex, Vertex]],
+    dict[Vertex, Hashable],
+]:
+    """Compile partial operations to total ones with observable absorbing undefined.
+
+    ``undefined_state`` must be fresh and ``undefined_observation`` must be
+    distinct from every ordinary observation label.  The added state is a
+    compiler/verification device: it is absorbing for every totalized action
+    and represents the fact that a partial word has already become illegal.
+    """
+    states = _domain(domain)
+    family = _partial_operations(states, operations)
+    state_set = set(states)
+    if set(observation) != state_set:
+        raise ValueError("observation must label every state exactly once")
+    if undefined_state in state_set:
+        raise ValueError("undefined_state must be fresh")
+    if undefined_observation in set(observation.values()):
+        raise ValueError("undefined_observation must be distinguished")
+
+    augmented = states + (undefined_state,)
+    total_operations: dict[OperationName, dict[Vertex, Vertex]] = {}
+    for name, operation in family:
+        total = {
+            state: operation[state] if state in operation else undefined_state
+            for state in states
+        }
+        total[undefined_state] = undefined_state
+        total_operations[name] = total
+
+    total_observation = dict(observation)
+    total_observation[undefined_state] = undefined_observation
+    return augmented, total_operations, total_observation
 
 
 def partition_refines(
