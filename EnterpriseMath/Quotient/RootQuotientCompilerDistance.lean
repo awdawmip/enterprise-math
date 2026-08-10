@@ -129,11 +129,16 @@ theorem rootQuotientSemanticCompilerDepth_le_staged_product
     dsimp [b]
     exact rootQuotientOmegaFilteredBasis_compiles_semantic_at_exact_depth
       (by omega) hjPos
-  have hKSem : RootQuotientAlphabetCompilesWithin
-      (a * b)
+  have hKSemBA : RootQuotientAlphabetCompilesWithin
+      (b * a)
       (RootQuotientOmegaFilteredBasis r N k)
       (RootQuotientNontrivialPowerFreeBasis r N) :=
     rootQuotientAlphabetCompilesWithin_trans hJSem hKJ
+  have hKSem : RootQuotientAlphabetCompilesWithin
+      (a * b)
+      (RootQuotientOmegaFilteredBasis r N k)
+      (RootQuotientNontrivialPowerFreeBasis r N) := by
+    simpa [Nat.mul_comm] using hKSemBA
   have hMin :=
     (rootQuotientOmegaFilteredBasis_compiles_semanticBasis_iff_compilerDepth_le
       (r := r) (N := N) (k := k) (h := a * b)
