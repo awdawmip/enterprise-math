@@ -197,7 +197,9 @@ theorem r009_t22 : T22Statement := by
     have hk01 : k = 0 ∨ k = 1 := by omega
     rcases hk01 with rfl | rfl
     · simp [hp0] at hk
+      omega
     · simp at hk
+      omega
   have h4 : 4 ≤ k ^ p := by
     calc
       4 = 2 ^ 2 := by norm_num
