@@ -61,9 +61,6 @@ LEGACY_RETIREMENT_ALLOWLIST = frozenset({
     "program/p021-causal-focusing-v2",
     "research/core/admissible-support-relations",
     "research/e002-task-observable-v2",
-    "research/p018-all-power-quotient-basin-final",
-    "research/p023-composition-safe-collapse",
-    "research/p023-safe-selector-semigroup",
 })
 
 
