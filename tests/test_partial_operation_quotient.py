@@ -401,6 +401,14 @@ class PartialOperationQuotientTests(unittest.TestCase):
                 undefined_state="BOTTOM",
                 undefined_observation="same",
             )
+        with self.assertRaises(ValueError):
+            totalize_partial_family(
+                (0, 1),
+                {"a": {0: 1}},
+                {0: "same", 1: "same"},
+                undefined_state=[],
+                undefined_observation="UNDEFINED",
+            )
 
 
 if __name__ == "__main__":
