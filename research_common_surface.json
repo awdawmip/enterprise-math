@@ -111,7 +111,7 @@
     "A1": "deterministic functional kernels, history merge, fibers/kernel multiplicity, collision spectra, coalescence, stabilization",
     "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, total and partial deterministic operation-family compatibility, legality-sensitive future signatures, natural safe-operation spectra, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
-    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel or partial deterministic family",
+    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra, and relation-observable powerset bridge; not identified with one deterministic kernel or partial deterministic family",
     "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure, task-relative Barlow stacking precision, periodic-drift growth equations and eventual C-finite recurrence classes"
   },
   "canonical_specializations": {
@@ -123,6 +123,14 @@
       "layering_boundary": "declared future/context language and observation select the operational future-safe quotient through P023/P024; the surviving natural operation spectrum is derived from that quotient plus the declared ambient operation family and does not by itself select a unique quotient",
       "precision_boundary": "scalar precision/scale is a coordinate or complexity measure when available, not a replacement for the quotient plus declared future-operation structure",
       "prior_art_boundary": "partition-preserving transformation semigroups, Pol(theta), congruences, quotient algebras, clones and generic partition refinement are prior mathematics; P008 complete-growth rigidity/spectrum specializations retain their stated WIP proof status"
+    },
+    "A4_P023_relation_observable_bridge": {
+      "status": "EXECUTABLE_CHECKED + PRIOR_ART_BRIDGE / NOT_LEAN_CHECKED",
+      "validation": "PR #368 / head@0095979b377c9ea1bd005582a682b7a2e33ea5ad passed quality, bilingual-sync, and reference-integrity",
+      "scope": "for a finite A4 relation R and declared target observation O, the powerset-valued signature Sigma_(R,O)(x)={O(y):(x,y) in R} is an ordinary function whose kernel is the coarsest source quotient preserving the declared one-step reachable-observation support; empty image is explicit no-target/undefined behavior",
+      "composition": "when coarse relational composition is compatible with the chosen quotient, set-valued coarse dynamics composes by union of successor support signatures; a deterministic powerset compiler gives exact reachable-support semantics for declared relation words",
+      "boundary": "the bridge preserves A4 ownership of the underlying multivalued relation and does not preserve path multiplicity, branch identity, or intermediate branch-definedness unless those observables are explicitly included in the future language",
+      "prior_art_boundary": "finite relations, powerset-valued maps, quotient factorization, relational image, set union and behavioral signatures are prior mathematics; project value is the explicit executable A4-to-P023 boundary"
     },
     "P018_P023_power_free_action_basis": {
       "status": "LEAN_CHECKED_MAIN",
@@ -209,6 +217,7 @@
     "A3": ["src/enterprise_math/weighted_relation_field.py", "src/enterprise_math/relation_lattice.py", "src/enterprise_math/relation_scale.py"],
     "A4": ["src/enterprise_math/admissible_support.py", "src/enterprise_math/relational_spectrum.py"],
     "A3_A4_bridge": ["src/enterprise_math/a3_a4_support_bridge.py"],
+    "A4_P023_relation_observable_bridge": ["src/enterprise_math/relation_observable_signature.py", "tests/test_relation_observable_signature.py", "src/enterprise_math/relation_observable_composition.py", "tests/test_relation_observable_composition.py", "src/enterprise_math/relation_future_powerset.py", "tests/test_relation_future_powerset.py"],
     "A5_P022": ["src/enterprise_math/lattice_geometry.py", "tests/test_lattice_geometry.py"],
     "P022_geodesic_hcp_core": [
       "src/enterprise_math/p022_geodesic_multiplicity.py",
