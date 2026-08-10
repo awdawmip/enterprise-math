@@ -1,6 +1,5 @@
 import unittest
 
-from enterprise_math.legendre import is_prime, primes_up_to
 from enterprise_math.prime_collapse_field import (
     direct_power_interval_prime_count,
     factor_horizon,
@@ -9,9 +8,8 @@ from enterprise_math.prime_collapse_surplus import (
     mobius_survivor_count,
     post_horizon_prime_count,
     prime_degree_surplus,
+    prime_degree_surplus_terms,
     prime_surplus_power_interval_prime_count,
-    square_gap_exclusive_certificate,
-    square_gap_target,
     subsquare_survivor_count,
 )
 
@@ -53,40 +51,17 @@ class PrimeCollapseSurplusTests(unittest.TestCase):
         for k in range(2, 100):
             self.assertEqual(prime_degree_surplus(k, 2), 0)
 
-    @staticmethod
-    def _direct_singleton_support_certificate(q: int, offset: int) -> int | None:
-        k = q + offset
-        horizon = factor_horizon(k, 2)
-        candidates = primes_up_to(horizon)
-        for n in range(k * k + 1, (k + 1) * (k + 1)):
-            support = tuple(r for r in candidates if n % r == 0)
-            if support == (q,):
-                return n
-        return None
+    def test_first_nontrivial_surplus_terms(self):
+        self.assertEqual(
+            prime_degree_surplus_terms(4, 3),
+            ((1, 3, 0), (2, 3, 1)),
+        )
+        self.assertEqual(prime_degree_surplus(4, 3), 3)
 
-    def test_square_gap_certificate_is_exact_on_bounded_grid(self):
-        for offset in range(0, 8):
-            for q in primes_up_to(300):
-                if q == 2 or q <= offset * offset + 2 * offset:
-                    continue
-                derived = square_gap_exclusive_certificate(q, offset)
-                direct = self._direct_singleton_support_certificate(q, offset)
-                self.assertEqual(derived is not None, direct is not None)
-                self.assertEqual(
-                    derived is not None,
-                    is_prime(square_gap_target(q, offset)),
-                )
-                if derived is not None:
-                    self.assertEqual(derived, q * square_gap_target(q, offset))
-
-    def test_twin_prime_diagonal_specialization(self):
-        for q in primes_up_to(500):
-            if q == 2:
-                continue
-            certificate = square_gap_exclusive_certificate(q, 0)
-            self.assertEqual(certificate is not None, is_prime(q + 2))
-            if certificate is not None:
-                self.assertEqual(certificate, q * (q + 2))
+        terms_p4 = prime_degree_surplus_terms(3, 4)
+        self.assertEqual(terms_p4[:2], ((1, 4, 0), (2, 6, 0)))
+        self.assertEqual(terms_p4[2], (3, 4, 3))
+        self.assertEqual(prime_degree_surplus(3, 4), 12)
 
 
 if __name__ == "__main__":
