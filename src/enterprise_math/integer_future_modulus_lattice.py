@@ -70,32 +70,6 @@ def modular_precision_join(left: int, right: int) -> int:
     )
 
 
-def combined_modular_signature_equivalent_to_lcm(
-    observation_matrix: Sequence[Sequence[int]],
-    state: Sequence[int],
-    left: int,
-    right: int,
-) -> bool:
-    """Mechanical signature compiler check for the gcd/lcm precision law."""
-    left_mod = _modulus(left, name="left")
-    right_mod = _modulus(right, name="right")
-    joined = lcm(left_mod, right_mod)
-    joint_signature = (
-        modular_observation_signature(observation_matrix, state, left_mod),
-        modular_observation_signature(observation_matrix, state, right_mod),
-    )
-    lcm_signature = modular_observation_signature(
-        observation_matrix,
-        state,
-        joined,
-    )
-    # This function only packages one state's signatures.  The true equivalence
-    # statement concerns equality of two states; the pairwise verifier below
-    # checks that relation exactly.  We still require both representations to be
-    # well-formed here.
-    return bool(joint_signature or lcm_signature or joined == 1)
-
-
 def pair_equal_mod_both_iff_equal_mod_lcm(
     observation_matrix: Sequence[Sequence[int]],
     left_state: Sequence[int],
@@ -103,6 +77,7 @@ def pair_equal_mod_both_iff_equal_mod_lcm(
     left_modulus: int,
     right_modulus: int,
 ) -> bool:
+    """Exact equality-kernel statement for the modular precision join."""
     left_mod = _modulus(left_modulus, name="left_modulus")
     right_mod = _modulus(right_modulus, name="right_modulus")
     joined = lcm(left_mod, right_mod)
