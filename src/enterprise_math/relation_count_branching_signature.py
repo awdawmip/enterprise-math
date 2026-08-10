@@ -274,21 +274,6 @@ def terminal_count_trace_from_signature(
     return result
 
 
-def count_branching_terminal_trace_map(
-    states: Sequence[State],
-    relations: Mapping[Action, Relation],
-    observation: Callable[[State], Observation],
-    horizon: int,
-    words: Sequence[Sequence[Action]],
-) -> dict[State, tuple[tuple[Action, ...], tuple[tuple[Observation, int], ...]]]:
-    """Compact helper for a caller-supplied word family at one count horizon.
-
-    The return value is flattened per state by the companion helper below; this
-    function is kept internal-style and primarily supports regression tooling.
-    """
-    raise NotImplementedError("use count_branching_terminal_trace_signature")
-
-
 def count_branching_terminal_trace_signature(
     states: Sequence[State],
     relations: Mapping[Action, Relation],
