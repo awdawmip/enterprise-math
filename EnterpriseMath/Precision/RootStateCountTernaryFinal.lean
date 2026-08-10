@@ -12,7 +12,6 @@ open EnterpriseMath.IntegerRoot
 For one positive integer state `n` and positive root order `r=s+1`, define
 
 `H = R_(r+1)(r*n-1)`,
-`D = floor(n/(H+1)^r)`,
 `q = floor(H/r)`,
 `A = max(q(H+1)^r,(q+1)H^r)`,
 `B = (q+1)(H+1)^r`.
@@ -31,7 +30,6 @@ theorem quotientRootStates_ternary_cardinality
     {s n : ℕ}
     (hn : 0 < n) :
     let H := root (s + 2) ((s + 1) * n - 1)
-    let D := n / (H + 1) ^ (s + 1)
     let q := H / (s + 1)
     let X := (H + 1) ^ (s + 1)
     let Y := H ^ (s + 1)
