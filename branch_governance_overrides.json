@@ -1,11 +1,33 @@
 {
-  "schema": "ENTERPRISE_MATH_BRANCH_GOVERNANCE_OVERRIDES_V2",
+  "schema": "ENTERPRISE_MATH_BRANCH_GOVERNANCE_OVERRIDES_V3",
+  "retirement_contract": {
+    "basis_values": [
+      "MECHANICAL_ANCESTRY",
+      "LEGACY_PRE_RESULT_CONSERVATION",
+      "RESULT_CONSERVATION"
+    ],
+    "legacy_cutoff": "2026-08-10",
+    "legacy_branches": [
+      "agent/p018-critical-grid",
+      "engineering/e001-material-impulse-world",
+      "engineering/e001-material-multiaction-protocol",
+      "engineering/e001-material-pair-impulse",
+      "program/p021-causal-focusing-v2",
+      "research/core/admissible-support-relations",
+      "research/e002-task-observable-v2",
+      "research/p018-all-power-quotient-basin-final",
+      "research/p023-composition-safe-collapse",
+      "research/p023-safe-selector-semigroup"
+    ],
+    "rule": "Any new ABSORBED/PROVENANCE source-owner retirement that is still ahead of main must use RESULT_CONSERVATION; MECHANICAL_ANCESTRY is valid only at ahead=0. LEGACY_PRE_RESULT_CONSERVATION is restricted to this frozen allowlist."
+  },
   "branches": {
     "agent/p018-critical-grid": {
       "state": "PROVENANCE",
       "reason": "Historical P018 tree is frozen; clean P018 generations have already replayed canonical slices.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
     },
     "research/core/relation-quotient": {
       "state": "REPLAY_REQUIRED",
@@ -23,19 +45,22 @@
       "state": "PROVENANCE",
       "reason": "Historical A4 continuation is a replay source; the first A4 owner generation is already canonical.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
     },
     "core/a2-future-quotient-v2": {
       "state": "PROVENANCE",
       "reason": "A2 v2 generation is fully absorbed in main (ahead=0 at the 2026-08-09 surface audit). Start a new A2 generation from then-current main if new mother-theorem work resumes.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "MECHANICAL_ANCESTRY"
     },
     "core/a3-relation-state-v2": {
       "state": "PROVENANCE",
       "reason": "A3 v2 generation is fully absorbed in main (ahead=0 at the 2026-08-09 surface audit). Start a new A3 generation from then-current main if new owner work resumes.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "MECHANICAL_ANCESTRY"
     },
     "core/a3-relation-lattice-v3": {
       "state": "ACTIVE_OWNER",
@@ -52,7 +77,8 @@
       "state": "PROVENANCE",
       "reason": "A4 v2 generation is fully absorbed in main (ahead=0 at the 2026-08-09 surface audit). Start a new A4 generation from then-current main if new owner work resumes.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "MECHANICAL_ANCESTRY"
     },
     "bridge/a3-a4-v2": {
       "state": "REPLAY_REQUIRED",
@@ -63,80 +89,159 @@
     "bridge/a3-a4-generated-support-v3": {
       "state": "ACTIVE_BRIDGE",
       "reason": "Current thin A3/A4 bridge generation; first three-asset generated-support slice is canonical, and future bridge work must remain cross-owner only.",
-      "allowed_paths": ["replay_manifest_a3_a4_bridge.json"],
-      "allowed_prefixes": ["docs/A3_A4_", "src/enterprise_math/a3_a4_", "tests/test_a3_a4_"]
+      "allowed_paths": [
+        "replay_manifest_a3_a4_bridge.json"
+      ],
+      "allowed_prefixes": [
+        "docs/A3_A4_",
+        "src/enterprise_math/a3_a4_",
+        "tests/test_a3_a4_"
+      ]
     },
     "bridge/p017-p018-hard-core-v2": {
       "state": "ACTIVE_BRIDGE",
       "reason": "Current P017/P018 arithmetic-precision bridge; branch-side assets are confined to explicit p017_p018 theorem/test families.",
       "allowed_paths": [],
-      "allowed_prefixes": ["docs/P017_P018_", "src/enterprise_math/p017_p018_", "tests/test_p017_p018_"]
+      "allowed_prefixes": [
+        "docs/P017_P018_",
+        "src/enterprise_math/p017_p018_",
+        "tests/test_p017_p018_"
+      ]
     },
     "bridge/a2-e001-material-markov": {
       "state": "ACTIVE_BRIDGE",
       "reason": "Current A2/E001 future-material bridge; generic quotient theory remains upstream-owned while material future-state specializations stay here.",
       "allowed_paths": [],
-      "allowed_prefixes": ["docs/A2_E001_", "src/enterprise_math/material_future_", "tests/test_material_future_"]
+      "allowed_prefixes": [
+        "docs/A2_E001_",
+        "src/enterprise_math/material_future_",
+        "tests/test_material_future_"
+      ]
     },
     "program/p017-legendre": {
       "state": "ACTIVE_OWNER",
       "reason": "Current P017 square-basin/Legendre pressure-test frontier.",
       "allowed_paths": [],
-      "allowed_prefixes": ["docs/LEGENDRE_", "docs/P017_", "src/enterprise_math/p017_", "tests/test_p017_", "experiments/p017_", "lineage_p017_", "sources_p017_"]
+      "allowed_prefixes": [
+        "docs/LEGENDRE_",
+        "docs/P017_",
+        "src/enterprise_math/p017_",
+        "tests/test_p017_",
+        "experiments/p017_",
+        "lineage_p017_",
+        "sources_p017_"
+      ]
     },
     "program/p018-precision-v2": {
       "state": "ACTIVE_OWNER",
       "reason": "Current P018 precision-specific owner; generic quotient theorems belong to A2/P023.",
-      "allowed_paths": ["replay_manifest_p018.json"],
-      "allowed_prefixes": ["docs/P018_", "docs/PRECISION_CALCULUS", "src/enterprise_math/precision_", "tests/test_precision_", "EnterpriseMath/Precision/"]
+      "allowed_paths": [
+        "replay_manifest_p018.json"
+      ],
+      "allowed_prefixes": [
+        "docs/P018_",
+        "docs/PRECISION_CALCULUS",
+        "src/enterprise_math/precision_",
+        "tests/test_precision_",
+        "EnterpriseMath/Precision/"
+      ]
     },
     "program/p021-causal-focusing-v2": {
       "state": "PROVENANCE",
       "reason": "P021 v2 causal-boundary slice was promoted in main@21c1ef66; v3 is the active continuation.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
     },
     "program/p021-causal-focusing-v3": {
       "state": "ACTIVE_OWNER",
       "reason": "Current P021 continuation after causal-boundary promotion; retains focusing, direction, causal-role and physically bounded application routes.",
-      "allowed_paths": ["owner_manifest_p021_v3.json"],
-      "allowed_prefixes": ["docs/P021_", "src/enterprise_math/causal_", "src/enterprise_math/direction_", "tests/test_causal_", "tests/test_direction_"]
+      "allowed_paths": [
+        "owner_manifest_p021_v3.json"
+      ],
+      "allowed_prefixes": [
+        "docs/P021_",
+        "src/enterprise_math/causal_",
+        "src/enterprise_math/direction_",
+        "tests/test_causal_",
+        "tests/test_direction_"
+      ]
     },
     "program/p022-geometry-v2": {
       "state": "ACTIVE_OWNER",
       "reason": "Current P022/A5 intrinsic geometry owner. A_p lattice core is canonical; HCP/Barlow/geodesic work remains same-owner active research.",
-      "allowed_paths": ["replay_manifest_p022.json", "bilingual_pairs.json"],
-      "allowed_prefixes": ["docs/P022_", "src/enterprise_math/geometry_", "src/enterprise_math/lattice_", "src/enterprise_math/p022_", "tests/test_geometry_", "tests/test_lattice_", "tests/test_p022_"]
+      "allowed_paths": [
+        "replay_manifest_p022.json",
+        "bilingual_pairs.json"
+      ],
+      "allowed_prefixes": [
+        "docs/P022_",
+        "src/enterprise_math/geometry_",
+        "src/enterprise_math/lattice_",
+        "src/enterprise_math/p022_",
+        "tests/test_geometry_",
+        "tests/test_lattice_",
+        "tests/test_p022_"
+      ]
     },
     "program/p024-action-precision": {
       "state": "ACTIVE_OWNER",
       "reason": "P024 closed-form action-language/boundary precision specialization owner; generic quotient and adjunction remain upstream-owned.",
-      "allowed_paths": ["replay_manifest_p024.json"],
-      "allowed_prefixes": ["docs/P024_", "docs/PRIOR_ART_P024_", "src/enterprise_math/action_language_precision", "src/enterprise_math/adjoint_boundary_precision", "src/enterprise_math/lattice_guard_precision", "tests/test_p024_", "experiments/p024_", "lineage_p024_", "sources_p024_"]
+      "allowed_paths": [
+        "replay_manifest_p024.json"
+      ],
+      "allowed_prefixes": [
+        "docs/P024_",
+        "docs/PRIOR_ART_P024_",
+        "src/enterprise_math/action_language_precision",
+        "src/enterprise_math/adjoint_boundary_precision",
+        "src/enterprise_math/lattice_guard_precision",
+        "tests/test_p024_",
+        "experiments/p024_",
+        "lineage_p024_",
+        "sources_p024_"
+      ]
     },
     "program/p025-abc-support-collapse": {
       "state": "ACTIVE_OWNER",
       "reason": "P025 L2 abc pressure-test owner created after the 11-route #215 snapshot; owns radical-support collapse, relation-conditioned witness precision, P025 prior-art and exact program regressions while generic correspondence/quotient mother theory remains upstream-owned.",
-      "allowed_paths": ["bilingual_pairs.json", "lineage_p025_abc.json", "sources_p025_abc.json"],
-      "allowed_prefixes": ["docs/P025_", "docs/PRIOR_ART_P025_", "src/enterprise_math/abc_", "tests/test_abc_", "experiments/p025_"]
+      "allowed_paths": [
+        "bilingual_pairs.json",
+        "lineage_p025_abc.json",
+        "sources_p025_abc.json"
+      ],
+      "allowed_prefixes": [
+        "docs/P025_",
+        "docs/PRIOR_ART_P025_",
+        "src/enterprise_math/abc_",
+        "tests/test_abc_",
+        "experiments/p025_"
+      ]
     },
     "engineering/e001-material-impulse-world": {
       "state": "PROVENANCE",
       "reason": "Frozen one-body impulse-world generation was promoted by L4 and is canonical in main@683d6baa; PR #194 is L5 provenance.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
     },
     "engineering/e001-material-impulse-v2": {
       "state": "ACTIVE_OWNER",
       "reason": "Active E001 finite impulse/momentum research owner for force activation, remainder accumulation, precision re-entry and reversal certificates not exhausted by the canonical wall-world slice.",
       "allowed_paths": [],
-      "allowed_prefixes": ["src/enterprise_math/material_impulse_", "src/enterprise_math/material_force_", "tests/test_material_impulse_", "tests/test_material_force_"]
+      "allowed_prefixes": [
+        "src/enterprise_math/material_impulse_",
+        "src/enterprise_math/material_force_",
+        "tests/test_material_impulse_",
+        "tests/test_material_force_"
+      ]
     },
     "engineering/e001-material-pair-impulse": {
       "state": "PROVENANCE",
       "reason": "Scope-pure two-body pair-impulse generation was promoted by L4 PR #230 and is canonical in main@438a26de; PR #205 is L5 provenance.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
     },
     "engineering/e001-material-contact-network": {
       "state": "ACTIVE_OWNER",
@@ -155,7 +260,8 @@
       "state": "PROVENANCE",
       "reason": "Frozen multi-action empirical generation was promoted by L4 PR #222; PR #185 is L5 provenance and newer empirical work continues on separate owners.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
     },
     "engineering/e001-measurement-area-refinement": {
       "state": "ACTIVE_OWNER",
@@ -178,53 +284,71 @@
       "state": "ABSORBED",
       "reason": "Mechanical audit found no unique main-missing payload.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "MECHANICAL_ANCESTRY"
     },
     "research/e002-precision-locked-actuation-v2": {
       "state": "ABSORBED",
       "reason": "Mechanical audit found no unique main-missing payload.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "MECHANICAL_ANCESTRY"
     },
     "research/e002-precision-native-hysteresis-v2": {
       "state": "ABSORBED",
       "reason": "Mechanical audit found no unique main-missing payload.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "MECHANICAL_ANCESTRY"
     },
     "research/e002-predictive-quotient-compiler-v2": {
       "state": "ABSORBED",
       "reason": "Mechanical audit found no unique main-missing payload.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "MECHANICAL_ANCESTRY"
     },
     "research/e002-vector-actuation-v2": {
       "state": "ABSORBED",
       "reason": "Mechanical audit found no unique main-missing payload.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "MECHANICAL_ANCESTRY"
     },
     "research/e002-task-observable-v2": {
       "state": "ABSORBED",
       "reason": "Semantic audit found the task-observable doc, implementation and tests already present on main as exact blobs despite different ancestry.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
     },
     "research/p023-composition-safe-collapse": {
       "state": "ABSORBED",
       "reason": "Canonical P023 assets are already on main.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
     },
     "research/p023-safe-selector-semigroup": {
       "state": "ABSORBED",
       "reason": "Canonical safe-selector result is already on main.",
       "allowed_paths": [],
-      "allowed_prefixes": []
+      "allowed_prefixes": [],
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
     },
     "research/p018-all-power-quotient-basin-final": {
       "state": "ABSORBED",
       "reason": "Canonical all-power quotient transport is already on main.",
+      "allowed_paths": [],
+      "allowed_prefixes": [],
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
+    },
+    "agent/e001-material-unification": {
+      "state": "PROVENANCE",
+      "reason": "Historical E001 material convergence owner PR #116 is frozen at its exact source head; semantic result accounting is closed by the canonical result-conservation certificate.",
+      "retirement_basis": "RESULT_CONSERVATION",
+      "source_owner_id": "PR #116",
+      "result_conservation_certificate": "result_conservation_e001_material.json",
       "allowed_paths": [],
       "allowed_prefixes": []
     }

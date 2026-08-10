@@ -1,10 +1,17 @@
 import unittest
+from pathlib import Path
 
 from tools.audit_branch_lifecycle import (
     classify_branch,
+    load_overrides,
     mechanical_candidate,
+    retirement_evidence,
     scope_status,
 )
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SOURCE_HEAD = "260c563c7ba1b9f0dafc56a345e8ed5cd3ed0001"
 
 
 class BranchGovernanceAuditorTests(unittest.TestCase):
@@ -25,6 +32,7 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
             "research/example": {
                 "state": "ABSORBED",
                 "reason": "semantic replay already entered main",
+                "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
                 "allowed_paths": [],
                 "allowed_prefixes": [],
             }
@@ -101,6 +109,77 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
         )
         self.assertEqual(scope, "NOT_CONFIGURED")
         self.assertEqual(unexpected, ())
+
+    def test_repository_override_contract_and_certificate_links_are_valid(self):
+        overrides = load_overrides(REPO_ROOT / "branch_governance_overrides.json")
+        retired = overrides["agent/e001-material-unification"]
+        self.assertEqual(retired["retirement_basis"], "RESULT_CONSERVATION")
+        self.assertEqual(
+            retired["result_conservation_certificate"],
+            "result_conservation_e001_material.json",
+        )
+
+    def test_ahead_positive_mechanical_retirement_is_rejected(self):
+        override = {
+            "state": "PROVENANCE",
+            "reason": "incorrect mechanical claim",
+            "retirement_basis": "MECHANICAL_ANCESTRY",
+            "allowed_paths": [],
+            "allowed_prefixes": [],
+        }
+        state, reason, certificate = retirement_evidence(
+            "agent/example",
+            ahead=1,
+            branch_head="a" * 40,
+            semantic_state="PROVENANCE",
+            override=override,
+            root=REPO_ROOT,
+        )
+        self.assertEqual(state, "INVALID_RETIREMENT_EVIDENCE")
+        self.assertIn("ahead by 1", reason)
+        self.assertIsNone(certificate)
+
+    def test_e001_semantic_retirement_certificate_matches_exact_source_head(self):
+        overrides = load_overrides(REPO_ROOT / "branch_governance_overrides.json")
+        override = overrides["agent/e001-material-unification"]
+        state, reason, certificate = retirement_evidence(
+            "agent/e001-material-unification",
+            ahead=29,
+            branch_head=SOURCE_HEAD,
+            semantic_state="PROVENANCE",
+            override=override,
+            root=REPO_ROOT,
+        )
+        self.assertEqual(state, "RESULT_CONSERVATION_CERTIFIED")
+        self.assertIn("exact retired source head", reason)
+        self.assertEqual(certificate, "result_conservation_e001_material.json")
+
+    def test_result_conservation_retirement_rejects_head_mismatch(self):
+        overrides = load_overrides(REPO_ROOT / "branch_governance_overrides.json")
+        override = overrides["agent/e001-material-unification"]
+        state, reason, _ = retirement_evidence(
+            "agent/e001-material-unification",
+            ahead=29,
+            branch_head="0" * 40,
+            semantic_state="PROVENANCE",
+            override=override,
+            root=REPO_ROOT,
+        )
+        self.assertEqual(state, "INVALID_RETIREMENT_EVIDENCE")
+        self.assertIn("!= branch head", reason)
+
+    def test_unconfigured_ahead_positive_retirement_is_not_silently_accepted(self):
+        state, reason, certificate = retirement_evidence(
+            "agent/old-source",
+            ahead=3,
+            branch_head="b" * 40,
+            semantic_state="PROVENANCE",
+            override=None,
+            root=REPO_ROOT,
+        )
+        self.assertEqual(state, "UNDECLARED_SEMANTIC_RETIREMENT")
+        self.assertIn("no explicit retirement declaration", reason)
+        self.assertIsNone(certificate)
 
 
 if __name__ == "__main__":

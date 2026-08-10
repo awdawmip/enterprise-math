@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Audit Enterprise Math branch lifecycle and theorem-home scope without mutation.
+"""Audit Enterprise Math branch lifecycle, scope, and retirement evidence.
 
-The auditor separates two independent questions:
+The auditor separates three independent questions:
 
 1. ancestry/lifecycle: ahead/behind, semantic absorption, replay state;
-2. scope purity: whether the branch-side changes stay inside an explicitly
-   declared owner/integration asset set.
+2. scope purity: whether branch-side changes stay inside an explicitly
+   declared owner/integration asset set;
+3. retirement evidence: whether an ABSORBED/PROVENANCE classification that
+   still has branch-only commits is mechanically justified, grandfathered,
+   or backed by one resolved result-conservation certificate.
 
 A branch may legitimately be behind main while remaining scope-pure. Conversely,
 a branch may be close to main while carrying unrelated theorem homes and should
@@ -19,9 +22,11 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 from typing import Iterable
+
+from tools.check_references import validate_result_conservation_manifest
 
 LIFECYCLE_STATES = {
     "ACTIVE_OWNER",
@@ -33,6 +38,17 @@ LIFECYCLE_STATES = {
 }
 
 SCOPE_STATES = {"PURE", "SCOPE_DRIFT", "NOT_CONFIGURED", "NOT_APPLICABLE"}
+RETIREMENT_STATES = {"ABSORBED", "PROVENANCE"}
+RETIREMENT_BASES = {
+    "MECHANICAL_ANCESTRY",
+    "LEGACY_PRE_RESULT_CONSERVATION",
+    "RESULT_CONSERVATION",
+}
+RETIREMENT_EVIDENCE_FAILURES = {
+    "INVALID_RETIREMENT_EVIDENCE",
+    "UNDECLARED_SEMANTIC_RETIREMENT",
+}
+OVERRIDE_SCHEMA = "ENTERPRISE_MATH_BRANCH_GOVERNANCE_OVERRIDES_V3"
 
 
 @dataclass(frozen=True)
@@ -47,6 +63,10 @@ class BranchAudit:
     scope_state: str
     branch_side_changes: tuple[str, ...]
     unexpected_paths: tuple[str, ...]
+    branch_head: str = ""
+    retirement_evidence_state: str = "NOT_CHECKED"
+    retirement_evidence_reason: str = ""
+    retirement_certificate: str | None = None
 
 
 def run_git(*args: str) -> str:
@@ -121,15 +141,51 @@ def _require_string_list(entry: dict[str, object], key: str, branch: str) -> tup
     return tuple(value)
 
 
+def _load_certificate(root: Path, relative_path: str, label: str) -> dict:
+    path = Path(relative_path)
+    if path.is_absolute() or ".." in path.parts:
+        raise ValueError(f"{label}: result_conservation_certificate must be a safe repo-relative path")
+    full_path = root / path
+    if not full_path.exists():
+        raise ValueError(f"{label}: result-conservation certificate does not exist: {relative_path}")
+    try:
+        manifest = json.loads(full_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"{label}: invalid result-conservation JSON: {exc}") from exc
+    errors = validate_result_conservation_manifest(manifest, relative_path)
+    if errors:
+        raise ValueError(f"{label}: invalid result-conservation certificate: {'; '.join(errors)}")
+    return manifest
+
+
 def load_overrides(path: Path | None) -> dict[str, dict[str, object]]:
     if path is None or not path.exists():
         return {}
     data = json.loads(path.read_text(encoding="utf-8"))
-    if data.get("schema") != "ENTERPRISE_MATH_BRANCH_GOVERNANCE_OVERRIDES_V2":
-        raise ValueError("unexpected branch governance override schema")
+    if data.get("schema") != OVERRIDE_SCHEMA:
+        raise ValueError(f"unexpected branch governance override schema; expected {OVERRIDE_SCHEMA}")
+
+    contract = data.get("retirement_contract")
+    if not isinstance(contract, dict):
+        raise ValueError("retirement_contract must be an object")
+    declared_bases = contract.get("basis_values")
+    if not isinstance(declared_bases, list) or set(declared_bases) != RETIREMENT_BASES:
+        raise ValueError("retirement_contract.basis_values must match the canonical retirement basis vocabulary")
+    legacy_value = contract.get("legacy_branches")
+    if not isinstance(legacy_value, list) or any(
+        not isinstance(item, str) or not item for item in legacy_value
+    ):
+        raise ValueError("retirement_contract.legacy_branches must be a list of non-empty strings")
+    if len(legacy_value) != len(set(legacy_value)):
+        raise ValueError("retirement_contract.legacy_branches contains duplicates")
+    legacy_branches = set(legacy_value)
+
     entries = data.get("branches", {})
     if not isinstance(entries, dict):
         raise ValueError("branches must be an object")
+
+    actual_legacy: set[str] = set()
+    root = path.parent
     for branch, entry in entries.items():
         if not isinstance(entry, dict):
             raise ValueError(f"override for {branch} must be an object")
@@ -140,7 +196,131 @@ def load_overrides(path: Path | None) -> dict[str, dict[str, object]]:
             raise ValueError(f"override for {branch} must include a reason")
         _require_string_list(entry, "allowed_paths", branch)
         _require_string_list(entry, "allowed_prefixes", branch)
+
+        if state not in RETIREMENT_STATES:
+            if "retirement_basis" in entry:
+                raise ValueError(f"non-retired override {branch} must not declare retirement_basis")
+            continue
+
+        basis = entry.get("retirement_basis")
+        if basis not in RETIREMENT_BASES:
+            raise ValueError(
+                f"retired override {branch} must declare retirement_basis in {sorted(RETIREMENT_BASES)}"
+            )
+
+        if basis == "LEGACY_PRE_RESULT_CONSERVATION":
+            actual_legacy.add(branch)
+            if branch not in legacy_branches:
+                raise ValueError(f"legacy retirement {branch} is not in the frozen legacy_branches allowlist")
+        elif basis == "RESULT_CONSERVATION":
+            certificate = entry.get("result_conservation_certificate")
+            owner_id = entry.get("source_owner_id")
+            if not isinstance(certificate, str) or not certificate:
+                raise ValueError(f"{branch}: RESULT_CONSERVATION requires result_conservation_certificate")
+            if not isinstance(owner_id, str) or not owner_id:
+                raise ValueError(f"{branch}: RESULT_CONSERVATION requires source_owner_id")
+            manifest = _load_certificate(root, certificate, branch)
+            actual_owner_id = manifest.get("source_owner", {}).get("id")
+            if actual_owner_id != owner_id:
+                raise ValueError(
+                    f"{branch}: certificate source_owner.id {actual_owner_id!r} != declared {owner_id!r}"
+                )
+        else:
+            for forbidden in ("result_conservation_certificate", "source_owner_id"):
+                if forbidden in entry:
+                    raise ValueError(
+                        f"{branch}: {basis} retirement must not declare {forbidden}"
+                    )
+
+    if actual_legacy != legacy_branches:
+        missing = sorted(legacy_branches - actual_legacy)
+        extra = sorted(actual_legacy - legacy_branches)
+        raise ValueError(
+            f"legacy retirement allowlist drift: missing_entries={missing}; unlisted_entries={extra}"
+        )
     return entries
+
+
+def retirement_evidence(
+    branch: str,
+    *,
+    ahead: int,
+    branch_head: str,
+    semantic_state: str,
+    override: dict[str, object] | None,
+    root: Path,
+) -> tuple[str, str, str | None]:
+    """Return retirement evidence state, reason, and certificate path.
+
+    Mechanical absorption is free only when ``ahead == 0``. Ahead-positive
+    ABSORBED/PROVENANCE source owners need either a frozen pre-contract legacy
+    declaration or a resolved result-conservation certificate whose frozen
+    source head is the exact branch tip being retired.
+    """
+    if semantic_state not in RETIREMENT_STATES:
+        return "NOT_APPLICABLE", "branch is not in a retirement lifecycle state", None
+
+    if override is None:
+        if ahead == 0:
+            return "MECHANICAL_ANCESTRY", "ahead=0 mechanically proves branch commits are absorbed", None
+        if name_layer(branch) == "L5_PROVENANCE":
+            return "CHECKPOINT_PROVENANCE", "immutable checkpoint naming is provenance, not source-owner retirement", None
+        return (
+            "UNDECLARED_SEMANTIC_RETIREMENT",
+            "ahead-positive retired branch has no explicit retirement declaration",
+            None,
+        )
+
+    basis = override.get("retirement_basis")
+    if basis == "MECHANICAL_ANCESTRY":
+        if ahead != 0:
+            return (
+                "INVALID_RETIREMENT_EVIDENCE",
+                f"declared MECHANICAL_ANCESTRY but branch is ahead by {ahead}",
+                None,
+            )
+        return "MECHANICAL_ANCESTRY", "ahead=0 matches the declared mechanical retirement basis", None
+
+    if basis == "LEGACY_PRE_RESULT_CONSERVATION":
+        return (
+            "LEGACY_GRANDFATHERED",
+            "retirement predates the result-conservation contract and is in the frozen legacy allowlist",
+            None,
+        )
+
+    if basis != "RESULT_CONSERVATION":
+        return "INVALID_RETIREMENT_EVIDENCE", f"unknown retirement basis {basis!r}", None
+
+    certificate = override.get("result_conservation_certificate")
+    owner_id = override.get("source_owner_id")
+    if not isinstance(certificate, str) or not certificate:
+        return "INVALID_RETIREMENT_EVIDENCE", "missing result_conservation_certificate", None
+    if not isinstance(owner_id, str) or not owner_id:
+        return "INVALID_RETIREMENT_EVIDENCE", "missing source_owner_id", certificate
+
+    try:
+        manifest = _load_certificate(root, certificate, branch)
+    except (OSError, ValueError) as exc:
+        return "INVALID_RETIREMENT_EVIDENCE", str(exc), certificate
+
+    source_owner = manifest.get("source_owner", {})
+    if source_owner.get("id") != owner_id:
+        return (
+            "INVALID_RETIREMENT_EVIDENCE",
+            f"certificate owner {source_owner.get('id')!r} != declared {owner_id!r}",
+            certificate,
+        )
+    if source_owner.get("source_head") != branch_head:
+        return (
+            "INVALID_RETIREMENT_EVIDENCE",
+            f"certificate source_head {source_owner.get('source_head')!r} != branch head {branch_head!r}",
+            certificate,
+        )
+    return (
+        "RESULT_CONSERVATION_CERTIFIED",
+        "resolved result-conservation certificate matches the exact retired source head",
+        certificate,
+    )
 
 
 def path_allowed(path: str, allowed_paths: tuple[str, ...], allowed_prefixes: tuple[str, ...]) -> bool:
@@ -222,13 +402,14 @@ def render_markdown(audits: list[BranchAudit], main_ref: str) -> str:
         "",
         f"Main ref: `{main_ref}`",
         "",
-        "| Branch | Ahead | Behind | Semantic | Scope | Unexpected |",
-        "|---|---:|---:|---|---|---:|",
+        "| Branch | Ahead | Behind | Semantic | Scope | Retirement evidence | Unexpected |",
+        "|---|---:|---:|---|---|---|---:|",
     ]
     for item in audits:
         lines.append(
             f"| `{item.branch}` | {item.ahead} | {item.behind} | "
-            f"`{item.semantic_state}` | `{item.scope_state}` | {len(item.unexpected_paths)} |"
+            f"`{item.semantic_state}` | `{item.scope_state}` | "
+            f"`{item.retirement_evidence_state}` | {len(item.unexpected_paths)} |"
         )
     lines.extend(
         [
@@ -237,6 +418,9 @@ def render_markdown(audits: list[BranchAudit], main_ref: str) -> str:
             "",
             "- Read-only: this tool never mutates refs.",
             "- `ahead=0` is sufficient for mechanical absorption, not necessary for semantic absorption.",
+            "- Ahead-positive ABSORBED/PROVENANCE source owners require explicit retirement evidence.",
+            "- `RESULT_CONSERVATION` retirement must match one resolved certificate to the exact branch head.",
+            "- `LEGACY_PRE_RESULT_CONSERVATION` is restricted to the frozen V3 allowlist and is not a reusable escape hatch.",
             "- Owner branches may be behind main; scope is computed only from merge-base to the branch side.",
             "- `SCOPE_DRIFT` means branch-side changes escaped the declared owner/integration asset set.",
             "- `NOT_CONFIGURED` means ancestry was audited but owner-path metadata still needs to be declared.",
@@ -262,17 +446,44 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     overrides = load_overrides(args.overrides)
+    certificate_root = args.overrides.parent if args.overrides is not None else Path(".")
     audits: list[BranchAudit] = []
     for display, full_ref in iter_refs(args.ref_prefix):
         if display == "HEAD":
             continue
         ahead, behind = ahead_behind(args.main, full_ref)
         changed = branch_side_changed_files(args.main, full_ref)
-        audits.append(classify_branch(display, ahead, behind, changed, overrides))
-    audits.sort(key=lambda item: (item.scope_state == "SCOPE_DRIFT", item.semantic_state, item.branch), reverse=True)
+        audit = classify_branch(display, ahead, behind, changed, overrides)
+        branch_head = run_git("rev-parse", full_ref)
+        evidence_state, evidence_reason, certificate = retirement_evidence(
+            display,
+            ahead=ahead,
+            branch_head=branch_head,
+            semantic_state=audit.semantic_state,
+            override=overrides.get(display),
+            root=certificate_root,
+        )
+        audits.append(
+            replace(
+                audit,
+                branch_head=branch_head,
+                retirement_evidence_state=evidence_state,
+                retirement_evidence_reason=evidence_reason,
+                retirement_certificate=certificate,
+            )
+        )
+    audits.sort(
+        key=lambda item: (
+            item.retirement_evidence_state in RETIREMENT_EVIDENCE_FAILURES,
+            item.scope_state == "SCOPE_DRIFT",
+            item.semantic_state,
+            item.branch,
+        ),
+        reverse=True,
+    )
 
     payload = {
-        "schema": "ENTERPRISE_MATH_BRANCH_GOVERNANCE_AUDIT_V2",
+        "schema": "ENTERPRISE_MATH_BRANCH_GOVERNANCE_AUDIT_V3",
         "main_ref": args.main,
         "branches": [asdict(item) for item in audits],
     }
@@ -285,6 +496,18 @@ def main() -> int:
         print(json_text, end="")
     if args.markdown_out:
         args.markdown_out.write_text(md_text, encoding="utf-8")
+
+    failures = [
+        item for item in audits
+        if item.retirement_evidence_state in RETIREMENT_EVIDENCE_FAILURES
+    ]
+    if failures:
+        for item in failures:
+            print(
+                f"ERROR: {item.branch}: {item.retirement_evidence_state}: "
+                f"{item.retirement_evidence_reason}"
+            )
+        return 1
     return 0
 
 
