@@ -1,6 +1,6 @@
 # P025 Supplement 130 — Rooted closure circuits and one-round relation-law precision
 
-Status: `PROVED_WIP + EXECUTABLE_CHECKED / NOVELTY_UNVERIFIED`  
+Status: `PROVED_WIP + EXECUTABLE_AUTHORED_NOT_EXECUTED / NOVELTY_UNVERIFIED`  
 Owner: `program/p025-closure-basis-stage130`  
 Scope: finite conjunction closure induced by an exact-state family; pressure test for A2/A4 relation-law precision.
 
