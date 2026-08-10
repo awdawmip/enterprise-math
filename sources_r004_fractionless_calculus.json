@@ -35,7 +35,7 @@
       "primary_url": "https://doi.org/10.1090/S0025-5718-1968-0226829-0",
       "doi": "10.1090/S0025-5718-1968-0226829-0",
       "role": ["MATHEMATICAL-PRIOR", "FRACTION-FREE-COMPUTATION", "TOOL-PRIOR"],
-      "enterprise_use": "Provides the established fraction-free exact-linear-algebra precedent for future Enterprise Math integer constraint solvers. R004 does not implement or claim the Bareiss algorithm here.",
+      "enterprise_use": "Provides the established fraction-free exact-linear-algebra precedent for future Enterprise Math integer constraint solvers. R004 uses Bareiss-style exact determinants as an implementation technique but does not claim the algorithm.",
       "not_claimed": "Fraction-free Gaussian elimination and integer-preserving elimination are established symbolic-computation methods.",
       "verified_at": "2026-08-10"
     },
@@ -85,6 +85,30 @@
       "role": ["MATHEMATICAL-PRIOR", "QUOTIENT-DECOMPOSITION", "FORMAL-REFERENCE", "CONTRAST"],
       "enterprise_use": "Official Mathlib documentation expresses finite free-module quotients over PIDs as products of cyclic quotients using Smith coefficients. R004 uses this as a prior-art boundary for converting an additive future congruence into a structured quotient-module view.",
       "not_claimed": "Finite free-module quotient decomposition by Smith coefficients is established algebra and formalized prior work.",
+      "verified_at": "2026-08-10"
+    },
+    {
+      "id": "SRC-MATHLIB-EXTERIOR-ALGEBRA",
+      "title": "Mathlib.LinearAlgebra.ExteriorAlgebra.Basic",
+      "authors": ["Mathlib contributors"],
+      "year": 2026,
+      "kind": "formal-library-documentation",
+      "primary_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.html",
+      "role": ["MATHEMATICAL-PRIOR", "EXTERIOR-ALGEBRA", "FORMAL-REFERENCE", "CONTRAST"],
+      "enterprise_use": "Provides the formal-library prior-art boundary for exterior algebras, exterior powers, alternating maps and wedge products. R004 uses determinant/exterior coordinates only as an exact compiler representation and A3 bridge.",
+      "not_claimed": "Exterior algebras, exterior powers, wedge products and their universal properties are established mathematics.",
+      "verified_at": "2026-08-10"
+    },
+    {
+      "id": "SRC-MATHLIB-DETERMINANT",
+      "title": "Mathlib.LinearAlgebra.FreeModule.Determinant",
+      "authors": ["Mathlib contributors"],
+      "year": 2026,
+      "kind": "formal-library-documentation",
+      "primary_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/LinearAlgebra/FreeModule/Determinant.html",
+      "role": ["MATHEMATICAL-PRIOR", "DETERMINANT", "FORMAL-REFERENCE", "CONTRAST"],
+      "enterprise_use": "Provides a formal-library prior-art boundary for determinants on finite free modules. R004's determinant relation tokens and cofactor normals are special compiler uses of established exact linear algebra.",
+      "not_claimed": "Determinants, alternating determinant maps, cofactors and minor-based rank tests are established mathematics.",
       "verified_at": "2026-08-10"
     }
   ]
