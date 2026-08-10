@@ -1,57 +1,54 @@
 """Exact policy comparator for batched versus guarded contact impulse application.
 
-The material-contact tick owner first quantizes every contact-local reservoir and
+The material-contact tick first quantizes every named contact-local reservoir and
 produces one nonnegative delivered impulse vector ``J``.  Batched application
-then updates the contact network by the total additive increment ``K J``.
+updates the network by the total additive increment ``K J``.
 
 A different world law may insist that the same delivered quanta are applied one
-unit at a time, with contact ``i`` legal only while its current score is
-negative.  Since score addition itself is commutative, every guarded word whose
-contact-count vector is ``J`` reaches the same final score/body state as the
-batch.  The entire policy difference is therefore one finite question:
+unit at a time, with contact ``i`` legal only while its current relative score is
+negative.  Since additive score/body increments commute, every guarded word with
+count vector ``J`` reaches the same final additive state as the batch.  The
+policy difference is therefore exactly the finite causal question
 
     does there exist a legal guarded word with count vector J?
 
-This module provides an exact finite count-lattice oracle and a sharper theorem
-for Z-coupled systems.
-
-For initial score vector ``r`` and coupling matrix ``K``, a prefix count vector
-``n`` has score
+For initial score ``r``, coupling ``K`` and prefix count vector ``n``, the exact
+prefix score is
 
     r(n) = r + K n.
 
-A remaining unit action ``i`` is enabled exactly when ``n_i<J_i`` and
-``r_i(n)<0``.  Because the state depends only on prefix counts, exact guarded
-realizability is a finite reachability problem on the box
-``0<=n_i<=J_i``.
+So guarded realizability is finite reachability on the integer box
+``0 <= n_i <= J_i``.
 
-If every off-diagonal coupling is nonpositive, any action that is currently
-enabled can be moved to the front of any existing legal completion: actions
-that originally precede it can only make its guard more negative, while moving
-it earlier can only make those other guards more negative.  Consequently:
+If every off-diagonal coupling is nonpositive, any currently enabled remaining
+action can be moved to the front of any legal completion: actions originally
+before it can only make its own guard more negative, while moving it earlier can
+only make their guards more negative.  Therefore, on a Z-coupled system:
 
-* if one guarded realization exists, **every** greedy scheduler that repeatedly
+* if one guarded realization exists, every greedy scheduler that repeatedly
   chooses any currently enabled remaining contact succeeds;
 * if such a greedy scheduler gets stuck, no guarded realization exists.
 
-This is stronger than one fixed priority rule and is the causal scheduling form
-of the Z-matrix no-cross-disable property.  It does not require the batch vector
-itself to be a least-action solution.
+For diagonal coupling, contacts are independent.  Before the ``k``-th unit on
+contact ``i`` its score is ``r_i + K_ii*k`` for ``k=0,...,J_i-1``.  An arithmetic
+progression is negative throughout iff its maximum endpoint is negative, so the
+exact coordinate criterion is
 
-For diagonal coupling (body-disjoint matching), the condition closes further:
-contact ``i`` can deliver ``J_i`` units iff
+    J_i=0
+    or max(r_i, r_i + K_ii*(J_i-1)) < 0.
 
-    J_i=0  or  r_i + K_ii*(J_i-1) < 0.
+For the usual contact Gram the diagonal is positive and this reduces to the last
+pre-action score test.  The endpoint form remains correct for arbitrary integer
+diagonal matrices and avoids a hidden sign assumption.
 
-Positive cross-coupling can make a perfectly valid batched vector causally
-unrealizable.  In the equal-mass q=1 three-leaf star, ``r=(-1,-1,-1)`` and
-``K`` has diagonal 2/off-diagonal 1.  Batch ``J=(1,1,1)`` is algebraically
-well-defined, but the first guarded unit raises every other score to zero, so no
-sequential word can realize the remaining two units.
+Positive cross-coupling can make a valid batched vector causally unrealizable.
+For the equal-mass q=1 three-leaf star, ``r=(-1,-1,-1)`` and ``K`` has diagonal
+2/off-diagonal 1.  Batch ``J=(1,1,1)`` is algebraically valid, but any first unit
+raises the other two scores to zero, so no sequential guarded word realizes the
+remaining units.
 
-Finite reachability, commutation-by-swapping and Z-matrix sign arguments are
-standard mathematics.  The project value is the exact E001 world-policy
-boundary after material quantization.
+Finite reachability and the Z-matrix exchange argument are standard.  The E001
+value is the exact world-policy boundary after material quantization.
 """
 
 from __future__ import annotations
@@ -62,14 +59,11 @@ from math import prod
 from typing import Callable, Sequence
 
 from .material_contact_network_impulse_1d import (
-    ContactNetworkMomentum1D,
     apply_contact_impulse_vector,
     contact_coupling_gram,
     contact_relative_scores,
 )
-from .material_contact_network_tick_1d import (
-    ContactMaterialNetworkTick1D,
-)
+from .material_contact_network_tick_1d import ContactMaterialNetworkTick1D
 
 
 Matrix = tuple[tuple[int, ...], ...]
@@ -102,9 +96,7 @@ def _square_integer_matrix(
     dimension: int,
 ) -> Matrix:
     rows = tuple(tuple(row) for row in values)
-    if len(rows) != dimension or any(
-        len(row) != dimension for row in rows
-    ):
+    if len(rows) != dimension or any(len(row) != dimension for row in rows):
         raise ValueError("coupling matrix must match score dimension")
     for row in rows:
         for value in row:
@@ -117,13 +109,10 @@ def score_after_counts(
     coupling: Sequence[Sequence[int]],
     counts: Sequence[int],
 ) -> Vector:
+    """Return exact contact scores after an unguarded prefix-count vector."""
     scores = _integer_vector(initial_scores, name="initial_scores")
     matrix = _square_integer_matrix(coupling, len(scores))
-    prefix = _integer_vector(
-        counts,
-        name="counts",
-        nonnegative=True,
-    )
+    prefix = _integer_vector(counts, name="counts", nonnegative=True)
     if len(prefix) != len(scores):
         raise ValueError("counts must match score dimension")
     return tuple(
@@ -142,6 +131,7 @@ def enabled_remaining_contacts(
     prefix_counts: Sequence[int],
     target_counts: Sequence[int],
 ) -> tuple[int, ...]:
+    """Remaining target actions whose current local closing guard is true."""
     scores = _integer_vector(initial_scores, name="initial_scores")
     matrix = _square_integer_matrix(coupling, len(scores))
     prefix = _integer_vector(
@@ -156,10 +146,7 @@ def enabled_remaining_contacts(
     )
     if len(prefix) != len(scores) or len(target) != len(scores):
         raise ValueError("count vectors must match score dimension")
-    if any(
-        used > required
-        for used, required in zip(prefix, target, strict=True)
-    ):
+    if any(used > required for used, required in zip(prefix, target, strict=True)):
         raise ValueError("prefix counts cannot exceed target counts")
     current = score_after_counts(scores, matrix, prefix)
     return tuple(
@@ -171,9 +158,7 @@ def enabled_remaining_contacts(
     )
 
 
-def coupling_is_z_matrix(
-    coupling: Sequence[Sequence[int]],
-) -> bool:
+def coupling_is_z_matrix(coupling: Sequence[Sequence[int]]) -> bool:
     rows = tuple(tuple(row) for row in coupling)
     if not rows:
         raise ValueError("coupling matrix must be nonempty")
@@ -185,9 +170,7 @@ def coupling_is_z_matrix(
     )
 
 
-def coupling_is_diagonal(
-    coupling: Sequence[Sequence[int]],
-) -> bool:
+def coupling_is_diagonal(coupling: Sequence[Sequence[int]]) -> bool:
     rows = tuple(tuple(row) for row in coupling)
     if not rows:
         raise ValueError("coupling matrix must be nonempty")
@@ -236,7 +219,7 @@ def exact_guarded_impulse_realization(
     while queue:
         prefix = queue.popleft()
         if prefix == target:
-            word = []
+            word: list[int] = []
             current = prefix
             while predecessor[current] is not None:
                 previous, action = predecessor[current]
@@ -251,12 +234,7 @@ def exact_guarded_impulse_realization(
                 total_count_states=total_states,
             )
 
-        for action in enabled_remaining_contacts(
-            scores,
-            matrix,
-            prefix,
-            target,
-        ):
+        for action in enabled_remaining_contacts(scores, matrix, prefix, target):
             nxt = tuple(
                 value + (1 if index == action else 0)
                 for index, value in enumerate(prefix)
@@ -283,17 +261,11 @@ def _highest_enabled(enabled: tuple[int, ...], _: Vector) -> int:
     return enabled[-1]
 
 
-def _least_used_enabled(
-    enabled: tuple[int, ...],
-    counts: Vector,
-) -> int:
+def _least_used_enabled(enabled: tuple[int, ...], counts: Vector) -> int:
     return min(enabled, key=lambda index: (counts[index], index))
 
 
-GREEDY_CHOOSERS: dict[
-    str,
-    Callable[[tuple[int, ...], Vector], int],
-] = {
+GREEDY_CHOOSERS: dict[str, Callable[[tuple[int, ...], Vector], int]] = {
     "LOWEST": _lowest_enabled,
     "HIGHEST": _highest_enabled,
     "LEAST_USED": _least_used_enabled,
@@ -317,7 +289,7 @@ def z_greedy_guarded_realization(
     *,
     policy: str = "LOWEST",
 ) -> ZGreedyGuardedRealization:
-    """Exact arbitrary-choice greedy theorem for nonpositive cross-coupling."""
+    """Arbitrary-choice greedy decision procedure for Z-coupled systems."""
     scores = _integer_vector(initial_scores, name="initial_scores")
     matrix = _square_integer_matrix(coupling, len(scores))
     target = _integer_vector(
@@ -336,12 +308,7 @@ def z_greedy_guarded_realization(
     counts: Vector = (0,) * len(target)
     word: list[int] = []
     while counts != target:
-        enabled = enabled_remaining_contacts(
-            scores,
-            matrix,
-            counts,
-            target,
-        )
+        enabled = enabled_remaining_contacts(scores, matrix, counts, target)
         if not enabled:
             return ZGreedyGuardedRealization(
                 target_counts=target,
@@ -349,11 +316,7 @@ def z_greedy_guarded_realization(
                 realizable=False,
                 word=None,
                 stuck_prefix_counts=counts,
-                stuck_scores=score_after_counts(
-                    scores,
-                    matrix,
-                    counts,
-                ),
+                stuck_scores=score_after_counts(scores, matrix, counts),
             )
         action = chooser(enabled, counts)
         counts = tuple(
@@ -377,7 +340,7 @@ def diagonal_guarded_realizable_closed_form(
     coupling: Sequence[Sequence[int]],
     target_counts: Sequence[int],
 ) -> bool:
-    """Exact independent-contact criterion when all cross couplings vanish."""
+    """Exact independent-contact criterion for arbitrary integer diagonal coupling."""
     scores = _integer_vector(initial_scores, name="initial_scores")
     matrix = _square_integer_matrix(coupling, len(scores))
     target = _integer_vector(
@@ -389,10 +352,13 @@ def diagonal_guarded_realizable_closed_form(
         raise ValueError("target_counts must match score dimension")
     if not coupling_is_diagonal(matrix):
         raise ValueError("closed form requires diagonal coupling")
+
     return all(
         count == 0
-        or scores[index]
-        + matrix[index][index] * (count - 1)
+        or max(
+            scores[index],
+            scores[index] + matrix[index][index] * (count - 1),
+        )
         < 0
         for index, count in enumerate(target)
     )
@@ -422,22 +388,17 @@ def compare_batched_tick_to_guarded_sequential(
     initial_scores = contact_relative_scores(tick.before)
     gram = contact_coupling_gram(tick.before)
     delivered = tick.delivered_impulse_vector
-    exact = exact_guarded_impulse_realization(
-        initial_scores,
-        gram,
-        delivered,
-    )
+    exact = exact_guarded_impulse_realization(initial_scores, gram, delivered)
 
     matches: bool | None = None
     if exact.realizable:
-        batch_step = apply_contact_impulse_vector(
-            tick.before,
-            delivered,
-        )
+        batch_step = apply_contact_impulse_vector(tick.before, delivered)
         if batch_step.after != tick.after:
-            raise AssertionError("material batch after-state disagreed with delivered vector")
-        # Additive contact updates depend only on the count vector.  The exact
-        # guarded word therefore has the same final network state by construction.
+            raise AssertionError(
+                "material batch after-state disagreed with delivered vector"
+            )
+        # Any legal guarded word with this count vector has the same additive
+        # body/contact-score after-state because additions depend only on counts.
         matches = True
 
     return BatchedGuardedTickPolicyReport(
