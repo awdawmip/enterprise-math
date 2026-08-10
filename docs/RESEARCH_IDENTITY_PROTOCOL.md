@@ -60,9 +60,27 @@ If a `Global-Knowledge-Sync:` marker is also required, the identity line appears
 
 Do not emit the identity marker for unrelated non-Enterprise-Math conversations.
 
-## 5. Commit identity trailers
+## 5. Commit identity
 
-Every semantic-checkpoint commit authored by a research conversation should include Git trailers:
+Identity must be visible in GitHub's ordinary commit list, not only hidden inside commit details.
+
+### 5.1 Commit subject prefix
+
+Research semantic-checkpoint commit subjects should begin with the Researcher-ID:
+
+`[EM-R012-01] R012: formalize genesis-index`
+
+`[EM-R011-01] R011: prove frozen T01-T03 targets`
+
+Driver/control-plane commits use:
+
+`[EM-DRIVER-01] governance: update researcher directory`
+
+This makes the producing research conversation visible without opening the commit.
+
+### 5.2 Git trailers
+
+The same commit should also include machine-readable trailers when the write surface supports them:
 
 ```
 Researcher-ID: EM-R012-01
@@ -78,19 +96,33 @@ Research-Task: CONTROL_PLANE
 Research-Role: RESEARCH_DRIVER
 ```
 
-Legacy commits are not rewritten solely to add identity trailers.
+Legacy commits are not rewritten solely to add identity metadata.
 
-If a connector/tool cannot add trailers to an already-created commit, preserve the identity in the PR body / artifact / handoff and use trailers on the next writable semantic checkpoint. Missing identity metadata is a provenance defect, not a mathematical `HARD_BLOCK`.
+If a connector/tool cannot add trailers to an already-created commit, preserve the ID in the commit subject, PR body, artifact, or handoff and use full trailers on the next writable semantic checkpoint. Missing identity metadata is a provenance defect, not a mathematical `HARD_BLOCK`.
 
-## 6. PR and handoff metadata
+## 6. PR and handoff identity
 
-PR descriptions for research work should include a compact identity block near the top:
+### 6.1 PR title
+
+Research PR titles should begin with the Researcher-ID so the authoring conversation is visible in the PR list:
+
+`[EM-R012-01] R012: category/relation genesis closure`
+
+Driver-only governance PRs use `[EM-DRIVER-01]`.
+
+Do not rename historical PRs solely to retrofit this convention.
+
+### 6.2 PR body
+
+PR descriptions should include a compact identity block near the top:
 
 ```
 Researcher-ID: EM-R012-01
 Research-Task: RS-R012-A3A4-RELATION-GENESIS-CATEGORY-BOUNDARY
 Research-Role: RESEARCHER
 ```
+
+### 6.3 Handoff/artifact metadata
 
 Machine-readable handoffs/manifests should carry fields equivalent to:
 
