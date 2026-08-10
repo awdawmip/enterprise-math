@@ -12,7 +12,6 @@ import EnterpriseMath.Precision.QuotientCoalescence
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootAdjacentBoundary
 import EnterpriseMath.Quotient.PowerFreeActionBasis
-import EnterpriseMath.Quotient.RootQuotientWordBasis
 import EnterpriseMath.Quotient.RootFutureClosure
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
