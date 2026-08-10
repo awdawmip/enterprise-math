@@ -1,5 +1,5 @@
-import itertools
 import unittest
+from math import lcm
 
 from enterprise_math.relation_branching_modulus_lattice import (
     modular_branching_lattice_report,
@@ -83,7 +83,7 @@ class RelationBranchingModulusLatticeTests(unittest.TestCase):
             self.assertTrue(
                 verify_semiring_morphism(
                     morphism,
-                    tuple(range(2 * __import__("math").lcm(left, right) + 3)),
+                    tuple(range(2 * lcm(left, right) + 3)),
                 )
             )
 
