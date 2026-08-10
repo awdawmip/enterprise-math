@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-STRUCTURAL-TARGET-CUT",
+      "name": "p-adic structural target cut compiler",
+      "source_relations": [
+        {"source_id": "SRC-R004-STC-MATHLIB-SNF", "relation": "FORMAL_PRIOR"},
+        {"source_id": "SRC-R004-STC-STACKS-NAKAYAMA", "relation": "FORMAL_PRIOR"},
+        {"source_id": "SRC-R004-STC-FINK-MOCI-RING", "relation": "DIRECT_CONTRAST_PRIOR"},
+        {"source_id": "SRC-R004-STC-FINK-MOCI-VALUATION", "relation": "DIRECT_CONTRAST_PRIOR"}
+      ],
+      "project_addition": "Generalizes the exact-state Module Cut Compiler to preservation of a declared linear target quotient Bx. For hidden coordinates H, target safety is ker(A_H) subset ker(B_H), equivalently Row(B_H) subset Row(A_H). The missing-target module D_H=(Row(A_H)+Row(B_H))/Row(A_H) is the typed defect object; its p-exponent mass is monotone and Smith-computable. At K=1 minimal cuts are A-circuits resolved by stacked [A;B], but the relative cut clutter need not itself be matroidal. At K>1 residue rank can miss target obligations; p-adic defect profiles remain necessary.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "updates": [
+        "EM-COMP-R004-MODULE-CUT-COMPILER",
+        "FINDING-ENTERPRISE-MATH-R004-ALGEBRAIC-OBSTRUCTION-CUT-ATLAS-20260810"
+      ],
+      "relation_to_owners": {
+        "P023": "TEST_TYPED_TARGET_DESCENT_AND_REPAIR",
+        "P024": "INFORM_TARGET_LANGUAGE_PRECISION_DEPTH",
+        "A3": "TEST_LINEAR_RELATION_TARGET_SPECIALIZATION",
+        "A4": "INFORM_NONLINEAR_WITNESS_BOUNDARY"
+      }
+    }
+  ]
+}
