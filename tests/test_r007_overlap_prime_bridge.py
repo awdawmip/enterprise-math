@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import itertools
 import sys
-from math import gcd
+from math import gcd, lcm
 from pathlib import Path
 
 EXPERIMENTS = Path(__file__).parents[1] / "experiments"
@@ -61,6 +61,44 @@ def test_multiscale_nerve_has_gcd_components_and_expected_f_vector() -> None:
         for a, b in ((6, 10), (6, 15), (10, 15))
     ] == [2, 3, 5]
     assert bridge.multiscale_overlap_component_count((6, 10, 15)) == 1
+
+
+def test_component_quotient_is_the_canonical_gcd_scale_object() -> None:
+    families = [(6, 10, 15), (8, 12, 18), (6, 9, 15), (4, 6, 10), (12, 18, 30)]
+    for scales in families:
+        g = bridge.gcd_many(scales)
+        projection = bridge.multiscale_meet_projection(scales)
+        components = bridge.multiscale_overlap_components(scales)
+        assert len(components) == g
+        labels = []
+        for component in components:
+            component_labels = {projection[cell] for cell in component}
+            assert len(component_labels) == 1
+            labels.append(next(iter(component_labels)))
+        assert sorted(labels) == list(range(g))
+        for d in scales:
+            expected = tuple(i // (d // g) for i in range(d))
+            actual = tuple(projection[(d, i)] for i in range(d))
+            assert actual == expected
+
+
+def test_metric_atom_denominators_recover_lcm_join() -> None:
+    values = range(2, 13)
+    for size in range(1, 5):
+        for scales in itertools.combinations(values, size):
+            expected = lcm(*scales)
+            assert bridge.metric_join_scale(scales) == expected
+            assert bridge.meet_join_signature(scales) == (gcd(*scales), expected)
+
+
+def test_metric_join_examples_do_not_require_uniform_atom_lengths() -> None:
+    assert set(bridge.atomic_interval_lengths((6, 10, 15))) == {
+        bridge.atomic_interval_lengths((6, 10, 15))[0].__class__(1, 30),
+        bridge.atomic_interval_lengths((6, 10, 15))[0].__class__(1, 15),
+    }
+    assert bridge.metric_join_scale((6, 10, 15)) == 30
+    assert bridge.metric_join_scale((4, 6, 10)) == 60
+    assert bridge.metric_join_scale((8, 12, 18)) == 72
 
 
 def test_first_disconnect_scale_is_smallest_prime_factor() -> None:
