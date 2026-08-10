@@ -21,6 +21,11 @@ from enterprise_math.precision_product_geometry import product_grid_distance
 from enterprise_math.precision_threshold_record import threshold_record_overlap
 
 
+def _pos(value: int, name: str) -> None:
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise ValueError(f"{name} must be a positive integer")
+
+
 def path_geometric_record_overlap(
     left: int,
     right: int,
@@ -62,9 +67,59 @@ def grid_representative_visibility_region_excluded(
 
 
 def overlap_from_distance(distance: int, record_resolution: int) -> Fraction:
-    """Expose the task-relative isotropic law used by this bridge.
-
-    Geometry enters only through the intrinsic graph distance.  Hence equal
-    distances are forced to have equal overlap inside this toy subfamily.
-    """
+    """Expose the task-relative isotropic law used by this bridge."""
     return threshold_record_overlap(distance, record_resolution)
+
+
+def unordered_pair_count(size: int) -> int:
+    _pos(size, "size")
+    return size * (size - 1) // 2
+
+
+def path_zero_overlap_pair_count(size: int, record_resolution: int) -> int:
+    """Count unordered distinct pairs with graph distance >= record resolution.
+
+    In the path ``P_size`` there are exactly ``size-s`` unordered pairs at
+    distance ``s``.  Hence, when ``size>record_resolution``, the zero-overlap
+    count is the finite triangular number
+
+    ``(size-d)*(size-d+1)//2``.
+    """
+    _pos(size, "size")
+    _pos(record_resolution, "record_resolution")
+    remaining = size - record_resolution
+    if remaining <= 0:
+        return 0
+    return remaining * (remaining + 1) // 2
+
+
+def path_positive_overlap_pair_count(size: int, record_resolution: int) -> int:
+    return unordered_pair_count(size) - path_zero_overlap_pair_count(
+        size, record_resolution
+    )
+
+
+def path_zero_overlap_pair_fraction(size: int, record_resolution: int) -> Fraction:
+    total = unordered_pair_count(size)
+    if total == 0:
+        return Fraction(0, 1)
+    return Fraction(path_zero_overlap_pair_count(size, record_resolution), total)
+
+
+def path_zero_overlap_fraction_monotone_step(
+    size: int, record_resolution: int
+) -> bool:
+    """Check one exact finite growth step ``f(N+1)>=f(N)``.
+
+    For ``N>=d`` and ``d>1`` the exact difference is
+
+    ``2*(d-1)*(N-d+1)/(N*(N-1)*(N+1))``;
+
+    the boundary cases are handled by the exact Fraction comparison.  No
+    infinite-size limit is used.
+    """
+    _pos(size, "size")
+    _pos(record_resolution, "record_resolution")
+    return path_zero_overlap_pair_fraction(
+        size + 1, record_resolution
+    ) >= path_zero_overlap_pair_fraction(size, record_resolution)
