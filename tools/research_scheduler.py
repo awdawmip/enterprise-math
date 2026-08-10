@@ -6,14 +6,18 @@ append-only runtime coordination surface; callers may export its valid event
 objects in GitHub comment order to JSON/JSONL and pass them with --events.
 
 This tool deliberately does not decide mathematical truth or canonical status.
+Research identity is runtime provenance: CLAIMs automatically resolve a stable
+Researcher-ID even when legacy callers do not supply one explicitly.
 """
 
 from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import pathlib
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from typing import Any, Iterable
@@ -25,6 +29,9 @@ DEFAULT_OWNERS = ROOT / "branch_governance_overrides.json"
 HARD_BLOCK_FIELDS = ("missing_object", "owner", "necessity", "unblock_condition")
 ACTIVE_OWNER_STATES = {"ACTIVE_OWNER", "ACTIVE_BRIDGE"}
 DEPENDENCY_ACTIONS = {"INFORM", "CONSUME", "TEST", "HARD_DEPENDENCY"}
+RESEARCHER_ID_RE = re.compile(r"^EM-[A-Z0-9]+-(?:[0-9]{2}|[A-Z0-9]{4,8})$")
+TASK_LANE_RE = re.compile(r"^RS-((?:R|P)\d{3}[A-Z]?)\b")
+LANE_RE = re.compile(r"[^A-Z0-9]+")
 
 
 class SchedulerError(ValueError):
@@ -52,6 +59,44 @@ def complete_hard_block(value: Any) -> bool:
         isinstance(value.get(field), str) and value[field].strip()
         for field in HARD_BLOCK_FIELDS
     )
+
+
+def normalize_lane(value: str) -> str:
+    lane = LANE_RE.sub("", value.strip().upper())
+    if not lane:
+        raise SchedulerError("identity_lane must contain an alphanumeric character")
+    return lane[:16]
+
+
+def identity_lane(task: dict[str, Any]) -> str:
+    explicit = task.get("identity_lane")
+    if isinstance(explicit, str) and explicit.strip():
+        return normalize_lane(explicit)
+    task_id = str(task.get("task_id", "")).strip().upper()
+    match = TASK_LANE_RE.match(task_id)
+    if match:
+        return normalize_lane(match.group(1))
+    if task_id.startswith("RS-"):
+        task_id = task_id[3:]
+    first = task_id.split("-", 1)[0]
+    return normalize_lane(first or "DIRECT")
+
+
+def valid_researcher_id(value: Any) -> bool:
+    return isinstance(value, str) and bool(RESEARCHER_ID_RE.fullmatch(value.strip().upper()))
+
+
+def researcher_id_for_claim(task: dict[str, Any], claim_id: str) -> str:
+    lane = identity_lane(task)
+    digest = hashlib.sha256(f"{task['task_id']}\0{claim_id}".encode("utf-8")).hexdigest()[:6].upper()
+    return f"EM-{lane}-{digest}"
+
+
+def release_claim_identity(state: dict[str, Any]) -> None:
+    if state.get("researcher_id"):
+        state["last_researcher_id"] = state["researcher_id"]
+    state["researcher_id"] = None
+    state["identity_source"] = None
 
 
 def validate_scheduler(config: dict[str, Any], owners: dict[str, Any]) -> list[str]:
@@ -87,6 +132,12 @@ def validate_scheduler(config: dict[str, Any], owners: dict[str, Any]) -> list[s
         if task_id in seen:
             errors.append(f"duplicate task_id: {task_id}")
         seen.add(task_id)
+
+        if "identity_lane" in task:
+            try:
+                identity_lane(task)
+            except SchedulerError as exc:
+                errors.append(f"{task_id}: {exc}")
 
         state = task.get("base_state")
         if state not in task_states:
@@ -178,6 +229,9 @@ def state_from_task(task: dict[str, Any]) -> dict[str, Any]:
         "state": task["base_state"],
         "claim_id": None,
         "actor": None,
+        "researcher_id": None,
+        "last_researcher_id": None,
+        "identity_source": None,
         "lease_until": None,
         "hard_block": copy.deepcopy(task.get("hard_block")),
         "last_progress_ref": task.get("last_progress_ref"),
@@ -193,6 +247,7 @@ def expire_claim(state: dict[str, Any], at: datetime) -> None:
         state["state"] = "HANDOFF_READY"
         state["claim_id"] = None
         state["actor"] = None
+        release_claim_identity(state)
         state["lease_until"] = None
 
 
@@ -237,6 +292,15 @@ def reduce_task(
             if not isinstance(claim_id, str) or not claim_id:
                 ignore(state, index, "CLAIM requires claim_id")
                 continue
+            supplied_researcher_id = event.get("researcher_id")
+            if supplied_researcher_id is not None and not valid_researcher_id(supplied_researcher_id):
+                ignore(state, index, "CLAIM researcher_id has invalid format")
+                continue
+            researcher_id = (
+                supplied_researcher_id.strip().upper()
+                if isinstance(supplied_researcher_id, str)
+                else researcher_id_for_claim(task, claim_id)
+            )
             try:
                 duration = lease_duration(event, default_lease_minutes)
             except SchedulerError as exc:
@@ -245,6 +309,9 @@ def reduce_task(
             state["state"] = "CLAIMED"
             state["claim_id"] = claim_id
             state["actor"] = event.get("actor")
+            state["researcher_id"] = researcher_id
+            state["last_researcher_id"] = researcher_id
+            state["identity_source"] = "EVENT" if supplied_researcher_id is not None else "AUTO_CLAIM_DERIVED"
             state["lease_until"] = at + duration
             continue
 
@@ -252,6 +319,14 @@ def reduce_task(
             if not live_claim or claim_id != live_claim:
                 ignore(state, index, f"{kind} requires the current live claim_id")
                 continue
+            event_researcher_id = event.get("researcher_id")
+            if event_researcher_id is not None:
+                if not valid_researcher_id(event_researcher_id):
+                    ignore(state, index, f"{kind} researcher_id has invalid format")
+                    continue
+                if event_researcher_id.strip().upper() != state.get("researcher_id"):
+                    ignore(state, index, f"{kind} researcher_id does not match live claim identity")
+                    continue
 
         if kind == "HEARTBEAT":
             try:
@@ -286,6 +361,7 @@ def reduce_task(
             state["next_action"] = next_action
             state["claim_id"] = None
             state["actor"] = None
+            release_claim_identity(state)
             state["lease_until"] = None
             continue
 
@@ -301,6 +377,7 @@ def reduce_task(
                 state["last_progress_ref"] = event["progress_ref"]
             state["claim_id"] = None
             state["actor"] = None
+            release_claim_identity(state)
             state["lease_until"] = None
             continue
 
@@ -322,6 +399,7 @@ def reduce_task(
             state["last_progress_at"] = event["at"]
             state["claim_id"] = None
             state["actor"] = None
+            release_claim_identity(state)
             state["lease_until"] = None
             continue
 
@@ -329,6 +407,7 @@ def reduce_task(
             state["state"] = "SUPERSEDED"
             state["claim_id"] = None
             state["actor"] = None
+            release_claim_identity(state)
             state["lease_until"] = None
             state["last_progress_at"] = event["at"]
             if event.get("next_action"):
@@ -366,6 +445,7 @@ def effective_states(config: dict[str, Any], events: list[dict[str, Any]], now: 
             "leverage": task.get("leverage"),
             "frontier": task.get("frontier"),
             "source_refs": task.get("source_refs", []),
+            "identity_lane": identity_lane(task),
         })
         results.append(reduced)
     return results
@@ -431,6 +511,10 @@ def build_parser() -> argparse.ArgumentParser:
     select.add_argument("--events", type=pathlib.Path)
     select.add_argument("--now")
     select.add_argument("--kind", choices=["RESEARCH", "GOVERNANCE", "ANY"], default="RESEARCH")
+
+    identity = sub.add_parser("identity")
+    identity.add_argument("--task-id", required=True)
+    identity.add_argument("--claim-id", required=True)
     return parser
 
 
@@ -450,6 +534,19 @@ def main(argv: list[str] | None = None) -> int:
 
     if errors:
         raise SchedulerError("invalid scheduler configuration: " + "; ".join(errors))
+
+    if args.command == "identity":
+        task = next((item for item in config.get("tasks", []) if item.get("task_id") == args.task_id), None)
+        if task is None:
+            raise SchedulerError(f"unknown task_id: {args.task_id}")
+        print_json({
+            "task_id": args.task_id,
+            "claim_id": args.claim_id,
+            "identity_lane": identity_lane(task),
+            "researcher_id": researcher_id_for_claim(task, args.claim_id),
+            "identity_source": "AUTO_CLAIM_DERIVED",
+        })
+        return 0
 
     events = load_events(args.events)
     current = now_utc(args.now)
