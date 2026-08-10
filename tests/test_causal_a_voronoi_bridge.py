@@ -1,6 +1,6 @@
 import unittest
 from fractions import Fraction
-from itertools import product
+from itertools import combinations, product
 
 from enterprise_math.causal_a_voronoi_bridge import (
     a3_voronoi_vertex_partition,
@@ -10,7 +10,11 @@ from enterprise_math.causal_a_voronoi_bridge import (
     a_voronoi_vertex_count,
     all_declared_vertices_are_primitive_unit_bounded,
     centered_subset_probe,
+    cut_probe_distance_identity,
+    cut_probe_value,
+    maximum_cut_probe_response,
     primitive_response_implies_voronoi_inequality,
+    primitive_transfer_cut_response,
     probe_has_zero_gauge,
     probe_is_primitive_unit_bounded,
     quadratic_dominates_twice_transfer_mass,
@@ -46,6 +50,39 @@ class CausalAVoronoiBridgeTests(unittest.TestCase):
             for probe in probes:
                 for displacement in displacements:
                     self.assertTrue(primitive_response_implies_voronoi_inequality(probe, displacement))
+
+    def test_cut_probes_are_exact_unit_response_extremes_on_primitive_transfers(self):
+        for slots in range(2, 7):
+            for size in range(1, slots):
+                for subset in combinations(range(slots), size):
+                    responses = {
+                        primitive_transfer_cut_response(slots, receiver, donor, subset)
+                        for receiver in range(slots)
+                        for donor in range(slots)
+                        if receiver != donor
+                    }
+                    self.assertTrue(responses <= {-1, 0, 1})
+                    self.assertIn(1, responses)
+                    self.assertIn(-1, responses)
+
+    def test_word_distance_is_maximum_absolute_cut_imbalance(self):
+        for slots in range(2, 7):
+            for displacement in product(range(-2, 3), repeat=slots):
+                if sum(displacement) != 0:
+                    continue
+                self.assertTrue(cut_probe_distance_identity(displacement))
+                self.assertEqual(maximum_cut_probe_response(displacement), a_transfer_mass(displacement))
+
+    def test_centered_subset_probe_pairing_equals_integer_cut_probe_on_zero_sum_states(self):
+        for slots in range(2, 6):
+            for displacement in product((-1, 0, 1), repeat=slots):
+                if sum(displacement) != 0:
+                    continue
+                for size in range(1, slots):
+                    for subset in combinations(range(slots), size):
+                        probe = centered_subset_probe(slots, subset)
+                        pairing = sum(Fraction(value) * coordinate for value, coordinate in zip(displacement, probe))
+                        self.assertEqual(pairing, cut_probe_value(displacement, subset))
 
     def test_rank_three_has_four_six_four_vertex_orbits_and_fourteen_total(self):
         self.assertEqual(a3_voronoi_vertex_partition(), {1: 4, 2: 6, 3: 4})
