@@ -223,6 +223,72 @@ def check_natural_lift_square(
     return lhs == rhs
 
 
+# --- Stage-3: inverse-limit cuts and natural clamp retractions -------------
+
+
+def rational_split_cut(d: int, num: int, den: int, side: str = "right") -> int:
+    """Coordinate c_d of a rational split point alpha=num/den in [0,1].
+
+    `right` uses floor(d*alpha) and is unavailable at alpha=1.
+    `left` uses ceil(d*alpha)-1 and is unavailable at alpha=0.
+    Away from exact rational grid boundaries the two coordinates coincide.
+    """
+    if d < 1 or den < 1 or not (0 <= num <= den):
+        raise ValueError("require d,den>0 and 0<=num<=den")
+    if side == "right":
+        if num == den:
+            raise ValueError("the right copy of endpoint 1 does not exist")
+        return (d * num) // den
+    if side == "left":
+        if num == 0:
+            raise ValueError("the left copy of endpoint 0 does not exist")
+        return (d * num + den - 1) // den - 1
+    raise ValueError("side must be 'left' or 'right'")
+
+
+def split_cut_coherent(num: int, den: int, side: str, d: int, ratio: int) -> bool:
+    if d < 1 or ratio < 1:
+        raise ValueError("require d,ratio>0")
+    return (
+        rational_split_cut(d * ratio, num, den, side) // ratio
+        == rational_split_cut(d, num, den, side)
+    )
+
+
+def residue_lower_clamp(cut: Callable[[int], int]) -> Callable[[int, int], int]:
+    """rho_d(s)=min(s,c_d) for a coherent residue-tower cut c."""
+    return lambda d, s: min(s, cut(d))
+
+
+def residue_upper_clamp(cut: Callable[[int], int]) -> Callable[[int, int], int]:
+    """rho_d(s)=max(s,c_d) for a coherent residue-tower cut c."""
+    return lambda d, s: max(s, cut(d))
+
+
+def residue_interval_clamp(
+    lower: Callable[[int], int], upper: Callable[[int], int]
+) -> Callable[[int, int], int]:
+    """Coordinatewise clamp to a coherent split interval [lower,upper]."""
+    def rho(d: int, s: int) -> int:
+        lo, hi = lower(d), upper(d)
+        if lo > hi:
+            raise ValueError("lower cut must not exceed upper cut")
+        return min(max(s, lo), hi)
+    return rho
+
+
+def residue_policy_idempotent_on_scale(
+    rho: Callable[[int, int], int], d: int
+) -> bool:
+    return all(rho(d, rho(d, s)) == rho(d, s) for s in range(d))
+
+
+def residue_policy_downward_on_scale(
+    rho: Callable[[int, int], int], d: int
+) -> bool:
+    return all(rho(d, s) <= s for s in range(d))
+
+
 def self_check() -> dict[str, int]:
     witness_cases = 0
     fiber_cases = 0
@@ -232,6 +298,7 @@ def self_check() -> dict[str, int]:
     safe_monoid_cases = 0
     residue_cases = 0
     scale_spectrum_cases = 0
+    split_clamp_cases = 0
 
     for p in range(2, 7):
         for r in range(2, 20):
@@ -335,6 +402,53 @@ def self_check() -> dict[str, int]:
             assert observed == (g % r == 0)
             scale_spectrum_cases += 1
 
+    # Rational representatives exercise both copies of split rational boundaries.
+    split_points = [
+        (0, 1, "right"),
+        (1, 1, "left"),
+        (1, 2, "left"),
+        (1, 2, "right"),
+        (2, 3, "left"),
+        (2, 3, "right"),
+        (1, 7, "left"),
+        (1, 7, "right"),
+    ]
+    for num, den, side in split_points:
+        cut = lambda d, num=num, den=den, side=side: rational_split_cut(d, num, den, side)
+        lower = residue_lower_clamp(cut)
+        upper = residue_upper_clamp(cut)
+        for d in range(1, 15):
+            assert 0 <= cut(d) < d
+            assert residue_policy_idempotent_on_scale(lower, d)
+            assert residue_policy_idempotent_on_scale(upper, d)
+            assert residue_policy_downward_on_scale(lower, d)
+            for ratio in range(1, 10):
+                assert split_cut_coherent(num, den, side, d, ratio)
+                e = d * ratio
+                for u in range(e):
+                    assert residue_policy_coherent(lower, d, ratio, u)
+                    assert residue_policy_coherent(upper, d, ratio, u)
+                    split_clamp_cases += 2
+                for p in range(2, 5):
+                    H = lambda a, p=p: collapse(a, p)
+                    for m in range(0, 300, 29):
+                        assert check_natural_lift_square(m, d, ratio, H, lower)
+                        out = natural_lift_with_residue(m, d, H, lower)
+                        assert out <= m
+                        out2 = natural_lift_with_residue(out, d, H, lower)
+                        assert out2 == out
+                        split_clamp_cases += 1
+
+    lo_cut = lambda d: rational_split_cut(d, 1, 3, "right")
+    hi_cut = lambda d: rational_split_cut(d, 2, 3, "left")
+    corridor = residue_interval_clamp(lo_cut, hi_cut)
+    for d in range(1, 15):
+        assert residue_policy_idempotent_on_scale(corridor, d)
+        for ratio in range(1, 10):
+            for u in range(d * ratio):
+                assert residue_policy_coherent(corridor, d, ratio, u)
+                split_clamp_cases += 1
+
     return {
         "witness_cases": witness_cases,
         "fiber_cases": fiber_cases,
@@ -344,6 +458,7 @@ def self_check() -> dict[str, int]:
         "safe_monoid_cases": safe_monoid_cases,
         "residue_cases": residue_cases,
         "scale_spectrum_cases": scale_spectrum_cases,
+        "split_clamp_cases": split_clamp_cases,
     }
 
 
