@@ -1,0 +1,32 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V1",
+  "status": "ACTIVE",
+  "effective": "2026-08-11T00:47:00+08:00",
+  "authority_source": "research_role_policy.json",
+  "identity_state_machine": "research_identity_state_machine.json",
+  "new_dispatchable_taskbook_required_metadata": {
+    "created_by_role": "RESEARCH_DRIVER",
+    "task_authority": "DRIVER_APPROVED",
+    "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE"
+  },
+  "optional_metadata": {
+    "identity_lane": "compact human-readable lane such as R012, R005C, P017"
+  },
+  "forbidden_fixed_runtime_metadata": [
+    "researcher_id"
+  ],
+  "rules": [
+    "A taskbook defines work, not a particular conversation instance.",
+    "The executing conversation resolves or allocates its Researcher-ID at runtime before substantive work.",
+    "Multiple conversations may execute or continue the same taskbook with distinct Researcher-IDs.",
+    "A continuation in the same conversation preserves its existing Researcher-ID.",
+    "Legacy taskbooks without identity_policy inherit AUTO_RESOLVE_OR_ALLOCATE from the repository-level identity state machine.",
+    "Researcher identity never grants Driver authority or theorem ownership."
+  ],
+  "recommended_header": [
+    "created_by_role: RESEARCH_DRIVER",
+    "task_authority: DRIVER_APPROVED",
+    "identity_policy: AUTO_RESOLVE_OR_ALLOCATE",
+    "identity_lane: <optional compact lane>"
+  ]
+}
