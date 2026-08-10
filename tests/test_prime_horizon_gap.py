@@ -2,13 +2,14 @@ import unittest
 from math import isqrt
 
 from enterprise_math.legendre import is_prime, primes_up_to
-from enterprise_math.prime_collapse_field import factor_horizon
+from enterprise_math.prime_collapse_field import factor_horizon, interior_width
 from enterprise_math.prime_horizon_gap import (
     COFACTOR_GAP,
     HORIZON_GAP,
     exclusive_cofactor_certificate,
     exclusive_cofactor_regime,
     first_exclusive_cofactor_prime,
+    horizon_drift_components,
     horizon_gap_threshold,
     horizon_successor_exceeds_threshold,
     is_pure_cofactor_cap_candidate,
@@ -130,6 +131,29 @@ class PrimeHorizonGapTests(unittest.TestCase):
                 )
                 comparisons += 1
         self.assertEqual(comparisons, 472)
+
+    def test_horizon_gap_decomposes_into_drift_and_square_remainder(self):
+        for power in range(2, 10):
+            for k in range(2, 80):
+                drift, remainder, root_lower = horizon_drift_components(k, power)
+                horizon = factor_horizon(k, power)
+                upper = (k + 1) ** power - 1
+                numerator, denominator = horizon_gap_threshold(k, power)
+
+                self.assertEqual(denominator, root_lower)
+                self.assertEqual(horizon, root_lower + drift)
+                self.assertEqual(upper, horizon * horizon + remainder)
+                self.assertGreaterEqual(remainder, 0)
+                self.assertLessEqual(remainder, 2 * horizon)
+                self.assertEqual(
+                    numerator,
+                    drift * root_lower + drift * drift + remainder,
+                )
+
+                if power % 2 == 0:
+                    half_power = power // 2
+                    self.assertEqual(drift, interior_width(k, half_power))
+                    self.assertEqual(remainder, 2 * horizon)
 
     def test_square_pure_horizon_cap_is_empty(self):
         for k in range(2, 100):
