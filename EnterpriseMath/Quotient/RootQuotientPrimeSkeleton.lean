@@ -7,7 +7,8 @@ namespace EnterpriseMath.Quotient
 
 /-- Every prime boundary is `r`-power-free for `r>=2`.
 
-Only the elementary divisor property of a prime is used. -/
+Only the elementary divisor property of a prime and mathlib's standard theorem
+that a nontrivial power is not prime are used. -/
 theorem prime_rPowerFree
     {r p : ℕ}
     (hr : 2 ≤ r)
@@ -15,28 +16,15 @@ theorem prime_rPowerFree
     RPowerFree r p := by
   intro t ht hPowDvd
   rcases hp.eq_one_or_self_of_dvd (t ^ r) hPowDvd with hOne | hPrimePow
-  · have hFour : 4 ≤ t ^ r := by
+  · have htLePow : t ≤ t ^ r := by
       calc
-        4 = 2 ^ 2 := by norm_num
-        _ ≤ t ^ 2 := Nat.pow_le_pow_left ht 2
-        _ ≤ t ^ r := Nat.pow_le_pow_right (by omega) hr
+        t = t ^ 1 := by simp
+        _ ≤ t ^ r := Nat.pow_le_pow_right (by omega) (by omega)
     omega
-  · have htDvdPow : t ∣ t ^ r := by
-      refine ⟨t ^ (r - 1), ?_⟩
-      calc
-        t ^ r = t ^ ((r - 1) + 1) := by congr 1 <;> omega
-        _ = t ^ (r - 1) * t := by rw [pow_succ']
-        _ = t * t ^ (r - 1) := Nat.mul_comm _ _
-    have htDvdP : t ∣ p := dvd_trans htDvdPow hPowDvd
-    rcases hp.eq_one_or_self_of_dvd t htDvdP with htOne | htP
-    · omega
-    · have hpLtSq : p < p ^ 2 := by
-        nlinarith [hp.two_le]
-      have hpSqLePow : p ^ 2 ≤ p ^ r :=
-        Nat.pow_le_pow_right (by omega) hr
-      have hpLtPow : p < p ^ r := hpLtSq.trans_le hpSqLePow
-      rw [htP] at hPrimePow
-      omega
+  · have hPowerPrime : (t ^ r).Prime := by
+      rw [hPrimePow]
+      exact hp
+    exact (Prime.not_prime_pow hr) hPowerPrime
 
 /-- If a positive-generator word compiles to a prime denominator, then that
 prime occurs as one of the primitive generators in the word.  No factorization
