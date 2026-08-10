@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-11",
+  "components": [
+    {
+      "id": "EM-R004-COVERING-CODE-PRIMITIVE-ISA",
+      "name": "Finite-field covering-code primitive ISA bridge",
+      "source_relations": [
+        {"source_id": "SRC-R004-COVERING-CODE-DAVYDOV-2025", "relation": "DIRECT_PRIOR"},
+        {"source_id": "SRC-R004-SATURATING-DAVYDOV-2018", "relation": "SMALL_PARAMETER_PRIOR"}
+      ],
+      "project_addition": "Identifies full additive typed semantic readout with parity-check syndromes: primitive columns are instructions, kernel words are null programs, covering radius is worst semantic readout depth, and the covering-code length function is the unrestricted storage/depth backend. Adds fail-closed typed boundaries and exact internal normalized checks.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "relation_to_owners": {
+        "P023": "CONSUME_FUTURE_SAFE_TYPED_GATE",
+        "P024": "INFORM_RESOURCE_PRECISION_PARETO",
+        "R004": "SPECIALIZATION_AND_PRESSURE_TEST"
+      }
+    }
+  ]
+}
