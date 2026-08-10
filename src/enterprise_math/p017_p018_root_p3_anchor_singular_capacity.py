@@ -39,7 +39,7 @@ for the total root-P3 rough mass; that analytic input remains separate.
 
 from __future__ import annotations
 
-from math import gcd
+from math import gcd, isqrt
 
 from .legendre import primes_up_to
 from .p017_p018_buchstab_cutoff_ladder import almost_prime_cutoff, rough_survivor_offsets
@@ -50,7 +50,7 @@ def _distinct_prime_divisors(value: int) -> tuple[int, ...]:
         raise ValueError("value must be positive")
     remaining = value
     factors: list[int] = []
-    for p in primes_up_to(value):
+    for p in primes_up_to(isqrt(value) + 1):
         if remaining % p:
             continue
         factors.append(p)
@@ -59,9 +59,9 @@ def _distinct_prime_divisors(value: int) -> tuple[int, ...]:
         if remaining == 1:
             break
         if p * p > remaining:
-            if remaining > 1:
-                factors.append(remaining)
             break
+    if remaining > 1:
+        factors.append(remaining)
     return tuple(sorted(set(factors)))
 
 
