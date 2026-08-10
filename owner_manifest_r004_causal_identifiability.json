@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_OWNER_MANIFEST_V1",
+  "status": "ACTIVE_RESEARCH_OWNER",
+  "owner": "research/r004-causal-identifiability-v1",
+  "foundation_question": "FQ-20260810-007",
+  "scheduler_task": "RS-R004-CAUSAL-IDENTIFIABILITY",
+  "canonical_base": "a7c21de79c8115fc06238d7810452a218987ecd6",
+  "purpose": "Research the weakest project-native finite causal/relational primitive that can make arbitrary finite pre-sampling operationally falsifiable, or prove that current Foundation semantics cannot decide online generation without an additional physical/causal axiom.",
+  "write_scope": {
+    "allowed_prefixes": [
+      "docs/R004_CAUSAL_IDENTIFIABILITY_",
+      "src/enterprise_math/r004_causal_identifiability",
+      "tests/test_r004_causal_identifiability",
+      "experiments/r004_causal_identifiability",
+      "lineage_r004_causal_identifiability",
+      "sources_r004_causal_identifiability"
+    ],
+    "forbidden_reownership": [
+      "src/enterprise_math/precision_*",
+      "tests/test_precision_*",
+      "A1/A2/A4 generic mother theory",
+      "Bell/CHSH or measurement-independence prior art as project novelty"
+    ]
+  },
+  "evidence_inputs": [
+    {
+      "source": "PR #302 / src/enterprise_math/precision_genesis_intervention.py",
+      "role": "TEST",
+      "boundary": "finite deterministic/rational/adaptive response tables remain finitely pre-samplable when arbitrary counterfactual tables are allowed"
+    },
+    {
+      "source": "PR #302 / src/enterprise_math/precision_latent_capacity.py",
+      "role": "TEST",
+      "boundary": "full-support m-step r-ary deterministic pre-sampling requires at least r^m distinct seed states"
+    },
+    {
+      "source": "PR #302 / src/enterprise_math/precision_locality_obstruction.py",
+      "role": "TEST",
+      "boundary": "setting-local plus measurement-independent completions obey CHSH; one exact rational target violates it; relaxing measurement independence has target-specific cost M_min=2/15"
+    },
+    {
+      "source": "canonical FQ-20260809-004",
+      "role": "CONSUME",
+      "boundary": "preserve exact-state / current-observation / declared-future-safe layering"
+    },
+    {
+      "source": "canonical FQ-20260809-006",
+      "role": "CONSUME",
+      "boundary": "partial-action definedness belongs to declared future behavior but does not decide latent-versus-generated ontology"
+    }
+  ],
+  "research_constraints": [
+    "Do not adopt Bell locality or measurement independence as Foundation axioms by fiat.",
+    "Keep observable no-signalling distinct from Bell-local latent factorization.",
+    "Preserve A4 ownership of multivalued correspondence/support.",
+    "Prefer exact finite/integer/rational definitions and counterexamples.",
+    "Executable checks support falsification but do not replace proof.",
+    "Any physical conclusion remains subject to P016 falsification/promotion discipline."
+  ],
+  "resolution_bar": {
+    "positive": "Give a minimal typed causal/intervention primitive and prove an operational obstruction to all latent completions in a declared class, with weakest hypotheses, prior-art boundary, reduction to current Foundation when the extra primitive is absent, and at least one exact finite executable witness.",
+    "negative": "Prove an impossibility theorem showing that current Foundation plus a stated weaker candidate class cannot distinguish online generation from finite latent completion, and identify the narrowest additional physical/causal axiom needed to make the distinction testable."
+  },
+  "first_action": "Define the weakest candidate notion of causal accessibility/intervention context that is strictly weaker than importing Bell locality plus measurement independence, then test whether arbitrary finite response-table completion still factors through it. If it does, turn that failure into the next impossibility lemma rather than adding a stronger axiom ad hoc.",
+  "return_surface": "GitHub Issue #164 FQ-20260810-007",
+  "hard_block": null
+}
