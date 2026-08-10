@@ -127,13 +127,28 @@ def pair_context_histogram(adjacency: Adjacency) -> dict[tuple[int, int], int]:
     return dict(sorted(histogram.items()))
 
 
-def _clique_extension_histograms(adjacency: Adjacency) -> tuple[dict[int, int], ...]:
-    """Extension-count histograms for all clique sizes until no larger clique exists."""
+def flag_extension_histograms(
+    adjacency: Adjacency,
+    maximum_size: int | None = None,
+) -> tuple[dict[int, int], ...]:
+    """Extension-count histograms for clique sizes up to `maximum_size`.
+
+    Omitting the bound enumerates through the maximum clique size.  Large root
+    systems should normally use an explicit research bound in CI and reserve the
+    full enumeration for an offline/targeted proof check.
+    """
+    if maximum_size is not None and (
+        isinstance(maximum_size, bool)
+        or not isinstance(maximum_size, int)
+        or maximum_size <= 0
+    ):
+        raise ValueError("maximum_size must be a positive integer or None")
     vertices = tuple(adjacency)
     order = {vertex: index for index, vertex in enumerate(vertices)}
     cliques = [((vertex,), set(adjacency[vertex])) for vertex in vertices]
     result = []
-    while cliques:
+    size = 1
+    while cliques and (maximum_size is None or size <= maximum_size):
         result.append(dict(sorted(Counter(len(common) for _, common in cliques).items())))
         next_cliques = []
         for clique, common in cliques:
@@ -142,6 +157,7 @@ def _clique_extension_histograms(adjacency: Adjacency) -> tuple[dict[int, int], 
             for vertex in candidates:
                 next_cliques.append((clique + (vertex,), common.intersection(adjacency[vertex])))
         cliques = next_cliques
+        size += 1
     return tuple(result)
 
 
@@ -163,12 +179,14 @@ class PrimitiveLinkProfile:
     pair_context_histogram: tuple[tuple[tuple[int, int], int], ...]
     flag_extension_histograms: tuple[tuple[tuple[int, int], ...], ...]
     first_flag_split_order: int | None
-    maximum_flag_size: int
 
 
-def primitive_link_profile(roots: tuple[Vector, ...]) -> PrimitiveLinkProfile:
+def primitive_link_profile(
+    roots: tuple[Vector, ...],
+    maximum_flag_size: int | None = None,
+) -> PrimitiveLinkProfile:
     adjacency = primitive_direction_graph(roots)
-    flag_histograms = _clique_extension_histograms(adjacency)
+    flag_histograms = flag_extension_histograms(adjacency, maximum_flag_size)
     return PrimitiveLinkProfile(
         primitive_count=len(roots),
         link_degree_histogram=tuple(sorted(Counter(len(adjacency[v]) for v in adjacency).items())),
@@ -179,7 +197,6 @@ def primitive_link_profile(roots: tuple[Vector, ...]) -> PrimitiveLinkProfile:
         pair_context_histogram=tuple(pair_context_histogram(adjacency).items()),
         flag_extension_histograms=tuple(tuple(hist.items()) for hist in flag_histograms),
         first_flag_split_order=first_flag_split_order(flag_histograms),
-        maximum_flag_size=len(flag_histograms),
     )
 
 
