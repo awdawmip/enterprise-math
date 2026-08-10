@@ -14,17 +14,17 @@ nonpositive exponent, then
 
     v_q(D_N)=v_q(F_N)-sum alpha_j v_q(F_j) > 0.
 
-Thus the remaining global arithmetic question can be phrased as a sign/support
-problem at one explicitly forced composite copy, rather than as an unbounded
-search for a later defect.
+Digit-local helpers below deliberately use the p-Lucas residue product rather
+than constructing the full copied Franel number.  Exact huge-integer valuation
+is deferred to the final capture verifier only.
 """
 
 from __future__ import annotations
 
 from .p022_barlow_franel_lucas_rank import (
     base_p_digits,
+    franel_lucas_residue,
     franel_residue,
-    lucas_divisibility_from_digits,
 )
 from .p022_barlow_low_order_defect_reduction import (
     _is_prime,
@@ -64,7 +64,7 @@ def forced_composite_copy_segment(rank: int, prime: int) -> tuple[int, int]:
 
 
 def forced_copy_is_q_divisible(rank: int, prime: int) -> bool:
-    """p-Lucas certifies q|F_(a*q+r) for a=1 or2."""
+    """p-Lucas certifies q|F_(a*q+r) without constructing F_(a*q+r)."""
     if not is_primitive_franel_divisor(rank, prime):
         raise ValueError("prime must be primitive at rank")
     a, segment = forced_composite_copy_segment(rank, prime)
@@ -72,13 +72,13 @@ def forced_copy_is_q_divisible(rank: int, prime: int) -> bool:
         raise AssertionError("forced copy must have digits (r,a)")
     if franel_residue(a, prime) == 0:
         raise AssertionError("small leading copy digit must be a q-unit")
-    if not lucas_divisibility_from_digits(segment, prime):
-        raise AssertionError("p-Lucas must reproduce the primitive zero digit")
+    if franel_lucas_residue(segment, prime) != 0:
+        raise AssertionError("p-Lucas digit product must reproduce the primitive zero")
     return True
 
 
 def forced_copy_q_divisible_support(rank: int, prime: int) -> tuple[tuple[int, int], ...]:
-    """Canonical support terms whose Franel factor is divisible by q."""
+    """Canonical support terms predicted q-divisible by the p-Lucas digit product."""
     if not is_primitive_franel_divisor(rank, prime):
         raise ValueError("prime must be primitive at rank")
     _, segment = forced_composite_copy_segment(rank, prime)
@@ -86,7 +86,7 @@ def forced_copy_q_divisible_support(rank: int, prime: int) -> tuple[tuple[int, i
     return tuple(
         (index, exponent)
         for index, exponent in exponents
-        if lucas_divisibility_from_digits(index, prime)
+        if franel_lucas_residue(index, prime) == 0
     )
 
 
