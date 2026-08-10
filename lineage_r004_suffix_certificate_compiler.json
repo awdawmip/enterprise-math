@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-SUFFIX-CERTIFICATE-LIVENESS",
+      "name": "backward semantic liveness compiler for certificate state",
+      "project_addition": "Applies canonical P023 future-safe quotient recursively to certificate state in a staged deterministic program. Complete suffix signatures yield the unique coarsest certificate quotient at every point; candidate erasure is safe iff its kernel is contained in the suffix equivalence, with an exact counterexample pair on failure. This supplies last-use semantics for certificate demotion and makes no new generic minimization claim.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "updates": [
+        "EM-COMP-R004-TYPED-DEFECT-COMPOSITION",
+        "P023 future-safe quotient specialization"
+      ],
+      "relation_to_owners": {
+        "P023": "CONSUME_RECURSIVE_CERTIFICATE_STATE_SPECIALIZATION",
+        "P024": "INFORM_DYNAMIC_CERTIFICATE_PRECISION",
+        "A3": "INFORM_LAST_USE_OF_PROJECTIVE_OR_GUARD_CERTIFICATES",
+        "A4": "INFORM_LAST_USE_OF_WITNESS_SUPPORT_CERTIFICATES"
+      }
+    }
+  ]
+}
