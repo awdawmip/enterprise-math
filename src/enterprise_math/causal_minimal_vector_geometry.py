@@ -24,6 +24,7 @@ bit through that vertex.
 
 from __future__ import annotations
 
+from collections import Counter
 from dataclasses import dataclass
 from itertools import combinations
 
@@ -47,6 +48,19 @@ class MinimalVectorEdgeContext:
     def complete_base(self) -> bool:
         n = self.complementary_fiber_count
         return self.base_edge_count == n * (n - 1) // 2
+
+
+@dataclass(frozen=True)
+class GaugeFreeEdgeSummary:
+    """Label-independent finite diagnostic for one primitive edge context."""
+
+    common_neighbor_count: int
+    complementary_fiber_count: int
+    base_edge_count: int
+    base_degree_histogram: tuple[tuple[int, int], ...]
+    return_preserving_triangles: int
+    return_flipping_triangles: int
+    complete_base: bool
 
 
 def _validate_gram(gram: GramMatrix, dimension: int) -> None:
@@ -152,7 +166,6 @@ def edge_context_two_cover(
         if not parallel and not crossed:
             continue
 
-        # Complementation symmetry forces the second edge of the same matching.
         if parallel and not primitive_adjacent(left_star, right_star, gram, norm):
             raise AssertionError("parallel matching must be complement-symmetric")
         if crossed and not primitive_adjacent(left_star, right, gram, norm):
@@ -192,6 +205,34 @@ def triangle_loop_return_counts(context: MinimalVectorEdgeContext) -> tuple[int,
     values = tuple(triangle_loop_return_map(context).values())
     flipping = sum(values)
     return len(values) - flipping, flipping
+
+
+def edge_context_summary(context: MinimalVectorEdgeContext) -> GaugeFreeEdgeSummary:
+    degrees = [0] * context.complementary_fiber_count
+    for i, j in context.base_edges:
+        degrees[i] += 1
+        degrees[j] += 1
+    preserving, flipping = triangle_loop_return_counts(context)
+    return GaugeFreeEdgeSummary(
+        common_neighbor_count=context.common_neighbor_count,
+        complementary_fiber_count=context.complementary_fiber_count,
+        base_edge_count=context.base_edge_count,
+        base_degree_histogram=tuple(sorted(Counter(degrees).items())),
+        return_preserving_triangles=preserving,
+        return_flipping_triangles=flipping,
+        complete_base=context.complete_base,
+    )
+
+
+def primitive_edge_summary_histogram(
+    vectors: tuple[Vector, ...],
+    gram: GramMatrix,
+) -> dict[GaugeFreeEdgeSummary, int]:
+    """Partition primitive directions by a gauge-free local context summary."""
+    histogram: Counter[GaugeFreeEdgeSummary] = Counter()
+    for alpha in vectors:
+        histogram[edge_context_summary(edge_context_two_cover(vectors, gram, alpha))] += 1
+    return dict(histogram)
 
 
 def reconstruct_complete_base_bits_from_triangle_returns(
