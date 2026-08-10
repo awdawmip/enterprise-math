@@ -6,8 +6,7 @@ namespace EnterpriseMath.Scale
 /-- Cell overlap is symmetric. -/
 theorem cellOverlap_comm {d i e j : ℕ} :
     cellOverlap d i e j ↔ cellOverlap e j d i := by
-  unfold cellOverlap
-  tauto
+  constructor <;> rintro ⟨h₁, h₂⟩ <;> exact ⟨h₂, h₁⟩
 
 /-- At one positive scale, two half-open cells overlap in positive length exactly when
 they are the same cell. -/
@@ -15,12 +14,8 @@ theorem cellOverlap_same_scale_iff {d i j : ℕ} (hd : 0 < d) :
     cellOverlap d i d j ↔ i = j := by
   constructor
   · rintro ⟨h₁, h₂⟩
-    have hij : i < j + 1 := by
-      have : i * d < (j + 1) * d := h₁
-      exact (Nat.mul_lt_mul_right hd).1 this
-    have hji : j < i + 1 := by
-      have : j * d < (i + 1) * d := h₂
-      exact (Nat.mul_lt_mul_right hd).1 this
+    have hij : i < j + 1 := (Nat.mul_lt_mul_right hd).1 h₁
+    have hji : j < i + 1 := (Nat.mul_lt_mul_right hd).1 h₂
     omega
   · rintro rfl
     unfold cellOverlap
@@ -55,22 +50,18 @@ theorem PrefixCompatible.setScaleMap_succ
   have hNpos : 0 < N := by omega
   by_cases hA : A.scale = N
   · by_cases hB : B.scale = N
-    · have hidx : A.index = B.index := by
+    · let aN : Fin N := ⟨A.index, by simpa [hA] using A.2.2⟩
+      let bN : Fin N := ⟨B.index, by simpa [hB] using B.2.2⟩
+      have hidx : A.index = B.index := by
         have hs : cellOverlap N A.index N B.index := by simpa [hA, hB] using hAB
         exact (cellOverlap_same_scale_iff hNpos).1 hs
-      have hAmap : (setScaleMap ρ N fN A.scale A.2).1 = (fN ⟨A.index, by simpa [hA] using A.2.2⟩).1 := by
-        subst hA
-        simp [setScaleMap]
-      have hBmap : (setScaleMap ρ N fN B.scale B.2).1 = (fN ⟨B.index, by simpa [hB] using B.2.2⟩).1 := by
-        subst hB
-        simp [setScaleMap]
-      have heqMap : (setScaleMap ρ N fN A.scale A.2).1 =
-          (setScaleMap ρ N fN B.scale B.2).1 := by
-        rw [hAmap, hBmap, hidx]
-      subst hA
-      subst hB
-      apply (cellOverlap_same_scale_iff hNpos).2
-      exact heqMap
+      have habN : aN = bN := by
+        apply Fin.ext
+        exact hidx
+      have hmapEq : (fN aN).1 = (fN bN).1 := by rw [habN]
+      have htargetN : cellOverlap N (fN aN).1 N (fN bN).1 :=
+        (cellOverlap_same_scale_iff hNpos).2 hmapEq
+      simpa [setScaleMap, hA, hB, aN, bN] using htargetN
     · have hBlt : B.scale < N := by omega
       let Bold : PrefixCell N := ⟨⟨B.scale, hBlt⟩, B.2⟩
       let j : Fin N := ⟨A.index, by simpa [hA] using A.2.2⟩
@@ -81,8 +72,7 @@ theorem PrefixCompatible.setScaleMap_succ
       have htarget := hExt j Bold hsource
       unfold prefixTargetOverlap at htarget
       have htargetSymm := (cellOverlap_comm).2 htarget
-      subst hA
-      simpa [setScaleMap, Bold, j, hB] using htargetSymm
+      simpa [setScaleMap, Bold, j, hA, hB] using htargetSymm
   · have hAlt : A.scale < N := by omega
     let Aold : PrefixCell N := ⟨⟨A.scale, hAlt⟩, A.2⟩
     by_cases hB : B.scale = N
@@ -92,8 +82,7 @@ theorem PrefixCompatible.setScaleMap_succ
         simpa [Aold, j, hB] using hAB
       have htarget := hExt j Aold hsource
       unfold prefixTargetOverlap at htarget
-      subst hB
-      simpa [setScaleMap, Aold, j, hA] using htarget
+      simpa [setScaleMap, Aold, j, hA, hB] using htarget
     · have hBlt : B.scale < N := by omega
       let Bold : PrefixCell N := ⟨⟨B.scale, hBlt⟩, B.2⟩
       have hold : cellOverlap Aold.scale Aold.index Bold.scale Bold.index := by
