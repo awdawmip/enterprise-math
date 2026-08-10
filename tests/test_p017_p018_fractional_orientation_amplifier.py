@@ -36,14 +36,14 @@ def test_formal_mass_growth_and_target_sieve_product_factor_exactly():
 
 
 def test_fractional_point_weight_preserves_exact_upper_prime_zero_set():
-    # At k=17,r=2 the upper state 307 is prime while lower 305=5*61.
-    prime_side = fractional_point_weight(17, 2, Fraction(1, 2))
+    # At k=17,r=1 the upper state 307 is prime while lower 305=5*61.
+    prime_side = fractional_point_weight(17, 1, Fraction(1, 2))
     assert prime_side["upper_prime"] is True
     assert prime_side["fractional_upper_prime_weight"] == Fraction(3, 2)
     assert prime_side["opposite_divisor_expansion"] == Fraction(3, 2)
 
-    # At k=17,r=4 the upper state 309 is composite, so every lambda weight vanishes.
-    composite_side = fractional_point_weight(17, 4, Fraction(1, 2))
+    # At k=10,r=1 the upper state 111=3*37 is composite and the radius survives.
+    composite_side = fractional_point_weight(10, 1, Fraction(1, 2))
     assert composite_side["upper_prime"] is False
     assert composite_side["fractional_upper_prime_weight"] == 0
     assert composite_side["positive_iff_upper_prime"] is True
