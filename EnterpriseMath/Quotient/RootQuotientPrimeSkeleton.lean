@@ -5,7 +5,9 @@ import Mathlib.Tactic
 
 namespace EnterpriseMath.Quotient
 
-/-- Every prime boundary is `r`-power-free for `r>=2`. -/
+/-- Every prime boundary is `r`-power-free for `r>=2`.
+
+Only the elementary divisor property of a prime is used. -/
 theorem prime_rPowerFree
     {r p : ℕ}
     (hr : 2 ≤ r)
@@ -13,27 +15,27 @@ theorem prime_rPowerFree
     RPowerFree r p := by
   intro t ht hPowDvd
   rcases hp.eq_one_or_self_of_dvd (t ^ r) hPowDvd with hOne | hPrimePow
-  · have hTwoPowLe : 2 ^ r ≤ t ^ r := Nat.pow_le_pow_left ht r
-    have hTwoPowGt : 1 < 2 ^ r := by
-      have : 2 ^ 1 ≤ 2 ^ r := Nat.pow_le_pow_right (by omega) (by omega)
-      simpa using this
+  · have hFour : 4 ≤ t ^ r := by
+      calc
+        4 = 2 ^ 2 := by norm_num
+        _ ≤ t ^ 2 := Nat.pow_le_pow_left ht 2
+        _ ≤ t ^ r := Nat.pow_le_pow_right (by omega) hr
     omega
   · have htDvdPow : t ∣ t ^ r := by
       refine ⟨t ^ (r - 1), ?_⟩
       calc
         t ^ r = t ^ ((r - 1) + 1) := by congr 1 <;> omega
         _ = t ^ (r - 1) * t := by rw [pow_succ']
-        _ = t * t ^ (r - 1) := by ring
-    have htDvdP : t ∣ p := by
-      rw [← hPrimePow]
-      exact htDvdPow
+        _ = t * t ^ (r - 1) := Nat.mul_comm _ _
+    have htDvdP : t ∣ p := dvd_trans htDvdPow hPowDvd
     rcases hp.eq_one_or_self_of_dvd t htDvdP with htOne | htP
     · omega
-    · have htLtPow : t < t ^ r := by
-        calc
-          t < t ^ 2 := by nlinarith
-          _ ≤ t ^ r := Nat.pow_le_pow_right (by omega) hr
-      rw [htP] at htLtPow
+    · have hpLtSq : p < p ^ 2 := by
+        nlinarith [hp.two_le]
+      have hpSqLePow : p ^ 2 ≤ p ^ r :=
+        Nat.pow_le_pow_right (by omega) hr
+      have hpLtPow : p < p ^ r := hpLtSq.trans_le hpSqLePow
+      rw [htP] at hPrimePow
       omega
 
 /-- If a positive-generator word compiles to a prime denominator, then that
