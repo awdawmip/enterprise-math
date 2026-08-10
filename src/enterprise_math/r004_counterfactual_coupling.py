@@ -204,3 +204,22 @@ def identical_marginal_diagonal_rank(
     if any(normalized[action] != first for action in actions[1:]):
         return None
     return len(first)
+
+
+def exact_two_binary_action_coupling_rank(
+    marginals: Mapping[Action, Mapping[Outcome, int | Fraction]],
+) -> int:
+    """Exact minimum static atom rank for two nondegenerate binary marginals.
+
+    A two-atom coupling has weights lambda and 1-lambda.  Because both marginals
+    have two positive outcomes, projection must use both atoms, so each marginal
+    has the same unordered pair of positive masses {lambda,1-lambda}.  Hence two
+    atoms are possible iff the two marginal probability multisets agree.  If
+    they do not, the universal support upper bound is three, proving exact rank
+    three.
+    """
+    actions, normalized = _validate_marginals(marginals)
+    if len(actions) != 2 or any(len(normalized[action]) != 2 for action in actions):
+        raise ValueError("exact binary rank requires exactly two actions with two positive outputs each")
+    mass_sets = [tuple(sorted(normalized[action].values())) for action in actions]
+    return 2 if mass_sets[0] == mass_sets[1] else 3
