@@ -59,6 +59,14 @@ class TestP012IntrinsicGeometry(unittest.TestCase):
         with self.assertRaises(ValueError):
             directed_graph_distance(adjacency, 2, 0)
 
+    def test_directed_helper_agrees_with_metric_api_on_p012_domain(self):
+        adjacency = self.cycle4()
+        for u, v in itertools.product(adjacency, repeat=2):
+            self.assertEqual(
+                directed_graph_distance(adjacency, u, v),
+                graph_distance(adjacency, u, v),
+            )
+
     def test_graph_distance_rejects_asymmetric_adjacency(self):
         adjacency = {0: {1}, 1: set()}
         with self.assertRaisesRegex(ValueError, "symmetric undirected adjacency"):
