@@ -23,8 +23,8 @@ theorem overlapVertexBlock_lt_gcd {d e : ℕ} (hd : 0 < d) (he : 0 < e)
         exact (Nat.div_mul_cancel (Nat.gcd_dvd_left d e)).symm
       unfold overlapVertexBlock gcdBlockD
       apply (Nat.div_lt_iff_lt_mul hw).2
-      rw [← hd_decomp]
-      exact i.2
+      have hi : i.1 < w * g := by simpa [hd_decomp] using i.2
+      simpa [Nat.mul_comm] using hi
   | inr j =>
       let w := e / g
       have hw : 0 < w := by
@@ -39,8 +39,8 @@ theorem overlapVertexBlock_lt_gcd {d e : ℕ} (hd : 0 < d) (he : 0 < e)
         exact (Nat.div_mul_cancel (Nat.gcd_dvd_right d e)).symm
       unfold overlapVertexBlock gcdBlockE
       apply (Nat.div_lt_iff_lt_mul hw).2
-      rw [← he_decomp]
-      exact j.2
+      have hj : j.1 < w * g := by simpa [he_decomp] using j.2
+      simpa [Nat.mul_comm] using hj
 
 /-- Gcd-block label as an actual element of `Fin (gcd d e)`. -/
 def overlapVertexBlockFin {d e : ℕ} (hd : 0 < d) (he : 0 < e)
@@ -101,7 +101,7 @@ theorem overlapBlockComponent_componentBlock {d e : ℕ}
     (hd : 0 < d) (he : 0 < e)
     (c : (overlapGraph d e).ConnectedComponent) :
     overlapBlockComponent hd (overlapComponentBlock hd he c) = c := by
-  apply SimpleGraph.ConnectedComponent.ind (c := c)
+  refine SimpleGraph.ConnectedComponent.ind ?_ c
   intro v
   obtain ⟨hs, hreach⟩ := overlapGraph_vertex_reachable_from_blockStart hd he v
   apply SimpleGraph.ConnectedComponent.sound
