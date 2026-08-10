@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-MULTITARGET-DEFECT-SYNERGY",
+      "name": "multi-target structural dependency/synergy decomposition",
+      "project_addition": "For target row modules W_i under observation U, identifies two canonical module-valued rebates in joint defect accounting: target dependency relations R_W/R_U and observation-side join synergy S_U=(U cap sum W_i)/(sum U cap W_i). Gives a parenthesization-independent exact formula for joint defect mass and a two-target distributivity-defect specialization. Explicitly avoids Möbius inclusion-exclusion assumptions in the non-distributive subgroup lattice.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "updates": [
+        "EM-COMP-R004-STRUCTURAL-DEFECT-DIAMOND",
+        "EM-COMP-R004-STRUCTURAL-TARGET-CUT"
+      ],
+      "relation_to_owners": {
+        "P023": "INFORM_MULTI-TARGET_TYPED_STATE_REQUIREMENT",
+        "A3": "INFORM_LINEAR_RELATION_DEPENDENCY_SPECIALIZATION",
+        "A4": "TEST_NONLINEAR_WITNESS_DEPENDENCY_ANALOGUE",
+        "Foundation": "TEST_DEPENDENCY_VS_SYNERGY_SPLIT"
+      }
+    }
+  ]
+}
