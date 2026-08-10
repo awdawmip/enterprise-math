@@ -1,6 +1,6 @@
 # P025 补充 131 —— Implication basis 的存储量与推导深度
 
-状态：`PROVED_WIP + EXECUTABLE_CHECKED / NOVELTY_UNVERIFIED`  
+状态：`PROVED_WIP + EXECUTABLE_AUTHORED_NOT_EXECUTED / NOVELTY_UNVERIFIED`  
 Owner：`program/p025-closure-basis-stage130`
 
 ## 1. 为什么补充 130 还不是终点
