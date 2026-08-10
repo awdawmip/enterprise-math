@@ -2,9 +2,13 @@ from enterprise_math.p022_barlow_franel_gap_continuant import (
     eliminated_gap_transfer,
 )
 from enterprise_math.p022_barlow_franel_tail_continuant import (
+    euler_wallis_convergent,
+    euler_wallis_franel_numerator_identity,
     fixed_gap_equals_tail_continuant,
+    fixed_gap_euler_wallis_determinant,
     formal_reflection_scale,
     franel_tail_continuant,
+    primitive_large_gap_is_projective_return,
     reflection_scale_ratio_identity,
 )
 
@@ -46,3 +50,32 @@ def test_odd_prime_divisors_are_unchanged_by_tail_normalization() -> None:
         tail = abs(franel_tail_continuant(rank))
         for prime in (3, 5, 7, 11, 13, 17, 19, 23, 29, 31):
             assert (fixed % prime == 0) == (tail % prime == 0)
+
+
+def test_euler_wallis_numerators_are_factorial_scaled_franel_numbers() -> None:
+    expected_p = {
+        0: 2,
+        1: 40,
+        2: 2_016,
+        3: 199_296,
+    }
+    for index, p_n in expected_p.items():
+        actual_p, _ = euler_wallis_convergent(index)
+        assert actual_p == p_n
+        assert euler_wallis_franel_numerator_identity(index)
+
+
+def test_fixed_gap_is_exact_euler_wallis_cross_determinant() -> None:
+    for rank in range(4, 15):
+        determinant, predicted = fixed_gap_euler_wallis_determinant(rank)
+        assert determinant == predicted
+        assert determinant == (
+            2 ** (rank + 6)
+            * __import__("math").factorial(rank) ** 4
+            * eliminated_gap_transfer(rank)
+        )
+
+
+def test_known_large_primitive_rows_do_not_return_to_zero_at_terminal_gap() -> None:
+    for rank, prime in ((6, 73), (9, 937), (15, 179), (21, 3019), (30, 2593)):
+        assert not primitive_large_gap_is_projective_return(rank, prime)
