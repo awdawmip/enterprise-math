@@ -156,6 +156,9 @@ class MaterialContactTTLLossLedgerTests(unittest.TestCase):
                 self.assertEqual(defect, reservoir.amplitude * expired)
 
     def test_accumulated_telescope_requires_expired_sink(self):
+        # Initial whole content is 2 and new raw numerator 26 plus remainder 4
+        # produces three more whole quanta.  With 2 applied and 1 expired, two
+        # whole quanta must remain queued.
         self.assertTrue(
             accumulated_ttl_material_ledger(
                 initial_queue=2,
@@ -165,7 +168,7 @@ class MaterialContactTTLLossLedgerTests(unittest.TestCase):
                 response_total=13,
                 applied_total=2,
                 expired_total=1,
-                final_queue=1,
+                final_queue=2,
                 final_remainder=0,
             )
         )
@@ -178,12 +181,14 @@ class MaterialContactTTLLossLedgerTests(unittest.TestCase):
                 response_total=13,
                 applied_total=2,
                 expired_total=0,
-                final_queue=1,
+                final_queue=2,
                 final_remainder=0,
             )
         )
 
     def test_zero_expiry_reduces_to_parent_causal_material_telescope(self):
+        # Q0=1, delta0=3 and raw increment 12 yield one new whole quantum,
+        # remainder 5.  After applying one, one whole quantum remains queued.
         self.assertTrue(
             accumulated_ttl_material_ledger(
                 initial_queue=1,
@@ -193,7 +198,7 @@ class MaterialContactTTLLossLedgerTests(unittest.TestCase):
                 response_total=6,
                 applied_total=1,
                 expired_total=0,
-                final_queue=0,
+                final_queue=1,
                 final_remainder=5,
             )
         )
