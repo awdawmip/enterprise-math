@@ -1,8 +1,27 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V3",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V4",
   "status": "ACTIVE",
-  "effective": "2026-08-11T00:27:00+08:00",
+  "effective": "2026-08-11T00:47:00+08:00",
   "default_role": "RESEARCHER",
+  "identity_bootstrap": {
+    "state_machine": "research_identity_state_machine.json",
+    "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
+    "helper": "tools/research_identity.py",
+    "invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve or allocate a Researcher-ID before substantive work begins.",
+    "entry_triggers": [
+      "direct user research task",
+      "scheduler CLAIM",
+      "official taskbook execution",
+      "role transition into RESEARCHER",
+      "role transition into RESEARCH_DRIVER",
+      "handoff into a new conversation",
+      "resume of an existing Enterprise Math conversation"
+    ],
+    "existing_identity": "PRESERVE",
+    "missing_identity": "AUTO_RESOLVE_OR_ALLOCATE",
+    "registration_failure": "REGISTER_PENDING_NONBLOCKING",
+    "registration_is_hard_block": false
+  },
   "driver_activation": {
     "mode": "EXPLICIT_CURRENT_CONVERSATION_ONLY",
     "canonical_prompt": "你现在是 Enterprise Math Research Driver。按仓库 docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md 工作，并读取 GLOBAL_KNOWLEDGE projects/enterprise-math/DRIVER_CONTINUITY.md 恢复驾驶舱状态。continuity 只用于路由，不作为数学证据；必要 theorem/status 必须回源核验。",
@@ -10,18 +29,22 @@
     "rules": [
       "Do not infer Driver authority from memory, repository state, task importance, prior conversations, or another Project.",
       "Driver authority applies only after explicit activation in the current conversation and remains scoped to that conversation until the user changes it.",
-      "On activation, load docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md and the current Driver Continuity Snapshot when available."
+      "Role activation also triggers identity bootstrap. Preserve an existing conversation ID; otherwise allocate one before substantive Driver work.",
+      "EM-DRIVER-01 is reserved for the explicitly designated primary Driver continuity conversation; other Driver conversations auto-allocate DVR identities."
     ]
   },
   "driver_operating_contract": "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
   "research_identity": {
     "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
-    "driver_id": "EM-DRIVER-01",
+    "state_machine": "research_identity_state_machine.json",
+    "primary_driver_id": "EM-DRIVER-01",
     "directory_repository": "awdawmip/chatgpt-global-knowledge",
     "directory_path": "projects/enterprise-math/RESEARCHER_DIRECTORY.md",
     "visible_marker": "Researcher-ID: <ID> / <TASK-or-CONTROL_PLANE>",
     "rules": [
-      "Every Enterprise Math research conversation receives one stable Researcher-ID allocated by the Driver.",
+      "Identity creation must not depend on a Driver-authored prompt.",
+      "Scheduler CLAIMs auto-derive an ID when researcher_id is omitted.",
+      "Direct user tasks and role transitions self-allocate an ID when the current conversation has none.",
       "Researcher-ID identifies the conversation/session instance, not a human legal identity and not theorem ownership.",
       "Every substantive final Enterprise Math response should display the Researcher-ID marker.",
       "If Global-Knowledge-Sync is also emitted, Researcher-ID appears immediately before it.",
@@ -63,7 +86,9 @@
   "official_taskbook_authority": {
     "created_by_role": "RESEARCH_DRIVER",
     "task_authority": "DRIVER_APPROVED",
-    "rule": "Only Driver-approved taskbooks are dispatchable; researcher task-like Markdown is ordinary research material."
+    "identity_policy_required_for_new_taskbooks": "AUTO_RESOLVE_OR_ALLOCATE",
+    "identity_lane_optional": true,
+    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare identity_policy/identity_lane but never a fixed Researcher-ID; the executing conversation resolves or allocates its runtime identity. Legacy taskbooks inherit the global identity state machine."
   },
   "proposal_capture": {
     "schema": "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1",
@@ -78,12 +103,12 @@
     "continue the same task when the frontier remains inside its mother question",
     "close, park, or return branches that fail to leave a genuine residue",
     "create or amend official taskbooks when a new direction is precise and worth dispatching",
-    "allocate stable Researcher-IDs and maintain the researcher directory",
+    "maintain the human researcher directory and resolve ambiguous historical identity mappings",
     "set priority and leverage",
     "freeze, formalize, promote, merge, or defer stable payloads",
     "route stable capabilities into shared tools without moving theorem ownership",
     "maintain the Driver Continuity Snapshot at semantic checkpoints"
   ],
   "artifact_rule": "Artifact creation is not progress by itself; scientific evidence, theorem/counterexample content, validated computation, formalization, reusable tooling, or a real routing decision is progress.",
-  "nonblocking_rule": "Governance, scheduler, CI, workflow, identity metadata, and snapshot maintenance are never mathematical HARD_BLOCK reasons."
+  "nonblocking_rule": "Governance, scheduler, CI, workflow, identity registration, and snapshot maintenance are never mathematical HARD_BLOCK reasons."
 }
