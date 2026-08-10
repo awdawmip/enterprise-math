@@ -2,7 +2,7 @@
 
 Status: `RESEARCH PRIOR-ART MAP / NOVELTY_UNVERIFIED`
 
-This note separates the R004 compiler package from established quotient, p-adic, product, finite-abelian and normal-form mathematics. The project must not treat a closed-form finite compiler specialization as invention of the underlying algebra.
+This note separates the R004 compiler package from established quotient, p-adic, product, finite-abelian, exact-linear-algebra and normal-form mathematics. The project must not treat a closed-form finite compiler specialization as invention of the underlying algebra.
 
 ## 1. Generic future-safe quotient is upstream
 
@@ -12,7 +12,7 @@ The generic statement
 
 belongs to the existing P023/FQ-004 future-compatible quotient layer. R004 does not re-own that theorem.
 
-P024 already specializes the same principle to integer translation languages and reachable boundary orbits. R004's compiler work is therefore a consumer/specialization: it asks when specific arithmetic future kernels admit a direct structured normal form instead of an opaque partition-refinement result.
+P024 already specializes the same principle to integer translation languages and reachable boundary orbits. R004's compiler work is therefore a consumer/specialization: it asks when specific future kernels admit a direct structured normal form instead of an opaque partition-refinement result.
 
 ## 2. P-adic valuations and prefix geometry are prior mathematics
 
@@ -80,16 +80,45 @@ This follows directly from the standard cyclic decomposition and is not claimed 
 
 R004 uses these counts as a **compiler extraction method**: once a generic future kernel passes an additive-congruence gate, recover a structured quotient exponent profile without requiring a predeclared relation matrix or a real-valued logarithm.
 
-## 7. Fail-closed compiler ladder is the project-specific architecture
+## 7. Determinant / exterior linear-lift coordinates are prior linear algebra
+
+A finite partition that is not a modular group congruence may still be the restriction of cosets of a rational subspace in an integer lift. Testing rational-span membership by exact rank, constructing codimension-one normals from cofactors, and representing quotient directions by minors/exterior coordinates are established exact linear algebra.
+
+Mathlib formally exposes exterior algebras/exterior powers and determinants on finite free modules [SRC-MATHLIB-EXTERIOR-ALGEBRA; SRC-MATHLIB-DETERMINANT]. Bareiss-style fraction-free elimination is also established prior symbolic computation [SRC-BAREISS-1968-FRACTION-FREE].
+
+R004 therefore does not claim exterior algebra, wedge products, cofactors, Plücker/minor coordinates or fraction-free determinants as inventions.
+
+The project-specific result is the compiler gate:
+
+`future partition -> intra-class difference span -> exact inter-class separation test -> determinant relation token`,
+
+plus the exact cross-owner identity that the existing A3 weighted relation field satisfies
+
+`Z_ij = -(rank-one determinant token)_ij`.
+
+The A3 weighted closure law becomes the coordinate identity `m wedge (m wedge c)=0`. This is a reduction/recognition of the existing A3 object, not a replacement of A3 ownership.
+
+## 8. A bare kernel cannot reconstruct typed quotient semantics
+
+An equivalence kernel determines an unlabeled quotient set but does not determine which operations, relations, orders or witness semantics the future language requires on that quotient.
+
+R004 records a minimal example: parity on `Z/4Z` has one fixed kernel, while both addition and multiplication descend through it, producing different quotient operation tables (XOR versus AND).
+
+This is not a new theorem in universal algebra; it is a compiler-interface boundary. R004 uses it to require that the compiler retain the **typed future language** as semantic input rather than attempting to reconstruct intended operations from a partition alone.
+
+## 9. Fail-closed compiler ladder is the project-specific architecture
 
 The current R004 package is:
 
 1. one p-power axis + arbitrary translations -> p-adic trie compiler;
 2. product/full-vector future -> product of marginal compilers, even for correlated joint actions;
-3. proved linear coupled future -> relation-rank compiler;
-4. generic future kernel that is an additive congruence -> quotient module -> invariant exponent profile;
-5. noncongruent coupled kernel -> do not force exponent/module coordinates; retain richer relation/witness state.
+3. proved modular linear coupled future -> relation-rank compiler;
+4. additive-congruence future kernel -> quotient module -> invariant exponent profile;
+5. noncongruent finite partition -> integer-lift rational-span gate -> determinant relation token when possible;
+6. rank-one positive-capacity determinant token -> exact A3 weighted relation field specialization;
+7. only after these structured gates fail -> richer A3/A4 relation/witness state;
+8. throughout, typed future operations/relations remain part of compiler input and must receive explicit descent certificates on output.
 
-The first four stages use established mathematics. R004's research contribution under test is the **typed fail-closed compilation architecture**, the exact closed-form specializations, finite operation/state-complexity laws, and explicit boundaries deciding when the compiler must escalate to A3/A4-style state.
+Every mathematical ingredient in these stages has substantial prior art. R004's research contribution under test is the **typed fail-closed compilation architecture**, exact finite specializations, state-complexity formulas, cross-owner reduction identities, and explicit boundaries controlling when the compiler may move to a richer state type.
 
 No compiler result is `CANONICAL_MAIN` yet. Historical novelty of the combined architecture remains `NOVELTY_UNVERIFIED`.
