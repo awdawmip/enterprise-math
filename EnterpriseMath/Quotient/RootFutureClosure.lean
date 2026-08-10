@@ -1,5 +1,6 @@
 import EnterpriseMath.Arithmetic.IntegerRoot
 import EnterpriseMath.Quotient.OperationCongruence
+import EnterpriseMath.Quotient.RootQuotientWordBasis
 import Mathlib.Tactic
 
 namespace EnterpriseMath.Quotient
