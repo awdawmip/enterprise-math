@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-ACTIVATION-AWARE-GENERATOR-BASIS",
+      "name": "Activation-aware typed carrier and semantic generator bases",
+      "source_relations": [
+        {"source_id": "SRC-GRAY-2013-FINITE-SEMIGROUP-RANK", "relation": "FORMAL_PRIOR_FOR_MINIMUM_GENERATORS"},
+        {"source_id": "SRC-ARAUJO-BENTZ-MITCHELL-SCHNEIDER-2014-PARTITION-SEMIGROUP-RANK", "relation": "DIRECT_PRIOR_FOR_PARTITION_STABILIZER_GENERATION"}
+      ],
+      "project_addition": "After the full typed compiler produces Q*, carrier-preserving generator subsets are exactly the subsets whose generator-instability kill sets hit every partition strictly between Q* and the initial observation. Pairwise final-class merge checks are insufficient. Carrier bases are separated from semantic reconstruction bases. A coarsening-natural quotient reconstruction certificate implies carrier redundancy; total-operation term/transformation-monoid generation, semiring relation generation and semantic factor maps are explicit specializations. Exact integer private-forbidden-world and generator-disjoint packing certificates support minimality/optimality on finite instances. Generic hitting set, semigroup rank and algebraic generation are prior art; novelty of the Enterprise Math placement is unverified.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "relation_to_owners": {
+        "P023": "FOUNDATION_FEEDBACK_GENERATOR-BASIS_AND_FORBIDDEN-WORLD_CERTIFICATE",
+        "A3": "INFORM_ONLY_WHEN_RELATION_GENERATOR_RECONSTRUCTION_IS_TYPED_A3_STATE",
+        "A4": "TEST_WITNESS_SEMANTIC_BASIS_AND_FACTOR-DOMINANCE"
+      }
+    }
+  ]
+}
