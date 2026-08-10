@@ -7,7 +7,7 @@ namespace EnterpriseMath.Quotient
 /-- Remove identity instructions from a quotient word.  They consume execution
 slots but do not change the compiled denominator. -/
 def rootQuotientEraseIdentityWord (w : List ℕ) : List ℕ :=
-  w.filter (fun g => g ≠ 1)
+  w.filter (fun g => g != 1)
 
 /-- Removing identity instructions preserves the ordinary product. -/
 theorem rootQuotientEraseIdentityWord_prod
@@ -25,7 +25,7 @@ theorem rootQuotientEraseIdentityWord_length_le
     (w : List ℕ) :
     (rootQuotientEraseIdentityWord w).length ≤ w.length := by
   simpa [rootQuotientEraseIdentityWord] using
-    List.length_filter_le (fun g : ℕ => g ≠ 1) w
+    List.length_filter_le (fun g : ℕ => g != 1) w
 
 /-- Every surviving instruction in the identity-erased word came from the
 original word and is nontrivial. -/
@@ -57,8 +57,7 @@ theorem rootQuotientSemanticNormalization_positive
   intro g hg
   exact hG g hg.1
 
-/-- Every instruction appearing in a positive word compiling a positive target
-divides that target. -/
+/-- Every instruction appearing in a word divides the compiled product. -/
 theorem word_member_dvd_compiled_product
     {w : List ℕ} {g b : ℕ}
     (hg : g ∈ w)
