@@ -6,6 +6,7 @@ from enterprise_math.r004_counterfactual_coupling import (
     coupling_certificate_holds,
     coupling_marginals,
     coupling_support_bounds,
+    exact_two_binary_action_coupling_rank,
     identical_marginal_diagonal_rank,
 )
 
@@ -22,6 +23,25 @@ class R004CounterfactualCouplingTests(unittest.TestCase):
         lower, upper = coupling_support_bounds(marginals)
         self.assertEqual((lower, upper), (2, 3))
         self.assertLessEqual(len(coupling), 3)
+        self.assertEqual(exact_two_binary_action_coupling_rank(marginals), 3)
+
+    def test_two_binary_actions_have_rank_two_exactly_when_mass_multisets_match(self):
+        aligned = {
+            "a": {"x": Fraction(1, 3), "y": Fraction(2, 3)},
+            "b": {"u": Fraction(1, 3), "v": Fraction(2, 3)},
+        }
+        swapped = {
+            "a": {"x": Fraction(1, 3), "y": Fraction(2, 3)},
+            "b": {"u": Fraction(2, 3), "v": Fraction(1, 3)},
+        }
+        mismatched = {
+            "a": {"x": Fraction(1, 2), "y": Fraction(1, 2)},
+            "b": {"u": Fraction(1, 3), "v": Fraction(2, 3)},
+        }
+        self.assertEqual(exact_two_binary_action_coupling_rank(aligned), 2)
+        self.assertEqual(exact_two_binary_action_coupling_rank(swapped), 2)
+        self.assertEqual(exact_two_binary_action_coupling_rank(mismatched), 3)
+        self.assertEqual(len(common_quantile_coupling(mismatched)), 3)
 
     def test_many_identical_actions_need_only_common_support_many_atoms(self):
         row = {
@@ -100,6 +120,15 @@ class R004CounterfactualCouplingTests(unittest.TestCase):
                 {
                     (("a", 0), ("b", 0)): Fraction(1, 2),
                     (("b", 1), ("a", 1)): Fraction(1, 2),
+                }
+            )
+        with self.assertRaises(ValueError):
+            exact_two_binary_action_coupling_rank({"a": {0: Fraction(1)}})
+        with self.assertRaises(ValueError):
+            exact_two_binary_action_coupling_rank(
+                {
+                    "a": {0: Fraction(1)},
+                    "b": {0: Fraction(1, 2), 1: Fraction(1, 2)},
                 }
             )
 
