@@ -59,4 +59,56 @@ theorem rootQuotientPrimeHorizon_mono
   exact (rootQuotientPrimeHorizon_mono_rootOrder hrs).trans
     (rootQuotientPrimeHorizon_mono_stateBound hNM)
 
+/-- Every positive exact prime horizon is attained by an actual bounded
+power-free semantic denominator.  Thus the finite supremum is a genuine
+critical boundary rank rather than only an abstract upper bound. -/
+theorem exists_powerFree_boundary_at_rootQuotientPrimeHorizon
+    {r N : ℕ}
+    (hPos : 0 < rootQuotientPrimeHorizon r N) :
+    ∃ b : ℕ,
+      1 ≤ b ∧ b ≤ N ∧ RPowerFree r b ∧
+        rootQuotientPrimeFactorCount b = rootQuotientPrimeHorizon r N := by
+  classical
+  let f : ℕ → ℕ := fun q =>
+    if 1 ≤ q ∧ RPowerFree r q then
+      rootQuotientPrimeFactorCount q
+    else
+      0
+  have hRange : (Finset.range (N + 1)).Nonempty := by
+    exact ⟨0, by simp⟩
+  obtain ⟨b, hbMem, hbSup⟩ :=
+    Finset.exists_mem_eq_sup (Finset.range (N + 1)) hRange f
+  have hbN : b ≤ N := by
+    simp at hbMem
+    omega
+  have hRequired : 1 ≤ b ∧ RPowerFree r b := by
+    by_contra hNot
+    have hfZero : f b = 0 := by
+      simp [f, hNot]
+    have hHorizonZero : rootQuotientPrimeHorizon r N = 0 := by
+      rw [rootQuotientPrimeHorizon]
+      calc
+        (Finset.range (N + 1)).sup (fun q =>
+            if 1 ≤ q ∧ RPowerFree r q then
+              rootQuotientPrimeFactorCount q
+            else
+              0) = f b := by
+                simpa [f] using hbSup
+        _ = 0 := hfZero
+    omega
+  refine ⟨b, hRequired.1, hbN, hRequired.2, ?_⟩
+  have hHorizonEq :
+      rootQuotientPrimeHorizon r N = rootQuotientPrimeFactorCount b := by
+    rw [rootQuotientPrimeHorizon]
+    calc
+      (Finset.range (N + 1)).sup (fun q =>
+          if 1 ≤ q ∧ RPowerFree r q then
+            rootQuotientPrimeFactorCount q
+          else
+            0) = f b := by
+              simpa [f] using hbSup
+      _ = rootQuotientPrimeFactorCount b := by
+        simp [f, hRequired]
+  exact hHorizonEq.symm
+
 end EnterpriseMath.Quotient
