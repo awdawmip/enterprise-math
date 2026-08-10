@@ -6,7 +6,7 @@ from enterprise_math.relation_branching_future_signature import (
 )
 from enterprise_math.relation_branching_semiring import (
     boolean_semiring,
-    map_branching_signature,
+    joint_partition,
     modular_semiring,
     morphism_commutes_with_branching_construction,
     morphism_commutes_with_trace_fold,
@@ -17,10 +17,8 @@ from enterprise_math.relation_branching_semiring import (
     product_projection_left,
     product_projection_right,
     product_semiring,
-    raw_semiring_word_trace,
     semiring_branching_partition,
     semiring_branching_signature_map,
-    semiring_trace_from_branching_signature,
     trace_projection_matches_raw_semiring_execution,
     verify_semiring_morphism,
     words_through_horizon,
@@ -53,6 +51,47 @@ def count_0123_fixture():
                 ("x3", "w"),
             }
         )
+    }
+    return states, relations, lambda _state: "visible"
+
+
+def product_correlation_fixture():
+    """Same B and parity views, different pairing of those child behaviours."""
+    states = (
+        "p",
+        "q",
+        "a1",
+        "a2",
+        "c",
+        "d",
+        "z1",
+        "z2",
+    )
+    relations = {
+        # At branching depth two:
+        # p has child-type counts A=1,D=1.
+        # q has child-type counts A=2,C=1,D=1.
+        # A maps to (B-empty, parity-zero),
+        # C maps to (B-present, parity-zero),
+        # D maps to (B-present, parity-one).
+        "a": frozenset(
+            {
+                ("p", "a1"),
+                ("p", "d"),
+                ("q", "a1"),
+                ("q", "a2"),
+                ("q", "c"),
+                ("q", "d"),
+            }
+        ),
+        "b": frozenset(
+            {
+                # a1/a2 have zero b-successors.
+                ("c", "z1"),
+                ("c", "z2"),  # two -> parity zero but support present
+                ("d", "z1"),  # one -> parity one and support present
+            }
+        ),
     }
     return states, relations, lambda _state: "visible"
 
@@ -208,9 +247,6 @@ class RelationBranchingSemiringTests(unittest.TestCase):
         self.assertEqual(B.natural(1), B.natural(2))
         self.assertNotEqual(Z2.natural(1), Z2.natural(2))
 
-        # Hence no factor map compatible with the natural-count embeddings can
-        # exist in either direction.
-
     def test_product_semiring_is_a_common_branching_refinement_of_support_and_parity(self):
         states, relations, observation = count_0123_fixture()
         B = boolean_semiring()
@@ -242,18 +278,9 @@ class RelationBranchingSemiringTests(unittest.TestCase):
 
         left_projection = product_projection_left(B, Z2)
         right_projection = product_projection_right(B, Z2)
-        self.assertTrue(
-            verify_semiring_morphism(
-                left_projection,
-                ((0, 0), (1, 0), (0, 1), (1, 1)),
-            )
-        )
-        self.assertTrue(
-            verify_semiring_morphism(
-                right_projection,
-                ((0, 0), (1, 0), (0, 1), (1, 1)),
-            )
-        )
+        samples = ((0, 0), (1, 0), (0, 1), (1, 1))
+        self.assertTrue(verify_semiring_morphism(left_projection, samples))
+        self.assertTrue(verify_semiring_morphism(right_projection, samples))
 
     def test_product_support_parity_is_still_coarser_than_exact_N_counts(self):
         states, relations, observation = count_0123_fixture()
@@ -276,6 +303,35 @@ class RelationBranchingSemiringTests(unittest.TestCase):
         self.assertIn(frozenset({"x1", "x3"}), product_partition)
         self.assertIn(frozenset({"x1"}), natural_partition)
         self.assertIn(frozenset({"x3"}), natural_partition)
+
+    def test_direct_product_branching_can_overrefine_the_joint_state_view(self):
+        states, relations, observation = product_correlation_fixture()
+        B = boolean_semiring()
+        Z2 = modular_semiring(2)
+        product_spec = product_semiring(B, Z2)
+
+        B_partition = semiring_branching_partition(
+            states, relations, observation, 2, B
+        )
+        Z2_partition = semiring_branching_partition(
+            states, relations, observation, 2, Z2
+        )
+        joined = joint_partition(B_partition, Z2_partition)
+        product_partition = semiring_branching_partition(
+            states, relations, observation, 2, product_spec
+        )
+
+        # p and q are indistinguishable in each required coefficient interface.
+        self.assertIn(frozenset({"p", "q"}), B_partition)
+        self.assertIn(frozenset({"p", "q"}), Z2_partition)
+        self.assertIn(frozenset({"p", "q"}), joined)
+
+        # The direct coefficient product additionally remembers which Boolean
+        # and parity child behaviours occur on the same successor type.
+        self.assertIn(frozenset({"p"}), product_partition)
+        self.assertIn(frozenset({"q"}), product_partition)
+        self.assertTrue(partition_refines(product_partition, joined))
+        self.assertNotEqual(product_partition, joined)
 
     def test_modular_branching_can_annihilate_nonempty_successor_multiplicity(self):
         states, relations, observation = count_0123_fixture()
