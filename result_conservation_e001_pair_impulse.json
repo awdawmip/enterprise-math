@@ -1,0 +1,62 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_CONSERVATION_V1",
+  "source_owner": {
+    "id": "engineering/e001-material-pair-impulse",
+    "source_head": "e408d200c76e68f1ea1af67d93dbb2a4c63a4431",
+    "retirement_state": "L5_PROVENANCE",
+    "upstream_sources": ["E001 one-body material impulse quotient", "canonical A3 weighted relation-state family"]
+  },
+  "closure_state": "RESOLVED",
+  "inventory_unit": "semantic result family, not file identity",
+  "inventory_complete": true,
+  "inventory_basis": [
+    "complete audit of the two additions-only branch-side files at frozen source head e408d200c76e68f1ea1af67d93dbb2a4c63a4431",
+    "source-versus-canonical blob comparison against fixed snapshot main@03b6a30ba00735aeb15420afb29f7c1f33d1fd68",
+    "function and exhaustive-regression inventory of the declared single-contact-channel pair impulse model"
+  ],
+  "closure_evidence": [
+    "material_pair_impulse_1d.py is byte-identical on source and canonical main at blob 35a5165766a61cfb219b778408cd1dfd77a95c49",
+    "test_material_pair_impulse_1d.py is byte-identical on source and canonical main at blob 6853e164f73377c02422b98736cf1fb81f9d8d9a",
+    "the source generation is additions-only and has no deleted result payload"
+  ],
+  "methodology_boundary": "This certificate covers one declared two-body 1D contact channel. Geometry/contact discovery, multi-contact coupling, energy conservation, restitution, SI calibration, continuum force and generic A3 mother theory are outside this source generation.",
+  "unresolved_results": [],
+  "results": [
+    {
+      "id": "E001-PAIR-RC-001",
+      "statement": "For declared normal n, v#=n(m_L p_R-m_R p_L) is a division-free relative-motion numerator whose sign classifies closing/comoving/separating; swapping the bodies while reversing n preserves the physical status.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["pair_relative_motion_numerator, pair_motion_status and body-swap/normal-reversal regression"],
+      "targets": ["src/enterprise_math/material_pair_impulse_1d.py on canonical main"],
+      "rationale": "The integer numerator preserves relative-velocity sign without rational state.",
+      "evidence": ["source and canonical implementation/test blobs are byte-identical"]
+    },
+    {
+      "id": "E001-PAIR-RC-002",
+      "statement": "One nonnegative equal-and-opposite delivered impulse quantum j preserves total integer momentum and updates v# exactly by v#'=v#+(m_L+m_R)j.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["apply_pair_material_impulse assertions and bounded exhaustive regression"],
+      "targets": ["src/enterprise_math/material_pair_impulse_1d.py on canonical main", "tests/test_material_pair_impulse_1d.py on canonical main"],
+      "rationale": "This is the exact two-body material/contact specialization retained by E001.",
+      "evidence": ["byte-identical canonical code enforces both identities"]
+    },
+    {
+      "id": "E001-PAIR-RC-003",
+      "statement": "Retaining contact-local pending detail can make repeated subquantum responses separate a pair while deliberately dropping it can leave the same pair closing; unrelated/opposite contact reservoirs must not be pooled.",
+      "fate": "COMPARATOR-NEGATIVE",
+      "source_evidence": ["retained-versus-dropped trace and subquantum regression", "contact-reservoir validation boundary"],
+      "targets": ["src/enterprise_math/material_pair_impulse_1d.py on canonical main", "tests/test_material_pair_impulse_1d.py on canonical main"],
+      "rationale": "This is a precision-policy/contact-identity boundary, not a universal constitutive law.",
+      "evidence": ["byte-identical regression shows retained detail separates while dropped detail remains closing"]
+    },
+    {
+      "id": "E001-PAIR-RC-004",
+      "statement": "For an initially closing pair with zero initial contact detail and fixed positive response, exact finite thresholds give the first nonclosing and first separating event for retained-detail and deliberately dropped-detail policies.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["constant_pair_response_thresholds and bounded direct-trace threshold regression"],
+      "targets": ["src/enterprise_math/material_pair_impulse_1d.py on canonical main", "tests/test_material_pair_impulse_1d.py on canonical main"],
+      "rationale": "These are exact thresholds for the declared persistent contact channel, not hidden continuous collision timing.",
+      "evidence": ["source and canonical threshold implementation/test blobs are byte-identical"]
+    }
+  ]
+}
