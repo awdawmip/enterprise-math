@@ -69,6 +69,30 @@ class PrecisionDependencyClosureTests(unittest.TestCase):
             )
         )
 
+    def test_minimal_bases_need_not_have_equal_cardinality(self) -> None:
+        states = (0, 1, 2, 3)
+        tasks = {
+            "A": {0: 0, 1: 0, 2: 1, 3: 1},
+            "B": {0: 0, 1: 1, 2: 0, 3: 1},
+            "C": {0: 0, 1: 1, 2: 2, 3: 3},
+        }
+        bases = set(minimal_task_bases(states, tasks))
+        self.assertEqual(bases, {frozenset({"C"}), frozenset({"A", "B"})})
+        self.assertEqual({len(basis) for basis in bases}, {1, 2})
+
+    def test_same_final_partition_can_have_different_generator_number(self) -> None:
+        states = (0, 1, 2, 3)
+        binary_tasks = {
+            "A": {0: 0, 1: 0, 2: 1, 3: 1},
+            "B": {0: 0, 1: 1, 2: 0, 3: 1},
+        }
+        bundled_tasks = {
+            **binary_tasks,
+            "C": {0: 0, 1: 1, 2: 2, 3: 3},
+        }
+        self.assertEqual(min(len(b) for b in minimal_task_bases(states, binary_tasks)), 2)
+        self.assertEqual(min(len(b) for b in minimal_task_bases(states, bundled_tasks)), 1)
+
     def test_closed_context_dp_matches_full_subset_dp(self) -> None:
         closed = optimal_closed_context_schedule(self.states, self.tasks, base=2)
         full = optimal_order_by_symbol_depth(self.states, self.tasks, base=2)
