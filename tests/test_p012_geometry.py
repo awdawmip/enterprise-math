@@ -135,8 +135,10 @@ class TestP012IntrinsicGeometry(unittest.TestCase):
             floor_euclidean(a, b) + floor_euclidean(b, c),
         )
 
-    def test_unreachable_graph_distance_is_explicitly_rejected(self):
+    def test_disconnected_graph_uses_componentwise_metric(self):
         adjacency = {0: {1}, 1: {0}, 2: set()}
+        self.assertEqual(graph_distance(adjacency, 0, 1), 1)
+        self.assertEqual(graph_distance(adjacency, 2, 2), 0)
         with self.assertRaises(ValueError):
             graph_distance(adjacency, 0, 2)
 
