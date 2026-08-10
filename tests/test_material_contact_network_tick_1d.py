@@ -10,13 +10,11 @@ from enterprise_math.material_contact_network_impulse_1d import (
     contact_relative_scores,
 )
 from enterprise_math.material_contact_network_tick_1d import (
+    ContactMaterialImpulseState,
     apply_contact_material_response_sequence,
     apply_contact_material_response_sequences,
     apply_contact_material_tick,
     contact_material_segmentation_invariant,
-)
-from enterprise_math.material_impulse_accounting import (
-    MaterialImpulseState,
 )
 
 
@@ -42,7 +40,7 @@ STAR = ContactNetworkMomentum1D(
 
 def reservoirs(contact_count, amplitude=10, scale=2, pending=0):
     return tuple(
-        MaterialImpulseState(
+        ContactMaterialImpulseState(
             amplitude=amplitude,
             impulse_scale=scale,
             pending_numerator=pending,
@@ -53,7 +51,7 @@ def reservoirs(contact_count, amplitude=10, scale=2, pending=0):
 
 class MaterialContactNetworkTickTests(unittest.TestCase):
     def test_single_channel_sequence_obeys_exact_ledger(self):
-        state = MaterialImpulseState(
+        state = ContactMaterialImpulseState(
             amplitude=10,
             impulse_scale=2,
             pending_numerator=0,
@@ -69,6 +67,16 @@ class MaterialContactNetworkTickTests(unittest.TestCase):
             + sequence.after.pending_numerator,
             2 * 12,
         )
+
+    def test_bridge_wrapper_matches_canonical_quantizer_event_by_event(self):
+        state = ContactMaterialImpulseState(10, 3, 7)
+        sequence = apply_contact_material_response_sequence(state, (2, 1, 3))
+        self.assertEqual(
+            tuple(event.delivered_impulse for event in sequence.events),
+            tuple(event.quantization.impulse_quanta for event in sequence.events),
+        )
+        self.assertEqual(sequence.after.pending_numerator, 5)
+        self.assertEqual(sequence.delivered_impulse_total, 2)
 
     def test_two_subquantum_contacts_do_not_pool_before_network(self):
         tick = apply_contact_material_tick(
@@ -129,10 +137,7 @@ class MaterialContactNetworkTickTests(unittest.TestCase):
             for row in range(len(delivered))
         )
         self.assertEqual(after_scores, expected)
-        self.assertEqual(
-            tick.network_step.relative_scores_after,
-            expected,
-        )
+        self.assertEqual(tick.network_step.relative_scores_after, expected)
         self.assertEqual(tick.after.total_momentum, CHAIN.total_momentum)
 
     def test_response_segmentation_is_exactly_irrelevant_when_remainder_is_retained(self):
@@ -147,7 +152,7 @@ class MaterialContactNetworkTickTests(unittest.TestCase):
         self.assertTrue(
             contact_material_segmentation_invariant(
                 CHAIN,
-                reservoirs(2, amplitude=7, scale=3),
+                reservoirs(2, amplitude=10, scale=3),
                 left,
                 right,
             )
@@ -155,8 +160,8 @@ class MaterialContactNetworkTickTests(unittest.TestCase):
 
     def test_segmentation_invariance_holds_with_nonzero_local_remainders(self):
         initial = (
-            MaterialImpulseState(10, 3, 7),
-            MaterialImpulseState(10, 2, 4),
+            ContactMaterialImpulseState(10, 3, 7),
+            ContactMaterialImpulseState(10, 2, 4),
         )
         self.assertTrue(
             contact_material_segmentation_invariant(
@@ -177,10 +182,7 @@ class MaterialContactNetworkTickTests(unittest.TestCase):
                 (2, 2, 2),
             ),
         )
-        self.assertEqual(
-            tick.delivered_impulse_vector,
-            (1, 1, 1),
-        )
+        self.assertEqual(tick.delivered_impulse_vector, (1, 1, 1))
         self.assertEqual(
             tuple(state.pending_numerator for state in tick.reservoir_after),
             (8, 8, 8),
@@ -200,8 +202,8 @@ class MaterialContactNetworkTickTests(unittest.TestCase):
 
     def test_different_contact_material_parameters_are_allowed(self):
         initial = (
-            MaterialImpulseState(10, 2, 0),
-            MaterialImpulseState(7, 3, 0),
+            ContactMaterialImpulseState(10, 2, 0),
+            ContactMaterialImpulseState(7, 3, 0),
         )
         tick = apply_contact_material_tick(
             CHAIN,
@@ -215,9 +217,6 @@ class MaterialContactNetworkTickTests(unittest.TestCase):
         )
 
     def test_batched_tick_does_not_claim_guarded_causal_equivalence(self):
-        # The star Gram has positive cross-couplings.  The batched law still
-        # applies a declared delivered vector exactly; this test only locks that
-        # the module does not silently reject it as a guarded schedule problem.
         tick = apply_contact_material_response_sequences(
             STAR,
             reservoirs(3, amplitude=2, scale=1),
@@ -227,6 +226,12 @@ class MaterialContactNetworkTickTests(unittest.TestCase):
         self.assertEqual(tick.after.total_momentum, STAR.total_momentum)
 
     def test_validation(self):
+        with self.assertRaises(ValueError):
+            ContactMaterialImpulseState(0, 1, 0)
+        with self.assertRaises(ValueError):
+            ContactMaterialImpulseState(10, 0, 0)
+        with self.assertRaises(ValueError):
+            ContactMaterialImpulseState(10, 1, 10)
         with self.assertRaises(ValueError):
             apply_contact_material_tick(
                 CHAIN,
@@ -244,15 +249,6 @@ class MaterialContactNetworkTickTests(unittest.TestCase):
                 CHAIN,
                 reservoirs(2),
                 (1, -1),
-            )
-        with self.assertRaises(ValueError):
-            apply_contact_material_tick(
-                CHAIN,
-                (
-                    MaterialImpulseState(10, -2, 0),
-                    MaterialImpulseState(10, 2, 0),
-                ),
-                (1, 1),
             )
         with self.assertRaises(ValueError):
             contact_material_segmentation_invariant(
