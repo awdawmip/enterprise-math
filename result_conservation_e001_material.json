@@ -1,0 +1,173 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_CONSERVATION_V1",
+  "source_owner": {
+    "id": "PR #116",
+    "source_head": "260c563c7ba1b9f0dafc56a345e8ed5cd3ed0001",
+    "retirement_state": "L5_PROVENANCE",
+    "upstream_sources": ["PR #70", "PR #95"]
+  },
+  "closure_state": "RESOLVED",
+  "inventory_unit": "semantic result family, not file identity",
+  "inventory_complete": true,
+  "inventory_basis": [
+    "full PR #116 changed-file surface compared against clean L4 PR #156 and then-current canonical main",
+    "commit-by-commit audit of every #116 commit after the #156 replay boundary",
+    "explicit source-owner accounting checkpoint and final accounting comment 5232309045 on PR #116"
+  ],
+  "closure_evidence": [
+    "PR #156 merged as 1406217cca0647c93d529aa97127952ca392b7aa",
+    "PR #178 merged as 5bc6cb38d2e0e6e5f457da851197e5770f89a08d",
+    "PR #222 merged as 1ab8fc2ea080239bc6d8cd2dabec9719949b95bf",
+    "PR #264 merged as 9f397d3b71692012f1572663777c47b873266f0e",
+    "PR #274 synchronized to exact then-current main, passed quality/bilingual-sync/reference-integrity, and merged as 12500185f4c222ae49816e7b844e36a82e3ac8fe",
+    "PR #116 closed without wholesale merge only after final five-class accounting"
+  ],
+  "methodology_boundary": "This certificate records the outcome of a completed semantic audit. Mechanical validation cannot prove that the human/research inventory is truly complete; it only prevents a declared complete inventory from containing unresolved, duplicate, unclassified, targetless, rationale-free, or evidence-free results.",
+  "unresolved_results": [],
+  "results": [
+    {
+      "id": "E001-MAT-RC-001",
+      "statement": "Real-material measurement scale, bounded calibration domain, train-only fitting, held-out validation, and Treloar provenance form the validated empirical base.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["PR #116 inherited material-validation lineage", "PR #114 validated source slice"],
+      "targets": ["PR #114 / canonical main material-validation base"],
+      "rationale": "The empirical validation layer is independently reusable and already canonical.",
+      "evidence": ["PR #114 quality, bilingual-sync, and reference-integrity passed before merge"]
+    },
+    {
+      "id": "E001-MAT-RC-002",
+      "statement": "The main finite material/world/runtime stack includes positive-gap collapse interaction, profiles/program generation, history/cycle semantics, precision compatibility, anisotropy/effective-layer/response-aliasing results, extinction, 2D coupling, runtime/LUT/compression, and code generation.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["PR #116 pre- and post-replay material/world files", "PR #156 explicit include/exclude accounting"],
+      "targets": ["PR #156 / main@1406217cca0647c93d529aa97127952ca392b7aa"],
+      "rationale": "These E001-owned results were semantically replayed on canonical owners rather than merged wholesale from #116.",
+      "evidence": ["PR #156 clean L4 final gates passed and merge provenance is explicit"]
+    },
+    {
+      "id": "E001-MAT-RC-003",
+      "statement": "Historical terminal/common-collapse and transition-aware collision/motion semantics remain explicit optional comparators rather than universal hidden-path physics.",
+      "fate": "COMPARATOR-NEGATIVE",
+      "source_evidence": ["PR #70 residual collision/motion assets", "PR #116 terminal comparator accounting"],
+      "targets": ["PR #178 / main@5bc6cb38d2e0e6e5f457da851197e5770f89a08d"],
+      "rationale": "The machinery is reusable for comparison and testing, but its semantics are not mandatory world law.",
+      "evidence": ["PR #178 isolated residual comparator payload and passed canonical integration gates"]
+    },
+    {
+      "id": "E001-MAT-RC-004",
+      "statement": "Empirical material futures are represented by a finite measured-state by finite-action successor graph with explicit UNDERRESOLVED missing successors and P023-owned future minimization.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["historical material empirical protocol lineage", "multi-action empirical source generation #185"],
+      "targets": ["PR #222 / main@1ab8fc2ea080239bc6d8cd2dabec9719949b95bf"],
+      "rationale": "The multi-action form is the reusable empirical specialization and preserves explicit missing-measurement semantics.",
+      "evidence": ["PR #222 canonicalized the frozen multi-action protocol, coverage/completion diagnostics, and finite stress-strain hysteresis payload"]
+    },
+    {
+      "id": "E001-MAT-RC-005",
+      "statement": "The historical single-NEXT empirical protocol is only a one-action specialization of the later finite-action empirical protocol.",
+      "fate": "SUPERSEDED",
+      "source_evidence": ["PR #116 material_empirical_protocol.py", "post-#156 commit ca7cc56 lineage"],
+      "targets": ["PR #222 multi-action material_empirical_action_protocol.py owner"],
+      "rationale": "The later action-alphabet protocol strictly generalizes the old single-action form without needing a duplicate canonical implementation.",
+      "evidence": ["semantic comparison of old single-action protocol against #222 canonical multi-action interface"]
+    },
+    {
+      "id": "E001-MAT-RC-006",
+      "statement": "Adding an explicit measured interior point creates an exact doubled-polyline-area refinement shell; local shells telescope and retain refinement variation/cancellation witnesses beyond the final scalar area change.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["source PR #227 frozen head f8168635df9d85f42372b48ae24736f111876e65"],
+      "targets": ["PR #264 / main@9f397d3b71692012f1572663777c47b873266f0e"],
+      "rationale": "This is a distinct exact finite-measurement result and does not fabricate unmeasured continuum data.",
+      "evidence": ["#264 reused the frozen four-file payload; #274 later supplied a fresh current-main superset validation"]
+    },
+    {
+      "id": "E001-MAT-RC-007",
+      "statement": "Finite response aliasing has an exact permanent injectivity threshold, and reachable rather than unreachable deeper anisotropy controls the permanent observable horizon.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["PR #116 commit 056599aa60deaa5e9277c2450c784c5576b6236f", "material_alias_stability.py plus regression"],
+      "targets": ["PR #274 / main@12500185f4c222ae49816e7b844e36a82e3ac8fe"],
+      "rationale": "The result was absent from #156/current main and had no separate canonical owner until the residual audit recovered it.",
+      "evidence": ["historical commit gates green; #274 latest-main synchronized final gates green"]
+    },
+    {
+      "id": "E001-MAT-RC-008",
+      "statement": "For fixed represented depth K in dimension n, R_(n,K)(d)=d^n-(d-K)^n has exact discrete degree n-1 with Delta^(n-1)R=n!K and Delta^nR=0.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["PR #116 commits 3247afa30560889da98066041066d884e761da85 and 650236b9f20afbfc175b8645318ebc4828a776b6", "material_boundary_shell_growth.py plus regression"],
+      "targets": ["PR #274 / main@12500185f4c222ae49816e7b844e36a82e3ac8fe"],
+      "rationale": "This exact finite boundary-shell growth law was a genuine residual result, not a continuum asymptotic.",
+      "evidence": ["cumulative historical state at 650236b passed all gates; #274 synchronized final gates green"]
+    },
+    {
+      "id": "E001-MAT-RC-009",
+      "statement": "When endpoint-clearance sum C>=2d-1, interaction phase mass saturates at 2(d-1) and further displacement adds transmission phases only.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["PR #116 commit 6a7b34f9e7a511d58f535e2f5dce1929b1e341a2", "material_phase_saturation.py plus regression"],
+      "targets": ["PR #274 / main@12500185f4c222ae49816e7b844e36a82e3ac8fe"],
+      "rationale": "This endpoint-only saturation theorem was absent from #156 and had no other canonical owner.",
+      "evidence": ["historical commit all gates green; #274 synchronized final gates green"]
+    },
+    {
+      "id": "E001-MAT-RC-010",
+      "statement": "Two staged finite material projections may differ by order through at most one returned-budget quantum even when the undeformed rational product commutes.",
+      "fate": "COMPARATOR-NEGATIVE",
+      "source_evidence": ["PR #116 commit 38ee4260cae476d3386a230a5dc84e2bfa5f5561", "material_layered_kinematics.py plus regression"],
+      "targets": ["PR #274 / main@12500185f4c222ae49816e7b844e36a82e3ac8fe"],
+      "rationale": "Retain the finite projection noncommutation boundary without promoting it to a laminate/interface constitutive law.",
+      "evidence": ["historical commit all gates green; #274 synchronized final gates green"]
+    },
+    {
+      "id": "E001-MAT-RC-011",
+      "statement": "The recurrence/MIN_QUADRATIC oscillator line can make its quadratic proxy nonincreasing yet still terminate on a nonzero quantized plateau.",
+      "fate": "COMPARATOR-NEGATIVE",
+      "source_evidence": ["historical recurrence oscillator assets audited in #116"],
+      "targets": ["PR #116 final accounting comment 5232309045 / L5 provenance"],
+      "rationale": "The negative result is valuable precisely because it rules out that recurrence as the default oscillator while preserving it as a comparator.",
+      "evidence": ["bounded/exhaustive recurrence tests and final #116 semantic accounting"]
+    },
+    {
+      "id": "E001-MAT-RC-012",
+      "statement": "Early material_world_1d trigger semantics, quarter-wave peak semantics, historical clearance modules, extremal-horizon duplicate geometry, and old direct contact-bridge amplitude tying are not the canonical default implementations.",
+      "fate": "SUPERSEDED",
+      "source_evidence": ["historical #70/#95/#116 implementation families", "PR #156 exclusion and replacement accounting"],
+      "targets": ["PR #156 canonical collapse-world, corrected peak, clearance, compatibility, and owner-specific replacements"],
+      "rationale": "Stronger or more correctly scoped canonical implementations cover these historical forms while preserving their provenance.",
+      "evidence": ["#156 explicit include/exclude list and final result-conservation audit"]
+    },
+    {
+      "id": "E001-MAT-RC-013",
+      "statement": "Generic adjunction, history/kernel/irreversibility, future-compatible quotient/operation language, and relation/support/geometry mother theories are not E001-owned material theorems.",
+      "fate": "OWNER_MOVED",
+      "source_evidence": ["generic theorem fragments present in historical material branches"],
+      "targets": ["P008", "P010/P011", "P018/P023/P024/A2", "A3/A4/A5"],
+      "rationale": "Canonical mother-theorem ownership prevents duplicated theory from being kept merely to make E001 self-contained.",
+      "evidence": ["Enterprise Math architecture/Relay ownership audit and PR #116 final accounting"]
+    },
+    {
+      "id": "E001-MAT-RC-014",
+      "statement": "Post-#116 impulse, retained-subquantum momentum, mass-drift, passivity/reversal, contact-network, and later response work belongs to dedicated E001 impulse/contact generations.",
+      "fate": "OWNER_MOVED",
+      "source_evidence": ["PR #116 commits after the material convergence boundary", "live E001 impulse/contact owner generations"],
+      "targets": ["dedicated E001 impulse/contact owners beginning with PR #190 and descendants"],
+      "rationale": "Active later mechanics research must not be replayed from a historical material convergence owner.",
+      "evidence": ["current owner/scheduler audit and #116 final accounting"]
+    },
+    {
+      "id": "E001-MAT-RC-015",
+      "statement": "The historical assertion that a negative rise margin always implies FALL is false at y=0.",
+      "fate": "REJECTED",
+      "source_evidence": ["historical material_peak_wave classification rule"],
+      "targets": ["corrected signed toward-zero zero-axis dead-zone rule in the #156 canonical material stack"],
+      "rationale": "At y=0 the exact finite rule is PLATEAU for -c<m<c; the old assertion is mathematically false.",
+      "evidence": ["repository CI counterexample plus independent bounded integer scan; corrected regression passed"]
+    },
+    {
+      "id": "E001-MAT-RC-016",
+      "statement": "The historical exact softening refinement homogeneity G_p(lambda*s;lambda*A)=lambda*G_p(s;A) is false in general.",
+      "fate": "REJECTED",
+      "source_evidence": ["historical exact-homogeneity assertion in the material softening line"],
+      "targets": ["corrected root-refinement carry theorem in the #156 canonical material stack"],
+      "rationale": "The correct finite refinement law contains kappa with 0<=kappa<lambda, resolving additional integer states inside the coarse root basin.",
+      "evidence": ["exhaustive CI counterexample, exact integer derivation, and broad independent integer scan"]
+    }
+  ]
+}
