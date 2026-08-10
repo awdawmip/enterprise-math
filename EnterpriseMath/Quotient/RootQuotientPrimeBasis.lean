@@ -1,4 +1,5 @@
 import EnterpriseMath.Quotient.RootQuotientPrimeSkeleton
+import Mathlib.Data.Nat.Factors
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Tactic
 
@@ -14,6 +15,33 @@ theorem rootQuotientPrimeBasis_positive
     PositiveRootQuotientGenerators (RootQuotientPrimeBasis N) := by
   intro p hp
   exact hp.1.one_le
+
+/-- Canonical multiplicative instruction count of a positive denominator. -/
+def rootQuotientPrimeFactorCount (b : ℕ) : ℕ :=
+  b.primeFactorsList.length
+
+/-- Every literal word over the bounded prime alphabet that compiles to `b`
+has exactly the canonical prime-factor count of `b`.
+
+This is the finite quotient-word form of uniqueness of prime factorization. -/
+theorem prime_word_length_eq_primeFactorCount
+    {N b : ℕ} {w : List ℕ}
+    (hw : RootQuotientWordOver (RootQuotientPrimeBasis N) w)
+    (hProd : rootQuotientWordProduct w = b) :
+    w.length = rootQuotientPrimeFactorCount b := by
+  have hWordProductEq : rootQuotientWordProduct w = w.prod := by
+    induction w with
+    | nil => simp [rootQuotientWordProduct]
+    | cons a w ih => simp [rootQuotientWordProduct, ih]
+  have hListProd : w.prod = b := by
+    rw [← hWordProductEq]
+    exact hProd
+  have hPrime : ∀ p : ℕ, p ∈ w → p.Prime := by
+    intro p hp
+    exact (hw p hp).1
+  have hPerm : w.Perm b.primeFactorsList :=
+    Nat.primeFactorsList_unique hListProd hPrime
+  simpa [rootQuotientPrimeFactorCount] using hPerm.length_eq
 
 /-- Every positive integer `b` admits a literal prime word of length at most `b`
 whose compiled quotient denominator is exactly `b`.
