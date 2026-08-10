@@ -1,8 +1,8 @@
 # Enterprise Math
 
-> **The continuum is a magnificent approximation. It is not nature's foundation. Precision is not an error bar; it is part of the number itself.**
+> **The continuum need not be the single universal substrate of nature: in singular or extremely high-disorder regimes it may instead be a native mathematical phase, while outside such regimes precision is not an error bar but part of the state itself.**
 
-Enterprise Math is an open research program attempting to rebuild mathematical foundations from **finite resolution, discrete state, integer-first structure, and intrinsically forward evolution**.
+Enterprise Math is an open research program attempting to rebuild the mathematical foundation of the ordinary distinguishable world from **finite resolution, discrete state, integer-first structure, and intrinsically forward evolution**, while also studying when and how that foundation may pass into genuinely continuous mathematical regimes.
 
 [Chinese version](README.zh-CN.md)
 
@@ -10,35 +10,38 @@ Enterprise Math is an open research program attempting to rebuild mathematical f
 
 We choose to state the position plainly.
 
-**We believe that, when mathematics is used to describe nature, the existing mathematical building rests on a fatal abstraction error: laws that are fundamentally discrete, finite-resolution, and finite-information have been modeled by default as continuous, infinitely divisible, and infinitely precise.**
+**We believe a foundational risk in the mathematics used to describe nature is the default extrapolation of continuous, infinitely divisible, infinitely precise structure into a single universal substrate, even when many observable processes themselves present finite information, finite resolution, and irreversible state change.**
 
-The continuous real line is the clearest example. Between any two points there are always more points; every interval is infinitely divisible; a point is assigned an infinitely precise location. As pure formal mathematics this structure can of course be coherent, and it has supported extraordinary achievements in analysis, geometry, and physics. But **formal success does not make a structure nature's native substrate**.
+The continuous real line is the clearest example. Between any two points there are always more points; every interval is infinitely divisible; a point is assigned an infinitely precise location. As pure formal mathematics this structure can of course be coherent, and it has supported extraordinary achievements in analysis, geometry, and physics. But **formal success does not by itself prove that one continuous ontology applies to every region and scale of nature.**
 
-For centuries, brilliant mathematicians have built higher and higher floors on this foundation. We believe the problem is not their brilliance but the inherited foundation itself. When finite precision, quantization, discretization, rounding, measurement boundaries, irreversibility, or information loss appear, the conventional route usually preserves a hidden continuous world first and then explains those phenomena as approximation, error, noise, numerical truncation, or an external limitation.
+For centuries, brilliant mathematicians have built higher and higher floors on this mathematical building. We believe the problem is not those mathematicians, nor graph theory, category theory, calculus, topology, or other mature ideas themselves, but the default foundation beneath them. When finite precision, quantization, discretization, rounding, measurement boundaries, irreversibility, or information loss appear, the conventional route often preserves a hidden continuous world first and then explains those phenomena as approximation, error, noise, numerical truncation, or an external limitation.
 
-Enterprise Math reverses that order.
+Enterprise Math first reverses that order.
 
-If nature never supplies infinite information, why should a natural "number" begin life as an infinitely precise point?
+If a region of nature supplies only finite information, why should a natural "number" there begin life as an infinitely precise point?
 
-If changing scale changes which states are distinguishable, why should precision be only an error bar attached after the computation?
+If changing scale changes which states are distinguishable, why should precision be only an error bar attached after computation?
 
 If a many-to-one evolution genuinely sends many states to one state, why must their difference survive as a hidden continuous remainder?
 
-If state evolution through time is directional, why must the foundation begin with an infinitely divisible flow that is so often idealized as reversible?
+If state evolution through time is directional, why must the foundation of the ordinary finite-resolution world begin with an infinitely divisible flow that is so often idealized as reversible?
 
 Our answer is: **it does not have to.**
 
-Enterprise Math is no longer neutral on this foundational question. Our wager is that:
+Enterprise Math is no longer neutral on this foundational question. Its current working hypothesis is that:
 
-- natural numerical states carry finite information;
+- outside singular regions, ordinary distinguishable natural states carry finite information;
 - precision / resolution belongs to the state itself rather than being an annotation;
 - discrete states and integer operations can be primitive rather than low-precision stand-ins for continuous quantities;
 - collapse, quotienting, merging, and information loss can be genuine mathematical evolution rather than defects that hidden variables must repair;
-- if continuity is valid at macroscopic scales, it should be **derived** as large-scale structure, limiting behavior, or an effective approximation rather than assumed at the ontological starting line.
+- continuous models in ordinary regimes may be derived as large-scale structure, limiting behavior, or effective approximation;
+- **but in singular or sufficiently high-disorder regimes, genuinely continuous structure may itself become a native mathematical phase rather than merely an approximation to an underlying discrete one.**
 
-This is a wager that can fail. If these primitives cannot rebuild sufficiently powerful algebra, geometry, dynamics, and physics, the program should be shown to fail. If they can, then what must be reconsidered is not one formula but the starting point mathematics has inherited for centuries.
+The final point is a research hypothesis, not a proved mathematical or physical fact. "Singularity," "high disorder," and "genuine continuity" still need computable definitions, boundary criteria, and falsification conditions.
 
-**We choose to push this route all the way. Our judgment is that time and physics will ultimately show that the direction represented by Enterprise Math is the future of mathematics for describing nature.**
+This is a wager that can fail. If the discrete primitives cannot rebuild sufficiently powerful algebra, geometry, dynamics, and physics where they are supposed to apply, the program should be shown to fail. If they can, then the larger question is not whether one formula changes, but whether nature must really be described by one mathematical phase from beginning to end.
+
+**We choose to push this route all the way: seek a firmer discrete foundation for finite-resolution regimes, while allowing continuous mathematics to occupy regions where evidence requires it to be native.**
 
 ## Five foundational reversals
 
@@ -54,7 +57,7 @@ round, discretize, mesh
 compute / measure / simulate
 ```
 
-Enterprise Math attempts the reverse:
+For ordinary finite-resolution regimes, Enterprise Math attempts the reverse:
 
 ```text
 finite state + explicit scale / precision
@@ -67,7 +70,7 @@ intrinsically forward dynamics
     ↓
 discrete geometry and observable structure
     ↓
-continuous models, when useful, as derived approximations
+continuous structure, when it appears, as derived structure or as a new mathematical phase at a regime boundary
 ```
 
 That creates five foundational reversals:
@@ -76,7 +79,52 @@ That creates five foundational reversals:
 2. **Precision is no longer error.** Precision determines which differences are genuinely distinguishable at the current level.
 3. **Collapse no longer pretends to be reversible.** A many-to-one map may genuinely change the information structure of state space.
 4. **Time no longer starts from reversibility.** Forward composition, history merging, and stabilization are first-class objects.
-5. **Continuity no longer has default privilege.** Continuous structure must earn its place by emerging from the discrete substrate or by working as an effective approximation.
+5. **Continuity no longer has universal default privilege, and it is not forbidden.** In ordinary regimes it must show how it emerges from finite structure or functions as an effective model; in singular / extremely high-disorder regimes it may also be studied as a candidate native mathematical phase.
+
+## We do not reject old mathematics: mature ideas should be replanted
+
+If Enterprise Math is to become a deeper foundation, it has no reason to prove itself by excluding mature mathematics.
+
+Graph theory, category theory, relation algebra, topology, probability, group theory, limits, calculus, and modern mathematical physics are all welcome inside Enterprise Math. The real questions are:
+
+- what grows when their core ideas are replanted in a substrate of finite state, explicit precision, integer relations, and forward evolution;
+- which classical theorems return unchanged;
+- which structures exist only at particular scales, for particular future languages, or in particular mathematical phases;
+- which old concepts acquire new integer rigidity, carry, collapse, witness, or irreversibility boundaries;
+- and which structures become genuinely natural only in a continuous regime.
+
+Enterprise Math therefore does not aim to "replace category theory," "eliminate graph theory," or "abolish calculus." A better goal is to **regenerate, explain, and connect these ideas from a different foundation.** If an existing theory reappears exactly, we recognize it as existing mathematics and gain a new foundational explanation. If replanting produces a new theorem or a new sharp boundary, that is where new mathematics begins.
+
+The same applies to future work on limits and calculus. We should not merely copy the traditional \(\delta\to0\) philosophy back into a finite-resolution system. At least two routes should be studied: an effective calculus for ordinary regimes reconstructed from finite precision, finite differences, accumulation, and scale refinement; and a genuinely continuous calculus in regimes where limit, derivative, and integral may instead be native language.
+
+## A singularity may mark a change of mathematical phase, not the end of mathematics
+
+An important but unproved research hypothesis is that **inside singularities or sufficiently high-disorder regions, the world may not be the same discrete state model viewed at ever-smaller scale; instead, a mathematical phase transition may occur.**
+
+In this picture:
+
+```text
+ordinary finite-resolution regime
+    ↓
+Enterprise Math: state + precision + relation + forward dynamics
+    ↓
+phase boundary / extreme disorder / singular neighborhood
+    ↓
+possible genuinely continuous regime
+    ↓
+continuous analysis, limits, fields, or mathematics not yet built
+```
+
+This gives a research entrance into the question "what changes inside a singularity," not an answer to it. We should not infer from the divergence of continuous equations that no internal structure exists, and we should not infer from a preference for a discrete foundation that a singular interior must remain discrete.
+
+The actual research questions are:
+
+- what computable quantity characterizes the transition from finitely distinguishable state to a high-disorder continuous regime;
+- whether that transition is a limit, phase transition, explosion of information capacity, saturation of relation density, or something else entirely;
+- which quantities are conserved across the discrete/continuous boundary, which relations pass through it, and which information is lost;
+- and whether there is a unified boundary theory in which Enterprise Math and continuous mathematics are different mathematical phases of a larger system.
+
+Until such statements are proved and experimentally constrained, "genuine continuity inside singularities" remains explicitly labeled as a working hypothesis.
 
 ## A one-minute entry point
 
@@ -142,7 +190,7 @@ The goal of Enterprise Math is not to turn \(C_p\) into another isolated special
 - **A5 — intrinsic discrete geometry**: distance, shells, and geometry built from discrete primitives and reachability;
 - **application layer**: number-theory pressure tests, collisions, materials, causal boundaries, and world-state evolution.
 
-The long-term objective is one discrete foundational chain from **number → precision → algebra → dynamics → geometry → physics**, rather than repeatedly approximating downward from a continuous world whenever discreteness appears.
+The long-term objective is no longer to claim that one discrete language should swallow every mathematics. It is to build a deeper foundation in which **number → precision → algebra → dynamics → relation → geometry → physics** can stand independently in ordinary finite-resolution regimes, while genuinely continuous regimes and the boundary to them belong to the same research program.
 
 ## Confidence does not mean abandoning evidence discipline
 
@@ -168,9 +216,10 @@ If a tool already exists, we absorb it. If a theorem is classical, we attribute 
 - we chose different foundational primitives;
 - we organized previously separate structures into a new unified system;
 - that system produces new theorems, counterexamples, algorithms, geometry, or physical predictions;
-- it explains phenomena that the continuous framework usually treats as error or external repair.
+- existing mathematical ideas gain sharper domains of validity, generative mechanisms, or unifying explanations on the new foundation;
+- we can distinguish ordinary finite-resolution regimes from possible genuinely continuous regimes instead of forcing all of nature into one mathematical language.
 
-Historical priority for individual components remains tracked through `sources.json`, `lineage.json`, and the [prior-art lineage and novelty boundary](docs/PRIOR_ART_AND_NOVELTY.en.md). A claim that a specific result is "first" still requires evidence. That does not prevent us from saying clearly: **Enterprise Math is building a mathematical system of its own.**
+Historical priority for individual components remains tracked through `sources.json`, `lineage.json`, and the [prior-art lineage and novelty boundary](docs/PRIOR_ART_AND_NOVELTY.en.md). A claim that a specific result is "first" still requires evidence. That does not prevent us from saying clearly: **Enterprise Math is building a foundational system in which existing mathematical ideas can be replanted and regrown.**
 
 ## Where to start
 
@@ -208,10 +257,11 @@ The most valuable contribution is not "this is interesting." It is to:
 - find prior work we missed;
 - formalize a stable result in Lean;
 - design an experiment that can directly kill a physical claim;
-- or prove that continuous structure cannot be recovered from the discrete substrate we chose.
+- prove that a classical structure can be recovered rigorously from the finite-resolution substrate;
+- or prove that some phenomenon genuinely requires a continuous mathematical phase that cannot be replaced by a discrete approximation.
 
 If this route is wrong, we want to discover exactly where it breaks as early as possible.  
-If it is right, we intend to push it until it is strong enough to replace the old foundation.
+If it is right, we intend to push it until it can serve as a deeper foundation on which graph theory, category theory, calculus, and other mature mathematics can be replanted, while genuinely continuous regions retain their own mathematical phase wherever evidence requires it.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -223,12 +273,12 @@ Code and repository documentation are released under the MIT License. The root `
 
 ## Status
 
-Enterprise Math remains in **Research Beta**. A complete geometry, calculus, physics, and thermodynamics are still far from finished, and many research lines remain open.
+Enterprise Math remains in **Research Beta**. A complete geometry, calculus, physics, and thermodynamics are still far from finished, and the singularity / continuous-regime boundary is only a newly stated research hypothesis.
 
 That no longer means we lack a judgment about the direction.
 
-**We remain skeptical about details, ruthless about evidence, and unwilling to retreat on the foundational direction.**
+**We remain skeptical about details, ruthless about evidence, unwilling to retreat on the foundational direction, and unwilling to prove ourselves by excluding existing mathematics.**
 
-Continuous mathematics has already proved itself to be a magnificent tool. Enterprise Math now asks a larger question:
+Continuous mathematics has already proved itself to be a magnificent tool; it may even be native in some extreme regimes. Enterprise Math now asks a larger question:
 
-> **If nature was never continuous to begin with, where should mathematics begin again?**
+> **If nature does not live in a single mathematical phase—if finite-resolution worlds and genuinely continuous regions can both exist—how should mathematics describe those regimes, their generative mechanisms, and the boundary between them?**
