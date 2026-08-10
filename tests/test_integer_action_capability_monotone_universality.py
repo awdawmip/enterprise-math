@@ -85,8 +85,14 @@ class IntegerActionCapabilityMonotoneUniversalityTests(unittest.TestCase):
     def test_validation(self):
         with self.assertRaises(ValueError):
             normalize_upward_closed_family(2, ())
+        # {0} is declared preserving but the intermediate superset {0,1} is
+        # omitted while the full set is present, so this three-action family is
+        # genuinely not upward closed.
         with self.assertRaises(ValueError):
-            normalize_upward_closed_family(2, ((0,), (0, 1)))
+            normalize_upward_closed_family(
+                3,
+                ((0,), (0, 1, 2)),
+            )
         with self.assertRaises(ValueError):
             upward_closure_of_antichain(3, ((0,), (0, 1)))
         with self.assertRaises(ValueError):
