@@ -27,10 +27,21 @@ then the general continuant determinant specializes to
     p_(2r-3) q_(r-1) - p_(r-1) q_(2r-3)
         = 2^(r+6) (r!)^4 R_r.
 
-Thus, away from primes at most 4r-3, a dangerous primitive terminal double hit
-is exactly a projective return of the Euler--Wallis convergent to [0:1].
-The published continued-fraction identification is prior art; the exact tail
-specialization and its P022 escape interpretation are the use recorded here.
+If an odd prime q>4r-3 divides F_r, the source denominator has the explicit
+unit residue
+
+    q_(r-1) = (r-1)!^2 (-8)^(r-1) / F_(r-1)        (mod q).
+
+Consequently the terminal Franel value itself is the following unit multiple
+of R_r:
+
+    F_(2r-2) = (-1)^(r-1) 2^(9-2r) r^4
+               ((r-1)!/(2r-2)!)^2 F_(r-1) R_r     (mod q).
+
+Thus R_r is not merely a zero detector: it is a normalized residue coordinate
+for the terminal return.  The published continued-fraction identification is
+prior art; the exact tail specialization and P022 escape interpretation are the
+use recorded here.
 """
 
 from __future__ import annotations
@@ -39,6 +50,7 @@ from math import factorial
 
 from .p022_barlow_franel_gap_continuant import eliminated_gap_transfer
 from .p022_barlow_low_order_defect_reduction import _is_prime
+from .p022_barlow_low_order_identifiability import triple_moment_factor
 
 
 def _require_rank(rank: int) -> None:
@@ -99,17 +111,7 @@ def fixed_gap_equals_tail_continuant(rank: int) -> tuple[int, int]:
 
 
 def reflection_scale_ratio_identity(rank: int) -> bool:
-    """Certify the factorial cancellation behind the 4^(r-3) factor.
-
-    If K_r is the coefficient of y_(r+1) in y_(2r-2) for the normalized
-    Franel recurrence with y_r=0,y_(r+1)=1, then
-
-        K_r = ((r+1)!/(2r-2)!)^2 T_(2r-2).
-
-    The formal midpoint scale S_r satisfies
-
-        S_r^2 ((r+1)!/(2r-2)!)^2 = 4^(r-3).
-    """
+    """Certify the factorial cancellation behind the 4^(r-3) factor."""
     _require_rank(rank)
     scale = formal_reflection_scale(rank)
     left_numerator = scale * scale
@@ -129,16 +131,13 @@ def euler_wallis_convergent(index: int) -> tuple[int, int]:
     if isinstance(index, bool) or not isinstance(index, int) or index < 0:
         raise ValueError("index must be a non-negative integer")
 
-    p_minus_two = 0
     p_minus_one = 1
-    p_current = 0
     q_minus_one = 0
+    p_current = franel_integer_recurrence_a(0)
     q_current = 1
     if index == 0:
-        p_current = franel_integer_recurrence_a(0)
         return p_current, q_current
 
-    p_current = franel_integer_recurrence_a(0)
     p_previous = p_minus_one
     q_previous = q_minus_one
     for n in range(1, index + 1):
@@ -160,22 +159,7 @@ def euler_wallis_franel_numerator_identity(index: int) -> bool:
     if isinstance(index, bool) or not isinstance(index, int) or index < 0:
         raise ValueError("index must be a non-negative integer")
     p_n, _ = euler_wallis_convergent(index)
-
-    franel_previous = 1
-    franel_current = 2
-    for n in range(1, index + 1):
-        numerator = (
-            (7 * n * n + 7 * n + 2) * franel_current
-            + 8 * n * n * franel_previous
-        )
-        denominator = (n + 1) ** 2
-        if numerator % denominator:
-            raise AssertionError("Franel recurrence lost integrality")
-        franel_previous, franel_current = (
-            franel_current,
-            numerator // denominator,
-        )
-    expected = factorial(index + 1) ** 2 * franel_current
+    expected = factorial(index + 1) ** 2 * triple_moment_factor(index + 1)
     if p_n != expected:
         raise AssertionError("Euler-Wallis numerator is not the scaled Franel term")
     return True
@@ -197,25 +181,65 @@ def fixed_gap_euler_wallis_determinant(rank: int) -> tuple[int, int]:
     return determinant, predicted
 
 
-def primitive_large_gap_is_projective_return(rank: int, prime: int) -> bool:
-    """For q>4r-3 and q|F_r, certify R_r=0 iff the later numerator is zero."""
+def source_denominator_residue(rank: int, prime: int) -> int:
+    """q_(r-1) modulo a large prime divisor of F_r, in explicit unit form."""
     _require_rank(rank)
     if not _is_prime(prime) or prime <= 4 * rank - 3:
         raise ValueError("prime must exceed the large-terminal threshold")
-    p_left, q_left = euler_wallis_convergent(rank - 1)
-    p_right, _ = euler_wallis_convergent(2 * rank - 3)
-    if p_left % prime:
-        raise ValueError("prime must divide the source Franel numerator")
+    source = triple_moment_factor(rank)
+    previous = triple_moment_factor(rank - 1)
+    if source % prime:
+        raise ValueError("prime must divide F_r")
+    if previous % prime == 0:
+        raise AssertionError("adjacent Franel zeros are impossible in this range")
 
-    # The adjacent Euler-Wallis determinant is a product of 8k^4 factors.
-    # Since q>4r-3, all those factors are q-units, so q_left cannot vanish
-    # together with p_left.
-    if q_left % prime == 0:
-        raise AssertionError("source convergent cannot be the zero vector mod q")
+    _, q_left = euler_wallis_convergent(rank - 1)
+    predicted = (
+        factorial(rank - 1) ** 2
+        * pow(-8, rank - 1, prime)
+        * pow(previous % prime, -1, prime)
+    ) % prime
+    if q_left % prime != predicted:
+        raise AssertionError("source Euler-Wallis denominator residue changed")
+    if predicted == 0:
+        raise AssertionError("source denominator residue must be a unit")
+    return predicted
 
+
+def terminal_franel_residue_from_gap(rank: int, prime: int) -> tuple[int, int]:
+    """Return equal residues of F_(2r-2) and its explicit unit multiple of R_r."""
+    _require_rank(rank)
+    if not _is_prime(prime) or prime <= 4 * rank - 3:
+        raise ValueError("prime must exceed the large-terminal threshold")
+    if triple_moment_factor(rank) % prime:
+        raise ValueError("prime must divide F_r")
+    source_denominator_residue(rank, prime)
     fixed_gap_euler_wallis_determinant(rank)
+
+    terminal = triple_moment_factor(2 * rank - 2) % prime
+    numerator_factorial = factorial(rank - 1) % prime
+    denominator_factorial = factorial(2 * rank - 2) % prime
+    unit = (-1 if (rank - 1) % 2 else 1) % prime
+    unit = unit * pow(2, 9 - 2 * rank, prime) % prime
+    unit = unit * pow(rank, 4, prime) % prime
+    unit = unit * numerator_factorial**2 % prime
+    unit = unit * pow(denominator_factorial**2 % prime, -1, prime) % prime
+    unit = unit * (triple_moment_factor(rank - 1) % prime) % prime
+    predicted = unit * (eliminated_gap_transfer(rank) % prime) % prime
+    if unit == 0:
+        raise AssertionError("terminal normalization must be a unit")
+    if terminal != predicted:
+        raise AssertionError("terminal Franel residue and normalized R_r disagree")
+    return terminal, predicted
+
+
+def primitive_large_gap_is_projective_return(rank: int, prime: int) -> bool:
+    """For q>4r-3 and q|F_r, certify R_r=0 iff the later numerator is zero."""
+    terminal, predicted = terminal_franel_residue_from_gap(rank, prime)
+    if terminal != predicted:
+        raise AssertionError("terminal residue normalization failed")
     fixed_zero = eliminated_gap_transfer(rank) % prime == 0
-    later_zero = p_right % prime == 0
+    later_zero = terminal == 0
     if fixed_zero != later_zero:
         raise AssertionError("R_r must detect the projective return to [0:1]")
     return fixed_zero
