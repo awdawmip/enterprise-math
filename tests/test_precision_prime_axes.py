@@ -1,6 +1,8 @@
 import unittest
 
 from enterprise_math.precision_prime_axes import (
+    coarsening_lost_primes,
+    coarsening_rank_loss,
     dimension_preserving_refinement,
     divisor_exponent_coordinates,
     divisor_from_exponent_coordinates,
@@ -19,6 +21,8 @@ from enterprise_math.precision_prime_axes import (
     refinement_rank_increment,
     refinement_rank_monotone,
     refinement_support_balance_holds,
+    total_rank_contraction,
+    total_rank_opening,
 )
 
 
@@ -81,6 +85,19 @@ class PrecisionPrimeAxesTests(unittest.TestCase):
         self.assertFalse(dimension_preserving_refinement(6, 30))
         self.assertEqual(prime_axis_rank(6) + 1, prime_axis_rank(30))
 
+    def test_coarsening_can_reduce_precision_without_reducing_rank(self):
+        self.assertEqual(coarsening_lost_primes(180, 60), ())
+        self.assertEqual(coarsening_rank_loss(180, 60), 0)
+        self.assertEqual(coarsening_lost_primes(30, 6), (5,))
+        self.assertEqual(coarsening_rank_loss(30, 6), 1)
+
+    def test_total_rank_opening_and_contraction_are_path_independent_potentials(self):
+        self.assertEqual(total_rank_opening((1, 2, 6, 30)), 3)
+        self.assertEqual(total_rank_opening((1, 6, 30)), 3)
+        self.assertEqual(total_rank_opening((1, 5, 15, 30)), 3)
+        self.assertEqual(total_rank_contraction((30, 6, 2, 1)), 3)
+        self.assertEqual(total_rank_contraction((30, 10, 2, 1)), 3)
+
     def test_invalid_inputs_fail_closed(self):
         with self.assertRaises(ValueError):
             prime_factorization(0)
@@ -92,6 +109,8 @@ class PrecisionPrimeAxesTests(unittest.TestCase):
             refinement_rank_increment(6, 20)
         with self.assertRaises(ValueError):
             prime_axis_rank_sequence((1, 6, 10))
+        with self.assertRaises(ValueError):
+            total_rank_contraction((30, 8, 1))
 
 
 if __name__ == "__main__":
