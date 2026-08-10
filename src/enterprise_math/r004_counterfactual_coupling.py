@@ -148,7 +148,7 @@ def common_quantile_coupling(
     ordered = tuple(sorted(breakpoints))
 
     result: defaultdict[ResponseTable, Fraction] = defaultdict(Fraction)
-    for left, right in zip(ordered, ordered[1:], strict=True):
+    for left, right in zip(ordered[:-1], ordered[1:], strict=True):
         if right <= left:
             raise AssertionError("distinct sorted breakpoints must define positive intervals")
         point = (left + right) / 2
