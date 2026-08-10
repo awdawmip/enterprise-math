@@ -42,6 +42,30 @@ class P017RootFactorScheduleTests(unittest.TestCase):
             self.assertGreaterEqual(left, data["joint_lower_bound_depth"])
             self.assertGreaterEqual(right, data["joint_lower_bound_depth"])
 
+    def test_factor_first_is_always_within_one_bit_of_joint_lower_bound(self) -> None:
+        for k in range(3, 300):
+            data = root_factor_two_task_schedule(k, base=2)
+            self.assertLessEqual(
+                data["factor_first_depth"],
+                data["joint_lower_bound_depth"] + 1,
+            )
+
+    def test_any_strict_root_first_advantage_is_exactly_one_bit(self) -> None:
+        witnessed = False
+        for k in range(3, 300):
+            data = root_factor_two_task_schedule(k, base=2)
+            if data["root_first_depth"] < data["factor_first_depth"]:
+                witnessed = True
+                self.assertEqual(
+                    data["root_first_depth"],
+                    data["joint_lower_bound_depth"],
+                )
+                self.assertEqual(
+                    data["factor_first_depth"],
+                    data["joint_lower_bound_depth"] + 1,
+                )
+        self.assertTrue(witnessed)
+
 
 if __name__ == "__main__":
     unittest.main()
