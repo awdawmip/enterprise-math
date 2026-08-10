@@ -17,6 +17,20 @@ subject only to A<=k-1.  Therefore the entire terminal low-core shell is a finit
 radical-replacement × prime-power lattice independent of the rest of the square
 basin.
 
+The prime-power direction also has a scale-wide analytic ceiling.  Let P_J be
+the minimum J-prime transverse radical and p_1 the smallest transverse prime.
+If A contains h prime-multiplicity units beyond its radical, then
+
+    A >= P_J * p_1^h.
+
+Thus
+
+    h <= H_pow(k)=max{h : P_J*p_1^h <= k-1}.
+
+When H_pow=0 the complete terminal shell is forced squarefree before any state
+enumeration.  Together with the replacement depth T this gives a two-coordinate
+finite shell `(replacement depth, power depth)`.
+
 For every candidate A, the exact anchor-surviving signed divisor fiber
 F_surv(A) is available from the anchor-Möbius centered-boundary layer.  Since a
 terminal row with complete core A must lie in that divisor fiber,
@@ -40,8 +54,42 @@ still require a nontrivial Möbius calculation.
 from __future__ import annotations
 
 from .p017_p018_full_core_incidence import full_core_incidence_mobius
-from .p017_p018_near_primorial_shell import near_primorial_radical_candidates
+from .p017_p018_near_primorial_shell import (
+    near_primorial_radical_candidates,
+    near_primorial_replacement_profile,
+)
 from .p017_p018_signed_boundary_carry import anchor_surviving_divisor_boundary_carry
+
+
+def terminal_power_depth_ceiling(k: int) -> dict[str, object]:
+    """Return H_pow=max{h:P_J*p_1^h<=k-1} for the even-J terminal shell."""
+    profile = near_primorial_replacement_profile(k)
+    base = int(profile["base_primorial_product"])
+    primes = tuple(int(p) for p in profile["base_primorial_primes"])
+    if not primes:
+        raise AssertionError("positive even J has no base transverse prime")
+    smallest = primes[0]
+
+    depth = 0
+    value = base
+    while value <= (k - 1) // smallest:
+        value *= smallest
+        depth += 1
+    first_forbidden = value * smallest if depth == 0 else value * smallest
+    # `value` is P_J*p_1^depth and fits.  One further p_1 does not.
+    if value > k - 1:
+        raise AssertionError("power-depth loop ended on a non-fitting product")
+    if value * smallest <= k - 1:
+        raise AssertionError("power-depth ceiling is not maximal")
+
+    return {
+        **profile,
+        "smallest_transverse_prime": smallest,
+        "power_depth_ceiling": depth,
+        "largest_minimum_power_product": value,
+        "first_forbidden_power_product": value * smallest,
+        "terminal_shell_forced_squarefree": depth == 0,
+    }
 
 
 def _full_blocks_for_support(k: int, primes: tuple[int, ...]) -> tuple[int, ...]:
@@ -72,6 +120,7 @@ def terminal_full_core_candidates(k: int) -> dict[str, object]:
     j = int(radicals["transverse_primorial_depth"])
     if j <= 0 or radicals["J_parity"] != "EVEN":
         raise ValueError("terminal full-core shell requires positive even J_perp(k)")
+    power_bound = terminal_power_depth_ceiling(k)
 
     rows: list[dict[str, object]] = []
     seen: set[int] = set()
@@ -95,6 +144,8 @@ def terminal_full_core_candidates(k: int) -> dict[str, object]:
                     extra += 1
             if remaining != 1:
                 raise AssertionError("full block acquired a prime outside its radical support")
+            if extra > int(power_bound["power_depth_ceiling"]):
+                raise AssertionError("enumerated terminal block exceeded the analytic power-depth ceiling")
             power_depth = max(power_depth, extra)
             rows.append(
                 {
@@ -107,13 +158,18 @@ def terminal_full_core_candidates(k: int) -> dict[str, object]:
             )
 
     rows.sort(key=lambda row: int(row["full_core"]))
+    if bool(power_bound["terminal_shell_forced_squarefree"]) and power_depth != 0:
+        raise AssertionError("analytic squarefree terminal shell produced a powered full core")
     return {
         **radicals,
+        "power_depth_ceiling": int(power_bound["power_depth_ceiling"]),
+        "smallest_transverse_prime": int(power_bound["smallest_transverse_prime"]),
         "full_core_rows": tuple(rows),
         "full_core_candidates": tuple(int(row["full_core"]) for row in rows),
         "full_core_candidate_count": len(rows),
         "maximum_extra_prime_multiplicity": power_depth,
         "terminal_shell_squarefree": power_depth == 0,
+        "terminal_shell_forced_squarefree": bool(power_bound["terminal_shell_forced_squarefree"]),
     }
 
 
