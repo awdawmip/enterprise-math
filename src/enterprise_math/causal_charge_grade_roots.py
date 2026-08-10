@@ -1,21 +1,28 @@
-"""Classical ADE primitive roots as minimum-grade events in causal charge kernels.
+"""Classical lattice root shells as minimum-grade events in causal charge kernels.
 
-The root system is not primitive here. Start with an integer displacement kernel
-defined by conserved free/modular charges, then choose an observation grade.
-Two grades must not be conflated:
+The root/nearest-neighbor shell is not primitive here. Start with an integer
+displacement kernel defined by conserved free/modular charges, then choose an
+observation grade. Two grades must not be conflated:
 
 - transfer mass counts how many indivisible unit transfers a zero-total event
   actually moves;
 - Q2(v)=sum_i v_i^2 is a symmetric integer second-order grade.
 
-For A roots both notions select the same one-unit events. Exceptional E sections
-can place events of different transfer mass on one Q2 shell, showing that
-traditional equal root length is not automatically equal causal primitive cost.
+For A roots both notions select the same one-unit events. BCC and exceptional E
+shells illustrate finite-charge codes whose minimum Q2 events are collective
+multi-coordinate changes.
 """
 
 from __future__ import annotations
 
-from .causal_charge_kernel_geometry import in_a_kernel, in_d_kernel, in_scaled_e8_charge_kernel
+from itertools import product
+
+from .causal_charge_kernel_geometry import (
+    in_a_kernel,
+    in_d_kernel,
+    in_scaled_bcc_charge_kernel,
+    in_scaled_e8_charge_kernel,
+)
 
 Vector = tuple[int, ...]
 
@@ -33,7 +40,6 @@ def absolute_event_mass(vector: Vector) -> int:
 
 
 def conserved_transfer_mass(vector: Vector) -> int:
-    """Number of indivisible units moved by a zero-total displacement."""
     if not in_a_kernel(vector):
         raise ValueError("transfer mass requires exact total conservation")
     positive = sum(value for value in vector if value > 0)
@@ -57,6 +63,18 @@ def a_minimum_grade() -> int:
 
 def d_minimum_grade() -> int:
     return 2
+
+
+def scaled_bcc_minimum_grade() -> int:
+    return 3
+
+
+def scaled_bcc_minimum_grade_moves() -> tuple[Vector, ...]:
+    return tuple(product((-1, 1), repeat=3))
+
+
+def is_scaled_bcc_minimum_grade_move(vector: Vector) -> bool:
+    return in_scaled_bcc_charge_kernel(vector) and quadratic_grade(vector) == 3
 
 
 def scaled_e8_minimum_grade() -> int:
