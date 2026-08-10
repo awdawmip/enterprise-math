@@ -6,7 +6,12 @@ from enterprise_math.precision_geometric_record import (
     grid_representative_visibility_region_excluded,
     overlap_from_distance,
     path_geometric_record_overlap,
+    path_positive_overlap_pair_count,
     path_representative_visibility_region_excluded,
+    path_zero_overlap_fraction_monotone_step,
+    path_zero_overlap_pair_count,
+    path_zero_overlap_pair_fraction,
+    unordered_pair_count,
 )
 
 
@@ -50,6 +55,32 @@ class PrecisionGeometricRecordTests(unittest.TestCase):
         self.assertTrue(path_representative_visibility_region_excluded(0, 10, (1, 2, 5, 10, 20), 10))
         axes = ((1, 2, 4), (1, 2, 4))
         self.assertFalse(grid_representative_visibility_region_excluded((0, 0), (3, 3), axes, 10))
+
+    def test_path_zero_overlap_pair_count_has_exact_triangular_formula(self):
+        self.assertEqual(unordered_pair_count(8), 28)
+        self.assertEqual(path_zero_overlap_pair_count(8, 3), 15)
+        self.assertEqual(path_positive_overlap_pair_count(8, 3), 13)
+        self.assertEqual(path_zero_overlap_pair_fraction(8, 3), Fraction(15, 28))
+        self.assertEqual(path_zero_overlap_pair_count(3, 3), 0)
+        self.assertEqual(path_zero_overlap_pair_count(2, 5), 0)
+        self.assertEqual(path_zero_overlap_pair_count(8, 1), 28)
+
+    def test_fixed_record_resolution_gives_monotone_finite_macro_crossover(self):
+        for record_resolution in range(1, 8):
+            fractions = tuple(
+                path_zero_overlap_pair_fraction(size, record_resolution)
+                for size in range(1, 25)
+            )
+            self.assertEqual(tuple(sorted(fractions)), fractions)
+            for size in range(1, 24):
+                self.assertTrue(
+                    path_zero_overlap_fraction_monotone_step(size, record_resolution)
+                )
+
+        self.assertEqual(
+            tuple(path_zero_overlap_pair_fraction(size, 3) for size in (3, 4, 5, 8, 16)),
+            (Fraction(0, 1), Fraction(1, 6), Fraction(3, 10), Fraction(15, 28), Fraction(91, 120)),
+        )
 
 
 if __name__ == "__main__":
