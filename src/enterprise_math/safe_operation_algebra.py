@@ -19,8 +19,9 @@ having a basin of width greater than one: fixing the second input to 1 gives a
 
 from __future__ import annotations
 
+from bisect import bisect_right
 from collections import Counter
-from collections.abc import Hashable, Iterable, Mapping, Sequence
+from collections.abc import Callable, Hashable, Iterable, Mapping, Sequence
 from itertools import product
 from math import prod
 from typing import TypeVar
@@ -144,6 +145,51 @@ def addition_unit_obstruction(
 def all_represented_basins_are_singletons(growth: Sequence[int]) -> bool:
     values = _validate_growth(growth)
     return all(right - left == 1 for left, right in zip(values, values[1:]))
+
+
+def finite_growth_unary_witness(
+    growth: Sequence[int],
+    operation: Callable[[int], int],
+    source_levels: int | None = None,
+) -> tuple[int, int, int, int, int] | None:
+    """Find an exact bounded witness that ``operation`` does not descend.
+
+    ``growth`` supplies enough P008 boundaries both for the source basins under
+    audit and for every operation output reached there.  The returned tuple is
+    ``(source_level, first_state, second_state, first_target, second_target)``.
+    A ``None`` result proves safety only on the represented prefix.
+    """
+    values = _validate_growth(growth)
+    if values[0] != 0:
+        raise ValueError("finite P008 audit expects growth to start at zero")
+    available = len(values) - 1
+    if source_levels is None:
+        source_levels = available
+    if (
+        isinstance(source_levels, bool)
+        or not isinstance(source_levels, int)
+        or source_levels < 1
+        or source_levels > available
+    ):
+        raise ValueError("source_levels must select a nonempty represented prefix")
+
+    def target_level(amount: int) -> int:
+        if isinstance(amount, bool) or not isinstance(amount, int) or amount < 0:
+            raise ValueError("operation must return nonnegative integers")
+        if amount >= values[-1]:
+            raise ValueError("extend growth sample to cover every operation output")
+        return bisect_right(values, amount) - 1
+
+    for level in range(source_levels):
+        left = values[level]
+        right = values[level + 1]
+        first_state = left
+        first_target = target_level(operation(first_state))
+        for state in range(left + 1, right):
+            target = target_level(operation(state))
+            if target != first_target:
+                return level, first_state, state, first_target, target
+    return None
 
 
 def translation_safe_on_periodic_width_sample(
