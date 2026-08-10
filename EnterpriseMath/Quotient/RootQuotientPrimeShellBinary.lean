@@ -17,7 +17,7 @@ theorem pow_two_length_le_list_prod
         exact hTwo b (by simp [hb])
       have hInd := ih hTail
       simp only [List.length_cons, List.prod_cons, pow_succ]
-      exact Nat.mul_le_mul haTwo hInd
+      simpa [Nat.mul_comm] using Nat.mul_le_mul hInd haTwo
 
 /-- Universal size lower bound from prime-factor count. -/
 theorem pow_two_primeFactorCount_le
@@ -64,7 +64,7 @@ theorem two_pow_rPowerFree_of_exponent_lt_rootOrder
   have hTwoLe : 2 ^ r ≤ t ^ r :=
     Nat.pow_le_pow_left ht r
   have hStrict : 2 ^ k < 2 ^ r := by
-    exact Nat.pow_lt_pow_right (by omega) hk
+    exact pow_lt_pow_right' (by omega : (1 : ℕ) < 2) hk
   omega
 
 /-- Every rank-`k` power-free shell lies above the trivial factor-size bound `2^k`. -/
