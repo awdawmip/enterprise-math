@@ -131,6 +131,17 @@ class P018P023QuotientWordBasisTests(unittest.TestCase):
             )
         )
 
+    def test_binary_present_regime_has_exact_log2_prime_horizon(self):
+        for root_exp in range(2, 8):
+            for max_state in range(1, 2**root_exp):
+                self.assertTrue(
+                    binary_present_observation_regime(max_state, root_exp)
+                )
+                self.assertEqual(
+                    prime_generator_required_horizon(max_state, root_exp),
+                    max_state.bit_length() - 1,
+                )
+
     def test_validation(self):
         with self.assertRaises(ValueError):
             quotient_word_state(-1, ())
