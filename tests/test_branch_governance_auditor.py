@@ -1,3 +1,5 @@
+import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -118,6 +120,17 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
             retired["result_conservation_certificate"],
             "result_conservation_e001_material.json",
         )
+
+    def test_legacy_allowlist_is_frozen_in_code(self):
+        data = json.loads(
+            (REPO_ROOT / "branch_governance_overrides.json").read_text(encoding="utf-8")
+        )
+        data["retirement_contract"]["legacy_branches"].append("agent/new-legacy-escape")
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "branch_governance_overrides.json"
+            path.write_text(json.dumps(data), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "legacy_branches is frozen"):
+                load_overrides(path)
 
     def test_ahead_positive_mechanical_retirement_is_rejected(self):
         override = {

@@ -26,7 +26,10 @@ from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 from typing import Iterable
 
-from tools.check_references import validate_result_conservation_manifest
+try:
+    from tools.check_references import validate_result_conservation_manifest
+except ModuleNotFoundError:  # direct `python tools/audit_branch_lifecycle.py`
+    from check_references import validate_result_conservation_manifest
 
 LIFECYCLE_STATES = {
     "ACTIVE_OWNER",
@@ -49,6 +52,19 @@ RETIREMENT_EVIDENCE_FAILURES = {
     "UNDECLARED_SEMANTIC_RETIREMENT",
 }
 OVERRIDE_SCHEMA = "ENTERPRISE_MATH_BRANCH_GOVERNANCE_OVERRIDES_V3"
+LEGACY_RETIREMENT_CUTOFF = "2026-08-10"
+LEGACY_RETIREMENT_ALLOWLIST = frozenset({
+    "agent/p018-critical-grid",
+    "engineering/e001-material-impulse-world",
+    "engineering/e001-material-multiaction-protocol",
+    "engineering/e001-material-pair-impulse",
+    "program/p021-causal-focusing-v2",
+    "research/core/admissible-support-relations",
+    "research/e002-task-observable-v2",
+    "research/p018-all-power-quotient-basin-final",
+    "research/p023-composition-safe-collapse",
+    "research/p023-safe-selector-semigroup",
+})
 
 
 @dataclass(frozen=True)
@@ -171,6 +187,10 @@ def load_overrides(path: Path | None) -> dict[str, dict[str, object]]:
     declared_bases = contract.get("basis_values")
     if not isinstance(declared_bases, list) or set(declared_bases) != RETIREMENT_BASES:
         raise ValueError("retirement_contract.basis_values must match the canonical retirement basis vocabulary")
+    if contract.get("legacy_cutoff") != LEGACY_RETIREMENT_CUTOFF:
+        raise ValueError(
+            f"retirement_contract.legacy_cutoff must remain {LEGACY_RETIREMENT_CUTOFF}"
+        )
     legacy_value = contract.get("legacy_branches")
     if not isinstance(legacy_value, list) or any(
         not isinstance(item, str) or not item for item in legacy_value
@@ -179,6 +199,11 @@ def load_overrides(path: Path | None) -> dict[str, dict[str, object]]:
     if len(legacy_value) != len(set(legacy_value)):
         raise ValueError("retirement_contract.legacy_branches contains duplicates")
     legacy_branches = set(legacy_value)
+    if legacy_branches != LEGACY_RETIREMENT_ALLOWLIST:
+        raise ValueError(
+            "retirement_contract.legacy_branches is frozen; "
+            f"expected {sorted(LEGACY_RETIREMENT_ALLOWLIST)}"
+        )
 
     entries = data.get("branches", {})
     if not isinstance(entries, dict):
