@@ -15,3 +15,4 @@ import EnterpriseMath.Quotient.PowerFreeActionBasis
 import EnterpriseMath.Quotient.RootFutureClosure
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
+import EnterpriseMath.R009.LeanA
