@@ -292,3 +292,17 @@ FQ-001 至 FQ-004 已 canonicalized。目前唯一 active foundation question：
 - `FQ-20260809-005` —— stable `graph_distance` API 定义域与 P012 ordinary-metric theorem 定义域。
 
 Steward 直接修机械漂移，但不替研究员选择尚未解决的研究答案。FQ 回报必须先经 steward 验证，才能 canonicalize。
+
+## 11. P022 Barlow coordination observables
+
+PR #298 / 当前 L4 发布来自 validation PR #269 的 coordination-observable 层。本切片 canonical 资产为 `src/enterprise_math/p022_barlow_coordination.py` 与 `tests/test_p022_barlow_coordination.py`。
+
+该层通过 prefix-imbalance quadratic energy 给出精确 shell/ball vertex-cardinality 公式、精确 vertical-support cardinality `K(c,d)`，并给出在原始 cardinality 无法恢复符号时可恢复 signed imbalance 的 first axial moments；同时可由 shell/ball counts 反演对应 extreme/cumulative drift-energy aggregates。周期情形下 shell 二次增长首项系数为
+
+`(21 L^2-D^2)/(2 L^2)`，
+
+ball 三次增长首项系数为其三分之一。
+
+这是 task-relative observation layer，而不是完整几何状态。Shell/ball cardinality 可能丢失 signed drift allocation 与 geodesic-multiplicity structure；带标签坐标和一阶矩是严格更细的 observables。Observation-history、collision/repair 与更后的 P022 owner 结果仍不在本次 promotion 范围内。
+
+已经 canonical 的 P018 centered-prime-radius 证明 provenance 现在也可在 `docs/P018_CENTERED_PRIME_RADIUS_PROOF_NOTE.en.md` 与 `docs/P018_CENTERED_PRIME_RADIUS_PROOF_NOTE.zh-CN.md` 中直接发现；这些文件为 #270 specialization 补充证明细节，并不新增 theorem family。
