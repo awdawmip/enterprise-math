@@ -15,10 +15,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .balanced_binary_synergy import balanced_binary_synergy
-from .closure_async_progress_poset import (
-    enabled_helpers,
-    helper_ideals,
-)
+from .closure_async_progress_poset import helper_ideals
+from .closure_async_query_ladder import enabled_helpers
 
 
 @dataclass(frozen=True)
