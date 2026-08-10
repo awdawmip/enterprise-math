@@ -5,9 +5,12 @@ from enterprise_math.contact_cycle_witness_repair import (
     apply_integer_matrix,
     contact_cycle_witness_repair_report,
     decompose_incidence_cycle,
+    edge_coboundary_from_vertex_potential,
     fundamental_cycle_lattice,
     same_body_delta,
     same_witness_readout,
+    scalar_witness_descends_by_telescoping,
+    scalar_witness_vertex_potential,
 )
 from enterprise_math.contact_guarded_word_normal_form import (
     contact_guarded_profile_power,
@@ -227,6 +230,63 @@ class ContactCycleWitnessRepairTests(unittest.TestCase):
                     repeated_count,
                 ),
                 (0,),
+            )
+
+    def test_cycle_invisible_scalar_witness_is_exact_integer_coboundary(self):
+        potential = scalar_witness_vertex_potential(
+            TRIANGLE_B,
+            (1, -1, 0),
+        )
+        self.assertEqual(potential, (0, 1, 0))
+        self.assertEqual(
+            edge_coboundary_from_vertex_potential(
+                TRIANGLE_B,
+                potential,
+            ),
+            (1, -1, 0),
+        )
+
+    def test_cycle_visible_scalar_witness_has_nontrivial_cohomology(self):
+        self.assertIsNone(
+            scalar_witness_vertex_potential(
+                TRIANGLE_B,
+                (1, 1, 1),
+            )
+        )
+
+    def test_coboundary_witness_telescopes_exactly_to_body_state(self):
+        witness = (1, -1, 0)
+        for history in itertools.product(range(-2, 3), repeat=3):
+            direct = sum(
+                coefficient * impulse
+                for coefficient, impulse in zip(
+                    witness,
+                    history,
+                    strict=True,
+                )
+            )
+            self.assertEqual(
+                scalar_witness_descends_by_telescoping(
+                    TRIANGLE_B,
+                    witness,
+                    history,
+                ),
+                direct,
+            )
+
+    def test_tree_every_scalar_edge_readout_is_a_coboundary(self):
+        for witness in itertools.product(range(-2, 3), repeat=2):
+            potential = scalar_witness_vertex_potential(
+                PATH_B,
+                witness,
+            )
+            self.assertIsNotNone(potential)
+            self.assertEqual(
+                edge_coboundary_from_vertex_potential(
+                    PATH_B,
+                    potential,
+                ),
+                witness,
             )
 
     def test_validation(self):

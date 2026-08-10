@@ -25,14 +25,17 @@ for those fundamental cycles.  By the first isomorphism theorem it is exactly
 
     C(ker B) ~= ker B / (ker B intersect ker C).
 
-This module exposes that contact-graph specialization constructively.  It does
-not claim novelty for graph homology, kernel factorization or the first
-isomorphism theorem.
+For one scalar edge readout ``c``, cycle invisibility has an exact cohomological
+form: it holds iff ``c`` is an integer 1-coboundary
 
-The result sharpens the E001/P023 state boundary.  A tree has no cycle lattice,
-so cumulative contact impulse is determined by body change.  Once cycles exist,
-contact-local history can remain invisible to the coarse physical state.  A
-future witness may erase those directions only when its readout kills them.
+    c = B^T phi.
+
+Then ``c.j = phi^T(Bj)`` telescopes to the body state.  A nonzero cycle period is
+precisely the obstruction to such an integer vertex-potential representation.
+
+This module exposes those contact-graph specializations constructively.  It does
+not claim novelty for graph homology/cohomology, kernel factorization or the
+first isomorphism theorem.
 """
 
 from __future__ import annotations
@@ -196,7 +199,6 @@ def fundamental_cycle_lattice(
     basis: list[Vector] = []
     for chord in chord_edges:
         source, target = _edge_endpoints(matrix, chord)
-
         predecessor: dict[int, tuple[int | None, int | None]] = {
             target: (None, None)
         }
@@ -231,7 +233,6 @@ def fundamental_cycle_lattice(
                 == (path_source, path_target)
                 else -1
             )
-
         cycle_vector = tuple(cycle)
         if any(apply_integer_matrix(matrix, cycle_vector)):
             raise AssertionError("constructed fundamental cycle left the incidence kernel")
@@ -254,13 +255,11 @@ def decompose_incidence_cycle(
     incidence: Sequence[Sequence[int]],
     cycle_vector: Sequence[int],
 ) -> tuple[int, ...]:
-    """Return exact integer coordinates in the fundamental cycle basis."""
     matrix = _incidence_matrix(incidence)
     edge_count = len(matrix[0])
     cycle = _vector(cycle_vector, edge_count, name="cycle_vector")
     if any(apply_integer_matrix(matrix, cycle)):
         raise ValueError("cycle_vector must lie in the incidence kernel")
-
     lattice = fundamental_cycle_lattice(matrix)
     coefficients = tuple(cycle[edge] for edge in lattice.chord_edges)
     reconstructed = tuple(
@@ -280,51 +279,28 @@ def decompose_incidence_cycle(
 
 
 def _rational_row_rank(vectors: Sequence[Vector]) -> int:
-    rows = [
-        [Fraction(value) for value in vector]
-        for vector in vectors
-        if any(vector)
-    ]
+    rows = [[Fraction(value) for value in vector] for vector in vectors if any(vector)]
     if not rows:
         return 0
-
     row_count = len(rows)
     column_count = len(rows[0])
     pivot_row = 0
     pivot_column = 0
     while pivot_row < row_count and pivot_column < column_count:
-        pivot = next(
-            (
-                index
-                for index in range(pivot_row, row_count)
-                if rows[index][pivot_column] != 0
-            ),
-            None,
-        )
+        pivot = next((index for index in range(pivot_row, row_count) if rows[index][pivot_column] != 0), None)
         if pivot is None:
             pivot_column += 1
             continue
-
         rows[pivot_row], rows[pivot] = rows[pivot], rows[pivot_row]
         pivot_value = rows[pivot_row][pivot_column]
-        rows[pivot_row] = [
-            value / pivot_value
-            for value in rows[pivot_row]
-        ]
+        rows[pivot_row] = [value / pivot_value for value in rows[pivot_row]]
         for index in range(row_count):
             if index == pivot_row:
                 continue
             factor = rows[index][pivot_column]
             if factor == 0:
                 continue
-            rows[index] = [
-                left - factor * right
-                for left, right in zip(
-                    rows[index],
-                    rows[pivot_row],
-                    strict=True,
-                )
-            ]
+            rows[index] = [left - factor * right for left, right in zip(rows[index], rows[pivot_row], strict=True)]
         pivot_row += 1
         pivot_column += 1
     return pivot_row
@@ -348,34 +324,20 @@ def contact_cycle_witness_repair_report(
     incidence: Sequence[Sequence[int]],
     witness_matrix: Sequence[Sequence[int]],
 ) -> ContactCycleWitnessRepairReport:
-    """Compile the exact hidden witness image of the contact cycle lattice."""
     body_incidence = _incidence_matrix(incidence)
     edge_count = len(body_incidence[0])
-    witness = _matrix(
-        witness_matrix,
-        name="witness_matrix",
-        column_count=edge_count,
-    )
+    witness = _matrix(witness_matrix, name="witness_matrix", column_count=edge_count)
     lattice = fundamental_cycle_lattice(body_incidence)
-
-    hidden_generators = tuple(
-        apply_integer_matrix(witness, cycle)
-        for cycle in lattice.cycle_basis
-    )
+    hidden_generators = tuple(apply_integer_matrix(witness, cycle) for cycle in lattice.cycle_basis)
     hidden_rank = _rational_row_rank(hidden_generators)
     descends = all(not any(generator) for generator in hidden_generators)
-
     scalar_grain: int | None
     if len(witness) == 1:
         scalar_grain = 0
         for generator in hidden_generators:
-            scalar_grain = gcd(
-                scalar_grain,
-                abs(generator[0]),
-            )
+            scalar_grain = gcd(scalar_grain, abs(generator[0]))
     else:
         scalar_grain = None
-
     return ContactCycleWitnessRepairReport(
         cycle_rank=lattice.cycle_rank,
         hidden_witness_rank=hidden_rank,
@@ -391,15 +353,11 @@ def same_body_delta(
     left_impulse: Sequence[int],
     right_impulse: Sequence[int],
 ) -> bool:
-    """Whether two impulse histories induce the same coarse body change."""
     matrix = _incidence_matrix(incidence)
     edge_count = len(matrix[0])
     left = _vector(left_impulse, edge_count, name="left_impulse")
     right = _vector(right_impulse, edge_count, name="right_impulse")
-    return apply_integer_matrix(matrix, left) == apply_integer_matrix(
-        matrix,
-        right,
-    )
+    return apply_integer_matrix(matrix, left) == apply_integer_matrix(matrix, right)
 
 
 def same_witness_readout(
@@ -407,19 +365,86 @@ def same_witness_readout(
     left_impulse: Sequence[int],
     right_impulse: Sequence[int],
 ) -> bool:
-    """Whether two impulse histories have the same declared additive witness."""
     left = tuple(left_impulse)
     right = tuple(right_impulse)
     if len(left) != len(right):
         raise ValueError("impulse vectors must have equal length")
-    witness = _matrix(
-        witness_matrix,
-        name="witness_matrix",
-        column_count=len(left),
-    )
+    witness = _matrix(witness_matrix, name="witness_matrix", column_count=len(left))
     left_values = _vector(left, len(left), name="left_impulse")
     right_values = _vector(right, len(left), name="right_impulse")
-    return apply_integer_matrix(witness, left_values) == apply_integer_matrix(
-        witness,
-        right_values,
+    return apply_integer_matrix(witness, left_values) == apply_integer_matrix(witness, right_values)
+
+
+def edge_coboundary_from_vertex_potential(
+    incidence: Sequence[Sequence[int]],
+    vertex_potential: Sequence[int],
+) -> Vector:
+    """Return the integer edge 1-coboundary ``B^T phi``."""
+    matrix = _incidence_matrix(incidence)
+    potential = _vector(vertex_potential, len(matrix), name="vertex_potential")
+    edge_count = len(matrix[0])
+    return tuple(
+        sum(matrix[body][edge] * potential[body] for body in range(len(matrix)))
+        for edge in range(edge_count)
     )
+
+
+def scalar_witness_vertex_potential(
+    incidence: Sequence[Sequence[int]],
+    witness_row: Sequence[int],
+) -> Vector | None:
+    """Recover an integer potential exactly when the scalar witness kills cycles."""
+    matrix = _incidence_matrix(incidence)
+    edge_count = len(matrix[0])
+    witness = _vector(witness_row, edge_count, name="witness_row")
+    lattice = fundamental_cycle_lattice(matrix)
+    if any(
+        sum(coefficient * cycle_value for coefficient, cycle_value in zip(witness, cycle, strict=True)) != 0
+        for cycle in lattice.cycle_basis
+    ):
+        return None
+
+    adjacency: list[list[tuple[int, int]]] = [[] for _ in range(len(matrix))]
+    for edge in lattice.tree_edges:
+        source, target = _edge_endpoints(matrix, edge)
+        adjacency[source].append((target, edge))
+        adjacency[target].append((source, edge))
+
+    potential: list[int | None] = [None] * len(matrix)
+    for root in range(len(matrix)):
+        if potential[root] is not None:
+            continue
+        potential[root] = 0
+        queue: deque[int] = deque([root])
+        while queue:
+            current = queue.popleft()
+            current_value = potential[current]
+            if current_value is None:
+                raise AssertionError("tree potential propagation lost its root value")
+            for neighbor, edge in adjacency[current]:
+                if potential[neighbor] is not None:
+                    continue
+                source, target = _edge_endpoints(matrix, edge)
+                potential[neighbor] = current_value + witness[edge] if (source, target) == (current, neighbor) else current_value - witness[edge]
+                queue.append(neighbor)
+
+    result = tuple(0 if value is None else value for value in potential)
+    if edge_coboundary_from_vertex_potential(matrix, result) != witness:
+        raise AssertionError("cycle-invisible witness failed integer coboundary reconstruction")
+    return result
+
+
+def scalar_witness_descends_by_telescoping(
+    incidence: Sequence[Sequence[int]],
+    witness_row: Sequence[int],
+    impulse_history: Sequence[int],
+) -> int | None:
+    """Return telescoped body-state witness value, or ``None`` for nontrivial cohomology."""
+    matrix = _incidence_matrix(incidence)
+    edge_count = len(matrix[0])
+    history = _vector(impulse_history, edge_count, name="impulse_history")
+    potential = scalar_witness_vertex_potential(matrix, witness_row)
+    if potential is None:
+        return None
+    body_delta = apply_integer_matrix(matrix, history)
+    return sum(value * delta for value, delta in zip(potential, body_delta, strict=True))
