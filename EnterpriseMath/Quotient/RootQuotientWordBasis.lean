@@ -121,4 +121,71 @@ theorem separatesRootQuotientWordsUpTo_iff_powerFree_reachable
       rootQuotientWordState_eq_div_product]
     simpa [haEq] using hDist
 
+/-- Below the first nontrivial `r`-th power, every positive boundary is
+`r`-power-free. -/
+theorem rPowerFree_of_le_of_lt_two_pow
+    {r N b : ℕ}
+    (hr : 1 ≤ r)
+    (hN : N < 2 ^ r)
+    (hbPos : 1 ≤ b)
+    (hbN : b ≤ N) :
+    RPowerFree r b := by
+  intro t ht hDvd
+  have hPowLeB : t ^ r ≤ b := Nat.le_of_dvd (by omega) hDvd
+  have hTwoPowLe : 2 ^ r ≤ t ^ r := Nat.pow_le_pow_left ht r
+  omega
+
+/-- In the same finite regime, every positive current state has root exactly
+one.  Thus the current observation has only the classes `0` and `1`. -/
+theorem root_eq_one_of_pos_le_of_lt_two_pow
+    {r N q : ℕ}
+    (hr : 1 ≤ r)
+    (hN : N < 2 ^ r)
+    (hqPos : 1 ≤ q)
+    (hqN : q ≤ N) :
+    root r q = 1 := by
+  have hr0 : r ≠ 0 := by omega
+  apply (EnterpriseMath.IntegerRoot.root_eq_iff
+    (p := r) (n := q) (k := 1) hr0).2
+  constructor
+  · simpa using hqPos
+  · have hqLt : q < 2 ^ r := hqN.trans_lt hN
+    simpa using hqLt
+
+/-- Extreme finite separation law.
+
+If `N < 2^r`, the present root observation has only two classes, but a
+one-step primitive quotient language that separates all exact states is forced
+to contain every nontrivial denominator `2,...,N`.  Denominator `1` is supplied
+for free by the empty word/current observation. -/
+theorem one_step_generators_contain_all_nontrivial_of_lt_two_pow
+    {r N : ℕ} {G : Set ℕ}
+    (hr : 1 ≤ r)
+    (hN : N < 2 ^ r)
+    (hG : PositiveRootQuotientGenerators G)
+    (hSep : SeparatesRootQuotientWordsUpTo r N 1 G) :
+    ∀ b : ℕ, 2 ≤ b → b ≤ N → b ∈ G := by
+  intro b hbTwo hbN
+  have hbFree : RPowerFree r b :=
+    rPowerFree_of_le_of_lt_two_pow hr hN (by omega) hbN
+  have hReach :=
+    (separatesRootQuotientWordsUpTo_iff_powerFree_reachable
+      (r := r) (N := N) (h := 1) (G := G) hr hG).1 hSep
+      b (by omega) hbN hbFree
+  obtain ⟨w, hwLen, hwG, hProd⟩ := hReach
+  cases w with
+  | nil =>
+      simp [rootQuotientWordProduct] at hProd
+      omega
+  | cons a w =>
+      have hwLenZero : w.length = 0 := by
+        simp at hwLen
+        omega
+      have hwNil : w = [] := List.length_eq_zero.mp hwLenZero
+      subst w
+      have haG : a ∈ G := hwG a (by simp)
+      simp [rootQuotientWordProduct] at hProd
+      rw [hProd]
+      exact haG
+
 end EnterpriseMath.Quotient
