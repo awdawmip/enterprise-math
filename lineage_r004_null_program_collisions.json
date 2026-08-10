@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-11",
+  "components": [
+    {
+      "id": "EM-R004-NULL-PROGRAM-HISTORY-COLLISION",
+      "name": "Null-program bounded history collision hierarchy",
+      "source_relations": [
+        {"source_id": "SRC-R004-JOINT-WEIGHT-CHOIE-DOUGHERTY-KIM-2003", "relation": "DIRECT_PRIOR"},
+        {"source_id": "SRC-R004-RFOLD-WEIGHT-SIAP-RAYCHAUDHURI-2000", "relation": "DIRECT_PRIOR"}
+      ],
+      "project_addition": "Applies the P011 collision hierarchy to bounded primitive instruction histories, identifies the ordinary null-code weight spectrum as the exact W2 state, higher joint coordinate profiles as exact sufficient Wk states, and gives a same-weight-enumerator/different-W3 counterexample.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "relation_to_owners": {
+        "P011": "CONSUME_PROGRAM_HISTORY_SPECIALIZATION",
+        "P023": "TEST_NET_EFFECT_VS_HISTORY_SEMANTICS",
+        "R004": "SPECIALIZATION"
+      }
+    }
+  ]
+}
