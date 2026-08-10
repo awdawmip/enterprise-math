@@ -1,16 +1,18 @@
 """Primitive geometry from a graph of allowed conservative unit transfers.
 
-Vertices are integer relation slots.  An undirected graph edge {i,j} means one
+Vertices are integer relation slots. An undirected graph edge {i,j} means one
 indivisible unit may move directly between slots i and j; both orientations give
 primitive displacement vectors +/- (e_i-e_j).
 
 For any connected transfer graph on N slots, the generated integer displacement
-lattice is the same zero-sum lattice A_(N-1).  The primitive operation metric is
-not the same: it depends on the transfer graph.  The complete graph K_N gives the
-A_(N-1) root metric.  A star K_(1,p) with a marked reservoir gives, after keeping
-only its p leaves as visible coordinates, the standard Z^p axis moves and L1
-metric.  Thus FCC-vs-simple-cubic can be studied as primitive-operation symmetry
-breaking on one conserved state lattice rather than as two unrelated ontologies.
+lattice is the same zero-sum lattice A_(N-1). Geometry therefore lives in the
+primitive operation set, not in the state lattice alone.
+
+A connected tree has exactly N-1 undirected primitive relations, hence its edge
+incidences form an integer basis of the zero-sum lattice. In edge-flow coordinates
+its word geometry is standard Z^(N-1) with L1 distance (simple-cubic type). The
+complete graph K_N is the full slot-exchange-symmetric completion: every unordered
+slot pair is primitive, producing the A_(N-1) root geometry and, at N=4, FCC.
 """
 
 from __future__ import annotations
@@ -75,8 +77,18 @@ def transfer_components(slot_count: int, edges: tuple[Edge, ...]) -> tuple[tuple
 
 
 def transfer_relation_rank(slot_count: int, edges: tuple[Edge, ...]) -> int:
-    """Integer incidence rank N-c for c connected components."""
     return slot_count - len(transfer_components(slot_count, edges))
+
+
+def transfer_cycle_rank(slot_count: int, edges: tuple[Edge, ...]) -> int:
+    """Independent redundant pair-relations beyond a spanning forest."""
+    normalized = _normalized_edges(slot_count, edges)
+    return len(normalized) - slot_count + len(transfer_components(slot_count, normalized))
+
+
+def transfer_graph_is_tree(slot_count: int, edges: tuple[Edge, ...]) -> bool:
+    normalized = _normalized_edges(slot_count, edges)
+    return len(transfer_components(slot_count, normalized)) == 1 and len(normalized) == slot_count - 1
 
 
 def primitive_transfer_moves(slot_count: int, edges: tuple[Edge, ...]) -> tuple[Vector, ...]:
@@ -91,19 +103,11 @@ def primitive_transfer_moves(slot_count: int, edges: tuple[Edge, ...]) -> tuple[
     return tuple(moves)
 
 
-def component_charge_constraints(
-    state: Vector,
-    components: tuple[tuple[int, ...], ...],
-) -> tuple[int, ...]:
+def component_charge_constraints(state: Vector, components: tuple[tuple[int, ...], ...]) -> tuple[int, ...]:
     return tuple(sum(state[index] for index in component) for component in components)
 
 
-def generated_lattice_membership(
-    vector: Vector,
-    slot_count: int,
-    edges: tuple[Edge, ...],
-) -> bool:
-    """Exact incidence-lattice criterion: sum is zero on every graph component."""
+def generated_lattice_membership(vector: Vector, slot_count: int, edges: tuple[Edge, ...]) -> bool:
     if len(vector) != slot_count or any(isinstance(value, bool) or not isinstance(value, int) for value in vector):
         raise ValueError("vector must be an integer state of the declared slot count")
     components = transfer_components(slot_count, edges)
@@ -131,7 +135,6 @@ def star_transfer_distance(left: Vector, right: Vector, hub: int = 0) -> int:
 
 
 def projected_star_primitive_moves(slot_count: int, hub: int = 0) -> tuple[Vector, ...]:
-    """Project star primitive transfers to non-hub coordinates: exactly +/-e_i."""
     return tuple(
         star_visible_coordinates(move, hub)
         for move in primitive_transfer_moves(slot_count, star_transfer_edges(slot_count, hub))
@@ -139,10 +142,11 @@ def projected_star_primitive_moves(slot_count: int, hub: int = 0) -> tuple[Vecto
 
 
 def complete_graph_is_fully_slot_exchange_symmetric(slot_count: int) -> bool:
-    """The unique nonempty simple edge set invariant under all slot permutations is K_N.
-
-    For simple pair relations, the full symmetric group acts transitively on
-    unordered distinct pairs.  Hence an invariant nonempty edge set contains the
-    full orbit, i.e. every pair.  This function records the resulting theorem.
-    """
     return set(complete_transfer_edges(slot_count)) == set(combinations(range(slot_count), 2))
+
+
+def complete_graph_redundant_relation_count(slot_count: int) -> int:
+    """Independent pair shortcuts beyond a tree basis in K_N."""
+    if isinstance(slot_count, bool) or not isinstance(slot_count, int) or slot_count < 1:
+        raise ValueError("slot_count must be positive")
+    return (slot_count - 1) * (slot_count - 2) // 2
