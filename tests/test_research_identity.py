@@ -37,6 +37,10 @@ class ResearchIdentityTests(unittest.TestCase):
         self.assertNotEqual(rid1, rid3)
         self.assertTrue(rid1.startswith("EM-R012-"))
         self.assertTrue(identity.valid_researcher_id(rid1))
+        self.assertEqual(
+            identity.registration_path(rid1),
+            f"projects/enterprise-math/researchers/{rid1}.json",
+        )
 
     def test_direct_allocation_self_bootstraps(self):
         rid = identity.allocate_direct(
@@ -45,6 +49,17 @@ class ResearchIdentityTests(unittest.TestCase):
         )
         self.assertTrue(rid.startswith("EM-P017-"))
         self.assertTrue(identity.valid_researcher_id(rid))
+        payload = identity.identity_payload(
+            researcher_id=rid,
+            task_id="RS-P017-GLOBAL-CAPACITY",
+            role="RESEARCHER",
+            source="DIRECT_AUTO_GENERATED",
+        )
+        self.assertEqual(payload["registration_state"], "REGISTER_PENDING")
+        self.assertEqual(
+            payload["registration_path"],
+            f"projects/enterprise-math/researchers/{rid}.json",
+        )
         self.assertEqual(
             identity.allocate_direct(
                 task_id=None,
