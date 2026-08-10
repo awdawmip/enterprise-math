@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
-"""Enterprise Math scheduler with append-only Markdown taskbook discovery.
+"""Enterprise Math scheduler with taskbooks, role authority, and proposal discovery.
 
-The stable reducer remains in ``research_tasks/_research_scheduler_legacy.py``.
-This thin layer merges scout-created ``research_tasks/*.md`` taskbooks into the
-legacy static scheduler config before validation/status/selection. New taskbooks
-therefore become dispatchable without editing ``research_scheduler.json``.
+The stable task reducer remains in ``research_tasks/_research_scheduler_legacy.py``.
+This wrapper adds three narrow control-plane features without changing ordinary
+research execution:
 
-Research tasks are context-isolated by default. Memory and undeclared cross-task
-material are hints only; they do not become premises unless resolved to allowed
-sources or imported explicitly with provenance.
+1. append-only ``research_tasks/*.md`` discovery;
+2. non-weakenable task-local context isolation;
+3. Driver authority for dispatchable taskbooks plus a non-dispatchable compact
+   proposal queue under ``research_proposals/*.json``.
+
+Research remains the hot path. Proposal capture is optional bookkeeping at a
+semantic checkpoint, never a startup gate or HARD_BLOCK.
 """
 
 from __future__ import annotations
@@ -24,10 +27,13 @@ from typing import Any
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 LEGACY_PATH = ROOT / "research_tasks" / "_research_scheduler_legacy.py"
 DEFAULT_TASKBOOK_DIR = ROOT / "research_tasks"
+DEFAULT_PROPOSAL_DIR = ROOT / "research_proposals"
 CONTEXT_POLICY_PATH = ROOT / "research_context_policy.json"
+ROLE_POLICY_PATH = ROOT / "research_role_policy.json"
 TASKBOOK_MARKER = "<!-- ENTERPRISE_MATH_TASK_V1"
 TASKBOOK_END = "-->"
 TASKBOOK_UNASSIGNED_OWNER = "taskbook/unassigned"
+PROPOSAL_SCHEMA = "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1"
 
 _spec = importlib.util.spec_from_file_location("enterprise_math_research_scheduler_legacy", LEGACY_PATH)
 if _spec is None or _spec.loader is None:
@@ -60,6 +66,19 @@ def load_context_policy(path: pathlib.Path = CONTEXT_POLICY_PATH) -> dict[str, A
     return policy
 
 
+def load_role_policy(path: pathlib.Path = ROLE_POLICY_PATH) -> dict[str, Any]:
+    policy = load_json(path)
+    if policy.get("schema") != "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V1":
+        raise SchedulerError(f"{path}: unexpected research role policy schema")
+    if policy.get("default_role") != "RESEARCHER":
+        raise SchedulerError(f"{path}: default_role must remain RESEARCHER")
+    authority = policy.get("official_taskbook_authority")
+    proposal = policy.get("proposal_capture")
+    if not isinstance(authority, dict) or not isinstance(proposal, dict):
+        raise SchedulerError(f"{path}: missing taskbook authority/proposal policy")
+    return policy
+
+
 def apply_research_context_defaults(
     task: dict[str, Any],
     *,
@@ -80,6 +99,45 @@ def apply_research_context_defaults(
                 f"expected {required!r}, got {existing!r}"
             )
         normalized[field] = required
+    return normalized
+
+
+def apply_taskbook_authority(
+    task: dict[str, Any],
+    *,
+    source: str,
+    policy: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Require Driver approval for new dispatchable append-only taskbooks.
+
+    Central legacy scheduler tasks are unaffected. Taskbooks created before this
+    policy are explicitly grandfathered by stable task_id so the new gate does not
+    interrupt ongoing research.
+    """
+    if not task.get("_taskbook_path"):
+        return task
+    policy = policy or load_role_policy()
+    authority = policy["official_taskbook_authority"]
+    normalized = copy.deepcopy(task)
+    task_id = normalized.get("task_id")
+    grandfathered = set(authority.get("grandfathered_task_ids", []))
+    if task_id in grandfathered:
+        normalized.setdefault("created_by_role", "RESEARCH_DRIVER")
+        normalized.setdefault("task_authority", "GRANDFATHERED_DRIVER_APPROVED")
+        return normalized
+
+    required_role = authority.get("created_by_role", "RESEARCH_DRIVER")
+    required_authority = authority.get("task_authority", "DRIVER_APPROVED")
+    if normalized.get("created_by_role") != required_role:
+        raise SchedulerError(
+            f"{source}: new taskbook is not dispatchable without "
+            f"created_by_role={required_role!r}"
+        )
+    if normalized.get("task_authority") != required_authority:
+        raise SchedulerError(
+            f"{source}: new taskbook is not dispatchable without "
+            f"task_authority={required_authority!r}"
+        )
     return normalized
 
 
@@ -120,7 +178,8 @@ def parse_taskbook(path: pathlib.Path) -> dict[str, Any]:
         task["_taskbook_path"] = path.relative_to(ROOT).as_posix()
     except ValueError:
         task["_taskbook_path"] = path.as_posix()
-    return apply_research_context_defaults(task, source=task["_taskbook_path"])
+    task = apply_research_context_defaults(task, source=task["_taskbook_path"])
+    return apply_taskbook_authority(task, source=task["_taskbook_path"])
 
 
 def load_taskbooks(taskbook_dir: pathlib.Path = DEFAULT_TASKBOOK_DIR) -> list[dict[str, Any]]:
@@ -132,6 +191,79 @@ def load_taskbooks(taskbook_dir: pathlib.Path = DEFAULT_TASKBOOK_DIR) -> list[di
             continue
         tasks.append(parse_taskbook(path))
     return tasks
+
+
+def parse_proposal_bundle(
+    path: pathlib.Path,
+    *,
+    policy: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
+    """Parse one compact researcher proposal bundle into non-dispatchable rows."""
+    policy = policy or load_role_policy()
+    proposal_policy = policy["proposal_capture"]
+    data = load_json(path)
+    if not isinstance(data, dict) or data.get("schema") != PROPOSAL_SCHEMA:
+        raise SchedulerError(f"{path}: unexpected proposal bundle schema")
+    if data.get("created_by_role") != "RESEARCHER":
+        raise SchedulerError(f"{path}: proposal bundle must use created_by_role='RESEARCHER'")
+    parent = data.get("parent_task_id")
+    if not isinstance(parent, str) or not parent.strip():
+        raise SchedulerError(f"{path}: proposal bundle requires parent_task_id")
+    at = data.get("at")
+    if not isinstance(at, str) or not at.strip():
+        raise SchedulerError(f"{path}: proposal bundle requires at")
+    try:
+        parse_time(at)
+    except (TypeError, ValueError) as exc:
+        raise SchedulerError(f"{path}: invalid proposal timestamp") from exc
+    candidates = data.get("candidates")
+    if not isinstance(candidates, list) or not candidates:
+        raise SchedulerError(f"{path}: proposal bundle requires non-empty candidates")
+
+    required = proposal_policy.get("candidate_required_fields", [])
+    leverage_values = set(proposal_policy.get("expected_leverage", []))
+    rows: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for index, candidate in enumerate(candidates):
+        if not isinstance(candidate, dict):
+            raise SchedulerError(f"{path}: candidate[{index}] must be an object")
+        missing = [field for field in required if not candidate.get(field)]
+        if missing:
+            raise SchedulerError(f"{path}: candidate[{index}] missing {', '.join(missing)}")
+        proposal_id = candidate["proposal_id"]
+        if proposal_id in seen:
+            raise SchedulerError(f"{path}: duplicate proposal_id {proposal_id!r}")
+        seen.add(proposal_id)
+        if candidate.get("expected_leverage") not in leverage_values:
+            raise SchedulerError(
+                f"{path}: candidate[{index}] invalid expected_leverage "
+                f"{candidate.get('expected_leverage')!r}"
+            )
+        if not isinstance(candidate.get("evidence_refs"), list):
+            raise SchedulerError(f"{path}: candidate[{index}] evidence_refs must be a list")
+        row = copy.deepcopy(candidate)
+        row.update({
+            "parent_task_id": parent,
+            "at": at,
+            "created_by_role": "RESEARCHER",
+            "review_state": proposal_policy.get("default_review_state", "PENDING_DRIVER_REVIEW"),
+            "dispatchable": False,
+            "_proposal_bundle_path": path.as_posix(),
+        })
+        rows.append(row)
+    return rows
+
+
+def load_proposal_queue(
+    proposal_dir: pathlib.Path = DEFAULT_PROPOSAL_DIR,
+) -> list[dict[str, Any]]:
+    if not proposal_dir.exists():
+        return []
+    policy = load_role_policy()
+    rows: list[dict[str, Any]] = []
+    for path in sorted(proposal_dir.glob("*.json")):
+        rows.extend(parse_proposal_bundle(path, policy=policy))
+    return rows
 
 
 def merge_taskbooks(config: dict[str, Any], taskbooks: list[dict[str, Any]]) -> dict[str, Any]:
@@ -150,14 +282,10 @@ def load_scheduler_config(
 
 
 def validate_scheduler(config: dict[str, Any], owners: dict[str, Any]) -> list[str]:
-    """Run legacy validation while enforcing isolated research context.
-
-    ``taskbook/unassigned`` is a routing placeholder only. It does not grant
-    theorem ownership. A researcher claiming the task remains an execution actor;
-    any reusable theorem is routed to the real owner before promotion.
-    """
+    """Run legacy validation while enforcing isolated context and task authority."""
     try:
         config = normalize_research_context(config)
+        load_role_policy()
     except SchedulerError as exc:
         return [str(exc)]
 
@@ -176,7 +304,7 @@ def validate_scheduler(config: dict[str, Any], owners: dict[str, Any]) -> list[s
     return legacy.validate_scheduler(config, owners_for_validation)
 
 
-def _attach_context_fields(
+def _attach_control_fields(
     value: dict[str, Any] | None,
     task_by_id: dict[str, dict[str, Any]],
 ) -> dict[str, Any] | None:
@@ -184,9 +312,17 @@ def _attach_context_fields(
         return None
     result = copy.deepcopy(value)
     task = task_by_id.get(result.get("task_id"), {})
-    for field in ("context_mode", "memory_policy", "cross_task_import_policy"):
+    for field in (
+        "context_mode",
+        "memory_policy",
+        "cross_task_import_policy",
+        "created_by_role",
+        "task_authority",
+    ):
         if field in task:
             result[field] = task[field]
+    result["session_role"] = "RESEARCHER"
+    result["driver_activation"] = "EXPLICIT_CURRENT_CONVERSATION_ONLY"
     return result
 
 
@@ -198,10 +334,7 @@ def effective_states(
     config = normalize_research_context(config)
     states = legacy.effective_states(config, events, now)
     task_by_id = {task["task_id"]: task for task in config.get("tasks", [])}
-    return [
-        _attach_context_fields(state, task_by_id) or state
-        for state in states
-    ]
+    return [_attach_control_fields(state, task_by_id) or state for state in states]
 
 
 def select_task(
@@ -214,22 +347,43 @@ def select_task(
     config = normalize_research_context(config)
     chosen = legacy.select_task(config, events, now, kind=kind)
     task_by_id = {task["task_id"]: task for task in config.get("tasks", [])}
-    return _attach_context_fields(chosen, task_by_id)
+    return _attach_control_fields(chosen, task_by_id)
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = legacy.build_parser()
-    parser.add_argument(
-        "--taskbooks",
-        type=pathlib.Path,
-        default=DEFAULT_TASKBOOK_DIR,
-        help="append-only Markdown taskbook directory",
-    )
+    parser = argparse.ArgumentParser(description="Enterprise Math research scheduler")
+    parser.add_argument("--config", type=pathlib.Path, default=legacy.DEFAULT_CONFIG)
+    parser.add_argument("--owners", type=pathlib.Path, default=legacy.DEFAULT_OWNERS)
+    parser.add_argument("--taskbooks", type=pathlib.Path, default=DEFAULT_TASKBOOK_DIR)
+    parser.add_argument("--proposals", type=pathlib.Path, default=DEFAULT_PROPOSAL_DIR)
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    sub.add_parser("validate")
+
+    status = sub.add_parser("status")
+    status.add_argument("--events", type=pathlib.Path)
+    status.add_argument("--now")
+
+    select = sub.add_parser("select")
+    select.add_argument("--events", type=pathlib.Path)
+    select.add_argument("--now")
+    select.add_argument("--kind", choices=["RESEARCH", "GOVERNANCE", "ANY"], default="RESEARCH")
+
+    proposals = sub.add_parser("proposal-queue")
+    proposals.add_argument("--parent-task-id")
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+
+    if args.command == "proposal-queue":
+        rows = load_proposal_queue(args.proposals)
+        if args.parent_task_id:
+            rows = [row for row in rows if row.get("parent_task_id") == args.parent_task_id]
+        print_json(rows)
+        return 0
+
     config = load_scheduler_config(args.config, args.taskbooks)
     owners = load_json(args.owners)
     errors = validate_scheduler(config, owners)
@@ -240,9 +394,11 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"ERROR: {error}")
             return 1
         taskbook_count = sum(bool(task.get("_taskbook_path")) for task in config.get("tasks", []))
+        proposal_count = len(load_proposal_queue(args.proposals))
         print(
             f"PASS: scheduler config valid; {len(config.get('tasks', []))} tasks "
-            f"({taskbook_count} append-only taskbooks) are discoverable and TASK_ISOLATED."
+            f"({taskbook_count} append-only taskbooks) are discoverable, TASK_ISOLATED, "
+            f"and role-governed; {proposal_count} proposal candidates are non-dispatchable."
         )
         return 0
 
