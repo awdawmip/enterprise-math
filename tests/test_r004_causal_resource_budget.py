@@ -1,4 +1,5 @@
 import unittest
+from collections import Counter
 
 from enterprise_math.r004_causal_resource_budget import (
     catalan_number,
@@ -12,6 +13,8 @@ from enterprise_math.r004_causal_resource_budget import (
     uniform_history_budget_holds,
     uniform_r_adic_minimal_schedule_count,
     uniform_r_adic_minimal_schedule_holds,
+    uniform_r_adic_storage_advance_area,
+    uniform_r_adic_storage_advance_area_bounds,
 )
 
 
@@ -110,6 +113,32 @@ class R004CausalResourceBudgetTests(unittest.TestCase):
             )
             self.assertEqual(len(schedules), catalan_number(horizon + 1))
 
+    def test_storage_advance_area_has_online_and_static_extremes(self):
+        for horizon in range(0, 7):
+            online = (0,) + (1,) * horizon
+            static = (horizon,) + (0,) * horizon
+            minimum, maximum = uniform_r_adic_storage_advance_area_bounds(horizon)
+            self.assertEqual(minimum, 0)
+            self.assertEqual(maximum, horizon * (horizon + 1) // 2)
+            self.assertEqual(uniform_r_adic_storage_advance_area(online), minimum)
+            self.assertEqual(uniform_r_adic_storage_advance_area(static), maximum)
+
+    def test_storage_advance_area_refines_catalan_frontier(self):
+        expected_distributions = {
+            1: {0: 1, 1: 1},
+            2: {0: 1, 1: 2, 2: 1, 3: 1},
+            3: {0: 1, 1: 3, 2: 3, 3: 3, 4: 2, 5: 1, 6: 1},
+            4: {0: 1, 1: 4, 2: 6, 3: 7, 4: 7, 5: 5, 6: 5, 7: 3, 8: 2, 9: 1, 10: 1},
+        }
+        for horizon, expected in expected_distributions.items():
+            distribution = Counter(
+                uniform_r_adic_storage_advance_area(row)
+                for row in weak_compositions(horizon, horizon + 1)
+                if uniform_r_adic_minimal_schedule_holds(row)
+            )
+            self.assertEqual(dict(distribution), expected)
+            self.assertEqual(sum(distribution.values()), catalan_number(horizon + 1))
+
     def test_every_minimum_r_adic_schedule_meets_uniform_prefix_capacity(self):
         r = 2
         for horizon in range(0, 6):
@@ -148,6 +177,10 @@ class R004CausalResourceBudgetTests(unittest.TestCase):
             uniform_r_adic_minimal_schedule_holds(())
         with self.assertRaises(ValueError):
             uniform_r_adic_minimal_schedule_holds((0, -1))
+        with self.assertRaises(ValueError):
+            uniform_r_adic_storage_advance_area((0, 0, 2))
+        with self.assertRaises(ValueError):
+            uniform_r_adic_storage_advance_area_bounds(-1)
         with self.assertRaises(ValueError):
             catalan_number(-1)
 
