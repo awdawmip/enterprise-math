@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "task": "RS-R005-INTERNAL-PRIME-TOOLKIT-HARVEST",
   "audited_main": "4b0782e76fe2ac6ac263d324373ab1d3974007de",
   "inventory_scope": "Current main plus owner PR/commit provenance. Presence here is not theorem promotion.",
@@ -234,6 +234,26 @@
       "source_status": ["CANONICAL_MAIN"]
     },
     {
+      "method_id": "p017_p018.divisor_token_capacity",
+      "source_owner": "P017 CG12 + P017/P018 hard-core bridge",
+      "source_ref": ["Draft PR #191 / current head 415c1578aa6fd511c72880b007e3aaf99d5b4c06", "CG12 validated checkpoint 2b6fa4e noted green in #191 body", "Draft PR #170 / current head d524f33a25e1b13cd488abf7fa59df0ee9df43eb"],
+      "mathematical_status": "Owner-local WIP: CG12 gives arbitrary odd composite-divisor signed reuse capacity; #170 compiles exact Bonferroni defect into squarefree divisor tokens and full prime-power block token descent.",
+      "prior_art_status": "Divisor lattices, CRT, Möbius inversion, valuations and parity packing are classical; the owner PRs make no historical-priority claim.",
+      "inputs": {"k": "basin scale", "signed_incidence_or_support": "owner-local P017/P018 data", "odd_order_m": "for #170 defect-token compilation"},
+      "outputs": {"capacity_or_tokens": "exact finite owner-local data"},
+      "exactness": "exact on stated WIP owner surfaces",
+      "preconditions": ["CG12: positive odd transverse D with gcd(D,M)=1 and signed incidence D|M-x", "#170 token descent uses its residual-hard-core and Bonferroni hypotheses"],
+      "failure_modes": ["both owners are open Drafts", "#170 explicitly says do not merge wholesale", "not a current-main public API"],
+      "integer_only": true,
+      "complexity_characteristics": "finite support-subset/token enumeration plus exact residue-capacity arithmetic; owner-local and scale dependent",
+      "lean_status": "PROVED_WIP_OWNER_LOCAL; no current-main Lean promotion established here",
+      "current_regression_evidence": ["#191 body records all three gates green at CG12 checkpoint 2b6fa4e; current Draft heads have moved and are not promoted by this harvest"],
+      "reusable_for": ["future divisor-token adapter after owner promotion", "R005-A awareness of multi-prime witness compression"],
+      "not_safe_for": ["current Prime Toolkit runtime", "canonical status claims", "treating token descent as a Legendre proof"],
+      "toolization_status": "VALIDATED_WIP_ADAPTER_ONLY",
+      "source_status": ["PROVED_WIP"]
+    },
+    {
       "method_id": "p018.prime_gap_slack",
       "source_owner": "P018 historical Stage-7/fixed-gap line",
       "source_ref": ["src/enterprise_math/prime_gap_slack.py", "historical provenance #54 says this code/regression was already canonical before #270"],
@@ -293,6 +313,26 @@
       "not_safe_for": ["standalone public facade before provenance audit"],
       "toolization_status": "NEEDS_AUDIT",
       "source_status": ["CANONICAL_MAIN", "EXECUTABLE_CHECKED"]
+    },
+    {
+      "method_id": "p018.centered_prime_compiler",
+      "source_owner": "No standalone owner recovered",
+      "source_ref": ["current-main and PR exact-name searches returned no standalone centered-prime compiler API", "canonical centered-prime coordinate converter is separately inventoried as p018.centered_prime_radius"],
+      "mathematical_status": "Requested compiler label was not recovered as a distinct auditable method; do not infer it from the centered-prime coordinate theorem.",
+      "prior_art_status": "not assessed because no distinct owner surface was identified",
+      "inputs": {"unknown": "no standalone API recovered"},
+      "outputs": {"unknown": "no standalone API recovered"},
+      "exactness": "unknown as a standalone compiler",
+      "preconditions": ["owner/API recovery required before use"],
+      "failure_modes": ["name-level conflation with p018.centered_prime_radius would falsely promote a nonexistent compiler surface"],
+      "integer_only": true,
+      "complexity_characteristics": "unknown",
+      "lean_status": "UNKNOWN",
+      "current_regression_evidence": ["none for a standalone compiler"],
+      "reusable_for": ["provenance recovery only"],
+      "not_safe_for": ["toolkit execution", "claiming coordinate conversion is a compiler"],
+      "toolization_status": "NEEDS_AUDIT",
+      "source_status": ["CONJECTURAL"]
     },
     {
       "method_id": "p018_p023.power_free_action_basis",
@@ -359,19 +399,19 @@
       "method_id": "p018_p023.prime_support_compilers",
       "source_owner": "P018/P023 quotient-word prime-support compilation",
       "source_ref": ["Draft PR #333 / head 22c22542df4fe29e9fed2cbe763457644aa0b5b6", "RootQuotientPrimeBasis.lean and sibling Draft compiler files"],
-      "mathematical_status": "WIP prime-support compiler family; divisor-token/centered-prime compilation is not promoted unless the Draft owner explicitly exposes it.",
+      "mathematical_status": "WIP prime-support quotient-word compiler family. This record does not include P017/P018 divisor-token capacity, which has separate owners #170/#191.",
       "prior_art_status": "Prime support/factorization ingredients are classical; project compiler packaging is noncanonical.",
-      "inputs": {"quotient_actions_or_tokens": "Draft owner-specific"},
+      "inputs": {"quotient_actions": "Draft owner-specific"},
       "outputs": {"prime_support_program": "Draft owner-specific"},
       "exactness": "exact only where Draft #333 proves/checks it",
       "preconditions": ["composition semantics from Draft #333"],
-      "failure_modes": ["not a canonical replacement for #249", "specific divisor-token/centered-prime APIs require owner audit before naming as standalone tools"],
+      "failure_modes": ["not a canonical replacement for #249", "not available on current main"],
       "integer_only": true,
       "complexity_characteristics": "Draft dependent",
       "lean_status": "WIP_LEAN_FILES_ON_PR_333_ONLY",
       "current_regression_evidence": ["Draft #333 tests only"],
       "reusable_for": ["future primitive instruction set", "R005-A planning"],
-      "not_safe_for": ["main runtime import", "inventing unsupported standalone compiler APIs"],
+      "not_safe_for": ["main runtime import", "conflation with divisor-token owner #170/#191"],
       "toolization_status": "VALIDATED_WIP_ADAPTER_ONLY",
       "source_status": ["PROVED_WIP", "EXECUTABLE_CHECKED"]
     },
@@ -483,6 +523,8 @@
   "harvest_notes": [
     "The requested R005-C taskbook path was absent from audited main; the user-supplied formal task text was used as execution authority.",
     "No TOOLIZATION_EXPOSED_SEMANTIC_BUG was confirmed in selected callable owner surfaces; restrictions are kept as preconditions/warnings.",
+    "Divisor-token provenance belongs to WIP #191/#170, not Draft #333 prime-support compilation.",
+    "No standalone centered-prime compiler API was recovered; the canonical centered-prime coordinate converter is separately inventoried and must not be relabeled as a compiler.",
     "Draft #333 and Draft #364 remain discoverable but intentionally non-executable through the facade."
   ]
 }
