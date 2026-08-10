@@ -184,7 +184,7 @@ def square_basin_certificate(k: int) -> PrimeToolResult:
     if len({direct, mobius, carry, binary}) != 1:
         raise AssertionError("owner square-basin exact identities disagreed")
     return _result(
-        "p017.binary_carry_prime_count",
+        "p017.mobius_carry_binary",
         {
             "k": k,
             "prime_count": direct,
