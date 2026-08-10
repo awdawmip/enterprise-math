@@ -67,9 +67,6 @@ theorem exists_fareyParentData {m N : ℕ}
   have hdN : d < N := by
     dsimp [d]
     omega
-  have hc : 0 < c := by
-    dsimp [c]
-    omega
   have hleft : a * N + 1 = m * b := by
     rw [hdecomp]
     omega
@@ -80,7 +77,7 @@ theorem exists_fareyParentData {m N : ℕ}
     dsimp [c]
     exact Nat.sub_mul m a N
   have hright : m * d + 1 = c * N := by
-    rw [hmd, hcN, hleft]
+    rw [hmd, hcN]
     have hmb_le_mN : m * b ≤ m * N := Nat.le_of_lt hmb_lt_mN
     have haN_le_mN : a * N ≤ m * N := Nat.le_of_lt haN_lt_mN
     omega
