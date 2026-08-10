@@ -101,6 +101,37 @@ class RelationBooleanFutureSemimoduleTests(unittest.TestCase):
                             (left, right, horizon),
                         )
 
+    def test_state_partition_can_finish_before_boolean_support_module_closes(self):
+        states = (0, 1, 2)
+        relations = {
+            "R": frozenset({(2, 0), (1, 1)}),
+        }
+        observation = lambda state: 0 if state in (0, 1) else 1
+        report = relation_boolean_future_semimodule_report(
+            states,
+            relations,
+            observation,
+        )
+        self.assertEqual(report.exact_stabilization_horizon, 2)
+
+        horizon_one = report.steps[1]
+        horizon_two = report.steps[2]
+        discrete = frozenset({
+            frozenset({0}),
+            frozenset({1}),
+            frozenset({2}),
+        })
+        self.assertEqual(horizon_one.state_partition, discrete)
+        self.assertEqual(horizon_two.state_partition, discrete)
+        self.assertNotEqual(horizon_one.semimodule, horizon_two.semimodule)
+        self.assertEqual(len(horizon_one.semimodule), 5)
+        self.assertEqual(len(horizon_two.semimodule), 6)
+        # The new horizon-two predicate is {state 1}; it adds Boolean support
+        # reconstruction power without adding another raw-state distinction.
+        self.assertNotIn((0, 1, 0), horizon_one.semimodule)
+        self.assertIn((0, 1, 0), horizon_two.semimodule)
+        self.assertEqual(report.steps[2].semimodule, report.steps[3].semimodule)
+
     def test_one_equal_semimodule_step_is_a_permanent_stop_certificate(self):
         states = (0, 1, 2)
         relations = {
