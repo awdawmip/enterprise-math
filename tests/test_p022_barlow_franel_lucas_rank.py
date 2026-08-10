@@ -3,12 +3,14 @@ from math import comb
 import pytest
 
 from enterprise_math.p022_barlow_franel_lucas_rank import (
+    franel_digit_residues,
     franel_lucas_residue,
     franel_midpoint_zero_criterion,
     franel_rank_of_apparition,
     franel_rank_reflection_bound,
     franel_reflection_residue_holds,
     franel_residue,
+    franel_zero_alphabet_parity,
     franel_zero_digit_count,
     franel_zero_digit_reflection_holds,
     franel_zero_digits,
@@ -19,6 +21,7 @@ from enterprise_math.p022_barlow_franel_lucas_rank import (
     lucas_factorization_holds,
     primitive_divisor_requires_large_prime,
     primitive_marker_recurrence_index,
+    primitive_reflection_companion_index,
 )
 
 
@@ -56,6 +59,12 @@ def test_f_zero_is_lucas_unit_and_zero_digits_do_not_crash() -> None:
         assert franel_lucas_residue(0, prime) == 1 % prime
         assert lucas_factorization_holds(0, prime)
         assert franel_lucas_residue(prime, prime) == _direct_franel(prime) % prime
+
+
+def test_modular_recurrence_digit_table_matches_independent_oracle() -> None:
+    for prime in (2, 3, 5, 7, 11, 29):
+        expected = tuple(_direct_franel(index) % prime for index in range(prime))
+        assert franel_digit_residues(prime) == expected
 
 
 def test_franel_p_lucas_factorization_against_independent_binomial_oracle() -> None:
@@ -110,6 +119,17 @@ def test_reflection_sharpens_rank_to_half_prime_interval() -> None:
     assert franel_rank_reflection_bound(11) is None
 
 
+def test_zero_alphabet_parity_is_fixed_by_midpoint_class() -> None:
+    expected = {
+        29: (3, True),
+        41: (4, False),
+        59: (2, False),
+        61: (5, True),
+    }
+    for prime, row in expected.items():
+        assert franel_zero_alphabet_parity(prime) == row
+
+
 def test_midpoint_zero_criterion_is_prior_art_not_primitive_criterion() -> None:
     for prime in (5, 7, 13, 23, 29, 61):
         assert franel_midpoint_zero_criterion(prime)
@@ -151,6 +171,26 @@ def test_primitive_divisor_bound_is_p_at_least_two_n_plus_one_for_odd_p() -> Non
         if prime != 2:
             assert prime >= 2 * segment + 1
         assert primitive_marker_recurrence_index(segment, prime) == segment + prime
+
+
+def test_reflection_reappearance_precedes_lucas_reappearance_off_midpoint() -> None:
+    expected = {
+        (12, 176459): (176446, (12, 176446)),
+        (66, 73589): (73522, (66, 36794, 73522)),
+        (67, 95257): (95189, (67, 40129, 55127, 95189)),
+    }
+    for (segment, prime), (companion, zeros) in expected.items():
+        assert franel_rank_of_apparition(prime) == segment
+        assert franel_zero_digits(prime) == zeros
+        assert primitive_reflection_companion_index(segment, prime) == companion
+        assert companion < segment + prime
+
+    assert primitive_reflection_companion_index(2, 5) is None
+
+
+def test_segment_67_really_has_a_primitive_franel_prime() -> None:
+    assert franel_rank_of_apparition(95257) == 67
+    assert primitive_divisor_requires_large_prime(67, 95257)
 
 
 def test_reflection_helpers_reject_even_prime_and_out_of_range_digit() -> None:
