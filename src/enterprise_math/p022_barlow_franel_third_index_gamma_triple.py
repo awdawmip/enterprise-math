@@ -13,6 +13,10 @@ For primes p=5 mod 6, Dwork's dash operation has period two on the datum:
 
     (5/6,1/3,1/3) <-> (1/6,2/3,2/3).
 
+The same two blocks are the j=1 and j=5 gamma twists.  Frobenius acts on the
+six character labels by j -> p*j = -j (mod 6), so {1,5} is an exact
+Frobenius orbit of total rank six.
+
 Thus q=p^2 is the first residue-field size for which 6 divides q-1, matching
 the inert-prime geometry over Q(zeta_6).  No claim is made here that the
 classical truncated obstruction is already identified with a specific
@@ -141,6 +145,35 @@ def gamma_power() -> Fraction:
     return result
 
 
+def gamma_twist_parameters(
+    character: int,
+) -> tuple[tuple[Fraction, ...], tuple[Fraction, ...]]:
+    """Return the reduced parameters for the character j modulo six.
+
+    Abdelraouf's point-count decomposition twists the delta row by character
+    labels.  Replacing delta by j*delta gives the exact cyclotomic parameter
+    pair attached to the j-th mu_6 character.
+    """
+    if isinstance(character, bool) or not isinstance(character, int):
+        raise ValueError("character must be an integer")
+    multiplier = character % THIRD_INDEX_CYCLOTOMIC_ORDER
+    twisted_delta = tuple(multiplier * value for value in THIRD_INDEX_DELTA)
+    return represented_parameters(
+        THIRD_INDEX_GAMMA,
+        twisted_delta,
+        THIRD_INDEX_CYCLOTOMIC_ORDER,
+    )
+
+
+def all_gamma_twists(
+) -> tuple[tuple[tuple[Fraction, ...], tuple[Fraction, ...]], ...]:
+    """Return the six exact character twists j=0,...,5."""
+    return tuple(
+        gamma_twist_parameters(character)
+        for character in range(THIRD_INDEX_CYCLOTOMIC_ORDER)
+    )
+
+
 def dwork_dash(value: Fraction, prime: int) -> Fraction:
     """Dwork dash x*=(x+<-x>_p)/p for rational p-adic units."""
     if not _is_prime(prime):
@@ -166,9 +199,48 @@ def third_index_dash_cycle(prime: int) -> tuple[tuple[Fraction, ...], ...]:
     return tuple(sorted(THIRD_INDEX_ALPHA)), first, second
 
 
+def frobenius_character_orbits(prime: int) -> tuple[tuple[int, ...], ...]:
+    """Return mu_6 character orbits under j -> p*j modulo six."""
+    if not _is_prime(prime) or prime in (2, 3):
+        raise ValueError("prime must be coprime to six")
+    remaining = set(range(THIRD_INDEX_CYCLOTOMIC_ORDER))
+    orbits: list[tuple[int, ...]] = []
+    while remaining:
+        start = min(remaining)
+        orbit: list[int] = []
+        current = start
+        while current not in orbit:
+            orbit.append(current)
+            remaining.discard(current)
+            current = prime * current % THIRD_INDEX_CYCLOTOMIC_ORDER
+        orbits.append(tuple(sorted(orbit)))
+    return tuple(sorted(orbits))
+
+
+def target_character_orbit_closure(prime: int) -> bool:
+    """Certify that the {1,5} Frobenius orbit is the rank-six closure."""
+    if not _is_prime(prime) or prime % 6 != 5:
+        raise ValueError("prime must be 5 modulo 6")
+    orbits = frobenius_character_orbits(prime)
+    if (1, 5) not in orbits:
+        raise AssertionError("target character orbit must be {1,5}")
+    alpha_one, beta_one = gamma_twist_parameters(1)
+    alpha_five, beta_five = gamma_twist_parameters(5)
+    if alpha_one != tuple(sorted(THIRD_INDEX_ALPHA)):
+        raise AssertionError("j=1 twist must be the target datum")
+    if alpha_five != tuple(sorted(THIRD_INDEX_CONJUGATE_ALPHA)):
+        raise AssertionError("j=5 twist must be the conjugate datum")
+    if beta_one != THIRD_INDEX_BETA or beta_five != THIRD_INDEX_BETA:
+        raise AssertionError("target orbit denominator parameters changed")
+    if tuple(sorted(alpha_one + alpha_five)) != THIRD_INDEX_CLOSURE_ALPHA:
+        raise AssertionError("target orbit must recover the rank-six closure")
+    return True
+
+
 def inert_residue_field_size(prime: int) -> int:
     """Return p^2, the first size with 6|(q-1) for p=5 mod 6."""
     third_index_dash_cycle(prime)
+    target_character_orbit_closure(prime)
     if (prime - 1) % 6 == 0:
         raise AssertionError("p=5 mod 6 cannot already contain sixth roots")
     residue_size = prime * prime
