@@ -1,8 +1,8 @@
 # Enterprise Math Research Branch Snapshot
 
 Status: `CANONICAL ADVISORY SNAPSHOT / NOT LIVE DISPATCH AUTHORITY`  
-Snapshot base: `main@fc81a15a0fc7a76d1d2b44e7d9a41b699863ef22`  
-Date: 2026-08-09
+Snapshot base: `main@0ef6f40bf925c4fa759e7865b269e2f27fc23ecb`  
+Date: 2026-08-10
 
 This document is an audited **ownership/provenance snapshot**. It is deliberately not the live scheduler and must not be refreshed for every branch-head or `main` movement.
 
@@ -18,7 +18,7 @@ Live execution authority is, in order:
 
 ## 1. Current long-lived research surface
 
-At this snapshot the machine owner registry has 13 long-lived `ACTIVE_OWNER` / `ACTIVE_BRIDGE` routes.
+At this snapshot the machine owner registry has 12 long-lived `ACTIVE_OWNER` / `ACTIVE_BRIDGE` routes.
 
 | Home | Writable route | Class | Scheduler task |
 |---|---|---|---|
@@ -34,7 +34,6 @@ At this snapshot the machine owner registry has 13 long-lived `ACTIVE_OWNER` / `
 | P025 | `program/p025-abc-support-collapse` | L2 owner | `RS-P025-WITNESS-PRECISION` |
 | E001 impulse | `engineering/e001-material-impulse-v2` | L2 owner | `RS-E001-IMPULSE-V2` |
 | E001 contact network | `engineering/e001-material-contact-network` | L2 owner | `RS-E001-CONTACT-NETWORK` |
-| E001 measurement | `engineering/e001-measurement-area-refinement` | L2 owner | `RS-E001-MEASUREMENT-REFINEMENT` |
 
 The owner-registry and scheduler coverage sets are equal at this snapshot. A scheduler task may be `BACKLOG`, `READY`, `HANDOFF_READY`, leased, blocked or complete at runtime; **do not copy runtime state into this file**. Read Issue #240 instead.
 
@@ -48,9 +47,10 @@ The following reusable layers/slices are already on `main`; their historical val
 - thin A3→A4 generated-support/cancellation executable bridge;
 - P021 finite causal-boundary executable core;
 - P022 `A_p` root-lattice executable core;
-- P022 geodesic-multiplicity and HCP executable core (L4 #262, `main@fc81a15a...`);
-- P018 centered-prime-radius executable remainder from historical #54 (L4 #270);
-- canonical E001 wall/pair impulse and other explicitly promoted application slices.
+- P022 geodesic-multiplicity/HCP, periodic Barlow stacking, task-relative Barlow precision and periodic-growth executable slices (through L4 #296);
+- P018 centered-prime-radius executable remainder plus the preserved detailed proof note from historical #54 (through L4 #297);
+- canonical E001 wall/pair impulse and other explicitly promoted application slices;
+- E001 measured-polyline area refinement and refinement-variation slices from frozen source #227, promoted through #264.
 
 Canonical executable presence does not by itself upgrade every encoded statement to `PROVED`; theorem/proof status remains controlled by canonical theorem documents, Lean coverage and Relay/provenance.
 
@@ -62,6 +62,7 @@ Examples of branches/PR generations that have left the writable research surface
 - A2/A3/A4 v2 owner generations after their selected cores were promoted;
 - P021 v2 after causal-boundary promotion;
 - E001 one-body impulse-world, pair-impulse and multi-action generations after their L4 promotions;
+- `engineering/e001-measurement-area-refinement` / source PR #227: Git ancestry remains ahead, but all four owner-scoped source/test blobs are exact matches on canonical `main` through #264, so the frozen generation is provenance rather than a writable owner;
 - E002 v2 generations whose payloads are mechanically or semantically absorbed;
 - obsolete whole-main synchronization PRs;
 - validation/publication shadows such as P005 #22 and P022 geodesic validation #220 once exact payloads were canonical.
@@ -90,6 +91,8 @@ Two common proofs:
 
 Path/name equality is not enough. Historical P017/P018 work reused supplement numbers and filenames for different mathematics; content/theorem audit controls.
 
+The retired E001 measurement owner is a canonical example of the second proof: its four changed paths have the same Git blob IDs on the frozen owner head and current main even though the branch remains ahead in ancestry.
+
 ## 6. Owner isolation and promotion
 
 L1/L2/L3 owners may legitimately lag moving `main`. They must not whole-tree merge/rebase/copy `main` merely for currency.
@@ -105,6 +108,8 @@ Unrelated `main` movement during validation does not create a new replay generat
 ## 7. Scheduler and Foundation boundaries
 
 Scheduler state coordinates work; it does not prove theorems or promote canonical truth.
+
+When an owner generation becomes provenance and has no declared next frontier, its frozen scheduler task should retire with it rather than preserving a fake writable route. A distinct future question must start a new owner generation and a new explicit task rather than silently reactivating the absorbed source branch.
 
 Foundation questions are owned by Foundation Problem Set Issue #164. Research answers require independent steward verification before any Foundation integration. Active tool/interface alerts remain active until explicitly resolved; a scheduler task ID alone is not evidence that the corresponding mathematical/interface question has been answered.
 
