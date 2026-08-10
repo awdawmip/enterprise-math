@@ -21,6 +21,7 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 from collections.abc import Hashable, Mapping, Sequence
 from fractions import Fraction
+from math import gcd
 
 Symbol = Hashable
 Block = tuple[Symbol, ...]
@@ -65,6 +66,19 @@ def stationary_block_counts_balanced(block_counts: Mapping[Block, int]) -> bool:
         incoming[block[1:]] += count
     vertices = set(outgoing) | set(incoming)
     return all(outgoing[vertex] == incoming[vertex] for vertex in vertices)
+
+
+def reduced_stationary_window_counts(block_counts: Mapping[Block, int]) -> dict[Block, int]:
+    """Divide a positive stationary count table by its common integer gcd."""
+    positive, _, _ = _validated_positive_counts(block_counts)
+    if not stationary_block_counts_balanced(positive):
+        raise ValueError("block counts must satisfy stationary prefix/suffix balance")
+    common = 0
+    for count in positive.values():
+        common = gcd(common, count)
+    if common <= 0:
+        raise AssertionError("positive counts must have positive gcd")
+    return {block: count // common for block, count in positive.items()}
 
 
 def decompose_stationary_block_counts(block_counts: Mapping[Block, int]) -> tuple[Cycle, ...]:
@@ -165,13 +179,31 @@ def stationary_rational_window_presampling_certificate(
     block_counts: Mapping[Block, int],
 ) -> tuple[tuple[Cycle, ...], dict[Block, Fraction]]:
     """Return a finite periodic certificate reproducing a rational local law."""
-    positive, _, total = _validated_positive_counts(block_counts)
-    cycles = decompose_stationary_block_counts(positive)
+    reduced = reduced_stationary_window_counts(block_counts)
+    total = sum(reduced.values())
+    cycles = decompose_stationary_block_counts(reduced)
     law = periodic_cycle_mixture_block_law(cycles)
-    expected = {block: Fraction(count, total) for block, count in positive.items()}
+    expected = {block: Fraction(count, total) for block, count in reduced.items()}
     if law != expected:
         raise AssertionError("periodic cycle mixture must reproduce the declared block law")
     return cycles, law
+
+
+def stationary_window_atom_rank_bounds(block_counts: Mapping[Block, int]) -> tuple[int, int]:
+    """Return a support lower bound and constructive finite-atom upper bound.
+
+    At one declared time each deterministic latent atom exposes only one k-block,
+    so the number of positive target blocks is a universal lower bound.  After
+    reducing the rational counts by their gcd, the cycle/random-phase
+    construction uses at most the reduced total count many deterministic phase
+    atoms, giving the upper bound.
+    """
+    reduced = reduced_stationary_window_counts(block_counts)
+    support_lower_bound = len(reduced)
+    certificate_upper_bound = sum(reduced.values())
+    if support_lower_bound > certificate_upper_bound:
+        raise AssertionError("positive integer counts must dominate their support size")
+    return support_lower_bound, certificate_upper_bound
 
 
 def uniform_full_support_window_rank(alphabet_size: int, width: int) -> int:
@@ -186,3 +218,28 @@ def uniform_full_support_window_rank(alphabet_size: int, width: int) -> int:
         if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
             raise ValueError(f"{name} must be a positive integer")
     return alphabet_size**width
+
+
+def minimum_uniform_window_width_exceeding_atom_budget(
+    alphabet_size: int, atom_budget: int
+) -> int | None:
+    """Smallest local-window width whose exact uniform rank exceeds ``atom_budget``.
+
+    Returns ``None`` only for the one-symbol alphabet when a positive static
+    budget already suffices forever.  This function witnesses a capacity-test
+    threshold; exceeding a finite budget does not rule out unrestricted
+    presampling.
+    """
+    if isinstance(alphabet_size, bool) or not isinstance(alphabet_size, int) or alphabet_size <= 0:
+        raise ValueError("alphabet_size must be a positive integer")
+    if isinstance(atom_budget, bool) or not isinstance(atom_budget, int) or atom_budget < 0:
+        raise ValueError("atom_budget must be a non-negative integer")
+    if alphabet_size == 1:
+        return 1 if atom_budget == 0 else None
+
+    width = 1
+    rank = alphabet_size
+    while rank <= atom_budget:
+        rank *= alphabet_size
+        width += 1
+    return width
