@@ -105,7 +105,7 @@ def _bounded_squarefree_terms(
             if current > limit // prime:
                 continue
             value = current * prime
-            rows.append((value, -1 if parity == 0 else 1))
+            rows.append((value, -1 if parity % 2 == 0 else 1))
             extend(index + 1, value, parity + 1)
 
     extend(0, 1, 0)
