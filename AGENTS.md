@@ -30,9 +30,10 @@ Load these only when their function is material:
 - `docs/PROBLEM_STATUS.en.md`: numbered status/canonical scope/promotion;
 - latest relevant Research Relay #82 entries: when consuming relevant WIP or publishing a reusable cross-route result;
 - `docs/LEAN_DIAGNOSTIC_LIVENESS.md`: Lean theorem diagnosis/import/root-registration failures;
+- `docs/TEST_DISCOVERY_LIVENESS.md`: test discovery, test-file lookup, or repeated test-related GitHub operations;
 - `docs/FOUNDATION_STEWARD_PROTOCOL.en.md`, `docs/FOUNDATION_BACKFLOW_LOOP.en.md`, `foundation_backflow.json`, Issue #164: foundation-facing work, flagged contradictions, or mature backflow candidates.
 
-Inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family, but only within the task-relevant owner/interface surface.
+Inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family, but only within the task-relevant owner/interface surface. **Do not satisfy this rule by recursively traversing the GitHub repository tree.** Use known paths, the local checkout/index, or one targeted lexical lookup.
 
 ## GitHub publication cadence
 
@@ -80,6 +81,18 @@ Canonical promotion is serialized in the control plane as well as mathematically
 - required CI/review may defer the merge/promotion action but never research or user-facing completion;
 - a newly observed failure permits one targeted diagnostic/log pass, not renewed polling.
 
+## Test discovery and test-execution liveness
+
+- `Inspecting Repository Tree for Test Files` is **not** a normal research step; recursive GitHub tree traversal for tests is prohibited by default;
+- the canonical Python test root is `tests/`, and the canonical full-suite command is `PYTHONPATH=src python -m unittest discover -s tests -v` as declared by `.github/workflows/quality.yml`;
+- if a target source/test path is already known, use it directly; do not list the repository or `tests/` again;
+- when a local checkout exists, use local `find`/`rg`/IDE index/unittest discovery; do not mirror discovery through GitHub;
+- in connector-only execution, if the companion test filename is genuinely unknown, allow **at most one targeted repository search** using the exact module/theorem/tool identifier; no recursive tree enumeration and no series of broad `test/tests/unittest/pytest` searches;
+- do not fetch many test files merely to learn the test inventory;
+- full-suite execution belongs to a bounded validation/promotion boundary, not after every small research edit;
+- if broader tests have not run, record `LOCAL_TEST_PENDING`, `FULL_SUITE_PENDING`, or `CI_PENDING` rather than expanding into remote exploration;
+- detailed authority: `docs/TEST_DISCOVERY_LIVENESS.md`.
+
 ## Lean diagnostic liveness
 
 - diagnose missing imports/tactics/identifiers/instances on the changed owner-local module first;
@@ -115,7 +128,7 @@ Canonical promotion is serialized in the control plane as well as mathematically
 
 ## Completion rule
 
-If `hard_block = NONE`, continue the best mathematical frontier rather than waiting for a branch, conversation, review, CI checkpoint, integration replay, scheduler event, connector workflow, GitHub write, or repeated Lean rebuild.
+If `hard_block = NONE`, continue the best mathematical frontier rather than waiting for a branch, conversation, review, CI checkpoint, integration replay, scheduler event, connector workflow, GitHub write, repeated test discovery, or repeated Lean rebuild.
 
 The default lifecycle is:
 
