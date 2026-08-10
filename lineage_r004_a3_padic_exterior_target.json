@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-A3-PADIC-EXTERIOR-TARGET",
+      "name": "A3 p-adic exterior target / guard-image duality bridge",
+      "source_relations": [
+        {"source_id": "SRC-R004-A3PET-MATHLIB-EXTERIOR", "relation": "FORMAL_PRIOR"},
+        {"source_id": "SRC-R004-A3PET-STRUCTURAL-TARGET-PRIOR", "relation": "REUSES_PRIOR_BOUNDARY"}
+      ],
+      "project_addition": "Consumes the Structural Target compiler for fixed A3 exterior relation fields. Proves the exterior Smith specialization (gcd(m) repeated d-1), the p-adic relation-field exponent profile, the finite-dual equivalence between row-defect module and A3 guard-image W(ker A), and the equality between primitive exterior-field target defect and projective wedge-valuation ultrametric distance. Explicitly does not replace A3 piecewise branch-effect/reachability semantics.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "updates": [
+        "EM-COMP-R004-STRUCTURAL-TARGET-CUT",
+        "A3 weighted relation/exterior bridge",
+        "A3 guard-image lattice"
+      ],
+      "relation_to_owners": {
+        "A3": "CONSUME_EXTERIOR_PROFILE_AND_GUARD_DUALITY",
+        "P023": "INFORM_TARGET_DEFECT_METRIC_SPECIALIZATION",
+        "P024": "INFORM_PROJECTIVE_PRECISION_DEPTH",
+        "A4": "INFORM_NONLINEAR_SEMANTIC_BOUNDARY"
+      }
+    }
+  ]
+}
