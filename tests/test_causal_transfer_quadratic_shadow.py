@@ -4,16 +4,20 @@ from itertools import product
 from enterprise_math.causal_conserved_transfer_geometry import a3_to_d3_fcc
 from enterprise_math.causal_transfer_graph_geometry import complete_transfer_edges, star_transfer_edges
 from enterprise_math.causal_transfer_quadratic_shadow import (
+    anonymous_pair_weight,
+    anonymous_quadratic_shadow_identity,
     complete_dispersion_identity,
     complete_edge_dispersion,
     complete_zero_sum_bilinear_identity,
     complete_zero_sum_bilinear_shadow,
     complete_zero_sum_quadratic_shadow,
     edge_dispersion,
+    pair_weights_are_fully_anonymous,
     polarized_edge_dispersion,
     primitive_second_moment_matrix,
     quadratic_from_second_moment,
     second_moment_matches_edge_dispersion,
+    weighted_pair_dispersion,
 )
 
 
@@ -22,6 +26,21 @@ class CausalTransferQuadraticShadowTests(unittest.TestCase):
         for slots in range(2, 7):
             for state in product(range(-2, 3), repeat=slots):
                 self.assertTrue(complete_dispersion_identity(state))
+
+    def test_full_anonymity_forces_one_common_pair_weight(self):
+        for slots in range(2, 7):
+            weights = {edge: 3 for edge in complete_transfer_edges(slots)}
+            self.assertTrue(pair_weights_are_fully_anonymous(slots, weights))
+            self.assertEqual(anonymous_pair_weight(slots, weights), 3)
+            for state in product((-1, 0, 1), repeat=slots):
+                self.assertTrue(anonymous_quadratic_shadow_identity(state, 3))
+                self.assertEqual(weighted_pair_dispersion(state, weights), 3 * complete_edge_dispersion(state))
+
+        broken = {edge: 1 for edge in complete_transfer_edges(4)}
+        broken[(0, 1)] = 2
+        self.assertFalse(pair_weights_are_fully_anonymous(4, broken))
+        with self.assertRaises(ValueError):
+            anonymous_pair_weight(4, broken)
 
     def test_zero_sum_complete_graph_reduces_to_slot_count_times_square_grade(self):
         for slots in range(2, 6):
@@ -51,10 +70,7 @@ class CausalTransferQuadraticShadowTests(unittest.TestCase):
             if sum(state) != 0:
                 continue
             image = a3_to_d3_fcc(state)
-            self.assertEqual(
-                sum(value * value for value in state),
-                sum(value * value for value in image),
-            )
+            self.assertEqual(sum(value * value for value in state), sum(value * value for value in image))
 
     def test_star_mark_is_visible_in_second_order_relation_observation(self):
         edges = star_transfer_edges(4, hub=0)
