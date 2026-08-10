@@ -99,7 +99,7 @@ class R004CausalResourceBudgetTests(unittest.TestCase):
         self.assertFalse(uniform_r_adic_minimal_schedule_holds((1, 1, 1, 1)))
 
     def test_minimum_r_adic_frontier_is_catalan(self):
-        expected = (1, 2, 5, 14, 42, 132, 429, 1430)
+        expected = (1, 1, 2, 5, 14, 42, 132, 429)
         self.assertEqual(tuple(catalan_number(index) for index in range(8)), expected)
         for horizon in range(0, 7):
             schedules = [
