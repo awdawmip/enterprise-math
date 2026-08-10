@@ -8,7 +8,6 @@ from enterprise_math.p017_p018_walsh_dual_titchmarsh import (
 def test_prime_side_weight_is_squarefree_divisor_count_of_opposite_state():
     data = walsh_prime_divisor_weight(17, 307)
     assert data["opposite_state"] == 305
-    assert data["opposite_small_transverse_support"] == (5, 61) if False else data["opposite_small_transverse_support"]
     # Only primes <=k participate in the Walsh amplifier, so 5 is visible and 61 is the large tail.
     assert data["opposite_small_transverse_support"] == (5,)
     assert data["squarefree_transverse_divisors"] == (1, 5)
