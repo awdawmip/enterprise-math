@@ -20,7 +20,8 @@ Thus exactly one of two routes occurs:
 
    Parity and CRT place the token in one class modulo 2*A*p.  Since the signed
    interval has diameter 2k-2 < 2*A*p, this sign-split token is globally
-   single-use.
+   single-use.  Choosing the least partner prime makes (A,p) a canonical label,
+   so distinct high-product residual rows have distinct labels.
 
 Hence the terminal residual set is partitioned into direct prime-partner
 witnesses and single-use high-product pair tokens.  This is a reduced finite
@@ -83,9 +84,6 @@ def terminal_partner_cover_profile(k: int) -> dict[str, object]:
                 break
 
         if partner_prime is None:
-            # Any composite integer <(k+1)^2 has a prime factor <=k.  The
-            # anchor-surviving odd mirror partner has no anchor factor, so the
-            # absence of a transverse factor through k certifies primality.
             if not (k * k < partner < (k + 1) * (k + 1)):
                 raise AssertionError("mirror partner left the open square basin")
             prime_points.append(x)
@@ -132,6 +130,9 @@ def terminal_partner_cover_profile(k: int) -> dict[str, object]:
         raise AssertionError("terminal partner cover lost residual rows")
     if set(prime_points).intersection(high_points):
         raise AssertionError("terminal partner routes are not disjoint")
+    canonical_labels = tuple((radical, prime) for radical, prime, _point in high_tokens)
+    if len(set(canonical_labels)) != len(canonical_labels):
+        raise AssertionError("a globally single-use high-product partner token was reused")
 
     return {
         "k": k,
@@ -142,6 +143,7 @@ def terminal_partner_cover_profile(k: int) -> dict[str, object]:
         "prime_partner_witness_points": tuple(prime_points),
         "high_product_pair_points": tuple(high_points),
         "high_product_pair_tokens": tuple(high_tokens),
+        "high_product_pair_token_labels": canonical_labels,
         "next_transverse_primorial": next_primorial,
         "prime_witness_certified": bool(prime_points),
         "rows": tuple(rows),
