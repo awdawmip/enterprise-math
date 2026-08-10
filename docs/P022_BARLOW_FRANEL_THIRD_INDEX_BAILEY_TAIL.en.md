@@ -152,7 +152,112 @@ test oracle accidentally used the exact values of `S_M` as though they were
 the exact values of `H_d`; that test has now been repaired and the modular
 bridge is executable directly.
 
-## 5. P022-TI03 — `p=149` is a simple primitive third-index pivot
+## 5. P022-TI03 — exact symmetric terminating transform
+
+A classical terminating \({}_3F_2(1)\) transformation gives the exact identity
+
+\[
+\boxed{
+S_M=
+\frac{(2M+1)_M}{(M+1)_M}
+T_M,
+}
+\]
+
+where
+
+\[
+\boxed{
+T_M=
+{}_3F_2
+\left(
+\begin{matrix}
+-M,-M,-M\\
+-3M,3M
+\end{matrix};1
+\right).
+}
+\]
+
+This follows from the standard terminating transformation
+
+\[
+{}_3F_2(a,b,-N;d,e;1)
+=
+\frac{(d-a)_N}{(d)_N}
+{}_3F_2
+\left(
+a,e-b,-N;
+1+a-d-N,e;
+1
+\right)
+\]
+
+with
+
+\[
+N=M,\quad
+a=-M,\quad
+b=4M,\quad
+d=M+1,\quad
+e=3M.
+\]
+
+The transformation itself is classical prior art; P022 uses its specialization
+only to expose the symmetry of the remaining diagonal zero problem.
+
+For
+
+\[
+p=6M-1,
+\]
+
+every factor in
+
+\[
+\frac{(2M+1)_M}{(M+1)_M}
+\]
+
+lies strictly between `0` and `p`, so the prefactor is a p-adic unit.
+Consequently,
+
+\[
+\boxed{
+p\mid F_{2M}
+\iff
+S_M\equiv0\pmod p
+\iff
+T_M\equiv0\pmod p.
+}
+\]
+
+This is a stronger normal form than the asymmetric terminating tail:
+all three numerator parameters are now the same and the denominator parameters
+are a reflected pair.
+
+Indeed, modulo `p=6M-1`,
+
+\[
+-M\equiv-\frac16,\qquad
+-3M\equiv-\frac12,\qquad
+3M\equiv\frac12.
+\]
+
+So `T_M mod p` is the length-`M` truncation of the fixed-parameter series
+
+\[
+{}_3F_2
+\left(
+-\frac16,-\frac16,-\frac16;
+-\frac12,\frac12;
+1
+\right).
+\]
+
+The only moving datum left is the truncation horizon `M` together with the
+diagonal modulus `p=6M-1`.
+
+## 6. P022-TI04 — `p=149` is a simple primitive third-index pivot
 
 Take
 
@@ -212,7 +317,7 @@ pivot
 This is a clean non-midpoint, composite-boundary, unimodular Franel pivot
 coming from the Bailey-tail family.
 
-## 6. Why the zero alphabet makes `149` especially transparent
+## 7. Why the zero alphabet makes `149` especially transparent
 
 Since
 
@@ -253,7 +358,7 @@ r_{149}=50.
 The first equivalence is the Bailey reduction; the full zero alphabet and
 rank are independently checked by the Franel recurrence scanner.
 
-## 7. An arithmetic progression that lands on composite Barlow boundaries
+## 8. An arithmetic progression that lands on composite Barlow boundaries
 
 Suppose
 
@@ -294,7 +399,7 @@ that divisor to the direct primitive pivot one must additionally prove that
 The example `p=149` is the first nontrivial exact instance currently recorded
 by this route.
 
-## 8. Finite pressure test
+## 9. Finite pressure test
 
 A recurrence-based scan in the current research session checked primes
 
@@ -317,16 +422,19 @@ The repository's bounded regression suite locks only the much smaller
 reproducible range below `500`; the larger scan is recorded here as
 noncanonical experimental evidence.
 
-## 9. New frontier
+## 10. New frontier
 
-The one-third route has now been compressed to the diagonal problem
+The one-third route has now been compressed to the symmetric diagonal problem
 
 \[
 \boxed{
-S_M\equiv0\pmod{6M-1},
-\qquad 6M-1\text{ prime}.
+T_M\equiv0\pmod{6M-1},
+\qquad 6M-1\text{ prime},
 }
 \]
+
+with `T_M` defined by three equal numerator parameters and a reflected
+`(-3M,3M)` denominator pair.
 
 For Barlow purposes there are then two separate questions:
 
@@ -339,11 +447,11 @@ The `p=149` witness shows that the intersection is nonempty and already hits a
 composite defect with a simple unit pivot.  What remains open is to turn this
 isolated exact witness into an infinite or structurally classified family.
 
-## 10. Executable assets
+## 11. Executable assets
 
 - `src/enterprise_math/p022_barlow_franel_third_index_bailey_tail.py`
-  separates the rational pole tail `H_d`, the terminating transform `S_M`,
-  their mod-`p` bridge, and the Franel residue.
+  separates the rational pole tail `H_d`, terminating transform `S_M`,
+  symmetric transform `T_M`, their unit bridges, and the Franel residue.
 - `tests/test_p022_barlow_franel_third_index_bailey_tail.py`
   locks the exact rational distinction, modular bridge, and the simple
   primitive `p=149, n=50` witness.
