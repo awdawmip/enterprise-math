@@ -87,45 +87,64 @@ Support-stability 一定推出这种 trace equivalence：对 stable-equivalent s
 
 但在 multivalued relation 下，反向一般失败。
 
-## 5. Sharp branch-correlation witness
+## 5. 六状态 choice-timing witness
 
-取八个 states：
+取六个 states：
 
-`x,y,u1,u2,v1,v2,0,1`。
+`p,q,r,s,t,z`，
 
-Current observation 把 x/y 合并，把四个 middle states 全部合并，同时区分 terminal 0 与 terminal 1。
+并让 present observation 完全 constant。
 
-Relation a：
+Relation a 表示两种不同的 nondeterministic choice timing：
 
-`x -> {u1,u2}`，
+`p -> r`，
 
-`y -> {v1,v2}`。
+`q -> {s,t}`。
 
-再用两个 probe relations b,c 给四个 middle states 不同的 joint future behaviour：
+随后：
 
-- u1: `(b,c) -> (0,0)`；
-- u2: `(b,c) -> (1,1)`；
-- v1: `(b,c) -> (0,1)`；
-- v2: `(b,c) -> (1,0)`。
+`r --b--> z`, `r --c--> z`，
 
-因此四个 middle states 具有四种不同的**联合** future type。
+`s --b--> z`，
 
-Support-stability refinement 第一轮先拆开这四种 middle states。随后 action a 从 x/y 到达的 successor quotient-class sets 已不同，因此第二轮继续把 x 与 y 拆开。
+`t --c--> z`。
 
-## 6. 但所有 terminal support traces 永远合并 x/y
+这就是经典结构：
 
-从 x 与 y 出发：
+`p = a.(b+c)`
 
-- word a 都只看到共同的 middle observation；
-- word `ab` 都到达 terminal support `{0,1}`；
-- word `ac` 也都到达 `{0,1}`；
-- fixture 中 b/c 之后 terminal branches 不再产生额外区分，所以更长 word 也无法在**同一个 predecessor branch**上同时读取 b/c 两项信息。
+versus
 
-于是 x/y 对每个 literal word 的 terminal observed-support signature 都完全一致。
+`q = a.b + a.c`。
 
-Boolean-semimodule compiler 因而保持 `{x,y}` 合并，而 support-bisimulation refinement 会把它们拆开。
+在 initial constant partition 上，p/q 都只表现为 action a 有一个 nonempty support 指向同一个 coarse block。
 
-这里丢失的正是 branch correlation：哪个 b-result 与哪个 c-result 属于同一个 intermediate successor。
+第一轮 support-stability refinement 会拆开 r,s,t,z，因为它们对 b/c 的 enabled support sets 不同。等这些 behavioural classes 出现后，relation a 才暴露：
+
+`B_a(p)={ [r] }`
+
+而
+
+`B_a(q)={ [s],[t] }`，
+
+所以第二轮继续把 p/q 拆开。
+
+## 6. 但所有 terminal support traces 永远合并 p/q
+
+由于 observation constant，terminal observed support 只记录最终 support 是 empty 还是 nonempty。
+
+p 与 q 拥有完全相同的 relevant literal traces：
+
+- a 都 reachable；
+- `ab` 都 reachable；
+- `ac` 都 reachable；
+- fixture 中其他 continuations 的 empty / nonempty 结果也完全一致。
+
+选择 b 或 c 以后，另一个 alternative 已经无法再对**同一个 predecessor branch**查询。因此 terminal language 忘记了 nondeterministic choice 到底发生在 a 之前还是之后。
+
+Boolean-semimodule support compiler 在 exact fixed point 仍然保持 `{p,q}` 合并，而 relation-support stability 会将它们拆开。
+
+这里丢失的是 branching correlation / choice timing，而不是 terminal reachability。
 
 ## 7. 这是 future-language difference，不是 contradiction
 
@@ -137,7 +156,7 @@ Observable object：
 
 `word -> terminal observation labels 的 union`。
 
-任何没有被单个 word 联合查询的 branch correlation 都被有意忘掉。
+任何不能由一个 word 联合读取的 branching structure 都被有意忘掉。
 
 ### Relation-operation language
 
@@ -145,7 +164,7 @@ Observable / executable object：
 
 `source quotient class -> successor quotient classes 的 set`。
 
-若要在 coarse world 中直接运行 multivalued relation，就必须保留 successor behavioural type 与 branch 之间的关联。
+若要在 coarse world 中直接运行 multivalued relation，就必须保留 successor behavioural types 与 branching structure 的关联。
 
 因此 relation-stable quotient 合理地可能比 P023 terminal-support quotient 更细。
 
@@ -181,7 +200,7 @@ Partial-operation 路线表明：增加 operation capability 有时可以通过 
 
 Multivalued relation 进一步说明：到底需要 split 到哪里，取决于**collapse 后所谓“执行 relation”究竟要求什么 interface**。
 
-若只要求 terminal support traces，可能需要更少 state；若要求 quotient relation 的 target-class support 本身 well-defined，则必须保留更多 branch correlation。
+若只要求 terminal support traces，可能需要更少 state；若要求 quotient relation 的 target-class support 本身 well-defined，则必须保留更多 branching structure。
 
 所以 semantic capability requirement 不能只写“preserve relation futures”，而必须明确 operation interface。
 
@@ -191,4 +210,4 @@ Bisimulation、trace equivalence、labelled transition systems、nondeterministi
 
 这里的项目价值是明确 precision routing：
 
-> **multivalued relation descent 必须保留 successor behavioural correlation，因此可能严格需要比 terminal observed-support trace 更细的 state。**
+> **multivalued relation descent 必须保留 successor branching structure，因此可能严格需要比 terminal observed-support trace 更细的 state。**
