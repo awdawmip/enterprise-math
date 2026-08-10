@@ -1,6 +1,7 @@
 from enterprise_math.p017_p018_walsh_symmetric_frustration import (
     canonical_triangle_tradeoffs,
     empty_high_high_triangle_cost,
+    odd_cycle_frustration,
 )
 
 
@@ -30,3 +31,20 @@ def test_canonical_tradeoffs_all_saturate_the_same_irreducible_unit_cost():
     assert split["mixed_cost"] == 0.0
     assert split["pure_left_cost"] == 0.5
     assert split["pure_right_cost"] == 0.5
+
+
+def test_five_cycle_alternating_sum_telescopes_to_twice_anchored_vertex():
+    data = odd_cycle_frustration((1.0, -1.0, 0.25, -0.5, 0.0))
+    assert data["cycle_length"] == 5
+    assert abs(data["alternating_edge_sum"] - 2.0) < 1e-12
+    assert abs(data["expected_alternating_sum"] - 2.0) < 1e-12
+    assert data["normalized_cycle_l1_cost"] >= 1.0
+    assert data["odd_cycle_frustration_identity"] is True
+
+
+def test_rotating_the_anchor_preserves_the_corresponding_magnitude_bound():
+    values = (0.25, -1.0, 0.75, 0.0, -0.5)
+    data = odd_cycle_frustration(values, anchored_index=1)
+    assert data["anchored_value"] == -1.0
+    assert data["anchored_frustration_lower_bound"] == 1.0
+    assert data["normalized_cycle_l1_cost"] >= 1.0
