@@ -34,14 +34,20 @@ Therefore H_d agrees modulo p with the terminating value
     S_M = 3F2(-M,-M,4M; M+1,3M; 1).
 
 The two rational numbers H_d and S_M are generally not equal over Q; only
-their reductions modulo p agree.  Keeping that distinction explicit prevents
-an exact-rational oracle from being confused with the modular parameter
-transformation.  A classical terminating 3F2 transformation further gives
+their reductions modulo p agree.  A classical terminating 3F2 transformation
+further gives
 
-    S_M = (2M+1)_M/(M+1)_M *
-          3F2(-M,-M,-M;-3M,3M;1),
+    S_M = (2M+1)_M/(M+1)_M * T_M,
+    T_M = 3F2(-M,-M,-M;-3M,3M;1),
 
-whose prefactor is a p-unit when p=6M-1.
+whose prefactor is a p-unit when p=6M-1.  Finally
+
+    D_M T_M = U_M,
+    D_M = C(3M,M) C(4M-1,M),
+    U_M = sum_k C(M,k) C(2M+k,k) C(4M-1,k),
+
+so the one-third zero is equivalent to divisibility of a single integer
+binomial sum U_M by p.
 
 Prior-art boundary: the Bailey q-supercongruence used as input is due to
 Xiaoxia Wang and Chang Xu, "New q-supercongruences from the Bailey
@@ -52,7 +58,7 @@ P022 third-index obstruction are the contribution recorded here.
 from __future__ import annotations
 
 from fractions import Fraction
-from math import factorial
+from math import comb, factorial
 
 from .p022_barlow_low_order_defect_reduction import _is_prime
 from .p022_barlow_low_order_identifiability import triple_moment_factor
@@ -70,6 +76,11 @@ def _fraction_mod_prime(value: Fraction, prime: int) -> int:
     if denominator == 0:
         raise ValueError("fraction denominator is not a p-adic unit")
     return value.numerator % prime * pow(denominator, -1, prime) % prime
+
+
+def _require_positive_integer(name: str, value: int) -> None:
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise ValueError(f"{name} must be a positive integer")
 
 
 def _require_third_index_prime(prime: int) -> tuple[int, int, int]:
@@ -192,6 +203,50 @@ def bailey_symmetric_tail_sum(prime: int) -> Fraction:
     return total
 
 
+def bailey_symmetric_binomial_denominator(truncation: int) -> int:
+    """Return D_M=C(3M,M)C(4M-1,M), the natural integer denominator."""
+    _require_positive_integer("truncation", truncation)
+    M = truncation
+    return comb(3 * M, M) * comb(4 * M - 1, M)
+
+
+def bailey_symmetric_integer_sum(truncation: int) -> int:
+    """Return U_M=sum C(M,k)C(2M+k,k)C(4M-1,k)."""
+    _require_positive_integer("truncation", truncation)
+    M = truncation
+    return sum(
+        comb(M, k) * comb(2 * M + k, k) * comb(4 * M - 1, k)
+        for k in range(M + 1)
+    )
+
+
+def bailey_symmetric_integer_identity(prime: int) -> tuple[int, int, int]:
+    """Return (D_M,U_M,D_M*T_M numerator) and certify exact integerization."""
+    _, _, M = _require_third_index_prime(prime)
+    denominator = bailey_symmetric_binomial_denominator(M)
+    integer_sum = bailey_symmetric_integer_sum(M)
+    scaled = bailey_symmetric_tail_sum(prime) * denominator
+    if scaled.denominator != 1 or scaled.numerator != integer_sum:
+        raise AssertionError("symmetric tail binomial integerization failed")
+    if denominator % prime == 0:
+        raise AssertionError("natural symmetric denominator must be a p-unit")
+    return denominator, integer_sum, scaled.numerator
+
+
+def bailey_dual_hahn_parameters(prime: int) -> tuple[int, int, int, int, int, int]:
+    """Return (degree,y,gamma,delta,N,lambda(y)) for the dual-Hahn diagonal."""
+    _, _, M = _require_third_index_prime(prime)
+    degree = M
+    y = M
+    gamma = 3 * M - 1
+    delta = -5 * M
+    N = 3 * M
+    argument = -M * M
+    if y * (y + gamma + delta + 1) != argument:
+        raise AssertionError("dual-Hahn spectral argument changed")
+    return degree, y, gamma, delta, N, argument
+
+
 def bailey_symmetric_transform(prime: int) -> tuple[Fraction, Fraction]:
     """Certify the exact terminating Weber--Erdelyi 3F2 transform."""
     terminating = bailey_terminating_tail_sum(prime)
@@ -217,6 +272,16 @@ def bailey_symmetric_tail_residue(prime: int) -> tuple[int, int, int]:
     if terminating_residue != factor_residue * symmetric_residue % prime:
         raise AssertionError("symmetric terminating residues disagree")
     return terminating_residue, factor_residue, symmetric_residue
+
+
+def third_index_zero_via_integer_sum(prime: int) -> bool:
+    """Certify one-third Franel divisibility by the integer sum U_M."""
+    _, integer_sum, _ = bailey_symmetric_integer_identity(prime)
+    predicted = integer_sum % prime == 0
+    actual = third_index_zero_via_symmetric_tail(prime)
+    if actual != predicted:
+        raise AssertionError("integerized tail and Franel zero disagree")
+    return actual
 
 
 def third_index_zero_via_symmetric_tail(prime: int) -> bool:
