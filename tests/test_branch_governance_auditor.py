@@ -4,9 +4,11 @@ import unittest
 from pathlib import Path
 
 from tools.audit_branch_lifecycle import (
+    LEGACY_RETIREMENT_HEADS,
     classify_branch,
     load_overrides,
     mechanical_candidate,
+    name_layer,
     retirement_evidence,
     scope_status,
 )
@@ -29,12 +31,16 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
             "REPLAY_REQUIRED",
         )
 
+    def test_maintenance_branch_is_recognized_as_maintenance(self):
+        self.assertEqual(name_layer("maintenance/result-conservation-core-v1"), "MAINTENANCE")
+
     def test_semantic_override_can_mark_ahead_branch_absorbed(self):
         overrides = {
             "research/example": {
                 "state": "ABSORBED",
                 "reason": "semantic replay already entered main",
                 "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
+                "retired_head": "a" * 40,
                 "allowed_paths": [],
                 "allowed_prefixes": [],
             }
@@ -120,6 +126,8 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
             retired["result_conservation_certificate"],
             "result_conservation_e001_material.json",
         )
+        for branch, expected_head in LEGACY_RETIREMENT_HEADS.items():
+            self.assertEqual(overrides[branch]["retired_head"], expected_head)
 
     def test_legacy_allowlist_is_frozen_in_code(self):
         data = json.loads(
@@ -151,6 +159,37 @@ class BranchGovernanceAuditorTests(unittest.TestCase):
         self.assertEqual(state, "INVALID_RETIREMENT_EVIDENCE")
         self.assertIn("ahead by 1", reason)
         self.assertIsNone(certificate)
+
+    def test_legacy_retirement_requires_exact_frozen_branch_head(self):
+        branch = "engineering/e001-material-pair-impulse"
+        override = {
+            "state": "PROVENANCE",
+            "reason": "legacy source",
+            "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
+            "retired_head": LEGACY_RETIREMENT_HEADS[branch],
+            "allowed_paths": [],
+            "allowed_prefixes": [],
+        }
+        state, _, _ = retirement_evidence(
+            branch,
+            ahead=8,
+            branch_head=LEGACY_RETIREMENT_HEADS[branch],
+            semantic_state="PROVENANCE",
+            override=override,
+            root=REPO_ROOT,
+        )
+        self.assertEqual(state, "LEGACY_GRANDFATHERED")
+
+        state, reason, _ = retirement_evidence(
+            branch,
+            ahead=9,
+            branch_head="0" * 40,
+            semantic_state="PROVENANCE",
+            override=override,
+            root=REPO_ROOT,
+        )
+        self.assertEqual(state, "INVALID_RETIREMENT_EVIDENCE")
+        self.assertIn("!= branch head", reason)
 
     def test_e001_semantic_retirement_certificate_matches_exact_source_head(self):
         overrides = load_overrides(REPO_ROOT / "branch_governance_overrides.json")

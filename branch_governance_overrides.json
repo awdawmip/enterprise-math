@@ -16,7 +16,7 @@
       "research/core/admissible-support-relations",
       "research/e002-task-observable-v2"
     ],
-    "rule": "Any new ABSORBED/PROVENANCE source-owner retirement that is still ahead of main must use RESULT_CONSERVATION; MECHANICAL_ANCESTRY is valid only at ahead=0. LEGACY_PRE_RESULT_CONSERVATION is restricted to this frozen allowlist."
+    "rule": "Any new ABSORBED/PROVENANCE source-owner retirement that is still ahead of main must use RESULT_CONSERVATION; MECHANICAL_ANCESTRY is valid only at ahead=0. LEGACY_PRE_RESULT_CONSERVATION is restricted to this frozen branch/head map."
   },
   "branches": {
     "agent/p018-critical-grid": {
@@ -24,7 +24,8 @@
       "reason": "Historical P018 tree is frozen; clean P018 generations have already replayed canonical slices.",
       "allowed_paths": [],
       "allowed_prefixes": [],
-      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
+      "retired_head": "ee6d69fc2bb9894a47a3d5c6273d50d286047ca8"
     },
     "research/core/relation-quotient": {
       "state": "REPLAY_REQUIRED",
@@ -43,7 +44,8 @@
       "reason": "Historical A4 continuation is a replay source; the first A4 owner generation is already canonical.",
       "allowed_paths": [],
       "allowed_prefixes": [],
-      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
+      "retired_head": "6e2dc72e46885c081278228838831cd87eb8167c"
     },
     "core/a2-future-quotient-v2": {
       "state": "PROVENANCE",
@@ -148,7 +150,8 @@
       "reason": "P021 v2 causal-boundary slice was promoted in main@21c1ef66; v3 is the active continuation.",
       "allowed_paths": [],
       "allowed_prefixes": [],
-      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
+      "retired_head": "2f1fc93111a3a8c8f80a2fe57ab5d7cbf3e5799d"
     },
     "program/p021-causal-focusing-v3": {
       "state": "ACTIVE_OWNER",
@@ -220,7 +223,8 @@
       "reason": "Frozen one-body impulse-world generation was promoted by L4 and is canonical in main@683d6baa; PR #194 is L5 provenance.",
       "allowed_paths": [],
       "allowed_prefixes": [],
-      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
+      "retired_head": "f8ed24517d9b2b318c000a4e40954e28075e502c"
     },
     "engineering/e001-material-impulse-v2": {
       "state": "ACTIVE_OWNER",
@@ -238,7 +242,8 @@
       "reason": "Scope-pure two-body pair-impulse generation was promoted by L4 PR #230 and is canonical in main@438a26de; PR #205 is L5 provenance.",
       "allowed_paths": [],
       "allowed_prefixes": [],
-      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
+      "retired_head": "e408d200c76e68f1ea1af67d93dbb2a4c63a4431"
     },
     "engineering/e001-material-contact-network": {
       "state": "ACTIVE_OWNER",
@@ -258,7 +263,8 @@
       "reason": "Frozen multi-action empirical generation was promoted by L4 PR #222; PR #185 is L5 provenance and newer empirical work continues on separate owners.",
       "allowed_paths": [],
       "allowed_prefixes": [],
-      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
+      "retired_head": "c21a3042bd854b8899eaacfd9d03b8920f057d0c"
     },
     "engineering/e001-measurement-area-refinement": {
       "state": "ACTIVE_OWNER",
@@ -317,7 +323,8 @@
       "reason": "Semantic audit found the task-observable doc, implementation and tests already present on main as exact blobs despite different ancestry.",
       "allowed_paths": [],
       "allowed_prefixes": [],
-      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION"
+      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
+      "retired_head": "5609acbde6b203550e08f70057890fa868a0b565"
     },
     "research/p023-composition-safe-collapse": {
       "state": "ABSORBED",

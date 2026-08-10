@@ -53,15 +53,16 @@ RETIREMENT_EVIDENCE_FAILURES = {
 }
 OVERRIDE_SCHEMA = "ENTERPRISE_MATH_BRANCH_GOVERNANCE_OVERRIDES_V3"
 LEGACY_RETIREMENT_CUTOFF = "2026-08-10"
-LEGACY_RETIREMENT_ALLOWLIST = frozenset({
-    "agent/p018-critical-grid",
-    "engineering/e001-material-impulse-world",
-    "engineering/e001-material-multiaction-protocol",
-    "engineering/e001-material-pair-impulse",
-    "program/p021-causal-focusing-v2",
-    "research/core/admissible-support-relations",
-    "research/e002-task-observable-v2",
-})
+LEGACY_RETIREMENT_HEADS = {
+    "agent/p018-critical-grid": "ee6d69fc2bb9894a47a3d5c6273d50d286047ca8",
+    "engineering/e001-material-impulse-world": "f8ed24517d9b2b318c000a4e40954e28075e502c",
+    "engineering/e001-material-multiaction-protocol": "c21a3042bd854b8899eaacfd9d03b8920f057d0c",
+    "engineering/e001-material-pair-impulse": "e408d200c76e68f1ea1af67d93dbb2a4c63a4431",
+    "program/p021-causal-focusing-v2": "2f1fc93111a3a8c8f80a2fe57ab5d7cbf3e5799d",
+    "research/core/admissible-support-relations": "6e2dc72e46885c081278228838831cd87eb8167c",
+    "research/e002-task-observable-v2": "5609acbde6b203550e08f70057890fa868a0b565",
+}
+LEGACY_RETIREMENT_ALLOWLIST = frozenset(LEGACY_RETIREMENT_HEADS)
 
 
 @dataclass(frozen=True)
@@ -121,7 +122,7 @@ def name_layer(branch: str) -> str:
         return "SHORT_AGENT"
     if branch.startswith("research/"):
         return "HISTORICAL_RESEARCH_OR_OWNER"
-    if branch.startswith("chore/") or branch.startswith("ci/"):
+    if branch.startswith("chore/") or branch.startswith("ci/") or branch.startswith("maintenance/"):
         return "MAINTENANCE"
     if branch.startswith("formal/"):
         return "FORMALIZATION"
@@ -156,8 +157,16 @@ def _require_string_list(entry: dict[str, object], key: str, branch: str) -> tup
 
 def _load_certificate(root: Path, relative_path: str, label: str) -> dict:
     path = Path(relative_path)
-    if path.is_absolute() or ".." in path.parts:
-        raise ValueError(f"{label}: result_conservation_certificate must be a safe repo-relative path")
+    if (
+        path.is_absolute()
+        or ".." in path.parts
+        or path.parent != Path(".")
+        or not path.name.startswith("result_conservation_")
+        or path.suffix != ".json"
+    ):
+        raise ValueError(
+            f"{label}: result_conservation_certificate must be a root result_conservation_*.json path"
+        )
     full_path = root / path
     if not full_path.exists():
         raise ValueError(f"{label}: result-conservation certificate does not exist: {relative_path}")
@@ -234,6 +243,12 @@ def load_overrides(path: Path | None) -> dict[str, dict[str, object]]:
             actual_legacy.add(branch)
             if branch not in legacy_branches:
                 raise ValueError(f"legacy retirement {branch} is not in the frozen legacy_branches allowlist")
+            retired_head = entry.get("retired_head")
+            expected_head = LEGACY_RETIREMENT_HEADS[branch]
+            if retired_head != expected_head:
+                raise ValueError(
+                    f"{branch}: legacy retired_head must remain frozen at {expected_head}"
+                )
         elif basis == "RESULT_CONSERVATION":
             certificate = entry.get("result_conservation_certificate")
             owner_id = entry.get("source_owner_id")
@@ -248,7 +263,7 @@ def load_overrides(path: Path | None) -> dict[str, dict[str, object]]:
                     f"{branch}: certificate source_owner.id {actual_owner_id!r} != declared {owner_id!r}"
                 )
         else:
-            for forbidden in ("result_conservation_certificate", "source_owner_id"):
+            for forbidden in ("result_conservation_certificate", "source_owner_id", "retired_head"):
                 if forbidden in entry:
                     raise ValueError(
                         f"{branch}: {basis} retirement must not declare {forbidden}"
@@ -304,9 +319,16 @@ def retirement_evidence(
         return "MECHANICAL_ANCESTRY", "ahead=0 matches the declared mechanical retirement basis", None
 
     if basis == "LEGACY_PRE_RESULT_CONSERVATION":
+        expected_head = override.get("retired_head")
+        if branch_head != expected_head:
+            return (
+                "INVALID_RETIREMENT_EVIDENCE",
+                f"legacy retired_head {expected_head!r} != branch head {branch_head!r}",
+                None,
+            )
         return (
             "LEGACY_GRANDFATHERED",
-            "retirement predates the result-conservation contract and is in the frozen legacy allowlist",
+            "pre-contract retirement is on the frozen legacy allowlist and still matches its frozen source head",
             None,
         )
 
@@ -442,7 +464,7 @@ def render_markdown(audits: list[BranchAudit], main_ref: str) -> str:
             "- `ahead=0` is sufficient for mechanical absorption, not necessary for semantic absorption.",
             "- Ahead-positive ABSORBED/PROVENANCE source owners require explicit retirement evidence.",
             "- `RESULT_CONSERVATION` retirement must match one resolved certificate to the exact branch head.",
-            "- `LEGACY_PRE_RESULT_CONSERVATION` is restricted to the frozen V3 allowlist and is not a reusable escape hatch.",
+            "- `LEGACY_PRE_RESULT_CONSERVATION` is restricted to the frozen V3 branch/head map and is not a reusable escape hatch.",
             "- Owner branches may be behind main; scope is computed only from merge-base to the branch side.",
             "- `SCOPE_DRIFT` means branch-side changes escaped the declared owner/integration asset set.",
             "- `NOT_CONFIGURED` means ancestry was audited but owner-path metadata still needs to be declared.",

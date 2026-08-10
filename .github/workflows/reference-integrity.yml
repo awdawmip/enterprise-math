@@ -28,3 +28,11 @@ jobs:
         run: python tools/check_references.py
       - name: Check shared theorem and tool routing
         run: python tools/check_research_common_surface.py
+      - name: Fetch branch-governance refs
+        run: git fetch --no-tags --prune origin '+refs/heads/*:refs/remotes/origin/*'
+      - name: Audit branch retirement evidence
+        run: >-
+          python tools/audit_branch_lifecycle.py
+          --main refs/remotes/origin/main
+          --ref-prefix refs/remotes/origin/
+          --json-out /tmp/branch-governance-audit.json
