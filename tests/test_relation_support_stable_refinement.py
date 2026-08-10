@@ -37,45 +37,34 @@ def all_set_partitions(values):
             yield partition
 
 
-def branch_correlation_fixture():
-    states = ("x", "y", "u1", "u2", "v1", "v2", 0, 1)
+def choice_timing_fixture():
+    """Classic trace-equivalent but non-bisimilar shape a.(b+c) vs a.b+a.c."""
+    states = ("p", "q", "r", "s", "t", "z")
     relations = {
         "a": frozenset(
             {
-                ("x", "u1"),
-                ("x", "u2"),
-                ("y", "v1"),
-                ("y", "v2"),
+                ("p", "r"),
+                ("q", "s"),
+                ("q", "t"),
             }
         ),
         "b": frozenset(
             {
-                ("u1", 0),
-                ("u2", 1),
-                ("v1", 0),
-                ("v2", 1),
+                ("r", "z"),
+                ("s", "z"),
             }
         ),
         "c": frozenset(
             {
-                ("u1", 0),
-                ("u2", 1),
-                ("v1", 1),
-                ("v2", 0),
+                ("r", "z"),
+                ("t", "z"),
             }
         ),
     }
-    observation = {
-        "x": "source",
-        "y": "source",
-        "u1": "middle",
-        "u2": "middle",
-        "v1": "middle",
-        "v2": "middle",
-        0: "zero",
-        1: "one",
-    }
-    return states, relations, lambda state: observation[state]
+    # Constant observation makes the terminal-support language exactly a
+    # reachability/trace language: every nonempty support observes {"visible"}.
+    observation = lambda _state: "visible"
+    return states, relations, observation
 
 
 class RelationSupportStableRefinementTests(unittest.TestCase):
@@ -137,34 +126,35 @@ class RelationSupportStableRefinementTests(unittest.TestCase):
             )
         self.assertGreater(stable_candidates, 0)
 
-    def test_multivalued_branch_correlation_splits_middle_states_then_sources(self):
-        states, relations, observation = branch_correlation_fixture()
+    def test_choice_before_after_branching_splits_successors_then_sources(self):
+        states, relations, observation = choice_timing_fixture()
         initial = partition_from_observation(states, observation)
         report = coarsest_relation_support_stable_refinement(initial, relations)
 
-        by_step = report.steps
         self.assertEqual(report.strict_refinement_steps, 2)
 
-        # First split exposes the four distinct joint (b,c) behaviours of the
-        # middle states, while x/y still have the same a-target observation block.
-        self.assertIn(frozenset({"x", "y"}), by_step[1])
-        for middle in ("u1", "u2", "v1", "v2"):
-            self.assertIn(frozenset({middle}), by_step[1])
+        # At the first refinement, r supports both probes, s only b, t only c,
+        # and z neither.  p and q still both merely have a nonempty a-support
+        # into the old common block.
+        first = report.steps[1]
+        self.assertIn(frozenset({"p", "q"}), first)
+        for state in ("r", "s", "t", "z"):
+            self.assertIn(frozenset({state}), first)
 
-        # Second split sees that relation a reaches different sets of those
-        # behavioural quotient classes from x and y.
-        self.assertIn(frozenset({"x"}), report.final_partition)
-        self.assertIn(frozenset({"y"}), report.final_partition)
+        # Once successor behavioural classes exist, relation a exposes the
+        # difference between one successor r and the two-successor set {s,t}.
+        self.assertIn(frozenset({"p"}), report.final_partition)
+        self.assertIn(frozenset({"q"}), report.final_partition)
 
-    def test_terminal_observed_support_trace_keeps_x_and_y_equivalent_forever(self):
-        states, relations, observation = branch_correlation_fixture()
+    def test_terminal_observed_support_trace_keeps_p_and_q_equivalent_forever(self):
+        states, relations, observation = choice_timing_fixture()
         trace = relation_boolean_future_semimodule_report(
             states,
             relations,
             observation,
         )
         final_partition = set(trace.steps[-1].state_partition)
-        self.assertIn(frozenset({"x", "y"}), final_partition)
+        self.assertIn(frozenset({"p", "q"}), final_partition)
         self.assertTrue(
             relation_support_stable_refines_terminal_trace_partition(
                 states,
