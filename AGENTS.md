@@ -2,6 +2,44 @@
 
 These are execution rules, not a research roadmap.
 
+## Research identity bootstrap comes before task execution
+
+Every Enterprise Math conversation that enters `RESEARCHER` or `RESEARCH_DRIVER` mode must resolve or allocate a visible Researcher-ID **before substantive work begins**, regardless of how the work was started.
+
+This applies to:
+
+- direct user tasks;
+- official taskbooks;
+- scheduler/Issue #240 dispatch;
+- role conversion into researcher or Driver;
+- handoff into a new conversation;
+- continuation of an existing Enterprise Math conversation.
+
+Canonical identity state machine:
+
+`research_identity_state_machine.json`
+
+Human protocol:
+
+`docs/RESEARCH_IDENTITY_PROTOCOL.md`
+
+Reference helper:
+
+`tools/research_identity.py`
+
+Bootstrap rule:
+
+1. reuse the Researcher-ID already visible in this conversation if one exists;
+2. otherwise restore an unambiguous persisted ID for this same conversation if available;
+3. scheduler CLAIMs use the CLAIM identity, with automatic derivation from `task_id + claim_id` when omitted;
+4. direct tasks/role transitions with no existing ID self-generate a new short-code ID immediately;
+5. show the ID in substantive final responses and persist it in semantic-checkpoint commit/PR/handoff metadata;
+6. central directory registration is best-effort and may be completed at a semantic checkpoint; inability to register is never a `HARD_BLOCK`.
+
+Do **not** wait for the Driver to assign an ID when a task was launched by some other path. Identity creation is self-bootstrapping.
+
+New Driver-approved taskbooks declare `identity_policy: AUTO_RESOLVE_OR_ALLOCATE` and may declare `identity_lane`; they never hard-code a fixed Researcher-ID. Legacy taskbooks inherit the global identity state machine.
+
 ## Remote-liveness rule comes first
 
 Read and follow `docs/GITHUB_INTERACTION_BUDGET.md` before expanding repository/Issue/PR preflight. It is the later narrow authority for **when GitHub must be touched**. Older documents remain authoritative for mathematical ownership, status, scheduler semantics, Foundation stewardship, and final gates, but their long preflight lists must not be executed as an unconditional sequence of remote calls.
@@ -54,6 +92,7 @@ Canonical promotion is serialized in the control plane as well as mathematically
 - scheduler availability is never a startup gate;
 - with no user-selected task, select from live Issue #240 when available non-blockingly or from static `research_scheduler.json` otherwise;
 - no scheduler write is required to start research. `CLAIM`, `PROGRESS`, `HEARTBEAT`, `HANDOFF` are best-effort coordination signals;
+- scheduler CLAIM reduction is identity-aware: if `researcher_id` is absent, the state machine derives one automatically from the task lane and `claim_id`;
 - post scheduler events only when the write path is immediately available and the event adds real coordination value; do not retry solely for bookkeeping;
 - a successfully published `CLAIM` still obeys the live-lease race/reduction rule;
 - if an unleased session later sees an overlapping live lease, preserve the mathematics and route it as non-conflicting owner-local/Relay `TEST` evidence rather than discarding work or blocking the user;
@@ -145,4 +184,4 @@ If `hard_block = NONE`, continue the best mathematical frontier rather than wait
 
 The default lifecycle is:
 
-`small task packet -> remote-silent research -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
+`identity bootstrap -> small task packet -> remote-silent research -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
