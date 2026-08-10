@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import itertools
 import sys
+from fractions import Fraction
 from math import gcd, lcm
 from pathlib import Path
 
@@ -93,12 +94,25 @@ def test_metric_atom_denominators_recover_lcm_join() -> None:
 
 def test_metric_join_examples_do_not_require_uniform_atom_lengths() -> None:
     assert set(bridge.atomic_interval_lengths((6, 10, 15))) == {
-        bridge.atomic_interval_lengths((6, 10, 15))[0].__class__(1, 30),
-        bridge.atomic_interval_lengths((6, 10, 15))[0].__class__(1, 15),
+        Fraction(1, 30),
+        Fraction(1, 15),
     }
     assert bridge.metric_join_scale((6, 10, 15)) == 30
     assert bridge.metric_join_scale((4, 6, 10)) == 60
     assert bridge.metric_join_scale((8, 12, 18)) == 72
+
+
+def test_unlabeled_overlay_retains_join_but_loses_meet_provenance() -> None:
+    # The 2-grid is already contained in the 6-grid. Forgetting layer identity
+    # therefore makes these states geometrically identical, even though their
+    # common-scale meet differs.
+    one_layer = (6,)
+    two_layers = (2, 6)
+    assert bridge.overlaid_grid_boundaries(one_layer) == bridge.overlaid_grid_boundaries(two_layers)
+    assert bridge.atomic_interval_lengths(one_layer) == bridge.atomic_interval_lengths(two_layers)
+    assert bridge.metric_join_scale(one_layer) == bridge.metric_join_scale(two_layers) == 6
+    assert bridge.gcd_many(one_layer) == 6
+    assert bridge.gcd_many(two_layers) == 2
 
 
 def test_first_disconnect_scale_is_smallest_prime_factor() -> None:
