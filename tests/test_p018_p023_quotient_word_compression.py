@@ -13,11 +13,18 @@ from enterprise_math.p018_p023_quotient_word_compression import (
     maximal_omega_power_free_boundaries,
     max_macro_compression,
     minimum_penultimate_semiprime_cover,
+    omega_filtered_macro_alphabet,
+    omega_filtered_boundary_word_length,
+    omega_filtered_required_horizon,
+    omega_filtered_separates_at_horizon,
     penultimate_minimum_extra_count,
     power_free_semiprime_candidates,
     prime_macro_language_separates_at_horizon,
     semiprime_covers_maximal_boundaries,
     shortest_prime_macro_word_length,
+)
+from enterprise_math.p018_p023_power_free_action_basis import (
+    minimal_root_quotient_action_basis,
 )
 
 
@@ -176,6 +183,88 @@ class P018P023QuotientWordCompressionTests(unittest.TestCase):
                     max_state, root_exp, (4,), level - 1
                 )
             )
+
+    def test_omega_filtration_exact_word_lengths(self):
+        for root_exp in range(2, 6):
+            for max_state in range(2, 45):
+                level = prime_generator_required_horizon(max_state, root_exp)
+                for capacity in range(1, max(2, level + 1)):
+                    alphabet = omega_filtered_macro_alphabet(
+                        max_state, root_exp, capacity
+                    )
+                    macros = tuple(
+                        g
+                        for g in alphabet
+                        if g not in prime_generator_basis(max_state)
+                    )
+                    for boundary in minimal_root_quotient_action_basis(
+                        max_state, root_exp
+                    ):
+                        if boundary == 1:
+                            continue
+                        direct = direct_shortest_product_length(
+                            boundary, macros
+                        )
+                        self.assertEqual(
+                            direct,
+                            omega_filtered_boundary_word_length(
+                                boundary, capacity
+                            ),
+                        )
+
+    def test_omega_filtration_exact_storage_depth_product_law(self):
+        for root_exp in range(2, 6):
+            for max_state in range(1, 50):
+                level = prime_generator_required_horizon(max_state, root_exp)
+                for capacity in range(1, max(2, level + 2)):
+                    alphabet = omega_filtered_macro_alphabet(
+                        max_state, root_exp, capacity
+                    )
+                    predicted_horizon = omega_filtered_required_horizon(
+                        max_state, root_exp, capacity
+                    )
+                    self.assertEqual(
+                        predicted_horizon,
+                        (level + capacity - 1) // capacity,
+                    )
+                    for horizon in range(0, predicted_horizon + 2):
+                        direct = quotient_word_language_separates_bounded_domain(
+                            max_state,
+                            root_exp,
+                            alphabet,
+                            horizon,
+                        )
+                        self.assertEqual(
+                            direct,
+                            omega_filtered_separates_at_horizon(
+                                max_state,
+                                root_exp,
+                                capacity,
+                                horizon,
+                            ),
+                        )
+
+    def test_omega_filtration_endpoints(self):
+        for root_exp in range(2, 6):
+            for max_state in range(2, 60):
+                level = prime_generator_required_horizon(max_state, root_exp)
+                self.assertEqual(
+                    omega_filtered_macro_alphabet(max_state, root_exp, 1),
+                    prime_generator_basis(max_state),
+                )
+                if level > 0:
+                    self.assertEqual(
+                        omega_filtered_macro_alphabet(
+                            max_state, root_exp, level
+                        ),
+                        tuple(
+                            b
+                            for b in minimal_root_quotient_action_basis(
+                                max_state, root_exp
+                            )
+                            if b >= 2
+                        ),
+                    )
 
     def test_validation(self):
         with self.assertRaises(ValueError):

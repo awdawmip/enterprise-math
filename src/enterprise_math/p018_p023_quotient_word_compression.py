@@ -271,3 +271,75 @@ def direct_prime_macro_separator(
     return quotient_word_language_separates_bounded_domain(
         max_state, root_exp, generators, horizon
     )
+
+
+def omega_filtered_macro_alphabet(
+    max_state: int, root_exp: int, macro_capacity: int
+) -> tuple[int, ...]:
+    """Canonical nested macro alphabet with at most ``macro_capacity`` primes.
+
+    Every generator is a nontrivial bounded r-power-free semantic action whose
+    total prime multiplicity is at most ``macro_capacity``.
+    """
+    _require_natural("max_state", max_state)
+    _require_root_exp(root_exp)
+    _require_positive("macro_capacity", macro_capacity)
+    return tuple(
+        boundary
+        for boundary in minimal_root_quotient_action_basis(max_state, root_exp)
+        if boundary >= 2
+        and omega_with_multiplicity(boundary) <= macro_capacity
+    )
+
+
+def omega_filtered_boundary_word_length(
+    boundary: int, macro_capacity: int
+) -> int:
+    """Exact shortest length under the Omega-filtered macro alphabet.
+
+    For an r-power-free boundary, partition its prime multiset into blocks of
+    size at most ``macro_capacity``.  Every block product remains an
+    r-power-free divisor, while no generator can contribute more than
+    ``macro_capacity`` prime factors.
+    """
+    _require_positive("boundary", boundary)
+    _require_positive("macro_capacity", macro_capacity)
+    total = omega_with_multiplicity(boundary)
+    return (total + macro_capacity - 1) // macro_capacity
+
+
+def omega_filtered_required_horizon(
+    max_state: int, root_exp: int, macro_capacity: int
+) -> int:
+    """Exact worst composition horizon of the Omega-filtered alphabet."""
+    _require_natural("max_state", max_state)
+    _require_root_exp(root_exp)
+    _require_positive("macro_capacity", macro_capacity)
+    prime_horizon = prime_generator_required_horizon(max_state, root_exp)
+    return (prime_horizon + macro_capacity - 1) // macro_capacity
+
+
+def omega_filtered_separates_at_horizon(
+    max_state: int,
+    root_exp: int,
+    macro_capacity: int,
+    horizon: int,
+) -> bool:
+    """Exact storage-depth product law for the canonical Omega filtration."""
+    _require_natural("max_state", max_state)
+    _require_root_exp(root_exp)
+    _require_positive("macro_capacity", macro_capacity)
+    _require_natural("horizon", horizon)
+    prime_horizon = prime_generator_required_horizon(max_state, root_exp)
+    return macro_capacity * horizon >= prime_horizon
+
+
+def omega_filtered_composite_macros(
+    max_state: int, root_exp: int, macro_capacity: int
+) -> tuple[int, ...]:
+    """Composite part of the canonical Omega-filtered alphabet."""
+    alphabet = omega_filtered_macro_alphabet(
+        max_state, root_exp, macro_capacity
+    )
+    primes = set(prime_generator_basis(max_state))
+    return tuple(value for value in alphabet if value not in primes)
