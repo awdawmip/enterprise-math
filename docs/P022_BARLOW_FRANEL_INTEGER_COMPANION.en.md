@@ -129,13 +129,19 @@ W_d=(-8)^d((2d-1)!!)^4.}
 
 In particular, the two coordinates cannot simultaneously lose rank modulo a forced prime inside the legal window.
 
-## 5. Interpretation and boundary
+## 5. Prior-art boundary
+
+The generic facts that the Franel three-term recurrence has a two-dimensional solution space, and that a Casoratian controls two independent solutions, are not new.  Joseph Tonien (2026) explicitly develops the two-dimensional Franel sequence space, its standard basis, and an exact Casoratian formula for the ordinary Franel recurrence while studying a Ramanujan-Machine continued fraction.
+
+Accordingly, this note does **not** claim novelty for two-dimensional recurrence spaces, transfer matrices, or Casoratian arguments.  The research-specific object here is the forced-midpoint re-centering together with the fixed integer sequence `H_d` and its use as an exact zero-alphabet coordinate for the P022 half-defect problem.  Historical novelty of that package remains unverified.
+
+## 6. Interpretation and boundary
 
 The zero event `p|H_d` is therefore not caused by a singular transfer step.  It is a genuine crossing of a coordinate-zero set inside an otherwise reversible finite two-state dynamics.
 
 This is useful for P018/P023 language, but the recurrence remains a P022/Franel specialization.  No generic foundation claim is made here.
 
-## 6. Executable assets
+## 7. Executable assets
 
 - `src/enterprise_math/p022_barlow_franel_integer_companion.py`
 - `tests/test_p022_barlow_franel_integer_companion.py`
