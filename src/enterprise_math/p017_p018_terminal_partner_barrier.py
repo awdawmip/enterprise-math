@@ -30,7 +30,7 @@ mirror region.  This is a bridge/dichotomy theorem, not a Legendre proof.
 
 from __future__ import annotations
 
-from math import prod
+from math import gcd, prod
 
 from .cutoff_pairing import transverse_prime_support
 from .legendre import anchor_product, is_prime
@@ -64,7 +64,7 @@ def terminal_residual_partner_dichotomy(
 
     center = k * (k + 1)
     anchor = anchor_product(k)
-    if __import__("math").gcd(abs(signed_point), center) != 1:
+    if gcd(abs(signed_point), center) != 1:
         raise ValueError("signed point must survive the anchor sieve")
 
     state = center - signed_point
@@ -77,9 +77,17 @@ def terminal_residual_partner_dichotomy(
         raise ValueError("declared terminal residual side must have complete core < k")
 
     partner_support = tuple(transverse_prime_support(partner, k, anchor))
+    blocking_prime = profile["blocking_prime"]
+    base_primorial = int(profile["base_primorial_product"])
+
     if not partner_support:
         if not is_prime(partner):
             raise AssertionError("empty partner transverse support was not a basin prime")
+        next_primorial = (
+            None
+            if blocking_prime is None
+            else int(blocking_prime) * base_primorial
+        )
         return {
             "k": k,
             "signed_point": signed_point,
@@ -90,18 +98,18 @@ def terminal_residual_partner_dichotomy(
             "partner_support": (),
             "partner_is_prime": True,
             "route": "PRIME_WITNESS",
-            "transverse_primorial_next": int(profile["next_transverse_prime"])
-            * int(profile["base_primorial_product"]),
+            "transverse_primorial_next": next_primorial,
         }
 
     if set(support).intersection(partner_support):
         raise AssertionError("mirror transverse supports are not disjoint")
+    if blocking_prime is None:
+        raise AssertionError("composite partner supplied a (J+1)-st transverse prime but profile has none")
+
     partner_core = complete_transverse_core(partner, partner_support)
     support_radical = _squarefree_radical_from_support(support)
     partner_radical = _squarefree_radical_from_support(partner_support)
-    next_primorial = int(profile["next_transverse_prime"]) * int(
-        profile["base_primorial_product"]
-    )
+    next_primorial = int(blocking_prime) * base_primorial
     pair_radical_product = support_radical * partner_radical
     pair_core_product = core * partner_core
 
