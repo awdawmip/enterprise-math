@@ -13,8 +13,7 @@
       "engineering/e001-material-multiaction-protocol",
       "engineering/e001-material-pair-impulse",
       "program/p021-causal-focusing-v2",
-      "research/core/admissible-support-relations",
-      "research/e002-task-observable-v2"
+      "research/core/admissible-support-relations"
     ],
     "rule": "Any new ABSORBED/PROVENANCE source-owner retirement that is still ahead of main must use RESULT_CONSERVATION; MECHANICAL_ANCESTRY is valid only at ahead=0. LEGACY_PRE_RESULT_CONSERVATION is restricted to this frozen branch/head map."
   },
@@ -320,11 +319,12 @@
     },
     "research/e002-task-observable-v2": {
       "state": "ABSORBED",
-      "reason": "Semantic audit found the task-observable doc, implementation and tests already present on main as exact blobs despite different ancestry.",
+      "reason": "The two-commit Stage-5 task-observable generation has complete semantic accounting and canonical branch/main evidence in its result-conservation certificate.",
       "allowed_paths": [],
       "allowed_prefixes": [],
-      "retirement_basis": "LEGACY_PRE_RESULT_CONSERVATION",
-      "retired_head": "5609acbde6b203550e08f70057890fa868a0b565"
+      "retirement_basis": "RESULT_CONSERVATION",
+      "source_owner_id": "research/e002-task-observable-v2",
+      "result_conservation_certificate": "result_conservation_e002_task_observable.json"
     },
     "research/p023-composition-safe-collapse": {
       "state": "ABSORBED",
