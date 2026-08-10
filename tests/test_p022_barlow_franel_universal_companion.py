@@ -3,7 +3,7 @@ from enterprise_math.p022_barlow_franel_universal_companion import (
     first_large_terminal_offsets_are_excluded,
     nonforced_midpoint_center_ratio_holds,
     nonforced_midpoint_integer_companion,
-    terminal_common_zero_companion_condition,
+    terminal_companion_offsets,
     universal_companion_reconstructs_zero_digits,
     universal_zero_digits_from_companion,
 )
@@ -37,22 +37,16 @@ def test_forced_and_nonforced_companions_cover_both_residue_pairs() -> None:
     assert universal_zero_digits_from_companion(41) == (7, 10, 30, 33)
 
 
-def test_large_terminal_offset_reduction_on_real_common_zero() -> None:
-    # q=41 divides F_10; if one declares r=6 then the terminal offset is d=10.
-    # q does not divide F_6, so this is deliberately not a primitive example;
-    # it demonstrates the companion side of the affine reduction.
+def test_large_terminal_offset_is_an_affine_companion_coordinate() -> None:
+    # q=41 has midpoint 20.  For the formal terminal geometry at r=6,
+    # t=2r-2=10 has d=10 while the declared source r has e=14.
+    assert terminal_companion_offsets(6, 41) == (10, 14)
+    assert 4 * 14 - 2 * 10 + 5 == 41
     assert nonforced_midpoint_integer_companion(10) % 41 == 0
+    assert nonforced_midpoint_integer_companion(14) % 41 != 0
 
 
 def test_first_two_large_terminal_candidates_are_impossible() -> None:
-    # Structural twin-center examples with prime candidates.
     assert first_large_terminal_offsets_are_excluded(6, 23)
     assert first_large_terminal_offsets_are_excluded(9, 37)
     assert first_large_terminal_offsets_are_excluded(15, 61)
-
-
-def test_actual_common_zero_pair_maps_to_one_companion() -> None:
-    # The non-twin example r=10,q=41 has q|F_10 and q|F_18?  It exercises
-    # only when the actual common-zero prerequisite holds.
-    # Keep a known real pair from the zero alphabet: r=7 gives terminal 12.
-    assert terminal_common_zero_companion_condition(7, 41) == (8, 13, "K")
