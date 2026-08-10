@@ -1,8 +1,12 @@
 # Enterprise Math / 进取数论研究架构 v2
 
-状态：`PROPOSED / MIGRATION IN PROGRESS`  
-基线：`main@fbd95bc3d119c2429d3e83825b5cd44cd044e501`  
-日期：2026-08-09
+状态：`ACTIVE / CANONICAL ARCHITECTURE CONTRACT`  
+生效：2026-08-09  
+稳定化：2026-08-10
+
+本文件描述**稳定研究架构**，不是实时 branch inventory、migration dashboard、scheduler snapshot 或 current-PR 清单。只有当当前动作确实需要 live dispatch/branch state 时，才由 scheduling / owner control surfaces 提供实时执行状态。历史 branch ledger 与迁移分类只保留 provenance/snapshot 语义，不是 live authority。
+
+若迁移期示例或旧措辞与后来的 canonical owner-isolation、scheduling 或 GitHub-liveness contract 冲突，以后来的窄域 canonical contract 为准。
 
 ## 1. 双轴架构
 
@@ -118,7 +122,7 @@ A4 与 A3 是 sibling cores，不因共享“relation”一词而合并。Canoni
 
 ## 3. Program / Application 轴
 
-当前主要 program：
+代表性的 program/application identities 包括：
 
 - P017：Legendre / consecutive-square pressure test；
 - P018：finite precision calculus；
@@ -167,7 +171,7 @@ geometry-only 结果留 P022；structured relation-state 上移 A3；support/cor
 
 1. 冻结精确 source branch/commit/result payload 与 provenance；
 2. 逐个移除领域假设，找最弱已证明 hypotheses；
-3. 搜索 lineage / Relay / common surface / 既有 theorem family；
+3. 在当前 ownership 问题确有需要时，查询 lineage / Relay / common surface / 既有 theorem family；
 4. 分类为 `same / strict generalization / specialization / independent / conflict`；
 5. 只选一个 mother statement owner；
 6. source program 留 corollary + provenance；
@@ -179,9 +183,11 @@ geometry-only 结果留 P022；structured relation-state 上移 A3；support/cor
 
 禁止仅靠 merge/rebase 解决高度分叉的数学归属问题。若一个可复用结果进入 `main` 后仍无法通过 `docs/RESEARCH_COMMON_SURFACE.*` / `research_common_surface.json` 被发现，则 canonical promotion 仍不完整。
 
+本流程涉及的远端读取/写入始终受 `docs/GITHUB_INTERACTION_BUDGET.md` 约束；theorem lifting 不会产生持续轮询、追逐 moving `main` 或让 owner branch 持续同步整个 main 的义务。
+
 ---
 
-## 6. 与 Git 生命周期的绑定
+## 6. 与 Git 生命周期及 live control surface 的绑定
 
 数学 owner 与 Git branch 必须满足：
 
@@ -192,19 +198,21 @@ geometry-only 结果留 P022；structured relation-state 上移 A3；support/cor
 - 进入 main 只能经过一次性 L4 canonical integration；
 - 历史 branch/PR/checkpoint 最终进入 L5。
 
-具体状态、阈值、命名、moving-main combination 规则、当前迁移批次见 `RESEARCH_BRANCH_LIFECYCLE.*`、`RESEARCH_SCHEDULING_PROTOCOL.*` 与 `RESEARCH_BRANCH_LEDGER.*`。
+稳定的生命周期语义、阈值与命名由 `RESEARCH_BRANCH_LIFECYCLE.*` 定义。只有在当前动作确实需要 dispatch state 时，live executor/frontier assignment 才由 `RESEARCH_SCHEDULING_PROTOCOL.*` 及其当前 owner/scheduler/runtime surface 提供。Owner isolation 由 `RESEARCH_OWNER_ISOLATION.*` 管理；远端交互由 `GITHUB_INTERACTION_BUDGET.md` 管理。
+
+`RESEARCH_BRANCH_LEDGER.*` 与迁移期 branch classification 只属于历史 snapshot/provenance。它们**不得**作为 live executor assignment、startup gate，也不得据此冻结 current L1/L2/L3 frontier。
 
 ---
 
-## 7. 当前强制冻结的大树
+## 7. 迁移 provenance，不是 live routing
 
-以下历史树禁止继续通过追加新 theorem 来扩大：
+Architecture v2 最初通过一次迁移落地；当时若干高度分叉的历史树被冻结，选定 payload 被 replay 到新的 owner/integration 线上。2026-08-09 当时的具体分类，继续可从 Git history、PR、branch ledger 与 migration/stall-audit 记录恢复。
 
-- `agent/p018-critical-grid` / PR #68；
-- `research/core/relation-quotient`；
-- `research/core/relation-support-bridge` / PR #83。
+这些历史分类**不再嵌入本规范作为当前 branch 真相**。
 
-它们是 semantic replay source，不再作为未来 canonical owner。历史树冻结并不会阻塞 current writable L1/L2/L3 owner 上的新数学。
+历史 `REPLAY_REQUIRED`、`FROZEN`、`ABSORBED` 等状态，只约束明确识别的历史树并保存 provenance；它不会自动分类 current owner generation，也不会阻塞新数学、要求 current-main reconciliation，或要求等待另一条 PR。
+
+只有在 promotion、cleanup 或 scope-drift recovery 的当前动作确实需要 branch classification 时，才执行该动作所需的有界 semantic/lifecycle 检查。禁止为了开始研究而做全仓库 branch census。
 
 ---
 
@@ -232,12 +240,12 @@ Canonical promotion 后必须把可复用结果从“只在 Relay 可见”迁�
 
 一个研究员进入仓库后，应能快速回答：
 
-1. 当前 canonical main 是什么？
-2. 哪些 P/E 是 active programs？
-3. 一般 theorem 由哪个 A-layer owner 维护？
-4. 当前长期 writable branches 不超过约 8–12 条；
-5. integration/agent branches 为什么存在、何时退出？
-6. 历史结果如何从 PR/tag/lineage 恢复？
-7. 每个 canonical reusable theorem、root formalization、tool family、negative boundary 与 active foundation alert 从哪里可发现？
+1. 只有在 current-main identity 对当前动作确实重要时，才需要知道当前 canonical main；
+2. 当前选定任务涉及哪些 active P/E program；
+3. 一般 theorem 由哪个 A-layer owner 维护；
+4. 长期可写 surface 应保持小而清晰；历史 8–12 条目标只是压实启发式，不是 startup、dispatch 或 cleanup gate；
+5. integration/agent branches 为什么存在、何时退出；
+6. 历史结果如何从 PR/tag/lineage 恢复；
+7. 每个 canonical reusable theorem、root formalization、tool family、negative boundary 与 active foundation alert 从哪里可发现。
 
-如果一个结果只能通过“记住某个 300 commits 老分支”或旧 Relay comment 才能找到，架构仍未压实。
+如果一个结果只能通过“记住某个 300 commits 老分支”或旧 Relay comment 才能找到，架构仍未压实。如果数学上可以独立推进的研究却必须等待 ledger refresh、branch census、CI status、replay queue 或 moving-main synchronization，说明架构已经回退到迁移期故障模式。
