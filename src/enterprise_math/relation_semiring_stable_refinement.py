@@ -1,7 +1,7 @@
 """Coarsest shared-state refinement for one or more semiring relation interfaces.
 
 A K-valued relation interface on a quotient partition does not merely expose a
-state readout.  For every source quotient class and action it must assign a
+state readout. For every source quotient class and action it must assign a
 representative-independent K-weight to every **current target quotient class**.
 
 For a raw relation, the K-weight of a target block C is
@@ -9,24 +9,24 @@ For a raw relation, the K-weight of a target block C is
     (# raw successors in C) * 1_K.
 
 Given a current partition, split each block by the complete per-action vector of
-these K-weights and iterate.  The fixed point is the unique coarsest refinement
+these K-weights and iterate. The fixed point is the unique coarsest refinement
 on which the K-weighted relation is directly executable on the shared quotient
 state space.
 
 For several required semiring interfaces K_1,...,K_r on the **same** quotient
-state space, split by all weight vectors simultaneously.  This differs from
+state space, split by all weight vectors simultaneously. This differs from
 merely taking the common refinement of the individually stable state partitions:
 raw partition refinement can make an operation that was safe on its own quotient
 unsafe again because target classes have been split by another interface.
 
 For two semirings K,L, simultaneous shared-state refinement is exactly the same
-as refinement using the product semiring KxL.  Thus the direct product semiring
+as refinement using the product semiring KxL. Thus the direct product semiring
 is the canonical coarsest join for a coupled/compositional operation interface,
 even though it can be finer than the weaker task that only asks for independent
 K and L readouts side by side.
 
 Weighted equitable partitions, congruence refinement and product semirings are
-standard prior mathematics/CS.  The project value is the exact distinction
+standard prior mathematics/CS. The project value is the exact distinction
 between independent readout joins and shared-state compositional joins.
 """
 
@@ -174,6 +174,7 @@ def multi_semiring_refinement_step(
         for state in block:
             signature = tuple(
                 (
+                    interface_index,
                     semiring.name,
                     tuple(
                         (
@@ -188,7 +189,7 @@ def multi_semiring_refinement_step(
                         for name in names
                     ),
                 )
-                for semiring in specs
+                for interface_index, semiring in enumerate(specs)
             )
             groups.setdefault(signature, set()).add(state)
         refined.extend(groups.values())
@@ -254,10 +255,13 @@ def candidate_refines_shared_coarsest(
     relations: Mapping[Action, Relation],
     semirings: Sequence[SemiringSpec],
 ) -> bool:
+    specs = tuple(semirings)
+    if tuple(semiring.name for semiring in specs) != report.semiring_names:
+        raise ValueError("candidate check must use the same declared semiring interfaces")
     current = normalize_partition(candidate)
     if not partition_refines(current, report.initial_partition):
         raise ValueError("candidate must refine initial partition")
-    if not multi_semiring_relation_stable_on_partition(current, relations, semirings):
+    if not multi_semiring_relation_stable_on_partition(current, relations, specs):
         raise ValueError("candidate must support every required semiring interface")
     if not partition_refines(current, report.final_partition):
         raise AssertionError("stable candidate failed to refine claimed coarsest shared quotient")
