@@ -76,4 +76,41 @@ theorem boundaryEq_gcd_iff {d e i j : ℕ} (hd : 0 < d) :
     _ ↔ ∃ k, i = (d / g) * k ∧ j = (e / g) * k :=
       boundaryEq_coprime_iff hcop hd'
 
+/-- Inside the closed unit interval, every common boundary has a unique reduced index
+`k ≤ gcd(d,e)`. This is the finite form needed to count the common boundaries. -/
+theorem boundaryEq_gcd_existsUnique_index {d e i j : ℕ} (hd : 0 < d)
+    (hi : i ≤ d) (h : boundaryEq d i e j) :
+    ∃! k,
+      k ≤ d.gcd e ∧
+        i = (d / d.gcd e) * k ∧
+        j = (e / d.gcd e) * k := by
+  let g := d.gcd e
+  change ∃! k,
+    k ≤ g ∧
+      i = (d / g) * k ∧
+      j = (e / g) * k
+  have hd' : 0 < d / g := by
+    dsimp [g]
+    exact Nat.div_gcd_pos_of_pos_left e hd
+  have hd_decomp : d = (d / g) * g := by
+    exact (Nat.div_mul_cancel (by
+      dsimp [g]
+      exact Nat.gcd_dvd_left d e)).symm
+  have hrepr := (boundaryEq_gcd_iff hd).1 h
+  change ∃ k, i = (d / g) * k ∧ j = (e / g) * k at hrepr
+  rcases hrepr with ⟨k, hik, hjk⟩
+  have hk_le : k ≤ g := by
+    apply Nat.le_of_mul_le_mul_left ?_ hd'
+    calc
+      (d / g) * k = i := hik.symm
+      _ ≤ d := hi
+      _ = (d / g) * g := hd_decomp
+  refine ⟨k, ⟨hk_le, hik, hjk⟩, ?_⟩
+  intro l hl
+  rcases hl with ⟨_, hil, _⟩
+  apply Nat.mul_left_cancel hd'
+  calc
+    (d / g) * l = i := hil.symm
+    _ = (d / g) * k := hik
+
 end EnterpriseMath.Scale
