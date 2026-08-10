@@ -11,6 +11,7 @@ from enterprise_math.r004_causal_identifiability_completion import (
 )
 from enterprise_math.r004_coupled_master_measure import (
     compile_coupled_rational_master_measure,
+    generic_coupled_master_support_upper_bound,
     independent_redundant_uniform_support_exponent,
     master_support_compression_ratio,
     redundant_uniform_master_support_counts,
@@ -37,6 +38,10 @@ class R004CoupledMasterMeasureTests(unittest.TestCase):
             self.states, self.kernels, 0, horizon
         )
         self.assertEqual(sum(measure.values(), Fraction(0)), Fraction(1))
+        self.assertLessEqual(
+            len(measure),
+            generic_coupled_master_support_upper_bound(2, 2, horizon),
+        )
         for depth in range(horizon + 1):
             for word in itertools.product(("a", "b"), repeat=depth):
                 self.assertEqual(
@@ -96,6 +101,18 @@ class R004CoupledMasterMeasureTests(unittest.TestCase):
         self.assertEqual(independent_redundant_uniform_support_exponent(2, 3), 14)
         self.assertEqual(independent_redundant_uniform_support_exponent(3, 2), 12)
 
+    def test_generic_coupled_support_bound_solves_linear_recurrence(self):
+        self.assertEqual(
+            tuple(generic_coupled_master_support_upper_bound(2, 2, h) for h in range(4)),
+            (1, 3, 11, 43),
+        )
+        self.assertEqual(
+            tuple(generic_coupled_master_support_upper_bound(3, 2, h) for h in range(3)),
+            (1, 4, 22),
+        )
+        self.assertEqual(generic_coupled_master_support_upper_bound(1, 2, 5), 32)
+        self.assertEqual(generic_coupled_master_support_upper_bound(4, 1, 5), 1)
+
     def test_one_action_has_no_counterfactual_cross_action_product_to_remove(self):
         kernels = {"a": self.kernels["a"]}
         independent = compile_rational_master_measure(self.states, kernels, 0, 3)
@@ -131,6 +148,10 @@ class R004CoupledMasterMeasureTests(unittest.TestCase):
             redundant_uniform_master_support_counts(2, 0, 1)
         with self.assertRaises(ValueError):
             independent_redundant_uniform_support_exponent(2, -1)
+        with self.assertRaises(ValueError):
+            generic_coupled_master_support_upper_bound(0, 2, 1)
+        with self.assertRaises(ValueError):
+            generic_coupled_master_support_upper_bound(2, 0, 1)
 
 
 if __name__ == "__main__":
