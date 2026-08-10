@@ -30,13 +30,28 @@ Hence the terminal residual incidence is exactly
 
 Distinct terminal cores are odd and below k.  Consuming the P017 tail-staircase
 window-separation theorem, their quotient windows are strictly disjoint in
-reverse core order.  The executable checks the same integer inequality locally
-without re-owning the general P017 theorem.
+reverse core order.
+
+The window width is itself an exact P018/P007 quotient response.  Since
+`k(k+2)=k^2+2k`, write
+
+    2k = A*b + h,      0<=h<A,
+    k^2 = A*q + r,     0<=r<A.
+
+Then
+
+    |W_A| = b + kappa_A,
+    kappa_A = floor((r+h)/A) in {0,1}.
+
+Thus the unresolved integer resource mass splits exactly into a reciprocal-core
+bulk plus binary quotient carries:
+
+    W_terminal = sum_A floor(2k/A) + sum_A kappa_A.
 
 This is an exact resource representation, not a prime-distribution bound and not
 a Legendre proof.  Its value is that the unresolved terminal correction lives
-on a very small union of disjoint integer windows rather than on the whole
-square basin.
+on a very small union of disjoint integer windows and its raw size uses the same
+finite-response/carry algebra as the rest of the precision calculus.
 """
 
 from __future__ import annotations
@@ -46,18 +61,29 @@ from .p017_p018_terminal_shell_capacity import terminal_full_core_candidates
 
 
 def terminal_tail_window(k: int, full_core: int) -> dict[str, object]:
-    """Return W_A and its exact prime tails for one terminal candidate core."""
+    """Return W_A, its quotient-response carry, and its exact prime tails."""
     shell = terminal_full_core_candidates(k)
     candidates = set(int(value) for value in shell["full_core_candidates"])
     if full_core not in candidates:
         raise ValueError("full_core is not in the terminal candidate shell")
 
-    q_min = (k * k) // full_core + 1
-    q_max = (k * (k + 2)) // full_core
+    lower_argument = k * k
+    increment = 2 * k
+    q_min = lower_argument // full_core + 1
+    q_max = (lower_argument + increment) // full_core
     if q_min < k + 2:
         raise AssertionError("terminal low core failed q_min>=k+2")
     if q_max >= (k + 1) * (k + 1):
         raise AssertionError("terminal quotient window escaped the composite roughness cutoff")
+
+    bulk, increment_remainder = divmod(increment, full_core)
+    lower_remainder = lower_argument % full_core
+    carry = (lower_remainder + increment_remainder) // full_core
+    if carry not in (0, 1):
+        raise AssertionError("terminal quotient-window response carry is not binary")
+    window_size = max(0, q_max - q_min + 1)
+    if window_size != bulk + carry:
+        raise AssertionError("terminal quotient-window width failed bulk+carry transport")
 
     prime_tails = tuple(q for q in range(q_min, q_max + 1) if is_prime(q))
     center = k * (k + 1)
@@ -89,7 +115,11 @@ def terminal_tail_window(k: int, full_core: int) -> dict[str, object]:
         "full_core": full_core,
         "q_min": q_min,
         "q_max": q_max,
-        "window_size": max(0, q_max - q_min + 1),
+        "window_size": window_size,
+        "window_bulk": bulk,
+        "window_carry": carry,
+        "lower_argument_remainder": lower_remainder,
+        "increment_remainder": increment_remainder,
         "prime_tails": prime_tails,
         "prime_tail_count": len(prime_tails),
         "rows": tuple(rows),
@@ -122,10 +152,18 @@ def terminal_tail_window_profile(k: int) -> dict[str, object]:
     if len(signed_points) != len(set(signed_points)):
         raise AssertionError("distinct terminal prime-tail resources mapped to one signed state")
 
+    total_window = sum(int(row["window_size"]) for row in rows)
+    total_bulk = sum(int(row["window_bulk"]) for row in rows)
+    total_carry = sum(int(row["window_carry"]) for row in rows)
+    if total_window != total_bulk + total_carry:
+        raise AssertionError("terminal window profile failed aggregate bulk+carry identity")
+
     return {
         **shell,
         "window_rows": rows,
-        "total_window_integer_mass": sum(int(row["window_size"]) for row in rows),
+        "total_window_integer_mass": total_window,
+        "total_window_bulk_mass": total_bulk,
+        "total_window_carry_mass": total_carry,
         "terminal_prime_tail_count": len(all_tails),
         "terminal_prime_tails": tuple(sorted(all_tails)),
         "terminal_signed_points": tuple(sorted(signed_points)),
