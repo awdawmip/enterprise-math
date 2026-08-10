@@ -2,9 +2,13 @@ import unittest
 from itertools import permutations, product
 
 from enterprise_math.causal_conserved_transfer_geometry import (
+    a3_primitive_images,
+    a3_to_d3_fcc,
     a_flag_extension_count,
     a_full_rank_flag_law,
     apply_transfer_plan,
+    d3_fcc_to_a3,
+    is_d3_fcc_state,
     is_primitive_conserved_unit_transfer,
     minimum_transfer_plan,
     primitive_transfer,
@@ -90,6 +94,34 @@ class CausalConservedTransferGeometryTests(unittest.TestCase):
     def test_dimension_is_relation_slots_minus_one_conservation_law(self):
         for p in range(1, 8):
             self.assertEqual(zero_sum_relation_rank(p + 1), p)
+
+    def test_a3_to_d3_fcc_map_is_integer_bijection_on_small_states(self):
+        for state in product(range(-2, 3), repeat=4):
+            if sum(state) != 0:
+                continue
+            image = a3_to_d3_fcc(state)
+            self.assertTrue(is_d3_fcc_state(image))
+            self.assertEqual(d3_fcc_to_a3(image), state)
+
+        for state in product(range(-3, 4), repeat=3):
+            if not is_d3_fcc_state(state):
+                continue
+            image = d3_fcc_to_a3(state)
+            self.assertEqual(a3_to_d3_fcc(image), state)
+
+    def test_a3_primitive_transfers_map_exactly_to_twelve_d3_fcc_nearest_moves(self):
+        images = set(a3_primitive_images())
+        expected = set()
+        for zero_index in range(3):
+            other = [index for index in range(3) if index != zero_index]
+            for left_sign in (-1, 1):
+                for right_sign in (-1, 1):
+                    vector = [0, 0, 0]
+                    vector[other[0]] = left_sign
+                    vector[other[1]] = right_sign
+                    expected.add(tuple(vector))
+        self.assertEqual(len(images), 12)
+        self.assertEqual(images, expected)
 
 
 if __name__ == "__main__":
