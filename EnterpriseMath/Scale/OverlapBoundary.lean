@@ -1,4 +1,5 @@
 import Mathlib.Data.Nat.GCD.Basic
+import Mathlib.Data.Finset.Card
 
 namespace EnterpriseMath.Scale
 
@@ -112,5 +113,73 @@ theorem boundaryEq_gcd_existsUnique_index {d e i j : ℕ} (hd : 0 < d)
   calc
     (d / g) * l = i := hil.symm
     _ = (d / g) * k := hik
+
+/-- Canonical pair of boundary indices corresponding to reduced common-grid index `k`. -/
+def gcdBoundaryPair (d e k : ℕ) : ℕ × ℕ :=
+  ((d / d.gcd e) * k, (e / d.gcd e) * k)
+
+/-- All common boundary-index pairs in the closed unit interval, represented by their
+canonical reduced indices `0, ..., gcd(d,e)`. -/
+def gcdBoundaryPairs (d e : ℕ) : Finset (ℕ × ℕ) :=
+  (Finset.range (d.gcd e + 1)).image (gcdBoundaryPair d e)
+
+/-- Positive scales make the canonical reduced-index representation injective. -/
+theorem gcdBoundaryPair_injective {d e : ℕ} (hd : 0 < d) :
+    Function.Injective (gcdBoundaryPair d e) := by
+  intro a b hab
+  have hd' : 0 < d / d.gcd e := Nat.div_gcd_pos_of_pos_left e hd
+  have hfst := congrArg Prod.fst hab
+  exact Nat.mul_left_cancel hd' hfst
+
+/-- There are exactly `gcd(d,e)+1` common grid boundaries in the closed unit interval. -/
+theorem gcdBoundaryPairs_card {d e : ℕ} (hd : 0 < d) :
+    (gcdBoundaryPairs d e).card = d.gcd e + 1 := by
+  unfold gcdBoundaryPairs
+  rw [Finset.card_image_of_injective _ (gcdBoundaryPair_injective hd)]
+  simp
+
+/-- The canonical finite image is exactly the set of boundary-index pairs in `[0,1]`
+that represent the same geometric boundary. -/
+theorem mem_gcdBoundaryPairs_iff {d e i j : ℕ} (hd : 0 < d) :
+    (i, j) ∈ gcdBoundaryPairs d e ↔
+      i ≤ d ∧ j ≤ e ∧ boundaryEq d i e j := by
+  let g := d.gcd e
+  have hd_decomp : d = (d / g) * g := by
+    exact (Nat.div_mul_cancel (by
+      dsimp [g]
+      exact Nat.gcd_dvd_left d e)).symm
+  have he_decomp : e = (e / g) * g := by
+    exact (Nat.div_mul_cancel (by
+      dsimp [g]
+      exact Nat.gcd_dvd_right d e)).symm
+  constructor
+  · intro hmem
+    unfold gcdBoundaryPairs at hmem
+    rcases Finset.mem_image.mp hmem with ⟨k, hk, hpair⟩
+    have hk_le : k ≤ g := by
+      exact Nat.le_of_lt_succ (Finset.mem_range.mp hk)
+    have hik : i = (d / g) * k := by
+      have := congrArg Prod.fst hpair
+      simpa [gcdBoundaryPair, g] using this.symm
+    have hjk : j = (e / g) * k := by
+      have := congrArg Prod.snd hpair
+      simpa [gcdBoundaryPair, g] using this.symm
+    refine ⟨?_, ?_, ?_⟩
+    · rw [hik, hd_decomp]
+      exact Nat.mul_le_mul_left (d / g) hk_le
+    · rw [hjk, he_decomp]
+      exact Nat.mul_le_mul_left (e / g) hk_le
+    · apply (boundaryEq_gcd_iff hd).2
+      exact ⟨k, by simpa [g] using hik, by simpa [g] using hjk⟩
+  · rintro ⟨hi, _hj, hboundary⟩
+    obtain ⟨k, hk, _huniq⟩ := boundaryEq_gcd_existsUnique_index hd hi hboundary
+    rcases hk with ⟨hk_le, hik, hjk⟩
+    unfold gcdBoundaryPairs
+    apply Finset.mem_image.mpr
+    refine ⟨k, ?_, ?_⟩
+    · exact Finset.mem_range.mpr (Nat.lt_succ_of_le hk_le)
+    · apply Prod.ext
+      · simpa [gcdBoundaryPair] using hik.symm
+      · simpa [gcdBoundaryPair] using hjk.symm
 
 end EnterpriseMath.Scale
