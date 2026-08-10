@@ -1,4 +1,5 @@
 import EnterpriseMath.Quotient.RootQuotientCollectiveNecessity
+import EnterpriseMath.Quotient.RootQuotientCompilerLayering
 import EnterpriseMath.Quotient.RootQuotientMinimumStorage
 import Mathlib.Data.Set.Card
 import Mathlib.Tactic
