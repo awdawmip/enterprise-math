@@ -40,7 +40,8 @@ theorem prime_union_semiprimeFamily_separates_penultimate_iff_divisorCover
       intro g hg
       rcases hg with hgPrime | hgS
       · exact hgPrime.1.one_le
-      · exact (hSemi.1 hgS).1.trans (by omega)
+      · have hgTwo : 2 ≤ g := (hSemi.1 hgS).1
+        omega
     obtain ⟨g, hgUnion, _hgSemantic, hgCount, hgDvd⟩ :=
       exists_composite_semantic_divisor_of_penultimate_separator
         hr hHorizon hPos hSep hbMax
