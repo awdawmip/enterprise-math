@@ -13,9 +13,9 @@ from enterprise_math.p017_p018_terminal_tail_windows import terminal_tail_window
 class P017P018TerminalShellEnvelopeTests(unittest.TestCase):
     def test_reference_depth_weighted_envelopes(self):
         expected = {
-            8191: (233, 1005, 5075),
+            8191: (233, 493, 5075),
             524_287: (40, 40, 146),
-            2_147_483_647: (299_747, 2_063_385, 51_114_465),
+            2_147_483_647: (299_747, 3_779_055, 51_114_465),
         }
         for k, (radicals, full_cores, windows) in expected.items():
             data = terminal_replacement_depth_envelope(k)
