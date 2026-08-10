@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "sources": [
+    {
+      "id": "SRC-EOM-PADIC-VALUATION",
+      "title": "P-adic valuation",
+      "authors": ["Encyclopedia of Mathematics contributors"],
+      "year": 2023,
+      "kind": "reference-entry",
+      "primary_url": "https://encyclopediaofmath.org/wiki/P-adic_valuation",
+      "role": ["MATHEMATICAL-PRIOR", "VALUATION-PRIOR", "CONTRAST"],
+      "enterprise_use": "Records the established p-adic valuation laws v_p(xy)=v_p(x)+v_p(y) and v_p(x+y)>=min(v_p(x),v_p(y)), with equality when the two input valuations differ. R004 specializes these standard facts into a future-safe quotient/carry pressure test.",
+      "not_claimed": "P-adic valuations, non-Archimedean norms, and their ultrametric laws are established mathematics and are not Enterprise Math inventions.",
+      "verified_at": "2026-08-10"
+    },
+    {
+      "id": "SRC-RICHTERGEbert-STURMFELS-THEOBALD-2003-TROPICAL",
+      "title": "First steps in tropical geometry",
+      "authors": ["Jürgen Richter-Gebert", "Bernd Sturmfels", "Thorsten Theobald"],
+      "year": 2003,
+      "kind": "research-paper",
+      "primary_url": "https://arxiv.org/abs/math/0306366",
+      "role": ["MATHEMATICAL-PRIOR", "TROPICAL-PRIOR", "CONTRAST"],
+      "enterprise_use": "Provides a direct prior-art boundary for min-plus/tropical algebra. R004's valuation-off-diagonal min rule must not be advertised as invention of a new min-plus arithmetic.",
+      "not_claimed": "Tropical semirings, tropicalization, min-plus algebra and tropical geometry are established prior mathematics.",
+      "verified_at": "2026-08-10"
+    },
+    {
+      "id": "SRC-BAREISS-1968-FRACTION-FREE",
+      "title": "Sylvester's identity and multistep integer-preserving Gaussian elimination",
+      "authors": ["Erwin H. Bareiss"],
+      "year": 1968,
+      "kind": "research-paper",
+      "primary_url": "https://doi.org/10.1090/S0025-5718-1968-0226829-0",
+      "doi": "10.1090/S0025-5718-1968-0226829-0",
+      "role": ["MATHEMATICAL-PRIOR", "FRACTION-FREE-COMPUTATION", "TOOL-PRIOR"],
+      "enterprise_use": "Provides the established fraction-free exact-linear-algebra precedent for future Enterprise Math integer constraint solvers. R004 does not implement or claim the Bareiss algorithm here.",
+      "not_claimed": "Fraction-free Gaussian elimination and integer-preserving elimination are established symbolic-computation methods.",
+      "verified_at": "2026-08-10"
+    },
+    {
+      "id": "SRC-CHABERT-2025-INTEGER-VALUED-POLYNOMIALS",
+      "title": "Integer-Valued Polynomials: From Combinatorics to Number Theory, p-adic Analysis, Commutative and Non-Commutative Algebra",
+      "authors": ["Jean-Luc Chabert"],
+      "year": 2025,
+      "kind": "research-monograph",
+      "primary_url": "https://bookstore.ams.org/coll-69",
+      "role": ["MATHEMATICAL-PRIOR", "INTEGER-VALUED-POLYNOMIAL-PRIOR", "CONTRAST"],
+      "enterprise_use": "Provides the modern prior-art boundary for integer-valued-polynomial and binomial-coordinate methods. R004 uses only elementary binomial count identities and does not claim that integer-valued or binomial-basis polynomial calculus is new.",
+      "not_claimed": "Integer-valued polynomials, generalized factorial/orderings, p-adic analysis and binomial-coordinate methods are established prior mathematics.",
+      "verified_at": "2026-08-10"
+    }
+  ]
+}
