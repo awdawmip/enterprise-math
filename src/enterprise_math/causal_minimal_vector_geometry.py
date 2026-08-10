@@ -11,6 +11,15 @@ one of only two possibilities: no primitive adjacency, or exactly one perfect
 matching.  Hence every primitive-edge context is a two-fold lift of a simple
 base graph.  ADE simply-laced roots are the special case where this base graph
 is complete.
+
+A temporary 0/1 label in each complementary fiber turns every base edge into a
+matching bit.  Swapping the labels of one fiber flips all incident bits, so an
+individual bit is gauge-dependent.  XOR around a closed base loop is invariant.
+For a connected base graph, the complete loop-return signature determines the
+two-cover up to those fiber-label swaps.  When the base graph is complete,
+triangle return bits already suffice: after gauge-fixing all edges from one
+base vertex to zero, every remaining edge bit is exactly one triangle return
+bit through that vertex.
 """
 
 from __future__ import annotations
@@ -160,22 +169,57 @@ def edge_context_two_cover(
     )
 
 
-def triangle_loop_return_counts(context: MinimalVectorEdgeContext) -> tuple[int, int]:
-    """Return ``(preserving, flipping)`` base-triangle lift counts.
+def matching_bit_map(context: MinimalVectorEdgeContext) -> dict[tuple[int, int], int]:
+    return {(i, j): bit for i, j, bit in context.lift_matching_bits}
 
-    The XOR of the three matching bits around a base triangle is invariant
-    under swapping the two labels in any complementary fiber.
-    """
-    bit = {(i, j): value for i, j, value in context.lift_matching_bits}
-    preserving = 0
-    flipping = 0
+
+def triangle_loop_return_map(
+    context: MinimalVectorEdgeContext,
+) -> dict[tuple[int, int, int], int]:
+    """Gauge-invariant XOR return bit for every base triangle that exists."""
+    bit = matching_bit_map(context)
+    result: dict[tuple[int, int, int], int] = {}
     for i, j, k in combinations(range(context.complementary_fiber_count), 3):
         keys = ((i, j), (i, k), (j, k))
         if any(key not in bit for key in keys):
             continue
-        parity = bit[(i, j)] ^ bit[(i, k)] ^ bit[(j, k)]
-        if parity:
-            flipping += 1
-        else:
-            preserving += 1
-    return preserving, flipping
+        result[(i, j, k)] = bit[(i, j)] ^ bit[(i, k)] ^ bit[(j, k)]
+    return result
+
+
+def triangle_loop_return_counts(context: MinimalVectorEdgeContext) -> tuple[int, int]:
+    """Return ``(preserving, flipping)`` base-triangle lift counts."""
+    values = tuple(triangle_loop_return_map(context).values())
+    flipping = sum(values)
+    return len(values) - flipping, flipping
+
+
+def reconstruct_complete_base_bits_from_triangle_returns(
+    context: MinimalVectorEdgeContext,
+    anchor: int = 0,
+) -> dict[tuple[int, int], int]:
+    """Gauge-fix a complete-base two-cover using only triangle return bits.
+
+    All anchor-incident matching bits are fixed to zero.  For every other base
+    edge ``i--j``, its gauge-fixed bit equals the return bit on triangle
+    ``anchor,i,j``.  The reconstructed bit map therefore represents the exact
+    same two-cover up to independent swaps of the complementary fiber labels.
+    """
+    if not context.complete_base:
+        raise ValueError("triangle reconstruction requires a complete base graph")
+    n = context.complementary_fiber_count
+    if anchor < 0 or anchor >= n:
+        raise ValueError("anchor is outside the base graph")
+    returns = triangle_loop_return_map(context)
+    reconstructed: dict[tuple[int, int], int] = {}
+    for i, j in combinations(range(n), 2):
+        if anchor in (i, j):
+            reconstructed[(i, j)] = 0
+            continue
+        triple = tuple(sorted((anchor, i, j)))
+        reconstructed[(i, j)] = returns[triple]
+    return reconstructed
+
+
+def has_nontrivial_loop_return(context: MinimalVectorEdgeContext) -> bool:
+    return any(triangle_loop_return_map(context).values())
