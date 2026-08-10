@@ -1,23 +1,22 @@
 """Family-independent integer profiles for primitive-direction causal links.
 
-A primitive direction set is represented by integer displacement vectors.  Two
+A primitive direction set is represented by integer displacement vectors. Two
 directions alpha,beta are locally compatible when beta-alpha is again primitive.
 The induced graph on primitive directions is the first causal link around the
-origin.  This module intentionally avoids Euclidean angles and packing-density
+origin. This module intentionally avoids Euclidean angles and packing-density
 scores.
 
-For a compatible r-flag (an r-clique in the direction link), the extension count
-is the number of primitive directions that remain compatible with every member of
-the flag.  Histograms of these counts are exact finite continuation signatures:
-if a histogram is a singleton, all r-flags have the same one-step continuation
-capacity; the first non-singleton histogram marks a genuine higher-order local
-context split.
+Compatible flags grow only by adjoining another direction compatible with every
+current member. Hence their continuation language is acyclic in flag size. This
+allows exact finite-horizon future signatures to be computed recursively without
+introducing a continuous angle space.
 """
 
 from __future__ import annotations
 
 from collections import Counter, deque
 from dataclasses import dataclass
+from functools import lru_cache
 from itertools import combinations, product
 
 Vector = tuple[int, ...]
@@ -155,6 +154,74 @@ def flag_extension_histograms(
     return tuple(result)
 
 
+def cliques_of_size(adjacency: Adjacency, size: int) -> tuple[tuple[Vector, ...], ...]:
+    if isinstance(size, bool) or not isinstance(size, int) or size <= 0:
+        raise ValueError("size must be a positive integer")
+    vertices = tuple(adjacency)
+    order = {vertex: index for index, vertex in enumerate(vertices)}
+    cliques = [((vertex,), set(adjacency[vertex])) for vertex in vertices]
+    current_size = 1
+    while current_size < size and cliques:
+        next_cliques = []
+        for clique, common in cliques:
+            last = order[clique[-1]]
+            candidates = sorted((v for v in common if order[v] > last), key=order.get)
+            for vertex in candidates:
+                next_cliques.append((clique + (vertex,), common.intersection(adjacency[vertex])))
+        cliques = next_cliques
+        current_size += 1
+    return tuple(clique for clique, _ in cliques) if current_size == size else ()
+
+
+def _flag_extensions(adjacency: Adjacency, flag: tuple[Vector, ...]) -> frozenset[Vector]:
+    if not flag or len(set(flag)) != len(flag):
+        raise ValueError("flag must be a non-empty tuple of distinct vertices")
+    if any(vertex not in adjacency for vertex in flag):
+        raise ValueError("flag vertices must belong to adjacency")
+    for left, right in combinations(flag, 2):
+        if right not in adjacency[left]:
+            raise ValueError("flag must be pairwise compatible")
+    common = set(adjacency[flag[0]])
+    for vertex in flag[1:]:
+        common.intersection_update(adjacency[vertex])
+    return frozenset(common)
+
+
+def flag_future_signature(
+    adjacency: Adjacency,
+    flag: tuple[Vector, ...],
+    lookahead: int,
+) -> tuple:
+    """Exact unlabeled continuation-tree signature through `lookahead` additions."""
+    if isinstance(lookahead, bool) or not isinstance(lookahead, int) or lookahead < 0:
+        raise ValueError("lookahead must be a non-negative integer")
+    canonical_flag = tuple(sorted(flag))
+    _flag_extensions(adjacency, canonical_flag)
+
+    @lru_cache(maxsize=None)
+    def signature(current: tuple[Vector, ...], remaining: int) -> tuple:
+        if remaining == 0:
+            return ()
+        extensions = _flag_extensions(adjacency, current)
+        child_signatures = []
+        current_set = set(current)
+        for vertex in extensions:
+            child = tuple(sorted(current_set | {vertex}))
+            child_signatures.append(signature(child, remaining - 1))
+        return tuple(sorted(child_signatures, key=repr))
+
+    return signature(canonical_flag, lookahead)
+
+
+def flag_future_signature_histogram(
+    adjacency: Adjacency,
+    flag_size: int,
+    lookahead: int,
+) -> dict[tuple, int]:
+    flags = cliques_of_size(adjacency, flag_size)
+    return dict(Counter(flag_future_signature(adjacency, flag, lookahead) for flag in flags))
+
+
 def first_flag_split_order(flag_histograms: tuple[dict[int, int], ...]) -> int | None:
     for size, histogram in enumerate(flag_histograms, start=1):
         if len(histogram) > 1:
@@ -186,10 +253,7 @@ class PrimitiveLinkProfile:
     first_flag_split_order: int | None
 
 
-def link_profile(
-    adjacency: Adjacency,
-    maximum_flag_size: int | None = None,
-) -> PrimitiveLinkProfile:
+def link_profile(adjacency: Adjacency, maximum_flag_size: int | None = None) -> PrimitiveLinkProfile:
     if not adjacency:
         raise ValueError("adjacency must be non-empty")
     flag_histograms = flag_extension_histograms(adjacency, maximum_flag_size)
@@ -206,17 +270,11 @@ def link_profile(
     )
 
 
-def primitive_link_profile(
-    roots: tuple[Vector, ...],
-    maximum_flag_size: int | None = None,
-) -> PrimitiveLinkProfile:
+def primitive_link_profile(roots: tuple[Vector, ...], maximum_flag_size: int | None = None) -> PrimitiveLinkProfile:
     return link_profile(primitive_direction_graph(roots), maximum_flag_size)
 
 
-def primitive_isotropy_contract(
-    profile: PrimitiveLinkProfile,
-    flag_horizon: int,
-) -> bool:
+def primitive_isotropy_contract(profile: PrimitiveLinkProfile, flag_horizon: int) -> bool:
     """Finite causal-horizon candidate, not a physical isotropy theorem."""
     if isinstance(flag_horizon, bool) or not isinstance(flag_horizon, int) or flag_horizon < 0:
         raise ValueError("flag_horizon must be a non-negative integer")
@@ -302,14 +360,7 @@ def _triangular_q(x: int, y: int) -> int:
 
 
 def hcp_direction_graph() -> Adjacency:
-    """Ideal HCP first-neighbor link from an integer close-packed layer model.
-
-    Basal coordinates are multiplied by three.  In-plane nearest contacts have
-    Q(dx,dy)=9 for Q=x^2+xy+y^2.  Adjacent-layer registry shift is (1,1) mod 3;
-    the ideal vertical contribution is represented by the exact integer 6, so a
-    cross-layer nearest contact satisfies Q(dx,dy)+6=9.  No floating point is
-    required.
-    """
+    """Ideal HCP first-neighbor link from an integer close-packed layer model."""
     equatorial = (
         (3, 0, 0), (-3, 0, 0), (0, 3, 0), (0, -3, 0), (3, -3, 0), (-3, 3, 0)
     )
