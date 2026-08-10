@@ -17,6 +17,10 @@ empirical k-window frequencies over one period.  This distinction prevents
 ensemble stationary laws from being conflated with single-trajectory time
 averages.
 
+For an arbitrary finite linear record, periodic repetition changes only the
+k-1 wraparound windows.  Its local empirical law is therefore within exact
+total-variation distance at most (k-1)/N of the observed linear-window law.
+
 All calculations are finite and integer/Fraction exact.  This is classical
 circulation/Eulerian-cycle mathematics used as a project-local certificate; no
 generic novelty is claimed and no physical ontology is inferred.
@@ -168,6 +172,19 @@ def cycle_period_symbols(cycle: Sequence[Block]) -> tuple[Symbol, ...]:
     return tuple(block[0] for block in edges)
 
 
+def linear_window_counts(record: Sequence[Symbol], width: int) -> dict[Block, int]:
+    """Count ordinary non-wrapping windows in a finite linear record."""
+    symbols = tuple(record)
+    if not symbols:
+        raise ValueError("record must be nonempty")
+    if isinstance(width, bool) or not isinstance(width, int) or width <= 0 or width > len(symbols):
+        raise ValueError("width must satisfy 1 <= width <= record length")
+    counts: Counter[Block] = Counter()
+    for start in range(len(symbols) - width + 1):
+        counts[tuple(symbols[start : start + width])] += 1
+    return dict(counts)
+
+
 def cyclic_window_counts(period: Sequence[Symbol], width: int) -> dict[Block, int]:
     """Count cyclic length-``width`` windows, one starting at each phase."""
     symbols = tuple(period)
@@ -181,6 +198,65 @@ def cyclic_window_counts(period: Sequence[Symbol], width: int) -> dict[Block, in
         block = tuple(symbols[(start + offset) % size] for offset in range(width))
         counts[block] += 1
     return dict(counts)
+
+
+def _normalized_count_law(counts: Mapping[Block, int]) -> dict[Block, Fraction]:
+    positive = {block: count for block, count in counts.items() if count}
+    if not positive or any(
+        isinstance(count, bool) or not isinstance(count, int) or count < 0
+        for count in counts.values()
+    ):
+        raise ValueError("counts must have positive integer total mass")
+    total = sum(positive.values())
+    return {block: Fraction(count, total) for block, count in positive.items()}
+
+
+def total_variation_distance(
+    left: Mapping[Block, Fraction], right: Mapping[Block, Fraction]
+) -> Fraction:
+    """Exact total-variation distance between two finite rational laws."""
+    keys = set(left) | set(right)
+    if not keys:
+        raise ValueError("laws must have nonempty support")
+    left_law = {key: Fraction(value) for key, value in left.items()}
+    right_law = {key: Fraction(value) for key, value in right.items()}
+    if any(value < 0 for value in left_law.values()) or any(
+        value < 0 for value in right_law.values()
+    ):
+        raise ValueError("law weights must be nonnegative")
+    if sum(left_law.values(), Fraction(0)) != 1 or sum(
+        right_law.values(), Fraction(0)
+    ) != 1:
+        raise ValueError("law weights must sum exactly to one")
+    return Fraction(1, 2) * sum(
+        (abs(left_law.get(key, Fraction(0)) - right_law.get(key, Fraction(0))) for key in keys),
+        start=Fraction(0),
+    )
+
+
+def finite_record_periodic_shadow(
+    record: Sequence[Symbol], width: int
+) -> tuple[dict[Block, Fraction], dict[Block, Fraction], Fraction, Fraction]:
+    """Compare a finite record with its deterministic periodic repetition.
+
+    Returns the linear-window law, cyclic-period law, exact total-variation
+    distance, and the universal boundary bound ``(width-1)/N``.  The proof is
+    the convex decomposition
+
+        q = ((N-k+1)/N) p + ((k-1)/N) r,
+
+    where ``r`` is the distribution of the wraparound windows when ``k>1``.
+    """
+    symbols = tuple(record)
+    linear_counts = linear_window_counts(symbols, width)
+    cyclic_counts = cyclic_window_counts(symbols, width)
+    linear_law = _normalized_count_law(linear_counts)
+    cyclic_law = _normalized_count_law(cyclic_counts)
+    distance = total_variation_distance(linear_law, cyclic_law)
+    bound = Fraction(width - 1, len(symbols))
+    if distance > bound:
+        raise AssertionError("periodic shadow cannot exceed the wraparound TV bound")
+    return linear_law, cyclic_law, distance, bound
 
 
 def eulerian_stationary_period(block_counts: Mapping[Block, int]) -> tuple[Symbol, ...]:
