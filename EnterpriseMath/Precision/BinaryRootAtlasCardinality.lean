@@ -34,7 +34,7 @@ theorem guaranteedLowRootStates_card (H : ℕ) :
         (Finset.range (H - 1)).card :=
       Finset.card_image_of_injective (Finset.range (H - 1)) (by
         intro i j hij
-        omega)
+        exact Nat.add_right_cancel hij)
     _ = H - 1 := Finset.card_range (H - 1)
 
 /-- Membership in the guaranteed low-root set is exactly the positive interval
@@ -234,7 +234,7 @@ theorem quotientRootStates_eq_high_union_low_of_horizon_pos
 /-- The explicit high and low charts are disjoint for positive horizon. -/
 theorem high_low_root_states_disjoint_of_horizon_pos
     {s n : ℕ}
-    (hn : 0 < n) :
+    (_hn : 0 < n) :
     let H := root (s + 2) ((s + 1) * n - 1)
     let D := n / (H + 1) ^ (s + 1)
     0 < H →
