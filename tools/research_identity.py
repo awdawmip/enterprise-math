@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Resolve or allocate visible Enterprise Math Researcher-IDs.
 
-This helper is intentionally small and local-first. Scheduler CLAIM identities are
-deterministic from (task_id, claim_id). Direct user tasks or role transitions
-without a claim receive a random short-code ID that the conversation must retain.
-Registration in GLOBAL_KNOWLEDGE is a separate best-effort continuity step.
+Scheduler CLAIM identities are deterministic from (task_id, claim_id). Direct
+user tasks or role transitions without a claim receive a random short-code ID
+that the conversation must retain. GLOBAL_KNOWLEDGE registration is one file
+per identity, avoiding shared-directory startup races.
 """
 
 from __future__ import annotations
@@ -20,6 +20,7 @@ from typing import Any
 ID_RE = re.compile(r"^EM-[A-Z0-9]+-(?:[0-9]{2}|[A-Z0-9]{4,8})$")
 LANE_RE = re.compile(r"[^A-Z0-9]+")
 TASK_LANE_RE = re.compile(r"^RS-((?:R|P)\d{3}[A-Z]?)\b")
+REGISTRATION_ROOT = "projects/enterprise-math/researchers"
 
 
 def normalize_lane(value: str) -> str:
@@ -73,6 +74,13 @@ def allocate_direct(
     return f"EM-{resolved_lane}-{suffix}"
 
 
+def registration_path(researcher_id: str) -> str:
+    normalized = researcher_id.strip().upper()
+    if not valid_researcher_id(normalized):
+        raise ValueError(f"invalid Researcher-ID: {researcher_id}")
+    return f"{REGISTRATION_ROOT}/{normalized}.json"
+
+
 def identity_payload(
     *,
     researcher_id: str,
@@ -89,6 +97,9 @@ def identity_payload(
         "research_task": task,
         "research_role": role,
         "identity_source": source,
+        "registration_repository": "awdawmip/chatgpt-global-knowledge",
+        "registration_path": registration_path(researcher_id),
+        "registration_state": "REGISTER_PENDING",
         "visible_marker": f"Researcher-ID: {researcher_id} / {task}",
     }
 
