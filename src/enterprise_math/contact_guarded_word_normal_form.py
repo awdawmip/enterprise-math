@@ -47,6 +47,17 @@ which is exactly intersection of their rectangular domains.  Thus kernel words
 do not necessarily collapse to one group identity: they form a semilattice of
 causal domain idempotents.
 
+For distinct unit actions, the unguarded score additions commute automatically,
+but the guarded partial maps commute on the whole score space exactly when
+both directed cross couplings vanish:
+
+    K_ij = K_ji = 0.
+
+For symmetric contact Gram matrices this reduces to ``K_ij=0``.  This is
+strictly stronger than the nonpositive-cross-coupling condition that guarantees
+no cross-disable inside the restricted region where both contacts are already
+closing.
+
 For a contact Gram ``K=B^T D B``, the previously established E001 identity
 ``ker K = ker B`` means cycle-space impulse counts have zero body/contact-score
 shift.  Any legal word carrying such a count vector is therefore a partial
@@ -384,3 +395,59 @@ def zero_shift_domain_product(
     if not left.is_partial_identity or not right.is_partial_identity:
         raise ValueError("zero-shift domain product requires partial identities")
     return compose_contact_guarded_profiles(left, right)
+
+
+def unit_contact_actions_commute_extensionally(
+    coupling: Sequence[Sequence[int]],
+    left_action: int,
+    right_action: int,
+) -> bool:
+    """Exact global partial-map commutativity criterion for two unit actions.
+
+    Unguarded additions always commute.  With contact-local closing guards,
+    distinct unit actions commute as partial maps on the whole score space
+    exactly when neither action shifts the other action's guarded coordinate:
+
+        K[left,right] = K[right,left] = 0.
+
+    For symmetric contact Gram matrices this reduces to one off-diagonal zero.
+    """
+    matrix = _square_integer_matrix(coupling)
+    dimension = len(matrix)
+    _require_int("left_action", left_action)
+    _require_int("right_action", right_action)
+    if not 0 <= left_action < dimension:
+        raise ValueError("left_action is outside the score space")
+    if not 0 <= right_action < dimension:
+        raise ValueError("right_action is outside the score space")
+    if left_action == right_action:
+        return True
+
+    predicted = (
+        matrix[left_action][right_action] == 0
+        and matrix[right_action][left_action] == 0
+    )
+    left = contact_guarded_word_profile(
+        matrix,
+        (left_action, right_action),
+    )
+    right = contact_guarded_word_profile(
+        matrix,
+        (right_action, left_action),
+    )
+    if (left == right) != predicted:
+        raise AssertionError("unit guarded commutativity disagrees with cross coupling")
+    return predicted
+
+
+def guarded_contact_family_is_globally_commutative(
+    coupling: Sequence[Sequence[int]],
+) -> bool:
+    """Whether every pair of unit guarded contact actions commutes globally."""
+    matrix = _square_integer_matrix(coupling)
+    dimension = len(matrix)
+    return all(
+        unit_contact_actions_commute_extensionally(matrix, left, right)
+        for left in range(dimension)
+        for right in range(left + 1, dimension)
+    )

@@ -11,6 +11,8 @@ from enterprise_math.contact_guarded_word_normal_form import (
     contact_profile_separating_state,
     contact_word_action_counts,
     empty_contact_guarded_profile,
+    guarded_contact_family_is_globally_commutative,
+    unit_contact_actions_commute_extensionally,
     zero_shift_domain_product,
 )
 
@@ -216,6 +218,70 @@ class ContactGuardedWordNormalFormTests(unittest.TestCase):
 
         self.assertEqual(len(closure), 16)
         self.assertTrue(all(profile.is_partial_identity for profile in closure))
+
+    def test_global_guarded_commutativity_requires_zero_cross_coupling(self):
+        diagonal = (
+            (2, 0),
+            (0, 3),
+        )
+        self.assertTrue(
+            unit_contact_actions_commute_extensionally(diagonal, 0, 1)
+        )
+        self.assertTrue(
+            guarded_contact_family_is_globally_commutative(diagonal)
+        )
+
+        self.assertFalse(
+            unit_contact_actions_commute_extensionally(PATH_K, 0, 1)
+        )
+        self.assertFalse(
+            guarded_contact_family_is_globally_commutative(PATH_K)
+        )
+        self.assertFalse(
+            unit_contact_actions_commute_extensionally(
+                POSITIVE_V_K, 0, 1
+            )
+        )
+
+    def test_cross_coupling_criterion_matches_profile_equality_exhaustively(self):
+        for a00, a01, a10, a11 in itertools.product(range(-2, 3), repeat=4):
+            coupling = (
+                (a00, a01),
+                (a10, a11),
+            )
+            predicted = (a01 == 0 and a10 == 0)
+            self.assertEqual(
+                unit_contact_actions_commute_extensionally(
+                    coupling, 0, 1
+                ),
+                predicted,
+            )
+            first = contact_guarded_word_profile(coupling, (0, 1))
+            second = contact_guarded_word_profile(coupling, (1, 0))
+            self.assertEqual(first == second, predicted)
+
+    def test_score_shift_projection_is_monoid_homomorphism(self):
+        sample = words(3, 3)
+        for first_word in sample:
+            first = contact_guarded_word_profile(CYCLE_K, first_word)
+            for second_word in sample:
+                second = contact_guarded_word_profile(
+                    CYCLE_K, second_word
+                )
+                product_profile = compose_contact_guarded_profiles(
+                    first, second
+                )
+                self.assertEqual(
+                    product_profile.score_shift,
+                    tuple(
+                        left + right
+                        for left, right in zip(
+                            first.score_shift,
+                            second.score_shift,
+                            strict=True,
+                        )
+                    ),
+                )
 
     def test_validation(self):
         with self.assertRaises(ValueError):
