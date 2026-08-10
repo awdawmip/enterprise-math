@@ -7,8 +7,11 @@ from enterprise_math.p018_p023_power_free_action_basis import (
 )
 from enterprise_math.p018_p023_quotient_word_basis import (
     binary_present_observation_regime,
+    minimal_r_power_free_for_omega,
+    omega_with_multiplicity,
     prime_generator_basis,
     prime_generator_required_horizon,
+    prime_generator_required_horizon_via_packing,
     quotient_word_language_covers_power_free_boundaries,
     quotient_word_language_separates_bounded_domain,
     quotient_word_product,
@@ -105,6 +108,39 @@ class P018P023QuotientWordBasisTests(unittest.TestCase):
                         )
                     )
 
+    def test_power_free_omega_packing_matches_direct_horizon(self):
+        for root_exp in range(2, 7):
+            for max_state in range(1, 500):
+                self.assertEqual(
+                    prime_generator_required_horizon_via_packing(
+                        max_state, root_exp
+                    ),
+                    prime_generator_required_horizon(max_state, root_exp),
+                )
+
+    def test_minimal_packing_representative_has_requested_omega(self):
+        for root_exp in range(2, 7):
+            for total_omega in range(0, 14):
+                candidate = minimal_r_power_free_for_omega(
+                    total_omega, root_exp
+                )
+                self.assertEqual(
+                    omega_with_multiplicity(candidate), total_omega
+                )
+                self.assertIn(
+                    candidate,
+                    minimal_root_quotient_action_basis(candidate, root_exp),
+                )
+                # Exhaustive minimality pressure-test at modest scale.
+                for smaller in range(1, candidate):
+                    if omega_with_multiplicity(smaller) == total_omega:
+                        self.assertNotIn(
+                            smaller,
+                            minimal_root_quotient_action_basis(
+                                smaller, root_exp
+                            ),
+                        )
+
     def test_binary_present_observation_can_require_full_one_step_basis(self):
         root_exp = 4
         max_state = 10
@@ -151,6 +187,8 @@ class P018P023QuotientWordBasisTests(unittest.TestCase):
             reachable_quotient_products((2,), -1)
         with self.assertRaises(ValueError):
             prime_generator_required_horizon(10, 0)
+        with self.assertRaises(ValueError):
+            minimal_r_power_free_for_omega(1, 1)
 
 
 if __name__ == "__main__":
