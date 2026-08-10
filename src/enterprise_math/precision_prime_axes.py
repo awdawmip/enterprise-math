@@ -113,20 +113,49 @@ def prime_power_axis_scale_chains(scale: int) -> tuple[tuple[int, ...], ...]:
     )
 
 
-def refinement_rank_monotone(coarse: int, fine: int) -> bool:
+def refinement_multiplier(coarse: int, fine: int) -> int:
     _pos(coarse, "coarse")
     _pos(fine, "fine")
     if fine % coarse:
         raise ValueError("coarse scale must divide fine scale")
-    return prime_axis_rank(coarse) <= prime_axis_rank(fine)
+    return fine // coarse
+
+
+def refinement_new_primes(coarse: int, fine: int) -> tuple[int, ...]:
+    multiplier = refinement_multiplier(coarse, fine)
+    old = set(prime_axis_support(coarse))
+    return tuple(prime for prime in prime_axis_support(multiplier) if prime not in old)
+
+
+def refinement_rank_increment(coarse: int, fine: int) -> int:
+    """Exact new-axis count for one divisibility refinement."""
+    refinement_multiplier(coarse, fine)
+    increment = prime_axis_rank(fine) - prime_axis_rank(coarse)
+    expected = len(refinement_new_primes(coarse, fine))
+    if increment != expected:
+        raise AssertionError("prime-support union must equal the fine support")
+    return increment
+
+
+def refinement_rank_monotone(coarse: int, fine: int) -> bool:
+    return refinement_rank_increment(coarse, fine) >= 0
 
 
 def prime_support_stable(coarse: int, fine: int) -> bool:
-    _pos(coarse, "coarse")
-    _pos(fine, "fine")
-    if fine % coarse:
-        raise ValueError("coarse scale must divide fine scale")
+    refinement_multiplier(coarse, fine)
     return prime_axis_support(coarse) == prime_axis_support(fine)
+
+
+def dimension_preserving_refinement(coarse: int, fine: int) -> bool:
+    """Candidate-dimension preserving iff the refinement introduces no new prime."""
+    return refinement_rank_increment(coarse, fine) == 0
+
+
+def refinement_support_balance_holds(coarse: int, fine: int) -> bool:
+    """Check ``Delta rank = |supp(fine/coarse) \ supp(coarse)|`` exactly."""
+    return refinement_rank_increment(coarse, fine) == len(
+        refinement_new_primes(coarse, fine)
+    )
 
 
 def prime_axis_rank_sequence(scales: Sequence[int]) -> tuple[int, ...]:
