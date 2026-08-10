@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-STRUCTURAL-DEFECT-DIAMOND",
+      "name": "structural defect diamond and premature-collapse debt",
+      "project_addition": "For nested observation row modules U'<=U and target row modules W'<=W, identifies a canonical interaction module I=(U cap W)/((U' cap W)+(U cap W')) controlling both the extra observation-loss defect and the extra target-retirement benefit. The resulting four-point cross interaction mass is nonnegative. Interprets I as the exact p-adic debt of collapsing observation before the last use of target structure.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "updates": [
+        "EM-COMP-R004-STRUCTURAL-TARGET-CUT",
+        "EM-COMP-R004-SUFFIX-CERTIFICATE-LIVENESS",
+        "EM-COMP-R004-TYPED-DEFECT-COMPOSITION"
+      ],
+      "relation_to_owners": {
+        "P023": "INFORM_LAST_USE_COST_SPECIALIZATION",
+        "P024": "CONSUME_TYPED_PRECISION_DEBT_AXIS",
+        "Foundation": "TEST_OBSERVATION_TARGET_INTERACTION_MODULE"
+      }
+    }
+  ]
+}
