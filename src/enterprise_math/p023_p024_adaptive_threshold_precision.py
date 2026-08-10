@@ -1,22 +1,39 @@
-"""Adaptive versus static future precision in the binary root regime.
+"""Static, reset-oracle adaptive, and destructive future precision.
 
-Assume ``0 <= q <= N < 2**r``.  Then a positive quotient action ``a`` followed
-by the ``r``-th-root observation is exactly the threshold bit
+Assume ``0 <= q <= N < 2**r``. Then a positive quotient denominator ``a``
+followed by the ``r``-th-root observation is exactly the threshold bit
 
     root_r(q // a) = 1  iff  a <= q.
 
-Thus the quotient-root future language becomes an ordered threshold-query
-system.  This module keeps three resources separate:
+There are two different adaptive semantics and they must not be identified.
 
-* static future alphabet size;
-* adaptive query depth when arbitrary thresholds are one-step actions;
-* adaptive primitive-action cost when only prime generators are primitive and
-  a threshold ``a`` is compiled as a prime word of length ``Omega(a)``.
+RESET / COUNTERFACTUAL ORACLE
+    Each threshold query is evaluated on the same original state ``q`` (for
+    example by reset, a fresh copy, or a counterfactual signature coordinate).
+    Under this semantics ordinary binary search applies.  The functions named
+    ``adaptive_*`` below belong to this reset-oracle model.
 
-Binary search, information lower bounds, prime factorization, and ordered
-threshold decision trees are prior mathematics.  The project-specific role of
-this module is only to expose their exact finite quotient-root specialization as
-an executable P023/P024 pressure test.
+DESTRUCTIVE SINGLE TRAJECTORY
+    A literal quotient action updates the actual state
+
+        q <- q // a.
+
+    Later actions continue from that changed state.  In the binary regime this
+    is much weaker: for ``N >= 3`` no adaptive single-trajectory quotient
+    protocol can recover the exact initial positive state at any finite depth.
+    Before the first nonidentity action all positive states look the same.  If
+    that first action is 2, initial states 2 and 3 both become 1; if it is at
+    least 3, initial states 1 and 2 both become 0.  Once two candidates become
+    the same exact state, no continuation can distinguish them.
+
+This distinction is the intended P023/P024 pressure test: a counterfactual
+future signature can be exact even when no one physically executable
+state-mutating experiment path is identifying.
+
+Binary search, information lower bounds, prime factorization, decision trees,
+and irreversible state merging are prior mathematics/CS.  Project-specific
+scope is only the exact quotient-root specialization and precision-layer
+separation.
 """
 
 from __future__ import annotations
@@ -31,23 +48,40 @@ def _require_natural(name: str, value: int) -> None:
         raise ValueError(f"{name} must be a non-negative integer")
 
 
+def _require_positive(name: str, value: int) -> None:
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise ValueError(f"{name} must be a positive integer")
+
+
+def _require_binary_regime(max_state: int, root_exp: int) -> None:
+    _require_natural("max_state", max_state)
+    _require_positive("root_exp", root_exp)
+    if max_state >= 2**root_exp:
+        raise ValueError("requires max_state < 2**root_exp")
+
+
 def threshold_bit(state: int, threshold: int) -> int:
     """Return the ordered threshold observation ``1[threshold <= state]``."""
     _require_natural("state", state)
-    if isinstance(threshold, bool) or not isinstance(threshold, int) or threshold <= 0:
-        raise ValueError("threshold must be a positive integer")
+    _require_positive("threshold", threshold)
     return int(threshold <= state)
 
 
-def static_threshold_signature(state: int, thresholds: tuple[int, ...]) -> tuple[int, ...]:
-    """Return the nonadaptive threshold signature in the supplied query order."""
+def static_threshold_signature(
+    state: int, thresholds: tuple[int, ...]
+) -> tuple[int, ...]:
+    """Return the nonadaptive counterfactual threshold signature."""
     return tuple(threshold_bit(state, threshold) for threshold in thresholds)
 
 
-def static_thresholds_separate_domain(max_state: int, thresholds: tuple[int, ...]) -> bool:
-    """Check whether fixed threshold queries distinguish every state ``0,...,N``."""
+def static_thresholds_separate_domain(
+    max_state: int, thresholds: tuple[int, ...]
+) -> bool:
+    """Check whether fixed counterfactual thresholds separate ``0,...,N``."""
     _require_natural("max_state", max_state)
-    signatures = [static_threshold_signature(q, thresholds) for q in range(max_state + 1)]
+    signatures = [
+        static_threshold_signature(q, thresholds) for q in range(max_state + 1)
+    ]
     return len(signatures) == len(set(signatures))
 
 
@@ -63,11 +97,15 @@ def minimal_static_future_thresholds_after_current(max_state: int) -> tuple[int,
 
 
 def adaptive_unit_query_depth_after_current(max_state: int) -> int:
-    """Exact worst-case number of *additional* adaptive threshold queries.
+    """Exact additional depth in the RESET / counterfactual-oracle model.
 
-    The free current observation first isolates state 0.  If the state is
-    positive, ``N`` possibilities remain and ordinary balanced binary search
-    needs exactly ``ceil(log2 N)`` further threshold queries.
+    Every query is evaluated on the same original state.  The free current
+    observation first isolates state 0.  If the state is positive, ``N``
+    possibilities remain and balanced binary search needs exactly
+    ``ceil(log2 N)`` further threshold queries.
+
+    This is not the depth of one destructive quotient trajectory; see
+    ``destructive_single_trajectory_exact_depth`` below.
     """
     _require_natural("max_state", max_state)
     if max_state <= 1:
@@ -89,7 +127,7 @@ def _adaptive_unit_interval_depth(lower: int, upper: int) -> int:
 
 
 def adaptive_unit_query_depth_dp_after_current(max_state: int) -> int:
-    """Independent exact interval-DP realization of the unit-cost depth."""
+    """Independent interval-DP oracle for RESET adaptive unit-cost depth."""
     _require_natural("max_state", max_state)
     if max_state <= 1:
         return 0
@@ -111,12 +149,15 @@ def _adaptive_prime_interval_cost(lower: int, upper: int) -> int:
 
 
 def adaptive_prime_word_cost_after_current(max_state: int) -> int:
-    """Exact worst-case primitive-action cost for the prime generator alphabet.
+    """Exact RESET-oracle cost when thresholds are compiled from prime words.
 
-    A threshold ``a`` is executable by a shortest prime word of length
-    ``Omega(a)``.  The recurrence minimizes the worst-case sum of those word
-    lengths over adaptive ordered threshold trees on the remaining states
-    ``1,...,N`` after the free current observation.
+    Threshold ``a`` is charged ``Omega(a)`` primitive quotient instructions,
+    but the threshold result is treated as a query on the original state and
+    the next query starts from that original state again.  Intermediate prefix
+    observations inside the compiled word are not used by this cost model.
+
+    Thus this is a counterfactual/reset experiment cost, not the cost of one
+    continuing destructive quotient trajectory.
     """
     _require_natural("max_state", max_state)
     if max_state <= 1:
@@ -125,7 +166,7 @@ def adaptive_prime_word_cost_after_current(max_state: int) -> int:
 
 
 def adaptive_prime_word_best_first_threshold(max_state: int) -> int | None:
-    """Return one optimal first threshold for the weighted prime-word problem."""
+    """Return one optimal first RESET-oracle threshold in the weighted model."""
     _require_natural("max_state", max_state)
     if max_state <= 1:
         return None
@@ -140,3 +181,53 @@ def adaptive_prime_word_best_first_threshold(max_state: int) -> int | None:
             best_cost = value
             best_threshold = threshold
     return best_threshold
+
+
+def destructive_first_nonidentity_merge_pair(
+    max_state: int, action: int
+) -> tuple[int, int] | None:
+    """Return the pair irreversibly merged by a first nonidentity quotient.
+
+    On the positive binary-regime branch with ``N>=3``:
+
+    * action 2 merges initial states 2 and 3 to exact state 1;
+    * every action >=3 merges initial states 1 and 2 to exact state 0.
+
+    Action 1 changes nothing and therefore has no forced merge pair yet.
+    """
+    _require_natural("max_state", max_state)
+    _require_positive("action", action)
+    if max_state < 3 or action == 1:
+        return None
+    if action == 2:
+        return (2, 3)
+    return (1, 2)
+
+
+def destructive_single_trajectory_exact_depth(
+    max_state: int, root_exp: int
+) -> int | None:
+    """Exact identification depth for one literal state-mutating trajectory.
+
+    The result is valid in the binary root regime ``N < 2**r`` after the free
+    current observation has already isolated state 0.
+
+    * ``N<=1``: no additional action is needed;
+    * ``N=2``: denominator 2 distinguishes the two positive states in one step;
+    * ``N>=3``: exact identification is impossible at every finite depth.
+
+    ``None`` denotes the last case, not an unknown bound.
+    """
+    _require_binary_regime(max_state, root_exp)
+    if max_state <= 1:
+        return 0
+    if max_state == 2:
+        return 1
+    return None
+
+
+def destructive_single_trajectory_identifiable(
+    max_state: int, root_exp: int
+) -> bool:
+    """Return whether one destructive quotient trajectory can identify exactly."""
+    return destructive_single_trajectory_exact_depth(max_state, root_exp) is not None
