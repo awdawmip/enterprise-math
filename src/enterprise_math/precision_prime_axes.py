@@ -158,6 +158,22 @@ def refinement_support_balance_holds(coarse: int, fine: int) -> bool:
     )
 
 
+def coarsening_lost_primes(fine: int, coarse: int) -> tuple[int, ...]:
+    refinement_multiplier(coarse, fine)
+    coarse_support = set(prime_axis_support(coarse))
+    return tuple(prime for prime in prime_axis_support(fine) if prime not in coarse_support)
+
+
+def coarsening_rank_loss(fine: int, coarse: int) -> int:
+    """Exact candidate-axis loss when moving from fine scale to a divisor scale."""
+    refinement_multiplier(coarse, fine)
+    loss = prime_axis_rank(fine) - prime_axis_rank(coarse)
+    expected = len(coarsening_lost_primes(fine, coarse))
+    if loss != expected:
+        raise AssertionError("coarsening rank loss must equal removed prime support")
+    return loss
+
+
 def prime_axis_rank_sequence(scales: Sequence[int]) -> tuple[int, ...]:
     chain = tuple(scales)
     if not chain:
@@ -174,3 +190,36 @@ def prime_axis_rank_stabilized_after(scales: Sequence[int], index: int) -> bool:
     if isinstance(index, bool) or not isinstance(index, int) or not 0 <= index < len(ranks):
         raise ValueError("index outside scale sequence")
     return all(rank == ranks[index] for rank in ranks[index:])
+
+
+def total_rank_opening(scales: Sequence[int]) -> int:
+    """Path-independent total number of prime-axis opening events."""
+    chain = tuple(scales)
+    ranks = prime_axis_rank_sequence(chain)
+    total = sum(
+        refinement_rank_increment(coarse, fine)
+        for coarse, fine in zip(chain, chain[1:])
+    )
+    expected = ranks[-1] - ranks[0]
+    if total != expected:
+        raise AssertionError("rank increments must telescope")
+    return total
+
+
+def total_rank_contraction(scales: Sequence[int]) -> int:
+    """Total lost prime-axis rank along a descending divisibility chain."""
+    chain = tuple(scales)
+    if not chain:
+        raise ValueError("scale sequence must be nonempty")
+    for scale in chain:
+        _pos(scale, "scale")
+    if any(left % right for left, right in zip(chain, chain[1:])):
+        raise ValueError("scales must form a descending divisor chain")
+    total = sum(
+        coarsening_rank_loss(fine, coarse)
+        for fine, coarse in zip(chain, chain[1:])
+    )
+    expected = prime_axis_rank(chain[0]) - prime_axis_rank(chain[-1])
+    if total != expected:
+        raise AssertionError("rank losses must telescope")
+    return total
