@@ -409,6 +409,12 @@ class PartialOperationQuotientTests(unittest.TestCase):
                 undefined_state=[],
                 undefined_observation="UNDEFINED",
             )
+        with self.assertRaises(ValueError):
+            stable_partial_family_partition(
+                (0, 1),
+                {"a": {0: 1}},
+                {0: [], 1: []},
+            )
 
 
 if __name__ == "__main__":
