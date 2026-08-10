@@ -110,7 +110,7 @@
     "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
     "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel",
-    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure, task-relative Barlow stacking precision, periodic-drift growth equations and eventual C-finite recurrence classes"
+    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure, task-relative Barlow stacking precision, periodic-drift growth equations and eventual C-finite recurrence classes, coordination shell/ball cardinality and first-moment observables"
   },
   "canonical_specializations": {
     "P018_P023_power_free_action_basis": {
@@ -151,6 +151,13 @@
       "scope": "exact periodic Barlow shell-total geodesic formulas from prefix imbalance, period drift D, positive growth equation (lambda-2)^(2L)=2^(L+|D|), finite drift-deviation bounds, and a universal eventual C-finite annihilator/recurrence class determined by period length and absolute drift",
       "negative_boundary": "the universal annihilator may be nonminimal, and equal (L,|D|) can give the same class-level growth equation/universal recurrence space while finite shell-total sequences and phases still differ",
       "publication_boundary": "coordination-observable and observation-history descendants remain separate later P022 promotions"
+    },
+    "P022_barlow_coordination_observables": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "promotion": "PR #298 / current L4 from source validation PR #269",
+      "scope": "exact Barlow shell/ball vertex-cardinality formulas from prefix-imbalance quadratic energy, exact vertical-support cardinality K(c,d), first axial moments recovering signed imbalance, inversion to extreme/cumulative drift-energy aggregates, and periodic shell/ball leading coefficients",
+      "negative_boundary": "coarse shell/ball cardinality can forget signed drift allocation and geodesic-multiplicity structure; labelled coordinates and first moments are strictly finer observables",
+      "publication_boundary": "observation-history, collision/repair and later P022 descendants remain separate owner/L4 work"
     },
     "E001_residual_conservation_slice": {
       "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED + ONE_COMPARATOR_NEGATIVE",
@@ -197,6 +204,7 @@
     "P022_barlow_stacking_core": ["src/enterprise_math/p022_barlow_stacking.py", "tests/test_p022_barlow_stacking.py"],
     "P022_barlow_task_relative_precision": ["src/enterprise_math/p022_barlow_precision.py", "tests/test_p022_barlow_precision.py"],
     "P022_barlow_periodic_growth": ["src/enterprise_math/p022_barlow_growth.py", "tests/test_p022_barlow_growth.py"],
+    "P022_barlow_coordination_observables": ["src/enterprise_math/p022_barlow_coordination.py", "tests/test_p022_barlow_coordination.py"],
     "P021": ["src/enterprise_math/causal_boundary.py", "tests/test_causal_boundary.py"],
     "E001_material_impulse_application": [
       "src/enterprise_math/material_impulse_accounting.py",

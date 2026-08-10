@@ -292,3 +292,15 @@ FQ-001 through FQ-004 are canonicalized foundation conventions. The only current
 - `FQ-20260809-005` — stable `graph_distance` API domain versus the P012 ordinary-metric theorem domain.
 
 The steward fixes mechanical drift directly, but does not choose unresolved research answers. Returned FQ answers require steward verification before canonicalization.
+
+## 11. P022 Barlow coordination observables
+
+PR #298 / current L4 publishes the coordination-observable layer from validated source PR #269. Canonical assets in this slice are `src/enterprise_math/p022_barlow_coordination.py` and `tests/test_p022_barlow_coordination.py`.
+
+The layer gives exact shell/ball vertex-cardinality formulas through prefix-imbalance quadratic energy, exact vertical-support cardinality `K(c,d)`, first axial moments that recover signed imbalance when raw cardinality cannot, inversion from shell/ball counts to the corresponding extreme/cumulative drift-energy aggregates, and the periodic leading coefficients
+
+`(21 L^2-D^2)/(2 L^2)` for shell quadratic growth and one third of that coefficient for ball cubic growth.
+
+This is a task-relative observation layer, not a complete geometric state. Shell/ball cardinality can forget signed drift allocation and geodesic-multiplicity structure; labelled coordinates and first moments are strictly finer observables. Observation-history, collision/repair, and later P022 owner results remain outside this promotion.
+
+The already-canonical P018 centered-prime-radius proof provenance is also discoverable at `docs/P018_CENTERED_PRIME_RADIUS_PROOF_NOTE.en.md` and `docs/P018_CENTERED_PRIME_RADIUS_PROOF_NOTE.zh-CN.md`; those files add proof detail for the #270 specialization rather than a new theorem family.
