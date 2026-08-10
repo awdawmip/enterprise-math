@@ -20,6 +20,33 @@ Then work. Do not load scheduler, Issue #240, Relay #82, `PROBLEM_STATUS`, owner
 
 Use local checkout/search/tests when available. In connector-only environments, fetch a minimal task packet once and reuse it. Do not refetch unchanged blobs/SHAs/PRs/Issues in one uninterrupted execution phase.
 
+## Task-local context isolation / memory quarantine
+
+All research tasks run under `research_context_policy.json`. The default and non-weakenable contract is:
+
+- `context_mode = TASK_ISOLATED`;
+- `memory_policy = UNTRUSTED_HINT_ONLY`;
+- `cross_task_import_policy = EXPLICIT_ONLY`.
+
+For a selected task, use this authority order:
+
+1. explicit current user instruction;
+2. repository/project execution rules and the selected taskbook/current task definition;
+3. current canonical source required by that task plus its declared `source_refs` and dependencies;
+4. task-local branch artifacts and exact task-local evidence;
+5. explicitly imported cross-task results with provenance;
+6. memory or undeclared cross-task context.
+
+ChatGPT account/Project memory, personal-context memory, prior conversations, GLOBAL_KNOWLEDGE journal events, unrelated curated research records, other taskbooks, other owner branches/PRs, and undeclared Relay entries are **not evidence or premises merely because the model remembers them**. They may suggest a search term or candidate connection only.
+
+Before using a remembered cross-task claim, resolve it to an allowed canonical/task-declared source or import it explicitly with provenance. A valid cross-task import records a source reference, evidence/status class, weakest assumptions/scope boundary, and exactly one action class: `INFORM`, `CONSUME`, `TEST`, or `HARD_DEPENDENCY`.
+
+Do not silently import another task's conjectures, variable conventions, finite experiments, negative results, physical interpretations, or theorem status. If memory conflicts with the selected taskbook or current canonical source, discard the remembered claim and continue from the task-local source set. GLOBAL_KNOWLEDGE progress journal remains provenance/continuation aid, not theorem truth.
+
+Shared execution/governance rules and canonical theorem interfaces remain shared; context isolation is about research content, not about forgetting repository rules. When an account-level worldview axiom is explicitly applicable to the task, use that axiom only at its stated scope and do not import adjacent project findings along with it.
+
+Context quarantine is research hygiene, not a new coordination bus: it requires no GitHub comment, heartbeat, branch, or PR by itself. Unauthorized remembered context is discarded locally and is never a `HARD_BLOCK`.
+
 ## Conditional routing surfaces
 
 Load these only when their function is material:
@@ -52,8 +79,9 @@ Canonical promotion is serialized in the control plane as well as mathematically
 
 - an explicit current user task always overrides automatic dispatch;
 - scheduler availability is never a startup gate;
-- with no user-selected task, select from live Issue #240 when available non-blockingly or from static `research_scheduler.json` otherwise;
+- with no user-selected task, select from live Issue #240 when available non-blockingly or from static/effective scheduler state otherwise;
 - no scheduler write is required to start research. `CLAIM`, `PROGRESS`, `HEARTBEAT`, `HANDOFF` are best-effort coordination signals;
+- append-only taskbooks under `research_tasks/` are merged into the effective scheduler automatically and inherit task-local context isolation;
 - post scheduler events only when the write path is immediately available and the event adds real coordination value; do not retry solely for bookkeeping;
 - a successfully published `CLAIM` still obeys the live-lease race/reduction rule;
 - if an unleased session later sees an overlapping live lease, preserve the mathematics and route it as non-conflicting owner-local/Relay `TEST` evidence rather than discarding work or blocking the user;
@@ -132,4 +160,4 @@ If `hard_block = NONE`, continue the best mathematical frontier rather than wait
 
 The default lifecycle is:
 
-`small task packet -> remote-silent research -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
+`small task packet -> task-isolated context -> remote-silent research -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
