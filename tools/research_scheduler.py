@@ -1,424 +1,361 @@
 #!/usr/bin/env python3
-"""Validate and reduce the Enterprise Math research scheduler state machine.
+"""Enterprise Math scheduler with taskbooks, role authority, and proposal discovery.
 
-The repository config defines durable task frontiers. GitHub Issue #240 is the
-append-only runtime coordination surface; callers may export its valid event
-objects in GitHub comment order to JSON/JSONL and pass them with --events.
+The stable task reducer remains in ``research_tasks/_research_scheduler_legacy.py``.
+This wrapper adds three narrow control-plane features without changing ordinary
+research execution:
 
-This tool deliberately does not decide mathematical truth or canonical status.
+1. append-only ``research_tasks/*.md`` discovery;
+2. non-weakenable task-local context isolation;
+3. Driver authority for dispatchable taskbooks plus a non-dispatchable compact
+   proposal queue under ``research_proposals/*.json``.
+
+Research remains the hot path. Proposal capture is optional bookkeeping at a
+semantic checkpoint, never a startup gate or HARD_BLOCK.
 """
 
 from __future__ import annotations
 
 import argparse
 import copy
+import importlib.util
 import json
 import pathlib
 import sys
-from datetime import datetime, timedelta, timezone
-from typing import Any, Iterable
+from typing import Any
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-DEFAULT_CONFIG = ROOT / "research_scheduler.json"
-DEFAULT_OWNERS = ROOT / "branch_governance_overrides.json"
+LEGACY_PATH = ROOT / "research_tasks" / "_research_scheduler_legacy.py"
+DEFAULT_TASKBOOK_DIR = ROOT / "research_tasks"
+DEFAULT_PROPOSAL_DIR = ROOT / "research_proposals"
+CONTEXT_POLICY_PATH = ROOT / "research_context_policy.json"
+ROLE_POLICY_PATH = ROOT / "research_role_policy.json"
+TASKBOOK_MARKER = "<!-- ENTERPRISE_MATH_TASK_V1"
+TASKBOOK_END = "-->"
+TASKBOOK_UNASSIGNED_OWNER = "taskbook/unassigned"
+PROPOSAL_SCHEMA = "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1"
 
-HARD_BLOCK_FIELDS = ("missing_object", "owner", "necessity", "unblock_condition")
-ACTIVE_OWNER_STATES = {"ACTIVE_OWNER", "ACTIVE_BRIDGE"}
-DEPENDENCY_ACTIONS = {"INFORM", "CONSUME", "TEST", "HARD_DEPENDENCY"}
+_spec = importlib.util.spec_from_file_location("enterprise_math_research_scheduler_legacy", LEGACY_PATH)
+if _spec is None or _spec.loader is None:
+    raise RuntimeError(f"cannot load scheduler core from {LEGACY_PATH}")
+legacy = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(legacy)
+
+SchedulerError = legacy.SchedulerError
+load_json = legacy.load_json
+parse_time = legacy.parse_time
+now_utc = legacy.now_utc
+complete_hard_block = legacy.complete_hard_block
+load_events = legacy.load_events
+lease_duration = legacy.lease_duration
+event_time = legacy.event_time
+state_from_task = legacy.state_from_task
+expire_claim = legacy.expire_claim
+ignore = legacy.ignore
+reduce_task = legacy.reduce_task
+print_json = legacy.print_json
 
 
-class SchedulerError(ValueError):
-    pass
+def load_context_policy(path: pathlib.Path = CONTEXT_POLICY_PATH) -> dict[str, Any]:
+    policy = load_json(path)
+    if policy.get("schema") != "ENTERPRISE_MATH_RESEARCH_CONTEXT_ISOLATION_V1":
+        raise SchedulerError(f"{path}: unexpected research context policy schema")
+    defaults = policy.get("default_research_context")
+    if not isinstance(defaults, dict) or not defaults:
+        raise SchedulerError(f"{path}: missing default_research_context")
+    return policy
 
 
-def load_json(path: pathlib.Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
+def load_role_policy(path: pathlib.Path = ROLE_POLICY_PATH) -> dict[str, Any]:
+    policy = load_json(path)
+    if policy.get("schema") != "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V1":
+        raise SchedulerError(f"{path}: unexpected research role policy schema")
+    if policy.get("default_role") != "RESEARCHER":
+        raise SchedulerError(f"{path}: default_role must remain RESEARCHER")
+    authority = policy.get("official_taskbook_authority")
+    proposal = policy.get("proposal_capture")
+    if not isinstance(authority, dict) or not isinstance(proposal, dict):
+        raise SchedulerError(f"{path}: missing taskbook authority/proposal policy")
+    return policy
 
 
-def parse_time(value: str) -> datetime:
-    normalized = value.strip().replace("Z", "+00:00")
-    dt = datetime.fromisoformat(normalized)
-    if dt.tzinfo is None:
-        dt = dt.replace(tzinfo=timezone.utc)
-    return dt.astimezone(timezone.utc)
+def apply_research_context_defaults(
+    task: dict[str, Any],
+    *,
+    source: str,
+    policy: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Apply the non-weakenable task-isolation defaults to one research task."""
+    if task.get("kind") != "RESEARCH":
+        return task
+    policy = policy or load_context_policy()
+    defaults = policy["default_research_context"]
+    normalized = copy.deepcopy(task)
+    for field, required in defaults.items():
+        existing = normalized.get(field)
+        if existing is not None and existing != required:
+            raise SchedulerError(
+                f"{source}: research task cannot weaken {field}; "
+                f"expected {required!r}, got {existing!r}"
+            )
+        normalized[field] = required
+    return normalized
 
 
-def now_utc(value: str | None) -> datetime:
-    return parse_time(value) if value else datetime.now(timezone.utc)
+def apply_taskbook_authority(
+    task: dict[str, Any],
+    *,
+    source: str,
+    policy: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Require Driver approval for new dispatchable append-only taskbooks.
+
+    Central legacy scheduler tasks are unaffected. Taskbooks created before this
+    policy are explicitly grandfathered by stable task_id so the new gate does not
+    interrupt ongoing research.
+    """
+    if not task.get("_taskbook_path"):
+        return task
+    policy = policy or load_role_policy()
+    authority = policy["official_taskbook_authority"]
+    normalized = copy.deepcopy(task)
+    task_id = normalized.get("task_id")
+    grandfathered = set(authority.get("grandfathered_task_ids", []))
+    if task_id in grandfathered:
+        normalized.setdefault("created_by_role", "RESEARCH_DRIVER")
+        normalized.setdefault("task_authority", "GRANDFATHERED_DRIVER_APPROVED")
+        return normalized
+
+    required_role = authority.get("created_by_role", "RESEARCH_DRIVER")
+    required_authority = authority.get("task_authority", "DRIVER_APPROVED")
+    if normalized.get("created_by_role") != required_role:
+        raise SchedulerError(
+            f"{source}: new taskbook is not dispatchable without "
+            f"created_by_role={required_role!r}"
+        )
+    if normalized.get("task_authority") != required_authority:
+        raise SchedulerError(
+            f"{source}: new taskbook is not dispatchable without "
+            f"task_authority={required_authority!r}"
+        )
+    return normalized
 
 
-def complete_hard_block(value: Any) -> bool:
-    return isinstance(value, dict) and all(
-        isinstance(value.get(field), str) and value[field].strip()
-        for field in HARD_BLOCK_FIELDS
-    )
+def normalize_research_context(
+    config: dict[str, Any],
+    *,
+    policy: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    policy = policy or load_context_policy()
+    normalized = copy.deepcopy(config)
+    normalized["tasks"] = [
+        apply_research_context_defaults(
+            task,
+            source=task.get("_taskbook_path") or task.get("task_id") or "scheduler task",
+            policy=policy,
+        )
+        for task in normalized.get("tasks", [])
+    ]
+    return normalized
+
+
+def parse_taskbook(path: pathlib.Path) -> dict[str, Any]:
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith(TASKBOOK_MARKER):
+        raise SchedulerError(f"{path}: missing ENTERPRISE_MATH_TASK_V1 metadata block")
+    end = text.find(TASKBOOK_END, len(TASKBOOK_MARKER))
+    if end < 0:
+        raise SchedulerError(f"{path}: unterminated taskbook metadata block")
+    payload = text[len(TASKBOOK_MARKER):end].strip()
+    try:
+        task = json.loads(payload)
+    except json.JSONDecodeError as exc:
+        raise SchedulerError(f"{path}: invalid taskbook JSON: {exc}") from exc
+    if not isinstance(task, dict):
+        raise SchedulerError(f"{path}: taskbook metadata must be an object")
+    task = copy.deepcopy(task)
+    try:
+        task["_taskbook_path"] = path.relative_to(ROOT).as_posix()
+    except ValueError:
+        task["_taskbook_path"] = path.as_posix()
+    task = apply_research_context_defaults(task, source=task["_taskbook_path"])
+    return apply_taskbook_authority(task, source=task["_taskbook_path"])
+
+
+def load_taskbooks(taskbook_dir: pathlib.Path = DEFAULT_TASKBOOK_DIR) -> list[dict[str, Any]]:
+    if not taskbook_dir.exists():
+        return []
+    tasks: list[dict[str, Any]] = []
+    for path in sorted(taskbook_dir.glob("*.md")):
+        if path.name.lower() in {"readme.md", "agents.md"}:
+            continue
+        tasks.append(parse_taskbook(path))
+    return tasks
+
+
+def parse_proposal_bundle(
+    path: pathlib.Path,
+    *,
+    policy: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
+    """Parse one compact researcher proposal bundle into non-dispatchable rows."""
+    policy = policy or load_role_policy()
+    proposal_policy = policy["proposal_capture"]
+    data = load_json(path)
+    if not isinstance(data, dict) or data.get("schema") != PROPOSAL_SCHEMA:
+        raise SchedulerError(f"{path}: unexpected proposal bundle schema")
+    if data.get("created_by_role") != "RESEARCHER":
+        raise SchedulerError(f"{path}: proposal bundle must use created_by_role='RESEARCHER'")
+    parent = data.get("parent_task_id")
+    if not isinstance(parent, str) or not parent.strip():
+        raise SchedulerError(f"{path}: proposal bundle requires parent_task_id")
+    at = data.get("at")
+    if not isinstance(at, str) or not at.strip():
+        raise SchedulerError(f"{path}: proposal bundle requires at")
+    try:
+        parse_time(at)
+    except (TypeError, ValueError) as exc:
+        raise SchedulerError(f"{path}: invalid proposal timestamp") from exc
+    candidates = data.get("candidates")
+    if not isinstance(candidates, list) or not candidates:
+        raise SchedulerError(f"{path}: proposal bundle requires non-empty candidates")
+
+    required = proposal_policy.get("candidate_required_fields", [])
+    leverage_values = set(proposal_policy.get("expected_leverage", []))
+    rows: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for index, candidate in enumerate(candidates):
+        if not isinstance(candidate, dict):
+            raise SchedulerError(f"{path}: candidate[{index}] must be an object")
+        missing = [field for field in required if not candidate.get(field)]
+        if missing:
+            raise SchedulerError(f"{path}: candidate[{index}] missing {', '.join(missing)}")
+        proposal_id = candidate["proposal_id"]
+        if proposal_id in seen:
+            raise SchedulerError(f"{path}: duplicate proposal_id {proposal_id!r}")
+        seen.add(proposal_id)
+        if candidate.get("expected_leverage") not in leverage_values:
+            raise SchedulerError(
+                f"{path}: candidate[{index}] invalid expected_leverage "
+                f"{candidate.get('expected_leverage')!r}"
+            )
+        if not isinstance(candidate.get("evidence_refs"), list):
+            raise SchedulerError(f"{path}: candidate[{index}] evidence_refs must be a list")
+        row = copy.deepcopy(candidate)
+        row.update({
+            "parent_task_id": parent,
+            "at": at,
+            "created_by_role": "RESEARCHER",
+            "review_state": proposal_policy.get("default_review_state", "PENDING_DRIVER_REVIEW"),
+            "dispatchable": False,
+            "_proposal_bundle_path": path.as_posix(),
+        })
+        rows.append(row)
+    return rows
+
+
+def load_proposal_queue(
+    proposal_dir: pathlib.Path = DEFAULT_PROPOSAL_DIR,
+) -> list[dict[str, Any]]:
+    if not proposal_dir.exists():
+        return []
+    policy = load_role_policy()
+    rows: list[dict[str, Any]] = []
+    for path in sorted(proposal_dir.glob("*.json")):
+        rows.extend(parse_proposal_bundle(path, policy=policy))
+    return rows
+
+
+def merge_taskbooks(config: dict[str, Any], taskbooks: list[dict[str, Any]]) -> dict[str, Any]:
+    merged = copy.deepcopy(config)
+    merged.setdefault("tasks", [])
+    merged["tasks"].extend(copy.deepcopy(taskbooks))
+    return merged
+
+
+def load_scheduler_config(
+    config_path: pathlib.Path = legacy.DEFAULT_CONFIG,
+    taskbook_dir: pathlib.Path = DEFAULT_TASKBOOK_DIR,
+) -> dict[str, Any]:
+    merged = merge_taskbooks(load_json(config_path), load_taskbooks(taskbook_dir))
+    return normalize_research_context(merged)
 
 
 def validate_scheduler(config: dict[str, Any], owners: dict[str, Any]) -> list[str]:
-    errors: list[str] = []
-    if config.get("schema") != "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V1":
-        errors.append("unexpected scheduler schema")
+    """Run legacy validation while enforcing isolated context and task authority."""
+    try:
+        config = normalize_research_context(config)
+        load_role_policy()
+    except SchedulerError as exc:
+        return [str(exc)]
 
-    task_states = set(config.get("task_states", []))
-    event_types = set(config.get("event_types", []))
-    if not {"READY", "HANDOFF_READY", "BLOCKED", "DONE", "SUPERSEDED"} <= task_states:
-        errors.append("scheduler task_states are incomplete")
-    if not {"CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE"} <= event_types:
-        errors.append("scheduler event_types are incomplete")
+    has_unassigned_taskbook = any(
+        task.get("_taskbook_path") and task.get("owner") == TASKBOOK_UNASSIGNED_OWNER
+        for task in config.get("tasks", [])
+    )
+    if not has_unassigned_taskbook:
+        return legacy.validate_scheduler(config, owners)
 
-    owner_entries = owners.get("branches", {})
-    active_owners = {
-        name for name, spec in owner_entries.items()
-        if spec.get("state") in ACTIVE_OWNER_STATES
+    owners_for_validation = copy.deepcopy(owners)
+    owners_for_validation.setdefault("branches", {})[TASKBOOK_UNASSIGNED_OWNER] = {
+        "state": "ACTIVE_OWNER",
+        "scope": "scheduler routing placeholder only",
     }
-
-    tasks = config.get("tasks", [])
-    seen: set[str] = set()
-    covered_active: set[str] = set()
-    priorities = set(config.get("selection_policy", {}).get("priority_order", []))
-    leverage = set(config.get("selection_policy", {}).get("leverage_order", []))
-
-    for index, task in enumerate(tasks):
-        prefix = f"tasks[{index}]"
-        task_id = task.get("task_id")
-        if not isinstance(task_id, str) or not task_id:
-            errors.append(f"{prefix}: missing task_id")
-            continue
-        if task_id in seen:
-            errors.append(f"duplicate task_id: {task_id}")
-        seen.add(task_id)
-
-        state = task.get("base_state")
-        if state not in task_states:
-            errors.append(f"{task_id}: invalid base_state {state!r}")
-        if task.get("priority") not in priorities:
-            errors.append(f"{task_id}: invalid priority {task.get('priority')!r}")
-        if task.get("leverage") not in leverage:
-            errors.append(f"{task_id}: invalid leverage {task.get('leverage')!r}")
-
-        owner = task.get("owner")
-        if task.get("kind") == "RESEARCH":
-            if owner not in active_owners:
-                errors.append(f"{task_id}: research owner is not ACTIVE_OWNER/ACTIVE_BRIDGE: {owner!r}")
-            else:
-                covered_active.add(owner)
-        elif task.get("kind") == "GOVERNANCE":
-            if owner != "governance":
-                errors.append(f"{task_id}: governance task must use owner='governance'")
-        else:
-            errors.append(f"{task_id}: invalid task kind {task.get('kind')!r}")
-
-        hard_block = task.get("hard_block")
-        if hard_block is not None and not complete_hard_block(hard_block):
-            errors.append(f"{task_id}: partial hard_block is invalid")
-        if state == "BLOCKED" and not complete_hard_block(hard_block):
-            errors.append(f"{task_id}: BLOCKED requires a complete hard_block")
-
-        for dep_index, dependency in enumerate(task.get("dependencies", [])):
-            action = dependency.get("action")
-            if action not in DEPENDENCY_ACTIONS:
-                errors.append(f"{task_id}: dependency[{dep_index}] has invalid action {action!r}")
-
-        for field in ("frontier", "next_action", "last_progress_at"):
-            if not isinstance(task.get(field), str) or not task[field].strip():
-                errors.append(f"{task_id}: missing {field}")
-        if isinstance(task.get("last_progress_at"), str):
-            try:
-                parse_time(task["last_progress_at"])
-            except (TypeError, ValueError):
-                errors.append(f"{task_id}: invalid last_progress_at")
-
-    missing_coverage = sorted(active_owners - covered_active)
-    if missing_coverage:
-        errors.append("active research owners missing scheduler coverage: " + ", ".join(missing_coverage))
-
-    unknown_covered = sorted(covered_active - active_owners)
-    if unknown_covered:
-        errors.append("scheduler covers non-active owners: " + ", ".join(unknown_covered))
-
-    return errors
+    return legacy.validate_scheduler(config, owners_for_validation)
 
 
-def load_events(path: pathlib.Path | None) -> list[dict[str, Any]]:
-    if path is None:
-        return []
-    text = path.read_text(encoding="utf-8").strip()
-    if not text:
-        return []
-    if text.startswith("["):
-        data = json.loads(text)
-        if not isinstance(data, list):
-            raise SchedulerError("event JSON must be an array")
-        events = data
-    else:
-        events = [json.loads(line) for line in text.splitlines() if line.strip()]
-    for index, event in enumerate(events):
-        if not isinstance(event, dict):
-            raise SchedulerError(f"event {index} is not an object")
-    return events
+def _attach_control_fields(
+    value: dict[str, Any] | None,
+    task_by_id: dict[str, dict[str, Any]],
+) -> dict[str, Any] | None:
+    if value is None:
+        return None
+    result = copy.deepcopy(value)
+    task = task_by_id.get(result.get("task_id"), {})
+    for field in (
+        "context_mode",
+        "memory_policy",
+        "cross_task_import_policy",
+        "created_by_role",
+        "task_authority",
+    ):
+        if field in task:
+            result[field] = task[field]
+    result["session_role"] = "RESEARCHER"
+    result["driver_activation"] = "EXPLICIT_CURRENT_CONVERSATION_ONLY"
+    return result
 
 
-def lease_duration(event: dict[str, Any], default_minutes: int) -> timedelta:
-    minutes = event.get("lease_minutes", default_minutes)
-    if not isinstance(minutes, int) or minutes <= 0:
-        raise SchedulerError("lease_minutes must be a positive integer")
-    return timedelta(minutes=minutes)
-
-
-def event_time(event: dict[str, Any]) -> datetime:
-    value = event.get("at")
-    if not isinstance(value, str) or not value:
-        raise SchedulerError("scheduler event requires ISO-8601 'at'")
-    return parse_time(value)
-
-
-def state_from_task(task: dict[str, Any]) -> dict[str, Any]:
-    return {
-        "task_id": task["task_id"],
-        "state": task["base_state"],
-        "claim_id": None,
-        "actor": None,
-        "lease_until": None,
-        "hard_block": copy.deepcopy(task.get("hard_block")),
-        "last_progress_ref": task.get("last_progress_ref"),
-        "last_progress_at": task.get("last_progress_at"),
-        "next_action": task.get("next_action"),
-        "ignored_events": [],
-    }
-
-
-def expire_claim(state: dict[str, Any], at: datetime) -> None:
-    lease_until = state.get("lease_until")
-    if state.get("claim_id") and isinstance(lease_until, datetime) and at >= lease_until:
-        state["state"] = "HANDOFF_READY"
-        state["claim_id"] = None
-        state["actor"] = None
-        state["lease_until"] = None
-
-
-def ignore(state: dict[str, Any], index: int, reason: str) -> None:
-    state["ignored_events"].append({"index": index, "reason": reason})
-
-
-def reduce_task(
-    task: dict[str, Any],
-    events: Iterable[dict[str, Any]],
-    *,
-    default_lease_minutes: int,
-    now: datetime,
-) -> dict[str, Any]:
-    state = state_from_task(task)
-    matching = [event for event in events if event.get("task_id") == task["task_id"]]
-
-    last_event_time: datetime | None = None
-    for index, event in enumerate(matching):
-        if event.get("schema") not in (None, "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"):
-            ignore(state, index, "wrong event schema")
-            continue
-        try:
-            at = event_time(event)
-        except (SchedulerError, ValueError) as exc:
-            ignore(state, index, str(exc))
-            continue
-        if last_event_time is not None and at < last_event_time:
-            ignore(state, index, "events must be supplied in GitHub comment order / nondecreasing event time")
-            continue
-        last_event_time = at
-        expire_claim(state, at)
-
-        kind = event.get("event")
-        claim_id = event.get("claim_id")
-        live_claim = state.get("claim_id")
-
-        if kind == "CLAIM":
-            if state["state"] not in {"READY", "HANDOFF_READY"} or live_claim:
-                ignore(state, index, "task is not dispatchable")
-                continue
-            if not isinstance(claim_id, str) or not claim_id:
-                ignore(state, index, "CLAIM requires claim_id")
-                continue
-            try:
-                duration = lease_duration(event, default_lease_minutes)
-            except SchedulerError as exc:
-                ignore(state, index, str(exc))
-                continue
-            state["state"] = "CLAIMED"
-            state["claim_id"] = claim_id
-            state["actor"] = event.get("actor")
-            state["lease_until"] = at + duration
-            continue
-
-        if kind in {"HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "DONE"}:
-            if not live_claim or claim_id != live_claim:
-                ignore(state, index, f"{kind} requires the current live claim_id")
-                continue
-
-        if kind == "HEARTBEAT":
-            try:
-                state["lease_until"] = at + lease_duration(event, default_lease_minutes)
-            except SchedulerError as exc:
-                ignore(state, index, str(exc))
-            continue
-
-        if kind == "PROGRESS":
-            try:
-                state["lease_until"] = at + lease_duration(event, default_lease_minutes)
-            except SchedulerError as exc:
-                ignore(state, index, str(exc))
-                continue
-            state["state"] = "IN_PROGRESS"
-            if event.get("progress_ref"):
-                state["last_progress_ref"] = event["progress_ref"]
-            state["last_progress_at"] = event["at"]
-            if event.get("next_action"):
-                state["next_action"] = event["next_action"]
-            continue
-
-        if kind == "HANDOFF":
-            next_action = event.get("next_action")
-            if not isinstance(next_action, str) or not next_action.strip():
-                ignore(state, index, "HANDOFF requires next_action")
-                continue
-            state["state"] = "HANDOFF_READY"
-            if event.get("progress_ref"):
-                state["last_progress_ref"] = event["progress_ref"]
-            state["last_progress_at"] = event["at"]
-            state["next_action"] = next_action
-            state["claim_id"] = None
-            state["actor"] = None
-            state["lease_until"] = None
-            continue
-
-        if kind == "HARD_BLOCK":
-            hard_block = event.get("hard_block")
-            if not complete_hard_block(hard_block):
-                ignore(state, index, "HARD_BLOCK requires all four hard-block fields")
-                continue
-            state["state"] = "BLOCKED"
-            state["hard_block"] = copy.deepcopy(hard_block)
-            state["last_progress_at"] = event["at"]
-            if event.get("progress_ref"):
-                state["last_progress_ref"] = event["progress_ref"]
-            state["claim_id"] = None
-            state["actor"] = None
-            state["lease_until"] = None
-            continue
-
-        if kind == "UNBLOCK":
-            if state["state"] != "BLOCKED":
-                ignore(state, index, "UNBLOCK requires BLOCKED state")
-                continue
-            state["state"] = "HANDOFF_READY"
-            state["hard_block"] = None
-            state["last_progress_at"] = event["at"]
-            if event.get("next_action"):
-                state["next_action"] = event["next_action"]
-            continue
-
-        if kind == "DONE":
-            state["state"] = "DONE"
-            if event.get("progress_ref"):
-                state["last_progress_ref"] = event["progress_ref"]
-            state["last_progress_at"] = event["at"]
-            state["claim_id"] = None
-            state["actor"] = None
-            state["lease_until"] = None
-            continue
-
-        if kind == "SUPERSEDE":
-            state["state"] = "SUPERSEDED"
-            state["claim_id"] = None
-            state["actor"] = None
-            state["lease_until"] = None
-            state["last_progress_at"] = event["at"]
-            if event.get("next_action"):
-                state["next_action"] = event["next_action"]
-            continue
-
-        ignore(state, index, f"unknown event type: {kind!r}")
-
-    expire_claim(state, now)
-    state["lease_until"] = state["lease_until"].isoformat() if isinstance(state.get("lease_until"), datetime) else None
-
-    if state["state"] in {"DONE", "SUPERSEDED"}:
-        state["dispatch_state"] = "COMPLETE"
-    elif state["state"] == "BLOCKED" and complete_hard_block(state.get("hard_block")):
-        state["dispatch_state"] = "BLOCKED"
-    elif state.get("claim_id"):
-        state["dispatch_state"] = "LEASED"
-    elif state["state"] in {"READY", "HANDOFF_READY"}:
-        state["dispatch_state"] = "NEEDS_DISPATCH"
-    else:
-        state["dispatch_state"] = "DORMANT"
-    return state
-
-
-def effective_states(config: dict[str, Any], events: list[dict[str, Any]], now: datetime) -> list[dict[str, Any]]:
-    default_lease = int(config.get("claim_lease_minutes", 120))
-    results = []
-    for task in config.get("tasks", []):
-        reduced = reduce_task(task, events, default_lease_minutes=default_lease, now=now)
-        reduced.update({
-            "title": task.get("title"),
-            "kind": task.get("kind"),
-            "owner": task.get("owner"),
-            "priority": task.get("priority"),
-            "leverage": task.get("leverage"),
-            "frontier": task.get("frontier"),
-            "source_refs": task.get("source_refs", []),
-        })
-        results.append(reduced)
-    return results
+def effective_states(
+    config: dict[str, Any],
+    events: list[dict[str, Any]],
+    now: Any,
+) -> list[dict[str, Any]]:
+    config = normalize_research_context(config)
+    states = legacy.effective_states(config, events, now)
+    task_by_id = {task["task_id"]: task for task in config.get("tasks", [])}
+    return [_attach_control_fields(state, task_by_id) or state for state in states]
 
 
 def select_task(
     config: dict[str, Any],
     events: list[dict[str, Any]],
-    now: datetime,
+    now: Any,
     *,
     kind: str = "RESEARCH",
 ) -> dict[str, Any] | None:
-    policy = config["selection_policy"]
-    states = effective_states(config, events, now)
-    task_by_id = {task["task_id"]: task for task in config["tasks"]}
-    state_rank = {name: index for index, name in enumerate(policy["state_order"])}
-    priority_rank = {name: index for index, name in enumerate(policy["priority_order"])}
-    leverage_rank = {name: index for index, name in enumerate(policy["leverage_order"])}
-
-    candidates = [
-        state for state in states
-        if state["dispatch_state"] == "NEEDS_DISPATCH"
-        and (kind == "ANY" or state["kind"] == kind)
-    ]
-    if not candidates:
-        return None
-
-    def candidate_key(state: dict[str, Any]) -> tuple[Any, ...]:
-        task = task_by_id[state["task_id"]]
-        try:
-            last_progress = parse_time(state["last_progress_at"])
-        except (TypeError, ValueError):
-            last_progress = datetime(1970, 1, 1, tzinfo=timezone.utc)
-        return (
-            state_rank.get(state["state"], len(state_rank)),
-            priority_rank.get(task["priority"], len(priority_rank)),
-            leverage_rank.get(task["leverage"], len(leverage_rank)),
-            last_progress,
-            task["task_id"],
-        )
-
-    chosen = min(candidates, key=candidate_key)
-    return chosen
-
-
-def print_json(value: Any) -> None:
-    print(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True))
+    config = normalize_research_context(config)
+    chosen = legacy.select_task(config, events, now, kind=kind)
+    task_by_id = {task["task_id"]: task for task in config.get("tasks", [])}
+    return _attach_control_fields(chosen, task_by_id)
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Enterprise Math research scheduler")
-    parser.add_argument("--config", type=pathlib.Path, default=DEFAULT_CONFIG)
-    parser.add_argument("--owners", type=pathlib.Path, default=DEFAULT_OWNERS)
+    parser.add_argument("--config", type=pathlib.Path, default=legacy.DEFAULT_CONFIG)
+    parser.add_argument("--owners", type=pathlib.Path, default=legacy.DEFAULT_OWNERS)
+    parser.add_argument("--taskbooks", type=pathlib.Path, default=DEFAULT_TASKBOOK_DIR)
+    parser.add_argument("--proposals", type=pathlib.Path, default=DEFAULT_PROPOSAL_DIR)
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("validate")
@@ -431,12 +368,23 @@ def build_parser() -> argparse.ArgumentParser:
     select.add_argument("--events", type=pathlib.Path)
     select.add_argument("--now")
     select.add_argument("--kind", choices=["RESEARCH", "GOVERNANCE", "ANY"], default="RESEARCH")
+
+    proposals = sub.add_parser("proposal-queue")
+    proposals.add_argument("--parent-task-id")
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    config = load_json(args.config)
+
+    if args.command == "proposal-queue":
+        rows = load_proposal_queue(args.proposals)
+        if args.parent_task_id:
+            rows = [row for row in rows if row.get("parent_task_id") == args.parent_task_id]
+        print_json(rows)
+        return 0
+
+    config = load_scheduler_config(args.config, args.taskbooks)
     owners = load_json(args.owners)
     errors = validate_scheduler(config, owners)
 
@@ -445,7 +393,13 @@ def main(argv: list[str] | None = None) -> int:
             for error in errors:
                 print(f"ERROR: {error}")
             return 1
-        print(f"PASS: scheduler config valid; {len(config.get('tasks', []))} tasks cover all active research owners/bridges.")
+        taskbook_count = sum(bool(task.get("_taskbook_path")) for task in config.get("tasks", []))
+        proposal_count = len(load_proposal_queue(args.proposals))
+        print(
+            f"PASS: scheduler config valid; {len(config.get('tasks', []))} tasks "
+            f"({taskbook_count} append-only taskbooks) are discoverable, TASK_ISOLATED, "
+            f"and role-governed; {proposal_count} proposal candidates are non-dispatchable."
+        )
         return 0
 
     if errors:

@@ -1,0 +1,83 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V1",
+  "status": "ACTIVE",
+  "effective": "2026-08-10T19:21:00+08:00",
+  "default_role": "RESEARCHER",
+  "driver_activation": {
+    "mode": "EXPLICIT_CURRENT_CONVERSATION_ONLY",
+    "examples": ["你现在是驾驶员", "you are now the driver"],
+    "rules": [
+      "Do not infer Driver role from task content, repository state, memory, prior conversations, or another Project.",
+      "Driver role applies only after the user explicitly assigns it in the current conversation and remains scoped to that conversation until the user changes it."
+    ]
+  },
+  "researcher_freedom_clause": [
+    "Researchers may freely reason, prove, disprove, compute, experiment, formalize, browse allowed sources, write notes, write proof drafts, and produce handoff artifacts.",
+    "Role policy restricts scheduling authority, not scientific exploration.",
+    "A researcher must not pause productive research merely to package every interesting side branch as a proposal."
+  ],
+  "researcher_allowed_outputs": [
+    "research analysis",
+    "proof/counterexample",
+    "experiment/computation evidence",
+    "Lean/code artifact",
+    "research note",
+    "handoff/report",
+    "proposal candidate bundle"
+  ],
+  "researcher_forbidden_authority": [
+    "creating a dispatchable READY taskbook",
+    "self-approving a proposal into the roadmap",
+    "changing global task priority",
+    "declaring Foundation or canonical promotion",
+    "representing an unapproved Markdown artifact as an official scheduler task"
+  ],
+  "official_taskbook_authority": {
+    "created_by_role": "RESEARCH_DRIVER",
+    "task_authority": "DRIVER_APPROVED",
+    "rule": "Only Driver-approved taskbooks are dispatchable. Researcher-created taskbook-like Markdown is ordinary research material with no scheduler authority.",
+    "grandfathered_task_ids": [
+      "RS-R005-PRIME-ALGORITHM-LAB",
+      "RS-R005-PRIME-COLLAPSE-FIELD",
+      "RS-R006-CROSS-POWER-COLLAPSE-WELL-ALGEBRA",
+      "RS-R007-SCALE-COLLAPSE-DESCENT-NOGO",
+      "RS-R008-P016-ESCAPE-PROOF-PHYSICAL-KILL-TESTS",
+      "RS-R009-SCALE-NATURAL-COLLAPSE-RESIDUE-CLASSIFICATION",
+      "RS-R010-P023-P016-FUTURE-LANGUAGE-PHYSICAL-LEAKAGE",
+      "RS-R011-R009-FREEZE-FORMALIZE-PROMOTION"
+    ]
+  },
+  "proposal_capture": {
+    "schema": "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1",
+    "storage": "research_proposals/*.json",
+    "dispatchable": false,
+    "default_review_state": "PENDING_DRIVER_REVIEW",
+    "rules": [
+      "Researchers may capture multiple worthwhile side branches in one compact proposal bundle at a semantic checkpoint or handoff.",
+      "Do not create one Markdown task/proposal file per idea.",
+      "Proposal capture must not interrupt the hot path; accumulate notes locally and batch them at the next meaningful checkpoint.",
+      "A proposal bundle may contain several candidates and is never READY, CLAIMABLE, canonical, or Foundation-approved by itself.",
+      "If no proposal write path is available, include a compact proposal_candidates section in the handoff rather than creating standalone taskbook Markdown in chat."
+    ],
+    "candidate_required_fields": [
+      "proposal_id",
+      "title",
+      "research_question",
+      "why_now",
+      "expected_leverage",
+      "evidence_refs"
+    ],
+    "expected_leverage": ["HIGH", "MEDIUM", "LOW"]
+  },
+  "driver_actions": [
+    "review proposal queue",
+    "approve and convert a proposal into a taskbook",
+    "merge overlapping proposals",
+    "park/defer/reject proposals",
+    "set task priority and leverage",
+    "freeze/reopen/promote research routes",
+    "review external materials and research returns"
+  ],
+  "artifact_rule": "Artifact creation is not progress by itself. Scientific evidence, theorem/counterexample content, validated computation, formalization, or a real routing decision is progress.",
+  "nonblocking_rule": "Role/proposal governance is never a HARD_BLOCK on ordinary research. When uncertain, continue the assigned research and defer routing paperwork to the next semantic checkpoint."
+}
