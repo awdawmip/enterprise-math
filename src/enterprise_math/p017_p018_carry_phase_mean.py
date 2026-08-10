@@ -74,6 +74,7 @@ from fractions import Fraction
 from math import prod
 
 from .legendre import squarefree_divisors_with_mu
+from .p017_p018_signed_boundary_carry import _centered_class_count
 
 
 def _odd_squarefree_prime_factors(value: int) -> tuple[int, ...]:
@@ -101,7 +102,9 @@ def unified_centered_carry_bit(K: int, modulus: int) -> int:
 
     This unified carry permits E to share factors with M=(K+1)(K+2); after the
     anchor/transverse Mobius layers are recombined, transversality is no longer
-    the appropriate restriction.
+    the appropriate restriction.  Exact residue-class counting is delegated to
+    the shared centered-class primitive so the periodic and divisor-fiber carry
+    implementations cannot drift apart.
     """
     if isinstance(K, bool) or not isinstance(K, int) or K < 0:
         raise ValueError("K must be a nonnegative integer")
@@ -115,11 +118,8 @@ def unified_centered_carry_bit(K: int, modulus: int) -> int:
     residue = raw if raw % 2 else raw + E
     residue %= period
 
-    first = -((-K - residue) // period)
-    last = (K - residue) // period
-    exact = max(0, last - first + 1)
-    coarse = K // E
-    carry = exact - coarse
+    data = _centered_class_count(K, E, residue)
+    carry = int(data["boundary_carry"])
     if carry not in (0, 1):
         raise AssertionError("unified centered carry left the binary range")
     return carry
