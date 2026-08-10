@@ -125,7 +125,7 @@ theorem separatesRootQuotientWordsUpTo_iff_powerFree_reachable
 `r`-power-free. -/
 theorem rPowerFree_of_le_of_lt_two_pow
     {r N b : ℕ}
-    (hr : 1 ≤ r)
+    (_hr : 1 ≤ r)
     (hN : N < 2 ^ r)
     (hbPos : 1 ≤ b)
     (hbN : b ≤ N) :
@@ -178,10 +178,11 @@ theorem one_step_generators_contain_all_nontrivial_of_lt_two_pow
       simp [rootQuotientWordProduct] at hProd
       omega
   | cons a w =>
-      have hwLenZero : w.length = 0 := by
-        simp at hwLen
-        omega
-      have hwNil : w = [] := List.length_eq_zero.mp hwLenZero
+      have hwNil : w = [] := by
+        cases w with
+        | nil => rfl
+        | cons c w' =>
+            simp at hwLen
       subst w
       have haG : a ∈ G := hwG a (by simp)
       simp [rootQuotientWordProduct] at hProd
