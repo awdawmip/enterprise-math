@@ -9,9 +9,12 @@ from enterprise_math.p022_barlow_franel_third_index_bailey_tail import (
     bailey_pole_tail_residue,
     bailey_pole_tail_sum,
     bailey_tail_integer_parameters,
+    bailey_symmetric_tail_residue,
+    bailey_symmetric_transform,
     bailey_tail_modular_bridge,
     bailey_terminating_tail_sum,
     third_index_zero_via_bailey_tail,
+    third_index_zero_via_symmetric_tail,
 )
 from enterprise_math.p022_barlow_low_order_defect_reduction import _is_prime
 from enterprise_math.p022_barlow_low_order_identifiability import (
@@ -82,3 +85,20 @@ def test_rational_and_terminating_tails_agree_only_after_mod_p_reduction() -> No
     assert bailey_tail_modular_bridge(11) == (9, 9)
     assert bailey_tail_modular_bridge(17) == (6, 6)
     assert bailey_tail_modular_bridge(149) == (0, 0)
+
+
+def test_terminating_tail_has_exact_symmetric_three_parameter_form() -> None:
+    for prime in (5, 11, 17, 23, 149):
+        original, transformed = bailey_symmetric_transform(prime)
+        assert original == transformed
+
+    assert bailey_symmetric_tail_residue(5) == (0, 4, 0)
+    assert bailey_symmetric_tail_residue(11) == (9, 8, 8)
+    assert bailey_symmetric_tail_residue(149) == (0, 22, 0)
+
+
+def test_symmetric_tail_detects_the_same_third_index_zeros() -> None:
+    assert third_index_zero_via_symmetric_tail(5)
+    assert third_index_zero_via_symmetric_tail(149)
+    for prime in (11, 17, 23, 107):
+        assert not third_index_zero_via_symmetric_tail(prime)
