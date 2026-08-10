@@ -2,9 +2,8 @@
 
 Let the integer state be a column-coordinate vector ``x in Z^n``.  A finite
 family of total linear future actions is represented by integer matrices ``A_a``
-and a finite current observation family by integer rows ``C``.  With the project
-word convention, a literal action word ``w=a_1...a_k`` contributes future
-observation rows
+and a finite current observation family by integer rows ``C``.  A literal action
+word ``w=a_1...a_k`` contributes future observation rows
 
     C A_(a_1) ... A_(a_k).
 
@@ -78,358 +77,213 @@ project value is the exact P023 integer future-language closure interpretation.
 
 from __future__ import annotations
 
-from collections import deque
 from dataclasses import dataclass
-from math import prod
-from typing import Callable, Sequence
+from math import gcd
+from typing import Iterable, Sequence
 
-from .material_contact_network_impulse_1d import (
-    apply_contact_impulse_vector,
-    contact_coupling_gram,
-    contact_relative_scores,
+from .integer_future_observability import (
+    integer_matrix_product,
+    integer_matrix_rank,
 )
-from .material_contact_network_tick_1d import ContactMaterialNetworkTick1D
+from .integer_future_smith_precision import integer_smith_precision_profile
 
 
-Matrix = tuple[tuple[int, ...], ...]
 Vector = tuple[int, ...]
+Matrix = tuple[tuple[int, ...], ...]
 
 
-def _require_int(name: str, value: int) -> None:
-    if isinstance(value, bool) or not isinstance(value, int):
-        raise TypeError(f"{name} must be an integer")
-
-
-def _integer_vector(
-    values: Sequence[int],
-    *,
-    name: str,
-    nonnegative: bool = False,
-) -> Vector:
-    result = tuple(values)
-    if not result:
-        raise ValueError(f"{name} must be nonempty")
-    for value in result:
-        _require_int(name, value)
-        if nonnegative and value < 0:
-            raise ValueError(f"{name} entries must be nonnegative")
-    return result
-
-
-def _square_integer_matrix(
-    values: Sequence[Sequence[int]],
-    dimension: int,
-) -> Matrix:
-    rows = tuple(tuple(row) for row in values)
-    if len(rows) != dimension or any(len(row) != dimension for row in rows):
-        raise ValueError("coupling matrix must match score dimension")
-    for row in rows:
+def _matrix(values: Sequence[Sequence[int]]) -> Matrix:
+    matrix = tuple(tuple(row) for row in values)
+    if not matrix:
+        raise ValueError("matrix must contain at least one row")
+    width = len(matrix[0])
+    if width == 0 or any(len(row) != width for row in matrix):
+        raise ValueError("matrix rows must have one common positive width")
+    for row in matrix:
         for value in row:
-            _require_int("coupling entry", value)
-    return rows
+            if isinstance(value, bool) or not isinstance(value, int):
+                raise TypeError("matrix entries must be integers")
+    return matrix
 
 
-def score_after_counts(
-    initial_scores: Sequence[int],
-    coupling: Sequence[Sequence[int]],
-    counts: Sequence[int],
-) -> Vector:
-    """Return exact contact scores after an unguarded prefix-count vector."""
-    scores = _integer_vector(initial_scores, name="initial_scores")
-    matrix = _square_integer_matrix(coupling, len(scores))
-    prefix = _integer_vector(counts, name="counts", nonnegative=True)
-    if len(prefix) != len(scores):
-        raise ValueError("counts must match score dimension")
+def _actions(values: Sequence[Sequence[Sequence[int]]], dimension: int) -> tuple[Matrix, ...]:
+    actions = tuple(_matrix(matrix) for matrix in values)
+    if not actions:
+        raise ValueError("at least one action matrix is required")
+    for action in actions:
+        if len(action) != dimension or len(action[0]) != dimension:
+            raise ValueError("every action must be square on the state dimension")
+    return actions
+
+
+def _row_times_matrix(row: Vector, matrix: Matrix) -> Vector:
+    if len(row) != len(matrix):
+        raise ValueError("row/action dimension mismatch")
     return tuple(
-        scores[row]
-        + sum(
-            matrix[row][column] * prefix[column]
-            for column in range(len(scores))
-        )
-        for row in range(len(scores))
+        sum(row[inner] * matrix[inner][column] for inner in range(len(row)))
+        for column in range(len(row))
     )
 
 
-def enabled_remaining_contacts(
-    initial_scores: Sequence[int],
-    coupling: Sequence[Sequence[int]],
-    prefix_counts: Sequence[int],
-    target_counts: Sequence[int],
-) -> tuple[int, ...]:
-    """Remaining target actions whose current local closing guard is true."""
-    scores = _integer_vector(initial_scores, name="initial_scores")
-    matrix = _square_integer_matrix(coupling, len(scores))
-    prefix = _integer_vector(
-        prefix_counts,
-        name="prefix_counts",
-        nonnegative=True,
-    )
-    target = _integer_vector(
-        target_counts,
-        name="target_counts",
-        nonnegative=True,
-    )
-    if len(prefix) != len(scores) or len(target) != len(scores):
-        raise ValueError("count vectors must match score dimension")
-    if any(used > required for used, required in zip(prefix, target, strict=True)):
-        raise ValueError("prefix counts cannot exceed target counts")
-    current = score_after_counts(scores, matrix, prefix)
-    return tuple(
-        index
-        for index, (used, required) in enumerate(
-            zip(prefix, target, strict=True)
-        )
-        if used < required and current[index] < 0
-    )
+def action_language_observation_rows(
+    action_matrices: Sequence[Sequence[Sequence[int]]],
+    observation_rows: Sequence[Sequence[int]],
+    horizon: int,
+) -> Matrix:
+    """Unique literal-word observation rows through a finite horizon."""
+    observations = _matrix(observation_rows)
+    dimension = len(observations[0])
+    actions = _actions(action_matrices, dimension)
+    if isinstance(horizon, bool) or not isinstance(horizon, int):
+        raise TypeError("horizon must be an integer")
+    if horizon < 0:
+        raise ValueError("horizon must be nonnegative")
+
+    reached = set(observations)
+    frontier = set(observations)
+    for _ in range(horizon):
+        frontier = {
+            _row_times_matrix(row, action)
+            for row in frontier
+            for action in actions
+        }
+        reached.update(frontier)
+    return tuple(sorted(reached))
 
 
-def coupling_is_z_matrix(coupling: Sequence[Sequence[int]]) -> bool:
-    rows = tuple(tuple(row) for row in coupling)
-    if not rows:
-        raise ValueError("coupling matrix must be nonempty")
-    matrix = _square_integer_matrix(rows, len(rows))
-    return all(
-        row == column or matrix[row][column] <= 0
-        for row in range(len(matrix))
-        for column in range(len(matrix))
+def action_language_smith_profile(
+    action_matrices: Sequence[Sequence[Sequence[int]]],
+    observation_rows: Sequence[Sequence[int]],
+    horizon: int,
+):
+    """Smith/determinantal precision profile of the future word-row lattice."""
+    rows = action_language_observation_rows(
+        action_matrices,
+        observation_rows,
+        horizon,
     )
+    return integer_smith_precision_profile(rows)
 
 
-def coupling_is_diagonal(coupling: Sequence[Sequence[int]]) -> bool:
-    rows = tuple(tuple(row) for row in coupling)
-    if not rows:
-        raise ValueError("coupling matrix must be nonempty")
-    matrix = _square_integer_matrix(rows, len(rows))
-    return all(
-        row == column or matrix[row][column] == 0
-        for row in range(len(matrix))
-        for column in range(len(matrix))
-    )
+def prime_factor_multiplicity(value: int) -> int:
+    """Omega(value), counting prime factors with multiplicity; Omega(1)=0."""
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise TypeError("value must be an integer")
+    if value <= 0:
+        raise ValueError("value must be positive")
+    remaining = value
+    divisor = 2
+    count = 0
+    while divisor * divisor <= remaining:
+        while remaining % divisor == 0:
+            count += 1
+            remaining //= divisor
+        divisor = 3 if divisor == 2 else divisor + 2
+    if remaining > 1:
+        count += 1
+    return count
 
 
 @dataclass(frozen=True)
-class GuardedImpulseRealization:
-    target_counts: Vector
-    realizable: bool
-    word: tuple[int, ...] | None
-    visited_count_states: int
-    total_count_states: int
+class ActionLanguageClosureStep:
+    horizon: int
+    rational_rank: int
+    hidden_free_rank: int
+    saturation_index: int
+    smith_factors: tuple[int, ...]
+
+
+@dataclass(frozen=True)
+class ActionLanguageClosureReport:
+    state_dimension: int
+    initial_rank: int
+    rational_stabilization_horizon: int
+    rational_stabilization_index: int
+    arithmetic_refinement_bound: int
+    final_lattice_attainment_bound: int
+    exact_integer_stabilization_horizon: int
+    steps: tuple[ActionLanguageClosureStep, ...]
 
     @property
-    def delivered_total(self) -> int:
-        return sum(self.target_counts)
+    def delayed_integer_refinement_after_rational_stability(self) -> bool:
+        return self.exact_integer_stabilization_horizon > self.rational_stabilization_horizon
 
 
-def exact_guarded_impulse_realization(
-    initial_scores: Sequence[int],
-    coupling: Sequence[Sequence[int]],
-    target_counts: Sequence[int],
-) -> GuardedImpulseRealization:
-    """Exact BFS on the finite prefix-count lattice."""
-    scores = _integer_vector(initial_scores, name="initial_scores")
-    matrix = _square_integer_matrix(coupling, len(scores))
-    target = _integer_vector(
-        target_counts,
-        name="target_counts",
-        nonnegative=True,
-    )
-    if len(target) != len(scores):
-        raise ValueError("target_counts must match score dimension")
+def action_language_closure_report(
+    action_matrices: Sequence[Sequence[Sequence[int]]],
+    observation_rows: Sequence[Sequence[int]],
+) -> ActionLanguageClosureReport:
+    """Find exact rational/integer stabilization with a theorem-backed finite bound."""
+    observations = _matrix(observation_rows)
+    dimension = len(observations[0])
+    actions = _actions(action_matrices, dimension)
+    initial_rank = integer_matrix_rank(observations)
 
-    zero = (0,) * len(target)
-    total_states = prod(value + 1 for value in target)
-    queue: deque[Vector] = deque([zero])
-    predecessor: dict[Vector, tuple[Vector, int] | None] = {zero: None}
+    steps: list[ActionLanguageClosureStep] = []
 
-    while queue:
-        prefix = queue.popleft()
-        if prefix == target:
-            word: list[int] = []
-            current = prefix
-            while predecessor[current] is not None:
-                previous, action = predecessor[current]
-                word.append(action)
-                current = previous
-            word.reverse()
-            return GuardedImpulseRealization(
-                target_counts=target,
-                realizable=True,
-                word=tuple(word),
-                visited_count_states=len(predecessor),
-                total_count_states=total_states,
-            )
-
-        for action in enabled_remaining_contacts(scores, matrix, prefix, target):
-            nxt = tuple(
-                value + (1 if index == action else 0)
-                for index, value in enumerate(prefix)
-            )
-            if nxt in predecessor:
-                continue
-            predecessor[nxt] = (prefix, action)
-            queue.append(nxt)
-
-    return GuardedImpulseRealization(
-        target_counts=target,
-        realizable=False,
-        word=None,
-        visited_count_states=len(predecessor),
-        total_count_states=total_states,
-    )
-
-
-def _lowest_enabled(enabled: tuple[int, ...], _: Vector) -> int:
-    return enabled[0]
-
-
-def _highest_enabled(enabled: tuple[int, ...], _: Vector) -> int:
-    return enabled[-1]
-
-
-def _least_used_enabled(enabled: tuple[int, ...], counts: Vector) -> int:
-    return min(enabled, key=lambda index: (counts[index], index))
-
-
-GREEDY_CHOOSERS: dict[str, Callable[[tuple[int, ...], Vector], int]] = {
-    "LOWEST": _lowest_enabled,
-    "HIGHEST": _highest_enabled,
-    "LEAST_USED": _least_used_enabled,
-}
-
-
-@dataclass(frozen=True)
-class ZGreedyGuardedRealization:
-    target_counts: Vector
-    policy: str
-    realizable: bool
-    word: tuple[int, ...] | None
-    stuck_prefix_counts: Vector | None
-    stuck_scores: Vector | None
-
-
-def z_greedy_guarded_realization(
-    initial_scores: Sequence[int],
-    coupling: Sequence[Sequence[int]],
-    target_counts: Sequence[int],
-    *,
-    policy: str = "LOWEST",
-) -> ZGreedyGuardedRealization:
-    """Arbitrary-choice greedy decision procedure for Z-coupled systems."""
-    scores = _integer_vector(initial_scores, name="initial_scores")
-    matrix = _square_integer_matrix(coupling, len(scores))
-    target = _integer_vector(
-        target_counts,
-        name="target_counts",
-        nonnegative=True,
-    )
-    if len(target) != len(scores):
-        raise ValueError("target_counts must match score dimension")
-    if not coupling_is_z_matrix(matrix):
-        raise ValueError("Z-greedy theorem requires nonpositive off-diagonal coupling")
-    if policy not in GREEDY_CHOOSERS:
-        raise ValueError("unknown greedy policy")
-
-    chooser = GREEDY_CHOOSERS[policy]
-    counts: Vector = (0,) * len(target)
-    word: list[int] = []
-    while counts != target:
-        enabled = enabled_remaining_contacts(scores, matrix, counts, target)
-        if not enabled:
-            return ZGreedyGuardedRealization(
-                target_counts=target,
-                policy=policy,
-                realizable=False,
-                word=None,
-                stuck_prefix_counts=counts,
-                stuck_scores=score_after_counts(scores, matrix, counts),
-            )
-        action = chooser(enabled, counts)
-        counts = tuple(
-            value + (1 if index == action else 0)
-            for index, value in enumerate(counts)
+    def append_step(horizon: int) -> ActionLanguageClosureStep:
+        profile = action_language_smith_profile(actions, observations, horizon)
+        step = ActionLanguageClosureStep(
+            horizon=horizon,
+            rational_rank=profile.rational_rank,
+            hidden_free_rank=profile.hidden_free_rank,
+            saturation_index=profile.maximal_nonzero_determinantal_divisor,
+            smith_factors=profile.smith_invariant_factors,
         )
-        word.append(action)
+        steps.append(step)
+        return step
 
-    return ZGreedyGuardedRealization(
-        target_counts=target,
-        policy=policy,
-        realizable=True,
-        word=tuple(word),
-        stuck_prefix_counts=None,
-        stuck_scores=None,
-    )
+    append_step(0)
+    rational_horizon: int | None = None
+    rational_index: int | None = None
 
+    # A rational plateau must occur by dimension-initial_rank.  We evaluate one
+    # additional horizon to witness the equality of adjacent ranks.
+    rational_search_limit = dimension - initial_rank + 1
+    for horizon in range(1, rational_search_limit + 1):
+        current = append_step(horizon)
+        previous = steps[-2]
+        if current.rational_rank == previous.rational_rank:
+            rational_horizon = horizon - 1
+            rational_index = previous.saturation_index
+            break
+    if rational_horizon is None or rational_index is None:
+        raise AssertionError("rational action-language row space missed its dimension bound")
 
-def diagonal_guarded_realizable_closed_form(
-    initial_scores: Sequence[int],
-    coupling: Sequence[Sequence[int]],
-    target_counts: Sequence[int],
-) -> bool:
-    """Exact independent-contact criterion for arbitrary integer diagonal coupling."""
-    scores = _integer_vector(initial_scores, name="initial_scores")
-    matrix = _square_integer_matrix(coupling, len(scores))
-    target = _integer_vector(
-        target_counts,
-        name="target_counts",
-        nonnegative=True,
-    )
-    if len(target) != len(scores):
-        raise ValueError("target_counts must match score dimension")
-    if not coupling_is_diagonal(matrix):
-        raise ValueError("closed form requires diagonal coupling")
+    omega = prime_factor_multiplicity(rational_index)
+    attainment_bound = rational_horizon + omega
 
-    return all(
-        count == 0
-        or max(
-            scores[index],
-            scores[index] + matrix[index][index] * (count - 1),
-        )
-        < 0
-        for index, count in enumerate(target)
-    )
+    # We need one row-lattice snapshot beyond the attainment bound to identify
+    # the first equal adjacent pair, which certifies permanent integer closure.
+    required_last_horizon = attainment_bound + 1
+    for horizon in range(len(steps), required_last_horizon + 1):
+        append_step(horizon)
 
+    exact_integer_horizon: int | None = None
+    stable_rank = steps[rational_horizon].rational_rank
+    for horizon in range(rational_horizon + 1, len(steps)):
+        current = steps[horizon]
+        previous = steps[horizon - 1]
+        if current.rational_rank != stable_rank:
+            raise AssertionError("rational rank increased after its first plateau")
+        if previous.saturation_index % current.saturation_index != 0:
+            raise AssertionError("same-span lattice refinement violated index divisibility")
+        if current.saturation_index == previous.saturation_index:
+            exact_integer_horizon = horizon - 1
+            break
 
-@dataclass(frozen=True)
-class BatchedGuardedTickPolicyReport:
-    delivered_impulse_vector: Vector
-    initial_scores: Vector
-    coupling_gram: Matrix
-    guarded_realizable: bool
-    guarded_word: tuple[int, ...] | None
-    batch_after_matches_guarded_after: bool | None
-    z_coupled: bool
+    if exact_integer_horizon is None:
+        raise AssertionError("integer row lattice exceeded prime-factor refinement bound")
+    if exact_integer_horizon > attainment_bound:
+        raise AssertionError("integer lattice stabilized after its arithmetic bound")
 
-    @property
-    def batch_is_causally_realizable(self) -> bool:
-        return self.guarded_realizable
-
-
-def compare_batched_tick_to_guarded_sequential(
-    tick: ContactMaterialNetworkTick1D,
-) -> BatchedGuardedTickPolicyReport:
-    """Check whether one already-quantized batch vector has a guarded realization."""
-    if not isinstance(tick, ContactMaterialNetworkTick1D):
-        raise TypeError("tick must be ContactMaterialNetworkTick1D")
-    initial_scores = contact_relative_scores(tick.before)
-    gram = contact_coupling_gram(tick.before)
-    delivered = tick.delivered_impulse_vector
-    exact = exact_guarded_impulse_realization(initial_scores, gram, delivered)
-
-    matches: bool | None = None
-    if exact.realizable:
-        batch_step = apply_contact_impulse_vector(tick.before, delivered)
-        if batch_step.after != tick.after:
-            raise AssertionError(
-                "material batch after-state disagreed with delivered vector"
-            )
-        matches = True
-
-    return BatchedGuardedTickPolicyReport(
-        delivered_impulse_vector=delivered,
-        initial_scores=initial_scores,
-        coupling_gram=gram,
-        guarded_realizable=exact.realizable,
-        guarded_word=exact.word,
-        batch_after_matches_guarded_after=matches,
-        z_coupled=coupling_is_z_matrix(gram),
+    return ActionLanguageClosureReport(
+        state_dimension=dimension,
+        initial_rank=initial_rank,
+        rational_stabilization_horizon=rational_horizon,
+        rational_stabilization_index=rational_index,
+        arithmetic_refinement_bound=omega,
+        final_lattice_attainment_bound=attainment_bound,
+        exact_integer_stabilization_horizon=exact_integer_horizon,
+        steps=tuple(steps),
     )
