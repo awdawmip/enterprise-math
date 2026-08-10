@@ -6,7 +6,13 @@ from .division import (
     multiple_collapse,
     reconstruct_euclidean,
 )
-from .geometry import graph_distance, l1_distance, lattice2_ball, lattice2_sphere
+from .geometry import (
+    directed_graph_distance,
+    graph_distance,
+    l1_distance,
+    lattice2_ball,
+    lattice2_sphere,
+)
 from .scale_algebra import (
     greatest_common_coarsening,
     least_common_refinement,
@@ -47,6 +53,7 @@ __all__ = [
     "project_tagged",
     "collapse_tagged",
     "strict_rank_decrease",
+    "directed_graph_distance",
     "graph_distance",
     "l1_distance",
     "lattice2_sphere",
