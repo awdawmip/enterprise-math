@@ -1,0 +1,398 @@
+"""Exact finite periodic certificates for rational stationary local-window laws.
+
+This research module studies one narrow FQ-007 resource boundary: a fixed
+finite local-window observation language can be reproduced forever by a finite
+ex-ante deterministic latent system whenever its stationary block law is
+rational.
+
+A length-k block count table is interpreted as a directed multigraph on
+length-(k-1) words.  Stationarity is exactly flow balance.  A balanced finite
+directed multigraph decomposes into directed cycles.  Uniform random phase on
+each resulting periodic cycle, mixed with exact rational cycle weights,
+reconstructs the declared k-window law at every time.
+
+When the positive flow graph is weakly connected, the stronger Eulerian
+certificate exists: one deterministic periodic orbit has exactly the declared
+empirical k-window frequencies over one period.  This distinction prevents
+ensemble stationary laws from being conflated with single-trajectory time
+averages.
+
+For an arbitrary finite linear record, periodic repetition changes only the
+k-1 wraparound windows.  Its local empirical law is therefore within exact
+total-variation distance at most (k-1)/N of the observed linear-window law.
+
+All calculations are finite and integer/Fraction exact.  This is classical
+circulation/Eulerian-cycle mathematics used as a project-local certificate; no
+generic novelty is claimed and no physical ontology is inferred.
+"""
+
+from __future__ import annotations
+
+from collections import Counter, defaultdict, deque
+from collections.abc import Hashable, Mapping, Sequence
+from fractions import Fraction
+from math import gcd
+
+Symbol = Hashable
+Block = tuple[Symbol, ...]
+Vertex = tuple[Symbol, ...]
+Cycle = tuple[Block, ...]
+
+
+def _validated_positive_counts(
+    block_counts: Mapping[Block, int],
+) -> tuple[dict[Block, int], int, int]:
+    if not block_counts:
+        raise ValueError("block count table must be nonempty")
+    widths = {len(block) for block in block_counts}
+    if len(widths) != 1:
+        raise ValueError("all blocks must have one common width")
+    width = next(iter(widths))
+    if width <= 0:
+        raise ValueError("block width must be positive")
+
+    positive: dict[Block, int] = {}
+    for block, count in block_counts.items():
+        if isinstance(count, bool) or not isinstance(count, int) or count < 0:
+            raise ValueError("block counts must be non-negative integers")
+        if count:
+            positive[tuple(block)] = count
+    if not positive:
+        raise ValueError("block count table must have positive total mass")
+    total = sum(positive.values())
+    return positive, width, total
+
+
+def stationary_block_counts_balanced(block_counts: Mapping[Block, int]) -> bool:
+    """Return whether integer k-block counts have matching prefix/suffix flow."""
+    positive, width, _ = _validated_positive_counts(block_counts)
+    if width == 1:
+        return True
+
+    outgoing: defaultdict[Vertex, int] = defaultdict(int)
+    incoming: defaultdict[Vertex, int] = defaultdict(int)
+    for block, count in positive.items():
+        outgoing[block[:-1]] += count
+        incoming[block[1:]] += count
+    vertices = set(outgoing) | set(incoming)
+    return all(outgoing[vertex] == incoming[vertex] for vertex in vertices)
+
+
+def reduced_stationary_window_counts(block_counts: Mapping[Block, int]) -> dict[Block, int]:
+    """Divide a positive stationary count table by its common integer gcd."""
+    positive, _, _ = _validated_positive_counts(block_counts)
+    if not stationary_block_counts_balanced(positive):
+        raise ValueError("block counts must satisfy stationary prefix/suffix balance")
+    common = 0
+    for count in positive.values():
+        common = gcd(common, count)
+    if common <= 0:
+        raise AssertionError("positive counts must have positive gcd")
+    return {block: count // common for block, count in positive.items()}
+
+
+def _positive_flow_weakly_connected(block_counts: Mapping[Block, int]) -> bool:
+    """Check weak connectivity of vertices incident to positive directed flow."""
+    positive, width, _ = _validated_positive_counts(block_counts)
+    if width == 1:
+        return True
+
+    neighbors: defaultdict[Vertex, set[Vertex]] = defaultdict(set)
+    active: set[Vertex] = set()
+    for block in positive:
+        source = block[:-1]
+        target = block[1:]
+        active.add(source)
+        active.add(target)
+        neighbors[source].add(target)
+        neighbors[target].add(source)
+    start = min(active, key=repr)
+    seen = {start}
+    queue = deque([start])
+    while queue:
+        vertex = queue.popleft()
+        for neighbor in neighbors[vertex]:
+            if neighbor not in seen:
+                seen.add(neighbor)
+                queue.append(neighbor)
+    return seen == active
+
+
+def decompose_stationary_block_counts(block_counts: Mapping[Block, int]) -> tuple[Cycle, ...]:
+    """Decompose balanced integer k-block counts into closed directed cycles.
+
+    Each positive block is treated as that many edge copies from its length-(k-1)
+    prefix to suffix.  The returned cycles use every edge copy exactly once.
+    """
+    positive, width, total = _validated_positive_counts(block_counts)
+    if not stationary_block_counts_balanced(positive):
+        raise ValueError("block counts must satisfy stationary prefix/suffix balance")
+
+    outgoing: defaultdict[Vertex, list[Block]] = defaultdict(list)
+    for block, count in positive.items():
+        outgoing[block[:-1]].extend([block] * count)
+
+    remaining = total
+    cycles: list[Cycle] = []
+    while remaining:
+        starts = [vertex for vertex, edges in outgoing.items() if edges]
+        if not starts:
+            raise AssertionError("positive remaining edge count must expose an outgoing edge")
+        start = min(starts, key=repr)
+        current = start
+        cycle: list[Block] = []
+        while True:
+            if not outgoing[current]:
+                raise AssertionError("balanced residual graph cannot strand an open walk")
+            block = outgoing[current].pop()
+            cycle.append(block)
+            remaining -= 1
+            current = block[1:] if width > 1 else ()
+            if current == start:
+                break
+        cycles.append(tuple(cycle))
+
+    used = Counter(block for cycle in cycles for block in cycle)
+    if used != Counter(positive):
+        raise AssertionError("cycle decomposition must use every block copy exactly once")
+    return tuple(cycles)
+
+
+def cycle_period_symbols(cycle: Sequence[Block]) -> tuple[Symbol, ...]:
+    """Return one periodic symbol word whose cyclic k-windows are ``cycle``."""
+    edges = tuple(tuple(block) for block in cycle)
+    if not edges:
+        raise ValueError("cycle must be nonempty")
+    width = len(edges[0])
+    if width <= 0 or any(len(block) != width for block in edges):
+        raise ValueError("cycle blocks must have one positive common width")
+    for left, right in zip(edges, edges[1:] + edges[:1]):
+        if width > 1 and left[1:] != right[:-1]:
+            raise ValueError("cycle blocks do not form a closed shift-compatible walk")
+    return tuple(block[0] for block in edges)
+
+
+def linear_window_counts(record: Sequence[Symbol], width: int) -> dict[Block, int]:
+    """Count ordinary non-wrapping windows in a finite linear record."""
+    symbols = tuple(record)
+    if not symbols:
+        raise ValueError("record must be nonempty")
+    if isinstance(width, bool) or not isinstance(width, int) or width <= 0 or width > len(symbols):
+        raise ValueError("width must satisfy 1 <= width <= record length")
+    counts: Counter[Block] = Counter()
+    for start in range(len(symbols) - width + 1):
+        counts[tuple(symbols[start : start + width])] += 1
+    return dict(counts)
+
+
+def cyclic_window_counts(period: Sequence[Symbol], width: int) -> dict[Block, int]:
+    """Count cyclic length-``width`` windows, one starting at each phase."""
+    symbols = tuple(period)
+    if not symbols:
+        raise ValueError("period must be nonempty")
+    if isinstance(width, bool) or not isinstance(width, int) or width <= 0:
+        raise ValueError("width must be a positive integer")
+    size = len(symbols)
+    counts: Counter[Block] = Counter()
+    for start in range(size):
+        block = tuple(symbols[(start + offset) % size] for offset in range(width))
+        counts[block] += 1
+    return dict(counts)
+
+
+def _normalized_count_law(counts: Mapping[Block, int]) -> dict[Block, Fraction]:
+    positive = {block: count for block, count in counts.items() if count}
+    if not positive or any(
+        isinstance(count, bool) or not isinstance(count, int) or count < 0
+        for count in counts.values()
+    ):
+        raise ValueError("counts must have positive integer total mass")
+    total = sum(positive.values())
+    return {block: Fraction(count, total) for block, count in positive.items()}
+
+
+def total_variation_distance(
+    left: Mapping[Block, Fraction], right: Mapping[Block, Fraction]
+) -> Fraction:
+    """Exact total-variation distance between two finite rational laws."""
+    keys = set(left) | set(right)
+    if not keys:
+        raise ValueError("laws must have nonempty support")
+    left_law = {key: Fraction(value) for key, value in left.items()}
+    right_law = {key: Fraction(value) for key, value in right.items()}
+    if any(value < 0 for value in left_law.values()) or any(
+        value < 0 for value in right_law.values()
+    ):
+        raise ValueError("law weights must be nonnegative")
+    if sum(left_law.values(), Fraction(0)) != 1 or sum(
+        right_law.values(), Fraction(0)
+    ) != 1:
+        raise ValueError("law weights must sum exactly to one")
+    return Fraction(1, 2) * sum(
+        (abs(left_law.get(key, Fraction(0)) - right_law.get(key, Fraction(0))) for key in keys),
+        start=Fraction(0),
+    )
+
+
+def finite_record_periodic_shadow(
+    record: Sequence[Symbol], width: int
+) -> tuple[dict[Block, Fraction], dict[Block, Fraction], Fraction, Fraction]:
+    """Compare a finite record with its deterministic periodic repetition.
+
+    Returns the linear-window law, cyclic-period law, exact total-variation
+    distance, and the universal boundary bound ``(width-1)/N``.  The proof is
+    the convex decomposition
+
+        q = ((N-k+1)/N) p + ((k-1)/N) r,
+
+    where ``r`` is the distribution of the wraparound windows when ``k>1``.
+    """
+    symbols = tuple(record)
+    linear_counts = linear_window_counts(symbols, width)
+    cyclic_counts = cyclic_window_counts(symbols, width)
+    linear_law = _normalized_count_law(linear_counts)
+    cyclic_law = _normalized_count_law(cyclic_counts)
+    distance = total_variation_distance(linear_law, cyclic_law)
+    bound = Fraction(width - 1, len(symbols))
+    if distance > bound:
+        raise AssertionError("periodic shadow cannot exceed the wraparound TV bound")
+    return linear_law, cyclic_law, distance, bound
+
+
+def eulerian_stationary_period(block_counts: Mapping[Block, int]) -> tuple[Symbol, ...]:
+    """Return one periodic orbit with the exact declared empirical k-window counts.
+
+    This stronger single-trajectory certificate exists when the positive
+    stationary flow graph is weakly connected.  Disconnected stationary laws
+    still admit the ensemble cycle-mixture certificate below, but no one orbit
+    can traverse all positive components without introducing an undeclared
+    connecting block.
+    """
+    reduced = reduced_stationary_window_counts(block_counts)
+    positive, width, total = _validated_positive_counts(reduced)
+    if not _positive_flow_weakly_connected(positive):
+        raise ValueError("single-orbit certificate requires connected positive stationary flow")
+
+    outgoing: defaultdict[Vertex, list[Block]] = defaultdict(list)
+    for block, count in positive.items():
+        outgoing[block[:-1]].extend([block] * count)
+
+    start = min((vertex for vertex, edges in outgoing.items() if edges), key=repr)
+    vertex_stack: list[Vertex] = [start]
+    edge_stack: list[Block] = []
+    reverse_circuit: list[Block] = []
+
+    while vertex_stack:
+        vertex = vertex_stack[-1]
+        if outgoing[vertex]:
+            block = outgoing[vertex].pop()
+            target = block[1:] if width > 1 else ()
+            vertex_stack.append(target)
+            edge_stack.append(block)
+        else:
+            vertex_stack.pop()
+            if edge_stack:
+                reverse_circuit.append(edge_stack.pop())
+
+    circuit = tuple(reversed(reverse_circuit))
+    if len(circuit) != total or Counter(circuit) != Counter(positive):
+        raise AssertionError("Eulerian circuit must use every reduced edge copy exactly once")
+    period = cycle_period_symbols(circuit)
+    if cyclic_window_counts(period, width) != positive:
+        raise AssertionError("Eulerian period must reproduce the reduced empirical block counts")
+    return period
+
+
+def periodic_cycle_mixture_block_law(cycles: Sequence[Cycle]) -> dict[Block, Fraction]:
+    """Exact k-window law of the cycle-length weighted random-phase mixture.
+
+    A cycle of length L is selected with weight L / D, where D is the total
+    number of edge copies, and then one of its L phases is selected uniformly.
+    Equivalently every edge-copy phase across all cycles receives mass 1 / D.
+    """
+    cycle_tuple = tuple(tuple(tuple(block) for block in cycle) for cycle in cycles)
+    if not cycle_tuple or any(not cycle for cycle in cycle_tuple):
+        raise ValueError("at least one nonempty cycle is required")
+    widths = {len(block) for cycle in cycle_tuple for block in cycle}
+    if len(widths) != 1 or next(iter(widths)) <= 0:
+        raise ValueError("all cycle blocks must have one positive common width")
+    width = next(iter(widths))
+    total = sum(len(cycle) for cycle in cycle_tuple)
+
+    law: defaultdict[Block, Fraction] = defaultdict(Fraction)
+    for cycle in cycle_tuple:
+        period = cycle_period_symbols(cycle)
+        counts = cyclic_window_counts(period, width)
+        for block, count in counts.items():
+            law[block] += Fraction(count, total)
+    return dict(law)
+
+
+def stationary_rational_window_presampling_certificate(
+    block_counts: Mapping[Block, int],
+) -> tuple[tuple[Cycle, ...], dict[Block, Fraction]]:
+    """Return a finite periodic ensemble certificate reproducing a rational local law."""
+    reduced = reduced_stationary_window_counts(block_counts)
+    total = sum(reduced.values())
+    cycles = decompose_stationary_block_counts(reduced)
+    law = periodic_cycle_mixture_block_law(cycles)
+    expected = {block: Fraction(count, total) for block, count in reduced.items()}
+    if law != expected:
+        raise AssertionError("periodic cycle mixture must reproduce the declared block law")
+    return cycles, law
+
+
+def stationary_window_atom_rank_bounds(block_counts: Mapping[Block, int]) -> tuple[int, int]:
+    """Return a support lower bound and constructive finite-atom upper bound.
+
+    At one declared time each deterministic latent atom exposes only one k-block,
+    so the number of positive target blocks is a universal lower bound.  After
+    reducing the rational counts by their gcd, the cycle/random-phase
+    construction uses at most the reduced total count many deterministic phase
+    atoms, giving the upper bound.
+    """
+    reduced = reduced_stationary_window_counts(block_counts)
+    support_lower_bound = len(reduced)
+    certificate_upper_bound = sum(reduced.values())
+    if support_lower_bound > certificate_upper_bound:
+        raise AssertionError("positive integer counts must dominate their support size")
+    return support_lower_bound, certificate_upper_bound
+
+
+def uniform_full_support_window_rank(alphabet_size: int, width: int) -> int:
+    """Exact deterministic-atom rank for the uniform full-support k-window law.
+
+    The target has ``alphabet_size ** width`` positive k-block outputs at a fixed
+    time, so any static deterministic mixture needs at least that many atoms.
+    Balanced all-one block counts attain the same bound by the periodic-cycle
+    construction above.
+    """
+    for name, value in (("alphabet_size", alphabet_size), ("width", width)):
+        if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+            raise ValueError(f"{name} must be a positive integer")
+    return alphabet_size**width
+
+
+def minimum_uniform_window_width_exceeding_atom_budget(
+    alphabet_size: int, atom_budget: int
+) -> int | None:
+    """Smallest local-window width whose exact uniform rank exceeds ``atom_budget``.
+
+    Returns ``None`` only for the one-symbol alphabet when a positive static
+    budget already suffices forever.  This function witnesses a capacity-test
+    threshold; exceeding a finite budget does not rule out unrestricted
+    presampling.
+    """
+    if isinstance(alphabet_size, bool) or not isinstance(alphabet_size, int) or alphabet_size <= 0:
+        raise ValueError("alphabet_size must be a positive integer")
+    if isinstance(atom_budget, bool) or not isinstance(atom_budget, int) or atom_budget < 0:
+        raise ValueError("atom_budget must be a non-negative integer")
+    if alphabet_size == 1:
+        return 1 if atom_budget == 0 else None
+
+    width = 1
+    rank = alphabet_size
+    while rank <= atom_budget:
+        rank *= alphabet_size
+        width += 1
+    return width
