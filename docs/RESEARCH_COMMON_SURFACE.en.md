@@ -312,10 +312,13 @@ When a reusable result appears:
 
 ## 10. Foundation stewardship
 
-FQ-001 through FQ-004 and FQ-006 are canonicalized foundation conventions/results. The only currently active foundation question is:
+FQ-001 through FQ-004 and FQ-006 are canonicalized foundation conventions/results. The currently active foundation questions are:
 
 - `FQ-20260809-005` — stable `graph_distance` API domain versus the P012 ordinary-metric theorem domain.
+- `FQ-20260810-007` — determine whether a weakest project-native finite causal/relational primitive can make arbitrary finite pre-sampling operationally falsifiable, or prove that current Foundation semantics require an additional physical/causal axiom to distinguish online generation from finite latent completion.
 
 FQ-006 adds legality-sensitive partial deterministic future languages to P023 without changing FQ-004's actual-state / observation / future-safe layering and without collapsing A4 multivalued correspondence into a partial function model.
+
+FQ-007 is routed to clean owner `research/r004-causal-identifiability-v1` and durable task `RS-R004-CAUSAL-IDENTIFIABILITY`. Historical R004 PR #302 is evidence/provenance only; Bell locality and measurement independence are pressure-test restrictions, not Foundation axioms or project novelty.
 
 The steward fixes mechanical drift directly, but does not choose unresolved research answers. Returned FQ answers require steward verification before canonicalization.
