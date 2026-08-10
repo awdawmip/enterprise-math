@@ -17,6 +17,10 @@ If the reduced basis is unchanged after one closure step, then ``L_h`` is
 right-invariant under every declared action and no longer future word can add
 information.  This is an exact online stop certificate, not a cutoff heuristic.
 
+The zero observation lattice is a valid extreme precision state: every future
+linear observation is zero, hidden free rank is the full state dimension, and
+closure is already complete at horizon zero.
+
 The implementation deliberately keeps the embedded row lattice rather than only
 its Smith factors: equal abstract precision type does not imply equal precision
 placement in the world coordinates.
@@ -32,7 +36,6 @@ from dataclasses import dataclass
 from typing import Iterable, Sequence
 
 from .integer_action_language_observability import prime_factor_multiplicity
-from .integer_future_observability import integer_matrix_rank
 from .integer_future_smith_precision import integer_smith_precision_profile
 
 
@@ -165,11 +168,23 @@ def action_module_closure_step(
     action_matrices: Sequence[Sequence[Sequence[int]]],
 ) -> Matrix:
     """Return a row-Hermite basis of ``L + sum_a L A_a``."""
-    basis = integer_row_hermite_basis(basis_rows)
-    if not basis:
-        raise ValueError("basis_rows must generate a nonzero observation lattice")
-    dimension = len(basis[0])
+    raw_basis = tuple(tuple(row) for row in basis_rows)
+    if raw_basis:
+        normalized = _matrix(raw_basis)
+        dimension = len(normalized[0])
+    else:
+        raw_actions = tuple(_matrix(matrix) for matrix in action_matrices)
+        if not raw_actions:
+            raise ValueError("at least one action matrix is required")
+        dimension = len(raw_actions[0])
+        if any(len(action) != dimension or len(action[0]) != dimension for action in raw_actions):
+            raise ValueError("every action must be square on one common state dimension")
+        return ()
+
     actions = _square_actions(action_matrices, dimension)
+    basis = integer_row_hermite_basis(normalized)
+    if not basis:
+        return ()
     generated = list(basis)
     generated.extend(
         _row_times_matrix(row, action)
@@ -215,8 +230,30 @@ def action_module_closure_report(
     dimension = len(observations[0])
     actions = _square_actions(action_matrices, dimension)
     basis = integer_row_hermite_basis(observations)
+
+    def zero_step(horizon: int) -> ActionModuleBasisStep:
+        return ActionModuleBasisStep(
+            horizon=horizon,
+            basis=(),
+            rational_rank=0,
+            hidden_free_rank=dimension,
+            saturation_index=1,
+            smith_factors=(),
+        )
+
     if not basis:
-        raise ValueError("observation_rows must generate a nonzero row lattice")
+        # The zero row lattice is already invariant under every linear action.
+        return ActionModuleClosureReport(
+            state_dimension=dimension,
+            initial_basis=(),
+            rational_stabilization_horizon=0,
+            rational_stabilization_index=1,
+            arithmetic_refinement_budget=0,
+            theorem_attainment_bound=0,
+            exact_stabilization_horizon=0,
+            final_basis=(),
+            steps=(zero_step(0), zero_step(1)),
+        )
 
     steps: list[ActionModuleBasisStep] = []
 
@@ -251,7 +288,6 @@ def action_module_closure_report(
         if next_basis == current.basis:
             exact_horizon = horizon
             if rational_horizon is None or rational_index is None or theorem_bound is None:
-                # Equality itself witnesses the first rational plateau.
                 rational_horizon = horizon
                 rational_index = current.saturation_index
                 theorem_bound = rational_horizon + prime_factor_multiplicity(rational_index)
@@ -277,8 +313,6 @@ def action_module_closure_report(
             if theorem_bound is not None and horizon + 1 > theorem_bound:
                 raise AssertionError("integer action module exceeded theorem closure bound")
         else:
-            # Before the first rational plateau, every strict step must add at
-            # least one rational dimension.  There are only ``dimension``.
             if next_step.rational_rank <= current.rational_rank:
                 raise AssertionError("unrecorded rational plateau")
 
