@@ -19,8 +19,9 @@ There are two automatic defect-capture mechanisms.
 
 Therefore a primitive Franel event is captured at r or r+1 unless both
 2r-1 and 2r+1 are prime.  The latter is exactly the condition that r is the
-center of an odd twin-prime pair.  This is an immediate-capture deferral
-boundary only: no claim is made that the prime never appears in a later defect.
+center of an odd twin-prime pair.  For r>2 such a center must satisfy
+r=0 (mod 3).  Hence every primitive event at r>2 with r not divisible by
+three is automatically captured within one defect step.
 
 Twin-prime terminology and elementary prime-factor bounds are classical.  The
 P022 content is the exact interaction with the canonical Franel defect basis.
@@ -33,7 +34,10 @@ from .p022_barlow_low_order_defect_reduction import (
     composite_A_relation_exponents,
     franel_defect_valuation,
 )
-from .p022_barlow_low_order_identifiability import p_adic_valuation, triple_moment_factor
+from .p022_barlow_low_order_identifiability import (
+    p_adic_valuation,
+    triple_moment_factor,
+)
 from .p022_barlow_primitive_defect_criterion import (
     is_primitive_franel_divisor,
     primitive_defect_pivot,
@@ -53,6 +57,49 @@ def primitive_capture_location(rank: int) -> int | None:
     if not _is_prime(2 * rank + 1):
         return rank + 1
     return None
+
+
+def mod3_forced_capture_location(rank: int) -> int | None:
+    """Return the defect column forced by rank mod 3 alone, when available.
+
+    For r>2:
+
+    - r=2 mod 3 forces 2r-1 to be a composite multiple of three, so D_r
+      captures any primitive event at r;
+    - r=1 mod 3 forces 2r+1 to be a composite multiple of three.  If D_r does
+      not already exist, D_(r+1) is therefore forced to exist;
+    - r=0 mod 3 has no such divisibility obstruction, so this helper returns
+      None even when a particular r happens to be captured for another reason.
+
+    Rank 2 is the exceptional center of the twin primes 3 and 5 and is not
+    covered by the r>2 statement.
+    """
+    _require_rank(rank)
+    if rank <= 2 or rank % 3 == 0:
+        return None
+    if rank % 3 == 2:
+        if (2 * rank - 1) % 3 != 0 or 2 * rank - 1 <= 3:
+            raise AssertionError("r=2 mod 3 must force a composite current boundary")
+        if _is_prime(2 * rank - 1):
+            raise AssertionError("forced current boundary cannot be prime")
+        return rank
+    if (2 * rank + 1) % 3 != 0 or 2 * rank + 1 <= 3:
+        raise AssertionError("r=1 mod 3 must force a composite successor boundary")
+    if _is_prime(2 * rank + 1):
+        raise AssertionError("forced successor boundary cannot be prime")
+    return rank if not _is_prime(2 * rank - 1) else rank + 1
+
+
+def twin_prime_deferral_requires_rank_multiple_of_three(rank: int) -> bool:
+    """Certify that every twin-prime deferral center r>2 lies in 3Z."""
+    _require_rank(rank)
+    if not is_twin_prime_deferral_center(rank):
+        raise ValueError("rank is not a twin-prime deferral center")
+    if rank == 2:
+        return True
+    if rank % 3 != 0:
+        raise AssertionError("an odd twin-prime center above 3 must be 0 mod 3")
+    return True
 
 
 def is_twin_prime_deferral_center(rank: int) -> bool:
@@ -95,11 +142,16 @@ def primitive_successor_capture_valuation(rank: int, prime: int) -> int:
     actual = franel_defect_valuation(rank + 1, prime)
     expected = -depth
     if actual != expected:
-        raise AssertionError("successor defect must capture the primitive event with negative depth")
+        raise AssertionError(
+            "successor defect must capture the primitive event with negative depth"
+        )
     return actual
 
 
-def primitive_event_capture_valuation(rank: int, prime: int) -> tuple[int | None, int | None]:
+def primitive_event_capture_valuation(
+    rank: int,
+    prime: int,
+) -> tuple[int | None, int | None]:
     """Return (capture column, valuation), or (None,None) at twin-prime deferral."""
     _require_rank(rank)
     if not is_primitive_franel_divisor(rank, prime):
