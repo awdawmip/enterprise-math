@@ -1,6 +1,6 @@
 # P025 Supplement 131 — Implication-basis storage versus derivation depth
 
-Status: `PROVED_WIP + EXECUTABLE_CHECKED / NOVELTY_UNVERIFIED`  
+Status: `PROVED_WIP + EXECUTABLE_AUTHORED_NOT_EXECUTED / NOVELTY_UNVERIFIED`  
 Owner: `program/p025-closure-basis-stage130`
 
 ## 1. Why Supplement 130 is not the end
