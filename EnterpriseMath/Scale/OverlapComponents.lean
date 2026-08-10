@@ -17,6 +17,7 @@ theorem overlapGraph_adj_same_block {d e : ℕ} (hd : 0 < d) (he : 0 < e)
   | inl i =>
       cases v with
       | inl i' =>
+          exfalso
           simpa [overlapGraph, overlapRel] using hAdj
       | inr j =>
           exact cellOverlap_same_gcdBlock hd he
@@ -27,6 +28,7 @@ theorem overlapGraph_adj_same_block {d e : ℕ} (hd : 0 < d) (he : 0 < e)
           exact (cellOverlap_same_gcdBlock hd he
             ((overlapGraph_adj_right_left i j).1 hAdj)).symm
       | inr j' =>
+          exfalso
           simpa [overlapGraph, overlapRel] using hAdj
 
 /-- The gcd-block label is constant along every overlap-graph walk/reachable pair. -/
@@ -54,7 +56,8 @@ theorem overlapGraph_not_connected_of_one_lt_gcd {d e : ℕ}
     exact (Nat.div_mul_cancel (Nat.gcd_dvd_left d e)).symm
   have hd'_lt : d' < d := by
     rw [hd_decomp]
-    have hmul : d' * 1 < d' * g := (Nat.mul_lt_mul_left hd').2 (by simpa [g] using hg)
+    have hmul : d' * 1 < d' * g :=
+      (Nat.mul_lt_mul_left hd').2 (by simpa [g] using hg)
     simpa using hmul
   let u₀ : Fin d ⊕ Fin e := Sum.inl ⟨0, hd⟩
   let u₁ : Fin d ⊕ Fin e := Sum.inl ⟨d', hd'_lt⟩
@@ -78,8 +81,7 @@ theorem overlapGraph_connected_iff_gcd_eq_one {d e : ℕ} (hd : 0 < d) (he : 0 <
     have hg : 1 < d.gcd e := by omega
     exact (overlapGraph_not_connected_of_one_lt_gcd hd he hg) hconn
   · intro hg
-    have hcop : d.Coprime e := by
-      exact hg
+    have hcop : d.Coprime e := (Nat.coprime_iff_gcd_eq_one).2 hg
     exact coprime_overlapGraph_connected hcop hd he
 
 /-- Topological form of the arithmetic split predicate: for positive scales, graph
@@ -123,17 +125,18 @@ theorem prime_iff_all_lower_overlap_connected {n : ℕ} (hn : 2 ≤ n) :
   constructor
   · intro hp d hd2 hdn
     apply (overlapGraph_connected_iff_gcd_eq_one (by omega) (by omega)).2
-    exact Nat.Coprime.gcd_eq_one (hp.coprime_iff_not_dvd.mpr (by
+    have hnotdvd : ¬ n ∣ d := by
       intro hdiv
-      have := hp.eq_one_or_self_of_dvd d hdiv
-      omega))
+      have hle : n ≤ d := Nat.le_of_dvd (by omega) hdiv
+      omega
+    have hcop : n.Coprime d := hp.coprime_iff_not_dvd.mpr hnotdvd
+    exact hcop.gcd_eq_one
   · intro hall
-    have hmin := Nat.minFac_prime (by omega : n ≠ 1)
-    have hdiv := Nat.minFac_dvd n
-    have hle := Nat.minFac_le n
-    have hmin2 := hmin.two_le
+    have hmin : n.minFac.Prime := Nat.minFac_prime (by omega : n ≠ 1)
+    have hle : n.minFac ≤ n := Nat.minFac_le (by omega)
+    have hmin2 : 2 ≤ n.minFac := hmin.two_le
     by_cases heq : n.minFac = n
-    · exact (Nat.prime_iff_minFac_eq n).2 heq
+    · exact (Nat.prime_def_minFac).2 ⟨hn, heq⟩
     · have hlt : n.minFac < n := lt_of_le_of_ne hle heq
       have hconn := hall n.minFac hmin2 hlt
       exact False.elim ((overlapGraph_minFac_not_connected hn) hconn)
