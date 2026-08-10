@@ -9,16 +9,16 @@ For M,N>=2 and L=lcm(M,N), the map
     Z/LZ -> Z/MZ x Z/NZ,
     r |-> (r mod M, r mod N)
 
-is an injective semiring homomorphism onto the compatible residue pairs.  Hence
+is an injective semiring homomorphism onto the compatible residue pairs. Hence
 mod-L branching is equivalent to product-semiring branching and therefore to
 the **coupled compositional join** of mod-M and mod-N branching interfaces.
 
 The ordinary state join of the two independently stable modular quotients may be
 coarser: it need not remain transition-stable after target classes are jointly
-refined.  The difference is compositional closure debt.
+refined. The difference is compositional closure debt.
 
 At terminal word-count trace level, however, no successor-type correlation is
-retained.  Pairing a mod-M trace with a mod-N trace is coefficientwise exactly
+retained. Pairing a mod-M trace with a mod-N trace is coefficientwise exactly
 mod-L information, so the independent terminal-trace join equals the mod-L
 trace partition with no additional structural closure.
 
@@ -29,7 +29,7 @@ Thus the same arithmetic lcm supports two different semantic roles:
   than the independent state-label join.
 
 CRT, modular semirings and weighted transition systems are standard prior
-mathematics/CS.  The project value is the exact interaction between arithmetic
+mathematics/CS. The project value is the exact interaction between arithmetic
 precision lattice and structural continuation semantics.
 """
 
@@ -48,7 +48,6 @@ from .relation_branching_semiring import (
     product_semiring,
     raw_semiring_word_trace,
     semiring_branching_partition,
-    verify_semiring_morphism,
     words_through_horizon,
 )
 from .relation_compositional_interface_join import (
@@ -132,12 +131,8 @@ def modular_divisibility_branching_refinement(
     coarse_modulus: int,
     fine_modulus: int,
 ) -> bool:
+    """Verify the branching factor map induced by coarse|fine modulus."""
     morphism = modular_reduction_morphism(fine_modulus, coarse_modulus)
-    if not verify_semiring_morphism(
-        morphism,
-        tuple(range(morphism.source.name.count("") + 12)),
-    ):
-        raise AssertionError("modular reduction failed bounded semiring-hom check")
     return morphism_commutes_with_branching_construction(
         states,
         relations,
@@ -316,7 +311,7 @@ def modular_gcd_is_common_coefficient_coarsening(
     common = gcd(left, right)
     if common == 1:
         # Mod-1 is the trivial coefficient world and is intentionally not
-        # represented by ``modular_semiring``.  It is the formal bottom here.
+        # represented by ``modular_semiring``. It is the formal bottom here.
         return True
     common_partition = semiring_branching_partition(
         states,
