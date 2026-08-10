@@ -203,17 +203,29 @@ def relation_rank_future_signature(
     prime: int,
     cap: int,
 ) -> tuple[tuple[int, ...], ...]:
+    """Literal future signature over the original joint action language.
+
+    Multiple joint actions are deliberately not deduplicated here even if they
+    induce the same relation translation.  Duplicate coordinates do not change
+    the kernel, but retaining them makes the regression oracle independent of
+    the compiler's induced-action compression.
+    """
     rows = _matrix(matrix)
+    language = tuple(actions)
+    if not language:
+        raise ValueError("action language must be nonempty")
     relation = relation_vector(state, rows, prime, cap)
-    induced = induced_relation_actions(actions, rows, prime, cap)
     modulus = prime**cap
-    return tuple(
-        tuple(
-            capped_p_valuation((value + move) % modulus, prime, cap)
-            for value, move in zip(relation, action)
+    output = []
+    for action in language:
+        move = relation_vector(action, rows, prime, cap)
+        output.append(
+            tuple(
+                capped_p_valuation((value + delta) % modulus, prime, cap)
+                for value, delta in zip(relation, move)
+            )
         )
-        for action in induced
-    )
+    return tuple(output)
 
 
 def relation_rank_partition_is_exact(
