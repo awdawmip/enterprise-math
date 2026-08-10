@@ -131,12 +131,6 @@ def flag_extension_histograms(
     adjacency: Adjacency,
     maximum_size: int | None = None,
 ) -> tuple[dict[int, int], ...]:
-    """Extension-count histograms for clique sizes up to `maximum_size`.
-
-    Omitting the bound enumerates through the maximum clique size.  Large root
-    systems should normally use an explicit research bound in CI and reserve the
-    full enumeration for an offline/targeted proof check.
-    """
     if maximum_size is not None and (
         isinstance(maximum_size, bool)
         or not isinstance(maximum_size, int)
@@ -192,14 +186,15 @@ class PrimitiveLinkProfile:
     first_flag_split_order: int | None
 
 
-def primitive_link_profile(
-    roots: tuple[Vector, ...],
+def link_profile(
+    adjacency: Adjacency,
     maximum_flag_size: int | None = None,
 ) -> PrimitiveLinkProfile:
-    adjacency = primitive_direction_graph(roots)
+    if not adjacency:
+        raise ValueError("adjacency must be non-empty")
     flag_histograms = flag_extension_histograms(adjacency, maximum_flag_size)
     return PrimitiveLinkProfile(
-        primitive_count=len(roots),
+        primitive_count=len(adjacency),
         link_degree_histogram=tuple(sorted(Counter(len(adjacency[v]) for v in adjacency).items())),
         link_edge_count=edge_count(adjacency),
         link_component_sizes=component_sizes(adjacency),
@@ -211,16 +206,18 @@ def primitive_link_profile(
     )
 
 
+def primitive_link_profile(
+    roots: tuple[Vector, ...],
+    maximum_flag_size: int | None = None,
+) -> PrimitiveLinkProfile:
+    return link_profile(primitive_direction_graph(roots), maximum_flag_size)
+
+
 def primitive_isotropy_contract(
     profile: PrimitiveLinkProfile,
     flag_horizon: int,
 ) -> bool:
-    """Finite causal-horizon candidate, not a physical isotropy theorem.
-
-    Requires one connected primitive-direction relation component, one primitive
-    degree type, one rooted edge-context type, and uniform compatible-flag
-    continuation counts through the requested horizon.
-    """
+    """Finite causal-horizon candidate, not a physical isotropy theorem."""
     if isinstance(flag_horizon, bool) or not isinstance(flag_horizon, int) or flag_horizon < 0:
         raise ValueError("flag_horizon must be a non-negative integer")
     histograms = tuple(dict(histogram) for histogram in profile.flag_extension_histograms)
@@ -265,7 +262,6 @@ def d_roots(rank: int) -> tuple[Vector, ...]:
 
 
 def e8_scaled_roots() -> tuple[Vector, ...]:
-    """E8 roots scaled by two so every coordinate is integral."""
     roots = []
     for left, right in combinations(range(8), 2):
         for sign_left in (-2, 2):
@@ -299,3 +295,43 @@ def e6_scaled_roots() -> tuple[Vector, ...]:
     if len(roots) != 72:
         raise AssertionError("E6 subsystem must contain 72 roots")
     return roots
+
+
+def _triangular_q(x: int, y: int) -> int:
+    return x * x + x * y + y * y
+
+
+def hcp_direction_graph() -> Adjacency:
+    """Ideal HCP first-neighbor link from an integer close-packed layer model.
+
+    Basal coordinates are multiplied by three.  In-plane nearest contacts have
+    Q(dx,dy)=9 for Q=x^2+xy+y^2.  Adjacent-layer registry shift is (1,1) mod 3;
+    the ideal vertical contribution is represented by the exact integer 6, so a
+    cross-layer nearest contact satisfies Q(dx,dy)+6=9.  No floating point is
+    required.
+    """
+    equatorial = (
+        (3, 0, 0), (-3, 0, 0), (0, 3, 0), (0, -3, 0), (3, -3, 0), (-3, 3, 0)
+    )
+    projected = ((1, 1), (1, -2), (-2, 1))
+    top = tuple((x, y, 1) for x, y in projected)
+    bottom = tuple((x, y, -1) for x, y in projected)
+    vertices = equatorial + top + bottom
+
+    def contact(left: Vector, right: Vector) -> bool:
+        dx = left[0] - right[0]
+        dy = left[1] - right[1]
+        layer_gap = abs(left[2] - right[2])
+        if layer_gap == 0:
+            return _triangular_q(dx, dy) == 9
+        if layer_gap == 1:
+            return _triangular_q(dx, dy) + 6 == 9
+        return False
+
+    adjacency = {vertex: set() for vertex in vertices}
+    for index, left in enumerate(vertices):
+        for right in vertices[index + 1 :]:
+            if contact(left, right):
+                adjacency[left].add(right)
+                adjacency[right].add(left)
+    return {vertex: frozenset(neighbors) for vertex, neighbors in adjacency.items()}
