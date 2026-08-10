@@ -48,6 +48,19 @@ bulk plus binary quotient carries:
 
     W_terminal = sum_A floor(2k/A) + sum_A kappa_A.
 
+There is also a scale-wide next-prime width horizon.  Let P_J be the minimum
+J-prime transverse radical and let p_{J+1} be the first blocking transverse
+prime.  Maximality of J gives
+
+    P_J*p_{J+1} >= k.
+
+Every terminal core has A>=P_J, hence
+
+    |W_A| <= floor(2k/P_J)+1 <= 2*p_{J+1}+1.
+
+So each unresolved tail window lives on the next-transverse-prime scale rather
+than a k-sized interval.
+
 This is an exact resource representation, not a prime-distribution bound and not
 a Legendre proof.  Its value is that the unresolved terminal correction lives
 on a very small union of disjoint integer windows and its raw size uses the same
@@ -158,12 +171,26 @@ def terminal_tail_window_profile(k: int) -> dict[str, object]:
     if total_window != total_bulk + total_carry:
         raise AssertionError("terminal window profile failed aggregate bulk+carry identity")
 
+    base = int(shell["base_primorial_product"])
+    blocking_prime = shell.get("blocking_prime")
+    if blocking_prime is None:
+        next_prime_width_ceiling = None
+    else:
+        next_prime = int(blocking_prime)
+        if base * next_prime < k:
+            raise AssertionError("blocking transverse prime did not push P_J across k")
+        next_prime_width_ceiling = 2 * next_prime + 1
+        if any(int(row["window_size"]) > next_prime_width_ceiling for row in rows):
+            raise AssertionError("terminal tail window exceeded the next-prime width horizon")
+
     return {
         **shell,
         "window_rows": rows,
         "total_window_integer_mass": total_window,
         "total_window_bulk_mass": total_bulk,
         "total_window_carry_mass": total_carry,
+        "next_transverse_prime": None if blocking_prime is None else int(blocking_prime),
+        "per_window_next_prime_width_ceiling": next_prime_width_ceiling,
         "terminal_prime_tail_count": len(all_tails),
         "terminal_prime_tails": tuple(sorted(all_tails)),
         "terminal_signed_points": tuple(sorted(signed_points)),
