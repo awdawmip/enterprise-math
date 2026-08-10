@@ -1,4 +1,5 @@
 import EnterpriseMath.Quotient.RootQuotientWordBasis
+import EnterpriseMath.Quotient.RootQuotientThresholdRegime
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Tactic
 
@@ -23,7 +24,6 @@ theorem prime_rPowerFree
         t ^ r = t ^ ((r - 1) + 1) := by congr 1 <;> omega
         _ = t ^ (r - 1) * t := by rw [pow_succ']
         _ = t * t ^ (r - 1) := by ring
-      
     have htDvdP : t ∣ p := by
       rw [← hPrimePow]
       exact htDvdPow
