@@ -63,7 +63,11 @@ def _domain(domain: Iterable[Vertex]) -> tuple[Vertex, ...]:
     states = tuple(domain)
     if not states:
         raise ValueError("domain must be nonempty")
-    if len(states) != len(set(states)):
+    try:
+        distinct = set(states)
+    except TypeError as exc:
+        raise ValueError("domain states must be hashable") from exc
+    if len(states) != len(distinct):
         raise ValueError("domain states must be distinct")
     return states
 
@@ -77,7 +81,11 @@ def _canonical_ids(
     result: dict[Vertex, int] = {}
     for state in states:
         label = labels[state]
-        if label not in ids:
+        try:
+            known = label in ids
+        except TypeError as exc:
+            raise ValueError("partition labels must be hashable") from exc
+        if not known:
             ids[label] = len(ids)
         result[state] = ids[label]
     return result
@@ -125,9 +133,18 @@ def totalize_partial_family(
     state_set = set(states)
     if set(observation) != state_set:
         raise ValueError("observation must label every state exactly once")
-    if undefined_state in state_set:
+    try:
+        state_is_old = undefined_state in state_set
+        undefined_observation_conflicts = (
+            undefined_observation in set(observation.values())
+        )
+    except TypeError as exc:
+        raise ValueError(
+            "undefined state and observation markers must be hashable"
+        ) from exc
+    if state_is_old:
         raise ValueError("undefined_state must be fresh")
-    if undefined_observation in set(observation.values()):
+    if undefined_observation_conflicts:
         raise ValueError("undefined_observation must be distinguished")
 
     augmented = states + (undefined_state,)
