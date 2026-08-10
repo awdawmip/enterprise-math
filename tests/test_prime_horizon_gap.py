@@ -29,6 +29,19 @@ class PrimeHorizonGapTests(unittest.TestCase):
                 return True
         return False
 
+    @staticmethod
+    def _direct_singleton_support_exists(k: int, power: int, q: int) -> bool:
+        lower = k**power
+        upper = (k + 1) ** power - 1
+        horizon = factor_horizon(k, power)
+        candidates = primes_up_to(horizon)
+        first_multiple = (lower // q + 1) * q
+        for n in range(first_multiple, upper + 1, q):
+            support = tuple(r for r in candidates if n % r == 0)
+            if support == (q,):
+                return True
+        return False
+
     def test_global_e1_criterion_matches_direct_search(self):
         comparisons = 0
         for power in range(2, 5):
@@ -123,20 +136,13 @@ class PrimeHorizonGapTests(unittest.TestCase):
         for power in (3, 4):
             for k in range(3, 45):
                 lower = k**power
-                upper = (k + 1) ** power - 1
                 horizon = factor_horizon(k, power)
                 for q in primes_up_to(min(horizon, isqrt(lower))):
                     if not is_pure_cofactor_cap_candidate(k, power, q):
                         continue
-                    direct = False
-                    for n in range(lower + 1, upper + 1):
-                        support = tuple(r for r in primes_up_to(horizon) if n % r == 0)
-                        if support == (q,):
-                            direct = True
-                            break
                     self.assertEqual(
                         pure_cofactor_cap_certificate(k, power, q) is not None,
-                        direct,
+                        self._direct_singleton_support_exists(k, power, q),
                     )
                     comparisons += 1
         self.assertGreater(comparisons, 0)
