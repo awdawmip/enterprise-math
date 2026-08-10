@@ -4,14 +4,17 @@
   "components": [
     {
       "id": "EM-COMP-R004-FRACTIONLESS-CALCULUS",
-      "name": "Fractionless count-defect, exponent-coordinate, and valuation-repair layer",
+      "name": "Fractionless count-defect, exponent-coordinate, valuation-repair, and future-language compiler layer",
       "source_relations": [
         {"source_id": "SRC-EOM-PADIC-VALUATION", "relation": "CONTRAST"},
         {"source_id": "SRC-RICHTERGEbert-STURMFELS-THEOBALD-2003-TROPICAL", "relation": "CONTRAST"},
         {"source_id": "SRC-BAREISS-1968-FRACTION-FREE", "relation": "TOOL_PRIOR"},
-        {"source_id": "SRC-CHABERT-2025-INTEGER-VALUED-POLYNOMIALS", "relation": "CONTRAST"}
+        {"source_id": "SRC-CHABERT-2025-INTEGER-VALUED-POLYNOMIALS", "relation": "CONTRAST"},
+        {"source_id": "SRC-MATHLIB-FINITE-ABELIAN", "relation": "FORMAL_PRIOR"},
+        {"source_id": "SRC-MATHLIB-SMITH-NORMAL-FORM", "relation": "FORMAL_PRIOR"},
+        {"source_id": "SRC-MATHLIB-FREE-MODULE-QUOTIENT", "relation": "FORMAL_PRIOR"}
       ],
-      "project_addition": "Demotes finite rational normalization to external views of primitive integer count rays; packages ratio comparison, Bell separation, threshold tests and macro monotonicity as signed integer defects; linearizes P005 multiplicative scales into finite prime-exponent words with separate rank omega and total depth Omega; and proves a sharp P023/P024 specialization for capped p-adic valuation quotients: unequal-level addition is valuation-safe, equal-level carry is unbounded, level plus normalized unit residue is an exact finite repair, and a future language containing all translations modulo p^K forces p^K future-safe classes, eliminating all valuation-only compression. The underlying denominator clearing, projective counts, unique factorization, valuations, tropical/min-plus algebra, integer-cone linearity, binomial counting and fraction-free exact linear algebra are prior mathematics.",
+      "project_addition": "Demotes finite rational normalization to external views of primitive integer count rays; packages ratio comparison, Bell separation, threshold tests and macro monotonicity as signed integer defects; linearizes P005 multiplicative scales into finite prime-exponent words with separate rank omega and total depth Omega; and develops an operation-conditioned representation compiler. For one p-power axis, arbitrary finite translation languages compile to an exact p-adic center/exit trie with class count |centers| plus deficit-node count; subgroup translations specialize to K-t+p^t classes with discrete-convex repair excess p^t-t-1. Full product observations under componentwise dynamics factor exactly through marginal compilers even when joint action labels are correlated, while a coupled-observation counterexample shows that genuine cross-axis coupling can make correlation visible. Coupled futures that factor through a full-row-rank integer relation matrix compile through induced relation translations, yielding p^(Kr) classes under full translations from ambient p^(Kd) and integer exponent codimension K(d-r). More generally, if a generic future-safe kernel is an additive translation congruence, its zero class is a subgroup and the quotient module's invariant prime-exponent profile is recovered from exact p^j-torsion counts; noncongruent kernels fail closed and remain in richer relation/witness state. P023 generic future-kernel minimality, P024 translation precision, valuations, tries, CRT, product kernels, group congruences, finite abelian classification, Smith normal form and cyclic quotient decomposition are prior mathematics. Historical novelty of the compiler architecture and exact Enterprise Math packaging remains unverified.",
       "novelty_status": "NOVELTY_UNVERIFIED"
     }
   ]
