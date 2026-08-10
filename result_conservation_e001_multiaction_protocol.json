@@ -1,0 +1,72 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_CONSERVATION_V1",
+  "source_owner": {
+    "id": "engineering/e001-material-multiaction-protocol",
+    "source_head": "c21a3042bd854b8899eaacfd9d03b8920f057d0c",
+    "retirement_state": "L5_PROVENANCE",
+    "upstream_sources": ["P023 stable operation-family quotient", "E001 finite material measurement layer"]
+  },
+  "closure_state": "RESOLVED",
+  "inventory_unit": "semantic result family, not file identity",
+  "inventory_complete": true,
+  "inventory_basis": [
+    "complete audit of all eight additions-only branch-side files at frozen source head c21a3042bd854b8899eaacfd9d03b8920f057d0c",
+    "full-file source-versus-canonical blob comparison against fixed snapshot main@03b6a30ba00735aeb15420afb29f7c1f33d1fd68",
+    "implementation/test inventory of action protocol, completion comparison, measured-future coverage and exact stress-strain hysteresis coordinate"
+  ],
+  "closure_evidence": [
+    "action protocol implementation/test are exact at blobs 776af219b92327540a4dd05a297a29697637748f and 3e60f15f556e7257ea22df8a76e58b4f3b46d64b",
+    "protocol completion implementation/test are exact at blobs e9f5f4acb67317402e53c78c7ec89c4f364ee57e and a1f2e83edd619be65136bc5bdac58afe9613070d",
+    "protocol coverage implementation/test are exact at blobs d58ab4a9808733ac13561b4c084a93655aca7b8d and 3fdb103be658cc543c1195d0b7219d24f049c264",
+    "stress-strain hysteresis implementation/test are exact at blobs 975b2fafc7c3cdc4cfb124c04538884f611a423a and 41a3fc9334a81346ad685015741c47ee1c1c9c40"
+  ],
+  "methodology_boundary": "This is an E001 application layer over canonical P023. It does not invent a second automaton-minimization theorem, interpolate unmeasured edges, identify predictive class count with physical degrees of freedom, or identify a finite measured polyline coordinate with an unknown continuum integral.",
+  "unresolved_results": [],
+  "results": [
+    {
+      "id": "E001-MULTIACTION-RC-001",
+      "statement": "A finite measured material protocol with one declared action alphabet compiles to a total finite action machine by routing every unmeasured successor to an explicit absorbing UNDERRESOLVED state, after which P023 supplies the stable future partition.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["material_empirical_action_protocol.py compiler and future-equivalence regressions"],
+      "targets": ["src/enterprise_math/material_empirical_action_protocol.py on canonical main", "tests/test_material_empirical_action_protocol.py on canonical main"],
+      "rationale": "Measured successor information is preserved without interpolation, wraparound or invented cross-branch transitions.",
+      "evidence": ["implementation and regression blobs are byte-identical source to canonical main"]
+    },
+    {
+      "id": "E001-MULTIACTION-RC-002",
+      "statement": "Completing previously unmeasured protocol edges is not monotone in predictive class count: added measurements may split classes, merge classes, or split and merge different history pairs in one completion.",
+      "fate": "COMPARATOR-NEGATIVE",
+      "source_evidence": ["protocol completion classifier and AFTER_REFINES/AFTER_COARSENS/INCOMPARABLE regressions"],
+      "targets": ["src/enterprise_math/material_empirical_protocol_completion.py on canonical main", "tests/test_material_empirical_protocol_completion.py on canonical main"],
+      "rationale": "This prevents 'more measurement means only refinement' from becoming a universal predictive-state law.",
+      "evidence": ["all three completion counterexample modes are byte-identical on canonical main"]
+    },
+    {
+      "id": "E001-MULTIACTION-RC-003",
+      "statement": "For each measured start state, the shortest action word reaching UNDERRESOLVED is an exact finite measurement-horizon witness; no such word identifies the action-closed measured region, independently of predictive equivalence.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["shortest_underresolved_action_word, empirical_protocol_coverage and closure-separation regressions"],
+      "targets": ["src/enterprise_math/material_empirical_protocol_coverage.py on canonical main", "tests/test_material_empirical_protocol_coverage.py on canonical main"],
+      "rationale": "Measurement closure and future-state quotienting answer different questions and remain separate diagnostics.",
+      "evidence": ["coverage implementation/test blobs are byte-identical source to canonical main"]
+    },
+    {
+      "id": "E001-MULTIACTION-RC-004",
+      "statement": "Strictly monotone measured stress-strain branches admit exact finite trapezoid coordinates on declared integer axes; interior loading/returning grids may differ, while closed hysteresis comparison requires matching deformation endpoints and an explicit response-sign convention.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["exact area/loss implementation and irregular-grid/decreasing-return/endpoint regressions"],
+      "targets": ["src/enterprise_math/material_stress_strain_hysteresis.py on canonical main", "tests/test_material_stress_strain_hysteresis.py on canonical main"],
+      "rationale": "The computation is exact for the declared finite measured polyline and performs no interpolation of missing observations.",
+      "evidence": ["hysteresis implementation/test blobs are byte-identical source to canonical main"]
+    },
+    {
+      "id": "E001-MULTIACTION-RC-005",
+      "statement": "Predictive class count is relative to the declared finite action/observation protocol, and the exact trapezoid quantity is a finite measured/polyline coordinate rather than a continuum material integral or a count of physical degrees of freedom.",
+      "fate": "COMPARATOR-NEGATIVE",
+      "source_evidence": ["scope boundaries in the action-protocol, coverage and hysteresis modules"],
+      "targets": ["canonical E001 multi-action, coverage and hysteresis modules"],
+      "rationale": "These interpretation boundaries prevent exact finite diagnostics from being overclaimed as task-independent continuum laws.",
+      "evidence": ["the scope-boundary text is byte-identical between source and canonical main"]
+    }
+  ]
+}

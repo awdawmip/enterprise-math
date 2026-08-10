@@ -1,0 +1,92 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_CONSERVATION_V1",
+  "source_owner": {
+    "id": "program/p021-causal-focusing-v2",
+    "source_head": "2f1fc93111a3a8c8f80a2fe57ab5d7cbf3e5799d",
+    "retirement_state": "L5_PROVENANCE",
+    "upstream_sources": [
+      "research/p021-causal-focusing@e8d176b30e7e52ca75b2ae9467066ea4f8f5af6c",
+      "P018 observation/refinement machinery"
+    ]
+  },
+  "closure_state": "RESOLVED",
+  "inventory_unit": "semantic result family, not file identity",
+  "inventory_complete": true,
+  "inventory_basis": [
+    "complete audit of replay_manifest_p021.json, src/enterprise_math/causal_boundary.py and tests/test_causal_boundary.py at frozen source head 2f1fc93111a3a8c8f80a2fe57ab5d7cbf3e5799d",
+    "source-versus-canonical audit against fixed snapshot main@03b6a30ba00735aeb15420afb29f7c1f33d1fd68",
+    "function/test inventory of the selected CAUSAL_BOUNDARY_CORE slice plus the replay manifest owner-routing declarations"
+  ],
+  "closure_evidence": [
+    "replay_manifest_p021.json is byte-identical on source and canonical main at blob fbb94dc8aede1a421a210b93812adcaaadd9809c",
+    "source causal_boundary.py blob c65397bd270cd41450aa80a34acfad85d11d3e5e is preserved on main as 94a3c2eea692b28fc2909d252109098f862dc10b; the only interface hardening is explicit rejection of Python bool in phase()",
+    "source test_causal_boundary.py blob 3f5fcb65ab597b9953e61cd1085f0b2e774b47b4 is preserved on main as 3334d1bc7a36399b064c58af70717ff49a4efde1 with one added phase() type-domain regression"
+  ],
+  "methodology_boundary": "This certificate retires only the bounded P021 v2 CAUSAL_BOUNDARY_CORE generation. The bool guard is implementation-domain hardening, not new mathematics. Generic quotient, witness/correspondence, relation-state and physical-falsification mother theory remains upstream-owned.",
+  "unresolved_results": [],
+  "results": [
+    {
+      "id": "P021-CAUSAL-RC-001",
+      "statement": "The finite causal boundary of an integer expansion field on a simple undirected graph consists of zero-expansion vertices together with edges whose endpoint phases have opposite signs.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["causal_boundary_complex and source zero-vertex/crossing-edge regressions"],
+      "targets": ["src/enterprise_math/causal_boundary.py on canonical main"],
+      "rationale": "This is the coordinate-free boundary complex selected by the frozen P021 replay manifest.",
+      "evidence": ["canonical implementation preserves the construction after the bool-only input hardening"]
+    },
+    {
+      "id": "P021-CAUSAL-RC-002",
+      "statement": "Any nonempty vertex path whose endpoints have opposite nonzero expansion phase meets the discrete causal boundary through a zero-phase vertex or an opposite-phase adjacent edge.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["opposite_endpoint_path_has_boundary and exhaustive phase-word regression for path lengths 2 through 7"],
+      "targets": ["src/enterprise_math/causal_boundary.py on canonical main", "tests/test_causal_boundary.py on canonical main"],
+      "rationale": "This is the discrete intermediate-value crossing property of the selected causal-boundary slice.",
+      "evidence": ["the exhaustive source regression remains unchanged in the canonical test suite"]
+    },
+    {
+      "id": "P021-CAUSAL-RC-003",
+      "statement": "A finite vertex set is partitioned into negative, zero and positive expansion regions.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["phase_regions and its partition regression"],
+      "targets": ["src/enterprise_math/causal_boundary.py on canonical main"],
+      "rationale": "The three-phase finite classification remains canonical.",
+      "evidence": ["phase_regions behavior is unchanged on canonical main"]
+    },
+    {
+      "id": "P021-CAUSAL-RC-004",
+      "statement": "Along a valid observation-refinement chain, the number of causal phases compatible with a fixed state's observation fiber is nonincreasing.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["phase_possibilities_on_fiber, phase_ambiguity and phase_refinement_profile", "source ambiguity profile regression [3,2,1]"],
+      "targets": ["src/enterprise_math/causal_boundary.py on canonical main", "tests/test_causal_boundary.py on canonical main"],
+      "rationale": "This consumes canonical refinement machinery rather than defining a second generic precision calculus.",
+      "evidence": ["canonical code retains the refinement-projection and nonincrease checks"]
+    },
+    {
+      "id": "P021-CAUSAL-RC-005",
+      "statement": "The causal-boundary complex is equivariant under graph automorphisms when the expansion field is transported with the automorphism.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["transported_boundary_complex and cycle-rotation regression"],
+      "targets": ["src/enterprise_math/causal_boundary.py on canonical main", "tests/test_causal_boundary.py on canonical main"],
+      "rationale": "This is the coordinate-free symmetry statement of the selected P021 boundary layer.",
+      "evidence": ["source and canonical tests retain the transported-versus-recomputed comparison"]
+    },
+    {
+      "id": "P021-CAUSAL-RC-006",
+      "statement": "The historical phase() implementation accepted Python bool because bool is an int subclass; canonical P021 rejects bool and keeps the intended integer expansion domain.",
+      "fate": "SUPERSEDED",
+      "source_evidence": ["source phase() checked only isinstance(value, int)"],
+      "targets": ["src/enterprise_math/causal_boundary.py on canonical main", "tests/test_causal_boundary.py on canonical main"],
+      "rationale": "This is an implementation input-domain correction, not a mathematical result requiring preservation.",
+      "evidence": ["canonical blobs 94a3c2eea692b28fc2909d252109098f862dc10b and 3334d1bc7a36399b064c58af70717ff49a4efde1 add the bool rejection and regression"]
+    },
+    {
+      "id": "P021-CAUSAL-RC-007",
+      "statement": "Generic future-compatible quotient/information-erasure theory, witness/correspondence composition, weighted relation-state kernels and physical falsification policy are not P021-owned results in this generation.",
+      "fate": "OWNER_MOVED",
+      "source_evidence": ["replay_manifest_p021.json defer map for A2/P023, A4, A3 and P016"],
+      "targets": ["A2/P023", "A4", "A3", "P016"],
+      "rationale": "The frozen replay manifest explicitly prevents P021 from duplicating these mother-theorem families.",
+      "evidence": ["the routing manifest is byte-identical between source and canonical main"]
+    }
+  ]
+}

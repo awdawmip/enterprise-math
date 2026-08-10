@@ -1,0 +1,100 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_CONSERVATION_V1",
+  "source_owner": {
+    "id": "engineering/e001-material-impulse-world",
+    "source_head": "f8ed24517d9b2b318c000a4e40954e28075e502c",
+    "retirement_state": "L5_PROVENANCE",
+    "upstream_sources": ["E001 finite material response", "signed toward-zero quotient/detail oscillator machinery", "sampled wall-clearance layer"]
+  },
+  "closure_state": "RESOLVED",
+  "inventory_unit": "semantic result family, not file identity",
+  "inventory_complete": true,
+  "inventory_basis": [
+    "complete audit of all eight additions-only files in source PR #194 at frozen head f8ed24517d9b2b318c000a4e40954e28075e502c",
+    "exact eight-file L4 transport boundary from PR #204 and source-versus-canonical blob audit at fixed snapshot main@03b6a30ba00735aeb15420afb29f7c1f33d1fd68",
+    "implementation/test inventory of impulse accounting, mass drift, tick-order comparison, wall-world rebound/transmission, explicit underresolution and memory ownership"
+  ],
+  "closure_evidence": [
+    "material_impulse_accounting.py and test are exact at blobs 0553ae508373cad35b3bc40fc41e5a8e0fcddba1 and 1f27994adc0b730fa241c385f88fad57f9610a0d",
+    "material_impulse_tick_order.py and test are exact at blobs 3c30ced9c1d74f43bcdcb0dbcc091b32abe004bf and a51d73f0f7104e071dacf1a40778efcfd02cbb4a",
+    "material_impulse_wall_world_1d.py and test are exact at blobs 109e9ab5cda576b24804f9182bc9d63a63537838 and d1a71c717ec68ea10c09007f01b09114f512779a",
+    "material_impulse_world_1d.py and test are exact at blobs e0585b1c19c1ba7c09f0cc0031557b477aa93be1 and 238fc07a3d9b4e15b5c245de49425da432a77e4c",
+    "source PR #194 and clean L4 PR #204 each cover exactly the same eight files with 1488 additions and zero deletions"
+  ],
+  "methodology_boundary": "This certificate covers the frozen one-body sampled wall/material impulse world. OUTWARD is not rebound; tick order is an explicit world policy; contact reservoirs are witness-local; primitive overlap and unrepresented material depth stay delegated/underresolved; generic A3 relation theory and later pair/multi-contact generations are outside this source inventory.",
+  "unresolved_results": [],
+  "results": [
+    {
+      "id": "E001-IMPULSE-RC-001",
+      "statement": "For amplitude A, signed fixed-channel scale S, responses r_t, delivered quanta j_t and retained detail delta_T, sequential quantization obeys A*sum(j_t)+delta_T=S*sum(r_t) and equals the one-shot signed quotient/remainder of the total numerator.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["material_impulse_quantization, accumulate_material_impulses and retained_impulse_telescope", "bounded exhaustive accounting regression"],
+      "targets": ["src/enterprise_math/material_impulse_world_1d.py on canonical main", "src/enterprise_math/material_impulse_accounting.py on canonical main"],
+      "rationale": "Retained contact-local detail makes the fixed-channel integer ledger batch-invariant without inventing continuum impulse.",
+      "evidence": ["source/canonical implementation and accounting-test blobs are byte-identical"]
+    },
+    {
+      "id": "E001-IMPULSE-RC-002",
+      "statement": "Dropping bounded pending impulse detail is a lower-precision comparator that can erase repeated subquantum delivery; details from unrelated contact witnesses must not be pooled.",
+      "fate": "COMPARATOR-NEGATIVE",
+      "source_evidence": ["retained-versus-dropped accumulation and A=10,r=3,S=2 subquantum regression"],
+      "targets": ["canonical E001 impulse world/accounting modules", "canonical contact-memory ownership boundary"],
+      "rationale": "This demonstrates a precision-policy effect and preserves contact witness identity.",
+      "evidence": ["byte-identical tests show retained sequence delivers (0,1,0,1) while dropped detail delivers zero"]
+    },
+    {
+      "id": "E001-IMPULSE-RC-003",
+      "statement": "For fixed positive response r, impulse magnitude J, amplitude A and initial approaching normal momentum -m, exact event thresholds are ceil(A*m/(J*r)) for nonnegative momentum and ceil(A*(m+1)/(J*r)) for strictly outward momentum; zero response has no finite threshold.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["constant_response_momentum_thresholds and direct retained-simulation regressions"],
+      "targets": ["src/enterprise_math/material_impulse_accounting.py on canonical main", "tests/test_material_impulse_accounting.py on canonical main"],
+      "rationale": "These are delivered-momentum thresholds only; rebound still requires wall/history evidence.",
+      "evidence": ["source/canonical accounting implementation and threshold regressions are byte-identical"]
+    },
+    {
+      "id": "E001-IMPULSE-RC-004",
+      "statement": "One mass-drift tick satisfies rho+p=m*dx+rho' under signed toward-zero division, and constant momentum telescopes to m(x_T-x_0)+(rho_T-rho_0)=T*p.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["mass_drift_step, trace_constant_momentum_drift and local/cumulative remainder regressions"],
+      "targets": ["src/enterprise_math/material_impulse_world_1d.py on canonical main", "tests/test_material_impulse_world_1d.py on canonical main"],
+      "rationale": "The drift remainder is an exact body-kinematic coordinate distinct from contact-local impulse memory.",
+      "evidence": ["source/canonical world implementation/test blobs are byte-identical"]
+    },
+    {
+      "id": "E001-IMPULSE-RC-005",
+      "statement": "IMPULSE_THEN_DRIFT and DRIFT_THEN_IMPULSE have equal final momentum and impulse detail but can differ in displacement and drift detail, with m(dx_I-dx_D)+(rho_I-rho_D)=j; neither order is physically privileged by this model.",
+      "fate": "COMPARATOR-NEGATIVE",
+      "source_evidence": ["tick-order comparator, exact defect assertion and bounded exhaustive regression"],
+      "targets": ["src/enterprise_math/material_impulse_tick_order.py on canonical main", "tests/test_material_impulse_tick_order.py on canonical main"],
+      "rationale": "The noncommutativity is retained as a world-operation comparator, not promoted to a universal temporal law.",
+      "evidence": ["source/canonical tick-order implementation/test blobs are byte-identical"]
+    },
+    {
+      "id": "E001-IMPULSE-RC-006",
+      "statement": "Rebound is a history/topology episode, not an instantaneous momentum sign: an approaching represented material interaction must remain on the same wall side, not transmit, and finish OUTWARD to count as rebound.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["wall-world rebound_episode predicate and same-side-versus-transmitted regressions"],
+      "targets": ["src/enterprise_math/material_impulse_wall_world_1d.py on canonical main", "tests/test_material_impulse_wall_world_1d.py on canonical main"],
+      "rationale": "This prevents initial outward motion or opposite-side transmission from being mislabeled rebound.",
+      "evidence": ["source/canonical wall-world implementation/test blobs are byte-identical"]
+    },
+    {
+      "id": "E001-IMPULSE-RC-007",
+      "statement": "The same saved state can show coarse rebound, fine transmission or explicit MATERIAL_UNDERRESOLVED depending on spatial precision and represented material depth; tick order can also distinguish rebound from transmission, while primitive overlap is delegated without fabricating a side normal.",
+      "fate": "COMPARATOR-NEGATIVE",
+      "source_evidence": ["wall-world precision sweep, tick-order, zero-response transmission, primitive-contact and underresolved regressions"],
+      "targets": ["src/enterprise_math/material_impulse_wall_world_1d.py on canonical main", "tests/test_material_impulse_wall_world_1d.py on canonical main"],
+      "rationale": "This is an executable boundary against hidden primitive subdivision and against 'contact implies rebound'.",
+      "evidence": ["the complete source wall-world regression suite is byte-identical on canonical main"]
+    },
+    {
+      "id": "E001-IMPULSE-RC-008",
+      "statement": "Material/history memory, contact-channel pending impulse detail and body-kinematic mass-drift detail are distinct state owners and must not be conflated merely because all are finite integer/remainder coordinates.",
+      "fate": "INTEGRATE",
+      "source_evidence": ["impulse/accounting ownership boundaries and wall-world contact-detail lifetime boundary"],
+      "targets": ["canonical E001 material state owners", "canonical contact-local impulse owner", "canonical mass-drift kinematic state"],
+      "rationale": "Separating memory ownership prevents causal/contact witness identity from being destroyed by unsafe scalar pooling.",
+      "evidence": ["all four source modules and tests are byte-identical in the canonical eight-file transport"]
+    }
+  ]
+}
