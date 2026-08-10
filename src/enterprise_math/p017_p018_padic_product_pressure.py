@@ -1,4 +1,4 @@
-"""Adaptive p-adic product pressure for the P017×P018 Bonferroni bridge.
+"""Bi-precision product pressure for the P017×P018 Bonferroni bridge.
 
 For one anchor-surviving signed state n=M-x with transverse support P(n), let
 
@@ -9,47 +9,55 @@ at a positive odd Bonferroni order m.  The complete transverse core is
 
     C(n) = product_{p in P(n)} p^v_p(n).
 
-Instead of classifying every complete core against k-1, truncate only the
-valuation precision:
+This bridge separates two independent proof-precision axes.
 
-    C_[r](n) = product_{p in P(n)} p^min(v_p(n),r),    r>=1.
+Valuation precision
+-------------------
+For r>=1 truncate only p-adic depth:
 
-Define the defect-weighted product
-
+    C_[r](n) = product_{p in P(n)} p^min(v_p(n),r),
     Pi_{m,r} = product_n C_[r](n)^E_m(n).
 
-If H_m^core is the exact number of Bonferroni defect units carried by rows with
-C(n)>k-1, K=k-1 and X=k(k+2)-1, then every low-core defect unit contributes at
-most K to Pi_{m,r} and every high-core defect unit contributes at most X.  Hence
+If H_m^core is the exact number of defect units on rows with C(n)>k-1,
+K=k-1 and X=k(k+2)-1, then
 
     Pi_{m,r} <= K^(T_m-H_m^core) X^H_m^core,
 
-where T_m=sum_n E_m(n).  The three-term support tail
+where T_m=sum_n E_m(n).
 
-    U_m = S_{m+1}-S_{m+2}+S_{m+3}
+Support-tail precision
+----------------------
+For any positive odd tail length ell, define
 
-is an exact upper bound because pointwise
+    U_{m,ell}
+      = S_{m+1}-S_{m+2}+...+S_{m+ell}.
 
-    C(c,m+1)-C(c,m+2)+C(c,m+3)
-      = C(c-1,m) + C(c-1,m+3).
+Pascal cancellation gives the exact point identity
 
-Therefore T_m<=U_m and also
+    sum_{j=m+1}^{m+ell} (-1)^(j-m-1) binom(c,j)
+      = binom(c-1,m) + binom(c-1,m+ell),
 
-    Pi_{m,r} <= K^(U_m-H_m^core) X^H_m^core.
+so every U_{m,ell} is a safe upper bound for T_m.  These upper bounds are not
+pointwise monotone as ell grows because the positive remainder can first grow.
+The stable adaptive object is therefore the minimum over whatever odd tail
+lengths have actually been computed.  Adding another safe candidate can only
+lower that minimum.
 
-Let h_{m,r} be the least h>=0 for which
+For one chosen U>=T_m, let h_{m,r}(U) be the least h>=0 satisfying
 
-    Pi_{m,r} <= K^(U_m-h) X^h.
+    Pi_{m,r} <= K^(U-h) X^h.
 
-Then h_{m,r}<=H_m^core.  Consequently
+Then h_{m,r}(U)<=H_m^core, so
 
-    B_m - h_{m,r}
+    B_m - h_{m,r}(U)
 
-is still a valid upper majorant of the composite-support union.  If it is less
-than the signed-state count, a basin prime is forced.
+remains a valid composite-support upper majorant.  If it is below the signed
+state count, a basin prime is forced.
 
-The product itself has a fixed-support-order column reconstruction.  For every
-transverse prime p,
+Fixed-support-order column reconstruction
+-----------------------------------------
+The p-adic product itself keeps distinct-prime support order fixed at m+1.  For
+every transverse prime p,
 
     alpha_{p,r}
       = sum_{T subset P_perp\{p}, |T|=m}
@@ -59,27 +67,32 @@ and
 
     Pi_{m,r}=product_p p^alpha_{p,r}.
 
-Thus the support precision stays fixed at m+1 while valuation precision r is an
-independent adaptive axis.  The refinement quantum from r to r+1 is
+The valuation refinement quantum is
 
     Pi_{m,r+1}/Pi_{m,r}
       = product_p p^(sum_T F_surv(p^(r+1) product(T))).
 
-Only primes with p^(r+1)<=X can participate, so every valuation refinement is
-localized to an integer-root shell.  This is a direct P017 product-pressure ->
-P018 root-hierarchy interface.
+Only primes with p^(r+1)<=X can occur, so every valuation refinement is
+localized to one integer-root shell.  Support-tail refinement is separately
+localized by the transverse primorial/support-depth geometry.
 
-Important negative boundary from independent integer pressure probes:
+Negative boundaries / orthogonal witnesses
+-------------------------------------------
+Independent integer pressure probes deliberately falsified over-compression.
 
-* radical-only r=1 is not uniformly sufficient; explicit adversarial probes
-  include k=720007,739996,749992,759991,769996 and 900001;
-* r=2 repairs those probes but is not uniformly sufficient either: at
-  k=4999996 an adversarial no-small-anchor probe had negative r=2 pressure;
-* r=3 repaired that same probe.
+* Valuation boundary: at k=900001 the radical product r=1 still fails even when
+  the exact T_3 is used; r=2 repairs that probe.  Therefore valuation precision
+  is genuinely independent and cannot always be collapsed to radicals.
+* Support boundary: at k=4999996, r=2 with the exact T_3 has positive pressure
+  slack (35528 in the independent probe), while the fixed six-moment upper
+  U=S4-S5+S6 has negative slack (-1617).  The failure is support truncation,
+  not valuation cap 2.  Extending the safe support tail through S8 removes
+  almost all of that support remainder without raising valuation precision.
 
 These are finite research probes, not a Legendre proof and not claims about the
-first failing scale.  Their purpose is to falsify over-compression and establish
-that valuation precision is genuinely adaptive rather than cosmetic.
+first failing scales.  In particular no fixed valuation cap is claimed to be
+uniformly sufficient.  The durable result is the two-axis precision calculus,
+its exact integer envelope, and its fixed-order divisor-fiber reconstruction.
 """
 
 from __future__ import annotations
@@ -106,27 +119,111 @@ def _require_cap(valuation_cap: int) -> None:
         raise ValueError("valuation_cap must be a positive integer")
 
 
+def _require_tail_terms(support_tail_terms: int) -> None:
+    if (
+        isinstance(support_tail_terms, bool)
+        or not isinstance(support_tail_terms, int)
+        or support_tail_terms < 1
+        or support_tail_terms % 2 == 0
+    ):
+        raise ValueError("support_tail_terms must be a positive odd integer")
+
+
 def _choose(n: int, r: int) -> int:
     return comb(n, r) if 0 <= r <= n else 0
 
 
-def three_term_point_defect_upper(support_size: int, order: int) -> dict[str, int]:
-    """Return E_m(c)+binom(c-1,m+3) by the three next support moments."""
+def alternating_tail_point_defect_upper(
+    support_size: int,
+    order: int,
+    support_tail_terms: int,
+) -> dict[str, int]:
+    """Return E_m(c)+the exact positive remainder of one odd tail truncation."""
     _require_order(order)
+    _require_tail_terms(support_tail_terms)
     if isinstance(support_size, bool) or not isinstance(support_size, int) or support_size < 0:
         raise ValueError("support_size must be a nonnegative integer")
+
     c = support_size
-    upper = _choose(c, order + 1) - _choose(c, order + 2) + _choose(c, order + 3)
+    end_order = order + support_tail_terms
+    upper = sum(
+        _choose(c, degree) if (degree - order - 1) % 2 == 0 else -_choose(c, degree)
+        for degree in range(order + 1, end_order + 1)
+    )
     defect = _choose(c - 1, order) if c > 0 else 0
-    remainder = _choose(c - 1, order + 3) if c > 0 else 0
+    remainder = _choose(c - 1, end_order) if c > 0 else 0
     if upper != defect + remainder:
-        raise AssertionError("three-term defect upper identity failed")
+        raise AssertionError("alternating support-tail defect upper identity failed")
     return {
         "support_size": c,
         "order": order,
+        "support_tail_terms": support_tail_terms,
+        "support_tail_end_order": end_order,
         "exact_defect": defect,
-        "three_term_upper": upper,
+        "support_tail_upper": upper,
         "upper_remainder": remainder,
+    }
+
+
+def three_term_point_defect_upper(support_size: int, order: int) -> dict[str, int]:
+    """Compatibility wrapper for the S_(m+1)-S_(m+2)+S_(m+3) upper."""
+    data = alternating_tail_point_defect_upper(support_size, order, 3)
+    return {
+        "support_size": int(data["support_size"]),
+        "order": int(data["order"]),
+        "exact_defect": int(data["exact_defect"]),
+        "three_term_upper": int(data["support_tail_upper"]),
+        "upper_remainder": int(data["upper_remainder"]),
+    }
+
+
+def support_tail_defect_upper_from_moments(
+    moments: tuple[int, ...],
+    order: int,
+    support_tail_terms: int,
+) -> int:
+    """Return one safe U_{m,ell} from moments S_1,...,S_(m+ell)."""
+    _require_order(order)
+    _require_tail_terms(support_tail_terms)
+    end_order = order + support_tail_terms
+    if len(moments) < end_order:
+        raise ValueError("moments do not reach the requested support-tail horizon")
+    return sum(
+        moments[degree - 1]
+        if (degree - order - 1) % 2 == 0
+        else -moments[degree - 1]
+        for degree in range(order + 1, end_order + 1)
+    )
+
+
+def adaptive_support_tail_upper(
+    moments: tuple[int, ...],
+    order: int,
+    candidate_tail_terms: tuple[int, ...],
+) -> dict[str, object]:
+    """Choose the smallest safe defect upper among declared odd tail horizons."""
+    _require_order(order)
+    if not candidate_tail_terms:
+        raise ValueError("candidate_tail_terms must be nonempty")
+
+    rows: list[dict[str, int]] = []
+    best_value: int | None = None
+    best_terms: int | None = None
+    for terms in candidate_tail_terms:
+        _require_tail_terms(terms)
+        value = support_tail_defect_upper_from_moments(moments, order, terms)
+        rows.append({"support_tail_terms": terms, "defect_upper": value})
+        if best_value is None or value < best_value:
+            best_value = value
+            best_terms = terms
+
+    if best_value is None or best_terms is None:
+        raise AssertionError("adaptive support-tail selection lost all candidates")
+    return {
+        "order": order,
+        "candidate_rows": tuple(rows),
+        "selected_support_tail_terms": best_terms,
+        "selected_defect_upper": best_value,
     }
 
 
@@ -188,15 +285,17 @@ def padic_product_pressure_profile(
     k: int,
     order: int,
     valuation_cap: int,
+    support_tail_terms: int = 3,
 ) -> dict[str, object]:
-    """Evaluate the exact row product and its safe high-core pressure lower bound."""
+    """Evaluate one point in the support-tail × valuation precision plane."""
     if isinstance(k, bool) or not isinstance(k, int) or k < 2:
         raise ValueError("k must be an integer >=2")
     _require_order(order)
     _require_cap(valuation_cap)
+    _require_tail_terms(support_tail_terms)
 
     profile = signed_support_profile(k)
-    max_moment = order + 3
+    max_moment = order + support_tail_terms
     moments = tuple(
         sum(
             _choose(int(row["support_size"]), degree)
@@ -205,10 +304,10 @@ def padic_product_pressure_profile(
         for degree in range(1, max_moment + 1)
     )
     ordinary = odd_bonferroni_upper_from_moments(moments, order)
-    defect_upper = (
-        moments[order]
-        - moments[order + 1]
-        + moments[order + 2]
+    defect_upper = support_tail_defect_upper_from_moments(
+        moments,
+        order,
+        support_tail_terms,
     )
 
     pressure_product = 1
@@ -239,43 +338,69 @@ def padic_product_pressure_profile(
             actual_high_core += defect
 
     if defect_upper < exact_defect:
-        raise AssertionError("three-term defect upper fell below exact defect")
+        raise AssertionError("support-tail upper fell below exact defect")
     pointwise_upper = sum(
-        three_term_point_defect_upper(int(row["support_size"]), order)["three_term_upper"]
+        int(
+            alternating_tail_point_defect_upper(
+                int(row["support_size"]),
+                order,
+                support_tail_terms,
+            )["support_tail_upper"]
+        )
         for row in profile["rows"]
     )
     if pointwise_upper != defect_upper:
-        raise AssertionError("moment and pointwise three-term defect uppers disagree")
+        raise AssertionError("moment and pointwise support-tail uppers disagree")
 
     if k == 2:
+        forced_high_exact = 0
         forced_high = 0
     else:
+        low = k - 1
+        high = k * (k + 2) - 1
+        forced_high_exact = _least_envelope_index(
+            pressure_product,
+            low,
+            high,
+            exact_defect,
+        )
         forced_high = _least_envelope_index(
             pressure_product,
-            k - 1,
-            k * (k + 2) - 1,
+            low,
+            high,
             defect_upper,
         )
-    if forced_high > actual_high_core:
+    if forced_high_exact > actual_high_core or forced_high > actual_high_core:
         raise AssertionError("product pressure exceeded the actual high-core correction")
+    if forced_high > forced_high_exact:
+        raise AssertionError("using a defect upper unexpectedly strengthened product pressure")
 
     total = int(profile["signed_state_count"])
     pressure_majorant = ordinary - forced_high
+    exact_defect_pressure_majorant = ordinary - forced_high_exact
     return {
         "k": k,
         "order": order,
         "valuation_cap": valuation_cap,
+        "support_tail_terms": support_tail_terms,
+        "support_tail_end_order": order + support_tail_terms,
         "signed_state_count": total,
         "prime_state_count": int(profile["prime_state_count"]),
         "composite_state_count": int(profile["composite_state_count"]),
         "support_moments": moments,
         "ordinary_bonferroni_sum": ordinary,
         "exact_bonferroni_defect": exact_defect,
-        "three_term_defect_upper": defect_upper,
+        "support_tail_defect_upper": defect_upper,
+        "support_tail_overcount": defect_upper - exact_defect,
         "pressure_product": pressure_product,
         "pressure_factor_exponents": tuple(sorted(factor_exponents.items())),
+        "forced_high_core_lower_bound_exact_defect": forced_high_exact,
         "forced_high_core_lower_bound": forced_high,
+        "support_truncation_pressure_loss": forced_high_exact - forced_high,
         "actual_high_core_correction": actual_high_core,
+        "exact_defect_pressure_majorant": exact_defect_pressure_majorant,
+        "exact_defect_pressure_certificate": exact_defect_pressure_majorant < total,
+        "exact_defect_pressure_slack": total - exact_defect_pressure_majorant,
         "pressure_majorant": pressure_majorant,
         "pressure_certificate": pressure_majorant < total,
         "pressure_slack": total - pressure_majorant,
