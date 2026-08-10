@@ -1,4 +1,5 @@
 import EnterpriseMath.Quotient.RootQuotientPrimeShell
+import Mathlib.Data.Nat.Log
 import Mathlib.Tactic
 
 namespace EnterpriseMath.Quotient
@@ -109,6 +110,28 @@ theorem rootQuotientPrimeHorizon_eq_of_two_pow_interval
         2 ^ (k + 1) ≤ rootQuotientPrimeShellMinimum r (k + 1) :=
       pow_two_le_rootQuotientPrimeShellMinimum hr
     exact hUpper.trans_le hShellLower
+
+/-- Standard binary-regime closed form.
+
+Below the first nontrivial `r`-th power `2^r`, the exact prime-only quotient
+compiler horizon is the natural-number floor logarithm in base two.  This is a
+corollary of the general shell theorem rather than a separate depth theory. -/
+theorem rootQuotientPrimeHorizon_eq_log_two_of_lt_two_pow
+    {r N : ℕ}
+    (hr : 2 ≤ r)
+    (hN : 1 ≤ N)
+    (hBinary : N < 2 ^ r) :
+    rootQuotientPrimeHorizon r N = Nat.log 2 N := by
+  have hNZero : N ≠ 0 := by omega
+  have hLogRoot : Nat.log 2 N < r :=
+    (Nat.log_lt_iff_lt_pow (by omega) hNZero).2 hBinary
+  have hLower : 2 ^ Nat.log 2 N ≤ N :=
+    Nat.pow_log_le_self 2 hNZero
+  have hUpper : N < 2 ^ (Nat.log 2 N + 1) := by
+    simpa [Nat.succ_eq_add_one] using
+      Nat.lt_pow_succ_log_self (by omega : 1 < 2) N
+  exact rootQuotientPrimeHorizon_eq_of_two_pow_interval
+    hr hN hLogRoot hLower hUpper
 
 /-- Shell minima move downward (or stay fixed) as the root order increases,
 because the power-free exponent box becomes less restrictive. -/
