@@ -15,9 +15,32 @@
     "foundation_backflow_router": "foundation_backflow.json",
     "note": "Scheduler state coordinates work; it does not promote mathematical truth or canonical status."
   },
-  "task_states": ["BACKLOG", "READY", "CLAIMED", "IN_PROGRESS", "HANDOFF_READY", "BLOCKED", "DONE", "SUPERSEDED"],
-  "computed_dispatch_states": ["NEEDS_DISPATCH", "LEASED", "BLOCKED", "COMPLETE"],
-  "event_types": ["CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE"],
+  "task_states": [
+    "BACKLOG",
+    "READY",
+    "CLAIMED",
+    "IN_PROGRESS",
+    "HANDOFF_READY",
+    "BLOCKED",
+    "DONE",
+    "SUPERSEDED"
+  ],
+  "computed_dispatch_states": [
+    "NEEDS_DISPATCH",
+    "LEASED",
+    "BLOCKED",
+    "COMPLETE"
+  ],
+  "event_types": [
+    "CLAIM",
+    "HEARTBEAT",
+    "PROGRESS",
+    "HANDOFF",
+    "HARD_BLOCK",
+    "UNBLOCK",
+    "DONE",
+    "SUPERSEDE"
+  ],
   "selection_policy": {
     "default_kind": "RESEARCH",
     "eligible_task_states": ["HANDOFF_READY", "READY"],
@@ -62,7 +85,10 @@
       "leverage": "HIGH",
       "frontier": "Turn signed full-core collision/discriminant geometry and shared P018 channel constraints into a quantitative subterminal or global capacity statement, or close that route with a rigorous negative boundary.",
       "next_action": "Refresh current P017 main/Relay and PR #191/#170 descendants; test whether CG01-CG05 plus disjoint/high root-channel constraints force a nontrivial aggregate resource bound before introducing another local congruence layer.",
-      "dependencies": [{"target":"canonical P018 quotient/root-channel results","action":"CONSUME","satisfied":true},{"target":"Research Relay #82 current P017/P018 entries","action":"INFORM","satisfied":true}],
+      "dependencies": [
+        {"target": "canonical P018 quotient/root-channel results", "action": "CONSUME", "satisfied": true},
+        {"target": "Research Relay #82 current P017/P018 entries", "action": "INFORM", "satisfied": true}
+      ],
       "source_refs": ["PR #191", "PR #170", "program/p017-legendre", "Research Relay #82"],
       "evidence_status": "ACTIVE_RESEARCH",
       "last_progress_ref": "PR #191",
@@ -80,7 +106,9 @@
       "leverage": "HIGH",
       "frontier": "Control the surviving global core mass after exact anchor/singular normalization rather than stacking more fixed CRT layers.",
       "next_action": "Attack the weighted sum A_M(x)=sum_{S<x, S odd, gcd(S,M)=1}(2^omega(S)-2)/phi(S) for a uniform leading term plus finite-cutoff error; if that is insufficient, isolate the exact analytic input required for the surviving affine two-prime cells.",
-      "dependencies": [{"target":"canonical/relayed P018 cubic channel contraction","action":"CONSUME","satisfied":true}],
+      "dependencies": [
+        {"target": "canonical/relayed P018 cubic channel contraction", "action": "CONSUME", "satisfied": true}
+      ],
       "source_refs": ["PR #170", "bridge/p017-p018-hard-core-v2"],
       "evidence_status": "PROVED_WIP_FRONTIER",
       "last_progress_ref": "PR #170",
@@ -98,7 +126,10 @@
       "leverage": "HIGH",
       "frontier": "Complete the exact threshold-to-cardinality layer after the three-point denominator band has been proved/formalized.",
       "next_action": "Starting from PR #225/#226/#228, derive the forced lower-band horizon carry and exact ternary threshold-to-cardinality theorem; avoid reproving the already established denominator band or exact quotient-root fiber.",
-      "dependencies": [{"target":"three-point denominator band","action":"CONSUME","satisfied":true},{"target":"exact quotient-root denominator fiber","action":"CONSUME","satisfied":true}],
+      "dependencies": [
+        {"target": "three-point denominator band", "action": "CONSUME", "satisfied": true},
+        {"target": "exact quotient-root denominator fiber", "action": "CONSUME", "satisfied": true}
+      ],
       "source_refs": ["PR #225", "PR #226", "PR #228", "program/p018-precision-v2"],
       "evidence_status": "LEAN_CHECKED_PREDECESSORS",
       "last_progress_ref": "PR #226",
@@ -116,7 +147,10 @@
       "leverage": "MEDIUM",
       "frontier": "Advance causal focusing, direction-orbit/role, or exact direction-witness transport without re-owning generic A2/A4 machinery.",
       "next_action": "Refresh PR #213 and relevant Relay entries, choose the highest-value bounded P021-local theorem/counterexample, and state the exact future observable before deciding which witness detail can be collapsed.",
-      "dependencies": [{"target":"A2/P023 future-compatible quotient machinery","action":"CONSUME","satisfied":true},{"target":"A4 correspondence/witness machinery","action":"CONSUME","satisfied":true}],
+      "dependencies": [
+        {"target": "A2/P023 future-compatible quotient machinery", "action": "CONSUME", "satisfied": true},
+        {"target": "A4 correspondence/witness machinery", "action": "CONSUME", "satisfied": true}
+      ],
       "source_refs": ["PR #213", "program/p021-causal-focusing-v3", "Research Relay #82"],
       "evidence_status": "ACTIVE_RESEARCH",
       "last_progress_ref": "PR #213",
@@ -134,7 +168,9 @@
       "leverage": "HIGH",
       "frontier": "Continue the P022 geometry chain after the observation-history/collision/repair checkpoint; CI and review are verification checkpoints, not research stop conditions.",
       "next_action": "Refresh PR #235 and its newest checkpoint, then extend the strongest surviving theorem direction among collision-spectrum reconstruction, event-driven repair, and geometry-identifiability; preserve the explicit low-order insufficiency boundaries.",
-      "dependencies": [{"target":"P011 collision polynomial","action":"CONSUME","satisfied":true}],
+      "dependencies": [
+        {"target": "P011 collision polynomial", "action": "CONSUME", "satisfied": true}
+      ],
       "source_refs": ["PR #235", "program/p022-geometry-v2"],
       "evidence_status": "PROVED_WIP_AND_EXECUTABLE_CHECKED",
       "last_progress_ref": "PR #235",
@@ -152,8 +188,17 @@
       "leverage": "HIGH",
       "frontier": "Resolve FQ-20260809-005 without reinterpreting the live P022 observation-history lease: determine the stable API/domain layering between the general directed shortest-walk helper and the P012 connected-undirected-simple-graph metric contract.",
       "next_action": "Work on a dedicated short task branch rather than changing the live observation-history task scope. Audit P012 theorem hypotheses and actual P022/E001 consumers; choose either a narrowed metric-only graph_distance contract or an explicitly layered directed-shortest-walk plus undirected-metric API; add asymmetric-input regression coverage; return the proof/counterexample/tool evidence and canonical-change recommendation to Issue #164 for steward verification.",
-      "dependencies": [{"target":"P012 ordinary metric theorem scope","action":"CONSUME","satisfied":true},{"target":"stable geometry.graph_distance implementation/export","action":"TEST","satisfied":true}],
-      "source_refs": ["Issue #164 FQ-20260809-005 / comment 5231423831", "docs/P012_INTRINSIC_DISCRETE_GEOMETRY.en.md", "src/enterprise_math/geometry.py", "src/enterprise_math/__init__.py", "tests/test_p012_geometry.py"],
+      "dependencies": [
+        {"target": "P012 ordinary metric theorem scope", "action": "CONSUME", "satisfied": true},
+        {"target": "stable geometry.graph_distance implementation/export", "action": "TEST", "satisfied": true}
+      ],
+      "source_refs": [
+        "Issue #164 FQ-20260809-005 / comment 5231423831",
+        "docs/P012_INTRINSIC_DISCRETE_GEOMETRY.en.md",
+        "src/enterprise_math/geometry.py",
+        "src/enterprise_math/__init__.py",
+        "tests/test_p012_geometry.py"
+      ],
       "foundation_questions": ["FQ-20260809-005"],
       "evidence_status": "FOUNDATION_QUESTION_OPEN",
       "last_progress_ref": "Issue #164 FQ-20260809-005",
@@ -171,7 +216,9 @@
       "leverage": "MEDIUM",
       "frontier": "Extend canonical one-dimensional translation/boundary precision into a genuinely state-dependent or higher-dimensional action language while keeping generic quotient theory upstream-owned.",
       "next_action": "Choose one minimal state-dependent or multidimensional action family, compile its exact future boundary orbit/repair state, and pressure-test whether the existing semigroup/group-completion dichotomy survives or requires a new typed precision coordinate.",
-      "dependencies": [{"target":"canonical P023 quotient safety","action":"CONSUME","satisfied":true}],
+      "dependencies": [
+        {"target": "canonical P023 quotient safety", "action": "CONSUME", "satisfied": true}
+      ],
       "source_refs": ["program/p024-action-precision", "docs/P024_ACTION_LANGUAGE_PRECISION.en.md"],
       "evidence_status": "OPEN_PROGRAM_FRONTIER",
       "last_progress_ref": "canonical P024 current scope",
@@ -189,32 +236,16 @@
       "leverage": "HIGH",
       "frontier": "Determine whether coarse state plus a relation-conditioned bounded admissible witness family gives a precision theorem genuinely distinct from exact minimal repair and ordinary A4 support.",
       "next_action": "Use the P025 radical/addition non-congruence as the pressure test: formalize the candidate bounded-witness semantics, compare it against A2/P023 exact descent and A4 multivalued composition, and seek either a distinct mother theorem or a reduction/counterexample.",
-      "dependencies": [{"target":"A2/P023 exact descent/minimal repair","action":"TEST","satisfied":true},{"target":"A4 admissible support","action":"TEST","satisfied":true}],
+      "dependencies": [
+        {"target": "A2/P023 exact descent/minimal repair", "action": "TEST", "satisfied": true},
+        {"target": "A4 admissible support", "action": "TEST", "satisfied": true}
+      ],
       "source_refs": ["PR #216", "Issue #211", "Research Relay #82"],
       "evidence_status": "CONJECTURAL_ARCHITECTURE_WITH_PROVED_PRESSURE_TEST",
       "last_progress_ref": "PR #216",
       "last_progress_at": "2026-08-09T20:24:00+08:00",
       "hard_block": null,
       "tags": ["P025", "abc", "witness", "precision", "A2", "A4"]
-    },
-    {
-      "task_id": "RS-R004-CAUSAL-IDENTIFIABILITY",
-      "title": "R004 causal/generative-identifiability Foundation question",
-      "kind": "RESEARCH",
-      "owner": "research/r004-causal-identifiability-v1",
-      "base_state": "READY",
-      "priority": "P1",
-      "leverage": "HIGH",
-      "frontier": "Resolve FQ-20260810-007: determine whether a weakest project-native finite causal/relational primitive yields an experimentally testable obstruction to arbitrary finite pre-sampling, or prove that the current Foundation cannot decide online generation without an additional physical/causal axiom.",
-      "next_action": "Start from PR #302's three exact pressure-test layers: arbitrary finite rational/adaptive response tables remain pre-samplable; full-support latent capacity costs at least r^m seed states; setting-local plus measurement-independent Bell completions fail on the exact rational target. Define one strictly weaker project-native causal/accessibility candidate without importing Bell locality or measurement independence by fiat, then prove either a finite obstruction theorem or an impossibility/reduction theorem. Return the weakest scope, prior-art boundary, executable witness, and canonical-change recommendation to Issue #164.",
-      "dependencies": [{"target":"canonical FQ-20260809-004 functional-kernel/future-safe layering","action":"CONSUME","satisfied":true},{"target":"canonical FQ-20260809-006 legality-sensitive partial-operation layer","action":"CONSUME","satisfied":true},{"target":"R004 PR #302 generative-identifiability evidence","action":"TEST","satisfied":true}],
-      "source_refs": ["Issue #164 FQ-20260810-007 / comment 5236396941", "PR #302", "research/r004-causal-identifiability-v1", "src/enterprise_math/precision_genesis_intervention.py", "src/enterprise_math/precision_latent_capacity.py", "src/enterprise_math/precision_locality_obstruction.py"],
-      "foundation_questions": ["FQ-20260810-007"],
-      "evidence_status": "FOUNDATION_QUESTION_OPEN",
-      "last_progress_ref": "Issue #164 FQ-20260810-007",
-      "last_progress_at": "2026-08-10T13:50:00+08:00",
-      "hard_block": null,
-      "tags": ["R004", "causal", "identifiability", "latent-completion", "intervention", "FQ-20260810-007"]
     },
     {
       "task_id": "RS-A3-RELATION-LATTICE",
@@ -244,7 +275,9 @@
       "leverage": "HIGH",
       "frontier": "Advance only genuinely cross-owner A3-to-A4 statements after B01-B06, using query-scoped quotient-module precision and interpolation/cancellation boundaries.",
       "next_action": "Pressure-test the low-rank residue/quotient-module solver against generated-support cancellation and an actual P022 geometry; rehome any result that no longer needs both A3 and A4.",
-      "dependencies": [{"target":"canonical A3/A4 first bridge slice","action":"CONSUME","satisfied":true}],
+      "dependencies": [
+        {"target": "canonical A3/A4 first bridge slice", "action": "CONSUME", "satisfied": true}
+      ],
       "source_refs": ["bridge/a3-a4-generated-support-v3", "Research Relay #82"],
       "evidence_status": "ACTIVE_BRIDGE",
       "last_progress_ref": "Research Relay #82 A3/A4 precision entries",
@@ -262,7 +295,9 @@
       "leverage": "MEDIUM",
       "frontier": "Continue finite impulse/momentum material dynamics after the canonical wall and pair slices without hard-coded velocity reversal.",
       "next_action": "Refresh the current E001 impulse owner; choose the highest remaining owner-local item among exact force/work passivity, stopping/reversal stall bands, retained impulse remainder, or time-refinement compatibility, excluding mathematics already promoted through pair/contact-network owners.",
-      "dependencies": [{"target":"canonical pair impulse result","action":"CONSUME","satisfied":true}],
+      "dependencies": [
+        {"target": "canonical pair impulse result", "action": "CONSUME", "satisfied": true}
+      ],
       "source_refs": ["PR #190", "engineering/e001-material-impulse-v2"],
       "evidence_status": "ACTIVE_ENGINEERING_RESEARCH",
       "last_progress_ref": "PR #190",
@@ -280,7 +315,10 @@
       "leverage": "MEDIUM",
       "frontier": "Continue after the incidence/Gram/cycle-rank contact-network algebra, focusing on when contact-local witness state prevents body-level quotienting.",
       "next_action": "Refresh PR #234; formulate the weakest future-language condition under which cycle-related impulse allocations may be safely identified, and produce either an exact quotient criterion or a minimal persistent-contact counterexample.",
-      "dependencies": [{"target":"canonical pair impulse","action":"CONSUME","satisfied":true},{"target":"A3 weighted relation identity","action":"CONSUME","satisfied":true}],
+      "dependencies": [
+        {"target": "canonical pair impulse", "action": "CONSUME", "satisfied": true},
+        {"target": "A3 weighted relation identity", "action": "CONSUME", "satisfied": true}
+      ],
       "source_refs": ["PR #234", "engineering/e001-material-contact-network"],
       "evidence_status": "PROVED_WIP_REPLAYED_OWNER",
       "last_progress_ref": "PR #234",
@@ -334,7 +372,10 @@
       "leverage": "HIGH",
       "frontier": "Close the research-to-Foundation loop for returned FQs and mature Feedback Packets: independently verify scope/evidence, build minimal latest-main integration for accepted results, and complete post-merge propagation without becoming the theorem research owner.",
       "next_action": "Treat FQ-20260809-004 as a closed regression example. For the next ANSWERED FQ or mature Foundation Feedback Packet, independently verify the returned evidence and weakest scope, accept or reject the minimal interface, integrate accepted governance/Foundation surfaces through current-main L4, and only mark CANONICALIZED after merge and propagation.",
-      "dependencies": [{"target":"canonical FQ-20260809-004 result / PR #268","action":"CONSUME","satisfied":true},{"target":"canonical shared-surface promotion gate / PR #282","action":"CONSUME","satisfied":true}],
+      "dependencies": [
+        {"target": "canonical FQ-20260809-004 result / PR #268", "action": "CONSUME", "satisfied": true},
+        {"target": "canonical shared-surface promotion gate / PR #282", "action": "CONSUME", "satisfied": true}
+      ],
       "source_refs": ["Issue #164", "Issue #82", "foundation_backflow.json", "docs/FOUNDATION_BACKFLOW_LOOP.en.md", "PR #282"],
       "evidence_status": "FOUNDATION_BACKFLOW_CONTROL_PLANE",
       "last_progress_ref": "FQ-20260809-004 canonical / PR #282",
