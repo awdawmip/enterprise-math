@@ -36,22 +36,18 @@ theorem naturalLift_natural_step (H : ℕ → ℕ) {d r m : ℕ} (hr : 0 < r) :
   rw [Nat.div_div_eq_div_mul]
   simp [Nat.mul_comm]
 
-/-- Divisibility-scale form: if `d | e`, the projection from scale `e` to scale `d`
-commutes with the lifted dynamics. -/
+/-- Divisibility-scale form: for positive scales `d | e`, the projection from scale
+`e` to scale `d` commutes with the lifted dynamics. -/
 theorem naturalLift_natural_of_dvd (H : ℕ → ℕ) {d e m : ℕ}
-    (hd : 0 < d) (hde : d ∣ e) :
+    (hd : 0 < d) (he : 0 < e) (hde : d ∣ e) :
     floorQuot (e / d) (naturalLift H e m) =
       naturalLift H d (floorQuot (e / d) m) := by
   rcases hde with ⟨r, rfl⟩
-  have hr : 0 < r := by
-    by_contra hzero
-    have : r = 0 := Nat.eq_zero_of_not_pos hzero
-    subst r
-    simp at hd
+  have hr : 0 < r := Nat.pos_of_mul_pos_left he
   have hquot : d * r / d = r := Nat.mul_div_cancel_left r hd
   simpa [hquot] using (naturalLift_natural_step H (d := d) (r := r) (m := m) hr)
 
-/-- If the base map is downward, every positive-scale lift is downward. -/
+/-- If the base map is downward, every scale lift is downward. -/
 theorem naturalLift_le {H : ℕ → ℕ} (hH : ∀ n, H n ≤ n) {d m : ℕ} :
     naturalLift H d m ≤ m := by
   calc
@@ -78,9 +74,9 @@ theorem naturalLift_unique_residueErasing {H F : ℕ → ℕ} {d : ℕ} (hd : 0 
   funext m
   rcases herase m with ⟨k, hk⟩
   have hkquot : k = H (m / d) := by
-    have := hquot m
-    rw [hk, Nat.mul_div_cancel_left k hd] at this
-    exact this
+    have h := hquot m
+    rw [hk, Nat.mul_div_cancel_left k hd] at h
+    exact h
   rw [hk, hkquot]
   rfl
 
@@ -100,11 +96,14 @@ theorem naturalPerfectPowerCollapse_idempotent {p d m : ℕ}
     (hp : p ≠ 0) (hd : 0 < d) :
     naturalPerfectPowerCollapse p d (naturalPerfectPowerCollapse p d m) =
       naturalPerfectPowerCollapse p d m := by
-  exact naturalLift_idempotent (fun n => collapse_idempotent hp n) hd
+  simpa [naturalPerfectPowerCollapse] using
+    (naturalLift_idempotent (H := collapse p) (fun n => collapse_idempotent hp n)
+      (d := d) (m := m) hd)
 
 /-- For positive exponents, the scale-natural perfect-power replacement is downward. -/
 theorem naturalPerfectPowerCollapse_le {p d m : ℕ} (hp : p ≠ 0) :
     naturalPerfectPowerCollapse p d m ≤ m := by
-  exact naturalLift_le (fun n => collapse_le hp n)
+  simpa [naturalPerfectPowerCollapse] using
+    (naturalLift_le (H := collapse p) (fun n => collapse_le hp n) (d := d) (m := m))
 
 end EnterpriseMath.Scale
