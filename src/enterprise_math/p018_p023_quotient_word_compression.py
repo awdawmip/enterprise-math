@@ -325,7 +325,7 @@ def omega_filtered_separates_at_horizon(
     macro_capacity: int,
     horizon: int,
 ) -> bool:
-    """Exact storage-depth product law for the canonical Omega filtration."""
+    """Exact instruction-capacity × execution-depth law for the Omega filtration."""
     _require_natural("max_state", max_state)
     _require_root_exp(root_exp)
     _require_positive("macro_capacity", macro_capacity)
