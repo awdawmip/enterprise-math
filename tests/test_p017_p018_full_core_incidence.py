@@ -4,12 +4,23 @@ from enterprise_math.p017_p018_core_adaptive_bonferroni import (
     core_adaptive_signed_profile,
 )
 from enterprise_math.p017_p018_full_core_incidence import (
+    _bounded_squarefree_terms,
     full_core_incidence_mobius,
     high_core_bonferroni_weight,
 )
 
 
 class P017P018FullCoreIncidenceTests(unittest.TestCase):
+    def test_outer_squarefree_mobius_signs_alternate_at_all_depths(self):
+        rows = dict(_bounded_squarefree_terms((3, 5, 7), 105))
+        self.assertEqual(rows[1], 1)
+        self.assertEqual(rows[3], -1)
+        self.assertEqual(rows[5], -1)
+        self.assertEqual(rows[15], 1)
+        self.assertEqual(rows[21], 1)
+        self.assertEqual(rows[35], 1)
+        self.assertEqual(rows[105], -1)
+
     def test_k22_full_core_mobius_matches_repeated_low_core(self):
         data = full_core_incidence_mobius(22, 17)
 
