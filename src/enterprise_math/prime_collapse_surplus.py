@@ -1,18 +1,18 @@
-"""Exact R005-B prime-surplus and square-gap bridge primitives.
+"""Exact R005-B prime-surplus decomposition primitives.
 
 This module refines the p-power basin Moebius decomposition from
 ``prime_collapse_field``.  The routines are finite exact identities for bounded
 research use.  The naive Moebius sums remain exponential in the number of
 screening primes and are not proposed as a competitive prime-counting method.
 
-The square-gap certificate helper records an arithmetic factor-support
-certificate only.  Generic forced/mandatory witness semantics remain owned by
-the R005-A witness layer.
+Square centered-shell / fixed-gap factor certificates are intentionally not
+reimplemented here: the equivalent theorem is already owned canonically by
+P018-T71.
 """
 
 from math import comb
 
-from .legendre import is_prime, primes_up_to, squarefree_divisors_with_mu
+from .legendre import primes_up_to, squarefree_divisors_with_mu
 from .prime_collapse_field import factor_horizon, polynomial_carry
 
 
@@ -121,38 +121,3 @@ def prime_surplus_power_interval_prime_count(k: int, power: int) -> int:
         + prime_degree_surplus(k, power)
         + mobius_polynomial_carry_sum(k, power)
     )
-
-
-def square_gap_target(q: int, offset: int) -> int:
-    """Return the fixed even-gap target ``q + 2*offset + 2``."""
-    if offset < 0:
-        raise ValueError("offset must be nonnegative")
-    return q + 2 * offset + 2
-
-
-def square_gap_exclusive_certificate(q: int, offset: int) -> int | None:
-    """Return the square-basin exclusive-factor certificate when it exists.
-
-    Assume q is an odd prime and ``q > offset^2 + 2*offset``.  Put
-    ``k=q+offset``.  Under exactly these hypotheses, a basin integer whose
-    candidate prime-divisor support is the singleton ``{q}`` exists iff
-    ``r=q+2*offset+2`` is prime.  When it exists the explicit certificate is
-    ``n=q*r``; otherwise return ``None``.
-
-    This is a factor-support certificate.  Interpreting singleton support as a
-    forced/mandatory witness is the R005-A bridge theorem, not redefined here.
-    """
-    if offset < 0:
-        raise ValueError("offset must be nonnegative")
-    if q < 3 or q % 2 == 0 or not is_prime(q):
-        raise ValueError("q must be an odd prime")
-    if q <= offset * offset + 2 * offset:
-        raise ValueError("q must exceed offset^2 + 2*offset")
-    r = square_gap_target(q, offset)
-    if not is_prime(r):
-        return None
-    k = q + offset
-    certificate = q * r
-    if not (k * k < certificate < (k + 1) * (k + 1)):
-        raise AssertionError("derived certificate escaped its square basin")
-    return certificate
