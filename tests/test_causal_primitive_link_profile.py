@@ -7,6 +7,8 @@ from enterprise_math.causal_primitive_link_profile import (
     e7_scaled_roots,
     e8_scaled_roots,
     flag_extension_histograms,
+    hcp_direction_graph,
+    link_profile,
     neighborhood_signature,
     pair_context_histogram,
     primitive_direction_graph,
@@ -37,6 +39,25 @@ class CausalPrimitiveLinkProfileTests(unittest.TestCase):
         )
         self.assertIsNone(profile.first_flag_split_order)
         self.assertTrue(primitive_isotropy_contract(profile, 3))
+
+    def test_hcp_has_same_coarse_coordination_as_fcc_but_two_rooted_direction_contexts(self):
+        fcc = primitive_link_profile(a_roots(3))
+        hcp = link_profile(hcp_direction_graph())
+        self.assertEqual(fcc.primitive_count, hcp.primitive_count)
+        self.assertEqual(fcc.link_degree_histogram, hcp.link_degree_histogram)
+        self.assertEqual(fcc.link_edge_count, hcp.link_edge_count)
+        self.assertEqual(hcp.primitive_count, 12)
+        self.assertEqual(hcp.link_degree_histogram, ((4, 12),))
+        self.assertEqual(hcp.link_edge_count, 24)
+        self.assertEqual(len(fcc.edge_context_histogram), 1)
+        self.assertEqual(len(hcp.edge_context_histogram), 2)
+        multiplicities = sorted(multiplicity for _, multiplicity in hcp.edge_context_histogram)
+        self.assertEqual(multiplicities, [6, 6])
+        self.assertEqual(
+            tuple(dict(hist) for hist in hcp.flag_extension_histograms),
+            ({4: 12}, {0: 3, 1: 18, 2: 3}, {0: 8}),
+        )
+        self.assertFalse(primitive_isotropy_contract(hcp, 1))
 
     def test_a4_and_d4_are_both_locally_uniform_but_have_different_flag_laws(self):
         a4 = primitive_link_profile(a_roots(4))
