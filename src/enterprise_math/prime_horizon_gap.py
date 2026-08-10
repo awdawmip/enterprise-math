@@ -189,6 +189,35 @@ def pure_cofactor_cap_nonforced_candidates(k: int, power: int) -> tuple[int, ...
     return tuple(q for q in primes_up_to(upper_q) if q >= lower_q)
 
 
+def horizon_drift_components(k: int, power: int) -> tuple[int, int, int]:
+    """Return ``(d, rho, S)`` for the exact horizon-gap decomposition.
+
+    With
+
+        S=floor(sqrt(A)),
+        F=floor(sqrt(U)),
+        d=F-S,
+        rho=U-F^2,
+
+    the exact protecting-gap threshold satisfies
+
+        G = U/S - F = d + (d^2 + rho)/S.
+
+    ``rho`` is the upper endpoint's remainder above the lower horizon square.
+    """
+    if k < 1:
+        raise ValueError("k must be positive")
+    if power < 2:
+        raise ValueError("power must be at least 2")
+    lower = k**power
+    upper = (k + 1) ** power - 1
+    root_lower = isqrt(lower)
+    horizon = factor_horizon(k, power)
+    drift = horizon - root_lower
+    remainder = upper - horizon * horizon
+    return drift, remainder, root_lower
+
+
 def horizon_gap_threshold(k: int, power: int) -> tuple[int, int]:
     """Return the exact rational threshold ``G=(U/S)-F`` as (num, den).
 
