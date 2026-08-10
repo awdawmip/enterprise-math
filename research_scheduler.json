@@ -248,6 +248,36 @@
       "tags": ["P025", "abc", "witness", "precision", "A2", "A4"]
     },
     {
+      "task_id": "RS-R004-CAUSAL-IDENTIFIABILITY",
+      "title": "R004 causal/generative-identifiability Foundation question",
+      "kind": "RESEARCH",
+      "owner": "research/r004-causal-identifiability-v1",
+      "base_state": "READY",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "frontier": "Resolve FQ-20260810-007: determine whether a weakest project-native finite causal/relational primitive yields an experimentally testable obstruction to arbitrary finite pre-sampling, or prove that the current Foundation cannot decide online generation without an additional physical/causal axiom.",
+      "next_action": "Start from PR #302's three exact pressure-test layers: arbitrary finite rational/adaptive response tables remain pre-samplable; full-support latent capacity costs at least r^m seed states; setting-local plus measurement-independent Bell completions fail on the exact rational target. Define one strictly weaker project-native causal/accessibility candidate without importing Bell locality or measurement independence by fiat, then prove either a finite obstruction theorem or an impossibility/reduction theorem. Return the weakest scope, prior-art boundary, executable witness, and canonical-change recommendation to Issue #164.",
+      "dependencies": [
+        {"target": "canonical FQ-20260809-004 functional-kernel/future-safe layering", "action": "CONSUME", "satisfied": true},
+        {"target": "canonical FQ-20260809-006 legality-sensitive partial-operation layer", "action": "CONSUME", "satisfied": true},
+        {"target": "R004 PR #302 generative-identifiability evidence", "action": "TEST", "satisfied": true}
+      ],
+      "source_refs": [
+        "Issue #164 FQ-20260810-007 / comment 5236396941",
+        "PR #302",
+        "research/r004-causal-identifiability-v1",
+        "src/enterprise_math/precision_genesis_intervention.py",
+        "src/enterprise_math/precision_latent_capacity.py",
+        "src/enterprise_math/precision_locality_obstruction.py"
+      ],
+      "foundation_questions": ["FQ-20260810-007"],
+      "evidence_status": "FOUNDATION_QUESTION_OPEN",
+      "last_progress_ref": "Issue #164 FQ-20260810-007",
+      "last_progress_at": "2026-08-10T13:50:00+08:00",
+      "hard_block": null,
+      "tags": ["R004", "causal", "identifiability", "latent-completion", "intervention", "FQ-20260810-007"]
+    },
+    {
       "task_id": "RS-A3-RELATION-LATTICE",
       "title": "A3 sparse relation-lattice continuation",
       "kind": "RESEARCH",
