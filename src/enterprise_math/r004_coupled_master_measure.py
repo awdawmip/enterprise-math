@@ -11,6 +11,15 @@ common-quantile construction.  The resulting joint response-table measure has
 the same selected-action marginals and hence the same literal-word/adaptive
 policy laws, while often using far fewer deterministic masters.
 
+For m operationally redundant action labels sharing one state-independent
+uniform r-outcome kernel, the independent product compiler has support
+
+    r^(m + m^2 + ... + m^H),
+
+whereas the diagonal-coupled compiler has support r^H, which is also the exact
+full-history lower bound.  The difference is pure counterfactual-independence
+construction overhead, not target operational complexity.
+
 This is a resource-compression construction, not a new causal assumption.  The
 choice of coupling among counterfactual branches is operationally invisible in
 the declared single-action-at-a-node language unless extra cross-world
@@ -46,6 +55,12 @@ def _action_order(actions) -> tuple[Action, ...]:
     if len(set(result)) != len(result):
         raise ValueError("actions must be unique")
     return tuple(sorted(result, key=repr))
+
+
+def _positive_integer(name: str, value: int) -> int:
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise ValueError(f"{name} must be a positive integer")
+    return value
 
 
 def _validate_rational_kernels(
@@ -90,9 +105,9 @@ def compile_coupled_rational_master_measure(
 ) -> dict[CounterfactualMaster, Fraction]:
     """Compile a policy-independent master measure with coupled action branches.
 
-    The result is not claimed minimum-support.  It is a constructive compression
-    that replaces counterfactual branch independence by an exact coupling while
-    preserving every selected-action child marginal recursively.
+    The result is not claimed minimum-support in general.  It is a constructive
+    compression that replaces counterfactual branch independence by an exact
+    coupling while preserving every selected-action child marginal recursively.
     """
     state_values, actions, normalized = _validate_rational_kernels(states, kernels)
     if source not in state_values:
@@ -140,3 +155,37 @@ def master_support_compression_ratio(
     if not independent_measure or not coupled_measure:
         raise ValueError("both master measures must be nonempty")
     return len(coupled_measure), len(independent_measure)
+
+
+def independent_redundant_uniform_support_exponent(
+    action_count: int, horizon: int
+) -> int:
+    """Exponent E with independent-product support r^E for redundant actions.
+
+    With m redundant action labels and state-independent uniform transitions,
+    N_0=1 and N_h=(r*N_(h-1))^m.  Thus E_H=m+m^2+...+m^H.
+    """
+    m = _positive_integer("action_count", action_count)
+    if isinstance(horizon, bool) or not isinstance(horizon, int) or horizon < 0:
+        raise ValueError("horizon must be a non-negative integer")
+    return sum(m**depth for depth in range(1, horizon + 1))
+
+
+def redundant_uniform_master_support_counts(
+    alphabet_size: int, action_count: int, horizon: int
+) -> tuple[int, int]:
+    """Return (optimal/coupled support, independent-product support).
+
+    For operationally redundant actions with one uniform state-independent
+    r-outcome kernel, the action sequence does not change the visible law.  The
+    complete H-history has r^H positive histories, so any static master mixture
+    needs at least r^H atoms.  Diagonal coupling attains that lower bound.
+    """
+    r = _positive_integer("alphabet_size", alphabet_size)
+    _positive_integer("action_count", action_count)
+    if isinstance(horizon, bool) or not isinstance(horizon, int) or horizon < 0:
+        raise ValueError("horizon must be a non-negative integer")
+    coupled = r**horizon
+    exponent = independent_redundant_uniform_support_exponent(action_count, horizon)
+    independent = r**exponent
+    return coupled, independent
