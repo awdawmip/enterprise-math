@@ -72,30 +72,27 @@ def _domain(domain: Iterable[Vertex]) -> tuple[Vertex, ...]:
     return states
 
 
-def _canonical_ids(
-    states: tuple[Vertex, ...], labels: Mapping[Vertex, Hashable]
-) -> dict[Vertex, int]:
-    if set(labels) != set(states):
-        raise ValueError("partition must label every state exactly once")
-    ids: dict[Hashable, int] = {}
-    result: dict[Vertex, int] = {}
-    for state in states:
-        label = labels[state]
-        try:
-            known = label in ids
-        except TypeError as exc:
-            raise ValueError("partition labels must be hashable") from exc
-        if not known:
-            ids[label] = len(ids)
-        result[state] = ids[label]
-    return result
-
-
 def _partition_labels(partition: Partition) -> set[Hashable]:
     try:
         return set(partition.values())
     except TypeError as exc:
         raise ValueError("partition labels must be hashable") from exc
+
+
+def _canonical_ids(
+    states: tuple[Vertex, ...], labels: Mapping[Vertex, Hashable]
+) -> dict[Vertex, int]:
+    if set(labels) != set(states):
+        raise ValueError("partition must label every state exactly once")
+    _partition_labels(labels)
+    ids: dict[Hashable, int] = {}
+    result: dict[Vertex, int] = {}
+    for state in states:
+        label = labels[state]
+        if label not in ids:
+            ids[label] = len(ids)
+        result[state] = ids[label]
+    return result
 
 
 def _partial_operations(
