@@ -143,7 +143,7 @@ class RelationPredicateTransformerDiagnosticTests(unittest.TestCase):
         states = (0, 1, 2)
         relation = frozenset({(0, 1), (2, 1)})
         domain = existential_preimage(states, relation, states)
-        self.assertEqual(states.__class__(states) if False else domain, frozenset({0, 2}))
+        self.assertEqual(domain, frozenset({0, 2}))
         self.assertFalse(predicate_transformer_preserves_top(states, relation))
         report = relation_predicate_transformer_diagnostic(states, relation)
         self.assertEqual(frozenset(states) - domain, report.undefined_sources)
