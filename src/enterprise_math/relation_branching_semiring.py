@@ -1,7 +1,7 @@
 """Semiring-parametric branching signatures for finite relation-valued actions.
 
 A raw finite relation contributes a finite number of successor states of each
-previous-depth behavioural type.  Rather than fixing how those multiplicities
+previous-depth behavioural type. Rather than fixing how those multiplicities
 are interpreted, choose a commutative semiring K and send the natural successor
 count ``n`` to ``n * 1_K``.
 
@@ -10,7 +10,7 @@ The recursive K-branching signature is
     beta^K_0(x) = O(x)
 
     beta^K_(h+1)(x)
-      = (O(x), ( sum-by-child-type 1_K )_a).
+      = (O(x), (sum-by-child-type 1_K)_a).
 
 Equivalently, for each action it stores a finitely supported K-valued function
 on depth-h successor behavioural types.
@@ -25,26 +25,33 @@ Concrete coefficient worlds include:
 
 If ``phi:K->L`` is a semiring homomorphism, recursively map every child type,
 map its coefficient by phi, and add coefficients whose richer child types
-collapse to the same poorer child type.  The result is exactly the directly
-constructed L-branching signature.  Hence coefficient morphisms induce natural
+collapse to the same poorer child type. The result is exactly the directly
+constructed L-branching signature. Hence coefficient morphisms induce natural
 coarse maps of branching future signatures and the K-kernel always refines the
 L-kernel.
 
 Terminal word semantics is a second, independent fold: recursively multiply a
 successor-type coefficient by the suffix trace and add over successor types.
-This gives the usual K-valued path trace.  Semiring morphisms commute with this
+This gives the usual K-valued path trace. Semiring morphisms commute with this
 trace fold, producing a coefficient/structure commuting square.
 
+A direct product semiring KxL is always a common refinement of the separate K
+and L branching views, but need not be their **coarsest task join**. Its child
+types pair K- and L-behaviour on the same successor and can therefore retain
+cross-capability correlation that is absent when the two interfaces are stored
+side by side independently.
+
 Semiring-weighted automata, coalgebras, multiset functors and weighted
-bisimulation are standard prior mathematics/CS.  The project value is the exact
-separation between local coefficient quotient and structural trace aggregation.
+bisimulation are standard prior mathematics/CS. The project value is the exact
+separation between local coefficient quotient, structural trace aggregation,
+and cross-capability correlation introduced by a representation product.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 from itertools import product
-from typing import Any, Callable, Hashable, Mapping, Sequence
+from typing import Callable, Hashable, Mapping, Sequence
 
 from .admissible_support import Relation
 from .relation_support_stable_refinement import (
@@ -326,6 +333,33 @@ def semiring_branching_partition(
     groups: dict[SemiringBranchingSignature, set[State]] = {}
     for state, signature in signatures.items():
         groups.setdefault(signature, set()).add(state)
+    return normalize_partition(tuple(groups.values()))
+
+
+def joint_partition(left: Partition, right: Partition) -> Partition:
+    """Coarsest state partition that refines both supplied partitions."""
+    left_normalized = normalize_partition(left)
+    right_normalized = normalize_partition(right)
+    left_states = frozenset().union(*left_normalized)
+    right_states = frozenset().union(*right_normalized)
+    if left_states != right_states:
+        raise ValueError("partitions must cover the same state set")
+    left_block = {
+        state: index
+        for index, block in enumerate(left_normalized)
+        for state in block
+    }
+    right_block = {
+        state: index
+        for index, block in enumerate(right_normalized)
+        for state in block
+    }
+    groups: dict[tuple[int, int], set[State]] = {}
+    for state in left_states:
+        groups.setdefault(
+            (left_block[state], right_block[state]),
+            set(),
+        ).add(state)
     return normalize_partition(tuple(groups.values()))
 
 
