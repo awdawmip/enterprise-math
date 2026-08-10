@@ -101,6 +101,33 @@ Canonical 资产：
 
 只有在显式区分且 absorbing 时，吸收态 `UNDEFINED` sink 才可作为**验证表示**。它不是新的 Enterprise Math world state；未区分的 sink 会错误合并 enabled 与 disabled behavior。Partial transition systems、automata/behavioral equivalence、sink totalization 与有限 partition refinement 均属于前人数学；这里不提出一般原创性主张。
 
+#### A2 safe-operation algebra / 自然操作谱 — `EXECUTABLE_CHECKED + PROVED_WIP DOC / NOT LEAN-CHECKED`
+
+已验证 source generation：PR #317 / head `166a72590a3acf55da9f9a7aa717afc71bb7023f`；current-main publication vehicle：PR #390。
+
+对一个 quotient `q`，不限制 operation language 时全部安全 finitary operations 是经典的等价关系 polymorphisms `Pol(ker q)`。给定一个已声明的 ambient / natural operation family `A`，定义 surviving natural spectrum
+
+`Spec_A(q) = A intersect Pol(ker q)`。
+
+这个 spectrum 是**派生接口**，不是 quotient selector。仅凭 operation family 一般不能唯一选出一个 quotient。在已有 P023/FQ-004 架构中，declared future/context language 与 required observation 先确定 operational future-safe quotient；然后 `Spec_A(q)` 才说明哪些已声明 natural operations 能在该 quotient 上继续合法运行。
+
+已验证的 P008 specialization 给出 exact executable evidence：受限 natural language 可能只保留 safe-translation capacity 这类较粗 invariant，而不足以重建整个 quotient；完整 concrete safe unary monoid 则可以重建非退化 quotient kernel。Successor/addition/multiplication 以及 linear/nonlinear polynomial-operation rigidity 结果继续保持 A2 文档中声明的 proof status；进入共享面不等于 Lean proof，也不自动升级全部 theorem prose。
+
+共享资产：
+
+- `src/enterprise_math/safe_operation_algebra.py`
+- `tests/test_safe_operation_algebra.py`
+- `docs/A2_SAFE_OPERATION_ALGEBRA.en.md`
+- `docs/A2_SAFE_OPERATION_ALGEBRA.zh-CN.md`
+- `docs/A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.en.md`
+- `docs/A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.zh-CN.md`
+
+分层边界：
+
+`declared future/context language -> future-safe quotient -> surviving natural operation spectrum`。
+
+只有在另有 theorem 给出这种坐标时，scalar precision/scale 才可以概括其中一部分结构；它不能替代 quotient 与 declared future-operation structure。Partition-preserving transformation semigroups、`Pol(theta)`、congruences、quotient algebras、clones 与通用 partition refinement 均属于前人数学。
+
 #### P018↔P023 有界 quotient-root action basis — `LEAN_CHECKED_MAIN`
 
 PR #249 / `main@c9b39069917c32b8a02a1bbdf6297ca5e43c9438`。
@@ -246,6 +273,8 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 - 精确状态相等、当前观测相等与声明 future-safe 相等不同，除非假设证明它们重合；
 - 压缩坐标在没有 factorization/sufficiency 时不是动力学完备状态；
 - future-safe state precision != 最小 future-action-language complexity；
+- surviving natural operation spectrum 由 quotient 与 declared ambient operation family 共同派生，不能反过来唯一选择 quotient；
+- scalar precision/scale 不能替代 future-safe quotient 与 declared future-operation structure；
 - 对声明的部分 action language，disabledness/定义域成员关系本身就是未来行为，不能被悄悄解释成 identity；
 - absorbing `UNDEFINED` sink 只有在显式区分且 absorbing 时才是等价验证表示；它不是新的 ontic state；
 - coarse equality/support/cardinality 不保证后续 composition 或 witness identity；
@@ -257,7 +286,7 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 - finite measured-polyline refinement 不会揭示未测量 continuum；
 - engineering code 进入 `main` 不会自动成为通用物理定律；
 - Git ancestry/同名文件不证明新数学或 semantic absorption；
-- function kernels、Galois connections、semigroups、partial transition systems、automata distinguishability、Test Cover、power-free arithmetic、numerical semigroups、partition refinement 等均属于 prior art。
+- function kernels、Galois connections、semigroups、partial transition systems、automata distinguishability、equivalence polymorphisms/clones、Test Cover、power-free arithmetic、numerical semigroups、partition refinement 等均属于 prior art。
 
 ## 7. Root Lean import index
 
@@ -320,5 +349,7 @@ FQ-001 至 FQ-004 与 FQ-006 已 canonicalized。目前 active foundation questi
 FQ-006 在不改变 FQ-004 actual-state / observation / future-safe 分层的前提下，为 P023 增加合法性敏感的部分确定性未来语言；它也不把 A4 multivalued correspondence 压缩成 partial function model。
 
 FQ-007 路由到 clean owner `research/r004-causal-identifiability-v1` 与 durable task `RS-R004-CAUSAL-IDENTIFIABILITY`。历史 R004 PR #302 仅作为 evidence/provenance；Bell locality 与 measurement independence 是压力测试限制，不是 Foundation 公理，也不是项目原创主张。
+
+A2 safe-operation packet 被 steward 分类为 direct-maintenance candidate 而不是新 FQ：future/context language 与 observation 在逻辑上先于 operational future-safe quotient，`Spec_A(q)` 则是派生的 surviving-operation spectrum。其 P008 rigidity theorem prose 在单独升级前继续保持自身声明的 proof status。
 
 Steward 直接修机械漂移，但不替研究员选择尚未解决的研究答案。FQ 回报必须先经 steward 验证，才能 canonicalize。
