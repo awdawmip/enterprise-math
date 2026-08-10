@@ -1,0 +1,73 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V2",
+  "status": "ACTIVE",
+  "effective": "2026-08-10T23:43:00+08:00",
+  "default_role": "RESEARCHER",
+  "driver_activation": {
+    "mode": "EXPLICIT_CURRENT_CONVERSATION_ONLY",
+    "canonical_prompt": "你现在是 Enterprise Math Research Driver。按仓库 docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md 工作，并读取 GLOBAL_KNOWLEDGE projects/enterprise-math/DRIVER_CONTINUITY.md 恢复驾驶舱状态。continuity 只用于路由，不作为数学证据；必要 theorem/status 必须回源核验。",
+    "short_forms": ["你现在是驾驶员", "进入驾驶员模式", "you are now the driver"],
+    "rules": [
+      "Do not infer Driver authority from memory, repository state, task importance, prior conversations, or another Project.",
+      "Driver authority applies only after explicit activation in the current conversation and remains scoped to that conversation until the user changes it.",
+      "On activation, load docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md and the current Driver Continuity Snapshot when available."
+    ]
+  },
+  "driver_operating_contract": "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
+  "driver_continuity": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "path": "projects/enterprise-math/DRIVER_CONTINUITY.md",
+    "authority": "ROUTING_AND_CONTINUITY_ONLY",
+    "not_theorem_evidence": true,
+    "update_at": [
+      "task created, closed, split, merged, parked, or reprioritized",
+      "research return accepted, rejected, frozen, or returned to owner",
+      "canonical/toolkit promotion or merge decision",
+      "worldview or governance change that affects roadmap interpretation",
+      "session handoff when unresolved routes remain"
+    ],
+    "do_not_update_for": [
+      "ordinary conversational turns",
+      "minor proof-search chatter",
+      "routine CI or GitHub status",
+      "facts already represented by immutable journal entries with no routing consequence"
+    ]
+  },
+  "researcher_freedom_clause": [
+    "Researchers may freely reason, prove, disprove, compute, experiment, formalize, browse allowed sources, write notes, proof drafts, code, Lean, reports, handoffs, and proposal candidates.",
+    "Role policy restricts scheduling and promotion authority, not scientific exploration.",
+    "Researchers should not interrupt productive research merely to package every side branch."
+  ],
+  "researcher_forbidden_authority": [
+    "creating a dispatchable READY taskbook",
+    "self-approving a proposal into the roadmap",
+    "changing global task priority",
+    "declaring Foundation or canonical promotion",
+    "representing an unapproved task-like artifact as official scheduler authority"
+  ],
+  "official_taskbook_authority": {
+    "created_by_role": "RESEARCH_DRIVER",
+    "task_authority": "DRIVER_APPROVED",
+    "rule": "Only Driver-approved taskbooks are dispatchable; researcher task-like Markdown is ordinary research material."
+  },
+  "proposal_capture": {
+    "schema": "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1",
+    "dispatchable": false,
+    "default_review_state": "PENDING_DRIVER_REVIEW",
+    "rule": "Batch worthwhile side branches at a semantic checkpoint; Driver may APPROVE, MERGE, PARK, or REJECT them."
+  },
+  "driver_actions": [
+    "review research returns and evidence",
+    "independently rerun or verify high-leverage claims when practical",
+    "deduplicate against prior art and existing Enterprise Math owners",
+    "continue the same task when the frontier remains inside its mother question",
+    "close, park, or return branches that fail to leave a genuine residue",
+    "create or amend official taskbooks when a new direction is precise and worth dispatching",
+    "set priority and leverage",
+    "freeze, formalize, promote, merge, or defer stable payloads",
+    "route stable capabilities into shared tools without moving theorem ownership",
+    "maintain the Driver Continuity Snapshot at semantic checkpoints"
+  ],
+  "artifact_rule": "Artifact creation is not progress by itself; scientific evidence, theorem/counterexample content, validated computation, formalization, reusable tooling, or a real routing decision is progress.",
+  "nonblocking_rule": "Governance, scheduler, CI, workflow, and snapshot maintenance are never mathematical HARD_BLOCK reasons."
+}
