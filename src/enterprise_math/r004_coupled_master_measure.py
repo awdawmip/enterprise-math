@@ -11,14 +11,15 @@ common-quantile construction.  The resulting joint response-table measure has
 the same selected-action marginals and hence the same literal-word/adaptive
 policy laws, while often using far fewer deterministic masters.
 
-For m operationally redundant action labels sharing one state-independent
-uniform r-outcome kernel, the independent product compiler has support
+If there are m actions, every kernel row has support at most r, and every child
+state at depth h-1 has at most U_(h-1) coupled masters, then each action child
+marginal has at most r U_(h-1) atoms.  The common-quantile support bound gives
 
-    r^(m + m^2 + ... + m^H),
+    U_h <= m r U_(h-1) - (m-1),   U_0=1.
 
-whereas the diagonal-coupled compiler has support r^H, which is also the exact
-full-history lower bound.  The difference is pure counterfactual-independence
-construction overhead, not target operational complexity.
+Thus the generic coupled construction grows only exponentially in horizon,
+unlike the nested product construction.  Redundant identical actions compress
+further to the exact full-history lower bound.
 
 This is a resource-compression construction, not a new causal assumption.  The
 choice of coupling among counterfactual branches is operationally invisible in
@@ -189,3 +190,29 @@ def redundant_uniform_master_support_counts(
     exponent = independent_redundant_uniform_support_exponent(action_count, horizon)
     independent = r**exponent
     return coupled, independent
+
+
+def generic_coupled_master_support_upper_bound(
+    action_count: int, transition_support_bound: int, horizon: int
+) -> int:
+    """Closed-form support upper bound for recursive common-quantile coupling.
+
+    Let m be the action count and r the maximum positive support size of any
+    kernel row.  The recursive bound U_h=m*r*U_(h-1)-(m-1), U_0=1 solves to
+
+        [m(r-1)(mr)^h + (m-1)] / (mr-1)
+
+    when mr>1.  The deterministic one-action/one-successor case stays at one.
+    """
+    m = _positive_integer("action_count", action_count)
+    r = _positive_integer("transition_support_bound", transition_support_bound)
+    if isinstance(horizon, bool) or not isinstance(horizon, int) or horizon < 0:
+        raise ValueError("horizon must be a non-negative integer")
+    if m == 1 and r == 1:
+        return 1
+    mr = m * r
+    numerator = m * (r - 1) * (mr**horizon) + (m - 1)
+    denominator = mr - 1
+    if numerator % denominator != 0:
+        raise AssertionError("closed-form recurrence bound must be integral")
+    return numerator // denominator
