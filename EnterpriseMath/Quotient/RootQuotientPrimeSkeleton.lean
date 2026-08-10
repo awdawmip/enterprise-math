@@ -24,7 +24,7 @@ theorem prime_rPowerFree
   · have hPowerPrime : (t ^ r).Prime := by
       rw [hPrimePow]
       exact hp
-    exact (Prime.not_prime_pow hr) hPowerPrime
+    exact (Nat.Prime.not_prime_pow hr) hPowerPrime
 
 /-- If a positive-generator word compiles to a prime denominator, then that
 prime occurs as one of the primitive generators in the word.  No factorization
