@@ -1,21 +1,23 @@
 """Cross-route R007 overlap-field geometry for prime/collapse research.
 
 This module deliberately consumes the exact overlap and natural-hull machinery
-from ``r007_residue_extension_csp``. It packages three later R007 results:
+from ``r007_residue_extension_csp``. It packages later R007 results:
 
 1. a top-level naturality pressure kernel for repeated operation checks;
 2. Euclidean quotient/remainder coding by coprime overlap-caterpillar leaves;
-3. multiscale overlap nerves whose component/Euler data recover gcd and whose
-   first disconnect scale recovers the smallest prime factor.
+3. multiscale overlap nerves whose connectivity recovers the gcd meet object;
+4. atomic interval metrics whose reduced denominators recover the lcm join;
+5. first-disconnect and prime-power splitting interpretations for prime tooling.
 
-All geometry is exact integer arithmetic. The arithmetic identities are not
-claimed as faster gcd/factorization algorithms.
+All geometry is exact integer/rational arithmetic. The arithmetic identities are
+not claimed as faster gcd, lcm, factorization, or primality algorithms.
 """
 
 from __future__ import annotations
 
+from fractions import Fraction
 from itertools import combinations
-from math import gcd
+from math import gcd, lcm
 from typing import Sequence
 
 import r007_residue_extension_csp as base
@@ -146,21 +148,34 @@ def euclidean_gap_recursion(d: int, s: int) -> tuple[int, int, tuple[int, ...]]:
     return a, t, epsilon
 
 
+def _normalize_scales(scales: Sequence[int]) -> tuple[int, ...]:
+    levels = tuple(dict.fromkeys(scales))
+    if not levels or any(d < 1 for d in levels):
+        raise ValueError("require nonempty positive scales")
+    return levels
+
+
 def gcd_many(scales: Sequence[int]) -> int:
     """Greatest common divisor of a nonempty scale family."""
-    if not scales or any(d < 1 for d in scales):
-        raise ValueError("require nonempty positive scales")
-    value = scales[0]
-    for d in scales[1:]:
+    levels = _normalize_scales(scales)
+    value = levels[0]
+    for d in levels[1:]:
         value = gcd(value, d)
     return value
 
 
-def multiscale_overlap_component_count(scales: Sequence[int]) -> int:
+def lcm_many(scales: Sequence[int]) -> int:
+    """Least common multiple of a nonempty scale family."""
+    levels = _normalize_scales(scales)
+    value = 1
+    for d in levels:
+        value = lcm(value, d)
+    return value
+
+
+def multiscale_overlap_components(scales: Sequence[int]) -> list[set[Cell]]:
     """Connected components of the 1-skeleton of the multiscale overlap nerve."""
-    levels = tuple(dict.fromkeys(scales))
-    if not levels or any(d < 1 for d in levels):
-        raise ValueError("require nonempty positive scales")
+    levels = _normalize_scales(scales)
     vertices = [(d, i) for d in levels for i in range(d)]
     adj: dict[Cell, list[Cell]] = {v: [] for v in vertices}
     for x, y in combinations(vertices, 2):
@@ -170,11 +185,11 @@ def multiscale_overlap_component_count(scales: Sequence[int]) -> int:
             adj[x].append(y)
             adj[y].append(x)
     seen: set[Cell] = set()
-    components = 0
+    components: list[set[Cell]] = []
     for start in vertices:
         if start in seen:
             continue
-        components += 1
+        component = {start}
         seen.add(start)
         stack = [start]
         while stack:
@@ -182,15 +197,38 @@ def multiscale_overlap_component_count(scales: Sequence[int]) -> int:
             for y in adj[x]:
                 if y not in seen:
                     seen.add(y)
+                    component.add(y)
                     stack.append(y)
+        components.append(component)
     return components
+
+
+def multiscale_overlap_component_count(scales: Sequence[int]) -> int:
+    """Number of connected components; exactly ``gcd(scales)``."""
+    return len(multiscale_overlap_components(scales))
+
+
+def meet_component_label(d: int, i: int, meet_scale: int) -> int:
+    """Canonical R_d -> R_g label when ``g=meet_scale`` divides ``d``."""
+    if meet_scale < 1 or d % meet_scale or not (0 <= i < d):
+        raise ValueError("invalid meet projection")
+    return i // (d // meet_scale)
+
+
+def multiscale_meet_projection(scales: Sequence[int]) -> dict[Cell, int]:
+    """Component quotient identified with the canonical gcd-scale object R_g."""
+    levels = _normalize_scales(scales)
+    g = gcd_many(levels)
+    return {
+        (d, i): meet_component_label(d, i, g)
+        for d in levels
+        for i in range(d)
+    }
 
 
 def common_refinement_atom_count(scales: Sequence[int]) -> int:
     """Atom count of overlaid grids by inclusion-exclusion of subset gcds."""
-    levels = tuple(dict.fromkeys(scales))
-    if not levels or any(d < 1 for d in levels):
-        raise ValueError("require nonempty positive scales")
+    levels = _normalize_scales(scales)
     total = 0
     n = len(levels)
     for mask in range(1, 1 << n):
@@ -202,9 +240,7 @@ def common_refinement_atom_count(scales: Sequence[int]) -> int:
 
 def multiscale_simplex_counts(scales: Sequence[int]) -> tuple[int, ...]:
     """f-vector of the colored interval-overlap nerve."""
-    levels = tuple(dict.fromkeys(scales))
-    if not levels:
-        raise ValueError("require nonempty scales")
+    levels = _normalize_scales(scales)
     counts = [0] * len(levels)
     n = len(levels)
     for mask in range(1, 1 << n):
@@ -219,6 +255,42 @@ def multiscale_nerve_euler_characteristic(scales: Sequence[int]) -> int:
         count if dim % 2 == 0 else -count
         for dim, count in enumerate(multiscale_simplex_counts(scales))
     )
+
+
+def overlaid_grid_boundaries(scales: Sequence[int]) -> tuple[Fraction, ...]:
+    """Sorted union of all grid boundaries, constructed directly as rationals."""
+    levels = _normalize_scales(scales)
+    return tuple(
+        sorted({Fraction(k, d) for d in levels for k in range(d + 1)})
+    )
+
+
+def atomic_interval_lengths(scales: Sequence[int]) -> tuple[Fraction, ...]:
+    """Positive lengths of the atomic intervals cut out by all scale boundaries."""
+    boundaries = overlaid_grid_boundaries(scales)
+    return tuple(
+        boundaries[i + 1] - boundaries[i]
+        for i in range(len(boundaries) - 1)
+    )
+
+
+def metric_join_scale(scales: Sequence[int]) -> int:
+    """Recover the lcm join from reduced denominators of atomic interval lengths.
+
+    This function does not call ``lcm_many(scales)``. It constructs the rational
+    geometry first, then takes the lcm of the reduced atom-length denominators.
+    The theorem is that this equals the least uniform refinement scale resolving
+    every input grid boundary.
+    """
+    value = 1
+    for length in atomic_interval_lengths(scales):
+        value = lcm(value, length.denominator)
+    return value
+
+
+def meet_join_signature(scales: Sequence[int]) -> tuple[int, int]:
+    """Return ``(gcd meet, lcm join)`` extracted from overlap topology/metric."""
+    return multiscale_overlap_component_count(scales), metric_join_scale(scales)
 
 
 def first_disconnect_scale(n: int) -> int:
