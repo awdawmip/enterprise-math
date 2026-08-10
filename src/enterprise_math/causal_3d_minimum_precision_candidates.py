@@ -1,16 +1,25 @@
 """Conditional 3D minimum-precision comparison of SC, BCC, FCC, and ideal HCP.
 
-This module does not claim that physical 3-space is FCC.  It makes a precise
-conditional statement inside four standard nearest-neighbor candidate structures.
-A candidate passes the current minimum-precision causal contract when:
+This module does not claim that physical 3-space is FCC.  It makes two precise
+conditional statements inside four standard nearest-neighbor candidate structures.
 
-1. its primitive-direction link is nonempty and connected, so unit directions
-   already possess relational context rather than vacuous equality;
-2. all primitive directions remain one continuation type through two steps of
-   compatible-direction future.
+Local-direction contract:
+1. primitive-direction link is nonempty and connected;
+2. primitive directions remain one continuation type through two compatible-
+   relation future steps.
 
-Under this explicit language, FCC passes, simple cubic and BCC fail the first
-condition, and ideal HCP splits into two 6-direction types at horizon two.
+Global one-state reconstruction contract:
+1. the first-shell relation graph has a unique graph-theoretic antipode for every
+   primitive direction;
+2. its simply-laced causal pair matrix has rank three;
+3. primitive-adjacent direction differences close back into the primitive set.
+
+Under these explicit languages FCC passes both.  SC/BCC fail relational adequacy.
+Ideal HCP has a connected 12-direction first link but splits into two direction
+continuation types and, for six out-of-plane directions, has two distance-three
+candidates rather than a unique graph antipode.  Thus HCP requires extra
+stacking/basis continuation information before a global translation world can be
+reconstructed from local first-shell relations alone.
 """
 
 from __future__ import annotations
@@ -24,6 +33,7 @@ from .causal_primitive_link_profile import (
     hcp_direction_graph,
     primitive_direction_graph,
 )
+from .causal_root_lattice_reconstruction import causal_translation_module_summary
 
 Vector = tuple[int, ...]
 
@@ -39,13 +49,23 @@ def simple_cubic_roots() -> tuple[Vector, ...]:
 
 
 def bcc_roots() -> tuple[Vector, ...]:
-    """Eight nearest directions, scaled to integer cube-corner vectors."""
     return tuple(product((-1, 1), repeat=3))
 
 
 def fcc_roots() -> tuple[Vector, ...]:
-    """A3 root system in a 4-slot zero-sum representation."""
     return a_roots(3)
+
+
+def global_one_state_reconstruction_contract(adjacency) -> bool:
+    try:
+        summary = causal_translation_module_summary(adjacency)
+    except ValueError:
+        return False
+    return (
+        summary.translation_rank == 3
+        and summary.antipode_relations_verified
+        and summary.primitive_difference_relations_verified
+    )
 
 
 @dataclass(frozen=True)
@@ -53,6 +73,7 @@ class CandidateVerdict:
     name: str
     primitive_count: int
     passes_horizon_two_contract: bool
+    passes_global_one_state_reconstruction: bool
 
 
 def three_dimensional_candidate_verdicts() -> tuple[CandidateVerdict, ...]:
@@ -67,6 +88,7 @@ def three_dimensional_candidate_verdicts() -> tuple[CandidateVerdict, ...]:
             name=name,
             primitive_count=len(adjacency),
             passes_horizon_two_contract=minimum_precision_direction_contract(adjacency, 2),
+            passes_global_one_state_reconstruction=global_one_state_reconstruction_contract(adjacency),
         )
         for name, adjacency in candidates
     )
@@ -77,5 +99,6 @@ def unique_passing_candidate() -> str | None:
         verdict.name
         for verdict in three_dimensional_candidate_verdicts()
         if verdict.passes_horizon_two_contract
+        and verdict.passes_global_one_state_reconstruction
     ]
     return passing[0] if len(passing) == 1 else None
