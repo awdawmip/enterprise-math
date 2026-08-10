@@ -20,7 +20,7 @@ Euclidean re-quantization by the same amplitude gives exactly
 So every expired whole quantum is recreated immediately.  No queue relaxation,
 loss or new precision effect has occurred.
 
-Therefore a genuine TTL world law must do at least one of the following:
+Therefore a genuine nonzero TTL expiry must do at least one of the following:
 
 * route expiry into an external/accounted sink;
 * transfer it to a different material state/quantizer;
@@ -91,15 +91,18 @@ def same_quantizer_ttl_return(
     return report
 
 
-def ttl_sink_or_transfer_is_required_for_genuine_expiry(
+def same_quantizer_return_blocks_genuine_expiry(
     amplitude: int,
     expired_whole_quanta: int,
     pending_remainder: int,
 ) -> bool:
-    """Mechanical negative boundary: unchanged same-quantizer return cannot relax queue."""
+    """True exactly when a nonzero expiry would be undone by unchanged reinsertion."""
     report = same_quantizer_ttl_return(
         amplitude,
         expired_whole_quanta,
         pending_remainder,
     )
-    return expired_whole_quanta == 0 or report.exactly_reconstitutes_expired_queue
+    return (
+        expired_whole_quanta > 0
+        and report.exactly_reconstitutes_expired_queue
+    )
