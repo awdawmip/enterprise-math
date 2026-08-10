@@ -13,7 +13,8 @@ Before substantive mathematical or engineering research:
 7. read `docs/PROBLEM_STATUS.en.md` and the relevant canonical theorem/result documents;
 8. read the latest relevant entries in Research Relay Issue #82 when available;
 9. inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family;
-10. when the work touches foundational language, notation, formulas, theorem/tool interfaces, a flagged contradiction, or a mature cross-route result that may change the common bottom layer, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md`, `docs/FOUNDATION_BACKFLOW_LOOP.en.md`, `foundation_backflow.json`, and relevant entries in Foundation Problem Set Issue #164.
+10. when the work touches Lean theorem diagnosis, imports, root registration, or compile failures, read `docs/LEAN_DIAGNOSTIC_LIVENESS.md` and use its local-first validation ladder;
+11. when the work touches foundational language, notation, formulas, theorem/tool interfaces, a flagged contradiction, or a mature cross-route result that may change the common bottom layer, read `docs/FOUNDATION_STEWARD_PROTOCOL.en.md`, `docs/FOUNDATION_BACKFLOW_LOOP.en.md`, `foundation_backflow.json`, and relevant entries in Foundation Problem Set Issue #164.
 
 Scheduler availability is never a startup gate. Failure to read Issue #240, failure to write scheduler events, an interactive connector/workflow approval requirement, rate limits, network errors, or tool unavailability are coordination degradations only. They must not stop a new conversation, stop an explicit user task, or be represented as a mathematical `HARD_BLOCK`.
 
@@ -45,6 +46,17 @@ Scheduling rules:
 - only a complete explicit mathematical/research `HARD_BLOCK` may stop a route;
 - `no_new_mathematics_during_replay=true` on an owner branch constrains only the identified replay slice; only L4 integration is globally `NO NEW MATHEMATICS`.
 
+Lean diagnostic liveness:
+
+- Lean diagnosis is local-first. Missing imports, tactics, identifiers, or instances are diagnosed on the changed owner-local module before touching the root import surface;
+- `Adding Imports for <module> Diagnosis` is a bounded diagnostic phase, not an open-ended search loop;
+- do not repeatedly add umbrella imports or perform `add import -> root build -> add import -> root build` cycles. After one import adjustment for the same unresolved missing object, inspect the new concrete compiler error before changing imports again;
+- do not register a new module in `EnterpriseMath.lean` merely to test whether the module compiles. Root registration follows local module coherence;
+- validation escalates in order: local module -> immediate module family when needed -> root registration/common-surface update -> one final warnings-fatal root/repository Lean gate;
+- do not rerun a higher validation layer after every diagnostic edit. A new local error returns to the local layer;
+- if local compilation is unavailable, preserve the exact change/evidence and mark verification pending rather than accumulating speculative imports or substituting repeated full-root builds;
+- pending Lean CI obeys the same one-snapshot/no-polling rule as other workflows and never blocks user-facing completion.
+
 Knowledge propagation and promotion sync:
 
 - reusable proved results and counterexamples must be relayed across affected routes with source commit, weakest assumptions, relation class, owner, and one action class: `INFORM`, `CONSUME`, `TEST`, or `HARD_DEPENDENCY`;
@@ -71,4 +83,4 @@ Foundation stewardship and backflow:
 - after a returned FQ answer, the steward independently verifies before any latest-main integration; only a gated merge to source `main` permits `CANONICALIZED` status and common-surface/global-knowledge propagation;
 - application elegance, WIP status, or a physical interpretation alone never justifies foundation promotion.
 
-If `hard_block = NONE`, continue the route's best available mathematical frontier rather than waiting for another branch, conversation, review, CI checkpoint, integration replay, scheduler event, connector workflow, or GitHub write. If the current executor cannot continue in this session, preserve a concrete continuation point and use scheduler handoff when available instead of turning scheduler availability into a stop condition.
+If `hard_block = NONE`, continue the route's best available mathematical frontier rather than waiting for another branch, conversation, review, CI checkpoint, integration replay, scheduler event, connector workflow, GitHub write, or repeated Lean diagnostic rebuild. If the current executor cannot continue in this session, preserve a concrete continuation point and use scheduler handoff when available instead of turning scheduler availability into a stop condition.
