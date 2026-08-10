@@ -109,12 +109,21 @@
   "shared_theorem_families": {
     "A0": "roots, collapse, quotient/remainder, scale lattice, signed state, typed descent, adjoints",
     "A1": "deterministic functional kernels, history merge, fibers/kernel multiplicity, collision spectra, coalescence, stabilization",
-    "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, total and partial deterministic operation-family compatibility, legality-sensitive future signatures, minimal repair, bounded quotient-root power-free future-action basis",
+    "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, total and partial deterministic operation-family compatibility, legality-sensitive future signatures, natural safe-operation spectra, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
     "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel or partial deterministic family",
     "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure, task-relative Barlow stacking precision, periodic-drift growth equations and eventual C-finite recurrence classes"
   },
   "canonical_specializations": {
+    "A2_safe_operation_algebra": {
+      "status": "EXECUTABLE_CHECKED + PROVED_WIP_DOC / NOT_LEAN_CHECKED",
+      "validation": "PR #317 / head@166a72590a3acf55da9f9a7aa717afc71bb7023f passed quality, bilingual-sync, and reference-integrity",
+      "publication_vehicle": "PR #390 current-main replay",
+      "scope": "for a quotient q, generic safe finitary operations are the classical equivalence polymorphisms Pol(ker q); for a declared ambient operation family A, the project-specific natural spectrum is Spec_A(q)=A intersect Pol(ker q); the full concrete safe unary monoid reconstructs nondegenerate quotient kernels while restricted natural languages can retain only coarser invariants such as translation period capacity",
+      "layering_boundary": "declared future/context language and observation select the operational future-safe quotient through P023/P024; the surviving natural operation spectrum is derived from that quotient plus the declared ambient operation family and does not by itself select a unique quotient",
+      "precision_boundary": "scalar precision/scale is a coordinate or complexity measure when available, not a replacement for the quotient plus declared future-operation structure",
+      "prior_art_boundary": "partition-preserving transformation semigroups, Pol(theta), congruences, quotient algebras, clones and generic partition refinement are prior mathematics; P008 complete-growth rigidity/spectrum specializations retain their stated WIP proof status"
+    },
     "P018_P023_power_free_action_basis": {
       "status": "LEAN_CHECKED_MAIN",
       "merge": "PR #249 / main@c9b39069917c32b8a02a1bbdf6297ca5e43c9438",
@@ -184,6 +193,7 @@
   "canonical_executable_modules": {
     "A0_A5_primitives": ["src/enterprise_math/core.py", "src/enterprise_math/division.py", "src/enterprise_math/scale_algebra.py", "src/enterprise_math/signed.py", "src/enterprise_math/typed_scale.py", "src/enterprise_math/geometry.py"],
     "A2": ["src/enterprise_math/composition_safe_collapse.py", "EnterpriseMath/Quotient/OperationCongruence.lean"],
+    "A2_safe_operation_algebra": ["src/enterprise_math/safe_operation_algebra.py", "tests/test_safe_operation_algebra.py", "docs/A2_SAFE_OPERATION_ALGEBRA.en.md", "docs/A2_SAFE_OPERATION_ALGEBRA.zh-CN.md", "docs/A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.en.md", "docs/A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.zh-CN.md"],
     "P023_partial_operation_quotient": ["src/enterprise_math/partial_operation_quotient.py", "tests/test_partial_operation_quotient.py", "docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.en.md", "docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.zh-CN.md"],
     "P018_P023_power_free_action_basis": [
       "src/enterprise_math/p018_p023_power_free_action_basis.py",
