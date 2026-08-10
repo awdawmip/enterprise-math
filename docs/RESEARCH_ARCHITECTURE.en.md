@@ -122,7 +122,7 @@ Geometry may consume A2/A3/A4. Generic relation algebra must not remain trapped 
 
 ## 3. Program / Application axis
 
-Current major programs include:
+Representative program/application identities include:
 
 - P017 — Legendre / consecutive-square pressure test;
 - P018 — finite precision calculus;
