@@ -2,8 +2,8 @@
 
 This module owns no prime theorem and intentionally reimplements no owner
 algorithm. It normalizes results, exposes provenance/status metadata, and
-routes calls to current canonical owner functions only. Noncanonical/WIP
-methods remain discoverable through the registry but are not executable here.
+routes calls to canonical owner functions or explicitly admitted, status-preserving
+maintenance adapters. Non-executable WIP methods remain registry-only.
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ from dataclasses import asdict, dataclass, is_dataclass
 from functools import lru_cache
 from importlib.resources import files
 import json
-from typing import Any
+from typing import Any, Iterable
 
 from .centered_prime_radius import slack_centered_radius_equivalence
 from .factor_precision import first_factor_shell as _first_factor_shell
@@ -27,9 +27,15 @@ from .legendre import (
 )
 from .p017_precision_horizon import least_witness_state, survivor_prime_horizon_data
 from .p018_p023_power_free_action_basis import minimal_root_quotient_action_basis
+from .r005a_sieve_quotients import (
+    actual_transient_summary,
+    finite_horizon_summary,
+    normalize_distinct_set,
+)
 
 
 _INVENTORY_RESOURCE = "prime_method_inventory.json"
+_INVENTORY_SUPPLEMENTS = ("prime_method_inventory_r005a_ingest.json",)
 
 
 @dataclass(frozen=True)
@@ -72,8 +78,41 @@ def _normalize(value: Any) -> Any:
 
 @lru_cache(maxsize=1)
 def _inventory() -> dict[str, Any]:
-    resource = files("enterprise_math").joinpath(_INVENTORY_RESOURCE)
-    return json.loads(resource.read_text(encoding="utf-8"))
+    resource_root = files("enterprise_math")
+    inventory = json.loads(
+        resource_root.joinpath(_INVENTORY_RESOURCE).read_text(encoding="utf-8")
+    )
+    methods = list(inventory["methods"])
+    method_ids = {method["method_id"] for method in methods}
+    allowed_toolization = set(inventory["toolization_status_vocabulary"])
+    allowed_source = set(inventory["source_status_vocabulary"])
+
+    for resource_name in _INVENTORY_SUPPLEMENTS:
+        supplement = json.loads(
+            resource_root.joinpath(resource_name).read_text(encoding="utf-8")
+        )
+        for method in supplement["methods"]:
+            method_id = method["method_id"]
+            if method_id in method_ids:
+                raise ValueError(f"duplicate prime method_id across inventory: {method_id}")
+            if method["toolization_status"] not in allowed_toolization:
+                raise ValueError(
+                    f"unknown toolization_status in {resource_name}: "
+                    f"{method['toolization_status']}"
+                )
+            unknown_source = set(method["source_status"]) - allowed_source
+            if unknown_source:
+                raise ValueError(
+                    f"unknown source_status in {resource_name}: "
+                    + ", ".join(sorted(unknown_source))
+                )
+            methods.append(method)
+            method_ids.add(method_id)
+
+    merged = dict(inventory)
+    merged["methods"] = methods
+    merged["inventory_supplements"] = list(_INVENTORY_SUPPLEMENTS)
+    return merged
 
 
 def list_methods(toolization_status: str | None = None) -> tuple[dict[str, Any], ...]:
@@ -116,6 +155,16 @@ def _result(method_id: str, value: Any, warning: str | None = None) -> PrimeTool
         value=_normalize(value),
         warning=warning,
     )
+
+
+def _validated_prime_set(primes: Iterable[int]) -> tuple[int, ...]:
+    values = normalize_distinct_set(primes)
+    nonprimes = tuple(value for value in values if not is_prime(value))
+    if nonprimes:
+        raise ValueError(
+            "prime set contains nonprime values: " + ", ".join(map(str, nonprimes))
+        )
+    return values
 
 
 def bounded_primality(n: int) -> PrimeToolResult:
@@ -233,6 +282,61 @@ def power_free_action_basis(max_state: int, root_exp: int) -> PrimeToolResult:
     )
 
 
+def actual_sieve_transient_quotient(primes: Iterable[int]) -> PrimeToolResult:
+    """Exact R005-A future quotient data for actual p^2 sieve activation."""
+
+    prime_set = _validated_prime_set(primes)
+    value = actual_transient_summary(prime_set)
+    prefix = tuple(primes_up_to(max(prime_set))) == prime_set
+    value["prime_prefix"] = prefix
+    if prefix:
+        expected = max(prime_set) + 1
+        actual = value["union_support"]["preperiod"]
+        if actual != expected:
+            raise AssertionError("prime-prefix union transient formula disagreed")
+        value["prime_prefix_union_preperiod"] = expected
+    return _result(
+        "r005a.actual_sieve_transient_quotient",
+        value,
+        "ENTERPRISE_SPECIALIZATION. Eratosthenes p^2 activation and next-strike "
+        "implementation state are classical; this callable preserves the accepted "
+        "exact relation-vs-union future-quotient specialization only.",
+    )
+
+
+def finite_horizon_sieve_quotient(
+    primes: Iterable[int],
+    horizon: int,
+    *,
+    language: str = "union_support",
+    activation: str = "actual",
+    segment_length: int | None = None,
+    transitions: int | None = None,
+    state_limit: int = 100_000,
+) -> PrimeToolResult:
+    """Exact bounded finite-horizon quotient analyzer for the R005-A sieve model."""
+
+    if state_limit <= 0:
+        raise ValueError("state_limit must be > 0")
+    prime_set = _validated_prime_set(primes)
+    value = finite_horizon_summary(
+        prime_set,
+        horizon,
+        language=language,
+        activation=activation,
+        segment_length=segment_length,
+        transitions=transitions,
+        state_limit=state_limit,
+    )
+    return _result(
+        "r005a.finite_horizon_sieve_quotient",
+        value,
+        "ENTERPRISE_SPECIALIZATION. Generic deterministic partition refinement and "
+        "the generic segment/horizon block law are prior art / existing Enterprise "
+        "continuation theory. This is an exact bounded prime-sieve specialization.",
+    )
+
+
 __all__ = [
     "PrimeToolResult",
     "bounded_primality",
@@ -244,6 +348,8 @@ __all__ = [
     "square_basin_certificate",
     "centered_prime_slack_coordinates",
     "power_free_action_basis",
+    "actual_sieve_transient_quotient",
+    "finite_horizon_sieve_quotient",
     "list_methods",
     "method_record",
 ]
