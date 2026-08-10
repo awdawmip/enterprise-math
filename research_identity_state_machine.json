@@ -54,7 +54,7 @@
     "existing_id": "PRESERVE",
     "missing_id": "AUTO_GENERATE_LOCAL",
     "tool": "python tools/research_identity.py allocate --task <TASK-or-DIRECT> --role <ROLE>",
-    "registration": "BEST_EFFORT_AT_START_OR_FIRST_SEMANTIC_CHECKPOINT"
+    "registration": "CREATE_OWN_REGISTRATION_RECORD_IF_WRITE_PATH_AVAILABLE_ELSE_REGISTER_PENDING"
   },
   "role_transition": {
     "same_conversation": "preserve Researcher-ID and update Research-Role / Research-Task metadata",
@@ -70,8 +70,11 @@
     "legacy_taskbooks": "inherit this state machine even when the field is absent"
   },
   "registration": {
-    "human_directory_repository": "awdawmip/chatgpt-global-knowledge",
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "per_identity_path_template": "projects/enterprise-math/researchers/<Researcher-ID>.json",
     "human_directory_path": "projects/enterprise-math/RESEARCHER_DIRECTORY.md",
+    "write_model": "ONE_FILE_PER_IDENTITY_TO_AVOID_SHARED_DIRECTORY_STARTUP_RACES",
+    "directory_is_derived_view": true,
     "registration_is_uniqueness_source": false,
     "registration_failure": "REGISTER_PENDING; continue research and persist the ID visibly; retry only at a semantic checkpoint",
     "not_a_hard_block": true
