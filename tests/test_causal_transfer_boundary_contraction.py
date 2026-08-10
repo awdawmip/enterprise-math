@@ -5,7 +5,10 @@ from enterprise_math.causal_transfer_boundary_contraction import (
     boundary_contraction_bijection_holds,
     boundary_contraction_projection,
     contract_transfer_graph,
+    contracted_ball_boundary_sum,
     directional_cut_states,
+    total_relation_boundary_count,
+    total_relation_boundary_identity,
     word_ball,
 )
 from enterprise_math.causal_transfer_graph_geometry import (
@@ -33,6 +36,7 @@ class CausalTransferBoundaryContractionTests(unittest.TestCase):
                 new_n, new_edges, _ = contract_transfer_graph(slots, edges, edge)
                 self.assertEqual(len(projection), len(word_ball(new_n, new_edges, radius)))
                 self.assertTrue(boundary_contraction_bijection_holds(slots, edges, edge, radius))
+                self.assertTrue(total_relation_boundary_identity(slots, edges, radius))
 
     def test_star_graph_recovers_simple_cubic_dimension_lowering(self):
         for slots in range(3, 7):
@@ -40,6 +44,8 @@ class CausalTransferBoundaryContractionTests(unittest.TestCase):
             for edge in edges:
                 for radius in range(4):
                     self.assertTrue(boundary_contraction_bijection_holds(slots, edges, edge, radius))
+            for radius in range(4):
+                self.assertTrue(total_relation_boundary_identity(slots, edges, radius))
 
     def test_paths_cycles_and_mixed_graphs_also_lower_by_edge_contraction(self):
         graphs = (
@@ -52,6 +58,11 @@ class CausalTransferBoundaryContractionTests(unittest.TestCase):
             for edge in edges:
                 for radius in range(4):
                     self.assertTrue(boundary_contraction_bijection_holds(slots, edges, edge, radius))
+            for radius in range(4):
+                self.assertEqual(
+                    total_relation_boundary_count(slots, edges, radius),
+                    contracted_ball_boundary_sum(slots, edges, radius),
+                )
 
     def test_all_connected_simple_graphs_on_four_slots_pass_small_radius_oracle(self):
         checked = 0
@@ -60,6 +71,8 @@ class CausalTransferBoundaryContractionTests(unittest.TestCase):
             for edge in edges:
                 for radius in range(3):
                     self.assertTrue(boundary_contraction_bijection_holds(4, edges, edge, radius))
+            for radius in range(3):
+                self.assertTrue(total_relation_boundary_identity(4, edges, radius))
         self.assertEqual(checked, 38)
 
     def test_directional_cut_has_one_state_per_contracted_ball_state(self):
@@ -71,6 +84,10 @@ class CausalTransferBoundaryContractionTests(unittest.TestCase):
         projection = boundary_contraction_projection(slots, edges, edge, radius)
         self.assertEqual(set(projection), set(cut))
         self.assertEqual(len(projection), len(set(projection.values())))
+
+    def test_contraction_requires_a_real_primitive_transfer_edge(self):
+        with self.assertRaises(ValueError):
+            contract_transfer_graph(4, ((0, 1), (1, 2), (2, 3)), (0, 3))
 
 
 if __name__ == "__main__":
