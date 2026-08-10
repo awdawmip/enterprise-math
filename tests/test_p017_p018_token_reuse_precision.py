@@ -17,6 +17,7 @@ class P017P018TokenReusePrecisionTests(unittest.TestCase):
             65_536: (5, 5, 5, 0),
             131_071: (5, 5, 5, 0),
             524_287: (6, 5, 7, 2),
+            2_147_483_647: (8, 7, 9, 2),
         }
         for k, (depth, residual_order, token_order, gap) in expected.items():
             data = residual_vs_token_precision_horizons(k)
