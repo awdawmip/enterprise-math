@@ -13,6 +13,11 @@ incidences form an integer basis of the zero-sum lattice. In edge-flow coordinat
 its word geometry is standard Z^(N-1) with L1 distance (simple-cubic type). The
 complete graph K_N is the full slot-exchange-symmetric completion: every unordered
 slot pair is primitive, producing the A_(N-1) root geometry and, at N=4, FCC.
+
+For any pair of slots i,j, the word distance of the single-unit redistribution
+`e_i-e_j` equals the ordinary graph distance between i and j in the transfer
+graph. Hence full indistinguishability of all distinct slot pairs forces diameter
+one, i.e. the complete graph.
 """
 
 from __future__ import annotations
@@ -52,12 +57,16 @@ def star_transfer_edges(slot_count: int, hub: int = 0) -> tuple[Edge, ...]:
     return tuple(tuple(sorted((hub, leaf))) for leaf in range(slot_count) if leaf != hub)
 
 
-def transfer_components(slot_count: int, edges: tuple[Edge, ...]) -> tuple[tuple[int, ...], ...]:
-    normalized = _normalized_edges(slot_count, edges)
+def _adjacency(slot_count: int, edges: tuple[Edge, ...]) -> dict[int, set[int]]:
     adjacency = {slot: set() for slot in range(slot_count)}
-    for left, right in normalized:
+    for left, right in _normalized_edges(slot_count, edges):
         adjacency[left].add(right)
         adjacency[right].add(left)
+    return adjacency
+
+
+def transfer_components(slot_count: int, edges: tuple[Edge, ...]) -> tuple[tuple[int, ...], ...]:
+    adjacency = _adjacency(slot_count, edges)
     unseen = set(range(slot_count))
     components = []
     while unseen:
@@ -76,12 +85,51 @@ def transfer_components(slot_count: int, edges: tuple[Edge, ...]) -> tuple[tuple
     return tuple(sorted(components))
 
 
+def slot_shortest_path_distance(
+    slot_count: int,
+    edges: tuple[Edge, ...],
+    source: int,
+    target: int,
+) -> int | None:
+    if any(
+        isinstance(index, bool)
+        or not isinstance(index, int)
+        or not (0 <= index < slot_count)
+        for index in (source, target)
+    ):
+        raise ValueError("source and target must be valid slots")
+    if source == target:
+        return 0
+    adjacency = _adjacency(slot_count, edges)
+    distance = {source: 0}
+    queue = deque([source])
+    while queue:
+        current = queue.popleft()
+        for nxt in adjacency[current]:
+            if nxt in distance:
+                continue
+            distance[nxt] = distance[current] + 1
+            if nxt == target:
+                return distance[nxt]
+            queue.append(nxt)
+    return None
+
+
+def single_unit_redistribution_distance(
+    slot_count: int,
+    edges: tuple[Edge, ...],
+    receiver: int,
+    donor: int,
+) -> int | None:
+    """Minimum primitive transfers realizing e_receiver-e_donor."""
+    return slot_shortest_path_distance(slot_count, edges, donor, receiver)
+
+
 def transfer_relation_rank(slot_count: int, edges: tuple[Edge, ...]) -> int:
     return slot_count - len(transfer_components(slot_count, edges))
 
 
 def transfer_cycle_rank(slot_count: int, edges: tuple[Edge, ...]) -> int:
-    """Independent redundant pair-relations beyond a spanning forest."""
     normalized = _normalized_edges(slot_count, edges)
     return len(normalized) - slot_count + len(transfer_components(slot_count, normalized))
 
@@ -146,7 +194,6 @@ def complete_graph_is_fully_slot_exchange_symmetric(slot_count: int) -> bool:
 
 
 def complete_graph_redundant_relation_count(slot_count: int) -> int:
-    """Independent pair shortcuts beyond a tree basis in K_N."""
     if isinstance(slot_count, bool) or not isinstance(slot_count, int) or slot_count < 1:
         raise ValueError("slot_count must be positive")
     return (slot_count - 1) * (slot_count - 2) // 2
