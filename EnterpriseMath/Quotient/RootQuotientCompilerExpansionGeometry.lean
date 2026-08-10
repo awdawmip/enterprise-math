@@ -129,15 +129,19 @@ theorem rootQuotientCompilerExpansion_triangle
     · have hKHtop : rootQuotientCompilerExpansion K H = ⊤ := by
         simp [rootQuotientCompilerExpansion, hKH]
       have hHGNonzero : rootQuotientCompilerExpansion H G ≠ 0 := by
+        intro hZero
         have hOne := one_le_rootQuotientCompilerExpansion (H := H) (G := G)
-        omega
+        rw [hZero] at hOne
+        simpa using hOne
       rw [hKHtop, ENat.mul_top hHGNonzero]
       exact le_top
   · have hHGtop : rootQuotientCompilerExpansion H G = ⊤ := by
       simp [rootQuotientCompilerExpansion, hHG]
     have hKHNonzero : rootQuotientCompilerExpansion K H ≠ 0 := by
+      intro hZero
       have hOne := one_le_rootQuotientCompilerExpansion (H := K) (G := H)
-      omega
+      rw [hZero] at hOne
+      simpa using hOne
     rw [hHGtop, ENat.top_mul hKHNonzero]
     exact le_top
 
