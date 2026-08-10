@@ -61,12 +61,18 @@ class P017P018TerminalRadicalCapacityTests(unittest.TestCase):
         self.assertEqual(rows[19_019]["raw_aligned_capacity"], 1)
         self.assertEqual(rows[19_019]["exact_anchor_capacity"], 0)
 
-    def test_observed_terminal_residual_is_below_exact_anchor_sum(self):
-        for k in (8_191, 20_000, 524_287):
+    def test_observed_terminal_residual_checkpoint_counts(self):
+        expected = {
+            8_191: 24,
+            20_000: 0,
+            524_287: 2,
+        }
+        for k, residual in expected.items():
             bound = terminal_radical_capacity(k)
             actual = terminal_core_signed_profile(k)
+            self.assertEqual(actual["residual_core_excess"], residual)
             self.assertLessEqual(
-                actual["residual_core_excess"],
+                residual,
                 bound["combined_terminal_capacity"],
             )
 
