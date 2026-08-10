@@ -36,13 +36,22 @@ For a nonempty profile, put
     A = lower-L,
     G = upper-H.
 
-If ``A>=G`` the word is nowhere legal.  Otherwise its exact future-visible cuts
-are the two domain cuts ``A,G`` plus shifted observation cuts ``b-T`` strictly
-inside ``(A,G)``.  The empty word is always legal and contributes only current
-observation cuts.
+If ``A>=G`` the word is nowhere legal.  Otherwise its outcome can change only at
+the two domain breakpoints ``A,G`` and at shifted observation boundaries ``b-T``
+strictly inside ``(A,G)``.  The empty word is always legal and contributes only
+current observation boundaries.
+
+Crucial negative boundary: unlike the one-sided upper-guard case, the union of
+these breakpoints is generally *not* itself the exact future quotient.  States
+on opposite sides of a bounded legal interval can both have the same
+``UNDEFINED`` behavior and therefore belong to one disconnected future fiber.
+The breakpoint arrangement is a finite refinement on which the future signature
+is locally constant; the exact quotient is equality of the compiled profile
+signatures and may merge nonadjacent arrangement cells.
 
 Generic interval automata/prefix envelopes are prior art.  This is the P024
-integer specialization extending the one-sided guarded profile of PR #310.
+integer specialization extending the one-sided guarded profile of PR #310 and
+recording the exact convexity failure at two-sided action domains.
 """
 
 from __future__ import annotations
@@ -226,7 +235,12 @@ def interval_guarded_domain(
     lower: int,
     upper: int,
 ) -> tuple[int, int] | None:
-    """Return integer half-open domain ``[A,G)`` or ``None`` if nowhere legal."""
+    """Return integer half-open domain ``[A,G)`` or ``None`` if nowhere legal.
+
+    The empty word is globally defined and therefore has no action-domain
+    interval; it is represented by ``None`` here only to distinguish it from a
+    nonempty bounded domain.
+    """
     _validate_profile(profile)
     _guard(lower, upper)
     if profile.is_empty:
@@ -293,12 +307,19 @@ def apply_interval_guarded_profile(
     )
 
 
-def interval_guarded_profile_effective_cuts(
+def interval_guarded_profile_breakpoints(
     profile: IntervalGuardedProfile,
     boundaries: Iterable[int],
     lower: int,
     upper: int,
 ) -> tuple[int, ...]:
+    """Points where one compiled profile outcome can change.
+
+    These breakpoints make the profile outcome locally constant on each
+    arrangement cell.  They do not imply that distinct cells have distinct
+    outcomes: the two exterior cells of a bounded legal interval can both be
+    ``UNDEFINED``.
+    """
     _validate_profile(profile)
     _guard(lower, upper)
     cuts = _boundaries(boundaries)
@@ -308,21 +329,22 @@ def interval_guarded_profile_effective_cuts(
     if domain is None:
         return ()
     start, stop = domain
-    effective = {start, stop}
+    result = {start, stop}
     for boundary in cuts:
         shifted = boundary - profile.total_translation
         if start < shifted < stop:
-            effective.add(shifted)
-    return tuple(sorted(effective))
+            result.add(shifted)
+    return tuple(sorted(result))
 
 
-def interval_guarded_reachable_cuts(
+def interval_guarded_reachable_breakpoints(
     boundaries: Iterable[int],
     actions: Iterable[int],
     lower: int,
     upper: int,
     horizon: int,
 ) -> tuple[int, ...]:
+    """Finite arrangement on which the complete horizon signature is locally constant."""
     cuts = _boundaries(boundaries)
     values = _actions(actions)
     _guard(lower, upper)
@@ -330,14 +352,37 @@ def interval_guarded_reachable_cuts(
     result: set[int] = set()
     for profile in interval_guarded_profiles(values, horizon):
         result.update(
-            interval_guarded_profile_effective_cuts(
+            interval_guarded_profile_breakpoints(
                 profile, cuts, lower, upper
             )
         )
     return tuple(sorted(result))
 
 
-def interval_guarded_boundary_equivalent(
+def interval_guarded_future_signature(
+    value: int,
+    boundaries: Iterable[int],
+    actions: Iterable[int],
+    lower: int,
+    upper: int,
+    horizon: int,
+) -> tuple[tuple[IntervalGuardedProfile, bool, int | None], ...]:
+    """Exact legality-sensitive future signature after word-profile compilation."""
+    _require_int("value", value)
+    cuts = _boundaries(boundaries)
+    values = _actions(actions)
+    _guard(lower, upper)
+    _require_nonnegative("horizon", horizon)
+    result = []
+    for profile in interval_guarded_profiles(values, horizon):
+        outcome = apply_interval_guarded_profile(
+            value, profile, lower, upper, cuts
+        )
+        result.append((profile, outcome.defined, outcome.observation))
+    return tuple(result)
+
+
+def interval_guarded_future_equivalent(
     left: int,
     right: int,
     boundaries: Iterable[int],
@@ -346,12 +391,37 @@ def interval_guarded_boundary_equivalent(
     upper: int,
     horizon: int,
 ) -> bool:
+    """Exact future equivalence; fibers may be disconnected subsets of ``Z``."""
+    _require_int("left", left)
+    _require_int("right", right)
+    return interval_guarded_future_signature(
+        left, boundaries, actions, lower, upper, horizon
+    ) == interval_guarded_future_signature(
+        right, boundaries, actions, lower, upper, horizon
+    )
+
+
+def interval_guarded_breakpoint_cell_equivalent(
+    left: int,
+    right: int,
+    boundaries: Iterable[int],
+    actions: Iterable[int],
+    lower: int,
+    upper: int,
+    horizon: int,
+) -> bool:
+    """Whether two states lie in one cell of the finite breakpoint arrangement.
+
+    Same arrangement cell always implies future equivalence.  The converse can
+    fail because different cells may carry the same legality/observation
+    signature.
+    """
     _require_int("left", left)
     _require_int("right", right)
     if left == right:
         return True
     lo, hi = sorted((left, right))
-    cuts = interval_guarded_reachable_cuts(
+    breakpoints = interval_guarded_reachable_breakpoints(
         boundaries, actions, lower, upper, horizon
     )
-    return not any(lo < cut <= hi for cut in cuts)
+    return not any(lo < cut <= hi for cut in breakpoints)
