@@ -60,4 +60,48 @@ theorem rootQuotient_forcedCore_eq_primeBasis
   ext g
   exact rootQuotientGeneratorForced_iff_primeBasis hr hh
 
+/-- For horizons at least two, a least primitive presentation exists exactly
+when the forced core itself is realizable as a separating presentation.
+
+This pinpoints the intermediate no-least phase: all valid presentations share
+the same prime core, but their intersection is not itself valid. -/
+theorem exists_least_separating_iff_forcedCore_separates
+    {r N h : ℕ}
+    (hr : 2 ≤ r)
+    (hh : 2 ≤ h) :
+    (∃ G : Set ℕ,
+      IsLeastSeparatingRootQuotientAlphabet r N h G) ↔
+      SeparatesRootQuotientWordsUpTo r N h (RootQuotientPrimeBasis N) := by
+  constructor
+  · rintro ⟨G, hLeast⟩
+    rcases hLeast with ⟨hGPos, hGSep, hMinimal⟩
+    have hPrimeSub : RootQuotientPrimeBasis N ⊆ G :=
+      rootQuotientPrimeBasis_subset_of_word_separates hr hGPos hGSep
+    have hGSubPrime : G ⊆ RootQuotientPrimeBasis N := by
+      intro g hg
+      apply (rootQuotientGeneratorForced_iff_primeBasis hr hh).1
+      intro H hHPos hHSep
+      exact hMinimal hHPos hHSep hg
+    have hEq : G = RootQuotientPrimeBasis N :=
+      Set.Subset.antisymm hGSubPrime hPrimeSub
+    rw [hEq] at hGSep
+    exact hGSep
+  · intro hPrimeSep
+    refine ⟨RootQuotientPrimeBasis N,
+      rootQuotientPrimeBasis_positive, hPrimeSep, ?_⟩
+    intro H hHPos hHSep
+    exact rootQuotientPrimeBasis_subset_of_word_separates
+      hr hHPos hHSep
+
+/-- Equivalent negative form: the no-least phase is exactly failure of the
+forced prime core to separate at the available horizon. -/
+theorem no_least_separating_iff_forcedCore_not_separating
+    {r N h : ℕ}
+    (hr : 2 ≤ r)
+    (hh : 2 ≤ h) :
+    (¬∃ G : Set ℕ,
+      IsLeastSeparatingRootQuotientAlphabet r N h G) ↔
+      ¬SeparatesRootQuotientWordsUpTo r N h (RootQuotientPrimeBasis N) := by
+  exact not_congr (exists_least_separating_iff_forcedCore_separates hr hh)
+
 end EnterpriseMath.Quotient
