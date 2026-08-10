@@ -20,6 +20,55 @@ Then work. Do not load scheduler, Issue #240, Relay #82, `PROBLEM_STATUS`, owner
 
 Use local checkout/search/tests when available. In connector-only environments, fetch a minimal task packet once and reuse it. Do not refetch unchanged blobs/SHAs/PRs/Issues in one uninterrupted execution phase.
 
+## Research roles, proposal capture, and task authority
+
+The machine-readable role contract is `research_role_policy.json`.
+
+### Default role
+
+Every new research conversation/session starts as:
+
+```text
+RESEARCHER
+```
+
+A session becomes `RESEARCH_DRIVER` **only** when the user explicitly assigns Driver role in that current conversation, for example `你现在是驾驶员` / `you are now the driver`. Do not infer Driver authority from task content, repository state, memory, prior conversations, another Project, or because a researcher discovered a valuable direction. Driver authority remains scoped to the conversation in which the user explicitly granted it until the user changes it.
+
+### Researcher freedom clause
+
+Role separation must never suppress normal research. A Researcher may freely:
+
+- reason, prove, disprove, derive, compute, experiment, browse allowed sources, and formalize;
+- write research notes, proof drafts, code/Lean artifacts, reports, and handoffs;
+- explore side branches while continuing the assigned task.
+
+The restriction is on **scheduling authority**, not scientific exploration. Do not interrupt productive proof/experiment work merely to package every promising side branch.
+
+### Side branches and proposals
+
+When a Researcher discovers one or several worthwhile branches, do **not** create one taskbook Markdown file per branch and do not present taskbook-like Markdown in chat as an official task. Accumulate the ideas in task-local notes and, at the next semantic checkpoint or handoff, batch the worthwhile branches into one compact `ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1` JSON object under `research_proposals/` when a write path is available.
+
+Proposal candidates are non-dispatchable and default to `PENDING_DRIVER_REVIEW`. They may contain multiple branches. A proposal is not `READY`, not claimable, not canonical, and does not change the roadmap. If no proposal write path is available, include a compact `proposal_candidates` section in the ordinary handoff rather than creating standalone task/proposal Markdown for the user to move manually.
+
+Proposal governance is never a `HARD_BLOCK`. If routing paperwork would interrupt useful research, continue the assigned research and defer proposal capture to the next semantic checkpoint.
+
+### Official taskbook authority
+
+Only a Research Driver may create a new dispatchable append-only taskbook. New taskbooks must carry:
+
+```json
+{
+  "created_by_role": "RESEARCH_DRIVER",
+  "task_authority": "DRIVER_APPROVED"
+}
+```
+
+`tools/research_scheduler.py` mechanically rejects new taskbooks without this authority. Taskbooks that predate the role policy are explicitly grandfathered by stable task ID so ongoing research is not disrupted.
+
+A Researcher-created Markdown document remains ordinary research material even if it looks like a taskbook. Artifact creation is not progress by itself, and formatting a document as a task cannot grant scheduler authority.
+
+The Driver reviews the proposal queue in batches and may `APPROVE`, `MERGE`, `PARK`, or `REJECT`. Approval is materialized by a Driver-authorized taskbook; proposal bundles themselves never become dispatchable tasks.
+
 ## Task-local context isolation / memory quarantine
 
 All research tasks run under `research_context_policy.json`. The default and non-weakenable contract is:
@@ -81,7 +130,8 @@ Canonical promotion is serialized in the control plane as well as mathematically
 - scheduler availability is never a startup gate;
 - with no user-selected task, select from live Issue #240 when available non-blockingly or from static/effective scheduler state otherwise;
 - no scheduler write is required to start research. `CLAIM`, `PROGRESS`, `HEARTBEAT`, `HANDOFF` are best-effort coordination signals;
-- append-only taskbooks under `research_tasks/` are merged into the effective scheduler automatically and inherit task-local context isolation;
+- append-only Driver-authorized taskbooks under `research_tasks/` are merged into the effective scheduler automatically and inherit task-local context isolation;
+- compact researcher proposal bundles under `research_proposals/` are discoverable through `tools/research_scheduler.py proposal-queue` but are never merged into dispatchable tasks;
 - post scheduler events only when the write path is immediately available and the event adds real coordination value; do not retry solely for bookkeeping;
 - a successfully published `CLAIM` still obeys the live-lease race/reduction rule;
 - if an unleased session later sees an overlapping live lease, preserve the mathematics and route it as non-conflicting owner-local/Relay `TEST` evidence rather than discarding work or blocking the user;
@@ -156,8 +206,8 @@ Canonical promotion is serialized in the control plane as well as mathematically
 
 ## Completion rule
 
-If `hard_block = NONE`, continue the best mathematical frontier rather than waiting for a branch, conversation, review, CI checkpoint, integration replay, scheduler event, connector workflow, GitHub write, repeated test discovery, or repeated Lean rebuild.
+If `hard_block = NONE`, continue the best mathematical frontier rather than waiting for a branch, conversation, review, CI checkpoint, integration replay, scheduler event, connector workflow, GitHub write, proposal review, repeated test discovery, or repeated Lean rebuild.
 
 The default lifecycle is:
 
-`small task packet -> task-isolated context -> remote-silent research -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
+`small task packet -> RESEARCHER role -> task-isolated context -> remote-silent research -> optional batched proposal capture at checkpoint -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
