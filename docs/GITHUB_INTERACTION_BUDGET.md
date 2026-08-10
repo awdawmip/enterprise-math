@@ -4,222 +4,214 @@ Status: `ACTIVE / CANONICAL REMOTE-LIVENESS OVERRIDE`
 Effective: 2026-08-10  
 Scope: repository reads, GitHub connector/API use, branch/PR publication, Issue coordination, CI invocation, and L4 promotion.
 
-This protocol is a performance/liveness correction. Where older preflight, scheduler, Relay, PR, CI, or promotion wording can be read as requiring routine GitHub activity during every research step, **this later and narrower remote-liveness rule controls**.
+This protocol is the narrow liveness authority for GitHub interaction. Where older preflight, scheduler, Relay, PR, CI, validation, or promotion wording can be read as requiring routine GitHub activity during research, **this later remote-liveness rule controls**.
 
-It does not weaken theorem ownership, owner isolation, result conservation, final canonical gates, security, or the four-field mathematical/research `HARD_BLOCK` contract.
+It does not weaken theorem ownership, owner isolation, result conservation, security, canonical promotion gates, or the four-field mathematical/research `HARD_BLOCK` contract.
 
 ## 1. Core invariant
 
 > **Research is hot-path work; GitHub is a sparse persistence and integration boundary.**
 
-GitHub is not the research runtime bus. A repository read/write, PR mutation, Issue comment, workflow inspection, or current-main refresh must answer a concrete question that cannot be answered from the already-loaded task packet.
+GitHub is not the research runtime bus. For L1/L2/L3, the default source-repository mode is `REMOTE_SILENT` between semantic checkpoints.
 
-For L1/L2/L3 research, the default execution mode is `REMOTE_SILENT` between semantic checkpoints **with respect to the Enterprise Math source/control repository**. Account-level GLOBAL_KNOWLEDGE progress journaling is a separate loss-prevention plane and is explicitly governed by `GLOBAL_KNOWLEDGE_V1/PROGRESS_JOURNAL_PROTOCOL.md`.
+### 1.1 Hard CI circuit breaker
+
+For ordinary L1/L2/L3 research, **the allowed routine GitHub workflow-status query budget is ZERO**.
+
+Do **not** enter a step named or equivalent to:
+
+- `Checking CI Workflow Runs`;
+- `Checking workflow run status for commit`;
+- `Waiting for CI`;
+- `Checking whether Actions finished`;
+- repeated status/review/current-main refresh.
+
+A semantic checkpoint, branch push, Draft PR update, handoff, or user-facing completion does **not** by itself authorize a workflow-status read.
+
+Workflow/CI status may be queried only when at least one of these is true:
+
+1. the current task is an explicit CI/debugging or remote-validation task;
+2. an L4/final-governance merge or canonical-promotion action is actually being attempted now;
+3. the user explicitly asks for current CI/workflow status;
+4. a previously surfaced CI failure is the concrete object being diagnosed.
+
+If none applies, record:
+
+`CI_NOT_REQUIRED_FOR_RESEARCH`
+
+and continue/finish without calling workflow-run/status APIs.
+
+In an allowed CI context, take at most one status snapshot for the unchanged validation object. `queued`, `pending`, `requested`, or `in_progress` becomes:
+
+`CI_PENDING_NONBLOCKING`
+
+and the CI subflow terminates immediately. No sleep, backoff, retry, recursive refresh, per-run polling, or status fan-out is permitted. Required pending CI may defer only the specific merge/promotion action; it may not defer research, handoff, artifact delivery, or the user-facing response.
+
+This circuit breaker is stronger than older wording that allowed one routine snapshot on arbitrary unchanged objects. For ordinary L1/L2/L3 research, zero workflow-status reads is the rule.
 
 ## 2. Task-classified preflight
 
 Do not execute a universal repository checklist mechanically.
 
-### 2.1 Explicit current user task
+For an explicit current user task, the default startup packet is only:
 
-For an explicit task, the default Enterprise Math startup packet is only:
+1. `AGENTS.md` / this contract if not already loaded;
+2. one common router: normally `research_common_surface.json` **or** `docs/RESEARCH_COMMON_SURFACE.en.md`, not both by default;
+3. the exact task-relevant theorem/spec/code/test/Lean files needed to begin.
 
-1. this operating contract / `AGENTS.md` if not already loaded;
-2. **one** common router: prefer `research_common_surface.json` for machine routing or `docs/RESEARCH_COMMON_SURFACE.en.md` for human theorem context; do not read both by default;
-3. the exact task-relevant canonical theorem/spec/code/test/Lean files needed to begin.
+Research starts once that packet is sufficient. Scheduler, Issue #240, Relay #82, `PROBLEM_STATUS`, owner-isolation, Foundation surfaces, CI surfaces, and governance PRs are conditional reads, not universal startup reads.
 
-Research starts once that packet is sufficient. The following are conditional, not universal startup reads:
+Automatic dispatch may load the scheduler packet when no user task is selected. Scheduler writes remain best-effort and non-blocking under `docs/RESEARCH_SCHEDULER_NONBLOCKING_STARTUP.md`.
 
-- `research_scheduler.json` / Issue #240: only for auto-dispatch, scheduler reconciliation, or an actual scheduler event;
-- `docs/RESEARCH_SCHEDULING_PROTOCOL.*`: only when dispatch/dependency/handoff semantics are material beyond the compact rules already carried by `AGENTS.md`;
-- `docs/RESEARCH_OWNER_ISOLATION.*`: when creating/reconciling a branch, auditing scope, or promoting;
-- `docs/PROBLEM_STATUS.*`: when numbered status/canonical scope/promotion is material;
-- Relay Issue #82: when a relevant WIP result is needed, or before publishing a reusable cross-route result;
-- Foundation Issue #164 / steward/backflow files: only for foundation-facing work;
-- `docs/LEAN_DIAGNOSTIC_LIVENESS.md`: only for Lean diagnosis/import/root-registration work.
+Within one uninterrupted execution phase, reuse already-fetched immutable blobs/SHAs/PR/Issue snapshots. Do not refetch merely to feel current.
 
-### 2.2 Automatic dispatch
+Explicit-task startup soft budget: **<= 3 routine Enterprise Math GitHub reads before substantive work** unless one concrete missing dependency requires more.
 
-When the user has not selected a task and automatic dispatch is actually needed, load the scheduler packet required to select a frontier. Scheduler writes remain best-effort and non-blocking under `docs/RESEARCH_SCHEDULER_NONBLOCKING_STARTUP.md`.
+## 3. Local-first / connector-only
 
-### 2.3 Cache/reuse rule
+When a local checkout exists, use local git, file reads/search, tests, and Lean/module diagnosis for the hot path. Do not call GitHub to read files already present at the required commit.
 
-Within one uninterrupted execution phase, an already-fetched immutable file/blob/SHA/PR/Issue snapshot is reused. Do not refetch the same object merely to feel current. Refresh only when a new SHA/event is known, the current action genuinely depends on fresh remote state, or the user explicitly requests current status.
-
-A practical soft budget for an explicit-task startup is **at most three Enterprise Math GitHub reads before substantive work begins**. Exceeding this budget requires a concrete unresolved dependency, not general caution.
-
-## 3. Local-first / connector-only modes
-
-### 3.1 When a local checkout exists
-
-Use local `git`, file reads/search, local tests, and local Lean/module diagnosis for the hot path. GitHub is used for publication, PR/Issue coordination, and remote-only evidence.
-
-Do not call GitHub to read a file already present at the required commit in the local checkout.
-
-### 3.2 Connector-only execution
-
-When no usable local checkout exists, assemble the smallest remote task packet once, then reason/work from it. Avoid file-by-file exploratory browsing after the relevant object is already known.
-
-For a multi-file checkpoint, batch the semantic change. Prefer one commit/ref update when the available connector can express the batch; do not manufacture one remote commit per diagnostic edit merely because the contents API is convenient.
+In connector-only execution, assemble the smallest remote task packet once and reuse it. Do not turn remote file browsing into the research loop.
 
 ## 4. Remote-silent research phase
 
-Between semantic checkpoints, routine L1/L2/L3 work performs **zero Enterprise Math source-repository GitHub writes by default**.
+Between semantic checkpoints, ordinary L1/L2/L3 work performs:
 
-Do not use the Enterprise Math source repository for:
+- 0 routine source-repository writes;
+- 0 workflow/CI status queries;
+- 0 scheduler heartbeat requirements;
+- 0 moving-main chasing;
+- 0 review polling.
 
-- scratchpad/proof-search state;
-- every small code or import edit;
-- routine scheduler heartbeats;
-- repeated PR-body progress narration;
-- repeated Relay fan-out to several downstream PRs/issues;
-- workflow status waiting;
-- repeated current-main checks while owner research is legitimately behind main.
+Do not use the source repository for scratchpad state, every small edit, routine heartbeat bookkeeping, repeated PR narration, repeated Relay fan-out, or workflow waiting.
 
-Keep branch-local/local/session state until there is something worth persisting as a source artifact.
+A hard session boundary or loss-risk may justify a source checkpoint; persistence protects work but does not dictate thought cadence.
 
-A hard session boundary or loss-risk may justify a source checkpoint; persistence should protect work, not dictate the cadence of thought.
-
-**This section does not prohibit GLOBAL_KNOWLEDGE progress-journal capture.** Lightweight process/progress events may be written directly to the account-level journal during research under its own append-only fast path.
+GLOBAL_KNOWLEDGE progress journaling is a separate append-only loss-prevention plane and is not counted as Enterprise Math source-repository churn.
 
 ## 5. Semantic checkpoint batching
 
-A `SEMANTIC_CHECKPOINT` for the source repository is reached when at least one of these holds:
+A source `SEMANTIC_CHECKPOINT` exists when a coherent theorem/counterexample/tool artifact is ready, the user asks for persistence, a handoff needs exact artifacts, source work risks loss, or a payload is frozen for validation/promotion.
 
-- a theorem/counterexample/tool result forms a coherent reusable source-artifact unit;
-- the user asked for source publication/persistence;
-- the session is ending and unpushed source work would otherwise be at risk;
-- a handoff requires another executor to resume from exact source artifacts;
-- an owner payload is being frozen for validation/promotion.
+At one checkpoint:
 
-At one source checkpoint:
+1. batch related source changes;
+2. publish/update the owner branch once;
+3. create/update at most one Draft research PR for that owner generation when useful;
+4. emit at most one source-control coordination packet by default;
+5. stop remote source activity and return to research or finish the handoff.
 
-1. batch related file changes into one publication operation / compact commit set;
-2. push/update the owner branch once;
-3. create or update **at most one Draft research PR** for that owner generation when a PR is useful;
-4. emit at most one source-control coordination packet by default (Relay **or** scheduler handoff/progress as appropriate), not one comment per affected route;
-5. stop source-repository remote activity and return to research.
+**Do not check CI merely because a checkpoint was published.**
 
-Intermediate local commits are allowed. Remote source publication need not mirror local commit frequency.
-
-GLOBAL_KNOWLEDGE journal events are not counted as source semantic checkpoints and need not wait for them.
-
-## 6. PR lifecycle: one owner generation, one Draft PR
+## 6. PR lifecycle
 
 For L1/L2/L3:
 
 - one bounded owner generation normally has one branch and at most one Draft PR;
-- do not create a new PR for every theorem, stage number, diagnostic, or test checkpoint;
-- start a new generation only when owner/scope genuinely changes, a frozen payload must separate from continuing research, or the existing review surface has become semantically unmanageable;
-- research PRs stay **Draft by default**. Do not toggle ready-for-review merely to obtain CI, then convert back to Draft;
-- GitHub Actions are not required to continue research. Record local/executable evidence honestly and defer repository-wide gates to the promotion/validation boundary.
-
-Existing historical/stacked PRs remain provenance; this rule prevents new churn rather than rewriting history.
+- do not create a new PR for every theorem/stage/diagnostic;
+- keep research PRs Draft by default;
+- do not toggle ready-for-review to obtain CI;
+- local/executable evidence is reported honestly; repository-wide validation is deferred to a declared validation/promotion boundary.
 
 ## 7. CI is an acceptance boundary, not a research service
 
-Existing repository workflows already skip strict jobs on Draft PRs. Use that design intentionally.
+- L1/L2/L3 research: Draft PR, **no workflow-status read by default**.
+- Dedicated validation task: one frozen validation object, one status snapshot; pending => `CI_PENDING_NONBLOCKING` and return.
+- L4/final governance: final gates apply, but status remains snapshot-based and non-blocking for the conversation.
+- `main`: canonical post-merge validation remains configured by repository workflows.
 
-- L1/L2/L3 research PR: Draft, no routine full-repository CI.
-- Dedicated validation slice: use only when remote validation is itself the declared bounded task and local verification cannot answer it.
-- L4 integration / final governance release: ready-for-review and subject to applicable final gates.
-- `main`: canonical post-merge validation as configured.
-
-Do not use `ready_for_review` as an ad-hoc remote test button for every research edit.
-
-Pending CI follows the one-snapshot/no-polling rule. A failing CI permits one targeted diagnostic pass; after a semantic fix produces a new SHA, a new validation run is a new object.
+A newly observed failure permits one targeted failure/log diagnostic pass. After a semantic fix creates a new SHA, that new SHA is a new validation object. Failure diagnosis does not authorize polling.
 
 ## 8. Single active L4 promotion lane
 
-Canonical promotion is already serialized mathematically; the repository control plane must reflect that.
+Canonical promotion is serialized. Default to one active ready-for-review L4 lane.
 
-By default there is **one active ready-for-review L4 promotion lane for the repository**.
+Other mature payloads freeze/queue. At L4 admission perform one current-main refresh, one conflict snapshot, one frozen-head validation cycle, and one final current-main combination check only when merge is actually attempted.
 
-- A promotable owner payload may be frozen and queued without opening another active L4 PR.
-- Open/create the L4 integration only when the promotion lane is available and the source payload is frozen.
-- At admission: refresh current `main` once, replay the frozen payload once, inspect concurrent integration/governance conflicts once, and publish the frozen L4 head.
-- Run the applicable final gates on that exact head.
-- If `main` moves for unrelated reasons while gates run, do not chase it continuously. Perform the existing final current-main combination check only when the merge action is actually being attempted.
-- A genuine file/semantic conflict may require a new L4 head; unrelated main movement does not create a new research generation.
+Unrelated movement of `main` does not trigger continuous refresh or replay. A genuine semantic/file conflict may require a new L4 head.
 
-Urgent repository-liveness/security fixes may bypass the queue as exceptional governance work, but that exception must not become a permanent second lane.
+Urgent repository-liveness/security fixes may bypass the normal lane as exceptional governance maintenance.
 
 ## 9. Coordination compression
 
-Issue #240, Relay #82, Foundation #164, PR bodies, and comments are different views of source-repository coordination, not requirements to duplicate the same event everywhere.
+- Scheduler / Issue #240: executor/frontier/handoff only.
+- Relay #82: reusable cross-route mathematical results/counterexamples.
+- Foundation #164: unresolved foundation questions/steward verification.
+- PR: exact artifact/review surface.
 
-- Scheduler: executor/frontier/handoff only.
-- Relay: reusable cross-route mathematical result/counterexample only.
-- Foundation: unresolved foundation question / steward verification only.
-- PR: exact artifact/review surface only.
+Do not duplicate the same progress packet across all surfaces.
 
-Publish one authoritative source-control packet and link/reuse it elsewhere only when a consumer genuinely needs the reference. Do not fan out identical prose across multiple source-repository GitHub surfaces.
+## 10. GLOBAL_KNOWLEDGE exception
 
-## 10. GLOBAL_KNOWLEDGE progress-journal exception
+GLOBAL_KNOWLEDGE has a separate mission: **do not lose research/process progress**.
 
-GLOBAL_KNOWLEDGE has a different mission from the Enterprise Math source repository: **do not lose research/process progress.**
-
-The account-level `GLOBAL_KNOWLEDGE_V1/PROGRESS_JOURNAL_PROTOCOL.md` therefore overrides the earlier same-day batching rule for progress capture:
-
-- capture first, curate later;
-- nontrivial research/process progress may be written as a lightweight append-only journal event directly to GLOBAL_KNOWLEDGE `main` without waiting for a source semantic checkpoint;
-- the journal writer does not search/deduplicate, decide whether an event is important enough, reconcile logic, infer canonical theorem status, or update supersession relations before capture;
-- ordinary journal events use unique immutable paths and do not create branches/PRs, rebuild indexes, or wait for Actions;
-- later dedicated compaction/curation processes handle duplication, logical reconciliation, durable-record promotion, and indexing;
-- GLOBAL_KNOWLEDGE journal capture is **not counted against the Enterprise Math source-repository remote-write budget** below.
-
-Curated GLOBAL_KNOWLEDGE record rewrites still follow the global repository's stricter freshness/concurrency/template rules. The exception applies only to append-only progress events.
+Append-only progress events may be written directly under its journal protocol without waiting for an Enterprise Math source checkpoint. Ordinary journal events do not require branches/PRs/index rebuilds or workflow waiting. Later curation handles deduplication and durable promotion.
 
 ## 11. Remote operation budget
 
-Budgets are liveness defaults, not correctness ceilings, and apply to the **Enterprise Math source/control repository** unless stated otherwise:
+Defaults for the Enterprise Math source/control repository:
 
-- explicit-task startup: <= 3 routine Enterprise Math GitHub reads before substantive work;
-- active research between source checkpoints: 0 routine source-repository GitHub writes and 0 status polls;
-- source semantic checkpoint: 1 batched branch publication + at most 1 Draft PR mutation + at most 1 source-control coordination write by default;
-- unchanged workflow/PR/Issue object: 1 status snapshot per uninterrupted execution phase;
-- promotion: one current-main admission refresh, one conflict snapshot, one frozen-head validation cycle, one final merge-time current-main check.
+- explicit-task startup: <= 3 routine reads before substantive work;
+- ordinary L1/L2/L3 research: 0 routine source writes and **0 workflow-status reads**;
+- source checkpoint: 1 batched branch publication + at most 1 Draft PR mutation + at most 1 coordination write;
+- ordinary L1/L2/L3 unchanged workflow object: **0 snapshots**;
+- allowed CI/debug/validation context: 1 snapshot per unchanged validation object;
+- promotion: one admission refresh, one conflict snapshot, one frozen-head validation cycle, one final merge-time current-main check.
 
-Append-only GLOBAL_KNOWLEDGE progress-journal events are a separate loss-prevention channel and are exempt from these source-repository write counts.
-
-If a source-repository budget is exceeded, state the concrete evidence dependency being resolved. `REMOTE_BUDGET_EXCEEDED` is a performance signal, never a mathematical `HARD_BLOCK`.
+`REMOTE_BUDGET_EXCEEDED` is a performance signal, never a mathematical `HARD_BLOCK`.
 
 ## 12. What remains strict
 
-Sparse synchronization does **not** authorize:
+This liveness policy does not authorize bypassing repository protections, merging unreviewed/conflicting L4 payloads, force-pushing/destructive rewriting, weakening theorem status, erasing provenance, or duplicating another owner's theorem.
 
-- bypassing required final repository protections;
-- merging unreviewed/conflicting L4 payloads;
-- force-pushing/destructive history rewriting;
-- weakening theorem status discipline;
-- erasing source provenance or result-conservation obligations;
-- duplicating another owner's theorem simply to avoid one necessary read.
+Only a complete mathematical/research hard block with all four fields may stop a research route:
 
-The intended source-repository lifecycle is:
+- `missing_object`;
+- `owner`;
+- `necessity`;
+- `unblock_condition`.
 
-`small task packet -> remote-silent source research -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
+Pending/running CI, workflow API latency, missing workflow access, scheduler failure, review delay, or moving `main` are never valid research `HARD_BLOCK`s.
 
-In parallel, GLOBAL_KNOWLEDGE may record the evolving research process through lightweight append-only journal events.
+Intended source lifecycle:
+
+`small task packet -> remote-silent research -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
 
 ---
 
-# 进取数论 GitHub 交互预算
+# 进取数论 GitHub 交互预算（中文摘要）
 
-状态：`ACTIVE / CANONICAL REMOTE-LIVENESS OVERRIDE`  
-生效：2026-08-10
+状态：`ACTIVE / CANONICAL REMOTE-LIVENESS OVERRIDE`。
 
-核心规则只有一句：**研究是热路径，Enterprise Math 源仓库 GitHub 是稀疏 artifact/最终集成边界，不是研究运行时总线。GLOBAL_KNOWLEDGE 的进度日志是另一条独立的防丢失通道。**
+核心规则：**研究是热路径，GitHub 是稀疏持久化/最终验收边界，不是研究运行时总线。**
 
-对于用户明确指定的任务，默认启动只读取：本执行规则、`research_common_surface.json` 或人类版 Common Surface 二选一、以及真正与任务有关的定理/代码/测试文件。scheduler、Issue #240、Relay #82、`PROBLEM_STATUS`、Foundation Issue #164、owner-isolation 等都改为按任务需要读取，而不是每次启动全扫。显式任务在开始实质工作前，Enterprise Math 源仓库 GitHub 常规读取软预算为 **不超过 3 次**。
+新增硬断路器：
 
-L1/L2/L3 研究阶段对**源仓库**默认 `REMOTE_SILENT`：证明搜索、小修小改、import 诊断、普通心跳、PR 进度叙述、CI 状态检查、追逐 moving main 都不应产生常规源仓库 GitHub 写操作。只有形成源 artifact 语义 checkpoint、需要 handoff、防止源文件成果丢失、用户明确要求发布、或者冻结 payload 准备 promotion 时，才批量持久化。
+> **普通 L1/L2/L3 研究默认 0 次 CI/workflow 状态查询。**
 
-一个 owner generation 默认只保留一个 branch 和至多一个 **Draft PR**。不得为了获得 CI 把研究 PR 反复切成 ready-for-review。已有 workflow 会跳过 Draft PR 的严格任务，应主动利用这一点。完整 CI 主要属于 L4/最终治理/main 验收边界，而不是研究服务。
+也就是说，普通研究不得进入 `Checking CI Workflow Runs`、`Waiting for CI`、`Checking workflow run status for commit` 等步骤。发布一个 checkpoint、push branch、更新 Draft PR、准备 handoff，都不能自动触发 CI 查询。
 
-Canonical promotion 已经是串行过程，因此控制面也默认只允许 **一个 active ready-for-review L4 promotion lane**。其他成熟 payload 先冻结排队，不提前开多个 L4 PR。轮到时只做一次 current-main admission、一次冲突快照、一次 frozen-head gate，再在真正 merge 时做一次最终 current-main combination check；不得持续追逐 main。
+只有以下情况可以查 CI：
 
-Issue #240 只管调度，Relay #82 只管跨路线数学结果，Foundation #164 只管基础问题，PR 只管 artifact/review。不要把同一进度复制粘贴到所有源仓库 GitHub 表面。
+1. 当前任务本身就是 CI/debug 或 remote-validation；
+2. 当前真的在执行 L4/final merge/promotion；
+3. 用户明确要求查看当前 CI；
+4. 已经出现一个具体 CI failure，现在只诊断这个 failure。
 
-**GLOBAL_KNOWLEDGE 例外：先记录，后整理。** 非平凡研究/过程进度应当按 `PROGRESS_JOURNAL_PROTOCOL.md` 直接写入 GLOBAL_KNOWLEDGE `main` 的唯一 append-only journal 事件，不需要等待源仓库语义 checkpoint；写入时不查重、不判断“够不够重要”、不做逻辑归并、不推断 canonical 状态，也不为了普通 journal 事件开 PR、跑索引或等 workflow。后续由专门进程做重复清理、逻辑整理和 durable knowledge 提炼。GLOBAL_KNOWLEDGE journal 不计入上述 Enterprise Math 源仓库远端写预算。
+其他情况直接记录：
 
-默认源仓库远端预算：显式任务启动 <=3 次项目 GitHub 常规读取；两个源 checkpoint 之间 0 常规写、0 状态轮询；一次源 checkpoint 默认 1 次批量 branch publication + 至多 1 次 Draft PR mutation + 至多 1 次协调写；同一未变化对象每连续执行阶段只看一次状态。超预算必须对应一个具体证据依赖，而不能只是“保险起见”。
+`CI_NOT_REQUIRED_FOR_RESEARCH`
+
+然后继续研究或完成回复。
+
+即使属于允许查询的场景，同一个未变化 validation object 也最多看一次。若状态为 queued/pending/requested/in_progress，记录：
+
+`CI_PENDING_NONBLOCKING`
+
+立刻结束 CI 子流程，不 sleep、不 backoff、不 retry、不刷新、不逐个 workflow run 轮询。Pending CI 最多只能推迟具体 merge/promotion，不能推迟数学研究、handoff、artifact 交付或用户可见回复。
+
+L1/L2/L3 默认保持 Draft PR；不为了触发 CI 切 ready-for-review。完整 CI 属于专门 validation/L4/final governance/main，而不是普通研究服务。
+
+默认预算：显式任务启动 <=3 次常规 GitHub 读取；普通研究阶段 0 常规源写、0 CI 状态读取；source checkpoint 只批量持久化一次，不随后检查 CI；只有允许的 CI/validation 场景才有一次状态快照额度。
+
+GLOBAL_KNOWLEDGE append-only progress journal 仍是独立的防丢失通道，不需要等待 Enterprise Math CI。
