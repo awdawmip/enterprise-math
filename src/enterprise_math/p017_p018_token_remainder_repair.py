@@ -34,12 +34,21 @@ For F=1 the repair is constant and disappears.
 
 CG12 supplies the universal upper bound
 
-    F <= floor((k-1)/D)+1,
+    C_D = floor((k-1)/D)+1.
 
-but the exact fiber can be smaller because of finite-boundary placement.  This
-module computes the exact fiber and repair by integer arithmetic only.  It is a
-P017/P007-style specialization; no new generic quotient/remainder theorem is
-claimed.
+The finite boundary is in fact exact up to one symbol.  The signed interval has
+span 2(k-1), while one token period is 2D.  Therefore any residue class modulo
+2D occurs either floor((k-1)/D) or one more time:
+
+    F_D in {C_D-1, C_D}.
+
+Thus CG12's universal capacity overestimates the exact finite repair alphabet by
+**at most one symbol**.  At k=524287,D=255255 the universal value is 3 while the
+actual fiber is 2.
+
+This module computes the exact fiber and repair by integer arithmetic only.  It
+is a P017/P007-style specialization; no new generic quotient/remainder theorem
+is claimed.
 """
 
 from __future__ import annotations
@@ -86,8 +95,11 @@ def signed_token_fiber(k: int, divisor: int) -> dict[str, object]:
         )
 
     universal_capacity = (k - 1) // divisor + 1
+    boundary_savings = universal_capacity - len(points)
     if len(points) > universal_capacity:
         raise AssertionError("exact signed token fiber exceeded the CG12 universal capacity")
+    if boundary_savings not in (0, 1):
+        raise AssertionError("finite signed token boundary changed capacity by more than one symbol")
     for point in points:
         if point % 2 == 0 or not -(k - 1) <= point <= k - 1:
             raise AssertionError("signed token point left the parity/window domain")
@@ -103,7 +115,8 @@ def signed_token_fiber(k: int, divisor: int) -> dict[str, object]:
         "signed_points": points,
         "actual_fiber_size": len(points),
         "universal_capacity": universal_capacity,
-        "boundary_savings": universal_capacity - len(points),
+        "boundary_savings": boundary_savings,
+        "exact_capacity_is_universal_or_one_less": True,
     }
 
 
