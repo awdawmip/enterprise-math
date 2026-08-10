@@ -11,11 +11,11 @@ from enterprise_math.p017_p018_terminal_radical_capacity import (
 class P017P018TerminalRadicalCapacityTests(unittest.TestCase):
     def test_exact_candidate_capacity_checkpoints(self):
         # (candidate_count, universal radical sum, raw aligned sum,
-        #  exact anchor sum, previous uniform-overlap bound)
+        #  exact anchor sum, exact anchor union, previous uniform-overlap bound)
         expected = {
-            8_191: (56, 143, 108, 108, 8_191),
-            20_000: (2, 4, 2, 1, 260),
-            524_287: (9, 19, 13, 13, 34_953),
+            8_191: (56, 143, 108, 108, 72, 8_191),
+            20_000: (2, 4, 2, 1, 1, 260),
+            524_287: (9, 19, 13, 13, 13, 34_953),
         }
         for k, row in expected.items():
             data = terminal_radical_capacity(k)
@@ -25,15 +25,16 @@ class P017P018TerminalRadicalCapacityTests(unittest.TestCase):
                     data["universal_radical_capacity_sum"],
                     data["raw_aligned_radical_capacity_sum"],
                     data["exact_anchor_radical_capacity_sum"],
+                    data["exact_anchor_fiber_union_capacity"],
                     data["previous_uniform_overlap_capacity"],
                 ),
                 row,
             )
             self.assertTrue(data["strictly_improves_uniform_overlap"])
-            self.assertEqual(data["active_capacity_source"], "exact_anchor_radical_sum")
+            self.assertEqual(data["active_capacity_source"], "exact_anchor_fiber_union")
             self.assertEqual(
                 data["combined_terminal_capacity"],
-                data["exact_anchor_radical_capacity_sum"],
+                data["exact_anchor_fiber_union_capacity"],
             )
 
     def test_every_candidate_capacity_forms_the_exact_chain(self):
@@ -45,6 +46,10 @@ class P017P018TerminalRadicalCapacityTests(unittest.TestCase):
                     row["cg12_universal_capacity"],
                     (k - 1) // radical + 1,
                 )
+                self.assertEqual(
+                    row["exact_anchor_capacity"],
+                    len(row["anchor_signed_points"]),
+                )
                 self.assertLessEqual(
                     row["exact_anchor_capacity"],
                     row["raw_aligned_capacity"],
@@ -53,6 +58,15 @@ class P017P018TerminalRadicalCapacityTests(unittest.TestCase):
                     row["raw_aligned_capacity"],
                     row["cg12_universal_capacity"],
                 )
+
+    def test_k8191_union_removes_cross_radical_duplicate_points(self):
+        data = terminal_radical_capacity(8_191)
+        self.assertEqual(data["exact_anchor_radical_capacity_sum"], 108)
+        self.assertEqual(data["exact_anchor_fiber_union_capacity"], 72)
+        self.assertLess(
+            data["exact_anchor_fiber_union_capacity"],
+            data["exact_anchor_radical_capacity_sum"],
+        )
 
     def test_k20000_anchor_filter_removes_second_candidate_column(self):
         data = terminal_radical_capacity(20_000)
