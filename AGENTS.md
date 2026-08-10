@@ -81,6 +81,19 @@ Canonical promotion is serialized in the control plane as well as mathematically
 - required CI/review may defer the merge/promotion action but never research or user-facing completion;
 - a newly observed failure permits one targeted diagnostic/log pass, not renewed polling.
 
+## Reconciliation liveness
+
+- `Reconciling`, `Reconciling branch with main`, `Reconciling current-main state`, or equivalent wording names a **bounded transform**, never a wait state;
+- L1/L2/L3 research does not reconcile against moving `main` merely because the owner is behind, a PR is stale, or another branch advanced;
+- branch/main reconciliation is allowed only when it answers the current concrete action: scope-drift recovery, explicit dependency intake, or an actual L4 promotion/merge attempt;
+- for one frozen source head and one observed base SHA, perform at most **one reconciliation attempt** in one uninterrupted execution phase;
+- a reconciliation attempt may take one current-main/base snapshot and one conflict snapshot. It must not loop through `fetch -> compare -> merge/rebase/replay -> refetch -> repeat` on unchanged semantic inputs;
+- if reconciliation would require waiting for another PR, repeated moving-main refreshes, repeated conflict scans, multiple speculative merge/rebase attempts, or remote state that is not immediately available, stop and record `RECONCILIATION_DEFERRED`; continue research or finish the user-facing response;
+- a genuine semantic/file conflict may defer the specific promotion, but reconciliation/tooling availability is never a mathematical `HARD_BLOCK`;
+- a successful reconciliation that creates a new head SHA produces one new validation object. Do not reconcile that new head again merely because unrelated `main` moves while validation is pending;
+- the final current-main combination check is performed only when the merge action is actually being attempted. If it cannot complete in one bounded pass, report the merge as deferred instead of entering `Reconciling` loops;
+- repeated `Reconciling` activity on the same frozen head/base pair without new semantic input is a protocol violation.
+
 ## Test discovery and test-execution liveness
 
 - `Inspecting Repository Tree for Test Files` is **not** a normal research step; recursive GitHub tree traversal for tests is prohibited by default;
@@ -128,7 +141,7 @@ Canonical promotion is serialized in the control plane as well as mathematically
 
 ## Completion rule
 
-If `hard_block = NONE`, continue the best mathematical frontier rather than waiting for a branch, conversation, review, CI checkpoint, integration replay, scheduler event, connector workflow, GitHub write, repeated test discovery, or repeated Lean rebuild.
+If `hard_block = NONE`, continue the best mathematical frontier rather than waiting for a branch, conversation, review, CI checkpoint, integration replay, scheduler event, connector workflow, GitHub write, reconciliation, repeated test discovery, or repeated Lean rebuild.
 
 The default lifecycle is:
 
