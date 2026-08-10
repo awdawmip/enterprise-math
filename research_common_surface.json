@@ -56,12 +56,14 @@
       "future_signature": "Sigma_W:X->S_W for a declared deterministic future language and its required observations",
       "future_safe_equality": "ker(Sigma_W)",
       "when_current_observation_included": "exact equality subseteq ker(Sigma_W) subseteq ker(O)",
+      "partial_future_language": "for declared deterministic partial operations F_a:D_a->X, future-safe equality must preserve action enabledness/domain membership and reached observation; disabled is not silently identity",
+      "partial_totalization_boundary": "an absorbing UNDEFINED sink is only a verification representation when explicitly distinguished and absorbing; it is not a new ontic/world state",
       "state_pair": "ordinary product X x X, not a new primitive",
       "coordinate_sufficiency": "compressed Difference/defect/critical-grid coordinates replace state information only if the required current/future outputs factor through them",
       "a3_a4_boundary": "functional A1/A2 kernel layer is not automatically A3 relation-state or A4 multivalued correspondence",
       "novelty": "classical prior mathematics; no generic Enterprise Math priority claim"
     },
-    "source": "Foundation Problem Set FQ-20260809-001 through FQ-20260809-004"
+    "source": "Foundation Problem Set FQ-20260809-001 through FQ-20260809-006"
   },
   "mandatory_preflight": [
     "docs/RESEARCH_COMMON_SURFACE.en.md",
@@ -107,9 +109,9 @@
   "shared_theorem_families": {
     "A0": "roots, collapse, quotient/remainder, scale lattice, signed state, typed descent, adjoints",
     "A1": "deterministic functional kernels, history merge, fibers/kernel multiplicity, collision spectra, coalescence, stabilization",
-    "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair, bounded quotient-root power-free future-action basis",
+    "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, total and partial deterministic operation-family compatibility, legality-sensitive future signatures, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
-    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel",
+    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel or partial deterministic family",
     "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure, task-relative Barlow stacking precision, periodic-drift growth equations and eventual C-finite recurrence classes"
   },
   "canonical_specializations": {
@@ -152,6 +154,15 @@
       "negative_boundary": "the universal annihilator may be nonminimal, and equal (L,|D|) can give the same class-level growth equation/universal recurrence space while finite shell-total sequences and phases still differ",
       "publication_boundary": "coordination-observable and observation-history descendants remain separate later P022 promotions"
     },
+    "P023_partial_operation_quotient": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED / NOT_LEAN_CHECKED",
+      "source_question": "FQ-20260809-006",
+      "research_return": "PR #285 / head@4c9f7424281d41488a1240a382c8685944c1f77c",
+      "scope": "finite deterministic partial operations F_a:D_a->X; quotient compatibility preserves enabledness/domain membership and target quotient class; iterative refinement gives the coarsest compatible refinement and equals legality-sensitive bounded-word observation equivalence",
+      "total_case": "when every D_a=X, the construction reduces exactly to canonical P023 total-operation family closure up to partition-label renaming",
+      "undefined_boundary": "an absorbing UNDEFINED totalization is a verification representation only when distinguished and absorbing; it is not promoted to an ontic/world state",
+      "prior_art_boundary": "partial transition systems, automata/behavioral equivalence, sink totalization and finite partition refinement are prior mathematics; no generic novelty claim"
+    },
     "E001_residual_conservation_slice": {
       "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED + ONE_COMPARATOR_NEGATIVE",
       "merge": "PR #274 / main@12500185f4c222ae49816e7b844e36a82e3ac8fe",
@@ -173,6 +184,7 @@
   "canonical_executable_modules": {
     "A0_A5_primitives": ["src/enterprise_math/core.py", "src/enterprise_math/division.py", "src/enterprise_math/scale_algebra.py", "src/enterprise_math/signed.py", "src/enterprise_math/typed_scale.py", "src/enterprise_math/geometry.py"],
     "A2": ["src/enterprise_math/composition_safe_collapse.py", "EnterpriseMath/Quotient/OperationCongruence.lean"],
+    "P023_partial_operation_quotient": ["src/enterprise_math/partial_operation_quotient.py", "tests/test_partial_operation_quotient.py", "docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.en.md", "docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.zh-CN.md"],
     "P018_P023_power_free_action_basis": [
       "src/enterprise_math/p018_p023_power_free_action_basis.py",
       "tests/test_p018_p023_power_free_action_basis.py",

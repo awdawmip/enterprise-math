@@ -78,6 +78,29 @@ For a declared deterministic future language `W`, package required outputs as `S
 
 A Difference/defect/critical-grid or other compressed coordinate replaces state information only after the required current/future outputs factor through it.
 
+#### P023 legality-sensitive partial-operation quotient — `CANONICAL_MAIN + EXECUTABLE_CHECKED / NOT LEAN-CHECKED`
+
+FQ-006 extends the declared-future interface from total deterministic operations to finite deterministic partial operations
+
+`F_a : D_a -> X`.
+
+A quotient class may identify two states only if, for every declared generator, they agree on **enabledness/domain membership** and—when enabled—their targets land in the same quotient class. Iterating the signature
+
+`q_(t+1)(x) = (q_t(x), (enabled_a(x), next_class_a(x))_a)`
+
+monotonically refines the initial observation, stabilizes on finite `X`, and yields the coarsest refinement compatible with the entire partial family. The depth-`t` partition is exactly equality of legality-sensitive observation signatures for all declared words of length at most `t`; because prefixes are included among those words, prefix legality is preserved.
+
+If every `D_a=X`, the construction reduces exactly to the existing P023 total-operation-family closure up to partition-label renaming.
+
+Canonical assets:
+
+- `docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.en.md`
+- `docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.zh-CN.md`
+- `src/enterprise_math/partial_operation_quotient.py`
+- `tests/test_partial_operation_quotient.py`
+
+An absorbing `UNDEFINED` sink is permitted only as a **verification representation** when explicitly distinguished and absorbing. It is not a new Enterprise Math world state; an undistinguished sink can spuriously merge enabled and disabled behavior. Partial transition systems, automata/behavioral equivalence, sink totalization and finite partition refinement are prior mathematics; no generic novelty claim is made.
+
 #### P018↔P023 bounded quotient-root action basis — `LEAN_CHECKED_MAIN`
 
 PR #249 / `main@c9b39069917c32b8a02a1bbdf6297ca5e43c9438`.
@@ -133,7 +156,7 @@ Canonical executable core:
 - `src/enterprise_math/relational_spectrum.py`
 - `src/enterprise_math/a3_a4_support_bridge.py` for the first executable A3→A4 bridge slice.
 
-A4 multivalued correspondence is not silently identified with one deterministic functional kernel.
+A4 multivalued correspondence is not silently identified with one deterministic functional kernel or one partial deterministic operation family.
 
 ### A5 — intrinsic discrete geometry
 
@@ -223,6 +246,8 @@ All routes must remember:
 - exact state equality, current observational equality and declared-future-safe equality are different unless hypotheses identify them;
 - compressed coordinates are not dynamically complete without factorization/sufficiency;
 - future-safe state precision != minimum future-action-language complexity;
+- for a declared partial action language, disabledness/domain membership is observable future behavior and must not be silently treated as identity;
+- an absorbing `UNDEFINED` sink is only an equivalent verification representation when it is explicitly distinguished and absorbing; it is not a new ontic state;
 - coarse equality/support/cardinality need not preserve later composition or witness identity;
 - A3 signed relation data may cancel under quotient;
 - geometry-only collision/contact facts may not determine unique response;
@@ -232,7 +257,7 @@ All routes must remember:
 - finite measured-polyline refinement does not reveal an unmeasured continuum;
 - canonical engineering code does not become a universal physical law merely by entering `main`;
 - Git ancestry/file-name equality is not proof of new mathematics or semantic absorption;
-- function kernels, Galois connections, semigroups, automata distinguishability, Test Cover, power-free arithmetic, numerical semigroups and partition refinement remain prior art.
+- function kernels, Galois connections, semigroups, partial transition systems, automata distinguishability, Test Cover, power-free arithmetic, numerical semigroups and partition refinement remain prior art.
 
 ## 7. Root Lean import index
 
@@ -287,8 +312,10 @@ When a reusable result appears:
 
 ## 10. Foundation stewardship
 
-FQ-001 through FQ-004 are canonicalized foundation conventions. The only currently active foundation question is:
+FQ-001 through FQ-004 and FQ-006 are canonicalized foundation conventions/results. The only currently active foundation question is:
 
 - `FQ-20260809-005` — stable `graph_distance` API domain versus the P012 ordinary-metric theorem domain.
+
+FQ-006 adds legality-sensitive partial deterministic future languages to P023 without changing FQ-004's actual-state / observation / future-safe layering and without collapsing A4 multivalued correspondence into a partial function model.
 
 The steward fixes mechanical drift directly, but does not choose unresolved research answers. Returned FQ answers require steward verification before canonicalization.
