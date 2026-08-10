@@ -136,6 +136,27 @@ def prime_generator_basis(max_state: int) -> tuple[int, ...]:
     return tuple(primes)
 
 
+def _first_primes(count: int) -> tuple[int, ...]:
+    """Return the first ``count`` primes by elementary trial division."""
+    _require_natural("count", count)
+    if count == 0:
+        return ()
+    primes: list[int] = []
+    candidate = 2
+    while len(primes) < count:
+        is_prime = True
+        for prime in primes:
+            if prime * prime > candidate:
+                break
+            if candidate % prime == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(candidate)
+        candidate = 3 if candidate == 2 else candidate + 2
+    return tuple(primes)
+
+
 def omega_with_multiplicity(n: int) -> int:
     """Return the total number of prime factors of ``n``, with multiplicity."""
     _require_positive("n", n)
@@ -168,6 +189,57 @@ def prime_generator_required_horizon(max_state: int, root_exp: int) -> int:
         ),
         default=0,
     )
+
+
+def minimal_r_power_free_for_omega(total_omega: int, root_exp: int) -> int:
+    """Candidate exact minimum r-power-free integer with given ``Omega``.
+
+    For ``r>=2`` write ``k=q*(r-1)+s`` with ``0<=s<r-1``. Saturating the
+    smallest primes first gives
+
+        M_r(k)=(p_1...p_q)^(r-1) * p_(q+1)^s.
+
+    The ordinary extremal proof is a rearrangement/prime-order argument; this
+    function is the executable form used to pressure-test that exact law.
+    """
+    _require_natural("total_omega", total_omega)
+    _require_positive("root_exp", root_exp)
+    if root_exp < 2:
+        if total_omega == 0:
+            return 1
+        raise ValueError("positive Omega has no 1-power-free representative")
+    if total_omega == 0:
+        return 1
+
+    capacity = root_exp - 1
+    full, remainder = divmod(total_omega, capacity)
+    primes = _first_primes(full + (1 if remainder else 0))
+    value = 1
+    for prime in primes[:full]:
+        value *= prime**capacity
+    if remainder:
+        value *= primes[full] ** remainder
+    return value
+
+
+def prime_generator_required_horizon_via_packing(
+    max_state: int, root_exp: int
+) -> int:
+    """Compute the conjectured/exact packing form of the prime horizon.
+
+    Returns the largest ``k`` with ``M_r(k)<=N``.  Regression compares this
+    independently with the direct max-Omega definition above.
+    """
+    _require_natural("max_state", max_state)
+    _require_positive("root_exp", root_exp)
+    if max_state == 0:
+        return 0
+    if root_exp == 1:
+        return 0
+    k = 0
+    while minimal_r_power_free_for_omega(k + 1, root_exp) <= max_state:
+        k += 1
+    return k
 
 
 def binary_present_observation_regime(max_state: int, root_exp: int) -> bool:
