@@ -122,7 +122,7 @@ A4 与 A3 是 sibling cores，不因共享“relation”一词而合并。Canoni
 
 ## 3. Program / Application 轴
 
-当前主要 program：
+代表性的 program/application identities 包括：
 
 - P017：Legendre / consecutive-square pressure test；
 - P018：finite precision calculus；
