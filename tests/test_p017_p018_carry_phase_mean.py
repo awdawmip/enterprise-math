@@ -7,12 +7,35 @@ from enterprise_math.p017_p018_carry_phase_mean import (
 )
 
 
+def _direct_centered_carry(K: int, modulus: int) -> int:
+    center = (K + 1) * (K + 2)
+    exact = sum(
+        1
+        for signed_point in range(-K, K + 1)
+        if signed_point % 2 != 0 and (center - signed_point) % modulus == 0
+    )
+    return exact - K // modulus
+
+
+def test_unified_centered_carry_matches_direct_residue_class_count_across_two_periods():
+    for modulus in (1, 3, 5, 7, 15):
+        for K in range(4 * modulus):
+            carry = unified_centered_carry_bit(K, modulus)
+            assert carry in (0, 1)
+            assert carry == _direct_centered_carry(K, modulus)
+
+
 def test_unified_centered_carry_is_periodic_mod_2E():
     for modulus in (3, 5, 15, 105):
         for K in range(2 * modulus):
             assert unified_centered_carry_bit(K, modulus) == unified_centered_carry_bit(
                 K + 2 * modulus, modulus
             )
+
+
+def test_second_half_regression_cases_stay_binary_and_exact():
+    assert unified_centered_carry_bit(4, 3) == _direct_centered_carry(4, 3)
+    assert unified_centered_carry_bit(7, 5) == _direct_centered_carry(7, 5)
 
 
 def test_squarefree_period_mass_is_E_plus_one_minus_crt_root_count():
