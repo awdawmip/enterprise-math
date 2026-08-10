@@ -1,3 +1,4 @@
+import EnterpriseMath.Quotient.RootQuotientCompilerAsymmetry
 import EnterpriseMath.Quotient.RootQuotientCompilerDistance
 import EnterpriseMath.Quotient.RootQuotientMinimumStoragePhase
 import EnterpriseMath.Quotient.RootQuotientPenultimateCoverGeometry
