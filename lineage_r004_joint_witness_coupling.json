@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-JOINT-WITNESS-COUPLING",
+      "name": "joint witness coupling / marginalization gate",
+      "source_relations": [
+        {"source_id": "SRC-R004-JWC-FAGIN-1977", "relation": "DIRECT_PRIOR_BOUNDARY"}
+      ],
+      "project_addition": "Treats common fine witnesses across multiple target channels as one typed weighted relation on the product target before marginal erasure. Projections are functorial pushforwards. Marginals generally do not reconstruct joint coupling; Boolean lossless rectangularity must be an explicit reconstruction witness. Joint coupling itself is recursively compiled as certificate state against the remaining coupled future language.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "updates": [
+        "EM-COMP-R004-MULTITARGET-DEFECT-SYNERGY",
+        "EM-COMP-R004-NONLINEAR-DEFECT-BUNDLE",
+        "EM-COMP-R004-SUFFIX-CERTIFICATE-LIVENESS"
+      ],
+      "relation_to_owners": {
+        "A4": "CONSUME_JOINT_SUPPORT_COUPLING_BEFORE_MARGINAL_ERASURE",
+        "P023": "CONSUME_RECURSIVE_COUPLING-CERTIFICATE_MINIMIZATION",
+        "P024": "INFORM_COUPLED_VS_MARGINAL_FUTURE_LANGUAGE_STRENGTH"
+      }
+    }
+  ]
+}
