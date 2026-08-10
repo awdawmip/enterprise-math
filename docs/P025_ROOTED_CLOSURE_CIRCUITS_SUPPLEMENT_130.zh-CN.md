@@ -1,6 +1,6 @@
 # P025 补充 130 —— 根闭包回路与单轮关系律精度
 
-状态：`PROVED_WIP + EXECUTABLE_CHECKED / NOVELTY_UNVERIFIED`  
+状态：`PROVED_WIP + EXECUTABLE_AUTHORED_NOT_EXECUTED / NOVELTY_UNVERIFIED`  
 Owner：`program/p025-closure-basis-stage130`  
 范围：由有限 exact-state family 诱导的 conjunction closure；作为 A2/A4 relation-law precision 的压力测试。
 
