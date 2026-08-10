@@ -5,10 +5,10 @@ charges, rather than by naming a classical lattice. Free integer charges reduce
 relation rank; finite modular charges restrict residue sectors but do not reduce
 the integer rank of a finite-index kernel.
 
-This module records exact A/D and scaled-E8 specializations. Smith normal form
-and lattice-kernel theory are mature prior art; the project use here is causal:
-identify which conservation law would make a classical lattice appear as a
-shadow, and separate free-rank loss from torsion/residue restriction.
+This module records A/D, scaled-BCC, and scaled-E8 specializations. Smith normal
+form and lattice-kernel theory are mature prior art; the project use here is
+causal: identify which conservation law would make a classical lattice appear as
+a shadow, and separate free-rank loss from torsion/residue restriction.
 """
 
 from __future__ import annotations
@@ -47,7 +47,6 @@ def a_relation_rank(slot_count: int) -> int:
 def d_relation_rank(slot_count: int) -> int:
     if isinstance(slot_count, bool) or not isinstance(slot_count, int) or slot_count < 1:
         raise ValueError("slot_count must be positive")
-    # Parity is a finite-index restriction, not a rational-rank equation.
     return slot_count
 
 
@@ -81,7 +80,6 @@ def d_kernel_basis(slot_count: int) -> tuple[Vector, ...]:
 
 
 def d_primitive_pair_moves(slot_count: int) -> tuple[Vector, ...]:
-    """Parity-preserving two-slot moves with one unit magnitude per touched slot."""
     if isinstance(slot_count, bool) or not isinstance(slot_count, int) or slot_count < 2:
         raise ValueError("slot_count must be at least two")
     moves = []
@@ -96,12 +94,24 @@ def d_primitive_pair_moves(slot_count: int) -> tuple[Vector, ...]:
     return tuple(moves)
 
 
-def scaled_e8_charge_constraints(vector: Vector) -> tuple[bool, bool]:
-    """Return the two finite congruence conditions defining the scaled E8 lattice.
+def scaled_bcc_charge_constraint(vector: Vector) -> bool:
+    """Scaled BCC code: all three integer coordinates have the same parity."""
+    _require_integer_vector(vector)
+    if len(vector) != 3:
+        raise ValueError("scaled BCC state must have three coordinates")
+    return len({value % 2 for value in vector}) == 1
 
-    For y=2*x with x in E8, all eight coordinates of y have the same parity and
-    sum(y) is divisible by four.
-    """
+
+def in_scaled_bcc_charge_kernel(vector: Vector) -> bool:
+    return scaled_bcc_charge_constraint(vector)
+
+
+def scaled_bcc_relation_rank() -> int:
+    return 3
+
+
+def scaled_e8_charge_constraints(vector: Vector) -> tuple[bool, bool]:
+    """Finite congruence conditions defining the scaled E8 lattice."""
     _require_integer_vector(vector)
     if len(vector) != 8:
         raise ValueError("scaled E8 vectors must have eight coordinates")
@@ -115,11 +125,9 @@ def in_scaled_e8_charge_kernel(vector: Vector) -> bool:
 
 
 def scaled_e8_relation_rank() -> int:
-    """Finite congruence conditions leave full integer rank eight."""
     return 8
 
 
 def classify_total_conservation(move: Vector) -> tuple[int, int]:
-    """Return (exact total change, parity change) for a primitive displacement."""
     change = exact_total_charge(move)
     return change, change % 2
