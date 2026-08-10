@@ -1,4 +1,4 @@
-# R005-B — Prime-surplus decomposition and square prime-gap diagonals
+# R005-B — Prime-surplus decomposition, P018 overlap audit, and forcing phase
 
 Status: `PROVED WIP / DRAFT OWNER SUPPLEMENT / NOT CANONICAL`  
 Date: `2026-08-10`  
@@ -16,18 +16,18 @@ formula as partial-sieve quantities
 It also left the R005-A/R005-B factor-witness bridge at a generic
 observation/fiber level.
 
-Both fronts sharpen substantially.
+The high-degree front closes exactly: every width-degree argument lies below
+the **next factor-horizon square**, so the partial-sieve survivors above `1`
+are actual primes, not an unspecified rough-number population.
 
-1. Every width-degree argument `k^j`, not only the previously forced low
-   degrees, lies below the **next factor-horizon square**.  Therefore the
-   partial-sieve survivor set contains no composite number at all: it consists
-   only of `1` and actual primes above the horizon.
-2. In square basins, singleton factor-support witnesses along every fixed
-   near-horizon diagonal encode a fixed even prime separation exactly.  The
-   horizon diagonal itself (`offset=0`) is exactly the twin-prime condition.
+A second apparent discovery — a fixed-gap square near-horizon forcing theorem —
+was independently derived and then checked against current `main`.  The overlap
+audit shows that theorem is exactly the already-canonical P018 centered-shell
+theorem after a change of coordinates.  It is therefore recorded here as
+**consumed prior Enterprise Math structure, not a new R005-B theorem**.
 
-These are exact finite integer statements.  They do not prove any unresolved
-prime-pair conjecture.
+The genuinely new cross-route consequence retained from that overlap is an
+infinite non-saturation theorem for the square divisor-witness forced core.
 
 ---
 
@@ -63,20 +63,19 @@ would have a prime divisor `ell<=sqrt(m)`.  Since
 
 `sqrt(m) < F+1`,
 
-that integer prime divisor would satisfy `ell<=F`, contradicting survival.
-Thus every surviving `m>1` is prime.  Conversely any prime `r>F` is coprime to
+that integer prime divisor satisfies `ell<=F`, contradicting survival.  Thus
+every surviving `m>1` is prime.  Conversely every prime `r>F` is coprime to
 `Q_F` and survives.  This proves the identity.
 
 ### Prior-art boundary
 
 This is an elementary square-root-sieve fact.  `Psi_F` is the classical
 partial-sieve function usually written `phi(x,a)` after choosing `a=pi(F)`.
-Modern prime-counting software such as `primecount` exposes exactly that
-classical object.  R005 does **not** claim invention of the partial sieve or of
-this elementary subsquare observation.
+R005 does **not** claim invention of the partial sieve or of this elementary
+subsquare observation.
 
-The R005-specific content begins when this fact is inserted into the exact
-collapse-basin degree decomposition below.
+The R005-specific content begins when the identity is inserted into the exact
+collapse-basin degree/carry decomposition.
 
 ---
 
@@ -109,7 +108,7 @@ and
 
 `C_p(k) = sum_{d|Q_F} mu(d) chi_{p,d}(k)`.
 
-Then the exact p-basin identity becomes
+Then
 
 `P_p(k)
  = (2^p-2)
@@ -150,9 +149,9 @@ primes in `(k^3,k^4]` carry weight `5`.
 
 ### Interpretation
 
-The high-degree terms are therefore not an unspecified rough-number
-population.  Under the basin horizon they are actual **prime surplus shells**.
-The p-dimensional state separates into
+The high-degree terms are not an unspecified rough-number population.  Under
+the basin horizon they are actual **prime surplus shells**.  The p-dimensional
+count state separates into
 
 `universal binomial baseline + post-horizon prime shells + local Moebius carry`.
 
@@ -165,8 +164,9 @@ sum still enumerates the square-free divisors of `Q_F` exponentially.
 
 The same subsquare bound gives a factor-support normal form.
 
-For every integer `n<=U`, there can be at most one prime factor `r>F`, counted
-with multiplicity one.  Indeed two such factors would give
+For every integer `n<=U`, there can be at most one prime factor `r>F`, and its
+exponent is one.  Indeed two such factors, or the square of one such factor,
+would give
 
 `n >= (F+1)^2 > U`.
 
@@ -178,7 +178,7 @@ cofactor is therefore either
 
 ### Singleton candidate-support corollary
 
-Fix a candidate prime witness `q<=F`.  A basin composite whose candidate
+Fix a candidate prime `q<=F`.  A basin composite whose candidate
 prime-divisor support is exactly `{q}` must have one of the two forms
 
 `q^a`
@@ -189,7 +189,7 @@ or
 
 where `a>=1` and `r` is a single prime above `F`.
 
-Therefore the arithmetic existence criterion is
+Thus the arithmetic existence criterion is
 
 `exists a>=2 with A<q^a<=U`
 
@@ -201,157 +201,133 @@ Equivalently, in the second branch,
 
 `max(F, A/q^a) < r <= U/q^a`.
 
-This is an exact finite normal form, not a heuristic.
+This is an exact finite normal form.
 
 ### Ownership boundary
 
-R005-B owns this factor-horizon/factor-support normal form.
+R005-B owns the factor-horizon/factor-support normal form.
 
-R005-A already proved the generic bridge
-
-`singleton rejection support <-> forced/mandatory witness`
-
-inside a full prime-sound divisor-witness universe, together with the residual
-hypergraph/least-basis theorem.  This supplement consumes that bridge; it does
-not duplicate its generic set-cover or kernel machinery.
+R005-A already owns the generic bridge from singleton rejection support to a
+forced/mandatory witness, plus the forced-core/residual-hypergraph least-basis
+machinery.  This supplement consumes that bridge and does not duplicate it.
 
 ---
 
-## 5. T-B11 — fixed-gap square diagonal theorem
+## 5. Overlap correction — the apparent fixed-gap theorem is exactly P018-T71
 
-This is the strongest new square-specific result in this supplement.
+During this continuation pass the following square statement was independently
+derived.
 
-Let
+Let `h>=0`, let `q` be an odd prime with
 
-- `h>=0` be a fixed near-horizon offset,
-- `q` be an odd prime,
-- `q > h^2+2h`,
-- `k=q+h`.
+`q>h^2+2h`,
 
-The square basin is
-
-`k^2 < n < (k+1)^2`,
-
-and its factor horizon is exactly
-
-`F_2(k)=k=q+h`.
-
-### Theorem B11.1
-
-Under these hypotheses, a square-basin composite with candidate prime-divisor
-support exactly `{q}` exists **if and only if**
+and set `k=q+h`.  Then a square-basin singleton candidate-support state for
+`q` exists exactly when
 
 `q+2h+2`
 
-is prime.
+is prime, with product
 
-When it exists, the singleton-support composite is uniquely
+`q(q+2h+2)`.
 
-`n=q(q+2h+2)`.
+This initially looked like a new R005-B fixed-gap diagonal theorem.
 
-### Proof
+It is **not new inside Enterprise Math**.
 
-Write
+Set
 
-`A=(q+h)^2`,
+`c=k+1`,
 
-`U=(q+h+1)^2-1`.
+`r=h+1`,
 
-The threshold `q>h^2+2h` gives
+`p=c-r=q`.
 
-`floor(A/q)=q+2h`
+Then
+
+`q+2h+2=c+r`
 
 and
 
-`floor(U/q)=q+2h+2`.
+`q(q+2h+2)=(c-r)(c+r)=c^2-r^2`.
 
-It also implies `q>h^2`, and hence no pure power `q^a` with `a>=2` lies in the
-open basin: `q^2<=A`, while `q^3>U`; any `q^a r` with `a>=2` and `r>F` is even
-larger.
+For a prime `q`, the integer threshold `q>h^2+2h=r^2-1` is equivalent to the
+P018 size range `q>r^2`: equality `q=r^2` cannot occur for a prime `q>=3`.
 
-By the one-large-prime normal form, the only remaining possibility is
+Canonical P018-T71 already proves precisely
 
-`n=q r`
+`L_p(k) != empty  iff  c+r is prime`,
 
-for a prime `r>F` satisfying
+and when nonempty
 
-`A/q < r <= U/q`.
+`L_p(k)={(c-r)(c+r)}={c^2-r^2}`.
 
-The floor identities reduce this to the two integer candidates
+Therefore the attempted R005-B fixed-gap theorem is a direct coordinate
+re-expression of P018-T71 and is **demoted from novelty immediately**.
 
-`r=q+2h+1`
+No duplicate executable API is kept in `prime_collapse_surplus.py` for this
+statement.  R005-B should call/consume the P018 centered-shell surface if an
+implementation bridge is later needed.
 
-or
+### Why the failed novelty attempt is still useful
 
-`r=q+2h+2`.
+The overlap identifies the exact conceptual bridge:
 
-Because `q` is odd, `q+2h+1` is an even integer greater than `2` and is not
-prime.  Thus an admissible prime cofactor exists exactly when
+`R005-B near-horizon factor support`
 
-`r=q+2h+2`
+is already the same arithmetic object as
 
-is prime, and then the certificate is unique.
+`P018 centered symmetric-prime shell`.
+
+So the correct integration task is not to prove another theorem, but to expose
+this existing P018 shell as one boundary face of the R005 Prime Toolkit.
 
 ---
 
-## 6. Twin-prime diagonal as the horizon specialization
+## 6. R005-B/P018/R005-A cross-route corollary: twin-prime horizon diagonal
 
-Set `h=0`.  Then `k=q`, so `q` is literally the horizon witness of the square
-basin.
+Although the fixed-gap theorem itself is P018 prior project structure, its
+forced-witness interpretation yields a useful R005 cross-route specialization.
 
-For every odd prime `q`:
+Take P018-T71 at radius `r=1`.  Then
 
-`q is singleton-supported/forced at the horizon of I_{2,q}`
+`c=q+1`, `k=q`, `p=q`,
+
+and for every odd prime `q`:
+
+`L_q(q) != empty  iff  q+2 is prime`,
+
+with shell state
+
+`q(q+2)`.
+
+In the square basin `q^2<n<(q+1)^2`, the right prime `q+2` lies above the
+factor horizon `F_2(q)=q`.  Hence this shell state has candidate divisor support
+exactly `{q}`.
+
+By the R005-A forced-witness bridge:
+
+`horizon witness q is forced in I_{2,q}`
 
 if and only if
 
 `q+2 is prime`.
 
-The explicit forcing certificate, when it exists, is
+Thus the ordinary twin-prime condition is the **horizon-diagonal forced-core
+condition** in the R005 square divisor-witness language.
 
-`q(q+2)`.
-
-Therefore the twin-prime conjecture is exactly equivalent to the following
-R005 square-field statement:
-
-> infinitely many prime-coordinate square basins have their horizon witness
-> forced.
-
-This is an **equivalent encoding**, not a proof of the twin-prime conjecture.
-Twin primes and fixed prime-pair gaps are classical prime-distribution
-questions; R005 claims no priority over them.
-
-More generally, put the fixed even separation
-
-`g=2h+2`.
-
-For every odd prime
-
-`q > g^2/4 - 1`,
-
-we have
-
-`q and q+g are both prime`
-
-if and only if the witness
-
-`q = k-(g/2-1)`
-
-has singleton candidate support in the square basin with
-
-`k=q+g/2-1`.
-
-Thus every fixed even prime separation is represented by one fixed diagonal
-inside the square `(k,q)` factor-support field.  No claim of consecutiveness of
-the two primes is made.
+This is an exact equivalent encoding, not a proof of the twin-prime
+conjecture.  The prime-pair problem is classical; the R005 content is the typed
+transport from the existing P018 shell to the R005-A mandatory-observation
+language.
 
 ---
 
-## 7. T-B12 — square full-forcing saturation fails infinitely often
+## 7. T-B11 — square full-forcing saturation fails infinitely often
 
-The bounded R005-A scan had already found many square basins with non-forced
-candidate witnesses.  The horizon diagonal now turns that finite evidence into
-an unconditional infinite theorem.
+The bounded R005-A scan found many square basins with non-forced candidate
+witnesses.  The P018/R005-A horizon bridge turns that finite evidence into an
+unconditional infinite theorem.
 
 ### Lemma
 
@@ -361,23 +337,28 @@ There are infinitely many odd primes `q` for which `q+2` is composite.
 
 Assume only finitely many such primes existed.  Then every sufficiently large
 prime `q` would have `q+2` prime.  Choose such a prime `q>3`.  The prime `q+2`
-is also sufficiently large, so the same assumption would force `q+4` prime.
-But among the three odd integers
+is also sufficiently large, so the same assumption forces `q+4` prime.  But
+among
 
 `q, q+2, q+4`
 
-one is divisible by `3`; since all are greater than `3`, all three cannot be
-prime.  Contradiction.
+one is divisible by `3`; since all three are greater than `3`, they cannot all
+be prime.  Contradiction.
 
-### Corollary B12.1
+### Corollary B11.1
 
-By Theorem B11.1 with `h=0`, infinitely many prime-coordinate square basins
-have a non-forced horizon witness.
+For infinitely many prime basin coordinates `k=q`, the horizon candidate
+witness `q` is not forced.
 
 Hence there is **no** threshold `K` after which every square basin has its full
 candidate divisor-witness set forced.
 
-This is stronger than the earlier bounded observation.
+This is stronger than the earlier bounded scan and is the first unconditional
+asymptotic negative result for the R005 square forced-core saturation question.
+
+Its ingredients are individually classical/P018/R005-A; the result is a
+cross-route structural corollary for the Prime Toolkit, not a new prime-gap
+theorem.
 
 ---
 
@@ -388,14 +369,15 @@ a sharper exponent classification.
 
 ### p=2 — provable infinite non-saturation
 
-- no lower positive-integer-exponent pure-power inheritance channel;
+- factor horizon self-aligns: `F_2(k)=k`;
 - zero post-horizon width-degree surplus;
+- no lower positive-integer-exponent pure-power inheritance channel;
 - residual witness-choice hypergraphs occur in exact finite scans;
-- full forced-core saturation fails infinitely often by T-B12.
+- full forced-core saturation fails infinitely often by T-B11.
 
 ### p=3 — critical unresolved regime
 
-The bounded cross-route atlas found a non-forced witness already at
+The bounded cross-route atlas found a non-forced witness at
 
 `k=23, q=109`,
 
@@ -407,8 +389,8 @@ bound.  No asymptotic saturation/non-saturation theorem is claimed here.
 The bounded cross-route atlas found full forcing throughout its finite range.
 The R005-A even-dimension recursion proves that Legendre's conjecture would be
 sufficient for fourth-power full forcing, but that implication is one-way and
-does not prove either statement.  No unconditional eventual-saturation theorem
-is claimed here.
+proves neither converse nor Legendre.  No unconditional eventual-saturation
+theorem is claimed here.
 
 ### fixed p>=5 — eventual full saturation from established short-interval theory
 
@@ -416,55 +398,44 @@ R005-A already derived, from the Baker–Harman–Pintz short-interval theorem,
 that for every fixed `p>=5` all candidate divisor witnesses are eventually
 forced.
 
-Thus the current R005 forcing phase is
+Thus the current forcing phase is
 
 `p=2: infinite non-saturation theorem`
 
-`p=3,4: transition cases still open`
+`p=3,4: transition cases open`
 
 `p>=5: eventual saturation theorem`.
 
-This is a structural statement about the R005 divisor-witness language, not a
-new prime-gap theorem.
+This is a statement about the R005 divisor-witness language, not a new
+prime-gap theorem.
 
 ---
 
-## 9. R005-A / R005-B bridge after this supplement
+## 9. Prime Toolkit interface after the overlap audit
 
-The bridge is now more concrete than generic fiber safety.
+The bridge is now more precise and has less duplication.
 
 R005-B supplies:
 
-`factor horizon`
+`p-basin -> factor horizon -> prime-surplus shells -> one-large-prime normal form`.
 
-`-> one-large-prime normal form`
+P018 already supplies:
 
-`-> singleton factor-support certificates`
-
-`-> fixed-gap square diagonals`.
+`near-diagonal factor shell <-> centered symmetric prime pair`.
 
 R005-A supplies:
 
-`singleton rejection support`
+`factor/test rejection support -> forced/mandatory core -> residual hypergraph
+ -> least/minimal/minimum witness languages`.
 
-`-> forced/mandatory witness`
+A2/P023 supplies the generic quotient/kernel sufficiency layer.
 
-`-> forced core`
+The common interface should therefore be
 
-`-> residual hypergraph`
+`arithmetic certificate -> typed observation support -> mandatory state
+ -> truth-safe quotient`,
 
-`-> least/minimal/minimum safe witness languages`.
-
-The common Prime Toolkit interface is therefore not
-
-`test witness = factor witness`.
-
-It is the typed transport
-
-`arithmetic certificate -> rejection support -> mandatory observation state`.
-
-That interface preserves the different owners while making the cross-route
-coupling exact.
+not a merged object that erases owner boundaries.
 
 ---
 
@@ -472,28 +443,24 @@ coupling exact.
 
 Do not claim the following as Enterprise Math inventions:
 
-- the partial sieve `phi(x,a)` / inclusion-exclusion survivor count;
+- partial sieve `phi(x,a)` / inclusion-exclusion survivor counts;
 - square-root factor screening;
-- twin primes or any fixed even prime-pair conjecture;
+- twin primes or fixed even prime-pair questions;
 - classical small-gap or short-interval prime theory;
 - ordinary factorization into prime powers.
 
-Modern primary/context anchors include James Maynard's work on small gaps
-between primes and the existing prime-counting literature/software implementing
-the classical partial-sieve function.
+Do not claim the centered fixed-gap shell as a new R005 result either: the
+current main branch already contains it as P018-T71.
 
-The R005 candidate contribution being tested is narrower:
+The remaining R005-B candidate contribution in this supplement is narrower:
 
-1. the exact substitution of the subsquare survivor collapse into the
-   p-basin degree/carry decomposition, producing explicit weighted
-   post-horizon prime-surplus shells;
-2. the one-large-prime normal form as the precise interface between the
-   factor horizon and witness support;
-3. the fixed-offset square-field equivalence between a singleton/forced
-   near-horizon witness and a fixed even prime separation;
-4. the resulting unconditional infinite non-saturation theorem for square
-   full forcing, contrasted with the already-derived eventual saturation for
-   fixed `p>=5`.
+1. exact substitution of the subsquare survivor collapse into the p-basin
+   degree/carry decomposition, producing weighted post-horizon prime-surplus
+   shells;
+2. the one-large-prime horizon normal form as a factor-support interface;
+3. the R005-A/P018 cross-route corollary that square full forcing fails
+   infinitely often;
+4. the resulting exponent forcing phase split `2 / {3,4} / >=5`.
 
 External-literature novelty of this packaging remains unverified.  It stays
 R005-local and noncanonical.
@@ -507,20 +474,21 @@ New owner-local executable surface:
 - `src/enterprise_math/prime_collapse_surplus.py`
 - `tests/test_prime_collapse_surplus.py`
 
-The module implements:
+The module implements only the nonduplicative R005-B arithmetic surface:
 
 - exact post-horizon prime counts;
 - exact classical Moebius survivor counts for bounded probes;
 - the subsquare survivor closed form;
 - weighted degree-prime surplus;
-- the complete prime-surplus/carry basin count;
-- the fixed-gap square certificate `q(q+2h+2)` under the exact theorem
-  hypotheses.
+- the complete prime-surplus/carry basin count.
 
-The focused regression file checks the subsquare identity, the complete basin
-prime-count decomposition, zero square surplus, and the fixed-gap certificate
-against an independently enumerated singleton factor-support search on a
-bounded integer grid.
+The focused regression file checks the subsquare identity, verifies that every
+width-degree argument lies below the next horizon square, checks the complete
+basin prime-count decomposition against direct primality counting, and records
+first nonzero surplus examples for `p=3` and `p=4`.
+
+The independently derived fixed-gap executable was removed after the P018
+ownership audit rather than being kept as a duplicate API.
 
 No floating-point value is a truth source.
 
@@ -528,7 +496,7 @@ No floating-point value is a truth source.
 
 ## 12. Foundation-feedback candidates
 
-### FF-B4 — subsquare survivor collapse as a factor-horizon interface
+### FF-B4 — factor-horizon prime-surplus decomposition
 
 Type: `reusable_tool / layering_law`.
 
@@ -536,22 +504,23 @@ Candidate payload:
 
 `N<(F+1)^2 => partial-sieve survivor = {1} union primes above F`,
 
-with the R005-specific consequence that every p-basin width degree decomposes
-into an exact post-horizon prime shell plus local carry.
+with the R005-specific consequence that every p-basin width degree is exactly
+an above-horizon prime shell plus the universal `1`, yielding the complete
+`2^p-2 + prime surplus + carry` formula.
 
-The underlying sieve lemma is classical; only the interface/package should be
-a novelty candidate.
+The underlying sieve lemma is classical; only the collapse-degree interface is
+a candidate for project-specific promotion.
 
-### FF-B5 — square fixed-gap forced diagonal
+### FF-B5 — P018 shell is the existing near-horizon factor-support owner
 
-Type: `cross-route invariant / application-local theorem`.
+Type: `ownership correction / cross-route interface`.
 
-Candidate payload:
+Payload: the independently rediscovered fixed-gap square theorem is exactly
+P018-T71 under
 
-for fixed offset `h` and sufficiently large odd prime `q`, the square-basin
-near-horizon witness at `k=q+h` is forced exactly when `q+2h+2` is prime.
+`c=k+1`, `r=h+1`, `p=c-r`.
 
-This should remain R005-local until independent novelty review.
+Action: `CONSUME`, not duplicate.
 
 ### FF-B6 — exponent forcing phase boundary
 
@@ -577,13 +546,12 @@ Do **not** spend the next cycle merely extending the finite cutoff.
 The highest-value questions are now:
 
 1. can `p=3` be proved infinitely non-saturated, or eventually saturated?
-2. can `p=4` full forcing be characterized by a lower-dimensional prime-gap
-   condition that is closer to an equivalence than the current one-way
+2. can `p=4` eventual full forcing be characterized by a lower-dimensional
+   prime-existence condition closer to an equivalence than the current one-way
    Legendre implication?
-3. can the weighted post-horizon prime-surplus shells be transported directly
-   into R005-A mandatory-witness counts without duplicating the generic A2/A4
-   support machinery?
-4. does the square fixed-gap diagonal admit a useful multi-edge residual
-   hypergraph formulation for prime constellations beyond pairs?
+3. can the weighted post-horizon prime-surplus shells give a rigorous lower or
+   upper bound on R005-A mandatory-witness counts?
+4. can the P018 centered-shell owner be exposed as a stable Prime Toolkit
+   adapter without moving or copying the P018 theorem itself?
 
 Those are structural fronts.  Larger raw scans are secondary evidence only.
