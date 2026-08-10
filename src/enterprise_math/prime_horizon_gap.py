@@ -181,6 +181,28 @@ def pure_cofactor_cap_nonforced_interval(k: int, power: int) -> tuple[int, int]:
     return lower_q, root_lower
 
 
+def cubic_pure_cap_nonforced_interval(k: int) -> tuple[int, int]:
+    """Return the collapsed p=3 non-forced pure-cap interval for k>=3.
+
+    In the cubic case the horizon inequality ``q*F>A`` already forces q>k.
+    Hence q>=k+1, which automatically implies both ``q^3>U`` and
+    ``q^2*(F+1)>U``.  The generic four-cutoff compiler therefore reduces to
+
+        L = 1 + max(floor(k^3/F), floor(U/R)),
+        S = floor(sqrt(k^3)).
+    """
+    if k < 3:
+        raise ValueError("cubic collapsed interval requires k>=3")
+    lower_basin = k**3
+    upper_basin = (k + 1) ** 3 - 1
+    horizon = factor_horizon(k, 3)
+    successor = next_prime_after(horizon)
+    return (
+        1 + max(lower_basin // horizon, upper_basin // successor),
+        isqrt(lower_basin),
+    )
+
+
 def pure_cofactor_cap_nonforced_candidates(k: int, power: int) -> tuple[int, ...]:
     """Enumerate exactly the prime slice of non-forced pure-cap candidates."""
     lower_q, upper_q = pure_cofactor_cap_nonforced_interval(k, power)
