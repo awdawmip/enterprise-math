@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-MODULE-CUT-COMPILER",
+      "name": "p-power module cut compiler via residue-field matroid circuits",
+      "source_relations": [
+        {"source_id": "SRC-MATHLIB-MATROID-CIRCUIT", "relation": "DIRECT_PRIOR"},
+        {"source_id": "SRC-MATHLIB-MATROID-DUAL", "relation": "DIRECT_PRIOR"},
+        {"source_id": "SRC-STACKS-NAKAYAMA", "relation": "FORMAL_PRIOR"}
+      ],
+      "project_addition": "For a p-power free-module carrier with primitive-column linear observation and coordinate-reset future generators, the retained quotient is exactly (Ax,x|_S). Hidden-coordinate carrier failure is equivalent to dependence of the corresponding columns mod p. Thus minimal carrier cuts are circuits of the representable column matroid and minimal Carrier Bases are bases of the dual matroid, all of size d-rank(A mod p).",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "relation_to_owners": {
+        "P023": "SPECIALIZATION_OF_TYPED_FUTURE_SAFE_QUOTIENT",
+        "P024": "INFORM_ACTION_LANGUAGE_INSTRUCTION_NULLITY",
+        "A3": "TEST_LINEAR_RELATION_RANK_CUT_INTERFACE",
+        "R004": "OWNER_OF_CROSS_SURFACE_MODULE_SPECIALIZATION"
+      }
+    }
+  ]
+}
