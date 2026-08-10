@@ -29,11 +29,11 @@ def test_half_primorial_map_is_consecutive_and_preserves_roughness_exactly():
 
 def test_centered_slice_prime_count_matches_known_small_square_intervals():
     expected = {
-        4: 2,   # 17,19
+        4: 3,   # 17,19,23
         5: 2,   # 29,31
-        6: 2,   # 37,43
+        6: 4,   # 37,41,43,47
         7: 3,   # 53,59,61
-        8: 2,   # 67,71
+        8: 4,   # 67,71,73,79
         9: 3,   # 83,89,97
     }
     for k, count in expected.items():
