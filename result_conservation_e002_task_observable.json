@@ -1,0 +1,121 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_CONSERVATION_V1",
+  "source_owner": {
+    "id": "research/e002-task-observable-v2",
+    "source_head": "5609acbde6b203550e08f70057890fa868a0b565",
+    "retirement_state": "L5_PROVENANCE",
+    "upstream_sources": [
+      "E002 vector precision Stage 4",
+      "P023 task-relative future compatibility"
+    ]
+  },
+  "closure_state": "RESOLVED",
+  "inventory_unit": "semantic result family, not file identity",
+  "inventory_complete": true,
+  "inventory_basis": [
+    "complete audit of both branch-only commits be4218e70a8aa89ca3d7d6f09a3d2788b102f0fc and 5609acbde6b203550e08f70057890fa868a0b565",
+    "theorem-heading inventory of E002-T29 through E002-T32 plus the explicit observable-relative negative boundary in the Stage-5 research note",
+    "branch-versus-main blob audit of theorem note, implementation, regression, probe and lineage, plus current bilingual registry membership"
+  ],
+  "closure_evidence": [
+    "English theorem note is exact on source and canonical main at blob 8766a5e436e648922c8c6cfb99237f7741435c80",
+    "implementation is exact on source and canonical main at blob c7fc5011c53e4ce80b611594fd4f2c9480ce4154",
+    "regression suite is exact on source and canonical main at blob f54b63c7e15da72be07384362c4d089c4408553e",
+    "deterministic probe is exact on source and canonical main at blob 34f49b90f16dd25a3f98c67e05d15c9d29024fae",
+    "lineage record is exact on source and canonical main at blob 44ff80e9ae78b4ac76e01ac13b39a7ad8347cf2f",
+    "Chinese source blob eab4a07bfe591e2af2a98f96a6c7c1b909241ff4 is preserved semantically on main as f141d1a3cf82426e9fc67376fd18de22cfd4a9d8; commit df901ad38531118d092f1c24b6819546f028485a only adds the missing comparison heading and normalizes end-of-file structure",
+    "current main bilingual_pairs.json version 71 still registers the E002_TASK_RELATIVE_OBSERVABLE_SUPPLEMENT_05 English/Chinese pair"
+  ],
+  "methodology_boundary": "This certificate records a completed semantic and blob-level audit of one historical E002 source generation. Exact blob equality is used where available; the Chinese mirror is explicitly treated as a later structure-only refinement rather than falsely claimed byte-identical. Mechanical validation still cannot prove that a human semantic inventory is complete.",
+  "unresolved_results": [],
+  "results": [
+    {
+      "id": "E002-TASK-RC-001",
+      "statement": "For two-coordinate diagonal unit motion and horizon h, the exact future-class count for the integer-linear observable alpha*q1+beta*q2 is 1, B, B(B+1)/2, B(B-1)+1, or B^2 according to the zero, one-coordinate, equal, opposite, or generic coefficient cases, with B=h+1.",
+      "fate": "INTEGRATE",
+      "source_evidence": [
+        "E002-T29 in source Stage-5 theorem note",
+        "precision_task_observable.py linear_two_coordinate_class_count",
+        "test_precision_task_observable.py complete bounded coefficient classification"
+      ],
+      "targets": [
+        "docs/E002_TASK_RELATIVE_OBSERVABLE_SUPPLEMENT_05.en.md on canonical main",
+        "src/enterprise_math/precision_task_observable.py on canonical main"
+      ],
+      "rationale": "This is an exact E002 specialization of P023 future-language dependence and is preserved canonically without requiring the historical branch ancestry.",
+      "evidence": [
+        "English note, implementation and regression blobs are byte-identical between source and main"
+      ]
+    },
+    {
+      "id": "E002-TASK-RC-002",
+      "statement": "For the n-coordinate symmetric-sum future observable under the same diagonal trajectory, the exact within-cell future-class count is binomial(h+n,n).",
+      "fate": "INTEGRATE",
+      "source_evidence": [
+        "E002-T30 in source Stage-5 theorem note",
+        "precision_task_observable.py symmetric_sum_class_count",
+        "bounded multiset-formula regression"
+      ],
+      "targets": [
+        "docs/E002_TASK_RELATIVE_OBSERVABLE_SUPPLEMENT_05.en.md on canonical main",
+        "src/enterprise_math/precision_task_observable.py on canonical main"
+      ],
+      "rationale": "The result quantifies the exact loss of coordinate labels under permutation-invariant observation.",
+      "evidence": [
+        "canonical implementation and tests exactly match the historical source blobs"
+      ]
+    },
+    {
+      "id": "E002-TASK-RC-003",
+      "statement": "Boolean ANY and ALL crossing languages need exactly h+1 future classes for every positive dimension, collapsing the full vector dimension-power obligation to one earliest/latest crossing bucket.",
+      "fate": "INTEGRATE",
+      "source_evidence": [
+        "E002-T31 in source Stage-5 theorem note",
+        "any_crossed_signature/all_crossed_signature and any_or_all_class_count",
+        "dimension-independent bounded regressions"
+      ],
+      "targets": [
+        "docs/E002_TASK_RELATIVE_OBSERVABLE_SUPPLEMENT_05.en.md on canonical main",
+        "src/enterprise_math/precision_task_observable.py on canonical main"
+      ],
+      "rationale": "This is the strongest explicit task-language compression example in the source generation and remains canonical.",
+      "evidence": [
+        "source/main implementation, test and probe blobs are exact"
+      ]
+    },
+    {
+      "id": "E002-TASK-RC-004",
+      "statement": "For two coarse coordinates, the Boolean equality future language has exactly 1+h(h+1)/2 classes because all equal crossing-time pairs collapse while each unequal unordered pair remains distinguishable.",
+      "fate": "INTEGRATE",
+      "source_evidence": [
+        "E002-T32 in source Stage-5 theorem note",
+        "two_coordinate_equality_class_count and direct-signature regression"
+      ],
+      "targets": [
+        "docs/E002_TASK_RELATIVE_OBSERVABLE_SUPPLEMENT_05.en.md on canonical main",
+        "src/enterprise_math/precision_task_observable.py on canonical main"
+      ],
+      "rationale": "The equality language is a distinct exact quotient cardinality, not a heuristic compression factor.",
+      "evidence": [
+        "canonical implementation and exhaustive bounded equality regression exactly match source blobs"
+      ]
+    },
+    {
+      "id": "E002-TASK-RC-005",
+      "statement": "Required finite precision is observable-relative: neither physical dimension, action-subgroup size nor scalar output dimension alone determines the predictive state obligation, and the Stage-4 correlation-expansion index Delta_A must not be promoted to a task-independent physical information quantity.",
+      "fate": "INTEGRATE",
+      "source_evidence": [
+        "Stage-5 sections on scalar non-compression, task ladder, P023 ownership boundary and observable-relative Delta_A",
+        "generic scalar q1+2q2 retains B^2 classes while ANY/ALL retain only B on the same physical trajectory"
+      ],
+      "targets": [
+        "docs/E002_TASK_RELATIVE_OBSERVABLE_SUPPLEMENT_05.en.md on canonical main",
+        "docs/E002_TASK_RELATIVE_OBSERVABLE_SUPPLEMENT_05.zh-CN.md on canonical main"
+      ],
+      "rationale": "This negative boundary prevents a task-specific exact index from being misread as a universal physical information law while keeping the generic mother theorem P023-owned.",
+      "evidence": [
+        "English canonical note is byte-identical; Chinese canonical note differs only by commit df901ad38531118d092f1c24b6819546f028485a heading/EOF alignment"
+      ]
+    }
+  ]
+}
