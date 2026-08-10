@@ -22,9 +22,7 @@ A relation family is **support-stable** on E when
 
 for every action a.
 
-Then each fine relation descends to a well-defined relation between quotient classes:
-
-the set of successor quotient classes depends only on the source quotient class.
+Then each fine relation descends to a well-defined relation between quotient classes: the set of successor quotient classes depends only on the source quotient class.
 
 ## 2. Coarsest support-stable refinement
 
@@ -89,45 +87,64 @@ always refines
 
 The converse fails for multivalued relations.
 
-## 5. Sharp branch-correlation witness
+## 5. Six-state choice-timing witness
 
-Use eight states
+Use six states
 
-`x,y,u1,u2,v1,v2,0,1`.
+`p,q,r,s,t,z`
 
-Current observation merges x/y, merges all four middle states, and distinguishes terminal 0 from terminal 1.
+with one constant present observation.
 
-Relation a branches by
+Let relation a encode two different timings of nondeterministic choice:
 
-`x -> {u1,u2}`,
+`p -> r`,
 
-`y -> {v1,v2}`.
+`q -> {s,t}`.
 
-Two probe relations assign joint future behaviours:
+Then let
 
-- u1: `(b,c) -> (0,0)`;
-- u2: `(b,c) -> (1,1)`;
-- v1: `(b,c) -> (0,1)`;
-- v2: `(b,c) -> (1,0)`.
+`r --b--> z`, `r --c--> z`,
 
-Thus the four middle states have four different **joint** future types.
+`s --b--> z`,
 
-The support-stability refinement first splits those four middle states. Once that happens, action a exposes different successor-class sets from x and y, so a second round splits x from y.
+`t --c--> z`.
 
-## 6. Yet every terminal support trace merges x and y
+This is the classical shape
 
-From x and y:
+`p = a.(b+c)`
 
-- word a reaches only the common middle observation;
-- word `ab` reaches terminal support `{0,1}` from both;
-- word `ac` also reaches `{0,1}` from both;
-- after b or c the terminal branches die in the fixture, so no longer word can query both b and c on the **same predecessor branch**.
+versus
 
-Hence x and y have identical terminal observed-support signatures for every literal word.
+`q = a.b + a.c`.
 
-The Boolean-semimodule compiler therefore leaves `{x,y}` merged even though support-bisimulation refinement separates them.
+At the initial constant partition, p and q both merely have a nonempty a-support into the single class.
 
-The missing information is branch correlation: which b-result and c-result belong to the same intermediate successor.
+The first support-stability refinement separates r,s,t,z because they have different enabled support sets for b/c. Once those behavioural classes exist, action a exposes
+
+`B_a(p)={ [r] }`
+
+versus
+
+`B_a(q)={ [s],[t] }`,
+
+so the second refinement splits p from q.
+
+## 6. Yet every terminal support trace merges p and q
+
+With constant observation, terminal observed support records only whether the final support is empty or nonempty.
+
+Both p and q admit exactly the same relevant literal traces:
+
+- a is reachable;
+- `ab` is reachable;
+- `ac` is reachable;
+- every other continuation has the same empty/nonempty result in the fixture.
+
+After choosing b or c, the other alternative cannot be queried on the same predecessor branch. The terminal language therefore forgets **when the nondeterministic choice occurred**.
+
+The Boolean-semimodule support compiler leaves `{p,q}` merged at its exact fixed point, while relation-support stability separates them.
+
+The missing information is branching correlation / choice timing, not terminal reachability.
 
 ## 7. This is a future-language distinction, not a contradiction
 
@@ -139,7 +156,7 @@ Observable object:
 
 `word -> union of terminal observation labels`.
 
-Branch correlations that no one word can jointly query are intentionally forgotten.
+Branch structure not jointly queryable by one word is intentionally forgotten.
 
 ### Relation-operation language
 
@@ -147,7 +164,7 @@ Observable/executable object:
 
 `source quotient class -> set of successor quotient classes`.
 
-To run the multivalued relation directly in the quotient world, successor behavioural types must remain correlated with their branches.
+To run the multivalued relation directly in the quotient world, successor behavioural types must remain correlated with the branching structure.
 
 Therefore the relation-stable quotient can legitimately be finer than the P023 terminal-support quotient.
 
@@ -191,4 +208,4 @@ Bisimulation, trace equivalence, labelled transition systems, nondeterministic a
 
 The project value here is the explicit precision routing:
 
-> **multivalued relation descent preserves successor behavioural correlation and can require strictly more state than terminal observed-support traces.**
+> **multivalued relation descent preserves successor branching structure and can require strictly more state than terminal observed-support traces.**
