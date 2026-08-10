@@ -7,6 +7,7 @@ from enterprise_math.causal_primitive_link_profile import (
     e7_scaled_roots,
     e8_scaled_roots,
     flag_extension_histograms,
+    flag_future_signature_histogram,
     hcp_direction_graph,
     link_profile,
     neighborhood_signature,
@@ -19,6 +20,7 @@ from enterprise_math.causal_primitive_link_profile import (
 
 class CausalPrimitiveLinkProfileTests(unittest.TestCase):
     def test_a3_fcc_profile_is_uniform_but_not_distance_context_uniform(self):
+        adjacency = primitive_direction_graph(a_roots(3))
         profile = primitive_link_profile(a_roots(3))
         self.assertEqual(profile.primitive_count, 12)
         self.assertEqual(profile.link_degree_histogram, ((4, 12),))
@@ -39,10 +41,12 @@ class CausalPrimitiveLinkProfileTests(unittest.TestCase):
         )
         self.assertIsNone(profile.first_flag_split_order)
         self.assertTrue(primitive_isotropy_contract(profile, 3))
+        self.assertEqual(len(flag_future_signature_histogram(adjacency, 1, 2)), 1)
 
     def test_hcp_has_same_coarse_coordination_as_fcc_but_two_rooted_direction_contexts(self):
         fcc = primitive_link_profile(a_roots(3))
-        hcp = link_profile(hcp_direction_graph())
+        adjacency = hcp_direction_graph()
+        hcp = link_profile(adjacency)
         self.assertEqual(fcc.primitive_count, hcp.primitive_count)
         self.assertEqual(fcc.link_degree_histogram, hcp.link_degree_histogram)
         self.assertEqual(fcc.link_edge_count, hcp.link_edge_count)
@@ -58,6 +62,10 @@ class CausalPrimitiveLinkProfileTests(unittest.TestCase):
             ({4: 12}, {0: 3, 1: 18, 2: 3}, {0: 8}),
         )
         self.assertFalse(primitive_isotropy_contract(hcp, 1))
+        self.assertEqual(len(flag_future_signature_histogram(adjacency, 1, 1)), 1)
+        horizon_two = flag_future_signature_histogram(adjacency, 1, 2)
+        self.assertEqual(len(horizon_two), 2)
+        self.assertEqual(sorted(horizon_two.values()), [6, 6])
 
     def test_a4_and_d4_are_both_locally_uniform_but_have_different_flag_laws(self):
         a4 = primitive_link_profile(a_roots(4))
@@ -78,6 +86,7 @@ class CausalPrimitiveLinkProfileTests(unittest.TestCase):
         self.assertTrue(primitive_isotropy_contract(d4, 3))
 
     def test_d5_first_higher_order_flag_split_occurs_at_triangles(self):
+        adjacency = primitive_direction_graph(d_roots(5))
         profile = primitive_link_profile(d_roots(5), maximum_flag_size=4)
         self.assertEqual(profile.primitive_count, 40)
         self.assertEqual(profile.link_degree_histogram, ((12, 40),))
@@ -88,6 +97,7 @@ class CausalPrimitiveLinkProfileTests(unittest.TestCase):
         self.assertEqual(profile.first_flag_split_order, 3)
         self.assertTrue(primitive_isotropy_contract(profile, 2))
         self.assertFalse(primitive_isotropy_contract(profile, 3))
+        self.assertEqual(len(flag_future_signature_histogram(adjacency, 3, 1)), 2)
 
     def test_e6_is_flag_uniform_through_its_maximal_compatible_flags(self):
         profile = primitive_link_profile(e6_scaled_roots())
