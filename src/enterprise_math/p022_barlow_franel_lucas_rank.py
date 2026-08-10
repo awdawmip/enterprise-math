@@ -1,4 +1,4 @@
-"""Franel p-Lucas structure and primitive-divisor rank consequences.
+"""Franel p-Lucas structure, rank consequences, and divisibility basins.
 
 For prime p and base-p digits n_i, Lucas' binomial theorem gives
 
@@ -9,10 +9,13 @@ Consequences:
 - the first index r_p with p|F_(r_p), when it exists, lies in 1..p-1;
 - if p is primitive at n, then p also divides F_(n+p), so finite private
   markers never stay private forever;
-- p divides no Franel term iff none of F_1,...,F_(p-1) vanish mod p.
+- p divides no Franel term iff none of F_1,...,F_(p-1) vanish mod p;
+- if z_p digit values are zero modulo p, then exactly (p-z_p)^L indices in
+  0..p^L-1 remain nonzero.  Thus any nonempty zero-digit set generates a
+  density-one divisibility basin.
 
-These are standard Lucas-structure consequences; this module uses them to
-sharpen the P022 primitive-defect criterion.
+The p-Lucas property and its general arithmetic background are prior art.  The
+module packages the consequences needed by the P022 defect/precision route.
 """
 
 from __future__ import annotations
@@ -28,10 +31,14 @@ def _require_prime(prime: int) -> None:
         raise ValueError("value must be prime")
 
 
+def _require_natural(name: str, value: int) -> None:
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise ValueError(f"{name} must be a non-negative integer")
+
+
 def base_p_digits(value: int, prime: int) -> tuple[int, ...]:
     _require_prime(prime)
-    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
-        raise ValueError("value must be a non-negative integer")
+    _require_natural("value", value)
     if value == 0:
         return (0,)
     digits = []
@@ -53,8 +60,7 @@ def franel_lucas_residue(value: int, prime: int) -> int:
 
 def franel_residue(value: int, prime: int) -> int:
     _require_prime(prime)
-    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
-        raise ValueError("value must be a non-negative integer")
+    _require_natural("value", value)
     return triple_moment_factor(value) % prime
 
 
@@ -70,6 +76,10 @@ def franel_zero_digits(prime: int) -> tuple[int, ...]:
         for digit in range(1, prime)
         if triple_moment_factor(digit) % prime == 0
     )
+
+
+def franel_zero_digit_count(prime: int) -> int:
+    return len(franel_zero_digits(prime))
 
 
 def franel_rank_of_apparition(prime: int) -> int | None:
@@ -112,3 +122,40 @@ def lucas_divisibility_from_digits(value: int, prime: int) -> bool:
     if predicted != actual:
         raise AssertionError("Franel p-Lucas digit-zero criterion failed")
     return actual
+
+
+def lucas_block_nonzero_count(prime: int, digit_length: int) -> int:
+    """Exact # of N in 0..p^L-1 with F_N nonzero modulo p.
+
+    F_0=1, so zero digits are exactly the positive digits returned by
+    ``franel_zero_digits``.  Every one of the L base-p positions may choose any
+    of the remaining ``p-z_p`` digits independently.
+    """
+    _require_prime(prime)
+    _require_natural("digit_length", digit_length)
+    allowed_digits = prime - franel_zero_digit_count(prime)
+    return allowed_digits**digit_length
+
+
+def lucas_block_divisible_count(prime: int, digit_length: int) -> int:
+    """Exact # of N in 0..p^L-1 with p|F_N."""
+    _require_prime(prime)
+    _require_natural("digit_length", digit_length)
+    domain = prime**digit_length
+    return domain - lucas_block_nonzero_count(prime, digit_length)
+
+
+def lucas_block_counts(prime: int, digit_length: int) -> tuple[int, int, int]:
+    """Return (domain, nonzero, divisible) and certify the partition."""
+    domain = prime**digit_length
+    nonzero = lucas_block_nonzero_count(prime, digit_length)
+    divisible = lucas_block_divisible_count(prime, digit_length)
+    if nonzero + divisible != domain:
+        raise AssertionError("p-Lucas block counts must partition the domain")
+    return domain, nonzero, divisible
+
+
+def nonzero_block_ratio_upper_pair(prime: int, digit_length: int) -> tuple[int, int]:
+    """Exact fraction numerator/denominator for nonzero density on a p^L block."""
+    domain, nonzero, _ = lucas_block_counts(prime, digit_length)
+    return nonzero, domain
