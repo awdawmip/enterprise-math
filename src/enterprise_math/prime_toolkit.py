@@ -144,12 +144,17 @@ def least_factor_witness(n: int) -> PrimeToolResult:
 
 
 def least_visible_factor(n: int, cutoff: int) -> PrimeToolResult:
-    """Least tested factor <= cutoff; 0 means no visible factor, not primality."""
+    """Least tested divisor <= cutoff; 0 means no visible divisor, not primality."""
 
     value = least_witness_state(n, cutoff)
     warning = None
     if value == 0:
         warning = "No tested factor is visible at this cutoff; 0 is not a prime certificate."
+    elif value == n:
+        warning = (
+            "The visible prime divisor equals n itself; this is a self-divisor "
+            "primality observation, not a proper-factor/compositeness witness."
+        )
     return _result("p018.least_visible_factor", value, warning)
 
 

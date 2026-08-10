@@ -99,6 +99,9 @@ class PrimeToolkitTests(unittest.TestCase):
         unresolved = least_visible_factor(77, 5)
         self.assertEqual(unresolved.value, 0)
         self.assertIn("not a prime certificate", unresolved.warning)
+        prime_self = least_visible_factor(97, 97)
+        self.assertEqual(prime_self.value, 97)
+        self.assertIn("not a proper-factor/compositeness witness", prime_self.warning)
 
     def test_first_factor_shell_is_thin_owner_adapter(self):
         for k, prime in ((10, 2), (10, 3), (20, 7)):
