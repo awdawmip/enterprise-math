@@ -11,6 +11,12 @@ directed multigraph decomposes into directed cycles.  Uniform random phase on
 each resulting periodic cycle, mixed with exact rational cycle weights,
 reconstructs the declared k-window law at every time.
 
+When the positive flow graph is weakly connected, the stronger Eulerian
+certificate exists: one deterministic periodic orbit has exactly the declared
+empirical k-window frequencies over one period.  This distinction prevents
+ensemble stationary laws from being conflated with single-trajectory time
+averages.
+
 All calculations are finite and integer/Fraction exact.  This is classical
 circulation/Eulerian-cycle mathematics used as a project-local certificate; no
 generic novelty is claimed and no physical ontology is inferred.
@@ -18,7 +24,7 @@ generic novelty is claimed and no physical ontology is inferred.
 
 from __future__ import annotations
 
-from collections import Counter, defaultdict
+from collections import Counter, defaultdict, deque
 from collections.abc import Hashable, Mapping, Sequence
 from fractions import Fraction
 from math import gcd
@@ -79,6 +85,33 @@ def reduced_stationary_window_counts(block_counts: Mapping[Block, int]) -> dict[
     if common <= 0:
         raise AssertionError("positive counts must have positive gcd")
     return {block: count // common for block, count in positive.items()}
+
+
+def _positive_flow_weakly_connected(block_counts: Mapping[Block, int]) -> bool:
+    """Check weak connectivity of vertices incident to positive directed flow."""
+    positive, width, _ = _validated_positive_counts(block_counts)
+    if width == 1:
+        return True
+
+    neighbors: defaultdict[Vertex, set[Vertex]] = defaultdict(set)
+    active: set[Vertex] = set()
+    for block in positive:
+        source = block[:-1]
+        target = block[1:]
+        active.add(source)
+        active.add(target)
+        neighbors[source].add(target)
+        neighbors[target].add(source)
+    start = min(active, key=repr)
+    seen = {start}
+    queue = deque([start])
+    while queue:
+        vertex = queue.popleft()
+        for neighbor in neighbors[vertex]:
+            if neighbor not in seen:
+                seen.add(neighbor)
+                queue.append(neighbor)
+    return seen == active
 
 
 def decompose_stationary_block_counts(block_counts: Mapping[Block, int]) -> tuple[Cycle, ...]:
@@ -150,6 +183,50 @@ def cyclic_window_counts(period: Sequence[Symbol], width: int) -> dict[Block, in
     return dict(counts)
 
 
+def eulerian_stationary_period(block_counts: Mapping[Block, int]) -> tuple[Symbol, ...]:
+    """Return one periodic orbit with the exact declared empirical k-window counts.
+
+    This stronger single-trajectory certificate exists when the positive
+    stationary flow graph is weakly connected.  Disconnected stationary laws
+    still admit the ensemble cycle-mixture certificate below, but no one orbit
+    can traverse all positive components without introducing an undeclared
+    connecting block.
+    """
+    reduced = reduced_stationary_window_counts(block_counts)
+    positive, width, total = _validated_positive_counts(reduced)
+    if not _positive_flow_weakly_connected(positive):
+        raise ValueError("single-orbit certificate requires connected positive stationary flow")
+
+    outgoing: defaultdict[Vertex, list[Block]] = defaultdict(list)
+    for block, count in positive.items():
+        outgoing[block[:-1]].extend([block] * count)
+
+    start = min((vertex for vertex, edges in outgoing.items() if edges), key=repr)
+    vertex_stack: list[Vertex] = [start]
+    edge_stack: list[Block] = []
+    reverse_circuit: list[Block] = []
+
+    while vertex_stack:
+        vertex = vertex_stack[-1]
+        if outgoing[vertex]:
+            block = outgoing[vertex].pop()
+            target = block[1:] if width > 1 else ()
+            vertex_stack.append(target)
+            edge_stack.append(block)
+        else:
+            vertex_stack.pop()
+            if edge_stack:
+                reverse_circuit.append(edge_stack.pop())
+
+    circuit = tuple(reversed(reverse_circuit))
+    if len(circuit) != total or Counter(circuit) != Counter(positive):
+        raise AssertionError("Eulerian circuit must use every reduced edge copy exactly once")
+    period = cycle_period_symbols(circuit)
+    if cyclic_window_counts(period, width) != positive:
+        raise AssertionError("Eulerian period must reproduce the reduced empirical block counts")
+    return period
+
+
 def periodic_cycle_mixture_block_law(cycles: Sequence[Cycle]) -> dict[Block, Fraction]:
     """Exact k-window law of the cycle-length weighted random-phase mixture.
 
@@ -178,7 +255,7 @@ def periodic_cycle_mixture_block_law(cycles: Sequence[Cycle]) -> dict[Block, Fra
 def stationary_rational_window_presampling_certificate(
     block_counts: Mapping[Block, int],
 ) -> tuple[tuple[Cycle, ...], dict[Block, Fraction]]:
-    """Return a finite periodic certificate reproducing a rational local law."""
+    """Return a finite periodic ensemble certificate reproducing a rational local law."""
     reduced = reduced_stationary_window_counts(block_counts)
     total = sum(reduced.values())
     cycles = decompose_stationary_block_counts(reduced)
