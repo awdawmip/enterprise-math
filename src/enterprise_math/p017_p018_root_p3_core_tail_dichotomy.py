@@ -41,6 +41,8 @@ P2 theorem.
 
 from __future__ import annotations
 
+from math import isqrt
+
 from .legendre import is_prime, primes_up_to
 from .p017_p018_buchstab_cutoff_ladder import (
     almost_prime_cutoff,
@@ -52,7 +54,7 @@ from .p017_p018_buchstab_cutoff_ladder import (
 def _factor_multiset(value: int) -> tuple[int, ...]:
     remaining = value
     factors: list[int] = []
-    for p in primes_up_to(int(value**0.5) + 2):
+    for p in primes_up_to(isqrt(value) + 1):
         while remaining % p == 0:
             factors.append(p)
             remaining //= p
