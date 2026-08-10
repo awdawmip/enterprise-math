@@ -1,4 +1,6 @@
 import EnterpriseMath.Quotient.RootQuotientPrimeSkeleton
+import Mathlib.Data.Finset.Lattice.Fold
+import Mathlib.Data.Finset.Range
 import Mathlib.Data.Nat.Factors
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Tactic
@@ -113,6 +115,98 @@ theorem rootQuotientPrimeBasis_separates_iff_factorCount_bound
         (N := N) (h := h) (b := b) hbPos hbN).2
         (hBound b hbPos hbN hbFree)
 
+/-- Exact worst-case prime-only execution horizon on the canonical bounded
+`r`-power-free semantic action set.  This is the project object corresponding
+to `L_r(N)=max Omega(b)` over required boundaries `1 ≤ b ≤ N`. -/
+noncomputable def rootQuotientPrimeHorizon (r N : ℕ) : ℕ := by
+  classical
+  exact (Finset.range (N + 1)).sup fun b =>
+    if 1 ≤ b ∧ RPowerFree r b then
+      rootQuotientPrimeFactorCount b
+    else
+      0
+
+/-- The exact prime horizon is below `h` iff every required bounded semantic
+denominator has prime-factor count at most `h`. -/
+theorem rootQuotientPrimeHorizon_le_iff
+    {r N h : ℕ} :
+    rootQuotientPrimeHorizon r N ≤ h ↔
+      ∀ b : ℕ, 1 ≤ b → b ≤ N → RPowerFree r b →
+        rootQuotientPrimeFactorCount b ≤ h := by
+  classical
+  constructor
+  · intro hHorizon b hbPos hbN hbFree
+    have hSup :
+        (Finset.range (N + 1)).sup (fun q =>
+          if 1 ≤ q ∧ RPowerFree r q then
+            rootQuotientPrimeFactorCount q
+          else
+            0) ≤ h := by
+      simpa [rootQuotientPrimeHorizon] using hHorizon
+    have hbMem : b ∈ Finset.range (N + 1) := by
+      simp
+      omega
+    have hTerm := (Finset.sup_le_iff).1 hSup b hbMem
+    simpa [hbPos, hbFree] using hTerm
+  · intro hBound
+    have hSup :
+        (Finset.range (N + 1)).sup (fun q =>
+          if 1 ≤ q ∧ RPowerFree r q then
+            rootQuotientPrimeFactorCount q
+          else
+            0) ≤ h := by
+      apply (Finset.sup_le_iff).2
+      intro b hbMem
+      have hbN : b ≤ N := by
+        simp at hbMem
+        omega
+      by_cases hRequired : 1 ≤ b ∧ RPowerFree r b
+      · simpa [hRequired] using
+          hBound b hRequired.1 hbN hRequired.2
+      · simp [hRequired]
+    simpa [rootQuotientPrimeHorizon] using hSup
+
+/-- Exact prime-only finite-horizon law. -/
+theorem rootQuotientPrimeBasis_separates_iff_horizon_le
+    {r N h : ℕ}
+    (hr : 1 ≤ r) :
+    SeparatesRootQuotientWordsUpTo r N h (RootQuotientPrimeBasis N) ↔
+      rootQuotientPrimeHorizon r N ≤ h := by
+  constructor
+  · intro hSep
+    apply (rootQuotientPrimeHorizon_le_iff (r := r) (N := N) (h := h)).2
+    exact
+      (rootQuotientPrimeBasis_separates_iff_factorCount_bound
+        (r := r) (N := N) (h := h) hr).1 hSep
+  · intro hHorizon
+    apply (rootQuotientPrimeBasis_separates_iff_factorCount_bound
+      (r := r) (N := N) (h := h) hr).2
+    exact
+      (rootQuotientPrimeHorizon_le_iff
+        (r := r) (N := N) (h := h)).1 hHorizon
+
+/-- The bounded prime alphabet separates at its exact worst-case horizon. -/
+theorem rootQuotientPrimeBasis_separates_at_exact_horizon
+    {r N : ℕ}
+    (hr : 1 ≤ r) :
+    SeparatesRootQuotientWordsUpTo
+      r N (rootQuotientPrimeHorizon r N) (RootQuotientPrimeBasis N) := by
+  exact
+    (rootQuotientPrimeBasis_separates_iff_horizon_le
+      (r := r) (N := N) (h := rootQuotientPrimeHorizon r N) hr).2 le_rfl
+
+/-- Any horizon at which the bounded prime alphabet separates is at least the
+exact prime-only horizon. -/
+theorem rootQuotientPrimeHorizon_minimal_of_separates
+    {r N h : ℕ}
+    (hr : 1 ≤ r)
+    (hSep : SeparatesRootQuotientWordsUpTo
+      r N h (RootQuotientPrimeBasis N)) :
+    rootQuotientPrimeHorizon r N ≤ h := by
+  exact
+    (rootQuotientPrimeBasis_separates_iff_horizon_le
+      (r := r) (N := N) (h := h) hr).1 hSep
+
 /-- Every positive integer `b` admits a literal prime word of length at most `b`
 whose compiled quotient denominator is exactly `b`.
 
@@ -183,6 +277,16 @@ theorem rootQuotientPrimeBasis_separates_at_self_horizon
     have hpB := hwPrimeB p hpw
     exact ⟨hpB.1, hpB.2.trans hbN⟩
   exact ⟨w, hwLen.trans hbN, hWordN, hProd⟩
+
+/-- The exact prime-only horizon is always bounded by the coarse self horizon
+`N` already supplied by the strong-descent construction. -/
+theorem rootQuotientPrimeHorizon_le_self
+    {r N : ℕ}
+    (hr : 1 ≤ r) :
+    rootQuotientPrimeHorizon r N ≤ N := by
+  exact
+    rootQuotientPrimeHorizon_minimal_of_separates hr
+      (rootQuotientPrimeBasis_separates_at_self_horizon hr)
 
 /-- For `r>=2`, the bounded prime alphabet is contained in every primitive
 generator set that separates the bounded exact state domain at any finite word
