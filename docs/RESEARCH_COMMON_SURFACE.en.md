@@ -78,6 +78,56 @@ For a declared deterministic future language `W`, package required outputs as `S
 
 A Difference/defect/critical-grid or other compressed coordinate replaces state information only after the required current/future outputs factor through it.
 
+#### P023 legality-sensitive partial-operation quotient — `CANONICAL_MAIN + EXECUTABLE_CHECKED / NOT LEAN-CHECKED`
+
+FQ-006 extends the declared-future interface from total deterministic operations to finite deterministic partial operations
+
+`F_a : D_a -> X`.
+
+A quotient class may identify two states only if, for every declared generator, they agree on **enabledness/domain membership** and—when enabled—their targets land in the same quotient class. Iterating the signature
+
+`q_(t+1)(x) = (q_t(x), (enabled_a(x), next_class_a(x))_a)`
+
+monotonically refines the initial observation, stabilizes on finite `X`, and yields the coarsest refinement compatible with the entire partial family. The depth-`t` partition is exactly equality of legality-sensitive observation signatures for all declared words of length at most `t`; because prefixes are included among those words, prefix legality is preserved.
+
+If every `D_a=X`, the construction reduces exactly to the existing P023 total-operation-family closure up to partition-label renaming.
+
+Canonical assets:
+
+- `docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.en.md`
+- `docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.zh-CN.md`
+- `src/enterprise_math/partial_operation_quotient.py`
+- `tests/test_partial_operation_quotient.py`
+
+An absorbing `UNDEFINED` sink is permitted only as a **verification representation** when explicitly distinguished and absorbing. It is not a new Enterprise Math world state; an undistinguished sink can spuriously merge enabled and disabled behavior. Partial transition systems, automata/behavioral equivalence, sink totalization and finite partition refinement are prior mathematics; no generic novelty claim is made.
+
+#### A2 safe-operation algebra / natural operation spectrum — `EXECUTABLE_CHECKED + PROVED_WIP DOC / NOT LEAN-CHECKED`
+
+Validated source generation: PR #317 / head `166a72590a3acf55da9f9a7aa717afc71bb7023f`; current-main publication vehicle: PR #390.
+
+For a quotient `q`, the unrestricted generic safe finitary operations are the classical equivalence polymorphisms `Pol(ker q)`. Given a declared ambient/natural operation family `A`, define the surviving natural spectrum
+
+`Spec_A(q) = A intersect Pol(ker q)`.
+
+This spectrum is a **derived interface**, not a quotient selector. An operation family by itself need not determine one unique quotient. Under the existing P023/FQ-004 architecture, the declared future/context language together with the required observation determines the operational future-safe quotient; only then does `Spec_A(q)` say which declared natural operations survive on that quotient.
+
+The validated P008 specialization provides exact executable evidence that restricted natural languages can retain only coarse invariants such as safe-translation capacity without reconstructing the full quotient, while the full concrete safe unary monoid reconstructs a nondegenerate quotient kernel. Successor/addition/multiplication and linear/nonlinear polynomial-operation rigidity results retain the proof status stated in the A2 documents; their presence on this surface is not a Lean proof or a blanket theorem upgrade.
+
+Shared assets:
+
+- `src/enterprise_math/safe_operation_algebra.py`
+- `tests/test_safe_operation_algebra.py`
+- `docs/A2_SAFE_OPERATION_ALGEBRA.en.md`
+- `docs/A2_SAFE_OPERATION_ALGEBRA.zh-CN.md`
+- `docs/A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.en.md`
+- `docs/A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.zh-CN.md`
+
+Layering boundary:
+
+`declared future/context language -> future-safe quotient -> surviving natural operation spectrum`.
+
+A scalar precision/scale may summarize part of this structure when a theorem supplies such a coordinate; it does not replace the quotient plus declared future-operation structure. Partition-preserving transformation semigroups, `Pol(theta)`, congruences, quotient algebras, clones and generic partition refinement are prior mathematics.
+
 #### P018↔P023 bounded quotient-root action basis — `LEAN_CHECKED_MAIN`
 
 PR #249 / `main@c9b39069917c32b8a02a1bbdf6297ca5e43c9438`.
@@ -133,7 +183,7 @@ Canonical executable core:
 - `src/enterprise_math/relational_spectrum.py`
 - `src/enterprise_math/a3_a4_support_bridge.py` for the first executable A3→A4 bridge slice.
 
-A4 multivalued correspondence is not silently identified with one deterministic functional kernel.
+A4 multivalued correspondence is not silently identified with one deterministic functional kernel or one partial deterministic operation family.
 
 ### A5 — intrinsic discrete geometry
 
@@ -223,6 +273,10 @@ All routes must remember:
 - exact state equality, current observational equality and declared-future-safe equality are different unless hypotheses identify them;
 - compressed coordinates are not dynamically complete without factorization/sufficiency;
 - future-safe state precision != minimum future-action-language complexity;
+- a surviving natural operation spectrum is derived from a quotient plus a declared ambient operation family and does not by itself select a unique quotient;
+- scalar precision/scale does not replace the future-safe quotient plus declared future-operation structure;
+- for a declared partial action language, disabledness/domain membership is observable future behavior and must not be silently treated as identity;
+- an absorbing `UNDEFINED` sink is only an equivalent verification representation when it is explicitly distinguished and absorbing; it is not a new ontic state;
 - coarse equality/support/cardinality need not preserve later composition or witness identity;
 - A3 signed relation data may cancel under quotient;
 - geometry-only collision/contact facts may not determine unique response;
@@ -232,7 +286,7 @@ All routes must remember:
 - finite measured-polyline refinement does not reveal an unmeasured continuum;
 - canonical engineering code does not become a universal physical law merely by entering `main`;
 - Git ancestry/file-name equality is not proof of new mathematics or semantic absorption;
-- function kernels, Galois connections, semigroups, automata distinguishability, Test Cover, power-free arithmetic, numerical semigroups and partition refinement remain prior art.
+- function kernels, Galois connections, semigroups, partial transition systems, automata distinguishability, equivalence polymorphisms/clones, Test Cover, power-free arithmetic, numerical semigroups and partition refinement remain prior art.
 
 ## 7. Root Lean import index
 
@@ -287,8 +341,15 @@ When a reusable result appears:
 
 ## 10. Foundation stewardship
 
-FQ-001 through FQ-004 are canonicalized foundation conventions. The only currently active foundation question is:
+FQ-001 through FQ-004 and FQ-006 are canonicalized foundation conventions/results. The currently active foundation questions are:
 
 - `FQ-20260809-005` — stable `graph_distance` API domain versus the P012 ordinary-metric theorem domain.
+- `FQ-20260810-007` — determine whether a weakest project-native finite causal/relational primitive can make arbitrary finite pre-sampling operationally falsifiable, or prove that current Foundation semantics require an additional physical/causal axiom to distinguish online generation from finite latent completion.
+
+FQ-006 adds legality-sensitive partial deterministic future languages to P023 without changing FQ-004's actual-state / observation / future-safe layering and without collapsing A4 multivalued correspondence into a partial function model.
+
+FQ-007 is routed to clean owner `research/r004-causal-identifiability-v1` and durable task `RS-R004-CAUSAL-IDENTIFIABILITY`. Historical R004 PR #302 is evidence/provenance only; Bell locality and measurement independence are pressure-test restrictions, not Foundation axioms or project novelty.
+
+The A2 safe-operation packet is steward-classified as a direct-maintenance candidate rather than a new FQ: the future/context language and observation remain logically prior to the operational future-safe quotient, while `Spec_A(q)` is a derived surviving-operation spectrum. Its P008 rigidity theorem prose retains its stated proof status until separately upgraded.
 
 The steward fixes mechanical drift directly, but does not choose unresolved research answers. Returned FQ answers require steward verification before canonicalization.

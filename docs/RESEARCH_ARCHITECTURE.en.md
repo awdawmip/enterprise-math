@@ -1,8 +1,12 @@
 # Enterprise Math Research Architecture v2
 
-Status: `PROPOSED / MIGRATION IN PROGRESS`  
-Baseline: `main@fbd95bc3d119c2429d3e83825b5cd44cd044e501`  
-Date: 2026-08-09
+Status: `ACTIVE / CANONICAL ARCHITECTURE CONTRACT`  
+Effective: 2026-08-09  
+Stabilized: 2026-08-10
+
+This document defines the stable research architecture. It is **not** a live branch inventory, migration dashboard, scheduler snapshot, or current-PR list. Live executor assignment and current branch/runtime state belong to the scheduling/owner-control surfaces only when the current action actually needs them. Historical branch ledgers and migration classifications remain provenance/snapshots, not live authority.
+
+Where a migration-era example or older wording conflicts with later canonical owner-isolation, scheduling, or GitHub-liveness contracts, the later narrow contract controls its domain.
 
 ## 1. Two-axis architecture
 
@@ -118,7 +122,7 @@ Geometry may consume A2/A3/A4. Generic relation algebra must not remain trapped 
 
 ## 3. Program / Application axis
 
-Current major programs include:
+Representative program/application identities include:
 
 - P017 — Legendre / consecutive-square pressure test;
 - P018 — finite precision calculus;
@@ -167,7 +171,7 @@ When a program or bridge discovers reusable mathematics:
 
 1. freeze the exact source branch/commit/result payload and provenance;
 2. remove domain assumptions one by one to identify weakest proved hypotheses;
-3. search lineage, Relay, common surface, and existing theorem families;
+3. search lineage, Relay, common surface, and existing theorem families as required by the concrete ownership question;
 4. classify the relation as `same / strict generalization / specialization / independent / conflict`;
 5. choose exactly one mother-statement owner;
 6. keep a corollary plus provenance in the source program;
@@ -179,9 +183,11 @@ When a program or bridge discovers reusable mathematics:
 
 Highly diverged mathematical ownership is never resolved merely by merge or rebase. Canonical promotion is incomplete if a reusable result enters `main` but cannot be discovered through `docs/RESEARCH_COMMON_SURFACE.*` / `research_common_surface.json`.
 
+Remote reads/writes used by this protocol remain subject to `docs/GITHUB_INTERACTION_BUDGET.md`; theorem lifting does not create a standing requirement to poll, chase moving `main`, or keep owner branches continuously synchronized.
+
 ---
 
-## 6. Binding to Git lifecycle
+## 6. Binding to Git lifecycle and live control surfaces
 
 Mathematical ownership and branch lifecycle must agree:
 
@@ -192,19 +198,21 @@ Mathematical ownership and branch lifecycle must agree:
 - promotion to main goes only through one-shot L4 canonical integration;
 - historical branches/PRs/checkpoints end in L5.
 
-Exact lifecycle states, thresholds, naming, moving-main combination rules, and the current migration batch are defined in `RESEARCH_BRANCH_LIFECYCLE.*`, `RESEARCH_SCHEDULING_PROTOCOL.*`, and `RESEARCH_BRANCH_LEDGER.*`.
+Stable lifecycle semantics, thresholds, and naming are defined in `RESEARCH_BRANCH_LIFECYCLE.*`. Live executor/frontier assignment is governed by `RESEARCH_SCHEDULING_PROTOCOL.*` and its current owner/scheduler/runtime surfaces only when dispatch state is materially needed. Owner isolation is governed by `RESEARCH_OWNER_ISOLATION.*`; remote interaction by `GITHUB_INTERACTION_BUDGET.md`.
+
+`RESEARCH_BRANCH_LEDGER.*` and migration-era branch classifications are historical snapshots/provenance. They MUST NOT be treated as live executor assignment, a startup gate, or authority that can freeze a current L1/L2/L3 frontier.
 
 ---
 
-## 7. Trees frozen for semantic replay
+## 7. Migration provenance, not live routing
 
-The following historical trees must not be expanded by appending new theorem families:
+Architecture v2 was introduced through a one-time migration that froze several highly diverged historical trees and replayed selected payloads into new owner/integration lines. Those exact 2026-08-09 classifications remain recoverable from Git history, PRs, branch ledgers, and migration/stall-audit records.
 
-- `agent/p018-critical-grid` / PR #68;
-- `research/core/relation-quotient`;
-- `research/core/relation-support-bridge` / PR #83.
+They are intentionally **not embedded here as current branch truth**.
 
-They are semantic-replay sources, not future canonical owners. Their historical freeze does not block new mathematics on the current writable L1/L2/L3 owners.
+A historical `REPLAY_REQUIRED`, `FROZEN`, `ABSORBED`, or similar classification constrains the identified historical tree and preserves provenance. It does not by itself classify the current owner generation, block new mathematics, require current-main reconciliation, or require waiting for another PR.
+
+When a current branch classification is actually needed for promotion, cleanup, or scope-drift recovery, perform the bounded semantic/lifecycle check required by the current action. Do not run a repository-wide branch census merely to begin research.
 
 ---
 
@@ -232,12 +240,12 @@ Canonical promotion must then move reusable results from Relay-only discoverabil
 
 A researcher entering the repository should quickly determine:
 
-1. the current canonical main;
-2. which P/E programs are active;
+1. the current canonical main when current-main identity is actually material;
+2. which P/E programs are active for the selected task;
 3. which A-layer owner maintains each general theorem family;
-4. that long-lived writable branches stay near 8–12;
+4. that the long-lived writable surface remains intentionally small; the historical 8–12 target is a compression heuristic, not a startup, dispatch, or cleanup gate;
 5. why an integration/agent branch exists and when it exits;
 6. how historical results are recovered from PR/tag/lineage;
 7. where every canonical reusable theorem, root formalization, tool family, negative boundary, and active foundation alert is discoverable.
 
-If a result can only be found by remembering a 300-commit historical branch or a past Relay comment, the architecture is not yet compressed enough.
+If a result can only be found by remembering a 300-commit historical branch or a past Relay comment, the architecture is not yet compressed enough. If research must wait for a ledger refresh, branch census, CI status, replay queue, or moving-main synchronization before a mathematically independent next step, the architecture has regressed.

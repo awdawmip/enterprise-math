@@ -12,9 +12,13 @@ This is not a question about whether continuous mathematics is useful. It plainl
 
 Enterprise Math chooses to restart from that question.
 
-It puts finite resolution, discrete state, integer-first structure, and intrinsically forward state change nearer the foundation. It then asks continuous structure to earn a different role: if the continuum describes the macroscopic world so well, explain how that smooth description can arise from a more finite and discrete substrate.
+It puts finite resolution, discrete state, integer-first structure, relation, and intrinsically forward state change nearer the foundation. It then asks continuous structure to earn a different role: if the continuum describes the macroscopic world so well, explain how that smooth structure can arise from a more finite and discrete substrate.
 
-This essay is not a proof, and it is not a manifesto. It has one purpose: to walk from that starting point toward time, space, quantum phenomena, the universe, and black-hole-like causal extremes, so that a reader can see **what the world would look like if the foundational judgment of Enterprise Math is right.**
+Recent work has pushed the worldview one step further. We once summarized the idea as “precision determines which states can be distinguished.” That is no longer complete enough. A more accurate statement is: **how much detail a state must retain now also depends on what we intend to do with it later.** Some differences are invisible now but become visible after an allowed operation. Some actions are legal in one state and impossible in another. Some coarse descriptions support an exact translation but no longer support ordinary addition. Some tasks need only the set of reachable outcomes; other tasks must retain how many paths lead there and which path was taken.
+
+So “precision” in this essay is no longer merely the spacing of marks on a ruler. It is becoming a larger question: **which differences can the world sustain, which futures are allowed, and what must be remembered in order for those futures to remain well-defined.**
+
+This essay is not a proof and it is not an advertisement. It has one purpose: to walk from that starting point toward time, space, quantum phenomena, the universe, and black-hole-like causal extremes, while keeping clear which parts are established mathematics and which are still research directions under pressure.
 
 ---
 
@@ -22,7 +26,7 @@ This essay is not a proof, and it is not a manifesto. It has one purpose: to wal
 
 Imagine reporting the length of a table.
 
-You might say “two metres.” You might write “2.000 metres.” With a better instrument, you could keep adding digits. Standard mathematics has no difficulty with this: two metres corresponds to a point on the real line, and that point can be assigned an arbitrarily precise position.
+You might say “two metres.” You might write “2.000 metres.” With a better instrument, you could keep adding digits. Standard mathematics has no difficulty with this: two metres corresponds to a point on the real line, and that point can be assigned arbitrarily high formal precision.
 
 Physics adds another question.
 
@@ -34,11 +38,15 @@ Those claims sound similar, but they are not the same.
 
 The first places infinite precision inside nature. Measurement is imperfect only because our instruments, observers, or environments are imperfect. Behind every finite measurement there remains, in principle, an infinitely precise “true value.”
 
-The second leaves open another possibility: finite resolution is not merely fog between us and the world. It may belong to the way physical states are allowed to differ. At some level, if no physically available process can distinguish two descriptions, perhaps they are not merely “temporarily indistinguishable.”
+The second leaves open another possibility: finite resolution is not merely fog between us and the world. It may belong to the way physical states are allowed to differ. At some level, if no physically available process can make use of a tiny difference, perhaps it is not merely “temporarily hidden from us.”
 
 Enterprise Math starts by taking that second possibility seriously.
 
 This does not require declaring the real numbers wrong. The real numbers are among the most powerful tools in formal mathematics. The issue is narrower and deeper: **the fact that mathematics permits unlimited subdivision does not prove that nature does; the fact that mathematics can encode infinite information does not prove that a physical state must contain it.**
+
+Ordinary life already trains us to accept that changing a ruler changes the distinctions we retain. Zoom out on a map and individual shops disappear into districts. Downsample a photograph and several pixel patterns become the same small image. Read a thermometer only to whole degrees and 23.1 and 23.4 may both display as 23.
+
+Those examples do not prove that nature is fundamentally finite. They only remind us that **“there is an infinitely precise value underneath, and we merely read it coarsely” is not the only logically possible architecture of reality.**
 
 So the first object Enterprise Math doubts is not a particular physical equation. It is the ruler we have become so accustomed to using that we almost forget it is a choice.
 
@@ -58,27 +66,111 @@ The difference is not merely that the error bars are different.
 
 At a deeper level, resolution determines which states can still count as different states.
 
-If an instrument resolves only centimetres, 10.001 m and 10.004 m may fall into the same distinguishable cell. Use a finer instrument and they may separate. The conventional picture usually takes an infinitely precise underlying length as primary and treats centimetres, millimetres, and micrometres as limitations that we add later.
+If an instrument resolves only centimetres, 10.001 m and 10.004 m may fall into the same distinguishable cell. Use a finer instrument and they may separate. The conventional picture usually takes an infinitely precise underlying length as primary and treats centimetres, millimetres, and micrometres as limitations added later.
 
 Enterprise Math experiments with the reverse interpretation:
 
-**a numerical state in nature should answer not only “what value?” but also “at what resolution is this the value, and in what relational or operational context does that distinction matter?”**
+**a numerical state in nature should answer not only “what value?” but also “at what resolution is this the value, and in what relational, environmental, and operational context does the distinction matter?”**
 
 Precision, in this picture, is not merely a plus-or-minus label attached after the answer. It is closer to part of the state itself.
 
-The same displayed value can therefore represent different information states at different precisions. Two fine states can be indistinguishable at one level and separable at another.
+But recent work has forced one further refinement: **precision should not automatically be compressed into a single scalar either.**
 
-And “distinguishable” cannot safely mean only “different right now.”
+Why? Because the same amount of coarse-graining may be perfectly adequate for one future task and disastrously inadequate for another.
 
-Suppose two states give the same current reading but, after an allowed future operation, produce different outcomes. Declaring them identical now may have thrown away information that the future can still reveal. Enterprise Math has already turned that intuition into a precise mathematical problem: **a coarse description is genuinely safe only when it preserves not just the current observation but the future actions and future signals that have been declared relevant.**
+Imagine a warehouse records weights in buckets of ten kilograms. Twelve kilograms and nineteen kilograms are stored in the same bucket. If the only future action is “add exactly ten kilograms to the load,” the coarse record behaves perfectly: 12 becomes 22 and 19 becomes 29, so both move together into the next bucket.
 
-This point becomes crucial later.
+Now allow ordinary addition of two represented weights. Ten and nineteen share one bucket; one and nine share another. Yet 10 + 1 is 11, while 19 + 9 is 28, and the sums land in different buckets. The pair of bucket labels no longer determines the bucket of the sum.
 
-Once precision belongs to the state, the world is no longer merely a collection of points moving along a continuous number line. It becomes a layered structure of distinguishability. Which layer you inhabit determines which differences are real for the description and evolution available there.
+This is not a proposal for warehouse accounting. It exposes a structural fact:
+
+**the same coarse information can be exactly adequate for some operations and immediately inadequate for others.**
+
+So the question “how precise is this state?” is often missing another question: “what are you going to do with it?”
 
 ---
 
-## 3. Perhaps the World Is Not Continuous First and Gridded Later
+## 3. The Future Can Decide What the Present Must Remember
+
+This is one of the most important recent advances for a non-specialist reader.
+
+It is tempting to think of information compression as a present-only decision: if two things look the same now, put them into the same box.
+
+Enterprise Math increasingly emphasizes another order:
+
+declare what may happen later and which outcomes matter; then ask which differences can safely be forgotten today.
+
+### An access-card example
+
+Suppose two access cards both display “valid” at the lobby gate. If our task ends there, treating them as the same may be harmless.
+
+But one card can open the laboratory and the other cannot.
+
+If the future task includes “open the laboratory door,” whether the action is *enabled* is itself information. The two cards cannot be safely merged merely because they give the same current reading.
+
+The same pattern appears everywhere:
+
+- two transit cards can both enter the station, but only one is valid for the airport express;
+- two bank accounts show the same balance, but one can transfer funds while the other is frozen;
+- two cars have the same current speed, but one is free to accelerate while the other is under an active limiter;
+- two files contain the same text, but one is read-only and the other is editable;
+- two travelers stand at the same gate, but only one has the legal status required for the destination.
+
+In all these cases, future safety must preserve not just “what happens after an action,” but also “is this action even allowed here?”
+
+> **Mathematical result now in the project’s canonical/executable layer**
+>
+> For finite deterministic systems with partial operations—actions that are enabled only on some states—a safe quotient must preserve both action enabledness and, when the action is enabled, the coarse class of its target. Treating a disabled action as if it simply meant “do nothing” can create false equivalences.
+>
+> This result is canonical and executable-checked in its stated finite setting, but the whole supplement is not currently labeled Lean-checked.
+
+This adds a form of state information that ordinary life makes very intuitive: **capability is part of state.**
+
+A state may say not only “what am I now?” but also “which next steps are legal from here?”
+
+### Packs of four and six: a gcd is not the same as actual reachability
+
+Take another everyday example.
+
+Suppose a shop sells only packs of four and packs of six, and you can only add whole packs to your cart.
+
+Because four and six have greatest common divisor two, it is tempting to say, “the fundamental step is two.”
+
+But starting from zero, can you buy exactly two items? No. You can reach 4, 6, 8, 10, 12, and so on, but the number 2 satisfies the gcd pattern while remaining unreachable by the actual one-way action language.
+
+Now let the shop also allow whole-pack returns. Take a pack of six and return a pack of four: the net change is two. As soon as the permitted action language becomes genuinely two-sided, the reachable structure changes.
+
+Recent action-language work makes this precise in integer models: **predictive precision is determined by the displacements that the declared future can actually realize, not by a convenient scale number alone.** One-way action systems can contain real reachability gaps; two-way systems can fill gaps that the one-way future could never use.
+
+### A coarse world filters its operations
+
+There is a deeper direction as well.
+
+Once many fine states have been collapsed into one coarse state, not every operation of the fine world will necessarily remain well-defined in the coarse world.
+
+The bucket-of-ten example already showed this. A translation by one whole bucket is safe. Ordinary binary addition is not.
+
+So a coarse world is not merely “the same world with fewer digits.” It naturally carries a set of **surviving operations**: actions whose coarse result is still unique and unambiguous, while other actions require more detail to be restored.
+
+> **Current research direction: safe-operation algebra / natural operation spectrum**
+>
+> The project is systematically studying which operations declared natural in the fine system still descend exactly through a chosen quotient. The completely general mathematics of all partition-preserving operations belongs to established universal algebra. The Enterprise Math question is how a declared future language and a declared natural operation family jointly determine a coarse world that can still run.
+>
+> The current line has ordinary proofs and executable checks, but it must not be described wholesale as an already Lean-checked canonical theorem family.
+
+This changes the worldview in an important way.
+
+The earlier slogan was: “precision determines what the world can still see.”
+
+The more complete statement is now:
+
+**the world first declares how it is allowed to continue; those futures determine which present distinctions may safely be forgotten; after the collapse, only operations compatible with that collapse remain exact operations of the coarse world.**
+
+Precision therefore looks less and less like one isolated number. It looks more like a joint product of current distinguishability, future action language, and required observation.
+
+---
+
+## 4. Perhaps the World Is Not Continuous First and Gridded Later
 
 Modern numerical work often follows a familiar order.
 
@@ -96,13 +188,15 @@ Think of a digital photograph.
 
 Up close, you can see pixels. From farther away, the pixels do not disappear, yet you see a continuous face, sky, and shadow. The point is not that the universe is literally a rectangular screen. Enterprise Math has not proved that nature is made of square pixels. The point is more general: **macroscopic continuity does not imply microscopic continuity.**
 
+A film offers another familiar analogy. It is made of frames, yet at an appropriate rate we see smooth motion. That does not prove physical time is frame-by-frame; it only shows that apparent smoothness does not establish a continuous substrate.
+
 A discrete system can display extremely smooth large-scale behavior.
 
 The reverse point matters too. If continuity is installed in the foundation at the beginning, then many-to-one state changes, finite resolution, and information loss are naturally described as approximations to an underlying continuous truth. That may sometimes be correct. It should not be the only admissible starting assumption.
 
 Enterprise Math chooses another route:
 
-allow finite states to be real; allow precision to participate in the state; allow integer relations and discrete operations to be primitive; then ask under what conditions continuity appears, when it is an excellent approximation, and when it fails.
+allow finite states to be real; allow precision to participate in state definition; allow integer relations and discrete operations to be primitive; then ask under what conditions continuity appears, when it is an excellent approximation, and when it fails.
 
 So the target is not “continuous mathematics is useless.”
 
@@ -114,15 +208,13 @@ That immediately raises the next question: if the substrate permits genuinely di
 
 ---
 
-## 4. Some Differences May Really Disappear
+## 5. Some Differences May Really Disappear
 
 Imagine a machine with many different inputs, some of which produce exactly the same output.
 
 A and B begin differently. The machine runs once. Both become C.
 
-The conventional instinct asks:
-
-“Where did the difference between A and B go?”
+The conventional instinct asks: “Where did the difference between A and B go?”
 
 But the question contains an assumption: the difference cannot really disappear, so it must still be stored somewhere, even if we cannot currently see it.
 
@@ -130,13 +222,11 @@ Enterprise Math does not grant that assumption in advance.
 
 It allows us first to study the more direct possibility: **if a forward rule is genuinely many-to-one, distinct histories may genuinely merge into the same present state.**
 
-“Collapse” here is not a mystical word. It means a compression in state space: several states that were distinguishable before an update are mapped to one outcome.
+Ordinary life contains many many-to-one descriptions, even though they are not necessarily examples of physical information being destroyed. Keep only the city from a full street address and thousands of addresses become “Taipei” or “Kunming.” Downsample a high-resolution photograph and many distinct pixel patterns may become the same thumbnail. Record only “adult” instead of exact age and many states enter one category.
 
-Once that happens, the history of the system changes in a fundamental way.
+Those examples merely illustrate the structure of many-to-one mapping. The physical question is harder: do some natural evolutions make differences genuinely merge in the state itself rather than merely being forgotten by an observer?
 
-Before the merge, one can say “this came from A” and “that came from B.” After the merge, if the system contains only C and future rules depend only on C, the two histories share the same later trajectory.
-
-This is already rigorous mathematics.
+The mathematics of genuine merging is already rigorous.
 
 In a deterministic forward system, once two states really become equal, applying the same deterministic continuation cannot make them spontaneously split again. Enterprise Math can also record, in fully discrete integer terms, how much collision and merging a step creates.
 
@@ -146,19 +236,17 @@ In a deterministic forward system, once two states really become equal, applying
 >
 > This proves a mathematical template for irreversible structure. It does not prove the physical arrow of time.
 
-That boundary matters.
+Recent future-safety work adds an important warning:
 
-Mathematics tells us that genuine information merging is enough to create a system whose past cannot always be uniquely reconstructed. Physics must still tell us which natural processes are described by such a structure, and whether apparently lost information survives in a larger state space not included in the model.
+**“I threw away the information” and “nature truly merged the information” are not the same claim.**
 
-But one assumption is no longer mandatory:
+If your coarse representation makes two states look the same while some allowed future action can still separate them, you have merely compressed too aggressively. You have not demonstrated genuine historical merger.
 
-**we do not have to place an invisible, perfectly lossless continuous ledger behind every merge.**
-
-That leads directly to time.
+Enterprise Math therefore permits real information loss while simultaneously demanding a stricter standard before declaring that information truly gone.
 
 ---
 
-## 5. Time May Not Be an Axis We Can Freely Traverse Both Ways
+## 6. Time May Not Be an Axis We Can Freely Traverse Both Ways
 
 We often draw time as a line.
 
@@ -175,8 +263,6 @@ The logic beneath the analogy is the point:
 **if different pasts can produce exactly the same present, knowing the present is insufficient to recover a unique past.**
 
 Then the direction of time need not be only an arrow painted outside the system. Part of the asymmetry may arise from the update rule itself: forward evolution can allow histories to coalesce, while backward reconstruction requires an extra choice among several possible predecessors.
-
-The asymmetry is concrete.
 
 Forward, the rule can be deterministic: given the present, there is one next state.
 
@@ -198,7 +284,7 @@ Once time is no longer treated merely as an external coordinate, another bold qu
 
 ---
 
-## 6. Space May Grow Out of Relations
+## 7. Space May Grow Out of Relations
 
 Our everyday intuition says that space comes first and objects are placed inside it.
 
@@ -216,37 +302,43 @@ That is the most accessible idea behind intrinsic discrete geometry:
 
 **geometry can be generated by reachability relations among objects rather than requiring a continuous space in which those relations are already located.**
 
-Enterprise Math has already built the mathematical skeleton of this route. For suitable discrete relation networks, adjacency and shortest paths produce a genuine metric. In several concrete lattice-like discrete structures, exact questions about distance, balls, shells, and growth can be pushed much further.
+### One-way streets remind us that reachability is not automatically an ordinary metric
 
-> **Mathematically proved**
+Suppose a road network contains one-way streets. A may reach B in three links, while the return from B to A takes ten links or is impossible.
+
+Directional reachability is perfectly meaningful and may be exactly what a causal or operational model needs. But it is not automatically the ordinary symmetric notion of distance, because an ordinary metric requires the distance from me to you to equal the distance from you to me.
+
+The project recently tightened this interface explicitly: the standard graph-distance theorem is reserved for the appropriate undirected simple-graph domain, while directed shortest reachability remains a separate operation. A shared word such as “distance” is not permission to import metric symmetry where it has not been proved.
+
+This is more than a software detail. It expresses a foundational discipline: **relations come before the geometric names we later give them.** First ask what the relation actually permits; only then decide whether it qualifies as a distance.
+
+### “Where can I get?” and “how many ways can I get there?” are different information
+
+Imagine two railway stations.
+
+Suppose each has one-step services to Beijing, Tianjin, and Jinan. If our only task is “which cities are reachable in one step?”, the two stations can be treated as equivalent.
+
+Now ask a different question. The first station may have ten trains to Beijing while the second has one. One may offer two distinct routes while the other offers one. Or perhaps we care about which intermediate platform or branch is used.
+
+The earlier equivalence is no longer enough.
+
+Recent relation-observation work builds an executable exact interface for this distinction: if a task cares only about the *set of reachable observed outcomes*, that set can be retained as the coarse signature. But path multiplicity, branch identity, and intermediate definedness disappear unless they are explicitly included in the future language.
+
+> **Mature interface lesson in the current project**
 >
-> On a discrete relation graph, “who is one step from whom” can be enough to construct a rigorous intrinsic distance. That distance does not need an external Euclidean coordinate system in order to exist.
+> “A relation exists,” “these outcomes are reachable,” “there are this many witnessing paths,” and “this is the identity of the path” are different layers of information. Which layer must survive is a task-relative question. We cannot use weak support information as if it were a stronger path certificate.
 
-This does not prove that physical space is a graph.
+This makes “space grows from relation” more concrete.
 
-A physical theory would still have to answer: which relations are primitive in nature? How do they produce our familiar three dimensions? How do orientation, angle, local smoothness, Lorentzian structure, and gravity emerge?
-
-But the conceptual order has changed.
-
-Enterprise Math is willing to push a chain like this:
-
-states first;  
-then which states can directly relate;  
-then one-step and many-step reachability;  
-then intrinsic distance and neighborhoods;  
-finally the geometry we recognize.
-
-This is a “relations before container” view of space.
+Not every relation is already geometry, and not every geometric task needs the full microscopic relation history. The construction has to proceed in order: what relations are allowed, how they compose, what stable reachability they create, and which reachable structures then support distance, neighborhoods, and macroscopic space.
 
 If that route succeeds, then before asking how large the early universe was, we may have to ask something more basic:
 
 **did it already contain enough relational structure for “distance” and “size” to mean anything?**
 
-Before going all the way back to the beginning of the universe, however, we pass through a nearer and more difficult question: why does the microscopic world look so unlike tables and stones?
-
 ---
 
-## 7. Why the Microscopic World Does Not Look Like a Table
+## 8. Why the Microscopic World Does Not Look Like a Table
 
 One disturbing feature of quantum physics is that it resists the classifications of everyday life.
 
@@ -266,7 +358,9 @@ Can a difference still be distinguished by the **future**?
 
 If two states look identical now but some allowed later operation can turn them into different outcomes, then the difference still matters to the future.
 
-Conversely, if environmental interaction, history merging, accessible relations, and every relevant later operation can no longer convert some distinction into a different future signal, then continuing to treat that distinction as an accessible physical degree of freedom requires additional justification.
+The access-card example returns here. Two cards can both display “valid” now while opening different doors later. Quantum physics is vastly more complicated than an access system; the analogy is used only to emphasize a logical point: **same current observation is not enough to define physical sameness if future behavior can still differ.**
+
+Conversely, if environmental interaction, history merging, accessible relations, and every genuinely available later operation can no longer convert some distinction into a different future signal, then continuing to treat that distinction as an accessible physical degree of freedom requires additional justification.
 
 That is the intuition behind future distinguishability.
 
@@ -276,7 +370,8 @@ It moves the quantum-classical boundary away from “how big is the object?” a
 - What interaction history has it undergone?
 - Which differences have become stable records distributed into the environment?
 - Which differences could still be made to reappear through later actions?
-- Is the current precision sufficient to predict the future outputs we actually care about?
+- Which actions are still legal or physically available from this state?
+- Is the current coarse state sufficient to predict the future outputs we actually care about?
 
 > **Current research direction**
 >
@@ -296,13 +391,11 @@ This is why environment and interaction history may matter more than absolute si
 
 A complete physical model is still missing.
 
-But the idea already changes the role of precision. Precision is no longer just the tick spacing on a ruler. It begins to determine **how many distinct futures the world still supports at a given level.**
-
-Now the same line of thought can be pushed to the universe itself.
+But the idea already changes the role of precision. Precision is no longer just the tick spacing on a ruler. It begins to determine **how many distinct futures the world still supports at a given level, and which future operations remain meaningful there.**
 
 ---
 
-## 8. Perhaps the Universe Did Not Explode Out of a “Point”
+## 9. Perhaps the Universe Did Not Explode Out of a “Point”
 
 The phrase “Big Bang” easily generates the wrong mental picture:
 
@@ -312,7 +405,7 @@ Modern cosmology does not require that naive picture. Enterprise Math goes furth
 
 Because “small” already presupposes space.
 
-If space itself is to grow out of distinguishable relations, reachability, and distance, then at the coarsest beginning, asking “how many metres across was the universe?” may use a structure that did not yet exist.
+If space itself is to grow out of distinguishable relations, reachability, and distance, then at the coarsest beginning, asking “how many metres across was the universe?” may be like asking for the driving distance between two places before any road relation has yet been defined.
 
 Enterprise Math is currently pursuing a **minimum-precision pregeometry** picture.
 
@@ -330,7 +423,7 @@ With more states, relations can become richer. Richer relations permit one-step 
 
 The beginning of the universe then acquires a different picture:
 
-not many things exploding outward inside a ready-made container,  
+not many things exploding outward inside a ready-made container,
 but an almost undifferentiated world acquiring more distinguishable states, more relations, and eventually a definable geometry.
 
 **Space itself becomes something the world can define, measure, and evolve.**
@@ -341,13 +434,9 @@ but an almost undifferentiated world acquiring more distinguishable states, more
 >
 > This is not a current canonical theorem and is not an externally established mechanism of the Big Bang.
 
-The hypothesis immediately faces a sharp question:
+The hypothesis immediately faces a sharp question: what does “precision opens” actually mean?
 
-What does “precision opens” actually mean?
-
-Are genuinely new states created?  
-Were hidden states already present and merely revealed?  
-Or do evolving relations themselves become capable of supporting new distinctions?
+Are genuinely new states created? Were hidden states already present and merely revealed? Or do evolving relations themselves become capable of supporting new distinctions?
 
 Those interpretations are not equivalent.
 
@@ -355,11 +444,11 @@ If increasing precision merely uncovers an already existing infinitely fine hidd
 
 So the real difficulty of the genesis program is not to produce a beautiful story. It is to explain **how new distinguishability can appear without presupposing an infinitely detailed hidden state.**
 
-That is one of the most important open questions in the program.
+That remains one of the most important open questions in the program.
 
 ---
 
-## 9. If the Bottom Is Discrete, Why Does the World Look Smooth?
+## 10. If the Bottom Is Discrete, Why Does the World Look Smooth?
 
 At this point a non-specialist should object:
 
@@ -371,36 +460,39 @@ Quite the opposite: **continuous mathematics may be powerful precisely because i
 
 A digital photograph contains finitely many pixels, yet that does not make smooth image models useless.
 
-A staircase is made of individual steps, yet when the steps are sufficiently fine relative to the scale of interest, a continuous slope may be a better description.
-
 Air consists of molecules, yet fluid mechanics does not become meaningless. The microscopic existence of molecules does not prevent a smooth velocity field from being an excellent macroscopic model.
 
-There is an important warning.
+Recent discrete-geometry work offers another useful lesson: **sharing a macroscopic law does not mean sharing the same microscopic history.**
 
-These analogies show only that discrete substrates *can be compatible* with smooth macroscopic behavior. They do not replace the theorem Enterprise Math ultimately needs.
+In one concrete family of periodic discrete packing models, the project has exact results in which different microscopic periodic patterns share the same class-level long-run growth equation and recurrence space while retaining different finite shell sequences and different phases.
 
-The program must eventually state precise conditions under which particular discrete states, relations, and scale structures produce continuous geometry, continuous dynamics, or field theories under a limit, coarse-graining process, or large-scale statistic. It must quantify error, identify breakdown regimes, and show which continuous theories cannot arise from the chosen substrate.
+Everyday life contains familiar analogues.
+
+Two companies may both grow by twenty percent over a year without following the same monthly sales curve. Two cars may have the same average speed without traveling the same route. Two people may both finish the year with the same savings without having the same sequence of income and expenses.
+
+The analogy is not the theorem. The mathematical lesson is that **macroscopic equivalence normally preserves the invariants required by a task; it does not automatically reconstruct the complete microscopic path.**
+
+That is exactly the kind of behavior one expects from a useful effective theory. A macroscopic theory does not need to record the trajectory of every molecule if it predicts the macroscopic quantities we actually ask about.
+
+But Enterprise Math must eventually do something much harder than provide analogies. It must state precise conditions under which particular discrete states, relations, and scale structures produce continuous geometry, continuous dynamics, or field theories under a limit, coarse-graining process, or large-scale statistic. It must quantify error, identify breakdown regimes, and show which continuous theories cannot arise from the chosen substrate.
 
 > **Current research direction**
 >
 > “The continuum is a macroscopic effective approximation” is an explicit foundational judgment of Enterprise Math.
 >
-> But deriving familiar continuous space, calculus, and physical fields from the present discrete substrate remains unfinished. An analogy is not an emergence theorem.
+> But deriving familiar continuous space, calculus, and physical fields from the present discrete substrate remains unfinished. Pixels, molecules, staircases, and annual growth rates are explanatory aids, not an emergence theorem.
 
 Enterprise Math therefore does not oppose calculus.
 
 It opposes promoting the continuous structure assumed by calculus into the final ontology of nature without a separate argument.
 
-If a continuous theory is simpler, more stable, and more predictive at large scales, we should use it confidently. What changes is one sentence.
+The common picture says discreteness is an approximation to a continuous world.
 
-The common picture says discreteness is an approximation to a continuous world.  
 Enterprise Math seeks to show that, at the natural foundation, **continuity may instead be an approximation to a discrete world.**
-
-If that is the direction, precision cannot increase without limit while remaining physically meaningful.
 
 ---
 
-## 10. What a Minimum Scale Would Actually Mean
+## 11. What a Minimum Scale Would Actually Mean
 
 A “discrete universe” is easily misunderstood as “space is made of known little square pixels.”
 
@@ -418,7 +510,7 @@ This is a worldview choice about nature: realizable physical distinguishability 
 
 Third, **a minimum physical resolution**.
 
-If maximum physical precision exists, spatial length may have a scale beyond which additional distinctions are not physically meaningful. But that need not be a cubic pixel or even only a length constant. A mature model may have to treat time, relation, causal reachability, and multiple types of observation together.
+If maximum physical precision exists, spatial length may have a scale beyond which additional distinctions are not physically meaningful. But that need not be a cubic pixel or even only a length constant. A mature model may have to treat time, relation, causal reachability, action legality, and multiple types of observation together.
 
 The current internal worldview of Enterprise Math chooses the **Planck regime** as the leading candidate for such a final layer.
 
@@ -432,20 +524,13 @@ But the evidence status must remain explicit:
 >
 > Enterprise Math adopts finite maximum physical precision, with a Planck-scale candidate final layer, as a world model to develop and test—not as an experimental fact.
 
-That distinction is essential.
+One recent lesson belongs here as well. Even if a highest physical precision exists, we should not assume that one universal scalar will be enough to describe it.
 
-“Physical precision does not increase without bound” is the project’s chosen direction.  
-“The exact maximum, its mathematical structure, and whether it corresponds directly to the Planck length” remain questions for theory and experiment.
-
-And if the history of the universe can be pictured as an opening from extremely low distinguishability toward higher distinguishability, one inverse question becomes almost unavoidable:
-
-Are there places where the direction reverses?
-
-That takes us toward black holes.
+Finite mathematical models already show that the detail a state must preserve can depend jointly on future operations, action enabledness, and observation tasks. A final physical precision, if it exists, may therefore have to tell us which relations and operations still make sense at that level, not merely provide one shortest length.
 
 ---
 
-## 11. Could Black Holes Point the Other Way?
+## 12. Could Black Holes Point the Other Way?
 
 In the minimum-precision genesis picture, the rough direction is:
 
@@ -463,18 +548,23 @@ The stronger and more careful Enterprise Math question is:
 
 **as a region focuses toward a causal boundary, do different present states acquire futures that become progressively harder—or eventually impossible—to distinguish?**
 
-We therefore look not only at what can be observed now, but at where the system can still go, what different signals it can still leave, and what future operations can still separate one present state from another.
+Here “future” cannot mean only one final endpoint.
+
+We must ask: which actions remain executable? Which states remain reachable? How many branches survive? Do different branches eventually produce the same observable outcome? If we retain only the set of reachable outcomes, which path information has been discarded?
+
+Recent relation and future-safety results make the black-hole question more precise than the idea of “one precision number getting smaller.”
 
 If many different current states ultimately have increasingly similar, or identical, accessible futures, then from the point of view of future distinguishability something genuinely contracts.
 
 That creates an attractive but unproved contrast with the genesis picture:
 
-origin: distinguishability opens from very little toward more;  
+origin: distinguishability opens from very little toward more.
+
 extreme causal focusing: accessible futures may contract from many toward fewer.
 
 > **An open question now being developed**
 >
-> Enterprise Math already has mathematics for discrete causal boundaries, relation/support structure, and history merging, and has used those tools to pressure-test black-hole-like models.
+> Enterprise Math already has mathematics for discrete causal boundaries, relation/support structure, partial future languages, and history merging, and has used those tools to pressure-test black-hole-like models.
 >
 > But “a real black hole is a precision-contraction machine” is not a proved conclusion. Mapping the discrete mathematics to general-relativistic black holes requires explicit physical correspondences, conservation constraints, causal conditions, and falsifiable predictions.
 
@@ -490,79 +580,106 @@ But it is a question that can be mathematized, executed in finite models, and ev
 
 ---
 
-## 12. What Do We Actually Know, and What Is Still Open?
+## 13. What Do We Actually Know, and What Is Still Open?
 
-At this point, the most dangerous move would be to mix four different meanings of “we know.”
+At this point, the most dangerous move would be to mix several different meanings of “we know.”
 
 Enterprise Math does not want to win by confusing them.
 
-### Layer One: Mathematics that has been rigorously obtained
+### Layer One: Mathematics already on the current canonical line
 
-Under the discrete primitives chosen by the project, a substantial body of mathematical structure has reached canonical `main`.
+Under the discrete primitives chosen by the project, a substantial body of mathematical structure has reached `main`. In ordinary language, the results most relevant to this worldview include:
 
-In ordinary language, the results most relevant to this worldview include:
+- discrete many-to-one operations, basins, scales, and state classifications can be analyzed exactly;
+- deterministic forward systems have rigorous history-merge, collision-multiplicity, and integer irreversibility results;
+- “same current observation” and “safe to treat as the same under a declared future” are different notions;
+- for finite deterministic partial operations, a safe coarse state must preserve both whether an action is enabled and the coarse target when it is enabled;
+- relations can be independent mathematical objects rather than automatically reduced to one scalar observation;
+- adjacency and reachability can generate genuine intrinsic distance, while directed shortest reachability and ordinary symmetric metrics now have an explicit domain boundary;
+- several concrete discrete-geometry families have exact distance, geodesic-multiplicity, shell, and periodic-growth results; distinct microscopic periods can share a macroscopic growth class without sharing the same finite history;
+- the project has a strict physical-falsification discipline: mathematical collision, merger, boundary, or compression cannot be renamed a physical arrow of time, a quantum mechanism, or a real black hole without an additional physical map.
 
-- some discrete operations genuinely send many inputs to one output, and their many-to-one structure can be analyzed exactly;
-- in deterministic forward systems, once two histories genuinely merge, a shared deterministic continuation does not split them again;
-- integer statistics can record collisions, preimage multiplicity, and the growth of irreversible structure;
-- precision levels can be organized into rigorous discrete scale structures with meaningful common coarsenings and refinements;
-- “same current observation” and “safe to treat as the same under all declared future actions” are different concepts; future safety requires extra structure;
-- relation itself can be a mathematical object and cannot always be compressed into one observed scalar;
-- adjacency and reachability alone can define a genuine intrinsic distance without embedding the objects into continuous Euclidean space first;
-- several concrete discrete geometry families now support stronger exact results about distance, shells, growth, and periodic structure;
-- the project has made a strict boundary rule for physics: mathematical collisions, merges, and horizon-like structures cannot be renamed as real materials, a physical arrow of time, or real black holes without an additional physical map.
+These results do not all carry the same proof label. Some have Lean coverage, some are ordinary proofs with executable checks, and some are canonical executable specializations. Exact status remains controlled by the authoritative status index and shared research surface.
 
-Some of these results are paper proofs, some also have executable implementations, and some have Lean-checked formal components. Together they establish something more substantial than a philosophical slogan:
+Together they establish something more substantial than a philosophical slogan:
 
-**finite, discrete, forward, precision-bearing foundations can already generate nontrivial mathematics of their own.**
+**finite, discrete, forward, precision-bearing foundations with an explicit future language can already generate nontrivial mathematics of their own.**
 
-### Layer Two: Executable evidence, mechanical checks, and finite models that are not universal proofs
+### Layer Two: Ordinary proofs and executable evidence that remain under active pressure testing
 
-A large part of the project lives here.
+The most important recent lines here are safe operations and relation observations.
 
-Examples include exhaustive tests inside specific precision models; computation of future-safe classes in finite relation systems; exact checks for selected discrete geometry families; finite pressure tests of candidate causal boundaries, collision models, and world-state updates; and formalization of stable theorem cores in Lean.
+Safe-operation research asks: once a coarse quotient has been chosen, which operations of the original world can still run without ambiguity on the coarse state? Current results show that a restricted operation language may reveal only a coarse periodic capacity, while a complete family of safe operations can encode much more about the underlying partition. Ordinary addition, multiplication, or nonlinear maps can be extremely rigid in some coarse worlds and may force the recovery of fine detail.
 
-These are valuable because they expose counterexamples, force definitions to contract, and tell us which direction deserves further work.
+Relation-observation research asks: if a multivalued future cares only about “which observed outcomes are reachable,” what is the minimum source information needed? Exact set-valued compression is possible, but it does not automatically preserve how many paths exist, which branch was taken, or what happened along the way.
 
-But one million successful examples do not prove a statement for all cases.
+These directions matter because they are moving “precision” from a ruler concept toward a **runnable future interface**.
 
-And a theorem checked by Lean under one exact formal definition does not prove that the physical universe uses that definition.
+Their status must nevertheless be stated accurately. Relevant parts are executable-checked, proved-WIP, or prior-art bridges; not every theorem in those research documents is a Lean-checked canonical theorem.
 
-Executable evidence deserves respect—and strict limits on what it is said to establish.
+### Layer Three: A new resource view—store more rules or perform more steps
 
-### Layer Three: The worldview and research axioms Enterprise Math actively chooses
+A further line is emerging that is best presented as a research direction rather than as a theorem about the universe.
+
+Suppose you need to store a transportation system.
+
+One option is to write down the answer to “is every pair of cities connected?” for every possible pair. The table becomes large, but one lookup gives an answer.
+
+Another option is to store only adjacent roads. The table is much smaller, but reaching a distant conclusion requires chaining many local steps.
+
+The two representations may encode the same eventual reachability law while using different resources:
+
+**more storage for shallower execution; less storage for deeper derivation.**
+
+A calculator gives another example. It can have a dedicated “multiply by 12” button, or it can keep a smaller primitive instruction set and compile multiplication by 12 into several basic operations. Fewer buttons mean more execution steps.
+
+Current relation-law and primitive-instruction research is turning this intuition into a sharper storage / execution-depth Pareto question: should a future capability be stored directly as many rules, or generated by composition from fewer primitives?
+
+> **Current research direction**
+>
+> The storage–derivation-depth–primitive-compilation axis already has informative chain models and arithmetic specializations, but it should not be presented as a completed universal theorem and certainly not as proof that the physical universe “computes” in one particular way.
+
+It nevertheless adds an important possibility to the worldview. Natural simplicity may not mean “fewest states” or “fewest rules.” A small primitive language can generate a very rich future at the cost of longer composition histories.
+
+### Layer Four: The worldview and research axioms Enterprise Math actively chooses
 
 Here the project does not pretend to be neutral.
 
 Enterprise Math chooses to push the following judgments as far as they will go:
 
 - natural states should not be assumed to contain infinite information;
-- precision and resolution may belong to the state itself;
-- discreteness, integers, and relation may be primitive rather than low-resolution versions of continuous quantities;
+- precision and resolution may belong to state, but precision need not ultimately be one scalar;
+- discreteness, integers, relations, and finite future languages may be more primitive than continuous completion;
 - many-to-one merging and information loss may be genuine state change;
+- what a state “is” may include which next actions are legal;
 - the direction of time is worth studying from forward evolution itself;
 - geometry is worth reconstructing from relation and reachability;
 - continuous mathematics should seek derivation as macroscopic emergence or effective approximation rather than receive automatic ontological privilege;
 - finite maximum physical precision, with a candidate final layer near the Planck regime, is a world model the project chooses to test;
 - the early universe may be explored as minimum-precision pregeometry;
-- the quantum-classical interface may be explored through relation, environment, history, and future distinguishability;
+- the quantum-classical interface may be explored through relation, environment, history, operational capability, and future distinguishability;
 - extreme causal regions may be explored as candidates for contraction of future distinguishability.
 
 These are not facts nature has already certified.
 
 They are the project’s chosen foundation and research direction.
 
-A research program is allowed to have a position. Without one, it cannot seriously investigate what follows from choosing a different foundation.
-
-### Layer Four: Questions that physical experiment and observation must decide
+### Layer Five: Questions that physical experiment and observation must decide
 
 The most important questions cannot be settled by mathematics congratulating itself.
 
-Does nature really have finite maximum precision?  
-Does the Planck regime play the role Enterprise Math hopes it might?  
-Can future distinguishability generate new quantitative predictions for the quantum-classical transition?  
-Can minimum-precision pregeometry reproduce cosmological observations while making distinguishable predictions?  
-Do black holes or other extreme causal regions display measurable contraction of accessible future distinctions?  
+Does nature really have finite maximum precision?
+
+Does the Planck regime play the role Enterprise Math hopes it might?
+
+What defines the genuinely available operation language in physical reality?
+
+Can future distinguishability generate new quantitative predictions for the quantum-classical transition?
+
+Can minimum-precision pregeometry reproduce cosmological observations while making distinguishable predictions?
+
+Do black holes or other extreme causal regions display measurable contraction of accessible future distinctions?
+
 Can continuous spacetime and successful physical field equations emerge from the discrete substrate with the required accuracy?
 
 These questions must eventually acquire answers that experiments can kill.
@@ -573,23 +690,25 @@ That is the central evidence discipline of Enterprise Math:
 
 **The direction may be radical. The evidence must be ruthless.**
 
-The project permits itself to choose a different foundation. It does not permit itself to promote every attractive analogy into a fact merely because that foundation is appealing.
-
 ---
 
-## 13. The Whole Picture, One More Time
+## 14. The Whole Picture, One More Time
 
 We can now compress the Enterprise Math worldview into one continuous narrative without using a formula.
 
-A “number” in nature need not be a naked value located on an infinitely precise real line. A state may carry value, resolution, and relational context together.
+A “number” in nature need not be a naked value located on an infinitely precise real line. A state may carry value, resolution, relational context, and the information that matters to future action.
 
 Precision is not necessarily an apology written after a measurement. It may help determine which differences are genuinely distinguishable at the current level.
+
+Recent work pushes the idea further: **the future can shape the information requirements of the present.** If a later action will be attempted, the present must retain enough information to know whether the action is legal and what coarse result it produces. Once a quotient has been made, the coarse world does not inherit every fine-world operation automatically; only operations that respect the collapse remain unambiguous.
 
 If the substrate contains only finitely distinguishable states, discreteness is no longer a rough sampling of an underlying continuum. Continuous structure must instead explain how it becomes a stable macroscopic approximation to large collections of discrete changes.
 
 In such a substrate, many-to-one evolution can be real. Different histories can merge, and once they genuinely merge, a common deterministic future does not automatically restore them as different histories. Irreversibility can therefore first be a mathematical property of state evolution and only then face physical interpretation.
 
-Space does not have to exist first as an empty container. Relations among states can come first; relations generate reachability; reachability generates distance; sufficiently rich distance and local structure can then support geometry.
+Space does not have to exist first as an empty container. Relations among states can come first; relations generate reachability; suitable symmetric reachability generates distance; sufficiently rich distance and local structure can then support geometry. Directional relations remain meaningful, but they do not become ordinary metrics without the required hypotheses.
+
+The same macroscopic future can also have different microscopic realizations. If the task asks only “where can I get?”, path multiplicity can be discarded. If the task asks only for long-run growth, some finite phase information can disappear. If we store only adjacent relations, we can reduce rule storage while increasing the number of derivation steps. **Information is not important by an absolute label; its importance is tied to the future questions the system must still answer.**
 
 Quantum and classical behavior may therefore resist a hard cut based on a ruler marked “size.” The more important question may be whether a difference, after interacting with environment, history, and future operations, can still be distinguished by the world.
 
@@ -607,27 +726,27 @@ That is the central claim:
 
 > **Enterprise Math does not want to abolish continuous mathematics. It wants to move continuity from nature’s assumed foundation to the macroscopic approximation layer that must emerge from a finite, discrete, precision-bearing world.**
 
-If the program fails, it should be possible to identify where: perhaps the algebra is too weak, geometry does not emerge, the continuous limit is wrong, the physical map fails, or experiment directly rejects the predictions.
+If the program fails, it should be possible to identify where: perhaps the algebra is too weak, the future language cannot close, geometry does not emerge, the continuous limit is wrong, the physical map fails, or experiment directly rejects the predictions.
 
 If it succeeds, the change will concern more than one equation.
 
 We would have a different picture of nature:
 
-not a pre-existing infinitely precise continuous stage,  
-but a world in which structure grows out of distinguishable states, relations, precision, and forward evolution.
+not a pre-existing infinitely precise continuous stage,
+but a world in which structure grows out of distinguishable states, relations, allowed operations, precision, and forward evolution.
 
 ---
 
-## Twelve Terms in Plain Language
+## Fifteen Terms in Plain Language
 
 **Precision**  
-Not merely “how inaccurate was this measurement?” but how finely the state itself supports meaningful distinctions. Enterprise Math treats precision as a candidate component of natural state.
+Not merely “how inaccurate was this measurement?” but how finely the state supports meaningful distinctions. Recent work adds that the required precision can depend on future tasks and allowed operations.
 
 **Resolution**  
 The scale at which two states can count as different. Finer resolution normally supports more distinctions.
 
 **Discrete**  
-A structure in which we do not assume infinitely many intermediate states between every pair, and in which countable, finite, or minimally distinguishable levels can be primitive.
+A structure in which we do not assume infinitely many intermediate states between every pair, and in which finite, countable, or minimally distinguishable levels can be primitive.
 
 **Continuous**  
 A mathematical structure supporting arbitrarily fine subdivision and smooth change. Enterprise Math does not reject it; it asks continuous descriptions of nature to establish their domain as emergence or effective approximation.
@@ -645,7 +764,16 @@ A forward step may be uniquely executable while its output does not uniquely det
 Whether two states can generate different signals through current or allowed future operations. It is stronger than “do they give the same reading right now?”
 
 **Future-safe**  
-A coarse description is not only adequate now but remains adequate under the declared future actions and observations relevant to the task.
+A coarse description remains adequate under the declared future actions and observations relevant to the task. When actions can be disabled, future safety must preserve their legality as well.
+
+**Action language**  
+The set of future operations the system is allowed to execute, together with how they may be composed. Different action languages generate different reachability and may demand different precision.
+
+**Enabledness / action legality**  
+Whether an action can actually be executed in the current state. Access permissions, frozen accounts, and one-way roads are everyday analogies: ability itself can be state information.
+
+**Safe-operation spectrum**  
+The operations that remain unambiguous after a coarse quotient has been made. It is not another name for precision; it describes which operational abilities survive in the coarse world.
 
 **Intrinsic geometry**  
 Distance and geometry defined from internal adjacency, relation, and reachable paths rather than measured only after embedding the system into an external continuous coordinate space.
@@ -654,13 +782,13 @@ Distance and geometry defined from internal adjacency, relation, and reachable p
 A more primitive state-and-relation layer in which familiar distance, direction, dimension, and space have not yet emerged. Enterprise Math discusses its minimum-precision universe at this candidate level.
 
 **Effective approximation**  
-A simpler macroscopic model that ignores some lower-level detail while still predicting the phenomena of interest accurately. Enterprise Math aims to place continuous mathematics in this powerful, controlled layer.
+A simpler macroscopic model that ignores lower-level detail while still predicting the phenomena relevant to a chosen task. Enterprise Math aims to place continuous mathematics in this powerful, controlled layer.
 
 ---
 
 ## Want to Go Deeper?
 
-This essay deliberately avoids requiring formulas. To inspect the strict status behind each layer, continue with these canonical entry points:
+This essay deliberately avoids requiring formulas. To inspect the strict status behind each layer, continue with these entry points:
 
 - [Shared research surface](RESEARCH_COMMON_SURFACE.en.md): the reusable mathematical skeleton and evidence tags currently shared across research programs.
 - [Authoritative problem-status index](PROBLEM_STATUS.en.md): which programs are solved and which remain open.
@@ -671,14 +799,19 @@ This essay deliberately avoids requiring formulas. To inspect the strict status 
 - [Physical falsification contract](P016_PHYSICAL_FALSIFICATION_CONTRACT.en.md): why a mathematical structure cannot be renamed as a physical fact without an explicit physical map.
 - [Precision state core](P018_PRECISION_STATE_CORE.en.md): the current core for precision, state pairs, and path disagreement.
 - [Composition-safe collapse](P023_COMPOSITION_SAFE_COLLAPSE.en.md): why current observational equality, future safety, and operational compatibility are different.
+- [Legality-sensitive partial-operation quotient](P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.en.md): why the fact that an action is enabled or disabled must itself be retained by a future-safe state.
+- [Action-language precision](P024_ACTION_LANGUAGE_PRECISION.en.md): how actually reachable future actions pull boundaries back into the present and why a gcd need not be the minimal predictive precision.
+- [Safe-operation algebra](A2_SAFE_OPERATION_ALGEBRA.en.md) and its [polynomial-operation supplement](A2_SAFE_OPERATION_ALGEBRA_SUPPLEMENT_01.en.md): recent proved-WIP / executable-checked research on which natural operations survive a quotient. Read them under their own status labels rather than treating the entire line as a Lean-checked canonical theorem.
 - [Project README](../README.md): manifesto, research architecture, and contribution entry points.
 
 For an external physics pressure test, see Sebastian Pedalino et al., *Probing quantum mechanics with nanoparticle matter-wave interferometry*, **Nature 649** (2026), 866–870, DOI: 10.1038/s41586-025-09917-9. The experiment supports the limited conclusion that mass or size alone does not provide a simple quantum-classical boundary. It is not evidence validating an Enterprise Math physical model.
 
 ---
 
-If you remember only two sentences, remember these:
+If you remember only three sentences, remember these:
 
 **The continuum is a magnificent approximation, but it need not be assumed as nature’s substrate.**
+
+**What may be forgotten today depends on what must still be done tomorrow.**
 
 **The direction may be radical. The evidence must be ruthless.**

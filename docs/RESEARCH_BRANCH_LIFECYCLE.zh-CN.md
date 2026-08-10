@@ -1,8 +1,10 @@
 # Enterprise Math 研究分支生命周期 v2
 
-状态：`PROPOSED / EXECUTABLE MIGRATION CONTRACT`  
-生效候选：2026-08-09  
-基线：`main@fbd95bc3d119c2429d3e83825b5cd44cd044e501`
+状态：`ACTIVE / CANONICAL GIT LIFECYCLE CONTRACT`  
+生效：2026-08-09  
+稳定化：2026-08-10
+
+本文件定义稳定的 L0–L5 生命周期。它**不是**实时 branch inventory，也不是 executor assignment surface。只有在当前动作确实需要 dispatch state 时，live executor/frontier assignment 才由 canonical scheduling surface 提供；历史 branch ledger 与迁移分类只保留 snapshot/provenance 语义。
 
 ## 1. 目的
 
@@ -12,9 +14,11 @@ Enterprise Math 已经进入多研究员、多路线并行阶段。长期数学�
 
 > **数学的长期权威来自 `main` 与明确 theorem owner；Git branch 只是研究层级之间的短生命周期工作指针。**
 
-发现历史由 commit/PR/tag 保存，不要求旧 branch 永久保持“活跃”。
+发现历史由 commit/PR/tag/lineage 保存，不要求旧 branch 永久保持“活跃”。
 
 本文件补充 `RESEARCH_ARCHITECTURE` 的 A0–A5 数学归属轴，增加独立的 Git 生命周期轴。两条轴不可混用：一个数学对象属于 A2/A3/A4，不意味着它必须永远住在某一条历史 branch 上。
+
+后来的窄域 canonical contract 分别控制自己的领域：`RESEARCH_OWNER_ISOLATION.*` 控制 owner/main 同步，`RESEARCH_SCHEDULING_PROTOCOL.*` 控制 live dispatch 解释，`GITHUB_INTERACTION_BUDGET.md` 控制 remote-liveness。任何 lifecycle classification 本身都不会产生 research wait state。
 
 ---
 
@@ -67,10 +71,7 @@ Enterprise Math 已经进入多研究员、多路线并行阶段。长期数学�
 - `engineering/e001-material`；
 - `engineering/e002-control`（仅在有活跃工作时存在）。
 
-规则：
-
-- Program 可以发现母定理，但必须 relay 到 L1，并在 owner 建立后只消费一般版本。
-- Program 只拥有领域特化陈述，不把一般数学永久锁在应用 branch 中。
+Program 可以发现母定理，但必须 relay 到 L1，并在 owner 建立后只消费一般版本。
 
 ### L3 — Bridge / Probe
 
@@ -81,12 +82,7 @@ Enterprise Math 已经进入多研究员、多路线并行阶段。长期数学�
 - `bridge/a3-a4-*`；
 - `bridge/e001-e002-contact-*`。
 
-Bridge 必须薄：
-
-- 可以拥有“何时 factor / specialize / reconstruct / fail”的桥梁定理；
-- 不得逐渐吸收任一端 owner 的整个 theorem family；
-- 一旦一个 bridge result 变成独立可复用母定理，应上移到 L1；
-- bridge 完成或失败后进入 L5，不成为长期 owner。
+Bridge 必须薄：可以拥有“何时 factor / specialize / reconstruct / fail”的桥梁定理，但不得成为任一端的第二 owner。一旦 bridge result 成为独立可复用母定理，应上移到 L1。bridge 完成或失败后进入 L5。
 
 ### L4 — Integration Replay
 
@@ -110,6 +106,8 @@ Bridge 必须薄：
 > **L4 验证期间 `main` 的无关推进，不会自动产生新的 replay generation。**
 
 若 replay 过程中发现新定理，立即回到对应 L1/L2/L3 owner 证明；integration 只消费稳定结果。若验证过程中 `main` 继续推进，保持冻结的 source-result identity，只检查真实 intervening delta；若出现真实语义/文件重叠，就在同一条 L4 线里协调；merge 前执行一次 final current-main combination gate。只有真实 semantic conflict、file conflict 或最终门禁失败时才需要重做 replay。
+
+Reconciliation 本身服从 `AGENTS.md` / `GITHUB_INTERACTION_BUDGET.md` 的有界 liveness 规则；L4 不轮询，也不反复追逐 moving `main`。
 
 merge 后 integration branch 删除，PR 保留历史。
 
@@ -135,7 +133,7 @@ L5 不再接收新研究提交。
 
 ## 3. 状态分类
 
-每条非 `main` branch 必须落在以下一个状态：
+只有在 lifecycle/promotion/cleanup 的当前动作确实需要处理某条非 `main` branch 时，才要求它落入以下一个状态：
 
 ### `ACTIVE_OWNER`
 
@@ -160,6 +158,8 @@ L5 不再接收新研究提交。
 - PR 已大到无法作为可审计的单一研究增量；
 - branch 出现 canonical numbering/file-path collision。
 
+这些只属于 cleanup/promotion audit 触发器。禁止为了开始或继续 L1/L2/L3 研究而计算 divergence。
+
 ### `ABSORBED`
 
 定义为：**当前 branch 已不存在 main 缺失的独有语义资产。**
@@ -178,6 +178,15 @@ L5 不再接收新研究提交。
 ### `PROVENANCE`
 
 明确冻结的历史 branch/checkpoint，不参与当前研究调度。
+
+### Live-state authority
+
+Lifecycle classification 不等于 executor assignment。
+
+- live executor/frontier state 只在当前动作需要 dispatch 信息时，由 `RESEARCH_SCHEDULING_PROTOCOL.*` 加当前 owner registry/scheduler/runtime events 提供；
+- 历史 branch ledger 与 migration manifest 只属于 evidence/provenance snapshot，不是 live assignment authority；
+- 旧 branch classification 不会因为 branch name、problem number 或 theorem family 相近，就冻结新的 owner generation；
+- explicit user-selected research 启动前不需要全仓库 branch census。
 
 ---
 
@@ -220,6 +229,8 @@ L5 不再接收新研究提交。
 
 `REPLAY_REQUIRED` 可以产生一条新的可写 owner 继续研究，也可以在 promotion 时建立一次性 L4 integration；但**禁止通过反复 wholesale merge 把旧大树重新变成 current owner**。
 
+这条 flow 描述 artifact lifecycle，不是串行 research dependency chain。current L1/L2/L3 owner 的研究仍按 scheduling contract 并行推进。
+
 ---
 
 ## 6. ahead/behind 是治理信号，不是语义真理
@@ -230,43 +241,17 @@ L5 不再接收新研究提交。
 - `ahead>0, behind>=50`：若确有独有数学，默认把历史树归入 `REPLAY_REQUIRED`。
 - `ahead>100` 或 changed files 跨多个 theorem homes：优先 semantic distillation，不再扩大原 PR。
 
-这些阈值只是 Git 治理触发器，不评价数学质量。
+这些数字只是某次具体 cleanup/promotion audit 的 Git 治理启发式，不是数学质量判断、scheduler state、startup check，也不是追逐 moving `main` 的理由。禁止为了让这些数字“保持最新”而做 routine divergence scan。
 
 ---
 
-## 7. 当前大树的直接处置原则
+## 7. 迁移期分类只保留 provenance
 
-### P018 `agent/p018-critical-grid`
+2026-08-09 的 Architecture-v2 migration 曾把这套 lifecycle 应用于当时若干大树，并记录具体的 `REPLAY_REQUIRED`、`ABSORBED` 和 owner-routing 决策。
 
-属于 `REPLAY_REQUIRED`。
+这些历史决定继续可从 Git history、historical PR、branch ledger、migration manifest 与 stall-audit 记录恢复。本稳定规范不再硬编码 branch name 和一次性处置结论，因为那会把历史事实变成过期的 live routing。
 
-原因：已形成跨 pair/kernel、coalescence、context closure、operation congruence、transport/reusable-interface、quotient-basin 等多层的长树；并与 main 长期双向分叉。
-
-下一 owner：
-
-- 一般 future-compatible quotient 母定理 → A2/P023 owner；
-- precision-specific state/kernel/context/transport → `program/p018-precision-v2`；
-- square-basin/factor/proof specializations → P018 application supplements。
-
-旧 #68 冻结为 provenance，禁止继续追加 Supplement。
-
-### A3 `research/core/relation-quotient`
-
-属于 `REPLAY_REQUIRED`。
-
-新 owner：`core/a3-relation-state-v2`。
-
-只 replay structured relation-state / partition quotient / kernel / guard-image 等 A3 内容；geometry、A4 correspondence、causal application 分流。
-
-### A3/A4 `research/core/relation-support-bridge`
-
-属于 `REPLAY_REQUIRED`。
-
-新 bridge：`bridge/a3-a4-v2`，只 replay 真正 bridge theorem；semantic shadows/equitability/witness algebra 若是一般结果必须归明确 L1 owner。
-
-### E002 v2 历史分支
-
-大多数已机械 `ahead=0`。`task-observable-v2` 虽仍显示 ahead commits，但文档/implementation/tests 已验证为与 main 同 blob，属于**语义吸收**而非 replay 候选。整个旧 E002 v2 generation 应降为 `ABSORBED/PROVENANCE`。
+如果当前动作确实需要消费某棵历史树，应先恢复它的 provenance，再根据第 3–6 节和后来的 owner-isolation/scheduling/liveness contract 分类**当前具体对象**。禁止从迁移期示例推断今天的 owner/frontier state。
 
 ---
 
@@ -302,17 +287,18 @@ L5 不再接收新研究提交。
 
 ## 10. 目标活动面
 
-长期可写 branch 目标控制在约 8–12 条，而不是让每个阶段留下永久 ref。
+长期可写 surface 应保持有意的小而清晰；迁移期“约 8–12 条 branch”的目标只是**压实启发式**，不是硬不变量、dispatch condition 或 cleanup gate。
 
-建议稳定活动集合：
+典型 home 可以包括：
 
-- A2 / A3 / A4 三个 core owner；
-- P017 / P018 / P021 / P022 四个 program owner；
-- E001 collision / material；
-- 有工作时的 E002；
-- 0–2 条 bridge。
+- A2/A3/A4 等 core owner；
+- P017/P018/P021/P022 等 active program owner；
+- E001/E002 等 active engineering owner；
+- 少量边界明确的 bridge。
 
 Integration/agent branch 不计入长期活动面，完成后退出。
+
+禁止为了达到 branch-count target 而执行 remote branch census、删除仍有效的 owner，或阻塞研究。
 
 ---
 

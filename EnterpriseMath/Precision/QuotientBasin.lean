@@ -1,4 +1,5 @@
 import EnterpriseMath.Arithmetic.IntegerRoot
+import EnterpriseMath.Precision.QuotientRootFiber
 import Mathlib.Tactic
 
 namespace EnterpriseMath.Precision

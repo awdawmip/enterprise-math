@@ -1,8 +1,10 @@
 # Enterprise Math Research Branch Lifecycle v2
 
-Status: `PROPOSED / EXECUTABLE MIGRATION CONTRACT`  
-Candidate effective date: 2026-08-09  
-Baseline: `main@fbd95bc3d119c2429d3e83825b5cd44cd044e501`
+Status: `ACTIVE / CANONICAL GIT LIFECYCLE CONTRACT`  
+Effective: 2026-08-09  
+Stabilized: 2026-08-10
+
+This document defines the stable L0–L5 lifecycle. It is **not** a live branch inventory or executor-assignment surface. Current executor/frontier assignment belongs to the canonical scheduling surfaces when dispatch state is actually needed; historical branch ledgers and migration classifications remain snapshots/provenance only.
 
 ## 1. Purpose
 
@@ -15,6 +17,8 @@ Core rule:
 Discovery provenance is retained by commits, PRs, tags, and lineage records. A historical branch does not need to remain active forever.
 
 This document complements the A0–A5 mathematical ownership axis in `RESEARCH_ARCHITECTURE` with an independent Git-lifecycle axis.
+
+Later narrow canonical contracts govern their own domains: `RESEARCH_OWNER_ISOLATION.*` controls owner/main synchronization, `RESEARCH_SCHEDULING_PROTOCOL.*` controls live dispatch interpretation, and `GITHUB_INTERACTION_BUDGET.md` controls remote-liveness. No lifecycle classification creates a research wait state by itself.
 
 ---
 
@@ -103,6 +107,8 @@ Hard rules:
 
 If replay exposes a new theorem, return to the appropriate L1/L2/L3 owner first. If `main` advances while validation is running, keep the frozen source-result identity, inspect only the actual intervening delta, reconcile a real semantic/file overlap in the same L4 line, and perform one final current-main combination gate before merge. Rebuild/replay only when there is a genuine semantic conflict, file conflict, or failed final gate.
 
+Reconciliation itself is governed by the bounded liveness rules in `AGENTS.md` / `GITHUB_INTERACTION_BUDGET.md`; L4 does not poll or repeatedly chase moving `main`.
+
 Delete the integration branch after merge; keep the PR as history.
 
 ### L5 — Provenance / Archive
@@ -123,7 +129,7 @@ Prefer immutable tags over new `checkpoint/*` branches. Once an `agent/*` branch
 
 ## 3. Required branch states
 
-Every non-main branch must be classified as exactly one of:
+Every non-main branch that is being acted on for lifecycle/promotion/cleanup purposes must be classified as exactly one of:
 
 ### `ACTIVE_OWNER`
 
@@ -148,6 +154,8 @@ Default triggers include:
 - a PR too large to represent one auditable research increment;
 - canonical numbering or path collisions.
 
+These are cleanup/promotion audit triggers only. Do not calculate divergence merely to start or continue L1/L2/L3 research.
+
 ### `ABSORBED`
 
 Definition: **the branch contains no semantic asset still missing from main.**
@@ -166,6 +174,15 @@ Action: close/annotate the PR, retain a tag if useful, then remove the branch re
 ### `PROVENANCE`
 
 Explicitly frozen historical branch/checkpoint; not scheduled for new research.
+
+### Live-state authority
+
+Lifecycle classification is not executor assignment.
+
+- live executor/frontier state comes from `RESEARCH_SCHEDULING_PROTOCOL.*` plus the current owner registry/scheduler/runtime events when the current action needs dispatch information;
+- historical branch ledgers and migration manifests are evidence/provenance snapshots, not live assignment authority;
+- an old branch classification never freezes a newer owner generation merely because the branch name, problem number, or theorem family is related;
+- no repository-wide branch census is required before starting explicit user-selected research.
 
 ---
 
@@ -208,6 +225,8 @@ Recommended state flow:
 
 `REPLAY_REQUIRED` may spawn a clean writable owner for continuing research and a one-shot L4 integration for promotion, but a historical large tree must not be made current again through repeated wholesale merges.
 
+The flow describes artifact lifecycle, not a serial research dependency chain. Research on current L1/L2/L3 owners remains parallel under the scheduling contract.
+
 ---
 
 ## 6. Git divergence is a governance signal, not semantic truth
@@ -218,41 +237,17 @@ Recommended state flow:
 - `ahead>0, behind>=50`: if unique mathematics remains, default the historical tree to `REPLAY_REQUIRED`.
 - `ahead>100` or changes span multiple theorem homes: distill semantically; stop expanding the old PR.
 
-These are Git-governance triggers, not mathematical-quality judgments.
+These are Git-governance heuristics for a concrete cleanup/promotion audit, not mathematical-quality judgments, scheduler states, startup checks, or reasons to chase moving `main`. Do not perform routine divergence scans solely to keep these numbers current.
 
 ---
 
-## 7. Immediate classification of major current trees
+## 7. Migration-era classification provenance
 
-### P018 `agent/p018-critical-grid`
+The 2026-08-09 Architecture-v2 migration applied this lifecycle to several then-current large trees and recorded specific `REPLAY_REQUIRED`, `ABSORBED`, and owner-routing decisions.
 
-`REPLAY_REQUIRED`.
+Those decisions remain recoverable from Git history, historical PRs, branch ledgers, migration manifests, and stall-audit records. They are intentionally omitted from this stable contract because embedding branch names and one-time dispositions here turns historical facts into stale live routing.
 
-The tree spans pair/kernel, coalescence, contextual closure, operation congruence, transport/reusable-interface, and quotient-basin work and has diverged strongly from main.
-
-Next ownership:
-
-- general future-compatible quotient mother theorems → A2/P023 owner;
-- precision-specific state/kernel/context/transport → `program/p018-precision-v2`;
-- square-basin/factor/proof specializations → P018 application layer.
-
-Freeze PR #68 as provenance; do not append further Supplements to the historical tree.
-
-### A3 `research/core/relation-quotient`
-
-`REPLAY_REQUIRED`.
-
-Next owner: `core/a3-relation-state-v2`. Replay only structured relation-state / partition quotient / kernel / guard-image mathematics. Geometry, A4 correspondence, and causal applications must be routed elsewhere.
-
-### A3/A4 `research/core/relation-support-bridge`
-
-`REPLAY_REQUIRED`.
-
-Next bridge: `bridge/a3-a4-v2`, containing only true bridge theorems. Semantic-shadow/equitability/witness algebra that is independently reusable must belong to a named L1 owner instead.
-
-### E002 v2 historical branches
-
-Most are mechanically `ahead=0`. `task-observable-v2` still shows ahead commits, but its document/implementation/tests were verified as the same blobs already on main, so it is **semantically absorbed** rather than a replay candidate. The old E002 v2 generation should therefore move to `ABSORBED/PROVENANCE`.
+A current action that needs one of those historical trees should recover its provenance and then classify the **current concrete object** under Sections 3–6 and the later owner-isolation/scheduling/liveness contracts. Do not infer today's owner/frontier state from a migration-era example.
 
 ---
 
@@ -288,15 +283,18 @@ Do not create new `checkpoint/*` branches; use immutable annotated tags.
 
 ## 10. Target active surface
 
-The long-lived writable set should stay near 8–12 branches:
+The long-lived writable set should remain intentionally small; the migration-era target near 8–12 branches is a **compression heuristic**, not a hard invariant, dispatch condition, or cleanup gate.
 
-- three core owners A2/A3/A4;
-- four program owners P017/P018/P021/P022;
-- E001 collision/material;
-- E002 while active;
-- zero to two bridges.
+Typical homes may include:
+
+- core owners such as A2/A3/A4;
+- active program owners such as P017/P018/P021/P022;
+- active engineering owners such as E001/E002;
+- a small number of genuinely bounded bridges.
 
 Integration and agent branches do not count toward the long-lived surface and must exit after completion.
+
+Do not run a remote branch census, delete valid owners, or block research merely to hit a branch-count target.
 
 ---
 

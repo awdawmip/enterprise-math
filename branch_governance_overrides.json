@@ -15,7 +15,7 @@
     },
     "research/core/relation-support-bridge": {
       "state": "REPLAY_REQUIRED",
-      "reason": "Historical A3/A4 bridge accumulated independent theorem families; B01-B06 has been promoted through the thin v3 bridge, while remaining B07-B58 results must be rehomed by owner.",
+      "reason": "Historical A3/A4 bridge accumulated independent theorem homes; B01-B06 has been promoted through the thin v3 bridge, while remaining B07-B58 results must be rehomed by owner.",
       "allowed_paths": [],
       "allowed_prefixes": []
     },
@@ -119,6 +119,19 @@
       "reason": "P025 L2 abc pressure-test owner created after the 11-route #215 snapshot; owns radical-support collapse, relation-conditioned witness precision, P025 prior-art and exact program regressions while generic correspondence/quotient mother theory remains upstream-owned.",
       "allowed_paths": ["bilingual_pairs.json", "lineage_p025_abc.json", "sources_p025_abc.json"],
       "allowed_prefixes": ["docs/P025_", "docs/PRIOR_ART_P025_", "src/enterprise_math/abc_", "tests/test_abc_", "experiments/p025_"]
+    },
+    "research/r004-causal-identifiability-v1": {
+      "state": "ACTIVE_OWNER",
+      "reason": "Clean R004 causal/generative-identifiability owner opened for FQ-20260810-007. It owns only R004-local causal-identifiability definitions, exact finite obstruction/falsifier tooling, and provenance. It consumes A1/A2/A4 and external causal/Bell prior art without re-owning broad precision_* paths or shared mother theory.",
+      "allowed_paths": ["owner_manifest_r004_causal_identifiability.json"],
+      "allowed_prefixes": [
+        "docs/R004_CAUSAL_IDENTIFIABILITY_",
+        "src/enterprise_math/r004_causal_identifiability",
+        "tests/test_r004_causal_identifiability",
+        "experiments/r004_causal_identifiability",
+        "lineage_r004_causal_identifiability",
+        "sources_r004_causal_identifiability"
+      ]
     },
     "engineering/e001-material-impulse-world": {
       "state": "PROVENANCE",
