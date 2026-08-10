@@ -1,4 +1,4 @@
-import EnterpriseMath.Quotient.RootQuotientPrimeBasis
+import EnterpriseMath.Quotient.RootQuotientCapacity
 import Mathlib.Tactic
 
 namespace EnterpriseMath.Quotient
@@ -110,5 +110,110 @@ theorem exists_powerFree_boundary_at_rootQuotientPrimeHorizon
       _ = rootQuotientPrimeFactorCount b := by
         simp [f, hRequired]
   exact hHorizonEq.symm
+
+/-- Enlarging the state bound by one can increase the exact prime-only horizon
+by at most one.
+
+If the new boundary carries `m` prime-factor tokens, removing one prime factor
+produces a smaller divisor with rank `m-1`; divisor closure keeps that boundary
+inside the semantic power-free set. -/
+theorem rootQuotientPrimeHorizon_succ_le
+    (r N : ℕ) :
+    rootQuotientPrimeHorizon r (N + 1) ≤
+      rootQuotientPrimeHorizon r N + 1 := by
+  apply (rootQuotientPrimeHorizon_le_iff
+    (r := r) (N := N + 1)
+    (h := rootQuotientPrimeHorizon r N + 1)).2
+  intro b hbPos hbNsucc hbFree
+  by_cases hbN : b ≤ N
+  · have hOldBound :=
+      (rootQuotientPrimeHorizon_le_iff
+        (r := r) (N := N) (h := rootQuotientPrimeHorizon r N)).1 le_rfl
+    exact (hOldBound b hbPos hbN hbFree).trans (Nat.le_succ _)
+  · have hbEq : b = N + 1 := by omega
+    subst b
+    by_cases hOne : N + 1 = 1
+    · have hZero : rootQuotientPrimeFactorCount (N + 1) = 0 := by
+        simp [hOne, rootQuotientPrimeFactorCount]
+      omega
+    · obtain ⟨p, hpPrime, hpDvd⟩ := Nat.exists_prime_and_dvd hOne
+      rcases hpDvd with ⟨c, hEq⟩
+      have hcPos : 1 ≤ c := by
+        by_contra hNot
+        have hcZero : c = 0 := by omega
+        subst c
+        simp at hEq
+        omega
+      have hcLt : c < N + 1 := by
+        nlinarith [hEq, hpPrime.two_le, hcPos]
+      have hcN : c ≤ N := by omega
+      have hcDvd : c ∣ N + 1 := by
+        refine ⟨p, ?_⟩
+        simpa [Nat.mul_comm] using hEq
+      have hcFree : RPowerFree r c := by
+        intro t ht htd
+        exact hbFree t ht (dvd_trans htd hcDvd)
+      have hOldBound :=
+        (rootQuotientPrimeHorizon_le_iff
+          (r := r) (N := N) (h := rootQuotientPrimeHorizon r N)).1 le_rfl
+      have hcCount :
+          rootQuotientPrimeFactorCount c ≤ rootQuotientPrimeHorizon r N :=
+        hOldBound c hcPos hcN hcFree
+      have hpCount : rootQuotientPrimeFactorCount p = 1 := by
+        rw [rootQuotientPrimeFactorCount, Nat.primeFactorsList_prime hpPrime]
+        simp
+      calc
+        rootQuotientPrimeFactorCount (N + 1) =
+            rootQuotientPrimeFactorCount (p * c) := by rw [hEq]
+        _ = rootQuotientPrimeFactorCount p +
+            rootQuotientPrimeFactorCount c :=
+          rootQuotientPrimeFactorCount_mul hpPrime.one_le hcPos
+        _ = 1 + rootQuotientPrimeFactorCount c := by rw [hpCount]
+        _ ≤ rootQuotientPrimeHorizon r N + 1 := by omega
+
+/-- The exact prime horizon is a unit-step staircase in the state bound. -/
+theorem rootQuotientPrimeHorizon_succ_eq_or_eq_succ
+    (r N : ℕ) :
+    rootQuotientPrimeHorizon r (N + 1) = rootQuotientPrimeHorizon r N ∨
+    rootQuotientPrimeHorizon r (N + 1) = rootQuotientPrimeHorizon r N + 1 := by
+  have hMono :
+      rootQuotientPrimeHorizon r N ≤ rootQuotientPrimeHorizon r (N + 1) :=
+    rootQuotientPrimeHorizon_mono_stateBound (by omega)
+  have hUpper := rootQuotientPrimeHorizon_succ_le r N
+  omega
+
+/-- Exact jump criterion for the prime-horizon staircase.
+
+The horizon rises at `N+1` exactly when the newly admitted integer is itself a
+required power-free boundary whose factor rank is one above the old horizon. -/
+theorem rootQuotientPrimeHorizon_succ_eq_succ_iff
+    {r N : ℕ} :
+    rootQuotientPrimeHorizon r (N + 1) = rootQuotientPrimeHorizon r N + 1 ↔
+      RPowerFree r (N + 1) ∧
+      rootQuotientPrimeFactorCount (N + 1) =
+        rootQuotientPrimeHorizon r N + 1 := by
+  constructor
+  · intro hJump
+    have hPos : 0 < rootQuotientPrimeHorizon r (N + 1) := by omega
+    obtain ⟨b, hbPos, hbN, hbFree, hbCount⟩ :=
+      exists_powerFree_boundary_at_rootQuotientPrimeHorizon hPos
+    have hbEq : b = N + 1 := by
+      by_contra hNe
+      have hbOld : b ≤ N := by omega
+      have hOldBound :=
+        (rootQuotientPrimeHorizon_le_iff
+          (r := r) (N := N) (h := rootQuotientPrimeHorizon r N)).1 le_rfl
+      have hContr := hOldBound b hbPos hbOld hbFree
+      omega
+    subst b
+    exact ⟨hbFree, by omega⟩
+  · rintro ⟨hFree, hCount⟩
+    have hUpper := rootQuotientPrimeHorizon_succ_le r N
+    have hNewBound :=
+      (rootQuotientPrimeHorizon_le_iff
+        (r := r) (N := N + 1)
+        (h := rootQuotientPrimeHorizon r (N + 1))).1 le_rfl
+    have hLower := hNewBound (N + 1) (by omega) (by omega) hFree
+    omega
 
 end EnterpriseMath.Quotient
