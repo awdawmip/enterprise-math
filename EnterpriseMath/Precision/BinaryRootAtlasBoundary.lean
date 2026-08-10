@@ -102,7 +102,8 @@ theorem horizon_root_fiber_nonempty_iff
       exact Nat.succ_pos _
     have hLower : n / (H + 1) ^ (s + 1) < d := by
       dsimp [d]
-      simpa [D] using Nat.lt_succ_self D
+      change D < D + 1
+      exact Nat.lt_succ_self D
     have hUpper : d ≤ n / H ^ (s + 1) :=
       (Nat.le_div_iff_mul_le hHPow).2 hThreshold
     refine ⟨d, hd, ?_⟩
