@@ -158,14 +158,9 @@
       "allowed_prefixes": []
     },
     "engineering/e001-measurement-area-refinement": {
-      "state": "ACTIVE_OWNER",
-      "reason": "Current bounded E001 measurement-refinement generation; owns exact area shells, witness variation and their regressions only.",
-      "allowed_paths": [
-        "src/enterprise_math/material_measurement_area_refinement.py",
-        "tests/test_material_measurement_area_refinement.py",
-        "src/enterprise_math/material_measurement_refinement_variation.py",
-        "tests/test_material_measurement_refinement_variation.py"
-      ],
+      "state": "PROVENANCE",
+      "reason": "Frozen E001 measurement-refinement generation is fully absorbed: all four owner-scoped source/test blobs are exact matches on canonical main through PR #264; historical source PR #227 is already closed. Start a new owner generation only if a distinct E001-local measurement question is declared.",
+      "allowed_paths": [],
       "allowed_prefixes": []
     },
     "engineering/e001-material-state-cost": {

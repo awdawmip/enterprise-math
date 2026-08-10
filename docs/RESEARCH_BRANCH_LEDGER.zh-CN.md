@@ -1,8 +1,8 @@
 # Enterprise Math 研究分支快照
 
 状态：`CANONICAL ADVISORY SNAPSHOT / NOT LIVE DISPATCH AUTHORITY`  
-快照基线：`main@fc81a15a0fc7a76d1d2b44e7d9a41b699863ef22`  
-日期：2026-08-09
+快照基线：`main@0ef6f40bf925c4fa759e7865b269e2f27fc23ecb`  
+日期：2026-08-10
 
 本文档是一份经过审计的**归属/来源快照**。它明确不是实时调度器，也不应因为每一次 branch head 或 `main` 移动就重写。
 
@@ -18,7 +18,7 @@
 
 ## 1. 当前长期研究表面
 
-在本快照中，机器 owner registry 共有 13 条长期 `ACTIVE_OWNER` / `ACTIVE_BRIDGE` 路线。
+在本快照中，机器 owner registry 共有 12 条长期 `ACTIVE_OWNER` / `ACTIVE_BRIDGE` 路线。
 
 | Home | 可写路线 | 类型 | Scheduler task |
 |---|---|---|---|
@@ -34,7 +34,6 @@
 | P025 | `program/p025-abc-support-collapse` | L2 owner | `RS-P025-WITNESS-PRECISION` |
 | E001 impulse | `engineering/e001-material-impulse-v2` | L2 owner | `RS-E001-IMPULSE-V2` |
 | E001 contact network | `engineering/e001-material-contact-network` | L2 owner | `RS-E001-CONTACT-NETWORK` |
-| E001 measurement | `engineering/e001-measurement-area-refinement` | L2 owner | `RS-E001-MEASUREMENT-REFINEMENT` |
 
 本快照下，owner registry 与 scheduler coverage 集合严格相等。Scheduler task 在运行时可以处于 `BACKLOG`、`READY`、`HANDOFF_READY`、leased、blocked 或 complete；**不要把运行时状态复制进本文档**，应直接读取 Issue #240。
 
@@ -48,9 +47,10 @@
 - 薄 A3→A4 generated-support/cancellation executable bridge；
 - P021 finite causal-boundary executable core；
 - P022 `A_p` root-lattice executable core；
-- P022 geodesic-multiplicity 与 HCP executable core（L4 #262，`main@fc81a15a...`）；
-- P018 从历史 #54 提取的 centered-prime-radius executable remainder（L4 #270）；
-- canonical E001 wall/pair impulse 以及其它明确 promotion 的 application slices。
+- P022 geodesic-multiplicity/HCP、periodic Barlow stacking、task-relative Barlow precision 与 periodic-growth executable slices（至 L4 #296）；
+- P018 centered-prime-radius executable remainder，以及从历史 #54 保存的详细 proof note（至 L4 #297）；
+- canonical E001 wall/pair impulse 及其它明确 promotion 的 application slices；
+- E001 measured-polyline area refinement 与 refinement-variation 切片，冻结源 #227 的资产已经通过 #264 promotion。
 
 Canonical executable 文件存在本身不会自动把其中所有陈述升级为 `PROVED`；theorem/proof 状态仍由 canonical theorem 文档、Lean 覆盖与 Relay/provenance 控制。
 
@@ -62,6 +62,7 @@ Canonical executable 文件存在本身不会自动把其中所有陈述升级�
 - A2/A3/A4 v2 owner generation，在选定 core promotion 后退出；
 - P021 v2，在 causal-boundary promotion 后退出；
 - E001 one-body impulse-world、pair-impulse、multi-action generation，在各自 L4 后退出；
+- `engineering/e001-measurement-area-refinement` / source PR #227：Git ancestry 仍显示 ahead，但四个 owner-scoped source/test blob 已经通过 #264 与 canonical `main` 逐字节一致，因此该冻结 generation 是 provenance，而不是可写 owner；
 - payload 已机械或语义吸收的 E002 v2 generations；
 - obsolete whole-main synchronization PR；
 - P005 #22、P022 geodesic validation #220 等在 exact payload 已 canonical 后退出的 validation/publication shadow。
@@ -90,6 +91,8 @@ Canonical executable 文件存在本身不会自动把其中所有陈述升级�
 
 路径名/文件名相同不够。历史 P017/P018 曾复用 supplement 编号与文件名承载不同数学；最终由内容/theorem audit 决定。
 
+这次退出的 E001 measurement owner 是第二种证明的标准例子：冻结 owner head 与 current main 虽然 ancestry 不同，但四个 changed path 的 Git blob ID 全部精确相同。
+
 ## 6. Owner isolation 与 promotion
 
 L1/L2/L3 owner 合法地可以落后 moving `main`。不得仅为“保持最新”而 whole-tree merge/rebase/copy `main`。
@@ -105,6 +108,8 @@ L4 **NO NEW MATHEMATICS**。如果 replay 暴露新 theorem，必须先回到正
 ## 7. Scheduler 与 Foundation 边界
 
 Scheduler state 只协调工作，不证明 theorem，也不提升 canonical truth。
+
+当一个 owner generation 已降为 provenance 且没有声明新的 frontier 时，其冻结 scheduler task 应一并退出，而不是保留一条假的可写路线。未来若出现真正不同的问题，应创建新的 owner generation 与新的显式 task，而不是悄悄重新激活已经吸收的 source branch。
 
 Foundation question 的权威在 Foundation Problem Set Issue #164。Research answer 必须经过独立 steward verification 才能进入 Foundation integration。Active tool/interface alert 在被明确解决前始终保持 active；仅仅存在 scheduler task ID，不代表对应数学/接口问题已经被回答。
 
