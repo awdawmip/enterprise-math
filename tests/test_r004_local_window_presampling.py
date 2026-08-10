@@ -1,3 +1,4 @@
+import itertools
 import unittest
 from collections import Counter
 from fractions import Fraction
@@ -6,6 +7,7 @@ from enterprise_math.r004_local_window_presampling import (
     cycle_period_symbols,
     cyclic_window_counts,
     decompose_stationary_block_counts,
+    eulerian_stationary_period,
     minimum_uniform_window_width_exceeding_atom_budget,
     periodic_cycle_mixture_block_law,
     reduced_stationary_window_counts,
@@ -96,6 +98,40 @@ class R004LocalWindowPresamplingTests(unittest.TestCase):
                 sum(cyclic_window_counts(recovered_period, 3).values()),
                 len(cycle),
             )
+
+    def test_connected_stationary_flow_has_one_exact_eulerian_orbit(self):
+        counts = {
+            (0, 0): 2,
+            (0, 1): 1,
+            (1, 0): 1,
+        }
+        period = eulerian_stationary_period(counts)
+        self.assertEqual(len(period), 4)
+        self.assertEqual(cyclic_window_counts(period, 2), counts)
+
+    def test_uniform_binary_triples_have_one_de_bruijn_type_period(self):
+        counts = {
+            block: 1
+            for block in itertools.product((0, 1), repeat=3)
+        }
+        period = eulerian_stationary_period(counts)
+        self.assertEqual(len(period), 8)
+        self.assertEqual(
+            cyclic_window_counts(period, 3),
+            counts,
+        )
+
+    def test_disconnected_stationary_flow_needs_ensemble_not_one_orbit(self):
+        counts = {(0, 0): 1, (1, 1): 1}
+        self.assertTrue(stationary_block_counts_balanced(counts))
+        cycles, law = stationary_rational_window_presampling_certificate(counts)
+        self.assertEqual(len(cycles), 2)
+        self.assertEqual(
+            law,
+            {(0, 0): Fraction(1, 2), (1, 1): Fraction(1, 2)},
+        )
+        with self.assertRaisesRegex(ValueError, "connected positive stationary flow"):
+            eulerian_stationary_period(counts)
 
     def test_cycle_mixture_reconstructs_aggregated_periodic_sources(self):
         source_periods = ((0,), (0, 1), (0, 0, 1, 1))
