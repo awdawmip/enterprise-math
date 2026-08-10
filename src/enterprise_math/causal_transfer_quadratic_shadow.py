@@ -12,14 +12,16 @@ For the complete anonymous transfer graph K_N,
 
     P_K(x)=N*sum_i x_i^2-(sum_i x_i)^2.
 
-On the exact-total kernel this becomes N*sum_i x_i^2. Polarization of P_G also
-generates an exact integer bilinear shadow. On the complete zero-sum relation
-space it is simply N times the slot dot product. A real inner-product completion,
-if later used, is therefore downstream of the discrete relation aggregate rather
-than primitive ontology.
+On the exact-total kernel this becomes N*sum_i x_i^2. Polarization generates an
+exact integer bilinear shadow. Moreover, any pair-local quadratic observation
+with weights invariant under every slot permutation must assign one common weight
+to every unordered pair, so this complete dispersion is unique up to scale inside
+that observation class.
 """
 
 from __future__ import annotations
+
+from itertools import combinations
 
 from .causal_transfer_graph_geometry import Edge, Vector, complete_transfer_edges
 
@@ -48,6 +50,43 @@ def edge_dispersion(state: Vector, edges: tuple[Edge, ...]) -> int:
         seen.add(edge)
         total += (state[left] - state[right]) ** 2
     return total
+
+
+def weighted_pair_dispersion(state: Vector, pair_weights: dict[Edge, int]) -> int:
+    _validate_state(state)
+    total = 0
+    for (left, right), weight in pair_weights.items():
+        if left == right or any(index < 0 or index >= len(state) for index in (left, right)):
+            raise ValueError("weighted pair endpoint outside state")
+        if isinstance(weight, bool) or not isinstance(weight, int):
+            raise ValueError("pair weights must be integers")
+        total += weight * (state[left] - state[right]) ** 2
+    return total
+
+
+def pair_weights_are_fully_anonymous(slot_count: int, pair_weights: dict[Edge, int]) -> bool:
+    """Full S_N invariance for pair-local weights is equivalent to one common weight."""
+    expected_pairs = set(combinations(range(slot_count), 2))
+    normalized = {tuple(sorted(edge)): weight for edge, weight in pair_weights.items()}
+    return set(normalized) == expected_pairs and len(set(normalized.values())) == 1
+
+
+def anonymous_pair_weight(slot_count: int, pair_weights: dict[Edge, int]) -> int:
+    if not pair_weights_are_fully_anonymous(slot_count, pair_weights):
+        raise ValueError("weights are not a complete slot-anonymous pair field")
+    return next(iter(pair_weights.values()))
+
+
+def anonymous_quadratic_shadow_identity(state: Vector, pair_weight: int) -> bool:
+    """For equal pair weight w, Q=w*(N sum x_i^2-(sum x_i)^2)."""
+    if isinstance(pair_weight, bool) or not isinstance(pair_weight, int):
+        raise ValueError("pair_weight must be an integer")
+    weights = {edge: pair_weight for edge in complete_transfer_edges(len(state))}
+    left = weighted_pair_dispersion(state, weights)
+    right = pair_weight * (
+        len(state) * sum(value * value for value in state) - sum(state) ** 2
+    )
+    return left == right
 
 
 def complete_edge_dispersion(state: Vector) -> int:
@@ -101,7 +140,6 @@ def complete_zero_sum_bilinear_identity(left: Vector, right: Vector) -> bool:
 
 
 def primitive_second_moment_matrix(slot_count: int, edges: tuple[Edge, ...]) -> tuple[tuple[int, ...], ...]:
-    """Sum b_e b_e^T over one orientation of each undirected primitive relation."""
     matrix = [[0] * slot_count for _ in range(slot_count)]
     seen = set()
     for left, right in edges:
