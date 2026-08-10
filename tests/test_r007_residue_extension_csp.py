@@ -51,7 +51,10 @@ def test_farey_bridge_dominance_small_levels() -> None:
 
 def test_prime_internal_freedom_small_scales() -> None:
     for r in (2, 3, 5):
-        assert all(csp.internally_coherent(f, r) for f in itertools.product(range(r), repeat=r))
+        assert all(
+            csp.internally_coherent(f, r)
+            for f in itertools.product(range(r), repeat=r)
+        )
     for r, d in ((4, 2), (6, 2), (8, 2)):
         block = r // d
         witness = [0] * r
@@ -71,7 +74,9 @@ def test_p_adic_valuation_is_component_saturation_depth() -> None:
         for p in (2, 3, 5, 7):
             valuation = csp.p_adic_valuation(n, p)
             for k in range(0, 6):
-                assert csp.prime_power_component_signature(n, p, k) == p ** min(valuation, k)
+                assert csp.prime_power_component_signature(n, p, k) == p ** min(
+                    valuation, k
+                )
 
 
 def test_arc_consistency_is_exact_and_cutoff_is_r() -> None:
@@ -90,3 +95,59 @@ def test_every_compatible_prefix_constructively_extends() -> None:
             extended = csp.extend_family_through(family, r + 3)
             assert csp.family_compatible(extended)
             assert extended[r] == f
+
+
+def test_extension_envelopes_give_least_and_greatest_lifts() -> None:
+    for r in range(2, 6):
+        for f in csp.finite_prefix_image(r, r):
+            least = csp.finite_prefix_completion(f, r, r)
+            greatest = csp.finite_prefix_completion(f, r, r, greatest=True)
+            assert least is not None and greatest is not None
+            assert all(
+                least[d][i] <= greatest[d][i]
+                for d in least
+                for i in range(d)
+            )
+            n = r + 1
+            least_next = csp.extend_family_one_step(least, n)
+            greatest_next = csp.extend_family_one_step(greatest, n, greatest=True)
+            assert csp.family_compatible({**least, n: least_next})
+            assert csp.family_compatible({**greatest, n: greatest_next})
+            for i in range(n):
+                lo, hi = csp.extension_envelope(least, n, i)
+                assert least_next[i] == lo
+                assert lo <= hi
+
+
+def test_natural_hull_is_exact_closure_and_interior_is_dual() -> None:
+    for r in range(2, 6):
+        admissible = set(csp.finite_prefix_image(r, r))
+        fixed_points = set()
+        for f in itertools.product(range(r), repeat=r):
+            hull = csp.natural_hull(f, r)
+            interior = csp.natural_interior(f, r)
+            assert all(f[i] <= hull[i] for i in range(r))
+            assert all(interior[i] <= f[i] for i in range(r))
+            assert csp.natural_hull(hull, r) == hull
+            assert csp.globally_extendable(hull, r)
+            assert csp.globally_extendable(interior, r)
+            if hull == f:
+                fixed_points.add(tuple(f))
+        assert fixed_points == admissible
+
+
+def test_natural_hull_is_least_admissible_majorant_small_scales() -> None:
+    for r in range(2, 5):
+        admissible = list(csp.finite_prefix_image(r, r))
+        for f in itertools.product(range(r), repeat=r):
+            hull = csp.natural_hull(f, r)
+            majorants = [
+                g for g in admissible
+                if all(f[i] <= g[i] for i in range(r))
+            ]
+            assert majorants
+            assert all(
+                hull[i] <= g[i]
+                for g in majorants
+                for i in range(r)
+            )
