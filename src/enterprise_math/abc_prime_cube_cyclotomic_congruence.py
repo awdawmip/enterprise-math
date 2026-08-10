@@ -46,7 +46,7 @@ def _constraint(q: int, p: int, r: int, exponent: int, order: int) -> Cyclotomic
     x = (p * inverse_q) % modulus
     if pow(x, order, modulus) != 1:
         raise AssertionError("cyclotomic ratio lost declared root-of-unity order")
-    proper = (1, 3) if order == 6 else (1,)
+    proper = (1, 2, 3) if order == 6 else (1,)
     if any(pow(x, d, modulus) == 1 for d in proper):
         raise AssertionError("cyclotomic ratio order collapsed modulo prime power")
     inv = pow(x, -1, modulus)
