@@ -25,7 +25,9 @@ theorem root_quotient_eq_one_iff_action_le_of_lt_two_pow
       (EnterpriseMath.IntegerRoot.root_eq_iff
         (p := r) (n := q / a) (k := 1) hr0).1 hRoot
     have hOneQuot : 1 ≤ q / a := by simpa using hChar.1
-    exact (Nat.le_div_iff_mul_le haPos).1 (by simpa using hOneQuot)
+    have hMul : 1 * a ≤ q :=
+      (Nat.le_div_iff_mul_le haPos).1 hOneQuot
+    simpa using hMul
   · intro haq
     have hOneQuot : 1 ≤ q / a :=
       (Nat.le_div_iff_mul_le haPos).2 (by simpa using haq)
