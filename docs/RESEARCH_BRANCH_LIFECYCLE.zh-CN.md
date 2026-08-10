@@ -90,22 +90,26 @@ Bridge 必须薄：
 
 ### L4 — Integration Replay
 
-从**最新 main** 创建的一次性运输层。
+一次性的 canonical 运输层。先冻结精确的已证明 source payload/provenance，然后在 promotion 开始时，以**当时 current `main` snapshot** 创建或协调 L4 integration。
 
 唯一职责：
 
 1. semantic replay 已筛选的 theorem；
-2. 解决规范编号；
+2. 解决 canonical numbering/status routing；
 3. 同步中英文；
 4. 搬运 executable specification/tests/Lean；
 5. 更新 lineage/prior-art；
-6. 运行仓库门禁。
+6. 把可复用 theorem/tool 同步到 `docs/RESEARCH_COMMON_SURFACE.*` 与 `research_common_surface.json`；若晋升内容确实不具备共享价值，则必须显式说明 `N/A`；
+7. 若 `EnterpriseMath.lean` root imports 或 `tools/*.py` 成员发生变化，在同一 PR 同步精确 root-Lean/repository-tool indexes；
+8. 运行仓库门禁，并在适用时通过 `tools/check_research_common_surface.py` 检查可机械判定的 shared-surface contract。
 
 硬规则：
 
 > **Integration branch 不得产生新数学。**
 
-若 replay 过程中发现新定理，立即回到对应 L1/L2/L3 owner 证明；integration 只消费稳定结果。
+> **L4 验证期间 `main` 的无关推进，不会自动产生新的 replay generation。**
+
+若 replay 过程中发现新定理，立即回到对应 L1/L2/L3 owner 证明；integration 只消费稳定结果。若验证过程中 `main` 继续推进，保持冻结的 source-result identity，只检查真实 intervening delta；若出现真实语义/文件重叠，就在同一条 L4 线里协调；merge 前执行一次 final current-main combination gate。只有真实 semantic conflict、file conflict 或最终门禁失败时才需要重做 replay。
 
 merge 后 integration branch 删除，PR 保留历史。
 
@@ -143,11 +147,11 @@ L5 不再接收新研究提交。
 
 ### `INTEGRATION`
 
-直接基于近期 main，正在做 semantic replay；禁止新数学。
+一次性的 canonical transport；禁止新数学。在验证期间即使落后于移动中的 `main` 也不自动失效；真正必须保持的是冻结 source payload 与 merge 前的 final current-main combination gate。
 
 ### `REPLAY_REQUIRED`
 
-经语义审计确认仍有 main 缺失的独有数学，但 branch 已高度分叉或混合多个 owner，禁止继续追加研究，必须从 latest main clean replay。
+经语义审计确认仍有 main 缺失的独有数学，但**历史 branch** 已高度分叉或混合多个 owner。停止在这棵历史树上追加新研究，把新数学路由到相应可写 L1/L2/L3 owner；待 promotion 就绪后，只把筛选后的 source payload 通过 L4 运输。
 
 默认触发条件之一：
 
@@ -214,7 +218,7 @@ L5 不再接收新研究提交。
 
 → `PROVENANCE`。
 
-允许从 `REPLAY_REQUIRED` 新建 clean owner/integration branch，但**禁止通过反复 wholesale merge 把旧大树重新变成 current owner**。
+`REPLAY_REQUIRED` 可以产生一条新的可写 owner 继续研究，也可以在 promotion 时建立一次性 L4 integration；但**禁止通过反复 wholesale merge 把旧大树重新变成 current owner**。
 
 ---
 
@@ -222,8 +226,8 @@ L5 不再接收新研究提交。
 
 - `ahead=0`：机械吸收，默认 `ABSORBED`。
 - `ahead>0`：先做 semantic-equivalence audit，再判断 `ABSORBED` 或 `REPLAY_REQUIRED`。
-- `ahead>0, behind<20`：若确有独有数学，通常适合作为普通 current-main replay / short program branch。
-- `ahead>0, behind>=50`：若确有独有数学，默认进入 `REPLAY_REQUIRED`。
+- `ahead>0, behind<20`：若确有独有数学，通常先做短 owner distillation，待结果稳定后再进行一次性 L4 promotion。
+- `ahead>0, behind>=50`：若确有独有数学，默认把历史树归入 `REPLAY_REQUIRED`。
 - `ahead>100` 或 changed files 跨多个 theorem homes：优先 semantic distillation，不再扩大原 PR。
 
 这些阈值只是 Git 治理触发器，不评价数学质量。
@@ -288,6 +292,8 @@ L5 不再接收新研究提交。
 
 - L1/L2/L3 PR 可以包含新数学。
 - L4 integration PR 必须声明 `NO NEW MATHEMATICS`。
+- 每一个可复用 L4 promotion 都必须包含 common-surface delta，其中要有结果/工具状态与精确可复用资产路径；若确实不适用，必须显式说明 `N/A`。
+- root Lean import 或 repository Python-tool 成员变化，在同一 PR 同步 human/machine 精确 shared indexes 之前，不算完整 promotion。
 - 大于一个 theorem home 的 PR 必须拆分或标记 `REPLAY_REQUIRED`。
 - `ABSORBED` PR 不因为历史重要而保持 open；PR 本身就是历史记录。
 - stacked PR 只允许短链；不允许形成长期依赖 DAG。
@@ -312,11 +318,12 @@ Integration/agent branch 不计入长期活动面，完成后退出。
 
 ## 11. 不变量
 
-任何整理都必须保持四个问题可回答：
+任何整理都必须保持五个问题可回答：
 
 1. 结果最初在哪里发现？
 2. 最一般已证明形式现在由谁拥有？
 3. 哪个 current owner 可以继续研究？
 4. 哪些 program/application 仍消费它？
+5. canonical promotion 后，所有路线从哪里能发现该 theorem/tool？
 
-如果删除 branch ref 会让其中任何答案无法从 Git/PR/tag/lineage 恢复，就先补 provenance 再删除。
+如果删除 branch ref 会让其中任何答案无法从 Git/PR/tag/lineage/common-surface routing 恢复，就先补 provenance/routing 再删除。

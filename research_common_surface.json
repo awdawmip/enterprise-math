@@ -9,12 +9,7 @@
     "canonical_promotion": "SERIALIZED_FINAL_GATE",
     "defer_is_blocker": false,
     "only_blocker": "HARD_BLOCK",
-    "hard_block_required_fields": [
-      "missing_object",
-      "owner",
-      "necessity",
-      "unblock_condition"
-    ],
+    "hard_block_required_fields": ["missing_object", "owner", "necessity", "unblock_condition"],
     "no_new_mathematics_scope": "L4_INTEGRATION_ONLY_OR_EXPLICIT_REPLAY_SLICE"
   },
   "dispatch_scheduler": {
@@ -34,17 +29,21 @@
     "machine_router": "foundation_steward.json",
     "document_en": "docs/FOUNDATION_STEWARD_PROTOCOL.en.md",
     "document_zh": "docs/FOUNDATION_STEWARD_PROTOCOL.zh-CN.md",
+    "backflow_router": "foundation_backflow.json",
+    "backflow_document_en": "docs/FOUNDATION_BACKFLOW_LOOP.en.md",
+    "backflow_document_zh": "docs/FOUNDATION_BACKFLOW_LOOP.zh-CN.md",
+    "backflow_validator": "tools/check_research_common_surface.py",
     "problem_set_issue": 164,
     "problem_id_prefix": "FQ-",
+    "research_relay_issue": 82,
+    "dispatch_issue": 240,
     "steward_solves_escalated_research": false,
     "steward_verifies_before_escalation": true,
     "steward_verifies_before_canonicalization": true,
-    "active_foundation_questions": [
-      "FQ-20260809-005"
-    ],
-    "active_interface_alerts": [
-      "FQ-20260809-005"
-    ]
+    "research_backflow_enabled": true,
+    "fq_scheduler_links_required_for_executable_open_questions": true,
+    "active_foundation_questions": ["FQ-20260809-005"],
+    "active_interface_alerts": ["FQ-20260809-005"]
   },
   "canonical_foundation_conventions": {
     "natural_numbers": "N = N_0 includes zero; positive integers are N_{>0}",
@@ -72,75 +71,133 @@
     "docs/PROBLEM_STATUS.en.md",
     "relevant canonical theorem/result documents",
     "latest relevant Research Relay Issue #82 entries",
+    "research_common_surface.json lean_root_imports and canonical_executable_modules",
     "relevant executable specification/tests/Lean modules",
-    "when foundation-facing: docs/FOUNDATION_STEWARD_PROTOCOL.en.md and relevant Foundation Problem Set Issue #164 entries"
+    "when foundation-facing or a mature result may feed back: docs/FOUNDATION_STEWARD_PROTOCOL.en.md, docs/FOUNDATION_BACKFLOW_LOOP.en.md, foundation_backflow.json, and relevant Foundation Problem Set Issue #164 entries"
   ],
   "theorem_channels": {
-    "canonical_base": [
-      "docs/THEOREMS.en.md",
-      "docs/THEOREMS.zh-CN.md"
-    ],
-    "canonical_status_router": [
-      "docs/PROBLEM_STATUS.en.md",
-      "docs/PROBLEM_STATUS.zh-CN.md"
-    ],
+    "canonical_base": ["docs/THEOREMS.en.md", "docs/THEOREMS.zh-CN.md"],
+    "canonical_status_router": ["docs/PROBLEM_STATUS.en.md", "docs/PROBLEM_STATUS.zh-CN.md"],
     "canonical_problem_documents": "docs/Pxxx_*.{en,zh-CN}.md referenced by PROBLEM_STATUS",
-    "formalized_subset": [
-      "EnterpriseMath.lean",
-      "EnterpriseMath/**.lean"
-    ],
+    "formalized_subset": ["EnterpriseMath.lean", "EnterpriseMath/**.lean"],
     "proved_wip_bus": "GitHub Issue #82 Research Relay",
-    "foundation_problem_bus": "GitHub Issue #164 Foundation Steward Problem Set"
+    "foundation_problem_bus": "GitHub Issue #164 Foundation Steward Problem Set",
+    "execution_bus": "GitHub Issue #240 Research Dispatch Board"
   },
-  "result_statuses": [
-    "CANONICAL_MAIN",
-    "LEAN_CHECKED_MAIN",
-    "PROVED_WIP_RELAY",
-    "EXECUTABLE_CHECKED",
-    "COUNTEREXAMPLE_NEGATIVE_BOUNDARY",
-    "CONJECTURAL"
+  "lean_root_imports": [
+    "EnterpriseMath/Arithmetic/CollapseCommutation.lean",
+    "EnterpriseMath/Arithmetic/CollapseGap.lean",
+    "EnterpriseMath/Arithmetic/IntegerRoot.lean",
+    "EnterpriseMath/Arithmetic/RootMultiplicativity.lean",
+    "EnterpriseMath/Dynamics/HistoryMerge.lean",
+    "EnterpriseMath/Order/ReductiveCompositionStabilization.lean",
+    "EnterpriseMath/Order/WellFoundedStabilization.lean",
+    "EnterpriseMath/Precision/Carry.lean",
+    "EnterpriseMath/Precision/CompositionSafeCollapse.lean",
+    "EnterpriseMath/Precision/QuotientBasin.lean",
+    "EnterpriseMath/Precision/QuotientCoalescence.lean",
+    "EnterpriseMath/Quotient/OperationCongruence.lean",
+    "EnterpriseMath/Quotient/PowerFreeActionBasis.lean",
+    "EnterpriseMath/Quotient/RootAdjacentBoundary.lean",
+    "EnterpriseMath/Quotient/RootFutureClosure.lean",
+    "EnterpriseMath/Scale/Compatibility.lean",
+    "EnterpriseMath/State/CriticalGrid.lean"
   ],
+  "result_statuses": ["CANONICAL_MAIN", "LEAN_CHECKED_MAIN", "PROVED_WIP_RELAY", "EXECUTABLE_CHECKED", "COUNTEREXAMPLE_NEGATIVE_BOUNDARY", "CONJECTURAL"],
   "shared_theorem_families": {
     "A0": "roots, collapse, quotient/remainder, scale lattice, signed state, typed descent, adjoints",
     "A1": "deterministic functional kernels, history merge, fibers/kernel multiplicity, collision spectra, coalescence, stabilization",
-    "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair",
+    "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, predictive closure, operation-family compatibility, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
     "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra; not identified with one deterministic kernel",
-    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, finite balls/shells, radial/distance structure"
+    "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure, task-relative Barlow stacking precision, periodic-drift growth equations and eventual C-finite recurrence classes"
   },
+  "canonical_specializations": {
+    "P018_P023_power_free_action_basis": {
+      "status": "LEAN_CHECKED_MAIN",
+      "merge": "PR #249 / main@c9b39069917c32b8a02a1bbdf6297ca5e43c9438",
+      "statement": "for O_a(q)=R_r(floor(q/a)) on 0..N, a positive action set separates every exact state iff it contains every positive r-power-free b<=N; the positive r-power-free actions are the unique least separating set under inclusion",
+      "local_boundary": "O_a(q-1) != O_a(q) iff q=a*t^r for some t>=1",
+      "prior_art_boundary": "power-free arithmetic and generic distinguishing/Test-Cover/minimal-language machinery are prior mathematics; novelty of the exact quotient-root packaging remains unverified"
+    },
+    "P018_centered_prime_radius": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "merge": "PR #270 / main@b48019603c3c39332be97a5769e811f33d884296",
+      "scope": "elementary centered-coordinate re-expression of P018 Stage-8 near-diagonal factor-proof slack: under the stated left-prime and size-range hypotheses, the minimal positive symmetric prime radius is slack+1 and the shell state is localized by a difference of squares",
+      "boundary": "does not assert a symmetric prime pair for every center and does not prove Goldbach-type statements"
+    },
+    "P022_geodesic_hcp_core": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "merge": "PR #262 / main@fc81a15a0fc7a76d1d2b44e7d9a41b699863ef22",
+      "scope": "exact finite/combinatorial P022 executable formulas for A_p and simple-cubic geodesic multiplicity plus an integer-coordinate ABAB HCP contact graph with degree 12, exact graph distance, shells, and independently cross-checked shortest-path counts",
+      "boundary": "geometry executable specialization only; generic witness-count/correspondence algebra belongs to A4/A2, and no floating-point Euclidean sphere-center model is being smuggled in"
+    },
+    "P022_barlow_stacking_core": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "merge": "PR #288 / main@aec7f625e48eb8f93ba701ba57686a9e225efd17",
+      "scope": "periodic Barlow close-packed contact graph with exact integer/combinatorial graph distance and geodesic multiplicity, FCC/HCP reconstruction, and root-to-target-layer cumulative interface-sign-count compression for those queries",
+      "boundary": "the cumulative-prefix compression is task-relative to the declared root-to-layer distance/geodesic-count queries; Barlow precision, periodic-growth, coordination-observable and observation-history theories are not included"
+    },
+    "P022_barlow_task_relative_precision": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "merge": "PR #292 / main@04a3baa2f47981a752e4fbaa50c9166a06690d36",
+      "scope": "for a selected target layer, (abs(k), delta_k) exactly recovers the two effective interface-sign counts and therefore the vertical witness polynomial required by the declared root-to-layer distance/geodesic-count language; first moments recover delta_k; selected-layer imbalance vectors are coarser than the complete prefix trajectory",
+      "negative_boundary": "the complete prefix-imbalance trajectory reconstructs the literal stacking word, so selected-layer precision is not whole-history sufficiency",
+      "publication_boundary": "periodic-growth, coordination-observable and observation-history descendants remain separate later P022 promotions"
+    },
+    "P022_barlow_periodic_growth": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED",
+      "promotion": "PR #296 / current L4 from source validation PR #267",
+      "scope": "exact periodic Barlow shell-total geodesic formulas from prefix imbalance, period drift D, positive growth equation (lambda-2)^(2L)=2^(L+|D|), finite drift-deviation bounds, and a universal eventual C-finite annihilator/recurrence class determined by period length and absolute drift",
+      "negative_boundary": "the universal annihilator may be nonminimal, and equal (L,|D|) can give the same class-level growth equation/universal recurrence space while finite shell-total sequences and phases still differ",
+      "publication_boundary": "coordination-observable and observation-history descendants remain separate later P022 promotions"
+    },
+    "E001_residual_conservation_slice": {
+      "status": "CANONICAL_MAIN + EXECUTABLE_CHECKED + ONE_COMPARATOR_NEGATIVE",
+      "merge": "PR #274 / main@12500185f4c222ae49816e7b844e36a82e3ac8fe",
+      "permanent_alias_horizon": "finite response quotient visibility can be nonmonotone before an exact finite budget after which aliases never return; reachable anisotropy, not unreachable deeper structure, controls the exact observable horizon",
+      "boundary_shell_degree": "for fixed represented depth K in dimension n, R_{n,K}(d)=d^n-(d-K)^n has exact discrete degree n-1 while the full coarse-contact box has degree n",
+      "phase_saturation": "for endpoint-clearance sum C and collapse factor d, C>=2d-1 gives 2(d-1) interaction phases and C-2d+1 transmitting phases; further displacement adds transmission phases only",
+      "staged_projection_negative": "two finite staged projections can differ by order through one returned-budget quantum even when the undeformed rational product commutes; this is a pure integer comparator, not a laminate constitutive law",
+      "physical_boundary": "finite application specialization only; no hidden continuum, probability law, laminate constitutive law, or universal material physics is inferred"
+    }
+  },
+  "foundation_backflow_extraction_targets": [
+    "minimal_sufficient_state",
+    "minimal_repair_or_extension_data",
+    "cross_route_invariant",
+    "negative_boundary",
+    "reusable_tool",
+    "layering_law"
+  ],
   "canonical_executable_modules": {
-    "A0_A5_primitives": [
-      "src/enterprise_math/core.py",
-      "src/enterprise_math/division.py",
-      "src/enterprise_math/scale_algebra.py",
-      "src/enterprise_math/signed.py",
-      "src/enterprise_math/typed_scale.py",
-      "src/enterprise_math/geometry.py"
+    "A0_A5_primitives": ["src/enterprise_math/core.py", "src/enterprise_math/division.py", "src/enterprise_math/scale_algebra.py", "src/enterprise_math/signed.py", "src/enterprise_math/typed_scale.py", "src/enterprise_math/geometry.py"],
+    "A2": ["src/enterprise_math/composition_safe_collapse.py", "EnterpriseMath/Quotient/OperationCongruence.lean"],
+    "P018_P023_power_free_action_basis": [
+      "src/enterprise_math/p018_p023_power_free_action_basis.py",
+      "tests/test_p018_p023_power_free_action_basis.py",
+      "EnterpriseMath/Quotient/RootAdjacentBoundary.lean",
+      "EnterpriseMath/Quotient/PowerFreeActionBasis.lean",
+      "docs/PRIOR_ART_P018_P023_POWER_FREE_ACTION_BASIS.en.md",
+      "docs/PRIOR_ART_P018_P023_POWER_FREE_ACTION_BASIS.zh-CN.md",
+      "sources_p018_p023_power_free_action_basis.json",
+      "lineage_p018_p023_power_free_action_basis.json"
     ],
-    "A2": [
-      "src/enterprise_math/composition_safe_collapse.py",
-      "EnterpriseMath/Quotient/OperationCongruence.lean"
+    "P018_centered_prime_radius": ["src/enterprise_math/centered_prime_radius.py", "tests/test_centered_prime_radius.py"],
+    "A3": ["src/enterprise_math/weighted_relation_field.py", "src/enterprise_math/relation_lattice.py", "src/enterprise_math/relation_scale.py"],
+    "A4": ["src/enterprise_math/admissible_support.py", "src/enterprise_math/relational_spectrum.py"],
+    "A3_A4_bridge": ["src/enterprise_math/a3_a4_support_bridge.py"],
+    "A5_P022": ["src/enterprise_math/lattice_geometry.py", "tests/test_lattice_geometry.py"],
+    "P022_geodesic_hcp_core": [
+      "src/enterprise_math/p022_geodesic_multiplicity.py",
+      "src/enterprise_math/p022_hcp_geometry.py",
+      "tests/test_p022_geodesic_multiplicity.py",
+      "tests/test_p022_hcp_geometry.py"
     ],
-    "A3": [
-      "src/enterprise_math/weighted_relation_field.py",
-      "src/enterprise_math/relation_lattice.py",
-      "src/enterprise_math/relation_scale.py"
-    ],
-    "A4": [
-      "src/enterprise_math/admissible_support.py",
-      "src/enterprise_math/relational_spectrum.py"
-    ],
-    "A3_A4_bridge": [
-      "src/enterprise_math/a3_a4_support_bridge.py"
-    ],
-    "A5_P022": [
-      "src/enterprise_math/lattice_geometry.py",
-      "tests/test_lattice_geometry.py"
-    ],
-    "P021": [
-      "src/enterprise_math/causal_boundary.py",
-      "tests/test_causal_boundary.py"
-    ],
+    "P022_barlow_stacking_core": ["src/enterprise_math/p022_barlow_stacking.py", "tests/test_p022_barlow_stacking.py"],
+    "P022_barlow_task_relative_precision": ["src/enterprise_math/p022_barlow_precision.py", "tests/test_p022_barlow_precision.py"],
+    "P022_barlow_periodic_growth": ["src/enterprise_math/p022_barlow_growth.py", "tests/test_p022_barlow_growth.py"],
+    "P021": ["src/enterprise_math/causal_boundary.py", "tests/test_causal_boundary.py"],
     "E001_material_impulse_application": [
       "src/enterprise_math/material_impulse_accounting.py",
       "src/enterprise_math/material_impulse_world_1d.py",
@@ -150,10 +207,28 @@
       "tests/test_material_impulse_world_1d.py",
       "tests/test_material_impulse_tick_order.py",
       "tests/test_material_impulse_wall_world_1d.py"
+    ],
+    "E001_measurement_refinement_application": [
+      "src/enterprise_math/material_measurement_area_refinement.py",
+      "src/enterprise_math/material_measurement_refinement_variation.py",
+      "tests/test_material_measurement_area_refinement.py",
+      "tests/test_material_measurement_refinement_variation.py"
+    ],
+    "E001_residual_conservation_application": [
+      "src/enterprise_math/material_alias_stability.py",
+      "src/enterprise_math/material_boundary_shell_growth.py",
+      "src/enterprise_math/material_phase_saturation.py",
+      "src/enterprise_math/material_layered_kinematics.py",
+      "tests/test_material_alias_stability.py",
+      "tests/test_material_boundary_shell_growth.py",
+      "tests/test_material_phase_saturation.py",
+      "tests/test_material_layered_kinematics.py"
     ]
   },
   "application_tool_scope": {
-    "E001_material_impulse_application": "canonical executable engineering specialization; reusable for finite impulse accounting, explicit tick-order comparison, momentum drift, and wall-world tests, but module presence is not a general mechanics/material theorem or physical validation"
+    "E001_material_impulse_application": "canonical executable engineering specialization; reusable for finite impulse accounting, explicit tick-order comparison, momentum drift, and wall-world tests, but module presence is not a general mechanics/material theorem or physical validation",
+    "E001_measurement_refinement_application": "canonical exact finite-measurement specialization for measured-polyline area-refinement shells and variation diagnostics; it consumes newly supplied measurements and does not interpolate or recover an unknown continuum curve",
+    "E001_residual_conservation_application": "canonical finite-integer E001 specialization containing reusable alias-horizon, boundary-shell, endpoint-phase saturation results and a staged-projection comparator-negative; none is a probability law, continuum asymptotic, laminate constitutive law, or universal material theorem"
   },
   "tool_scope_alerts": {
     "FQ-20260809-005": "stable geometry.graph_distance accepts general adjacency mappings while P012 ordinary metric theorems assume connected undirected simple graphs; do not inherit metric symmetry on asymmetric inputs until API layering is resolved"
@@ -164,32 +239,17 @@
     "lean_root": "EnterpriseMath.lean",
     "tests": "tests/",
     "experiments": "experiments/",
-    "repo_tools": [
-      "tools/check_bilingual_pairs.py",
-      "tools/check_references.py",
-      "tools/research_scheduler.py"
-    ]
+    "repo_tools": ["tools/audit_branch_lifecycle.py", "tools/check_bilingual_pairs.py", "tools/check_references.py", "tools/check_research_common_surface.py", "tools/research_scheduler.py"]
   },
-  "relay_action_classes": [
-    "INFORM",
-    "CONSUME",
-    "TEST",
-    "HARD_DEPENDENCY"
-  ],
-  "route_heartbeat_fields": [
-    "frontier",
-    "hard_block",
-    "last_progress",
-    "shared_surface_seen"
-  ],
-  "runtime_handoff_events": [
-    "CLAIM",
-    "HEARTBEAT",
-    "PROGRESS",
-    "HANDOFF",
-    "HARD_BLOCK",
-    "UNBLOCK",
-    "DONE",
-    "SUPERSEDE"
-  ]
+  "promotion_sync": {
+    "rule": "every canonical promotion of a reusable theorem, formalization, executable tool family, negative boundary, or active interface alert must update the shared human/machine surface or explicitly justify N/A",
+    "mechanical_gate": "tools/check_research_common_surface.py",
+    "lean_root_imports_exact": true,
+    "repo_tools_exact": true,
+    "declared_paths_must_exist": true,
+    "active_foundation_question_sets_must_match": true
+  },
+  "relay_action_classes": ["INFORM", "CONSUME", "TEST", "HARD_DEPENDENCY"],
+  "route_heartbeat_fields": ["frontier", "hard_block", "last_progress", "shared_surface_seen"],
+  "runtime_handoff_events": ["CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE"]
 }
