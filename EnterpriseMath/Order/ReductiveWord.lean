@@ -1,3 +1,6 @@
+import Mathlib.Order.WellFounded
+import Mathlib.Tactic
+
 namespace EnterpriseMath.ReductiveWord
 
 variable {α : Type*} [PartialOrder α]
