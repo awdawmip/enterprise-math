@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "task": "R005A_TARGETED_PRIME_TOOLKIT_INGEST",
+  "source_head": "6991a5d875a3c74d447869cb987a08e661b3d97e",
+  "scope": "Targeted status-preserving ingest only; does not reopen the R005-C full harvest.",
+  "methods": [
+    {
+      "method_id": "r005a.actual_sieve_transient_quotient",
+      "source_owner": "R005-A third-round closure",
+      "source_ref": [
+        "6991a5d875a3c74d447869cb987a08e661b3d97e:docs/R005A_EXTERNAL_PRIME_CAPABILITY_PACKET_V3_20260810.md",
+        "6991a5d875a3c74d447869cb987a08e661b3d97e:experiments/r005a_prime_horizon_closure.py"
+      ],
+      "mathematical_status": "ENTERPRISE_SPECIALIZATION: exact actual p^2-activation relation-resolved and Boolean union-support preperiods and full residual-state counts for a fixed finite distinct prime set.",
+      "prior_art_status": "Starting Eratosthenes strikes at p^2 is classical; next-strike/segmented implementation state is prior art. The toolkit record preserves only the accepted Enterprise future-quotient specialization.",
+      "inputs": {"primes": "nonempty finite iterable of distinct primes"},
+      "outputs": {"period_Q": "int", "relation_resolved": "preperiod + residual_state_count", "union_support": "preperiod + residual_state_count", "prime_prefix": "bool"},
+      "exactness": "exact",
+      "preconditions": ["all supplied values are distinct primes >=2", "actual activation threshold is p^2"],
+      "failure_modes": ["rejects empty, duplicate, nonprime, or <2 inputs", "not a claim that p^2 activation itself is novel"],
+      "integer_only": true,
+      "complexity_characteristics": "formula evaluation plus canonical bounded primality/prefix validation",
+      "lean_status": "NONE_REQUESTED",
+      "current_regression_evidence": ["R005-A closure harness", "tests/test_r005a_sieve_toolkit_ingest.py"],
+      "reusable_for": ["exact actual-sieve transient quotient accounting", "relation-vs-union residual-state comparison"],
+      "not_safe_for": ["generic automata novelty claims", "claiming next-strike state as Enterprise discovery"],
+      "toolization_status": "CANONICAL_TOOL_READY",
+      "source_status": ["PROVED_WIP", "EXECUTABLE_CHECKED"],
+      "toolkit_callable": "actual_sieve_transient_quotient"
+    },
+    {
+      "method_id": "r005a.finite_horizon_sieve_quotient",
+      "source_owner": "R005-A third-round closure",
+      "source_ref": [
+        "6991a5d875a3c74d447869cb987a08e661b3d97e:docs/R005A_EXTERNAL_PRIME_CAPABILITY_PACKET_V3_20260810.md",
+        "6991a5d875a3c74d447869cb987a08e661b3d97e:experiments/r005a_prime_horizon_closure.py"
+      ],
+      "mathematical_status": "ENTERPRISE_SPECIALIZATION: exact finite-horizon sieve future quotient class count C_O(H), stabilization horizon, and segment-derived quotient data on the accepted prime-sieve state model.",
+      "prior_art_status": "Deterministic partition refinement, unary/ultimately-periodic automata minimization, and the generic block/segment observation law are prior art / existing Enterprise continuation theory; only the prime-sieve specialization is toolized here.",
+      "inputs": {"primes": "nonempty finite iterable of distinct primes", "horizon": "int >=0", "language": "relation_resolved|union_support", "activation": "actual|steady", "segment_length": "optional int >0", "transitions": "optional int >=0"},
+      "outputs": {"class_count": "C_O(H)", "stabilization_horizon": "H*_O", "segment": "optional derived C_{O,B}(D) and D*_O(B)"},
+      "exactness": "exact within the declared finite state_limit",
+      "preconditions": ["all supplied values are distinct primes >=2", "finite canonical state count does not exceed state_limit"],
+      "failure_modes": ["state-space product Q may exceed the explicit finite analyzer limit", "must not be cited as a new generic partition-refinement theorem"],
+      "integer_only": true,
+      "complexity_characteristics": "O((H*+1)(Q+mu)) time and O(Q+mu) state for exact refinement; intended for bounded analysis",
+      "lean_status": "NONE_REQUESTED",
+      "current_regression_evidence": ["R005-A closure harness", "tests/test_r005a_sieve_toolkit_ingest.py"],
+      "reusable_for": ["finite precision/resource analysis of sieve futures", "segment-depth accounting", "exact bounded quotient experiments"],
+      "not_safe_for": ["large unbounded prime products", "generic automata novelty claims"],
+      "toolization_status": "CANONICAL_TOOL_READY",
+      "source_status": ["PROVED_WIP", "EXECUTABLE_CHECKED"],
+      "toolkit_callable": "finite_horizon_sieve_quotient"
+    },
+    {
+      "method_id": "r005a.prime_wheel_phase_separation_radius",
+      "source_owner": "R005-A third-round closure",
+      "source_ref": [
+        "6991a5d875a3c74d447869cb987a08e661b3d97e:docs/R005A_EXTERNAL_PRIME_CAPABILITY_PACKET_V3_20260810.md",
+        "6991a5d875a3c74d447869cb987a08e661b3d97e:experiments/r005a_prime_horizon_closure.py"
+      ],
+      "mathematical_status": "NOVELTY_UNVERIFIED prime-wheel specialization: maximum common-prefix separation depth among distinct rotations of the Boolean prime-wheel circular word.",
+      "prior_art_status": "The generic maximum-LCP-of-distinct-rotations quantity belongs to mature cyclic-string/combinatorics-on-words machinery. Only possible arithmetic laws or bounds special to prime wheels remain an unresolved R005-A research question.",
+      "inputs": {"primes": "R005-A bounded prime wheel"},
+      "outputs": {"phase_separation_radius": "exact finite WIP statistic"},
+      "exactness": "exact on validated bounded R005-A cases",
+      "preconditions": ["R005-A prime-wheel semantics"],
+      "failure_modes": ["generic definition is not novel", "arithmetic prime-wheel laws/bounds are unresolved", "not exposed as a Prime Toolkit callable"],
+      "integer_only": true,
+      "complexity_characteristics": "bounded exhaustive WIP computation",
+      "lean_status": "NONE_REQUESTED",
+      "current_regression_evidence": ["R005-A closure harness only"],
+      "reusable_for": ["future arithmetic-law/bound investigation with explicit novelty caution"],
+      "not_safe_for": ["generic invariant novelty claims", "public facade execution", "canonical theorem claims"],
+      "toolization_status": "VALIDATED_WIP_ADAPTER_ONLY",
+      "source_status": ["PROVED_WIP", "EXECUTABLE_CHECKED"]
+    }
+  ]
+}
