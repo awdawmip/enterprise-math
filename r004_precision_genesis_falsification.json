@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "model_id": "R004-ENVIRONMENT-RECORD-PREMODEL-V0",
+  "status": "PHYSICAL-HYPOTHESIS",
+  "state_space": "Finite typed precision state (lambda,x) plus finite environment record states and finite path-history multiplicities; no continuum state is primitive.",
+  "transition_law": "A predeclared serial state-extensional correspondence propagates current physical states and path multiplicities; environment interactions generate finite record maps. The current V0 premodel does not yet derive the record generator from apparatus variables.",
+  "observation_map": "For a two-alternative interference task, eta is the exact fraction of finite environment microstates on which the two record maps agree. Candidate visibility law: V_predicted = eta * V_ordinary, with 0 <= V_ordinary <= 1 and V_ordinary supplied independently by the ordinary apparatus/environment model.",
+  "parameters": [
+    {
+      "name": "eta",
+      "prior_allowed_region": "rational numbers 0 <= eta <= 1 fixed before comparison for a declared apparatus/environment configuration",
+      "units": "dimensionless"
+    }
+  ],
+  "symmetries": [
+    {
+      "name": "spatial/kinematic symmetry",
+      "claim": "EMERGENT",
+      "residual_observable": "No symmetry claim is made until a concrete record-generation dynamics and geometry layer are supplied; any unavoidable anisotropy must be routed to P016-F1/F8."
+    }
+  ],
+  "conserved_quantities": [],
+  "predictions": [
+    {
+      "id": "R004-F3-ETA-VISIBILITY",
+      "kill_test_class": "F3",
+      "observable": "matter-wave fringe visibility relative to an independently calibrated ordinary-quantum/environment baseline",
+      "unavoidable_prediction": "For a predeclared eta, V_predicted = eta * V_ordinary with 0 <= V_ordinary <= 1; therefore every realization obeys the calibration-independent inequality V_predicted <= eta.",
+      "current_constraint": "Pedalino et al. (Nature 2026) report representative quantum-distinguishing sodium-nanoparticle fringe visibility V = 0.10 +/- 0.01 in the 143-197 kDa range and report no breakdown related to mass or size alone.",
+      "excluded_parameter_region": "Reading the published numerical interval 0.10 +/- 0.01 only as the reported range [0.09,0.11], the declared multiplicative law and V_ordinary <= 1 exclude every eta < 0.09 for that representative setup because V_predicted <= eta. This is an algebraic range exclusion, not a confidence-level or full-likelihood statement; no stronger interval is claimed until the experiment-specific ordinary baseline and uncertainty model are implemented.",
+      "falsified_if": "For any apparatus/environment configuration whose eta is fixed independently of the interference data, the experimentally admitted visibility range lies strictly above eta, or more generally is disjoint from eta times the independently calibrated ordinary-visibility range.",
+      "source_ids": [
+        "SRC-PEDALINO-2026-NANOPARTICLE"
+      ]
+    }
+  ]
+}
