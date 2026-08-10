@@ -3,7 +3,11 @@ import unittest
 
 from enterprise_math.p018_p023_quotient_word_basis import (
     prime_generator_basis,
+    prime_generator_required_horizon,
     quotient_word_language_separates_bounded_domain,
+)
+from enterprise_math.p018_p023_quotient_word_compression import (
+    penultimate_minimum_extra_count,
 )
 from enterprise_math.p018_p023_quotient_word_storage import (
     minimum_composite_storage_count,
@@ -108,6 +112,24 @@ class P018P023QuotientWordStorageTests(unittest.TestCase):
                     )
                     for alphabet in solutions:
                         self.assertTrue(primes <= set(alphabet))
+
+    def test_penultimate_minimum_storage_equals_primes_plus_semiprime_cover(self):
+        # Cross-check the general monotone-DNF storage oracle against the
+        # independent penultimate semiprime-divisor set-cover solver.
+        for root_exp in range(2, 6):
+            for max_state in range(2, 18):
+                level = prime_generator_required_horizon(max_state, root_exp)
+                if level < 2:
+                    continue
+                horizon = level - 1
+                expected = (
+                    len(prime_generator_basis(max_state))
+                    + penultimate_minimum_extra_count(max_state, root_exp)
+                )
+                self.assertEqual(
+                    minimum_storage_size(max_state, root_exp, horizon),
+                    expected,
+                )
 
 
 if __name__ == "__main__":
