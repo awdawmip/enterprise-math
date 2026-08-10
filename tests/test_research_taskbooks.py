@@ -34,13 +34,25 @@ class ResearchTaskbookTests(unittest.TestCase):
             encoding="utf-8",
         )
 
-    def test_taskbook_parser_reads_metadata(self):
+    def test_taskbook_parser_reads_metadata_and_injects_isolation(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = pathlib.Path(tmp) / "task.md"
             self.write_taskbook(path, self.metadata())
             task = rs.parse_taskbook(path)
             self.assertEqual("RS-TASKBOOK", task["task_id"])
             self.assertTrue(task["_taskbook_path"].endswith("task.md"))
+            self.assertEqual("TASK_ISOLATED", task["context_mode"])
+            self.assertEqual("UNTRUSTED_HINT_ONLY", task["memory_policy"])
+            self.assertEqual("EXPLICIT_ONLY", task["cross_task_import_policy"])
+
+    def test_taskbook_cannot_weaken_context_isolation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / "task.md"
+            metadata = self.metadata()
+            metadata["memory_policy"] = "TRUST_MEMORY"
+            self.write_taskbook(path, metadata)
+            with self.assertRaises(rs.SchedulerError):
+                rs.parse_taskbook(path)
 
     def test_load_taskbooks_ignores_readme_and_agents(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -75,6 +87,33 @@ class ResearchTaskbookTests(unittest.TestCase):
         merged = rs.merge_taskbooks(config, [task])
         self.assertEqual(["LEGACY", "SCOUT"], [item["task_id"] for item in merged["tasks"]])
         self.assertEqual(["LEGACY"], [item["task_id"] for item in config["tasks"]])
+
+    def test_legacy_research_tasks_also_inherit_isolation(self):
+        config = {"tasks": [self.metadata("LEGACY-RESEARCH")]}
+        normalized = rs.normalize_research_context(config)
+        task = normalized["tasks"][0]
+        self.assertEqual("TASK_ISOLATED", task["context_mode"])
+        self.assertEqual("UNTRUSTED_HINT_ONLY", task["memory_policy"])
+        self.assertEqual("EXPLICIT_ONLY", task["cross_task_import_policy"])
+
+    def test_selected_task_exposes_context_contract(self):
+        item = self.metadata("RS-SELECT")
+        config = {
+            "schema": "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V1",
+            "claim_lease_minutes": 120,
+            "task_states": ["BACKLOG", "READY", "CLAIMED", "IN_PROGRESS", "HANDOFF_READY", "BLOCKED", "DONE", "SUPERSEDED"],
+            "event_types": ["CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE"],
+            "selection_policy": {
+                "priority_order": ["P0", "P1", "P2", "P3"],
+                "leverage_order": ["HIGH", "MEDIUM", "LOW"],
+                "state_order": ["HANDOFF_READY", "READY"],
+            },
+            "tasks": [item],
+        }
+        chosen = rs.select_task(config, [], rs.parse_time("2026-08-10T12:00:00+08:00"))
+        self.assertEqual("TASK_ISOLATED", chosen["context_mode"])
+        self.assertEqual("UNTRUSTED_HINT_ONLY", chosen["memory_policy"])
+        self.assertEqual("EXPLICIT_ONLY", chosen["cross_task_import_policy"])
 
 
 if __name__ == "__main__":
