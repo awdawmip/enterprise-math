@@ -1,6 +1,7 @@
 import unittest
 
 from enterprise_math.r004_causal_resource_budget import (
+    catalan_number,
     causal_history_capacity_profile,
     finite_horizon_static_compilation_bound,
     first_budget_violation_step,
@@ -9,7 +10,18 @@ from enterprise_math.r004_causal_resource_budget import (
     static_uniform_history_atom_requirement,
     uniform_full_support_history_profile,
     uniform_history_budget_holds,
+    uniform_r_adic_minimal_schedule_count,
+    uniform_r_adic_minimal_schedule_holds,
 )
+
+
+def weak_compositions(total: int, parts: int):
+    if parts == 1:
+        yield (total,)
+        return
+    for first in range(total + 1):
+        for suffix in weak_compositions(total - first, parts - 1):
+            yield (first,) + suffix
 
 
 class R004CausalResourceBudgetTests(unittest.TestCase):
@@ -76,6 +88,45 @@ class R004CausalResourceBudgetTests(unittest.TestCase):
         self.assertTrue(history_support_profile_fits_budget(support, initial, innovations))
         self.assertEqual(causal_history_capacity_profile(initial, innovations), (8, 8, 8, 8, 16, 32, 64))
 
+    def test_minimum_r_adic_schedule_predicate(self):
+        self.assertTrue(uniform_r_adic_minimal_schedule_holds((0, 1, 1, 1)))
+        self.assertTrue(uniform_r_adic_minimal_schedule_holds((3, 0, 0, 0)))
+        self.assertTrue(uniform_r_adic_minimal_schedule_holds((0, 2, 1, 0)))
+        self.assertFalse(uniform_r_adic_minimal_schedule_holds((0, 0, 3, 0)))
+        self.assertFalse(uniform_r_adic_minimal_schedule_holds((1, 1, 1, 1)))
+
+    def test_minimum_r_adic_frontier_is_catalan(self):
+        expected = (1, 2, 5, 14, 42, 132, 429, 1430)
+        self.assertEqual(tuple(catalan_number(index) for index in range(8)), expected)
+        for horizon in range(0, 7):
+            schedules = [
+                row
+                for row in weak_compositions(horizon, horizon + 1)
+                if uniform_r_adic_minimal_schedule_holds(row)
+            ]
+            self.assertEqual(
+                len(schedules),
+                uniform_r_adic_minimal_schedule_count(horizon),
+            )
+            self.assertEqual(len(schedules), catalan_number(horizon + 1))
+
+    def test_every_minimum_r_adic_schedule_meets_uniform_prefix_capacity(self):
+        r = 2
+        for horizon in range(0, 6):
+            target = uniform_full_support_history_profile(r, horizon)
+            for exponents in weak_compositions(horizon, horizon + 1):
+                if not uniform_r_adic_minimal_schedule_holds(exponents):
+                    continue
+                initial = r ** exponents[0]
+                innovations = tuple(r**value for value in exponents[1:])
+                self.assertTrue(
+                    history_support_profile_fits_budget(target, initial, innovations)
+                )
+                self.assertEqual(
+                    finite_horizon_static_compilation_bound(initial, innovations),
+                    r**horizon,
+                )
+
     def test_invalid_inputs_fail_closed(self):
         with self.assertRaises(ValueError):
             causal_history_capacity_profile(0, (2,))
@@ -93,6 +144,12 @@ class R004CausalResourceBudgetTests(unittest.TestCase):
             uniform_history_budget_holds(2, 2, 1, (2,))
         with self.assertRaises(ValueError):
             prestored_prefix_then_online_schedule(2, 3, 4)
+        with self.assertRaises(ValueError):
+            uniform_r_adic_minimal_schedule_holds(())
+        with self.assertRaises(ValueError):
+            uniform_r_adic_minimal_schedule_holds((0, -1))
+        with self.assertRaises(ValueError):
+            catalan_number(-1)
 
 
 if __name__ == "__main__":
