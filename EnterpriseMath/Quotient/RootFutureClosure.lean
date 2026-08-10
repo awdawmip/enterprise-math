@@ -2,6 +2,7 @@ import EnterpriseMath.Arithmetic.IntegerRoot
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootQuotientWordBasis
 import EnterpriseMath.Quotient.RootQuotientPrimeSkeleton
+import EnterpriseMath.Quotient.RootQuotientPrimeBasis
 import Mathlib.Tactic
 
 namespace EnterpriseMath.Quotient
