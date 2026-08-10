@@ -134,10 +134,14 @@ def root_p3_prime_triples_via_pairs(k: int) -> dict[str, object]:
     upper = square_interval_upper(k)
     z3 = int(almost_prime_cutoff(k, 3)["cutoff"])
     z2 = int(almost_prime_cutoff(k, 2)["cutoff"])
-    factor_primes = tuple(p for p in primes_up_to(z2) if p > z3)
+    # The least factor a is <=z2, but the middle factor b can be larger than
+    # z2.  Since b<=sqrt(n)<k+1, primes through k cover the full pair range.
+    factor_primes = tuple(p for p in primes_up_to(k) if p > z3)
 
     rows: list[tuple[int, int, int, int, int]] = []
     for i, a in enumerate(factor_primes):
+        if a > z2:
+            break
         for b in factor_primes[i:]:
             if a * b * b > upper:
                 break
@@ -150,15 +154,14 @@ def root_p3_prime_triples_via_pairs(k: int) -> dict[str, object]:
 
     # Independent bounded reconstruction from every z3-rough state.
     direct: list[tuple[int, int, int, int, int]] = []
+    factorization_primes = tuple(p for p in primes_up_to(k) if p > z3)
     for r in rough_survivor_offsets(k, z3):
         value = k * k + r
         if is_prime(value):
             continue
         remaining = value
         factors: list[int] = []
-        for p in primes_up_to(z2):
-            if p <= z3:
-                continue
+        for p in factorization_primes:
             while remaining % p == 0:
                 factors.append(p)
                 remaining //= p
