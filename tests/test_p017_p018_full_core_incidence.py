@@ -21,6 +21,14 @@ class P017P018FullCoreIncidenceTests(unittest.TestCase):
         self.assertEqual(rows[35], 1)
         self.assertEqual(rows[105], -1)
 
+    def test_k100_full_core_three_uses_deep_outer_mobius_terms(self):
+        data = full_core_incidence_mobius(100, 3)
+        self.assertEqual(data["full_core_incidence"], 8)
+        self.assertEqual(
+            data["direct_signed_points"],
+            (-73, -67, -19, -13, 17, 23, 59, 71),
+        )
+
     def test_k22_full_core_mobius_matches_repeated_low_core(self):
         data = full_core_incidence_mobius(22, 17)
 
