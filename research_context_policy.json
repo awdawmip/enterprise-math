@@ -1,0 +1,55 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_CONTEXT_ISOLATION_V1",
+  "status": "ACTIVE",
+  "default_research_context": {
+    "context_mode": "TASK_ISOLATED",
+    "memory_policy": "UNTRUSTED_HINT_ONLY",
+    "cross_task_import_policy": "EXPLICIT_ONLY"
+  },
+  "authority_order": [
+    "explicit current user instruction",
+    "repository/project execution rules and the selected taskbook",
+    "current canonical source main and task-declared source_refs/dependencies",
+    "task-local branch artifacts and exact task-local evidence",
+    "explicitly imported cross-task results with provenance",
+    "memory or undeclared cross-task context"
+  ],
+  "shared_without_import": [
+    "repository execution/governance rules",
+    "canonical main definitions and theorem interfaces needed by the task",
+    "taskbook source_refs and declared dependencies",
+    "explicit current user instructions"
+  ],
+  "untrusted_hint_only": [
+    "ChatGPT account or Project memory",
+    "personal-context memory",
+    "prior conversations",
+    "GLOBAL_KNOWLEDGE journal events",
+    "GLOBAL_KNOWLEDGE research findings not explicitly referenced by the task",
+    "other research taskbooks",
+    "other owner branches or pull requests",
+    "undeclared Research Relay entries",
+    "model recollection of another task's conjecture, experiment, theorem, or status"
+  ],
+  "explicit_cross_task_actions": [
+    "INFORM",
+    "CONSUME",
+    "TEST",
+    "HARD_DEPENDENCY"
+  ],
+  "import_requirements": [
+    "source reference",
+    "evidence/status class",
+    "weakest assumptions or scope boundary",
+    "one explicit cross-task action"
+  ],
+  "rules": [
+    "Memory may suggest a search term or candidate connection but is never evidence by itself.",
+    "Before a remembered claim is used, resolve it to an allowed canonical/task-declared source or import it explicitly with provenance.",
+    "A result from another task does not become a premise merely because the same model or Project remembers it.",
+    "GLOBAL_KNOWLEDGE progress journal is provenance and continuation aid, not theorem truth.",
+    "Task-local conjectures, experiments, notation, and negative results do not cross task boundaries implicitly.",
+    "If remembered context conflicts with the selected taskbook or canonical source, discard the remembered context and continue from the task-local source set.",
+    "Context isolation is a research hygiene rule, not a HARD_BLOCK and not a reason to add GitHub chatter."
+  ]
+}
