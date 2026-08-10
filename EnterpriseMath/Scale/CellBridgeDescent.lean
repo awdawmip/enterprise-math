@@ -9,6 +9,12 @@ theorem cellsBridgeableAt_comm {d i e j h : ℕ} :
     cellsBridgeableAt d i e j h ↔ cellsBridgeableAt e j d i h := by
   constructor <;> rintro ⟨k, h₁, h₂⟩ <;> exact ⟨k, h₂, h₁⟩
 
+/-- Non-bridgeability is symmetric as well. -/
+theorem not_cellsBridgeableAt_comm {d i e j h : ℕ} :
+    (¬ cellsBridgeableAt d i e j h) ↔
+      ¬ cellsBridgeableAt e j d i h :=
+  not_congr cellsBridgeableAt_comm
+
 /-- A reduced `N`-fraction in a closed gap whose endpoint denominators are `<N`
 is automatically strict with respect to both endpoints. -/
 theorem coprime_gridPoint_strict_in_oldGap
@@ -78,7 +84,7 @@ theorem ordered_cell_bridge_descend
   have hm : 0 < m := by
     have hleftPos : 0 < (ti + 1) * N := by positivity
     by_contra hm0
-    have : m = 0 := Nat.eq_zero_of_not_pos hm0
+    have hmzero : m = 0 := Nat.eq_zero_of_not_pos hm0
     subst m
     simp at hmLeft
   have hmN : m < N := by
@@ -126,13 +132,14 @@ theorem PrefixCompatible.pairwiseNewAllowed
   have hsourceBridge : cellsBridgeableAt A.scale A.index B.scale B.index N :=
     ⟨j, hAj, hBj⟩
   by_contra hnoTarget
-  push_neg at hnoTarget
   have htargetNoBridge :
       ¬ cellsBridgeableAt A.scale (ρ A.scale A.2).1
         B.scale (ρ B.scale B.2).1 N := by
     intro hbridge
     rcases hbridge with ⟨k, hAk, hBk⟩
-    exact hnoTarget k hAk hBk
+    apply hnoTarget
+    exact ⟨k, by simpa [prefixTargetOverlap] using hAk,
+      by simpa [prefixTargetOverlap] using hBk⟩
   have hsourceNotOverlap : ¬ cellOverlap A.scale A.index B.scale B.index := by
     intro hov
     have himg := hcompat A B hov
@@ -153,29 +160,33 @@ theorem PrefixCompatible.pairwiseNewAllowed
         A.1.2 B.1.2 A.1.2 B.1.2 hsAB htAB hsourceBridge htargetNoBridge
       have himg := hcompat.preserves_bridge_exists A B hh hhN hsBridge
       exact htNo himg
-    · obtain ⟨h, hh, hhN, hsBridge, htNoBA⟩ := ordered_cell_bridge_descend
+    · have htargetNoBA : ¬ cellsBridgeableAt B.scale (ρ B.scale B.2).1
+        A.scale (ρ A.scale A.2).1 N :=
+        (not_cellsBridgeableAt_comm).1 htargetNoBridge
+      obtain ⟨h, hh, hhN, hsBridge, htNoBA⟩ := ordered_cell_bridge_descend
         A.scale_pos B.scale_pos B.scale_pos A.scale_pos hNpos
         A.2.2 B.2.2 (ρ B.scale B.2).2 (ρ A.scale A.2).2
-        A.1.2 B.1.2 B.1.2 A.1.2 hsAB htBA hsourceBridge
-        ((cellsBridgeableAt_comm).2 htargetNoBridge)
+        A.1.2 B.1.2 B.1.2 A.1.2 hsAB htBA hsourceBridge htargetNoBA
       have himgAB := hcompat.preserves_bridge_exists A B hh hhN hsBridge
       exact htNoBA ((cellsBridgeableAt_comm).1 himgAB)
-  · rcases cellBefore_or_reverse_of_not_overlap htargetNotOverlap with htAB | htBA
+  · have hsourceBridgeBA : cellsBridgeableAt B.scale B.index A.scale A.index N :=
+      (cellsBridgeableAt_comm).1 hsourceBridge
+    rcases cellBefore_or_reverse_of_not_overlap htargetNotOverlap with htAB | htBA
     · obtain ⟨h, hh, hhN, hsBridgeBA, htNo⟩ := ordered_cell_bridge_descend
         B.scale_pos A.scale_pos A.scale_pos B.scale_pos hNpos
         B.2.2 A.2.2 (ρ A.scale A.2).2 (ρ B.scale B.2).2
-        B.1.2 A.1.2 A.1.2 B.1.2 hsBA htAB
-        ((cellsBridgeableAt_comm).2 hsourceBridge) htargetNoBridge
-      have hsBridgeAB := (cellsBridgeableAt_comm).1 hsBridgeBA
+        B.1.2 A.1.2 A.1.2 B.1.2 hsBA htAB hsourceBridgeBA htargetNoBridge
+      have hsBridgeAB := (cellsBridgeableAt_comm).2 hsBridgeBA
       have himg := hcompat.preserves_bridge_exists A B hh hhN hsBridgeAB
       exact htNo himg
-    · obtain ⟨h, hh, hhN, hsBridgeBA, htNoBA⟩ := ordered_cell_bridge_descend
+    · have htargetNoBA : ¬ cellsBridgeableAt B.scale (ρ B.scale B.2).1
+        A.scale (ρ A.scale A.2).1 N :=
+        (not_cellsBridgeableAt_comm).1 htargetNoBridge
+      obtain ⟨h, hh, hhN, hsBridgeBA, htNoBA⟩ := ordered_cell_bridge_descend
         B.scale_pos A.scale_pos B.scale_pos A.scale_pos hNpos
         B.2.2 A.2.2 (ρ B.scale B.2).2 (ρ A.scale A.2).2
-        B.1.2 A.1.2 B.1.2 A.1.2 hsBA htBA
-        ((cellsBridgeableAt_comm).2 hsourceBridge)
-        ((cellsBridgeableAt_comm).2 htargetNoBridge)
-      have hsBridgeAB := (cellsBridgeableAt_comm).1 hsBridgeBA
+        B.1.2 A.1.2 B.1.2 A.1.2 hsBA htBA hsourceBridgeBA htargetNoBA
+      have hsBridgeAB := (cellsBridgeableAt_comm).2 hsBridgeBA
       have himgAB := hcompat.preserves_bridge_exists A B hh hhN hsBridgeAB
       exact htNoBA ((cellsBridgeableAt_comm).1 himgAB)
 
