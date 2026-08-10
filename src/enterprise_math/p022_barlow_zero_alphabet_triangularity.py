@@ -1,8 +1,9 @@
-"""Conditional triangular classification of one Franel zero-alphabet defect quotient.
+"""Conditional triangular classification of a Franel zero-alphabet quotient.
 
 Fix an odd prime q and its single-digit Franel zero alphabet Z_q.  The only
-columns which can fail the obvious local triangular pivot are twin-prime center
-zeros.  Right-half twin zeros are already proved to be identically zero columns.
+columns which can fail the obvious local triangular pivot are twin-prime
+center zeros.  Right-half twin zeros are already proved to be identically zero
+columns.
 
 For a left-half twin zero s, the guaranteed terminal defect D_(2s-1) has, at
 zero coordinates >=s, only
@@ -17,7 +18,7 @@ then the whole zero-alphabet matrix is triangular after ordering zero digits by
 index.  Every column except the proved right-half twin zero axes is a pivot,
 and the free columns are exactly those right-half twin axes.
 
-This theorem is purely conditional on the terminal-collision exclusion.  The
+This theorem is conditional on the terminal-collision exclusion.  The
 remaining universal arithmetic frontier is therefore the existence or
 impossibility of a left-half twin zero s with q dividing F_(2s-2) or F_(2s-1).
 For an actual primitive source, the F_(2s-1) branch strengthens the terminal
@@ -32,7 +33,7 @@ from .p022_barlow_low_order_defect_reduction import (
     composite_A_relation_exponents,
 )
 from .p022_barlow_right_half_defect_visibility import (
-    right_half_twin_zero_digits,
+    right_half_zero_column_iff_twin,
 )
 from .p022_barlow_twin_defect_difference import twin_blackout_high_support
 
@@ -49,6 +50,17 @@ def _require_odd_prime(prime: int) -> None:
 
 def _is_twin_center(index: int) -> bool:
     return _is_prime(2 * index - 1) and _is_prime(2 * index + 1)
+
+
+def right_half_twin_zero_digits(prime: int) -> tuple[int, ...]:
+    """Actual q-zero digits whose D_<q columns are identically zero."""
+    _require_odd_prime(prime)
+    midpoint = (prime - 1) // 2
+    return tuple(
+        digit
+        for digit in franel_zero_digits(prime)
+        if digit > midpoint and right_half_zero_column_iff_twin(prime, digit)
+    )
 
 
 def left_half_twin_zero_digits(prime: int) -> tuple[int, ...]:
@@ -108,7 +120,9 @@ def non_twin_local_triangular_row(
     if row.get(zero_index) != pivot:
         raise AssertionError("local zero pivot coefficient changed")
     if any(index >= zero_index for index in row if index != zero_index):
-        raise AssertionError("all nonpivot zero support must lie below the pivot")
+        raise AssertionError(
+            "all nonpivot zero support must lie below the pivot"
+        )
     return segment, tuple(sorted(row.items()))
 
 
@@ -138,9 +152,13 @@ def left_twin_terminal_triangular_row(
             if row[index] == 0:
                 del row[index]
     if row.get(zero_index) != 1:
-        raise AssertionError("terminal twin row must carry the source with coefficient +1")
+        raise AssertionError(
+            "terminal twin row must carry the source with coefficient +1"
+        )
     if any(index >= zero_index for index in row if index != zero_index):
-        raise AssertionError("endpoint exclusion must leave only lower zero support")
+        raise AssertionError(
+            "endpoint exclusion must leave only lower zero support"
+        )
     return segment, tuple(sorted(row.items()))
 
 
@@ -163,7 +181,9 @@ def triangular_pivot_rows_if_no_terminal_collision(
         else:
             segment, _ = non_twin_local_triangular_row(prime, digit)
         if segment in used_rows:
-            raise AssertionError("triangular pivot construction reused a defect row")
+            raise AssertionError(
+                "triangular pivot construction reused a defect row"
+            )
         used_rows.add(segment)
         pivots.append((digit, segment))
     return tuple(pivots)
@@ -174,8 +194,12 @@ def triangular_free_columns_are_right_half_twins(prime: int) -> bool:
     pivots = triangular_pivot_rows_if_no_terminal_collision(prime)
     zeros = franel_zero_digits(prime)
     pivot_digits = {digit for digit, _ in pivots}
-    predicted_free = tuple(digit for digit in zeros if digit not in pivot_digits)
+    predicted_free = tuple(
+        digit for digit in zeros if digit not in pivot_digits
+    )
     actual_free = right_half_twin_zero_digits(prime)
     if predicted_free != actual_free:
-        raise AssertionError("conditional triangular free-column classification failed")
+        raise AssertionError(
+            "conditional triangular free-column classification failed"
+        )
     return True
