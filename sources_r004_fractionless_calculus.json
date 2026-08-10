@@ -10,7 +10,7 @@
       "kind": "reference-entry",
       "primary_url": "https://encyclopediaofmath.org/wiki/P-adic_valuation",
       "role": ["MATHEMATICAL-PRIOR", "VALUATION-PRIOR", "CONTRAST"],
-      "enterprise_use": "Records the established p-adic valuation laws v_p(xy)=v_p(x)+v_p(y) and v_p(x+y)>=min(v_p(x),v_p(y)), with equality when the two input valuations differ. R004 specializes these standard facts into a future-safe quotient/carry pressure test.",
+      "enterprise_use": "Records the established p-adic valuation laws v_p(xy)=v_p(x)+v_p(y) and v_p(x+y)>=min(v_p(x),v_p(y)), with equality when the two input valuations differ. R004 specializes these standard facts into future-safe quotient/carry and translation-trie pressure tests.",
       "not_claimed": "P-adic valuations, non-Archimedean norms, and their ultrametric laws are established mathematics and are not Enterprise Math inventions.",
       "verified_at": "2026-08-10"
     },
@@ -49,6 +49,42 @@
       "role": ["MATHEMATICAL-PRIOR", "INTEGER-VALUED-POLYNOMIAL-PRIOR", "CONTRAST"],
       "enterprise_use": "Provides the modern prior-art boundary for integer-valued-polynomial and binomial-coordinate methods. R004 uses only elementary binomial count identities and does not claim that integer-valued or binomial-basis polynomial calculus is new.",
       "not_claimed": "Integer-valued polynomials, generalized factorial/orderings, p-adic analysis and binomial-coordinate methods are established prior mathematics.",
+      "verified_at": "2026-08-10"
+    },
+    {
+      "id": "SRC-MATHLIB-FINITE-ABELIAN",
+      "title": "Mathlib.GroupTheory.FiniteAbelian.Basic",
+      "authors": ["Mathlib contributors"],
+      "year": 2026,
+      "kind": "formal-library-documentation",
+      "primary_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/GroupTheory/FiniteAbelian/Basic.html",
+      "role": ["MATHEMATICAL-PRIOR", "FINITE-ABELIAN-STRUCTURE", "FORMAL-REFERENCE", "CONTRAST"],
+      "enterprise_use": "Official Mathlib documentation records the established structure theorem that finite abelian groups decompose as direct sums of prime-power cyclic ZMod components. R004 uses this only as prior-art support for its quotient exponent-profile interpretation.",
+      "not_claimed": "The structure theorem for finite abelian groups and prime-power cyclic decomposition are established mathematics, not Enterprise Math results.",
+      "verified_at": "2026-08-10"
+    },
+    {
+      "id": "SRC-MATHLIB-SMITH-NORMAL-FORM",
+      "title": "Mathlib.LinearAlgebra.FreeModule.PID",
+      "authors": ["Mathlib contributors"],
+      "year": 2026,
+      "kind": "formal-library-documentation",
+      "primary_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/LinearAlgebra/FreeModule/PID.html",
+      "role": ["MATHEMATICAL-PRIOR", "SMITH-NORMAL-FORM", "FORMAL-REFERENCE", "CONTRAST"],
+      "enterprise_use": "Official Mathlib documentation provides Smith-normal-form bases for finite-rank submodules over principal ideal domains, supplying the prior-art boundary for diagonal invariant-factor descriptions of quotient relation modules.",
+      "not_claimed": "Smith normal form, invariant factors over PIDs, and diagonalization of submodule inclusions are established mathematics.",
+      "verified_at": "2026-08-10"
+    },
+    {
+      "id": "SRC-MATHLIB-FREE-MODULE-QUOTIENT",
+      "title": "Mathlib.LinearAlgebra.FreeModule.Finite.Quotient",
+      "authors": ["Mathlib contributors"],
+      "year": 2026,
+      "kind": "formal-library-documentation",
+      "primary_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/LinearAlgebra/FreeModule/Finite/Quotient.html",
+      "role": ["MATHEMATICAL-PRIOR", "QUOTIENT-DECOMPOSITION", "FORMAL-REFERENCE", "CONTRAST"],
+      "enterprise_use": "Official Mathlib documentation expresses finite free-module quotients over PIDs as products of cyclic quotients using Smith coefficients. R004 uses this as a prior-art boundary for converting an additive future congruence into a structured quotient-module view.",
+      "not_claimed": "Finite free-module quotient decomposition by Smith coefficients is established algebra and formalized prior work.",
       "verified_at": "2026-08-10"
     }
   ]
