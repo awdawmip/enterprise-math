@@ -103,11 +103,9 @@ def centered_jacobsthal_slice(k: int) -> dict[str, object]:
     data = square_basin_candidate_progression(k)
     P = odd_primorial_below_k(k)
     candidates = tuple(int(value) for value in data["candidates"])
-    interval = tuple((P + value) // 2 for value in candidates)
-    if any(P + value % 2 == 0 for value in ()):  # pragma: no cover - documentation guard
-        raise AssertionError("unreachable")
     if any((P + value) % 2 != 0 for value in candidates):
         raise AssertionError("half-primorial coordinate is not integral")
+    interval = tuple((P + value) // 2 for value in candidates)
     if any(interval[index] - interval[index + 1] != 1 for index in range(len(interval) - 1)):
         raise AssertionError("half-primorial image is not a consecutive interval")
 
