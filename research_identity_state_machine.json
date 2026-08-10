@@ -1,0 +1,85 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V1",
+  "status": "ACTIVE",
+  "effective": "2026-08-11T00:47:00+08:00",
+  "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
+  "helper": "tools/research_identity.py",
+  "states": [
+    "UNRESOLVED",
+    "RESOLVED_LOCAL",
+    "REGISTER_PENDING",
+    "REGISTERED"
+  ],
+  "entry_invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve or allocate a Researcher-ID before substantive work begins.",
+  "entry_events": [
+    "direct user research task",
+    "scheduler/CLAIM dispatch",
+    "taskbook execution",
+    "role transition into RESEARCHER",
+    "role transition into RESEARCH_DRIVER",
+    "handoff into a new conversation",
+    "resume of an existing Enterprise Math conversation"
+  ],
+  "resolution_order": [
+    "reuse the Researcher-ID already visible in the current conversation if one exists",
+    "reuse an unambiguous persisted Researcher-ID bound to this same conversation/session if available",
+    "for scheduler CLAIM, derive a deterministic ID from task identity lane plus claim_id",
+    "otherwise generate a new short-code ID locally and persist it in the current conversation"
+  ],
+  "id_grammar": {
+    "legacy_sequential": "EM-<LANE>-<NN>",
+    "automatic": "EM-<LANE>-<SHORTCODE>",
+    "automatic_shortcode": "4-8 uppercase alphanumeric characters",
+    "examples": [
+      "EM-R012-01",
+      "EM-R012-K7M4",
+      "EM-P017-8C21F4",
+      "EM-DVR-Q4N7"
+    ],
+    "primary_driver_reserved_id": "EM-DRIVER-01"
+  },
+  "lane_resolution": {
+    "taskbook_field": "identity_lane",
+    "fallback": "derive the compact Rxxx/Pxxx lane from task_id; otherwise use DIRECT",
+    "driver_without_primary_designation": "DVR"
+  },
+  "scheduler_claim": {
+    "claim_field": "researcher_id",
+    "missing_field_behavior": "AUTO_DERIVE_FROM_TASK_AND_CLAIM_ID",
+    "derivation": "SHA-256(task_id + NUL + claim_id), uppercase first 6 hex characters, prefixed by EM-<LANE>-",
+    "state_output_fields": ["researcher_id", "last_researcher_id", "identity_source"],
+    "legacy_event_compatibility": true
+  },
+  "direct_task_or_role_transition": {
+    "existing_id": "PRESERVE",
+    "missing_id": "AUTO_GENERATE_LOCAL",
+    "tool": "python tools/research_identity.py allocate --task <TASK-or-DIRECT> --role <ROLE>",
+    "registration": "BEST_EFFORT_AT_START_OR_FIRST_SEMANTIC_CHECKPOINT"
+  },
+  "role_transition": {
+    "same_conversation": "preserve Researcher-ID and update Research-Role / Research-Task metadata",
+    "new_conversation": "allocate a new Researcher-ID",
+    "primary_driver": "EM-DRIVER-01 only when the conversation is explicitly the primary Driver continuity conversation"
+  },
+  "taskbook_contract": {
+    "required_for_new_driver_approved_taskbooks": {
+      "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE"
+    },
+    "optional_field": "identity_lane",
+    "rule": "Taskbooks declare the identity policy/lane, never a fixed researcher instance ID. The executing conversation resolves or allocates its own Researcher-ID at runtime.",
+    "legacy_taskbooks": "inherit this state machine even when the field is absent"
+  },
+  "registration": {
+    "human_directory_repository": "awdawmip/chatgpt-global-knowledge",
+    "human_directory_path": "projects/enterprise-math/RESEARCHER_DIRECTORY.md",
+    "registration_is_uniqueness_source": false,
+    "registration_failure": "REGISTER_PENDING; continue research and persist the ID visibly; retry only at a semantic checkpoint",
+    "not_a_hard_block": true
+  },
+  "visibility": {
+    "final_response": "Researcher-ID: <ID> / <TASK-or-CONTROL_PLANE>",
+    "commit_subject_prefix": "[<ID>]",
+    "pr_title_prefix": "[<ID>]",
+    "metadata_fields": ["researcher_id", "research_task", "research_role"]
+  }
+}
