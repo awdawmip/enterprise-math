@@ -67,9 +67,13 @@ theorem rootQuotientWordProduct_pos
         intro b hb
         exact hw b (by simp [hb])
       have hProdPos : 1 ≤ rootQuotientWordProduct w := ih hTail
-      have hMulPos : 0 < a * rootQuotientWordProduct w :=
-        Nat.mul_pos (by omega) (by omega)
-      simpa [rootQuotientWordProduct] using hMulPos
+      have haNe : a ≠ 0 := by omega
+      have hProdNe : rootQuotientWordProduct w ≠ 0 := by omega
+      have hMulNe : a * rootQuotientWordProduct w ≠ 0 :=
+        Nat.mul_ne_zero haNe hProdNe
+      have hMulOne : 1 ≤ a * rootQuotientWordProduct w :=
+        Nat.one_le_iff_ne_zero.mpr hMulNe
+      simpa [rootQuotientWordProduct] using hMulOne
 
 /-- Exact finite-horizon future-language reduction.
 
