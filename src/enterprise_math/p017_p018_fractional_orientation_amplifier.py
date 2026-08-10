@@ -66,8 +66,7 @@ not establish a remainder theorem or a prime gap result.
 from __future__ import annotations
 
 from fractions import Fraction
-from itertools import combinations
-from math import prod
+from math import comb
 
 from .legendre import primes_up_to
 from .p017_mirror import anchor_surviving_radius, mirror_transverse_supports
@@ -88,7 +87,7 @@ def fractional_local_factor(prime: int, lam: Fraction) -> dict[str, Fraction]:
         raise ValueError("prime must be an odd integer >=3")
     p = prime
     direct_mean = Fraction(p - 1, p) + lam / p
-    positive_amplifier_mean = Fraction(p, p) + lam / p
+    positive_amplifier_mean = Fraction(1, 1) + lam / p
     upper_divisibility_density = Fraction(1, 1) / (p + lam)
     if direct_mean != positive_amplifier_mean * (1 - upper_divisibility_density):
         raise AssertionError("fractional local factorization failed")
@@ -160,7 +159,7 @@ def formal_fractional_sieve_model(k: int, lam: Fraction) -> dict[str, object]:
 
     alternate = base
     for prime in trans:
-        alternate *= 1 - Fraction(1, 1) * (1 - lam) / prime
+        alternate *= 1 - (1 - lam) / prime
     if direct != alternate:
         raise AssertionError("fractional net logarithmic-decay product failed")
 
@@ -193,9 +192,12 @@ def fractional_point_weight(k: int, radius: int, lam: Fraction) -> dict[str, obj
     upper_prime = len(upper_support) == 0
     weight = (1 + lam) ** c_lower if upper_prime else Fraction(0, 1)
 
-    divisor_expansion = Fraction(0, 1)
-    for size in range(c_lower + 1):
-        divisor_expansion += Fraction(comb(c_lower, size), 1) * (lam ** size)
+    divisor_expansion = sum(
+        Fraction(comb(c_lower, size), 1) * (lam ** size)
+        for size in range(c_lower + 1)
+    )
+    if divisor_expansion != (1 + lam) ** c_lower:
+        raise AssertionError("fractional opposite-divisor binomial expansion failed")
     if upper_prime and divisor_expansion != weight:
         raise AssertionError("fractional opposite-divisor expansion failed")
     if (weight > 0) != upper_prime:
@@ -208,6 +210,6 @@ def fractional_point_weight(k: int, radius: int, lam: Fraction) -> dict[str, obj
         "upper_support": tuple(upper_support),
         "upper_prime": upper_prime,
         "fractional_upper_prime_weight": weight,
-        "opposite_divisor_expansion": divisor_expansion if upper_prime else None,
+        "opposite_divisor_expansion": divisor_expansion,
         "positive_iff_upper_prime": True,
     }
