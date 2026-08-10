@@ -55,6 +55,8 @@ class IntegerActionCapabilitySearchTests(unittest.TestCase):
             )
             self.assertEqual(report.minimum_cardinality, expected_size)
             self.assertEqual(report.minimum_subsets, expected_subsets)
+            self.assertEqual(report.unavoidable_core, ())
+            self.assertGreater(report.impossible_extension_prunes, 0)
         self.assertEqual(
             minimum_action_capability_subsets(
                 actions,
@@ -64,7 +66,7 @@ class IntegerActionCapabilitySearchTests(unittest.TestCase):
             ((0,),),
         )
 
-    def test_kernel_and_integer_module_search_return_different_optima(self):
+    def test_kernel_and_integer_module_search_return_different_optima_and_cores(self):
         actions = (
             ((0, 1), (0, 0)),
             ((0, 2), (0, 0)),
@@ -83,8 +85,13 @@ class IntegerActionCapabilitySearchTests(unittest.TestCase):
         )
         self.assertEqual(kernel.minimum_cardinality, 1)
         self.assertEqual(kernel.minimum_subsets, ((0,), (1,)))
+        self.assertEqual(kernel.unavoidable_core, ())
+
         self.assertEqual(module.minimum_cardinality, 1)
         self.assertEqual(module.minimum_subsets, ((0,),))
+        self.assertEqual(module.unavoidable_core, (0,))
+        self.assertEqual(module.optional_actions, (1,))
+        self.assertEqual(module.core_reduced_subset_count, 2)
 
     def test_full_current_observation_prunes_entire_action_search_at_root(self):
         actions = (
@@ -102,14 +109,12 @@ class IntegerActionCapabilitySearchTests(unittest.TestCase):
             )
             self.assertEqual(report.minimum_cardinality, 0)
             self.assertEqual(report.minimum_subsets, ((),))
+            self.assertEqual(report.unavoidable_core, ())
             self.assertEqual(report.visited_nodes, 1)
             self.assertEqual(report.preserving_node_prunes, 1)
-            self.assertLess(report.oracle_calls, report.full_subset_count)
+            self.assertTrue(report.oracle_avoided_full_original_enumeration)
 
-    def test_impossible_extension_prune_is_used_when_excluded_action_is_necessary(self):
-        # A creates e2; B consumes e2 to create e3.  Both are required for full
-        # STATE_KERNEL precision.  Excluding either makes the maximal remaining
-        # extension incapable of reaching rank three.
+    def test_unavoidable_core_can_remove_every_search_dimension(self):
         actions = (
             (
                 (0, 1, 0),
@@ -127,13 +132,16 @@ class IntegerActionCapabilitySearchTests(unittest.TestCase):
             ((1, 0, 0),),
             mode=STATE_KERNEL,
         )
+        self.assertEqual(report.unavoidable_core, (0, 1))
+        self.assertEqual(report.optional_actions, ())
+        self.assertEqual(report.core_reduced_subset_count, 1)
         self.assertEqual(report.minimum_subsets, ((0, 1),))
-        self.assertGreater(report.impossible_extension_prunes, 0)
+        self.assertEqual(report.visited_nodes, 1)
 
     def test_exact_search_can_still_have_exponential_worst_case_boundary(self):
         # This regression does not assert a complexity theorem.  It only locks
-        # that the report exposes the full 2^k comparison surface rather than
-        # pretending pruning is always effective.
+        # the explicit 2^k comparison surface rather than pretending pruning is
+        # always effective.
         actions = (
             ((0, 1), (0, 0)),
             ((0, 1), (0, 0)),
@@ -145,6 +153,7 @@ class IntegerActionCapabilitySearchTests(unittest.TestCase):
             mode=INTEGER_MODULE,
         )
         self.assertEqual(report.full_subset_count, 8)
+        self.assertEqual(report.core_reduced_subset_count, 8)
         self.assertEqual(report.minimum_cardinality, 1)
         self.assertEqual(report.minimum_subsets, ((0,), (1,), (2,)))
 
