@@ -28,6 +28,10 @@ On these scales anchor survival inside 1<=r<k is exactly odd parity: the endpoin
 prime is outside the open radius window.  Hence the surviving-radius count is
 ``k/2`` in the even case and ``(k-1)/2`` in the odd case.
 
+Effective anchors are obtained by factoring the two consecutive factors k and
+k+1 directly; there is no need to enumerate every prime <=k.  This keeps large
+critical scales executable while preserving the exact finite definition.
+
 This finite classification explains why asymptotic Euler factors from a large
 anchor prime near k must not be interpreted as an actual finite-radius density
 loss.  It is an exact routing theorem, not a Legendre proof.
@@ -37,7 +41,7 @@ from __future__ import annotations
 
 from math import gcd
 
-from .legendre import is_prime, primes_up_to
+from .legendre import is_prime
 
 
 def is_power_of_two(value: int) -> bool:
@@ -46,13 +50,31 @@ def is_power_of_two(value: int) -> bool:
     return value & (value - 1) == 0
 
 
+def _distinct_odd_prime_factors(value: int) -> tuple[int, ...]:
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise ValueError("value must be a positive integer")
+    remaining = value
+    while remaining % 2 == 0:
+        remaining //= 2
+    factors: list[int] = []
+    candidate = 3
+    while candidate * candidate <= remaining:
+        if remaining % candidate == 0:
+            factors.append(candidate)
+            while remaining % candidate == 0:
+                remaining //= candidate
+        candidate += 2
+    if remaining > 1:
+        factors.append(remaining)
+    return tuple(factors)
+
+
 def effective_odd_anchor_primes(k: int) -> tuple[int, ...]:
     if isinstance(k, bool) or not isinstance(k, int) or k < 2:
         raise ValueError("k must be an integer >= 2")
-    center = k * (k + 1)
-    return tuple(
-        p for p in primes_up_to(k - 1) if p % 2 == 1 and center % p == 0
-    )
+    factors = set(_distinct_odd_prime_factors(k))
+    factors.update(_distinct_odd_prime_factors(k + 1))
+    return tuple(sorted(p for p in factors if p < k))
 
 
 def anchor_surviving_radius_count(k: int) -> int:
