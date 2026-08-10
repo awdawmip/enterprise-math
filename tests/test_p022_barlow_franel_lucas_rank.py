@@ -3,7 +3,6 @@ from math import comb
 import pytest
 
 from enterprise_math.p022_barlow_franel_lucas_rank import (
-    base_p_digits,
     franel_lucas_residue,
     franel_midpoint_zero_criterion,
     franel_rank_of_apparition,
