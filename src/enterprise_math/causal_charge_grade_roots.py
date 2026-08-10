@@ -1,27 +1,21 @@
 """Classical ADE primitive roots as minimum-grade events in causal charge kernels.
 
-The root system is not primitive here.  Start with an integer displacement kernel
-defined by conserved free/modular charges, then read the symmetric integer
-second-order grade Q2(v)=sum_i v_i^2.  Primitive grade events are the nonzero
-allowed displacements of minimum Q2.
+The root system is not primitive here. Start with an integer displacement kernel
+defined by conserved free/modular charges, then choose an observation grade.
+Two grades must not be conflated:
 
-Exact total conservation yields A roots at grade 2.  Total parity conservation
-yields D roots at grade 2.  The scaled E8 finite charge code (all coordinates the
-same parity and total divisible by four) has minimum nonzero grade 8; its grade-8
-events are exactly the 112 two-coordinate +/-2 roots plus the 128 all-odd +/-1
-roots.  E7/E6 are exact-charge sections of that same code.
+- transfer mass counts how many indivisible unit transfers a zero-total event
+  actually moves;
+- Q2(v)=sum_i v_i^2 is a symmetric integer second-order grade.
 
-The quadratic grade is used as an integer collision/dispersion observation, not
-asserted here as primitive Euclidean ontology.
+For A roots both notions select the same one-unit events. Exceptional E sections
+can place events of different transfer mass on one Q2 shell, showing that
+traditional equal root length is not automatically equal causal primitive cost.
 """
 
 from __future__ import annotations
 
-from .causal_charge_kernel_geometry import (
-    in_a_kernel,
-    in_d_kernel,
-    in_scaled_e8_charge_kernel,
-)
+from .causal_charge_kernel_geometry import in_a_kernel, in_d_kernel, in_scaled_e8_charge_kernel
 
 Vector = tuple[int, ...]
 
@@ -30,6 +24,23 @@ def quadratic_grade(vector: Vector) -> int:
     if not vector or any(isinstance(value, bool) or not isinstance(value, int) for value in vector):
         raise ValueError("vector must be a non-empty integer tuple")
     return sum(value * value for value in vector)
+
+
+def absolute_event_mass(vector: Vector) -> int:
+    if not vector or any(isinstance(value, bool) or not isinstance(value, int) for value in vector):
+        raise ValueError("vector must be a non-empty integer tuple")
+    return sum(abs(value) for value in vector)
+
+
+def conserved_transfer_mass(vector: Vector) -> int:
+    """Number of indivisible units moved by a zero-total displacement."""
+    if not in_a_kernel(vector):
+        raise ValueError("transfer mass requires exact total conservation")
+    positive = sum(value for value in vector if value > 0)
+    negative = -sum(value for value in vector if value < 0)
+    if positive != negative:
+        raise AssertionError("zero total must balance positive and negative transfer mass")
+    return positive
 
 
 def is_a_minimum_grade_move(vector: Vector) -> bool:
@@ -57,18 +68,13 @@ def is_scaled_e8_minimum_grade_move(vector: Vector) -> bool:
 
 
 def scaled_e8_grade_lower_bound_reason(vector: Vector) -> tuple[str, int]:
-    """Return the parity-sector reason and certified lower bound for a nonzero code vector."""
     if not in_scaled_e8_charge_kernel(vector):
         raise ValueError("vector must satisfy the scaled E8 finite charge code")
     if not any(vector):
         return "zero", 0
     parity = vector[0] % 2
     if parity == 1:
-        # Eight odd coordinates each have square at least one.
         return "odd-sector-eight-nonzero-coordinates", 8
-    # vector=2*z.  If sum z_i were odd then sum vector would be 2 mod 4, forbidden.
-    # A nonzero integer z of squared grade one has exactly one +/-1 and odd sum;
-    # therefore allowed z has squared grade at least two, so vector has grade >=8.
     return "even-sector-parity-forces-two-units", 8
 
 
@@ -91,3 +97,19 @@ def is_e7_minimum_grade_move(vector: Vector) -> bool:
 
 def is_e6_minimum_grade_move(vector: Vector) -> bool:
     return is_e7_minimum_grade_move(vector) and e6_second_exact_charge(vector) == 0
+
+
+def transfer_mass_histogram(vectors: tuple[Vector, ...]) -> dict[int, int]:
+    histogram: dict[int, int] = {}
+    for vector in vectors:
+        mass = conserved_transfer_mass(vector)
+        histogram[mass] = histogram.get(mass, 0) + 1
+    return dict(sorted(histogram.items()))
+
+
+def support_size_histogram(vectors: tuple[Vector, ...]) -> dict[int, int]:
+    histogram: dict[int, int] = {}
+    for vector in vectors:
+        support = sum(value != 0 for value in vector)
+        histogram[support] = histogram.get(support, 0) + 1
+    return dict(sorted(histogram.items()))
