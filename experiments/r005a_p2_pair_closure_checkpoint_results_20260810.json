@@ -1,0 +1,93 @@
+{
+  "status": "R005-A P2 PAIR-CLOSURE CONSOLIDATED EXACT CHECKPOINT",
+  "verified_basin_count": 49,
+  "local_forcedness_checks": 19794,
+  "pair_closure_equals_direct_scan": true,
+  "verified_residual_count": 50,
+  "patterns": {
+    "a=b<c": 43,
+    "a<b=c": 2,
+    "a<b<c": 5
+  },
+  "repeated_residual_count": 45,
+  "repeated_parity_branches": {
+    "raw_quotient_odd": 45,
+    "raw_quotient_even_minus_one": 0
+  },
+  "theorems": {
+    "local_forcedness": "for prime C4<q<=k: forced iff k^2<q^3<=U or q*nextPrimeStrict(k^2/q)-k^2<=2k",
+    "pair_closure": "under forced C4 core, no-least iff a non-forced pair a<=b closes to the unique odd non-forced prime c in (k^2/(ab),U/(ab)]",
+    "minimal_factor_annulus": "C4<a<=floor((k^2)^(1/3))",
+    "repeated_quotient_closure": "r=oddFloor(U/q^2), rho=U-q^2*r<2k",
+    "repeated_pair_parametrization": "for distinct primes q,r with r<=q^2, k=floor(sqrt(q^2*r)); q^2*r residual iff q,r are non-forced in basin k"
+  },
+  "correction": "floor(k/q)=floor(sqrt(r)) for a repeated residual q^2*r, so the earlier inner-square prime-anchor interpretation is algebraically tautological and is not promoted",
+  "examples": [
+    {
+      "k": 25,
+      "n": 637,
+      "q_repeated": 7,
+      "r_singleton": 13,
+      "raw_floor_U_over_q2": 13,
+      "rho": 38,
+      "q_defect": 54,
+      "r_defect": 64,
+      "basin_width": 50
+    },
+    {
+      "k": 47,
+      "n": 2299,
+      "q_repeated": 11,
+      "r_singleton": 19,
+      "raw_floor_U_over_q2": 19,
+      "rho": 4,
+      "q_defect": 112,
+      "r_defect": 204,
+      "basin_width": 94
+    },
+    {
+      "k": 62,
+      "n": 3887,
+      "q_repeated": 13,
+      "r_singleton": 23,
+      "raw_floor_U_over_q2": 23,
+      "rho": 81,
+      "q_defect": 147,
+      "r_defect": 135,
+      "basin_width": 124
+    },
+    {
+      "k": 123,
+      "n": 15317,
+      "q_repeated": 17,
+      "r_singleton": 53,
+      "raw_floor_U_over_q2": 53,
+      "rho": 58,
+      "q_defect": 290,
+      "r_defect": 400,
+      "basin_width": 246
+    },
+    {
+      "k": 130,
+      "n": 16967,
+      "q_repeated": 19,
+      "r_singleton": 47,
+      "raw_floor_U_over_q2": 47,
+      "rho": 193,
+      "q_defect": 333,
+      "r_defect": 349,
+      "basin_width": 260
+    },
+    {
+      "k": 151,
+      "n": 22831,
+      "q_repeated": 17,
+      "r_singleton": 79,
+      "raw_floor_U_over_q2": 79,
+      "rho": 272,
+      "q_defect": 336,
+      "r_defect": 346,
+      "basin_width": 302
+    }
+  ]
+}
