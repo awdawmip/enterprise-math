@@ -36,27 +36,24 @@ then the ordered condition gives
 
     k^2/q < p_*(q) < a <= sqrt(q).
 
-Therefore q^(3/2)>k^2 and
+Therefore q^(3/2)>k^2, equivalently
 
-    q > k^(4/3) = X^(2/3),   X=k^2.
+    q^3 > k^4.
 
-Consequently the entire band
+Consequently the entire exact integer band
 
-    k < q <= k^(4/3)
+    q^3 <= k^4
 
 contains no positive transport at all: every nonzero contribution there comes
 from a prime quotient and has sign -1.  Positive squarefree-triple transport is
-confined to the top quotient band q>k^(4/3).
+confined to q^3>k^4, i.e. asymptotically q>k^(4/3)=X^(2/3) for X=k^2.
 
 Equivalently in least-factor coordinates, positive transport is possible only
-for p<k^(2/3), precisely the cubic-root P2 boundary.  The root-cutoff ladder is
-therefore visible directly as a sign-support transition in ordered quotient
-space.
+below the cubic-root P2 factor boundary.  The root-cutoff ladder is therefore
+visible directly as a sign-support transition in ordered quotient space.
 """
 
 from __future__ import annotations
-
-from math import isqrt
 
 from .legendre import is_prime, primes_up_to
 from .p017_p018_buchstab_cutoff_ladder import square_interval_upper
@@ -89,7 +86,6 @@ def ordered_prime_candidate(k: int, q: int) -> dict[str, int | bool]:
 def ordered_quotient_row(k: int, q: int) -> dict[str, object]:
     """Classify one z_3-rough quotient in the one-dimensional transport scan."""
     z = root_p3_cutoff(k)
-    upper = square_interval_upper(k)
     if not (k < q < (z + 1) ** 3):
         raise ValueError("q must lie in the fourth-root P2 quotient range")
     if any(q % p == 0 for p in primes_up_to(z)):
@@ -110,11 +106,8 @@ def ordered_quotient_row(k: int, q: int) -> dict[str, object]:
     if contribution > 0:
         if mu_q != 1:
             raise AssertionError("positive transport did not come from mu=+1")
-        if q <= k ** (4 / 3):
-            # Floating comparison is only a guard for the executable oracle;
-            # the theorem itself uses the exact inequality q^3>k^4 below.
-            if q**3 <= k**4:
-                raise AssertionError("positive ordered transport entered the lower quotient band")
+        if q**3 <= k**4:
+            raise AssertionError("positive ordered transport entered the lower quotient band")
     return {
         **candidate,
         "fourth_root_cutoff": z,
@@ -136,9 +129,10 @@ def one_dimensional_ordered_transport(k: int) -> dict[str, object]:
     negative_upper = 0
     positive_upper = 0
     total = 0
+    small_primes = tuple(primes_up_to(z))
 
     for q in range(k + 1, q_max + 1):
-        if any(q % p == 0 for p in primes_up_to(z)):
+        if any(q % p == 0 for p in small_primes):
             continue
         row = ordered_quotient_row(k, q)
         contribution = int(row["ordered_transport_contribution"])
