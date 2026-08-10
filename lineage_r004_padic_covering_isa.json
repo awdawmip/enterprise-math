@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-11",
+  "components": [
+    {
+      "id": "EM-R004-PADIC-COVERING-ISA",
+      "name": "p-adic precision-native covering ISA",
+      "source_relations": [
+        {"source_id": "SRC-R004-CHAIN-RING-CODES-HONOLD-LANDJEV-2000", "relation": "DIRECT_PRIOR"},
+        {"source_id": "SRC-R004-HJELMSLEV-ARCS-2024", "relation": "STRUCTURAL_PRIOR"},
+        {"source_id": "SRC-R004-MODULAR-COVERING-GUPTA-2012", "relation": "BROAD_COVERING_PRIOR"}
+      ],
+      "project_addition": "Lifts the primitive additive ISA compiler from finite fields to Z/p^K precision layers, proving precision monotonicity, exact depth-one projective-line storage, exact one-null repetition radius and a finite precision-driven storage phase change.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "relation_to_owners": {
+        "P023": "CONSUME_TYPED_SAFE_QUOTIENT",
+        "P024": "CONSUME_PRECISION_RESOURCE_AXIS",
+        "R004": "SPECIALIZATION"
+      }
+    }
+  ]
+}
