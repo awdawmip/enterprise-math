@@ -102,25 +102,25 @@ theorem rootQuotientMinimumStorageSize_mono_rootOrder
   exact hMinLe.trans hCard
 
 /-- Joint storage-resource monotonicity: larger semantic domain/root order and
-smaller execution budget can only make the minimum dictionary at least as
-large. -/
+smaller positive execution budget can only make the minimum dictionary at
+least as large. -/
 theorem rootQuotientMinimumStorageSize_resource_mono
     {r s N M h j : ℕ}
     (hr : 1 ≤ r)
     (hrs : r ≤ s)
     (hh : 1 ≤ h)
+    (hj : 1 ≤ j)
     (hjh : j ≤ h)
     (hNM : N ≤ M) :
     rootQuotientMinimumStorageSize r N h ≤
       rootQuotientMinimumStorageSize s M j := by
-  have hs : 1 ≤ s := hr.trans hrs
   calc
     rootQuotientMinimumStorageSize r N h ≤
         rootQuotientMinimumStorageSize r N j :=
-      rootQuotientMinimumStorageSize_anti_horizon hr (by omega) hjh
+      rootQuotientMinimumStorageSize_anti_horizon hr hj hjh
     _ ≤ rootQuotientMinimumStorageSize r M j :=
-      rootQuotientMinimumStorageSize_mono_stateBound hr (by omega) hNM
+      rootQuotientMinimumStorageSize_mono_stateBound hr hj hNM
     _ ≤ rootQuotientMinimumStorageSize s M j :=
-      rootQuotientMinimumStorageSize_mono_rootOrder hr hrs (by omega)
+      rootQuotientMinimumStorageSize_mono_rootOrder hr hrs hj
 
 end EnterpriseMath.Quotient
