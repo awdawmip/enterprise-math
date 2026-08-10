@@ -3,6 +3,7 @@ from itertools import product
 from enterprise_math.safe_operation_algebra import (
     addition_unit_obstruction,
     all_represented_basins_are_singletons,
+    finite_growth_unary_witness,
     safe_operation_count,
     safe_operation_count_from_fiber_sizes,
     translation_safe_on_periodic_width_sample,
@@ -130,3 +131,29 @@ def test_full_safe_unary_monoid_recovers_nontrivial_partition_on_small_examples(
         equality = tuple(range(n))
         universal = (0,) * n
         assert set(invariant_equivalences) == {equality, labels, universal}
+
+
+def test_polynomial_growth_rejects_nontrivial_polynomial_unary_examples():
+    square_growth = tuple(k * k for k in range(201))
+    assert finite_growth_unary_witness(square_growth, lambda n: n, 12) is None
+    assert finite_growth_unary_witness(square_growth, lambda _n: 17, 12) is None
+    assert finite_growth_unary_witness(square_growth, lambda n: n + 1, 12) is not None
+    assert finite_growth_unary_witness(square_growth, lambda n: 2 * n, 12) is not None
+    assert finite_growth_unary_witness(square_growth, lambda n: n * n, 12) is not None
+
+    cubic_growth = tuple(k**3 for k in range(101))
+    assert finite_growth_unary_witness(cubic_growth, lambda n: n, 8) is None
+    assert finite_growth_unary_witness(cubic_growth, lambda _n: 11, 8) is None
+    assert finite_growth_unary_witness(cubic_growth, lambda n: n + 1, 8) is not None
+    assert finite_growth_unary_witness(cubic_growth, lambda n: 3 * n, 8) is not None
+    assert finite_growth_unary_witness(cubic_growth, lambda n: n * n, 8) is not None
+
+
+def test_fixed_block_polynomial_examples_match_translation_classification():
+    block_growth = tuple(5 * k for k in range(2201))
+    assert finite_growth_unary_witness(block_growth, lambda _n: 7, 20) is None
+    assert finite_growth_unary_witness(block_growth, lambda n: n, 20) is None
+    assert finite_growth_unary_witness(block_growth, lambda n: n + 10, 20) is None
+    assert finite_growth_unary_witness(block_growth, lambda n: n + 1, 20) is not None
+    assert finite_growth_unary_witness(block_growth, lambda n: 2 * n, 20) is not None
+    assert finite_growth_unary_witness(block_growth, lambda n: n * n, 20) is not None
