@@ -60,12 +60,8 @@ def cover_resonance_precision_state(
     saturated = count == N
     if mode == "sum" and saturated:
         raise AssertionError("sum resonance cannot fill all unit ratios")
-    if mode == "difference" and saturated != (N % lower_exponent == 0 or lower_exponent % N == 0):
-        # g=N iff N divides m.  The first disjunct only handles N==m safely;
-        # enforce the exact condition below instead of relying on this message.
-        saturated = g == N
-    if saturated != (g == N):
-        raise AssertionError("resonance saturation disagreed with root count")
+    if mode == "difference" and saturated != (lower_exponent % N == 0):
+        raise AssertionError("difference saturation must be exactly r-1 dividing m")
 
     return CoverResonancePrecisionState(
         lower_exponent=lower_exponent,
