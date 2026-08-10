@@ -9,26 +9,18 @@ open EnterpriseMath.IntegerRoot
 /-- Positive quotient-root states seen by denominators `1,...,n`, encoded by
 zero-based indices `i=0,...,n-1` with denominator `i+1`. -/
 def quotientRootStates (s n : ℕ) : Finset ℕ :=
-  (Finset.range n).image (fun i => root (s + 1) (n / (i + 1)))
+  (Finset.range n).image (fun i : ℕ => root (s + 1) (n / (i + 1)))
 
-/-- High-branch root states, again using zero-based denominator indices. -/
-def highQuotientRootStates (s n : ℕ) : Finset ℕ :=
-  let H := root (s + 2) ((s + 1) * n - 1)
-  let D := n / (H + 1) ^ (s + 1)
-  (Finset.range D).image (fun i => root (s + 1) (n / (i + 1)))
-
-/-- Guaranteed low roots `1,...,H-1`, represented as a shifted range so their
-cardinality is definitionally tied to `H-1`. -/
+/-- Guaranteed low roots `1,...,H-1`. -/
 def guaranteedLowRootStates (H : ℕ) : Finset ℕ :=
-  (Finset.range (H - 1)).image (fun i => i + 1)
+  (Finset.range (H - 1)).image (fun i : ℕ => i + 1)
 
-/-- Actual low-root set.  `H=0` is separated explicitly because zero is not a
-positive quotient-root state; for `H>0`, only the final root `H` is optional. -/
-def lowQuotientRootStates (s n : ℕ) : Finset ℕ :=
-  let H := root (s + 2) ((s + 1) * n - 1)
-  let D := n / (H + 1) ^ (s + 1)
+/-- Low-root chart with the exact horizon bit made explicit in the parameters.
+Using explicit `H,D` avoids repeatedly unfolding the root and quotient scales
+inside finite-set proofs. -/
+def lowRootStatesAt (r H D n : ℕ) : Finset ℕ :=
   if H = 0 then ∅
-  else if (D + 1) * H ^ (s + 1) ≤ n then
+  else if (D + 1) * H ^ r ≤ n then
     insert H (guaranteedLowRootStates H)
   else
     guaranteedLowRootStates H
@@ -37,7 +29,9 @@ def lowQuotientRootStates (s n : ℕ) : Finset ℕ :=
 theorem guaranteedLowRootStates_card (H : ℕ) :
     (guaranteedLowRootStates H).card = H - 1 := by
   unfold guaranteedLowRootStates
-  exact Finset.card_image_of_injective _ (fun _ _ h => by omega)
+  apply Finset.card_image_of_injective
+  intro i j hij
+  omega
 
 /-- Membership in the guaranteed low-root set is exactly the positive interval
 strictly below `H`. -/
@@ -46,8 +40,9 @@ theorem mem_guaranteedLowRootStates_iff
     t ∈ guaranteedLowRootStates H ↔ 1 ≤ t ∧ t < H := by
   constructor
   · intro ht
-    rcases Finset.mem_image.mp ht with ⟨i, hi, rfl⟩
+    rcases Finset.mem_image.mp ht with ⟨i, hi, hEq⟩
     have hiRange : i < H - 1 := Finset.mem_range.mp hi
+    rw [← hEq]
     omega
   · rintro ⟨htPos, htH⟩
     let i := t - 1
@@ -60,112 +55,91 @@ theorem mem_guaranteedLowRootStates_iff
     apply Finset.mem_image.mpr
     exact ⟨i, Finset.mem_range.mpr hiRange, hit⟩
 
-/-- The exact high-denominator cutoff never exceeds the physical denominator
-range `1,...,n`. -/
-theorem root_atlas_cutoff_le_state
-    {s n : ℕ} :
-    let H := root (s + 2) ((s + 1) * n - 1)
-    let D := n / (H + 1) ^ (s + 1)
-    D ≤ n := by
-  dsimp
-  exact Nat.div_le_self _ _
+/-- Explicit membership description of the low chart for positive horizon. -/
+theorem mem_lowRootStatesAt_iff
+    {r H D n y : ℕ}
+    (hH : 0 < H) :
+    y ∈ lowRootStatesAt r H D n ↔
+      y ∈ guaranteedLowRootStates H ∨
+        ((D + 1) * H ^ r ≤ n ∧ y = H) := by
+  have hHne : H ≠ 0 := by omega
+  by_cases hThreshold : (D + 1) * H ^ r ≤ n
+  · simp [lowRootStatesAt, hHne, hThreshold, or_comm]
+  · simp [lowRootStatesAt, hHne, hThreshold]
 
-/-- The high quotient-root branch contributes exactly one state per high
-positive denominator label, hence exactly `D` states. -/
-theorem highQuotientRootStates_card
-    {s n : ℕ}
-    (hn : 0 < n) :
-    let H := root (s + 2) ((s + 1) * n - 1)
-    let D := n / (H + 1) ^ (s + 1)
-    (highQuotientRootStates s n).card = D := by
-  let H := root (s + 2) ((s + 1) * n - 1)
-  let D := n / (H + 1) ^ (s + 1)
-  change (highQuotientRootStates s n).card = D
-  unfold highQuotientRootStates
-  dsimp only
-  apply Finset.card_image_of_injOn
-  intro i hi j hj hEq
-  have hiD : i < D := Finset.mem_range.mp hi
-  have hjD : j < D := Finset.mem_range.mp hj
-  have hDenEq := high_denominator_root_injective
-    (s := s) (n := n) (d := i + 1) (e := j + 1)
-    hn (by omega) (by omega)
-    (by omega) (by omega) hEq
-  omega
-
-/-- For a positive horizon, the actual low-root set has exactly the guaranteed
-`H-1` roots plus the one horizon indicator bit. -/
-theorem lowQuotientRootStates_card_of_horizon_pos
-    {s n : ℕ} :
-    let H := root (s + 2) ((s + 1) * n - 1)
-    let D := n / (H + 1) ^ (s + 1)
-    0 < H →
-      (lowQuotientRootStates s n).card =
-        H - 1 + (if (D + 1) * H ^ (s + 1) ≤ n then 1 else 0) := by
-  let H := root (s + 2) ((s + 1) * n - 1)
-  let D := n / (H + 1) ^ (s + 1)
-  change 0 < H →
-    (lowQuotientRootStates s n).card =
-      H - 1 + (if (D + 1) * H ^ (s + 1) ≤ n then 1 else 0)
-  intro hH
+/-- For positive horizon, the explicit low chart has `H-1` guaranteed states
+plus exactly one horizon state when the boundary threshold is present. -/
+theorem lowRootStatesAt_card
+    {r H D n : ℕ}
+    (hH : 0 < H) :
+    (lowRootStatesAt r H D n).card =
+      H - 1 + (if (D + 1) * H ^ r ≤ n then 1 else 0) := by
   have hHne : H ≠ 0 := by omega
   have hHnotBase : H ∉ guaranteedLowRootStates H := by
     rw [mem_guaranteedLowRootStates_iff]
     omega
-  by_cases hThreshold : (D + 1) * H ^ (s + 1) ≤ n
-  · change
-      (if H = 0 then ∅
-       else if (D + 1) * H ^ (s + 1) ≤ n then
-         insert H (guaranteedLowRootStates H)
-       else guaranteedLowRootStates H).card = _
-    simp [hHne, hThreshold, hHnotBase, guaranteedLowRootStates_card]
-  · change
-      (if H = 0 then ∅
-       else if (D + 1) * H ^ (s + 1) ≤ n then
-         insert H (guaranteedLowRootStates H)
-       else guaranteedLowRootStates H).card = _
-    simp [hHne, hThreshold, guaranteedLowRootStates_card]
+  by_cases hThreshold : (D + 1) * H ^ r ≤ n
+  · simp [lowRootStatesAt, hHne, hThreshold, hHnotBase,
+      guaranteedLowRootStates_card]
+  · simp [lowRootStatesAt, hHne, hThreshold,
+      guaranteedLowRootStates_card]
 
-/-- The high and actual low root sets are disjoint whenever the horizon is
-positive. -/
-theorem high_low_root_states_disjoint_of_horizon_pos
+/-- The exact high-denominator image has cardinality `D`. -/
+theorem highRootStates_card
     {s n : ℕ}
     (hn : 0 < n) :
     let H := root (s + 2) ((s + 1) * n - 1)
     let D := n / (H + 1) ^ (s + 1)
-    0 < H → Disjoint (highQuotientRootStates s n) (lowQuotientRootStates s n) := by
+    ((Finset.range D).image
+      (fun i : ℕ => root (s + 1) (n / (i + 1)))).card = D := by
   let H := root (s + 2) ((s + 1) * n - 1)
   let D := n / (H + 1) ^ (s + 1)
-  change 0 < H → Disjoint (highQuotientRootStates s n) (lowQuotientRootStates s n)
-  intro hH
-  apply Finset.disjoint_left.mpr
-  intro y hyHigh hyLow
-
-  rcases Finset.mem_image.mp hyHigh with ⟨i, hi, hiy⟩
-  have hiD : i < D := Finset.mem_range.mp hi
-  have hAbove : H < root (s + 1) (n / (i + 1)) :=
-    high_denominator_root_above_horizon (by omega) (by omega)
-  have hyAbove : H < y := by
-    rw [hiy] at hAbove
-    exact hAbove
-
-  have hHne : H ≠ 0 := by omega
-  have hyLe : y ≤ H := by
-    by_cases hThreshold : (D + 1) * H ^ (s + 1) ≤ n
-    · have hLowInsert : y ∈ insert H (guaranteedLowRootStates H) := by
-        simpa [lowQuotientRootStates, hHne, hThreshold] using hyLow
-      rcases Finset.mem_insert.mp hLowInsert with hyH | hyBase
+  let f : ℕ → ℕ := fun i => root (s + 1) (n / (i + 1))
+  change ((Finset.range D).image f).card = D
+  have hInj : Set.InjOn f (↑(Finset.range D) : Set ℕ) := by
+    intro i hi j hj hij
+    have hiD : i < D := Finset.mem_range.mp hi
+    have hjD : j < D := Finset.mem_range.mp hj
+    have hDenEq : i + 1 = j + 1 := by
+      apply high_denominator_root_injective
+        (s := s) (n := n) (d := i + 1) (e := j + 1)
+        hn (by omega) (by omega)
       · omega
-      · have hyRange := (mem_guaranteedLowRootStates_iff.mp hyBase).2
-        omega
-    · have hyBase : y ∈ guaranteedLowRootStates H := by
-        simpa [lowQuotientRootStates, hHne, hThreshold] using hyLow
-      have hyRange := (mem_guaranteedLowRootStates_iff.mp hyBase).2
-      omega
-  omega
+      · omega
+      · simpa [f] using hij
+    omega
+  calc
+    ((Finset.range D).image f).card = (Finset.range D).card :=
+      Finset.card_image_of_injOn hInj
+    _ = D := Finset.card_range D
 
-/-- For positive horizon, the full quotient-root state set splits exactly into
-its injective high branch and its contiguous low branch. -/
+/-- A positive realized quotient-root witness belongs to the physical state
+finset automatically. -/
+theorem mem_quotientRootStates_of_positive_witness
+    {s n t d : ℕ}
+    (ht : 1 ≤ t)
+    (hd : 1 ≤ d)
+    (hRoot : root (s + 1) (n / d) = t) :
+    t ∈ quotientRootStates s n := by
+  have hdN : d ≤ n :=
+    denominator_le_state_of_positive_root
+      (r := s + 1) (n := n) (d := d) (t := t)
+      (by omega) hd ht hRoot
+  let i := d - 1
+  have hiN : i < n := by
+    dsimp [i]
+    omega
+  have hid : i + 1 = d := by
+    dsimp [i]
+    omega
+  unfold quotientRootStates
+  apply Finset.mem_image.mpr
+  refine ⟨i, Finset.mem_range.mpr hiN, ?_⟩
+  rw [hid]
+  exact hRoot
+
+/-- Positive-horizon atlas decomposition: the full state image is the disjoint
+union of the injective high-denominator chart and the explicit low-root chart. -/
 theorem quotientRootStates_eq_high_union_low_of_horizon_pos
     {s n : ℕ}
     (hn : 0 < n) :
@@ -173,45 +147,23 @@ theorem quotientRootStates_eq_high_union_low_of_horizon_pos
     let D := n / (H + 1) ^ (s + 1)
     0 < H →
       quotientRootStates s n =
-        highQuotientRootStates s n ∪ lowQuotientRootStates s n := by
+        (Finset.range D).image
+          (fun i : ℕ => root (s + 1) (n / (i + 1))) ∪
+        lowRootStatesAt (s + 1) H D n := by
   let H := root (s + 2) ((s + 1) * n - 1)
   let D := n / (H + 1) ^ (s + 1)
+  let f : ℕ → ℕ := fun i => root (s + 1) (n / (i + 1))
   change 0 < H →
     quotientRootStates s n =
-      highQuotientRootStates s n ∪ lowQuotientRootStates s n
+      (Finset.range D).image f ∪ lowRootStatesAt (s + 1) H D n
   intro hH
-  have hHne : H ≠ 0 := by omega
-  have hDLeN : D ≤ n := by
-    exact root_atlas_cutoff_le_state (s := s) (n := n)
-
-  have hWitnessMem :
-      ∀ {t d : ℕ},
-        1 ≤ t → 1 ≤ d → root (s + 1) (n / d) = t →
-        t ∈ quotientRootStates s n := by
-    intro t d ht hd hRoot
-    have hdN : d ≤ n :=
-      denominator_le_state_of_positive_root
-        (r := s + 1) (n := n) (d := d) (t := t)
-        (by omega) hd ht hRoot
-    let i := d - 1
-    have hiN : i < n := by
-      dsimp [i]
-      omega
-    have hid : i + 1 = d := by
-      dsimp [i]
-      omega
-    unfold quotientRootStates
-    apply Finset.mem_image.mpr
-    refine ⟨i, Finset.mem_range.mpr hiN, ?_⟩
-    rw [hid]
-    exact hRoot
-
+  have hDLeN : D ≤ n := Nat.div_le_self _ _
   apply Finset.ext
   intro y
   constructor
   · intro hy
     unfold quotientRootStates at hy
-    rcases Finset.mem_image.mp hy with ⟨i, hi, rfl⟩
+    rcases Finset.mem_image.mp hy with ⟨i, hi, hiy⟩
     have hiN : i < n := Finset.mem_range.mp hi
     let d := i + 1
     have hd : 1 ≤ d := by
@@ -223,36 +175,38 @@ theorem quotientRootStates_eq_high_union_low_of_horizon_pos
     by_cases hdHigh : d ≤ D
     · apply Finset.mem_union.mpr
       left
-      unfold highQuotientRootStates
-      dsimp only
       apply Finset.mem_image.mpr
-      refine ⟨i, Finset.mem_range.mpr ?_, rfl⟩
-      dsimp [d] at hdHigh
-      omega
+      refine ⟨i, Finset.mem_range.mpr ?_, ?_⟩
+      · dsimp [d] at hdHigh
+        omega
+      · simpa [f] using hiy
     · apply Finset.mem_union.mpr
       right
       have hDd : D < d := by omega
-      have hRootLe : root (s + 1) (n / d) ≤ H :=
+      have hRootLe0 : root (s + 1) (n / d) ≤ H :=
         denominator_after_cutoff_root_at_most_horizon hd hDd
       have hOneQuot : 1 ≤ n / d := by
         apply (Nat.le_div_iff_mul_le (by omega)).2
         simpa using hdN
-      have hRootPos : 1 ≤ root (s + 1) (n / d) :=
+      have hRootPos0 : 1 ≤ root (s + 1) (n / d) :=
         (Nat.le_nthRoot_iff (n := s + 1) (by omega)).2 (by simpa using hOneQuot)
-      by_cases hRootH : root (s + 1) (n / d) = H
-      · have hThreshold : (D + 1) * H ^ (s + 1) ≤ n :=
+      have hyLe : y ≤ H := by
+        rw [← hiy]
+        simpa [f, d] using hRootLe0
+      have hyPos : 1 ≤ y := by
+        rw [← hiy]
+        simpa [f, d] using hRootPos0
+      by_cases hyH : y = H
+      · have hRootH : root (s + 1) (n / d) = H := by
+          simpa [f, d, hyH] using hiy
+        have hThreshold : (D + 1) * H ^ (s + 1) ≤ n :=
           (horizon_root_fiber_nonempty_iff (s := s) (n := n) hH).1
             ⟨d, hd, hRootH⟩
-        have : H ∈ insert H (guaranteedLowRootStates H) := by simp
-        simpa [lowQuotientRootStates, hHne, hThreshold, hRootH] using this
-      · have hRootLt : root (s + 1) (n / d) < H := by omega
-        have hBase : root (s + 1) (n / d) ∈ guaranteedLowRootStates H :=
-          mem_guaranteedLowRootStates_iff.mpr ⟨hRootPos, hRootLt⟩
-        by_cases hThreshold : (D + 1) * H ^ (s + 1) ≤ n
-        · simpa [lowQuotientRootStates, hHne, hThreshold] using
-            (Finset.mem_insert_of_mem hBase :
-              root (s + 1) (n / d) ∈ insert H (guaranteedLowRootStates H))
-        · simpa [lowQuotientRootStates, hHne, hThreshold] using hBase
+        exact (mem_lowRootStatesAt_iff hH).2 (Or.inr ⟨hThreshold, hyH⟩)
+      · have hyLt : y < H := by omega
+        have hBase : y ∈ guaranteedLowRootStates H :=
+          mem_guaranteedLowRootStates_iff.mpr ⟨hyPos, hyLt⟩
+        exact (mem_lowRootStatesAt_iff hH).2 (Or.inl hBase)
   · intro hyUnion
     rcases Finset.mem_union.mp hyUnion with hyHigh | hyLow
     · rcases Finset.mem_image.mp hyHigh with ⟨i, hi, hiy⟩
@@ -260,89 +214,56 @@ theorem quotientRootStates_eq_high_union_low_of_horizon_pos
       have hiN : i < n := lt_of_lt_of_le hiD hDLeN
       unfold quotientRootStates
       apply Finset.mem_image.mpr
-      exact ⟨i, Finset.mem_range.mpr hiN, hiy⟩
-    · by_cases hThreshold : (D + 1) * H ^ (s + 1) ≤ n
-      · have hLowInsert : y ∈ insert H (guaranteedLowRootStates H) := by
-          simpa [lowQuotientRootStates, hHne, hThreshold] using hyLow
-        rcases Finset.mem_insert.mp hLowInsert with hyH | hyBase
-        · subst y
-          obtain ⟨d, hd, hRoot⟩ :=
-            (horizon_root_fiber_nonempty_iff (s := s) (n := n) hH).2 hThreshold
-          exact hWitnessMem (by omega) hd hRoot
-        · obtain ⟨hyPos, hyHlt⟩ := mem_guaranteedLowRootStates_iff.mp hyBase
-          obtain ⟨d, hd, hRoot⟩ :=
-            low_root_fiber_nonempty (s := s) (n := n) (t := y) hn hyPos hyHlt
-          exact hWitnessMem hyPos hd hRoot
-      · have hyBase : y ∈ guaranteedLowRootStates H := by
-          simpa [lowQuotientRootStates, hHne, hThreshold] using hyLow
-        obtain ⟨hyPos, hyHlt⟩ := mem_guaranteedLowRootStates_iff.mp hyBase
+      exact ⟨i, Finset.mem_range.mpr hiN, by simpa [f] using hiy⟩
+    · rcases (mem_lowRootStatesAt_iff hH).1 hyLow with hyBase | ⟨hThreshold, hyH⟩
+      · obtain ⟨hyPos, hyHlt⟩ := mem_guaranteedLowRootStates_iff.mp hyBase
         obtain ⟨d, hd, hRoot⟩ :=
           low_root_fiber_nonempty (s := s) (n := n) (t := y) hn hyPos hyHlt
-        exact hWitnessMem hyPos hd hRoot
+        exact mem_quotientRootStates_of_positive_witness hyPos hd hRoot
+      · subst y
+        obtain ⟨d, hd, hRoot⟩ :=
+          (horizon_root_fiber_nonempty_iff (s := s) (n := n) hH).2 hThreshold
+        exact mem_quotientRootStates_of_positive_witness (by omega) hd hRoot
 
-/-- Positive-horizon binary atlas cardinality in subtraction-free form. -/
-theorem quotientRootStates_binary_cardinality_of_horizon_pos
+/-- The explicit high and low charts are disjoint for positive horizon. -/
+theorem high_low_root_states_disjoint_of_horizon_pos
     {s n : ℕ}
     (hn : 0 < n) :
     let H := root (s + 2) ((s + 1) * n - 1)
     let D := n / (H + 1) ^ (s + 1)
     0 < H →
-      (quotientRootStates s n).card + 1 =
-        D + H + (if (D + 1) * H ^ (s + 1) ≤ n then 1 else 0) := by
+      Disjoint
+        ((Finset.range D).image
+          (fun i : ℕ => root (s + 1) (n / (i + 1))))
+        (lowRootStatesAt (s + 1) H D n) := by
   let H := root (s + 2) ((s + 1) * n - 1)
   let D := n / (H + 1) ^ (s + 1)
+  let f : ℕ → ℕ := fun i => root (s + 1) (n / (i + 1))
   change 0 < H →
-    (quotientRootStates s n).card + 1 =
-      D + H + (if (D + 1) * H ^ (s + 1) ≤ n then 1 else 0)
+    Disjoint ((Finset.range D).image f) (lowRootStatesAt (s + 1) H D n)
   intro hH
-  have hSet := quotientRootStates_eq_high_union_low_of_horizon_pos
-    (s := s) (n := n) hn hH
-  have hDisj := high_low_root_states_disjoint_of_horizon_pos
-    (s := s) (n := n) hn hH
-  have hHighCard := highQuotientRootStates_card (s := s) (n := n) hn
-  have hLowCard := lowQuotientRootStates_card_of_horizon_pos
-    (s := s) (n := n) hH
-  rw [hSet, Finset.card_union_of_disjoint hDisj, hHighCard, hLowCard]
-  omega
-
-/-- Zero-horizon case: every physical denominator belongs to the high branch,
-so the state count is exactly `D=n`; the binary carry indicator is
-arithmetically `1` because `H^r=0`. -/
-theorem quotientRootStates_binary_cardinality_of_horizon_zero
-    {s n : ℕ}
-    (hn : 0 < n) :
-    let H := root (s + 2) ((s + 1) * n - 1)
-    let D := n / (H + 1) ^ (s + 1)
-    H = 0 →
-      (quotientRootStates s n).card + 1 =
-        D + H + (if (D + 1) * H ^ (s + 1) ≤ n then 1 else 0) := by
-  let H := root (s + 2) ((s + 1) * n - 1)
-  let D := n / (H + 1) ^ (s + 1)
-  change H = 0 →
-    (quotientRootStates s n).card + 1 =
-      D + H + (if (D + 1) * H ^ (s + 1) ≤ n then 1 else 0)
-  intro hH
-  have hD : D = n := by
-    dsimp [D]
-    rw [hH]
-    simp
-  have hSet : quotientRootStates s n = highQuotientRootStates s n := by
-    unfold quotientRootStates highQuotientRootStates
-    dsimp only
-    rw [hH]
-    simp
-  have hHighCard := highQuotientRootStates_card (s := s) (n := n) hn
-  rw [hSet, hHighCard]
-  simp [hH, hD]
+  apply Finset.disjoint_left.mpr
+  intro y hyHigh hyLow
+  rcases Finset.mem_image.mp hyHigh with ⟨i, hi, hiy⟩
+  have hiD : i < D := Finset.mem_range.mp hi
+  have hAbove0 : H < root (s + 1) (n / (i + 1)) :=
+    high_denominator_root_above_horizon (by omega) (by omega)
+  have hyAbove : H < y := by
+    rw [← hiy]
+    simpa [f] using hAbove0
+  rcases (mem_lowRootStatesAt_iff hH).1 hyLow with hyBase | ⟨_, hyH⟩
+  · have hyLt := (mem_guaranteedLowRootStates_iff.mp hyBase).2
+    omega
+  · omega
 
 /-- Complete binary quotient-root atlas cardinality.
 
-This is the only geometric/cardinality input required by the already formalized
-ternary carry reduction: all positive quotient-root states have exact count
+All positive quotient-root states satisfy the exact subtraction-free count
 
 `N+1 = D+H+kappa`,
 
-where `kappa` is the single horizon-fiber indicator. -/
+where `kappa` is the single horizon-fiber indicator.  This is the geometric
+input consumed by the already-formalized ternary carry reduction. -/
 theorem quotientRootStates_binary_cardinality
     {s n : ℕ}
     (hn : 0 < n) :
@@ -352,12 +273,42 @@ theorem quotientRootStates_binary_cardinality
       D + H + (if (D + 1) * H ^ (s + 1) ≤ n then 1 else 0) := by
   let H := root (s + 2) ((s + 1) * n - 1)
   let D := n / (H + 1) ^ (s + 1)
+  let High : Finset ℕ :=
+    (Finset.range D).image (fun i : ℕ => root (s + 1) (n / (i + 1)))
+  let Low : Finset ℕ := lowRootStatesAt (s + 1) H D n
   change (quotientRootStates s n).card + 1 =
     D + H + (if (D + 1) * H ^ (s + 1) ≤ n then 1 else 0)
-  by_cases hH : H = 0
-  · exact quotientRootStates_binary_cardinality_of_horizon_zero
+  by_cases hH0 : H = 0
+  · have hD : D = n := by
+      dsimp [D]
+      rw [hH0]
+      simp
+    have hSet : quotientRootStates s n = High := by
+      unfold quotientRootStates
+      dsimp [High]
+      rw [hD]
+    have hHighCard : High.card = D := by
+      dsimp [High]
+      simpa [H, D] using highRootStates_card (s := s) (n := n) hn
+    rw [hSet, hHighCard]
+    simp [hH0, hD]
+  · have hH : 0 < H := Nat.pos_of_ne_zero hH0
+    have hSet0 := quotientRootStates_eq_high_union_low_of_horizon_pos
       (s := s) (n := n) hn hH
-  · exact quotientRootStates_binary_cardinality_of_horizon_pos
-      (s := s) (n := n) hn (Nat.pos_of_ne_zero hH)
+    have hSet : quotientRootStates s n = High ∪ Low := by
+      simpa [High, Low, H, D] using hSet0
+    have hDisj0 := high_low_root_states_disjoint_of_horizon_pos
+      (s := s) (n := n) hn hH
+    have hDisj : Disjoint High Low := by
+      simpa [High, Low, H, D] using hDisj0
+    have hHighCard : High.card = D := by
+      dsimp [High]
+      simpa [H, D] using highRootStates_card (s := s) (n := n) hn
+    have hLowCard : Low.card =
+        H - 1 + (if (D + 1) * H ^ (s + 1) ≤ n then 1 else 0) := by
+      dsimp [Low]
+      exact lowRootStatesAt_card hH
+    rw [hSet, Finset.card_union_of_disjoint hDisj, hHighCard, hLowCard]
+    omega
 
 end EnterpriseMath.Precision
