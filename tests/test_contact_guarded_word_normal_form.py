@@ -7,6 +7,7 @@ from enterprise_math.contact_guarded_word_normal_form import (
     apply_contact_guarded_word,
     compose_contact_guarded_profiles,
     contact_guarded_profile_power,
+    contact_guarded_profile_repetition_capacity,
     contact_guarded_word_profile,
     contact_profile_separating_state,
     contact_word_action_counts,
@@ -218,6 +219,92 @@ class ContactGuardedWordNormalFormTests(unittest.TestCase):
 
         self.assertEqual(len(closure), 16)
         self.assertTrue(all(profile.is_partial_identity for profile in closure))
+
+    def test_profile_power_closed_form_matches_literal_repetition(self):
+        matrices = (PATH_K, POSITIVE_V_K, CYCLE_K)
+        for coupling in matrices:
+            dimension = len(coupling)
+            for word in words(dimension, 3):
+                profile = contact_guarded_word_profile(coupling, word)
+                for exponent in range(0, 7):
+                    self.assertEqual(
+                        contact_guarded_profile_power(
+                            profile,
+                            exponent,
+                        ),
+                        contact_guarded_word_profile(
+                            coupling,
+                            word * exponent,
+                        ),
+                    )
+
+    def test_repetition_capacity_matches_direct_macro_execution(self):
+        matrices = (PATH_K, POSITIVE_V_K, CYCLE_K)
+        for coupling in matrices:
+            dimension = len(coupling)
+            for word in words(dimension, 2):
+                profile = contact_guarded_word_profile(coupling, word)
+                for state in itertools.product(
+                    range(-3, 2),
+                    repeat=dimension,
+                ):
+                    predicted = contact_guarded_profile_repetition_capacity(
+                        state,
+                        profile,
+                    )
+                    current = tuple(state)
+                    observed = 0
+                    while observed < 30:
+                        outcome = apply_contact_guarded_profile(
+                            current,
+                            profile,
+                        )
+                        if not outcome.defined:
+                            break
+                        assert outcome.state is not None
+                        current = outcome.state
+                        observed += 1
+                    if predicted is None:
+                        self.assertEqual(observed, 30)
+                    else:
+                        self.assertEqual(observed, predicted)
+
+    def test_positive_macro_shift_gives_exact_finite_lifetime(self):
+        profile = contact_guarded_word_profile(PATH_K, (0,))
+        self.assertEqual(profile.score_shift, (2, -1))
+        self.assertEqual(profile.requirements, (0, None))
+
+        self.assertEqual(
+            contact_guarded_profile_repetition_capacity(
+                (-5, 0),
+                profile,
+            ),
+            3,
+        )
+        self.assertEqual(
+            contact_guarded_profile_repetition_capacity(
+                (0, 0),
+                profile,
+            ),
+            0,
+        )
+
+    def test_zero_shift_cycle_has_unbounded_coarse_repetition_capacity(self):
+        cycle = contact_guarded_word_profile(CYCLE_K, (0, 1, 2))
+        self.assertEqual(
+            contact_guarded_profile_repetition_capacity(
+                (-1, 0, 1),
+                cycle,
+            ),
+            None,
+        )
+        self.assertEqual(
+            contact_guarded_profile_repetition_capacity(
+                (0, 0, -1),
+                cycle,
+            ),
+            0,
+        )
 
     def test_global_guarded_commutativity_requires_zero_cross_coupling(self):
         diagonal = (

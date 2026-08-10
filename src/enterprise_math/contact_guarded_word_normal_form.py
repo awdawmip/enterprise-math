@@ -47,7 +47,7 @@ which is exactly intersection of their rectangular domains.  Thus kernel words
 do not necessarily collapse to one group identity: they form a semilattice of
 causal domain idempotents.
 
-For distinct unit actions, the unguarded score additions commute automatically,
+For distinct unit actions, unguarded score additions commute automatically,
 but the guarded partial maps commute on the whole score space exactly when
 both directed cross couplings vanish:
 
@@ -320,15 +320,85 @@ def contact_guarded_profile_power(
     profile: ContactGuardedWordProfile,
     exponent: int,
 ) -> ContactGuardedWordProfile:
-    """Ordinary monoid power of one guarded operation profile."""
+    """Exact closed form for one profile power.
+
+    For ``n>=1`` the score shift is ``n*Delta``.  A used guard coordinate with
+    requirement ``H_i`` tightens only when the macro shift on that coordinate is
+    positive:
+
+        H_i^(n) = H_i + (n-1)*max(Delta_i,0).
+
+    ``None`` remains unconstrained.  In particular every zero-shift profile is
+    idempotent.
+    """
     _validate_profile(profile)
     _require_int("exponent", exponent)
     if exponent < 0:
         raise ValueError("exponent must be non-negative")
-    result = empty_contact_guarded_profile(profile.dimension)
-    for _ in range(exponent):
-        result = compose_contact_guarded_profiles(result, profile)
-    return result
+    if exponent == 0:
+        return empty_contact_guarded_profile(profile.dimension)
+
+    requirements = tuple(
+        (
+            None
+            if requirement is None
+            else requirement
+            + (exponent - 1) * max(shift, 0)
+        )
+        for shift, requirement in zip(
+            profile.score_shift,
+            profile.requirements,
+            strict=True,
+        )
+    )
+    return ContactGuardedWordProfile(
+        score_shift=tuple(
+            exponent * shift
+            for shift in profile.score_shift
+        ),
+        requirements=requirements,
+    )
+
+
+def contact_guarded_profile_repetition_capacity(
+    state: Sequence[int],
+    profile: ContactGuardedWordProfile,
+) -> int | None:
+    """Maximum positive repetitions from ``state``; ``None`` means unbounded.
+
+    Return ``0`` if the macro profile is not legal even once.  Otherwise every
+    used coordinate with positive macro shift ``Delta_i`` imposes
+
+        n <= 1 + floor((-1-r_i-H_i)/Delta_i).
+
+    Coordinates with nonpositive macro shift never create a later failure.
+    """
+    _validate_profile(profile)
+    values = _integer_vector(
+        state,
+        profile.dimension,
+        name="state",
+    )
+    if not contact_profile_defined(values, profile):
+        return 0
+
+    finite_bounds = []
+    for value, shift, requirement in zip(
+        values,
+        profile.score_shift,
+        profile.requirements,
+        strict=True,
+    ):
+        if requirement is None or shift <= 0:
+            continue
+        slack = -1 - value - requirement
+        if slack < 0:
+            raise AssertionError("defined profile has negative repetition slack")
+        finite_bounds.append(1 + slack // shift)
+
+    if not finite_bounds:
+        return None
+    return min(finite_bounds)
 
 
 def _common_domain_point(
