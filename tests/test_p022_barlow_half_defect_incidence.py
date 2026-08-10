@@ -6,6 +6,7 @@ from enterprise_math.p022_barlow_half_defect_incidence import (
     half_defect_valuation_terms,
     residual_prime_candidates,
 )
+from enterprise_math.p022_barlow_franel_lucas_rank import franel_zero_digits
 
 
 def test_target_family_examples_have_no_support_zero_incidence() -> None:
@@ -41,3 +42,12 @@ def test_p173_early_zero_is_not_a_support_hit() -> None:
     assert midpoint_valuation == 1
     assert corrections == ()
     assert total == 1
+
+
+def test_zero_alphabet_cardinality_does_not_determine_defect_survival() -> None:
+    assert franel_zero_digits(157) == (16, 75, 78, 81, 140)
+    assert franel_zero_digits(389) == (25, 176, 194, 212, 363)
+    assert len(franel_zero_digits(157)) == len(franel_zero_digits(389)) == 5
+
+    assert half_defect_valuation_terms(157)[2] == 0
+    assert half_defect_valuation_terms(389)[2] == 1
