@@ -30,9 +30,13 @@ from math import gcd
 
 from .p022_barlow_franel_half_index import half_index_is_forced_zero
 from .p022_barlow_half_defect_obstructions import franel_recurrence_table_mod
-from .p022_barlow_low_order_defect_reduction import _is_prime
+from .p022_barlow_low_order_defect_reduction import _is_prime, franel_defect_valuation
 from .p022_barlow_prime_halving_flux import prime_halving_edge_multiplicities
 from .p022_barlow_zero_boundary_flux import zero_boundary_crossing_weight
+
+EXPLICIT_VANISHING_CONTROL_PRIME = 157
+EXPLICIT_VANISHING_CONTROL_MIDPOINT = 78
+EXPLICIT_VANISHING_CONTROL_LIFT_QUOTIENT = 111
 
 
 def forced_composite_midpoint(prime: int) -> int:
@@ -113,3 +117,29 @@ def crossing_lattice_certifies_nonzero(prime: int, midpoint_depth: int) -> bool:
     if modulus == 0:
         return True
     return residue != 0
+
+
+def explicit_vanishing_control_midpoint_quotient() -> int:
+    """F_78/157 mod 157, computed only through the exact recurrence mod p^2."""
+    prime = EXPLICIT_VANISHING_CONTROL_PRIME
+    midpoint = forced_composite_midpoint(prime)
+    if midpoint != EXPLICIT_VANISHING_CONTROL_MIDPOINT:
+        raise AssertionError("negative-control midpoint changed")
+    residue = franel_recurrence_table_mod(prime, prime * prime, midpoint)[midpoint]
+    if residue % prime:
+        raise AssertionError("forced midpoint must be p-divisible")
+    quotient = (residue // prime) % prime
+    if quotient != EXPLICIT_VANISHING_CONTROL_LIFT_QUOTIENT:
+        raise AssertionError("negative-control midpoint lift quotient changed")
+    return quotient
+
+
+def explicit_vanishing_control_marker() -> int:
+    """Exact v_157(D_78)=0 negative control."""
+    value = franel_defect_valuation(
+        EXPLICIT_VANISHING_CONTROL_MIDPOINT,
+        EXPLICIT_VANISHING_CONTROL_PRIME,
+    )
+    if value != 0:
+        raise AssertionError("negative control must have a vanishing local marker")
+    return value
