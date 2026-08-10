@@ -2,6 +2,7 @@ import EnterpriseMath.Quotient.RootQuotientCompilerOrder
 import EnterpriseMath.Quotient.RootQuotientCompilerRefinement
 import EnterpriseMath.Quotient.RootQuotientForcedCore
 import EnterpriseMath.Quotient.RootQuotientLeastPhase
+import EnterpriseMath.Quotient.RootQuotientMinimumStorage
 import Mathlib.Tactic
 
 namespace EnterpriseMath.Quotient
