@@ -1,0 +1,60 @@
+{
+  "status": "R005-A research checkpoint / non-canonical",
+  "prime_list_100": [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97],
+  "wheel_survivors_100_for_2_3_5": [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59,61,67,71,73,77,79,83,89,91,97],
+  "baseline": {
+    "sieve_cross_checks": {
+      "100": {"equal": true, "prime_count": 25},
+      "1000": {"equal": true, "prime_count": 168},
+      "100000": {"equal": true, "prime_count": 9592}
+    },
+    "segmented_cross_check": true,
+    "eratosthenes_operation_counts_N100": {"mark_attempts": 104, "new_marks": 74},
+    "atkin_operation_counts_N100": {"toggles": 30, "square_cleanups": 1}
+  },
+  "root_factor": {
+    "N": 1000,
+    "basis": [2,3,5,7,11,13,17,19,23,29,31],
+    "safe": true,
+    "omission_counterexamples": {"2":4,"3":9,"5":25,"7":49,"11":121,"13":169,"17":289,"19":361,"23":529,"29":841,"31":961}
+  },
+  "fermat_mr_partition_boundary": {
+    "341": {"fermat2": true, "mr2": false},
+    "9": {"fermat2": false, "mr2": false},
+    "interpretation": "On odd n with gcd(2,n)=1, MR2-pass implies Fermat2-pass, but strict pass-set inclusion does not make the two binary partitions comparable."
+  },
+  "miller_rabin": {
+    "N": 100000,
+    "bases": [2,3,5,7,11,13,17,19,23,29],
+    "odd_composites": 40408,
+    "pseudoprime_counts": {"2":16,"3":23,"5":16,"7":21,"11":25,"13":24,"17":34,"19":34,"23":28,"29":25},
+    "first_pseudoprime": {"2":2047,"3":121,"5":781,"7":25,"11":133,"13":85,"17":9,"19":9,"23":169,"29":15},
+    "minimum_safe_subsets": [[2,3],[2,5],[2,7],[2,13],[3,5],[5,11],[5,13],[5,19],[7,13],[7,23],[7,29],[11,29],[13,19],[19,29]],
+    "minimum_cardinality": 2,
+    "witness_evaluations": 404080
+  },
+  "lucas_selfridge": {
+    "N": 100000,
+    "prime_failures": [],
+    "pseudoprime_count": 12,
+    "first_pseudoprimes": [5459,5777,10877,16109,18971,22499,24569,25199,40309,58519,75077,97439],
+    "mr2_intersection": [],
+    "example_mr2_only_2047": {"mr2": true, "lucas": false},
+    "example_lucas_only_5459": {"mr2": false, "lucas": true}
+  },
+  "aks": {"N": 120, "mismatches_vs_exact_oracle": []},
+  "pratt_certificates": {
+    "3": {"valid": true, "witness": 2, "nodes": 2, "depth": 1, "max_branching": 1},
+    "5": {"valid": true, "witness": 2, "nodes": 2, "depth": 1, "max_branching": 1},
+    "7": {"valid": true, "witness": 3, "nodes": 3, "depth": 2, "max_branching": 2},
+    "97": {"valid": true, "witness": 5, "nodes": 3, "depth": 2, "max_branching": 2},
+    "997": {"valid": true, "witness": 7, "nodes": 6, "depth": 4, "max_branching": 3},
+    "4999": {"valid": true, "witness": 3, "nodes": 5, "depth": 2, "max_branching": 4}
+  },
+  "negative_boundaries": {
+    "pure_divisibility_collision": {"2":[true],"4":[true],"note":"A raw divisibility bit cannot distinguish p from p^2."},
+    "atkin_requires_xor": {"n":65,"representations":[["4x^2+y^2",2,7],["4x^2+y^2",4,1]],"toggle_count":2,"is_prime":false},
+    "segmented_activation_context": {"p":5,"segment_A":[10,14],"segment_B":[25,29],"same_L_mod_p":true,"first_mark_A":null,"first_mark_B":25},
+    "wheel_output_vs_future_state": {"modulus":6,"n1":1,"n2":5,"both_initially_survive":true,"delta":2,"n1_plus_delta_survives":false,"n2_plus_delta_survives":true}
+  }
+}
