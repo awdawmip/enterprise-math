@@ -15,9 +15,8 @@ The module packages consequences needed by the P022 defect/precision route:
 - if a first zero r_p exists, then it is the least zero digit;
 - the zero-digit set is reflection-symmetric, hence r_p <= (p-1)/2;
 - therefore every odd primitive prime divisor p of F_n satisfies p >= 2n+1;
-- if p is primitive at n, every later index whose base-p expansion contains
-  digit n is also divisible by p, so a primitive marker is never permanently
-  private;
+- reflection gives a distinct one-digit reappearance p-1-n whenever p>2n+1;
+- the zero-alphabet parity is controlled by the reflected midpoint;
 - if z_p digit values are zero modulo p, then exactly (p-z_p)^L indices in
   0..p^L-1 remain nonzero.  Thus any nonempty zero-digit set generates a
   density-one divisibility basin along p-power blocks.
@@ -55,6 +54,54 @@ def _franel_factor(value: int) -> int:
     return 1 if value == 0 else triple_moment_factor(value)
 
 
+def _franel_residues_through(prime: int, last_index: int) -> tuple[int, ...]:
+    """Return F_0,...,F_last modulo p using the Franel recurrence.
+
+    The recurrence denominator is invertible throughout the digit window
+    ``last_index < prime``.  This avoids constructing enormous exact Franel
+    integers when only rank/zero-digit information is needed.
+    """
+    _require_prime(prime)
+    _require_natural("last_index", last_index)
+    if last_index >= prime:
+        raise ValueError("last_index must be smaller than prime")
+    if last_index == 0:
+        return (1 % prime,)
+
+    residues = [1 % prime, 2 % prime]
+    if last_index == 1:
+        return tuple(residues)
+
+    inverses = [0] * (last_index + 1)
+    inverses[1] = 1
+    for value in range(2, last_index + 1):
+        inverses[value] = (
+            -(prime // value) * inverses[prime % value]
+        ) % prime
+
+    previous, current = residues
+    for index in range(2, last_index + 1):
+        n = index - 1
+        numerator = (
+            (7 * n * n + 7 * n + 2) * current
+            + 8 * n * n * previous
+        ) % prime
+        following = (
+            numerator
+            * inverses[index]
+            * inverses[index]
+        ) % prime
+        residues.append(following)
+        previous, current = current, following
+    return tuple(residues)
+
+
+def franel_digit_residues(prime: int) -> tuple[int, ...]:
+    """Return the full single-digit Franel residue table modulo p."""
+    _require_prime(prime)
+    return _franel_residues_through(prime, prime - 1)
+
+
 def base_p_digits(value: int, prime: int) -> tuple[int, ...]:
     _require_prime(prime)
     _require_natural("value", value)
@@ -71,9 +118,10 @@ def base_p_digits(value: int, prime: int) -> tuple[int, ...]:
 def franel_lucas_residue(value: int, prime: int) -> int:
     """Product of digit Franel values modulo p, with F_0=1."""
     digits = base_p_digits(value, prime)
+    residues = _franel_residues_through(prime, max(digits))
     result = 1
     for digit in digits:
-        result = result * (_franel_factor(digit) % prime) % prime
+        result = result * residues[digit] % prime
     return result
 
 
@@ -89,11 +137,11 @@ def lucas_factorization_holds(value: int, prime: int) -> bool:
 
 def franel_zero_digits(prime: int) -> tuple[int, ...]:
     """Nonzero base-p digits d with F_d=0 mod p."""
-    _require_prime(prime)
+    residues = franel_digit_residues(prime)
     return tuple(
         digit
         for digit in range(1, prime)
-        if _franel_factor(digit) % prime == 0
+        if residues[digit] == 0
     )
 
 
@@ -103,8 +151,15 @@ def franel_zero_digit_count(prime: int) -> int:
 
 def franel_rank_of_apparition(prime: int) -> int | None:
     """First positive index divisible by p, or None if no zero digit exists."""
-    zeros = franel_zero_digits(prime)
-    return zeros[0] if zeros else None
+    _require_prime(prime)
+    if prime == 2:
+        return 1
+    bound = (prime - 1) // 2
+    residues = _franel_residues_through(prime, bound)
+    return next(
+        (digit for digit in range(1, bound + 1) if residues[digit] == 0),
+        None,
+    )
 
 
 def franel_reflection_residue_holds(digit: int, prime: int) -> bool:
@@ -113,24 +168,25 @@ def franel_reflection_residue_holds(digit: int, prime: int) -> bool:
     _require_natural("digit", digit)
     if digit >= prime:
         raise ValueError("digit must be smaller than prime")
-    left = _franel_factor(digit) % prime
+    residues = franel_digit_residues(prime)
+    left = residues[digit]
     right = (
-        pow(-8, digit, prime) * (_franel_factor(prime - 1 - digit) % prime)
+        pow(-8, digit, prime) * residues[prime - 1 - digit]
     ) % prime
     return left == right
 
 
 def franel_zero_digit_reflection_holds(prime: int) -> bool:
-    """Certify d is a zero digit iff p-1-d is a zero digit."""
+    """Certify reflection congruence and zero-set symmetry in one O(p) pass."""
     _require_odd_prime(prime)
-    zeros = set(franel_zero_digits(prime))
-    for digit in range(0, prime):
-        reflected_zero = prime - 1 - digit in zeros
-        digit_zero = digit in zeros
-        if digit_zero != reflected_zero:
-            raise AssertionError("Franel zero-digit reflection symmetry failed")
-        if not franel_reflection_residue_holds(digit, prime):
+    residues = franel_digit_residues(prime)
+    for digit, left in enumerate(residues):
+        reflected = prime - 1 - digit
+        right = pow(-8, digit, prime) * residues[reflected] % prime
+        if left != right:
             raise AssertionError("Franel reflection congruence failed")
+        if (left == 0) != (residues[reflected] == 0):
+            raise AssertionError("Franel zero-digit reflection symmetry failed")
     return True
 
 
@@ -140,8 +196,9 @@ def franel_rank_reflection_bound(prime: int) -> tuple[int, int] | None:
     rank = franel_rank_of_apparition(prime)
     if rank is None:
         return None
+    residues = franel_digit_residues(prime)
     reflected = prime - 1 - rank
-    if _franel_factor(reflected) % prime != 0:
+    if residues[reflected] != 0:
         raise AssertionError("reflection of the first zero must also be a zero")
     bound = (prime - 1) // 2
     if rank > bound:
@@ -153,11 +210,25 @@ def franel_midpoint_zero_criterion(prime: int) -> bool:
     """Certify the prior-art midpoint criterion p|F_((p-1)/2) iff p=5,7 mod 8."""
     _require_odd_prime(prime)
     midpoint = (prime - 1) // 2
-    actual = franel_residue(midpoint, prime) == 0
+    actual = _franel_residues_through(prime, midpoint)[midpoint] == 0
     predicted = prime % 8 in (5, 7)
     if actual != predicted:
         raise AssertionError("Franel midpoint congruence criterion failed")
     return actual
+
+
+def franel_zero_alphabet_parity(prime: int) -> tuple[int, bool]:
+    """Return (z_p, midpoint_zero) and certify the reflection parity law."""
+    _require_odd_prime(prime)
+    zeros = franel_zero_digits(prime)
+    midpoint = (prime - 1) // 2
+    midpoint_zero = midpoint in zeros
+    predicted_midpoint = prime % 8 in (5, 7)
+    if midpoint_zero != predicted_midpoint:
+        raise AssertionError("Franel midpoint criterion failed")
+    if len(zeros) % 2 != int(midpoint_zero):
+        raise AssertionError("reflection pairs determine zero-alphabet parity")
+    return len(zeros), midpoint_zero
 
 
 def primitive_divisor_requires_large_prime(segment: int, prime: int) -> bool:
@@ -170,9 +241,10 @@ def primitive_divisor_requires_large_prime(segment: int, prime: int) -> bool:
     _require_prime(prime)
     if isinstance(segment, bool) or not isinstance(segment, int) or segment <= 0:
         raise ValueError("segment must be a positive integer")
-    if _franel_factor(segment) % prime:
+    if franel_lucas_residue(segment, prime) != 0:
         raise ValueError("prime does not divide the declared Franel term")
-    if any(_franel_factor(previous) % prime == 0 for previous in range(1, segment)):
+    rank = franel_rank_of_apparition(prime)
+    if rank != segment:
         raise ValueError("prime is not primitive at the declared segment")
     if prime <= segment:
         raise AssertionError("p-Lucas forces a smaller zero digit when p<=n")
@@ -187,8 +259,33 @@ def primitive_divisor_requires_large_prime(segment: int, prime: int) -> bool:
     return True
 
 
+def primitive_reflection_companion_index(
+    segment: int,
+    prime: int,
+) -> int | None:
+    """Return the distinct reflected one-digit reappearance, when it exists.
+
+    For an odd primitive prime at n, reflection sends n to p-1-n.  This
+    companion is distinct exactly when p>2n+1.  At equality n=(p-1)/2, the
+    primitive zero is the self-reflected midpoint.
+    """
+    if not primitive_divisor_requires_large_prime(segment, prime):
+        raise AssertionError("primitive divisor prerequisite failed")
+    if prime == 2:
+        return None
+    reflected = prime - 1 - segment
+    if reflected == segment:
+        return None
+    if reflected <= segment:
+        raise AssertionError("a distinct reflected primitive companion is later")
+    residues = _franel_residues_through(prime, reflected)
+    if residues[reflected] != 0:
+        raise AssertionError("reflection must force the companion zero")
+    return reflected
+
+
 def primitive_marker_recurrence_index(segment: int, prime: int) -> int:
-    """Return the first simple repeated marker n+p forced by p-Lucas."""
+    """Return the canonical p-Lucas reappearance n+p, not necessarily earliest."""
     if not primitive_divisor_requires_large_prime(segment, prime):
         raise AssertionError("primitive divisor prerequisite failed")
     later = segment + prime
