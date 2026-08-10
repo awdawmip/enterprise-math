@@ -91,6 +91,13 @@ def _canonical_ids(
     return result
 
 
+def _partition_labels(partition: Partition) -> set[Hashable]:
+    try:
+        return set(partition.values())
+    except TypeError as exc:
+        raise ValueError("partition labels must be hashable") from exc
+
+
 def _partial_operations(
     states: tuple[Vertex, ...],
     operations: Mapping[OperationName, PartialOperation],
@@ -133,11 +140,10 @@ def totalize_partial_family(
     state_set = set(states)
     if set(observation) != state_set:
         raise ValueError("observation must label every state exactly once")
+    ordinary_labels = _partition_labels(observation)
     try:
         state_is_old = undefined_state in state_set
-        undefined_observation_conflicts = (
-            undefined_observation in set(observation.values())
-        )
+        undefined_observation_conflicts = undefined_observation in ordinary_labels
     except TypeError as exc:
         raise ValueError(
             "undefined state and observation markers must be hashable"
@@ -169,6 +175,8 @@ def partition_refines(
     states = _domain(domain)
     if set(finer) != set(states) or set(coarser) != set(states):
         raise ValueError("partitions must label every state exactly once")
+    _partition_labels(finer)
+    _partition_labels(coarser)
     seen: dict[Hashable, Hashable] = {}
     for state in states:
         fine = finer[state]
@@ -207,6 +215,7 @@ def partial_operation_descends(
         raise ValueError("partial operation targets must lie inside the state domain")
     if set(partition) != state_set:
         raise ValueError("partition must cover every state exactly once")
+    _partition_labels(partition)
 
     class_behavior: dict[Hashable, tuple[bool, Hashable | None]] = {}
     for state in states:
@@ -369,6 +378,7 @@ def partial_family_horizon_partition(
     _partial_operations(states, operations)
     if set(observation) != set(states):
         raise ValueError("observation must label every state exactly once")
+    _partition_labels(observation)
     signatures = {
         state: partial_word_observation_signature(
             state, operations, observation, max_length
