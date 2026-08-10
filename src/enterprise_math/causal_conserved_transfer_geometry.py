@@ -1,11 +1,16 @@
 """Derive A_p geometry from a minimal conserved LEGO-transfer law.
 
-Primitive state change is not chosen from a root-system catalogue.  Start with
-N named integer slots and one indivisible unit.  A primitive conservative move
-transfers exactly one unit from one donor slot to one distinct receiver slot.
-Its displacement is therefore e_receiver-e_donor.  The generated difference
-lattice is exactly the zero-sum lattice A_(N-1), and shortest primitive-operation
-count gives the usual A_p word distance.
+Primitive state change is not chosen from a root-system catalogue. Start with N
+integer relation slots and one indivisible unit. A primitive conservative move
+transfers exactly one unit from one donor slot to one distinct receiver slot. Its
+displacement is therefore e_receiver-e_donor. Under full slot-exchange symmetry
+all ordered pairs occur, the generated difference lattice is exactly the zero-sum
+lattice A_(N-1), and shortest primitive-operation count gives the A_p word metric.
+
+At p=3 a pure-integer change of coordinates identifies A3 with
+D3={y in Z^3: sum(y) even}, the standard integer FCC lattice presentation. This
+bridge uses exact parity division only; densest-sphere-packing is not needed to
+obtain the nearest-neighbor relation graph.
 """
 
 from __future__ import annotations
@@ -89,11 +94,6 @@ class TransferStep:
 
 
 def minimum_transfer_plan(left: Vector, right: Vector) -> tuple[TransferStep, ...]:
-    """Construct a shortest unit-transfer plan from left to right.
-
-    For nonnegative occupancy states this plan never takes more units from a donor
-    than its initial surplus relative to the target.
-    """
     distance = transfer_distance(left, right)
     delta = [target - source for source, target in zip(left, right)]
     receivers = [[index, amount] for index, amount in enumerate(delta) if amount > 0]
@@ -126,7 +126,6 @@ def apply_transfer_plan(state: Vector, plan: tuple[TransferStep, ...]) -> Vector
 
 
 def a_flag_extension_count(p: int, flag_size: int) -> int:
-    """Closed continuation count for compatible A_p transfer-direction flags."""
     if isinstance(p, bool) or not isinstance(p, int) or p < 1:
         raise ValueError("p must be positive")
     if (
@@ -145,7 +144,42 @@ def a_full_rank_flag_law(p: int) -> tuple[int, ...]:
 
 
 def d_triangle_split_extension_counts(rank: int) -> tuple[int, ...]:
-    """Two triangle continuation capacities witnessed in D_rank for rank>=5."""
     if isinstance(rank, bool) or not isinstance(rank, int) or rank < 5:
         raise ValueError("rank must be at least five")
     return (0, 2 * (rank - 4))
+
+
+def a3_to_d3_fcc(state: Vector) -> Vector:
+    """Integer bijection A3 -> D3, where D3 is the integer FCC presentation."""
+    if len(state) != 4 or any(isinstance(value, bool) or not isinstance(value, int) for value in state):
+        raise ValueError("A3 state must be a four-coordinate integer vector")
+    if sum(state) != 0:
+        raise ValueError("A3 state must have zero total")
+    a, b, c, _ = state
+    return (a + b, a + c, b + c)
+
+
+def d3_fcc_to_a3(state: Vector) -> Vector:
+    if len(state) != 3 or any(isinstance(value, bool) or not isinstance(value, int) for value in state):
+        raise ValueError("D3/FCC state must be a three-coordinate integer vector")
+    u, v, w = state
+    if (u + v + w) % 2 != 0:
+        raise ValueError("D3/FCC state must have even coordinate sum")
+    numerators = (u + v - w, u + w - v, v + w - u)
+    if any(value % 2 != 0 for value in numerators):
+        raise AssertionError("D3 parity condition must make inverse divisions exact")
+    a, b, c = (value // 2 for value in numerators)
+    d = -(a + b + c)
+    return (a, b, c, d)
+
+
+def is_d3_fcc_state(state: Vector) -> bool:
+    return (
+        len(state) == 3
+        and all(not isinstance(value, bool) and isinstance(value, int) for value in state)
+        and sum(state) % 2 == 0
+    )
+
+
+def a3_primitive_images() -> tuple[Vector, ...]:
+    return tuple(a3_to_d3_fcc(root) for root in primitive_transfers(4))
