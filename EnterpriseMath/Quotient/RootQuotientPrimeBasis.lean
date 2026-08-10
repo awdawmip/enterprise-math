@@ -16,6 +16,14 @@ theorem rootQuotientPrimeBasis_positive
   intro p hp
   exact hp.1.one_le
 
+/-- Project quotient-word products are ordinary list products. -/
+theorem rootQuotientWordProduct_eq_prod
+    (w : List ℕ) :
+    rootQuotientWordProduct w = w.prod := by
+  induction w with
+  | nil => simp [rootQuotientWordProduct]
+  | cons a w ih => simp [rootQuotientWordProduct, ih]
+
 /-- Canonical multiplicative instruction count of a positive denominator. -/
 def rootQuotientPrimeFactorCount (b : ℕ) : ℕ :=
   b.primeFactorsList.length
@@ -29,12 +37,8 @@ theorem prime_word_length_eq_primeFactorCount
     (hw : RootQuotientWordOver (RootQuotientPrimeBasis N) w)
     (hProd : rootQuotientWordProduct w = b) :
     w.length = rootQuotientPrimeFactorCount b := by
-  have hWordProductEq : rootQuotientWordProduct w = w.prod := by
-    induction w with
-    | nil => simp [rootQuotientWordProduct]
-    | cons a w ih => simp [rootQuotientWordProduct, ih]
   have hListProd : w.prod = b := by
-    rw [← hWordProductEq]
+    rw [← rootQuotientWordProduct_eq_prod]
     exact hProd
   have hPrime : ∀ p : ℕ, p ∈ w → p.Prime := by
     intro p hp
@@ -42,6 +46,72 @@ theorem prime_word_length_eq_primeFactorCount
   have hPerm : w.Perm b.primeFactorsList :=
     Nat.primeFactorsList_unique hListProd hPrime
   simpa [rootQuotientPrimeFactorCount] using hPerm.length_eq
+
+/-- Exact reachability metric for the bounded prime instruction alphabet.
+
+For a positive target denominator `b ≤ N`, reachability within `h` primitive
+prime instructions is equivalent to the canonical prime-factor count being at
+most `h`. -/
+theorem rootQuotientPrimeBasis_reachableWithin_iff_factorCount_le
+    {N h b : ℕ}
+    (hbPos : 1 ≤ b)
+    (hbN : b ≤ N) :
+    RootQuotientProductReachableWithin h (RootQuotientPrimeBasis N) b ↔
+      rootQuotientPrimeFactorCount b ≤ h := by
+  constructor
+  · intro hReach
+    obtain ⟨w, hwLen, hwPrime, hProd⟩ := hReach
+    have hExact :
+        w.length = rootQuotientPrimeFactorCount b :=
+      prime_word_length_eq_primeFactorCount hwPrime hProd.symm
+    calc
+      rootQuotientPrimeFactorCount b = w.length := hExact.symm
+      _ ≤ h := hwLen
+  · intro hCount
+    have hbZero : b ≠ 0 := by omega
+    have hwLen : b.primeFactorsList.length ≤ h := by
+      simpa [rootQuotientPrimeFactorCount] using hCount
+    have hwPrime :
+        RootQuotientWordOver
+          (RootQuotientPrimeBasis N) b.primeFactorsList := by
+      intro p hp
+      exact ⟨Nat.prime_of_mem_primeFactorsList hp,
+        (Nat.le_of_mem_primeFactorsList hp).trans hbN⟩
+    refine ⟨b.primeFactorsList, hwLen, hwPrime, ?_⟩
+    rw [rootQuotientWordProduct_eq_prod]
+    exact (Nat.prod_primeFactorsList hbZero).symm
+
+/-- Exact finite-horizon criterion for the bounded prime instruction alphabet.
+
+The semantic boundary set remains the canonical bounded `r`-power-free set
+from the one-step theorem. Composition changes only the execution resource:
+the prime alphabet separates exactly when every required semantic denominator
+has prime-factor count at most the available word horizon. -/
+theorem rootQuotientPrimeBasis_separates_iff_factorCount_bound
+    {r N h : ℕ}
+    (hr : 1 ≤ r) :
+    SeparatesRootQuotientWordsUpTo r N h (RootQuotientPrimeBasis N) ↔
+      ∀ b : ℕ, 1 ≤ b → b ≤ N → RPowerFree r b →
+        rootQuotientPrimeFactorCount b ≤ h := by
+  constructor
+  · intro hSep b hbPos hbN hbFree
+    have hReach :=
+      (separatesRootQuotientWordsUpTo_iff_powerFree_reachable
+        (r := r) (N := N) (h := h) (G := RootQuotientPrimeBasis N)
+        hr rootQuotientPrimeBasis_positive).1 hSep
+        b hbPos hbN hbFree
+    exact
+      (rootQuotientPrimeBasis_reachableWithin_iff_factorCount_le
+        (N := N) (h := h) (b := b) hbPos hbN).1 hReach
+  · intro hBound
+    apply (separatesRootQuotientWordsUpTo_iff_powerFree_reachable
+      (r := r) (N := N) (h := h) (G := RootQuotientPrimeBasis N)
+      hr rootQuotientPrimeBasis_positive).2
+    intro b hbPos hbN hbFree
+    exact
+      (rootQuotientPrimeBasis_reachableWithin_iff_factorCount_le
+        (N := N) (h := h) (b := b) hbPos hbN).2
+        (hBound b hbPos hbN hbFree)
 
 /-- Every positive integer `b` admits a literal prime word of length at most `b`
 whose compiled quotient denominator is exactly `b`.
@@ -131,7 +201,7 @@ theorem rootQuotientPrimeBasis_subset_of_word_separates
 
 For `r>=2`, primes up to `N` form the unique least primitive quotient-generator
 alphabet (under inclusion) among all finite-horizon languages capable of exact
-state separation on `0,...,N`.  Horizon `N` is an explicit sufficient bound;
+state separation on `0,...,N`. Horizon `N` is an explicit sufficient bound;
 the independent depth problem asks how far that horizon can be reduced. -/
 theorem rootQuotientPrimeBasis_is_least_finite_horizon_alphabet
     {r N : ℕ}
