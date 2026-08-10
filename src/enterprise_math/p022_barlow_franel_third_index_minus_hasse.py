@@ -1,10 +1,11 @@
-"""Whipple bridge from the Franel one-third-minus value to the scalar Hasse period.
+"""Whipple bridge from the Franel one-third-minus value to the Hasse period.
 
 For k>=1 the Franel number at n=2k-1 is
 
     F_(2k-1) = 3F2(1-2k,1-2k,1-2k;1,1;-1).
 
-Whipple's classical quadratic transformation gives the exact terminating identity
+Whipple's classical quadratic transformation gives the exact terminating
+identity
 
     F_(2k-1)
       = 2^(2k-1) 3F2(2k,1/2-k,1-k;1,1;1).
@@ -73,7 +74,7 @@ def _require_six_k_minus_one_prime(prime: int) -> int:
 
 
 def whipple_third_minus_sum(k: int) -> Fraction:
-    """Return the exact transformed 3F2 value before the power-of-two factor."""
+    """Exact transformed 3F2 value before the power-of-two factor."""
     _require_k(k)
     total = Fraction(0)
     for index in range(k):
@@ -87,14 +88,18 @@ def whipple_third_minus_sum(k: int) -> Fraction:
 
 
 def whipple_third_minus_identity(k: int) -> bool:
-    """Certify F_(2k-1)=2^(2k-1) times the terminating Whipple transform."""
+    """Certify the exact terminating Whipple identity for F_(2k-1)."""
     _require_k(k)
     index = 2 * k - 1
     transformed = 2**index * whipple_third_minus_sum(k)
     if transformed.denominator != 1:
-        raise AssertionError("terminating Whipple value must be integral here")
+        raise AssertionError(
+            "terminating Whipple value must be integral here"
+        )
     if transformed.numerator != triple_moment_factor(index):
-        raise AssertionError("Whipple transform disagrees with the Franel number")
+        raise AssertionError(
+            "Whipple transform disagrees with the Franel number"
+        )
     return True
 
 
@@ -106,35 +111,45 @@ def third_minus_hasse_bridge(prime: int) -> tuple[int, int, int, int]:
     franel = franel_recurrence_table_mod(prime, prime, index)[index]
     predicted = pow(2, index, prime) * period % prime
     if franel != predicted:
-        raise AssertionError("one-third-minus Franel value must equal the scalar Hasse period up to 2^n")
+        raise AssertionError(
+            "one-third-minus Franel value must equal the scalar Hasse period"
+        )
     return k, franel, period, predicted
 
 
 def third_minus_zero_iff_scalar_hasse_zero(prime: int) -> bool:
-    """Exact mod-q equivalence F_((q-2)/3)=0 iff P_q(1)=0."""
+    """Certify F_((q-2)/3)=0 iff P_q(1)=0 modulo q."""
     _, franel, period, _ = third_minus_hasse_bridge(prime)
     if (franel == 0) != (period == 0):
-        raise AssertionError("power-of-two unit cannot change zero status")
+        raise AssertionError(
+            "power-of-two unit cannot change zero status"
+        )
     return franel == 0
 
 
 def forced_diagonal_companion_hasse_bridge(
     prime: int,
 ) -> tuple[int, int, int, int]:
-    """Return (k,K_k,P_q(1),unit*P_q(1)) for forced-midpoint q=6k-1."""
+    """Return (k,K_k,P_q(1),unit*P_q(1)) in the forced-midpoint sector."""
     k = _require_six_k_minus_one_prime(prime)
     if not half_index_is_forced_zero(prime):
-        raise ValueError("prime must also lie in the forced-midpoint mod-8 sector")
+        raise ValueError(
+            "prime must also lie in the forced-midpoint mod-8 sector"
+        )
 
     midpoint = half_index(prime)
     index = 2 * k - 1
     if midpoint - k != index:
-        raise AssertionError("diagonal midpoint offset arithmetic changed")
+        raise AssertionError(
+            "diagonal midpoint offset arithmetic changed"
+        )
 
     table = franel_recurrence_table_mod(prime, prime, midpoint)
     previous_midpoint = table[midpoint - 1]
     if previous_midpoint == 0:
-        raise AssertionError("the forced midpoint cannot have an adjacent zero")
+        raise AssertionError(
+            "the forced midpoint cannot have an adjacent zero"
+        )
 
     _, franel, period, _ = third_minus_hasse_bridge(prime)
     odd_factorial = odd_double_factorial(2 * k - 1) % prime
@@ -147,19 +162,29 @@ def forced_diagonal_companion_hasse_bridge(
     unit = factor * pow(2, index, prime) % prime
     unit = unit * pow(previous_midpoint, -1, prime) % prime
     if unit == 0:
-        raise AssertionError("all diagonal normalization factors must be q-units")
+        raise AssertionError(
+            "all diagonal normalization factors must be q-units"
+        )
 
     companion = integer_midpoint_companion(k) % prime
     predicted = unit * period % prime
-    direct = factor * franel % prime * pow(previous_midpoint, -1, prime) % prime
+    direct = (
+        factor
+        * franel
+        * pow(previous_midpoint, -1, prime)
+    ) % prime
     if companion != predicted or companion != direct:
-        raise AssertionError("diagonal companion and scalar Hasse coordinates disagree")
+        raise AssertionError(
+            "diagonal companion and scalar Hasse coordinates disagree"
+        )
     return k, companion, period, predicted
 
 
 def forced_diagonal_zero_iff_scalar_hasse_zero(prime: int) -> bool:
-    """For q=5,7 mod8 and q=5 mod6, certify K_k=0 iff P_q(1)=0."""
+    """In the forced sector certify K_k=0 iff P_q(1)=0 modulo q."""
     _, companion, period, _ = forced_diagonal_companion_hasse_bridge(prime)
     if (companion == 0) != (period == 0):
-        raise AssertionError("q-unit diagonal normalization cannot change zero status")
+        raise AssertionError(
+            "q-unit diagonal normalization cannot change zero status"
+        )
     return companion == 0
