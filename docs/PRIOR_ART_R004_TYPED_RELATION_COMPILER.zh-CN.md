@@ -1,48 +1,60 @@
-# R004 typed relation compiler —— prior art 边界
+# 先行工作——R004 typed relation 与 mixed dispatcher
 
-状态：`RESEARCH PRIOR-ART MAP / NOVELTY_UNVERIFIED`
+状态：`RESEARCH PRIOR-ART MAP / NOVELTY_UNVERIFIED / CORRECTED`
 
-本说明限制 Supplement 13 的 novelty claim。一般 stable-partition / weighted-bisimulation 数学属于 prior art。R004 只研究 typed Enterprise Math compiler 的放置方式、有限 exact specializations，以及 total-operation 与 quotient-relative relation 在组合任务上的分界。
+本文约束补充 13–14 的 novelty 边界。一般 stable-partition、congruence、weighted/semiring transition 与 fixed-point refinement 都属于成熟先行数学。R004 当前只保留 typed Enterprise Math placement、精确有限 specializations、纠错/counterexample package 与 P023/A3/A4 interface reduction。
 
-## 1. Coalgebraic partition refinement 是 prior art
+## 1. Coalgebraic partition refinement 与 modular system combination 是 prior art
 
-Wißmann、Dorsch、Milius、Schröder 给出了 generic coalgebraic partition refinement，可覆盖 classical relational systems、weighted systems、deterministic automata、Markov/Segala 类系统和 color refinement [SRC-WISSMANN-DORSCH-MILIUS-SCHROEDER-2018-COALGEBRAIC-REFINEMENT]。
+Wißmann、Dorsch、Milius、Schröder 已给出 generic coalgebraic partition refinement，覆盖 relational、weighted、deterministic、probabilistic、color-refinement systems，并允许 modular combination of system types [SRC-WISSMANN-DORSCH-MILIUS-SCHROEDER-2018-COALGEBRAIC-REFINEMENT]。
 
-Deifel、Milius、Schröder、Wißmann 又对 weighted / weighted-tree-automata 情形推进了 generic method，包括 cancellative 与 non-cancellative monoid weights [SRC-DEIFEL-MILIUS-SCHROEDER-WISSMANN-2018-WEIGHTED-REFINEMENT]。
+Deifel、Milius、Schröder、Wißmann 又在 weighted / weighted-tree-automata setting 下细化这一 generic 方法，包括 cancellative 与 non-cancellative monoid weights [SRC-DEIFEL-MILIUS-SCHROEDER-WISSMANN-2018-WEIGHTED-REFINEMENT]。
 
-因此 R004 不主张 generic partition refinement、behavioural minimization 或 monoid-weighted refinement algorithm 为项目发明。
+因此 R004 不把 generic mixed partition-refinement algorithm、modular transition-type compiler、behavioural minimization 或其 complexity theory 当成新发明。
 
-## 2. Weighted transition / bisimulation semantics 是 prior art
+## 2. Weighted / semiring transition semantics 是 prior art
 
-Miculan 与 Peressotti 研究了 transition weights 取值于 commutative monoid 的 weighted labelled transition systems，并发展 weighted bisimulation machinery [SRC-MICULAN-PERESSOTTI-2013-WEIGHTED-BISIMULATION]。
+Miculan 与 Peressotti 研究 semiring/commutative-monoid weighted labelled transition systems 与 weighted bisimulation [SRC-MICULAN-PERESSOTTI-2013-WEIGHTED-BISIMULATION]。
 
-因此 `source -> aggregate of weights into an equivalence block` 属于成熟 weighted-transition semantics 家族。
+所以 monoid block aggregation、Boolean reachability、path-count semantics、semiring relation composition 都处在成熟 weighted-transition 数学范围内。R004 的 semiring quotient 计算只是 finite descent certificate，不宣称新的 abstract algebraic structure。
 
-## 3. Monoid-weighted balanced network partition 是直接 prior art
+## 3. Monoid-weighted balanced partition 与 stable lattice 有直接 prior art
 
-Sequeira、Aguiar、Hespanha 使用 commutative-monoid matrices 描述 weighted coupled-cell networks，把 invariant synchrony / balanced-partition 结果推广到 weighted setting，并给出 coarsest invariant refinement algorithm [SRC-SEQUEIRA-AGUIAR-HESPANHA-2021-MONOID-NETWORKS]。
+Sequeira、Aguiar、Hespanha 使用 commutative-monoid matrices 研究 weighted coupled-cell networks、invariant synchrony/balanced partitions 和 coarsest invariant refinement [SRC-SEQUEIRA-AGUIAR-HESPANHA-2021-MONOID-NETWORKS]。
 
-这一方向与 R004 finite block-aggregate implementation 很接近，所以项目不能把“commutative monoid relation compiler”包装成新的 abstract mathematics。
+Kamei 与 Cock 计算 balanced equivalence relations 及其 complete-lattice structure [SRC-KAMEI-COCK-2012-BALANCED-LATTICE]。
 
-## 4. Balanced-equivalence lattice 是 prior art
+因此 stable relation partitions 存在 closure/refinement operator，以及 lattice combination 可能需要 re-stabilization，都不是 Enterprise Math 的 generic novelty。
 
-Kamei 与 Cock 计算 coupled-cell networks 的 balanced equivalence relations，并明确描述其 hierarchy 为 complete lattice [SRC-KAMEI-COCK-2012-BALANCED-LATTICE]。
+## 4. Congruence 与 fixed-point machinery 是成熟数学
 
-因此 stable/balanced equivalences 形成 lattice、stable meet 可能需要 closure/refinement 而不是朴素 set-partition intersection，并不是 Enterprise Math 新数学。
+固定一个 total algebra 时，compatible equivalence relations 就是 congruences，而 congruences 对 intersection 封闭。因此补充 14 的 fixed-operation-family observation meet law 是标准 universal algebra。
 
-## 5. Total-operation congruence intersection 是成熟代数
+有限 monotone/idempotent closure operators、fair/chaotic fixed-point iteration、worklist convergence 也都是成熟 order-theoretic / program-analysis patterns。R004 不宣称 abstract least-common-fixed-point mechanism 的历史原创性。
 
-total algebra 的 compatible equivalence relations 是 congruences，任意 congruence intersection 仍是 congruence。R004 的 `raw meet` 对照只消费这一标准事实，并把 mother operation-quotient interface 留给 A2/P023。
+Partial-algebra congruence / quotient theory 同样已有先行工作。R004 的 one-bottom totalization 只作为“definedness + output class”的 quotient-compatibility encoding；不宣称 one-point extension 可以保留任意 partial algebra 的全部 algebraic laws。
 
-## 6. 当前 project-local package
+## 5. 对补充 13 第一版边界的纠正
 
-R004 Supplement 13 只把以下 package 作为项目级 WIP：
+补充 13 第一版把“operation raw meet”与“relation stabilization”对照得过强。正确边界是：
 
-1. 在既有 future-language compiler 中把 relation semantics 明确类型化为 MAY、witness COUNT、witness LABEL-SET 及其 products；
-2. 用 monoid factor map 作为一个 semantic quotient 必然 refine 另一个的 exact sufficient certificate；
-3. 给出同 class count 但 COUNT/LABEL-SET partitions 不可比较的例子，证明 scalar class count 不是完整 relation-precision coordinate；
-4. 区分 total-operation composition（congruence raw meet）与 quotient-relative relation aggregation（stabilize raw meet）；
-5. 给出 3-state two-channel semantic-activation cascade 与 5-state same-channel raw-meet failure，并做 bounded minimality checks；
-6. 把 generic mother mathematics 回流 P023/A4，不建立重复基础层。
+- **固定 operation family、改变 observations**：compatible-congruence closure 保留 raw observation intersection；
+- **不同 operation families**：分别 closure 后仍可能 cross-activate，必须求 common fixed point；
+- **固定 quotient-relative relation channel**：甚至两个 stable partitions 的 raw common refinement 都可能不 stable。
 
-这套 exact packaging 与所选 finite witnesses 的历史 novelty 仍为 `NOVELTY_UNVERIFIED`。
+补充 14 给出 4-state different-operation counterexample 与任意长度 two-operation ping-pong family，因此这次纠正有 theorem/counterexample 支撑，不是措辞调整。
+
+## 6. 当前 project-local WIP additions
+
+R004 只保留下列 project-local package：
+
+1. MAY / COUNT / LABEL-SET typed semantics 与 semantic factor-order certificates；
+2. equal-cardinality 但不可比较的 typed safe partitions，否定 scalar class count 作为完整 precision coordinate；
+3. relation/relation 与 operation/operation finite activation-cascade witnesses；
+4. 把 P023/A3/A4 owner semantic closures 组织成 least common fixed-point dispatcher；
+5. 把 legality 编码为 tagged quotient-compatibility obligation；
+6. 把 semiring relation quotient map 用作 finite composition/path syntax 的 generator-level descent certificate；
+7. finite-generator-basis architecture：编译 generators，再证明 algebraic closure，而不是枚举全部 future expressions；
+8. executable finite examples 内继续保持 integer/fractionless internal state。
+
+这套 Enterprise Math packaging 的 historical novelty 仍为 `NOVELTY_UNVERIFIED`。

@@ -1,48 +1,60 @@
-# Prior art — R004 typed relation compiler
+# Prior art — R004 typed relation and mixed dispatcher
 
-Status: `RESEARCH PRIOR-ART MAP / NOVELTY_UNVERIFIED`
+Status: `RESEARCH PRIOR-ART MAP / NOVELTY_UNVERIFIED / CORRECTED`
 
-This note bounds the novelty claims for Supplement 13. Generic stable-partition and weighted-bisimulation mathematics is prior art. R004's research claim is only the typed Enterprise Math compiler placement, exact finite specializations, and the operation-versus-quotient-relative-relation composition boundary.
+This note bounds novelty claims for Supplements 13–14. Generic stable-partition, congruence, weighted/semiring transition and fixed-point refinement mathematics is prior art. R004's research claim is only the typed Enterprise Math placement, exact finite specializations, correction/counterexample package and P023/A3/A4 interface reductions.
 
-## 1. Coalgebraic partition refinement is prior art
+## 1. Coalgebraic partition refinement and modular system combinations are prior art
 
-Wißmann, Dorsch, Milius and Schröder give generic coalgebraic partition refinement covering classical relational systems, weighted systems, deterministic automata, Markov/Segala-style systems and color refinement [SRC-WISSMANN-DORSCH-MILIUS-SCHROEDER-2018-COALGEBRAIC-REFINEMENT].
+Wißmann, Dorsch, Milius and Schröder give generic coalgebraic partition refinement covering relational, weighted, deterministic, probabilistic and color-refinement systems, with modular combinations of system types [SRC-WISSMANN-DORSCH-MILIUS-SCHROEDER-2018-COALGEBRAIC-REFINEMENT].
 
-Deifel, Milius, Schröder and Wißmann specialize/refine the generic method for weighted and weighted-tree-automata settings, including cancellative and non-cancellative monoid weights [SRC-DEIFEL-MILIUS-SCHROEDER-WISSMANN-2018-WEIGHTED-REFINEMENT].
+Deifel, Milius, Schröder and Wißmann refine the generic method for weighted and weighted-tree-automata settings, including cancellative and non-cancellative monoid weights [SRC-DEIFEL-MILIUS-SCHROEDER-WISSMANN-2018-WEIGHTED-REFINEMENT].
 
-R004 therefore does not claim generic partition refinement, behavioural minimization or monoid-weighted refinement algorithms as inventions.
+Therefore R004 does not claim a generic mixed partition-refinement algorithm, modular transition-type compiler, behavioural minimizer or complexity theorem as an invention.
 
-## 2. Weighted transition/bisimulation semantics is prior art
+## 2. Weighted / semiring transition semantics is prior art
 
-Miculan and Peressotti formulate weighted labelled transition systems whose transition weights are drawn from a commutative monoid and develop weighted bisimulation machinery [SRC-MICULAN-PERESSOTTI-2013-WEIGHTED-BISIMULATION].
+Miculan and Peressotti develop weighted labelled transition systems and weighted bisimulation over semiring/commutative-monoid structures [SRC-MICULAN-PERESSOTTI-2013-WEIGHTED-BISIMULATION].
 
-Thus the abstraction `source -> aggregate of weights into an equivalence block` belongs to an established family of weighted-transition semantics.
+Thus monoid block aggregation, Boolean reachability, path-count semantics and semiring-style relation composition all sit inside established weighted-transition mathematics. R004's semiring quotient calculation is used as a finite descent certificate, not claimed as a new abstract algebraic structure.
 
-## 3. Monoid-weighted balanced network partitions are direct prior art
+## 3. Monoid-weighted balanced partitions and stable lattices are direct prior art
 
-Sequeira, Aguiar and Hespanha use matrices of commutative monoids for weighted coupled-cell networks, carry invariant synchrony/balanced-partition results to the weighted setting, and give a coarsest invariant refinement algorithm [SRC-SEQUEIRA-AGUIAR-HESPANHA-2021-MONOID-NETWORKS].
+Sequeira, Aguiar and Hespanha use commutative-monoid matrices for weighted coupled-cell networks, invariant synchrony/balanced partitions and coarsest invariant refinement [SRC-SEQUEIRA-AGUIAR-HESPANHA-2021-MONOID-NETWORKS].
 
-This is especially close prior art to R004's finite block-aggregate implementation. The project must not claim "commutative monoid relation compiler" as a new abstract mathematical construction.
+Kamei and Cock compute balanced equivalence relations and their complete-lattice structure [SRC-KAMEI-COCK-2012-BALANCED-LATTICE].
 
-## 4. Balanced-equivalence lattices are prior art
+Accordingly, the facts that stable relation partitions admit closure/refinement operators and that their lattice combination can require re-stabilization are not generic Enterprise Math novelty claims.
 
-Kamei and Cock compute balanced equivalence relations of coupled-cell networks and describe their hierarchy as a complete lattice [SRC-KAMEI-COCK-2012-BALANCED-LATTICE].
+## 4. Congruence and fixed-point machinery is prior mathematics
 
-Therefore the fact that stable/balanced equivalences form a lattice and that a stable meet may require closure/refinement rather than naive set-partition intersection is not an Enterprise Math novelty claim.
+For one fixed total algebra, compatible equivalence relations are congruences and intersections of congruences are congruences. Hence the fixed-operation-family observation meet law used in Supplement 14 is standard universal algebra.
 
-## 5. Total-operation congruence intersection is prior algebra
+Likewise finite monotone/idempotent closure operators, fair/chaotic fixed-point iteration and worklist convergence are established order-theoretic/program-analysis patterns. R004 must not claim the abstract least-common-fixed-point mechanism as historically new.
 
-For a total algebra, compatible equivalence relations are congruences and arbitrary intersections of congruences are congruences. R004's `raw meet` comparison uses this standard fact and delegates the mother operation-quotient interface to A2/P023.
+Partial-algebra congruence/quotient theory is also established. R004's one-bottom totalization is used only as an elementary quotient-compatibility encoding for definedness plus output class; it is not a claim that one-point extension preserves every partial-algebra law.
 
-## 6. Project-local addition under test
+## 5. Correction to the first Supplement-13 boundary
 
-R004 Supplement 13 claims only the following project-local package:
+The first Supplement-13 wording was too broad when it contrasted “operation raw meet” with “relation stabilization”. The mathematically correct statement is narrower:
 
-1. make relation semantics explicit types in the existing future-language compiler: MAY, witness COUNT, witness LABEL-SET, and products;
-2. use monoid factor maps as exact sufficient certificates that one compiled semantic quotient refines another;
-3. exhibit equal-cardinality but incomparable COUNT/LABEL-SET safe partitions, showing that scalar class count is not a complete relation-precision coordinate;
-4. distinguish total-operation composition (`raw meet` of congruences) from quotient-relative relation aggregation (`stabilize raw meet`);
-5. provide a three-state two-channel semantic-activation cascade and a five-state same-channel raw-meet failure, with bounded minimality checks;
-6. route the generic mother mathematics to P023/A4 rather than creating a duplicate Enterprise Math foundation.
+- **fixed operation family, varying observations:** the compatible-congruence closure preserves raw observation intersection;
+- **different operation families:** their separate closures can cross-activate and require a common fixed point;
+- **fixed quotient-relative relation channel:** even two stable partitions may have an unstable raw common refinement.
 
-Historical novelty of this exact packaging and these selected finite witnesses remains `NOVELTY_UNVERIFIED`.
+Supplement 14 gives an explicit four-state different-operation counterexample and an arbitrary-length two-operation ping-pong family, so the correction is theorem/counterexample-backed rather than stylistic.
+
+## 6. Project-local additions under test
+
+The current R004 package claims only:
+
+1. explicit MAY / COUNT / LABEL-SET typed semantics and semantic factor-order certificates;
+2. equal-cardinality incomparable typed safe partitions, rejecting scalar class count as a complete precision coordinate;
+3. finite activation-cascade witnesses, including relation/relation and operation/operation cases;
+4. a mixed P023/A3/A4 dispatcher formulation as a least common fixed point of owner semantic closures;
+5. legality encoded as a tagged quotient-compatibility obligation;
+6. semiring relation quotient maps used as generator-level descent certificates for finite composition/path syntax;
+7. the finite-generator-basis architecture: compile generators and certify algebraic closure rather than enumerate every future expression;
+8. preservation of integer/fractionless internal state throughout the executable finite examples.
+
+Historical novelty of this exact Enterprise Math packaging remains `NOVELTY_UNVERIFIED`.
