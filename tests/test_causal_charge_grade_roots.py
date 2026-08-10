@@ -10,8 +10,11 @@ from enterprise_math.causal_charge_grade_roots import (
     is_d_minimum_grade_move,
     is_e6_minimum_grade_move,
     is_e7_minimum_grade_move,
+    is_scaled_bcc_minimum_grade_move,
     is_scaled_e8_minimum_grade_move,
     quadratic_grade,
+    scaled_bcc_minimum_grade,
+    scaled_bcc_minimum_grade_moves,
     scaled_e8_grade_lower_bound_reason,
     scaled_e8_minimum_grade,
     support_size_histogram,
@@ -20,6 +23,7 @@ from enterprise_math.causal_charge_grade_roots import (
 from enterprise_math.causal_charge_kernel_geometry import (
     in_a_kernel,
     in_d_kernel,
+    in_scaled_bcc_charge_kernel,
     in_scaled_e8_charge_kernel,
 )
 from enterprise_math.causal_primitive_link_profile import (
@@ -28,6 +32,7 @@ from enterprise_math.causal_primitive_link_profile import (
     e6_scaled_roots,
     e7_scaled_roots,
     e8_scaled_roots,
+    primitive_link_profile,
 )
 
 
@@ -55,6 +60,29 @@ class CausalChargeGradeRootsTests(unittest.TestCase):
             self.assertTrue(all(is_d_minimum_grade_move(root) for root in roots))
             self.assertEqual(support_size_histogram(tuple(roots)), {2: len(roots)})
             self.assertEqual({absolute_event_mass(root) for root in roots}, {2})
+
+    def test_scaled_bcc_is_minimum_quadratic_shell_of_same_parity_code(self):
+        roots = set(scaled_bcc_minimum_grade_moves())
+        self.assertEqual(len(roots), 8)
+        self.assertEqual(scaled_bcc_minimum_grade(), 3)
+        self.assertTrue(all(in_scaled_bcc_charge_kernel(root) for root in roots))
+        self.assertTrue(all(is_scaled_bcc_minimum_grade_move(root) for root in roots))
+        self.assertEqual({quadratic_grade(root) for root in roots}, {3})
+        discovered = {
+            vector
+            for vector in product(range(-2, 3), repeat=3)
+            if any(vector)
+            and in_scaled_bcc_charge_kernel(vector)
+            and quadratic_grade(vector) == 3
+        }
+        self.assertEqual(discovered, roots)
+
+    def test_scaled_bcc_direction_link_is_edgeless_despite_eight_equal_grade_directions(self):
+        profile = primitive_link_profile(scaled_bcc_minimum_grade_moves())
+        self.assertEqual(profile.primitive_count, 8)
+        self.assertEqual(profile.link_degree_histogram, ((0, 8),))
+        self.assertEqual(profile.link_edge_count, 0)
+        self.assertEqual(profile.link_component_sizes, (1, 1, 1, 1, 1, 1, 1, 1))
 
     def test_scaled_e8_roots_are_exactly_minimum_grade_code_events(self):
         roots = set(e8_scaled_roots())
