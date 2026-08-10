@@ -1,7 +1,7 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V2",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V3",
   "status": "ACTIVE",
-  "effective": "2026-08-10T23:43:00+08:00",
+  "effective": "2026-08-11T00:27:00+08:00",
   "default_role": "RESEARCHER",
   "driver_activation": {
     "mode": "EXPLICIT_CURRENT_CONVERSATION_ONLY",
@@ -14,6 +14,21 @@
     ]
   },
   "driver_operating_contract": "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
+  "research_identity": {
+    "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
+    "driver_id": "EM-DRIVER-01",
+    "directory_repository": "awdawmip/chatgpt-global-knowledge",
+    "directory_path": "projects/enterprise-math/RESEARCHER_DIRECTORY.md",
+    "visible_marker": "Researcher-ID: <ID> / <TASK-or-CONTROL_PLANE>",
+    "rules": [
+      "Every Enterprise Math research conversation receives one stable Researcher-ID allocated by the Driver.",
+      "Researcher-ID identifies the conversation/session instance, not a human legal identity and not theorem ownership.",
+      "Every substantive final Enterprise Math response should display the Researcher-ID marker.",
+      "If Global-Knowledge-Sync is also emitted, Researcher-ID appears immediately before it.",
+      "Semantic-checkpoint commits and research PR/handoff metadata should persist researcher_id, research_task, and research_role when the write surface supports it.",
+      "Legacy commits are not rewritten solely to add identity metadata."
+    ]
+  },
   "driver_continuity": {
     "repository": "awdawmip/chatgpt-global-knowledge",
     "path": "projects/enterprise-math/DRIVER_CONTINUITY.md",
@@ -63,11 +78,12 @@
     "continue the same task when the frontier remains inside its mother question",
     "close, park, or return branches that fail to leave a genuine residue",
     "create or amend official taskbooks when a new direction is precise and worth dispatching",
+    "allocate stable Researcher-IDs and maintain the researcher directory",
     "set priority and leverage",
     "freeze, formalize, promote, merge, or defer stable payloads",
     "route stable capabilities into shared tools without moving theorem ownership",
     "maintain the Driver Continuity Snapshot at semantic checkpoints"
   ],
   "artifact_rule": "Artifact creation is not progress by itself; scientific evidence, theorem/counterexample content, validated computation, formalization, reusable tooling, or a real routing decision is progress.",
-  "nonblocking_rule": "Governance, scheduler, CI, workflow, and snapshot maintenance are never mathematical HARD_BLOCK reasons."
+  "nonblocking_rule": "Governance, scheduler, CI, workflow, identity metadata, and snapshot maintenance are never mathematical HARD_BLOCK reasons."
 }
