@@ -1,11 +1,11 @@
 """Causal charge-kernel interpretation of integer relation lattices.
 
 Allowed fine displacements may be specified first by conserved integer or finite
-charges, rather than by naming a classical lattice.  Free integer charges reduce
+charges, rather than by naming a classical lattice. Free integer charges reduce
 relation rank; finite modular charges restrict residue sectors but do not reduce
 the integer rank of a finite-index kernel.
 
-This module records exact A/D and scaled-E8 specializations.  Smith normal form
+This module records exact A/D and scaled-E8 specializations. Smith normal form
 and lattice-kernel theory are mature prior art; the project use here is causal:
 identify which conservation law would make a classical lattice appear as a
 shadow, and separate free-rank loss from torsion/residue restriction.
@@ -76,7 +76,7 @@ def d_kernel_basis(slot_count: int) -> tuple[Vector, ...]:
     last = [0] * slot_count
     last[-2] = 1
     last[-1] = 1
-    basis[-1] = tuple(last)  # Replace the final chain difference by e_(n-1)+e_n.
+    basis.append(tuple(last))
     return tuple(basis)
 
 
