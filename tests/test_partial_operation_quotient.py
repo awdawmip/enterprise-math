@@ -4,6 +4,7 @@ import unittest
 from enterprise_math.operation_quotient import (
     family_future_partition_sequence,
     stable_family_partition,
+    word_observation_signature,
 )
 from enterprise_math.partial_operation_quotient import (
     apply_partial_word,
@@ -17,6 +18,7 @@ from enterprise_math.partial_operation_quotient import (
     partitions_equivalent,
     stable_partial_family_is_coarsest_compatible,
     stable_partial_family_partition,
+    totalize_partial_family,
 )
 
 
@@ -78,22 +80,6 @@ def iterate_partial_steps(states, operations, initial, depth):
     for _ in range(depth):
         current = partial_family_refinement_step(states, operations, current)
     return current
-
-
-def totalize(states, operations, observation):
-    sink = ("UNDEFINED", id(operations))
-    augmented = tuple(states) + (sink,)
-    total_ops = {}
-    for name, operation in operations.items():
-        total = {
-            state: operation[state] if state in operation else sink
-            for state in states
-        }
-        total[sink] = sink
-        total_ops[name] = total
-    total_observation = dict(observation)
-    total_observation[sink] = ("UNDEFINED_OBSERVATION", id(observation))
-    return augmented, total_ops, total_observation
 
 
 class PartialOperationQuotientTests(unittest.TestCase):
@@ -260,6 +246,40 @@ class PartialOperationQuotientTests(unittest.TestCase):
                     checked += 1
         self.assertGreater(checked, 30)
 
+    def test_observable_totalization_matches_every_partial_horizon_exhaustive(self):
+        states = (0, 1)
+        observation = {0: "same", 1: "same"}
+        partials = all_partial_operations(states)
+        checked = 0
+        for left in partials:
+            for right in partials:
+                operations = {"a": left, "b": right}
+                augmented, total_ops, total_observation = totalize_partial_family(
+                    states,
+                    operations,
+                    observation,
+                    undefined_state="BOTTOM",
+                    undefined_observation="UNDEFINED",
+                )
+                self.assertEqual(augmented[-1], "BOTTOM")
+                for depth in range(4):
+                    partial_horizon = partial_family_horizon_partition(
+                        states, operations, observation, depth
+                    )
+                    total_signatures = {
+                        state: word_observation_signature(
+                            state, total_ops, total_observation, depth
+                        )
+                        for state in states
+                    }
+                    self.assertTrue(
+                        partitions_equivalent(
+                            states, partial_horizon, total_signatures
+                        )
+                    )
+                    checked += 1
+        self.assertGreater(checked, 300)
+
     def test_absorbing_undefined_totalization_matches_partial_quotient(self):
         states = (0, 1)
         observation = {0: "same", 1: "same"}
@@ -271,8 +291,12 @@ class PartialOperationQuotientTests(unittest.TestCase):
                 partial_stable = stable_partial_family_partition(
                     states, operations, observation
                 )
-                augmented, total_ops, total_observation = totalize(
-                    states, operations, observation
+                augmented, total_ops, total_observation = totalize_partial_family(
+                    states,
+                    operations,
+                    observation,
+                    undefined_state="BOTTOM",
+                    undefined_observation="UNDEFINED",
                 )
                 total_stable = stable_family_partition(
                     augmented, total_ops, total_observation
@@ -361,6 +385,22 @@ class PartialOperationQuotientTests(unittest.TestCase):
             )
         with self.assertRaises(ValueError):
             apply_partial_word(0, {"a": {0: 0}}, ("b",))
+        with self.assertRaises(ValueError):
+            totalize_partial_family(
+                (0, 1),
+                {"a": {0: 1}},
+                {0: "same", 1: "same"},
+                undefined_state=1,
+                undefined_observation="UNDEFINED",
+            )
+        with self.assertRaises(ValueError):
+            totalize_partial_family(
+                (0, 1),
+                {"a": {0: 1}},
+                {0: "same", 1: "same"},
+                undefined_state="BOTTOM",
+                undefined_observation="same",
+            )
 
 
 if __name__ == "__main__":
