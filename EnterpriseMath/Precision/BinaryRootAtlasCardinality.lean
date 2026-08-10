@@ -29,9 +29,13 @@ def lowRootStatesAt (r H D n : ℕ) : Finset ℕ :=
 theorem guaranteedLowRootStates_card (H : ℕ) :
     (guaranteedLowRootStates H).card = H - 1 := by
   unfold guaranteedLowRootStates
-  apply Finset.card_image_of_injective
-  intro i j hij
-  omega
+  calc
+    ((Finset.range (H - 1)).image (fun i : ℕ => i + 1)).card =
+        (Finset.range (H - 1)).card :=
+      Finset.card_image_of_injective (Finset.range (H - 1)) (by
+        intro i j hij
+        omega)
+    _ = H - 1 := Finset.card_range (H - 1)
 
 /-- Membership in the guaranteed low-root set is exactly the positive interval
 strictly below `H`. -/
@@ -100,12 +104,14 @@ theorem highRootStates_card
     intro i hi j hj hij
     have hiD : i < D := Finset.mem_range.mp hi
     have hjD : j < D := Finset.mem_range.mp hj
+    have hiDenLe : i + 1 ≤ D := Nat.succ_le_of_lt hiD
+    have hjDenLe : j + 1 ≤ D := Nat.succ_le_of_lt hjD
     have hDenEq : i + 1 = j + 1 := by
       apply high_denominator_root_injective
         (s := s) (n := n) (d := i + 1) (e := j + 1)
         hn (by omega) (by omega)
-      · omega
-      · omega
+      · simpa [D, H] using hiDenLe
+      · simpa [D, H] using hjDenLe
       · simpa [f] using hij
     omega
   calc
@@ -246,8 +252,11 @@ theorem high_low_root_states_disjoint_of_horizon_pos
   intro y hyHigh hyLow
   rcases Finset.mem_image.mp hyHigh with ⟨i, hi, hiy⟩
   have hiD : i < D := Finset.mem_range.mp hi
-  have hAbove0 : H < root (s + 1) (n / (i + 1)) :=
-    high_denominator_root_above_horizon (by omega) (by omega)
+  have hiDenLe : i + 1 ≤ D := Nat.succ_le_of_lt hiD
+  have hAbove0 : H < root (s + 1) (n / (i + 1)) := by
+    apply high_denominator_root_above_horizon (s := s) (n := n) (d := i + 1)
+      (by omega)
+    simpa [D, H] using hiDenLe
   have hyAbove : H < y := by
     rw [← hiy]
     simpa [f] using hAbove0
