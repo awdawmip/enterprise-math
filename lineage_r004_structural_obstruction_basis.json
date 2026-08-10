@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-STRUCTURAL-OBSTRUCTION-CUTS",
+      "name": "Structural obstruction clutter for future-safe carrier generation",
+      "source_relations": [
+        {"source_id": "SRC-EITER-GOTTLOB-MAKINO-2002-DUALIZATION", "relation": "FORMAL_PRIOR"},
+        {"source_id": "SRC-MURAKAMI-UNO-2011-HYPERGRAPH-DUALIZATION", "relation": "FORMAL_PRIOR"},
+        {"source_id": "SRC-MARY-2024-MINIMAL-TRANSVERSALS", "relation": "FORMAL_PRIOR"}
+      ],
+      "project_addition": "For a typed future-safe compiler with full generator set G and target Q*, define the monotone retained-set adequacy predicate Phi(S)=[Compile_S(P0)=Q*]. Inclusion-minimal deletion sets that falsify Phi form a generator cut clutter. Each minimal cut H has canonical forbidden-world witness Compile_(G\\H)(P0) with exact full-language kill set H. Minimal Carrier Bases are precisely minimal transversals of this clutter, replacing the Bell-number forbidden-partition universe by a generator-side obstruction family.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "relation_to_owners": {
+        "P023": "CONSUME_AS_TYPED_QUOTIENT_BASIS_REDUCTION",
+        "A3": "INFORM_FOR_RELATION_STATE_GENERATOR_MINIMIZATION",
+        "A4": "INFORM_FOR_WITNESS_LANGUAGE_GENERATOR_MINIMIZATION"
+      }
+    },
+    {
+      "id": "EM-COMP-R004-TYPED-ADEQUACY-CUTS",
+      "name": "Typed carrier plus semantic adequacy cut duality",
+      "source_relations": [
+        {"source_id": "SRC-EITER-GOTTLOB-MAKINO-2002-DUALIZATION", "relation": "FORMAL_PRIOR"},
+        {"source_id": "SRC-MURAKAMI-UNO-2011-HYPERGRAPH-DUALIZATION", "relation": "FORMAL_PRIOR"}
+      ],
+      "project_addition": "Separates carrier adequacy from quotient-level semantic reconstruction adequacy. Their deletion-failure families are upward closed, so the minimal joint cut clutter is the inclusion-minimal union of carrier cuts and semantic cuts. Minimal adequate primitive instruction sets are the minimal transversals of this joint clutter. Carrier cuts carry canonical forbidden-world partitions; semantic cuts carry explicit non-reconstructible descended-operation/relation witnesses.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "relation_to_owners": {
+        "P023": "MOTHER_TYPED_OPERATION_AND_QUOTIENT_INTERFACE",
+        "A3": "OWNER_OF_RICHER_RELATION_RECONSTRUCTION_SEMANTICS",
+        "A4": "OWNER_OF_WITNESS_CORRESPONDENCE_RECONSTRUCTION_SEMANTICS"
+      }
+    }
+  ]
+}
