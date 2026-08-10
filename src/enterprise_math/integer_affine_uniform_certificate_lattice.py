@@ -98,15 +98,11 @@ class UniformCertificateLatticeReport:
     full_row_rank: bool
 
     def modulus_is_complete(self, modulus: int) -> bool:
-        return modulus_is_uniform_rational_image_certificate(
-            ((1,),),
-            1,
-        ) if False else (
-            isinstance(modulus, int)
-            and not isinstance(modulus, bool)
-            and modulus > 0
-            and modulus % self.torsion_exponent == 0
-        )
+        if isinstance(modulus, bool) or not isinstance(modulus, int):
+            raise TypeError("modulus must be an integer")
+        if modulus <= 0:
+            raise ValueError("modulus must be positive")
+        return modulus % self.torsion_exponent == 0
 
 
 def uniform_certificate_lattice_report(
