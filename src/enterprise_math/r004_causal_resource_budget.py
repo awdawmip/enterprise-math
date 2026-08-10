@@ -23,6 +23,12 @@ schedules are counted by Catalan C_(H+1), via the standard plane-rooted-tree /
 Lukasiewicz degree-sequence bijection after adjoining one root unit and a final
 leaf.
 
+The cumulative slack s_t=sum_(j<=t)e_j-t measures r-ary branching units already
+available before the target history support needs them.  Summing s_t through
+H-1 gives a storage-advance area: zero for pure online innovation and
+H(H+1)/2 for fully static presampling.  Under the Catalan/Dyck-path bijection it
+is the usual Dyck-area statistic (one standard q-Catalan refinement).
+
 This is resource accounting, not a physical axiom and not a claim that nature
 actually stores the compiled transcript.
 """
@@ -186,6 +192,31 @@ def uniform_r_adic_minimal_schedule_holds(exponents: Sequence[int]) -> bool:
     if sum(row) != horizon:
         return False
     return all(sum(row[: step + 1]) >= step for step in range(1, horizon + 1))
+
+
+def uniform_r_adic_storage_advance_area(exponents: Sequence[int]) -> int:
+    """Sum cumulative early-capacity slack over a minimum r-adic schedule.
+
+    A schedule must already lie on the minimum-product frontier.  For horizon H,
+    area=sum_(t=0)^(H-1) [sum_(j=0)^t e_j - t].
+    """
+    row = tuple(exponents)
+    if not uniform_r_adic_minimal_schedule_holds(row):
+        raise ValueError("storage-advance area is defined here only on the minimum r-adic frontier")
+    horizon = len(row) - 1
+    cumulative = 0
+    area = 0
+    for time in range(horizon):
+        cumulative += row[time]
+        area += cumulative - time
+    return area
+
+
+def uniform_r_adic_storage_advance_area_bounds(horizon: int) -> tuple[int, int]:
+    """Minimum/maximum advance area: pure-online zero, fully-static triangular."""
+    if isinstance(horizon, bool) or not isinstance(horizon, int) or horizon < 0:
+        raise ValueError("horizon must be a non-negative integer")
+    return 0, horizon * (horizon + 1) // 2
 
 
 def catalan_number(index: int) -> int:
