@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-10",
+  "components": [
+    {
+      "id": "EM-COMP-R004-TYPED-COUPLING-LIVENESS",
+      "name": "typed joint-coupling liveness gates",
+      "project_addition": "Determines when a joint witness coupling can be demoted to one-dimensional marginals under declared semantics. MAY uses a cylinder-forcing/full-projection gate; exact COUNT uses additive one-coordinate potentials and is a recursive Structural Target instance on the count tensor; LABEL-SET decomposes labelwise into Boolean MAY gates. Full joint COUNT relative to one-way marginals has free p-adic defect rank product(n_i)-sum(n_i)+(m-1). Generic monoids fall back to recursive P023 compilation of coupling-certificate state.",
+      "novelty_status": "NOVELTY_UNVERIFIED",
+      "updates": [
+        "EM-COMP-R004-JOINT-WITNESS-COUPLING",
+        "EM-COMP-R004-STRUCTURAL-TARGET-CUT",
+        "EM-COMP-R004-SUFFIX-CERTIFICATE-LIVENESS"
+      ],
+      "relation_to_owners": {
+        "A4": "CONSUME_MAY_AND_LABEL_COUPLING_GATES",
+        "P023": "CONSUME_RECURSIVE_COUPLING_CERTIFICATE_MINIMIZATION",
+        "P024": "INFORM_TYPED_COUPLING_PRECISION_STRENGTH",
+        "R004": "COUNT_COUPLING_SPECIALIZATION"
+      }
+    }
+  ]
+}
