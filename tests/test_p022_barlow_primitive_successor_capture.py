@@ -1,3 +1,4 @@
+from enterprise_math.p022_barlow_low_order_defect_reduction import franel_defect_valuation
 from enterprise_math.p022_barlow_primitive_successor_capture import (
     is_twin_prime_deferral_center,
     primitive_capture_location,
@@ -45,3 +46,18 @@ def test_large_negative_unit_prime_was_already_captured_at_d50() -> None:
     assert certify_target_negative_unit_prime()
     assert primitive_event_capture_valuation(49, TARGET_NEGATIVE_UNIT_PRIME) == (50, -1)
     assert primitive_event_is_captured_within_one_step(49, TARGET_NEGATIVE_UNIT_PRIME)
+
+
+def test_twin_prime_deferral_is_real_for_primitive_rank_six_events() -> None:
+    # F_6 has primitive primes 13 and 73.  The adjacent odd boundaries 11 and
+    # 13 are both prime, so neither D_6 nor D_7 exists.  The next composite
+    # defect D_8 still sees neither valuation: the deferral is genuinely
+    # arithmetic, not just a missing statement at r and r+1.
+    for prime in (13, 73):
+        assert primitive_event_capture_valuation(6, prime) == (None, None)
+        assert not primitive_event_is_captured_within_one_step(6, prime)
+        assert franel_defect_valuation(8, prime) == 0
+
+    # Both rows later re-enter the defect lattice at D_11.
+    assert franel_defect_valuation(11, 13) == 1
+    assert franel_defect_valuation(11, 73) == 1
