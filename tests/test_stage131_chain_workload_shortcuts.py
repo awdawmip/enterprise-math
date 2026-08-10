@@ -62,9 +62,6 @@ class Stage131ChainWorkloadShortcutTests(unittest.TestCase):
         point = optimal_one_shortcut_for_workload(n, weights)
         self.assertIn((3, 17), point.edges)
         self.assertEqual(point.expected_depth, 1)
-        # The presentation is excellent for the declared query but still has a
-        # large global worst-case diameter; expected and worst-case objectives
-        # are intentionally different contracts.
         self.assertGreater(point.worst_case_diameter, 1)
 
     def test_endpoint_query_prefers_direct_endpoint_shortcut_over_worst_case_balanced_shortcut(self):
@@ -120,20 +117,24 @@ class Stage131ChainWorkloadShortcutTests(unittest.TestCase):
             )
             self.assertEqual(uniform_query_pair_count(n), n * (n + 1) // 2)
 
-    def test_uniform_1024_one_shortcut_expected_depth_is_about_266(self):
+    def test_uniform_1024_closed_one_shortcut_expected_depth_is_about_266(self):
         n = 1024
-        workload = uniform_all_pairs_workload(n)
-        point = optimal_one_shortcut_for_workload(n, workload)
-        self.assertEqual(point.stored_rules, 1025)
-        self.assertEqual(
-            point.expected_depth,
-            Fraction(34899219, 131200),
-        )
-        self.assertGreater(point.expected_depth, 266)
-        self.assertLess(point.expected_depth, 267)
+        shortcuts = optimal_uniform_one_shortcuts_closed(n)
+        self.assertTrue(shortcuts)
+        source, target = shortcuts[0]
+        gain = optimal_uniform_one_shortcut_gain(n)
+        total = uniform_adjacent_total_depth(n) - gain
+        expected = Fraction(total, uniform_query_pair_count(n))
+        self.assertEqual(expected, Fraction(34899219, 131200))
+        self.assertGreater(expected, 266)
+        self.assertLess(expected, 267)
         self.assertEqual(uniform_adjacent_expected_depth(n), 342)
+        self.assertEqual(
+            uniform_one_shortcut_gain_closed(n, source, target),
+            gain,
+        )
 
-    def test_exact_small_workload_budget_curve_is_monotone(self):
+    def test_exact_small_workload_budget_curve_is_monotone_in_lexicographic_execution_objective(self):
         n = 5
         workload = {
             (0, 5): 20,
@@ -153,10 +154,15 @@ class Stage131ChainWorkloadShortcutTests(unittest.TestCase):
         )
         self.assertTrue(
             all(
-                left.expected_depth > right.expected_depth
+                (right.expected_depth, right.worst_case_diameter)
+                < (left.expected_depth, left.worst_case_diameter)
                 for left, right in zip(curve, curve[1:])
             )
         )
+        # Expected workload depth can saturate at1 while later storage still
+        # buys a smaller global worst-case continuation diameter.
+        self.assertEqual(curve[-2].expected_depth, 1)
+        self.assertGreater(curve[-2].worst_case_diameter, curve[-1].worst_case_diameter)
 
     def test_budget_optimizer_matches_one_shortcut_optimizer_at_n_plus_one_rules(self):
         n = 6
