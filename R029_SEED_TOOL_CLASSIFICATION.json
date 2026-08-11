@@ -1,0 +1,94 @@
+{
+  "seed_tools": [
+    {
+      "id": "QUANTIFIER_SCOPE_CHECK",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "NECESSARY_SUFFICIENT_SPLIT",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "STATE_OBSERVATION_SPLIT",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "CARRIER_TYPE_SPLIT",
+      "disposition": "MERGE",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": "STATE_CARRIER_REPRESENTATION_RESOURCE_SPLIT"
+    },
+    {
+      "id": "STATIC_CORRECT_NOT_DYNAMIC_STATE",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "ONE_STEP_EXACT_NOT_COMPOSITION_SAFE",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "DECLARED_VS_REALIZED_FUTURE",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "FACTOR_THROUGH_COMPLETE_ENCODING",
+      "disposition": "KEEP",
+      "trust_class": "EXACT_SEMANTIC_TRANSFORMATION",
+      "merge_target": null
+    },
+    {
+      "id": "SUPPORT_COUNT_PROVENANCE_SPLIT",
+      "disposition": "MERGE",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": "BOOLEAN_COUNT_PROVENANCE_CARRIER_SPLIT"
+    },
+    {
+      "id": "RESOURCE_EQUAL_SEMANTIC_FIBRE_CHECK",
+      "disposition": "NARROW",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "ROOT_COVERAGE_EVIDENCE_CHECK",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "CAUSAL_PREDICTIVE_RETROSPECTIVE_SPLIT",
+      "disposition": "MERGE",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": "CAUSAL_PREDICTIVE_RETROSPECTIVE_RELEVANCE_SPLIT"
+    },
+    {
+      "id": "PRIOR_ART_REDUCTION",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "COUNTEREXAMPLE_MINIMIZATION",
+      "disposition": "NARROW",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "REGIME_EXHAUSTION",
+      "disposition": "NARROW",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    }
+  ]
+}

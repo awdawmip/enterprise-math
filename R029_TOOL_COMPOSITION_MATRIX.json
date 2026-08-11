@@ -1,0 +1,253 @@
+{
+  "schema_version": "R029_TOOL_COMPOSITION_MATRIX_V1",
+  "researcher_id": "EM-R029-LP2A71",
+  "classes": [
+    "ALWAYS_SAFE",
+    "SAFE_WITH_PRECONDITIONS",
+    "DIAGNOSTIC_ONLY",
+    "KNOWN_INVALID"
+  ],
+  "rules": [
+    {
+      "left": "QUANTIFIER_SCOPE_CHECK",
+      "right": "NECESSARY_SUFFICIENT_SPLIT",
+      "class": "ALWAYS_SAFE",
+      "conditions": [
+        "Both operate by adding scope/direction annotations and preserve the original claim."
+      ],
+      "preserved": [
+        "original claim text",
+        "declared domain",
+        "direction labels"
+      ],
+      "not_preserved": [
+        "truth of either implication"
+      ],
+      "minimal_counterexample": null
+    },
+    {
+      "left": "STATE_OBSERVATION_SPLIT",
+      "right": "BOOLEAN_COUNT_PROVENANCE_CARRIER_SPLIT",
+      "class": "ALWAYS_SAFE",
+      "conditions": [
+        "Both outputs remain diagnostics; no output is promoted to theorem evidence."
+      ],
+      "preserved": [
+        "original object and interface declarations"
+      ],
+      "not_preserved": [
+        "operational exactness"
+      ],
+      "minimal_counterexample": null
+    },
+    {
+      "left": "CONTRAPOSITIVE_CHECK",
+      "right": "CLAIM_EVIDENCE_GRADE_CHECK",
+      "class": "ALWAYS_SAFE",
+      "conditions": [
+        "CONTRAPOSITIVE_CHECK received a source proof/certified theorem."
+      ],
+      "preserved": [
+        "proof derivability",
+        "evidence provenance"
+      ],
+      "not_preserved": [
+        "converse equivalence"
+      ],
+      "minimal_counterexample": null
+    },
+    {
+      "left": "STATE_OBSERVATION_SPLIT",
+      "right": "FUTURE_LANGUAGE_RELATIVITY",
+      "class": "SAFE_WITH_PRECONDITIONS",
+      "conditions": [
+        "The downstream consumer/future language is explicit."
+      ],
+      "preserved": [
+        "state/observation type distinction",
+        "future scope"
+      ],
+      "not_preserved": [
+        "future safety until checked"
+      ],
+      "minimal_counterexample": "If later operation consumes fine state but only the observation label is retained, the pipeline detects rather than repairs the mismatch."
+    },
+    {
+      "left": "FUTURE_LANGUAGE_RELATIVITY",
+      "right": "FACTOR_THROUGH_COMPLETE_ENCODING",
+      "class": "SAFE_WITH_PRECONDITIONS",
+      "conditions": [
+        "A concrete target signature F for the declared future language is supplied.",
+        "F is certified constant on encoding fibres."
+      ],
+      "preserved": [
+        "declared future semantics"
+      ],
+      "not_preserved": [
+        "targets outside the declared language"
+      ],
+      "minimal_counterexample": "R017 square bracket: a carrier scoped to later endpoint selection does not factor arbitrary +1-before-selection behavior."
+    },
+    {
+      "left": "FACTOR_THROUGH_COMPLETE_ENCODING",
+      "right": "NO_RESURRECTION_CHECK",
+      "class": "SAFE_WITH_PRECONDITIONS",
+      "conditions": [
+        "The same E and F are passed to both tools."
+      ],
+      "preserved": [
+        "factorization lower bound"
+      ],
+      "not_preserved": [
+        "claims about richer target carriers"
+      ],
+      "minimal_counterexample": "Change F from Boolean support to path count: a Boolean factorization no longer proves count sufficiency."
+    },
+    {
+      "left": "ONE_STEP_EXACT_NOT_COMPOSITION_SAFE",
+      "right": "GENERATORWISE_CLOSURE_CHECK",
+      "class": "SAFE_WITH_PRECONDITIONS",
+      "conditions": [
+        "Same quotient/abstraction and generator family.",
+        "Generatorwise strong completeness/equitability predicate is defined."
+      ],
+      "preserved": [
+        "identified one-step boundary"
+      ],
+      "not_preserved": [
+        "all-word exactness until closure proof succeeds"
+      ],
+      "minimal_counterexample": "R020 weak uniformity is one-step adequate but loses uniformity after composition."
+    },
+    {
+      "left": "RECOALESCENCE_SUFFIX_SAFETY_CHECK",
+      "right": "SEMANTICS_VS_RUNTIME_REPRESENTATION",
+      "class": "SAFE_WITH_PRECONDITIONS",
+      "conditions": [
+        "Suffix-safety certificate is for the exact same Boolean/result-support semantics used in the runtime comparison."
+      ],
+      "preserved": [
+        "suffix result-support semantics"
+      ],
+      "not_preserved": [
+        "multiplicity/provenance/weight semantics"
+      ],
+      "minimal_counterexample": "Two implementations equal in Boolean support but unequal in natural path counts are not in the same semantic fibre."
+    },
+    {
+      "left": "PRIOR_ART_REDUCTION",
+      "right": "PROJECT_SPECIFIC_RESIDUE_EXTRACTION",
+      "class": "DIAGNOSTIC_ONLY",
+      "conditions": [
+        "Primary roots are supplied."
+      ],
+      "preserved": [
+        "root mapping and project claim decomposition"
+      ],
+      "not_preserved": [
+        "novelty or theorem truth"
+      ],
+      "minimal_counterexample": "R021 generic powerset/CEGAR rooting does not decide whether its collapse-specific residue is historically novel."
+    },
+    {
+      "left": "COUNTEREXAMPLE_MINIMIZATION",
+      "right": "QUANTIFIER_SCOPE_CHECK",
+      "class": "DIAGNOSTIC_ONLY",
+      "conditions": [
+        "Search class is recorded."
+      ],
+      "preserved": [
+        "falsity witness and declared search scope"
+      ],
+      "not_preserved": [
+        "global minimality"
+      ],
+      "minimal_counterexample": "R021 3-state declared-class minimum versus separate 2-state two-relation witness."
+    },
+    {
+      "left": "REGIME_EXHAUSTION",
+      "right": "CLAIM_EVIDENCE_GRADE_CHECK",
+      "class": "DIAGNOSTIC_ONLY",
+      "conditions": [
+        "Parameter domain and classifier are explicit."
+      ],
+      "preserved": [
+        "tested regime coverage and evidence grade"
+      ],
+      "not_preserved": [
+        "global theorem absent proof"
+      ],
+      "minimal_counterexample": "R027 needs explicit k=0 and aligned-island exclusions before BINARY doubling is a valid regime."
+    },
+    {
+      "left": "REALIZED_PATH_VS_DECLARED_LANGUAGE_CREDIT",
+      "right": "FACTOR_THROUGH_COMPLETE_ENCODING",
+      "class": "KNOWN_INVALID",
+      "conditions": [
+        "Invalid when only realized-path signature is passed as F while the claim concerns declared-language safety."
+      ],
+      "preserved": [
+        "realized-path credit only"
+      ],
+      "not_preserved": [
+        "declared-language sufficiency"
+      ],
+      "minimal_counterexample": "Two declared continuations: realized continuation ignores bit b; alternate permitted continuation returns b. Realized credit(b)=0, but deleting b destroys declared-language exactness."
+    },
+    {
+      "left": "ONTOLOGICAL_COMMITMENT_LENS",
+      "right": "FACTOR_THROUGH_COMPLETE_ENCODING",
+      "class": "KNOWN_INVALID",
+      "conditions": [
+        "Invalid if interpretive questions are treated as a proof/certificate that F factors through E."
+      ],
+      "preserved": [
+        "interpretive vocabulary"
+      ],
+      "not_preserved": [
+        "mathematical factorization evidence"
+      ],
+      "minimal_counterexample": "Calling a runtime branch token 'ontologically primitive' gives no map g with F=g∘E."
+    },
+    {
+      "left": "QUANTIFIER_SCOPE_CHECK",
+      "right": "CONTRAPOSITIVE_CHECK",
+      "class": "KNOWN_INVALID",
+      "conditions": [
+        "Invalid as a direct dataflow unless a source proof of A⇒B is independently supplied."
+      ],
+      "preserved": [
+        "scope annotation"
+      ],
+      "not_preserved": [
+        "proof-object input requirement"
+      ],
+      "minimal_counterexample": "A scoped but unproved implication is not a proof object; contraposition cannot manufacture proof evidence."
+    },
+    {
+      "left": "ONE_STEP_EXACT_NOT_COMPOSITION_SAFE",
+      "right": "RECOALESCENCE_SUFFIX_SAFETY_CHECK",
+      "class": "KNOWN_INVALID",
+      "conditions": [
+        "Invalid if one-step exactness is treated as the suffix-signature certificate."
+      ],
+      "preserved": [
+        "one-step diagnostic"
+      ],
+      "not_preserved": [
+        "suffix safety"
+      ],
+      "minimal_counterexample": "Canonical R023 current-coarse-equality-insufficient suffix witness."
+    }
+  ],
+  "recommended_pipeline": {
+    "id": "R029_SAFE_ENCODING_PIPELINE",
+    "steps": [
+      "STATE_OBSERVATION_SPLIT",
+      "FUTURE_LANGUAGE_RELATIVITY",
+      "FACTOR_THROUGH_COMPLETE_ENCODING",
+      "NO_RESURRECTION_CHECK"
+    ],
+    "note": "This is a gated pipeline, not a theorem by concatenation: the factorization step must discharge its exact certificate; diagnostics do not become proof evidence."
+  }
+}
