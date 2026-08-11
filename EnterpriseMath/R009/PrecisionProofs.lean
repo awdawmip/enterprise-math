@@ -105,7 +105,7 @@ theorem r009_t28 : T28Statement := by
     change A (Nat.findGreatest (fun k => A k ≤ n) n) ≤ n
     apply Nat.findGreatest_spec (m := 0) (n := n)
     · exact Nat.zero_le _
-    · simpa [hA0]
+    · simp [hA0]
   have hGC : GaloisConnection A R := by
     intro j n
     constructor
