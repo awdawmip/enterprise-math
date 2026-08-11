@@ -40,7 +40,6 @@ theorem primeFactorCount_le_budget_mul_stableBase_pred_of_no_coarseMacro
       s * (rootQuotientStablePrimeBase s - 1) := by
   classical
   let q := rootQuotientStablePrimeBase s
-  have hqPrime : q.Prime := rootQuotientStablePrimeBase_prime s
   have hbZero : b ≠ 0 := by omega
   have hPrimeData : ∀ p : ℕ, p ∈ b.factorization.support →
       p.Prime ∧ p ∣ b ∧ p < q := by
@@ -129,7 +128,8 @@ def rootQuotientCountedStableMacroHorizon
     Nat.log (rootQuotientStablePrimeBase s) N
 
 /-- The same explicit `s`-macro family separates by the sharper counted stable
-horizon. -/
+horizon.  This action-level statement also covers trivial domains where the
+shortest semantic radius may be zero. -/
 theorem coarseStableMacroSet_separates_within_countedStableHorizon
     {r N s : ℕ}
     (hr : 1 ≤ r) :
@@ -162,28 +162,32 @@ theorem minimumCompositeMacroCount_countedStableHorizon_le_budget
   exact (rootQuotientMinimumCompositeMacroCount_le hPresentation).trans
     (rootQuotientCoarseStableMacroSet_ncard_le N s)
 
-/-- Sharper upper bound on optimal depth under `s` optional macros. -/
+/-- Sharper upper bound on optimal positive depth under `s` optional macros.
+The assumption `N>=2` aligns the action-level radius with the Pareto object's
+convention that optimization ranges over positive horizons. -/
 theorem minimumHorizonAtCompositeMacroBudget_le_countedStableHorizon
     {r N s : ℕ}
     (hr : 2 ≤ r)
+    (hN : 2 ≤ N)
     (hBinary : N < 2 ^ r) :
     rootQuotientMinimumHorizonAtCompositeMacroBudget r N s ≤
       rootQuotientCountedStableMacroHorizon N s := by
   let H := rootQuotientCountedStableMacroHorizon N s
   have hqPrime := rootQuotientStablePrimeBase_prime s
   have hHPos : 1 ≤ H := by
-    dsimp [H, rootQuotientCountedStableMacroHorizon]
-    have hLogNonneg : 0 ≤ Nat.log (rootQuotientStablePrimeBase s) N :=
-      Nat.zero_le _
     by_cases hsZero : s = 0
     · subst s
-      simp [rootQuotientStablePrimeBase, Nat.nth_prime_zero_eq_two]
+      have hLogPos : 0 < Nat.log 2 N :=
+        Nat.log_pos (by omega) hN
+      simpa [H, rootQuotientCountedStableMacroHorizon,
+        rootQuotientStablePrimeBase] using hLogPos
     · have hsPos : 1 ≤ s := by omega
       have hPredPos : 1 ≤ rootQuotientStablePrimeBase s - 1 := by
         have := hqPrime.two_le
         omega
       have hProdPos : 1 ≤ s * (rootQuotientStablePrimeBase s - 1) :=
         Nat.one_le_mul hsPos hPredPos
+      dsimp [H, rootQuotientCountedStableMacroHorizon]
       omega
   have hMuLe : rootQuotientMinimumCompositeMacroCount r N H ≤ s := by
     dsimp [H]
@@ -208,29 +212,29 @@ theorem minimumHorizonAtCompositeMacroBudget_le_countedStableHorizon
 
 /-- Sharpened next-prime stable resource sandwich.
 
-The optimal horizon under `s` optional macro types differs from the universal
-next-prime logarithmic lower bound by at most the state-independent additive
-constant `s*(q_s-1)`. -/
+For `N>=2`, the optimal positive horizon under `s` optional macro types differs
+from the universal next-prime logarithmic lower bound by at most the
+state-independent additive constant `s*(q_s-1)`. -/
 theorem nextPrime_log_macroBudget_counted_sandwich
     {r N s : ℕ}
     (hr : 2 ≤ r)
-    (hN : 1 ≤ N)
+    (hN : 2 ≤ N)
     (hBinary : N < 2 ^ r) :
     Nat.log (rootQuotientStablePrimeBase s) N ≤
         rootQuotientMinimumHorizonAtCompositeMacroBudget r N s ∧
       rootQuotientMinimumHorizonAtCompositeMacroBudget r N s ≤
         rootQuotientCountedStableMacroHorizon N s := by
-  have hCoarse := nextPrime_log_macroBudget_sandwich
-    (r := r) (N := N) (s := s) hr hN hBinary
-  exact ⟨hCoarse.1,
+  have hLower := nextPrime_log_macroBudget_sandwich
+    (r := r) (N := N) (s := s) hr (by omega) hBinary
+  exact ⟨hLower.1,
     minimumHorizonAtCompositeMacroBudget_le_countedStableHorizon
-      (r := r) (N := N) (s := s) hr hBinary⟩
+      (r := r) (N := N) (s := s) hr hN hBinary⟩
 
 /-- Additive-gap form of the counted sandwich. -/
 theorem minimumHorizonAtCompositeMacroBudget_sub_nextPrimeLog_le
     {r N s : ℕ}
     (hr : 2 ≤ r)
-    (hN : 1 ≤ N)
+    (hN : 2 ≤ N)
     (hBinary : N < 2 ^ r) :
     rootQuotientMinimumHorizonAtCompositeMacroBudget r N s -
         Nat.log (rootQuotientStablePrimeBase s) N ≤
