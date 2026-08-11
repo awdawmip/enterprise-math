@@ -7,8 +7,7 @@ namespace EnterpriseMath.Quotient
 
 /-- Four-layer state-bound resource increment:
 
-`direction -> packing -> divisor cover -> exact storage`.
--/
+`direction -> packing -> divisor cover -> exact storage`. -/
 structure RootQuotientFourLayerResourceEvent where
   direction : ℕ
   packing : ℕ
@@ -65,7 +64,27 @@ theorem fourLayerResourceEvent_components_zero_or_one
   have hM := minimumCompositeMacroCount_succ_staircase
     (r := r) (N := N) (h := h) hr hh
   dsimp [rootQuotientFourLayerResourceEvent]
-  constructor <;> omega
+  have hDir :
+      rootQuotientPrimeDirectionDemand (N + 1) h -
+          rootQuotientPrimeDirectionDemand N h = 0 ∨
+      rootQuotientPrimeDirectionDemand (N + 1) h -
+          rootQuotientPrimeDirectionDemand N h = 1 := by omega
+  have hPack :
+      rootQuotientGlobalRepairDivisorPackingNumber r (N + 1) h -
+          rootQuotientGlobalRepairDivisorPackingNumber r N h = 0 ∨
+      rootQuotientGlobalRepairDivisorPackingNumber r (N + 1) h -
+          rootQuotientGlobalRepairDivisorPackingNumber r N h = 1 := by omega
+  have hCover :
+      rootQuotientGlobalRepairDivisorCoverNumber r (N + 1) h -
+          rootQuotientGlobalRepairDivisorCoverNumber r N h = 0 ∨
+      rootQuotientGlobalRepairDivisorCoverNumber r (N + 1) h -
+          rootQuotientGlobalRepairDivisorCoverNumber r N h = 1 := by omega
+  have hExact :
+      rootQuotientMinimumCompositeMacroCount r (N + 1) h -
+          rootQuotientMinimumCompositeMacroCount r N h = 0 ∨
+      rootQuotientMinimumCompositeMacroCount r (N + 1) h -
+          rootQuotientMinimumCompositeMacroCount r N h = 1 := by omega
+  exact ⟨hDir, hPack, hCover, hExact⟩
 
 /-- Signed packing-over-direction gap. -/
 def rootQuotientMixedPackingGapInt
@@ -102,7 +121,8 @@ theorem mixedPackingGapInt_succ_sub_eq_event_difference
 
 /-- Cover-coordination gap flow is cover event minus packing event. -/
 theorem packingToCoverGapInt_succ_sub_eq_event_difference
-    (r N h : ℕ) :
+    {r N h : ℕ}
+    (hh : 1 ≤ h) :
     rootQuotientPackingToCoverGapInt r (N + 1) h -
         rootQuotientPackingToCoverGapInt r N h =
       ((rootQuotientFourLayerResourceEvent r N h).divisorCover : ℤ) -
@@ -110,29 +130,25 @@ theorem packingToCoverGapInt_succ_sub_eq_event_difference
   dsimp [rootQuotientPackingToCoverGapInt,
     rootQuotientFourLayerResourceEvent]
   have hP := globalRepairDivisorPackingNumber_succ_staircase r N h
-  have hCMono := globalRepairDivisorCoverNumber_mono_succ
-    (r := r) (N := N) (h := h) (by omega)
-  have hCStep := globalRepairDivisorCoverNumber_succ_le_add_one
-    (r := r) (N := N) (h := h) (by omega)
+  have hC := globalRepairDivisorCoverNumber_succ_staircase
+    (r := r) (N := N) (h := h) hh
   omega
 
 /-- Residual-depth gap flow is exact event minus cover event. -/
 theorem residualDepthGapInt_succ_sub_eq_fourLayer_event_difference
-    (r N h : ℕ) :
+    {r N h : ℕ}
+    (hr : 2 ≤ r)
+    (hh : 1 ≤ h) :
     rootQuotientResidualDepthGapInt r (N + 1) h -
         rootQuotientResidualDepthGapInt r N h =
       ((rootQuotientFourLayerResourceEvent r N h).exactStorage : ℤ) -
         ((rootQuotientFourLayerResourceEvent r N h).divisorCover : ℤ) := by
   dsimp [rootQuotientResidualDepthGapInt,
     rootQuotientFourLayerResourceEvent]
-  have hCMono := globalRepairDivisorCoverNumber_mono_succ
-    (r := r) (N := N) (h := h) (by omega)
-  have hCStep := globalRepairDivisorCoverNumber_succ_le_add_one
-    (r := r) (N := N) (h := h) (by omega)
-  have hMMono := minimumCompositeMacroCount_mono_succ
-    (r := r) (N := N) (h := h) (by omega) (by omega)
-  have hMStep := minimumCompositeMacroCount_succ_le_add_one
-    (r := r) (N := N) (h := h) (by omega) (by omega)
+  have hC := globalRepairDivisorCoverNumber_succ_staircase
+    (r := r) (N := N) (h := h) hh
+  have hM := minimumCompositeMacroCount_succ_staircase
+    (r := r) (N := N) (h := h) hr hh
   omega
 
 /-- The old mixed-cover gap is exactly packing pressure plus cover coordination. -/
@@ -149,7 +165,9 @@ theorem mixedCoverGapInt_eq_mixedPacking_add_packingToCover
 /-- Total exact optional storage flow is direction flow plus the three internal
 gap flows. -/
 theorem exactStorageEvent_eq_direction_add_fourLayerGapFlows
-    (r N h : ℕ) :
+    {r N h : ℕ}
+    (hr : 2 ≤ r)
+    (hh : 1 ≤ h) :
     ((rootQuotientFourLayerResourceEvent r N h).exactStorage : ℤ) =
       ((rootQuotientFourLayerResourceEvent r N h).direction : ℤ) +
       (rootQuotientMixedPackingGapInt r (N + 1) h -
@@ -159,8 +177,8 @@ theorem exactStorageEvent_eq_direction_add_fourLayerGapFlows
       (rootQuotientResidualDepthGapInt r (N + 1) h -
         rootQuotientResidualDepthGapInt r N h) := by
   rw [mixedPackingGapInt_succ_sub_eq_event_difference,
-    packingToCoverGapInt_succ_sub_eq_event_difference,
-    residualDepthGapInt_succ_sub_eq_fourLayer_event_difference]
+    packingToCoverGapInt_succ_sub_eq_event_difference hh,
+    residualDepthGapInt_succ_sub_eq_fourLayer_event_difference hr hh]
   ring
 
 end EnterpriseMath.Quotient
