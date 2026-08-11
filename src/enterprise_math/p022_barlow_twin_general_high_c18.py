@@ -91,7 +91,7 @@ def c18_source_lines_cover_mod5_at_gap_one(rank_residue: int) -> str:
     residue = rank_residue % 5
     table = {
         0: "4r-5",
-        1: "2(r+h)-1",
+        1: "2(r+h)+1",
         2: "2r+1",
         3: "2r-1",
         4: "q",
