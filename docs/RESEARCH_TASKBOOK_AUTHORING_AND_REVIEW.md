@@ -4,7 +4,7 @@ Status: `ACTIVE / CANONICAL TASKBOOK AUTHORING PROCESS`
 
 ## Purpose
 
-A taskbook is a task-specific research contract, not a second copy of repository operating policy.
+A taskbook is a task-specific research contract, not a second copy of repository operating policy and not a binding to one runtime conversation.
 
 Researchers already load the repository execution rules. Therefore a taskbook should contain only:
 
@@ -33,11 +33,11 @@ python tools/research_taskbook.py new \
   --output research_tasks/....md
 ```
 
-The generator writes the required Driver/identity metadata and a `policy_review` block stamped against the current policy set, initially as:
+The generator writes the required Driver/identity-policy metadata and a `policy_review` block stamped against the current policy set, initially as:
 
 `PENDING_DRIVER_REVIEW`.
 
-It deliberately creates only a task-local skeleton.
+It deliberately creates only a task-local skeleton. It does **not** assign a fixed runtime Researcher-ID.
 
 ### 2. Write task-local content
 
@@ -104,7 +104,7 @@ This records the current policy digest and sets:
 
 `policy_review.review_state = PASS`.
 
-### 6. Dispatch gate
+### 6. Taskbook dispatch gate
 
 Immediately before dispatch or re-dispatch:
 
@@ -113,6 +113,32 @@ python tools/research_taskbook.py audit research_tasks/<task>.md --dispatch
 ```
 
 A taskbook is dispatchable only when this passes.
+
+### 7. Bind runtime identity outside the taskbook
+
+For a **Driver-mediated manual relay** into a new researcher conversation, taskbook PASS is not the last mechanical step. The Driver must preallocate the concrete runtime Researcher-ID in a separate dispatch envelope:
+
+```bash
+python tools/research_identity.py allocate \
+  --task RS-... \
+  --role RESEARCHER \
+  --lane R... \
+  --dispatch-id <unique-dispatch-id>
+```
+
+Persist that Researcher-ID in:
+
+- the `USER_RELAY_QUEUE` entry;
+- the user-visible handoff prompt;
+- the first researcher return/PR/commit metadata.
+
+The receiving conversation starts with that ID already bound. Do not rely on the researcher remembering to invent or allocate an ID later.
+
+This identity binding lives **outside** the taskbook because a taskbook may be reused by a later/new conversation. The same researcher conversation preserves its existing Researcher-ID on continuation; a new dispatch envelope normally gets a new one.
+
+Scheduler CLAIMs and direct self-started research keep their own automatic bootstrap paths.
+
+Driver conversations use `Driver-ID`; they do not consume the `Researcher-ID` visible label.
 
 ## Rule updates automatically invalidate old review stamps
 
@@ -141,7 +167,8 @@ When a repository execution rule covered by `research_taskbook_policy.json` chan
 2. do not manually copy the change into every taskbook;
 3. run the taskbook audit on any still-live taskbook before its next dispatch;
 4. re-review only the tasks that remain active/reusable;
-5. update task-specific text only where the new rule creates an actual conflict or changes a temporary override.
+5. update task-specific text only where the new rule creates an actual conflict or changes a temporary override;
+6. if the task is being manually relayed by Driver, bind a runtime Researcher-ID in the relay envelope after the new taskbook PASS stamp.
 
 The policy digest handles synchronization. Taskbook text changes only for semantic conflicts or explicit overrides.
 
@@ -155,6 +182,10 @@ A good taskbook answers:
 
 The repository policy answers:
 
-> How does an Enterprise Math researcher operate in general?
+> How does an Enterprise Math participant operate in general?
 
-Keeping those layers separate prevents contradictory duplicated rules and stops stale taskbooks from re-opening previously closed operational loopholes.
+The dispatch envelope answers:
+
+> Which concrete researcher conversation is executing this approved task now?
+
+Keeping those three layers separate prevents contradictory duplicated rules, missing runtime identity, and stale taskbooks reopening previously closed operational loopholes.
