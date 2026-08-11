@@ -62,7 +62,7 @@
   "identity_lane": "R020",
   "policy_review": {
     "policy_set": "research_taskbook_policy.json",
-    "policy_digest": "sha256:87a1272862a3d84b01bc6d2a8617486a2ca998c1ab1cfd016f29c6b6edd7f64e",
+    "policy_digest": "sha256:a03b06c1c6d29ca2776592fd12aa77406f45a21afb8fc1a8431b25cd41963c77",
     "review_state": "PASS",
     "temporary_overrides": []
   }
