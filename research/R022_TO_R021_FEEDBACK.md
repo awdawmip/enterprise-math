@@ -9,14 +9,18 @@
 
 R022 recommends that R021 keep the Branch-Recoalescence Collapse program, but sharpen it around **typed residual certificates** rather than around the visual metaphor of many branches.
 
-The strongest source-backed addition is a dual certificate calculus:
+The first two passes established a dual certificate calculus:
 
 - **RCC — Recoalescence Congruence Certificate:** positive certificate that histories may forget their past and share one residual future token.
-- **NCC — No-Completion Cone Certificate:** negative certificate that an entire residual-prefix class has empty completion support and may be pruned.
+- **CS-NCC — Context-Scoped No-Completion Cone Certificate:** negative certificate that a dependency-footprint class has empty completion support and may be pruned while the certificate scope remains valid.
 
-HashClash contains local implementation witnesses of both.
+The third pass unifies both under a more general support-semantic object:
 
-At the same time, R022 found no reason to claim that BRC is a new generic search algorithm. The external structures substantially root to standard automata, dynamic programming/state memoization, meet-in-the-middle, nogood pruning, backtracking and CEGAR.
+- **RJC — Residual Join Certificate:** an exact rewrite of a live branch configuration into another configuration with the same pointwise join of residual future-support signatures.
+
+This exposes a new primitive — **collective residual dominance** — and a hard negative boundary: minimum exact residual-basis optimization contains SET COVER.
+
+At the same time, R022 found no reason to claim that BRC is a new generic search algorithm or a new algebra. The external structures substantially root to standard automata, dynamic programming/state memoization, meet-in-the-middle, nogood pruning, backtracking, CEGAR, powerset/join semantics and Set Cover.
 
 ---
 
@@ -26,30 +30,13 @@ At the same time, R022 found no reason to claim that BRC is a new generic search
 
 md5collgen's dispatcher computes a small continuation-control label from a larger IV and then passes the IV into the selected specialized solver.
 
-So the correct carrier is not:
-
-`small token replaces fine state`.
-
-It is:
+So the correct carrier is not `small token replaces fine state`; it is
 
 `(retained continuation payload, small branch-control token)`.
 
-R021 should therefore distinguish at least:
+R021 should distinguish control signature bits, payload/context bits, and denotation/support metadata in branch-storage accounting.
 
-1. **control signature bits**
-2. **payload/context bits**
-3. **denotation/support metadata**
-
-in branch-storage accounting.
-
-The source-shaped finite model found:
-
-- 9 route-relevant physical IV bits;
-- all 9 necessary if the signature must be a raw-coordinate subset;
-- 5 compiled route labels;
-- 3 fixed-width bits sufficient for the compiled label.
-
-This is an important representation-class distinction.
+The source-shaped finite model found 9 route-relevant physical IV bits; all 9 are necessary if the signature must be a raw-coordinate subset; 5 compiled route labels fit in 3 fixed-width bits.
 
 ---
 
@@ -59,361 +46,278 @@ This is an important representation-class distinction.
 
 Forward/backward `differentialpath` objects are partial constraint paths, not literal concrete fine states.
 
-At the connector, the carrier becomes even more compact:
+At the connector, the carrier becomes `six-word residual connect token + fixed lower/upper connection context`.
 
-`six-word residual connect token + fixed lower/upper connection context`.
-
-Therefore R021 should add a first-class type:
-
-**context-relative residual branch carrier**
-
-`B = (kappa, t, sigma, denotation_mode)`
-
-where `kappa` is external fixed context and `sigma` is the live residual state.
-
-A token-size claim is invalid unless the cost of `kappa` is accounted for somewhere.
+Therefore R021 should use a first-class **context-relative residual branch carrier** and charge the context somewhere in the representation budget.
 
 ---
 
 ## 3. What is genuine safe recoalescence versus only search convergence?
 
-**Genuine safe recoalescence:**
+HashClash `md5_connect_bits` expands connector states one bit at a time and then sorts/removes exact duplicate six-word residual states. Under the same lower/upper path and connection context, duplicate residual states have the same remaining connector feasibility behavior.
 
-HashClash `md5_connect_bits` expands possible connector states one bit at a time and then sorts and removes exact duplicate six-word `connect_bitdata` states.
+That is a source-backed local RCC for final-support/existence semantics.
 
-Under the same lower/upper path and connection context, the remaining connector computation uses that residual state. Thus duplicate states have the same remaining feasibility continuation.
+Same current endpoint, same coarse output, same distance, or same score are not automatically safe merge certificates.
 
-This is a source-backed local RCC for final-support/existence semantics.
-
-**Not automatically safe:**
-
-- same current endpoint;
-- same coarse output;
-- same hash-like distance;
-- same partial path score;
-- two branches merely meeting at a visually identical node.
-
-R021 should distinguish:
-
-1. exact union bookkeeping;
-2. token-identification/forgetting.
-
-Only the second needs a future-congruence certificate and creates a real semantic compression claim.
+R021 should keep exact union bookkeeping distinct from token identification/forgetting.
 
 ---
 
-## 4. Are branch tokens materially smaller than deterministic future-complete states?
+## 4. CS-NCC must carry a dependency footprint and invalidation rule
 
-**Sometimes, but R022 found no universal theorem.**
+The second-pass audit sharpened the original NCC.
 
-Negative witness:
+HashClash does not reuse a failed lower-path prefix as a permanent context-free nogood. `isgood` reuse depends on how much of the upper path remains equal (`bequal`) and on the relevant masked residual prefixes; cached failure is invalidated when those dependencies change.
 
-A 12-step binary residual system has 4096 hidden histories that safely collapse to at most 5 residual tokens. However the optimal deterministic future-complete quotient also has exactly 5 states.
+Recommended certificate:
+
+`CSNCC(stage, failure_depth, dependency_footprint, semantics, proof_of_empty_completion)`.
+
+A cached certificate may be reused only when the candidate/context has the same sufficient dependency footprint.
+
+Synthetic kill test: changing one context component at the failure depth turns a previously failing branch into a successful one, so context-free failure reuse is unsound.
+
+---
+
+## 5. Branch budget requires exactness typing
+
+HashClash `ubound/maxcond`, tunnel/best-path ranking, timeout kills and fixed `k -> max(k-1,0)` rollback are useful search engineering, not exact support transformations by themselves.
+
+R021 should type every budget action as:
+
+- `EXACT` — every removed branch has an exact certificate;
+- `REPLAY_EXACT` — evicted distinctions are recoverable from charged checkpoints/replay descriptions;
+- `HEURISTIC` — rank/score/width/time pruning may lose support and exactness is not claimed.
+
+An uncertified width-cap kill test changes final support from `{0,1}` to `{0}`.
+
+---
+
+## 6. Third-pass unification: Residual Join Certificate (RJC)
+
+Fix scope
+
+`omega = (stage, context, residual language, observable, semantics=SUPPORT)`.
+
+For branch `b`, let
+
+`phi_omega(b) : U -> P(Y)`
+
+be its complete residual final-support signature.
+
+For live configuration `C`, define
+
+`J_omega(C) = vee_{b in C} phi_omega(b)`
+
+using pointwise union.
+
+An **RJC** for `C => D` proves
+
+`J_omega(C) = J_omega(D)`.
+
+Then:
+
+- RCC is idempotence: equal signatures satisfy `x vee x = x`;
+- CS-NCC is bottom elimination: `x vee bottom = x`;
+- pairwise dominance is absorption: `x <= y => x vee y = y`;
+- new **collective dominance** allows `b` to be removed when `phi(b)` is covered by the join of several survivors even if no single survivor dominates it.
+
+This is standard join-semilattice semantics, not a new algebraic theorem. Its value is a single exact BRC rewrite contract.
+
+---
+
+## 7. Collective dominance kills pairwise-antichain completeness
+
+One residual future, supports:
+
+- `A={1,2}`
+- `B={1,3}`
+- `C={2,3}`.
+
+All three are pairwise incomparable, so pairwise dominance removes nothing.
+
+Nevertheless every branch is covered by the union of the other two, and any two branches preserve the total support `{1,2,3}`.
 
 Therefore:
 
-`history compression != advantage over deterministic refinement`.
+`pairwise dominance complete = false`.
 
-Positive Pareto witness:
-
-For the language “6th symbol from the end is 1”:
-
-- NFA presentation: 7 states;
-- minimal DFA: 64 states;
-- NFA max live width: 7.
-
-This gives a real static-storage vs runtime-work Pareto frontier, but it is standard NFA/DFA succinctness.
-
-Recommendation:
-
-R021 should not seek a theorem “branching is smaller.” It should seek **regime conditions** under which a nondeterministic/contextual presentation is Pareto-preferred after all metadata is charged.
+A maximal antichain of residual signatures can still contain exact collective redundancy.
 
 ---
 
-## 5. Does bidirectional connection change R021's minimal-width problem?
+## 8. Residual Join Basis and the 0/1/many-world normal form
 
-**Yes.**
+Fix an admissible token dictionary `D`.
 
-R021 currently frames minimal branching width primarily as a one-directional runtime problem.
+For target residual element `z`, define
 
-HashClash motivates a dual-frontier objective:
+`nu_D(z) = min |S|`
 
-`min_{t,I_t exact} Objective(W_F(t), W_B(t), |I_t|, JoinWork_t, Depth_t, Replay_t)`.
+such that `S subseteq D` and the join of `S` equals `z`.
 
-At minimum, expose:
+A minimizing `S` is a **Residual Join Basis (RJB)**.
 
-- forward width;
-- backward width;
-- max of the two;
-- sum of the two;
-- interface-token bits;
-- join-index/table storage;
-- join work;
-- parallel critical depth.
+Then:
 
-Synthetic 20-variable exact checksum model:
+- `nu_D(z)=0` exactly for empty/bottom residual support;
+- `nu_D(z)=1` when one admissible token represents the entire target residual join;
+- `nu_D(z)>1` when genuinely multiple admissible residual worlds are required.
 
-- one-sided complete enumeration: 1,048,576 assignments;
-- balanced split: 1024 + 1024 frontier assignments;
-- exact interface: 17 bits;
-- charged interface token bits at balanced frontier: 34,816;
-- idealized critical depth: 11 vs 20;
-- 512x enumeration-work ratio.
+This gives R021 a local exact branch-width quantity, but it is explicitly dictionary-relative.
 
-This is ordinary MITM, but it demonstrates that **minimal branch width in a BRC compiler must be interface-aware and bidirectional**.
+If arbitrary exact union tokens are synthesized for free, width trivially becomes one; token denotation/construction cost must therefore be charged.
 
 ---
 
-## 6. Do local neutral moves enlarge the safe-operation language?
+## 9. Exact minimum residual basis contains SET COVER
 
-**Yes, locally and conditionally.**
+Reduction from SET COVER:
 
-HashClash tunnel/neutral freedoms motivate operations that vary hidden fine details while preserving an earlier branch/path invariant.
+- use a singleton residual language;
+- use the Set-Cover universe as final output atoms;
+- create one admissible branch token per input subset;
+- let each branch residual support equal that subset.
 
-Generic R021 formulation:
+Then a subconfiguration preserves the total residual join iff its corresponding subsets cover the target universe.
 
-A partial move `n` is safe on branch `b` only over a legal domain and only if it preserves the declared branch/interface signature or maps to a known equivalent signature.
+Therefore minimum exact existing-token branch-basis optimization is Set Cover in this finite explicit-signature model.
 
-Do not assume closure.
+Consequences:
 
-Kill test:
+- generic minimum exact branch-basis optimization is NP-hard;
+- decision form is NP-complete in the explicit finite model;
+- weighted token costs yield weighted-cover variants;
+- universal polynomial `branch_budget_optimizer` claims should be rejected absent additional structure.
 
-two partial moves can each be safe on their own domains while their composition is undefined because the first move exits the second move's domain.
-
-Recommendation:
-
-Represent branch-local safe moves as a **domain-guarded partial transformation category/semigroupoid**, not automatically a monoid.
-
----
-
-## 7. Does backtracking suggest a new notion of causal refinement depth?
-
-**Yes as a useful R021 diagnostic, but not as source-proved novelty.**
-
-Define:
-
-**causal refinement depth**
-
-= the number of checkpoints one must rewind to reach the latest earlier point where an inexact/budgeted collapse discarded a distinction that separates suffix-feasible from suffix-infeasible representatives.
-
-Synthetic kill test requires depth 2; one-step rewind cannot recover a discarded feasible representative.
-
-Important exactness boundary:
-
-If an earlier RCC was genuinely exact for the same declared future language, that merge cannot later cause a support failure. Therefore causal rewind belongs to:
-
-- budgeted/inexact collapse;
-- heuristic branch pruning;
-- changed future language;
-- stronger late observables such as provenance/score.
-
-HashClash `cpc.sh` uses timeout-driven one-stage rollback and does not compute causal depth.
-
-Prior-art root is CEGAR/backtracking/backjumping/nogood learning.
+This is a direct complexity boundary for R021's minimal-width problem.
 
 ---
 
-## 8. Which candidate tools deserve a shared theorem/tool surface?
+## 10. Local irredundance is not global optimality
 
-### Promote as candidate generic interfaces
+A six-token pairwise-incomparable synthetic family has exact irredundant bases of widths 3 and 4.
 
-#### A. `branch_signature_router`
+A local reducer that removes one currently redundant branch at a time can terminate at width 4 even though width 3 is achievable.
 
-Purpose:
-compile/test a small continuation-control signature.
+Therefore:
 
-Required contract:
-correctness domains + allowed signature representation class + minimality witness.
+`locally irredundant = globally minimum`
 
-Add explicit storage fields:
-control bits vs payload/context bits.
-
-#### B. `brc_connect`
-
-Purpose:
-connect forward/backward branch cones through an exact residual interface.
-
-Required contract:
-interface semantics + compatibility + token cost + result-support exactness.
-
-#### C. `recoalescence_certificate`
-
-Purpose:
-validate token-identification merges.
-
-Suggested object:
-
-`RCC(stage, context, semantics, residual_language, signature, proof)`
-
-#### D. `no_completion_cone_certificate`
-
-Purpose:
-prune a whole branch-equivalence class known to have empty residual completion support.
-
-Suggested object:
-
-`NCC(stage, context, failure_depth, prefix_signature, dependency_mask, proof)`
-
-#### E. `safe_neutral_moves`
-
-Purpose:
-enumerate/verify domain-guarded invariant-preserving partial moves.
-
-Do not export a monoid theorem without extra closure assumptions.
-
-#### F. `brc_refine_backtrack`
-
-Purpose:
-for inexact/budgeted execution only, locate the latest recoverable lost distinction and report causal refinement depth.
-
-#### G. `branch_budget_optimizer`
-
-Purpose:
-optimize width/storage/work/depth under exactness and complete metadata accounting.
-
-### Do not promote as generic theorem-strength surface
-
-#### `recoalescence_potential`
-
-No generic monotone scalar survived.
-
-At most keep:
-
-`future_signature_defect`
-
-as a finite diagnostic oracle.
+is false, and exact pruning order can affect the terminal representation.
 
 ---
 
-## 9. Which attractive analogies were killed?
+## 11. Certificate validity is future-language relative
 
-### Killed: “md5collgen compresses the full IV to 3 bits.”
+An RJC valid for future language `U` remains valid after restriction to `U' subseteq U`.
 
-False. It compresses routing control; the selected solver still receives the IV payload.
+The reverse fails: two branches can agree on the current short language and differ when a new future operation/word is added.
 
-### Killed: “safe recoalescence means two branches reach the same current output.”
-
-False. Same coarse output can re-expand to spurious fine states.
-
-### Killed: “same endpoint is enough for BRC-Connect.”
-
-False when hidden residual constraints or provenance remain future-observable.
-
-### Killed: “HashClash backtracking is causal rewind.”
-
-False. The script performs a timeout-triggered fixed rollback.
-
-### Killed: “tunnel/neutral operations form a safe monoid.”
-
-False without domain/codomain closure.
-
-### Killed: “near-collision distance is a generic recoalescence potential.”
-
-False. A simple finite model makes geometric distance decrease while exact future-signature defect increases.
-
-### Killed: “history collapse proves branching is better than deterministic refinement.”
-
-False. A 4096-history model collapses to five residual tokens, but its deterministic future-complete quotient also has five states.
-
-### Killed: “HashClash bidirectional gains establish new BRC search complexity.”
-
-False. The generic gain is meet-in-the-middle.
-
-### Killed: “failure-prefix pruning is a novel algorithm.”
-
-False as an algorithmic novelty claim. It is close to nogood/memoized failure/prefix pruning.
-
-The useful R021 extraction is the **typed NCC semantic certificate**.
+Therefore RJC/RJB caches need a residual-language or language-version scope just as CS-NCC caches need a context/dependency scope.
 
 ---
 
-# Proposed R021 theorem/certificate additions
+## 12. Duplicate recoalescence requires idempotent semantics
 
-## A. Router correctness-domain theorem
+Two duplicate support branches can be merged exactly for Boolean support because union is idempotent.
 
-For continuation algorithms `{A_a}` with correctness domains `{D_a}`, a router `(sigma,alpha)` is correct iff every router fibre lies inside the selected algorithm's domain.
+The same merge changes path multiplicity from 2 to 1.
 
-Minimum distinct algorithm labels reduce to a minimum cover of the fine state set by correctness domains.
+Therefore duplicate branch identification is not semantics-neutral.
 
-Consequence:
-
-minimal solver routing need not equal semantic future-equivalence and need not be unique.
-
-## B. RCC theorem schema
-
-Let `sigma_t` satisfy:
-
-`sig(x)=sig(y) => Supp_t(x,u)=Supp_t(y,u)` for all declared residual futures `u`.
-
-Then token-identification of histories with the same signature is exact for final result-support.
-
-Strengthen the condition when multiplicity/provenance/score is observed.
-
-## C. NCC theorem schema
-
-Let prefix signature `pi` under context `kappa` satisfy:
-
-`pi(x)=p => Supp_t(x,u)=empty` for every allowed residual future `u`.
-
-Then every branch in that certified signature class may be pruned.
-
-## D. Exact-BRC no-rewind corollary
-
-If an RCC is exact for a fixed declared residual language and no additional heuristic pruning occurs, a later failure cannot be repaired merely by separating histories that were merged under that RCC.
-
-Any needed rewind implies:
-
-- earlier inexactness;
-- changed semantics/language;
-- or some other non-exact resource decision.
-
-This should prevent causal-rewind reasoning from being incorrectly used to patch an allegedly exact merge.
+R023's Boolean/result-support Lean carrier should remain scoped as-is; multiplicity/provenance require weighted/tagged carriers rather than importing RCC unchanged.
 
 ---
 
-# Suggested R021 implementation delta
+## 13. Bidirectional and neutral-move conclusions remain unchanged
 
-1. Add `context_cost` to branch-token cost records.
-2. Add `semantics = support | multiplicity | provenance | score`.
-3. Split merge operation into:
-   - `union_exact`
-   - `identify_with_rcc`
-4. Add negative `prune_with_ncc`.
-5. Add bidirectional resource fields:
-   - `W_forward`
-   - `W_backward`
-   - `interface_bits`
-   - `join_work`
-6. Add `causal_refinement_depth` only to approximate/budgeted executions.
-7. Require all “minimal signature” claims to state the allowed encoding family:
-   - raw coordinate subset;
-   - arbitrary compiled label;
-   - algebraic/compressed encoding.
-8. Keep novelty labels separate:
-   - source witness;
-   - Enterprise Math abstraction;
-   - established prior-art root;
-   - actually new theorem, if any.
+`brc_connect` remains useful as a typed exact-interface primitive, but its generic speedup is ordinary meet-in-the-middle.
+
+Branch-local neutral moves remain domain-guarded partial transformations; generic monoid closure is false.
+
+Causal refinement depth remains useful only for inexact/budgeted collapse, changed future language, or stronger late observables. An exact RCC for a fixed language does not later need semantic rewind merely to separate the histories it validly merged.
 
 ---
 
-# Final R021 handoff
+## 14. Recommended R021 compiler architecture
 
-**What survived:**  
-A coherent BRC certificate/tool calculus with source witnesses.
+### Cheap exact normalization
 
-**What did not survive:**  
-A claim that md5collgen/HashClash contain a previously unknown generic branching algorithm.
+1. RCC hash-cons equal signatures;
+2. CS-NCC remove certified bottom cones;
+3. pairwise dominance removal;
+4. context/language-scoped certificate cache reuse with invalidation.
 
-**Most valuable new R021 distinction:**  
+### Bounded collective normalization
 
-`positive future-equivalence certificate (RCC)`  
-versus  
-`negative empty-future certificate (NCC)`.
+5. collective-dominance search;
+6. bounded exact RJB optimization by exhaustive/ILP/SAT-style search with proof/certificate.
 
-Together they give a clean algebra of:
+### Resource fallback
 
-`split -> execute -> recoalesce or prune -> connect -> (if approximate) causally refine`.
+7. `REPLAY_EXACT` checkpoint eviction if live width must be reduced without losing semantics;
+8. otherwise `HEURISTIC` mode with exactness claim disabled.
 
-**Recommended R022 classification:**  
-`BRC_TRANSFER_PRIMITIVES_FOUND / EXACT_BUT_SPECIALIZED / PARTIAL_TOOL_VALUE / R021_FEEDBACK_READY / NOT_CANONICAL`
+Candidate tool name:
+
+`residual_join_normalizer`.
+
+---
+
+## 15. Candidate shared research-tool surface
+
+Keep/promote as research candidates:
+
+- `branch_signature_router`
+- `brc_connect`
+- `recoalescence_certificate`
+- `context_scoped_no_completion_certificate`
+- `residual_join_certificate`
+- `residual_join_normalizer`
+- `safe_neutral_moves`
+- `brc_refine_backtrack`
+- `branch_budget_optimizer` with exactness mode and hardness warning
+
+Do not promote generic theorem-strength `recoalescence_potential`; no generic monotone scalar survived.
+
+---
+
+## 16. Attractive analogies killed across all three passes
+
+- “md5collgen compresses full IV to 3 bits” — false; only routing control is compressed.
+- “same current coarse output is enough for merge” — false.
+- “same endpoint is enough for connect/recoalescence” — false under hidden residual constraints/provenance.
+- “HashClash timeout backtracking computes causal rewind depth” — false.
+- “safe neutral moves form an unconditional monoid” — false.
+- “near-collision distance is a generic recoalescence potential” — false.
+- “history collapse proves branching beats deterministic refinement” — false.
+- “bidirectional gain is novel BRC complexity” — false; generic core is MITM.
+- “failure-prefix pruning is a new search algorithm” — false; source value is typed CS-NCC.
+- “pairwise dominance/maximal antichain gives minimum exact branch basis” — false.
+- “locally irredundant branch set is globally minimum” — false.
+- “branch width has an intrinsic meaning without an admissible token family and token cost” — false.
+- “support-safe duplicate merge preserves multiplicity/provenance” — false.
+
+---
+
+## Final R021 handoff
+
+**What survived:** a coherent, context/language/observable-typed BRC certificate calculus with real source witnesses and a stronger configuration-level residual-join normalization rule.
+
+**What did not survive:** any claim that this is a new generic algebra/search algorithm or that globally optimal exact branch budgeting is cheaply computable in general.
+
+**Most valuable third-pass addition:**
+
+`RCC + CS-NCC + dominance`
+
+are all low-cost cases of
+
+`Residual Join Certificate`,
+
+while exact 0/1/many-world normalization is the dictionary-relative **Residual Join Basis** problem, generically Set-Cover hard.
+
+**Recommended sharpened R022 classification:**
+
+`BRC_RESIDUAL_CERTIFICATE_ALGEBRA_FOUND / RCC_NCC_UNIFIED_AS_JOIN_REWRITES / COLLECTIVE_DOMINANCE_FOUND / EXACT_BRANCH_BASIS_SET_COVER_HARD / SUPPORT_IDEMPOTENCE_BOUNDARY_CLASSIFIED / R021_FEEDBACK_READY / NOT_CANONICAL`
