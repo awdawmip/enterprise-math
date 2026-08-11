@@ -4,7 +4,8 @@ Researcher-ID: `EM-R027-C6194D`
 Task: `RS-R027-R025-BRC-PR-TRICHOTOMY-LEAN-FORMALIZATION`  
 Taskbook source: `55a3ff09b9307ac05c0d03f02da3ce8939e9362c`  
 Owner PR: `#507`  
-Validated owner head: `bc5cd4bfbc7e19cbb10a2005a0d37fe4f6afd6bb`  
+Validated semantic head: `bc5cd4bfbc7e19cbb10a2005a0d37fe4f6afd6bb`  
+Packaging head: `a83e6be6361b04d29ec0bc926a937d706af210d6` (documentation-only descendant of the validated semantic head)  
 Status: `R025_BRC_TRICHOTOMY_CORE_PROVED / QUANTITATIVE_GROWTH_SCOPE_NARROWED / ROOT_BUILD_PASS / NOT_CANONICAL`
 
 ## 1. Scope preserved
@@ -102,9 +103,9 @@ This is a deterministic downstream routing interface only. R027 does not benchma
 
 ## 8. Validation and proof hygiene
 
-Frozen validation object:
+Frozen semantic validation object:
 
-- owner head: `bc5cd4bfbc7e19cbb10a2005a0d37fe4f6afd6bb`;
+- semantic head: `bc5cd4bfbc7e19cbb10a2005a0d37fe4f6afd6bb`;
 - PR merge validation ref: `3f69dee2a22ffbf5922578242721f1b2e3534638`;
 - Lean workflow run: `31512045852`;
 - Lean build job: `93848024891`.
@@ -125,7 +126,9 @@ Build completed successfully (3028 jobs).
 
 The same log's `#print axioms` audit reports only standard Lean/mathlib foundational dependencies such as `propext`, `Classical.choice`, and `Quot.sound`; the task module contains no `sorry`, `admit`, task-local `axiom`, or `postulate`.
 
-Repository quality validation on the same owner head also passed: job `93848309789` ran the repository unittest suite and finished `Ran 1356 tests ... OK`. The shared-surface integrity test passed, covering the synchronized machine/en/zh root-import registration.
+Repository quality validation on the same semantic head also passed: job `93848309789` ran the repository unittest suite and finished `Ran 1356 tests ... OK`. The shared-surface integrity test passed, covering the synchronized machine/en/zh root-import registration.
+
+The current packaging head `a83e6be6361b04d29ec0bc926a937d706af210d6` is exactly one commit ahead of the semantic validation head and changes only this return document. No Lean module, root import, common-surface registration, oracle, or theorem statement changed after the successful root build. Therefore the load-bearing compiled Lean payload is byte-for-byte the validated payload.
 
 ## 9. Finite oracle status
 
