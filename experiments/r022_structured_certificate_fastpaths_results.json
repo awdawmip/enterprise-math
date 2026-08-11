@@ -1,0 +1,27 @@
+{
+  "laminar_examples": {
+    "chain_basis": ["large"],
+    "chain_width": 1,
+    "forest_basis": ["a", "b"],
+    "forest_width": 2
+  },
+  "laminar_exhaustive": {
+    "failures": [],
+    "laminar_families_tested": 831,
+    "theorem_holds_in_exhaustive_model": true,
+    "universe_size": 4
+  },
+  "noncumulative_footprint_kill": {
+    "depth1_partition": [[[0, 0], [0, 1]], [[1, 0], [1, 1]]],
+    "depth2_partition": [[[0, 0], [1, 0]], [[0, 1], [1, 1]]],
+    "depth2_refines_depth1": false,
+    "kill": "without cumulative/refining dependency footprints, certificate validity regions do not form a refinement tree"
+  },
+  "prefix_certificate_cache": {
+    "certificate_reuse_depth": 3,
+    "certificate_validity": {"1": true, "3": true, "4": false, "5": false},
+    "interpretation": "cumulative-prefix certificates through the common footprint remain reusable; deeper certificates are invalidated",
+    "new_context": [0, 1, 1, 1, 1, 0],
+    "old_context": [0, 1, 1, 0, 1, 0]
+  }
+}
