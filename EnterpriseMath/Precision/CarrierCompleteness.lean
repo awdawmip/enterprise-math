@@ -98,7 +98,10 @@ theorem powerBracket_eq_of_mem_openGap {p k n : ℕ} (hp : 2 ≤ p)
     intro hFix
     rw [hL] at hFix
     omega
-  simp [powerBracket, upperAnchor, hL, hNotFix, hRoot]
+  have hU : upperAnchor p n = (k + 1) ^ p := by
+    simp [upperAnchor, hNotFix, hRoot]
+  change (lowerAnchor p n, upperAnchor p n) = (k ^ p, (k + 1) ^ p)
+  rw [hL, hU]
 
 /-- The bracket of an exact p-th power is the repeated exact endpoint. -/
 theorem powerBracket_at_power {p : ℕ} (hp : 2 ≤ p) (k : ℕ) :
@@ -125,7 +128,7 @@ theorem powerBracket_power_fibre_singleton {p : ℕ} (hp : 2 ≤ p) (k : ℕ) :
     rw [hL] at hLower
     rw [hU] at hUpper
     have hnk : n = k ^ p := by omega
-    simpa [hnk]
+    simp [hnk]
   · intro hn
     have hnk : n = k ^ p := by simpa using hn
     subst n
@@ -161,17 +164,26 @@ at least two distinct interior natural states. -/
 theorem two_points_in_power_gap {p k : ℕ} (hp : 2 ≤ p) (hk : 1 ≤ k) :
     k ^ p + 2 < (k + 1) ^ p := by
   obtain ⟨r, rfl⟩ := Nat.exists_eq_add_of_le hp
+  clear hp
   induction r with
   | zero =>
       simp [pow_two]
       nlinarith
   | succ r ih =>
-      have hbase : k ≤ k + 1 := by omega
-      have hpowmono : k ^ (2 + r) ≤ (k + 1) ^ (2 + r) :=
-        Nat.pow_le_pow_left hbase (2 + r)
-      have hpositive : 1 ≤ (k + 1) ^ (2 + r) := by positivity
-      simp only [Nat.add_succ, pow_succ]
-      nlinarith [ih]
+      have hk0 : 0 < k := by omega
+      calc
+        k ^ (2 + (r + 1)) + 2
+            = k ^ (2 + r) * k + 2 := by
+                rw [show 2 + (r + 1) = (2 + r) + 1 by omega, pow_succ]
+        _ ≤ k ^ (2 + r) * k + 2 * k := by omega
+        _ = (k ^ (2 + r) + 2) * k := by ring
+        _ < (k + 1) ^ (2 + r) * k := by
+              exact Nat.mul_lt_mul_of_pos_right ih hk0
+        _ < (k + 1) ^ (2 + r) * (k + 1) := by
+              exact Nat.mul_lt_mul_of_pos_left
+                (Nat.lt_succ_self k) (by positivity)
+        _ = (k + 1) ^ (2 + (r + 1)) := by
+              rw [show 2 + (r + 1) = (2 + r) + 1 by omega, pow_succ]
 
 /-- R018-L02.4 nontriviality: every positive-root open gap is a non-singleton
 bracket fibre; the two displayed fine states share the same cell label. -/
