@@ -31,11 +31,12 @@ Their separation is the linear quantity
 
     K_+ - K_- = 8r-1.
 
-Since q>=2r+1, both K_+ and K_- are < r q < q^2.  If q is primitive at r and
-q|F_K for such a transported index, the base-q quotient digit is <r and is a
-q-unit.  Hence the remainder digit must be a Franel zero.  Jarvis--Verrill
-reflection forces its mirror to be a zero as well, so the remainder lies in the
-symmetric primitive band
+The clean relations hold without a size hypothesis.  The stronger digit-band
+consequence is used only after the terminal-escape size bound q>=3r-1.  In that
+range both transported indices satisfy K<rq<q^2.  Their base-q quotient digits
+are therefore below r and are q-units.  Hence p-Lucas puts the zero in the
+remainder digit, while Jarvis--Verrill reflection puts its mirror in the zero
+alphabet as well.  Primitivity then forces the symmetric band
 
     r <= K mod q <= q-1-r.
 
@@ -46,7 +47,6 @@ their paired transport, and the symmetric digit-band use are P022-local.
 from __future__ import annotations
 
 from .p022_barlow_franel_lucas_rank import (
-    base_p_digits,
     franel_lucas_residue,
     franel_residue,
 )
@@ -113,18 +113,15 @@ def primitive_zero_digit_band(
     prime: int,
     index: int,
 ) -> tuple[int, int, int]:
-    """For a transported q-zero K<rq, return (quotient,remainder,mirror).
-
-    The function verifies q|F_K by p-Lucas and then certifies the symmetric
-    primitive band r<=remainder,mirror.
-    """
+    """For a transported q-zero K<rq, return (quotient,remainder,mirror)."""
     if not is_primitive_franel_divisor(rank, prime):
         raise ValueError("prime must be primitive at the declared rank")
+    if prime < 3 * rank - 1:
+        raise ValueError("digit-band use requires the terminal-escape size horizon")
     if not rank <= index < rank * prime:
         raise ValueError("index must lie in the one-extra-digit horizon [r,rq)")
     if franel_lucas_residue(index, prime) != 0:
         raise ValueError("index must be a q-divisible Franel term")
-    digits = base_p_digits(index, prime)
     quotient, remainder = divmod(index, prime)
     if quotient >= rank:
         raise AssertionError("transported quotient digit must be preprimitive")
@@ -144,13 +141,15 @@ def quadratic_escape_outcomes(
 ) -> tuple[tuple[int, int], tuple[int, int]]:
     """Return capture rows, or certify both quadratic transported zeros.
 
-    Each pair is ``(segment, valuation)``.  A nonzero valuation is an immediate
-    capture.  If a valuation vanishes, the corresponding transported index is
-    certified q-divisible and placed in the symmetric primitive digit band.
+    This verifier is intended after terminal cancellation, so the size horizon
+    q>=3r-1 is explicit.  A nonzero returned valuation is a capture; a zero
+    valuation triggers the corresponding p-Lucas digit-band certificate.
     """
     if not is_primitive_franel_divisor(rank, prime):
         raise ValueError("prime must be primitive at the declared rank")
     _require_twin(rank)
+    if prime < 3 * rank - 1:
+        raise ValueError("quadratic escape verifier starts at the terminal horizon")
     left_segment = left_quadratic_segment(rank)
     right_segment = right_quadratic_segment(rank)
     left_value = franel_defect_valuation(left_segment, prime)
