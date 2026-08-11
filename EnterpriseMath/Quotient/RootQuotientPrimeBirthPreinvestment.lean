@@ -39,8 +39,8 @@ def RootQuotientCoverPrimeDirectionPreinvestment
 /-- The entering prime-power state is prime-hard in the high-root regime. -/
 theorem prime_birth_mem_primeHardSemanticTargetFinset
     {r N h p : ℕ}
-    (hr : 2 ≤ r)
-    (hh : 1 ≤ h)
+    (_hr : 2 ≤ r)
+    (_hh : 1 ≤ h)
     (hp : p.Prime)
     (hBirth : N + 1 = p ^ (h + 1))
     (hBinaryNext : N + 1 < 2 ^ r) :
@@ -62,7 +62,7 @@ theorem prime_birth_mem_primeHardSemanticTargetFinset
 new hard shell. -/
 theorem prime_preinvestment_exponent_bounds_of_old_candidate
     {r N h p g e : ℕ}
-    (hh : 1 ≤ h)
+    (_hh : 1 ≤ h)
     (hp : p.Prime)
     (hBirth : N + 1 = p ^ (h + 1))
     (hgOld : g ∈ RootQuotientSemanticCompositeCandidates r N)
@@ -96,6 +96,7 @@ theorem prime_preinvestment_exponent_bounds_of_old_candidate
 The restricted dictionary still repairs every old prime-hard target. -/
 theorem restrict_next_composite_presentation_to_old_primeHard
     {r N h : ℕ} {S : Set ℕ}
+    (hr : 2 ≤ r)
     (hS : RootQuotientCompositeMacroPresentation r (N + 1) h S) :
     RootQuotientRelativeRepairPresentation
       (RootQuotientPrimeBasis N)
@@ -111,7 +112,7 @@ theorem restrict_next_composite_presentation_to_old_primeHard
       (RootQuotientPrimeBasis (N + 1)) h
       (RootQuotientSemanticTargetFinset r (N + 1))
       (RootQuotientSemanticCompositeCandidates r (N + 1)) S :=
-    (compositeMacroPresentation_iff_relativeRepairPresentation (by omega)).1 hS
+    (compositeMacroPresentation_iff_relativeRepairPresentation hr).1 hS
   have hHardNew :=
     (relativeRepairPresentation_fullSemantic_iff_primeHard).1 hFullNew
   refine ⟨hS₀Finite, hS₀Candidate, ?_⟩
@@ -145,21 +146,18 @@ theorem exactPrimeDirectionPreinvestment_of_macroCount_eq_at_prime_birth
     exists_rootQuotientMinimumCompositeMacroPresentation
       (r := r) (N := N + 1) (h := h) hr hh
   let S₀ := S ∩ RootQuotientSemanticCompositeCandidates r N
-  have hHardOld := restrict_next_composite_presentation_to_old_primeHard hSNew
+  have hHardOld := restrict_next_composite_presentation_to_old_primeHard hr hSNew
   have hFullOld := (relativeRepairPresentation_fullSemantic_iff_primeHard).2 hHardOld
   have hCompOld : RootQuotientCompositeMacroPresentation r N h S₀ :=
     (compositeMacroPresentation_iff_relativeRepairPresentation hr).2 hFullOld
   have hMuOldLe : rootQuotientMinimumCompositeMacroCount r N h ≤ S₀.ncard :=
     rootQuotientMinimumCompositeMacroCount_le hCompOld
-  have hCardLe : S₀.ncard ≤ S.ncard :=
-    Set.ncard_le_ncard Set.inter_subset_left hSNew.1
   have hSLeS₀ : S.ncard ≤ S₀.ncard := by
     rw [hSCard, hEq]
     exact hMuOldLe
   have hS₀EqS : S₀ = S :=
     Set.eq_of_subset_of_ncard_le Set.inter_subset_left hSLeS₀ hSNew.1
-  have hCompOldS : RootQuotientCompositeMacroPresentation r N h S := by
-    simpa [S₀, hS₀EqS] using hCompOld
+  rw [hS₀EqS] at hCompOld
   have hSCardOld : S.ncard = rootQuotientMinimumCompositeMacroCount r N h := by
     rw [hSCard, hEq]
   have hpHard : p ∈ RootQuotientHardPrimeDirections (N + 1) h := by
@@ -170,10 +168,10 @@ theorem exactPrimeDirectionPreinvestment_of_macroCount_eq_at_prime_birth
       hr hBinaryNext hSNew.2.1 hSNew.2.2 hpHard
   obtain ⟨e, hePos, hgPow⟩ := hgServe
   have hgOld : g ∈ RootQuotientSemanticCompositeCandidates r N :=
-    hCompOldS.2.1 hgS
+    hCompOld.2.1 hgS
   have heBounds := prime_preinvestment_exponent_bounds_of_old_candidate
     hh hp hBirth hgOld hgPow hePos
-  exact ⟨S, hCompOldS, hSCardOld,
+  exact ⟨S, hCompOld, hSCardOld,
     ⟨e, heBounds.1, heBounds.2, by rw [← hgPow]; exact hgS⟩⟩
 
 /-- A preinvested old exact optimum already compiles the entering hard prime
@@ -218,7 +216,7 @@ theorem macroCount_eq_at_prime_birth_of_exactPrimeDirectionPreinvestment
         simp at hg
         rcases hg with hgMacro | hgPrime
         · subst g
-          exact Or.inr (hSCandidateNew heMem)
+          exact Or.inr heMem
         · subst g
           exact Or.inl hpPrimeNext
       · calc
