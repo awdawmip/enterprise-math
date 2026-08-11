@@ -152,6 +152,45 @@ theorem mixedDirectionMacroOverhead_eq_mixedDivisor_add_residualDepth
   dsimp [rootQuotientResidualDepthStorageOverhead] at hGlobal ⊢
   omega
 
+/-- **Three-source optional-macro storage decomposition.**
+
+True optional-macro storage splits into a pure-direction floor, mixed
+first-order divisor-cover pressure, and residual bounded-depth pressure. -/
+theorem minimumCompositeMacroCount_eq_direction_add_cover_add_depth
+    {r N h : ℕ}
+    (hr : 2 ≤ r)
+    (hh : 1 ≤ h)
+    (hBinary : N < 2 ^ r) :
+    rootQuotientMinimumCompositeMacroCount r N h =
+      rootQuotientPrimeDirectionDemand N h +
+        rootQuotientMixedDivisorCoverOverhead r N h +
+          rootQuotientResidualDepthStorageOverhead r N h := by
+  have hMu := minimumCompositeMacroCount_eq_directionDemand_add_mixedOverhead
+    (r := r) (N := N) (h := h) hr hh hBinary
+  have hMix := mixedDirectionMacroOverhead_eq_mixedDivisor_add_residualDepth
+    (r := r) (N := N) (h := h) hr hh hBinary
+  omega
+
+/-- **Four-source total primitive-storage decomposition.**
+
+Total stored primitive types consist of the mandatory bounded-prime backend plus
+three optional-macro resource components. -/
+theorem minimumStorage_eq_prime_add_direction_add_cover_add_depth
+    {r N h : ℕ}
+    (hr : 2 ≤ r)
+    (hh : 1 ≤ h)
+    (hBinary : N < 2 ^ r) :
+    rootQuotientMinimumStorageSize r N h =
+      (RootQuotientPrimeBasis N).ncard +
+        rootQuotientPrimeDirectionDemand N h +
+          rootQuotientMixedDivisorCoverOverhead r N h +
+            rootQuotientResidualDepthStorageOverhead r N h := by
+  rw [rootQuotientMinimumStorageSize_eq_prime_add_minimumCompositeMacroCount
+    hr hh]
+  rw [minimumCompositeMacroCount_eq_direction_add_cover_add_depth
+    hr hh hBinary]
+  omega
+
 /-- If the global divisor relaxation is exact, all mixed overhead is already
 visible at the divisor-cover level. -/
 theorem mixedDirectionMacroOverhead_eq_mixedDivisorOverhead_of_globalGap_zero
