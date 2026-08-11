@@ -1,0 +1,283 @@
+name: r023i-exact-replay
+
+on:
+  push:
+    branches:
+      - agent/r023i-brc-narrow-shared-surface
+    paths:
+      - '.github/workflows/r023i-exact-replay.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: agent/r023i-brc-narrow-shared-surface
+          fetch-depth: 1
+
+      - name: Replay frozen R023 module and shared-surface delta
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "EM-R023I-D7ABB0"
+          git config user.email "30957095+awdawmip@users.noreply.github.com"
+
+          FROZEN_COMMIT=6eea57de1d30d6c2fe983121f6e209286a5c9895
+          FROZEN_BLOB=9905df19ce6f7dd79864384362487cc8f54c3349
+          git fetch --depth=1 origin "$FROZEN_COMMIT" || git fetch --depth=64 origin agent/r023-brc-semantic-lean-core
+          mkdir -p EnterpriseMath/Relation
+          git show "$FROZEN_COMMIT":EnterpriseMath/Relation/BranchRecoalescence.lean > EnterpriseMath/Relation/BranchRecoalescence.lean
+          test "$(git hash-object EnterpriseMath/Relation/BranchRecoalescence.lean)" = "$FROZEN_BLOB"
+
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path: str, old: str, new: str) -> None:
+              p = Path(path)
+              text = p.read_text(encoding="utf-8")
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"{path}: expected one marker, found {count}: {old[:100]!r}")
+              p.write_text(text.replace(old, new, 1), encoding="utf-8")
+
+          # Root registration: mechanical import only.
+          replace_once(
+              "EnterpriseMath.lean",
+              "import EnterpriseMath.Quotient.RootFutureClosure\nimport EnterpriseMath.Scale.Compatibility",
+              "import EnterpriseMath.Quotient.RootFutureClosure\nimport EnterpriseMath.Relation.BranchRecoalescence\nimport EnterpriseMath.Scale.Compatibility",
+          )
+
+          # Machine shared surface: status vocabulary, exact root index, scoped A4 routing,
+          # WIP specialization metadata, and exact registered Lean path.
+          replace_once(
+              "research_common_surface.json",
+              '  "result_statuses": ["CANONICAL_MAIN", "LEAN_CHECKED_MAIN", "PROVED_WIP_RELAY", "EXECUTABLE_CHECKED", "COUNTEREXAMPLE_NEGATIVE_BOUNDARY", "CONJECTURAL"],',
+              '  "result_statuses": ["CANONICAL_MAIN", "LEAN_CHECKED_MAIN", "LEAN_CHECKED_WIP", "PROVED_WIP_RELAY", "EXECUTABLE_CHECKED", "COUNTEREXAMPLE_NEGATIVE_BOUNDARY", "CONJECTURAL"],',
+          )
+          replace_once(
+              "research_common_surface.json",
+              '    "EnterpriseMath/Quotient/RootFutureClosure.lean",\n    "EnterpriseMath/Scale/Compatibility.lean",',
+              '    "EnterpriseMath/Quotient/RootFutureClosure.lean",\n    "EnterpriseMath/Relation/BranchRecoalescence.lean",\n    "EnterpriseMath/Scale/Compatibility.lean",',
+          )
+          replace_once(
+              "research_common_surface.json",
+              '    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra, and relation-observable powerset bridge; not identified with one deterministic kernel or partial deterministic family",',
+              '    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra, relation-observable powerset bridge, and the R023 exact Boolean-support branch/recoalescence semantic core; not identified with one deterministic kernel or partial deterministic family, and not a representation/resource primitive",',
+          )
+
+          brc_specialization = '''    "A4_BRC_semantic_core": {
+              "status": "LEAN_CHECKED_WIP / R023I_SHARED_SURFACE_INTEGRATION_CANDIDATE / NOT_CANONICAL",
+              "source": "R023 Draft PR #498 / final owner head 0b72b9e549e1469567764fbe89f9f2baa8b55453 / frozen semantic Lean candidate 6eea57de1d30d6c2fe983121f6e209286a5c9895",
+              "validation": "standard warnings-fatal Lean run 31484436882 PASS on the R023 final owner head; R023I is exact replay with no theorem-statement or assumption change",
+              "scope": "complete-runtime-encoding no-resurrection factorization; one-step (q, coarse successor-support) factorization/kernel coarsest repair; exact Boolean Set X branch split plus relational direct image plus literal-union recoalescence preserving reachable fine/result support; suffix-safe forgetful replacement iff remaining support signatures agree",
+              "negative_boundaries": "three-state one-step-exact/two-step-spurious quotient-composition witness (minimality only in the declared R021 exhaustive one-generator/full-starting-fibre search class); middle-incidence spurious composition after erasing middle identity; equal current coarse support alone is insufficient for suffix safety",
+              "layering_boundary": "pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices; BRC is not semantically stronger than deterministic P023",
+              "carrier_boundary": "Boolean/set-valued support only; multiplicity, provenance, probability/weights, signed/amplitude cancellation require richer carriers; R021 representation Pareto/branch budget and R022 HashClash are excluded",
+              "lean_module": "EnterpriseMath/Relation/BranchRecoalescence.lean",
+              "claim_map": {
+                "NO_RESURRECTION": "EnterpriseMath.BranchRecoalescence.noResurrection",
+                "ONE_STEP_COARSEST": "EnterpriseMath.BranchRecoalescence.oneStepCoarsest / EnterpriseMath.BranchRecoalescence.oneStepCoarseSuccessorCoarsest",
+                "SUPPORT_BRANCH_INVARIANT": "EnterpriseMath.BranchRecoalescence.supportBranchInvariant",
+                "FORGETFUL_RECOALESCENCE_IFF": "EnterpriseMath.BranchRecoalescence.forgetfulRecoalescence_iff"
+              }
+            },
+'''
+          replace_once(
+              "research_common_surface.json",
+              '    "P018_P023_power_free_action_basis": {',
+              brc_specialization + '    "P018_P023_power_free_action_basis": {',
+          )
+          replace_once(
+              "research_common_surface.json",
+              '    "A5_P022": ["src/enterprise_math/lattice_geometry.py", "tests/test_lattice_geometry.py"],',
+              '    "A4_BRC_semantic_core": ["EnterpriseMath/Relation/BranchRecoalescence.lean"],\n    "A5_P022": ["src/enterprise_math/lattice_geometry.py", "tests/test_lattice_geometry.py"],',
+          )
+
+          en_status = "- `LEAN_CHECKED_WIP` — a frozen branch/owner statement has passed its declared warnings-fatal Lean gate but is not yet canonical `main` or `LEAN_CHECKED_MAIN`;\n"
+          replace_once(
+              "docs/RESEARCH_COMMON_SURFACE.en.md",
+              "- `LEAN_CHECKED_MAIN` — canonical statement actually covered by the root warning-fatal Lean build;\n- `PROVED_WIP_RELAY`",
+              "- `LEAN_CHECKED_MAIN` — canonical statement actually covered by the root warning-fatal Lean build;\n" + en_status + "- `PROVED_WIP_RELAY`",
+          )
+          en_brc = '''A4 multivalued correspondence is not silently identified with one deterministic functional kernel or one partial deterministic operation family.
+
+#### R023 Branch-Recoalescence Collapse Boolean-support semantic core — `LEAN_CHECKED_WIP / SHARED-SURFACE INTEGRATION CANDIDATE / NOT CANONICAL`
+
+Frozen R023 source: Draft PR #498, final owner head `0b72b9e549e1469567764fbe89f9f2baa8b55453`, semantic Lean candidate `6eea57de1d30d6c2fe983121f6e209286a5c9895`; standard warnings-fatal Lean run `31484436882` passed on the final owner head. R023I replays the Lean module exactly; it does not change theorem statements or assumptions.
+
+Shared formal asset:
+
+- `EnterpriseMath/Relation/BranchRecoalescence.lean`
+
+The exposed theorem family is intentionally narrow:
+
+- `NO_RESURRECTION`: an exact pointwise target recoverable only from the complete runtime encoding factors through that encoding; erased point distinctions are not resurrected by later branching.
+- `ONE_STEP_COARSEST`: `(q(x), successor-support(x))` is sufficient, and every classifier from which both components are recoverable refines/factors onto this key; uniqueness is kernel/partition up to relabeling, not literal classifier-codomain identity.
+- `SUPPORT_BRANCH_INVARIANT`: exact branch denotations, support-preserving splits, relational direct image, and literal exact-union recoalescence preserve the exact reachable fine `Set X` for every finite word, hence every set-valued final observation.
+- `FORGETFUL_RECOALESCENCE_IFF`: a forgetful replacement is safe exactly relative to the declared remaining language/observable support signature.
+
+Negative boundaries kept on the same surface:
+
+- `threeState_oneStep_exact` together with `threeState_composition_spurious_q1` gives the frozen one-generator/full-starting-fibre witness: naive existential quotienting is one-step exact there but repeated coarse composition admits a spurious coarse state. “Three states are minimal” remains only the R021 bounded exhaustive-search result in that declared search class, not a global Lean minimality theorem.
+- `middleIncidence_exact_empty` and `middleIncidence_coarse_spurious` show that nonempty/coarse middle marginals can compose spuriously when middle witness identity/correlation is erased.
+- `sameCurrentCoarse_notSuffixSafe` shows current coarse equality alone does not imply suffix safety.
+
+Layering boundary:
+
+`pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices`.
+
+This Boolean support carrier does not preserve multiplicity, provenance, probability/weights, or signed/amplitude cancellation. R021 representation Pareto/branch-budget results and R022 HashClash tooling are not part of this shared theorem surface.
+
+### A5 — intrinsic discrete geometry'''
+          replace_once(
+              "docs/RESEARCH_COMMON_SURFACE.en.md",
+              "A4 multivalued correspondence is not silently identified with one deterministic functional kernel or one partial deterministic operation family.\n\n### A5 — intrinsic discrete geometry",
+              en_brc,
+          )
+          replace_once(
+              "docs/RESEARCH_COMMON_SURFACE.en.md",
+              "- `EnterpriseMath/Quotient/RootFutureClosure.lean`\n- `EnterpriseMath/Scale/Compatibility.lean`",
+              "- `EnterpriseMath/Quotient/RootFutureClosure.lean`\n- `EnterpriseMath/Relation/BranchRecoalescence.lean`\n- `EnterpriseMath/Scale/Compatibility.lean`",
+          )
+
+          zh_status = "- `LEAN_CHECKED_WIP`：冻结 branch/owner statement 已通过其声明的 warnings-fatal Lean gate，但尚未进入 canonical `main`，也不能标为 `LEAN_CHECKED_MAIN`；\n"
+          replace_once(
+              "docs/RESEARCH_COMMON_SURFACE.zh-CN.md",
+              "- `LEAN_CHECKED_MAIN`：canonical 且实际被 root warning-fatal Lean build 覆盖；\n- `PROVED_WIP_RELAY`",
+              "- `LEAN_CHECKED_MAIN`：canonical 且实际被 root warning-fatal Lean build 覆盖；\n" + zh_status + "- `PROVED_WIP_RELAY`",
+          )
+          zh_brc = '''A4 multivalued correspondence 不能被悄悄等同于一个确定性 functional kernel，也不能等同于一个部分确定性操作族。
+
+#### R023 Branch-Recoalescence Collapse Boolean-support 语义核 — `LEAN_CHECKED_WIP / SHARED-SURFACE INTEGRATION CANDIDATE / NOT CANONICAL`
+
+冻结 R023 来源：Draft PR #498、final owner head `0b72b9e549e1469567764fbe89f9f2baa8b55453`、semantic Lean candidate `6eea57de1d30d6c2fe983121f6e209286a5c9895`；final owner head 的标准 warnings-fatal Lean run `31484436882` 已 PASS。R023I 只做 Lean module 精确重放，不修改 theorem statement 或 assumption。
+
+共享 formal 资产：
+
+- `EnterpriseMath/Relation/BranchRecoalescence.lean`
+
+暴露的 theorem family 严格限于：
+
+- `NO_RESURRECTION`：若精确 pointwise target 只能从 complete runtime encoding 恢复，则 target 必须 factor through 该 encoding；已删除的 point distinction 不能靠后续 branching 复活。
+- `ONE_STEP_COARSEST`：`(q(x), successor-support(x))` 自身充分；任何能恢复这两部分的 classifier 都会 refine/factor onto 该 key；唯一性是 kernel/partition 在 relabeling 意义下的唯一，而不是 classifier codomain 的字面唯一。
+- `SUPPORT_BRANCH_INVARIANT`：exact branch denotation、support-preserving split、relational direct image 与 literal exact-union recoalescence 对每个有限 word 都保持精确 reachable fine `Set X`，因此保持所有 set-valued final observation。
+- `FORGETFUL_RECOALESCENCE_IFF`：forgetful replacement 的安全性恰好相对于 declared remaining language / observable support signature 判定。
+
+同一共享面登记三个负向边界：
+
+- `threeState_oneStep_exact` 与 `threeState_composition_spurious_q1` 给出冻结的一生成元/full-starting-fibre witness：naive existential quotient 在该起点一步精确，但重复 coarse composition 会引入伪 coarse state；“三状态最小”只保留为 R021 声明搜索类内的有界穷举结论，不升级为全局 Lean minimality theorem。
+- `middleIncidence_exact_empty` 与 `middleIncidence_coarse_spurious` 表明忘记 middle witness identity/correlation 后，非空/coarse middle marginal 可产生伪复合。
+- `sameCurrentCoarse_notSuffixSafe` 表明仅 current coarse equality 不推出 suffix safety。
+
+分层边界：
+
+`pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices`。
+
+该 Boolean support carrier 不保持 multiplicity、provenance、probability/weights 或 signed/amplitude cancellation。R021 representation Pareto/branch-budget 与 R022 HashClash tooling 不进入本共享 theorem surface。
+
+### A5 — intrinsic discrete geometry'''
+          replace_once(
+              "docs/RESEARCH_COMMON_SURFACE.zh-CN.md",
+              "A4 multivalued correspondence 不能被悄悄等同于一个确定性 functional kernel，也不能等同于一个部分确定性操作族。\n\n### A5 — intrinsic discrete geometry",
+              zh_brc,
+          )
+          replace_once(
+              "docs/RESEARCH_COMMON_SURFACE.zh-CN.md",
+              "- `EnterpriseMath/Quotient/RootFutureClosure.lean`\n- `EnterpriseMath/Scale/Compatibility.lean`",
+              "- `EnterpriseMath/Quotient/RootFutureClosure.lean`\n- `EnterpriseMath/Relation/BranchRecoalescence.lean`\n- `EnterpriseMath/Scale/Compatibility.lean`",
+          )
+
+          audit = '''# R023I — BRC Narrow Shared-Surface Integration Return
+
+Researcher-ID: `EM-R023I-D7ABB0`  
+Task: `RS-R023I-BRC-NARROW-SHARED-SURFACE-INTEGRATION`  
+Taskbook: `research_tasks/R023I_BRC_NARROW_SHARED_SURFACE_INTEGRATION_20260811.md` @ `e37f7aa26e0bb97d1515fc791ba940db05b6ed50`  
+Frozen R023 Draft artifact: `#498`  
+Frozen final owner head: `0b72b9e549e1469567764fbe89f9f2baa8b55453`  
+Frozen semantic Lean candidate: `6eea57de1d30d6c2fe983121f6e209286a5c9895`  
+Frozen module blob: `9905df19ce6f7dd79864384362487cc8f54c3349`  
+Mode: `NO NEW MATHEMATICS / EXACT REPLAY / NOT CANONICAL`
+
+## Return class
+
+`R023I_EXACT_REPLAY_COMPLETE / EXTERNAL_MAINTENANCE_GATE_REMAINS / NOT_CANONICAL`
+
+The R023 Boolean/result-support semantic payload replays without theorem-statement, assumption, namespace, or carrier changes. The only expected residual shared-surface gate is the pre-existing repository-tool index drift for `tools/research_identity.py` and `tools/research_taskbook.py`, which is explicitly outside R023I scope.
+
+## Exact file/delta audit
+
+| File | Required role | R023 theorem/assumption change | Status exposed |
+|---|---|---|---|
+| `EnterpriseMath/Relation/BranchRecoalescence.lean` | exact frozen replay | **NONE**; blob must equal `9905df19...` | `LEAN_CHECKED_WIP` source payload |
+| `EnterpriseMath.lean` | root registration | **NONE**; import only | integration candidate, not `LEAN_CHECKED_MAIN` |
+| `research_common_surface.json` | machine root/theorem/status router | **NONE**; metadata/routing only | `LEAN_CHECKED_WIP / NOT_CANONICAL` |
+| `docs/RESEARCH_COMMON_SURFACE.en.md` | English human theorem/status router | **NONE**; scoped prose only | same WIP boundary |
+| `docs/RESEARCH_COMMON_SURFACE.zh-CN.md` | Chinese human theorem/status router | **NONE**; bilingual scoped prose only | same WIP boundary |
+| `docs/R023I_BRC_SHARED_SURFACE_RETURN.md` | integration provenance/audit | **NONE** | `NO NEW MATHEMATICS / NOT_CANONICAL` |
+
+No new source/lineage registry sidecar is created. The current `check_references.py` schema validates records that are explicitly registered; it does not require a new lineage component merely because a Lean module is exposed. R023I therefore records prior-art/ownership/status boundaries in the machine/human routers and this integration audit without inventing a new novelty record.
+
+## Claim → Lean declaration map
+
+| Claim ID | Exact shared Lean declaration |
+|---|---|
+| `NO_RESURRECTION` | `EnterpriseMath.BranchRecoalescence.noResurrection` (point-signature specialization: `pointSignature_noResurrection`) |
+| `ONE_STEP_COARSEST` | `EnterpriseMath.BranchRecoalescence.oneStepCoarsest` (R021 relational specialization: `oneStepCoarseSuccessorCoarsest`) |
+| `SUPPORT_BRANCH_INVARIANT` | `EnterpriseMath.BranchRecoalescence.supportBranchInvariant` (observable corollary: `supportBranchObservableInvariant`) |
+| `FORGETFUL_RECOALESCENCE_IFF` | `EnterpriseMath.BranchRecoalescence.forgetfulRecoalescence_iff` |
+
+## Negative boundaries preserved
+
+- 3-state quotient composition: `threeState_oneStep_exact`, `threeState_quotient_twoStep_coarseSupport`, `threeState_composition_spurious_q1`. The Lean artifact proves the witness; the three-state minimality statement remains limited to the R021 declared exhaustive one-generator/full-starting-fibre search class.
+- Middle incidence correlation: `middleIncidence_exact_empty` plus `middleIncidence_coarse_spurious`.
+- Current coarse equality insufficient for suffix safety: `sameCurrentCoarse_notSuffixSafe`.
+
+## Semantic boundary audit
+
+The shared wording remains:
+
+`pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices`.
+
+Exact-union recoalescence and forgetful replacement remain distinct. Runtime branching does not resurrect distinctions erased from the **complete** runtime encoding. `ONE_STEP_COARSEST` is a factorization/kernel universal property up to relabeling, not literal classifier-codomain identity. The support carrier remains Boolean/set-valued `Set X` only.
+
+Excluded from this integration: R021 representation Pareto/branch-budget material, R022 HashClash/tool-mining results, multiplicity, provenance, probability/weights, signed/amplitude cancellation, new arithmetic specializations, and new Foundation primitives.
+
+## Validation contract
+
+The frozen R023 final owner head already has Driver-accepted standard warnings-fatal Lean run `31484436882` PASS. R023I additionally requires the replayed module blob to equal the frozen blob, valid machine JSON, bilingual/reference checks, exact root-index visibility, and no new shared-surface drift beyond the explicitly known tool-index maintenance defect.
+'''
+          Path("docs/R023I_BRC_SHARED_SURFACE_RETURN.md").write_text(audit, encoding="utf-8")
+          PY
+
+          python -m json.tool research_common_surface.json >/dev/null
+          python tools/check_bilingual_pairs.py
+          python tools/check_references.py
+
+          set +e
+          COMMON_OUT="$(python tools/check_research_common_surface.py 2>&1)"
+          COMMON_STATUS=$?
+          set -e
+          printf '%s\n' "$COMMON_OUT"
+          if [ "$COMMON_STATUS" -ne 0 ]; then
+            EXPECTED="research common surface: FAIL: repository tool index drift: missing_from_common_surface=['tools/research_identity.py', 'tools/research_taskbook.py']; stale_in_common_surface=[]"
+            test "$COMMON_OUT" = "$EXPECTED"
+          fi
+
+          git diff --check
+          test "$(git hash-object EnterpriseMath/Relation/BranchRecoalescence.lean)" = "$FROZEN_BLOB"
+
+          git rm .github/workflows/r023i-exact-replay.yml
+          git add \
+            EnterpriseMath/Relation/BranchRecoalescence.lean \
+            EnterpriseMath.lean \
+            research_common_surface.json \
+            docs/RESEARCH_COMMON_SURFACE.en.md \
+            docs/RESEARCH_COMMON_SURFACE.zh-CN.md \
+            docs/R023I_BRC_SHARED_SURFACE_RETURN.md
+          git diff --cached --name-only
+          git commit -m "[EM-R023I-D7ABB0] replay BRC shared surface"
+          git push origin HEAD:agent/r023i-brc-narrow-shared-surface
