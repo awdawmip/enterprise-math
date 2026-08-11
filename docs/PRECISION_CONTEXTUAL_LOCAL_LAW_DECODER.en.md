@@ -127,8 +127,8 @@ Modulo3 both primitive weights are stored as residue1.
 
 The decoder receives no exact primitive weight. It nevertheless recovers:
 
--1? No: in the T1 coordinate residue1 has admissible lift1;
-- in the T2 coordinate the same residue1 has admissible lift4.
+- in the T1 coordinate, residue1 has the unique admissible lift1;
+- in the T2 coordinate, the same residue1 has the unique admissible lift4.
 
 Thus one residue acquires different exact meanings from explicit semantic side information without ambiguity.
 
