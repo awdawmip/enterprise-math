@@ -82,7 +82,7 @@ forms a `GaloisConnection` with `A`, and is r-safe exactly at the divisibility-a
 thresholds `A (t*r)`. -/
 theorem r009_t28 : T28Statement := by
   unfold T28Statement
-  intro A hA0 hStrict hUnbounded
+  intro A hA0 hStrict _hUnbounded
   have hIdLe : ∀ k : ℕ, k ≤ A k := by
     intro k
     induction k with
