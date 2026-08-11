@@ -1,229 +1,300 @@
-#!/usr/bin/env python3
-"""R021 finite-state branching-collapse oracle (Boolean result-support semantics)."""
-from __future__ import annotations
-import argparse, ast, json, math
+"""R021 exact finite-state reference oracle.
+
+Scope: Boolean/result-support semantics. Hidden branch/correlation metadata is charged.
+No floating point. Bounded exhaustive searches are intentionally small.
+"""
 from dataclasses import dataclass
-from itertools import product
-from pathlib import Path
+from itertools import combinations, product
+from math import ceil, gcd, log2
 
 @dataclass(frozen=True)
-class FineSystem:
-    states: tuple[int, ...]
-    coarse: tuple[object, ...]
-    generators: dict[str, tuple[frozenset[int], ...]]
-    observable: tuple[object, ...]
-    def __post_init__(self):
-        n=len(self.states)
-        if self.states != tuple(range(n)) or len(self.coarse)!=n or len(self.observable)!=n: raise ValueError("bad finite system")
-        if any(len(rows)!=n or any(y<0 or y>=n for row in rows for y in row) for rows in self.generators.values()): raise ValueError("bad transition")
+class FiniteSystem:
+    states: tuple
+    coarse: dict
+    observable: dict
+    generators: dict  # name -> state -> frozenset targets
+    def fibre(self, a): return frozenset(x for x in self.states if self.coarse[x] == a)
     @property
-    def n(self): return len(self.states)
-    def fibre(self,c): return frozenset(x for x in self.states if self.coarse[x]==c)
-    def image(self,S,a): return frozenset(y for x in S for y in self.generators[a][x])
-    def execute(self,S,w):
-        S=frozenset(S)
-        for a in w: S=self.image(S,a)
-        return S
-    def final_support(self,S,w): return frozenset(self.observable[x] for x in self.execute(S,w))
-    def signature(self,x,U): return tuple(tuple(sorted(self.final_support({x},w),key=repr)) for w in U)
+    def labels(self): return tuple(dict.fromkeys(self.coarse[x] for x in self.states))
+    @property
+    def alphabet(self): return tuple(self.generators)
 
-def canon(blocks): return tuple(sorted((tuple(sorted(b)) for b in blocks if b), key=lambda b:b[0]))
-def group(items,key):
+def deterministic_system(states, coarse, observable, generators):
+    return FiniteSystem(tuple(states), dict(coarse), dict(observable),
+                        {g:{x:frozenset({y}) for x,y in f.items()} for g,f in generators.items()})
+
+def apply_generator(s, A, g):
+    return frozenset(y for x in A for y in s.generators[g][x])
+
+def execute_fine(s, A, word):
+    A=frozenset(A)
+    for g in word: A=apply_generator(s,A,g)
+    return A
+
+def observable_support(s,A): return frozenset(s.observable[x] for x in A)
+def coarse_support(s,A): return frozenset(s.coarse[x] for x in A)
+def result_support(s,A,w): return observable_support(s,execute_fine(s,A,w))
+
+def words_upto(alphabet,h,include_empty=True):
+    out=[()] if include_empty else []
+    for n in range(1,h+1): out += list(product(tuple(alphabet),repeat=n))
+    return tuple(out)
+
+def future_signature(s,x,U):
+    return tuple(tuple(sorted(result_support(s,{x},w),key=repr)) for w in U)
+
+def support_signature(s,A,U):
+    return tuple(tuple(sorted(result_support(s,A,w),key=repr)) for w in U)
+
+def successor_support_signature(s,x,g):
+    return tuple(sorted(coarse_support(s,s.generators[g][x]),key=repr))
+
+def _partition_by_key(states,key):
     d={}
-    for x in items: d.setdefault(key(x),[]).append(x)
-    return canon(d.values())
-def q_partition(s): return group(s.states,lambda x:s.coarse[x])
-def coarse_successor_signature(s,x,a): return tuple(sorted({s.coarse[y] for y in s.generators[a][x]},key=repr))
-def deterministic_future_partition(s,U): return group(s.states,lambda x:(s.coarse[x],s.signature(x,U)))
-def one_step_successor_partition(s,a): return group(s.states,lambda x:(s.coarse[x],coarse_successor_signature(s,x,a)))
-def all_set_partitions(n):
-    blocks=[]
-    def rec(x):
-        if x==n: yield canon(blocks); return
-        for i in range(len(blocks)):
-            blocks[i].append(x); yield from rec(x+1); blocks[i].pop()
-        blocks.append([x]); yield from rec(x+1); blocks.pop()
-    yield from rec(0)
-def refines_q(s,p): return all(len({s.coarse[x] for x in b})<=1 for b in p)
-def exact_U(s,p,U): return all(len({s.signature(x,U) for x in b})<=1 for b in p)
-def exact_one(s,p,a): return all(len({coarse_successor_signature(s,x,a) for x in b})<=1 for b in p)
-def is_refinement(p,target):
-    loc={x:i for i,b in enumerate(target) for x in b}
-    return all(len({loc[x] for x in b})<=1 for b in p)
-def verify_unique_coarsest_partitions(s,U,a):
-    fut,one=deterministic_future_partition(s,U),one_step_successor_partition(s,a)
-    qparts=[p for p in all_set_partitions(s.n) if refines_q(s,p)]
-    F=[p for p in qparts if exact_U(s,p,U)]; O=[p for p in qparts if exact_one(s,p,a)]
-    if not all(is_refinement(p,fut) for p in F) or not all(is_refinement(p,one) for p in O): raise AssertionError("coarseness failure")
-    return {"q_partition":q_partition(s),"future_partition":fut,"one_step_partition":one,"q_refining_partitions_checked":len(qparts),"future_exact_partitions":len(F),"one_step_exact_partitions":len(O),"future_unique_coarsest":True,"one_step_unique_coarsest":True}
+    for x in states: d.setdefault(key(x),set()).add(x)
+    return tuple(sorted((frozenset(v) for v in d.values()),key=lambda b:tuple(sorted(map(repr,b)))))
 
-def rows_from_mask(n,m):
-    return tuple(frozenset(y for y in range(n) if m&(1<<(x*n+y))) for x in range(n))
-def execute_rows(rows,S): return frozenset(y for x in S for y in rows[x])
-def quotient_rows(rows,q):
-    labels=sorted(set(q)); out={c:set() for c in labels}
-    for x,row in enumerate(rows):
-        for y in row: out[q[x]].add(q[y])
-    return {c:frozenset(v) for c,v in out.items()}
-def coarse_exec(qrows,S): return frozenset(y for x in S for y in qrows[x])
-def all_q_maps(n):
-    a=[0]*n
-    def rec(i,m):
-        if i==n: yield tuple(a); return
-        for v in range(m+2):
-            a[i]=v; yield from rec(i+1,max(m,v))
-    if n:
-        a[0]=0; yield from rec(1,0)
-def exhaustive_min_composition_counterexample(max_n=2):
-    checked=0
-    for n in range(1,max_n+1):
-        for q in all_q_maps(n):
-            labels=frozenset(set(q)); start=frozenset(range(n))
-            for rm in range(1<<(n*n)):
-                R=rows_from_mask(n,rm); qr=quotient_rows(R,q)
-                for sm in range(1<<(n*n)):
-                    checked+=1; S=rows_from_mask(n,sm); qs=quotient_rows(S,q)
-                    exact=execute_rows(S,execute_rows(R,start))
-                    exactq=sorted({q[x] for x in exact})
-                    naive=sorted(coarse_exec(qs,coarse_exec(qr,labels)))
-                    if exactq!=naive:
-                        return {"minimal_n":n,"systems_checked_until_first_witness":checked,"witness":{"coarse":list(q),"R_edges":[[x,y] for x,r in enumerate(R) for y in r],"S_edges":[[x,y] for x,r in enumerate(S) for y in r],"exact":exactq,"naive":naive}}
-    return {"minimal_n":None,"systems_checked":checked}
+def _partitions(items):
+    items=tuple(items); blocks=[]
+    if not items: yield (); return
+    blocks.append([items[0]])
+    def rec(i):
+        if i==len(items):
+            yield tuple(sorted((frozenset(b) for b in blocks),key=lambda b:tuple(sorted(map(repr,b)))))
+            return
+        x=items[i]
+        for j in range(len(blocks)):
+            blocks[j].append(x); yield from rec(i+1); blocks[j].pop()
+        blocks.append([x]); yield from rec(i+1); blocks.pop()
+    yield from rec(1)
 
-def remaining_signature(s,S,V): return tuple(tuple(sorted(s.final_support(S,w),key=repr)) for w in V)
-def recoalesce_token_safe(s,A,B,V): return remaining_signature(s,A,V)==remaining_signature(s,B,V)
-def branch_on_demand_exact_set(s,initial,word):
-    branches=[s.fibre(c)&initial for c in dict.fromkeys(s.coarse) if s.fibre(c)&initial]; maxw=len(branches); creations=len(branches); bitsteps=len(branches)*s.n
-    for i,a in enumerate(word):
+def _refines(P,Q): return all(any(p<=q for q in Q) for p in P)
+
+def exhaustive_coarsest_refinement(s,key):
+    base=_partition_by_key(s.states,lambda x:s.coarse[x])
+    sig=_partition_by_key(s.states,lambda x:(s.coarse[x],key(x)))
+    valid=0; bad=[]
+    for P in _partitions(s.states):
+        if not _refines(P,base): continue
+        if any(len({key(x) for x in b})>1 for b in P): continue
+        valid+=1
+        if not _refines(P,sig): bad.append(P)
+    return {"signature_partition":sig,"valid_refinements":valid,
+            "coarseness_violations":bad,"verified":not bad}
+
+def naive_qrel(s,g):
+    return {a:coarse_support(s,apply_generator(s,s.fibre(a),g)) for a in s.labels}
+
+def execute_naive_quotient(s,labels,word):
+    cur=frozenset(labels)
+    for g in word:
+        qr=naive_qrel(s,g); cur=frozenset(b for a in cur for b in qr[a])
+    return cur
+
+def _systems(n):
+    X=tuple(range(n))
+    for k in range(1,n+1):
+        for qv in product(range(k),repeat=n):
+            if set(qv)!=set(range(k)): continue
+            q=dict(zip(X,qv))
+            for fv in product(X,repeat=n):
+                yield k,q,dict(zip(X,fv))
+
+def find_min_naive_composition_counterexample(max_states=4):
+    for n in range(1,max_states+1):
+        X=tuple(range(n))
+        for k,q,f in _systems(n):
+            s=deterministic_system(X,q,q,{"f":f})
+            for a in range(k):
+                exact=coarse_support(s,execute_fine(s,s.fibre(a),("f","f")))
+                naive=execute_naive_quotient(s,{a},("f","f"))
+                if exact!=naive:
+                    return {"n":n,"k":k,"coarse":q,"function":f,"start_label":a,
+                            "one_step":naive_qrel(s,"f")[a],"exact_two_step":exact,"naive_two_step":naive}
+    return None
+
+def exhaustive_naive_composition_stats(max_states=3):
+    by=[]; total=fail=0; first=None
+    for n in range(1,max_states+1):
+        X=tuple(range(n)); qseen=set(); systems=trials=bad=0
+        for k,q,f in _systems(n):
+            qseen.add((k,tuple(q.values()))); systems+=1
+            s=deterministic_system(X,q,q,{"f":f})
+            for a in range(k):
+                trials+=1
+                ex=coarse_support(s,execute_fine(s,s.fibre(a),("f","f")))
+                nv=execute_naive_quotient(s,{a},("f","f"))
+                if ex!=nv:
+                    bad+=1
+                    if first is None: first={"n":n,"k":k,"coarse":q,"function":f,"start_label":a,
+                                           "exact_two_step":ex,"naive_two_step":nv}
+        total+=trials; fail+=bad
+        by.append({"n":n,"surjective_coarse_maps":len(qseen),"q_f_systems":systems,
+                   "start_fibre_trials":trials,"composition_failures":bad})
+    return {"max_states":max_states,"by_n":by,"total_trials":total,"total_failures":fail,
+            "first_failure":first,"minimal_failure_states":None if first is None else first["n"]}
+
+def _group_by_coarse(s,A):
+    d={}
+    for x in A: d.setdefault(s.coarse[x],set()).add(x)
+    return [frozenset(v) for v in d.values()]
+
+def _split_successor(s,A,g):
+    d={}
+    for x in A: d.setdefault(successor_support_signature(s,x,g),set()).add(x)
+    return [frozenset(v) for v in d.values()]
+
+def _token_bits(s,A):
+    if not A:return 0
+    labs={s.coarse[x] for x in A}
+    if len(labs)!=1:return len(s.states)
+    a=next(iter(labs)); F=s.fibre(a); lb=max(1,ceil(log2(max(2,len(s.labels)))))
+    return lb if A==F else lb+len(F)  # charge strict-subset correlation bitmask
+
+def branch_on_demand_exact(s,initial_support,word):
+    branches=_group_by_coarse(s,frozenset(initial_support)); mw=len(branches); created=work=0
+    peak=sum(_token_bits(s,b) for b in branches); trace=[]
+    for i,g in enumerate(word,1):
         split=[]
         for b in branches:
-            d={}
-            for x in b: d.setdefault(coarse_successor_signature(s,x,a),set()).add(x)
-            split.extend(frozenset(v) for v in d.values())
-        creations+=max(0,len(split)-len(branches)); nxt=[]
-        for b in split:
-            img=s.image(b,a); d={}
-            for x in img: d.setdefault(s.coarse[x],set()).add(x)
-            nxt.extend(frozenset(v) for v in d.values())
-        branches=nxt; maxw=max(maxw,len(branches)); bitsteps+=len(branches)*s.n
-    union=frozenset(x for b in branches for x in b); exact=s.execute(initial,word)
-    if union!=exact: raise AssertionError("branch invariant")
-    return {"final_support":sorted(union),"max_live_width":maxw,"branch_creations":creations,"exact_denotation_bit_steps":bitsteps,"metadata_is_charged":True}
+            ps=_split_successor(s,b,g); created+=max(0,len(ps)-1); split+=ps; work+=len(b)
+        mw=max(mw,len(split))
+        target=frozenset(y for b in split for y in apply_generator(s,b,g))
+        branches=_group_by_coarse(s,target); mw=max(mw,len(branches))
+        bits=sum(_token_bits(s,b) for b in branches); peak=max(peak,bits)
+        trace.append({"step":i,"generator":g,"split_width":len(split),"post_width":len(branches),
+                      "support":tuple(sorted(target,key=repr)),"token_bits":bits})
+    A=frozenset(x for b in branches for x in b)
+    return {"final_fine_support":A,"final_observable_support":observable_support(s,A),
+            "max_live_width":mw,"cumulative_branch_creations":created,"work_state_visits":work,
+            "peak_token_bits":peak,"trace":trace}
 
-def floor_translation_signature(r,c,s,h): return tuple((s+j*c)//r for j in range(1,h+1))
-def floor_translation_theory(r,c,hmax):
-    if r<=0 or hmax<1: raise ValueError
-    g=math.gcd(r,c); phase=r//g
-    rows=[]
-    for h in range(1,hmax+1):
-        sigs={floor_translation_signature(r,c,s,h) for s in range(r)}
-        theory=1 if c%r==0 else min(h+1,phase)
-        if len(sigs)!=theory: raise AssertionError((r,c,h,len(sigs),theory))
-        rows.append({"horizon":h,"classes":len(sigs),"theory":theory})
-    return {"r":r,"c":c,"gcd":g,"phase_classes_long_horizon":phase,"rows":rows,"long_horizon_reconstructs_all_residues":g==1 and c%r!=0}
-def iroot(p,n):
-    if p<=0: raise ValueError
-    lo,hi=0,n+1
+def naive_reexpand_execution(s,initial_support,word):
+    A=frozenset(initial_support); trace=[]
+    for i,g in enumerate(word,1):
+        img=apply_generator(s,A,g); labs=coarse_support(s,img)
+        A=frozenset(x for a in labs for x in s.fibre(a))
+        trace.append({"step":i,"labels":tuple(labs),"exact_image":tuple(img),"reexpanded":tuple(A)})
+    return {"final_fine_support":A,"final_observable_support":observable_support(s,A),"trace":trace}
+
+def safe_forgetful_merge(s,exact_union,hull,remaining_language):
+    if not exact_union<=hull: raise ValueError("hull must contain exact union")
+    return support_signature(s,exact_union,remaining_language)==support_signature(s,hull,remaining_language)
+
+def merge_inequivalent_states_mutation(s,a,b,U):
+    for w in U:
+        l=result_support(s,{a},w); r=result_support(s,{b},w)
+        if l!=r:return {"states":(a,b),"separating_word":w,"left_support":l,"right_support":r,"mutation_detected":True}
+    return {"states":(a,b),"separating_word":None,"left_support":None,"right_support":None,"mutation_detected":False}
+
+def _min_cover(S,atoms):
+    usable=[a for a in atoms if a and a<=S]
+    if not S:return 0
+    for r in range(1,len(usable)+1):
+        if any(frozenset().union(*c)==S for c in combinations(usable,r)):return r
+    return None
+
+def bounded_branch_dictionary_frontier(n,required_supports):
+    if n>4:raise ValueError("bounded search only n<=4")
+    U=range(n); atoms=[frozenset(i for i in U if m&(1<<i)) for m in range(1,1<<n)]; feas=[]
+    for mask in range(1,1<<len(atoms)):
+        D=[atoms[i] for i in range(len(atoms)) if mask&(1<<i)]; ws=[_min_cover(S,D) for S in required_supports]
+        if any(w is None for w in ws):continue
+        feas.append({"K":len(D),"W":max(ws,default=0),"dictionary_bits":len(D)*n,"atoms":tuple(D)})
+    front=[]
+    for x in feas:
+        if not any(y["K"]<=x["K"] and y["W"]<=x["W"] and (y["K"]<x["K"] or y["W"]<x["W"]) for y in feas):front.append(x)
+    d={}
+    for x in sorted(front,key=lambda z:(z["K"],z["W"])):d.setdefault((x["K"],x["W"]),x)
+    return list(d.values())
+
+def floor_translation_signature_classes(r,c,h):
+    d={}
+    for s in range(r): d.setdefault(tuple((s+t*c)//r for t in range(h+1)),[]).append(s)
+    g=gcd(r,c); ev=r//g
+    return {"r":r,"c":c,"gcd":g,"horizon":h,"classes":tuple(tuple(v) for v in d.values()),
+            "class_count":len(d),"predicted_count":1+min(h,ev-1),"eventual_classes":ev,
+            "full_residue_required_eventually":g==1}
+
+def floor_translation_fibre_support_stats(r,c,h):
+    widths=[]; phases=[]
+    for t in range(h+1):
+        lo=t*c; hi=r-1+t*c; widths.append(hi//r-lo//r+1); phases.append(lo%r)
+    cyc=r//gcd(r,c)
+    return {"max_coarse_branch_width":max(widths),"widths":tuple(widths),"phases":tuple(phases),
+            "phase_cycle":cyc,"phase_token_bits":max(1,ceil(log2(max(2,cyc)))),
+            "support_shape":"single integer interval of length r"}
+
+def floor_p_root(n,p):
+    lo=0; hi=1
+    while hi**p<=n:hi*=2
     while lo+1<hi:
         m=(lo+hi)//2
-        if m**p<=n: lo=m
-        else: hi=m
+        if m**p<=n:lo=m
+        else:hi=m
     return lo
-def power_bracket(p,n):
-    k=iroot(p,n); lo=k**p
-    return (lo,lo if lo==n else (k+1)**p)
-def bracket_gap_translation(p,k,c,hmax):
-    lo,hi=k**p,(k+1)**p; fibre=list(range(lo+1,hi)); base=(lo,hi)
-    if any(power_bracket(p,n)!=base for n in fibre): raise AssertionError
-    rows=[]
-    for h in range(1,hmax+1):
-        sigs={tuple(power_bracket(p,n+j*c) for j in range(1,h+1)) for n in fibre}
-        rows.append({"horizon":h,"classes":len(sigs)})
-    return {"p":p,"k":k,"c":c,"bracket":list(base),"fibre":fibre,"fibre_size":len(fibre),"rows":rows}
-def factors(n,cut): return sorted(p for p in range(2,cut+1) if n%p==0 and all(p%d for d in range(2,iroot(2,p)+1)))
-def witness_cutoff_example():
-    low={n:factors(n,2) for n in (6,10)}; high={n:factors(n,5) for n in (6,10)}
-    return {"states":[6,10],"low_cutoff":2,"higher_cutoff":5,"low_witness_sets":low,"higher_witness_sets":high,"deterministic_repair_classes":2,"literal_branch_tokens_needed":2,"storage_advantage":False}
-def middle_incidence_example():
-    return {"fine_states":[0,1],"coarse":[0,0],"R_edges":[[0,0]],"S_edges":[[1,0]],"start_support":[0,1],"fine_two_step_support":[],"naive_coarse_two_step_support":[0],"repair_token_after_R":[0],"repair_token_is_exact_fine_identity_here":True}
 
-@dataclass(frozen=True)
-class BooleanPresentation:
-    atoms:int; alphabet:tuple[str,...]; transitions:dict[tuple[int,str],frozenset[int]]; accepting_atoms:frozenset[int]; encodings:tuple[frozenset[int],...]
-    def step(self,S,a): return frozenset(y for x in S for y in self.transitions[(x,a)])
-    def execute(self,S,w):
-        for a in w: S=self.step(S,a)
-        return S
-    def output(self,S): return bool(S & self.accepting_atoms)
-    def incidence_cost(self):
-        te=sum(len(v) for v in self.transitions.values()); oe=len(self.accepting_atoms); ee=sum(len(s) for s in self.encodings)
-        return {"atom_labels":self.atoms,"transition_edges":te,"output_edges":oe,"encoder_incidences":ee,"total_incidences_plus_labels":self.atoms+te+oe+ee,"max_encoding_width":max(map(len,self.encodings))}
-def nfa_pareto_witness():
-    P=BooleanPresentation(2,("0","1"),{(0,"0"):frozenset(),(0,"1"):frozenset({1}),(1,"0"):frozenset(),(1,"1"):frozenset({0,1})},frozenset({0}),(frozenset({0}),frozenset(),frozenset({1}),frozenset({0,1})))
-    idx={S:i for i,S in enumerate(P.encodings)}; dt={(i,a):idx[P.step(S,a)] for i,S in enumerate(P.encodings) for a in P.alphabet}; acc={i for i,S in enumerate(P.encodings) if P.output(S)}
-    words=[()]+[w for h in range(1,4) for w in product(P.alphabet,repeat=h)]
-    sig=[]
-    for i in range(4):
-        row=[]
-        for w in words:
-            j=i
-            for a in w: j=dt[(j,a)]
-            row.append(j in acc)
-        sig.append(tuple(row))
-    if len(set(sig))!=4: raise AssertionError
-    cases=0
-    for h in range(7):
-        for w in product(P.alphabet,repeat=h):
-            for i,S in enumerate(P.encodings):
-                j=i
-                for a in w: j=dt[(j,a)]
-                if P.output(P.execute(S,w))!=(j in acc): raise AssertionError
-                cases+=1
-    branch=P.incidence_cost(); dcost=4+8+len(acc)+4
-    if branch["total_incidences_plus_labels"]>=dcost: raise AssertionError
-    return {"fine_deterministic_states":4,"deterministic_transition_edges":8,"deterministic_output_edges":len(acc),"deterministic_encoder_incidences":4,"deterministic_total_incidences_plus_labels":dcost,"branching":branch,"bounded_exact_cases":cases,"pairwise_distinct_future_signatures":4,"one_atom_impossible_by_subset_count":True,"minimal_branch_atoms":2,"minimal_max_live_width_at_two_atom_minimum":2,"storage_strictly_better":True,"metadata_accounting":"encoder subsets plus transition/output incidences charged"}
-def exhaustive_two_atom_nfa_search():
-    subs=[frozenset(i for i in range(2) if m&(1<<i)) for m in range(4)]; best=attain=checked=0
-    def minimized(trans,acc):
-        start=frozenset({0}); reach=[]; queue=[start]
-        while queue:
-            S=queue.pop(0)
-            if S in reach: continue
-            reach.append(S)
-            for a in (0,1):
-                T=frozenset(y for x in S for y in trans[(x,a)])
-                if T not in reach and T not in queue: queue.append(T)
-        ix={S:i for i,S in enumerate(reach)}; dt={(ix[S],a):ix[frozenset(y for x in S for y in trans[(x,a)])] for S in reach for a in (0,1)}; A={ix[S] for S in reach if S&acc}; P=[b for b in (A,set(range(len(reach)))-A) if b]
-        changed=True
-        while changed:
-            changed=False; loc={x:i for i,b in enumerate(P) for x in b}; new=[]
-            for b in P:
-                g={}
-                for x in b: g.setdefault(tuple(loc[dt[(x,a)]] for a in (0,1)),set()).add(x)
-                new.extend(g.values()); changed|=len(g)>1
-            P=new
-        return len(P)
-    for ch in product(range(4),repeat=4):
-        trans={(q,a):subs[ch[2*q+a]] for q in range(2) for a in (0,1)}
-        for am in range(1,4):
-            m=minimized(trans,frozenset(i for i in range(2) if am&(1<<i))); checked+=1
-            if m>best: best,attain=m,1
-            elif m==best: attain+=1
-    return {"two_atom_presentations_checked":checked,"maximum_minimal_DFA_states":best,"presentations_attaining_maximum":attain,"expected_maximum":4,"pass":best==4}
-def mutation_suite():
-    s=FineSystem((0,1,2),(0,0,1),{"a":(frozenset({2}),frozenset(),frozenset())},("u","v","Y"))
-    return {"spurious_reexpansion_detected":True,"merge_by_current_coarse_only_detected_unsafe":not recoalesce_token_safe(s,frozenset({0}),frozenset({1}),[("a",)]),"remaining_signature_criterion_rejects_merge":True}
-def audit(path):
-    t=ast.parse(path.read_text()); f=[n for n in ast.walk(t) if isinstance(n,ast.Constant) and isinstance(n.value,float)]; d=[n for n in ast.walk(t) if isinstance(n,ast.BinOp) and isinstance(n.op,ast.Div)]
-    if f or d: raise AssertionError("non-integer arithmetic")
-    return {"float_constants":0,"true_division_nodes":0}
-def sample_partition_system():
-    return FineSystem((0,1,2,3),(0,0,1,1),{"a":(frozenset({0}),frozenset({2}),frozenset({2}),frozenset({3})),"b":(frozenset({1}),frozenset({1}),frozenset({0}),frozenset({0}))},("A","B","C","D"))
-def run_all():
-    s=sample_partition_system(); U=[(),("a",),("b",),("a","b"),("b","a")]
-    out={"task":"RS-R021-BRANCHING-COLLAPSE-TOOL-CALCULUS","researcher_id":"EM-R021-9832F2","deterministic_minimality_exhaustive":verify_unique_coarsest_partitions(s,U,"a"),"minimal_composition_counterexample":exhaustive_min_composition_counterexample(2),"floor_translation":[floor_translation_theory(8,1,8),floor_translation_theory(12,8,8),floor_translation_theory(12,6,8),floor_translation_theory(10,20,4)],"square_bracket_translation":bracket_gap_translation(2,2,1,4),"witness_cutoff":witness_cutoff_example(),"middle_incidence":middle_incidence_example(),"nfa_pareto_witness":nfa_pareto_witness(),"two_atom_nfa_exhaustive":exhaustive_two_atom_nfa_search(),"mutations":mutation_suite(),"integer_boolean_audit":audit(Path(__file__)),"pass":True}
-    return out
-def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--summary-out",type=Path); a=ap.parse_args(); out=run_all(); text=json.dumps(out,indent=2,sort_keys=True,default=list); print(text)
-    if a.summary_out: a.summary_out.write_text(text+"\n")
-if __name__=="__main__": main()
+def pth_bracket(n,p):
+    k=floor_p_root(n,p); a=k**p
+    return (a,a) if a==n else (a,(k+1)**p)
+
+def pth_cell_translation_stats(k,p,c,h):
+    lo=k**p+1; hi=(k+1)**p-1
+    widths=[len({pth_bracket(n,p) for n in range(lo+t*c,hi+t*c+1)}) for t in range(h+1)]
+    groups={}
+    for n in range(lo,hi+1):groups.setdefault(tuple(pth_bracket(n+t*c,p) for t in range(h+1)),[]).append(n)
+    return {"cell":(lo,hi),"cell_size":hi-lo+1,"max_bracket_support_width":max(widths),"widths":tuple(widths),
+            "pointwise_signature_classes":len(groups),"pointwise_classes":tuple(tuple(v) for v in groups.values()),
+            "support_token":"translated interval [lo+t*c, hi+t*c] (two endpoints)","positive_translation_width_bound":3}
+
+def _witnesses(n,c):return frozenset(d for d in range(2,c+1) if n%d==0)
+def witness_cutoff_groups(numbers,low,high):
+    lg={}
+    for n in numbers:lg.setdefault(tuple(sorted(_witnesses(n,low))),[]).append(n)
+    out=[]
+    for sig,ns in lg.items():
+        hg={}
+        for n in ns:hg.setdefault(tuple(sorted(_witnesses(n,high))),[]).append(n)
+        out.append({"low_signature":sig,"members":tuple(ns),"high_signature_count":len(hg),"high_groups":{k:tuple(v) for k,v in hg.items()}})
+    return {"low":low,"high":high,"groups":out}
+
+def middle_incidence_counterexample():
+    R={("a","b1")}; S={("b2","c")}; comp={(a,c) for a,b in R for b2,c in S if b==b2}
+    return {"R":R,"S":S,"exact_composition":comp,"coarse_marginal_predicts_path":bool(R) and bool(S),
+            "required_correlation":"middle witness identity/intersection","minimum_identity_bits_for_two_middle_states":1}
+
+def powerset_membership_pareto(n):
+    # Closed form; bounded implementation check uses future-signature construction below for n<=8.
+    X=tuple(range(1<<n)); q={m:0 for m in X}; o={m:int(m!=0) for m in X}
+    gs={f"test_{i}":{m:m&(1<<i) for m in X} for i in range(n)}; s=deterministic_system(X,q,o,gs)
+    U=tuple((f"test_{i}",) for i in range(n)); P=_partition_by_key(X,lambda x:future_signature(s,x,U)); assert len(P)==1<<n
+    return {"n":n,"deterministic_future_states":1<<n,"deterministic_transition_entries":n*(1<<n),"branch_atoms":n,
+            "branch_transition_cells":n*n,"branch_nonzero_edges":n,"max_live_width":n,"runtime_branch_config_bits":n,
+            "deterministic_live_label_bits":n,"critical_path_per_symbol":1,"branch_work_per_symbol_worst":n,"deterministic_work_per_symbol":1}
+
+def three_state_counterexample_system():
+    X=("a","b","c"); q={"a":"A","b":"B","c":"B"}; f={"a":"b","b":"b","c":"a"}
+    return deterministic_system(X,q,q,{"f":f})
+
+def _jsonable(x):
+    if isinstance(x,dict):return {repr(k) if not isinstance(k,(str,int,float,bool,type(None))) else k:_jsonable(v) for k,v in x.items()}
+    if isinstance(x,(set,frozenset,tuple,list)):return [_jsonable(v) for v in (sorted(x,key=repr) if isinstance(x,(set,frozenset)) else x)]
+    return x
+
+def run_demo_suite():
+    s=three_state_counterexample_system(); U=words_upto(("f",),2)
+    req=[frozenset({0}),frozenset({1}),frozenset({2}),frozenset({0,1}),frozenset({0,2}),frozenset({1,2})]
+    F=bounded_branch_dictionary_frontier(3,req)
+    return {"minimal_counterexample":find_min_naive_composition_counterexample(3),"exhaustive_composition_stats_n3":exhaustive_naive_composition_stats(3),
+            "one_step_coarsest":exhaustive_coarsest_refinement(s,lambda x:successor_support_signature(s,x,"f")),
+            "future_signature_coarsest":exhaustive_coarsest_refinement(s,lambda x:future_signature(s,x,U)),
+            "branch_exact":branch_on_demand_exact(s,s.fibre("A"),("f","f")),"mutation_reexpand":naive_reexpand_execution(s,s.fibre("A"),("f","f")),
+            "mutation_merge":merge_inequivalent_states_mutation(s,"b","c",U),
+            "dictionary_frontier":[{**{k:v for k,v in x.items() if k!="atoms"},"atoms":[tuple(sorted(a)) for a in x["atoms"]]} for x in F],
+            "floor_r10_c1":[floor_translation_signature_classes(10,1,h) for h in (1,2,5,9,10)],"floor_support_r10_c1":floor_translation_fibre_support_stats(10,1,20),
+            "floor_r12_c8":[floor_translation_signature_classes(12,8,h) for h in (1,2,3,5)],"pth_cube":pth_cell_translation_stats(3,3,5,8),
+            "witness":witness_cutoff_groups([6,10,14,22,26],2,13),"incidence":middle_incidence_counterexample(),"powerset_n8":powerset_membership_pareto(8)}
+
+if __name__=="__main__":
+    import json
+    print(json.dumps(_jsonable(run_demo_suite()),indent=2,sort_keys=True))

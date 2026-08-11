@@ -1,83 +1,118 @@
-import importlib.util
-import pathlib
-import unittest
-
-HERE = pathlib.Path(__file__).resolve()
-MOD_PATH = HERE.parents[1] / "experiments" / "r021_branching_collapse_oracle.py"
-spec = importlib.util.spec_from_file_location("r021", MOD_PATH)
-r021 = importlib.util.module_from_spec(spec)
-assert spec.loader is not None
 import sys
-sys.modules[spec.name] = r021
-spec.loader.exec_module(r021)
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "experiments"))
+
+import r021_branching_collapse_oracle as o
 
 
-class R021BranchingCollapseTests(unittest.TestCase):
-    def test_future_partition_unique_coarsest(self):
-        s = r021.sample_partition_system()
-        out = r021.verify_unique_coarsest_partitions(
-            s, [(), ("a",), ("b",), ("a", "b"), ("b", "a")], "a"
-        )
-        self.assertTrue(out["future_unique_coarsest"])
-        self.assertTrue(out["one_step_unique_coarsest"])
+class R021OracleTests(unittest.TestCase):
+    def test_minimal_naive_composition_counterexample_has_three_states(self):
+        c = o.find_min_naive_composition_counterexample(3)
+        self.assertIsNotNone(c)
+        self.assertEqual(c["n"], 3)
+        self.assertNotEqual(c["exact_two_step"], c["naive_two_step"])
 
-    def test_min_composition_counterexample_is_two_states(self):
-        out = r021.exhaustive_min_composition_counterexample(2)
-        self.assertEqual(out["minimal_n"], 2)
-        self.assertEqual(out["witness"]["exact"], [])
-        self.assertEqual(out["witness"]["naive"], [0])
+    def test_exhaustive_naive_composition_minimality_counts(self):
+        x = o.exhaustive_naive_composition_stats(3)
+        self.assertEqual(x["minimal_failure_states"], 3)
+        self.assertEqual(x["by_n"][0]["composition_failures"], 0)
+        self.assertEqual(x["by_n"][1]["composition_failures"], 0)
+        self.assertGreater(x["by_n"][2]["composition_failures"], 0)
 
-    def test_floor_translation_class_formula(self):
-        for r, c in [(8, 1), (12, 8), (12, 6), (10, 20), (15, 6)]:
-            out = r021.floor_translation_theory(r, c, 12)
-            phase = r // __import__("math").gcd(r, c)
-            for row in out["rows"]:
-                h = row["horizon"]
-                expected = 1 if c % r == 0 else min(h + 1, phase)
-                self.assertEqual(row["classes"], expected)
+    def test_successor_partition_is_unique_coarsest_refinement(self):
+        s = o.three_state_counterexample_system()
+        ck = o.exhaustive_coarsest_refinement(s, lambda x: o.successor_support_signature(s, x, "f"))
+        self.assertTrue(ck["verified"])
+        # A singleton plus B split into b/c -> 3 blocks.
+        self.assertEqual(len(ck["signature_partition"]), 3)
 
-    def test_floor_coprime_eventually_reconstructs_residue(self):
-        out = r021.floor_translation_theory(11, 4, 12)
-        self.assertTrue(out["long_horizon_reconstructs_all_residues"])
-        self.assertEqual(out["rows"][9]["classes"], 11)
+    def test_future_signature_partition_is_unique_coarsest_static_refinement(self):
+        s = o.three_state_counterexample_system()
+        L = o.words_upto(s.alphabet, 2)
+        ck = o.exhaustive_coarsest_refinement(s, lambda x: o.future_signature(s, x, L))
+        self.assertTrue(ck["verified"])
 
-    def test_square_bracket_plus_one_refines_one_threshold_per_step(self):
-        out = r021.bracket_gap_translation(2, 2, 1, 4)
-        self.assertEqual(out["fibre_size"], 4)
-        self.assertEqual([r["classes"] for r in out["rows"]], [2, 3, 4, 4])
+    def test_exact_branch_algorithm_preserves_support(self):
+        s = o.three_state_counterexample_system()
+        start = s.fibre("A")
+        word = ("f", "f")
+        r = o.branch_on_demand_exact(s, start, word)
+        exact = o.execute_fine(s, start, word)
+        self.assertEqual(r["final_fine_support"], exact)
 
-    def test_witness_cutoff_requires_distinction(self):
-        out = r021.witness_cutoff_example()
-        self.assertFalse(out["storage_advantage"])
-        self.assertNotEqual(out["higher_witness_sets"][6], out["higher_witness_sets"][10])
+    def test_reexpand_mutation_is_detected(self):
+        s = o.three_state_counterexample_system()
+        start = s.fibre("A")
+        word = ("f", "f")
+        m = o.naive_reexpand_execution(s, start, word)
+        exact = o.observable_support(s, o.execute_fine(s, start, word))
+        self.assertNotEqual(m["final_observable_support"], exact)
 
-    def test_middle_incidence_reexpansion_is_spurious(self):
-        out = r021.middle_incidence_example()
-        self.assertEqual(out["fine_two_step_support"], [])
-        self.assertEqual(out["naive_coarse_two_step_support"], [0])
-        self.assertTrue(out["repair_token_is_exact_fine_identity_here"])
+    def test_merge_inequivalent_mutation_is_detected(self):
+        s = o.three_state_counterexample_system()
+        m = o.merge_inequivalent_states_mutation(s, "b", "c", o.words_upto(s.alphabet, 2))
+        self.assertTrue(m["mutation_detected"])
+        self.assertIsNotNone(m["separating_word"])
 
-    def test_nfa_pareto_witness_charges_metadata(self):
-        out = r021.nfa_pareto_witness()
-        self.assertEqual(out["minimal_branch_atoms"], 2)
-        self.assertLess(
-            out["branching"]["total_incidences_plus_labels"],
-            out["deterministic_total_incidences_plus_labels"],
-        )
-        self.assertEqual(out["branching"]["encoder_incidences"], 4)
+    def test_forgetful_recoalescence_requires_remaining_signature(self):
+        s = o.three_state_counterexample_system()
+        exact = frozenset({"b"})
+        hull = s.fibre("B")
+        self.assertFalse(o.safe_forgetful_merge(s, exact, hull, (("f",),)))
+        self.assertTrue(o.safe_forgetful_merge(s, exact, hull, ((),)))
 
-    def test_two_atom_nfa_exhaustive_reaches_four_dfa_states(self):
-        out = r021.exhaustive_two_atom_nfa_search()
-        self.assertTrue(out["pass"])
-        self.assertEqual(out["maximum_minimal_DFA_states"], 4)
+    def test_floor_translation_class_count_formula(self):
+        for r in range(2, 10):
+            for c in range(1, 12):
+                for h in range(0, 12):
+                    x = o.floor_translation_signature_classes(r, c, h)
+                    self.assertEqual(x["class_count"], x["predicted_count"], (r, c, h, x))
 
-    def test_recoalescence_current_coarse_only_is_unsafe(self):
-        out = r021.mutation_suite()
-        self.assertTrue(out["merge_by_current_coarse_only_detected_unsafe"])
-        self.assertTrue(out["remaining_signature_criterion_rejects_merge"])
+    def test_floor_translation_eventual_full_residue_iff_coprime(self):
+        x = o.floor_translation_signature_classes(10, 1, 20)
+        self.assertEqual(x["class_count"], 10)
+        self.assertTrue(x["full_residue_required_eventually"])
+        y = o.floor_translation_signature_classes(12, 8, 20)
+        self.assertEqual(y["class_count"], 3)
+        self.assertFalse(y["full_residue_required_eventually"])
 
-    def test_full_oracle(self):
-        self.assertTrue(r021.run_all()["pass"])
+    def test_floor_fibre_support_stays_at_width_two(self):
+        x = o.floor_translation_fibre_support_stats(17, 5, 100)
+        self.assertLessEqual(x["max_coarse_branch_width"], 2)
+
+    def test_branch_dictionary_frontier_charges_dictionary(self):
+        req = [frozenset({0}), frozenset({1}), frozenset({2}), frozenset({0,1}), frozenset({0,2}), frozenset({1,2})]
+        f = o.bounded_branch_dictionary_frontier(3, req)
+        pairs = {(x["K"], x["W"]) for x in f}
+        self.assertIn((3, 2), pairs)
+        self.assertIn((6, 1), pairs)
+
+    def test_powerset_branching_has_exponential_static_state_gap_but_not_live_bits_gap(self):
+        x = o.powerset_membership_pareto(8)
+        self.assertEqual(x["deterministic_future_states"], 256)
+        self.assertEqual(x["branch_atoms"], 8)
+        self.assertEqual(x["runtime_branch_config_bits"], x["deterministic_live_label_bits"])
+        self.assertGreater(x["branch_work_per_symbol_worst"], x["deterministic_work_per_symbol"])
+
+    def test_middle_incidence_marginal_failure(self):
+        x = o.middle_incidence_counterexample()
+        self.assertTrue(x["coarse_marginal_predicts_path"])
+        self.assertEqual(x["exact_composition"], set())
+
+    def test_pth_power_gap_uses_open_interior(self):
+        x = o.pth_cell_translation_stats(2, 2, 1, 2)
+        self.assertEqual(x["cell"], (5, 8))
+        self.assertEqual(x["cell_size"], 4)
+        self.assertLessEqual(x["max_bracket_support_width"], 3)
+        self.assertNotEqual(o.pth_bracket(5 + 1, 2), o.pth_bracket(8 + 1, 2))
+
+    def test_witness_cutoff_refines_low_fibre(self):
+        x = o.witness_cutoff_groups([6, 10, 14], 2, 7)
+        g = next(g for g in x["groups"] if set(g["members"]) == {6,10,14})
+        self.assertEqual(g["high_signature_count"], 3)
 
 
 if __name__ == "__main__":

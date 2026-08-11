@@ -1,56 +1,36 @@
 {
+  "schema": "ENTERPRISE_MATH_R021_THEOREM_COUNTEREXAMPLE_MATRIX_V2",
   "task": "RS-R021-BRANCHING-COLLAPSE-TOOL-CALCULUS",
   "researcher_id": "EM-R021-9832F2",
   "taskbook_commit": "15e9dcb67ce1f78b320099f2078c733bcba39ebb",
-  "final_return_class": "BRANCHING_COLLAPSE_TOOL_CORE_FOUND / EXACT_REGIME_CLASSIFIED / ON_DEMAND_COMPILER_CHECKED / PARETO_ADVANTAGE_DEMONSTRATED / ROOTING_SUCCESS / ENTERPRISE_SPECIALIZATION_SURVIVES / NOT_CANONICAL",
+  "final_return_class": "BRANCHING_COLLAPSE_TOOL_CORE_FOUND / EXACT_REGIME_CLASSIFIED / ON_DEMAND_COMPILER_CHECKED / PARETO_ADVANTAGE_DEMONSTRATED / NOT_CANONICAL",
   "semantic_contract": {
-    "observable": "final Boolean reachable-result support",
-    "future_steps": "relational direct image / complete-union-preserving transformers",
-    "charged_metadata": [
-      "branch atom labels",
-      "live branch subset",
-      "fine-to-branch encoder incidences",
-      "branch transition incidences",
-      "branch output incidences",
-      "exact denotation/correlation payload when retained"
-    ],
-    "out_of_contract_without_carrier_lift": [
-      "path multiplicity",
-      "provenance/path identity",
-      "probability/weights",
-      "signed or complex cancellation",
-      "support-global nonlinear predicates"
-    ]
+    "positive_regime": "Boolean final result-support under relational/union-preserving futures",
+    "charged_metadata": ["branch labels", "live branch configuration", "atom dictionary/denotation", "correlation tokens", "encoder", "transitions", "decoder/reconstruction"],
+    "excluded_without_carrier_lift": ["multiplicity", "provenance", "weights/probability", "signed/amplitude cancellation"]
   },
-  "results": {
-    "T01": {"status": "PROVED_TYPED_CLASSIFICATION", "result": "carrier types separated; provenance => multiplicity => support => one-step hierarchy with strict counterexamples"},
-    "T02": {"status": "PROVED_AND_EXECUTABLY_CHECKED", "result": "(q, coarse-successor-support) is unique coarsest one-step deterministic repair; (q, future-result-support signature) is unique coarsest finite-language deterministic repair; branching may Boolean-factor the residual signatures"},
-    "T03": {"status": "DEFINED_AND_MEASURED", "result": "resource vector includes branch width, creations, atom/edge/encoder counts, metadata; unconstrained width alone is trivial because deterministic embedding has width 1"},
-    "T04": {"status": "PROVED_AND_MUTATION_CHECKED", "result": "split/execute/literal-union-coalesce preserves exact fine support; reusable token replacement is safe iff remaining result-support signature is preserved"},
-    "T05": {"status": "PARETO_ADVANTAGE_DEMONSTRATED", "result": "4 deterministic residual states versus 2 branch atoms; total explicit labels+incidences 18 vs 10 after encoder/transition/output charge; branching max width 2 vs deterministic 1"},
-    "T06": {"status": "EXECUTABLE_EXHAUSTIVE_PASS", "result": "11 focused tests pass; n=2 minimal repeated-saturation counterexample; 768 two-atom binary NFA presentations enumerated; mutation suite catches unsafe merge/re-expansion"},
-    "T07A": {"status": "PROVED_FORMULA_AND_CHECKED", "result": "floor quotient + translation horizon class count is 1 if r|c, otherwise min(h+1,r/gcd(r,c)); coprime long horizon reconstructs every residue"},
-    "T07B": {"status": "CHECKED_AGAINST_R018_BOUNDARY", "result": "square bracket (4,9) +1 grows 2,3,4,4 future classes; endpoint deferred selection remains safe but arbitrary translation does not"},
-    "T07C": {"status": "NEGATIVE_MINIMAL_WITNESS", "result": "6 and 10 share cutoff-2 witness {2} but differ at cutoff 5; literal branch repair needs same two distinctions as deterministic refinement"},
-    "T07D": {"status": "MINIMAL_COUNTEREXAMPLE", "result": "two-state middle-incidence mismatch makes existential quotient composition spurious; exact branch token is fine identity in the witness"},
-    "T08": {"status": "THEOREM_PACKAGE_PROPOSED", "result": "language-relative future kernel; Boolean presentation exactness; split/execute invariant; remaining-signature recoalescence criterion; no canonical minimum branching carrier without representation cost/order"},
-    "T09": {"status": "ROOTING_SUCCESS", "result": "generic core rooted to automata/determinization, Nerode residual equivalence, partition refinement, bisimulation, abstract interpretation, CEGAR, symbolic model checking, NFA minimization hardness, lumpability neighborhood"},
-    "T10": {"status": "UNIVERSAL_CLAIM_KILLED_SCOPED_TOOL_SURVIVES", "result": "branching is not universally stronger/cheaper; exact reusable tool survives only in union-preserving result-support representation regimes with sparse residual factorization or query-local materialization"}
+  "claims": [
+    {"id":"NO_RESURRECTION","status":"PROVED","statement":"Any complete pointwise exact runtime encoding refines the declared future-signature kernel; runtime branching cannot recover a distinction erased from the encoding."},
+    {"id":"ONE_STEP_COARSEST","status":"PROVED_AND_EXHAUSTIVE_CHECKED","statement":"Partition by (q,next coarse successor-support) is the unique coarsest q-refinement making one-step coarse successor-support constant."},
+    {"id":"FUTURE_STATIC_COARSEST","status":"PROVED_AND_EXHAUSTIVE_CHECKED","statement":"Partition by (q,declared final-support future signature) is the unique coarsest static deterministic q-refinement for pointwise final answers."},
+    {"id":"SUPPORT_BRANCH_INVARIANT","status":"PROVED_AND_TESTED","statement":"Exact split + relational direct image + lossless exact-union recoalescence preserves the fine reachable support for every finite word."},
+    {"id":"FORGETFUL_RECOALESCENCE_IFF","status":"PROVED_AND_MUTATION_CHECKED","statement":"Replacing exact support A by hull H is safe for remaining suffix language V iff their V support signatures agree."},
+    {"id":"MINIMAL_BRANCH_WIDTH","status":"SCOPED_NO_UNIQUE_GLOBAL_MINIMUM","statement":"Width minimization is meaningful only under a charged atom dictionary/representation budget; free arbitrary subset atoms trivialize width to 1."},
+    {"id":"PARETO","status":"DEMONSTRATED_IN_EXPLICIT_TABLE_MODEL","statement":"Reusable support atoms can reduce global deterministic combination-state/table storage while preserving the same live information bits; branching pays larger online work/width."},
+    {"id":"COMPOSITION_COUNTEREXAMPLE_SINGLE_GENERATOR","status":"EXHAUSTIVE_MINIMAL_WITHIN_DECLARED_SEARCH_CLASS","statement":"For deterministic one-generator f^2, surjective q, and full starting q-fibre, n=1,2 have no failures and n=3 is minimal; 858 total trials through n=3, 84 failures at n=3."},
+    {"id":"MIDDLE_INCIDENCE","status":"COUNTEREXAMPLE","statement":"Coarse middle marginals/cardinalities can compose spuriously unless middle identity/correlation is retained and charged."},
+    {"id":"FLOOR_TRANSLATION","status":"FORMULA_CHECKED","statement":"For q_r and +c, horizon-h pointwise classes are 1+min(h,r/gcd(r,c)-1), eventually r/gcd(r,c); coprime long horizon reconstructs the full residue."},
+    {"id":"PTH_BRACKET","status":"NEGATIVE_AND_POSITIVE_BOUNDARY","statement":"Q_p is not pointwise translation-complete, while a legitimate full open-gap support remains a translated interval and has strict Q_p support width at most 3 under positive translation."},
+    {"id":"WITNESS_CUTOFF","status":"NEGATIVE_BOUNDARY","statement":"A common low-cutoff witness set can split into many later signatures; pointwise exactness forces those configurations back."},
+    {"id":"PRIOR_ART_ROOTING","status":"ROOTING_SUCCESS","statement":"Generic pieces reduce to relational powersets, automata/future equivalence, partition refinement, abstract interpretation/CEGAR, symbolic state propagation and NFA-style representation complexity."}
+  ],
+  "kill_result": {
+    "universal_branching_stronger_than_deterministic": "KILLED",
+    "free_hidden_metadata": "REJECTED",
+    "coarse_label_can_resurrect_exact_point": "KILLED",
+    "same_current_coarse_is_safe_recoalescence": "KILLED",
+    "strong_reusable_support_compiler_regime": "SURVIVES"
   },
-  "minimal_counterexamples": {
-    "composition": {"fine_states": 2, "coarse": [0, 0], "R_edges": [[0, 0]], "S_edges": [[1, 0]], "fine_two_step_support": [], "naive_coarse_two_step_support": [0]},
-    "recoalescence_by_current_coarse_only": "two same-coarse branches with different remaining a-successor support",
-    "witness_cutoff": "6 and 10 at cutoffs 2 and 5"
-  },
-  "positive_pareto_witness": {
-    "deterministic_residual_states": 4,
-    "branch_atoms": 2,
-    "deterministic_total_explicit_cost": 18,
-    "branch_total_explicit_cost": 10,
-    "deterministic_max_width": 1,
-    "branch_max_width": 2,
-    "word_depth": "same",
-    "hidden_metadata_free": true
-  },
+  "focused_tests": {"count":16,"status":"PASS"},
   "canonical_status": "NOT_CANONICAL"
 }
