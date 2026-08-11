@@ -231,7 +231,7 @@ theorem r009_t18 : T18Statement := by
       have hF2 : F d (d * c + u) = d * c + min u (a k d) := by
         have h := hBlock d c u hd hu_lt
         rw [hcCollapse] at h
-        simpa using h.trans (congrArg (fun z => d * c + z) hClampU)
+        exact h.trans (congrArg (fun z => d * c + z) hClampU)
       have hI := hIdem d (d * q + s) hd
       rw [hF1, hF2] at hI
       have hminEq : min u (a k d) = u := Nat.add_left_cancel hI
