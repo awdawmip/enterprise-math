@@ -43,6 +43,26 @@ theorem rootQuotientRepairDivisorCoverNumber_le
   apply Nat.sInf_le
   exact ⟨S, hSFinite, hCover, rfl⟩
 
+/-- Whenever a finite candidate-restricted divisor cover exists, the minimum
+cover cardinality is attained. -/
+theorem exists_minimumRepairDivisorCover
+    {T : Finset ℕ} {C : Set ℕ}
+    (hFeasible : ∃ S : Set ℕ,
+      S.Finite ∧ RootQuotientRepairDivisorCover T C S) :
+    ∃ S : Set ℕ,
+      S.Finite ∧
+      RootQuotientRepairDivisorCover T C S ∧
+      S.ncard = rootQuotientRepairDivisorCoverNumber T C := by
+  have hNonempty :
+      (RootQuotientRepairDivisorCoverCardinalities T C).Nonempty := by
+    obtain ⟨S, hFinite, hCover⟩ := hFeasible
+    exact ⟨S.ncard, S, hFinite, hCover, rfl⟩
+  have hMem :
+      rootQuotientRepairDivisorCoverNumber T C ∈
+        RootQuotientRepairDivisorCoverCardinalities T C :=
+    Nat.sInf_mem hNonempty
+  exact hMem
+
 /-- **Relative repair-cover storage lower bound.**
 
 If a finite spare dictionary `S` lies in the allowed candidate set `C` and
