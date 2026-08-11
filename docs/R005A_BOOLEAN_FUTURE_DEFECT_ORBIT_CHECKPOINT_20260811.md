@@ -282,35 +282,69 @@ Thus the steady Boolean future depth satisfies
 
 `Omega(q log q) <= rho(q#) <= O(q^3)`.
 
-### Full actual system remains polynomial-depth
+### T-A48 — preperiod-additive full-horizon law
 
-If a periodic separator has maximum gap `g`, deleting at most `m` separator points can merge at most `m+1` adjacent gaps, so the new maximum gap is at most `(m+1)g`.
+There is a much sharper bound than the generic finite-defect gap-merging estimate.
 
-For a pair of finite-defect tails, the toggle set is `D triangle (D-d)` and has size at most `2|D|`.
+For any one-sided ultimately periodic deterministic output system with minimal preperiod `mu` and steady phase-separation radius `rho`, the full first-distinguishing horizon `H` satisfies
 
-For the prime-prefix Boolean actual sieve,
+`rho <= H <= rho + mu`.
 
-`|D_q|=pi(q)+1`.
+The lower bound is immediate because the steady states are part of the full state set. For the upper bound, take any two distinct full states. After at most `mu` transitions both tails lie in the steady cycle. If their resulting steady phases differ, they separate within a further `rho` transitions. If the resulting steady phases coincide, then any distinction between the original states must already occur before both tails enter the common steady phase.
 
-Therefore, without assuming eventual domination,
+This is generic ultimately-periodic automata mathematics, not a new mother theorem. Its prime-specific force comes from the exact Boolean activation preperiod
 
-`H_U^actual(q) <= (2*pi(q)+3)(rho(q#)+1)-1`
+`mu_U(q)=q+1`.
 
-apart from the trivial same-steady-phase case, which is bounded directly by the finite defect span.
+Therefore
 
-Combining `pi(q)=O(q/log q)` and the Iwaniec bridge gives
+`rho(q#) <= H_U^actual(q) <= rho(q#) + q + 1`.
 
-`H_U^actual(q)=O(q^4/log q)`.
+Combining this with the singleton-support lower bound
 
-Meanwhile the exact state count is
+`rho(q#)+1 >= Q(q-1)/(2 phi(Q))`
 
-`N_U(q)=q# + q + 1`,
+and Mertens' product theorem gives the unconditional relative asymptotic
 
-and the prime number theorem gives `log N_U ~ q`. Hence
+`H_U^actual(q) / rho(q#) = 1 + O(1/log q)`.
 
-`Omega(log N log log N) <= H_U^actual <= O((log N)^4 / log log N)`.
+In particular,
 
-So the exact state space is exponential in `q`, while exact future identification remains polynomial in `q` / polylogarithmic in the state count.
+`H_U^actual(q) / rho(q#) -> 1`.
+
+Thus exact eventual equality remains conjectural, but **asymptotic steady domination is proved**. The activation transient can change the exact finite horizon by at most an additive `q+1`, while the steady Boolean separation radius already grows at least on the order of `q log q`.
+
+Using the classical Iwaniec bound `C(r) << (r log r)^2` with `r=pi(q)` gives `j(q#)=O(q^2)` and hence
+
+`H_U^actual(q)=O(q^3)`.
+
+Together with the lower bound,
+
+`Omega(q log q) <= H_U^actual(q) <= O(q^3)`.
+
+Since the exact state count is
+
+`N_U(q)=q# + q + 1`
+
+and the prime number theorem gives `log N_U ~ q`, this becomes
+
+`Omega(log N log log N) <= H_U^actual <= O((log N)^3)`.
+
+The stronger conclusion is not merely the polynomial enclosure: the full actual and steady Boolean horizons have asymptotic ratio one.
+
+### Segmented execution corollary
+
+For a segment observation length `B`, the existing exact block-composition law gives
+
+`D^*(B)=ceil((H+1)/B)-1`.
+
+Let `D_actual^*(B)` and `D_steady^*(B)` be the sharp transition depths for the actual and steady Boolean systems. From the additive horizon bound,
+
+`0 <= D_actual^*(B)-D_steady^*(B) <= ceil((q+1)/B)`.
+
+Hence if `B>=q+1`, activation costs at most **one additional segment transition** beyond the steady wheel's exact phase-identification depth.
+
+This is the cleanest current segmented-sieve resource law: the activation transient contributes `q+1` extra exact states but only a bounded additive execution-depth overhead, while the dominant long-horizon difficulty lies in the steady XOR separator geometry.
 
 For relation-resolved actual observation, the preceding owner-local generation reported the executable formula
 
@@ -320,7 +354,7 @@ This checkpoint does not re-prove or independently revalidate that relation-reso
 
 Therefore attribution erasure has an asymptotically negligible relative state-count saving but incurs at least an `Omega(log q)=Omega(log log N)` relative observation-depth penalty.
 
-This strengthens the previous storage/depth Pareto result without relying on the unproved eventual-domination conjecture.
+This strengthens the previous storage/depth Pareto result without relying on the unproved exact eventual-domination conjecture; the exact equality question is reduced to a bounded additive transient residue on top of an asymptotically dominant steady radius.
 
 ## 7. Practical factor-witness backend contract tightened
 
@@ -372,7 +406,7 @@ All remain `CLASSICAL_BASELINE` or `PRIOR_ART_ONLY` as appropriate.
 
 ### Genuine theorem / boundary candidates
 
-1. `R005A-BOOL-DOM` — prime-prefix eventual steady domination `H_U^actual(q)=rho(q#)` for `q>=7`; currently **CONJECTURAL**, exact through `q=19` only.
+1. `R005A-BOOL-DOM` — exact prime-prefix steady domination `H_U^actual(q)=rho(q#)` for `q>=7`; currently **CONJECTURAL**, exact through `q=19` only. Its asymptotic ratio form `H_U^actual/rho -> 1` is now proved via T-A48.
 2. `support-only runtime insufficiency` — already exact, with the `Q=30` minimal counterexample; candidate reusable negative boundary rather than new prime theorem.
 3. `XOR-Jacobsthal / disagreement-gap profile` — useful Enterprise quantity, but generic paired-progression framing has direct prior art; novelty remains unverified and no new mother theory is justified.
 
