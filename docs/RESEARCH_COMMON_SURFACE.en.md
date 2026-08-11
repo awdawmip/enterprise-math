@@ -25,6 +25,7 @@ Keep these distinct:
 
 - `CANONICAL_MAIN` — proved result integrated on `main` at its stated scope;
 - `LEAN_CHECKED_MAIN` — canonical statement actually covered by the root warning-fatal Lean build;
+- `LEAN_CHECKED_WIP` — a frozen branch/owner statement has passed its declared warnings-fatal Lean gate but is not yet canonical `main` or `LEAN_CHECKED_MAIN`;
 - `PROVED_WIP_RELAY` — branch-proved result with provenance but not yet canonical;
 - `EXECUTABLE_CHECKED` — exact executable/finite validation, not proof by itself;
 - `COUNTEREXAMPLE / NEGATIVE_BOUNDARY` — reusable failure/impossibility result;
@@ -185,6 +186,33 @@ Canonical executable core:
 
 A4 multivalued correspondence is not silently identified with one deterministic functional kernel or one partial deterministic operation family.
 
+#### R023 Branch-Recoalescence Collapse Boolean-support semantic core — `LEAN_CHECKED_WIP / SHARED-SURFACE INTEGRATION CANDIDATE / NOT CANONICAL`
+
+Frozen R023 source: Draft PR #498, final owner head `0b72b9e549e1469567764fbe89f9f2baa8b55453`, semantic Lean candidate `6eea57de1d30d6c2fe983121f6e209286a5c9895`; standard warnings-fatal Lean run `31484436882` passed on the final owner head. R023I replays the Lean module exactly; it does not change theorem statements or assumptions.
+
+Shared formal asset:
+
+- `EnterpriseMath/Relation/BranchRecoalescence.lean`
+
+The exposed theorem family is intentionally narrow:
+
+- `NO_RESURRECTION`: an exact pointwise target recoverable only from the complete runtime encoding factors through that encoding; erased point distinctions are not resurrected by later branching.
+- `ONE_STEP_COARSEST`: `(q(x), successor-support(x))` is sufficient, and every classifier from which both components are recoverable refines/factors onto this key; uniqueness is kernel/partition up to relabeling, not literal classifier-codomain identity.
+- `SUPPORT_BRANCH_INVARIANT`: exact branch denotations, support-preserving splits, relational direct image, and literal exact-union recoalescence preserve the exact reachable fine `Set X` for every finite word, hence every set-valued final observation.
+- `FORGETFUL_RECOALESCENCE_IFF`: a forgetful replacement is safe exactly relative to the declared remaining language/observable support signature.
+
+Negative boundaries kept on the same surface:
+
+- `threeState_oneStep_exact` together with `threeState_composition_spurious_q1` gives the frozen one-generator/full-starting-fibre witness: naive existential quotienting is one-step exact there but repeated coarse composition admits a spurious coarse state. “Three states are minimal” remains only the R021 bounded exhaustive-search result in that declared search class, not a global Lean minimality theorem.
+- `middleIncidence_exact_empty` and `middleIncidence_coarse_spurious` show that nonempty/coarse middle marginals can compose spuriously when middle witness identity/correlation is erased.
+- `sameCurrentCoarse_notSuffixSafe` shows current coarse equality alone does not imply suffix safety.
+
+Layering boundary:
+
+`pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices`.
+
+This Boolean support carrier does not preserve multiplicity, provenance, probability/weights, or signed/amplitude cancellation. R021 representation Pareto/branch-budget results and R022 HashClash tooling are not part of this shared theorem surface.
+
 ### A5 — intrinsic discrete geometry
 
 P012 supplies the ordinary metric foundation on **connected undirected simple graphs**. P022 remains `OPEN / ACTIVE RESEARCH`; canonical executable geometry does not close the broader program.
@@ -307,6 +335,7 @@ All routes must remember:
 - `EnterpriseMath/Quotient/PowerFreeActionBasis.lean`
 - `EnterpriseMath/Quotient/RootAdjacentBoundary.lean`
 - `EnterpriseMath/Quotient/RootFutureClosure.lean`
+- `EnterpriseMath/Relation/BranchRecoalescence.lean`
 - `EnterpriseMath/Scale/Compatibility.lean`
 - `EnterpriseMath/State/CriticalGrid.lean`
 

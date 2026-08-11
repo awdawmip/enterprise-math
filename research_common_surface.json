@@ -102,16 +102,17 @@
     "EnterpriseMath/Quotient/PowerFreeActionBasis.lean",
     "EnterpriseMath/Quotient/RootAdjacentBoundary.lean",
     "EnterpriseMath/Quotient/RootFutureClosure.lean",
+    "EnterpriseMath/Relation/BranchRecoalescence.lean",
     "EnterpriseMath/Scale/Compatibility.lean",
     "EnterpriseMath/State/CriticalGrid.lean"
   ],
-  "result_statuses": ["CANONICAL_MAIN", "LEAN_CHECKED_MAIN", "PROVED_WIP_RELAY", "EXECUTABLE_CHECKED", "COUNTEREXAMPLE_NEGATIVE_BOUNDARY", "CONJECTURAL"],
+  "result_statuses": ["CANONICAL_MAIN", "LEAN_CHECKED_MAIN", "LEAN_CHECKED_WIP", "PROVED_WIP_RELAY", "EXECUTABLE_CHECKED", "COUNTEREXAMPLE_NEGATIVE_BOUNDARY", "CONJECTURAL"],
   "shared_theorem_families": {
     "A0": "roots, collapse, quotient/remainder, scale lattice, signed state, typed descent, adjoints",
     "A1": "deterministic functional kernels, history merge, fibers/kernel multiplicity, collision spectra, coalescence, stabilization",
     "A2": "observation kernels, declared future signatures, factorization, future-compatible quotient, total and partial deterministic operation-family compatibility, legality-sensitive future signatures, natural safe-operation spectra, minimal repair, bounded quotient-root power-free future-action basis",
     "A3": "structured weighted relation state, partition quotient/kernel, relation scale/rank, refinement memory; not identified with the functional kernel layer without reduction theorem",
-    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra, and relation-observable powerset bridge; not identified with one deterministic kernel or partial deterministic family",
+    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra, relation-observable powerset bridge, and the R023 exact Boolean-support branch/recoalescence semantic core; not identified with one deterministic kernel or partial deterministic family, and not a representation/resource primitive",
     "A5": "primitive adjacency, graph metric, A_p/root-lattice geometry, geodesic multiplicity, HCP and periodic Barlow close-packed contact-graph geometry, finite balls/shells, radial/distance structure, task-relative Barlow stacking precision, periodic-drift growth equations and eventual C-finite recurrence classes"
   },
   "canonical_specializations": {
@@ -131,6 +132,22 @@
       "composition": "when coarse relational composition is compatible with the chosen quotient, set-valued coarse dynamics composes by union of successor support signatures; a deterministic powerset compiler gives exact reachable-support semantics for declared relation words",
       "boundary": "the bridge preserves A4 ownership of the underlying multivalued relation and does not preserve path multiplicity, branch identity, or intermediate branch-definedness unless those observables are explicitly included in the future language",
       "prior_art_boundary": "finite relations, powerset-valued maps, quotient factorization, relational image, set union and behavioral signatures are prior mathematics; project value is the explicit executable A4-to-P023 boundary"
+    },
+    "A4_BRC_semantic_core": {
+      "status": "LEAN_CHECKED_WIP / R023I_SHARED_SURFACE_INTEGRATION_CANDIDATE / NOT_CANONICAL",
+      "source": "R023 Draft PR #498 / final owner head 0b72b9e549e1469567764fbe89f9f2baa8b55453 / frozen semantic Lean candidate 6eea57de1d30d6c2fe983121f6e209286a5c9895",
+      "validation": "standard warnings-fatal Lean run 31484436882 PASS on the R023 final owner head; R023I is exact replay with no theorem-statement or assumption change",
+      "scope": "complete-runtime-encoding no-resurrection factorization; one-step (q, coarse successor-support) factorization/kernel coarsest repair; exact Boolean Set X branch split plus relational direct image plus literal-union recoalescence preserving reachable fine/result support; suffix-safe forgetful replacement iff remaining support signatures agree",
+      "negative_boundaries": "three-state one-step-exact/two-step-spurious quotient-composition witness (minimality only in the declared R021 exhaustive one-generator/full-starting-fibre search class); middle-incidence spurious composition after erasing middle identity; equal current coarse support alone is insufficient for suffix safety",
+      "layering_boundary": "pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices; BRC is not semantically stronger than deterministic P023",
+      "carrier_boundary": "Boolean/set-valued support only; multiplicity, provenance, probability/weights, signed/amplitude cancellation require richer carriers; R021 representation Pareto/branch budget and R022 HashClash are excluded",
+      "lean_module": "EnterpriseMath/Relation/BranchRecoalescence.lean",
+      "claim_map": {
+        "NO_RESURRECTION": "EnterpriseMath.BranchRecoalescence.noResurrection",
+        "ONE_STEP_COARSEST": "EnterpriseMath.BranchRecoalescence.oneStepCoarsest / EnterpriseMath.BranchRecoalescence.oneStepCoarseSuccessorCoarsest",
+        "SUPPORT_BRANCH_INVARIANT": "EnterpriseMath.BranchRecoalescence.supportBranchInvariant",
+        "FORGETFUL_RECOALESCENCE_IFF": "EnterpriseMath.BranchRecoalescence.forgetfulRecoalescence_iff"
+      }
     },
     "P018_P023_power_free_action_basis": {
       "status": "LEAN_CHECKED_MAIN",
@@ -218,6 +235,7 @@
     "A4": ["src/enterprise_math/admissible_support.py", "src/enterprise_math/relational_spectrum.py"],
     "A3_A4_bridge": ["src/enterprise_math/a3_a4_support_bridge.py"],
     "A4_P023_relation_observable_bridge": ["src/enterprise_math/relation_observable_signature.py", "tests/test_relation_observable_signature.py", "src/enterprise_math/relation_observable_composition.py", "tests/test_relation_observable_composition.py", "src/enterprise_math/relation_future_powerset.py", "tests/test_relation_future_powerset.py"],
+    "A4_BRC_semantic_core": ["EnterpriseMath/Relation/BranchRecoalescence.lean"],
     "A5_P022": ["src/enterprise_math/lattice_geometry.py", "tests/test_lattice_geometry.py"],
     "P022_geodesic_hcp_core": [
       "src/enterprise_math/p022_geodesic_multiplicity.py",

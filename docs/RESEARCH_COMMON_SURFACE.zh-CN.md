@@ -25,6 +25,7 @@
 
 - `CANONICAL_MAIN`：在声明 scope 内已证明并进入 `main`；
 - `LEAN_CHECKED_MAIN`：canonical 且实际被 root warning-fatal Lean build 覆盖；
+- `LEAN_CHECKED_WIP`：冻结 branch/owner statement 已通过其声明的 warnings-fatal Lean gate，但尚未进入 canonical `main`，也不能标为 `LEAN_CHECKED_MAIN`；
 - `PROVED_WIP_RELAY`：branch 已证明并带 provenance，但尚未 canonical；
 - `EXECUTABLE_CHECKED`：精确 executable/finite validation，不等于单独证明；
 - `COUNTEREXAMPLE / NEGATIVE_BOUNDARY`：可复用失败/不可能性结果；
@@ -185,6 +186,33 @@ Canonical executable core：
 
 A4 multivalued correspondence 不能被悄悄等同于一个确定性 functional kernel，也不能等同于一个部分确定性操作族。
 
+#### R023 Branch-Recoalescence Collapse Boolean-support 语义核 — `LEAN_CHECKED_WIP / SHARED-SURFACE INTEGRATION CANDIDATE / NOT CANONICAL`
+
+冻结 R023 来源：Draft PR #498、final owner head `0b72b9e549e1469567764fbe89f9f2baa8b55453`、semantic Lean candidate `6eea57de1d30d6c2fe983121f6e209286a5c9895`；final owner head 的标准 warnings-fatal Lean run `31484436882` 已 PASS。R023I 只做 Lean module 精确重放，不修改 theorem statement 或 assumption。
+
+共享 formal 资产：
+
+- `EnterpriseMath/Relation/BranchRecoalescence.lean`
+
+暴露的 theorem family 严格限于：
+
+- `NO_RESURRECTION`：若精确 pointwise target 只能从 complete runtime encoding 恢复，则 target 必须 factor through 该 encoding；已删除的 point distinction 不能靠后续 branching 复活。
+- `ONE_STEP_COARSEST`：`(q(x), successor-support(x))` 自身充分；任何能恢复这两部分的 classifier 都会 refine/factor onto 该 key；唯一性是 kernel/partition 在 relabeling 意义下的唯一，而不是 classifier codomain 的字面唯一。
+- `SUPPORT_BRANCH_INVARIANT`：exact branch denotation、support-preserving split、relational direct image 与 literal exact-union recoalescence 对每个有限 word 都保持精确 reachable fine `Set X`，因此保持所有 set-valued final observation。
+- `FORGETFUL_RECOALESCENCE_IFF`：forgetful replacement 的安全性恰好相对于 declared remaining language / observable support signature 判定。
+
+同一共享面登记三个负向边界：
+
+- `threeState_oneStep_exact` 与 `threeState_composition_spurious_q1` 给出冻结的一生成元/full-starting-fibre witness：naive existential quotient 在该起点一步精确，但重复 coarse composition 会引入伪 coarse state；“三状态最小”只保留为 R021 声明搜索类内的有界穷举结论，不升级为全局 Lean minimality theorem。
+- `middleIncidence_exact_empty` 与 `middleIncidence_coarse_spurious` 表明忘记 middle witness identity/correlation 后，非空/coarse middle marginal 可产生伪复合。
+- `sameCurrentCoarse_notSuffixSafe` 表明仅 current coarse equality 不推出 suffix safety。
+
+分层边界：
+
+`pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices`。
+
+该 Boolean support carrier 不保持 multiplicity、provenance、probability/weights 或 signed/amplitude cancellation。R021 representation Pareto/branch-budget 与 R022 HashClash tooling 不进入本共享 theorem surface。
+
 ### A5 — intrinsic discrete geometry
 
 P012 给出**连通无向简单图**上的普通 metric 基础。P022 仍为 `OPEN / ACTIVE RESEARCH`；canonical executable geometry 不代表整个 program 已解决。
@@ -307,6 +335,7 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 - `EnterpriseMath/Quotient/PowerFreeActionBasis.lean`
 - `EnterpriseMath/Quotient/RootAdjacentBoundary.lean`
 - `EnterpriseMath/Quotient/RootFutureClosure.lean`
+- `EnterpriseMath/Relation/BranchRecoalescence.lean`
 - `EnterpriseMath/Scale/Compatibility.lean`
 - `EnterpriseMath/State/CriticalGrid.lean`
 
