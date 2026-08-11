@@ -92,15 +92,12 @@ def boundary_depth_shell(value: int, budget: int) -> dict[str, object]:
     if direct != reconstructed:
         raise AssertionError("boundary-depth prefix failed complementary Mobius reconstruction")
 
-    lower_budget = 0
-    upper_budget_exclusive = value
     current_delta = int(exposed[-1]["divisor"])
-    # B < R/delta_depth, with R/delta integral.  For depth=0 this upper is R.
     upper_budget_exclusive = value // current_delta
+    lower_budget = 0
     if len(exposed) < len(rows):
         next_delta = int(rows[len(exposed)]["divisor"])
         lower_budget = value // next_delta
-    # The lower boundary is inclusive, upper boundary exclusive.
     if not (lower_budget <= budget < upper_budget_exclusive):
         raise AssertionError("budget did not lie in reconstructed boundary-depth shell")
 
@@ -121,17 +118,7 @@ def boundary_depth_shell(value: int, budget: int) -> dict[str, object]:
     }
 
 
-def first_two_boundary_shells(value: int) -> dict[str, object]:
-    """Expose universal formulas for the first two shells when omega(R)>=2."""
-    rows = ordered_divisor_mobius_prefix(value)
-    prime_divisors = tuple(
-        int(row["divisor"])
-        for row in rows
-        if int(row["divisor"]) > 1 and int(row["mu"]) == -1
-        and all(int(row["divisor"]) % d for d in range(2, int(row["divisor"]) ** 0 + 1))
-    )
-    # The generic primality expression above is intentionally not trusted;
-    # reconstruct the first two prime factors directly from squarefree R.
+def _prime_factors_squarefree(value: int) -> tuple[int, ...]:
     remaining = value
     factors: list[int] = []
     p = 2
@@ -139,9 +126,18 @@ def first_two_boundary_shells(value: int) -> dict[str, object]:
         if remaining % p == 0:
             factors.append(p)
             remaining //= p
+            if remaining % p == 0:
+                raise ValueError("value must be squarefree")
         p += 1
     if remaining > 1:
         factors.append(remaining)
+    return tuple(factors)
+
+
+def first_two_boundary_shells(value: int) -> dict[str, object]:
+    """Expose universal formulas for the first two shells when omega(R)>=2."""
+    rows = ordered_divisor_mobius_prefix(value)
+    factors = _prime_factors_squarefree(value)
     if len(factors) < 2:
         raise ValueError("first_two_boundary_shells requires at least two prime factors")
     p1, p2 = factors[0], factors[1]
