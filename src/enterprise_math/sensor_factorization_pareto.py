@@ -24,6 +24,15 @@ choose the factor grouping minimizing the largest composite modulus / residue
 word width.  This is a multiplicative load-balancing problem (additive after
 logs); the owner uses exhaustive enumeration only as a small-instance oracle.
 
+Two universal lower bounds certify how far splitting can possibly help.  With
+fused modulus L and g channels, peak width b must satisfy L<=2^(bg), while one
+channel must still contain the largest atomic prime factor.  Therefore
+
+    b >= max( ceil(log2(L)/g), bit_width(max prime) ).
+
+When an exhaustive optimum meets this bound, no finer factor search can reduce
+peak arithmetic width at that channel count.
+
 CRT and set partitions are standard prior mathematics/CS.  The Enterprise Math
 value is the explicit Stage131-style resource interpretation: one exact precision
 law admits many semantically identical storage/parallel-width representations.
@@ -66,6 +75,40 @@ def residue_bit_width(modulus: int) -> int:
     if isinstance(modulus, bool) or not isinstance(modulus, int) or modulus <= 1:
         raise ValueError("modulus must exceed one")
     return (modulus - 1).bit_length()
+
+
+def information_peak_width_lower_bound(
+    fused_modulus: int,
+    channel_count: int,
+) -> int:
+    """Least b allowed by L <= 2^(b*g), computed without floating logs."""
+    if isinstance(fused_modulus, bool) or not isinstance(fused_modulus, int) or fused_modulus <= 1:
+        raise ValueError("fused_modulus must exceed one")
+    if isinstance(channel_count, bool) or not isinstance(channel_count, int) or channel_count < 1:
+        raise ValueError("channel_count must be positive")
+    bits = 1
+    while (1 << (bits * channel_count)) < fused_modulus:
+        bits += 1
+    return bits
+
+
+def atomic_peak_width_lower_bound(prime_factors: Sequence[int]) -> int:
+    primes = _prime_factors(prime_factors)
+    return residue_bit_width(max(primes))
+
+
+def peak_width_lower_bound(
+    prime_factors: Sequence[int],
+    channel_count: int,
+) -> int:
+    primes = _prime_factors(prime_factors)
+    if not 1 <= channel_count <= len(primes):
+        raise ValueError("channel_count outside feasible range")
+    fused = prod(primes)
+    return max(
+        information_peak_width_lower_bound(fused, channel_count),
+        atomic_peak_width_lower_bound(primes),
+    )
 
 
 def set_partitions(values: Sequence[int]) -> tuple[tuple[tuple[int, ...], ...], ...]:
@@ -168,10 +211,19 @@ class SensorFactorizationPoint:
     peak_channel_modulus: int
     peak_bit_width: int
     total_rounded_bit_width: int
+    peak_width_lower_bound: int
 
     @property
     def fully_fused(self) -> bool:
         return self.channel_count == 1
+
+    @property
+    def peak_width_optimality_gap(self) -> int:
+        return self.peak_bit_width - self.peak_width_lower_bound
+
+    @property
+    def meets_peak_width_lower_bound(self) -> bool:
+        return self.peak_width_optimality_gap == 0
 
 
 def sensor_factorization_point(
@@ -192,6 +244,7 @@ def sensor_factorization_point(
         peak_channel_modulus=max(moduli),
         peak_bit_width=max(widths),
         total_rounded_bit_width=sum(widths),
+        peak_width_lower_bound=peak_width_lower_bound(primes, len(moduli)),
     )
 
 
