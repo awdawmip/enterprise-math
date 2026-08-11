@@ -319,7 +319,18 @@ theorem sanity_branch_deferral :
 /-- A support-global rule that emits a result only when both source states are
 present simultaneously. It is intentionally not union-preserving. -/
 def BothPresentRule (A : Set (Fin 2)) : Set (Fin 1) :=
-  { _ | 0 ∈ A ∧ 1 ∈ A }
+  fun _ => (0 : Fin 2) ∈ A ∧ (1 : Fin 2) ∈ A
+
+/-- R016-L10 negative sanity: `BothPresentRule` fails even binary union preservation. -/
+theorem bothPresentRule_not_union_preserving :
+    BothPresentRule (({0} : Set (Fin 2)) ∪ {1}) ≠
+      BothPresentRule ({0} : Set (Fin 2)) ∪ BothPresentRule ({1} : Set (Fin 2)) := by
+  intro hUnion
+  have hmem :
+      (0 : Fin 1) ∈ BothPresentRule (({0} : Set (Fin 2)) ∪ {1}) := by
+    simp [BothPresentRule]
+  rw [hUnion] at hmem
+  simp [BothPresentRule] at hmem
 
 /-- R016-L10 negative sanity: the support-global rule cannot be represented by
 any relational direct-image lifting. -/
@@ -328,11 +339,7 @@ theorem bothPresentRule_not_relSupport :
   rintro ⟨R, hR⟩
   have hUnion := relSupport_union R ({0} : Set (Fin 2)) ({1} : Set (Fin 2))
   rw [← hR] at hUnion
-  have hmem :
-      (0 : Fin 1) ∈ BothPresentRule (({0} : Set (Fin 2)) ∪ {1}) := by
-    simp [BothPresentRule]
-  rw [hUnion] at hmem
-  simp [BothPresentRule] at hmem
+  exact bothPresentRule_not_union_preserving hUnion
 
 #print axioms relSupport_empty
 #print axioms relSupport_union
@@ -355,6 +362,7 @@ theorem bothPresentRule_not_relSupport :
 #print axioms sanity_coalesces
 #print axioms sanity_rebranches
 #print axioms sanity_branch_deferral
+#print axioms bothPresentRule_not_union_preserving
 #print axioms bothPresentRule_not_relSupport
 
 end EnterpriseMath.BranchDeferral
