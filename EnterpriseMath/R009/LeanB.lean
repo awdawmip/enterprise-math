@@ -116,14 +116,14 @@ private theorem div_mul_add_small
 private theorem mod_mul_add_small
     {d q s : ℕ} (hs : s < d) :
     (d * q + s) % d = s := by
-  simpa [Nat.mod_eq_of_lt hs] using Nat.mul_add_mod_self_left d q s
+  rw [Nat.mul_add_mod_self_left, Nat.mod_eq_of_lt hs]
 
 private theorem div_min (x y r : ℕ) :
     min x y / r = min (x / r) (y / r) := by
   rcases le_total x y with hxy | hyx
-  · have hdiv := Nat.div_le_div_right hxy
+  · have hdiv : x / r ≤ y / r := Nat.div_le_div_right hxy
     simp [min_eq_left hxy, min_eq_left hdiv]
-  · have hdiv := Nat.div_le_div_right hyx
+  · have hdiv : y / r ≤ x / r := Nat.div_le_div_right hyx
     simp [min_eq_right hyx, min_eq_right hdiv]
 
 /-- R009-T18: complete four-axiom classification of natural lifts of `collapse p`. -/
@@ -221,7 +221,8 @@ theorem r009_t18 : T18Statement := by
       have hF1 : F d (d * q + s) = d * c + u := by
         have h := hBlock d q s hd hs
         simpa [hcollapse_q, u] using h
-      have hClampU : ρ d (d * c + u) = min u (a k d) := by
+      have hClampU :
+          ρ d (d * c + u) = min u (a k d) := by
         have h := (ha k).2 d u hd hu_lt
         simpa [c] using h
       have hcCollapse : collapse p c = c := by
@@ -304,7 +305,9 @@ theorem r009_t18 : T18Statement := by
       let q : ℕ := m / (d * r)
       let s : ℕ := m % (d * r)
       let k : ℕ := Nat.nthRoot p q
-      have hs : s < d * r := by dsimp [s]; exact Nat.mod_lt _ hdr
+      have hs : s < d * r := by
+        dsimp [s]
+        exact Nat.mod_lt _ hdr
       have hsr : s / r < d := by
         exact (Nat.div_lt_iff_lt_mul hr).2 (by simpa [Nat.mul_comm] using hs)
       have hmdecomp : m = (d * r) * q + s := by
@@ -314,7 +317,8 @@ theorem r009_t18 : T18Statement := by
       have hmr : m / r = d * q + s / r := by
         rw [hmdecomp]
         calc
-          ((d * r) * q + s) / r = (s + r * (d * q)) / r := by congr 1 <;> ring
+          ((d * r) * q + s) / r
+              = (s + r * (d * q)) / r := by congr 1 <;> ring
           _ = s / r + d * q := Nat.add_mul_div_left s (d * q) hr
           _ = d * q + s / r := by omega
       have hBig := hForm (d * r) q s hdr hs
@@ -336,7 +340,9 @@ theorem r009_t18 : T18Statement := by
       let s : ℕ := m % d
       let k : ℕ := Nat.nthRoot p q
       let c : ℕ := k ^ p
-      have hs : s < d := by dsimp [s]; exact Nat.mod_lt _ hd
+      have hs : s < d := by
+        dsimp [s]
+        exact Nat.mod_lt _ hd
       have hmdecomp : m = d * q + s := by
         dsimp [q, s]
         have h := Nat.div_add_mod m d
@@ -347,13 +353,17 @@ theorem r009_t18 : T18Statement := by
         exact Nat.pow_nthRoot_le (Or.inl hp0)
       have ha_lt : a k d < d := (haEndpoint k).2.1 d hd
       rw [hmdecomp, hF]
+      change d * collapse p q +
+          (if q = c then min s (a k d) else a k d) ≤ d * q + s
       change d * c + (if q = c then min s (a k d) else a k d) ≤ d * q + s
       by_cases hperf : q = c
       · subst q
         simp [hperf, min_le_left]
       · have hc_lt : c < q := lt_of_le_of_ne hc_le (Ne.symm hperf)
         have hc1q : c + 1 ≤ q := by omega
-        have hleft : d * c + a k d < d * (c + 1) := by ring_nf; omega
+        have hleft : d * c + a k d < d * (c + 1) := by
+          ring_nf
+          omega
         have hright : d * (c + 1) ≤ d * q := Nat.mul_le_mul_left d hc1q
         simp [hperf]
         omega
@@ -364,7 +374,9 @@ theorem r009_t18 : T18Statement := by
       let k : ℕ := Nat.nthRoot p q
       let c : ℕ := k ^ p
       let u : ℕ := if q = c then min s (a k d) else a k d
-      have hs : s < d := by dsimp [s]; exact Nat.mod_lt _ hd
+      have hs : s < d := by
+        dsimp [s]
+        exact Nat.mod_lt _ hd
       have ha_lt : a k d < d := (haEndpoint k).2.1 d hd
       have hu_lt : u < d := by
         dsimp [u]
@@ -410,7 +422,9 @@ theorem r009_t18 : T18Statement := by
         dsimp [Q, t]
         have h := Nat.div_add_mod y d
         omega
-      have hqQ : q ≤ Q := by dsimp [q, Q]; exact Nat.div_le_div_right hxy
+      have hqQ : q ≤ Q := by
+        dsimp [q, Q]
+        exact Nat.div_le_div_right hxy
       have hkK : k ≤ K := by
         dsimp [k, K, q, Q]
         apply (Nat.le_nthRoot_iff hp0).2
@@ -455,11 +469,13 @@ theorem r009_t18 : T18Statement := by
             · exact lt_of_le_of_lt (min_le_right _ _) ha_lt
             · exact ha_lt
           have hc1C : c + 1 ≤ C := by omega
-          have hleft : d * c + (if q = c then min s (a k d) else a k d) < d * (c + 1) := by
+          have hleft : d * c + (if q = c then min s (a k d) else a k d) <
+              d * (c + 1) := by
             ring_nf
             omega
           have hmiddle : d * (c + 1) ≤ d * C := Nat.mul_le_mul_left d hc1C
-          have hbase : d * C ≤ d * C + (if Q = C then min t (a K d) else a K d) := Nat.le_add_right _ _
+          have hbase : d * C ≤ d * C +
+              (if Q = C then min t (a K d) else a K d) := Nat.le_add_right _ _
           exact (le_of_lt hleft).trans (hmiddle.trans hbase)
 
 end EnterpriseMath.R009
