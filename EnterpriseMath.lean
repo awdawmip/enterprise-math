@@ -13,5 +13,6 @@ import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Quotient.RootAdjacentBoundary
 import EnterpriseMath.Quotient.PowerFreeActionBasis
 import EnterpriseMath.Quotient.RootFutureClosure
+import EnterpriseMath.Relation.BranchRecoalescence
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
