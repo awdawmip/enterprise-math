@@ -67,13 +67,22 @@ theorem rootQuotientPrimeFactorCount_wordProduct_primeFourSix
           simp
           omega
         · subst a
+          have hTwoCount : rootQuotientPrimeFactorCount 2 = 1 := by
+            rw [rootQuotientPrimeFactorCount,
+              Nat.primeFactorsList_prime Nat.prime_two]
+            simp
+          have hThreeCount : rootQuotientPrimeFactorCount 3 = 1 := by
+            rw [rootQuotientPrimeFactorCount,
+              Nat.primeFactorsList_prime Nat.prime_three]
+            simp
           have hSixCount : rootQuotientPrimeFactorCount 6 = 2 := by
-            have hMul := rootQuotientPrimeFactorCount_mul
-              (a := 2) (b := 3) (by omega) (by omega)
-            norm_num at hMul ⊢
-            simpa [rootQuotientPrimeFactorCount,
-              Nat.primeFactorsList_prime Nat.prime_two,
-              Nat.primeFactorsList_prime Nat.prime_three] using hMul
+            calc
+              rootQuotientPrimeFactorCount 6 =
+                  rootQuotientPrimeFactorCount (2 * 3) := by norm_num
+              _ = rootQuotientPrimeFactorCount 2 +
+                  rootQuotientPrimeFactorCount 3 :=
+                rootQuotientPrimeFactorCount_mul (by omega) (by omega)
+              _ = 2 := by rw [hTwoCount, hThreeCount]
           rw [hSixCount, List.count_cons, List.count_cons]
           simp
           omega
@@ -116,10 +125,12 @@ def rootQuotientPrimeFourSixCost (b : ℕ) : ℕ :=
 theorem four_pow_mul_six_pow_eq_two_three_powers
     (a b : ℕ) :
     4 ^ a * 6 ^ b = 2 ^ (2 * a + b) * 3 ^ b := by
-  rw [show (4 : ℕ) = 2 ^ 2 by norm_num,
-    show (6 : ℕ) = 2 * 3 by norm_num,
-    mul_pow, pow_mul, ← pow_add]
-  ac_rfl
+  calc
+    4 ^ a * 6 ^ b = (2 ^ 2) ^ a * (2 * 3) ^ b := by norm_num
+    _ = 2 ^ (2 * a) * (2 ^ b * 3 ^ b) := by
+      rw [pow_mul, mul_pow]
+    _ = (2 ^ (2 * a) * 2 ^ b) * 3 ^ b := by ac_rfl
+    _ = 2 ^ (2 * a + b) * 3 ^ b := by rw [← pow_add]
 
 /-- Universal lower bound: no prime-four-six word can beat the pairing cost. -/
 theorem rootQuotientPrimeFourSixCost_le_word_length
@@ -257,27 +268,28 @@ theorem canonical_four_six_two_three_product
   let x := d / 2
   let u := d % 2
   let t := c - y
-  have hyA : y ≤ a := min_le_left _ _
-  have hyC : y ≤ c := min_le_right _ _
   have hMod : u + x * 2 = d := by
     dsimp [u, x]
     exact Nat.mod_add_div' d 2
   have hA : 2 * x + y + u = a := by
+    have hyA : y ≤ a := min_le_left _ _
     dsimp [d] at hMod
     omega
   have hC : y + t = c := by
+    have hyC : y ≤ c := min_le_right _ _
     dsimp [t]
     omega
-  have hMacro := four_pow_mul_six_pow_eq_two_three_powers x y
-  dsimp [rootQuotientPrimeFourSixCanonicalFourCount,
-    rootQuotientPrimeFourSixCanonicalSixCount,
-    rootQuotientPrimeFourSixCanonicalTwoRemainder,
-    rootQuotientPrimeFourSixCanonicalThreeRemainder,
-    a, c, y, d, x, u, t]
-  rw [hMacro]
-  rw [← pow_add, ← pow_add, ← pow_add]
-  rw [hA, hC]
-  ac_rfl
+  have hMacro : 4 ^ x * 6 ^ y =
+      2 ^ (2 * x + y) * 3 ^ y :=
+    four_pow_mul_six_pow_eq_two_three_powers x y
+  change 4 ^ x * 6 ^ y * 2 ^ u * 3 ^ t = 2 ^ a * 3 ^ c
+  calc
+    4 ^ x * 6 ^ y * 2 ^ u * 3 ^ t =
+        (2 ^ (2 * x + y) * 3 ^ y) * 2 ^ u * 3 ^ t := by rw [hMacro]
+    _ = (2 ^ (2 * x + y) * 2 ^ u) * (3 ^ y * 3 ^ t) := by ac_rfl
+    _ = 2 ^ (2 * x + y + u) * 3 ^ (y + t) := by
+      rw [← pow_add, ← pow_add]
+    _ = 2 ^ a * 3 ^ c := by rw [hA, hC]
 
 /-- Canonical shortest candidate for the prime-four-six ISA. -/
 def rootQuotientPrimeFourSixCanonicalWord (b : ℕ) : List ℕ :=
@@ -306,18 +318,19 @@ theorem rootQuotientPrimeFourSixCanonicalWord_length
     Nat.primeFactorsList_count_eq
   have hSplit := length_filter_ne_two_three_add_counts b.primeFactorsList
   rw [hCount2, hCount3] at hSplit
-  have hyA : y ≤ a := by
-    dsimp [y, rootQuotientPrimeFourSixCanonicalSixCount, a, c]
-    exact min_le_left _ _
   have hMod : u + x * 2 = a - y := by
     dsimp [u, x, rootQuotientPrimeFourSixCanonicalTwoRemainder,
       rootQuotientPrimeFourSixCanonicalFourCount]
     exact Nat.mod_add_div' (b.factorization 2 -
       rootQuotientPrimeFourSixCanonicalSixCount b) 2
-  have hA : 2 * x + y + u = a := by omega
+  have hA : 2 * x + y + u = a := by
+    have hyA : y ≤ a := by
+      dsimp [y, rootQuotientPrimeFourSixCanonicalSixCount, a, c]
+      exact min_le_left _ _
+    omega
   have hC : y + t = c := by
     dsimp [t, rootQuotientPrimeFourSixCanonicalThreeRemainder]
-    have : y ≤ c := by
+    have hyC : y ≤ c := by
       dsimp [y, rootQuotientPrimeFourSixCanonicalSixCount, a, c]
       exact min_le_right _ _
     omega
