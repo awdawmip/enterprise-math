@@ -3,11 +3,6 @@ import EnterpriseMath.R009.PrecisionTargets
 
 namespace EnterpriseMath.R009
 
-private theorem r009_dvd_of_mod_eq_zero {r n : ℕ} (h : n % r = 0) : r ∣ n := by
-  refine ⟨n / r, ?_⟩
-  have hdecomp := Nat.mod_add_div n r
-  omega
-
 /-- R009-T27: a monotone map is quotient-safe exactly when every attained
 coarse-output threshold first occurs on an input block boundary. -/
 theorem r009_t27 : T27Statement := by
@@ -20,7 +15,7 @@ theorem r009_t27 : T27Statement := by
     by_contra hNotDvd
     have hMod : τ % r ≠ 0 := by
       intro hz
-      exact hNotDvd (r009_dvd_of_mod_eq_zero hz)
+      exact hNotDvd (Nat.dvd_iff_mod_eq_zero.mpr hz)
     let b : ℕ := (τ / r) * r
     have hDecomp := Nat.mod_add_div τ r
     have hb_lt : b < τ := by
