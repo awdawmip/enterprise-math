@@ -320,7 +320,9 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 - `tools/check_bilingual_pairs.py`
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
+- `tools/research_identity.py`
 - `tools/research_scheduler.py`
+- `tools/research_taskbook.py`
 
 `tools/check_research_common_surface.py` 只做机械检查：registered path 存在性、root-Lean imports 精确一致、repository-tool membership 精确一致、active-FQ 集合一致、active-alert 有效性。它不证明数学，也不判断语义复用价值。
 
