@@ -1050,11 +1050,11 @@ Local bounded research execution:
 File digests from the research run:
 
 - `r022_brc_synthetic.py`:
-  `843e5c189cb299900e5d89d49ef180476683cdbea4beece09cabca9c809a574f`
+  `3aff4eeb88cc5f4c4381e7e169a042f7077014bd53fdc91c7b27666b7f584d48`
 - `test_r022_brc_synthetic.py`:
   `26ba191d039dcbf52c9a63ebc46a4bbcc54a1c63b6196fac250e776304b391b9`
 - `r022_brc_synthetic_results.json`:
-  `81840541e67a229533a87f3b50827e01c4de9230dd782918d51b6c84b4244522`
+  `4cc1995e16b816dd58dda8de0d1b7ab13c5e8dc0c6d7c15cf7f779dc064f008e`
 
 ---
 
