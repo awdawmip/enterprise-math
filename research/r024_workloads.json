@@ -1,0 +1,17 @@
+{
+  "schema": "R024_WORKLOAD_DEFINITIONS_V1",
+  "researcher_id": "EM-R024-7C20D0",
+  "task_id": "RS-R024-COLLAPSE-ATLAS-RUNTIME-ACCELERATOR",
+  "source_commit": "0a0af206326a873f28620426371f894ccc92db51",
+  "bit_width": 64,
+  "workloads": [
+    {"name":"RANDOM_LOOKUP","domain":"0 <= n <= 10^18","P_max":8,"distribution":"uniform p in [2,8], uniform n in [0,10^18]","queries":40000,"cache_state":"warm","semantic_output":"exact BasinDescriptor/root index; checksum compares exact root labels","representations":"exact root, p=2 isqrt + p>=3 packed u64 boundary atlas; p=3 full/bucket/sparse subbench"},
+    {"name":"LOCAL_TRAJECTORY","domain":"uint64-compatible natural states","p":3,"start_n":1000123,"queries":100000,"distribution":"monotone local deltas uniform[0,128]","cache_state":"cursor initialized once","semantic_output":"exact BasinDescriptor after every update","representations":"exact root vs 40-byte basin cursor"},
+    {"name":"LOCAL_TRAJECTORY_LARGE_JUMP","domain":"uint64-compatible natural states","p":3,"queries":20000,"distribution":"positive deltas uniform[0,10^13]","cache_state":"cursor live","semantic_output":"exact BasinDescriptor after every update","representations":"exact root, smart precheck cursor, naive repeat-then-fallback cursor"},
+    {"name":"MIXED_HOT_REUSE","domain":"0 <= n <= 10^18","P_max":8,"queries":60000,"distribution":"92% from 72 preselected hot basins, 8% uniform random","cache_state":"cold-first-pass and warm reported","semantic_output":"exact BasinDescriptor/root index","representations":"exact root, linear LRU, coarse-bucket exact hot cache"},
+    {"name":"BRC_BRANCH_HEAVY","domain":"0 <= n <= 10^18","p":3,"queries":4000,"support_shape":"512-state contiguous half-open interval ending at a perfect-power boundary","future_distribution":"translation delta uniform[0,2048]","cache_state":"warm atlas; hazard descriptor fixed and compiled","semantic_output":"exact Boolean/result-support set of collapsed root labels","representations":"fine exact, raw BRC, per-atom atlas, per-atom cursor, symbolic interval exact-root, symbolic interval atlas, exact versioned hazard cache, chosen hybrid"},
+    {"name":"DENSE_MICRO_HOT_DOMAIN","domain":"0 <= n <= 250000","p":3,"queries":50000,"cache_state":"warm","semantic_output":"exact lower-collapse/root label","representations":"dense collapse_u64, dense root_u32, dense root_u32+next_u64, boundary atlas, exact root"},
+    {"name":"SEQUENTIAL_ATLAS_BUILD","p_range":[2,6],"distribution":"consecutive k^p anchors","semantic_output":"exact packed u64 perfect-power boundaries","representations":"finite-difference addition-only generation vs repeated exact integer powering"}
+  ],
+  "serialization": {"boundaries":"packed little-endian u64","bucket_index":"packed u32 indices","dense_root":"packed u32","dense_collapse":"packed u64","cursor":"5 packed u64-compatible fields = 40 bytes in measured prototype","interval":"two u64 endpoints = 16 bytes","root_support_interval":"two u64 root indices = 16 bytes","cache_and_hazard":"all entries, dictionaries, registry descriptors, indices, and version metadata charged separately"}
+}
