@@ -4,15 +4,18 @@ Once literal words have been quotiented to a finite transformation monoid of siz
 m, normalization itself still admits multiple exact representations.
 
 1. Sequential right-generator automaton
-   Store m*k transitions ``effect_id --generator--> effect_id``.  Normalize a
-   length-h word sequentially in h generator-update rounds.
+   Store m*k transitions ``effect_id --generator--> effect_id``.  Initialize from
+   the first generator ID and normalize a nonempty length-h word with h-1 table
+   transitions, followed by one state application: total depth h.
 
 2. Full Cayley table
    Store m^2 arbitrary effect products.  Associativity permits balanced parallel
-   normalization in ceil(log2 h) multiplication rounds.
+   normalization in ceil(log2 h) multiplication rounds, followed by one state
+   application.
 
 3. Full literal word index through horizon H
-   Store S(k,H) word->effect IDs.  One whole-word lookup returns the effect.
+   Store S(k,H) word->effect IDs.  One whole-word lookup returns the effect and
+   it can be applied in one state round.
 
 All three can share one semantic effect action table of m*n state cells, so their
 auxiliary normalization-storage comparison is exactly
@@ -131,7 +134,7 @@ def semantic_normalizer_resource_report(
         sequential_automaton=SemanticNormalizerResourcePoint(
             name="right-generator-automaton",
             auxiliary_storage_cells=sequential_effect_automaton_storage_cells(m, k),
-            normalization_depth=horizon,
+            normalization_depth=max(0, horizon - 1),
             state_apply_depth=1,
         ),
         cayley_parallel=SemanticNormalizerResourcePoint(
