@@ -151,11 +151,11 @@ These are precision improvements, not theorem corrections.
 ## 11. Validation
 
 - Frozen Lean code candidate: `6eea57de1d30d6c2fe983121f6e209286a5c9895`.
-- Temporary owner-local validation helper: first setup-only failure `8d2b55d0e4457183bfc44f519209b096eca8faef`; corrected helper commit `303d14d7596c9adefeca2c8b8e0091c013ad5bad` (helper is removed from the final branch after validation).
+- Temporary owner-local validation helper: first setup-only failure `8d2b55d0e4457183bfc44f519209b096eca8faef`; corrected helper commit `303d14d7596c9adefeca2c8b8e0091c013ad5bad`; helper removed from the owner branch at `be26c8f042fd03f993fca718b7ea929895b8b052` after the final permitted validation snapshot.
 - Repository toolchain: Lean `v4.33.0-rc2`, pinned mathlib `87adeaebd370a3b6a41ac4f044fddd4bf81803ad`.
 - Required target declarations contain no `sorry`, `admit`, or task-local axioms.
 - Independent finite semantic sanity check of the two counterexamples: PASS.
-- Lean validation: `pending owner-local compilation. The first helper run failed before checkout/Lean compilation because `leanprover-community/cache-action` could not be resolved; the helper was corrected to the repository-native `lean-action -> lake update -> lake exe cache get -> lake env lean` path. This setup failure is not a Lean theorem failure.`.
+- Lean validation: `PENDING / NO LEAN PASS CLAIMED`. The first helper run failed before checkout/Lean compilation because `leanprover-community/cache-action` could not be resolved; this was a setup failure, not a theorem failure. After correction to the repository-native `lean-action -> lake update -> lake exe cache get -> lake env lean` path, owner-local run `31484321091` for source state `7a8d8ed4569f69913038cd543affde89c1f81603` entered `in_progress`. Repository no-polling/liveness policy forbids refreshing that unchanged validation object, so R023 records no Lean PASS and no Lean compiler counterexample in this return.
 - Non-Lean repository checks are not theorem evidence. Any unrelated reference-integrity/common-surface registration issue belongs to later integration and does not change the R023 mathematical result.
 
 ## 12. Downstream recommendation
