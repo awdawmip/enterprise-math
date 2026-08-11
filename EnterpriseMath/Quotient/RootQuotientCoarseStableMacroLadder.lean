@@ -101,25 +101,20 @@ theorem rootQuotientCoarseStableMacroSet_ncard_le
     (N s : ℕ) :
     (RootQuotientCoarseStableMacroSet N s).ncard ≤ s := by
   classical
-  have hFilter :
-      (rootQuotientCoarseStableMacroFinset N s).card ≤
-        (((Finset.range s).image fun i =>
-          (Nat.nth Nat.Prime i) ^ rootQuotientStablePrimeBase s)).card := by
-    simpa [rootQuotientCoarseStableMacroFinset] using
-      Finset.card_filter_le
-        (((Finset.range s).image fun i =>
-          (Nat.nth Nat.Prime i) ^ rootQuotientStablePrimeBase s))
-        (fun g => g ≤ N)
-  have hImage :
-      (((Finset.range s).image fun i =>
-        (Nat.nth Nat.Prime i) ^ rootQuotientStablePrimeBase s)).card ≤ s := by
+  have hSubset :
+      rootQuotientCoarseStableMacroFinset N s ⊆
+        ((Finset.range s).image fun i =>
+          (Nat.nth Nat.Prime i) ^ rootQuotientStablePrimeBase s) := by
+    intro g hg
+    simpa [rootQuotientCoarseStableMacroFinset] using hg.1
+  have hCard : (rootQuotientCoarseStableMacroFinset N s).card ≤ s := by
     calc
-      (((Finset.range s).image fun i =>
-        (Nat.nth Nat.Prime i) ^ rootQuotientStablePrimeBase s)).card ≤
-          (Finset.range s).card := Finset.card_image_le
+      (rootQuotientCoarseStableMacroFinset N s).card ≤
+          (((Finset.range s).image fun i =>
+            (Nat.nth Nat.Prime i) ^ rootQuotientStablePrimeBase s)).card :=
+        Finset.card_le_card hSubset
+      _ ≤ (Finset.range s).card := Finset.card_image_le
       _ = s := by simp
-  have hCard : (rootQuotientCoarseStableMacroFinset N s).card ≤ s :=
-    hFilter.trans hImage
   simpa [RootQuotientCoarseStableMacroSet] using hCard
 
 /-- Coarse next-prime stable coding law.
@@ -178,20 +173,23 @@ theorem coarseStableMacroSet_is_stableMacroCode
       have hpRange : p ∈ Set.range (Nat.nth Nat.Prime) :=
         Nat.subset_range_nth hpPrime
       obtain ⟨i, hiEq⟩ := hpRange
-      have hiLtS : i < s := by
-        apply (Nat.nth_lt_nth Nat.infinite_setOfPred_prime).1
-        simpa [q, hiEq] using hpLtQ
+      have hNthLt : Nat.nth Nat.Prime i < Nat.nth Nat.Prime s := by
+        rw [hiEq]
+        simpa [q, rootQuotientStablePrimeBase] using hpLtQ
+      have hiLtS : i < s :=
+        (Nat.nth_lt_nth Nat.infinite_setOfPred_prime).1 hNthLt
       have hMacroMem : p ^ q ∈ RootQuotientCoarseStableMacroSet N s := by
         apply (mem_rootQuotientCoarseStableMacroSet_iff).2
         refine ⟨hpPowLeB.trans hbN, i, hiLtS, ?_⟩
-        simp [q, hiEq]
+        rw [hiEq]
+        simp [q]
       exact hNoMacro (p ^ q) hMacroMem hpPowDvd
     have hSupportSubset : b.factorization.support ⊆ Finset.range q := by
       intro p hpSupport
       simpa using hPrimeLt p hpSupport
     have hSupportCard : b.factorization.support.card ≤ q := by
-      have := Finset.card_le_card hSupportSubset
-      simpa using this
+      have hCard := Finset.card_le_card hSupportSubset
+      simpa using hCard
     have hSum :
         (∑ p ∈ b.factorization.support, b.factorization p) ≤ q * q := by
       calc
@@ -227,7 +225,7 @@ theorem coarseStableMacroSet_is_compositeMacroFamily
     RootQuotientCompositeMacroFamily
       r N (RootQuotientCoarseStableMacroSet N s) := by
   intro g hg
-  obtain ⟨hgN, i, hi, hEq⟩ :=
+  obtain ⟨hgN, i, _hi, hEq⟩ :=
     (mem_rootQuotientCoarseStableMacroSet_iff).1 hg
   let q := rootQuotientStablePrimeBase s
   let p := Nat.nth Nat.Prime i
@@ -257,7 +255,7 @@ theorem coarseStableMacroSet_is_compositeMacroFamily
     · have hpLt : p < g := by
         rw [hgEq]
         have hPowLt : p ^ 1 < p ^ q :=
-          Nat.pow_lt_pow_right hpPrime.one_lt (by omega)
+          pow_lt_pow_right' hpPrime.one_lt (by omega)
         simpa using hPowLt
       omega
   refine ⟨⟨hgTwo, hgN, hgFree⟩, ?_⟩
