@@ -324,22 +324,40 @@ def BothPresentRule (A : Set (Fin 2)) : Set (Fin 1) :=
 /-- R016-L10 negative sanity: `BothPresentRule` fails even binary union preservation. -/
 theorem bothPresentRule_not_union_preserving :
     BothPresentRule (({0} : Set (Fin 2)) ∪ {1}) ≠
-      BothPresentRule ({0} : Set (Fin 2)) ∪ BothPresentRule ({1} : Set (Fin 2)) := by
+      BothPresentRule ({0} : Set (Fin 2)) ∪
+        BothPresentRule ({1} : Set (Fin 2)) := by
   intro hUnion
-  have hmem :
-      (0 : Fin 1) ∈ BothPresentRule (({0} : Set (Fin 2)) ∪ {1}) := by
-    simp [BothPresentRule]
-  rw [hUnion] at hmem
-  simp [BothPresentRule] at hmem
+  have hLeft :
+      (0 : Fin 1) ∈
+        BothPresentRule (({0} : Set (Fin 2)) ∪ {1}) := by
+    change
+      ((0 : Fin 2) ∈ (({0} : Set (Fin 2)) ∪ {1})) ∧
+      ((1 : Fin 2) ∈ (({0} : Set (Fin 2)) ∪ {1}))
+    exact ⟨Or.inl rfl, Or.inr rfl⟩
+  have hRight :
+      (0 : Fin 1) ∈
+        BothPresentRule ({0} : Set (Fin 2)) ∪
+          BothPresentRule ({1} : Set (Fin 2)) := by
+    rw [← hUnion]
+    exact hLeft
+  rcases hRight with h0 | h1
+  · have h10 := h0.2
+    change (1 : Fin 2) = 0 at h10
+    exact (by decide : ¬ ((1 : Fin 2) = 0)) h10
+  · have h01 := h1.1
+    change (0 : Fin 2) = 1 at h01
+    exact (by decide : ¬ ((0 : Fin 2) = 1)) h01
 
 /-- R016-L10 negative sanity: the support-global rule cannot be represented by
 any relational direct-image lifting. -/
 theorem bothPresentRule_not_relSupport :
     ¬ ∃ R : Fin 2 → Fin 1 → Prop, BothPresentRule = RelSupport R := by
   rintro ⟨R, hR⟩
-  have hUnion := relSupport_union R ({0} : Set (Fin 2)) ({1} : Set (Fin 2))
-  rw [← hR] at hUnion
-  exact bothPresentRule_not_union_preserving hUnion
+  apply bothPresentRule_not_union_preserving
+  rw [hR]
+  exact relSupport_union R
+    ({0} : Set (Fin 2))
+    ({1} : Set (Fin 2))
 
 #print axioms relSupport_empty
 #print axioms relSupport_union
