@@ -1,4 +1,4 @@
-import Mathlib.Data.Set.Basic
+import Mathlib.Data.Set.Lattice
 
 namespace EnterpriseMath.BranchDeferral
 
@@ -213,7 +213,9 @@ theorem preservesArbitraryUnions_iff_exists_relSupport (T : Set α → Set β) :
 future because result-support carries no multiplicity. -/
 theorem coalescence_idempotence (R : α → β → Prop) (A : Set α) :
     RelSupport R (A ∪ A) = RelSupport R A := by
-  simpa using relSupport_union R A A
+  calc
+    RelSupport R (A ∪ A) = RelSupport R A ∪ RelSupport R A := relSupport_union R A A
+    _ = RelSupport R A := Set.union_self _
 
 /-- A finite Boolean future matrix is represented directly by a proposition at
 each row/column entry. -/
@@ -284,9 +286,10 @@ theorem sanity_coalesces :
   ext y
   constructor
   · intro _
-    simpa using Fin.eq_zero y
+    change y = 0
+    exact Subsingleton.elim _ _
   · intro _
-    exact ⟨0, Or.inl (by simp), trivial⟩
+    exact ⟨0, Or.inl rfl, trivial⟩
 
 /-- R016-L10 positive sanity: after coalescence, the next relation rebranches to
 all final states. -/
@@ -297,7 +300,7 @@ theorem sanity_rebranches :
   · intro _
     trivial
   · intro _
-    exact ⟨0, by simp, trivial⟩
+    exact ⟨0, rfl, trivial⟩
 
 /-- R016-L10 positive sanity: eager branches and the unresolved/coalesced route
 have exactly the same final reachable support. -/
@@ -311,7 +314,7 @@ theorem sanity_branch_deferral :
 /-- A support-global rule that emits a result only when both source states are
 present simultaneously. It is intentionally not union-preserving. -/
 def BothPresentRule (A : Set (Fin 2)) : Set (Fin 1) :=
-  if 0 ∈ A ∧ 1 ∈ A then Set.univ else ∅
+  { _ | 0 ∈ A ∧ 1 ∈ A }
 
 /-- R016-L10 negative sanity: the support-global rule cannot be represented by
 any relational direct-image lifting. -/
