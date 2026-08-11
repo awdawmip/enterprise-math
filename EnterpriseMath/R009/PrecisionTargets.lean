@@ -21,7 +21,7 @@ def UnboundedAboveNat (A : ℕ → ℕ) : Prop := ∀ n, ∃ k, n < A k
 
 /-- T28 repaired frozen proposition. The boxed identity is a Galois connection. -/
 def T28Statement : Prop :=
-  ∀ A : ℕ → ℕ, A 0 = 0 → Function.StrictMono A → UnboundedAboveNat A →
+  ∀ A : ℕ → ℕ, A 0 = 0 → StrictMono A → UnboundedAboveNat A →
     ∃ R : ℕ →o ℕ,
       GaloisConnection A R ∧
       ∀ r : ℕ, 2 ≤ r →
