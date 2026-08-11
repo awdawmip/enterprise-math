@@ -14,7 +14,8 @@ private theorem div_succ_adjacent_of_same_block
   have hxy' : x ≤ y + (d + 1) := by omega
   have hdiv : x / (d + 1) ≤ (y + (d + 1)) / (d + 1) :=
     Nat.div_le_div_right hxy'
-  simpa [Nat.add_div_right, Nat.succ_pos] using hdiv
+  rw [Nat.add_div_right y (by omega : 0 < d + 1)] at hdiv
+  exact hdiv
 
 private theorem div_succ_dist_le_one_of_same_block
     {d x y : ℕ} (hd : 0 < d) (hxy : x / d = y / d) :
