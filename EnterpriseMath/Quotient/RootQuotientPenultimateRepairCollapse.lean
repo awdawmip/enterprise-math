@@ -31,8 +31,11 @@ theorem mem_maximalPrimeRankBoundaryFinset_iff
     have hbTwo : 2 ≤ b := by
       by_contra hNot
       have hbOne : b = 1 := by omega
-      subst b
-      simp [rootQuotientPrimeFactorCount] at hbMax
+      have hCountEq := hbMax.2.2.2
+      rw [hbOne] at hCountEq
+      have hCountOne : rootQuotientPrimeFactorCount 1 = 0 := by
+        simp [rootQuotientPrimeFactorCount]
+      rw [hCountOne] at hCountEq
       omega
     apply Finset.mem_filter.2
     exact ⟨
