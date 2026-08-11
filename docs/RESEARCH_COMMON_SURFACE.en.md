@@ -186,9 +186,9 @@ Canonical executable core:
 
 A4 multivalued correspondence is not silently identified with one deterministic functional kernel or one partial deterministic operation family.
 
-#### R023 Branch-Recoalescence Collapse Boolean-support semantic core — `LEAN_CHECKED_WIP / SHARED-SURFACE INTEGRATION CANDIDATE / NOT CANONICAL`
+#### R023 Branch-Recoalescence Collapse Boolean-support semantic core — `CANONICAL_MAIN + LEAN_CHECKED_MAIN`
 
-Frozen R023 source: Draft PR #498, final owner head `0b72b9e549e1469567764fbe89f9f2baa8b55453`, semantic Lean candidate `6eea57de1d30d6c2fe983121f6e209286a5c9895`; standard warnings-fatal Lean run `31484436882` passed on the final owner head. R023I replays the Lean module exactly; it does not change theorem statements or assumptions.
+Frozen R023 source: Draft PR #498, final owner head `0b72b9e549e1469567764fbe89f9f2baa8b55453`, semantic Lean candidate `6eea57de1d30d6c2fe983121f6e209286a5c9895`. R023I exact replay entered main as WIP at `4cf6ddde1473bd289fd838522f263da2e9b027c8`. The historical run `31484436882` did not root-import this module and is not compiler-coverage evidence. The first load-bearing root-covered gate is PR #505 merge ref `f7a694a076d5a7366db4b594d11a860b62c28493`, Lean run `31504621268`, job `93822939775`: `lake build --wfail -KCI EnterpriseMath` passed with `EnterpriseMath.Relation.BranchRecoalescence` built and `3027 jobs` completed successfully. The proof-script-only repair was merged as `main@2b3b6f1258c687890248c6c1f9198bf4a00fb834`; theorem statements and assumptions were unchanged.
 
 Shared formal asset:
 
