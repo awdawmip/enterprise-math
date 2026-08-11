@@ -128,7 +128,7 @@ private theorem sUnion_singletons_subtype (A : Set α) :
     apply Set.mem_sUnion.mpr
     refine ⟨{y}, ?_, ?_⟩
     · exact ⟨⟨y, hy⟩, rfl⟩
-    · simp
+    · rfl
 
 /-- Image under `T` of the singleton family is the indexed union of singleton
 images. -/
@@ -327,7 +327,7 @@ theorem bothPresentRule_not_relSupport :
       (0 : Fin 1) ∈ BothPresentRule (({0} : Set (Fin 2)) ∪ {1}) := by
     simp [BothPresentRule]
   rw [hUnion] at hmem
-  simpa [BothPresentRule] using hmem
+  simp [BothPresentRule] at hmem
 
 #print axioms relSupport_empty
 #print axioms relSupport_union
