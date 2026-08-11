@@ -11,8 +11,15 @@ from enterprise_math.set_cover_formulaic_execution import (
     parallel_word_union_mask,
     word_union_mask,
 )
+from enterprise_math.integer_action_capability_basis import (
+    INTEGER_MODULE,
+    STATE_KERNEL,
+    action_subset_preserves,
+)
 from enterprise_math.integer_action_capability_set_cover import (
     selected_sets_cover_universe,
+    set_cover_action_matrices,
+    set_cover_observation_rows,
     verify_set_cover_capability_equivalence,
 )
 
@@ -75,6 +82,8 @@ class SetCoverFormulaicExecutionTests(unittest.TestCase):
             if not selected_sets_cover_universe(3, sets, full):
                 continue
             checked_families += 1
+            actions = set_cover_action_matrices(3, sets)
+            observations = set_cover_observation_rows(3)
 
             # Same compiled family: every word through length4 executes by OR.
             for length in range(5):
@@ -90,15 +99,22 @@ class SetCoverFormulaicExecutionTests(unittest.TestCase):
             for subset_size in range(4):
                 for selected in itertools.combinations(action_indices, subset_size):
                     cover = selected_sets_cover_universe(3, sets, selected)
-                    self.assertEqual(
-                        verify_set_cover_capability_equivalence(3, sets, selected),
-                        True,
+                    kernel = action_subset_preserves(
+                        actions,
+                        observations,
+                        selected,
+                        mode=STATE_KERNEL,
                     )
-                    # verify_set_cover_capability_equivalence raises on mismatch;
-                    # explicitly keep the cover bit for minimum-size oracle below.
-                    self.assertEqual(
-                        cover,
-                        selected_sets_cover_universe(3, sets, selected),
+                    module = action_subset_preserves(
+                        actions,
+                        observations,
+                        selected,
+                        mode=INTEGER_MODULE,
+                    )
+                    self.assertEqual(cover, kernel)
+                    self.assertEqual(cover, module)
+                    self.assertTrue(
+                        verify_set_cover_capability_equivalence(3, sets, selected)
                     )
                     checked_subsets += 1
 
