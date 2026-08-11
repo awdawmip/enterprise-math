@@ -85,18 +85,6 @@ theorem minimumCompositeMacroCount_eq_minimumRelativeRepairStorage
         (RootQuotientSemanticTargetFinset r N)
         (RootQuotientSemanticCompositeCandidates r N) := by
   apply Nat.le_antisymm
-  · obtain ⟨S, hComp, hCompCard⟩ :=
-      exists_rootQuotientMinimumCompositeMacroPresentation hr hh
-    have hRel : RootQuotientRelativeRepairPresentation
-        (RootQuotientPrimeBasis N)
-        h
-        (RootQuotientSemanticTargetFinset r N)
-        (RootQuotientSemanticCompositeCandidates r N)
-        S :=
-      (compositeMacroPresentation_iff_relativeRepairPresentation hr).1 hComp
-    have hRelLe := rootQuotientMinimumRelativeRepairStorage_le hRel
-    rw [hCompCard] at hRelLe
-    exact hRelLe
   · obtain ⟨S₀, hComp₀⟩ := exists_compositeMacroPresentation hr hh
     have hFeasible : ∃ S : Set ℕ,
         RootQuotientRelativeRepairPresentation
@@ -114,6 +102,18 @@ theorem minimumCompositeMacroCount_eq_minimumRelativeRepairStorage
     have hMuLe := rootQuotientMinimumCompositeMacroCount_le hComp
     rw [hRelCard] at hMuLe
     exact hMuLe
+  · obtain ⟨S, hComp, hCompCard⟩ :=
+      exists_rootQuotientMinimumCompositeMacroPresentation hr hh
+    have hRel : RootQuotientRelativeRepairPresentation
+        (RootQuotientPrimeBasis N)
+        h
+        (RootQuotientSemanticTargetFinset r N)
+        (RootQuotientSemanticCompositeCandidates r N)
+        S :=
+      (compositeMacroPresentation_iff_relativeRepairPresentation hr).1 hComp
+    have hRelLe := rootQuotientMinimumRelativeRepairStorage_le hRel
+    rw [hCompCard] at hRelLe
+    exact hRelLe
 
 /-- **Finite hard-target certificate lower bound on the true macro frontier.**
 
