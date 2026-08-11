@@ -14,7 +14,7 @@ def test_midpoint_difference_coordinates_reconstruct_collision_orientations():
 
 
 def test_hyperbolic_pair_kernel_matches_direct_even_conductor_sum():
-    for r, s in ((1, 1), (1, 11), (5, 17), (19, 23)):
+    for r, s in ((1, 1), (1, 11), (5, 17), (19, 25)):
         data = even_pair_kernel(46, r, s, prime_cutoff=23, conductor_cutoff=22)
         assert data["kernel_identity"] is True
         assert (
