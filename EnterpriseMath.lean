@@ -7,12 +7,14 @@ import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.PowerQuotientCoalescence
 import EnterpriseMath.Precision.PowerQuotientCoalescenceGap
+import EnterpriseMath.Precision.QuotientRootFiber
 import EnterpriseMath.Precision.RootStateCountCarry
 import EnterpriseMath.Precision.RootStateCountCarryExact
 import EnterpriseMath.Precision.RootStateCountCarryUpper
 import EnterpriseMath.Precision.TernaryBandCarry
 import EnterpriseMath.Precision.RootStateCountCarryThreshold
 import EnterpriseMath.Precision.TernaryBandCarryCount
+import EnterpriseMath.Precision.RootStateAtlasCardinality
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
