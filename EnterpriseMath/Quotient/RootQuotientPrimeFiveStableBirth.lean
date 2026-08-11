@@ -40,7 +40,7 @@ theorem resources_before_primeFive_birth_of_ten_le
   let N := 5 ^ (h + 1) - 1
   have hh : 3 ≤ h := by omega
   have hThreeLt : 3 ^ (h + 1) < 5 ^ (h + 1) :=
-    pow_lt_pow_right' (by omega : (1 : ℕ) < 3) (by omega : 3 < 5)
+    pow_lt_pow_left' (by omega : h + 1 ≠ 0) (by omega : (3 : ℕ) < 5)
   have hThreeLeN : 3 ^ (h + 1) ≤ N := by
     dsimp [N]
     omega
@@ -62,8 +62,10 @@ theorem resources_before_primeFive_birth_of_ten_le
     have hFiveStable := five_pow_succ_lt_threeMacroStableThreshold_of_ten_le hTen
     exact hNLtFive.trans hFiveStable
   have hN2 : 2 ≤ N := by
+    have hFiveLe : 5 ≤ 5 ^ (h + 1) :=
+      le_self_pow (by omega : (1 : ℕ) ≤ 5) (by omega : h + 1 ≠ 0)
     dsimp [N]
-    positivity
+    omega
   have hMuUpper : rootQuotientMinimumCompositeMacroCount r N h ≤ 3 :=
     (minimumCompositeMacroCount_le_three_iff_stateBound_lt_threeMacroStableThreshold
       (r := r) (N := N) (h := h)
@@ -88,7 +90,7 @@ theorem resources_at_primeFive_birth_of_ten_le
   let N := 5 ^ (h + 1)
   have hSeven : N < 7 ^ (h + 1) := by
     dsimp [N]
-    exact pow_lt_pow_right' (by omega : (1 : ℕ) < 5) (by omega : 5 < 7)
+    exact pow_lt_pow_left' (by omega : h + 1 ≠ 0) (by omega : (5 : ℕ) < 7)
   have hDirLe : rootQuotientPrimeDirectionDemand N h ≤ 3 :=
     (primeDirectionDemand_le_iff_stateBound_lt_stablePrimeBase_pow_succ
       (N := N) (h := h) (s := 3)).2 (by
@@ -105,10 +107,15 @@ theorem resources_at_primeFive_birth_of_ten_le
   have hStable : N < rootQuotientThreeMacroStableThreshold h := by
     dsimp [N]
     exact five_pow_succ_lt_threeMacroStableThreshold_of_ten_le hTen
+  have hN2 : 2 ≤ N := by
+    dsimp [N]
+    have hFiveLe : 5 ≤ 5 ^ (h + 1) :=
+      le_self_pow (by omega : (1 : ℕ) ≤ 5) (by omega : h + 1 ≠ 0)
+    omega
   have hMuUpper : rootQuotientMinimumCompositeMacroCount r N h ≤ 3 :=
     (minimumCompositeMacroCount_le_three_iff_stateBound_lt_threeMacroStableThreshold
       (r := r) (N := N) (h := h)
-      hr hTen (by dsimp [N]; positivity) (by simpa [N] using hBinary)).2 hStable
+      hr hTen hN2 (by simpa [N] using hBinary)).2 hStable
   have hDirLeCover := primeDirectionDemand_le_globalRepairDivisorCoverNumber
     (r := r) (N := N) (h := h) hr (by omega) (by simpa [N] using hBinary)
   have hCoverLeMu := globalRepairDivisorCoverNumber_le_minimumCompositeMacroCount
@@ -153,17 +160,17 @@ theorem primeBirthPreinvestmentDominance_at_primeFive_of_ten_le
     (hBinary : 5 ^ (h + 1) < 2 ^ r) :
     RootQuotientPrimeBirthPreinvestmentDominance
       r (5 ^ (h + 1) - 1) h 5 := by
+  have hBirth : (5 ^ (h + 1) - 1) + 1 = 5 ^ (h + 1) := by
+    have hPos : 0 < 5 ^ (h + 1) := by positivity
+    omega
   apply (primeBirthPreinvestmentDominance_iff_not_dualCatchupEvent
     (r := r) (N := 5 ^ (h + 1) - 1) (h := h) (p := 5)
-    hr (by omega) (by norm_num) ?_ ?_).2
-  · have hPos : 0 < 5 ^ (h + 1) := by positivity
-    omega
-  · simpa using hBinary
-  · intro hDual
-    have hCatch := resourceEvent_at_primeFive_birth_of_ten_le
-      (r := r) (h := h) hr hTen hBinary
-    rw [hCatch] at hDual
-    norm_num [rootQuotientDirectionCatchupEvent,
-      rootQuotientDualCatchupEvent] at hDual
+    hr (by omega) (by norm_num) hBirth (by simpa [hBirth] using hBinary)).2
+  intro hDual
+  have hCatch := resourceEvent_at_primeFive_birth_of_ten_le
+    (r := r) (h := h) hr hTen hBinary
+  rw [hCatch] at hDual
+  norm_num [rootQuotientDirectionCatchupEvent,
+    rootQuotientDualCatchupEvent] at hDual
 
 end EnterpriseMath.Quotient
