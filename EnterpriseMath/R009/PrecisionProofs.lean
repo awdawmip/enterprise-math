@@ -23,7 +23,9 @@ theorem r009_t27 : T27Statement := by
       omega
     have hb_div : b / r = τ / r := by
       dsimp [b]
-      rw [Nat.mul_div_right _ hr0]
+      calc
+        ((τ / r) * r) / r = (r * (τ / r)) / r := by rw [Nat.mul_comm]
+        _ = τ / r := Nat.mul_div_cancel_left _ hr0
     have hOutEq : F b / r = F τ / r := hSafe b τ hb_div
     have hBefore : F b < t * r := hFirst b hb_lt
     have hBeforeDiv : F b / r < t := by
