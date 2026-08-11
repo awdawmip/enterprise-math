@@ -1,3 +1,4 @@
+from fractions import Fraction
 from math import gcd
 
 from enterprise_math.p017_p018_euclidean_hard_conductor_isolation import (
@@ -7,7 +8,7 @@ from enterprise_math.p017_p018_euclidean_hard_conductor_isolation import (
 
 
 def test_low_primitive_ceiling_is_exact_declared_scale():
-    assert low_primitive_block_ceiling(82, 5, 7) == 35 / (3 * 82)
+    assert low_primitive_block_ceiling(82, 5, 7) == Fraction(35, 3 * 82)
 
 
 def test_low_region_has_no_hard_conductors():
