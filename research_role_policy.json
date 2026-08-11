@@ -1,14 +1,14 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V4",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V5",
   "status": "ACTIVE",
-  "effective": "2026-08-11T00:47:00+08:00",
+  "effective": "2026-08-11T15:29:00+08:00",
   "default_role": "RESEARCHER",
   "identity_bootstrap": {
     "state_machine": "research_identity_state_machine.json",
     "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
     "helper": "tools/research_identity.py",
     "taskbook_contract": "research_taskbook_contract.json",
-    "invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve or allocate a Researcher-ID before substantive work begins.",
+    "invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve its role identity before substantive work begins. RESEARCHER uses Researcher-ID; RESEARCH_DRIVER uses Driver-ID.",
     "entry_triggers": [
       "direct user research task",
       "scheduler CLAIM",
@@ -18,7 +18,7 @@
       "handoff into a new conversation",
       "resume of an existing Enterprise Math conversation"
     ],
-    "existing_identity": "PRESERVE",
+    "existing_identity": "PRESERVE_WITH_ROLE_LABEL",
     "missing_identity": "AUTO_RESOLVE_OR_ALLOCATE",
     "registration_failure": "REGISTER_PENDING_NONBLOCKING",
     "registration_is_hard_block": false
@@ -30,8 +30,8 @@
     "rules": [
       "Do not infer Driver authority from memory, repository state, task importance, prior conversations, or another Project.",
       "Driver authority applies only after explicit activation in the current conversation and remains scoped to that conversation until the user changes it.",
-      "Role activation also triggers identity bootstrap. Preserve an existing conversation ID; otherwise allocate one before substantive Driver work.",
-      "EM-DRIVER-01 is reserved for the explicitly designated primary Driver continuity conversation; other Driver conversations auto-allocate DVR identities."
+      "Role activation also triggers identity bootstrap. Preserve an existing execution handle; otherwise allocate a Driver-ID before substantive Driver work.",
+      "EM-DRIVER-01 is reserved for the explicitly designated primary Driver continuity conversation; other Driver conversations auto-allocate EM-DVR-* Driver-IDs."
     ]
   },
   "driver_operating_contract": "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
@@ -41,17 +41,33 @@
     "primary_driver_id": "EM-DRIVER-01",
     "directory_repository": "awdawmip/chatgpt-global-knowledge",
     "directory_path": "projects/enterprise-math/RESEARCHER_DIRECTORY.md",
-    "visible_marker": "Researcher-ID: <ID> / <TASK-or-CONTROL_PLANE>",
+    "visible_markers": {
+      "RESEARCHER": "Researcher-ID: <ID> / <TASK>",
+      "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE"
+    },
     "rules": [
-      "Identity creation must not depend on a Driver-authored prompt.",
-      "Scheduler CLAIMs auto-derive an ID when researcher_id is omitted.",
-      "Direct user tasks and role transitions self-allocate an ID when the current conversation has none.",
-      "Researcher-ID identifies the conversation/session instance, not a human legal identity and not theorem ownership.",
-      "Every substantive final Enterprise Math response should display the Researcher-ID marker.",
-      "If Global-Knowledge-Sync is also emitted, Researcher-ID appears immediately before it.",
-      "Semantic-checkpoint commits and research PR/handoff metadata should persist researcher_id, research_task, and research_role when the write surface supports it.",
-      "Legacy commits are not rewritten solely to add identity metadata."
+      "Identity creation must not depend on a Driver-authored prompt for direct/self-started research.",
+      "Scheduler CLAIMs auto-derive a Researcher-ID when researcher_id is omitted.",
+      "Driver-mediated manual relay preallocates a Researcher-ID in the dispatch envelope before the user transfers the task; the reusable taskbook itself remains instance-free.",
+      "Direct user research tasks outside a Driver relay self-allocate a Researcher-ID when the current conversation has none.",
+      "Researcher-ID identifies a RESEARCHER conversation/session instance. Driver-ID identifies a RESEARCH_DRIVER conversation/session instance.",
+      "Every substantive final Enterprise Math response displays the role-appropriate identity marker.",
+      "If Global-Knowledge-Sync is also emitted, the role identity marker appears immediately before it.",
+      "Semantic-checkpoint commits and research PR/handoff metadata persist role identity, research_task, and research_role when the write surface supports it.",
+      "Legacy commits and historical identity records are not rewritten solely to rename their visible identity field."
     ]
+  },
+  "manual_dispatch_identity": {
+    "taskbook_binding": "FORBIDDEN",
+    "dispatch_envelope_binding": "REQUIRED_FOR_DRIVER_MEDIATED_MANUAL_RELAY",
+    "derivation": "EM-<LANE>-SHA256(task_id + NUL + dispatch_id)[0:6].upper()",
+    "helper": "python tools/research_identity.py allocate --task <TASK> --role RESEARCHER --lane <LANE> --dispatch-id <UNIQUE_DISPATCH_ID>",
+    "persist_to": [
+      "user relay queue entry",
+      "user-visible handoff prompt",
+      "first researcher return/PR/commit metadata"
+    ],
+    "continuation_rule": "same conversation preserves the same Researcher-ID; a genuinely new dispatch envelope receives a new Researcher-ID unless explicitly continuing the same conversation"
   },
   "driver_continuity": {
     "repository": "awdawmip/chatgpt-global-knowledge",
@@ -89,7 +105,7 @@
     "task_authority": "DRIVER_APPROVED",
     "identity_policy_required_for_new_taskbooks": "AUTO_RESOLVE_OR_ALLOCATE",
     "identity_lane_optional": true,
-    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare identity_policy/identity_lane but never a fixed Researcher-ID; the executing conversation resolves or allocates its runtime identity. Legacy taskbooks inherit the global identity state machine."
+    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare identity_policy/identity_lane but never a fixed Researcher-ID. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope; scheduler/direct entry paths use their own bootstrap mechanism."
   },
   "proposal_capture": {
     "schema": "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1",
@@ -104,6 +120,7 @@
     "continue the same task when the frontier remains inside its mother question",
     "close, park, or return branches that fail to leave a genuine residue",
     "create or amend official taskbooks when a new direction is precise and worth dispatching",
+    "preallocate Researcher-IDs for Driver-mediated manual dispatch envelopes",
     "maintain the human researcher directory and resolve ambiguous historical identity mappings",
     "set priority and leverage",
     "freeze, formalize, promote, merge, or defer stable payloads",
