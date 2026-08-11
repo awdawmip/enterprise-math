@@ -203,7 +203,9 @@ theorem configSupport_executeConfig {X : Type*} (R : Rel X) :
   | nil =>
       simp [executeConfig, configSupport]
   | cons A rest ih =>
-      simp [executeConfig, configSupport, ih, relImage_union]
+      change relImage R A ∪ configSupport (executeConfig R rest) =
+        relImage R (A ∪ configSupport rest)
+      rw [ih, relImage_union]
 
 /-- A runtime split policy is exact when every split preserves the denoted support. -/
 def SupportPreservingSplit {X G : Type*}
@@ -335,14 +337,16 @@ theorem fine_first_step : relImage fRel3 fullFiber0 = ({x0, x2} : Set Fine3) := 
   rw [fullFiber0_eq]
   change relImage (graphRel f3) ({x0, x1} : Set Fine3) = ({x0, x2} : Set Fine3)
   rw [relImage_graph_eq_image]
-  simp [f3]
+  ext x
+  cases x <;> simp [f3]
 
 theorem fine_second_step :
     relImage fRel3 (relImage fRel3 fullFiber0) = ({x0} : Set Fine3) := by
   rw [fine_first_step]
   change relImage (graphRel f3) ({x0, x2} : Set Fine3) = ({x0} : Set Fine3)
   rw [relImage_graph_eq_image]
-  simp [f3]
+  ext x
+  cases x <;> simp [f3]
 
 /-- Exact two-step fine execution from the full `q=0` fibre reaches only `x0`. -/
 theorem threeState_fine_twoStep_support :
@@ -354,7 +358,8 @@ theorem threeState_fine_oneStep_coarseSupport :
     observeSupport q3 (relImage fRel3 fullFiber0) =
       ({q0, q1} : Set Coarse2) := by
   rw [fine_first_step]
-  simp [observeSupport, q3]
+  ext q
+  cases q <;> simp [observeSupport, q3]
 
 /-- Therefore exact two-step fine execution has final coarse support `{0}`. -/
 theorem threeState_fine_twoStep_coarseSupport :
@@ -439,7 +444,8 @@ theorem singleton_current_coarse :
 
 theorem hull_current_coarse :
     observeSupport q3 ({x0, x1} : Set Fine3) = ({q0} : Set Coarse2) := by
-  simp [observeSupport, q3]
+  ext q
+  cases q <;> simp [observeSupport, q3]
 
 theorem singleton_future_coarse :
     observeSupport q3
@@ -451,7 +457,10 @@ theorem hull_future_coarse :
     observeSupport q3
         (runWord (fun _ : Unit => fRel3) [()] ({x0, x1} : Set Fine3)) =
       ({q0, q1} : Set Coarse2) := by
-  simp [runWord, relImage_graph_eq_image, fRel3, f3, observeSupport, q3]
+  change observeSupport q3 (relImage fRel3 ({x0, x1} : Set Fine3)) =
+    ({q0, q1} : Set Coarse2)
+  rw [← fullFiber0_eq]
+  exact threeState_fine_oneStep_coarseSupport
 
 /-- Equality of the current coarse observation alone does not imply suffix safety. -/
 theorem sameCurrentCoarse_notSuffixSafe :
@@ -476,7 +485,9 @@ theorem sameCurrentCoarse_notSuffixSafe :
     have hmem : q1 ∈ ({q0} : Set Coarse2) := by
       rw [heq]
       simp
-    simpa using hmem
+    have hcontra : q1 = q0 := by
+      simpa only [Set.mem_singleton_iff] using hmem
+    cases hcontra
 
 inductive Middle where
   | b1 | b2
