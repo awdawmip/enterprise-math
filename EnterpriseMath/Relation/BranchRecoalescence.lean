@@ -250,6 +250,16 @@ theorem supportBranchInvariant {X G : Type*}
       rw [ih]
       rw [configSupport_exactRecoalesce, configSupport_executeConfig, hsplit g cfg]
 
+/-- Observable corollary of `SUPPORT_BRANCH_INVARIANT`: exact fine-support
+preservation immediately preserves every declared set-valued final observation. -/
+theorem supportBranchObservableInvariant {X G O : Type*}
+    (step : G → Rel X) (split : G → BranchConfig X → BranchConfig X)
+    (hsplit : SupportPreservingSplit split) (obs : X → O)
+    (w : List G) (cfg : BranchConfig X) :
+    observeSupport obs (configSupport (branchRun step split w cfg)) =
+      observeSupport obs (runWord step w (configSupport cfg)) := by
+  rw [supportBranchInvariant step split hsplit w cfg]
+
 /-- Operational suffix safety: every declared remaining word gives the same
 final observable support from the exact support `A` and replacement `H`. -/
 def SuffixSafe {X G O V : Type*}
