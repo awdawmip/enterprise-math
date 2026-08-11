@@ -106,7 +106,8 @@ theorem rootQuotientCoarseStableMacroSet_ncard_le
         ((Finset.range s).image fun i =>
           (Nat.nth Nat.Prime i) ^ rootQuotientStablePrimeBase s) := by
     intro g hg
-    simpa [rootQuotientCoarseStableMacroFinset] using hg.1
+    simp only [rootQuotientCoarseStableMacroFinset, Finset.mem_filter] at hg
+    exact hg.1
   have hCard : (rootQuotientCoarseStableMacroFinset N s).card ≤ s := by
     calc
       (rootQuotientCoarseStableMacroFinset N s).card ≤
