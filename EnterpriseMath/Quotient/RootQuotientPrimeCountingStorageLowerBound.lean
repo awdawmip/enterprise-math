@@ -57,10 +57,11 @@ theorem rootQuotientHardPrimeDirections_eq_primesLE_cutoff
     RootQuotientHardPrimeDirections N h =
       ↑(Nat.primesLE (rootQuotientPrimePowerCutoff N h)) := by
   ext p
-  simp only [RootQuotientHardPrimeDirections, Set.mem_setOf_eq,
-    Set.mem_setOf_eq, Set.mem_coe, Nat.mem_primesLE]
-  rw [pow_succ_le_stateBound_iff_le_primePowerCutoff]
-  aesop
+  change (p.Prime ∧ p ^ (h + 1) ≤ N) ↔
+    p ∈ Nat.primesLE (rootQuotientPrimePowerCutoff N h)
+  rw [pow_succ_le_stateBound_iff_le_primePowerCutoff,
+    Nat.mem_primesLE]
+  tauto
 
 /-- Closed cardinality form: the number of hard directions is the standard
 prime-counting function evaluated at the integer power cutoff. -/
