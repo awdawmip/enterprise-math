@@ -1,9 +1,9 @@
-# R021 Companion Addendum — Collapse Atlas / Collapse-Domain Accelerator
+# Post-R021 Proposal — Collapse Atlas / Collapse-Domain Accelerator
 
-Status: `ACTIVE_COMPANION / SAME_MOTHER_TASK / NOT_AN_INDEPENDENT_TASKBOOK / NOT_CANONICAL`
-Parent task: `RS-R021-BRANCHING-COLLAPSE-TOOL-CALCULUS`
+Status: `POST_R021_PROPOSAL / DRIVER_REVIEW_REQUIRED / NOT_DISPATCHABLE / NOT_CANONICAL`
+Source foundation: `RS-R021-BRANCHING-COLLAPSE-TOOL-CALCULUS` accepted/frozen result
 
-This companion adds one engineering/research subtarget to R021 without creating a new mother task.
+This file records a follow-up optimization proposal discovered after the R021 mother task was already accepted and frozen. It is **not** an active R021 addendum and must not reopen or alter the frozen R021 theorem package. A current Driver may route it as a bounded owner continuation or a new optimization task if priority justifies dispatch.
 
 ## A. Question
 
@@ -22,7 +22,7 @@ The design space must be parameterized by both:
 
 There is no meaningful fixed answer of the form "precompute up to exponent p" without also fixing the numeric domain and workload.
 
-## B. Mandatory strategies to compare
+## B. Strategies to compare
 
 ### B1. Dense state table
 
@@ -121,9 +121,9 @@ Correctness must be checked at every exact boundary and for random interior stat
 
 The raw dense table should be rejected unless it wins under a clearly declared bounded workload after storage is charged honestly.
 
-## E. Decision to return inside R021
+## E. Follow-up decision classes
 
-R021 must explicitly recommend one of:
+A future bounded accelerator task/continuation should return one of:
 
 - `DENSE_TABLE_JUSTIFIED_IN_BOUNDED_HOT_DOMAIN`;
 - `BOUNDARY_ATLAS_DOMINATES_DENSE_TABLE`;
@@ -131,6 +131,6 @@ R021 must explicitly recommend one of:
 - `HYBRID_COLLAPSE_ATLAS_PARETO_FRONTIER`;
 - `PRECOMPUTATION_NOT_MATERIAL`.
 
-Also state recommended `(P_max, N_hot)` selection policy as workload-dependent, not as a universal constant.
+It must state recommended `(P_max, N_hot)` selection policy as workload-dependent, not as a universal constant.
 
-This addendum does not change the R021 mathematical return classes and does not authorize shared-tool promotion by itself.
+This proposal does not alter R021 acceptance, R023 semantics, or shared-tool status by itself.
