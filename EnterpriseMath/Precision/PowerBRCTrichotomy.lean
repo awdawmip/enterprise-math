@@ -160,7 +160,7 @@ theorem aligned_iterate_singleton {p : ℕ} (hp : p ≠ 0) (a k t : ℕ) :
   | zero => simp [iterateRootFinset]
   | succ t ih =>
       simp [iterateRootFinset, ih, childRootFinsetOf, childRootFinset_aligned hp,
-        pow_succ, mul_assoc, mul_left_comm, mul_comm]
+        pow_succ, mul_left_comm, mul_comm]
 
 /-- L03 load-bearing cancellation lemma: a positive parent cannot hide nonalignment. -/
 theorem positive_nonaligned_input_not_power {p r k : ℕ}
@@ -218,7 +218,7 @@ theorem subthreshold_root_bounds {p r k : ℕ}
 
 /-- L04 super-threshold lower root bound. -/
 theorem superthreshold_root_lower {p r k : ℕ}
-    (hp : 2 ≤ p) (hk : 0 < k) (hr : 2 ^ p < r) :
+    (hp : 2 ≤ p) (hr : 2 ^ p < r) :
     2 * k ≤ rootIndex p r k := by
   have hp0 : p ≠ 0 := by omega
   have hpow : (2 * k) ^ p ≤ refinedPowerInput p r k := by
@@ -230,11 +230,14 @@ theorem superthreshold_root_lower {p r k : ℕ}
 theorem subthreshold_not_aligned {p r : ℕ}
     (hp : 2 ≤ p) (hr1 : 1 < r) (hr2 : r < 2 ^ p) :
     ¬ Aligned p r := by
+  have hp0 : p ≠ 0 := by omega
   rintro ⟨a, rfl⟩
   have ha2 : 2 ≤ a := by
     by_contra h
-    have ha : a ≤ 1 := by omega
-    interval_cases a <;> simp_all
+    have ha01 : a = 0 ∨ a = 1 := by omega
+    rcases ha01 with rfl | rfl
+    · simp [hp0] at hr1
+    · simp at hr1
   have hpows : 2 ^ p ≤ a ^ p := Nat.pow_le_pow_left ha2 p
   omega
 
@@ -324,7 +327,7 @@ theorem funnel_spacing {p r k : ℕ}
     have hp0 : p ≠ 0 := by omega
     have h0 := rootIndex_zero (p := p) (r := r) hp0
     have h1 := rootIndex_one_of_subthreshold hp hr1 hr2
-    omega
+    simp [h0, h1]
   · have hk : 0 < k := Nat.pos_of_ne_zero hk0
     exact ⟨funnel_spacing_lower_pos hp hk hr1 hr2,
       funnel_spacing_upper_pos hp hk hr1 hr2⟩
@@ -357,7 +360,7 @@ theorem funnel_next_root_le_childUpper_succ {p r k : ℕ}
     simp [childUpper, h0, refinedPowerInput, hp0, h1]
   · have hk : 0 < k := Nat.pos_of_ne_zero hk0
     rw [funnel_childUpper_pos hp hk hr1 hr2]
-    exact (funnel_spacing hp hr1 hr2).2
+    exact (funnel_spacing (p := p) (r := r) (k := k) hp hr1 hr2).2
 
 /-- Funnel upper endpoints are monotone from one parent to the next. -/
 theorem funnel_childUpper_le_next {p r k : ℕ}
@@ -375,7 +378,7 @@ theorem funnel_childUpper_le_next {p r k : ℕ}
     have hk1 : 0 < k + 1 := Nat.succ_pos k
     rw [funnel_childUpper_pos hp hk hr1 hr2,
       funnel_childUpper_pos hp hk1 hr1 hr2]
-    have h := (funnel_spacing hp hr1 hr2).1
+    have h := (funnel_spacing (p := p) (r := r) (k := k) hp hr1 hr2).1
     omega
 
 /-- L06: one exact BRC step maps a root-index interval to an exact no-hole interval. -/
@@ -398,7 +401,9 @@ theorem funnel_interval_finset {p r A B : ℕ}
           omega
         rw [hsplit]
         simp only [childRootFinsetOf, Finset.biUnion_insert]
-        rw [ih hA_B, childRootFinset_eq_Icc]
+        have hih := ih hA_B
+        unfold childRootFinsetOf at hih
+        rw [hih, childRootFinset_eq_Icc]
         have hLM : rootIndex p r A ≤ rootIndex p r (B + 1) := by
           apply rootIndex_monotone (p := p) (r := r) (by omega)
           omega
@@ -431,7 +436,7 @@ theorem childRootFinsetOf_card_le_two_mul (p r : ℕ) (S : Finset ℕ) :
 
 /-- L07 one-step quantitative funnel statement: interval support cannot exceed binary size. -/
 theorem funnel_interval_card_le_two_mul {p r A B : ℕ}
-    (hp : 2 ≤ p) (hr1 : 1 < r) (hr2 : r < 2 ^ p) (hAB : A ≤ B) :
+    (_hp : 2 ≤ p) (_hr1 : 1 < r) (_hr2 : r < 2 ^ p) (_hAB : A ≤ B) :
     (childRootFinsetOf p r (Finset.Icc A B)).card ≤
       2 * (Finset.Icc A B).card :=
   childRootFinsetOf_card_le_two_mul p r (Finset.Icc A B)
@@ -460,7 +465,7 @@ theorem superthreshold_spacing {p r k : ℕ}
   have hp0 : p ≠ 0 := by omega
   let m := rootIndex p r k
   have h2k : 2 * k ≤ m := by
-    simpa [m] using superthreshold_root_lower hp hk hr
+    simpa [m] using superthreshold_root_lower hp hr
   have hbasin : m ^ p ≤ refinedPowerInput p r k := by
     simpa [m] using (rootIndex_basin (p := p) (r := r) (k := k) hp0).1
   have hcross : (m + 2) * k ≤ m * (k + 1) := by
@@ -544,7 +549,7 @@ theorem superthreshold_child_positive {p r : ℕ} (S : Finset ℕ)
   intro j hj
   rcases Finset.mem_biUnion.mp hj with ⟨k, hkS, hjk⟩
   have hk := hpositive k hkS
-  have hm := superthreshold_root_lower hp hk hr
+  have hm := superthreshold_root_lower hp hr
   rcases mem_childRootFinset_cases hjk with hj | hj <;> omega
 
 /-- Positivity remains invariant under repeated super-threshold evolution. -/
@@ -597,7 +602,7 @@ theorem regimes_mutually_exclusive {p r : ℕ} :
     exact (Nat.lt_asymm hf.2 hb.2)
 
 /-- L11: for `p>=2, r>=1`, ALIGNED/FUNNEL/BINARY are exhaustive. -/
-theorem regimes_exhaustive {p r : ℕ} (hp : 2 ≤ p) (hr : 1 ≤ r) :
+theorem regimes_exhaustive {p r : ℕ} (_hp : 2 ≤ p) (_hr : 1 ≤ r) :
     Aligned p r ∨ Funnel p r ∨ Binary p r := by
   by_cases ha : Aligned p r
   · exact Or.inl ha
@@ -612,7 +617,7 @@ theorem regimes_exhaustive {p r : ℕ} (hp : 2 ≤ p) (hr : 1 ≤ r) :
       exact Or.inr (Or.inr ⟨ha, hgt⟩)
 
 /-- A classifier-level funnel hypothesis implies the strict lower threshold `1<r`. -/
-theorem funnel_one_lt {p r : ℕ} (hp : 2 ≤ p) (hr : 1 ≤ r) (hf : Funnel p r) :
+theorem funnel_one_lt {p r : ℕ} (_hp : 2 ≤ p) (hr : 1 ≤ r) (hf : Funnel p r) :
     1 < r := by
   have hrne : r ≠ 1 := by
     intro heq
