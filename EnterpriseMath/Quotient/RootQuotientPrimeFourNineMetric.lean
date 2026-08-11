@@ -1,4 +1,4 @@
-import EnterpriseMath.Quotient.RootQuotientPrimeFourSixMetric
+import EnterpriseMath.Quotient.RootQuotientPrimeFourSixShell
 import EnterpriseMath.Quotient.RootQuotientPrimeFourHorizon
 import Mathlib.Data.List.Count
 import Mathlib.Tactic
@@ -15,6 +15,16 @@ def rootQuotientPrimeFourNineCost (b : ℕ) : ℕ :=
   rootQuotientPrimeFactorCount b -
     b.factorization 2 / 2 - b.factorization 3 / 2
 
+/-- The prime-four-nine ISA is positive. -/
+theorem rootQuotientPrimeFourNineBasis_positive
+    {N : ℕ} :
+    PositiveRootQuotientGenerators (RootQuotientPrimeFourNineBasis N) := by
+  intro g hg
+  rcases hg with hgPrime | hgMacro
+  · exact hgPrime.1.one_le
+  · simp at hgMacro
+    rcases hgMacro with rfl | rfl <;> omega
+
 /-- Prime-token count of a prime-four-nine word product. -/
 theorem rootQuotientPrimeFactorCount_wordProduct_primeFourNine
     {N : ℕ} {w : List ℕ}
@@ -28,22 +38,12 @@ theorem rootQuotientPrimeFactorCount_wordProduct_primeFourNine
       have hwTail : RootQuotientWordOver (RootQuotientPrimeFourNineBasis N) w := by
         intro g hg
         exact hw g (by simp [hg])
-      have hTailPos : 1 ≤ rootQuotientWordProduct w := by
-        apply rootQuotientWordProduct_one_le_of_positiveGenerators
-        · intro g hg
-          rcases hg with hgPrime | hgMacro
-          · exact hgPrime.1.one_le
-          · simp at hgMacro
-            rcases hgMacro with rfl | rfl <;> omega
-        · exact hwTail
-      have haPos : 1 ≤ a := by
-        rcases haBasis with haPrime | haMacro
-        · exact haPrime.1.one_le
-        · simp at haMacro
-          rcases haMacro with rfl | rfl <;> omega
-      rw [rootQuotientWordProduct]
-      rw [rootQuotientPrimeFactorCount_mul haPos hTailPos]
-      rw [ih hwTail]
+      have hTailPos : 1 ≤ rootQuotientWordProduct w :=
+        rootQuotientWordProduct_one_le_of_positiveGenerators
+          rootQuotientPrimeFourNineBasis_positive hwTail
+      have haPos : 1 ≤ a := rootQuotientPrimeFourNineBasis_positive a haBasis
+      rw [rootQuotientWordProduct,
+        rootQuotientPrimeFactorCount_mul haPos hTailPos, ih hwTail]
       rcases haBasis with haPrime | haMacro
       · have haCount : rootQuotientPrimeFactorCount a = 1 := by
           rw [rootQuotientPrimeFactorCount,
@@ -68,7 +68,7 @@ theorem rootQuotientPrimeFactorCount_wordProduct_primeFourNine
           simp
           omega
         · have hNineCount : rootQuotientPrimeFactorCount 9 = 2 := by
-            have hThreeCount : rootQuotientPrimeFactorCount 3 = 1 := by
+            have hThree : rootQuotientPrimeFactorCount 3 = 1 := by
               rw [rootQuotientPrimeFactorCount,
                 Nat.primeFactorsList_prime Nat.prime_three]
               simp
@@ -77,7 +77,7 @@ theorem rootQuotientPrimeFactorCount_wordProduct_primeFourNine
                   rootQuotientPrimeFactorCount (3 ^ 2) := by norm_num
               _ = 2 * rootQuotientPrimeFactorCount 3 :=
                 rootQuotientPrimeFactorCount_pow Nat.prime_three.one_le
-              _ = 2 := by rw [hThreeCount]
+              _ = 2 := by rw [hThree]
           rw [hNineCount, List.count_cons, List.count_cons]
           simp
           omega
@@ -141,7 +141,7 @@ theorem rootQuotientPrimeFourNineCost_le_word_length
   omega
 
 /-- Canonical word: pair `2` tokens into `4`, pair `3` tokens into `9`, and
-leave all remaining prime factors literal. -/
+leave every other prime factor literal. -/
 def rootQuotientPrimeFourNineCanonicalWord (b : ℕ) : List ℕ :=
   List.replicate (b.factorization 2 / 2) 4 ++
     List.replicate (b.factorization 2 % 2) 2 ++
@@ -250,14 +250,36 @@ theorem rootQuotientPrimeFourNineBasis_reachableWithin_iff_cost_le
     · exact rootQuotientPrimeFourNineCanonicalWord_over_basis hN hbN
     · exact rootQuotientPrimeFourNineCanonicalWord_product hbPos
 
-/-- Hard shell of the `4,9` code from cost two onward. -/
+/-- Finite residual inequality behind the `4,9` shell. -/
+theorem six_mul_four_pow_residual_le
+    {n u v : ℕ}
+    (hu : u < 2)
+    (hv : v < 2)
+    (hk : 2 ≤ n + u + v) :
+    6 * 4 ^ (n + u + v - 2) ≤ 2 ^ u * 3 ^ v * 4 ^ n := by
+  rcases Nat.lt_two_iff.mp hu with rfl | rfl <;>
+    rcases Nat.lt_two_iff.mp hv with rfl | rfl
+  · have hn : 2 ≤ n := by omega
+    obtain ⟨t, rfl⟩ := Nat.exists_eq_add_of_le hn
+    simp [pow_add]
+    nlinarith [show 0 < 4 ^ t by positivity]
+  · have hn : 1 ≤ n := by omega
+    obtain ⟨t, rfl⟩ := Nat.exists_eq_add_of_le hn
+    simp [pow_add]
+    nlinarith [show 0 < 4 ^ t by positivity]
+  · have hn : 1 ≤ n := by omega
+    obtain ⟨t, rfl⟩ := Nat.exists_eq_add_of_le hn
+    simp [pow_add]
+    nlinarith [show 0 < 4 ^ t by positivity]
+  · simp
+
+/-- Exact `4,9` hard-shell lower bound from cost two onward. -/
 theorem six_mul_four_pow_sub_two_le_of_primeFourNineCost
     {b k : ℕ}
     (hbPos : 1 ≤ b)
     (hk : 2 ≤ k)
     (hCost : rootQuotientPrimeFourNineCost b = k) :
     6 * 4 ^ (k - 2) ≤ b := by
-  have hWordProd := rootQuotientPrimeFourNineCanonicalWord_product hbPos
   let m4 := b.factorization 2 / 2
   let u2 := b.factorization 2 % 2
   let m9 := b.factorization 3 / 2
@@ -275,7 +297,7 @@ theorem six_mul_four_pow_sub_two_le_of_primeFourNineCost
   have hu3 : u3 < 2 := by
     dsimp [u3]
     exact Nat.mod_lt _ (by omega)
-  have hWo : 5 ^ o ≤ wo.prod := by
+  have hWo5 : 5 ^ o ≤ wo.prod := by
     apply pow_length_le_list_prod_of_ge
     intro p hp
     have hpMem := (List.mem_filter.1 hp).1
@@ -283,94 +305,72 @@ theorem six_mul_four_pow_sub_two_le_of_primeFourNineCost
     have hpPrime : p.Prime := Nat.prime_of_mem_primeFactorsList hpMem
     simp at hpPred
     omega
+  have hWo4 : 4 ^ o ≤ wo.prod :=
+    (Nat.pow_le_pow_left (by omega) o).trans hWo5
+  have hm9 : 4 ^ m9 ≤ 9 ^ m9 := Nat.pow_le_pow_left (by omega) m9
+  have hProduct := rootQuotientPrimeFourNineCanonicalWord_product hbPos
   have hB : b = 4 ^ m4 * 2 ^ u2 * 9 ^ m9 * 3 ^ u3 * wo.prod := by
     simpa [rootQuotientPrimeFourNineCanonicalWord, m4, u2, m9, u3, wo,
-      rootQuotientWordProduct_eq_prod, Nat.mul_assoc] using hWordProd
-  have hRest4 : 4 ^ o ≤ wo.prod :=
-    (Nat.pow_le_pow_left (by omega) o).trans hWo
-  have hm9 : 4 ^ m9 ≤ 9 ^ m9 := Nat.pow_le_pow_left (by omega) m9
-  rcases Nat.lt_two_iff.mp hu2 with hu20 | hu21 <;>
-    rcases Nat.lt_two_iff.mp hu3 with hu30 | hu31
-  · have hAll : 4 ^ (m4 + m9 + o) ≤ b := by
-      calc
-        4 ^ (m4 + m9 + o) = 4 ^ m4 * 4 ^ m9 * 4 ^ o := by
-          simp [pow_add, Nat.mul_assoc]
-        _ ≤ 4 ^ m4 * 9 ^ m9 * wo.prod := by
-          exact Nat.mul_le_mul (Nat.mul_le_mul_left _ hm9) hRest4
-        _ = b := by rw [hB]; simp [hu20, hu30, Nat.mul_assoc]
-    have hK : k = m4 + m9 + o := by omega
-    rw [hK]
-    have hSixLe : 6 * 4 ^ (m4 + m9 + o - 2) ≤ 4 ^ (m4 + m9 + o) := by
-      obtain ⟨n, hn⟩ := Nat.exists_eq_add_of_le hk
-      subst k
-      norm_num at hK ⊢
-      nlinarith [show 0 < 4 ^ n by positivity]
-    exact hSixLe.trans hAll
-  · have hAll : 3 * 4 ^ (m4 + m9 + o) ≤ b := by
-      calc
-        3 * 4 ^ (m4 + m9 + o) =
-            4 ^ m4 * 4 ^ m9 * 3 * 4 ^ o := by
-          simp [pow_add, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
-        _ ≤ 4 ^ m4 * 9 ^ m9 * 3 * wo.prod := by
-          exact Nat.mul_le_mul (Nat.mul_le_mul (Nat.mul_le_mul_left _ hm9)
-            (le_refl 3)) hRest4
-        _ = b := by rw [hB]; simp [hu20, hu31, Nat.mul_assoc]
-    have hK : k = m4 + m9 + 1 + o := by omega
-    rw [hK]
-    have hNum : 6 * 4 ^ (m4 + m9 + 1 + o - 2) ≤
-        3 * 4 ^ (m4 + m9 + o) := by
-      omega
-    exact hNum.trans hAll
-  · have hAll : 2 * 4 ^ (m4 + m9 + o) ≤ b := by
-      calc
-        2 * 4 ^ (m4 + m9 + o) =
-            4 ^ m4 * 2 * 4 ^ m9 * 4 ^ o := by
-          simp [pow_add, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
-        _ ≤ 4 ^ m4 * 2 * 9 ^ m9 * wo.prod := by
-          exact Nat.mul_le_mul (Nat.mul_le_mul (Nat.mul_le_mul_left _ hm9)
-            (le_refl 2)) hRest4
-        _ = b := by rw [hB]; simp [hu21, hu30, Nat.mul_assoc]
-    have hK : k = m4 + 1 + m9 + o := by omega
-    rw [hK]
-    have hNum : 6 * 4 ^ (m4 + 1 + m9 + o - 2) ≤
-        2 * 4 ^ (m4 + m9 + o) := by
-      omega
-    exact hNum.trans hAll
-  · have hAll : 6 * 4 ^ (m4 + m9 + o) ≤ b := by
-      calc
-        6 * 4 ^ (m4 + m9 + o) =
-            4 ^ m4 * 2 * 9 ^ m9 * 3 * 4 ^ o := by
-          simp [pow_add, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
-          nlinarith
-        _ ≤ 4 ^ m4 * 2 * 9 ^ m9 * 3 * wo.prod := by
-          exact Nat.mul_le_mul_left _ hRest4
-        _ = b := by rw [hB]; simp [hu21, hu31, Nat.mul_assoc]
-    have hK : k = m4 + 1 + m9 + 1 + o := by omega
-    rw [hK]
-    simpa [show m4 + 1 + m9 + 1 + o - 2 = m4 + m9 + o by omega] using hAll
+      rootQuotientWordProduct_eq_prod, Nat.mul_assoc] using hProduct
+  have hLower : 2 ^ u2 * 3 ^ u3 * 4 ^ (m4 + m9 + o) ≤ b := by
+    calc
+      2 ^ u2 * 3 ^ u3 * 4 ^ (m4 + m9 + o) =
+          (4 ^ m4 * 2 ^ u2) * (4 ^ m9 * 3 ^ u3) * 4 ^ o := by
+        simp [pow_add, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+      _ ≤ (4 ^ m4 * 2 ^ u2) * (9 ^ m9 * 3 ^ u3) * wo.prod := by
+        exact Nat.mul_le_mul
+          (Nat.mul_le_mul_left _ (Nat.mul_le_mul_right _ hm9)) hWo4
+      _ = b := by rw [hB]; ac_rfl
+  have hResidual := six_mul_four_pow_residual_le
+    (n := m4 + m9 + o) (u := u2) (v := u3)
+    hu2 hu3 (by omega)
+  rw [show k - 2 = (m4 + m9 + o) + u2 + u3 - 2 by omega]
+  exact hResidual.trans hLower
 
-/-- Exact witness for the `4,9` hard shell. -/
+/-- Concrete factorization of the `4,9` hard-shell witness. -/
 theorem rootQuotientPrimeFourNineCost_six_mul_four_pow
     {k : ℕ}
     (hk : 2 ≤ k) :
     rootQuotientPrimeFourNineCost (6 * 4 ^ (k - 2)) = k := by
   let n := k - 2
   have hkEq : k = n + 2 := by dsimp [n]; omega
-  rw [hkEq]
+  have hSixTwo : (6 : ℕ).factorization 2 = 1 := by
+    rw [show (6 : ℕ) = 2 * 3 by norm_num,
+      Nat.factorization_mul (by norm_num) (by norm_num)]
+    simp [Nat.Prime.factorization]
+  have hSixThree : (6 : ℕ).factorization 3 = 1 := by
+    rw [show (6 : ℕ) = 2 * 3 by norm_num,
+      Nat.factorization_mul (by norm_num) (by norm_num)]
+    simp [Nat.Prime.factorization]
+  have hFourTwo : (4 : ℕ).factorization 2 = 2 := by
+    simpa [show (4 : ℕ) = 2 ^ 2 by norm_num] using
+      (Nat.factorization_pow_self (n := 2) Nat.prime_two)
+  have hFourThree : (4 : ℕ).factorization 3 = 0 := by
+    exact Nat.factorization_eq_zero_of_not_dvd (by norm_num)
   have hTwoFact : (6 * 4 ^ n).factorization 2 = 2 * n + 1 := by
-    rw [show (6 : ℕ) = 2 * 3 by norm_num,
-      show (4 : ℕ) = 2 ^ 2 by norm_num,
-      ← pow_mul]
-    have hMul := Nat.factorization_mul (by positivity : 2 * 3 ≠ 0)
-      (by positivity : 2 ^ (2 * n) ≠ 0)
-    simp [Nat.prime_two.factorization, Nat.prime_three.factorization,
-      Nat.Prime.factorization_pow, hMul]
+    rw [Nat.factorization_mul (by norm_num) (by positivity), Nat.factorization_pow]
+    simp [hSixTwo, hFourTwo]
+    omega
   have hThreeFact : (6 * 4 ^ n).factorization 3 = 1 := by
-    rw [show (6 : ℕ) = 2 * 3 by norm_num,
-      show (4 : ℕ) = 2 ^ 2 by norm_num,
-      ← pow_mul]
-    simp [Nat.factorization_mul, Nat.prime_two.factorization,
-      Nat.prime_three.factorization, Nat.Prime.factorization_pow]
+    rw [Nat.factorization_mul (by norm_num) (by positivity), Nat.factorization_pow]
+    simp [hSixThree, hFourThree]
+  have hSixOmega : rootQuotientPrimeFactorCount 6 = 2 := by
+    have hTwo : rootQuotientPrimeFactorCount 2 = 1 := by
+      rw [rootQuotientPrimeFactorCount,
+        Nat.primeFactorsList_prime Nat.prime_two]
+      simp
+    have hThree : rootQuotientPrimeFactorCount 3 = 1 := by
+      rw [rootQuotientPrimeFactorCount,
+        Nat.primeFactorsList_prime Nat.prime_three]
+      simp
+    calc
+      rootQuotientPrimeFactorCount 6 =
+          rootQuotientPrimeFactorCount (2 * 3) := by norm_num
+      _ = rootQuotientPrimeFactorCount 2 + rootQuotientPrimeFactorCount 3 :=
+        rootQuotientPrimeFactorCount_mul (by omega) (by omega)
+      _ = 2 := by rw [hTwo, hThree]
+  have hFourOmega : rootQuotientPrimeFactorCount 4 = 2 := by
+    simpa using rootQuotientPrimeFactorCount_two_pow 2
   have hOmega : rootQuotientPrimeFactorCount (6 * 4 ^ n) = 2 * n + 2 := by
     calc
       rootQuotientPrimeFactorCount (6 * 4 ^ n) =
@@ -378,12 +378,62 @@ theorem rootQuotientPrimeFourNineCost_six_mul_four_pow
             rootQuotientPrimeFactorCount (4 ^ n) :=
         rootQuotientPrimeFactorCount_mul (by omega) (by positivity)
       _ = 2 + n * 2 := by
-        have hSix : rootQuotientPrimeFactorCount 6 = 2 := by norm_num [rootQuotientPrimeFactorCount]
-        rw [hSix, rootQuotientPrimeFactorCount_pow (by omega)]
-        have hFour : rootQuotientPrimeFactorCount 4 = 2 := by
-          simpa using rootQuotientPrimeFactorCount_two_pow 2
-        rw [hFour]
+        rw [hSixOmega, rootQuotientPrimeFactorCount_pow (by omega), hFourOmega]
       _ = 2 * n + 2 := by omega
+  rw [hkEq]
   simp [rootQuotientPrimeFourNineCost, hTwoFact, hThreeFact, hOmega]
+
+/-- Exact high-root threshold for the `4,9` ISA. -/
+theorem primeFourNineBasis_separates_iff_stateBound_lt_shell
+    {r N h : ℕ}
+    (hr : 2 ≤ r)
+    (hN : 3 ≤ N)
+    (hh : 1 ≤ h)
+    (hBinary : N < 2 ^ r) :
+    SeparatesRootQuotientWordsUpTo
+        r N h (RootQuotientPrimeFourNineBasis N) ↔
+      N < 6 * 4 ^ (h - 1) := by
+  constructor
+  · intro hSep
+    by_contra hNot
+    have hbN : 6 * 4 ^ (h - 1) ≤ N := by omega
+    let b := 6 * 4 ^ (h - 1)
+    have hbPos : 1 ≤ b := by dsimp [b]; positivity
+    have hbFree : RPowerFree r b :=
+      rPowerFree_of_lt_two_pow_rootOrder hbPos (hbN.trans_lt hBinary)
+    have hReach :=
+      (separatesRootQuotientWordsUpTo_iff_powerFree_reachable
+        (r := r) (N := N) (h := h)
+        (G := RootQuotientPrimeFourNineBasis N)
+        (by omega) rootQuotientPrimeFourNineBasis_positive).1 hSep
+        b hbPos hbN hbFree
+    have hCostLe :=
+      (rootQuotientPrimeFourNineBasis_reachableWithin_iff_cost_le
+        (N := N) (b := b) (h := h) hN hbPos hbN).1 hReach
+    have hCostExact : rootQuotientPrimeFourNineCost b = h + 1 := by
+      dsimp [b]
+      simpa [show h + 1 - 2 = h - 1 by omega] using
+        (rootQuotientPrimeFourNineCost_six_mul_four_pow (k := h + 1) (by omega))
+    rw [hCostExact] at hCostLe
+    omega
+  · intro hBound
+    apply (separatesRootQuotientWordsUpTo_iff_powerFree_reachable
+      (r := r) (N := N) (h := h)
+      (G := RootQuotientPrimeFourNineBasis N)
+      (by omega) rootQuotientPrimeFourNineBasis_positive).2
+    intro b hbPos hbN _hbFree
+    apply (rootQuotientPrimeFourNineBasis_reachableWithin_iff_cost_le
+      (N := N) (b := b) (h := h) hN hbPos hbN).2
+    by_contra hNot
+    have hCost : h + 1 ≤ rootQuotientPrimeFourNineCost b := by omega
+    have hCostTwo : 2 ≤ rootQuotientPrimeFourNineCost b := by omega
+    have hShell := six_mul_four_pow_sub_two_le_of_primeFourNineCost
+      hbPos hCostTwo rfl
+    have hPowMono : 4 ^ (h - 1) ≤
+        4 ^ (rootQuotientPrimeFourNineCost b - 2) :=
+      Nat.pow_le_pow_right (by omega) (by omega)
+    have hContr : 6 * 4 ^ (h - 1) ≤ N :=
+      (Nat.mul_le_mul_left 6 hPowMono).trans (hShell.trans hbN)
+    omega
 
 end EnterpriseMath.Quotient
