@@ -1,0 +1,81 @@
+{
+  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V1",
+  "status": "ACTIVE",
+  "policy_inputs": [
+    "AGENTS.md",
+    "docs/GITHUB_INTERACTION_BUDGET.md",
+    "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
+    "research_role_policy.json",
+    "research_identity_state_machine.json",
+    "research_taskbook_contract.json"
+  ],
+  "conflict_checks": [
+    {
+      "id": "TB-REMOTE-RUNTIME",
+      "severity": "ERROR",
+      "action": "REQUIRE_TEMPORARY_OVERRIDE_OR_REMOVE",
+      "patterns": [
+        "github actions",
+        "\\bworkflow(?:s)?\\b",
+        "\\bremote validation\\b",
+        "\\bpull request\\b",
+        "\\bdraft pr\\b",
+        "\\bpush\\b",
+        "\\bpoll(?:ing)?\\b",
+        "\\bwait(?:ing)? for ci\\b",
+        "\\bcheck(?:ing)? ci\\b",
+        "\\bready for review\\b",
+        "\\bmoving main\\b",
+        "\\breconcil(?:e|ing).*main\\b"
+      ]
+    },
+    {
+      "id": "TB-SCHEDULER-RUNTIME",
+      "severity": "ERROR",
+      "action": "REQUIRE_TEMPORARY_OVERRIDE_OR_REMOVE",
+      "patterns": [
+        "\\bissue #240\\b",
+        "\\bscheduler\\b",
+        "\\bheartbeat\\b",
+        "\\bclaim event\\b"
+      ]
+    },
+    {
+      "id": "TB-PROMOTION-RUNTIME",
+      "severity": "ERROR",
+      "action": "REQUIRE_TEMPORARY_OVERRIDE_OR_REMOVE",
+      "patterns": [
+        "\\bcanonical promotion\\b",
+        "\\bl4 promotion\\b",
+        "\\bmerge(?: the| this)? pr\\b"
+      ]
+    }
+  ],
+  "restatement_checks": [
+    {
+      "id": "TB-RESTATE-REMOTE",
+      "severity": "ERROR",
+      "patterns": [
+        "ci_not_required_for_research",
+        "\\bremote_silent\\b",
+        "research is the hot path",
+        "github is a sparse persistence"
+      ]
+    },
+    {
+      "id": "TB-RESTATE-IDENTITY",
+      "severity": "ERROR",
+      "patterns": [
+        "no fixed researcher-id",
+        "do not wait for the driver to assign an id"
+      ]
+    }
+  ],
+  "override_required_fields": [
+    "conflict_id",
+    "scope",
+    "reason",
+    "replacement_behavior",
+    "expires_when"
+  ]
+}
