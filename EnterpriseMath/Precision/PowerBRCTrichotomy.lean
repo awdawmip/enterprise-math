@@ -549,7 +549,7 @@ theorem superthreshold_child_positive {p r : ℕ} (S : Finset ℕ)
   intro j hj
   rcases Finset.mem_biUnion.mp hj with ⟨k, hkS, hjk⟩
   have hk := hpositive k hkS
-  have hm := superthreshold_root_lower hp hr
+  have hm := superthreshold_root_lower (k := k) hp hr
   rcases mem_childRootFinset_cases hjk with hj | hj <;> omega
 
 /-- Positivity remains invariant under repeated super-threshold evolution. -/
