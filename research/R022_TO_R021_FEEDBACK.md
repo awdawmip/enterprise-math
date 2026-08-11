@@ -139,9 +139,7 @@ All three are pairwise incomparable, so pairwise dominance removes nothing.
 
 Nevertheless every branch is covered by the union of the other two, and any two branches preserve the total support `{1,2,3}`.
 
-Therefore:
-
-`pairwise dominance complete = false`.
+Therefore `pairwise dominance complete = false`.
 
 A maximal antichain of residual signatures can still contain exact collective redundancy.
 
@@ -201,11 +199,7 @@ A six-token pairwise-incomparable synthetic family has exact irredundant bases o
 
 A local reducer that removes one currently redundant branch at a time can terminate at width 4 even though width 3 is achievable.
 
-Therefore:
-
-`locally irredundant = globally minimum`
-
-is false, and exact pruning order can affect the terminal representation.
+Therefore `locally irredundant = globally minimum` is false, and exact pruning order can affect the terminal representation.
 
 ---
 
@@ -231,17 +225,7 @@ R023's Boolean/result-support Lean carrier should remain scoped as-is; multiplic
 
 ---
 
-## 13. Bidirectional and neutral-move conclusions remain unchanged
-
-`brc_connect` remains useful as a typed exact-interface primitive, but its generic speedup is ordinary meet-in-the-middle.
-
-Branch-local neutral moves remain domain-guarded partial transformations; generic monoid closure is false.
-
-Causal refinement depth remains useful only for inexact/budgeted collapse, changed future language, or stronger late observables. An exact RCC for a fixed language does not later need semantic rewind merely to separate the histories it validly merged.
-
----
-
-## 14. Recommended R021 compiler architecture
+## 13. Recommended R021 compiler architecture
 
 ### Cheap exact normalization
 
@@ -260,63 +244,13 @@ Causal refinement depth remains useful only for inexact/budgeted collapse, chang
 7. `REPLAY_EXACT` checkpoint eviction if live width must be reduced without losing semantics;
 8. otherwise `HEURISTIC` mode with exactness claim disabled.
 
-Candidate tool name:
-
-`residual_join_normalizer`.
-
----
-
-## 15. Candidate shared research-tool surface
-
-Keep/promote as research candidates:
-
-- `branch_signature_router`
-- `brc_connect`
-- `recoalescence_certificate`
-- `context_scoped_no_completion_certificate`
-- `residual_join_certificate`
-- `residual_join_normalizer`
-- `safe_neutral_moves`
-- `brc_refine_backtrack`
-- `branch_budget_optimizer` with exactness mode and hardness warning
-
-Do not promote generic theorem-strength `recoalescence_potential`; no generic monotone scalar survived.
-
----
-
-## 16. Attractive analogies killed across all three passes
-
-- “md5collgen compresses full IV to 3 bits” — false; only routing control is compressed.
-- “same current coarse output is enough for merge” — false.
-- “same endpoint is enough for connect/recoalescence” — false under hidden residual constraints/provenance.
-- “HashClash timeout backtracking computes causal rewind depth” — false.
-- “safe neutral moves form an unconditional monoid” — false.
-- “near-collision distance is a generic recoalescence potential” — false.
-- “history collapse proves branching beats deterministic refinement” — false.
-- “bidirectional gain is novel BRC complexity” — false; generic core is MITM.
-- “failure-prefix pruning is a new search algorithm” — false; source value is typed CS-NCC.
-- “pairwise dominance/maximal antichain gives minimum exact branch basis” — false.
-- “locally irredundant branch set is globally minimum” — false.
-- “branch width has an intrinsic meaning without an admissible token family and token cost” — false.
-- “support-safe duplicate merge preserves multiplicity/provenance” — false.
+Candidate tool name: `residual_join_normalizer`.
 
 ---
 
 ## Final R021 handoff
 
-**What survived:** a coherent, context/language/observable-typed BRC certificate calculus with real source witnesses and a stronger configuration-level residual-join normalization rule.
-
-**What did not survive:** any claim that this is a new generic algebra/search algorithm or that globally optimal exact branch budgeting is cheaply computable in general.
-
-**Most valuable third-pass addition:**
-
-`RCC + CS-NCC + dominance`
-
-are all low-cost cases of
-
-`Residual Join Certificate`,
-
-while exact 0/1/many-world normalization is the dictionary-relative **Residual Join Basis** problem, generically Set-Cover hard.
+**Most valuable third-pass addition:** RCC + CS-NCC + dominance are all low-cost cases of a **Residual Join Certificate**, while exact 0/1/many-world normalization is the dictionary-relative **Residual Join Basis** problem, generically Set-Cover hard.
 
 **Recommended sharpened R022 classification:**
 
