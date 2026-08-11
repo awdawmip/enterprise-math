@@ -12,7 +12,8 @@ private theorem div_succ_adjacent_of_same_block
   have hxylt : x < y + d :=
     lt_of_lt_of_le hxlt (Nat.add_le_add_right hyle d)
   have hxy' : x ≤ y + (d + 1) := by omega
-  have hdiv := Nat.div_le_div_right hxy' (k := d + 1)
+  have hdiv : x / (d + 1) ≤ (y + (d + 1)) / (d + 1) :=
+    Nat.div_le_div_right hxy'
   simpa [Nat.add_div_right, Nat.succ_pos] using hdiv
 
 private theorem div_succ_dist_le_one_of_same_block
@@ -100,7 +101,8 @@ theorem r009_t09 : T09Statement := by
     ring
   have hvlt : v < d * (d + 1) := by
     dsimp [v]
-    have hmul := Nat.mul_lt_mul_left (d + 1) hs
+    have hmul : (d + 1) * (s + 1) < (d + 1) * d :=
+      (Nat.mul_lt_mul_left (by omega : 0 < d + 1)).2 hs
     simpa [Nat.mul_comm] using hmul
   have hult : u < d * (d + 1) := by omega
   have hudivBig : u / (d + 1) = s := by
@@ -165,18 +167,20 @@ theorem r009_t14 : T14Statement := by
   let F : ℕ → ℕ := fun m => d * C (m / d) + φ (m / d) d (m % d)
   have hdiv0 : (d * q + s) / d = q := by
     apply Nat.div_eq_of_lt_le
-    · omega
+    · ring_nf
+      omega
     · ring_nf
       omega
   have hmod0 : (d * q + s) % d = s := by
-    simpa [Nat.mod_eq_of_lt hs] using Nat.mul_add_mod_self_left d q s
+    rw [Nat.mul_add_mod_self_left, Nat.mod_eq_of_lt hs]
   have hdiv1 : (d * C q + φ q d s) / d = C q := by
     apply Nat.div_eq_of_lt_le
-    · omega
+    · ring_nf
+      omega
     · ring_nf
       omega
   have hmod1 : (d * C q + φ q d s) % d = φ q d s := by
-    simpa [Nat.mod_eq_of_lt hφ] using Nat.mul_add_mod_self_left d (C q) (φ q d s)
+    rw [Nat.mul_add_mod_self_left, Nat.mod_eq_of_lt hφ]
   change F (F (d * q + s)) = F (d * q + s) ↔ _
   simp only [F, hdiv0, hmod0, hdiv1, hmod1, hC q]
   exact Nat.add_left_cancel_iff
@@ -221,7 +225,8 @@ theorem r009_t23 : T23Statement := by
       obtain ⟨ρ, hρ, hEq⟩ := r009_t02 F (F 1) hNat rfl d m hd
       have hbase : d * H (m / d) ≤ d * F 1 (m / d) :=
         Nat.mul_le_mul_left d (hH (m / d))
-      rw [zeroResidueLift, hEq]
+      change d * H (m / d) ≤ F d m
+      rw [hEq]
       exact hbase.trans (Nat.le_add_right _ _)
   · intro H F hNat
     constructor
@@ -233,7 +238,8 @@ theorem r009_t23 : T23Statement := by
       have hbase : d * F 1 (m / d) ≤ d * H (m / d) :=
         Nat.mul_le_mul_left d (hH (m / d))
       have hρ' : ρ ≤ d - 1 := by omega
-      rw [upperResidueLift, hEq]
+      change F d m ≤ d * H (m / d) + (d - 1)
+      rw [hEq]
       exact Nat.add_le_add hbase hρ'
 
 end EnterpriseMath.R009
