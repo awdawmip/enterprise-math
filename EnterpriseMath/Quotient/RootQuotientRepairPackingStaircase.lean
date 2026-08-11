@@ -5,32 +5,40 @@ import Mathlib.Tactic
 
 namespace EnterpriseMath.Quotient
 
-/-- Global repair packing cannot decrease when one more state is exposed. -/
-theorem globalRepairDivisorPackingNumber_mono_succ
-    {r N h : ℕ} :
+/-- Global repair packing cannot decrease when the bounded state domain grows. -/
+theorem globalRepairDivisorPackingNumber_mono_stateBound
+    {r N M h : ℕ}
+    (hNM : N ≤ M) :
     rootQuotientGlobalRepairDivisorPackingNumber r N h ≤
-      rootQuotientGlobalRepairDivisorPackingNumber r (N + 1) h := by
+      rootQuotientGlobalRepairDivisorPackingNumber r M h := by
   obtain ⟨U, hUT, hPack, hUCard⟩ :=
     exists_maximumRepairDivisorPacking
       (RootQuotientPrimeHardSemanticTargetFinset r N h)
       (RootQuotientSemanticCompositeCandidates r N)
-  have hUTNew : U ⊆ RootQuotientPrimeHardSemanticTargetFinset r (N + 1) h := by
+  have hUTM : U ⊆ RootQuotientPrimeHardSemanticTargetFinset r M h := by
     intro t ht
     exact primeHardSemanticTargetFinset_mono_stateBound
-      (r := r) (h := h) (Nat.le_succ N) (hUT ht)
-  have hPackNew : RootQuotientRepairDivisorPacking
-      (RootQuotientSemanticCompositeCandidates r (N + 1)) U := by
-    intro g hgNew t ht u hu hgT hgU
+      (r := r) (h := h) hNM (hUT ht)
+  have hPackM : RootQuotientRepairDivisorPacking
+      (RootQuotientSemanticCompositeCandidates r M) U := by
+    intro g hgM t ht u hu hgT hgU
     have htOld := (mem_primeHardSemanticTargetFinset_iff).1 (hUT ht)
     have hgLeT : g ≤ t := Nat.le_of_dvd (by omega) hgT
     have hgOld : g ∈ RootQuotientSemanticCompositeCandidates r N := by
-      refine ⟨⟨hgNew.1.1, hgLeT.trans htOld.1.2.1, hgNew.1.2.2⟩, ?_⟩
+      refine ⟨⟨hgM.1.1, hgLeT.trans htOld.1.2.1, hgM.1.2.2⟩, ?_⟩
       intro hgPrimeOld
-      exact hgNew.2 ⟨hgPrimeOld.1, hgNew.1.2.1⟩
+      exact hgM.2 ⟨hgPrimeOld.1, hgM.1.2.1⟩
     exact hPack g hgOld t ht u hu hgT hgU
-  have hLe := repairDivisorPacking_card_le_number hUTNew hPackNew
+  have hLe := repairDivisorPacking_card_le_number hUTM hPackM
   rw [hUCard] at hLe
   exact hLe
+
+/-- Successor specialization. -/
+theorem globalRepairDivisorPackingNumber_mono_succ
+    {r N h : ℕ} :
+    rootQuotientGlobalRepairDivisorPackingNumber r N h ≤
+      rootQuotientGlobalRepairDivisorPackingNumber r (N + 1) h :=
+  globalRepairDivisorPackingNumber_mono_stateBound (Nat.le_succ N)
 
 /-- Removing the newly exposed target from a next-state maximum packing leaves
 an old-state packing; hence the packing number can rise by at most one. -/
