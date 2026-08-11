@@ -1,0 +1,87 @@
+{
+  "schema": "ENTERPRISE_MATH_RH_BRC_OBLIGATION_LATTICE_V1",
+  "task": "RS-RHR-CLAUDE-RH-RERUN-20260811",
+  "researcher_id": "RHR-9Q6M2K",
+  "phase": "CONSTRUCTIVE_RERUN",
+  "status": "BRC_CONSTRUCTIVE_RERUN_ACTIVE",
+  "target": "cover every consecutive Toeplitz-minor obligation D_{r,k} by a certificate excluding NEGATIVE",
+  "carrier": {
+    "obligation": ["r", "k", "certificate_type", "payload", "future_signature"],
+    "terminal_result_support": ["POSITIVE", "NONNEGATIVE", "NEGATIVE", "UNKNOWN"],
+    "active_payload_rule": "sign-only payload is forbidden when later Dodgson propagation needs determinant ratios or correlated neighboring values"
+  },
+  "exact_transforms": [
+    {
+      "id": "RECTANGULAR_JACOBI_TRUDI_DUALITY",
+      "statement": "D_{r,k}(a)=D_{k,r}(e) where sum e_n z^n = 1/A(-z), A(z)=sum a_n z^n, a_0=1",
+      "status": "PROVED_CLASSICALLY_IN_RERUN",
+      "novelty": "PRIOR_ART / NO NOVELTY CLAIM"
+    },
+    {
+      "id": "DODGSON_LOCAL_RECURRENCE",
+      "statement": "D_{r,k}D_{r-2,k}=D_{r-1,k}^2-D_{r-1,k-1}D_{r-1,k+1}",
+      "status": "STANDARD_IDENTITY"
+    },
+    {
+      "id": "Q_LOCAL_DYNAMICS",
+      "statement": "q_{r+1,k}=q_{r,k}^2/q_{r-1,k} * (1-q_{r,k-1})(1-q_{r,k+1})/(1-q_{r,k})^2",
+      "status": "DERIVED_FROM_DODGSON",
+      "domain": "where all displayed ratios are defined"
+    }
+  ],
+  "certificate_regions": [
+    {
+      "id": "K0_EXACT",
+      "predicate": "k=0",
+      "result": "POSITIVE",
+      "certificate": "D_{r,0}=1"
+    },
+    {
+      "id": "LOW_ORDER_SECTOR",
+      "predicate": "r <= R_verified",
+      "result": "NONNEGATIVE",
+      "certificate": "verified zero height + Schoenberg sector theorem",
+      "source_status": "EXTERNAL"
+    },
+    {
+      "id": "CUBIC_TAIL",
+      "predicate": "k >= 10^18 r^3",
+      "result": "POSITIVE",
+      "certificate": "2026 uniform cubic wedge theorem for Xi consecutive Toeplitz minors",
+      "source_status": "EXTERNAL"
+    },
+    {
+      "id": "DUAL_VERTICAL_FIXED_K",
+      "predicate": "fixed k with first k reciprocal poles positive real simple and separated; r >= R_k",
+      "result": "POSITIVE",
+      "certificate": "rectangular duality + reciprocal residue expansion + Vandermonde sign cancellation + exponentially smaller remainder",
+      "source_status": "DERIVED_IN_RERUN"
+    }
+  ],
+  "branch_operations": [
+    "SPLIT_BY_REGION",
+    "DUALIZE_RECTANGLE",
+    "REFINE_RECIPROCAL_POLE_CLUSTER",
+    "DODGSON_PROPAGATE",
+    "REFINE_INTERVAL_PRECISION",
+    "TERMINAL_RECOALESCE"
+  ],
+  "safe_recoalescence": {
+    "terminal": "branches may merge when remaining future language observes only certified final sign support",
+    "active": "branches may merge only if determinant-ratio/correlation future signatures agree",
+    "forbidden": "merging active branches solely because current determinants share the same sign"
+  },
+  "unresolved_core": {
+    "baseline": "r > R_verified and 1 <= k < 10^18 r^3",
+    "after_vertical_prefix_K": "{r>R_verified, k>K, k<10^18 r^3} union finite strips {1<=k<=K, R_verified<r<R_k}",
+    "status": "OPEN"
+  },
+  "next_targets": [
+    "T1_CLUSTERED_RECIPROCAL_POLE_BRC",
+    "T2_UNIFORM_VERTICAL_THRESHOLD",
+    "T3_CRITICAL_REGIME_SADDLE_PROFILE_CARRIER",
+    "T4_DODGSON_FIRST_FAILURE_BACKPROPAGATION"
+  ],
+  "rh_status": "NOT_CLOSED",
+  "hard_block": null
+}
