@@ -166,13 +166,12 @@ theorem two_points_in_power_gap {p k : ℕ} (hp : 2 ≤ p) (hk : 1 ≤ k) :
       simp [pow_two]
       nlinarith
   | succ r ih =>
-      have hk' : 1 ≤ k := hk
       have hbase : k ≤ k + 1 := by omega
       have hpowmono : k ^ (2 + r) ≤ (k + 1) ^ (2 + r) :=
         Nat.pow_le_pow_left hbase (2 + r)
       have hpositive : 1 ≤ (k + 1) ^ (2 + r) := by positivity
       simp only [Nat.add_succ, pow_succ]
-      nlinarith
+      nlinarith [ih]
 
 /-- R018-L02.4 nontriviality: every positive-root open gap is a non-singleton
 bracket fibre; the two displayed fine states share the same cell label. -/
@@ -390,11 +389,11 @@ theorem propagateList_sat_input_exact
       calc
         Sat q (PropagateList Rs (RelSupport R (Sat q S))) =
             Sat q (PropagateList Rs (Sat q (RelSupport R (Sat q S)))) :=
-          (ih hRs (RelSupport R (Sat q S))).symm
+          (ih (hComplete := hRs) (S := RelSupport R (Sat q S))).symm
         _ = Sat q (PropagateList Rs (Sat q (RelSupport R S))) := by
           rw [hR S]
         _ = Sat q (PropagateList Rs (RelSupport R S)) :=
-          ih hRs (RelSupport R S)
+          ih (hComplete := hRs) (S := RelSupport R S)
 
 /-- R018-L07: generatorwise L06 completeness implies arbitrary finite-word
 repeated-saturation exactness at the level of final result support. Path
@@ -414,7 +413,7 @@ theorem repeatedSatExec_exact
       calc
         RepeatedSatExec q Rs (Sat q (RelSupport R (Sat q S))) =
             Sat q (PropagateList Rs (Sat q (RelSupport R (Sat q S)))) :=
-          ih hRs (Sat q (RelSupport R (Sat q S)))
+          ih (hComplete := hRs) (S := Sat q (RelSupport R (Sat q S)))
         _ = Sat q (PropagateList Rs (Sat q (RelSupport R S))) := by
           rw [hR S]
         _ = Sat q (PropagateList Rs (RelSupport R S)) :=
