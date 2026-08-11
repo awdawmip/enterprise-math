@@ -19,13 +19,12 @@ jobs:
           ref: agent/r023i-brc-narrow-shared-surface
           fetch-depth: 1
 
-      - name: Replay frozen R023 module and shared-surface delta
+      - name: Replay frozen payload and validate shared-surface delta
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "EM-R023I-D7ABB0"
           git config user.email "30957095+awdawmip@users.noreply.github.com"
-
           FROZEN_COMMIT=6eea57de1d30d6c2fe983121f6e209286a5c9895
           FROZEN_BLOB=9905df19ce6f7dd79864384362487cc8f54c3349
           git fetch --depth=1 origin "$FROZEN_COMMIT" || git fetch --depth=64 origin agent/r023-brc-semantic-lean-core
@@ -33,230 +32,18 @@ jobs:
           git show "$FROZEN_COMMIT":EnterpriseMath/Relation/BranchRecoalescence.lean > EnterpriseMath/Relation/BranchRecoalescence.lean
           test "$(git hash-object EnterpriseMath/Relation/BranchRecoalescence.lean)" = "$FROZEN_BLOB"
 
-          python - <<'PY'
-          from pathlib import Path
-
-          def replace_once(path: str, old: str, new: str) -> None:
-              p = Path(path)
-              text = p.read_text(encoding="utf-8")
-              count = text.count(old)
-              if count != 1:
-                  raise SystemExit(f"{path}: expected one marker, found {count}: {old[:100]!r}")
-              p.write_text(text.replace(old, new, 1), encoding="utf-8")
-
-          # Root registration: mechanical import only.
-          replace_once(
-              "EnterpriseMath.lean",
-              "import EnterpriseMath.Quotient.RootFutureClosure\nimport EnterpriseMath.Scale.Compatibility",
-              "import EnterpriseMath.Quotient.RootFutureClosure\nimport EnterpriseMath.Relation.BranchRecoalescence\nimport EnterpriseMath.Scale.Compatibility",
-          )
-
-          # Machine shared surface: status vocabulary, exact root index, scoped A4 routing,
-          # WIP specialization metadata, and exact registered Lean path.
-          replace_once(
-              "research_common_surface.json",
-              '  "result_statuses": ["CANONICAL_MAIN", "LEAN_CHECKED_MAIN", "PROVED_WIP_RELAY", "EXECUTABLE_CHECKED", "COUNTEREXAMPLE_NEGATIVE_BOUNDARY", "CONJECTURAL"],',
-              '  "result_statuses": ["CANONICAL_MAIN", "LEAN_CHECKED_MAIN", "LEAN_CHECKED_WIP", "PROVED_WIP_RELAY", "EXECUTABLE_CHECKED", "COUNTEREXAMPLE_NEGATIVE_BOUNDARY", "CONJECTURAL"],',
-          )
-          replace_once(
-              "research_common_surface.json",
-              '    "EnterpriseMath/Quotient/RootFutureClosure.lean",\n    "EnterpriseMath/Scale/Compatibility.lean",',
-              '    "EnterpriseMath/Quotient/RootFutureClosure.lean",\n    "EnterpriseMath/Relation/BranchRecoalescence.lean",\n    "EnterpriseMath/Scale/Compatibility.lean",',
-          )
-          replace_once(
-              "research_common_surface.json",
-              '    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra, and relation-observable powerset bridge; not identified with one deterministic kernel or partial deterministic family",',
-              '    "A4": "multivalued support/correspondence, composition, common targets, split-completeness, witness/group spectra, relation-observable powerset bridge, and the R023 exact Boolean-support branch/recoalescence semantic core; not identified with one deterministic kernel or partial deterministic family, and not a representation/resource primitive",',
-          )
-
-          brc_specialization = '''    "A4_BRC_semantic_core": {
-              "status": "LEAN_CHECKED_WIP / R023I_SHARED_SURFACE_INTEGRATION_CANDIDATE / NOT_CANONICAL",
-              "source": "R023 Draft PR #498 / final owner head 0b72b9e549e1469567764fbe89f9f2baa8b55453 / frozen semantic Lean candidate 6eea57de1d30d6c2fe983121f6e209286a5c9895",
-              "validation": "standard warnings-fatal Lean run 31484436882 PASS on the R023 final owner head; R023I is exact replay with no theorem-statement or assumption change",
-              "scope": "complete-runtime-encoding no-resurrection factorization; one-step (q, coarse successor-support) factorization/kernel coarsest repair; exact Boolean Set X branch split plus relational direct image plus literal-union recoalescence preserving reachable fine/result support; suffix-safe forgetful replacement iff remaining support signatures agree",
-              "negative_boundaries": "three-state one-step-exact/two-step-spurious quotient-composition witness (minimality only in the declared R021 exhaustive one-generator/full-starting-fibre search class); middle-incidence spurious composition after erasing middle identity; equal current coarse support alone is insufficient for suffix safety",
-              "layering_boundary": "pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices; BRC is not semantically stronger than deterministic P023",
-              "carrier_boundary": "Boolean/set-valued support only; multiplicity, provenance, probability/weights, signed/amplitude cancellation require richer carriers; R021 representation Pareto/branch budget and R022 HashClash are excluded",
-              "lean_module": "EnterpriseMath/Relation/BranchRecoalescence.lean",
-              "claim_map": {
-                "NO_RESURRECTION": "EnterpriseMath.BranchRecoalescence.noResurrection",
-                "ONE_STEP_COARSEST": "EnterpriseMath.BranchRecoalescence.oneStepCoarsest / EnterpriseMath.BranchRecoalescence.oneStepCoarseSuccessorCoarsest",
-                "SUPPORT_BRANCH_INVARIANT": "EnterpriseMath.BranchRecoalescence.supportBranchInvariant",
-                "FORGETFUL_RECOALESCENCE_IFF": "EnterpriseMath.BranchRecoalescence.forgetfulRecoalescence_iff"
-              }
-            },
-'''
-          replace_once(
-              "research_common_surface.json",
-              '    "P018_P023_power_free_action_basis": {',
-              brc_specialization + '    "P018_P023_power_free_action_basis": {',
-          )
-          replace_once(
-              "research_common_surface.json",
-              '    "A5_P022": ["src/enterprise_math/lattice_geometry.py", "tests/test_lattice_geometry.py"],',
-              '    "A4_BRC_semantic_core": ["EnterpriseMath/Relation/BranchRecoalescence.lean"],\n    "A5_P022": ["src/enterprise_math/lattice_geometry.py", "tests/test_lattice_geometry.py"],',
-          )
-
-          en_status = "- `LEAN_CHECKED_WIP` — a frozen branch/owner statement has passed its declared warnings-fatal Lean gate but is not yet canonical `main` or `LEAN_CHECKED_MAIN`;\n"
-          replace_once(
-              "docs/RESEARCH_COMMON_SURFACE.en.md",
-              "- `LEAN_CHECKED_MAIN` — canonical statement actually covered by the root warning-fatal Lean build;\n- `PROVED_WIP_RELAY`",
-              "- `LEAN_CHECKED_MAIN` — canonical statement actually covered by the root warning-fatal Lean build;\n" + en_status + "- `PROVED_WIP_RELAY`",
-          )
-          en_brc = '''A4 multivalued correspondence is not silently identified with one deterministic functional kernel or one partial deterministic operation family.
-
-#### R023 Branch-Recoalescence Collapse Boolean-support semantic core — `LEAN_CHECKED_WIP / SHARED-SURFACE INTEGRATION CANDIDATE / NOT CANONICAL`
-
-Frozen R023 source: Draft PR #498, final owner head `0b72b9e549e1469567764fbe89f9f2baa8b55453`, semantic Lean candidate `6eea57de1d30d6c2fe983121f6e209286a5c9895`; standard warnings-fatal Lean run `31484436882` passed on the final owner head. R023I replays the Lean module exactly; it does not change theorem statements or assumptions.
-
-Shared formal asset:
-
-- `EnterpriseMath/Relation/BranchRecoalescence.lean`
-
-The exposed theorem family is intentionally narrow:
-
-- `NO_RESURRECTION`: an exact pointwise target recoverable only from the complete runtime encoding factors through that encoding; erased point distinctions are not resurrected by later branching.
-- `ONE_STEP_COARSEST`: `(q(x), successor-support(x))` is sufficient, and every classifier from which both components are recoverable refines/factors onto this key; uniqueness is kernel/partition up to relabeling, not literal classifier-codomain identity.
-- `SUPPORT_BRANCH_INVARIANT`: exact branch denotations, support-preserving splits, relational direct image, and literal exact-union recoalescence preserve the exact reachable fine `Set X` for every finite word, hence every set-valued final observation.
-- `FORGETFUL_RECOALESCENCE_IFF`: a forgetful replacement is safe exactly relative to the declared remaining language/observable support signature.
-
-Negative boundaries kept on the same surface:
-
-- `threeState_oneStep_exact` together with `threeState_composition_spurious_q1` gives the frozen one-generator/full-starting-fibre witness: naive existential quotienting is one-step exact there but repeated coarse composition admits a spurious coarse state. “Three states are minimal” remains only the R021 bounded exhaustive-search result in that declared search class, not a global Lean minimality theorem.
-- `middleIncidence_exact_empty` and `middleIncidence_coarse_spurious` show that nonempty/coarse middle marginals can compose spuriously when middle witness identity/correlation is erased.
-- `sameCurrentCoarse_notSuffixSafe` shows current coarse equality alone does not imply suffix safety.
-
-Layering boundary:
-
-`pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices`.
-
-This Boolean support carrier does not preserve multiplicity, provenance, probability/weights, or signed/amplitude cancellation. R021 representation Pareto/branch-budget results and R022 HashClash tooling are not part of this shared theorem surface.
-
-### A5 — intrinsic discrete geometry'''
-          replace_once(
-              "docs/RESEARCH_COMMON_SURFACE.en.md",
-              "A4 multivalued correspondence is not silently identified with one deterministic functional kernel or one partial deterministic operation family.\n\n### A5 — intrinsic discrete geometry",
-              en_brc,
-          )
-          replace_once(
-              "docs/RESEARCH_COMMON_SURFACE.en.md",
-              "- `EnterpriseMath/Quotient/RootFutureClosure.lean`\n- `EnterpriseMath/Scale/Compatibility.lean`",
-              "- `EnterpriseMath/Quotient/RootFutureClosure.lean`\n- `EnterpriseMath/Relation/BranchRecoalescence.lean`\n- `EnterpriseMath/Scale/Compatibility.lean`",
-          )
-
-          zh_status = "- `LEAN_CHECKED_WIP`：冻结 branch/owner statement 已通过其声明的 warnings-fatal Lean gate，但尚未进入 canonical `main`，也不能标为 `LEAN_CHECKED_MAIN`；\n"
-          replace_once(
-              "docs/RESEARCH_COMMON_SURFACE.zh-CN.md",
-              "- `LEAN_CHECKED_MAIN`：canonical 且实际被 root warning-fatal Lean build 覆盖；\n- `PROVED_WIP_RELAY`",
-              "- `LEAN_CHECKED_MAIN`：canonical 且实际被 root warning-fatal Lean build 覆盖；\n" + zh_status + "- `PROVED_WIP_RELAY`",
-          )
-          zh_brc = '''A4 multivalued correspondence 不能被悄悄等同于一个确定性 functional kernel，也不能等同于一个部分确定性操作族。
-
-#### R023 Branch-Recoalescence Collapse Boolean-support 语义核 — `LEAN_CHECKED_WIP / SHARED-SURFACE INTEGRATION CANDIDATE / NOT CANONICAL`
-
-冻结 R023 来源：Draft PR #498、final owner head `0b72b9e549e1469567764fbe89f9f2baa8b55453`、semantic Lean candidate `6eea57de1d30d6c2fe983121f6e209286a5c9895`；final owner head 的标准 warnings-fatal Lean run `31484436882` 已 PASS。R023I 只做 Lean module 精确重放，不修改 theorem statement 或 assumption。
-
-共享 formal 资产：
-
-- `EnterpriseMath/Relation/BranchRecoalescence.lean`
-
-暴露的 theorem family 严格限于：
-
-- `NO_RESURRECTION`：若精确 pointwise target 只能从 complete runtime encoding 恢复，则 target 必须 factor through 该 encoding；已删除的 point distinction 不能靠后续 branching 复活。
-- `ONE_STEP_COARSEST`：`(q(x), successor-support(x))` 自身充分；任何能恢复这两部分的 classifier 都会 refine/factor onto 该 key；唯一性是 kernel/partition 在 relabeling 意义下的唯一，而不是 classifier codomain 的字面唯一。
-- `SUPPORT_BRANCH_INVARIANT`：exact branch denotation、support-preserving split、relational direct image 与 literal exact-union recoalescence 对每个有限 word 都保持精确 reachable fine `Set X`，因此保持所有 set-valued final observation。
-- `FORGETFUL_RECOALESCENCE_IFF`：forgetful replacement 的安全性恰好相对于 declared remaining language / observable support signature 判定。
-
-同一共享面登记三个负向边界：
-
-- `threeState_oneStep_exact` 与 `threeState_composition_spurious_q1` 给出冻结的一生成元/full-starting-fibre witness：naive existential quotient 在该起点一步精确，但重复 coarse composition 会引入伪 coarse state；“三状态最小”只保留为 R021 声明搜索类内的有界穷举结论，不升级为全局 Lean minimality theorem。
-- `middleIncidence_exact_empty` 与 `middleIncidence_coarse_spurious` 表明忘记 middle witness identity/correlation 后，非空/coarse middle marginal 可产生伪复合。
-- `sameCurrentCoarse_notSuffixSafe` 表明仅 current coarse equality 不推出 suffix safety。
-
-分层边界：
-
-`pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices`。
-
-该 Boolean support carrier 不保持 multiplicity、provenance、probability/weights 或 signed/amplitude cancellation。R021 representation Pareto/branch-budget 与 R022 HashClash tooling 不进入本共享 theorem surface。
-
-### A5 — intrinsic discrete geometry'''
-          replace_once(
-              "docs/RESEARCH_COMMON_SURFACE.zh-CN.md",
-              "A4 multivalued correspondence 不能被悄悄等同于一个确定性 functional kernel，也不能等同于一个部分确定性操作族。\n\n### A5 — intrinsic discrete geometry",
-              zh_brc,
-          )
-          replace_once(
-              "docs/RESEARCH_COMMON_SURFACE.zh-CN.md",
-              "- `EnterpriseMath/Quotient/RootFutureClosure.lean`\n- `EnterpriseMath/Scale/Compatibility.lean`",
-              "- `EnterpriseMath/Quotient/RootFutureClosure.lean`\n- `EnterpriseMath/Relation/BranchRecoalescence.lean`\n- `EnterpriseMath/Scale/Compatibility.lean`",
-          )
-
-          audit = '''# R023I — BRC Narrow Shared-Surface Integration Return
-
-Researcher-ID: `EM-R023I-D7ABB0`  
-Task: `RS-R023I-BRC-NARROW-SHARED-SURFACE-INTEGRATION`  
-Taskbook: `research_tasks/R023I_BRC_NARROW_SHARED_SURFACE_INTEGRATION_20260811.md` @ `e37f7aa26e0bb97d1515fc791ba940db05b6ed50`  
-Frozen R023 Draft artifact: `#498`  
-Frozen final owner head: `0b72b9e549e1469567764fbe89f9f2baa8b55453`  
-Frozen semantic Lean candidate: `6eea57de1d30d6c2fe983121f6e209286a5c9895`  
-Frozen module blob: `9905df19ce6f7dd79864384362487cc8f54c3349`  
-Mode: `NO NEW MATHEMATICS / EXACT REPLAY / NOT CANONICAL`
-
-## Return class
-
-`R023I_EXACT_REPLAY_COMPLETE / EXTERNAL_MAINTENANCE_GATE_REMAINS / NOT_CANONICAL`
-
-The R023 Boolean/result-support semantic payload replays without theorem-statement, assumption, namespace, or carrier changes. The only expected residual shared-surface gate is the pre-existing repository-tool index drift for `tools/research_identity.py` and `tools/research_taskbook.py`, which is explicitly outside R023I scope.
-
-## Exact file/delta audit
-
-| File | Required role | R023 theorem/assumption change | Status exposed |
-|---|---|---|---|
-| `EnterpriseMath/Relation/BranchRecoalescence.lean` | exact frozen replay | **NONE**; blob must equal `9905df19...` | `LEAN_CHECKED_WIP` source payload |
-| `EnterpriseMath.lean` | root registration | **NONE**; import only | integration candidate, not `LEAN_CHECKED_MAIN` |
-| `research_common_surface.json` | machine root/theorem/status router | **NONE**; metadata/routing only | `LEAN_CHECKED_WIP / NOT_CANONICAL` |
-| `docs/RESEARCH_COMMON_SURFACE.en.md` | English human theorem/status router | **NONE**; scoped prose only | same WIP boundary |
-| `docs/RESEARCH_COMMON_SURFACE.zh-CN.md` | Chinese human theorem/status router | **NONE**; bilingual scoped prose only | same WIP boundary |
-| `docs/R023I_BRC_SHARED_SURFACE_RETURN.md` | integration provenance/audit | **NONE** | `NO NEW MATHEMATICS / NOT_CANONICAL` |
-
-No new source/lineage registry sidecar is created. The current `check_references.py` schema validates records that are explicitly registered; it does not require a new lineage component merely because a Lean module is exposed. R023I therefore records prior-art/ownership/status boundaries in the machine/human routers and this integration audit without inventing a new novelty record.
-
-## Claim → Lean declaration map
-
-| Claim ID | Exact shared Lean declaration |
-|---|---|
-| `NO_RESURRECTION` | `EnterpriseMath.BranchRecoalescence.noResurrection` (point-signature specialization: `pointSignature_noResurrection`) |
-| `ONE_STEP_COARSEST` | `EnterpriseMath.BranchRecoalescence.oneStepCoarsest` (R021 relational specialization: `oneStepCoarseSuccessorCoarsest`) |
-| `SUPPORT_BRANCH_INVARIANT` | `EnterpriseMath.BranchRecoalescence.supportBranchInvariant` (observable corollary: `supportBranchObservableInvariant`) |
-| `FORGETFUL_RECOALESCENCE_IFF` | `EnterpriseMath.BranchRecoalescence.forgetfulRecoalescence_iff` |
-
-## Negative boundaries preserved
-
-- 3-state quotient composition: `threeState_oneStep_exact`, `threeState_quotient_twoStep_coarseSupport`, `threeState_composition_spurious_q1`. The Lean artifact proves the witness; the three-state minimality statement remains limited to the R021 declared exhaustive one-generator/full-starting-fibre search class.
-- Middle incidence correlation: `middleIncidence_exact_empty` plus `middleIncidence_coarse_spurious`.
-- Current coarse equality insufficient for suffix safety: `sameCurrentCoarse_notSuffixSafe`.
-
-## Semantic boundary audit
-
-The shared wording remains:
-
-`pointwise future-safe factorization baseline -> relational/result-support execution layer -> representation/resource choices`.
-
-Exact-union recoalescence and forgetful replacement remain distinct. Runtime branching does not resurrect distinctions erased from the **complete** runtime encoding. `ONE_STEP_COARSEST` is a factorization/kernel universal property up to relabeling, not literal classifier-codomain identity. The support carrier remains Boolean/set-valued `Set X` only.
-
-Excluded from this integration: R021 representation Pareto/branch-budget material, R022 HashClash/tool-mining results, multiplicity, provenance, probability/weights, signed/amplitude cancellation, new arithmetic specializations, and new Foundation primitives.
-
-## Validation contract
-
-The frozen R023 final owner head already has Driver-accepted standard warnings-fatal Lean run `31484436882` PASS. R023I additionally requires the replayed module blob to equal the frozen blob, valid machine JSON, bilingual/reference checks, exact root-index visibility, and no new shared-surface drift beyond the explicitly known tool-index maintenance defect.
-'''
-          Path("docs/R023I_BRC_SHARED_SURFACE_RETURN.md").write_text(audit, encoding="utf-8")
-          PY
+          : > /tmp/r023i-patch.b64
+          printf '%s' 'CmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAoKZGVmIHJlcGxhY2Vfb25jZShwYXRoOiBzdHIsIG9sZDogc3RyLCBuZXc6IHN0cikgLT4gTm9uZToKICAgIHAgPSBQYXRoKHBhdGgpCiAgICB0ZXh0ID0gcC5yZWFkX3RleHQoZW5jb2Rpbmc9InV0Zi04IikKICAgIGNvdW50ID0gdGV4dC5jb3VudChvbGQpCiAgICBpZiBjb3VudCAhPSAxOgogICAgICAgIHJhaXNlIFN5c3RlbUV4aXQoZiJ7cGF0aH06IGV4cGVjdGVkIG9uZSBtYXJrZXIsIGZvdW5kIHtjb3VudH06IHtvbGRbOjEwMF0hcn0iKQogICAgcC53cml0ZV90ZXh0KHRleHQucmVwbGFjZShvbGQsIG5ldywgMSksIGVuY29kaW5nPSJ1dGYtOCIpCgpyZXBsYWNlX29uY2UoCiAgICAiRW50ZXJwcmlzZU1hdGgubGVhbiIsCiAgICAiaW1wb3J0IEVudGVycHJpc2VNYXRoLlF1b3RpZW50LlJvb3RGdXR1cmVDbG9zdXJlXG5pbXBvcnQgRW50ZXJwcmlzZU1hdGguU2NhbGUuQ29tcGF0aWJpbGl0eSIsCiAgICAiaW1wb3J0IEVudGVycHJpc2VNYXRoLlF1b3RpZW50LlJvb3RGdXR1cmVDbG9zdXJlXG5pbXBvcnQgRW50ZXJwcmlzZU1hdGguUmVsYXRpb24uQnJhbmNoUmVjb2FsZXNjZW5jZVxuaW1wb3J0IEVudGVycHJpc2VNYXRoLlNjYWxlLkNvbXBhdGliaWxpdHkiLAopCgpyZXBsYWNlX29uY2UoCiAgICAicmVzZWFyY2hfY29tbW9uX3N1cmZhY2UuanNvbiIsCiAgICAnICAicmVzdWx0X3N0YXR1c2VzIjogWyJDQU5PTklDQUxfTUFJTiIsICJMRUFOX0NIRUNLRURfTUFJTiIsICJQUk9WRURfV0lQX1JFTEFZIiwgIkVYRUNVVEFCTEVfQ0hFQ0tFRCIsICJDT1VOVEVSRVhBTVBMRV9ORUdBVElWRV9CT1VOREFSWSIsICJDT05KRUNUVVJBTCJdLCcsCiAgICAnICAicmVzdWx0X3N0YXR1c2VzIjogWyJDQU5PTklDQUxfTUFJTiIsICJMRUFOX0NIRUNLRURfTUFJTiIsICJMRUFOX0NIRUNLRURfV0lQIiwgIlBST1ZFRF9XSVBfUkVMQVkiLCAiRVhFQ1VUQUJMRV9DSEVDS0VEIiwgIkNPVU5URVJFWEFNUExFX05FR0FUSVZFX0JPVU5EQVJZIiwgIkNPTkpFQ1RVUkFMIl0sJywKKQpyZXBsYWNlX29uY2UoCiAgICAicmVzZWFyY2hfY29tbW9uX3N1cmZhY2UuanNvbiIsCiAgICAnICAgICJFbnRlcnByaXNlTWF0aC9RdW90aWVudC9Sb290RnV0dXJlQ2xvc3VyZS5sZWFuIixcbiAgICAiRW50ZXJwcmlzZU1hdGgvU2NhbGUvQ29tcGF0aWJpbGl0eS5sZWFuIiwnLAogICAgJyAgICAiRW50ZXJwcmlzZU1hdGgvUXVvdGllbnQvUm9vdEZ1dHVyZUNsb3N1cmUubGVhbiIsXG4gICAgIkVudGVycHJpc2VNYXRoL1JlbGF0aW9uL0JyYW5jaFJlY29hbGVzY2VuY2UubGVhbiIsXG4gICAgIkVudGVycHJpc2VNYXRoL1NjYWxlL0NvbXBhdGliaWxpdHkubGVhbiIsJywKKQpyZXBsYWNlX29uY2UoCiAgICAicmVzZWFyY2hfY29tbW9uX3N1cmZhY2UuanNvbiIsCiAgICAnICAgICJBNCI6ICJtdWx0aXZhbHVlZCBzdXBwb3J0L2NvcnJlc3BvbmRlbmNlLCBjb21wb3NpdGlvbiwgY29tbW9uIHRhcmdldHMsIHNwbGl0LWNvbXBsZXRlbmVzcywgd2l0bmVzcy9ncm91cCBzcGVjdHJhLCBhbmQgcmVsYXRpb24tb2JzZXJ2YWJsZSBwb3dlcnNldCBicmlkZ2U7IG5vdCBpZGVudGlmaWVkIHdpdGggb25lIGRldGVybWluaXN0aWMga2VybmVsIG9yIHBhcnRpYWwgZGV0ZXJtaW5pc3RpYyBmYW1pbHkiLCcsCiAgICAnICAgICJBNCI6ICJtdWx0aXZhbHVlZCBzdXBwb3J0L2NvcnJlc3BvbmRlbmNlLCBjb21wb3NpdGlvbiwgY29tbW9uIHRhcmdldHMsIHNwbGl0LWNvbXBsZXRlbmVzcywgd2l0bmVzcy9ncm91cCBzcGVjdHJhLCByZWxhdGlvbi1vYnNlcnZhYmxlIHBvd2Vyc2V0IGJyaWRnZSwgYW5kIHRoZSBSMDIzIGV4YWN0IEJvb2xlYW4tc3VwcG9ydCBicmFuY2gvcmVjb2FsZXNjZW5jZSBzZW1hbnRpYyBjb3JlOyBub3QgaWRlbnRpZmllZCB3aXRoIG9uZSBkZXRlcm1pbmlzdGljIGtlcm5lbCBvciBwYXJ0aWFsIGRldGVybWluaXN0aWMgZmFtaWx5LCBhbmQgbm90IGEgcmVwcmVzZW50YXRpb24vcmVzb3VyY2UgcHJpbWl0aXZlIiwnLAopCgpicmNfc3BlY2lhbGl6YXRpb24gPSAnJycgICAgIkE0X0JSQ19zZW1hbnRpY19jb3JlIjogewogICAgICAic3RhdHVzIjogIkxFQU5fQ0hFQ0tFRF9XSVAgLyBSMDIzSV9TSEFSRURfU1VSRkFDRV9JTlRFR1JBVElPTl9DQU5ESURBVEUgLyBOT1RfQ0FOT05JQ0FMIiwKICAgICAgInNvdXJjZSI6ICJSMDIzIERyYWZ0IFBSICM0OTggLyBmaW5hbCBvd25lciBoZWFkIDBiNzJiOWU1NDllMTQ2OTU2Nzc2NGZiZTg5ZjlmMmJhYThiNTU0NTMgLyBmcm96ZW4gc2VtYW50aWMgTGVhbiBjYW5kaWRhdGUgNmVlYTU3ZGUxZDMwZDZjMmZlOTgzMTIxZjZlMjA5Mjg2YTVjOTg5NSIsCiAgICAgICJ2YWxpZGF0aW9uIjogInN0YW5kYXJkIHdhcm5pbmdzLWZhdGFsIExlYW4gcnVuIDMxNDg0NDM2ODgyIFBBU1Mgb24gdGhlIFIwMjMgZmluYWwgb3duZXIgaGVhZDsgUjAyM0kgaXMgZXhhY3QgcmVwbGF5IHdpdGggbm8gdGhlb3JlbS1zdGF0ZW1lbnQgb3IgYXNzdW1wdGlvbiBjaGFuZ2UiLAogICAgICAic2NvcGUiOiAiY29tcGxldGUtcnVudGltZS1lbmNvZGluZyBuby1yZXN1cnJlY3Rpb24gZmFjdG9yaXphdGlvbjsgb25lLXN0ZXAgKHEsIGNvYXJzZSBzdWNjZXNzb3Itc3VwcG9ydCkgZmFjdG9yaXphdGlvbi9rZXJuZWwgY29hcnNlc3QgcmVwYWlyOyBleGFjdCBCb29sZWFuIFNldCBYIGJyYW5jaCBzcGxpdCBwbHVzIHJlbGF0aW9uYWwgZGlyZWN0IGltYWdlIHBsdXMgbGl0ZXJhbC11bmlvbiByZWNvYWxlc2NlbmNlIHByZXNlcnZpbmcgcmVhY2hhYmxlIGZpbmUvcmVzdWx0IHN1cHBvcnQ7IHN1ZmZpeC1zYWZlIGZvcmdldGZ1bCByZXBsYWNlbWVudCBpZmYgcmVtYWluaW5nIHN1cHBvcnQgc2lnbmF0dXJlcyBhZ3JlZSIsCiAgICAgICJuZWdhdGl2ZV9ib3VuZGFyaWVzIjogInRocmVlLXN0YXRlIG9uZS1zdGVwLWV4YWN0L3R3by1zdGVwLXNwdXJpb3VzIHF1b3RpZW50LWNvbXBvc2l0aW9uIHdpdG5lc3MgKG1pbmltYWxpdHkgb25seSBpbiB0aGUgZGVjbGFyZWQgUjAyMSBleGhhdXN0aXZlIG9uZS1nZW5lcmF0b3IvZnVsbC1zdGFydGluZy1maWJyZSBzZWFyY2ggY2xhc3MpOyBtaWRkbGUtaW5jaWRlbmNlIHNwdXJpb3VzIGNvbXBvc2l0aW9uIGFmdGVyIGVyYXNpbmcgbWlkZGxlIGlkZW50aXR5OyBlcXVhbCBjdXJyZW50IGNvYXJzZSBzdXBwb3J0IGFsb25lIGlzIGluc3VmZmljaWVudCBmb3Igc3VmZml4IHNhZmV0eSIsCiAgICAgICJsYXllcmluZ19ib3VuZGFyeSI6ICJwb2ludHdpc2UgZnV0dXJlLXNhZmUgZmFjdG9yaXphdGlvbiBiYXNlbGluZSAtPiByZWxhdGlvbmFsL3Jlc3VsdC1zdXBwb3J0IGV4ZWN1dGlvbiBsYXllciAtPiByZXByZXNlbnRhdGlvbi9yZXNvdXJjZSBjaG9pY2VzOyBCUkMgaXMgbm90IHNlbWFudGljYWxseSBzdHJvbmdlciB0aGFuIGRldGVybWluaXN0aWMgUDAyMyIsCiAgICAgICJjYXJyaWVyX2JvdW5kYXJ5IjogIkJvb2xlYW4vc2V0LXZhbHVlZCBzdXBwb3J0IG9ubHk7IG11bHRpcGxpY2l0eSwgcHJvdmVuYW5jZSwgcHJvYmFiaWxpdHkvd2VpZ2h0cywgc2lnbmVkL2FtcGxpdHVkZSBjYW5jZWxsYXRpb24gcmVxdWlyZSByaWNoZXIgY2FycmllcnM7IFIwMjEgcmVwcmVzZW50YXRpb24gUGFyZXRvL2JyYW5jaCBidWRnZXQgYW5kIFIwMjIgSGFzaENsYXNoIGFyZSBleGNsdWRlZCIsCiAgICAgICJsZWFuX21vZHVsZSI6ICJFbnRlcnByaXNlTWF0aC9SZWxhdGlvbi9CcmFuY2hSZWNvYWxlc2NlbmNlLmxlYW4iLAogICAgICAiY2xhaW1f' >> /tmp/r023i-patch.b64
+          printf '%s' 'bWFwIjogewogICAgICAgICJOT19SRVNVUlJFQ1RJT04iOiAiRW50ZXJwcmlzZU1hdGguQnJhbmNoUmVjb2FsZXNjZW5jZS5ub1Jlc3VycmVjdGlvbiIsCiAgICAgICAgIk9ORV9TVEVQX0NPQVJTRVNUIjogIkVudGVycHJpc2VNYXRoLkJyYW5jaFJlY29hbGVzY2VuY2Uub25lU3RlcENvYXJzZXN0IC8gRW50ZXJwcmlzZU1hdGguQnJhbmNoUmVjb2FsZXNjZW5jZS5vbmVTdGVwQ29hcnNlU3VjY2Vzc29yQ29hcnNlc3QiLAogICAgICAgICJTVVBQT1JUX0JSQU5DSF9JTlZBUklBTlQiOiAiRW50ZXJwcmlzZU1hdGguQnJhbmNoUmVjb2FsZXNjZW5jZS5zdXBwb3J0QnJhbmNoSW52YXJpYW50IiwKICAgICAgICAiRk9SR0VURlVMX1JFQ09BTEVTQ0VOQ0VfSUZGIjogIkVudGVycHJpc2VNYXRoLkJyYW5jaFJlY29hbGVzY2VuY2UuZm9yZ2V0ZnVsUmVjb2FsZXNjZW5jZV9pZmYiCiAgICAgIH0KICAgIH0sCicnJwpyZXBsYWNlX29uY2UoCiAgICAicmVzZWFyY2hfY29tbW9uX3N1cmZhY2UuanNvbiIsCiAgICAnICAgICJQMDE4X1AwMjNfcG93ZXJfZnJlZV9hY3Rpb25fYmFzaXMiOiB7JywKICAgIGJyY19zcGVjaWFsaXphdGlvbiArICcgICAgIlAwMThfUDAyM19wb3dlcl9mcmVlX2FjdGlvbl9iYXNpcyI6IHsnLAopCnJlcGxhY2Vfb25jZSgKICAgICJyZXNlYXJjaF9jb21tb25fc3VyZmFjZS5qc29uIiwKICAgICcgICAgIkE1X1AwMjIiOiBbInNyYy9lbnRlcnByaXNlX21hdGgvbGF0dGljZV9nZW9tZXRyeS5weSIsICJ0ZXN0cy90ZXN0X2xhdHRpY2VfZ2VvbWV0cnkucHkiXSwnLAogICAgJyAgICAiQTRfQlJDX3NlbWFudGljX2NvcmUiOiBbIkVudGVycHJpc2VNYXRoL1JlbGF0aW9uL0JyYW5jaFJlY29hbGVzY2VuY2UubGVhbiJdLFxuICAgICJBNV9QMDIyIjogWyJzcmMvZW50ZXJwcmlzZV9tYXRoL2xhdHRpY2VfZ2VvbWV0cnkucHkiLCAidGVzdHMvdGVzdF9sYXR0aWNlX2dlb21ldHJ5LnB5Il0sJywKKQoKcmVwbGFjZV9vbmNlKAogICAgImRvY3MvUkVTRUFSQ0hfQ09NTU9OX1NVUkZBQ0UuZW4ubWQiLAogICAgIi0gYExFQU5fQ0hFQ0tFRF9NQUlOYCDigJQgY2Fub25pY2FsIHN0YXRlbWVudCBhY3R1YWxseSBjb3ZlcmVkIGJ5IHRoZSByb290IHdhcm5pbmctZmF0YWwgTGVhbiBidWlsZDtcbi0gYFBST1ZFRF9XSVBfUkVMQVlgIiwKICAgICItIGBMRUFOX0NIRUNLRURfTUFJTmAg4oCUIGNhbm9uaWNhbCBzdGF0ZW1lbnQgYWN0dWFsbHkgY292ZXJlZCBieSB0aGUgcm9vdCB3YXJuaW5nLWZhdGFsIExlYW4gYnVpbGQ7XG4iCiAgICAiLSBgTEVBTl9DSEVDS0VEX1dJUGAg4oCUIGEgZnJvemVuIGJyYW5jaC9vd25lciBzdGF0ZW1lbnQgaGFzIHBhc3NlZCBpdHMgZGVjbGFyZWQgd2FybmluZ3MtZmF0YWwgTGVhbiBnYXRlIGJ1dCBpcyBub3QgeWV0IGNhbm9uaWNhbCBgbWFpbmAgb3IgYExFQU5fQ0hFQ0tFRF9NQUlOYDtcbiIKICAgICItIGBQUk9WRURfV0lQX1JFTEFZYCIsCikKZW5fYnJjID0gJycnQTQgbXVsdGl2YWx1ZWQgY29ycmVzcG9uZGVuY2UgaXMgbm90IHNpbGVudGx5IGlkZW50aWZpZWQgd2l0aCBvbmUgZGV0ZXJtaW5pc3RpYyBmdW5jdGlvbmFsIGtlcm5lbCBvciBvbmUgcGFydGlhbCBkZXRlcm1pbmlzdGljIG9wZXJhdGlvbiBmYW1pbHkuCgojIyMjIFIwMjMgQnJhbmNoLVJlY29hbGVzY2VuY2UgQ29sbGFwc2UgQm9vbGVhbi1zdXBwb3J0IHNlbWFudGljIGNvcmUg4oCUIGBMRUFOX0NIRUNLRURfV0lQIC8gU0hBUkVELVNVUkZBQ0UgSU5URUdSQVRJT04gQ0FORElEQVRFIC8gTk9UIENBTk9OSUNBTGAKCkZyb3plbiBSMDIzIHNvdXJjZTogRHJhZnQgUFIgIzQ5OCwgZmluYWwgb3duZXIgaGVhZCBgMGI3MmI5ZTU0OWUxNDY5NTY3NzY0ZmJlODlmOWYyYmFhOGI1NTQ1M2AsIHNlbWFudGljIExlYW4gY2FuZGlkYXRlIGA2ZWVhNTdkZTFkMzBkNmMyZmU5ODMxMjFmNmUyMDkyODZhNWM5ODk1YDsgc3RhbmRhcmQgd2FybmluZ3MtZmF0YWwgTGVhbiBydW4gYDMxNDg0NDM2ODgyYCBwYXNzZWQgb24gdGhlIGZpbmFsIG93bmVyIGhlYWQuIFIwMjNJIHJlcGxheXMgdGhlIExlYW4gbW9kdWxlIGV4YWN0bHk7IGl0IGRvZXMgbm90IGNoYW5nZSB0aGVvcmVtIHN0YXRlbWVudHMgb3IgYXNzdW1wdGlvbnMuCgpTaGFyZWQgZm9ybWFsIGFzc2V0OgoKLSBgRW50ZXJwcmlzZU1hdGgvUmVsYXRpb24vQnJhbmNoUmVjb2FsZXNjZW5jZS5sZWFuYAoKVGhlIGV4cG9zZWQgdGhlb3JlbSBmYW1pbHkgaXMgaW50ZW50aW9uYWxseSBuYXJyb3c6CgotIGBOT19SRVNVUlJFQ1RJT05gOiBhbiBleGFjdCBwb2ludHdpc2UgdGFyZ2V0IHJlY292ZXJhYmxlIG9ubHkgZnJvbSB0aGUgY29tcGxldGUgcnVudGltZSBlbmNvZGluZyBmYWN0b3JzIHRocm91Z2ggdGhhdCBlbmNvZGluZzsgZXJhc2VkIHBvaW50IGRpc3RpbmN0aW9ucyBhcmUgbm90IHJlc3VycmVjdGVkIGJ5IGxhdGVyIGJyYW5jaGluZy4KLSBgT05FX1NURVBfQ09BUlNFU1RgOiBgKHEoeCksIHN1Y2Nlc3Nvci1zdXBwb3J0KHgpKWAgaXMgc3VmZmljaWVudCwgYW5kIGV2ZXJ5IGNsYXNzaWZpZXIgZnJvbSB3aGljaCBib3RoIGNvbXBvbmVudHMgYXJlIHJlY292ZXJhYmxlIHJlZmluZXMvZmFjdG9ycyBvbnRvIHRoaXMga2V5OyB1bmlxdWVuZXNzIGlzIGtlcm5lbC9wYXJ0aXRpb24gdXAgdG8gcmVsYWJlbGluZywgbm90IGxpdGVyYWwgY2xhc3NpZmllci1jb2RvbWFpbiBpZGVudGl0eS4KLSBgU1VQUE9SVF9CUkFOQ0hfSU5WQVJJQU5UYDogZXhhY3QgYnJhbmNoIGRlbm90YXRpb25zLCBzdXBwb3J0LXByZXNlcnZpbmcgc3BsaXRzLCByZWxhdGlvbmFsIGRpcmVjdCBpbWFnZSwgYW5kIGxpdGVyYWwgZXhhY3QtdW5pb24gcmVjb2FsZXNjZW5jZSBwcmVzZXJ2ZSB0aGUgZXhhY3QgcmVhY2hhYmxlIGZpbmUgYFNldCBYYCBmb3IgZXZlcnkgZmluaXRlIHdvcmQsIGhlbmNlIGV2ZXJ5IHNldC12YWx1ZWQgZmluYWwgb2JzZXJ2YXRpb24uCi0gYEZPUkdFVEZVTF9SRUNPQUxFU0NFTkNFX0lGRmA6IGEgZm9yZ2V0ZnVsIHJlcGxhY2VtZW50IGlzIHNhZmUgZXhhY3RseSByZWxhdGl2ZSB0byB0aGUgZGVjbGFyZWQgcmVtYWluaW5nIGxhbmd1YWdlL29ic2VydmFibGUgc3VwcG9ydCBzaWduYXR1cmUuCgpOZWdhdGl2ZSBib3VuZGFyaWVzIGtlcHQgb24gdGhlIHNhbWUgc3VyZmFjZToKCi0gYHRocmVlU3RhdGVfb25lU3RlcF9leGFjdGAgdG9nZXRoZXIgd2l0aCBgdGhyZWVTdGF0ZV9jb21wb3NpdGlvbl9zcHVyaW91c19xMWAgZ2l2ZXMgdGhlIGZyb3plbiBvbmUtZ2VuZXJhdG9yL2Z1bGwtc3RhcnRpbmctZmlicmUgd2l0bmVzczogbmFpdmUgZXhpc3RlbnRpYWwgcXVvdGllbnRpbmcgaXMgb25lLXN0ZXAgZXhhY3QgdGhlcmUgYnV0IHJlcGVhdGVkIGNvYXJzZSBjb21wb3NpdGlvbiBhZG1pdHMgYSBzcHVyaW91cyBjb2Fyc2Ugc3RhdGUuIOKAnFRocmVlIHN0YXRlcyBhcmUgbWluaW1hbOKAnSByZW1haW5zIG9ubHkgdGhlIFIwMjEgYm91bmRlZCBleGhhdXN0aXZlLXNlYXJjaCByZXN1bHQgaW4gdGhhdCBkZWNsYXJlZCBzZWFyY2ggY2xhc3MsIG5vdCBhIGdsb2JhbCBMZWFuIG1pbmltYWxpdHkgdGhlb3JlbS4KLSBgbWlkZGxlSW5jaWRlbmNlX2V4YWN0X2VtcHR5YCBhbmQgYG1pZGRsZUluY2lkZW5jZV9jb2Fyc2Vfc3B1cmlvdXNgIHNob3cgdGhhdCBub25lbXB0eS9jb2Fyc2UgbWlkZGxlIG1hcmdpbmFscyBjYW4gY29tcG9zZSBzcHVyaW91c2x5IHdoZW4gbWlkZGxlIHdpdG5lc3MgaWRlbnRpdHkvY29ycmVsYXRpb24gaXMgZXJhc2VkLgotIGBzYW1lQ3VycmVu' >> /tmp/r023i-patch.b64
+          printf '%s' 'dENvYXJzZV9ub3RTdWZmaXhTYWZlYCBzaG93cyBjdXJyZW50IGNvYXJzZSBlcXVhbGl0eSBhbG9uZSBkb2VzIG5vdCBpbXBseSBzdWZmaXggc2FmZXR5LgoKTGF5ZXJpbmcgYm91bmRhcnk6CgpgcG9pbnR3aXNlIGZ1dHVyZS1zYWZlIGZhY3Rvcml6YXRpb24gYmFzZWxpbmUgLT4gcmVsYXRpb25hbC9yZXN1bHQtc3VwcG9ydCBleGVjdXRpb24gbGF5ZXIgLT4gcmVwcmVzZW50YXRpb24vcmVzb3VyY2UgY2hvaWNlc2AuCgpUaGlzIEJvb2xlYW4gc3VwcG9ydCBjYXJyaWVyIGRvZXMgbm90IHByZXNlcnZlIG11bHRpcGxpY2l0eSwgcHJvdmVuYW5jZSwgcHJvYmFiaWxpdHkvd2VpZ2h0cywgb3Igc2lnbmVkL2FtcGxpdHVkZSBjYW5jZWxsYXRpb24uIFIwMjEgcmVwcmVzZW50YXRpb24gUGFyZXRvL2JyYW5jaC1idWRnZXQgcmVzdWx0cyBhbmQgUjAyMiBIYXNoQ2xhc2ggdG9vbGluZyBhcmUgbm90IHBhcnQgb2YgdGhpcyBzaGFyZWQgdGhlb3JlbSBzdXJmYWNlLgoKIyMjIEE1IOKAlCBpbnRyaW5zaWMgZGlzY3JldGUgZ2VvbWV0cnknJycKcmVwbGFjZV9vbmNlKAogICAgImRvY3MvUkVTRUFSQ0hfQ09NTU9OX1NVUkZBQ0UuZW4ubWQiLAogICAgIkE0IG11bHRpdmFsdWVkIGNvcnJlc3BvbmRlbmNlIGlzIG5vdCBzaWxlbnRseSBpZGVudGlmaWVkIHdpdGggb25lIGRldGVybWluaXN0aWMgZnVuY3Rpb25hbCBrZXJuZWwgb3Igb25lIHBhcnRpYWwgZGV0ZXJtaW5pc3RpYyBvcGVyYXRpb24gZmFtaWx5LlxuXG4jIyMgQTUg4oCUIGludHJpbnNpYyBkaXNjcmV0ZSBnZW9tZXRyeSIsCiAgICBlbl9icmMsCikKcmVwbGFjZV9vbmNlKAogICAgImRvY3MvUkVTRUFSQ0hfQ09NTU9OX1NVUkZBQ0UuZW4ubWQiLAogICAgIi0gYEVudGVycHJpc2VNYXRoL1F1b3RpZW50L1Jvb3RGdXR1cmVDbG9zdXJlLmxlYW5gXG4tIGBFbnRlcnByaXNlTWF0aC9TY2FsZS9Db21wYXRpYmlsaXR5LmxlYW5gIiwKICAgICItIGBFbnRlcnByaXNlTWF0aC9RdW90aWVudC9Sb290RnV0dXJlQ2xvc3VyZS5sZWFuYFxuLSBgRW50ZXJwcmlzZU1hdGgvUmVsYXRpb24vQnJhbmNoUmVjb2FsZXNjZW5jZS5sZWFuYFxuLSBgRW50ZXJwcmlzZU1hdGgvU2NhbGUvQ29tcGF0aWJpbGl0eS5sZWFuYCIsCikKCnJlcGxhY2Vfb25jZSgKICAgICJkb2NzL1JFU0VBUkNIX0NPTU1PTl9TVVJGQUNFLnpoLUNOLm1kIiwKICAgICItIGBMRUFOX0NIRUNLRURfTUFJTmDvvJpjYW5vbmljYWwg5LiU5a6e6ZmF6KKrIHJvb3Qgd2FybmluZy1mYXRhbCBMZWFuIGJ1aWxkIOimhueblu+8m1xuLSBgUFJPVkVEX1dJUF9SRUxBWWAiLAogICAgIi0gYExFQU5fQ0hFQ0tFRF9NQUlOYO+8mmNhbm9uaWNhbCDkuJTlrp7pmYXooqsgcm9vdCB3YXJuaW5nLWZhdGFsIExlYW4gYnVpbGQg6KaG55uW77ybXG4iCiAgICAiLSBgTEVBTl9DSEVDS0VEX1dJUGDvvJrlhrvnu5MgYnJhbmNoL293bmVyIHN0YXRlbWVudCDlt7LpgJrov4flhbblo7DmmI7nmoQgd2FybmluZ3MtZmF0YWwgTGVhbiBnYXRl77yM5L2G5bCa5pyq6L+b5YWlIGNhbm9uaWNhbCBgbWFpbmDvvIzkuZ/kuI3og73moIfkuLogYExFQU5fQ0hFQ0tFRF9NQUlOYO+8m1xuIgogICAgIi0gYFBST1ZFRF9XSVBfUkVMQVlgIiwKKQp6aF9icmMgPSAnJydBNCBtdWx0aXZhbHVlZCBjb3JyZXNwb25kZW5jZSDkuI3og73ooqvmgoTmgoTnrYnlkIzkuo7kuIDkuKrnoa7lrprmgKcgZnVuY3Rpb25hbCBrZXJuZWzvvIzkuZ/kuI3og73nrYnlkIzkuo7kuIDkuKrpg6jliIbnoa7lrprmgKfmk43kvZzml4/jgIIKCiMjIyMgUjAyMyBCcmFuY2gtUmVjb2FsZXNjZW5jZSBDb2xsYXBzZSBCb29sZWFuLXN1cHBvcnQg6K+t5LmJ5qC4IOKAlCBgTEVBTl9DSEVDS0VEX1dJUCAvIFNIQVJFRC1TVVJGQUNFIElOVEVHUkFUSU9OIENBTkRJREFURSAvIE5PVCBDQU5PTklDQUxgCgrlhrvnu5MgUjAyMyDmnaXmupDvvJpEcmFmdCBQUiAjNDk444CBZmluYWwgb3duZXIgaGVhZCBgMGI3MmI5ZTU0OWUxNDY5NTY3NzY0ZmJlODlmOWYyYmFhOGI1NTQ1M2DjgIFzZW1hbnRpYyBMZWFuIGNhbmRpZGF0ZSBgNmVlYTU3ZGUxZDMwZDZjMmZlOTgzMTIxZjZlMjA5Mjg2YTVjOTg5NWDvvJtmaW5hbCBvd25lciBoZWFkIOeahOagh+WHhiB3YXJuaW5ncy1mYXRhbCBMZWFuIHJ1biBgMzE0ODQ0MzY4ODJgIOW3siBQQVNT44CCUjAyM0kg5Y+q5YGaIExlYW4gbW9kdWxlIOeyvuehrumHjeaUvu+8jOS4jeS/ruaUuSB0aGVvcmVtIHN0YXRlbWVudCDmiJYgYXNzdW1wdGlvbuOAggoK5YWx5LqrIGZvcm1hbCDotYTkuqfvvJoKCi0gYEVudGVycHJpc2VNYXRoL1JlbGF0aW9uL0JyYW5jaFJlY29hbGVzY2VuY2UubGVhbmAKCuaatOmcsueahCB0aGVvcmVtIGZhbWlseSDkuKXmoLzpmZDkuo7vvJoKCi0gYE5PX1JFU1VSUkVDVElPTmDvvJroi6Xnsr7noa4gcG9pbnR3aXNlIHRhcmdldCDlj6rog73ku44gY29tcGxldGUgcnVudGltZSBlbmNvZGluZyDmgaLlpI3vvIzliJkgdGFyZ2V0IOW/hemhuyBmYWN0b3IgdGhyb3VnaCDor6UgZW5jb2RpbmfvvJvlt7LliKDpmaTnmoQgcG9pbnQgZGlzdGluY3Rpb24g5LiN6IO96Z2g5ZCO57utIGJyYW5jaGluZyDlpI3mtLvjgIIKLSBgT05FX1NURVBfQ09BUlNFU1Rg77yaYChxKHgpLCBzdWNjZXNzb3Itc3VwcG9ydCh4KSlgIOiHqui6q+WFheWIhu+8m+S7u+S9leiDveaBouWkjei/meS4pOmDqOWIhueahCBjbGFzc2lmaWVyIOmDveS8miByZWZpbmUvZmFjdG9yIG9udG8g6K+lIGtlee+8m+WUr+S4gOaAp+aYryBrZXJuZWwvcGFydGl0aW9uIOWcqCByZWxhYmVsaW5nIOaEj+S5ieS4i+eahOWUr+S4gO+8jOiAjOS4jeaYryBjbGFzc2lmaWVyIGNvZG9tYWluIOeahOWtl+mdouWUr+S4gOOAggotIGBTVVBQT1JUX0JSQU5DSF9JTlZBUklBTlRg77yaZXhhY3QgYnJhbmNoIGRlbm90YXRpb27jgIFzdXBwb3J0LXByZXNlcnZpbmcgc3BsaXTjgIFyZWxhdGlvbmFsIGRpcmVjdCBpbWFnZSDkuI4gbGl0ZXJhbCBleGFjdC11bmlvbiByZWNvYWxlc2NlbmNlIOWvueavj+S4quaciemZkCB3b3JkIOmDveS/neaMgeeyvuehriByZWFjaGFibGUgZmluZSBgU2V0IFhg77yM5Zug5q2k5L+d5oyB5omA5pyJIHNldC12YWx1ZWQgZmluYWwgb2JzZXJ2YXRpb27jgIIKLSBgRk9SR0VURlVMX1JFQ09BTEVTQ0VOQ0VfSUZGYO+8mmZvcmdldGZ1bCByZXBsYWNlbWVudCDnmoTlronlhajmgKfmgbDlpb3nm7jlr7nkuo4gZGVjbGFyZWQgcmVtYWluaW5nIGxhbmd1YWdlIC8gb2JzZXJ2YWJsZSBzdXBwb3J0IHNpZ25hdHVyZSDliKTlrprjgIIKCuWQjOS4gOWFseS6q+mdoueZu+iusOS4ieS4qui0n+WQkei+ueeVjO+8mgoKLSBgdGhyZWVTdGF0ZV9vbmVTdGVwX2V4YWN0YCDkuI4gYHRocmVlU3RhdGVfY29tcG9zaXRpb25fc3B1cmlvdXNfcTFgIOe7meWHuuWGu+e7k+eahOS4gOeUn+aIkOWFgy9mdWxsLXN0YXJ0aW5nLWZpYnJlIHdpdG5lc3PvvJpuYWl2ZSBleGlzdGVudGlhbCBxdW90aWVudCDlnKjor6XotbfngrnkuIDmraXnsr7noa7vvIzkvYbph43lpI0gY29hcnNlIGNvbXBvc2l0aW9uIOS8muW8leWFpeS8qiBjb2Fyc2Ugc3RhdGXvvJvigJzkuInnirbmgIHmnIDlsI/igJ3lj6rkv53nlZnkuLogUjAyMSDlo7DmmI7mkJzntKLnsbvlhoXnmoTmnInnlYznqbfkuL7nu5PorrrvvIzkuI3ljYfnuqfkuLrlhajlsYAgTGVhbiBtaW5pbWFsaXR5IHRoZW9yZW3jgIIKLSBgbWlkZGxlSW5jaWRlbmNlX2V4YWN0X2VtcHR5YCDkuI4gYG1pZGRsZUluY2lkZW5jZV9jb2Fyc2Vfc3B1cmlvdXNgIOihqOaYjuW/mOiusCBtaWRkbGUgd2l0bmVzcyBpZGVudGl0' >> /tmp/r023i-patch.b64
+          printf '%s' 'eS9jb3JyZWxhdGlvbiDlkI7vvIzpnZ7nqbovY29hcnNlIG1pZGRsZSBtYXJnaW5hbCDlj6/kuqfnlJ/kvKrlpI3lkIjjgIIKLSBgc2FtZUN1cnJlbnRDb2Fyc2Vfbm90U3VmZml4U2FmZWAg6KGo5piO5LuFIGN1cnJlbnQgY29hcnNlIGVxdWFsaXR5IOS4jeaOqOWHuiBzdWZmaXggc2FmZXR544CCCgrliIblsYLovrnnlYzvvJoKCmBwb2ludHdpc2UgZnV0dXJlLXNhZmUgZmFjdG9yaXphdGlvbiBiYXNlbGluZSAtPiByZWxhdGlvbmFsL3Jlc3VsdC1zdXBwb3J0IGV4ZWN1dGlvbiBsYXllciAtPiByZXByZXNlbnRhdGlvbi9yZXNvdXJjZSBjaG9pY2VzYOOAggoK6K+lIEJvb2xlYW4gc3VwcG9ydCBjYXJyaWVyIOS4jeS/neaMgSBtdWx0aXBsaWNpdHnjgIFwcm92ZW5hbmNl44CBcHJvYmFiaWxpdHkvd2VpZ2h0cyDmiJYgc2lnbmVkL2FtcGxpdHVkZSBjYW5jZWxsYXRpb27jgIJSMDIxIHJlcHJlc2VudGF0aW9uIFBhcmV0by9icmFuY2gtYnVkZ2V0IOS4jiBSMDIyIEhhc2hDbGFzaCB0b29saW5nIOS4jei/m+WFpeacrOWFseS6qyB0aGVvcmVtIHN1cmZhY2XjgIIKCiMjIyBBNSDigJQgaW50cmluc2ljIGRpc2NyZXRlIGdlb21ldHJ5JycnCnJlcGxhY2Vfb25jZSgKICAgICJkb2NzL1JFU0VBUkNIX0NPTU1PTl9TVVJGQUNFLnpoLUNOLm1kIiwKICAgICJBNCBtdWx0aXZhbHVlZCBjb3JyZXNwb25kZW5jZSDkuI3og73ooqvmgoTmgoTnrYnlkIzkuo7kuIDkuKrnoa7lrprmgKcgZnVuY3Rpb25hbCBrZXJuZWzvvIzkuZ/kuI3og73nrYnlkIzkuo7kuIDkuKrpg6jliIbnoa7lrprmgKfmk43kvZzml4/jgIJcblxuIyMjIEE1IOKAlCBpbnRyaW5zaWMgZGlzY3JldGUgZ2VvbWV0cnkiLAogICAgemhfYnJjLAopCnJlcGxhY2Vfb25jZSgKICAgICJkb2NzL1JFU0VBUkNIX0NPTU1PTl9TVVJGQUNFLnpoLUNOLm1kIiwKICAgICItIGBFbnRlcnByaXNlTWF0aC9RdW90aWVudC9Sb290RnV0dXJlQ2xvc3VyZS5sZWFuYFxuLSBgRW50ZXJwcmlzZU1hdGgvU2NhbGUvQ29tcGF0aWJpbGl0eS5sZWFuYCIsCiAgICAiLSBgRW50ZXJwcmlzZU1hdGgvUXVvdGllbnQvUm9vdEZ1dHVyZUNsb3N1cmUubGVhbmBcbi0gYEVudGVycHJpc2VNYXRoL1JlbGF0aW9uL0JyYW5jaFJlY29hbGVzY2VuY2UubGVhbmBcbi0gYEVudGVycHJpc2VNYXRoL1NjYWxlL0NvbXBhdGliaWxpdHkubGVhbmAiLAopCgphdWRpdCA9ICcnJyMgUjAyM0kg4oCUIEJSQyBOYXJyb3cgU2hhcmVkLVN1cmZhY2UgSW50ZWdyYXRpb24gUmV0dXJuCgpSZXNlYXJjaGVyLUlEOiBgRU0tUjAyM0ktRDdBQkIwYCAgClRhc2s6IGBSUy1SMDIzSS1CUkMtTkFSUk9XLVNIQVJFRC1TVVJGQUNFLUlOVEVHUkFUSU9OYCAgClRhc2tib29rOiBgcmVzZWFyY2hfdGFza3MvUjAyM0lfQlJDX05BUlJPV19TSEFSRURfU1VSRkFDRV9JTlRFR1JBVElPTl8yMDI2MDgxMS5tZGAgQCBgZTM3ZjdhYTI2ZTBiYjk3ZDE1MTVmYzc5MWJhOTQwZGIwNWI2ZWQ1MGAgIApGcm96ZW4gUjAyMyBEcmFmdCBhcnRpZmFjdDogYCM0OThgICAKRnJvemVuIGZpbmFsIG93bmVyIGhlYWQ6IGAwYjcyYjllNTQ5ZTE0Njk1Njc3NjRmYmU4OWY5ZjJiYWE4YjU1NDUzYCAgCkZyb3plbiBzZW1hbnRpYyBMZWFuIGNhbmRpZGF0ZTogYDZlZWE1N2RlMWQzMGQ2YzJmZTk4MzEyMWY2ZTIwOTI4NmE1Yzk4OTVgICAKRnJvemVuIG1vZHVsZSBibG9iOiBgOTkwNWRmMTljZTZmN2RkNzk4NjQzODQzNjI0ODdjYzhmNTRjMzM0OWAgIApNb2RlOiBgTk8gTkVXIE1BVEhFTUFUSUNTIC8gRVhBQ1QgUkVQTEFZIC8gTk9UIENBTk9OSUNBTGAKCiMjIFJldHVybiBjbGFzcwoKYFIwMjNJX0VYQUNUX1JFUExBWV9DT01QTEVURSAvIEVYVEVSTkFMX01BSU5URU5BTkNFX0dBVEVfUkVNQUlOUyAvIE5PVF9DQU5PTklDQUxgCgpUaGUgUjAyMyBCb29sZWFuL3Jlc3VsdC1zdXBwb3J0IHNlbWFudGljIHBheWxvYWQgcmVwbGF5cyB3aXRob3V0IHRoZW9yZW0tc3RhdGVtZW50LCBhc3N1bXB0aW9uLCBuYW1lc3BhY2UsIG9yIGNhcnJpZXIgY2hhbmdlcy4gVGhlIG9ubHkgZXhwZWN0ZWQgcmVzaWR1YWwgc2hhcmVkLXN1cmZhY2UgZ2F0ZSBpcyB0aGUgcHJlLWV4aXN0aW5nIHJlcG9zaXRvcnktdG9vbCBpbmRleCBkcmlmdCBmb3IgYHRvb2xzL3Jlc2VhcmNoX2lkZW50aXR5LnB5YCBhbmQgYHRvb2xzL3Jlc2VhcmNoX3Rhc2tib29rLnB5YCwgd2hpY2ggaXMgZXhwbGljaXRseSBvdXRzaWRlIFIwMjNJIHNjb3BlLgoKIyMgRXhhY3QgZmlsZS9kZWx0YSBhdWRpdAoKfCBGaWxlIHwgUmVxdWlyZWQgcm9sZSB8IFIwMjMgdGhlb3JlbS9hc3N1bXB0aW9uIGNoYW5nZSB8IFN0YXR1cyBleHBvc2VkIHwKfC0tLXwtLS18LS0tfC0tLXwKfCBgRW50ZXJwcmlzZU1hdGgvUmVsYXRpb24vQnJhbmNoUmVjb2FsZXNjZW5jZS5sZWFuYCB8IGV4YWN0IGZyb3plbiByZXBsYXkgfCAqKk5PTkUqKjsgYmxvYiBtdXN0IGVxdWFsIGA5OTA1ZGYxOS4uLmAgfCBgTEVBTl9DSEVDS0VEX1dJUGAgc291cmNlIHBheWxvYWQgfAp8IGBFbnRlcnByaXNlTWF0aC5sZWFuYCB8IHJvb3QgcmVnaXN0cmF0aW9uIHwgKipOT05FKio7IGltcG9ydCBvbmx5IHwgaW50ZWdyYXRpb24gY2FuZGlkYXRlLCBub3QgYExFQU5fQ0hFQ0tFRF9NQUlOYCB8CnwgYHJlc2VhcmNoX2NvbW1vbl9zdXJmYWNlLmpzb25gIHwgbWFjaGluZSByb290L3RoZW9yZW0vc3RhdHVzIHJvdXRlciB8ICoqTk9ORSoqOyBtZXRhZGF0YS9yb3V0aW5nIG9ubHkgfCBgTEVBTl9DSEVDS0VEX1dJUCAvIE5PVF9DQU5PTklDQUxgIHwKfCBgZG9jcy9SRVNFQVJDSF9DT01NT05fU1VSRkFDRS5lbi5tZGAgfCBFbmdsaXNoIGh1bWFuIHRoZW9yZW0vc3RhdHVzIHJvdXRlciB8ICoqTk9ORSoqOyBzY29wZWQgcHJvc2Ugb25seSB8IHNhbWUgV0lQIGJvdW5kYXJ5IHwKfCBgZG9jcy9SRVNFQVJDSF9DT01NT05fU1VSRkFDRS56aC1DTi5tZGAgfCBDaGluZXNlIGh1bWFuIHRoZW9yZW0vc3RhdHVzIHJvdXRlciB8ICoqTk9ORSoqOyBiaWxpbmd1YWwgc2NvcGVkIHByb3NlIG9ubHkgfCBzYW1lIFdJUCBib3VuZGFyeSB8CnwgYGRvY3MvUjAyM0lfQlJDX1NIQVJFRF9TVVJGQUNFX1JFVFVSTi5tZGAgfCBpbnRlZ3JhdGlvbiBwcm92ZW5hbmNlL2F1ZGl0IHwgKipOT05FKiogfCBgTk8gTkVXIE1BVEhFTUFUSUNTIC8gTk9UX0NBTk9OSUNBTGAgfAoKTm8gbmV3IHNvdXJjZS9saW5lYWdlIHJlZ2lzdHJ5IHNpZGVjYXIgaXMgY3JlYXRlZC4gVGhlIGN1cnJlbnQgYGNoZWNrX3JlZmVyZW5jZXMucHlgIHNjaGVtYSB2YWxpZGF0ZXMgcmVjb3JkcyB0aGF0IGFyZSBleHBsaWNpdGx5IHJlZ2lzdGVyZWQ7IGl0IGRvZXMgbm90IHJlcXVpcmUgYSBuZXcgbGluZWFnZSBjb21wb25lbnQgbWVyZWx5IGJlY2F1c2UgYSBMZWFuIG1vZHVsZSBpcyBleHBvc2VkLiBSMDIzSSB0aGVyZWZvcmUgcmVjb3JkcyBwcmlvci1hcnQvb3duZXJzaGlwL3N0YXR1cyBib3VuZGFyaWVzIGluIHRoZSBtYWNoaW5lL2h1bWFuIHJvdXRlcnMgYW5kIHRoaXMgaW50ZWdyYXRpb24gYXVkaXQgd2l0aG91dCBpbnZlbnRpbmcgYSBuZXcgbm92ZWx0eSByZWNvcmQuCgojIyBDbGFpbSDihpIgTGVhbiBkZWNsYXJhdGlvbiBtYXAKCnwgQ2xhaW0gSUQgfCBFeGFjdCBzaGFyZWQgTGVhbiBkZWNsYXJhdGlvbiB8CnwtLS18LS0tfAp8IGBOT19SRVNVUlJFQ1RJT05gIHwgYEVudGVycHJpc2VNYXRoLkJyYW5jaFJlY29hbGVzY2VuY2Uubm9SZXN1cnJlY3Rpb25gIChwb2ludC1zaWduYXR1cmUgc3BlY2lhbGl6YXRpb246IGBwb2ludFNpZ25hdHVyZV9ub1Jlc3VycmVj' >> /tmp/r023i-patch.b64
+          printf '%s' 'dGlvbmApIHwKfCBgT05FX1NURVBfQ09BUlNFU1RgIHwgYEVudGVycHJpc2VNYXRoLkJyYW5jaFJlY29hbGVzY2VuY2Uub25lU3RlcENvYXJzZXN0YCAoUjAyMSByZWxhdGlvbmFsIHNwZWNpYWxpemF0aW9uOiBgb25lU3RlcENvYXJzZVN1Y2Nlc3NvckNvYXJzZXN0YCkgfAp8IGBTVVBQT1JUX0JSQU5DSF9JTlZBUklBTlRgIHwgYEVudGVycHJpc2VNYXRoLkJyYW5jaFJlY29hbGVzY2VuY2Uuc3VwcG9ydEJyYW5jaEludmFyaWFudGAgKG9ic2VydmFibGUgY29yb2xsYXJ5OiBgc3VwcG9ydEJyYW5jaE9ic2VydmFibGVJbnZhcmlhbnRgKSB8CnwgYEZPUkdFVEZVTF9SRUNPQUxFU0NFTkNFX0lGRmAgfCBgRW50ZXJwcmlzZU1hdGguQnJhbmNoUmVjb2FsZXNjZW5jZS5mb3JnZXRmdWxSZWNvYWxlc2NlbmNlX2lmZmAgfAoKIyMgTmVnYXRpdmUgYm91bmRhcmllcyBwcmVzZXJ2ZWQKCi0gMy1zdGF0ZSBxdW90aWVudCBjb21wb3NpdGlvbjogYHRocmVlU3RhdGVfb25lU3RlcF9leGFjdGAsIGB0aHJlZVN0YXRlX3F1b3RpZW50X3R3b1N0ZXBfY29hcnNlU3VwcG9ydGAsIGB0aHJlZVN0YXRlX2NvbXBvc2l0aW9uX3NwdXJpb3VzX3ExYC4gVGhlIExlYW4gYXJ0aWZhY3QgcHJvdmVzIHRoZSB3aXRuZXNzOyB0aGUgdGhyZWUtc3RhdGUgbWluaW1hbGl0eSBzdGF0ZW1lbnQgcmVtYWlucyBsaW1pdGVkIHRvIHRoZSBSMDIxIGRlY2xhcmVkIGV4aGF1c3RpdmUgb25lLWdlbmVyYXRvci9mdWxsLXN0YXJ0aW5nLWZpYnJlIHNlYXJjaCBjbGFzcy4KLSBNaWRkbGUgaW5jaWRlbmNlIGNvcnJlbGF0aW9uOiBgbWlkZGxlSW5jaWRlbmNlX2V4YWN0X2VtcHR5YCBwbHVzIGBtaWRkbGVJbmNpZGVuY2VfY29hcnNlX3NwdXJpb3VzYC4KLSBDdXJyZW50IGNvYXJzZSBlcXVhbGl0eSBpbnN1ZmZpY2llbnQgZm9yIHN1ZmZpeCBzYWZldHk6IGBzYW1lQ3VycmVudENvYXJzZV9ub3RTdWZmaXhTYWZlYC4KCiMjIFNlbWFudGljIGJvdW5kYXJ5IGF1ZGl0CgpUaGUgc2hhcmVkIHdvcmRpbmcgcmVtYWluczoKCmBwb2ludHdpc2UgZnV0dXJlLXNhZmUgZmFjdG9yaXphdGlvbiBiYXNlbGluZSAtPiByZWxhdGlvbmFsL3Jlc3VsdC1zdXBwb3J0IGV4ZWN1dGlvbiBsYXllciAtPiByZXByZXNlbnRhdGlvbi9yZXNvdXJjZSBjaG9pY2VzYC4KCkV4YWN0LXVuaW9uIHJlY29hbGVzY2VuY2UgYW5kIGZvcmdldGZ1bCByZXBsYWNlbWVudCByZW1haW4gZGlzdGluY3QuIFJ1bnRpbWUgYnJhbmNoaW5nIGRvZXMgbm90IHJlc3VycmVjdCBkaXN0aW5jdGlvbnMgZXJhc2VkIGZyb20gdGhlICoqY29tcGxldGUqKiBydW50aW1lIGVuY29kaW5nLiBgT05FX1NURVBfQ09BUlNFU1RgIGlzIGEgZmFjdG9yaXphdGlvbi9rZXJuZWwgdW5pdmVyc2FsIHByb3BlcnR5IHVwIHRvIHJlbGFiZWxpbmcsIG5vdCBsaXRlcmFsIGNsYXNzaWZpZXItY29kb21haW4gaWRlbnRpdHkuIFRoZSBzdXBwb3J0IGNhcnJpZXIgcmVtYWlucyBCb29sZWFuL3NldC12YWx1ZWQgYFNldCBYYCBvbmx5LgoKRXhjbHVkZWQgZnJvbSB0aGlzIGludGVncmF0aW9uOiBSMDIxIHJlcHJlc2VudGF0aW9uIFBhcmV0by9icmFuY2gtYnVkZ2V0IG1hdGVyaWFsLCBSMDIyIEhhc2hDbGFzaC90b29sLW1pbmluZyByZXN1bHRzLCBtdWx0aXBsaWNpdHksIHByb3ZlbmFuY2UsIHByb2JhYmlsaXR5L3dlaWdodHMsIHNpZ25lZC9hbXBsaXR1ZGUgY2FuY2VsbGF0aW9uLCBuZXcgYXJpdGhtZXRpYyBzcGVjaWFsaXphdGlvbnMsIGFuZCBuZXcgRm91bmRhdGlvbiBwcmltaXRpdmVzLgoKIyMgVmFsaWRhdGlvbiBjb250cmFjdAoKVGhlIGZyb3plbiBSMDIzIGZpbmFsIG93bmVyIGhlYWQgYWxyZWFkeSBoYXMgRHJpdmVyLWFjY2VwdGVkIHN0YW5kYXJkIHdhcm5pbmdzLWZhdGFsIExlYW4gcnVuIGAzMTQ4NDQzNjg4MmAgUEFTUy4gUjAyM0kgYWRkaXRpb25hbGx5IHJlcXVpcmVzIHRoZSByZXBsYXllZCBtb2R1bGUgYmxvYiB0byBlcXVhbCB0aGUgZnJvemVuIGJsb2IsIHZhbGlkIG1hY2hpbmUgSlNPTiwgYmlsaW5ndWFsL3JlZmVyZW5jZSBjaGVja3MsIGV4YWN0IHJvb3QtaW5kZXggdmlzaWJpbGl0eSwgYW5kIG5vIG5ldyBzaGFyZWQtc3VyZmFjZSBkcmlmdCBiZXlvbmQgdGhlIGV4cGxpY2l0bHkga25vd24gdG9vbC1pbmRleCBtYWludGVuYW5jZSBkZWZlY3QuCicnJwpQYXRoKCJkb2NzL1IwMjNJX0JSQ19TSEFSRURfU1VSRkFDRV9SRVRVUk4ubWQiKS53cml0ZV90ZXh0KGF1ZGl0LCBlbmNvZGluZz0idXRmLTgiKQo=' >> /tmp/r023i-patch.b64
+          base64 -d /tmp/r023i-patch.b64 > /tmp/r023i-patch.py
+          python /tmp/r023i-patch.py
 
           python -m json.tool research_common_surface.json >/dev/null
           python tools/check_bilingual_pairs.py
           python tools/check_references.py
-
           set +e
           COMMON_OUT="$(python tools/check_research_common_surface.py 2>&1)"
           COMMON_STATUS=$?
@@ -266,18 +53,11 @@ The frozen R023 final owner head already has Driver-accepted standard warnings-f
             EXPECTED="research common surface: FAIL: repository tool index drift: missing_from_common_surface=['tools/research_identity.py', 'tools/research_taskbook.py']; stale_in_common_surface=[]"
             test "$COMMON_OUT" = "$EXPECTED"
           fi
-
           git diff --check
           test "$(git hash-object EnterpriseMath/Relation/BranchRecoalescence.lean)" = "$FROZEN_BLOB"
 
           git rm .github/workflows/r023i-exact-replay.yml
-          git add \
-            EnterpriseMath/Relation/BranchRecoalescence.lean \
-            EnterpriseMath.lean \
-            research_common_surface.json \
-            docs/RESEARCH_COMMON_SURFACE.en.md \
-            docs/RESEARCH_COMMON_SURFACE.zh-CN.md \
-            docs/R023I_BRC_SHARED_SURFACE_RETURN.md
+          git add EnterpriseMath/Relation/BranchRecoalescence.lean EnterpriseMath.lean research_common_surface.json docs/RESEARCH_COMMON_SURFACE.en.md docs/RESEARCH_COMMON_SURFACE.zh-CN.md docs/R023I_BRC_SHARED_SURFACE_RETURN.md
           git diff --cached --name-only
           git commit -m "[EM-R023I-D7ABB0] replay BRC shared surface"
           git push origin HEAD:agent/r023i-brc-narrow-shared-surface
