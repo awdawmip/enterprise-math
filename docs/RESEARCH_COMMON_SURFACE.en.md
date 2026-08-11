@@ -320,7 +320,9 @@ Every `tools/*.py` file is shared operational infrastructure and must remain mac
 - `tools/check_bilingual_pairs.py`
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
+- `tools/research_identity.py`
 - `tools/research_scheduler.py`
+- `tools/research_taskbook.py`
 
 `tools/check_research_common_surface.py` is mechanical only. It checks declared-path existence, exact root-Lean imports, exact repository-tool membership, active-FQ agreement, and active-alert validity. It does not prove mathematics or decide semantic reusability.
 
