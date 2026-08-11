@@ -8,11 +8,12 @@ On an anchor-surviving mirror radius let L,U be the transverse prime supports of
 M-r and M+r, and split them at C.  If the upper side has a prime <=C then the
 low-band upper sieve kills that side.  If it has no prime <=C, then an upper
 composite has exactly one distinct prime p with C<p<=k: its least prime factor
-p lies in that band and the cofactor is >k; a third factor >C would exceed the
-square-basin ceiling for k>=10.  Thus
+p lies in that band and the cofactor q is a prime >k; a third factor >C would
+exceed the square-basin ceiling for k>=10.  Thus
 
     upper prime  <=>  U_low is empty and |U_high|=0,
-    upper composite half-rough <=> U_low is empty and |U_high|=1.
+    upper composite half-rough <=> U_low is empty and M+r=p*q,
+                                      C<p<=k<q.
 
 Let h_*(S) be the existing incidence-optimal Walsh support weight, the number
 of squarefree support divisors <=C.  Since a divisor <=C cannot use a support
@@ -28,14 +29,23 @@ is nonnegative and positive exactly when M+r is prime.  On a prime side it is
 exactly the existing incidence-optimal prime weight.  The lower orientation is
 symmetric.
 
+The composite deletions form a sparse bipartite matching geometry.  Every high
+p>C has period 2p>K and therefore labels at most one radius in each orientation
+(left degree <=2).  The large tail q>k is globally nonreused: if the same odd q
+divided two signed basin states, it would divide their nonzero even difference
+of magnitude <2q, impossible.  Hence right degree <=1.  If one p occurs in both
+orientations, the two q tails are the adjacent odd candidates from the terminal
+Buchstab staircase and differ by 2.
+
 This gives the incidence-optimal Walsh compiler a terminal Buchstab meaning:
-low-band amplified half-rough mass minus a matching family of single-use high-
-prime composite deletions.  Every p>C has period 2p>K, so one orientation has
-at most one physical radius for that p.  The theorem is an exact representation
-bridge, not an estimate of the weighted deletion mass and not a Legendre proof.
+low-band amplified half-rough mass minus a weighted sparse matching of single-
+use p*q deletions.  The theorem is an exact representation bridge, not an
+estimate of the matching weight and not a Legendre proof.
 """
 
 from __future__ import annotations
+
+from collections import defaultdict
 
 from .legendre import is_prime
 from .p017_mirror import anchor_surviving_radius, mirror_pair, mirror_transverse_supports
@@ -80,8 +90,17 @@ def half_cutoff_orientation_weight(k: int, radius: int, orientation: str) -> dic
 
     half_rough = not target_low
     target_prime = is_prime(target_state)
-    if half_rough and not target_prime and len(target_high) != 1:
-        raise AssertionError("half-rough composite did not have exactly one high support prime")
+    high_prime = None
+    large_tail_prime = None
+    if half_rough and not target_prime:
+        if len(target_high) != 1:
+            raise AssertionError("half-rough composite did not have exactly one high support prime")
+        high_prime = int(target_high[0])
+        if target_state % high_prime:
+            raise AssertionError("declared high support prime does not divide target")
+        large_tail_prime = target_state // high_prime
+        if large_tail_prime <= k or not is_prime(large_tail_prime):
+            raise AssertionError("half-rough composite did not factor as p*q with q>k prime")
     if target_prime and (target_low or target_high):
         raise AssertionError("prime target retained a transverse support prime")
 
@@ -117,6 +136,8 @@ def half_cutoff_orientation_weight(k: int, radius: int, orientation: str) -> dic
         "target_prime": target_prime,
         "low_band_incidence_optimal_amplifier": amplifier,
         "terminal_high_prime_hit_count": high_count,
+        "terminal_high_prime": high_prime,
+        "terminal_large_tail_prime": large_tail_prime,
         "half_cutoff_terminal_weight": weight,
         "high_prime_deletion_single_use": (not target_high) or 2 * target_high[0] > k - 1,
         "exact_prime_detector": True,
@@ -124,7 +145,7 @@ def half_cutoff_orientation_weight(k: int, radius: int, orientation: str) -> dic
 
 
 def half_cutoff_bridge_profile(k: int) -> dict[str, object]:
-    """Aggregate both orientations and expose the weighted terminal deletion identity."""
+    """Aggregate both orientations and expose the weighted terminal matching identity."""
     if isinstance(k, bool) or not isinstance(k, int) or k < 10:
         raise ValueError("k must be an integer >=10")
 
@@ -132,7 +153,7 @@ def half_cutoff_bridge_profile(k: int) -> dict[str, object]:
     low_band_mass = 0
     deletion_mass = 0
     prime_weight = 0
-    deletion_labels: list[tuple[str, int, int]] = []
+    deletion_edges: list[dict[str, object]] = []
     for radius in range(1, k):
         if not anchor_surviving_radius(k, radius):
             continue
@@ -144,16 +165,40 @@ def half_cutoff_bridge_profile(k: int) -> dict[str, object]:
                 low_band_mass += amp
                 if int(row["terminal_high_prime_hit_count"]) == 1:
                     deletion_mass += amp
-                    p = int(row["target_high_support"][0])
-                    deletion_labels.append((orientation, p, radius))
+                    deletion_edges.append(
+                        {
+                            "orientation": orientation,
+                            "radius": radius,
+                            "p": int(row["terminal_high_prime"]),
+                            "q": int(row["terminal_large_tail_prime"]),
+                            "target_state": int(row["target_state"]),
+                            "opposite_amplifier_weight": amp,
+                        }
+                    )
                 prime_weight += int(row["half_cutoff_terminal_weight"])
 
     if low_band_mass - deletion_mass != prime_weight:
         raise AssertionError("weighted half-cutoff Buchstab identity failed")
-    # Each high prime can hit at most one radius in a fixed orientation because 2p>K.
-    labels = [(orientation, p) for orientation, p, _r in deletion_labels]
-    if len(labels) != len(set(labels)):
+
+    # Left degree <=2: one p can occur at most once in each orientation.
+    left_orientation_labels = [(str(edge["orientation"]), int(edge["p"])) for edge in deletion_edges]
+    if len(left_orientation_labels) != len(set(left_orientation_labels)):
         raise AssertionError("a high-prime deletion label was reused within one orientation")
+    left_rows: dict[int, list[dict[str, object]]] = defaultdict(list)
+    for edge in deletion_edges:
+        left_rows[int(edge["p"])].append(edge)
+    if any(len(edges) > 2 for edges in left_rows.values()):
+        raise AssertionError("terminal high-prime matching left degree exceeded two")
+    for edges in left_rows.values():
+        if len(edges) == 2:
+            q_values = sorted(int(edge["q"]) for edge in edges)
+            if q_values[1] - q_values[0] != 2:
+                raise AssertionError("double-orientation high-prime deletion did not produce twin q tails")
+
+    # Right degree <=1: a q>k cannot divide two distinct odd basin states.
+    q_values = [int(edge["q"]) for edge in deletion_edges]
+    if len(q_values) != len(set(q_values)):
+        raise AssertionError("large terminal tail prime was reused across deletion edges")
 
     prime_exists = prime_weight > 0
     return {
@@ -165,6 +210,9 @@ def half_cutoff_bridge_profile(k: int) -> dict[str, object]:
         "weighted_terminal_identity": True,
         "prime_exists": prime_exists,
         "positive_iff_prime_exists": prime_exists == any(bool(row["target_prime"]) for row in rows),
-        "deletion_labels": tuple(deletion_labels),
+        "deletion_edges": tuple(deletion_edges),
+        "left_high_prime_degree_ceiling": 2,
+        "right_large_tail_degree_ceiling": 1,
+        "terminal_deletion_graph_is_sparse_matching": True,
         "rows": tuple(rows),
     }
