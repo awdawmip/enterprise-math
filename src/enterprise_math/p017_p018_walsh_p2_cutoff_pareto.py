@@ -38,8 +38,23 @@ nonreused.  The high factor p>z has P017 signed reuse capacity
 
 Therefore cutoff depth trades directly against deletion reuse width.  At the
 minimal P2 cutoff the universal width is O(k^(1/3)); at the half cutoff it is at
-most two.  This is a P017/P018 proof-depth/reuse-width Pareto theorem, not an
-estimate of the weighted edge mass and not a Legendre proof.
+most two.
+
+There is also an exact monotone refinement flow.  On a basin prime target, its
+weight is the count of opposite-support squarefree divisors <=C whose prime
+factors have already entered the cutoff.  Raising z can only add such divisors,
+so the weighted prime signal is monotone nondecreasing.  If the cutoff crosses
+an opposite-side prime ell, the pointwise increment is exactly
+
+    Delta_ell h_C(S)=#{d|rad(S_old): d<=C/ell}.
+
+Thus each precision refinement adds a child divisor budget floor(C/ell).  At the
+same time terminal edges whose high factor has crossed into the low band vanish,
+and the universal reuse-width ceiling decreases.  Deeper precision therefore
+improves semantic signal and reuse depth simultaneously, at the cost of a
+larger low-band incidence language.  This is a P017/P018 proof-depth/reuse-width
+Pareto theorem, not an estimate of the weighted edge mass and not a Legendre
+proof.
 """
 
 from __future__ import annotations
@@ -78,6 +93,49 @@ def cutoff_reuse_width_ceiling(k: int, cutoff: int) -> int:
 
 def _low_support(support: list[int] | tuple[int, ...], cutoff: int) -> tuple[int, ...]:
     return tuple(int(p) for p in support if int(p) <= cutoff)
+
+
+def divisor_budget_weight(support: tuple[int, ...], budget: int) -> int:
+    """Return #{squarefree support divisors <=budget}."""
+    if isinstance(budget, bool) or not isinstance(budget, int) or budget < 0:
+        raise ValueError("budget must be a nonnegative integer")
+    values = [1]
+    for prime in tuple(sorted(int(p) for p in support)):
+        if prime < 3:
+            raise ValueError("support entries must be odd primes")
+        values += [value * prime for value in values if value <= budget // prime]
+    return len(values) if budget >= 1 else 0
+
+
+def cutoff_refinement_quantum(
+    k: int,
+    old_visible_support: tuple[int, ...],
+    new_prime: int,
+) -> dict[str, object]:
+    """Return h_C(S union {ell})-h_C(S)=h_floor(C/ell)(S)."""
+    _z2, C = exact_linear_cutoff_zone(k)
+    support = tuple(sorted(int(p) for p in old_visible_support))
+    ell = int(new_prime)
+    if ell in support:
+        raise ValueError("new_prime must not already be visible")
+    old_weight = divisor_budget_weight(support, C)
+    new_weight = divisor_budget_weight(tuple(sorted(support + (ell,))), C)
+    child_budget = C // ell
+    child_weight = divisor_budget_weight(support, child_budget)
+    if new_weight - old_weight != child_weight:
+        raise AssertionError("cutoff refinement quantum failed divisor-budget recursion")
+    return {
+        "k": k,
+        "half_cutoff_budget": C,
+        "old_visible_support": support,
+        "new_prime": ell,
+        "child_divisor_budget": child_budget,
+        "old_weight": old_weight,
+        "new_weight": new_weight,
+        "refinement_increment": child_weight,
+        "positive_refinement_quantum": child_weight >= 0,
+        "divisor_budget_recursion": True,
+    }
 
 
 def p2_zone_orientation_weight(k: int, radius: int, cutoff: int, orientation: str) -> dict[str, object]:
@@ -217,4 +275,42 @@ def p2_cutoff_pareto_profile(k: int, cutoff: int) -> dict[str, object]:
         "large_tail_right_degree_ceiling": 1,
         "proof_depth_reuse_width_pareto": True,
         "rows": tuple(rows),
+    }
+
+
+def compare_cutoff_refinement(k: int, shallow_cutoff: int, deep_cutoff: int) -> dict[str, object]:
+    """Verify monotone semantic signal / shrinking deletion graph under z refinement."""
+    z2, C = exact_linear_cutoff_zone(k)
+    if not (z2 <= shallow_cutoff <= deep_cutoff <= C):
+        raise ValueError("cutoffs must satisfy z2<=shallow<=deep<=C")
+    shallow = p2_cutoff_pareto_profile(k, shallow_cutoff)
+    deep = p2_cutoff_pareto_profile(k, deep_cutoff)
+    if int(deep["weighted_prime_signal"]) < int(shallow["weighted_prime_signal"]):
+        raise AssertionError("deeper cutoff decreased the weighted prime signal")
+    if int(deep["cutoff_reuse_width_ceiling"]) > int(shallow["cutoff_reuse_width_ceiling"]):
+        raise AssertionError("deeper cutoff increased the reuse-width ceiling")
+
+    shallow_edges = {
+        (str(edge["orientation"]), int(edge["radius"]), int(edge["p"]), int(edge["q"]))
+        for edge in shallow["terminal_edges"]
+    }
+    deep_edges = {
+        (str(edge["orientation"]), int(edge["radius"]), int(edge["p"]), int(edge["q"]))
+        for edge in deep["terminal_edges"]
+    }
+    if not deep_edges.issubset(shallow_edges):
+        raise AssertionError("deeper cutoff created a new terminal deletion edge")
+
+    return {
+        "k": k,
+        "shallow_cutoff": shallow_cutoff,
+        "deep_cutoff": deep_cutoff,
+        "shallow_weighted_prime_signal": int(shallow["weighted_prime_signal"]),
+        "deep_weighted_prime_signal": int(deep["weighted_prime_signal"]),
+        "prime_signal_nondecreasing": True,
+        "shallow_reuse_width_ceiling": int(shallow["cutoff_reuse_width_ceiling"]),
+        "deep_reuse_width_ceiling": int(deep["cutoff_reuse_width_ceiling"]),
+        "reuse_width_nonincreasing": True,
+        "terminal_deletion_edges_shrink_monotonically": True,
+        "cutoff_refinement_is_semantically_monotone": True,
     }
