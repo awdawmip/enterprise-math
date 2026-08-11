@@ -1,19 +1,21 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V1",
+  "schema": "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V2",
   "status": "ACTIVE",
-  "effective": "2026-08-11T00:47:00+08:00",
+  "effective": "2026-08-11T15:29:00+08:00",
   "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
   "helper": "tools/research_identity.py",
   "states": [
     "UNRESOLVED",
     "RESOLVED_LOCAL",
+    "PREALLOCATED_FOR_DISPATCH",
     "REGISTER_PENDING",
     "REGISTERED"
   ],
-  "entry_invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve or allocate a Researcher-ID before substantive work begins.",
+  "entry_invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve or allocate its role identity before substantive work begins. Researchers expose Researcher-ID; Drivers expose Driver-ID.",
   "entry_events": [
     "direct user research task",
     "scheduler/CLAIM dispatch",
+    "Driver-mediated manual relay",
     "taskbook execution",
     "role transition into RESEARCHER",
     "role transition into RESEARCH_DRIVER",
@@ -21,10 +23,11 @@
     "resume of an existing Enterprise Math conversation"
   ],
   "resolution_order": [
-    "reuse the Researcher-ID already visible in the current conversation if one exists",
-    "reuse an unambiguous persisted Researcher-ID bound to this same conversation/session if available",
-    "for scheduler CLAIM, derive a deterministic ID from task identity lane plus claim_id",
-    "otherwise generate a new short-code ID locally and persist it in the current conversation"
+    "reuse the role identity already visible in the current conversation if one exists",
+    "reuse an unambiguous persisted role identity bound to this same conversation/session if available",
+    "for Driver-mediated manual relay, use the Researcher-ID preallocated in the dispatch envelope",
+    "for scheduler CLAIM, derive a deterministic Researcher-ID from task identity lane plus claim_id",
+    "otherwise generate a new role-appropriate short-code ID locally and persist it in the current conversation"
   ],
   "id_grammar": {
     "legacy_sequential": "EM-<LANE>-<NN>",
@@ -38,10 +41,24 @@
     ],
     "primary_driver_reserved_id": "EM-DRIVER-01"
   },
+  "role_labels": {
+    "RESEARCHER": "Researcher-ID",
+    "RESEARCH_DRIVER": "Driver-ID"
+  },
   "lane_resolution": {
     "taskbook_field": "identity_lane",
     "fallback": "derive the compact Rxxx/Pxxx lane from task_id; otherwise use DIRECT",
     "driver_without_primary_designation": "DVR"
+  },
+  "manual_dispatch": {
+    "scope": "Driver-mediated user relay into a new researcher conversation",
+    "taskbook_runtime_id": "MUST_REMAIN_UNBOUND",
+    "dispatch_envelope_runtime_id": "MUST_BE_PREALLOCATED",
+    "dispatch_field": "researcher_id",
+    "derivation": "SHA-256(task_id + NUL + dispatch_id), uppercase first 6 hex characters, prefixed by EM-<LANE>-",
+    "helper": "python tools/research_identity.py allocate --task <TASK> --role RESEARCHER --lane <LANE> --dispatch-id <DISPATCH_ID>",
+    "state": "PREALLOCATED_FOR_DISPATCH",
+    "first_use": "the receiving conversation preserves the preallocated Researcher-ID and shows it in its first substantive return"
   },
   "scheduler_claim": {
     "claim_field": "researcher_id",
@@ -57,32 +74,35 @@
     "registration": "CREATE_OWN_REGISTRATION_RECORD_IF_WRITE_PATH_AVAILABLE_ELSE_REGISTER_PENDING"
   },
   "role_transition": {
-    "same_conversation": "preserve Researcher-ID and update Research-Role / Research-Task metadata",
-    "new_conversation": "allocate a new Researcher-ID",
-    "primary_driver": "EM-DRIVER-01 only when the conversation is explicitly the primary Driver continuity conversation"
+    "same_conversation": "preserve the underlying execution handle and switch the visible role label; update Research-Role / Research-Task metadata",
+    "new_conversation": "allocate a new role identity",
+    "primary_driver": "EM-DRIVER-01 only when the conversation is explicitly the primary Driver continuity conversation",
+    "non_primary_driver_visible_label": "Driver-ID"
   },
   "taskbook_contract": {
     "required_for_new_driver_approved_taskbooks": {
       "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE"
     },
     "optional_field": "identity_lane",
-    "rule": "Taskbooks declare the identity policy/lane, never a fixed researcher instance ID. The executing conversation resolves or allocates its own Researcher-ID at runtime.",
+    "rule": "Taskbooks declare the identity policy/lane, never a fixed runtime Researcher-ID. Manual relay binds a Researcher-ID in a separate dispatch envelope; scheduler/direct entry paths resolve identity independently.",
     "legacy_taskbooks": "inherit this state machine even when the field is absent"
   },
   "registration": {
     "repository": "awdawmip/chatgpt-global-knowledge",
-    "per_identity_path_template": "projects/enterprise-math/researchers/<Researcher-ID>.json",
+    "per_identity_path_template": "projects/enterprise-math/researchers/<EXECUTION-ID>.json",
     "human_directory_path": "projects/enterprise-math/RESEARCHER_DIRECTORY.md",
     "write_model": "ONE_FILE_PER_IDENTITY_TO_AVOID_SHARED_DIRECTORY_STARTUP_RACES",
     "directory_is_derived_view": true,
     "registration_is_uniqueness_source": false,
-    "registration_failure": "REGISTER_PENDING; continue research and persist the ID visibly; retry only at a semantic checkpoint",
-    "not_a_hard_block": true
+    "registration_failure": "REGISTER_PENDING; continue work and persist the role identity visibly; retry only at a semantic checkpoint",
+    "not_a_hard_block": true,
+    "legacy_path_name_note": "the historical folder name researchers/ is retained for compatibility and may contain Driver identity records"
   },
   "visibility": {
-    "final_response": "Researcher-ID: <ID> / <TASK-or-CONTROL_PLANE>",
-    "commit_subject_prefix": "[<ID>]",
-    "pr_title_prefix": "[<ID>]",
-    "metadata_fields": ["researcher_id", "research_task", "research_role"]
+    "RESEARCHER": "Researcher-ID: <ID> / <TASK>",
+    "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE",
+    "commit_subject_prefix": "[<EXECUTION-ID>]",
+    "pr_title_prefix": "[<EXECUTION-ID>]",
+    "metadata_fields": ["execution_id", "researcher_id or driver_id", "research_task", "research_role"]
   }
 }
