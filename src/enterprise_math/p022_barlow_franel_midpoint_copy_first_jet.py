@@ -6,23 +6,20 @@ p-adic depth one.  The p^2 reflection first-jet theorem gives
 
     F'_m = 2 u_m  (mod p),    u_m=F_m/p (mod p).
 
-Straub's Gessel--Lucas congruence then specializes, for 0<a<p with F_a a
-p-unit, to
+Straub's Gessel--Lucas congruence then specializes for every 0<a<p to
 
     F_(a p + m)/p = F_a (1+2a) u_m                    (mod p).
 
-Thus the unique multiplier that raises the copied zero above depth one is
-
-    a=(p-1)/2=m.
-
-In particular every multiplier a<m with F_a a p-unit preserves exact depth
-one.  P022 uses this to separate copy-numerator depth from the independent
+When F_a is a p-unit this shows that the unique multiplier that raises the
+copied zero above depth one is a=(p-1)/2=m.  When F_a is itself divisible by p,
+the displayed quotient is zero and the copy is automatically divisible by
+p^2.  P022 uses this to separate copy-numerator depth from the independent
 central-binomial A-support pollution problem.
 """
 
 from __future__ import annotations
 
-from .p022_barlow_franel_gessel_lucas_copy import simple_zero_copy_linear_residue
+from .p022_barlow_franel_gessel_lucas_copy import franel_gessel_lucas_mod_square
 from .p022_barlow_franel_reflection_first_jet import forced_midpoint_first_jet
 from .p022_barlow_low_order_identifiability import triple_moment_factor
 
@@ -39,27 +36,29 @@ def forced_midpoint_copy_residue(
         or not 0 < multiplier < prime
     ):
         raise ValueError("multiplier must lie in 1..p-1")
-    factor = triple_moment_factor(multiplier) % prime
-    if factor == 0:
-        raise ValueError("multiplier Franel factor must be a p-unit")
-    actual, gessel = simple_zero_copy_linear_residue(
+    actual_square, predicted_square = franel_gessel_lucas_mod_square(
         midpoint,
         prime,
         multiplier,
     )
+    if actual_square != predicted_square or actual_square % prime:
+        raise AssertionError("midpoint copy must remain p-divisible")
+    actual = (actual_square // prime) % prime
+    factor = triple_moment_factor(multiplier) % prime
     predicted = factor * (1 + 2 * multiplier) * unit % prime
-    if actual != gessel or actual != predicted:
+    if actual != predicted:
         raise AssertionError("forced-midpoint copy first jet disagrees")
     return midpoint, unit, actual, predicted
 
 
 def forced_midpoint_copy_stays_simple(prime: int, multiplier: int) -> bool:
-    """Certify exact copied depth one whenever a!=m and F_a is a p-unit."""
+    """Certify copied depth one exactly when the first-jet residue is nonzero."""
     midpoint, _, actual, _ = forced_midpoint_copy_residue(prime, multiplier)
-    if multiplier == midpoint:
+    factor = triple_moment_factor(multiplier) % prime
+    if factor == 0 or multiplier == midpoint:
         if actual != 0:
-            raise AssertionError("the self-midpoint multiplier must be exceptional")
+            raise AssertionError("zero factor or exceptional multiplier must raise depth")
         return False
     if actual == 0:
-        raise AssertionError("only the midpoint multiplier can raise copied depth")
+        raise AssertionError("unit nonexceptional multiplier must preserve depth one")
     return True
