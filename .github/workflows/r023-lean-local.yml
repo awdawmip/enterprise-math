@@ -1,0 +1,27 @@
+name: r023-lean-local
+
+on:
+  push:
+    branches:
+      - agent/r023-brc-semantic-lean-core
+
+jobs:
+  lean-local:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          use-mathlib-cache: false
+          use-github-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Restore mathlib cache
+        uses: leanprover-community/cache-action@main
+        with:
+          mathlib-rev: 87adeaebd370a3b6a41ac4f044fddd4bf81803ad
+      - name: Compile R023 owner-local module
+        run: lake env lean -DwarningAsError=true EnterpriseMath/Relation/BranchRecoalescence.lean
