@@ -56,6 +56,9 @@ class ResearchIdentityTests(unittest.TestCase):
             source="DIRECT_AUTO_GENERATED",
         )
         self.assertEqual(payload["registration_state"], "REGISTER_PENDING")
+        self.assertEqual(payload["researcher_id"], rid)
+        self.assertNotIn("driver_id", payload)
+        self.assertEqual(payload["identity_label"], "Researcher-ID")
         self.assertEqual(
             payload["registration_path"],
             f"projects/enterprise-math/researchers/{rid}.json",
@@ -68,6 +71,40 @@ class ResearchIdentityTests(unittest.TestCase):
             ),
             "EM-DRIVER-01",
         )
+
+    def test_driver_uses_driver_id_visible_label(self):
+        did = identity.allocate_direct(
+            task_id=None,
+            role="RESEARCH_DRIVER",
+            lane="DVR",
+        )
+        payload = identity.identity_payload(
+            execution_id=did,
+            task_id=None,
+            role="RESEARCH_DRIVER",
+            source="DIRECT_AUTO_GENERATED",
+        )
+        self.assertTrue(did.startswith("EM-DVR-"))
+        self.assertEqual(payload["driver_id"], did)
+        self.assertNotIn("researcher_id", payload)
+        self.assertEqual(payload["identity_label"], "Driver-ID")
+        self.assertEqual(payload["visible_marker"], f"Driver-ID: {did} / CONTROL_PLANE")
+
+    def test_manual_dispatch_preallocates_researcher_identity(self):
+        task = "RS-R020-P021-WITNESS-CARDINALITY-DYNAMIC-COMPLETENESS-REAUDIT"
+        rid1 = identity.deterministic_dispatch_id(task, "relay-20260811-1", lane="R020")
+        rid2 = identity.deterministic_dispatch_id(task, "relay-20260811-1", lane="R020")
+        rid3 = identity.deterministic_dispatch_id(task, "relay-20260811-2", lane="R020")
+        self.assertEqual(rid1, rid2)
+        self.assertNotEqual(rid1, rid3)
+        self.assertTrue(rid1.startswith("EM-R020-"))
+        payload = identity.identity_payload(
+            execution_id=rid1,
+            task_id=task,
+            role="RESEARCHER",
+            source="MANUAL_DISPATCH_DERIVED",
+        )
+        self.assertEqual(payload["visible_marker"], f"Researcher-ID: {rid1} / {task}")
 
     def test_scheduler_claim_auto_allocates_identity(self):
         task = {
