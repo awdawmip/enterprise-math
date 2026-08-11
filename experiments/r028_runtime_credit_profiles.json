@@ -1,0 +1,15 @@
+{
+  "schema": ["new_pair_coverage","local_multiplicity_reduction_vector","alphabet_debt_reduction","bit_debt_reduction","rewind_reduction","acquisition_cost","storage_cost","recompute_cost"],
+  "synergy": {"witness":{"n":3,"E":"{012}","F":"{01,2}","A":"{02,1}","B":"{0,12}","marginal_at_empty":0,"marginal_after_other":1,"distinct_feature_kernels":true},"Shapley_M":["1/2","1/2"],"ordered_M_A_then_B":[0,1]},
+  "redundancy": {"witness":{"n":3,"E":"{012}","F":"{01,2}","A":"{01,2}","B":"{0,1,2}","marginal_at_empty":1,"marginal_after_other":0,"distinct_feature_kernels":true},"Shapley_M":["1/2","1/2"],"ordered_M_A_then_B":[1,0]},
+  "observation": "Shapley gives [1/2,1/2] to both pure synergy and pure redundancy here; it symmetrizes order but does not identify a unique intrinsic semantic credit.",
+  "storage_rewind_pareto": {"n":8,"target":"four-pairs (R022 E1)","checkpoints":["eight singletons (E0)","four pairs (E1)","two quartets (E2)","one 8-state block (E3/current)"],"options":[{"checkpoint":"E1","metadata_bits":0,"rewind":2,"recompute_units":2},{"checkpoint":"E2","metadata_bits":1,"rewind":1,"recompute_units":1},{"checkpoint":"E3","metadata_bits":2,"rewind":0,"recompute_units":0}],"dominated_option":{"checkpoint":"E0","metadata_bits":0,"rewind":3,"recompute_units":3,"dominated_by":"E1"},"status":"exact R022 8-state witness; three nondominated points under componentwise minimization"},
+  "runtime_rules": [
+    "Exact completion and required-pair coverage are the safety verifier.",
+    "M/B price worst-case side-label resource; do not use debt marginal alone as a probe-selection oracle because synergy can give every initial probe zero debt credit.",
+    "Pair-coverage/cost and decision-tree heuristics are acquisition candidates; verify exact completion after heuristic selection.",
+    "Shrink-triggered eviction/recoalescence is valid only at the matching point/support signature carrier.",
+    "On language extension, compare metadata acquisition, checkpoint rewind/recompute, and external reread on a declared Pareto cost frontier; if none refines enough, classify UNRECOVERABLE_FROM_CURRENT_ENCODING.",
+    "No scalarization without declared weights or an explicit attribution convention."
+  ]
+}
