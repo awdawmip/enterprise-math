@@ -136,36 +136,30 @@ theorem oneStepKey_recovers_of_sufficient {X C Q S : Type*}
   intro x
   simp [oneStepKey, hQ x, hS x]
 
-/-- A classifier is coarsest for the one-step interface when it is sufficient
-and every other sufficient classifier factors onto it. -/
-def IsCoarsestOneStep {X C Q S : Type*}
-    (classifier : X → C) (q : X → Q) (sigma : X → S) : Prop :=
-  OneStepSufficient classifier q sigma ∧
-    ∀ (D : Type*) (other : X → D),
-      OneStepSufficient other q sigma → Recovers other classifier
-
-/-- `ONE_STEP_COARSEST`: `(q,sigma)` is a coarsest one-step classifier in the
-factorization sense. No injectivity, surjectivity, finiteness, or partition
-library is required. -/
+/-- `ONE_STEP_COARSEST`: `(q,sigma)` is sufficient, and every other sufficient
+classifier refines it in the factorization/kernel sense. No injectivity,
+surjectivity, finiteness, or partition library is required. -/
 theorem oneStepCoarsest {X Q S : Type*} (q : X → Q) (sigma : X → S) :
-    IsCoarsestOneStep (oneStepKey q sigma) q sigma := by
+    OneStepSufficient (oneStepKey q sigma) q sigma ∧
+      ∀ (C : Type*) (classifier : X → C),
+        OneStepSufficient classifier q sigma →
+          Recovers classifier (oneStepKey q sigma) := by
   constructor
   · exact oneStepKey_sufficient q sigma
-  · intro D other h
+  · intro C classifier h
     exact oneStepKey_recovers_of_sufficient h
 
-/-- Any two coarsest one-step classifiers have exactly the same kernel, so the
-coarsest refinement is unique as a partition/equivalence relation. -/
-theorem coarsestOneStep_kernel_unique {X C D Q S : Type*}
-    {left : X → C} {right : X → D} {q : X → Q} {sigma : X → S}
-    (hleft : IsCoarsestOneStep left q sigma)
-    (hright : IsCoarsestOneStep right q sigma) (x y : X) :
-    (left x = left y) ↔ (right x = right y) := by
-  have hRightFromLeft : Recovers left right := hright.2 C left hleft.1
-  have hLeftFromRight : Recovers right left := hleft.2 D right hright.1
-  constructor
-  · exact noResurrection hRightFromLeft
-  · exact noResurrection hLeftFromRight
+/-- Exact R021 specialization: the one-step key uses current coarse observation
+and the next coarse successor-support under the declared relation. -/
+theorem oneStepCoarseSuccessorCoarsest {X Q : Type*} (q : X → Q) (R : Rel X) :
+    OneStepSufficient
+        (oneStepKey q (coarseSuccessorSupport q R))
+        q (coarseSuccessorSupport q R) ∧
+      ∀ (C : Type*) (classifier : X → C),
+        OneStepSufficient classifier q (coarseSuccessorSupport q R) →
+          Recovers classifier
+            (oneStepKey q (coarseSuccessorSupport q R)) :=
+  oneStepCoarsest q (coarseSuccessorSupport q R)
 
 /-- Kernel form of the coarsest universal property. -/
 theorem oneStepCoarsest_kernel {X C Q S : Type*}
