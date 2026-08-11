@@ -1,0 +1,152 @@
+{
+  "schema": "R030_MUTATION_SUITE_V1",
+  "cases": [
+    {
+      "id": "REMOVE_CARRIER_DECLARATION",
+      "strategy": "MINIMUM_CRITICAL_COVER",
+      "added": [],
+      "removed": [
+        "CARRIER_TYPE_SPLIT",
+        "SUPPORT_COUNT_PROVENANCE_SPLIT"
+      ],
+      "base_warnings": [
+        "one-step exactness ⇏ composition safety",
+        "static correctness ⇏ dynamically reusable state",
+        "Boolean support ≠ count ≠ provenance"
+      ],
+      "mutated_warnings": [
+        "one-step exactness ⇏ composition safety",
+        "static correctness ⇏ dynamically reusable state"
+      ],
+      "pass": true
+    },
+    {
+      "id": "BOOLEAN_SUPPORT_TO_N_COUNT",
+      "strategy": "MINIMUM_CRITICAL_COVER",
+      "added": [
+        "CARRIER_TYPE_SPLIT",
+        "SUPPORT_COUNT_PROVENANCE_SPLIT"
+      ],
+      "removed": [],
+      "base_warnings": [],
+      "mutated_warnings": [
+        "Boolean support ≠ count ≠ provenance"
+      ],
+      "pass": true
+    },
+    {
+      "id": "ONE_STEP_TO_ARBITRARY_FINITE_WORDS",
+      "strategy": "MINIMUM_CRITICAL_COVER",
+      "added": [
+        "HORIZON_RELATIVITY_CHECK",
+        "ONE_STEP_EXACT_NOT_COMPOSITION_SAFE"
+      ],
+      "removed": [],
+      "base_warnings": [],
+      "mutated_warnings": [
+        "one-step exactness ⇏ composition safety"
+      ],
+      "pass": true
+    },
+    {
+      "id": "DECLARED_FUTURE_TO_REALIZED_TRACE",
+      "strategy": "MINIMUM_CRITICAL_COVER",
+      "added": [
+        "DECLARED_VS_REALIZED_FUTURE"
+      ],
+      "removed": [],
+      "base_warnings": [],
+      "mutated_warnings": [
+        "declared future ≠ realized future/suffix"
+      ],
+      "pass": true
+    },
+    {
+      "id": "BOUNDED_TO_GLOBAL_MINIMALITY",
+      "strategy": "MINIMUM_CRITICAL_COVER",
+      "added": [
+        "QUANTIFIER_SCOPE_CHECK"
+      ],
+      "removed": [
+        "MINIMAL_IN_DECLARED_CLASS_VS_GLOBAL_MINIMAL"
+      ],
+      "base_warnings": [
+        "bounded/declaration-class minimality ⇏ global minimality"
+      ],
+      "mutated_warnings": [],
+      "pass": true
+    },
+    {
+      "id": "BUILD_PASS_MODULE_COVERAGE_REMOVED",
+      "strategy": "MINIMUM_CRITICAL_COVER",
+      "added": [
+        "ROOT_COVERAGE_EVIDENCE_CHECK",
+        "SOURCE_PROVENANCE_VS_COVERAGE_EVIDENCE"
+      ],
+      "removed": [
+        "CLAIM_EVIDENCE_GRADE_CHECK"
+      ],
+      "base_warnings": [],
+      "mutated_warnings": [
+        "build PASS ⇏ coverage of a newly added module",
+        "source provenance ⇏ compiler/root coverage evidence"
+      ],
+      "pass": true
+    },
+    {
+      "id": "EQUAL_CONTRACT_TO_DIFFERENT_CARRIER",
+      "strategy": "MINIMUM_CRITICAL_COVER",
+      "added": [
+        "RESOURCE_EQUAL_SEMANTIC_FIBRE_CHECK"
+      ],
+      "removed": [],
+      "base_warnings": [],
+      "mutated_warnings": [
+        "lower resource cost under a different semantic contract ⇏ Pareto improvement"
+      ],
+      "pass": true
+    },
+    {
+      "id": "ADD_LOW_EVIDENCE_INTERPRETIVE_LENS",
+      "strategy": "TOP_K",
+      "added": [
+        "INTERPRETIVE_ONTOLOGY_LENS"
+      ],
+      "removed": [],
+      "base_warnings": [],
+      "mutated_warnings": [],
+      "pass": true
+    },
+    {
+      "id": "FINITE_EVIDENCE_TO_UNIVERSAL_CLAIM",
+      "strategy": "MINIMUM_CRITICAL_COVER",
+      "added": [
+        "FINITE_EVIDENCE_NOT_UNIVERSAL"
+      ],
+      "removed": [
+        "CLAIM_EVIDENCE_GRADE_CHECK"
+      ],
+      "base_warnings": [],
+      "mutated_warnings": [
+        "finite/exhaustive evidence on a bounded domain ⇏ universal theorem"
+      ],
+      "pass": true
+    },
+    {
+      "id": "REMOVE_SUFFIX_HORIZON",
+      "strategy": "MINIMUM_CRITICAL_COVER",
+      "added": [],
+      "removed": [
+        "CURRENT_EQUALITY_NOT_SUFFIX_SAFE",
+        "FUTURE_LANGUAGE_RELATIVITY"
+      ],
+      "base_warnings": [
+        "current coarse equality ⇏ suffix-safe forgetful recoalescence"
+      ],
+      "mutated_warnings": [],
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "changed_count": 10
+}
