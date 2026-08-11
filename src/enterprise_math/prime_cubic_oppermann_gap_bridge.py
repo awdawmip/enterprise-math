@@ -1,9 +1,9 @@
 """Exact arithmetic bridge for R005-B cubic finite certificate composition.
 
-The module does not verify Oppermann's conjecture, Kadiri--Lumley's effective
-prime-interval theorem, or the external prime-gap database.  It freezes only
-the integer conversions used to compose those external certificates with the
-existing R005-A/R005-B theorems.
+The module does not verify Oppermann's conjecture, Kadiri--Lumley's or
+Cully--Hugill--Lee's effective prime-interval theorems, or the external
+prime-gap database.  It freezes only the integer conversions used to compose
+those external certificates with the existing R005-A/R005-B theorems.
 """
 
 from math import isqrt
@@ -13,8 +13,12 @@ OPPERMANN_INDEX_LIMIT = 70_500_000_000_000
 OPPERMANN_ONLY_K_MAX = 2_150_153_225
 KADIRI_LUMLEY_E59_DELTA = 1_946_282_821
 KADIRI_LUMLEY_E59_K_MAX = 5_838_848_460
+CULLY_HUGILL_LEE_E55_DELTA = 10_288_400_000
+CULLY_HUGILL_LEE_E60_DELTA = 76_918_400_000
+CULLY_HUGILL_LEE_E60_FIT_K_MAX = 230_755_199_997
 PRIME_GAP_COVERAGE_LIMIT = 10**20
 PRIME_GAP_CAP = 1724
+CURRENT_COMPLETE_CLASSIFICATION_K_MAX = 10_000_000_000
 OLD_COMPLETE_PREFIX_MAX = 5_848_035
 
 
@@ -44,12 +48,12 @@ def oppermann_index_covered(k: int, q: int) -> bool:
 
 
 def oppermann_escape_forces_large_effective_scale(k: int, q: int) -> bool:
-    """Check the exact scale complement behind the Kadiri--Lumley bridge.
+    """Check the exact size complement behind the effective-interval bridge.
 
     If finite Oppermann coverage fails, q*N^2<k^3.  Hence for
     U=(k+1)^3-1 the cofactor upper endpoint y=U/q satisfies y>N^2.
-    This routine checks the integer inequality q*N^2<k^3 => U>q*N^2.
-    The external comparison N^2>e^59 is not encoded as integer theorem data.
+    This routine freezes that integer implication.  The external comparison
+    N^2>e^60 belongs to the cited effective prime-interval input.
     """
     if k < 1 or q < 1:
         raise ValueError("k and q must be positive")
@@ -62,11 +66,15 @@ def oppermann_escape_forces_large_effective_scale(k: int, q: int) -> bool:
 def effective_relative_interval_fits(k: int, delta: int) -> bool:
     """Check whether a relative prime interval with parameter delta fits.
 
-    Applying a theorem that supplies a prime in
+    A theorem supplying a prime in
 
-        (y*(1-1/delta), y), y=U/q,
+        (y*(1-1/delta), y],  y=U/q,
 
-    fits inside the cubic cofactor interval (A/q,U/q) exactly when
+    fits strictly above the cubic lower cofactor endpoint A/q exactly when
+
+        U*(1-1/delta) > A,
+
+    equivalently
 
         3*(k+1)*(delta-1) > k^2.
     """
@@ -87,6 +95,11 @@ def worst_q_gt_k_cofactor_floor(k: int) -> int:
     if k < 1:
         raise ValueError("k must be positive")
     return k * k - k
+
+
+def horizontal_gap_database_covered(k: int) -> bool:
+    """Return whether every q>k cofactor point lies below the frozen data cap."""
+    return worst_q_gt_k_cofactor_floor(k) < PRIME_GAP_COVERAGE_LIMIT
 
 
 def cubic_root_horizon_pair(k: int) -> tuple[int, int, int]:
@@ -117,17 +130,41 @@ def oppermann_endpoint_arithmetic_holds() -> bool:
     return (
         ceil_sqrt_half_cube(k) <= OPPERMANN_INDEX_LIMIT
         and ceil_sqrt_half_cube(k + 1) > OPPERMANN_INDEX_LIMIT
-        and worst_q_gt_k_cofactor_floor(k) < PRIME_GAP_COVERAGE_LIMIT
+        and horizontal_gap_database_covered(k)
     )
 
 
 def kadiri_lumley_e59_endpoint_arithmetic_holds() -> bool:
-    """Return whether the e^59 effective-row endpoint conversions hold."""
+    """Return whether the historical e^59 bridge endpoint conversions hold."""
     k = KADIRI_LUMLEY_E59_K_MAX
     return (
         effective_relative_interval_fits(k, KADIRI_LUMLEY_E59_DELTA)
         and not effective_relative_interval_fits(k + 1, KADIRI_LUMLEY_E59_DELTA)
-        and worst_q_gt_k_cofactor_floor(k) < PRIME_GAP_COVERAGE_LIMIT
-        and upper_closed_by_uniform_gap_cap(OLD_COMPLETE_PREFIX_MAX + 1)
+        and horizontal_gap_database_covered(k)
+        and upper_closed_by_uniform_gap_cap(k)
+    )
+
+
+def cully_hugill_lee_e60_fit_endpoint_arithmetic_holds() -> bool:
+    """Check the corrected CHL log(x0)=60 row's exact cubic fit endpoint."""
+    k = CULLY_HUGILL_LEE_E60_FIT_K_MAX
+    delta = CULLY_HUGILL_LEE_E60_DELTA
+    return (
+        effective_relative_interval_fits(k, delta)
+        and not effective_relative_interval_fits(k + 1, delta)
+    )
+
+
+def current_complete_classification_endpoint_arithmetic_holds() -> bool:
+    """Check the current 10^20-data-limited cubic endpoint packet.
+
+    The corrected Cully--Hugill--Lee e^60 row still fits far beyond this point;
+    the active finite endpoint is exactly the q>k horizontal data boundary.
+    """
+    k = CURRENT_COMPLETE_CLASSIFICATION_K_MAX
+    return (
+        effective_relative_interval_fits(k, CULLY_HUGILL_LEE_E60_DELTA)
+        and horizontal_gap_database_covered(k)
+        and not horizontal_gap_database_covered(k + 1)
         and upper_closed_by_uniform_gap_cap(k)
     )
