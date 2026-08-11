@@ -33,23 +33,33 @@ Moreover h<q implies
 
     q > floor((k'-1)/2).
 
-Thus q lies in the child's half-cutoff/single-use regime: one Euclidean descent
-turns every repeatable parent conductor into a globally single-use child
-conductor.
+Thus q lies in the child's half-cutoff/single-use regime.  If the parent is
+actually repeatable, A>=1, then q divides
+
+    n=(k-k')/2
+
+and the two inequalities combine to give the strict half-scale contraction
+
+    k' < (k+1)/2.
+
+So every repeatable parent boundary column executes in one child world of at
+most half the parent scale, where its conductor is already single-use.  For a
+fixed child k', the possible parent conductors form only the large-divisor
+family
+
+    q | (k-k')/2,       q > floor((k'-1)/2).
 
 This is an exact P017/P018/BRC transport theorem.  It explains boundary carry
-as a scale-reduced execution rather than an uncontrolled error.  Anchor
-survival may be carried as an external radius filter; the raw conductor/root
-identity itself is exact.  No estimate of the signed child sum and no Legendre
-proof is claimed.
+as scale-reduced execution rather than an uncontrolled error.  Anchor survival
+may be carried as an external radius filter; the raw conductor/root identity
+itself is exact.  No estimate of the signed child sum and no Legendre proof is
+claimed.
 """
 
 from __future__ import annotations
 
 from itertools import product
 from math import prod
-
-from .legendre import primes_up_to
 
 
 def _require_transverse_conductor(k: int, conductor_primes: tuple[int, ...]) -> tuple[int, ...]:
@@ -64,7 +74,7 @@ def _require_transverse_conductor(k: int, conductor_primes: tuple[int, ...]) -> 
 
 
 def euclidean_child_scale(k: int, conductor: int) -> dict[str, int | bool]:
-    """Return H=Aq+h and child k'=2h+epsilon."""
+    """Return H=Aq+h and child k'=2h+epsilon with its exact contraction data."""
     if isinstance(k, bool) or not isinstance(k, int) or k < 3:
         raise ValueError("k must be an integer >=3")
     if isinstance(conductor, bool) or not isinstance(conductor, int) or conductor < 1 or conductor % 2 == 0:
@@ -82,6 +92,15 @@ def euclidean_child_scale(k: int, conductor: int) -> dict[str, int | bool]:
     child_half_cutoff = (child - 1) // 2 if child >= 1 else -1
     if not conductor > child_half_cutoff:
         raise AssertionError("descended conductor did not enter child single-use half-cutoff regime")
+
+    repeatable_parent = block_count >= 1
+    large_divisor_parent = (k - child) // 2
+    if repeatable_parent:
+        if large_divisor_parent % conductor:
+            raise AssertionError("repeatable parent conductor did not divide child-gap quotient")
+        if not child < (k + 1) / 2:
+            raise AssertionError("repeatable Euclidean child failed strict half-scale contraction")
+
     return {
         "k": k,
         "conductor_q": conductor,
@@ -91,7 +110,11 @@ def euclidean_child_scale(k: int, conductor: int) -> dict[str, int | bool]:
         "boundary_prefix_h": h,
         "child_scale_k_prime": child,
         "child_half_cutoff": child_half_cutoff,
+        "repeatable_parent_conductor": repeatable_parent,
         "strict_scale_contraction": child < k,
+        "strict_half_scale_contraction_when_repeatable": (not repeatable_parent) or child < (k + 1) / 2,
+        "child_gap_half_n": large_divisor_parent,
+        "conductor_divides_child_gap_half": (not repeatable_parent) or large_divisor_parent % conductor == 0,
         "child_conductor_single_use": True,
     }
 
@@ -125,10 +148,8 @@ def euclidean_boundary_column(k: int, conductor_primes: tuple[int, ...]) -> dict
     H = int(data["positive_odd_radius_count_H"])
     h = int(data["boundary_prefix_h"])
 
-    # Direct parent signed column.
     parent = raw_orientation_column(k, primes)
 
-    # Explicit block decomposition in t.  Each full block must have zero sum.
     block_rows: list[dict[str, int]] = []
     for block in range(int(data["complete_q_blocks_A"])):
         block_sum = 0
@@ -146,8 +167,6 @@ def euclidean_boundary_column(k: int, conductor_primes: tuple[int, ...]) -> dict
         for signs in product((1, -1), repeat=len(primes)):
             boundary += _orientation_root_sign(k, radius, primes, signs)
 
-    # Translate the final parent t-block back to local t'=0,...,h-1.  Because
-    # t=(Aq)+t' and radius changes by 2Aq, root residues are unchanged.
     local_boundary = 0
     start = H - h
     for local_t in range(h):
@@ -155,8 +174,6 @@ def euclidean_boundary_column(k: int, conductor_primes: tuple[int, ...]) -> dict
         child_radius = 2 * local_t + 1
         for signs in product((1, -1), repeat=len(primes)):
             parent_value = _orientation_root_sign(k, parent_radius, primes, signs)
-            # The child may be smaller than some conductor primes; transversality
-            # remains valid because child==k mod q.
             child_value = _orientation_root_sign(child, child_radius, primes, signs)
             if parent_value != child_value:
                 raise AssertionError("parent boundary root pattern changed under Euclidean descent")
