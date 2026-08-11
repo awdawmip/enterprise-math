@@ -1,0 +1,243 @@
+{
+  "benchmarks": [
+    "A_GCD",
+    "B_QUANT",
+    "C_SUM",
+    "D_LINSYS",
+    "E_MULTIGRID",
+    "F_PROJ",
+    "G_OSC",
+    "H_COLLISION",
+    "I_RASTER"
+  ],
+  "classification_counts_by_family": {
+    "ANCHOR_PLUS_RESIDUAL": {
+      "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN": 9
+    },
+    "BRC_SUPPORT": {
+      "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN": 2,
+      "TYPE_MISMATCH": 7
+    },
+    "DOWN_PROJECTION": {
+      "APPROXIMATE_ONLY": 1,
+      "BIASED_BUT_USEFUL_FOR_ONE_SIDED_GOAL": 4,
+      "EQUIVALENT_TO_KNOWN_METHOD": 1,
+      "FAILS_CONVERGENCE_OR_INVARIANT": 3
+    },
+    "FAR_PROJECTION": {
+      "FAILS_CONVERGENCE_OR_INVARIANT": 7,
+      "TYPE_MISMATCH": 2
+    },
+    "FIELD_COORDINATE": {
+      "EQUIVALENT_TO_KNOWN_METHOD": 2,
+      "USEFUL_COORDINATE_ONLY": 7
+    },
+    "NEAREST_PROJECTION": {
+      "APPROXIMATE_ONLY": 2,
+      "EQUIVALENT_TO_KNOWN_METHOD": 5,
+      "PARETO_ALTERNATIVE": 1,
+      "TYPE_MISMATCH": 1
+    },
+    "RESIDUAL_COLLAPSE": {
+      "EQUIVALENT_TO_KNOWN_METHOD": 8,
+      "FAILS_CONVERGENCE_OR_INVARIANT": 1
+    },
+    "UNBIASED_DISTANCE_RANDOM": {
+      "APPROXIMATE_ONLY": 2,
+      "EQUIVALENT_TO_KNOWN_METHOD": 2,
+      "PARETO_ALTERNATIVE": 2,
+      "TYPE_MISMATCH": 3
+    },
+    "UNIFORM_ENDPOINT_RANDOM": {
+      "APPROXIMATE_ONLY": 6,
+      "TYPE_MISMATCH": 3
+    },
+    "UP_PROJECTION": {
+      "APPROXIMATE_ONLY": 1,
+      "BIASED_BUT_USEFUL_FOR_ONE_SIDED_GOAL": 4,
+      "EQUIVALENT_TO_KNOWN_METHOD": 1,
+      "FAILS_CONVERGENCE_OR_INVARIANT": 2,
+      "TYPE_MISMATCH": 1
+    }
+  },
+  "collapse_families": [
+    "DOWN_PROJECTION",
+    "UP_PROJECTION",
+    "NEAREST_PROJECTION",
+    "FAR_PROJECTION",
+    "UNIFORM_ENDPOINT_RANDOM",
+    "UNBIASED_DISTANCE_RANDOM",
+    "RESIDUAL_COLLAPSE",
+    "ANCHOR_PLUS_RESIDUAL",
+    "FIELD_COORDINATE",
+    "BRC_SUPPORT"
+  ],
+  "cross_domain_laws": {
+    "Anchor Necessity Boundary": {
+      "novelty": "ENTERPRISE SEMANTIC BOUNDARY / candidate reusable theorem interface",
+      "statement": "If two states share a residual but differ in anchor/context and some permitted future observable distinguishes them, residual-only state is incomplete.",
+      "status": "CONFIRMED_BY_MINIMAL_COUNTEREXAMPLE_AND_CONSERVATION_CASE",
+      "witnesses": [
+        "same residual r=1/4 at anchors 0 and 10 under x^2",
+        "collision conservation",
+        "projection displacement"
+      ]
+    },
+    "Projection/Correction Duality": {
+      "novelty": "cross-domain synthesis, not a claim of new component algorithms",
+      "statement": "Projection is safe as a coarse anchor only when lost detail is irrelevant to the observable or is reintroduced through a correction channel; otherwise repeated projection accumulates bias/drift.",
+      "status": "SURVIVES_AS_PATTERN"
+    },
+    "Residual-State Principle": {
+      "hostile_boundary": [
+        "H_COLLISION",
+        "nonlinear future map counterexample"
+      ],
+      "novelty": "GENERALIZATION/BOOKKEEPING LAW; component algorithms are prior art",
+      "positive_domains": [
+        "A_GCD",
+        "B_QUANT",
+        "C_SUM",
+        "D_LINSYS",
+        "E_MULTIGRID",
+        "F_PROJ",
+        "I_RASTER"
+      ],
+      "statement": "Residual is a sufficient primary iteration coordinate only when future correction/observable factorizes through residual plus fixed solver/operator context; otherwise anchor/context is required.",
+      "status": "SURVIVES_WITH_FACTORISATION_CONDITION"
+    }
+  },
+  "driver_recommendations": {
+    "CONTINUE_INVEST": {
+      "ANCHOR_NECESSITY_BOUNDARY": "Promote as a reusable semantic guard: residual-only is invalid whenever permitted future observables distinguish equal-residual states with different anchors/context.",
+      "FIELD_COORDINATE": "Invest selectively where future evolution/observable factorizes through basin, phase, gap, active-set or residual coordinates and reconstruction cost is explicitly lower.",
+      "RESIDUAL_COLLAPSE": "Invest in a residual-sufficiency/factorization checker and multi-level state compiler, not in rebranding rooted algorithms. Evidence spans arithmetic, quantization, summation, refinement, multigrid, projection and rasterization, but fails when residual precision/context is insufficient."
+    },
+    "DEPRIORITIZE_OR_RETIRE": {
+      "FAR_PROJECTION": "Retain only as hostile/adversarial control; fails metric, rounding, dynamical and conservation objectives across tested domains.",
+      "UNCONDITIONAL_RESIDUAL_ONLY": "Reject. Require a factorization/sufficiency proof or carry anchor/operator/context.",
+      "UNIFORM_ENDPOINT_RANDOM": "Do not call it unbiased except at basin midpoint; retain only as a stochastic control or when 50/50 endpoints are independently part of the problem semantics.",
+      "UNIVERSAL_DOWN_OR_UP": "Reject. Direction is objective-dependent rather than foundationally privileged by these external benchmarks."
+    },
+    "NOVELTY_BOUNDARY": "No tested collapse family dominates a classical reference solver on a declared resource axis. The surviving Enterprise residue is semantic/tooling: type-safe collapse selection, residual sufficiency tests, anchor-necessity counterexamples, state-accounting, and cross-domain capability compilation.",
+    "SPECIAL_MODE_ONLY": {
+      "ANCHOR_PLUS_RESIDUAL": "Keep as exact bookkeeping/reference decomposition and safe fallback; no resource gain without compression/factorization.",
+      "BRC_SUPPORT": "Keep only for exact Boolean/result-support semantics; R026 shows semantic exactness but no scalar numerical resource advantage.",
+      "DOWN_PROJECTION": "Keep for certified lower bounds, truncation, lower raster envelopes or monotone safety goals; reject as universal collapse direction.",
+      "NEAREST_PROJECTION": "Use as standard metric/MSE rounding/projection baseline; no Enterprise novelty established.",
+      "UNBIASED_DISTANCE_RANDOM": "Use when expectation preservation is the declared observable and variance/pathwise invariant cost is acceptable; rooted stochastic rounding.",
+      "UP_PROJECTION": "Keep for certified upper bounds/conservative enclosure; reject as universal collapse direction."
+    }
+  },
+  "matrix": {
+    "A_GCD": {
+      "ANCHOR_PLUS_RESIDUAL": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "BRC_SUPPORT": "TYPE_MISMATCH",
+      "DOWN_PROJECTION": "EQUIVALENT_TO_KNOWN_METHOD",
+      "FAR_PROJECTION": "TYPE_MISMATCH",
+      "FIELD_COORDINATE": "USEFUL_COORDINATE_ONLY",
+      "NEAREST_PROJECTION": "EQUIVALENT_TO_KNOWN_METHOD",
+      "RESIDUAL_COLLAPSE": "EQUIVALENT_TO_KNOWN_METHOD",
+      "UNBIASED_DISTANCE_RANDOM": "TYPE_MISMATCH",
+      "UNIFORM_ENDPOINT_RANDOM": "TYPE_MISMATCH",
+      "UP_PROJECTION": "EQUIVALENT_TO_KNOWN_METHOD"
+    },
+    "B_QUANT": {
+      "ANCHOR_PLUS_RESIDUAL": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "BRC_SUPPORT": "TYPE_MISMATCH",
+      "DOWN_PROJECTION": "BIASED_BUT_USEFUL_FOR_ONE_SIDED_GOAL",
+      "FAR_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "FIELD_COORDINATE": "USEFUL_COORDINATE_ONLY",
+      "NEAREST_PROJECTION": "EQUIVALENT_TO_KNOWN_METHOD",
+      "RESIDUAL_COLLAPSE": "EQUIVALENT_TO_KNOWN_METHOD",
+      "UNBIASED_DISTANCE_RANDOM": "EQUIVALENT_TO_KNOWN_METHOD",
+      "UNIFORM_ENDPOINT_RANDOM": "APPROXIMATE_ONLY",
+      "UP_PROJECTION": "BIASED_BUT_USEFUL_FOR_ONE_SIDED_GOAL"
+    },
+    "C_SUM": {
+      "ANCHOR_PLUS_RESIDUAL": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "BRC_SUPPORT": "TYPE_MISMATCH",
+      "DOWN_PROJECTION": "BIASED_BUT_USEFUL_FOR_ONE_SIDED_GOAL",
+      "FAR_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "FIELD_COORDINATE": "USEFUL_COORDINATE_ONLY",
+      "NEAREST_PROJECTION": "EQUIVALENT_TO_KNOWN_METHOD",
+      "RESIDUAL_COLLAPSE": "EQUIVALENT_TO_KNOWN_METHOD",
+      "UNBIASED_DISTANCE_RANDOM": "EQUIVALENT_TO_KNOWN_METHOD",
+      "UNIFORM_ENDPOINT_RANDOM": "APPROXIMATE_ONLY",
+      "UP_PROJECTION": "BIASED_BUT_USEFUL_FOR_ONE_SIDED_GOAL"
+    },
+    "D_LINSYS": {
+      "ANCHOR_PLUS_RESIDUAL": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "BRC_SUPPORT": "TYPE_MISMATCH",
+      "DOWN_PROJECTION": "APPROXIMATE_ONLY",
+      "FAR_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "FIELD_COORDINATE": "USEFUL_COORDINATE_ONLY",
+      "NEAREST_PROJECTION": "PARETO_ALTERNATIVE",
+      "RESIDUAL_COLLAPSE": "EQUIVALENT_TO_KNOWN_METHOD",
+      "UNBIASED_DISTANCE_RANDOM": "PARETO_ALTERNATIVE",
+      "UNIFORM_ENDPOINT_RANDOM": "APPROXIMATE_ONLY",
+      "UP_PROJECTION": "APPROXIMATE_ONLY"
+    },
+    "E_MULTIGRID": {
+      "ANCHOR_PLUS_RESIDUAL": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "BRC_SUPPORT": "TYPE_MISMATCH",
+      "DOWN_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "FAR_PROJECTION": "TYPE_MISMATCH",
+      "FIELD_COORDINATE": "USEFUL_COORDINATE_ONLY",
+      "NEAREST_PROJECTION": "TYPE_MISMATCH",
+      "RESIDUAL_COLLAPSE": "EQUIVALENT_TO_KNOWN_METHOD",
+      "UNBIASED_DISTANCE_RANDOM": "TYPE_MISMATCH",
+      "UNIFORM_ENDPOINT_RANDOM": "TYPE_MISMATCH",
+      "UP_PROJECTION": "TYPE_MISMATCH"
+    },
+    "F_PROJ": {
+      "ANCHOR_PLUS_RESIDUAL": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "BRC_SUPPORT": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "DOWN_PROJECTION": "BIASED_BUT_USEFUL_FOR_ONE_SIDED_GOAL",
+      "FAR_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "FIELD_COORDINATE": "USEFUL_COORDINATE_ONLY",
+      "NEAREST_PROJECTION": "EQUIVALENT_TO_KNOWN_METHOD",
+      "RESIDUAL_COLLAPSE": "EQUIVALENT_TO_KNOWN_METHOD",
+      "UNBIASED_DISTANCE_RANDOM": "TYPE_MISMATCH",
+      "UNIFORM_ENDPOINT_RANDOM": "TYPE_MISMATCH",
+      "UP_PROJECTION": "BIASED_BUT_USEFUL_FOR_ONE_SIDED_GOAL"
+    },
+    "G_OSC": {
+      "ANCHOR_PLUS_RESIDUAL": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "BRC_SUPPORT": "TYPE_MISMATCH",
+      "DOWN_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "FAR_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "FIELD_COORDINATE": "USEFUL_COORDINATE_ONLY",
+      "NEAREST_PROJECTION": "APPROXIMATE_ONLY",
+      "RESIDUAL_COLLAPSE": "EQUIVALENT_TO_KNOWN_METHOD",
+      "UNBIASED_DISTANCE_RANDOM": "PARETO_ALTERNATIVE",
+      "UNIFORM_ENDPOINT_RANDOM": "APPROXIMATE_ONLY",
+      "UP_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT"
+    },
+    "H_COLLISION": {
+      "ANCHOR_PLUS_RESIDUAL": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "BRC_SUPPORT": "TYPE_MISMATCH",
+      "DOWN_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "FAR_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "FIELD_COORDINATE": "EQUIVALENT_TO_KNOWN_METHOD",
+      "NEAREST_PROJECTION": "APPROXIMATE_ONLY",
+      "RESIDUAL_COLLAPSE": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "UNBIASED_DISTANCE_RANDOM": "APPROXIMATE_ONLY",
+      "UNIFORM_ENDPOINT_RANDOM": "APPROXIMATE_ONLY",
+      "UP_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT"
+    },
+    "I_RASTER": {
+      "ANCHOR_PLUS_RESIDUAL": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "BRC_SUPPORT": "SEMANTICALLY_EXACT_BUT_NO_RESOURCE_GAIN",
+      "DOWN_PROJECTION": "BIASED_BUT_USEFUL_FOR_ONE_SIDED_GOAL",
+      "FAR_PROJECTION": "FAILS_CONVERGENCE_OR_INVARIANT",
+      "FIELD_COORDINATE": "EQUIVALENT_TO_KNOWN_METHOD",
+      "NEAREST_PROJECTION": "EQUIVALENT_TO_KNOWN_METHOD",
+      "RESIDUAL_COLLAPSE": "EQUIVALENT_TO_KNOWN_METHOD",
+      "UNBIASED_DISTANCE_RANDOM": "APPROXIMATE_ONLY",
+      "UNIFORM_ENDPOINT_RANDOM": "APPROXIMATE_ONLY",
+      "UP_PROJECTION": "BIASED_BUT_USEFUL_FOR_ONE_SIDED_GOAL"
+    }
+  },
+  "schema": "R026_CAPABILITY_MATRIX_V1"
+}
