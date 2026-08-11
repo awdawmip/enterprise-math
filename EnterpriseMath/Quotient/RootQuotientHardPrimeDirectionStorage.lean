@@ -1,6 +1,7 @@
 import EnterpriseMath.Quotient.RootQuotientStableMacroObstruction
 import EnterpriseMath.Quotient.RootQuotientCompositeMacroStorage
 import Mathlib.Data.Set.Card
+import Mathlib.Order.Interval.Finset.Basic
 import Mathlib.Tactic
 
 namespace EnterpriseMath.Quotient
@@ -119,15 +120,17 @@ theorem hardPrimeDirections_ncard_le_macroFamily_of_separator
     dsimp [f]
     rw [dif_pos hp]
     exact Classical.choose_spec (hServe p hp)
-  apply Set.ncard_le_ncard_of_injOn f
-  · intro p hp
-    exact (hfSpec p hp).1
-  · intro p hp q hq hEq
+  have hInj : Set.InjOn f H := by
+    intro p hp q hq hEq
     have hpPrime : p.Prime := hp.1
     have hqPrime : q.Prime := hq.1
+    have hqServeAsP : RootQuotientMacroServesPrimeDirection (f p) q := by
+      rw [hEq]
+      exact (hfSpec q hq).2
     exact primeDirection_eq_of_macro_serves_both
-      hpPrime hqPrime (hfSpec p hp).2 (hEq ▸ (hfSpec q hq).2)
-  · exact hSFinite
+      hpPrime hqPrime (hfSpec p hp).2 hqServeAsP
+  exact Set.ncard_le_ncard_of_injOn f
+    (fun p hp => (hfSpec p hp).1) hInj hSFinite
 
 /-- Fixed-horizon storage consequence: the true minimum optional-macro count is
 at least the number of hard pure-prime directions. -/
