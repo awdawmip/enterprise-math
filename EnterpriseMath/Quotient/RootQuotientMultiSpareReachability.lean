@@ -112,6 +112,49 @@ theorem rootQuotientProductReachableWithin_union_iff_exists_convolution
         _ = rootQuotientWordProduct (u ++ v) :=
           (rootQuotientWordProduct_append u v).symm
 
+/-- **Exact residual-word repair representation.**
+
+A target is reachable after adjoining an arbitrary spare family `S` exactly
+when some literal spare word consumes part of the horizon and leaves a residual
+target reachable by the base ISA in the remaining steps.
+
+This is the exact hyperedge layer above the coarser divisor-cover obstruction. -/
+theorem rootQuotientProductReachableWithin_union_iff_exists_spareWord_residual
+    {G S : Set ℕ} {t h : ℕ} :
+    RootQuotientProductReachableWithin h (G ∪ S) t ↔
+      ∃ u : List ℕ, ∃ b : ℕ,
+        u.length ≤ h ∧
+        RootQuotientWordOver S u ∧
+        RootQuotientProductReachableWithin (h - u.length) G b ∧
+        rootQuotientWordProduct u * b = t := by
+  constructor
+  · rintro ⟨w, hwLen, hwUnion, hProd⟩
+    obtain ⟨u, v, hLen, huS, hvG, hSplit⟩ :=
+      exists_split_rootQuotientWord_over_union hwUnion
+    let b := rootQuotientWordProduct v
+    have huLen : u.length ≤ h := by omega
+    have hvLen : v.length ≤ h - u.length := by omega
+    refine ⟨u, b, huLen, huS, ?_, ?_⟩
+    · exact ⟨v, hvLen, hvG, rfl⟩
+    · dsimp [b]
+      exact hSplit.trans hProd.symm
+  · rintro ⟨u, b, huLen, huS, hbReach, hFactor⟩
+    obtain ⟨v, hvLen, hvG, hbProd⟩ := hbReach
+    refine ⟨u ++ v, ?_, ?_, ?_⟩
+    · rw [List.length_append]
+      omega
+    · intro g hg
+      rw [List.mem_append] at hg
+      rcases hg with hgU | hgV
+      · exact Or.inr (huS g hgU)
+      · exact Or.inl (hvG g hgV)
+    · calc
+        t = rootQuotientWordProduct u * b := hFactor.symm
+        _ = rootQuotientWordProduct u * rootQuotientWordProduct v := by
+          rw [hbProd]
+        _ = rootQuotientWordProduct (u ++ v) :=
+          (rootQuotientWordProduct_append u v).symm
+
 /-- **Multi-spare divisor-cover necessity.**
 
 If a target is outside the horizon-`h` ball of a base ISA `G` but becomes
