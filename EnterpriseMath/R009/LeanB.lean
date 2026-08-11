@@ -62,8 +62,7 @@ theorem r009_t17 : T17Statement := by
       have htop : d * r - 1 < d * r := by omega
       have hc := hCoh d r (d * r - 1) hd hr htop
       have hq : (d * r - 1) / r = d - 1 := top_mul_sub_one_div hd hr
-      simp [a, ne_of_gt hd, ne_of_gt hdr, hq]
-      simpa [hq] using hc
+      simpa [a, ne_of_gt hd, ne_of_gt hdr, hq] using hc
   have hClamp : ∀ d s, 0 < d → s < d → P d s = min s (a d) := by
     intro d s hd hs
     have hdne : d ≠ 0 := ne_of_gt hd
