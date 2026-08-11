@@ -117,12 +117,15 @@ private theorem sUnion_singletons_subtype (A : Set α) :
     ⋃₀ (Set.range (fun x : A => ({x.1} : Set α))) = A := by
   ext y
   constructor
-  · rintro ⟨U, ⟨x, rfl⟩, hy⟩
+  · intro hy
+    rcases Set.mem_sUnion.mp hy with ⟨U, hU, hyU⟩
+    rcases hU with ⟨x, rfl⟩
     have hyx : y = x.1 := by
-      simpa using hy
+      simpa using hyU
     rw [hyx]
     exact x.2
   · intro hy
+    apply Set.mem_sUnion.mpr
     refine ⟨{y}, ?_, ?_⟩
     · exact ⟨⟨y, hy⟩, rfl⟩
     · simp
@@ -134,10 +137,14 @@ private theorem sUnion_image_singletons (T : Set α → Set β) (A : Set α) :
       ⋃ x : A, T ({x.1} : Set α) := by
   ext y
   constructor
-  · rintro ⟨U, ⟨V, ⟨x, rfl⟩, rfl⟩, hy⟩
-    exact Set.mem_iUnion.mpr ⟨x, hy⟩
+  · intro hy
+    rcases Set.mem_sUnion.mp hy with ⟨U, hU, hyU⟩
+    rcases hU with ⟨V, hV, rfl⟩
+    rcases hV with ⟨x, rfl⟩
+    exact Set.mem_iUnion.mpr ⟨x, hyU⟩
   · intro hy
     rcases Set.mem_iUnion.mp hy with ⟨x, hx⟩
+    apply Set.mem_sUnion.mpr
     refine ⟨T ({x.1} : Set α), ?_, hx⟩
     exact ⟨({x.1} : Set α), ⟨x, rfl⟩, rfl⟩
 
@@ -178,11 +185,16 @@ theorem relSupport_preservesArbitraryUnions (R : α → β → Prop) :
   intro 𝒜
   ext y
   constructor
-  · rintro ⟨x, ⟨A, hA, hxA⟩, hxy⟩
+  · rintro ⟨x, hx, hxy⟩
+    rcases Set.mem_sUnion.mp hx with ⟨A, hA, hxA⟩
+    apply Set.mem_sUnion.mpr
     refine ⟨RelSupport R A, ?_, ⟨x, hxA, hxy⟩⟩
     exact ⟨A, hA, rfl⟩
-  · rintro ⟨U, ⟨A, hA, rfl⟩, ⟨x, hxA, hxy⟩⟩
-    exact ⟨x, ⟨A, hA, hxA⟩, hxy⟩
+  · intro hy
+    rcases Set.mem_sUnion.mp hy with ⟨U, hU, hyU⟩
+    rcases hU with ⟨A, hA, rfl⟩
+    rcases hyU with ⟨x, hxA, hxy⟩
+    exact ⟨x, Set.mem_sUnion.mpr ⟨A, hA, hxA⟩, hxy⟩
 
 /-- R016-L07 exact characterization: preserving all unions is equivalent to
 being a singleton-generated relational direct-image transformer. -/
@@ -308,7 +320,11 @@ theorem bothPresentRule_not_relSupport :
   rintro ⟨R, hR⟩
   have hUnion := relSupport_union R ({0} : Set (Fin 2)) ({1} : Set (Fin 2))
   rw [← hR] at hUnion
-  simpa [BothPresentRule] using hUnion
+  have hmem :
+      (0 : Fin 1) ∈ BothPresentRule (({0} : Set (Fin 2)) ∪ {1}) := by
+    simp [BothPresentRule]
+  rw [hUnion] at hmem
+  simpa [BothPresentRule] using hmem
 
 #print axioms relSupport_empty
 #print axioms relSupport_union
