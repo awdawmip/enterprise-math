@@ -31,6 +31,17 @@ fixed point gives, for L>1,
 
     H'_L(x_0) = -4/(L-1) H_L(x_0).
 
+The derivative is also checked independently by differentiating the recurrence.
+If
+
+    A(n)=(7n^2+7n+2)/(n+1)^2,
+    B(n)=8n^2/(n+1)^2,
+
+then
+
+    A'(n)=(7n+3)/(n+1)^3,
+    B'(n)=16n/(n+1)^3.
+
 For a single-digit Franel zero n modulo an odd prime p, its reflected gap is
 L=p-1-2n and hence L is even, while n=x_0 (mod p).  Consequently a reflected
 zero return which vanishes at the symmetric transfer point automatically has
@@ -50,26 +61,46 @@ from fractions import Fraction
 
 def franel_zero_transfer(parameter: Fraction, length: int) -> Fraction:
     """Exact H_L(x) for rational x away from recurrence poles."""
+    value, _ = franel_zero_transfer_with_derivative(parameter, length)
+    return value
+
+
+def franel_zero_transfer_with_derivative(
+    parameter: Fraction,
+    length: int,
+) -> tuple[Fraction, Fraction]:
+    """Return (H_L(x), dH_L/dx) by the differentiated recurrence."""
     if isinstance(length, bool) or not isinstance(length, int) or length < 0:
         raise ValueError("length must be a non-negative integer")
     x = Fraction(parameter)
     if length == 0:
-        return Fraction(0)
+        return Fraction(0), Fraction(0)
     if length == 1:
-        return Fraction(1)
+        return Fraction(1), Fraction(0)
+
     previous = Fraction(0)
     current = Fraction(1)
+    d_previous = Fraction(0)
+    d_current = Fraction(0)
     for j in range(1, length):
         n = x + j
         denominator = (n + 1) ** 2
         if denominator == 0:
             raise ZeroDivisionError("zero-transfer interval crosses the Franel pole n=-1")
-        following = (
-            (7 * n * n + 7 * n + 2) * current
-            + 8 * n * n * previous
-        ) / denominator
+        a = Fraction(7 * n * n + 7 * n + 2, 1) / denominator
+        b = Fraction(8 * n * n, 1) / denominator
+        a_prime = Fraction(7 * n + 3, 1) / (n + 1) ** 3
+        b_prime = Fraction(16 * n, 1) / (n + 1) ** 3
+        following = a * current + b * previous
+        d_following = (
+            a_prime * current
+            + a * d_current
+            + b_prime * previous
+            + b * d_previous
+        )
         previous, current = current, following
-    return current
+        d_previous, d_current = d_current, d_following
+    return current, d_current
 
 
 def transfer_reflection_values(parameter: Fraction, length: int) -> tuple[Fraction, Fraction]:
@@ -99,19 +130,31 @@ def symmetric_transfer_value(length: int) -> Fraction:
 
 
 def symmetric_transfer_log_derivative(length: int) -> tuple[Fraction, Fraction]:
-    """Return (H'_L(x0)/H_L(x0), -4/(L-1)) at the reflection fixed point.
-
-    The first component is returned as the exact value forced by differentiating
-    the functional equation; no symbolic differentiation is needed.
-    """
-    value = symmetric_transfer_value(length)
+    """Return actual/predicted H'_L(x0)/H_L(x0) at the reflection fixed point."""
+    if isinstance(length, bool) or not isinstance(length, int) or length <= 1:
+        raise ValueError("length must exceed one")
+    if length % 2:
+        raise ValueError("only even reflected gaps avoid the Franel pole")
+    point = Fraction(-(length + 1), 2)
+    value, derivative = franel_zero_transfer_with_derivative(point, length)
     if value == 0:
         raise ValueError("logarithmic derivative is undefined at a zero value")
+    actual = derivative / value
     predicted = Fraction(-4, length - 1)
-    return predicted, predicted
+    if actual != predicted:
+        raise AssertionError("symmetric transfer derivative disagrees with reflection")
+    return actual, predicted
 
 
 def symmetric_transfer_derivative_from_value(length: int) -> Fraction:
-    """Exact derivative H'_L(x0) from the fixed-point reflection identity."""
-    value = symmetric_transfer_value(length)
-    return Fraction(-4, length - 1) * value
+    """Exact derivative H'_L(x0), checked by both recurrence and reflection."""
+    if isinstance(length, bool) or not isinstance(length, int) or length <= 1:
+        raise ValueError("length must exceed one")
+    if length % 2:
+        raise ValueError("only even reflected gaps avoid the Franel pole")
+    point = Fraction(-(length + 1), 2)
+    value, derivative = franel_zero_transfer_with_derivative(point, length)
+    expected = Fraction(-4, length - 1) * value
+    if derivative != expected:
+        raise AssertionError("symmetric derivative identity changed")
+    return derivative
