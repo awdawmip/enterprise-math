@@ -62,7 +62,7 @@ def franel_formal_derivative_recurrence_residual(index: int) -> Fraction:
     if isinstance(index, bool) or not isinstance(index, int) or index < 1:
         raise ValueError("index must be positive")
     n = index
-    fm1 = triple_moment_factor(n - 1) if n > 1 else 2
+    fm1 = triple_moment_factor(n - 1) if n > 1 else 1
     f0 = triple_moment_factor(n)
     fp1 = triple_moment_factor(n + 1)
     dm1 = franel_formal_derivative(n - 1)
