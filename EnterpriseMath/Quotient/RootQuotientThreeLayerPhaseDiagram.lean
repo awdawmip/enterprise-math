@@ -22,7 +22,6 @@ theorem three_pow_succ_lt_twoMacroFullThreshold_of_three_le
     {h : ℕ}
     (hh : 3 ≤ h) :
     3 ^ (h + 1) < rootQuotientTwoMacroFullThreshold h := by
-  have hTwo : h ≠ 2 := by omega
   by_cases hFive : h ≤ 5
   · have hCases : h = 3 ∨ h = 4 ∨ h = 5 := by omega
     rcases hCases with rfl | rfl | rfl <;>
@@ -50,7 +49,6 @@ theorem twoMacroFullThreshold_lt_six_mul_five_pow
     {h : ℕ}
     (hh : 3 ≤ h) :
     rootQuotientTwoMacroFullThreshold h < 6 * 5 ^ (h - 1) := by
-  have hTwo : h ≠ 2 := by omega
   by_cases hFive : h ≤ 5
   · have hCases : h = 3 ∨ h = 4 ∨ h = 5 := by omega
     rcases hCases with rfl | rfl | rfl <;>
@@ -75,10 +73,7 @@ theorem six_mul_five_pow_lt_five_pow_succ
   norm_num
   nlinarith [show 0 < 5 ^ (h - 1) by positivity]
 
-/-- **Ordered threshold chain for the first three storage layers.**
-
-For every horizon `h>=3`, pure-direction, mixed divisor-cover, exact budget-two,
-and next pure-direction thresholds interlace strictly. -/
+/-- **Ordered threshold chain for the first three storage layers.** -/
 theorem threeLayerThresholdChain
     {h : ℕ}
     (hh : 3 ≤ h) :
@@ -189,7 +184,7 @@ theorem threeLayer_phase_one_direction_only
     rootQuotientMixedDivisorCoverOverhead r N h = 0 ∧
     rootQuotientResidualDepthStorageOverhead r N h = 0 := by
   have hTri : N < 3 ^ (h + 1) :=
-    hUpper.trans (two_mul_three_pow_lt_three_pow_succ)
+    hUpper.trans two_mul_three_pow_lt_three_pow_succ
   have hDir := primeDirectionDemand_eq_one_of_two_pow_le_of_lt_three_pow
     hLower hTri
   have hMu := minimumCompositeMacroCount_eq_one_of_two_pow_le_of_lt_two_mul_three_pow
@@ -254,10 +249,14 @@ theorem threeLayer_phase_second_direction_absorbs_cover
     rootQuotientResidualDepthStorageOverhead r N h = 0 := by
   have hChain := threeLayerThresholdChain hh
   have hFiveUpper : N < 5 ^ (h + 1) :=
-    hUpper.trans (hChain.2.2.2.2.1.trans hChain.2.2.2.2.2)
+    hUpper.trans (hChain.2.2.2.1.trans hChain.2.2.2.2)
   have hDir := primeDirectionDemand_eq_two_of_three_pow_le_of_lt_five_pow
     hLower hFiveUpper
-  have hN : 2 ≤ N := by positivity
+  have hN : 2 ≤ N := by
+    calc
+      2 ≤ 3 := by omega
+      _ ≤ 3 ^ (h + 1) := le_self_pow (by omega) (by omega)
+      _ ≤ N := hLower
   have hMuLe :=
     (minimumCompositeMacroCount_le_two_iff_stateBound_lt_twoMacroFullThreshold
       (r := r) (N := N) (h := h)
@@ -294,10 +293,10 @@ theorem threeLayer_phase_pure_residual_depth
     rootQuotientMixedDivisorCoverOverhead r N h = 0 ∧
     rootQuotientResidualDepthStorageOverhead r N h = 1 := by
   have hChain := threeLayerThresholdChain hh
-  have hThreeLower : 3 ^ (h + 1) ≤ N := by
-    exact (Nat.le_of_lt hChain.2.2.1).trans hLower
+  have hThreeLower : 3 ^ (h + 1) ≤ N :=
+    (Nat.le_of_lt hChain.2.2.1).trans hLower
   have hFiveUpper : N < 5 ^ (h + 1) :=
-    hUpper.trans hChain.2.2.2.2.2
+    hUpper.trans hChain.2.2.2.2
   have hDir := primeDirectionDemand_eq_two_of_three_pow_le_of_lt_five_pow
     hThreeLower hFiveUpper
   have hCoverLe : rootQuotientGlobalRepairDivisorCoverNumber r N h ≤ 2 :=
@@ -318,7 +317,7 @@ theorem threeLayer_phase_pure_residual_depth
     have h81 : 81 ≤ 3 ^ (h + 1) := by
       have hPow : 3 ^ 4 ≤ 3 ^ (h + 1) :=
         pow_le_pow_right' (by omega : (1 : ℕ) ≤ 3) (by omega)
-      norm_num at hPow ⊢
+      norm_num at hPow
       exact hPow
     omega
   have hPresentation :=
