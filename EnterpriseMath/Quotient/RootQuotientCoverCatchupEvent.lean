@@ -40,8 +40,9 @@ theorem resources_before_twoCoverThreshold_of_ten_le
       6 * 5 ^ (h - 1) - 1 := by
     have hStrict := hChain.2.2.2.1
     omega
+  have hCPos : 0 < 6 * 5 ^ (h - 1) := by positivity
   have hUpper : 6 * 5 ^ (h - 1) - 1 < 6 * 5 ^ (h - 1) := by
-    positivity
+    omega
   have hPhase := threeLayer_phase_pure_residual_depth
     (r := r) (N := 6 * 5 ^ (h - 1) - 1) (h := h)
     hr hh (by omega) hLower hUpper
@@ -90,10 +91,14 @@ theorem resources_at_twoCoverThreshold_of_ten_le
   have hCover : rootQuotientGlobalRepairDivisorCoverNumber r C h = 3 := by omega
   have hStableUpper : C < rootQuotientThreeMacroStableThreshold h :=
     six_mul_five_pow_lt_threeMacroStableThreshold_of_ten_le hTen
+  have hCTwo : 2 ≤ C := by
+    dsimp [C]
+    have hPowPos : 0 < 5 ^ (h - 1) := by positivity
+    nlinarith
   have hMuUpper : rootQuotientMinimumCompositeMacroCount r C h ≤ 3 :=
     (minimumCompositeMacroCount_le_three_iff_stateBound_lt_threeMacroStableThreshold
       (r := r) (N := C) (h := h)
-      hr hTen (by dsimp [C]; positivity) (by simpa [C] using hBinary)).2
+      hr hTen hCTwo (by simpa [C] using hBinary)).2
       hStableUpper
   have hCoverLeMu := globalRepairDivisorCoverNumber_le_minimumCompositeMacroCount
     (r := r) (N := C) (h := h) hr (by omega)
