@@ -57,7 +57,6 @@ theorem primeDirectionDemand_succ_le_add_one
   let H := RootQuotientHardPrimeDirections N h
   let H' := RootQuotientHardPrimeDirections (N + 1) h
   have hSub : H ⊆ H' := hardPrimeDirections_mono_stateBound (Nat.le_succ N)
-  have hHFinite : H.Finite := rootQuotientHardPrimeDirections_finite N h
   have hH'Finite : H'.Finite := rootQuotientHardPrimeDirections_finite (N + 1) h
   have hDiffFinite : (H' \ H).Finite := hH'Finite.sdiff
   have hDiffOne : (H' \ H).ncard ≤ 1 := by
@@ -113,7 +112,7 @@ theorem globalRepairDivisorCoverNumber_mono_succ
   obtain ⟨S, hSFinite, hCover, hSCard⟩ :=
     exists_minimumRepairDivisorCover hFeasible
   let S' : Set ℕ := S ∩ RootQuotientSemanticCompositeCandidates r N
-  have hS'Finite : S'.Finite := hSFinite.inter_of_left _
+  have hS'Finite : S'.Finite := hSFinite.subset Set.inter_subset_left
   have hS'Cover : RootQuotientRepairDivisorCover
       (RootQuotientPrimeHardSemanticTargetFinset r N h)
       (RootQuotientSemanticCompositeCandidates r N) S' := by
