@@ -48,7 +48,7 @@ from .weighted_relation_field import WeightedField, weighted_relation_field_is_c
 
 PartitionBlock = tuple[int, ...]
 IntervalHull = tuple[Fraction, Fraction]
-PotentialSupport = frozenset{Fraction]
+PotentialSupport = frozenset[Fraction]
 
 
 def _require_radius(radius: int) -> None:
