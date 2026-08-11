@@ -4,7 +4,8 @@ Researcher-ID: `EM-R027-C6194D`
 Task: `RS-R027-R025-BRC-PR-TRICHOTOMY-LEAN-FORMALIZATION`  
 Taskbook source: `55a3ff09b9307ac05c0d03f02da3ce8939e9362c`  
 Owner PR: `#507`  
-Status: `OWNER WIP / NOT CANONICAL / ROOT VALIDATION REQUIRED`
+Validated owner head: `bc5cd4bfbc7e19cbb10a2005a0d37fe4f6afd6bb`  
+Status: `R025_BRC_TRICHOTOMY_CORE_PROVED / QUANTITATIVE_GROWTH_SCOPE_NARROWED / ROOT_BUILD_PASS / NOT_CANONICAL`
 
 ## 1. Scope preserved
 
@@ -30,23 +31,23 @@ The formalization is theorem-critical exact integer arithmetic only; no floating
 
 ## 3. Return matrix
 
-| Claim | R025 research form | Lean exact statement / asset | Status target after root gate | Required hypotheses | Frozen counterexample / boundary |
+| Claim | R025 research form | Lean exact statement / asset | Status | Required hypotheses | Frozen counterexample / boundary |
 |---|---|---|---|---|---|
-| refinement/root basin | `m^p <= r*k^p < (m+1)^p` | `rootIndex_basin` | PROVED WIP | `p != 0` | none |
-| aligned freeze | `r=a^p -> m=ak`, singleton forever | `refinedPowerInput_aligned`, `rootIndex_aligned`, `childRootFinset_aligned`, `aligned_iterate_singleton` | PROVED WIP | `p != 0` for root recovery | includes `r=1`, `r=2^p`, and super-threshold islands |
-| nonalignment ambiguity | positive `k` cannot hide non-pth-power `r` | `positive_nonaligned_input_not_power`, `positive_nonaligned_root_not_exact` | PROVED WIP | `p>=2`, `k>0`, nonaligned `r` | `k=0` is exact for every `r` |
-| sub-threshold bounds | `k <= m_k < 2k` | `subthreshold_root_bounds` | PROVED WIP | `p>=2`, `k>0`, `1<r<2^p` | no float-root argument |
-| funnel spacing | `m_k+1 <= m_(k+1) <= m_k+2` | `funnel_spacing` | PROVED WIP | `p>=2`, `1<r<2^p` | does not imply a duplicate every layer |
-| interval support invariant | interval parents map to exact no-hole interval | `funnel_interval_finset` | PROVED WIP | `p>=2`, `1<r<2^p`, `A<=B` | zero endpoint handled by exact-child convention |
-| repeated funnel invariant | every finite iterate remains an integer interval | `repeated_funnel_interval` | PROVED WIP | same funnel hypotheses | no path-multiplicity/probability claim |
-| one-step funnel cardinal bound | no more than two children per parent | `childRootFinsetOf_card_le_two_mul`, `funnel_interval_card_le_two_mul` | PROVED WIP | finite support; funnel specialization for interval theorem | this is not an exact `c^t` asymptotic theorem |
-| super-threshold separation | `m_k+2 <= m_(k+1)` | `superthreshold_spacing` | PROVED WIP | `p>=2`, `k>0`, `r>2^p` | nonalignment not needed for spacing itself |
-| binary child injection/disjointness | two child pairs from distinct positive parents do not collide | `binary_child_disjoint_of_lt`, `binary_childRootFinset_card_two` | PROVED WIP | `p>=2`, positive parents, `r>2^p`, nonaligned | aligned islands have singleton children |
-| finite-support doubling | `card Child(S)=2 card(S)` | `binary_childRootFinsetOf_card` | PROVED WIP | arbitrary finite **positive** support, `p>=2`, `r>2^p`, nonaligned | blanket theorem including `0` is false |
-| repeated `2^t` growth | `card S_t=2^t card S_0` | `superthreshold_iterate_positive`, `binary_iterate_card` | PROVED WIP | initial finite support all positive; binary regime | positivity is proved invariant |
-| regime exhaustion | ALIGNED / FUNNEL / BINARY are pairwise exclusive and exhaustive | `regimes_mutually_exclusive`, `regimes_exhaustive`, `funnel_one_lt` | PROVED WIP | `p>=2`, `r>=1` | equality `r=2^p` is ALIGNED |
-| actual p-th-power support bridge | root labels determine exact endpoint states and preserve cardinality | `powerSupport_card`, aligned/funnel/binary actual-support theorems | PROVED WIP | `p>0` for powering injectivity | root index is not identified literally with endpoint state |
-| canonical R023 specialization | generic Boolean direct image equals finite arithmetic child-support image | `brc_rootSupport_relImage_bridge`, `brc_powerEndpoint_relImage_bridge` | PROVED WIP | `p>0` for actual-state inverse identification | no change to R023 carrier or theorem statements |
+| refinement/root basin | `m^p <= r*k^p < (m+1)^p` | `rootIndex_basin` | `LEAN_CHECKED_WIP` | `p != 0` | none |
+| aligned freeze | `r=a^p -> m=ak`, singleton forever | `refinedPowerInput_aligned`, `rootIndex_aligned`, `childRootFinset_aligned`, `aligned_iterate_singleton` | `LEAN_CHECKED_WIP` | `p != 0` for root recovery | includes `r=1`, `r=2^p`, and super-threshold islands |
+| nonalignment ambiguity | positive `k` cannot hide non-pth-power `r` | `positive_nonaligned_input_not_power`, `positive_nonaligned_root_not_exact` | `LEAN_CHECKED_WIP` | `p>=2`, `k>0`, nonaligned `r` | `k=0` is exact for every `r` |
+| sub-threshold bounds | `k <= m_k < 2k` | `subthreshold_root_bounds` | `LEAN_CHECKED_WIP` | `p>=2`, `k>0`, `1<r<2^p` | no float-root argument |
+| funnel spacing | `m_k+1 <= m_(k+1) <= m_k+2` | `funnel_spacing` | `LEAN_CHECKED_WIP` | `p>=2`, `1<r<2^p` | does not imply a duplicate every layer |
+| interval support invariant | interval parents map to exact no-hole interval | `funnel_interval_finset` | `LEAN_CHECKED_WIP` | `p>=2`, `1<r<2^p`, `A<=B` | zero endpoint handled by exact-child convention |
+| repeated funnel invariant | every finite iterate remains an integer interval | `repeated_funnel_interval` | `LEAN_CHECKED_WIP` | same funnel hypotheses | no path-multiplicity/probability claim |
+| one-step funnel cardinal bound | no more than two children per parent | `childRootFinsetOf_card_le_two_mul`, `funnel_interval_card_le_two_mul` | `LEAN_CHECKED_WIP` | finite support; funnel specialization for interval theorem | this is not an exact `c^t` asymptotic theorem |
+| super-threshold separation | `m_k+2 <= m_(k+1)` | `superthreshold_spacing` | `LEAN_CHECKED_WIP` | `p>=2`, `k>0`, `r>2^p` | nonalignment not needed for spacing itself |
+| binary child injection/disjointness | two child pairs from distinct positive parents do not collide | `binary_child_disjoint_of_lt`, `binary_childRootFinset_card_two` | `LEAN_CHECKED_WIP` | `p>=2`, positive parents, `r>2^p`, nonaligned | aligned islands have singleton children |
+| finite-support doubling | `card Child(S)=2 card(S)` | `binary_childRootFinsetOf_card` | `LEAN_CHECKED_WIP` | arbitrary finite **positive** support, `p>=2`, `r>2^p`, nonaligned | blanket theorem including `0` is false |
+| repeated `2^t` growth | `card S_t=2^t card S_0` | `superthreshold_iterate_positive`, `binary_iterate_card` | `LEAN_CHECKED_WIP` | initial finite support all positive; binary regime | positivity is proved invariant |
+| regime exhaustion | ALIGNED / FUNNEL / BINARY are pairwise exclusive and exhaustive | `regimes_mutually_exclusive`, `regimes_exhaustive`, `funnel_one_lt` | `LEAN_CHECKED_WIP` | `p>=2`, `r>=1` | equality `r=2^p` is ALIGNED |
+| actual p-th-power support bridge | root labels determine exact endpoint states and preserve cardinality | `powerSupport_card`, aligned/funnel/binary actual-support theorems | `LEAN_CHECKED_WIP` | `p>0` for powering injectivity | root index is not identified literally with endpoint state |
+| canonical R023 specialization | generic Boolean direct image equals finite arithmetic child-support image | `brc_rootSupport_relImage_bridge`, `brc_powerEndpoint_relImage_bridge` | `LEAN_CHECKED_WIP` | `p>0` for actual-state inverse identification | no change to R023 carrier or theorem statements |
 
 ## 4. Exact phase classifier
 
@@ -85,7 +86,7 @@ The exact Lean core proves the no-hole interval representation and the one-step 
 
 This narrowing is intentional: finite funnel windows can realize spacing `2` throughout one or more layers, so “strict subbinary at every layer” would be false. A sharper asymptotic/cardinality theorem, if desired, should be a separate descendant with its own exact constants/error bounds.
 
-Accordingly, if the root gate passes, the conservative return token is:
+Therefore the exact return token is:
 
 `R025_BRC_TRICHOTOMY_CORE_PROVED / QUANTITATIVE_GROWTH_SCOPE_NARROWED / ROOT_BUILD_PASS / NOT_CANONICAL`
 
@@ -101,16 +102,35 @@ This is a deterministic downstream routing interface only. R027 does not benchma
 
 ## 8. Validation and proof hygiene
 
-Required final gate:
+Frozen validation object:
+
+- owner head: `bc5cd4bfbc7e19cbb10a2005a0d37fe4f6afd6bb`;
+- PR merge validation ref: `3f69dee2a22ffbf5922578242721f1b2e3534638`;
+- Lean workflow run: `31512045852`;
+- Lean build job: `93848024891`.
+
+The job executed exactly:
 
 ```text
 lake build --wfail -KCI EnterpriseMath
 ```
 
-The validation head explicitly root-imports `EnterpriseMath.Precision.PowerBRCTrichotomy`, and the machine/en/zh exact root indexes carry the same path. A workflow-level PASS is insufficient unless the job log itself shows the R027 module was built.
+Load-bearing root-coverage evidence in the job log:
 
-The Lean payload contains no intended `sorry`, `admit`, task-local `axiom`, or `postulate`; load-bearing theorems have `#print axioms` audits at module end. Final `LEAN_CHECKED_WIP` / `ROOT_BUILD_PASS` status is contingent on the remote compiler gate at the exact owner head.
+```text
+Built EnterpriseMath.Precision.PowerBRCTrichotomy
+Built EnterpriseMath
+Build completed successfully (3028 jobs).
+```
+
+The same log's `#print axioms` audit reports only standard Lean/mathlib foundational dependencies such as `propext`, `Classical.choice`, and `Quot.sound`; the task module contains no `sorry`, `admit`, task-local `axiom`, or `postulate`.
+
+Repository quality validation on the same owner head also passed: job `93848309789` ran the repository unittest suite and finished `Ran 1356 tests ... OK`. The shared-surface integrity test passed, covering the synchronized machine/en/zh root-import registration.
 
 ## 9. Finite oracle status
 
-The bounded exact oracle covers the taskbook boundary set and broader local attacks. It is deliberately non-authoritative relative to Lean. The owner execution additionally ran a 724,010-case exact pressure sweep over funnel interval images and selected super-threshold positive-support doubling boxes with no counterexample; this remains regression evidence, not proof.
+The bounded exact oracle covers the taskbook boundary set and broader local attacks. It is deliberately non-authoritative relative to Lean. The owner package records a 724,010-case exact pressure sweep over funnel interval images and selected super-threshold positive-support doubling boxes with no counterexample; this remains regression evidence, not proof.
+
+## 10. Canonicalization boundary
+
+This owner result is `LEAN_CHECKED_WIP`, not `CANONICAL_MAIN` and not `LEAN_CHECKED_MAIN`. Canonical publication must remain a separate Driver/L4 integration decision. That integration must preserve the frozen R023/R023I carrier and theorem statements, replay only the R027 specialization payload, and rerun the applicable current-main admission/final gates.
