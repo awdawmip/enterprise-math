@@ -23,6 +23,12 @@ def policy_manifest(root: Path = ROOT) -> dict[str, Any]:
     return load_json(root / "research_taskbook_policy.json")
 
 
+def git_blob_identity(data: bytes) -> bytes:
+    """Return the raw SHA-1 identity Git assigns to this exact file content."""
+    header = f"blob {len(data)}\0".encode("ascii")
+    return hashlib.sha1(header + data).digest()
+
+
 def policy_digest(root: Path = ROOT) -> str:
     policy = policy_manifest(root)
     h = hashlib.sha256()
@@ -32,7 +38,7 @@ def policy_digest(root: Path = ROOT) -> str:
         data = path.read_bytes()
         h.update(rel.encode("utf-8"))
         h.update(b"\0")
-        h.update(hashlib.sha256(data).digest())
+        h.update(git_blob_identity(data))
         h.update(b"\0")
     return "sha256:" + h.hexdigest()
 
