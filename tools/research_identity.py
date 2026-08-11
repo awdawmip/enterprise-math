@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Resolve or allocate visible Enterprise Math Researcher-IDs.
+"""Resolve or allocate Enterprise Math role identities.
 
-Scheduler CLAIM identities are deterministic from (task_id, claim_id). Direct
-user tasks or role transitions without a claim receive a random short-code ID
-that the conversation must retain. GLOBAL_KNOWLEDGE registration is one file
-per identity, avoiding shared-directory startup races.
+Researcher conversations use a visible `Researcher-ID`; Driver conversations use
+`Driver-ID`. The underlying execution-ID grammar remains compatible with existing
+`EM-<LANE>-<SHORTCODE>` handles. Driver-mediated manual dispatches may preallocate
+a deterministic Researcher-ID outside the reusable taskbook.
 """
 
 from __future__ import annotations
@@ -48,16 +48,38 @@ def infer_lane(task_id: str | None, *, role: str, explicit_lane: str | None = No
     return "DIRECT"
 
 
-def valid_researcher_id(value: str) -> bool:
+def valid_execution_id(value: str) -> bool:
     return bool(ID_RE.fullmatch(value.strip().upper()))
 
 
-def deterministic_claim_id(task_id: str, claim_id: str, *, lane: str | None = None) -> str:
-    if not task_id.strip() or not claim_id.strip():
-        raise ValueError("task_id and claim_id are required")
+def valid_researcher_id(value: str) -> bool:
+    """Backward-compatible validator name for existing scheduler/tests."""
+    return valid_execution_id(value)
+
+
+def identity_label(role: str) -> str:
+    if role == "RESEARCH_DRIVER":
+        return "Driver-ID"
+    if role == "RESEARCHER":
+        return "Researcher-ID"
+    raise ValueError(f"unsupported research role: {role}")
+
+
+def _deterministic_id(task_id: str, token: str, *, lane: str | None = None) -> str:
+    if not task_id.strip() or not token.strip():
+        raise ValueError("task_id and identity token are required")
     resolved_lane = infer_lane(task_id, role="RESEARCHER", explicit_lane=lane)
-    digest = hashlib.sha256(f"{task_id}\0{claim_id}".encode("utf-8")).hexdigest()[:6].upper()
+    digest = hashlib.sha256(f"{task_id}\0{token}".encode("utf-8")).hexdigest()[:6].upper()
     return f"EM-{resolved_lane}-{digest}"
+
+
+def deterministic_claim_id(task_id: str, claim_id: str, *, lane: str | None = None) -> str:
+    return _deterministic_id(task_id, claim_id, lane=lane)
+
+
+def deterministic_dispatch_id(task_id: str, dispatch_id: str, *, lane: str | None = None) -> str:
+    """Preallocate one Researcher-ID for one Driver-mediated manual dispatch."""
+    return _deterministic_id(task_id, dispatch_id, lane=lane)
 
 
 def allocate_direct(
@@ -74,38 +96,53 @@ def allocate_direct(
     return f"EM-{resolved_lane}-{suffix}"
 
 
-def registration_path(researcher_id: str) -> str:
-    normalized = researcher_id.strip().upper()
-    if not valid_researcher_id(normalized):
-        raise ValueError(f"invalid Researcher-ID: {researcher_id}")
+def registration_path(execution_id: str) -> str:
+    normalized = execution_id.strip().upper()
+    if not valid_execution_id(normalized):
+        raise ValueError(f"invalid Enterprise Math execution identity: {execution_id}")
     return f"{REGISTRATION_ROOT}/{normalized}.json"
 
 
 def identity_payload(
     *,
-    researcher_id: str,
     task_id: str | None,
     role: str,
     source: str,
+    execution_id: str | None = None,
+    researcher_id: str | None = None,
 ) -> dict[str, Any]:
-    if not valid_researcher_id(researcher_id):
-        raise ValueError(f"invalid Researcher-ID: {researcher_id}")
+    """Build role-aware identity metadata.
+
+    `researcher_id` remains accepted as an input alias so existing callers do not
+    need a flag-day migration. Output is role-aware: Researchers expose
+    `researcher_id`; Drivers expose `driver_id`. Both expose `execution_id`.
+    """
+    resolved = execution_id or researcher_id
+    if not resolved or not valid_execution_id(resolved):
+        raise ValueError(f"invalid Enterprise Math execution identity: {resolved}")
     task = task_id or ("CONTROL_PLANE" if role == "RESEARCH_DRIVER" else "DIRECT")
-    return {
-        "schema": "ENTERPRISE_MATH_RESEARCH_IDENTITY_V1",
-        "researcher_id": researcher_id,
+    label = identity_label(role)
+    payload: dict[str, Any] = {
+        "schema": "ENTERPRISE_MATH_ROLE_IDENTITY_V2",
+        "execution_id": resolved,
+        "identity_label": label,
         "research_task": task,
         "research_role": role,
         "identity_source": source,
         "registration_repository": "awdawmip/chatgpt-global-knowledge",
-        "registration_path": registration_path(researcher_id),
+        "registration_path": registration_path(resolved),
         "registration_state": "REGISTER_PENDING",
-        "visible_marker": f"Researcher-ID: {researcher_id} / {task}",
+        "visible_marker": f"{label}: {resolved} / {task}",
     }
+    if role == "RESEARCH_DRIVER":
+        payload["driver_id"] = resolved
+    else:
+        payload["researcher_id"] = resolved
+    return payload
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Enterprise Math research identity resolver")
+    parser = argparse.ArgumentParser(description="Enterprise Math role identity resolver")
     sub = parser.add_subparsers(dest="command", required=True)
 
     allocate = sub.add_parser("allocate")
@@ -113,30 +150,43 @@ def build_parser() -> argparse.ArgumentParser:
     allocate.add_argument("--role", choices=["RESEARCHER", "RESEARCH_DRIVER"], default="RESEARCHER")
     allocate.add_argument("--lane")
     allocate.add_argument("--claim-id")
+    allocate.add_argument("--dispatch-id")
     allocate.add_argument("--primary-driver", action="store_true")
     allocate.add_argument("--marker-only", action="store_true")
 
     validate = sub.add_parser("validate")
-    validate.add_argument("researcher_id")
+    validate.add_argument("execution_id")
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     if args.command == "validate":
-        if valid_researcher_id(args.researcher_id):
-            print(args.researcher_id.strip().upper())
+        if valid_execution_id(args.execution_id):
+            print(args.execution_id.strip().upper())
             return 0
-        print("invalid Researcher-ID", file=sys.stderr)
+        print("invalid Enterprise Math execution identity", file=sys.stderr)
         return 1
 
+    if args.claim_id and args.dispatch_id:
+        raise ValueError("--claim-id and --dispatch-id are mutually exclusive")
+
     if args.claim_id:
+        if args.role != "RESEARCHER":
+            raise ValueError("scheduler CLAIM identity is a Researcher-ID")
         if not args.task:
             raise ValueError("--claim-id requires --task")
-        researcher_id = deterministic_claim_id(args.task, args.claim_id, lane=args.lane)
+        execution_id = deterministic_claim_id(args.task, args.claim_id, lane=args.lane)
         source = "SCHEDULER_CLAIM_DERIVED"
+    elif args.dispatch_id:
+        if args.role != "RESEARCHER":
+            raise ValueError("manual dispatch preallocation is a Researcher-ID")
+        if not args.task:
+            raise ValueError("--dispatch-id requires --task")
+        execution_id = deterministic_dispatch_id(args.task, args.dispatch_id, lane=args.lane)
+        source = "MANUAL_DISPATCH_DERIVED"
     else:
-        researcher_id = allocate_direct(
+        execution_id = allocate_direct(
             task_id=args.task,
             role=args.role,
             lane=args.lane,
@@ -145,7 +195,7 @@ def main(argv: list[str] | None = None) -> int:
         source = "DIRECT_AUTO_GENERATED"
 
     payload = identity_payload(
-        researcher_id=researcher_id,
+        execution_id=execution_id,
         task_id=args.task,
         role=args.role,
         source=source,
