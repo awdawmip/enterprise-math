@@ -2,15 +2,21 @@
 
 These are execution rules, not a research roadmap.
 
-## Research identity bootstrap comes before task execution
+## Role identity bootstrap comes before task execution
 
-Every Enterprise Math conversation that enters `RESEARCHER` or `RESEARCH_DRIVER` mode must resolve or allocate a visible Researcher-ID **before substantive work begins**, regardless of how the work was started.
+Every Enterprise Math conversation that enters `RESEARCHER` or `RESEARCH_DRIVER` mode must resolve or allocate a visible **role identity** before substantive work begins.
+
+Visible labels are role-specific:
+
+- `RESEARCHER` → `Researcher-ID`;
+- `RESEARCH_DRIVER` → `Driver-ID`.
 
 This applies to:
 
 - direct user tasks;
 - official taskbooks;
 - scheduler/Issue #240 dispatch;
+- Driver-mediated manual relay;
 - role conversion into researcher or Driver;
 - handoff into a new conversation;
 - continuation of an existing Enterprise Math conversation.
@@ -29,16 +35,17 @@ Reference helper:
 
 Bootstrap rule:
 
-1. reuse the Researcher-ID already visible in this conversation if one exists;
-2. otherwise restore an unambiguous persisted ID for this same conversation if available;
-3. scheduler CLAIMs use the CLAIM identity, with automatic derivation from `task_id + claim_id` when omitted;
-4. direct tasks/role transitions with no existing ID self-generate a new short-code ID immediately;
-5. show the ID in substantive final responses and persist it in semantic-checkpoint commit/PR/handoff metadata;
-6. central directory registration is best-effort and may be completed at a semantic checkpoint; inability to register is never a `HARD_BLOCK`.
+1. reuse the role identity already visible in this conversation if one exists;
+2. otherwise restore an unambiguous persisted identity for this same conversation if available;
+3. Driver-mediated manual relay uses the Researcher-ID preallocated in the separate dispatch envelope;
+4. scheduler CLAIMs use the CLAIM Researcher-ID, with automatic derivation from `task_id + claim_id` when omitted;
+5. direct/self-started tasks or role transitions with no existing identity self-generate a new role-appropriate short-code identity immediately;
+6. show `Researcher-ID` for researcher work and `Driver-ID` for Driver work in substantive final responses, and persist the underlying execution handle in semantic-checkpoint commit/PR/handoff metadata;
+7. central directory registration is best-effort and may be completed at a semantic checkpoint; inability to register is never a `HARD_BLOCK`.
 
-Do **not** wait for the Driver to assign an ID when a task was launched by some other path. Identity creation is self-bootstrapping.
+Do **not** wait for a Driver to assign an ID on direct/self-started research or scheduler paths. Conversely, when the Driver is already performing a manual user relay, the Driver must preallocate the runtime Researcher-ID before handoff; the receiving researcher must not be expected to invent it later.
 
-New Driver-approved taskbooks declare `identity_policy: AUTO_RESOLVE_OR_ALLOCATE` and may declare `identity_lane`; they never hard-code a fixed Researcher-ID. Legacy taskbooks inherit the global identity state machine.
+New Driver-approved taskbooks declare `identity_policy: AUTO_RESOLVE_OR_ALLOCATE` and may declare `identity_lane`; they never hard-code a fixed runtime Researcher-ID. A Driver-mediated manual relay binds the concrete Researcher-ID in a separate dispatch envelope, not in the reusable taskbook.
 
 ## Remote-liveness rule comes first
 
@@ -184,4 +191,4 @@ If `hard_block = NONE`, continue the best mathematical frontier rather than wait
 
 The default lifecycle is:
 
-`identity bootstrap -> small task packet -> remote-silent research -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
+`role identity bootstrap -> small task packet -> remote-silent research -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
