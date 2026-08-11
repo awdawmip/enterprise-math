@@ -186,9 +186,9 @@ Canonical executable core：
 
 A4 multivalued correspondence 不能被悄悄等同于一个确定性 functional kernel，也不能等同于一个部分确定性操作族。
 
-#### R023 Branch-Recoalescence Collapse Boolean-support 语义核 — `LEAN_CHECKED_WIP / SHARED-SURFACE INTEGRATION CANDIDATE / NOT CANONICAL`
+#### R023 Branch-Recoalescence Collapse Boolean-support 语义核 — `CANONICAL_MAIN + LEAN_CHECKED_MAIN`
 
-冻结 R023 来源：Draft PR #498、final owner head `0b72b9e549e1469567764fbe89f9f2baa8b55453`、semantic Lean candidate `6eea57de1d30d6c2fe983121f6e209286a5c9895`；final owner head 的标准 warnings-fatal Lean run `31484436882` 已 PASS。R023I 只做 Lean module 精确重放，不修改 theorem statement 或 assumption。
+冻结 R023 来源：Draft PR #498、final owner head `0b72b9e549e1469567764fbe89f9f2baa8b55453`、semantic Lean candidate `6eea57de1d30d6c2fe983121f6e209286a5c9895`。R023I exact replay 以 WIP 形式于 `main@4cf6ddde1473bd289fd838522f263da2e9b027c8` 进入主线。历史 run `31484436882` 并未从 root import 本模块，因此不构成该模块的 compiler-coverage evidence。第一条真正 load-bearing 的 root-covered gate 是 PR #505 merge ref `f7a694a076d5a7366db4b594d11a860b62c28493`、Lean run `31504621268`、job `93822939775`：`lake build --wfail -KCI EnterpriseMath` 实际编译 `EnterpriseMath.Relation.BranchRecoalescence` 并以 `3027 jobs` 全部成功结束。proof-script-only repair 已作为 `main@2b3b6f1258c687890248c6c1f9198bf4a00fb834` 合并；theorem statement 与 assumption 均未改变。
 
 共享 formal 资产：
 
