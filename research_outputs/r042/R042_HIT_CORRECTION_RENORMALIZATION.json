@@ -1,0 +1,121 @@
+{
+  "task_id": "RS-R042-POLYGONAL-NONSQUARE-BRANCH-LIMIT-PELL-RECURRENCE",
+  "researcher_id": "EM-R042-963283",
+  "continuation_of_owner_head": "fb03a917f8ea343428d5805348f045910fc28752",
+  "historical_researcher_id": "EM-R042-290D7A",
+  "classification": "HIT_ANCESTRY_ONTOLOGY_REPLACED / SMALLER_EXACT_RECURRENCE_OBJECT_FOUND / NOT_CANONICAL",
+  "frozen_first_stage_reopened": false,
+  "new_exact_object": {
+    "transition_element": "xi_t = z_{t+1} + sqrt(r) z_t",
+    "correction_digit": "q_t = z_{t+2} - r z_t",
+    "cocycle": "xi_{t+1} = sqrt(r) xi_t + q_t",
+    "hit_shell": "Norm(xi_t) = -B",
+    "digit_congruence": "q_t == (r-1)c (mod 2a)",
+    "reverse_step": "z_{t-1} = (z_{t+1}-q_{t-1})/r, followed by exact endpoint-oracle certification",
+    "status": "PROVED"
+  },
+  "pell_unit_quotient": {
+    "coordinate": "exact_hit = eta^m * sigma_i with finite reduced seed classes sigma_i and m>=0",
+    "inverse_unit": "(Y,Z)->(UY-rVZ, UZ-VY)",
+    "positivity_criterion": "Y_minus>0 iff r*Z^2 > B*U^2",
+    "status": "PROVED"
+  },
+  "theorems": [
+    {
+      "name": "FIXED_UNIT_DIAGONAL_ACCESSIBILITY_FINITE",
+      "statement": "For fixed reduced seed classes i,j and fixed h=n-m, only finitely many dynamically reachable hit-to-hit edges have Pell-unit rank difference h.",
+      "status": "PROVED"
+    },
+    {
+      "name": "HIT_TO_HIT_NORM_GAP",
+      "statement": "For sufficiently high source xi and hit gap d, xi < D*(sqrt(r))^(2d), with cell-dependent D.",
+      "status": "PROVED"
+    },
+    {
+      "name": "PELL_UNIT_RANK_ACCELERATION",
+      "statement": "There is a cell constant C_* such that every sufficiently high reachable hit edge m->n satisfies n > (3/2)m - C_*.",
+      "status": "PROVED"
+    },
+    {
+      "name": "INFINITE_RAY_SPARSITY_CONSEQUENCE",
+      "statement": "Any hypothetical infinite reachable hit ray has unit-rank jumps and branch-step gaps tending to infinity; hit height is at least doubly exponential in hit count after a finite prefix.",
+      "status": "PROVED_CONDITIONAL_ON_RAY_EXISTENCE"
+    }
+  ],
+  "witness_correction_blocks": [
+    {
+      "s": 6,
+      "r": 11,
+      "path": [2, 6, 20, 65],
+      "gap_steps": 3,
+      "q_digits": [4, 12, -20],
+      "P_coefficients_A_plus_B_sqrt_r": [24, 12],
+      "P_norm": -1008,
+      "residue_unit_period": 4,
+      "residue_unit_A_plus_B_sqrt_r": [79201, 23880],
+      "source_pell_coordinate": {"seed": 2, "unit_rank": 0},
+      "target_pell_coordinate": {"seed": 65, "unit_rank": 0}
+    },
+    {
+      "s": 6,
+      "r": 15,
+      "path": [1, 3, 10],
+      "gap_steps": 2,
+      "q_digits": [-12, -28],
+      "P_coefficients_A_plus_B_sqrt_r": [-28, -12],
+      "P_norm": -1376,
+      "residue_unit_period": 4,
+      "residue_unit_A_plus_B_sqrt_r": [1921, 496],
+      "source_pell_coordinate": {"seed": 1, "unit_rank": 0},
+      "target_pell_coordinate": {"seed": 10, "unit_rank": 0}
+    },
+    {
+      "s": 7,
+      "r": 7,
+      "path": [1, 2, 5, 13, 33, 86, 228, 603, 1595, 4220, 11165, 29540],
+      "gap_steps": 11,
+      "q_digits": [-2, 8, -2, -32, -12, 28, 8, 8, 18, 18, 18],
+      "P_coefficients_A_plus_B_sqrt_r": [-41996, 9678],
+      "P_norm": 1108018228,
+      "residue_unit_period": 6,
+      "residue_unit_A_plus_B_sqrt_r": [8193151, 3096720],
+      "source_pell_coordinate": {"seed": 1, "unit_rank": 0},
+      "target_pell_coordinate": {"seed": 29540, "unit_rank": 0}
+    },
+    {
+      "s": 8,
+      "r": 14,
+      "path": [4, 14, 51, 190],
+      "gap_steps": 3,
+      "q_digits": [-8, -20, 4],
+      "P_coefficients_A_plus_B_sqrt_r": [-108, -20],
+      "P_norm": 6064,
+      "residue_unit_period": 4,
+      "residue_unit_A_plus_B_sqrt_r": [403201, 107760],
+      "source_pell_coordinate": {"seed": 4, "unit_rank": 0},
+      "target_pell_coordinate": {"seed": 190, "unit_rank": 0}
+    }
+  ],
+  "bounded_exploration": {
+    "classification": "BOUNDED_EXHAUSTIVE_FOR_DECLARED_UNIT_TRANSLATES_ONLY",
+    "s": 3,
+    "r": 6,
+    "reduced_seeds": [1, 3],
+    "n_max": 200,
+    "max_checked_predecessor_depth": 32,
+    "findings": [
+      {
+        "target_seed": 3,
+        "target_unit_rank": 0,
+        "target_hit": 3,
+        "gap_steps": 1,
+        "ancestor_hit": 1,
+        "ancestor_seed": 1,
+        "ancestor_unit_rank": 0
+      }
+    ]
+  },
+  "bounded_exploration_warning": "No-translate-hit-ancestor findings are not promoted to a nonrecurrence theorem.",
+  "open_frontier": "Existence or impossibility of an accelerated infinite legal correction-address ray remains open.",
+  "return": "HIT_ANCESTRY_ONTOLOGY_REPLACED / SMALLER_EXACT_RECURRENCE_OBJECT_FOUND / NOT_CANONICAL"
+}
