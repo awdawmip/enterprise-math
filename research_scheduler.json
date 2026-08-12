@@ -393,6 +393,51 @@
       "tags": ["A2", "E001", "material", "future-state"]
     },
     {
+      "task_id": "RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT",
+      "title": "R037 independent R033/R034 algorithm and data replication audit",
+      "kind": "RESEARCH",
+      "owner": "program/p022-geometry-v2",
+      "base_state": "READY",
+      "priority": "P0",
+      "leverage": "HIGH",
+      "identity_lane": "R037",
+      "frontier": "Independently reproduce the theorem-critical R033/R034 algorithms, exact data, formulas, certificates and evidence grades without using the frozen executables as the derivation engine, and identify any mismatch before deeper ontology is trusted.",
+      "next_action": "Claim the R037 taskbook, rebuild FCC/HCP/Barlow geometry and propagation independently, run the full claim matrix, and grade every frozen claim as exact, finite-certificate, asymptotic-certificate, candidate-only or mismatch.",
+      "dependencies": [
+        {"target": "R033 owner head c2aa1758c6cf8f194d8b4493b90c903a2dfcd048", "action": "TEST", "satisfied": true},
+        {"target": "R034 owner head 674fb8717d753cd36fd83b061c869d79e8875b31", "action": "TEST", "satisfied": true}
+      ],
+      "source_refs": ["research_tasks/R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_20260812.md", "R033 frozen owner head", "R034 frozen owner head"],
+      "evidence_status": "INDEPENDENT_REPLICATION_AND_EVIDENCE_GRADE_GATE",
+      "last_progress_ref": "taskbook created on source main",
+      "last_progress_at": "2026-08-12T13:17:00+08:00",
+      "hard_block": null,
+      "tags": ["R037", "replication", "audit", "fcc", "hcp", "barlow", "exact-data"]
+    },
+    {
+      "task_id": "RS-R038-DISCRETE-EXACT-WORLD-CONTINUUM-CONSTANTS-PI-READOUT-SEMANTICS",
+      "title": "R038 discrete exact world, continuum constants and pi readout semantics",
+      "kind": "RESEARCH",
+      "owner": "program/p022-geometry-v2",
+      "base_state": "READY",
+      "priority": "P0",
+      "leverage": "HIGH",
+      "identity_lane": "R038",
+      "frontier": "Determine whether FCC/HCP/Barlow cellular geometry can be treated as exact native structure while Euclidean circle/sphere and classical pi belong to selected finite readouts, infinite-discrete completions or continuum/coarse descriptions, and locate the first layer at which transcendental constants can arise.",
+      "next_action": "Claim the R038 taskbook, freeze the four-layer observable taxonomy and finite exact-state algebra, derive multiple pi_eff readout channels, then adversarially search pure-discrete infinite-volume observables for exact transcendental or special-function counterexamples before issuing an ontology verdict.",
+      "dependencies": [
+        {"target": "R033 frozen graph-sphere results", "action": "CONSUME", "satisfied": true},
+        {"target": "R034 frozen propagation-sphere results", "action": "CONSUME", "satisfied": true},
+        {"target": "R037 independent replication audit", "action": "TEST", "satisfied": false}
+      ],
+      "source_refs": ["research_tasks/R038_DISCRETE_EXACT_WORLD_CONTINUUM_CONSTANTS_PI_READOUT_SEMANTICS_20260812.md", "R033 frozen owner head", "R034 frozen owner head"],
+      "evidence_status": "DISCRETE_EXACTNESS_AND_CONTINUUM_READOUT_FOUNDATION_GATE",
+      "last_progress_ref": "taskbook created on source main",
+      "last_progress_at": "2026-08-12T13:17:00+08:00",
+      "hard_block": null,
+      "tags": ["R038", "discrete-exact-world", "pi", "transcendental", "continuum", "coarse-readout", "ontology"]
+    },
+    {
       "task_id": "RS-GOV-FOUNDATION-BACKFLOW",
       "title": "Foundation backflow verification and canonicalization",
       "kind": "GOVERNANCE",
