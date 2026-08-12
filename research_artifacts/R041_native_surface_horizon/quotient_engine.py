@@ -8,7 +8,7 @@ is used.
 """
 from __future__ import annotations
 
-from collections import Counter
+from collections import Counter, defaultdict
 from functools import lru_cache
 from itertools import permutations, product
 from typing import Callable, Iterable
@@ -17,6 +17,7 @@ Point = tuple[int, int, int]
 Cluster = tuple[Point, ...]
 Neighbors = Callable[[Point], tuple[Point, ...]]
 
+# ---------- frozen FCC contact graph ----------
 FCC_DIRS: tuple[Point, ...] = tuple(sorted(
     tuple(v)
     for zero in range(3)
@@ -51,6 +52,7 @@ def canonical_fcc(cluster: Cluster) -> Cluster:
     return min(_normalize_fcc(_fcc_apply(p, op) for p in cluster) for op in FCC_OPS)
 
 
+# ---------- frozen HCP combinatorial contact graph ----------
 TRI_DIRS = ((1, 0), (-1, 0), (0, 1), (0, -1), (1, -1), (-1, 1))
 
 
@@ -151,6 +153,7 @@ def reduced_r2(cluster: Iterable[Point], neighbors: Neighbors):
 
 
 def reachable_added_sets(cluster: Iterable[Point], h: int, neighbors: Neighbors):
+    """All final h-cell attachment sets, quotienting away legal addition order."""
     C = frozenset(cluster)
     states = {frozenset()}
     for _ in range(h):
@@ -186,6 +189,7 @@ def contact_score_spectrum(cluster: Iterable[Point], h: int, neighbors: Neighbor
 
 
 def exterior_layers(cluster: Iterable[Point], h: int, neighbors: Neighbors) -> tuple[frozenset[Point], ...]:
+    """R039 operational layers L0..L_{h-1}; operation depth, not a native radius field."""
     if h <= 0:
         return ()
     C = set(cluster)
@@ -203,6 +207,7 @@ def exterior_layers(cluster: Iterable[Point], h: int, neighbors: Neighbors) -> t
 
 
 def cone_stats(cluster: Iterable[Point], h: int, neighbors: Neighbors) -> dict:
+    """Compare full J_h induced edges with activation-pruned K_h edges."""
     layers = exterior_layers(cluster, h, neighbors)
     layer_of = {v: r for r, layer in enumerate(layers) for v in layer}
     V = set(layer_of)
@@ -226,6 +231,11 @@ def cone_stats(cluster: Iterable[Point], h: int, neighbors: Neighbors) -> dict:
 
 
 def activation_pruned_carrier(cluster: Iterable[Point], h: int, neighbors: Neighbors):
+    """K_h = weighted exterior graph with last-layer internal edges removed.
+
+    Layer tags are not stored.  The positive initial attachment weights identify L0;
+    deeper layer indices are reconstructible as graph distance from that positive set.
+    """
     C = tuple(cluster)
     layers = exterior_layers(C, h, neighbors)
     layer_of = {v: r for r, layer in enumerate(layers) for v in layer}
@@ -243,7 +253,11 @@ def activation_pruned_carrier(cluster: Iterable[Point], h: int, neighbors: Neigh
 
 
 def carrier_trajectory_support(cluster: Iterable[Point], h: int, neighbors: Neighbors):
-    _S0, weights_items, edges = activation_pruned_carrier(cluster, h, neighbors)
+    """Exact Boolean k-trajectory support simulated only from K_h data.
+
+    Coordinates are used here only as opaque vertex IDs in the stored finite graph.
+    """
+    S0, weights_items, edges = activation_pruned_carrier(cluster, h, neighbors)
     weights = dict(weights_items)
     adj: dict[Point, set[Point]] = {v: set() for v in weights}
     for u, v in edges:
@@ -290,6 +304,7 @@ def enumerate_animals(world: str, max_n: int) -> dict[int, set[Cluster]]:
 
 
 class SignatureEngine:
+    """Canonical exact-h terminal and branch-aware operational signatures."""
     def __init__(self, world: str):
         self.world = world
         self.neighbors, self.canonical = WORLD[world]
@@ -323,13 +338,17 @@ class SignatureEngine:
         return tuple(self.terminal(C, t) for t in range(h + 1))
 
     def operational(self, C: Cluster, h: int):
+        """Boolean branch-aware depth-h signature with action label k (equiv. Delta S)."""
         key = (C, h)
         if key not in self._oper_cache:
             s = surface(C, self.neighbors)
             if h == 0:
                 ans = (s,)
             else:
-                children = {(k, self.operational(D, h - 1)) for k, D in self.successors(C)}
+                children = {
+                    (k, self.operational(D, h - 1))
+                    for k, D in self.successors(C)
+                }
                 ans = (s, tuple(sorted(children, key=repr)))
             self._oper_cache[key] = ans
         return self._oper_cache[key]
@@ -353,3 +372,153 @@ def quotient_class_counts(world: str, max_n: int, max_h: int) -> dict[int, dict[
             row[f"cumT{h}"] = len({eng.cumulative_terminal(C, h) for C in level})
         out[n] = row
     return out
+
+# ---------- R041 compact operational carriers ----------
+def update_histogram_from_reduced_profile(H_items, profile):
+    """Exact R039 reduced-R2 histogram update, expressed without coordinates."""
+    H = Counter(dict(H_items)) if not isinstance(H_items, Counter) else Counter(H_items)
+    k, A = profile
+    H[k] -= 1
+    if H[k] == 0:
+        del H[k]
+    touched = 0
+    for j, count in A:
+        touched += count
+        H[j] -= count
+        if H[j] == 0:
+            del H[j]
+        H[j + 1] += count
+    b = 12 - k - touched
+    if b:
+        H[1] += b
+    return tuple(sorted(H.items()))
+
+
+def b1_from_histogram(S: int, H_items):
+    """Boolean B1 signature in the same serialization as SignatureEngine.operational."""
+    return (S, tuple(sorted((k, (S + 12 - 2 * k,)) for k, count in H_items if count)))
+
+
+def b2_from_r2(r2):
+    """R041-T4: reduced R2 determines the exact Boolean operational B2 signature."""
+    H = Counter(profile[0] for profile in r2)
+    S = sum(k * count for k, count in H.items())
+    children = set()
+    for profile in r2:
+        k = profile[0]
+        S1 = S + 12 - 2 * k
+        H1 = update_histogram_from_reduced_profile(H, profile)
+        children.add((k, b1_from_histogram(S1, H1)))
+    return (S, tuple(sorted(children, key=repr)))
+
+
+def m3_reconstructed_child_r2(cluster: Iterable[Point], x: Point, neighbors: Neighbors):
+    """Reconstruct R2(C+{x}) using only weighted induced incidence on current L0∪L1."""
+    C = tuple(cluster)
+    layers = exterior_layers(C, 2, neighbors)
+    L0, L1 = set(layers[0]), set(layers[1])
+    assert x in L0
+    V = L0 | L1
+    adj = {v: {u for u in neighbors(v) if u in V} for v in V}
+    w0 = {v: attachment_count(C, v, neighbors) for v in L0}
+
+    child_frontier = (L0 - {x}) | (L1 & adj[x])
+    child_k = {}
+    for y in child_frontier:
+        if y in L0:
+            child_k[y] = w0[y] + (1 if y in adj[x] else 0)
+        else:
+            child_k[y] = 1
+
+    profiles = []
+    for y in child_frontier:
+        A = Counter(child_k[z] for z in adj[y] if z in child_frontier and z != y)
+        profiles.append((child_k[y], tuple(sorted(A.items()))))
+    return tuple(sorted(profiles, key=repr))
+
+
+def b3_from_m3(cluster: Iterable[Point], neighbors: Neighbors):
+    """R041 compact h=3 operational signature from only L0∪L1 incidence."""
+    C = tuple(cluster)
+    S = surface(C, neighbors)
+    children = set()
+    for x in frontier(C, neighbors):
+        k = attachment_count(C, x, neighbors)
+        children.add((k, b2_from_r2(m3_reconstructed_child_r2(C, x, neighbors))))
+    return (S, tuple(sorted(children, key=repr)))
+
+
+def compact_mh_carrier(cluster: Iterable[Point], h: int, neighbors: Neighbors):
+    """M_h for h>=2: S plus weighted induced graph on L0..L_{h-2}; no layer tags."""
+    if h < 2:
+        raise ValueError("M_h structural carrier is defined here for h>=2")
+    C = tuple(cluster)
+    layers = exterior_layers(C, h - 1, neighbors)
+    layer_of = {v: r for r, layer in enumerate(layers) for v in layer}
+    V = set(layer_of)
+    weights = {v: (attachment_count(C, v, neighbors) if layer_of[v] == 0 else 0) for v in V}
+    adj = {v: {u for u in neighbors(v) if u in V} for v in V}
+    return surface(C, neighbors), weights, adj
+
+
+def _freeze_operational(s, children):
+    return (s, tuple(sorted(children, key=repr)))
+
+
+def operational_from_mh_carrier(carrier, h: int):
+    """Compute exact Boolean B_h from M_h only; never queries omitted lattice cells."""
+    if h < 2:
+        raise ValueError("use h>=2")
+    S, weights, adj = carrier
+    L0 = {v for v, k in weights.items() if k > 0}
+
+    if h == 2:
+        children = set()
+        for x in L0:
+            kx = weights[x]
+            S1 = S + 12 - 2 * kx
+            support = set()
+            for y in L0 - {x}:
+                support.add(weights[y] + (1 if y in adj[x] else 0))
+            b = 12 - kx - sum(1 for y in adj[x] if y in L0)
+            if b > 0:
+                support.add(1)
+            B1 = (S1, tuple(sorted((k, (S1 + 12 - 2 * k,)) for k in support)))
+            children.add((kx, B1))
+        return _freeze_operational(S, children)
+
+    # h>=3.  The current carrier explicitly contains L1 because it stores through L_{h-2}.
+    L1 = {v for v, k in weights.items() if k == 0 and any(u in L0 for u in adj[v])}
+    children = set()
+    for x in L0:
+        kx = weights[x]
+        child_L0 = (L0 - {x}) | (adj[x] & L1)
+
+        # Build child layers 0..h-3 by BFS inside the retained current carrier.
+        child_layers = [set(child_L0)]
+        seen = {x} | set(child_L0)
+        layer = set(child_L0)
+        for _ in range(h - 3):
+            nxt = set()
+            for v in layer:
+                nxt.update(adj[v])
+            nxt -= seen
+            child_layers.append(nxt)
+            seen |= nxt
+            layer = nxt
+        child_V = set().union(*child_layers)
+
+        child_weights = {v: 0 for v in child_V}
+        for y in child_L0:
+            if y in L0:
+                child_weights[y] = weights[y] + (1 if y in adj[x] else 0)
+            else:
+                child_weights[y] = 1
+        child_adj = {v: (adj[v] & child_V) for v in child_V}
+        child_carrier = (S + 12 - 2 * kx, child_weights, child_adj)
+        children.add((kx, operational_from_mh_carrier(child_carrier, h - 1)))
+    return _freeze_operational(S, children)
+
+
+def operational_from_compact_mh(cluster: Iterable[Point], h: int, neighbors: Neighbors):
+    return operational_from_mh_carrier(compact_mh_carrier(cluster, h, neighbors), h)
