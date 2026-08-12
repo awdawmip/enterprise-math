@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "enterprise-math://r032/research_error_lesson_schema.json",
+  "title": "R032 Post-Error Research Lesson",
+  "type": "object",
+  "required": [
+    "lesson_id",
+    "source_route",
+    "failure_class",
+    "researcher_accepted_failure",
+    "original_question",
+    "original_claim_or_model",
+    "what_failed",
+    "minimal_witness_or_failure_evidence",
+    "what_survived",
+    "unexpected_structure_revealed",
+    "new_distinctions",
+    "new_objects_or_coordinates",
+    "new_tool_candidate",
+    "new_negative_boundary",
+    "new_questions_generated",
+    "analogous_prior_failures",
+    "how_prior_failures_helped",
+    "what_should_NOT_be_inferred",
+    "novelty_status",
+    "confidence_evidence_grade",
+    "failure_structure"
+  ],
+  "properties": {
+    "lesson_id": {"type": "string", "minLength": 1},
+    "source_route": {"type": "string", "minLength": 1},
+    "failure_class": {"enum": ["FALSE_ROUTE", "OVERSTRONG_ROUTE", "MIS_TYPED_ROUTE", "PRIOR_ART_ABSORBED_ROUTE", "UNPRODUCTIVE_ROUTE"]},
+    "researcher_accepted_failure": {"const": true},
+    "original_question": {"type": "string", "minLength": 1},
+    "original_claim_or_model": {"type": "string", "minLength": 1},
+    "what_failed": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "minimal_witness_or_failure_evidence": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "what_survived": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "unexpected_structure_revealed": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "new_distinctions": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "new_objects_or_coordinates": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "new_tool_candidate": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "new_negative_boundary": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "new_questions_generated": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "analogous_prior_failures": {"type": "array", "items": {"type": "string"}},
+    "how_prior_failures_helped": {"type": "array", "items": {"type": "string"}},
+    "what_should_NOT_be_inferred": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "novelty_status": {"type": "string", "minLength": 1},
+    "confidence_evidence_grade": {"type": "string", "minLength": 1},
+    "failure_structure": {
+      "type": "object",
+      "required": ["failure_class", "minimal_witness", "broken_implication", "surviving_invariant", "newly_exposed_object"],
+      "properties": {
+        "failure_class": {"type": "string", "minLength": 1},
+        "minimal_witness": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "broken_implication": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "surviving_invariant": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "newly_exposed_object": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true,
+  "x_r032_contract": {
+    "activation": "ONLY_AFTER_RESEARCHER_ACCEPTED_FAILURE_OR_NARROWING_OR_PRIOR_ART_ABSORPTION_OR_ABANDONMENT",
+    "mandatory_nonempty": ["what_survived", "new_questions_generated"],
+    "anti_fence": "A lesson records conditional failure structure; it must never compile into DO_NOT_TRY_THIS.",
+    "shoulder_search_input": "failure_structure only; original taskbook and historical gold are forbidden query inputs"
+  }
+}
