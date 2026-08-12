@@ -15,7 +15,7 @@ theorem semiprime_dvd_primePow_mul_prime_eq_square_or_cross
     {p q h d : ℕ}
     (hp : p.Prime)
     (hq : q.Prime)
-    (hpq : p ≠ q)
+    (_hpq : p ≠ q)
     (hdTwo : 2 ≤ d)
     (hdCount : rootQuotientPrimeFactorCount d = 2)
     (hdDvd : d ∣ p ^ h * q) :
@@ -54,7 +54,7 @@ theorem semiprime_dvd_primePow_mul_prime_eq_square_or_cross
       ((hq.coprime_iff_not_dvd).2 hqDvd).symm
     have hdPow : d ∣ p ^ h :=
       hdCoprimeQ.dvd_of_dvd_mul_right hdDvd
-    obtain ⟨k, hkLe, hdEq⟩ := (Nat.dvd_prime_pow hp).1 hdPow
+    obtain ⟨k, _hkLe, hdEq⟩ := (Nat.dvd_prime_pow hp).1 hdPow
     have hpCount : rootQuotientPrimeFactorCount p = 1 := by
       rw [rootQuotientPrimeFactorCount,
         Nat.primeFactorsList_prime hp]
@@ -114,7 +114,7 @@ theorem no_coverPreinvestment_forces_futurePrimeStar
   have htLtBirth : t < p ^ (h + 1) := by
     dsimp [t]
     rw [pow_succ]
-    exact Nat.mul_lt_mul_left hPowPos hqp
+    exact (Nat.mul_lt_mul_left hPowPos).2 hqp
   have htN : t ≤ N := by
     rw [← hBirth] at htLtBirth
     omega
@@ -149,6 +149,7 @@ theorem no_coverPreinvestment_forces_futurePrimeStar
     hp hq (by omega) hdSemantic.1 hdCount (by simpa [t] using hdDvd)
   rcases hdCases with hdSq | hdCross
   · exact (hpSqNot (hdSq ▸ hdS)).elim
-  · simpa [hdCross] using hdS
+  · rw [← hdCross]
+    exact hdS
 
 end EnterpriseMath.Quotient
