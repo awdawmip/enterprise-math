@@ -28,7 +28,7 @@ theorem exists_private_primeHard_target_of_mem_minimumCompositeMacroPresentation
       g ∣ t := by
   classical
   let S₀ : Set ℕ := S \ {g}
-  have hS₀Finite : S₀.Finite := hS.1.sdiff (by simp)
+  have hS₀Finite : S₀.Finite := hS.1.sdiff
   have hS₀Candidate : S₀ ⊆ RootQuotientSemanticCompositeCandidates r N := by
     intro a ha
     exact hS.2.1 ha.1
