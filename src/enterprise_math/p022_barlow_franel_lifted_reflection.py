@@ -28,9 +28,15 @@ At a Franel zero digit the Fermat-quotient term vanishes, so
 
     (F_r-(-8)^r F_(q-1-r))/q = F'_r                       (mod q).
 
-Consequently, if q^2 divides F_r, then q divides F'_r exactly when the reflected
-zero also has depth at least two.  Thus the only mod-q^2 copy-depth obstruction
-left by the Gessel--Lucas first jet is a reflected double-deep zero pair.
+Applying the same identity at the reflected zero and using
+(-8)^(q-1)=1+q Q_q(8) mod q^2 gives the formal-jet reflection law
+
+    F'_(q-1-r) = -(-8)^(-r) F'_r                          (mod q).
+
+Thus formal-stationary zeros occur in reflected pairs.  Moreover, if q^2
+divides F_r, then q divides F'_r exactly when the reflected zero also has depth
+at least two.  The sole mod-q^2 copy-depth obstruction left by the Gessel--Lucas
+first jet is therefore a reflected double-deep stationary pair.
 
 Jarvis--Verrill reflection and Straub's formal derivative are prior art.  The
 P022 contribution is the lifted first-jet identity and its use to reinterpret
@@ -43,7 +49,6 @@ from math import gcd
 
 from .p022_barlow_franel_gessel_lucas_copy import franel_formal_derivative
 from .p022_barlow_low_order_defect_reduction import _is_prime
-from .p022_barlow_low_order_identifiability import triple_moment_factor
 
 
 def _require_odd_prime(prime: int) -> None:
@@ -143,6 +148,25 @@ def zero_digit_lifted_reflection(rank: int, prime: int) -> tuple[int, int]:
     return actual, derivative
 
 
+def zero_digit_formal_derivative_reflection(rank: int, prime: int) -> tuple[int, int]:
+    """At a zero digit, reflect the formal derivative modulo p.
+
+    Returns (actual derivative at the mirror, reflected prediction).
+    """
+    table = franel_digit_table_mod_square(prime)
+    if table[rank] % prime:
+        raise ValueError("rank must be a Franel zero digit modulo p")
+    reflected = prime - 1 - rank
+    if table[reflected] % prime:
+        raise AssertionError("ordinary reflection must preserve zero status")
+    derivative = _fraction_mod(franel_formal_derivative(rank), prime)
+    actual = _fraction_mod(franel_formal_derivative(reflected), prime)
+    predicted = (-pow(pow(-8, rank, prime), -1, prime) * derivative) % prime
+    if actual != predicted:
+        raise AssertionError("formal derivative reflection law failed")
+    return actual, predicted
+
+
 def double_stationary_iff_reflected_deep(rank: int, prime: int) -> bool:
     """For p^2|F_r, p|F'_r iff p^2|F_(p-1-r)."""
     table = franel_digit_table_mod_square(prime)
@@ -150,6 +174,7 @@ def double_stationary_iff_reflected_deep(rank: int, prime: int) -> bool:
         raise ValueError("source digit must have depth at least two")
     reflected = prime - 1 - rank
     zero_digit_lifted_reflection(rank, prime)
+    zero_digit_formal_derivative_reflection(rank, prime)
     derivative = _fraction_mod(franel_formal_derivative(rank), prime)
     derivative_stationary = derivative == 0
     reflected_deep = table[reflected] == 0
