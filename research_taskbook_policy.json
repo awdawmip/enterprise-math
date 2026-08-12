@@ -3,6 +3,8 @@
   "status": "ACTIVE",
   "policy_inputs": [
     "AGENTS.md",
+    "FOUNDATIONAL_LOGIC.md",
+    "foundational_logic.json",
     "docs/GITHUB_INTERACTION_BUDGET.md",
     "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
     "research_role_policy.json",
@@ -71,6 +73,11 @@
         "do not wait for the driver to assign an id"
       ]
     }
+  ],
+  "semantic_review_requirements": [
+    "For foundation-facing tasks, enforce foundational_logic.json before freezing native premises or importing successful effective/classical definitions.",
+    "When engineering success is used, separate effective definitions withheld from native premises from engineering-success constraints consumed as evidence.",
+    "Target-side definitions copied into native premises invalidate the claimed foundational derivation unless separately declared or derived at the correct semantic strength."
   ],
   "override_required_fields": [
     "conflict_id",
