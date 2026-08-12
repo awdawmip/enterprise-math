@@ -1,0 +1,79 @@
+{
+  "schema": "R037_R033_REPLICATION_ATLAS_V1",
+  "researcher_id": "EM-R037-A7C2D1",
+  "derivation_policy": "independent definitions and algorithms first; frozen R033 outputs read only after derivation",
+  "frozen_head": "c2aa1758c6cf8f194d8b4493b90c903a2dfcd048",
+  "fcc": {
+    "model": "D3 parity lattice with the 12 permutations/signs of (1,1,0)",
+    "distance": "max(max(|x|,|y|,|z|),(abs(x)+abs(y)+abs(z))/2)",
+    "bfs_distance_agreement": "all vertices through r=20, zero mismatch",
+    "A": "A_0=1; A_r=10*r^2+2 for r>=1",
+    "V": "(10*r^3+15*r^2+11*r+3)/3",
+    "shell_edges": "24*r^2",
+    "holdout_r100": {"A":100002,"V":3383701},
+    "boundary_orbits_stable_from_r": 3,
+    "independent_orbits": [
+      {"outside_degree":7,"count":"12"},
+      {"outside_degree":5,"count":"24*(r-1)"},
+      {"outside_degree":4,"count":"6*(r-1)^2","limit_frequency":"3/5"},
+      {"outside_degree":3,"count":"4*(r-1)*(r-2)","limit_frequency":"2/5"}
+    ],
+    "boundary_TV": "(24*r-12)/(10*r^2+2) <= 12/(5*r)",
+    "exposed_orientation": "6 unoriented NN classes, each exactly 1/6",
+    "limit_shape": {
+      "description": "intersection |x_i|<=r and |x|_1<=2r, hence cuboctahedron after scaling",
+      "vertices":12,"facets":14,"circumradius":1,"inradius":"1/sqrt(2)","anisotropy_ratio":"sqrt(2)","support_remainder":0
+    }
+  },
+  "hcp": {
+    "model": "triangular layers with even/odd AB parity; six same-layer and three above plus three below",
+    "A_B_graph_automorphism": "(m,n,l)->(-m,-n,1-l)",
+    "distance": "L=|l|,q=floor(L/2); d=L+max(0,rem-q), with rem=T(m,n) for even L and min_{s in {(0,0),(-1,0),(0,-1)}} T((m,n)-s) for odd L, T=max(|m|,|n|,|m+n|)",
+    "bfs_distance_agreement": "all vertices through r=20, zero mismatch",
+    "A": "A_0=1; A_r=floor(21*r^2/2)+2 for r>=1",
+    "V": "even r: (14*r^3+21*r^2+14*r+4)/4; odd r: (14*r^3+21*r^2+14*r+3)/4",
+    "shell_edges": "27*r^2 for even r; 27*r^2-3 for odd r",
+    "holdout_r100": {"A":105002,"V":3552851},
+    "boundary_orbits_stable_from_r": 4,
+    "independent_orbits": [
+      {"outside_degree":3,"count":"even 3*(3*r^2-6*r+4)/2; odd 9*(r-1)^2/2","limit_frequency":"3/7"},
+      {"outside_degree":3,"count":"even (3*r^2-6*r+4)/2; odd 3*(r-1)^2/2","limit_frequency":"1/7"},
+      {"outside_degree":4,"count":"even 3*(r-2)*(3*r-2)/2; odd 3*(r-1)*(3*r-5)/2","limit_frequency":"3/7"},
+      {"outside_degree":4,"count":"3*(r-1)"},
+      {"outside_degree":5,"count":"12*(r-1)"},
+      {"outside_degree":5,"count":"even 3*(r-2); odd 3*(r-1)"},
+      {"outside_degree":5,"count":"even 3*(r-2); odd 3*(r-3)"},
+      {"outside_degree":6,"count":"12"},
+      {"outside_degree":6,"count":"3*(r-1)"},
+      {"outside_degree":7,"count":"6"}
+    ],
+    "boundary_TV": "(24*r-12)/A_r <= 16/(7*r)",
+    "exposed_orientation": "3 same-layer unoriented classes each 1/6; 6 interlayer classes each 1/12",
+    "limit_shape": {
+      "construction": "cycle-velocity convex hull: 6 basal one-step velocities plus 6 upper and 6 lower two-step mean velocities",
+      "vertices":18,"facets":14,"circumradius":1,"inradius":"sqrt(24/41)","anisotropy_ratio":"sqrt(41/24)",
+      "finite_support_certificate": "using u=m+p/3,v=n+p/3,p=l mod 2: every limit-facet inequality overshoots by at most 1/6 before scaling, hence <=1/(6*r) after scaling; all 18 vertices reachable for even r"
+    }
+  },
+  "cross_world": {
+    "rooted_induced_first_difference": {"r":1,"witness":"nearest-neighbor shell 4-cycle count","fcc":6,"hcp":9},
+    "shell_cardinality_first_difference": {"r":2,"fcc":42,"hcp":44},
+    "leading_shell_and_bulk_ratio_hcp_over_fcc": "21/20",
+    "common_exposed_face_count": "12*(3*r^2+3*r+1)",
+    "topology_reference": {
+      "certified_radii":"0..20 inclusive",
+      "method":"independent exact rational bisector halfspaces; global rational vertex-key gluing",
+      "F":"12*(3*r^2+3*r+1)","E":"2*F","V":"F+2","chi":2,
+      "connected":true,"every_edge_incidence":2,"every_vertex_link":"one cycle",
+      "classification":"closed connected 2-manifold, hence S^2 on every certified radius",
+      "all_radius_status":"THEOREM_CANDIDATE_ONLY; finite certificate is not promoted to an all-r theorem"
+    }
+  },
+  "evidence_grade": {
+    "growth_and_distances":"REPRODUCED_EXACT",
+    "boundary_orbit_formulas":"REPRODUCED_ASYMPTOTIC_CERTIFICATE with exact r=0..20 checks and independent symmetry canonicalization",
+    "topology":"REPRODUCED_FINITE_CERTIFICATE",
+    "limit_shapes":"REPRODUCED_EXACT",
+    "all_radius_S2":"THEOREM_CANDIDATE_ONLY"
+  }
+}
