@@ -1,0 +1,81 @@
+{
+  "task_id": "RS-R042-POLYGONAL-NONSQUARE-BRANCH-LIMIT-PELL-RECURRENCE",
+  "current_researcher_id": "EM-R042-963283",
+  "historical_phase1_researcher_id": "EM-R042-290D7A",
+  "taskbook_source_commit": "5e95b8b589ffa75975de165b46f70139b2e0720b",
+  "consumed_phase1_owner_head": "fb03a917f8ea343428d5805348f045910fc28752",
+  "classification": "HIT_ANCESTRY_ONTOLOGY_REPLACED / SMALLER_EXACT_RECURRENCE_OBJECT_FOUND / NOT_CANONICAL",
+  "refined_classification": "CORRECTION_RENORMALIZATION_STRENGTHENED_BY_REVERSE_SHADOW / LOCAL_GATE_CORRELATION_RESIDUAL_ISOLATED / SUPERLACUNARY_INFINITE_RAY_NECESSITY_PROVED / INFINITE_RECURRENCE_OPEN / NOT_CANONICAL",
+  "reverse_shadow": {
+    "centered_coordinate": "x=k-kappa=z_k/m, kappa=c/m, m=2(s-2)",
+    "forward": "F(x)=sqrt(r*x^2-(r-1)*kappa^2)",
+    "reverse": "G(y)=sqrt(kappa^2+(y^2-kappa^2)/r)",
+    "iterate_square": "G^n(y)^2=kappa^2+r^(-n)*(y^2-kappa^2)",
+    "ancestor_window": "|R^n(J)-I_n(J)| < C_n=(1-r^(-n/2))/(sqrt(r)-1) < 1/(sqrt(r)-1)",
+    "nearest_integer_corollary": "for nonsquare r>=10, an ancestor at a declared depth, if it exists, is the unique nearest integer to the ideal reverse index",
+    "status": "PROVED"
+  },
+  "centered_energy": {
+    "formula": "A(k)=(k-kappa)^2-kappa^2=(z_k^2-c^2)/m^2=2*P_s(k)/(s-2)",
+    "reachable_edge_bound": "|A(H)/(r^ell A(h))-1| <= (2*|h-kappa|*C_ell+C_ell^2)/A(h)",
+    "status": "PROVED"
+  },
+  "reduced_pell": {
+    "equation": "Y^2-r*Z^2=-(r-1)c^2",
+    "fundamental_unit": "epsilon=u+v*sqrt(r), u^2-r*v^2=1",
+    "inverse_action": "(Y,Z)->(uY-rvZ, uZ-vY)",
+    "reduced_stop_bound": "r*Z0^2 <= u^2*B",
+    "finite_encoding": "finite reduced class i plus unit exponent n; affine-lattice compatible n form periodic subsets modulo the unit-matrix period",
+    "status": "PROVED_SPECIALIZATION_WITH_PRIOR_ART_PELL_ORBIT_THEORY"
+  },
+  "reduced_rank_monotonicity_kill": {
+    "s": 8,
+    "r": 40,
+    "path": [1, 4, 24],
+    "hit_parents": [1, 24],
+    "same_reduced_pell_class": true,
+    "fundamental_unit": [19, 3],
+    "source_hit_pair": [44, 8],
+    "target_is_one_unit_translate": true,
+    "status": "EXECUTABLE_CHECKED_COUNTEREXAMPLE"
+  },
+  "pell_shrinking_target": {
+    "tau_i": "Y_i+sqrt(r)*Z_i",
+    "edge_condition": "|Gamma_ij*epsilon^(2(N-n))*r^(-ell)-1| <= C(s,r)*epsilon^(-n), Gamma_ij=(tau_j/tau_i)^2",
+    "nonzero_certificate": "field norm of Gamma_ij*epsilon^(2d)*r^(-ell) is r^(-2ell), so it cannot equal 1 for ell>=1",
+    "status": "PROVED",
+    "A_i_n": "(tau_i^2*epsilon^(2n)+B^2*tau_i^(-2)*epsilon^(-2n)-2(r+1)c^2)/(4*r*m^2)"
+  },
+  "superlacunarity": {
+    "statement": "If an infinite reachable exact-hit ray exists, then for sufficiently large source unit exponent n, both the next Pell-unit exponent gap and the branch-time gap are at least exp(c*n) up to cell-dependent constants.",
+    "method": "combine the exponentially shrinking R042 edge target with a standard Baker/Matveev polynomial lower bound for nonzero linear forms in logarithms of fixed algebraic numbers",
+    "kills": ["bounded Pell-unit exponent gaps", "eventually periodic hit-to-hit Pell increments", "fixed-step Pell renormalization", "finite-state renormalization with uniformly bounded Pell exponent increments"],
+    "does_not_prove": ["finite hit-ancestry height", "nonexistence of a superlacunary infinite ray"],
+    "status": "PROVED_USING_PRIOR_ART_LINEAR_FORMS"
+  },
+  "local_gate_residual": {
+    "formula": "E_t=r*z_(t-1)^2-z_t^2-B",
+    "stable_gate": "-2*m*z_t+m^2 < E_t < 2*m*z_t+m^2",
+    "energy_update": "A_t=r*A_(t-1)-E_t/m^2",
+    "telescoping": "r^ell*A(h)-A(H)=m^(-2)*sum_{t=1}^ell r^(ell-t)*E_t",
+    "interpretation": "Pell/shadow resonance controls only one weighted aggregate; exact reachability requires every ordered local gate to survive.",
+    "status": "PROVED"
+  },
+  "hidden_correlation_witness": {
+    "s": 5, "r": 14, "source_hit": 2, "target_hit": 95, "putative_depth": 3,
+    "source_hit_pair": [41, 11], "target_hit_pair": [2129, 569], "kappa": "1/6", "source_center": "11/6",
+    "ideal_reverse_center_square": "40813/12348", "certified_shadow_error_lt": "1/60", "target_predecessor": null,
+    "nearest_parent_candidates": [25, 26], "local_E": [-12960, 12576], "local_gate_interval": [-6792, 6864], "first_gate_centered_D": [-43, 41],
+    "status": "EXECUTABLE_CHECKED_EXACT_RATIONAL_INTEGER_WITNESS"
+  },
+  "bounded_diagnostic": {
+    "description": "discovery-only reduced-class/unit-exponent scan; not used as theorem evidence",
+    "observed": "no positive-unit-exponent hit ancestor and no three-hit ancestry in the explored finite window",
+    "status": "BOUNDED_DIAGNOSTIC_NOT_THEOREM"
+  },
+  "remaining_frontier": "Does there exist a superlacunary Pell shrinking-target sequence whose entire ordered exact local reverse-gate residual word survives at every hit-to-hit block?",
+  "hard_block": null,
+  "ci": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "consumed_intervening_owner_head": "b3ca1369c147e50d1a841d3f86c081f2cb152f68",
+  "relationship_to_intervening_checkpoint": "b3ca1369 provides finite correction cocycle/growing-modulus address and elementary rank acceleration; this artifact adds reverse-shadow shrinking target, a Matveev-strengthened superlacunarity necessity, and an exact one-step gate-residual witness."
+}
