@@ -1,5 +1,5 @@
 {
-  "schema": "ENTERPRISE_MATH_NATIVE_SEMANTICS_ADMISSIBILITY_V1",
+  "schema": "ENTERPRISE_MATH_NATIVE_SEMANTICS_ADMISSIBILITY_V2",
   "status": "ACTIVE",
   "purpose": "Prevent derived metric, propagation, scalar-readout, embedding, optimization, or continuum structure from being silently promoted to the Enterprise Math native/base ontology.",
   "core_rule": "A claim may be labeled NATIVE/INTRINSIC/BASE-WORLD only when every theorem-critical object and operator is already in the declared native substrate, or has an explicit definability certificate from that substrate. Otherwise the claim must be typed as conditional/derived/readout/continuum rather than native.",
@@ -25,51 +25,24 @@
       "examples": ["Euclidean circle/sphere", "smooth surface", "Gaussian density", "Lebesgue measure", "continuum PDE", "classical area/volume formula", "continuum Fourier normalization"]
     }
   },
+  "native_basis_status": ["DECLARED_N0_PRIMITIVE", "N0_DEFINABLE_DERIVED"],
+  "semantic_strength_order": ["SCALAR", "QUOTIENT", "RELATION", "OBJECT", "PRIMITIVE"],
   "admissibility_rules": [
-    {
-      "id": "NSA-01-NO-HIDDEN-PRIMITIVE",
-      "rule": "Every theorem-critical symbol/operator in a claim labeled native/intrinsic/base-world must appear in the declared N0 substrate or be eliminated by an explicit definability certificate."
-    },
-    {
-      "id": "NSA-02-DEFINABILITY-PROMOTION",
-      "rule": "A derived object may be promoted toward N0 only after proving construction from N0, independence from arbitrary choices/coordinates, and invariance under the allowed N0 relabelings/automorphisms relevant to the claim. Convenience, symmetry intuition, or uniqueness in one embedding is insufficient."
-    },
-    {
-      "id": "NSA-03-NO-NATURALITY-SHORTCUT",
-      "rule": "Words such as natural, canonical, intrinsic, obvious, nearest, radial, symmetric, isotropic, or physical do not establish native admissibility."
-    },
-    {
-      "id": "NSA-04-CONDITIONAL-MATH-PRESERVED",
-      "rule": "A mathematically correct result using N1/N2/N3 structure is not discarded. Reclassify it as CONDITIONAL_ON_DECLARED_SEMANTICS / READOUT_ONLY / CONTINUUM_ONLY and state the dependency explicitly."
-    },
-    {
-      "id": "NSA-05-EQUIDISTANCE-TYPECHECK",
-      "rule": "Equal-distance, radius, shell, sphere, or ball predicates are ill-typed at N0 unless a metric/equidistance structure is itself explicitly part of N0 or has passed NSA-02. A graph admits a definable shortest-path metric only after shortest-path semantics has been selected; that does not make the metric an N0 primitive."
-    },
-    {
-      "id": "NSA-06-SEED-NOT-CENTER",
-      "rule": "A seed cell/root used to construct or enumerate states is provenance unless a separate semantics promotes it. It must not silently become a global center/radial coordinate."
-    },
-    {
-      "id": "NSA-07-EMBEDDING-SEPARATION",
-      "rule": "Implementation coordinates may be used to compute/check contact relations, but Euclidean length, angle, covariance, normal, area, point-group orientation, or other embedding-dependent quantities are N2 unless the embedding is explicitly declared as additional semantics."
-    },
-    {
-      "id": "NSA-08-OPTIMIZATION-SEPARATION",
-      "rule": "A shape obtained by minimizing/maximizing a native quantity is exact conditional mathematics of that optimization semantics, not automatically the native shape of the world."
-    },
-    {
-      "id": "NSA-09-INFINITY-DOES-NOT-ERASE-TYPING",
-      "rule": "Finite/infinite status is orthogonal to native/derived status. An infinite discrete completion built after a metricization/readout remains conditional on that metricization/readout."
-    },
-    {
-      "id": "NSA-10-PRIOR-ART-DOES-NOT-GRANT-ONTOLOGY",
-      "rule": "A standard/classical definition or prior-art theorem may be used conditionally but does not become part of the Enterprise Math base merely because it is conventional mathematics."
-    },
-    {
-      "id": "NSA-11-FUTURE-LANGUAGE-TYPING",
-      "rule": "For collapse/precision claims, declare the future language and carrier separately from the base ontology. A representation can be exact for a future language without being a native state descriptor."
-    }
+    {"id": "NSA-01-NO-HIDDEN-PRIMITIVE", "rule": "Every theorem-critical symbol/operator in a claim labeled native/intrinsic/base-world must appear in the declared N0 substrate or be eliminated by an explicit definability certificate."},
+    {"id": "NSA-02-DEFINABILITY-PROMOTION", "rule": "A derived object may be promoted toward N0 only after proving construction from N0, independence from arbitrary choices/coordinates, and invariance under the allowed N0 relabelings/automorphisms relevant to the claim. Convenience, symmetry intuition, or uniqueness in one embedding is insufficient."},
+    {"id": "NSA-03-NO-NATURALITY-SHORTCUT", "rule": "Words such as natural, canonical, intrinsic, obvious, nearest, radial, symmetric, isotropic, or physical do not establish native admissibility."},
+    {"id": "NSA-04-CONDITIONAL-MATH-PRESERVED", "rule": "A mathematically correct result using N1/N2/N3 structure is not discarded. Reclassify it as CONDITIONAL_ON_DECLARED_SEMANTICS / READOUT_ONLY / CONTINUUM_ONLY and state the dependency explicitly."},
+    {"id": "NSA-05-EQUIDISTANCE-TYPECHECK", "rule": "Equal-distance, radius, shell, sphere, or ball predicates are ill-typed at N0 unless a metric/equidistance structure is itself explicitly part of N0 or has passed NSA-02. A graph admits a definable shortest-path metric only after shortest-path semantics has been selected; that does not make the metric an N0 primitive."},
+    {"id": "NSA-06-SEED-NOT-CENTER", "rule": "A seed cell/root used to construct or enumerate states is provenance unless a separate semantics promotes it. It must not silently become a global center/radial coordinate."},
+    {"id": "NSA-07-EMBEDDING-SEPARATION", "rule": "Implementation coordinates may be used to compute/check contact relations, but Euclidean length, angle, covariance, normal, area, point-group orientation, or other embedding-dependent quantities are N2 unless the embedding is explicitly declared as additional semantics."},
+    {"id": "NSA-08-OPTIMIZATION-SEPARATION", "rule": "A shape obtained by minimizing/maximizing a native quantity is exact conditional mathematics of that optimization semantics, not automatically the native shape of the world."},
+    {"id": "NSA-09-INFINITY-DOES-NOT-ERASE-TYPING", "rule": "Finite/infinite status is orthogonal to native/derived status. An infinite discrete completion built after a metricization/readout remains conditional on that metricization/readout."},
+    {"id": "NSA-10-PRIOR-ART-DOES-NOT-GRANT-ONTOLOGY", "rule": "A standard/classical definition or prior-art theorem may be used conditionally but does not become part of the Enterprise Math base merely because it is conventional mathematics."},
+    {"id": "NSA-11-FUTURE-LANGUAGE-TYPING", "rule": "For collapse/precision claims, declare the future language and carrier separately from the base ontology. A representation can be exact for a future language without being a native state descriptor."},
+    {"id": "NSA-12-TASK-RELATIVE-BASE-PRECEDENCE", "rule": "N1/N2/N3 hazard categories classify structures introduced after the base declaration. A task may explicitly declare metric, embedding, stochastic, optimization, or continuum primitives in N0; the gate must then type them N0 for that task rather than blanket-forbid the vocabulary."},
+    {"id": "NSA-13-SEMANTIC-STRENGTH-MATCH", "rule": "A definability/invariance certificate must prove the same semantic strength being promoted. Scalar or quotient invariance cannot promote an unproved relation, full object, or primitive."},
+    {"id": "NSA-14-TRANSITIVE-DEPENDENCY-CLOSURE", "rule": "Every theorem-critical symbol must be covered by the declared N0 base or a typed transitive dependency DAG. Omitted or dangling dependencies yield UNRESOLVED, never NATIVE_ADMISSIBLE."},
+    {"id": "NSA-15-DECLARED-VS-N0-DEFINABLE", "rule": "Distinguish DECLARED_N0_PRIMITIVE from N0_DEFINABLE_DERIVED. A successful promotion certificate establishes intrinsic definability and choice-independence; it does not silently rewrite the task base declaration itself."}
   ],
   "required_claim_ledger": {
     "applies_when": ["claim uses native/intrinsic/base-world/foundation ontology language", "task compares Enterprise Math base to imported classical structure", "task introduces a new geometry/metric/propagation/readout primitive"],
@@ -82,41 +55,29 @@
       "n1_operations_used",
       "n2_readouts_used",
       "n3_continuum_objects_used",
+      "critical_symbols",
+      "typed_dependency_graph",
+      "promotion_target_strength",
+      "certificate_semantic_strength",
+      "transitive_dependency_closure_checked",
+      "native_basis_status",
       "definability_or_invariance_certificate",
       "future_language_if_any",
       "admissibility_verdict",
       "weakest_valid_restatement"
     ],
-    "verdicts": [
-      "NATIVE_ADMISSIBLE",
-      "CONDITIONAL_DERIVED",
-      "READOUT_ONLY",
-      "CONTINUUM_ONLY",
-      "SEMANTIC_MISMATCH",
-      "UNRESOLVED"
-    ]
+    "verdicts": ["NATIVE_ADMISSIBLE", "CONDITIONAL_DERIVED", "READOUT_ONLY", "CONTINUUM_ONLY", "SEMANTIC_MISMATCH", "UNRESOLVED"]
+  },
+  "native_promotion_certificate": {
+    "required": ["exact declared N0 base", "complete typed transitive dependency closure", "construction from N0 only unless added structure is explicitly declared N0", "independence from arbitrary non-N0 choices", "invariance or canonical equivariance under relevant N0 relabelings/automorphisms", "uniqueness/reconstruction at the same semantic strength as the promotion target", "evidence references"],
+    "failure_mode": "UNRESOLVED_OR_SEMANTIC_MISMATCH"
   },
   "mandatory_regressions": [
-    {
-      "case": "R033 graph-distance sphere",
-      "expected_typing": "shortest-path/word-metric N1 followed by shell/ball N2; formulas may remain exact conditional mathematics but are not propagation-independent N0 ontology"
-    },
-    {
-      "case": "R034 random walk/diffusion",
-      "expected_typing": "propagation kernel N1; physical-coordinate covariance/Bloch/moment readouts N2 unless additional embedding semantics is declared"
-    },
-    {
-      "case": "R038 rooted graph zeta",
-      "expected_typing": "root + graph distance N1, radial scalarization and zeta aggregate N2; cannot kill a stronger metric-free N0 hypothesis"
-    },
-    {
-      "case": "R039 rough surface",
-      "expected_typing": "contact cut relative to an occupied cluster is N0-relational; scalar S, local-type quotient, isoperimetric optimization and asymptotic Wulff/zonotope are later strata"
-    },
-    {
-      "case": "R041 horizon layers",
-      "expected_typing": "operation-horizon layers and B_h/M_h are N1/future-language carriers, not N0 ontology even when exact"
-    }
+    {"case": "R033 graph-distance sphere", "expected_typing": "shortest-path/word-metric N1 followed by shell/ball N2; formulas may remain exact conditional mathematics but are not propagation-independent N0 ontology"},
+    {"case": "R034 random walk/diffusion", "expected_typing": "propagation kernel N1; physical-coordinate covariance/Bloch/moment readouts N2 unless additional embedding semantics is declared"},
+    {"case": "R038 rooted graph zeta", "expected_typing": "root + graph distance N1, radial scalarization and zeta aggregate N2; cannot kill a stronger metric-free N0 hypothesis"},
+    {"case": "R039 rough surface", "expected_typing": "contact cut relative to an occupied cluster is N0-relational; scalar S, local-type quotient, isoperimetric optimization and asymptotic Wulff/zonotope are later strata"},
+    {"case": "R041 horizon layers", "expected_typing": "operation-horizon layers and B_h/M_h are N1/future-language carriers, not N0 ontology even when exact"}
   ],
   "retroactive_policy": {
     "old_claims_are_not_auto_invalidated": true,
