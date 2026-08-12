@@ -99,7 +99,7 @@ theorem prime_cross_not_mem_exact_of_private_square_prime_cofactor
     (hq : q.Prime)
     (hqp : q < p)
     (hBirth : N + 1 = p ^ 3)
-    (hpSqMem : p ^ 2 ∈ S)
+    (_hpSqMem : p ^ 2 ∈ S)
     (hNoReach : ¬RootQuotientProductReachableWithin 2
       (RootQuotientPrimeBasis N ∪ (S \ {p ^ 2})) t)
     (hFactor : p ^ 2 * q = t) :
@@ -135,6 +135,53 @@ theorem prime_cross_not_mem_exact_of_private_square_prime_cofactor
     simp [rootQuotientWordProduct, hFactor,
       pow_two, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
 
+/-- **Horizon-two exact-preinvestment dichotomy.**
+
+At a cubic prime birth, a preinvested future square `p^2` has a private
+cofactor `b<p`.  Since that cofactor is already a literal after deleting
+`p^2`, exactly one of two structural branches occurs:
+
+* `b` is a bounded prime, in which case the exact optimum omits the star edge
+  `p*b`;
+* `b` is itself an older composite macro in the same exact optimum, strictly
+  below the future prime `p`.
+
+Thus future-axis preinvestment is certified either by an explicit star-edge
+exchange or by a dependency on a strictly lower-valued composite macro. -/
+theorem horizonTwo_exactPreinvestment_starEdge_or_lowerCompositeMacro
+    {r N p : ℕ}
+    (hr : 2 ≤ r)
+    (hp : p.Prime)
+    (hBirth : N + 1 = p ^ 3)
+    (hPre : RootQuotientExactPrimeDirectionPreinvestment r N 2 p) :
+    ∃ S : Set ℕ, ∃ t b : ℕ,
+      RootQuotientCompositeMacroPresentation r N 2 S ∧
+      S.ncard = rootQuotientMinimumCompositeMacroCount r N 2 ∧
+      p ^ 2 ∈ S ∧
+      t ∈ RootQuotientPrimeHardSemanticTargetFinset r N 2 ∧
+      2 ≤ b ∧ b < p ∧ p ^ 2 * b = t ∧
+      ((b.Prime ∧ p * b ∉ S) ∨
+        (b ∈ S \ {p ^ 2} ∧ ¬b.Prime)) := by
+  obtain ⟨S, t, b, hS, hSCard, hpSq, htHard, htNoReach,
+      hbTwo, hbLt, hbLiteral, hFactor⟩ :=
+    exactPrimeDirectionPreinvestment_horizonTwo_has_private_literal_cofactor
+      hr hp hBirth hPre
+  by_cases hbPrimeBasis : b ∈ RootQuotientPrimeBasis N
+  · have hbPrime : b.Prime := hbPrimeBasis.1
+    have hCrossNot : p * b ∉ S :=
+      prime_cross_not_mem_exact_of_private_square_prime_cofactor
+        hp hbPrime hbLt hBirth hpSq htNoReach hFactor
+    exact ⟨S, t, b, hS, hSCard, hpSq, htHard,
+      hbTwo, hbLt, hFactor, Or.inl ⟨hbPrime, hCrossNot⟩⟩
+  · have hbRest : b ∈ S \ {p ^ 2} :=
+      hbLiteral.resolve_left hbPrimeBasis
+    have hbNotPrime : ¬b.Prime := by
+      intro hbPrime
+      have hbN : b ≤ N := (hS.2.1 hbRest.1).1.2.1
+      exact hbPrimeBasis ⟨hbPrime, hbN⟩
+    exact ⟨S, t, b, hS, hSCard, hpSq, htHard,
+      hbTwo, hbLt, hFactor, Or.inr ⟨hbRest, hbNotPrime⟩⟩
+
 /-- **Horizon-two dual-catchup prime-branch conflict.**
 
 At a cubic prime birth, if cover has not preinvested in `p^2` but exact storage
@@ -157,8 +204,8 @@ theorem horizonTwo_exactOnlyPreinvestment_primeBranch_starConflict
     (hCCard : C.ncard = rootQuotientRepairSemiprimeCoverNumber
       r N (RootQuotientPrimeHardSemanticTargetFinset r N 2))
     (hNoCoverPre : ¬RootQuotientCoverPrimeDirectionPreinvestment r N 2 p)
-    (hS : RootQuotientCompositeMacroPresentation r N 2 S)
-    (hSCard : S.ncard = rootQuotientMinimumCompositeMacroCount r N 2)
+    (_hS : RootQuotientCompositeMacroPresentation r N 2 S)
+    (_hSCard : S.ncard = rootQuotientMinimumCompositeMacroCount r N 2)
     (hpSqS : p ^ 2 ∈ S)
     (t : ℕ)
     (hPrivate : ¬RootQuotientProductReachableWithin 2
