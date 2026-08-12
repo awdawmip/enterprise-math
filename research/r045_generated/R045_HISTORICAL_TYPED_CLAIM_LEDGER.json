@@ -1,0 +1,379 @@
+{
+  "schema": "ENTERPRISE_MATH_R045_HISTORICAL_TYPED_CLAIM_LEDGER_V1",
+  "status": "HISTORICAL_LEDGER_FROZEN / NOT_CANONICAL",
+  "researcher_id": "EM-R045-812A",
+  "task_id": "RS-R045-HISTORICAL-NATIVE-SEMANTICS-RETYPE-R038-N0-REPAIR",
+  "task_source_commit": "d164ffea25203ff61d6901cf91be5583c93bcb9e",
+  "active_gate": "ENTERPRISE_MATH_NATIVE_SEMANTICS_ADMISSIBILITY_V2@a70c56e5c43772903a74d258ab237825c6045a8c",
+  "strength_order": ["SCALAR", "QUOTIENT", "RELATION", "OBJECT", "PRIMITIVE"],
+  "base_codebook": {
+    "GEOM_N0": "cell carrier V + declared contact/incidence + declared FCC/HCP/Barlow stacking relation when relevant; root/metric/embedding readout not implicit",
+    "AUDIT_N0": "same declared R033/R034 N0 substrate; R037 adds evidence only and no ontology primitive",
+    "SURFACE_N0": "cell carrier V + declared contact/incidence + occupancy/finite-cluster membership; unweighted contact-cut/frontier incidence may be N0-definable"
+  },
+  "certificate_codebook": {
+    "DECLARED": "the theorem-critical primitive is explicitly declared in N0; I0 implementation carrier is erased from the ontology claim",
+    "N0_RELATION": "construction uses declared contact+occupancy relations only and is promoted only at RELATION strength",
+    "NON_NATIVE": "no N0 promotion claimed; mathematics is retained only at its typed N1/N2/N3 stratum",
+    "NONE_C05": "historical C05 N0 inference had no valid same-strength certificate; R045 repair withdraws the cross-stratum kill",
+    "NONE_C06": "historical C06 N0 uniqueness/nonexistence inference lacked a typed N0 candidate/role class; R045 leaves it ill-typed/open"
+  },
+  "restatement_codebook": {
+    "W_NATIVE": "keep only at declared/N0-definable relational strength; implementation carriers do not enlarge ontology",
+    "W_COND": "preserve exact result conditionally under the listed added semantics; no metric-free N0 consequence",
+    "W_READOUT": "preserve exact result as N2 readout under the listed dependencies; no N0 ontology consequence",
+    "W_CONT": "preserve exact result under the listed N1/N2/N3 semantics; no bare-N0 consequence",
+    "W_RETRACT": "retract native/base-world interpretation only; preserve correctly typed conditional mathematics",
+    "W_EVIDENCE": "replication remains evidence for conditional mathematics; ontology admissibility requires a separate Gate-V2 certificate",
+    "W_C05": "keep rooted graph-zeta as N1/N2 theorem; withdraw metric-free N0 kill; bare N0 scalar question is ill-typed pending observable language",
+    "W_C06": "keep N2/N3 pi_eff-family nonuniqueness; bare N0 native-pi candidate/role is ill-typed so existence/uniqueness/nonexistence remain open after exact scope",
+    "W_R043": "G0/B3/B4/successor-G0 statements remain N1/N2 future-carrier claims; R043 is separate and not recomputed in R045"
+  },
+  "evidence_codebook": {
+    "R044": "research/r044_generated/R044_CLAIM_IMPACT_MATRIX.json@0af3c999874e0768a88f34f66c5c618900a036e4",
+    "R033": "R033 frozen owner head c2aa1758c6cf8f194d8b4493b90c903a2dfcd048",
+    "R034": "R034 frozen owner head 674fb8717d753cd36fd83b061c869d79e8875b31",
+    "R037": "research/r037_generated/R037_EVIDENCE_MATRIX.json@744fcf737d1037cc1c1a3ba810ce79817fd4f464",
+    "R038": "research/r038_generated/*@d45cb42de4e259439ce1b56c7fa00debabbeb129",
+    "R039": "research_artifacts/R039_native_rough_surface/*@c484fb85385b8498982aaa939171957588c836d7",
+    "R041": "research_artifacts/R041_native_surface_horizon/*@688661e76255b3e86df6d5c69695f2932b650740",
+    "R043": "R043 taskbook/source@41afbdf37f70b1fc484f7a49bc68880826ead31d"
+  },
+  "scope": {
+    "historical_claim_count": 44,
+    "no_recompute_claim_count": 42,
+    "theorem_level_repair_targets": ["R038-C05", "R038-C06"],
+    "third_repair_target": "NONE_FOUND"
+  },
+  "summary": {
+    "KEEP_NATIVE": 3,
+    "KEEP_BUT_RETYPE_CONDITIONAL": 20,
+    "KEEP_AS_READOUT_ONLY": 16,
+    "RETRACT_NATIVE_INTERPRETATION": 3,
+    "RECOMPUTE_UNDER_N0": 1,
+    "UNRESOLVED_NEEDS_NEW_TASK": 1
+  },
+  "claims": [
+    {
+      "claim_id":"R033-C01","native_basis_status":"DECLARED_N0_PRIMITIVE","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":["integer/lattice coordinates only to realize/check contact"],"introduced_choices":[],"n1_operations_used":[],"n2_readouts_used":[],"n3_continuum_objects_used":[],
+      "critical_symbols":["contact/incidence","I0 coordinate realization"],"typed_dependency_graph":["N0:contact/incidence","I0:coordinates"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"PRIMITIVE","certificate_semantic_strength":"PRIMITIVE","definability_or_invariance_certificate":"DECLARED","future_language_if_any":null,
+      "admissibility_verdict":"NATIVE_ADMISSIBLE","weakest_valid_restatement":"W_NATIVE","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R033"]
+    },
+    {
+      "claim_id":"R033-C02","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["root/seed"],"n1_operations_used":["chosen root/seed-as-center"],"n2_readouts_used":[],"n3_continuum_objects_used":[],
+      "critical_symbols":["root","geometric-center interpretation"],"typed_dependency_graph":["N1:root/seed choice","INVALID:N0 center promotion"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"SEMANTIC_MISMATCH","weakest_valid_restatement":"W_RETRACT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R033"]
+    },
+    {
+      "claim_id":"R033-C03","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["shortest-path semantics"],"n1_operations_used":["shortest-path/word metricization"],"n2_readouts_used":[],"n3_continuum_objects_used":[],
+      "critical_symbols":["shortest-path relation","word metric"],"typed_dependency_graph":["N0:contact -> N1:shortest-path/word metric"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"RELATION","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R033"]
+    },
+    {
+      "claim_id":"R033-C04","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["root","shortest-path semantics"],"n1_operations_used":["rooted shortest-path metric"],"n2_readouts_used":["equal-distance shell/ball scalarization"],"n3_continuum_objects_used":[],
+      "critical_symbols":["root","distance","shell","ball","A_r","V_r"],"typed_dependency_graph":["N0:contact -> N1:rooted metric -> N2:shell/ball counts"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R033"]
+    },
+    {
+      "claim_id":"R033-C05","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["graph metricization"],"n1_operations_used":["shortest-path metric"],"n2_readouts_used":["stable norm","limit shape","convex-geometric readout"],"n3_continuum_objects_used":[],
+      "critical_symbols":["metric","stable norm","FCC cuboctahedron","HCP 18-vertex limit shape"],"typed_dependency_graph":["N0:contact -> N1:metric -> N2:asymptotic norm/shape"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R033"]
+    },
+    {
+      "claim_id":"R033-C06","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":["embedding coordinates"],"introduced_choices":[],"n1_operations_used":[],"n2_readouts_used":["Voronoi/exposed-face geometry","f-vector/topology atlas"],"n3_continuum_objects_used":[],
+      "critical_symbols":["embedding coordinates","Voronoi faces","exposed geometry"],"typed_dependency_graph":["I0:coordinates realize contact","N2:Voronoi/exposed geometry"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R033"]
+    },
+    {
+      "claim_id":"R033-C07","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["graph-radius semantics"],"n1_operations_used":["rooted graph radius"],"n2_readouts_used":["shell/bulk scalar ratio K"],"n3_continuum_objects_used":[],
+      "critical_symbols":["radius","A","V","K=A^3/V^2"],"typed_dependency_graph":["N1:radius -> N2:A/V/K"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R033"]
+    },
+    {
+      "claim_id":"R033-C08","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["root","shortest-path metric"],"n1_operations_used":["rooted metric"],"n2_readouts_used":["radial/equidistance partition"],"n3_continuum_objects_used":[],
+      "critical_symbols":["intrinsic sphere","root","distance","radial partition"],"typed_dependency_graph":["N1:root+metric -> N2:radial partition -> INVALID:N0 sphere ontology"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"SEMANTIC_MISMATCH","weakest_valid_restatement":"W_RETRACT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R033"]
+    },
+
+    {
+      "claim_id":"R034-C01","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["uniform NN propagation rule"],"n1_operations_used":["random-walk/stochastic kernel"],"n2_readouts_used":[],"n3_continuum_objects_used":[],
+      "critical_symbols":["uniform transition kernel"],"typed_dependency_graph":["N0:contact -> N1:stochastic propagation"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"declared propagation language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R034"]
+    },
+    {
+      "claim_id":"R034-C02","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["uniform NN propagation","physical coordinate readout"],"n1_operations_used":["NN kernel"],"n2_readouts_used":["drift/covariance in physical coordinates"],"n3_continuum_objects_used":[],
+      "critical_symbols":["kernel","coordinate increment","covariance I/3"],"typed_dependency_graph":["N1:kernel -> N2:coordinate covariance"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"declared propagation language",
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R034"]
+    },
+    {
+      "claim_id":"R034-C03","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["uniform NN propagation"],"n1_operations_used":["NN kernel/time iteration"],"n2_readouts_used":["second/fourth/sixth moments","radial moment hierarchy"],"n3_continuum_objects_used":[],
+      "critical_symbols":["time","moment tensors","radial moments"],"typed_dependency_graph":["N1:propagation -> N2:moments"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"declared propagation language",
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R034"]
+    },
+    {
+      "claim_id":"R034-C04","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["uniform NN propagation"],"n1_operations_used":["finite-time propagation"],"n2_readouts_used":["support/path-count aggregate where scalarized"],"n3_continuum_objects_used":[],
+      "critical_symbols":["n-step support","path counts"],"typed_dependency_graph":["N1:propagation -> N2:support/count readout"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"declared propagation language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R034"]
+    },
+    {
+      "claim_id":"R034-C05","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["propagation","Fourier/Bloch transform"],"n1_operations_used":["propagation"],"n2_readouts_used":["Fourier/Bloch symbol","low-frequency/quartic spectral expansion"],"n3_continuum_objects_used":[],
+      "critical_symbols":["wavevector","Bloch/Fourier symbol","quartic correction"],"typed_dependency_graph":["N1:propagation -> N2:Fourier/Bloch readout"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"declared propagation language",
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R034"]
+    },
+    {
+      "claim_id":"R034-C06","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["propagation","diffusive scaling"],"n1_operations_used":["propagation/time scaling"],"n2_readouts_used":["covariance"],"n3_continuum_objects_used":["Brownian/Gaussian continuum limit"],
+      "critical_symbols":["diffusive rescaling","Brownian limit","covariance"],"typed_dependency_graph":["N1:propagation -> N2:covariance -> N3:Brownian limit"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"declared propagation/scaling language",
+      "admissibility_verdict":"CONTINUUM_ONLY","weakest_valid_restatement":"W_CONT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R034"]
+    },
+    {
+      "claim_id":"R034-C07","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence","stacking relation"],"implementation_carriers_used":[],"introduced_choices":["root","propagation"],"n1_operations_used":["rooted propagation"],"n2_readouts_used":["return probability/local spectral measure"],"n3_continuum_objects_used":[],
+      "critical_symbols":["root","return","local DOS/spectral measure"],"typed_dependency_graph":["N1:rooted propagation -> N2:return/spectral readout"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"declared propagation language",
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R034"]
+    },
+    {
+      "claim_id":"R034-C08","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["propagation semantics"],"n1_operations_used":["propagation"],"n2_readouts_used":["quadratic/radial isotropy readout"],"n3_continuum_objects_used":[],
+      "critical_symbols":["propagation-relative sphere principle","quadratic form"],"typed_dependency_graph":["N1:propagation -> N2:quadratic/radial readout"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"declared propagation language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R034"]
+    },
+
+    {
+      "claim_id":"R037-C01","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"AUDIT_N0",
+      "n0_primitives_used":["inherited R033/R034 bases"],"implementation_carriers_used":[],"introduced_choices":["inherits R033 metricization"],"n1_operations_used":["inherited metric semantics"],"n2_readouts_used":["inherited growth/readout observables"],"n3_continuum_objects_used":[],
+      "critical_symbols":["independent distance/growth reproduction"],"typed_dependency_graph":["inherits typed R033 N1/N2 DAG"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_EVIDENCE","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R037"]
+    },
+    {
+      "claim_id":"R037-C02","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"AUDIT_N0",
+      "n0_primitives_used":["inherited contact relation"],"implementation_carriers_used":["exact-rational embedding carrier for topology check"],"introduced_choices":["radius semantics"],"n1_operations_used":["rooted radius"],"n2_readouts_used":["Voronoi/exposed topology"],"n3_continuum_objects_used":[],
+      "critical_symbols":["r=0..20 topology","Voronoi readout"],"typed_dependency_graph":["N1:radius + I0:coordinates -> N2:topology readout"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_EVIDENCE","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R037"]
+    },
+    {
+      "claim_id":"R037-C03","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"AUDIT_N0",
+      "n0_primitives_used":["contact/stacking relation"],"implementation_carriers_used":[],"introduced_choices":["root","propagation","basal Fourier gauge"],"n1_operations_used":["rooted propagation"],"n2_readouts_used":["Fourier/spectral observable"],"n3_continuum_objects_used":[],
+      "critical_symbols":["root return","local spectrum","basal Fourier gauge"],"typed_dependency_graph":["N1:rooted propagation -> N2:Fourier/spectral readout"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_EVIDENCE","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R037"]
+    },
+    {
+      "claim_id":"R037-C04","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"AUDIT_N0",
+      "n0_primitives_used":["inherited typed bases"],"implementation_carriers_used":[],"introduced_choices":[],"n1_operations_used":[],"n2_readouts_used":[],"n3_continuum_objects_used":[],
+      "critical_symbols":["numeric/formula replication grade","semantic typing grade","ontology admissibility conclusion"],"typed_dependency_graph":["EVIDENCE:replication","MISSING_ORIGINAL:semantic typing","NOT_IMPLIED:ontology admissibility"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"PRIMITIVE","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"UNRESOLVED","weakest_valid_restatement":"W_EVIDENCE","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R037","R045_R037_SEMANTIC_EVIDENCE_DELTA"]
+    },
+
+    {
+      "claim_id":"R038-C01","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["locally finite cell/contact structure"],"implementation_carriers_used":["embedding only where comparison is performed"],"introduced_choices":["imported continuous symmetry comparison"],"n1_operations_used":[],"n2_readouts_used":["symmetry/orbit comparison"],"n3_continuum_objects_used":["SO(2)/SO(3) continuous group"],
+      "critical_symbols":["finite object","continuous rotation group"],"typed_dependency_graph":["N0:finite contact object -> N2/N3:continuous-symmetry comparison"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R038"]
+    },
+    {
+      "claim_id":"R038-C02","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["root","graph metric/radius"],"n1_operations_used":["rooted shortest-path radius"],"n2_readouts_used":["pi_A/pi_V graph-radius calibration"],"n3_continuum_objects_used":[],
+      "critical_symbols":["graph radius","5/2","21/8"],"typed_dependency_graph":["N1:root+metric/radius -> N2:pi_eff scalar"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R038"]
+    },
+    {
+      "claim_id":"R038-C03","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["choice of readout/calibration family"],"n1_operations_used":[],"n2_readouts_used":["broken-bond","volume/hull","inradius","RMS","scalar calibration"],"n3_continuum_objects_used":["equal-volume Euclidean calibration where used"],
+      "critical_symbols":["multiple pi_eff channels"],"typed_dependency_graph":["N2/N3:declared readout family"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R038"]
+    },
+    {
+      "claim_id":"R038-C04","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact/incidence"],"implementation_carriers_used":[],"introduced_choices":["root","shortest-path metric"],"n1_operations_used":["rooted graph distance"],"n2_readouts_used":["radial shell count","graph-zeta aggregate"],"n3_continuum_objects_used":[],
+      "critical_symbols":["root","distance","A_r","Z_G(s;o)"],"typed_dependency_graph":["N0:contact -> N1:root+distance -> N2:shell/zeta"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R038"]
+    },
+    {
+      "claim_id":"R038-C05","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["cell carrier","declared contact/incidence","declared stacking relation when relevant"],"implementation_carriers_used":[],"introduced_choices":["historical root"],"n1_operations_used":["historical root","historical shortest-path metricization"],"n2_readouts_used":["historical radial shell/zeta aggregate"],"n3_continuum_objects_used":[],
+      "critical_symbols":["root","shortest-path distance","radial shell cardinality","graph-zeta aggregate","metric-free N0 promotion target"],"typed_dependency_graph":["N0:contact","N1:root<-N0","N1:shortest_path<-N0+root","N2:shell<-shortest_path","N2:zeta<-shell+shortest_path","INVALID:N0_kill<-zeta"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NONE_C05","future_language_if_any":null,
+      "admissibility_verdict":"SEMANTIC_MISMATCH","weakest_valid_restatement":"W_C05","recompute_status":"THEOREM_LEVEL_REPAIR_COMPLETED__ILL_TYPED_WITHOUT_ADDITIONAL_OBSERVABLE_LANGUAGE","evidence_ref":["R044","R038","R045_R038_C05_N0_REPAIR"]
+    },
+    {
+      "claim_id":"R038-C06","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["cell carrier","declared contact/incidence","declared stacking relation when relevant"],"implementation_carriers_used":[],"introduced_choices":["historical choice of pi_eff/readout family"],"n1_operations_used":[],"n2_readouts_used":["graph-radius/broken-bond/inradius/RMS/scalar channels"],"n3_continuum_objects_used":["Euclidean hull/volume/equal-volume/Gaussian calibration where used"],
+      "critical_symbols":["candidate scalar/object codomain","N0-definable construction","pi-role predicate","historical N2/N3 readout family"],"typed_dependency_graph":["N2/N3:historical readout family","MISSING_N0:candidate codomain","MISSING_N0:candidate construction","MISSING_N0:pi role","UNRESOLVED:N0 uniqueness/nonexistence"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NONE_C06","future_language_if_any":null,
+      "admissibility_verdict":"UNRESOLVED","weakest_valid_restatement":"W_C06","recompute_status":"THEOREM_LEVEL_REPAIR_COMPLETED__NATIVE_PI_NOT_WELL_TYPED_AT_N0","evidence_ref":["R044","R038","R045_R038_C06_NATIVE_PI_DISPOSITION"]
+    },
+    {
+      "claim_id":"R038-C07","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact structure"],"implementation_carriers_used":[],"introduced_choices":["continuum/density representation"],"n1_operations_used":["diffusive propagation/scaling where used"],"n2_readouts_used":["covariance/characteristic/Fourier readout"],"n3_continuum_objects_used":["Gaussian/Lebesgue normalization"],
+      "critical_symbols":["Gaussian density","Fourier normalization","pi-entry"],"typed_dependency_graph":["N1:propagation -> N2:covariance/Fourier -> N3:Gaussian/Lebesgue"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"CONTINUUM_ONLY","weakest_valid_restatement":"W_CONT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R038"]
+    },
+    {
+      "claim_id":"R038-C08","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["discrete square-lattice graph enumeration in example"],"implementation_carriers_used":[],"introduced_choices":["thermodynamic/infinite-volume aggregate"],"n1_operations_used":[],"n2_readouts_used":["spanning-tree entropy aggregate"],"n3_continuum_objects_used":["classical analytic evaluation representation"],
+      "critical_symbols":["spanning-tree constant","4G/pi"],"typed_dependency_graph":["N2:infinite aggregate -> N3/classical analytic evaluation where used"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R038"]
+    },
+    {
+      "claim_id":"R038-C09","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"GEOM_N0",
+      "n0_primitives_used":["contact structure"],"implementation_carriers_used":[],"introduced_choices":["ballistic/diffusive observable language"],"n1_operations_used":["propagation/metric semantics"],"n2_readouts_used":["asymptotic ballistic/quadratic/quartic readouts"],"n3_continuum_objects_used":[],
+      "critical_symbols":["observable-relative equivalence hierarchy"],"typed_dependency_graph":["N1:chosen dynamics/metric -> N2:readout vectors -> QUOTIENT:equivalence"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"QUOTIENT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"ballistic/diffusive readout family",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R038"]
+    },
+
+    {
+      "claim_id":"R039-C01","native_basis_status":"N0_DEFINABLE_DERIVED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact","occupancy/cluster membership"],"implementation_carriers_used":[],"introduced_choices":[],"n1_operations_used":[],"n2_readouts_used":[],"n3_continuum_objects_used":[],
+      "critical_symbols":["delta(C) contact cut"],"typed_dependency_graph":["N0:contact+occupancy -> N0-definable:delta(C)"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"RELATION","certificate_semantic_strength":"RELATION","definability_or_invariance_certificate":"N0_RELATION","future_language_if_any":null,
+      "admissibility_verdict":"NATIVE_ADMISSIBLE","weakest_valid_restatement":"W_NATIVE","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R039"]
+    },
+    {
+      "claim_id":"R039-C02","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact cut"],"implementation_carriers_used":[],"introduced_choices":[],"n1_operations_used":[],"n2_readouts_used":["cardinality S=|delta|","scalar update"],"n3_continuum_objects_used":[],
+      "critical_symbols":["S(C)","Delta S"],"typed_dependency_graph":["N0:delta(C) -> N2:cardinality scalar"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R039"]
+    },
+    {
+      "claim_id":"R039-C03","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact+occupancy"],"implementation_carriers_used":[],"introduced_choices":["summary quotient"],"n1_operations_used":[],"n2_readouts_used":["local mask/type bags","H","R2/R2bar"],"n3_continuum_objects_used":[],
+      "critical_symbols":["mask orbit","histogram","R2 summary"],"typed_dependency_graph":["N0:incidence -> N2:quotient/histogram summaries"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"QUOTIENT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":null,
+      "admissibility_verdict":"READOUT_ONLY","weakest_valid_restatement":"W_READOUT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R039"]
+    },
+    {
+      "claim_id":"R039-C04","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact+occupancy"],"implementation_carriers_used":[],"introduced_choices":["addition/future language"],"n1_operations_used":["declared additions/fixed horizon"],"n2_readouts_used":["S/H/local-type/R2 candidate summaries"],"n3_continuum_objects_used":[],
+      "critical_symbols":["future collision","candidate summaries"],"typed_dependency_graph":["N1:addition future + N2:summary -> conditional counterexample"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"QUOTIENT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"finite addition/fixed-horizon language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R039"]
+    },
+    {
+      "claim_id":"R039-C05","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact+occupancy"],"implementation_carriers_used":[],"introduced_choices":["operation horizon/future language"],"n1_operations_used":["fixed-h addition trajectories"],"n2_readouts_used":["J_h/exterior-incidence carrier components"],"n3_continuum_objects_used":[],
+      "critical_symbols":["J_h","fixed-h future"],"typed_dependency_graph":["N0:incidence -> N1:horizon language -> N2/OBJECT:J_h carrier"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"finite addition/fixed-horizon language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R039"]
+    },
+    {
+      "claim_id":"R039-C06","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact+occupancy"],"implementation_carriers_used":[],"introduced_choices":["SURFACE_DOWN greedy rule"],"n1_operations_used":["optimization/greedy action"],"n2_readouts_used":["surface scalar S objective"],"n3_continuum_objects_used":[],
+      "critical_symbols":["SURFACE_DOWN","S"],"typed_dependency_graph":["N1:greedy optimization + N2:S -> trap witness"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"greedy addition language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R039"]
+    },
+    {
+      "claim_id":"R039-C07","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact+occupancy"],"implementation_carriers_used":[],"introduced_choices":["fixed-volume minimization"],"n1_operations_used":["isoperimetric optimization"],"n2_readouts_used":["convex/Wulff/zonotope asymptotic shape"],"n3_continuum_objects_used":["continuum asymptotic description where invoked"],
+      "critical_symbols":["S_min","Wulff/zonotope"],"typed_dependency_graph":["N1:minimization -> N2/N3:asymptotic shape readout"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"fixed-volume optimization language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R039"]
+    },
+    {
+      "claim_id":"R039-C08","native_basis_status":"N0_DEFINABLE_DERIVED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact","occupancy/cluster membership"],"implementation_carriers_used":[],"introduced_choices":[],"n1_operations_used":[],"n2_readouts_used":[],"n3_continuum_objects_used":[],
+      "critical_symbols":["interface-level incidence memory"],"typed_dependency_graph":["N0:contact+occupancy -> N0-definable interface incidence relation"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"RELATION","certificate_semantic_strength":"RELATION","definability_or_invariance_certificate":"N0_RELATION","future_language_if_any":null,
+      "admissibility_verdict":"NATIVE_ADMISSIBLE","weakest_valid_restatement":"W_NATIVE","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R039"]
+    },
+    {
+      "claim_id":"R039-C09","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact+occupancy"],"implementation_carriers_used":[],"introduced_choices":["fixed-volume optimization"],"n1_operations_used":["minimization semantics"],"n2_readouts_used":["surface scalar S_min"],"n3_continuum_objects_used":[],
+      "critical_symbols":["S_min","FCC/HCP minimizer comparison"],"typed_dependency_graph":["N1:optimization + N2:S_min"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"SCALAR","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"fixed-volume optimization language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R039"]
+    },
+
+    {
+      "claim_id":"R041-C01","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact+occupancy"],"implementation_carriers_used":[],"introduced_choices":["addition horizon/future language"],"n1_operations_used":["T_h/CT_h/B_h future semantics"],"n2_readouts_used":["terminal/surface observations"],"n3_continuum_objects_used":[],
+      "critical_symbols":["T_h","CT_h","B_h"],"typed_dependency_graph":["N1:future language -> N2:terminal/surface observation carriers"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"addition-only Boolean terminal/cumulative/branch-aware horizon language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R041"]
+    },
+    {
+      "claim_id":"R041-C02","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact+occupancy"],"implementation_carriers_used":[],"introduced_choices":["addition future"],"n1_operations_used":["B2/B3 future oracle"],"n2_readouts_used":["R2bar summary"],"n3_continuum_objects_used":[],
+      "critical_symbols":["R2bar","B2","B3"],"typed_dependency_graph":["N2:R2bar + N1:addition future -> B2/B3 sufficiency/failure"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"QUOTIENT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"addition-only Boolean horizon language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R041"]
+    },
+    {
+      "claim_id":"R041-C03","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact incidence underneath"],"implementation_carriers_used":[],"introduced_choices":["horizon/update semantics"],"n1_operations_used":["M_h -> M_{h-1} update/future language"],"n2_readouts_used":["S","weights","weighted induced frontier cone"],"n3_continuum_objects_used":[],
+      "critical_symbols":["M_h","B_h","S","weights"],"typed_dependency_graph":["N0:contact -> N1:horizon/update + N2:weights/readout -> OBJECT:M_h"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"addition-only Boolean horizon language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R041"]
+    },
+    {
+      "claim_id":"R041-C04","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact/frontier incidence underneath"],"implementation_carriers_used":[],"introduced_choices":["B3 future oracle"],"n1_operations_used":["declared addition future"],"n2_readouts_used":["weighted frontier graph G0"],"n3_continuum_objects_used":[],
+      "critical_symbols":["G0","B3","bounded collision search"],"typed_dependency_graph":["N2:G0 + N1:B3 future -> bounded diagnostic"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"addition-only Boolean horizon language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_COND","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R041"]
+    },
+    {
+      "claim_id":"R041-C05","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact+occupancy underneath"],"implementation_carriers_used":[],"introduced_choices":["future language"],"n1_operations_used":["operation horizon"],"n2_readouts_used":["behavioral quotient/carrier"],"n3_continuum_objects_used":[],
+      "critical_symbols":["native surface horizon quotient","future quotient"],"typed_dependency_graph":["N1:future language -> N2:quotient -> INVALID:N0 state-ontology promotion"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"QUOTIENT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"addition-only Boolean horizon language",
+      "admissibility_verdict":"SEMANTIC_MISMATCH","weakest_valid_restatement":"W_RETRACT","recompute_status":"NO_RECOMPUTE","evidence_ref":["R044","R041"]
+    },
+
+    {
+      "claim_id":"R043-TB03","native_basis_status":"NO_N0_PROMOTION_CLAIMED","declared_base_carrier":"SURFACE_N0",
+      "n0_primitives_used":["contact","occupancy","unweighted frontier/contact-cut incidence"],"implementation_carriers_used":[],"introduced_choices":["chosen addition/action future language"],"n1_operations_used":["B3/B4/successor-G0 future semantics"],"n2_readouts_used":["weights","S","weighted frontier quotient G0"],"n3_continuum_objects_used":[],
+      "critical_symbols":["G0","B3/B4","successor G0"],"typed_dependency_graph":["N0:frontier incidence + N1:action/future + N2:weights/G0"],"transitive_dependency_closure_checked":true,
+      "promotion_target_strength":"OBJECT","certificate_semantic_strength":"NONE_FOR_N0_PROMOTION","definability_or_invariance_certificate":"NON_NATIVE","future_language_if_any":"R043 addition/action + B3/B4/successor-G0 language",
+      "admissibility_verdict":"CONDITIONAL_DERIVED","weakest_valid_restatement":"W_R043","recompute_status":"NO_RECOMPUTE_R043_SEPARATE","evidence_ref":["R044","R043"]
+    }
+  ],
+  "gate_self_check": {
+    "all_transitive_dependency_closures_checked": true,
+    "native_rows_with_hidden_N1_N2_N3_dependency": 0,
+    "native_rows_with_certificate_weaker_than_promotion_target": 0,
+    "theorem_level_repair_row_count": 2,
+    "unexpected_recompute_row_count": 0
+  }
+}
