@@ -47,6 +47,23 @@ Do **not** wait for a Driver to assign an ID on direct/self-started research or 
 
 New Driver-approved taskbooks declare `identity_policy: AUTO_RESOLVE_OR_ALLOCATE` and may declare `identity_lane`; they never hard-code a fixed runtime Researcher-ID. A Driver-mediated manual relay binds the concrete Researcher-ID in a separate dispatch envelope, not in the reusable taskbook.
 
+## Native-semantics admissibility gate
+
+`native_semantics_admissibility.json` is a mandatory semantic typing rule for Enterprise Math research. Its compact rules below are part of the normal startup context; when a task makes a native/intrinsic/base-world/Foundation-ontology claim, read the machine policy itself before freezing that claim.
+
+Before labeling any result `native`, `intrinsic`, `base-world`, or equivalent:
+
+1. declare the task's actual `N0_NATIVE_RELATIONAL` substrate;
+2. type every theorem-critical coordinate/encoding as `I0_IMPLEMENTATION_CARRIER`, every added process/choice/metric/propagation as `N1_DERIVED_OPERATIONAL_SEMANTICS`, every quotient/scalar/geometric/spectral aggregate as `N2_READOUT_COLLAPSE`, and continuum/classical objects as `N3_CONTINUUM_CLASSICAL`;
+3. do not silently promote root choice, seed-as-center, shortest-path/word metric, graph distance, equal-distance classes, radius, norm, Euclidean length/angle/area/volume, convex hull, curvature, isotropy, random-walk/heat kernel, optimization rule, Fourier/Bloch readout, or continuum formulas into N0;
+4. implementation coordinates may compute/check a native relation but do not make their Euclidean embedding or orientation native;
+5. a derived structure may be promoted toward N0 only with an explicit construction from N0 plus the relevant choice-independence / relabeling / automorphism-invariance certificate; words such as `natural`, `canonical`, `nearest`, `radial`, or `physical` are not such a certificate;
+6. mathematically correct conditional results are preserved: if they use N1/N2/N3, reclassify them as conditional/readout/continuum results and state the dependency instead of discarding the mathematics;
+7. for collapse/precision claims, type the future language separately from the base ontology; an exact future carrier is not thereby a native state descriptor;
+8. semantic mismatch is a research correction, not a `HARD_BLOCK`: retype the claim, weaken it to the strongest admissible statement, and recompute only when the theorem-critical derivation actually depended on the invalid promotion.
+
+Any semantic checkpoint containing affected ontology/native claims must include the claim-ledger fields required by `native_semantics_admissibility.json` or an equivalent machine-readable artifact. A taskbook cannot silently waive this gate; an enlarged base substrate must be explicitly declared as part of the mathematical problem rather than inferred from conventional mathematics.
+
 ## Remote-liveness rule comes first
 
 Read and follow `docs/GITHUB_INTERACTION_BUDGET.md` before expanding repository/Issue/PR preflight. It is the later narrow authority for **when GitHub must be touched**. Older documents remain authoritative for mathematical ownership, status, scheduler semantics, Foundation stewardship, and final gates, but their long preflight lists must not be executed as an unconditional sequence of remote calls.
