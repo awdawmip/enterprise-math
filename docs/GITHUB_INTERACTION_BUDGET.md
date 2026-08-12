@@ -4,6 +4,8 @@ Status: `ACTIVE / CANONICAL REMOTE-LIVENESS OVERRIDE`
 Effective: 2026-08-10  
 Scope: repository reads, GitHub connector/API use, branch/PR publication, Issue coordination, CI invocation, and L4 promotion.
 
+Post-research artifact/checkpoint publication must additionally follow `docs/ARTIFACT_PUBLICATION_LIVENESS.md`. That supplement is mandatory whenever a semantic checkpoint contains generated artifacts or when publication could involve multiple file/blob/tree operations; its stricter liveness and duplicate-writer rules control that slice.
+
 This protocol is the narrow liveness authority for GitHub interaction. Where older preflight, scheduler, Relay, PR, CI, validation, or promotion wording can be read as requiring routine GitHub activity during research, **this later remote-liveness rule controls**.
 
 It does not weaken theorem ownership, owner isolation, result conservation, security, canonical promotion gates, or the four-field mathematical/research `HARD_BLOCK` contract.
@@ -103,6 +105,8 @@ At one checkpoint:
 
 **Do not check CI merely because a checkpoint was published.**
 
+Generated-artifact publication is further bounded by `docs/ARTIFACT_PUBLICATION_LIVENESS.md`: generate once, check once, take one pre-publication owner-head snapshot, and use the simplest bounded contents/git publication path. Do not optimize a completed result into a long per-blob/minify/chunk/tree choreography, and do not build a duplicate checkpoint after an equivalent same-generation owner head has already advanced.
+
 ## 6. PR lifecycle
 
 For L1/L2/L3:
@@ -154,11 +158,12 @@ Defaults for the Enterprise Math source/control repository:
 - explicit-task startup: <= 3 routine reads before substantive work;
 - ordinary L1/L2/L3 research: 0 routine source writes and **0 workflow-status reads**;
 - source checkpoint: 1 batched branch publication + at most 1 Draft PR mutation + at most 1 coordination write;
+- generated-artifact checkpoint: 1 frozen artifact generation + 1 checker pass + 1 pre-publication owner-head snapshot + 1 bounded publication path; no per-artifact blob/tree optimization loop;
 - ordinary L1/L2/L3 unchanged workflow object: **0 snapshots**;
 - allowed CI/debug/validation context: 1 snapshot per unchanged validation object;
 - promotion: one admission refresh, one conflict snapshot, one frozen-head validation cycle, one final merge-time current-main check.
 
-`REMOTE_BUDGET_EXCEEDED` is a performance signal, never a mathematical `HARD_BLOCK`.
+`REMOTE_BUDGET_EXCEEDED` and `PUBLICATION_CRITICAL_PATH_EXPANDED` are performance signals, never mathematical `HARD_BLOCK`s.
 
 ## 12. What remains strict
 
@@ -171,7 +176,7 @@ Only a complete mathematical/research hard block with all four fields may stop a
 - `necessity`;
 - `unblock_condition`.
 
-Pending/running CI, workflow API latency, missing workflow access, scheduler failure, review delay, or moving `main` are never valid research `HARD_BLOCK`s.
+Pending/running CI, workflow API latency, missing workflow access, scheduler failure, review delay, moving `main`, or a publication implementation failure are never valid research `HARD_BLOCK`s.
 
 Intended source lifecycle:
 
@@ -213,5 +218,9 @@ Intended source lifecycle:
 L1/L2/L3 默认保持 Draft PR；不为了触发 CI 切 ready-for-review。完整 CI 属于专门 validation/L4/final governance/main，而不是普通研究服务。
 
 默认预算：显式任务启动 <=3 次常规 GitHub 读取；普通研究阶段 0 常规源写、0 CI 状态读取；source checkpoint 只批量持久化一次，不随后检查 CI；只有允许的 CI/validation 场景才有一次状态快照额度。
+
+Artifact 发布新增硬约束：研究完成后不得再启动第二个长发布工程。必须遵守 `docs/ARTIFACT_PUBLICATION_LIVENESS.md`：**本地一次生成完整 artifacts -> checker 一次 -> 发布前一次 owner-head 去重/竞态检查 -> 一次 bounded checkpoint publication**。不得为了“单一漂亮 commit”逐文件 minify/chunk/create_blob/assemble tree；connector 无法原子提交目录时，优先少量 contents writes 或正常 git push。若同一 generation 已有等价 checkpoint 先行推进，消费/比较已有结果，只补真正缺失 delta，不重复组装未挂接 commit。
+
+机械发布期间仍必须保持用户可见 liveness；长操作遵守平台更新节奏，不能让 UI 看起来像死掉。
 
 GLOBAL_KNOWLEDGE append-only progress journal 仍是独立的防丢失通道，不需要等待 Enterprise Math CI。
