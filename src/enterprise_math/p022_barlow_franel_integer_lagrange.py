@@ -100,7 +100,7 @@ def endpoint_derivative_lagrange_residues(index: int, prime: int) -> tuple[int, 
     ):
         raise ValueError("prime must be a prime strictly larger than index")
     current = triple_moment_factor(index)
-    previous = triple_moment_factor(index - 1) if index > 1 else 2
+    previous = 1 if index == 1 else triple_moment_factor(index - 1)
     if current % prime:
         raise ValueError("prime must divide the Franel endpoint F_n")
     if previous % prime == 0:
