@@ -87,24 +87,26 @@ theorem exactPrimeDirectionPreinvestment_horizonTwo_has_private_literal_cofactor
   exact ⟨S, t, b, hS, hSCard, heMem, htHard, htNoReach,
     hbTwo, hbLt, hbLiteral, hFactor'⟩
 
-/-- **Prime-cofactor branch excludes the corresponding star edge from the exact
-optimum.**
+/-- **A private square-cofactor target forbids its intermediate lift.**
 
-If the private cofactor above is a prime `q`, then the exact optimum cannot also
-store `p*q`.  Otherwise after deleting `p^2`, the private target
-`p^2*q=(p*q)*p` would still be reachable in two steps. -/
-theorem prime_cross_not_mem_exact_of_private_square_prime_cofactor
-    {N p q t : ℕ} {S : Set ℕ}
+If `p^2*b` is private to the stored square `p^2`, with `b<p`, then the same
+exact dictionary cannot also store `p*b`; otherwise `(p*b)*p` would still
+compile the target after deleting `p^2`.
+
+This is the factor-lattice `L`-shape forced by horizon-two axis preinvestment:
+`p^2` and the lower cofactor are present, while the intermediate lift `p*b` is
+absent. -/
+theorem prime_cofactor_lift_not_mem_exact_of_private_square
+    {N p b t : ℕ} {S : Set ℕ}
     (hp : p.Prime)
-    (hq : q.Prime)
-    (hqp : q < p)
+    (hbTwo : 2 ≤ b)
+    (hbp : b < p)
     (hBirth : N + 1 = p ^ 3)
-    (_hpSqMem : p ^ 2 ∈ S)
     (hNoReach : ¬RootQuotientProductReachableWithin 2
       (RootQuotientPrimeBasis N ∪ (S \ {p ^ 2})) t)
-    (hFactor : p ^ 2 * q = t) :
-    p * q ∉ S := by
-  intro hpqS
+    (hFactor : p ^ 2 * b = t) :
+    p * b ∉ S := by
+  intro hpbS
   have hpN : p ≤ N := by
     have hpLt : p < p ^ 3 := by
       calc
@@ -113,27 +115,42 @@ theorem prime_cross_not_mem_exact_of_private_square_prime_cofactor
     rw [← hBirth] at hpLt
     omega
   have hpMem : p ∈ RootQuotientPrimeBasis N := ⟨hp, hpN⟩
-  have hpqNeSq : p * q ≠ p ^ 2 := by
+  have hpbNeSq : p * b ≠ p ^ 2 := by
     intro hEq
     have hpPos : 0 < p := hp.pos
-    have hCancel : q = p := by
+    have hCancel : b = p := by
       apply Nat.eq_of_mul_eq_mul_left hpPos
       simpa [pow_two, Nat.mul_assoc] using hEq
     omega
-  have hpqRest : p * q ∈ S \ {p ^ 2} :=
-    ⟨hpqS, by simpa [hpqNeSq]⟩
-  let w : List ℕ := [p * q, p]
+  have hpbRest : p * b ∈ S \ {p ^ 2} :=
+    ⟨hpbS, by simpa [hpbNeSq]⟩
+  let w : List ℕ := [p * b, p]
   apply hNoReach
   refine ⟨w, ?_, ?_, ?_⟩
   · simp [w]
   · intro g hg
     simp [w] at hg
     rcases hg with rfl | rfl
-    · exact Or.inr hpqRest
+    · exact Or.inr hpbRest
     · exact Or.inl hpMem
   · dsimp [w]
     simp [rootQuotientWordProduct, hFactor,
       pow_two, Nat.mul_assoc, Nat.mul_comm, Nat.mul_left_comm]
+
+/-- Prime-cofactor specialization of the missing-lift theorem. -/
+theorem prime_cross_not_mem_exact_of_private_square_prime_cofactor
+    {N p q t : ℕ} {S : Set ℕ}
+    (hp : p.Prime)
+    (_hq : q.Prime)
+    (hqp : q < p)
+    (hBirth : N + 1 = p ^ 3)
+    (_hpSqMem : p ^ 2 ∈ S)
+    (hNoReach : ¬RootQuotientProductReachableWithin 2
+      (RootQuotientPrimeBasis N ∪ (S \ {p ^ 2})) t)
+    (hFactor : p ^ 2 * q = t) :
+    p * q ∉ S :=
+  prime_cofactor_lift_not_mem_exact_of_private_square
+    hp (by omega) hqp hBirth hNoReach hFactor
 
 /-- **Horizon-two exact-preinvestment dichotomy.**
 
@@ -146,8 +163,7 @@ cofactor `b<p`.  Since that cofactor is already a literal after deleting
 * `b` is itself an older composite macro in the same exact optimum, strictly
   below the future prime `p`.
 
-Thus future-axis preinvestment is certified either by an explicit star-edge
-exchange or by a dependency on a strictly lower-valued composite macro. -/
+In both branches the intermediate lift `p*b` is absent. -/
 theorem horizonTwo_exactPreinvestment_starEdge_or_lowerCompositeMacro
     {r N p : ℕ}
     (hr : 2 ≤ r)
@@ -159,20 +175,18 @@ theorem horizonTwo_exactPreinvestment_starEdge_or_lowerCompositeMacro
       S.ncard = rootQuotientMinimumCompositeMacroCount r N 2 ∧
       p ^ 2 ∈ S ∧
       t ∈ RootQuotientPrimeHardSemanticTargetFinset r N 2 ∧
-      2 ≤ b ∧ b < p ∧ p ^ 2 * b = t ∧
-      ((b.Prime ∧ p * b ∉ S) ∨
-        (b ∈ S \ {p ^ 2} ∧ ¬b.Prime)) := by
+      2 ≤ b ∧ b < p ∧ p ^ 2 * b = t ∧ p * b ∉ S ∧
+      (b.Prime ∨ (b ∈ S \ {p ^ 2} ∧ ¬b.Prime)) := by
   obtain ⟨S, t, b, hS, hSCard, hpSq, htHard, htNoReach,
       hbTwo, hbLt, hbLiteral, hFactor⟩ :=
     exactPrimeDirectionPreinvestment_horizonTwo_has_private_literal_cofactor
       hr hp hBirth hPre
+  have hLiftNot : p * b ∉ S :=
+    prime_cofactor_lift_not_mem_exact_of_private_square
+      hp hbTwo hbLt hBirth htNoReach hFactor
   by_cases hbPrimeBasis : b ∈ RootQuotientPrimeBasis N
-  · have hbPrime : b.Prime := hbPrimeBasis.1
-    have hCrossNot : p * b ∉ S :=
-      prime_cross_not_mem_exact_of_private_square_prime_cofactor
-        hp hbPrime hbLt hBirth hpSq htNoReach hFactor
-    exact ⟨S, t, b, hS, hSCard, hpSq, htHard,
-      hbTwo, hbLt, hFactor, Or.inl ⟨hbPrime, hCrossNot⟩⟩
+  · exact ⟨S, t, b, hS, hSCard, hpSq, htHard,
+      hbTwo, hbLt, hFactor, hLiftNot, Or.inl hbPrimeBasis.1⟩
   · have hbRest : b ∈ S \ {p ^ 2} :=
       hbLiteral.resolve_left hbPrimeBasis
     have hbNotPrime : ¬b.Prime := by
@@ -180,7 +194,7 @@ theorem horizonTwo_exactPreinvestment_starEdge_or_lowerCompositeMacro
       have hbN : b ≤ N := (hS.2.1 hbRest.1).1.2.1
       exact hbPrimeBasis ⟨hbPrime, hbN⟩
     exact ⟨S, t, b, hS, hSCard, hpSq, htHard,
-      hbTwo, hbLt, hFactor, Or.inr ⟨hbRest, hbNotPrime⟩⟩
+      hbTwo, hbLt, hFactor, hLiftNot, Or.inr ⟨hbRest, hbNotPrime⟩⟩
 
 /-- **Horizon-two dual-catchup prime-branch conflict.**
 
