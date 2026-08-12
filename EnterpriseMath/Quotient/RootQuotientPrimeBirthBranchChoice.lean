@@ -169,7 +169,7 @@ theorem exact_without_square_forces_star_or_branchLiteral
     rw [hCount] at hCountLe
     omega
   obtain ⟨g, hgS, hgDvd⟩ :=
-    spare_family_divisor_covers_base_hard_target hReach hNoPrime
+    exists_spare_divisor_of_union_reachable_not_base hReach hNoPrime
   have hgCandidate := hS.2.1 hgS
   have hgCases := composite_dvd_primeSquare_mul_prime_eq_axis_or_star_or_literal
     hp hq (by omega) hgCandidate hgDvd
