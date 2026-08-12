@@ -53,11 +53,15 @@ Choose
 
 `T(x,y,z)=(x+1,y+1,z)`
 
-and
+and the integer height
 
-`h(x,y,z)=(x+y)/2`.
+`h(x,y,z)=floor((x+y)/2)`.
 
-`h` is integer-valued on D3 along the chosen parity class relevant to the argument. More directly, for every FCC NN edge, `Delta(x+y)` is one of `-2,0,2`, so `|Delta h|<=1`.
+For every FCC NN edge, `Delta(x+y)` is one of `-2,0,2`. Hence the floor-half height changes by exactly `-1,0,1`, so it is 1-Lipschitz on graph edges.
+
+Moreover
+
+`h(Tx)=floor((x+y+2)/2)=h(x)+1`.
 
 Along the chosen translation axis,
 
@@ -73,13 +77,7 @@ For any path from `o` to `T^n o`, the 1-Lipschitz height can change by at most o
 
 `d_G(o,T^n o)>=|n|`.
 
-Equality follows.
-
-### Coordinate-integrality clarification
-
-Although `(x+y)/2` is integer for all D3 vertices because `x+y+z` is even only when `z` has the same parity as `x+y`, `(x+y)/2` need not be integer if `z` is odd. Integrality of the height is not actually needed for the distance lower bound; a real-valued 1-Lipschitz height is sufficient. If an integer height is preferred, use the equivalent doubled inequality with `H=x+y`: every NN edge satisfies `|Delta H|<=2`, while `H(T^n o)=2n`, again giving path length at least `|n|`.
-
-Thus the theorem does not rely on the unnecessary integrality clause for FCC; the invariant content is the Lipschitz calibration.
+Equality follows. This proof is graph-combinatorial and does not require a Euclidean displacement lower bound.
 
 ## 3. Ideal-HCP proof
 
@@ -93,15 +91,17 @@ and height
 
 `h(i,j,k)=i`.
 
-All HCP NN moves change `i` by `-1`, `0`, or `1`, including the parity-dependent interlayer moves. Hence `h` is integer-valued and 1-Lipschitz on graph edges.
+All HCP NN moves change `i` by `-1`, `0`, or `1`, including the parity-dependent interlayer moves. Hence `h` is integer-valued and 1-Lipschitz on graph edges, while `h(Tx)=h(x)+1`.
 
 Along the basal translation axis,
 
-`T^n(0,0,0)=(n,0,0)`
+`T^n(0,0,0)=(n,0,0)`.
 
-and the repeated T-path has length `|n|`. The same Lipschitz lower-bound argument gives
+The repeated T-path has length `|n|`; the height lower bound gives the reverse inequality. Therefore
 
 `d_G(o,T^n o)=|n|`.
+
+Again, no continuum geometry is used.
 
 ## 4. Finite-to-infinite layer transition
 
