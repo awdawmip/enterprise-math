@@ -1,0 +1,99 @@
+{
+  "schema": "ENTERPRISE_MATH_R044_ADVERSARIAL_FIXTURES_V1",
+  "researcher_id": "EM-R044-8C2F61",
+  "source_commit": "b662cc9c9febd341eaaed94e6591abb2b75b8421",
+  "fixtures": [
+    {
+      "fixture_id": "F01_GRAPH_SHORTEST_PATH_NATIVE",
+      "claim": {
+        "claim_id": "F01",
+        "claim_text": "The graph shortest-path distance is therefore a native distance.",
+        "declared_base_carrier": "unpointed contact graph G=(V,E)",
+        "declared_n0_primitives": ["V", "E"],
+        "critical_symbols": ["V", "E", "shortest_path_metric", "distance_scalar"],
+        "dependencies": [
+          {"id": "shortest_path_metric", "kind": "metricization", "claimed_stratum": "N1", "depends_on": ["E"]},
+          {"id": "distance_scalar", "kind": "scalarization", "claimed_stratum": "N2", "depends_on": ["shortest_path_metric"]}
+        ],
+        "definability_certificate": {"construction_from_n0": true, "choice_independent": true, "automorphism_invariant": true, "no_hidden_imported_primitive": false, "transitive_dependency_closure_checked": true, "semantic_strength": "RELATION", "evidence_refs": ["shortest path additionally imports path-length/minimization semantics"]},
+        "promotion_target_strength": "RELATION", "future_language_if_any": null, "proposed_claim_class": "NATIVE",
+        "weakest_valid_restatement": "Conditional on shortest-path metricization, d_G is an exact graph metric; scalar distances are readouts of that semantics."
+      }, "expected_verdict": "SEMANTIC_MISMATCH"
+    },
+    {
+      "fixture_id": "F02_SEED_BECOMES_CENTER",
+      "claim": {"claim_id": "F02", "claim_text": "The seed used for enumeration is therefore the native center and defines radial shells.", "declared_base_carrier": "unpointed contact graph", "declared_n0_primitives": ["V", "E"], "critical_symbols": ["V", "E", "seed_choice", "radial_shell"], "dependencies": [{"id": "seed_choice", "kind": "choice", "claimed_stratum": "N1", "depends_on": ["V"]}, {"id": "radial_shell", "kind": "readout", "claimed_stratum": "N2", "depends_on": ["seed_choice", "E"]}], "promotion_target_strength": "OBJECT", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "The seed is provenance; radial shells are conditional on the added pointed/metric semantics."},
+      "expected_verdict": "SEMANTIC_MISMATCH"
+    },
+    {
+      "fixture_id": "F03_INTEGER_COORDS_EUCLIDEAN_LENGTH",
+      "claim": {"claim_id": "F03", "claim_text": "Integer implementation coordinates give an exact Euclidean norm and therefore native length.", "declared_base_carrier": "contact graph realized by integer coordinates", "declared_n0_primitives": ["V", "E"], "critical_symbols": ["V", "E", "integer_coordinates", "euclidean_norm"], "dependencies": [{"id": "integer_coordinates", "kind": "implementation_carrier", "claimed_stratum": "I0", "depends_on": []}, {"id": "euclidean_norm", "kind": "embedding_readout", "claimed_stratum": "N2", "depends_on": ["integer_coordinates"]}], "promotion_target_strength": "RELATION", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "Euclidean norm is an embedding readout unless the embedding/metric is explicitly declared in N0."},
+      "expected_verdict": "SEMANTIC_MISMATCH"
+    },
+    {
+      "fixture_id": "F04_SCALAR_INVARIANCE_STRONG_PROMOTION",
+      "claim": {"claim_id": "F04", "claim_text": "An automorphism-invariant scalar proves the full reconstructed object is native.", "declared_base_carrier": "finite relational structure", "declared_n0_primitives": ["X", "R"], "critical_symbols": ["X", "R", "orbit_scalar"], "dependencies": [{"id": "orbit_scalar", "kind": "readout", "claimed_stratum": "N2", "depends_on": ["R"]}], "definability_certificate": {"construction_from_n0": true, "choice_independent": true, "automorphism_invariant": true, "no_hidden_imported_primitive": true, "transitive_dependency_closure_checked": true, "semantic_strength": "SCALAR", "evidence_refs": ["scalar is invariant under Aut(X,R)"]}, "promotion_target_strength": "OBJECT", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "Only the scalar readout is invariant; no full-object promotion follows."},
+      "expected_verdict": "SEMANTIC_MISMATCH"
+    },
+    {
+      "fixture_id": "F05_CONTACT_CUT_NATIVE_POSITIVE",
+      "claim": {"claim_id": "F05", "claim_text": "The occupied-to-unoccupied contact cut delta(C) is defined solely by declared contact and occupancy.", "declared_base_carrier": "cells with contact and occupancy", "declared_n0_primitives": ["cells", "contact", "occupancy"], "critical_symbols": ["cells", "contact", "occupancy"], "dependencies": [], "promotion_target_strength": "RELATION", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "delta(C) is N0-relational relative to the declared occupancy state C."},
+      "expected_verdict": "NATIVE_ADMISSIBLE"
+    },
+    {
+      "fixture_id": "F06_SURFACE_SCALAR_READOUT",
+      "claim": {"claim_id": "F06", "claim_text": "S(C)=|delta(C)| is an exact scalar collapse of the native cut.", "declared_base_carrier": "cells with contact and occupancy", "declared_n0_primitives": ["cells", "contact", "occupancy"], "critical_symbols": ["cells", "contact", "occupancy", "surface_cardinality"], "dependencies": [{"id": "surface_cardinality", "kind": "scalarization", "claimed_stratum": "N2", "depends_on": ["contact", "occupancy"]}], "promotion_target_strength": "SCALAR", "proposed_claim_class": "READOUT", "weakest_valid_restatement": "S is exact, but it is N2 READOUT_ONLY rather than the N0 interface itself."},
+      "expected_verdict": "READOUT_ONLY"
+    },
+    {
+      "fixture_id": "F07_UNIQUE_OPTIMIZER_NOT_NATIVE",
+      "claim": {"claim_id": "F07", "claim_text": "The unique fixed-volume minimizer is therefore the native shape.", "declared_base_carrier": "contact+occupancy world", "declared_n0_primitives": ["contact", "occupancy"], "critical_symbols": ["contact", "occupancy", "fixed_volume_optimization"], "dependencies": [{"id": "fixed_volume_optimization", "kind": "optimization", "claimed_stratum": "N1", "depends_on": ["contact", "occupancy"]}], "definability_certificate": {"construction_from_n0": true, "choice_independent": true, "automorphism_invariant": true, "no_hidden_imported_primitive": false, "transitive_dependency_closure_checked": true, "semantic_strength": "OBJECT", "evidence_refs": ["uniqueness of minimizer under the selected optimization"]}, "promotion_target_strength": "OBJECT", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "The minimizer is exact conditional mathematics of the declared optimization semantics."},
+      "expected_verdict": "SEMANTIC_MISMATCH"
+    },
+    {
+      "fixture_id": "F08_INFINITY_DOES_NOT_ERASE_TYPING",
+      "claim": {"claim_id": "F08", "claim_text": "The infinite discrete limit of graph shells is native because it remains discrete.", "declared_base_carrier": "contact graph", "declared_n0_primitives": ["V", "E"], "critical_symbols": ["V", "E", "shortest_path_metric", "shell_limit"], "dependencies": [{"id": "shortest_path_metric", "kind": "metricization", "claimed_stratum": "N1", "depends_on": ["E"]}, {"id": "shell_limit", "kind": "readout", "claimed_stratum": "N2", "depends_on": ["shortest_path_metric"]}], "promotion_target_strength": "OBJECT", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "The infinite limit remains conditional on the N1 metricization and N2 shell readout."},
+      "expected_verdict": "SEMANTIC_MISMATCH"
+    },
+    {
+      "fixture_id": "F09_PRIOR_ART_NOT_BASE",
+      "claim": {"claim_id": "F09", "claim_text": "A classical standard definition is conventional, therefore it belongs to the native base.", "declared_base_carrier": "relational world", "declared_n0_primitives": ["X", "R"], "critical_symbols": ["X", "R", "standard_external_structure"], "dependencies": [{"id": "standard_external_structure", "kind": "imported_primitive", "claimed_stratum": "N1", "depends_on": ["X"]}], "promotion_target_strength": "PRIMITIVE", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "The standard definition may be used conditionally, but convention does not add it to N0."},
+      "expected_verdict": "SEMANTIC_MISMATCH"
+    },
+    {
+      "fixture_id": "F10_METRIC_EXPLICITLY_BASE",
+      "claim": {"claim_id": "F10", "claim_text": "In this explicitly pointed metric world, the declared metric d and root o are native primitives.", "declared_base_carrier": "pointed metric space (X,d,o)", "declared_n0_primitives": ["X", "metric_d", "root_o"], "critical_symbols": ["X", "metric_d", "root_o"], "dependencies": [{"id": "metric_d", "kind": "metricization", "claimed_stratum": "N0", "depends_on": ["X"]}, {"id": "root_o", "kind": "choice", "claimed_stratum": "N0", "depends_on": ["X"]}], "promotion_target_strength": "PRIMITIVE", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "Because d and o are explicitly declared in this task's N0, metric-relative native claims are admissible."},
+      "expected_verdict": "NATIVE_ADMISSIBLE"
+    },
+    {
+      "fixture_id": "F11_CONTINUUM_EXPLICITLY_BASE",
+      "claim": {"claim_id": "F11", "claim_text": "This task declares a continuum measure space as its base world.", "declared_base_carrier": "measure space (X,Sigma,mu)", "declared_n0_primitives": ["X", "sigma_algebra", "measure_mu"], "critical_symbols": ["X", "sigma_algebra", "measure_mu"], "dependencies": [{"id": "sigma_algebra", "kind": "continuum", "claimed_stratum": "N0", "depends_on": ["X"]}, {"id": "measure_mu", "kind": "continuum", "claimed_stratum": "N0", "depends_on": ["X", "sigma_algebra"]}], "promotion_target_strength": "PRIMITIVE", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "The gate is task-relative: declared continuum primitives may be N0 for a continuum-base task."},
+      "expected_verdict": "NATIVE_ADMISSIBLE"
+    },
+    {
+      "fixture_id": "F12_ROOTED_ZETA_READOUT",
+      "claim": {"claim_id": "F12", "claim_text": "Choose root o, use graph distance, then form the rooted zeta aggregate.", "declared_base_carrier": "unpointed contact graph", "declared_n0_primitives": ["V", "E"], "critical_symbols": ["V", "E", "root_choice", "shortest_path_metric", "zeta_aggregate"], "dependencies": [{"id": "root_choice", "kind": "choice", "claimed_stratum": "N1", "depends_on": ["V"]}, {"id": "shortest_path_metric", "kind": "metricization", "claimed_stratum": "N1", "depends_on": ["E"]}, {"id": "zeta_aggregate", "kind": "spectral_readout", "claimed_stratum": "N2", "depends_on": ["root_choice", "shortest_path_metric"]}], "promotion_target_strength": "SCALAR", "proposed_claim_class": "READOUT", "weakest_valid_restatement": "The exact zeta formula is an N2 readout conditional on N1 root+metric semantics."},
+      "expected_verdict": "READOUT_ONLY"
+    },
+    {
+      "fixture_id": "F13_FUTURE_CARRIER_EXACT_NOT_N0",
+      "claim": {"claim_id": "F13", "claim_text": "M_h exactly determines the declared addition-only Boolean future, therefore M_h is a native state descriptor.", "declared_base_carrier": "contact+occupancy world", "declared_n0_primitives": ["cells", "contact", "occupancy"], "critical_symbols": ["cells", "contact", "occupancy", "surface_scalar", "horizon_future_language"], "dependencies": [{"id": "surface_scalar", "kind": "scalarization", "claimed_stratum": "N2", "depends_on": ["contact", "occupancy"]}, {"id": "horizon_future_language", "kind": "future_language", "claimed_stratum": "N1", "depends_on": ["contact", "occupancy", "surface_scalar"]}], "future_language_if_any": "addition-only Boolean B_h", "promotion_target_strength": "OBJECT", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "M_h is an exact future-language carrier, with N1 operational semantics and N2 readout components, not an N0 descriptor."},
+      "expected_verdict": "SEMANTIC_MISMATCH"
+    },
+    {
+      "fixture_id": "F14_OMITTED_DEPENDENCY_FAILS_CLOSED",
+      "claim": {"claim_id": "F14", "claim_text": "Graph distance is native.", "declared_base_carrier": "contact graph", "declared_n0_primitives": ["V", "E"], "critical_symbols": ["V", "E", "shortest_path_metric"], "dependencies": [], "promotion_target_strength": "RELATION", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "Ledger is incomplete until shortest_path_metric is typed."},
+      "expected_verdict": "UNRESOLVED"
+    },
+    {
+      "fixture_id": "F15_N2_FALSELY_REPORTED_N0",
+      "claim": {"claim_id": "F15", "claim_text": "The Euclidean norm is N0 even though only contact adjacency was declared.", "declared_base_carrier": "contact graph", "declared_n0_primitives": ["V", "E"], "critical_symbols": ["V", "E", "euclidean_norm"], "dependencies": [{"id": "euclidean_norm", "kind": "embedding_readout", "claimed_stratum": "N0", "depends_on": ["V"]}], "promotion_target_strength": "SCALAR", "proposed_claim_class": "NATIVE", "weakest_valid_restatement": "The norm is N2 unless the embedding/metric is explicitly declared in N0."},
+      "expected_verdict": "SEMANTIC_MISMATCH"
+    },
+    {
+      "fixture_id": "F16_BROWNIAN_LIMIT_CONTINUUM",
+      "claim": {"claim_id": "F16", "claim_text": "Uniform NN propagation has a Brownian continuum limit with covariance I/3.", "declared_base_carrier": "contact graph", "declared_n0_primitives": ["V", "E"], "critical_symbols": ["V", "E", "uniform_nn_kernel", "physical_covariance", "brownian_limit"], "dependencies": [{"id": "uniform_nn_kernel", "kind": "stochastic_kernel", "claimed_stratum": "N1", "depends_on": ["E"]}, {"id": "physical_covariance", "kind": "embedding_readout", "claimed_stratum": "N2", "depends_on": ["uniform_nn_kernel"]}, {"id": "brownian_limit", "kind": "continuum", "claimed_stratum": "N3", "depends_on": ["physical_covariance"]}], "promotion_target_strength": "OBJECT", "proposed_claim_class": "CONTINUUM", "weakest_valid_restatement": "This is exact/limiting mathematics conditional on N1 propagation, N2 embedding readout, and N3 continuum semantics."},
+      "expected_verdict": "CONTINUUM_ONLY"
+    }
+  ]
+}
