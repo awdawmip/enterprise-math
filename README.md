@@ -42,6 +42,34 @@ This is a wager that can fail. If these primitives cannot rebuild sufficiently p
 
 **We choose to push this route all the way. Our judgment is that time and physics will ultimately show that the direction represented by Enterprise Math is the future of mathematics for describing nature.**
 
+## Engineering success is not a native definition; it is evidence to be explained
+
+Enterprise Math does not deny the enormous engineering success of continuous mathematics merely because it challenges its foundational definitions. On the contrary: **that long-running, cross-scale, cross-domain success is among the strongest evidence available when searching for the underlying logic.**
+
+But evidence and definition must remain separate.
+
+> **Definition is not inherited. Success is evidence. Explain the success from a smaller native logic.**
+
+Continuous mathematics may be viewed as an effective theory formed after reality has been heavily purified, compressed, and abstracted. Its extraordinary predictive accuracy across engineering tells us that some stable structure of the real world must survive that purification. It does not prove that the theory's points, distances, centers, equidistance, radii, smoothness, real continuum, classical pi, or related definitions are nature's native primitives.
+
+Enterprise Math therefore uses the inverse route:
+
+```text
+engineering success repeatedly confirmed in practice
+    ↓
+which structures must survive purification?
+    ↓
+what smaller native relations / collapse / forward mechanisms generate them?
+    ↓
+why does continuous mathematics emerge as such a successful effective theory?
+```
+
+Classical engineering results may and should be used as constraints, but their effective definitions may not be copied back into the native input and then counted as recovered structure. If the native substrate has no distance or equidistance relation, one cannot first define a circle as "points equally distant from a center" and then claim to have derived the circle from the native world. Likewise, if the goal is to explain the engineering success of classical pi, one cannot use the classical value of pi to select the collapse policy and then claim that the selected policy explains pi.
+
+A strong foundational theory should explain as many independent engineering regularities, scale behaviors, composition laws, and error envelopes as possible with as few native assumptions as possible. **Fitting one number is weak evidence; one native mechanism explaining many engineering successes is strong evidence.**
+
+The full project-level rule is recorded in [FOUNDATIONAL_LOGIC.md](FOUNDATIONAL_LOGIC.md). Machine-enforced constraints live in `foundational_logic.json` and `native_semantics_admissibility.json`.
+
 ## Five foundational reversals
 
 The conventional route is often:
