@@ -47,6 +47,28 @@ Do **not** wait for a Driver to assign an ID on direct/self-started research or 
 
 New Driver-approved taskbooks declare `identity_policy: AUTO_RESOLVE_OR_ALLOCATE` and may declare `identity_lane`; they never hard-code a fixed runtime Researcher-ID. A Driver-mediated manual relay binds the concrete Researcher-ID in a separate dispatch envelope, not in the reusable taskbook.
 
+## Foundational engineering-success inversion
+
+`FOUNDATIONAL_LOGIC.md` and `foundational_logic.json` define the highest-level research logic for foundation-facing work. They are mandatory startup context whenever a task uses successful classical/continuous/engineering mathematics to reason about the native substrate.
+
+Core rule:
+
+> **Definition is not inherited. Success is evidence. Explain the success from a smaller native logic.**
+
+Operationally:
+
+1. do not import a successful effective theory's definitions into N0 merely because the theory works;
+2. preserve robust engineering success as evidence constraints: controlled input/output relations, scale regimes, independent-channel agreement, composition/intervention behavior, and error envelopes;
+3. treat foundation research as an inverse problem: `engineering success -> surviving structure -> native mechanism/collapse -> effective law`;
+4. never copy a target-side object into the native premises and then count recovery of that object as a foundational result;
+5. keep `FOUNDATION` and `CALIBRATION` distinct: foundation derives native structure without target-definition leakage; calibration tests already-derived structure against engineering success;
+6. prefer explanatory compression across many independent observables/scales over fitting one scalar or one formula;
+7. preserve correct classical/continuous mathematics under semantic retyping; the foundational question is why it works, what information it removes, and where it stops working.
+
+For example, if bare N0 has no distance/equidistance structure, a classical circle may be an effective-side engineering description but cannot be inserted into N0 as "points equally distant from a center" and then used to select the supposedly native collapse. Likewise classical pi may be an effective output/calibration parameter, but using its value to choose a collapse later claimed to explain pi is circular target leakage.
+
+Foundation-facing semantic checkpoints that consume engineering success must explicitly record the effective definitions withheld from native premises, the engineering-success constraints consumed, and a target-leakage audit.
+
 ## Native-semantics admissibility gate
 
 `native_semantics_admissibility.json` is a mandatory semantic typing rule for Enterprise Math research. Its compact rules below are part of the normal startup context; when a task makes a native/intrinsic/base-world/Foundation-ontology claim, read the machine policy itself before freezing that claim.
