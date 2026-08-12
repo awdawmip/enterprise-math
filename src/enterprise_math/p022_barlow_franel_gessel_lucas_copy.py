@@ -24,17 +24,26 @@ multiplier a with F_a a p-unit,
 
 Since u is nonzero, two distinct multipliers modulo p cannot both make the
 right side vanish.  Thus among any two such multipliers at least one p-Lucas
-copy has exact p-adic depth one.  This controls the numerator depth; defect
-capture still requires handling the canonical A-support separately.
+copy has exact p-adic depth one.
+
+For a nontrivial twin-prime deferral center r>=6, choose a0 in {1,2} so that
+3 divides 2(a0*p+r)-1, and pair it with a0+3.  Both odd boundaries are then
+nontrivial multiples of three.  Since a0+3<r, both small multiplier Franel
+factors are p-units by primitivity.  Consequently at least one of two actual
+composite defect numerators has exact p-adic depth one.  This controls the
+numerator depth; defect capture still requires handling canonical A-support.
 """
 
 from __future__ import annotations
 
 from fractions import Fraction
-from math import comb
+from math import comb, gcd
 
 from .p022_barlow_low_order_defect_reduction import _is_prime
 from .p022_barlow_low_order_identifiability import p_adic_valuation, triple_moment_factor
+from .p022_barlow_lucas_copy_capture import forced_copy_multiplier
+from .p022_barlow_primitive_defect_criterion import is_primitive_franel_divisor
+from .p022_barlow_primitive_successor_capture import is_twin_prime_deferral_center
 
 
 def harmonic_number(index: int) -> Fraction:
@@ -80,7 +89,7 @@ def franel_formal_derivative_recurrence_residual(index: int) -> Fraction:
 
 def _fraction_mod(value: Fraction, modulus: int) -> int:
     denominator = value.denominator % modulus
-    if denominator == 0:
+    if gcd(denominator, modulus) != 1:
         raise ValueError("fraction denominator is not a unit modulo the modulus")
     return value.numerator % modulus * pow(denominator, -1, modulus) % modulus
 
@@ -151,8 +160,6 @@ def two_multipliers_cannot_both_raise_depth(
     if first_residue == 0 and second_residue == 0:
         source_unit = (triple_moment_factor(rank) // prime) % prime
         derivative = _fraction_mod(franel_formal_derivative(rank), prime)
-        # Subtracting the two linear equations gives (a-b)d=0.  If d=0,
-        # either equation then forces source_unit=0, contradicting simplicity.
         if ((first - second) * derivative) % prime != 0:
             raise AssertionError("two vanishing copy jets contradict subtraction")
         if derivative % prime != 0:
@@ -161,3 +168,44 @@ def two_multipliers_cannot_both_raise_depth(
             raise AssertionError("simple source depth gives a nonzero unit")
         raise AssertionError("two copy depths cannot both rise above one")
     return first_residue, second_residue
+
+
+def forced_composite_depth_one_pair(
+    rank: int,
+    prime: int,
+) -> tuple[tuple[int, int, int], tuple[int, int, int]]:
+    """Two guaranteed composite copies, at least one with numerator depth one.
+
+    Returns ((a0,N0,residue0),(a1,N1,residue1)).  A nonzero residue is exactly
+    the certificate that F_N has p-adic depth one.
+    """
+    if rank < 6 or not is_twin_prime_deferral_center(rank):
+        raise ValueError("rank must be a twin-prime deferral center at least six")
+    if not is_primitive_franel_divisor(rank, prime):
+        raise ValueError("prime must be primitive at rank")
+    if p_adic_valuation(triple_moment_factor(rank), prime) != 1:
+        raise ValueError("primitive source must have exact p-adic depth one")
+    if rank % 3:
+        raise AssertionError("nontrivial twin centers are divisible by three")
+
+    first = forced_copy_multiplier(prime)
+    second = first + 3
+    if second >= rank:
+        raise AssertionError("r>=6 keeps both copy multipliers below the primitive rank")
+    residues = two_multipliers_cannot_both_raise_depth(rank, prime, first, second)
+
+    output = []
+    for multiplier, residue in zip((first, second), residues):
+        segment = multiplier * prime + rank
+        boundary = 2 * segment - 1
+        if boundary <= 3 or boundary % 3:
+            raise AssertionError("same-mod-three forced copy must have composite boundary")
+        if _is_prime(boundary):
+            raise AssertionError("forced copy boundary unexpectedly prime")
+        if triple_moment_factor(multiplier) % prime == 0:
+            raise AssertionError("preprimitive multiplier must be a p-unit")
+        output.append((multiplier, segment, residue))
+
+    if not any(residue for _, _, residue in output):
+        raise AssertionError("at least one forced composite copy must retain depth one")
+    return output[0], output[1]
