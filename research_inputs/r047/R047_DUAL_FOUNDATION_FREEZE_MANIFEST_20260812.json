@@ -1,0 +1,46 @@
+{
+  "schema": "ENTERPRISE_MATH_R047_DUAL_FOUNDATION_FREEZE_MANIFEST_V1",
+  "status": "DUAL_FOUNDATION_FREEZE_ACCEPTED / CALIBRATION_TARGET_MAY_OPEN / NOT_CANONICAL",
+  "driver_id": "EM-DVR-QSO16",
+  "project_arm": {
+    "researcher_id": "EM-R047P-4A73D2",
+    "task": "RS-R047P-NATIVE-MECHANISM-BLIND-FOUNDATION-PROJECT-ARM",
+    "draft_pr": 536,
+    "owner_head": "deff14d75ef93815d6a8dcb8aa79039e68aa390a",
+    "candidate_count": 6,
+    "candidate_set_sha256": "bf309a1b6d0bebf10a58345af768bac0b63747934eccb63538d0e0fe6cf0d494",
+    "driver_acceptance_comment": 5269254637,
+    "contamination": "CONTEXT_CONTAMINATION_RISK / DISCLOSED_AND_QUARANTINED",
+    "calibration_opened_at_freeze": false
+  },
+  "isolated_arm": {
+    "identity": "ISO-R047F-91B6C2",
+    "source": "user-supplied isolated foundation bundle",
+    "bundle_sha256": "d85f3687c3cef311712ac18718cf41d51b6bee21db6efadea9576d971a2e4d96",
+    "freeze_id": "R047I-FREEZE-220E7F72BA9C4CBF",
+    "candidate_count": 6,
+    "candidate_set_sha256": "220e7f72ba9c4cbffc8fcd98b6b7df9b952bbccaaa0b4415cb36f47ea4b0eb3f",
+    "manifest_hashes_verified": true,
+    "candidate_hashes_independently_recomputed": true,
+    "exact_checker_rerun": "PASS",
+    "contamination": "NONE_DETECTED",
+    "calibration_opened_at_freeze": false,
+    "calibration_projection": "research_inputs/r047/R047I_FROZEN_CALIBRATION_PROJECTION_20260812.json"
+  },
+  "precommitted_calibration_target": {
+    "source_owner_head": "72b68e49ab22c0d948cd5e5439f5e656a2399d77",
+    "git_blob_sha": "bc24a121897a912f026b0c85af914268f00997e5",
+    "seal_commit": "ebab0689f40ff55c224f978dd1413d0b347762a8",
+    "content_was_withheld_until_both_freezes": true
+  },
+  "freeze_rule": "Neither project-arm nor isolated-arm candidate definitions, parameter domains, update/collapse laws, theorem/counterexample boundaries, or frozen candidate hashes may change during calibration. Any change is a new generation and loses the original blind provenance.",
+  "calibration_rule": "Calibration must evaluate frozen candidates against the precommitted target; it may add typed readout/bridge constructions only as calibration-layer objects and must count target-specific bridge debt explicitly. Candidate-core edits are forbidden.",
+  "arm_comparison_before_calibration": {
+    "independent_common_attractors": [
+      "relation/refinement mechanisms",
+      "branching/recoalescence or multiplicity propagation",
+      "finite-field/parity propagation"
+    ],
+    "diversity_residue": "Both arms also preserve non-overlapping mechanism families; no pre-calibration winner or total ranking is declared."
+  }
+}
