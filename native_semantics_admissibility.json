@@ -1,8 +1,9 @@
 {
-  "schema": "ENTERPRISE_MATH_NATIVE_SEMANTICS_ADMISSIBILITY_V2",
+  "schema": "ENTERPRISE_MATH_NATIVE_SEMANTICS_ADMISSIBILITY_V3",
   "status": "ACTIVE",
-  "purpose": "Prevent derived metric, propagation, scalar-readout, embedding, optimization, or continuum structure from being silently promoted to the Enterprise Math native/base ontology.",
-  "core_rule": "A claim may be labeled NATIVE/INTRINSIC/BASE-WORLD only when every theorem-critical object and operator is already in the declared native substrate, or has an explicit definability certificate from that substrate. Otherwise the claim must be typed as conditional/derived/readout/continuum rather than native.",
+  "foundational_logic_source": "foundational_logic.json",
+  "purpose": "Prevent derived metric, propagation, scalar-readout, embedding, optimization, continuum, or successful effective-theory definitions from being silently promoted to the Enterprise Math native/base ontology, while preserving engineering success as evidence that the native theory must explain.",
+  "core_rule": "A claim may be labeled NATIVE/INTRINSIC/BASE-WORLD only when every theorem-critical object and operator is already in the declared native substrate, or has an explicit definability certificate from that substrate. Successful effective definitions are not inherited into N0 merely because they work; their robust engineering consequences may instead be consumed as evidence constraints to be explained from a smaller native logic.",
   "strata": {
     "I0_IMPLEMENTATION_CARRIER": {
       "meaning": "Coordinates, labels, bases, embeddings, or encodings used to implement/check a declared native relation. They are not ontology merely because the implementation uses them.",
@@ -31,7 +32,7 @@
     {"id": "NSA-01-NO-HIDDEN-PRIMITIVE", "rule": "Every theorem-critical symbol/operator in a claim labeled native/intrinsic/base-world must appear in the declared N0 substrate or be eliminated by an explicit definability certificate."},
     {"id": "NSA-02-DEFINABILITY-PROMOTION", "rule": "A derived object may be promoted toward N0 only after proving construction from N0, independence from arbitrary choices/coordinates, and invariance under the allowed N0 relabelings/automorphisms relevant to the claim. Convenience, symmetry intuition, or uniqueness in one embedding is insufficient."},
     {"id": "NSA-03-NO-NATURALITY-SHORTCUT", "rule": "Words such as natural, canonical, intrinsic, obvious, nearest, radial, symmetric, isotropic, or physical do not establish native admissibility."},
-    {"id": "NSA-04-CONDITIONAL-MATH-PRESERVED", "rule": "A mathematically correct result using N1/N2/N3 structure is not discarded. Reclassify it as CONDITIONAL_ON_DECLARED_SEMANTICS / READOUT_ONLY / CONTINUUM_ONLY and state the dependency explicitly."},
+    {"id": "NSA-04-CONDITIONAL-MATH-PRESERVED", "rule": "A mathematically correct result using N1/N2/N3 structure is not discarded. Reclassify it as CONDITIONAL_ON_DECLARED_SEMANTICS / READOUT_ONLY / CONTINUUM_ONLY and state the dependency instead of discarding the mathematics."},
     {"id": "NSA-05-EQUIDISTANCE-TYPECHECK", "rule": "Equal-distance, radius, shell, sphere, or ball predicates are ill-typed at N0 unless a metric/equidistance structure is itself explicitly part of N0 or has passed NSA-02. A graph admits a definable shortest-path metric only after shortest-path semantics has been selected; that does not make the metric an N0 primitive."},
     {"id": "NSA-06-SEED-NOT-CENTER", "rule": "A seed cell/root used to construct or enumerate states is provenance unless a separate semantics promotes it. It must not silently become a global center/radial coordinate."},
     {"id": "NSA-07-EMBEDDING-SEPARATION", "rule": "Implementation coordinates may be used to compute/check contact relations, but Euclidean length, angle, covariance, normal, area, point-group orientation, or other embedding-dependent quantities are N2 unless the embedding is explicitly declared as additional semantics."},
@@ -42,10 +43,15 @@
     {"id": "NSA-12-TASK-RELATIVE-BASE-PRECEDENCE", "rule": "N1/N2/N3 hazard categories classify structures introduced after the base declaration. A task may explicitly declare metric, embedding, stochastic, optimization, or continuum primitives in N0; the gate must then type them N0 for that task rather than blanket-forbid the vocabulary."},
     {"id": "NSA-13-SEMANTIC-STRENGTH-MATCH", "rule": "A definability/invariance certificate must prove the same semantic strength being promoted. Scalar or quotient invariance cannot promote an unproved relation, full object, or primitive."},
     {"id": "NSA-14-TRANSITIVE-DEPENDENCY-CLOSURE", "rule": "Every theorem-critical symbol must be covered by the declared N0 base or a typed transitive dependency DAG. Omitted or dangling dependencies yield UNRESOLVED, never NATIVE_ADMISSIBLE."},
-    {"id": "NSA-15-DECLARED-VS-N0-DEFINABLE", "rule": "Distinguish DECLARED_N0_PRIMITIVE from N0_DEFINABLE_DERIVED. A successful promotion certificate establishes intrinsic definability and choice-independence; it does not silently rewrite the task base declaration itself."}
+    {"id": "NSA-15-DECLARED-VS-N0-DEFINABLE", "rule": "Distinguish DECLARED_N0_PRIMITIVE from N0_DEFINABLE_DERIVED. A successful promotion certificate establishes intrinsic definability and choice-independence; it does not silently rewrite the task base declaration itself."},
+    {"id": "NSA-16-DEFINITION-NOT-INHERITED", "rule": "A definition from a successful effective/classical/engineering theory is not evidence that the same object or definition exists in N0. Effective definitions remain withheld from native premises unless separately declared or derived."},
+    {"id": "NSA-17-ENGINEERING-SUCCESS-AS-EVIDENCE", "rule": "Robust engineering success may be consumed as an evidence constraint that a candidate native theory should explain. Preserve controlled input-output regularities, scale regimes, independent-channel agreement, intervention/composition behavior, and error envelopes without importing the effective ontology itself."},
+    {"id": "NSA-18-NO-OUTPUT-COPYING-INTO-INPUT", "rule": "Do not insert a target-side effective object/relation into native premises and then count recovery of that same object/relation as a foundational derivation. Such target leakage is circular and yields SEMANTIC_MISMATCH for the foundational claim."},
+    {"id": "NSA-19-FOUNDATION-CALIBRATION-SEPARATION", "rule": "FOUNDATION derives native mechanisms without importing effective definitions as native premises. CALIBRATION may test already-derived mechanisms against engineering success, but calibration agreement never retroactively promotes the effective definitions into N0."},
+    {"id": "NSA-20-EXPLANATORY-COMPRESSION", "rule": "For foundation-facing comparison with successful engineering mathematics, stronger evidence comes from one independently derived native mechanism explaining multiple observables/scales/compositions with few native assumptions. Agreement with one target scalar or formula is weak and cannot by itself justify ontology promotion."}
   ],
   "required_claim_ledger": {
-    "applies_when": ["claim uses native/intrinsic/base-world/foundation ontology language", "task compares Enterprise Math base to imported classical structure", "task introduces a new geometry/metric/propagation/readout primitive"],
+    "applies_when": ["claim uses native/intrinsic/base-world/foundation ontology language", "task compares Enterprise Math base to imported classical structure", "task introduces a new geometry/metric/propagation/readout primitive", "task uses successful engineering/classical mathematics to constrain or calibrate a foundational claim"],
     "fields": [
       "claim_id",
       "declared_base_carrier",
@@ -62,6 +68,9 @@
       "transitive_dependency_closure_checked",
       "native_basis_status",
       "definability_or_invariance_certificate",
+      "effective_definitions_withheld_from_native_premises",
+      "engineering_success_constraints_consumed",
+      "target_leakage_audit",
       "future_language_if_any",
       "admissibility_verdict",
       "weakest_valid_restatement"
@@ -69,7 +78,7 @@
     "verdicts": ["NATIVE_ADMISSIBLE", "CONDITIONAL_DERIVED", "READOUT_ONLY", "CONTINUUM_ONLY", "SEMANTIC_MISMATCH", "UNRESOLVED"]
   },
   "native_promotion_certificate": {
-    "required": ["exact declared N0 base", "complete typed transitive dependency closure", "construction from N0 only unless added structure is explicitly declared N0", "independence from arbitrary non-N0 choices", "invariance or canonical equivariance under relevant N0 relabelings/automorphisms", "uniqueness/reconstruction at the same semantic strength as the promotion target", "evidence references"],
+    "required": ["exact declared N0 base", "complete typed transitive dependency closure", "construction from N0 only unless added structure is explicitly declared N0", "independence from arbitrary non-N0 choices", "invariance or canonical equivariance under relevant N0 relabelings/automorphisms", "uniqueness/reconstruction at the same semantic strength as the promotion target", "effective-definition withholding and target-leakage audit when engineering/classical success is used", "evidence references"],
     "failure_mode": "UNRESOLVED_OR_SEMANTIC_MISMATCH"
   },
   "mandatory_regressions": [
@@ -77,11 +86,12 @@
     {"case": "R034 random walk/diffusion", "expected_typing": "propagation kernel N1; physical-coordinate covariance/Bloch/moment readouts N2 unless additional embedding semantics is declared"},
     {"case": "R038 rooted graph zeta", "expected_typing": "root + graph distance N1, radial scalarization and zeta aggregate N2; cannot kill a stronger metric-free N0 hypothesis"},
     {"case": "R039 rough surface", "expected_typing": "contact cut relative to an occupied cluster is N0-relational; scalar S, local-type quotient, isoperimetric optimization and asymptotic Wulff/zonotope are later strata"},
-    {"case": "R041 horizon layers", "expected_typing": "operation-horizon layers and B_h/M_h are N1/future-language carriers, not N0 ontology even when exact"}
+    {"case": "R041 horizon layers", "expected_typing": "operation-horizon layers and B_h/M_h are N1/future-language carriers, not N0 ontology even when exact"},
+    {"case": "engineering-success circle/pi inversion", "expected_typing": "classical circle/center/distance/equidistance/pi definitions may be used as effective-side descriptions or engineering evidence but cannot be inserted into a metric-free native premise to select a collapse rule and then claimed as recovered native geometry; consume engineering success as target constraints instead"}
   ],
   "retroactive_policy": {
     "old_claims_are_not_auto_invalidated": true,
-    "required_action": "Retype old claims under this gate. Recompute only when theorem-critical conclusions depended on an inadmissible primitive or an invalid promotion between strata.",
-    "priority": ["native/ontology claims", "foundation-facing claims", "downstream claims that consume them", "conditional mathematics with explicit semantics"]
+    "required_action": "Retype old claims under this gate. Recompute only when theorem-critical conclusions depended on an inadmissible primitive, invalid promotion between strata, or target leakage from an effective definition into a claimed native derivation.",
+    "priority": ["native/ontology claims", "foundation-facing claims", "engineering-success inversion claims", "downstream claims that consume them", "conditional mathematics with explicit semantics"]
   }
 }
