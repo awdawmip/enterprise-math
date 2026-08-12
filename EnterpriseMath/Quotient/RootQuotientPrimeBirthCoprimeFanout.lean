@@ -59,7 +59,7 @@ theorem common_composite_divisor_of_coprime_squareAxisBranches_eq_square
   have hGcd : Nat.gcd (p ^ 2 * b) (p ^ 2 * c) = p ^ 2 := by
     rw [Nat.gcd_mul_left, hbc.gcd_eq_one, Nat.mul_one]
   rw [hGcd] at hgGcd
-  obtain ⟨k, hkLe, hgEq⟩ := (Nat.dvd_prime_pow hp).1 hgGcd
+  obtain ⟨k, _hkLe, hgEq⟩ := (Nat.dvd_prime_pow hp).1 hgGcd
   have hgSemantic := hgC.1
   have hRank : 2 ≤ rootQuotientPrimeFactorCount g := by
     have hCountPos : 0 < rootQuotientPrimeFactorCount g :=
@@ -107,7 +107,7 @@ theorem coprimeCofactorBranches_are_repairPacking_without_axis
 square axis `p^2`. -/
 theorem privateAxisCofactorBranches_reachable_with_axis_singleton
     {N p : ℕ} {S : Set ℕ}
-    (hp : p.Prime) :
+    (_hp : p.Prime) :
     ∀ t ∈ RootQuotientSquareAxisCofactorTargetFinset p
         (RootQuotientPrivateAxisCofactors N p S),
       RootQuotientProductReachableWithin 2
@@ -130,7 +130,7 @@ theorem privateAxisCofactorBranches_reachable_with_axis_singleton
     · exact Or.inl (hwG g hgW)
   · dsimp [u]
     simp [rootQuotientWordProduct]
-    exact congrArg (fun x => p ^ 2 * x) hProd.symm
+    exact congrArg (fun x => p ^ 2 * x) hProd
 
 /-- **Coprime private-axis fanout lower bound.**
 
@@ -178,16 +178,22 @@ theorem coprime_privateAxisFanout_card_le_replacement_storage
   rw [squareAxisCofactorTargetFinset_card_eq hp B] at hLower
   exact hLower
 
-/-- Every horizon-two exact preinvestment has at least one private lower
-cofactor in the generalized axis-fanout set. -/
-theorem privateAxisCofactors_nonempty_of_exactPreinvestment_horizonTwo
+/-- **Exact preinvestment yields a nonempty private-axis cofactor set.**
+
+At a cubic prime birth, if some old minimum exact presentation has preinvested
+in `p^2`, then there exists such a minimum presentation whose generalized
+private cofactor family is nonempty. -/
+theorem exists_minimum_exactPreinvestment_with_nonempty_privateAxisCofactors
     {r N p : ℕ}
     (hr : 2 ≤ r)
     (hp : p.Prime)
     (hBirth : N + 1 = p ^ 3)
     (hPre : RootQuotientExactPrimeDirectionPreinvestment r N 2 p) :
-    (RootQuotientPrivateAxisCofactors N p
-      (Classical.choose hPre)).Nonempty := by
+    ∃ S : Set ℕ,
+      RootQuotientCompositeMacroPresentation r N 2 S ∧
+      S.ncard = rootQuotientMinimumCompositeMacroCount r N 2 ∧
+      p ^ 2 ∈ S ∧
+      (RootQuotientPrivateAxisCofactors N p S).Nonempty := by
   classical
   obtain ⟨S, t, b, hS, hSCard, hpSq, htHard, htNoReach,
       hbTwo, hbLt, hbLiteral, hFactor⟩ :=
@@ -204,10 +210,6 @@ theorem privateAxisCofactors_nonempty_of_exactPreinvestment_horizonTwo
   have hbPriv : b ∈ RootQuotientPrivateAxisCofactors N p S := by
     apply mem_privateAxisCofactors_iff.2
     exact ⟨hbLt, hbTwo, hbReach, by simpa [hFactor] using htNoReach⟩
-  -- `S` is the first component chosen from `hPre`; normalize the witness back
-  -- to the definitional choice used in the statement.
-  have hChosen : Classical.choose hPre = S := by
-    rfl
-  simpa [hChosen] using ⟨b, hbPriv⟩
+  exact ⟨S, hS, hSCard, hpSq, ⟨b, hbPriv⟩⟩
 
 end EnterpriseMath.Quotient
