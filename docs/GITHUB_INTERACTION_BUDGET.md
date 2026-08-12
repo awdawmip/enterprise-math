@@ -190,7 +190,34 @@ Intended source lifecycle:
 
 核心规则：**研究是热路径，GitHub 是稀疏持久化/最终验收边界，不是研究运行时总线。**
 
-普通 L1/L2/L3 研究默认 0 次 CI/workflow 状态查询。只有当前任务就是 CI/debug/remote-validation、正在执行 L4/final merge/promotion、用户明确要求查看当前 CI，或正在诊断已出现的具体 CI failure 时才能查一次状态；pending 就记录 `CI_PENDING_NONBLOCKING` 并立即结束 CI 子流程。
+新增硬断路器：
+
+> **普通 L1/L2/L3 研究默认 0 次 CI/workflow 状态查询。**
+
+也就是说，普通研究不得进入 `Checking CI Workflow Runs`、`Waiting for CI`、`Checking workflow run status for commit` 等步骤。发布一个 checkpoint、push branch、更新 Draft PR、准备 handoff，都不能自动触发 CI 查询。
+
+只有以下情况可以查 CI：
+
+1. 当前任务本身就是 CI/debug 或 remote-validation；
+2. 当前真的在执行 L4/final merge/promotion；
+3. 用户明确要求查看当前 CI；
+4. 已经出现一个具体 CI failure，现在只诊断这个 failure。
+
+其他情况直接记录：
+
+`CI_NOT_REQUIRED_FOR_RESEARCH`
+
+然后继续研究或完成回复。
+
+即使属于允许查询的场景，同一个未变化 validation object 也最多看一次。若状态为 queued/pending/requested/in_progress，记录：
+
+`CI_PENDING_NONBLOCKING`
+
+立刻结束 CI 子流程，不 sleep、不 backoff、不 retry、不刷新、不逐个 workflow run 轮询。Pending CI 最多只能推迟具体 merge/promotion，不能推迟数学研究、handoff、artifact 交付或用户可见回复。
+
+L1/L2/L3 默认保持 Draft PR；不为了触发 CI 切 ready-for-review。完整 CI 属于专门 validation/L4/final governance/main，而不是普通研究服务。
+
+默认预算：显式任务启动 <=3 次常规 GitHub 读取；普通研究阶段 0 常规源写、0 CI 状态读取；source checkpoint 只批量持久化一次，不随后检查 CI；只有允许的 CI/validation 场景才有一次状态快照额度。
 
 Artifact 发布新增硬约束：研究完成后不得再启动第二个长发布工程。必须遵守 `docs/ARTIFACT_PUBLICATION_LIVENESS.md`：**本地一次生成完整 artifacts -> checker 一次 -> 发布前一次 owner-head 去重/竞态检查 -> 一次 bounded checkpoint publication**。不得为了“单一漂亮 commit”逐文件 minify/chunk/create_blob/assemble tree；connector 无法原子提交目录时，优先少量 contents writes 或正常 git push。若同一 generation 已有等价 checkpoint 先行推进，消费/比较已有结果，只补真正缺失 delta，不重复组装未挂接 commit。
 
