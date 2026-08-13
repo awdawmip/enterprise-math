@@ -1,0 +1,94 @@
+{
+  "schema": "ENTERPRISE_MATH_R051_METROLOGY_CONSTANT_LEDGER_V1",
+  "task_id": "RS-R051-CANDIDATE-BLIND-QUANTITATIVE-HOLDOUT-DATA-ACQUISITION",
+  "researcher_id": "EM-R051-8B4D70",
+  "freeze_timestamp_utc": "2026-08-13T06:23:00Z",
+  "e4_target_constants_fitted_count": 0,
+  "entries": [
+    {
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "potential_realization_specific_items": [
+        "probe/contact correction",
+        "thermal expansion correction",
+        "fixturing/measurand-location conventions"
+      ],
+      "values_used_in_target": [],
+      "status": "NOT_USED_NO_E4_TARGET"
+    },
+    {
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "potential_realization_specific_items": [
+        "phase-angle standard calibration",
+        "timebase/synchronization chain"
+      ],
+      "values_used_in_target": [],
+      "status": "NOT_USED_NO_E4_TARGET"
+    },
+    {
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "potential_realization_specific_items": [
+        "spot-size calibration",
+        "Au transducer thickness",
+        "reference-phase correction"
+      ],
+      "values_used_in_target": [],
+      "status": "NOT_USED_NO_E4_TARGET"
+    },
+    {
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "potential_realization_specific_items": [
+        "VNA calibration",
+        "cavity-length realization",
+        "temperature control"
+      ],
+      "values_used_in_target": [],
+      "status": "NOT_USED_NO_E4_TARGET"
+    },
+    {
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "potential_realization_specific_items": [
+        "weigh-scale calibration",
+        "air-buoyancy correction",
+        "timebase"
+      ],
+      "values_used_in_target": [],
+      "status": "NOT_USED_NO_E4_TARGET"
+    },
+    {
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "potential_realization_specific_items": [
+        "collection-tank volume calibration",
+        "pressure scale",
+        "temperature scale",
+        "timebase",
+        "gas density/state realization"
+      ],
+      "source_nominal_apparatus_context": [
+        "34 L and 677 L collection tanks"
+      ],
+      "values_used_in_target": [],
+      "status": "NOT_USED_NO_E4_TARGET"
+    },
+    {
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "potential_realization_specific_items": [
+        "coupler corrections",
+        "environmental P/T/RH corrections",
+        "electrical transfer calibration"
+      ],
+      "values_used_in_target": [],
+      "status": "NOT_USED_NO_E4_TARGET"
+    },
+    {
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "potential_realization_specific_items": [
+        "separation calibration",
+        "orientation/polarization setup",
+        "RF source/receiver calibration"
+      ],
+      "values_used_in_target": [],
+      "status": "NOT_USED_NO_E4_TARGET"
+    }
+  ],
+  "block_b_calibration_debt_rule": "Any future realization-specific constant must remain separately charged; none is silently shared across liquid/gas or microphone/antenna in this generation."
+}
