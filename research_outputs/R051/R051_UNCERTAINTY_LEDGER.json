@@ -1,0 +1,78 @@
+{
+  "schema": "ENTERPRISE_MATH_R051_UNCERTAINTY_LEDGER_V1",
+  "task_id": "RS-R051-CANDIDATE-BLIND-QUANTITATIVE-HOLDOUT-DATA-ACQUISITION",
+  "researcher_id": "EM-R051-8B4D70",
+  "freeze_timestamp_utc": "2026-08-13T06:23:00Z",
+  "rules": {
+    "no_invented_correlations": true,
+    "original_source_units_authoritative": true,
+    "unit_conversion_double_count_forbidden": true,
+    "source_table_rounding_preserved": true
+  },
+  "entries": [
+    {
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "kind": "expanded uncertainty",
+      "source_uncertainty_semantics": "U(k=2) approximately 0.11 micrometre + 0.2*L micrometre in the M48 paper; service surface gives equivalent scale form",
+      "scope": "GLOBAL/LENGTH_DEPENDENT",
+      "e4_use": "SOURCE_ENVELOPE_ONLY_NO_CONDITION_ARRAY",
+      "rounding_record": "display precision preserved; no extra digits"
+    },
+    {
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "kind": "source setting expanded uncertainty",
+      "source_uncertainty_semantics": "<0.01 degree below 5 kHz for equal amplitudes; <0.015 degree for unequal amplitudes ratio <10:1",
+      "scope": "GLOBAL_CONDITIONAL",
+      "e4_use": "SOURCE_ENVELOPE_ONLY_NO_PMU_PHASE_ERROR_ARRAY",
+      "rounding_record": "strict inequalities preserved"
+    },
+    {
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "kind": "raw phase standard deviation",
+      "source_uncertainty_semantics": "±0.1 degree",
+      "scope": "GLOBAL_FOR_SWEEPER_OUTPUT",
+      "e4_use": "SOURCE_ENVELOPE_ONLY_NO_PHASE_ARRAY",
+      "rounding_record": "display precision preserved"
+    },
+    {
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "kind": "source-defined curve noise/WLS covariance",
+      "source_uncertainty_semantics": "frequency-dependent additive-noise variance; source computes one-sigma f0/Q uncertainty/covariance",
+      "scope": "CURVE_SPECIFIC_MODEL",
+      "e4_use": "SOURCE_ERROR_MODEL_ONLY_NO_RAW_CURVE",
+      "rounding_record": "no unsourced global tolerance"
+    },
+    {
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "kind": "expanded uncertainty",
+      "source_uncertainty_semantics": "0.022% mass flow; 0.023% volume flow; about 95% confidence",
+      "scope": "GLOBAL_SERVICE_ENVELOPE",
+      "e4_use": "SOURCE_ENVELOPE_ONLY_NO_RAW_MASS_TIME_ARRAY",
+      "rounding_record": "display precision preserved"
+    },
+    {
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "kind": "expanded uncertainty",
+      "source_uncertainty_semantics": "0.02% to 0.05%, k=2",
+      "scope": "RANGE",
+      "e4_use": "SOURCE_ENVELOPE_ONLY_NO_PVTt_STATE_ARRAY",
+      "rounding_record": "range preserved; not replaced by midpoint"
+    },
+    {
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "kind": "frequency-dependent expanded uncertainty",
+      "source_uncertainty_semantics": "0.07 dB at 31.5 Hz; 0.05 dB at 50 Hz; 0.04 dB from 100 Hz through 2000 Hz; k=2",
+      "scope": "FREQUENCY_DEPENDENT",
+      "e4_use": "SOURCE_ENVELOPE_ONLY_NO_DIRECTED_PAIR_ARRAY",
+      "rounding_record": "source table precision preserved"
+    },
+    {
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "kind": "typical gain measurement uncertainty",
+      "source_uncertainty_semantics": "0.10 dB for frozen 2–30 GHz service subrange",
+      "scope": "TYPICAL_SERVICE_ENVELOPE",
+      "e4_use": "SOURCE_ENVELOPE_ONLY_NO_DIRECTED_PAIR_ARRAY",
+      "rounding_record": "typical qualifier preserved"
+    }
+  ]
+}

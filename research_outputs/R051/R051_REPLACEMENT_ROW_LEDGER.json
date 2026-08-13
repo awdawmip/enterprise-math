@@ -1,0 +1,75 @@
+{
+  "schema": "ENTERPRISE_MATH_R051_REPLACEMENT_ROW_LEDGER_V1",
+  "task_id": "RS-R051-CANDIDATE-BLIND-QUANTITATIVE-HOLDOUT-DATA-ACQUISITION",
+  "researcher_id": "EM-R051-8B4D70",
+  "freeze_timestamp_utc": "2026-08-13T06:23:00Z",
+  "replacement_selected_count": 0,
+  "new_generation_rows": [],
+  "candidates": [
+    {
+      "replacement_id": "R051-RC-GMC-BIPM-STEP-GAUGE",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "searched_after_original_failure": true,
+      "source_ids": [
+        "SRC-R051-GMC-BIPM-APMP-L-K5-2006-1"
+      ],
+      "selection": "NOT_SELECTED",
+      "reason": "Official KCDB states measurement data exist in final-report pages, but condition-indexed source table was not ingested into the frozen packet; KCDB HTML chiefly exposes derived degrees of equivalence/En, which cannot be relabeled as raw measurements."
+    },
+    {
+      "replacement_id": "R051-RC-CCRP-NIST-LSNA-PHASE",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "searched_after_original_failure": true,
+      "source_ids": [
+        "SRC-R051-CCRP-NIST-LSNA-PDR",
+        "SRC-R051-CCRP-NIST-LSNA-2019"
+      ],
+      "selection": "NOT_SELECTED",
+      "reason": "Official 17.4 MB CSV exists and has a frozen source hash, but current environment could not ingest its numerical rows. Dataset existence/file hash is not a measured-value array and cannot create E4."
+    },
+    {
+      "replacement_id": "R051-RC-DR-NIST-THERMOGRAPHY",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "searched_after_original_failure": true,
+      "source_ids": [
+        "SRC-R051-DR-NIST-THERMOGRAPHY-PDR"
+      ],
+      "selection": "NOT_SELECTED",
+      "reason": "Raw thermographic experimental dataset discovered, but a source-grounded matching diffusive-relaxation output with per-condition uncertainty and an auditable split was not acquired; no family stretching."
+    },
+    {
+      "replacement_id": "R051-RC-BMS-NIST-S2P",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "searched_after_original_failure": true,
+      "source_ids": [
+        "SRC-R051-BMS-NIST-S2P-PDR"
+      ],
+      "selection": "REJECTED_WRONG_PROTOCOL",
+      "reason": "Official S-parameter archive is machine-readable but is an on-wafer calibration dataset, not a bounded resonator spectrum. Reusing it would mutate the pressure semantics."
+    },
+    {
+      "replacement_id": "R051-RC-TIBC-NONE",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "searched_after_original_failure": true,
+      "source_ids": [
+        "SRC-B1-NIST-SP250-98-2021",
+        "SRC-B1-NIST-PVTT-2003"
+      ],
+      "selection": "NOT_SELECTED",
+      "reason": "No candidate-blind replacement with both source-grounded liquid dynamic-gravimetric and gas PVTt condition arrays was acquired. One-realization promotion is forbidden."
+    },
+    {
+      "replacement_id": "R051-RC-SRIR-NONE",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "searched_after_original_failure": true,
+      "source_ids": [
+        "SRC-B2-NIST-MIC-RECIP-2011",
+        "SRC-B2-NIST-ANTENNA-2006",
+        "SRC-B2-NIST-CTL-ANTENNA"
+      ],
+      "selection": "NOT_SELECTED",
+      "reason": "No replacement acquired source-supplied directed-pair arrays for both microphone and three-antenna realizations. Reciprocity theory/derived sensitivity/gain is not a substitute."
+    }
+  ],
+  "rule": "A candidate is never promoted merely because a repository record says a file exists; measured numerical values must be actually acquired and frozen."
+}

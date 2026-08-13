@@ -1,0 +1,75 @@
+{
+  "schema": "ENTERPRISE_MATH_R051_ADVERSARIAL_TEST_RESULTS_V1",
+  "task_id": "RS-R051-CANDIDATE-BLIND-QUANTITATIVE-HOLDOUT-DATA-ACQUISITION",
+  "researcher_id": "EM-R051-8B4D70",
+  "freeze_timestamp_utc": "2026-08-13T06:23:00Z",
+  "tests": [
+    {
+      "attack": "CANDIDATE_INFORMATION_USED_FOR_DATA_SELECTION",
+      "verdict": "PASS",
+      "evidence": "Incidental prohibited context was quarantined; source searches followed R049 protocol/family descriptors and the Stage-0 protocol only."
+    },
+    {
+      "attack": "CONSTRUCTION_HOLDOUT_SPLIT_AFTER_CANDIDATE_ACCESS",
+      "verdict": "PASS",
+      "evidence": "No candidate access occurred; no E4 data array existed, so no split was instantiated."
+    },
+    {
+      "attack": "PLOT_DIGITIZATION_AS_RAW_DATA",
+      "verdict": "PASS",
+      "evidence": "No manual plot digitization or OCR-derived numeric array was used."
+    },
+    {
+      "attack": "MODEL_CURVE_AS_EMPIRICAL_OBSERVATION",
+      "verdict": "PASS",
+      "evidence": "No formula/model curve was entered as measured output."
+    },
+    {
+      "attack": "CALCULATED_OUTPUT_AS_MEASUREMENT",
+      "verdict": "PASS",
+      "evidence": "Derived calibration factor, thermal parameter, f0/Q, antenna gain, microphone sensitivity, En/KCRV or modeled absorption were not relabeled as raw measured carriers."
+    },
+    {
+      "attack": "TOLERANCE_INVENTED_WITHOUT_SOURCE",
+      "verdict": "PASS",
+      "evidence": "Only source-stated uncertainty semantics are preserved; no E4 threshold was invented."
+    },
+    {
+      "attack": "SAME_OBSERVATION_USED_FOR_FIT_AND_HOLDOUT",
+      "verdict": "PASS",
+      "evidence": "No fit/holdout split instantiated; arrays are empty."
+    },
+    {
+      "attack": "UNIT_CONVERSION_DOUBLE_COUNT",
+      "verdict": "PASS",
+      "evidence": "No converted copy creates evidence; original source units remain authoritative."
+    },
+    {
+      "attack": "SOURCE_TABLE_ROUNDING_IGNORED",
+      "verdict": "PASS",
+      "evidence": "Displayed precision and inequality/range semantics are preserved exactly in the uncertainty ledger."
+    },
+    {
+      "attack": "BLOCK_B_ONE_REALIZATION_ONLY_PROMOTED_TO_E4",
+      "verdict": "PASS",
+      "evidence": "Neither Block-B pressure is promoted; both require both frozen realizations."
+    },
+    {
+      "attack": "TRAINING_SOURCE_COLLISION_NOT_AUDITED",
+      "verdict": "PASS_WITH_SEARCH_LIMITATION",
+      "evidence": "Replacement source tokens were searched without opening forbidden candidate content; no hits found, non-hit not treated as proof."
+    },
+    {
+      "attack": "TARGET_MUTATION_AFTER_FREEZE",
+      "verdict": "PASS",
+      "evidence": "Stage-0 protocol bytes remain frozen; final target is a new immutable manifest generation."
+    },
+    {
+      "attack": "CLASSICAL_PI_NUMERIC_SELECTION",
+      "verdict": "PASS",
+      "evidence": "No classical pi numerical value was used as a source/row/split/replacement signal."
+    }
+  ],
+  "all_required_attacks_present": true,
+  "e4_promotion_count": 0
+}

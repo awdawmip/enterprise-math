@@ -1,0 +1,95 @@
+{
+  "all_required_attacks_present": true,
+  "calibration_run": false,
+  "candidate_blind": true,
+  "e4_promotion_count": 0,
+  "freeze_timestamp_utc": "2026-08-13T07:21:21Z",
+  "generation": 2,
+  "researcher_id": "EM-R051-8B4D70",
+  "schema": "ENTERPRISE_MATH_R051_G2_ADVERSARIAL_TEST_RESULTS_V1",
+  "schema_split_protocol_sha256": "be4eaaac5e2425f6ff3c2b617603ab0bd9e8dc2dd0b243dbccc0e2e26c1912d8",
+  "task_id": "RS-R051-CONTINUE-CANDIDATE-BLIND-KNOWN-SOURCE-NUMERIC-INGESTION",
+  "terminal_verdict": "PASS_WITH_DISCLOSED_QUARANTINE; ZERO_E4_ROWS",
+  "tests": [
+    {
+      "attack": "SOURCE_HASH_NOT_VERIFIED",
+      "evidence": "K1/K2 are not promoted because their authoritative main-object byte hashes were not verified from acquired bytes.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "NUMERIC_VALUES_READ_BEFORE_SCHEMA_SPLIT_FREEZE",
+      "evidence": "Replacement-search tooling auto-exposed table values pre-freeze; event PNE-001 is disclosed and those sources contribute zero rows and zero schema/split influence.",
+      "verdict": "PASS_WITH_QUARANTINE"
+    },
+    {
+      "attack": "CANDIDATE_INFORMATION_USED_FOR_SOURCE_SELECTION",
+      "evidence": "No forbidden candidate surface was intentionally accessed or used.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "CANDIDATE_INFORMATION_USED_FOR_COLUMN_SELECTION",
+      "evidence": "No candidate information selected columns; K1 has no admitted carrier fields and K2 admits only source-semantic x_i in principle, with zero rows.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "CANDIDATE_INFORMATION_USED_FOR_SPLIT",
+      "evidence": "No target split was instantiated and no candidate information was used.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "MODEL_OR_DERIVED_COLUMN_PROMOTED_TO_MEASUREMENT",
+      "evidence": "K2 D_i/U_i/En and K1 paper/model-derived quantities are rejected as authoritative raw measured carriers.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "PLOT_DIGITIZATION_AS_RAW_DATA",
+      "evidence": "No plot digitization or OCR-derived numeric array is admitted.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "HEADER_ONLY_DATASET_EXISTENCE_PROMOTED_TO_E4",
+      "evidence": "K1 dataset existence and hash sidecar do not create E4; source-native rows remain zero.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "SAME_OBSERVATION_USED_FOR_CONSTRUCTION_AND_HOLDOUT",
+      "evidence": "No construction/holdout observations exist.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "TOLERANCE_INVENTED_WITHOUT_SOURCE",
+      "evidence": "No tolerance or covariance is invented.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "SOURCE_TABLE_ROUNDING_IGNORED",
+      "evidence": "No source-native numeric table values are admitted; no digits are added.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "UNIT_CONVERSION_DOUBLE_COUNT",
+      "evidence": "No converted copy creates evidence.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "PRESSURE_FAMILY_STRETCHED_FOR_AVAILABLE_DATA",
+      "evidence": "Thermography and on-wafer S2P sources are rejected rather than stretched into the frozen families.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "BLOCK_B_ONE_REALIZATION_ONLY_PROMOTED_TO_PRESSURE_E4",
+      "evidence": "Neither Block-B pressure is promoted in generation 2.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "GENERATION1_TARGET_MUTATED",
+      "evidence": "Generation-1 exact head/anchors were verified and no generation-1 write occurred.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "CLASSICAL_PI_NUMERIC_SELECTION",
+      "evidence": "No classical-pi numerical value was used for source, row, column, split, threshold or eligibility.",
+      "verdict": "PASS"
+    }
+  ]
+}

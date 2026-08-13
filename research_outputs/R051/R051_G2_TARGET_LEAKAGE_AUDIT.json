@@ -1,0 +1,40 @@
+{
+  "calibration_run": false,
+  "candidate_blind": true,
+  "candidate_information_used_for_column_selection": false,
+  "candidate_information_used_for_source_selection": false,
+  "candidate_information_used_for_split": false,
+  "candidate_scoring_run": false,
+  "classical_pi_numeric_selection_used": false,
+  "forbidden_candidate_surfaces_intentionally_accessed": false,
+  "freeze_timestamp_utc": "2026-08-13T07:21:21Z",
+  "g1_g2_rankings_accessed_as_selection_signal": false,
+  "g3_generation_run": false,
+  "generation": 2,
+  "generation1_head_verified": "b6fbf431a3c76c4a437acf97cb7a784762e524ab",
+  "generation1_mutated": false,
+  "generation1_target_sha256_verified": "58b5bcd03cf7070008b2f97a3457d376f566355e1848933317f57a5d2edcc498",
+  "generation1_write_operations": 0,
+  "prefreeze_numeric_exposure_events": [
+    {
+      "admitted_observations": 0,
+      "cause": "PDF/search retrieval tooling automatically returned snippets containing table values while resolving official report surfaces.",
+      "event_id": "PNE-001",
+      "influence_on_target": "NONE_BY_DESIGN",
+      "mitigation": "All exposed values were quarantined. Neither source contributes a target row, carrier choice, condition choice, split, uncertainty, threshold or eligibility decision in generation 2.",
+      "source_ids": [
+        "BIPM_EURAMET_L_K5_2016",
+        "BIPM_APMP_L_K5_N01"
+      ],
+      "type": "PRE_FREEZE_NUMERIC_EXPOSURE_RISK"
+    }
+  ],
+  "r048_g2_candidate_content_accessed": false,
+  "r049_target_sha256_verified": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+  "r050_candidate_specific_matrices_or_bridges_accessed": false,
+  "researcher_id": "EM-R051-8B4D70",
+  "schema": "ENTERPRISE_MATH_R051_G2_TARGET_LEAKAGE_AUDIT_V1",
+  "schema_split_protocol_sha256": "be4eaaac5e2425f6ff3c2b617603ab0bd9e8dc2dd0b243dbccc0e2e26c1912d8",
+  "task_id": "RS-R051-CONTINUE-CANDIDATE-BLIND-KNOWN-SOURCE-NUMERIC-INGESTION",
+  "verdict": "PASS_WITH_DISCLOSED_PRE_FREEZE_NUMERIC_EXPOSURE_QUARANTINE"
+}
