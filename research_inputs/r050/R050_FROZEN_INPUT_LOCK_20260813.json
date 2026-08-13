@@ -1,0 +1,41 @@
+{
+  "schema": "ENTERPRISE_MATH_R050_FROZEN_INPUT_LOCK_V1",
+  "status": "FROZEN_BEFORE_R050_DISPATCH",
+  "r048_g2": {
+    "pr": 539,
+    "head": "58eaac9aa2d407d682c05bdd67ada8aded5fb642",
+    "candidate_set_sha256": "2e1f85a3faf37a0525364c220f9449caea45408bf6a954c09045bf78646cf959",
+    "candidate_count": 6,
+    "rule": "candidate cores immutable"
+  },
+  "r046_training_surface": {
+    "pr": 534,
+    "head": "72b68e49ab22c0d948cd5e5439f5e656a2399d77",
+    "role": "legacy construction/calibration training surface only; never holdout"
+  },
+  "r047c_training_surface": {
+    "pr": 537,
+    "head": "92d751f49174ec792839938a64d489ac902db11a",
+    "role": "legacy bridge/debt evidence only; never holdout"
+  },
+  "r049_holdout": {
+    "pr": 540,
+    "head": "220aa5647389386d6c953e6aa04f32769f90f490",
+    "target_sha256": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+    "target_rows": 8,
+    "pressure_families": 6,
+    "rule": "R049 target bytes remain closed until R050 pre-bridge and training bridge freezes are complete; no target field may be edited after opening"
+  },
+  "required_sequence": [
+    "A_PREBRIDGE_NATIVE_OBSERVABLE_FREEZE",
+    "B_LEGACY_TRAINING_METROLOGY_BRIDGE_FREEZE",
+    "C_OPEN_R049_TARGET_AND_RUN_OUT_OF_SAMPLE_ONLY"
+  ],
+  "forbidden": [
+    "candidate-core mutation",
+    "R049 target use during Stage A or B",
+    "post-R049 bridge fitting",
+    "classical pi numerical proximity as loss",
+    "target-specific effective definitions copied into native inputs"
+  ]
+}
