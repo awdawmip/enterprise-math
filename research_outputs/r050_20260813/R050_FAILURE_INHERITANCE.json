@@ -1,0 +1,66 @@
+{
+  "core_modification_performed": false,
+  "failure_debts": [
+    {
+      "debt_id": "R050-FD-EVAL-NUMERIC-HOLDOUT",
+      "generation_action": "NONE; regenerate the holdout/evaluation packet, not G2.",
+      "minimal_statement": "A future blind holdout must freeze condition-indexed numerical measured-output values (or raw arrays) plus source-traceable uncertainties and an explicit construction/holdout split before candidate access.",
+      "type": "EVALUATION_ONLY_REQUIREMENT",
+      "why_independent": "Without values, E3/E4 are untestable for every candidate regardless of native mechanism quality."
+    },
+    {
+      "debt_id": "R050-FD-METROLOGY-BRIDGE",
+      "generation_action": "Bridge design belongs to a later calibration/evaluation task unless the required carrier is absent from N0/N1.",
+      "minimal_statement": "Freeze target-independent physical-to-native carrier mappings and finite metrology bridge forms before numerical holdout evaluation; keep realization-specific constants separately counted.",
+      "type": "CALIBRATION_METROLOGY_BRIDGE_DEBT",
+      "why_independent": "Structural native relations do not by themselves set SI mass/flow/phase/frequency/signal scales."
+    },
+    {
+      "debt_id": "R050-FD-DRIVEN-RESPONSE",
+      "generation_action": "NEW_GENERATION_CANDIDATE_FOR_LATER_TASK",
+      "minimal_statement": "A serious future native mechanism needs a finite, non-classical driven-response operation that can generate an ordered intervention-indexed response family without importing a continuum PDE/Fourier/eigenmode law.",
+      "type": "N1_OPERATIONAL_DEBT",
+      "why_independent": "M1/M2/M4 relax but are undriven; M3/M6 recur without relaxation; M5 leaves concrete generators unspecified."
+    },
+    {
+      "debt_id": "R050-FD-MEASURABLE-READOUT",
+      "generation_action": "NEW_GENERATION_CANDIDATE_FOR_LATER_TASK",
+      "minimal_statement": "Derive target-independent finite readouts for relative periodic displacement, delayed response, bounded response peaks/widths, and directed-transfer compatibility from one native state rather than defining them from measured outputs.",
+      "type": "N2_READOUT_QUOTIENT_DEBT",
+      "why_independent": "Most G2 candidates have internal invariants/quotients but not the externally discriminating engineering readouts required by five of six pressures."
+    },
+    {
+      "debt_id": "R050-FD-PORT-INTERFACE-ROLE",
+      "generation_action": "NEW_GENERATION_CANDIDATE_FOR_LATER_TASK",
+      "minimal_statement": "Explore whether source/receiver/port/interface and role-interchange structure can be N0-definable from finite relations without a center, metric, geometry, or target-coded labels.",
+      "type": "N0_OR_N0_DEFINABLE_STRUCTURE_DEBT",
+      "why_independent": "Transfer closure can be derived by M1/M6 only after an I0 source/receiver partition; reciprocity remains signal-unpredicted."
+    },
+    {
+      "debt_id": "R050-FD-EXTENSIVE-CONSERVED-RELAXING-RECURRENT",
+      "generation_action": "NEW_GENERATION_CANDIDATE_FOR_LATER_TASK",
+      "minimal_statement": "Seek a low-description finite mechanism in which an extensive conserved carrier, nontrivial relaxation, and nontrivial recurrence coexist without making recurrence or relaxation a downstream relabeling.",
+      "type": "N0_N1_COEXISTENCE_DEBT",
+      "why_independent": "R048 counterexamples separate these properties: M1/M2 relax without recurrence, M3/M6 recur without relaxation, M4 is nonextensive, M5 lacks a guaranteed conserved carrier."
+    },
+    {
+      "debt_id": "R050-FD-RECIPROCITY-SIGNAL",
+      "generation_action": "NEW_GENERATION_CANDIDATE_FOR_LATER_TASK",
+      "minimal_statement": "Derive a signal-valued or comparison-valued invariant under source/receiver interchange from frozen finite operations; state/action symmetry alone is insufficient.",
+      "type": "N2_READOUT_QUOTIENT_DEBT",
+      "why_independent": "M1/M4/M6 have endpoint/action symmetries but none entails compatibility of independently measured acoustic/RF transfer signals."
+    }
+  ],
+  "forbidden_current_generation_actions": [
+    "repair G2-M1..G2-M6",
+    "add target-specific N0/N1 primitives",
+    "refit separate Block-B realization bridges",
+    "import classical target theorem as native law"
+  ],
+  "new_generation_candidates_instantiated": false,
+  "note": "Debt extraction is a next-generation research surface only. No R048 candidate definition, theorem, counterexample, name, or internal structure was modified.",
+  "researcher_id": "EM-R050-93B6E2",
+  "return_class": "G2_OUT_OF_SAMPLE_CALIBRATION_COMPLETE / NO_E4_E5 / FAILURE_DEBTS_FROZEN / NO_STRICT_WINNER / NOT_CANONICAL",
+  "schema": "ENTERPRISE_MATH_R050_FAILURE_INHERITANCE_V1",
+  "task_id": "RS-R050-G2-OUT-OF-SAMPLE-ENGINEERING-CALIBRATION"
+}

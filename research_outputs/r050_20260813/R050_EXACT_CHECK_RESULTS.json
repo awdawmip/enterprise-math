@@ -1,0 +1,40 @@
+{
+  "checker": "check_r050.py",
+  "checker_total_checks": 1554,
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "groups": [
+    {
+      "checks": 17,
+      "name": "freeze_integrity"
+    },
+    {
+      "checks": 488,
+      "name": "matrix_and_scoring"
+    },
+    {
+      "checks": 552,
+      "name": "m1_transfer_identity"
+    },
+    {
+      "checks": 486,
+      "name": "m6_transfer_identity"
+    },
+    {
+      "checks": 11,
+      "name": "ledgers_and_audits"
+    }
+  ],
+  "notes": [
+    "The checker recomputes the frozen R050 scoring-protocol SHA-256 from file bytes.",
+    "The checker recomputes the R049 aggregate target hash from the exact per-file byte hashes recorded during Stage 0.",
+    "The checker verifies 48 unique row-level cells, 36 unique pressure-level cells, B3/B4 evidence caps, zero fitted parameters, zero E4/E5, and no weighted score.",
+    "Finite exhaustive regressions verify the exact M1 and M6 transfer-inventory telescoping identities on bounded state spaces; these regressions support the stated finite algebraic derivations and do not create engineering validation."
+  ],
+  "researcher_id": "EM-R050-93B6E2",
+  "schema": "ENTERPRISE_MATH_R050_EXACT_CHECK_RESULTS_V1",
+  "status": "PASS",
+  "task_id": "RS-R050-G2-OUT-OF-SAMPLE-ENGINEERING-CALIBRATION",
+  "test_file": "test_r050.py",
+  "unit_test_count": 4,
+  "unit_test_status": "PASS"
+}
