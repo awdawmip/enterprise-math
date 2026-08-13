@@ -1,0 +1,68 @@
+{
+  "bridge_admissibility": {
+    "CONSERVATIVE_EXTENSION": "Adds comparison structure without excluding any old model after forgetting the new symbols.",
+    "DEFINABLE_CONSEQUENCE": "Constructed uniquely from frozen symbols by definability/quotient and natural under frozen isomorphisms.",
+    "EXISTING_THEOREM": "Already frozen in R052 and reused without mutation.",
+    "ILLEGAL_OUTPUT_COPYING": "An axiom or definition whose mathematical content is only that two final role outputs agree, or whose parameter is chosen from the desired classical identification.",
+    "NONCONSERVATIVE_EXTENSION": "Adds a real axiom restricting the old model class; must have an explicit mathematical reason and deletion/countermodel audit.",
+    "NORMALIZATION_CHOICE": "Breaks an independently exhibited scaling/unit automorphism or torsor; must be separately named.",
+    "READOUT_SCALARIZATION": "Adds N2/comparison output structure and may not be described as native equality."
+  },
+  "canonicality_tests": [
+    "typed_dependency_closure",
+    "invariance_or_equivariance_under_frozen_automorphisms",
+    "choice_independence",
+    "no_hidden_carrier_identification",
+    "no_hidden_orientation_or_basepoint",
+    "no_scalar_or_unit_insertion_before_scalarization_stage",
+    "no_classical_or_engineering_target_signal",
+    "refinement_naturality_where_R1_is_involved"
+  ],
+  "classical_firewall": {
+    "classical_numeric_selection": false,
+    "classical_symbolic_identification_used_for_bridge_design": false,
+    "engineering_target_used": false,
+    "stage_f_seal_read_before_bridge_freeze": false
+  },
+  "classification_vocabulary": {
+    "COMMON_REDUCT_POSSIBLE": "Each role admits a frozen/definable forgetting construction into one common structural language; this does not identify the resulting objects.",
+    "DEFINABLE_QUOTIENT_POSSIBLE": "A comparison object is a quotient definable from frozen structure, with no arbitrary section, orientation, basepoint, metric, or scalar choice.",
+    "FUNCTORIAL_REALIZATION_REQUIRED": "Comparison is meaningful only after a functor/realization sends one or both frozen role objects into a common category/carrier.",
+    "GROUP_EXTENSION_RELATION_REQUIRED": "The relation is expressed through an exact group extension, quotient, kernel, lift, or doubling/squaring map rather than equality of final role outputs.",
+    "ILL_TYPED_NO_COMMON_CARRIER": "Direct equality is not a formula of the frozen combined language because the role terms have distinct carriers/codomains and no frozen comparison map.",
+    "NORMALIZATION_REQUIRED": "An otherwise legal scalar/readout construction has a nontrivial rescaling/unit torsor that must be fixed independently of the desired final equality.",
+    "SAME_CODOMAIN_NATIVE_COMPARISON": "Both frozen role terms inhabit the same frozen carrier/codomain in a common model, so equality is syntactically well-typed without adding a carrier identification.",
+    "SCALARIZATION_REQUIRED": "At least one frozen non-scalar object must be sent by a newly declared readout into a scalar codomain."
+  },
+  "output_copying_test": "Delete the proposed bridge axiom and ask whether it states independently meaningful structure. If its only surviving content is the desired final output equality, classify ILLEGAL_OUTPUT_COPYING.",
+  "packet_source": "1b1c0632cb603c403ce898a21f498dabba57ce00",
+  "pair_enumeration_rule": "All 10 unordered pairs i<j in role_order; no omissions and no directional double counting.",
+  "primary_classification_rule": [
+    "First ask whether direct equality is well-typed in the frozen common language.",
+    "If not, identify the least structural object needed merely to state a comparison.",
+    "Classify that object before asking whether any values coincide.",
+    "A pair may carry multiple required classes; ILL_TYPED_NO_COMMON_CARRIER remains explicit whenever native equality is not a formula."
+  ],
+  "r052_frozen_hashes": {
+    "R052_FORMAL_PLANE_SIGNATURE_FAMILY.json": "946eb08652b7c505adb9b2e8c1263a7260147962b1b7056d5a890d623fbcd0e2",
+    "R052_PI_ROLE_REGISTRY.json": "33cabef583b3847eedae152181de002806b800bd8cdb01c07b595d5a695dfe66",
+    "R052_THEOREM_COUNTEREXAMPLE_LEDGER.json": "4a854ca114ab46e7b828f3eb991be745ac2342c034809566218442926b48ebac"
+  },
+  "r052_frozen_head": "537207b7e169d8f3d150d1600715a18f024c37e3",
+  "researcher_id": "EM-R052B-5D91C7",
+  "role_order": [
+    "R1_CELL_HALF_CYCLE",
+    "R2_DIRECTION_DECK",
+    "R3_GROUP_INVOLUTION_ACTION",
+    "R4_RAW_ISOPERIMETRIC_CUT",
+    "R5_TURN_KERNEL_GENERATOR_CLASS"
+  ],
+  "schema": "ENTERPRISE_MATH_R052B_COMPARABILITY_PROTOCOL_V1",
+  "semantic_discipline": {
+    "foundational_logic": "definitions are not inherited; no target-side object copied into bridge premises",
+    "gate_v3": "carrier/type/readout strata are preserved; N2 scalarization is never silently promoted to N0"
+  },
+  "status": "FROZEN_PRECLASSICAL_STAGE0_NOT_CANONICAL",
+  "task_id": "RS-R052B-CROSS-ROLE-TYPED-COHERENCE",
+  "taskbook_source": "7ab96faa82833509f0746b98fc2263cbddd3ddb0"
+}

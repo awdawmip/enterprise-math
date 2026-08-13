@@ -1,0 +1,75 @@
+{
+  "debt_items": [
+    {
+      "classification": "COMPARISON_ONLY",
+      "debt_id": "D-R4-COMMON-MODEL",
+      "independence_witness": "Neither frozen S5 nor frozen S6 contains the other's added symbols.",
+      "need": "For R4/R5, co-locate S5 and S6 over their common S4 reduct."
+    },
+    {
+      "classification": "N0_STRUCTURE_EXTENSION",
+      "debt_id": "D-R4-NORM-GEOMETRY",
+      "independence_witness": "Same S4+mu+S6 data, different positive scalar multiple of N.",
+      "need": "R4 already depends on a chosen norm N; non-scalar roles do not determine it.",
+      "scale_action": "N->aN with a>0 sends J->a^2 J (mu fixed)."
+    },
+    {
+      "classification": "NORMALIZATION_CHOICE",
+      "debt_id": "D-R4-VALUATION",
+      "independence_witness": "Frozen R052 M5/T-D4; all S4 and non-scalar role data are unchanged.",
+      "need": "Fix relative scale of mu against N if a numerical R4 value is to be compared.",
+      "scale_action": "mu->c mu with c>0 sends J->J/c."
+    },
+    {
+      "classification": "N2_SCALARIZATION_READOUT",
+      "debt_id": "D-R5-SCALARIZER",
+      "example": "injective group hom lambda:ker(p)->(K,+), P_lambda([t])=|lambda(t)|",
+      "independence_witness": "lambda and b lambda, b>0, have identical frozen group data but P scales by b.",
+      "need": "A map from cyclic kernel information into an ordered scalar carrier."
+    },
+    {
+      "classification": "NORMALIZATION_CHOICE",
+      "debt_id": "D-SCALARIZER-UNIT",
+      "need": "Fix the positive scaling torsor of lambda before any scalar equality can be invariant.",
+      "scale_action": "lambda->b lambda gives P->bP."
+    },
+    {
+      "classification": "COMPARISON_ONLY",
+      "debt_id": "D-COMMON-CODOMAIN",
+      "need": "Embed scalarized group value into Cut(K) (or send both values to another declared common ordered carrier).",
+      "status": "DERIVABLE once a K-valued scalarizer is chosen; otherwise an additional comparison map is required."
+    },
+    {
+      "classification": "N2_SCALARIZATION_READOUT",
+      "debt_id": "D-COMPLETION-READOUT",
+      "independence_witness": "Finite group/cover information alone does not select an order completion or scalar embedding.",
+      "need": "R4's infimum lives in an order completion; this is a readout layer and is not native to group roles."
+    }
+  ],
+  "illegal_shortcut": "Axiom J=P has no independent structural content and is ILLEGAL_OUTPUT_COPYING.",
+  "independence_claim": "The norm, valuation, and scalarizer scales are independent freedoms in the combined comparison signature: changing any one leaves the other frozen structures unchanged.",
+  "joint_scale_action": {
+    "action": [
+      "J -> (a^2/c) J",
+      "P -> b P",
+      "J/P -> (a^2/(c b))(J/P)"
+    ],
+    "consequence": "Relative scalar coherence is not invariant under the legal independent scale action until enough independently meaningful normalizations break the torsor.",
+    "parameters": [
+      "a>0 norm scale",
+      "c>0 valuation scale",
+      "b>0 kernel-scalarizer scale"
+    ]
+  },
+  "non_scalar_role_types": {
+    "R1": "permutation / finite cyclic involution",
+    "R2": "deck permutation",
+    "R3": "group-action permutation",
+    "R5": "inversion quotient of infinite-cyclic kernel generators"
+  },
+  "r4_type": "Cut(K)_nonnegative",
+  "researcher_id": "EM-R052B-5D91C7",
+  "result": "SCALARIZATION_NORMALIZATION_BARRIER_PROVED",
+  "schema": "ENTERPRISE_MATH_R052B_SCALARIZATION_NORMALIZATION_DEBT_V1",
+  "status": "FROZEN_PRECLASSICAL_NOT_CANONICAL"
+}

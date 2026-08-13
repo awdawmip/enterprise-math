@@ -1,0 +1,117 @@
+{
+  "classical_signal_used_for_generation": false,
+  "freeze_statement": "This ledger and all referenced pre-classical bridge artifacts were hashed before R052 Stage-F/classical identification was opened. No post-opening bridge repair is permitted.",
+  "imported_frozen_theorems": [
+    "R052 T-C1 cyclic half existence/uniqueness",
+    "R052 T-C2 deck uniqueness",
+    "R052 T-D1 S3 role separation",
+    "R052 T-D2 A* direction coherence",
+    "R052 T-D3 A* irredundancy",
+    "R052 T-D4 valuation scaling",
+    "R052 T-D5 kernel-generator inversion quotient",
+    "R052 T-E1 uniform refinement naturality",
+    "R052 T-E2 direct-limit half role",
+    "R052 T-E3 unrestricted-refinement failure"
+  ],
+  "new_statements": [
+    {
+      "id": "R052B-T-A1-R1-ORBIT-COVER",
+      "kind": "DEFINABILITY_THEOREM",
+      "proof_core": "R1 h is a fixed-point-free involution: in C_m it is translation by m/2; its orbits therefore all have size two. Orbit quotient is definable and the deck is unique.",
+      "statement": "Every even-boundary R1 instance canonically defines an exact two-sheet orbit cover q_h:B->B/<h_B>, whose unique deck transformation is h_B.",
+      "status": "PROVED"
+    },
+    {
+      "id": "R052B-T-A2-R1-COVER-REFINEMENT",
+      "kind": "NATURALITY_THEOREM",
+      "proof_core": "Frozen T-E1 gives i h_m=h_km i; hence [j]->[i(j)] is well-defined on orbit quotients and q_km i=bar_i q_m.",
+      "statement": "Frozen uniform refinements induce morphisms of R1 orbit covers and commute with the deck involutions.",
+      "status": "PROVED_EXACT_CHECKED"
+    },
+    {
+      "id": "R052B-T-A3-R1-R2-NO-CANONICAL-IDENTIFICATION",
+      "kind": "AUTOMORPHISM_OBSTRUCTION",
+      "proof_core": "Whenever a cross-cover isomorphism phi exists, postcomposition by the nontrivial target deck gives a distinct isomorphism; naturality under target automorphisms forbids selecting phi canonically.",
+      "statement": "The canonical R1 and R2 functors into COVER2 do not supply a canonical cross-identification of their cover objects.",
+      "status": "PROVED"
+    },
+    {
+      "id": "R052B-T-C1-ABELIAN-EXTENSION-PARITY-CLASSIFICATION",
+      "kind": "CLASSIFICATION_THEOREM",
+      "proof_core": "Lift shift changes coefficient by 2m; generator inversion changes sign. Even parity yields order-two section and Z⊕C2; odd parity yields a generator y of L with 2y generating K, hence L≅Z.",
+      "statement": "Abelian S6-compatible extensions 0->Z->L->C2->0 have exactly two isomorphism classes, split and non-split, classified by parity of 2x relative to a kernel generator.",
+      "status": "PROVED_EXACT_CHECKED"
+    },
+    {
+      "id": "R052B-T-C2-PRIMITIVE-HALF-LIFT-CRITERION",
+      "kind": "EQUIVALENCE_THEOREM",
+      "proof_core": "Immediate from the two extension normal forms.",
+      "statement": "Under S6, a lift x of z with 2x generating K exists iff the extension is non-split iff there is no order-two lift of z iff L is torsion-free.",
+      "status": "PROVED"
+    },
+    {
+      "id": "R052B-T-C3-S6-INSUFFICIENCY",
+      "kind": "COUNTERMODEL_THEOREM",
+      "proof_core": "B-M2 split Z⊕C2 model.",
+      "statement": "Frozen S6 does not force any half-lift whose double generates the kernel.",
+      "status": "PROVED_BY_EXPLICIT_COUNTERMODEL"
+    },
+    {
+      "id": "R052B-T-C4-NONSPLIT-HALF-FULL-COHERENCE",
+      "kind": "COHERENCE_THEOREM",
+      "proof_core": "Primitive lifts form inverse pair ±y; quotient is singleton. Doubling sends ±y to ±2y, the kernel-generator inversion orbit. Both representatives project to z.",
+      "statement": "S6 plus the non-split axiom canonically yields one orientation-free primitive half-lift class; doubling bijects it to R5, while projection/action sends it to R3.",
+      "status": "PROVED"
+    },
+    {
+      "id": "R052B-T-C5-NONSPLIT-IRREDUNDANCY",
+      "kind": "DELETION_WITNESS_THEOREM",
+      "proof_core": "B-M2 is an S6 model satisfying all frozen axioms but lacking primitive half-lifts.",
+      "statement": "Deleting the non-split extension-class axiom destroys the half/full coherence theorem.",
+      "status": "PROVED"
+    },
+    {
+      "id": "R052B-T-D1-R2-R3-R5-EXACT-SPAN",
+      "kind": "TYPED_DIAGRAM_THEOREM",
+      "proof_core": "Combine T-C4 with frozen R052 T-D2.",
+      "statement": "In S6+BEX3, the exact canonical non-scalar component is a span Half(p)->R5 and Half(p)->R3, with frozen R3=R2 in the S4/A* realization; no R3=R5 equality is asserted.",
+      "status": "PROVED"
+    },
+    {
+      "id": "R052B-T-E1-NORM-SCALE",
+      "kind": "SCALING_THEOREM",
+      "proof_core": "Each polygon perimeter scales by a and the ratio is squared in perimeter.",
+      "statement": "For R4, N->aN with a>0 and mu fixed sends J->a^2 J.",
+      "status": "PROVED_EXACT_CHECKED"
+    },
+    {
+      "id": "R052B-T-E2-VALUATION-SCALE",
+      "kind": "IMPORTED_SCALING_THEOREM",
+      "proof_core": "Frozen R052 T-D4.",
+      "statement": "For R4, mu->c mu sends J->J/c.",
+      "status": "IMPORTED_FROZEN_PROVED"
+    },
+    {
+      "id": "R052B-T-E3-SCALARIZER-SCALE",
+      "kind": "SCALING_THEOREM",
+      "proof_core": "Group homomorphism and generator class are unchanged; absolute scalar image is homogeneous.",
+      "statement": "For any declared kernel scalarizer lambda, lambda->b lambda with b>0 leaves R5 unchanged and rescales its scalar magnitude readout by b.",
+      "status": "PROVED"
+    },
+    {
+      "id": "R052B-T-E4-THREE-PARAMETER-SCALAR-COHERENCE-BARRIER",
+      "kind": "NO_GO_THEOREM",
+      "proof_core": "Combine independent norm, valuation, and scalarizer rescaling models.",
+      "statement": "In the common S5+S6 comparison language with a kernel scalarizer, (a,c,b) acts by J->a^2 J/c and P->bP. Therefore the frozen non-scalar data do not force a scalar equality or fixed ratio without independent normalization.",
+      "status": "PROVED"
+    }
+  ],
+  "r052_frozen_inputs": {
+    "R052_PI_ROLE_REGISTRY_SHA256": "33cabef583b3847eedae152181de002806b800bd8cdb01c07b595d5a695dfe66",
+    "R052_SIGNATURE_FAMILY_SHA256": "946eb08652b7c505adb9b2e8c1263a7260147962b1b7056d5a890d623fbcd0e2",
+    "R052_THEOREM_COUNTEREXAMPLE_LEDGER_SHA256": "4a854ca114ab46e7b828f3eb991be745ac2342c034809566218442926b48ebac"
+  },
+  "researcher_id": "EM-R052B-5D91C7",
+  "schema": "ENTERPRISE_MATH_R052B_THEOREM_COUNTEREXAMPLE_LEDGER_V1",
+  "status": "FROZEN_PRECLASSICAL_NOT_CANONICAL"
+}

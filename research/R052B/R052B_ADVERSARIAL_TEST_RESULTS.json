@@ -1,0 +1,95 @@
+{
+  "attacks": [
+    {
+      "attack": "CLASSICAL_STAGE_F_LEAKAGE_BEFORE_BRIDGE_FREEZE",
+      "evidence": "seal/report Stage-F not read; contamination-risk metadata quarantined",
+      "result": "PASS"
+    },
+    {
+      "attack": "CLASSICAL_PI_NUMERIC_SELECTION",
+      "evidence": "no numeric/decimal target used",
+      "result": "PASS"
+    },
+    {
+      "attack": "FROZEN_R052_ROLE_MUTATION",
+      "evidence": "all new constructions typed as bridge/quotient/extension/readout",
+      "result": "PASS"
+    },
+    {
+      "attack": "DIRECT_OUTPUT_EQUALITY_USED_AS_BRIDGE_AXIOM",
+      "evidence": "no new equality axiom; BEX3 is extension-class property",
+      "result": "PASS"
+    },
+    {
+      "attack": "ILL_TYPED_ROLES_FORCED_INTO_COMMON_SCALAR",
+      "evidence": "R4 pairs explicitly retain scalarization/common-codomain debt",
+      "result": "PASS"
+    },
+    {
+      "attack": "NONCANONICAL_REALIZATION_CALLED_NATIVE",
+      "evidence": "BEX2 marked noncanonical realization",
+      "result": "PASS"
+    },
+    {
+      "attack": "R1_REFINEMENT_FAILURE_REPAIRED_AWAY",
+      "evidence": "C4->C5 unrestricted failure preserved",
+      "result": "PASS"
+    },
+    {
+      "attack": "R2_R3_LOCAL_COHERENCE_OVERGENERALIZED",
+      "evidence": "equality used only under frozen A*/S4 realization",
+      "result": "PASS"
+    },
+    {
+      "attack": "S6_EXTENSION_CLASS_NOT_AUDITED",
+      "evidence": "split/non-split parity classification with normal forms",
+      "result": "PASS"
+    },
+    {
+      "attack": "KERNEL_GENERATOR_ORIENTATION_PROMOTED_TO_CANONICAL",
+      "evidence": "raw ± choices remain noncanonical; quotient only",
+      "result": "PASS"
+    },
+    {
+      "attack": "SCALARIZATION_SCALE_FREEDOM_IGNORED",
+      "evidence": "lambda->b lambda theorem/model",
+      "result": "PASS"
+    },
+    {
+      "attack": "VALUATION_NORMALIZATION_FREEDOM_IGNORED",
+      "evidence": "mu->c mu retained",
+      "result": "PASS"
+    },
+    {
+      "attack": "EUCLIDEAN_NORMALIZATION_BACKPROPAGATED",
+      "evidence": "no Euclidean/classical normalization in prefreeze artifacts",
+      "result": "PASS"
+    },
+    {
+      "attack": "ENGINEERING_TARGET_LEAKAGE",
+      "evidence": "R046-R051 not consumed",
+      "result": "PASS"
+    }
+  ],
+  "checker_status": "PASS_SYNTHETIC_EXACT; 2 unittest cases PASS",
+  "exact_check_summary": {
+    "exact_fraction_scale_cases": 81,
+    "floating_point_used": false,
+    "nonsplit_odd_lift_cases": 32,
+    "overall": "PASS",
+    "pair_count": 10,
+    "parity_invariance_cases": 1054,
+    "primitive_half_lifts": [
+      -1,
+      1
+    ],
+    "r1_point_cases": 70,
+    "r1_uniform_refinement_cases": 350,
+    "schema": "ENTERPRISE_MATH_R052B_EXACT_CHECK_RESULTS_V1",
+    "split_lift_cases": 61
+  },
+  "input_byte_hash_recompute_status": "PENDING_TOOLING_RESOLUTION; expected hashes are frozen anchors and are rechecked by the exact checker when a repository checkout is available.",
+  "researcher_id": "EM-R052B-5D91C7",
+  "schema": "ENTERPRISE_MATH_R052B_ADVERSARIAL_TEST_RESULTS_V1",
+  "status": "PRECLASSICAL_FREEZE"
+}
