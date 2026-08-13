@@ -1,0 +1,121 @@
+{
+  "integrity_verdict": "PASS_STAGE0_BLIND_SCORING_FREEZE_AND_G2_IMMUTABILITY",
+  "r048": {
+    "all_candidate_hashes_match": true,
+    "candidate_core_mutation": false,
+    "candidate_count": 6,
+    "candidate_file": "research_outputs/r048_20260813/R048_G2_CANDIDATE_SET.json",
+    "candidate_set_hash_algorithm": "SHA-256 of canonical compact JSON with candidate_set_freeze_sha256 removed; sort_keys=true; ensure_ascii=false",
+    "core_edit_count": 0,
+    "exact_file_byte_sha256": "51dc7c23ff7f40276882e6b6b1f787fc6acfde8d51117c566b5cb7f39a8f62ce",
+    "exact_head": "58eaac9aa2d407d682c05bdd67ada8aded5fb642",
+    "expected_candidate_set_sha256": "2e1f85a3faf37a0525364c220f9449caea45408bf6a954c09045bf78646cf959",
+    "git_blob_sha1": "6a67bdd9ef06733ce9578fd8d3daf32b16d2e6ee",
+    "per_candidate": {
+      "G2-M1": {
+        "expected": "a12bcaa3c6b22366865670513a065b1cf6b9fd95f3941b1e6d13b38becf44f52",
+        "match": true,
+        "name": "PAIRWISE_EQUALIZATION_REWRITE",
+        "recomputed": "a12bcaa3c6b22366865670513a065b1cf6b9fd95f3941b1e6d13b38becf44f52"
+      },
+      "G2-M2": {
+        "expected": "4b4da01eee68c59d683463fbd33b5a36fd36c8ed00456197f96ba3b22e0f1dac",
+        "match": true,
+        "name": "SIGNED_CANCELLATION_LEDGER",
+        "recomputed": "4b4da01eee68c59d683463fbd33b5a36fd36c8ed00456197f96ba3b22e0f1dac"
+      },
+      "G2-M3": {
+        "expected": "ad4ac85dc5dc4463edf0f584e317f23e40aee47d509062803a19309d81ffb6fa",
+        "match": true,
+        "name": "BINARY_CARRY_RELAY",
+        "recomputed": "ad4ac85dc5dc4463edf0f584e317f23e40aee47d509062803a19309d81ffb6fa"
+      },
+      "G2-M4": {
+        "expected": "3830eab3a05532a3df5427a7c24ce15e50f62ae10130b149a432a47094cec85c",
+        "match": true,
+        "name": "FINITE_UNION_PROPAGATION",
+        "recomputed": "3830eab3a05532a3df5427a7c24ce15e50f62ae10130b149a432a47094cec85c"
+      },
+      "G2-M5": {
+        "expected": "be5c048b093423b07a1515f7f4b08baf99ef18d3fafceee0979c9fb5e17dee48",
+        "match": true,
+        "name": "FINITE_REWRITE_ACTION_QUOTIENT",
+        "recomputed": "be5c048b093423b07a1515f7f4b08baf99ef18d3fafceee0979c9fb5e17dee48"
+      },
+      "G2-M6": {
+        "expected": "90dfc14872299e611c1949d5784f32ac6f071ca58752609f72b5150d5d9e30ca",
+        "match": true,
+        "name": "CONSERVATIVE_SWAP_GROUP",
+        "recomputed": "90dfc14872299e611c1949d5784f32ac6f071ca58752609f72b5150d5d9e30ca"
+      }
+    },
+    "recomputed_candidate_set_sha256": "2e1f85a3faf37a0525364c220f9449caea45408bf6a954c09045bf78646cf959"
+  },
+  "r049": {
+    "aggregate_hash_algorithm": "SHA-256 over UTF-8 compact JSON (sort_keys=true,separators=(',',':')) of sorted {filename:'sha256:'+exact_file_byte_sha256}; manifest excluded",
+    "all_artifact_hashes_match_manifest": true,
+    "all_artifact_hashes_recomputed": true,
+    "exact_head": "220aa5647389386d6c953e6aa04f32769f90f490",
+    "expected_target_sha256": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+    "manifest_target_artifact_byte_hashes": {
+      "R049_ADVERSARIAL_TEST_RESULTS.json": "sha256:6c418485494619bcbaf6b08fbbde51ec582d11cde115f140f50c245ff07a3dfa",
+      "R049_BLOCK_A_HOLDOUT_TARGET.json": "sha256:b3e5c2e5e7b61cbaddaa92d84f43d18bcd2049b3209853f46e284d5204d96ccc",
+      "R049_BLOCK_B_NOVEL_PRESSURE_LEDGER.json": "sha256:77d5f8a787f14b420327a6d8b0b8b03fcb6c08d959fcf1fc9e1c2cd81616561c",
+      "R049_CONTAMINATION_AUDIT.json": "sha256:7282f7552f737bb31f928803e6eb9fe4116e59079b72864ea03392dc8c0e4370",
+      "R049_DEFINITION_STRIPPED_CONSTRAINTS.json": "sha256:de41d83cf7cf630661b759d5838c5db1a736b926fefa3ad55ed633c810301088",
+      "R049_DEPENDENCY_GRAPH.json": "sha256:ef6fd003e09e91b2cf40ea125f9f8cb1965d1e49101816d5329dbf42339c8f0d",
+      "R049_DEPENDENCY_QUOTIENT.json": "sha256:8e2e8dc482ed77787b556f37e10adb1f3fac139ef445068046613ac4ab7b454a",
+      "R049_HOLDOUT_INDEPENDENCE_CERTIFICATES.json": "sha256:6bbff011972a6d9e72192d48f6048083cf7cde883d757e19d60ed47cd7b97044",
+      "R049_RAW_ENGINEERING_ATLAS.json": "sha256:ca4ea45281711d40c2a3ffe9d83dfde429b76e433e897789a5b5e8d645cf48cb",
+      "R049_SOURCE_REGISTRY.json": "sha256:03dd2d429ec89fdef4bc5a362b19fb8b44dee08c1d3e796c5303acca55c166f7"
+    },
+    "post_candidate_open_recomputed_target_sha256": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+    "recomputed_target_sha256": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+    "target_mutation_after_candidate_open": false
+  },
+  "researcher_id": "EM-R050-93B6E2",
+  "schema": "ENTERPRISE_MATH_R050_FREEZE_INTEGRITY_V1",
+  "scoring_protocol": {
+    "candidate_content_opened_before_freeze": false,
+    "freeze_timestamp_utc": "2026-08-13T04:59:30Z",
+    "mutation_after_candidate_open": false,
+    "path": "research_outputs/R050/R050_SCORING_PROTOCOL.json",
+    "sha256": "322f2e4ba66b4fbc8e47a513867399f9464a62a629af01f23cad6929d7c1d66b"
+  },
+  "stage_sequence": [
+    {
+      "candidate_content_accessed": false,
+      "event": "R049_TARGET_BYTES_FETCHED_AND_HASHED",
+      "ordinal": 0
+    },
+    {
+      "candidate_content_accessed": false,
+      "event": "R049_TARGET_AGGREGATE_SHA256_VERIFIED",
+      "ordinal": 1,
+      "value": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c"
+    },
+    {
+      "candidate_content_accessed": false,
+      "event": "R050_SCORING_PROTOCOL_FROZEN",
+      "ordinal": 2,
+      "value": "322f2e4ba66b4fbc8e47a513867399f9464a62a629af01f23cad6929d7c1d66b"
+    },
+    {
+      "candidate_content_accessed": true,
+      "event": "R048_CANDIDATE_SET_OPENED_AFTER_PROTOCOL_FREEZE",
+      "ordinal": 3
+    },
+    {
+      "candidate_content_accessed": true,
+      "event": "R048_CANDIDATE_HASHES_RECOMPUTED_AND_VERIFIED",
+      "ordinal": 4
+    },
+    {
+      "candidate_content_accessed": true,
+      "event": "POST_OPEN_R049_TARGET_HASH_RECHECK",
+      "ordinal": 5,
+      "value": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c"
+    }
+  ],
+  "task_id": "RS-R050-G2-OUT-OF-SAMPLE-ENGINEERING-CALIBRATION"
+}
