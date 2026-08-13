@@ -1,0 +1,209 @@
+{
+  "freeze_timestamp_utc": "2026-08-13T02:40:42Z",
+  "researcher_id": "EM-R049-6D82B4",
+  "schema": "ENTERPRISE_MATH_R049_SOURCE_REGISTRY_V1",
+  "sources": [
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "current service page snapshot retrieved 2026-08-13",
+      "evidence_role": "primary_target_envelope",
+      "source_family": "NIST_PML_DIMENSIONAL_METROLOGY_SERVICE",
+      "source_id": "SRC-A1-NIST-STEP-GAGE-SERVICE",
+      "source_kind": "authoritative metrology service",
+      "supports": [
+        "CMM measurement of 1-D step gauges up to 1.5 m",
+        "expanded uncertainty U(k=2) approximately 100 + 200*L nm, L in metres"
+      ],
+      "title": "Special Tests of Step Gages",
+      "url": "https://shop.nist.gov/ccrz__ProductDetails?cclcl=en_US&sku=11060S"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "2010-07-25 conference publication",
+      "evidence_role": "protocol_primary",
+      "source_family": "NIST_PML_DIMENSIONAL_METROLOGY_PUBLICATION",
+      "source_id": "SRC-A1-NIST-M48-2010",
+      "source_kind": "primary engineering/metrology publication",
+      "supports": [
+        "M48 CMM long 1-D step-gauge measurement process",
+        "thermal, probe-contact deformation, fixturing, coordinate-system and uncertainty-budget controls"
+      ],
+      "title": "Measuring Step Gauges Using the NIST M48 CMM",
+      "url": "https://www.nist.gov/publications/measuring-step-gauges-using-nist-m48-cmm"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "current calibration service page snapshot retrieved 2026-08-13",
+      "evidence_role": "protocol_primary",
+      "source_family": "NIST_PML_LOW_FREQUENCY_POWER_CALIBRATION",
+      "source_id": "SRC-A2-NIST-PMU-SERVICE",
+      "source_kind": "authoritative metrology service",
+      "supports": [
+        "PMU tests at nominal 50 Hz or 60 Hz",
+        "current up to 5 A rms, voltage up to 120 V rms",
+        "specified reporting rates and phase/sequence checks"
+      ],
+      "title": "Power and Energy Measurements Low Frequency Calibrations — Phasor Measurement Units",
+      "url": "https://www.nist.gov/calibrations/power-and-energy-measurements-low-frequency-calibrations"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "current calibration service page snapshot retrieved 2026-08-13",
+      "evidence_role": "primary_target_envelope",
+      "source_family": "NIST_PML_PHASE_ANGLE_STANDARD",
+      "source_id": "SRC-A2-NIST-PHASE-SERVICE",
+      "source_kind": "authoritative metrology service",
+      "supports": [
+        "power-frequency current signal range 0.5 A to 5 A",
+        "expanded uncertainty in setting standard <0.01 degree below 5 kHz for equal amplitudes",
+        "expanded uncertainty <0.015 degree below 5 kHz for unequal amplitudes with amplitude ratio <10:1"
+      ],
+      "title": "Phase Angle — NIST Calibration Service 55130C",
+      "url": "https://shop.nist.gov/ccrz__ProductDetails?cclcl=en_US&sku=55130C"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "2007",
+      "evidence_role": "protocol_support",
+      "source_family": "NIST_SYNCHROPHASOR_RESEARCH_PUBLICATION",
+      "source_id": "SRC-A2-NIST-PMU-2007",
+      "source_kind": "primary engineering/metrology publication",
+      "supports": [
+        "time-synchronized PMU calibration and characterization",
+        "phase measurement and synchronization as observed test channels"
+      ],
+      "title": "Static Calibration and Dynamic Characterization of PMUs at NIST",
+      "url": "https://www.nist.gov/publications/static-calibration-and-dynamic-characterization-pmus-nist"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST) / Review of Scientific Instruments",
+      "date_or_version": "published 2024-10-14; Rev. Sci. Instrum. 95, 103006",
+      "doi": "10.1063/5.0213738",
+      "evidence_role": "protocol_and_primary_raw_error_envelope",
+      "source_family": "NIST_MML_THERMOREFLECTANCE",
+      "source_id": "SRC-A3-NIST-FDTR-2024",
+      "source_kind": "peer-reviewed primary engineering/metrology paper",
+      "supports": [
+        "modulated pump / reflected probe / lock-in phase measurement chain",
+        "actual phase-lag sweep from 100 Hz to 20 MHz in 40 logarithmic intervals",
+        "phase standard deviation ±0.1 degree",
+        "approximately 10 nm to approximately 10 micrometre thermal-property measurement length scales",
+        "derived thermal-property Monte Carlo expanded uncertainties approximately 7% to 10% (context only)"
+      ],
+      "title": "An Instrumentation Guide to Measuring Thermal Conductivity Using Frequency Domain Thermoreflectance (FDTR)",
+      "url": "https://www.nist.gov/publications/instrumentation-guide-measuring-thermal-conductivity-using-frequency-domain"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "NIST SP 260-159, September 2005",
+      "doi": "10.6028/NIST.SP.260-159",
+      "evidence_role": "protocol_primary",
+      "source_family": "NIST_RF_MATERIALS_CAVITY_METROLOGY",
+      "source_id": "SRC-A4-NIST-SP260-159",
+      "source_kind": "authoritative NIST technical report",
+      "supports": [
+        "nominally 450 mm long, 60 mm diameter cavity with two coupling loops and automatic network analyzer",
+        "water-bath temperature control within ±0.1 degree C",
+        "empty and sample-loaded resonance measurements; TE0123 around 10 GHz, quality factor near 70000",
+        "sample insertion significantly shifts the resonance; motorized retuning",
+        "skin-depth resonant-frequency correction under 100 kHz or 0.001% in cited 10 GHz case"
+      ],
+      "title": "Relative Permittivity and Loss Tangent Measurement Using the NIST 60 mm Cylindrical Cavity",
+      "url": "https://www.nist.gov/publications/relative-permittivity-and-loss-tangent-measurement-using-nist-60-mm-cylindrical-cavity"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST) / IEEE",
+      "date_or_version": "2003",
+      "evidence_role": "primary_statistical_error_envelope",
+      "source_family": "NIST_STATISTICAL_MICROWAVE_ESTIMATION",
+      "source_id": "SRC-A4-NIST-Q-ESTIMATION-2003",
+      "source_kind": "peer-reviewed primary metrology/statistics paper",
+      "supports": [
+        "observed resonance curve sampled on an equally spaced frequency grid",
+        "observed curve is squared magnitude of a complex scattering parameter",
+        "weighted nonlinear least-squares estimation of resonant frequency and Q",
+        "source-defined one-sigma uncertainty of fitted resonant frequency and Q"
+      ],
+      "title": "Estimation of Q-Factors and Resonant Frequencies",
+      "url": "https://www.nist.gov/publications/estimation-q-factors-and-resonant-frequencies"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "NIST SP 250-98, published 2021-06-15",
+      "doi": "10.6028/NIST.SP.250-98",
+      "evidence_role": "block_b_empirical_row",
+      "source_family": "NIST_FLUID_METROLOGY_LIQUID_DYNAMIC_GRAVIMETRIC",
+      "source_id": "SRC-B1-NIST-SP250-98-2021",
+      "source_kind": "authoritative NIST calibration special publication",
+      "supports": [
+        "dynamic gravimetric flow from rate of mass accumulation",
+        "0.22 kg/s to 15 kg/s",
+        "expanded uncertainty 0.022% for mass flow and 0.023% for volume flow at about 95% confidence"
+      ],
+      "title": "Liquid Flow Meter Calibrations with NIST's 15 kg/s Water Flow Standard",
+      "url": "https://www.nist.gov/publications/liquid-flow-meter-calibrations-nists-15-kgs-water-flow-standard"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "published 2003-02-01; Journal of Research of NIST 108(1)",
+      "evidence_role": "block_b_empirical_row",
+      "source_family": "NIST_FLUID_METROLOGY_GAS_PVTT",
+      "source_id": "SRC-B1-NIST-PVTT-2003",
+      "source_kind": "primary NIST metrology paper",
+      "supports": [
+        "gas diverted to a collection tank of known volume for a measured time interval",
+        "1 slm to 2000 slm",
+        "expanded uncertainty 0.02% to 0.05%, k=2"
+      ],
+      "title": "Design and Uncertainty Analysis for a PVTt Gas Flow Standard",
+      "url": "https://www.nist.gov/publications/design-and-uncertainty-analysis-pvtt-gas-flow-standard"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "Journal of Research of NIST 116(5), September-October 2011",
+      "evidence_role": "block_b_empirical_row",
+      "source_family": "NIST_ACOUSTIC_RECIPROCITY",
+      "source_id": "SRC-B2-NIST-MIC-RECIP-2011",
+      "source_kind": "primary NIST metrology paper",
+      "supports": [
+        "three-microphone triad and three pairwise transmitter/receiver combinations",
+        "31.5 Hz to 2000 Hz long+short coupler measurements and up to 20 kHz short-coupler measurements",
+        "expanded k=2 uncertainty table: 0.07 dB at 31.5 Hz; 0.05 dB at 50 Hz; 0.04 dB from 100 Hz through 2000 Hz"
+      ],
+      "title": "New Measurement Service for Determining Pressure Sensitivity of Type LS2aP Microphones by the Reciprocity Method",
+      "url": "https://www.nist.gov/publications/new-measurement-service-determining-pressure-sensitivity-type-ls2ap-microphones"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "current service page snapshot retrieved 2026-08-13",
+      "evidence_role": "block_b_empirical_row",
+      "source_family": "NIST_CTL_ANTENNA_EXTRAPOLATION",
+      "source_id": "SRC-B2-NIST-CTL-ANTENNA",
+      "source_kind": "authoritative metrology service",
+      "supports": [
+        "three antennas, three pairwise combinations",
+        "received signal measured as function of separation",
+        "2 GHz to 30 GHz gain uncertainty typically 0.10 dB",
+        "method does not require identical antennas or polarization assumptions"
+      ],
+      "title": "CTL Metrology and Calibration Services — Three-Antenna Extrapolation",
+      "url": "https://www.nist.gov/ctl/ctl-metrology-and-calibration-services"
+    },
+    {
+      "authority": "National Institute of Standards and Technology (NIST)",
+      "date_or_version": "published 2006-10-01",
+      "evidence_role": "protocol_support",
+      "source_family": "NIST_ANTENNA_EXTRAPOLATION_PUBLICATION",
+      "source_id": "SRC-B2-NIST-ANTENNA-2006",
+      "source_kind": "primary engineering/metrology publication",
+      "supports": [
+        "generalized three-antenna method",
+        "historical NIST gain calibration within 0.1 dB up to 20 GHz and 0.15 dB up to 50 GHz",
+        "94 GHz system demonstration"
+      ],
+      "title": "Three-Antenna Extrapolation Gain Measurement System at Millimeter Wave Frequencies",
+      "url": "https://www.nist.gov/publications/three-antenna-extrapolation-gain-measurement-system-millimeter-wave-frequencies"
+    }
+  ],
+  "task_id": "RS-R049-CANDIDATE-BLIND-INDEPENDENT-ENGINEERING-HOLDOUT-CONSTRUCTION"
+}

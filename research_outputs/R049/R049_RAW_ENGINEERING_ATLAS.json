@@ -1,0 +1,328 @@
+{
+  "calibration_run": false,
+  "candidate_blind": true,
+  "freeze_timestamp_utc": "2026-08-13T02:40:42Z",
+  "researcher_id": "EM-R049-6D82B4",
+  "rows": [
+    {
+      "apparatus_type": "error-mapped Moore M48 coordinate measuring machine with tactile probe and fixtured multi-step artefact",
+      "block": "A",
+      "calculated_outputs_not_counted": [
+        "coordinate-system model parameters",
+        "thermal/probe correction terms",
+        "any unit-converted copy of the same separation"
+      ],
+      "classical_representation": "effective Euclidean coordinate separations / dimensional length chain",
+      "controlled_input_or_intervention": "re-probe successive step faces/locations under controlled fixturing, thermal conditions, coordinate-system generation and process-control sequence",
+      "definition_stripped_operational_constraint": "Across repeated physical contacts with multiple artefact faces, the pairwise separation relations remain mutually coherent under re-probing/fixturing/process-control changes within the source-stated CMM uncertainty envelope; coordinate names and length-unit scaling are not counted as evidence.",
+      "definition_unit_normalization_dependencies": [
+        "SI metre realization",
+        "chosen CMM coordinate frame",
+        "probe-contact mechanics and elastic-deformation correction",
+        "thermal-expansion correction",
+        "fixturing/measurand location conventions"
+      ],
+      "material_or_realization": "solid 1-D step gauges; service allows standard or non-traditional materials/designs",
+      "measured_output": "contact-derived coordinate observations and reported step-to-step separations",
+      "measurement_chain": "probe contact -> CMM coordinate acquisition/process control -> step-to-step separation report",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "protocol": "NIST M48 CMM tactile measurement of long one-dimensional step gauges",
+      "protocol_fingerprint": "tactile_CMM|multi_step_solid_artifact|meter_scale|coordinate_separation_output|NIST_dimensional",
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "scale_regime": "long artefacts approaching 1 m in protocol paper; NIST service covers 1-D step gauges up to 1.5 m",
+      "source_provenance": [
+        "SRC-A1-NIST-M48-2010",
+        "SRC-A1-NIST-STEP-GAGE-SERVICE"
+      ],
+      "uncertainty_tolerance_error_envelope": {
+        "coverage": "k=2",
+        "example_context": "about 300 nm at L=1 m",
+        "formula": "U_nm ≈ 100 + 200*L_m",
+        "kind": "expanded_uncertainty_formula",
+        "source_ref_ids": [
+          "SRC-A1-NIST-STEP-GAGE-SERVICE"
+        ]
+      }
+    },
+    {
+      "apparatus_type": "synthesized voltage/current source, phase-angle standard, timing/synchronization chain, PMU data interface",
+      "block": "A",
+      "calculated_outputs_not_counted": [
+        "any algebraically computed loop-closure sum from the same phase samples",
+        "unit-converted angular values",
+        "derived total-vector-error aggregates when based on the same raw reports"
+      ],
+      "classical_representation": "effective periodic phasors and relative phase angle",
+      "controlled_input_or_intervention": "select nominal 50 or 60 Hz; impose phase relation; vary reporting rate, voltage/current amplitudes and phase sequence/unbalance where applicable",
+      "definition_stripped_operational_constraint": "Independently reported periodic channels track imposed relative timing/phase relations and remain mutually consistent as nominal frequency/reporting conditions are varied, within the source-calibrated phase-setting envelope; angular unit and cycle-origin conventions are quotiented out.",
+      "definition_unit_normalization_dependencies": [
+        "degree-versus-radian angular unit convention",
+        "cycle-origin convention",
+        "UTC/timestamp convention",
+        "nominal-frequency and reporting-rate convention",
+        "phasor normalization and sign convention"
+      ],
+      "material_or_realization": "electronic power-system instrumentation and three-phase voltage/current channels",
+      "measured_output": "time-stamped PMU voltage/current reports and direct phase-error observations relative to the traceable source",
+      "measurement_chain": "imposed voltage/current waveform and timing -> PMU sampling/timestamping -> reported phasor/phase data compared with source standard",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "protocol": "NIST PMU/synchrophasor calibration using traceable low-frequency phase-angle generation",
+      "protocol_fingerprint": "synchrophasor_PMU|electrical_multichannel|50_60_Hz|timestamped_phase_error_output|NIST_power",
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "scale_regime": "50/60 Hz power-system signals; PMU service up to 120 V rms and 5 A rms",
+      "source_provenance": [
+        "SRC-A2-NIST-PMU-SERVICE",
+        "SRC-A2-NIST-PHASE-SERVICE",
+        "SRC-A2-NIST-PMU-2007"
+      ],
+      "uncertainty_tolerance_error_envelope": {
+        "equal_amplitudes": "<0.01 degree",
+        "frequency_condition": "below 5 kHz, therefore includes 50/60 Hz",
+        "kind": "source_setting_expanded_uncertainty",
+        "source_ref_ids": [
+          "SRC-A2-NIST-PHASE-SERVICE"
+        ],
+        "unequal_amplitudes_ratio_below_10_to_1": "<0.015 degree"
+      }
+    },
+    {
+      "apparatus_type": "modulated CW pump laser, co-axial probe laser, Au transducer/sample stack, balanced photodetection and lock-in amplifier",
+      "block": "A",
+      "calculated_outputs_not_counted": [
+        "thermal conductivity fitted from the phase curve",
+        "volumetric heat capacity fitted from the phase curve",
+        "thermal interface conductance/resistance fitted from the phase curve",
+        "model-predicted temperature rise"
+      ],
+      "classical_representation": "effective multilayer diffusive thermal response / frequency-domain heat-transport transfer function",
+      "controlled_input_or_intervention": "sweep pump modulation frequency from 100 Hz to 20 MHz in 40 logarithmic intervals while holding optical geometry/sample configuration under protocol controls",
+      "definition_stripped_operational_constraint": "After quotienting angular-unit and reference-path conventions, localized periodic heating produces a stable, material-dependent delayed-response curve across a wide modulation-frequency sweep; the measured response curve, not fitted thermal parameters, is the holdout evidence.",
+      "definition_unit_normalization_dependencies": [
+        "angular phase unit and reference-phase subtraction convention",
+        "pump/probe spot-size calibration",
+        "Au transducer thickness and thermal-property inputs",
+        "multilayer diffusive model used only for derived parameter fitting"
+      ],
+      "material_or_realization": "Au-transducer-coated Borofloat silica, quartz, sapphire and silicon reference substrates / thin-film stacks",
+      "measured_output": "reference-corrected reflected-probe phase-lag samples as a function of modulation frequency",
+      "measurement_chain": "pump modulation -> local optical heating -> reflected probe modulation -> lock-in phase measurement -> reference-phase correction",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "protocol": "NIST frequency-domain thermoreflectance (FDTR) modulated optical pump-probe measurement",
+      "protocol_fingerprint": "FDTR|optical_pump_probe|nano_micro_thermal_scale|phase_lag_vs_frequency_output|NIST_MML",
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "scale_regime": "thermal-property measurement length scales approximately 10 nm to approximately 10 micrometres; actual measurement sweep 100 Hz to 20 MHz",
+      "source_provenance": [
+        "SRC-A3-NIST-FDTR-2024"
+      ],
+      "uncertainty_tolerance_error_envelope": {
+        "kind": "raw_phase_standard_deviation",
+        "meaning": "LIA sweeper output standard deviation; includes LIA phase noise density, laser electronics, balanced photodetector electronics and thermoreflectance measurement contribution",
+        "phase_standard_deviation": "±0.1 degree",
+        "source_ref_ids": [
+          "SRC-A3-NIST-FDTR-2024"
+        ]
+      }
+    },
+    {
+      "apparatus_type": "nominal 450 mm x 60 mm cylindrical cavity, motorized tuning endplate, coupling loops, coaxial lines and automatic network analyzer",
+      "block": "A",
+      "calculated_outputs_not_counted": [
+        "fitted resonant frequency f0 as an independent measurement channel",
+        "fitted quality factor Q as an independent measurement channel",
+        "relative permittivity",
+        "loss tangent",
+        "skin-depth corrected frequency"
+      ],
+      "classical_representation": "effective bounded resonator eigenmode / resonance-curve description",
+      "controlled_input_or_intervention": "frequency sweep; insert/remove dielectric sample; change cavity length with motorized endplate and retune around the selected resonance",
+      "definition_stripped_operational_constraint": "A bounded physical resonator under frequency sweep exhibits reproducible isolated response peaks whose locations/widths change coherently under controlled sample insertion and boundary retuning; raw response-curve structure is evidence, while mode names and fitted dielectric parameters are not.",
+      "definition_unit_normalization_dependencies": [
+        "frequency unit",
+        "cavity geometry and boundary-condition model",
+        "mode-label convention",
+        "S-parameter/scattering normalization",
+        "resonance-curve fitting model"
+      ],
+      "material_or_realization": "empty cavity and cross-linked-polystyrene sample-loaded cavity; gold-plated endplates/helical cavity wall",
+      "measured_output": "frequency-indexed complex scattering-parameter observations / squared-magnitude resonance curve",
+      "measurement_chain": "frequency sweep -> coupled cavity response -> complex scattering parameter samples -> resonance-curve observations; optional WLS estimation kept downstream",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "protocol": "NIST 60 mm cylindrical microwave cavity resonance measurement with automatic network analyzer",
+      "protocol_fingerprint": "cylindrical_microwave_cavity|VNA_sweep|10_GHz|scattering_resonance_curve_output|NIST_RF",
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "scale_regime": "microwave cavity around 10 GHz; supporting material characterization spans approximately 8 to 11 GHz",
+      "source_provenance": [
+        "SRC-A4-NIST-SP260-159",
+        "SRC-A4-NIST-Q-ESTIMATION-2003"
+      ],
+      "uncertainty_tolerance_error_envelope": {
+        "eligibility_rule": "row is eligible only when the source-defined curve-noise/WLS uncertainty is retained; no unsourced global frequency tolerance is introduced",
+        "kind": "source_defined_curve_noise_and_estimator_envelope",
+        "raw_environmental_control": "water-bath cavity temperature controlled within ±0.1 degree C",
+        "resonance_estimator_rule": "weighted nonlinear least squares with frequency-dependent additive-noise variance; source computes one-sigma uncertainty/covariance for fitted resonant frequency and Q from each observed curve",
+        "source_ref_ids": [
+          "SRC-A4-NIST-SP260-159",
+          "SRC-A4-NIST-Q-ESTIMATION-2003"
+        ],
+        "systematic_correction_context_not_tolerance": "skin-depth resonant-frequency correction under 100 kHz or 0.001% in the approximately 10 GHz, Q≈70000 TE0123 case"
+      }
+    },
+    {
+      "apparatus_type": "water flow loop, controlled flow, collection tank on weighing system, meter under test",
+      "block": "B",
+      "calculated_outputs_not_counted": [
+        "volume flow converted from mass flow",
+        "meter factor",
+        "any algebraically duplicated balance residual"
+      ],
+      "classical_representation": "effective mass/inventory balance over a control volume and time interval",
+      "controlled_input_or_intervention": "set/stabilize water-flow setpoint and collect continuously over time",
+      "definition_stripped_operational_constraint": "The independently sampled increase of receiving-system inventory tracks through-boundary transfer over the same controlled interval within the source uncertainty, after quotienting unit choice and calibration scale.",
+      "definition_unit_normalization_dependencies": [
+        "mass and time units",
+        "buoyancy correction",
+        "weigh-scale calibration",
+        "meter-factor convention"
+      ],
+      "material_or_realization": "liquid water, dynamic gravimetric collection",
+      "measured_output": "time-dependent buoyancy-corrected accumulated water mass and meter-under-test output",
+      "measurement_chain": "controlled water transfer -> buoyancy-corrected accumulating tank mass sampled in time -> rate-of-mass-accumulation comparison with through-flow meter",
+      "pressure_candidate": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "protocol": "NIST 15 kg/s fully dynamic gravimetric liquid-flow standard",
+      "protocol_fingerprint": "dynamic_gravimetric_liquid_flow|weighing_tank|0.22_15_kg_s|inventory_mass_time_output|NIST_fluid",
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "scale_regime": "0.22 kg/s to 15 kg/s",
+      "source_provenance": [
+        "SRC-B1-NIST-SP250-98-2021"
+      ],
+      "uncertainty_tolerance_error_envelope": {
+        "coverage": "about 95% confidence",
+        "kind": "expanded_uncertainty",
+        "mass_flow": "0.022%",
+        "source_ref_ids": [
+          "SRC-B1-NIST-SP250-98-2021"
+        ],
+        "volume_flow": "0.023%"
+      }
+    },
+    {
+      "apparatus_type": "diverter valve system, thermostatted known-volume collection tanks, pressure/temperature/time instrumentation",
+      "block": "B",
+      "calculated_outputs_not_counted": [
+        "standard-litre unit conversion",
+        "gas density calculated from the state equation",
+        "flow value recomputed in another volume/mass unit"
+      ],
+      "classical_representation": "effective gas inventory/flow balance using pressure-volume-temperature-time state realization",
+      "controlled_input_or_intervention": "divert steady gas flow into a selected collection tank for a measured time interval across the supported flow range",
+      "definition_stripped_operational_constraint": "For a controlled transfer interval, independently observed receiving-system state change determines an inventory increment consistent with the through-boundary transfer, within the source uncertainty; the residual survives removal of standard-volume convention.",
+      "definition_unit_normalization_dependencies": [
+        "standard-litre reference conditions",
+        "collection-tank volume calibration",
+        "pressure and temperature scales",
+        "gas equation/density realization",
+        "timebase"
+      ],
+      "material_or_realization": "gas collected in 34 L / 677 L PVTt tanks",
+      "measured_output": "collection interval plus tank pressure/temperature state observations used to determine inventory change",
+      "measurement_chain": "steady gas flow -> rapid diversion to collection tank for measured interval -> P/V/T inventory determination -> flow comparison",
+      "pressure_candidate": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "protocol": "NIST PVTt primary gas-flow standard",
+      "protocol_fingerprint": "PVTt_gas_flow|thermostatted_collection_tank|1_2000_slm|inventory_state_time_output|NIST_fluid",
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "scale_regime": "1 standard litre/min to 2000 standard litre/min in the 2003 primary-standard description",
+      "source_provenance": [
+        "SRC-B1-NIST-PVTT-2003"
+      ],
+      "uncertainty_tolerance_error_envelope": {
+        "coverage": "k=2",
+        "kind": "expanded_uncertainty",
+        "range": "0.02% to 0.05%",
+        "source_ref_ids": [
+          "SRC-B1-NIST-PVTT-2003"
+        ]
+      }
+    },
+    {
+      "apparatus_type": "three laboratory standard microphones, long/short air-filled plane-wave couplers, reciprocity calibration apparatus, synthesizer, filters and voltmeter",
+      "block": "B",
+      "calculated_outputs_not_counted": [
+        "final solved microphone sensitivities as separate evidence channels",
+        "dB-versus-linear unit conversion",
+        "heat-conduction/wave-motion correction terms"
+      ],
+      "classical_representation": "effective reciprocal electroacoustic transfer relation and microphone pressure sensitivity",
+      "controlled_input_or_intervention": "permute transmitter/receiver pairings within the three-microphone triad and sweep test frequency",
+      "definition_stripped_operational_constraint": "After removing logarithmic/unit normalization and coupler corrections, directed transfer measurements remain compatible under transmitter/receiver role interchange and triad permutation within the source uncertainty envelope.",
+      "definition_unit_normalization_dependencies": [
+        "decibel logarithmic representation",
+        "V/Pa sensitivity normalization",
+        "coupler geometry/cavity corrections",
+        "barometric pressure/temperature/humidity corrections"
+      ],
+      "material_or_realization": "electroacoustic microphones coupled through controlled air-filled cavities",
+      "measured_output": "receiver-to-capacitor voltage ratios for each transmitter/receiver pair, with pressure/temperature/humidity observations",
+      "measurement_chain": "electrically drive one microphone as transmitter -> coupled acoustic field -> paired microphone receiver voltage; repeat over all three transmitter/receiver pairings",
+      "pressure_candidate": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "protocol": "NIST primary pressure-reciprocity calibration of a three-microphone triad",
+      "protocol_fingerprint": "microphone_reciprocity|three_transducer_triad|31.5_2000_Hz|pairwise_voltage_ratio_output|NIST_acoustics",
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "scale_regime": "31.5 Hz to 2000 Hz frozen subrange where both long and short couplers are used",
+      "source_provenance": [
+        "SRC-B2-NIST-MIC-RECIP-2011"
+      ],
+      "uncertainty_tolerance_error_envelope": {
+        "coverage": "k=2",
+        "kind": "frequency_dependent_expanded_uncertainty",
+        "source_ref_ids": [
+          "SRC-B2-NIST-MIC-RECIP-2011"
+        ],
+        "values_dB": {
+          "100_to_2000_Hz": 0.04,
+          "31.5_Hz": 0.07,
+          "50_Hz": 0.05
+        }
+      }
+    },
+    {
+      "apparatus_type": "three antennas, RF source/receiver instrumentation and controlled separation range",
+      "block": "B",
+      "calculated_outputs_not_counted": [
+        "solved absolute antenna gains as separate measured channels",
+        "dB-to-linear conversion",
+        "distance-extrapolation model output"
+      ],
+      "classical_representation": "effective reciprocal antenna transfer / gain extrapolation",
+      "controlled_input_or_intervention": "permute the three antenna pairings and vary separation distance",
+      "definition_stripped_operational_constraint": "After factoring gain-unit and separation-model conventions, pairwise directed transfer data across three physical antennas remain mutually compatible under source/receiver role exchange and pairing permutation within the source uncertainty.",
+      "definition_unit_normalization_dependencies": [
+        "decibel gain normalization",
+        "distance/separation calibration",
+        "antenna orientation and polarization coordinate description",
+        "frequency unit"
+      ],
+      "material_or_realization": "electromagnetic antennas in extrapolation-range geometry",
+      "measured_output": "received signal for each antenna pair as a function of separation",
+      "measurement_chain": "transmit between an antenna pair -> measure received signal as separation is varied -> repeat for three pairwise combinations",
+      "pressure_candidate": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "protocol": "NIST three-antenna extrapolation gain calibration",
+      "protocol_fingerprint": "three_antenna_extrapolation|RF_pairwise_transfer|2_30_GHz|received_signal_vs_separation|NIST_CTL",
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "scale_regime": "2 GHz to 30 GHz frozen service subrange",
+      "source_provenance": [
+        "SRC-B2-NIST-CTL-ANTENNA",
+        "SRC-B2-NIST-ANTENNA-2006"
+      ],
+      "uncertainty_tolerance_error_envelope": {
+        "frequency_range": "2 GHz to 30 GHz",
+        "gain_uncertainty": "0.10 dB",
+        "kind": "typical_gain_measurement_uncertainty",
+        "source_ref_ids": [
+          "SRC-B2-NIST-CTL-ANTENNA"
+        ]
+      }
+    }
+  ],
+  "schema": "ENTERPRISE_MATH_R049_RAW_ENGINEERING_ATLAS_V1",
+  "task_id": "RS-R049-CANDIDATE-BLIND-INDEPENDENT-ENGINEERING-HOLDOUT-CONSTRUCTION"
+}

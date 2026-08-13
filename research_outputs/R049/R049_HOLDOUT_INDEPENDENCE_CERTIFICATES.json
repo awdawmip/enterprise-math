@@ -1,0 +1,96 @@
+{
+  "certificates": [
+    {
+      "blind_prior_surface_certificate": "Selected without reading any prior exact protocol/tolerance row. Because prior-surface content is withheld, pre-freeze non-reuse can only be certified by selection procedure plus source-family/protocol fingerprint, not by content comparison.",
+      "independence_dimensions": [
+        "apparatus: tactile error-mapped CMM",
+        "measurement_chain: contact-coordinate acquisition",
+        "realization: metre-scale solid step artifact",
+        "scale: approximately metre",
+        "intervention: re-probing/fixturing/process-control",
+        "output: separations/coordinates",
+        "source_family: NIST dimensional metrology"
+      ],
+      "pairwise_cofrozen_independence_minimum": 6,
+      "row_id": "A1-GMC-M48-STEP-GAGE"
+    },
+    {
+      "blind_prior_surface_certificate": "Selected without reading any prior exact protocol/tolerance row; no source title alone is treated as proof of prior non-use.",
+      "independence_dimensions": [
+        "apparatus: synthesized electrical source plus PMU timing/data chain",
+        "measurement_chain: waveform/timestamp-to-phasor report",
+        "realization: 50/60 Hz power instrumentation",
+        "scale: power frequency",
+        "intervention: imposed relative phase/reporting conditions",
+        "output: timestamped phase-error observations",
+        "source_family: NIST low-frequency power/phase metrology"
+      ],
+      "pairwise_cofrozen_independence_minimum": 6,
+      "row_id": "A2-CCRP-PMU-PHASE"
+    },
+    {
+      "blind_prior_surface_certificate": "Selected without reading any prior exact protocol/tolerance row; measured response curve is frozen instead of fitted thermal parameters.",
+      "independence_dimensions": [
+        "apparatus: optical pump-probe plus lock-in",
+        "measurement_chain: optical heating-to-reflected-probe phase",
+        "realization: Au-transducer thin-film/reference substrates",
+        "scale: nanoscale/microscale and 100 Hz–20 MHz modulation",
+        "intervention: modulation-frequency sweep",
+        "output: phase-lag response curve",
+        "source_family: NIST materials thermoreflectance"
+      ],
+      "pairwise_cofrozen_independence_minimum": 6,
+      "row_id": "A3-DR-FDTR-PUMP-PROBE"
+    },
+    {
+      "blind_prior_surface_certificate": "Selected without reading any prior exact protocol/tolerance row; fitted f0/Q/permittivity/loss tangent are not counted as extra measured outputs.",
+      "independence_dimensions": [
+        "apparatus: microwave cylindrical cavity plus network analyzer",
+        "measurement_chain: RF frequency sweep-to-scattering curve",
+        "realization: empty/sample-loaded bounded resonator",
+        "scale: approximately 10 GHz",
+        "intervention: sample insertion and cavity retuning",
+        "output: complex scattering/resonance curve",
+        "source_family: NIST RF materials/cavity metrology"
+      ],
+      "pairwise_cofrozen_independence_minimum": 6,
+      "row_id": "A4-BMS-CAVITY-VNA"
+    },
+    {
+      "candidate": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "independence_dimensions_between_rows": [
+        "apparatus: weighing collection tank vs PVTt thermodynamic collection",
+        "measurement chain: direct mass accumulation vs pressure-volume-temperature inventory",
+        "material/realization: liquid water vs gas",
+        "scale/unit realization: kg/s vs standard L/min",
+        "source protocol family: liquid dynamic gravimetric vs gas PVTt"
+      ],
+      "row_ids": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ],
+      "substantive_independence_count": 5
+    },
+    {
+      "candidate": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "independence_dimensions_between_rows": [
+        "apparatus: electroacoustic microphone/coupler system vs RF antenna range",
+        "measurement chain: receiver/capacitor voltage ratios vs received RF signal versus separation",
+        "physical realization: sound in air cavity vs electromagnetic free-space/range transfer",
+        "scale: tens–thousands Hz vs GHz",
+        "intervention: microphone transmitter/receiver permutation vs antenna pairing/separation sweep",
+        "source family: NIST acoustics vs NIST CTL antenna metrology"
+      ],
+      "row_ids": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ],
+      "substantive_independence_count": 6
+    }
+  ],
+  "freeze_timestamp_utc": "2026-08-13T02:40:42Z",
+  "global_independence_statement": "The four co-frozen Block-A protocols are pairwise materially different in at least six listed dimensions. Candidate-blind novelty relative to withheld earlier protocol rows is protected procedurally; it is not falsely inferred from a failed/partial repository search.",
+  "researcher_id": "EM-R049-6D82B4",
+  "schema": "ENTERPRISE_MATH_R049_HOLDOUT_INDEPENDENCE_CERTIFICATES_V1",
+  "task_id": "RS-R049-CANDIDATE-BLIND-INDEPENDENT-ENGINEERING-HOLDOUT-CONSTRUCTION"
+}
