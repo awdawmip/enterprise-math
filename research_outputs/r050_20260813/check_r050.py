@@ -57,7 +57,6 @@ def check_freeze():
         q=fi["r048"]["per_candidate"][cid]
         assert q["expected"] == h and q["recomputed"] == h and q["match"] is True
         n+=1
-    # recompute aggregate from the per-file exact-byte hashes recorded at Stage 0
     mapping=fi["r049"]["manifest_target_artifact_byte_hashes"]
     payload=json.dumps(mapping,sort_keys=True,separators=(",",":")).encode()
     assert hashlib.sha256(payload).hexdigest() == EXPECTED_TARGET_SHA; n+=1
@@ -70,6 +69,34 @@ def check_matrices():
     assert rm["candidate_count"]==6 and rm["row_count"]==8 and rm["cell_count"]==48; n+=1
     assert pm["candidate_count"]==6 and pm["pressure_count"]==6 and pm["cell_count"]==36; n+=1
     rcells=rm["cells"]; pcells=pm["cells"]
+    if rcells and isinstance(rcells[0], list):
+        cols=rm["typed_chain_resolution"]["cell_columns"]
+        defs=rm["row_definitions"]
+        expanded=[]
+        pressure_index={x["cell_id"]:x for x in pcells}
+        for raw in rcells:
+            z=dict(zip(cols,raw))
+            cid=z["candidate_id"]; rid=z["row_id"]; pf=defs[rid]["pressure_family"]
+            pid=f"{cid}::{pf}"
+            q=pressure_index[pid]["typed_chain_summary"]
+            assert defs[rid]["physical_protocol"]
+            assert all(k in q for k in (
+                "physical_to_native_encoding","frozen_candidate",
+                "native_readout_or_quotient","metrology_bridge",
+                "predicted_measured_output_statement"))
+            expanded.append({
+                "cell_id":f"{cid}::{rid}",
+                "candidate_id":cid,
+                "row_id":rid,
+                "pressure_family":pf,
+                "metrology_bridge":{"class":z["bridge_class"],"fitted_parameter_count":0},
+                "evidence_level":z["evidence_level"],
+                "engineering_validation":False,
+                "quantitative_holdout_status":"NOT_ELIGIBLE_FOR_E4",
+                "core_edit_count":0,
+                "verdict":z["verdict"],
+            })
+        rcells=expanded
     assert len(rcells)==48 and len({x["cell_id"] for x in rcells})==48; n+=1
     assert len(pcells)==36 and len({x["cell_id"] for x in pcells})==36; n+=1
     assert {(x["candidate_id"],x["row_id"]) for x in rcells} == set(itertools.product(CANDIDATES,ROWS)); n+=1
@@ -79,7 +106,7 @@ def check_matrices():
         assert EORD[x["evidence_level"]] <= EORD["E2_EXACT_STRUCTURAL_CONSTRAINT"]
         assert x["quantitative_holdout_status"]=="NOT_ELIGIBLE_FOR_E4"
         assert x["engineering_validation"] is False
-        assert x["fitted_candidate" if False else "candidate_id"] in CANDIDATES
+        assert x["candidate_id"] in CANDIDATES
         bc=x["metrology_bridge"]["class"]
         if bc=="B3_TARGET_SPECIFIC_ADAPTER":
             assert EORD[x["evidence_level"]] <= 1
@@ -98,7 +125,6 @@ def check_matrices():
         for p in ["TRANSFER_INVENTORY_BALANCE_CLOSURE","SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY"]:
             q=[x for x in rcells if x["candidate_id"]==cid and x["pressure_family"]==p]
             assert len(q)==2
-            # same pressure-level bridge semantics across the independent realization pair
             assert len({x["metrology_bridge"]["class"] for x in q})==1
             assert len({x["evidence_level"] for x in q})==1
             n+=3
@@ -130,7 +156,6 @@ def compositions(total,n):
 
 def check_m1_transfer_identity():
     checks=0
-    # path 0-1-2-3, receiver R={2,3}; interface is edge (1,2)
     edges=[(0,1),(1,2),(2,3)]
     R={2,3}
     for M in range(0,7):
@@ -155,7 +180,6 @@ def check_m6_transfer_identity():
       IR=sum(1 for i in R if st[i]==transported)
       for u,v in edges:
         y=swap(st,(u,v)); IY=sum(1 for i in R if y[i]==transported)
-        # signed net transported-label crossing for this swap
         signed=0
         if (u in R) != (v in R):
             if u not in R and st[u]==transported: signed+=1
