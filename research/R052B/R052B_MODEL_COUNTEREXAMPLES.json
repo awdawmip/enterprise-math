@@ -1,0 +1,68 @@
+{
+  "models": [
+    {
+      "construction": "Take R1 boundary C8, whose half-cycle orbit cover has four two-element fibers, and any R2 cover with four two-element fibers. Suppose phi is a cover isomorphism.",
+      "model_id": "B-M1_R1_R2_COVER_NONCANONICITY",
+      "targets": [
+        "canonical R1-R2 carrier identification",
+        "canonical R1-R3 realization after A*"
+      ],
+      "witness": "The target deck delta_q is a nontrivial cover automorphism, so delta_q∘phi is a second isomorphism. A canonical/natural phi fixed under target automorphisms would satisfy delta_q∘phi=phi, impossible."
+    },
+    {
+      "construction": "L=Z⊕C2, p(a,b)=b, K=Z×{0}.",
+      "model_id": "B-M2_S6_SPLIT_EXTENSION",
+      "targets": [
+        "S6 sufficiency for primitive half-lift",
+        "R3/R5 bridge without extension debt"
+      ],
+      "witness": "Every x=(a,1) above z has 2x=(2a,0), never a generator ±(1,0) of K."
+    },
+    {
+      "construction": "L=Z, p(n)=n mod 2, K=2Z.",
+      "model_id": "B-M3_S6_NONSPLIT_INVERSION",
+      "targets": [
+        "raw half-lift canonicity",
+        "raw kernel-generator orientation"
+      ],
+      "witness": "Primitive lifts are ±1 and double to kernel generators ±2. Inversion n->-n commutes with p and exchanges both raw choices."
+    },
+    {
+      "construction": "Fix a combined S5+S6 model and replace mu by c mu, c>0, c!=1.",
+      "model_id": "B-M4_R4_VALUATION_SCALE",
+      "targets": [
+        "R4 determination by non-scalar roles",
+        "valuation normalization independence"
+      ],
+      "witness": "R1/R2/R3/R5 and N are unchanged; R4 J is divided by c."
+    },
+    {
+      "construction": "Fix a combined model and replace N by aN, a>0, a!=1, leaving mu and all S6 data fixed.",
+      "model_id": "B-M5_R4_NORM_SCALE",
+      "targets": [
+        "norm geometry/scale independence"
+      ],
+      "witness": "Every perimeter scales by a, so R4 J scales by a^2 while R2/R3/R5 do not change."
+    },
+    {
+      "construction": "Fix an admissible scalarizer lambda and replace it by b lambda, b>0, b!=1.",
+      "model_id": "B-M6_SCALARIZER_SCALE",
+      "targets": [
+        "kernel scalarization normalization independence"
+      ],
+      "witness": "Frozen R5 class and all group-cover data are unchanged; P_lambda scales by b."
+    },
+    {
+      "construction": "Frozen R052 countermodel C4 -> C5 by subdividing one edge.",
+      "model_id": "R052_M4_PRESERVED",
+      "targets": [
+        "R1 unrestricted refinement naturality"
+      ],
+      "witness": "R1 exists before but not after; R052B does not repair unrestricted-refinement failure."
+    }
+  ],
+  "preservation_rule": "No countermodel is repaired by mutating a frozen R052 role/signature.",
+  "researcher_id": "EM-R052B-5D91C7",
+  "schema": "ENTERPRISE_MATH_R052B_MODEL_COUNTEREXAMPLES_V1",
+  "status": "FROZEN_PRECLASSICAL_NOT_CANONICAL"
+}

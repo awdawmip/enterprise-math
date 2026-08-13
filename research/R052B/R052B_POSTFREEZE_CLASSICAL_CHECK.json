@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "frozen_result": "R052B R2/R3 same-carrier coherence only under frozen A*/S4",
+      "repair": "NONE",
+      "seal_observation": "Seal identifies R2 and R3 with the same standard half-turn class after frozen formal coherence.",
+      "verdict": "COMPATIBLE"
+    },
+    {
+      "frozen_result": "R052B S6 has split/non-split classes; primitive half-lift doubling to R5 requires the non-split class.",
+      "repair": "NONE",
+      "seal_observation": "Seal's standard additive comparison lift is an infinite cyclic lift whose kernel is the even subgroup; algebraically this is the non-split normal form L≅Z -> C2.",
+      "verdict": "COMPATIBLE; comparison model satisfies BEX3_S6_NONSPLIT"
+    },
+    {
+      "frozen_result": "R052B Half(p) orientation-free class doubles bijectively to R5 and projects/action-realizes R3.",
+      "repair": "NONE",
+      "seal_observation": "The standard half-turn lift representatives double to the orientation-free full-turn kernel-generator class.",
+      "verdict": "COMPATIBLE"
+    },
+    {
+      "frozen_result": "R052B R1 canonically yields an orbit two-cover, but no canonical cross-identification with R2 exists in frozen weak language; an extra realization may conjugate the deck roles.",
+      "repair": "NONE",
+      "seal_observation": "Seal explicitly uses an extra comparison-only regular equivariant realization for R1 and states it is not native to S1.",
+      "verdict": "COMPATIBLE; exactly a realization, not native equality"
+    },
+    {
+      "frozen_result": "R052B R4 cannot join the non-scalar diagram without scalarization and normalization; norm, valuation, and scalarizer scales are independent.",
+      "repair": "NONE",
+      "seal_observation": "Seal explicitly specializes to standard length and area and applies an additional scalar readout to the raw R4 value only in the comparison model.",
+      "verdict": "COMPATIBLE; comparison supplies the normalization/readout debt that was absent pre-classically"
+    }
+  ],
+  "classical_seal_source": {
+    "classical_numeric_value_used": false,
+    "github_blob_sha": "1a6302fb914ec0cd1d9f9db3672605dbc28db3ad",
+    "path": "research/R052/R052_CLASSICAL_IDENTIFICATION_SEAL.json",
+    "r052_head": "537207b7e169d8f3d150d1600715a18f024c37e3",
+    "symbolic_only": true
+  },
+  "mutation_policy": "Any bridge/signature/theorem change after this check is NEW_GENERATION_FOR_LATER_TASK.",
+  "new_mathematics_after_open": false,
+  "overall": "SYMBOLIC_COMPATIBILITY_PASS_NO_BRIDGE_REPAIR",
+  "preclassical_manifest_sha256": "c0ab25bb2b4a8ec14c7dca0c433faabcc497ec09a795a7c9be80e6420ce0ebd8",
+  "preclassical_mutation_after_open": false,
+  "researcher_id": "EM-R052B-5D91C7",
+  "schema": "ENTERPRISE_MATH_R052B_POSTFREEZE_CLASSICAL_CHECK_V1",
+  "status": "POSTFREEZE_SYMBOLIC_COMPATIBILITY_CHECK_ONLY"
+}

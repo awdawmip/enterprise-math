@@ -1,0 +1,55 @@
+{
+  "classical_signal_used": false,
+  "classification_theorem": {
+    "id": "R052B-T-C1-ABELIAN-EXTENSION-PARITY-CLASSIFICATION",
+    "proof_core": [
+      "x->x+mk changes n to n+2m.",
+      "k->-k changes n to -n.",
+      "If n is even, y=x-(n/2)k has 2y=0 and gives a section, so L≅Z⊕C2.",
+      "If n is odd, y=x+((1-n)/2)k has 2y=k; then y generates L, so L≅Z and K=2L."
+    ],
+    "statement": "Choose a metatheoretic generator k of K and any x with p(x)=z. Write 2x=nk. The class epsilon=n mod 2 is independent of the lift; changing k to -k changes n to -n and hence preserves epsilon. epsilon completely classifies the extension up to isomorphism commuting with p."
+  },
+  "equivalent_nonsplit_criteria": [
+    "epsilon=1",
+    "the extension is non-split",
+    "TurnLift has no element of order two lying above z",
+    "TurnLift is torsion-free",
+    "there exists x with p(x)=z and 2x in Gen(ker p)"
+  ],
+  "extension_classes": [
+    {
+      "class_id": "SPLIT_EPSILON_0",
+      "implication": "This is an explicit S6 countermodel to 'S6 forces a half-lift whose double generates the kernel'.",
+      "normal_form": "L=Z⊕C2, p(a,b)=b, K=Z×{0}",
+      "order_two_lift_exists": true,
+      "primitive_half_lift_exists": false,
+      "witness": "Every odd-coset lift (a,1) doubles to (2a,0), never a kernel generator (±1,0)."
+    },
+    {
+      "class_id": "NONSPLIT_EPSILON_1",
+      "double_image": "±1 double to ±2, the two raw generators of K.",
+      "normal_form": "L=Z, p(n)=n mod 2, K=2Z",
+      "order_two_lift_exists": false,
+      "primitive_half_lift_exists": true,
+      "primitive_half_lifts": "Exactly +1 and -1 in the normal form; abstractly an inverse pair."
+    }
+  ],
+  "minimal_extension_debt": {
+    "axiom": "No order-two lift above z.",
+    "deletion_witness": "Split model Z⊕C2.",
+    "id": "BEX3_S6_NONSPLIT",
+    "orientation_not_added": true,
+    "why_minimal": "The frozen S6 model class contains exactly two extension isomorphism classes distinguished by one parity bit; the bridge property is true in exactly one class."
+  },
+  "raw_canonicity": {
+    "kernel_generator_inversion_class": "CANONICAL (R5).",
+    "kernel_raw_generator": "NOT_CANONICAL (frozen R052 T-D5).",
+    "orientation_free_half_lift_class": "CANONICAL singleton after quotient by inversion.",
+    "primitive_half_lift": "NOT_CANONICAL; inversion x->-x exchanges the two."
+  },
+  "researcher_id": "EM-R052B-5D91C7",
+  "schema": "ENTERPRISE_MATH_R052B_GROUP_EXTENSION_CLASSIFICATION_V1",
+  "setting": "Abelian exact sequence 0 -> K -> L --p--> C2 -> 0 with K infinite cyclic, exactly the group-cover content relevant to frozen S6.",
+  "status": "FROZEN_PRECLASSICAL_NOT_CANONICAL"
+}

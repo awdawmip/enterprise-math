@@ -1,0 +1,260 @@
+{
+  "classical_signal_used": false,
+  "completeness_check": {
+    "duplicates": false,
+    "unordered_pairs_expected": 10,
+    "unordered_pairs_present": 10
+  },
+  "pair_count": 10,
+  "pairs": [
+    {
+      "automorphism_equivariance": "R1 orbit-cover construction is natural under R1 isomorphisms and uniform refinements; R2 deck is natural under cover isomorphisms. Any chosen cross-cover isomorphism is moved by independent deck automorphisms.",
+      "candidate_bridge_classes": [
+        "COMMON_REDUCT_POSSIBLE",
+        "DEFINABLE_QUOTIENT_POSSIBLE",
+        "FUNCTORIAL_REALIZATION_REQUIRED",
+        "ILL_TYPED_NO_COMMON_CARRIER"
+      ],
+      "canonicality": "Canonical functors to COVER2: YES. Canonical identification of the two resulting cover objects: NO.",
+      "common_frozen_structure": "No shared carrier. R1 canonically defines an orbit two-sheet cover q_h:B->B/<h>; R2 already is the deck of q:ODir->UDir. Thus both land in the abstract category COVER2 but are independent objects.",
+      "counterexample_or_noncanonicity_witness": "Take an even C8 boundary and any R2 cover with four two-point fibers. If phi is one cover isomorphism, delta_q∘phi is another; target deck automorphism naturality would require delta_q∘phi=phi, impossible.",
+      "direct_equality_well_typed": false,
+      "minimal_formulation_object": "COVER2 category plus the R1 definable orbit quotient; an actual cross-object comparison additionally needs a cover isomorphism/realization.",
+      "output_copying_risk": "HIGH if one declares h=delta without a carrier realization; LOW for the orbit quotient itself.",
+      "pair_id": "R1_R2",
+      "role_types": [
+        "Sym(B), h_B in <s_B>",
+        "Sym(ODir), deck involution delta_q"
+      ],
+      "roles": [
+        "R1_CELL_HALF_CYCLE",
+        "R2_DIRECTION_DECK"
+      ],
+      "status": "PROVED"
+    },
+    {
+      "automorphism_equivariance": "Common involutive-set forgetful images are equivariant. Cross-carrier conjugacy is not canonical.",
+      "candidate_bridge_classes": [
+        "COMMON_REDUCT_POSSIBLE",
+        "FUNCTORIAL_REALIZATION_REQUIRED",
+        "ILL_TYPED_NO_COMMON_CARRIER"
+      ],
+      "canonicality": "No canonical cross-carrier bridge in the frozen languages.",
+      "common_frozen_structure": "Both are involutions as permutations, but of unrelated sets. Under frozen A*_S3 direction coherence R3 becomes R2, after which the R1 orbit-cover analysis applies.",
+      "counterexample_or_noncanonicity_witness": "On any coherent S3/S4 model, a hypothetical canonical R1-R3 cover realization would compose with the frozen R3=R2 theorem to give the forbidden canonical R1-R2 identification.",
+      "direct_equality_well_typed": false,
+      "minimal_formulation_object": "A common involutive-set language; for stronger comparison, A* plus a noncanonical R1-to-direction-cover realization.",
+      "output_copying_risk": "HIGH for direct equality; admissible only as marked realization/conjugacy.",
+      "pair_id": "R1_R3",
+      "role_types": [
+        "Sym(B)",
+        "Sym(ODir), gamma=rho(z)"
+      ],
+      "roles": [
+        "R1_CELL_HALF_CYCLE",
+        "R3_GROUP_INVOLUTION_ACTION"
+      ],
+      "status": "PROVED_NO_CANONICAL_BRIDGE"
+    },
+    {
+      "automorphism_equivariance": "Any admissible scalarization must be invariant/equivariant under cycle isomorphisms and must respect frozen R1 uniform-refinement naturality.",
+      "candidate_bridge_classes": [
+        "FUNCTORIAL_REALIZATION_REQUIRED",
+        "SCALARIZATION_REQUIRED",
+        "NORMALIZATION_REQUIRED",
+        "ILL_TYPED_NO_COMMON_CARRIER"
+      ],
+      "canonicality": "Not available from frozen structure.",
+      "common_frozen_structure": "None beyond metatheory; S1 and S5 are unrelated signature branches.",
+      "counterexample_or_noncanonicity_witness": "R4 varies under valuation rescaling while R1 is unchanged; moreover no frozen map identifies B with any S5 carrier.",
+      "direct_equality_well_typed": false,
+      "minimal_formulation_object": "A new geometric/realization bridge from S1 into an S5-like model plus a scalarization of the permutation role and scalar-unit comparison.",
+      "output_copying_risk": "EXTREME if a scalar readout is selected to equal J.",
+      "pair_id": "R1_R4",
+      "role_types": [
+        "finite permutation role in Sym(B)",
+        "scalar cut J in Cut(K)_nonnegative"
+      ],
+      "roles": [
+        "R1_CELL_HALF_CYCLE",
+        "R4_RAW_ISOPERIMETRIC_CUT"
+      ],
+      "status": "PROVED_BARRIER"
+    },
+    {
+      "automorphism_equivariance": "R1 realization remains noncanonical; S6 inversion must be quotiented rather than oriented.",
+      "candidate_bridge_classes": [
+        "COMMON_REDUCT_POSSIBLE",
+        "FUNCTORIAL_REALIZATION_REQUIRED",
+        "GROUP_EXTENSION_RELATION_REQUIRED",
+        "ILL_TYPED_NO_COMMON_CARRIER"
+      ],
+      "canonicality": "No canonical R1-R5 bridge. With explicit realization and the non-split S6 extension package, a noncanonical composite relation exists.",
+      "common_frozen_structure": "Both have C2-flavored involutive information only after forgetting most structure; no common carrier or frozen extension relates them.",
+      "counterexample_or_noncanonicity_witness": "Unrestricted R1 refinements can destroy R1 entirely (C4->C5), while R5 persists in S6; independent carrier automorphisms prevent a canonical realization even when cardinalities happen to match.",
+      "direct_equality_well_typed": false,
+      "minimal_formulation_object": "R1 orbit two-cover plus a realization into the S6 direction two-cover, followed by a group-extension half-lift object.",
+      "output_copying_risk": "HIGH if one identifies the half-cycle directly with a kernel generator/class.",
+      "pair_id": "R1_R5",
+      "role_types": [
+        "finite involution/permutation",
+        "inversion quotient of generators of an infinite cyclic kernel"
+      ],
+      "roles": [
+        "R1_CELL_HALF_CYCLE",
+        "R5_TURN_KERNEL_GENERATOR_CLASS"
+      ],
+      "status": "PROVED_NO_NATIVE_COMPARISON"
+    },
+    {
+      "automorphism_equivariance": "Both are equivariant under S3 isomorphisms.",
+      "candidate_bridge_classes": [
+        "SAME_CODOMAIN_NATIVE_COMPARISON"
+      ],
+      "canonicality": "Equality is not forced by S3; it is forced by the frozen irredundant A* package.",
+      "common_frozen_structure": "S3_DIRACT2 provides the same ODir carrier and both permutations.",
+      "counterexample_or_noncanonicity_witness": "Frozen M1 and M2 deletion witnesses.",
+      "direct_equality_well_typed": true,
+      "minimal_formulation_object": "None beyond S3 for formulation; equality theorem needs frozen A*={VERTICALITY,FIXED_POINT_FREE}.",
+      "output_copying_risk": "NONE for frozen A*: its axioms are independent verticality/fixed-point-freeness properties, not equality itself.",
+      "pair_id": "R2_R3",
+      "role_types": [
+        "Sym(ODir)",
+        "Sym(ODir)"
+      ],
+      "roles": [
+        "R2_DIRECTION_DECK",
+        "R3_GROUP_INVOLUTION_ACTION"
+      ],
+      "status": "FROZEN_EXISTING_THEOREM_PROVED_RELATIVE_TO_ASTAR"
+    },
+    {
+      "automorphism_equivariance": "Scalarization must be invariant under cover automorphisms; R4 comparison must survive or explicitly fix valuation/norm scaling.",
+      "candidate_bridge_classes": [
+        "COMMON_REDUCT_POSSIBLE",
+        "SCALARIZATION_REQUIRED",
+        "NORMALIZATION_REQUIRED",
+        "ILL_TYPED_NO_COMMON_CARRIER"
+      ],
+      "canonicality": "No canonical scalar comparison.",
+      "common_frozen_structure": "S4 ordered-affine reduct can realize R2 and is the reduct of S5, but it contains no scalarization of the deck role and no R4 normalization.",
+      "counterexample_or_noncanonicity_witness": "mu->c mu changes R4 by 1/c while the entire S4 direction-cover/deck data remain fixed.",
+      "direct_equality_well_typed": false,
+      "minimal_formulation_object": "An S5 expansion plus a declared scalarization from the C2/deck structure to a scalar codomain compatible with Cut(K).",
+      "output_copying_risk": "EXTREME if scalarization scale is chosen from J.",
+      "pair_id": "R2_R4",
+      "role_types": [
+        "Sym(ODir)",
+        "Cut(K)_nonnegative"
+      ],
+      "roles": [
+        "R2_DIRECTION_DECK",
+        "R4_RAW_ISOPERIMETRIC_CUT"
+      ],
+      "status": "PROVED_SCALARIZATION_NORMALIZATION_BARRIER"
+    },
+    {
+      "automorphism_equivariance": "Any half-lift must be quotiented by inversion; projection to z and doubling to the kernel generator class are extension-isomorphism natural.",
+      "candidate_bridge_classes": [
+        "COMMON_REDUCT_POSSIBLE",
+        "GROUP_EXTENSION_RELATION_REQUIRED",
+        "DEFINABLE_QUOTIENT_POSSIBLE",
+        "ILL_TYPED_NO_COMMON_CARRIER"
+      ],
+      "canonicality": "S6 alone: NO. S6 plus NONSPLIT/NO_ORDER_TWO_LIFT: YES at the quotient-class level, not as raw equality.",
+      "common_frozen_structure": "S6 contains the S4 direction-negation action/deck together with the extension p:TurnLift->G2.",
+      "counterexample_or_noncanonicity_witness": "Split model L=Z⊕C2: every lift (a,1) doubles to (2a,0), never to a generator ±(1,0) of the kernel.",
+      "direct_equality_well_typed": false,
+      "minimal_formulation_object": "An orientation-free half-lift class in p^-1(z); its existence with double a kernel generator is not forced by S6.",
+      "output_copying_risk": "LOW for the non-split axiom (independent extension-class property); HIGH for an axiom directly equating deck output to R5.",
+      "pair_id": "R2_R5",
+      "role_types": [
+        "Sym(ODir) deck involution",
+        "Gen(ker p)/(t~t^-1)"
+      ],
+      "roles": [
+        "R2_DIRECTION_DECK",
+        "R5_TURN_KERNEL_GENERATOR_CLASS"
+      ],
+      "status": "PROVED_WITH_MINIMAL_EXTENSION_DEBT"
+    },
+    {
+      "automorphism_equivariance": "Scalarizer must be action-isomorphism invariant; R4 is independently norm/valuation scale-sensitive.",
+      "candidate_bridge_classes": [
+        "COMMON_REDUCT_POSSIBLE",
+        "SCALARIZATION_REQUIRED",
+        "NORMALIZATION_REQUIRED",
+        "ILL_TYPED_NO_COMMON_CARRIER"
+      ],
+      "canonicality": "No canonical scalar comparison.",
+      "common_frozen_structure": "S4 realizes the R3 negation action and is the reduct of S5.",
+      "counterexample_or_noncanonicity_witness": "mu rescaling fixes S4 and hence R3 but rescales R4.",
+      "direct_equality_well_typed": false,
+      "minimal_formulation_object": "S5 plus a scalarization of the involutive action and scalar normalization.",
+      "output_copying_risk": "EXTREME for target-selected scalarization.",
+      "pair_id": "R3_R4",
+      "role_types": [
+        "Sym(ODir)",
+        "Cut(K)_nonnegative"
+      ],
+      "roles": [
+        "R3_GROUP_INVOLUTION_ACTION",
+        "R4_RAW_ISOPERIMETRIC_CUT"
+      ],
+      "status": "PROVED_SCALARIZATION_NORMALIZATION_BARRIER"
+    },
+    {
+      "automorphism_equivariance": "Projection/action and doubling are natural under extension isomorphisms after inversion quotient.",
+      "candidate_bridge_classes": [
+        "GROUP_EXTENSION_RELATION_REQUIRED",
+        "DEFINABLE_QUOTIENT_POSSIBLE",
+        "ILL_TYPED_NO_COMMON_CARRIER"
+      ],
+      "canonicality": "Not forced by S6; canonical quotient relation after the non-split extension-class axiom.",
+      "common_frozen_structure": "S6 couples G2={e,z} to the S4 negation action and has p:TurnLift->G2.",
+      "counterexample_or_noncanonicity_witness": "Split Z⊕C2 extension lacks any lift whose double generates the kernel.",
+      "direct_equality_well_typed": false,
+      "minimal_formulation_object": "Orientation-free primitive half-lift class above z and its doubling relation.",
+      "output_copying_risk": "LOW for extension-class selection; direct R3=R5 remains ill-typed/illegal.",
+      "pair_id": "R3_R5",
+      "role_types": [
+        "action of z in Sym(ODir)",
+        "inversion quotient of kernel generators"
+      ],
+      "roles": [
+        "R3_GROUP_INVOLUTION_ACTION",
+        "R5_TURN_KERNEL_GENERATOR_CLASS"
+      ],
+      "status": "PROVED_S6_INSUFFICIENT_AND_MINIMAL_EXTENSION_FOUND"
+    },
+    {
+      "automorphism_equivariance": "Kernel inversion must not change the scalar readout; comparison must specify behavior under norm, valuation, and scalarizer rescalings.",
+      "candidate_bridge_classes": [
+        "COMMON_REDUCT_POSSIBLE",
+        "SCALARIZATION_REQUIRED",
+        "NORMALIZATION_REQUIRED",
+        "ILL_TYPED_NO_COMMON_CARRIER"
+      ],
+      "canonicality": "No common scalar coherence is forced.",
+      "common_frozen_structure": "S5 and S6 are distinct refinements of S4. A combined comparison model can contain both but is not a frozen consequence of either alone.",
+      "counterexample_or_noncanonicity_witness": "In one fixed combined model, independently vary mu, N, or scalarizer lambda while preserving the other frozen role data; relative scalar outputs vary.",
+      "direct_equality_well_typed": false,
+      "minimal_formulation_object": "Common S5+S6 expansion over S4, an orientation-free kernel scalarizer into K (or a comparable ordered group), embedding into Cut(K), and independent normalizations.",
+      "output_copying_risk": "MAXIMAL for a normalization whose only property is J=P_lambda.",
+      "pair_id": "R4_R5",
+      "role_types": [
+        "Cut(K)_nonnegative",
+        "Gen(ker p)/(t~t^-1)"
+      ],
+      "roles": [
+        "R4_RAW_ISOPERIMETRIC_CUT",
+        "R5_TURN_KERNEL_GENERATOR_CLASS"
+      ],
+      "status": "PROVED_COMMON_SCALAR_COHERENCE_NOT_FORCED"
+    }
+  ],
+  "protocol_sha256": "fa8c888991d487332bbb2c94596001ca578f3b51826b828bebe26a431747f430",
+  "researcher_id": "EM-R052B-5D91C7",
+  "schema": "ENTERPRISE_MATH_R052B_PAIRWISE_COMPARABILITY_GRAPH_V1",
+  "status": "FROZEN_PRECLASSICAL_NOT_CANONICAL"
+}

@@ -1,0 +1,42 @@
+{
+  "base_verdict": "S6 alone is insufficient.",
+  "countermodel": "Split extension L=Z⊕C2 with p(a,b)=b: no element above z doubles to a kernel generator.",
+  "deletion_audit": {
+    "add_generator_orientation": "UNNECESSARY; quotient by inversion already yields canonical classes.",
+    "add_scalar_period": "UNNECESSARY and outside non-scalar bridge.",
+    "delete_nonsplit_axiom": "FAIL: split Z⊕C2 countermodel."
+  },
+  "extended_setting": "S6 + BEX3_S6_NONSPLIT",
+  "half_object": {
+    "cardinality": "Exactly one class.",
+    "definition": "Half(p)={x in p^-1(z):2x∈Gen(ker p)}/(x~-x)",
+    "semantic_type": "orientation-free quotient-valued bridge object, not a scalar"
+  },
+  "maps": [
+    {
+      "definition": "[x] -> [2x]",
+      "kind": "DEFINABLE_QUOTIENT_MAP / DOUBLING_RELATION",
+      "map_id": "DOUBLE",
+      "source": "Half(p)",
+      "target": "R5_TURN_KERNEL_GENERATOR_CLASS",
+      "theorem": "Well-defined and bijective. Inversion x->-x sends 2x->-2x, the same R5 class."
+    },
+    {
+      "definition": "[x] -> p(x)=z -> rho(z)",
+      "kind": "GROUP_EXTENSION_RELATION / FUNCTORIAL_IMAGE",
+      "map_id": "PROJECT_ACTION",
+      "source": "Half(p)",
+      "target": "R3_GROUP_INVOLUTION_ACTION in the S4/S6 realization",
+      "theorem": "Well-defined because p(x)=p(-x)=z; its action image is the frozen S4 negation action."
+    }
+  ],
+  "relation_to_R2": "Under the already-frozen S4/A* realization, R3=R2 in Sym(ODir). No new equality axiom is used.",
+  "researcher_id": "EM-R052B-5D91C7",
+  "schema": "ENTERPRISE_MATH_R052B_HALF_FULL_ROLE_COHERENCE_V1",
+  "status": "FROZEN_PRECLASSICAL_NOT_CANONICAL",
+  "theorem": {
+    "direct_R3_R5_equality": false,
+    "id": "R052B-T-C4-NONSPLIT-HALF-FULL-COHERENCE",
+    "statement": "In S6+BEX3, Half(p) is a canonical singleton inversion class; doubling identifies it canonically with R5, while projection followed by the frozen G2 action realizes R3 (hence R2 under the frozen direction-coherence theorem)."
+  }
+}

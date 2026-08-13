@@ -1,0 +1,93 @@
+{
+  "extensions": [
+    {
+      "axioms": [],
+      "base": "R1 frozen even-boundary instance",
+      "classification": "DEFINABLE_CONSEQUENCE",
+      "conservative": true,
+      "extension_id": "BEX1_R1_ORBIT_COVER",
+      "independent_meaning": "Orbit quotient of a fixed-point-free involution.",
+      "new_symbols": "None: U_h:=B/<h_B>, q_h:B->U_h are definable quotients.",
+      "output_copying": false,
+      "semantic_stratum": "N2 quotient/common comparison object"
+    },
+    {
+      "axioms": [
+        "q ∘ phi_B = phi_U ∘ q_h"
+      ],
+      "base": "Product of one R1 orbit-cover object and one R2 direction-cover object",
+      "canonicity": "No; if one realization exists, target deck postcomposition gives another.",
+      "classification": "FUNCTORIAL_REALIZATION_REQUIRED / NONCONSERVATIVE_WHEN_EXISTENCE_ASSERTED",
+      "conservative": false,
+      "extension_id": "BEX2_R1_R2_COVER_REALIZATION",
+      "independent_meaning": "Isomorphism of two independently given two-sheet covers.",
+      "new_symbols": "bijections phi_B:B->ODir and phi_U:U_h->UDir",
+      "output_copying": false,
+      "semantic_stratum": "N1/N2 comparison-only realization"
+    },
+    {
+      "axioms": [
+        "There is no x in TurnLift with p(x)=z and 2x=0."
+      ],
+      "base": "S6_TURNCOV2",
+      "classification": "NONCONSERVATIVE_EXTENSION / N0_STRUCTURE_EXTENSION",
+      "conservative": false,
+      "deletion_witness": "L=Z⊕C2 with projection to C2.",
+      "equivalents_under_S6": [
+        "TurnLift is torsion-free",
+        "the abelian extension has odd parity class",
+        "there exists x above z with 2x generating ker(p)"
+      ],
+      "extension_id": "BEX3_S6_NONSPLIT",
+      "independent_meaning": "Selects the non-split isomorphism class of the C2-by-Z abelian extension; does not name a final role output.",
+      "new_symbols": "None",
+      "output_copying": false,
+      "semantic_stratum": "N0 extension-class restriction on the already-declared group cover"
+    },
+    {
+      "axioms": [],
+      "base": "S6+BEX3_S6_NONSPLIT",
+      "classification": "DEFINABLE_CONSEQUENCE",
+      "conservative": true,
+      "extension_id": "BEX4_HALF_LIFT_INVERSION_QUOTIENT",
+      "independent_meaning": "Orientation-free primitive lift of the nonidentity quotient class.",
+      "new_symbols": "Half(p):={x:p(x)=z and 2x∈Gen(ker p)}/(x~-x), definable as a quotient",
+      "output_copying": false,
+      "semantic_stratum": "N2 quotient bridge object"
+    },
+    {
+      "axioms": "Union of frozen S5 and S6 axioms over the common S4 reduct; no coupling axiom.",
+      "base": "S4_ORDAFF2",
+      "classification": "COMPARISON_ONLY / CONSERVATIVE_RELATIVE_TO_INDEPENDENT_EXPANSIONS_WHEN_BOTH_EXIST",
+      "conservative": "MODEL-RELATIVE",
+      "extension_id": "BEX5_S5_S6_COMMON_EXPANSION",
+      "independent_meaning": "Merely co-locates norm/valuation and group-cover structures without asserting coherence.",
+      "new_symbols": "All S5 symbols N,Poly,mu plus all S6 symbols TurnLift,p",
+      "output_copying": false,
+      "semantic_stratum": "comparison model"
+    },
+    {
+      "axioms": [
+        "lambda is an injective group homomorphism"
+      ],
+      "base": "S6 (optionally BEX3) plus an ordered field K from a common S4/S5 expansion",
+      "classification": "N2_SCALARIZATION_READOUT",
+      "conservative": "EXISTENCE depends on codomain admitting an infinite cyclic subgroup; in ordered fields characteristic 0 this is available but no canonical scale is selected.",
+      "extension_id": "BEX6_KERNEL_SCALARIZATION",
+      "independent_meaning": "Provides a scalar coordinate for the cyclic kernel, orientation-free after absolute value.",
+      "new_symbols": "lambda:ker(p)->(K,+), injective group homomorphism; P_lambda([t])=|lambda(t)|",
+      "output_copying": false,
+      "rescaling_debt": "lambda->b lambda for b>0 rescales P_lambda by b.",
+      "semantic_stratum": "N2 readout/comparison only"
+    }
+  ],
+  "forbidden_extension_template": {
+    "accepted": false,
+    "classification": "ILLEGAL_OUTPUT_COPYING",
+    "example": "axiom J_N,mu = P_lambda(R5)",
+    "id": "ILLEGAL_FINAL_OUTPUT_EQUALITY"
+  },
+  "researcher_id": "EM-R052B-5D91C7",
+  "schema": "ENTERPRISE_MATH_R052B_BRIDGE_EXTENSION_SIGNATURES_V1",
+  "status": "FROZEN_PRECLASSICAL_NOT_CANONICAL"
+}

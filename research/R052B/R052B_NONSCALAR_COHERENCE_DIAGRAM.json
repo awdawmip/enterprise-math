@@ -1,0 +1,54 @@
+{
+  "canonical_component_under_BEX3": [
+    "Half(p) --DOUBLE(bijection)--> R5_TURN_KERNEL_GENERATOR_CLASS",
+    "Half(p) --PROJECT_ACTION(functorial image)--> R3_GROUP_INVOLUTION_ACTION",
+    "R3_GROUP_INVOLUTION_ACTION == R2_DIRECTION_DECK  [frozen A* / S4 coherence]"
+  ],
+  "commutativity_claims": [
+    {
+      "basis": "Frozen T-E1 h-naturality makes bar_i([j])=[i(j)] well-defined.",
+      "equation": "q_{km} ∘ i = bar_i ∘ q_m",
+      "id": "R1_REFINEMENT_SQUARE",
+      "status": "PROVED"
+    },
+    {
+      "basis": "Frozen R052 T-D2 under A*; S4 realizes the package.",
+      "equation": "delta_q = rho(z)",
+      "id": "R2_R3_SAME_CARRIER",
+      "status": "IMPORTED_FROZEN_THEOREM"
+    },
+    {
+      "basis": "definition plus non-split primitive-lift theorem",
+      "equation": "DOUBLE([x])=[2x]=R5",
+      "id": "HALF_TO_FULL",
+      "status": "PROVED"
+    },
+    {
+      "basis": "p(x)=z for every representative and p(-x)=z",
+      "equation": "PROJECT_ACTION([x])=rho(p(x))=rho(z)=R3",
+      "id": "HALF_TO_ACTION",
+      "status": "PROVED"
+    }
+  ],
+  "cross_component_statement": "R1 and R2 land in the same abstract two-sheet-cover category, but there is no canonical arrow identifying their cover objects from frozen structure alone.",
+  "forbidden_false_square": "No commutative square is asserted with R3 and R5 as equal endpoints; they have different types.",
+  "optional_noncanonical_arrow": {
+    "arrow": "phi_B conjugates h_B to delta_q=R2=R3",
+    "canonical": false,
+    "classification": "NONCANONICAL_REALIZATION",
+    "requires": "BEX2_R1_R2_COVER_REALIZATION"
+  },
+  "r1_component": [
+    "R1_CELL_HALF_CYCLE h_B -> OrbCover(B,h_B)=(B -> B/<h_B>) in COVER2",
+    "uniform refinement maps induce commuting morphisms of orbit covers"
+  ],
+  "researcher_id": "EM-R052B-5D91C7",
+  "result_classes": [
+    "NONSCALAR_COHERENCE_DIAGRAM_FOUND",
+    "R1_TO_COVER_FUNCTOR_FOUND",
+    "R1_TO_COVER_CANONICITY_NO_GO",
+    "MINIMAL_GROUP_EXTENSION_PACKAGE_FOUND"
+  ],
+  "schema": "ENTERPRISE_MATH_R052B_NONSCALAR_COHERENCE_DIAGRAM_V1",
+  "status": "FROZEN_PRECLASSICAL_NOT_CANONICAL"
+}
