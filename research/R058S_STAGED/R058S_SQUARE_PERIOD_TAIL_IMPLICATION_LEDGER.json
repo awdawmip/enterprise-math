@@ -1,0 +1,51 @@
+{
+  "corner_generator_status": "CORNER_GENERATOR_STILL_OPEN",
+  "frozen_inputs": {
+    "stage_b2_checkpoint_sha256": "eec1e395b8805d8d720648b7a4e1f70dc74a2bd2fdcff91d1d8537c9d052d5c1",
+    "stage_c_checkpoint_sha256": "22f285cc876ce9624200a1ff4d58b910a7d698c1d0fbb0ec455409396fd809bb",
+    "stage_c_protocol_sha256": "acf22b9d2f256b0dccfa210abce69e2e994205a39d19bc3bed945026d75e78b9"
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "not_claimed": [
+    "finite universal corner generator",
+    "corner remainder is a universal constant",
+    "deployment/transfer above frozen empirical K range",
+    "holdout validity"
+  ],
+  "proposal": {
+    "deployed": false,
+    "empirical_k_gt_8_used": false,
+    "label": "POST_STAGE_C_PRIMITIVE_PERIOD_COLLAPSE_OPERATOR_PROPOSAL",
+    "new_square_predictions_computed": false
+  },
+  "proved_implications": [
+    {
+      "basis": "square membership is intersection of exact supporting half-planes; exposure is carrier-local; adjacent-side support slacks change by fixed nonzero exact increments under primitive side translation",
+      "statement": "away from the two side endpoints/corner layers, the frozen square side local boundary equals the corresponding frozen digital half-plane boundary",
+      "status": "PROVED_LOCALIZATION_FOR_FIXED_FROZEN_ORIENTATION_PHASE"
+    },
+    {
+      "basis": "Stage-C exact periodic half-plane carrier plus the localization statement",
+      "statement": "the pure straight-side interior is a contiguous interval of the frozen primitive cutting word",
+      "status": "PROVED"
+    },
+    {
+      "basis": "Theorem D4.A",
+      "statement": "after fixed alignment, the periodic interior decomposes into prefix tail + q complete primitive periods + suffix tail with total alignment tails <2m",
+      "status": "FINITE_SIDE_TAIL_LOCALIZATION_PROVED"
+    },
+    {
+      "basis": "Theorem D1.A / D2.A / D4.B",
+      "statement": "collapsing each complete primitive period to its endpoint chord makes the complete-period straight bulk exactly equal to the teacher translation length",
+      "status": "STRAIGHT_EDGE_BULK_EXACT_AFTER_PERIOD_COLLAPSE"
+    },
+    {
+      "basis": "combination of local half-plane identity and exact complete-period collapse",
+      "statement": "under the proposed but undeployed period-collapse operation, remaining square discrepancy is localized to finite period-alignment tails and corner boundary layers rather than accumulating through complete straight-edge periods",
+      "status": "SQUARE_ERROR_REDUCED_TO_FINITE_PERIOD_TAILS_AND_CORNER_LAYERS"
+    }
+  ],
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_SQUARE_PERIOD_TAIL_IMPLICATION_LEDGER_V1",
+  "stage": "D"
+}
