@@ -1,0 +1,30 @@
+{
+  "MU_semantic_type": "N2_FIBER_CARDINALITY_DIAGNOSTIC",
+  "algorithm": [
+    "Apply frozen Stage-C realizability theorem; if unrealizable, MU=0.",
+    "If N_T=0, realizable iff s=t and then MU=1.",
+    "If N_T>0 and realizable, set r=t for s!=t and r=s for s=t.",
+    "Compute token-level TAU_r(T) by the finite multiplicity-weighted parent-map sum.",
+    "Return the factorial-arborescence quotient."
+  ],
+  "closed_candidate_disposition": "CONFIRMED_EXACT_WITH_TOKEN_LEVEL_TAU_s",
+  "generation": "R059L",
+  "native_equality_unchanged": true,
+  "not_interpreted_as": [
+    "PROBABILITY",
+    "ENTROPY",
+    "PATH_WEIGHT",
+    "PACKET_WEIGHT"
+  ],
+  "open_candidate_disposition": "CONFIRMED_EXACT_WITH_TOKEN_LEVEL_TAU_t",
+  "positive_unified_formula": "MU(T;s,t)=TAU_r(T)*d_r!*product_{x in ACTIVE(T),x!=r}(d_x-1)! / product_{x,y}T(x,y)!",
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_RAW_MU_EXACT_FORMULA_V1",
+  "scope_guard": "Positive formula is invoked only after Stage-C realizability and N_T>0, so every active non-root has d_x>=1 and no (-1)! occurs.",
+  "stage": "STAGE_D",
+  "status": "PROVED_EXACT",
+  "task_id": "RS-R059L-STAGE-D-EXACT-FIBER-COUNT-FACTORIZATION",
+  "taskbook_source_commit": "4394af21047d66a27e86143a8388f94d48aa0e81",
+  "theorem_id": "PD-T03",
+  "zero_transition": "T=0: MU=1 iff s=t; otherwise MU=0."
+}
