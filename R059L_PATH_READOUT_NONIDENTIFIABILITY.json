@@ -6,11 +6,44 @@
   },
   "PB-T07": {
     "T_equal": true,
-    "T_eta": {"A->B":1,"A->C":1,"B->A":1,"C->A":1},
-    "T_gamma": {"A->B":1,"A->C":1,"B->A":1,"C->A":1},
-    "carrier": {"declared_symmetric_adjacencies":[["A","B"],["A","C"]]},
-    "eta": ["A","C","A","B","A"],
-    "gamma": ["A","B","A","C","A"],
+    "T_eta": {
+      "A->B": 1,
+      "A->C": 1,
+      "B->A": 1,
+      "C->A": 1
+    },
+    "T_gamma": {
+      "A->B": 1,
+      "A->C": 1,
+      "B->A": 1,
+      "C->A": 1
+    },
+    "carrier": {
+      "declared_symmetric_adjacencies": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    "eta": [
+      "A",
+      "C",
+      "A",
+      "B",
+      "A"
+    ],
+    "gamma": [
+      "A",
+      "B",
+      "A",
+      "C",
+      "A"
+    ],
     "gamma_not_eta": true,
     "proof": "Both histories are legal and distinct already at position 1, but each contains exactly one occurrence of A->B, B->A, A->C and C->A.",
     "same_end": "A",
@@ -21,17 +54,97 @@
   "additional_exact_separations": [
     {
       "different_VISIT": true,
-      "eta": ["B","C","A","B"],
+      "eta": [
+        "B",
+        "C",
+        "A",
+        "B"
+      ],
       "explanation": "The histories are cyclic shifts with the same directed transition multiset; the duplicated endpoint packet in the finite history representation differs.",
-      "gamma": ["A","B","C","A"],
+      "gamma": [
+        "A",
+        "B",
+        "C",
+        "A"
+      ],
       "purpose": "H1 without endpoint data need not determine H3 on a closed history",
-      "required_adjacencies": [["A","B"],["B","C"],["C","A"]],
+      "required_adjacencies": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "A"
+        ]
+      ],
       "same_T": true
     },
-    {"different_T":true,"eta":["C","B","A"],"gamma":["A","B","C"],"purpose":"H2 does not reconstruct H1","same_U":true},
-    {"different_T":true,"eta":["A","C","A","B"],"gamma":["A","B","A","C"],"purpose":"H3 does not reconstruct H1","same_VISIT":true},
-    {"different_PATH_COUNT":true,"eta":["A","B","A"],"gamma":["A","B"],"purpose":"H4 does not reconstruct H5","same_SUPPORT":true},
-    {"different_SUPPORT":true,"eta":["A","B","A"],"gamma":["A","B","C"],"purpose":"H5 does not reconstruct H4","same_PATH_COUNT":true}
+    {
+      "different_T": true,
+      "eta": [
+        "C",
+        "B",
+        "A"
+      ],
+      "gamma": [
+        "A",
+        "B",
+        "C"
+      ],
+      "purpose": "H2 does not reconstruct H1",
+      "same_U": true
+    },
+    {
+      "different_T": true,
+      "eta": [
+        "A",
+        "C",
+        "A",
+        "B"
+      ],
+      "gamma": [
+        "A",
+        "B",
+        "A",
+        "C"
+      ],
+      "purpose": "H3 does not reconstruct H1",
+      "same_VISIT": true
+    },
+    {
+      "different_PATH_COUNT": true,
+      "eta": [
+        "A",
+        "B",
+        "A"
+      ],
+      "gamma": [
+        "A",
+        "B"
+      ],
+      "purpose": "H4 does not reconstruct H5",
+      "same_SUPPORT": true
+    },
+    {
+      "different_SUPPORT": true,
+      "eta": [
+        "A",
+        "B",
+        "A"
+      ],
+      "gamma": [
+        "A",
+        "B",
+        "C"
+      ],
+      "purpose": "H5 does not reconstruct H4",
+      "same_PATH_COUNT": true
+    }
   ],
   "event_cancellation": false,
   "generation": "R059L",
