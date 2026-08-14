@@ -1,0 +1,51 @@
+{
+  "D4": {
+    "assembly_exclusion": {
+      "limitation": "A ordered path/tie-margin fields remain NOT_AVAILABLE; A and G assembly diagnostics are analogous, not identical.",
+      "statement": "Both arms reject assembly switching as dominant residual explanation.",
+      "status": "COMMON_ASSEMBLY_SWITCHING_EXCLUSION",
+      "support": "SUPPORTED"
+    },
+    "carrier_specific_mixture_burden": {
+      "evidence": "FEATURE_COVARIANCE_DRIFT, PACKET_MIXTURE_EVOLUTION and PHASE_MIXTURE are SUPPORTED in G but only WEAK_SUPPORT in A; G additionally has WEAK_SUPPORT orientation mixture.",
+      "not_intrinsic_quality_ranking": true,
+      "status": "G_CARRIER_MIXTURE_BURDEN_STRONGER",
+      "support": "SUPPORTED_DESCRIPTIVELY"
+    },
+    "finite_scale_commonality": {
+      "statement": "Both have strong early-scale residual burden, but no shared functional radius trajectory is established.",
+      "status": "COMMON_FINITE_SCALE_RESIDUAL_COMPONENT",
+      "strength": "WEAK_MATCHED_STATEMENT_ONLY",
+      "support": "SUPPORTED"
+    },
+    "post_mixture_rebound": {
+      "A": "SUPPORTED: R=448/640 rebound after mixture/covariance contraction.",
+      "G": "Residual rebound is present after early decay, but packet-mixture contraction before rebound is not established; covariance geometry continues to rotate.",
+      "common_signature": "NOT_FROZEN",
+      "status": "INSUFFICIENT"
+    }
+  },
+  "decision_rationale": [
+    "Common assembly-switching exclusion is supported.",
+    "A common finite-scale residual component is supported.",
+    "Both retain unexplained structured remainder.",
+    "No matched post-mixture rebound signature is established beyond those common labels.",
+    "G carries a materially stronger diagnosed mixture/covariance/phase burden than A.",
+    "Therefore common and carrier-specific components coexist; evidence is insufficient for one common residual mechanism and too much common structure exists to call residuals predominantly carrier-specific."
+  ],
+  "epistemic_label": "POST_FIT_CROSS_CARRIER_RESIDUAL_DIAGNOSTIC / NOT_THEOREM / NOT_CANONICAL",
+  "forbidden_actions": {
+    "K_expansion": false,
+    "R057Y_read": false,
+    "new_feature": false,
+    "new_generator": false,
+    "new_teacher": false,
+    "optimizer": false,
+    "refit": false
+  },
+  "next_stage_route": "First isolate the common residual component from carrier-specific mixture/covariance effects before any new operator proposal; no generator invention is authorized here.",
+  "primary_disposition": "MIXED_COMMON_AND_CARRIER_SPECIFIC_RESIDUAL_STRUCTURE",
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_COMMON_UNEXPLAINED_RESIDUAL_LEDGER_V1",
+  "stage": "D4-D5"
+}

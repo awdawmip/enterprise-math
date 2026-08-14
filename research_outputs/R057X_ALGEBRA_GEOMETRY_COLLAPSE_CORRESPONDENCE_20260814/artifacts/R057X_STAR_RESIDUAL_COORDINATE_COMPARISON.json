@@ -1,0 +1,80 @@
+{
+  "A": {
+    "AREA_vs_RUN_DEFECT_stability_order": "INSUFFICIENT",
+    "STAR_coordinates": [
+      "AREA_STAR",
+      "RUN_DEFECT_STAR"
+    ],
+    "feature_geometry_summary": "Deployed 4D STAR covariance principal direction rotates ~9-13 degrees at earliest transitions, then mostly <2 degrees beyond R=128; nested-window rotations <=0.43 degrees; effective rank near 2.2.",
+    "interpretation": "A residual-geometry rotation contracts strongly with scale; remaining late rebound is not tracked by ongoing covariance rotation in the persisted summary.",
+    "per_feature_variance_trajectory_availability": "NOT_AVAILABLE_ON_PERSISTED_STAGE_G_SUMMARY",
+    "residual_hotspot_summary": "P02 persistent negative residual stratum; exact top/bottom STAR-feature overlap NOT_AVAILABLE."
+  },
+  "G": {
+    "AREA_design_variance_by_radius": {
+      "11": 0.057048898071625345,
+      "113": 0.00823175268227739,
+      "17": 0.23477220299884663,
+      "181": 0.012012275775057736,
+      "29": 0.013799048751486314,
+      "47": 0.02091387505658669,
+      "7": 0.04842687074829933,
+      "71": 0.03290129273292336
+    },
+    "AREA_variance_max_min_ratio": 28.520317854580487,
+    "AREA_vs_RUN_DEFECT_stability_order": "NOT_SUPPORTED_AS_COMMON_ORDERING",
+    "RUN_DEFECT_design_variance_by_radius": {
+      "11": 0.12476753856143623,
+      "113": 0.0014733481681139756,
+      "17": 0.01920427960686767,
+      "181": 0.003850138550965898,
+      "29": 0.0364259758231212,
+      "47": 0.005209783149361296,
+      "7": 0.07459974993223269,
+      "71": 0.006133519052717177
+    },
+    "RUN_DEFECT_variance_max_min_ratio": 84.68299704145994,
+    "STAR_coordinates": [
+      "AREA_STAR",
+      "RUN_DEFECT_STAR"
+    ],
+    "area_run_correlation_by_radius": {
+      "11": -0.08342764276916845,
+      "113": 0.09720687572644203,
+      "17": -0.7687693844497876,
+      "181": -0.18145758746088256,
+      "29": 0.23004366797863074,
+      "47": -0.5147639814626304,
+      "7": -0.5714275989044466,
+      "71": 0.31470527269188514
+    },
+    "correlation_sign_change_count_by_sorted_radius": 4,
+    "interpretation": "Correlation changes sign four times and leading-eigen share spans ~0.57-0.95; geometry genuinely rotates rather than changing by amplitude only.",
+    "residual_hotspot_summary": "P10 worst phase RMSE, Pmix best; O00 worst orientation RMSE, O15 best on frozen D2 summaries.",
+    "top_eigen_share_by_radius": {
+      "11": 0.940823915411391,
+      "113": 0.6118835709870661,
+      "17": 0.9210153018728541,
+      "181": 0.7203307169409813,
+      "29": 0.9453150566530651,
+      "47": 0.6847355983380605,
+      "7": 0.893346533423093,
+      "71": 0.5707203578069248
+    },
+    "top_eigen_share_range": [
+      0.5707203578069248,
+      0.9453150566530651
+    ]
+  },
+  "descriptive_only": true,
+  "epistemic_label": "POST_FIT_CROSS_CARRIER_RESIDUAL_DIAGNOSTIC / NOT_THEOREM / NOT_CANONICAL",
+  "questions": {
+    "AREA_credit_noisier_or_more_carrier_sensitive_in_both_arms": "NOT_ESTABLISHED_AS_COMMON_AREA_SPECIFIC_FACT",
+    "RUN_DEFECT_more_stable_than_AREA_in_both_arms": "NOT_ESTABLISHED",
+    "amplitude_conditioning_vs_rotation": "GENUINE_ROTATION_DIFFERENCE_SUPPORTED: A rotations contract strongly at scale while G correlation/eigenspectrum remains materially radius-dependent."
+  },
+  "regression_performed": false,
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_STAR_RESIDUAL_COORDINATE_COMPARISON_V1",
+  "stage": "D3"
+}

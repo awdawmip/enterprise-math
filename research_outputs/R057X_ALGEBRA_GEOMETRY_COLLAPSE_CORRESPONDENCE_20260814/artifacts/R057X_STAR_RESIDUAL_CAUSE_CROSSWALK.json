@@ -1,0 +1,82 @@
+{
+  "epistemic_label": "POST_FIT_CROSS_CARRIER_RESIDUAL_DIAGNOSTIC / NOT_THEOREM / NOT_CANONICAL",
+  "new_causal_model": false,
+  "rating_preservation_rule": "WEAK_SUPPORT and SUPPORTED remain distinct; no ordinal collapse.",
+  "raw_cross_arm_error_comparison": false,
+  "researcher_id": "EM-R057X-5E8C41",
+  "rows": [
+    {
+      "A_rating": "NOT_SUPPORTED",
+      "G_rating": "NOT_SUPPORTED",
+      "available_both": true,
+      "cause": "ASSEMBLY_ACTIVE_SET_SWITCHING",
+      "crosswalk_classification": "COMMON_REJECTED",
+      "evidence_direction": "Both reject assembly switching as dominant residual explanation. A observes D1/D2 class-count active-set differences but no residual-advantage association; G has deterministic branch-free fixed-K6 segmentation with no score-dependent activation.",
+      "limitations": "A ordered tiling path, tie/degeneracy count and best-vs-second margin are NOT_AVAILABLE.",
+      "object_relation": "SEMANTICALLY_ANALOGOUS_NOT_IDENTICAL"
+    },
+    {
+      "A_rating": "WEAK_SUPPORT",
+      "G_rating": "SUPPORTED",
+      "available_both": true,
+      "cause": "FEATURE_COVARIANCE_DRIFT",
+      "crosswalk_classification": "G_STRONGER",
+      "evidence_direction": "A covariance rotations contract sharply with scale and do not consistently track coefficient steps; G AREA/RUN_DEFECT covariance/eigenspectrum changes materially across radius.",
+      "limitations": "Carrier-specific deployed design distributions differ.",
+      "object_relation": "SEMANTICALLY_ANALOGOUS_NOT_IDENTICAL"
+    },
+    {
+      "A_rating": "WEAK_SUPPORT",
+      "G_rating": "SUPPORTED",
+      "available_both": true,
+      "cause": "PACKET_MIXTURE_EVOLUTION",
+      "crosswalk_classification": "G_STRONGER",
+      "evidence_direction": "A deployed class-mixture TV is largest early and contracts to approximately 0.02-0.03 at largest transitions; G deployed motif concentration changes systematically across radius under fixed segmentation.",
+      "limitations": "A class-mixture TV and G motif entropy are analogous descriptive summaries, not the same statistic.",
+      "object_relation": "SEMANTICALLY_ANALOGOUS_NOT_IDENTICAL"
+    },
+    {
+      "A_rating": "WEAK_SUPPORT",
+      "G_rating": "SUPPORTED",
+      "available_both": true,
+      "cause": "PHASE_MIXTURE",
+      "crosswalk_classification": "G_STRONGER",
+      "evidence_direction": "A persistent phase strata exist but equal phase weights prevent phase-mixture change from explaining scale drift; G frozen residual scale differs materially across its five phases.",
+      "limitations": "Phase families and cardinalities differ.",
+      "object_relation": "SEMANTICALLY_ANALOGOUS_NOT_IDENTICAL"
+    },
+    {
+      "A_rating": "NOT_AVAILABLE",
+      "G_rating": "WEAK_SUPPORT",
+      "available_both": false,
+      "cause": "ORIENTATION_MIXTURE",
+      "crosswalk_classification": "ARM_SPECIFIC_OBSERVABLE",
+      "evidence_direction": "G orientation effects exist but are weaker than phase/early-radius effects; A Stage-G frozen diagnostic surface has no corresponding orientation-mixture axis.",
+      "limitations": "No cross-arm orientation inference.",
+      "object_relation": "ARM_SPECIFIC_OBSERVABLE"
+    },
+    {
+      "A_rating": "SUPPORTED",
+      "G_rating": "SUPPORTED",
+      "available_both": true,
+      "cause": "FINITE_SCALE_EFFECT",
+      "crosswalk_classification": "COMMON_SUPPORTED",
+      "evidence_direction": "Both arms show strong early-scale residual burden followed by lower residual scale at larger radii, though their radius grids and later trajectories differ.",
+      "limitations": "Supports a common component, not one matched functional trajectory.",
+      "object_relation": "SEMANTICALLY_ANALOGOUS_NOT_IDENTICAL"
+    },
+    {
+      "A_rating": "SUPPORTED",
+      "G_rating": "SUPPORTED",
+      "available_both": true,
+      "cause": "UNEXPLAINED_RESIDUAL_STRUCTURE",
+      "crosswalk_classification": "COMMON_SUPPORTED",
+      "evidence_direction": "Both retain structured residual remainder after frozen STAR models and diagnostics.",
+      "limitations": "A common label/nonzero remainder is not sufficient evidence for a common residual mechanism.",
+      "object_relation": "SEMANTICALLY_ANALOGOUS_NOT_IDENTICAL"
+    }
+  ],
+  "schema": "R057X_STAR_RESIDUAL_CAUSE_CROSSWALK_V1",
+  "stage": "D1",
+  "status": "FROZEN_DIAGNOSTIC_CROSSWALK"
+}
