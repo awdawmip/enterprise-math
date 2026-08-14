@@ -1,0 +1,75 @@
+{
+  "epistemic_label": "FREEZE_RECONCILIATION / EXACT_INPUT_CLEAN_REPLAY / NO_NEW_SCIENCE / NOT_THEOREM / NOT_CANONICAL",
+  "frozen_anchors": {
+    "R057G_STAGE_I_JOINT_SURFACE_CHECKPOINT_SHA256": "a963b2fa951435655885b7eca4ec1d01561825bbb712396aab3516405560171f",
+    "R057X_STAGE_E_COMMON_COMPONENT_CHECKPOINT_SHA256": "3937572b2f8099f9ce125a86ccf90ec9aad6f9470b0af9ec4b8026df67796385",
+    "R057X_STAGE_FR_FREEZE_IDENTITY_CHECKPOINT_SHA256": "dde3a3edd0a2af71885c6e686747e81cd96d15f692b51494f7416fd6625192c6",
+    "R057X_STAGE_F_V1_CHECKPOINT_SHA256": "4cf6a1fd4d748e1175e77503247f41706aacb4946802a3da7bd03a52a4fdad54",
+    "R057X_STAGE_F_V1_DISPOSITION": "INSUFFICIENT",
+    "R057_A_STAGE_H_BUNDLE_SHA256": "7985a4af5c118554411716b941633670b6429fcf905a72b6c166af9c5b457fd0",
+    "R057_A_STAGE_H_JOINT_SURFACE_CHECKPOINT_SHA256": "bf3c30df26f7a4095935bfce2682e7f8b4bb834ec2c74b838a5d73b26b7e41dc"
+  },
+  "gate_result": "FAIL",
+  "hard_stop": "FR2_HARD_STOP_EXACT_INPUT_UNAVAILABLE",
+  "inputs": {
+    "A_nuisance": {
+      "expected_bytes": 50118,
+      "expected_sha256": "ac58760ca6f460961e41287452127060e3e3d2dfd9cf069a65fc6029f1b06e6f",
+      "filename": "R057_A_FROZEN_TRANSITION_NUISANCE_SURFACE.json",
+      "historical_identity_status": "DRIVER_ACCEPTED_EXACT_RECOVERY",
+      "metadata_or_transport_not_substituted": true,
+      "runtime_byte_gate": "UNAVAILABLE_NOT_BYTE_MOUNTED",
+      "runtime_exact_file_path": null
+    },
+    "A_sample": {
+      "expected_bytes": 2089833,
+      "expected_sha256": "4baad1a7c3528d9b147a3ee38fb5436a3e607a2141178a284f540bfc1ce5eaf3",
+      "filename": "R057_A_FROZEN_SAMPLE_RESIDUAL_MOTIF_EXPOSURE.json",
+      "historical_identity_status": "DRIVER_ACCEPTED_EXACT_RECOVERY",
+      "metadata_or_transport_not_substituted": true,
+      "runtime_byte_gate": "UNAVAILABLE_NOT_BYTE_MOUNTED",
+      "runtime_exact_file_path": null
+    },
+    "G_nuisance": {
+      "expected_bytes": 44983,
+      "expected_sha256": "14b198f6d1b87cc40454453e99046a946b7f841a6b76469fbbf2f84009b1e723",
+      "filename": "R057G_FROZEN_TRANSITION_NUISANCE_SURFACE.json",
+      "historical_identity_status": "DRIVER_ACCEPTED_STAGE_I / FILE_LIBRARY_REFERENCE_AVAILABLE",
+      "metadata_or_parsed_json_not_substituted": true,
+      "runtime_byte_gate": "UNAVAILABLE_FILE_REFERENCE_NOT_BYTE_MOUNTED",
+      "runtime_exact_file_path": null
+    },
+    "G_sample": {
+      "expected_bytes": 1467133,
+      "expected_sha256": "f50c9cdab6143e6d1e5339bfb3079e30b56e70991bca40ce9225cfdcc2415c22",
+      "filename": "R057G_FROZEN_SAMPLE_RESIDUAL_MOTIF_EXPOSURE.json",
+      "historical_identity_status": "DRIVER_ACCEPTED_STAGE_I / FILE_LIBRARY_REFERENCE_AVAILABLE",
+      "metadata_or_parsed_json_not_substituted": true,
+      "runtime_byte_gate": "UNAVAILABLE_FILE_REFERENCE_NOT_BYTE_MOUNTED",
+      "runtime_exact_file_path": null
+    }
+  },
+  "original_stage_f_taskbook": {
+    "git_blob_sha1": "5e270c55df24ddde87fd74bab17b22b2ec275265",
+    "path": "research_tasks/R057X_MATCHED_RESIDUAL_HOTSPOT_ISOLATION_COVERAGE_CONTROL_20260814.md",
+    "science_contract_not_executed_due_to_byte_gate": true,
+    "source_commit": "8abe99ad7c2ea54cb112c7a96a4c92166ce47495"
+  },
+  "prohibition": "No snippets, summaries, parsed-equivalent JSON, semantically equivalent recomputation, or different-byte regeneration used as FR2 science input.",
+  "researcher_id": "EM-R057X-5E8C41",
+  "runtime_probe": {
+    "exact_files_found": [],
+    "note": "Direct runtime filesystem search found none of the four required exact surface files.",
+    "search_root": "/mnt/data",
+    "target_file_count_found": 0
+  },
+  "schema": "R057X_STAGE_FR2_EXACT_INPUT_REGISTRY_V1",
+  "science_replay_executed": false,
+  "stage": "FR2",
+  "status": "FR2_HARD_STOP_EXACT_INPUT_UNAVAILABLE",
+  "taskbook": {
+    "git_blob_sha1": "3d533e54e560498439ca2e5f357cd6a052cf9745",
+    "path": "research_tasks/R057X_STAGE_FR2_CLEAN_STAGE_F_SCIENTIFIC_REPLAY_20260814.md",
+    "source_commit": "2ec0dd030a50cce33acc526161722eebe2e71c7d"
+  }
+}
