@@ -1,0 +1,115 @@
+{
+  "controls": [
+    {
+      "evidence": "Full replay preserved |C|=N on all 433531 accepted moves.",
+      "id": "CELL_COUNT_CHANGED_DURING_RELAXATION",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Every state/move coordinate is an integer axial lattice pair; D1 additionally satisfies Q(v-u)=1.",
+      "id": "CELL_LEFT_TRIANGULAR_LATTICE",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Final engine uses exact Tarjan deletion-component test; independent local-topology regression has 0 mismatches through N=8.",
+      "id": "CONNECTIVITY_BROKEN_BY_MOVE",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Hole-free insertion criterion c=k is proved and independently flood-fill checked on 259136 candidate relocations; all initial/final trajectory endpoints also full-flood checked.",
+      "id": "HOLE_CREATED_OR_FILLED_WITHOUT_DECLARATION",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Full all-N centroid sum was recomputed and independently replayed on all 433531 accepted moves.",
+      "id": "CENTROID_NOT_RECOMPUTED_AFTER_ACCEPTED_MOVE",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Move energy depends on current state sum S; no frozen center parameter exists in the engine.",
+      "id": "INITIAL_CENTER_FROZEN_AS_PRIVILEGED_CENTER",
+      "status": "PASS"
+    },
+    {
+      "evidence": "No circle/disk target appears in frozen move selection or engine; external disk file opens only post-ledger+holdout.",
+      "id": "CLASSICAL_CIRCLE_USED_AS_RELAXATION_TARGET",
+      "status": "PASS"
+    },
+    {
+      "evidence": "No pi token in relaxation engine; classical pi occurs only in post-freeze external disk formulas.",
+      "id": "PI_USED_IN_MOVE_OR_ENERGY_SELECTION",
+      "status": "PASS"
+    },
+    {
+      "evidence": "P_edge remains a separate objective/control in R055_OBJECTIVE_COMPARISON.json.",
+      "id": "PERIMETER_MINIMUM_RELABELED_AS_ROUNDNESS",
+      "status": "PASS"
+    },
+    {
+      "evidence": "G is only quadratic centroid moment. Disk appears only in post-freeze theorem/comparison.",
+      "id": "GRAVITY_MOMENT_MINIMUM_RELABELED_AS_CIRCLE_BY_DEFINITION",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Eight frozen initial families were run at every construction and holdout N.",
+      "id": "SINGLE_INITIAL_CONDITION_USED_TO_CLAIM_UNIQUE_ATTRACTOR",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Deterministic alternative tie controls falsify tie independence on all 13 construction and all 7 holdout N.",
+      "id": "ONE_TIEBREAK_USED_TO_HIDE_PATH_DEPENDENCE",
+      "status": "PASS"
+    },
+    {
+      "evidence": "N=6 exhaustive truth explicitly separates D1 local minima from D2/global; large-N terminals are never promoted to global without theorem.",
+      "id": "D1_LOCAL_MINIMUM_CALLED_GLOBAL_MINIMUM",
+      "status": "PASS"
+    },
+    {
+      "evidence": "D2 is labeled GLOBAL_BOUNDARY_RELOCATION_REFERENCE throughout artifacts and engine.",
+      "id": "D2_NONLOCAL_RELOCATION_CALLED_LOCAL_SLIDE",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Small-N statuses remain EXACT_EXHAUSTIVE_SMALL_N; all-N claims use separate proofs.",
+      "id": "SMALL_N_EXHAUSTION_EXTRAPOLATED_AS_ALL_N_THEOREM",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Global-G disk limit and D1 two-subsequence obstruction are proved in a post-freeze theorem addendum; finite comparisons are only bounded evidence.",
+      "id": "FINITE_LARGE_N_IMAGES_PRESENTED_AS_LIMIT_SHAPE_PROOF",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Construction mixes shell/off-shell N; strict holdout [43,67,103,139,181,241,301] is entirely off-shell.",
+      "id": "CENTERED_HEX_COUNTS_ONLY_CHERRY_PICKED",
+      "status": "PASS"
+    },
+    {
+      "evidence": "No weighted combination of G/P_edge/A2/radial/directional diagnostics is used.",
+      "id": "POSTHOC_OBJECTIVE_WEIGHTING",
+      "status": "PASS"
+    },
+    {
+      "evidence": "One equal mass per occupied cell is fixed in protocol and all formulas.",
+      "id": "UNEQUAL_CELL_MASS_INTRODUCED_AFTER_RESULTS",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Attractor identity uses translation+D6 canonical state IDs.",
+      "id": "TRANSLATION_OR_D6_DUPLICATES_COUNTED_AS_DISTINCT_ATTRACTORS",
+      "status": "PASS"
+    },
+    {
+      "evidence": "R055 artifacts consume only the R055 frozen packet/taskbook; R054 scoring/holdout is not read by the relaxation, holdout, or external-comparison engines.",
+      "id": "R054_FROZEN_SCORING_OR_HOLDOUT_CONTAMINATION",
+      "status": "PASS"
+    }
+  ],
+  "exact_check_results_sha256": "7bc9bf39dae54a7eeade8eb0840ebf2f697fa910c3d89be6979c497605376d2f",
+  "failed": 0,
+  "passed": 21,
+  "researcher_id": "EM-R055-4C2A71",
+  "schema": "R055_ADVERSARIAL_TEST_RESULTS_V1",
+  "status": "PASS"
+}
