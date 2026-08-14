@@ -1,0 +1,132 @@
+{
+  "foundational_logic_audit": {
+    "effective_definitions_withheld_from_native_premises": [
+      "Euclidean square",
+      "Euclidean perpendicularity",
+      "teacher perimeter 4s"
+    ],
+    "engineering_success_constraints_consumed": [
+      "exact square perimeter P_square=4s"
+    ],
+    "target_leakage_stage0": "NONE_IN_GRAMMAR_INPUT; no grammar search occurs in Stage 0"
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_SQUARE_TEACHER_PROTOCOL_V1",
+  "semantic_status": "SQUARE_TEACHER_SUPERVISED_DISCOVERY / DISCOVERY / NOT_CANONICAL / NOT_FOUNDATIONAL_THEOREM",
+  "semantic_typing": {
+    "I0_IMPLEMENTATION_CARRIER": [
+      "axial coordinates",
+      "exact scaled-Cartesian coordinates used to evaluate Euclidean carrier geometry",
+      "regular-hexagonal Voronoi embedding"
+    ],
+    "N0_NATIVE_RELATIONAL": [
+      "triangular-lattice nearest-neighbor adjacency",
+      "occupied/unoccupied site state",
+      "exposed contact cut relative to occupied cluster"
+    ],
+    "N1_DERIVED_OPERATIONAL_SEMANTICS": [
+      "occupied-left boundary traversal",
+      "cyclic packet extraction",
+      "ordered-composition choice"
+    ],
+    "N2_READOUT_COLLAPSE": [
+      "endpoint chord lengths",
+      "composition chord sums",
+      "digital perimeter",
+      "collapsed perimeter estimator",
+      "collapse count"
+    ],
+    "N3_CONTINUUM_CLASSICAL": [
+      "Euclidean square",
+      "Euclidean perpendicularity",
+      "side length s",
+      "teacher perimeter P_square=4s"
+    ],
+    "admissibility_verdict": "CONDITIONAL_DERIVED",
+    "native_claim_made": false
+  },
+  "square_orientation": {
+    "exact_orthogonality_certificate": "beta(d,d_perp_primitive)=0",
+    "input": "primitive nonzero axial d=(a,b)",
+    "pi_parameterization": false,
+    "primitive_reduction": "divide both components by gcd(abs(x),abs(y)); preserve resulting vector sign for the constructed perpendicular",
+    "raw_perpendicular": "(a+2*b, -(2*a+b))",
+    "trigonometric_parameterization": false,
+    "unit_axis_semantics": "u=d/sqrt(Q(d)); v=d_perp/sqrt(Q(d_perp)) only as N3 Euclidean teacher semantics"
+  },
+  "stage": "0",
+  "stage0_firewall": {
+    "forbidden_prior_material": [
+      "R057 WHOLE_CHORD+AREA+RUN fitted coefficients",
+      "R057 D1/D2/D3 winner information",
+      "R057 packet lookup choices",
+      "R057 exception predicates",
+      "circle/arc/tangent/radius/circumference targets",
+      "classical pi target"
+    ],
+    "full_square_discovery_corpus_generated": false,
+    "grammar_enumeration_started": false,
+    "grammar_fitting_started": false,
+    "holdout_corpus_generated": false,
+    "holdout_prediction_generated_or_consumed": false,
+    "r057_fitted_discovery_used_as_search_prior": false
+  },
+  "stage_a_topology_audit_frozen_now": {
+    "boundary_cycle_start": "lexicographically least exact scaled-Cartesian boundary vertex, then unique outgoing oriented edge",
+    "failure_policy": "audit failure is recorded; no silent geometry repair or teacher perturbation",
+    "requirements": [
+      "finite nonempty occupied set",
+      "6-neighbor connected",
+      "hole-free by exterior complement flood-fill in a deterministic padded axial box",
+      "all exposed oriented edges form exactly one directed boundary cycle",
+      "each boundary vertex indegree=outdegree=1",
+      "occupied-left / CCW convention",
+      "positive exact scaled-Cartesian signed shoelace area",
+      "deterministic byte reproduction"
+    ],
+    "run_when": "Stage A only after Driver approval"
+  },
+  "status": "FROZEN_STAGE_0_PROTOCOL",
+  "taskbook_source_commit": "09df243f8613da75c1cb1df189a2b97e264cdd72",
+  "teacher_square": {
+    "definition": "S(s,c,d)={x: |<x-c,u>|<=s/2 and |<x-c,v>|<=s/2}",
+    "digitization": "occupied lattice site iff its center lies in the closed teacher square",
+    "exact_membership_predicate": {
+      "authoritative_arithmetic": "exact rational/integer arithmetic after denominator clearing",
+      "axis_d": "beta(w,d)^2 <= s^2*Q(d)",
+      "axis_perp": "beta(w,d_perp)^2 <= s^2*Q(d_perp)",
+      "equality_rule": "closed: equality is occupied and must be recorded as EXACT_BOUNDARY_CENTER_TIE",
+      "w": "x-c in rational axial coordinates"
+    },
+    "teacher_perimeter": "4*s",
+    "threshold_fallback_protocol": {
+      "canonical_decision": "exact rational predicate only",
+      "floating_prefilter_optional": true,
+      "if_float_used": "any near-threshold, disagreement, non-finite, or ambiguous result falls back to the exact rational predicate; no perturbation permitted",
+      "silent_perturbation_forbidden": true
+    }
+  },
+  "triangular_lattice": {
+    "Q": "Q(a,b)=a^2+a*b+b^2",
+    "axial_coordinate": "(a,b)",
+    "integerized_bilinear": "beta((a,b),(c,d))=2*a*c+a*d+b*c+2*b*d = 2*B",
+    "nearest_neighbor_euclidean_spacing": "1",
+    "neighbor_axial_vectors_by_code": [[1,0],[0,1],[-1,1],[-1,0],[0,-1],[1,-1]],
+    "scaled_cartesian_embedding": {
+      "axial_to_scaled": "(a,b) -> (a+b/2, b/2)",
+      "meaning": "store (X,Y) with physical Cartesian point (X, sqrt(3)*Y)",
+      "purpose": "exact rational carrier arithmetic without trigonometric or pi parameterization",
+      "squared_length": "DeltaX^2+3*DeltaY^2"
+    }
+  },
+  "voronoi_boundary": {
+    "derivation": "for every listed tangent (dX,dY), dX^2+3*dY^2=1/3",
+    "exposed_edge_for_missing_neighbor_code_j": "oriented from V[(j-1) mod 6] to V[j] so occupied cell is on the left",
+    "oriented_edge_tangent_scaled_by_neighbor_code": [[{"den":1,"num":0},{"den":3,"num":1}],[{"den":2,"num":-1},{"den":6,"num":1}],[{"den":2,"num":-1},{"den":6,"num":-1}],[{"den":1,"num":0},{"den":3,"num":-1}],[{"den":2,"num":1},{"den":6,"num":-1}],[{"den":2,"num":1},{"den":6,"num":1}]],
+    "raw_digital_perimeter": "number_of_exposed_edges * sqrt(1/3)",
+    "scaled_cartesian_vertices_ccw_relative_to_site_center": [[{"den":2,"num":1},{"den":6,"num":1}],[{"den":1,"num":0},{"den":3,"num":1}],[{"den":2,"num":-1},{"den":6,"num":1}],[{"den":2,"num":-1},{"den":6,"num":-1}],[{"den":1,"num":0},{"den":3,"num":-1}],[{"den":2,"num":1},{"den":6,"num":-1}]],
+    "single_edge_length_exact_symbolic": "sqrt(1/3)",
+    "single_edge_squared_length_exact": "1/3"
+  }
+}
