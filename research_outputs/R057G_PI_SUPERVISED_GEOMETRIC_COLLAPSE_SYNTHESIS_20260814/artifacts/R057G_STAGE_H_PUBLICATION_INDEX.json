@@ -1,0 +1,182 @@
+{
+  "artifacts": {
+    "R057G_STAGE_H_CHECK_RESULTS.json": {
+      "bytes": 629,
+      "sha256": "25884fc6af5ed7be77ae9ab9b5fe77cab80b203f26c937338dde39ca48570e65"
+    },
+    "R057G_STAGE_H_REPRODUCTION_GATE.json": {
+      "bytes": 38968,
+      "sha256": "20d3e43cb7326f3d704a719297e16efb44ae9cc7faa4bb7299553836259a7884"
+    },
+    "R057G_STAGE_H_RESIDUAL_DIAGNOSTIC_CHECKPOINT.json": {
+      "bytes": 2247,
+      "sha256": "21f051e5f2cfe276a1a746112968ca7d8ca6dedee2efe9fe006da94e47f9726b"
+    },
+    "R057G_STAR_ASSEMBLY_DIAGNOSTICS.json": {
+      "bytes": 1456,
+      "sha256": "2a67027bd0e1df32d3733571cb6b6739dbc92d7509d492ec59a6a517c03dce18"
+    },
+    "R057G_STAR_FEATURE_GEOMETRY.json": {
+      "bytes": 164138,
+      "sha256": "2e5b5ecdd01b1483a724f1d26ff3e3c8533f76956256d9c9750152a3d7353c70"
+    },
+    "R057G_STAR_MOTIF_MIXTURE_TRAJECTORY.json": {
+      "bytes": 53970,
+      "sha256": "2b343a78d06828b8a442df5ceac89a692ffbefac34fdb7cebbe58ad3a51b5264"
+    },
+    "R057G_STAR_RESIDUAL_CAUSE_LEDGER.json": {
+      "bytes": 4707,
+      "sha256": "61c134e21e2e32b5cc7d502eb03654ba0b22ea38c493fd9d29d8314ca311ab79"
+    },
+    "R057G_STAR_RESIDUAL_DIAGNOSTIC_ATLAS.json": {
+      "bytes": 23239,
+      "sha256": "fb76cc03aaec919a39539580478542471a88a4c173f759424813e914832db395"
+    }
+  },
+  "classification": {
+    "assembly": "NO_ASSEMBLY_ACTIVE_SET_SWITCHING",
+    "cause_ledger": {
+      "ASSEMBLY_ACTIVE_SET_SWITCHING": {
+        "evidence": {
+          "assembly_status": "NO_ASSEMBLY_ACTIVE_SET_SWITCHING",
+          "statement": "deterministic branch-free fixed-K6 segmentation has no score-dependent activation or rule switching"
+        },
+        "rating": "NOT_SUPPORTED"
+      },
+      "FEATURE_COVARIANCE_DRIFT": {
+        "evidence": {
+          "AREA_design_variance_by_radius": {
+            "11": 0.057048898071625345,
+            "113": 0.00823175268227739,
+            "17": 0.23477220299884663,
+            "181": 0.012012275775057736,
+            "29": 0.013799048751486314,
+            "47": 0.02091387505658669,
+            "7": 0.04842687074829933,
+            "71": 0.03290129273292336
+          },
+          "RUN_DEFECT_design_variance_by_radius": {
+            "11": 0.12476753856143623,
+            "113": 0.0014733481681139756,
+            "17": 0.01920427960686767,
+            "181": 0.003850138550965898,
+            "29": 0.0364259758231212,
+            "47": 0.005209783149361296,
+            "7": 0.07459974993223269,
+            "71": 0.006133519052717177
+          },
+          "area_run_correlation_by_radius": {
+            "11": -0.08342764276916845,
+            "113": 0.09720687572644203,
+            "17": -0.7687693844497876,
+            "181": -0.18145758746088256,
+            "29": 0.23004366797863074,
+            "47": -0.5147639814626304,
+            "7": -0.5714275989044466,
+            "71": 0.31470527269188514
+          },
+          "statement": "assembled STAR design covariance/eigenspectrum rotates and changes scale across radius/windows",
+          "top_eigen_share_by_radius": {
+            "11": 0.940823915411391,
+            "113": 0.6118835709870661,
+            "17": 0.9210153018728541,
+            "181": 0.7203307169409813,
+            "29": 0.9453150566530651,
+            "47": 0.6847355983380605,
+            "7": 0.893346533423093,
+            "71": 0.5707203578069248
+          }
+        },
+        "rating": "SUPPORTED"
+      },
+      "FINITE_SCALE_EFFECT": {
+        "evidence": {
+          "D2_RMSE_by_radius": {
+            "11": 0.0187328463669414,
+            "113": 0.003603181802353126,
+            "17": 0.009373351964045476,
+            "181": 0.004710770930659985,
+            "29": 0.007834914228847337,
+            "47": 0.0033136733966486528,
+            "7": 0.025947126009875688,
+            "71": 0.006006503861202758
+          },
+          "R7_over_R113_RMSE_ratio": 7.201170363629842,
+          "statement": "residuals fall sharply from early radii to large radii, with R=7 dominant"
+        },
+        "rating": "SUPPORTED"
+      },
+      "ORIENTATION_MIXTURE": {
+        "evidence": {
+          "D2_orientation_RMSE": {
+            "O00": 0.014526985515482338,
+            "O15": 0.009976096606317774,
+            "O30": 0.012661493690956411
+          },
+          "max_min_ratio": 1.4561793142903734,
+          "statement": "orientation effects exist but are smaller than phase/early-radius effects"
+        },
+        "rating": "WEAK_SUPPORT"
+      },
+      "PACKET_MIXTURE_EVOLUTION": {
+        "evidence": {
+          "motif_entropy_by_radius": {
+            "11": 0.8084650174049618,
+            "113": 0.8281722417825435,
+            "17": 0.8243246237049703,
+            "181": 0.8391452580813464,
+            "29": 0.7760495422170326,
+            "47": 0.8100821205669292,
+            "7": 0.8484212085931346,
+            "71": 0.834940982735904
+          },
+          "motif_entropy_range": [
+            0.7760495422170326,
+            0.8484212085931346
+          ],
+          "statement": "actual deployed motif concentration changes systematically with radius even though segmentation rule is fixed"
+        },
+        "rating": "SUPPORTED"
+      },
+      "PHASE_MIXTURE": {
+        "evidence": {
+          "D2_phase_RMSE": {
+            "P00": 0.012823747694366219,
+            "P01": 0.010735010313308457,
+            "P10": 0.015680345697847636,
+            "P11": 0.013591381385561747,
+            "Pmix": 0.008631003208907667
+          },
+          "max_min_ratio": 1.8167465957682256,
+          "statement": "frozen residual scale differs materially across center phases"
+        },
+        "rating": "SUPPORTED"
+      },
+      "UNEXPLAINED_RESIDUAL_STRUCTURE": {
+        "evidence": {
+          "D2_global_RMSE": 0.012528224590256829,
+          "D3_global_RMSE": 0.01197706394526988,
+          "statement": "nonzero structured residuals remain after frozen STAR formulas, especially phase-specific and early-scale strata; diagnostics do not synthesize a new predictor"
+        },
+        "rating": "SUPPORTED"
+      }
+    }
+  },
+  "parent_stage_g_checkpoint_sha256": "3593fa3eddd7983d55983f214e77f8318267bf7768daa169a205dd948dd89134",
+  "r057x_stage_c1_checkpoint_sha256": "1af2df3eefbb1eeee35418d59edf197657d91c1e14c47e8fdf319aab00a9c75d",
+  "researcher_id": "EM-R057G-93D4A8",
+  "schema": "R057G_STAGE_H_PUBLICATION_INDEX_V1",
+  "scripts": {
+    "r057g_stage_h_residual_diagnostics.py": {
+      "bytes": 24079,
+      "sha256": "524145775cb0d2d0438263829050594d5872aca231cafd4e63a9fa314d0f226e"
+    }
+  },
+  "status": "FROZEN_STAGE_H_DRIVER_REVIEW",
+  "validation": {
+    "H0_reproduction": "PASS_204_OF_204_MAX_DIFF_8.881784197001252e-16",
+    "byte_reproduction": "PASS_8_OF_8",
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH",
+    "optimization_or_refit": "NONE"
+  }
+}
