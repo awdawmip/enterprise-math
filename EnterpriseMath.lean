@@ -6,6 +6,7 @@ import EnterpriseMath.Dynamics.HistoryMerge
 import EnterpriseMath.Order.WellFoundedStabilization
 import EnterpriseMath.Order.ReductiveCompositionStabilization
 import EnterpriseMath.Precision.Carry
+import EnterpriseMath.Precision.BranchDeferral
 import EnterpriseMath.Precision.CompositionSafeCollapse
 import EnterpriseMath.Precision.QuotientBasin
 import EnterpriseMath.Precision.QuotientCoalescence
