@@ -1,0 +1,391 @@
+{
+  "checks": [
+    {
+      "check": "STAGE0_REPRODUCTION_GATE",
+      "detail": "six frozen SHA256 values and Stage-0 20/20 checker reproduced by exact-head blob identity",
+      "status": "PASS"
+    },
+    {
+      "check": "DISCOVERY_SAMPLE_COUNT",
+      "detail": "8 x 4 x 12 = 384",
+      "status": "PASS"
+    },
+    {
+      "check": "CORPUS_TOPOLOGY_INTEGRITY",
+      "detail": "384/384 samples pass all frozen topology audits",
+      "status": "PASS"
+    },
+    {
+      "check": "DETERMINISTIC_SAMPLE_REPRODUCTION",
+      "detail": "384/384 sample digests/topology records reproduced exactly",
+      "status": "PASS"
+    },
+    {
+      "check": "HOLDOUT_FIREWALL",
+      "detail": "holdout registry parameters are not present in generator inputs and no holdout corpus/prediction was generated",
+      "status": "PASS"
+    },
+    {
+      "check": "TEACHER_ROLE_FIREWALL",
+      "detail": "no teacher-role association was computed or attached",
+      "status": "PASS"
+    },
+    {
+      "check": "R057_FIREWALL",
+      "detail": "no R057 fitted rule/lookup/exception material consumed",
+      "status": "PASS"
+    },
+    {
+      "check": "NO_COMPOSITION_SEARCH",
+      "detail": "no ordered-composition winner search, grammar enumeration/fitting, lookup optimization, loss ranking, or candidate ordering performed",
+      "status": "PASS"
+    },
+    {
+      "check": "PACKET_K_RANGE",
+      "detail": "k=1..8 only",
+      "status": "PASS"
+    },
+    {
+      "check": "PACKET_TOTALS_EQUAL_BOUNDARY_EDGES",
+      "detail": "each k has exactly 176952 cyclic packet starts",
+      "status": "PASS"
+    },
+    {
+      "check": "D6_CLASS_KEYS_TEACHER_FREE",
+      "detail": "class keys are direction-code words only",
+      "status": "PASS"
+    },
+    {
+      "check": "CORRECTED_SPATIAL_D6_CANONICALIZATION",
+      "detail": "all observed keys idempotent under frozen 12-action corrected canonicalizer",
+      "status": "PASS"
+    },
+    {
+      "check": "IDENTITY_ALL_CYCLIC_READOUT",
+      "detail": "identity composition restores raw digital perimeter exactly in edge-length units for every sample and k=1..8",
+      "status": "PASS"
+    },
+    {
+      "check": "SYNTHETIC_ANCHOR_COMPUTABILITY",
+      "detail": "anchor chord arithmetic checked only on synthetic/local words; no teacher loss table produced",
+      "status": "PASS"
+    },
+    {
+      "check": "COMPACT_BUNDLE_RECONSTRUCTION",
+      "detail": "bundle stores start vertex + direction codes only; frozen tangents reconstruct exact cycles and packets",
+      "status": "PASS"
+    },
+    {
+      "check": "OUTPUT_ROLE_LABEL_ABSENCE_SCAN",
+      "detail": "offender_count=0",
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_JSON_ROUNDTRIP",
+      "detail": "all pre-checkpoint Stage-A JSON artifacts reproduce byte-exact under canonical serializer",
+      "status": "PASS"
+    },
+    {
+      "check": "CI_POLICY",
+      "detail": "CI_NOT_REQUIRED_FOR_RESEARCH; no workflow status query",
+      "status": "PASS"
+    },
+    {
+      "check": "DISCOVERY_PHASE_REGISTRY_PRESENTATION",
+      "detail": "top-level phase registry exactly matches j/13,(5j mod 13)/13 for j=1..12; per-sample phases already matched and no sample was recomputed",
+      "status": "PASS"
+    },
+    {
+      "check": "DETAIL_BUNDLE_PACKAGING",
+      "detail": "first valid Stage-A scientific artifacts preserved byte-for-byte inside deterministic gzip/base64 detail bundle; required JSON files are compact manifests only",
+      "status": "PASS"
+    }
+  ],
+  "firewall": {
+    "composition_candidate_loss_computed": false,
+    "composition_ranking_performed": false,
+    "holdout_consumed": false,
+    "stage_b_started": false,
+    "teacher_role_labels_computed": false
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "publication_packaging": {
+    "detail_bundle_chunk_count": 10,
+    "detail_bundle_gzip_sha256": "02e0981f61b3560c602ad8716e5b66c5c58f59d1caf5638df912f0474c7dd98d",
+    "detail_bundle_raw_json_sha256": "dce4de0f0f8c80ee8a0ae88ec6a6716bdc86494960df5bab3a8ffe06b255ac57",
+    "package_validation": "PASS",
+    "scientific_outputs_recomputed": false
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_STAGE_A_CHECK_RESULTS_V1_COMPACT",
+  "stage": "A",
+  "status": "PASS",
+  "summary": {
+    "all_pass": true,
+    "fail_count": 0,
+    "pass_count": 20
+  },
+  "synthetic_local_anchor_computability": [
+    {
+      "direction_word": [
+        0
+      ],
+      "identity_raw_edge_units": 1,
+      "k": 1,
+      "subblock_q_ij_num_den": [
+        [
+          0,
+          1,
+          1,
+          3
+        ]
+      ],
+      "whole_chord_q": [
+        1,
+        3
+      ]
+    },
+    {
+      "direction_word": [
+        0,
+        0
+      ],
+      "identity_raw_edge_units": 2,
+      "k": 2,
+      "subblock_q_ij_num_den": [
+        [
+          0,
+          1,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          4,
+          3
+        ],
+        [
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "whole_chord_q": [
+        4,
+        3
+      ]
+    },
+    {
+      "direction_word": [
+        0,
+        1
+      ],
+      "identity_raw_edge_units": 2,
+      "k": 2,
+      "subblock_q_ij_num_den": [
+        [
+          0,
+          1,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "whole_chord_q": [
+        1,
+        1
+      ]
+    },
+    {
+      "direction_word": [
+        0,
+        0,
+        1
+      ],
+      "identity_raw_edge_units": 3,
+      "k": 3,
+      "subblock_q_ij_num_den": [
+        [
+          0,
+          1,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          4,
+          3
+        ],
+        [
+          0,
+          3,
+          7,
+          3
+        ],
+        [
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          2,
+          3,
+          1,
+          3
+        ]
+      ],
+      "whole_chord_q": [
+        7,
+        3
+      ]
+    },
+    {
+      "direction_word": [
+        0,
+        1,
+        2
+      ],
+      "identity_raw_edge_units": 3,
+      "k": 3,
+      "subblock_q_ij_num_den": [
+        [
+          0,
+          1,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          1,
+          1
+        ],
+        [
+          0,
+          3,
+          4,
+          3
+        ],
+        [
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          2,
+          3,
+          1,
+          3
+        ]
+      ],
+      "whole_chord_q": [
+        4,
+        3
+      ]
+    },
+    {
+      "direction_word": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "identity_raw_edge_units": 4,
+      "k": 4,
+      "subblock_q_ij_num_den": [
+        [
+          0,
+          1,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          4,
+          3
+        ],
+        [
+          0,
+          3,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          13,
+          3
+        ],
+        [
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          3,
+          4,
+          3
+        ],
+        [
+          1,
+          4,
+          7,
+          3
+        ],
+        [
+          2,
+          3,
+          1,
+          3
+        ],
+        [
+          2,
+          4,
+          1,
+          1
+        ],
+        [
+          3,
+          4,
+          1,
+          3
+        ]
+      ],
+      "whole_chord_q": [
+        13,
+        3
+      ]
+    }
+  ]
+}
