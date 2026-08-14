@@ -1,0 +1,32 @@
+{
+  "schema": "R031_RUN_MANIFEST_V1",
+  "runner": "experiments/r031_large_scale_pi_collapse.py",
+  "policies": [
+    "DOWN",
+    "UP",
+    "NEAREST",
+    "FAR",
+    "PRNG_50_50",
+    "DISTANCE_WEIGHTED_STOCHASTIC",
+    "RESIDUAL_ONLY",
+    "ANCHOR_PLUS_RESIDUAL",
+    "FIELD_PHASE",
+    "ALL_ENDPOINTS"
+  ],
+  "p_list": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    16
+  ],
+  "notes": [
+    "exact integer/rational collapse geometry",
+    "Decimal Chudnovsky reference cross-checked at two guard precisions",
+    "no binary64 extrapolation after representation absence"
+  ]
+}
