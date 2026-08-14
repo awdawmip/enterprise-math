@@ -4,18 +4,39 @@
     "VISIT": "VISIT_gamma(x)=#{j in {0,...,n}:x_j=x}"
   },
   "exact_identities": [
-    {"statement":"sum_x VISIT_gamma(x)=PATH_COUNT(gamma)+1","status":"PROVED_EXACT"},
-    {"statement":"PATH_COUNT(gamma)=sum_x VISIT_gamma(x)-1","status":"PROVED_EXACT"},
-    {"statement":"SUPPORT(gamma) is exactly the positive support of VISIT_gamma","status":"PROVED_EXACT"},
-    {"statement":"VISIT_gamma(x)=ARRIVE_gamma(x)+1[x=x_0]=DEPART_gamma(x)+1[x=x_n]","status":"PROVED_EXACT"}
+    {
+      "statement": "sum_x VISIT_gamma(x)=PATH_COUNT(gamma)+1",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "statement": "PATH_COUNT(gamma)=sum_x VISIT_gamma(x)-1",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "statement": "SUPPORT(gamma) is exactly the positive support of VISIT_gamma",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "statement": "VISIT_gamma(x)=ARRIVE_gamma(x)+1[x=x_0]=DEPART_gamma(x)+1[x=x_n]",
+      "status": "PROVED_EXACT"
+    }
   ],
   "example": {
     "PACKET_COUNT": 2,
     "PATH_COUNT": 4,
     "SUPPORT_CARDINALITY": 2,
     "TOTAL_VISIT_OCCURRENCES": 5,
-    "declared_occupied_configuration": ["A","B"],
-    "path": ["A","B","A","B","A"]
+    "declared_occupied_configuration": [
+      "A",
+      "B"
+    ],
+    "path": [
+      "A",
+      "B",
+      "A",
+      "B",
+      "A"
+    ]
   },
   "generation": "R059L",
   "researcher_id": "EM-R059L-5F9D05",
