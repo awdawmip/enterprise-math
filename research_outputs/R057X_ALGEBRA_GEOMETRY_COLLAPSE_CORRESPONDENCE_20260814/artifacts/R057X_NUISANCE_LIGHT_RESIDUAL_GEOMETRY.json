@@ -1,0 +1,61 @@
+{
+  "A": {
+    "AREA_RUN_mean_variance_after_strict_filter": "NOT_AVAILABLE",
+    "available_sensitivity": "Stage-D/A Stage-G summary freezes covariance rotations mostly <2 degrees beyond R=128 and <=0.43 degrees on nested windows, while R=448/640 residual rebound remains.",
+    "hotspot_overlap_with_feature_ranks": "NOT_AVAILABLE",
+    "interpretation": "A provides a late low-rotation witness, but not the exact residual-blind rank-filtered rows required for an E5 recomputation.",
+    "strict_filtered_recomputation": "NOT_INSTANTIABLE_FROM_PERSISTED_A_SUMMARY"
+  },
+  "G": {
+    "AREA_RUN_correlation": {
+      "113": 0.09720687572644203,
+      "181": -0.18145758746088256,
+      "71": 0.31470527269188514
+    },
+    "AREA_variance": {
+      "113": 0.00823175268227739,
+      "181": 0.012012275775057736,
+      "71": 0.03290129273292336
+    },
+    "RUN_DEFECT_variance": {
+      "113": 0.0014733481681139756,
+      "181": 0.003850138550965898,
+      "71": 0.006133519052717177
+    },
+    "correlation_sign_change_count": 1,
+    "hotspot_overlap_with_feature_ranks": "NOT_AVAILABLE_ON_DURABLE_STAGE_H_INDEX",
+    "interpretation": "Even on the strict low-change/low-concentration transition stratum, G correlation changes from positive at R=71/113 to negative at R=181 and leading-eigen share rises across the late radii; nuisance filtering does not expose a fixed residual geometry.",
+    "leading_eigen_share": {
+      "113": 0.6118835709870661,
+      "181": 0.7203307169409813,
+      "71": 0.5707203578069248
+    },
+    "leading_eigen_share_range": [
+      0.5707203578069248,
+      0.7203307169409813
+    ],
+    "strict_nuisance_light_radii": [
+      71,
+      113,
+      181
+    ]
+  },
+  "allowed_status": [
+    "COMMON_RESIDUAL_GEOMETRY_AFTER_NUISANCE_SUPPRESSION",
+    "CARRIER_SPECIFIC_RESIDUAL_GEOMETRY_PERSISTS",
+    "INSUFFICIENT"
+  ],
+  "fitted_projection": false,
+  "primary_status": "INSUFFICIENT",
+  "questions": {
+    "A_R448_R640_rebound_retained": "YES_AS_FROZEN_SENSITIVITY_WITNESS_NOT_STRICT_FILTER_RESULT",
+    "G_covariance_rotation_largely_disappears": "NO_STRONG_STABLE_GEOMETRY_ESTABLISHED",
+    "common_AREA_vs_RUN_DEFECT_hotspot_orientation": "NOT_AVAILABLE"
+  },
+  "regression": false,
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_NUISANCE_LIGHT_RESIDUAL_GEOMETRY_V1",
+  "secondary_reading": "NO_COMMON_RESIDUAL_GEOMETRY_ISOLATED; carrier-specific contrast remains descriptively compatible with Stage D, but A strict-filter rows and matched hotspot overlap are unavailable.",
+  "stage": "E5",
+  "status": "FROZEN_NUISANCE_LIGHT_GEOMETRY_DIAGNOSTIC"
+}

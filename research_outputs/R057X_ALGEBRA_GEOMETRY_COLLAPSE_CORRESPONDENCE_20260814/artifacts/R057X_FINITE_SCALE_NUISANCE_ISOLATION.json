@@ -1,0 +1,91 @@
+{
+  "A": {
+    "dimensionless_S_late_witness": [
+      "448*sqrt(3)",
+      "640*sqrt(3)"
+    ],
+    "late_witness": [
+      448,
+      640
+    ],
+    "reason": "Strict residual-blind nuisance-light rank strata cannot be instantiated from the persisted A summary without rerunning upstream diagnostics. The frozen late witness R=448/640 retains rebound after nuisance contraction, but it cannot supply an early-vs-late nuisance-light contrast.",
+    "test_status": "INSUFFICIENT"
+  },
+  "G": {
+    "D2_RMSE_normalized_by_own_global_RMSE": {
+      "113": 0.2876051412069442,
+      "181": 0.3760126502141046,
+      "71": 0.4794377541630282
+    },
+    "all_G_normalized_D2_RMSE": {
+      "11": 1.4952514805258112,
+      "113": 0.2876051412069442,
+      "17": 0.7481787939318321,
+      "181": 0.3760126502141046,
+      "29": 0.6253810484001485,
+      "47": 0.2644966469730826,
+      "7": 2.0710936192870224,
+      "71": 0.4794377541630282
+    },
+    "early_scale_present_in_strict_stratum": false,
+    "observation": "All strict nuisance-light G transitions lie in the later part of the radius grid; their endpoint residual RMS values are below the G global RMS. This does not establish that early-scale burden survives nuisance suppression.",
+    "strict_nuisance_light_radii": [
+      71,
+      113,
+      181
+    ],
+    "strict_nuisance_light_transitions": [
+      "71->113",
+      "113->181"
+    ],
+    "test_status": "NOT_TESTABLE_IN_STRICT_STRATUM"
+  },
+  "allowed_classification_set": [
+    "COMMON_FINITE_SCALE_COMPONENT_SURVIVES_NUISANCE_STRATIFICATION",
+    "A_ONLY_FINITE_SCALE_COMPONENT_SURVIVES",
+    "G_ONLY_FINITE_SCALE_COMPONENT_SURVIVES",
+    "FINITE_SCALE_COMMONALITY_DISSOLVES_AFTER_STRATIFICATION",
+    "INSUFFICIENT"
+  ],
+  "cross_arm_classification": "INSUFFICIENT",
+  "dimensionless_scale_crosscheck": {
+    "matched_A_radii": [
+      24,
+      32,
+      40,
+      56,
+      72,
+      96,
+      128
+    ],
+    "matched_G_radii": [
+      47,
+      71,
+      113,
+      181
+    ],
+    "result": "THE_STAGE_D_WEAK_FINITE_SCALE_COMMONALITY_IS_NOT_UPGRADED_BY_MATCHED_S; strongest early G and late A witness regions do not overlap.",
+    "unmatched_A_late": [
+      160,
+      224,
+      320,
+      448,
+      640
+    ],
+    "unmatched_G_early": [
+      7,
+      11,
+      17,
+      29
+    ]
+  },
+  "no_raw_cross_arm_error_comparison": true,
+  "predeclared_ordinal_test": "EARLY_SCALE_BURDEN_PERSISTS_AFTER_NUISANCE_STRATIFICATION",
+  "primary_basis": "D2",
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_FINITE_SCALE_NUISANCE_ISOLATION_V1",
+  "sensitivity_basis": "D1_TOPOLOGY_ONLY_REFERENCE / NO_NEW_FIT",
+  "stage": "E3",
+  "status": "FROZEN_FINITE_SCALE_ISOLATION_DIAGNOSTIC",
+  "within_arm_normalization_only": true
+}

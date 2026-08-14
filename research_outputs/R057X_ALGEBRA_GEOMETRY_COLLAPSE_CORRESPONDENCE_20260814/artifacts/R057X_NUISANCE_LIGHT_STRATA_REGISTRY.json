@@ -1,0 +1,132 @@
+{
+  "A": {
+    "available_nonresidual_summary": {
+      "covariance_rotation": "~9-13 degrees early; mostly <2 degrees beyond R=128; nested-window rotations <=0.43 degrees",
+      "packet_mixture": "largest at small transitions and contracts to ~0.02-0.03 at largest transitions"
+    },
+    "orientation": "NOT_APPLICABLE",
+    "phase": "12 phases have equal weight at each radius; preserved unchanged",
+    "qualitative_late_witness": {
+      "radii": [
+        448,
+        640
+      ],
+      "statement": "Stage D froze rebound after mixture/covariance had become comparatively small; this witness is not used to define a residual-blind rank stratum.",
+      "use": "SENSITIVITY_ONLY_NOT_PRIMARY_STRATUM"
+    },
+    "reason": "The consumed durable A surface anchors the full diagnostic files by SHA256 but does not expose per-transition arrays needed to apply the predeclared lower-half rank rule without reconstructing or rerunning upstream diagnostics.",
+    "strict_rank_stratum_status": "NOT_INSTANTIABLE_FROM_PERSISTED_HASH_ANCHORED_SUMMARY"
+  },
+  "G": {
+    "lowest_half": {
+      "covariance_concentration": [
+        "71->113",
+        "47->71",
+        "113->181",
+        "7->11"
+      ],
+      "covariance_rotation": [
+        "71->113",
+        "113->181",
+        "7->11",
+        "11->17"
+      ],
+      "packet_mixture_variation": [
+        "71->113",
+        "113->181",
+        "11->17",
+        "47->71"
+      ]
+    },
+    "orientation": "3 orientations preserved balanced",
+    "phase": "5 phases x 3 orientations are frozen Cartesian strata at every radius; preserved balanced",
+    "result": "STRICT_G_NUISANCE_LIGHT_STRATUM_INSTANTIATED",
+    "strict_nuisance_light_radii": [
+      71,
+      113,
+      181
+    ],
+    "strict_nuisance_light_transitions": [
+      "71->113",
+      "113->181"
+    ],
+    "transition_burden_definitions": {
+      "covariance_concentration": "max leading-eigen share across transition endpoints",
+      "covariance_rotation": "abs(delta AREA_RUN_DEFECT correlation)",
+      "packet_mixture_variation": "abs(delta motif_entropy)"
+    },
+    "transition_table": [
+      {
+        "area_run_correlation_abs_change": 0.48799995613527813,
+        "from_radius": 7,
+        "max_leading_eigen_share": 0.940823915411391,
+        "motif_entropy_abs_change": 0.03995619118817284,
+        "to_radius": 11,
+        "transition": "7->11"
+      },
+      {
+        "area_run_correlation_abs_change": 0.6853417416806191,
+        "from_radius": 11,
+        "max_leading_eigen_share": 0.940823915411391,
+        "motif_entropy_abs_change": 0.01585960630000849,
+        "to_radius": 17,
+        "transition": "11->17"
+      },
+      {
+        "area_run_correlation_abs_change": 0.9988130524284183,
+        "from_radius": 17,
+        "max_leading_eigen_share": 0.9453150566530651,
+        "motif_entropy_abs_change": 0.04827508148793769,
+        "to_radius": 29,
+        "transition": "17->29"
+      },
+      {
+        "area_run_correlation_abs_change": 0.7448076494412611,
+        "from_radius": 29,
+        "max_leading_eigen_share": 0.9453150566530651,
+        "motif_entropy_abs_change": 0.03403257834989659,
+        "to_radius": 47,
+        "transition": "29->47"
+      },
+      {
+        "area_run_correlation_abs_change": 0.8294692541545154,
+        "from_radius": 47,
+        "max_leading_eigen_share": 0.6847355983380605,
+        "motif_entropy_abs_change": 0.024858862168974816,
+        "to_radius": 71,
+        "transition": "47->71"
+      },
+      {
+        "area_run_correlation_abs_change": 0.2174983969654431,
+        "from_radius": 71,
+        "max_leading_eigen_share": 0.6118835709870661,
+        "motif_entropy_abs_change": 0.0067687409533605525,
+        "to_radius": 113,
+        "transition": "71->113"
+      },
+      {
+        "area_run_correlation_abs_change": 0.2786644631873246,
+        "from_radius": 113,
+        "max_leading_eigen_share": 0.7203307169409813,
+        "motif_entropy_abs_change": 0.010973016298802984,
+        "to_radius": 181,
+        "transition": "113->181"
+      }
+    ]
+  },
+  "cross_arm": {
+    "joint_stratum_status": "NOT_ESTABLISHED",
+    "reason": "A strict residual-blind rank stratum cannot be instantiated on the persisted Stage-G summary, and the G strict nuisance-light radii have no verified nuisance-light A partners under the Stage-E scale contract."
+  },
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_NUISANCE_LIGHT_STRATA_REGISTRY_V1",
+  "selection_contract": {
+    "no_cross_arm_raw_statistic_combination": true,
+    "orientation_rule": "G preserves frozen orientation balance; A has no orientation axis in this carrier and nothing is imputed",
+    "phase_rule": "preserve frozen phase balance; do not select phases by residual magnitude",
+    "rank_rule": "within each arm and nuisance observable, select the lowest ceil(n/2) burden entries; ties by later radius ascending; strict nuisance-light stratum is intersection of all available non-residual burden selections",
+    "residual_blind": true
+  },
+  "stage": "E2",
+  "status": "FROZEN_PREDECLARED_NUISANCE_STRATA / PARTIALLY_INSTANTIABLE"
+}

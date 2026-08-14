@@ -1,0 +1,48 @@
+{
+  "candidate_dispositions": [
+    "COMMON_RESIDUAL_COMPONENT_ISOLATED",
+    "COMMON_FINITE_SCALE_COMPONENT_ONLY",
+    "CARRIER_SPECIFIC_NUISANCE_DOMINATES_AFTER_ISOLATION",
+    "COMMON_COMPONENT_NOT_ISOLATED",
+    "INSUFFICIENT"
+  ],
+  "decision": {
+    "CARRIER_SPECIFIC_NUISANCE_DOMINATES_AFTER_ISOLATION": "NOT_ESTABLISHED: nuisance isolation is incomplete, especially on A and sample-level matched motifs, so dominance cannot be attributed.",
+    "COMMON_COMPONENT_NOT_ISOLATED": "COMPATIBLE_BUT_NOT_PRIMARY: the available surface does not isolate a common component, but the evidence deficit is material enough that a negative scientific conclusion would overstate the result.",
+    "COMMON_FINITE_SCALE_COMPONENT_ONLY": "NOT_ESTABLISHED: Stage-D weak finite-scale commonality is not upgraded after dimensionless S isolation; the strongest early G region has no A S-match and strict nuisance-light early-vs-late testing is not executable in both arms.",
+    "COMMON_RESIDUAL_COMPONENT_ISOLATED": "REJECTED_AT_THRESHOLD: no nontrivial matched motif or nuisance-light STAR-geometry signature is established.",
+    "INSUFFICIENT": "SELECTED: scale isolation is valid and informative, but the consumed durable surfaces do not expose the joint sample-level motif/residual tables or A per-transition nuisance arrays needed to execute the required isolation tests symmetrically without rerunning forbidden upstream work."
+  },
+  "epistemic_label": "POST_FIT_CROSS_CARRIER_COMMON_COMPONENT_DIAGNOSTIC / NOT_THEOREM / NOT_CANONICAL",
+  "exactly_one_primary_disposition": true,
+  "nonresults_not_to_misread": {
+    "A_nuisance_stratum": "NOT_INSTANTIABLE != NUISANCE_DOMINANT",
+    "common_geometry": "NOT_ISOLATED != PROVED_ABSENT",
+    "finite_scale": "NO_MATCHED_UPGRADE != NO_FINITE_SCALE_EFFECT_WITHIN_EITHER_ARM",
+    "motif_enrichment": "NOT_COMPUTABLE != NO_ASSOCIATION"
+  },
+  "positive_results": {
+    "A_late_rebound_witness": "PRESERVED_AS_SENSITIVITY_ONLY",
+    "G_nuisance_light_stratum": "INSTANTIATED_RESIDUAL_BLIND: transitions 71->113 and 113->181",
+    "dimensionless_scale_isolation": "COMPLETE / S_A=sqrt(3)R_A, S_G=R_G / predeclared 4/3 log tolerance / no interpolation",
+    "matched_motif_semantics": "62 frozen Stage-B motifs K=2..6 preserved; no raw class-ID matching",
+    "scale_overlap": "PARTIAL: matched A R=24..128 to G R=47..181; G R=7,11,17,29 and A R>=160 have no matched partners"
+  },
+  "primary_disposition": "INSUFFICIENT",
+  "prohibitions_verified": {
+    "K_expansion": false,
+    "R057Y_read": false,
+    "coefficient_refit": false,
+    "cross_arm_fitted_rescaling": false,
+    "hotspot_generator_invention": false,
+    "new_feature_operator_surrogate": false,
+    "new_teacher": false,
+    "optimizer": false,
+    "parser_segmentation_assembly_readout_change": false,
+    "symbolic_regression": false
+  },
+  "researcher_id": "EM-R057X-5E8C41",
+  "routing": "Before any generator search, freeze/ expose hash-anchored sample-level residual×matched-K<=6 motif exposure tables and A per-transition nuisance metrics (or authorize a matched-teacher bridge) without refitting. No new operator is authorized by Stage E.",
+  "schema": "R057X_COMMON_RESIDUAL_COMPONENT_VERDICT_V1",
+  "stage": "E6"
+}

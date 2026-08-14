@@ -1,0 +1,246 @@
+{
+  "A_scales": [
+    {
+      "R": 24,
+      "S_approx": 41.569219381653056,
+      "S_exact": "24*sqrt(3)"
+    },
+    {
+      "R": 32,
+      "S_approx": 55.42562584220407,
+      "S_exact": "32*sqrt(3)"
+    },
+    {
+      "R": 40,
+      "S_approx": 69.28203230275508,
+      "S_exact": "40*sqrt(3)"
+    },
+    {
+      "R": 56,
+      "S_approx": 96.99484522385713,
+      "S_exact": "56*sqrt(3)"
+    },
+    {
+      "R": 72,
+      "S_approx": 124.70765814495915,
+      "S_exact": "72*sqrt(3)"
+    },
+    {
+      "R": 96,
+      "S_approx": 166.27687752661222,
+      "S_exact": "96*sqrt(3)"
+    },
+    {
+      "R": 128,
+      "S_approx": 221.70250336881628,
+      "S_exact": "128*sqrt(3)"
+    },
+    {
+      "R": 160,
+      "S_approx": 277.12812921102034,
+      "S_exact": "160*sqrt(3)"
+    },
+    {
+      "R": 224,
+      "S_approx": 387.9793808954285,
+      "S_exact": "224*sqrt(3)"
+    },
+    {
+      "R": 320,
+      "S_approx": 554.2562584220407,
+      "S_exact": "320*sqrt(3)"
+    },
+    {
+      "R": 448,
+      "S_approx": 775.958761790857,
+      "S_exact": "448*sqrt(3)"
+    },
+    {
+      "R": 640,
+      "S_approx": 1108.5125168440813,
+      "S_exact": "640*sqrt(3)"
+    }
+  ],
+  "G_scales": [
+    {
+      "R": 7,
+      "S_approx": 7.0,
+      "S_exact": "7"
+    },
+    {
+      "R": 11,
+      "S_approx": 11.0,
+      "S_exact": "11"
+    },
+    {
+      "R": 17,
+      "S_approx": 17.0,
+      "S_exact": "17"
+    },
+    {
+      "R": 29,
+      "S_approx": 29.0,
+      "S_exact": "29"
+    },
+    {
+      "R": 47,
+      "S_approx": 47.0,
+      "S_exact": "47"
+    },
+    {
+      "R": 71,
+      "S_approx": 71.0,
+      "S_exact": "71"
+    },
+    {
+      "R": 113,
+      "S_approx": 113.0,
+      "S_exact": "113"
+    },
+    {
+      "R": 181,
+      "S_approx": 181.0,
+      "S_exact": "181"
+    }
+  ],
+  "carrier_units": {
+    "A": {
+      "S_formula": "S_A=R_A/ell_edge_A=sqrt(3)*R_A",
+      "ell_edge_exact": "1/sqrt(3)"
+    },
+    "G": {
+      "S_formula": "S_G=R_G",
+      "ell_edge_exact": "1"
+    }
+  },
+  "epistemic_label": "POST_FIT_CROSS_CARRIER_COMMON_COMPONENT_DIAGNOSTIC / NOT_THEOREM / NOT_CANONICAL",
+  "matched_A_radii": [
+    24,
+    32,
+    40,
+    56,
+    72,
+    96,
+    128
+  ],
+  "matched_G_radii": [
+    47,
+    71,
+    113,
+    181
+  ],
+  "pairing_rule": {
+    "equivalent_ratio_interval": [
+      "3/4",
+      "4/3"
+    ],
+    "fitted_rescaling": false,
+    "frozen_before_residual_outcome_comparison": true,
+    "interpolation": false,
+    "rule": "all cross-arm radius pairs satisfying |log(S_A/S_G)| <= log(4/3)",
+    "tie_or_reuse": "all tolerance-qualified pairs retained; a radius may appear in multiple pairs"
+  },
+  "researcher_id": "EM-R057X-5E8C41",
+  "result": "DIMENSIONLESS_SCALE_OVERLAP_PARTIAL / NO_INTERPOLATION / NO_COMMON_LATE_A_REBOUND_MATCH",
+  "schema": "R057X_COMMON_SCALE_PAIR_REGISTRY_V1",
+  "stage": "E1",
+  "status": "FROZEN_NONFITTED_DIMENSIONLESS_SCALE_REGISTRY",
+  "tolerance_pairs": [
+    {
+      "A_S_approx": 41.569219381653056,
+      "A_S_exact": "24*sqrt(3)",
+      "A_radius": 24,
+      "G_S_approx": 47.0,
+      "G_S_exact": "47",
+      "G_radius": 47,
+      "S_ratio_A_over_G": 0.8844514762053842,
+      "abs_log_distance": 0.12278762702805804
+    },
+    {
+      "A_S_approx": 55.42562584220407,
+      "A_S_exact": "32*sqrt(3)",
+      "A_radius": 32,
+      "G_S_approx": 47.0,
+      "G_S_exact": "47",
+      "G_radius": 47,
+      "S_ratio_A_over_G": 1.1792686349405122,
+      "abs_log_distance": 0.16489444542372275
+    },
+    {
+      "A_S_approx": 55.42562584220407,
+      "A_S_exact": "32*sqrt(3)",
+      "A_radius": 32,
+      "G_S_approx": 71.0,
+      "G_S_exact": "71",
+      "G_radius": 71,
+      "S_ratio_A_over_G": 0.780642617495832,
+      "abs_log_distance": 0.24763782990753408
+    },
+    {
+      "A_S_approx": 69.28203230275508,
+      "A_S_exact": "40*sqrt(3)",
+      "A_radius": 40,
+      "G_S_approx": 71.0,
+      "G_S_exact": "71",
+      "G_radius": 71,
+      "S_ratio_A_over_G": 0.9758032718697899,
+      "abs_log_distance": 0.024494278593324422
+    },
+    {
+      "A_S_approx": 96.99484522385713,
+      "A_S_exact": "56*sqrt(3)",
+      "A_radius": 56,
+      "G_S_approx": 113.0,
+      "G_S_exact": "113",
+      "G_radius": 113,
+      "S_ratio_A_over_G": 0.8583614621580277,
+      "abs_log_distance": 0.1527299836431365
+    },
+    {
+      "A_S_approx": 124.70765814495915,
+      "A_S_exact": "72*sqrt(3)",
+      "A_radius": 72,
+      "G_S_approx": 113.0,
+      "G_S_exact": "113",
+      "G_radius": 113,
+      "S_ratio_A_over_G": 1.1036075942031784,
+      "abs_log_distance": 0.09858444463776958
+    },
+    {
+      "A_S_approx": 166.27687752661222,
+      "A_S_exact": "96*sqrt(3)",
+      "A_radius": 96,
+      "G_S_approx": 181.0,
+      "G_S_exact": "181",
+      "G_radius": 181,
+      "S_ratio_A_over_G": 0.9186567819149847,
+      "abs_log_distance": 0.08484269546393462
+    },
+    {
+      "A_S_approx": 221.70250336881628,
+      "A_S_exact": "128*sqrt(3)",
+      "A_radius": 128,
+      "G_S_approx": 181.0,
+      "G_S_exact": "181",
+      "G_radius": 181,
+      "S_ratio_A_over_G": 1.2248757092199793,
+      "abs_log_distance": 0.20283937698784613
+    }
+  ],
+  "unmatched_scale_regions": {
+    "A_late_no_G_partner": [
+      160,
+      224,
+      320,
+      448,
+      640
+    ],
+    "G_early_no_A_partner": [
+      7,
+      11,
+      17,
+      29
+    ],
+    "interpretation": "The strongest early G finite-scale burden and the late A nuisance-light/rebound regime do not overlap in the frozen dimensionless scale window under the predeclared tolerance."
+  }
+}
