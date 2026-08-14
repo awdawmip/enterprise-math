@@ -14,16 +14,74 @@
       "packet_mixture": "successive-radius class-mixture TV largest early and contracts to approximately 0.02-0.03 at largest transitions",
       "phase_strata": "phase-mean residual SD ~0.39 of overall residual SD for D1/D2; P02 persistently negative; phase weights equal at every radius"
     },
-    "radius_grid": [24,32,40,56,72,96,128,160,224,320,448,640],
+    "radius_grid": [
+      24,
+      32,
+      40,
+      56,
+      72,
+      96,
+      128,
+      160,
+      224,
+      320,
+      448,
+      640
+    ],
     "reason": "R=448/640 rebound occurs after packet-mixture TV and covariance rotations are comparatively small."
   },
   "G": {
-    "D2_RMSE_by_radius": {"11":0.0187328463669414,"113":0.003603181802353126,"17":0.009373351964045476,"181":0.004710770930659985,"29":0.007834914228847337,"47":0.0033136733966486528,"7":0.025947126009875688,"71":0.006006503861202758},
-    "D2_RMSE_normalized_by_own_global_RMSE": {"11":1.4952514805258112,"113":0.2876051412069442,"17":0.7481787939318321,"181":0.3760126502141046,"29":0.6253810484001485,"47":0.2644966469730826,"7":2.0710936192870224,"71":0.4794377541630282},
-    "D2_RMSE_rank_low_to_high": [47,113,181,71,29,17,11,7],
+    "D2_RMSE_by_radius": {
+      "11": 0.0187328463669414,
+      "113": 0.003603181802353126,
+      "17": 0.009373351964045476,
+      "181": 0.004710770930659985,
+      "29": 0.007834914228847337,
+      "47": 0.0033136733966486528,
+      "7": 0.025947126009875688,
+      "71": 0.006006503861202758
+    },
+    "D2_RMSE_normalized_by_own_global_RMSE": {
+      "11": 1.4952514805258112,
+      "113": 0.2876051412069442,
+      "17": 0.7481787939318321,
+      "181": 0.3760126502141046,
+      "29": 0.6253810484001485,
+      "47": 0.2644966469730826,
+      "7": 2.0710936192870224,
+      "71": 0.4794377541630282
+    },
+    "D2_RMSE_rank_low_to_high": [
+      47,
+      113,
+      181,
+      71,
+      29,
+      17,
+      11,
+      7
+    ],
     "RESIDUAL_REBOUND_AFTER_MIXTURE_CONTRACTION": "INSUFFICIENT",
-    "area_run_correlation_by_radius": {"11":-0.08342764276916845,"113":0.09720687572644203,"17":-0.7687693844497876,"181":-0.18145758746088256,"29":0.23004366797863074,"47":-0.5147639814626304,"7":-0.5714275989044466,"71":0.31470527269188514},
-    "motif_entropy_by_radius": {"11":0.8084650174049618,"113":0.8281722417825435,"17":0.8243246237049703,"181":0.8391452580813464,"29":0.7760495422170326,"47":0.8100821205669292,"7":0.8484212085931346,"71":0.834940982735904},
+    "area_run_correlation_by_radius": {
+      "11": -0.08342764276916845,
+      "113": 0.09720687572644203,
+      "17": -0.7687693844497876,
+      "181": -0.18145758746088256,
+      "29": 0.23004366797863074,
+      "47": -0.5147639814626304,
+      "7": -0.5714275989044466,
+      "71": 0.31470527269188514
+    },
+    "motif_entropy_by_radius": {
+      "11": 0.8084650174049618,
+      "113": 0.8281722417825435,
+      "17": 0.8243246237049703,
+      "181": 0.8391452580813464,
+      "29": 0.7760495422170326,
+      "47": 0.8100821205669292,
+      "7": 0.8484212085931346,
+      "71": 0.834940982735904
+    },
     "ordinal_shape": {
       "early_to_middle": "Strong decay from R=7 through local minimum R=47.",
       "feature_covariance": "top-eigen share falls from 0.9453 at R=29 to 0.6847 at R=47 and 0.5707 at R=71, but AREA/RUN_DEFECT correlation changes sign repeatedly",
@@ -32,11 +90,34 @@
       "packet_mixture": "motif entropy is nonmonotone; no monotone packet-mixture contraction before the R=71/181 rebounds is established by the durable sparse summary",
       "phase_rank": "Pmix lowest frozen D2 phase RMSE; P10 highest"
     },
-    "radius_grid": [7,11,17,29,47,71,113,181],
+    "radius_grid": [
+      7,
+      11,
+      17,
+      29,
+      47,
+      71,
+      113,
+      181
+    ],
     "reason": "Residual rebound is frozen, but packet-mixture contraction before it is not established; covariance concentration decreases along one axis while correlation/geometry continues to rotate.",
-    "top_eigen_share_by_radius": {"11":0.940823915411391,"113":0.6118835709870661,"17":0.9210153018728541,"181":0.7203307169409813,"29":0.9453150566530651,"47":0.6847355983380605,"7":0.893346533423093,"71":0.5707203578069248}
+    "top_eigen_share_by_radius": {
+      "11": 0.940823915411391,
+      "113": 0.6118835709870661,
+      "17": 0.9210153018728541,
+      "181": 0.7203307169409813,
+      "29": 0.9453150566530651,
+      "47": 0.6847355983380605,
+      "7": 0.893346533423093,
+      "71": 0.5707203578069248
+    }
   },
-  "cross_arm": {"finite_scale_commonality":"COMMON_FINITE_SCALE_RESIDUAL_COMPONENT","matched_trajectory_status":"NO_STRONG_MATCHED_TRAJECTORY_ESTABLISHED","post_mixture_rebound_signature":"INSUFFICIENT","raw_magnitude_comparison":false},
+  "cross_arm": {
+    "finite_scale_commonality": "COMMON_FINITE_SCALE_RESIDUAL_COMPONENT",
+    "matched_trajectory_status": "NO_STRONG_MATCHED_TRAJECTORY_ESTABLISHED",
+    "post_mixture_rebound_signature": "INSUFFICIENT",
+    "raw_magnitude_comparison": false
+  },
   "epistemic_label": "POST_FIT_CROSS_CARRIER_RESIDUAL_DIAGNOSTIC / NOT_THEOREM / NOT_CANONICAL",
   "normalization_policy": "WITHIN_ARM_ONLY / NO_FITTED_CROSS_ARM_RESCALING",
   "researcher_id": "EM-R057X-5E8C41",
