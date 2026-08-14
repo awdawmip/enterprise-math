@@ -1,0 +1,30 @@
+{
+  "R057X_C0R_V2": {
+    "R057X_CARRIER_UNIT_CONVERSION_REGISTRY_V2_SHA256": "17cf3a4ca2be99ecd9679381e0df4f1afd3eccc299c050dd80c7f527acf1fec2",
+    "R057X_COMMON_DIMENSIONLESS_OPERATOR_PROTOCOL_V2_SHA256": "3307339c0c2d1f41803a2d1b717635e096620a09f92fd292b900824822a8ef29",
+    "R057X_DIMENSIONLESS_TRANSFER_TEST_PROTOCOL_V2_SHA256": "0fa21641a749611a4b8e6b81991fd27f42a735be54f57e324c11550e49989940",
+    "R057X_STAGE_C0R_CHECKPOINT_SHA256": "30e44e4312d43e90777457e3213247ae7ff19ed3d26e7172844b59502269ffda"
+  },
+  "artifacts": {
+    "R057G_STAGE_G_CHECK_RESULTS.json": {"bytes": 3220, "sha256": "e6de2ee9851185713f0ea2ac8fd4b6cb60dc88a2d58b631e21b9be82593db82c"},
+    "R057G_STAGE_G_INDEPENDENT_CHECK_RESULTS.json": {"bytes": 24236, "sha256": "e142334ac9358caff92a9c08cc009fb1f73de1c476c3e49650209e4e27c52d17"},
+    "R057G_STAGE_G_STAR_TRANSFER_CHECKPOINT.json": {"bytes": 8475, "sha256": "3593fa3eddd7983d55983f214e77f8318267bf7768daa169a205dd948dd89134"},
+    "R057G_STAR_COEFFICIENT_TRAJECTORY.json": {"bytes": 66274, "sha256": "8796b9c4607dcaf2ce94882e6d962c6356ac2d878058a7ddb97ae9cffd5e81b2"},
+    "R057G_STAR_GENERATOR_ABLATION.json": {"bytes": 31462, "sha256": "d6fbea03965296f22f9b6dba34865f313a98584af80a09f4d65856e23fc79bc9"},
+    "R057G_STAR_PHASE_ORIENTATION_ATLAS.json": {"bytes": 32960, "sha256": "b4bdb8d6fb1820446fabc819b20414393c4fe12ee8eb1ab4d3cba5d43e1f3f07"},
+    "R057G_STAR_TRANSFER_RESULTS.json": {"bytes": 21438, "sha256": "64cf778bea4569263c9f3d8639ce6fedde0007c1df4b2a8324f7e557a9ecf8eb"},
+    "R057G_STAR_UNIT_GATE.json": {"bytes": 4670, "sha256": "ef56201a0eeb45cc5c559d1ae897a69168d875b0b9bd3eb9c99cf09db8308368"}
+  },
+  "classification": ["STAR_DRIFT_REDUCED", "STAR_NORMALIZATION_INSUFFICIENT", "RUN_FACTORIZATION_NOT_SUPPORTED"],
+  "parent_stage_f_checkpoint_sha256": "2e6e7c1161ee3ccc41554967976a21bb4d199356b9bdfc762123bd596161a28b",
+  "researcher_id": "EM-R057G-93D4A8",
+  "schema": "R057G_STAGE_G_PUBLICATION_INDEX_V1",
+  "scope": {"K_expanded": false, "K_max": 6, "feature_added": false, "legacy_G_coefficients_copied": false, "new_A_fitting_result_read": false, "new_teacher": false, "orientations": 3, "parser_or_segmentation_changed": false, "phases": 5, "radii": [7,11,17,29,47,71,113,181], "sample_count": 120, "surrogate_added": false, "teacher": "T0+T1"},
+  "scripts": {
+    "r057g_stage_g_independent_check.py": {"bytes": 10778, "sha256": "e09a9a3aae30d606c727b4807ecf5ba450e7a7328255dea23292dc0fe0c9668d"},
+    "r057g_stage_g_star_transfer.py": {"bytes": 31650, "sha256": "7e4b807b08892263b6a97f458af6be461d96cf3cc737fac234571e848f3fb630"}
+  },
+  "stability_selected_basis": "D2",
+  "status": "FROZEN_STAGE_G_DRIVER_REVIEW",
+  "validation": {"byte_reproduction": "PASS_7_OF_7", "ci": "CI_NOT_REQUIRED_FOR_RESEARCH", "independent_check": "PASS_247_OF_247", "self_check": "PASS_12_OF_12", "unit_gate": "PASS_PERSISTED_BEFORE_FITTING"}
+}
