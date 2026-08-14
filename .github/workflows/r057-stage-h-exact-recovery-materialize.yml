@@ -1,0 +1,43 @@
+name: R057 Stage H exact recovery materialize
+
+on:
+  push:
+    branches:
+      - agent/r057-a-stage-h-artifact-recovery
+    paths:
+      - .github/workflows/r057-stage-h-exact-recovery-materialize.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore exact frozen bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT='research_outputs/R057_PI_SUPERVISED_ALGEBRAIC_COLLAPSE_SYNTHESIS_20260814/artifacts'
+          SAMPLE="$OUT/R057_A_FROZEN_SAMPLE_RESIDUAL_MOTIF_EXPOSURE.json"
+          NUIS="$OUT/R057_A_FROZEN_TRANSITION_NUISANCE_SURFACE.json"
+
+          base64 -d .recovery/r057-stage-h/sample.full.b64 | gzip -dc > "$SAMPLE"
+          base64 -d .recovery/r057-stage-h/nuisance.full.b64 | gzip -dc > "$NUIS"
+
+          test "$(wc -c < "$SAMPLE")" = '2089833'
+          test "$(wc -c < "$NUIS")" = '50118'
+          printf '%s  %s\n' '4baad1a7c3528d9b147a3ee38fb5436a3e607a2141178a284f540bfc1ce5eaf3' "$SAMPLE" | sha256sum -c -
+          printf '%s  %s\n' 'ac58760ca6f460961e41287452127060e3e3d2dfd9cf069a65fc6029f1b06e6f' "$NUIS" | sha256sum -c -
+
+          rm -rf .recovery/r057-stage-h
+          rm -f .github/workflows/r057-stage-h-exact-recovery-materialize.yml
+
+          git config user.name 'R057 artifact recovery'
+          git config user.email '30957095+awdawmip@users.noreply.github.com'
+          git add "$SAMPLE" "$NUIS" .recovery .github/workflows/r057-stage-h-exact-recovery-materialize.yml
+          git commit -m '[R057 recovery] restore exact Stage H surfaces'
+          git push origin HEAD:agent/r057-a-stage-h-artifact-recovery
