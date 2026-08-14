@@ -1,0 +1,172 @@
+{
+  "boundary_traversal": {
+    "cycle": "all exposed Voronoi edges, one oriented cycle, occupied interior on left / CCW",
+    "edge_start_index": "Stage A canonical cycle start from teacher protocol topology audit",
+    "packet_starts": "every boundary edge index; cyclic wrap allowed"
+  },
+  "chord_arithmetic": {
+    "coordinate": "scaled Cartesian (X,Y) representing physical (X,sqrt(3)Y)",
+    "endpoint_displacement": "v_k-v_0",
+    "length": "symbolic sqrt(q); numerical evaluation never defines equality/exactness",
+    "squared_chord": "q=(DeltaX)^2+3*(DeltaY)^2, exact nonnegative rational",
+    "subblock_chord": "for boundary vertices v_i,v_j use v_j-v_i, 0<=i<j<=k"
+  },
+  "direction_code": {
+    "bijection_note": "each exposed edge is identified by the missing-neighbor code; tangent is oriented with occupied cell on left",
+    "oriented_tangent_scaled_vectors": [
+      [
+        {
+          "den": 1,
+          "num": 0
+        },
+        {
+          "den": 3,
+          "num": 1
+        }
+      ],
+      [
+        {
+          "den": 2,
+          "num": -1
+        },
+        {
+          "den": 6,
+          "num": 1
+        }
+      ],
+      [
+        {
+          "den": 2,
+          "num": -1
+        },
+        {
+          "den": 6,
+          "num": -1
+        }
+      ],
+      [
+        {
+          "den": 1,
+          "num": 0
+        },
+        {
+          "den": 3,
+          "num": -1
+        }
+      ],
+      [
+        {
+          "den": 2,
+          "num": 1
+        },
+        {
+          "den": 6,
+          "num": -1
+        }
+      ],
+      [
+        {
+          "den": 2,
+          "num": 1
+        },
+        {
+          "den": 6,
+          "num": 1
+        }
+      ]
+    ],
+    "outward_neighbor_axial_vectors": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        -1
+      ]
+    ]
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "grammar_input_firewall": {
+    "allowed_teacher_free_local_data": [
+      "edge-direction/outward-normal word",
+      "turn word and turn counts",
+      "run boundaries",
+      "endpoint displacement",
+      "prefix/suffix chord vectors",
+      "exact dot/determinant comparisons among local chord vectors",
+      "D6-invariant or equivariant combinations"
+    ],
+    "forbidden": [
+      "SIDE_INTERIOR",
+      "CORNER_NEAR",
+      "teacher corner index",
+      "distance to teacher corner",
+      "square side index",
+      "square orientation",
+      "side length",
+      "phase",
+      "teacher perimeter",
+      "sample id"
+    ],
+    "teacher_role_labels_posthoc_only": true
+  },
+  "identity_readout_exactness": {
+    "estimator": "P_hat_{k,g}=(1/k)*sum_i C_{g(packet_i)}(packet_i) over all cyclic starts",
+    "identity_composition": "(1,1,...,1)",
+    "proof": "for a boundary cycle of N edges, each edge belongs to exactly k cyclic k-windows and contributes its raw edge length once to each identity window; hence sum_i C_identity(packet_i)=k*P_raw, so division by k gives P_raw exactly",
+    "required_for_every_k_1_to_8": true
+  },
+  "k_range": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "packet_exact_record_required": [
+    "k",
+    "ordered boundary vertices v_0..v_k in exact scaled-Cartesian rational coordinates",
+    "ordered outward-neighbor direction codes",
+    "ordered oriented tangent vectors",
+    "turn word",
+    "endpoint displacement and exact squared chord",
+    "all sub-block endpoint chord squared lengths q(i,j), 0<=i<j<=k",
+    "spatial-D6 canonical class key"
+  ],
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_BOUNDARY_PACKET_PROTOCOL_V1",
+  "spatial_d6_canonicalization": {
+    "canonical_key": "lexicographically least transformed outward-normal direction-code word over the 12 corrected spatial-D6 actions; no internal cyclic shift of the packet is allowed",
+    "normal_word_reflection_semantics": "for a reflected group element g, canonical candidate word is [g(n_{k-1}),...,g(n_0)] in restored traversal, not naive free-word reversal without spatial transformation",
+    "reflection": "F(a,b)=(a+b,-b) applied spatially; because it reverses orientation, restore occupied-left/CCW by reversing packet traversal order after reflection",
+    "rotation": "R(a,b)=(-b,a+b) applied spatially; preserves traversal order"
+  },
+  "stage": "0",
+  "stage0_packet_catalog_generated": false,
+  "status": "FROZEN_STAGE_0_PROTOCOL",
+  "taskbook_source_commit": "09df243f8613da75c1cb1df189a2b97e264cdd72",
+  "turn_word": {
+    "from_codes": "delta_i=(code_{i+1}-code_i) mod 6, represented by delta_i if <=3 else delta_i-6",
+    "length": "k-1 inside a packet; cyclic boundary turn outside packet may be stored separately"
+  }
+}
