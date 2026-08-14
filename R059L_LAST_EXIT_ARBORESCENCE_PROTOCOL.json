@@ -1,0 +1,29 @@
+{
+  "active_set": "ACTIVE(T) from frozen Stage C",
+  "definition": {
+    "TAU_r": "Number of token-level rooted last-exit relational arborescences toward r.",
+    "multiplicity_only_parent_sum": "TAU_r(T)=sum_p product_{x!=r} T(x,p(x)), over maps p:ACTIVE\\{r}->ACTIVE with T(x,p(x))>0 and every p-iterate reaching r.",
+    "token_level": "Each active non-root packet x chooses exactly one outgoing labeled transition token a_x as designated last exit. Root r chooses none. Following chosen-token targets from every x!=r must reach r."
+  },
+  "generation": "R059L",
+  "geometry_semantics": null,
+  "last_exit_extraction_proof": [
+    "Every active non-root has at least one outgoing token on a realizable positive table.",
+    "Choose its globally last-used outgoing token.",
+    "If chosen exits contained a non-root directed cycle, choose the earliest chosen exit on that cycle in global time. Later chosen exits around the cycle eventually return the history to that source after its last exit has already occurred, leaving no legal departure. Contradiction.",
+    "Thus the finite functional chosen-exit relation has no non-root cycle; every non-root has one chosen exit and root has none, so every iterate reaches r."
+  ],
+  "parallel_transition_normalization": "A parent relation x->y contributes T(x,y) token choices; parallel multiplicity is counted inside TAU_r.",
+  "researcher_id": "EM-R059L-5F9D05",
+  "root_convention": {
+    "closed_positive_s_eq_t": "r=s",
+    "open_s_ne_t": "r=t"
+  },
+  "schema": "R059L_LAST_EXIT_ARBORESCENCE_PROTOCOL_V1",
+  "scope": "POSITIVE_REALIZABLE_FINITE_T_ONLY",
+  "self_loop_clause": "A self-loop x->x at non-root cannot be a designated arborescence exit because iteration would not reach r. Root has no designated last exit. Self-loops remain in local outgoing-token orders.",
+  "single_root_empty_tree": "If ACTIVE(T)={r}, the empty parent map contributes TAU_r(T)=1.",
+  "stage": "STAGE_D",
+  "task_id": "RS-R059L-STAGE-D-EXACT-FIBER-COUNT-FACTORIZATION",
+  "taskbook_source_commit": "4394af21047d66a27e86143a8388f94d48aa0e81"
+}
