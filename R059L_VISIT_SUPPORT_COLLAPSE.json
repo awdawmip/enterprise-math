@@ -1,0 +1,32 @@
+{
+  "definitions": {
+    "SUPPORT": "SUPPORT(gamma)={x:VISIT_gamma(x)>0}",
+    "VISIT": "VISIT_gamma(x)=#{j in {0,...,n}:x_j=x}"
+  },
+  "exact_identities": [
+    {"statement":"sum_x VISIT_gamma(x)=PATH_COUNT(gamma)+1","status":"PROVED_EXACT"},
+    {"statement":"PATH_COUNT(gamma)=sum_x VISIT_gamma(x)-1","status":"PROVED_EXACT"},
+    {"statement":"SUPPORT(gamma) is exactly the positive support of VISIT_gamma","status":"PROVED_EXACT"},
+    {"statement":"VISIT_gamma(x)=ARRIVE_gamma(x)+1[x=x_0]=DEPART_gamma(x)+1[x=x_n]","status":"PROVED_EXACT"}
+  ],
+  "example": {
+    "PACKET_COUNT": 2,
+    "PATH_COUNT": 4,
+    "SUPPORT_CARDINALITY": 2,
+    "TOTAL_VISIT_OCCURRENCES": 5,
+    "declared_occupied_configuration": ["A","B"],
+    "path": ["A","B","A","B","A"]
+  },
+  "generation": "R059L",
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_VISIT_SUPPORT_COLLAPSE_V1",
+  "separations": {
+    "LOOPS": "PATH_COUNT can increase while support cardinality stays fixed.",
+    "REPEATED_VISITS": "VISIT multiplicity can increase while support cardinality stays fixed.",
+    "SUPPORT_NOT_OCCUPANCY": "PATH_SUPPORT is not identified with an occupied configuration unless a test explicitly declares that equality.",
+    "VISIT_NOT_PACKET_COUNT": "VISIT counts occurrences in one path history; PACKET_COUNT(C) counts distinct packets in a separately declared finite occupied configuration C."
+  },
+  "stage": "STAGE_B",
+  "task_id": "RS-R059L-STAGE-B-NATIVE-PATH-INFORMATION-COLLAPSE",
+  "taskbook_source_commit": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062"
+}
