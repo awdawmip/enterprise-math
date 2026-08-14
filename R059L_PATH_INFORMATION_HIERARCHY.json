@@ -1,43 +1,128 @@
 {
   "conditional_reconstruction_links": [
     {
-      "inputs": ["H1", "START_ENDPOINT_x0"],
+      "inputs": [
+        "H1",
+        "START_ENDPOINT_x0"
+      ],
       "output": "H3",
       "rule": "VISIT_gamma(x)=sum_y T_gamma(y,x)+1[x=x_0]",
       "status": "PROVED_EXACT"
     },
     {
-      "inputs": ["H1", "END_ENDPOINT_xn"],
+      "inputs": [
+        "H1",
+        "END_ENDPOINT_xn"
+      ],
       "output": "H3",
       "rule": "VISIT_gamma(x)=sum_y T_gamma(x,y)+1[x=x_n]",
       "status": "PROVED_EXACT"
     }
   ],
   "deterministic_maps": [
-    {"from":"H0","rule":"count ordered consecutive pairs","status":"PROVED_EXACT","to":"H1"},
-    {"from":"H1","rule":"symmetrize ordered-pair multiplicities","status":"PROVED_EXACT","to":"H2"},
-    {"from":"H0","rule":"count packet occurrences in positions","status":"PROVED_EXACT","to":"H3"},
-    {"from":"H3","rule":"positive-count support","status":"PROVED_EXACT","to":"H4"},
-    {"from":"H1","rule":"sum all directed transition multiplicities","status":"PROVED_EXACT","to":"H5"},
-    {"from":"H2","rule":"sum all unordered adjacency-use multiplicities","status":"PROVED_EXACT","to":"H5"},
-    {"from":"H3","rule":"sum_x VISIT_gamma(x)-1","status":"PROVED_EXACT","to":"H5"}
+    {
+      "from": "H0",
+      "rule": "count ordered consecutive pairs",
+      "status": "PROVED_EXACT",
+      "to": "H1"
+    },
+    {
+      "from": "H1",
+      "rule": "symmetrize ordered-pair multiplicities",
+      "status": "PROVED_EXACT",
+      "to": "H2"
+    },
+    {
+      "from": "H0",
+      "rule": "count packet occurrences in positions",
+      "status": "PROVED_EXACT",
+      "to": "H3"
+    },
+    {
+      "from": "H3",
+      "rule": "positive-count support",
+      "status": "PROVED_EXACT",
+      "to": "H4"
+    },
+    {
+      "from": "H1",
+      "rule": "sum all directed transition multiplicities",
+      "status": "PROVED_EXACT",
+      "to": "H5"
+    },
+    {
+      "from": "H2",
+      "rule": "sum all unordered adjacency-use multiplicities",
+      "status": "PROVED_EXACT",
+      "to": "H5"
+    },
+    {
+      "from": "H3",
+      "rule": "sum_x VISIT_gamma(x)-1",
+      "status": "PROVED_EXACT",
+      "to": "H5"
+    }
   ],
   "generation": "R059L",
   "important_nonclaim": "H0,H1,H2,H3,H4,H5 are not asserted to form a complete quotient lattice or a single total reconstructibility chain.",
   "levels": {
-    "H0": {"definition":"gamma=(x_0,...,x_n)","name":"FULL_ORDERED_PATH_HISTORY","semantic_type":"N0_NATIVE_PATH_OBJECT"},
-    "H1": {"definition":"T_gamma(x,y)","name":"DIRECTED_TRANSITION_MULTIPLICITY","semantic_type":"N2_EXACT_READOUT"},
-    "H2": {"definition":"U_gamma({x,y})","name":"UNORDERED_ADJACENCY_USE_MULTIPLICITY","semantic_type":"N2_EXACT_READOUT"},
-    "H3": {"definition":"VISIT_gamma(x)=#{j in {0,...,n}:x_j=x}","name":"VISIT_MULTIPLICITY","semantic_type":"N2_EXACT_READOUT"},
-    "H4": {"definition":"SUPPORT(gamma)={x:VISIT_gamma(x)>0}","name":"SUPPORT_SET","semantic_type":"N2_EXACT_READOUT"},
-    "H5": {"definition":"N(gamma)=PATH_COUNT(gamma)=n","name":"PATH_COUNT","semantic_type":"N0_INTEGER_EVENT_COUNT_READ_AS_COARSE_SUMMARY"}
+    "H0": {
+      "definition": "gamma=(x_0,...,x_n)",
+      "name": "FULL_ORDERED_PATH_HISTORY",
+      "semantic_type": "N0_NATIVE_PATH_OBJECT"
+    },
+    "H1": {
+      "definition": "T_gamma(x,y)",
+      "name": "DIRECTED_TRANSITION_MULTIPLICITY",
+      "semantic_type": "N2_EXACT_READOUT"
+    },
+    "H2": {
+      "definition": "U_gamma({x,y})",
+      "name": "UNORDERED_ADJACENCY_USE_MULTIPLICITY",
+      "semantic_type": "N2_EXACT_READOUT"
+    },
+    "H3": {
+      "definition": "VISIT_gamma(x)=#{j in {0,...,n}:x_j=x}",
+      "name": "VISIT_MULTIPLICITY",
+      "semantic_type": "N2_EXACT_READOUT"
+    },
+    "H4": {
+      "definition": "SUPPORT(gamma)={x:VISIT_gamma(x)>0}",
+      "name": "SUPPORT_SET",
+      "semantic_type": "N2_EXACT_READOUT"
+    },
+    "H5": {
+      "definition": "N(gamma)=PATH_COUNT(gamma)=n",
+      "name": "PATH_COUNT",
+      "semantic_type": "N0_INTEGER_EVENT_COUNT_READ_AS_COARSE_SUMMARY"
+    }
   },
   "native_path_equality": "EXACT_EQUALITY_OF_FULL_ORDERED_PACKET_HISTORY_H0_ONLY",
   "nonmaps": [
-    {"from":"H1","status":"NOT_RECONSTRUCTIBLE_IN_GENERAL","to":"H0","witness":"A-B-A-C-A versus A-C-A-B-A"},
-    {"from":"H2","status":"NOT_RECONSTRUCTIBLE_IN_GENERAL","to":"H1","witness":"A-B-C versus C-B-A"},
-    {"from":"H4","status":"NOT_RECONSTRUCTIBLE_IN_GENERAL","to":"H5","witness":"A-B versus A-B-A"},
-    {"from":"H5","status":"NOT_RECONSTRUCTIBLE_IN_GENERAL","to":"H4","witness":"A-B-C versus A-B-A"}
+    {
+      "from": "H1",
+      "status": "NOT_RECONSTRUCTIBLE_IN_GENERAL",
+      "to": "H0",
+      "witness": "A-B-A-C-A versus A-C-A-B-A"
+    },
+    {
+      "from": "H2",
+      "status": "NOT_RECONSTRUCTIBLE_IN_GENERAL",
+      "to": "H1",
+      "witness": "A-B-C versus C-B-A"
+    },
+    {
+      "from": "H4",
+      "status": "NOT_RECONSTRUCTIBLE_IN_GENERAL",
+      "to": "H5",
+      "witness": "A-B versus A-B-A"
+    },
+    {
+      "from": "H5",
+      "status": "NOT_RECONSTRUCTIBLE_IN_GENERAL",
+      "to": "H4",
+      "witness": "A-B-C versus A-B-A"
+    }
   ],
   "path_cancellation_quotient_authorized": false,
   "readout_equality_changes_native_path_equality": false,
