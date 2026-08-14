@@ -1,0 +1,158 @@
+{
+  "PB-T06": {
+    "reason": "T is obtained by a finite deterministic count over consecutive ordered pairs in the full history.",
+    "statement": "H0 -> T is deterministic",
+    "status": "PROVED_EXACT"
+  },
+  "PB-T07": {
+    "T_equal": true,
+    "T_eta": {
+      "A->B": 1,
+      "A->C": 1,
+      "B->A": 1,
+      "C->A": 1
+    },
+    "T_gamma": {
+      "A->B": 1,
+      "A->C": 1,
+      "B->A": 1,
+      "C->A": 1
+    },
+    "carrier": {
+      "declared_symmetric_adjacencies": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    "eta": [
+      "A",
+      "C",
+      "A",
+      "B",
+      "A"
+    ],
+    "gamma": [
+      "A",
+      "B",
+      "A",
+      "C",
+      "A"
+    ],
+    "gamma_not_eta": true,
+    "proof": "Both histories are legal and distinct already at position 1, but each contains exactly one occurrence of A->B, B->A, A->C and C->A.",
+    "same_end": "A",
+    "same_start": "A",
+    "statement": "T -> H0 is not reconstructible in general",
+    "status": "COUNTEREXAMPLE_PROVED"
+  },
+  "additional_exact_separations": [
+    {
+      "different_VISIT": true,
+      "eta": [
+        "B",
+        "C",
+        "A",
+        "B"
+      ],
+      "explanation": "The histories are cyclic shifts with the same directed transition multiset; the duplicated endpoint packet in the finite history representation differs.",
+      "gamma": [
+        "A",
+        "B",
+        "C",
+        "A"
+      ],
+      "purpose": "H1 without endpoint data need not determine H3 on a closed history",
+      "required_adjacencies": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "A"
+        ]
+      ],
+      "same_T": true
+    },
+    {
+      "different_T": true,
+      "eta": [
+        "C",
+        "B",
+        "A"
+      ],
+      "gamma": [
+        "A",
+        "B",
+        "C"
+      ],
+      "purpose": "H2 does not reconstruct H1",
+      "same_U": true
+    },
+    {
+      "different_T": true,
+      "eta": [
+        "A",
+        "C",
+        "A",
+        "B"
+      ],
+      "gamma": [
+        "A",
+        "B",
+        "A",
+        "C"
+      ],
+      "purpose": "H3 does not reconstruct H1",
+      "same_VISIT": true
+    },
+    {
+      "different_PATH_COUNT": true,
+      "eta": [
+        "A",
+        "B",
+        "A"
+      ],
+      "gamma": [
+        "A",
+        "B"
+      ],
+      "purpose": "H4 does not reconstruct H5",
+      "same_SUPPORT": true
+    },
+    {
+      "different_SUPPORT": true,
+      "eta": [
+        "A",
+        "B",
+        "A"
+      ],
+      "gamma": [
+        "A",
+        "B",
+        "C"
+      ],
+      "purpose": "H5 does not reconstruct H4",
+      "same_PATH_COUNT": true
+    }
+  ],
+  "event_cancellation": false,
+  "generation": "R059L",
+  "native_equality_rule": "Readout equality never changes raw native path equality. Distinct H0 histories remain distinct even when any H1-H5 readout agrees.",
+  "quotient_status": "N2_DIAGNOSTIC_EQUIVALENCE_ONLY",
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_PATH_READOUT_NONIDENTIFIABILITY_V1",
+  "stage": "STAGE_B",
+  "task_id": "RS-R059L-STAGE-B-NATIVE-PATH-INFORMATION-COLLAPSE",
+  "taskbook_source_commit": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062"
+}

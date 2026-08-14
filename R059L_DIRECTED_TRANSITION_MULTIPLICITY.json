@@ -1,0 +1,42 @@
+{
+  "codomain": "NONNEGATIVE_INTEGER_FINITE_SUPPORT",
+  "definition": "T_gamma(x,y)=#{j in {0,...,n-1}: x_j=x and x_{j+1}=y}",
+  "derived_exact_links": {
+    "ARRIVE": "ARRIVE_gamma(x)=sum_y T_gamma(y,x)",
+    "DEPART": "DEPART_gamma(x)=sum_y T_gamma(x,y)",
+    "PATH_COUNT": "PATH_COUNT(gamma)=sum_{x,y}T_gamma(x,y)"
+  },
+  "generation": "R059L",
+  "geometry_semantics": null,
+  "native_equality_unchanged": true,
+  "native_input": "H0_FULL_ORDERED_PATH_HISTORY",
+  "readout_name": "H1_DIRECTED_TRANSITION_MULTIPLICITY",
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_DIRECTED_TRANSITION_MULTIPLICITY_V1",
+  "semantic_type": "N2_EXACT_INFORMATION_READOUT",
+  "stage": "STAGE_B",
+  "task_id": "RS-R059L-STAGE-B-NATIVE-PATH-INFORMATION-COLLAPSE",
+  "taskbook_source_commit": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062",
+  "theorems": {
+    "PB-T01": {
+      "proof": "The transition indices j=0,...,n-1 are partitioned uniquely by their ordered packet pair (x_j,x_{j+1}); summing multiplicities counts each actual transition exactly once.",
+      "statement": "sum_{x,y} T_gamma(x,y)=PATH_COUNT(gamma)",
+      "status": "PROVED_EXACT"
+    },
+    "PB-T02": {
+      "proof": "Under shared-endpoint-once concatenation, the transition list of gamma*eta is exactly the ordered transition list of gamma followed by that of eta; identifying the common packet creates no extra transition.",
+      "statement": "T_{gamma*eta}(x,y)=T_gamma(x,y)+T_eta(x,y) for composable gamma,eta",
+      "status": "PROVED_EXACT"
+    },
+    "PB-T03": {
+      "proof": "The index bijection j -> n-1-j sends each transition x_j->x_{j+1} to the reversed transition x_{j+1}->x_j exactly once.",
+      "statement": "T_{rev(gamma)}(x,y)=T_gamma(y,x)",
+      "status": "PROVED_EXACT"
+    },
+    "PB-T04": {
+      "proof": "The row sum is DEPART_gamma(x), the column sum is ARRIVE_gamma(x), so the frozen Stage-A endpoint incidence identity applies exactly.",
+      "statement": "sum_y T_gamma(x,y)-sum_y T_gamma(y,x)=1[x=x_0]-1[x=x_n]",
+      "status": "PROVED_EXACT"
+    }
+  }
+}

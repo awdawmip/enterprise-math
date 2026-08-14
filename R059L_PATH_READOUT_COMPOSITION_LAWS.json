@@ -1,0 +1,38 @@
+{
+  "composable_convention": "gamma:a->b and eta:b->c; concatenate by identifying the shared packet b once",
+  "generation": "R059L",
+  "laws": {
+    "H1_T": {
+      "join_correction": "NONE_FOR_TRANSITIONS",
+      "law": "T_{gamma*eta}=T_gamma+T_eta",
+      "status": "PROVED_EXACT"
+    },
+    "H2_U": {
+      "join_correction": "NONE_FOR_ADJACENCY_USES",
+      "law": "U_{gamma*eta}=U_gamma+U_eta",
+      "status": "PROVED_EXACT"
+    },
+    "H3_VISIT": {
+      "law": "VISIT_{gamma*eta}(x)=VISIT_gamma(x)+VISIT_eta(x)-1[x=b]",
+      "proof": "The shared join packet is present once in the concatenated position history but once in each input history.",
+      "status": "PROVED_EXACT"
+    },
+    "H4_SUPPORT": {
+      "law": "SUPPORT(gamma*eta)=SUPPORT(gamma) union SUPPORT(eta)",
+      "proof": "Concatenation deletes only the duplicated occurrence of the common join packet, not membership of any visited packet.",
+      "status": "PROVED_EXACT"
+    },
+    "H5_PATH_COUNT": {
+      "law": "PATH_COUNT(gamma*eta)=PATH_COUNT(gamma)+PATH_COUNT(eta)",
+      "status": "PROVED_EXACT"
+    }
+  },
+  "no_geometry": true,
+  "no_path_ranking": true,
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_PATH_READOUT_COMPOSITION_LAWS_V1",
+  "shared_endpoint_double_counting_handled": true,
+  "stage": "STAGE_B",
+  "task_id": "RS-R059L-STAGE-B-NATIVE-PATH-INFORMATION-COLLAPSE",
+  "taskbook_source_commit": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062"
+}

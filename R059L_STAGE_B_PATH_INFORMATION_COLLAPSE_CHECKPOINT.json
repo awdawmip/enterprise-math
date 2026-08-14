@@ -1,0 +1,59 @@
+{
+  "checker_summary": {
+    "hard_rejections": "10/10",
+    "overall": "PASS",
+    "positive_gates": "21/21",
+    "regression_cases": 12
+  },
+  "checkpoint_self_hash_semantics": "R059L_STAGE_B_PATH_INFORMATION_COLLAPSE_CHECKPOINT_SHA256 is computed over this frozen checkpoint file and returned externally; self-inclusion is intentionally avoided.",
+  "frozen_artifact_sha256": {
+    "R059L_C6_PASSAGE_COMPOSITION.json": "a8b2c3f76b7632e654220011ecee5050e40425fb667cc82610fa367928c9f5cf",
+    "R059L_DIRECTED_TRANSITION_MULTIPLICITY.json": "80de67c1e15d8f5a6e190e3263b7e89acf788e513a41c8d73c2ad92abcc3cf53",
+    "R059L_PATH_INFORMATION_HIERARCHY.json": "04a0c794afcd95b8b9348b387154584cef9df376a031548823001e259e8a714f",
+    "R059L_PATH_READOUT_COMPOSITION_LAWS.json": "432158daa3f7505c1f6f84a6b003cb0304fa53c4a318912cb609820d3b85fb5f",
+    "R059L_PATH_READOUT_NONIDENTIFIABILITY.json": "9d2cae2b7d488f660305eeef581551464988fe676ae73d6299428cfdcc05f55e",
+    "R059L_STAGE_B_CHECKER_OUTPUT.json": "07c66e92002c8e78826454c9ae8d0815650ed1508f36d18638092f31c5b02995",
+    "R059L_STAGE_B_REGRESSION_RESULTS.json": "d687b842a3e4faca0b7b38d2fdd66b847e1f86815aa188b7405e7d86bda93c4b",
+    "R059L_STAGE_B_THEOREM_LEDGER.json": "e1bf2514dad1b70ad3879613d58c1f46086ba003bd2c630255dc742b569914e8",
+    "R059L_UNDIRECTED_ADJACENCY_USE_READOUT.json": "2aa1d02d56897343e4a981b0cc0ab72b629ff1db56647b0a9c8ff8a489bda10d",
+    "R059L_VISIT_SUPPORT_COLLAPSE.json": "0146bca745df191bc9c617a1289d7ff767cfaf2f5d5225e59df838cb88210e82"
+  },
+  "frozen_parent_anchors": {
+    "stage0_owner_head": "825c0cde2909d127e72d402d78bcdc7b9a40aec2",
+    "stageA_checkpoint_sha256": "3e1c10fb256db6df8d6708e39ec7e390b8139907b63e2b4baa92cc20db092230",
+    "stageA_owner_head": "4d196b916c815f665ea725f40ee5fb48ef76b10e"
+  },
+  "generation": "R059L",
+  "next_stage_authorized": false,
+  "proved_exact_core": [
+    "sum_{x,y}T_gamma(x,y)=PATH_COUNT(gamma)",
+    "T_{gamma*eta}=T_gamma+T_eta",
+    "T_{rev(gamma)}(x,y)=T_gamma(y,x)",
+    "row(T)-column(T)=endpoint incidence",
+    "sum U=PATH_COUNT",
+    "U_{gamma*eta}=U_gamma+U_eta",
+    "U_{rev(gamma)}=U_gamma",
+    "VISIT_{gamma*eta}(x)=VISIT_gamma(x)+VISIT_eta(x)-1[x=join]",
+    "SUPPORT(gamma*eta)=SUPPORT(gamma) union SUPPORT(eta)"
+  ],
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_STAGE_B_PATH_INFORMATION_COLLAPSE_CHECKPOINT_V1",
+  "scientific_dispositions": {
+    "C6_passage_composition": "C6_PASSAGE_COMPOSITION_NOT_YET_WELL_TYPED",
+    "H0_native_path": "FULL_ORDERED_HISTORY",
+    "H0_to_H1": "DETERMINISTIC",
+    "H1": "DIRECTED_TRANSITION_MULTIPLICITY_T",
+    "H1_to_H0": "NOT_RECONSTRUCTIBLE_IN_GENERAL",
+    "H2": "UNORDERED_ADJACENCY_USE_U",
+    "H3": "VISIT_MULTIPLICITY",
+    "H4": "SUPPORT_SET",
+    "H5": "PATH_COUNT",
+    "preferred_exact_counterexample": "A-B-A-C-A != A-C-A-B-A but T equal",
+    "readout_equality_native_equality": "FORBIDDEN_PROMOTION"
+  },
+  "stage": "STAGE_B",
+  "stage0_stageA_artifacts_immutable": true,
+  "status": "FROZEN_STAGE_B_CHECKPOINT_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059L-STAGE-B-NATIVE-PATH-INFORMATION-COLLAPSE",
+  "taskbook_source_commit": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062"
+}

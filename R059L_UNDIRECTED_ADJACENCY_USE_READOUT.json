@@ -1,0 +1,35 @@
+{
+  "definition": "U_gamma({x,y})=T_gamma(x,y)+T_gamma(y,x) for an unordered declared adjacency pair {x,y}",
+  "does_not_authorize_native_path_identification": true,
+  "generation": "R059L",
+  "geometry_semantics": null,
+  "information_lost": [
+    "ORDERED_PAIR_ORIENTATION_OF_TRANSITION_USE",
+    "GLOBAL_TEMPORAL_ORDER_BEYOND_MULTIPLICITIES"
+  ],
+  "readout_name": "H2_UNORDERED_ADJACENCY_USE_MULTIPLICITY",
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_UNDIRECTED_ADJACENCY_USE_READOUT_V1",
+  "semantic_type": "N2_EXACT_INFORMATION_READOUT",
+  "stage": "STAGE_B",
+  "task_id": "RS-R059L-STAGE-B-NATIVE-PATH-INFORMATION-COLLAPSE",
+  "taskbook_source_commit": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062",
+  "terminology_firewall": "UNORDERED_ADJACENCY_RELATION_INSTANCE_NOT_GEOMETRIC_EDGE",
+  "theorems": {
+    "COMPOSITION": {
+      "proof": "Substitute T additivity into U=T+T^transpose.",
+      "statement": "U_{gamma*eta}=U_gamma+U_eta",
+      "status": "PROVED_EXACT"
+    },
+    "PB-T05": {
+      "proof": "Reversal swaps T_gamma(x,y) and T_gamma(y,x), leaving their sum unchanged.",
+      "statement": "U_{rev(gamma)}=U_gamma",
+      "status": "PROVED_EXACT"
+    },
+    "TOTAL": {
+      "proof": "Each directed transition belongs to exactly one unordered adjacency pair.",
+      "statement": "sum_{unordered {x,y}} U_gamma({x,y})=PATH_COUNT(gamma)",
+      "status": "PROVED_EXACT"
+    }
+  }
+}

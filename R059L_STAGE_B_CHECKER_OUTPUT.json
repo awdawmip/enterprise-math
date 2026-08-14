@@ -1,0 +1,284 @@
+{
+  "C6_passage_composition_disposition": "C6_PASSAGE_COMPOSITION_NOT_YET_WELL_TYPED",
+  "checker_semantics": "DETERMINISTIC_INDEPENDENT_RECOMPUTATION_OF_FINITE_PATH_READOUTS_AND_STRUCTURAL_TYPING_GATES",
+  "forbidden_work": {
+    "Q_metric": false,
+    "R057_R058S_geometry": false,
+    "angle": false,
+    "area": false,
+    "boundary": false,
+    "distance": false,
+    "edge": false,
+    "geodesic": false,
+    "geometry": false,
+    "length": false,
+    "line": false,
+    "metric": false,
+    "path_cancellation": false,
+    "path_ranking": false,
+    "physical_conservation_interpretation": false,
+    "shortest_path": false,
+    "straightness": false,
+    "volume": false
+  },
+  "frozen_parent_anchors": {
+    "stage0_owner_head": "825c0cde2909d127e72d402d78bcdc7b9a40aec2",
+    "stageA_checkpoint_sha256": "3e1c10fb256db6df8d6708e39ec7e390b8139907b63e2b4baa92cc20db092230",
+    "stageA_owner_head": "4d196b916c815f665ea725f40ee5fb48ef76b10e"
+  },
+  "generation": "R059L",
+  "hard_rejection_self_tests": {
+    "summary": "PASS",
+    "tests": [
+      {
+        "expected_rejection_code": "READOUT_EQUALITY_NATIVE_PROMOTION",
+        "observed_codes": [
+          "READOUT_EQUALITY_NATIVE_PROMOTION"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B01-READOUT-NATIVE"
+      },
+      {
+        "expected_rejection_code": "FALSE_T_RECONSTRUCTION",
+        "observed_codes": [
+          "FALSE_T_RECONSTRUCTION"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B02-T-INVERTIBLE"
+      },
+      {
+        "expected_rejection_code": "U_REVERSAL_INVARIANCE_VIOLATION",
+        "observed_codes": [
+          "U_REVERSAL_INVARIANCE_VIOLATION"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B03-U-REV-CHANGES"
+      },
+      {
+        "expected_rejection_code": "PATH_CANCELLATION_QUOTIENT_FORBIDDEN",
+        "observed_codes": [
+          "PATH_CANCELLATION_QUOTIENT_FORBIDDEN"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B04-CANCEL-REV"
+      },
+      {
+        "expected_rejection_code": "PATH_COUNT_LENGTH_LEAKAGE",
+        "observed_codes": [
+          "PATH_COUNT_LENGTH_LEAKAGE"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B05-PATH-LENGTH"
+      },
+      {
+        "expected_rejection_code": "PHYSICAL_CONSERVATION_INTERPRETATION",
+        "observed_codes": [
+          "PHYSICAL_CONSERVATION_INTERPRETATION"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B06-PHYSICAL-FLUX"
+      },
+      {
+        "expected_rejection_code": "PATH_RANKING_FORBIDDEN",
+        "observed_codes": [
+          "PATH_RANKING_FORBIDDEN"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B07-RANK-PATHS"
+      },
+      {
+        "expected_rejection_code": "C6_GEOMETRY_LEAKAGE",
+        "observed_codes": [
+          "C6_GEOMETRY_LEAKAGE"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B08-C6-GEOMETRY"
+      },
+      {
+        "expected_rejection_code": "C6_PASSAGE_COMPOSITION_UNTYPED_ASSERTION",
+        "observed_codes": [
+          "C6_PASSAGE_COMPOSITION_UNTYPED_ASSERTION"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B09-C6-NAIVE-M-ADDITIVE"
+      },
+      {
+        "expected_rejection_code": "R057_R058S_GEOMETRY_LEAKAGE",
+        "observed_codes": [
+          "R057_R058S_GEOMETRY_LEAKAGE"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B10-PRIOR-GEOMETRY"
+      }
+    ],
+    "tests_rejected_as_required": 10,
+    "tests_total": 10
+  },
+  "input_artifact_sha256": {
+    "R059L_C6_PASSAGE_COMPOSITION.json": "a8b2c3f76b7632e654220011ecee5050e40425fb667cc82610fa367928c9f5cf",
+    "R059L_DIRECTED_TRANSITION_MULTIPLICITY.json": "80de67c1e15d8f5a6e190e3263b7e89acf788e513a41c8d73c2ad92abcc3cf53",
+    "R059L_PATH_INFORMATION_HIERARCHY.json": "04a0c794afcd95b8b9348b387154584cef9df376a031548823001e259e8a714f",
+    "R059L_PATH_READOUT_COMPOSITION_LAWS.json": "432158daa3f7505c1f6f84a6b003cb0304fa53c4a318912cb609820d3b85fb5f",
+    "R059L_PATH_READOUT_NONIDENTIFIABILITY.json": "9d2cae2b7d488f660305eeef581551464988fe676ae73d6299428cfdcc05f55e",
+    "R059L_STAGE_B_REGRESSION_RESULTS.json": "d687b842a3e4faca0b7b38d2fdd66b847e1f86815aa188b7405e7d86bda93c4b",
+    "R059L_STAGE_B_THEOREM_LEDGER.json": "e1bf2514dad1b70ad3879613d58c1f46086ba003bd2c630255dc742b569914e8",
+    "R059L_UNDIRECTED_ADJACENCY_USE_READOUT.json": "2aa1d02d56897343e4a981b0cc0ab72b629ff1db56647b0a9c8ff8a489bda10d",
+    "R059L_VISIT_SUPPORT_COLLAPSE.json": "0146bca745df191bc9c617a1289d7ff767cfaf2f5d5225e59df838cb88210e82"
+  },
+  "next_stage_entered": false,
+  "overall_summary": "PASS",
+  "positive_validation": {
+    "gates": [
+      {
+        "detail": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062",
+        "gate_id": "B-G01-TASKBOOK-SOURCE",
+        "passed": true
+      },
+      {
+        "detail": "Stage-B branch must be created from exact Stage-A head 4d196b916c815f665ea725f40ee5fb48ef76b10e",
+        "gate_id": "B-G02-FROZEN-PARENT-ANCHOR",
+        "passed": true
+      },
+      {
+        "detail": "Stage-B filenames are disjoint from all frozen Stage-0/Stage-A artifact filenames",
+        "gate_id": "B-G03-DISJOINT-WRITE-SET",
+        "passed": true
+      },
+      {
+        "detail": "13 unique path histories checked",
+        "gate_id": "B-G04-ALL-REGRESSION-PATHS-LEGAL",
+        "passed": true
+      },
+      {
+        "detail": "independent recomputation on every registry path",
+        "gate_id": "B-G05-SUM-T-EQUALS-N",
+        "passed": true
+      },
+      {
+        "detail": "independent recomputation on every registry path",
+        "gate_id": "B-G06-SUM-U-EQUALS-N",
+        "passed": true
+      },
+      {
+        "detail": "join creates no transition",
+        "gate_id": "B-G07-T-CONCAT-ADDITIVE",
+        "passed": true
+      },
+      {
+        "detail": "derived from exact transition multiset split",
+        "gate_id": "B-G08-U-CONCAT-ADDITIVE",
+        "passed": true
+      },
+      {
+        "detail": "all registry paths",
+        "gate_id": "B-G09-T-REV-TRANSPOSE",
+        "passed": true
+      },
+      {
+        "detail": "all registry paths",
+        "gate_id": "B-G10-U-REV-INVARIANT",
+        "passed": true
+      },
+      {
+        "detail": "including closed, revisit, reversal and repeated-adjacency cases",
+        "gate_id": "B-G11-ROW-COL-ENDPOINT",
+        "passed": true
+      },
+      {
+        "detail": "finite consecutive-pair counting is a deterministic function",
+        "gate_id": "B-G12-H0-TO-H1-DETERMINISTIC",
+        "passed": true
+      },
+      {
+        "detail": "preferred exact witness accepted",
+        "gate_id": "B-G13-H1-TO-H0-NONRECONSTRUCTIBLE",
+        "passed": true
+      },
+      {
+        "detail": "both A->A histories",
+        "gate_id": "B-G14-PREFERRED-WITNESS-SAME-ENDPOINTS",
+        "passed": true
+      },
+      {
+        "detail": "shared join counted once",
+        "gate_id": "B-G15-VISIT-CONCAT-JOIN-CORRECTION",
+        "passed": true
+      },
+      {
+        "detail": "set membership exact",
+        "gate_id": "B-G16-SUPPORT-CONCAT-UNION",
+        "passed": true
+      },
+      {
+        "detail": "all registry paths",
+        "gate_id": "B-G17-VISIT-TOTAL-N-PLUS-ONE",
+        "passed": true
+      },
+      {
+        "detail": "closed cyclic-shift witness",
+        "gate_id": "B-G18-H1-ENDPOINT-DATA-NEEDED-FOR-H3-GENERALLY",
+        "passed": true
+      },
+      {
+        "detail": "typing firewall",
+        "gate_id": "B-G19-READOUT-EQUALITY-NOT-NATIVE-EQUALITY",
+        "passed": true
+      },
+      {
+        "detail": "aggregate state lacks ordered boundary-event channel selector",
+        "gate_id": "B-G20-C6-COMPOSITION-TYPING",
+        "passed": true
+      },
+      {
+        "detail": "no geometry/metric/physical/cancellation work",
+        "gate_id": "B-G21-FORBIDDEN-WORK-NONE",
+        "passed": true
+      }
+    ],
+    "gates_passed": 21,
+    "gates_total": 21,
+    "summary": "PASS"
+  },
+  "preferred_nonidentifiability_witness": {
+    "T_equal": true,
+    "eta": [
+      "A",
+      "C",
+      "A",
+      "B",
+      "A"
+    ],
+    "gamma": [
+      "A",
+      "B",
+      "A",
+      "C",
+      "A"
+    ],
+    "gamma_not_eta": true
+  },
+  "regression_case_count": 12,
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_STAGE_B_CHECKER_OUTPUT_V1",
+  "stage": "STAGE_B",
+  "stage0_stageA_immutability": {
+    "frozen_artifact_modification_performed": false,
+    "stageB_parent_exact_stageA_head": true,
+    "stageB_write_set": [
+      "R059L_C6_PASSAGE_COMPOSITION.json",
+      "R059L_DIRECTED_TRANSITION_MULTIPLICITY.json",
+      "R059L_PATH_INFORMATION_HIERARCHY.json",
+      "R059L_PATH_READOUT_COMPOSITION_LAWS.json",
+      "R059L_PATH_READOUT_NONIDENTIFIABILITY.json",
+      "R059L_STAGE_B_CHECKER_OUTPUT.json",
+      "R059L_STAGE_B_PATH_INFORMATION_COLLAPSE_CHECKPOINT.json",
+      "R059L_STAGE_B_REGRESSION_RESULTS.json",
+      "R059L_STAGE_B_THEOREM_LEDGER.json",
+      "R059L_UNDIRECTED_ADJACENCY_USE_READOUT.json",
+      "R059L_VISIT_SUPPORT_COLLAPSE.json"
+    ],
+    "stageB_write_set_disjoint_from_frozen_stage0_stageA_filenames": true
+  },
+  "task_id": "RS-R059L-STAGE-B-NATIVE-PATH-INFORMATION-COLLAPSE",
+  "taskbook_source_commit": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062"
+}
