@@ -1,0 +1,177 @@
+{
+  "carrier": {
+    "base_triangular_lattice": {
+      "axial_basis_unrotated": {
+        "e1": [
+          "1",
+          "0"
+        ],
+        "e2": [
+          "1/2",
+          "sqrt(3)/2"
+        ]
+      },
+      "quadratic_form": "Q(a,b)=a^2+a*b+b^2",
+      "six_neighbor_directions_axial": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          -1,
+          1
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          -1
+        ],
+        [
+          1,
+          -1
+        ]
+      ]
+    },
+    "lab_frame": "Teacher centers are fixed in the unrotated lab basis; lattice orientation rotates the lattice relative to that lab frame.",
+    "oriented_lattice_vertex": "v_phi(a,b)=R_phi*(a*e1+b*e2), with phi taken from orientation_set and R_phi the exact Euclidean rotation."
+  },
+  "digitization_convention": {
+    "boundary_edges": "Original triangular-lattice edges incident to exactly one included face.",
+    "canonical_start": "Rotate the CCW cycle so its first axial vertex label (a,b) is lexicographically minimal; if that vertex repeats in a non-simple exceptional walk, choose the lexicographically minimal full cyclic sequence.",
+    "direction_word": "Encode each oriented boundary edge by its axial neighbor-direction index d in [0,5] using the frozen six-neighbor list.",
+    "elementary_faces": {
+      "down": "T-_{a,b}=(v(a+1,b+1),v(a+1,b),v(a,b+1))",
+      "up": "T+_{a,b}=(v(a,b),v(a+1,b),v(a,b+1))"
+    },
+    "face_inclusion": "Include an elementary closed face T iff the Euclidean squared distance from its centroid g(T) to teacher center c is <= r^2. Equality is included.",
+    "name": "TRIANGULAR_FACE_CENTROID_DISK_OUTER_EDGE_CONTOUR_V1",
+    "outer_cycle_selection": "Form boundary-edge connected components. Prefer the unique simple cycle enclosing the teacher center. If topology produces more than one candidate, select the simple cycle with maximum absolute signed Euclidean area; break exact ties by lexicographically smallest canonical axial vertex sequence. Record a topology exception flag.",
+    "selected_complex": "Union of all included elementary triangular faces.",
+    "silent_sample_drop": "FORBIDDEN",
+    "topology_audit_required": [
+      "included_face_count",
+      "boundary_edge_count",
+      "boundary_component_count",
+      "outer_cycle_simple",
+      "teacher_center_enclosed",
+      "topology_exception_flag"
+    ],
+    "traversal_orientation": "Counterclockwise in the lab frame.",
+    "turn_word": "For consecutive directions d_i,d_{i+1}, encode signed turn as the representative of d_{i+1}-d_i mod 6 in {-3,-2,-1,0,1,2,3}; when the residue is 3 use +3."
+  },
+  "generation_status": {
+    "corpus_generated_in_stage0": false,
+    "packet_enumeration_run_in_stage0": false,
+    "synthesis_run_in_stage0": false
+  },
+  "hashing_contract": {
+    "digest": "SHA-256 over exact file bytes",
+    "serialization": "UTF-8 JSON, ensure_ascii=false, sort_keys=true, indent=2, LF newlines, exactly one terminal LF"
+  },
+  "initial_axes": {
+    "center_formula": "c=alpha*e1+beta*e2 in the unrotated lab frame",
+    "center_phases_lab_axial": [
+      {
+        "alpha": "0",
+        "beta": "0",
+        "phase_id": "P00"
+      },
+      {
+        "alpha": "1/3",
+        "beta": "0",
+        "phase_id": "P10"
+      },
+      {
+        "alpha": "0",
+        "beta": "1/3",
+        "phase_id": "P01"
+      },
+      {
+        "alpha": "1/3",
+        "beta": "1/3",
+        "phase_id": "P11"
+      },
+      {
+        "alpha": "1/2",
+        "beta": "1/6",
+        "phase_id": "Pmix"
+      }
+    ],
+    "design": "Cartesian product radii x center_phases_lab_axial x orientation_set",
+    "orientation_set": [
+      {
+        "orientation_id": "O00",
+        "phi": "0"
+      },
+      {
+        "orientation_id": "O15",
+        "phi": "pi/12"
+      },
+      {
+        "orientation_id": "O30",
+        "phi": "pi/6"
+      }
+    ],
+    "planned_sample_count": 75,
+    "radii": [
+      7,
+      11,
+      17,
+      29,
+      47
+    ],
+    "sample_id_format": "T0-R{radius}-{phase_id}-{orientation_id}"
+  },
+  "provenance": {
+    "arm_relation": "SIBLING_TO_R057_A_NOT_CONTINUATION",
+    "epistemic_class": "EXPLICIT_PI_SUPERVISED_GEOMETRIC_DISCOVERY_NOT_FOUNDATIONAL",
+    "frozen_packet_source_commit": "5b9d21c0c4b30c5e128756e098718132db19e4f1",
+    "generation": "R057G",
+    "r056_read_only_checkpoint": "a41a47f3a5bb96fd5cc5cdc10c497afbd288eae7",
+    "researcher_id": "EM-R057G-93D4A8",
+    "stage": "STAGE_0",
+    "task_id": "RS-R057G-PI-SUPERVISED-GEOMETRIC-COLLAPSE-SYNTHESIS",
+    "taskbook_source_commit": "fb48226afb3f6c2ffb0910985ec336b2b089e1d3"
+  },
+  "purpose": "Freeze a reproducible initial teacher-geometry sample design before corpus generation. The registry fixes T0 only; later teacher-data expansion is legal under versioned genealogy.",
+  "registry_version": "T0",
+  "sample_record_required_fields": [
+    "sample_id",
+    "registry_version",
+    "teacher_center_exact",
+    "radius_exact",
+    "diameter_exact",
+    "lattice_orientation_exact",
+    "digitization_convention",
+    "cyclic_boundary_vertices_axial",
+    "cyclic_direction_word",
+    "cyclic_turn_word",
+    "circumference_target_exact",
+    "normalized_pi_target",
+    "area_target_auxiliary",
+    "phase_metadata",
+    "orientation_metadata",
+    "topology_audit"
+  ],
+  "schema": "R057G_INITIAL_TEACHER_GEOMETRY_REGISTRY_V1",
+  "status": "FROZEN_STAGE_0_INITIAL_REGISTRY_NOT_YET_GENERATED",
+  "teacher_circle_definition": {
+    "area_target_auxiliary": "pi*r^2",
+    "circle": "C(c,r)={x in R^2: ||x-c||=r}",
+    "circumference_target": "2*pi*r",
+    "normalized_pi_target": "pi",
+    "teacher_geometry_status": "CLASSICAL_ALLOWED_SUPERVISION"
+  },
+  "visibility_policy": {
+    "initial_T0": "All T0 teacher samples are visible to supervised discovery; no blind-holdout claim is attached to T0.",
+    "later_data": "New radii/phases/orientations may be added after inspecting errors. Each expansion creates a new teacher-registry version and is recorded in grammar/data genealogy with the exact data visible at decision time.",
+    "post_selection": "ALLOWED_BUT_MUST_BE_GENEALOGICALLY_VISIBLE"
+  }
+}
