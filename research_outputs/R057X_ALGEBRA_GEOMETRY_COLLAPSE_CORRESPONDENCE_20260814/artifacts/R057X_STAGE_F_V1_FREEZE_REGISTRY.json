@@ -1,0 +1,72 @@
+{
+  "V1": {
+    "artifact_bytes": {
+      "R057X_CROSS_ARM_MOTIF_HOTSPOT_CROSSWALK.json": 43671,
+      "R057X_MOTIF_CATALOG_COVERAGE_AUDIT.json": 1946,
+      "R057X_MOTIF_RESIDUAL_ENRICHMENT_A.json": 42136,
+      "R057X_MOTIF_RESIDUAL_ENRICHMENT_G.json": 42169,
+      "R057X_STAGE_F_DELIVERY_MANIFEST.json": 2527,
+      "R057X_STAGE_F_EXACT_CHECK_RESULTS.json": 5343,
+      "R057X_STAGE_F_HOTSPOT_VERDICT.json": 2667,
+      "R057X_STAGE_F_INPUT_REGISTRY.json": 5004,
+      "R057X_STAGE_F_MATCHED_RESIDUAL_HOTSPOT_CHECKPOINT.json": 4647,
+      "R057X_STAGE_F_REPORT.md": 4483,
+      "R057X_SYMMETRIC_NUISANCE_LIGHT_STRATA.json": 2591,
+      "r057x_stage_f_checker.py": 6171
+    },
+    "artifact_sha256": {
+      "R057X_CROSS_ARM_MOTIF_HOTSPOT_CROSSWALK.json": "a8cc0f4c7853332a88c61d057f2a172be17885a1153fba38ffeb72b035e96a4a",
+      "R057X_MOTIF_CATALOG_COVERAGE_AUDIT.json": "dc8c32f682145c2df487f877abbf5e317d4885a707993611e76a2773edf152a2",
+      "R057X_MOTIF_RESIDUAL_ENRICHMENT_A.json": "fd237f449df5303a38f1f02db552dcd5fa190bb978d840628769c11117a3319a",
+      "R057X_MOTIF_RESIDUAL_ENRICHMENT_G.json": "9fdb61344098a9e74a5a1bd4ff2ef90a3fa834c6643811307c3cc942d616c14e",
+      "R057X_STAGE_F_DELIVERY_MANIFEST.json": "9cb0fb2c75533ad5b0afe4641122d67215573cf1315582a389f76a213ec370bc",
+      "R057X_STAGE_F_EXACT_CHECK_RESULTS.json": "8889a44f2801fab2015bbadf8a376514e986b500a4b51f8ee37c3193b75a5edf",
+      "R057X_STAGE_F_HOTSPOT_VERDICT.json": "14285c351e076996d040e41d31b044bb5b66af195398adc4caeb34af8bf30e8f",
+      "R057X_STAGE_F_INPUT_REGISTRY.json": "600385af9929a1d04d61c6f7243a03324bb68d334f7f0a8ad1c26ba2990d1d48",
+      "R057X_STAGE_F_MATCHED_RESIDUAL_HOTSPOT_CHECKPOINT.json": "4cf6a1fd4d748e1175e77503247f41706aacb4946802a3da7bd03a52a4fdad54",
+      "R057X_STAGE_F_REPORT.md": "f86fbaeb1ee087d129f161735d2060e84855ee39fcafec1dd828af4de588ec9e",
+      "R057X_SYMMETRIC_NUISANCE_LIGHT_STRATA.json": "dc015bbebaef3eb21163a58948bafc688e47b0f6ac845b65d03cbba2b1944b57",
+      "r057x_stage_f_checker.py": "0ec2db01c93046bfb0dcf1aa74db3cf29c3f0cdcda89efbd82b64ab07da94457"
+    },
+    "bundle_sha256": "516bc759ae47ba9fbb12f7e3c272267b9a2e16cf2d2a3df9184ed3d4577417cc",
+    "checkpoint_schema": "R057X_STAGE_F_MATCHED_RESIDUAL_HOTSPOT_CHECKPOINT_V1",
+    "checkpoint_sha256": "4cf6a1fd4d748e1175e77503247f41706aacb4946802a3da7bd03a52a4fdad54",
+    "checkpoint_status": "R057X_STAGE_F_FROZEN / INSUFFICIENT / AWAITING_DRIVER_REVIEW / NOT_THEOREM / NOT_CANONICAL",
+    "deterministic_checker_result": "PASS_48_OF_48",
+    "disposition": "INSUFFICIENT",
+    "exact_check_sha256": "8889a44f2801fab2015bbadf8a376514e986b500a4b51f8ee37c3193b75a5edf",
+    "manifest_sha256": "9cb0fb2c75533ad5b0afe4641122d67215573cf1315582a389f76a213ec370bc",
+    "verdict_schema": "R057X_STAGE_F_HOTSPOT_VERDICT_V1",
+    "verdict_sha256": "14285c351e076996d040e41d31b044bb5b66af195398adc4caeb34af8bf30e8f"
+  },
+  "branch_base_required": "872e23d76fe9c29b8a5fd922a3c05b98ef39062c",
+  "epistemic_label": "FREEZE_IDENTITY_RECONCILIATION / DETERMINISTIC_REPLAY / NO_NEW_SCIENCE / NOT_THEOREM / NOT_CANONICAL",
+  "historical_publication_state": {
+    "driver_visible_stage_f_source_branch_status": "NO_DISTINCT_STAGE_F_SOURCE_HEAD_WAS_FROZEN; later FR branch is explicitly based on accepted Stage-E head",
+    "stage_fr_required_base": "872e23d76fe9c29b8a5fd922a3c05b98ef39062c"
+  },
+  "immutability_contract": "V1 bytes and all V1 hashes are permanent historical identity and MUST NOT be overwritten, relabelled or reinterpreted as a later replay.",
+  "recovery_surfaces": [
+    {
+      "byte_identity": "V1",
+      "kind": "ORIGINAL_STAGE_F_WORKSPACE",
+      "path": "/mnt/data/r057x_stage_f"
+    },
+    {
+      "byte_identity": "V1",
+      "kind": "V1_TAR_EXTRACT",
+      "path": "/mnt/data/r057x_stage_f_tar_extract_fr"
+    },
+    {
+      "byte_identity": "V1",
+      "kind": "V1_BUNDLE_CHECK_WORKSPACE",
+      "path": "/mnt/data/r057x_stage_f_bundle_check"
+    }
+  ],
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_STAGE_F_V1_FREEZE_REGISTRY_V1",
+  "stage": "FR0",
+  "stage_f_science_taskbook_source": "8abe99ad7c2ea54cb112c7a96a4c92166ce47495",
+  "stage_fr_taskbook_source": "918867b6dae5099d33d2ea6aed07994b00b0051f",
+  "status": "V1_REGISTERED_IMMUTABLE / BYTE_IDENTITY_RECOVERED"
+}
