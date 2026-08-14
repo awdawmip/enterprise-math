@@ -1,0 +1,29 @@
+{
+  "D4_authorized": false,
+  "V1_byte_identity": {
+    "checkpoint_sha256": "4cf6a1fd4d748e1175e77503247f41706aacb4946802a3da7bd03a52a4fdad54",
+    "disposition": "INSUFFICIENT",
+    "immutable": true,
+    "reason": "FR2 clean replay did not begin because the runtime did not possess all four exact input files as byte-mountable files.",
+    "scientific_disposition_reproduced_in_FR2": false
+  },
+  "V2": {
+    "checkpoint_sha256": "NOT_CREATED_BECAUSE_CLEAN_REPLAY_DID_NOT_EXECUTE",
+    "created": false
+  },
+  "epistemic_label": "FREEZE_RECONCILIATION / EXACT_INPUT_CLEAN_REPLAY / NO_NEW_SCIENCE / NOT_THEOREM / NOT_CANONICAL",
+  "exact_input_gate": "FAIL",
+  "hard_stop_reason": [
+    "A exact sample/nuisance identities are Driver-accepted and recovery transport is traceable, but the exact target files were not mounted in the FR2 runtime.",
+    "G exact sample/nuisance identities are Driver-accepted and File Library references are available, but file references/parsed content are not raw byte-mounted files in the FR2 runtime.",
+    "FR2 taskbook explicitly forbids substituting metadata, snippets, summaries, parsed-equivalent JSON, or regenerated different-byte files."
+  ],
+  "reconciliation_verdict": "FR2_HARD_STOP_EXACT_INPUT_UNAVAILABLE",
+  "researcher_id": "EM-R057X-5E8C41",
+  "rule_change_detected": false,
+  "rule_identity_evaluated_for_science": false,
+  "schema": "R057X_STAGE_FR2_FINAL_VERDICT_V1",
+  "science_replay_executed": false,
+  "stage": "FR2",
+  "stop_rule": "STOP_IMMEDIATELY_AFTER_FR2_HARD_STOP_FOR_DRIVER_REVIEW"
+}

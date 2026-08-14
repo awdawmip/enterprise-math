@@ -1,0 +1,72 @@
+{
+  "V1": {
+    "authoritative_status_not_changed_by_FR2": true,
+    "byte_identity_valid": true,
+    "immutable": true,
+    "scientific_disposition_reproduced_by_FR2": false
+  },
+  "V2": {
+    "created": false,
+    "reason": "Only permitted if a complete exact-input clean replay executes and yields a disposition different from V1."
+  },
+  "artifact_sha256": {
+    "R057X_STAGE_FR2_EXACT_CHECK_RESULTS.json": "09ef29e1f9afd7c6c98dc60afa07543786a58b5c3952d594c5660070259f7a5a",
+    "R057X_STAGE_FR2_EXACT_INPUT_REGISTRY.json": "ed5b5e7a3502325867720040bb8cce7750b4eebb22a6a2a37039fd044e128106",
+    "R057X_STAGE_FR2_FINAL_VERDICT.json": "74207a58574127b31efb3f92cba38afa5871f09f8712c14210f82e2e48f7defe",
+    "R057X_STAGE_FR2_REPORT.md": "3d129420dab02f66f3a5c8642fdd60315f240239dbbd131bfa7d49b8bffb9df9",
+    "r057x_stage_fr2_checker.py": "43e4e91b7fd2b82f145db858aba53b1e022ce5ccc7cb5fb2ef7e7e527cd97a20"
+  },
+  "epistemic_label": "FREEZE_RECONCILIATION / EXACT_INPUT_CLEAN_REPLAY / NO_NEW_SCIENCE / NOT_THEOREM / NOT_CANONICAL",
+  "exact_input_gate": {
+    "hard_stop": "FR2_HARD_STOP_EXACT_INPUT_UNAVAILABLE",
+    "required_files": 4,
+    "runtime_exact_files_found": 0,
+    "science_replay_executed": false,
+    "status": "FAIL"
+  },
+  "frozen_parents": {
+    "R057G_STAGE_I_JOINT_SURFACE_CHECKPOINT_SHA256": "a963b2fa951435655885b7eca4ec1d01561825bbb712396aab3516405560171f",
+    "R057X_STAGE_E_COMMON_COMPONENT_CHECKPOINT_SHA256": "3937572b2f8099f9ce125a86ccf90ec9aad6f9470b0af9ec4b8026df67796385",
+    "R057X_STAGE_FR_FREEZE_IDENTITY_CHECKPOINT_SHA256": "dde3a3edd0a2af71885c6e686747e81cd96d15f692b51494f7416fd6625192c6",
+    "R057X_STAGE_F_V1_CHECKPOINT_SHA256": "4cf6a1fd4d748e1175e77503247f41706aacb4946802a3da7bd03a52a4fdad54",
+    "R057X_STAGE_F_V1_DISPOSITION": "INSUFFICIENT",
+    "R057_A_STAGE_H_JOINT_SURFACE_CHECKPOINT_SHA256": "bf3c30df26f7a4095935bfce2682e7f8b4bb834ec2c74b838a5d73b26b7e41dc"
+  },
+  "not_executed_after_gate_failure": [
+    "FR2-1 rule digest comparison",
+    "FR2-2 Stage-F F1-F6 science replay",
+    "FR2-3 V1 scientific field comparison",
+    "FR2-4 coverage-limited motif evidence",
+    "catalog coverage reanalysis",
+    "symmetric nuisance-light strata",
+    "62-motif A/G enrichment",
+    "cross-arm hotspot crosswalk"
+  ],
+  "primary_reconciliation_verdict": "FR2_HARD_STOP_EXACT_INPUT_UNAVAILABLE",
+  "prohibitions_verified": {
+    "D4_started": false,
+    "K_expansion": false,
+    "R057Y_read": false,
+    "V1_overwrite": false,
+    "catalog_expansion": false,
+    "coefficient_refit": false,
+    "cross_arm_fitted_rescaling": false,
+    "interpolation": false,
+    "new_feature_operator_surrogate": false,
+    "new_teacher": false,
+    "optimizer": false,
+    "parser_segmentation_assembly_readout_change": false,
+    "symbolic_regression": false
+  },
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_STAGE_FR2_REPLAY_CHECKPOINT_V1",
+  "stage": "FR2",
+  "status": "FR2_HARD_STOP_EXACT_INPUT_UNAVAILABLE / NO_SCIENCE_REPLAY / AWAITING_DRIVER_REVIEW / NOT_THEOREM / NOT_CANONICAL",
+  "stop_rule": "STOP_AFTER_FR2_HARD_STOP_FOR_DRIVER_REVIEW",
+  "validation": {
+    "checker_second_run_byte_identical": true,
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH",
+    "deterministic_checker": "PASS_20_OF_20",
+    "science_code_executed": false
+  }
+}
