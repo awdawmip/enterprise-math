@@ -1,0 +1,61 @@
+{
+  "d6": {
+    "invariants": [
+      "Q",
+      "H_hex",
+      "m",
+      "sqrt(Q)",
+      "rho_raw"
+    ],
+    "reflection": "F(a,b)=(a+b,-b)",
+    "rotation": "R(a,b)=(-b,a+b)"
+  },
+  "domain": {
+    "carrier": "frozen triangular-lattice regular-hexagonal Voronoi carrier",
+    "tangent": "t=(a,b) in Z^2, t!=0, gcd(|a|,|b|)=1"
+  },
+  "exact_identities": {
+    "endpoint_displacement": "one occupied-left primitive quotient boundary lift has displacement t",
+    "height": "beta(x,n0)=3*lambda(x)",
+    "hex_norm_identity": "m(t)=2*max(|a|,|b|,|a+b|)",
+    "integer_kernel": "ker_Z beta(.,n0)=Z t",
+    "orthogonality": "beta(t,n0)=0",
+    "period_edge_count": "m(t)=|a|+|b|+|a+b|",
+    "raw_density": "rho_raw(t)=m(t)/sqrt(3*Q(t))",
+    "raw_period_length": "m(t)/sqrt(3)",
+    "support_image": "beta(Z^2,n0)=3 Z",
+    "whole_period_chord": "sqrt(Q(t))"
+  },
+  "forms": {
+    "Q": "a^2+a*b+b^2",
+    "beta": "2*x1*y1+x1*y2+x2*y1+2*x2*y2",
+    "lambda": "b*x1-a*x2",
+    "n0": "(a+2*b, -(2*a+b))"
+  },
+  "frozen_parent": {
+    "stage_c_checkpoint_sha256": "22f285cc876ce9624200a1ff4d58b910a7d698c1d0fbb0ec455409396fd809bb",
+    "stage_c_periodic_protocol_sha256": "acf22b9d2f256b0dccfa210abce69e2e994205a39d19bc3bed945026d75e78b9",
+    "stage_d_checkpoint_sha256": "bb8d9b5464732b88cf3873a272429ed435e0ceedcc2e04e6c7760d6193dad1d7"
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "minimality": {
+    "minimal_lattice_translation": "+/-t",
+    "minimal_oriented_edge_word_period": "m(t)"
+  },
+  "primitive_reduction": {
+    "carrier_period": "m(t)",
+    "g": "gcd(|A|,|B|)",
+    "homogeneity": [
+      "m(u)=g*m(t)",
+      "Q(u)=g^2*Q(t)"
+    ],
+    "input": "u=(A,B) != 0",
+    "primitive_t": "u/g",
+    "u_repetition_count": "g"
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_GENERAL_PERIOD_LENGTH_FORMULA_V1",
+  "stage": "E",
+  "status": "TRIANGULAR_VORONOI_STRAIGHT_PERIOD_LENGTH_THEOREM_PROVED",
+  "taskbook_source_commit": "424835a56a00406c62c02d3f3ce31b3a3766c6c6"
+}
