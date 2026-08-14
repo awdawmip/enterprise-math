@@ -1,0 +1,57 @@
+{
+  "checkpoint_sha256": "3275fcc2720265e67a93a34bd7ae7da08a4f1301bfdbfed4ab0fac8cb870f4d8",
+  "files": [
+    {
+      "bytes": 4008,
+      "path": "R057X_STAGE_FR2_EXACT_INPUT_REGISTRY.json",
+      "sha256": "ed5b5e7a3502325867720040bb8cce7750b4eebb22a6a2a37039fd044e128106"
+    },
+    {
+      "bytes": 1551,
+      "path": "R057X_STAGE_FR2_FINAL_VERDICT.json",
+      "sha256": "74207a58574127b31efb3f92cba38afa5871f09f8712c14210f82e2e48f7defe"
+    },
+    {
+      "bytes": 1599,
+      "path": "R057X_STAGE_FR2_EXACT_CHECK_RESULTS.json",
+      "sha256": "09ef29e1f9afd7c6c98dc60afa07543786a58b5c3952d594c5660070259f7a5a"
+    },
+    {
+      "bytes": 3293,
+      "path": "R057X_STAGE_FR2_REPLAY_CHECKPOINT.json",
+      "sha256": "3275fcc2720265e67a93a34bd7ae7da08a4f1301bfdbfed4ab0fac8cb870f4d8"
+    },
+    {
+      "bytes": 2446,
+      "path": "R057X_STAGE_FR2_REPORT.md",
+      "sha256": "3d129420dab02f66f3a5c8642fdd60315f240239dbbd131bfa7d49b8bffb9df9"
+    },
+    {
+      "bytes": 3450,
+      "path": "r057x_stage_fr2_checker.py",
+      "sha256": "43e4e91b7fd2b82f145db858aba53b1e022ce5ccc7cb5fb2ef7e7e527cd97a20"
+    }
+  ],
+  "omitted_science_artifacts": {
+    "files_not_generated": [
+      "R057X_STAGE_FR2_RULE_IDENTITY_REGISTRY.json",
+      "R057X_STAGE_FR2_CATALOG_COVERAGE_AUDIT.json",
+      "R057X_STAGE_FR2_SYMMETRIC_NUISANCE_LIGHT_STRATA.json",
+      "R057X_STAGE_FR2_MOTIF_RESIDUAL_ENRICHMENT_A.json",
+      "R057X_STAGE_FR2_MOTIF_RESIDUAL_ENRICHMENT_G.json",
+      "R057X_STAGE_FR2_CROSS_ARM_HOTSPOT_CROSSWALK.json",
+      "R057X_STAGE_FR2_V1_REPLAY_COMPARISON.json"
+    ],
+    "reason": "FR2 taskbook requires publish only availability audit after exact-byte gate failure; Stage-F science code was not executed."
+  },
+  "primary_verdict": "FR2_HARD_STOP_EXACT_INPUT_UNAVAILABLE",
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_STAGE_FR2_DELIVERY_MANIFEST_V1",
+  "stage": "FR2",
+  "status": "FROZEN_HARD_STOP_DELIVERY",
+  "validation": {
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH",
+    "deterministic_checker": "PASS_20_OF_20",
+    "second_run_byte_identical": true
+  }
+}
