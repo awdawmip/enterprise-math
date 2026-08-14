@@ -1,0 +1,79 @@
+{
+  "artifact_hashes": {
+    "R057X_COMMON_UNEXPLAINED_RESIDUAL_LEDGER.json": "246be6b794b2b6264ec644f784e70910b50fd7dedee6ab4b0719364d024b7e1b",
+    "R057X_NORMALIZED_RESIDUAL_TRAJECTORY_COMPARISON.json": "b27f67a5ff5460e6ab9088f97b5a57b6851daa11fcd27fff56eb8febf2b16366",
+    "R057X_STAGE_D_INPUT_REGISTRY.json": "dc770e6c2902f5dbf2821093ba9f7f2ecc7eceb12158c42b865bb00ca5ac5e5c",
+    "R057X_STAGE_D_REPORT.md": "d350ce6877a2670e73673c9c2bd62b96150721f416a79b8e60a308bec9d4fa3d",
+    "R057X_STAR_RESIDUAL_CAUSE_CROSSWALK.json": "2d2ac928213595d420248976afbd53160362a4ab7b752c9de9a53e51db1a95f3",
+    "R057X_STAR_RESIDUAL_COORDINATE_COMPARISON.json": "f71e38b12866e2f3f2154d8d678ef76c7d3b8dac7ea91b062c4be0ea3159cf6b"
+  },
+  "cause_status": {
+    "A": {
+      "ASSEMBLY_ACTIVE_SET_SWITCHING": "NOT_SUPPORTED",
+      "FEATURE_COVARIANCE_DRIFT": "WEAK_SUPPORT",
+      "FINITE_SCALE_EFFECT": "SUPPORTED",
+      "ORIENTATION_MIXTURE": "NOT_AVAILABLE",
+      "PACKET_MIXTURE_EVOLUTION": "WEAK_SUPPORT",
+      "PHASE_MIXTURE": "WEAK_SUPPORT",
+      "UNEXPLAINED_RESIDUAL_STRUCTURE": "SUPPORTED"
+    },
+    "G": {
+      "ASSEMBLY_ACTIVE_SET_SWITCHING": "NOT_SUPPORTED",
+      "FEATURE_COVARIANCE_DRIFT": "SUPPORTED",
+      "FINITE_SCALE_EFFECT": "SUPPORTED",
+      "ORIENTATION_MIXTURE": "WEAK_SUPPORT",
+      "PACKET_MIXTURE_EVOLUTION": "SUPPORTED",
+      "PHASE_MIXTURE": "SUPPORTED",
+      "UNEXPLAINED_RESIDUAL_STRUCTURE": "SUPPORTED"
+    }
+  },
+  "epistemic": {
+    "canonical_status": "NOT_CANONICAL",
+    "fit_status": "NO_STAGE_D_FIT",
+    "label": "POST_FIT_CROSS_CARRIER_RESIDUAL_DIAGNOSTIC / NOT_THEOREM / NOT_CANONICAL",
+    "theorem_status": "NONE"
+  },
+  "frozen_inputs": {
+    "A_source_head": "6b2253365fa13a6e96a1037d757bbff53a27f700",
+    "C1_source_head": "3b14828e6766dff8f1e8814a6206fcb482cae9be",
+    "G_source_head": "e9b0656fa413fd640efcc03d9562835225fcd3c4",
+    "R057G_STAGE_H_RESIDUAL_DIAGNOSTIC_CHECKPOINT_SHA256": "21f051e5f2cfe276a1a746112968ca7d8ca6dedee2efe9fe006da94e47f9726b",
+    "R057X_STAGE_C1_STAR_COMPARISON_CHECKPOINT_SHA256": "1af2df3eefbb1eeee35418d59edf197657d91c1e14c47e8fdf319aab00a9c75d",
+    "R057_A_STAGE_G_RESIDUAL_DIAGNOSTIC_CHECKPOINT_SHA256": "4f2280c85a831b0270b03a15f377f7dbb51569351b513d9b79bd7aaac35ea0f0",
+    "taskbook_source_commit": "f7dc5d4084e765d90cb1b93473c3dfd399e67dea"
+  },
+  "input_reproduction": "PASS",
+  "key_verdicts": {
+    "assembly": "COMMON_ASSEMBLY_SWITCHING_EXCLUSION / SUPPORTED",
+    "carrier_mixture_burden": "G_CARRIER_MIXTURE_BURDEN_STRONGER / SUPPORTED_DESCRIPTIVELY",
+    "common_residual_mechanism": "NOT_SUPPORTED_AT_REQUIRED_THRESHOLD",
+    "finite_scale": "COMMON_FINITE_SCALE_RESIDUAL_COMPONENT / SUPPORTED / WEAK_MATCHED_STATEMENT_ONLY",
+    "post_mixture_rebound": "INSUFFICIENT",
+    "residual_geometry": "GENUINE_ROTATION_DIFFERENCE_SUPPORTED_DESCRIPTIVELY"
+  },
+  "next_stage_route": "If accepted, isolate common residual component from carrier-specific mixture/covariance effects before any new operator proposal.",
+  "primary_disposition": "MIXED_COMMON_AND_CARRIER_SPECIFIC_RESIDUAL_STRUCTURE",
+  "prohibitions_verified": {
+    "K_expansion": false,
+    "R057Y_consumed": false,
+    "coefficient_copy": false,
+    "new_feature_operator_surrogate": false,
+    "new_teacher": false,
+    "optimizer": false,
+    "parser_segmentation_assembly_readout_change": false,
+    "raw_cross_arm_fit_error_ranking": false,
+    "refit": false,
+    "residual_driven_generator_invention": false,
+    "symbolic_regression": false
+  },
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_STAGE_D_RESIDUAL_STRUCTURE_CHECKPOINT_V1",
+  "stage": "D",
+  "status": "R057X_STAGE_D_FROZEN / AWAITING_DRIVER_REVIEW / NOT_THEOREM / NOT_CANONICAL",
+  "stop_rule": "STOP_AFTER_STAGE_D_FOR_DRIVER_REVIEW",
+  "trajectory_status": {
+    "A_RESIDUAL_REBOUND_AFTER_MIXTURE_CONTRACTION": "SUPPORTED",
+    "COMMON_POST_MIXTURE_REBOUND_SIGNATURE": "INSUFFICIENT",
+    "G_RESIDUAL_REBOUND_AFTER_MIXTURE_CONTRACTION": "INSUFFICIENT"
+  }
+}
