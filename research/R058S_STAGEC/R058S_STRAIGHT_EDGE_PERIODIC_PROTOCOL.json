@@ -1,0 +1,411 @@
+{
+  "chronology_firewall": {
+    "frozen_rule_straight_edge_density_computed_before_protocol_hash": false,
+    "next_allowed_operation_after_hash": "construct exact periodic word atlas, then evaluate already-frozen G0/G1/G2 only",
+    "periodic_word_atlas_computed_before_protocol_hash": false,
+    "protocol_created_after_parent_reproduction_gate": true,
+    "square_bulk_corner_decomposition_computed_before_protocol_hash": false
+  },
+  "epistemic_status": "EXACT_PERIODIC_TRANSFER_DIAGNOSTIC / DISCOVERY / NOT_THEOREM / NOT_CANONICAL",
+  "exact_radical_arithmetic_gate": {
+    "addition_subtraction_scaling": "exact Fraction arithmetic",
+    "binary64_role": "presentation decimals only; never establishes EXACT",
+    "canonical_sqrt_rational": "for q=N/D in lowest terms, sqrt(q)=s/D*sqrt(r), where N*D=s^2*r and r is positive squarefree",
+    "exact_equality": "radical vectors identical coefficient-by-coefficient; rho=1 iff ratio vector equals {1:1}",
+    "fallback": "if a future expression exits a finite multiquadratic radical basis, use certified algebraic-number/interval separation and record it; no such fallback is expected for frozen chord sums",
+    "input": "every chord squared length q is exact positive rational",
+    "ratio_to_single_radical": "multiply numerator radical vector by sqrt(Q)/Q; reduce each product to canonical squarefree basis",
+    "required_before_scientific_verdicts": true,
+    "sum_representation": "sorted map squarefree_r -> rational coefficient; zero coefficients removed",
+    "teacher_period": "sqrt(Q(t_period)) in the same radical vector basis"
+  },
+  "frozen_parent": {
+    "stage_a_checkpoint_sha256": "e43da09e347503223cde29de378570e76e79e63f44fe2bd9195b6a7dd6b1a925",
+    "stage_b1_checkpoint_sha256": "00faf065bb1769f4df7d7e51cec8b8754c414f280666d785adc7ed554acd753b",
+    "stage_b1_exact_head": "81fba01c21a991208daa85bfa109705706534da0",
+    "stage_b2_checkpoint_sha256": "eec1e395b8805d8d720648b7a4e1f70dc74a2bd2fdcff91d1d8537c9d052d5c1",
+    "stage_b2_reviewed_head": "3c31380b1bba3bc1f2f0c8542ff7b05a30e6f0be"
+  },
+  "frozen_rule_evaluation": {
+    "G0": "frozen B1 G0 whole-chord winner for each k=2..8; no reselection",
+    "G1": "all frozen B1 balanced programs by k and all frozen B1 minimum-RMSE reference programs by k; exact original predicate semantics; no modification",
+    "G2": "frozen B1 class->composition lookup only; if a straight-edge packet class is absent from the frozen lookup, report NOT_AVAILABLE/UNSEEN and do not repair",
+    "all_cyclic_readout": "Lhat_period=(1/k)*sum over every cyclic start in one fundamental period of the already-frozen composition-selected chord sum",
+    "no_new_winner_selection": true
+  },
+  "fundamental_period": {
+    "canonical_start": "normalize each quotient vertex by an exact integer translation remainder along the x6/y6 period vector, then choose lexicographically least normalized vertex; outgoing edge is unique",
+    "concatenation_check": "replicate the lifted period by integer translations and compare exposed-edge instances against the direct half-plane exposure criterion for at least translations -2..2; exact integer equality only",
+    "exposed_edge_orbits": "for neighbor e_j with w_j=beta(e_j,n)>0, an occupied site with q=beta(x,n) exposes code j iff -w_j<q<=0. Since q is in gZ, orbit representatives are q=0,-g,...,-(w_j-g).",
+    "kernel_generator": "A=2na+nb, B=na+2nb, g=gcd(|A|,|B|); ker(beta(.,n))=Z*(B/g,-A/g); primitive sign is determined only by occupied-left boundary traversal",
+    "minimality_certificate": "gcd(|B/g|,|A/g|)=1, hence the kernel generator is primitive and is the minimal positive lattice translation up to sign",
+    "record_required": [
+      "tangent",
+      "normal",
+      "threshold/offset class",
+      "translation vector",
+      "teacher length sqrt(Q(t_period))",
+      "exposed edge count",
+      "direction word",
+      "turn word",
+      "exact start/end vertices",
+      "D6 canonical word",
+      "translation/concatenation certificate"
+    ],
+    "word_construction": "choose one Bezout u with beta(u,n)=g; site representative for q=m*g is m*u; form each oriented exposed Voronoi edge, quotient vertices by the primitive tangent translation, verify indegree=outdegree=1, traverse the unique quotient cycle, and lift once so endpoint-start equals one primitive tangent translation"
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "hard_prohibitions": {
+    "K_gt_8": false,
+    "b1_mutation": false,
+    "holdout_consumed": false,
+    "new_grammar": false,
+    "new_predicate_operator": false,
+    "optimizer_or_new_search": false,
+    "r057_fitted_prior_consumed": false,
+    "rectangle_cube_circle_pi": false,
+    "refit": false,
+    "segmentation_or_start_offset_optimization": false
+  },
+  "lattice_and_metric": {
+    "axial_lattice": "Z^2",
+    "bilinear_form": "beta((a,b),(c,d))=2*a*c+a*d+b*c+2*b*d",
+    "carrier": "unchanged frozen regular-hexagonal Voronoi carrier",
+    "center_scaled_cartesian": "axial (a,b) -> physical (a+b/2, sqrt(3)*b/2); integer carrier coordinates x6=6a+3b,y6=3b",
+    "oriented_edge_tangents_x6_y6": [
+      [
+        0,
+        2
+      ],
+      [
+        -3,
+        1
+      ],
+      [
+        -3,
+        -1
+      ],
+      [
+        0,
+        -2
+      ],
+      [
+        3,
+        -1
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "quadratic_form": "Q(a,b)=a^2+a*b+b^2",
+    "voronoi_edge_squared_length": "1/3",
+    "voronoi_vertices_x6_y6": [
+      [
+        3,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        -3,
+        1
+      ],
+      [
+        -3,
+        -1
+      ],
+      [
+        0,
+        -2
+      ],
+      [
+        3,
+        -1
+      ]
+    ]
+  },
+  "local_identifiability": {
+    "k_range": "2..8",
+    "new_feature_or_K_expansion": false,
+    "uses_only": "frozen straight-edge periodic class atlas + frozen B2 role/class atlas"
+  },
+  "offset_classes": {
+    "canonical_threshold": "h=0",
+    "closed_tie_audit": "h=m*g_n and h in [m*g_n,(m+1)*g_n) define the same occupied set; h just below m*g_n defines the previous threshold class, which is a lattice translate. Therefore exactly one digital-boundary word class up to lattice translation for every tangent family.",
+    "exact_classification": "for h in Q let m=floor(h/g_n); because beta(x,n) is in g_n Z, H(n,h)=H(n,m*g_n)",
+    "image_subgroup": "for n=(na,nb), A=2na+nb, B=na+2nb, g_n=gcd(|A|,|B|), beta(Z^2,n)=g_n Z",
+    "offset_class_count_per_tangent": 1,
+    "translation_equivalence": "Bezout gives u in Z^2 with beta(u,n)=g_n; translation by m*u maps H(n,m*g_n) to H(n,0)"
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_STRAIGHT_EDGE_PERIODIC_PROTOCOL_V1",
+  "square_decomposition": {
+    "bulk_formula_default": "E_bulk(s)=2s[(rho_d-1)+(rho_p-1)] when exact period density applies in teacher length units",
+    "corner_layer_definition": "E_corner_layer=E_square_frozen-E_bulk",
+    "finite_window_rule": "if a boundary-layer offset is algebraically required, derive it from frozen periodic words; do not fit a slope/intercept",
+    "no_refit": true
+  },
+  "stage": "C0.5",
+  "status": "FROZEN_PRE_DENSITY_STRAIGHT_EDGE_PROTOCOL",
+  "tangent_families": {
+    "dedup_audit": "D6 preserves Q; all eight tangent Q values are distinct, so no two are D6-equivalent; map to all discovery orientation/axis sources retained",
+    "exact_d6_deduplicated_class_count": 8,
+    "records": [
+      {
+        "Q_normal": 3,
+        "Q_tangent": 1,
+        "beta_t_n": 0,
+        "d6_tangent_class_id": 1,
+        "d6_unoriented_line_signature": [
+          -1,
+          0
+        ],
+        "kernel_matches_tangent_line": true,
+        "minimal_kernel_generator_axial": [
+          -1,
+          0
+        ],
+        "normal_axial": [
+          1,
+          -2
+        ],
+        "source_orientation_index": 1,
+        "source_square_axis_family": "d",
+        "support_coefficients_A_B": [
+          0,
+          -3
+        ],
+        "support_image_g": 3,
+        "tangent_axial": [
+          1,
+          0
+        ]
+      },
+      {
+        "Q_normal": 1,
+        "Q_tangent": 3,
+        "beta_t_n": 0,
+        "d6_tangent_class_id": 2,
+        "d6_unoriented_line_signature": [
+          -2,
+          1
+        ],
+        "kernel_matches_tangent_line": true,
+        "minimal_kernel_generator_axial": [
+          1,
+          -2
+        ],
+        "normal_axial": [
+          1,
+          0
+        ],
+        "source_orientation_index": 1,
+        "source_square_axis_family": "p",
+        "support_coefficients_A_B": [
+          2,
+          1
+        ],
+        "support_image_g": 1,
+        "tangent_axial": [
+          1,
+          -2
+        ]
+      },
+      {
+        "Q_normal": 39,
+        "Q_tangent": 13,
+        "beta_t_n": 0,
+        "d6_tangent_class_id": 3,
+        "d6_unoriented_line_signature": [
+          -4,
+          1
+        ],
+        "kernel_matches_tangent_line": true,
+        "minimal_kernel_generator_axial": [
+          -3,
+          -1
+        ],
+        "normal_axial": [
+          5,
+          -7
+        ],
+        "source_orientation_index": 2,
+        "source_square_axis_family": "d",
+        "support_coefficients_A_B": [
+          3,
+          -9
+        ],
+        "support_image_g": 3,
+        "tangent_axial": [
+          3,
+          1
+        ]
+      },
+      {
+        "Q_normal": 13,
+        "Q_tangent": 39,
+        "beta_t_n": 0,
+        "d6_tangent_class_id": 4,
+        "d6_unoriented_line_signature": [
+          -7,
+          2
+        ],
+        "kernel_matches_tangent_line": true,
+        "minimal_kernel_generator_axial": [
+          5,
+          -7
+        ],
+        "normal_axial": [
+          3,
+          1
+        ],
+        "source_orientation_index": 2,
+        "source_square_axis_family": "p",
+        "support_coefficients_A_B": [
+          7,
+          5
+        ],
+        "support_image_g": 1,
+        "tangent_axial": [
+          5,
+          -7
+        ]
+      },
+      {
+        "Q_normal": 21,
+        "Q_tangent": 7,
+        "beta_t_n": 0,
+        "d6_tangent_class_id": 5,
+        "d6_unoriented_line_signature": [
+          -3,
+          1
+        ],
+        "kernel_matches_tangent_line": true,
+        "minimal_kernel_generator_axial": [
+          -2,
+          -1
+        ],
+        "normal_axial": [
+          4,
+          -5
+        ],
+        "source_orientation_index": 3,
+        "source_square_axis_family": "d",
+        "support_coefficients_A_B": [
+          3,
+          -6
+        ],
+        "support_image_g": 3,
+        "tangent_axial": [
+          2,
+          1
+        ]
+      },
+      {
+        "Q_normal": 7,
+        "Q_tangent": 21,
+        "beta_t_n": 0,
+        "d6_tangent_class_id": 6,
+        "d6_unoriented_line_signature": [
+          -5,
+          1
+        ],
+        "kernel_matches_tangent_line": true,
+        "minimal_kernel_generator_axial": [
+          4,
+          -5
+        ],
+        "normal_axial": [
+          2,
+          1
+        ],
+        "source_orientation_index": 3,
+        "source_square_axis_family": "p",
+        "support_coefficients_A_B": [
+          5,
+          4
+        ],
+        "support_image_g": 1,
+        "tangent_axial": [
+          4,
+          -5
+        ]
+      },
+      {
+        "Q_normal": 57,
+        "Q_tangent": 19,
+        "beta_t_n": 0,
+        "d6_tangent_class_id": 7,
+        "d6_unoriented_line_signature": [
+          -5,
+          2
+        ],
+        "kernel_matches_tangent_line": true,
+        "minimal_kernel_generator_axial": [
+          -3,
+          -2
+        ],
+        "normal_axial": [
+          7,
+          -8
+        ],
+        "source_orientation_index": 4,
+        "source_square_axis_family": "d",
+        "support_coefficients_A_B": [
+          6,
+          -9
+        ],
+        "support_image_g": 3,
+        "tangent_axial": [
+          3,
+          2
+        ]
+      },
+      {
+        "Q_normal": 19,
+        "Q_tangent": 57,
+        "beta_t_n": 0,
+        "d6_tangent_class_id": 8,
+        "d6_unoriented_line_signature": [
+          -8,
+          1
+        ],
+        "kernel_matches_tangent_line": true,
+        "minimal_kernel_generator_axial": [
+          7,
+          -8
+        ],
+        "normal_axial": [
+          3,
+          2
+        ],
+        "source_orientation_index": 4,
+        "source_square_axis_family": "p",
+        "support_coefficients_A_B": [
+          8,
+          7
+        ],
+        "support_image_g": 1,
+        "tangent_axial": [
+          7,
+          -8
+        ]
+      }
+    ],
+    "source": "both frozen square axes d and p for each of the 4 discovery orientations; p is frozen primitive exact perpendicular"
+  },
+  "taskbook": {
+    "path": "research_tasks/R058S_STAGE_C_STRAIGHT_EDGE_CUTTING_WORD_DENSITY_ISOLATION_20260814.md",
+    "source_commit": "2cf5ffa1beac41f9cba5f95def418486f9251f01"
+  },
+  "teacher_free_half_plane": {
+    "definition": "H(n,h)={x in Z^2: beta(x,n)<=h}",
+    "membership": "closed inequality; no perturbation",
+    "normal": "primitive nonzero integer axial vector n",
+    "threshold": "exact rational h",
+    "translation_invariance": "if beta(t,n)=0 then x in H(n,h) iff x+t in H(n,h)"
+  }
+}
