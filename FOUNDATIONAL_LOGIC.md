@@ -12,6 +12,27 @@ Equivalent short form:
 
 > **Definition is not inherited. Success is evidence. Explain the success from a smaller native logic.**
 
+## Active native-base specialization — packet / path foundation
+
+For packet-native Enterprise Math work, `PACKET_PATH_FOUNDATION.md` and `packet_path_foundation.json` are the active base-ontology specialization of this logic.
+
+The specialization fixes the current minimal foundation:
+
+- every crystal packet has native quantity exactly `1` in every dimension and at every declared precision layer;
+- dimension belongs to packet relations, not to a dimension-dependent weight carried by one packet;
+- finite occupied content is packet counting;
+- every actual adjacency transition contributes exactly `1` to transition/path count;
+- packet count is a static object count and transition count is a dynamic event count;
+- a path is an arbitrary adjacency walk and may revisit, loop, reverse immediately, or reuse an adjacency;
+- refinement never fractionalizes the native packet unit: a finer packet is still `1` in its own precision layer;
+- line, straightness, shortest-path distance, geometric length, edge, boundary, perimeter, chord, angle, curvature, area, volume, and continuum geometry are not native primitives;
+- effective area/volume/d-dimensional content may later be read from packet counts under carrier/precision semantics, rather than being defined from powers of a prior length;
+- path count is not geometric length;
+- optional finite channel structure is relational and carrier-specific; in an ideal six-channel state `I_x`, `O_x`, and `M_x[a,b]` may be counted, including same-channel ingress/egress, without assigning straight/turn/angle semantics;
+- temperature is a later physical calibration question, not a mathematical premise for channel relations.
+
+When this specialization and an older edge/line/metric-first construction conflict at N0, this specialization controls the native typing. The older mathematics may remain valid after retyping to N1/N2/N3.
+
 ## FL-01 — Definition is not evidence of nativeness
 
 A definition belonging to a successful classical, continuous, Euclidean, probabilistic, spectral, or engineering theory is not thereby a native definition of nature.
@@ -77,6 +98,30 @@ Correct effective results remain usable at their declared semantic layer. The re
 Only after a native mechanism, its effective bridge/readout, the allowed future language, the physical/computational resolution, and error amplification are fixed may Enterprise Math ask how much precision an effective constant such as classical pi actually needs for a declared engineering task.
 
 Such a precision ceiling is an effective/operational result. It does not by itself define the native constant or prove that the classical definition is foundationally correct.
+
+## FL-09 — Unit packet is dimension-independent
+
+For packet-native work, one crystal packet contributes native quantity `1` regardless of dimension, external shape, or declared precision layer. Dimension changes admissible relations, not the packet's unit quantity.
+
+## FL-10 — Native content is integer packet count
+
+The native content of a finite occupied packet configuration is its packet count. Effective area, volume, or higher-dimensional content are downstream names/readouts of this count plus carrier/precision semantics, not primitive powers of length.
+
+## FL-11 — Native process is integer transition count
+
+Every actual transition across declared adjacency contributes exactly `1` to transition/path count. Path count measures transition events only; it is not geometric length.
+
+## FL-12 — Object count and event count are distinct
+
+Packet/occupancy count and transition/path count are different foundational integer quantities. A revisit may increase event count without increasing object count.
+
+## FL-13 — Refinement changes language, not the unit
+
+Every finer packet remains native quantity `1`. Refinement may replace one coarse packet by many finer packets, but native fractional weights such as `1/r` are not introduced merely to preserve a continuum measure.
+
+## FL-14 — Geometry is downstream
+
+Line, straightness, distance, length, shortestness, edge, boundary, perimeter, chord, angle, curvature, radius, area, volume, and continuum geometry remain downstream until separately derived with correct semantic typing. No successful effective definition may be imported into N0 to manufacture its own recovery.
 
 ## Research discipline
 
