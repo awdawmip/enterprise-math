@@ -1,0 +1,21 @@
+{
+  "schema":"R037_MISMATCH_REPORT_V1",
+  "researcher_id":"EM-R037-A7C2D1",
+  "frozen_heads":{"R033":"c2aa1758c6cf8f194d8b4493b90c903a2dfcd048","R034":"674fb8717d753cd36fd83b061c869d79e8875b31"},
+  "derivation_independence":"R033/R034 executable scripts were not used as a derivation engine. Frozen generated outputs were opened only after independent graph, distance, boundary, moment, path-count, topology, and spectral derivations existed.",
+  "mismatches":[],
+  "mismatch_count":0,
+  "non_mismatch_representation_differences":[
+    "The independent HCP graph-distance formula is expressed via triangular norm plus a parity correction rather than the frozen max-form; BFS verifies equivalence on the exhaustive reference range.",
+    "Independent directional-mask integer labels differ from frozen orbit labels because the local neighbor ordering is independently chosen; outside degree and population formulas match after relabeling.",
+    "Raw FCC and HCP quartic tensors live in different natural frames. After the explicit FCC [111]-to-HCP-basal alignment, the frozen stacking-aligned quartic difference is reproduced exactly."
+  ],
+  "strict_downgrades":[
+    {"claim":"all-radius exposed-face boundary is S^2","status":"THEOREM_CANDIDATE_ONLY","reason":"R037 independently certifies r=0..20 but supplies no all-r shelling induction"},
+    {"claim":"arbitrary nonperiodic pointwise heat-kernel universality","status":"THEOREM_CANDIDATE_ONLY","reason":"FCLT and gauge-return universality do not by themselves imply a physical-coordinate local CLT"},
+    {"claim":"arbitrary nonperiodic IDS existence","status":"THEOREM_CANDIDATE_ONLY","reason":"gauge identifies the value under a standard IDS definition when the trace-per-volume limit exists; existence is logically separate"}
+  ],
+  "upgrades":[
+    {"claim":"Barlow return probability/root local spectral measure universality","from":"THEOREM_CANDIDATE_ONLY","to":"REPRODUCED_EXACT","reason":"explicit basal-Fourier equal-modulus Jacobi hopping and acyclic layer-chain diagonal gauge proof"}
+  ]
+}
