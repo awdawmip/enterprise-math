@@ -1,0 +1,66 @@
+{
+  "canonical_json_bytes": {
+    "encoding": "UTF-8",
+    "nonfinite_numbers": "FORBIDDEN",
+    "serializer": "json.dumps(obj, ensure_ascii=False, sort_keys=True, indent=2, separators=(comma, colon-space)) + one LF newline",
+    "sha256_scope": "exact raw file bytes including final LF"
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "d6_registry": {
+    "packet_reflection": "spatial reflection then reverse traversal to restore occupied-left/CCW",
+    "reflection": "F(a,b)=(a+b,-b)",
+    "rotation60": "R(a,b)=(-b,a+b)",
+    "square_orientation_equivalence": "D6 + signless axes + axis swap"
+  },
+  "exact_formula_registry": {
+    "Q": "a^2+a*b+b^2",
+    "beta": "2*a*c+a*d+b*c+2*b*d",
+    "composition_count": "2^(k-1)",
+    "cyclic_readout_factor": "1/k",
+    "perpendicular_raw": "(a+2*b, -(2*a+b))",
+    "scaled_cartesian_squared_length": "dX^2+3*dY^2",
+    "square_membership": "beta(w,d)^2<=s^2*Q(d) AND beta(w,p)^2<=s^2*Q(p)",
+    "voronoi_edge_squared_length": "1/3"
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "researcher_id": "EM-R058S-7C91E4",
+  "runtime_contract": {
+    "exact_number_type": "fractions.Fraction / integers for all Stage-0 arithmetic checks",
+    "external_numeric_packages": "NONE_REQUIRED",
+    "language": "Python 3 standard library",
+    "network_in_computation": "NONE",
+    "randomness": "NONE"
+  },
+  "schema": "R058S_COMPUTATION_REGISTRY_V1",
+  "scope_prohibitions": [
+    "no full square corpus in Stage 0",
+    "no grammar enumeration or fitting in Stage 0",
+    "no holdout corpus/prediction consumption",
+    "no rectangle",
+    "no cube",
+    "no circle",
+    "no pi target",
+    "no K>8",
+    "no R057 fitted discovery search prior"
+  ],
+  "stage": "0",
+  "stage0_checker_required_checks": [
+    "canonical JSON byte reproduction for six frozen protocol/registry files",
+    "exact perpendicular orthogonality for every discovery and holdout orientation",
+    "D6+square-symmetry uniqueness within discovery",
+    "D6+square-symmetry uniqueness within holdout and disjointness from discovery",
+    "discovery and holdout rational phase formulas and 384 effective counts",
+    "all six Voronoi boundary edges have exact squared length 1/3",
+    "packet k range exactly 1..8 and corrected reflection semantics frozen",
+    "ordered-composition cardinalities 2^(k-1)",
+    "identity all-cyclic readout exactness for every k=1..8",
+    "Stage-0 firewall: no square corpus, no grammar enumeration/fitting, no holdout predictions, no R057 fitted discovery prior"
+  ],
+  "stage_gates": {
+    "Stage_0": "protocol freeze only",
+    "Stage_A": "FORBIDDEN until Driver approves Stage 0",
+    "Stage_B": "FORBIDDEN until Stage A accepted; holdout remains unconsumed"
+  },
+  "status": "FROZEN_STAGE_0_COMPUTATION_REGISTRY",
+  "taskbook_source_commit": "09df243f8613da75c1cb1df189a2b97e264cdd72"
+}
