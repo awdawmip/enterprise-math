@@ -1,0 +1,75 @@
+{
+  "artifact_sha256": {
+    "R058S_LOCAL_GEOMETRY_CENSUS.json": "4066a45393968f8dfbb6183179b638ac2828ddabbd69fb521a3b89992e3aefa3",
+    "R058S_PACKET_CENSUS.json": "8d7244cef85eb40fb637b44551e5af0d60498810f7ec15a303b1383717526524",
+    "R058S_PACKET_TYPE_CATALOG.json": "fd87da07b41bca4b90fc727d8ca03a73fde93d8fc5ca46c9f483beebbe0a7199",
+    "R058S_SQUARE_CORPUS_INTEGRITY.json": "21c9b6299f3c64c3f9f9af7c1efd58c105606dec7dc2225ac138e230c63f3f5d",
+    "R058S_SQUARE_DISCOVERY_CORPUS_REGISTRY.json": "c6cfe06ebe90ae55c03cf35df72791d90e4a2c204564e0a6f8c090376659384c",
+    "R058S_STAGE_A_CHECK_RESULTS.json": "e24dae2be57f1895afbb5bd51751addbcb48cabc6ee710c73f431583601c958b"
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "corpus_summary": {
+    "boundary_edge_range": [
+      102,
+      1142
+    ],
+    "boundary_tie_count": 0,
+    "failure_exception_count": 0,
+    "occupied_cell_range": [
+      161,
+      18944
+    ],
+    "pass_sample_count": 384,
+    "sample_count": 384,
+    "total_boundary_edges": 176952
+  },
+  "detail_bundle": {
+    "base64_sha256": "8c1cd3551c8e46d95ccddfb96500265ec2e3908e7f098647ac36d799b7cf64a3",
+    "chunk_count": 10,
+    "gzip_sha256": "02e0981f61b3560c602ad8716e5b66c5c58f59d1caf5638df912f0474c7dd98d",
+    "manifest": "R058S_STAGE_A_DETAIL_BUNDLE_MANIFEST.json",
+    "raw_json_sha256": "dce4de0f0f8c80ee8a0ae88ec6a6716bdc86494960df5bab3a8ffe06b255ac57"
+  },
+  "detail_bundle_manifest_sha256": "fea4a785b2fa92b52361b58c996462f6769c62d814eb91ccce905b9d238772c6",
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "next_gate": "STOP_FOR_DRIVER_REVIEW",
+  "packet_distinct_classes_per_k": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 5,
+    "5": 8,
+    "6": 13,
+    "7": 20,
+    "8": 32
+  },
+  "packet_occurrences_per_k": {
+    "1": 176952,
+    "2": 176952,
+    "3": 176952,
+    "4": 176952,
+    "5": 176952,
+    "6": 176952,
+    "7": 176952,
+    "8": 176952
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_STAGE_A_PACKET_CENSUS_CHECKPOINT_V1_COMPACT",
+  "science_status": "DISCOVERY / NOT_CANONICAL / NOT_FOUNDATIONAL_THEOREM",
+  "stage": "A",
+  "stage0_exact_head": "df44b99cec12a194287c03bf9c52e64c8cdd0204",
+  "stage0_frozen_sha256": {
+    "R058S_BOUNDARY_PACKET_PROTOCOL.json": "38536d1191a9d232fed79709a0b174dc68c2896871f33a385d83e0bd1bd4fcd8",
+    "R058S_COMPOSITION_COLLAPSE_GRAMMAR_META_PROTOCOL.json": "929ee6d7031e45e28bfbd1127d0a2ccaad34c65e0c523ca71ae07a652ea4c525",
+    "R058S_COMPUTATION_REGISTRY.json": "3d1ddac30f5f693375312c0ab811cb1ced5bd2b168e632daa3980709f8073c05",
+    "R058S_INITIAL_SQUARE_TEACHER_REGISTRY.json": "15e82bd7a3bfac8c42c896205b0aa9dea06d6d841458b63787a68e0a4800ac34",
+    "R058S_SQUARE_HOLDOUT_REGISTRY.json": "a4018f06b741579c5abb2fb8c636afe6424605e37dcdf0b44fcf7ff2c3e09456",
+    "R058S_SQUARE_TEACHER_PROTOCOL.json": "1e5773ea55057ce8fdd23256bfc60bdc02f748647573471c3a6cff4215ad6a6f"
+  },
+  "stage0_reproduction_gate": "PASS",
+  "stage_a_checker_fail_count": 0,
+  "stage_a_checker_pass_count": 20,
+  "stage_a_checker_status": "PASS",
+  "stage_b_started": false,
+  "status": "FROZEN_STAGE_A_PACKET_CENSUS_CHECKPOINT"
+}
