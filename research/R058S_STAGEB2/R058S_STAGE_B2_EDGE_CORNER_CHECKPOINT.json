@@ -1,0 +1,146 @@
+{
+  "artifact_sha256": {
+    "R058S_EDGE_CORNER_ERROR_DECOMPOSITION.json": "bdd7a90d443d746038545e9d1c5637ba582a233cb99cca5435acb8c1e862b6d0",
+    "R058S_G0_EDGE_CORNER_INTERPRETATION.json": "0e66c9e77c58f6f1b9445796e5107bacfc92ba14a492ab2e03bed3e02ef80ca3",
+    "R058S_G1_EDGE_CORNER_COLLAPSE_LEDGER.json": "cc9265bafa10787a5bbef237790e34bd1d20b71a5adf23fd6dfc9b6cddc8b16e",
+    "R058S_G2_ROLE_INTERPRETATION.json": "333001fe27e66788e50bdc91748a78108462ded128517c00eca588b33402ae86",
+    "R058S_LOCAL_CLASS_ROLE_ALIASING_ATLAS.json": "28270d4b6413d53fac896376db552893df2154ffe65247c59b2c39eff99e826a",
+    "R058S_STAGE_B2_CHECK_RESULTS.json": "6f853c929cd7ba96e6e5f2e611fb0efb4201296246efde701496e348c819cf73",
+    "R058S_STAGE_B2_UNBLINDING_RESULTS.json": "f316e725dfdea1b004f7289651faaedfd2ad7fdeb0767935479609299a07bcac",
+    "R058S_TEACHER_EDGE_CORNER_ROLE_PROTOCOL.json": "7c9bc4579b1a3002f1567036d914923d2f7a0e7645db021db90a693d173b7ff8",
+    "R058S_TEACHER_ROLE_EXPOSURE_CENSUS.json": "8c5f17869f0a88c47b9024118901315dd3d63d7ee5ece9679b8236d03235bb03"
+  },
+  "b2_reproduction_gate": {
+    "packet_class_counts_k1_to8": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      13,
+      20,
+      32
+    ],
+    "sample_count": 384,
+    "stage0_hash_ledger_reproduced": true,
+    "stage_a_checker": "20/20 PASS",
+    "stage_a_detail_bundle_reconstructed": true,
+    "stage_b1_checker": "35/35 PASS",
+    "status": "PASS",
+    "total_boundary_edges": 176952
+  },
+  "b2_role_protocol_sha256": "7c9bc4579b1a3002f1567036d914923d2f7a0e7645db021db90a693d173b7ff8",
+  "epistemic_status": "POST_SEARCH_ROLE_UNBLINDING / DISCOVERY_INTERPRETATION / NOT_THEOREM / NOT_CANONICAL",
+  "firewall": {
+    "b1_grammar_modified": false,
+    "composition_modified": false,
+    "holdout_consumed": false,
+    "k_gt_8": false,
+    "new_search_or_optimizer": false,
+    "predicate_added": false,
+    "r057_fitted_prior_consumed": false,
+    "rectangle_cube_circle_pi": false,
+    "refit": false
+  },
+  "five_question_summary": {
+    "1_frozen_c1_concentrated_in_SIDE_INTERIOR": {
+      "interpretation": "strong concentration exists for the secondary frozen k8 reference, while the primary balanced k5 candidate is only weakly concentrated",
+      "primary_balanced_k5": {
+        "P_c1_given_SIDE_INTERIOR": 0.8237511224538021,
+        "classification": "WEAK_SUPPORT"
+      },
+      "secondary_min_rmse_k8": {
+        "P_c1_given_SIDE_INTERIOR": 0.9999757081086333,
+        "classification": "SUPPORTED"
+      }
+    },
+    "2_frozen_c_gt1_concentrated_in_CORNER_NEAR": {
+      "interpretation": "neither frozen G1 candidate reaches the predeclared strong corner finite-split criterion",
+      "primary_balanced_k5": {
+        "P_c_gt1_given_CORNER_NEAR": 0.5861979166666667,
+        "P_c_gt1_given_SIDE_INTERIOR": 0.1762488775461979,
+        "classification": "WEAK_SUPPORT"
+      },
+      "secondary_min_rmse_k8": {
+        "P_c_gt1_given_CORNER_NEAR": 0.31917317708333337,
+        "P_c_gt1_given_SIDE_INTERIOR": 2.429189136665677e-05,
+        "classification": "NOT_SUPPORTED"
+      }
+    },
+    "3_same_local_packet_class_side_and_corner": {
+      "answer": true,
+      "classification": "ROLE_ALIASING_WITHIN_LOCAL_PACKET_CLASS",
+      "k5_mixed_resolved_occurrence_fraction": 0.9155251141552512
+    },
+    "4_teacher_free_G1_distinguishes_macro_roles": {
+      "interpretation": "the frozen k8 metric reference has strong branch-role association, but the primary balanced k5 program does not and local-class role aliasing remains material",
+      "overall": "LOCAL_GRAMMAR_ROLE_SEPARATION_PARTIAL",
+      "primary_balanced_k5": {
+        "classification": "NOT_SUPPORTED",
+        "normalized_mutual_information_role_branch": 0.09600605346675833
+      },
+      "secondary_min_rmse_k8": {
+        "classification": "SUPPORTED",
+        "normalized_mutual_information_role_branch": 0.5889313520544738
+      }
+    },
+    "5_square_error_edge_density_or_finite_corner_defect": {
+      "g0_k6_classification": "EDGE_DENSITY_BIASED",
+      "g1_min_rmse_k8_classification": "NOT_IDENTIFIED",
+      "primary_candidate_classification": "EDGE_DENSITY_BIASED"
+    }
+  },
+  "frozen_parent": {
+    "stage_a_checkpoint_sha256": "e43da09e347503223cde29de378570e76e79e63f44fe2bd9195b6a7dd6b1a925",
+    "stage_b1_checkpoint_sha256": "00faf065bb1769f4df7d7e51cec8b8754c414f280666d785adc7ed554acd753b",
+    "stage_b1_exact_head": "81fba01c21a991208daa85bfa109705706534da0"
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "headline_strong_condition_audit": {
+    "ambiguity_rate_k5": 0.0,
+    "ambiguity_within_limit": true,
+    "corner_split_supported": false,
+    "headline_returned": false,
+    "mixed_class_fraction_k5": 0.9155251141552512,
+    "mixed_class_within_limit": false,
+    "robustness_pass": false,
+    "side_whole_supported": false,
+    "teacher_free_frozen_G1": true
+  },
+  "independent_checker": {
+    "fail_count": 0,
+    "pass_count": 34,
+    "sha256": "6f853c929cd7ba96e6e5f2e611fb0efb4201296246efde701496e348c819cf73",
+    "status": "PASS"
+  },
+  "next_gate": "STOP_FOR_DRIVER_REVIEW",
+  "publication": {
+    "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+    "policy": "compact JSON/checkpoint/checker/hashes; no Stage-A base64/chunk choreography",
+    "role_protocol_gate_commit": "10135cf2335f2fdb9dc8eab57071fa96d8fbb90b"
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "role_exposure_summary": {
+    "D6_covariance": "PASS",
+    "ambiguity_rate_all_k": {
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+    },
+    "square_axis_swap_covariance": "PASS"
+  },
+  "schema": "R058S_STAGE_B2_EDGE_CORNER_CHECKPOINT_V1",
+  "stage": "B2",
+  "status": "FROZEN_STAGE_B2_EDGE_CORNER_CHECKPOINT",
+  "taskbook_source_commit": "a8d21a9db59a0c6aa80c72839f03498b2f931448",
+  "verdicts": [
+    "WHOLE_CHORD_IS_GLOBAL_BASE_BUT_CORNER_SPLIT_NOT_IDENTIFIED",
+    "LOCAL_GRAMMAR_ROLE_SEPARATION_PARTIAL",
+    "EDGE_DENSITY_BIASED",
+    "SQUARE_COLLAPSE_STRUCTURE_OPEN_WITH_EXACT_BOUNDED_EVIDENCE"
+  ]
+}
