@@ -1,0 +1,20 @@
+{
+  "generation": "R059L",
+  "integrality_role": "This equal-block projection is the factorial-denominator integrality certificate; it is not probability normalization.",
+  "proof": [
+    "Fix raw gamma in F(T;s,t). For each ordered pair (x,y), gamma contains exactly T(x,y) occurrence slots of x->y.",
+    "The T(x,y) distinct proof tokens of type x->y can be assigned bijectively to those slots in exactly T(x,y)! ways.",
+    "Assignments for different ordered pairs use disjoint token sets and are independent, so gamma has exactly product_{x,y} T(x,y)! labeled lifts.",
+    "Distinct raw histories have disjoint labeled lifts because projection pi retains the full ordered packet history.",
+    "Partition LABELED_FIBER by pi and sum the equal projection-fiber sizes."
+  ],
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_RAW_LABELED_FIBER_FACTOR_V1",
+  "self_loop_clause": "The same slot-permutation argument applies to x->x occurrences, giving T(x,x)! labeled assignments without changing raw packet history.",
+  "stage": "STAGE_D",
+  "statement": "|LABELED_FIBER(T;s,t)| = MU(T;s,t) * product_{x,y} T(x,y)!",
+  "status": "PROVED_EXACT",
+  "task_id": "RS-R059L-STAGE-D-EXACT-FIBER-COUNT-FACTORIZATION",
+  "taskbook_source_commit": "4394af21047d66a27e86143a8388f94d48aa0e81",
+  "theorem_id": "PD-T01"
+}

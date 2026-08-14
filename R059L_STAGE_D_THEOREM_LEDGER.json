@@ -1,0 +1,64 @@
+{
+  "external_best_used_as_premise": false,
+  "generation": "R059L",
+  "geometry_used": false,
+  "probability_entropy_used": false,
+  "raw_history_quotient_used": false,
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_STAGE_D_THEOREM_LEDGER_V1",
+  "stage": "STAGE_D",
+  "task_id": "RS-R059L-STAGE-D-EXACT-FIBER-COUNT-FACTORIZATION",
+  "taskbook_source_commit": "4394af21047d66a27e86143a8388f94d48aa0e81",
+  "theorems": [
+    {
+      "claim": "|LABELED_FIBER|=MU*product T(x,y)!",
+      "id": "PD-T01",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "Positive realizable labeled count = TAU_r*d_r!*product_{x!=r}(d_x-1)!",
+      "id": "PD-T02",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "Positive realizable raw MU is the labeled count divided by product T(x,y)!",
+      "id": "PD-T03",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "Factorial-arborescence quotient is always an integer on realizable inputs",
+      "id": "PD-T04",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "Open candidate formula with root t and token-level TAU_t",
+      "id": "PD-T05",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "Closed positive candidate formula with root s and token-level TAU_s",
+      "id": "PD-T06",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "Self-loops cannot be non-root last-exit arborescence tokens but remain in local orders and denominator",
+      "id": "PD-T07",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "Adjacency-preserving relabeling preserves TAU and raw MU formula",
+      "id": "PD-T08",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "Stage-C reversal MU equality is consistent with Stage-D formula on T and T^T",
+      "id": "PD-T09",
+      "status": "PROVED_EXACT_BY_COMBINATION_WITH_FROZEN_STAGE_C_BIJECTION"
+    },
+    {
+      "claim": "C6 passage composition typing",
+      "id": "PD-C6-01",
+      "status": "C6_PASSAGE_COMPOSITION_NOT_YET_WELL_TYPED"
+    }
+  ]
+}

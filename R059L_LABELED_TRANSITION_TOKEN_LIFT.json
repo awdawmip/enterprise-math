@@ -1,0 +1,23 @@
+{
+  "definitions": {
+    "labeled_fiber": "LABELED_FIBER(T;s,t) consists of endpoint-fixed histories that use every proof token exactly once, respecting token source/target, and whose packet projection lies in F(T;s,t).",
+    "native_path_equality": "UNCHANGED_FULL_ORDERED_PACKET_HISTORY_EQUALITY",
+    "projection": "pi deletes proof-token labels and retains the full ordered packet history.",
+    "token_set": "For every ordered pair (x,y) with T(x,y)=m>0, E_{x,y}={e_{x,y,1},...,e_{x,y,m}}."
+  },
+  "forbidden_promotions": [
+    "TOKEN_LABEL_AS_NATIVE_TRANSITION_IDENTITY",
+    "LABELED_EQUALITY_AS_NATIVE_PATH_EQUALITY",
+    "PROBABILITY_WEIGHT"
+  ],
+  "generation": "R059L",
+  "proof_only_labels_are_native_distinctions": false,
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_LABELED_TRANSITION_TOKEN_LIFT_V1",
+  "self_loop_handling": "If T(x,x)=m, the m proof tokens e_{x,x,k} are distinguishable only in the lift; all project to the same raw x->x transition occurrence type.",
+  "semantic_type": "PROOF_ONLY_LABELED_LIFT_OVER_NATIVE_RAW_HISTORIES",
+  "stage": "STAGE_D",
+  "status": "FROZEN_STAGE_D_NATIVE_FIRST_PROOF_ARTIFACT",
+  "task_id": "RS-R059L-STAGE-D-EXACT-FIBER-COUNT-FACTORIZATION",
+  "taskbook_source_commit": "4394af21047d66a27e86143a8388f94d48aa0e81"
+}

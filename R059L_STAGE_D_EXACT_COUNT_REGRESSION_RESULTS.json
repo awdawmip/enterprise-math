@@ -1,0 +1,338 @@
+{
+  "bounded_exhaustive_registry": {
+    "IRREFLEXIVE_COMPLETE_3_PACKET_N_LE_6": {
+      "endpoint_table_cases_checked": 8316,
+      "integrality_failures": 0,
+      "labeled_cases_checked": 231,
+      "labeled_formula_mismatches": 0,
+      "raw_formula_mismatches": 0,
+      "raw_labeled_factor_mismatches": 0,
+      "realizable_cases": 231,
+      "reversal_mu_mismatches": 0,
+      "tau_mismatches": 0,
+      "tau_parent_sum_vs_exact_cofactor_positive_cases": 228
+    },
+    "REFLEXIVE_COMPLETE_3_PACKET_N_LE_6": {
+      "endpoint_table_cases_checked": 45045,
+      "integrality_failures": 0,
+      "labeled_cases_checked": 1554,
+      "labeled_formula_mismatches": 0,
+      "raw_formula_mismatches": 0,
+      "raw_labeled_factor_mismatches": 0,
+      "realizable_cases": 1554,
+      "reversal_mu_mismatches": 0,
+      "tau_mismatches": 0,
+      "tau_parent_sum_vs_exact_cofactor_positive_cases": 1551
+    }
+  },
+  "determinant_check_role": "INDEPENDENT_N2_COMPUTATIONAL_CROSS_CHECK_ONLY_NOT_A_PROOF_PREMISE",
+  "exhaustive_validation_role": "FINITE_REGRESSION_SUPPORTS_BUT_DOES_NOT_REPLACE_SELF_CONTAINED_PROOF",
+  "generation": "R059L",
+  "mandatory_cases": [
+    {
+      "N_T": 0,
+      "T": {},
+      "TAU_token": null,
+      "factorial_denominator": 1,
+      "formula_MU": 1,
+      "id": "ZERO_IDENTITY",
+      "labeled_count_direct": 1,
+      "labeled_formula": 1,
+      "raw_MU_direct": 1,
+      "raw_histories": [
+        "A"
+      ],
+      "s": "A",
+      "t": "A"
+    },
+    {
+      "N_T": 1,
+      "T": {
+        "A->B": 1
+      },
+      "TAU_token": 1,
+      "factorial_denominator": 1,
+      "formula_MU": 1,
+      "id": "ONE_TRANSITION",
+      "labeled_count_direct": 1,
+      "labeled_formula": 1,
+      "outdegrees": {
+        "A": 1,
+        "B": 0
+      },
+      "raw_MU_direct": 1,
+      "raw_histories": [
+        "A-B"
+      ],
+      "root": "B",
+      "s": "A",
+      "t": "B"
+    },
+    {
+      "N_T": 2,
+      "T": {
+        "A->B": 1,
+        "B->A": 1
+      },
+      "TAU_token": 1,
+      "factorial_denominator": 1,
+      "formula_MU": 1,
+      "id": "IMMEDIATE_REVERSAL",
+      "labeled_count_direct": 1,
+      "labeled_formula": 1,
+      "outdegrees": {
+        "A": 1,
+        "B": 1
+      },
+      "raw_MU_direct": 1,
+      "raw_histories": [
+        "A-B-A"
+      ],
+      "root": "A",
+      "s": "A",
+      "t": "A"
+    },
+    {
+      "N_T": 4,
+      "T": {
+        "A->B": 1,
+        "A->C": 1,
+        "B->A": 1,
+        "C->A": 1
+      },
+      "TAU_token": 1,
+      "factorial_denominator": 1,
+      "formula_MU": 2,
+      "id": "PREFERRED_MU2",
+      "labeled_count_direct": 2,
+      "labeled_formula": 2,
+      "outdegrees": {
+        "A": 2,
+        "B": 1,
+        "C": 1
+      },
+      "raw_MU_direct": 2,
+      "raw_histories": [
+        "A-B-A-C-A",
+        "A-C-A-B-A"
+      ],
+      "root": "A",
+      "s": "A",
+      "t": "A"
+    },
+    {
+      "N_T": 3,
+      "T": {
+        "A->B": 2,
+        "B->A": 1
+      },
+      "TAU_token": 2,
+      "factorial_denominator": 2,
+      "formula_MU": 1,
+      "id": "PARALLEL_NORMALIZATION",
+      "labeled_count_direct": 2,
+      "labeled_formula": 2,
+      "outdegrees": {
+        "A": 2,
+        "B": 1
+      },
+      "raw_MU_direct": 1,
+      "raw_histories": [
+        "A-B-A-B"
+      ],
+      "root": "B",
+      "s": "A",
+      "t": "B"
+    },
+    {
+      "N_T": 1,
+      "T": {
+        "A->A": 1
+      },
+      "TAU_token": 1,
+      "factorial_denominator": 1,
+      "formula_MU": 1,
+      "id": "SELF_LOOP_M1",
+      "labeled_count_direct": 1,
+      "labeled_formula": 1,
+      "outdegrees": {
+        "A": 1
+      },
+      "raw_MU_direct": 1,
+      "raw_histories": [
+        "A-A"
+      ],
+      "root": "A",
+      "s": "A",
+      "t": "A"
+    },
+    {
+      "N_T": 2,
+      "T": {
+        "A->A": 2
+      },
+      "TAU_token": 1,
+      "factorial_denominator": 2,
+      "formula_MU": 1,
+      "id": "SELF_LOOP_M2",
+      "labeled_count_direct": 2,
+      "labeled_formula": 2,
+      "outdegrees": {
+        "A": 2
+      },
+      "raw_MU_direct": 1,
+      "raw_histories": [
+        "A-A-A"
+      ],
+      "root": "A",
+      "s": "A",
+      "t": "A"
+    },
+    {
+      "N_T": 3,
+      "T": {
+        "A->A": 3
+      },
+      "TAU_token": 1,
+      "factorial_denominator": 6,
+      "formula_MU": 1,
+      "id": "SELF_LOOP_M3",
+      "labeled_count_direct": 6,
+      "labeled_formula": 6,
+      "outdegrees": {
+        "A": 3
+      },
+      "raw_MU_direct": 1,
+      "raw_histories": [
+        "A-A-A-A"
+      ],
+      "root": "A",
+      "s": "A",
+      "t": "A"
+    },
+    {
+      "N_T": 3,
+      "T": {
+        "A->B": 1,
+        "B->A": 1,
+        "B->B": 1
+      },
+      "TAU_token": 1,
+      "factorial_denominator": 1,
+      "formula_MU": 1,
+      "id": "SELF_LOOP_NONROOT",
+      "labeled_count_direct": 1,
+      "labeled_formula": 1,
+      "outdegrees": {
+        "A": 1,
+        "B": 2
+      },
+      "raw_MU_direct": 1,
+      "raw_histories": [
+        "A-B-B-A"
+      ],
+      "root": "A",
+      "s": "A",
+      "t": "A"
+    },
+    {
+      "N_T": 6,
+      "T": {
+        "A->B": 1,
+        "A->C": 1,
+        "B->A": 1,
+        "B->C": 1,
+        "C->A": 1,
+        "C->B": 1
+      },
+      "TAU_token": 3,
+      "factorial_denominator": 1,
+      "formula_MU": 6,
+      "id": "MU_GT_2_BIDIRECTED_TRIANGLE",
+      "labeled_count_direct": 6,
+      "labeled_formula": 6,
+      "outdegrees": {
+        "A": 2,
+        "B": 2,
+        "C": 2
+      },
+      "raw_MU_direct": 6,
+      "raw_histories": [
+        "A-B-A-C-B-C-A",
+        "A-B-C-A-C-B-A",
+        "A-B-C-B-A-C-A",
+        "A-C-A-B-C-B-A",
+        "A-C-B-A-B-C-A",
+        "A-C-B-C-A-B-A"
+      ],
+      "root": "A",
+      "s": "A",
+      "t": "A"
+    }
+  ],
+  "relabeling_case": {
+    "id": "RELABEL_PREFERRED",
+    "original_mu": 2,
+    "preserved": true,
+    "relabeled_mu": 2,
+    "tau_original": 1,
+    "tau_relabeled": 1
+  },
+  "researcher_id": "EM-R059L-5F9D05",
+  "reversal_case": {
+    "id": "REVERSAL_OPEN_PARALLEL",
+    "mu_equal": true,
+    "original": {
+      "N_T": 3,
+      "T": {
+        "A->B": 2,
+        "B->A": 1
+      },
+      "TAU_token": 2,
+      "factorial_denominator": 2,
+      "formula_MU": 1,
+      "id": "ORIGINAL",
+      "labeled_count_direct": 2,
+      "labeled_formula": 2,
+      "outdegrees": {
+        "A": 2,
+        "B": 1
+      },
+      "raw_MU_direct": 1,
+      "raw_histories": [
+        "A-B-A-B"
+      ],
+      "root": "B",
+      "s": "A",
+      "t": "B"
+    },
+    "transpose_reversed": {
+      "N_T": 3,
+      "T": {
+        "A->B": 1,
+        "B->A": 2
+      },
+      "TAU_token": 2,
+      "factorial_denominator": 2,
+      "formula_MU": 1,
+      "id": "TRANSPOSE",
+      "labeled_count_direct": 2,
+      "labeled_formula": 2,
+      "outdegrees": {
+        "A": 1,
+        "B": 2
+      },
+      "raw_MU_direct": 1,
+      "raw_histories": [
+        "B-A-B-A"
+      ],
+      "root": "A",
+      "s": "B",
+      "t": "A"
+    }
+  },
+  "schema": "R059L_STAGE_D_EXACT_COUNT_REGRESSION_RESULTS_V1",
+  "stage": "STAGE_D",
+  "task_id": "RS-R059L-STAGE-D-EXACT-FIBER-COUNT-FACTORIZATION",
+  "taskbook_source_commit": "4394af21047d66a27e86143a8388f94d48aa0e81"
+}

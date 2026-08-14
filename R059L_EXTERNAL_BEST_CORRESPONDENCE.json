@@ -1,0 +1,87 @@
+{
+  "backflow_into_native_proof": "FORBIDDEN_AND_NOT_USED",
+  "correspondence_disposition": "FORMULA_CORRESPONDS_AFTER_CONVENTION_TRANSLATION",
+  "determinant_correspondence_checks": {
+    "IRREFLEXIVE_COMPLETE_3_PACKET_N_LE_6": {
+      "TAU_vs_external_modified_L_determinant_mismatches": 0,
+      "positive_realizable_cases": 228
+    },
+    "REFLEXIVE_COMPLETE_3_PACKET_N_LE_6": {
+      "TAU_vs_external_modified_L_determinant_mismatches": 0,
+      "positive_realizable_cases": 1551
+    },
+    "role": "POST_NATIVE_FREEZE_CORRESPONDENCE_CHECK_ONLY"
+  },
+  "generation": "R059L",
+  "native_core_frozen_before_external_lookup": true,
+  "native_core_pre_external_sha256": {
+    "R059L_FACTORIAL_INTEGRALITY_CERTIFICATE.json": "c466ef3a8814a96ff8ab63135d7044b447a6bfa01d2a596cfb17581f7b0ca049",
+    "R059L_LABELED_FIBER_COUNT_FORMULA.json": "19d0c61679fa517dcfe6f00ae6bd07327852fae969793a20eaffa04544037ddc",
+    "R059L_LABELED_TRANSITION_TOKEN_LIFT.json": "cc6d964aa1024539ea47f46d0c9f24bf8fff690d21e60b98389c544fdbdd0600",
+    "R059L_LAST_EXIT_ARBORESCENCE_PROTOCOL.json": "7cc468e952e59bb7a400e17d1bacc5cbb53e3309eee817586334a92680760eff",
+    "R059L_OPEN_CLOSED_NORMALIZATION_LEDGER.json": "1ac0200b561a35d62e69ec85597fac2b99c8a07a51d1f35e16806bacbf6a18d3",
+    "R059L_RAW_LABELED_FIBER_FACTOR.json": "7a2de75cea3342856980b08b7b0990c15e916abc3bd5586a8aad52da732ad757",
+    "R059L_RAW_MU_EXACT_FORMULA.json": "9fc193ec28e690bdc7c5e7ea9157220cb6e43aaaa02cb9ac9660d4b6096ec512",
+    "R059L_STAGE_D_EXACT_COUNT_REGRESSION_RESULTS.json": "a4d532a99049d49e4815b1238398981f18aa3ff49741d9a6841d83f1eee1908d",
+    "R059L_STAGE_D_THEOREM_LEDGER.json": "3061c97edc1788b42164a1fa537d6ff11f6b943829578223c91b26ced607c877"
+  },
+  "parallel_transition_note": "R059L first counts distinguishable proof tokens, then divides by product T(x,y)! to recover raw packet-sequence histories. This mirrors the external edge-distinct versus node-distinct normalization without granting external ontology.",
+  "researcher_id": "EM-R059L-5F9D05",
+  "root_convention_note": "R059L defines TAU_r directly by token-level last exits oriented toward endpoint root r. External sources may phrase arborescence orientation/rooting differently; the compared numerical determinant normalization matches the R059L root factor after translation.",
+  "schema": "R059L_EXTERNAL_BEST_CORRESPONDENCE_V1",
+  "self_loop_note": "R059L self-loops enter d_x and the denominator but cannot be non-root last-exit arborescence arcs; the external determinant diagonal removes a_uu from the arborescence part while its factorial formula still includes multiplicity.",
+  "sources": [
+    {
+      "authors": [
+        "Alessio Conte",
+        "Roberto Grossi",
+        "Grigorios Loukides",
+        "Nadia Pisanti",
+        "Solon P. Pissis",
+        "Giulia Punzi"
+      ],
+      "doi": "10.1007/978-3-030-86593-1_11",
+      "relevant_external_statements": [
+        "Directed multigraph adjacency multiplicities a_uv may exceed 1 and self-loops a_uu>0 are allowed.",
+        "For source s,target t, r_u=d+(u) for u!=t and r_t=d+(t)+1.",
+        "Node-distinct trail count is det(L) * product_u(r_u-1)! / product_{u,v} a_uv!.",
+        "The multi-edge factorial denominator removes permutations of parallel edges so only node-distinct trails are counted."
+      ],
+      "source_kind": "AUTHOR_MANUSCRIPT_CWI_REPOSITORY",
+      "title": "Beyond the BEST Theorem: Fast Assessment of Eulerian Trails",
+      "venue": "FCT 2021",
+      "year": 2021
+    },
+    {
+      "arxiv": "2603.12894",
+      "authors": [
+        "Ben Bals",
+        "Solon P. Pissis",
+        "Matei Tinca"
+      ],
+      "relevant_external_statements": [
+        "BEST relates directed Eulerian trails to arborescences and local outgoing-edge permutations.",
+        "For directed multigraphs, edge-distinct and node-distinct trail notions differ; node-distinct means different node sequences."
+      ],
+      "source_kind": "ARXIV_PRIMARY_PREPRINT",
+      "title": "Optimal Enumeration of Eulerian Trails in Directed Graphs",
+      "year": 2026
+    }
+  ],
+  "stage": "STAGE_D",
+  "status": "EXTERNAL_PRIOR_ART_CORRESPONDENCE",
+  "task_id": "RS-R059L-STAGE-D-EXACT-FIBER-COUNT-FACTORIZATION",
+  "taskbook_source_commit": "4394af21047d66a27e86143a8388f94d48aa0e81",
+  "translation_to_R059L": {
+    "closed_translation": "Set t=s in the same target-root convention; root local factor becomes d_s!.",
+    "determinant_factor": "Corresponds numerically to R059L TAU_r(T); Stage-D did not use this as proof. Independent exact cofactor checks matched token-parent-sum TAU on every positive realizable N_T<=6 registry case.",
+    "external_arc_multiplicity_a_uv": "T(u,v)",
+    "external_edge_distinct_multigraph_trail": "R059L proof-token labeled history",
+    "external_node": "CRYSTAL_PACKET identity used only as correspondence translation",
+    "external_node_distinct_trail": "R059L raw full ordered packet history in F(T;s,t)",
+    "external_non_target_factor": "(d_x-1)!",
+    "external_parallel_factorial_denominator": "product_{x,y}T(x,y)! from PD-T01",
+    "external_target_factor_r_t_minus_1_factorial": "d_t! in open Stage-D formula"
+  },
+  "used_as_native_proof_premise": false
+}

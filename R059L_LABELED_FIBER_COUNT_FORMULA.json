@@ -1,0 +1,32 @@
+{
+  "bijection_proof": {
+    "encoding": "Extract token-level last-exit arborescence plus the order of remaining outgoing tokens at each packet.",
+    "injectivity": "The queue algorithm deterministically reconstructs the unique labeled history from the extracted datum.",
+    "no_early_root_stop": "If it stops at r with unused tokens, the residual table is balanced everywhere. Any packet with residual outgoing still has its last-position tree token unused; that gives residual incoming to its parent, balance gives residual outgoing there, and iteration along the arborescence forces residual outgoing at r, contradicting an exhausted root queue.",
+    "no_wrong_endpoint": "If the queue walk stopped at v!=r with residual OUT(v)=0, subtracting partial endpoint incidence from full Stage-C balance forces residual OUT(v)-IN(v)=1, impossible.",
+    "reconstruction_algorithm": "For non-root x, queue its recorded non-tree outgoing tokens followed by a_x; root queue is its recorded full order. Start at s and repeatedly consume the first unused outgoing token in the current packet queue.",
+    "surjectivity": "Hence every admissible arborescence plus local-order datum consumes all tokens and ends at r."
+  },
+  "closed_formula": "s=t,N_T>0: |L|=TAU_s(T)*d_s!*product_{x in A\\{s}}(d_x-1)!",
+  "generation": "R059L",
+  "local_order_encoding": {
+    "non_root": "Designated last-exit token a_x is fixed last; the other d_x-1 outgoing tokens have (d_x-1)! local orders.",
+    "root": "No designated last exit; all d_r outgoing tokens have d_r! local orders."
+  },
+  "no_external_theorem_premise": true,
+  "notation": {
+    "A": "ACTIVE(T)",
+    "d_x": "OUT_T(x)",
+    "r": "t if s!=t, else s"
+  },
+  "open_formula": "s!=t: |L|=TAU_t(T)*d_t!*product_{x in A\\{t}}(d_x-1)!",
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_LABELED_FIBER_COUNT_FORMULA_V1",
+  "scope": "POSITIVE_REALIZABLE_FINITE_T_ONLY",
+  "stage": "STAGE_D",
+  "status": "PROVED_EXACT",
+  "task_id": "RS-R059L-STAGE-D-EXACT-FIBER-COUNT-FACTORIZATION",
+  "taskbook_source_commit": "4394af21047d66a27e86143a8388f94d48aa0e81",
+  "theorem_id": "PD-T02",
+  "unified_formula": "|LABELED_FIBER(T;s,t)| = TAU_r(T) * d_r! * product_{x in A, x!=r} (d_x-1)!"
+}

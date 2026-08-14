@@ -1,0 +1,239 @@
+{
+  "C6_status": "C6_PASSAGE_COMPOSITION_NOT_YET_WELL_TYPED",
+  "bounded_exhaustive_checks": {
+    "irreflexive": {
+      "endpoint_table_cases": 8316,
+      "integrality_failure": 0,
+      "labeled_formula_mismatch": 0,
+      "raw_formula_mismatch": 0,
+      "raw_labeled_factor_mismatch": 0,
+      "realizable": 231,
+      "reversal_mismatch": 0,
+      "tau_mismatch": 0,
+      "tau_parent_vs_cofactor_positive": 228
+    },
+    "reflexive": {
+      "endpoint_table_cases": 45045,
+      "integrality_failure": 0,
+      "labeled_formula_mismatch": 0,
+      "raw_formula_mismatch": 0,
+      "raw_labeled_factor_mismatch": 0,
+      "realizable": 1554,
+      "reversal_mismatch": 0,
+      "tau_mismatch": 0,
+      "tau_parent_vs_cofactor_positive": 1551
+    }
+  },
+  "ci_status_query_performed": false,
+  "determinant_role": "POST_NATIVE_FREEZE_N2_CROSS_CHECK_ONLY",
+  "external_best_role": "EXTERNAL_PRIOR_ART_CORRESPONDENCE_ONLY_NOT_PREMISE",
+  "external_correspondence_sha256": "56fae12c8cdf652ebbd984805623cbee9b6d22eeaa3e66a9af8784cb70aed2c5",
+  "forbidden_work": {
+    "R057_R058S_geometry": false,
+    "geometry": false,
+    "metric": false,
+    "path_cancellation": false,
+    "path_ranking": false,
+    "physical_flow_current_divergence": false,
+    "probability_entropy_MU": false,
+    "raw_history_quotient": false,
+    "shortest_path": false
+  },
+  "formula_disposition": {
+    "closed_positive": "PROVED_EXACT",
+    "open": "PROVED_EXACT",
+    "parallel_normalization": "TOKEN_LEVEL_TAU_AND_FACTORIAL_DENOMINATOR_REQUIRED",
+    "self_loops": "SUPPORTED_WHEN_DECLARED",
+    "zero": "PROVED_EXACT_SEPARATE_BRANCH"
+  },
+  "frozen_parent_anchors": {
+    "stage0_owner_head": "825c0cde2909d127e72d402d78bcdc7b9a40aec2",
+    "stageA_owner_head": "4d196b916c815f665ea725f40ee5fb48ef76b10e",
+    "stageB_owner_head": "aee265e65b9b1471b066cac8d43f8d929bdd67e7",
+    "stageC_owner_head": "236678081b425d97eeb0326e46041a34a5333ed4"
+  },
+  "generation": "R059L",
+  "hard_negative_summary": {
+    "rejected_as_required": 13,
+    "tests": [
+      {
+        "observed": null,
+        "reason": "External theorem cannot be native proof premise.",
+        "rejected": true,
+        "test_id": "NEG-01-EXTERNAL-BEST-AS-PREMISE"
+      },
+      {
+        "observed": "1/2",
+        "reason": "Ignoring parallel token multiplicity gives 1/2 instead of MU=1.",
+        "rejected": true,
+        "test_id": "NEG-02-SIMPLE-SUPPORT-TAU"
+      },
+      {
+        "observed": 2,
+        "reason": "Parallel labeled count 2 must divide by 2! to raw MU=1.",
+        "rejected": true,
+        "test_id": "NEG-03-OMIT-PARALLEL-DENOMINATOR"
+      },
+      {
+        "observed": 1,
+        "reason": "Preferred MU=2 would undercount as 1.",
+        "rejected": true,
+        "test_id": "NEG-04-CLOSED-ROOT-D_MINUS_1"
+      },
+      {
+        "observed": 0,
+        "reason": "Wrong root convention kills one-hop open trail.",
+        "rejected": true,
+        "test_id": "NEG-05-OPEN-ROOT-AT-S"
+      },
+      {
+        "observed": {
+          "correct_TAU": 1,
+          "wrong_TAU": 2
+        },
+        "reason": "Self-loop cannot reach root as designated exit.",
+        "rejected": true,
+        "test_id": "NEG-06-SELF-LOOP-AS-TREE-EXIT"
+      },
+      {
+        "observed": null,
+        "reason": "MU is N2 fiber cardinality only.",
+        "rejected": true,
+        "test_id": "NEG-07-MU-AS-PROBABILITY-ENTROPY"
+      },
+      {
+        "observed": null,
+        "reason": "Readout equality never changes raw history equality.",
+        "rejected": true,
+        "test_id": "NEG-08-T-EQUALITY-IMPLIES-NATIVE-EQUALITY"
+      },
+      {
+        "observed": null,
+        "reason": "Raw histories are not quotient-cancelled.",
+        "rejected": true,
+        "test_id": "NEG-09-PATH-CANCELLATION-QUOTIENT"
+      },
+      {
+        "observed": null,
+        "reason": "PATH_COUNT remains event count.",
+        "rejected": true,
+        "test_id": "NEG-10-PATH-COUNT-AS-LENGTH"
+      },
+      {
+        "observed": null,
+        "reason": "Geometry is forbidden in theorem premises.",
+        "rejected": true,
+        "test_id": "NEG-11-GEOMETRY-PROMOTION"
+      },
+      {
+        "observed": null,
+        "reason": "C6 passage composition remains NOT_YET_WELL_TYPED.",
+        "rejected": true,
+        "test_id": "NEG-12-C6-UNTYPED-REPAIR"
+      },
+      {
+        "observed": null,
+        "reason": "Prior fitted geometry cannot enter native proof.",
+        "rejected": true,
+        "test_id": "NEG-13-R057-R058S-GEOMETRY-LEAKAGE"
+      }
+    ],
+    "total": 13
+  },
+  "mandatory_case_results": {
+    "IMMEDIATE_REVERSAL": {
+      "TAU": 1,
+      "denominator": 1,
+      "formula_MU": 1,
+      "labeled": 1,
+      "raw_MU": 1
+    },
+    "MU_GT_2_BIDIRECTED_TRIANGLE": {
+      "TAU": 3,
+      "denominator": 1,
+      "formula_MU": 6,
+      "labeled": 6,
+      "raw_MU": 6
+    },
+    "ONE_TRANSITION": {
+      "TAU": 1,
+      "denominator": 1,
+      "formula_MU": 1,
+      "labeled": 1,
+      "raw_MU": 1
+    },
+    "PARALLEL_NORMALIZATION": {
+      "TAU": 2,
+      "denominator": 2,
+      "formula_MU": 1,
+      "labeled": 2,
+      "raw_MU": 1
+    },
+    "PREFERRED_MU2": {
+      "TAU": 1,
+      "denominator": 1,
+      "formula_MU": 2,
+      "labeled": 2,
+      "raw_MU": 2
+    },
+    "SELF_LOOP_M1": {
+      "TAU": 1,
+      "denominator": 1,
+      "formula_MU": 1,
+      "labeled": 1,
+      "raw_MU": 1
+    },
+    "SELF_LOOP_M2": {
+      "TAU": 1,
+      "denominator": 2,
+      "formula_MU": 1,
+      "labeled": 2,
+      "raw_MU": 1
+    },
+    "SELF_LOOP_M3": {
+      "TAU": 1,
+      "denominator": 6,
+      "formula_MU": 1,
+      "labeled": 6,
+      "raw_MU": 1
+    },
+    "SELF_LOOP_NONROOT": {
+      "TAU": 1,
+      "denominator": 1,
+      "formula_MU": 1,
+      "labeled": 1,
+      "raw_MU": 1
+    },
+    "ZERO_IDENTITY": {
+      "TAU": null,
+      "denominator": 1,
+      "formula_MU": 1,
+      "labeled": 1,
+      "raw_MU": 1
+    }
+  },
+  "native_core_pre_external_sha256": {
+    "R059L_FACTORIAL_INTEGRALITY_CERTIFICATE.json": "c466ef3a8814a96ff8ab63135d7044b447a6bfa01d2a596cfb17581f7b0ca049",
+    "R059L_LABELED_FIBER_COUNT_FORMULA.json": "19d0c61679fa517dcfe6f00ae6bd07327852fae969793a20eaffa04544037ddc",
+    "R059L_LABELED_TRANSITION_TOKEN_LIFT.json": "cc6d964aa1024539ea47f46d0c9f24bf8fff690d21e60b98389c544fdbdd0600",
+    "R059L_LAST_EXIT_ARBORESCENCE_PROTOCOL.json": "7cc468e952e59bb7a400e17d1bacc5cbb53e3309eee817586334a92680760eff",
+    "R059L_OPEN_CLOSED_NORMALIZATION_LEDGER.json": "1ac0200b561a35d62e69ec85597fac2b99c8a07a51d1f35e16806bacbf6a18d3",
+    "R059L_RAW_LABELED_FIBER_FACTOR.json": "7a2de75cea3342856980b08b7b0990c15e916abc3bd5586a8aad52da732ad757",
+    "R059L_RAW_MU_EXACT_FORMULA.json": "9fc193ec28e690bdc7c5e7ea9157220cb6e43aaaa02cb9ac9660d4b6096ec512",
+    "R059L_STAGE_D_EXACT_COUNT_REGRESSION_RESULTS.json": "a4d532a99049d49e4815b1238398981f18aa3ff49741d9a6841d83f1eee1908d",
+    "R059L_STAGE_D_THEOREM_LEDGER.json": "3061c97edc1788b42164a1fa537d6ff11f6b943829578223c91b26ced607c877"
+  },
+  "overall_summary": "PASS",
+  "positive_gate_summary": {
+    "passed": 47,
+    "total": 47,
+    "violations": []
+  },
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_STAGE_D_CHECKER_OUTPUT_V1",
+  "stage": "STAGE_D",
+  "stage0_A_B_C_write_set_immutability": "REQUIRED_DISJOINT_STAGE_D_WRITE_SET_FROM_EXACT_STAGE_C_PARENT",
+  "stage_E_entered": false,
+  "task_id": "RS-R059L-STAGE-D-EXACT-FIBER-COUNT-FACTORIZATION",
+  "taskbook_source_commit": "4394af21047d66a27e86143a8388f94d48aa0e81"
+}
