@@ -1,9 +1,15 @@
 {
-  "schema": "ENTERPRISE_MATH_FOUNDATIONAL_LOGIC_V1",
+  "schema": "ENTERPRISE_MATH_FOUNDATIONAL_LOGIC_V2",
   "status": "ACTIVE",
   "authority": "PROJECT_LEVEL_FOUNDATIONAL_RESEARCH_LOGIC",
   "core_rule": "Do not inherit an effective theory's definitions into the native substrate merely because the theory is successful. Preserve the success as evidence and require the native theory to explain why that success emerges from a smaller native logic.",
   "short_form": "Definition is not inherited. Success is evidence. Explain the success from a smaller native logic.",
+  "active_native_base_specialization": {
+    "human_source": "PACKET_PATH_FOUNDATION.md",
+    "machine_source": "packet_path_foundation.json",
+    "core": "Every crystal packet has native quantity exactly 1 in every dimension and precision layer; dimension is relational rather than a packet weight; every adjacency transition contributes exactly 1 to transition/path count; geometry is downstream.",
+    "precedence": "When an older edge/line/metric-first construction conflicts with this specialization at N0, the packet/path specialization controls native typing. Older mathematics may remain valid after N1/N2/N3 retyping."
+  },
   "principles": [
     {
       "id": "FL-01-DEFINITION-NOT-INHERITED",
@@ -36,13 +42,64 @@
     {
       "id": "FL-08-OPERATIONAL-PRECISION-DOWNSTREAM",
       "rule": "Precision ceilings for effective constants are downstream results requiring a frozen native mechanism, bridge/readout, future language, resolution and error-amplification model. They do not establish native definitions by themselves."
+    },
+    {
+      "id": "FL-09-UNIT-PACKET-DIMENSION-INDEPENDENT",
+      "rule": "For packet-native work, every crystal packet contributes native quantity exactly 1 regardless of dimension, external shape, or declared precision layer. Dimension changes admitted relations, not the unit."
+    },
+    {
+      "id": "FL-10-NATIVE-CONTENT-IS-PACKET-COUNT",
+      "rule": "The native static content of a finite occupied configuration is its packet count. Effective area, volume, or d-content are downstream readouts of this count plus carrier/precision semantics, not primitive powers of length."
+    },
+    {
+      "id": "FL-11-NATIVE-PROCESS-IS-TRANSITION-COUNT",
+      "rule": "Every actual transition across declared adjacency contributes exactly 1 to transition/path count. This event count is not geometric length."
+    },
+    {
+      "id": "FL-12-OBJECT-EVENT-COUNT-SEPARATION",
+      "rule": "Packet/occupancy count is a static object count and transition/path count is a dynamic event count. Revisiting can increase event count without increasing occupied packet count."
+    },
+    {
+      "id": "FL-13-REFINEMENT-NO-FRACTIONAL-PACKET",
+      "rule": "Every packet at every precision layer remains native quantity 1. Refinement changes packet count and relation language; it does not create native fractional packet weights solely to preserve a continuum measure."
+    },
+    {
+      "id": "FL-14-GEOMETRY-DOWNSTREAM",
+      "rule": "Line, straightness, distance, length, shortestness, edge, boundary, perimeter, chord, angle, curvature, radius, area, volume, and continuum geometry remain downstream until separately derived with admissible semantic typing."
     }
   ],
+  "packet_path_base_invariants": {
+    "unit_packet": 1,
+    "unit_transition": 1,
+    "dimension_semantics": "RELATIONAL_NOT_PACKET_WEIGHT",
+    "path_semantics": "ARBITRARY_ADJACENCY_WALK",
+    "path_permissions": ["REVISIT", "LOOP", "IMMEDIATE_REVERSAL", "SAME_ADJACENCY_REUSE", "SAME_CHANNEL_INGRESS_EGRESS_IF_CHANNELS_DECLARED"],
+    "static_integer": "PACKET_COUNT",
+    "dynamic_integer": "TRANSITION_COUNT",
+    "length_status": "UNDEFINED_AT_N0",
+    "area_volume_status": "DOWNSTREAM_READOUT_NAMES",
+    "refinement_rule": "PACKET_UNIT_REMAINS_ONE_AT_EVERY_LAYER"
+  },
+  "optional_channel_structure": {
+    "ideal_c6": {
+      "status": "CARRIER_SPECIFIC_ADDITIONAL_RELATION",
+      "ingress": "I_x[0..5]",
+      "egress": "O_x[0..5]",
+      "passage": "M_x[a,b]",
+      "same_channel_allowed": true,
+      "geometric_labels_forbidden_at_native_layer": ["STRAIGHT", "TURN", "ANGLE", "CURVATURE", "OPPOSITE"],
+      "temperature": "CALIBRATION_ONLY"
+    }
+  },
   "forbidden_target_leakage_examples": [
     "native circle defined by equal distance from a center when native distance/equidistance is absent",
     "classical pi used as a loss function to choose a collapse rule later claimed to explain pi",
     "implementation Euclidean coordinates promoted to native geometry because the engineering model uses them",
-    "successful continuum law used as a hidden premise in a claimed derivation of that same law"
+    "successful continuum law used as a hidden premise in a claimed derivation of that same law",
+    "single packet assigned dimension-specific area or volume weight instead of the native unit 1",
+    "finer packets assigned native fractional weights merely to preserve a coarse continuum measure",
+    "path transition count silently promoted to geometric length",
+    "edge/boundary geometry used as the native definition of a packet relation or line"
   ],
   "engineering_success_constraint_fields": [
     "controlled_inputs",
