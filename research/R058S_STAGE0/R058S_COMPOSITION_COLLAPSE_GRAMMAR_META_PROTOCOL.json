@@ -1,0 +1,72 @@
+{
+  "G1_presearch_bound_gate": {
+    "reason": "Stage 0 freezes grammar semantics but performs no grammar enumeration/search; exact program-size bound is a later pre-search gate",
+    "status": "MUST_FREEZE_BEFORE_G1_ENUMERATION_IN_STAGE_B"
+  },
+  "composition_space_cardinality_by_k": {
+    "1": 1,
+    "2": 2,
+    "3": 4,
+    "4": 8,
+    "5": 16,
+    "6": 32,
+    "7": 64,
+    "8": 128
+  },
+  "composition_space_total_cardinality_k1_to8": 255,
+  "cyclic_readout": {
+    "all_cyclic_starts_mandatory": true,
+    "formula": "P_hat_{k,g}(C)=(1/k)*sum_i C_{g(packet_i)}(packet_i)",
+    "identity_sanity": "identity composition must reproduce raw digital Voronoi perimeter exactly",
+    "segmentation_or_start_offset_optimization_forbidden": true
+  },
+  "explicit_non_assumptions": [
+    "straight side -> c=1 is NOT assumed",
+    "corner neighborhood -> c=2 is NOT assumed",
+    "whole chord winner is NOT assumed",
+    "corner split location/count is NOT assumed"
+  ],
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "ordered_composition_definition": {
+    "C_pi": "sum_j sqrt(q(block_j)) using exact rational squared chords q",
+    "anchor_compositions": [
+      "identity=(1,1,...,1)",
+      "whole_chord=(k)",
+      "two_block=(t,k-t), 1<=t<k"
+    ],
+    "block_collapse": "each consecutive block is replaced by its endpoint chord",
+    "collapse_count": "c_pi=r; c is a discovered output, never preassigned by straight/corner teacher role",
+    "count_for_k": "2^(k-1)",
+    "deterministic_later_enumeration": "bit mask of k-1 possible split positions, increasing integer mask; bit=1 means split after that edge; mask 0 is whole chord and mask 2^(k-1)-1 is identity",
+    "pi": "(m_1,...,m_r), each m_j>=1, sum m_j=k"
+  },
+  "packet_length_range": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "provenance_label_for_target_informed_later_results": "SQUARE_TEACHER_SUPERVISED_DISCOVERY",
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_COMPOSITION_COLLAPSE_GRAMMAR_META_PROTOCOL_V1",
+  "search_capacity_ladder_frozen_semantics": {
+    "G0": "one fixed composition per k, exhaustively compared only in Stage B",
+    "G1": "bounded compact teacher-free local rule tree/program selecting an ordered composition; exact bound must be frozen before any G1 enumeration in Stage B",
+    "G2": "canonical packet-class -> ordered-composition lookup benchmark; high-capacity reference, never automatically a law",
+    "G3": "post-hoc compression only after G2 is frozen; genealogy must be recorded"
+  },
+  "stage": "0",
+  "stage0_actions": {
+    "grammar_enumeration": false,
+    "grammar_fitting": false,
+    "holdout_used": false,
+    "packet_lookup_built": false,
+    "teacher_loss_evaluation": false
+  },
+  "status": "FROZEN_STAGE_0_META_PROTOCOL",
+  "taskbook_source_commit": "09df243f8613da75c1cb1df189a2b97e264cdd72"
+}
