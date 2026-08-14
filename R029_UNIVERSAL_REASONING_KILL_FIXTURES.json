@@ -1,0 +1,105 @@
+{
+  "schema_version": "R029_UNIVERSAL_REASONING_KILL_FIXTURES_V1",
+  "claims": [
+    {
+      "id": "LOGIC_TOOL_IS_ALWAYS_PROOF_PRESERVING",
+      "verdict": "KILLED",
+      "counterexample": "COUNTEREXAMPLE_MINIMIZATION emits a candidate/reduced witness and scoped search evidence, not a proof-preserving transformation.",
+      "killed_by": [
+        "CLAIM_EVIDENCE_GRADE_CHECK",
+        "COUNTEREXAMPLE_MINIMIZATION"
+      ],
+      "survival_condition": "Only tools explicitly typed PROOF_PRESERVING, supplied with source proof objects and satisfied preconditions may transport theorem evidence."
+    },
+    {
+      "id": "PHILOSOPHY_LENS_CAN_BE_USED_AS_THEOREM",
+      "verdict": "KILLED",
+      "counterexample": "ONTOLOGICAL_COMMITMENT_LENS can call a BRC branch token 'primitive' but produces no factorization, reachability, or arithmetic proof.",
+      "killed_by": [
+        "ONTOLOGICAL_COMMITMENT_LENS",
+        "CLAIM_EVIDENCE_GRADE_CHECK"
+      ],
+      "survival_condition": "A lens may generate questions; theorem claims need independent proof/certificate."
+    },
+    {
+      "id": "MORE_CONTEXT_ALWAYS_HELPS",
+      "verdict": "KILLED",
+      "counterexample": "Under a bounded context/tool budget, injecting unrelated high-keyword tools can consume slots without adding typed coverage; the compiler therefore uses type/structural compatibility and sparse top-k advisory selection.",
+      "killed_by": [
+        "BOUNDARY_OF_VALIDATION_CHECK",
+        "FUTURE_LANGUAGE_RELATIVITY"
+      ],
+      "survival_condition": "Extra context helps only when it increases task-relevant semantic/evidence coverage more than its context/attention cost."
+    },
+    {
+      "id": "EVERY_HISTORICAL_DISTINCTION_SHOULD_BE_INJECTED_EVERYWHERE",
+      "verdict": "KILLED",
+      "counterexample": "A pure implication proof has no BRC carrier, future suffix, runtime cache, or causal-credit object; injecting all such distinctions adds no required input-type match.",
+      "killed_by": [
+        "STATE_CARRIER_REPRESENTATION_RESOURCE_SPLIT",
+        "CLAIM_EVIDENCE_GRADE_CHECK"
+      ],
+      "survival_condition": "Select distinctions only when input types and trigger signals match the current task."
+    },
+    {
+      "id": "ONE_UNIVERSAL_REASONING_CHECKLIST_SUITS_ALL_TASKS",
+      "verdict": "KILLED",
+      "counterexample": "ROOT_COVERAGE_EVIDENCE_CHECK is critical for a Lean integration claim but type-mismatched for a finite arithmetic identity with no build evidence.",
+      "killed_by": [
+        "ROOT_COVERAGE_EVIDENCE_CHECK",
+        "STATE_OBSERVATION_SPLIT"
+      ],
+      "survival_condition": "A registry may be universal as a catalogue; execution must remain task-relative and sparse."
+    },
+    {
+      "id": "TRIGGER_KEYWORD_MATCH_IS_SEMANTICALLY_COMPLETE",
+      "verdict": "KILLED",
+      "counterexample": "False positive: 'all tests passed' contains 'all' but need not assert a universal theorem. False negative: 'closed under arbitrary continuations' is a future-language claim without the token 'future'.",
+      "killed_by": [
+        "QUANTIFIER_SCOPE_CHECK",
+        "FUTURE_LANGUAGE_RELATIVITY"
+      ],
+      "survival_condition": "Keywords are weak features; structural metadata, types and semantic aliases are required."
+    },
+    {
+      "id": "A_TOOL_THAT_HELPED_ONCE_IS_REUSABLE",
+      "verdict": "KILLED",
+      "counterexample": "The p-th-power bracket preserves later lower/upper endpoint selection, but 5 and 8 have the same square bracket and separate after +1; the carrier is not universal.",
+      "killed_by": [
+        "QUOTIENT_STABILITY_SEARCH",
+        "FUTURE_LANGUAGE_RELATIVITY"
+      ],
+      "survival_condition": "Reuse requires the new task to satisfy the tool's typed preconditions and kill tests."
+    },
+    {
+      "id": "TOOL_COMPOSITION_IS_AUTOMATICALLY_SAFE",
+      "verdict": "KILLED",
+      "counterexample": "One-step exact quotient lifting composed twice can create a spurious path by stitching different fine middle representatives.",
+      "killed_by": [
+        "ONE_STEP_EXACT_NOT_COMPOSITION_SAFE",
+        "MIDDLE_INCIDENCE_CORRELATION_CHECK"
+      ],
+      "survival_condition": "Composition needs a registered composition rule and its preconditions."
+    },
+    {
+      "id": "PRIOR_ART_ROOTING_DESTROYS_PROJECT_SPECIFIC_VALUE",
+      "verdict": "KILLED",
+      "counterexample": "R021 roots generic powerset/relational/CEGAR ideas yet retains project-specific no-resurrection typing, suffix recoalescence boundary, arithmetic specializations and honest resource accounting.",
+      "killed_by": [
+        "PRIOR_ART_REDUCTION",
+        "PROJECT_SPECIFIC_RESIDUE_EXTRACTION"
+      ],
+      "survival_condition": "Root generic components first; evaluate the residual specialization separately. Rooting is not novelty and not annihilation."
+    },
+    {
+      "id": "THE_RESEARCH_REASONING_KERNEL_SHOULD_BECOME_A_NEW_MATHEMATICAL_FOUNDATION_PRIMITIVE",
+      "verdict": "KILLED",
+      "counterexample": "The kernel factors into known logic, type, abstract-interpretation, model-checking, causal and proof-planning ideas plus project-specific routing contracts; it is a research process layer, not an ontic primitive.",
+      "killed_by": [
+        "PRIOR_ART_REDUCTION",
+        "THEORY_REDUCTION_LENS"
+      ],
+      "survival_condition": "Promote individual mathematical theorems on their own merits; keep the registry as tooling/infrastructure."
+    }
+  ]
+}
