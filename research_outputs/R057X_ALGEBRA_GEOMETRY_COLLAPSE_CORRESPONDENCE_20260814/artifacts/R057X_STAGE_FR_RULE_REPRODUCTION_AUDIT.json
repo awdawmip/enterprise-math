@@ -1,0 +1,94 @@
+{
+  "clean_replay": {
+    "V1_scientific_reproduction_claim": false,
+    "V2_scientific_reproduction_claim": false,
+    "executed": false,
+    "why_not": "Exact clean replay requires both accepted A-H and G-I frozen joint-surface bytes. Reconstructing A from summaries/snippets or regenerating upstream A-H without the exact frozen generator/input workspace would not be a byte-identical input replay and could manufacture a new scientific state."
+  },
+  "epistemic_label": "FREEZE_IDENTITY_RECONCILIATION / DETERMINISTIC_REPLAY / NO_NEW_SCIENCE / NOT_THEOREM / NOT_CANONICAL",
+  "frozen_input_byte_availability": {
+    "A_nuisance_surface": {
+      "current_exact_bytes_recovered": false,
+      "expected_bytes": 50118,
+      "sha256": "ac58760ca6f460961e41287452127060e3e3d2dfd9cf069a65fc6029f1b06e6f",
+      "source_state": "hash + accepted Stage-H checkpoint/manifest/bundle provenance only"
+    },
+    "A_sample_surface": {
+      "current_exact_bytes_recovered": false,
+      "expected_bytes": 2089833,
+      "sha256": "4baad1a7c3528d9b147a3ee38fb5436a3e607a2141178a284f540bfc1ce5eaf3",
+      "source_state": "hash + accepted Stage-H checkpoint/manifest/bundle provenance only; sparse source does not carry large surface"
+    },
+    "A_stage_H_bundle": {
+      "current_bundle_recovered": false,
+      "sha256": "7985a4af5c118554411716b941633670b6429fcf905a72b6c166af9c5b457fd0"
+    },
+    "G_nuisance_surface": {
+      "current_surface_reference": "File Library full file reference exists",
+      "sha256": "14b198f6d1b87cc40454453e99046a946b7f841a6b76469fbbf2f84009b1e723"
+    },
+    "G_sample_surface": {
+      "current_surface_reference": "File Library full file reference exists; not substituted for missing A input",
+      "sha256": "f50c9cdab6143e6d1e5339bfb3079e30b56e70991bca40ce9225cfdcc2415c22"
+    }
+  },
+  "original_stage_f_science_contract": {
+    "G_unmatched": "EXPLICIT_DIAGNOSTIC",
+    "catalog_expansion": false,
+    "matched_only": "SENSITIVITY_ONLY",
+    "motif_catalog_count": 62,
+    "nuisance_rule": {
+      "covariance_concentration": "max leading-eigen share across transition endpoints",
+      "covariance_rotation": "abs(delta AREA_STAR_RUN_DEFECT_STAR correlation)",
+      "orientation": "G preserves frozen orientation balance; nothing imputed to A",
+      "packet_mixture_variation": "abs(delta motif_entropy)",
+      "phase": "preserve frozen phase balance",
+      "rank_rule": "lowest ceil(n/2) burden within each arm and nuisance observable; ties by later radius ascending; strict stratum = intersection",
+      "residual_blind": true
+    },
+    "primary_basis": "frozen D2",
+    "primary_exposure": "motif_count / ALL eligible cyclic k=2..6 windows",
+    "quartiles": {
+      "HIGH_absolute": "within-radius absolute-residual percentile >= 0.75",
+      "HIGH_signed": ">= 0.75",
+      "LOW_absolute": "<= 0.25",
+      "LOW_signed": "<= 0.25"
+    },
+    "scale_gate": {
+      "S_A": "sqrt(3)*R_A",
+      "S_G": "R_G",
+      "fitted_rescaling": false,
+      "interpolation": false,
+      "tolerance": "|log(S_A/S_G)| <= log(4/3)"
+    },
+    "taskbook_source": "8abe99ad7c2ea54cb112c7a96a4c92166ce47495"
+  },
+  "prohibitions_preserved": {
+    "D4_generator": false,
+    "K_expansion": false,
+    "R057Y": false,
+    "V1_overwrite": false,
+    "catalog_expansion": false,
+    "matched_only_promoted": false,
+    "new_feature_operator": false,
+    "new_teacher": false,
+    "nuisance_rule_change": false,
+    "optimizer": false,
+    "parser_assembly_readout_change": false,
+    "primary_denominator_change": false,
+    "quartile_change": false,
+    "refit": false,
+    "scale_gate_change": false
+  },
+  "recovery_attempts": {
+    "A_sparse_GitHub_source_head": "checkpoint/report/manifest found; large sample/nuisance surfaces intentionally not persisted",
+    "File_Library_search_for_A_sample_nuisance_bundle": "NOT_FOUND",
+    "V1_input_registry_historical_observation": "already records A sample/nuisance exact bytes as not recovered in the Stage-F executable runtime",
+    "current_runtime_recursive_search_for_A_surface_bundle_and_generator": "NOT_FOUND"
+  },
+  "researcher_id": "EM-R057X-5E8C41",
+  "rules_changed_in_FR": false,
+  "schema": "R057X_STAGE_FR_RULE_REPRODUCTION_AUDIT_V1",
+  "stage": "FR3",
+  "status": "CLEAN_REPLAY_PRECHECK_BLOCKED_BY_INCOMPLETE_EXACT_INPUT_BYTES"
+}
