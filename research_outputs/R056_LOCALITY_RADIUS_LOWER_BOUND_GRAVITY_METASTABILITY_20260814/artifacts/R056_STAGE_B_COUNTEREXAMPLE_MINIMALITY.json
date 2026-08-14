@@ -1,0 +1,86 @@
+{
+  "family": {
+    "DeltaG": "N_r*(7-r)-7",
+    "DeltaQsum": "7-r",
+    "DeltaS": "(-2,3)",
+    "Q_DeltaS": 7,
+    "connected_after_replacement": true,
+    "hole_free_after_replacement": true,
+    "r_7": {
+      "DeltaG": -7,
+      "DeltaQsum": 0,
+      "DeltaS": "(-2,3)",
+      "Q_DeltaS": 7,
+      "strict_descent": true
+    },
+    "r_ge_8": "DeltaQsum<=-1, hence DeltaG<=-N_r-7<0",
+    "support_diameter": 3,
+    "u": "(r,0)",
+    "u_boundary": true,
+    "v": "(r-2,3)",
+    "v_exterior": true
+  },
+  "frozen_multi_cell_minimality": {
+    "centroid_bound": "Q(DeltaS)<=4k^2",
+    "energy_bound": "DeltaG>=k*(3*N_r-4*k)>0",
+    "pairing_bound": "DeltaQsum>=3k",
+    "scope": "m in {1,2,3}, rho<=2, r>=7",
+    "strict_descent_exists": false
+  },
+  "generation": "R056",
+  "holdout": {
+    "opened": false,
+    "search_instantiated": false
+  },
+  "immutable_anchors": {
+    "R056_COMPUTATION_REGISTRY_SHA256": "d87e107b814090d4ec528a7a593d0119b26666fa82070a6e5c967f6dd6be09ea",
+    "R056_LOCALITY_MODEL_SHA256": "1f610591b3f32b1540da1fa55733faeb1ec1a1fff054902affb087626cda729a",
+    "R056_MULTI_REPLACEMENT_IDENTITY_SHA256": "a07325d019f9ebced6108d69f831aa72570fa3d2a3e43cd2726c1cb11f6cf8f6",
+    "R056_SHELL_ESCAPE_PROTOCOL_SHA256": "746d154f39f108c75c779cbeceb5ae6b35c4bb692c62486a2209766b316bb45a"
+  },
+  "minimality": {
+    "cooperative_multi_cell_move_required": false,
+    "minimal_established_support_radius": 3,
+    "minimal_moved_cell_count": 1
+  },
+  "primary_classification": "FINITE_LOCAL_COOPERATIVE_ESCAPE_FOUND",
+  "researcher_id": "EM-R056-BEC623",
+  "schema": "R056_STAGE_B_COUNTEREXAMPLE_MINIMALITY_V1",
+  "scope_guards": {
+    "cooperative_subset_enumeration_run": false,
+    "m_or_rho_changed": false,
+    "new_dynamics_introduced": false,
+    "stage0_files_modified": false,
+    "stageA_file_modified": false
+  },
+  "single_cell_minimality": {
+    "displacement_orbits": [
+      {
+        "lower_bound": "r+1",
+        "representative": "(1,0)"
+      },
+      {
+        "lower_bound": "2r",
+        "representative": "(2,0)"
+      },
+      {
+        "lower_bound": "3",
+        "representative": "(1,1)"
+      }
+    ],
+    "rho_at_most_2_pair_bound": "For every u in H_r and v outside H_r with d_L(u,v)<=2, Q(v)-Q(u)>=3.",
+    "theorem": "rho_1(r)=3 for all r>=7"
+  },
+  "stage": "B",
+  "status": "EXACT_COUNTEREXAMPLE_AND_MINIMALITY_PROVED",
+  "target_A": {
+    "claim": "For every fixed finite (m,rho), sufficiently large H_r has no admissible D(m,rho) strict descent.",
+    "counterexample_fixed_pair": {
+      "m": 1,
+      "rho": 3
+    },
+    "status": "FALSE_BY_EXACT_COUNTEREXAMPLE_FAMILY",
+    "valid_for": "all integers r>=7"
+  },
+  "task_id": "RS-R056-LOCALITY-RADIUS-LOWER-BOUND-GRAVITY-METASTABILITY"
+}
