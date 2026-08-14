@@ -30,16 +30,86 @@
   "hard_rejection_self_tests": {
     "summary": "PASS",
     "tests": [
-      {"expected_rejection_code":"READOUT_EQUALITY_NATIVE_PROMOTION","observed_codes":["READOUT_EQUALITY_NATIVE_PROMOTION"],"rejected":true,"test_id":"NEG-B01-READOUT-NATIVE"},
-      {"expected_rejection_code":"FALSE_T_RECONSTRUCTION","observed_codes":["FALSE_T_RECONSTRUCTION"],"rejected":true,"test_id":"NEG-B02-T-INVERTIBLE"},
-      {"expected_rejection_code":"U_REVERSAL_INVARIANCE_VIOLATION","observed_codes":["U_REVERSAL_INVARIANCE_VIOLATION"],"rejected":true,"test_id":"NEG-B03-U-REV-CHANGES"},
-      {"expected_rejection_code":"PATH_CANCELLATION_QUOTIENT_FORBIDDEN","observed_codes":["PATH_CANCELLATION_QUOTIENT_FORBIDDEN"],"rejected":true,"test_id":"NEG-B04-CANCEL-REV"},
-      {"expected_rejection_code":"PATH_COUNT_LENGTH_LEAKAGE","observed_codes":["PATH_COUNT_LENGTH_LEAKAGE"],"rejected":true,"test_id":"NEG-B05-PATH-LENGTH"},
-      {"expected_rejection_code":"PHYSICAL_CONSERVATION_INTERPRETATION","observed_codes":["PHYSICAL_CONSERVATION_INTERPRETATION"],"rejected":true,"test_id":"NEG-B06-PHYSICAL-FLUX"},
-      {"expected_rejection_code":"PATH_RANKING_FORBIDDEN","observed_codes":["PATH_RANKING_FORBIDDEN"],"rejected":true,"test_id":"NEG-B07-RANK-PATHS"},
-      {"expected_rejection_code":"C6_GEOMETRY_LEAKAGE","observed_codes":["C6_GEOMETRY_LEAKAGE"],"rejected":true,"test_id":"NEG-B08-C6-GEOMETRY"},
-      {"expected_rejection_code":"C6_PASSAGE_COMPOSITION_UNTYPED_ASSERTION","observed_codes":["C6_PASSAGE_COMPOSITION_UNTYPED_ASSERTION"],"rejected":true,"test_id":"NEG-B09-C6-NAIVE-M-ADDITIVE"},
-      {"expected_rejection_code":"R057_R058S_GEOMETRY_LEAKAGE","observed_codes":["R057_R058S_GEOMETRY_LEAKAGE"],"rejected":true,"test_id":"NEG-B10-PRIOR-GEOMETRY"}
+      {
+        "expected_rejection_code": "READOUT_EQUALITY_NATIVE_PROMOTION",
+        "observed_codes": [
+          "READOUT_EQUALITY_NATIVE_PROMOTION"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B01-READOUT-NATIVE"
+      },
+      {
+        "expected_rejection_code": "FALSE_T_RECONSTRUCTION",
+        "observed_codes": [
+          "FALSE_T_RECONSTRUCTION"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B02-T-INVERTIBLE"
+      },
+      {
+        "expected_rejection_code": "U_REVERSAL_INVARIANCE_VIOLATION",
+        "observed_codes": [
+          "U_REVERSAL_INVARIANCE_VIOLATION"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B03-U-REV-CHANGES"
+      },
+      {
+        "expected_rejection_code": "PATH_CANCELLATION_QUOTIENT_FORBIDDEN",
+        "observed_codes": [
+          "PATH_CANCELLATION_QUOTIENT_FORBIDDEN"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B04-CANCEL-REV"
+      },
+      {
+        "expected_rejection_code": "PATH_COUNT_LENGTH_LEAKAGE",
+        "observed_codes": [
+          "PATH_COUNT_LENGTH_LEAKAGE"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B05-PATH-LENGTH"
+      },
+      {
+        "expected_rejection_code": "PHYSICAL_CONSERVATION_INTERPRETATION",
+        "observed_codes": [
+          "PHYSICAL_CONSERVATION_INTERPRETATION"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B06-PHYSICAL-FLUX"
+      },
+      {
+        "expected_rejection_code": "PATH_RANKING_FORBIDDEN",
+        "observed_codes": [
+          "PATH_RANKING_FORBIDDEN"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B07-RANK-PATHS"
+      },
+      {
+        "expected_rejection_code": "C6_GEOMETRY_LEAKAGE",
+        "observed_codes": [
+          "C6_GEOMETRY_LEAKAGE"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B08-C6-GEOMETRY"
+      },
+      {
+        "expected_rejection_code": "C6_PASSAGE_COMPOSITION_UNTYPED_ASSERTION",
+        "observed_codes": [
+          "C6_PASSAGE_COMPOSITION_UNTYPED_ASSERTION"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B09-C6-NAIVE-M-ADDITIVE"
+      },
+      {
+        "expected_rejection_code": "R057_R058S_GEOMETRY_LEAKAGE",
+        "observed_codes": [
+          "R057_R058S_GEOMETRY_LEAKAGE"
+        ],
+        "rejected": true,
+        "test_id": "NEG-B10-PRIOR-GEOMETRY"
+      }
     ],
     "tests_rejected_as_required": 10,
     "tests_total": 10
@@ -59,27 +129,111 @@
   "overall_summary": "PASS",
   "positive_validation": {
     "gates": [
-      {"detail":"2a2ac4fd06c46a49bfdcfdb5de2c585f83015062","gate_id":"B-G01-TASKBOOK-SOURCE","passed":true},
-      {"detail":"Stage-B branch must be created from exact Stage-A head 4d196b916c815f665ea725f40ee5fb48ef76b10e","gate_id":"B-G02-FROZEN-PARENT-ANCHOR","passed":true},
-      {"detail":"Stage-B filenames are disjoint from all frozen Stage-0/Stage-A artifact filenames","gate_id":"B-G03-DISJOINT-WRITE-SET","passed":true},
-      {"detail":"13 unique path histories checked","gate_id":"B-G04-ALL-REGRESSION-PATHS-LEGAL","passed":true},
-      {"detail":"independent recomputation on every registry path","gate_id":"B-G05-SUM-T-EQUALS-N","passed":true},
-      {"detail":"independent recomputation on every registry path","gate_id":"B-G06-SUM-U-EQUALS-N","passed":true},
-      {"detail":"join creates no transition","gate_id":"B-G07-T-CONCAT-ADDITIVE","passed":true},
-      {"detail":"derived from exact transition multiset split","gate_id":"B-G08-U-CONCAT-ADDITIVE","passed":true},
-      {"detail":"all registry paths","gate_id":"B-G09-T-REV-TRANSPOSE","passed":true},
-      {"detail":"all registry paths","gate_id":"B-G10-U-REV-INVARIANT","passed":true},
-      {"detail":"including closed, revisit, reversal and repeated-adjacency cases","gate_id":"B-G11-ROW-COL-ENDPOINT","passed":true},
-      {"detail":"finite consecutive-pair counting is a deterministic function","gate_id":"B-G12-H0-TO-H1-DETERMINISTIC","passed":true},
-      {"detail":"preferred exact witness accepted","gate_id":"B-G13-H1-TO-H0-NONRECONSTRUCTIBLE","passed":true},
-      {"detail":"both A->A histories","gate_id":"B-G14-PREFERRED-WITNESS-SAME-ENDPOINTS","passed":true},
-      {"detail":"shared join counted once","gate_id":"B-G15-VISIT-CONCAT-JOIN-CORRECTION","passed":true},
-      {"detail":"set membership exact","gate_id":"B-G16-SUPPORT-CONCAT-UNION","passed":true},
-      {"detail":"all registry paths","gate_id":"B-G17-VISIT-TOTAL-N-PLUS-ONE","passed":true},
-      {"detail":"closed cyclic-shift witness","gate_id":"B-G18-H1-ENDPOINT-DATA-NEEDED-FOR-H3-GENERALLY","passed":true},
-      {"detail":"typing firewall","gate_id":"B-G19-READOUT-EQUALITY-NOT-NATIVE-EQUALITY","passed":true},
-      {"detail":"aggregate state lacks ordered boundary-event channel selector","gate_id":"B-G20-C6-COMPOSITION-TYPING","passed":true},
-      {"detail":"no geometry/metric/physical/cancellation work","gate_id":"B-G21-FORBIDDEN-WORK-NONE","passed":true}
+      {
+        "detail": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062",
+        "gate_id": "B-G01-TASKBOOK-SOURCE",
+        "passed": true
+      },
+      {
+        "detail": "Stage-B branch must be created from exact Stage-A head 4d196b916c815f665ea725f40ee5fb48ef76b10e",
+        "gate_id": "B-G02-FROZEN-PARENT-ANCHOR",
+        "passed": true
+      },
+      {
+        "detail": "Stage-B filenames are disjoint from all frozen Stage-0/Stage-A artifact filenames",
+        "gate_id": "B-G03-DISJOINT-WRITE-SET",
+        "passed": true
+      },
+      {
+        "detail": "13 unique path histories checked",
+        "gate_id": "B-G04-ALL-REGRESSION-PATHS-LEGAL",
+        "passed": true
+      },
+      {
+        "detail": "independent recomputation on every registry path",
+        "gate_id": "B-G05-SUM-T-EQUALS-N",
+        "passed": true
+      },
+      {
+        "detail": "independent recomputation on every registry path",
+        "gate_id": "B-G06-SUM-U-EQUALS-N",
+        "passed": true
+      },
+      {
+        "detail": "join creates no transition",
+        "gate_id": "B-G07-T-CONCAT-ADDITIVE",
+        "passed": true
+      },
+      {
+        "detail": "derived from exact transition multiset split",
+        "gate_id": "B-G08-U-CONCAT-ADDITIVE",
+        "passed": true
+      },
+      {
+        "detail": "all registry paths",
+        "gate_id": "B-G09-T-REV-TRANSPOSE",
+        "passed": true
+      },
+      {
+        "detail": "all registry paths",
+        "gate_id": "B-G10-U-REV-INVARIANT",
+        "passed": true
+      },
+      {
+        "detail": "including closed, revisit, reversal and repeated-adjacency cases",
+        "gate_id": "B-G11-ROW-COL-ENDPOINT",
+        "passed": true
+      },
+      {
+        "detail": "finite consecutive-pair counting is a deterministic function",
+        "gate_id": "B-G12-H0-TO-H1-DETERMINISTIC",
+        "passed": true
+      },
+      {
+        "detail": "preferred exact witness accepted",
+        "gate_id": "B-G13-H1-TO-H0-NONRECONSTRUCTIBLE",
+        "passed": true
+      },
+      {
+        "detail": "both A->A histories",
+        "gate_id": "B-G14-PREFERRED-WITNESS-SAME-ENDPOINTS",
+        "passed": true
+      },
+      {
+        "detail": "shared join counted once",
+        "gate_id": "B-G15-VISIT-CONCAT-JOIN-CORRECTION",
+        "passed": true
+      },
+      {
+        "detail": "set membership exact",
+        "gate_id": "B-G16-SUPPORT-CONCAT-UNION",
+        "passed": true
+      },
+      {
+        "detail": "all registry paths",
+        "gate_id": "B-G17-VISIT-TOTAL-N-PLUS-ONE",
+        "passed": true
+      },
+      {
+        "detail": "closed cyclic-shift witness",
+        "gate_id": "B-G18-H1-ENDPOINT-DATA-NEEDED-FOR-H3-GENERALLY",
+        "passed": true
+      },
+      {
+        "detail": "typing firewall",
+        "gate_id": "B-G19-READOUT-EQUALITY-NOT-NATIVE-EQUALITY",
+        "passed": true
+      },
+      {
+        "detail": "aggregate state lacks ordered boundary-event channel selector",
+        "gate_id": "B-G20-C6-COMPOSITION-TYPING",
+        "passed": true
+      },
+      {
+        "detail": "no geometry/metric/physical/cancellation work",
+        "gate_id": "B-G21-FORBIDDEN-WORK-NONE",
+        "passed": true
+      }
     ],
     "gates_passed": 21,
     "gates_total": 21,
@@ -87,8 +241,20 @@
   },
   "preferred_nonidentifiability_witness": {
     "T_equal": true,
-    "eta": ["A","C","A","B","A"],
-    "gamma": ["A","B","A","C","A"],
+    "eta": [
+      "A",
+      "C",
+      "A",
+      "B",
+      "A"
+    ],
+    "gamma": [
+      "A",
+      "B",
+      "A",
+      "C",
+      "A"
+    ],
     "gamma_not_eta": true
   },
   "regression_case_count": 12,
