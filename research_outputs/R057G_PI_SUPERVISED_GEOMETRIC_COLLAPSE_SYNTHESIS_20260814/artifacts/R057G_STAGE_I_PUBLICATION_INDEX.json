@@ -1,0 +1,66 @@
+{
+  "artifacts": {
+    "R057G_FROZEN_SAMPLE_RESIDUAL_MOTIF_EXPOSURE.json": {
+      "bytes": 1467133,
+      "sha256": "f50c9cdab6143e6d1e5339bfb3079e30b56e70991bca40ce9225cfdcc2415c22"
+    },
+    "R057G_FROZEN_TRANSITION_NUISANCE_SURFACE.json": {
+      "bytes": 44983,
+      "sha256": "14b198f6d1b87cc40454453e99046a946b7f841a6b76469fbbf2f84009b1e723"
+    },
+    "R057G_JOINT_SURFACE_INPUT_REGISTRY.json": {
+      "bytes": 4860,
+      "sha256": "2fa607ac9857caec76051be46ed1c0109da0cb1dddc1a3111db0872f070afcf0"
+    },
+    "R057G_STAGE_I_JOINT_SURFACE_CHECKPOINT.json": {
+      "bytes": 2429,
+      "sha256": "a963b2fa951435655885b7eca4ec1d01561825bbb712396aab3516405560171f"
+    },
+    "R057G_STAGE_I_JOINT_SURFACE_CHECK_RESULTS.json": {
+      "bytes": 11185,
+      "sha256": "458e9a97c5681f0aa0e1ec57993de7d690793950713868b9755e6d6210ac521a"
+    }
+  },
+  "parent_stage_h_checkpoint_sha256": "21f051e5f2cfe276a1a746112968ca7d8ca6dedee2efe9fe006da94e47f9726b",
+  "prohibitions": {
+    "K_expansion": false,
+    "R057Y_read": false,
+    "coefficient_refit": false,
+    "generator_invention": false,
+    "new_A_numeric_surface_read": false,
+    "new_operator": false,
+    "new_teacher": false,
+    "optimizer": false,
+    "segmentation_assembly_readout_change": false
+  },
+  "r057x_stage_e_common_component_checkpoint_sha256": "3937572b2f8099c9e125a86ccf90ec9aad6f9470b0af9ec4b8026df67796385",
+  "researcher_id": "EM-R057G-93D4A8",
+  "schema": "R057G_STAGE_I_PUBLICATION_INDEX_V1",
+  "scripts": {
+    "r057g_stage_i_checker.py": {
+      "bytes": 6321,
+      "sha256": "8a42efaffb4e335fadc68d0f6d94b52ac57e579c73487ea8e5ebf205fb914739"
+    },
+    "r057g_stage_i_joint_surface.py": {
+      "bytes": 31704,
+      "sha256": "bdb3d983df53d2aabae36921ab88d94e89d27d0be30b96b2eb87b6b6a4c533f1"
+    }
+  },
+  "status": "FROZEN_STAGE_I_DRIVER_REVIEW",
+  "surface": {
+    "all_cyclic_windows_k2_6": true,
+    "deployment_blocks_only": false,
+    "eligible_windows": 285655,
+    "matched_windows": 64608,
+    "motif_catalog_count": 62,
+    "sample_count": 120,
+    "unmatched_windows": 221047
+  },
+  "taskbook_source_commit": "d7f379be95c0e31e130e9b9c088fcaf1e1fd7815",
+  "validation": {
+    "byte_reproduction": "PASS_5_OF_5",
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH",
+    "independent_checker": "PASS_8097_OF_8097",
+    "main_checks": "PASS_115_OF_115"
+  }
+}
