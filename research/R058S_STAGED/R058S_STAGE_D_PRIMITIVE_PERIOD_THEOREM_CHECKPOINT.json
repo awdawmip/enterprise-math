@@ -1,0 +1,96 @@
+{
+  "artifact_sha256": {
+    "R058S_FINITE_STRAIGHT_SEGMENT_PERIOD_TAIL_THEOREM.md": "a330d86cc74dc1c84a57d55ce40cc4cd1f9762c9648c61f83e360a3b9fa3ee3a",
+    "R058S_PERIOD_DIVISIBILITY_CONSISTENCY_AUDIT.json": "77447b64d8f9207fc9e32fd6600689ba85699c263d98095f4d8513ce854d8555",
+    "R058S_PRIMITIVE_PERIOD_COLLAPSE_THEOREM.md": "bd0cfebdf45338d1cc57694b9b690ec3b29f263b92e9f42a449000271f5da147",
+    "R058S_SQUARE_PERIOD_TAIL_IMPLICATION_LEDGER.json": "c4f6bfee8f59b09a2a092c69703539cdc91fdddf2f0c66cab1db4edb254dbc44",
+    "R058S_STAGE_D_CHECK_RESULTS.json": "a65b31729087b339e64ff2588fdb2c9b4a612e0baa5302a9f7ff637d4dc00ae4"
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "converse_audit": {
+    "counterexample": "minimal m=2 alternating collinear positive steps 1,2 has exact k=1",
+    "m_divides_k_is_necessary_in_general": false,
+    "m_divides_k_is_sufficient": true,
+    "stage_c_finite_observation_status": "STAGE_C_EXACTNESS_MATCHES_PERIOD_DIVISIBILITY_ON_FROZEN_56_PAIRS"
+  },
+  "firewall": {
+    "B1_bytes_modified": false,
+    "empirical_K_gt_8_square_search": false,
+    "holdout_consumed": false,
+    "new_grammar": false,
+    "new_predicate_operator": false,
+    "new_square_predictions": false,
+    "optimizer": false,
+    "r057_fitted_prior_consumed": false,
+    "rectangle_cube_circle_pi": false,
+    "refit": false
+  },
+  "frozen_parent": {
+    "stage_a_checkpoint_sha256": "e43da09e347503223cde29de378570e76e79e63f44fe2bd9195b6a7dd6b1a925",
+    "stage_b1_checkpoint_sha256": "00faf065bb1769f4df7d7e51cec8b8754c414f280666d785adc7ed554acd753b",
+    "stage_b2_checkpoint_sha256": "eec1e395b8805d8d720648b7a4e1f70dc74a2bd2fdcff91d1d8537c9d052d5c1",
+    "stage_c_checker": "6451/6451 PASS",
+    "stage_c_checkpoint_sha256": "22f285cc876ce9624200a1ff4d58b910a7d698c1d0fbb0ec455409396fd809bb",
+    "stage_c_exact_head": "4cde24e1e8e9a0a78822a6b3e01dc54a452eb0de",
+    "stage_c_protocol_sha256": "acf22b9d2f256b0dccfa210abce69e2e994205a39d19bc3bed945026d75e78b9"
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "independent_checker": {
+    "fail_count": 0,
+    "pass_count": 451,
+    "sha256": "a65b31729087b339e64ff2588fdb2c9b4a612e0baa5302a9f7ff637d4dc00ae4",
+    "status": "PASS"
+  },
+  "next_gate": "STOP_FOR_DRIVER_REVIEW",
+  "proposal": {
+    "deployed": false,
+    "label": "POST_STAGE_C_PRIMITIVE_PERIOD_COLLAPSE_OPERATOR_PROPOSAL",
+    "square_predictor_run": false
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_STAGE_D_PRIMITIVE_PERIOD_THEOREM_CHECKPOINT_V1",
+  "stage": "D",
+  "stage_c_consistency": {
+    "agreement_count": 56,
+    "exact_pair_count": 8,
+    "frozen_pair_count": 56,
+    "minimal_word_periods": [
+      2,
+      4,
+      8,
+      14,
+      6,
+      10,
+      10,
+      16
+    ],
+    "period_edge_counts": [
+      2,
+      4,
+      8,
+      14,
+      6,
+      10,
+      10,
+      16
+    ]
+  },
+  "status": "FROZEN_STAGE_D_PRIMITIVE_PERIOD_THEOREM_CHECKPOINT",
+  "stronger_exact_result": {
+    "euclidean_equality_criterion": "all nonzero k-step chord vectors lie on the nonnegative ray of t",
+    "proof_key": "sum over one period of all k-step chord vectors equals k*t; triangle inequality",
+    "statement": "for every periodic polygonal path, Lhat_(m,k) >= ||t|| for all k>=1"
+  },
+  "taskbook": {
+    "blob_sha1": "a1aef15e63e1f971b6023090916030e4f4a876ed",
+    "path": "research_tasks/R058S_STAGE_D_PRIMITIVE_PERIOD_COLLAPSE_THEOREM_20260814.md",
+    "source_commit": "95bb81abb49511ff92a610421d106579f76cc7ff"
+  },
+  "theorem_statuses": [
+    "PRIMITIVE_PERIOD_WHOLE_CHORD_THEOREM_PROVED",
+    "STRAIGHT_EDGE_BULK_EXACT_AFTER_PERIOD_COLLAPSE",
+    "FINITE_SIDE_TAIL_LOCALIZATION_PROVED",
+    "SQUARE_ERROR_REDUCED_TO_FINITE_PERIOD_TAILS_AND_CORNER_LAYERS",
+    "CORNER_GENERATOR_STILL_OPEN"
+  ]
+}
