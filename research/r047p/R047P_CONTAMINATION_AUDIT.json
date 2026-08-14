@@ -1,0 +1,27 @@
+{
+  "schema": "R047P_CONTAMINATION_AUDIT_V1",
+  "task_id": "RS-R047P-NATIVE-MECHANISM-BLIND-FOUNDATION-PROJECT-ARM",
+  "researcher_id": "EM-R047P-4A73D2",
+  "candidate_set_sha256": "bf309a1b6d0bebf10a58345af768bac0b63747934eccb63538d0e0fe6cf0d494",
+  "calibration": "NOT_OPENED",
+  "canonicality": "NOT_CANONICAL",
+  "verdict": "CONTEXT_CONTAMINATION_RISK / CANDIDATE_GENERATION_QUARANTINED",
+  "events": [
+    {"id":"CCR-01","source":"pre-existing project/chat context","status":"INCIDENTALLY_VISIBLE_BEFORE_GENERATION","handling":"Quarantined. No target-specific item from surrounding context was used to originate, alter, rank, or kill any candidate."},
+    {"id":"CCR-02","source":"account-level synchronization metadata response","status":"UNAVOIDABLE_TOOL_RESPONSE_OVEREXPOSURE","handling":"The overexposed payload was not searched further, summarized into candidate logic, or used as a design/ranking signal."},
+    {"id":"CCR-03","source":"allowlisted calibration seal metadata","status":"AUTHORIZED_METADATA_ONLY","handling":"Used only to confirm that a precommitted target exists and remains unopened; sealed target content was not fetched."}
+  ],
+  "negative_checks": {
+    "r046_outputs_read": false,
+    "pr_534_opened": false,
+    "r046_global_knowledge_consumed": false,
+    "r046_research_conversation_consumed_for_generation": false,
+    "sealed_calibration_target_opened": false,
+    "classical_numeric_target_used": false,
+    "classical_prior_art_used_before_freeze": false,
+    "candidate_mutated_from_incidental_target_information": false,
+    "candidate_ranked_or_killed_from_incidental_target_information": false
+  },
+  "generation_basis": "Only the taskbook-allowlisted Foundation logic, Gate V3, blind Foundation packet, and permitted seal metadata were admitted as mathematical generation inputs.",
+  "blind_claim_scope": "Blind claim applies to candidate definitions, parameter domains, theorem boundaries, and internal Pareto description recorded by the candidate_set_sha256."
+}
