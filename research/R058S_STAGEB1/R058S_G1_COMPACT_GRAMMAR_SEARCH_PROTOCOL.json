@@ -1,0 +1,267 @@
+{
+  "capacity_freeze": {
+    "frozen_before_any_candidate_teacher_loss": true,
+    "k_range": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "stage_a_checkpoint_sha256": "e43da09e347503223cde29de378570e76e79e63f44fe2bd9195b6a7dd6b1a925",
+    "stage_a_exact_head": "8c418c63531ffe329734a82a2c6b99080ad73021",
+    "teacher_loss_read_started_at_freeze": false
+  },
+  "composition_space": {
+    "all_compositions_allowed_for_g0": true,
+    "collapse_count": "1 + split_count",
+    "composition_order": "increasing split_count, then lexicographic split-position tuple",
+    "ordered_composition_encoding": "split-position tuple S subset {1,...,k-1}; block lengths are consecutive differences of (0,S,k)",
+    "reverse_composition": "split set S maps to sorted(k-r for r in S)"
+  },
+  "description_units": {
+    "constant_formula": "k_selector + leaf_composition",
+    "each_integer_parameter": 1,
+    "equivariant_stump_formula": "program_root_overhead + k_selector + score_opcode + integer_parameter_count + plus_leaf + zero_leaf + mirror_operator",
+    "implicit_reflected_negative_leaf": 0,
+    "invariant_stump_formula": "program_root_overhead + k_selector + predicate_opcode + integer_parameter_count + true_leaf + false_leaf",
+    "k_selector": 1,
+    "leaf_composition": "1 + split_count",
+    "predicate_or_score_opcode": 1,
+    "program_root_overhead": 1,
+    "reflection_mirror_operator_for_equivariant_stump": 1
+  },
+  "deterministic_candidate_order": {
+    "compositions": "increasing split_count then lexicographic split tuple",
+    "k": "ascending 2..8",
+    "leaf_nested_order": "pi_true/plus outer, pi_false/zero inner",
+    "parameters": "ascending lexicographic integer tuple",
+    "predicate_family": "listed order above",
+    "program_family": "G1_CONSTANT, then G1_INVARIANT_BOOLEAN_STUMP, then G1_REFLECTION_EQUIVARIANT_TERNARY_STUMP"
+  },
+  "firewall": {
+    "all_cyclic_readout_modification": false,
+    "canonical_packet_class_id_as_g1_predicate": false,
+    "forbidden_role_fields": [
+      "SIDE_INTERIOR",
+      "CORNER_NEAR",
+      "teacher corner index",
+      "teacher corner distance",
+      "square side index"
+    ],
+    "forbidden_sample_metadata": [
+      "sample id",
+      "side length",
+      "square orientation",
+      "phase"
+    ],
+    "holdout_generation_or_consumption": false,
+    "k_gt_8": false,
+    "r057_fitted_prior_consumption": false,
+    "sample_metadata_as_grammar_input": false,
+    "segmentation_optimization": false,
+    "teacher_role_labels_allowed": false
+  },
+  "g1_program_space": {
+    "G1_CONSTANT": {
+      "leaf_space": "all ordered compositions",
+      "semantics": "one ordered composition for all packets of one fixed k"
+    },
+    "G1_INVARIANT_BOOLEAN_STUMP": {
+      "leaf_space": "reversal-symmetric ordered compositions only for both leaves",
+      "predicate_families": [
+        {
+          "name": "ABS_NET_TURN_GE",
+          "params": "threshold t=1..k-1",
+          "value": "abs(sum(turn_word)) >= t"
+        },
+        {
+          "name": "TURN_SIGN_CHANGE_COUNT_GE",
+          "params": "threshold t=1..k-2",
+          "value": "number of adjacent turn-sign changes >= t"
+        },
+        {
+          "name": "MAX_SAME_SIGN_TURN_RUN_GE",
+          "params": "threshold t=2..k-1",
+          "value": "maximum same-sign run length in turn_word >= t"
+        },
+        {
+          "name": "PREFIX_SUFFIX_Q_EQUAL",
+          "params": "r=1..floor(k/2)",
+          "value": "q(0,r) == q(k-r,k)"
+        },
+        {
+          "name": "WHOLE_Q_LT_SYM_SPLIT_SUM_MIN",
+          "params": "r=1..floor(k/2)",
+          "value": "q(0,k) < min(q(0,r)+q(r,k), q(0,k-r)+q(k-r,k))"
+        },
+        {
+          "name": "WHOLE_Q_GT_SYM_SPLIT_SUM_MAX",
+          "params": "r=1..floor(k/2)",
+          "value": "q(0,k) > max(q(0,r)+q(r,k), q(0,k-r)+q(k-r,k))"
+        },
+        {
+          "name": "PREFIX_SUFFIX_DOT_NONPOS",
+          "params": "r=1..floor(k/2)",
+          "value": "dot(chord(0,r), chord(k-r,k)) <= 0"
+        },
+        {
+          "name": "PREFIX_SUFFIX_DET_ZERO",
+          "params": "r=1..floor(k/2)",
+          "value": "det(chord(0,r), chord(k-r,k)) == 0"
+        }
+      ],
+      "semantics": "IF invariant predicate P(packet) THEN pi_true ELSE pi_false"
+    },
+    "G1_REFLECTION_EQUIVARIANT_TERNARY_STUMP": {
+      "leaf_space": "pi_plus any ordered composition; pi_zero reversal-symmetric ordered composition; negative leaf is implicit mirror",
+      "score_families": [
+        {
+          "name": "PREFIX_SUFFIX_Q_DIFF",
+          "params": "r=1..floor(k/2)",
+          "value": "q(0,r)-q(k-r,k)"
+        },
+        {
+          "name": "PREFIX_SUFFIX_ABS_NET_TURN_DIFF",
+          "params": "r=1..floor((k-1)/2)",
+          "value": "abs(sum(first r turns))-abs(sum(last r turns))"
+        },
+        {
+          "name": "PREFIX_SUFFIX_SIGN_CHANGE_DIFF",
+          "params": "r=2..floor((k-1)/2)",
+          "value": "sign_change_count(first r turns)-sign_change_count(last r turns)"
+        },
+        {
+          "name": "PREFIX_SUFFIX_MAX_RUN_DIFF",
+          "params": "r=1..floor((k-1)/2)",
+          "value": "max_same_sign_run(first r turns)-max_same_sign_run(last r turns)"
+        }
+      ],
+      "semantics": "compute exact antisymmetric score A; if A>0 use pi_plus; if A<0 use reverse(pi_plus); if A=0 use reversal-symmetric pi_zero"
+    },
+    "max_leaf_count": 3,
+    "max_predicate_nodes": 1,
+    "max_tree_depth": 1,
+    "nested_predicates_allowed": false,
+    "program_families": [
+      "G1_CONSTANT",
+      "G1_INVARIANT_BOOLEAN_STUMP",
+      "G1_REFLECTION_EQUIVARIANT_TERNARY_STUMP"
+    ]
+  },
+  "g1_search_procedure": {
+    "candidate_semantics": "packet-level; aggregation by identical teacher-free direction words is an implementation acceleration only and is not a grammar predicate",
+    "early_stopping": false,
+    "enumeration": "exhaust every candidate in the frozen G1 program space for each k",
+    "stopping_rule": "all frozen candidates evaluated for every k"
+  },
+  "g2_high_capacity_benchmark": {
+    "canonical_frame_output": "class stores an ordered composition in canonical traversal frame; rotations preserve split positions; reflected occurrences map split r back to k-r using the deterministic first canonicalizing D6 action",
+    "class_order": "ascending canonical key",
+    "composition_order": "same frozen composition order",
+    "global_optimum_label": "GLOBAL_OPTIMUM_NOT_CLAIMED",
+    "key": "frozen corrected spatial-D6 canonical packet class only",
+    "max_full_sweeps": 12,
+    "objective_order": [
+      "RMSE",
+      "worst_absolute_error",
+      "MAE",
+      "orientation_stability_metric",
+      "phase_stability_metric",
+      "candidate_order"
+    ],
+    "optimizer": "deterministic discrete coordinate descent over classes and all ordered compositions",
+    "seeds": [
+      "G0 minimum-RMSE universal composition",
+      "G0 balanced universal composition",
+      "identity composition",
+      "whole-chord composition"
+    ],
+    "status_label": "HIGH_CAPACITY_REFERENCE",
+    "stopping_rule": "first full class sweep with no objective improvement, else 12 sweeps"
+  },
+  "g3_policy": {
+    "default_for_stage_b1": "NOT_EXECUTED unless a separate post-G2 compression is scientifically necessary; no teacher-role information may be used",
+    "optional": true
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "local_input_semantics": {
+    "all_predicate_evaluation": "exact integer/rational arithmetic from frozen direction word / x6,y6 geometry",
+    "allowed": [
+      "k",
+      "ordered turn word",
+      "turn equality/sign-change/run relations",
+      "endpoint squared chord q",
+      "prefix/suffix/subblock squared chord q",
+      "exact comparisons among local chord quantities",
+      "exact dot/determinant relations among local chord vectors",
+      "D6-invariant/equivariant derived local relations"
+    ],
+    "local_zero_turn_not_used_as_straight_proxy": true
+  },
+  "metrics": {
+    "P_hat": "(1/k) * sum over every cyclic packet start of selected composition chord sum",
+    "orientation_stability_metric": "RMS across 4 orientation mean relative biases",
+    "phase_stability_metric": "RMS across 12 phase mean relative biases",
+    "relative_error_denominator": "4*s",
+    "reported": [
+      "signed_error",
+      "RMSE",
+      "MAE",
+      "worst_absolute_error",
+      "relative_error",
+      "per_scale_bias",
+      "per_orientation_bias_and_spread",
+      "per_phase_bias_and_spread",
+      "description_units"
+    ],
+    "sample_error": "P_hat - 4*s"
+  },
+  "next_gate": "STOP_FOR_DRIVER_REVIEW_AFTER_FIRST_SERIOUS_CHECKPOINT",
+  "numerical_boundary": {
+    "branch_predicates_and_classification": "exact integer/rational only",
+    "chord_length": "sqrt(exact rational q) evaluated numerically only after local exact q is fixed",
+    "finalist_recheck": "100 decimal digits using mpmath for every reported winner and any candidate within 1e-10 relative objective distance of a preceding winner component",
+    "global_optimum_label": "GLOBAL_OPTIMUM_NOT_CLAIMED despite exhaustive discrete enumeration because objective comparison contains irrational numerical readouts",
+    "search_acceleration": "IEEE-754 binary64 vectorized evaluation",
+    "unresolved_near_tie_policy": "if high-precision ordering remains unresolved at 1e-70, preserve tie and use deterministic candidate order; do not claim exact algebraic ordering"
+  },
+  "publication": {
+    "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+    "compact_json_only": true,
+    "no_stage_a_chunk_republication": true
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_G1_COMPACT_GRAMMAR_SEARCH_PROTOCOL_V1",
+  "selection_and_pareto": {
+    "g0_fit_winner_order": [
+      "RMSE",
+      "worst_absolute_error",
+      "MAE",
+      "description_units",
+      "candidate_order"
+    ],
+    "g1_balanced_winner_order": [
+      "worst_relative_error",
+      "RMS_relative_error",
+      "orientation_stability_metric",
+      "phase_stability_metric",
+      "MAE_relative_error",
+      "description_units",
+      "candidate_order"
+    ],
+    "g1_min_rmse_candidate_also_reported": true,
+    "pareto_dimensions": [
+      "RMS_relative_error",
+      "worst_relative_error",
+      "description_units",
+      "orientation_stability_metric",
+      "phase_stability_metric"
+    ],
+    "pareto_dominance": "weakly no worse in every dimension and strictly better in at least one"
+  },
+  "stage": "B1",
+  "status": "FROZEN_PRE_TEACHER_LOSS"
+}
