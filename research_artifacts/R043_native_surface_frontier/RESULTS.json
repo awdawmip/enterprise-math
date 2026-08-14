@@ -1,0 +1,149 @@
+{
+  "schema": "ENTERPRISE_MATH_R043_NATIVE_SURFACE_FRONTIER_V1",
+  "task_id": "RS-R043-NATIVE-SURFACE-FRONTIER-RECONSTRUCTION-MARKOV-CARRIER",
+  "researcher_id": "EM-R043-8C2F71",
+  "taskbook_source": "41afbdf37f70b1fc484f7a49bc68880826ead31d",
+  "frozen_dependencies": {
+    "R041_owner_head": "688661e76255b3e86df6d5c69695f2932b650740",
+    "R039_owner_head": "c484fb85385b8498982aaa939171957588c836d7"
+  },
+  "status": "SEMANTIC_CHECKPOINT / BOUNDED_G0_RECONSTRUCTION_POSITIVE / GLOBAL_STATIONARY_OPEN",
+  "atlas": {
+    "fcc": {
+      "class_counts_N1_to_N8": [1, 1, 4, 20, 131, 1211, 12734, 144158],
+      "total_N_le_8": 158260,
+      "g0_safe_invariant_unique": 158260,
+      "g0_collision_candidates": 0,
+      "cross_size_collision_candidates": 0
+    },
+    "hcp": {
+      "class_counts_N1_to_N8": [1, 2, 9, 57, 460, 4641, 50353, 575375],
+      "total_N_le_8": 630898,
+      "g0_safe_invariant_unique": 630898,
+      "g0_collision_candidates": 0,
+      "cross_size_collision_candidates": 0,
+      "symmetry_caveat": "Frozen 24-representative HCP quotient inherited from R039; crystallographic completeness remains an L4 audit item."
+    }
+  },
+  "g0_consequences": {
+    "bounded_injectivity_N_le_8": "PROVED_BY_ISOMORPHISM_NECESSARY_INVARIANT_SEPARATION",
+    "bounded_G0_to_B3": "PASS",
+    "bounded_G0_to_B4": "PASS",
+    "bounded_G0_to_any_fixed_Bh": "PASS_AS_DOMAIN_INJECTIVITY_COROLLARY",
+    "global_G0_to_B3": "OPEN",
+    "global_stationary_G0_markov_closure": "OPEN"
+  },
+  "action_update": {
+    "fcc": {
+      "strict_exact_rooted_gate_N_le_7_states": 14102,
+      "rooted_exact_iso_checks": 18774,
+      "nontrivial_exact_root_orbits": 16784,
+      "successor_exact_iso_checks": 18774,
+      "splits": 0,
+      "N8_strong_successor_invariant_states": 144158,
+      "N8_strong_successor_invariant_splits": 0
+    },
+    "hcp": {
+      "strict_exact_rooted_gate_full_through_N": 6,
+      "strict_exact_rooted_gate_min_states": 5170,
+      "N8_strong_successor_invariant_states": 575375,
+      "N8_strong_successor_invariant_splits": 0,
+      "N8_strict_stabilizer_holdout_states": 5000,
+      "N8_strict_stabilizer_color_buckets": 1361,
+      "N8_strict_stabilizer_cross_ambient_orbit_buckets": 0
+    },
+    "singleton_orbits": {
+      "fcc": {"abstract_G0_action_orbit_sizes": [12], "successor_G0_class_sizes": [12]},
+      "hcp": {"abstract_G0_action_orbit_sizes": [6, 6], "successor_G0_class_sizes": [6, 6]}
+    }
+  },
+  "coexposure_carrier": {
+    "theorem": "G0 plus L1 incidence I_z=N(z)∩L0 plus only L1-L1 edges with I_z∩I_q nonempty exactly reconstructs G0(C+x) for every current action x.",
+    "status": "PROVED",
+    "implies_B3": true,
+    "stationary_update": "OPEN",
+    "singleton": {
+      "fcc": {"L0": 12, "L1": 42, "E01": 84, "E11_full": 96, "E11_coexposed": 96, "E11_pruned": 0},
+      "hcp": {"L0": 12, "L1": 44, "E01": 84, "E11_full": 108, "E11_coexposed": 102, "E11_pruned": 6}
+    },
+    "N7_aggregate": {
+      "fcc": {
+        "states": 12734,
+        "M3_vertices": 1849366,
+        "E00": 1414386,
+        "E01": 3038168,
+        "E11_full": 3178799,
+        "E11_coexposed": 3068303,
+        "E11_pruned": 110496,
+        "fraction_all_M3_edges_pruned": 0.014479214891513995,
+        "fraction_L1_L1_edges_pruned": 0.03476029783575495,
+        "avg_M3_edges": 599.2895398146694,
+        "avg_coexposure_edges": 590.6122977854562,
+        "states_with_pruning": 12731,
+        "max_pruned_edges_per_state": 19
+      },
+      "hcp": {
+        "states": 50353,
+        "M3_vertices": 7469384,
+        "E00": 5602798,
+        "E01": 12015928,
+        "E11_full": 13508938,
+        "E11_coexposed": 12610483,
+        "E11_pruned": 898455,
+        "fraction_all_M3_edges_pruned": 0.028863553654395652,
+        "fraction_L1_L1_edges_pruned": 0.06650818887465469,
+        "avg_M3_edges": 618.1888666017913,
+        "avg_coexposure_edges": 600.3457390820805,
+        "states_with_pruning": 50353,
+        "max_pruned_edges_per_state": 31
+      }
+    },
+    "independent_update_checks": {
+      "fcc": {"states": 200, "actions": 6780, "mismatches": 0},
+      "hcp": {"states": 100, "actions": 2942, "mismatches": 0}
+    }
+  },
+  "shared_future_singleton_incidence_histogram": {
+    "fcc": {"1": 12, "2": 24, "4": 6},
+    "hcp": {"1": 18, "2": 18, "3": 2, "4": 6}
+  },
+  "pair_overlap_equivariance_audit": {
+    "fcc_N6": {"states": 1211, "coarse_candidate_groups": 88, "exact_pair_root_checks": 1119, "splits": 0},
+    "fcc_N7": {"states": 12734, "coarse_candidate_groups": 482, "exact_pair_root_checks": 2972, "splits": 0},
+    "hcp_N6": {"states": 4641, "coarse_candidate_groups": 241, "exact_pair_root_checks": 1420, "splits": 0}
+  },
+  "negative_controls": {
+    "bounded_search_is_not_global_theorem": true,
+    "strong_invariant_is_not_exact_isomorphism": true,
+    "abstract_G0_isomorphism_is_not_ambient_embedding_equivalence": true,
+    "B3_is_not_all_horizon_stationarity": true,
+    "boolean_does_not_cover_multiplicity_or_provenance": true,
+    "hidden_successor_touch_can_escape_rooted_G0_radius_3": {
+      "fcc_witness_distance": 4,
+      "hcp_witness_distance": 4,
+      "interpretation": "Kills the naive locality assumption that every old frontier vertex touched by one action lies within rooted G0 radius 3; does not by itself kill an abstract radius-3 predictor."
+    }
+  },
+  "oracle_smoke": {
+    "fcc": {
+      "N1_B3_sha256_prefix": "a7b7b364dabb382c",
+      "N1_B4_sha256_prefix": "665d535960864930",
+      "N2_B3_sha256_prefix": "8a5fd2a4f8659af2",
+      "N2_B4_sha256_prefix": "31c8ab53356e495d"
+    },
+    "hcp": {
+      "N1_B3_sha256_prefix": "71b8b8f55fe7fefc",
+      "N1_B4_sha256_prefix": "1f52fca75ded49e1",
+      "N2_B3_classes": 2,
+      "N2_B4_classes": 2,
+      "N2_B3_sha256_prefix": "0d58a8e135342afc",
+      "N2_B4_sha256_prefix": "0d35b84d6c01347c"
+    }
+  },
+  "validation": {
+    "focused_unittest_count": 6,
+    "focused_unittest_seconds": 0.056,
+    "focused_unittest_status": "PASS",
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH"
+  }
+}
