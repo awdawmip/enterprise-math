@@ -1,0 +1,84 @@
+{
+  "firewall": {
+    "b1_grammar_modified": false,
+    "composition_modified": false,
+    "holdout_consumed": false,
+    "k_gt_8": false,
+    "new_search_or_optimizer": false,
+    "predicate_added": false,
+    "r057_fitted_prior_consumed": false,
+    "rectangle_cube_circle_pi": false,
+    "refit": false
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "headline_strong_condition_audit": {
+    "ambiguity_rate_k5": 0.0,
+    "ambiguity_within_limit": true,
+    "corner_split_supported": false,
+    "headline_returned": false,
+    "mixed_class_fraction_k5": 0.9155251141552512,
+    "mixed_class_within_limit": false,
+    "robustness_pass": false,
+    "side_whole_supported": false,
+    "teacher_free_frozen_G1": true
+  },
+  "questions": {
+    "1_frozen_c1_concentrated_in_SIDE_INTERIOR": {
+      "interpretation": "strong concentration exists for the secondary frozen k8 reference, while the primary balanced k5 candidate is only weakly concentrated",
+      "primary_balanced_k5": {
+        "P_c1_given_SIDE_INTERIOR": 0.8237511224538021,
+        "classification": "WEAK_SUPPORT"
+      },
+      "secondary_min_rmse_k8": {
+        "P_c1_given_SIDE_INTERIOR": 0.9999757081086333,
+        "classification": "SUPPORTED"
+      }
+    },
+    "2_frozen_c_gt1_concentrated_in_CORNER_NEAR": {
+      "interpretation": "neither frozen G1 candidate reaches the predeclared strong corner finite-split criterion",
+      "primary_balanced_k5": {
+        "P_c_gt1_given_CORNER_NEAR": 0.5861979166666667,
+        "P_c_gt1_given_SIDE_INTERIOR": 0.1762488775461979,
+        "classification": "WEAK_SUPPORT"
+      },
+      "secondary_min_rmse_k8": {
+        "P_c_gt1_given_CORNER_NEAR": 0.31917317708333337,
+        "P_c_gt1_given_SIDE_INTERIOR": 2.429189136665677e-05,
+        "classification": "NOT_SUPPORTED"
+      }
+    },
+    "3_same_local_packet_class_side_and_corner": {
+      "answer": true,
+      "classification": "ROLE_ALIASING_WITHIN_LOCAL_PACKET_CLASS",
+      "k5_mixed_resolved_occurrence_fraction": 0.9155251141552512
+    },
+    "4_teacher_free_G1_distinguishes_macro_roles": {
+      "interpretation": "the frozen k8 metric reference has strong branch-role association, but the primary balanced k5 program does not and local-class role aliasing remains material",
+      "overall": "LOCAL_GRAMMAR_ROLE_SEPARATION_PARTIAL",
+      "primary_balanced_k5": {
+        "classification": "NOT_SUPPORTED",
+        "normalized_mutual_information_role_branch": 0.09600605346675833
+      },
+      "secondary_min_rmse_k8": {
+        "classification": "SUPPORTED",
+        "normalized_mutual_information_role_branch": 0.5889313520544738
+      }
+    },
+    "5_square_error_edge_density_or_finite_corner_defect": {
+      "g0_k6_classification": "EDGE_DENSITY_BIASED",
+      "g1_min_rmse_k8_classification": "NOT_IDENTIFIED",
+      "primary_candidate_classification": "EDGE_DENSITY_BIASED"
+    }
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "role_protocol_sha256": "7c9bc4579b1a3002f1567036d914923d2f7a0e7645db021db90a693d173b7ff8",
+  "schema": "R058S_STAGE_B2_UNBLINDING_RESULTS_V1",
+  "stage": "B2",
+  "status": "POST_SEARCH_ROLE_UNBLINDING / DISCOVERY_INTERPRETATION / NOT_THEOREM / NOT_CANONICAL",
+  "verdicts": [
+    "WHOLE_CHORD_IS_GLOBAL_BASE_BUT_CORNER_SPLIT_NOT_IDENTIFIED",
+    "LOCAL_GRAMMAR_ROLE_SEPARATION_PARTIAL",
+    "EDGE_DENSITY_BIASED",
+    "SQUARE_COLLAPSE_STRUCTURE_OPEN_WITH_EXACT_BOUNDED_EVIDENCE"
+  ]
+}
