@@ -1,0 +1,199 @@
+{
+  "checks": [
+    {
+      "check": "ROLE_PROTOCOL_HASH",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "B1_CHECKPOINT_HASH",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "B1_PROTOCOL_HASH",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "B1_CHECKER_35_35",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "STAGEA_CHECKER_20_20",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "STAGE0_HASH_LEDGER",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "STAGEA:R058S_LOCAL_GEOMETRY_CENSUS.json",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "STAGEA:R058S_PACKET_CENSUS.json",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "STAGEA:R058S_PACKET_TYPE_CATALOG.json",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "STAGEA:R058S_SQUARE_CORPUS_INTEGRITY.json",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "STAGEA:R058S_SQUARE_DISCOVERY_CORPUS_REGISTRY.json",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "STAGEA:R058S_STAGE_A_CHECK_RESULTS.json",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "STAGEA:R058S_STAGE_A_PACKET_CENSUS_CHECKPOINT.json",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "ROLE_COUNTS_K5",
+      "detail": "{'CORNER_NEAR': 7680, 'SIDE_INTERIOR': 169272}",
+      "status": "PASS"
+    },
+    {
+      "check": "ROLE_COUNTS_K8",
+      "detail": "{'CORNER_NEAR': 12288, 'SIDE_INTERIOR': 164664}",
+      "status": "PASS"
+    },
+    {
+      "check": "G1_BALANCED_K5_ROLE_C",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G1_MIN_RMSE_K8_ROLE_C",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "MIXED_CLASS_COUNT_K5",
+      "detail": "6",
+      "status": "PASS"
+    },
+    {
+      "check": "MIXED_CLASS_COUNT_K8",
+      "detail": "15",
+      "status": "PASS"
+    },
+    {
+      "check": "REPLAY_RMSE_g0k6",
+      "detail": "1.647545039133363",
+      "status": "PASS"
+    },
+    {
+      "check": "ERROR_DECOMP_IDENTITY_g0k6",
+      "detail": "np.float64(8.464784428952044e-12)",
+      "status": "PASS"
+    },
+    {
+      "check": "REPLAY_RMSE_g1k5",
+      "detail": "5.167388591507789",
+      "status": "PASS"
+    },
+    {
+      "check": "ERROR_DECOMP_IDENTITY_g1k5",
+      "detail": "np.float64(4.709121981250064e-12)",
+      "status": "PASS"
+    },
+    {
+      "check": "REPLAY_RMSE_g1k8",
+      "detail": "1.3298415053919423",
+      "status": "PASS"
+    },
+    {
+      "check": "ERROR_DECOMP_IDENTITY_g1k8",
+      "detail": "np.float64(1.4552581362181627e-11)",
+      "status": "PASS"
+    },
+    {
+      "check": "REPLAY_RMSE_g2k8",
+      "detail": "1.2003922124136717",
+      "status": "PASS"
+    },
+    {
+      "check": "ERROR_DECOMP_IDENTITY_g2k8",
+      "detail": "np.float64(1.4421575045275858e-11)",
+      "status": "PASS"
+    },
+    {
+      "check": "G2_ROLE_DEVIATION_COUNTS",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "STRONG_HEADLINE_NOT_RETURNED",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "ROLE_ALIASING_VERDICT",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "NO_REFIT_OR_SEARCH",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "HOLDOUT_UNCONSUMED",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "R057_PRIOR_UNCONSUMED",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "K_NOT_EXPANDED",
+      "detail": "",
+      "status": "PASS"
+    }
+  ],
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "firewall_offender_scan": {
+    "grammar_modified": false,
+    "holdout_consumed": false,
+    "new_search_or_optimizer": false,
+    "r057_fitted_prior_consumed": false,
+    "status": "PASS",
+    "teacher_role_is_interpretation_only": true
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "independent_direct_replays": [
+    "G0 k6 whole-chord",
+    "G1 balanced k5",
+    "G1 min-RMSE k8",
+    "G2 k8 lookup"
+  ],
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_STAGE_B2_CHECK_RESULTS_V1",
+  "stage": "B2",
+  "status": "PASS",
+  "summary": {
+    "all_pass": true,
+    "fail_count": 0,
+    "pass_count": 34
+  }
+}
