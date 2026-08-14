@@ -1,0 +1,113 @@
+{
+  "schema": "ENTERPRISE_MATH_R039_NATIVE_SURFACE_ATLAS_V1",
+  "task_id": "RS-R039-NATIVE-ROUGH-SURFACE-ALGEBRA-COLLAPSE-CALCULUS",
+  "researcher_id": "EM-R039-9F3C27",
+  "source_base": "cfbecf969b15d5d8c027c910bdbd6ca74259f0f7",
+  "semantics": {
+    "native_surface": "oriented occupied-to-unoccupied contact cut delta(C)",
+    "scalar_surface": "S(C)=|delta(C)|",
+    "metricization_used": false,
+    "floating_point_used_in_theorem_path": false,
+    "fcc_symmetry_cosets": 48,
+    "hcp_symmetry_cosets_mod_bravais_translation": 24
+  },
+  "exhaustive_range": {"fcc": 8, "hcp": 8},
+  "atlas": {
+    "fcc": [
+      {"N":1,"classes":1,"S_min":12,"S_max":12,"minimizers":1},
+      {"N":2,"classes":1,"S_min":22,"S_max":22,"minimizers":1},
+      {"N":3,"classes":4,"S_min":30,"S_max":32,"minimizers":1},
+      {"N":4,"classes":20,"S_min":36,"S_max":42,"minimizers":1},
+      {"N":5,"classes":131,"S_min":44,"S_max":52,"minimizers":2},
+      {"N":6,"classes":1211,"S_min":48,"S_max":62,"minimizers":1},
+      {"N":7,"classes":12734,"S_min":54,"S_max":72,"minimizers":1},
+      {"N":8,"classes":144158,"S_min":60,"S_max":82,"minimizers":3}
+    ],
+    "hcp": [
+      {"N":1,"classes":1,"S_min":12,"S_max":12,"minimizers":1},
+      {"N":2,"classes":2,"S_min":22,"S_max":22,"minimizers":2},
+      {"N":3,"classes":9,"S_min":30,"S_max":32,"minimizers":3},
+      {"N":4,"classes":57,"S_min":36,"S_max":42,"minimizers":1},
+      {"N":5,"classes":460,"S_min":42,"S_max":52,"minimizers":1},
+      {"N":6,"classes":4641,"S_min":48,"S_max":62,"minimizers":1},
+      {"N":7,"classes":50353,"S_min":54,"S_max":72,"minimizers":1},
+      {"N":8,"classes":575375,"S_min":60,"S_max":82,"minimizers":4}
+    ]
+  },
+  "counterexamples": {
+    "fcc_same_S_different_one_step_support_N3": {
+      "S":32,
+      "C":[[0,0,0],[0,1,-1],[1,-1,0]],
+      "D":[[0,0,0],[0,1,-1],[0,2,-2]],
+      "H_C":[[1,17],[2,6],[3,1]],
+      "H_D":[[1,16],[2,8]],
+      "deltaS_support_C":[6,8,10],
+      "deltaS_support_D":[8,10]
+    },
+    "hcp_same_S_different_one_step_support_N3": {
+      "S":32,
+      "C":[[0,0,0],[0,0,1],[0,1,1]],
+      "D":[[0,0,0],[0,1,0],[0,2,0]],
+      "H_C":[[1,17],[2,6],[3,1]],
+      "H_D":[[1,16],[2,8]],
+      "deltaS_support_C":[6,8,10],
+      "deltaS_support_D":[8,10]
+    },
+    "fcc_same_H_different_two_step_support_N4": {
+      "S":42,"H":[[1,20],[2,8],[3,2]],
+      "C":[[0,0,0],[0,1,-3],[1,0,-1],[1,1,-2]],
+      "D":[[0,0,0],[0,1,-1],[1,-2,1],[1,-1,0]],
+      "two_step_S_C":[52,54,56,58,60,62],
+      "two_step_S_D":[54,56,58,60,62]
+    },
+    "hcp_same_H_different_two_step_support_N4": {
+      "S":42,"H":[[1,19],[2,7],[3,3]],
+      "C":[[0,0,1],[0,1,0],[1,0,2],[1,1,0]],
+      "D":[[0,0,0],[0,0,1],[0,1,1],[1,1,2]],
+      "two_step_S_C":[52,54,56,58,60,62],
+      "two_step_S_D":[54,56,58,60,62]
+    },
+    "fcc_same_local_type_multiset_different_frontier_N4": {
+      "S":42,
+      "C":[[0,0,0],[0,1,-3],[1,0,-1],[1,1,-2]],
+      "D":[[0,0,0],[0,1,-1],[1,-1,0],[1,1,-2]],
+      "H_C":[[1,20],[2,8],[3,2]],
+      "H_D":[[1,20],[2,9],[4,1]]
+    },
+    "hcp_same_local_type_multiset_different_frontier_N4": {
+      "S":42,
+      "C":[[0,0,1],[0,1,0],[1,0,2],[1,1,0]],
+      "D":[[0,0,0],[0,0,1],[0,1,2],[1,1,2]],
+      "H_C":[[1,19],[2,7],[3,3]],
+      "H_D":[[1,18],[2,9],[3,2]]
+    },
+    "fcc_greedy_SURFACE_DOWN_trap_N6": {
+      "greedy_N5_S":44,
+      "greedy_N5_cluster":[[0,0,0],[0,0,2],[0,1,1],[1,0,1],[1,1,0]],
+      "greedy_N5_H":[[1,15],[2,10],[3,3]],
+      "all_greedy_N6_S":[50],
+      "global_S_min_N6":48,
+      "global_minimizer_N6":[[0,0,0],[1,-1,0],[1,0,-1],[1,0,1],[1,1,0],[2,0,0]]
+    },
+    "hcp_two_native_bond_orbits_N2": {
+      "basal":[[0,0,0],[0,1,0]],
+      "interlayer":[[0,0,0],[0,0,1]],
+      "S_both":22,
+      "H_both":[[1,14],[2,4]]
+    }
+  },
+  "exact_identities": [
+    "S(C)=12|C|-2E_int(C)",
+    "S(C)=sum_k k H_C(k)",
+    "Delta_add S=12-2k_C(x)",
+    "Delta_delete S=2k_{C\\{x}}(x)-12 when deletion is legal",
+    "rho(C+x)-rho(C)=12-2k_C(x)-[S_min(N+1)-S_min(N)]"
+  ],
+  "validation": {
+    "python_reference_counts_cross_checked_through_N7": true,
+    "cpp_exhaustive_certificate_through_N8": true,
+    "direct_cut_vs_handshake_all_cpp_enumerated_states_N8": true,
+    "second_order_frontier_update_exhaustive_transitions_N5": {"fcc":5121,"hcp":17487,"mismatches":0},
+    "unit_tests": 7
+  }
+}
