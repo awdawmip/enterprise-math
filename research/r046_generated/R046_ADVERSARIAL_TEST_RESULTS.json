@@ -1,0 +1,185 @@
+{
+  "schema": "ENTERPRISE_MATH_R046_ADVERSARIAL_TEST_RESULTS_V1",
+  "status": "PASS",
+  "researcher_id": "EM-R046-5C8A21",
+  "summary": {
+    "checks_total": 32,
+    "checks_passed": 32,
+    "checks_failed": 0
+  },
+  "counts": {
+    "RAW_SUCCESS_COUNT": 14,
+    "DEFINITION_STRIPPED_COUNT": 10,
+    "DEPENDENCY_QUOTIENT_COUNT": 5,
+    "CROSS_DOMAIN_INDEPENDENT_COUNT": 4,
+    "SHARED_DEFINITION_REDUNDANT_PI_BEARING_ROWS": 9
+  },
+  "checks": [
+    {
+      "check_id": "ATLAS_ROW_COUNT",
+      "pass": true,
+      "detail": "expected 14, got 14"
+    },
+    {
+      "check_id": "ATLAS_ROW_FIELDS",
+      "pass": true,
+      "detail": "every success row contains the taskbook-required typed fields"
+    },
+    {
+      "check_id": "UNIQUE_SUCCESS_IDS",
+      "pass": true,
+      "detail": "success_id values are unique"
+    },
+    {
+      "check_id": "SOURCE_REFERENTIAL_INTEGRITY",
+      "pass": true,
+      "detail": "all row sources resolve in registry; unresolved=[]"
+    },
+    {
+      "check_id": "RAW_SUCCESS_COUNT",
+      "pass": true,
+      "detail": "{'RAW_SUCCESS_COUNT': 14, 'DEFINITION_STRIPPED_COUNT': 10, 'DEPENDENCY_QUOTIENT_COUNT': 5, 'CROSS_DOMAIN_INDEPENDENT_COUNT': 4, 'SHARED_DEFINITION_REDUNDANT_PI_BEARING_ROWS': 9}"
+    },
+    {
+      "check_id": "DEFINITION_STRIPPED_COUNT",
+      "pass": true,
+      "detail": "declared=10 actual=10"
+    },
+    {
+      "check_id": "DEPENDENCY_QUOTIENT_COUNT",
+      "pass": true,
+      "detail": "declared=5 actual=5"
+    },
+    {
+      "check_id": "CROSS_DOMAIN_INDEPENDENT_COUNT",
+      "pass": true,
+      "detail": "declared=4 kernel=4"
+    },
+    {
+      "check_id": "QUOTIENT_RAW_PARTITION",
+      "pass": true,
+      "detail": "sum raw_count=14"
+    },
+    {
+      "check_id": "SHARED_DEFINITION_DOUBLE_COUNT",
+      "pass": true,
+      "detail": "sum(raw_count-1)=9; expected 9"
+    },
+    {
+      "check_id": "KERNEL_FOUR_MEMBERS",
+      "pass": true,
+      "detail": [
+        "KENG-01_GEOMETRIC_MEASURE_COHERENCE",
+        "KENG-02_CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+        "KENG-03_DIFFUSIVE_RELAXATION",
+        "KENG-04_BOUNDED_MODE_SPECTRUM"
+      ]
+    },
+    {
+      "check_id": "KERNEL_DELETION_WITNESSES",
+      "pass": true,
+      "detail": "each member states what independent pressure is lost if deleted"
+    },
+    {
+      "check_id": "KERNEL_SCALE_TOLERANCE",
+      "pass": true,
+      "detail": "each member has explicit scale/tolerance semantics"
+    },
+    {
+      "check_id": "NO_SCALAR_KERNEL",
+      "pass": true,
+      "detail": "STRUCTURAL_OPERATIONAL_TARGET_SET / NOT_A_SCALAR / NOT_NATIVE_PI"
+    },
+    {
+      "check_id": "FOURIER_NORMALIZATION_NOT_NATIVE_CONSTANT",
+      "pass": true,
+      "detail": "Q03 excluded from pi-specific kernel after convention quotient"
+    },
+    {
+      "check_id": "GAUSSIAN_NORMALIZATION_STRIPPED",
+      "pass": true,
+      "detail": "SURVIVES_AS_DIFFUSIVE_SCALE_PATTERN_NOT_NORMALIZATION_CONSTANT"
+    },
+    {
+      "check_id": "RADIANS_AS_PHYSICS_REJECTED",
+      "pass": true,
+      "detail": "radian is forbidden as native input and absent from required observable protocol"
+    },
+    {
+      "check_id": "FORBID_CENTER",
+      "pass": true,
+      "detail": "global forbidden list contains center"
+    },
+    {
+      "check_id": "FORBID_DISTANCE_EQUIDISTANCE",
+      "pass": true,
+      "detail": "global forbidden list contains distance/equidistance"
+    },
+    {
+      "check_id": "FORBID_RADIUS",
+      "pass": true,
+      "detail": "global forbidden list contains radius"
+    },
+    {
+      "check_id": "FORBID_CIRCLE_SPHERE",
+      "pass": true,
+      "detail": "global forbidden list contains circle/sphere"
+    },
+    {
+      "check_id": "FORBID_ANGLE_RADIAN",
+      "pass": true,
+      "detail": "global forbidden list contains angle/radian"
+    },
+    {
+      "check_id": "FORBID_FOURIER",
+      "pass": true,
+      "detail": "global forbidden list contains fourier"
+    },
+    {
+      "check_id": "FORBID_GAUSSIAN",
+      "pass": true,
+      "detail": "global forbidden list contains gaussian"
+    },
+    {
+      "check_id": "NATIVE_INPUTS_UNSPECIFIED",
+      "pass": true,
+      "detail": "every interface row leaves native inputs unspecified"
+    },
+    {
+      "check_id": "ONE_NUMBER_FIT_REJECTED",
+      "pass": true,
+      "detail": "no classical decimal target appears in the target artifacts and policy rejects one-number fitting"
+    },
+    {
+      "check_id": "NO_NATIVE_INPUT_NODE",
+      "pass": true,
+      "detail": "dependency graph has no native-premise node"
+    },
+    {
+      "check_id": "NO_REVERSE_EFFECTIVE_TO_NATIVE_EDGE",
+      "pass": true,
+      "detail": "all graph edges terminate in effective evidence/stripped/quotient/kernel nodes, never native input"
+    },
+    {
+      "check_id": "GATE_V3_NO_NATIVE_PI_PROMOTION",
+      "pass": true,
+      "detail": "{'R046-C01': 'CONTINUUM_ONLY', 'R046-C02': 'READOUT_ONLY', 'R046-C03': 'UNRESOLVED', 'R046-C04': 'UNRESOLVED'}"
+    },
+    {
+      "check_id": "GATE_V3_NO_COLLAPSE_SELECTION",
+      "pass": true,
+      "detail": "{'R046-C01': 'CONTINUUM_ONLY', 'R046-C02': 'READOUT_ONLY', 'R046-C03': 'UNRESOLVED', 'R046-C04': 'UNRESOLVED'}"
+    },
+    {
+      "check_id": "TARGET_LEAKAGE_AUDIT_PASS",
+      "pass": true,
+      "detail": "all Gate-V3 claim-ledger rows pass target-leakage audit"
+    },
+    {
+      "check_id": "MANDATORY_ADVERSARIAL_COVERAGE",
+      "pass": true,
+      "detail": "expected=['A_PI_FREQUENCY_IS_EVIDENCE', 'B_SHARED_DEFINITION_DOUBLE_COUNT', 'C_RADIANS_AS_PHYSICS', 'D_FOURIER_NORMALIZATION_AS_NATIVE_CONSTANT', 'E_GAUSSIAN_NORMALIZATION_AS_NATIVE_PI', 'F_OUTPUT_COPYING', 'G_ONE_NUMBER_FIT'] actual=['A_PI_FREQUENCY_IS_EVIDENCE', 'B_SHARED_DEFINITION_DOUBLE_COUNT', 'C_RADIANS_AS_PHYSICS', 'D_FOURIER_NORMALIZATION_AS_NATIVE_CONSTANT', 'E_GAUSSIAN_NORMALIZATION_AS_NATIVE_PI', 'F_OUTPUT_COPYING', 'G_ONE_NUMBER_FIT']"
+    }
+  ],
+  "ci": "CI_NOT_REQUIRED_FOR_RESEARCH"
+}

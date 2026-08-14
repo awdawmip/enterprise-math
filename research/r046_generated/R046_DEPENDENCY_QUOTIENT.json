@@ -1,0 +1,86 @@
+{
+  "schema": "ENTERPRISE_MATH_R046_DEPENDENCY_QUOTIENT_V1",
+  "status": "DEPENDENCY_QUOTIENT_FROZEN / NOT_CANONICAL",
+  "researcher_id": "EM-R046-5C8A21",
+  "task_id": "RS-R046-ENGINEERING-SUCCESS-INVERSION-PI-CONSTRAINT-ATLAS",
+  "task_source_commit": "2b9f282c1990de916f472a4764823729eff05203",
+  "quotient_semantics": "Primary quotient counts independent π-origin/effective-definition classes, while preserving empirically independent operational subconstraints inside a class. Therefore quotienting a shared π origin never erases the fact that different apparatus produce distinct residual evidence.",
+  "counts": {
+    "RAW_SUCCESS_COUNT": 14,
+    "DEFINITION_STRIPPED_COUNT": 10,
+    "DEPENDENCY_QUOTIENT_COUNT": 5,
+    "CROSS_DOMAIN_INDEPENDENT_COUNT": 4,
+    "SHARED_DEFINITION_REDUNDANT_PI_BEARING_ROWS": 9
+  },
+  "primary_attribution_formula": "Σ_class(raw_count - 1) = 9 = 14 - 5",
+  "evidence_classes": [
+    {
+      "evidence_class_id": "Q01_SHARED_GEOMETRIC_EFFECTIVE_DESCENDANTS",
+      "primary_dependency": "SD-GEOMETRY",
+      "raw_success_ids": ["S02","S03","S04","S05","S06","S07"],
+      "raw_count": 6,
+      "redundant_pi_bearing_rows_under_primary_attribution": 5,
+      "quotient_witness": "All six rows acquire their explicit π factor only after a nominally round observable is represented through the same classical Euclidean circle/cylinder size family (circumference/diameter, area/diameter, cylinder volume/diameter). S04 is purely a derived-size family; S03/S05/S06/S07 retain different empirical protocols after stripping, so their operational residuals are preserved inside this quotient class rather than counted as six independent witnesses for π.",
+      "definition_stripped_constraints": ["C02_PROFILE_REINDEXING_REPEATABILITY","C03_WRAP_LENGTH_REPEATABILITY","C04_EDGE_DERIVED_ENCLOSED_AREA","C05_SWEPT_MEASURE_FLOW_COMPOSITION","C06_GRAVIMETRIC_CAPACITY_CONSISTENCY"],
+      "empirical_channel_status": "MULTIPLE_INDEPENDENT_PROTOCOLS / ONE_SHARED_PI_ORIGIN",
+      "pi_origin_after_quotient": "DESCENDANT_OF_CLASSICAL_GEOMETRIC_DEFINITION",
+      "foundational_residual": "A family of independently realized boundary/extent/enclosed-measure/transfer observables on nominally round engineered artifacts is mutually coherent within declared tolerances. The coherence, not the circle definition, is the pressure.",
+      "kernel_eligibility": "YES_AS_GEOMETRIC_COHERENCE_BUNDLE"
+    },
+    {
+      "evidence_class_id": "Q02_PERIODIC_PHASE_DESCENDANTS",
+      "primary_dependency": "SD-PERIODIC-RADIAN",
+      "raw_success_ids": ["S01","S08","S09"],
+      "raw_count": 3,
+      "redundant_pi_bearing_rows_under_primary_attribution": 2,
+      "quotient_witness": "Mechanical indexing and electronic phase are independent apparatus, but the factor 2π is introduced by the same choice to coordinatize one completed cycle/turn in radians. The observable recurrence, fractional displacement and drift survive; 2π itself does not.",
+      "definition_stripped_constraints": ["C01_MECHANICAL_CYCLE_CLOSURE","C07_PERIODIC_SIGNAL_FRACTION_AND_DRIFT"],
+      "empirical_channel_status": "CROSS_APPARATUS_REPLICATION_OF_CYCLIC_STRUCTURE",
+      "pi_origin_after_quotient": "DESCENDANT_OF_PERIODIC_PHASE_DEFINITION + UNIT_CONVENTION",
+      "foundational_residual": "Repeatable cycles close and admit consistent fractional displacement/drift relations across mechanical and electronic protocols.",
+      "kernel_eligibility": "YES"
+    },
+    {
+      "evidence_class_id": "Q03_FOURIER_SPECTRAL_NORMALIZATION_DESCENDANTS",
+      "primary_dependency": "SD-FOURIER-SPECTRAL",
+      "raw_success_ids": ["S10","S11"],
+      "raw_count": 2,
+      "redundant_pi_bearing_rows_under_primary_attribution": 1,
+      "quotient_witness": "The 2π placement, sign and scale factors can be shifted by transform convention and by using cycles-per-second versus angular-frequency densities. The FFT reconstruction and Johnson-noise spectral comparison remain valid after consistent conversion, so π does not survive as a physical constant in this class.",
+      "definition_stripped_constraints": ["C08_SPECTRAL_NOISE_REFERENCE_STABILITY"],
+      "empirical_channel_status": "COMPUTATIONAL_CONVENTION + PHYSICAL_SPECTRAL_PROTOCOL",
+      "pi_origin_after_quotient": "SPECTRAL_TRANSFORM_NORMALIZATION / COORDINATE_CONVENTION",
+      "foundational_residual": "Spectral decomposability and band-limited physical ratios survive, but there is no π-specific foundational pressure once conventions are quotiented.",
+      "kernel_eligibility": "NO_PI_SPECIFIC_KERNEL_MEMBER"
+    },
+    {
+      "evidence_class_id": "Q04_GAUSSIAN_INTEGRAL_NORMALIZATION_DESCENDANTS",
+      "primary_dependency": "SD-GAUSSIAN-INTEGRAL",
+      "raw_success_ids": ["S12","S13"],
+      "raw_count": 2,
+      "redundant_pi_bearing_rows_under_primary_attribution": 1,
+      "quotient_witness": "Gaussian density and unbounded heat-kernel π factors arise from continuum integral normalization under selected coordinates/measure. NIST uncertainty guidance permits non-Gaussian models, while the thermal transient remains an empirical relaxation/spread phenomenon. Hence the normalization constant is removed and only the dynamical spread/relaxation constraint survives.",
+      "definition_stripped_constraints": ["C09_DIFFUSIVE_RELAXATION_SCALE"],
+      "empirical_channel_status": "PHYSICAL_DIFFUSION_PROTOCOL + MODEL_NORMALIZATION_CONTROL",
+      "pi_origin_after_quotient": "CONTINUUM_MEASURE_OR_INTEGRAL_NORMALIZATION",
+      "foundational_residual": "Localized perturbations exhibit reproducible scale/time relaxation and transport behavior independent of Gaussian amplitude normalization.",
+      "kernel_eligibility": "YES"
+    },
+    {
+      "evidence_class_id": "Q05_BOUNDED_MODAL_MIXED_CLASS",
+      "primary_dependency": "SD-BOUNDARY-MODAL",
+      "raw_success_ids": ["S14"],
+      "raw_count": 1,
+      "redundant_pi_bearing_rows_under_primary_attribution": 0,
+      "quotient_witness": "There is only one audited raw row in this primary class. Its π appearances mix angular-frequency convention with particular continuum eigenfunction/boundary representations; the empirical residue is the discrete, perturbable resonance spectrum and acoustic/microwave cross-channel agreement.",
+      "definition_stripped_constraints": ["C10_BOUNDED_RESONANCE_SPECTRUM"],
+      "empirical_channel_status": "INDEPENDENT_BOUNDED_PROPAGATION_PROTOCOL",
+      "pi_origin_after_quotient": "UNRESOLVED_MIXED_ORIGIN_WITH_CONVENTION_COMPONENT",
+      "foundational_residual": "Bounded propagation supports stable discrete modes whose shifts track controlled state and agree across distinct measurement channels.",
+      "kernel_eligibility": "YES"
+    }
+  ],
+  "cross_domain_independent_residual_classes": ["Q01_SHARED_GEOMETRIC_EFFECTIVE_DESCENDANTS","Q02_PERIODIC_PHASE_DESCENDANTS","Q04_GAUSSIAN_INTEGRAL_NORMALIZATION_DESCENDANTS","Q05_BOUNDED_MODAL_MIXED_CLASS"],
+  "excluded_from_pi_specific_cross_domain_count": [{"evidence_class_id":"Q03_FOURIER_SPECTRAL_NORMALIZATION_DESCENDANTS","reason":"Real spectral engineering survives, but all audited π placement in this class is removable by transform/frequency-coordinate convention; it creates no π-specific foundational pressure."}],
+  "audit_note": "The 9/14 figure is a quotient of explicit π-bearing representations under primary shared dependency, not a claim that 9 empirical protocols are unreal or useless."
+}
