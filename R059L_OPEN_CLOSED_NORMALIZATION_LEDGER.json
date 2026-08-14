@@ -1,0 +1,52 @@
+{
+  "closed_root_factor_regression": {
+    "T": {
+      "A->B": 1,
+      "A->C": 1,
+      "B->A": 1,
+      "C->A": 1
+    },
+    "TAU_A": 1,
+    "correct_raw_MU": 2,
+    "d_A": 2,
+    "endpoints": [
+      "A",
+      "A"
+    ],
+    "wrong_root_factor_(d_A-1)!": "would give 1 (REJECTED)"
+  },
+  "critical_conventions": [
+    "TAU_r counts labeled-token arborescences, not simple-support parent relations.",
+    "Parallel parent relation x->y contributes T(x,y).",
+    "Root is t for open s!=t and s for closed positive s=t.",
+    "Root local factor is d_r!, not (d_r-1)!.",
+    "Every other active packet local factor is (d_x-1)!.",
+    "Raw denominator is product T(x,y)! including self-loop multiplicities.",
+    "Zero-transition is a separate Stage-C branch."
+  ],
+  "disposition": "CANDIDATE_OPEN_AND_CLOSED_FORMULAS_CONFIRMED_AFTER_TAU_NORMALIZATION_AUDIT",
+  "generation": "R059L",
+  "parallel_exact_regression": {
+    "T": {
+      "A->B": 2,
+      "B->A": 1
+    },
+    "endpoints": [
+      "A",
+      "B"
+    ],
+    "factorial_denominator": 2,
+    "labeled_count": 2,
+    "raw_MU": 1,
+    "token_TAU_B": 2,
+    "wrong_simple_support_TAU_result": "1/2 (REJECTED)"
+  },
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_OPEN_CLOSED_NORMALIZATION_LEDGER_V1",
+  "self_loop_normalization": {
+    "single_packet_T(A,A)=m": "TAU_A=1; labeled=m!; denominator=m!; raw MU=1."
+  },
+  "stage": "STAGE_D",
+  "task_id": "RS-R059L-STAGE-D-EXACT-FIBER-COUNT-FACTORIZATION",
+  "taskbook_source_commit": "4394af21047d66a27e86143a8388f94d48aa0e81"
+}
