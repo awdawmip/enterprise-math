@@ -1,0 +1,48 @@
+{
+  "V1": {
+    "checkpoint_sha256": "4cf6a1fd4d748e1175e77503247f41706aacb4946802a3da7bd03a52a4fdad54",
+    "disposition": "INSUFFICIENT",
+    "reason": "complete A/G row-level enrichment and A symmetric nuisance instantiation were not executable in V1 runtime"
+  },
+  "conflicting_later_narrative": {
+    "byte_identity": "NONE_FOUND",
+    "concrete_motif_ids_frozen": [],
+    "disposition_text": "COMMON_MATCHED_MOTIF_SIGNAL_COVERAGE_LIMITED",
+    "status": "NOT_SUPPORTED_AS_A_FROZEN_STAGE_F_IDENTITY"
+  },
+  "epistemic_label": "FREEZE_IDENTITY_RECONCILIATION / DETERMINISTIC_REPLAY / NO_NEW_SCIENCE / NOT_THEOREM / NOT_CANONICAL",
+  "no_new_science": true,
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_STAGE_FR_DECISION_DIVERGENCE_LEDGER_V1",
+  "stage": "FR4",
+  "status": "DISPOSITION_DIVERGENCE_NOT_REPLAY_RESOLVED",
+  "threshold_ledger": {
+    "CATALOG_DOMAIN_MISMATCH_DOMINATES": {
+      "evaluable_in_FR": false,
+      "reason": "V1 did not compute G unmatched-fraction/residual association and FR cannot replay without exact A inputs.",
+      "satisfied": false
+    },
+    "COMMON_MATCHED_MOTIF_HOTSPOT_ISOLATED": {
+      "evaluable_in_FR": false,
+      "reason": "No clean replay and no hash-anchored second identity with concrete motifs.",
+      "satisfied": false
+    },
+    "COMMON_MATCHED_MOTIF_SIGNAL_COVERAGE_LIMITED": {
+      "evaluable_in_FR": false,
+      "reason": "No V2 bytes and no clean replay; the later narrative did not freeze per-motif evidence demanded by FR.",
+      "required_concrete_motif_ids_present": false,
+      "satisfied": false
+    },
+    "INSUFFICIENT": {
+      "FR_clean_replay_reproduced": false,
+      "V1_satisfied": true,
+      "reason": "V1 bytes exactly freeze this disposition, but FR cannot elevate byte recovery to a scientific clean-replay reproduction claim."
+    },
+    "NO_COMMON_MATCHED_MOTIF_HOTSPOT": {
+      "evaluable_in_FR": false,
+      "reason": "No clean 62-row cross-arm replay; missing evidence is not a null.",
+      "satisfied": false
+    }
+  },
+  "why_coverage_limited_cannot_be_repaired_here": "Stage FR requires concrete motif IDs plus A/G support, primary all-eligible association, high-minus-low absolute enrichment, nuisance-light persistence, matched-scale persistence, matched-only sensitivity and G unmatched-fraction sensitivity. No second frozen identity containing those fields exists, and exact clean replay is blocked."
+}
