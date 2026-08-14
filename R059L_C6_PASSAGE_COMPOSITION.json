@@ -1,0 +1,35 @@
+{
+  "PB-C6-01": {
+    "candidate_formula": "M^{gamma*eta}=M^gamma+M^eta+JOIN_CROSS_TERM",
+    "disposition": "C6_PASSAGE_COMPOSITION_NOT_YET_WELL_TYPED",
+    "forbidden_resolution": "Do not invent angle/straight/turn/opposite/vector geometry or an unapproved ordered channel annotation.",
+    "missing_typed_data": [
+      "per-transition channel label assignment tied to the ordered path event history",
+      "the ingress label of the final transition of gamma at the shared packet",
+      "the egress label of the first transition of eta at the shared packet",
+      "zero-transition endpoint channel convention if such a convention is ever desired"
+    ],
+    "proof_of_underdetermination": "The frozen C6 state stores aggregate I/O/M counts but no ordered boundary-event selector. The same aggregate ingress counts at the join can be compatible with more than one candidate final ingress label, and the same aggregate egress counts with more than one candidate first egress label; therefore the matrix unit contributing the join cross-term is not determined by current frozen semantics.",
+    "status": "NOT_YET_WELL_TYPED"
+  },
+  "frozen_available_state": {
+    "I_x": "aggregate nonnegative integer ingress counts by label",
+    "M_x": "aggregate nonnegative integer ingress-label -> egress-label passage counts",
+    "O_x": "aggregate nonnegative integer egress counts by label",
+    "same_channel_passage_allowed": true
+  },
+  "frozen_semantics_consumed": [
+    "R059L_IDEAL_C6_CHANNEL_EXTENSION_PROTOCOL.json",
+    "R059L_INGRESS_EGRESS_STATE_PROTOCOL.json"
+  ],
+  "generation": "R059L",
+  "geometry_semantics": null,
+  "lane": "OPTIONAL_IDEAL_C6_CHANNEL_STATE",
+  "naive_M_additivity_asserted": false,
+  "researcher_id": "EM-R059L-5F9D05",
+  "same_channel_statement": "M_x[d,d]>0 remains allowed.",
+  "schema": "R059L_C6_PASSAGE_COMPOSITION_V1",
+  "stage": "STAGE_B",
+  "task_id": "RS-R059L-STAGE-B-NATIVE-PATH-INFORMATION-COLLAPSE",
+  "taskbook_source_commit": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062"
+}
