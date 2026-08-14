@@ -1,0 +1,105 @@
+{
+  "base_signature": "S3_DIRACT2",
+  "base_status": "Both roles exist and are individually unique in Sym(ODir), but equality is not forced.",
+  "deletion_witnesses": [
+    {
+      "countermodel": "M1_S3_ACTION_MOVES_BASE",
+      "deleted_axiom": "A*-VERTICALITY",
+      "kept_axiom": "A*-FIXED_POINT_FREE",
+      "result": "rho(z) != delta_q"
+    },
+    {
+      "countermodel": "M2_S3_VERTICAL_WITH_FIXED_POINTS",
+      "deleted_axiom": "A*-FIXED_POINT_FREE",
+      "kept_axiom": "A*-VERTICALITY",
+      "result": "rho(z) != delta_q"
+    }
+  ],
+  "lattice_nodes": [
+    {
+      "axioms": [],
+      "forces_equality": false,
+      "witness": "M1 or M2"
+    },
+    {
+      "axioms": [
+        "A*-VERTICALITY"
+      ],
+      "forces_equality": false,
+      "witness": "M2_S3_VERTICAL_WITH_FIXED_POINTS"
+    },
+    {
+      "axioms": [
+        "A*-FIXED_POINT_FREE"
+      ],
+      "forces_equality": false,
+      "witness": "M1_S3_ACTION_MOVES_BASE"
+    },
+    {
+      "axioms": [
+        "A*-VERTICALITY",
+        "A*-FIXED_POINT_FREE"
+      ],
+      "forces_equality": true,
+      "witness": "pointwise two-element-fiber proof"
+    }
+  ],
+  "minimal_additional_package": {
+    "axioms": [
+      {
+        "id": "A*-VERTICALITY",
+        "statement": "For every d in ODir, q(rho(z)(d))=q(d)."
+      },
+      {
+        "id": "A*-FIXED_POINT_FREE",
+        "statement": "For every d in ODir, rho(z)(d)!=d."
+      }
+    ],
+    "equality_strength": "EXACT_OBJECT_EQUALITY_IN_Sym(ODir)",
+    "irredundancy_relative_to_S3": true,
+    "package_id": "A*_S3_DIRECTION_COHERENCE",
+    "proof": "Fix d. S3 says q^{-1}(q(d)) has exactly two elements {d,delta_q(d)}. Verticality puts rho(z)(d) in this fiber. Fixed-point-freeness excludes d, so rho(z)(d)=delta_q(d). This holds for every d.",
+    "sufficiency_theorem": "Under S3 plus A*-VERTICALITY and A*-FIXED_POINT_FREE, rho(z)=delta_q exactly in Sym(ODir)."
+  },
+  "other_role_coherence": [
+    {
+      "pair": [
+        "R4_RAW_ISOPERIMETRIC_CUT",
+        "R2_DIRECTION_DECK"
+      ],
+      "reason": "Cut(K) and Sym(ODir) are distinct codomains; no comparison map is in S5/S3.",
+      "status": "EQUALITY_ILL_TYPED_BEFORE_READOUT"
+    },
+    {
+      "pair": [
+        "R5_TURN_KERNEL_GENERATOR_CLASS",
+        "R3_GROUP_INVOLUTION_ACTION"
+      ],
+      "reason": "Generator inversion-orbits and ODir permutations are distinct types. The cover map only sends kernel elements to identity, not to the nonidentity direction involution.",
+      "status": "EQUALITY_ILL_TYPED_BEFORE_READOUT"
+    },
+    {
+      "pair": [
+        "R1_CELL_HALF_CYCLE",
+        "R2_DIRECTION_DECK"
+      ],
+      "reason": "A cellular boundary permutation and an affine-direction permutation require an explicit realization functor before comparison.",
+      "status": "NO_NATIVE_COMMON_CARRIER"
+    }
+  ],
+  "primary_pair": [
+    "R2_DIRECTION_DECK",
+    "R3_GROUP_INVOLUTION_ACTION"
+  ],
+  "realization": {
+    "consequence": "R2_DIRECTION_DECK and R3_GROUP_INVOLUTION_ACTION coincide in every S4 realization, without a metric or scalar angle readout.",
+    "signature": "S4_ORDAFF2",
+    "statement": "The ordered-affine positive-ray realization satisfies both A* axioms: scalar negation keeps the underlying one-dimensional subspace and has no fixed positive ray."
+  },
+  "researcher_id": "EM-R052-7C4A19",
+  "role_registry_sha256": "33cabef583b3847eedae152181de002806b800bd8cdb01c07b595d5a695dfe66",
+  "schema": "ENTERPRISE_MATH_R052_COHERENCE_AXIOM_LATTICE_V1",
+  "signature_family_sha256": "946eb08652b7c505adb9b2e8c1263a7260147962b1b7056d5a890d623fbcd0e2",
+  "status": "STAGE_D_COHERENCE_RESULT_FROZEN",
+  "task_id": "RS-R052-FORMAL-PLANE-PI-TYPABILITY-MULTIPLICITY-COHERENCE"
+}

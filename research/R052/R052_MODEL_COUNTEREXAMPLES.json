@@ -1,0 +1,135 @@
+{
+  "models": [
+    {
+      "construction": "Take the seven-point projective plane over the two-element field as a pure Point/Line/Incides structure and forget all coordinatizing field data.",
+      "model_id": "M0_FANO_INC2_NO_SCALAR",
+      "result": "PI_ROLE_NOT_WELL_TYPED_FOR_SCALAR_LANGUAGE",
+      "satisfies": [
+        "S0_INC2"
+      ],
+      "targets": [
+        "S0_INC2 scalar typability"
+      ],
+      "witness": "The signature has only Point, Line, and Incides sorts/symbols, so a scalar-valued term is syntactically absent."
+    },
+    {
+      "construction": {
+        "G": "C2={e,z}",
+        "ODir": "UDir × {0,1}",
+        "UDir": [
+          "0",
+          "1",
+          "2",
+          "inf"
+        ],
+        "affine_core": "AG(2,3) as a finite affine incidence plane.",
+        "deck": "delta(u,b)=(u,1-b)",
+        "q": "q(u,b)=u",
+        "rho_z": "rho(z)(u,b)=(sigma(u),b), sigma=(0 1)(2 inf)"
+      },
+      "fails": [
+        "A*-VERTICALITY because q(rho(z)(u,b))=sigma(u) != u"
+      ],
+      "model_id": "M1_S3_ACTION_MOVES_BASE",
+      "result": "TWO_UNIQUE_WELL_TYPED_ROLES_DIFFER",
+      "satisfies": [
+        "S3 exact two-sheeting",
+        "faithful G action",
+        "unique nonidentity involution z",
+        "rho(z) fixed-point-free"
+      ],
+      "targets": [
+        "R2_DIRECTION_DECK != R3_GROUP_INVOLUTION_ACTION",
+        "deletion of A*-VERTICALITY"
+      ],
+      "witness": "For every (u,b), delta changes b and fixes u whereas rho(z) changes u and fixes b."
+    },
+    {
+      "construction": {
+        "G": "C2={e,z}",
+        "ODir": "UDir × {0,1}",
+        "UDir": [
+          "0",
+          "1",
+          "2",
+          "inf"
+        ],
+        "affine_core": "AG(2,3)",
+        "deck": "delta(u,b)=(u,1-b) for every u",
+        "q": "q(u,b)=u",
+        "rho_z": "rho(z) swaps (0,0)<->(0,1) and fixes all (u,b) with u!=0"
+      },
+      "fails": [
+        "A*-FIXED_POINT_FREE"
+      ],
+      "model_id": "M2_S3_VERTICAL_WITH_FIXED_POINTS",
+      "result": "VERTICALITY_ALONE_DOES_NOT_FORCE_COHERENCE",
+      "satisfies": [
+        "S3 exact two-sheeting",
+        "faithful G action",
+        "unique nonidentity involution z",
+        "A*-VERTICALITY"
+      ],
+      "targets": [
+        "R2_DIRECTION_DECK != R3_GROUP_INVOLUTION_ACTION",
+        "deletion of A*-FIXED_POINT_FREE"
+      ],
+      "witness": "rho(z)(1,0)=(1,0) but delta(1,0)=(1,1)."
+    },
+    {
+      "construction": "A single oriented triangular 2-cell has boundary successor group C3.",
+      "model_id": "M3_ODD_BOUNDARY",
+      "result": "R1_UNDEFINED_ON_ODD_BOUNDARY",
+      "satisfies": [
+        "S1_OCELL2 finite oriented disk"
+      ],
+      "targets": [
+        "R1_CELL_HALF_CYCLE existence"
+      ],
+      "witness": "C3 has no nonidentity element of order two."
+    },
+    {
+      "construction": "Start from a four-edge oriented polygonal disk C4 and subdivide exactly one boundary edge once, producing a five-edge boundary C5.",
+      "model_id": "M4_NONUNIFORM_REFINEMENT_PARITY_LOSS",
+      "result": "ARBITRARY_REFINEMENT_DOES_NOT_PRESERVE_ROLE",
+      "satisfies": [
+        "Both endpoints are S1 finite oriented disks; the operation is a valid local cellular subdivision."
+      ],
+      "targets": [
+        "R1 refinement-path independence under unrestricted refinement"
+      ],
+      "witness": "R1 exists on C4 but not on C5 because the boundary cardinality changes from even to odd."
+    },
+    {
+      "construction": "Fix any S5 model (K,V,Point,N,mu) and any c>0 with c!=1. Form a second expansion with the same K,V,Point,N and valuation mu'=c*mu.",
+      "model_id": "M5_VALUATION_RESCALING",
+      "result": "SCALAR_ROLE_NOT_DETERMINED_BY_WEAKER_NORMED_AFFINE_LANGUAGE",
+      "satisfies": [
+        "Both are S5 models and have the same S4+N reduct."
+      ],
+      "targets": [
+        "R4_RAW_ISOPERIMETRIC_CUT under coarsening that forgets valuation normalization"
+      ],
+      "witness": "For every polygon C, Per_N(C)^2/mu'(C)=(1/c) Per_N(C)^2/mu(C), hence J_N,mu'=J_N,mu/c in Cut(K)."
+    },
+    {
+      "construction": "Take TurnLift=(Z,+), G2=Z/2Z, p(n)=n mod 2. Then ker(p)=2Z.",
+      "model_id": "M6_TURN_KERNEL_INVERSION",
+      "result": "RAW_GENERATOR_NONUNIQUE; INVERSION_QUOTIENT_CLASS_UNIQUE",
+      "satisfies": [
+        "S6_TURNCOV2 group-cover axioms."
+      ],
+      "targets": [
+        "raw generator invariance in S6"
+      ],
+      "witness": "The raw kernel generators are +2 and -2. The automorphism n->-n commutes with p and exchanges them."
+    }
+  ],
+  "preservation_rule": "Every countermodel is retained as evidence; none is repaired by adding structure to the frozen signature.",
+  "researcher_id": "EM-R052-7C4A19",
+  "role_registry_sha256": "33cabef583b3847eedae152181de002806b800bd8cdb01c07b595d5a695dfe66",
+  "schema": "ENTERPRISE_MATH_R052_MODEL_COUNTEREXAMPLES_V1",
+  "signature_family_sha256": "946eb08652b7c505adb9b2e8c1263a7260147962b1b7056d5a890d623fbcd0e2",
+  "status": "STAGE_D_COUNTERMODELS_FROZEN",
+  "task_id": "RS-R052-FORMAL-PLANE-PI-TYPABILITY-MULTIPLICITY-COHERENCE"
+}
