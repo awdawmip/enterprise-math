@@ -1,0 +1,72 @@
+{
+  "durable_surface_availability": {
+    "A": {
+      "checkpoint_and_report": "DIRECTLY_AVAILABLE",
+      "generated_diagnostic_artifacts": "SHA256_ANCHORED_BY_DELIVERY_MANIFEST_BUT_SAMPLE_LEVEL_JOINT_TABLES_NOT_DIRECTLY_AVAILABLE_ON_CONSUMED_SOURCE_TREE",
+      "missing_for_stage_e": [
+        "per-transition exact mixture-burden array",
+        "per-transition exact covariance-rotation array",
+        "sample-level residual x matched-K<=6 motif exposure joint table",
+        "strict-filtered STAR feature rows"
+      ]
+    },
+    "G": {
+      "available_summary_arrays": [
+        "D2_RMSE_by_radius",
+        "motif_entropy_by_radius",
+        "area_run_correlation_by_radius",
+        "top_eigen_share_by_radius",
+        "phase RMSE",
+        "orientation RMSE"
+      ],
+      "generated_stage_h_artifacts": "SHA256_ANCHORED_BY_SPARSE_PUBLICATION_INDEX",
+      "missing_for_stage_e": [
+        "sample-level residual x matched-K<=6 motif exposure joint table",
+        "strict-filtered STAR feature rows"
+      ],
+      "publication_index": "DIRECTLY_AVAILABLE_AND_DURABLE"
+    }
+  },
+  "epistemic_label": "POST_FIT_CROSS_CARRIER_COMMON_COMPONENT_DIAGNOSTIC / NOT_THEOREM / NOT_CANONICAL",
+  "frozen_checkpoints": {
+    "R057G_STAGE_H_RESIDUAL_DIAGNOSTIC_CHECKPOINT_SHA256": "21f051e5f2cfe276a1a746112968ca7d8ca6dedee2efe9fe006da94e47f9726b",
+    "R057X_CARRIER_UNIT_CONVERSION_REGISTRY_V2_SHA256": "17cf3a4ca2be99ecd9679381e0df4f1afd3eccc299c050dd80c7f527acf1fec2",
+    "R057X_MATCHED_LOCAL_MOTIF_PROBES_SHA256": "f9256c9cac705e7208f5efd3667c7f9ee62deda9f5d38b713268d679f57fd2c0",
+    "R057X_STAGE_C1_STAR_COMPARISON_CHECKPOINT_SHA256": "1af2df3eefbb1eeee35418d59edf197657d91c1e14c47e8fdf319aab00a9c75d",
+    "R057X_STAGE_D_RESIDUAL_STRUCTURE_CHECKPOINT_SHA256": "7059ec68f6ace7cb46360476b7378b12b06dbb5a426269c20ae598e6bde1e771",
+    "R057_A_STAGE_G_RESIDUAL_DIAGNOSTIC_CHECKPOINT_SHA256": "4f2280c85a831b0270b03a15f377f7dbb51569351b513d9b79bd7aaac35ea0f0"
+  },
+  "gate_result": "PASS",
+  "prohibitions_verified": {
+    "K_expansion": false,
+    "R057Y_read": false,
+    "coefficient_refit": false,
+    "cross_arm_fitted_rescaling": false,
+    "hotspot_driven_generator_invention": false,
+    "new_feature_operator_surrogate": false,
+    "new_teacher": false,
+    "optimizer": false,
+    "parser_segmentation_assembly_readout_change": false,
+    "symbolic_regression": false
+  },
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_STAGE_E_INPUT_REGISTRY_V1",
+  "stage": "E0",
+  "stage_d_gate": {
+    "COMMON_ASSEMBLY_SWITCHING_EXCLUSION": "SUPPORTED",
+    "COMMON_FINITE_SCALE_RESIDUAL_COMPONENT": "SUPPORTED / WEAK_MATCHED_STATEMENT_ONLY",
+    "COMMON_POST_MIXTURE_REBOUND_SIGNATURE": "INSUFFICIENT",
+    "G_CARRIER_MIXTURE_BURDEN_STRONGER": "SUPPORTED_DESCRIPTIVELY",
+    "fit_status": "NO_STAGE_D_FIT",
+    "primary_disposition": "MIXED_COMMON_AND_CARRIER_SPECIFIC_RESIDUAL_STRUCTURE"
+  },
+  "status": "FROZEN_STAGE_E_INPUT_GATE_PASS",
+  "taskbook": {
+    "R057Y_consumed": false,
+    "source_commit": "f3b308cafef6780d4becaa0d894f6611906f2f43"
+  },
+  "upstream_reproduction": {
+    "A": "PASS / exact difference zero / 144 circles x 3 frozen models",
+    "G": "PASS_204_OF_204 / max_abs_difference=8.881784197001252e-16 / byte_reproduction=PASS_8_OF_8"
+  }
+}
