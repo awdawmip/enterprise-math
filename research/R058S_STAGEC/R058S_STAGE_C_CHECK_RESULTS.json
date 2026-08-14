@@ -1,0 +1,176 @@
+{
+  "check_family_counts": {
+    "B1_IMMUTABILITY": 5,
+    "DECOMPOSITION_ARTIFACT_EXACT": 4608,
+    "DECOMPOSITION_IDENTITY": 1536,
+    "FINITE_K_ALIASING": 15,
+    "FROZEN_DENSITY_REPLAY": 224,
+    "G2_EQUALS_G0_DENSITY": 7,
+    "GATES_AND_FIREWALL": 10,
+    "OFFSET_CLASS_AUDIT": 8,
+    "PERIOD_TRANSLATION_REPLAY": 8,
+    "PERIOD_WORD_REPLAY": 8,
+    "RADICAL_ARITHMETIC": 3,
+    "SQUARE_FROZEN_RMSE_REPLAY": 4,
+    "TANGENT_NORMAL_ORTHOGONALITY": 8,
+    "WHOLE_CHORD_STATUS": 7
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "exact_whole_chord_pairs_k_tangent": [
+    [
+      2,
+      1
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      6,
+      1
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      8,
+      1
+    ],
+    [
+      8,
+      2
+    ],
+    [
+      8,
+      3
+    ]
+  ],
+  "firewall": {
+    "B1_grammar_mutated": false,
+    "K_expanded": false,
+    "holdout_consumed": false,
+    "new_search_optimizer_refit": false,
+    "r057_fitted_prior_consumed": false
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "protocol_sha256": "acf22b9d2f256b0dccfa210abce69e2e994205a39d19bc3bed945026d75e78b9",
+  "representative_checks": [
+    {
+      "check": "PARENT_REPRODUCTION_40_40",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "PROTOCOL_BEFORE_DENSITY_CHRONOLOGY",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "RAD_SQRT_1_3",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "PERIOD_WORD_REPLAY_T1",
+      "detail": "(4, 5)",
+      "status": "PASS"
+    },
+    {
+      "check": "PERIOD_WORD_REPLAY_T8",
+      "detail": "(0, 5, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)",
+      "status": "PASS"
+    },
+    {
+      "check": "DENSITY_REPLAY_G0_WC_K6_T1",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "DENSITY_REPLAY_G1_BALANCED_K5_T8",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "DENSITY_REPLAY_G1_MIN_RMSE_K8_T4",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "DENSITY_REPLAY_G2_LOOKUP_K8_T8",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "ALL_FROZEN_MODEL_REPLAY_COUNT_224",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "WC_NOT_GLOBALLY_EXACT",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G2_EQUALS_G0_K8",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "B1_IMMUTABLE_R058S_G2_HIGH_CAPACITY_LOOKUP_RESULTS.json",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "SQUARE_FROZEN_RMSE_G0_WC_K6",
+      "detail": "1.6475450391317776",
+      "status": "PASS"
+    },
+    {
+      "check": "SQUARE_FROZEN_RMSE_G1_BALANCED_K5",
+      "detail": "5.167388591509514",
+      "status": "PASS"
+    },
+    {
+      "check": "SQUARE_FROZEN_RMSE_G1_MIN_RMSE_K8",
+      "detail": "1.3298415053937842",
+      "status": "PASS"
+    },
+    {
+      "check": "SQUARE_FROZEN_RMSE_G2_LOOKUP_K8",
+      "detail": "1.2003922124158672",
+      "status": "PASS"
+    },
+    {
+      "check": "FINITE_K_ROLE_ALIASING_STRUCTURAL",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "HOLDOUT_NOT_CONSUMED",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "NO_RESELECTION_REFIT",
+      "detail": "",
+      "status": "PASS"
+    }
+  ],
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_STAGE_C_CHECK_RESULTS_V1_COMPACT",
+  "stage": "C",
+  "status": "PASS",
+  "summary": {
+    "all_pass": true,
+    "detailed_check_count": 6451,
+    "fail_count": 0,
+    "full_check_log_sha256": "59b5b8d3968d2ee2f26b001be0e686e620bbdb20ab4a1105c17f19d81a325304",
+    "ordered_check_event_digest_sha256": "bc38518fc2ebee5b66cf3bd8ceb89733882f14d1916544b777105aa473905fdf",
+    "pass_count": 6451
+  }
+}
