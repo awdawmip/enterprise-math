@@ -1,0 +1,80 @@
+{
+  "A": {
+    "consumed_artifact_sha256": {
+      "R057_A_STAGE_G_EXACT_CHECK_RESULTS_SHA256": "efe829874e26e888ef4b5c50239a737de9255b380234dc18d94220872f48cfd8",
+      "R057_A_STAGE_G_REPRODUCTION_GATE_SHA256": "db0e3ba0b415166ac17018fd580906eda71fae6be988b8c6b886b5d499219396",
+      "R057_A_STAGE_G_RESIDUAL_DIAGNOSTIC_CHECKPOINT_SHA256": "4f2280c85a831b0270b03a15f377f7dbb51569351b513d9b79bd7aaac35ea0f0",
+      "R057_A_STAR_ASSEMBLY_ACTIVE_SET_DIAGNOSTICS_SHA256": "a921e4c8f0d75680b4fe39a11ae2961f6a510dc11e134479bce2cacde6bb8548",
+      "R057_A_STAR_FEATURE_GEOMETRY_SHA256": "4d319dcd88e8c9de22b4db4a85bf7119b3ca5e76a471a040de49fb4760bc43b8",
+      "R057_A_STAR_MOTIF_MIXTURE_TRAJECTORY_SHA256": "994587710181c284f53121ae195b19dc11071091dc462c75ba7e2b7cd36bfd23",
+      "R057_A_STAR_RESIDUAL_CAUSE_LEDGER_SHA256": "1fcd7956546f38626de9dd350cf27d4960da8a241ca523d249638ba47ac7bee3",
+      "R057_A_STAR_RESIDUAL_DIAGNOSTIC_ATLAS_SHA256": "1641be057d6527cc07bd54bb2dbb9c61b754bb8fe4273c393322b5e65a4732d9",
+      "R057_STAGE_G_REPORT_SHA256": "03eebb45cd72117ab398c9e49cc6d90ac2706728fa9dca3fd9db174fcce7ebc8"
+    },
+    "parent_star_transfer_checkpoint_sha256": "e8ad43b87b4a64f8b7b1d888bab1bcb96711c36faba592caac724c35edfb848e",
+    "references_stage_c1": true,
+    "reproduction_gate": {
+      "circles": 144,
+      "exact_difference_zero": true,
+      "models": 3,
+      "status": "PASS"
+    },
+    "residual_diagnostic_checkpoint_sha256": "4f2280c85a831b0270b03a15f377f7dbb51569351b513d9b79bd7aaac35ea0f0",
+    "scope_guards": {
+      "K_expansion": false,
+      "assembly_or_readout_change": false,
+      "coefficient_refit": false,
+      "new_feature_or_operator": false,
+      "new_teacher": false,
+      "optimizer": false,
+      "parser_or_context_change": false
+    },
+    "source_head": "6b2253365fa13a6e96a1037d757bbff53a27f700"
+  },
+  "G": {
+    "byte_reproduction": "PASS_8_OF_8",
+    "consumed_artifact_sha256": {
+      "R057G_STAGE_H_CHECK_RESULTS_SHA256": "25884fc6af5ed7be77ae9ab9b5fe77cab80b203f26c937338dde39ca48570e65",
+      "R057G_STAGE_H_REPRODUCTION_GATE_SHA256": "20d3e43cb7326f3d704a719297e16efb44ae9cc7faa4bb7299553836259a7884",
+      "R057G_STAGE_H_RESIDUAL_DIAGNOSTIC_CHECKPOINT_SHA256": "21f051e5f2cfe276a1a746112968ca7d8ca6dedee2efe9fe006da94e47f9726b",
+      "R057G_STAR_ASSEMBLY_DIAGNOSTICS_SHA256": "2a67027bd0e1df32d3733571cb6b6739dbc92d7509d492ec59a6a517c03dce18",
+      "R057G_STAR_FEATURE_GEOMETRY_SHA256": "2e5b5ecdd01b1483a724f1d26ff3e3c8533f76956256d9c9750152a3d7353c70",
+      "R057G_STAR_MOTIF_MIXTURE_TRAJECTORY_SHA256": "2b343a78d06828b8a442df5ceac89a692ffbefac34fdb7cebbe58ad3a51b5264",
+      "R057G_STAR_RESIDUAL_CAUSE_LEDGER_SHA256": "61c134e21e2e32b5cc7d502eb03654ba0b22ea38c493fd9d29d8314ca311ab79",
+      "R057G_STAR_RESIDUAL_DIAGNOSTIC_ATLAS_SHA256": "fb76cc03aaec919a39539580478542471a88a4c173f759424813e914832db395"
+    },
+    "durable_publication_object": "R057G_STAGE_H_PUBLICATION_INDEX.json",
+    "parent_star_transfer_checkpoint_sha256": "3593fa3eddd7983d55983f214e77f8318267bf7768daa169a205dd948dd89134",
+    "references_stage_c1": true,
+    "reproduction_gate": {
+      "checks": 204,
+      "max_abs_difference": 8.881784197001252e-16,
+      "status": "PASS"
+    },
+    "residual_diagnostic_checkpoint_sha256": "21f051e5f2cfe276a1a746112968ca7d8ca6dedee2efe9fe006da94e47f9726b",
+    "scope_guards": {
+      "K_expansion": false,
+      "coefficient_refit": false,
+      "new_feature_or_operator": false,
+      "new_teacher": false,
+      "optimizer": false,
+      "parser_or_segmentation_change": false
+    },
+    "source_head": "e9b0656fa413fd640efcc03d9562835225fcd3c4"
+  },
+  "cross_arm_semantic_anchor": {
+    "checkpoint_sha256": "1af2df3eefbb1eeee35418d59edf197657d91c1e14c47e8fdf319aab00a9c75d",
+    "source_head": "3b14828e6766dff8f1e8814a6206fcb482cae9be"
+  },
+  "epistemic_label": "POST_FIT_CROSS_CARRIER_RESIDUAL_DIAGNOSTIC / NOT_THEOREM / NOT_CANONICAL",
+  "failure_disposition_if_any": "R057X_STAGE_D_INPUT_REPRODUCTION_FAIL",
+  "gate_result": "PASS",
+  "researcher_id": "EM-R057X-5E8C41",
+  "schema": "R057X_STAGE_D_INPUT_REGISTRY_V1",
+  "stage": "D0",
+  "status": "FROZEN_INPUT_REGISTRY / REPRODUCTION_GATE_PASS",
+  "taskbook": {
+    "R057Y_consumed": false,
+    "commit": "f7dc5d4084e765d90cb1b93473c3dfd399e67dea"
+  }
+}
