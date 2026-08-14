@@ -1,0 +1,49 @@
+{
+  "artifacts": {
+    "R057G_SIGNED_CORRECTION_ABLATION.json": {
+      "bytes": 17323,
+      "sha256": "04e554f5c524c32adc82bf7f2000e0b621e42ad9e66644b5a3860737a308835b"
+    },
+    "R057G_SIGNED_CORRECTION_COEFFICIENT_TRAJECTORY.json": {
+      "bytes": 18572,
+      "sha256": "dee218ceedd145982e3a2f74f5104cbce48c6a60a897425d9f8c4f3e680932a0"
+    },
+    "R057G_SIGNED_CORRECTION_STABILITY_ATLAS.json": {
+      "bytes": 39802,
+      "sha256": "e94a41c3ae9530ca7f1a040efc7deb8e019c138f2b574e721146f1ede58a9db1"
+    },
+    "R057G_STAGE_E_CHECK_RESULTS.json": {
+      "bytes": 2186,
+      "sha256": "6ac30c241bd08a3a96431094deaeb929a027cc62631372df5e68971d8334f8a1"
+    },
+    "R057G_STAGE_E_INDEPENDENT_CHECK_RESULTS.json": {
+      "bytes": 5533,
+      "sha256": "fcaaa5f46227392f0100f405dd17fce9afb5eb88e784019c45a7a7c549eb39b9"
+    },
+    "R057G_STAGE_E_STABILITY_CHECKPOINT.json": {
+      "bytes": 26621,
+      "sha256": "67c040b24ff57db8bbfb7e811bb4e7bbe8e624cae0296a453b654275a7e7b00e"
+    }
+  },
+  "label": "CROSS_ARM_INSPIRED_POST_SERIOUS_CHECKPOINT",
+  "researcher_id": "EM-R057G-93D4A8",
+  "schema": "R057G_STAGE_E_PUBLICATION_INDEX_V1",
+  "scripts": {
+    "r057g_stage_e_independent_check.py": {
+      "bytes": 6997,
+      "sha256": "c31777c86d87848c373df32fb0df20d7c179b245aa2fe02d1a54f0399e43b00c"
+    },
+    "r057g_stage_e_stability.py": {
+      "bytes": 29914,
+      "sha256": "6cc7026e213706ce12679efdee7d15f8f774702b33723ce90f6ef50583fd3ba9"
+    }
+  },
+  "stage_d_parent_checkpoint_sha256": "98cd650f969dd85d2865d7102c9845147ef4d7fdd4bff13d9fbeda9a0b5e6d8f",
+  "status": "FROZEN_STAGE_E_DRIVER_REVIEW",
+  "validation": {
+    "byte_reproduction": "PASS_6_OF_6_RUN1_EQUALS_RUN2",
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH",
+    "independent_check": "PASS_37_OF_37",
+    "self_check": "PASS_12_OF_12"
+  }
+}
