@@ -1,0 +1,43 @@
+{
+  "d6_behavior": "covariant carrier word/translation; scalar m,Q,length invariant under corrected spatial D6 with traversal restoration after reflection",
+  "deployed": false,
+  "domain": "a carrier-intrinsic straight digital boundary segment for which a primitive translation period (word,t) has been certified on the frozen triangular/Voronoi carrier",
+  "endpoint_displacement_semantics": "the occupied-left lift of one primitive quotient cycle ends at start+t",
+  "exact_output": "whole chord of the m(t)-edge period; length sqrt(Q(t)) exactly",
+  "failure_not_applicable": [
+    "non-straight boundary or no certified periodic half-plane carrier state",
+    "translation not identified or not reduced",
+    "incomplete prefix/suffix tail only",
+    "corner/boundary-layer region",
+    "carrier differs from frozen triangular/Voronoi semantics"
+  ],
+  "firewall": {
+    "empirical_K_gt_8_square_prediction": false,
+    "holdout_consumed": false,
+    "new_grammar": false,
+    "optimizer_or_refit": false,
+    "r057_fitted_prior_consumed": false,
+    "square_discovery_prediction_run": false
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "name": "ADAPTIVE_PRIMITIVE_PERIOD_WHOLE_CHORD",
+  "period_formula": "m(t)=|a|+|b|+|a+b|=2*max(|a|,|b|,|a+b|)",
+  "primitive_period_detection_assumptions": [
+    "boundary is locally the frozen center-in-half-plane straight carrier",
+    "translation t is a nonzero lattice symmetry of the oriented boundary",
+    "t is reduced to gcd(|a|,|b|)=1 before period length is assigned",
+    "one complete aligned primitive boundary word is available; finite tails are not silently absorbed"
+  ],
+  "provenance": {
+    "parent_stage_d_checkpoint_sha256": "bb8d9b5464732b88cf3873a272429ed435e0ceedcc2e04e6c7760d6193dad1d7",
+    "taskbook_source_commit": "424835a56a00406c62c02d3f3ce31b3a3766c6c6",
+    "theorem_artifact": "R058S_GENERAL_STRAIGHT_EDGE_PERIOD_THEOREM.md",
+    "theorem_sha256": "b64d2a8fced5618e09b3b9980e86e5f7a471a4ebf84598936a58b6e1c3388c4c"
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "reversal_behavior": "t -> -t reverses oriented period; m and output length unchanged",
+  "scale_primitive_reduction": "for u=g*t with primitive t and g>0, use primitive period m(t); u is g repeated primitive periods, not a new primitive period m(u)",
+  "schema": "R058S_ADAPTIVE_PRIMITIVE_PERIOD_COLLAPSE_SPEC_V1",
+  "stage": "E",
+  "status": "POST_STAGE_D_GENERAL_EDGE_LAW_OPERATOR_SPEC / UNDEPLOYED"
+}
