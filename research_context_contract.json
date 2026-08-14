@@ -1,0 +1,81 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_CONTEXT_CONTRACT_V1",
+  "status": "PROVISIONAL_RESEARCH",
+  "compiler_version": "R030.1",
+  "layers": {
+    "TASKBOOK": "task-specific problem contract; authoritative for requested scope",
+    "COMMON_SURFACE": "accepted reusable knowledge router; not copied wholesale into packs",
+    "REASONING_REGISTRY": "typed reusable reasoning operators with trust/evidence boundaries",
+    "CONTEXT_PACK": "derived task-relative working context; never hand-maintained as a second taskbook"
+  },
+  "semantic_signature_fields": [
+    "task_id",
+    "object_types",
+    "carrier_types",
+    "semantics",
+    "current_observable",
+    "future_language",
+    "future_horizon",
+    "claim_mode",
+    "minimality_scope",
+    "composition_requirement",
+    "resource_comparison",
+    "semantic_contract_equality_required",
+    "evidence_targets",
+    "dependencies",
+    "exclusions",
+    "semantic_facts",
+    "risk_flags",
+    "unknown_fields"
+  ],
+  "selection_channels": {
+    "EXACT_REQUIRED": "selected only from structured signature/declarations/dependencies/accepted negative boundaries/evidence obligations",
+    "DIAGNOSTIC_SUGGESTED": "selected from auxiliary textual signals or unresolved risk; never injects a conclusion as fact"
+  },
+  "strategies": [
+    "ALL_MATCHES",
+    "TOP_K",
+    "MINIMUM_CRITICAL_COVER"
+  ],
+  "trust_classes": [
+    "FACT",
+    "FORMAL_TOOL",
+    "EXACT_DIAGNOSTIC",
+    "HEURISTIC_ALERT",
+    "INTERPRETIVE_LENS"
+  ],
+  "freshness": {
+    "digest_inputs": [
+      "taskbook semantic digest",
+      "registry digest",
+      "relevant common-surface slice digest",
+      "selected pinned source identities"
+    ],
+    "rule": "irrelevant repository movement does not invalidate a pack; any relevant dependency change does"
+  },
+  "required_pack_fields": [
+    "schema",
+    "compiler_version",
+    "task_id",
+    "task_signature",
+    "source_snapshot",
+    "registry_snapshot",
+    "selected_exact_tools",
+    "selected_diagnostic_tools",
+    "selection_reasons",
+    "carrier_alerts",
+    "modal_alerts",
+    "quantifier_alerts",
+    "evidence_alerts",
+    "negative_boundaries",
+    "prior_art_alerts",
+    "required_source_refs",
+    "known_non_implications",
+    "excluded_tools",
+    "context_budget",
+    "context_digest"
+  ],
+  "optional_feedback_fields": {
+    "meta_tool_delta": "compiler-observed unknowns, uncovered capabilities, and omitted candidates for registry feedback; never auto-promotes tools"
+  }
+}
