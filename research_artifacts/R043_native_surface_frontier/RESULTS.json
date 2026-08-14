@@ -1,0 +1,134 @@
+{
+  "schema": "ENTERPRISE_MATH_R043_NATIVE_SURFACE_FRONTIER_V1",
+  "task_id": "RS-R043-NATIVE-SURFACE-FRONTIER-RECONSTRUCTION-MARKOV-CARRIER",
+  "researcher_id": "EM-R043-8C2F71",
+  "status": "SEMANTIC_CHECKPOINT / G0_BOUNDED_SURVIVAL / SLOT_CUT_STATIONARY_POSITIVE / NOT_CANONICAL",
+  "taskbook_source": "41afbdf37f70b1fc484f7a49bc68880826ead31d",
+  "frozen_dependencies": {
+    "R041": "688661e76255b3e86df6d5c69695f2932b650740",
+    "R039": "c484fb85385b8498982aaa939171957588c836d7"
+  },
+  "g0_atlas": {
+    "fcc": {
+      "level_counts": [1, 1, 4, 20, 131, 1211, 12734, 144158],
+      "total_N_le_8": 158260,
+      "distinct_g0_keys_N_le_8": 158260,
+      "cross_size_collisions": 0,
+      "N8_states": 144158,
+      "N8_distinct_g0_keys": 144158,
+      "N8_wl_duplicate_buckets": 0,
+      "N8_exact_collision_groups": 0
+    },
+    "hcp": {
+      "level_counts": [1, 2, 9, 57, 460, 4641, 50353, 575375],
+      "total_N_le_8": 630898,
+      "distinct_g0_keys_N_le_8": 630898,
+      "cross_size_collisions": 0,
+      "N8_states": 575375,
+      "N8_distinct_g0_keys": 575375,
+      "N8_wl_duplicate_buckets": 0,
+      "N8_exact_collision_groups": 0
+    },
+    "interpretation": "bounded ker(G0) equals exact frozen cluster-class equality through N<=8; this is not an unbounded reconstruction proof"
+  },
+  "rooted_recursive_closure": {
+    "fcc_parent_N_le_7_split_count": 0,
+    "hcp_parent_N_le_7_split_count": 0,
+    "exactness_note": "every child has N<=8 and the complete child G0 atlas is injective; any exact frontier automorphism preserves node-level WL subgraph signatures, so a genuine child split would have entered a differing-child-key candidate bucket"
+  },
+  "stationary_carrier": {
+    "name": "K_partial_native_slot_cut",
+    "state": "coherently native-embedded current frontier plus per-frontier inward occupied contact slots",
+    "stores_explicit_L1": false,
+    "stores_deep_interior": false,
+    "fixed_form": true,
+    "recursive_exact_addition_only": true,
+    "all_finite_boolean_horizons": true,
+    "proof": "direct slot-cut update identity",
+    "executable_checks": {
+      "fcc_actions_through_N6": 52380,
+      "fcc_mismatches": 0,
+      "hcp_actions_through_N6": 198983,
+      "hcp_mismatches": 0
+    }
+  },
+  "derived_from_K_partial": [
+    "G0",
+    "exact_L1",
+    "pair_overlap_O2",
+    "shared_future_multihypergraph",
+    "full_M3"
+  ],
+  "pareto": {
+    "singleton": {
+      "fcc": {
+        "M3_vertices": 54,
+        "K_vertices": 12,
+        "vertex_reduction_pct": 77.78,
+        "M3_edges": 204,
+        "K_relation_records": 36,
+        "relation_record_reduction_pct": 82.35,
+        "M3_json_bytes": 4881,
+        "K_json_bytes": 397,
+        "json_reduction_pct": 91.87
+      },
+      "hcp": {
+        "M3_vertices": 56,
+        "K_vertices": 12,
+        "vertex_reduction_pct": 78.57,
+        "M3_edges": 216,
+        "K_relation_records": 36,
+        "relation_record_reduction_pct": 83.33,
+        "M3_json_bytes": 5122,
+        "K_json_bytes": 390,
+        "json_reduction_pct": 92.39
+      }
+    },
+    "N6_mean": {
+      "fcc": {
+        "M3_vertices": 131.2634186623,
+        "K_vertices": 39.0247729149,
+        "vertex_reduction_pct": 70.27,
+        "M3_edges": 538.2295623452,
+        "K_relation_records": 156.8199834847,
+        "relation_record_reduction_pct": 70.86,
+        "M3_json_bytes": 12616.98,
+        "K_json_bytes": 1424.12,
+        "json_reduction_pct": 88.71,
+        "nonzero_O2_pairs": 139.467,
+        "F_L1_hypergraph_incidences": 214.917
+      },
+      "hcp": {
+        "M3_vertices": 134.3232062056,
+        "K_vertices": 39.1070889894,
+        "vertex_reduction_pct": 70.89,
+        "M3_edges": 556.5386770093,
+        "K_relation_records": 157.1969403146,
+        "relation_record_reduction_pct": 71.75,
+        "M3_json_bytes": 12495.04,
+        "K_json_bytes": 1369.67,
+        "json_reduction_pct": 89.04,
+        "nonzero_O2_pairs": 139.128,
+        "F_L1_hypergraph_incidences": 215.187
+      }
+    }
+  },
+  "hypotheses": {
+    "H1_G0_B3_SUFFICIENCY": "BOUNDED_PROVED_N_LE_8 / GLOBAL_CONJECTURAL",
+    "H2_G0_RECURSIVE_CLOSURE": "BOUNDED_PROVED_PARENT_N_LE_7 / GLOBAL_CONJECTURAL",
+    "H3_FRONTIER_STATIONARY_MARKOV": "PROVED_POSITIVE_FOR_K_PARTIAL",
+    "H4_PAIR_OVERLAP_REPAIR": "STANDALONE_SUFFICIENCY_UNPROVED / NOT_NEEDED_AS_STORED_REPAIR",
+    "H5_HYPERGRAPH_DEBT": "NOT_IRREDUCIBLE_AS_EXPLICIT_DEPTH_REQUIREMENT",
+    "H6_INTERIOR_FORGETFULNESS": "PROVED_POSITIVE_GIVEN_K_PARTIAL_FOR_ADDITION_ONLY_SURFACE_FUTURE",
+    "H7_FCC_HCP_RECONSTRUCTION_SPLIT": "NO_G0_SPLIT_OBSERVED_THROUGH_N8",
+    "H8_FIXED_STATE_VS_HORIZON_GROWTH": "FIXED_FORM_POSITIVE / STRONG_HORIZON_GROWTH_KILLED"
+  },
+  "reconstruction_conjecture": {
+    "name": "R043-C1_NATIVE_SLOT_CUT_RECONSTRUCTION",
+    "statement": "the forgetful map pi: K_partial -> G0 is injective up to frozen native symmetry/future equivalence for every finite connected reachable FCC/HCP interface",
+    "status": "CONJECTURAL",
+    "bounded_verified": "N<=8 both worlds"
+  },
+  "next_action": "build a native slot-completion/embedding CSP from abstract weighted G0 to coherent K_partial completions; seek two non-equivalent completions before extending naive animal enumeration",
+  "ci": "CI_NOT_REQUIRED_FOR_RESEARCH"
+}
