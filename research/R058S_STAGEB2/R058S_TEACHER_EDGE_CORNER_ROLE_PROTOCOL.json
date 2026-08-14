@@ -1,0 +1,258 @@
+{
+  "arithmetic": {
+    "authoritative_field": "Q exact rational arithmetic (fractions.Fraction); no floating comparison defines a role",
+    "bilinear": "beta((a,b),(c,d))=2*a*c+a*d+b*c+2*b*d",
+    "boundary_coordinate": "Stage-A x6,y6 integer scaled-Cartesian coordinates representing physical (X,sqrt(3)Y) with X=x6/6,Y=y6/6",
+    "phase_center": "frozen rational axial phase c; evaluate w=x-c exactly",
+    "quadratic_form": "Q(a,b)=a^2+a*b+b^2",
+    "scaled_cartesian_to_axial": "a=(x6-y6)/6; b=y6/3, extended exactly to rational x6,y6 for midpoints",
+    "teacher_axes": "d is frozen primitive discovery orientation; p is frozen primitive perpendicular from Stage 0"
+  },
+  "epistemic_status": "POST_SEARCH_ROLE_UNBLINDING / DISCOVERY_INTERPRETATION / NOT_THEOREM / NOT_CANONICAL",
+  "freeze_order": {
+    "classifier_chosen_using_b1_role_separation_statistics": false,
+    "pre_hash_discovery_role_tables_computed": false,
+    "protocol_hashed_before_discovery_corpus_role_labeling": true,
+    "protocol_hashed_before_role_x_b1_predicate_branch": true,
+    "protocol_hashed_before_role_x_collapse_count": true,
+    "protocol_hashed_before_role_x_composition": true
+  },
+  "frozen_parent": {
+    "stage_a_checkpoint_sha256": "e43da09e347503223cde29de378570e76e79e63f44fe2bd9195b6a7dd6b1a925",
+    "stage_b1_checkpoint_sha256": "00faf065bb1769f4df7d7e51cec8b8754c414f280666d785adc7ed554acd753b",
+    "stage_b1_exact_head": "81fba01c21a991208daa85bfa109705706534da0"
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "interpretation_only_firewall": {
+    "b1_grammar_change": false,
+    "composition_change": false,
+    "holdout_consumed": false,
+    "k_gt_8": false,
+    "new_optimizer_or_search": false,
+    "new_predicate": false,
+    "rectangle_cube_circle_pi": false,
+    "refit": false,
+    "r057_fitted_prior_consumed": false
+  },
+  "packet_role_classifier": {
+    "AMBIGUOUS_ROLE": "all other cases, including opposite signed sides, more than one corner pair, point ambiguity, or unresolved single-family mixture",
+    "CORNER_NEAR": "there is one unique adjacent signed D/P side pair such that every tested point is associated with one member of that pair or its exact pair-tie, and the packet contains evidence for both side families either by both unique side associations or by at least one exact pair-tie",
+    "SIDE_INTERIOR": "every tested point has the same unique signed teacher-side association and no adjacent-side tie",
+    "corner_index_storage": "a deterministic signed D/P pair may be stored only as interpretation metadata after this protocol freeze; it is never grammar input",
+    "no_distance_threshold": true,
+    "no_role_optimization": true
+  },
+  "point_support_association": {
+    "adjacent_side_tie": "E_d=E_p and both beta values nonzero; tie identifies the unique adjacent D-sign/P-sign side pair",
+    "d_extremity": "E_d(x)=beta(w,d)^2/Q(d)",
+    "interpretation": "exact normalized squared support-coordinate extremity; used only as a deterministic supporting-side association, not asserted to be Euclidean metric distance",
+    "p_extremity": "E_p(x)=beta(w,p)^2/Q(p)",
+    "point_ambiguity": "E_d=E_p with either beta zero",
+    "tie_rule": "Fraction equality only; no tolerance, perturbation, or floating fallback",
+    "unique_d_side": "E_d>E_p; side sign is sign(beta(w,d))",
+    "unique_p_side": "E_p>E_d; side sign is sign(beta(w,p))"
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_TEACHER_EDGE_CORNER_ROLE_PROTOCOL_V1",
+  "stage": "B2",
+  "status": "FROZEN_PRE_EXPOSURE_TEACHER_ROLE_PROTOCOL",
+  "symmetry_covariance": {
+    "post_label_full_corpus_audit_required": true,
+    "reflection": "F(a,b)=(a+b,-b)",
+    "required": "simultaneously transform teacher center/axes and packet geometry under frozen triangular-lattice D6; coarse role SIDE_INTERIOR/CORNER_NEAR/AMBIGUOUS_ROLE must be invariant while signed side identifiers may permute",
+    "rotation": "R(a,b)=(-b,a+b)",
+    "square_axis_swap": "swapping d and p may permute signed side identifiers but must preserve coarse role"
+  },
+  "synthetic_pre_freeze_checker": {
+    "all_pass": true,
+    "case_count": 12,
+    "cases": [
+      {
+        "base_role": "SIDE_INTERIOR",
+        "case": "SIDE_INTERIOR",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          1,
+          0
+        ],
+        "orientation_p": [
+          1,
+          -2
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "CORNER_NEAR",
+        "case": "CORNER_NEAR",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          1,
+          0
+        ],
+        "orientation_p": [
+          1,
+          -2
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "AMBIGUOUS_ROLE",
+        "case": "AMBIGUOUS_ROLE",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          1,
+          0
+        ],
+        "orientation_p": [
+          1,
+          -2
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "SIDE_INTERIOR",
+        "case": "SIDE_INTERIOR",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          3,
+          1
+        ],
+        "orientation_p": [
+          5,
+          -7
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "CORNER_NEAR",
+        "case": "CORNER_NEAR",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          3,
+          1
+        ],
+        "orientation_p": [
+          5,
+          -7
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "AMBIGUOUS_ROLE",
+        "case": "AMBIGUOUS_ROLE",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          3,
+          1
+        ],
+        "orientation_p": [
+          5,
+          -7
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "SIDE_INTERIOR",
+        "case": "SIDE_INTERIOR",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          2,
+          1
+        ],
+        "orientation_p": [
+          4,
+          -5
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "CORNER_NEAR",
+        "case": "CORNER_NEAR",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          2,
+          1
+        ],
+        "orientation_p": [
+          4,
+          -5
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "AMBIGUOUS_ROLE",
+        "case": "AMBIGUOUS_ROLE",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          2,
+          1
+        ],
+        "orientation_p": [
+          4,
+          -5
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "SIDE_INTERIOR",
+        "case": "SIDE_INTERIOR",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          3,
+          2
+        ],
+        "orientation_p": [
+          7,
+          -8
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "CORNER_NEAR",
+        "case": "CORNER_NEAR",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          3,
+          2
+        ],
+        "orientation_p": [
+          7,
+          -8
+        ],
+        "pass": true
+      },
+      {
+        "base_role": "AMBIGUOUS_ROLE",
+        "case": "AMBIGUOUS_ROLE",
+        "d6_covariance_12_of_12": true,
+        "orientation_d": [
+          3,
+          2
+        ],
+        "orientation_p": [
+          7,
+          -8
+        ],
+        "pass": true
+      }
+    ],
+    "uses_discovery_corpus_roles": false
+  },
+  "taskbook": {
+    "path": "research_tasks/R058S_STAGE_B2_EDGE_CORNER_UNBLINDING_20260814.md",
+    "source_commit": "a8d21a9db59a0c6aa80c72839f03498b2f931448"
+  },
+  "tested_packet_points": {
+    "k_range": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "reason": "requires the full frozen local boundary carrier without importing a teacher corner distance threshold",
+    "set": "all ordered packet vertices v_0..v_k AND all k exposed-edge midpoints m_i=(v_i+v_{i+1})/2"
+  }
+}
