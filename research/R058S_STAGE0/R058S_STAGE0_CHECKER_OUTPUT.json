@@ -1,0 +1,124 @@
+{
+  "checks": [
+    {
+      "check": "CANONICAL_JSON_BYTES:R058S_SQUARE_TEACHER_PROTOCOL.json",
+      "detail": "exact serializer round-trip",
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_JSON_BYTES:R058S_INITIAL_SQUARE_TEACHER_REGISTRY.json",
+      "detail": "exact serializer round-trip",
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_JSON_BYTES:R058S_SQUARE_HOLDOUT_REGISTRY.json",
+      "detail": "exact serializer round-trip",
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_JSON_BYTES:R058S_BOUNDARY_PACKET_PROTOCOL.json",
+      "detail": "exact serializer round-trip",
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_JSON_BYTES:R058S_COMPOSITION_COLLAPSE_GRAMMAR_META_PROTOCOL.json",
+      "detail": "exact serializer round-trip",
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_JSON_BYTES:R058S_COMPUTATION_REGISTRY.json",
+      "detail": "exact serializer round-trip",
+      "status": "PASS"
+    },
+    {
+      "check": "EXACT_ORTHOGONALITY_ALL_ORIENTATIONS",
+      "detail": "beta(d,p)=0 and Q records exact",
+      "status": "PASS"
+    },
+    {
+      "check": "DISCOVERY_D6_SQUARE_EQUIVALENCE_UNIQUE",
+      "detail": "4/4 distinct; no replacement",
+      "status": "PASS"
+    },
+    {
+      "check": "HOLDOUT_D6_SQUARE_EQUIVALENCE_UNIQUE_AND_DISJOINT",
+      "detail": "4/4 holdout distinct and 0 discovery overlap",
+      "status": "PASS"
+    },
+    {
+      "check": "DISCOVERY_REGISTRY_EXACT",
+      "detail": "8 sizes x 4 orientations x 12 phases = 384; corpus absent",
+      "status": "PASS"
+    },
+    {
+      "check": "HOLDOUT_REGISTRY_EXACT_UNCONSUMED",
+      "detail": "8 sizes x 4 orientations x 12 phases = 384; holdout unconsumed",
+      "status": "PASS"
+    },
+    {
+      "check": "VORONOI_EDGE_LENGTH_DERIVATION",
+      "detail": "all six exposed Voronoi edge vectors have q=1/3",
+      "status": "PASS"
+    },
+    {
+      "check": "NO_TRIG_OR_PI_ORIENTATION_PARAMETERIZATION",
+      "detail": "orientation uses axial vector + exact bilinear perpendicular",
+      "status": "PASS"
+    },
+    {
+      "check": "EXACT_CLOSED_MEMBERSHIP_TIE_RULE",
+      "detail": "exact rational predicate and closed equality frozen",
+      "status": "PASS"
+    },
+    {
+      "check": "PACKET_RANGE_AND_CORRECTED_REFLECTION",
+      "detail": "k=1..8; spatial reflection followed by traversal restoration",
+      "status": "PASS"
+    },
+    {
+      "check": "ORDERED_COMPOSITION_CARDINALITIES",
+      "detail": "2^(k-1), total 255 for k=1..8; cardinality only, no Stage-0 enumeration",
+      "status": "PASS"
+    },
+    {
+      "check": "IDENTITY_ALL_CYCLIC_READOUT_EXACT_K1_TO8",
+      "detail": "each edge occurs exactly k times; 1/k readout equals raw perimeter",
+      "status": "PASS"
+    },
+    {
+      "check": "STAGE0_FIREWALL",
+      "detail": "no corpus/search/fit/lookup/holdout prediction/R057 fitted prior consumption",
+      "status": "PASS"
+    },
+    {
+      "check": "SEMANTIC_TYPING_AND_TARGET_LEAKAGE_AUDIT",
+      "detail": "I0/N0/N1/N2/N3 separation; no native/foundational theorem claim",
+      "status": "PASS"
+    },
+    {
+      "check": "CI_POLICY",
+      "detail": "no CI/workflow status query required",
+      "status": "PASS"
+    }
+  ],
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "next_gate": "STOP_FOR_DRIVER_REVIEW",
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_STAGE0_CHECKER_OUTPUT_V1",
+  "sha256": {
+    "R058S_BOUNDARY_PACKET_PROTOCOL.json": "38536d1191a9d232fed79709a0b174dc68c2896871f33a385d83e0bd1bd4fcd8",
+    "R058S_COMPOSITION_COLLAPSE_GRAMMAR_META_PROTOCOL.json": "929ee6d7031e45e28bfbd1127d0a2ccaad34c65e0c523ca71ae07a652ea4c525",
+    "R058S_COMPUTATION_REGISTRY.json": "3d1ddac30f5f693375312c0ab811cb1ced5bd2b168e632daa3980709f8073c05",
+    "R058S_INITIAL_SQUARE_TEACHER_REGISTRY.json": "15e82bd7a3bfac8c42c896205b0aa9dea06d6d841458b63787a68e0a4800ac34",
+    "R058S_SQUARE_HOLDOUT_REGISTRY.json": "a4018f06b741579c5abb2fb8c636afe6424605e37dcdf0b44fcf7ff2c3e09456",
+    "R058S_SQUARE_TEACHER_PROTOCOL.json": "1e5773ea55057ce8fdd23256bfc60bdc02f748647573471c3a6cff4215ad6a6f"
+  },
+  "stage": "0",
+  "status": "PASS",
+  "summary": {
+    "all_pass": true,
+    "fail_count": 0,
+    "pass_count": 20
+  },
+  "taskbook_source_commit": "09df243f8613da75c1cb1df189a2b97e264cdd72"
+}
