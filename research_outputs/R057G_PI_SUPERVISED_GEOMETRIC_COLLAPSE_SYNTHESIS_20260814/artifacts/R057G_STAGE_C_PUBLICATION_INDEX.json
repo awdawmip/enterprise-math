@@ -1,0 +1,51 @@
+{
+  "artifacts": {
+    "R057G_STAGE_C_CHECK_RESULTS.json": {
+      "bytes": 4355,
+      "sha256": "069710b7699ae71e493938c78975c62d3ff3eae20645cb58ad13be0ba60b6e00"
+    },
+    "R057G_STAGE_C_EXCEPTION_COMPRESSION_CHECKPOINT.json": {
+      "bytes": 20372,
+      "sha256": "4e46e46da964d41275a171def94ecbe1858665724bd63dd814d36fa71b1bdefa"
+    },
+    "R057G_STAGE_C_EXCEPTION_COMPRESSION_FRONTIER.json": {
+      "bytes": 55658,
+      "sha256": "004ddac5b8a79b8c3de1f535f4fe7050ca542c7d6b04b14e1877a85d678c197c"
+    },
+    "R057G_STAGE_C_EXCEPTION_COMPRESSION_RESULTS.json": {
+      "bytes": 82715,
+      "sha256": "545b546f133b9bb2b593369ba02aa81ce76e65c926939a9ba2c353ef4eaa426a"
+    },
+    "R057G_STAGE_C_GRAMMAR_GENEALOGY.json": {
+      "bytes": 24849,
+      "sha256": "269fc6bb4aa2c46e4da437d014ffc50acc4b37ae082ec805f222d2d4e2cece30"
+    },
+    "R057G_STAGE_C_MANIFEST.json": {
+      "bytes": 904,
+      "sha256": "24192fef526f98c7ed6d1fd6b54af3216093dc9d74392999d139140fee3892ca"
+    }
+  },
+  "classification": "PARTIAL_SPARSE_EXCEPTION_COMPRESSION_FOUND",
+  "cross_arm_source_checkpoint_sha256": "d1069eb5f7f99be72e41fdc6ba4507c3cd2becb490da83171a2f12804419fef0",
+  "label": "CROSS_ARM_INSPIRED_POST_SERIOUS_CHECKPOINT",
+  "researcher_id": "EM-R057G-93D4A8",
+  "schema": "R057G_STAGE_C_PUBLICATION_INDEX_V1",
+  "scripts": {
+    "r057g_stage_c_exception_compression.py": {
+      "bytes": 38662,
+      "sha256": "3a4adee29f74e7b024b0704f07cf70c2f94642bf3f3573ec40291b8170ded86f"
+    },
+    "r057g_stage_c_independent_check.py": {
+      "bytes": 9990,
+      "sha256": "8e84eb9da7838b041b0d0065866805d48c87e75ab9035836087e52309d354d74"
+    }
+  },
+  "stage0_exact_head_immutable": "4f307c6bad7d5530a2b9c101de47a28e8863f527",
+  "stage_b_first_serious_grammar_checkpoint_sha256": "e7b215e6ff5b51c647d804161327b117a50dfbb213481734895b66de3afd9459",
+  "status": "FROZEN_STAGE_C_DRIVER_REVIEW",
+  "validation": {
+    "byte_reproduction": "PASS_RUN1_EQUALS_RUN2",
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH",
+    "independent_check": "PASS_32_OF_32"
+  }
+}
