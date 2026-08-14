@@ -1,0 +1,103 @@
+{
+  "artifact_sha256": {
+    "R058S_ADAPTIVE_PRIMITIVE_PERIOD_COLLAPSE_SPEC.json": "c486486be50ad5f8d8783ff24a04b866deed2ef7267e819e14e6770752988422",
+    "R058S_GENERAL_EDGE_THEOREM_CHECK_RESULTS.json": "09d24c0a20872ee00916261b68caf116d3b669683ef99685f185fe274cde378f",
+    "R058S_GENERAL_PERIOD_EDGE_TYPE_LEDGER.json": "b12b8f5023d795e0af4afbdae0e6a3c1369104c37ae3f0553199c3b07d3d4c7f",
+    "R058S_GENERAL_PERIOD_LENGTH_FORMULA.json": "3fc3fc1ecff428d56410e3fff4c0fcd5dca352d17922e4143d4f8a8c57e79d69",
+    "R058S_GENERAL_STRAIGHT_EDGE_PERIOD_THEOREM.md": "b64d2a8fced5618e09b3b9980e86e5f7a471a4ebf84598936a58b6e1c3388c4c",
+    "R058S_STAGE_E_CHECK_DOMAIN.json": "d4a08dff052d4d66a9d3496a19f5c9e52a5dc746d057c5cd0d0fc0af16b6a452"
+  },
+  "bounded_checker": {
+    "check_domain_sha256": "d4a08dff052d4d66a9d3496a19f5c9e52a5dc746d057c5cd0d0fc0af16b6a452",
+    "enumeration_is_proof": false,
+    "fail_count": 0,
+    "ordered_check_event_digest_sha256": "046e1f273219c3eb8f3d275f74483ca4446c48a7386f82037051255565ca8d5e",
+    "pass_count": 38582,
+    "primitive_tangent_count": 1944,
+    "status": "PASS"
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "d6_covariance": {
+    "H_hex": true,
+    "Q": true,
+    "checker_scope": "full bounded H_hex<=32 domain",
+    "m": true,
+    "whole_period_chord_length": true
+  },
+  "firewall": {
+    "B1_bytes_modified": false,
+    "empirical_K_gt_8_square_prediction": false,
+    "holdout_consumed": false,
+    "new_grammar": false,
+    "optimizer": false,
+    "r057_fitted_prior_consumed": false,
+    "rectangle_cube_circle_pi": false,
+    "refit": false,
+    "square_loss_search": false
+  },
+  "frozen_backcheck": {
+    "eight_periods": [
+      2,
+      4,
+      8,
+      14,
+      6,
+      10,
+      10,
+      16
+    ],
+    "interpretation": "finite consistency only; no carrier converse promoted",
+    "stage_d_56_rows_reproduced": 56
+  },
+  "frozen_parent": {
+    "stage_c_checker": "6451/6451 PASS",
+    "stage_c_checkpoint_sha256": "22f285cc876ce9624200a1ff4d58b910a7d698c1d0fbb0ec455409396fd809bb",
+    "stage_c_periodic_protocol_sha256": "acf22b9d2f256b0dccfa210abce69e2e994205a39d19bc3bed945026d75e78b9",
+    "stage_d_checker": "451/451 PASS",
+    "stage_d_checkpoint_sha256": "bb8d9b5464732b88cf3873a272429ed435e0ceedcc2e04e6c7760d6193dad1d7",
+    "stage_d_exact_head": "4ea462388f5a455ae3f9290bec4f372884abf0b7"
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "minimality": {
+    "minimal_nonzero_lattice_translation": "+/-t",
+    "minimal_oriented_edge_word_period": "m(t)",
+    "status": "EDGE_WORD_MINIMAL_PERIOD_PROVED"
+  },
+  "next_gate": "STOP_FOR_DRIVER_REVIEW",
+  "operator_spec": {
+    "deployed": false,
+    "label": "POST_STAGE_D_GENERAL_EDGE_LAW_OPERATOR_SPEC / UNDEPLOYED",
+    "name": "ADAPTIVE_PRIMITIVE_PERIOD_WHOLE_CHORD"
+  },
+  "primitive_reduction": {
+    "do_not_use_unreduced_m_as_primitive": true,
+    "u=g*t": "primitive period is m(t); u is g repetitions"
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_STAGE_E_GENERAL_EDGE_LAW_CHECKPOINT_V1",
+  "stage": "E",
+  "status": "FROZEN_STAGE_E_GENERAL_EDGE_LAW_CHECKPOINT",
+  "taskbook": {
+    "path": "research_tasks/R058S_STAGE_E_GENERAL_STRAIGHT_EDGE_PERIOD_LAW_20260814.md",
+    "source_commit": "424835a56a00406c62c02d3f3ce31b3a3766c6c6"
+  },
+  "theorem": {
+    "height_identity": "beta(x,n0)=3(b*x1-a*x2)",
+    "kernel": "Zt",
+    "normal": "n0=(a+2b,-(2a+b))",
+    "period_edge_count": "m(t)=|a|+|b|+|a+b|=2*max(|a|,|b|,|a+b|)",
+    "primitive_cycle_endpoint": "t",
+    "primitive_tangent": "t=(a,b), gcd(|a|,|b|)=1, t!=0",
+    "raw_density": "rho_raw(t)=m(t)/sqrt(3*Q(t))",
+    "support_image": "3Z",
+    "whole_period_chord": "sqrt(Q(t)) exactly"
+  },
+  "theorem_statuses": [
+    "TRIANGULAR_VORONOI_STRAIGHT_PERIOD_LENGTH_THEOREM_PROVED",
+    "TRANSLATIONAL_PERIOD_LENGTH_PROVED",
+    "EDGE_WORD_MINIMAL_PERIOD_PROVED",
+    "ADAPTIVE_PRIMITIVE_PERIOD_WHOLE_CHORD_STRAIGHT_EDGE_LAW_PROVED",
+    "RAW_DIGITAL_STRAIGHT_DENSITY_FORMULA_PROVED",
+    "CORNER_GENERATOR_STILL_OPEN"
+  ]
+}
