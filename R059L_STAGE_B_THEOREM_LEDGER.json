@@ -31,15 +31,56 @@
   "task_id": "RS-R059L-STAGE-B-NATIVE-PATH-INFORMATION-COLLAPSE",
   "taskbook_source_commit": "2a2ac4fd06c46a49bfdcfdb5de2c585f83015062",
   "theorems": [
-    {"id":"PB-T01","statement":"sum T=PATH_COUNT","status":"PROVED_EXACT"},
-    {"id":"PB-T02","statement":"T_{gamma*eta}=T_gamma+T_eta","status":"PROVED_EXACT"},
-    {"id":"PB-T03","statement":"T_rev(x,y)=T_gamma(y,x)","status":"PROVED_EXACT"},
-    {"id":"PB-T04","statement":"row(T)-column(T)=endpoint incidence","status":"PROVED_EXACT"},
-    {"id":"PB-T05","statement":"U_rev=U","status":"PROVED_EXACT"},
-    {"id":"PB-T06","statement":"H0->H1 is deterministic","status":"PROVED_EXACT"},
-    {"id":"PB-T07","statement":"H1->H0 not reconstructible in general","status":"COUNTEREXAMPLE_PROVED","witness":"A-B-A-C-A != A-C-A-B-A but same T"},
-    {"id":"PB-T08","statement":"VISIT concat law with -1[x=join] correction","status":"PROVED_EXACT"},
-    {"id":"PB-T09","statement":"SUPPORT concat = set union","status":"PROVED_EXACT"},
-    {"id":"PB-C6-01","statement":"C6 passage join cross-term cannot be defined from current aggregate frozen C6 semantics","status":"NOT_YET_WELL_TYPED"}
+    {
+      "id": "PB-T01",
+      "statement": "sum T=PATH_COUNT",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PB-T02",
+      "statement": "T_{gamma*eta}=T_gamma+T_eta",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PB-T03",
+      "statement": "T_rev(x,y)=T_gamma(y,x)",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PB-T04",
+      "statement": "row(T)-column(T)=endpoint incidence",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PB-T05",
+      "statement": "U_rev=U",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PB-T06",
+      "statement": "H0->H1 is deterministic",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PB-T07",
+      "statement": "H1->H0 not reconstructible in general",
+      "status": "COUNTEREXAMPLE_PROVED",
+      "witness": "A-B-A-C-A != A-C-A-B-A but same T"
+    },
+    {
+      "id": "PB-T08",
+      "statement": "VISIT concat law with -1[x=join] correction",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PB-T09",
+      "statement": "SUPPORT concat = set union",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PB-C6-01",
+      "statement": "C6 passage join cross-term cannot be defined from current aggregate frozen C6 semantics",
+      "status": "NOT_YET_WELL_TYPED"
+    }
   ]
 }
