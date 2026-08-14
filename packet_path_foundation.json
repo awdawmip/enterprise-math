@@ -1,0 +1,128 @@
+{
+  "schema": "ENTERPRISE_MATH_PACKET_PATH_FOUNDATION_V1",
+  "status": "ACTIVE",
+  "authority": "BASE_ONTOLOGY_SPECIALIZATION",
+  "effective": "2026-08-14",
+  "human_source": "PACKET_PATH_FOUNDATION.md",
+  "core_statement": "Every crystal packet has native quantity exactly 1 in every declared dimension and precision layer. Dimension is relational, not a packet weight. Every adjacency transition event contributes exactly 1 to path count. Geometry is downstream.",
+  "n0_minimal_base": [
+    "CRYSTAL_PACKET",
+    "ADJACENCY",
+    "OCCUPANCY_IF_DECLARED",
+    "TRANSITION_EVENT",
+    "PATH_AS_ORDERED_TRANSITION_HISTORY",
+    "PACKET_COUNT",
+    "TRANSITION_COUNT"
+  ],
+  "axioms": [
+    {
+      "id": "PF-01-UNIT-PACKET",
+      "rule": "For every crystal packet x in every declared carrier/dimension/precision layer, UNIT_PACKET(x)=1."
+    },
+    {
+      "id": "PF-02-DIMENSION-RELATIONAL",
+      "rule": "Dimension may be represented by adjacency/incidence/channel/stacking/refinement/symmetry relations; it never changes the native quantity of an individual packet from 1."
+    },
+    {
+      "id": "PF-03-OCCUPANCY-COUNT",
+      "rule": "For a finite occupied packet set C, OCCUPIED_PACKET_COUNT(C)=|C|. Effective area, volume, or d-content names are downstream readouts of this count plus carrier/precision semantics."
+    },
+    {
+      "id": "PF-04-ADJACENCY-LOCAL-BASE",
+      "rule": "The minimal local relation required for path is adjacency; line, distance, length, edge, boundary, perimeter, chord, angle, curvature, radius, area, and volume are not N0 primitives."
+    },
+    {
+      "id": "PF-05-UNIT-TRANSITION",
+      "rule": "For every actual transition x->y across declared adjacency, TRANSITION_COUNT increments by exactly 1. A path with n transitions has PATH_COUNT=n."
+    },
+    {
+      "id": "PF-06-PATH-IS-WALK",
+      "rule": "Paths permit revisits, loops, immediate reversal, same-adjacency reuse, and arbitrary allowed channel reuse. No simplicity, shortestness, straightness, or geodesicity is assumed."
+    },
+    {
+      "id": "PF-07-STATIC-DYNAMIC-SEPARATION",
+      "rule": "Packet/occupancy count is a static object count; transition/path count is a dynamic event count. Revisits may increase transition count without increasing occupied packet count."
+    },
+    {
+      "id": "PF-08-REFINEMENT-NO-FRACTIONALIZATION",
+      "rule": "Every packet at every precision layer remains quantity 1. Refinement changes the packet count and relation language; it does not assign native 1/r weights to finer packets."
+    },
+    {
+      "id": "PF-09-SHAPE-NO-WEIGHT",
+      "rule": "External/decorative packet shape does not alter UNIT_PACKET=1. Shape matters only through explicitly admitted relational changes such as adjacency, channel incidence, symmetry, stacking, or refinement."
+    },
+    {
+      "id": "PF-10-CHANNELS-RELATIONAL",
+      "rule": "Finite channel states are carrier-specific additional relational structure. In an ideal C6 carrier, ingress I_x[0..5], egress O_x[0..5], and passage M_x[a,b] may be counted, including same-channel ingress/egress. No geometric turn/straight/angle semantics is inherited."
+    },
+    {
+      "id": "PF-11-AREA-VOLUME-DOWNSTREAM",
+      "rule": "Area and volume are effective readout names, not native primitives. The shared native source is packet count, not powers of a prior length."
+    },
+    {
+      "id": "PF-12-LENGTH-UNDEFINED-N0",
+      "rule": "PATH_COUNT is not geometric length. Distance, displacement magnitude, shortestness, straightness, line, metric and geodesic structure remain undefined at N0 until separately derived."
+    }
+  ],
+  "count_types": {
+    "static": {
+      "name": "PACKET_COUNT",
+      "unit_event": "one packet contributes 1"
+    },
+    "dynamic": {
+      "name": "TRANSITION_COUNT",
+      "unit_event": "one adjacent transition contributes 1"
+    }
+  },
+  "path_permissions": [
+    "REVISIT",
+    "LOOP",
+    "IMMEDIATE_REVERSAL",
+    "SAME_ADJACENCY_REUSE",
+    "SAME_CHANNEL_INGRESS_EGRESS_IF_CHANNELS_DECLARED"
+  ],
+  "ideal_c6_optional_state": {
+    "status": "OPTIONAL_CARRIER_SPECIFIC_RELATION",
+    "ingress": "I_x[0..5]",
+    "egress": "O_x[0..5]",
+    "passage": "M_x[a,b]",
+    "diagonal_allowed": true,
+    "forbidden_native_interpretations": ["STRAIGHT", "TURN", "ANGLE", "CURVATURE", "OPPOSITE_DIRECTION"],
+    "temperature_semantics": "PHYSICAL_CALIBRATION_ONLY"
+  },
+  "precision_rule": {
+    "packet_unit_at_every_layer": 1,
+    "fractional_native_packet_weight_forbidden": true,
+    "cross_precision_relation": "REFINEMENT_RELATION_NOT_NATIVE_MEASURE_EQUALITY"
+  },
+  "downstream_readout_examples": {
+    "two_dimensional_area": "PACKET_COUNT + carrier/precision semantics",
+    "three_dimensional_volume": "PACKET_COUNT + carrier/precision semantics",
+    "surface_like_quantity": "SEPARATE_RELATIONAL_PROBLEM_POSSIBLY_ADJACENCY_CUT_COUNT",
+    "length": "UNDEFINED_AT_N0"
+  },
+  "n0_forbidden_imports": [
+    "LINE",
+    "STRAIGHTNESS",
+    "SHORTEST_PATH_DISTANCE",
+    "GEOMETRIC_LENGTH_FROM_PATH_COUNT",
+    "EDGE",
+    "BOUNDARY",
+    "PERIMETER",
+    "CHORD",
+    "EUCLIDEAN_ANGLE",
+    "SLOPE",
+    "CURVATURE",
+    "AREA_AS_LENGTH_SQUARED",
+    "VOLUME_AS_LENGTH_CUBED",
+    "VORONOI_BOUNDARY_GEOMETRY",
+    "TEMPERATURE_AS_MATHEMATICAL_CHANNEL_PREMISE"
+  ],
+  "semantic_typing": {
+    "packet_and_declared_adjacency": "N0_NATIVE_RELATIONAL",
+    "packet_count_and_transition_count": "N0_INTEGER_COUNTS_ON_DECLARED_OBJECTS_EVENTS",
+    "shortest_or_balanced_or_line_rules": "N1_DERIVED_OPERATIONAL_SEMANTICS",
+    "area_volume_length_metric_surface_scalars": "N2_READOUT_COLLAPSE_UNLESS_SEPARATELY_PROMOTED",
+    "classical_geometry_continuum": "N3_CONTINUUM_CLASSICAL"
+  }
+}
