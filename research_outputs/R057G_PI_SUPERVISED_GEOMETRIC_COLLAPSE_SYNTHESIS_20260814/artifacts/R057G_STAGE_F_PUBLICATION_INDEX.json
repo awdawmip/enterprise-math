@@ -1,0 +1,88 @@
+{
+  "artifacts": {
+    "R057G_EXTENDED_COEFFICIENT_TRAJECTORY.json": {
+      "bytes": 30551,
+      "sha256": "b9c6804b46ece9d1acea1dae6d030f2eb3129577bd959abc775871bc7aa471e7"
+    },
+    "R057G_EXTENDED_SIGNED_CORRECTION_ATLAS.json": {
+      "bytes": 40160,
+      "sha256": "6642f74eacda4ff300fa4732c938535993be48bd89bdb5e5e31224a2add9e0e1"
+    },
+    "R057G_STAGE_F_CHECK_RESULTS.json": {
+      "bytes": 1487,
+      "sha256": "8ea5c4baa5203500489bc7e72510708c22fb370d7ed91e8ff46a8cd02e5ef6de"
+    },
+    "R057G_STAGE_F_F0_PREREGISTRATION.json": {
+      "bytes": 2232,
+      "sha256": "eefc9317ac907b30379588ca7382fc2cc9b01bba22bcbf8152035e48774d1408"
+    },
+    "R057G_STAGE_F_INDEPENDENT_CHECK_RESULTS.json": {
+      "bytes": 5206,
+      "sha256": "06f475acdac750ed03548ecf1d7438bda296092df624fb0d7893cffc5274e9b0"
+    },
+    "R057G_STAGE_F_LARGE_RADIUS_CHECKPOINT.json": {
+      "bytes": 12191,
+      "sha256": "2e6e7c1161ee3ccc41554967976a21bb4d199356b9bdfc762123bd596161a28b"
+    },
+    "R057G_T1_EXTRAPOLATION_RESULTS.json": {
+      "bytes": 47240,
+      "sha256": "3bac813d05c33cb87b6847467f01af1a7ba98771bdc7e8cc89864cfc870355cc"
+    },
+    "R057G_T1_F0_OUT_OF_WINDOW_PROFILE.json": {
+      "bytes": 12406,
+      "sha256": "1686c37da303d61547aa760cbd2112f0009ba475809c478bca7aeca77dd1323f"
+    },
+    "R057G_T1_TEACHER_CORPUS.json": {
+      "bytes": 3250668,
+      "sha256": "1df3c6690554985b779ec5d26b7158b0e234af1ac414f7eaa1b636e8090b23c1"
+    },
+    "R057G_T1_TEACHER_CORPUS_INTEGRITY.json": {
+      "bytes": 1949,
+      "sha256": "7d05b57ca767929b42644f871bef68fb90d1aed477a16117bbcf1fbacc5e430f"
+    },
+    "R057G_T1_TEACHER_REGISTRY.json": {
+      "bytes": 2789,
+      "sha256": "5a5b11e6f801029183e2dfb3b5cbd4ec19803aa33ba1eb77389ab764e45334a1"
+    }
+  },
+  "expansion": {
+    "K": false,
+    "feature": false,
+    "normalization": false,
+    "surrogate": false,
+    "teacher_radii_only": [
+      71,
+      113,
+      181
+    ]
+  },
+  "parent_stage_e_checkpoint_sha256": "67c040b24ff57db8bbfb7e811bb4e7bbe8e624cae0296a453b654275a7e7b00e",
+  "researcher_id": "EM-R057G-93D4A8",
+  "schema": "R057G_STAGE_F_PUBLICATION_INDEX_V1",
+  "scripts": {
+    "r057g_stage_f_freeze_t1_registry.py": {
+      "bytes": 2575,
+      "sha256": "b77caacc633852f52111c6ff7b537acb5632cb66eae2254c42c4746b3b2af278"
+    },
+    "r057g_stage_f_generate_t1_parallel.py": {
+      "bytes": 5478,
+      "sha256": "a51430aa14f7ddf56ae6e762edf160120cf2cba2ed067655d63dda1a0ad8cd7c"
+    },
+    "r057g_stage_f_independent_check.py": {
+      "bytes": 5125,
+      "sha256": "ebf50c40b78fd4f720451a7e8ccc0444b579495ac997df69d1d466fc68cb3b69"
+    },
+    "r057g_stage_f_large_radius.py": {
+      "bytes": 20934,
+      "sha256": "ba87384bd658a6a90bd8f43fb7303fb96eaf1f80179ddaba0d78f1dd02125b07"
+    }
+  },
+  "status": "FROZEN_STAGE_F_DRIVER_REVIEW",
+  "validation": {
+    "T1_topology_integrity": "PASS",
+    "byte_reproduction": "PASS_9_OF_9_PLUS_T1_REGISTRY_REPRO",
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH",
+    "independent_check": "PASS_34_OF_34",
+    "main_self_check": "PASS_9_OF_9"
+  }
+}
