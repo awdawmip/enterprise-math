@@ -1,0 +1,157 @@
+{
+  "detail_bundle": {
+    "base64_sha256": "8c1cd3551c8e46d95ccddfb96500265ec2e3908e7f098647ac36d799b7cf64a3",
+    "chunk_count": 10,
+    "gzip_sha256": "02e0981f61b3560c602ad8716e5b66c5c58f59d1caf5638df912f0474c7dd98d",
+    "manifest": "R058S_STAGE_A_DETAIL_BUNDLE_MANIFEST.json",
+    "raw_json_sha256": "dce4de0f0f8c80ee8a0ae88ec6a6716bdc86494960df5bab3a8ffe06b255ac57"
+  },
+  "deterministic_reproduction": {
+    "fail_count": 0,
+    "failed_sample_ids": [],
+    "pass_count": 384
+  },
+  "enumeration_bound_certificate": "closed square lies within Euclidean radius s/sqrt(2); Q(w)>=1/2(w_a^2+w_b^2), so |w_a|,|w_b|<=s; phases lie in (0,1)^2, hence integer scan a,b in [-s,s+1] is sufficient",
+  "exact_membership": "beta(13*x-phase_num,d)^2 <= (13*s)^2 Q(d), and same for primitive d_perp; equality occupied",
+  "exceptions": [],
+  "firewall": {
+    "composition_search_started": false,
+    "grammar_enumeration_or_fitting_started": false,
+    "holdout_generated_or_consumed": false,
+    "r057_fitted_rule_consumed": false,
+    "teacher_role_labels_computed": false,
+    "teacher_supervised_candidate_ranking_started": false
+  },
+  "generation": "RS-R058S-EXACT-SQUARE-COLLAPSE-GRAMMAR-DISCOVERY",
+  "per_sample_detail_location": "detail bundle field square_discovery_corpus_registry_full.samples",
+  "registry": {
+    "actual_sample_count": 384,
+    "nominal_sample_count": 384,
+    "orientations_axial": [
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "phases_axial": [
+      [
+        "1/13",
+        "5/13"
+      ],
+      [
+        "2/13",
+        "10/13"
+      ],
+      [
+        "3/13",
+        "2/13"
+      ],
+      [
+        "4/13",
+        "7/13"
+      ],
+      [
+        "5/13",
+        "12/13"
+      ],
+      [
+        "6/13",
+        "4/13"
+      ],
+      [
+        "7/13",
+        "9/13"
+      ],
+      [
+        "8/13",
+        "1/13"
+      ],
+      [
+        "9/13",
+        "6/13"
+      ],
+      [
+        "10/13",
+        "11/13"
+      ],
+      [
+        "11/13",
+        "3/13"
+      ],
+      [
+        "12/13",
+        "8/13"
+      ]
+    ],
+    "side_lengths": [
+      12,
+      16,
+      24,
+      32,
+      48,
+      64,
+      96,
+      128
+    ]
+  },
+  "researcher_id": "EM-R058S-7C91E4",
+  "schema": "R058S_SQUARE_DISCOVERY_CORPUS_REGISTRY_V1_COMPACT",
+  "stage": "A",
+  "stage0_gate": {
+    "drift_detected": false,
+    "exact_head": "df44b99cec12a194287c03bf9c52e64c8cdd0204",
+    "method": "re-read exact-head Git blobs; exact content identity by Git blob SHA-1 plus frozen checker-embedded SHA256 map",
+    "stage0_blob_sha1": {
+      "R058S_BOUNDARY_PACKET_PROTOCOL.json": "1ae596a7a873e9919dab84a1fe604d0ce6823743",
+      "R058S_COMPOSITION_COLLAPSE_GRAMMAR_META_PROTOCOL.json": "c9fb4392e2c115241cef847de10e2415dc180bc3",
+      "R058S_COMPUTATION_REGISTRY.json": "5169ef3786ed380d5cbb4e569ab09426d69824c8",
+      "R058S_INITIAL_SQUARE_TEACHER_REGISTRY.json": "bb1da33ba866502fb282a59739cdbf9b96226784",
+      "R058S_SQUARE_HOLDOUT_REGISTRY.json": "d0ae24267829c209d05e0c7256aa908a5a77321e",
+      "R058S_SQUARE_TEACHER_PROTOCOL.json": "6b182a501d4f60f5c2516a3453b844b4bc96f322",
+      "R058S_STAGE0_CHECKER_OUTPUT.json": "4b4123e0c783c0033bb34cab20571c113e9bb984"
+    },
+    "stage0_checker": {
+      "blob_sha1": "4b4123e0c783c0033bb34cab20571c113e9bb984",
+      "fail_count": 0,
+      "pass_count": 20,
+      "status": "PASS"
+    },
+    "stage0_sha256": {
+      "R058S_BOUNDARY_PACKET_PROTOCOL.json": "38536d1191a9d232fed79709a0b174dc68c2896871f33a385d83e0bd1bd4fcd8",
+      "R058S_COMPOSITION_COLLAPSE_GRAMMAR_META_PROTOCOL.json": "929ee6d7031e45e28bfbd1127d0a2ccaad34c65e0c523ca71ae07a652ea4c525",
+      "R058S_COMPUTATION_REGISTRY.json": "3d1ddac30f5f693375312c0ab811cb1ced5bd2b168e632daa3980709f8073c05",
+      "R058S_INITIAL_SQUARE_TEACHER_REGISTRY.json": "15e82bd7a3bfac8c42c896205b0aa9dea06d6d841458b63787a68e0a4800ac34",
+      "R058S_SQUARE_HOLDOUT_REGISTRY.json": "a4018f06b741579c5abb2fb8c636afe6424605e37dcdf0b44fcf7ff2c3e09456",
+      "R058S_SQUARE_TEACHER_PROTOCOL.json": "1e5773ea55057ce8fdd23256bfc60bdc02f748647573471c3a6cff4215ad6a6f"
+    },
+    "status": "PASS"
+  },
+  "status": "FROZEN_STAGE_A_DISCOVERY_CORPUS",
+  "summary": {
+    "boundary_edge_range": [
+      102,
+      1142
+    ],
+    "boundary_tie_count": 0,
+    "failure_exception_count": 0,
+    "occupied_cell_range": [
+      161,
+      18944
+    ],
+    "pass_sample_count": 384,
+    "sample_count": 384,
+    "total_boundary_edges": 176952
+  }
+}
