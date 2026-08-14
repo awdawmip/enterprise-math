@@ -10,77 +10,361 @@
   },
   "check_count": 71,
   "checks": [
-    {"check":"input_stage_d_hash","detail":"","status":"PASS"},
-    {"check":"input_c1_hash","detail":"","status":"PASS"},
-    {"check":"input_A_hash","detail":"","status":"PASS"},
-    {"check":"input_G_hash","detail":"","status":"PASS"},
-    {"check":"input_taskbook_hash","detail":"","status":"PASS"},
-    {"check":"stage_d_no_fit","detail":"","status":"PASS"},
-    {"check":"stage_d_mixed_disposition","detail":"","status":"PASS"},
-    {"check":"stage_d_assembly_exclusion","detail":"","status":"PASS"},
-    {"check":"stage_d_finite_scale_weak","detail":"","status":"PASS"},
-    {"check":"stage_d_rebound_insufficient","detail":"","status":"PASS"},
-    {"check":"stage_d_G_burden","detail":"","status":"PASS"},
-    {"check":"A_reproduction_pass","detail":"","status":"PASS"},
-    {"check":"G_reproduction_pass","detail":"","status":"PASS"},
-    {"check":"A_edge_unit","detail":"","status":"PASS"},
-    {"check":"G_edge_unit","detail":"","status":"PASS"},
-    {"check":"S_A_formula","detail":"","status":"PASS"},
-    {"check":"S_G_formula","detail":"","status":"PASS"},
-    {"check":"tolerance_frozen_pre_outcome","detail":"","status":"PASS"},
-    {"check":"no_interpolation","detail":"","status":"PASS"},
-    {"check":"no_fitted_rescaling","detail":"","status":"PASS"},
-    {"check":"pair_count_8","detail":"","status":"PASS"},
-    {"check":"pair_set_exact","detail":"","status":"PASS"},
-    {"check":"all_pair_ratios_in_4_3","detail":"","status":"PASS"},
-    {"check":"G_early_unmatched","detail":"","status":"PASS"},
-    {"check":"A_late_unmatched","detail":"","status":"PASS"},
-    {"check":"nuisance_residual_blind","detail":"","status":"PASS"},
-    {"check":"nuisance_phase_not_residual_selected","detail":"","status":"PASS"},
-    {"check":"A_strict_unavailable","detail":"","status":"PASS"},
-    {"check":"G_strict_transitions","detail":"","status":"PASS"},
-    {"check":"G_strict_radii","detail":"","status":"PASS"},
-    {"check":"joint_stratum_not_established","detail":"","status":"PASS"},
-    {"check":"G_mix_low_exact","detail":"","status":"PASS"},
-    {"check":"G_rot_low_exact","detail":"","status":"PASS"},
-    {"check":"G_conc_low_exact","detail":"","status":"PASS"},
-    {"check":"finite_primary_D2","detail":"","status":"PASS"},
-    {"check":"finite_A_insufficient","detail":"","status":"PASS"},
-    {"check":"finite_G_not_testable","detail":"","status":"PASS"},
-    {"check":"finite_G_no_early_strict","detail":"","status":"PASS"},
-    {"check":"finite_cross_insufficient","detail":"","status":"PASS"},
-    {"check":"finite_no_raw_cross_error","detail":"","status":"PASS"},
-    {"check":"G_strict_norm_below_global","detail":"","status":"PASS"},
-    {"check":"motif_count_62","detail":"","status":"PASS"},
-    {"check":"motif_K_bounds","detail":"","status":"PASS"},
-    {"check":"motif_no_raw_class_match","detail":"","status":"PASS"},
-    {"check":"motif_no_regression","detail":"","status":"PASS"},
-    {"check":"motif_no_learned_weighting","detail":"","status":"PASS"},
-    {"check":"motif_no_false_classification","detail":"","status":"PASS"},
-    {"check":"motif_insufficient","detail":"","status":"PASS"},
-    {"check":"motif_no_generator","detail":"","status":"PASS"},
-    {"check":"geometry_G_strict_radii","detail":"","status":"PASS"},
-    {"check":"geometry_G_sign_change_one","detail":"","status":"PASS"},
-    {"check":"geometry_A_filter_unavailable","detail":"","status":"PASS"},
-    {"check":"geometry_primary_insufficient","detail":"","status":"PASS"},
-    {"check":"geometry_no_regression","detail":"","status":"PASS"},
-    {"check":"geometry_no_projection","detail":"","status":"PASS"},
-    {"check":"verdict_primary_insufficient","detail":"","status":"PASS"},
-    {"check":"verdict_unique_primary","detail":"","status":"PASS"},
-    {"check":"verdict_no_common_isolated","detail":"","status":"PASS"},
-    {"check":"verdict_finite_not_established","detail":"","status":"PASS"},
-    {"check":"verdict_no_nuisance_dominance","detail":"","status":"PASS"},
-    {"check":"verdict_insufficient_selected","detail":"","status":"PASS"},
-    {"check":"prohibition_coefficient_refit","detail":"","status":"PASS"},
-    {"check":"prohibition_optimizer","detail":"","status":"PASS"},
-    {"check":"prohibition_symbolic_regression","detail":"","status":"PASS"},
-    {"check":"prohibition_new_teacher","detail":"","status":"PASS"},
-    {"check":"prohibition_K_expansion","detail":"","status":"PASS"},
-    {"check":"prohibition_new_feature_operator_surrogate","detail":"","status":"PASS"},
-    {"check":"prohibition_parser_segmentation_assembly_readout_change","detail":"","status":"PASS"},
-    {"check":"prohibition_cross_arm_fitted_rescaling","detail":"","status":"PASS"},
-    {"check":"prohibition_R057Y_read","detail":"","status":"PASS"},
-    {"check":"prohibition_hotspot_generator_invention","detail":"","status":"PASS"}
+    {
+      "check": "input_stage_d_hash",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "input_c1_hash",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "input_A_hash",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "input_G_hash",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "input_taskbook_hash",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_d_no_fit",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_d_mixed_disposition",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_d_assembly_exclusion",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_d_finite_scale_weak",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_d_rebound_insufficient",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "stage_d_G_burden",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "A_reproduction_pass",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G_reproduction_pass",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "A_edge_unit",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G_edge_unit",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "S_A_formula",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "S_G_formula",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "tolerance_frozen_pre_outcome",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "no_interpolation",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "no_fitted_rescaling",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "pair_count_8",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "pair_set_exact",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "all_pair_ratios_in_4_3",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G_early_unmatched",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "A_late_unmatched",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "nuisance_residual_blind",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "nuisance_phase_not_residual_selected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "A_strict_unavailable",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G_strict_transitions",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G_strict_radii",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "joint_stratum_not_established",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G_mix_low_exact",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G_rot_low_exact",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G_conc_low_exact",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "finite_primary_D2",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "finite_A_insufficient",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "finite_G_not_testable",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "finite_G_no_early_strict",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "finite_cross_insufficient",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "finite_no_raw_cross_error",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "G_strict_norm_below_global",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "motif_count_62",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "motif_K_bounds",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "motif_no_raw_class_match",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "motif_no_regression",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "motif_no_learned_weighting",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "motif_no_false_classification",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "motif_insufficient",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "motif_no_generator",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "geometry_G_strict_radii",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "geometry_G_sign_change_one",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "geometry_A_filter_unavailable",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "geometry_primary_insufficient",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "geometry_no_regression",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "geometry_no_projection",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict_primary_insufficient",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict_unique_primary",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict_no_common_isolated",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict_finite_not_established",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict_no_nuisance_dominance",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "verdict_insufficient_selected",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prohibition_coefficient_refit",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prohibition_optimizer",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prohibition_symbolic_regression",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prohibition_new_teacher",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prohibition_K_expansion",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prohibition_new_feature_operator_surrogate",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prohibition_parser_segmentation_assembly_readout_change",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prohibition_cross_arm_fitted_rescaling",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prohibition_R057Y_read",
+      "detail": "",
+      "status": "PASS"
+    },
+    {
+      "check": "prohibition_hotspot_generator_invention",
+      "detail": "",
+      "status": "PASS"
+    }
   ],
   "deterministic_checker_runtime": {
     "check_count": 27,
