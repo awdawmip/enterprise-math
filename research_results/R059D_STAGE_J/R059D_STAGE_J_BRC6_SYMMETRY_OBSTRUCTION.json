@@ -1,0 +1,22 @@
+{
+  "cyclic_consequence": "Any state invariant under tau^t with t in {1,2,3,4,5} is unresolved because translation d->d+t mod6 has no fixed channel label.",
+  "frozen_provenance_parent": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "negative_witness": {
+    "F0": "UNRESOLVED",
+    "F1": "UNRESOLVED",
+    "F2": "every shared expression ties all six",
+    "F3": "UNRESOLVED",
+    "id": "W_FULLY_SYMMETRIC",
+    "signature": "I[d]=1, O[d]=2, M[i,d]=3 for all d; all J-S2 spectra=(5,6,7,8); all S3/S4 diagnostics identical",
+    "stabilizer": "full cyclic C6"
+  },
+  "no_absolute_channel_label_bias": "ESTABLISHED_BY_STABILIZER_THEOREM_AND_SHARED_COMPARATORS",
+  "not_seventh_output": true,
+  "proof": "Equivariance gives f(sigma)=f(pi sigma)=pi f(sigma). Hence f(sigma) must be a fixed point of every stabilizer element.",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_J_BRC6_SYMMETRY_OBSTRUCTION_V1",
+  "status": "FROZEN_AFTER_TINY_EXACT_SCORING",
+  "strongest_verdict": "BRC6_UNRESOLVED_BY_CURRENT_SIGNATURE",
+  "taskbook_source": "3ca99589c5c3ade32c9cc164cdc3b3c4f6e15b7b",
+  "theorem": "For an equivariant deterministic selector f and state sigma, every automorphism pi in Stab(sigma) must fix f(sigma). If a nontrivial stabilizer element moves every channel label, no unique BRC6 output exists."
+}
