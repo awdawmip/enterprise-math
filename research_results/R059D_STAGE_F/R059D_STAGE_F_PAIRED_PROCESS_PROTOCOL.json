@@ -1,0 +1,26 @@
+{
+  "baseline_B0": "tag i occupies X_i with source-lineage multiplicity 1 and current event-state START",
+  "carrier_readout": {
+    "V_relation": "declared commuting channel V retained from frozen R059D carrier semantics",
+    "aligned_tags": "X_i=H^(q*i) X_0 on declared H orbit of order q*N",
+    "q_semantics": "RELATIONAL_ALIGNMENT_PERIOD_ONLY_NOT_DISTANCE_OR_LENGTH"
+  },
+  "controller_visibility": "controller reads only its own current relational/event state plus declared exact local count signature; it never reads B/P/deltas",
+  "frozen_parent_stage_e_head": "26c1a5d6fe6526fbb5fca9e122c064344bb69ddc",
+  "hold_semantics": "HOLD/NO_MOVE is not a transition event; packet and current event-state remain unchanged",
+  "local_count_semantics": {
+    "C_i(x)": "exact source-lineage CPBC multiplicity for tag source i, excluding independent other-tag/scheduler Cartesian factors",
+    "L(x)": "sum_i C_i(x), exact local source-lineage count at packet x",
+    "S(x)": "number of tag sources i with C_i(x)>0, exact local source-support/cooccupancy count",
+    "cartesian_global_history_weight": "diagnostic only and never a controller input in positive rules"
+  },
+  "perturbed_P0": "differs only by one frozen F-I1/F-I2/F-I3 intervention",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_F_PAIRED_PROCESS_PROTOCOL_V1",
+  "schedulers": {
+    "S_ALL_ORDERS_SNAPSHOT": "action sets frozen from current snapshot; all orders of eligible transitions retained; source-local C_i,L,S boundary states are order-invariant while global Cartesian multiplicity may differ",
+    "S_SYNC": "all action sets evaluated from current snapshot; every allowed transitioning lineage executes synchronously"
+  },
+  "status": "FROZEN_BEFORE_CANDIDATE_SCORING",
+  "taskbook_source": "0aa8353d0c97c6d9944bb8ab04f809a00d323b37"
+}
