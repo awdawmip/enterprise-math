@@ -1,0 +1,144 @@
+{
+  "claims": [
+    {
+      "admissibility_verdict": "CONDITIONAL_DERIVED",
+      "certificate_semantic_strength": "RELATION",
+      "claim_id": "R059D-C1-CARRIER",
+      "critical_symbols": [
+        "H",
+        "V",
+        "sigma_N",
+        "A_N_k"
+      ],
+      "declared_base_carrier": "crystal packets + declared six channel adjacency actions",
+      "definability_or_invariance_certificate": "channel actions are declared relational permutations; coordinates do not enter theorem claims",
+      "effective_definitions_withheld_from_native_premises": [
+        "all forbidden geometry/physical interpretations from taskbook"
+      ],
+      "engineering_success_constraints_consumed": [],
+      "future_language_if_any": "none",
+      "implementation_carriers_used": [
+        "modular coordinate encoding (x,y) only to instantiate/check channel permutations"
+      ],
+      "introduced_choices": [
+        "finite channel labels",
+        "aligned tag subfamily",
+        "finite macro command/phase controller"
+      ],
+      "n0_primitives_used": [
+        "CRYSTAL_PACKET",
+        "ADJACENCY",
+        "PACKET_COUNT",
+        "TRANSITION_EVENT",
+        "PATH",
+        "TRANSITION_COUNT"
+      ],
+      "n1_operations_used": [
+        "phase-barrier update schedule",
+        "finite branch controller"
+      ],
+      "n2_readouts_used": [
+        "configuration support count",
+        "cell occurrence spectrum",
+        "T1/T2/T3 aggregates",
+        "count ratios"
+      ],
+      "n3_continuum_objects_used": [],
+      "native_basis_status": "CONDITIONAL_DERIVED",
+      "promotion_target_strength": "RELATION",
+      "target_leakage_audit": "PASS: no per-tag target address; sigma used only as uniform relational successor evaluator",
+      "transitive_dependency_closure_checked": true,
+      "typed_dependency_graph": "N0 packet/adjacency -> N1 channel-word controller -> N2 count-cloud/traversal readouts",
+      "weakest_valid_restatement": "Within the frozen relational channel carrier and N1 controller, exact integer count-cloud recurrence holds."
+    },
+    {
+      "admissibility_verdict": "CONDITIONAL_DERIVED",
+      "certificate_semantic_strength": "RELATION",
+      "claim_id": "R059D-C2-ENDPOINT",
+      "critical_symbols": [
+        "H^3 V H^-3",
+        "H^-3 V H^3"
+      ],
+      "declared_base_carrier": "same",
+      "definability_or_invariance_certificate": "exact channel-word identity",
+      "effective_definitions_withheld_from_native_premises": [
+        "physical probability",
+        "continuum motion"
+      ],
+      "engineering_success_constraints_consumed": [],
+      "future_language_if_any": "none",
+      "implementation_carriers_used": [
+        "none theorem-critical beyond verifying channel composition"
+      ],
+      "introduced_choices": [
+        "G3_R3 controller"
+      ],
+      "n0_primitives_used": [
+        "ADJACENCY",
+        "TRANSITION_EVENT",
+        "PATH"
+      ],
+      "n1_operations_used": [
+        "branch memory",
+        "phase command"
+      ],
+      "n2_readouts_used": [
+        "endpoint support"
+      ],
+      "n3_continuum_objects_used": [],
+      "native_basis_status": "CONDITIONAL_DERIVED",
+      "promotion_target_strength": "RELATION",
+      "target_leakage_audit": "PASS",
+      "transitive_dependency_closure_checked": true,
+      "typed_dependency_graph": "declared commuting channel permutations -> branch-word equality -> endpoint support singleton",
+      "weakest_valid_restatement": "D0 endpoint determinism is exact conditional mathematics of the declared local channel controller."
+    },
+    {
+      "admissibility_verdict": "READOUT_ONLY",
+      "certificate_semantic_strength": "SCALAR",
+      "claim_id": "R059D-C3-CROSSOVER",
+      "critical_symbols": [
+        "3N divides 2a",
+        "a=3"
+      ],
+      "declared_base_carrier": "same quotient channel family",
+      "definability_or_invariance_certificate": "exact congruence proof; no coordinate magnitude/metric used",
+      "effective_definitions_withheld_from_native_premises": [
+        "physical scale conversion"
+      ],
+      "engineering_success_constraints_consumed": [],
+      "future_language_if_any": "none",
+      "implementation_carriers_used": [
+        "modular index for equality check only"
+      ],
+      "introduced_choices": [
+        "R=3 repeated H-channel excursion count"
+      ],
+      "n0_primitives_used": [
+        "PACKET",
+        "ADJACENCY"
+      ],
+      "n1_operations_used": [
+        "G3_R3"
+      ],
+      "n2_readouts_used": [
+        "CONFIG_SUPPORT_COUNT",
+        "COUNT_CLOUD_SIGNATURE"
+      ],
+      "n3_continuum_objects_used": [],
+      "native_basis_status": "READOUT_ONLY",
+      "promotion_target_strength": "SCALAR",
+      "target_leakage_audit": "PASS",
+      "transitive_dependency_closure_checked": true,
+      "typed_dependency_graph": "quotient equality of packet labels -> branch-position alias -> count-cloud support class",
+      "weakest_valid_restatement": "N=3 is a sharp threshold for this frozen tagged-position count-cloud signature, not a physical critical scale."
+    }
+  ],
+  "lane_isolation": {
+    "R059C_modified": false,
+    "R059L_consumed": false,
+    "R059P_consumed": false
+  },
+  "schema": "R059D_NATIVE_SEMANTICS_CLAIM_LEDGER_V1",
+  "status": "FROZEN"
+}
