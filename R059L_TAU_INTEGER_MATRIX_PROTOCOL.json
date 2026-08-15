@@ -1,0 +1,39 @@
+{
+  "active_set": "A=ACTIVE(T) from frozen Stage C",
+  "forbidden_interpretations": [
+    "GEOMETRY",
+    "METRIC",
+    "DISTANCE",
+    "LENGTH",
+    "PHYSICAL_FLOW",
+    "PROBABILITY",
+    "ENTROPY"
+  ],
+  "frozen_parent_stageD_owner_head": "6c6d8b8a8d184f73ebf8e262bf09e1d61660c871",
+  "generation": "R059L",
+  "matrix_definition": {
+    "diagonal": "K[x,x]=sum_{y in A, y!=x} T(x,y)",
+    "empty_determinant": "det(empty 0x0 matrix)=1",
+    "off_diagonal": "K[x,y]=-T(x,y) for x!=y",
+    "reduced_matrix": "K^(r) is obtained by deleting root row r and root column r.",
+    "self_loop_cancellation": "T(x,x) is excluded from K[x,x]; self-loops contribute neither diagonal nor off-diagonal arborescence weight."
+  },
+  "n0_promotion": false,
+  "parallel_multiplicity": "Multiplicity T(x,y) is retained as an integer coefficient; no simple-support collapse is permitted.",
+  "researcher_id": "EM-R059L-5F9D05",
+  "root_convention": {
+    "closed_positive_s_eq_t": "r=s",
+    "open_s_ne_t": "r=t"
+  },
+  "row_decomposition": {
+    "arc_row": "b_{x->y}=e_x-e_y if y in V; b_{x->r}=e_x.",
+    "basis": "For V=A\\{r}, let e_x be the coordinate row basis on V.",
+    "identity": "row_x(K^(r))=sum_{y in A,y!=x} T(x,y)*b_{x->y}."
+  },
+  "schema": "R059L_TAU_INTEGER_MATRIX_PROTOCOL_V1",
+  "scope": "POSITIVE_REALIZABLE_FINITE_T_ONLY; ZERO_T_HANDLED_SEPARATELY",
+  "semantic_type": "N2_EXACT_INTEGER_COMPUTATION_OF_FROZEN_STAGE_D_TAU",
+  "stage": "STAGE_E",
+  "task_id": "RS-R059L-STAGE-E-TAU-COFACTOR-INTEGER-COMPUTATION",
+  "taskbook_source_commit": "82bbe86cba01df4f096dc6ae183f1f743dab2673"
+}
