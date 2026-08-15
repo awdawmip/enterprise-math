@@ -1,0 +1,18 @@
+{
+  "certificate": "all action sets are frozen from the same source-local snapshot; transitions of distinct tags commute at the boundary-state level. Source-lineage C_i, local L, and local S are identical after a completed snapshot generation under both scheduler classes.",
+  "frozen_parent_stage_e_head": "26c1a5d6fe6526fbb5fca9e122c064344bb69ddc",
+  "multiplicity_diagnostics": {
+    "P2_I2": "at each of N-1 recruitment generations messenger and target both transition; all-orders scheduler contributes a global Cartesian order factor 2 per recruitment, total 2^(N-1), excluded from causal recruitment",
+    "P3_I3_H": "at recruitment i the H-moving cohort plus target contains i+1 transitioning tags; all-orders global order factor is product_{m=2..N} m!, excluded from local S and RESP_TAG"
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schedulers": [
+    "S_SYNC",
+    "S_ALL_ORDERS_SNAPSHOT"
+  ],
+  "schema": "R059D_STAGE_F_SCHEDULER_ROBUSTNESS_V1",
+  "selected_order": false,
+  "status": "FROZEN",
+  "taskbook_source": "0aa8353d0c97c6d9944bb8ab04f809a00d323b37",
+  "verdict": "PARTICIPANT_CLOSURE_AND_E_STAR_SCHEDULER_INVARIANT_FOR_PRIMARY_SURVIVORS; GLOBAL_MULTIPLICITY_DIFFERENT"
+}
