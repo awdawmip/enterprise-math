@@ -1,0 +1,51 @@
+{
+  "C6": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "baseline_horizon": 3,
+  "candidate_signature": "A_d=O[d]+M[i,d]; C_n^d=A_d+n*I[d]",
+  "classification_rule": {
+    "SELECTOR_CONSENSUS_RESOLVED": "at least one predeclared comparator resolves; all resolved predeclared comparators agree on the same channel",
+    "SELECTOR_DEPENDENT": "at least two admissible predeclared comparators resolve to different channels",
+    "SIGNATURE_INSUFFICIENT_UNRESOLVED": "no declared cyclic stabilizer obstruction is proved but none of the predeclared exact comparators resolves uniquely",
+    "SYMMETRY_UNRESOLVED": "an exact declared channel-label automorphism stabilizes the relevant full signature and moves every candidate label in its orbit, forbidding unique equivariant deterministic selection"
+  },
+  "frozen_provenance_parent": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "frozen_stage_j_head": "9f2b70d6cca5ccd66a46cc6dd18730f40a6add72",
+  "horizon_registry": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    8
+  ],
+  "identity_correction": {
+    "authoritative_brc6_researcher_id": "EM-R059D-9C6B2A",
+    "stage_j_embedded_old_id": "STALE_LABEL_ONLY_DO_NOT_REWRITE"
+  },
+  "length_firewall": "ALIGNED_SEGMENT_CELL_COUNT=L and all six L equal at every positive decision; L never enters selector arithmetic",
+  "physical_firewalls": {
+    "PHYSICAL_DIRECTION_CALIBRATION": "NOT_ESTABLISHED",
+    "PHYSICAL_ELASTICITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "PHYSICAL_PROBABILITY_FROM_BRC_COUNTS": "NOT_ESTABLISHED",
+    "PHYSICAL_RIGIDITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "QUANTUM_BRIDGE": "NOT_ESTABLISHED"
+  },
+  "researcher_id": "EM-R059D-9C6B2A",
+  "schema": "R059D_STAGE_K_SELECTOR_ROBUSTNESS_PROTOCOL_V1",
+  "selector_classification": [
+    "SELECTOR_CONSENSUS_RESOLVED",
+    "SELECTOR_DEPENDENT",
+    "SYMMETRY_UNRESOLVED",
+    "SIGNATURE_INSUFFICIENT_UNRESOLVED"
+  ],
+  "status": "FROZEN_BEFORE_STAGE_K_SCORING",
+  "taskbook_source": "9ea3c173873b23f52977a7ba99e9c091329e5748"
+}
