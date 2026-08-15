@@ -4,6 +4,14 @@ Status: DRIVER-FROZEN PROJECT POLICY
 Date: 2026-08-15
 Driver: EM-DVR-R0457K / CONTROL_PLANE
 
+Authority context:
+
+- `PROJECT_DEFINITION.md`
+- `PROJECT_DEFINITION.zh-CN.md`
+- `project_definition.json`
+
+This policy is a geometric-tool specialization of the project-level definition. If wording conflicts, the project-level `REFOUND, NOT REJECT` interpretation controls.
+
 ## Core principle
 
 Enterprise Math does **not** aim to abolish Euclidean geometry or its mature tools.
