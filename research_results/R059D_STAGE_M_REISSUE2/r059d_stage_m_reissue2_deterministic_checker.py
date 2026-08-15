@@ -87,6 +87,7 @@ for tid in WORDS:
     ck(first_order(CELL[tid])==["P0","P1","P2","P3"],f"oracle:firstorder:{tid}")
     for d in range(6):
         ck(vsum(cword(tid,d))==scale(2,V[d]),f"oracle:vsum:{tid}:{d}")
+        # cyclic covariance
         mapped=[V[rho[next(k for k,v in V.items() if v==x)]] for x in cword(tid,d)]
         ck(mapped==cword(tid,rho[d]),f"sym:rho_word:{tid}:{d}")
         ck([neg(x) for x in cword(tid,d)]==cword(tid,inv[d]),f"sym:inv_word:{tid}:{d}")
@@ -102,9 +103,11 @@ for gid,(a,b) in coeff.items():
         for A in range(4):
             for I in range(4):
                 raw=A*a+I*b
+                # CPBC compression: all distinct seed/history instances add at common P3
                 cpbc=sum(1 for _s in range(A) for _h in G[gid]["A_histories"])+sum(1 for _s in range(I) for _h in G[gid]["I_histories"])
                 ck(raw==cpbc,f"oracle:cpbc_raw:{gid}:{d}:{A}:{I}")
 
+# Functionals
 def Bvec(gid,A,I):
     a,b=coeff[gid]
     return [a*A[d]+b*I[d] for d in range(6)]
@@ -113,6 +116,7 @@ for gid,(a,b) in coeff.items():
     ck(f["alpha_A"]==a and f["beta_I"]==b,f"func:{gid}")
 ck(func["endpoint_functional_equivalence_classes"]["E1"]==["M-G1","M-G2","M-G5"],"func:eqclass")
 
+# Mandatory witnesses
 W={
 "W_ASYM_BASE":([5,5,5,5,6,5],[1,2,3,4,0,5]),
 "W_CONSENSUS_DOMINANT2":([5,5,10,5,5,5],[1,1,5,1,1,1]),
@@ -135,6 +139,7 @@ for wid,(A,I) in W.items():
         ck(fr["winner_label"]==w,f"wit:{wid}:{gid}:winner")
     ck(rob["mandatory_witnesses"][wid]["classification"]==classify(wins),f"wit:{wid}:class")
 
+# 3840 box exact
 cnt=Counter(); unique={}
 for p in range(6):
   for q in range(p+1,6):
@@ -147,13 +152,16 @@ ck(dict(cnt)==rob["witness_search_box"]["template_class_counts"],"box:template_c
 uc=Counter(unique.values())
 ck(dict(uc)==rob["witness_search_box"]["unique_state_class_counts"],"box:unique_counts")
 
+# explicit cross-axis dependence
 A=[0,0,1,0,0,0];I=[1,0,0,0,0,0]
 ck(umax(Bvec("M-G0",A,I))==0 and umax(Bvec("M-G4",A,I))==2,"depend:cross_axis")
+# component dominance theorem exhaustive on small pairs for all grammars
 for A1,I1,A2,I2 in itertools.product(range(4),repeat=4):
     if A1>=A2 and I1>=I2 and (A1>A2 or I1>I2):
         for gid,(a,b) in coeff.items():
             ck(a*A1+b*I1>a*A2+b*I2,f"dominance:{gid}:{A1}:{I1}:{A2}:{I2}")
 
+# Axis/orientation factorization
 pairs={"u":(0,1),"v":(2,3),"w":(4,5)}
 def staged(B):
     Q={a:max(B[i],B[j]) for a,(i,j) in pairs.items()}
@@ -168,6 +176,7 @@ cb=axis["nonlossless_axis_sum_control"]["counterexample"]
 ck(umax(cb["B"])==0,"axis:sum_counter_direct")
 ck(cb["axis_sum_stage"]=="+v","axis:sum_counter_stage")
 
+# Count carriers + vector coordinate
 def blank(): return {"I":[0]*6,"O":[0]*6,"M":[[0]*6 for _ in range(6)]}
 def init(carrier,A0=None,I0=None):
     if carrier in ("A","C"): nodes={x:blank() for x in range(6)};x=0
@@ -223,6 +232,7 @@ for c in "ABC":
         for e,row in enumerate(rows):
             ck(sum(row["coord"])==0,f"dyn:{c}:{key}:lambda:{e}")
             ck(row["TOTAL_O"]==12+e,f"dyn:{c}:{key}:totalO:{e}")
+# dependent trajectory divergence
 Ad=[0,0,1,0,0,0];Id=[1,0,0,0,0,0]
 for c in "ABC":
     p0,r0,d0=run(c,"M-G0",48,Ad,Id)
@@ -231,6 +241,7 @@ for c in "ABC":
     reco=[e for e in range(1,min(len(r0),len(r4))) if r0[e]["digest"]==r4[e]["digest"]]
     ck(reco==dyn["dependent_witness"]["carriers"][c]["same_epoch_recoalescence_after_divergence"],f"dyn:dep:reco:{c}")
 
+# perturbations
 def pc(j):
     def f(p):p["nodes"][p["node"]]["O"][j]+=1
     return f
@@ -263,6 +274,7 @@ for key,g in representatives.items():
       ck(recos==frozen["same_epoch_recoalescence_epochs"],f"pert:{key}:{c}:{typ}:reco")
       ck(steps==frozen["perturbed_resolved_steps"],f"pert:{key}:{c}:{typ}:steps")
 
+# Large N common background cancellation
 for sm in large["N_entries"]:
     N=int(sm)
     for gid,(a,b) in coeff.items():
@@ -272,6 +284,7 @@ for sm in large["N_entries"]:
             ck([x+a*N for x in B0]==BN,f"large:shift:{sm}:{gid}:{wid}")
             ck(umax(B0)==umax(BN),f"large:winner:{sm}:{gid}:{wid}")
 
+# final freezes
 ck(rob["BRC6_NATIVE_CANONICALITY"]=="NOT_ESTABLISHED","freeze:native")
 ck(axis["lossless_factorization"]["freeze"]=="BRC6_AXIS_ORIENTATION_FACTORIZATION_ESTABLISHED","freeze:axis")
 ck(dyn["freeze"]=="BRC6_VECTOR_ENDPOINT_COUNT_TRUE_STATE_MICROGRAMMAR_DYNAMICS_ESTABLISHED","freeze:dyn")
