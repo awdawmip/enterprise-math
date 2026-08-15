@@ -1,0 +1,80 @@
+{
+  "frozen_parent_stage_e_head": "26c1a5d6fe6526fbb5fca9e122c064344bb69ddc",
+  "interpretation_firewall": "E_* is an endogenous update-generation count/evaluator readout, not physical time, distance, speed, propagation velocity, force, or elasticity",
+  "intrinsic_N_crossover": "NOT_IDENTIFIED",
+  "large_N_samples": [
+    {
+      "N": "1000000000000000000000000000000000000",
+      "P2_E_star": "1999999999999999999999999999999999998",
+      "P3_H_E_star": "1999999999999999999999999999999999997",
+      "q": 2
+    },
+    {
+      "N": "1000000000000000000000000000000000000",
+      "P2_E_star": "2999999999999999999999999999999999997",
+      "P3_H_E_star": "2999999999999999999999999999999999996",
+      "q": 3
+    },
+    {
+      "N": "1000000000000000000000000000000000000",
+      "P2_E_star": "4999999999999999999999999999999999995",
+      "P3_H_E_star": "4999999999999999999999999999999999994",
+      "q": 5
+    },
+    {
+      "N": "1000000000000000000000000000000000000",
+      "P2_E_star": "6999999999999999999999999999999999993",
+      "P3_H_E_star": "6999999999999999999999999999999999992",
+      "q": 7
+    },
+    {
+      "N": "1000000000000000000000000000000000000",
+      "P2_E_star": "12999999999999999999999999999999999987",
+      "P3_H_E_star": "12999999999999999999999999999999999986",
+      "q": 13
+    },
+    {
+      "N": "1000000000000000000000000000000000000",
+      "P2_E_star": "15999999999999999999999999999999999984",
+      "P3_H_E_star": "15999999999999999999999999999999999983",
+      "q": 16
+    },
+    {
+      "N": "1000000000000000000000000000000000000",
+      "P2_E_star": "28999999999999999999999999999999999971",
+      "P3_H_E_star": "28999999999999999999999999999999999970",
+      "q": 29
+    },
+    {
+      "N": "1000000000000000000000000000000000000",
+      "P2_E_star": "30999999999999999999999999999999999969",
+      "P3_H_E_star": "30999999999999999999999999999999999968",
+      "q": 31
+    }
+  ],
+  "researcher_id": "EM-R059D-4C7E21",
+  "scale_down_verdict": "closure participant class remains SYSTEM_SPANNING for every integer N>=2 and every integer q>=2; only E_* arithmetic changes",
+  "scaling": {
+    "P2_I2_MINUS": {
+      "E_star": "q*(N-1)",
+      "closure_class": "SYSTEM_SPANNING_CAUSAL_CLOSURE"
+    },
+    "P2_I2_PLUS": {
+      "E_star": "q*(N-1)",
+      "N_1": "E_*=0 trivial one-tag closure",
+      "N_ge_2": "positive nontrivial family",
+      "closure_class": "SYSTEM_SPANNING_CAUSAL_CLOSURE"
+    },
+    "P3_I3_H": {
+      "E_star": "max(0,q*(N-1)-1)",
+      "closure_class": "SYSTEM_SPANNING_CAUSAL_CLOSURE"
+    },
+    "P3_I3_H_INV": {
+      "E_star": "0 for N=1; q-1 for N=2; q*(floor(N/2)+1)-1 for N>=3",
+      "closure_class": "SYSTEM_SPANNING_CAUSAL_CLOSURE"
+    }
+  },
+  "schema": "R059D_STAGE_F_ENDOGENOUS_GENERATION_SCALING_ATLAS_V1",
+  "status": "FROZEN_AFTER_LARGE_N_PROOF",
+  "taskbook_source": "0aa8353d0c97c6d9944bb8ab04f809a00d323b37"
+}
