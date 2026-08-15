@@ -1,0 +1,82 @@
+{
+  "count_horizons_K": [
+    0
+  ],
+  "forbidden_inputs": [
+    "branch_sign_history",
+    "previous_branch_token",
+    "phase_counter",
+    "reversal_timer",
+    "target_address",
+    "next_aligned_configuration",
+    "N",
+    "N_residue_table",
+    "physical_probability"
+  ],
+  "frozen_parent_head": "a876b44aa105227418c43d02d44599da45bface9",
+  "horizon_note": "K={0} means current CPBC boundary occurrence count only; no path-depth clock or reversal horizon is supplied",
+  "probability_status": "PHYSICAL_PROBABILITY_FROM_COUNTING=NOT_ESTABLISHED",
+  "relational_neighborhood": "own packet plus one declared H application and one declared H_INV application",
+  "researcher_id": "EM-R059D-4C7E21",
+  "scheduler_snapshot_rule": "for frozen snapshot-round schedulers, signatures are evaluated on the exact CPBC boundary cloud before any tag transition in that round",
+  "schema": "R059D_STAGE_C_COUNT_SIGNATURE_PROTOCOL_V1",
+  "semantic_typing": {
+    "cell_occurrence_counts": "N2_EXACT_CPBC_INTEGER_READOUT",
+    "current_ingress_label": "N1_CURRENT_RELATIONAL_EVENT_STATE_NOT_HIDDEN_CONTROLLER_MEMORY",
+    "first_aligned_return": "N2_STOPPING_READOUT_ONLY_NOT_RULE_INPUT",
+    "support_bits": "N2_EXACT_BOOLEAN_READOUT_1_COUNT_GT_0"
+  },
+  "signature_families": {
+    "SIG0": {
+      "components": [
+        "INGRESS_CLASS"
+      ],
+      "ingress_classes": [
+        "START",
+        "H_FAMILY",
+        "V",
+        "OTHER"
+      ],
+      "purpose": "negative/minimality control; no count information"
+    },
+    "SIG1_ONEBIT": {
+      "B_H": "1[C_current(H(x))>0]",
+      "components": [
+        "INGRESS_CLASS",
+        "B_H"
+      ],
+      "constants": [
+        0
+      ],
+      "purpose": "weakest named-channel count signature tested"
+    },
+    "SIG2_SYMMETRIC": {
+      "B_H": "1[C_current(H(x))>0]",
+      "B_H_INV": "1[C_current(H_INV(x))>0]",
+      "components": [
+        "INGRESS_CLASS",
+        "B_H",
+        "B_H_INV"
+      ],
+      "purpose": "H/H_INV exchange-symmetric support-hole signature"
+    },
+    "SIG3_FULL_COUNTS": {
+      "comparisons": [
+        "==0",
+        ">0",
+        "<",
+        "==",
+        ">"
+      ],
+      "components": [
+        "INGRESS_CLASS",
+        "C_SELF",
+        "C_H",
+        "C_H_INV"
+      ],
+      "purpose": "exact integer count comparison superset"
+    }
+  },
+  "status": "FROZEN_BEFORE_CANDIDATE_EVALUATION",
+  "taskbook_source": "c51c31f989494b0ac57f17312dd270de18c20d61"
+}
