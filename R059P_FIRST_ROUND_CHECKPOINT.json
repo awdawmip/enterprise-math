@@ -1,0 +1,41 @@
+{
+  "artifact_sha256": {
+    "R059P_COMPUTATION_REGISTRY.json": "8fb63848a797d9823a9ef7257d70a337dcf128b9e118d1afb875e4ef210cd501",
+    "R059P_DYNAMIC_UPDATE_MODEL_REGISTRY.json": "ea3499017c94424c0e11c51fb35df8e1d38c8686539174870c47332246a64d4b",
+    "R059P_FIRST_ROUND_REPORT.md": "105a4a80028354d94710d0ff5a37d6215f92d384569fed6a3afb4008c13eed45",
+    "R059P_PAIR_COUPLING_MODEL_REGISTRY.json": "0188c288e9e059ff811289f5e82a17ac9cb84ef45769d1cc52360330b76a6394",
+    "R059P_PATH_SPECTRUM_PROTOCOL.json": "fa143d43d0a1c2ef3f9b2bf89e041ed456161e9eb5d7d2c7c535ed1fd1658fe8",
+    "R059P_SEMANTIC_FIREWALL.json": "e1ba0c53b865ef15cc69651941c4f26d76a35f357a66c3b95812bd58853b3d8d",
+    "R059P_STAGE0_CHECKER_OUTPUT.json": "b12d6c403995add1c958c4064ab9682039fd0672adf72f14af3f4b41d4248fbb",
+    "R059P_TINY_EXACT_VALIDATION_OUTPUT.json": "2f71011ab931a966680291a977e6e9ad0a8c3255b1f17ecfe65ccb0c5a7f83a5",
+    "check_r059p_stage0.py": "df138d279719519e215ac6222a0675e9711548c8d54d9812be14592bea472511",
+    "run_r059p_tiny_exact_validation.py": "3ef54405e1174b160db58de2a7247ba380eea548df64e834346827dd68b85507"
+  },
+  "exact_validation": "PASS",
+  "generation": "R059P",
+  "independent_lane": {
+    "forbidden_lane": "R059L",
+    "r059l_consumed": false
+  },
+  "primary_disposition": "NEUTRAL_PATH_COUPLING_CYCLE_FOUND",
+  "publication_note": "Only task-required protocols/checkers/exact output/report are part of the source checkpoint; auxiliary local derivation JSONs are not required for repository persistence.",
+  "researcher_id": "EM-R059P-8A2C7D",
+  "schema": "R059P_FIRST_ROUND_CHECKPOINT_V1",
+  "stage0_checker": "PASS",
+  "status": "FROZEN_FIRST_ROUND",
+  "stop_condition": "FIRST_ROUND_COMPLETE_STOP_FOR_DRIVER_REVIEW",
+  "supporting_subdispositions": [
+    "AUTOMORPHISM_INVARIANT_PATH_SPECTRUM_DEGENERACY_PROVED",
+    "SYMMETRIC_STRICT_PATH_RUBBER_BANDS_INSUFFICIENT_FOR_PERSISTENT_ACTIVITY",
+    "MACRO_STEADY_DEGENERACY_PROVED",
+    "INTRINSIC_ACTIVITY_SELECTION_RULE_OPEN",
+    "QUANTUM_BRIDGE_OPEN"
+  ],
+  "task_id": "RS-R059P-PATH-SPECTRUM-COUPLING-DYNAMIC-STEADY-STATE-VALIDATION",
+  "taskbook_source": "8f4e83ed6404bad6804e3d5f9f2f291c1ec42cf2",
+  "theorems": {
+    "T1": "PROVED_EXACT_IN_REPORT_AND_EXACT_TOY_CHECK",
+    "T2": "PROVED_EXACT_IN_REPORT_AND_EXHAUSTIVE_TOY_GRAPH",
+    "T3": "EXACT_NEUTRAL_CYCLE_EXISTENCE_PROVED_IN_REPORT_AND_OUTPUT"
+  }
+}
