@@ -1,0 +1,38 @@
+{
+  "algorithm": "FRACTION_FREE_BAREISS_WITH_EXACT_ROW_PIVOTING",
+  "arithmetic_complexity": {
+    "arithmetic_operations": "O(q^3) integer additions/multiplications/exact divisions",
+    "bit_complexity": "NOT_CLAIMED",
+    "storage": "O(q^2) integers"
+  },
+  "exactness_certificate": "At each elimination stage the updated entries are scaled minors of the original integer matrix; the Bareiss numerator is divisible exactly by the previous nonzero pivot. No tolerance or rounding occurs.",
+  "forbidden": [
+    "FLOATING_DETERMINANT",
+    "TOLERANCE",
+    "ROUND_TO_INTEGER"
+  ],
+  "generation": "R059L",
+  "independent_algorithm_checks": {
+    "random_integer_matrices": "Bareiss compared against exact rational Gaussian elimination on bounded random matrices; mismatch 0.",
+    "registry": "Bareiss also compared with exact Leibniz determinant on every positive realizable exhaustive registry case."
+  },
+  "input": "Integer q x q matrix M=K^(r), q=|ACTIVE(T)|-1.",
+  "intermediate_values": "Integers only; fraction-free updates avoid rational denominators. Magnitudes may grow with determinant/minor sizes; no unsupported bit bound is asserted.",
+  "pseudocode": [
+    "A:=integer copy of M; sign:=+1; prev:=1.",
+    "For k=0,...,q-2, choose a row p>=k with A[p,k]!=0. If none exists, return 0.",
+    "If p!=k, swap rows p and k and set sign:=-sign.",
+    "pivot:=A[k,k]. For all i,j>k set A[i,j]:=(pivot*A[i,j]-A[i,k]*A[k,j])/prev using exact integer division.",
+    "Set A[i,k]:=0 for i>k; set prev:=pivot.",
+    "Return sign*A[q-1,q-1]."
+  ],
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_EXACT_INTEGER_DETERMINANT_PROTOCOL_V1",
+  "special_cases": {
+    "q=0": "return 1",
+    "q=1": "return M[0,0]"
+  },
+  "stage": "STAGE_E",
+  "task_id": "RS-R059L-STAGE-E-TAU-COFACTOR-INTEGER-COMPUTATION",
+  "taskbook_source_commit": "82bbe86cba01df4f096dc6ae183f1f743dab2673"
+}
