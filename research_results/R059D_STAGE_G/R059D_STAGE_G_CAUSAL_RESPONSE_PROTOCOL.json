@@ -1,0 +1,18 @@
+{
+  "CUM_RESP_TAG_E": "union of RESP_TAG_e over 0..E",
+  "E_SPAN": "least e with CUM_RESP_TAG_e containing all N tags",
+  "RESP_TAG_CLOSURE": "union over all integer e>=0, proved symbolically rather than guessed from quiet rounds",
+  "RESP_TAG_e": "tags with any tag-level delta nonzero",
+  "cartesian_rescale_excluded": true,
+  "frozen_parent_stage_f_head": "a03e9181ddcb17a0971ac7bec8e534693cbd817e",
+  "ratio_storage": "RESPONSE_PARTICIPANT_COUNT_CLOSURE:N; never probability",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_G_CAUSAL_RESPONSE_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_CONTROLLER_SCORING",
+  "tag_predicates": {
+    "ACTION_SET_DELTA_e(i)": "1 iff stationary-rule allowed action set differs",
+    "COUNT_SIGNATURE_DELTA_e(i)": "1 iff exact controller-visible local count signature differs",
+    "STATE_DELTA_e(i)": "1 iff current tagged relational state/support differs baseline vs perturbed"
+  },
+  "taskbook_source": "383eeb9423e11b00a96f79c88f3bb86ec93df277"
+}
