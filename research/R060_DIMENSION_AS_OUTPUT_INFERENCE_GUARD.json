@@ -1,0 +1,35 @@
+{
+  "assumed_value_of_D_star": null,
+  "conceptual_long_run_quantity": "D_* = minimal relational rank supporting the declared stability property, if it exists",
+  "generation": "R060",
+  "researcher_id": "EM-R060-00CD9F",
+  "rules": [
+    {
+      "if": "declared stability success on this C3/D3_L1 model",
+      "not": "WORLD_IS_3D",
+      "then_at_most": "RANK3_STABLE_COLLAPSE_CANDIDATE_FOUND"
+    },
+    {
+      "if": "declared stability failure on this C3/D3_L1 model",
+      "not": "3D_IMPOSSIBLE",
+      "then_at_most": "THIS_CARRIER_DYNAMICS_FAILED"
+    },
+    {
+      "if": "finite bounded enumeration",
+      "not": "ALL_N_THEOREM",
+      "then_at_most": "BOUNDED_EXACT_EVIDENCE"
+    },
+    {
+      "future_dimension_lower_bound_requirement": "broad obstruction theorem for lower-rank carriers + positive higher-rank construction under matched semantics"
+    },
+    {
+      "future_rank2_comparison_requirement": "same packet unit, matched adjacency/contact-cut move semantics, matched stability definitions"
+    }
+  ],
+  "schema": "R060_DIMENSION_AS_OUTPUT_INFERENCE_GUARD_V1",
+  "stage": "0",
+  "status": "FROZEN_STAGE0",
+  "task_id": "RS-R060-STAGE-0-RELATIONAL-3D-STABLE-COLLAPSE-FOUNDATION",
+  "taskbook_source_commit": "1d4b7dd5b2dd326019e1d91dbcbe050b0cd13f89",
+  "world_dimension_claim": "WITHHELD"
+}
