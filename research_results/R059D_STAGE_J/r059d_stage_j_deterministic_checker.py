@@ -48,6 +48,7 @@ def brc(A,I):
     m=max(Z); W=[d for d,z in enumerate(Z) if z==m]
     return (W[0] if len(W)==1 else None),Z
 
+# tiny witness reconstruction
 byid={w["id"]:w for w in tiny["witnesses"]}
 for wid,w in byid.items():
     A=[w["O"][d]+w["M_ingress"][d] for d in C6]
@@ -68,6 +69,7 @@ ck(byid["W_SAME_CLASS0"]["relative_F1"]==0,"same-channel:allowed")
 ck(byid["W_RELATIVE_CLASS3"]["relative_F1"]==3,"relative3:allowed")
 ck(byid["W_FULLY_SYMMETRIC"]["F1"]=="BRC6_UNRESOLVED_BY_CURRENT_SIGNATURE","sym:tiny")
 
+# covariance / surjectivity
 outs=[]
 for row in cov["rows"]:
     t=row["tau_power"]; out=row["output"]
@@ -76,11 +78,13 @@ for row in cov["rows"]:
     outs.append(out)
 ck(sorted(outs)==[0,1,2,3,4,5],"coverage:surjective")
 
+# stabilizer obstruction
 ck(sym["cyclic_consequence"].startswith("Any state invariant"),"sym:theorem")
 for t in range(1,6):
     fixed_labels=[d for d in C6 if (d+t)%6==d]
     ck(fixed_labels==[],"sym:no_fixed:"+str(t))
 
+# F2 full coefficient box exact distribution
 base=byid["W_ASYM_BASE"]; A=base["A"]; I=base["I"]
 _,Z=brc(A,I)
 dist={"max":Counter(),"min":Counter()}
@@ -97,6 +101,7 @@ ck(dict(dist["max"])==stored["max"],"F2:max_distribution")
 ck(dict(dist["min"])==stored["min"],"F2:min_distribution")
 ck(stored["max"]["4"]==258 and stored["max"]["5"]==290,"F2:not_robust_unique")
 
+# huge N closed form; no enumeration
 Ns=[int(x) for x in large["N_entries"]]
 ck(10**36 in Ns,"large:N0")
 for N in Ns:
@@ -107,6 +112,7 @@ for N in Ns:
         ck((out+t)%6==[4,5,0,1,2,3][t],"large:cov:"+str(N)+":"+str(t))
     ck(all(4==x for x in [large["L"]]*6),"large:L:"+str(N))
 
+# repeated dynamics
 cases={c["id"]:c for c in dyn["cases"]}
 ck(cases["BASE_BETA4"]["d_sequence"][:7]==[0,4,2,0,4,2,0],"dyn:beta4")
 ck(all(r==4 for r in cases["BASE_BETA4"]["r_sequence"]),"dyn:r4")
@@ -115,6 +121,7 @@ ck(cases["SAME_BETA0"]["minimal_period"]==1,"dyn:period1")
 ck(cases["TIE_RESOLVED_BETA5"]["minimal_period"]==6,"dyn:period6")
 ck(cases["SYMMETRIC"]["exact_class"]=="unresolved symmetry state","dyn:symmetric_stop")
 
+# perturbations recompute
 baseA=[5,5,5,5,6,5]; baseI=[1,2,3,4,0,5]
 token=[]; incid=[]; adj=[]
 for j in C6:
@@ -126,11 +133,13 @@ ck(incid==pert["incidence_after_outputs"]==[4]*6,"pert:incidence")
 ck(adj==pert["tagged_adjacency_after_outputs"]==[1,2,3,4,5,0],"pert:adj6")
 ck(pert["length_unchanged"] is True,"pert:L")
 
+# padding
 ck(boundary["count_horizon_K"]==3,"pad:K3")
 for row in boundary["positive_results"]:
     ck(row["padding_depth"]>3 and row["output"]==4 and row["verdict"]=="PASS","pad:positive:"+str(row["padding_depth"]))
 ck(boundary["negative_control"]["verdict"]=="BOUNDARY_CONTAMINATED_BRC6","pad:negative")
 
+# leakage gates
 for g in kill["gates"]:
     ck(str(g["status"]).startswith("PASS"),"kill:"+g["id"])
 ck(kill["primary_disposition_candidate"]=="BRC6_PARTIAL_SELECTOR_WITH_EXACT_SYMMETRY_UNRESOLVED_STATES","disposition")
