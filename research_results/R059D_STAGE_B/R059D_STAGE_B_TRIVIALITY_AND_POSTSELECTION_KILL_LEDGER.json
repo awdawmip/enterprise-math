@@ -1,24 +1,100 @@
 {
   "gates": [
-    {"detail":"Stage-A head 0f634ef... is only read; Stage-B writes use a separate result directory/branch.","id":"PARENT_IMMUTABILITY","status":"PASS"},
-    {"detail":"N=3 is retained only as R3_CONTROLLER_SPECIFIC_ALIAS_CANDIDATE.","id":"DRIVER_RETYPE_N3","status":"PASS"},
-    {"detail":"R059D_STAGE_B_LARGE_N_SURVIVOR_REGISTRY.json was frozen before atlas evaluation.","id":"REGISTRY_BEFORE_SCALE_DOWN","status":"PASS"},
-    {"detail":"The atlas covers every positive integer R symbolically and R=1..64 explicitly.","id":"ALL_GENERAL_R_SURVIVORS_CARRIED","status":"PASS"},
-    {"detail":"R1 is audited and passes the nontrivial aligned-recurrence gate.","id":"R1_INCLUDED","status":"PASS"},
-    {"detail":"R2 has no aliases for any N and remains in the atlas.","id":"R2_NEGATIVE_CONTROL_RETAINED","status":"PASS"},
-    {"detail":"R3 is not a winner; its alias set is compared with all R.","id":"R3_NOT_SELECTED_FOR_PRETTY_THRESHOLD","status":"PASS"},
-    {"detail":"R6 exact alias set {1,2,4} is retained and not rewritten as a sharp threshold.","id":"NONMONOTONE_STRUCTURE_PRESERVED","status":"PASS"},
-    {"detail":"For fixed N, changing R can create or remove alias; first descending alias also moves with R.","id":"CONTROLLER_MOVES_CROSSOVER","status":"PASS"},
-    {"detail":"D1/V1/HD1 endpoint survivors are scale-down classified rather than discarded.","id":"DECORATED_SURVIVORS_CARRIED","status":"PASS"},
-    {"detail":"Noninverse returns fail D0 and are not counted as positive recurrence.","id":"BROKEN_RETURN_CONTROLS","status":"PASS"},
-    {"detail":"Equal endpoint packet counts are never used as recurrence evidence.","id":"STATIC_PACKET_COUNT_NOT_EVIDENCE","status":"PASS"},
-    {"detail":"L_R(N) is labeled control-only.","id":"FIXED_EVENT_COUNT_NOT_EVIDENCE","status":"PASS"},
-    {"detail":"All conditions are divisibility, integer counts, exact rationals, or coefficient extraction.","id":"NO_FLOATING_EQUALITY","status":"PASS"},
-    {"detail":"General-R symbolic theorem precedes finite regression box.","id":"NO_MICRO_TO_MACRO_FIT","status":"PASS"},
-    {"detail":"Coordinates are I0 only; no forbidden geometric object is theorem-critical.","id":"NO_GEOMETRY_LEAKAGE","status":"PASS"},
-    {"detail":"PHYSICAL_PROBABILITY_FROM_COUNTING remains NOT_ESTABLISHED.","id":"COUNT_RATIO_PROBABILITY_FIREWALL","status":"PASS"},
-    {"detail":"PHYSICAL_RIGIDITY_INTERPRETATION remains NOT_ESTABLISHED.","id":"PHYSICAL_RIGIDITY_FIREWALL","status":"PASS"},
-    {"detail":"QUANTUM_BRIDGE remains NOT_ESTABLISHED.","id":"QUANTUM_FIREWALL","status":"PASS"}
+    {
+      "detail": "Stage-A head 0f634ef... is only read; Stage-B writes use a separate result directory/branch.",
+      "id": "PARENT_IMMUTABILITY",
+      "status": "PASS"
+    },
+    {
+      "detail": "N=3 is retained only as R3_CONTROLLER_SPECIFIC_ALIAS_CANDIDATE.",
+      "id": "DRIVER_RETYPE_N3",
+      "status": "PASS"
+    },
+    {
+      "detail": "R059D_STAGE_B_LARGE_N_SURVIVOR_REGISTRY.json was frozen before atlas evaluation.",
+      "id": "REGISTRY_BEFORE_SCALE_DOWN",
+      "status": "PASS"
+    },
+    {
+      "detail": "The atlas covers every positive integer R symbolically and R=1..64 explicitly.",
+      "id": "ALL_GENERAL_R_SURVIVORS_CARRIED",
+      "status": "PASS"
+    },
+    {
+      "detail": "R1 is audited and passes the nontrivial aligned-recurrence gate.",
+      "id": "R1_INCLUDED",
+      "status": "PASS"
+    },
+    {
+      "detail": "R2 has no aliases for any N and remains in the atlas.",
+      "id": "R2_NEGATIVE_CONTROL_RETAINED",
+      "status": "PASS"
+    },
+    {
+      "detail": "R3 is not a winner; its alias set is compared with all R.",
+      "id": "R3_NOT_SELECTED_FOR_PRETTY_THRESHOLD",
+      "status": "PASS"
+    },
+    {
+      "detail": "R6 exact alias set {1,2,4} is retained and not rewritten as a sharp threshold.",
+      "id": "NONMONOTONE_STRUCTURE_PRESERVED",
+      "status": "PASS"
+    },
+    {
+      "detail": "For fixed N, changing R can create or remove alias; first descending alias also moves with R.",
+      "id": "CONTROLLER_MOVES_CROSSOVER",
+      "status": "PASS"
+    },
+    {
+      "detail": "D1/V1/HD1 endpoint survivors are scale-down classified rather than discarded.",
+      "id": "DECORATED_SURVIVORS_CARRIED",
+      "status": "PASS"
+    },
+    {
+      "detail": "Noninverse returns fail D0 and are not counted as positive recurrence.",
+      "id": "BROKEN_RETURN_CONTROLS",
+      "status": "PASS"
+    },
+    {
+      "detail": "Equal endpoint packet counts are never used as recurrence evidence.",
+      "id": "STATIC_PACKET_COUNT_NOT_EVIDENCE",
+      "status": "PASS"
+    },
+    {
+      "detail": "L_R(N) is labeled control-only.",
+      "id": "FIXED_EVENT_COUNT_NOT_EVIDENCE",
+      "status": "PASS"
+    },
+    {
+      "detail": "All conditions are divisibility, integer counts, exact rationals, or coefficient extraction.",
+      "id": "NO_FLOATING_EQUALITY",
+      "status": "PASS"
+    },
+    {
+      "detail": "General-R symbolic theorem precedes finite regression box.",
+      "id": "NO_MICRO_TO_MACRO_FIT",
+      "status": "PASS"
+    },
+    {
+      "detail": "Coordinates are I0 only; no forbidden geometric object is theorem-critical.",
+      "id": "NO_GEOMETRY_LEAKAGE",
+      "status": "PASS"
+    },
+    {
+      "detail": "PHYSICAL_PROBABILITY_FROM_COUNTING remains NOT_ESTABLISHED.",
+      "id": "COUNT_RATIO_PROBABILITY_FIREWALL",
+      "status": "PASS"
+    },
+    {
+      "detail": "PHYSICAL_RIGIDITY_INTERPRETATION remains NOT_ESTABLISHED.",
+      "id": "PHYSICAL_RIGIDITY_FIREWALL",
+      "status": "PASS"
+    },
+    {
+      "detail": "QUANTUM_BRIDGE remains NOT_ESTABLISHED.",
+      "id": "QUANTUM_FIREWALL",
+      "status": "PASS"
+    }
   ],
   "primary_disposition_candidate": "CONTROLLER_SCALE_ALIASING_EXPLAINS_OBSERVED_CROSSOVER",
   "primary_postselection_verdict": "PASS_NO_CONTROLLER_POSTSELECTION",
