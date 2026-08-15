@@ -1,0 +1,42 @@
+{
+  "generation": "R059P",
+  "primitive_box_note": "Primitive gcd(c)=1 fractions are enumerated exactly in the robustness atlas; no separate primitive asymptotic density theorem is claimed.",
+  "registry_sha256": "52c0fa7cfec88aea9b0a1ac50465a0302303ceea52abb557f20d38c0e526023d",
+  "researcher_id": "EM-R059P-8A2C7D",
+  "schema": "R059P_INTEGER_WEIGHT_KERNEL_THEOREM_V1",
+  "status": "PROVED_EXACT_STAGE_A",
+  "theorems": [
+    {
+      "asymptotic_disposition": "INTEGER_BOX_DENSITY_TENDS_TO_ZERO_FOR_EACH_FIXED_NONZERO_DELTA_A",
+      "finite_box_bound": "N_B(DeltaA) <= (B+1)^(k-1)",
+      "fraction_bound": "N_B(DeltaA)/((B+1)^k-1) <= (B+1)^(k-1)/((B+1)^k-1)",
+      "proof": [
+        "E_c(S)=c dot A_K(S) by definition.",
+        "Subtracting gives DeltaE_c=c dot (A_K(S')-A_K(S))=c dot DeltaA.",
+        "If DeltaA!=0, choose an index j with DeltaA_j!=0. For every assignment of the other k-1 coordinates, the equation c dot DeltaA=0 determines at most one value of c_j.",
+        "Hence the number N_B(DeltaA) of neutral vectors in C_B is at most (B+1)^(k-1). Removing the all-zero vector and enforcing 0<=c_j<=B can only decrease the count.",
+        "Therefore N_B(DeltaA)/((B+1)^k-1) <= (B+1)^(k-1)/((B+1)^k-1), which tends to 0 as B tends to infinity.",
+        "This is a finite integer counting argument; no continuum measure is used."
+      ],
+      "statement": "For a fixed elementary move S->S' with DeltaA!=0, shared-linear scalar neutrality is equivalent to c dot DeltaA=0. In C_B={c in Z_nonnegative^k:0<=c_j<=B,c!=0}, the neutral vectors form a proper exact integer kernel slice.",
+      "theorem_id": "PA-T01"
+    },
+    {
+      "classification": "WEIGHT_INDEPENDENT_R1_NEUTRAL",
+      "proof": [
+        "Substitute DeltaA=0 into DeltaE_c=c dot DeltaA."
+      ],
+      "statement": "If DeltaA=0, then DeltaE_c=0 for every shared linear coefficient vector c.",
+      "theorem_id": "PA-T02"
+    },
+    {
+      "proof": [
+        "Forgetting labeled-pair positions maps an equal R3 table to an equal pair-spectrum multiset.",
+        "Summing every spectrum coordinate over an equal multiset gives equal aggregate vector A_K.",
+        "Applying any shared linear functional c to equal A_K gives equal E_c."
+      ],
+      "statement": "R3 equality implies R2 equality, R2 equality implies R1 equality, and R1 equality implies R0 neutrality for every shared linear coefficient vector.",
+      "theorem_id": "PA-T03"
+    }
+  ]
+}
