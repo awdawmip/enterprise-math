@@ -1,0 +1,40 @@
+{
+  "carrier": "C3_RELATIONAL_RANK3_CHANNEL_CARRIER",
+  "completeness_certificate": [
+    "Fix a packet o. Among its six neighbors, two are opposite exactly when they have only o as a common neighbor; non-opposite neighbor pairs have o plus one additional common neighbor. This is graph-definable.",
+    "Hence an automorphism fixing o must permute the three opposite pairs and may swap the two members inside each pair: exactly a signed channel permutation.",
+    "The image of every further packet is then forced recursively by the same opposite relation and the graph-definable commutation four-cycles, so no additional fixed-o automorphisms exist.",
+    "Precompose/postcompose by translation for an arbitrary image of o; therefore the listed semidirect product is the full carrier automorphism group."
+  ],
+  "finite_state_canonical_orbit_procedure": {
+    "correctness": "same canonical tuple-list iff same full carrier-automorphism orbit",
+    "steps": [
+      "enumerate all 48 signed channel permutations",
+      "for each image subtract the componentwise minima, which fixes translation freedom in the I0 encoding",
+      "sort triples lexicographically",
+      "take the lexicographically least tuple-list"
+    ]
+  },
+  "full_carrier_automorphism_group": {
+    "finite_stabilizer_order": 48,
+    "generators": [
+      "translations",
+      "global channel-family permutations",
+      "independent reversal of each channel family"
+    ],
+    "i0_realization": "x -> t + signed_permutation(x)",
+    "notation": "Aut(C3)=Z^3 ⋊ ((C2)^3 ⋊ S3)"
+  },
+  "generation": "R060",
+  "not_quotiented_by": [
+    "arbitrary Euclidean rotation",
+    "scale",
+    "continuous rigid motion"
+  ],
+  "researcher_id": "EM-R060-00CD9F",
+  "schema": "R060_RANK3_AUTOMORPHISM_PROTOCOL_V1",
+  "stage": "0",
+  "status": "FROZEN_STAGE0",
+  "task_id": "RS-R060-STAGE-0-RELATIONAL-3D-STABLE-COLLAPSE-FOUNDATION",
+  "taskbook_source_commit": "1d4b7dd5b2dd326019e1d91dbcbe050b0cd13f89"
+}
