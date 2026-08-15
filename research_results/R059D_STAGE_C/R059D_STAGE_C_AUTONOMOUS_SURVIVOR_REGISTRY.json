@@ -1,0 +1,48 @@
+{
+  "all_large_N_survivors_carried_to_scale_down": true,
+  "frozen_parent_head": "a876b44aa105227418c43d02d44599da45bface9",
+  "large_N_stress_verdicts": [
+    {"N":"1000000000000000000000000000000000000","stress_id":"N0","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"999999999999999999999999999999999989","stress_id":"N0_M11","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"999999999999999999999999999999999993","stress_id":"N0_M7","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"999999999999999999999999999999999995","stress_id":"N0_M5","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"999999999999999999999999999999999997","stress_id":"N0_M3","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"999999999999999999999999999999999998","stress_id":"N0_M2","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"999999999999999999999999999999999999","stress_id":"N0_M1","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"1000000000000000000000000000000000001","stress_id":"N0_P1","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"1000000000000000000000000000000000002","stress_id":"N0_P2","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"1000000000000000000000000000000000003","stress_id":"N0_P3","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"1000000000000000000000000000000000005","stress_id":"N0_P5","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"1000000000000000000000000000000000007","stress_id":"N0_P7","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"1000000000000000000000000000000000011","stress_id":"N0_P11","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"1000000000000000000000000000037","stress_id":"LOWER_A","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}},
+    {"N":"1000000000000000000000019","stress_id":"LOWER_B","verdicts":{"A1_ONEBIT_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A2_SYMMETRIC_SUPPORT_HOLE":"D0_PASS_BOTH_SCHEDULERS","A3_FULL_COUNT_MIN":"D0_PASS_BOTH_SCHEDULERS"}}
+  ],
+  "large_N_symbolic_theorem": {
+    "N_domain": "all integers N>=1",
+    "endpoint": "every branch assignment reaches V(X_i) tagwise; support at the third completed round is the singleton {V(A_N,k)}",
+    "first_return": "rounds 1 and 2 have tag i at H^{±1} of its aligned H-coset and therefore are not aligned; round 3 is the first positive aligned return",
+    "launch_pattern": "tag i starts at X_i with X_(i+1)=H^3 X_i on an H-orbit of order 3N; this is relational indexing only",
+    "operation_count": "O(1) symbolic class proof per N; no packet/history enumeration at huge N",
+    "round_1": "START signature branches each tag to H(X_i) or H_INV(X_i)",
+    "round_1_cloud": "support is exactly the two H-cosets {H(X_i),H_INV(X_i)}; every aligned X_i is a zero-count hole",
+    "round_2": "H_FAMILY ingress maps every branch position by V; because H and V commute, the same support-hole pattern is V-relabeled",
+    "round_3_A1": "at H_INV V(X_i), B_H=0 so choose H; at H V(X_i), B_H=1 because H^2 V(X_i)=H_INV V(X_(i+1)), so choose H_INV",
+    "round_3_A2": "the neighbor support pairs are (0,1) on the H_INV branch and (1,0) on the H branch, so the symmetric hole rule returns both to V(X_i)",
+    "round_3_A3": "the same zero-versus-positive exact counts make full-count argmin choose the same channels"
+  },
+  "non_survivors": {
+    "N0_INGRESS_ONLY_NO_COUNT": "NO_D0_LARGE_N_OBSTRUCTION",
+    "N1_HOLE_IMMEDIATE_RETURN": "FIRST_ALIGNED_RETURN_IS_IDENTITY_A_N_k_NOT_SUCCESSOR",
+    "N2_POSITIVE_NEIGHBOR_RETURN": "D0_FAIL_OUTWARD_SUPPORT_REMAINS"
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_C_AUTONOMOUS_SURVIVOR_REGISTRY_V1",
+  "status": "FROZEN_AFTER_LARGE_N_EVALUATION",
+  "survivors": [
+    {"endpoint":"sigma_N=V","endpoint_class":"D0","first_aligned_return_round":3,"hidden_state":"NONE","id":"A1_ONEBIT_SUPPORT_HOLE","schedulers":["S_SYNC","S_ALL_ORDERS_SNAPSHOT"],"signature":"SIG1_ONEBIT","weakest_signature_status":"MINIMAL_WITHIN_FROZEN_NAMED_CHANNEL_GRAMMAR"},
+    {"endpoint":"sigma_N=V","endpoint_class":"D0","first_aligned_return_round":3,"hidden_state":"NONE","id":"A2_SYMMETRIC_SUPPORT_HOLE","relation_to_A1":"exchange-symmetric two-neighbor redundant strengthening","schedulers":["S_SYNC","S_ALL_ORDERS_SNAPSHOT"],"signature":"SIG2_SYMMETRIC"},
+    {"endpoint":"sigma_N=V","endpoint_class":"D0","first_aligned_return_round":3,"hidden_state":"NONE","id":"A3_FULL_COUNT_MIN","relation_to_A1":"integer-magnitude superset; no additional reachable-state power needed","schedulers":["S_SYNC","S_ALL_ORDERS_SNAPSHOT"],"signature":"SIG3_FULL_COUNTS"}
+  ],
+  "taskbook_source": "c51c31f989494b0ac57f17312dd270de18c20d61"
+}
