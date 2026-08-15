@@ -1,0 +1,40 @@
+{
+  "C_T02": {
+    "removal_tests": {
+      "remove_count_bit": {
+        "proof": "after the common V action, the + and - branch histories have identical INGRESS=V but require opposite H/H_INV choices. An ingress-only target-free action table must give the same action set to both; a singleton action fails one branch and branching both retains a wrong endpoint.",
+        "result": "KILLS_D0"
+      },
+      "remove_ingress_class": {
+        "proof": "the pre-V branch cloud and post-V branch cloud are exact V-relabelings with the same local H-neighbor support bit. A V-equivariant count-only rule would have to output the same action at both, but successful evolution requires V before the common V action and an H-family action after it.",
+        "result": "KILLS_AUTONOMOUS_3_ROUND_RULE"
+      },
+      "replace_onebit_with_two_bits_or_full_counts": {
+        "proof": "A2 and A3 survive but induce exactly the A1 transition relation.",
+        "result": "REDUNDANT_FOR_REACHABLE_CLOUD"
+      }
+    },
+    "scope": "minimal within frozen named-channel H/H_INV/V controller grammar",
+    "weakest_surviving_signature": "SIG1_ONEBIT = {INGRESS_CLASS, B_H=1[C_current(H(x))>0]}"
+  },
+  "C_T03": {
+    "autonomous_intermediate_cloud_nonidentifiability_new_evidence": "NOT_STRENGTHENED; all Stage-C survivors occupy one reachable cloud equivalence class",
+    "certificate": "A1,A2,A3 use strictly different signature alphabets/comparison rules but are observationally identical on every reachable state for all N>=1 and both schedulers.",
+    "controller_identifiability_status": "NONIDENTIFIABLE_AT_RULE_REPRESENTATION_LEVEL_WITHIN_FROZEN_GRAMMAR",
+    "inherited_stage_B_intermediate_count_cloud_controller_nonidentifiability": "ESTABLISHED"
+  },
+  "C_T04": {
+    "applies": "partial obstruction/minimality despite positive survivor",
+    "ingress_only_obstruction": "once both branch histories take V, last-ingress state is identical while their required horizontal recoalescing channels are opposite; without a count-derived directional bit or forbidden branch memory, D0 cannot be recovered on large N.",
+    "no_global_impossibility_claim": true
+  },
+  "C_T05": {
+    "all_survivors_and_schedulers_checked": true,
+    "result": "NO_CROSSOVER_WITHIN_PROVED_RANGE"
+  },
+  "frozen_parent_head": "a876b44aa105227418c43d02d44599da45bface9",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_C_OBSTRUCTION_OR_MINIMALITY_LEDGER_V1",
+  "status": "FROZEN",
+  "taskbook_source": "c51c31f989494b0ac57f17312dd270de18c20d61"
+}
