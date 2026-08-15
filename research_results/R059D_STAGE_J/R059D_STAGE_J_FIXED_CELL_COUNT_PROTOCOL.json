@@ -1,0 +1,22 @@
+{
+  "equal_candidate_rule": "for every positive BRC evidence state and every d in C6: ALIGNED_SEGMENT_CELL_COUNT(d)=L",
+  "frozen_positive_registry_L": 4,
+  "frozen_provenance_parent": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "hard_rejects": [
+    "shortest path",
+    "longest path",
+    "candidate-dependent L",
+    "length threshold",
+    "attenuation-distance interpretation",
+    "macro/micro inference from L"
+  ],
+  "interpretation": "exact declared cell/packet count only; not a selector variable or optimization objective",
+  "readout": "ALIGNED_SEGMENT_CELL_COUNT=L",
+  "researcher_id": "EM-R059D-4C7E21",
+  "revisit_note": "raw-history transition counts may differ without changing frozen aligned-segment cell count",
+  "schema": "R059D_STAGE_J_FIXED_CELL_COUNT_PROTOCOL_V1",
+  "selector_dependency": "FORBIDDEN: L is not in Z_d, selector score, tie break, coefficient grammar, perturbation criterion, or large-N comparison",
+  "status": "FROZEN_BEFORE_SELECTOR_SCORING",
+  "taskbook_source": "3ca99589c5c3ade32c9cc164cdc3b3c4f6e15b7b",
+  "unequal_case_verdict": "UNEQUAL_LENGTH_CONTAMINATION"
+}
