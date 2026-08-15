@@ -1,0 +1,19 @@
+{
+  "S3_incremental_power": "NO_NEW_Q_CLASS_OVER_S2",
+  "S4_incremental_power": "NO_NEW_BRANCH_SIGN_Q_CLASS_OVER_SUPPORT_BITS",
+  "exact_count_magnitude_note": "At q=2 occupied packets receive two branch-source contributions, unlike q>=3; this can identify a q-class but cannot resolve branch provenance inside q=2.",
+  "frozen_parent_stage_c_head": "441c554fbb13e3c7faba94561f2ea8b64d3b6c4b",
+  "per_q_exact": {
+    "q=2": {"MIN_COUNT_BITS":"OBSTRUCTED","MIN_MAX_ABS_H_EXPONENT":"OBSTRUCTED","MIN_PROBE_COUNT":"NO_FINITE_CURRENT_COUNT_PROBE_SUFFICES_IN_EQUIVARIANT_GRAMMAR","branch_distinguishability":"OBSTRUCTED"},
+    "q=3": {"MIN_COUNT_BITS":1,"MIN_MAX_ABS_H_EXPONENT":1,"MIN_PROBE_COUNT":1,"branch_distinguishability":"YES","example":"B_(+1) or B_(-1)"},
+    "q=4": {"MIN_COUNT_BITS":"OBSTRUCTED","MIN_MAX_ABS_H_EXPONENT":"OBSTRUCTED","MIN_PROBE_COUNT":"NO_FINITE_CURRENT_COUNT_PROBE_SUFFICES_IN_EQUIVARIANT_GRAMMAR","branch_distinguishability":"OBSTRUCTED"},
+    "q>=5": {"MIN_COUNT_BITS":1,"MIN_MAX_ABS_H_EXPONENT":2,"MIN_PROBE_COUNT":1,"branch_distinguishability":"YES","example":"B_(+2) or B_(-2)"}
+  },
+  "physical_semantics": "resource readouts are N1/N2 algorithmic probe counts/exponents, not geometric reach or length",
+  "reach1_theorem": "All |r|<=1 support probes are branch-indistinguishable for q>=4; hence a controller uniform on all q>=5 needs reach at least 2.",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_D_SIGNATURE_RESOURCE_ATLAS_V1",
+  "status": "FROZEN",
+  "taskbook_source": "3bb0e9d7c0078818f5e224b7524cf72812a4ab8a",
+  "uniform_infinite_family": {"MIN_COUNT_BITS":1,"MIN_MAX_ABS_H_EXPONENT":2,"MIN_PROBE_COUNT":1,"controller":"U_BPLUS2_ONEBIT or mirror U_BMINUS2_ONEBIT","ingress_class_still_required":true,"q_domain":"q=3 or q>=5"}
+}
