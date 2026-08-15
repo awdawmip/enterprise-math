@@ -1,0 +1,23 @@
+{
+  "admissible_certificates": [
+    "closed_form paired-process theorem",
+    "finite-state quotient",
+    "exact causal dependency closure equivalent to paired dynamics",
+    "eventual-periodicity certificate with no-new-participant proof"
+  ],
+  "classes": {
+    "BOUNDED_CAUSAL_CLOSURE": "N-independent exact participant bound",
+    "EXTENSIVE_CAUSAL_CLOSURE": "exact linear fraction lower bound on infinite family, not necessarily N",
+    "NO_CAUSAL_PROPAGATION": "closure contains only directly intervened seed tag",
+    "SUBEXTENSIVE_UNBOUNDED_CAUSAL_CLOSURE": "unbounded participant count but smaller than every fixed positive N fraction by exact theorem",
+    "SYSTEM_SPANNING_CAUSAL_CLOSURE": "closure participant count=N"
+  },
+  "closure_definition": "RESP_TAG_CLOSURE=union over all integer generations e>=0 of RESP_TAG_e",
+  "closure_generation": "E_* is least evaluator generation at which exact proof certifies CUM_RESP_TAG_E=RESP_TAG_CLOSURE; E_* may depend on N/q but is never controller input",
+  "frozen_parent_stage_e_head": "26c1a5d6fe6526fbb5fca9e122c064344bb69ddc",
+  "prohibited_inference": "no finite quiet-window heuristic; absence of new tags for finitely many rounds is not closure evidence",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_F_INTRINSIC_CLOSURE_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_CANDIDATE_SCORING",
+  "taskbook_source": "0aa8353d0c97c6d9944bb8ab04f809a00d323b37"
+}
