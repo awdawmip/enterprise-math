@@ -1,0 +1,22 @@
+{
+  "admissible_bit_pairs": [[0,1],[1,0]],
+  "bits": {
+    "b_x": "upper-collapse bit for dx in {-1,0}",
+    "b_z": "upper-collapse bit for dz in {-1,0}",
+    "boolean": ["b_x^2=b_x","b_z^2=b_z"]
+  },
+  "claim_candidate": "COUPLED_COMPLEMENTARY_COLLAPSE_BIT_REDUCTION_ESTABLISHED",
+  "coordinate_collapses": {"dx":"-1+b_x","dy":"1","dz":"-1+b_z"},
+  "derived_constraint": "b_x+b_z=1",
+  "one_bit_parameterization": {
+    "Delta_y_plus(b)": "(-b,+1,-(1-b))",
+    "b_x": "1-b",
+    "b_z": "b",
+    "provenance": "b=b_z"
+  },
+  "researcher_id": "EM-R059D-9C6B2A",
+  "schema": "R059D_STAGE_N_COMPLEMENTARY_COLLAPSE_BIT_PROTOCOL_V1",
+  "sheet_substitution": "(-1+b_x)+1+(-1+b_z)=0",
+  "status": "FROZEN_BEFORE_EQUIVALENCE_SCORING",
+  "taskbook_source": "0ded98e376b649cbe41e47e18ea23c8c2daf59ca"
+}
