@@ -1,0 +1,65 @@
+{
+  "artifact_manifest": {
+    "artifact_count": 14,
+    "git_blob_sha1": "afdf6f13ab6722cd1569fe828c70d1f718fc4c57",
+    "path": "R059D_STAGE_K_ARTIFACT_MANIFEST.json",
+    "sha256": "6e7a6ec34dad21ac6b9b8e7c6d6b9498e5cbe3f6492525f33de764554f8b46b7"
+  },
+  "artifact_owner_head_before_checkpoint_append": "873f5ad44ae0c004c099fea73ea685cebe188d19",
+  "checker": {
+    "checks_digest_sha256": "9e1f44b80da24096967b8ee86f1ddede57a07dca26fbc0be22878ca9981826d0",
+    "checks_failed": 0,
+    "checks_passed": 772,
+    "checks_total": 772,
+    "output_sha256": "918211de1dc48d437af660405a0396ffc2643658e1bfbfe0ceda2021049b2618",
+    "source_sha256": "9ba42df423f28681f5040654ed81160b93f9c3a5c452715ee8c2ba54501e321f",
+    "status": "PASS"
+  },
+  "frozen_parent": {
+    "stage_j_artifacts_immutable": true,
+    "stage_j_head": "9f2b70d6cca5ccd66a46cc6dd18730f40a6add72",
+    "stale_stage_j_embedded_id": "HISTORICAL_ONLY_DO_NOT_REWRITE"
+  },
+  "owner_branch": "research/r059d-stage-k-brc6-selector-robustness-dynamics",
+  "researcher_id": "EM-R059D-9C6B2A",
+  "result": {
+    "BRC6_selector_canonicality": "NOT_ESTABLISHED",
+    "BRC6_total_selector": "NOT_ESTABLISHED",
+    "W_ASYM_BASE": "SELECTOR_DEPENDENT; resolved counts 0:44,4:521,5:583; unresolved 110",
+    "carriers": [
+      "K-CARRIER-A-TARGET-LABEL",
+      "K-CARRIER-B-PARITY-LAYER",
+      "K-CARRIER-C-SELF-NODE"
+    ],
+    "comparator_registry_count": 1258,
+    "dependent_state_domain": "BRC6_SELECTOR_DEPENDENT_STATE_DOMAIN=ESTABLISHED",
+    "dynamic_recoalescence_across_selectors": "NOT_ESTABLISHED; no exact recoalescence in representative 120-decision window",
+    "equal_segment_cell_count": "L=4 for every candidate in every frozen carrier",
+    "full_state_recurrence": "IMPOSSIBLE_AT_DISTINCT_RESOLVED_EPOCHS because TOTAL_O(e)=TOTAL_O(0)+e",
+    "horizon_resolution": "HORIZON_INSUFFICIENT_UNRESOLVED_RESOLVED realized by W_S1_TIE_S2_RESOLVE",
+    "horizon_theorem": "AFFINE_HORIZON_DISCRIMINATION_SATURATES_AT_K1",
+    "large_N": "all frozen ~10^36 probes invariant by common-background cancellation/induction; no length threshold",
+    "physical_direction_calibration": "NOT_ESTABLISHED",
+    "physical_elasticity_interpretation": "NOT_ESTABLISHED",
+    "physical_probability_from_BRC_counts": "NOT_ESTABLISHED",
+    "physical_rigidity_interpretation": "NOT_ESTABLISHED",
+    "primary_disposition": "BRC6_SELECTOR_DEPENDENT_BUT_TRUE_STATE_DYNAMICS_FOUND",
+    "quantum_bridge": "NOT_ESTABLISHED",
+    "robust_state_domain": "BRC6_SELECTOR_ROBUST_STATE_DOMAIN=ESTABLISHED_NONEMPTY via W_CONSENSUS_DOMINANT2; 623 resolved all channel2, 635 unresolved, zero conflict",
+    "selector_dependent_dynamics": "ESTABLISHED",
+    "signature_insufficient": "W_SIGNATURE_INSUFFICIENT_PAIRS all 1258 unresolved without nontrivial cyclic stabilizer certificate",
+    "symmetry_unresolved": "W_FULLY_SYMMETRIC all 1258 unresolved by exact cyclic stabilizer obstruction",
+    "true_state_update": "O_x[d]+=1; M_x[i,d]+=1; I_y[j]+=1 with declared T_NODE/T_INGRESS; recompute next signatures"
+  },
+  "schema": "R059D_STAGE_K_FROZEN_CHECKPOINT_V1",
+  "source_discipline": {
+    "authoritative_researcher_id": "EM-R059D-9C6B2A",
+    "length_used_as_selector_input": false,
+    "old_graded_relay_stage_j_consumed": false,
+    "stage_j_artifacts_modified": false,
+    "stage_j_profile_reuse_used_as_true_state_update": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "taskbook_source": "9ea3c173873b23f52977a7ba99e9c091329e5748"
+}
