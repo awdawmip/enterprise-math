@@ -1,0 +1,379 @@
+{
+  "carriers": [
+    {
+      "adjacency": {
+        "0": [
+          1,
+          3
+        ],
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          1,
+          3
+        ],
+        "3": [
+          0,
+          2
+        ]
+      },
+      "carrier_id": "REL_CYCLE_4",
+      "family": "FINITE_CYCLIC_ADJACENCY",
+      "size": 4
+    },
+    {
+      "adjacency": {
+        "0": [
+          1,
+          4
+        ],
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          1,
+          3
+        ],
+        "3": [
+          2,
+          4
+        ],
+        "4": [
+          0,
+          3
+        ]
+      },
+      "carrier_id": "REL_CYCLE_5",
+      "family": "FINITE_CYCLIC_ADJACENCY",
+      "size": 5
+    },
+    {
+      "adjacency": {
+        "0": [
+          1,
+          5
+        ],
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          1,
+          3
+        ],
+        "3": [
+          2,
+          4
+        ],
+        "4": [
+          3,
+          5
+        ],
+        "5": [
+          0,
+          4
+        ]
+      },
+      "carrier_id": "REL_CYCLE_6",
+      "family": "FINITE_CYCLIC_ADJACENCY",
+      "size": 6
+    },
+    {
+      "adjacency": {
+        "0": [
+          1,
+          2,
+          3
+        ],
+        "1": [
+          0,
+          2,
+          3
+        ],
+        "2": [
+          0,
+          1,
+          3
+        ],
+        "3": [
+          0,
+          1,
+          2
+        ]
+      },
+      "carrier_id": "REL_COMPLETE_4",
+      "family": "FINITE_COMPLETE_ADJACENCY",
+      "size": 4
+    },
+    {
+      "adjacency": {
+        "0": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "1": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "4": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "carrier_id": "REL_COMPLETE_5",
+      "family": "FINITE_COMPLETE_ADJACENCY",
+      "size": 5
+    },
+    {
+      "adjacency": {
+        "0": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "1": [
+          0,
+          2,
+          3,
+          4,
+          5
+        ],
+        "2": [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          4,
+          5
+        ],
+        "4": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "5": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "carrier_id": "REL_COMPLETE_6",
+      "family": "FINITE_COMPLETE_ADJACENCY",
+      "size": 6
+    },
+    {
+      "adjacency": {
+        "0": [
+          1,
+          2,
+          3
+        ],
+        "1": [
+          0
+        ],
+        "2": [
+          0
+        ],
+        "3": [
+          0
+        ]
+      },
+      "carrier_id": "REL_STAR_4",
+      "family": "FINITE_TREE_LIKE_ADJACENCY",
+      "size": 4
+    },
+    {
+      "adjacency": {
+        "0": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "1": [
+          0
+        ],
+        "2": [
+          0
+        ],
+        "3": [
+          0
+        ],
+        "4": [
+          0
+        ]
+      },
+      "carrier_id": "REL_STAR_5",
+      "family": "FINITE_TREE_LIKE_ADJACENCY",
+      "size": 5
+    },
+    {
+      "adjacency": {
+        "0": [
+          3,
+          4,
+          5
+        ],
+        "1": [
+          3,
+          4,
+          5
+        ],
+        "2": [
+          3,
+          4,
+          5
+        ],
+        "3": [
+          0,
+          1,
+          2
+        ],
+        "4": [
+          0,
+          1,
+          2
+        ],
+        "5": [
+          0,
+          1,
+          2
+        ]
+      },
+      "carrier_id": "REL_BIPARTITE_3_3",
+      "family": "FINITE_REGULAR_BIPARTITE_ADJACENCY",
+      "size": 6
+    }
+  ],
+  "coefficient_boxes": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "coefficient_domain": "C_B={c in Z_nonnegative^k: 0<=c_n<=B, c!=0}",
+  "cycle_reporting": {
+    "persistent_activity_robustness_prefers": "simple_nonbacktracking_cycle",
+    "reversible_two_step_cycle": "reported_separately",
+    "simple_nonbacktracking_cycle": "requires simple undirected cycle length >=3"
+  },
+  "elementary_update": "exactly one tagged marker makes exactly one declared adjacency transition",
+  "frozen_parent_owner_head": "f1b8eda8db0e8e069d5caf69f0f7e57bc3ee0ac7",
+  "generation": "R059P",
+  "lane_firewall": {
+    "forbidden_patterns": [
+      "R059L_*",
+      "EM-R059L-5F9D05",
+      "R059L branches/checkpoints/results"
+    ],
+    "r059l_consumption": false
+  },
+  "marker_counts": [
+    2,
+    3,
+    4
+  ],
+  "occupancy_rules": [
+    {
+      "elementary_target_rule": "target packet must be unoccupied by every other tagged marker",
+      "occupancy_id": "EXCLUSION",
+      "state_rule": "all tagged markers occupy distinct packets"
+    },
+    {
+      "elementary_target_rule": "one marker moves across declared adjacency; target occupancy does not block",
+      "occupancy_id": "COLLISION_ALLOWED",
+      "state_rule": "tagged markers may share packets"
+    }
+  ],
+  "path_history_memory_status": "NOT_ASSUMED",
+  "primitive_coefficient_diagnostic": true,
+  "quantum_bridge_status": "OPEN_NO_CALIBRATION_IN_STAGE_A",
+  "researcher_id": "EM-R059P-8A2C7D",
+  "scalar_models": [
+    {
+      "formula": "E_c(S)=sum_n c_n A_K(S)[n]",
+      "model_id": "SHARED_LINEAR_EC",
+      "weights": "all vectors in frozen coefficient boxes"
+    },
+    {
+      "formula": "e_ij=2*W_1+W_2",
+      "model_id": "FIRST_ROUND_C1_REFERENCE_ONLY",
+      "role": "immutable first-round deliberate-weight reference; not generic",
+      "weights": [
+        2,
+        1
+      ],
+      "window_id": "K12"
+    }
+  ],
+  "schema": "R059P_STAGE_A_ROBUSTNESS_REGISTRY_V1",
+  "selection_rule_status": "OPEN_NOT_PART_OF_ENUMERATION",
+  "semantic_typing": {
+    "W_n_S_K_A_K_M_K_L_K_E_c": "N2_READOUT_COLLAPSE",
+    "carrier_packet_labels": "I0_IMPLEMENTATION_ONLY",
+    "declared_adjacency": "N0_NATIVE_RELATIONAL",
+    "geometry_premise": false,
+    "tagged_markers_and_update_rule": "N1_DERIVED_OPERATIONAL_SEMANTICS"
+  },
+  "status": "FROZEN_BEFORE_ENUMERATION",
+  "task_id": "RS-R059P-STAGE-A-NEUTRAL-PATH-SPECTRUM-ROBUSTNESS",
+  "taskbook_source": "9fb1b7416fd8752f80f7faa93e4beb92bb819065",
+  "windows": [
+    {
+      "n_values": [
+        1,
+        2
+      ],
+      "window_id": "K12"
+    },
+    {
+      "n_values": [
+        1,
+        2,
+        3
+      ],
+      "window_id": "K123"
+    },
+    {
+      "n_values": [
+        2,
+        3,
+        4
+      ],
+      "window_id": "K234"
+    }
+  ]
+}
