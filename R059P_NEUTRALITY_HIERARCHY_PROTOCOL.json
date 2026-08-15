@@ -1,0 +1,62 @@
+{
+  "basin_classification": {
+    "EXCITED_PLATEAU_ONLY": "cyclic neutral component exists but is neither global nor local minimum under the examined scalar",
+    "GLOBAL_MINIMUM_NEUTRAL": "cyclic neutral component has scalar value equal to exact E_min",
+    "LOCAL_MINIMUM_NEUTRAL": "not global minimum, and no state in the cyclic neutral component has an elementary neighbor with lower scalar value",
+    "NO_NONBACKTRACKING_CYCLE": "no simple neutral cycle of length >=3"
+  },
+  "cycle_semantics": {
+    "reversible_two_step": "reported but not used as the preferred robustness witness",
+    "scc_note": "because declared adjacency is symmetric and equality neutrality is reversible, directed SCCs coincide with connected components of the corresponding neutral undirected graph",
+    "simple_nonbacktracking_cycle": "simple undirected neutral cycle with at least 3 distinct states"
+  },
+  "definitions": {
+    "R0": "E_c(S)=sum_{i<j} sum_n c_n W_n(a_i,a_j)=c dot A_K(S)",
+    "R1": "A_K(S)=(sum_{i<j} W_n(a_i,a_j))_n",
+    "R2": "M_K(S)=multiset{S_K(a_i,a_j): i<j}",
+    "R3": "L_K(S)=(S_K(a_i,a_j))_{i<j} in frozen labeled-pair order",
+    "S_K": "ordered finite integer tuple (W_n)_n in frozen window K",
+    "W_n": "exact number of declared-adjacency walks with exactly n transition events"
+  },
+  "delta_identity": {
+    "DeltaA": "A_K(S')-A_K(S)",
+    "DeltaE_c": "E_c(S')-E_c(S)",
+    "identity": "DeltaE_c = c dot DeltaA"
+  },
+  "elementary_move": {
+    "geometry_used": false,
+    "occupancy_rule": "taken from frozen Stage-A registry",
+    "rule": "exactly one tagged marker makes exactly one declared adjacency transition"
+  },
+  "frozen_parent_owner_head": "f1b8eda8db0e8e069d5caf69f0f7e57bc3ee0ac7",
+  "generation": "R059P",
+  "hierarchy_implications": [
+    "R3_EQUAL => R2_EQUAL",
+    "R2_EQUAL => R1_EQUAL",
+    "R1_EQUAL => R0_EQUAL_FOR_EVERY_SHARED_LINEAR_COEFFICIENT_VECTOR_c"
+  ],
+  "move_classes": {
+    "MULTIPAIR_EXACT_CANCELLATION": "at least one affected pair spectrum changes but total DeltaA=0",
+    "PAIRWISE_INVARIANT": "every affected labeled pair spectrum is unchanged",
+    "SCALAR_WEIGHT_CANCELLATION_ONLY": "DeltaA!=0 but c dot DeltaA=0 for the examined c"
+  },
+  "neutral_graphs": {
+    "G_R0(c)": "elementary edges with DeltaE_c=0",
+    "G_R1": "elementary edges with DeltaA=0",
+    "G_R2": "elementary edges with M_K(S')=M_K(S)",
+    "G_R3": "elementary edges with L_K(S')=L_K(S)"
+  },
+  "prohibitions": {
+    "euclidean_embedding_premise": false,
+    "path_count_is_length": false,
+    "physical_energy_promoted_to_n0": false,
+    "r059l_consumed": false,
+    "shortest_path_used": false,
+    "zero_point_motion_claimed_explained": false
+  },
+  "researcher_id": "EM-R059P-8A2C7D",
+  "schema": "R059P_NEUTRALITY_HIERARCHY_PROTOCOL_V1",
+  "semantic_layer": "N2_HIGHER_LEVEL_READOUT_OVER_PACKET_PATH_BASE",
+  "status": "FROZEN_STAGE_A",
+  "taskbook_source": "9fb1b7416fd8752f80f7faa93e4beb92bb819065"
+}
