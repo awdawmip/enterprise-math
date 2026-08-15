@@ -5,32 +5,179 @@
       "W_plus": "H^R",
       "id": "G_R_H_REVERSIBLE_EXCURSION",
       "large_N_endpoint_status": "SURVIVES_FOR_ALL_N>=1_AND_R>=1",
-      "macro_words": ["H^R V H^-R","H^-R V H^R"],
+      "macro_words": [
+        "H^R V H^-R",
+        "H^-R V H^R"
+      ],
       "must_carry_to_scale_down": true,
       "parameter_domain": "all integers R>=1",
       "proof_before_scale_down": "H and V commute; H^(Rs) V H^(-Rs)=V"
     },
-    {"W_s":"D^s","id":"DECORATED_W_D1","large_N_endpoint_status":"SURVIVES","macro_word":"D^s V D^-s","must_carry_to_scale_down":true,"parameter_domain":"s in {+1,-1}","proof_before_scale_down":"D commutes with V under frozen channel algebra"},
-    {"W_s":"V^s","id":"DECORATED_W_V1","large_N_endpoint_status":"SURVIVES","macro_word":"V^s V V^-s","must_carry_to_scale_down":true,"parameter_domain":"s in {+1,-1}","proof_before_scale_down":"V commutes with itself"},
-    {"W_s":"H^s D^s","id":"DECORATED_W_HD1","large_N_endpoint_status":"SURVIVES","macro_word":"H^s D^s V D^-s H^-s","must_carry_to_scale_down":true,"parameter_domain":"s in {+1,-1}","proof_before_scale_down":"H,D,V are commuting declared permutations"}
+    {
+      "W_s": "D^s",
+      "id": "DECORATED_W_D1",
+      "large_N_endpoint_status": "SURVIVES",
+      "macro_word": "D^s V D^-s",
+      "must_carry_to_scale_down": true,
+      "parameter_domain": "s in {+1,-1}",
+      "proof_before_scale_down": "D commutes with V under frozen channel algebra"
+    },
+    {
+      "W_s": "V^s",
+      "id": "DECORATED_W_V1",
+      "large_N_endpoint_status": "SURVIVES",
+      "macro_word": "V^s V V^-s",
+      "must_carry_to_scale_down": true,
+      "parameter_domain": "s in {+1,-1}",
+      "proof_before_scale_down": "V commutes with itself"
+    },
+    {
+      "W_s": "H^s D^s",
+      "id": "DECORATED_W_HD1",
+      "large_N_endpoint_status": "SURVIVES",
+      "macro_word": "H^s D^s V D^-s H^-s",
+      "must_carry_to_scale_down": true,
+      "parameter_domain": "s in {+1,-1}",
+      "proof_before_scale_down": "H,D,V are commuting declared permutations"
+    }
   ],
-  "explicit_R_controls": [1,2,3,4,5,6,7,8,9,16,31,32,63,64],
-  "freeze_order": ["THIS_CONTROLLER_FAMILY_REGISTRY","GENERAL_R_ENDPOINT_PROOF","SCALE_DOWN_ALIAS_ATLAS","DISPOSITION"],
+  "explicit_R_controls": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    16,
+    31,
+    32,
+    63,
+    64
+  ],
+  "freeze_order": [
+    "THIS_CONTROLLER_FAMILY_REGISTRY",
+    "GENERAL_R_ENDPOINT_PROOF",
+    "SCALE_DOWN_ALIAS_ATLAS",
+    "DISPOSITION"
+  ],
   "large_N_parity_and_alias_edge_probes": [
-    {"N":"999999999999999999999999999999999997","R_min_alias":"2999999999999999999999999999999999991","R_probes":["2999999999999999999999999999999999990","2999999999999999999999999999999999991","2999999999999999999999999999999999992"],"endpoint_recurrence":"D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM","parity":"ODD"},
-    {"N":"999999999999999999999999999999999998","R_min_alias":"1499999999999999999999999999999999997","R_probes":["1499999999999999999999999999999999996","1499999999999999999999999999999999997","1499999999999999999999999999999999998"],"endpoint_recurrence":"D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM","parity":"EVEN"},
-    {"N":"999999999999999999999999999999999999","R_min_alias":"2999999999999999999999999999999999997","R_probes":["2999999999999999999999999999999999996","2999999999999999999999999999999999997","2999999999999999999999999999999999998"],"endpoint_recurrence":"D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM","parity":"ODD"},
-    {"N":"1000000000000000000000000000000000000","R_min_alias":"1500000000000000000000000000000000000","R_probes":["1499999999999999999999999999999999999","1500000000000000000000000000000000000","1500000000000000000000000000000000001"],"endpoint_recurrence":"D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM","parity":"EVEN"},
-    {"N":"1000000000000000000000000000000000001","R_min_alias":"3000000000000000000000000000000000003","R_probes":["3000000000000000000000000000000000002","3000000000000000000000000000000000003","3000000000000000000000000000000000004"],"endpoint_recurrence":"D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM","parity":"ODD"},
-    {"N":"1000000000000000000000000000000000002","R_min_alias":"1500000000000000000000000000000000003","R_probes":["1500000000000000000000000000000000002","1500000000000000000000000000000000003","1500000000000000000000000000000000004"],"endpoint_recurrence":"D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM","parity":"EVEN"},
-    {"N":"1000000000000000000000000000000000003","R_min_alias":"3000000000000000000000000000000000009","R_probes":["3000000000000000000000000000000000008","3000000000000000000000000000000000009","3000000000000000000000000000000000010"],"endpoint_recurrence":"D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM","parity":"ODD"},
-    {"N":"1000000000000000000000000000001","R_min_alias":"3000000000000000000000000000003","R_probes":["3000000000000000000000000000002","3000000000000000000000000000003","3000000000000000000000000000004"],"endpoint_recurrence":"D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM","parity":"ODD"},
-    {"N":"1000000000000000000000002","R_min_alias":"1500000000000000000000003","R_probes":["1500000000000000000000002","1500000000000000000000003","1500000000000000000000004"],"endpoint_recurrence":"D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM","parity":"EVEN"}
+    {
+      "N": "999999999999999999999999999999999997",
+      "R_min_alias": "2999999999999999999999999999999999991",
+      "R_probes": [
+        "2999999999999999999999999999999999990",
+        "2999999999999999999999999999999999991",
+        "2999999999999999999999999999999999992"
+      ],
+      "endpoint_recurrence": "D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM",
+      "parity": "ODD"
+    },
+    {
+      "N": "999999999999999999999999999999999998",
+      "R_min_alias": "1499999999999999999999999999999999997",
+      "R_probes": [
+        "1499999999999999999999999999999999996",
+        "1499999999999999999999999999999999997",
+        "1499999999999999999999999999999999998"
+      ],
+      "endpoint_recurrence": "D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM",
+      "parity": "EVEN"
+    },
+    {
+      "N": "999999999999999999999999999999999999",
+      "R_min_alias": "2999999999999999999999999999999999997",
+      "R_probes": [
+        "2999999999999999999999999999999999996",
+        "2999999999999999999999999999999999997",
+        "2999999999999999999999999999999999998"
+      ],
+      "endpoint_recurrence": "D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM",
+      "parity": "ODD"
+    },
+    {
+      "N": "1000000000000000000000000000000000000",
+      "R_min_alias": "1500000000000000000000000000000000000",
+      "R_probes": [
+        "1499999999999999999999999999999999999",
+        "1500000000000000000000000000000000000",
+        "1500000000000000000000000000000000001"
+      ],
+      "endpoint_recurrence": "D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM",
+      "parity": "EVEN"
+    },
+    {
+      "N": "1000000000000000000000000000000000001",
+      "R_min_alias": "3000000000000000000000000000000000003",
+      "R_probes": [
+        "3000000000000000000000000000000000002",
+        "3000000000000000000000000000000000003",
+        "3000000000000000000000000000000000004"
+      ],
+      "endpoint_recurrence": "D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM",
+      "parity": "ODD"
+    },
+    {
+      "N": "1000000000000000000000000000000000002",
+      "R_min_alias": "1500000000000000000000000000000000003",
+      "R_probes": [
+        "1500000000000000000000000000000000002",
+        "1500000000000000000000000000000000003",
+        "1500000000000000000000000000000000004"
+      ],
+      "endpoint_recurrence": "D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM",
+      "parity": "EVEN"
+    },
+    {
+      "N": "1000000000000000000000000000000000003",
+      "R_min_alias": "3000000000000000000000000000000000009",
+      "R_probes": [
+        "3000000000000000000000000000000000008",
+        "3000000000000000000000000000000000009",
+        "3000000000000000000000000000000000010"
+      ],
+      "endpoint_recurrence": "D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM",
+      "parity": "ODD"
+    },
+    {
+      "N": "1000000000000000000000000000001",
+      "R_min_alias": "3000000000000000000000000000003",
+      "R_probes": [
+        "3000000000000000000000000000002",
+        "3000000000000000000000000000003",
+        "3000000000000000000000000000004"
+      ],
+      "endpoint_recurrence": "D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM",
+      "parity": "ODD"
+    },
+    {
+      "N": "1000000000000000000000002",
+      "R_min_alias": "1500000000000000000000003",
+      "R_probes": [
+        "1500000000000000000000002",
+        "1500000000000000000000003",
+        "1500000000000000000000004"
+      ],
+      "endpoint_recurrence": "D0_FOR_ALL_R_PROBES_BY_SYMBOLIC_THEOREM",
+      "parity": "EVEN"
+    }
   ],
   "large_N_reference": "10^36 is macro repeated-constituent count scale only",
   "negative_controls_frozen_before_scale_down": [
-    {"expected_endpoint":"H^(2s)V","id":"BROKEN_RETURN_H1","large_N_status":"KILLED_NOT_A_REVERSIBLE_EXCURSION","word":"H^s V H^s"},
-    {"expected_endpoint":"D^(2s)V","id":"BROKEN_RETURN_D1","large_N_status":"KILLED_NOT_A_REVERSIBLE_EXCURSION","word":"D^s V D^s"}
+    {
+      "expected_endpoint": "H^(2s)V",
+      "id": "BROKEN_RETURN_H1",
+      "large_N_status": "KILLED_NOT_A_REVERSIBLE_EXCURSION",
+      "word": "H^s V H^s"
+    },
+    {
+      "expected_endpoint": "D^(2s)V",
+      "id": "BROKEN_RETURN_D1",
+      "large_N_status": "KILLED_NOT_A_REVERSIBLE_EXCURSION",
+      "word": "D^s V D^s"
+    }
   ],
   "parent_head": "0f634efbd4cf506f5ccbbbe63cfa524a065c7d72",
   "postselection_rule": "No controller is dropped after huge-N endpoint survival merely because its scale-down alias pattern is absent, irregular, or unattractive.",
