@@ -1,0 +1,210 @@
+{
+  "artifact_manifest": {
+    "artifact_count": 16,
+    "git_blob_sha1": "c344baaa3f2c099db97198d35144c8c654cac28f",
+    "path": "R059D_STAGE_M_ARTIFACT_MANIFEST.json",
+    "sha256": "f614bf8b3b18d59a90eadd0a593fe110ab6c9d987d9d4ea66a9a6b115aa283d9"
+  },
+  "artifact_owner_head_before_checkpoint_append": "2a63a099378a31d008fb840644e1fb279fdbdf56",
+  "checker": {
+    "checks_digest_sha256": "2ff4207c7cb47117216b3124357abcb6cef69c11642488ded0dca772e4235877",
+    "checks_failed": 0,
+    "checks_passed": 7589,
+    "checks_total": 7589,
+    "output_git_blob_sha1": "d7d4e228a9ae65a70c23b708b364eb45f4e08d31",
+    "output_sha256": "6426073a575e31d462e5e20f063e5e37b2d7d8edeb075d2a666eb3c214b88509",
+    "source_git_blob_sha1": "f1c4de5af7b3ef56e07034861f00c2f16b40fc0f",
+    "source_sha256": "64e98b31ca119af1534a06b1d44afd97291a96e5643242444ccd81854468e214",
+    "status": "PASS"
+  },
+  "frozen_parent": {
+    "stage_j_k_l_artifacts_immutable": true,
+    "stage_l_head": "da350b7b1e2ae21491e6251fdf2ba9cf0d4557ca"
+  },
+  "interpretation_firewalls": {
+    "PHYSICAL_DIRECTION_CALIBRATION": "NOT_ESTABLISHED",
+    "PHYSICAL_ELASTICITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "PHYSICAL_PROBABILITY_FROM_BRC_COUNTS": "NOT_ESTABLISHED",
+    "PHYSICAL_RIGIDITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "QUANTUM_BRIDGE": "NOT_ESTABLISHED"
+  },
+  "owner_branch": "research/r059d-stage-m-brc6-three-axis-vector-refounded-geometry",
+  "researcher_id": "EM-R059D-9C6B2A",
+  "result": {
+    "BRC6_NATIVE_CANONICALITY": "NOT_ESTABLISHED",
+    "axis_orientation": {
+      "axis_sum_not_lossless": "B=(4,0,3,2,0,0): direct +u, pair-SUM staged +v",
+      "freeze": "BRC6_AXIS_ORIENTATION_FACTORIZATION_ESTABLISHED",
+      "lossless_rule": "Q_axis=max(B_+,B_-); unique max axis followed by unique orientation is exactly direct six-way unique argmax, including ties"
+    },
+    "common_endpoint_boundary": {
+      "SEGMENT_PACKET_COUNT": 4,
+      "endpoint_cell": 3,
+      "geometric_length_statement": "SEGMENT_PACKET_COUNT=4 is NOT declared GEOMETRIC_LENGTH=4",
+      "packet_cells": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "endpoint_functionals": {
+      "M-G0": "A+3I",
+      "M-G1": "A+2I",
+      "M-G2": "A+2I",
+      "M-G3": "A+4I",
+      "M-G4": "2A+I",
+      "M-G5": "A+2I"
+    },
+    "functional_equivalence": {
+      "class": [
+        "M-G1",
+        "M-G2",
+        "M-G5"
+      ],
+      "freeze": "BRC6_ENDPOINT_FUNCTIONAL_EQUIVALENCE_THEOREM"
+    },
+    "future_geometric_refoundation_interface": [
+      "EXACT_RECOVERY",
+      "FINITE_PRECISION_RECOVERY",
+      "ASYMPTOTIC_RECOVERY",
+      "DOMAIN_RESTRICTED_RECOVERY",
+      "SYSTEMATIC_DEVIATION",
+      "NONRECOVERY"
+    ],
+    "large_N": {
+      "N_semantics": "system/tag/packet scale only",
+      "huge_enumeration": false,
+      "invariance": "for F_g=alpha A+beta I, common A background N adds alpha*N to every candidate and preserves winner/tie",
+      "length_threshold_search": false,
+      "status": "PASS"
+    },
+    "microgrammar_robustness": {
+      "explicit_cross_axis_conflict": "A=(0,0,1,0,0,0), I=(1,0,0,0,0,0): G0/G1/G2/G3/G5 -> +u; G4 -> +v",
+      "explicit_orientation_conflict": "A=(0,1,0,0,0,0), I=(1,0,0,0,0,0): G0/G1/G2/G3/G5 -> +u; G4 -> -u",
+      "freezes": [
+        "BRC6_VECTOR_ENDPOINT_COUNT_MICROGRAMMAR_ROBUST_DOMAIN_ESTABLISHED",
+        "BRC6_VECTOR_ENDPOINT_COUNT_MICROGRAMMAR_DEPENDENCE_ESTABLISHED"
+      ],
+      "mandatory_witnesses": {
+        "W_ASYM_BASE": "MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED -> -w",
+        "W_CONSENSUS_DOMINANT2": "MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED -> +v",
+        "W_FULLY_SYMMETRIC": "MICROGRAMMAR_ALL_UNRESOLVED",
+        "W_S1_TIE_S2_RESOLVE": "MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED -> -w",
+        "W_SIGNATURE_INSUFFICIENT_PAIRS": "MICROGRAMMAR_ALL_UNRESOLVED"
+      },
+      "search_box_template_counts": {
+        "MICROGRAMMAR_ALL_UNRESOLVED": 240,
+        "MICROGRAMMAR_COMPATIBLE_WITH_TIES": 180,
+        "MICROGRAMMAR_DEPENDENT": 810,
+        "MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED": 2610
+      },
+      "sufficient_robust_condition": "componentwise A/I dominance with at least one strict coordinate against each competitor"
+    },
+    "perturbation": {
+      "classes": [
+        "COUNT_TOKEN",
+        "INCIDENCE",
+        "TAGGED_VECTOR_STEP"
+      ],
+      "grammar_dependence": "G4 count-token/tagged-vector response differs from incidence-heavy grammar classes",
+      "recoalescence": "count/incidence same-epoch recoalescence impossible by permanent total-count offsets; no tagged-vector exact recoalescence within frozen window",
+      "tagged_vector_step": "one launch contribution j -> rho(j)",
+      "unresolved_creation": "W_S1 incidence I[3]+=1 produces exact -v/-w maximal tie in all classes",
+      "unresolved_removal": "from fully symmetric state count/incidence cover all six vectors; tagged-vector-step follows rho",
+      "window": 96
+    },
+    "project_mode": "REFOUND_NOT_REJECT",
+    "raw_history_oracle": {
+      "covered": [
+        "branch",
+        "recoalescence",
+        "revisit",
+        "loop",
+        "immediate reversal",
+        "repeated vector step",
+        "different vector words same endpoint",
+        "same vector word different internal histories",
+        "multiplicity > 1"
+      ],
+      "statement": "CPBC endpoint multiplicity equals direct raw-history multiplicity for 6 grammars x 6 D6 candidates x 16 tiny (A,I) pairs",
+      "status": "PASS",
+      "tiny_cases": 576
+    },
+    "semantic_status": {
+      "ANGLE": "ADMITTED; CLASSICAL_DEFINITION_NOT_FROZEN_OR_USED_AS_SELECTOR_PREMISE",
+      "EUCLIDEAN_GEOMETRY": "ADMITTED_REFERENCE_AND_CALIBRATION_LAYER",
+      "LENGTH": "ADMITTED; CLASSICAL_DEFINITION_NOT_FROZEN_OR_USED_AS_SELECTOR_PREMISE",
+      "TRIG": "ADMITTED; CLASSICAL_DEFINITION_NOT_FROZEN_OR_USED_AS_SELECTOR_PREMISE",
+      "VECTOR": "ADMITTED_AND_USED_AS_REFOUNDED_ALGEBRAIC_SUBSTRATE"
+    },
+    "stage_specific_firewalls": [
+      "LENGTH_NOT_USED_AS_BRC6_SELECTOR_PREMISE",
+      "ANGLE_NOT_USED_AS_BRC6_SELECTOR_PREMISE",
+      "TRIG_NOT_USED_AS_BRC6_SELECTOR_PREMISE"
+    ],
+    "true_dynamics": {
+      "carrier_A": "all functional classes -w,-u,-v repeating through 48; vector coordinate returns to 0 every 3, but no full-state cycle due TOTAL_O growth",
+      "carrier_B": "all classes -w,+v alternating through 48; final coordinate (48,48,-96)",
+      "carrier_C": "G3 tie e=8; G0 tie e=12; G1/G2/G5 retain -w with margin 8; G4 retain -w with margin 19+3e",
+      "coordinate_update": "X_(k+1)=X_k+2d_k",
+      "dependent_witness": "G0 first +u -> (2,-2,0); G4 first +v -> (0,2,-2); immediate vector-coordinate divergence",
+      "freeze": "BRC6_VECTOR_ENDPOINT_COUNT_TRUE_STATE_MICROGRAMMAR_DYNAMICS_ESTABLISHED",
+      "state": "Stage-K relational I/O/M x Lambda coordinate"
+    },
+    "vector_carrier": {
+      "BRC6_output_type": "NEXT_STEP_VECTOR in D6",
+      "D6": [
+        "+u",
+        "-u",
+        "+v",
+        "-v",
+        "+w",
+        "-w"
+      ],
+      "Lambda": "{(a,b,c) in Z^3 : a+b+c=0}",
+      "PLANE_DIMENSION": 2,
+      "closure": "x in Lambda and d in D6 => x+d in Lambda",
+      "freeze": "DISCRETE_THREE_AXIS_VECTOR_CARRIER_ESTABLISHED",
+      "generators": {
+        "u": [
+          1,
+          -1,
+          0
+        ],
+        "v": [
+          0,
+          1,
+          -1
+        ],
+        "w": [
+          -1,
+          0,
+          1
+        ]
+      },
+      "relation": "u+v+w=0"
+    },
+    "vector_transport": {
+      "S_d_equals_4d_assumed": false,
+      "derived_endpoint_vector": "S_d=2d",
+      "fixed_rho_full_S3_reflection_covariance": "NOT_CLAIMED",
+      "tested_symmetry": "cyclic axis permutation rho + global inversion",
+      "word": "[d,d,rho(d),-rho(d)]"
+    }
+  },
+  "schema": "R059D_STAGE_M_REISSUE2_FROZEN_CHECKPOINT_V1",
+  "source_discipline": {
+    "R059C_reopened": false,
+    "R059L_consumed": false,
+    "R059P_consumed": false,
+    "arbitrary_weights_used": false,
+    "candidate_specific_grammar_used": false,
+    "old_graded_relay_stage_j_consumed": false,
+    "old_stage_m_reissue_results_consumed": false,
+    "stage_j_k_l_modified": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "taskbook_source": "823c5d8aaa0d63f9914e14a4375ad8fb3876f76f"
+}
