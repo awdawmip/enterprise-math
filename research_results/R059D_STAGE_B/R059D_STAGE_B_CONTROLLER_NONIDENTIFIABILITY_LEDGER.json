@@ -1,0 +1,51 @@
+{
+  "bounded_decorated_word_diagnostic": {
+    "killed_controls": [
+      {"D0":"FAIL_ALL_N","endpoint":"H^(2s)V","id":"BROKEN_RETURN_H1","word":"H^s V H^s"},
+      {"D0":"FAIL_ALL_N","endpoint":"D^(2s)V","id":"BROKEN_RETURN_D1","word":"D^s V D^s"}
+    ],
+    "survivors": [
+      {"endpoint":"V","id":"D1","intermediate":"branch changes both declared channel labels; no same-tag alias for any N","word":"D^s V D^-s"},
+      {"endpoint":"V","id":"V1","intermediate":"branch remains in the V-channel orbit; no same-tag alias for any N","word":"V^s V V^-s"},
+      {"endpoint":"V","id":"HD1","intermediate":"five-phase count cloud distinct from G_R; no same-tag alias for any N","word":"H^s D^s V D^-s H^-s"}
+    ]
+  },
+  "crossover_identifiability": {
+    "controller_robust_N_only_boundary": "NOT_IDENTIFIED",
+    "controller_scale_aliasing": "ESTABLISHED",
+    "primary_disposition_candidate": "CONTROLLER_SCALE_ALIASING_EXPLAINS_OBSERVED_CROSSOVER",
+    "proof": "For every fixed N, R=1 removes alias while R=a0(N)=3N/gcd(2,3N) creates it.",
+    "stage_A_N3": "R3_CONTROLLER_SPECIFIC_ALIAS_CANDIDATE"
+  },
+  "endpoint_nonidentifiability": {
+    "certificate": "The infinite family R=1,2,... has the same exact aligned endpoint V for every N; bounded decorated reversible words D^s, V^s and H^sD^s also give the same endpoint.",
+    "consequence": "aligned endpoint recurrence alone does not identify a unique micro controller",
+    "freeze": "ALIGNED_ENDPOINT_RECURRENCE_CONTROLLER_NONIDENTIFIABILITY",
+    "status": "ESTABLISHED"
+  },
+  "intermediate_nonidentifiability": {
+    "freeze": "INTERMEDIATE_COUNT_CLOUD_CONTROLLER_NONIDENTIFIABILITY",
+    "same_endpoint_distinct_cloud_examples": [
+      "R1: T1 is a single 4N class; R2: T1 has the 6N-4t histogram; both endpoint V",
+      "R2 has no same-tag alias at any N; R3 aliases at N=1,2; both endpoint V",
+      "T3 depends on floor(R/3) and R mod3 although endpoint is independent of R",
+      "decorated D1/V1/HD1 words have the same endpoint but different phase/channel support from H-excursion controllers"
+    ],
+    "status": "ESTABLISHED"
+  },
+  "physical_status": {
+    "PHYSICAL_PROBABILITY_FROM_COUNTING": "NOT_ESTABLISHED",
+    "PHYSICAL_RIGIDITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "QUANTUM_BRIDGE": "NOT_ESTABLISHED"
+  },
+  "reversible_excursion_classification": {
+    "freeze": "ENDPOINT_RECURRENCE_BY_REVERSIBLE_EXCURSION",
+    "ontology_note": "This is N1/N2 algebraic analysis of declared operations, not a promotion of abstract group ontology into N0.",
+    "statement": "For every invertible channel word W built from the frozen commuting H,V,D actions, W V W^-1=V.",
+    "status": "ESTABLISHED_FOR_FROZEN_CHANNEL_WORD_GRAMMAR",
+    "stronger_non_reversible_endpoint_mechanism": "NOT_ESTABLISHED_IN_THIS_STAGE"
+  },
+  "schema": "R059D_STAGE_B_CONTROLLER_NONIDENTIFIABILITY_LEDGER_V1",
+  "status": "FROZEN",
+  "taskbook_source": "0dd9f78b047191535f4b05f80aafc613bbbac105"
+}
