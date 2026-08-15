@@ -1,0 +1,30 @@
+{
+  "T0_control": {
+    "R2": "L=5N",
+    "R3": "L=7N",
+    "evidence_status": "TRIVIAL_CONTROL_ONLY"
+  },
+  "T1": {
+    "R2_R3_common_formula": "U_N(6N-4t)=2*C(N,2t)*(N!)^(2R+1), 0<=t<=floor(N/2)",
+    "checksum_identity": "sum_u U_N(u)=2^N*(N!)^(2R+1)",
+    "derivation": "a sign word covers every aligned base packet on both used V-phase packet classes; a gap's two interior packets are uncovered exactly at a cyclic (-,+) sign boundary; cyclic sign words with t (-,+) boundaries have 2*C(N,2t) labeled assignments",
+    "generating_carrier": "G_R,N(z)=2*(N!)^(2R+1)*sum_{t=0}^{floor(N/2)} C(N,2t) z^(6N-4t)"
+  },
+  "T2": {
+    "R2": "6N",
+    "R3": "6N",
+    "meaning": "whole-cloud union of carrier packets touched by at least one full branch history"
+  },
+  "T3": {
+    "R2": "with Hfull=2^N*(N!)^5: 6N cells have occurrence multiplicity Hfull; 15N cells have 0",
+    "R3": "with Hfull=2^N*(N!)^7: 4N cells have Hfull, 2N cells have 2*Hfull, 15N cells have 0",
+    "carrier_total": "21N"
+  },
+  "T4": {
+    "certificate": "sigma_N=V commutes with every channel action used by the local controller; pulling the next macrostep back by V^-1 preserves T1,T2,T3 and the count-cloud phase signature exactly",
+    "status": "ALIGNED_STEP_TRAVERSAL_SIGNATURE_RECURRENCE"
+  },
+  "fixed_event_or_static_count_used_as_positive_evidence": false,
+  "schema": "R059D_TRAVERSAL_SIGNATURE_PROTOCOL_V1",
+  "status": "FROZEN"
+}
