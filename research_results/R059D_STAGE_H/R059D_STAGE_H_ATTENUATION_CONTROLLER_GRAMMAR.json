@@ -1,0 +1,126 @@
+{
+  "allowed_current_inputs": [
+    "CURRENT_INGRESS",
+    "S_SELF",
+    "L_SELF",
+    "fixed finite local exact count/delta signatures",
+    "current allowed actions"
+  ],
+  "candidate_classes": [
+    {
+      "id": "H0_G1_RELAY_H_RECURRENT_ALIGN_REPLAY",
+      "purpose": "maximal relay regeneration control; no modification",
+      "source": "verbatim Stage-G G1_RELAY_H_RECURRENT_ALIGN"
+    },
+    {
+      "id": "H0_G1_RELAY_HINV_RECURRENT_ALIGN_REPLAY",
+      "purpose": "mirror maximal relay regeneration control; no modification",
+      "source": "verbatim Stage-G mirror"
+    },
+    {
+      "direction": "H plus H_INV mirror",
+      "id": "H_AMPLIFY_COHORT",
+      "predicted_transfer_to_test": "M -> M+1 at each one-resident recruitment collision",
+      "rule": [
+        "START & S_SELF=1 -> HOLD",
+        "START & S_SELF>=2 -> RELAY_DIRECTION",
+        "RELAY_INGRESS -> RELAY_DIRECTION",
+        "otherwise -> HOLD"
+      ]
+    },
+    {
+      "direction": "H plus H_INV mirror",
+      "id": "H_CAP_C_COHORT",
+      "parameter": "C in frozen cap registry",
+      "predicted_transfer_to_test": "M -> M+1 while M<=C; terminal/nontransmitting once M>=C+1",
+      "uniform_rule": [
+        "START & S_SELF=1 -> HOLD",
+        "START & 2<=S_SELF<=C+1 -> RELAY_DIRECTION",
+        "START & S_SELF>=C+2 -> HOLD",
+        "RELAY_INGRESS & S_SELF<=C+1 -> RELAY_DIRECTION",
+        "RELAY_INGRESS & S_SELF>=C+2 -> V",
+        "V -> V_INV",
+        "V_INV -> HOLD",
+        "otherwise -> HOLD"
+      ]
+    },
+    {
+      "direction": "H plus H_INV mirror",
+      "id": "H_NONZERO_PERIOD_12",
+      "predicted_transfer_to_test": "starting M=1: 1 -> 2 -> 1 -> 2 ...",
+      "rule": [
+        "START & S_SELF=1 -> HOLD",
+        "START & S_SELF>=2 -> RELAY_DIRECTION",
+        "RELAY_INGRESS & S_SELF<=2 -> RELAY_DIRECTION",
+        "RELAY_INGRESS & S_SELF>=3 -> V",
+        "V -> V_INV",
+        "V_INV -> HOLD",
+        "otherwise -> HOLD"
+      ]
+    },
+    {
+      "direction": "H plus H_INV mirror",
+      "id": "H_EVENTUAL_ZERO_IMMEDIATE",
+      "predicted_transfer_to_test": "M -> 0 at first resident collision",
+      "rule": [
+        "START -> HOLD",
+        "RELAY_INGRESS & S_SELF=1 -> RELAY_DIRECTION",
+        "RELAY_INGRESS & S_SELF>=2 -> V",
+        "V -> V_INV",
+        "V_INV -> HOLD",
+        "otherwise -> HOLD"
+      ]
+    },
+    {
+      "direction": "H plus H_INV mirror",
+      "id": "H_BRANCHING_MIXED_01",
+      "predicted_transfer_to_test": "from M=1, Phi(1) includes ZERO and M=1 recurrent branches",
+      "rule": [
+        "START & S_SELF=1 -> HOLD",
+        "START & S_SELF>=2 -> {RELAY_DIRECTION,HOLD}",
+        "RELAY_INGRESS & S_SELF=1 -> RELAY_DIRECTION",
+        "RELAY_INGRESS & S_SELF>=2 -> V",
+        "V -> V_INV",
+        "V_INV -> HOLD",
+        "otherwise -> HOLD"
+      ]
+    }
+  ],
+  "cap_registry_freeze_note": "C values frozen before scoring H_CAP_C_COHORT; C is a controller constant in one uniform inequality rule and is not inferred from observed localization",
+  "fixed_integer_cap_registry": [
+    1,
+    2,
+    3,
+    5,
+    8,
+    13
+  ],
+  "forbidden_inputs": [
+    "tag_identity",
+    "recruitment_index",
+    "N",
+    "q",
+    "time",
+    "generation",
+    "external_K",
+    "external_T",
+    "timer",
+    "remaining_range_register",
+    "global_participant_count",
+    "global_completion",
+    "global_quiescence",
+    "target",
+    "future_state",
+    "branch_provenance",
+    "programmed_inverse",
+    "selected_scheduler_order"
+  ],
+  "frozen_parent_stage_g_head": "a9dcb2ac0190b5fdd972ca8f7a561836317e350a",
+  "large_M_lane_gate": "OPEN only after candidate scoring proves M_FRONT is an exact dynamically generated relay state with nontrivial transfer maps",
+  "relay_measure_predeclared": "M_FRONT from R059D_STAGE_H_RELAY_FRONT_PROTOCOL.json; no after-the-fact strength scalar",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_H_ATTENUATION_CONTROLLER_GRAMMAR_V1",
+  "stationarity_contract": "same local rule at every generation; no N/q/time/recruitment-index/horizon input",
+  "status": "FROZEN_BEFORE_CANDIDATE_SCORING",
+  "taskbook_source": "89c19be9fdf26a5c2b3eadda8689d34879db680c"
+}
