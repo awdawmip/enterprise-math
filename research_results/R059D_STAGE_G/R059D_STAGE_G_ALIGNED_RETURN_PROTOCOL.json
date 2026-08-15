@@ -1,0 +1,22 @@
+{
+  "E_ALIGN": "least e>0 such that ALIGNED(P_e), reached nontrivially after intervention, with E_SPAN<=e for joint-positive evaluation",
+  "aligned_predicate": "ALIGNED(P_e) iff there exist integers a mod qN and b mod 7 such that tag i occupies H^a V^b X_i for every i; evaluator-only",
+  "controller_may_read_aligned": false,
+  "endpoint_classes": [
+    "ALIGNED_RETURN_SAME_CLASS",
+    "ALIGNED_SUCCESSOR_CLASS",
+    "ALIGNED_OTHER_DECLARED_CLASS",
+    "NO_ALIGNED_RETURN"
+  ],
+  "frozen_parent_stage_f_head": "a03e9181ddcb17a0971ac7bec8e534693cbd817e",
+  "highest_positive_requires": "E_SPAN<=E_ALIGN<infinity and G-R0 or G-R1",
+  "postreturn_classes": {
+    "G-R0": "ALIGNED_SETTLED_RETURN: same stationary rule leaves reached aligned macrostate fixed with stationary visible states/actions",
+    "G-R1": "AUTONOMOUS_ALIGNED_RECURRENCE_RETURN: exact aligned states recur under same stationary rule without reset",
+    "G-R2": "TRANSIENT_ALIGNED_CROSSING: aligned crossing without settled/recurrent certificate"
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_G_ALIGNED_RETURN_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_CONTROLLER_SCORING",
+  "taskbook_source": "383eeb9423e11b00a96f79c88f3bb86ec93df277"
+}
