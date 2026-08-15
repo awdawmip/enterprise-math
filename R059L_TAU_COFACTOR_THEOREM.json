@@ -1,0 +1,28 @@
+{
+  "external_matrix_tree_used_as_premise": false,
+  "generation": "R059L",
+  "native_first": true,
+  "normalization_audit": {
+    "parallel_multiplicity": "CONFIRMED",
+    "root_deletion": "CONFIRMED",
+    "row_laplacian_convention": "CONFIRMED",
+    "self_loop_cancelled_diagonal": "CONFIRMED",
+    "sign": "CONFIRMED"
+  },
+  "proof": {
+    "step_1_row_multilinearity": "Expand det(K^(r)) using row_x=sum_{y!=x}T(x,y)b_{x->y}. This gives a finite sum over parent-choice data p:V->A with p(x)!=x.",
+    "step_2_grouped_term": "Each parent datum p contributes weight product_{x in V}T(x,p(x)) times det(B_p), where row_x(B_p)=b_{x->p(x)}.",
+    "step_3_cycle_coefficient": "The exact cancellation certificate proves det(B_p)=0 whenever p contains a directed cycle entirely in V, and det(B_p)=1 otherwise.",
+    "step_4_survivors": "Because V is finite and every x has exactly one p-successor, absence of a cycle in V is equivalent to every p-iterate reaching r.",
+    "step_5_sum": "Therefore only rooted parent maps survive, each with coefficient +1 and multiplicity weight product_x T(x,p(x)), exactly the frozen Stage-D definition of TAU_r(T)."
+  },
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_TAU_COFACTOR_THEOREM_V1",
+  "stage": "STAGE_E",
+  "statement": "For every positive realizable finite T and frozen Stage-D root r, TAU_r(T)=det(K^(r)).",
+  "status": "PROVED_EXACT",
+  "task_id": "RS-R059L-STAGE-E-TAU-COFACTOR-INTEGER-COMPUTATION",
+  "taskbook_source_commit": "82bbe86cba01df4f096dc6ae183f1f743dab2673",
+  "theorem_id": "PE-T01",
+  "weakest_semantic_statement": "Exact determinant/cofactor computes an already-derived N2 relational count; determinant is not N0 ontology."
+}
