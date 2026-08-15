@@ -1,0 +1,29 @@
+{
+  "exhaustive_audit": {
+    "MU_formula_mismatches_under_reversal": 0,
+    "positive_realizable_cases": 3403,
+    "rooted_cofactor_mismatches_under_reversal": 0
+  },
+  "generation": "R059L",
+  "relabeling_covariance": {
+    "statement": "For an adjacency-preserving packet bijection phi, K(phi_*T) is obtained from K(T) by simultaneous row/column relabeling; after deleting phi(r), the reduced matrices are permutation-similar, so their exact determinants and TAU values agree.",
+    "status": "PROVED_EXACT"
+  },
+  "researcher_id": "EM-R059L-5F9D05",
+  "reversal_relation": {
+    "proof": [
+      "Frozen Stage C gives MU(T;s,t)=MU(T^T;t,s).",
+      "Frozen Stage D gives the same factorial-TAU formula on both sides.",
+      "The factorial denominators are identical under transpose.",
+      "Closed case: endpoint balance gives OUT_T=IN_T at every packet, so all local factorial factors agree.",
+      "Open case: OUT-IN=1_s-1_t implies IN(s)=OUT(s)-1, IN(t)=OUT(t)+1, and IN(x)=OUT(x) otherwise; after swapping endpoints/root under transpose, the root/non-root local factorial factors match exactly.",
+      "The common positive factorial multiplier cancels, yielding TAU_r(T)=TAU_{r'}(T^T). PE-T01 then converts this to cofactor equality."
+    ],
+    "statement": "For positive realizable T with endpoints (s,t), det(K_T^(r)) = det(K_{T^T}^{(r')}) where r=t,r'=s in the open case and r=r'=s in the closed case.",
+    "status": "PROVED_EXACT_NO_SPATIAL_INTERPRETATION"
+  },
+  "schema": "R059L_COFACTOR_REVERSAL_RELABELING_AUDIT_V1",
+  "stage": "STAGE_E",
+  "task_id": "RS-R059L-STAGE-E-TAU-COFACTOR-INTEGER-COMPUTATION",
+  "taskbook_source_commit": "82bbe86cba01df4f096dc6ae183f1f743dab2673"
+}
