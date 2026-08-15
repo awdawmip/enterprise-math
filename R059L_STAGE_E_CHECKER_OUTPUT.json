@@ -31,18 +31,93 @@
   "hard_negative_self_tests": {
     "summary": "PASS",
     "tests": [
-      {"evidence": "Setting external theorem premise true violates native-first gate.", "expected_rejection_code": "EXTERNAL_MATRIX_TREE_AS_NATIVE_PREMISE", "rejected": true, "test_id": "E-N01"},
-      {"evidence": {"correct_TAU": 1, "wrong_det": 2}, "expected_rejection_code": "UNCANCELLED_SELF_LOOP_DIAGONAL", "rejected": true, "test_id": "E-N02"},
-      {"evidence": {"one_transition_correct_TAU": 1, "wrong_delete_source_det": 0}, "expected_rejection_code": "WRONG_ROOT_DELETION", "rejected": true, "test_id": "E-N03"},
-      {"evidence": "Floating determinant/tolerance/rounding forbidden.", "expected_rejection_code": "FLOATING_DETERMINANT_ROUNDING", "rejected": true, "test_id": "E-N04"},
-      {"evidence": {"correct_TAU": 2, "simple_support_det": 1}, "expected_rejection_code": "SIMPLE_SUPPORT_MATRIX", "rejected": true, "test_id": "E-N05"},
-      {"evidence": "N0 promotion forbidden.", "expected_rejection_code": "DETERMINANT_PROMOTED_TO_N0", "rejected": true, "test_id": "E-N06"},
-      {"evidence": "Probability/entropy interpretation forbidden.", "expected_rejection_code": "MU_PROBABILITY_ENTROPY", "rejected": true, "test_id": "E-N07"},
-      {"evidence": "Raw-history quotient/cancellation forbidden.", "expected_rejection_code": "RAW_HISTORY_QUOTIENT_CANCELLATION", "rejected": true, "test_id": "E-N08"},
-      {"evidence": "Geometry semantics forbidden.", "expected_rejection_code": "GEOMETRY_LEAKAGE", "rejected": true, "test_id": "E-N09"},
-      {"evidence": "C6 repair forbidden.", "expected_rejection_code": "C6_UNTYPED_REPAIR", "rejected": true, "test_id": "E-N10"},
-      {"evidence": {"preferred_expected_MU": 2, "wrong_formula_MU": 1}, "expected_rejection_code": "WRONG_ROOT_FACTORIAL_NORMALIZATION", "rejected": true, "test_id": "E-N11"},
-      {"evidence": {"correct_TAU": 16, "wrong_plus_sign_det": 20}, "expected_rejection_code": "WRONG_OFFDIAGONAL_SIGN", "rejected": true, "test_id": "E-N12"}
+      {
+        "evidence": "Setting external theorem premise true violates native-first gate.",
+        "expected_rejection_code": "EXTERNAL_MATRIX_TREE_AS_NATIVE_PREMISE",
+        "rejected": true,
+        "test_id": "E-N01"
+      },
+      {
+        "evidence": {
+          "correct_TAU": 1,
+          "wrong_det": 2
+        },
+        "expected_rejection_code": "UNCANCELLED_SELF_LOOP_DIAGONAL",
+        "rejected": true,
+        "test_id": "E-N02"
+      },
+      {
+        "evidence": {
+          "one_transition_correct_TAU": 1,
+          "wrong_delete_source_det": 0
+        },
+        "expected_rejection_code": "WRONG_ROOT_DELETION",
+        "rejected": true,
+        "test_id": "E-N03"
+      },
+      {
+        "evidence": "Floating determinant/tolerance/rounding forbidden.",
+        "expected_rejection_code": "FLOATING_DETERMINANT_ROUNDING",
+        "rejected": true,
+        "test_id": "E-N04"
+      },
+      {
+        "evidence": {
+          "correct_TAU": 2,
+          "simple_support_det": 1
+        },
+        "expected_rejection_code": "SIMPLE_SUPPORT_MATRIX",
+        "rejected": true,
+        "test_id": "E-N05"
+      },
+      {
+        "evidence": "N0 promotion forbidden.",
+        "expected_rejection_code": "DETERMINANT_PROMOTED_TO_N0",
+        "rejected": true,
+        "test_id": "E-N06"
+      },
+      {
+        "evidence": "Probability/entropy interpretation forbidden.",
+        "expected_rejection_code": "MU_PROBABILITY_ENTROPY",
+        "rejected": true,
+        "test_id": "E-N07"
+      },
+      {
+        "evidence": "Raw-history quotient/cancellation forbidden.",
+        "expected_rejection_code": "RAW_HISTORY_QUOTIENT_CANCELLATION",
+        "rejected": true,
+        "test_id": "E-N08"
+      },
+      {
+        "evidence": "Geometry semantics forbidden.",
+        "expected_rejection_code": "GEOMETRY_LEAKAGE",
+        "rejected": true,
+        "test_id": "E-N09"
+      },
+      {
+        "evidence": "C6 repair forbidden.",
+        "expected_rejection_code": "C6_UNTYPED_REPAIR",
+        "rejected": true,
+        "test_id": "E-N10"
+      },
+      {
+        "evidence": {
+          "preferred_expected_MU": 2,
+          "wrong_formula_MU": 1
+        },
+        "expected_rejection_code": "WRONG_ROOT_FACTORIAL_NORMALIZATION",
+        "rejected": true,
+        "test_id": "E-N11"
+      },
+      {
+        "evidence": {
+          "correct_TAU": 16,
+          "wrong_plus_sign_det": 20
+        },
+        "expected_rejection_code": "WRONG_OFFDIAGONAL_SIGN",
+        "rejected": true,
+        "test_id": "E-N12"
+      }
     ],
     "tests_rejected_as_required": 12,
     "tests_total": 12
@@ -67,6 +142,43 @@
     "rooted_maps": 1442
   },
   "positive_validation": {
+    "gate_ids": [
+      "E-P01",
+      "E-P02",
+      "E-P03",
+      "E-P04",
+      "E-P05",
+      "E-P06",
+      "E-P07",
+      "E-P08",
+      "E-P09",
+      "E-P10",
+      "E-P11",
+      "E-P12",
+      "E-P13",
+      "E-P14",
+      "E-P15",
+      "E-P16",
+      "E-P17",
+      "E-P18",
+      "E-P19",
+      "E-P20",
+      "E-P21",
+      "E-P22",
+      "E-P23",
+      "E-P24",
+      "E-P25",
+      "E-P26",
+      "E-P27",
+      "E-P28",
+      "E-P29",
+      "E-P30",
+      "E-P31",
+      "E-P32",
+      "E-P33",
+      "E-P34",
+      "E-P35"
+    ],
     "gates_passed": 35,
     "gates_total": 35,
     "summary": "PASS"
