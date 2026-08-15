@@ -1,0 +1,50 @@
+{
+  "T1_unique_cell_support": {
+    "histogram_all_orders": "U_N(4N)=2^N*(N!)^3",
+    "histogram_sync": "U_N(4N)=2^N",
+    "per_full_history": "4N"
+  },
+  "T2_cloud_union_support": "6N",
+  "T3_full_history_weighted_occurrence_spectrum": {
+    "Hfull_all_orders": "2^N*(N!)^3",
+    "Hfull_sync": "2^N",
+    "classes": [
+      {"cell_class_count":"2N","occurrence":"Hfull"},
+      {"cell_class_count":"4N","occurrence":"Hfull/2"}
+    ],
+    "note": "only touched-cell classes are asserted; no total-carrier geometric measure is used"
+  },
+  "boundary_cell_occurrence": {
+    "S_ALL_ORDERS_SNAPSHOT": {
+      "round1": "each of 2N branch cells has 2^(N-1)*N!",
+      "round2": "each of 2N V-relabeled branch cells has 2^(N-1)*(N!)^2",
+      "round3": "each of N aligned successor cells has 2^N*(N!)^3"
+    },
+    "S_SYNC": {
+      "round1": "each of 2N branch cells has 2^(N-1)",
+      "round2": "each of 2N V-relabeled branch cells has 2^(N-1)",
+      "round3": "each of N aligned successor cells has 2^N"
+    }
+  },
+  "boundary_cell_support": {
+    "formula": ["N","2N","2N","N"],
+    "rounds": [0,1,2,3]
+  },
+  "boundary_configuration_support": {
+    "formula": ["1","2^N","2^N","1"],
+    "rounds": [0,1,2,3]
+  },
+  "equipath_count_ratio_status": "COUNT_NORMALIZED_INTERMEDIATE_READOUT_ALLOWED_BUT_NOT_NEEDED_FOR_CONTROL",
+  "frozen_parent_head": "a876b44aa105227418c43d02d44599da45bface9",
+  "nontriviality_certificate": [
+    "rounds 1 and 2 have 2^N tagged configurations",
+    "T2 touches 6N relational packets although one full history touches 4N",
+    "T3 has two distinct positive occurrence multiplicity classes"
+  ],
+  "physical_probability_from_counting": "NOT_ESTABLISHED",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_C_INTERMEDIATE_COUNT_CLOUD_RESULTS_V1",
+  "status": "FROZEN",
+  "survivor_cloud_equivalence": "A1,A2,A3 induce the same reachable boundary transition relation and therefore the same cloud signatures",
+  "taskbook_source": "c51c31f989494b0ac57f17312dd270de18c20d61"
+}
