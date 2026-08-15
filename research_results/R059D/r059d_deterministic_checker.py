@@ -94,6 +94,7 @@ def main():
         if not ok:
             raise AssertionError(f"{name}: {detail}")
 
+    # Frozen registry is pre-selection and sufficiently residue-diverse.
     stress=json.loads((ROOT/"R059D_LARGE_N_STRESS_REGISTRY.json").read_text())
     Ns=[int(e["N"]) for e in stress["entries"]]
     record("stress_contains_N0", N0 in Ns, "10^36 present")
@@ -101,26 +102,39 @@ def main():
     record("stress_lower_huge", sum(n < N0 and n>10**20 for n in Ns)>=2, "at least two lower enormous scales")
     residue_tuples={(n%2,n%3,n%5,n%7,n%11) for n in Ns}
     record("stress_residue_diversity", len(residue_tuples)>=10, f"{len(residue_tuples)} residue tuples")
+
+    # No huge enumeration: large rules are proved symbolically.
     record("large_N_symbolic_only", min(Ns)>10**20, "checker performs only O(1) arithmetic on huge stress values")
 
+    # Exact carrier/channel endpoint checks and formula regressions.
     tiny_cases=0
     for R in (2,3):
         for N in range(1,11):
             tiny_cases += 1
             for i in range(N):
                 for s in (1,-1):
-                    record(f"endpoint_R{R}_N{N}_i{i}_s{s}", branch_word_endpoint(N,R,i,s)==sigma_endpoint(N,i), "branch word ends at uniform V successor")
-            record(f"phase_support_R{R}_N{N}", phase_support_counts(N,R)==expected_phase(N,R), "exact tagged-position/config and cell support formulas")
-            record(f"U_hist_R{R}_N{N}", U_hist(N,R)==expected_U_hist(N,R), "cyclic sign-boundary binomial formula")
-            record(f"T3_R{R}_N{N}", occurrence_spectrum(N,R)==expected_occurrence(N,R), "exact full-history occurrence spectrum before phase-order scalar")
+                    record(f"endpoint_R{R}_N{N}_i{i}_s{s}",
+                           branch_word_endpoint(N,R,i,s)==sigma_endpoint(N,i),
+                           "branch word ends at uniform V successor")
+            record(f"phase_support_R{R}_N{N}", phase_support_counts(N,R)==expected_phase(N,R),
+                   "exact tagged-position/config and cell support formulas")
+            record(f"U_hist_R{R}_N{N}", U_hist(N,R)==expected_U_hist(N,R),
+                   "cyclic sign-boundary binomial formula")
+            record(f"T3_R{R}_N{N}", occurrence_spectrum(N,R)==expected_occurrence(N,R),
+                   "exact full-history occurrence spectrum before phase-order scalar")
 
-    record("R3_threshold_iff", all(((2*3)%(3*N)!=0) == (N>=3) for N in range(1,101)), "branch ± positions at p=3 are distinct iff 3N does not divide 6, i.e. N>=3")
-    record("R2_no_alias", all((2*a)%(3*N)!=0 for N in range(1,101) for a in (1,2)), "R2 offsets a=1,2 never satisfy 3N|2a for N>=1")
+    record("R3_threshold_iff", all(((2*3)%(3*N)!=0) == (N>=3) for N in range(1,101)),
+           "branch ± positions at p=3 are distinct iff 3N does not divide 6, i.e. N>=3")
+    record("R2_no_alias", all((2*a)%(3*N)!=0 for N in range(1,101) for a in (1,2)),
+           "R2 offsets a=1,2 never satisfy 3N|2a for N>=1")
 
+    # Full-history count checksum at tiny N: U coefficients sum to 2^N branch choices.
     for R in (2,3):
         for N in range(1,11):
-            record(f"U_sum_R{R}_N{N}", sum(expected_U_hist(N,R).values())==2**N, "T1 histogram sums to all branch assignments")
+            record(f"U_sum_R{R}_N{N}", sum(expected_U_hist(N,R).values())==2**N,
+                   "T1 histogram sums to all branch assignments")
 
+    # JSON and lane-isolation checks.
     required = [
       "R059D_ALIGNED_STATE_PROTOCOL.json","R059D_SCALE_PARAMETER_PROTOCOL.json",
       "R059D_INTERMEDIATE_COUNT_CLOUD_PROTOCOL.json","R059D_ENDPOINT_RECURRENCE_PROTOCOL.json",
@@ -146,9 +160,11 @@ def main():
     record("physical_probability_withheld", ratio["physical_probability_from_counting"]=="NOT_ESTABLISHED", "count ratios not promoted")
 
     atlas=json.loads((ROOT/"R059D_SCALE_DOWN_CROSSOVER_ATLAS.json").read_text())
-    record("crossover_classification", atlas["classification"]=="SHARP_INTEGER_THRESHOLD" and atlas["N_c"]=="3", "exact R3 phase-support threshold N_c=3")
+    record("crossover_classification", atlas["classification"]=="SHARP_INTEGER_THRESHOLD" and atlas["N_c"]=="3",
+           "exact R3 phase-support threshold N_c=3")
     results=json.loads((ROOT/"R059D_LARGE_N_ALGORITHM_RESULTS.json").read_text())
-    record("selected_large_N_candidate", results["selected"]["classification"]=="LARGE_N_ALIGNED_RECURRENCE_ALGORITHM", "G3_R3 survives frozen huge-N registry")
+    record("selected_large_N_candidate", results["selected"]["classification"]=="LARGE_N_ALIGNED_RECURRENCE_ALGORITHM",
+           "G3_R3 survives frozen huge-N registry")
 
     out={
       "schema":"R059D_DETERMINISTIC_CHECKER_OUTPUT_V1",
