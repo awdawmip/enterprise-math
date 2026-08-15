@@ -1,0 +1,38 @@
+{
+  "CPBC_consumed_from_R059C": {
+    "allowed_fact": "natural-number recoalescence preserves raw-history multiplicity exactly for frozen finite path language",
+    "checkpoint_sha256": "20d6ff5672976cae27a80774b02ca56d5a63453a567eb7660c617b8aac60cb65",
+    "negative_fact": "COUNT_BRC_LOCAL_RESPONSE_ONLY_NO_MACRO_INVARIANT",
+    "other_R059C_consumption": false,
+    "source_head": "16228c11b0ab63eca367910aaf912dae556848b0"
+  },
+  "H_compressed_semiring": {
+    "a_R": "[0,1,...,R,R,R-1,...,1,0] across phase boundaries",
+    "b_R": "0 before/at phase p=R; 1 after V through endpoint",
+    "description": "exact tensor-factor CPBC circuit; no configuration list is materialized",
+    "large_N_storage": "symbolic local factor + power/tensor exponent N + phase/order scalar",
+    "local_position_function": "pos_R(i,s,p)=(3*i+s*a_R(p) mod 3N, k+b_R(p) mod 7)",
+    "specific_configuration_formula": "H(S)=(N!)^(p-1)*r!*[u^r] product_i L_i(S_i;u), with first-phase old-state branch multiplicity 1; local polynomials sum all branch/progress controller states consistent with S_i"
+  },
+  "phase_barrier_semantics": {
+    "event_count": "L_R(N)=(2R+1)*N; control quantity only",
+    "macrostep": "m=2R+1 finite phases; each phase contains exactly one adjacency transition for each of N tags",
+    "phase_advance": "after all N tags have transitioned, finite global phase label advances",
+    "within_phase": "eligible tags may transition in any order; a tag transitions at most once in the current phase"
+  },
+  "raw_history_count": {
+    "phase_boundary_p_0": "1",
+    "phase_boundary_p_ge_1": "TOTAL_HISTORY_COUNT_R(N,p)=2^N*(N!)^p",
+    "within_first_phase_e_r": "(N)_r * 2^r, where (N)_r=N!/(N-r)!",
+    "within_later_phase_p_r": "2^N*(N!)^(p-1)*(N)_r for phase p>=2 and 0<=r<=N"
+  },
+  "required_observables": {
+    "CELL_OCCURRENCE_COUNT": "computed by exact local-state incidence counts times CPBC prefix multiplicities",
+    "CELL_SUPPORT": "1 iff CELL_OCCURRENCE_COUNT>0",
+    "CONFIG_SUPPORT_COUNT": "exact phase-boundary formulas plus semiring circuit within phases",
+    "COUNT_CLOUD_SIGNATURE": "history total; tagged-position support; cell support; cell occurrence class; T1/T2/T3 signatures; branch-position injectivity"
+  },
+  "schema": "R059D_INTERMEDIATE_COUNT_CLOUD_PROTOCOL_V1",
+  "state": "tagged packet-position configuration; G3 controller memory is tracked by the transition engine but H(S) recoalesces histories that share the same tagged position configuration",
+  "status": "FROZEN"
+}
