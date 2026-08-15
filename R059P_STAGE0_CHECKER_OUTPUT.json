@@ -1,0 +1,23 @@
+{
+  "base_errors": [],
+  "generation": "R059P",
+  "input_sha256": {
+    "R059P_COMPUTATION_REGISTRY.json": "8fb63848a797d9823a9ef7257d70a337dcf128b9e118d1afb875e4ef210cd501",
+    "R059P_DYNAMIC_UPDATE_MODEL_REGISTRY.json": "ea3499017c94424c0e11c51fb35df8e1d38c8686539174870c47332246a64d4b",
+    "R059P_PAIR_COUPLING_MODEL_REGISTRY.json": "0188c288e9e059ff811289f5e82a17ac9cb84ef45769d1cc52360330b76a6394",
+    "R059P_PATH_SPECTRUM_PROTOCOL.json": "fa143d43d0a1c2ef3f9b2bf89e041ed456161e9eb5d7d2c7c535ed1fd1658fe8",
+    "R059P_SEMANTIC_FIREWALL.json": "e1ba0c53b865ef15cc69651941c4f26d76a35f357a66c3b95812bd58853b3d8d"
+  },
+  "negative_tests": [
+    {"case":"path_count_called_length","errors":["PATH_COUNT_CALLED_LENGTH"],"expected_rejection":"PATH_COUNT_CALLED_LENGTH","rejected":true},
+    {"case":"shortest_path_only_spectrum","errors":["SHORTEST_PATH_ONLY_SPECTRUM"],"expected_rejection":"SHORTEST_PATH_ONLY_SPECTRUM","rejected":true},
+    {"case":"euclidean_distance_pair_premise","errors":["EUCLIDEAN_DISTANCE_PAIR_PREMISE"],"expected_rejection":"EUCLIDEAN_DISTANCE_PAIR_PREMISE","rejected":true},
+    {"case":"physical_target_promoted_to_n0","errors":["PHYSICAL_TARGET_PROMOTED_TO_N0"],"expected_rejection":"PHYSICAL_TARGET_PROMOTED_TO_N0","rejected":true},
+    {"case":"r059l_artifact_consumption","errors":["R059L_ARTIFACT_CONSUMPTION"],"expected_rejection":"R059L_ARTIFACT_CONSUMPTION","rejected":true},
+    {"case":"zero_point_motion_assumed_explained","errors":["ZERO_POINT_MOTION_ASSUMED_EXPLAINED"],"expected_rejection":"ZERO_POINT_MOTION_ASSUMED_EXPLAINED","rejected":true},
+    {"case":"strict_descent_cycle_asserted","errors":["STRICT_DESCENT_CYCLE_ASSERTED"],"expected_rejection":"STRICT_DESCENT_CYCLE_ASSERTED","rejected":true}
+  ],
+  "researcher_id": "EM-R059P-8A2C7D",
+  "schema": "R059P_STAGE0_CHECKER_OUTPUT_V1",
+  "status": "PASS"
+}
