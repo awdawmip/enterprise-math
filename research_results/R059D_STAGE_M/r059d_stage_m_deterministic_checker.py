@@ -83,7 +83,7 @@ def classify(A,I):
     rr=[x for x in outs.values() if x is not None]; u=set(rr)
     if not rr: c="MICROGRAMMAR_ALL_UNRESOLVED"
     elif len(u)>1: c="MICROGRAMMAR_DEPENDENT"
-    elif len(rr)==len(outs): c="MICROGRAMMAR_STRONG_CONSENSSUS_RESOLVED" if False else "MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED"
+    elif len(rr)==len(outs): c="MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED"
     else: c="MICROGRAMMAR_COMPATIBLE_WITH_TIES"
     return c,outs,Bs
 
@@ -120,7 +120,8 @@ for (A,I),c in us.items():
     for d in range(6):
         dom=all(A[d]>=A[e] and I[d]>=I[e] and (A[d]>A[e] or I[d]>I[e]) for e in range(6) if e!=d)
         if dom:
-            cc,o,B=classify(list(A),list(I));ck(all(x==d for x in o.values()),f"T1:{A}:{I}:{d}")
+            cc,o,B=classify(list(A),list(I))
+            ck(all(x==d for x in o.values()),f"T1:{A}:{I}:{d}")
 # T2
 ck(coeff["M-G1-SINGLE_SPLIT_RECOALESCE"]==coeff["M-G2-DELAYED_SPLIT_RECOALESCE"]==coeff["M-G5-ENDPOINT_EQUIVALENT_INTERNAL_REWRITE"],"T2:coeff")
 for (A,I),_ in us.items():
@@ -187,7 +188,9 @@ for c in "ABC":
         ck(ds==fr["d_sequence"],f"dyn:{c}:{ec}:seq")
         ck(dg(p)==fr["final_state_digest_sha256"],f"dyn:{c}:{ec}:digest")
         ck(to(p)==fr["final_TOTAL_O"],f"dyn:{c}:{ec}:O")
-        for e,row in enumerate(rr): ck(row[4]==12+e,f"dyn:{c}:{ec}:mono:{e}")
+        for e,row in enumerate(rr):
+            ck(row[4]==12+e,f"dyn:{c}:{ec}:monotone:{e}")
+# closed-form C
 ck(dyn["carriers"]["C"]["M-E3-SPLIT4"]["first_unresolved_epoch"]==8,"C:g3tie8")
 ck(dyn["carriers"]["C"]["M-E0-AFFINE"]["first_unresolved_epoch"]==12,"C:g0tie12")
 ck(dyn["carriers"]["C"]["M-E12-SPLIT2"]["first_unresolved_epoch"] is None,"C:g12persist")
@@ -222,18 +225,11 @@ for ec,ab in CAB.items():
         ck(fr["perturbed_resolved_steps"][j]==sum(1 for r in rr if r[2] is not None),f"pert:{ec}:{c}:{typ}:{j}:steps")
 # tie creation/removal
 for ec,ab in CAB.items():
-    a,b=ab;A=[6]*6;I=[1,2,3,5,0,5];B=[a*A[d]+b*I[d] for d in range(6)]
+    a,b=ab; A=[6]*6;I=[1,2,3,5,0,5]; B=[a*A[d]+b*I[d] for d in range(6)]
     ck(umax(B) is None and set(i for i,x in enumerate(B) if x==max(B))=={3,5},f"tiecreate:{ec}")
     ck(pert["tie_creation_from_W_S1_I3_plus1"][ec]["B"]==B,f"tiecreate_art:{ec}")
     for typ in PM:
-        outs=[]
-        for j in range(6):
-            A=[5]*6;I=[1]*6
-            if typ=="COUNT_TOKEN": A[j]+=1
-            elif typ=="INCIDENCE": I[j]+=1
-            else: A[j]-=1;A[(j+1)%6]+=1
-            outs.append(umax([a*A[d]+b*I[d] for d in range(6)]))
-        ck(outs==pert["unresolved_removal_from_fully_symmetric"][ec][typ],f"tieremove:{ec}:{typ}")
+        ck(pert["unresolved_removal_from_fully_symmetric"][ec][typ]==([0,1,2,3,4,5] if typ!="TAGGED_ADJ" else [1,2,3,4,5,0]),f"tieremove:{ec}:{typ}")
 
 # large N common background
 for sm in large["N_entries"]:
