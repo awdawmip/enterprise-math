@@ -1,0 +1,64 @@
+{
+  "classes": {
+    "G0": {
+      "members": [
+        {
+          "expected_kill": "ORDER_ONLY_BRANCHING / no nontrivial cell alternative",
+          "id": "G0_DIRECT_V",
+          "rule": "each tag executes V once under one phase; only phase order branches"
+        }
+      ]
+    },
+    "G1": {
+      "members": [
+        {
+          "expected_gate": "endpoint support test",
+          "id": "G1_MEMORYLESS_FREE_RETURN_R3",
+          "rule": "branch-prefix and branch-return H/H_INV choices are independently local at six H-channel phases with one V phase; no branch memory"
+        }
+      ]
+    },
+    "G2": {
+      "members": [
+        {
+          "expected_gate": "local indistinguishability / endpoint support",
+          "id": "G2_SYMMETRIC_CPBC_NO_BRANCH_MEMORY_R3",
+          "rule": "branch-prefix H/H_INV choice allowed by equal local CPBC counts; after phase p=3, return choice is a deterministic function only of the current carrier-relabeling-equivariant local CPBC count signature; ingress/branch memory forbidden"
+        }
+      ]
+    },
+    "G3": {
+      "members": [
+        {
+          "R": 2,
+          "id": "G3_BRANCH_MEMORY_RECOALESCE_R2",
+          "memory": "branch bit + finite phase/done state",
+          "word_minus": "H^-2 V H^2",
+          "word_plus": "H^2 V H^-2"
+        },
+        {
+          "R": 3,
+          "id": "G3_BRANCH_MEMORY_RECOALESCE_R3",
+          "memory": "branch bit + finite phase/done state",
+          "word_minus": "H^-3 V H^3",
+          "word_plus": "H^3 V H^-3"
+        }
+      ]
+    }
+  },
+  "common_restrictions": {
+    "coordinates_theorem_semantics": "I0_ONLY",
+    "floats": false,
+    "per_marker_target_address": false,
+    "physical_probability": false,
+    "target_configuration_input": false
+  },
+  "freeze_order": [
+    "LARGE_N_STRESS_REGISTRY",
+    "this grammar",
+    "candidate evaluation",
+    "winner selection"
+  ],
+  "schema": "R059D_CANDIDATE_ALGORITHM_GRAMMAR_V1",
+  "status": "FROZEN_BEFORE_RESULT_SELECTION"
+}
