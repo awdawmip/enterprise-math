@@ -1,0 +1,53 @@
+{
+  "covariance_requirement": "Z_(tau d)(tau sigma)=Z_d(sigma)",
+  "candidate_ratio_optional_name": "EQUIPATH_COUNT_RATIO_BY_CHANNEL only; no physical probability",
+  "frozen_provenance_parent": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "horizon_registry": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "horizon_semantics": "counting horizon only; not segment cell count or geometric length",
+  "ladder": {
+    "J-S0": {
+      "fields": [
+        "INGRESS_CLASS=i",
+        "I[d]",
+        "O[d]",
+        "M[i,d]",
+        "M[d,d]"
+      ],
+      "typing": "declared current C6 incidence/passage counts"
+    },
+    "J-S1": {
+      "fields": [
+        "A_d=O[d]+M[i,d]"
+      ],
+      "typing": "exact candidate launch count"
+    },
+    "J-S2": {
+      "spectrum": "C_n^d=u_n=A_d+n*I[d] for n=0..3",
+      "transfer": "u_0=A_d; v_0=I[d]; u_(n+1)=u_n+v_n; v_(n+1)=v_n",
+      "transfer_realization": "two quotient-state exact CPBC transfer: U receives U and V histories; V self-reuses; integer coefficients arise from distinct declared transition classes, not metric weights"
+    },
+    "J-S3": {
+      "fields": [
+        "VISIT_SUM_d=sum_{n=0}^3 C_n^d",
+        "SUPPORT_V_d=1[I[d]>0]"
+      ],
+      "typing": "exact visit/support readouts"
+    },
+    "J-S4": {
+      "fields": [
+        "RECOALESCENCE_SPECTRUM_d=(I[d],I[d],I[d])"
+      ],
+      "typing": "at each continuation update V-origin histories recoalesce into U; named only RECOALESCENCE COUNT"
+    }
+  },
+  "normalization": "NORM_i cyclically reindexes candidate d to relative class r=d-i mod6; no absolute label coordinates enter comparison",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_J_CHANNEL_SIGNATURE_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_SELECTOR_SCORING",
+  "taskbook_source": "3ca99589c5c3ade32c9cc164cdc3b3c4f6e15b7b"
+}
