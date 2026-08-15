@@ -1,0 +1,57 @@
+{
+  "equivariance_theorem_target": "BRC6(tau*sigma)=tau(BRC6(sigma)) when unique winner exists",
+  "families": {
+    "F0": {
+      "definitions": [
+        "unique argmax C_0^d",
+        "unique argmin C_0^d"
+      ],
+      "physical_polarity": false,
+      "tie": "UNRESOLVED"
+    },
+    "F1": {
+      "definition": "unique lexicographic maximum of (C_0^d,C_1^d,C_2^d,C_3^d) in frozen horizon order",
+      "preferred_candidate_before_scoring": true,
+      "tie": "UNRESOLVED"
+    },
+    "F2": {
+      "coefficient_box": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "exclude_all_zero": true,
+      "expression": "P_theta(Z_d)=theta0*C0+theta1*C1+theta2*C2+theta3*C3",
+      "fine_tuning_policy": "record full coefficient-box winner/tie counts; no naturalness claim",
+      "polarities": [
+        "max",
+        "min"
+      ],
+      "same_theta_all_channels": true
+    },
+    "F3": {
+      "definition": "pairwise tournament induced by same F1 lex comparator; candidate wins iff it beats each other candidate exactly",
+      "tie": "UNRESOLVED"
+    }
+  },
+  "frozen_provenance_parent": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "hard_rejects": [
+    "smallest-label tie break",
+    "label 0 default",
+    "random tie break",
+    "absolute label coefficient",
+    "target leakage",
+    "N-specific output table",
+    "q-specific output table",
+    "L-dependent score",
+    "floating tolerance"
+  ],
+  "no_absolute_channel_label_bias": "REQUIRED",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_J_BRC6_FUNCTION_GRAMMAR_V1",
+  "shared_application_rule": "every selector expression/comparator is applied identically to all six candidate labels",
+  "status": "FROZEN_BEFORE_SELECTOR_SCORING",
+  "taskbook_source": "3ca99589c5c3ade32c9cc164cdc3b3c4f6e15b7b"
+}
