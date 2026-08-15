@@ -1,0 +1,66 @@
+{
+  "N_c": "3",
+  "classification": "SHARP_INTEGER_THRESHOLD",
+  "control_R2": {
+    "branch_offsets": "a in {1,2}",
+    "classification": "NO_CROSSOVER_WITHIN_PROVED_RANGE",
+    "injective_for_all_N_ge_1": true
+  },
+  "crossover_name": "ALGEBRAIC_MACRO_MICRO_CROSSOVER_CANDIDATE",
+  "exact_classes": [
+    {
+      "N_range": "N>=3",
+      "T1": "closed binomial formula",
+      "T2": "6N",
+      "T3": "R3 spectrum exact",
+      "T4": "EXACT",
+      "apex_branch_injectivity": true,
+      "class": "LARGE_N_INJECTIVE_COUNT_CLOUD",
+      "endpoint": "D0",
+      "phase_boundary_config_support": "[1,2^N,2^N,2^N,2^N,2^N,2^N,1]"
+    },
+    {
+      "N_values": [
+        "1",
+        "2"
+      ],
+      "T1": "same exact binomial family",
+      "T2": "6N",
+      "T3": "same R3 symbolic spectrum family",
+      "T4": "EXACT",
+      "apex_branch_injectivity": false,
+      "class": "QUOTIENT_ALIAS_MICRO_CLOUD",
+      "endpoint": "D0",
+      "phase_boundary_config_support": "[1,2^N,2^N,1,1,2^N,2^N,1]",
+      "recoalescence_note": "at phase p=3 and immediately after V at p=4, + and - branch positions for each tag coincide while CPBC multiplicity remains; branch memory re-expands them on return"
+    }
+  ],
+  "log_ladder_evaluated": [
+    "10^36",
+    "10^30",
+    "10^24",
+    "10^18",
+    "10^12",
+    "10^6",
+    "10^3",
+    "10^2",
+    "10",
+    "8",
+    "6",
+    "5",
+    "4",
+    "3",
+    "2",
+    "1"
+  ],
+  "monotonicity_assumed": false,
+  "primary_candidate": "G3_BRANCH_MEMORY_RECOALESCE_R3",
+  "proof": {
+    "R3_only_possible_alias": "a in {1,2,3}; 3N divides 6 iff N in {1,2}; 3N never divides 2 or 4 for N>=1",
+    "branch_position_distinct_condition": "for phase offset a>0, + and - positions of one tag are distinct iff 3N does not divide 2a",
+    "threshold": "large-N phase-support class holds iff N>=3"
+  },
+  "property_vector": "P(N)=(endpoint class, phase-boundary tagged-position support class, T1 class, T2 class, T3 class, T4 recurrence, branch-position injectivity)",
+  "schema": "R059D_SCALE_DOWN_CROSSOVER_ATLAS_V1",
+  "status": "FROZEN"
+}
