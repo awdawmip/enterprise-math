@@ -1,0 +1,213 @@
+{
+  "coefficient_boxes": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "delta_pattern_exact_table": {
+    "canonical_encoding": "UTF-8 JSON with ensure_ascii=false and separators=(',',':') over the complete row array",
+    "pattern_count": 150,
+    "pattern_count_by_window": {
+      "K12": 25,
+      "K123": 59,
+      "K234": 66
+    },
+    "reproduction": "deterministic checker reconstructs every row directly from the frozen registry and verifies this digest",
+    "row_schema": [
+      "window_id",
+      "deltaA",
+      "move_multiplicity",
+      "B1_neutral",
+      "B1_total",
+      "B1_primitive_neutral",
+      "B1_primitive_total",
+      "B2_neutral",
+      "B2_total",
+      "B2_primitive_neutral",
+      "B2_primitive_total",
+      "B3_neutral",
+      "B3_total",
+      "B3_primitive_neutral",
+      "B3_primitive_total",
+      "B4_neutral",
+      "B4_total",
+      "B4_primitive_neutral",
+      "B4_primitive_total"
+    ],
+    "sha256": "ef9d06c628ab759a54b0021bb7a0b66dd414039c4a7e1431f43df10fdf785b68",
+    "sort_order": "window_id ascending, then deltaA lexicographic"
+  },
+  "enumeration_storage": "Full 150-pattern exact fraction table is frozen by digest and deterministically reconstructed by check_r059p_stage_a.py.",
+  "generation": "R059P",
+  "global_r0_box_summary": {
+    "1": {
+      "coefficient_scenario_instances": 918,
+      "primitive_coefficient_scenario_instances": 918,
+      "r0_nonbacktracking_cycle_basin_counts_all": {
+        "EXCITED_PLATEAU_ONLY": 170,
+        "GLOBAL_MINIMUM_NEUTRAL": 377,
+        "LOCAL_MINIMUM_NEUTRAL": 5,
+        "NO_NONBACKTRACKING_CYCLE": 366
+      },
+      "r0_nonbacktracking_cycle_basin_counts_primitive": {
+        "EXCITED_PLATEAU_ONLY": 170,
+        "GLOBAL_MINIMUM_NEUTRAL": 377,
+        "LOCAL_MINIMUM_NEUTRAL": 5,
+        "NO_NONBACKTRACKING_CYCLE": 366
+      },
+      "scenario_count": 162,
+      "with_any_neutral_edge_all": 571,
+      "with_any_neutral_edge_primitive": 571
+    },
+    "2": {
+      "coefficient_scenario_instances": 3240,
+      "primitive_coefficient_scenario_instances": 2322,
+      "r0_nonbacktracking_cycle_basin_counts_all": {
+        "EXCITED_PLATEAU_ONLY": 603,
+        "GLOBAL_MINIMUM_NEUTRAL": 1285,
+        "LOCAL_MINIMUM_NEUTRAL": 21,
+        "NO_NONBACKTRACKING_CYCLE": 1331
+      },
+      "r0_nonbacktracking_cycle_basin_counts_primitive": {
+        "EXCITED_PLATEAU_ONLY": 433,
+        "GLOBAL_MINIMUM_NEUTRAL": 908,
+        "LOCAL_MINIMUM_NEUTRAL": 16,
+        "NO_NONBACKTRACKING_CYCLE": 965
+      },
+      "scenario_count": 162,
+      "with_any_neutral_edge_all": 1949,
+      "with_any_neutral_edge_primitive": 1378
+    },
+    "3": {
+      "coefficient_scenario_instances": 7614,
+      "primitive_coefficient_scenario_instances": 5778,
+      "r0_nonbacktracking_cycle_basin_counts_all": {
+        "EXCITED_PLATEAU_ONLY": 1435,
+        "GLOBAL_MINIMUM_NEUTRAL": 2922,
+        "LOCAL_MINIMUM_NEUTRAL": 55,
+        "NO_NONBACKTRACKING_CYCLE": 3202
+      },
+      "r0_nonbacktracking_cycle_basin_counts_primitive": {
+        "EXCITED_PLATEAU_ONLY": 1095,
+        "GLOBAL_MINIMUM_NEUTRAL": 2168,
+        "LOCAL_MINIMUM_NEUTRAL": 45,
+        "NO_NONBACKTRACKING_CYCLE": 2470
+      },
+      "scenario_count": 162,
+      "with_any_neutral_edge_all": 4496,
+      "with_any_neutral_edge_primitive": 3354
+    },
+    "4": {
+      "coefficient_scenario_instances": 14688,
+      "primitive_coefficient_scenario_instances": 10530,
+      "r0_nonbacktracking_cycle_basin_counts_all": {
+        "EXCITED_PLATEAU_ONLY": 2786,
+        "GLOBAL_MINIMUM_NEUTRAL": 5522,
+        "LOCAL_MINIMUM_NEUTRAL": 113,
+        "NO_NONBACKTRACKING_CYCLE": 6267
+      },
+      "r0_nonbacktracking_cycle_basin_counts_primitive": {
+        "EXCITED_PLATEAU_ONLY": 2013,
+        "GLOBAL_MINIMUM_NEUTRAL": 3860,
+        "LOCAL_MINIMUM_NEUTRAL": 87,
+        "NO_NONBACKTRACKING_CYCLE": 4570
+      },
+      "scenario_count": 162,
+      "with_any_neutral_edge_all": 8572,
+      "with_any_neutral_edge_primitive": 6052
+    }
+  },
+  "observed_incidence_note": "Across all frozen moves with DeltaA!=0, scalar-only neutral move×coefficient incidence falls from 88705/624294 at B=1 to 703307/9995616 at B=4. This registry observation is distinct from the theorem-level per-fixed-DeltaA asymptotic integer slice bound.",
+  "registry_sha256": "52c0fa7cfec88aea9b0a1ac50465a0302303ceea52abb557f20d38c0e526023d",
+  "representative_kernel_slices": [
+    {
+      "box_neutral_fractions_exact": {
+        "1": [1,3],
+        "2": [2,8],
+        "3": [3,15],
+        "4": [4,24]
+      },
+      "deltaA": [1,-1],
+      "window_id": "K12"
+    },
+    {
+      "box_neutral_fractions_exact": {
+        "1": [3,7],
+        "2": [8,26],
+        "3": [15,63],
+        "4": [24,124]
+      },
+      "deltaA": [0,1,-1],
+      "window_id": "K123"
+    },
+    {
+      "box_neutral_fractions_exact": {
+        "1": [3,7],
+        "2": [8,26],
+        "3": [15,63],
+        "4": [24,124]
+      },
+      "deltaA": [0,1,-1],
+      "window_id": "K234"
+    }
+  ],
+  "researcher_id": "EM-R059P-8A2C7D",
+  "scalar_weight_cancellation_only_move_incidence": {
+    "1": {
+      "changed_move_instances": 110034,
+      "changed_moves_admitting_at_least_one_neutral_coefficient": 58465,
+      "maximum_single_delta_neutral_fraction_exact": [3,7],
+      "maximum_single_delta_witness": {"deltaA":[0,1,-1],"scenario_id":"REL_CYCLE_5__M3__COLLISION_ALLOWED__K123"},
+      "move_coefficient_instances": 624294,
+      "neutral_fraction_exact": [88705,624294],
+      "neutral_move_coefficient_instances": 88705,
+      "primitive_move_coefficient_instances": 624294,
+      "primitive_neutral_fraction_exact": [88705,624294],
+      "primitive_neutral_move_coefficient_instances": 88705,
+      "scenarios_with_at_least_one_scalar_only_neutral_move": 87
+    },
+    "2": {
+      "changed_move_instances": 110034,
+      "changed_moves_admitting_at_least_one_neutral_coefficient": 71811,
+      "maximum_single_delta_neutral_fraction_exact": [8,26],
+      "maximum_single_delta_witness": {"deltaA":[0,1,-1],"scenario_id":"REL_CYCLE_5__M3__COLLISION_ALLOWED__K123"},
+      "move_coefficient_instances": 2204136,
+      "neutral_fraction_exact": [232306,2204136],
+      "neutral_move_coefficient_instances": 232306,
+      "primitive_move_coefficient_instances": 1579842,
+      "primitive_neutral_fraction_exact": [143601,1579842],
+      "primitive_neutral_move_coefficient_instances": 143601,
+      "scenarios_with_at_least_one_scalar_only_neutral_move": 105
+    },
+    "3": {
+      "changed_move_instances": 110034,
+      "changed_moves_admitting_at_least_one_neutral_coefficient": 103614,
+      "maximum_single_delta_neutral_fraction_exact": [15,63],
+      "maximum_single_delta_witness": {"deltaA":[0,1,-1],"scenario_id":"REL_CYCLE_5__M3__COLLISION_ALLOWED__K123"},
+      "move_coefficient_instances": 5180814,
+      "neutral_fraction_exact": [452470,5180814],
+      "neutral_move_coefficient_instances": 452470,
+      "primitive_move_coefficient_instances": 3932226,
+      "primitive_neutral_fraction_exact": [275060,3932226],
+      "primitive_neutral_move_coefficient_instances": 275060,
+      "scenarios_with_at_least_one_scalar_only_neutral_move": 123
+    },
+    "4": {
+      "changed_move_instances": 110034,
+      "changed_moves_admitting_at_least_one_neutral_coefficient": 105366,
+      "maximum_single_delta_neutral_fraction_exact": [24,124],
+      "maximum_single_delta_witness": {"deltaA":[0,1,-1],"scenario_id":"REL_CYCLE_5__M3__COLLISION_ALLOWED__K123"},
+      "move_coefficient_instances": 9995616,
+      "neutral_fraction_exact": [703307,9995616],
+      "neutral_move_coefficient_instances": 703307,
+      "primitive_move_coefficient_instances": 7167186,
+      "primitive_neutral_fraction_exact": [382296,7167186],
+      "primitive_neutral_move_coefficient_instances": 382296,
+      "scenarios_with_at_least_one_scalar_only_neutral_move": 123
+    }
+  },
+  "schema": "R059P_WEIGHT_BOX_ROBUSTNESS_ATLAS_V1",
+  "status": "FROZEN_EXACT_STAGE_A",
+  "theorem_dependency": "PA-T01 / PA-T02"
+}
