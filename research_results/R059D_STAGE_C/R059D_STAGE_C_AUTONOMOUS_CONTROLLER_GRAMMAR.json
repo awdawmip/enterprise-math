@@ -1,0 +1,126 @@
+{
+  "N_specific_cases": false,
+  "candidate_classes": [
+    {
+      "constants": [
+        "channel labels H,H_INV,V",
+        "integer zero-test only"
+      ],
+      "controller_hidden_state": "NONE",
+      "id": "A1_ONEBIT_SUPPORT_HOLE",
+      "positive_eligible": true,
+      "rule": [
+        "INGRESS=START -> allow {H,H_INV}",
+        "INGRESS=H_FAMILY -> allow {V}",
+        "INGRESS=V and B_H=0 -> allow {H}",
+        "INGRESS=V and B_H=1 -> allow {H_INV}",
+        "otherwise -> NO_MOVE"
+      ],
+      "signature": "SIG1_ONEBIT"
+    },
+    {
+      "controller_hidden_state": "NONE",
+      "id": "A2_SYMMETRIC_SUPPORT_HOLE",
+      "positive_eligible": true,
+      "rule": [
+        "INGRESS=START -> allow {H,H_INV}",
+        "INGRESS=H_FAMILY -> allow {V}",
+        "INGRESS=V and (B_H,B_H_INV)=(0,1) -> allow {H}",
+        "INGRESS=V and (B_H,B_H_INV)=(1,0) -> allow {H_INV}",
+        "INGRESS=V and B_H=B_H_INV -> allow {H,H_INV}",
+        "otherwise -> NO_MOVE"
+      ],
+      "signature": "SIG2_SYMMETRIC"
+    },
+    {
+      "controller_hidden_state": "NONE",
+      "id": "A3_FULL_COUNT_MIN",
+      "positive_eligible": true,
+      "rule": [
+        "INGRESS=START -> allow {H,H_INV}",
+        "INGRESS=H_FAMILY -> allow {V}",
+        "INGRESS=V and C_H<C_H_INV -> allow {H}",
+        "INGRESS=V and C_H_INV<C_H -> allow {H_INV}",
+        "INGRESS=V and C_H=C_H_INV -> allow {H,H_INV}",
+        "otherwise -> NO_MOVE"
+      ],
+      "signature": "SIG3_FULL_COUNTS"
+    },
+    {
+      "expected_question": "can count information be removed?",
+      "id": "N0_INGRESS_ONLY_NO_COUNT",
+      "positive_eligible": true,
+      "rule": "finite ingress-only action table exhaustively searched under named H/H_INV/V outputs; no branch-return token",
+      "signature": "SIG0"
+    },
+    {
+      "id": "N1_HOLE_IMMEDIATE_RETURN",
+      "positive_eligible": true,
+      "rule": [
+        "INGRESS=START -> allow {H,H_INV}",
+        "INGRESS=H_FAMILY -> choose the unique H/H_INV support-hole neighbor",
+        "otherwise -> NO_MOVE"
+      ],
+      "signature": "SIG2_SYMMETRIC"
+    },
+    {
+      "id": "N2_POSITIVE_NEIGHBOR_RETURN",
+      "positive_eligible": true,
+      "rule": [
+        "INGRESS=START -> allow {H,H_INV}",
+        "INGRESS=H_FAMILY -> allow {V}",
+        "INGRESS=V -> choose the unique positive-support H/H_INV neighbor",
+        "otherwise -> NO_MOVE"
+      ],
+      "signature": "SIG2_SYMMETRIC"
+    },
+    {
+      "control_type": "POSITIVE_CONSTRUCTION_CONTROL",
+      "expected_reject": "PROGRAMMED_INVERSE_SUFFIX+BRANCH_RETURN_TOKEN",
+      "id": "CONTROL_STAGE_B_R1_PROGRAMMED_INVERSE",
+      "positive_eligible": false,
+      "rule": "choose branch sign s; execute H^s,V,H^-s"
+    },
+    {
+      "expected_reject": "TARGET_MAP_LEAKAGE",
+      "id": "CONTROL_TARGET_LEAK",
+      "positive_eligible": false,
+      "rule": "choose the adjacent channel whose destination is the evaluator-provided next aligned target"
+    },
+    {
+      "expected_reject": "FIXED_REVERSAL_TIMER+BRANCH_RETURN_TOKEN",
+      "id": "CONTROL_FIXED_CLOCK",
+      "positive_eligible": false,
+      "rule": "choose s; after one outward round and one V round, timer state forces H^-s"
+    },
+    {
+      "expected_reject": "ONE_LUCKY_SCHEDULER_ORDER",
+      "id": "CONTROL_ORDER_SELECTED",
+      "positive_eligible": false,
+      "rule": "resolve tied tag/action choice by one preselected tag order; do not retain other eligible orders"
+    }
+  ],
+  "fixed_reversal_timer": false,
+  "frozen_parent_head": "a876b44aa105227418c43d02d44599da45bface9",
+  "postselection_policy": "all positive-eligible candidates and both frozen schedulers evaluated on every large-N stress entry; every survivor carried to scale-down",
+  "researcher_id": "EM-R059D-4C7E21",
+  "scheduler_semantics": {
+    "S_ALL_ORDERS_SNAPSHOT": {
+      "boundary_equivalence_to_sync": "same boundary support; raw history multiplicity gains N! per completed round",
+      "description": "pre-round signature/action sets are frozen, then every eligible tag executes exactly once in every order; all N! orders retained by CPBC",
+      "order_selection": false
+    },
+    "S_SYNC": {
+      "description": "synchronous snapshot round; all tags evaluate the same pre-round CPBC count cloud and transition simultaneously; tied local choices branch with CPBC multiplicity",
+      "order_selection": false
+    }
+  },
+  "schema": "R059D_STAGE_C_AUTONOMOUS_CONTROLLER_GRAMMAR_V1",
+  "search_constants_frozen": [
+    "0",
+    "channel labels H,H_INV,V"
+  ],
+  "status": "FROZEN_BEFORE_LARGE_N_EVALUATION",
+  "target_map": false,
+  "taskbook_source": "c51c31f989494b0ac57f17312dd270de18c20d61"
+}
