@@ -2,33 +2,106 @@
   "candidate_classes": {
     "G1_SUPPORT_COUNT_RELAY": {
       "global_readout": false,
-      "inputs": ["CURRENT_INGRESS", "S_SELF"],
-      "integer_constants": [1, 2]
+      "inputs": [
+        "CURRENT_INGRESS",
+        "S_SELF"
+      ],
+      "integer_constants": [
+        1,
+        2
+      ]
     },
     "G2_EXACT_COUNT_RELAY": {
       "global_readout": false,
-      "inputs": ["CURRENT_INGRESS", "L_SELF"],
-      "integer_constants": [1, 2, 3]
+      "inputs": [
+        "CURRENT_INGRESS",
+        "L_SELF"
+      ],
+      "integer_constants": [
+        1,
+        2,
+        3
+      ]
     }
   },
-  "fixed_probe_registry": [-3, -2, -1, 0, 1, 2, 3],
-  "forbidden_inputs": ["N", "q", "K(N)", "T(N)", "generation", "round_counter", "phase_counter", "timer", "age_since_perturbation", "aligned_flag", "aligned_target", "target_map", "branch_provenance", "programmed_inverse", "global_participant_count", "global_quiescence_flag", "global_oracle", "selected_scheduler_order", "q_or_N_case_table"],
+  "fixed_probe_registry": [
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3
+  ],
+  "forbidden_inputs": [
+    "N",
+    "q",
+    "K(N)",
+    "T(N)",
+    "generation",
+    "round_counter",
+    "phase_counter",
+    "timer",
+    "age_since_perturbation",
+    "aligned_flag",
+    "aligned_target",
+    "target_map",
+    "branch_provenance",
+    "programmed_inverse",
+    "global_participant_count",
+    "global_quiescence_flag",
+    "global_oracle",
+    "selected_scheduler_order",
+    "q_or_N_case_table"
+  ],
   "frozen_parent_stage_f_head": "a03e9181ddcb17a0971ac7bec8e534693cbd817e",
-  "mandatory_replay_controls": ["P2_TOKEN_WALKER_RECRUIT_PLUS", "P2_TOKEN_WALKER_RECRUIT_MINUS", "P3_COOCCUPANCY_WALKER"],
+  "mandatory_replay_controls": [
+    "P2_TOKEN_WALKER_RECRUIT_PLUS",
+    "P2_TOKEN_WALKER_RECRUIT_MINUS",
+    "P3_COOCCUPANCY_WALKER"
+  ],
   "named_positive_candidates": {
     "G1_RELAY_HINV_RECURRENT_ALIGN": {
-      "inputs": ["CURRENT_INGRESS", "S_SELF"],
+      "inputs": [
+        "CURRENT_INGRESS",
+        "S_SELF"
+      ],
       "intervention": "G_I3_H_INV_STEP",
-      "rule": ["START & S_SELF=1 -> HOLD", "START & S_SELF>=2 -> H_INV", "H_INV & S_SELF=1 -> H_INV", "H_INV & S_SELF>=2 -> V", "V -> V_INV", "V_INV & S_SELF=1 -> HOLD", "V_INV & S_SELF>=2 -> H_INV", "otherwise -> HOLD"]
+      "rule": [
+        "START & S_SELF=1 -> HOLD",
+        "START & S_SELF>=2 -> H_INV",
+        "H_INV & S_SELF=1 -> H_INV",
+        "H_INV & S_SELF>=2 -> V",
+        "V -> V_INV",
+        "V_INV & S_SELF=1 -> HOLD",
+        "V_INV & S_SELF>=2 -> H_INV",
+        "otherwise -> HOLD"
+      ]
     },
     "G1_RELAY_H_RECURRENT_ALIGN": {
-      "inputs": ["CURRENT_INGRESS", "S_SELF"],
+      "inputs": [
+        "CURRENT_INGRESS",
+        "S_SELF"
+      ],
       "intervention": "G_I3_H_STEP",
-      "rule": ["START & S_SELF=1 -> HOLD", "START & S_SELF>=2 -> H", "H & S_SELF=1 -> H", "H & S_SELF>=2 -> V", "V -> V_INV", "V_INV & S_SELF=1 -> HOLD", "V_INV & S_SELF>=2 -> H", "otherwise -> HOLD"]
+      "rule": [
+        "START & S_SELF=1 -> HOLD",
+        "START & S_SELF>=2 -> H",
+        "H & S_SELF=1 -> H",
+        "H & S_SELF>=2 -> V",
+        "V -> V_INV",
+        "V_INV & S_SELF=1 -> HOLD",
+        "V_INV & S_SELF>=2 -> H",
+        "otherwise -> HOLD"
+      ]
     }
   },
   "researcher_id": "EM-R059D-4C7E21",
-  "resource_controls_only": ["Stage-E K(N)", "Stage-E global aggregate/parity", "Stage-E movable step-horizon"],
+  "resource_controls_only": [
+    "Stage-E K(N)",
+    "Stage-E global aggregate/parity",
+    "Stage-E movable step-horizon"
+  ],
   "schema": "R059D_STAGE_G_STATIONARY_CONTROLLER_GRAMMAR_V1",
   "stationarity": "identical rule every generation",
   "status": "FROZEN_BEFORE_CONTROLLER_SCORING",

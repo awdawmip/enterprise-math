@@ -1,0 +1,22 @@
+{
+  "controller_inputs": "CURRENT_INGRESS + S_SELF only",
+  "forbidden_inputs_absent": true,
+  "frozen_parent_stage_f_head": "a03e9181ddcb17a0971ac7bec8e534693cbd817e",
+  "joint_inequality": "E_SPAN=q(N-1)-1 < qN-1=E_ALIGN for every q>=2,N>=2",
+  "mirror_certificate": "exchange H with H_INV; formulas E_SPAN,E_ALIGN remain identical and common shifts change sign",
+  "plus_proof_steps": [
+    "At release e=0, tag0 is at H X0 with ingress H; all other tag i are START at Xi=H^(qi)X0.",
+    "While alone, the unique active H-ingress tag advances by H each generation.",
+    "At boundary e=qi-1 it first cooccupies Xi with the current stationary/settled tag there. Snapshot S_SELF=2 makes the old active execute V and the resident execute H.",
+    "At the next boundary the old active executes V_INV back to Xi, acquiring settled V_INV state; the new active continues H. Thus active identity relays to the next tag without any timer or q/N input.",
+    "Induction gives first recruitment of tag i at e=qi-1, hence E_SPAN=q(N-1)-1.",
+    "After the last recruitment, tag N-1 continues through the q-step hole to X0. At e=qN-1 positions are tag i at X_(i+1 mod N)=H^q Xi, so ALIGNED holds and E_ALIGN=qN-1.",
+    "The same collision/settlement relay now acts on V_INV-settled tags. Induction over cycles gives aligned epochs e_m=mqN-1 with common H^(mq) shift. Therefore the first crossing has a G-R1 recurrence certificate.",
+    "At m=N the positional aligned macrostate returns to the original common H^(qN)=identity shift; the entire event-state pattern repeats after qN^2 generations."
+  ],
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_G_JOINT_THEOREM_OR_OBSTRUCTION_V1",
+  "status": "FROZEN",
+  "taskbook_source": "383eeb9423e11b00a96f79c88f3bb86ec93df277",
+  "theorem": "For every integers q>=2,N>=2, G1_RELAY_H_RECURRENT_ALIGN under G_I3_H_STEP has system-spanning causal closure by e=q(N-1)-1 and exact autonomous aligned recurrence beginning at e=qN-1. The mirror H_INV theorem holds symmetrically."
+}

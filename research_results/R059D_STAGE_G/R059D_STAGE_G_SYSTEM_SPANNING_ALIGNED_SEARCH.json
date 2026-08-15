@@ -1,0 +1,48 @@
+{
+  "frozen_parent_stage_f_head": "a03e9181ddcb17a0971ac7bec8e534693cbd817e",
+  "highest_disposition_real_tagged_perturbation_gate": "PASS_BOTH_H_AND_H_INV",
+  "physical_elasticity_interpretation": "NOT_ESTABLISHED",
+  "physical_probability_from_counting": "NOT_ESTABLISHED",
+  "physical_rigidity_interpretation": "NOT_ESTABLISHED",
+  "primary_disposition": "ENDOGENOUS_SYSTEM_SPANNING_EXACT_ALIGNED_RECOALESCENCE_FOUND",
+  "quantum_bridge": "NOT_ESTABLISHED",
+  "researcher_id": "EM-R059D-4C7E21",
+  "rigidity_like_integer_structure_candidate": "ESTABLISHED_WITHIN_FROZEN_GRAMMAR_ONLY",
+  "schema": "R059D_STAGE_G_SYSTEM_SPANNING_ALIGNED_SEARCH_V1",
+  "status": "FROZEN_AFTER_LARGE_N_SYMBOLIC_SEARCH",
+  "survivors": {
+    "G1_RELAY_HINV_RECURRENT_ALIGN": {
+      "E_ALIGN": "q*N-1",
+      "E_SPAN": "q*(N-1)-1",
+      "N_domain": "all N>=2",
+      "aligned_generation_spacing": "q*N",
+      "aligned_sequence": "for every m>=1, e_m=m*q*N-1 is aligned with common H^(-m*q) shift",
+      "endpoint_class": "ALIGNED_OTHER_DECLARED_CLASS",
+      "first_aligned_state": "common H^(-q) shift",
+      "full_state_period_after_first_aligned": "q*N^2",
+      "gap": "q",
+      "intervention": "G_I3_H_INV_STEP",
+      "postreturn": "G-R1_AUTONOMOUS_ALIGNED_RECURRENCE_RETURN",
+      "q_domain": "all q>=2",
+      "response_growth": "mirror; tags recruited in reverse cyclic order at q-spaced collision generations"
+    },
+    "G1_RELAY_H_RECURRENT_ALIGN": {
+      "E_ALIGN": "q*N-1",
+      "E_SPAN": "q*(N-1)-1",
+      "N_domain": "all N>=2",
+      "aligned_generation_spacing": "q*N",
+      "aligned_sequence": "for every m>=1, e_m=m*q*N-1 is aligned with tag i at H^(m*q) X_i",
+      "all_orders_snapshot_order_factor_to_first_align": "4^(N-1), diagnostic only",
+      "endpoint_class": "ALIGNED_OTHER_DECLARED_CLASS",
+      "first_aligned_state": "tag i occupies H^q X_i = X_(i+1 mod N), common V exponent 0",
+      "full_state_period_after_first_aligned": "q*N^2 generations",
+      "gap": "E_ALIGN-E_SPAN=q",
+      "intervention": "G_I3_H_STEP",
+      "postreturn": "G-R1_AUTONOMOUS_ALIGNED_RECURRENCE_RETURN",
+      "q_domain": "all q>=2",
+      "response_growth": "tag i first recruited at e=q*i-1 for i>=1; seed tag0 recruited at e=0",
+      "source_lineage_multiplicity": "1 per tag; no CPBC branch duplication"
+    }
+  },
+  "taskbook_source": "383eeb9423e11b00a96f79c88f3bb86ec93df277"
+}

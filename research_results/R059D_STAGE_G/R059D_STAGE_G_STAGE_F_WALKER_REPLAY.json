@@ -1,0 +1,28 @@
+{
+  "N_domain": "all N>1; N=1 degeneracy separate",
+  "controls": {
+    "P2_TOKEN_WALKER_RECRUIT_MINUS": {
+      "aligned_after_span": "NO_ALIGNED_RETURN",
+      "post_span_state": "mirror H_INV messenger persists on v-class 0; recruited tags are V-settled on v-class 1",
+      "span": "SYSTEM_SPANNING_CAUSAL_CLOSURE"
+    },
+    "P2_TOKEN_WALKER_RECRUIT_PLUS": {
+      "aligned_after_span": "NO_ALIGNED_RETURN",
+      "post_span_state": "tag0 multiplicity-carrying H messenger persists on v-class 0; recruited tags 1..N-1 are V-settled on v-class 1",
+      "proof": "aligned evaluator requires one common V exponent for every tag; persistent messenger and V-settled tags have different V classes for N>1",
+      "span": "SYSTEM_SPANNING_CAUSAL_CLOSURE"
+    },
+    "P3_COOCCUPANCY_WALKER": {
+      "aligned_after_span": "NO_ALIGNED_RETURN",
+      "post_span_state": "all N tags cooccupy one packet and continue as a common H-moving cohort",
+      "proof": "for q>=2,N>1 the aligned positions H^a V^b X_i are pairwise distinct in H orbit; complete cooccupancy cannot satisfy aligned predicate",
+      "span": "SYSTEM_SPANNING_CAUSAL_CLOSURE"
+    }
+  },
+  "freeze": "SYSTEM_SPANNING_WITHOUT_ALIGNED_RECOALESCENCE_CONTROL",
+  "frozen_parent_stage_f_head": "a03e9181ddcb17a0971ac7bec8e534693cbd817e",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_G_STAGE_F_WALKER_REPLAY_V1",
+  "status": "FROZEN_BEFORE_NEW_CONTROLLER_RESULT",
+  "taskbook_source": "383eeb9423e11b00a96f79c88f3bb86ec93df277"
+}

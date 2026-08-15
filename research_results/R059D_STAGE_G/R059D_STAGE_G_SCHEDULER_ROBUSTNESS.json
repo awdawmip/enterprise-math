@@ -1,0 +1,30 @@
+{
+  "controllers": [
+    "G1_RELAY_H_RECURRENT_ALIGN",
+    "G1_RELAY_HINV_RECURRENT_ALIGN"
+  ],
+  "frozen_parent_stage_f_head": "a03e9181ddcb17a0971ac7bec8e534693cbd817e",
+  "order_multiplicity": "before first aligned epoch, each of N-1 relay collisions and its following V->V_INV settlement boundary has two simultaneous transitions, giving diagnostic factor (2!)^(2(N-1))=4^(N-1); excluded from causal recruitment",
+  "researcher_id": "EM-R059D-4C7E21",
+  "results": {
+    "S_ALL_ORDERS_SNAPSHOT": {
+      "E_ALIGN": "qN-1",
+      "E_SPAN": "q(N-1)-1",
+      "aligned_epochs": "mqN-1",
+      "difference": "only execution-order multiplicity; snapshot boundary states/support are identical",
+      "participant_closure": "N",
+      "postreturn": "G-R1"
+    },
+    "S_SYNC": {
+      "E_ALIGN": "qN-1",
+      "E_SPAN": "q(N-1)-1",
+      "aligned_epochs": "mqN-1",
+      "participant_closure": "N",
+      "postreturn": "G-R1"
+    }
+  },
+  "scheduler_classification": "SCHEDULER_INVARIANT_CAUSAL_AND_ALIGNED_STRUCTURE",
+  "schema": "R059D_STAGE_G_SCHEDULER_ROBUSTNESS_V1",
+  "status": "FROZEN",
+  "taskbook_source": "383eeb9423e11b00a96f79c88f3bb86ec93df277"
+}
