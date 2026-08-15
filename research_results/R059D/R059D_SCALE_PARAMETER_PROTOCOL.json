@@ -1,0 +1,47 @@
+{
+  "N0": "1000000000000000000000000000000000000",
+  "N_meaning": "macro repeated-constituent count scale",
+  "aligned_tag_count_formula": "N",
+  "carrier_packet_count_formula": "21*N",
+  "forbidden_meanings": [
+    "length",
+    "area",
+    "volume",
+    "mass",
+    "physical_size"
+  ],
+  "large_N_evaluation": "symbolic/compressed only; no O(N) packet/state/history enumeration",
+  "scale_down_order": {
+    "large_first": true,
+    "log_ladder": [
+      "1000000000000000000000000000000000000",
+      "1000000000000000000000000000000",
+      "1000000000000000000000000",
+      "1000000000000000000",
+      "1000000000000",
+      "1000000",
+      "1000",
+      "100",
+      "10",
+      "8",
+      "6",
+      "5",
+      "4",
+      "3",
+      "2",
+      "1"
+    ],
+    "refinement_after_change": [
+      "8",
+      "7",
+      "6",
+      "5",
+      "4",
+      "3",
+      "2",
+      "1"
+    ]
+  },
+  "schema": "R059D_SCALE_PARAMETER_PROTOCOL_V1",
+  "status": "FROZEN"
+}
