@@ -27,7 +27,9 @@ co=J("R059D_STAGE_I_CROSSOVER_IDENTIFIABILITY_LEDGER.json")
 sc=J("R059D_STAGE_I_SCHEDULER_ROBUSTNESS.json")
 kl=J("R059D_STAGE_I_TRIVIALITY_AND_RESOURCE_KILL_LEDGER.json")
 
-for name,obj in [("uniform",u),("param",p),("largeM",lm),("transfer",tr),("symmetry",sy),("realiz",rz),("response",ra),("crossover",co),("sched",sc),("kill",kl)]:
+# provenance/schema
+for name,obj in [("uniform",u),("param",p),("largeM",lm),("transfer",tr),("symmetry",sy),
+                 ("realiz",rz),("response",ra),("crossover",co),("sched",sc),("kill",kl)]:
     ck(obj["taskbook_source"]==TASK,f"{name}:taskbook")
     ck(obj["frozen_parent_stage_h_head"]==PARENT,f"{name}:parent")
 ck(p["lambda_registry"]==REG,"parameter:registry")
@@ -35,9 +37,11 @@ for lam in REG:
     ck(p["derived_D_lambda"]["values"][str(lam)]==D(lam),f"parameter:D:{lam}")
 ck(u["family_id"]=="I_DIVISIBILITY_RELAY_GATE","uniform:family")
 ck(u["no_special_value_case_split"] is True,"uniform:no_special_split")
+joined=" ".join(u["control_graph"]+u["forbidden_inputs"])
 for token in ["if lambda==","lambda=N","lambda=q","remaining_range","tag_identity","recruitment_index","global_completion"]:
     ck(token not in " ".join(u["control_graph"]).lower(),f"uniform:no_forbidden_graph:{token}")
 
+# Exact transfer theorem on broad integer box
 for lam in range(-64,65):
     d=D(lam)
     ck(d>=1,f"Dpositive:{lam}")
@@ -50,6 +54,7 @@ for lam in range(-64,65):
     else:
         ck(phi(lam,1)==0,f"lambda_nonzero:real_seed_zero:{lam}")
 
+# Arbitrary-initial-M eventual behavior
 for lam in range(-32,33):
     for M in range(1,257):
         m1=phi(lam,M)
@@ -59,6 +64,7 @@ for lam in range(-32,33):
             m2=phi(lam,m1) if m1 else 0
             ck(m2==0,f"arbM:extinct2:{lam}:{M}")
 
+# real-I3 response laws, both orientations/schedulers
 for sched in ("S_SYNC","S_ALL_ORDERS_SNAPSHOT"):
   for orient in ("H","H_INV"):
     for q in range(2,17):
@@ -72,6 +78,7 @@ for sched in ("S_SYNC","S_ALL_ORDERS_SNAPSHOT"):
           else:
             ck(c==min(N,2),f"local:{sched}:{orient}:{q}:{N}:{lam}")
 
+# huge M exact stress -- O(entries * lambda), no object enumeration
 for sm in lm["M_entries"]:
     M=int(sm)
     for lam in REG:
@@ -84,6 +91,8 @@ for sm in lm["M_entries"]:
             m2=phi(lam,m1) if m1 else 0
             ck(m2==0,f"hugeM:zero2:{sm}:{lam}")
 
+# permutation obstruction: invariant subsets of transitive S_M
+# It suffices to test invariance under adjacent transpositions generating S_M.
 for M in range(2,10):
     full=(1<<M)-1
     invariant=[]
@@ -103,6 +112,7 @@ for M in range(2,10):
             union |= m
         ck(union==full,f"symmetry:k_orbit_union:{M}:{k}")
 
+# ledgers/classification
 ck(sy["freeze"]=="PERMUTATION_EQUIVARIANT_RELAY_ATTENUATION_OBSTRUCTION","symmetry:freeze")
 ck(rz["I_DIVISIBILITY_RELAY_GATE"]["status"]=="REALIZABLE","realiz:family")
 ck(ra["uniform_relay_coupling_family_found"] is True,"response:uniform_found")
