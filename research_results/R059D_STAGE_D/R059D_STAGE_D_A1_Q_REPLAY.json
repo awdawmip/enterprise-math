@@ -1,0 +1,28 @@
+{
+  "exact_no_later_return_certificate": "For q!=3, every later post-V cloud is a common H^t relabeling of the same two branch classes and B_(+1)=0 on both. Paired same-tag histories remain H^2 apart. D0 recoalescence would require H^2=id on the qN orbit, i.e. qN|2.",
+  "frozen_parent_stage_c_head": "441c554fbb13e3c7faba94561f2ea8b64d3b6c4b",
+  "large_N_q_classification": {
+    "q=2": "for large N>1 both branch classes read B_(+1)=0; no D0 first return; branch/cross-tag support alias present",
+    "q=3": "D0_NEXT_ALIGNED_FIRST_RETURN_ROUND_3 for all N>=1",
+    "q>=4": "both branch classes read B_(+1)=0; A1 applies the same H continuation, retains H^2 branch separation, and has no D0 aligned first return"
+  },
+  "primary_replay_conclusion": "A1 is q=3-specific as a nontrivial autonomous aligned-recurrence rule; do not repair before this classification.",
+  "replayed_rule": [
+    "START -> {H,H_INV}",
+    "H_FAMILY -> V",
+    "V and B_(+1)=0 -> H",
+    "V and B_(+1)=1 -> H_INV"
+  ],
+  "researcher_id": "EM-R059D-4C7E21",
+  "scale_down_exception": {
+    "all_other_q!=3,N>=1": "NO_D0_FIRST_ALIGNED_RETURN under unchanged A1",
+    "q=2,N=1": "H^2=id, so A1 reaches the V-successor at round 3, but the two launch branches are already position-aliased and tagged configuration support is singleton; this fails the nontrivial intermediate-cloud gate."
+  },
+  "schema": "R059D_STAGE_D_A1_Q_REPLAY_V1",
+  "status": "FROZEN_AFTER_VERBATIM_A1_REPLAY_BEFORE_REPAIR",
+  "symbolic_B_plus1": {
+    "minus_branch": "B_(+1)(z_i^-)=0 for every q>=2",
+    "plus_branch": "B_(+1)(z_i^+)=1 iff q=3"
+  },
+  "taskbook_source": "3bb0e9d7c0078818f5e224b7524cf72812a4ab8a"
+}
