@@ -1,28 +1,118 @@
 {
   "baseline_controllers": [
-    {"id":"C0_U_BPLUS2_ONEBIT","probe_exponents":[2],"q_domain":"q=3 or q>=5","resource_class":"FIXED_LOCAL","return_rounds":3},
-    {"id":"C0M_U_BMINUS2_ONEBIT","probe_exponents":[-2],"q_domain":"q=3 or q>=5","resource_class":"FIXED_LOCAL","return_rounds":3},
-    {"id":"C_Q3_A1_REACH1","probe_exponents":[1],"q_domain":"q=3 only","resource_class":"FIXED_LOCAL_Q3_COMPARATOR","return_rounds":3}
+    {
+      "id": "C0_U_BPLUS2_ONEBIT",
+      "probe_exponents": [
+        2
+      ],
+      "q_domain": "q=3 or q>=5",
+      "resource_class": "FIXED_LOCAL",
+      "return_rounds": 3
+    },
+    {
+      "id": "C0M_U_BMINUS2_ONEBIT",
+      "probe_exponents": [
+        -2
+      ],
+      "q_domain": "q=3 or q>=5",
+      "resource_class": "FIXED_LOCAL",
+      "return_rounds": 3
+    },
+    {
+      "id": "C_Q3_A1_REACH1",
+      "probe_exponents": [
+        1
+      ],
+      "q_domain": "q=3 only",
+      "resource_class": "FIXED_LOCAL_Q3_COMPARATOR",
+      "return_rounds": 3
+    }
   ],
-  "diagnostic_response_controller": {"endpoint_status":"diagnostic only; changed action set may destroy D0 and is not foundational recurrence evidence","id":"LOCAL_WINDOW_PARITY_DIAGNOSTIC","q_or_N_input_for_fixed_K":false,"rule":"extend baseline return decision with parity of exact current count sum over the declared H-window; an I2 +1 token toggles the diagnostic action set iff the token lies in that window"},
+  "diagnostic_response_controller": {
+    "endpoint_status": "diagnostic only; changed action set may destroy D0 and is not foundational recurrence evidence",
+    "id": "LOCAL_WINDOW_PARITY_DIAGNOSTIC",
+    "q_or_N_input_for_fixed_K": false,
+    "rule": "extend baseline return decision with parity of exact current count sum over the declared H-window; an I2 +1 token toggles the diagnostic action set iff the token lies in that window"
+  },
   "expanding_horizon_controls": [
-    {"K_rule":"isqrt(N)","id":"K_ISQRT_N","resource_class":"RESOURCE_DEPENDENT_N"},
-    {"K_rule":"N","id":"K_EQUAL_N","resource_class":"RESOURCE_DEPENDENT_N"},
-    {"K_rule":"2 if N<17 else N","M":17,"id":"K_STEP_M17","resource_class":"COUNT_HORIZON_CROSSOVER_CONTROL"},
-    {"K_rule":"2 if N<31 else N","M":31,"id":"K_STEP_M31","resource_class":"COUNT_HORIZON_CROSSOVER_CONTROL"}
+    {
+      "K_rule": "isqrt(N)",
+      "id": "K_ISQRT_N",
+      "resource_class": "RESOURCE_DEPENDENT_N"
+    },
+    {
+      "K_rule": "N",
+      "id": "K_EQUAL_N",
+      "resource_class": "RESOURCE_DEPENDENT_N"
+    },
+    {
+      "K_rule": "2 if N<17 else N",
+      "M": 17,
+      "id": "K_STEP_M17",
+      "resource_class": "COUNT_HORIZON_CROSSOVER_CONTROL"
+    },
+    {
+      "K_rule": "2 if N<31 else N",
+      "M": 31,
+      "id": "K_STEP_M31",
+      "resource_class": "COUNT_HORIZON_CROSSOVER_CONTROL"
+    }
   ],
   "fixed_local_horizon_classes": [
-    {"K":1,"id":"LOCAL_K_1","probe_language":"all H^r with |r|<=1","resource_class":"FIXED_FINITE_LOCAL"},
-    {"K":2,"id":"LOCAL_K_2","probe_language":"all H^r with |r|<=2","resource_class":"FIXED_FINITE_LOCAL"},
-    {"K":4,"id":"LOCAL_K_4","probe_language":"all H^r with |r|<=4","resource_class":"FIXED_FINITE_LOCAL"},
-    {"K":8,"id":"LOCAL_K_8","probe_language":"all H^r with |r|<=8","resource_class":"FIXED_FINITE_LOCAL"},
-    {"K":16,"id":"LOCAL_K_16","probe_language":"all H^r with |r|<=16","resource_class":"FIXED_FINITE_LOCAL"}
+    {
+      "K": 1,
+      "id": "LOCAL_K_1",
+      "probe_language": "all H^r with |r|<=1",
+      "resource_class": "FIXED_FINITE_LOCAL"
+    },
+    {
+      "K": 2,
+      "id": "LOCAL_K_2",
+      "probe_language": "all H^r with |r|<=2",
+      "resource_class": "FIXED_FINITE_LOCAL"
+    },
+    {
+      "K": 4,
+      "id": "LOCAL_K_4",
+      "probe_language": "all H^r with |r|<=4",
+      "resource_class": "FIXED_FINITE_LOCAL"
+    },
+    {
+      "K": 8,
+      "id": "LOCAL_K_8",
+      "probe_language": "all H^r with |r|<=8",
+      "resource_class": "FIXED_FINITE_LOCAL"
+    },
+    {
+      "K": 16,
+      "id": "LOCAL_K_16",
+      "probe_language": "all H^r with |r|<=16",
+      "resource_class": "FIXED_FINITE_LOCAL"
+    }
   ],
-  "forbidden_positive_inputs": ["q","N","target_map","branch_provenance","timer","programmed_inverse","selected_scheduler_order"],
+  "forbidden_positive_inputs": [
+    "q",
+    "N",
+    "target_map",
+    "branch_provenance",
+    "timer",
+    "programmed_inverse",
+    "selected_scheduler_order"
+  ],
   "frozen_parent_stage_d_head": "04a9ec5570847f957f6ab56e4fa490a9eabb02a0",
   "full_cloud_controls": [
-    {"foundational_positive_eligible":true,"id":"PER_TAG_FULL_MACROSTEP_CLOUD","resource_class":"FULL_PATH_CLOUD_SOURCE_LOCAL","rule":"each tag may read its own complete finite source-lineage macrostep CPBC path cloud only; no other-tag aggregate"},
-    {"foundational_positive_eligible":false,"id":"FULL_MACROSTEP_GLOBAL_PARITY","resource_class":"GLOBAL_READOUT_CONTROL","rule":"all tags read parity of one global aggregate over the full declared macrostep count cloud; I2 +1 toggles every tag action set"}
+    {
+      "foundational_positive_eligible": true,
+      "id": "PER_TAG_FULL_MACROSTEP_CLOUD",
+      "resource_class": "FULL_PATH_CLOUD_SOURCE_LOCAL",
+      "rule": "each tag may read its own complete finite source-lineage macrostep CPBC path cloud only; no other-tag aggregate"
+    },
+    {
+      "foundational_positive_eligible": false,
+      "id": "FULL_MACROSTEP_GLOBAL_PARITY",
+      "resource_class": "GLOBAL_READOUT_CONTROL",
+      "rule": "all tags read parity of one global aggregate over the full declared macrostep count cloud; I2 +1 toggles every tag action set"
+    }
   ],
   "researcher_id": "EM-R059D-4C7E21",
   "resource_firewall": "K(N), step horizons, full-cloud and global aggregates are controls and cannot be promoted to intrinsic mechanism",

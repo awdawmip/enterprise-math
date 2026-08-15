@@ -45,7 +45,9 @@ For the diagnostic local H-window of resource K and the frozen I2 token, the exa
 
 - Fixed `K in {1,2,4,8,16}`: bounded-local.
 - `K=isqrt(N)`: subextensive. Exact certificates include `P_K<=2*isqrt(N)+3`; for every integer m>=1 and N>=16*m^2, `P_K<=N/m`; along `N=(q*m)^2`, `P_K>=2m+1`.
-- `K=N`: extensive but not full on the large-N family: `P_N=min(N,floor(N/q)+floor((N+2)/q)+1)`, with `q*P_N>=N` and `P_N<N` for `N>=2q`.
+- `K=N`: extensive but not full on the large-N family:
+  `P_N=min(N,floor(N/q)+floor((N+2)/q)+1)`,
+  with `q*P_N>=N` and `P_N<N` for `N>=2q`.
 - Per-tag full macrostep path cloud remains source-local and does not create cross-tag response by itself.
 - Whole-system full-cloud parity gives `N:N` system-spanning response exactly, but is frozen as `GLOBAL_READOUT_CONTROL`.
 
@@ -53,7 +55,11 @@ Thus bounded, subextensive, extensive, and system-spanning response can all be p
 
 ## Crossover identifiability
 
-Two pre-frozen resource controls use `K=2` below `N=17`, `K=N` at/above 17, and the same construction with boundary 31. They move the apparent bounded→extensive boundary from 17 to 31 without changing the relational carrier. Therefore this is a `COUNT_HORIZON_CROSSOVER` control, not an intrinsic N boundary.
+Two pre-frozen resource controls use:
+- `K=2` below `N=17`, `K=N` at/above 17.
+- `K=2` below `N=31`, `K=N` at/above 31.
+
+They move the apparent bounded→extensive boundary from 17 to 31 without changing the relational carrier. Therefore this is a `COUNT_HORIZON_CROSSOVER` control, not an intrinsic N boundary.
 
 Frozen:
 
@@ -64,7 +70,7 @@ Frozen:
 Deterministic checker: `65565/65565 PASS`.
 Digest: `c50b5ea7596ecdd19edbadd2da218e85774714e58f01a3e7f4b3ad574c80289d`.
 
-Huge-N checks are O(1) symbolic formulas; no `10^36` enumeration occurs. Tiny enumeration is theorem regression only.
+It independently regression-checks baseline intervention response with explicit finite carrier states, exact window formulas against brute finite cases, fixed-K/subextensive/extensive resource formulas, the frozen huge-N registry, and all kill gates. Huge-N checks are O(1) symbolic formulas; no `10^36` enumeration occurs.
 
 ## Firewalls
 
