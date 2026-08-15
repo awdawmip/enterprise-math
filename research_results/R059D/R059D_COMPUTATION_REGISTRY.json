@@ -1,0 +1,58 @@
+{
+  "forbidden_methods_used": {
+    "O_N_large_enumeration": false,
+    "all_history_enumeration_large_N": false,
+    "continuum_fit": false,
+    "floating_monte_carlo": false
+  },
+  "large_N_expression_policy": "retain factorial, power, binomial and falling-factorial expressions symbolically; compute only small integer/residue metadata needed for class selection",
+  "methods": [
+    {
+      "exact": true,
+      "id": "SYMBOLIC_WORD_ALGEBRA",
+      "role": "prove endpoint identity",
+      "state_size": "O(1)"
+    },
+    {
+      "exact": true,
+      "formula": "2^N*(N!)^(2R+1)",
+      "id": "FACTORIAL_PHASE_ORDER_COUNT",
+      "role": "raw history multiplicity"
+    },
+    {
+      "exact": true,
+      "formula": "2*C(N,2t)",
+      "id": "CYCLIC_SIGN_BOUNDARY_COMBINATORICS",
+      "role": "T1 histogram"
+    },
+    {
+      "exact": true,
+      "id": "FINITE_INCIDENT_CLASS_ALGEBRA",
+      "role": "T2/T3/cell support/count ratios",
+      "state_size": "constant residue/phase classes"
+    },
+    {
+      "exact": true,
+      "formula": "3N | 2a",
+      "id": "QUOTIENT_ALIAS_DIVISIBILITY_TEST",
+      "role": "scale-down crossover"
+    },
+    {
+      "exact": true,
+      "id": "TINY_ENUMERATION_REGRESSION",
+      "role": "checker only; N<=10 verifies formulas",
+      "used_for_large_N_inference": false
+    }
+  ],
+  "schema": "R059D_COMPUTATION_REGISTRY_V1",
+  "source_inputs": [
+    "9d8f6a0900a5ffd4635ad6566fff7b4a1b4693fa",
+    "PACKET_PATH_FOUNDATION.md",
+    "packet_path_foundation.json",
+    "FOUNDATIONAL_LOGIC.md",
+    "foundational_logic.json",
+    "native_semantics_admissibility.json",
+    "R059C_SPARSE_CHECKPOINT_INDEX@16228c11b0ab63eca367910aaf912dae556848b0"
+  ],
+  "status": "FROZEN"
+}
