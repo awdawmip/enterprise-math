@@ -1,0 +1,12 @@
+{
+  "decision": "compute A_d=O_x[d]+M_x[i,d], then Z_d=(A_d+n*I_x[d]) for n=0..3 and apply comparator",
+  "forbidden": ["reuse Stage-J normalized profile as next state","absolute label tie break","target leakage into selector","L-dependent score","geometry semantics"],
+  "frozen_stage_j_head": "9f2b70d6cca5ccd66a46cc6dd18730f40a6add72",
+  "researcher_id": "EM-R059D-9C6B2A",
+  "resolved_update": ["O_x[d] += 1","M_x[i,d] += 1","traverse declared segment (x,d) with L=4","y=T_NODE(x,d), j=T_INGRESS(x,d)","I_y[j] += 1","set current node y and current ingress j","recompute all candidate signatures from the accumulated exact state"],
+  "schema": "R059D_STAGE_K_TRUE_STATE_UPDATE_PROTOCOL_V1",
+  "state_at_node": "current ingress i plus exact arrays I_x[6], O_x[6], M_x[6][6]",
+  "status": "FROZEN_BEFORE_TRAJECTORY_SCORING",
+  "taskbook_source": "9ea3c173873b23f52977a7ba99e9c091329e5748",
+  "unresolved_update": "stop deterministic trajectory immediately and record exact unresolved class"
+}
