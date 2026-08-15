@@ -1,19 +1,59 @@
 {
-  "schema": "ENTERPRISE_MATH_FOUNDATIONAL_LOGIC_V2",
+  "schema": "ENTERPRISE_MATH_FOUNDATIONAL_LOGIC_V3",
   "status": "ACTIVE",
   "authority": "PROJECT_LEVEL_FOUNDATIONAL_RESEARCH_LOGIC",
+  "project_definition_sources": [
+    "PROJECT_DEFINITION.md",
+    "PROJECT_DEFINITION.zh-CN.md",
+    "project_definition.json"
+  ],
   "core_rule": "Do not inherit an effective theory's definitions into the native substrate merely because the theory is successful. Preserve the success as evidence and require the native theory to explain why that success emerges from a smaller native logic.",
   "short_form": "Definition is not inherited. Success is evidence. Explain the success from a smaller native logic.",
+  "project_mode": "REFOUND_NOT_REJECT",
+  "definition_not_inherited_clarification": {
+    "concept_is_forbidden": false,
+    "mature_tool_is_forbidden": false,
+    "classical_definition_is_native_by_default": false,
+    "concepts_may_be_retained": true,
+    "correct_conditional_mathematics_may_be_retained": true,
+    "classical_formula_as_calibration_target": true,
+    "rule": "Withhold automatic foundational inheritance of a definition; do not abolish the concept. Rebuild the definition from the declared substrate and then classify recovery or deviation."
+  },
+  "admitted_mature_tool_concepts": [
+    "VECTOR",
+    "LENGTH",
+    "DISTANCE",
+    "ANGLE",
+    "NORM",
+    "DOT_OR_BILINEAR_PAIRING",
+    "PROJECTION",
+    "SIN",
+    "COS",
+    "TAN",
+    "AREA",
+    "VOLUME",
+    "PI",
+    "EUCLIDEAN_GEOMETRY",
+    "CONTINUUM_MODELS"
+  ],
+  "classical_recovery_classes": [
+    "EXACT_RECOVERY",
+    "FINITE_PRECISION_RECOVERY",
+    "ASYMPTOTIC_RECOVERY",
+    "DOMAIN_RESTRICTED_RECOVERY",
+    "SYSTEMATIC_DEVIATION",
+    "NONRECOVERY"
+  ],
   "active_native_base_specialization": {
     "human_source": "PACKET_PATH_FOUNDATION.md",
     "machine_source": "packet_path_foundation.json",
-    "core": "Every crystal packet has native quantity exactly 1 in every dimension and precision layer; dimension is relational rather than a packet weight; every adjacency transition contributes exactly 1 to transition/path count; geometry is downstream.",
-    "precedence": "When an older edge/line/metric-first construction conflicts with this specialization at N0, the packet/path specialization controls native typing. Older mathematics may remain valid after N1/N2/N3 retyping."
+    "core": "Every crystal packet has native quantity exactly 1 in every dimension and precision layer; dimension is relational rather than a packet weight; every adjacency transition contributes exactly 1 to transition/path count; classical geometry definitions are not automatically packet-native N0 primitives, while geometric concepts remain available for explicit refoundation.",
+    "precedence": "When an older edge/line/metric-first construction conflicts with this specialization at N0, the packet/path specialization controls native typing. Older mathematics may remain valid after N1/N2/N3 retyping or explicit refoundation."
   },
   "principles": [
     {
       "id": "FL-01-DEFINITION-NOT-INHERITED",
-      "rule": "A definition belonging to a successful classical, continuous, Euclidean, probabilistic, spectral, or engineering theory does not become a native definition merely because the theory works."
+      "rule": "A definition belonging to a successful classical, continuous, Euclidean, probabilistic, spectral, or engineering theory does not become a native definition merely because the theory works. This withholds the definition, not the concept."
     },
     {
       "id": "FL-02-ENGINEERING-SUCCESS-IS-EVIDENCE",
@@ -21,7 +61,7 @@
     },
     {
       "id": "FL-03-ENGINEERING-SUCCESS-INVERSION",
-      "rule": "Research direction is inverse: engineering success -> surviving structure -> native mechanism/collapse -> effective classical law. Do not start from the classical definition and force native states to approximate it."
+      "rule": "Research direction is inverse: engineering success -> surviving structure -> native mechanism/collapse -> rebuilt mature tool -> effective classical law. Do not start from the classical definition and force native states to approximate it."
     },
     {
       "id": "FL-04-NO-OUTPUT-COPYING-INTO-INPUT",
@@ -33,11 +73,11 @@
     },
     {
       "id": "FL-06-FOUNDATION-CALIBRATION-SEPARATION",
-      "rule": "FOUNDATION derives native structure without importing effective definitions as native premises. CALIBRATION tests already-derived native structures against established engineering successes. Calibration never retroactively promotes effective definitions to native ontology."
+      "rule": "FOUNDATION derives native structure and rebuilt tool definitions without importing effective definitions as native premises. CALIBRATION tests already-derived structures against established engineering successes. Calibration never retroactively promotes effective definitions to native ontology."
     },
     {
       "id": "FL-07-EFFECTIVE-MATH-CONSERVED",
-      "rule": "Correct classical/continuous mathematics and engineering usefulness are conserved under correct semantic typing. The foundational question is why those effective descriptions work, what information they remove, and where they fail."
+      "rule": "Correct classical/continuous mathematics and engineering usefulness are conserved under correct semantic typing. Mature tools should be retained whenever correct and useful; the foundational question is why they work, where they stop working, what information they remove, and whether a rebuilt definition gives clearer precision semantics."
     },
     {
       "id": "FL-08-OPERATIONAL-PRECISION-DOWNSTREAM",
@@ -49,23 +89,31 @@
     },
     {
       "id": "FL-10-NATIVE-CONTENT-IS-PACKET-COUNT",
-      "rule": "The native static content of a finite occupied configuration is its packet count. Effective area, volume, or d-content are downstream readouts of this count plus carrier/precision semantics, not primitive powers of length."
+      "rule": "The native static content of a finite occupied configuration is its packet count. Effective area, volume, or d-content may be downstream readouts or later rebuilt geometric quantities; they are not assumed at N0 merely as primitive powers of inherited classical length."
     },
     {
       "id": "FL-11-NATIVE-PROCESS-IS-TRANSITION-COUNT",
-      "rule": "Every actual transition across declared adjacency contributes exactly 1 to transition/path count. This event count is not geometric length."
+      "rule": "Every actual transition across declared adjacency contributes exactly 1 to transition/path count. This event count is not automatically geometric length. A rebuilt LENGTH is allowed and may later be related by a separately proved theorem."
     },
     {
       "id": "FL-12-OBJECT-EVENT-COUNT-SEPARATION",
-      "rule": "Packet/occupancy count is a static object count and transition/path count is a dynamic event count. Revisiting can increase event count without increasing occupied packet count."
+      "rule": "Packet/occupancy count is a static object count and transition/path count is a dynamic event count. Revisiting can increase event count without increasing occupied packet count. Neither count is automatically a geometric quantity."
     },
     {
       "id": "FL-13-REFINEMENT-NO-FRACTIONAL-PACKET",
-      "rule": "Every packet at every precision layer remains native quantity 1. Refinement changes packet count and relation language; it does not create native fractional packet weights solely to preserve a continuum measure."
+      "rule": "Every packet at every precision layer remains native quantity 1. Refinement changes packet count and relation language; it does not create native fractional packet weights solely to preserve a continuum measure. Rebuilt geometric measures are separate semantic constructions."
     },
     {
-      "id": "FL-14-GEOMETRY-DOWNSTREAM",
-      "rule": "Line, straightness, distance, length, shortestness, edge, boundary, perimeter, chord, angle, curvature, radius, area, volume, and continuum geometry remain downstream until separately derived with admissible semantic typing."
+      "id": "FL-14-GEOMETRY-REFOUND-NOT-REJECT",
+      "rule": "Classical definitions of line, straightness, distance, length, shortestness, edge, boundary, perimeter, chord, angle, curvature, radius, area, volume, norm, inner product, and continuum geometry are not automatically packet-native N0 primitives. The concepts are not forbidden: they may be explicitly declared, reconstructed, promoted by admissible certificate, used as readouts, and calibrated against Euclidean geometry."
+    },
+    {
+      "id": "FL-15-MATURE-TOOL-RECOVERY-CLASSIFICATION",
+      "rule": "When a mature tool such as LENGTH, ANGLE, NORM, DOT/PAIRING, SIN, COS, TAN, AREA, VOLUME, or PI semantics is rebuilt, record its relation to the classical object using an explicit recovery/deviation class when applicable."
+    },
+    {
+      "id": "FL-16-STAGE-WITHHOLDING-NOT-GLOBAL-PROHIBITION",
+      "rule": "A task may state that LENGTH, ANGLE, TRIG, metric, probability, or another mature tool is not a premise for that task. Such typing is local and must not be rewritten as a project-wide claim that the concept is nonexistent or permanently forbidden."
     }
   ],
   "packet_path_base_invariants": {
@@ -73,11 +121,18 @@
     "unit_transition": 1,
     "dimension_semantics": "RELATIONAL_NOT_PACKET_WEIGHT",
     "path_semantics": "ARBITRARY_ADJACENCY_WALK",
-    "path_permissions": ["REVISIT", "LOOP", "IMMEDIATE_REVERSAL", "SAME_ADJACENCY_REUSE", "SAME_CHANNEL_INGRESS_EGRESS_IF_CHANNELS_DECLARED"],
+    "path_permissions": [
+      "REVISIT",
+      "LOOP",
+      "IMMEDIATE_REVERSAL",
+      "SAME_ADJACENCY_REUSE",
+      "SAME_CHANNEL_INGRESS_EGRESS_IF_CHANNELS_DECLARED"
+    ],
     "static_integer": "PACKET_COUNT",
     "dynamic_integer": "TRANSITION_COUNT",
-    "length_status": "UNDEFINED_AT_N0",
-    "area_volume_status": "DOWNSTREAM_READOUT_NAMES",
+    "length_status_at_packet_N0": "CLASSICAL_DEFINITION_NOT_AUTOMATICALLY_INHERITED",
+    "length_concept_status": "ADMITTED_FOR_REFOUNDATION",
+    "area_volume_status": "DOWNSTREAM_READOUT_OR_REBUILT_GEOMETRIC_QUANTITY",
     "refinement_rule": "PACKET_UNIT_REMAINS_ONE_AT_EVERY_LAYER"
   },
   "optional_channel_structure": {
@@ -87,7 +142,8 @@
       "egress": "O_x[0..5]",
       "passage": "M_x[a,b]",
       "same_channel_allowed": true,
-      "geometric_labels_forbidden_at_native_layer": ["STRAIGHT", "TURN", "ANGLE", "CURVATURE", "OPPOSITE"],
+      "classical_geometric_interpretation_at_packet_N0": "NOT_AUTOMATICALLY_INHERITED",
+      "geometric_concepts_may_be_rebuilt": true,
       "temperature": "CALIBRATION_ONLY"
     }
   },
@@ -98,8 +154,8 @@
     "successful continuum law used as a hidden premise in a claimed derivation of that same law",
     "single packet assigned dimension-specific area or volume weight instead of the native unit 1",
     "finer packets assigned native fractional weights merely to preserve a coarse continuum measure",
-    "path transition count silently promoted to geometric length",
-    "edge/boundary geometry used as the native definition of a packet relation or line"
+    "path transition count silently promoted to geometric length without a rebuilt length definition and correspondence theorem",
+    "edge/boundary geometry used as the native definition of a packet relation or line without explicit typing"
   ],
   "engineering_success_constraint_fields": [
     "controlled_inputs",
@@ -113,9 +169,12 @@
   "foundation_facing_task_fields": [
     "declared_native_substrate",
     "effective_definitions_withheld_from_native_premises",
+    "mature_concepts_retained_for_refoundation",
     "engineering_success_constraints_consumed",
     "candidate_native_mechanism_or_collapse",
     "bridge_or_readout_if_any",
+    "rebuilt_tool_definition_if_any",
+    "classical_recovery_or_deviation_class_if_any",
     "successes_explained",
     "successes_unexplained",
     "target_leakage_audit",
@@ -123,6 +182,8 @@
   ],
   "permanent_asymmetry": {
     "effective_definition_to_native_premise": "FORBIDDEN_UNLESS_SEPARATELY_DECLARED_OR_DERIVED",
+    "classical_concept_to_retained_tool_vocabulary": "ENCOURAGED_WITH_TYPED_DEFINITION",
     "engineering_success_to_evidence_constraint": "ENCOURAGED"
-  }
+  },
+  "geometric_tool_policy_source": "GEOMETRIC_TOOL_REFOUNDATION_POLICY.md"
 }
