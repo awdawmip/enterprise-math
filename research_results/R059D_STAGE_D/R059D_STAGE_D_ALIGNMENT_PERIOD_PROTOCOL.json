@@ -1,0 +1,46 @@
+{
+  "alignment_family": {
+    "H_orbit_order": "q*N",
+    "N_semantics": "macro repeated-constituent count scale only",
+    "aligned_tag_relation": "X_(i+1)=H^q X_i",
+    "common_middle": "after H_FAMILY the frozen Stage-C replay uses V; uniform-search candidates retain the same launch/V skeleton unless explicitly labeled control",
+    "forbidden_q_interpretations": [
+      "DISTANCE",
+      "LENGTH",
+      "PHYSICAL_SPACING",
+      "AREA",
+      "VOLUME"
+    ],
+    "launch": "START -> branch {H,H_INV}",
+    "q_domain": "integers q>=2",
+    "q_semantics": "RELATIONAL_ALIGNMENT_PERIOD / H-generator word exponent only",
+    "successor_readout": "sigma_N=V; evaluation/stopping readout only, never controller input"
+  },
+  "frozen_parent_stage_c_head": "441c554fbb13e3c7faba94561f2ea8b64d3b6c4b",
+  "owner_branch": "research/r059d-stage-d-alignment-period-robustness",
+  "physical_firewalls": {
+    "PHYSICAL_PROBABILITY_FROM_COUNTING": "NOT_ESTABLISHED",
+    "PHYSICAL_RIGIDITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "QUANTUM_BRIDGE": "NOT_ESTABLISHED"
+  },
+  "positive_uniform_controller_prohibitions": [
+    "READ_Q",
+    "READ_N",
+    "Q_SPECIFIC_TABLE",
+    "N_SPECIFIC_TABLE",
+    "Q_DEPENDENT_PROBE",
+    "TARGET_MAP",
+    "BRANCH_PROVENANCE",
+    "PROGRAMMED_INVERSE",
+    "REVERSAL_TIMER",
+    "SELECTED_SCHEDULER_ORDER"
+  ],
+  "researcher_id": "EM-R059D-4C7E21",
+  "schedulers": {
+    "S_ALL_ORDERS_SNAPSHOT": "pre-round signatures/actions frozen; every eligible tag executes once in every order; all N! orders retained",
+    "S_SYNC": "snapshot synchronous round; all tied local choices branch with exact CPBC multiplicity"
+  },
+  "schema": "R059D_STAGE_D_ALIGNMENT_PERIOD_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_Q_EVALUATION",
+  "taskbook_source": "3bb0e9d7c0078818f5e224b7524cf72812a4ab8a"
+}
