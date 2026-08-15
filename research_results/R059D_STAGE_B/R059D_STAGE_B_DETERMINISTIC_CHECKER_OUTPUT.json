@@ -1,0 +1,40 @@
+{
+  "brute_exact_boxes": {
+    "T1": "N=1..8,R=1..8 all 2^N branch assignments",
+    "T2": "N=1..32,R=1..16",
+    "T3": "N=1..8,R=1..8 all 2^N branch assignments"
+  },
+  "checks_digest_sha256": "0c404cd7c7e094545d50fd7fa45bf0c373aef2f1b76dd26b0614425210976312",
+  "checks_failed": 0,
+  "checks_passed": 43303,
+  "checks_total": 43303,
+  "failed_checks": [],
+  "hard_firewalls": {
+    "Stage_A_artifact_modification": "ABSENT_BY_SEPARATE_STAGE_B_PATH",
+    "float_tolerance": "ABSENT",
+    "physical_probability_from_counting": "NOT_ESTABLISHED",
+    "physical_rigidity_interpretation": "NOT_ESTABLISHED",
+    "postselected_crossover": "REJECTED",
+    "quantum_bridge": "NOT_ESTABLISHED"
+  },
+  "parent_head": "0f634efbd4cf506f5ccbbbe63cfa524a065c7d72",
+  "regression_box": {
+    "N": "1..128",
+    "R": "1..64",
+    "alias_pairs": 8192
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_B_DETERMINISTIC_CHECKER_OUTPUT_V1",
+  "status": "PASS",
+  "taskbook_source": "0dd9f78b047191535f4b05f80aafc613bbbac105",
+  "theorem_regressions": {
+    "R1_minimal_controller": "PASS",
+    "T1_general_R_generating_formula": "PASS",
+    "T2_general_R": "PASS",
+    "T3_general_R": "PASS",
+    "alias_closed_form": "PASS",
+    "alias_exists_iff_divisibility": "PASS",
+    "decorated_successor_diagnostic": "PASS",
+    "general_R_endpoint": "PASS"
+  }
+}
