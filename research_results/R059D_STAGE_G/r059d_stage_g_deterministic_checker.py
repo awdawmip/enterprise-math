@@ -45,7 +45,9 @@ def run(q,N,sign=1,limit=None):
     recruited={0}
     first={}
     for e in range(lim+1):
+        # response/recruitment by first nonbaseline state; for resident tags collision occurs q*i-1 in direction order
         if aligned(tags,q,N): aes.append(e)
+        # causal recruitment follows frozen evaluator: state OR local-signature OR action-set delta.
         occ=defaultdict(int)
         for hh,vv,ss in tags: occ[(hh,vv)]+=1
         for i,(hh,vv,ss) in enumerate(tags):
@@ -65,6 +67,7 @@ def run(q,N,sign=1,limit=None):
         tags=step(tags,q,N,sign)
     return aes,first,tags
 
+# theorem regressions
 for sign in (1,-1):
   for q in range(2,9):
     for N in range(2,9):
@@ -74,6 +77,7 @@ for sign in (1,-1):
       ck(max(first.values())==q*(N-1)-1,f"Espan:{sign}:{q}:{N}")
       ck(q*(N-1)-1 < q*N-1,f"ineq:{sign}:{q}:{N}")
 
+# full-state recurrence from first aligned after qN^2
 for sign in (1,-1):
   for q in range(2,7):
     for N in range(2,7):
@@ -86,6 +90,7 @@ for sign in (1,-1):
         if e==q*N-1+q*N*N: ck(tags==snap,f"full_period:{sign}:{q}:{N}")
         tags=step(tags,q,N,sign)
 
+# large-N exact formula only
 Ns=[10**36+d for d in (-11,-7,-5,-3,-2,-1,0,1,2,3,5,7,11)]+[10**30+37,10**24+19]
 Qs=list(range(2,13))+[13,14,15,16,17,18,19,23,25,29,31]
 for N in Ns:
@@ -94,6 +99,7 @@ for N in Ns:
     ck(es<ea,f"hugeineq:{N}:{q}")
     ck(ea-es==q,f"hugegap:{N}:{q}")
 
+# artifact semantics
 search=json.loads((R/"R059D_STAGE_G_SYSTEM_SPANNING_ALIGNED_SEARCH.json").read_text())
 ck(search["primary_disposition"]=="ENDOGENOUS_SYSTEM_SPANNING_EXACT_ALIGNED_RECOALESCENCE_FOUND","primary")
 ck(search["highest_disposition_real_tagged_perturbation_gate"]=="PASS_BOTH_H_AND_H_INV","realI3")
