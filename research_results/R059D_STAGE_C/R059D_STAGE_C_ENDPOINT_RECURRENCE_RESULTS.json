@@ -1,0 +1,43 @@
+{
+  "C_T01": "YES",
+  "endpoint_theorem": {
+    "class": "D0",
+    "domain": "all integers N>=1",
+    "first_aligned_return_round": 3,
+    "schedulers": [
+      "S_SYNC",
+      "S_ALL_ORDERS_SNAPSHOT"
+    ],
+    "sigma_N": "uniform V relabeling, evaluated only after state evolution and not supplied to the rule",
+    "support": "{sigma_N(A_(N,k))}",
+    "survivors": [
+      "A1_ONEBIT_SUPPORT_HOLE",
+      "A2_SYMMETRIC_SUPPORT_HOLE",
+      "A3_FULL_COUNT_MIN"
+    ]
+  },
+  "frozen_parent_head": "a876b44aa105227418c43d02d44599da45bface9",
+  "normalization_independence": "proof uses only exact integer support/count zero-tests and relational channel actions",
+  "primary_freeze": "AUTONOMOUS_COUNT_DRIVEN_EXACT_ALIGNED_FIRST_RETURN_ESTABLISHED_WITHIN_FROZEN_GRAMMAR",
+  "raw_history_multiplicity": {
+    "S_ALL_ORDERS_SNAPSHOT": {
+      "round1": "2^N*N!",
+      "round2": "2^N*(N!)^2",
+      "round3_endpoint": "2^N*(N!)^3",
+      "within_round1_t": "(N)_t*2^t",
+      "within_round2_t": "2^N*N!*(N)_t",
+      "within_round3_t": "2^N*(N!)^2*(N)_t"
+    },
+    "S_SYNC": {
+      "round0": "1",
+      "round1": "2^N",
+      "round2": "2^N",
+      "round3_endpoint": "2^N"
+    }
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_C_ENDPOINT_RECURRENCE_RESULTS_V1",
+  "stage_B_control": "G_R reversible family remains positive construction control only and is excluded from Stage-C positives",
+  "status": "FROZEN",
+  "taskbook_source": "c51c31f989494b0ac57f17312dd270de18c20d61"
+}
