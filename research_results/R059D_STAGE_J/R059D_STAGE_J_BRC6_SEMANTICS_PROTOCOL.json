@@ -1,0 +1,59 @@
+{
+  "BRC6_definition": "six-outcome next-channel selector",
+  "BRC_symbol_policy": "BRC is user-selected symbol; no acronym expansion is frozen or used",
+  "codomain": {
+    "labels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "meaning": "relational channel labels only",
+    "name": "C6"
+  },
+  "cyclic_action": "tau(d)=(d+1) mod 6; tau acts simultaneously on ingress and every channel-indexed signature component",
+  "evaluator_negative": "BRC6_UNRESOLVED_BY_CURRENT_SIGNATURE; not a seventh BRC output",
+  "firewalls": {
+    "PHYSICAL_DIRECTION_CALIBRATION": "NOT_ESTABLISHED",
+    "PHYSICAL_ELASTICITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "PHYSICAL_PROBABILITY_FROM_BRC_COUNTS": "NOT_ESTABLISHED",
+    "PHYSICAL_RIGIDITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "QUANTUM_BRIDGE": "NOT_ESTABLISHED"
+  },
+  "forbidden_channel_semantics": [
+    "angle",
+    "Euclidean direction",
+    "left/right",
+    "straight",
+    "opposite",
+    "rotation",
+    "vector",
+    "slope",
+    "curvature"
+  ],
+  "forbidden_premises": [
+    "Stage E-I relay/localization conclusions",
+    "R059C reopening",
+    "R059P",
+    "R059L",
+    "shortest/longest path",
+    "target map",
+    "physical probability"
+  ],
+  "frozen_provenance_parent": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "native_inputs": [
+    "declared C6 ingress/incidence state",
+    "exact natural-number candidate/path counts",
+    "exact visit/support/recoalescence readouts typed by taskbook"
+  ],
+  "relative_class_3_status": "legal channel-label class; no geometric meaning or prohibition",
+  "researcher_id": "EM-R059D-4C7E21",
+  "same_channel_relative_class": "0 is legal",
+  "schema": "R059D_STAGE_J_BRC6_SEMANTICS_PROTOCOL_V1",
+  "selector_object": "BRC6(sigma) in C6 when exact signature yields a unique equivariant winner",
+  "status": "FROZEN_BEFORE_SELECTOR_SCORING",
+  "superseded_taskbook_forbidden": "research_tasks/R059D_STAGE_J_GRADED_RELAY_COUPLING_LOCALIZATION_20260815.md",
+  "taskbook_source": "3ca99589c5c3ade32c9cc164cdc3b3c4f6e15b7b"
+}
