@@ -1,0 +1,87 @@
+{
+  "artifact_manifest": {
+    "artifact_count": 16,
+    "git_blob_sha1": "05ae631dd9a1fb9bdb89d7e094be598ae6fe660f",
+    "path": "R059D_STAGE_G_ARTIFACT_MANIFEST.json",
+    "sha256": "bba05902cd8662ef427b1a47be6e1c256d574975ffebf2029dcd21fb7672da9a"
+  },
+  "artifact_owner_head_before_checkpoint_append": "3c197e04462be58e1bff830b8ab5744decc86363",
+  "checker": {
+    "checks_digest_sha256": "d80a965caffecc83a7124f1720ff58b9b7d5ad211469ff866b1e587b4e4657df",
+    "checks_failed": 0,
+    "checks_passed": 1126,
+    "checks_total": 1126,
+    "output_sha256": "95057a95542dacdc05b98cd72984e8c1768d59b488389848583682b7963847ff",
+    "source_sha256": "f8e36d15d08fd13f580ff2d549598700f513e6943e26315401da411dab8c45e9",
+    "status": "PASS"
+  },
+  "frozen_parents": {
+    "stage_a_b_c_d_e_f_artifacts_immutable": true,
+    "stage_f_head": "a03e9181ddcb17a0971ac7bec8e534693cbd817e"
+  },
+  "owner_branch": "research/r059d-stage-g-system-spanning-realignment",
+  "researcher_id": "EM-R059D-4C7E21",
+  "result": {
+    "E_ALIGN": "q*N-1",
+    "E_ALIGN_minus_E_SPAN": "q",
+    "E_SPAN": "q*(N-1)-1",
+    "N_domain": "all integers N>=2; N=1 trivial degeneracy separate",
+    "aligned_epochs": "e_m=m*q*N-1 for all m>=1",
+    "aligned_macrostate_at_m": "common H^(m*q) shift; mirror common H^(-m*q)",
+    "controller_forbidden_inputs_absent": [
+      "N",
+      "q",
+      "time",
+      "horizon",
+      "timer",
+      "phase",
+      "global_completion",
+      "global_participant_count",
+      "aligned_flag",
+      "aligned_target",
+      "target_map",
+      "branch_provenance",
+      "programmed_inverse",
+      "global_oracle",
+      "selected_scheduler_order"
+    ],
+    "controller_signature": [
+      "CURRENT_INGRESS",
+      "S_SELF"
+    ],
+    "endpoint_class": "ALIGNED_OTHER_DECLARED_CLASS",
+    "first_plus_aligned_state": "common H^q shift: tag i at H^q X_i=X_(i+1 mod N)",
+    "full_state_period": "q*N^2 generations",
+    "intrinsic_N_macro_micro_crossover": "NOT_IDENTIFIED",
+    "mirror_controller": "G1_RELAY_HINV_RECURRENT_ALIGN",
+    "physical_elasticity_interpretation": "NOT_ESTABLISHED",
+    "physical_probability_from_counting": "NOT_ESTABLISHED",
+    "physical_rigidity_interpretation": "NOT_ESTABLISHED",
+    "positive_controller": "G1_RELAY_H_RECURRENT_ALIGN",
+    "postreturn_class": "G-R1_AUTONOMOUS_ALIGNED_RECURRENCE_RETURN",
+    "primary_disposition": "ENDOGENOUS_SYSTEM_SPANNING_EXACT_ALIGNED_RECOALESCENCE_FOUND",
+    "q_domain": "all integers q>=2",
+    "quantum_bridge": "NOT_ESTABLISHED",
+    "real_tagged_adjacency_gate": "PASS_BOTH_G_I3_H_STEP_AND_G_I3_H_INV_STEP",
+    "response_pair": "N:N",
+    "response_participant_count_closure": "N",
+    "rigidity_like_integer_structure_candidate": "ESTABLISHED_WITHIN_FROZEN_GRAMMAR_ONLY",
+    "scheduler_structure": "participant closure, E_SPAN, E_ALIGN, endpoint and G-R1 recurrence identical; only diagnostic order multiplicity differs",
+    "schedulers": [
+      "S_SYNC",
+      "S_ALL_ORDERS_SNAPSHOT"
+    ],
+    "stage_f_walker_replay": "SYSTEM_SPANNING_WITHOUT_ALIGNED_RECOALESCENCE_CONTROL"
+  },
+  "schema": "R059D_STAGE_G_FROZEN_CHECKPOINT_V1",
+  "source_discipline": {
+    "R059C_reopened": false,
+    "R059L_consumed": false,
+    "R059P_consumed": false,
+    "geometry_or_physics_premise": "ABSENT",
+    "stage_a_b_c_d_e_f_modified": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "taskbook_source": "383eeb9423e11b00a96f79c88f3bb86ec93df277"
+}
