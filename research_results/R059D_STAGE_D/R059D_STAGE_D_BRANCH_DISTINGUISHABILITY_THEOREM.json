@@ -3,7 +3,16 @@
   "S2_classification": "S2 distinguishes + / - iff q=3 or q>=5; equivalently iff q not in {2,4}.",
   "S3_classification": "Same q-domain as S2; the added -1/-2 probes do not create a new distinguishable q-class.",
   "S4_classification": "Same branch-sign q-domain as S2/S3. Exact magnitudes can identify q=2's doubled source multiplicity, but cannot distinguish the two branch classes at q=2 or q=4.",
-  "branch_signature_equivalence_classes": {"Q_S1_DISTINGUISHABLE":[3],"Q_S2_FIRST_DISTINGUISHABLE":"all q>=5","Q_SYMMETRY_OBSTRUCTED":[2,4]},
+  "branch_signature_equivalence_classes": {
+    "Q_S1_DISTINGUISHABLE": [
+      3
+    ],
+    "Q_S2_FIRST_DISTINGUISHABLE": "all q>=5",
+    "Q_SYMMETRY_OBSTRUCTED": [
+      2,
+      4
+    ]
+  },
   "count_signature_symmetry_obstruction": {
     "D0_obstruction": "If qN>2, H^2 is nonidentity on the tag's H orbit, so paired histories cannot collapse to one tagged target without branch/tag provenance or symmetry-breaking input.",
     "automorphism": "tau=H^2",
@@ -14,7 +23,10 @@
     "inductive_extension": "Any q/N-independent equivariant controller reading only current relational ingress plus current count-field signatures assigns identical action sets to tau-related histories. Since declared channel actions commute with tau, paired continuations remain H^2-related at every later round.",
     "ingress_preserved": "both post-V branches have current ingress class V; H^2 relabeling preserves declared channel labels.",
     "q2_N1_degeneracy": "At q=2,N=1, H^2=id; the obstruction degenerates, but launch configuration support is singleton and fails Stage-D nontrivial branching evidence.",
-    "q_class": [2,4]
+    "q_class": [
+      2,
+      4
+    ]
   },
   "exact_count_field": {
     "formula": "C(H^m V X_0)=kappa*(1[m=+1 mod q]+1[m=-1 mod q])",
@@ -24,20 +36,124 @@
     "support_bit_formula": "B_(r)(z_i^s)=1 iff s+r is congruent to +1 or -1 modulo q"
   },
   "frozen_parent_stage_c_head": "441c554fbb13e3c7faba94561f2ea8b64d3b6c4b",
-  "post_V_branch_positions": {"H_orbit_order":"qN","aligned_relation":"X_(i+1)=H^q X_i","minus":"z_i^- = H^-1 V X_i","plus":"z_i^+ = H V X_i"},
+  "post_V_branch_positions": {
+    "H_orbit_order": "qN",
+    "aligned_relation": "X_(i+1)=H^q X_i",
+    "minus": "z_i^- = H^-1 V X_i",
+    "plus": "z_i^+ = H V X_i"
+  },
   "researcher_id": "EM-R059D-4C7E21",
   "sample_signatures_q2_to_q12": {
-    "2":{"S1_minus":[0],"S1_plus":[0],"S2_minus":[0,1],"S2_plus":[0,1],"S3_minus":[0,0,1,1],"S3_plus":[0,0,1,1],"S4_multiplier_minus":[0,0,2,2],"S4_multiplier_plus":[0,0,2,2]},
-    "3":{"S1_minus":[0],"S1_plus":[1],"S2_minus":[0,1],"S2_plus":[1,0],"S3_minus":[0,1,1,0],"S3_plus":[1,0,0,1],"S4_multiplier_minus":[0,1,1,0],"S4_multiplier_plus":[1,0,0,1]},
-    "4":{"S1_minus":[0],"S1_plus":[0],"S2_minus":[0,1],"S2_plus":[0,1],"S3_minus":[0,0,1,1],"S3_plus":[0,0,1,1],"S4_multiplier_minus":[0,0,1,1],"S4_multiplier_plus":[0,0,1,1]},
-    "5":{"S1_minus":[0],"S1_plus":[0],"S2_minus":[0,1],"S2_plus":[0,0],"S3_minus":[0,0,1,0],"S3_plus":[0,0,0,1],"S4_multiplier_minus":[0,0,1,0],"S4_multiplier_plus":[0,0,0,1]},
-    "6":{"S1_minus":[0],"S1_plus":[0],"S2_minus":[0,1],"S2_plus":[0,0],"S3_minus":[0,0,1,0],"S3_plus":[0,0,0,1],"S4_multiplier_minus":[0,0,1,0],"S4_multiplier_plus":[0,0,0,1]},
-    "7":{"S1_minus":[0],"S1_plus":[0],"S2_minus":[0,1],"S2_plus":[0,0],"S3_minus":[0,0,1,0],"S3_plus":[0,0,0,1],"S4_multiplier_minus":[0,0,1,0],"S4_multiplier_plus":[0,0,0,1]},
-    "8":{"S1_minus":[0],"S1_plus":[0],"S2_minus":[0,1],"S2_plus":[0,0],"S3_minus":[0,0,1,0],"S3_plus":[0,0,0,1],"S4_multiplier_minus":[0,0,1,0],"S4_multiplier_plus":[0,0,0,1]},
-    "9":{"S1_minus":[0],"S1_plus":[0],"S2_minus":[0,1],"S2_plus":[0,0],"S3_minus":[0,0,1,0],"S3_plus":[0,0,0,1],"S4_multiplier_minus":[0,0,1,0],"S4_multiplier_plus":[0,0,0,1]},
-    "10":{"S1_minus":[0],"S1_plus":[0],"S2_minus":[0,1],"S2_plus":[0,0],"S3_minus":[0,0,1,0],"S3_plus":[0,0,0,1],"S4_multiplier_minus":[0,0,1,0],"S4_multiplier_plus":[0,0,0,1]},
-    "11":{"S1_minus":[0],"S1_plus":[0],"S2_minus":[0,1],"S2_plus":[0,0],"S3_minus":[0,0,1,0],"S3_plus":[0,0,0,1],"S4_multiplier_minus":[0,0,1,0],"S4_multiplier_plus":[0,0,0,1]},
-    "12":{"S1_minus":[0],"S1_plus":[0],"S2_minus":[0,1],"S2_plus":[0,0],"S3_minus":[0,0,1,0],"S3_plus":[0,0,0,1],"S4_multiplier_minus":[0,0,1,0],"S4_multiplier_plus":[0,0,0,1]}
+    "10": {
+      "S1_minus": [0],
+      "S1_plus": [0],
+      "S2_minus": [0,1],
+      "S2_plus": [0,0],
+      "S3_minus": [0,0,1,0],
+      "S3_plus": [0,0,0,1],
+      "S4_multiplier_minus": [0,0,1,0],
+      "S4_multiplier_plus": [0,0,0,1]
+    },
+    "11": {
+      "S1_minus": [0],
+      "S1_plus": [0],
+      "S2_minus": [0,1],
+      "S2_plus": [0,0],
+      "S3_minus": [0,0,1,0],
+      "S3_plus": [0,0,0,1],
+      "S4_multiplier_minus": [0,0,1,0],
+      "S4_multiplier_plus": [0,0,0,1]
+    },
+    "12": {
+      "S1_minus": [0],
+      "S1_plus": [0],
+      "S2_minus": [0,1],
+      "S2_plus": [0,0],
+      "S3_minus": [0,0,1,0],
+      "S3_plus": [0,0,0,1],
+      "S4_multiplier_minus": [0,0,1,0],
+      "S4_multiplier_plus": [0,0,0,1]
+    },
+    "2": {
+      "S1_minus": [0],
+      "S1_plus": [0],
+      "S2_minus": [0,1],
+      "S2_plus": [0,1],
+      "S3_minus": [0,0,1,1],
+      "S3_plus": [0,0,1,1],
+      "S4_multiplier_minus": [0,0,2,2],
+      "S4_multiplier_plus": [0,0,2,2]
+    },
+    "3": {
+      "S1_minus": [0],
+      "S1_plus": [1],
+      "S2_minus": [0,1],
+      "S2_plus": [1,0],
+      "S3_minus": [0,1,1,0],
+      "S3_plus": [1,0,0,1],
+      "S4_multiplier_minus": [0,1,1,0],
+      "S4_multiplier_plus": [1,0,0,1]
+    },
+    "4": {
+      "S1_minus": [0],
+      "S1_plus": [0],
+      "S2_minus": [0,1],
+      "S2_plus": [0,1],
+      "S3_minus": [0,0,1,1],
+      "S3_plus": [0,0,1,1],
+      "S4_multiplier_minus": [0,0,1,1],
+      "S4_multiplier_plus": [0,0,1,1]
+    },
+    "5": {
+      "S1_minus": [0],
+      "S1_plus": [0],
+      "S2_minus": [0,1],
+      "S2_plus": [0,0],
+      "S3_minus": [0,0,1,0],
+      "S3_plus": [0,0,0,1],
+      "S4_multiplier_minus": [0,0,1,0],
+      "S4_multiplier_plus": [0,0,0,1]
+    },
+    "6": {
+      "S1_minus": [0],
+      "S1_plus": [0],
+      "S2_minus": [0,1],
+      "S2_plus": [0,0],
+      "S3_minus": [0,0,1,0],
+      "S3_plus": [0,0,0,1],
+      "S4_multiplier_minus": [0,0,1,0],
+      "S4_multiplier_plus": [0,0,0,1]
+    },
+    "7": {
+      "S1_minus": [0],
+      "S1_plus": [0],
+      "S2_minus": [0,1],
+      "S2_plus": [0,0],
+      "S3_minus": [0,0,1,0],
+      "S3_plus": [0,0,0,1],
+      "S4_multiplier_minus": [0,0,1,0],
+      "S4_multiplier_plus": [0,0,0,1]
+    },
+    "8": {
+      "S1_minus": [0],
+      "S1_plus": [0],
+      "S2_minus": [0,1],
+      "S2_plus": [0,0],
+      "S3_minus": [0,0,1,0],
+      "S3_plus": [0,0,0,1],
+      "S4_multiplier_minus": [0,0,1,0],
+      "S4_multiplier_plus": [0,0,0,1]
+    },
+    "9": {
+      "S1_minus": [0],
+      "S1_plus": [0],
+      "S2_minus": [0,1],
+      "S2_plus": [0,0],
+      "S3_minus": [0,0,1,0],
+      "S3_plus": [0,0,0,1],
+      "S4_multiplier_minus": [0,0,1,0],
+      "S4_multiplier_plus": [0,0,0,1]
+    }
   },
   "schema": "R059D_STAGE_D_BRANCH_DISTINGUISHABILITY_THEOREM_V1",
   "status": "FROZEN",
