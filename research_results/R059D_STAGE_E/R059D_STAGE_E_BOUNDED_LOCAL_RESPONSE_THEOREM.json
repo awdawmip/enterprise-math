@@ -1,0 +1,34 @@
+{
+  "baseline_first_test": {
+    "N_domain": "all N>=1",
+    "controller": "C0_U_BPLUS2_ONEBIT",
+    "intervention_matrix": {
+      "I1_MINUS_ONLY": {"class":"BOUNDED_LOCAL_RESPONSE","endpoint_at_round3":"NONALIGNED_FOR_PERTURBED_TAG","pair":"1:N","participant":"1","secondary_response":0},
+      "I1_PLUS_ONLY": {"class":"BOUNDED_LOCAL_RESPONSE","endpoint_at_round3":"D0_V_SUCCESSOR","pair":"1:N","participant":"1","secondary_response":0},
+      "I2_ADD_PLUS_TOKEN": {"action_changes":0,"class":"BOUNDED_LOCAL_RESPONSE","endpoint_at_round3":"D0_V_SUCCESSOR_WITH_CHANGED_LOCAL_MULTIPLICITY","pair":"1:N","participant":"1","secondary_response":0}
+    },
+    "proof": "B_(+2) for a post-V branch depends on the same tag's opposite branch or an empty support class on the frozen positive q-domain; I1/I2 cannot alter another tag's fixed probe.",
+    "q_domain": "q=3 or q>=5",
+    "schedulers": ["S_SYNC","S_ALL_ORDERS_SNAPSHOT"]
+  },
+  "cartesian_multiplicity_warning": "Global product-weighted history marginals can all rescale when one tag loses a branch. This independent multiplicative factor is retained diagnostically but is not a causal dependency edge and is excluded from RESP_TAG.",
+  "finite_information_theorem": {
+    "bound": "RESPONSE_PARTICIPANT_COUNT <= min(N, 2*T*floor((D+2*T)/q)+1)",
+    "consequence": "for fixed D,T,q this bound is independent of N; fixed finite local signature + fixed return rounds cannot establish system-spanning response as N grows",
+    "statement": "Let P be a fixed finite H-probe set with D=max|r|, and let T be a fixed number of scheduler rounds. If every current tag state differs from its aligned base by at most T H-actions, a one-tag intervention can create a dependency edge i<-j only when |q(j-i)|<=D+2T. After T rounds, participant tags lie in a T-fold composition of this finite dependency set.",
+    "typing": "relational dependency-word bound only; not a metric ball"
+  },
+  "frozen_parent_stage_d_head": "04a9ec5570847f957f6ab56e4fa490a9eabb02a0",
+  "full_source_local_cloud": "Even reading the complete finite macrostep lineage of the same tag creates no cross-tag dependency by itself; under I2 its participant count remains 1 unless an additional cross-tag/global aggregate is introduced.",
+  "mirror_control": {"class":"BOUNDED_LOCAL_RESPONSE","controller":"C0M_U_BMINUS2_ONEBIT","note":"the preserving/failing I1 orientation is exchanged by H/H_INV relabeling","participant_all_frozen_I1_I2":"1"},
+  "q3_reach1_comparator": {
+    "I1_MINUS_ONLY": {"class":"BOUNDED_LOCAL_RESPONSE","endpoint_round3":"D0_V_SUCCESSOR","participant":"1"},
+    "I1_PLUS_ONLY": {"class":"BOUNDED_LOCAL_RESPONSE","endpoint_round3":"fails for N>=1 after the affected plus branch reads removed next-tag minus support","participant":"min(N,2)","secondary_response":"1 if N>=2 else 0"},
+    "I2_ADD_PLUS_TOKEN": {"class":"BOUNDED_LOCAL_RESPONSE","endpoint_round3":"D0_V_SUCCESSOR","participant":"1"},
+    "controller":"C_Q3_A1_REACH1","q":3
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_E_BOUNDED_LOCAL_RESPONSE_THEOREM_V1",
+  "status": "FROZEN",
+  "taskbook_source": "9221cb7e04da772b68a9a663e07f6e2207f00e1e"
+}
