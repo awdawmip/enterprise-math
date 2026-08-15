@@ -1,0 +1,53 @@
+{
+  "aligned_states": {
+    "A_N_k": "tag i occupies (3*i, k mod 7), controller READY for current macro command",
+    "packet_count": "N",
+    "sigma_N": "V applied uniformly to carrier packet labels and tagged positions",
+    "successor": "A_(N,k+1)=sigma_N(A_(N,k))",
+    "tags": "i in Z/N"
+  },
+  "anti_target_leakage": {
+    "allowed_global_command": "finite phase label plus macro-command generation bit",
+    "evaluation_target_use": "sigma_N is frozen for evaluation; micro rules only see channel labels/controller state",
+    "full_target_configuration_input_to_micro_rule": false,
+    "per_marker_target_map_present": false
+  },
+  "carrier_family": {
+    "N_semantics": "macro repeated-constituent count scale only",
+    "carrier_packet_count_formula": "21*N",
+    "channel_algebra_certificate": [
+      "H,H_INV,V,V_INV are permutations",
+      "H*V=V*H",
+      "D=H*V",
+      "D_INV=H_INV*V_INV"
+    ],
+    "name": "C6_PRODUCT_CHANNEL_SHEET_3N_X_7",
+    "native_channel_actions": {
+      "D": "(x,y)->(x+1,y+1)",
+      "D_INV": "(x,y)->(x-1,y-1)",
+      "H": "(x,y)->(x+1,y)",
+      "H_INV": "(x,y)->(x-1,y)",
+      "V": "(x,y)->(x,y+1)",
+      "V_INV": "(x,y)->(x,y-1)"
+    },
+    "native_relational_statement": "six declared channel-labeled adjacency actions; coordinate formulas are I0 implementation only",
+    "vertex_encoding_I0": "(x,y) with x in Z/(3N), y in Z/7"
+  },
+  "cooccupancy_semantics": "tagged position map permits multiple tags at one packet; no exclusion rule is declared",
+  "forbidden_interpretations": [
+    "LINE",
+    "STRAIGHTNESS",
+    "DISTANCE",
+    "LENGTH",
+    "ANGLE",
+    "ROTATION_ANGLE",
+    "DISPLACEMENT_VECTOR",
+    "AREA",
+    "VOLUME",
+    "EUCLIDEAN_GEOMETRY"
+  ],
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_ALIGNED_STATE_PROTOCOL_V1",
+  "status": "FROZEN",
+  "taskbook_source": "9d8f6a0900a5ffd4635ad6566fff7b4a1b4693fa"
+}
