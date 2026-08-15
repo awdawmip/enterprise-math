@@ -1,0 +1,72 @@
+{
+  "action_alphabet": [
+    "H",
+    "H_INV",
+    "V",
+    "V_INV",
+    "HOLD"
+  ],
+  "controller_inputs": [
+    "CURRENT_INGRESS",
+    "S_SELF",
+    "M_FRONT reconstructed from current ingress/source support"
+  ],
+  "control_graph": [
+    "START & S_SELF=1 -> HOLD",
+    "START & S_SELF>=2 & (M_FRONT mod D_lambda=0) -> RELAY_DIRECTION",
+    "START & S_SELF>=2 & (M_FRONT mod D_lambda!=0) -> HOLD",
+    "RELAY_INGRESS & S_SELF=1 -> RELAY_DIRECTION",
+    "RELAY_INGRESS & S_SELF>=2 -> V",
+    "V -> V_INV",
+    "V_INV -> HOLD",
+    "otherwise -> HOLD"
+  ],
+  "direction": "RELAY_DIRECTION in {H,H_INV}; same schema under mirror",
+  "family_id": "I_DIVISIBILITY_RELAY_GATE",
+  "forbidden_inputs": [
+    "N",
+    "q",
+    "time",
+    "generation",
+    "horizon",
+    "remaining_range",
+    "timer",
+    "target",
+    "tag_identity",
+    "recruitment_index",
+    "global_completion",
+    "global_participant_count",
+    "aligned_flag",
+    "branch_provenance",
+    "programmed_inverse",
+    "global_oracle",
+    "selected_scheduler_order"
+  ],
+  "frozen_controls": [
+    "Stage-G G1 regenerative relay",
+    "Stage-H H_CAP_C_COHORT",
+    "Stage-H H_AMPLIFY_COHORT",
+    "Stage-H H_NONZERO_PERIOD_12",
+    "Stage-H H_EVENTUAL_ZERO_IMMEDIATE",
+    "Stage-H H_BRANCHING_MIXED_01"
+  ],
+  "frozen_parent_stage_h_head": "c1da1cd2b9b4967077badd6c5f09b1fc3f874f66",
+  "large_state_method": "exact symbolic transfer; no huge M/N carrier or history enumeration",
+  "no_special_value_case_split": true,
+  "owner_branch": "research/r059d-stage-i-uniform-relay-coupling-family",
+  "parameter": "lambda in Z; D_lambda=abs(lambda)+1",
+  "permutation_equivariance_contract": "co-moving lineages with identical current signature receive identical allowed action sets; no lineage/tag identity is readable",
+  "real_interventions": [
+    "G_I3_H_STEP",
+    "G_I3_H_INV_STEP"
+  ],
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_I_UNIFORM_FAMILY_PROTOCOL_V1",
+  "schedulers": [
+    "S_SYNC",
+    "S_ALL_ORDERS_SNAPSHOT"
+  ],
+  "status": "FROZEN_BEFORE_FAMILY_SCORING",
+  "syntactic_uniformity": "same clauses/actions for every lambda; lambda appears only inside D_lambda=abs(lambda)+1 in one exact divisibility predicate",
+  "taskbook_source": "4e2224f4ebbbe1b9f5c4d50b06de37aed491d146"
+}
