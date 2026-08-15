@@ -1,0 +1,84 @@
+{
+  "claims": [
+    {
+      "claim": "DeltaE_c=c dot DeltaA; for DeltaA!=0 neutral coefficient vectors in C_B lie on a proper integer kernel slice with N_B <= (B+1)^(k-1).",
+      "claim_id": "PA-T01",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "DeltaA=0 implies weight-independent R1 neutrality for every shared linear coefficient vector.",
+      "claim_id": "PA-T02",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "R3 equality => R2 equality => R1 equality => R0 neutrality for every shared linear coefficient vector.",
+      "claim_id": "PA-T03",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "claim": "Genuinely local, non-collective-automorphism R2 simple cycles occur in 48 of 162 frozen scenarios and across cyclic, complete, and regular-bipartite carrier families.",
+      "claim_id": "PA-E01",
+      "status": "EXACT_BOUNDED_EXISTENCE"
+    },
+    {
+      "claim": "MULTIPAIR_EXACT_CANCELLATION occurs on 12,546 of 149,799 frozen elementary undirected moves; affected pair spectra change while aggregate DeltaA is exactly zero.",
+      "claim_id": "PA-E02",
+      "status": "EXACT_BOUNDED_EXISTENCE"
+    },
+    {
+      "claim": "Genuinely local R2 simple cycles occur at exact global minima for broad coefficient classes; at B=4 there are 1,729 coefficient-scenario instances classified GLOBAL_MINIMUM_NEUTRAL using genuine-local-only R2 edges.",
+      "claim_id": "PA-E03",
+      "status": "EXACT_BOUNDED_MINIMUM_BASIN_EVIDENCE"
+    },
+    {
+      "claim": "The registered tree-like carriers have zero R1/R2/R3 simple neutral cycles in all 36 frozen tree-like scenarios.",
+      "claim_id": "PA-N01",
+      "status": "EXACT_BOUNDED_NEGATIVE_BOUNDARY"
+    },
+    {
+      "claim": "At B=4, 7,912 coefficient-scenario cycle instances lie in scenarios with structural R1 cycles, while only 509 cycle instances occur without an R1 cycle and therefore require scalar-specific neutrality; structural share among cycle-bearing instances is 7,912/(7,912+509).",
+      "claim_id": "PA-D01",
+      "status": "EXACT_BOUNDED_DIAGNOSTIC"
+    }
+  ],
+  "disposition_basis": {
+    "B4_scalar_specific_cycle_coefficient_scenario_instances_without_R1_cycle": 509,
+    "B4_structural_cycle_coefficient_scenario_instances": 7912,
+    "R1_cycle_scenarios": [
+      88,
+      162
+    ],
+    "R2_cycle_scenarios": [
+      87,
+      162
+    ],
+    "genuinely_local_R2_cycle_scenarios": [
+      48,
+      162
+    ],
+    "multipair_exact_cancellation_moves": [
+      12546,
+      149799
+    ],
+    "tree_like_boundary": "NO_R1_PLUS_CYCLES_IN_FROZEN_TREE_LIKE_REGISTRY"
+  },
+  "frozen_parent_owner_head": "f1b8eda8db0e8e069d5caf69f0f7e57bc3ee0ac7",
+  "generation": "R059P",
+  "physical_claims": {
+    "atom_explained": false,
+    "physical_energy_explained": false,
+    "zero_point_motion_explained": false
+  },
+  "primary_disposition": "ROBUST_WEIGHT_INDEPENDENT_NEUTRAL_ACTIVITY_FOUND",
+  "r059l_consumed": false,
+  "researcher_id": "EM-R059P-8A2C7D",
+  "schema": "R059P_STAGE_A_THEOREM_LEDGER_V1",
+  "secondary_status": {
+    "INTRINSIC_ACTIVITY_SELECTION_RULE": "OPEN",
+    "PATH_HISTORY_MEMORY_NEEDED_OR_NOT_NEEDED": "NOT_NEEDED_FOR_EXISTENCE_UNDER_AN_EXPLICIT_STATE_ONLY_CYCLE_SELECTOR__OPEN_FOR_INTRINSIC_SELECTION",
+    "QUANTUM_BRIDGE": "OPEN"
+  },
+  "selection_rule_proof_note": "Given any discovered simple neutral cycle S0,...,Sr-1,S0, one can explicitly define a deterministic state-only update map F(Sj)=S(j+1 mod r). Hence path-history memory is not logically required for existence of persistent motion under an externally specified selector. No intrinsic selector is derived from the packet/path substrate in Stage A.",
+  "status": "FROZEN_STAGE_A",
+  "taskbook_source": "9fb1b7416fd8752f80f7faa93e4beb92bb819065"
+}
