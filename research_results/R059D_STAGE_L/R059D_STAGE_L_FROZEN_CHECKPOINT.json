@@ -1,0 +1,85 @@
+{
+  "artifact_manifest": {
+    "artifact_count": 13,
+    "git_blob_sha1": "a4d397ee13151e37b4ab9842adabf5da0550dd88",
+    "path": "R059D_STAGE_L_ARTIFACT_MANIFEST.json",
+    "sha256": "55f86da583830405f0fdb14f91d3a2a2b9e202acbc6a0aca8a0b51b8ab27230f"
+  },
+  "artifact_owner_head_before_checkpoint_append": "4399c314b0416bddbc1a512c07c51a0bad1e5802",
+  "checker": {
+    "checks_digest_sha256": "4639b4ac4b5d93a62426a59d493a1dd9787c332ea832f2ded7868ce2467832f0",
+    "checks_failed": 0,
+    "checks_passed": 30091,
+    "checks_total": 30091,
+    "output_sha256": "e42053a10d9a017953613cfd7b16071d17c49c19dc860fd589321f3236dff133",
+    "source_sha256": "d40b76e815981972e3b13b9d28cb22c4b5ef0bfa1dbf137562d7b2c06d8a5eed",
+    "status": "PASS"
+  },
+  "firewalls": {
+    "PHYSICAL_DIRECTION_CALIBRATION": "NOT_ESTABLISHED",
+    "PHYSICAL_ELASTICITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "PHYSICAL_PROBABILITY_FROM_BRC_COUNTS": "NOT_ESTABLISHED",
+    "PHYSICAL_RIGIDITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "QUANTUM_BRIDGE": "NOT_ESTABLISHED"
+  },
+  "frozen_parent": {
+    "stage_j_k_artifacts_immutable": true,
+    "stage_k_head": "fc8abf73f67a5793334905b9863cb5f7d2030d94"
+  },
+  "owner_branch": "research/r059d-stage-l-brc6-endpoint-branch-count-collapse",
+  "researcher_id": "EM-R059D-9C6B2A",
+  "result": {
+    "BRC6_NATIVE_CANONICALITY": "NOT_ESTABLISHED",
+    "collapse_axioms": [
+      "C6 covariance",
+      "aligned-endpoint sufficiency",
+      "common-background invariance",
+      "strictly-increasing representation invariance",
+      "exact tie preservation",
+      "branch-count monotonicity"
+    ],
+    "count_mode": "unique strict argmax of (B_0,...,B_5); exact maximal ties unresolved",
+    "endpoint_index": "B_d=C_(L-1)^d=C_3^d=A_d+3I[d]",
+    "equal_L": "L(d)=4 for every candidate; L only common endpoint evaluation boundary",
+    "large_N": "all frozen ~10^36 probes invariant under common endpoint-count background N; no huge enumeration; no length threshold",
+    "perturbations": {
+      "first_count_token": [5,5,5,5,5,5],
+      "first_incidence": [5,5,5,"UNRESOLVED",5,5],
+      "first_tagged_adj": [5,5,5,5,5,5],
+      "tie_creation": "W_S1 I[3]+=1 -> endpoint tie 3/5",
+      "tie_removal": "from fully symmetric, count/incidence cover all six; tagged adjacency -> 1,2,3,4,5,0"
+    },
+    "primary_dispositions": [
+      "BRC6_EQUAL_L_ENDPOINT_BRANCH_COUNT_COLLAPSE_ESTABLISHED",
+      "BRC6_ENDPOINT_COUNT_TRUE_STATE_DYNAMICS_ESTABLISHED"
+    ],
+    "semantic_strength": "CANONICAL_WITHIN_FROZEN_ENDPOINT_BRANCH_COUNT_COLLAPSE_AXIOMS",
+    "six_outcome_coverage": "base endpoint winner 5 plus cyclic relabelings -> 5,0,1,2,3,4",
+    "stage_k_reconciliation": {
+      "W_ASYM_BASE": "B=(8,11,14,17,6,20): F1=4, reverse-lex=5, endpoint-max/count-mode=5",
+      "W_CONSENSUS_DOMINANT2": "B=(8,8,25,8,8,8): count-mode=2",
+      "W_FULLY_SYMMETRIC": "B=(8,8,8,8,8,8): unresolved",
+      "W_S1_TIE_S2_RESOLVE": "B=(9,12,15,18,6,21): count-mode=5",
+      "W_SIGNATURE_INSUFFICIENT_PAIRS": "B=(8,8,12,12,7,7): endpoint tie 2/3 unresolved"
+    },
+    "true_dynamics": {
+      "A": "48 resolved: 5,1,3 repeating projection; no full-state cycle",
+      "B": "48 resolved: 5,2 alternating projection; no full-state cycle",
+      "C": "12 resolved outputs 5 then unresolved at epoch 12",
+      "TOTAL_O": "TOTAL_O(e)=TOTAL_O(0)+e at resolved epochs"
+    }
+  },
+  "schema": "R059D_STAGE_L_FROZEN_CHECKPOINT_V1",
+  "source_discipline": {
+    "R059C_reopened": false,
+    "R059L_consumed": false,
+    "R059P_consumed": false,
+    "lex_reverse_F2_used_as_positive_rule": false,
+    "old_graded_relay_stage_j_consumed": false,
+    "physical_probability_used": false,
+    "stage_j_k_artifacts_modified": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "taskbook_source": "f1b8cacc607373ea38322853fd1a4c9aff986d12"
+}
