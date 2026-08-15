@@ -1,0 +1,17 @@
+{
+  "C6": [0,1,2,3,4,5],
+  "L": 4,
+  "carriers": [
+    {"id":"K-CARRIER-A-TARGET-LABEL","nodes":"x in Z/6Z","tau_node":"x->x+1","T_NODE":"T_NODE(x,d)=d","T_INGRESS":"T_INGRESS(x,d)=d+2 mod6","L_rule":"L(x,d)=4"},
+    {"id":"K-CARRIER-B-PARITY-LAYER","nodes":"(a,b) in Z/6Z x Z/2Z","tau_node":"(a,b)->(a+1,b)","T_NODE":"T_NODE((a,b),d)=(d, b XOR ((d-a) mod2))","T_INGRESS":"T_INGRESS((a,b),d)=d+3 mod6","L_rule":"L((a,b),d)=4"},
+    {"id":"K-CARRIER-C-SELF-NODE","nodes":"x in Z/6Z","tau_node":"x->x+1","T_NODE":"T_NODE(x,d)=x","T_INGRESS":"T_INGRESS(x,d)=d+1 mod6","L_rule":"L(x,d)=4"}
+  ],
+  "covariance_certificate": "for each carrier T_NODE(tau x,tau d)=tau T_NODE(x,d), T_INGRESS(tau x,tau d)=tau T_INGRESS(x,d), and L invariant",
+  "frozen_stage_j_head": "9f2b70d6cca5ccd66a46cc6dd18730f40a6add72",
+  "geometry_firewall": "node/port formulas are relational transport tables only; no angle/opposite/vector interpretation",
+  "researcher_id": "EM-R059D-9C6B2A",
+  "schema": "R059D_STAGE_K_C6_PORT_ALIGNED_CARRIER_REGISTRY_V1",
+  "status": "FROZEN_BEFORE_TRAJECTORY_SCORING",
+  "taskbook_source": "9ea3c173873b23f52977a7ba99e9c091329e5748",
+  "tau": "add 1 mod6 simultaneously to every channel label and first node-label coordinate"
+}
