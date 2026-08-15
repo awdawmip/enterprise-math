@@ -1,0 +1,52 @@
+{
+  "frozen_parent_stage_e_head": "26c1a5d6fe6526fbb5fca9e122c064344bb69ddc",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_F_CAUSAL_CLOSURE_THEOREM_OR_OBSTRUCTION_V1",
+  "status": "FROZEN",
+  "taskbook_source": "0aa8353d0c97c6d9944bb8ab04f809a00d323b37",
+  "theorems": {
+    "F_T1_TOKEN_MESSENGER": {
+      "E_star": "q*(N-1)",
+      "assumptions": [
+        "integer q>=2",
+        "integer N>=1",
+        "stationary P2_TOKEN_WALKER_RECRUIT_PLUS",
+        "F_I2_ALIGNED_SELF_PLUS1",
+        "source-lineage local count L=sum_i C_i"
+      ],
+      "baseline_formula": "B_e: every tag i remains at X_i with START and lineage multiplicity 1 for all e>=0",
+      "closure": "RESP_TAG_CLOSURE={0,...,N-1}",
+      "name": "ENDOGENOUS_LOCAL_SYSTEM_SPANNING_TOKEN_CLOSURE",
+      "new_recruit_formula": "NEW_RESP_TAG_e={i} exactly when e=q*i for i=0..N-1, with i=0 at e=0",
+      "participant_pair": "N:N",
+      "perturbed_formula": [
+        "tag 0 has lineage multiplicity 2; at e=0 L(X_0)=2 and action H differs from baseline HOLD",
+        "for e>=1 tag 0 is at H^e X_0 with current ingress H and continues H",
+        "for each i>=1, before e=q*i tag i remains at X_i; at e=q*i messenger and tag i cooccupy X_i so L(X_i)=3 and tag i action changes HOLD->V",
+        "for e>=q*i+1 tag i is at V X_i with ingress V and HOLD"
+      ],
+      "post_closure_certificate": "after the final recruited tag executes V, tag 0 continues on the finite H orbit with period q*N; all recruited tags i>=1 remain at V X_i. No new participant exists because closure already contains all N tags.",
+      "stage_E_reconciliation": "Stage-E bound assumed fixed finite T. Here the stationary controller has no T input while the evaluator finds E_*=q(N-1), which grows with N."
+    },
+    "F_T2_COOCCUPANCY_WALKER": {
+      "E_star": "0 if N=1 else q*(N-1)-1",
+      "assumptions": [
+        "integer q>=2",
+        "integer N>=1",
+        "stationary P3_COOCCUPANCY_WALKER",
+        "F_I3_H_STEP"
+      ],
+      "closure": "all N tags",
+      "formula": "at e=q*i-1 (i>=1), the H-moving recruited cohort reaches X_i; S_SELF>=2 changes tag i action HOLD->H, so tag i joins the cohort",
+      "name": "ENDOGENOUS_LOCAL_SYSTEM_SPANNING_COOCCUPANCY_CLOSURE",
+      "post_closure_certificate": "all N tags co-move under H on a finite H orbit; paired perturbed state is periodic with period q*N while baseline remains fixed"
+    },
+    "F_T3_SUPPORT_ONLY_I2_OBSTRUCTION": {
+      "name": "COUNT_MAGNITUDE_REQUIRED_FOR_I2_IN_FROZEN_SUPPORT_GRAMMAR",
+      "proof": "F-I2 changes exact multiplicity but leaves current relational state and every support bit B_(r) unchanged. Stationarity implies equal action sets at e=0; equal transitions preserve equal support/state inductively. Hence no tag state/support/action delta is generated.",
+      "scope": "P1 fixed support-bit controllers under F-I2 aligned +1 token",
+      "verdict": "NO_CAUSAL_PROPAGATION under this intervention/signature class"
+    }
+  },
+  "weakest_scope_note": "F_T1/F_T2 are constructive existence theorems within the frozen Stage-F grammar; they do not establish uniqueness, physical rigidity, or impossibility of other mechanisms."
+}
