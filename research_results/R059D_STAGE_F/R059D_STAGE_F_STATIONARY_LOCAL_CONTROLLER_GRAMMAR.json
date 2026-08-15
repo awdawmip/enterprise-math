@@ -1,0 +1,71 @@
+{
+  "P0_controls": [
+    {
+      "id": "P0_U_BPLUS2_STATIONARY_EXTENSION",
+      "source": "Stage-D U_BPLUS2_ONEBIT; no endpoint reset; support-only control"
+    },
+    {
+      "id": "P0_U_BMINUS2_STATIONARY_EXTENSION",
+      "source": "Stage-D U_BMINUS2_ONEBIT; no endpoint reset; support-only mirror control"
+    },
+    {
+      "id": "P0_Q3_A1_STATIONARY_EXTENSION",
+      "source": "q=3 reach-1 A1; no endpoint reset"
+    }
+  ],
+  "P1_fixed_support_probe_grammar": {
+    "offset_registry": [-3,-2,-1,1,2,3],
+    "scale_dependent_offsets_forbidden": true,
+    "signature": "INGRESS plus any frozen subset of B_(r)=1[L(H^r x)>0]",
+    "subset_closed": true
+  },
+  "P2_exact_count_grammar": {
+    "comparisons": ["=0",">0","=1","=2",">=3","<","=",">"],
+    "offset_registry": [0,-3,-2,-1,1,2,3],
+    "signature": "INGRESS plus exact L(H^r x) values/comparisons on frozen offsets"
+  },
+  "P3_local_overlap_grammar": {
+    "global_aggregate": false,
+    "offset_registry": [0,-1,1],
+    "signature": ["S(H^r x)=#sources with C_i(H^r x)>0","local pair cooccupancy at same frozen packets"]
+  },
+  "P4_current_state_automata": "only directly current relational/event state from frozen alphabet; no opaque elapsed-generation memory",
+  "current_event_state_alphabet": ["START","H","H_INV","V","V_INV","OTHER"],
+  "forbidden_positive_inputs": ["N","q","K","T","round_counter","phase_counter","timer","age_since_perturbation","target_map","branch_provenance","programmed_inverse","global_participant_count","global_quiescence_flag","selected_scheduler_order","N_or_q_case_table"],
+  "frozen_parent_stage_e_head": "26c1a5d6fe6526fbb5fca9e122c064344bb69ddc",
+  "named_positive_candidates": [
+    {
+      "class": "P2+P4",
+      "constants": [1,2,3],
+      "id": "P2_TOKEN_WALKER_RECRUIT_MINUS",
+      "reads_N": false,
+      "reads_q": false,
+      "rule": ["START and L_SELF=1 -> HOLD","START and L_SELF=2 -> H_INV","START and L_SELF>=3 -> V","INGRESS=H -> H","INGRESS=H_INV -> H_INV","INGRESS=V or V_INV -> HOLD","otherwise -> HOLD"],
+      "signature": ["INGRESS","L_SELF"]
+    },
+    {
+      "class": "P2+P4",
+      "constants": [1,2,3],
+      "id": "P2_TOKEN_WALKER_RECRUIT_PLUS",
+      "reads_N": false,
+      "reads_q": false,
+      "rule": ["START and L_SELF=1 -> HOLD","START and L_SELF=2 -> H","START and L_SELF>=3 -> V","INGRESS=H -> H","INGRESS=H_INV -> H_INV","INGRESS=V or V_INV -> HOLD","otherwise -> HOLD"],
+      "signature": ["INGRESS","L_SELF"]
+    },
+    {
+      "class": "P3+P4",
+      "constants": [1,2],
+      "id": "P3_COOCCUPANCY_WALKER",
+      "reads_N": false,
+      "reads_q": false,
+      "rule": ["START and S_SELF=1 -> HOLD","START and S_SELF>=2 -> H","INGRESS=H -> H","INGRESS=H_INV -> H_INV","INGRESS=V or V_INV -> HOLD","otherwise -> HOLD"],
+      "signature": ["INGRESS","S_SELF"]
+    }
+  ],
+  "researcher_id": "EM-R059D-4C7E21",
+  "resource_controls_only": ["Stage-E K(N) horizons","Stage-E global aggregate/parity","Stage-E movable step-horizon thresholds"],
+  "schema": "R059D_STAGE_F_STATIONARY_LOCAL_CONTROLLER_GRAMMAR_V1",
+  "stationarity_contract": "one identical local rule at every generation; no generation-dependent rule table",
+  "status": "FROZEN_BEFORE_CANDIDATE_SCORING",
+  "taskbook_source": "0aa8353d0c97c6d9944bb8ab04f809a00d323b37"
+}
