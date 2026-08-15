@@ -1,17 +1,13 @@
 {
-  "schema": "R059D_STAGE_J_UNIFORM_FAMILY_GRAMMAR_V1",
-  "researcher_id": "EM-R059D-4C7E21",
-  "taskbook_source": "4cf097ff21a9275805fb8ab49cefdd5ff42c4c92",
-  "frozen_parent_stage_i_head": "03650b38df5950b86cb2636db9e43094683b1bc8",
-  "status": "FROZEN_BEFORE_FAMILY_SCORING",
-  "family_id": "J_PHASE_HIT_RELAY_GATE",
-  "parameter": "lambda in Z",
-  "positive_orientation": "H; H_INV mirror obtained by fixed channel relabeling H<->H_INV",
-  "action_alphabet": ["H","H_INV","V","V_INV","HOLD"],
-  "lambda_occurrence": "lambda appears only in STOP_lambda(p) := [p+lambda=0]",
-  "fixed_phase_successor": "sigma(p)=p+1 mod 3",
-  "fixed_transport_action": {"0":"V","1":"V_INV","2":"H"},
-  "fixed_launch_action_for_next_phase": {"incoming_p=0":"V_INV","incoming_p=1":"H","incoming_p=2":"V"},
+  "action_alphabet": [
+    "H",
+    "H_INV",
+    "V",
+    "V_INV",
+    "HOLD"
+  ],
+  "anti_direct_cap_claim_to_test": "lambda is compared to a recurrent current ingress phase p, never to recruitment count, time, M magnitude or a monotone counter; p repeats modulo 3",
+  "baseline": "all aligned tags are START with S_SELF=1 and HOLD",
   "control_graph": [
     "START & S_SELF=1 -> HOLD",
     "phase p in {0,1,2} & S_SELF=1 -> TRANSPORT_ACTION(p)",
@@ -21,15 +17,47 @@
     "H_INV terminal ingress -> HOLD unless it is the mirror orientation's active phase class",
     "otherwise -> HOLD"
   ],
-  "launch_map_note": "to launch target phase r at a START packet, take the first action of the phase-r three-transition transport word; after three transitions the new relay is at H*x with phase r",
-  "syntactic_uniformity": "same clauses, action alphabet, phase maps and transport words for every lambda; no lambda-specific action table",
-  "anti_direct_cap_claim_to_test": "lambda is compared to a recurrent current ingress phase p, never to recruitment count, time, M magnitude or a monotone counter; p repeats modulo 3",
-  "permutation_equivariance": "all incoming source-tag lineages sharing one phase receive the same settling action; resident START is relationally distinguishable and may launch; no proper subset of an indistinguishable class is selected",
-  "baseline": "all aligned tags are START with S_SELF=1 and HOLD",
-  "real_seed": "G_I3_H_STEP gives canonical seed current ingress H, hence p0=0",
+  "family_id": "J_PHASE_HIT_RELAY_GATE",
+  "fixed_launch_action_for_next_phase": {
+    "incoming_p=0": "V_INV",
+    "incoming_p=1": "H",
+    "incoming_p=2": "V"
+  },
+  "fixed_phase_successor": "sigma(p)=p+1 mod 3",
+  "fixed_transport_action": {
+    "0": "V",
+    "1": "V_INV",
+    "2": "H"
+  },
   "forbidden_inputs": [
-    "N","q","time","generation","horizon","timer","remaining_range","recruitment_index",
-    "tag_identity","lineage_identity","global_participant_count","global_completion","target","aligned_flag",
-    "global_oracle","selected_scheduler_order","programmed_inverse"
-  ]
+    "N",
+    "q",
+    "time",
+    "generation",
+    "horizon",
+    "timer",
+    "remaining_range",
+    "recruitment_index",
+    "tag_identity",
+    "lineage_identity",
+    "global_participant_count",
+    "global_completion",
+    "target",
+    "aligned_flag",
+    "global_oracle",
+    "selected_scheduler_order",
+    "programmed_inverse"
+  ],
+  "frozen_parent_stage_i_head": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "lambda_occurrence": "lambda appears only in STOP_lambda(p) := [p+lambda=0]",
+  "launch_map_note": "to launch target phase r at a START packet, take the first action of the phase-r three-transition transport word; after three transitions the new relay is at H*x with phase r",
+  "parameter": "lambda in Z",
+  "permutation_equivariance": "all incoming source-tag lineages sharing one phase receive the same settling action; resident START is relationally distinguishable and may launch; no proper subset of an indistinguishable class is selected",
+  "positive_orientation": "H; H_INV mirror obtained by fixed channel relabeling H<->H_INV",
+  "real_seed": "G_I3_H_STEP gives canonical seed current ingress H, hence p0=0",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_J_UNIFORM_FAMILY_GRAMMAR_V1",
+  "status": "FROZEN_BEFORE_FAMILY_SCORING",
+  "syntactic_uniformity": "same clauses, action alphabet, phase maps and transport words for every lambda; no lambda-specific action table",
+  "taskbook_source": "4cf097ff21a9275805fb8ab49cefdd5ff42c4c92"
 }

@@ -1,21 +1,4 @@
 {
-  "schema": "R059D_STAGE_J_DRIVER_ACCEPTANCE_PROTOCOL_V1",
-  "researcher_id": "EM-R059D-4C7E21",
-  "taskbook_source": "4cf097ff21a9275805fb8ab49cefdd5ff42c4c92",
-  "frozen_parent_stage_i_head": "03650b38df5950b86cb2636db9e43094683b1bc8",
-  "owner_branch": "research/r059d-stage-j-graded-relay-coupling-localization",
-  "status": "FROZEN_BEFORE_GRADED_FAMILY_SCORING",
-  "driver_retype": "BINARY_RELAY_COUPLING_AXIS_ESTABLISHED",
-  "mandatory_controls": [
-    "J-C0 I_DIVISIBILITY_RELAY_GATE",
-    "J-C1 H_CAP_C_COHORT",
-    "J-C2 PERMUTATION_EQUIVARIANT_RELAY_ATTENUATION_OBSTRUCTION"
-  ],
-  "real_interventions": ["G_I3_H_STEP", "G_I3_H_INV_STEP"],
-  "primary_orientation": "G_I3_H_STEP; H_INV mirror audited by channel relabeling",
-  "schedulers": ["S_SYNC", "S_ALL_ORDERS_SNAPSHOT"],
-  "positive_gate": "same stationary syntactic RULE_lambda must yield one arbitrary-N system-spanning law and at least two distinct finite localized response laws; isolated binary sentinel is insufficient",
-  "direct_cap_gate": "parameter may not be a propagation-count budget; positive graded state must be current exact relational/count state produced by dynamics",
   "N_registry": [
     "1000000000000000000000000000000000000",
     "999999999999999999999999999999999989",
@@ -33,17 +16,73 @@
     "1000000000000000000000000000000000037",
     "1000000000000000000000019"
   ],
-  "q_registry": [2,3,4,5,6,7,8,9,10,11,12,13,17,19,23,25,29,31],
-  "huge_method": "symbolic formulas / finite-state quotient only; no O(N) carrier or history enumeration",
+  "direct_cap_gate": "parameter may not be a propagation-count budget; positive graded state must be current exact relational/count state produced by dynamics",
+  "driver_retype": "BINARY_RELAY_COUPLING_AXIS_ESTABLISHED",
   "forbidden_positive_inputs": [
-    "N","q","time","generation","horizon","timer","remaining_range","recruitment_index",
-    "tag_identity","lineage_identity","global_participant_count","global_completion","target","aligned_flag",
-    "global_oracle","selected_scheduler_order","programmed_inverse"
+    "N",
+    "q",
+    "time",
+    "generation",
+    "horizon",
+    "timer",
+    "remaining_range",
+    "recruitment_index",
+    "tag_identity",
+    "lineage_identity",
+    "global_participant_count",
+    "global_completion",
+    "target",
+    "aligned_flag",
+    "global_oracle",
+    "selected_scheduler_order",
+    "programmed_inverse"
   ],
+  "frozen_parent_stage_i_head": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "huge_method": "symbolic formulas / finite-state quotient only; no O(N) carrier or history enumeration",
+  "mandatory_controls": [
+    "J-C0 I_DIVISIBILITY_RELAY_GATE",
+    "J-C1 H_CAP_C_COHORT",
+    "J-C2 PERMUTATION_EQUIVARIANT_RELAY_ATTENUATION_OBSTRUCTION"
+  ],
+  "owner_branch": "research/r059d-stage-j-graded-relay-coupling-localization",
   "physical_firewalls": {
-    "PHYSICAL_RIGIDITY_INTERPRETATION": "NOT_ESTABLISHED",
     "PHYSICAL_ELASTICITY_INTERPRETATION": "NOT_ESTABLISHED",
     "PHYSICAL_PROBABILITY_FROM_COUNTING": "NOT_ESTABLISHED",
+    "PHYSICAL_RIGIDITY_INTERPRETATION": "NOT_ESTABLISHED",
     "QUANTUM_BRIDGE": "NOT_ESTABLISHED"
-  }
+  },
+  "positive_gate": "same stationary syntactic RULE_lambda must yield one arbitrary-N system-spanning law and at least two distinct finite localized response laws; isolated binary sentinel is insufficient",
+  "primary_orientation": "G_I3_H_STEP; H_INV mirror audited by channel relabeling",
+  "q_registry": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    17,
+    19,
+    23,
+    25,
+    29,
+    31
+  ],
+  "real_interventions": [
+    "G_I3_H_STEP",
+    "G_I3_H_INV_STEP"
+  ],
+  "researcher_id": "EM-R059D-4C7E21",
+  "schedulers": [
+    "S_SYNC",
+    "S_ALL_ORDERS_SNAPSHOT"
+  ],
+  "schema": "R059D_STAGE_J_DRIVER_ACCEPTANCE_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_GRADED_FAMILY_SCORING",
+  "taskbook_source": "4cf097ff21a9275805fb8ab49cefdd5ff42c4c92"
 }

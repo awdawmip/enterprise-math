@@ -1,19 +1,51 @@
 {
-  "schema": "R059D_STAGE_J_PARAMETER_REGISTRY_V1",
-  "researcher_id": "EM-R059D-4C7E21",
-  "taskbook_source": "4cf097ff21a9275805fb8ab49cefdd5ff42c4c92",
-  "frozen_parent_stage_i_head": "03650b38df5950b86cb2636db9e43094683b1bc8",
-  "status": "FROZEN_BEFORE_GRADED_FAMILY_SCORING",
-  "lambda_registry": [-8,-5,-3,-2,-1,0,1,2,3,5,8],
-  "symbolic_domain": "all integers lambda",
-  "candidate_phase_stop_predicate": "STOP_lambda(p) iff p+lambda=0 over Z, with p in {0,1,2}",
-  "predeclared_grade_preorder": [
-    {"class":"G0","lambda_condition":"lambda=0","first_hit_collision":1,"anticipated_bound_label":"smallest finite phase-hit grade"},
-    {"class":"G1","lambda_condition":"lambda=-1","first_hit_collision":2,"anticipated_bound_label":"middle finite phase-hit grade"},
-    {"class":"G2","lambda_condition":"lambda=-2","first_hit_collision":3,"anticipated_bound_label":"largest finite phase-hit grade"},
-    {"class":"GINF","lambda_condition":"lambda notin {0,-1,-2}","first_hit_collision":"INFINITY","anticipated_bound_label":"no phase hit"}
-  ],
-  "order_statement_to_test": "P_0 <= P_-1 <= P_-2 <= P_lambda for lambda outside {0,-1,-2}; strict function-law distinction, and strict integer inequality for all N>=5",
   "anti_postselection": "registry and phase-hit preorder frozen before scoring response extents",
-  "not_a_numeric_monotonicity_claim": "the frozen order is the exact first-hit preorder induced by current ingress phase, not ordinary signed-integer order on lambda"
+  "candidate_phase_stop_predicate": "STOP_lambda(p) iff p+lambda=0 over Z, with p in {0,1,2}",
+  "frozen_parent_stage_i_head": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "lambda_registry": [
+    -8,
+    -5,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    5,
+    8
+  ],
+  "not_a_numeric_monotonicity_claim": "the frozen order is the exact first-hit preorder induced by current ingress phase, not ordinary signed-integer order on lambda",
+  "order_statement_to_test": "P_0 <= P_-1 <= P_-2 <= P_lambda for lambda outside {0,-1,-2}; strict function-law distinction, and strict integer inequality for all N>=5",
+  "predeclared_grade_preorder": [
+    {
+      "anticipated_bound_label": "smallest finite phase-hit grade",
+      "class": "G0",
+      "first_hit_collision": 1,
+      "lambda_condition": "lambda=0"
+    },
+    {
+      "anticipated_bound_label": "middle finite phase-hit grade",
+      "class": "G1",
+      "first_hit_collision": 2,
+      "lambda_condition": "lambda=-1"
+    },
+    {
+      "anticipated_bound_label": "largest finite phase-hit grade",
+      "class": "G2",
+      "first_hit_collision": 3,
+      "lambda_condition": "lambda=-2"
+    },
+    {
+      "anticipated_bound_label": "no phase hit",
+      "class": "GINF",
+      "first_hit_collision": "INFINITY",
+      "lambda_condition": "lambda notin {0,-1,-2}"
+    }
+  ],
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_J_PARAMETER_REGISTRY_V1",
+  "status": "FROZEN_BEFORE_GRADED_FAMILY_SCORING",
+  "symbolic_domain": "all integers lambda",
+  "taskbook_source": "4cf097ff21a9275805fb8ab49cefdd5ff42c4c92"
 }

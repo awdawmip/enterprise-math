@@ -29,7 +29,7 @@ def form(lam,N):
 for lam in range(-20,21):
  for N in range(2,81):
   n,i,p=sim(lam,N); ck(f"resp:{lam}:{N}",n==form(lam,N))
-  ck(f"stop:{lam}:{N}",(i is not None)==(lam in (0,-1,-2) and N>=(-lam+2)))
+  ck(f"stop:{lam}:{N}", (i is not None)==(lam in (0,-1,-2) and N>=(-lam+2)))
 for q in range(2,21):
  for i in range(1,12): ck(f"gen:{q}:{i}",3*(q*i-1)==3*(q-1)+3*q*(i-1))
 for N in range(5,101):

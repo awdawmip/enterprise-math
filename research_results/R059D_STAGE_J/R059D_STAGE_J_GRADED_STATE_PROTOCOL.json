@@ -1,30 +1,8 @@
 {
-  "schema": "R059D_STAGE_J_GRADED_STATE_PROTOCOL_V1",
-  "researcher_id": "EM-R059D-4C7E21",
-  "taskbook_source": "4cf097ff21a9275805fb8ab49cefdd5ff42c4c92",
-  "frozen_parent_stage_i_head": "03650b38df5950b86cb2636db9e43094683b1bc8",
-  "status": "FROZEN_BEFORE_TRANSFER_SCORING",
-  "graded_state_id": "PHASE_SUPPORT_VECTOR_H",
-  "semantics": {
-    "F": "F=(F_H,F_V,F_V_INV), exact current number of source-tag lineages at the relay-front packet by CURRENT_INGRESS class H,V,V_INV",
-    "one_phase_class": "reachable real-I3 positive class has exactly one positive phase component and total phase support 1",
-    "phase_code": "p=0 iff F_H>0 only; p=1 iff F_V>0 only; p=2 iff F_V_INV>0 only",
-    "resident": "resident tag is START at the same packet and is not counted in F because it has no relay-phase ingress yet",
-    "reconstruction": "current packet, current ingress labels, and exact source-support counts only; no history/tag identity/time"
-  },
-  "transport_automaton": {
-    "phase_labels": {"0":"H","1":"V","2":"V_INV"},
-    "away_from_collision_actions": {"0":"V","1":"V_INV","2":"H"},
-    "three_transition_words": {
-      "0":"V,V_INV,H",
-      "1":"V_INV,H,V",
-      "2":"H,V,V_INV"
-    },
-    "certificate_target": "each word ends at H*x with the same phase code p; phase 1 uses frozen relational commutation H V = V H; V V_INV cancels",
-    "macro_transport": "three adjacency transitions advance one declared H relation while preserving p"
-  },
   "canonical_relabeling": "erase site/tag identities, map current front packet to FRONT_SITE, retain declared ingress labels and exact F components",
-  "permutation_covariance": "permuting source-tag identities within any ingress class leaves F and p unchanged",
+  "frozen_parent_stage_i_head": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "graded_state_id": "PHASE_SUPPORT_VECTOR_H",
+  "large_integer_lane_gate": "only after exact phase transfer theorem is established may huge integer component states M*e_p be stress-tested",
   "mutation_tests": [
     "change recruitment index only -> F,p unchanged",
     "cyclic site relabeling -> F,p unchanged after canonical relabeling",
@@ -33,5 +11,35 @@
     "changing an actual current ingress class -> corresponding F component and possibly p changes"
   ],
   "not_a_counter": "p is a current relational ingress phase in a 3-cycle and repeats after three successful relays; it is not monotone, not elapsed transfer count, and contains no remaining-range budget",
-  "large_integer_lane_gate": "only after exact phase transfer theorem is established may huge integer component states M*e_p be stress-tested"
+  "permutation_covariance": "permuting source-tag identities within any ingress class leaves F and p unchanged",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_J_GRADED_STATE_PROTOCOL_V1",
+  "semantics": {
+    "F": "F=(F_H,F_V,F_V_INV), exact current number of source-tag lineages at the relay-front packet by CURRENT_INGRESS class H,V,V_INV",
+    "one_phase_class": "reachable real-I3 positive class has exactly one positive phase component and total phase support 1",
+    "phase_code": "p=0 iff F_H>0 only; p=1 iff F_V>0 only; p=2 iff F_V_INV>0 only",
+    "reconstruction": "current packet, current ingress labels, and exact source-support counts only; no history/tag identity/time",
+    "resident": "resident tag is START at the same packet and is not counted in F because it has no relay-phase ingress yet"
+  },
+  "status": "FROZEN_BEFORE_TRANSFER_SCORING",
+  "taskbook_source": "4cf097ff21a9275805fb8ab49cefdd5ff42c4c92",
+  "transport_automaton": {
+    "away_from_collision_actions": {
+      "0": "V",
+      "1": "V_INV",
+      "2": "H"
+    },
+    "certificate_target": "each word ends at H*x with the same phase code p; phase 1 uses frozen relational commutation H V = V H; V V_INV cancels",
+    "macro_transport": "three adjacency transitions advance one declared H relation while preserving p",
+    "phase_labels": {
+      "0": "H",
+      "1": "V",
+      "2": "V_INV"
+    },
+    "three_transition_words": {
+      "0": "V,V_INV,H",
+      "1": "V_INV,H,V",
+      "2": "H,V,V_INV"
+    }
+  }
 }
