@@ -1,57 +1,215 @@
 {
-  "schema": "ENTERPRISE_MATH_NATIVE_SEMANTICS_ADMISSIBILITY_V3",
+  "schema": "ENTERPRISE_MATH_NATIVE_SEMANTICS_ADMISSIBILITY_V4",
   "status": "ACTIVE",
   "foundational_logic_source": "foundational_logic.json",
-  "purpose": "Prevent derived metric, propagation, scalar-readout, embedding, optimization, continuum, or successful effective-theory definitions from being silently promoted to the Enterprise Math native/base ontology, while preserving engineering success as evidence that the native theory must explain.",
-  "core_rule": "A claim may be labeled NATIVE/INTRINSIC/BASE-WORLD only when every theorem-critical object and operator is already in the declared native substrate, or has an explicit definability certificate from that substrate. Successful effective definitions are not inherited into N0 merely because they work; their robust engineering consequences may instead be consumed as evidence constraints to be explained from a smaller native logic.",
+  "project_definition_source": "project_definition.json",
+  "geometric_tool_policy_source": "GEOMETRIC_TOOL_REFOUNDATION_POLICY.md",
+  "purpose": "Prevent derived metric, propagation, scalar-readout, embedding, optimization, continuum, or successful effective-theory definitions from being silently promoted to the Enterprise Math native/base ontology, while preserving mature mathematical concepts for explicit refoundation and preserving engineering success as evidence that the native theory must explain.",
+  "core_rule": "A claim may be labeled NATIVE/INTRINSIC/BASE-WORLD only when every theorem-critical object and operator is already in the declared native substrate, or has an explicit definability certificate from that substrate. Successful effective definitions are not inherited into N0 merely because they work; however, their concepts are not thereby forbidden. Mature concepts may be explicitly rebuilt, declared at a task layer, used as readouts, and compared against classical mathematics. Robust engineering consequences may be consumed as evidence constraints to be explained from a smaller native logic.",
+  "project_mode": "REFOUND_NOT_REJECT",
+  "concept_definition_distinction": {
+    "concept_presence_is_not_native_promotion": true,
+    "concept_presence_is_not_semantic_violation": true,
+    "classical_definition_as_N0_without_typing_is_violation": true,
+    "stage_specific_nonpremise_is_not_global_prohibition": true,
+    "admitted_refoundation_concepts": [
+      "VECTOR",
+      "LENGTH",
+      "DISTANCE",
+      "ANGLE",
+      "NORM",
+      "DOT_OR_PAIRING",
+      "PROJECTION",
+      "SIN",
+      "COS",
+      "TAN",
+      "AREA",
+      "VOLUME",
+      "PI",
+      "EUCLIDEAN_GEOMETRY",
+      "CONTINUUM_MODELS"
+    ]
+  },
   "strata": {
     "I0_IMPLEMENTATION_CARRIER": {
       "meaning": "Coordinates, labels, bases, embeddings, or encodings used to implement/check a declared native relation. They are not ontology merely because the implementation uses them.",
-      "examples": ["integer lattice coordinates used only to realize contact adjacency", "cell IDs", "basis labels"]
+      "examples": [
+        "integer lattice coordinates used only to realize contact adjacency",
+        "cell IDs",
+        "basis labels"
+      ]
     },
     "N0_NATIVE_RELATIONAL": {
-      "meaning": "Only the explicitly declared carrier, local relations, state predicates, and operations that belong to the task's base world before any additional choice/readout is made.",
-      "examples": ["cell membership", "declared contact/incidence relation", "declared stacking relation", "inside/outside occupancy state", "contact cut relative to an occupied cluster"]
+      "meaning": "Only the explicitly declared carrier, local relations, state predicates, and operations that belong to the task's base world before any additional choice/readout is made. A task may explicitly declare mature algebraic/geometric primitives here, but they must then be part of the declared base rather than silently inherited from classical convention.",
+      "examples": [
+        "cell membership",
+        "declared contact/incidence relation",
+        "declared stacking relation",
+        "inside/outside occupancy state",
+        "contact cut relative to an occupied cluster",
+        "explicitly declared discrete vector-module addition when the task base includes it"
+      ]
     },
     "N1_DERIVED_OPERATIONAL_SEMANTICS": {
       "meaning": "A chosen process, ordering, root/event, optimization rule, propagation rule, path rule, time rule, stochastic kernel, or other operation layered on N0.",
-      "examples": ["choose a root or seed as center", "shortest-path distance", "word metric", "random-walk kernel", "heat propagation", "path cost", "greedy SURFACE_DOWN", "fixed-volume boundary minimization", "operation-horizon layers"]
+      "examples": [
+        "choose a root or seed as center",
+        "shortest-path distance",
+        "word metric",
+        "random-walk kernel",
+        "heat propagation",
+        "path cost",
+        "greedy SURFACE_DOWN",
+        "fixed-volume boundary minimization",
+        "operation-horizon layers"
+      ]
     },
     "N2_READOUT_COLLAPSE": {
-      "meaning": "A quotient, scalarization, aggregate, coordinate-dependent geometric quantity, spectral/moment observable, or other readout of N0/N1 structure.",
-      "examples": ["equal-distance classes", "radius", "norm", "shell count", "surface scalar S=|delta|", "area/volume", "curvature", "convex hull", "moment/covariance", "Bloch/Fourier wavevector readout", "orbit/type histogram", "Dirichlet/zeta aggregate"]
+      "meaning": "A quotient, scalarization, aggregate, reconstructed geometric quantity, spectral/moment observable, or other readout of N0/N1 structure. A rebuilt LENGTH/ANGLE/NORM may live here or at another explicitly declared layer depending on its construction; the vocabulary itself is not forbidden.",
+      "examples": [
+        "equal-distance classes",
+        "radius",
+        "norm",
+        "rebuilt length",
+        "rebuilt angle",
+        "shell count",
+        "surface scalar S=|delta|",
+        "area/volume",
+        "curvature",
+        "convex hull",
+        "moment/covariance",
+        "Bloch/Fourier wavevector readout",
+        "orbit/type histogram",
+        "Dirichlet/zeta aggregate"
+      ]
     },
     "N3_CONTINUUM_CLASSICAL": {
-      "meaning": "Continuum/Euclidean/smooth/PDE/integral language applied after additional completion or coarse description.",
-      "examples": ["Euclidean circle/sphere", "smooth surface", "Gaussian density", "Lebesgue measure", "continuum PDE", "classical area/volume formula", "continuum Fourier normalization"]
+      "meaning": "Continuum/Euclidean/smooth/PDE/integral language applied after additional completion or coarse description, or used as an explicit classical compatibility/calibration layer for rebuilt Enterprise Math tools.",
+      "examples": [
+        "Euclidean circle/sphere",
+        "smooth surface",
+        "Gaussian density",
+        "Lebesgue measure",
+        "continuum PDE",
+        "classical area/volume formula",
+        "classical trigonometric identities",
+        "continuum Fourier normalization"
+      ]
     }
   },
-  "native_basis_status": ["DECLARED_N0_PRIMITIVE", "N0_DEFINABLE_DERIVED"],
-  "semantic_strength_order": ["SCALAR", "QUOTIENT", "RELATION", "OBJECT", "PRIMITIVE"],
+  "native_basis_status": [
+    "DECLARED_N0_PRIMITIVE",
+    "N0_DEFINABLE_DERIVED"
+  ],
+  "semantic_strength_order": [
+    "SCALAR",
+    "QUOTIENT",
+    "RELATION",
+    "OBJECT",
+    "PRIMITIVE"
+  ],
   "admissibility_rules": [
-    {"id": "NSA-01-NO-HIDDEN-PRIMITIVE", "rule": "Every theorem-critical symbol/operator in a claim labeled native/intrinsic/base-world must appear in the declared N0 substrate or be eliminated by an explicit definability certificate."},
-    {"id": "NSA-02-DEFINABILITY-PROMOTION", "rule": "A derived object may be promoted toward N0 only after proving construction from N0, independence from arbitrary choices/coordinates, and invariance under the allowed N0 relabelings/automorphisms relevant to the claim. Convenience, symmetry intuition, or uniqueness in one embedding is insufficient."},
-    {"id": "NSA-03-NO-NATURALITY-SHORTCUT", "rule": "Words such as natural, canonical, intrinsic, obvious, nearest, radial, symmetric, isotropic, or physical do not establish native admissibility."},
-    {"id": "NSA-04-CONDITIONAL-MATH-PRESERVED", "rule": "A mathematically correct result using N1/N2/N3 structure is not discarded. Reclassify it as CONDITIONAL_ON_DECLARED_SEMANTICS / READOUT_ONLY / CONTINUUM_ONLY and state the dependency instead of discarding the mathematics."},
-    {"id": "NSA-05-EQUIDISTANCE-TYPECHECK", "rule": "Equal-distance, radius, shell, sphere, or ball predicates are ill-typed at N0 unless a metric/equidistance structure is itself explicitly part of N0 or has passed NSA-02. A graph admits a definable shortest-path metric only after shortest-path semantics has been selected; that does not make the metric an N0 primitive."},
-    {"id": "NSA-06-SEED-NOT-CENTER", "rule": "A seed cell/root used to construct or enumerate states is provenance unless a separate semantics promotes it. It must not silently become a global center/radial coordinate."},
-    {"id": "NSA-07-EMBEDDING-SEPARATION", "rule": "Implementation coordinates may be used to compute/check contact relations, but Euclidean length, angle, covariance, normal, area, point-group orientation, or other embedding-dependent quantities are N2 unless the embedding is explicitly declared as additional semantics."},
-    {"id": "NSA-08-OPTIMIZATION-SEPARATION", "rule": "A shape obtained by minimizing/maximizing a native quantity is exact conditional mathematics of that optimization semantics, not automatically the native shape of the world."},
-    {"id": "NSA-09-INFINITY-DOES-NOT-ERASE-TYPING", "rule": "Finite/infinite status is orthogonal to native/derived status. An infinite discrete completion built after a metricization/readout remains conditional on that metricization/readout."},
-    {"id": "NSA-10-PRIOR-ART-DOES-NOT-GRANT-ONTOLOGY", "rule": "A standard/classical definition or prior-art theorem may be used conditionally but does not become part of the Enterprise Math base merely because it is conventional mathematics."},
-    {"id": "NSA-11-FUTURE-LANGUAGE-TYPING", "rule": "For collapse/precision claims, declare the future language and carrier separately from the base ontology. A representation can be exact for a future language without being a native state descriptor."},
-    {"id": "NSA-12-TASK-RELATIVE-BASE-PRECEDENCE", "rule": "N1/N2/N3 hazard categories classify structures introduced after the base declaration. A task may explicitly declare metric, embedding, stochastic, optimization, or continuum primitives in N0; the gate must then type them N0 for that task rather than blanket-forbid the vocabulary."},
-    {"id": "NSA-13-SEMANTIC-STRENGTH-MATCH", "rule": "A definability/invariance certificate must prove the same semantic strength being promoted. Scalar or quotient invariance cannot promote an unproved relation, full object, or primitive."},
-    {"id": "NSA-14-TRANSITIVE-DEPENDENCY-CLOSURE", "rule": "Every theorem-critical symbol must be covered by the declared N0 base or a typed transitive dependency DAG. Omitted or dangling dependencies yield UNRESOLVED, never NATIVE_ADMISSIBLE."},
-    {"id": "NSA-15-DECLARED-VS-N0-DEFINABLE", "rule": "Distinguish DECLARED_N0_PRIMITIVE from N0_DEFINABLE_DERIVED. A successful promotion certificate establishes intrinsic definability and choice-independence; it does not silently rewrite the task base declaration itself."},
-    {"id": "NSA-16-DEFINITION-NOT-INHERITED", "rule": "A definition from a successful effective/classical/engineering theory is not evidence that the same object or definition exists in N0. Effective definitions remain withheld from native premises unless separately declared or derived."},
-    {"id": "NSA-17-ENGINEERING-SUCCESS-AS-EVIDENCE", "rule": "Robust engineering success may be consumed as an evidence constraint that a candidate native theory should explain. Preserve controlled input-output regularities, scale regimes, independent-channel agreement, intervention/composition behavior, and error envelopes without importing the effective ontology itself."},
-    {"id": "NSA-18-NO-OUTPUT-COPYING-INTO-INPUT", "rule": "Do not insert a target-side effective object/relation into native premises and then count recovery of that same object/relation as a foundational derivation. Such target leakage is circular and yields SEMANTIC_MISMATCH for the foundational claim."},
-    {"id": "NSA-19-FOUNDATION-CALIBRATION-SEPARATION", "rule": "FOUNDATION derives native mechanisms without importing effective definitions as native premises. CALIBRATION may test already-derived mechanisms against engineering success, but calibration agreement never retroactively promotes the effective definitions into N0."},
-    {"id": "NSA-20-EXPLANATORY-COMPRESSION", "rule": "For foundation-facing comparison with successful engineering mathematics, stronger evidence comes from one independently derived native mechanism explaining multiple observables/scales/compositions with few native assumptions. Agreement with one target scalar or formula is weak and cannot by itself justify ontology promotion."}
+    {
+      "id": "NSA-01-NO-HIDDEN-PRIMITIVE",
+      "rule": "Every theorem-critical symbol/operator in a claim labeled native/intrinsic/base-world must appear in the declared N0 substrate or be eliminated by an explicit definability certificate."
+    },
+    {
+      "id": "NSA-02-DEFINABILITY-PROMOTION",
+      "rule": "A derived object may be promoted toward N0 only after proving construction from N0, independence from arbitrary choices/coordinates, and invariance under the allowed N0 relabelings/automorphisms relevant to the claim. Convenience, symmetry intuition, or uniqueness in one embedding is insufficient."
+    },
+    {
+      "id": "NSA-03-NO-NATURALITY-SHORTCUT",
+      "rule": "Words such as natural, canonical, intrinsic, obvious, nearest, radial, symmetric, isotropic, or physical do not establish native admissibility."
+    },
+    {
+      "id": "NSA-04-CONDITIONAL-MATH-PRESERVED",
+      "rule": "A mathematically correct result using N1/N2/N3 structure is not discarded. Reclassify it as CONDITIONAL_ON_DECLARED_SEMANTICS / READOUT_ONLY / CONTINUUM_ONLY and state the dependency instead of discarding the mathematics."
+    },
+    {
+      "id": "NSA-05-EQUIDISTANCE-TYPECHECK",
+      "rule": "Equal-distance, radius, shell, sphere, or ball predicates are ill-typed at N0 unless a metric/equidistance structure is itself explicitly part of N0 or has passed NSA-02. A graph admits a definable shortest-path metric only after shortest-path semantics has been selected; that does not make the metric an N0 primitive. This is a typing rule, not a ban on DISTANCE as a concept."
+    },
+    {
+      "id": "NSA-06-SEED-NOT-CENTER",
+      "rule": "A seed cell/root used to construct or enumerate states is provenance unless a separate semantics promotes it. It must not silently become a global center/radial coordinate."
+    },
+    {
+      "id": "NSA-07-EMBEDDING-SEPARATION",
+      "rule": "Implementation coordinates may be used to compute/check contact relations, but Euclidean length, angle, covariance, normal, area, point-group orientation, or other embedding-dependent quantities are N2/N3 unless the embedding is explicitly declared as additional semantics or the quantity has an admissible refoundation certificate. The concepts remain available for reconstruction."
+    },
+    {
+      "id": "NSA-08-OPTIMIZATION-SEPARATION",
+      "rule": "A shape obtained by minimizing/maximizing a native quantity is exact conditional mathematics of that optimization semantics, not automatically the native shape of the world."
+    },
+    {
+      "id": "NSA-09-INFINITY-DOES-NOT-ERASE-TYPING",
+      "rule": "Finite/infinite status is orthogonal to native/derived status. An infinite discrete completion built after a metricization/readout remains conditional on that metricization/readout."
+    },
+    {
+      "id": "NSA-10-PRIOR-ART-DOES-NOT-GRANT-ONTOLOGY",
+      "rule": "A standard/classical definition or prior-art theorem may be used conditionally but does not become part of the Enterprise Math base merely because it is conventional mathematics."
+    },
+    {
+      "id": "NSA-11-FUTURE-LANGUAGE-TYPING",
+      "rule": "For collapse/precision claims, declare the future language and carrier separately from the base ontology. A representation can be exact for a future language without being a native state descriptor."
+    },
+    {
+      "id": "NSA-12-TASK-RELATIVE-BASE-PRECEDENCE",
+      "rule": "N1/N2/N3 hazard categories classify structures introduced after the base declaration. A task may explicitly declare metric, embedding, vector, geometric, stochastic, optimization, or continuum primitives in N0; the gate must then type them N0 for that task rather than blanket-forbid the vocabulary."
+    },
+    {
+      "id": "NSA-13-SEMANTIC-STRENGTH-MATCH",
+      "rule": "A definability/invariance certificate must prove the same semantic strength being promoted. Scalar or quotient invariance cannot promote an unproved relation, full object, or primitive."
+    },
+    {
+      "id": "NSA-14-TRANSITIVE-DEPENDENCY-CLOSURE",
+      "rule": "Every theorem-critical symbol must be covered by the declared N0 base or a typed transitive dependency DAG. Omitted or dangling dependencies yield UNRESOLVED, never NATIVE_ADMISSIBLE."
+    },
+    {
+      "id": "NSA-15-DECLARED-VS-N0-DEFINABLE",
+      "rule": "Distinguish DECLARED_N0_PRIMITIVE from N0_DEFINABLE_DERIVED. A successful promotion certificate establishes intrinsic definability and choice-independence; it does not silently rewrite the task base declaration itself."
+    },
+    {
+      "id": "NSA-16-DEFINITION-NOT-INHERITED",
+      "rule": "A definition from a successful effective/classical/engineering theory is not evidence that the same definition exists in N0. This does not make the concept illegal. Effective definitions remain withheld from native premises unless separately declared or derived; mature concepts remain available for refoundation, conditional use, and calibration."
+    },
+    {
+      "id": "NSA-17-ENGINEERING-SUCCESS-AS-EVIDENCE",
+      "rule": "Robust engineering success may be consumed as an evidence constraint that a candidate native theory should explain. Preserve controlled input-output regularities, scale regimes, independent-channel agreement, intervention/composition behavior, and error envelopes without importing the effective ontology itself."
+    },
+    {
+      "id": "NSA-18-NO-OUTPUT-COPYING-INTO-INPUT",
+      "rule": "Do not insert a target-side effective object/relation into native premises and then count recovery of that same object/relation as a foundational derivation. Such target leakage is circular and yields SEMANTIC_MISMATCH for the foundational claim."
+    },
+    {
+      "id": "NSA-19-FOUNDATION-CALIBRATION-SEPARATION",
+      "rule": "FOUNDATION derives native mechanisms and rebuilt tool definitions without importing effective definitions as native premises. CALIBRATION may test already-derived mechanisms/tools against engineering success, but calibration agreement never retroactively promotes the effective definitions into N0."
+    },
+    {
+      "id": "NSA-20-EXPLANATORY-COMPRESSION",
+      "rule": "For foundation-facing comparison with successful engineering mathematics, stronger evidence comes from one independently derived native mechanism explaining multiple observables/scales/compositions with few native assumptions. Agreement with one target scalar or formula is weak and cannot by itself justify ontology promotion."
+    },
+    {
+      "id": "NSA-21-REFOUND-NOT-REJECT",
+      "rule": "Project-wide semantics must distinguish rejection of automatic foundational inheritance from rejection of a mathematical concept. VECTOR, LENGTH, DISTANCE, ANGLE, NORM, DOT/PAIRING, SIN, COS, TAN, AREA, VOLUME, PI, Euclidean geometry, and continuum models are admissible concepts. Their task-specific definitions must be explicitly typed."
+    },
+    {
+      "id": "NSA-22-STAGE-NONPREMISE-NOT-GLOBAL-BAN",
+      "rule": "A task statement such as LENGTH_NOT_USED_AS_SELECTOR_PREMISE or ANGLE_NOT_USED_AS_PREMISE is local to that theorem. It must not be converted into a project-wide NO_LENGTH, NO_ANGLE, NO_TRIGONOMETRY, or NO_EUCLIDEAN_GEOMETRY claim."
+    },
+    {
+      "id": "NSA-23-CLASSICAL-RECOVERY-TYPING",
+      "rule": "When a rebuilt Enterprise Math tool is compared to a mature classical object, record an explicit recovery/deviation status when applicable: EXACT_RECOVERY, FINITE_PRECISION_RECOVERY, ASYMPTOTIC_RECOVERY, DOMAIN_RESTRICTED_RECOVERY, SYSTEMATIC_DEVIATION, or NONRECOVERY. Such classification is a bridge result, not automatic N0 promotion."
+    }
   ],
   "required_claim_ledger": {
-    "applies_when": ["claim uses native/intrinsic/base-world/foundation ontology language", "task compares Enterprise Math base to imported classical structure", "task introduces a new geometry/metric/propagation/readout primitive", "task uses successful engineering/classical mathematics to constrain or calibrate a foundational claim"],
+    "applies_when": [
+      "claim uses native/intrinsic/base-world/foundation ontology language",
+      "task compares Enterprise Math base to imported classical structure",
+      "task introduces a new geometry/metric/propagation/readout primitive",
+      "task rebuilds or redefines a mature mathematical tool",
+      "task uses successful engineering/classical mathematics to constrain or calibrate a foundational claim"
+    ],
     "fields": [
       "claim_id",
       "declared_base_carrier",
@@ -69,29 +227,85 @@
       "native_basis_status",
       "definability_or_invariance_certificate",
       "effective_definitions_withheld_from_native_premises",
+      "mature_concepts_retained_for_refoundation",
+      "rebuilt_tool_definition_if_any",
+      "classical_recovery_or_deviation_class_if_any",
       "engineering_success_constraints_consumed",
       "target_leakage_audit",
       "future_language_if_any",
       "admissibility_verdict",
       "weakest_valid_restatement"
     ],
-    "verdicts": ["NATIVE_ADMISSIBLE", "CONDITIONAL_DERIVED", "READOUT_ONLY", "CONTINUUM_ONLY", "SEMANTIC_MISMATCH", "UNRESOLVED"]
+    "verdicts": [
+      "NATIVE_ADMISSIBLE",
+      "CONDITIONAL_DERIVED",
+      "READOUT_ONLY",
+      "CONTINUUM_ONLY",
+      "SEMANTIC_MISMATCH",
+      "UNRESOLVED"
+    ]
   },
   "native_promotion_certificate": {
-    "required": ["exact declared N0 base", "complete typed transitive dependency closure", "construction from N0 only unless added structure is explicitly declared N0", "independence from arbitrary non-N0 choices", "invariance or canonical equivariance under relevant N0 relabelings/automorphisms", "uniqueness/reconstruction at the same semantic strength as the promotion target", "effective-definition withholding and target-leakage audit when engineering/classical success is used", "evidence references"],
+    "required": [
+      "exact declared N0 base",
+      "complete typed transitive dependency closure",
+      "construction from N0 only unless added structure is explicitly declared N0",
+      "independence from arbitrary non-N0 choices",
+      "invariance or canonical equivariance under relevant N0 relabelings/automorphisms",
+      "uniqueness/reconstruction at the same semantic strength as the promotion target",
+      "effective-definition withholding and target-leakage audit when engineering/classical success is used",
+      "evidence references"
+    ],
     "failure_mode": "UNRESOLVED_OR_SEMANTIC_MISMATCH"
   },
+  "classical_recovery_classes": [
+    "EXACT_RECOVERY",
+    "FINITE_PRECISION_RECOVERY",
+    "ASYMPTOTIC_RECOVERY",
+    "DOMAIN_RESTRICTED_RECOVERY",
+    "SYSTEMATIC_DEVIATION",
+    "NONRECOVERY"
+  ],
   "mandatory_regressions": [
-    {"case": "R033 graph-distance sphere", "expected_typing": "shortest-path/word-metric N1 followed by shell/ball N2; formulas may remain exact conditional mathematics but are not propagation-independent N0 ontology"},
-    {"case": "R034 random walk/diffusion", "expected_typing": "propagation kernel N1; physical-coordinate covariance/Bloch/moment readouts N2 unless additional embedding semantics is declared"},
-    {"case": "R038 rooted graph zeta", "expected_typing": "root + graph distance N1, radial scalarization and zeta aggregate N2; cannot kill a stronger metric-free N0 hypothesis"},
-    {"case": "R039 rough surface", "expected_typing": "contact cut relative to an occupied cluster is N0-relational; scalar S, local-type quotient, isoperimetric optimization and asymptotic Wulff/zonotope are later strata"},
-    {"case": "R041 horizon layers", "expected_typing": "operation-horizon layers and B_h/M_h are N1/future-language carriers, not N0 ontology even when exact"},
-    {"case": "engineering-success circle/pi inversion", "expected_typing": "classical circle/center/distance/equidistance/pi definitions may be used as effective-side descriptions or engineering evidence but cannot be inserted into a metric-free native premise to select a collapse rule and then claimed as recovered native geometry; consume engineering success as target constraints instead"}
+    {
+      "case": "R033 graph-distance sphere",
+      "expected_typing": "shortest-path/word-metric N1 followed by shell/ball N2; formulas may remain exact conditional mathematics but are not propagation-independent N0 ontology"
+    },
+    {
+      "case": "R034 random walk/diffusion",
+      "expected_typing": "propagation kernel N1; physical-coordinate covariance/Bloch/moment readouts N2 unless additional embedding semantics is declared"
+    },
+    {
+      "case": "R038 rooted graph zeta",
+      "expected_typing": "root + graph distance N1, radial scalarization and zeta aggregate N2; cannot kill a stronger metric-free N0 hypothesis"
+    },
+    {
+      "case": "R039 rough surface",
+      "expected_typing": "contact cut relative to an occupied cluster is N0-relational; scalar S, local-type quotient, isoperimetric optimization and asymptotic Wulff/zonotope are later strata"
+    },
+    {
+      "case": "R041 horizon layers",
+      "expected_typing": "operation-horizon layers and B_h/M_h are N1/future-language carriers, not N0 ontology even when exact"
+    },
+    {
+      "case": "engineering-success circle/pi inversion",
+      "expected_typing": "classical circle/center/distance/equidistance/pi definitions may be used as effective-side descriptions or engineering evidence but cannot be inserted into a metric-free native premise to select a collapse rule and then claimed as recovered native geometry; consume engineering success as target constraints instead"
+    },
+    {
+      "case": "geometric-tool refoundation",
+      "expected_typing": "LENGTH/ANGLE/TRIG vocabulary is admissible; only automatic inheritance of an undeclared classical definition into N0 is rejected. Rebuilt definitions must state dependency and classical recovery/deviation status."
+    }
   ],
   "retroactive_policy": {
     "old_claims_are_not_auto_invalidated": true,
-    "required_action": "Retype old claims under this gate. Recompute only when theorem-critical conclusions depended on an inadmissible primitive, invalid promotion between strata, or target leakage from an effective definition into a claimed native derivation.",
-    "priority": ["native/ontology claims", "foundation-facing claims", "engineering-success inversion claims", "downstream claims that consume them", "conditional mathematics with explicit semantics"]
+    "required_action": "Retype old claims under this gate. Recompute only when theorem-critical conclusions depended on an inadmissible primitive, invalid promotion between strata, target leakage from an effective definition into a claimed native derivation, or a project-wide prohibition that should have been only task-local withholding.",
+    "priority": [
+      "native/ontology claims",
+      "foundation-facing claims",
+      "engineering-success inversion claims",
+      "geometric-tool refoundation claims",
+      "downstream claims that consume them",
+      "conditional mathematics with explicit semantics"
+    ]
   }
 }
