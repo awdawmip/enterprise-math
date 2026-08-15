@@ -1,0 +1,80 @@
+{
+  "D_MAX": 2,
+  "controls": {
+    "A1_STAGE_C_REPLAY": "INGRESS=V and B_(+1)=0 -> H; B_(+1)=1 -> H_INV; replayed verbatim before any repair",
+    "Q_DEPENDENT_PROBE_CONTROL": "may be analyzed only as rejected/nonuniform control; never robustness evidence"
+  },
+  "families": {
+    "S1": {
+      "components": [
+        "INGRESS_CLASS",
+        "B_(+1)"
+      ]
+    },
+    "S2": {
+      "components": [
+        "INGRESS_CLASS",
+        "B_(+1)",
+        "B_(+2)"
+      ]
+    },
+    "S3": {
+      "components": [
+        "INGRESS_CLASS",
+        "B_(+1)",
+        "B_(-1)",
+        "B_(+2)",
+        "B_(-2)"
+      ]
+    },
+    "S4": {
+      "comparisons": [
+        "==0",
+        ">0",
+        "==",
+        "<",
+        ">"
+      ],
+      "components": [
+        "INGRESS_CLASS",
+        "exact counts C(H^r x) for r in {+1,-1,+2,-2}"
+      ]
+    }
+  },
+  "fixed_launch_rules": [
+    "START -> {H,H_INV}",
+    "H_FAMILY -> V for primary three-round search skeleton"
+  ],
+  "forbidden": [
+    "q input",
+    "N input",
+    "H^(q-1) probe",
+    "H^(q-2) probe",
+    "q-indexed lookup",
+    "target map",
+    "branch sign/provenance",
+    "timer",
+    "programmed inverse suffix",
+    "selected order"
+  ],
+  "frozen_parent_stage_c_head": "441c554fbb13e3c7faba94561f2ea8b64d3b6c4b",
+  "frozen_probe_offsets": [
+    1,
+    -1,
+    2,
+    -2
+  ],
+  "probe_definition": "B_(r)(x)=1[C_current(H^r(x))>0]; r is H-word transition count, not distance",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_D_SIGNATURE_GRAMMAR_V1",
+  "status": "FROZEN_BEFORE_Q_EVALUATION",
+  "subset_closure": "all nonempty subsets of the frozen offsets are admitted for deletion/minimality audit; no offset outside the frozen set may be introduced after q evaluation",
+  "taskbook_source": "3bb0e9d7c0078818f5e224b7524cf72812a4ab8a",
+  "uniform_search_actions": [
+    "H",
+    "H_INV",
+    "V",
+    "NO_MOVE",
+    "TIED_{H,H_INV}"
+  ]
+}
