@@ -1,0 +1,64 @@
+{
+  "forbidden_premises": {
+    "euclidean_distance": false,
+    "geometric_length": false,
+    "shortest_path": false
+  },
+  "generation": "R059P",
+  "models": [
+    {
+      "formula": "e_ij = sum_n alpha_ij,n * abs(W_n(a_i,a_j)-W*_ij,n)",
+      "global_readout": "E = sum_{i<j} e_ij",
+      "layer": "HIGHER_LEVEL_EXPERIMENTAL_N2_READOUT",
+      "model_id": "C0_EXACT_SPECTRUM_COMPATIBILITY",
+      "preferred_spectrum_type": "FROZEN_FINITE_INTEGER_TUPLE",
+      "symmetric_pair_required": true,
+      "toy_instance": {
+        "alpha": {
+          "1": 1,
+          "2": 1
+        },
+        "preferred_spectrum": {
+          "1": 1,
+          "2": 0
+        },
+        "purpose": "strict-descent obstruction demonstration",
+        "window": [
+          1,
+          2
+        ]
+      },
+      "weights_type": "FROZEN_NONNEGATIVE_RATIONAL"
+    },
+    {
+      "formula": "c_ij = sum_n w_ij,n * W_n(a_i,a_j)",
+      "global_readout_if_nonnegative": "E = sum_{i<j} c_ij only when the declared toy instance uses c_ij >= 0 as a mismatch/readout",
+      "layer": "HIGHER_LEVEL_EXPERIMENTAL_N2_READOUT",
+      "model_id": "C1_FINITE_WINDOW_WEIGHTED_COUPLING",
+      "symmetric_pair_required": true,
+      "toy_instance": {
+        "pair_mismatch_definition": "e_ij := 2*W_1 + W_2",
+        "purpose": "neutral-plateau existence test",
+        "weights": {
+          "1": 2,
+          "2": 1
+        },
+        "window": [
+          1,
+          2
+        ]
+      },
+      "weights_type": "FROZEN_INTEGER_OR_RATIONAL"
+    }
+  ],
+  "physical_claims": {
+    "atom_coupling_explained": false,
+    "c_is_attraction": false,
+    "e_is_physical_energy": false
+  },
+  "researcher_id": "EM-R059P-8A2C7D",
+  "schema": "R059P_PAIR_COUPLING_MODEL_REGISTRY_V1",
+  "status": "FROZEN_STAGE0",
+  "task_id": "RS-R059P-PATH-SPECTRUM-COUPLING-DYNAMIC-STEADY-STATE-VALIDATION",
+  "taskbook_source": "8f4e83ed6404bad6804e3d5f9f2f291c1ec42cf2"
+}
