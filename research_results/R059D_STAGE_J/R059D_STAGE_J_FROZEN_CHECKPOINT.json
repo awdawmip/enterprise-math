@@ -1,0 +1,91 @@
+{
+  "artifact_manifest": {
+    "artifact_count": 15,
+    "git_blob_sha1": "5abed4552dcb48cef16c5faad4035dd94a41d483",
+    "path": "R059D_STAGE_J_ARTIFACT_MANIFEST.json",
+    "sha256": "10f348448aded5876c6e125045dfb0b0c0e2a0e624f0f4c76211eaea81fb8722"
+  },
+  "artifact_owner_head_before_checkpoint_append": "5dcbcad5aebcbc18fda76b15b7d927ebf1f6285e",
+  "checker": {
+    "checks_digest_sha256": "39c9711f705a69bdbffbff457f064abca073a4d034d0b872ce2cf576e69ecf39",
+    "checks_failed": 0,
+    "checks_passed": 237,
+    "checks_total": 237,
+    "output_sha256": "277a10a6adfa8eab0521a42b3f5ac907bfce50c3dbbd99fd32d01607ed865190",
+    "source_sha256": "ff667247c18776cbab0cf79f2fe64be112f2dd9b3d0e8ba1094994d910039f08",
+    "status": "PASS"
+  },
+  "frozen_provenance_parent": "03650b38df5950b86cb2636db9e43094683b1bc8",
+  "owner_branch": "research/r059d-stage-j-brc6-next-channel-selection",
+  "researcher_id": "EM-R059D-4C7E21",
+  "result": {
+    "BRC_symbol_policy": "no acronym expansion frozen",
+    "F2_coefficient_box": "all 624 nonzero theta in {-2,-1,0,1,2}^4 checked; winner parameter-sensitive, so no naturalness promotion",
+    "aligned_segment_cell_count": "L=4 in frozen positive registries and equal for all six candidates; never selector input",
+    "boundary_padding": "positive padding depths 4,8,16 invariant for K=3; in-horizon negative control classified BOUNDARY_CONTAMINATED_BRC6",
+    "candidate_count_recurrence": "A_d=O[d]+M[i,d]; C_n^d=A_d+n*I[d] for n=0..3 from exact two-state CPBC quotient recurrence",
+    "codomain": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "cyclic_covariance": "BRC6(tau*sigma)=tau(BRC6(sigma)) on unique-winner domain",
+    "large_N": "all 15 frozen probes around 10^36 plus six cyclic relabelings preserve exact relative output 4 by common-N cancellation; no huge enumeration",
+    "perturbation_response": {
+      "count_token_after_outputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "local_incidence_after_outputs": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "single_tagged_adjacency_after_outputs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        0
+      ]
+    },
+    "physical_direction_calibration": "NOT_ESTABLISHED",
+    "physical_elasticity_interpretation": "NOT_ESTABLISHED",
+    "physical_probability_from_BRC_counts": "NOT_ESTABLISHED",
+    "physical_rigidity_interpretation": "NOT_ESTABLISHED",
+    "preferred_selector": "F1 unique lexicographic maximum of Z_d=(C0,C1,C2,C3)",
+    "primary_disposition": "BRC6_PARTIAL_SELECTOR_WITH_EXACT_SYMMETRY_UNRESOLVED_STATES",
+    "quantum_bridge": "NOT_ESTABLISHED",
+    "repeated_channel_dynamics": {
+      "base_beta4": "period 3 sequence 0,4,2,...",
+      "same_beta0": "period 1",
+      "symmetric": "unresolved before iteration",
+      "tie_resolved_beta5": "period 6"
+    },
+    "six_outcome_surjectivity": "ESTABLISHED via W_ASYM_BASE output 4 and six cyclic relabelings producing 4,5,0,1,2,3",
+    "symmetry_obstruction": "states invariant under a nontrivial cyclic translation that moves all labels are BRC6_UNRESOLVED_BY_CURRENT_SIGNATURE; unresolved is evaluator verdict, not seventh output"
+  },
+  "schema": "R059D_STAGE_J_FROZEN_CHECKPOINT_V1",
+  "source_discipline": {
+    "R059C_reopened": false,
+    "R059L_consumed": false,
+    "R059P_consumed": false,
+    "stage_A_I_artifacts_modified": false,
+    "stage_E_I_relay_results_used_as_selector_premise": false,
+    "superseded_stage_j_read_or_executed": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "taskbook_source": "3ca99589c5c3ade32c9cc164cdc3b3c4f6e15b7b"
+}
