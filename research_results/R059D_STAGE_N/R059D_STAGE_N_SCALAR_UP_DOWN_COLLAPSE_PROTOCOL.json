@@ -1,0 +1,63 @@
+{
+  "covariance": {
+    "positive_integer_scale": "C(sn;b)=s*C(n;b), rho(sn,b)=s*rho(n,b) for s>0 when all interval data scale",
+    "sign_inversion": "interval [L,U], n maps to [-U,-L], -n; upper/lower bit maps b -> 1-b and collapsed value changes sign",
+    "translation": "C(n+c;b)=C(n;b)+c and rho invariant"
+  },
+  "examples": [
+    {
+      "C": "4+5b",
+      "L": "4",
+      "U": "9",
+      "id": "square_5",
+      "n": "5",
+      "residue": "1-5b"
+    },
+    {
+      "C": "5b",
+      "L": "0",
+      "U": "5",
+      "id": "non_midpoint",
+      "n": "2",
+      "residue": "2-5b"
+    },
+    {
+      "C": "b",
+      "L": "0",
+      "U": "1",
+      "id": "midpoint_precision_control",
+      "n": "1/2",
+      "residue": "1/2-b",
+      "status": "precision/algebra carrier control"
+    },
+    {
+      "C": "-5+5b",
+      "L": "-5",
+      "U": "0",
+      "id": "negative_interval",
+      "n": "-2",
+      "residue": "3-5b"
+    }
+  ],
+  "frozen_parent": "d6cfcb3435deac50901581cd4fa82e6b3cf588d3",
+  "hard_firewalls": [
+    "NO_NEAREST_ROUNDING_SELECTOR",
+    "NO_ENDPOINT_COUNT_ARGMAX_AS_CURRENT_BRC_LAW",
+    "NO_PATH_MERGE_REINTERPRETATION",
+    "NO_ARBITRARY_REWARD_WEIGHT"
+  ],
+  "no_local_selector_assumed": true,
+  "normal_form": {
+    "G": "U-L>0",
+    "L": "completed lower state",
+    "U": "completed upper state",
+    "assumption": "L<n<U",
+    "bit": "b in {0,1}",
+    "collapse": "C(n;b)=L+(U-L)b",
+    "idempotence": "b^2=b"
+  },
+  "researcher_id": "EM-R059D-9C6B2A",
+  "schema": "R059D_STAGE_N_SCALAR_UP_DOWN_COLLAPSE_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_COUPLED_SCORING",
+  "taskbook_source": "0ded98e376b649cbe41e47e18ea23c8c2daf59ca"
+}
