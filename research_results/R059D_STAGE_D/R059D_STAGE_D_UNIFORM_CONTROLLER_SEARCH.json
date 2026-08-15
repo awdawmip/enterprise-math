@@ -5,15 +5,76 @@
   "large_N_method": "symbolic residue/count-field theorem evaluated on every pre-frozen (N,q) registry pair; no huge enumeration",
   "primary_structural_disposition_candidate": "MIXED_ALIGNMENT_PERIOD_STRUCTURAL_ROBUSTNESS",
   "q2_q4_verdict": "NO_POSITIVE_UNIFORM_OR_Q_SPECIFIC_COUNT_ONLY_CONTROLLER_WITHIN_FROZEN_EQUIVARIANT_GRAMMAR due COUNT_SIGNATURE_SYMMETRY_OBSTRUCTION",
-  "redundant_supersets": {"S2":"contains U_BPLUS2 behavior; B_(+1) is unnecessary on the robust q-domain","S3":"adds mirror/support probes but no new q-domain","S4":"exact count magnitudes add no new branch-sign q-domain"},
+  "redundant_supersets": {
+    "S2": "contains U_BPLUS2 behavior; B_(+1) is unnecessary on the robust q-domain",
+    "S3": "adds mirror/support probes but no new q-domain",
+    "S4": "exact count magnitudes add no new branch-sign q-domain"
+  },
   "researcher_id": "EM-R059D-4C7E21",
   "schema": "R059D_STAGE_D_UNIFORM_CONTROLLER_SEARCH_V1",
   "search_scope": "all subset-closed fixed probes from {+1,-1,+2,-2}, S1-S4 exact comparisons, canonical rule tables on reachable signatures; q,N,target,history,timer inputs forbidden",
   "status": "FROZEN_AFTER_LARGE_N_SYMBOLIC_SEARCH",
   "survivor_equivalence_classes": [
-    {"N_domain":"all N>=1","endpoint":"D0 sigma_N=V","first_aligned_return_round":3,"freeze":"UNIFORM_FINITE_COUNT_SIGNATURE_AUTONOMOUS_RECURRENCE","id":"U_BPLUS2_ONEBIT","q_domain":"q=3 or q>=5","rule":["START->{H,H_INV}","H_FAMILY->V","V and B_(+2)=1 -> H","V and B_(+2)=0 -> H_INV"],"schedulers":["S_SYNC","S_ALL_ORDERS_SNAPSHOT"],"signature":["INGRESS_CLASS","B_(+2)"]},
-    {"N_domain":"all N>=1","endpoint":"D0 sigma_N=V","first_aligned_return_round":3,"id":"U_BMINUS2_ONEBIT","q_domain":"q=3 or q>=5","relation_to_U_BPLUS2":"mirror fixed-probe representation; same reachable endpoint/count-cloud class","rule":["START->{H,H_INV}","H_FAMILY->V","V and B_(-2)=1 -> H_INV","V and B_(-2)=0 -> H"],"schedulers":["S_SYNC","S_ALL_ORDERS_SNAPSHOT"],"signature":["INGRESS_CLASS","B_(-2)"]},
-    {"N_domain":"all N>=1","endpoint":"D0 sigma_N=V","first_aligned_return_round":3,"id":"Q3_REACH1_A1_CLASS","q_domain":"q=3 only for nontrivial D0","rule":"verbatim Stage-C A1","schedulers":["S_SYNC","S_ALL_ORDERS_SNAPSHOT"],"signature":["INGRESS_CLASS","B_(+1)"]}
+    {
+      "N_domain": "all N>=1",
+      "endpoint": "D0 sigma_N=V",
+      "first_aligned_return_round": 3,
+      "freeze": "UNIFORM_FINITE_COUNT_SIGNATURE_AUTONOMOUS_RECURRENCE",
+      "id": "U_BPLUS2_ONEBIT",
+      "q_domain": "q=3 or q>=5",
+      "rule": [
+        "START->{H,H_INV}",
+        "H_FAMILY->V",
+        "V and B_(+2)=1 -> H",
+        "V and B_(+2)=0 -> H_INV"
+      ],
+      "schedulers": [
+        "S_SYNC",
+        "S_ALL_ORDERS_SNAPSHOT"
+      ],
+      "signature": [
+        "INGRESS_CLASS",
+        "B_(+2)"
+      ]
+    },
+    {
+      "N_domain": "all N>=1",
+      "endpoint": "D0 sigma_N=V",
+      "first_aligned_return_round": 3,
+      "id": "U_BMINUS2_ONEBIT",
+      "q_domain": "q=3 or q>=5",
+      "relation_to_U_BPLUS2": "mirror fixed-probe representation; same reachable endpoint/count-cloud class",
+      "rule": [
+        "START->{H,H_INV}",
+        "H_FAMILY->V",
+        "V and B_(-2)=1 -> H_INV",
+        "V and B_(-2)=0 -> H"
+      ],
+      "schedulers": [
+        "S_SYNC",
+        "S_ALL_ORDERS_SNAPSHOT"
+      ],
+      "signature": [
+        "INGRESS_CLASS",
+        "B_(-2)"
+      ]
+    },
+    {
+      "N_domain": "all N>=1",
+      "endpoint": "D0 sigma_N=V",
+      "first_aligned_return_round": 3,
+      "id": "Q3_REACH1_A1_CLASS",
+      "q_domain": "q=3 only for nontrivial D0",
+      "rule": "verbatim Stage-C A1",
+      "schedulers": [
+        "S_SYNC",
+        "S_ALL_ORDERS_SNAPSHOT"
+      ],
+      "signature": [
+        "INGRESS_CLASS",
+        "B_(+1)"
+      ]
+    }
   ],
   "taskbook_source": "3bb0e9d7c0078818f5e224b7524cf72812a4ab8a"
 }

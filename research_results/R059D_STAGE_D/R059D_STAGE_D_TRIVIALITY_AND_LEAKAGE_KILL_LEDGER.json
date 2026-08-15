@@ -1,26 +1,106 @@
 {
   "frozen_parent_stage_c_head": "441c554fbb13e3c7faba94561f2ea8b64d3b6c4b",
   "gates": [
-    {"detail":"positive uniform controllers do not read q","id":"NO_Q_INPUT","status":"PASS"},
-    {"detail":"positive uniform controllers do not read N","id":"NO_N_INPUT","status":"PASS"},
-    {"detail":"one rule table is used on its entire q-domain","id":"NO_Q_SPECIFIC_TABLE","status":"PASS"},
-    {"detail":"only frozen offsets ±1,±2 are available; no H^(q-k) probe","id":"NO_Q_DEPENDENT_PROBE","status":"PASS"},
-    {"detail":"sigma_N=V is evaluation/stopping readout only","id":"NO_TARGET_MAP","status":"PASS"},
-    {"detail":"post-V decision uses ingress V plus current count bit only","id":"NO_BRANCH_PROVENANCE","status":"PASS"},
-    {"detail":"no stored excursion sign or inverse suffix","id":"NO_PROGRAMMED_INVERSE","status":"PASS"},
-    {"detail":"no fixed reversal/phase timer is a controller input","id":"NO_TIMER","status":"PASS"},
-    {"detail":"S_SYNC and S_ALL_ORDERS_SNAPSHOT both pass","id":"NO_SELECTED_ORDER","status":"PASS"},
-    {"detail":"packet count equality not used","id":"STATIC_COUNT_NOT_EVIDENCE","status":"PASS"},
-    {"detail":"round/event count not used as recurrence evidence","id":"FIXED_EVENT_NOT_EVIDENCE","status":"PASS"},
-    {"detail":"all proofs are integer congruence/count/support identities","id":"NO_FLOATING_EQUALITY","status":"PASS"},
-    {"detail":"q/N registry frozen and symbolic classification precedes tiny regressions","id":"LARGE_N_FIRST","status":"PASS"},
-    {"detail":"q and probe exponent are relational word counts only","id":"NO_GEOMETRY","status":"PASS"},
-    {"detail":"PHYSICAL_PROBABILITY_FROM_COUNTING remains NOT_ESTABLISHED","id":"NO_PHYSICAL_PROBABILITY","status":"PASS"},
-    {"detail":"PHYSICAL_RIGIDITY_INTERPRETATION remains NOT_ESTABLISHED","id":"NO_PHYSICAL_RIGIDITY","status":"PASS"},
-    {"detail":"QUANTUM_BRIDGE remains NOT_ESTABLISHED","id":"NO_QUANTUM_BRIDGE","status":"PASS"},
-    {"detail":"repository compare 441c554f.. -> c2acae7d.. showed 12 Stage-D additions and zero Stage A/B/C modifications/deletions","id":"PARENT_IMMUTABILITY","status":"PASS"},
-    {"detail":"no prohibited lane consumed","id":"NO_R059P_R059L","status":"PASS"},
-    {"detail":"explicitly rejects alignment-period integer -> physical distance inference","id":"Q_NOT_PHYSICAL_DISTANCE","status":"PASS"}
+    {
+      "detail": "positive uniform controllers do not read q",
+      "id": "NO_Q_INPUT",
+      "status": "PASS"
+    },
+    {
+      "detail": "positive uniform controllers do not read N",
+      "id": "NO_N_INPUT",
+      "status": "PASS"
+    },
+    {
+      "detail": "one rule table is used on its entire q-domain",
+      "id": "NO_Q_SPECIFIC_TABLE",
+      "status": "PASS"
+    },
+    {
+      "detail": "only frozen offsets \u00b11,\u00b12 are available; no H^(q-k) probe",
+      "id": "NO_Q_DEPENDENT_PROBE",
+      "status": "PASS"
+    },
+    {
+      "detail": "sigma_N=V is evaluation/stopping readout only",
+      "id": "NO_TARGET_MAP",
+      "status": "PASS"
+    },
+    {
+      "detail": "post-V decision uses ingress V plus current count bit only",
+      "id": "NO_BRANCH_PROVENANCE",
+      "status": "PASS"
+    },
+    {
+      "detail": "no stored excursion sign or inverse suffix",
+      "id": "NO_PROGRAMMED_INVERSE",
+      "status": "PASS"
+    },
+    {
+      "detail": "no fixed reversal/phase timer is a controller input",
+      "id": "NO_TIMER",
+      "status": "PASS"
+    },
+    {
+      "detail": "S_SYNC and S_ALL_ORDERS_SNAPSHOT both pass",
+      "id": "NO_SELECTED_ORDER",
+      "status": "PASS"
+    },
+    {
+      "detail": "packet count equality not used",
+      "id": "STATIC_COUNT_NOT_EVIDENCE",
+      "status": "PASS"
+    },
+    {
+      "detail": "round/event count not used as recurrence evidence",
+      "id": "FIXED_EVENT_NOT_EVIDENCE",
+      "status": "PASS"
+    },
+    {
+      "detail": "all proofs are integer congruence/count/support identities",
+      "id": "NO_FLOATING_EQUALITY",
+      "status": "PASS"
+    },
+    {
+      "detail": "q/N registry frozen and symbolic classification precedes tiny regressions",
+      "id": "LARGE_N_FIRST",
+      "status": "PASS"
+    },
+    {
+      "detail": "q and probe exponent are relational word counts only",
+      "id": "NO_GEOMETRY",
+      "status": "PASS"
+    },
+    {
+      "detail": "PHYSICAL_PROBABILITY_FROM_COUNTING remains NOT_ESTABLISHED",
+      "id": "NO_PHYSICAL_PROBABILITY",
+      "status": "PASS"
+    },
+    {
+      "detail": "PHYSICAL_RIGIDITY_INTERPRETATION remains NOT_ESTABLISHED",
+      "id": "NO_PHYSICAL_RIGIDITY",
+      "status": "PASS"
+    },
+    {
+      "detail": "QUANTUM_BRIDGE remains NOT_ESTABLISHED",
+      "id": "NO_QUANTUM_BRIDGE",
+      "status": "PASS"
+    },
+    {
+      "detail": "repository compare 441c554f.. -> c2acae7d.. showed 12 Stage-D additions and zero Stage A/B/C modifications/deletions",
+      "id": "PARENT_IMMUTABILITY",
+      "status": "PASS"
+    },
+    {
+      "detail": "no prohibited lane consumed",
+      "id": "NO_R059P_R059L",
+      "status": "PASS"
+    },
+    {
+      "detail": "explicitly rejects alignment-period integer -> physical distance inference",
+      "id": "Q_NOT_PHYSICAL_DISTANCE",
+      "status": "PASS"
+    }
   ],
   "primary_disposition_candidate": "MIXED_ALIGNMENT_PERIOD_STRUCTURAL_ROBUSTNESS",
   "researcher_id": "EM-R059D-4C7E21",
