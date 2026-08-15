@@ -36,7 +36,10 @@
     "large_M": "lambda=0: M->1->1...; lambda!=0: D|M gives M->1->0 else M->0; all nonzero lambda extinct within <=2 transfer evaluations",
     "relay_coupling_parameter_boundary": "lambda=0 versus lambda!=0",
     "relay_coupling_parameter_response_order": "real-I3 participant count nonincreasing in abs(lambda)",
-    "schedulers": ["S_SYNC", "S_ALL_ORDERS_SNAPSHOT"],
+    "schedulers": [
+      "S_SYNC",
+      "S_ALL_ORDERS_SNAPSHOT"
+    ],
     "scheduler_structure": "canonical transfer and causal closure identical; Cartesian order multiplicity diagnostic only",
     "intrinsic_N_macro_micro_crossover": "NOT_IDENTIFIED",
     "physical_rigidity_interpretation": "NOT_ESTABLISHED",
