@@ -1,0 +1,39 @@
+{
+  "classification": {
+    "intrinsic_N_boundary": "NOT_IDENTIFIED",
+    "residue_parity_structure": "ESTABLISHED",
+    "stage_A_N_c_3": "R3_CONTROLLER_SPECIFIC_ALIAS_CANDIDATE"
+  },
+  "controller_identifiability": {
+    "R1": "no aliases for any N>=1",
+    "R2": "no aliases for any N>=1",
+    "R3": "aliases exactly N=1,2; the Stage-A N=3 class change is therefore controller-specific",
+    "R6": "aliases exactly N=1,2,4, proving nonmonotone N structure",
+    "create_alias_at_any_fixed_N": "choose R=a0(N)",
+    "freeze": "CONTROLLER_SCALE_ALIASING",
+    "remove_alias_at_any_fixed_N": "choose any 1<=R<a0(N), in particular R=1"
+  },
+  "definition": "ALIAS(N,R) means that for some excursion offset a with 1<=a<=R, the + and - branch positions of the same tagged constituent coincide.",
+  "fixed_R_exact_alias_set": {
+    "first_descending_alias_if_R_ge_3": "max aliased N = 2*floor(R/3); this is only a first encountered alias from large N, not a sharp threshold.",
+    "not_generally_a_prefix": "From R=6 onward the set can be parity-interleaved; e.g. R=6 gives exactly {1,2,4}.",
+    "statement": "{N>=1:ALIAS(N,R)}={odd N: N<=floor(R/3)} union {even N: N<=floor(2R/3)}"
+  },
+  "parity_split": {
+    "N_even": "gcd(2,3N)=2, so ALIAS iff R>=3N/2",
+    "N_odd": "gcd(2,3N)=1, so ALIAS iff R>=3N"
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_B_ALIAS_THEOREM_V1",
+  "status": "FROZEN",
+  "taskbook_source": "0dd9f78b047191535f4b05f80aafc613bbbac105",
+  "theorem_1": {
+    "proof": "At offset a the same tag has x labels 3i+a and 3i-a modulo 3N; equality is exactly 2a=0 mod 3N. The y label is the same at corresponding +/- excursion phases.",
+    "statement": "ALIAS(N,R) iff exists integer a, 1<=a<=R, such that 3N divides 2a."
+  },
+  "theorem_2": {
+    "minimal_alias_offset": "a0(N)=3N/gcd(2,3N)",
+    "proof": "For m=3N, positive integers a satisfying m|2a are exactly multiples of m/gcd(2,m); the least positive solution is a0=m/gcd(2,m), and the available offsets are exactly 1..R.",
+    "statement": "ALIAS(N,R) iff R >= 3N/gcd(2,3N)."
+  }
+}
