@@ -1,0 +1,86 @@
+{
+  "controls": {
+    "CONTROL_FIXED_CLOCK": {
+      "failed": [
+        "C_NPI_2",
+        "C_NPI_3"
+      ],
+      "reason": "branch sign plus reversal timer forces reciprocal return",
+      "verdict": "HARD_REJECT"
+    },
+    "CONTROL_ORDER_SELECTED": {
+      "failed": [
+        "SCHEDULER_ROBUSTNESS"
+      ],
+      "reason": "drops eligible orders instead of retaining them",
+      "verdict": "HARD_REJECT_AS_AUTONOMOUS"
+    },
+    "CONTROL_STAGE_B_R1_PROGRAMMED_INVERSE": {
+      "failed": [
+        "C_NPI_1",
+        "C_NPI_2"
+      ],
+      "reason": "stores branch sign s and later executes H^-s",
+      "verdict": "HARD_REJECT"
+    },
+    "CONTROL_TARGET_LEAK": {
+      "failed": [
+        "C_NPI_4"
+      ],
+      "reason": "next aligned target is a move-rule input",
+      "verdict": "HARD_REJECT"
+    }
+  },
+  "first_aligned_return_note": "alignment is checked only after a completed scheduler round; it is absent from every controller input signature",
+  "frozen_parent_head": "a876b44aa105227418c43d02d44599da45bface9",
+  "physical_probability_from_counting": "NOT_ESTABLISHED",
+  "positive_candidate_gates": {
+    "A1_ONEBIT_SUPPORT_HOLE": {
+      "C_NPI_1_no_syntactic_inverse_suffix": "PASS",
+      "C_NPI_2_no_opaque_branch_return_token": "PASS",
+      "C_NPI_3_no_fixed_reversal_clock": "PASS",
+      "C_NPI_4_no_target_leakage": "PASS",
+      "C_NPI_5_no_N_coded_case_table": "PASS",
+      "certificate": [
+        "controller stores no branch sign and no excursion word",
+        "after V ingress both branch histories have identical INGRESS=V; return direction is selected only by current CPBC support/count comparison",
+        "H or H_INV appears only as a declared local channel choice selected by current signature, not as an inverse-of-stored-prefix operation",
+        "no round number, phase counter, target address, N, residue, or fitted threshold is an input",
+        "counterfactual: changing the current neighbor support/count comparison changes the selected return channel even with the same prior transition history"
+      ]
+    },
+    "A2_SYMMETRIC_SUPPORT_HOLE": {
+      "C_NPI_1_no_syntactic_inverse_suffix": "PASS",
+      "C_NPI_2_no_opaque_branch_return_token": "PASS",
+      "C_NPI_3_no_fixed_reversal_clock": "PASS",
+      "C_NPI_4_no_target_leakage": "PASS",
+      "C_NPI_5_no_N_coded_case_table": "PASS",
+      "certificate": [
+        "controller stores no branch sign and no excursion word",
+        "after V ingress both branch histories have identical INGRESS=V; return direction is selected only by current CPBC support/count comparison",
+        "H or H_INV appears only as a declared local channel choice selected by current signature, not as an inverse-of-stored-prefix operation",
+        "no round number, phase counter, target address, N, residue, or fitted threshold is an input",
+        "counterfactual: changing the current neighbor support/count comparison changes the selected return channel even with the same prior transition history"
+      ]
+    },
+    "A3_FULL_COUNT_MIN": {
+      "C_NPI_1_no_syntactic_inverse_suffix": "PASS",
+      "C_NPI_2_no_opaque_branch_return_token": "PASS",
+      "C_NPI_3_no_fixed_reversal_clock": "PASS",
+      "C_NPI_4_no_target_leakage": "PASS",
+      "C_NPI_5_no_N_coded_case_table": "PASS",
+      "certificate": [
+        "controller stores no branch sign and no excursion word",
+        "after V ingress both branch histories have identical INGRESS=V; return direction is selected only by current CPBC support/count comparison",
+        "H or H_INV appears only as a declared local channel choice selected by current signature, not as an inverse-of-stored-prefix operation",
+        "no round number, phase counter, target address, N, residue, or fitted threshold is an input",
+        "counterfactual: changing the current neighbor support/count comparison changes the selected return channel even with the same prior transition history"
+      ]
+    }
+  },
+  "relational_state_note": "INGRESS_CLASS is the current transition-incidence label and is directly readable from the current state; it is not hidden finite controller memory. Exact H versus H_INV sign is intentionally collapsed to H_FAMILY before V.",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_C_NO_PROGRAMMED_INVERSE_LEDGER_V1",
+  "status": "FROZEN",
+  "taskbook_source": "c51c31f989494b0ac57f17312dd270de18c20d61"
+}
