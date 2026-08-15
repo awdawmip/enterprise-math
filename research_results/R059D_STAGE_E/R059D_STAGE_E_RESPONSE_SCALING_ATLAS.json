@@ -1,0 +1,23 @@
+{
+  "N_domain": "all N>=1 unless lower bound stated",
+  "controllers": {
+    "C0M_U_BMINUS2_ONEBIT": {"I1_MINUS":"1:N BOUNDED_LOCAL","I1_PLUS":"1:N BOUNDED_LOCAL","I2":"1:N BOUNDED_LOCAL","N_class_change":"NONE"},
+    "C0_U_BPLUS2_ONEBIT": {"I1_MINUS":"1:N BOUNDED_LOCAL","I1_PLUS":"1:N BOUNDED_LOCAL","I2":"1:N BOUNDED_LOCAL","N_class_change":"NONE"},
+    "C_Q3_A1_REACH1": {"I1_MINUS":"1:N BOUNDED_LOCAL","I1_PLUS":"min(N,2):N BOUNDED_LOCAL","I2":"1:N BOUNDED_LOCAL","N_class_change":"NONE"},
+    "FIXED_K_LOCAL_WINDOW": {"K":"1,2,4,8,16","class":"BOUNDED_LOCAL_RESPONSE","participant":"P_K exact finite constant for large N"},
+    "GLOBAL_PARITY": {"class":"SYSTEM_SPANNING_RESPONSE","global_readout":true,"participant":"N:N"},
+    "K_EQUAL_N": {"class":"EXTENSIVE_RESPONSE for infinite large-N family","participant":"min(N,floor(N/q)+floor((N+2)/q)+1):N","resource_dependent":true},
+    "K_ISQRT_N": {"class":"SUBEXTENSIVE_RESPONSE","participant":"P_isqrt(N):N","resource_dependent":true},
+    "PER_TAG_FULL_MACROSTEP_CLOUD": {"class":"BOUNDED_LOCAL_RESPONSE","participant":"1:N under I2"}
+  },
+  "frozen_parent_stage_d_head": "04a9ec5570847f957f6ab56e4fa490a9eabb02a0",
+  "obstruction_q_controls": {"2":"not in positive recurrence domain","4":"not in positive recurrence domain"},
+  "positive_q_domain": "q=3 or q>=5",
+  "researcher_id": "EM-R059D-4C7E21",
+  "scale_down_result": "no intrinsic N response-class change in fixed local semantic class; resource-dependent controls retain their declared resource classes.",
+  "scheduler_response_class": "same participant support; raw multiplicities differ by scheduler order factors only",
+  "schedulers": ["S_SYNC","S_ALL_ORDERS_SNAPSHOT"],
+  "schema": "R059D_STAGE_E_RESPONSE_SCALING_ATLAS_V1",
+  "status": "FROZEN_AFTER_LARGE_N_CLASSIFICATION",
+  "taskbook_source": "9221cb7e04da772b68a9a663e07f6e2207f00e1e"
+}
