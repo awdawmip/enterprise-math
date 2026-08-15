@@ -1,0 +1,101 @@
+{
+  "artifact_manifest": {
+    "artifact_count": 14,
+    "git_blob_sha1": "8f7d405e44b24cc8910ed85d5a7c77526f3802ef",
+    "path": "R059D_STAGE_M_ARTIFACT_MANIFEST.json",
+    "sha256": "d0f9a810c653eb66adcbb86979b30a7efecf1a58d1f6a5daf9ec3d6bfec1f61b"
+  },
+  "artifact_owner_head_before_checkpoint_append": "9aea1da0d5f1b668d736c24627a264b467b5c4a0",
+  "checker": {
+    "checks_digest_sha256": "29956c4d48067eab641c595995f2038a6c9bfb92dc9a1af0e79351e1d277a10d",
+    "checks_failed": 0,
+    "checks_passed": 7945,
+    "checks_total": 7945,
+    "output_git_blob_sha1": "33b063d1d173924940194cecd89dd080bbf60286",
+    "output_sha256": "4a3a0cbd163705f9d7fb422b0af144b1daf69c4b5bef72b2a52e902e4622391b",
+    "source_git_blob_sha1": "68fabdc2df1a60ca03c828615d27efee20719e86",
+    "source_sha256": "3536f727bd09747b311ef5d6d49bdb2fe299a9d46a87780134c3bfd502e747fb",
+    "status": "PASS"
+  },
+  "firewalls": {
+    "PHYSICAL_DIRECTION_CALIBRATION": "NOT_ESTABLISHED",
+    "PHYSICAL_ELASTICITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "PHYSICAL_PROBABILITY_FROM_BRC_COUNTS": "NOT_ESTABLISHED",
+    "PHYSICAL_RIGIDITY_INTERPRETATION": "NOT_ESTABLISHED",
+    "QUANTUM_BRIDGE": "NOT_ESTABLISHED"
+  },
+  "frozen_parent": {
+    "stage_j_k_l_artifacts_immutable": true,
+    "stage_l_head": "da350b7b1e2ae21491e6251fdf2ba9cf0d4557ca"
+  },
+  "owner_branch": "research/r059d-stage-m-brc6-endpoint-count-microgrammar-robustness",
+  "researcher_id": "EM-R059D-9C6B2A",
+  "result": {
+    "BRC6_NATIVE_CANONICALITY": "NOT_ESTABLISHED",
+    "L": "4 fixed for every candidate and every grammar; same cells 0,1,2,3 and endpoint cell 3",
+    "carrier_C_margins": {
+      "G0": "B5-B0=12-e",
+      "G1/G2/G5": "B5-B0=8",
+      "G3": "B5-B0=16-2e",
+      "G4": "B5-B0=19+3e"
+    },
+    "endpoint_functionals": {
+      "G0": "A+3I",
+      "G1": "A+2I",
+      "G2": "A+2I",
+      "G3": "A+4I",
+      "G4": "2A+I",
+      "G5": "A+2I"
+    },
+    "explicit_conflicting_winner_counterexample": "A=(0,1,0,0,0,0), I=(1,0,0,0,0,0): G0/G1/G2/G3/G5 -> 0, G4 -> 1",
+    "functional_equivalence": "G1/G2/G5 induce identical endpoint functional A+2I despite different internal organization",
+    "large_N": "For F_g=alpha A+beta I, common A_d->N+A_d adds alpha*N to every candidate; all frozen N~10^36 probes preserve winner/tie; N is system scale only",
+    "mandatory_witnesses": {
+      "W_ASYM_BASE": "MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED -> 5",
+      "W_CONSENSUS_DOMINANT2": "MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED -> 2",
+      "W_FULLY_SYMMETRIC": "MICROGRAMMAR_ALL_UNRESOLVED",
+      "W_S1_TIE_S2_RESOLVE": "MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED -> 5",
+      "W_SIGNATURE_INSUFFICIENT_PAIRS": "MICROGRAMMAR_ALL_UNRESOLVED"
+    },
+    "microgrammar_independent_winner_sufficient_condition": "componentwise A/I dominance with at least one strict coordinate against each competitor; every frozen endpoint functional has alpha,beta>0",
+    "primary_dispositions": [
+      "BRC6_ENDPOINT_COUNT_MICROGRAMMAR_ROBUST_DOMAIN_ESTABLISHED",
+      "BRC6_ENDPOINT_COUNT_MICROGRAMMAR_DEPENDENT_DOMAIN_ESTABLISHED",
+      "BRC6_ENDPOINT_FUNCTIONAL_EQUIVALENCE_THEOREM",
+      "BRC6_ENDPOINT_COUNT_TRUE_STATE_MICROGRAMMAR_DYNAMICS_ESTABLISHED"
+    ],
+    "raw_history_oracle": "PASS; every grammar and A,I in {0,1,2,3} has CPBC endpoint count equal to direct raw-history multiplicity; multiplicity>1 comes from distinct histories",
+    "search_box_template_counts": {
+      "MICROGRAMMAR_ALL_UNRESOLVED": 240,
+      "MICROGRAMMAR_COMPATIBLE_WITH_TIES": 180,
+      "MICROGRAMMAR_DEPENDENT": 810,
+      "MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED": 2610
+    },
+    "search_box_unique_state_counts": {
+      "MICROGRAMMAR_ALL_UNRESOLVED": 226,
+      "MICROGRAMMAR_COMPATIBLE_WITH_TIES": 180,
+      "MICROGRAMMAR_DEPENDENT": 810,
+      "MICROGRAMMAR_STRONG_CONSENSUS_RESOLVED": 2250
+    },
+    "six_outcome_coverage": "W_ASYM_BASE winner 5 under every grammar; cyclic relabelings -> 5,0,1,2,3,4",
+    "true_dynamics": {
+      "A": "all functional classes 5,1,3 repeating projection through 48",
+      "B": "all functional classes 5,2 alternating through 48",
+      "C": "G3 tie at e=8; G0 tie at e=12; G1/G2/G5 keep 5 uniquely forever by closed form; G4 keeps 5 uniquely forever with increasing margin",
+      "TOTAL_O": "TOTAL_O(e)=TOTAL_O(0)+e at resolved epochs"
+    }
+  },
+  "schema": "R059D_STAGE_M_FROZEN_CHECKPOINT_V1",
+  "source_discipline": {
+    "R059C_reopened": false,
+    "R059L_consumed": false,
+    "R059P_consumed": false,
+    "arbitrary_weights_used": false,
+    "candidate_specific_grammar_used": false,
+    "old_graded_relay_stage_j_consumed": false,
+    "stage_j_k_l_artifacts_modified": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "taskbook_source": "525f268408a66ee3f7bcae4e061f3f34dfa25366"
+}
