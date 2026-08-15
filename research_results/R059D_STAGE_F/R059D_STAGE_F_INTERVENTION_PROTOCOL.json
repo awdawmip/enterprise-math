@@ -1,0 +1,52 @@
+{
+  "freeze_note": "all locations/orientations fixed before candidate scoring; no post-result seed relocation",
+  "frozen_parent_stage_e_head": "26c1a5d6fe6526fbb5fca9e122c064344bb69ddc",
+  "interventions": {
+    "F_I1_MINUS_ONLY": {
+      "boundary": 0,
+      "controller_scope": "P0_STAGE_D_BASELINE_CONTROLS",
+      "rule": "for j0 retain launch H_INV and remove H; all other tags retain baseline launch language",
+      "target_input": false,
+      "type": "SINGLE_TAG_LAUNCH_CHOICE_REMOVAL"
+    },
+    "F_I1_PLUS_ONLY": {
+      "boundary": 0,
+      "controller_scope": "P0_STAGE_D_BASELINE_CONTROLS",
+      "rule": "for j0 retain launch H and remove H_INV; all other tags retain baseline launch language",
+      "target_input": false,
+      "type": "SINGLE_TAG_LAUNCH_CHOICE_REMOVAL"
+    },
+    "F_I2_ALIGNED_SELF_PLUS1": {
+      "boundary": 0,
+      "controller_scope": "stationary count controllers",
+      "count_delta": 1,
+      "physical_particle_semantics": false,
+      "rule": "add exactly one source-lineage CPBC count token to tag j0 at aligned source state X_j0 before stationary evolution; no target data",
+      "type": "SINGLE_COUNT_TOKEN_PERTURBATION"
+    },
+    "F_I2_STAGE_E_POSTV_PLUS1_CONTROL": {
+      "boundary": "post-V reachable boundary",
+      "controller_scope": "P0 comparator",
+      "count_delta": 1,
+      "rule": "retain Stage-E legal +1 token at z_j^+=H V X_j as a location-control; not selected after response results",
+      "type": "SINGLE_COUNT_TOKEN_PERTURBATION_CONTROL"
+    },
+    "F_I3_H_INV_STEP": {
+      "boundary": 0,
+      "rule": "apply exactly one declared H_INV adjacency transition to j0 before releasing the stationary paired process",
+      "type": "SINGLE_TAGGED_STATE_TRANSITION_PERTURBATION",
+      "well_typed": true
+    },
+    "F_I3_H_STEP": {
+      "boundary": 0,
+      "rule": "apply exactly one declared H adjacency transition to j0 before releasing the stationary paired process",
+      "type": "SINGLE_TAGGED_STATE_TRANSITION_PERTURBATION",
+      "well_typed": true
+    }
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_F_INTERVENTION_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_CANDIDATE_SCORING",
+  "tag_selection": "j0=0 canonical representative under cyclic tag relabeling; theorem equivariant to arbitrary seed tag",
+  "taskbook_source": "0aa8353d0c97c6d9944bb8ab04f809a00d323b37"
+}
