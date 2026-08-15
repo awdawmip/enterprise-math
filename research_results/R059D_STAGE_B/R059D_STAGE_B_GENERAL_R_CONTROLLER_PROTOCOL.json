@@ -1,0 +1,108 @@
+{
+  "G_R_family": {
+    "G_R_minus": "H^-R V H^R",
+    "G_R_plus": "H^R V H^-R",
+    "branch_bit": "s in {+1,-1}",
+    "macrostep_event_count_control": "L_R(N)=(2R+1)N",
+    "memory": "one branch bit retained through the reversible excursion plus finite phase/done state",
+    "parameter": "R is arbitrary positive integer",
+    "phase_boundary_position": "pos_R(i,s,p)=(3*i+s*a_R(p) mod 3N, k+b_R(p) mod 7)",
+    "phase_count": "m(R)=2R+1",
+    "phase_offset_sequence": "a_R=[0,1,...,R,R,R-1,...,1,0]",
+    "uniform_expression": "H^(R*s) V H^(-R*s)",
+    "vertical_state_sequence": "b_R=0 through the H^R prefix and b_R=1 after the common V through endpoint"
+  },
+  "T1_exact": {
+    "A_closed_forms": {
+      "R=3q+1, q>=1": "x^2/(1-x)^2 + 2(z-1)*x^(2q+1)/(1-x) + (z^2-1)*x^(2q+2)/(1-x)^2",
+      "R=3q+2, q>=0": "x^2/(1-x)^2 + (z^2-1)*x^(2q+2)/(1-x)^2",
+      "R=3q, q>=1": "x^2/(1-x)^2 + (z^2-1)*x^(2q)/(1-x)^2"
+    },
+    "R1": "every branch assignment has unique support 4N; U_(N,1)(4N)=2^N*(N!)^3",
+    "R_ge_2_uncovered_pair_function": "e_R(L,P)=1[R<3L+1 and R<3P+2]+1[R<3L+2 and R<3P+1] for a cyclic minus-run length L followed by plus-run length P",
+    "branch_assignment_generating_function": "F_(N,R)(z)=2+sum_{t=1..floor(N/2)} (N/t)*[x^N] A_R(x,z)^t",
+    "checksum": "sum_u U_(N,R)(u)=2^N*(N!)^(2R+1)",
+    "histogram": "U_(N,R)(6N-2e)=(N!)^(2R+1)*[z^e]F_(N,R)(z) for R>=2",
+    "meaning": "per-full-history unique packet support over the macrostep",
+    "pair_generating_function": "A_R(x,z)=sum_{L>=1,P>=1} x^(L+P) z^(e_R(L,P))"
+  },
+  "T2_exact": {
+    "certificate": "offsets 0 and 1 already expose all three x residue classes on each of the two V-related carrier rows across the branch cloud",
+    "formula": "CLOUD_UNION_SUPPORT_COUNT(N,R)=6N for every R>=1"
+  },
+  "T3_exact": {
+    "Hfull": "2^N*(N!)^(2R+1)",
+    "integrality": "Hfull is even for N>=1, so half-integer coefficient notation always represents an integer count",
+    "merge_rule": "when R mod 3=2 the two nonzero coefficients coincide, giving 6N cells with the same Hfull-scaled multiplicity",
+    "q": "floor(R/3)",
+    "spectrum": "2N cells carry (q+1)Hfull; 4N cells carry ((R-q)/2)Hfull; remaining 15N cells carry 0"
+  },
+  "T4_exact": {
+    "certificate": "V commutes with every H action in G_R; pulling the next macrostep back by V^-1 preserves the full general-R T1/T2/T3/count-cloud formulas",
+    "status": "ALIGNED_STEP_TRAVERSAL_SIGNATURE_RECURRENCE"
+  },
+  "carrier_consumed_without_modification": {
+    "I0_encoding": "(x,y) with x mod 3N and y mod 7",
+    "aligned_tag_i": "(3*i,k)",
+    "channel_certificate": [
+      "H,V are commuting permutations",
+      "D=H*V",
+      "all declared channel actions are permutations"
+    ],
+    "name": "C6_PRODUCT_CHANNEL_SHEET_3N_X_7",
+    "successor": "V"
+  },
+  "driver_accepted_parent_statement": "ALIGNED_TO_ALIGNED_COUNT_CLOUD_RECURRENCE_ESTABLISHED_WITHIN_FROZEN_CONTROLLER_FAMILY",
+  "driver_retyped_parent_crossover": "R3_CONTROLLER_SPECIFIC_ALIAS_CANDIDATE",
+  "endpoint_theorem": {
+    "endpoint_class": "D0",
+    "freeze": [
+      "EXACT_ALIGNED_ENDPOINT_RECOALESCENCE",
+      "ENDPOINT_SUPPORT_DETERMINISM",
+      "ALIGNED_ENDPOINT_RECURRENCE_CONTROLLER_NONIDENTIFIABILITY"
+    ],
+    "full_history_multiplicity": "Hfull(N,R)=2^N*(N!)^(2R+1)",
+    "proof": "H and V commute, so H^(R*s) V H^(-R*s)=V H^(R*s)H^(-R*s)=V.",
+    "statement": "For every N>=1, R>=1 and s in {+1,-1}, H^(R*s) V H^(-R*s)=V.",
+    "support": "support(H_(N,L_R(N)))={A_(N,k+1)}"
+  },
+  "parent_head_immutable": "0f634efbd4cf506f5ccbbbe63cfa524a065c7d72",
+  "phase_boundary_count_cloud": {
+    "cell_occurrence": "for phase history total M_p, supported cells have M_p if a mod 3=0, otherwise M_p/2",
+    "cell_support": "at offset a: N if a mod 3 = 0, otherwise 2N",
+    "distinction": "tagged branch alias depends on 3N|2a; untagged cell-coset merge depends only on a mod 3",
+    "tagged_configuration_support": "at offset a=0: 1; at a>0: 1 iff 3N divides 2a, otherwise 2^N"
+  },
+  "raw_history_count": {
+    "full": "2^N*(N!)^(2R+1)",
+    "phase_boundary_p0": "1",
+    "phase_boundary_p_ge_1": "2^N*(N!)^p"
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_B_GENERAL_R_CONTROLLER_PROTOCOL_V1",
+  "semantic_firewall": {
+    "N_semantics": "macro repeated-constituent count scale only",
+    "R_semantics": "finite controller excursion parameter only",
+    "forbidden_theorem_inputs": [
+      "LINE",
+      "DISTANCE",
+      "LENGTH",
+      "ANGLE",
+      "ROTATION_ANGLE",
+      "EUCLIDEAN_GEOMETRY",
+      "FORCE",
+      "ENERGY",
+      "STRESS",
+      "STRAIN",
+      "ELASTIC_MODULUS",
+      "PHYSICAL_PROBABILITY",
+      "QUANTUM_AMPLITUDE",
+      "CONTINUUM_MOTION"
+    ],
+    "physical_probability_from_counting": "NOT_ESTABLISHED",
+    "physical_rigidity_interpretation": "NOT_ESTABLISHED",
+    "quantum_bridge": "NOT_ESTABLISHED"
+  },
+  "status": "FROZEN",
+  "taskbook_source": "0dd9f78b047191535f4b05f80aafc613bbbac105"
+}
