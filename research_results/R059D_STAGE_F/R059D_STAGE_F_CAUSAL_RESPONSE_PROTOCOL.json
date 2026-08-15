@@ -1,0 +1,21 @@
+{
+  "causal_firewall": "pure common Cartesian product-history multiplicity rescaling without state/local-signature/action change is CARTESIAN_MULTIPLICITY_RESCALE_ONLY and recruits no tag",
+  "evaluator_only": true,
+  "frozen_parent_stage_e_head": "26c1a5d6fe6526fbb5fca9e122c064344bb69ddc",
+  "ratio_storage": "RESPONSE_PARTICIPANT_COUNT_CLOSURE:N exact integer pair; never physical probability",
+  "readouts": {
+    "ACTION_SET_DELTA_e(i)": "1 iff the stationary controller allowed-transition set differs",
+    "COUNT_FIELD_DELTA_e(x)": "1 iff exact local source-lineage count field differs",
+    "COUNT_SIGNATURE_DELTA_e(i)": "1 iff the exact controller-visible local integer count signature for tag i differs",
+    "CUM_RESP_TAG_E": "union_{0<=e<=E} RESP_TAG_e",
+    "NEW_RESP_TAG_E": "RESP_TAG_e minus CUM_RESP_TAG_(e-1)",
+    "RESPONSE_PARTICIPANT_COUNT_CLOSURE": "|RESP_TAG_CLOSURE|",
+    "RESP_TAG_CLOSURE": "union_{e>=0} RESP_TAG_e",
+    "RESP_TAG_e": "{i: STATE_DELTA_e(i) or COUNT_SIGNATURE_DELTA_e(i) or ACTION_SET_DELTA_e(i)}",
+    "STATE_DELTA_e(i)": "1 iff current tagged packet/state-support or declared current event-state differs between B_e and P_e"
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_F_CAUSAL_RESPONSE_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_CANDIDATE_SCORING",
+  "taskbook_source": "0aa8353d0c97c6d9944bb8ab04f809a00d323b37"
+}
