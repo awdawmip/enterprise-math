@@ -1,0 +1,63 @@
+{
+  "candidate_kills": {
+    "G0_DIRECT_V": "KILLED_PRIMARY: no nontrivial cell branching; only phase-order multiplicity",
+    "G1_MEMORYLESS_FREE_RETURN_R3": "KILLED_D0: e.g. one tag choosing H in all six H-channel phases ends at H^6 V(start), distinct from V(start) for every frozen huge N because 3N>6",
+    "G2_SYMMETRIC_CPBC_NO_BRANCH_MEMORY_R3": "KILLED_D0_OR_BRANCHING: carrier-relabeling-equivariant local count signature cannot distinguish the two branch-prefix histories requiring opposite return channels; choosing one return loses the other branch, allowing both destroys D0",
+    "G3_BRANCH_MEMORY_RECOALESCE_R2": "SURVIVES; exact large-N recurrence; no crossover in N>=1 phase-injectivity property",
+    "G3_BRANCH_MEMORY_RECOALESCE_R3": "SURVIVES_AND_SELECTED; exact large-N recurrence plus exact sharp position-cloud crossover at N=3"
+  },
+  "gates": [
+    {
+      "evidence": "equal aligned tag count N is explicitly control-only; not used for primary recurrence",
+      "id": "STATIC_PACKET_COUNT_TRIVIALITY",
+      "status": "PASS"
+    },
+    {
+      "evidence": "L_R(N) reported as T0 only; positive evidence is T1/T2/T3/count-cloud support",
+      "id": "FIXED_EVENT_COUNT_TRIVIALITY",
+      "status": "PASS"
+    },
+    {
+      "evidence": "no tag->target table; both branch words use uniform channel actions",
+      "id": "TARGET_MAP_LEAKAGE",
+      "status": "PASS"
+    },
+    {
+      "evidence": "endpoint derived from local word identity H^(Rs)VH^(-Rs)=V and seven/five actual transitions; traversal signatures independently counted",
+      "id": "AUTOMORPHISM_ONLY_TAUTOLOGY",
+      "status": "PASS"
+    },
+    {
+      "evidence": "with phase order frozen, 2^N branch assignments remain; at R3,N>=3 each nonendpoint phase boundary has 2^N distinct tagged-position configurations",
+      "id": "ORDER_ONLY_BRANCHING",
+      "status": "PASS"
+    },
+    {
+      "evidence": "carrier is periodic quotient; no padding/boundary parameter",
+      "id": "BOUNDARY_ARTIFACT",
+      "status": "PASS"
+    },
+    {
+      "evidence": "R2/R3 endpoint theorem holds all N>=1; huge registry spans multiple residues mod 2,3,5,7,11",
+      "id": "RESIDUE_ACCIDENT_AT_10^36",
+      "status": "PASS"
+    },
+    {
+      "evidence": "all equalities are integer/channel-word identities; no float/tolerance",
+      "id": "FLOATING_STABILITY_ARTIFACT",
+      "status": "PASS"
+    },
+    {
+      "evidence": "PHYSICAL_PROBABILITY_FROM_COUNTING=NOT_ESTABLISHED",
+      "id": "COUNT_RATIO_CALLED_PHYSICAL_PROBABILITY",
+      "status": "PASS"
+    },
+    {
+      "evidence": "large-N proof is symbolic before scale-down; tiny enumeration only regression-checks formulas",
+      "id": "MICRO_TO_MACRO_EXTRAPOLATION",
+      "status": "PASS"
+    }
+  ],
+  "schema": "R059D_TRIVIALITY_KILL_LEDGER_V1",
+  "status": "FROZEN"
+}
