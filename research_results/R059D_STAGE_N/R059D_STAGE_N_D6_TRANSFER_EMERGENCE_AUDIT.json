@@ -1,0 +1,10 @@
+{
+  "classification":"ESTABLISHED_ONLY_WITH_ADDITIONAL_MINIMALITY_ASSUMPTION",
+  "comparison_to_stage_m_vectors":{"named_D6":{"+u":[1,-1,0],"+v":[0,1,-1],"+w":[-1,0,1],"-u":[-1,1,0],"-v":[0,-1,1],"-w":[1,0,-1]},"set_equality":true,"u":[1,-1,0],"v":[0,1,-1],"w":[-1,0,1]},
+  "derived_set_cardinality":6,
+  "derived_transfer_rows":[{"donor":"y","recipient":"x","vector":[1,-1,0]},{"donor":"z","recipient":"x","vector":[1,0,-1]},{"donor":"x","recipient":"y","vector":[-1,1,0]},{"donor":"z","recipient":"y","vector":[0,1,-1]},{"donor":"x","recipient":"z","vector":[-1,0,1]},{"donor":"y","recipient":"z","vector":[0,-1,1]}],
+  "freeze":"THREE_AXIS_TRANSFER_SIX_STATE_EMERGENCE_ESTABLISHED",
+  "positive_derivation_path":["choose recipient i among three coordinates","elementary recipient increment is +1","affine conservation requires total transverse compensation -1","minimal completed compensation requires exactly one of the other two coordinates changes by -1 and the other by 0","therefore displacement is e_i-e_j for a unique donor j != i"],
+  "redundancy_audit":{"additive_inversion":"(e_i-e_j)=-(e_j-e_i), so inverse descriptions are not extra states","named_axis_plus_orientation":"same six vectors after relabeling","recipient_plus_donor":"six ordered pairs i!=j"},
+  "researcher_id":"EM-R059D-9C6B2A","schema":"R059D_STAGE_N_D6_TRANSFER_EMERGENCE_AUDIT_V1","status":"PROVED_WITH_EXPLICIT_MINIMALITY_DEPENDENCY","taskbook_source":"0ded98e376b649cbe41e47e18ea23c8c2daf59ca","why_not_more":"without adjacent/minimal single-unit compensation, each recipient admits infinitely many integer transverse decompositions (t,-1-t); six is not implied by sheet+unit+integrality alone"
+}

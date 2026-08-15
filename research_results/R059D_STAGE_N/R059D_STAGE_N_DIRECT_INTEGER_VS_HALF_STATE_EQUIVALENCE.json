@@ -1,0 +1,30 @@
+{
+  "bijection": {
+    "(b_x,b_z)=(0,1)": "(-1,+1,0)",
+    "(b_x,b_z)=(1,0)": "(0,+1,-1)"
+  },
+  "freezes": [
+    "COUPLED_COMPLEMENTARY_COLLAPSE_BIT_REDUCTION_ESTABLISHED",
+    "DIRECT_INTEGER_HALF_STATE_COUPLED_BIT_EQUIVALENCE_ESTABLISHED"
+  ],
+  "mandatory_case": {
+    "bit_mapped_displacements": [[-1,1,0],[0,1,-1]],
+    "bit_pairs": [[0,1],[1,0]],
+    "bit_to_displacement_formula": "(b_x,b_z) -> (-1+b_x,+1,-1+b_z)",
+    "direct_displacements": [[-1,1,0],[0,1,-1]],
+    "direct_endpoints": [[99,1,0],[100,1,-1]],
+    "direct_integer_assumptions": ["dx,dz each in declared completed endpoint set {-1,0}","dy=+1","dx+dy+dz=0"],
+    "ordinary_endpoint_sheet_sum": 101,
+    "ordinary_uncompensated_endpoint": [100,1,0],
+    "recipient_event": "y += 1",
+    "same_sheet": false,
+    "set_equality": true,
+    "start": [100,0,0],
+    "symmetric_half_state": ["-1/2","1","-1/2"]
+  },
+  "one_bit_reduction": {"Delta_y_plus(b)":"(-b,+1,-(1-b))","b":"b_z","b=0":"(0,+1,-1)","b=1":"(-1,+1,0)","b_x":"1-b"},
+  "researcher_id":"EM-R059D-9C6B2A",
+  "schema":"R059D_STAGE_N_DIRECT_INTEGER_VS_HALF_STATE_EQUIVALENCE_V1",
+  "status":"PROVED",
+  "taskbook_source":"0ded98e376b649cbe41e47e18ea23c8c2daf59ca"
+}

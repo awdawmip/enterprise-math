@@ -1,0 +1,6 @@
+{
+  "admissible_set":"B(F)={b in {0,1}^m : P_r(b)=0 for all r}",
+  "classification":{"size=0":"INCONSISTENT_CONSTRAINT_SET","size=1":"UNIQUE_COLLAPSE_ASSIGNMENT","size>1":"MULTIBRANCH_ADMISSIBLE"},
+  "examples":[{"B":[[0,1],[1,0]],"class":"MULTIBRANCH_ADMISSIBLE","constraints":["b1+b2-1=0"],"id":"complementary_pair"},{"B":[[0,0]],"class":"UNIQUE_COLLAPSE_ASSIGNMENT","constraints":["b1+b2=0"],"id":"unique_zero_pair"},{"B":[[1,1]],"class":"UNIQUE_COLLAPSE_ASSIGNMENT","constraints":["b1+b2-2=0"],"id":"unique_one_pair"},{"B":[],"class":"INCONSISTENT_CONSTRAINT_SET","constraints":["b1+b2-3=0"],"id":"inconsistent_pair"},{"B":[[0,1],[1,0]],"class":"MULTIBRANCH_ADMISSIBLE","constraints":["b1*b2=0","b1+b2-1=0"],"id":"two_solution_nonlinear"}],
+  "freeze":"BRC_CONSTRAINT_SOLUTION_SET_ALGEBRA_ESTABLISHED","higher_constraints":"F_r(C_1,...,C_m)=0","local_states":{"C_i":"L_i+G_i b_i","boolean_relations":"b_i^2-b_i=0 for i=1..m"},"researcher_id":"EM-R059D-9C6B2A","schema":"R059D_STAGE_N_GENERAL_COUPLED_BOOLEAN_COLLAPSE_ALGEBRA_V1","set_valued_rule":"multiple exact assignments remain multiple; no uniqueness forcing","status":"PROVED_SYMBOLIC_NORMAL_FORM","substitution":"P_r(b_1,...,b_m)=F_r(L_1+G_1b_1,...,L_m+G_mb_m) reduced modulo b_i^2-b_i","taskbook_source":"0ded98e376b649cbe41e47e18ea23c8c2daf59ca"
+}
