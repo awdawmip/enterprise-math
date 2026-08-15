@@ -1,0 +1,223 @@
+{
+  "automorphism_definition": "bijection of packet labels preserving declared adjacency in both directions",
+  "carrier_automorphism_group_sizes": {
+    "REL_BIPARTITE_3_3": 72,
+    "REL_COMPLETE_4": 24,
+    "REL_COMPLETE_5": 120,
+    "REL_COMPLETE_6": 720,
+    "REL_CYCLE_4": 8,
+    "REL_CYCLE_5": 10,
+    "REL_CYCLE_6": 12,
+    "REL_STAR_4": 6,
+    "REL_STAR_5": 24
+  },
+  "collective_equivalence_test": "there exists one carrier automorphism phi with phi(a_i)=a'_i for every labeled marker i",
+  "enumeration_storage": "Global exact edge separation plus key witness; deterministic enumerator recomputes scenario-level separation.",
+  "exact_registry_relation": "In this frozen registry, all 27,219 R3-neutral elementary edges are collective-automorphism-equivalent, while all 12,546 R1-neutral but non-R3 moves are genuinely local; 12,258 of those are R2-neutral.",
+  "generation": "R059P",
+  "genuinely_local_simple_cycle_scenario_counts": {
+    "R1": 49,
+    "R2": 48,
+    "R3": 0
+  },
+  "global_neutral_edge_separation": {
+    "R1": {
+      "collective_automorphism_equivalent": 27219,
+      "genuinely_local_not_collective_automorphism": 12546
+    },
+    "R2": {
+      "collective_automorphism_equivalent": 27219,
+      "genuinely_local_not_collective_automorphism": 12258
+    },
+    "R3": {
+      "collective_automorphism_equivalent": 27219,
+      "genuinely_local_not_collective_automorphism": 0
+    }
+  },
+  "key_nonautomorphism_witness": {
+    "A_after": [
+      2,
+      2
+    ],
+    "A_before": [
+      2,
+      2
+    ],
+    "DeltaA": [
+      0,
+      0
+    ],
+    "R2_after": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "R2_before": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "R3_equal": false,
+    "classification": "MULTIPAIR_EXACT_CANCELLATION_AND_R2_NEUTRAL",
+    "collective_automorphism_equivalent": false,
+    "genuine_local_r2_cycle": [
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        0,
+        2
+      ],
+      [
+        3,
+        0,
+        1
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        0
+      ],
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        0,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        3,
+        1,
+        2
+      ]
+    ],
+    "move": {
+      "from": [
+        3,
+        1,
+        2
+      ],
+      "moved_marker": 1,
+      "to": [
+        3,
+        0,
+        2
+      ]
+    },
+    "pair_changes": [
+      {
+        "after": [
+          1,
+          0
+        ],
+        "before": [
+          0,
+          2
+        ],
+        "delta": [
+          1,
+          -2
+        ],
+        "labeled_pair": [
+          0,
+          1
+        ]
+      },
+      {
+        "after": [
+          1,
+          0
+        ],
+        "before": [
+          1,
+          0
+        ],
+        "delta": [
+          0,
+          0
+        ],
+        "labeled_pair": [
+          0,
+          2
+        ]
+      },
+      {
+        "after": [
+          0,
+          2
+        ],
+        "before": [
+          1,
+          0
+        ],
+        "delta": [
+          -1,
+          2
+        ],
+        "labeled_pair": [
+          1,
+          2
+        ]
+      }
+    ],
+    "scenario_id": "REL_CYCLE_4__M3__EXCLUSION__K12"
+  },
+  "registry_sha256": "52c0fa7cfec88aea9b0a1ac50465a0302303ceea52abb557f20d38c0e526023d",
+  "researcher_id": "EM-R059P-8A2C7D",
+  "schema": "R059P_AUTOMORPHISM_LOCAL_NEUTRALITY_SEPARATION_V1",
+  "status": "FROZEN_EXACT_STAGE_A"
+}
