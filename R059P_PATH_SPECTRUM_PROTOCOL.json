@@ -1,0 +1,69 @@
+{
+  "declared_n0": {
+    "adjacency_reuse_allowed": true,
+    "immediate_reversal_allowed": true,
+    "loop_allowed": true,
+    "objects": [
+      "CRYSTAL_PACKET",
+      "ADJACENCY",
+      "TRANSITION_EVENT",
+      "PATH",
+      "PATH_COUNT"
+    ],
+    "optional_state": [
+      "OCCUPANCY"
+    ],
+    "path_semantics": "ADJACENCY_WALK",
+    "revisit_allowed": true,
+    "unit_packet": 1,
+    "unit_transition": 1
+  },
+  "definitions": {
+    "S_K": "tuple W_n for n_min <= n <= n_max",
+    "W_n": "number of admissible adjacency walks from tagged site a to tagged site b with exactly n transition events",
+    "n_type": "PATH_COUNT_TRANSITION_COUNT_INTEGER",
+    "spectrum_window": {
+      "finite": true,
+      "n_max": 4,
+      "n_min": 1
+    }
+  },
+  "generation": "R059P",
+  "higher_level_tags": {
+    "atom_is_n0": false,
+    "tagged_markers_or_composite_proxies": "N1_DERIVED_OPERATIONAL_SEMANTICS"
+  },
+  "independent_lane_firewall": {
+    "consumed_r059l_artifacts": [],
+    "enforced": true,
+    "forbidden_consumption": [
+      "R059L_*",
+      "EM-R059L-5F9D05"
+    ]
+  },
+  "researcher_id": "EM-R059P-8A2C7D",
+  "schema": "R059P_PATH_SPECTRUM_PROTOCOL_V1",
+  "semantic_typing": {
+    "S_K": "N2_READOUT_COLLAPSE",
+    "W_n": "N2_READOUT_COLLAPSE",
+    "euclidean_distance_used": false,
+    "matrix_power_if_used": "I0_IMPLEMENTATION_CARRIER_EXACT_COUNTING_ONLY",
+    "path_count_is_geometric_length": false,
+    "shortest_path_only": false
+  },
+  "status": "FROZEN_STAGE0",
+  "task_id": "RS-R059P-PATH-SPECTRUM-COUPLING-DYNAMIC-STEADY-STATE-VALIDATION",
+  "taskbook_source": "8f4e83ed6404bad6804e3d5f9f2f291c1ec42cf2",
+  "withheld_native_geometry": [
+    "LINE",
+    "STRAIGHTNESS",
+    "DISTANCE",
+    "LENGTH",
+    "SHORTEST_PATH",
+    "ANGLE",
+    "RADIUS",
+    "AREA",
+    "VOLUME",
+    "EUCLIDEAN_DISPLACEMENT"
+  ]
+}
