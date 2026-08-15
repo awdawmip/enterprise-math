@@ -190,7 +190,7 @@ No physical interpretation is promoted.
 
 ## Checker
 
-Deterministic checker result before final parent-immutability promotion:
+Final deterministic checker result after parent-immutability compare:
 
 - checks: `8922 / 8922 PASS`;
 - failures: `0`;
