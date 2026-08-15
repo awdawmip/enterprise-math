@@ -1,0 +1,34 @@
+{
+  "D6_not_assumed": true,
+  "assumptions": {
+    "A1": "x+y+z=K exact affine conservation",
+    "A2": "elementary positive recipient increment is +1",
+    "A3": "completed endpoint required to be integer-valued when integer endpoint theorem is claimed",
+    "A4": "transverse exchange symmetry before collapse; used only for symmetric half-state route",
+    "A5": "adjacent completed-state pair around unresolved transverse value; for -1/2 this is {-1,0}",
+    "A6": "no extra simultaneous multi-unit compensation in one elementary event",
+    "A7": "reported collapse endpoint is a completed state, not an arbitrary unresolved fractional output"
+  },
+  "carrier": {
+    "Pi_K": "{(x,y,z): x+y+z=K}",
+    "degrees_of_freedom": 2,
+    "displacement_module": "Lambda={(dx,dy,dz) in Z^3: dx+dy+dz=0}"
+  },
+  "direct_route_endpoint_assumption": {
+    "meaning": "declared adjacent completed displacement states for each transverse coordinate",
+    "not_derived_from_exchange_symmetry": true,
+    "transverse_completed_state_set": [-1,0]
+  },
+  "frozen_parent": "d6cfcb3435deac50901581cd4fa82e6b3cf588d3",
+  "mandatory_seed": {
+    "K": 100,
+    "X": [100,0,0],
+    "declared_recipient": "y",
+    "recipient_increment": 1,
+    "sheet_equation": "dx+dz=-1"
+  },
+  "researcher_id": "EM-R059D-9C6B2A",
+  "schema": "R059D_STAGE_N_AFFINE_THREE_AXIS_SHEET_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_TWO_BRANCH_SCORING",
+  "taskbook_source": "0ded98e376b649cbe41e47e18ea23c8c2daf59ca"
+}
