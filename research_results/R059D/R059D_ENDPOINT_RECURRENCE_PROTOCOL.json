@@ -1,0 +1,27 @@
+{
+  "anti_tautology_note": "sigma_N is not applied as a copied configuration; each tag executes seven local adjacency transitions and two distinct branch words. The uniform V channel is allowed finite relational command data, not a per-tag address.",
+  "endpoint_result": {
+    "class": "D0",
+    "endpoint_multiplicity": "2^N*(N!)^7",
+    "freeze": [
+      "EXACT_ALIGNED_ENDPOINT_RECOALESCENCE",
+      "ENDPOINT_SUPPORT_DETERMINISM"
+    ],
+    "support_formula": "support(H_(N,7N))={A_(N,k+1)} for every integer N>=1"
+  },
+  "hierarchy": [
+    "D0_EXACT_ALIGNED_TARGET",
+    "D1_ALIGNED_EQUIVALENCE_CLASS",
+    "D2_MACRO_READOUT_ONLY"
+  ],
+  "normalization_independence": "endpoint support proof uses only integer channel-word identity and branch exhaustion, not normalized count ratios",
+  "primary_candidate": "G3_BRANCH_MEMORY_RECOALESCE_R3",
+  "schema": "R059D_ENDPOINT_RECURRENCE_PROTOCOL_V1",
+  "status": "FROZEN",
+  "word_identity": {
+    "branch_minus": "H^-3 V H^3",
+    "branch_plus": "H^3 V H^-3",
+    "certificate": "H and V commute as declared carrier channel permutations; therefore H^(3s) V H^(-3s)=V for s in {+1,-1}",
+    "common_product": "V"
+  }
+}
