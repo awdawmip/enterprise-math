@@ -1,0 +1,31 @@
+{
+  "F2_controls": {
+    "coefficient_box": [-2,-1,0,1,2],
+    "coefficient_vectors": 624,
+    "exclude_all_zero": true,
+    "expression": "sum_{n=0}^3 theta[n]*C_n^d",
+    "id_prefix": "K-F2",
+    "polarities": ["MAX","MIN"],
+    "same_theta_all_channels": true,
+    "total_controls": 1248
+  },
+  "baseline_horizon_K": 3,
+  "comparators": [
+    {"id":"K-F0-C0-MAX","readout":"C0","type":"unique_argmax"},
+    {"id":"K-F0-C0-MIN","readout":"C0","type":"unique_argmin"},
+    {"coordinate_order":[0,1,2,3],"id":"K-F1-LEX","type":"unique_lex_max"},
+    {"coordinate_order":[3,2,1,0],"id":"K-F1R-REVERSE-LEX","type":"unique_lex_max"},
+    {"id":"K-ENDPOINT-MAX","readout":"C3","type":"unique_argmax"},
+    {"id":"K-ENDPOINT-MIN","readout":"C3","type":"unique_argmin"},
+    {"id":"K-VISIT-MAX","readout":"sum_C0_C3","type":"unique_argmax"},
+    {"id":"K-VISIT-MIN","readout":"sum_C0_C3","type":"unique_argmin"},
+    {"coordinates":[0,1,2,3],"id":"K-PARETO","type":"coordinatewise_dominance_partial"},
+    {"base_relation":"K-F1-LEX","id":"K-F3-LEX-TOURNAMENT","type":"strict_pairwise_tournament"}
+  ],
+  "frozen_stage_j_head": "9f2b70d6cca5ccd66a46cc6dd18730f40a6add72",
+  "researcher_id": "EM-R059D-9C6B2A",
+  "schema": "R059D_STAGE_K_SELECTOR_COMPARATOR_REGISTRY_V1",
+  "shared_constraints": ["same arithmetic applied to all six channels","no absolute label input","no L input","no target identity","no N/q-specific table","exact integer comparison only","ties unresolved"],
+  "status": "FROZEN_BEFORE_STAGE_K_WITNESS_SCORING",
+  "taskbook_source": "9ea3c173873b23f52977a7ba99e9c091329e5748"
+}
