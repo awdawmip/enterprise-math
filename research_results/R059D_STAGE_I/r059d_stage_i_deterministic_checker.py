@@ -125,7 +125,7 @@ out={
  "large_M_method":"exact integer divisibility/transfer formulas only; no M-object enumeration",
  "large_N_method":"closed-form response formulas only; no huge carrier/history enumeration",
  "tiny_enumeration_role":"theorem regression only after symbolic family classification",
- "parent_immutability":"external GitHub compare required before final checkpoint"
+ "parent_immutability":"PASS_BY_GITHUB_COMPARE_PRE_MANIFEST"
 }
 (R/"R059D_STAGE_I_DETERMINISTIC_CHECKER_OUTPUT.json").write_text(json.dumps(out,indent=2,sort_keys=True)+"\n",encoding="utf-8")
 print(json.dumps(out,indent=2))
