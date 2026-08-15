@@ -1,0 +1,140 @@
+{
+  "checker_contract": {
+    "arithmetic": "integer exact only",
+    "checks": [
+      "polarization identity",
+      "general multi-replacement identity on deterministic exact fixtures",
+      "S(H_r)=0 and N_r formula on deterministic shell fixtures",
+      "Q(z)<=d_L(0,z)^2 on an exhaustive finite vector box",
+      "zero-case strict/plateau split",
+      "centroid-correction bound on deterministic exact fixtures",
+      "immutable Stage-0 SHA-256 anchors"
+    ]
+  },
+  "definitions": {
+    "cluster_sum": "S(C)=sum_{x in C} x",
+    "delta_Q_sum": "DeltaQsum=sum_{v in V}Q(v)-sum_{u in U}Q(u)",
+    "delta_S": "DeltaS=sum(V)-sum(U)",
+    "energy": "G(C)=N*sum_{x in C}Q(x)-Q(S(C))",
+    "polar_form": "L((a,b),(c,d))=2*a*c+a*d+b*c+2*b*d",
+    "polarization": "Q(x+y)=Q(x)+Q(y)+L(x,y)",
+    "quadratic_form": "Q(a,b)=a^2+a*b+b^2",
+    "replacement": "C'=(C\\U) union V, with U subset C, V subset Lambda\\C, |U|=|V|=k"
+  },
+  "frozen_at": "2026-08-14T07:57:00+08:00",
+  "generation": "R056",
+  "immutable_stage0_anchors": {
+    "R056_COMPUTATION_REGISTRY_SHA256": "d87e107b814090d4ec528a7a593d0119b26666fa82070a6e5c967f6dd6be09ea",
+    "R056_LOCALITY_MODEL_SHA256": "1f610591b3f32b1540da1fa55733faeb1ec1a1fff054902affb087626cda729a",
+    "R056_SHELL_ESCAPE_PROTOCOL_SHA256": "746d154f39f108c75c779cbeceb5ae6b35c4bb692c62486a2209766b316bb45a"
+  },
+  "researcher_id": "EM-R056-BEC623",
+  "schema": "R056_MULTI_REPLACEMENT_IDENTITY_V1",
+  "sources": {
+    "draft_pr": 547,
+    "owner_branch": "research/r056-stage0",
+    "packet_source": "67ec92f83bc8cb401e0a86170081daa137ea24a5",
+    "r055_read_only_source": "ea0781f564b8c4016d592521a50c02888e2f371d",
+    "taskbook_source": "df9001dc69d79b753cf0975efd7875dccaade979"
+  },
+  "stage": "A",
+  "stage_a_scope_guards": {
+    "cooperative_enumeration_run": false,
+    "holdout_opened": false,
+    "m_or_rho_changed": false,
+    "stage0_files_modified": false,
+    "stage_b_candidate_used_to_modify_protocol": false
+  },
+  "stage_b_first_candidate": {
+    "do_not_treat_as_admissible_before_stage_b": true,
+    "family": {
+      "driver_expected": {
+        "DeltaG": "N_r*(7-r)-7",
+        "DeltaQsum": "7-r",
+        "DeltaS": "(-2,3)",
+        "Q_DeltaS": "7",
+        "d_L_u_v": "3",
+        "r_7": "DeltaQsum=0 and DeltaG=-7<0",
+        "r_ge_8": "DeltaQsum<0 and DeltaG<0"
+      },
+      "u": "(r,0)",
+      "v": "(r-2,3)"
+    },
+    "minimality_audit_after_admissibility": [
+      "prove or refute rho_1(r)=3 for all r>=7",
+      "within frozen m<=3, test whether any rho<=2 cooperative strict descent exists"
+    ],
+    "protocol_effect": "NONE; no Stage-0 protocol or registry is modified.",
+    "stage_b_pending_admissibility_proofs": [
+      "u in H_r boundary",
+      "v not in H_r",
+      "support diameter exactly 3",
+      "replacement connected",
+      "replacement hole-free",
+      "strict G descent for all r>=7"
+    ],
+    "status": "REGISTERED_UNVERIFIED_STAGE_B_CANDIDATE"
+  },
+  "status": "FROZEN_STAGE_A_EXACT_IDENTITY",
+  "task_id": "RS-R056-LOCALITY-RADIUS-LOWER-BOUND-GRAVITY-METASTABILITY",
+  "theorems": {
+    "centered_shell_reduction": {
+      "cardinality": "N_r=1+3*r*(r+1)",
+      "centeredness": "S(H_r)=0 because x in H_r iff -x in H_r, so nonzero sites cancel in pairs.",
+      "shell": "H_r={(a,b) in Z^2: max(|a|,|b|,|a+b|)<=r}",
+      "statement": "DeltaG=N_r*DeltaQsum-Q(DeltaS)"
+    },
+    "centroid_correction_bound": {
+      "assumptions": "1<=k=|U|=|V|<=m and diam_L(U union V)<=rho",
+      "proof_steps": [
+        "Choose any bijection U={u_i}, V={v_i}, i=1..k, and set d_i=v_i-u_i.",
+        "Then DeltaS=sum_i d_i.",
+        "The support-diameter hypothesis gives d_L(u_i,v_i)<=rho for every i.",
+        "By Q(z)<=d_L(0,z)^2, Q(d_i)<=rho^2.",
+        "Since Q is the squared Euclidean norm in the declared triangular-lattice realization, Cauchy gives Q(sum_i d_i)<=k*sum_i Q(d_i).",
+        "Therefore Q(DeltaS)<=k*(k*rho^2)=k^2*rho^2<=m^2*rho^2."
+      ],
+      "statement": "Q(DeltaS)<=k^2*rho^2<=m^2*rho^2"
+    },
+    "delta_Q_sum_classification_for_centered_shell": {
+      "integrality": "DeltaQsum is an integer because Q is integer-valued on Z^2.",
+      "negative": {
+        "conclusion": "DeltaQsum<=-1, hence DeltaG<=-N_r-Q(DeltaS)<0; every otherwise admissible replacement is a strict energy descent.",
+        "condition": "DeltaQsum<0"
+      },
+      "positive": {
+        "conclusion_using_bound": "DeltaG>=N_r-m^2*rho^2. In particular, if N_r>m^2*rho^2 then DeltaG>0.",
+        "condition": "DeltaQsum>=1"
+      },
+      "zero": {
+        "condition": "DeltaQsum=0",
+        "delta_S_nonzero": "Q is positive definite, so DeltaS!=0 implies Q(DeltaS)>0 and therefore DeltaG<0.",
+        "delta_S_zero": "DeltaS=0 implies DeltaG=0 exactly: plateau only, forbidden by the strict-descent rule.",
+        "identity": "DeltaG=-Q(DeltaS)"
+      }
+    },
+    "graph_metric_to_quadratic_norm": {
+      "proof": [
+        "If a*b>=0, d_L(0,z)=|a+b| and d_L^2-Q=(a+b)^2-(a^2+a*b+b^2)=a*b>=0.",
+        "If a*b<=0 and |a|>=|b|, d_L(0,z)=|a| and d_L^2-Q=|b|*(|a|-|b|)>=0.",
+        "The remaining opposite-sign case |b|>=|a| is symmetric."
+      ],
+      "statement": "For z=(a,b), Q(z)<=d_L(0,z)^2."
+    },
+    "multi_replacement_identity": {
+      "proof_steps": [
+        "Because |U|=|V|, C and C' have the same cardinality N.",
+        "sum_{x in C'}Q(x)-sum_{x in C}Q(x)=DeltaQsum.",
+        "S(C')=S(C)+DeltaS.",
+        "Q(S+DeltaS)-Q(S)=L(S,DeltaS)+Q(DeltaS) by polarization.",
+        "Subtracting the two exact G formulas gives the identity."
+      ],
+      "statement": "DeltaG=N*DeltaQsum-L(S(C),DeltaS)-Q(DeltaS)"
+    },
+    "positive_delta_Q_obstruction": {
+      "assumptions": "Centered shell H_r, DeltaQsum>=1, k<=m, diam_L(U union V)<=rho",
+      "derivation": "DeltaG=N_r*DeltaQsum-Q(DeltaS)>=N_r-m^2*rho^2>0.",
+      "statement": "If N_r>m^2*rho^2 then DeltaG>0, so no such replacement can be a strict descent."
+    }
+  }
+}
