@@ -1,0 +1,125 @@
+{
+  "artifact_manifest": {
+    "artifact_count": 12,
+    "git_blob_sha1": "9abe3dda907024ad89a57816587cbdc9870a4f09",
+    "path": "R059D_STAGE_D_ARTIFACT_MANIFEST.json",
+    "sha256": "17d996babb884d4055d02f020f4db8f4c612ef01166bf4aef66a839306e1fb38"
+  },
+  "artifact_owner_head_before_checkpoint_append": "9f44a82e1a289c8201b0d2f7604311aacddce9b7",
+  "checker": {
+    "checks_digest_sha256": "9ffca8c0d43ed012e360f0f7f13b3ac5c01d5160a05f6a98d0b046818299fc34",
+    "checks_failed": 0,
+    "checks_passed": 41081,
+    "checks_total": 41081,
+    "output_git_blob_sha1": "bff5ac67012d51a552808878404edf2a980d5110",
+    "output_sha256": "5f30b2e71032ff0370f4eef658728689334a5471d2c925d814aec08e3ebe2725",
+    "status": "PASS"
+  },
+  "frozen_parents": {
+    "stage_a_b_c_artifacts_immutable": true,
+    "stage_c_head": "441c554fbb13e3c7faba94561f2ea8b64d3b6c4b"
+  },
+  "large_N_discipline": {
+    "N_registry_contains_10_pow_36_and_neighbors": true,
+    "huge_enumeration": false,
+    "q_registry_contains_2_through_12_and_prime_composite_gt12": true,
+    "symbolic_target": "all q>=2 and N>=1 where theorem stated",
+    "tiny_enumeration_role": "THEOREM_REGRESSION_ONLY"
+  },
+  "owner_branch": "research/r059d-stage-d-alignment-period-robustness",
+  "researcher_id": "EM-R059D-4C7E21",
+  "result": {
+    "A1_verbatim_replay": {
+      "all_other_q_ge_2": "NO_D0_FIRST_ALIGNED_RETURN_UNDER_UNCHANGED_A1",
+      "q2_N1": "TRIVIAL_POSITION_ALIAS_D0_NOT_POSITIVE_EVIDENCE",
+      "q3": "NONTRIVIAL_D0_FIRST_ALIGNED_RETURN_ROUND_3_ALL_N_GE_1"
+    },
+    "N_scale_down": {
+      "autonomous_controller_robust_N_crossover_candidate": false,
+      "stage_A_N_c_3": "R3_CONTROLLER_SPECIFIC_ALIAS_CANDIDATE_ONLY",
+      "status": "NO_N_CROSSOVER_WITHIN_PROVED_RANGE"
+    },
+    "alignment_period_semantics": "RELATIONAL_ALIGNMENT_PERIOD_ONLY_NOT_DISTANCE_LENGTH_OR_PHYSICAL_SPACING",
+    "branch_distinguishability": {
+      "S1": "q=3 iff",
+      "S2": "q=3 or q>=5 iff",
+      "S3": "same q-domain as S2",
+      "S4": "same branch-sign q-domain as S2/S3; exact magnitudes add no new branch-sign class"
+    },
+    "count_signature_symmetry_obstruction": {
+      "automorphism": "tau=H^2",
+      "certificate": "post-V current count field and ingress are tau-invariant while paired branches require opposite H/H_INV return actions; qN>2 preserves nonidentity separation under all equivariant current-count continuations",
+      "q_classes": [
+        2,
+        4
+      ],
+      "status": "ESTABLISHED_WITHIN_FROZEN_EQUIVARIANT_CURRENT_COUNT_GRAMMAR"
+    },
+    "intermediate_count_cloud": {
+      "Hfull_all_orders_snapshot": "2^N*(N!)^3",
+      "Hfull_sync": "2^N",
+      "T1": "U_N(4N)=Hfull",
+      "T2": "6N",
+      "T3": "2N cells at Hfull; 4N cells at Hfull/2",
+      "cell_support": "[N,2N,2N,N]",
+      "configuration_support": "[1,2^N,2^N,1]"
+    },
+    "physical_probability_from_counting": "NOT_ESTABLISHED",
+    "physical_rigidity_interpretation": "NOT_ESTABLISHED",
+    "primary_disposition": "MIXED_ALIGNMENT_PERIOD_STRUCTURAL_ROBUSTNESS",
+    "quantum_bridge": "NOT_ESTABLISHED",
+    "signature_resources": {
+      "q2_q4": "COUNT_SIGNATURE_SYMMETRY_OBSTRUCTED",
+      "q3": {
+        "MIN_MAX_ABS_H_EXPONENT": 1,
+        "MIN_PROBE_COUNT": 1,
+        "MIN_SIGNATURE_BITS": 1
+      },
+      "q_ge_5": {
+        "MIN_MAX_ABS_H_EXPONENT": 2,
+        "MIN_PROBE_COUNT": 1,
+        "MIN_SIGNATURE_BITS": 1
+      },
+      "uniform_infinite_family": "INGRESS_CLASS + one fixed count-support bit at exponent magnitude 2"
+    },
+    "uniform_finite_count_signature_autonomous_recurrence": {
+      "N_domain": "all integers N>=1",
+      "branch_provenance": false,
+      "controller": "U_BPLUS2_ONEBIT",
+      "endpoint": "D0 sigma_N=V",
+      "first_aligned_return_round": 3,
+      "mirror_controller": "U_BMINUS2_ONEBIT",
+      "programmed_inverse": false,
+      "q_dependent_probe": false,
+      "q_domain": "q=3 or q>=5",
+      "q_specific_table": false,
+      "reads_N": false,
+      "reads_q": false,
+      "schedulers": [
+        "S_SYNC",
+        "S_ALL_ORDERS_SNAPSHOT"
+      ],
+      "selected_order": false,
+      "signature": [
+        "INGRESS_CLASS",
+        "B_(+2)"
+      ],
+      "status": "ESTABLISHED",
+      "target_map": false,
+      "timer": false
+    }
+  },
+  "schema": "R059D_STAGE_D_FROZEN_CHECKPOINT_V1",
+  "source_discipline": {
+    "R059C_reopened": false,
+    "R059L_consumed": false,
+    "R059P_consumed": false,
+    "geometry_or_physics_premise": "ABSENT",
+    "stage_a_modified": false,
+    "stage_b_modified": false,
+    "stage_c_modified": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "taskbook_source": "3bb0e9d7c0078818f5e224b7524cf72812a4ab8a"
+}
