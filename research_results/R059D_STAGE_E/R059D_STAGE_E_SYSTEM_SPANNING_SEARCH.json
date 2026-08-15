@@ -1,0 +1,19 @@
+{
+  "FULL_MACROSTEP_GLOBAL_PARITY": {"classification":"SYSTEM_SPANNING_RESPONSE","foundational_promotion":"REJECTED","pair":"N:N","participant":"N exactly under I2_ADD_PLUS_TOKEN","resource_status":"GLOBAL_READOUT_CONTROL"},
+  "K_EQUAL_N": {"K_rule":"N","classification":"EXTENSIVE_RESPONSE on an infinite family, but not SYSTEM_SPANNING for large N","extensive_certificate":"q*P_N>=N for every N>=1; for N>=2q on q>=3, P_N<N","participant_formula":"P_N(N,q)=min(N, floor(N/q)+floor((N+2)/q)+1)","resource_status":"RESOURCE_DEPENDENT_N"},
+  "K_ISQRT_N": {"K_rule":"isqrt(N)","classification":"SUBEXTENSIVE_RESPONSE","exact_subextensive_certificate":["P_K <= 2*isqrt(N)+3","for every integer m>=1 and N>=16*m^2, P_K<=N/m","along N=(q*m)^2, P_K>=2*m+1, so response is unbounded"],"participant_formula":"P_K with K=isqrt(N)","resource_status":"RESOURCE_DEPENDENT_N"},
+  "baseline_verdict": "NO_SYSTEM_SPANNING_RESPONSE; C0/C0M participant=1 and Q3_A1 participant<=2",
+  "fixed_finite_horizon": {
+    "K_values": [1,2,4,8,16],
+    "classification": "BOUNDED_LOCAL_RESPONSE for every fixed K; exact bound independent of N",
+    "participant_formula": "P_K(N,q)=|{d mod N: |q*d|<=K or |q*d-2|<=K}| for the I2 window-parity diagnostic"
+  },
+  "frozen_parent_stage_d_head": "04a9ec5570847f957f6ab56e4fa490a9eabb02a0",
+  "per_tag_full_macrostep_cloud": {"classification":"BOUNDED_LOCAL_RESPONSE","interpretation":"full path history is not system-spanning merely because it is temporally complete","participant":"1 under I2 without cross-tag aggregate","resource_class":"FULL_PATH_CLOUD_SOURCE_LOCAL"},
+  "primary_resource_result": "bounded, subextensive, extensive, and system-spanning response classes can all be manufactured by changing the declared information resource.",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_E_SYSTEM_SPANNING_SEARCH_V1",
+  "status": "FROZEN_AFTER_BOUNDED_LOCAL_BASELINE",
+  "system_spanning_nonoracle_search": "NO fixed-finite local signature with fixed T can become system-spanning as N grows by the finite-information theorem. System-spanning was obtained only by the explicitly global aggregate control.",
+  "taskbook_source": "9221cb7e04da772b68a9a663e07f6e2207f00e1e"
+}
