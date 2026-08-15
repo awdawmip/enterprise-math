@@ -1,0 +1,33 @@
+{
+  "firewall": [
+    "no result-dependent seed relocation",
+    "no target address",
+    "no aligned flag",
+    "no N/q/time input"
+  ],
+  "frozen_parent_stage_f_head": "a03e9181ddcb17a0971ac7bec8e534693cbd817e",
+  "interventions": {
+    "G_I2_ALIGNED_SELF_PLUS1": {
+      "highest_disposition_eligible_alone": false,
+      "rule": "add exactly one source-lineage token at X_0 before release",
+      "type": "SECONDARY_COUNT_TOKEN_CONTROL"
+    },
+    "G_I3_H_INV_STEP": {
+      "count_token": false,
+      "rule": "before release, tag j0 makes exactly one declared H_INV transition; current ingress/event state becomes H_INV",
+      "target_input": false,
+      "type": "REAL_TAGGED_ADJACENCY_PERTURBATION"
+    },
+    "G_I3_H_STEP": {
+      "count_token": false,
+      "rule": "before release, tag j0 makes exactly one declared H transition; current ingress/event state becomes H",
+      "target_input": false,
+      "type": "REAL_TAGGED_ADJACENCY_PERTURBATION"
+    }
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_G_INTERVENTION_PROTOCOL_V1",
+  "seed_selection": "j0=0 canonical representative under cyclic tag relabeling; theorem extends to arbitrary seed by equivariance",
+  "status": "FROZEN_BEFORE_CONTROLLER_SCORING",
+  "taskbook_source": "383eeb9423e11b00a96f79c88f3bb86ec93df277"
+}
