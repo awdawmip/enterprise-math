@@ -1,0 +1,64 @@
+{
+  "artifact_manifest": {
+    "artifact_count": 13,
+    "git_blob_sha1": "5523eececf6ae224631f30cc6307ab22636b0363",
+    "path": "R059D_STAGE_E_ARTIFACT_MANIFEST.json",
+    "sha256": "32fd5ad69462b3d3a444c30aa2f049ec1c565579728021a3950b9c564c1d9e30"
+  },
+  "artifact_owner_head_before_checkpoint_append": "e9bd03c62a0cdee0d88943aca4613002f0c9deb4",
+  "checker": {
+    "checks_digest_sha256": "c50b5ea7596ecdd19edbadd2da218e85774714e58f01a3e7f4b3ad574c80289d",
+    "checks_failed": 0,
+    "checks_passed": 65565,
+    "checks_total": 65565,
+    "output_sha256": "93acd8977d46466f77474d0cf791313d0f72db1dc6ecebaab966a4701b508c57",
+    "status": "PASS"
+  },
+  "frozen_parents": {
+    "stage_a_b_c_d_artifacts_immutable": true,
+    "stage_d_head": "04a9ec5570847f957f6ab56e4fa490a9eabb02a0"
+  },
+  "owner_branch": "research/r059d-stage-e-system-spanning-count-response",
+  "researcher_id": "EM-R059D-4C7E21",
+  "result": {
+    "baseline_N_domain": "all integers N>=1",
+    "baseline_controller": "C0_U_BPLUS2_ONEBIT",
+    "baseline_intervention_response": {
+      "I1_MINUS_ONLY": "1:N BOUNDED_LOCAL_RESPONSE; perturbed tag nonaligned at round3",
+      "I1_PLUS_ONLY": "1:N BOUNDED_LOCAL_RESPONSE; D0 at round3",
+      "I2_ADD_PLUS_TOKEN": "1:N BOUNDED_LOCAL_RESPONSE; no action change; D0 with altered local multiplicity"
+    },
+    "baseline_q_domain": "q=3 or q>=5",
+    "baseline_schedulers": [
+      "S_SYNC",
+      "S_ALL_ORDERS_SNAPSHOT"
+    ],
+    "finite_information_theorem": "fixed finite local signature + fixed T gives participant <= min(N,2*T*floor((D+2*T)/q)+1), hence bounded in N",
+    "intrinsic_N_macro_micro_crossover_status": "NO_INTRINSIC_N_CROSSOVER_IDENTIFIED",
+    "physical_probability_from_counting": "NOT_ESTABLISHED",
+    "physical_rigidity_interpretation": "NOT_ESTABLISHED",
+    "primary_disposition": "RESPONSE_RESOURCE_DEPENDENT_MIXED_REGIME",
+    "q3_A1_max_participant": "min(N,2)",
+    "quantum_bridge": "NOT_ESTABLISHED",
+    "resource_classes": {
+      "FIXED_K": "BOUNDED_LOCAL_RESPONSE",
+      "FULL_MACROSTEP_GLOBAL_PARITY": "SYSTEM_SPANNING_RESPONSE_GLOBAL_READOUT_CONTROL",
+      "K_EQUAL_N": "EXTENSIVE_RESPONSE_RESOURCE_DEPENDENT",
+      "K_ISQRT_N": "SUBEXTENSIVE_RESPONSE_RESOURCE_DEPENDENT",
+      "PER_TAG_FULL_MACROSTEP_CLOUD": "BOUNDED_LOCAL_RESPONSE"
+    },
+    "stage_d_exact_recurrence_response_retype": "EXACT_ALIGNED_RECURRENCE_DOES_NOT_IMPLY_SYSTEM_SPANNING_RESPONSE",
+    "step_horizon_controls": "M=17 and M=31 move apparent bounded-to-extensive boundary"
+  },
+  "schema": "R059D_STAGE_E_FROZEN_CHECKPOINT_V1",
+  "source_discipline": {
+    "R059C_reopened": false,
+    "R059L_consumed": false,
+    "R059P_consumed": false,
+    "geometry_or_physics_premise": "ABSENT",
+    "stage_a_b_c_d_modified": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "taskbook_source": "9221cb7e04da772b68a9a663e07f6e2207f00e1e"
+}
