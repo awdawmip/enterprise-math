@@ -1,0 +1,28 @@
+{
+  "R1": {
+    "T1": "U_(N,1)(4N)=2^N*(N!)^3; every individual history visits 4N distinct carrier packets",
+    "T2": "6N across the whole branch cloud",
+    "T3": "with Hfull=2^N*(N!)^3: 2N cells carry Hfull, 4N cells carry Hfull/2, 15N cells carry 0",
+    "T4": "ALIGNED_STEP_TRAVERSAL_SIGNATURE_RECURRENCE",
+    "branch_alias": "NONE_FOR_ALL_N",
+    "branch_position_support": "at the sole nonzero excursion offset a=1, tagged configuration support is 2^N and cell support is 2N for every N>=1",
+    "endpoint": "D0 exact V successor for all N",
+    "finite_memory": "one branch bit plus 3 transition phases and ready/done bookkeeping",
+    "full_history_count": "2^N*(N!)^3",
+    "macrostep_event_count_control": "3N",
+    "nontriviality": "PASS: branch alternatives occupy distinct tagged/cell states; T2 exceeds each-history T1; T3 has multiple nonzero multiplicity classes",
+    "phase_count": 3,
+    "word_minus": "H^-1 V H",
+    "word_plus": "H V H^-1"
+  },
+  "comparison": {
+    "R1_vs_R2": "3 versus 5 phases; same one-bit branch memory; R1 T1 is 4N for every history whereas R2 has the Stage-A 6N-4t family",
+    "R1_vs_R3": "3 versus 7 phases; R1 has no same-tag alias at any N whereas R3 aliases at N=1,2",
+    "physical_naturalness_from_minimality": "NOT_ESTABLISHED"
+  },
+  "freeze": "MINIMAL_NONTRIVIAL_ALIGNED_RECURRENCE_CONTROLLER_R1",
+  "minimum_parameter_domain": "R is a positive integer, so R=1 is the smallest admissible G_R controller.",
+  "schema": "R059D_STAGE_B_MINIMAL_CONTROLLER_AUDIT_V1",
+  "status": "FROZEN",
+  "taskbook_source": "0dd9f78b047191535f4b05f80aafc613bbbac105"
+}
