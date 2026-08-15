@@ -1,0 +1,45 @@
+{
+  "M_FRONT_semantics": {
+    "collision_relation": "on the homogeneous one-resident collision states used in the attenuation grammar, S_SELF=M_FRONT+1",
+    "controller_access": "controllers need not read M_FRONT as a named register; they may reconstruct the needed predicates from current ingress and S_SELF",
+    "definition": "number of source-tag lineages currently supported at the front packet with ingress in the active relay direction family",
+    "typing": "exact current relational/source-support integer readout; not memory, not remaining-range budget, not tag count outside the current packet"
+  },
+  "canonical_site_relabeling": "erase implementation tag/site labels and map the current recruitment packet to abstract FRONT_SITE while preserving declared channel labels, ingress classes, local counts, and action labels; q/recruitment index is not stored in rho",
+  "cartesian_multiplicity": "excluded from rho except optional diagnostic; common independent-product scaling cannot create a causal relay state",
+  "fixed_delta_probe_offsets": [
+    0
+  ],
+  "forbidden_rho_fields": [
+    "tag_identity",
+    "recruitment_index",
+    "N",
+    "q",
+    "elapsed_generation",
+    "target_identity",
+    "future_state",
+    "aligned_future_flag"
+  ],
+  "frozen_parent_stage_g_head": "a9dcb2ac0190b5fdd972ca8f7a561836317e350a",
+  "interventions": [
+    "G_I3_H_STEP",
+    "G_I3_H_INV_STEP"
+  ],
+  "relay_front_event": "boundary at which an incoming causal front first cooccupies a previously nonresponding resident tag and thereby changes that resident's current local count signature or allowed action set",
+  "researcher_id": "EM-R059D-4C7E21",
+  "rho_components": [
+    "DIRECTION_FAMILY in {H,H_INV}",
+    "multiset of CURRENT_INGRESS labels of incoming front sources at FRONT_SITE",
+    "CURRENT_INGRESS of the resident tag at FRONT_SITE",
+    "S_SELF exact current source-support count",
+    "L_SELF exact current source-lineage multiplicity count when used",
+    "M_FRONT exact count of source-tag lineages at FRONT_SITE whose current ingress equals the relay direction",
+    "current allowed actions of incoming-front sources",
+    "current allowed actions of resident",
+    "paired evaluator delta signature (DELTA_S_SELF, DELTA_L_SELF, resident ACTION_SET_DELTA) on frozen self probe"
+  ],
+  "schema": "R059D_STAGE_H_RELAY_FRONT_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_RELAY_TRANSFER_SCORING",
+  "taskbook_source": "89c19be9fdf26a5c2b3eadda8689d34879db680c",
+  "transfer": "Phi maps canonically relabeled incoming recruitment signature rho_k to every exact outgoing relay signature rho_(k+1) that successfully recruits the next homogeneous resident; relation is set-valued if controller action sets branch"
+}
