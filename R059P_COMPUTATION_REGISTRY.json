@@ -1,0 +1,33 @@
+{
+  "first_validation": {
+    "authorized_after_checker_pass": true,
+    "carrier_description": "four packet labels with adjacency i~j iff j=i±1 mod 4; labels are implementation only",
+    "carrier_id": "TOY_C4_RELATIONAL",
+    "exact_arithmetic": "INTEGER",
+    "marker_collision_allowed": false,
+    "matrix_power_role": "I0 exact walk-count implementation cross-check",
+    "native_geometry_claimed": false,
+    "required_tests": [
+      "nontrivial adjacency automorphism orbit",
+      "T1 walk-count invariance",
+      "strict-descent exhaustive update graph",
+      "cycle detection under strict descent",
+      "equal-E cycle search when neutral moves are allowed",
+      "collective automorphism relabeling separated from one-marker elementary updates"
+    ],
+    "tagged_markers": ["A", "B"],
+    "window": [1, 2]
+  },
+  "generation": "R059P",
+  "researcher_id": "EM-R059P-8A2C7D",
+  "schema": "R059P_COMPUTATION_REGISTRY_V1",
+  "stage0": {
+    "checker_required_before_t1_t2_t3": true,
+    "expensive_enumeration_permitted": false,
+    "physical_data_used": false,
+    "regression_or_fitting_permitted": false
+  },
+  "status": "FROZEN_STAGE0",
+  "task_id": "RS-R059P-PATH-SPECTRUM-COUPLING-DYNAMIC-STEADY-STATE-VALIDATION",
+  "taskbook_source": "8f4e83ed6404bad6804e3d5f9f2f291c1ec42cf2"
+}
