@@ -1,0 +1,62 @@
+{
+  "bounded_parent_map_validation": {
+    "active_sizes_checked": "1..6",
+    "coefficient_mismatches": 0,
+    "cyclic_maps": 1972,
+    "parent_maps_checked": 3414,
+    "rooted_maps": 1442
+  },
+  "definitions": {
+    "B_p": "row x is e_x-e_{p(x)} if p(x) in V, else e_x when p(x)=r",
+    "V": "A\\{r}",
+    "cycle_set": "CYC(p)=directed cycles of the functional relation p entirely inside V"
+  },
+  "explicit_two_cycle_example": {
+    "B_p": [
+      [
+        1,
+        -1
+      ],
+      [
+        -1,
+        1
+      ]
+    ],
+    "leibniz_terms": [
+      {
+        "selection": "diagonal identity",
+        "value": 1
+      },
+      {
+        "selection": "A<->B cycle",
+        "value": -1
+      }
+    ],
+    "parent_data": {
+      "A": "B",
+      "B": "A"
+    },
+    "root": "C",
+    "sum": 0
+  },
+  "external_theorem_dependency": "NONE",
+  "generation": "R059L",
+  "leibniz_certificate": [
+    "Each row of B_p has diagonal entry +1 and at most one off-diagonal entry -1.",
+    "A nonzero Leibniz permutation can use off-diagonal entries only on a union of pairwise disjoint directed cycles of p; every other row uses its diagonal +1.",
+    "For a selected p-cycle of length ell, the permutation-cycle sign is (-1)^(ell-1) and the ell selected matrix entries contribute (-1)^ell; their product is -1.",
+    "For any subset S of the c=|CYC(p)| disjoint functional cycles, the corresponding nonzero term is (-1)^|S|.",
+    "Hence det(B_p)=sum_{S subset CYC(p)}(-1)^|S|=(1-1)^c.",
+    "Thus det(B_p)=0 for c>0 and det(B_p)=1 for c=0."
+  ],
+  "researcher_id": "EM-R059L-5F9D05",
+  "rooted_survival_certificate": {
+    "alternate_triangular_check": "Define h(x) as the least positive iterate count with p^h(x)=r. Simultaneously order rows and columns by increasing h. Then B_p is unit lower triangular, so det(B_p)=1. This h is proof-only functional iteration rank, not geometric distance.",
+    "statement": "If c=0, every p-iterate reaches r and coefficient is +1."
+  },
+  "schema": "R059L_DETERMINANT_CYCLE_CANCELLATION_CERTIFICATE_V1",
+  "stage": "STAGE_E",
+  "status": "PROVED_EXACT",
+  "task_id": "RS-R059L-STAGE-E-TAU-COFACTOR-INTEGER-COMPUTATION",
+  "taskbook_source_commit": "82bbe86cba01df4f096dc6ae183f1f743dab2673"
+}

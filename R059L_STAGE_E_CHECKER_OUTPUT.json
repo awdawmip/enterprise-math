@@ -1,0 +1,191 @@
+{
+  "completion_disposition": "R059L_PATH_COLLAPSE_COUNTING_KERNEL_COMPLETE_CANDIDATE",
+  "exhaustive_validation": {
+    "Bareiss_vs_Leibniz_mismatches": 0,
+    "endpoint_table_cases_checked": 160001,
+    "parent_TAU_vs_Bareiss_mismatches": 0,
+    "positive_realizable_cases_checked": 3403,
+    "reversal_MU_mismatches": 0,
+    "reversal_cofactor_mismatches": 0
+  },
+  "forbidden_work": {
+    "C6_repair": false,
+    "external_matrix_tree_as_proof_premise": false,
+    "floating_determinant": false,
+    "geometry": false,
+    "metric": false,
+    "path_ranking": false,
+    "physical_flow_current_divergence": false,
+    "probability_entropy_MU": false,
+    "raw_history_quotient_or_cancellation": false
+  },
+  "frozen_parent_anchors": {
+    "stage0_owner_head": "825c0cde2909d127e72d402d78bcdc7b9a40aec2",
+    "stageA_owner_head": "4d196b916c815f665ea725f40ee5fb48ef76b10e",
+    "stageB_owner_head": "aee265e65b9b1471b066cac8d43f8d929bdd67e7",
+    "stageC_owner_head": "236678081b425d97eeb0326e46041a34a5333ed4",
+    "stageD_checkpoint_sha256": "efa65e0bc614ae4e4583508f63a73d97eca0c79024e1fdf92eb59ec0959c26fb",
+    "stageD_owner_head": "6c6d8b8a8d184f73ebf8e262bf09e1d61660c871"
+  },
+  "generation": "R059L",
+  "hard_negative_self_tests": {
+    "summary": "PASS",
+    "tests": [
+      {
+        "evidence": "Setting external theorem premise true violates native-first gate.",
+        "expected_rejection_code": "EXTERNAL_MATRIX_TREE_AS_NATIVE_PREMISE",
+        "rejected": true,
+        "test_id": "E-N01"
+      },
+      {
+        "evidence": {
+          "correct_TAU": 1,
+          "wrong_det": 2
+        },
+        "expected_rejection_code": "UNCANCELLED_SELF_LOOP_DIAGONAL",
+        "rejected": true,
+        "test_id": "E-N02"
+      },
+      {
+        "evidence": {
+          "one_transition_correct_TAU": 1,
+          "wrong_delete_source_det": 0
+        },
+        "expected_rejection_code": "WRONG_ROOT_DELETION",
+        "rejected": true,
+        "test_id": "E-N03"
+      },
+      {
+        "evidence": "Floating determinant/tolerance/rounding forbidden.",
+        "expected_rejection_code": "FLOATING_DETERMINANT_ROUNDING",
+        "rejected": true,
+        "test_id": "E-N04"
+      },
+      {
+        "evidence": {
+          "correct_TAU": 2,
+          "simple_support_det": 1
+        },
+        "expected_rejection_code": "SIMPLE_SUPPORT_MATRIX",
+        "rejected": true,
+        "test_id": "E-N05"
+      },
+      {
+        "evidence": "N0 promotion forbidden.",
+        "expected_rejection_code": "DETERMINANT_PROMOTED_TO_N0",
+        "rejected": true,
+        "test_id": "E-N06"
+      },
+      {
+        "evidence": "Probability/entropy interpretation forbidden.",
+        "expected_rejection_code": "MU_PROBABILITY_ENTROPY",
+        "rejected": true,
+        "test_id": "E-N07"
+      },
+      {
+        "evidence": "Raw-history quotient/cancellation forbidden.",
+        "expected_rejection_code": "RAW_HISTORY_QUOTIENT_CANCELLATION",
+        "rejected": true,
+        "test_id": "E-N08"
+      },
+      {
+        "evidence": "Geometry semantics forbidden.",
+        "expected_rejection_code": "GEOMETRY_LEAKAGE",
+        "rejected": true,
+        "test_id": "E-N09"
+      },
+      {
+        "evidence": "C6 repair forbidden.",
+        "expected_rejection_code": "C6_UNTYPED_REPAIR",
+        "rejected": true,
+        "test_id": "E-N10"
+      },
+      {
+        "evidence": {
+          "preferred_expected_MU": 2,
+          "wrong_formula_MU": 1
+        },
+        "expected_rejection_code": "WRONG_ROOT_FACTORIAL_NORMALIZATION",
+        "rejected": true,
+        "test_id": "E-N11"
+      },
+      {
+        "evidence": {
+          "correct_TAU": 16,
+          "wrong_plus_sign_det": 20
+        },
+        "expected_rejection_code": "WRONG_OFFDIAGONAL_SIGN",
+        "rejected": true,
+        "test_id": "E-N12"
+      }
+    ],
+    "tests_rejected_as_required": 12,
+    "tests_total": 12
+  },
+  "input_artifact_sha256": {
+    "R059L_COFACTOR_REVERSAL_RELABELING_AUDIT.json": "cb5223766e6bf3d13e2f9976438771527e98fe45ec1e867833a94579093407d7",
+    "R059L_DETERMINANT_CYCLE_CANCELLATION_CERTIFICATE.json": "26711e14f324f19513e9c5ce40874603917c3d74fcf00e1eb5b2cb0fd3addd4e",
+    "R059L_EXACT_INTEGER_DETERMINANT_PROTOCOL.json": "6d8cd81a3ae660b74c782942261b17ec8314040a94a77fc3f0b53b02dfe4cb29",
+    "R059L_MU_COFACTOR_EXACT_FORMULA.json": "3426a7c84a3c78a4704b2f5a154bef0b5d8c54d794c0fd376c7fb841cd4c345b",
+    "R059L_STAGE_E_REGRESSION_RESULTS.json": "8d430fcd6a755c0a65339e902c5e9e6f97f0900eaf69f95ed832d7e9803d1c37",
+    "R059L_STAGE_E_THEOREM_LEDGER.json": "84ca50815f48b088dbb7e2c767245f99ed523efd56fd7d04e1a6017c1ebc684e",
+    "R059L_TAU_COFACTOR_THEOREM.json": "5d81d03b0063d7238ac67d4c183938849842ab511d58996b88958bb144d428ae",
+    "R059L_TAU_INTEGER_MATRIX_PROTOCOL.json": "600c3a587f8c8af0ddbf7472dbe1a3fe5edfaf7e6f813ee75d659ebc22849531"
+  },
+  "next_stage_entered": false,
+  "overall_summary": "PASS",
+  "parent_coefficient_validation": {
+    "active_sizes_checked": "1..6",
+    "coefficient_mismatches": 0,
+    "cyclic_maps": 1972,
+    "parent_maps_checked": 3414,
+    "rooted_maps": 1442
+  },
+  "positive_validation": {
+    "gate_ids": [
+      "E-P01",
+      "E-P02",
+      "E-P03",
+      "E-P04",
+      "E-P05",
+      "E-P06",
+      "E-P07",
+      "E-P08",
+      "E-P09",
+      "E-P10",
+      "E-P11",
+      "E-P12",
+      "E-P13",
+      "E-P14",
+      "E-P15",
+      "E-P16",
+      "E-P17",
+      "E-P18",
+      "E-P19",
+      "E-P20",
+      "E-P21",
+      "E-P22",
+      "E-P23",
+      "E-P24",
+      "E-P25",
+      "E-P26",
+      "E-P27",
+      "E-P28",
+      "E-P29",
+      "E-P30",
+      "E-P31",
+      "E-P32",
+      "E-P33",
+      "E-P34",
+      "E-P35"
+    ],
+    "gates_passed": 35,
+    "gates_total": 35,
+    "summary": "PASS"
+  },
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_STAGE_E_CHECKER_OUTPUT_V1",
+  "stage": "STAGE_E",
+  "task_id": "RS-R059L-STAGE-E-TAU-COFACTOR-INTEGER-COMPUTATION",
+  "taskbook_source_commit": "82bbe86cba01df4f096dc6ae183f1f743dab2673"
+}

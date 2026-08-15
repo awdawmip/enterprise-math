@@ -1,0 +1,64 @@
+{
+  "C6": "C6_PASSAGE_COMPOSITION_NOT_YET_WELL_TYPED",
+  "external_best_used_as_native_premise": false,
+  "external_matrix_tree_used_as_native_premise": false,
+  "generation": "R059L",
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_STAGE_E_THEOREM_LEDGER_V1",
+  "semantic_firewall": "PASS_NO_GEOMETRY_NO_PHYSICS_NO_PROBABILITY_NO_RAW_HISTORY_QUOTIENT",
+  "stage": "STAGE_E",
+  "task_id": "RS-R059L-STAGE-E-TAU-COFACTOR-INTEGER-COMPUTATION",
+  "taskbook_source_commit": "82bbe86cba01df4f096dc6ae183f1f743dab2673",
+  "theorems": [
+    {
+      "id": "PE-T01",
+      "proof_premise": "FINITE_DETERMINANT_MULTILINEARITY_AND_EXPLICIT_CYCLE_CANCELLATION_ONLY",
+      "statement": "TAU_r(T)=det(K^(r)) for positive realizable finite T with loop-cancelled row matrix K.",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "dependency": [
+        "PE-T01",
+        "FROZEN_STAGE_D_MU_FORMULA"
+      ],
+      "id": "PE-T02",
+      "statement": "MU exact cofactor-factorial formula for positive realizable finite T.",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PE-T03",
+      "statement": "det(B_p)=(1-1)^c where c is the number of non-root directed cycles of parent datum p.",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PE-T04",
+      "statement": "Every rooted surviving parent map has determinant coefficient +1 and weight product_x T(x,p(x)).",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PE-T05",
+      "statement": "Loop-cancelled diagonal excludes self-loop weight exactly.",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PE-T06",
+      "statement": "Fraction-free Bareiss computes det(K^(r)) exactly using integers only, with det(empty)=1.",
+      "status": "PROVED_EXACT_COMPUTATION_PROTOCOL"
+    },
+    {
+      "id": "PE-T07",
+      "statement": "Cofactor is covariant under adjacency-preserving relabeling.",
+      "status": "PROVED_EXACT"
+    },
+    {
+      "id": "PE-T08",
+      "statement": "Rooted cofactors of T and transposed endpoint-swapped T agree on realizable inputs.",
+      "status": "PROVED_EXACT_FROM_FROZEN_REVERSAL_AND_BALANCE"
+    },
+    {
+      "id": "PE-DISP",
+      "statement": "R059L_PATH_COLLAPSE_COUNTING_KERNEL_COMPLETE_CANDIDATE",
+      "status": "RETURN_IF_CHECKER_PASS"
+    }
+  ]
+}
