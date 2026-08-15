@@ -1,0 +1,31 @@
+{
+  "N_entries": [
+    {"N":"1000000000000000000000000000000000000","id":"N0","parity":"EVEN","residues":{"mod11":1,"mod3":1,"mod5":0,"mod7":1}},
+    {"N":"999999999999999999999999999999999989","id":"N0_M11","parity":"ODD","residues":{"mod11":1,"mod3":2,"mod5":4,"mod7":4}},
+    {"N":"999999999999999999999999999999999993","id":"N0_M7","parity":"ODD","residues":{"mod11":5,"mod3":0,"mod5":3,"mod7":1}},
+    {"N":"999999999999999999999999999999999995","id":"N0_M5","parity":"ODD","residues":{"mod11":7,"mod3":2,"mod5":0,"mod7":3}},
+    {"N":"999999999999999999999999999999999997","id":"N0_M3","parity":"ODD","residues":{"mod11":9,"mod3":1,"mod5":2,"mod7":5}},
+    {"N":"999999999999999999999999999999999998","id":"N0_M2","parity":"EVEN","residues":{"mod11":10,"mod3":2,"mod5":3,"mod7":6}},
+    {"N":"999999999999999999999999999999999999","id":"N0_M1","parity":"ODD","residues":{"mod11":0,"mod3":0,"mod5":4,"mod7":0}},
+    {"N":"1000000000000000000000000000000000001","id":"N0_P1","parity":"ODD","residues":{"mod11":2,"mod3":2,"mod5":1,"mod7":2}},
+    {"N":"1000000000000000000000000000000000002","id":"N0_P2","parity":"EVEN","residues":{"mod11":3,"mod3":0,"mod5":2,"mod7":3}},
+    {"N":"1000000000000000000000000000000000003","id":"N0_P3","parity":"ODD","residues":{"mod11":4,"mod3":1,"mod5":3,"mod7":4}},
+    {"N":"1000000000000000000000000000000000005","id":"N0_P5","parity":"ODD","residues":{"mod11":6,"mod3":0,"mod5":0,"mod7":6}},
+    {"N":"1000000000000000000000000000000000007","id":"N0_P7","parity":"ODD","residues":{"mod11":8,"mod3":2,"mod5":2,"mod7":1}},
+    {"N":"1000000000000000000000000000000000011","id":"N0_P11","parity":"ODD","residues":{"mod11":1,"mod3":0,"mod5":1,"mod7":5}},
+    {"N":"1000000000000000000000000000037","id":"LOWER_A","parity":"ODD","residues":{"mod11":5,"mod3":2,"mod5":2,"mod7":3}},
+    {"N":"1000000000000000000000019","id":"LOWER_B","parity":"ODD","residues":{"mod11":9,"mod3":2,"mod5":4,"mod7":6}}
+  ],
+  "freeze_statement": "N and q registries fixed before any Stage-D q-result/candidate selection",
+  "frozen_parent_stage_c_head": "441c554fbb13e3c7faba94561f2ea8b64d3b6c4b",
+  "large_N_method": "O(1)-class residue/count formulas; no O(N), O(qN), or full-history materialization",
+  "q_entries": [
+    {"above_12":false,"prime":true,"q":2},{"above_12":false,"prime":true,"q":3},{"above_12":false,"prime":false,"q":4},{"above_12":false,"prime":true,"q":5},{"above_12":false,"prime":false,"q":6},{"above_12":false,"prime":true,"q":7},{"above_12":false,"prime":false,"q":8},{"above_12":false,"prime":false,"q":9},{"above_12":false,"prime":false,"q":10},{"above_12":false,"prime":true,"q":11},{"above_12":false,"prime":false,"q":12},{"above_12":true,"prime":true,"q":13},{"above_12":true,"prime":false,"q":14},{"above_12":true,"prime":false,"q":15},{"above_12":true,"prime":false,"q":16},{"above_12":true,"prime":true,"q":17},{"above_12":true,"prime":false,"q":18},{"above_12":true,"prime":true,"q":19},{"above_12":true,"prime":true,"q":23},{"above_12":true,"prime":false,"q":25}
+  ],
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_D_LARGE_N_Q_REGISTRY_V1",
+  "status": "FROZEN_BEFORE_A1_REPLAY_AND_UNIFORM_CONTROLLER_EVALUATION",
+  "symbolic_target": "all integers q>=2 and N>=1 where theorem stated",
+  "taskbook_source": "3bb0e9d7c0078818f5e224b7524cf72812a4ab8a",
+  "tiny_N_role": "theorem regression only after symbolic classification"
+}
