@@ -11,7 +11,7 @@
   "lambda_occurrence": "lambda appears only in STOP_lambda(p) := [p+lambda=0]",
   "fixed_phase_successor": "sigma(p)=p+1 mod 3",
   "fixed_transport_action": {"0":"V","1":"V_INV","2":"H"},
-  "fixed_launch_action_for_next_phase": {"incoming_p=0":"H","incoming_p=1":"V","incoming_p=2":"V_INV"},
+  "fixed_launch_action_for_next_phase": {"incoming_p=0":"V_INV","incoming_p=1":"H","incoming_p=2":"V"},
   "control_graph": [
     "START & S_SELF=1 -> HOLD",
     "phase p in {0,1,2} & S_SELF=1 -> TRANSPORT_ACTION(p)",
