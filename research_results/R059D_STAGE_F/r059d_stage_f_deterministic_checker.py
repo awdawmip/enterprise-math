@@ -170,7 +170,7 @@ out={
 "checks_digest_sha256":digest,
 "large_N_method":"closed-form integer formulas only; no huge carrier/history enumeration",
 "tiny_enumeration_role":"theorem regression only for q=2..9,N=1..10 paired processes",
-"parent_immutability":"final GitHub compare required outside local checker"
+"parent_immutability":"PASS_BY_GITHUB_COMPARE_PRE_MANIFEST; final compare repeated after checkpoint"
 }
 (R/"R059D_STAGE_F_DETERMINISTIC_CHECKER_OUTPUT.json").write_text(json.dumps(out,indent=2,sort_keys=True)+"\n")
 print(json.dumps(out,indent=2))
