@@ -1,0 +1,61 @@
+{
+  "P0_controls": {
+    "q3_certificate": "exact finite relative-state quotient regression/certificate; no nonseed tag is recruited",
+    "q_ge_5_certificate": "after transient the seed support defect stays within a fixed translated single-source template; q>=5 keeps the +/-2 support probe outside every other source template, so other tags see identical support/action sets",
+    "role": "negative baseline controls only",
+    "verdict": "NO_SECONDARY_CAUSAL_RECRUITMENT in frozen stationary-extension controls"
+  },
+  "P1_support_only_I2_obstruction": {
+    "proof": "F-I2 changes multiplicity C_0(X_0):1->2 but changes no support bit, tagged position, or current event state. Every P1 controller sees identical signatures and therefore identical actions forever by induction; only Cartesian/count multiplicity diagnostic differs.",
+    "scope": "entire frozen P1 support-only class under F_I2_ALIGNED_SELF_PLUS1",
+    "verdict": "NO_CAUSAL_PROPAGATION"
+  },
+  "additional_survivors": [
+    {
+      "E_star": "q*(N-1)",
+      "classification": "SYSTEM_SPANNING_CAUSAL_CLOSURE",
+      "controller": "P2_TOKEN_WALKER_RECRUIT_MINUS",
+      "direction": "H_INV",
+      "intervention": "F_I2_ALIGNED_SELF_PLUS1"
+    },
+    {
+      "E_star": "0 if N=1 else q*(N-1)-1",
+      "classification": "SYSTEM_SPANNING_CAUSAL_CLOSURE",
+      "controller": "P3_COOCCUPANCY_WALKER",
+      "intervention": "F_I3_H_STEP",
+      "mechanism": "moving seed cooccupies each X_i; S_SELF>=2 recruits tag i into the H-moving cohort"
+    },
+    {
+      "E_star": "0 if N=1; q-1 if N=2; q*(floor(N/2)+1)-1 if N>=3",
+      "classification": "SYSTEM_SPANNING_CAUSAL_CLOSURE",
+      "controller": "P3_COOCCUPANCY_WALKER",
+      "intervention": "F_I3_H_INV_STEP",
+      "mechanism": "negative seed plus launched positive front cover the cyclic tag indices"
+    }
+  ],
+  "frozen_parent_stage_e_head": "26c1a5d6fe6526fbb5fca9e122c064344bb69ddc",
+  "primary_positive": {
+    "N_domain": "all integers N>=2 (formula extends trivially to N=1)",
+    "classification": "SYSTEM_SPANNING_CAUSAL_CLOSURE",
+    "closure_generation": "E_*=q*(N-1)",
+    "closure_pair": "N:N",
+    "controller": "P2_TOKEN_WALKER_RECRUIT_PLUS",
+    "global_readout": false,
+    "intervention": "F_I2_ALIGNED_SELF_PLUS1",
+    "proof_summary": "I2 makes seed L_SELF=2, launching a multiplicity-2 H messenger. It is at X_i exactly at generation q*i; there L_SELF=3 for stationary tag i, so tag i changes signature/action and is recruited. All i=0..N-1 are recruited by q*(N-1).",
+    "q_domain": "all integers q>=2",
+    "reads_N": false,
+    "reads_q": false,
+    "reads_time": false,
+    "schedulers": [
+      "S_SYNC",
+      "S_ALL_ORDERS_SNAPSHOT"
+    ],
+    "stationary_rule": true
+  },
+  "researcher_id": "EM-R059D-4C7E21",
+  "resource_controls": "Stage-E K(N), global aggregate, and step-horizon controls retained as negative/resource references only, never positive evidence",
+  "schema": "R059D_STAGE_F_SYSTEM_SPANNING_SEARCH_V1",
+  "status": "FROZEN_AFTER_LARGE_N_SYMBOLIC_SEARCH",
+  "taskbook_source": "0aa8353d0c97c6d9944bb8ab04f809a00d323b37"
+}
