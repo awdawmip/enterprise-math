@@ -1,0 +1,32 @@
+{
+  "N_crossover_status": "NO_N_CROSSOVER_WITHIN_PROVED_RANGE",
+  "autonomous_controller_robust_N_crossover_candidate": false,
+  "exceptional_q_controls": {
+    "q=2,N=1": "some three-round rules can hit D0 because H^2=id, but intermediate tagged configuration support is singleton; excluded as nontrivial positive evidence",
+    "q=2,N>1": "symmetry obstruction; no large-N survivor to scale down",
+    "q=4,all_N": "symmetry obstruction; no large-N survivor to scale down"
+  },
+  "frozen_parent_stage_c_head": "441c554fbb13e3c7faba94561f2ea8b64d3b6c4b",
+  "large_N_survivors_carried": [
+    "U_BPLUS2_ONEBIT on q=3 and q>=5",
+    "U_BMINUS2_ONEBIT on q=3 and q>=5",
+    "Q3_REACH1_A1_CLASS on q=3",
+    "S2/S3/S4 redundant representations of the same robust reachable transition relation"
+  ],
+  "q_change_interpretation": "alignment-period structural classification only; never physical macro/micro crossover",
+  "researcher_id": "EM-R059D-4C7E21",
+  "schema": "R059D_STAGE_D_SCALE_DOWN_ATLAS_V1",
+  "stage_A_N_c_3": "remains R3_CONTROLLER_SPECIFIC_ALIAS_CANDIDATE only",
+  "status": "FROZEN_AFTER_LARGE_N_SURVIVORS",
+  "symbolic_N_result": {
+    "S_ALL_ORDERS_Hfull": "2^N*(N!)^3",
+    "S_SYNC_Hfull": "2^N",
+    "T1": "U_N(4N)=Hfull",
+    "T2": "6N",
+    "T3": "2N cells at Hfull; 4N cells at Hfull/2",
+    "cell_support": "[N,2N,2N,N]",
+    "configuration_support": "[1,2^N,2^N,1]",
+    "robust_q_domain": "for every q=3 or q>=5, every carried survivor has D0 first aligned return at round 3 for all integers N>=1"
+  },
+  "taskbook_source": "3bb0e9d7c0078818f5e224b7524cf72812a4ab8a"
+}
