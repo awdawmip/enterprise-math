@@ -139,6 +139,7 @@ for N in Ns:
 # Scheduler certificate arithmetic.
 for N in range(1,65):
     ck((1<<(N-1))>=1,f"schedP2:{N}")
+    # do not materialize global histories; just verify integer factorial product recursively
     x=1
     for m in range(2,N+1): x*=__import__("math").factorial(m)
     ck(x>=1,f"schedP3:{N}")
