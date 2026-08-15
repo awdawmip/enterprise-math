@@ -1,0 +1,46 @@
+{
+  "generation": "R059P",
+  "models": [
+    {
+      "acceptance": "E(S') < E(S)",
+      "expected_theorem": "FINITE_TERMINATION_NO_NONTRIVIAL_CYCLE",
+      "model_id": "M0_SYMMETRIC_STATE_ONLY_STRICT_DESCENT",
+      "pair_rule": "SYMMETRIC_STATE_ONLY",
+      "persistent_cycle_asserted": false,
+      "state_space": "FINITE_OMEGA"
+    },
+    {
+      "acceptance": "E(S') = E(S) MAY_BE ACCEPTED",
+      "activity_requires_transition_policy": true,
+      "elementary_update": "ONE_TAGGED_MARKER_MAKES_ONE_DECLARED_ADJACENCY_TRANSITION_TO_AN_UNOCCUPIED_PACKET",
+      "model_id": "M1_NEUTRAL_PLATEAU",
+      "pair_rule": "SYMMETRIC_STATE_ONLY",
+      "persistent_cycle_to_search": true,
+      "state_space": "FINITE_OMEGA"
+    },
+    {
+      "classification": "STAGE_B_CANDIDATE_NOT_ASSUMED",
+      "model_id": "M2_PATH_HISTORY_MEMORY",
+      "pair_rule": "MAY_DEPEND_ON_RECENT_TRANSITION_HISTORY_OR_PATH_USAGE",
+      "state_space": "CONFIGURATION_X_EXPLICIT_MEMORY"
+    },
+    {
+      "classification": "STAGE_B_CANDIDATE_NOT_DEFAULT",
+      "model_id": "M3_NONRECIPROCAL_LOCAL_COUPLING",
+      "pair_rule": "LOCAL_PREFERENCES_NEED_NOT_BE_RECIPROCAL",
+      "state_space": "FINITE_OR_BOUNDED"
+    },
+    {
+      "classification": "DOWNSTREAM_CALIBRATION_ONLY",
+      "model_id": "M4_STOCHASTIC_OR_EXTERNAL_DRIVE",
+      "pair_rule": "DRIVE_OR_NOISE_IS_ADDITIONAL_N1_SEMANTICS",
+      "state_space": "EXPLICITLY_DECLARED"
+    }
+  ],
+  "researcher_id": "EM-R059P-8A2C7D",
+  "schema": "R059P_DYNAMIC_UPDATE_MODEL_REGISTRY_V1",
+  "status": "FROZEN_STAGE0",
+  "strict_descent_cycle_claim": false,
+  "task_id": "RS-R059P-PATH-SPECTRUM-COUPLING-DYNAMIC-STEADY-STATE-VALIDATION",
+  "taskbook_source": "8f4e83ed6404bad6804e3d5f9f2f291c1ec42cf2"
+}
