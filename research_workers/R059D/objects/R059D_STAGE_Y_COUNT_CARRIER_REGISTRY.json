@@ -52,9 +52,11 @@
     {
       "id": "A2_SECTOR_CONTROL",
       "symbol": "Q_A2(k)",
-      "definition": "one predeclared combinatorial sector control from Stage-X scaffold layers",
-      "count": "triangular/polynomial scaffold count as inherited exact control",
+      "definition": "{(i,j) in Z_{>=0}^2: i+j<=k} as an axial integer-pair sector control",
+      "count": "(k+1)(k+2)/2",
+      "increment": "k+2 from k to k+1",
       "status_before_scoring": "NEGATIVE_CONTROL",
+      "firewall": "combinatorial integer-pair sector only; no angle/area premise",
       "reason": "control only; no native coordinate-value coupling is assumed"
     },
     {
@@ -83,5 +85,5 @@
     "forbid_floor_ceil_nearest_midpoint_before_semantics": true
   },
   "registry_closed": true,
-  "note": "No count carrier may be added after this pre-score freeze. Existing earlier Stage-Y-looking CF/ZSIG/PP artifacts on this branch are outside the active Driver taskbook and are not scored here."
+  "note": "No count carrier may be added after this pre-score freeze. This exactification occurs before any scoring artifact. Existing earlier Stage-Y-looking CF/ZSIG/PP artifacts on this branch are outside the active Driver taskbook and are not scored here."
 }
