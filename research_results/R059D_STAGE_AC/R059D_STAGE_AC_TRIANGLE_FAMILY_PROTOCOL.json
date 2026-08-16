@@ -20,7 +20,6 @@
     },
     "implementation_depth_chart": "write (p,q) for repository chart point (p,-q,0)",
     "vertex_carrier_D_n": "{(p,q) in Z_{>=0}^2 : p+q<=n}",
-    "vertex_closure_carrier_Dbar_n": "{(p,q) in Z_{>=0}^2 : p+q<=n} plus boundary vertices with p+q=n",
     "native_axis_step_families_in_chart": {
       "u": [[1,0],[-1,0]],
       "v": [[0,1],[0,-1]],
@@ -32,13 +31,15 @@
       "U_to_V_closing": "((n-r+1,r-1),(n-r,r)), 1<=r<=n"
     },
     "orientation_preserving_unit_T1_occurrence": {
-      "index": "(i,j) with i,j>=0 and i+j<=n",
+      "index": "(i,j) with i,j>=0 and i+j<=n-1",
       "vertices": "{(i,j),(i+1,j),(i,j+1)}",
+      "containment_reason": "both shifted vertices must satisfy p+q<=n",
       "definition": "translation of the controlled T1 three-cycle preserving the ordered Enterprise-axis roles and alternating-sign orientation"
     },
     "opposite_orientation_unit_cycle_control": {
-      "index": "(i,j) with i,j>=0 and i+j<=n-1",
+      "index": "(i,j) with i,j>=0 and i+j<=n-2, only for n>=2",
       "vertices": "{(i+1,j),(i,j+1),(i+1,j+1)}",
+      "containment_reason": "the vertex (i+1,j+1) must satisfy p+q<=n",
       "role": "negative/control motif; not silently merged into the root primitive"
     }
   },
