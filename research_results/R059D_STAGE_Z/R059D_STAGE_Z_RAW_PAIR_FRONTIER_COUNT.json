@@ -1,0 +1,25 @@
+{
+  "definitions": {
+    "B2": "B2(k)={1,...,k}^2",
+    "F2": "F2(k)=B2(k+1)\\B2(k)",
+    "count": "|F2(k)|=(k+1)+k=2k+1",
+    "cumulative": "sum_{r=0}^{k}(2r+1)=(k+1)^2",
+    "decomposition": "new row {(k+1,j):1<=j<=k+1} disjoint union new column {(i,k+1):1<=i<=k}",
+    "orbit_count": "k+1",
+    "swap_structure": "one fixed state (k+1,k+1) plus k two-element off-diagonal orbits"
+  },
+  "freeze": "TRANSVERSE_FRONTIER_COUNT_2K_PLUS_1_ESTABLISHED_AS_ABSTRACT_COUNT",
+  "researcher_id": "EM-R059D-4E8B71",
+  "schema": "R059D_STAGE_Z_RAW_PAIR_FRONTIER_COUNT_V1",
+  "semantic_boundary": "Abstract Cartesian frontier cardinality only; not a primary-gap coupling and not Euclidean area.",
+  "status": "EXACT",
+  "table_k_0_through_6": [
+    {"cumulative_raw_count_through_k": 1, "fixed_count": 1, "k": 0, "orbit_count": 1, "raw_count": 1},
+    {"cumulative_raw_count_through_k": 4, "fixed_count": 1, "k": 1, "orbit_count": 2, "raw_count": 3},
+    {"cumulative_raw_count_through_k": 9, "fixed_count": 1, "k": 2, "orbit_count": 3, "raw_count": 5},
+    {"cumulative_raw_count_through_k": 16, "fixed_count": 1, "k": 3, "orbit_count": 4, "raw_count": 7},
+    {"cumulative_raw_count_through_k": 25, "fixed_count": 1, "k": 4, "orbit_count": 5, "raw_count": 9},
+    {"cumulative_raw_count_through_k": 36, "fixed_count": 1, "k": 5, "orbit_count": 6, "raw_count": 11},
+    {"cumulative_raw_count_through_k": 49, "fixed_count": 1, "k": 6, "orbit_count": 7, "raw_count": 13}
+  ]
+}
