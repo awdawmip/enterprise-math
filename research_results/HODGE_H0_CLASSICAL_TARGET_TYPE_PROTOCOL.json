@@ -1,0 +1,70 @@
+{
+  "schema": "HODGE_H0_CLASSICAL_TARGET_TYPE_PROTOCOL_V1",
+  "status": "FROZEN",
+  "date": "2026-08-17",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "task_id": "RS-HODGE-H0-ENTERPRISE-REALIZATION-NONTRIVIALITY",
+  "taskbook_source": "b77d7a8720ea427b6e886c277a5b45882bfa4e37",
+  "external_status_verified_2026_08_17": {
+    "hodge_conjecture_status": "CLASSICAL_OPEN_CONJECTURE",
+    "authority": "Clay Mathematics Institute",
+    "url": "https://www.claymath.org/millennium/hodge-conjecture/",
+    "official_problem_description": "https://www.claymath.org/wp-content/uploads/2022/06/hodge.pdf"
+  },
+  "classical_target": {
+    "domain": "smooth projective complex algebraic variety X",
+    "hodge_classes": "H^{2p}(X,Q) ∩ H^{p,p}(X)",
+    "claim": "every rational Hodge class is a rational linear combination of cohomology classes of codimension-p algebraic cycles",
+    "coefficients": "Q",
+    "integral_generalization_is_target": false
+  },
+  "status_vocabulary": [
+    "CLASSICAL_THEOREM",
+    "CLASSICAL_OPEN_CONJECTURE",
+    "CLASSICAL_PRIOR_ART_METHOD",
+    "ENTERPRISE_ANALOGY",
+    "ENTERPRISE_HYPOTHESIS",
+    "ENTERPRISE_PROVED_STATEMENT",
+    "FINITE_COMPUTATION_ONLY"
+  ],
+  "hx_types": {
+    "HX0_ALGEBRAIC_SOURCE": "variety, algebraic morphism, and explicitly declared algebraic presentation data",
+    "HX1_ENTERPRISE_NATIVE_REALIZATION": "Enterprise structure constructed from permitted Enterprise primitives plus HX0 without classical analytic generators",
+    "HX2_ENTERPRISE_DERIVED_OPERATIONAL": "precision/collapse/fiber/transition/branch/path/incidence operational structure",
+    "HX3_COMPARISON_READOUT": "forgetful/collapse/comparison map used for audit, never as generator",
+    "HX4_CLASSICAL_ANALYTIC_REALIZATION": "complex analytic/Kähler/differential-form/Hodge/Euclidean realization"
+  },
+  "native_semantics_types": [
+    "I0_IMPLEMENTATION_CARRIER",
+    "N0_NATIVE_RELATIONAL",
+    "N1_DERIVED_OPERATIONAL_SEMANTICS",
+    "N2_READOUT_COLLAPSE",
+    "N3_CONTINUUM_CLASSICAL"
+  ],
+  "eventual_missing_arrow": "Hodge class -> Enterprise cycle -> algebraic cycle on X",
+  "h0_scope": "realization nontriviality only; no Hodge proof and no algebraic lifting theorem",
+  "forbidden_enterprise_generators": [
+    "classical Hodge decomposition",
+    "harmonic representatives",
+    "Kähler metric as undeclared native data",
+    "known Hodge numbers",
+    "known classical cycle answers",
+    "Euclidean distance/angle/length",
+    "classical equidistant-point circle",
+    "standard real pi as selector/calibration target",
+    "renamed classical analytic chart",
+    "renamed tropical/non-Archimedean output"
+  ],
+  "startup_packet_discrepancy": {
+    "missing_path": "definitions/R059D_STAGE_AC_COUNT_RETYPE_20260816.md",
+    "checked_refs": [
+      "b77d7a8720ea427b6e886c277a5b45882bfa4e37",
+      "main",
+      "d5270439d41ab2a421195d7387d6c819eba4bf56"
+    ],
+    "result": "NOT_FOUND",
+    "effect": "SOFT_DEPENDENCY_GAP_ONLY",
+    "semantic_retype_recovered_from_higher_authority": "3n is boundary/incidence count, not two-dimensional area",
+    "fabricated_replacement_created": false
+  }
+}

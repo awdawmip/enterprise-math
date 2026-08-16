@@ -1,0 +1,56 @@
+{
+  "schema": "HODGE_H0_PRESENTATION_AUTOMORPHISM_GATE_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "tests": [
+    {
+      "id": "PRES-P1-AFFINE-CHANGE",
+      "object": "P^1",
+      "presentation_1": "affine z=X/Y plus chosen Enterprise precision/grid placement",
+      "presentation_2": "w=1/z (same P^1 under sigma([X:Y])=[Y:X])",
+      "result": "FAIL_FOR_ENTERPRISE_GRID",
+      "reason": "the affine finite-resolution/grid carrier is not preserved as the same declared Enterprise carrier under inversion without a new re-placement/re-quantization choice",
+      "classification": "PRESENTATION_DEPENDENT_AUXILIARY_STRUCTURE"
+    },
+    {
+      "id": "PRES-P1-TRANSLATION",
+      "object": "P^1",
+      "presentation_1": "z",
+      "presentation_2": "w=z+1",
+      "result": "NO_FROZEN_NATURAL_EQUIVALENCE_FOR_GENERAL_ENTERPRISE_PLACEMENT",
+      "reason": "coordinate transport exists classically, but H0 has no theorem that the chosen Enterprise precision/collapse partition is canonical under all PGL2(C) changes"
+    },
+    {
+      "id": "AUTO-P1",
+      "automorphism": "sigma([X:Y])=[Y:X]",
+      "result": "FAIL_FOR_COORDINATE_ANCHORED_ENTERPRISE_REALIZATION",
+      "reason": "origin/chart/infinity or axis anchoring is moved; no source-intrinsic anchor certificate exists"
+    },
+    {
+      "id": "AUTO-P1-PGL2-TRANSITIVITY",
+      "result": "NO_CANONICAL_NONEMPTY_PROPER_FINITE_ANCHOR_SET",
+      "exact_argument": "PGL2(C) acts transitively on P^1(C). Any finite anchor subset invariant under every source automorphism would, if nonempty, have to contain the entire orbit of one point, hence all P^1(C), contradiction.",
+      "scope": "rules out canonical finite point anchors; it does not rule out every imaginable Enterprise structure"
+    },
+    {
+      "id": "AUTO-P1XP1-SWAP",
+      "automorphism": "tau(x,y)=(y,x)",
+      "result": "FAIL_FOR_FACTOR_PRIVILEGED_ASSIGNMENT",
+      "reason": "any Enterprise placement that privileges a first factor requires an additional symmetrization/equivariance theorem; none is frozen in H0"
+    },
+    {
+      "id": "PRIOR-ART-FORMAL",
+      "construction": "formal m-adic neighborhood tower",
+      "result": "PASS_PRESENTATION_AND_AUTOMORPHISM",
+      "enterprise_credit": "CONTROL_ONLY_PRIOR_ART"
+    },
+    {
+      "id": "BRC-RELABEL",
+      "construction": "Boolean relation/BRC semantics",
+      "result": "PASS_GENERIC_RELABELING_AT_RELATION_LEVEL",
+      "enterprise_r2_effect": "NONE; surviving structure is derived from the declared relation and remains R1 for this H0 route"
+    }
+  ],
+  "enterprise_r2_presentation_gate_passed": false,
+  "enterprise_r2_automorphism_gate_passed": false
+}

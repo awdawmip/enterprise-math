@@ -1,0 +1,51 @@
+{
+  "schema": "HODGE_H0_NONFACTORIZATION_WITNESS_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "enterprise_r2_witness": {
+    "status": "FAILED_GATE",
+    "reason": "No Enterprise-specific candidate reached R2, so no R2 certificate may be fabricated.",
+    "required_same_classical_image_witness_produced": false
+  },
+  "failed_enterprise_attempts": [
+    {
+      "candidate": "ENT-A-PRECISION-COLLAPSE",
+      "e1_e2_same_classical_image": "possible only after choosing a coordinate/precision fiber",
+      "candidate_observable": "cell/precision/collapse label or transition",
+      "failure": "the distinction is not invariant under algebraically equivalent presentations/source automorphisms; therefore step 6 of the H0 certificate fails",
+      "r2_certificate": "REJECTED"
+    },
+    {
+      "candidate": "ENT-B-BRC-INCIDENCE-PATH",
+      "e1_e2_same_classical_image": "branch histories can recoalesce to one endpoint",
+      "candidate_observable": "history/multiplicity/provenance",
+      "failure": "the frozen Boolean BRC carrier does not retain multiplicity/provenance; adding a richer carrier is not yet an Enterprise-native algebraically sourced construction",
+      "r2_certificate": "REJECTED"
+    }
+  ],
+  "exact_prior_art_control": {
+    "id": "CTRL-FORMAL-JET-TOWER",
+    "carrier": "P^1 at x=0, affine local coordinate z used only to calculate the intrinsic quotients",
+    "e1": "O_{P1,0}/m_0^2",
+    "e2": "O_{P1,0}/m_0^3",
+    "U_e1": "x=0",
+    "U_e2": "x=0",
+    "observable": "length of local Artin quotient",
+    "A_e1": 2,
+    "A_e2": 3,
+    "same_base_point": true,
+    "nonfactorization_over_projection_to_point": true,
+    "presentation_note": "length and the m-adic tower are intrinsic under local-ring isomorphism",
+    "enterprise_credit": "NONE_PRIOR_ART_CONTROL",
+    "purpose": "shows the H0 gate is satisfiable in principle without arbitrary coloring, but does not rescue Enterprise H0"
+  },
+  "exact_ramification_control_not_counted_as_r2": {
+    "morphism": "f(z)=z^2(z-1)",
+    "fiber_over_0": "z=0 multiplicity 2; z=1 multiplicity 1",
+    "composition_with_g(t)=t^2": "z**4*(z - 1)**2",
+    "presentation_shift_w=z+1": "(w - 2)*(w - 1)**2",
+    "presentation_reflection_w=1-z": "-w*(w - 1)**2",
+    "status": "ALGEBRAIC_PRIOR_ART_CONTROL_ONLY",
+    "warning": "A deliberately coarse endpoint-only U would manufacture a nonfactorization certificate; H0 rejects that maneuver when the declared classical realization contains the full algebraic/analytic map."
+  }
+}

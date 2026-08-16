@@ -1,0 +1,40 @@
+{
+  "schema": "HODGE_H0_FUNCTORIALITY_TOY_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "tests": [
+    {
+      "candidate": "ENT-A-PRECISION-COLLAPSE",
+      "identity": "PASS_ONLY_AFTER_FIXING_PRESENTATION",
+      "composition": "NOT_ESTABLISHED_PRESENTATION_INDEPENDENTLY",
+      "nontrivial_morphism": "f:P^1->P^1, f([X:Y])=[X^2(X-Y):Y^3]",
+      "automorphism": "sigma([X:Y])=[Y:X]",
+      "automorphism_result": "FAIL_CARRIER_PRESERVATION_WITHOUT_REPLACEMENT_CHOICE",
+      "functorial_claim": false
+    },
+    {
+      "candidate": "ENT-B-BRC-INCIDENCE-PATH",
+      "identity": "PASS_AT_GENERIC_RELATION_CATEGORY_LEVEL",
+      "composition": "PASS_AT_GENERIC_RELATION_COMPOSITION_LEVEL",
+      "nontrivial_morphism": "graph relation of f:P^1->P^1",
+      "automorphism": "relations conjugate exactly under source/target relabeling",
+      "result": "GENERIC_PRIOR_ART_RELATIONAL_FUNCTORIALITY_ONLY",
+      "enterprise_r2_effect": "NONE",
+      "functorial_claim": "ONLY_FOR_THE_DECLARED_GENERIC_RELATION COMPILER, NOT AN ENTERPRISE REALIZATION FUNCTOR ON VARIETIES"
+    },
+    {
+      "control": "formal/local algebra",
+      "identity": "PASS",
+      "composition_control": "for f(z)=z^2(z-1), g(t)=t^2, g∘f=z^4(z-1)^2",
+      "local_multiplicity_control": "2 and 1 become 4 and 2 over target 0",
+      "result": "EXACT_PRIOR_ART_CONTROL"
+    },
+    {
+      "product_object": "P^1×P^1",
+      "factor_swap": "tau(x,y)=(y,x)",
+      "result": "TESTED_AS_AUTOMORPHISM_STRESS; NO ENTERPRISE PRODUCT STRUCTURE CLAIMED"
+    }
+  ],
+  "enterprise_candidate_with_exact_identity_composition_and_nontrivial_morphism_at_r2_level": false,
+  "h0_functoriality_gate_for_pass": "FAILED_BECAUSE_NO_ENTERPRISE_R2_CANDIDATE"
+}

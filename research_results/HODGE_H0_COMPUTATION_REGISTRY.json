@@ -1,0 +1,50 @@
+{
+  "schema": "HODGE_H0_COMPUTATION_REGISTRY_V1",
+  "status": "FROZEN_EXACT",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "arithmetic_mode": "exact symbolic / no floating point",
+  "computations": [
+    {
+      "id": "COMP-1-RAMIFICATION-CONTROL",
+      "input": "f(z)=z^2(z-1)",
+      "factorization": "z**2*(z - 1)",
+      "fiber_0_multiplicities": {
+        "z=0": 2,
+        "z=1": 1
+      },
+      "purpose": "prior-art nontrivial fiber control; not Enterprise evidence"
+    },
+    {
+      "id": "COMP-2-COMPOSITION-CONTROL",
+      "input": "g(t)=t^2; g(f(z))",
+      "factorization": "z**4*(z - 1)**2",
+      "multiplicities_over_0": {
+        "z=0": 4,
+        "z=1": 2
+      },
+      "purpose": "exact composition sanity control"
+    },
+    {
+      "id": "COMP-3-PRESENTATION-SHIFT",
+      "input": "w=z+1, so z=w-1",
+      "transformed_factorization": "(w - 2)*(w - 1)**2",
+      "multiplicities": {
+        "w=1": 2,
+        "w=2": 1
+      },
+      "purpose": "prior-art algebraic invariance control"
+    },
+    {
+      "id": "COMP-4-PRESENTATION-REFLECTION",
+      "input": "w=1-z",
+      "transformed_factorization": "-w*(w - 1)**2",
+      "multiplicities": {
+        "w=1": 2,
+        "w=0": 1
+      },
+      "purpose": "automorphism/relabeling control"
+    }
+  ],
+  "classical_hodge_numbers_used": false,
+  "finite_computation_proves_general_hodge": false
+}

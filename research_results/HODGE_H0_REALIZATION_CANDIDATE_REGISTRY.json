@@ -1,0 +1,131 @@
+{
+  "schema": "HODGE_H0_REALIZATION_CANDIDATE_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "task_id": "RS-HODGE-H0-ENTERPRISE-REALIZATION-NONTRIVIALITY",
+  "candidate_families": [
+    {
+      "id": "ENT-A-PRECISION-COLLAPSE",
+      "required_family": "Candidate A — Enterprise precision/fiber/collapse",
+      "enterprise_specific": true,
+      "construction": "choose an algebraic coordinate/presentation or embedding, place its finite-resolution states into an Enterprise coordinate/precision carrier, and retain collapse/fiber data",
+      "source_types": [
+        "HX0_ALGEBRAIC_SOURCE",
+        "I0_IMPLEMENTATION_CARRIER"
+      ],
+      "enterprise_types": [
+        "HX1_ENTERPRISE_NATIVE_REALIZATION",
+        "HX2_ENTERPRISE_DERIVED_OPERATIONAL",
+        "N1_DERIVED_OPERATIONAL_SEMANTICS",
+        "N2_READOUT_COLLAPSE"
+      ],
+      "comparison_type": [
+        "HX3_COMPARISON_READOUT",
+        "N3_CONTINUUM_CLASSICAL"
+      ],
+      "strongest_r_class": "R1_REDUNDANT_ENRICHMENT",
+      "gate_result": "FAIL_PRESENTATION_AUTOMORPHISM_FOR_R2",
+      "reason": "no frozen algebraic-source theorem canonically selects the Enterprise placement/precision cells; chart- or embedding-dependent distinctions disappear or change under source automorphisms. Intrinsic formal-neighborhood/jet replacements pass this issue only by reverting to established algebraic prior art rather than an Enterprise-specific construction.",
+      "counts_toward_h0_r2": false
+    },
+    {
+      "id": "ENT-B-BRC-INCIDENCE-PATH",
+      "required_family": "Candidate B — Enterprise incidence/transition/path",
+      "enterprise_specific": true,
+      "construction": "feed an algebraically declared incidence/correspondence relation into the frozen Boolean-support BRC / relation path semantics, withholding metric geometry",
+      "source_types": [
+        "HX0_ALGEBRAIC_SOURCE",
+        "N0_NATIVE_RELATIONAL"
+      ],
+      "enterprise_types": [
+        "HX1_ENTERPRISE_NATIVE_REALIZATION",
+        "HX2_ENTERPRISE_DERIVED_OPERATIONAL",
+        "N1_DERIVED_OPERATIONAL_SEMANTICS"
+      ],
+      "comparison_type": [
+        "HX3_COMPARISON_READOUT"
+      ],
+      "strongest_r_class": "R1_REDUNDANT_ENRICHMENT",
+      "gate_result": "NO_ENTERPRISE_SPECIFIC_NONFACTORIZING_OBSERVABLE",
+      "reason": "the frozen Boolean BRC core is derived from the declared relation and explicitly does not preserve path multiplicity, provenance, probability/weights, or cancellation. A richer weighted/provenance carrier could distinguish histories, but H0 found no frozen Enterprise-native, presentation-independent algebraic construction selecting such a carrier; importing scheme-theoretic multiplicity would be prior art.",
+      "counts_toward_h0_r2": false
+    }
+  ],
+  "positive_prior_art_controls": [
+    {
+      "id": "CTRL-FORMAL-JET-TOWER",
+      "kind": "PRIOR_ART_NONTRIVIAL_ENRICHMENT",
+      "construction": "intrinsic formal/infinitesimal neighborhood tower at a point using local-ring powers",
+      "purpose": "demonstrates how a canonical fiber over one classical point can carry nontrivial algebraically defined state without arbitrary coloring",
+      "enterprise_result": false,
+      "h0_credit": "CONTROL_ONLY"
+    },
+    {
+      "id": "CTRL-TROPICAL-NONARCH",
+      "kind": "PRIOR_ART_NONTRIVIAL_REALIZATION",
+      "construction": "tropicalization / non-Archimedean analytification and tropical homology",
+      "purpose": "demonstrates genuine non-coordinate realization mechanisms and prevents relabeling prior art as Enterprise",
+      "enterprise_result": false,
+      "h0_credit": "CONTROL_ONLY"
+    }
+  ],
+  "negative_controls": [
+    {
+      "id": "NEG-R0-COORD",
+      "construction": "Möbius/coordinate reparameterization only",
+      "expected_class": "R0_MERE_REPARAMETRIZATION",
+      "classifier_result": "PASS"
+    },
+    {
+      "id": "NEG-R1-COLOR",
+      "construction": "arbitrary fiber color/tag erased by U",
+      "expected_class": "R1_REDUNDANT_ENRICHMENT",
+      "classifier_result": "PASS"
+    },
+    {
+      "id": "NEG-R1-REFINE",
+      "construction": "subdivision/refinement whose theorem-critical data factor through coarse object",
+      "expected_class": "R1_REDUNDANT_ENRICHMENT",
+      "classifier_result": "PASS"
+    }
+  ],
+  "toy_registry": [
+    {
+      "id": "T0",
+      "object": "point",
+      "role": "trivial sanity object"
+    },
+    {
+      "id": "T1",
+      "object": "P^1_C",
+      "role": "presentation/automorphism stress test"
+    },
+    {
+      "id": "T2",
+      "object": "P^1_C × P^1_C",
+      "role": "factor-swap/product stress test"
+    },
+    {
+      "id": "T3",
+      "object": "f:P^1->P^1, f([X:Y])=[X^2(X-Y):Y^3]",
+      "role": "nontrivial algebraic morphism control"
+    },
+    {
+      "id": "T4",
+      "object": "sigma([X:Y])=[Y:X]",
+      "role": "P^1 automorphism stress test"
+    },
+    {
+      "id": "T5",
+      "object": "factor swap tau(x,y)=(y,x)",
+      "role": "P^1×P^1 automorphism stress test"
+    },
+    {
+      "id": "T6",
+      "object": "two isomorphic P^1 presentations z and w=z+1 / inversion w=1/z",
+      "role": "presentation-independence stress test"
+    }
+  ],
+  "universal_claim": false,
+  "finite_toy_only": true
+}
