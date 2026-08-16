@@ -1,0 +1,46 @@
+{
+  "schema": "R059D_STAGE_AA_ORBIT_FRONTIER_REGISTRY_V1",
+  "status": "PRE_SCORE_FROZEN",
+  "researcher_id": "EM-R059D-4E8B71",
+  "task_id": "RS-R059D-STAGE-AA-REFLECTION-ORBIT-FRONTIER-TRIANGULAR-THRESHOLD-AUDIT",
+  "taskbook_source_commit": "10f0743a2a3946c5f8039f4cdec4575950c72b10",
+  "owner_branch": "research/r059d-stage-aa-reflection-orbit-frontier",
+  "frozen_parent": "1806cc135fd38a8e2dd11520f74eebdf5756382e",
+  "definitions": {
+    "B2_k": "{1,...,k}^2",
+    "F2_k": "B2(k+1) \\ B2(k)",
+    "tau": "tau(i,j)=(j,i)",
+    "O2_k": "F2(k)/<tau>",
+    "diagonal_orbit": "D_k={(k+1,k+1)}",
+    "off_diagonal_orbit_family": "E_{k,s}={(k+1,s),(s,k+1)} for 1<=s<=k"
+  },
+  "exact_counts": {
+    "raw_frontier": "|F2(k)|=2k+1",
+    "fixed_orbits": 1,
+    "two_element_orbits": "k",
+    "swap_orbit_frontier": "|O2(k)|=k+1"
+  },
+  "orbit_identifier": {
+    "rule": "D_k is the unique diagonal orbit; each off-diagonal orbit E_{k,s} is identified by the unique old transverse level s shared by its two representatives.",
+    "slot_name_preference": false,
+    "depends_on_primary_gap_length": false,
+    "depends_on_triangular_threshold": false
+  },
+  "small_k_table": [
+    {"k":0,"raw_frontier_count":1,"orbit_count":1,"off_diagonal_orbits":0},
+    {"k":1,"raw_frontier_count":3,"orbit_count":2,"off_diagonal_orbits":1},
+    {"k":2,"raw_frontier_count":5,"orbit_count":3,"off_diagonal_orbits":2},
+    {"k":3,"raw_frontier_count":7,"orbit_count":4,"off_diagonal_orbits":3},
+    {"k":4,"raw_frontier_count":9,"orbit_count":5,"off_diagonal_orbits":4},
+    {"k":5,"raw_frontier_count":11,"orbit_count":6,"off_diagonal_orbits":5},
+    {"k":6,"raw_frontier_count":13,"orbit_count":7,"off_diagonal_orbits":6},
+    {"k":7,"raw_frontier_count":15,"orbit_count":8,"off_diagonal_orbits":7},
+    {"k":8,"raw_frontier_count":17,"orbit_count":9,"off_diagonal_orbits":8}
+  ],
+  "typing": {
+    "carrier_layer": "I0_IMPLEMENTATION_CARRIER / FINITE_COMBINATORIAL_QUOTIENT_FOR_AUDIT",
+    "native_primary_gap_coupling_claimed": false,
+    "euclidean_geometry_used": false
+  },
+  "freeze": "SWAP_ORBIT_FRONTIER_COUNT_K_PLUS_1_ESTABLISHED_AS_ABSTRACT_COUNT_BEFORE_COUPLING_SCORING"
+}
