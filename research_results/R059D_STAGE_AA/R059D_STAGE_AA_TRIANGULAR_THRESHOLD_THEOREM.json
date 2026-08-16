@@ -1,0 +1,9 @@
+{
+  "activation_threshold_table":[{"A_k":1,"k":1},{"A_k":3,"k":2},{"A_k":6,"k":3},{"A_k":10,"k":4},{"A_k":15,"k":5},{"A_k":21,"k":6},{"A_k":28,"k":7},{"A_k":36,"k":8},{"A_k":45,"k":9}],
+  "derivation":["A_1=1","A_k=A_1+sum_{r=1}^{k-1} g_r","under the conditional premise: A_k=1+sum_{r=1}^{k-1}(r+1)","1+(2+3+...+k)=k(k+1)/2"],
+  "occupancy_interpretation":"Conditionally, level k occupies primary indices A_k <= n < A_(k+1).",
+  "premise":"If a future independent theorem establishes g_k=|O2(k)|=k+1 for every k>=1 under the declared activation-index convention.",
+  "reason_not_promoted":"AA2 does not establish the required primary-gap/orbit coupling.",
+  "researcher_id":"EM-R059D-4E8B71","schema":"R059D_STAGE_AA_TRIANGULAR_THRESHOLD_THEOREM_V1","status":"CONDITIONAL_ONLY",
+  "unconditional_status":{"TRIANGULAR_ACTIVATION_THRESHOLDS_CONDITIONAL_ONLY":true,"TRIANGULAR_ACTIVATION_THRESHOLDS_ESTABLISHED":false}
+}
