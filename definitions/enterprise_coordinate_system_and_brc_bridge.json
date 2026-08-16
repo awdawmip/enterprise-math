@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_COORDINATE_SYSTEM_AND_BRC_BRIDGE_V1",
+  "status": "ACTIVE",
+  "date": "2026-08-16",
+  "authority": "CANONICAL_TERMINOLOGY_AND_ROUTE",
+  "enterprise_coordinate_system": {
+    "name_zh": "进取坐标系",
+    "name_en": "ENTERPRISE_COORDINATE_SYSTEM",
+    "enterprise_dimension_count": 3,
+    "undirected_axis_count": 3,
+    "directed_direction_count": 6,
+    "axis_relation": "PAIRWISE_ENTERPRISE_ORTHOGONAL",
+    "sign_rule": "ALTERNATE_ON_EACH_ADJACENT_60_DEGREE_DIRECTION",
+    "global_sign_freedom": "UNIQUE_UP_TO_GLOBAL_INVERSION"
+  },
+  "classical_view": {
+    "name_zh": "经典二维兼容图示",
+    "name_en": "CLASSICAL_2D_COMPATIBILITY_VIEW",
+    "ontology_status": "DISPLAY_INTERFACE_ONLY",
+    "axis_calibration": ["0/180", "60/240", "120/300"]
+  },
+  "orthogonal_coordinate_system": {
+    "name_zh": "垂直坐标系",
+    "name_en": "ORTHOGONAL_COORDINATE_SYSTEM",
+    "role": "CLASSICAL_COMPATIBILITY_COORDINATE_SEMANTICS"
+  },
+  "brc": {
+    "canonical_role": "COLLAPSE_BRIDGE_BETWEEN_ORTHOGONAL_AND_ENTERPRISE_COORDINATE_SYSTEMS",
+    "relation": "BRC_COLLAPSE_BRIDGE(ORTHOGONAL_COORDINATE_SYSTEM, ENTERPRISE_COORDINATE_SYSTEM)",
+    "not_the_role": [
+      "GENERATE_ENTERPRISE_COORDINATE_SYSTEM",
+      "MECHANICALLY_ROUND_CLASSICAL_SQUARE_ROOT"
+    ],
+    "invertibility_assumed": false,
+    "required_task_fields": [
+      "SOURCE_COORDINATE_SEMANTICS",
+      "TARGET_COORDINATE_SEMANTICS",
+      "COLLAPSE_RELATION",
+      "FIBER_OR_COLLISION_STATUS",
+      "INVERSE_OR_COMPATIBILITY_READOUT_STATUS",
+      "PRECISION_LAYER"
+    ]
+  },
+  "historical_r059d_retype": "W_X_Y_Z_AA_ROOT_FRONTIER_STAIRCASE_WORK_IS_BRC_BRIDGE_SEARCH_EVIDENCE_NOT_ENTERPRISE_COORDINATE_GENERATION",
+  "enterprise_square_relation": {
+    "half_square": "ENTERPRISE_HALF_SQUARE",
+    "square": "ENTERPRISE_SQUARE",
+    "square_law": "ENTERPRISE_SQUARE(n)=n*n"
+  }
+}
