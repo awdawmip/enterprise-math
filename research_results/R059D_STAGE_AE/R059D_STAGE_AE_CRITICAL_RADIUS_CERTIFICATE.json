@@ -1,0 +1,12 @@
+{
+  "schema": "R059D_STAGE_AE_CRITICAL_RADIUS_CERTIFICATE_V1",
+  "researcher_id": "EM-R059D-AE-5C91D4",
+  "audit_range": [1,64],
+  "stability_window": 8,
+  "N": {"LAST_ZERO_BULGE_RADIUS":4,"FIRST_POSITIVE_BULGE_RADIUS":5,"strict_outward_convex_runs":[[5,10]],"max_strict_run_length":6,"FIRST_STABLE_OUTWARD_BULGE_RADIUS":null},
+  "C": {"LAST_ZERO_BULGE_RADIUS":4,"FIRST_POSITIVE_BULGE_RADIUS":5,"strict_outward_convex_runs":[[5,11]],"max_strict_run_length":7,"FIRST_STABLE_OUTWARD_BULGE_RADIUS":null,"sampling_status":"s64 identical to s128 for r=1..64"},
+  "resolver_independent_first_positive_bulge": true,
+  "resolver_independent_stable_threshold_candidate": false,
+  "primary_disposition": "NO_OUTWARD_CONVEXITY_THRESHOLD_THROUGH_AUDIT_RANGE",
+  "reason": "Both families leave the zero-bulge baseline at r=5, but neither sustains strict outward convexity for the required 8 consecutive radii; later audited radii also fail the strict turn criterion."
+}
