@@ -1,0 +1,78 @@
+{
+  "schema": "HODGE_H0A0_REALIZATION_CLASSIFIER_V2",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "primary_axis": "OPERATIONAL_PROOF_LEVERAGE",
+  "secondary_axis": "INFORMATION_RECOVERABILITY_RELATIVE_TO_TYPED_COMPARISON",
+  "novelty_axis": "ENTERPRISE_NOVELTY_STATUS",
+  "comparison_notations_allowed": [
+    "C_full^alg(X)",
+    "C_full^an(X)",
+    "C_top(X)",
+    "C_H(X)",
+    "C_state(X;O)"
+  ],
+  "information_tags": [
+    "INFO_EQUIVALENT_OR_FULLY_RECOVERABLE",
+    "INFO_ENRICHED_RELATIVE_TO_DECLARED_READOUT",
+    "INFO_LOSSY_RELATIVE_TO_DECLARED_SOURCE",
+    "INFO_RELATION_UNRESOLVED"
+  ],
+  "novelty_statuses": [
+    "ENTERPRISE_CANDIDATE",
+    "PRIOR_ART_CONTROL_ONLY",
+    "CLASSICAL_CONTROL_ONLY",
+    "NOVELTY_UNRESOLVED"
+  ],
+  "ranks": {
+    "R0_INERT_REPARAMETRIZATION": {
+      "definition": "the theorem-critical operational structure is only relabeled/recoordinated/transported item-by-item, or added hidden state is theorem-inert",
+      "independent_operational_definition_required": false,
+      "strict_leverage_required": false,
+      "information_equivalence_decisive": false
+    },
+    "R1_DERIVED_REORGANIZATION": {
+      "definition": "a genuine derived representation/computational organization exists, but no complete theorem-critical strict leverage certificate is established",
+      "strict_leverage_required": false,
+      "information_tag_can_be_any": true
+    },
+    "R2_NONTRIVIAL_OPERATIONAL_REALIZATION": {
+      "definition": "the realization changes theorem-critical operational form in a mathematically load-bearing way even if fully recoverable",
+      "requirements": [
+        "exact_typed_comparison",
+        "independently_generated_operational_structure",
+        "exact_comparison_or_correctness_theorem",
+        "PROOF_LEVERAGE_CERTIFICATE_pass",
+        "presentation_naturality_functoriality_at_claim_scope",
+        "target_leakage_pass",
+        "non_tautology_pass",
+        "prior_art_novelty_status_explicit"
+      ],
+      "information_nonfactorization_required": false
+    },
+    "R3_HODGE_RELEVANT_OPERATIONAL_REALIZATION": {
+      "definition": "R2 plus a non-tautological Hodge-side-to-Enterprise constraint interface and an algebraic-cycle lifting interface with exact unresolved obligations",
+      "requirements": [
+        "R2_pass",
+        "explicit_typed_Hodge_bridge_interface",
+        "explicit_algebraic_cycle_lifting_interface",
+        "known_cycle_answers_not_generator_inputs"
+      ],
+      "final_lifting_theorem_required_at_H0A0": false
+    }
+  },
+  "anti_gaming_rules": [
+    "WEAK_READOUT_NONFACTORIZATION_DOES_NOT_EARN_R2",
+    "INFO_ENRICHED_DOES_NOT_IMPLY_R2",
+    "INFO_EQUIVALENT_DOES_NOT_FORCE_R0_OR_R1",
+    "INVERTIBLE_DOES_NOT_IMPLY_R0",
+    "PRIOR_ART_OPERATIONAL_R2_CONTROL_DOES_NOT_EARN_ENTERPRISE_NOVELTY",
+    "Q_E_CANNOT_BE_DEFINED_AS_TRANSPORTED_TARGET_ANSWER",
+    "PROOF_CONVENIENCE_WITHOUT_EXACT_STRUCTURAL_CERTIFICATE_DOES_NOT_EARN_R2"
+  ],
+  "H1_gate": {
+    "H0A0_can_open_H1": false,
+    "R2_alone_sufficient_for_H1": false,
+    "future_default": "accepted R3 candidate required unless Driver explicitly overrides"
+  }
+}

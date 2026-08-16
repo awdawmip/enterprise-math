@@ -1,0 +1,67 @@
+{
+  "schema": "HODGE_H0A0_HODGE_LEVERAGE_INTERFACE_V2",
+  "status": "TYPE_INTERFACE_ONLY_NO_HODGE_PROOF",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "domain": "smooth projective complex algebraic variety X, codimension p",
+  "source_hodge_condition": {
+    "notation": "alpha in H^{2p}(X,Q) ∩ H^{p,p}(X)",
+    "carrier": "C_H(X)",
+    "status": "CLASSICAL_OPEN_CONJECTURE_INPUT_CONDITION",
+    "generator_role": "the condition may define the theorem-side input class but may not supply the known algebraic-cycle answer"
+  },
+  "future_required_maps_and_objects": [
+    {
+      "id": "HBR-1",
+      "name": "typed realization/comparison map",
+      "placeholder": "Psi_X^p: declared Hodge/cohomological source data -> E_H^p(X)",
+      "obligation": "construct from permitted comparison/realization semantics without using known cycle representatives"
+    },
+    {
+      "id": "HBR-2",
+      "name": "independently generated Enterprise constraint",
+      "placeholder": "K_E^p(X) subset/relation/predicate on E_H^p(X)",
+      "obligation": "define from Enterprise primitives/operations before proving any Hodge comparison theorem"
+    },
+    {
+      "id": "HBR-3",
+      "name": "Hodge-to-Enterprise theorem",
+      "placeholder": "alpha of rational Hodge type => Psi_X^p(alpha) satisfies K_E^p(X)",
+      "obligation": "exact scope, naturality and non-tautology proof"
+    },
+    {
+      "id": "HBR-4",
+      "name": "strict Enterprise leverage theorem",
+      "placeholder": "K_E^p is equivalent/adequate to a local/integer/incidence/collapse/finite-obstruction operational condition",
+      "obligation": "at least one PROOF_LEVERAGE_CERTIFICATE class must pass"
+    },
+    {
+      "id": "HBR-5",
+      "name": "Enterprise cycle/lifting interface",
+      "placeholder": "Lift_E^p relating qualifying Enterprise operational states/cycles to codimension-p algebraic cycles or Chow classes",
+      "obligation": "state existence, functoriality/descent, cycle-class compatibility, rational-coefficient compatibility and choice-independence obligations explicitly"
+    },
+    {
+      "id": "HBR-6",
+      "name": "lifting correctness",
+      "placeholder": "cl(Lift_E^p(...)) = alpha on the claimed domain",
+      "obligation": "this is an unresolved later theorem obligation, not assumed in H0A0"
+    }
+  ],
+  "R3_minimum": [
+    "R2_NONTRIVIAL_OPERATIONAL_REALIZATION",
+    "HBR-1 typed",
+    "HBR-2 independently defined",
+    "HBR-3 exact comparison obligation",
+    "HBR-4 strict leverage class identified",
+    "HBR-5 algebraic-cycle lifting interface explicit",
+    "known algebraic cycles absent from generator data"
+  ],
+  "forbidden_shortcuts": [
+    "K_E^p := transported classical Hodge condition by definition",
+    "choose Enterprise structure using known cycle representatives",
+    "call an Enterprise closed combinatorial chain an algebraic cycle without a lifting theorem",
+    "use GAGA algebraization as existence of an analytic representative for every Hodge class"
+  ],
+  "H1_status": "NOT_ADMISSIBLE_IN_H0A0",
+  "final_hodge_lifting_theorem_proved": false
+}

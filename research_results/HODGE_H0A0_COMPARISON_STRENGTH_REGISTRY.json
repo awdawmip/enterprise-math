@@ -1,0 +1,104 @@
+{
+  "schema": "HODGE_H0A0_COMPARISON_STRENGTH_REGISTRY_V2",
+  "status": "FROZEN",
+  "date": "2026-08-17",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "task_id": "RS-HODGE-H0A0-REALIZATION-COMPARISON-CRITERION-REPAIR",
+  "taskbook_source": "7ebcccda1fb5550c2db6d204bbf381469e2ea366",
+  "required_conclusion": "NO_SINGLE_UNTYPED_CLASSICAL_COMPARISON_OBJECT",
+  "comparison_levels": [
+    {
+      "id": "C_FULL_ALG",
+      "notation": "C_full^alg(X)",
+      "name": "FULL_ALGEBRAIC_SOURCE_REALIZATION",
+      "carrier": "smooth projective complex algebraic variety X as an algebraic locally ringed space, with algebraic morphisms; Coh(X) is added only when explicitly declared",
+      "hx_type": "HX0_ALGEBRAIC_SOURCE",
+      "native_semantics_type": "SOURCE_OUTSIDE_ENTERPRISE_N0",
+      "role_when_compared": "SOURCE_OR_HX3_COMPARISON_TARGET",
+      "information_scope": "algebraic structure actually declared; no analytic/Hodge data is silently added"
+    },
+    {
+      "id": "C_FULL_AN",
+      "notation": "C_full^an(X)",
+      "name": "FULL_ANALYTIC_REALIZATION",
+      "carrier": "analytification X^an as a complex analytic locally ringed space; Coh(X^an), analytic morphisms, or coherent cohomology are included only when explicitly invoked",
+      "hx_type": "HX4_CLASSICAL_ANALYTIC_REALIZATION",
+      "native_semantics_type": "N3_CONTINUUM_CLASSICAL",
+      "role_when_compared": "HX3_COMPARISON_TARGET",
+      "information_scope": "analytic topology + holomorphic structure sheaf, plus exactly declared analytic categories/data"
+    },
+    {
+      "id": "C_TOP",
+      "notation": "C_top(X)",
+      "name": "TOPOLOGICAL_REALIZATION",
+      "carrier": "declared underlying topological or homotopy realization of X^an",
+      "hx_type": "HX4_CLASSICAL_ANALYTIC_REALIZATION_TOPOLOGICAL_REDUCT",
+      "native_semantics_type": "N3_CONTINUUM_CLASSICAL",
+      "role_when_compared": "HX3_COMPARISON_TARGET",
+      "information_lost_from_full_an": [
+        "holomorphic structure sheaf",
+        "local analytic ring structure",
+        "coherent analytic sheaf category unless separately encoded"
+      ],
+      "warning": "topological information is not identified with Hodge decomposition"
+    },
+    {
+      "id": "C_H",
+      "notation": "C_H(X)",
+      "name": "COHOMOLOGICAL_HODGE_READOUT",
+      "carrier": "declared rational cohomology H^*(X,Q) plus exactly the Hodge decomposition/filtration, cup product, pairing or polarization actually named",
+      "hx_type": "HX4_CLASSICAL_ANALYTIC_REALIZATION_COHOMOLOGICAL_READOUT",
+      "native_semantics_type": "N3_CONTINUUM_CLASSICAL",
+      "role_when_compared": "HX3_COMPARISON_TARGET",
+      "information_scope": "cohomological/Hodge package only; not the full analytic locally ringed space",
+      "warning": "the Hodge readout is not a synonym for full analytification"
+    },
+    {
+      "id": "C_STATE",
+      "notation": "C_state(X;O)",
+      "name": "STATE_COORDINATE_FINITE_READOUT",
+      "carrier": "a declared observation O such as finite coordinates, labels, scalar readouts, finite sampled states, or presentation-dependent outputs",
+      "hx_type": "HX3_COMPARISON_READOUT",
+      "native_semantics_type": "N2_READOUT_COLLAPSE_OR_TYPED_N3_COORDINATE_READOUT",
+      "information_scope": "only what O records",
+      "completeness_default": "NOT_PROVED",
+      "warning": "non-factorization relative to a deliberately weak readout is not evidence of operational R2"
+    }
+  ],
+  "declared_maps_and_non_maps": [
+    {
+      "map": "an_X: C_full^alg(X) -> C_full^an(X)",
+      "status": "CANONICAL_ANALYTIFICATION",
+      "projective_gaga_scope": "strong comparison on coherent sheaves, their morphisms and coherent cohomology; analytic coherent sheaves algebraize uniquely up to isomorphism"
+    },
+    {
+      "map": "forget_an_to_top: C_full^an(X) -> C_top(X)",
+      "status": "FORGETFUL",
+      "lost_structure": "holomorphic/local analytic ring data"
+    },
+    {
+      "map": "hodge_readout: C_full^an(X) -> C_H(X)",
+      "status": "DERIVED_READOUT_FOR_SMOOTH_PROJECTIVE_X",
+      "lost_structure": "full local analytic geometry is not retained by the declared cohomological package"
+    },
+    {
+      "map": "state_readout_O: declared source -> C_state(X;O)",
+      "status": "TASK_SPECIFIC",
+      "lost_structure": "everything not observed by O"
+    }
+  ],
+  "partial_order_policy": {
+    "single_linear_strength_order_assumed": false,
+    "rule": "Comparison levels are typed by exact carrier and theorem language. A map may be declared only when constructed; absence of a proved inverse is not replaced by intuition.",
+    "notable_nonidentification": [
+      "C_top(X) != C_H(X)",
+      "C_H(X) != C_full^an(X)",
+      "C_state(X;O) is weak unless completeness for the theorem-critical language is proved"
+    ]
+  },
+  "legacy_symbol_policy": {
+    "bare_legacy_symbol": "C(X)",
+    "status": "PROHIBITED_IN_LOAD_BEARING_H0A0_CLASSIFIER_FIELDS",
+    "replacement_required": true
+  }
+}

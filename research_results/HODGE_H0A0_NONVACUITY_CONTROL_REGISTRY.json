@@ -1,0 +1,154 @@
+{
+  "schema": "HODGE_H0A0_NONVACUITY_CONTROL_REGISTRY_V2",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "controls": [
+    {
+      "id": "N0_BIJECTIVE_LABEL_RENAMING",
+      "kind": "NEGATIVE_CONTROL",
+      "source": "finite set S with theorem-critical relations P",
+      "realization": "bijection rho:S->S' and transported P' defined item-by-item",
+      "information_tag": "INFO_EQUIVALENT_OR_FULLY_RECOVERABLE",
+      "operational_rank": "R0_INERT_REPARAMETRIZATION",
+      "reason": "no independent target-side operational definition and no strict structural certificate",
+      "expected_pass": true
+    },
+    {
+      "id": "N1_ARBITRARY_HIDDEN_COLOR",
+      "kind": "NEGATIVE_CONTROL",
+      "source": "state s",
+      "realization": "(s,color) with arbitrary color in {red,blue}",
+      "comparison_target": "C_state(X;O) where O forgets color",
+      "information_tag": "INFO_ENRICHED_RELATIVE_TO_DECLARED_READOUT",
+      "operational_rank": "R0_INERT_REPARAMETRIZATION",
+      "reason": "same-readout non-factorization is manufactured by an unused arbitrary tag; no theorem-critical leverage",
+      "expected_pass": true
+    },
+    {
+      "id": "P1_INVERTIBLE_DFT2_NORMAL_FORM",
+      "kind": "POSITIVE_PRIOR_ART_CONTROL",
+      "novelty_status": "PRIOR_ART_CONTROL_ONLY",
+      "carrier": "Q^2",
+      "transform": {
+        "F": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "1",
+            "-1"
+          ]
+        ],
+        "F_inverse": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "-1/2"
+          ]
+        ],
+        "identity_check": "F_inverse*F = I = F*F_inverse"
+      },
+      "source_operator": {
+        "meaning": "2-point circular convolution by a=(1,1)",
+        "matrix": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ]
+      },
+      "transformed_operator": {
+        "equation": "F*A*F_inverse",
+        "matrix": [
+          [
+            "2",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "information_tag": "INFO_EQUIVALENT_OR_FULLY_RECOVERABLE",
+      "operational_rank": "R2_NONTRIVIAL_OPERATIONAL_REALIZATION",
+      "proof_leverage_certificate": {
+        "strict_leverage_class": [
+          "NORMAL_FORM",
+          "COMPOSITIONAL_FACTORING"
+        ],
+        "predeclared_measure": "OFF_DIAGONAL_NONZERO_COUNT",
+        "source_value": 2,
+        "target_value": 0,
+        "comparison_theorem": "the invertible two-point DFT maps 2-point circular convolution to coordinatewise multiplication; for a=(1,1), F*A*F_inverse=diag(2,0)",
+        "non_tautology": "coordinatewise multiplication/diagonal action is defined independently of the truth value of any source equation"
+      },
+      "enterprise_credit": false,
+      "criterion_meaning": "invertibility/full recoverability does not force R0/R1"
+    },
+    {
+      "id": "P2_GRAPH_POTENTIAL_FINITE_OBSTRUCTION",
+      "kind": "POSITIVE_PRIOR_ART_CONTROL",
+      "novelty_status": "CLASSICAL_CONTROL_ONLY",
+      "source_problem": "For a connected finite oriented graph G and abelian group A, decide whether edge labels d_e are differences d_e=phi(v)-phi(u) of a global vertex potential phi.",
+      "target_operational_form": "Choose a spanning tree T. For each non-tree edge e, require vanishing of the signed sum of d around its fundamental cycle C_e.",
+      "comparison_theorem": {
+        "statement": "A global potential exists iff every fundamental-cycle sum vanishes.",
+        "proof": [
+          "If d is a potential difference, every cycle sum telescopes to zero.",
+          "Conversely fix root r and define phi(v) by the signed sum of d along the unique T-path r->v.",
+          "Tree edges satisfy d_e=phi(v)-phi(u) by construction.",
+          "For a non-tree edge e=(u,v), the fundamental-cycle condition is exactly d_e=phi(v)-phi(u)."
+        ]
+      },
+      "information_tag": "INFO_EQUIVALENT_OR_FULLY_RECOVERABLE",
+      "operational_rank": "R2_NONTRIVIAL_OPERATIONAL_REALIZATION",
+      "proof_leverage_certificate": {
+        "strict_leverage_class": [
+          "FINITE_OBSTRUCTION_BASIS",
+          "LOCALIZATION",
+          "COMPOSITIONAL_FACTORING"
+        ],
+        "strict_witness": "the global existential consistency condition is equivalent to |E|-|V|+1 explicit fundamental-cycle obstruction checks followed by deterministic tree-path assembly"
+      },
+      "enterprise_credit": false
+    },
+    {
+      "id": "B1_WEAK_READOUT_GAMING",
+      "kind": "BOUNDARY_CONTROL",
+      "source": "pairs (x,h) with theorem-inert hidden h",
+      "comparison_target": "C_state(X;O)=x",
+      "realization": "retains (x,h)",
+      "information_tag": "INFO_ENRICHED_RELATIVE_TO_DECLARED_READOUT",
+      "operational_rank": "R0_INERT_REPARAMETRIZATION",
+      "nonfactorization": "h does not factor through O",
+      "criterion_meaning": "non-factorization is easy to manufacture when the readout is deliberately coarse and earns no R2"
+    },
+    {
+      "id": "B2_FULL_ANALYTIC_GAGA_BOUNDARY",
+      "kind": "BOUNDARY_CONTROL",
+      "comparison_target": "C_full^an(X)",
+      "scope": "projective complex X and the explicitly declared GAGA languages",
+      "information_tag": "INFO_RELATION_UNRESOLVED",
+      "operational_rank": "NOT_A_CANDIDATE_RANK",
+      "criterion_meaning": "GAGA's strong recoverability/algebraization results show why unrecoverable information relative to full analytification is not a suitable universal necessary Hodge-realization gate",
+      "hodge_conclusion": false
+    }
+  ],
+  "nonvacuity_verdict": "PASS",
+  "required_cross_checks": {
+    "equivalent_can_be_R0": true,
+    "equivalent_can_be_operational_R2_control": true,
+    "enriched_can_be_R0": true,
+    "weak_readout_nonfactorization_rejected": true,
+    "full_analytic_boundary_does_not_claim_Hodge": true
+  }
+}

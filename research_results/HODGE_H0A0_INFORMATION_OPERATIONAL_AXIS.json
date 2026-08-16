@@ -1,0 +1,54 @@
+{
+  "schema": "HODGE_H0A0_INFORMATION_OPERATIONAL_AXIS_V2",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "required_invariants": {
+    "INFORMATION_NONFACTORIZATION_IS_NOT_A_NECESSARY_OPERATIONAL_R2_GATE": true,
+    "WEAK_READOUT_NONFACTORIZATION_DOES_NOT_EARN_R2": true,
+    "INVERTIBILITY_DOES_NOT_FORCE_R0_OR_R1": true,
+    "INFO_ENRICHED_DOES_NOT_IMPLY_R2": true
+  },
+  "information_tags": {
+    "INFO_EQUIVALENT_OR_FULLY_RECOVERABLE": "relative to the explicitly typed comparison target, source and realization mutually recover the theorem-relevant data in scope or the added data is deterministically reconstructible",
+    "INFO_ENRICHED_RELATIVE_TO_DECLARED_READOUT": "the realization distinguishes states forgotten by the declared comparison readout; this is meaningful only relative to that readout",
+    "INFO_LOSSY_RELATIVE_TO_DECLARED_SOURCE": "the realization forgets declared source information",
+    "INFO_RELATION_UNRESOLVED": "no exact recoverability theorem has been proved"
+  },
+  "operational_axis": [
+    "R0_INERT_REPARAMETRIZATION",
+    "R1_DERIVED_REORGANIZATION",
+    "R2_NONTRIVIAL_OPERATIONAL_REALIZATION",
+    "R3_HODGE_RELEVANT_OPERATIONAL_REALIZATION"
+  ],
+  "orthogonality_controls": [
+    {
+      "id": "AXIS-EQ-R0",
+      "information_tag": "INFO_EQUIVALENT_OR_FULLY_RECOVERABLE",
+      "operational_rank": "R0_INERT_REPARAMETRIZATION",
+      "example": "bijective label renaming",
+      "meaning": "information equivalence can be operationally inert"
+    },
+    {
+      "id": "AXIS-EQ-R2",
+      "information_tag": "INFO_EQUIVALENT_OR_FULLY_RECOVERABLE",
+      "operational_rank": "R2_NONTRIVIAL_OPERATIONAL_REALIZATION",
+      "novelty": "CONTROL_ONLY",
+      "example": "invertible two-point DFT diagonalizing circular convolution",
+      "meaning": "information equivalence can coexist with an exact strict normal-form certificate"
+    },
+    {
+      "id": "AXIS-ENR-R0",
+      "information_tag": "INFO_ENRICHED_RELATIVE_TO_DECLARED_READOUT",
+      "operational_rank": "R0_INERT_REPARAMETRIZATION",
+      "example": "arbitrary hidden color erased by a weak readout",
+      "meaning": "information non-factorization alone can be operationally inert"
+    }
+  ],
+  "no_implication_rules": [
+    "information_tag does not determine operational_rank",
+    "operational_rank does not assert novelty",
+    "novelty status is a separate field from operational rank",
+    "fully recoverable does not mean theorem forms are identical",
+    "information enriched relative to a weak readout does not mean the source object lacked that information"
+  ]
+}

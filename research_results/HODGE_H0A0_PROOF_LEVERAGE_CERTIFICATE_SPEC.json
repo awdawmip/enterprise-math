@@ -1,0 +1,66 @@
+{
+  "schema": "HODGE_H0A0_PROOF_LEVERAGE_CERTIFICATE_SPEC_V2",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0-2F8C71",
+  "certificate_name": "PROOF_LEVERAGE_CERTIFICATE",
+  "required_fields": [
+    "certificate_id",
+    "typed_source_object",
+    "typed_enterprise_object",
+    "source_theorem_critical_predicate_or_operator",
+    "independent_enterprise_definition",
+    "comparison_theorem",
+    "non_tautology_audit",
+    "strict_leverage_class",
+    "strict_leverage_witness",
+    "predeclared_measure_if_used",
+    "presentation_naturality_functoriality_scope",
+    "target_leakage_audit",
+    "prior_art_novelty_status",
+    "downstream_theorem_obligation_unlocked"
+  ],
+  "independent_definition_rule": {
+    "required": true,
+    "forbidden_shortcut": "Q_E := P_C composed with an inverse comparison map, or any definition that queries the truth value/known answer of P_C",
+    "permitted": "Q_E may use the realized Enterprise state and independently declared Enterprise primitives/operations, with source algebraic data only as explicitly typed inputs"
+  },
+  "comparison_theorem_strengths": [
+    "EQUIVALENCE_ON_DECLARED_SCOPE",
+    "SOURCE_IMPLIES_ENTERPRISE",
+    "ENTERPRISE_IMPLIES_SOURCE",
+    "SOUND_AND_COMPLETE_ON_DECLARED_SUBDOMAIN"
+  ],
+  "rule_for_one_direction_theorems": "A one-direction comparison can support only a downstream claim that logically uses that direction; it cannot be advertised as equivalence.",
+  "accepted_strict_leverage_classes": {
+    "LAYER_LOWERING": "a theorem-critical condition is proved equivalent/adequately related to an independently defined lower Enterprise operational layer",
+    "LOCALIZATION": "a global condition is replaced by local/finite constraints together with a proved local-to-global assembly theorem",
+    "NORMAL_FORM": "a coupled/operator relation is transformed to an exact normal form with a declared structural simplification and consequences",
+    "DEPENDENCY_REDUCTION": "a declared global/unbounded dependency is replaced by bounded/local/compositional dependency under an exact theorem",
+    "FINITE_OBSTRUCTION_BASIS": "a broad existence/consistency condition is equivalent to finitely many exact obstruction classes/checks",
+    "INTEGRALITY_POSITIVITY_MONOTONICITY": "an analytic or high-layer condition is related exactly to integer/positivity/monotonicity structure that yields a theorem/exclusion mechanism",
+    "COMPOSITIONAL_FACTORING": "a global proof obligation decomposes into exact composable local obligations with a proved assembly theorem"
+  },
+  "strictness_policy": {
+    "generic_phrase_easier_to_prove_is_sufficient": false,
+    "universal_scalar_proof_complexity_required": false,
+    "candidate_specific_measure_allowed": true,
+    "measure_must_be_declared_before_success_evaluation": true,
+    "post_hoc_measure_selected_only_to_force_improvement": "FORBIDDEN"
+  },
+  "non_tautology_minimum_checks": [
+    "Enterprise-side predicate/operator has a definition that does not mention the source theorem truth value",
+    "comparison theorem is proved after both sides are defined",
+    "known Hodge/algebraic-cycle answers are absent from generator inputs",
+    "a relabeling-only transport receives no leverage credit"
+  ],
+  "R2_minimum": {
+    "typed_comparison": true,
+    "independent_enterprise_definition": true,
+    "exact_comparison_correctness_theorem": true,
+    "strict_leverage_certificate": true,
+    "required_naturality_scope_passed": true,
+    "target_leakage_passed": true,
+    "mere_definition_renaming_rejected": true,
+    "prior_art_status_explicit": true
+  }
+}
