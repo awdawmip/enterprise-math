@@ -1,0 +1,16 @@
+{
+  "schema": "R059D_STAGE_AD_TRIANGULAR_CELL_COMPLEX_V1",
+  "status": "PRE_SCORE_FROZEN",
+  "researcher_id": "EM-R059D-3F7C42",
+  "task_id": "RS-R059D-STAGE-AD-TRIANGULAR-COVERAGE-BRC-CIRCLE-RESOLVE",
+  "taskbook_source_commit": "0bae4ac7ab7d8c6073c901598a009ac598826f07",
+  "frozen_parent": "71a40c12b5804fd76e10a91df431c1d5f80304f0",
+  "chart": {"vertex": "(a,b)", "compatibility_embedding": "X=a+b/2; Y=sqrt(3)*b/2", "ontology": "I0_BRIDGE_IMPLEMENTATION"},
+  "cells": {
+    "UP(a,b)": {"vertices": ["(a,b)","(a+1,b)","(a,b+1)"], "neighbors": ["DOWN(a,b)","DOWN(a,b-1)","DOWN(a-1,b)"]},
+    "DOWN(a,b)": {"vertices": ["(a+1,b)","(a,b+1)","(a+1,b+1)"], "neighbors": ["UP(a,b)","UP(a+1,b)","UP(a,b+1)"]}
+  },
+  "D6": {"rotation60": "R(a,b)=(-b,a+b)", "reflection_u": "S(a,b)=(a+b,-b)"},
+  "boundary_state": {"type": "INTERFACE_EDGE", "adjacency": "consecutive interface edges share one lattice vertex"},
+  "cell_id": "orientation:a:b"
+}
