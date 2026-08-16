@@ -1,0 +1,52 @@
+{
+  "schema": "R059D_STAGE_AC_ROOT_LAW_PROOF_V1",
+  "status": "TWO_EXACT_ROOT_READOUT_BRANCHES_SURVIVE_FROZEN_CONTROLS",
+  "ROOT_LAW_STATUS": "UNDERDETERMINED_NATIVE_EXTENSION",
+  "full_T1_branch": {
+    "primitive_id": "ROOT_FULL_T1_OCCURRENCE_COUNT",
+    "theorem_if_this_primitive_is_selected": "R_full(n)=n(n+1)/2 for every integer n>=0",
+    "proof": [
+      "The index carrier is P_n={(i,j):i,j>=0,i+j<=n-1}.",
+      "Partition P_n by s=i+j.",
+      "For each s in {0,...,n-1}, {(i,s-i):0<=i<=s} has s+1 motifs.",
+      "Thus layer n adds exactly n orientation-preserving T1 motifs.",
+      "With R_full(0)=0, R_full(n)=R_full(n-1)+n.",
+      "The doubled closed form 2R_full(n)=n^2+n has the same base and recurrence."
+    ],
+    "controls": {"n1":1,"n2":3,"n3":6},
+    "symbolic_certificate": {
+      "doubled_closed_form_polynomial_coefficients_low_to_high":[0,1,1],
+      "doubled_recurrence_increment_polynomial_coefficients_low_to_high":[0,2],
+      "base":{"n":0,"doubled_value":0}
+    }
+  },
+  "rooted_two_ray_branch": {
+    "primitive_id": "ROOT_TWO_GENERATING_RAY_ATTACHED_T1_COUNT",
+    "theorem": "R_two_ray(0)=0 and R_two_ray(n)=2n-1 for every integer n>=1",
+    "proof": [
+      "Inside P_n, i=0 gives n indices and j=0 gives n indices.",
+      "Their only overlap is (0,0).",
+      "Therefore the union has n+n-1 motifs for n>=1.",
+      "Equivalently R_two_ray(1)=1 and every later layer adds (n-1,0),(0,n-1)."
+    ],
+    "controls":{"n1":1,"n2":3,"n3":5},
+    "symbolic_certificate": {
+      "closed_form_polynomial_coefficients_low_to_high_for_n_ge_1":[-1,2],
+      "recurrence_increment_for_n_ge_2":2,
+      "base":{"n":1,"value":1}
+    }
+  },
+  "selection_no_go": {
+    "both_survivors_match_all_frozen_root_controls":true,
+    "both_survivors_use_only_frozen_task_data":true,
+    "both_survivors_are_symmetric_under_swap_of_the_two_generating_rays":true,
+    "first_divergence":{"n":3,"full_T1":6,"two_ray":5},
+    "frozen_rule_selecting_full_over_two_ray":null,
+    "conclusion":"The triangular closed form is an exact theorem for one admissible readout branch, but the frozen geometry and N1/N2 controls do not select it as THE Enterprise root law."
+  },
+  "primary_freezes": {
+    "TRIANGULAR_ROOT_BRANCH_PROVED_CONDITIONALLY_ON_FULL_T1_PRIMITIVE":true,
+    "TRIANGULAR_ROOT_LAW_UNIQUELY_SELECTED":false,
+    "ROOT_LAW_UNDERDETERMINED":true
+  }
+}
