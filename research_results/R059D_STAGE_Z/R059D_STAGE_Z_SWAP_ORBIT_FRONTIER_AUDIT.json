@@ -1,0 +1,24 @@
+{
+  "cyclic_transport": "The same fixed-primary / swapped-transverse argument holds after u->v->w->u; no axis-name privilege.",
+  "freeze": "RAW_FRONTIER_POINTWISE_REFLECTION_EQUIVARIANT_ENUMERATION_OBSTRUCTED_FOR_K_GE_1",
+  "pointwise_equivariance_theorem": {
+    "consequence": "For k>=1, |F2(k)|=2k+1>1, hence no reflection-equivariant pointwise surjection or bijection from fixed primary events onto raw F2(k).",
+    "proof": "For d in D, sigma_D(d)=d. Equivariance gives sigma_F(f(d))=f(sigma_D(d))=f(d), so f(d) is swap-fixed.",
+    "statement": "If D is any primary-ray event set with trivial transverse-reflection action and f:D->F2(k) is reflection-equivariant, then im(f) is contained in Fix(F2(k))={(k+1,k+1)}."
+  },
+  "reflection": {
+    "fixed_frontier_states": "Fix(F2(k))={(k+1,k+1)} for every k>=0",
+    "frontier_action": "sigma_F(i,j)=(j,i)",
+    "orbit_count": "k+1 = one singleton diagonal orbit plus k two-element off-diagonal orbits",
+    "primary_ray_action": "transverse reflection fixes every +u primary ray cell/event pointwise"
+  },
+  "researcher_id": "EM-R059D-4E8B71",
+  "schema": "R059D_STAGE_Z_SWAP_ORBIT_FRONTIER_AUDIT_V1",
+  "status": "EXACT_NEGATIVE_COUPLING_BOUNDARY",
+  "swap_orbit_route": {
+    "incidence_reexpansion_problem": "Every off-diagonal orbit has multiplicity 2. To make one primary step correspond to one raw incidence, two fixed primary events would have to be assigned to the two swapped members without any primary-side involution or transverse orientation. Temporal order on +u is reflection-fixed and cannot canonically label row versus column.",
+    "quotient_count": "k+1",
+    "reflection_obstruction": "removed at quotient level",
+    "verdict": "ORBIT_MAP_DOES_NOT_ESTABLISH_RAW_INCIDENCE_COUPLING"
+  }
+}
