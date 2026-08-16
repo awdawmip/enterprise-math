@@ -1,0 +1,21 @@
+{
+  "schema":"R059D_STAGE_AC_DETERMINISTIC_CHECKER_OUTPUT_V2",
+  "status":"PASS",
+  "researcher_id":"EM-R059D-7C2A91",
+  "checks_total":1318,
+  "checks_passed":1318,
+  "checks_failed":0,
+  "checks_digest_sha256":"07105ac47bc8c582df3866918fee66ebae0fab1552ce8df548e5609121eef0eb",
+  "checker_source_commit":"f220ebbf599a84e22f388710ea19d4658a14d0d7",
+  "history_gate":"PASS_EXTERNAL_GITHUB_COMPARE",
+  "history_compare": {
+    "base":"87230fd13c5a008e559f3d168b96fc5fe1948b2a",
+    "head":"f53350e574341ea2faf1fc4a7751756a49d1f16f",
+    "ahead_by":17,
+    "prior_stage_result_files_modified_or_deleted":0,
+    "allowed_scope":"AC taskbook plus research_results/R059D_STAGE_AC/*"
+  },
+  "primary_disposition":"N1_N2_CONTROLS_UNDERDETERMINE_NATIVE_EXTENSION",
+  "summary":"Exact native set-generation replay passes through n=256; area incidence law has an independent recurrence proof; two control-compatible root primitives diverge at n=3, so the triangular branch is not uniquely selected; inversion is branch-dependent; target-leakage generator scan and historical isolation gate pass.",
+  "ci_status":"CI_NOT_REQUIRED_FOR_RESEARCH"
+}
