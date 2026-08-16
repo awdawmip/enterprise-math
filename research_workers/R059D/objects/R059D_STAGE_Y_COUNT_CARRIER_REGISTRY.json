@@ -1,0 +1,87 @@
+{
+  "schema": "R059D_STAGE_Y_COUNT_CARRIER_REGISTRY_V1",
+  "date": "2026-08-16",
+  "researcher_id": "EM-R059D-9C6B2A",
+  "active_taskbook": "research_tasks/R059D_STAGE_Y_COORDINATE_VALUE_COUNT_COUPLING_PERFECT_POWER_AUDIT_20260816.md",
+  "taskbook_source_commit": "92a7ffd407c6befa37eeafbc2883674ba9c5853c",
+  "owner_branch": "research/r059d-stage-y-coordinate-value-count-coupling",
+  "frozen_parent": "a9de3151c55756d3fdeb883d11d40eadde65ac8e",
+  "phase": "PRE_SCORE_REGISTRY_FREEZE",
+  "native_input": {
+    "primary_prefix": "R_n={P_1,...,P_n}",
+    "primary_point": "P_n=C(n,0)",
+    "symmetric_coordinate": "coord(P_n)=(n,-a_n,-a_n)",
+    "staircase": ["a_0=0", "a_1=1", "a_(n+1)-a_n in {0,1}"],
+    "universality": "every such binary staircase extends to a global self-consistent local UNIT_STEP atlas"
+  },
+  "carriers": [
+    {
+      "id": "TRANSVERSE_ORDERED_PAIR_BLOCK",
+      "symbol": "B2(k)",
+      "definition": "{(i,j): 1<=i<=k, 1<=j<=k}",
+      "count": "k^2",
+      "increment": "2k+1",
+      "status_before_scoring": "CANDIDATE",
+      "firewall": "Cartesian ordered-pair count only; not native area"
+    },
+    {
+      "id": "TRANSVERSE_TRIANGULAR_PAIR_CARRIER",
+      "symbol": "T2(k)",
+      "definition": "{(i,j): 1<=j<=i<=k}",
+      "count": "k(k+1)/2",
+      "increment": "k+1",
+      "status_before_scoring": "CANDIDATE",
+      "firewall": "finite ordered integer-pair set only; not native area"
+    },
+    {
+      "id": "A2_SHELL_CONTROL",
+      "symbol": "S_A2(k)",
+      "definition": "Stage-X exact scaffold shell control at combinatorial shell rank k",
+      "count": "6k for k>=1; 1 for k=0",
+      "status_before_scoring": "NEGATIVE_CONTROL",
+      "reason": "Stage X already establishes scaffold-only coordinate-model blindness absent a new coupling to a_n"
+    },
+    {
+      "id": "A2_BALL_CONTROL",
+      "symbol": "D_A2(k)",
+      "definition": "union of Stage-X scaffold shells of ranks 0..k",
+      "count": "1+3k(k+1)",
+      "status_before_scoring": "NEGATIVE_CONTROL",
+      "reason": "Stage X already establishes scaffold-only coordinate-model blindness absent a new coupling to a_n"
+    },
+    {
+      "id": "A2_SECTOR_CONTROL",
+      "symbol": "Q_A2(k)",
+      "definition": "one predeclared combinatorial sector control from Stage-X scaffold layers",
+      "count": "triangular/polynomial scaffold count as inherited exact control",
+      "status_before_scoring": "NEGATIVE_CONTROL",
+      "reason": "control only; no native coordinate-value coupling is assumed"
+    },
+    {
+      "id": "M_FOLD_CARTESIAN_LEVEL_CARRIER",
+      "symbol": "Bm(k)",
+      "parameter_m": [1,2,3,4],
+      "definition": "{1,...,k}^m",
+      "count": "k^m",
+      "increment": "(k+1)^m-k^m",
+      "status_before_scoring": "CANDIDATE",
+      "firewall": "m counts independent integer-level slots only; no physical/Euclidean dimension inference"
+    }
+  ],
+  "predeclared_coupling_tests": [
+    "EXACT_BIJECTION",
+    "INJECTION_PLUS_PROVED_SATURATION",
+    "SURJECTION_WITH_CONTROLLED_MULTIPLICITY",
+    "ONE_PRIMARY_STEP_ONE_NEW_STATE_NO_SKIP_NO_REPEAT",
+    "EXACT_LAYER_COMPLETION"
+  ],
+  "anti_circularity": {
+    "forbid_a_n_defined_region_as_evidence": true,
+    "forbid_unproved_n_equals_power": true,
+    "forbid_posthoc_state_ordering": true,
+    "forbid_euclidean_measure_proof": true,
+    "forbid_floor_ceil_nearest_midpoint_before_semantics": true
+  },
+  "registry_closed": true,
+  "note": "No count carrier may be added after this pre-score freeze. Existing earlier Stage-Y-looking CF/ZSIG/PP artifacts on this branch are outside the active Driver taskbook and are not scored here."
+}
