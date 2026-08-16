@@ -1,0 +1,67 @@
+{
+  "schema": "R059D_STAGE_Z_FRONTIER_CARRIER_REGISTRY_V1",
+  "status": "PRE_SCORE_FROZEN",
+  "researcher_id": "EM-R059D-4E8B71",
+  "task_id": "RS-R059D-STAGE-Z-TRANSVERSE-FRONTIER-GAP-COUNT-COUPLING",
+  "taskbook_source_commit": "d5cf81641f36bfb57f86897ff2410a0b4e869d26",
+  "owner_branch": "research/r059d-stage-z-transverse-frontier-gap-count",
+  "frozen_parent": "bcbcb997104a1042408276b3ab9eb0aa01e30f91",
+  "driver_activation_head": "0b4eea7504f2b6247100599afaeaeb4fdd197f57",
+  "anti_posthoc_rule": "No additional frontier carrier may be introduced after this registry is frozen unless it is separately predeclared before use for a reason independent of observed coupling outcomes.",
+  "frontier_carriers": [
+    {
+      "id": "RAW_ORDERED_PAIR_FRONTIER",
+      "definition": "F2(k)=B2(k+1)\\B2(k), B2(k)={1,...,k}^2",
+      "decomposition": {
+        "new_row": "{(k+1,j):1<=j<=k+1}",
+        "new_column_excluding_corner": "{(i,k+1):1<=i<=k}"
+      },
+      "abstract_cardinality": "2k+1",
+      "reflection_action": "sigma(i,j)=(j,i)",
+      "reflection_structure": "one fixed diagonal state (k+1,k+1) and k off-diagonal two-element orbits"
+    },
+    {
+      "id": "SWAP_ORBIT_FRONTIER",
+      "definition": "F2(k)/<sigma>",
+      "abstract_cardinality": "k+1",
+      "orbit_structure": "one fixed orbit plus k off-diagonal pair orbits"
+    },
+    {
+      "id": "FRONTIER_INCIDENCE_COUNT",
+      "definition": "count raw frontier incidences by orbit multiplicity",
+      "multiplicity_rule": "fixed orbit contributes 1; every off-diagonal orbit contributes 2",
+      "abstract_cardinality": "1+2k=2k+1",
+      "warning": "This is an abstract count only and is not a primary-step correspondence."
+    }
+  ],
+  "m_slot_controls": [
+    {"m": 1, "definition": "F1(k)=B1(k+1)\\B1(k)", "cardinality": "1"},
+    {"m": 2, "definition": "F2(k)=B2(k+1)\\B2(k)", "cardinality": "2k+1"},
+    {"m": 3, "definition": "F3(k)=B3(k+1)\\B3(k)", "cardinality": "3k^2+3k+1"},
+    {"m": 4, "definition": "F4(k)=B4(k+1)\\B4(k)", "cardinality": "4k^3+6k^2+4k+1"}
+  ],
+  "phase_conventions_predeclared": {
+    "activation_index": "A_k=min{n:a_n=k}, when level k is reached",
+    "completion_index": "C_k=A_(k+1)-1, when A_(k+1) is finite",
+    "layer_occupancy_interval": "I_k={n:A_k<=n<A_(k+1)}, cardinality A_(k+1)-A_k when finite",
+    "jump_edge": "J_k is the single primary edge C_k -> A_(k+1) when A_(k+1) is finite",
+    "no_phase_selected_pre_score": true
+  },
+  "allowed_coupling_tests": [
+    "exact bijection from a predeclared finite primary gap event set to raw frontier states",
+    "reflection-equivariant map to swap orbits plus independently proved incidence multiplicity with one primary step per raw incidence",
+    "exact recurrence proving that the k->k+1 transition consumes all and only 2k+1 frontier incidences",
+    "the taskbook-predeclared m-slot controls"
+  ],
+  "forbidden_shortcuts": [
+    "n=a_n^2 or n=a_n^p as premise",
+    "desired square threshold used to define GAP_k",
+    "posthoc raw-frontier enumeration",
+    "slot-name-preferred fill order",
+    "coordinate-derived jump-event set used as the frontier coupling itself",
+    "Euclidean area/volume",
+    "floor/ceil/nearest/midpoint before count semantics",
+    "probability/ML/optimization/reward/stabilizer/post-credit selector"
+  ],
+  "scoring_started": false
+}
