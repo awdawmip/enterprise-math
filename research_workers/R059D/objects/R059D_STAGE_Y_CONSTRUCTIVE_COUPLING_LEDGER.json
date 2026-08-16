@@ -1,0 +1,15 @@
+{
+  "schema":"R059D_STAGE_Y_CONSTRUCTIVE_COUPLING_LEDGER_V1",
+  "stage_x_fiber_theorem":{"statement":"For every n>=1, admissible a_n values are exactly {1,...,n}.","proof":"a_n=1+sum_{t=1}^{n-1} delta_t, delta_t in {0,1}. For any k in [1,n], the witness a_t=min(t,k) through n is valid; freeze delta=0 afterward. Stage X globally extends every such staircase.","fixed_n_controls":[{"n":1,"possible_a_n":[1]},{"n":2,"possible_a_n":[1,2]},{"n":3,"possible_a_n":[1,2,3]},{"n":4,"possible_a_n":[1,2,3,4]},{"n":5,"possible_a_n":[1,2,3,4,5]},{"n":6,"possible_a_n":[1,2,3,4,5,6]},{"n":7,"possible_a_n":[1,2,3,4,5,6,7]},{"n":8,"possible_a_n":[1,2,3,4,5,6,7,8]}]},
+  "decisive_witnesses":{"plateau_n2":[0,1,1],"maxjump_n2":[0,1,2],"n5_a2":[0,1,1,1,2,2],"n5_a3":[0,1,2,2,2,3]},
+  "carrier_tests":[
+    {"carrier":"B2(a_n)","injection":"FAIL universally: n=2,a_2=1 gives 2>1","surjection":"FAIL universally: n=2,a_2=2 gives 2<4","coordinate_map":"P_t->(a_t,a_t) hits only diagonal and is coordinate-derived","status":"NO_INDEPENDENT_COUPLING"},
+    {"carrier":"T2(a_n)","injection":"FAIL universally: n=2,a_2=1 gives 2>1","surjection":"FAIL universally: n=2,a_2=2 gives 2<3","status":"NO_INDEPENDENT_COUPLING"},
+    {"carrier":"Bm(a_n), m=2..4","injection":"FAIL on n=2,a_2=1","surjection":"FAIL on n=2,a_2=2 because 2<2^m","one_step_completion":"FAIL universally: maximal-jump staircase can jump k->k+1 in one primary step while (k+1)^m-k^m>1 for k>=1","status":"NO_INDEPENDENT_COUPLING"},
+    {"carrier":"B1(a_n)","injection":"FAIL on n=2,a_2=1","surjection":"cardinality possible because a_n<=n, but no independent controlled-multiplicity map; t->a_t is circular","status":"NO_INDEPENDENT_COUPLING"},
+    {"carrier":"A2 controls","status":"NEGATIVE_CONTROL_ONLY","reason":"Stage X freezes scaffold-only coordinate-model blindness absent a new exact coupling"}
+  ],
+  "arbitrary_enumeration":"REJECTED: equipotence/order of finite pair states is not a native map from R_n to a_n and cannot be selected to manufacture power thresholds.",
+  "accepted_couplings":[],
+  "outcomes":["MISSING_PRIMARY_TO_TRANSVERSE_COUNT_BIJECTION","ROOT_DEGREE_NOT_IDENTIFIED_BY_COUNT_COUPLING","UNIVERSAL_BRC_LAW_NOT_ESTABLISHED"]
+}

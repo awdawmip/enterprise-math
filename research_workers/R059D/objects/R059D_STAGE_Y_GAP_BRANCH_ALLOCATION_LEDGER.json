@@ -1,0 +1,9 @@
+{
+  "schema":"R059D_STAGE_Y_GAP_BRANCH_ALLOCATION_LEDGER_V1",
+  "activation":"CONDITIONAL_ONLY; no perfect-power coupling passed Y2/Y3",
+  "candidate_semantics":{"COMPLETED_LAYER":"all L<n<U stay lower","ACTIVATED_LAYER":"all L<n<U move upper at first activation","COUNT_BALANCED_REFLECTION":"r(n)=L+U-n with monotone complementary binary allocation"},
+  "reflection_theorem":{"statement":"For L=k^m,U=(k+1)^m, U-L is odd for every integer m>=1.","proof":"x^m≡x (mod 2), hence U-L≡1 (mod 2). The midpoint is a half-integer; reflection has no integer fixed point; monotone complementarity uniquely splits lower/upper.","split":"lower n<=(L+U-1)/2; upper n>=(L+U+1)/2","status":"COUNT_BALANCED_GAP_SPLIT_ESTABLISHED_AS_CONDITIONAL_CANDIDATE_SEMANTICS"},
+  "finite_controls":[{"m":1,"k":1,"L":1,"U":2,"gap":1,"lower_max":1,"upper_min":2},{"m":1,"k":2,"L":2,"U":3,"gap":1,"lower_max":2,"upper_min":3},{"m":1,"k":3,"L":3,"U":4,"gap":1,"lower_max":3,"upper_min":4},{"m":2,"k":1,"L":1,"U":4,"gap":3,"lower_max":2,"upper_min":3},{"m":2,"k":2,"L":4,"U":9,"gap":5,"lower_max":6,"upper_min":7},{"m":2,"k":3,"L":9,"U":16,"gap":7,"lower_max":12,"upper_min":13},{"m":3,"k":1,"L":1,"U":8,"gap":7,"lower_max":4,"upper_min":5},{"m":3,"k":2,"L":8,"U":27,"gap":19,"lower_max":17,"upper_min":18},{"m":3,"k":3,"L":27,"U":64,"gap":37,"lower_max":45,"upper_min":46},{"m":4,"k":1,"L":1,"U":16,"gap":15,"lower_max":8,"upper_min":9},{"m":4,"k":2,"L":16,"U":81,"gap":65,"lower_max":48,"upper_min":49},{"m":4,"k":3,"L":81,"U":256,"gap":175,"lower_max":168,"upper_min":169}],
+  "independently_selected_semantics":null,
+  "outcome":"COLLAPSE_DIRECTION_NOT_SELECTED_BY_COUNT_MEANING"
+}

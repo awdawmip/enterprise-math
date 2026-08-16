@@ -1,0 +1,11 @@
+{
+  "schema":"R059D_STAGE_Y_CYCLIC_COUNT_RECIPROCITY_V1",
+  "cyclic_relabeling":"tau:(u,v,w)->(v,w,u), tau^3=id",
+  "pair_carrier_transport":[{"primary":"u","transverse_ordered_slots":["v","w"],"carrier":"L_v(k) x L_w(k)"},{"primary":"v","transverse_ordered_slots":["w","u"],"carrier":"L_w(k) x L_u(k)"},{"primary":"w","transverse_ordered_slots":["u","v"],"carrier":"L_u(k) x L_v(k)"}],
+  "count_preservation":"Each transported B2 carrier has exactly k^2 states; swapping its two slot coordinates is also a bijection.",
+  "axis_name_privilege":false,
+  "mixed_cell_contradiction_detected":false,
+  "accepted_positive_count_coupling_to_test":false,
+  "result":"CARRIER_CARDINALITY_IS_CYCLICALLY_EQUIVARIANT_BUT_NO_PRIMARY_TO_TRANSVERSE_COUPLING_EXISTS_TO_PROMOTE",
+  "ordering_warning":"A fill enumeration that privileges a named axis or a first slot is not accepted as native semantics; cardinality invariance alone does not create a coupling."
+}
