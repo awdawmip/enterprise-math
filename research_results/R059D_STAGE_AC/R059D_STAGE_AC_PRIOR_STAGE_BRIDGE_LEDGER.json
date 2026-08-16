@@ -1,0 +1,28 @@
+{
+  "schema":"R059D_STAGE_AC_PRIOR_STAGE_BRIDGE_LEDGER_V1",
+  "status":"POST_DERIVATION_COMPARISON_ONLY",
+  "PRIOR_R059D_BRIDGE_STATUS":"DIAGNOSTIC_COMPATIBILITY_ONLY__EXACT_SELECTION_BRIDGE_OPEN",
+  "historical_mutation":false,
+  "comparisons": {
+    "Stage_AA_triangular_candidate": {
+      "full_T1_branch_match": {
+        "AC_increment":"Delta R_full(n)=n",
+        "AA_orbit_frontier_control":"|O2(k)|=k+1",
+        "index_identification_for_comparison_only":"k=n-1",
+        "sequence_match":true,
+        "interpretation":"The full-T1 AC branch supplies a possible independent geometric readout whose increments reproduce the old AA triangular candidate after the law is derived."
+      },
+      "two_ray_branch": {"AC_increment":"Delta R_two_ray(1)=1; Delta R_two_ray(n)=2 for n>=2","sequence_match_to_AA_orbit_frontier":false},
+      "bridge_verdict":"COMPATIBILITY_MATCH_ONLY__NOT_A_SELECTION_THEOREM"
+    },
+    "why_AA_could_not_select": {
+      "statement":"AA worked only with old staircase/frontier state. AC introduces a new G1/N2 triangle-motif readout. Because a second equally frozen AC readout branch survives the same n=1,2 controls, the old AA no-go remains valid and is not retroactively overturned."
+    },
+    "old_claim_retyping": {
+      "triangular_threshold":"compatibility observation for the AC full-T1 branch, not an old generator theorem",
+      "square_root_frontier":"remains unselected by old frontier semantics",
+      "five_to_four_or_nine":"not resolved by AC because AC defines a new operation pair whose unique root primitive is itself unresolved"
+    },
+    "BRC_bridge": {"status":"SEPARATE_BRIDGE_STAGE_REQUIRED","reason":"No theorem identifies either AC triangle readout branch with the historical BRC collapse coordinate/value process."}
+  }
+}
