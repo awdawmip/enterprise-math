@@ -1,0 +1,57 @@
+{
+  "schema": "R059D_STAGE_AC_NATIVE_ROOT_PRIMITIVE_V1",
+  "status": "PRE_SCORE_CANDIDATE_FAMILY_FROZEN",
+  "researcher_id": "EM-R059D-7C2A91",
+  "semantic_layer": "G1/N2_REBUILT_READOUT_FROM_NATIVE_ADJACENCY_AND_SIGN_ORIENTATION",
+  "common_source_motif": {
+    "motif": "orientation-preserving translated copy of controlled T1",
+    "index_set": "P_n={(i,j): i,j>=0, i+j<=n-1}",
+    "orientation_rule": "preserve ordered Enterprise-axis roles and alternating-sign orientation of T1",
+    "classical_area_or_sqrt_used": false
+  },
+  "predeclared_candidates": [
+    {
+      "id": "ROOT_FULL_T1_OCCURRENCE_COUNT",
+      "readout": "count every orientation-preserving T1 occurrence contained in T_n",
+      "position_filter": "none beyond containment",
+      "symmetry": "invariant under swapping the two generating rays and under orientation-preserving chart translations"
+    },
+    {
+      "id": "ROOT_TWO_GENERATING_RAY_ATTACHED_T1_COUNT",
+      "readout": "count orientation-preserving T1 occurrences whose base index satisfies i=0 or j=0",
+      "position_filter": "motif touches at least one of the two task-declared rays from O",
+      "symmetry": "invariant under swapping the two generating rays; uses the task-declared distinction between generating rays and closing boundary"
+    },
+    {
+      "id": "ROOT_ALL_UNIT_3CYCLE_COUNT_CONTROL",
+      "readout": "count both orientation-preserving and opposite-orientation unit three-cycles",
+      "role": "negative control"
+    },
+    {
+      "id": "ROOT_CLOSING_FRONTIER_T1_COUNT_CONTROL",
+      "readout": "count orientation-preserving T1 occurrences with i+j=n-1",
+      "role": "negative control"
+    }
+  ],
+  "control_replay_only": {
+    "n1": {
+      "ROOT_FULL_T1_OCCURRENCE_COUNT": 1,
+      "ROOT_TWO_GENERATING_RAY_ATTACHED_T1_COUNT": 1,
+      "ROOT_ALL_UNIT_3CYCLE_COUNT_CONTROL": 1,
+      "ROOT_CLOSING_FRONTIER_T1_COUNT_CONTROL": 1
+    },
+    "n2": {
+      "ROOT_FULL_T1_OCCURRENCE_COUNT": 3,
+      "ROOT_TWO_GENERATING_RAY_ATTACHED_T1_COUNT": 3,
+      "ROOT_ALL_UNIT_3CYCLE_COUNT_CONTROL": 4,
+      "ROOT_CLOSING_FRONTIER_T1_COUNT_CONTROL": 2
+    }
+  },
+  "survivors_after_only_frozen_n1_n2_controls": [
+    "ROOT_FULL_T1_OCCURRENCE_COUNT",
+    "ROOT_TWO_GENERATING_RAY_ATTACHED_T1_COUNT"
+  ],
+  "selection_rule_after_n2": "NONE_FROZEN; global scoring must not choose a survivor by target-formula match",
+  "closed_form_status": "WITHHELD_UNTIL_ENUMERATION_AND_SYMBOLIC_DERIVATION",
+  "target_formula_used_as_generator": false
+}
