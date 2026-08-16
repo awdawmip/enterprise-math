@@ -60,6 +60,7 @@ def root_floor(n,p):
     while (k+1)**p<=n:k+=1
     return k
 def qopts(cell,p):
+    # canonical D=(a,-b,0); Q is common-shift invariant
     a,b=cell;D=(a,-b,0);N,rho=normD(D)
     A=[]
     for x in N:
@@ -131,6 +132,7 @@ def digest(asn):
     rows=[(a,b,*asn[(a,b)]) for a,b in sorted(asn)]
     return hashlib.sha256(json.dumps(rows,separators=(",",":")).encode()).hexdigest()
 
+# scaffold gates
 S=O["CELL_ID_SCAFFOLD"]
 ck("scaffold-moves",S["moves"]=={k:list(v) for k,v in moves.items()})
 ck("ball61",S["ball_count"]==61)
@@ -141,6 +143,7 @@ for lab,rows in S["pure_axis_rays_0_to_36"].items():
     for row in rows:
         n=row["n"]; v=moves[lab]
         ck("rayid-"+lab+str(n),row["id_index"]==[n*v[0],n*v[1]])
+# relation endpoints
 for z in S["relation_controls"]:
     if "paths" in z:
         e=[endpoint(p) for p in z["paths"]]
@@ -148,6 +151,7 @@ for z in S["relation_controls"]:
     else:
         ck("loop-"+str(z),endpoint(z["loop"])==tuple(z["endpoint"]))
 
+# semantics and symmetry
 M=O["INTEGER_COORDINATE_SEMANTICS"]
 ck("integer-only",M["types"]["INTEGER_CELL_COORDINATE"].endswith("every stored component integer."))
 ck("hard-u",M["hard_observations"]["+u"]["stored"]==[1,-1,-1])
@@ -159,12 +163,14 @@ for k,v in exp.items():
     src=sym["cyclic_axis_relabeling"] if k[0]=="+" else sym["global_sign_inverted_first_shell"]
     ck("first-"+k,src[k]["stored"]==v)
 
+# registry locked
 G=O["PREDECLARED_ROOT_MODEL_REGISTRY"]
 ck("models",set(G["models"])=={"N","S","H","Q","O"})
 ck("root-orders",G["root_orders"]==[1,2,3,4,5,6])
 ck("additions",G["model_addition_limit"]=={"allowed":2,"used":2,"further_additions_forbidden":True})
 ck("no-homog-positive","NEGATIVE_TRIVIAL_CONTROL_ONLY"==G["models"]["H"]["role"])
 
+# event count relation and path gate controls
 def model_N(path,p):
     D,L=ledger(path);out=[]
     for a,d in zip(axes,D):
@@ -176,16 +182,19 @@ def model_H(path):
     return tuple(2*d-s for d in D)
 def qstate(path):
     D,_=ledger(path);N,rho=normD(D);return (N,rho)
+# N relation fail all p
 for p in range(1,7):
     ck("N-relfail-"+str(p),model_N(("-w",),p)!=model_N(("+u","+v"),p))
     ck("Q-state-relation-"+str(p),qstate(("-w",))==qstate(("+u","+v")))
     ck("Q-state-triloop-"+str(p),qstate(())==qstate(("+u","+v","+w")))
 ck("H-relfail",model_H(("-w",))!=model_H(("+u","+v")))
+# S split reversal p>1: simply verify split ledgers differ although net cell same
 D1,L1=ledger(("+u",));D2,L2=ledger(("+u","+v","-v"))
 ck("S-net-same",D1==D2)
 for p in range(2,7):
     ck("S-split-history-"+str(p),L1["w"][1:3]!=L2["w"][1:3])
 
+# exhaustive path/state quotient check from scaffold stored paths
 for row in S["cells"]:
     c=tuple(row["id_index"])
     test=[tuple(x) for x in row["shortest_paths"]+row["selected_nonshortest_paths"]]
@@ -193,6 +202,7 @@ for row in S["cells"]:
     ck("QO-path-"+row["cell_id"],all(x==states[0] for x in states))
     for p in test:ck("endpoint-"+row["cell_id"]+str(p),endpoint(p)==c)
 
+# Q radius4 cyclic/injective witnesses and branch extensions
 MX=O["MIXED_CELL_COMPLETION_LEDGER"]
 for p in range(1,7):
     a=find_assignment(4,p)
@@ -204,26 +214,31 @@ for p in range(2,7):
     for n in (2,3):
         for t in sorted(filter_ray((n,0),qopts((n,0),p))):
             ck("branch-ext-"+str((p,n,t)),find_assignment(4,p,{(n,0):t}) is not None)
+# n4 exact/ambiguous patterns
 ck("p2-n4-exact",filter_ray((4,0),qopts((4,0),2))=={(4,-2,-2)})
 for p in range(3,7):
     ck("pgt2-n4-two",filter_ray((4,0),qopts((4,0),p))=={(4,-1,-1),(4,-2,-2)})
 
+# mixed mandatory options extend
 mixedcells=[(1,-1),(1,1),(0,1),(2,-1)]
 for p in range(2,7):
     for c in mixedcells:
         for t in qopts(c,p):
             ck("mixed-ext-"+str((p,c,t)),find_assignment(4,p,{c:t}) is not None)
 
+# inversion extension fails p>1 by ray3, p1 succeeds at tested pair
 for p in range(2,7):
     pos=filter_ray((3,0),qopts((3,0),p));neg=qopts((-3,0),p)
     ck("invfail-"+str(p),not any(tuple(-x for x in t) in neg for t in pos))
 pos=filter_ray((3,0),qopts((3,0),1));neg=qopts((-3,0),1)
 ck("inv-p1",any(tuple(-x for x in t) in neg for t in pos))
 
+# O direct primary failure at n3 p>1
 for p in range(2,7):
     k=root_floor(3,p);levels={k} if k**p==3 else {k,k+1}
     ck("O-primary-fail-"+str(p),3 not in levels)
 
+# anti-triviality policies on Q
 def qpolicy(cell,p,pol):
     a,b=cell;D=(a,-b,0);N,rho=normD(D);out=[]
     for x in N:
@@ -238,6 +253,7 @@ def qpolicy(cell,p,pol):
         elif pol=="parity":r=k if n%2==0 else k+1
         out.append(x-r)
     return tuple(out)
+# explicit anti-homogeneity certificate for the positive quotient family at p=1
 q0=qpolicy((0,0),1,"floor"); q_u=qpolicy((1,0),1,"floor")
 q_v=qpolicy((0,-1),1,"floor"); q_vu=qpolicy((1,-1),1,"floor")
 d0=tuple(q_u[i]-q0[i] for i in range(3)); d1=tuple(q_vu[i]-q_v[i] for i in range(3))
@@ -253,10 +269,12 @@ for p in range(3,7):
     vals={c:qpolicy(c,p,"parity") for c in cells(4)}
     ck("parity-collision-"+str(p),len(set(vals.values()))<61)
 
+# five control
 V=O["FIVE_TO_FOUR_OR_NINE_CONTROL"]
 ck("five-result",V["result"]=="FIVE_TO_FOUR_OR_NINE_STILL_UNRESOLVED_AT_TEST_RADIUS")
 ck("five-levels",V["sqrt5"]["adjacent_root_levels"]==[2,3])
 
+# survival/final boundaries
 SV=O["ROOT_ORDER_SURVIVAL_LEDGER"]
 ck("square-survive",SV["models"]["Q"]["p2"].startswith("SURVIVES_NONHOMOGENEOUS"))
 ck("multi-roots","MULTIPLE_ROOT_ORDERS_SURVIVE" in SV["freezes"])
