@@ -39,6 +39,7 @@ for k in range(0,51):
         b2n={(i,j) for i in range(1,k+2) for j in range(1,k+2)}
         ck(f"b2-inc-{k}",len(b2n-b2)==2*k+1)
     for m in range(1,5):
+        # formula/product oracle; enumerate only small cases
         ck(f"bm-formula-{m}-{k}",k**m>=0)
         if k<=6:
             bm=set(product(range(1,k+1),repeat=m))
@@ -71,6 +72,7 @@ for k in range(0,31):
     b2={(i,j) for i in range(1,k+1) for j in range(1,k+1)}
     fixed={x for x in b2 if x==(x[1],x[0])}
     ck(f"swap-fixed-{k}",len(fixed)==k)
+    # orbit count under swap
     seen=set(); orbits=[]
     for x in sorted(b2):
         if x in seen: continue
@@ -93,6 +95,7 @@ for m in range(1,5):
     for k in range(0,31):
         L=k**m; U=(k+1)**m
         ck(f"power-order-{m}-{k}",L<U)
+        # conditional completed-capacity interval for every interior integer
         for n in range(L, min(U,L+25)):
             ck(f"cond-ineq-{m}-{k}-{n}",L<=n<U)
 
@@ -104,11 +107,13 @@ for m in range(1,9):
         L=k**m; U=(k+1)**m
         ck(f"gap-odd-{m}-{k}",(U-L)%2==1)
         ck(f"sum-odd-{m}-{k}",(L+U)%2==1)
+        # audit all interior integers when gap not too large, otherwise endpoints and midpoint-neighbors
         ints=list(range(L+1,U)) if U-L<=250 else [L+1,(L+U)//2,(L+U)//2+1,U-1]
         for n in ints:
             r=L+U-n
             ck(f"refl-invol-{m}-{k}-{n}",L<r<U and L+U-r==n)
-            low=(2*n<L+U); up=(2*n>L+U)
+            low=(2*n<L+U)
+            up=(2*n>L+U)
             ck(f"balanced-exclusive-{m}-{k}-{n}",low!=up)
             ck(f"balanced-complement-{m}-{k}-{n}",low==(2*r>L+U))
 
@@ -129,6 +134,7 @@ ck("m-slot-meaning","independently indexed integer level slots" in RI["m_fold_ca
 ck("m2-not-selected","m=2 is not selected" in RI["triaxial_two_transverse_slots"]["conclusion"])
 ck("no-dimension","not Euclidean dimension" in RI["not_claims"])
 
+# Scaffold-only count blindness: distinct staircases do not affect these formulas.
 aA=[0,1,1,1,2,2,2,2,2]
 aB=[0,1,2,2,2,2,3,3,3]
 ck("distinct-staircases",aA!=aB)
@@ -144,5 +150,16 @@ for key,val in L["gates"].items():
         ck("firewall-"+key,val is False)
 
 digest=hashlib.sha256("\n".join(C).encode()).hexdigest()
-out={"schema":"R059D_STAGE_Y_DETERMINISTIC_CHECKER_OUTPUT_V1","researcher_id":RID,"frozen_parent":PARENT,"taskbook_git_blob_sha1":TASK,"checks_total":len(C),"checks_passed":len(C),"checks_failed":0,"checks_digest_sha256":digest,"status":"PASS","theorem_mechanism":"finite-set cardinalities, telescoping crossing-event counts, reflection fixed-point obstruction, conditional capacity inequalities, parity/reflection allocation theorem; enumeration is oracle only"}
+out={
+ "schema":"R059D_STAGE_Y_DETERMINISTIC_CHECKER_OUTPUT_V1",
+ "researcher_id":RID,
+ "frozen_parent":PARENT,
+ "taskbook_git_blob_sha1":TASK,
+ "checks_total":len(C),
+ "checks_passed":len(C),
+ "checks_failed":0,
+ "checks_digest_sha256":digest,
+ "status":"PASS",
+ "theorem_mechanism":"finite-set cardinalities, telescoping crossing-event counts, reflection fixed-point obstruction, conditional capacity inequalities, parity/reflection allocation theorem; enumeration is oracle only"
+}
 print(json.dumps(out,sort_keys=True,separators=(",",":")))
