@@ -1,0 +1,44 @@
+{
+  "overall": {
+    "PRIMARY_GAP_TO_TRANSVERSE_FRONTIER_COUPLING_ESTABLISHED": false,
+    "PRIMARY_GAP_TO_TRANSVERSE_FRONTIER_COUPLING_NOT_ESTABLISHED": true,
+    "reason": "The abstract 2k+1 frontier exists, but no independent primary-gap correspondence survives reflection and staircase-freedom gates."
+  },
+  "pre_score_registry_commit": "22d015b3c6f9f6e028c4cbebfd4ff176f8be91e3",
+  "researcher_id": "EM-R059D-4E8B71",
+  "schema": "R059D_STAGE_Z_CONSTRUCTIVE_FRONTIER_COUPLING_LEDGER_V1",
+  "status": "NEGATIVE",
+  "tests": [
+    {
+      "candidate": "RAW_POINTWISE_BIJECTION",
+      "reason": "Primary events are reflection-fixed, so every equivariant image is swap-fixed; F2(k) has only one fixed state while 2k+1>1.",
+      "required": "bijection from primary gap event IDs to raw F2(k), reflection-equivariant",
+      "result": "REFUTED_FOR_K_GE_1"
+    },
+    {
+      "candidate": "SWAP_ORBIT_PLUS_INCIDENCE_MULTIPLICITY",
+      "reason": "Quotient removes slot orientation, but re-expanding off-diagonal multiplicity 2 requires distinguishing the two swapped incidences. No primary-side reflection pair/involution or independent row/column orientation exists; using primary temporal order to label slots would be slot-name preference.",
+      "required": "map to k+1 swap orbits plus exact one-primary-step-per-raw-incidence accounting",
+      "result": "NOT_ESTABLISHED"
+    },
+    {
+      "candidate": "EXACT_FRONTIER_CONSUMPTION_RECURRENCE",
+      "reason": "Gap freedom theorem realizes arbitrary positive g_k at fixed k, including g_k != 2k+1, with global UNIT_STEP extension.",
+      "required": "prove k->k+1 consumes all and only 2k+1 frontier incidences",
+      "result": "REFUTED_AS_A_CONSEQUENCE_OF_CURRENT_FROZEN_SEMANTICS"
+    },
+    {
+      "candidate": "M_SLOT_GENERALIZATION",
+      "reason": "No primary-gap coupling exists even for m=2, and arbitrary gap freedom blocks all fixed polynomial frontier laws without new structure.",
+      "required": "same construction canonically selects one m",
+      "result": "NOT_ESTABLISHED"
+    }
+  ],
+  "universal_cardinality_counterexample": {
+    "allowed_gap_count": 1,
+    "frontier_count": 3,
+    "k": 1,
+    "logic": "Any universal one-step-per-frontier-incidence coupling would force equal finite cardinalities, contradicted by this allowed staircase.",
+    "staircase": "a_0=0,a_1=1,a_2=2,..."
+  }
+}
