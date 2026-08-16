@@ -1,0 +1,24 @@
+{
+  "schema": "R059D_STAGE_W_ACTIVE_POINTER_V1",
+  "status": "ACTIVE",
+  "date": "2026-08-16",
+  "researcher_id": "EM-R059D-9C6B2A",
+  "taskbook": "research_tasks/R059D_STAGE_W_TRIAXIAL_INTEGER_CELL_ROOT_COLLAPSE_ATLAS_20260816.md",
+  "taskbook_source_commit": "ce0c98cb2e729d8773443b1f3ebdf8fb4328365b",
+  "owner_branch": "research/r059d-stage-w-triaxial-integer-cell-root-collapse-atlas",
+  "frozen_parent": "a9929a5bd666e621cb1bd77adb464df0d35db399",
+  "supersedes_before_execution": [
+    "research_tasks/R059D_STAGE_V_BRC_EXACT_POST_CREDIT_PULLBACK_CONSTRAINT_CALCULUS_20260816.md",
+    "research/r059d-stage-w-triaxial-cell-coordinate-collapse"
+  ],
+  "scientific_target": "Build an integer-only triaxial crystal-cell coordinate atlas from explicit cell counting; treat radicals only as precollapse algebraic values; test low-order root laws and infer collapse direction from multi-path atlas self-consistency rather than rounding/selector axioms.",
+  "hard_firewalls": [
+    "CELL_COORDINATES_ARE_INTEGER_ONLY",
+    "NO_X_PLUS_Y_PLUS_Z_EQUALS_K_AS_RAW_CELL_COORDINATE_PREMISE",
+    "NO_EI_MINUS_EJ_AS_RAW_CELL_COORDINATE_PREMISE",
+    "NO_NEAREST_ROUNDING",
+    "NO_STABILIZER_SELECTOR_AS_POSITIVE_PREMISE",
+    "NO_POST_CREDIT_REWARD_AS_POSITIVE_PREMISE"
+  ],
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW"
+}
