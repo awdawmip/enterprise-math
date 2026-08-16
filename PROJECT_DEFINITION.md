@@ -1,7 +1,7 @@
 # Enterprise Math Project Definition
 
 Status: `ACTIVE / PROJECT-LEVEL DEFINITION`
-Date: `2026-08-15`
+Date: `2026-08-16`
 
 ## One-sentence definition
 
@@ -14,6 +14,146 @@ Project-level principle:
 That is:
 
 **rebuild the foundation rather than abolish the tool.**
+
+---
+
+## 0. Highest structural definition: Enterprise dimensions, axes, and directions
+
+This section is the project-level highest definition of the native axis structure used by Enterprise Math. If a lower-level research note, historical task, or older carrier description conflicts with this section, this section controls. Older constructions remain usable as historical experiments, implementation carriers, or classical compatibility projections, but may not override this definition.
+
+### 0.1 Enterprise dimension
+
+In Enterprise Math:
+
+> **One Enterprise dimension is one native undirected axis family; every Enterprise dimension has two mutually opposite directed directions.**
+
+Therefore:
+
+`ENTERPRISE_DIMENSION = NATIVE_UNDIRECTED_AXIS_FAMILY_COUNT`
+
+`DIRECTED_DIRECTION_COUNT = 2 * ENTERPRISE_DIMENSION`
+
+Enterprise dimension is not defined as the minimum number of linearly independent basis vectors in classical linear algebra, and it is not automatically identical to Euclidean or topological dimension. Classical ranks and dimensions may still be computed in compatibility layers, but they do not override the native Enterprise dimension definition.
+
+### 0.2 Enterprise plane
+
+The native Enterprise plane is defined by:
+
+`ENTERPRISE_PLANE_DIMENSION = 3`
+
+`ENTERPRISE_PLANE_AXIS_COUNT = 3`
+
+`ENTERPRISE_PLANE_DIRECTED_DIRECTION_COUNT = 6`
+
+Thus:
+
+> **An Enterprise plane is three-dimensional in the Enterprise sense, with three native axes and six directed directions.**
+
+When flattened onto a classical two-dimensional drawing surface, the three undirected axes may be displayed as:
+
+`0° / 180°`
+
+`60° / 240°`
+
+`120° / 300°`
+
+The three axis families are pairwise **Enterprise Orthogonal** (`ENTERPRISE_ORTHOGONAL`). In a classical flattened calibration drawing, adjacent Enterprise-axis families appear one `60°` sector apart. This does not redefine Euclidean perpendicularity from `90°` to `60°`; it is the two-dimensional display of the native Enterprise-axis relation.
+
+### 0.3 Alternating sign rule in an Enterprise plane
+
+Within any Enterprise plane:
+
+1. choose any one directed axis direction and declare it `+u`;
+2. traverse the six directions cyclically;
+3. every adjacent `60°` sector flips sign.
+
+Hence the six directed directions have the strict alternating pattern:
+
+`+ - + - + -`
+
+If the displayed `0°` direction is declared positive:
+
+`0°:+`
+
+`60°:-`
+
+`120°:+`
+
+`180°:-`
+
+`240°:+`
+
+`300°:-`
+
+The globally inverted assignment is equivalent. Apart from total sign inversion, the axes may not be assigned signs independently.
+
+### 0.4 Native axis definition of our solid world
+
+Enterprise Math currently models our solid spatial world by:
+
+`ENTERPRISE_WORLD_DIMENSION = 6`
+
+`ENTERPRISE_WORLD_AXIS_COUNT = 6`
+
+`ENTERPRISE_WORLD_DIRECTED_DIRECTION_COUNT = 12`
+
+That is:
+
+> **Our solid world is modeled in Enterprise Math as six Enterprise dimensions and twelve directed directions.**
+
+The six undirected axes may be combinatorially labeled by the six pair-relations among four base labels:
+
+`12, 13, 14, 23, 24, 34`
+
+These labels encode incidence between axes and lower-dimensional Enterprise planes; they are not additional dimensions.
+
+The six-dimensional axis structure contains four three-dimensional Enterprise subplanes:
+
+`P123={12,13,23}`
+
+`P124={12,14,24}`
+
+`P134={13,14,34}`
+
+`P234={23,24,34}`
+
+Each subplane inherits the same native three-dimensional plane rule: three axes, six directions, and opposite signs across every adjacent `60°` sector.
+
+### 0.5 Global closure of the twelve-direction sign system
+
+The twelve-direction sign system is not created by independently attaching `+/-` labels to six axes. It propagates globally from one initial direction:
+
+> **Choose any one directed direction as positive. Any two directions that are adjacent by `60°` inside any three-dimensional Enterprise subplane must have opposite signs.**
+
+This propagation closes globally across all four subplanes.
+
+Equivalently, the `60°`-adjacency graph of the twelve directions is connected and bipartite. Therefore:
+
+`ALTERNATING_SIGN_SYSTEM_EXISTS = true`
+
+`ALTERNATING_SIGN_SYSTEM_GLOBAL_CLOSURE = true`
+
+`SIGN_ASSIGNMENT_UNIQUE_UP_TO_GLOBAL_INVERSION = true`
+
+Once one direction is declared positive, the signs of the other eleven directions are uniquely forced. The only other solution is simultaneous inversion of all twelve signs.
+
+This guarantees that the four three-dimensional Enterprise subplanes inherit one consistent sign system on shared directed directions.
+
+### 0.6 Relation to the older two-degree-of-freedom A2 carrier
+
+Earlier work used the carrier
+
+`Lambda={(a,b,c) in Z^3 : a+b+c=0}`
+
+with `u+v+w=0`, and described it using the classical statement `PLANE_DIMENSION=2`.
+
+From this definition onward that statement is retyped as:
+
+`CLASSICAL_OR_IMPLEMENTATION_RANK = 2`
+
+`ENTERPRISE_PLANE_DIMENSION = 3`
+
+The A2/C6 two-degree-of-freedom structure remains available as a classical flattened projection, implementation coordinate scaffold, combinatorial carrier, or compatibility model, but it no longer defines the native Enterprise dimension of a plane.
 
 ---
 
@@ -33,6 +173,8 @@ finite-resolution / precision-aware numbers
 integer and discrete states
     ↓
 relations, collapse, paths, counts, forward evolution
+    ↓
+Enterprise axes / Enterprise dimensions / native direction structure
     ↓
 vector and algebraic structure
     ↓
@@ -57,7 +199,7 @@ Enterprise Math uses the rule:
 
 > `Definition is not inherited.`
 
-This is now interpreted precisely.
+This is interpreted precisely.
 
 ### What may be inherited
 
@@ -149,6 +291,7 @@ Includes:
 - packet count;
 - transition/path count;
 - branching / recoalescence;
+- Enterprise axes, dimensions, directions, and sign propagation;
 - vectors, modules, group actions, coordinates, and other mature algebraic structures.
 
 Different integers must remain typed distinctly:
@@ -226,13 +369,21 @@ A mathematical object does not acquire physical meaning merely because its name 
 
 ---
 
-## 5. Current two-dimensional three-axis vector plane
+## 5. Current native axis structure
 
-A current algebraic carrier is:
+The project-level native axis structure is defined by Section 0:
+
+- Enterprise plane: `3` Enterprise dimensions, `3` undirected axes, `6` directed directions;
+- our solid world: `6` Enterprise dimensions, `6` undirected axes, `12` directed directions;
+- adjacent `60°` directions inside any Enterprise plane carry opposite signs;
+- the six-dimensional world contains four three-dimensional Enterprise subplanes sharing one globally closed alternating-sign system;
+- once any one directed direction is declared positive, all remaining signs are uniquely determined up to total inversion.
+
+The historical carrier
 
 `Lambda = {(a,b,c) in Z^3 : a+b+c=0}`
 
-with generators:
+with
 
 `u=(1,-1,0)`
 
@@ -240,23 +391,11 @@ with generators:
 
 `w=(-1,0,1)`
 
-satisfying:
+and `u+v+w=0`
 
-`u+v+w=0`.
+remains available as an A2/C6 classical flattened projection, combinatorial relation carrier, or implementation scaffold. Its two degrees of freedom are a compatibility/implementation rank, not the native Enterprise dimension of the plane.
 
-Hence:
-
-`PLANE_DIMENSION=2`
-
-`AXIS_COUNT=3`
-
-and six directed steps:
-
-`D6={+u,-u,+v,-v,+w,-w}`.
-
-This uses the mature concept of vector directly. The six BRC6 outputs are structured directed vectors rather than six unrelated labels.
-
-This carrier does not pre-decide the final definitions of LENGTH, ANGLE, NORM, or trigonometric functions. Those tools remain to be rebuilt on top of the same substrate.
+The native axis definition does not by itself pre-decide the final formulas for LENGTH, classical ANGLE, NORM, or trigonometry; those tools remain to be rebuilt on this substrate.
 
 ---
 
@@ -356,6 +495,7 @@ number
 → precision
 → discrete state
 → relation and count
+→ Enterprise axes and Enterprise dimensions
 → algebra and vector structure
 → rebuilt geometry
 → rebuilt trigonometry and analysis
