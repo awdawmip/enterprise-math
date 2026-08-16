@@ -1,0 +1,23 @@
+{
+  "schema": "R059D_STAGE_AD_COVERAGE_PROTOCOL_V1",
+  "status": "PRE_SCORE_FROZEN",
+  "researcher_id": "EM-R059D-3F7C42",
+  "task_id": "RS-R059D-STAGE-AD-TRIANGULAR-COVERAGE-BRC-CIRCLE-RESOLVE",
+  "taskbook_source_commit": "0bae4ac7ab7d8c6073c901598a009ac598826f07",
+  "frozen_parent": "71a40c12b5804fd76e10a91df431c1d5f80304f0",
+  "micro_sampling": {
+    "subdivision": "each elementary triangle split into s^2 equal-area microtriangles",
+    "representative": "microtriangle centroid",
+    "UP_micro_centroids": "local numerators (3i+1,3j+1)/(3s), i,j>=0, i+j<=s-1",
+    "DOWN_micro_centroids": "local numerators (3i+2,3j+2)/(3s), i,j>=0, i+j<=s-2",
+    "coverage": "covered_subsamples / s^2",
+    "teacher_test": "for rational chart numerator (A,B)/D, A^2+A*B+B^2 <= (rD)^2"
+  },
+  "classify": {"FULL_IN": "covered=s^2", "FULL_OUT": "covered=0", "FRONTIER": "0<covered<s^2"},
+  "resolvers_predeclared": {
+    "N": {"name": "NEAREST_CELL_BASELINE", "decision": "parent triangle centroid is inside source disk"},
+    "C": {"name": "COVERAGE_THRESHOLD", "theta": [1,2], "decision": "2*covered>=s^2"},
+    "R": {"name": "ACCUMULATED_RESIDUAL_RESOLVE", "domain": "frontier cells; axis frontier uses fixed 1/2 threshold; open-sector frontier ordered independently per 60-degree sector", "forward_order": "exact sector parameter t=b/(2a+b) after rotating centroid into fundamental sector, ascending", "reverse_order": "same parameter descending", "recurrence": "e_next=e+c-b; b=1 iff e+c>=1/2 else 0; e0=0 per sector", "invariant_candidate": "-1/2<=e<1/2", "hidden_state": false}
+  },
+  "anti_tuning": {"radius_specific_threshold": false, "radius_specific_scan_order": false}
+}
