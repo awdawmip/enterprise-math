@@ -1,0 +1,10 @@
+{
+  "definition":"For Bm(k)={1,...,k}^m, quotient Fm(k)=Bm(k+1)\\Bm(k) by the full slot permutation group S_m. Orbits are multisets of size m from {1,...,k+1} containing k+1.",
+  "formula":"|Fm(k)/S_m| = C(k+m,m)-C(k+m-1,m) = C(k+m-1,m-1)",
+  "m_formulas":{"m=1":"1","m=2":"k+1","m=3":"(k+1)(k+2)/2","m=4":"(k+1)(k+2)(k+3)/6"},
+  "reason":"The m-slot carriers and their permutation quotients are exact combinatorial controls, but native selection of m requires an N0 definability/invariance certificate; coordinate-role availability alone is I0/N2 evidence.",
+  "researcher_id":"EM-R059D-4E8B71","schema":"R059D_STAGE_AA_M_SLOT_SYMMETRIC_CONTROL_V1",
+  "small_table":[{"k":0,"m1":1,"m2":1,"m3":1,"m4":1},{"k":1,"m1":1,"m2":2,"m3":3,"m4":4},{"k":2,"m1":1,"m2":3,"m3":6,"m4":10},{"k":3,"m1":1,"m2":4,"m3":10,"m4":20},{"k":4,"m1":1,"m2":5,"m3":15,"m4":35},{"k":5,"m1":1,"m2":6,"m3":21,"m4":56},{"k":6,"m1":1,"m2":7,"m3":28,"m4":84}],
+  "status":"EXACT_QUOTIENT_COUNTS_WITH_NATIVE_SELECTION_UNRESOLVED",
+  "typing":{"M_SLOT_AMBIGUITY_REMAINS":true,"ROOT_DEGREE_REMAINS_UNIDENTIFIED":true,"TWO_SLOT_FRONTIER_NATIVELY_SELECTED":false,"explicit_triaxial_implementation_has_two_transverse_coordinate_roles":true,"reflection_swaps_those_two_roles":true,"this_implementation_fact_is_a_native_two_slot_selection_certificate":false}
+}
