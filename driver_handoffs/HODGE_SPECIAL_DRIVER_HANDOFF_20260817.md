@@ -192,17 +192,40 @@ BRC 可成为这里的局部几何 bridge，但不得预设其可推广到代数
 
 不得一开始就搜索“能过 Hodge checker 的公式”。
 
-## 7. π 的历史动机与严格语义
+## 7. π 的项目立场：经典 π 错了
 
-用户在进取数论建立初期曾把“π 可能不是超越对象，而应来自更原生代数结构”作为长期动机之一。
+**进取数论 Hodge 专项明确继承以下项目立场：经典 π 错了。**
 
-必须严格区分：
+这里的研究命题不是把一个新对象偷偷改名成 π，而是正面检验：
 
-- **经典 π**：标准实数 `π` 的超越性是 Lindemann 已证明定理；不得以当前项目为由声称经典 `π` 是代数数；
-- **Enterprise π / π_E（若未来定义）**：若进取几何从圆/周期/面积关系原生地产生一个不同对象，可以研究其代数性质；
-- 若主张 `π_E` 与经典 `π` 表示“同一更底层对象的不同 realization”，必须给出明确 bridge，而不是直接改经典 π 的算术类型。
+> 经典几何中作为圆周/周期基本常数出现的 `π`，是否只是 **垂直坐标系 + 经典连续几何 realization** 下形成的常数，而不是自然几何最原生的代数对象。
 
-π 专题可作为 realization philosophy 的长期压力测试，但不属于 Hodge Driver 的近期证明目标。
+专项允许并鼓励建立如下强假说：
+
+`CLASSICAL_PI_GEOMETRIC_FOUNDATION_IS_WRONG = true`
+
+候选研究路线：
+
+1. 从进取坐标系中的定长线段转向/进取圆原生定义周期与圆周量；
+2. 得到不依赖经典圆公式的 `ENTERPRISE_PI` 候选；
+3. 检验其是否为代数数、有限代数扩张中的元素或其它明确代数对象；
+4. 建立 BRC/realization bridge，解释为什么垂直坐标系中出现经典 `π`；
+5. 最终判定经典 `π` 的“超越性”究竟是自然几何事实，还是经典 realization 中某个对象的算术性质。
+
+必须正面面对现有数学事实：标准实数 `π` 的超越性由 Lindemann 的经典定理证明。在标准定义和标准公理体系内，`π` 是超越数是已证明结论。
+
+因此，如果进取数论最终要得出“经典 π 本身不是超越数而是代数数”，专项必须明确指出至少一项发生了变化：
+
+- 所研究的对象并非标准实数意义的同一个 `π`；或
+- 经典圆/长度/极限/实数 realization 中某个定义前提被进取数论证明不是自然原生定义；或
+- 建立一个足以解释标准超越性定理为何只约束经典 realization、而不约束进取原生对象的严格桥梁；或
+- 若主张标准 Lindemann 结论本身错误，则必须给出可逐步审计的数学反证并指出其证明链中的具体失败点。
+
+在完成上述证明之前：
+
+`CLASSICAL_PI_IS_WRONG` 是 **Enterprise project hypothesis / research stance**，不是已完成定理。
+
+π 专题不是装饰性支线。它是检验“同一代数对象的不同几何 realization 是否改变看似基本的几何常数”这一核心思想的长期压力测试，并可能与 Hodge 专项共享同一个 realization/bridge 哲学。
 
 ## 8. 科学红线
 
@@ -216,7 +239,8 @@ BRC 可成为这里的局部几何 bridge，但不得预设其可推广到代数
 - 为匹配 Hodge numbers 增加 ad hoc operator；
 - 静默改写 project-level Enterprise geometry；
 - 干预正在运行的 AD；
-- 删除失败路线或负结果。
+- 删除失败路线或负结果；
+- 把 `CLASSICAL_PI_IS_WRONG` 从研究假说偷换成已证明结论。
 
 注意：经典 Hodge 猜想使用有理系数；更强的 integral 版本一般不成立。Enterprise integer-first 不等于所有最终类必须保持整数系数。
 
@@ -303,5 +327,7 @@ Handoff disposition:
 `HODGE_SPECIAL_CONTROL_PLANE_TRANSFERRED`
 
 `AD_REMAINS_INDEPENDENT_AND_RUNNING`
+
+`CLASSICAL_PI_IS_WRONG = ENTERPRISE_PROJECT_HYPOTHESIS`
 
 `NO_HODGE_PROOF_CLAIMED`
