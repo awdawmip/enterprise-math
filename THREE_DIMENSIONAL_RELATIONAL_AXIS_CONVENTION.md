@@ -2,6 +2,9 @@
 
 Status: `PROJECT_LEVEL_NOTATION_FREEZE`
 Date: `2026-08-16`
+Canonical unified source: `RELATIONAL_AXIS_CONVENTION.md` / `relational_axis_convention.json`
+
+This file remains the three-dimensional compatibility entrypoint. Where a later clarification differs in scope or adds relational-plane typing, the unified canonical source governs.
 
 ## 1. Coordinate carriers versus transfer axes
 
@@ -101,3 +104,30 @@ The frozen semantic distinction is:
 A later Euclidean embedding may visualize the four coordinate carriers through tetrahedrally balanced reference vectors and the six transfer axes through pair differences. Such an embedding is calibration/readout only unless independently refounded.
 
 This convention does not freeze Euclidean angle, norm, length, or physical direction semantics.
+
+## 7. Canonical A2 six-direction relational planes
+
+The six-axis carrier contains exactly four canonical three-carrier rank-two relational planes:
+
+- `Pi_123`: `u+v+w=0`;
+- `Pi_124`: `u+q-p=0`;
+- `Pi_134`: `-w+r-p=0`;
+- `Pi_234`: `v+r-q=0`.
+
+Each contains three unoriented transfer axes and six directed states. In a symmetric planar visualization, a chosen cyclic triple satisfying `a+b+c=0` is interleaved by its negatives, producing the cyclic ray-sign pattern
+
+`+ - + - + -`
+
+up to cyclic shift and global sign reversal.
+
+This statement is scoped to these `A2` carrier-triple relational planes. It is not a rule for an arbitrary plane cut through a three-dimensional visualization.
+
+## 8. A1 x A1 controls and arbitrary-plane firewall
+
+Disjoint carrier-pair axes give canonical two-axis / four-direction controls:
+
+- `U` with `R`;
+- `W` with `Q`;
+- `P` with `V`.
+
+Therefore an arbitrary plane must not be assumed to contain three transfer axes or the six-ray `+ - + - + -` pattern.
