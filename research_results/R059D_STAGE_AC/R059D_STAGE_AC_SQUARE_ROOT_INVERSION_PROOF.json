@@ -1,0 +1,43 @@
+{
+  "schema": "R059D_STAGE_AC_SQUARE_ROOT_INVERSION_PROOF_V1",
+  "status": "MULTIPLE_EXACT_INVERSE_BRANCHES_SURVIVE_CONTROLS",
+  "INVERSION_STATUS": "UNDERDETERMINED_BETWEEN_TWO_EXACT_NATIVE_READOUT_BRANCHES",
+  "common_area_parameterization": {
+    "area_readout":"A(n)=3n",
+    "triangle_index":"n>=1",
+    "injectivity_reason":"A(n+1)-A(n)=3>0"
+  },
+  "branch_full_T1": {
+    "root_readout":"R_full(n)=n(n+1)/2",
+    "root_domain":"{3n:n>=1}",
+    "root_range":"{n(n+1)/2:n>=1}",
+    "square_domain":"{n(n+1)/2:n>=1}",
+    "square_range":"{3n:n>=1}",
+    "inverse_pair":["ENTERPRISE_ROOT_full(3n)=n(n+1)/2","ENTERPRISE_SQUARE_full(n(n+1)/2)=3n"],
+    "strict_monotonicity":"R_full(n+1)-R_full(n)=n+1>0"
+  },
+  "branch_two_ray": {
+    "root_readout":"R_two_ray(n)=2n-1",
+    "root_domain":"{3n:n>=1}",
+    "root_range":"{2n-1:n>=1}",
+    "square_domain":"{2n-1:n>=1}",
+    "square_range":"{3n:n>=1}",
+    "inverse_pair":["ENTERPRISE_ROOT_two_ray(3n)=2n-1","ENTERPRISE_SQUARE_two_ray(2n-1)=3n"],
+    "strict_monotonicity":"R_two_ray(n+1)-R_two_ray(n)=2>0"
+  },
+  "shared_frozen_controls": {
+    "ENTERPRISE_ROOT_3":1,"ENTERPRISE_SQUARE_1":3,"ENTERPRISE_ROOT_6":3,"ENTERPRISE_SQUARE_3":6,
+    "both_branches_satisfy_all_four":true
+  },
+  "n3_discriminator": {
+    "area":9,"full_T1_root":6,"two_ray_root":5,
+    "conclusion":"The frozen controls do not determine whether the next inverse pair is 9<->6 or 9<->5."
+  },
+  "zero_extension": {
+    "degenerate_triangle":"T_0 consists only of O and has no side incidences and no T1 occurrences.",
+    "area_zero":0,"full_root_zero":0,"two_ray_root_zero":0,
+    "status":"NATURALLY_SUPPORTED_BY_ALL_SURVIVING_PREDECLARED_BRANCHES",
+    "scope":"degenerate extension of the canonical triangle family; not a claim about arbitrary non-triangle inputs"
+  },
+  "primary_conclusion":"Mutual inversion is structurally available once a root primitive is selected, but the general Enterprise square/root operation pair is not unique under the current frozen semantics."
+}
