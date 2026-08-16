@@ -36,6 +36,28 @@ The general law is OPEN.
 
 Do not assume the candidate triangular-number law in the generator.
 
+### 0.1 Module completion estimate
+
+Before Stage AC:
+
+- native Enterprise axis / dimension definition: `95%` for the present plane task;
+- Enterprise-square / Enterprise-root terminology: `100%` named, `~10%` mathematically characterized;
+- native triangle area/root law: `~5%` (two user controls only);
+- bridge from new native geometry to old R059D root/frontier line: `0%` proved.
+
+Target after Stage AC:
+
+- native Enterprise axis / dimension definition: unchanged;
+- Enterprise-square / Enterprise-root mathematical characterization: `70–100%` on the canonical triangle domain, depending on whether a symbolic law is proved;
+- native triangle area/root law: `80–100%` if a unique primitive and symbolic recurrence are established;
+- prior-R059D bridge: `10–30%` diagnostic only unless an exact bridge theorem falls out without extra assumptions.
+
+Progress vector:
+
+`native-axis +0 / enterprise-square-root +60 / triangle-geometry +75 / old-root-bridge +15 / classical-compatibility +10`
+
+This task is intentionally narrow: do not expand into new physics, new metric theory, or six-dimensional world dynamics.
+
 ## 1. Frozen project geometry
 
 Use the current project-level native axis definition:
@@ -312,6 +334,14 @@ Work only on:
 Do not modify frozen prior-stage artifacts.
 
 Commit intermediate checkpoints rather than one giant final commit.
+
+Checkpoint policy:
+
+- commit after native primitive construction is frozen;
+- commit after deterministic enumeration/checker is stable;
+- commit after symbolic theorem extraction;
+- commit the final manifest/checkpoint separately when practical;
+- push checkpoints when repository access permits; if push is impossible, record the exact reason rather than delaying the mathematics.
 
 At completion leave the working branch internally consistent and provide exact:
 
