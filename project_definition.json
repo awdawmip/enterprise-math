@@ -1,10 +1,10 @@
 {
-  "schema": "ENTERPRISE_MATH_PROJECT_DEFINITION_V1",
+  "schema": "ENTERPRISE_MATH_PROJECT_DEFINITION_V2",
   "status": "ACTIVE",
   "authority": "PROJECT_LEVEL_DEFINITION",
-  "date": "2026-08-15",
+  "date": "2026-08-16",
   "core_mode": "REFOUND_NOT_REJECT",
-  "one_sentence_definition": "Enterprise Math preserves mature mathematical concepts and tools while rebuilding their foundational definitions from a finite-resolution, precision-aware, discrete, integer-first substrate, then classifies when classical systems are exactly recovered, approximately recovered, domain-restricted, or systematically corrected.",
+  "one_sentence_definition": "Enterprise Math preserves mature mathematical concepts and tools while rebuilding their foundational definitions from a finite-resolution, precision-aware, discrete, integer-first substrate, including a native Enterprise-axis geometry distinct from classical basis-rank dimension semantics.",
   "definition_not_inherited_interpretation": {
     "concepts_may_be_inherited": true,
     "terminology_may_be_inherited": true,
@@ -14,6 +14,77 @@
     "engineering_success_is_evidence": true,
     "classical_definitions_are_native_by_default": false,
     "rule": "Concepts may be inherited; definitions must re-earn foundational status through explicit reconstruction, typing, invariance, calibration, or derivation."
+  },
+  "native_axis_geometry": {
+    "authority_strength": "HIGHEST_PROJECT_STRUCTURAL_DEFINITION",
+    "enterprise_dimension_semantics": {
+      "definition": "One Enterprise dimension is one native undirected axis family.",
+      "directed_directions_per_dimension": 2,
+      "not_identical_by_definition_to": [
+        "MINIMUM_LINEAR_BASIS_RANK",
+        "EUCLIDEAN_DIMENSION",
+        "TOPOLOGICAL_DIMENSION"
+      ]
+    },
+    "enterprise_orthogonal": {
+      "symbolic_name": "ENTERPRISE_ORTHOGONAL",
+      "definition": "Native relation between distinct Enterprise axis families; in a flattened classical drawing of one Enterprise plane, adjacent axis families are displayed one 60-degree sector apart.",
+      "euclidean_perpendicularity_redefined": false,
+      "flattened_display_sector_degrees": 60
+    },
+    "enterprise_plane": {
+      "enterprise_dimension": 3,
+      "axis_count": 3,
+      "directed_direction_count": 6,
+      "flattened_axis_pairs_degrees": [
+        [0, 180],
+        [60, 240],
+        [120, 300]
+      ],
+      "axis_families_pairwise_enterprise_orthogonal": true,
+      "sign_rule": {
+        "seed": "CHOOSE_ANY_ONE_DIRECTED_DIRECTION_AS_POSITIVE",
+        "adjacent_60_degree_sector_flips_sign": true,
+        "cyclic_pattern": ["+", "-", "+", "-", "+", "-"],
+        "unique_up_to_global_inversion": true
+      }
+    },
+    "enterprise_world": {
+      "model_scope": "OUR_SOLID_SPATIAL_WORLD_WITHIN_ENTERPRISE_MATH",
+      "enterprise_dimension": 6,
+      "axis_count": 6,
+      "directed_direction_count": 12,
+      "combinatorial_axis_labels": ["12", "13", "14", "23", "24", "34"],
+      "axis_label_semantics": "INCIDENCE_LABELS_ONLY_NOT_EXTRA_DIMENSIONS",
+      "three_dimensional_subplanes": {
+        "P123": ["12", "13", "23"],
+        "P124": ["12", "14", "24"],
+        "P134": ["13", "14", "34"],
+        "P234": ["23", "24", "34"]
+      },
+      "subplane_count": 4,
+      "sign_propagation": {
+        "rule": "Choose one directed direction as positive; every pair of directions adjacent by 60 degrees in any Enterprise subplane must have opposite signs.",
+        "adjacency_graph_connected": true,
+        "adjacency_graph_bipartite": true,
+        "global_closure": true,
+        "sign_assignment_unique_up_to_global_inversion": true,
+        "verified_source_commit": "93c340793a1c6ce8a2083d339c4f61048b35b3a6"
+      }
+    },
+    "compatibility_retyping": {
+      "historical_a2_carrier": "Lambda={(a,b,c) in Z^3 : a+b+c=0}",
+      "historical_generator_relation": "u+v+w=0",
+      "classical_or_implementation_rank": 2,
+      "enterprise_plane_dimension": 3,
+      "old_PLANE_DIMENSION_2_status": "SUPERSEDED_AS_NATIVE_ENTERPRISE_DIMENSION",
+      "allowed_roles_for_a2_carrier": [
+        "CLASSICAL_FLATTENED_PROJECTION",
+        "IMPLEMENTATION_COORDINATE_SCAFFOLD",
+        "COMBINATORIAL_RELATION_CARRIER",
+        "COMPATIBILITY_MODEL"
+      ]
+    }
   },
   "admitted_mature_concepts": [
     "VECTOR",
@@ -52,6 +123,7 @@
       "PACKET_COUNT",
       "TRANSITION_COUNT",
       "BRANCHING_RECOALESCENCE",
+      "ENTERPRISE_AXIS_DIMENSION_DIRECTION_SIGN_STRUCTURE",
       "VECTOR_MODULE_GROUP_ACTION_COORDINATE_STRUCTURES"
     ],
     "P2_REBUILT_GEOMETRY": [
@@ -113,8 +185,10 @@
     ]
   },
   "current_three_axis_plane": {
+    "status": "COMPATIBILITY_AND_IMPLEMENTATION_CARRIER_NOT_NATIVE_DIMENSION_AUTHORITY",
     "carrier": "Lambda={(a,b,c) in Z^3 : a+b+c=0}",
-    "plane_dimension": 2,
+    "classical_or_implementation_rank": 2,
+    "enterprise_dimension": 3,
     "axis_count": 3,
     "generators": {
       "u": [1, -1, 0],
@@ -124,11 +198,12 @@
     "generator_relation": "u+v+w=0",
     "directed_steps": ["+u", "-u", "+v", "-v", "+w", "-w"],
     "directed_step_count": 6,
+    "old_plane_dimension_2": "SUPERSEDED_AS_NATIVE_ENTERPRISE_DIMENSION",
     "vector_concept_status": "ADMITTED_MATURE_ALGEBRAIC_CONCEPT",
     "length_angle_norm_trig_status": "ADMITTED_CONCEPTS_REQUIRING_EXPLICIT_REBUILT_DEFINITIONS_WHEN_USED"
   },
   "research_method": {
-    "direction": "CLASSICAL_ENGINEERING_SUCCESS -> EVIDENCE_CONSTRAINT -> NATIVE_DISCRETE_MECHANISM -> EXACT_STRUCTURE -> REBUILT_TOOL -> RECOVERY_OR_CORRECTION",
+    "direction": "CLASSICAL_ENGINEERING_SUCCESS -> EVIDENCE_CONSTRAINT -> NATIVE_DISCRETE_MECHANISM -> ENTERPRISE_AXIS_STRUCTURE -> EXACT_STRUCTURE -> REBUILT_TOOL -> RECOVERY_OR_CORRECTION",
     "requirements": [
       "NO_TARGET_LEAKAGE",
       "RAW_HISTORY_VS_COMPRESSED_COUNT_CHECK_WHEN_RELEVANT",
@@ -154,7 +229,7 @@
     "CROSS_PHENOMENON_REUSE_OF_SHARED_FOUNDATIONAL_MECHANISMS",
     "EVENTUAL_TESTABLE_PREDICTIONS"
   ],
-  "canonical_stack": "NUMBER -> PRECISION -> DISCRETE_STATE -> RELATION_AND_COUNT -> ALGEBRA_AND_VECTOR -> REBUILT_GEOMETRY -> REBUILT_TRIG_AND_ANALYSIS -> CLASSICAL_COMPATIBILITY_OR_CORRECTION -> PHYSICS -> ENGINEERING",
+  "canonical_stack": "NUMBER -> PRECISION -> DISCRETE_STATE -> RELATION_AND_COUNT -> ENTERPRISE_AXES_AND_DIMENSIONS -> ALGEBRA_AND_VECTOR -> REBUILT_GEOMETRY -> REBUILT_TRIG_AND_ANALYSIS -> CLASSICAL_COMPATIBILITY_OR_CORRECTION -> PHYSICS -> ENGINEERING",
   "canonical_slogan": "Do not tear down the old mathematics; give it a better foundation.",
   "human_sources": [
     "PROJECT_DEFINITION.md",
