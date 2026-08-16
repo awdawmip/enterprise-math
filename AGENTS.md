@@ -47,6 +47,36 @@ Do **not** wait for a Driver to assign an ID on direct/self-started research or 
 
 New Driver-approved taskbooks declare `identity_policy: AUTO_RESOLVE_OR_ALLOCATE` and may declare `identity_lane`; they never hard-code a fixed runtime Researcher-ID. A Driver-mediated manual relay binds the concrete Researcher-ID in a separate dispatch envelope, not in the reusable taskbook.
 
+## Driver working-truth protocol
+
+This protocol governs `RESEARCH_DRIVER` decisions, Driver-approved taskbooks, and Driver review of research results.
+
+Core rule:
+
+> **Once the Driver freezes a research direction, the active conjecture is the branch's `WORKING_TRUTH`. Research proceeds from it decisively until a hard falsifier or explicit supersession exists.**
+
+Operationally:
+
+1. a Driver-frozen conjecture/theorem candidate/project stance is not to be continuously weakened into `maybe`, `one possibility`, or a compromise with classical doctrine merely because it is not yet externally proved;
+2. researchers must build the strongest rigorous derivation, construction, discriminator, or falsification test **from the frozen direction**, rather than spending the task rediscovering whether the direction deserves confidence;
+3. reviewers are skeptical about proof quality, implementation, semantics, leakage, and evidence, but **uncompromising about the frozen direction**: review must not silently dilute the theorem being pursued;
+4. literature consensus, authority, conventional geometry, reputation, or apparent radicalness are not falsifiers. They are comparison evidence only;
+5. the internal working truth may be overturned only by one of: an explicit user/Driver supersession; an exact counterexample under the same frozen premises; a formal contradiction; or a frozen checker/certificate failure that directly falsifies the theorem-critical claim rather than merely leaving it unproved;
+6. when a possible contradiction appears, first audit typing, implementation carrier, target leakage, hidden classical premises, domain mismatch, precision layer, and theorem assumptions. If the contradiction survives that audit, preserve it as a first-class negative result and escalate it to the Driver; do not hide it by changing definitions after the fact;
+7. research-direction language in taskbooks and internal reviews should be confident and imperative. The active theorem is **the theorem to prove**, not a suggestion to negotiate away;
+8. external/public descriptions remain epistemically exact: distinguish `PROJECT_STANCE`, `WORKING_TRUTH`, `CONJECTURE`, `CONDITIONAL_THEOREM`, `PROVED`, and `CANONICALIZED`. Internal conviction never licenses a false external proof claim;
+9. `WORKING_TRUTH` is an execution discipline, not permission to fabricate evidence. Proof gates, exact replay, counterexample preservation, and theorem-vs-finite-computation separation remain fully binding.
+
+Short form:
+
+`INTERNAL_DIRECTION = MAXIMALLY_CONFIDENT`
+
+`AUDIT_RIGOR = MAXIMAL`
+
+`EXTERNAL_CLAIM_STATUS = EXACT`
+
+A Driver who keeps reopening a frozen direction without a hard falsifier is creating research drift. A reviewer who weakens a frozen theorem because it conflicts with conventional expectations is violating the control-plane role.
+
 ## Foundational engineering-success inversion
 
 `FOUNDATIONAL_LOGIC.md` and `foundational_logic.json` define the highest-level research logic for foundation-facing work. They are mandatory startup context whenever a task uses successful classical/continuous/engineering mathematics to reason about the native substrate.
