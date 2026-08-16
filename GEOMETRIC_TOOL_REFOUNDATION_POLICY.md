@@ -1,8 +1,8 @@
 # GEOMETRIC TOOL REFOUNDATION POLICY
 
 Status: DRIVER-FROZEN PROJECT POLICY
-Date: 2026-08-15
-Driver: EM-DVR-R0457K / CONTROL_PLANE
+Date: 2026-08-16
+Driver: EM-DVR-9GP3M7 / CONTROL_PLANE
 
 Authority context:
 
@@ -10,7 +10,7 @@ Authority context:
 - `PROJECT_DEFINITION.zh-CN.md`
 - `project_definition.json`
 
-This policy is a geometric-tool specialization of the project-level definition. If wording conflicts, the project-level `REFOUND, NOT REJECT` interpretation controls.
+This policy is a geometric-tool specialization of the project-level definition. If wording conflicts, the project-level definition controls.
 
 ## Core principle
 
@@ -32,11 +32,25 @@ What is withheld is only their **automatic inheritance as native foundational de
 - determine exactly when the rebuilt object agrees with the classical Euclidean object;
 - record any finite-precision or discrete deviations as mathematical findings rather than treating them as forbidden.
 
+## Native axis authority update — 2026-08-16
+
+The project-level definition now freezes the following native axis semantics:
+
+- one Enterprise dimension = one native undirected axis family;
+- one Enterprise dimension has two opposite directed directions;
+- an Enterprise plane has `3` Enterprise dimensions / `3` axes / `6` directed directions;
+- its three axis families are pairwise `ENTERPRISE_ORTHOGONAL` and appear in a flattened classical drawing at `0°`, `60°`, `120°` modulo `180°`;
+- choose any one directed direction as positive; every adjacent `60°` direction has the opposite sign, giving `+ - + - + -` around each Enterprise plane;
+- our solid spatial world is modeled as `6` Enterprise dimensions / `6` axes / `12` directed directions;
+- the six-dimensional axis structure contains four three-dimensional Enterprise subplanes, and the alternating sign assignment closes globally and is unique up to simultaneous sign inversion.
+
+These are native project definitions, not consequences of Euclidean basis rank.
+
 ## Layering
 
 ### G0 — discrete arithmetic / relational substrate
 
-May contain declared integer or precision-defined number axes, packet counts, adjacency, transition events, exact vector-module operations, and other explicitly frozen primitive relations.
+May contain declared integer or precision-defined number axes, Enterprise dimensions and directions, packet counts, adjacency, transition events, exact vector-module operations, and other explicitly frozen primitive relations.
 
 ### G1 — rebuilt geometric primitives
 
@@ -82,13 +96,13 @@ Tasks may explicitly compare rebuilt definitions against classical Euclidean res
 
 A classical formula's success is evidence and a calibration target; it is not by itself proof that the classical definition belongs in G0.
 
-## Current three-axis plane carrier
+## Historical A2/C6 carrier — compatibility role only
 
-A discrete two-degree-of-freedom plane may be represented as
+The historical relation carrier
 
 `Lambda = {(a,b,c) in Z^3 : a+b+c=0}`
 
-with three axis generators
+with
 
 `u=(1,-1,0)`
 `v=(0,1,-1)`
@@ -96,13 +110,22 @@ with three axis generators
 
 and
 
-`u+v+w=0`.
+`u+v+w=0`
 
-The six directed vector steps are
+has classical / implementation rank `2` and six directed vector steps
 
 `{+u,-u,+v,-v,+w,-w}`.
 
-This vector carrier is an algebraic substrate. It does not forbid later definitions of length, angle, norm, or trigonometric functions on the same carrier.
+It remains valid as:
+
+- a flattened classical projection;
+- an implementation coordinate scaffold;
+- a combinatorial relation carrier;
+- a compatibility model.
+
+It no longer defines the native Enterprise dimension of a plane. The authoritative native statement is:
+
+`ENTERPRISE_PLANE_DIMENSION = 3`.
 
 ## Stage-specific premise rule
 
