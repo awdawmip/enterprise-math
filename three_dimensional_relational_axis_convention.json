@@ -1,0 +1,35 @@
+{
+  "schema": "ENTERPRISE_MATH_THREE_DIMENSIONAL_RELATIONAL_AXIS_CONVENTION_V1",
+  "status": "PROJECT_LEVEL_NOTATION_FREEZE",
+  "date": "2026-08-16",
+  "coordinate_carriers": ["X1", "X2", "X3", "X4"],
+  "affine_sheet": "X1+X2+X3+X4=K",
+  "displacement_module": "Lambda_3={(d1,d2,d3,d4) in Z^4 : d1+d2+d3+d4=0}",
+  "rank": 3,
+  "axis_count": 6,
+  "directed_state_count": 12,
+  "axes": {
+    "u": {"positive": [1,-1,0,0], "donor": "X2", "recipient": "X1", "pair": [1,2]},
+    "v": {"positive": [0,1,-1,0], "donor": "X3", "recipient": "X2", "pair": [2,3]},
+    "w": {"positive": [-1,0,1,0], "donor": "X1", "recipient": "X3", "pair": [1,3]},
+    "p": {"positive": [1,0,0,-1], "donor": "X4", "recipient": "X1", "pair": [1,4]},
+    "q": {"positive": [0,1,0,-1], "donor": "X4", "recipient": "X2", "pair": [2,4]},
+    "r": {"positive": [0,0,1,-1], "donor": "X4", "recipient": "X3", "pair": [3,4]}
+  },
+  "negative_orientation_rule": "negative directed state is exact additive inversion of the positive vector",
+  "relations": [
+    "u+v+w=0",
+    "u=p-q",
+    "v=q-r",
+    "w=r-p"
+  ],
+  "semantic_types": {
+    "COORDINATE_CARRIER": "X1..X4",
+    "TRANSFER_AXIS": "U,V,W,P,Q,R as unoriented pair relations",
+    "DIRECTED_TRANSFER_STATE": "+/-u,+/-v,+/-w,+/-p,+/-q,+/-r"
+  },
+  "orientation_status": "SERIALIZATION_AND_CHART_CONVENTION_ONLY",
+  "physical_axis_preference": "NOT_ESTABLISHED",
+  "euclidean_angle_norm_length_semantics": "NOT_FROZEN_BY_THIS_CONVENTION",
+  "permutation_covariance": "carrier permutations induce permutations and possible sign reversals of transfer-axis names"
+}
