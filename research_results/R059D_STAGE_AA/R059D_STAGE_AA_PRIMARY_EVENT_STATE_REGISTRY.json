@@ -1,0 +1,67 @@
+{
+  "schema": "R059D_STAGE_AA_PRIMARY_EVENT_STATE_REGISTRY_V1",
+  "status": "PRE_SCORE_FROZEN",
+  "researcher_id": "EM-R059D-4E8B71",
+  "task_id": "RS-R059D-STAGE-AA-REFLECTION-ORBIT-FRONTIER-TRIANGULAR-THRESHOLD-AUDIT",
+  "pre_score_orbit_registry_commit": "63c6ea1eae03d4260fa8a06687b6a126880e482d",
+  "candidate_family_closed_after_this_freeze": true,
+  "common_online_inputs": [
+    "current primary index n",
+    "current realized level k=a_n",
+    "already-realized activation index A_k=min{r:a_r=k}",
+    "realized transition bit entering the current cell when available",
+    "finite realized history only"
+  ],
+  "orbit_rank_convention": {
+    "rank_0_to_k_minus_1": "rank r identifies E_{k,r+1}",
+    "rank_k": "identifies the unique diagonal orbit D_k",
+    "independent_of_future_gap_endpoint": true,
+    "independent_of_triangular_schedule": true,
+    "slot_name_preference": false
+  },
+  "candidates": [
+    {
+      "id": "AGE_SINCE_REALIZED_ACTIVATION",
+      "state": "r=n-A_k, where A_k is already known once level k has been realized",
+      "map": "if 0<=r<k map to E_{k,r+1}; if r=k map to D_k; if r>k emit OVERFLOW",
+      "future_endpoint_used": false,
+      "purpose": "tests whether online age itself exhausts the k+1 quotient orbits exactly once"
+    },
+    {
+      "id": "CYCLIC_AGE_MOD_ORBIT_COUNT",
+      "state": "r=(n-A_k) mod (k+1)",
+      "map": "orbit-rank r under the frozen rank convention",
+      "future_endpoint_used": false,
+      "purpose": "removes overflow but exposes repetitions whenever a realized gap exceeds k+1"
+    },
+    {
+      "id": "ABSOLUTE_INDEX_RESIDUE",
+      "state": "r=n mod (k+1)",
+      "map": "orbit-rank r under the frozen rank convention",
+      "future_endpoint_used": false,
+      "purpose": "tests whether primary CELL_ID/index alone canonically phases quotient-orbit occupancy"
+    },
+    {
+      "id": "REALIZED_ENTRY_TRANSITION_BIT",
+      "state": "b=a_n-a_(n-1) in {0,1} for n>=1",
+      "map": "b=1 maps to D_k; b=0 maps to E_{k,1} when k>=1; k=0 uses D_0",
+      "future_endpoint_used": false,
+      "purpose": "tests whether local realized crossing/no-crossing data can carry the quotient frontier without hidden age/order state"
+    }
+  ],
+  "forbidden_not_registered": [
+    "map defined using future A_(k+1)",
+    "gap-local rank normalized by unknown g_k",
+    "candidate chosen after observing triangular thresholds",
+    "slot-oriented raw-pair ordering",
+    "inverse-triangular/floor/ceil/nearest/midpoint rule"
+  ],
+  "scoring_gate": [
+    "every k-layer primary event maps to one O2(k) orbit",
+    "no orbit skipped",
+    "no orbit repeated",
+    "reflection compatible and transverse-slot-name free",
+    "unknown future gap endpoint not used",
+    "uniform for all k and all frozen-semantics realizations"
+  ]
+}
