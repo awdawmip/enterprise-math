@@ -1,0 +1,113 @@
+{
+  "C_precision": {
+    "full_U_D_triangle_activation_equal_R1_R512": true,
+    "official_sampling": 1024,
+    "status": "FULL_MANDATORY_RANGE_SAMPLING_STABILITY_CERTIFIED",
+    "validation_sampling": 2048
+  },
+  "accepted_ae_owner_head": "f8b56c910150ecd04d7e30ac03ea5bf0083b9429",
+  "artifact_manifest_sha256": "70ff604fba93bd1206a9aa5af0071736fec09b3f5611d7b8fceaee4d924d1c17",
+  "artifact_payload_head": "e16ea5c651cb00f2418b904049e048d525d7e526",
+  "checker": {
+    "checker_source_commit": "d873bde685cc3001bb7084440a332d64e5043673",
+    "checks_digest_sha256": "da9d9a574ced55c931acc74800e2003f5adceccff7996f40a1800fe29eb239b7",
+    "checks_failed": 0,
+    "checks_passed": 314421,
+    "checks_total": 314421,
+    "generator_source_commit": "c35cb6b599a9e781fd1de0b4a16c842b806a2e36",
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "output_commit": "d43c1601202980b6171b06200c780557ce478edd",
+    "status": "PASS"
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "freezes": {
+    "BOUNDARY_WORD_COMMON_STATE_LANGUAGE_ESTABLISHED": true,
+    "B_AND_J_EXACT_FUNCTIONALS_OF_BOUNDARY_WORD": true,
+    "COMMON_EXACT_POINT_JUMP_SKELETON_ESTABLISHED": false,
+    "C_AFFINE_FLOOR_J_LAW": "KILLED_IN_DISCOVERY",
+    "DELTA_B_BINARY_ON_R1_R512": {
+      "C": false,
+      "N": false
+    },
+    "DELTA_B_MAX": {
+      "C": 121,
+      "N": 125
+    },
+    "DELTA_J_BINARY_ON_R1_R512": {
+      "C": true,
+      "N": true
+    },
+    "FULL_FORWARD_AUTONOMOUS_BJ_GENERATOR_ESTABLISHED": false,
+    "J_ALONE_RESOLVER_INDEPENDENTLY_DETERMINES_B": false,
+    "J_PHASE_DELAY_PAIR_COUNT": 19,
+    "J_PHASE_DELAY_RULE_FINITE_CENSUS": "Every K_J symmetric-difference event is N at r followed by C at r+1.",
+    "J_SCALAR_INSUFFICIENCY_FIRST_COUNTEREXAMPLE": {
+      "B_C": 21,
+      "B_N": 23,
+      "J": 2,
+      "r": 15
+    },
+    "K_B_COUNTS": {
+      "C": 447,
+      "N": 438,
+      "intersection": 393,
+      "symmetric_difference": 99
+    },
+    "K_J_COUNTS": {
+      "C": 79,
+      "N": 79,
+      "intersection": 60,
+      "symmetric_difference": 38
+    },
+    "NO_RESOLVER_INDEPENDENT_JUMP_SKELETON_FOUND_THROUGH_R512": true,
+    "N_ONLY_ALGEBRAIC_BEATTY_J_CANDIDATE": {
+      "alpha_minimal_polynomial_candidate": "3*x^2+6*x-1",
+      "beta": "1/3",
+      "discovery_mismatches": 0,
+      "generator_is_forward_autonomous": true,
+      "holdout_mismatches": 0,
+      "proof_status": "PROOF_OPEN",
+      "scope": "J_N_ONLY__DOES_NOT_GENERATE_B_OR_BOUNDARY_WORD"
+    },
+    "SECTOR_MOTZKIN_INTEGER_CURVATURE_IDENTITY": "PROVED",
+    "UNIQUE_RESOLVER_SELECTION_CANDIDATE_ESTABLISHED": false
+  },
+  "frozen_source_main": "2d4badc86e9348a3c5b2ea2b280b55f7399346d7",
+  "history_immutability": {
+    "compare_base": "2d4badc86e9348a3c5b2ea2b280b55f7399346d7",
+    "compare_head": "d873bde685cc3001bb7084440a332d64e5043673",
+    "prior_stage_result_files_modified_or_deleted": 0,
+    "status": "PASS"
+  },
+  "known_points": {
+    "C_transient_law_failure": 12,
+    "N_transient_law_failure": 11,
+    "discovery_holdout_boundary": "256->257",
+    "first_bulge_zero_boundary": "4->5",
+    "r64_N_C_reagreement": {
+      "B": 427,
+      "J": 10
+    }
+  },
+  "later_stage_consumed": false,
+  "owner_branch": "research/r059d-stage-af-bulge-jump-integer-curvature",
+  "pre_candidate_raw_head": "5d55b3781c5758407de7ab86af415d7bee3002b0",
+  "primary_disposition": "NO_LOW_COMPLEXITY_JUMP_GENERATOR_THROUGH_AUDIT_RANGE",
+  "range": {
+    "discovery": [1, 256],
+    "holdout": [257, 512],
+    "mandatory": [1, 512]
+  },
+  "researcher_id": "EM-R059D-AF-7E31C6",
+  "schema": "R059D_STAGE_AF_FROZEN_CHECKPOINT_V1",
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059D-STAGE-AF-BULGE-JUMP-INTEGER-CURVATURE-LAW",
+  "taskbook_source_commit": "43fca741c6dee84172297d85c5b5e8fab652419b",
+  "theorem_status": {
+    "candidate": ["N_ONLY_ALGEBRAIC_BEATTY_J_GENERATOR__SURVIVES_HOLDOUT__PROOF_OPEN"],
+    "finite_census": ["19_ONE_RADIUS_N_TO_C_J_PHASE_DELAYS", "K_B_K_J_OVERLAP_STATISTICS"],
+    "negative": ["NO_RESOLVER_INDEPENDENT_EXACT_POINT_JUMP_SKELETON", "NO_FULL_LOW_COMPLEXITY_BJ_FORWARD_GENERATOR_THROUGH_AUDITED_FAMILIES_RANGE"],
+    "proved": ["SECTOR_MOTZKIN_INTEGER_CURVATURE_IDENTITY", "J_SCALAR_INSUFFICIENCY_COUNTEREXAMPLE", "C_S1024_EQUALS_S2048_THROUGH_R512"]
+  }
+}
