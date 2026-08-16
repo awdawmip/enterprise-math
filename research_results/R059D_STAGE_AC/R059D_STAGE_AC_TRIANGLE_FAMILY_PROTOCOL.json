@@ -1,0 +1,52 @@
+{
+  "schema": "R059D_STAGE_AC_TRIANGLE_FAMILY_PROTOCOL_V1",
+  "status": "PRE_SCORE_GEOMETRY_FROZEN",
+  "researcher_id": "EM-R059D-7C2A91",
+  "task_id": "RS-R059D-STAGE-AC-ENTERPRISE-SQUARE-ROOT-NATIVE-TRIANGLE-LAW",
+  "taskbook_source_commit": "34cff1a78a5624f1b9b1c8a6066542a3573cbd41",
+  "frozen_parent": "87230fd13c5a008e559f3d168b96fc5fe1948b2a",
+  "driver_policy_head": "2c391669956dda52d1d0be324f55e0699412be7e",
+  "semantic_typing": {
+    "native_base": "N0/G0 packet + adjacency + three Enterprise axis families + alternating sign relation",
+    "implementation_chart": "I0 only; integer pair labels do not redefine Enterprise plane dimension",
+    "triangle_and_readouts": "G1/N2 rebuilt geometry/readout objects, not N0 packet weights",
+    "classical_euclidean_geometry": "N3 compatibility only"
+  },
+  "triangle_family": {
+    "declared_vertices_3coord": {
+      "O": [0,0,0],
+      "U_n": ["n",0,0],
+      "V_n": [0,"-n",0]
+    },
+    "implementation_depth_chart": "write (p,q) for repository chart point (p,-q,0)",
+    "vertex_carrier_D_n": "{(p,q) in Z_{>=0}^2 : p+q<=n}",
+    "vertex_closure_carrier_Dbar_n": "{(p,q) in Z_{>=0}^2 : p+q<=n} plus boundary vertices with p+q=n",
+    "native_axis_step_families_in_chart": {
+      "u": [[1,0],[-1,0]],
+      "v": [[0,1],[0,-1]],
+      "w_closure": [[-1,1],[1,-1]]
+    },
+    "boundary_unit_adjacencies": {
+      "O_to_U": "((r-1,0),(r,0)), 1<=r<=n",
+      "O_to_V": "((0,r-1),(0,r)), 1<=r<=n",
+      "U_to_V_closing": "((n-r+1,r-1),(n-r,r)), 1<=r<=n"
+    },
+    "orientation_preserving_unit_T1_occurrence": {
+      "index": "(i,j) with i,j>=0 and i+j<=n",
+      "vertices": "{(i,j),(i+1,j),(i,j+1)}",
+      "definition": "translation of the controlled T1 three-cycle preserving the ordered Enterprise-axis roles and alternating-sign orientation"
+    },
+    "opposite_orientation_unit_cycle_control": {
+      "index": "(i,j) with i,j>=0 and i+j<=n-1",
+      "vertices": "{(i+1,j),(i,j+1),(i+1,j+1)}",
+      "role": "negative/control motif; not silently merged into the root primitive"
+    }
+  },
+  "anti_leakage": {
+    "area_formula_present_in_generator_definition": false,
+    "triangular_formula_present_in_generator_definition": false,
+    "classical_sqrt_used": false,
+    "euclidean_area_used": false,
+    "a2_rank2_used_as_native_dimension": false
+  }
+}
