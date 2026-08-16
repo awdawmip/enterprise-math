@@ -1,0 +1,19 @@
+{
+  "schema": "R059D_STAGE_AD_SOURCE_CIRCLE_TEACHER_PROTOCOL_V1",
+  "status": "PRE_SCORE_FROZEN",
+  "researcher_id": "EM-R059D-3F7C42",
+  "task_id": "RS-R059D-STAGE-AD-TRIANGULAR-COVERAGE-BRC-CIRCLE-RESOLVE",
+  "taskbook_source_commit": "0bae4ac7ab7d8c6073c901598a009ac598826f07",
+  "frozen_parent": "71a40c12b5804fd76e10a91df431c1d5f80304f0",
+  "owner_branch": "research/r059d-stage-ad-triangular-coverage-circle-bridge",
+  "source_semantics": {
+    "system": "ORTHOGONAL_COORDINATE_SYSTEM",
+    "teacher": "ORTHOGONAL_FIXED_LENGTH_ORBIT(O,r)",
+    "disk_for_coverage": "x^2+y^2<=r^2",
+    "triangular_chart_teacher_Q": "a^2+a*b+b^2",
+    "Q_typing": "SOURCE_COMPATIBILITY_CLASSIFIER_ONLY__NOT_ENTERPRISE_NATIVE_METRIC"
+  },
+  "radius_registry": {"primary": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24], "discriminators": [1,2,3,4,5,8,13,21]},
+  "sampling_precision_registry": {"primary": [4,8,16,32], "secondary_64": [1,2,3,4,5,8,11,13,15,21,22,23,24], "secondary_128": [24]},
+  "source_target_separation": {"classical_circle_path_lookup": false, "native_equal_length_assumed": false}
+}
