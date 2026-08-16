@@ -1,0 +1,27 @@
+{
+  "conditional_theorem": {
+    "derivation": [
+      "A_(k+1)-A_k=2k+1",
+      "A_k=sum_{r=0}^{k-1}(2r+1)=k^2",
+      "C_k=A_(k+1)-1=(k+1)^2-1"
+    ],
+    "five_control_under_premise": "A_2=4, A_3=9, so n=5 lies in the completed/occupancy k=2 layer and would support lower square 4.",
+    "premises": [
+      "GAP_k is explicitly the layer occupancy interval I_k={A_k,...,A_(k+1)-1}",
+      "for every k>=0 an independently proved one-primary-step-per-raw-incidence coupling gives |I_k|=|F2(k)|=2k+1",
+      "A_0=0"
+    ],
+    "status": "VALID_CONDITIONAL_ARITHMETIC_NOT_AN_ESTABLISHED_STAGE_Z_COUPLING",
+    "typed_result": "Under those premises only, square values are ACTIVATION thresholds: level k activates at primary index k^2."
+  },
+  "freeze": "ODD_GAP_SEQUENCE_CONDITIONALLY_FORCES_SQUARE_ACTIVATION_THRESHOLDS",
+  "phase_warning": "A different phase convention would change which index is called threshold. Current mathematics does not independently select a frontier-consuming phase.",
+  "researcher_id": "EM-R059D-4E8B71",
+  "schema": "R059D_STAGE_Z_GAP_LENGTH_THEOREM_V1",
+  "status": "CONDITIONAL_ONLY",
+  "unconditional_result": {
+    "ODD_GAP_SEQUENCE_FORCES_SQUARE_THRESHOLDS": false,
+    "gap_length_forced": false,
+    "reason": "PRIMARY_GAP_LENGTH_FREEDOM_ESTABLISHED"
+  }
+}
