@@ -130,7 +130,7 @@ No nearest rounding, endpoint argmax, arbitrary reward weights, ML fitting, rand
 
 ## Checker
 
-Current deterministic checker before final parent compare:
+Final deterministic checker:
 
 `2925/2925 PASS`
 
@@ -140,6 +140,6 @@ The checker uses symbolic finite proofs plus tiny exact oracles only. Large-back
 
 ## Parent immutability
 
-`PASS_PENDING_FINAL_GITHUB_COMPARE`
+`PASS_BY_GITHUB_COMPARE_PRE_MANIFEST`
 
-The owner branch will be compared against frozen Stage-O head before manifest/checkpoint freeze.
+Frozen Stage-O head -> pre-manifest compare contains only 15 Stage-P additions and no old modifications/deletions.
