@@ -1,0 +1,37 @@
+{
+  "schema": "R059D_STAGE_AC_NATIVE_AREA_PRIMITIVE_V1",
+  "status": "PRE_SCORE_PRIMITIVE_FROZEN",
+  "researcher_id": "EM-R059D-7C2A91",
+  "semantic_layer": "G1/N2_REBUILT_READOUT_FROM_NATIVE_ADJACENCY",
+  "primitive_id": "THREE_SIDE_UNIT_ADJACENCY_INCIDENCE",
+  "definition": {
+    "carrier": "the three boundary adjacency families O->U_n, O->V_n, and U_n->V_n from the frozen triangle protocol",
+    "unit": "one declared native adjacency incidence on one triangle side",
+    "readout": "cardinality of the disjoint union of the three side-incidence sets",
+    "not_used": [
+      "Euclidean length",
+      "Euclidean perimeter",
+      "Euclidean area",
+      "metric weight",
+      "target formula 3*n"
+    ]
+  },
+  "control_replay_only": {
+    "n1": {
+      "three_side_incidence_counts": [1,1,1],
+      "observed_total": 3,
+      "matches_frozen_area_control": true
+    },
+    "n2": {
+      "three_side_incidence_counts": [2,2,2],
+      "observed_total": 6,
+      "matches_frozen_area_control": true
+    }
+  },
+  "equivalent_unscored_presentations": [
+    "three axis-side layer labels (side,r) with one unit incidence per declared side/depth",
+    "cyclic boundary adjacency incidences, counted as objects rather than as geometric lengths"
+  ],
+  "closed_form_status": "WITHHELD_UNTIL_ENUMERATION_AND_SYMBOLIC_DERIVATION",
+  "target_formula_used_as_generator": false
+}
