@@ -1,0 +1,19 @@
+{
+  "schema":"R059D_STAGE_AT3_HI_AREA_RECURRENCE_AUDIT_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AT3HI-4D6B21",
+  "role":"COUNTING_DIAGNOSTIC_ONLY_NOT_NATIVE_AREA_DEFINITION",
+  "base":"A_naive(1)=1",
+  "trace_count_typing":"For n>=2 set P_trace_count(n)=number of newly perimeter-traced shell vertices |S_(n-1)|=6(n-1). This also equals the ordinary shell-edge count for n>=2. At n=1 the primitive invariant PERIMETER_E(CIRCLE_E(1))=1 is distinct from the singleton ordinary trace-edge count 0.",
+  "recurrence":"A_naive(n)=A_naive(n-1)+6(n-1) for n>=2",
+  "closed_form":"A_naive(n)=1+3n(n-1)",
+  "candidate_interior_support_count":"|INTERIOR_CAND(n)|=|B_(n-1)|=1+3n(n-1)",
+  "cumulative_trace_support_count":"|TRACE_HISTORY_CAND(n)|=1+3n(n-1)",
+  "identity":"A_naive(n)=|TRACE_HISTORY_CAND(n)|=|INTERIOR_CAND(n)| for every n>=1 in the existence-shell candidate arm",
+  "hidden_discrepancy":"NONE: fresh-hidden and lifetime-hidden vertex contributions are identically zero, so no extra vertex-support term beyond cumulative first-time shell traces appears.",
+  "first_discrepancy_level":"NONE_IN_THIS_CANDIDATE_ARM",
+  "native_area_status":"AREA_E(CIRCLE_E(n)) for n>=2 is not defined by this audit. The equality with vertex support cardinality is not promoted to an Enterprise area theorem.",
+  "post_hoc_formula_note":"The support-count formula 1+3n(n-1) emerges here from shell counting and void-first indexing; it is not used as a membership oracle and does not license historical area interpretations without separate typing proof.",
+  "source_circle_formula_used":false,
+  "standard_pi_used":false
+}
