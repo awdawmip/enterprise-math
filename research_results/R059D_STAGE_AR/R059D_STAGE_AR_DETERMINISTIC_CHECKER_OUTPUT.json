@@ -1,0 +1,23 @@
+{
+  "schema":"R059D_STAGE_AR_DETERMINISTIC_CHECKER_OUTPUT_V1",
+  "status":"PASS",
+  "checks_total":5075,
+  "checks_passed":5075,
+  "checks_failed":0,
+  "checks_digest_sha256":"ba4155ec2ad19084ff536086939fa091d4d9227ca21abe26d7dafdb39b8b6047",
+  "history_gate":"PASS_EXTERNAL_GITHUB_COMPARE",
+  "compare_base":"db226bb787620e6518f9be3c375c82ff3ffdd4ac",
+  "compare_head":"c88665bc600473a41bc395b5953af7ab371e623b",
+  "prior_stage_result_files_modified_or_deleted":0,
+  "validation":{
+    "one_step_lifts":12,
+    "required_J":"0..64",
+    "extra_J":[128,256,512,1024,2048,4096],
+    "independent_reachability":"BFS_EQUALS_DFS",
+    "support_arm_r":"1..32",
+    "scc_count":2,
+    "minimal_period":6,
+    "signed_origin_firewall":"PASS",
+    "primary_transition_source_leakage":"NONE"
+  }
+}
