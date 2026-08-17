@@ -1,0 +1,53 @@
+{
+  "schema": "HODGE_H0D_PRESENTATION_NATURALITY_LEDGER_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0D-41C8B7",
+  "finite_source_scope": {
+    "state_relabeling_theorem": "For stagewise bijections pi_i and conjugated transition tables, full suffix signatures transport by pi and quotient-class equality is preserved; class counts and descended transitions are isomorphic.",
+    "explicit_pair_swap_test": {
+      "S0_swaps": [
+        [
+          "a0",
+          "a1"
+        ],
+        [
+          "a2",
+          "a3"
+        ],
+        [
+          "a4",
+          "a5"
+        ]
+      ],
+      "S1_swaps": [
+        [
+          "b0",
+          "b1"
+        ],
+        [
+          "b2",
+          "b3"
+        ],
+        [
+          "b4",
+          "b5"
+        ]
+      ],
+      "S2_swap": [
+        "c0",
+        "c1"
+      ],
+      "result": "PASS: every swap stays inside one q_i class, so the quotient is unchanged."
+    },
+    "action_order": "L/R labels and stage order are part of the declared source language. H0D does not claim order independence."
+  },
+  "actual_algebraic_toy": {
+    "object": "P^1_C with standard affine charts U_z and U_w",
+    "overlap": "w=1/z",
+    "bounded_labels": "monomials z^k, k∈{-1,0,1}",
+    "chart_swap": "k maps to -k and is involutive",
+    "result": "PASS as a finite sourcing/relabeling stress only",
+    "global_claim": "NONE: no general PGL2/presentation-independence theorem and no Hodge content"
+  },
+  "historical_H0A_status": "SUSPENDED_AS_MAINLINE"
+}

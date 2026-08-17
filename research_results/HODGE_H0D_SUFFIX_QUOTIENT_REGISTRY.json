@@ -1,0 +1,359 @@
+{
+  "schema": "HODGE_H0D_SUFFIX_QUOTIENT_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0D-41C8B7",
+  "candidate_id": "D1_RECURSIVE_FULL_SUFFIX_QUOTIENT",
+  "definition": "sigma_i(s) is the complete map from every remaining L/R word at cut i to final f0/f1. q_i is equality of sigma_i; Q_i=im(sigma_i).",
+  "signatures": {
+    "stage_0": {
+      "a0": {
+        "LLL": "f0",
+        "LLR": "f0",
+        "LRL": "f0",
+        "LRR": "f1",
+        "RLL": "f0",
+        "RLR": "f0",
+        "RRL": "f1",
+        "RRR": "f1"
+      },
+      "a1": {
+        "LLL": "f0",
+        "LLR": "f0",
+        "LRL": "f0",
+        "LRR": "f1",
+        "RLL": "f0",
+        "RLR": "f0",
+        "RRL": "f1",
+        "RRR": "f1"
+      },
+      "a2": {
+        "LLL": "f0",
+        "LLR": "f0",
+        "LRL": "f0",
+        "LRR": "f1",
+        "RLL": "f0",
+        "RLR": "f1",
+        "RRL": "f0",
+        "RRR": "f0"
+      },
+      "a3": {
+        "LLL": "f0",
+        "LLR": "f0",
+        "LRL": "f0",
+        "LRR": "f1",
+        "RLL": "f0",
+        "RLR": "f1",
+        "RRL": "f0",
+        "RRR": "f0"
+      },
+      "a4": {
+        "LLL": "f0",
+        "LLR": "f0",
+        "LRL": "f1",
+        "LRR": "f1",
+        "RLL": "f0",
+        "RLR": "f1",
+        "RRL": "f0",
+        "RRR": "f0"
+      },
+      "a5": {
+        "LLL": "f0",
+        "LLR": "f0",
+        "LRL": "f1",
+        "LRR": "f1",
+        "RLL": "f0",
+        "RLR": "f1",
+        "RRL": "f0",
+        "RRR": "f0"
+      },
+      "a6": {
+        "LLL": "f0",
+        "LLR": "f0",
+        "LRL": "f0",
+        "LRR": "f0",
+        "RLL": "f0",
+        "RLR": "f0",
+        "RRL": "f0",
+        "RRR": "f0"
+      }
+    },
+    "stage_1": {
+      "b0": {
+        "LL": "f0",
+        "LR": "f0",
+        "RL": "f0",
+        "RR": "f1"
+      },
+      "b1": {
+        "LL": "f0",
+        "LR": "f0",
+        "RL": "f0",
+        "RR": "f1"
+      },
+      "b2": {
+        "LL": "f0",
+        "LR": "f0",
+        "RL": "f1",
+        "RR": "f1"
+      },
+      "b3": {
+        "LL": "f0",
+        "LR": "f0",
+        "RL": "f1",
+        "RR": "f1"
+      },
+      "b4": {
+        "LL": "f0",
+        "LR": "f1",
+        "RL": "f0",
+        "RR": "f0"
+      },
+      "b5": {
+        "LL": "f0",
+        "LR": "f1",
+        "RL": "f0",
+        "RR": "f0"
+      },
+      "b6": {
+        "LL": "f0",
+        "LR": "f0",
+        "RL": "f0",
+        "RR": "f0"
+      }
+    },
+    "stage_2": {
+      "c0": {
+        "L": "f0",
+        "R": "f0"
+      },
+      "c1": {
+        "L": "f0",
+        "R": "f0"
+      },
+      "c2": {
+        "L": "f0",
+        "R": "f1"
+      },
+      "c3": {
+        "L": "f1",
+        "R": "f1"
+      }
+    }
+  },
+  "quotient_classes": {
+    "Q0": [
+      {
+        "class": "q0_0",
+        "members": [
+          "a0",
+          "a1"
+        ]
+      },
+      {
+        "class": "q0_1",
+        "members": [
+          "a2",
+          "a3"
+        ]
+      },
+      {
+        "class": "q0_2",
+        "members": [
+          "a4",
+          "a5"
+        ]
+      },
+      {
+        "class": "q0_3",
+        "members": [
+          "a6"
+        ]
+      }
+    ],
+    "Q1": [
+      {
+        "class": "q1_0",
+        "members": [
+          "b0",
+          "b1"
+        ]
+      },
+      {
+        "class": "q1_1",
+        "members": [
+          "b2",
+          "b3"
+        ]
+      },
+      {
+        "class": "q1_2",
+        "members": [
+          "b4",
+          "b5"
+        ]
+      },
+      {
+        "class": "q1_3",
+        "members": [
+          "b6"
+        ]
+      }
+    ],
+    "Q2": [
+      {
+        "class": "q2_0",
+        "members": [
+          "c0",
+          "c1"
+        ]
+      },
+      {
+        "class": "q2_1",
+        "members": [
+          "c2"
+        ]
+      },
+      {
+        "class": "q2_2",
+        "members": [
+          "c3"
+        ]
+      }
+    ]
+  },
+  "partition_exhaustion": [
+    {
+      "stage": 0,
+      "fine_state_count": 7,
+      "all_partition_count": 877,
+      "sufficient_partition_count": 8,
+      "coarsest_class_count": 4,
+      "unique_coarsest": true,
+      "coarsest_partition": [
+        [
+          "a0",
+          "a1"
+        ],
+        [
+          "a2",
+          "a3"
+        ],
+        [
+          "a4",
+          "a5"
+        ],
+        [
+          "a6"
+        ]
+      ]
+    },
+    {
+      "stage": 1,
+      "fine_state_count": 7,
+      "all_partition_count": 877,
+      "sufficient_partition_count": 8,
+      "coarsest_class_count": 4,
+      "unique_coarsest": true,
+      "coarsest_partition": [
+        [
+          "b0",
+          "b1"
+        ],
+        [
+          "b2",
+          "b3"
+        ],
+        [
+          "b4",
+          "b5"
+        ],
+        [
+          "b6"
+        ]
+      ]
+    },
+    {
+      "stage": 2,
+      "fine_state_count": 4,
+      "all_partition_count": 15,
+      "sufficient_partition_count": 2,
+      "coarsest_class_count": 3,
+      "unique_coarsest": true,
+      "coarsest_partition": [
+        [
+          "c0",
+          "c1"
+        ],
+        [
+          "c2"
+        ],
+        [
+          "c3"
+        ]
+      ]
+    }
+  ],
+  "induced_transitions": {
+    "Q0_to_Q1": {
+      "q0_0:L": "q1_0",
+      "q0_0:R": "q1_1",
+      "q0_1:L": "q1_0",
+      "q0_1:R": "q1_2",
+      "q0_2:L": "q1_1",
+      "q0_2:R": "q1_2",
+      "q0_3:L": "q1_3",
+      "q0_3:R": "q1_3"
+    },
+    "Q1_to_Q2": {
+      "q1_0:L": "q2_0",
+      "q1_0:R": "q2_1",
+      "q1_1:L": "q2_0",
+      "q1_1:R": "q2_2",
+      "q1_2:L": "q2_1",
+      "q1_2:R": "q2_0",
+      "q1_3:L": "q2_0",
+      "q1_3:R": "q2_0"
+    },
+    "Q2_to_final": {
+      "q2_0:L": "f0",
+      "q2_0:R": "f0",
+      "q2_1:L": "f0",
+      "q2_1:R": "f1",
+      "q2_2:L": "f1",
+      "q2_2:R": "f1"
+    }
+  },
+  "finite_exact_simulation": {
+    "fine_representative_suffix_checks": 92,
+    "result": "PASS"
+  },
+  "state_count_measure": {
+    "predeclared_name": "TOTAL_REUSABLE_RECURSIVE_INTERFACE_STATE_COUNT_NONFINAL",
+    "source_total": 18,
+    "source_stage_counts": [
+      7,
+      7,
+      4
+    ],
+    "quotient_total": 11,
+    "quotient_stage_counts": [
+      4,
+      4,
+      3
+    ],
+    "strict_reduction": true
+  },
+  "comparison_strength": "SOUND_COMPLETE_AND_COARSEST_ON_DECLARED_FINITE_SOURCE",
+  "general_exact_theorem": {
+    "statement": "For any finite layered deterministic total system and declared final observation, equality of complete remaining suffix signatures is a congruence for each next action; the induced quotient transition is well-defined; every declared suffix observation factors through q_i; and any classifier sufficient for all remaining suffix outputs refines q_i.",
+    "proof_outline": [
+      "Soundness is immediate from equality of the full suffix functions.",
+      "If sigma_i(s)=sigma_i(t), then for each action a the residual suffix functions of T_i^a(s) and T_i^a(t) are equal, so q_{i+1}(T_i^a(s))=q_{i+1}(T_i^a(t)); hence descended transitions are well-defined.",
+      "Every word output is a coordinate of sigma_i, so it factors through q_i.",
+      "If a classifier recovers every remaining word output, it recovers their finite product sigma_i, so its kernel refines ker(sigma_i)."
+    ],
+    "status": "ELEMENTARY_EXACT_THEOREM_ON_DECLARED_LAYERED_MODEL_CLASS"
+  },
+  "novelty_status": "CLASSICAL_PRIOR_ART / PROJECT_EXISTING_FUTURE-SIGNATURE_PACKAGING",
+  "information_tag": "INFO_LOSSY_RELATIVE_TO_EXACT_FINE_STATE_LABELS"
+}

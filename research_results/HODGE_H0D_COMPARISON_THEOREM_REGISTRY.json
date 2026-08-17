@@ -1,0 +1,148 @@
+{
+  "schema": "HODGE_H0D_COMPARISON_THEOREM_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0D-41C8B7",
+  "theorems": [
+    {
+      "id": "CT-D1-GENERAL",
+      "candidate": "D1",
+      "statement": "For any finite layered deterministic total system and declared final observation, equality of complete remaining suffix signatures is a congruence for each next action; the induced quotient transition is well-defined; every declared suffix observation factors through q_i; and any classifier sufficient for all remaining suffix outputs refines q_i.",
+      "strength": "EXACT_THEOREM_DECLARED_LAYERED_MODEL_CLASS"
+    },
+    {
+      "id": "CT-D1-FINITE-COARSEST",
+      "candidate": "D1",
+      "statement": "The declared S0/S1/S2 full-suffix partitions are unique coarsest sufficient partitions.",
+      "evidence": [
+        {
+          "stage": 0,
+          "fine_state_count": 7,
+          "all_partition_count": 877,
+          "sufficient_partition_count": 8,
+          "coarsest_class_count": 4,
+          "unique_coarsest": true,
+          "coarsest_partition": [
+            [
+              "a0",
+              "a1"
+            ],
+            [
+              "a2",
+              "a3"
+            ],
+            [
+              "a4",
+              "a5"
+            ],
+            [
+              "a6"
+            ]
+          ]
+        },
+        {
+          "stage": 1,
+          "fine_state_count": 7,
+          "all_partition_count": 877,
+          "sufficient_partition_count": 8,
+          "coarsest_class_count": 4,
+          "unique_coarsest": true,
+          "coarsest_partition": [
+            [
+              "b0",
+              "b1"
+            ],
+            [
+              "b2",
+              "b3"
+            ],
+            [
+              "b4",
+              "b5"
+            ],
+            [
+              "b6"
+            ]
+          ]
+        },
+        {
+          "stage": 2,
+          "fine_state_count": 4,
+          "all_partition_count": 15,
+          "sufficient_partition_count": 2,
+          "coarsest_class_count": 3,
+          "unique_coarsest": true,
+          "coarsest_partition": [
+            [
+              "c0",
+              "c1"
+            ],
+            [
+              "c2"
+            ],
+            [
+              "c3"
+            ]
+          ]
+        }
+      ],
+      "strength": "EXHAUSTIVE_FINITE_EXACT"
+    },
+    {
+      "id": "CT-D1-RECURSIVE-SIM",
+      "candidate": "D1",
+      "statement": "Quotient execution reproduces every fine representative's final result for every remaining word.",
+      "checks": 92,
+      "strength": "EXHAUSTIVE_FINITE_EXACT"
+    },
+    {
+      "id": "CT-D1-ASSEMBLY",
+      "candidate": "D1",
+      "statement": "GLOBAL_ASSEMBLY_ACCEPT(s,w) factors through q_i for every declared remaining word w, and global extendability (exists accepting suffix) is therefore quotient-invariant.",
+      "strength": "COROLLARY_OF_FULL_SUFFIX_SOUNDNESS"
+    },
+    {
+      "id": "CT-D2",
+      "candidate": "D2",
+      "statement": "Replacing singleton branch tokens by D1 suffix classes preserves all declared suffix final behavior; ordinary union/direct-image correctness remains source-inherited.",
+      "checks": 56,
+      "strength": "EXHAUSTIVE_FINITE_EXACT_PLUS_D1_THEOREM"
+    },
+    {
+      "id": "CT-BASELINE-GAMING",
+      "candidate": "BG1",
+      "statement": "Raw two-relation assembly R;S can be compiled to C=R∘S by eliminating z; this looks like a transform against B_raw but is already allowed in B_std.",
+      "R": [
+        [
+          "x0",
+          "z0"
+        ],
+        [
+          "x1",
+          "z1"
+        ]
+      ],
+      "S": [
+        [
+          "z0",
+          "y0"
+        ],
+        [
+          "z1",
+          "y1"
+        ]
+      ],
+      "composed": [
+        [
+          "x0",
+          "y0"
+        ],
+        [
+          "x1",
+          "y1"
+        ]
+      ],
+      "strength": "EXACT_FINITE_CONTROL"
+    }
+  ],
+  "no_general_hodge_claim": true
+}

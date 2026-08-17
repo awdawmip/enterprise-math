@@ -1,0 +1,66 @@
+{
+  "schema": "HODGE_H0D_BRANCH_RECOALESCENCE_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0D-41C8B7",
+  "candidate_id": "D2_SUFFIX_SAFE_BRANCH_RECOALESCENCE",
+  "input_cut": "S0",
+  "fine_branch_tokens": [
+    [
+      "a0"
+    ],
+    [
+      "a1"
+    ],
+    [
+      "a2"
+    ],
+    [
+      "a3"
+    ],
+    [
+      "a4"
+    ],
+    [
+      "a5"
+    ],
+    [
+      "a6"
+    ]
+  ],
+  "suffix_equivalence_branch_tokens": [
+    [
+      "a0",
+      "a1"
+    ],
+    [
+      "a2",
+      "a3"
+    ],
+    [
+      "a4",
+      "a5"
+    ],
+    [
+      "a6"
+    ]
+  ],
+  "predeclared_measure": {
+    "name": "BRANCH_INTERFACE_TOKENS_RETAINED_AT_S0",
+    "fine": 7,
+    "after_suffix_grouping": 4,
+    "strict_reduction": true
+  },
+  "exact_checks": {
+    "fine_state_word_behavior_preservation_checks": 56,
+    "all_pass": true
+  },
+  "support_execution_theorem": "Grouping fine branches only within equal full-suffix classes preserves every declared final observation for all eight remaining words.",
+  "no_resurrection": "Because D1 quotient execution matches every fine representative on all remaining words (92 exhaustive representative/word checks), grouped execution introduces no final observation absent from a fine representative.",
+  "attribution_decomposition": {
+    "transform_attributed_component": "D1 full-suffix quotient supplies the four safe branch-interface classes.",
+    "source_inherited_component": "ordinary set union/direct image and branch union distribution are already available in B_std / classical relation semantics.",
+    "overall": "ATTRIBUTION_SHARED_OR_PARTIAL"
+  },
+  "independent_hard_target_credit": false,
+  "route_use": "Useful execution layer after D1, but not an independent robust-attribution proof beyond D1."
+}

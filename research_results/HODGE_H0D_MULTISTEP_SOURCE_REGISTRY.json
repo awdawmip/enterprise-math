@@ -1,0 +1,194 @@
+{
+  "schema": "HODGE_H0D_MULTISTEP_SOURCE_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0D-41C8B7",
+  "source_id": "MS3_BINARY_OVERLAP_ASSEMBLY",
+  "source_kind": "FINITE_EXACT_ALGEBRAIC_STYLE_LOCAL_TO_GLOBAL_SURROGATE",
+  "stages": [
+    {
+      "id": "S0",
+      "states": [
+        "a0",
+        "a1",
+        "a2",
+        "a3",
+        "a4",
+        "a5",
+        "a6"
+      ]
+    },
+    {
+      "id": "S1",
+      "states": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ]
+    },
+    {
+      "id": "S2",
+      "states": [
+        "c0",
+        "c1",
+        "c2",
+        "c3"
+      ]
+    },
+    {
+      "id": "S3",
+      "states": [
+        "f0",
+        "f1"
+      ]
+    }
+  ],
+  "actions": [
+    "L",
+    "R"
+  ],
+  "transition_tables": {
+    "T0": {
+      "a0": {
+        "L": "b0",
+        "R": "b2"
+      },
+      "a1": {
+        "L": "b1",
+        "R": "b3"
+      },
+      "a2": {
+        "L": "b0",
+        "R": "b4"
+      },
+      "a3": {
+        "L": "b1",
+        "R": "b5"
+      },
+      "a4": {
+        "L": "b2",
+        "R": "b4"
+      },
+      "a5": {
+        "L": "b3",
+        "R": "b5"
+      },
+      "a6": {
+        "L": "b6",
+        "R": "b6"
+      }
+    },
+    "T1": {
+      "b0": {
+        "L": "c0",
+        "R": "c2"
+      },
+      "b1": {
+        "L": "c1",
+        "R": "c2"
+      },
+      "b2": {
+        "L": "c0",
+        "R": "c3"
+      },
+      "b3": {
+        "L": "c1",
+        "R": "c3"
+      },
+      "b4": {
+        "L": "c2",
+        "R": "c0"
+      },
+      "b5": {
+        "L": "c2",
+        "R": "c1"
+      },
+      "b6": {
+        "L": "c0",
+        "R": "c0"
+      }
+    },
+    "T2": {
+      "c0": {
+        "L": "f0",
+        "R": "f0"
+      },
+      "c1": {
+        "L": "f0",
+        "R": "f0"
+      },
+      "c2": {
+        "L": "f0",
+        "R": "f1"
+      },
+      "c3": {
+        "L": "f1",
+        "R": "f1"
+      }
+    }
+  },
+  "final_observation": {
+    "f0": "ASSEMBLY_REJECT",
+    "f1": "ASSEMBLY_ACCEPT"
+  },
+  "source_global_assembly_predicate": "GLOBAL_ASSEMBLY_ACCEPT(s,w) iff exact execution of the declared remaining word w ends at f1.",
+  "remaining_suffix_languages": {
+    "S0": [
+      "LLL",
+      "LLR",
+      "LRL",
+      "LRR",
+      "RLL",
+      "RLR",
+      "RRL",
+      "RRR"
+    ],
+    "S1": [
+      "LL",
+      "LR",
+      "RL",
+      "RR"
+    ],
+    "S2": [
+      "L",
+      "R"
+    ]
+  },
+  "branching": "At each nonfinal stage L/R are two declared overlap continuations; each cut has multiple exact local-section candidates.",
+  "consistent_instance": {
+    "state": "a0",
+    "word": "LRR",
+    "final": "f1"
+  },
+  "inconsistent_instances": [
+    {
+      "state": "a0",
+      "word": "LLL",
+      "final": "f0"
+    },
+    {
+      "state": "a6",
+      "word": "LLL",
+      "final": "f0"
+    }
+  ],
+  "globally_nonextendable_state": {
+    "state": "a6",
+    "all_8_suffixes": "f0"
+  },
+  "finite_scope_warning": "This is a finite local-overlap surrogate, not a scheme/sheaf/Hodge theorem.",
+  "actual_algebraic_stress": {
+    "object": "P^1_C standard affine cover U_z and U_w",
+    "overlap_coordinate_rule": "w=1/z",
+    "bounded_local_labels": [
+      "z^-1",
+      "1",
+      "z"
+    ],
+    "chart_swap_transport": "z^k <-> w^(-k) for k in {-1,0,1}",
+    "role": "sourcing/naturality stress only; not generator of the load-bearing finite transition table and no Hodge answer is used"
+  }
+}

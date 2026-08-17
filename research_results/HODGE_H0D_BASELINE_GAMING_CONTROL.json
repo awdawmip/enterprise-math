@@ -1,0 +1,51 @@
+{
+  "schema": "HODGE_H0D_BASELINE_GAMING_CONTROL_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0D-41C8B7",
+  "control_id": "BG1_RELATION_COMPOSITION",
+  "source": {
+    "R": [
+      [
+        "x0",
+        "z0"
+      ],
+      [
+        "x1",
+        "z1"
+      ]
+    ],
+    "S": [
+      [
+        "z0",
+        "y0"
+      ],
+      [
+        "z1",
+        "y1"
+      ]
+    ],
+    "raw_obligation": "For a proposed (x,y), search an explicit intermediate z with R(x,z) and S(z,y)."
+  },
+  "candidate_transform": {
+    "operation": "compose the two relations",
+    "result": [
+      [
+        "x0",
+        "y0"
+      ],
+      [
+        "x1",
+        "y1"
+      ]
+    ],
+    "apparent_measure": {
+      "explicit_intermediate_variables_before": 1,
+      "after": 0
+    }
+  },
+  "B_raw_audit": "Against raw enumeration only, the composed relation appears to create a one-step normal form.",
+  "B_std_audit": "B_std explicitly permits ordinary relation composition and direct elimination of an explicitly quantified intermediate state, so C=R∘S is already source-native under the fair strengthened baseline.",
+  "attribution": "BASELINE_SENSITIVE_ATTRIBUTION",
+  "hard_target_credit": false,
+  "anti_gaming_meaning": "A candidate that wins only because B_raw withholds obvious source composition is rejected."
+}

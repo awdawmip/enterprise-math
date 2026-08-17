@@ -1,0 +1,94 @@
+{
+  "schema": "HODGE_H0D_SOURCE_BASELINE_SANDWICH_V1",
+  "status": "FROZEN_BEFORE_CANDIDATE_SUCCESS_EVALUATION",
+  "researcher_id": "EM-HODGE-H0D-41C8B7",
+  "task_id": "RS-HODGE-H0D-MULTISTEP-SUFFIX-QUOTIENT-ATTRIBUTED-ASSEMBLY",
+  "criterion": "H0A0_REALIZATION_CLASSIFIER_V2 + H0D0_R2_ATTRIBUTION_ADDENDUM",
+  "baseline_freeze_rule": "Both baselines are declared before quotient-class counts are used as success evidence.",
+  "B_raw": {
+    "typed_source_carrier": "Layered finite algebraic-style local-section carriers S0,S1,S2,S3 with exact L/R overlap-continuation maps.",
+    "source_predicate_or_operator": "For state s at a cut and declared remaining word w, execute the exact source transitions and observe final f0/f1; GLOBAL_ASSEMBLY_ACCEPT(s,w) iff final=f1.",
+    "source_representation": {
+      "stage_counts": [
+        7,
+        7,
+        4,
+        2
+      ],
+      "actions": [
+        "L",
+        "R"
+      ],
+      "remaining_word_counts": [
+        8,
+        4,
+        2
+      ]
+    },
+    "allowed_source_operations": [
+      "exact transition-table lookup",
+      "enumerate declared suffix words",
+      "execute a fine-state word",
+      "observe final f0/f1",
+      "raw existential/explicit intermediate-state enumeration"
+    ],
+    "known_source_normal_forms_or_obstruction_rules": [
+      "none: exact fine labels are the reusable recursive interfaces"
+    ],
+    "predeclared_structural_measure": {
+      "name": "TOTAL_FINE_REUSABLE_RECURSIVE_INTERFACE_STATES_AT_NONFINAL_CUTS",
+      "source_value": 18,
+      "stage_values": [
+        7,
+        7,
+        4
+      ]
+    },
+    "forbidden": [
+      "suffix/future-signature state",
+      "behavioral quotient",
+      "automaton/state minimization",
+      "Enterprise branch/recoalescence state"
+    ],
+    "scope_limitations": "Only the declared finite 3-transition source; no universal claim about all source algorithms."
+  },
+  "B_std": {
+    "extends": "B_raw",
+    "allowed_source_operations": [
+      "ordinary composition of displayed transition maps/relations",
+      "ordinary direct image and set union",
+      "direct elimination of an explicitly quantified fine intermediate state",
+      "equality tests on exact source outputs",
+      "compute any individual declared suffix output by source-native composition",
+      "ordinary algebraic simplification of the displayed finite source tables"
+    ],
+    "known_source_normal_forms_or_obstruction_rules": [
+      "an individual suffix query may be compiled to a direct fine-state-to-final map",
+      "intermediate variables may be eliminated for a fixed query"
+    ],
+    "explicit_boundary": [
+      "B_std does not introduce a new reusable quotient carrier Q_i",
+      "B_std does not package all remaining behaviors as a state descriptor",
+      "B_std does not minimize/identify fine source states by behavioral equivalence",
+      "B_std does not install descended L/R transitions on a smaller carrier"
+    ],
+    "fairness_reason": "The excluded objects are exactly the candidate suffix-quotient transform, not generic source-native composition. Prior-art equivalence alone is not grounds to insert the transform into B_std.",
+    "predeclared_structural_measure": {
+      "name": "TOTAL_FINE_REUSABLE_RECURSIVE_INTERFACE_STATES_AT_NONFINAL_CUTS",
+      "source_value": 18,
+      "stage_values": [
+        7,
+        7,
+        4
+      ]
+    },
+    "scope_limitations": "B_std can solve/rewrite each query on fine states, but its recursive transition interfaces remain S0,S1,S2."
+  },
+  "hard_target_attribution_required": "ROBUST_TRANSFORM_ATTRIBUTED",
+  "anti_gaming": [
+    "B_raw and B_std fixed before using quotient output counts",
+    "post-hoc weakening of B_std forbidden",
+    "direct query simplification is not confused with a smaller reusable recursive interface",
+    "no universal impossibility statement about source-side algorithms"
+  ]
+}
