@@ -1,0 +1,17 @@
+{
+  "schema": "R059D_STAGE_AK_STATE_MINIMALITY_DIAGNOSTIC_V1",
+  "status": "COMPLETE_DIAGNOSTIC__MINIMALITY_OPEN",
+  "researcher_id": "EM-R059D-AK-3C7E52",
+  "proved_sufficient_state": "r + current local endpoint coordinates (a,b) + one signed residual z + sector mod 6 + phase bit; O is carried only for endpoint projection/translation",
+  "unbounded_history_required": false,
+  "word_prefix_required": false,
+  "observations": {
+    "J_only": "already proved insufficient upstream",
+    "residual_register": "z is sufficient to choose the next edge by a single sign test and finite-difference update",
+    "information_theoretic_note": "on reachable states z is a deterministic polynomial slack function of r,a,b,phase, so removing z is mathematically possible if one recomputes the frozen support polynomial at each turn",
+    "firewall_note": "that recomputation would reintroduce the support/Q-style oracle forbidden as the target runtime route; under the frozen runtime firewall the explicit residual is the smallest currently proved sufficient online register design",
+    "sector_phase": "sector and L/R phase are finite control, not radius-growing memory"
+  },
+  "true_minimal_state_proved": false,
+  "canonical_phrase": "SMALLEST_CURRENTLY_PROVED_SUFFICIENT_ONLINE_STATE_UNDER_RUNTIME_FIREWALL"
+}
