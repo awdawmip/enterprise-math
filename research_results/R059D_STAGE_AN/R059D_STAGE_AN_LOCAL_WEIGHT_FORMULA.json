@@ -1,0 +1,23 @@
+{
+  "schema": "R059D_STAGE_AN_LOCAL_WEIGHT_FORMULA_V1",
+  "status": "PROVED_BEFORE_REPLAY",
+  "researcher_id": "EM-R059D-AN-4C2B91",
+  "source_embedding": "Enterprise chart vector (a,b) is embedded on the orthogonal compatibility side as a*(1,0)+b*(1/2,sqrt(3)/2); this is source-side comparison geometry only.",
+  "general_formula": {
+    "consecutive_rays": "p=(a,b), q=(c,d)",
+    "tan_delta": "tan Delta = sqrt(3)*(a*d-b*c)/(2*a*c+2*b*d+a*d+b*c)",
+    "weight": "w=r*Delta with Delta in (0,pi_source/3] on a canonical sector"
+  },
+  "symbol_formulas": {
+    "1": "q=(a,b+1): tan Delta = sqrt(3)*a/(2*Q+a+2*b)",
+    "2": "q=(a-1,b+1): tan Delta = sqrt(3)*(a+b)/(2*Q-a+b)",
+    "3": "q=(a-1,b): tan Delta = sqrt(3)*b/(2*Q-2*a-b)",
+    "Q": "Q=a^2+a*b+b^2; Q appears only in this source compatibility formula, not as Enterprise length"
+  },
+  "axis_formula": "For the first canonical turn (r,0)->(r-1,1), tan Delta_axis(r)=sqrt(3)/(2*r-1).",
+  "central_formula": {
+    "selected_turn": "Choose the canonical central symbol-2 turn whose start has m=a+b=M_N(r)=r+J_N(r) and d=a-b in {1,2}; existence follows from the AH left-half termination rule.",
+    "tan_delta": "tan Delta_mid(r)=2*sqrt(3)*m/(3*m^2+d^2-2*d)."
+  },
+  "firewall": "All square roots/angles here are source-side comparison quantities and do not enter the AL target resolver or AK turn machine."
+}
