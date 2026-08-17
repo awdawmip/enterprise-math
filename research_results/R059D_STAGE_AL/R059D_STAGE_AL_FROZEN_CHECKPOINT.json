@@ -1,0 +1,61 @@
+{
+  "artifact_manifest_sha256": "4dd5bf4c44d4d5b7135adb2941ab914c34b9e4164236646e812e1dd3ce27d6c0",
+  "artifact_payload_head": "e884889d0d7964e17741a32f9db4ffa9ffb28cf2",
+  "checker": {
+    "adversarial_motzkin_candidates_r_le_7": 10878,
+    "checks_digest_sha256": "bf1bee3b6baedab95a5d9dfc63dc47e2a88e1bbe4523ff4cfa43312e8cecb7ad",
+    "checks_failed": 0,
+    "checks_passed": 14267,
+    "checks_total": 14267,
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "output_commit": "45a026c4793f9ce40ed54af8cd552869b83cbdba",
+    "source_commit": "77abcd1230be17fde4370963f3377d3e8acc4853",
+    "status": "PASS",
+    "validation_max_r": 16384
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "counterexamples": {
+    "PACKED_EXACT_COUNT": "A0-A7+monotone+exact J/period survivor; first differs at r=5",
+    "PURE_AXIS_HEXAGON": "A0-A7 survivor; first differs at r=5; period 6r"
+  },
+  "freezes": {
+    "A0_A7_SUFFICIENT": false,
+    "BRC": "target canonicality comes from native fixed-length turn + primitive-support frontier rigidity, not source Euclidean equal-distance",
+    "CANONICAL_KAPPA": "kappa_E^2=12,kappa_E>0",
+    "CANONICAL_ORBIT": "unique ADM_E full orbit equals accepted AK N fixed-length D6 turn orbit",
+    "CANONICAL_PERIOD": "T_r=C_E(r)=C_N(r)=6*(r+J_N(r))",
+    "COORDINATE_CERTIFICATE": "first sector SUP(a,b)=9(a^2+ab+b^2)-9max(a,b)+3",
+    "C_s_TYPING": "finite-precision/readout resolver; fails sampling-free A3 as inherited because pointwise law consumes s and majority coverage",
+    "C_s_WITNESS": "r=5: J_C_1=1,J_C_2=1,J_C_3=0",
+    "EXACT_J_PERIOD_SUFFICIENT": false,
+    "FINAL_ADMISSIBLE_CLASS": "A0-A7 plus A8 Primitive-Support Frontier Maximality",
+    "PRIMITIVE_SUPPORT_INDEX": "Q_E(a,b)=a^2+ab+b^2, typed only as D6 incidence/support rank, not Enterprise length or Euclidean distance",
+    "RADIUS_CARRIER": "K_E(r)={p:support_rank(p)<=9r^2}",
+    "RIGIDITY": "outer monotone frontier of K_E(r) is unique for every r>=1",
+    "TRIANGLE_SUPPORT_RANK": "rank(t)=Q_E(sum of primitive triangle vertices)",
+    "VERTEX_SUPPORT_RANK": "min over incident primitive edges of max rank of the two adjacent triangles"
+  },
+  "frozen_source_main": "d4fba69cd2b65323eb78dd775443896a0645e989",
+  "immutability_gate": {
+    "compare_base": "d4fba69cd2b65323eb78dd775443896a0645e989",
+    "compare_head": "87109a551e7910bf0061f2e00dacc4a66e6ab6d9",
+    "prior_stage_result_files_modified_or_deleted": 0,
+    "status": "PASS"
+  },
+  "later_stage_consumed": false,
+  "owner_branch": "research/r059d-stage-al-canonical-native-resolver-rigidity",
+  "primary_disposition": "UNIQUE_CANONICAL_ENTERPRISE_NATIVE_RESOLVER_PROVED",
+  "remaining_open": {
+    "CANONICALITY_OUTSIDE_FINAL_ADM_E": false,
+    "N_C_POINTWISE_IDENTITY": false,
+    "SAMPLING_FREE_C_LIMIT_RESOLVER": false,
+    "STANDARD_REAL_PI_THEOREM": false,
+    "UNIQUE_INTERNAL_REGISTER_ENCODING": false
+  },
+  "researcher_id": "EM-R059D-AL-5A9D31",
+  "schema": "R059D_STAGE_AL_FROZEN_CHECKPOINT_V1",
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059D-STAGE-AL-CANONICAL-NATIVE-RESOLVER-RIGIDITY",
+  "taskbook_source_commit": "2d39f29d713ba2be475aba8e32ea3cdd030a7d41"
+}
