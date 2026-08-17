@@ -1,0 +1,63 @@
+{
+  "directed_formulas": {
+    "U0_to_U1": {
+      "differentials": [
+        "dx=-u^-2 du",
+        "dy=-v u^-2 du + u^-1 dv"
+      ],
+      "substitution": "x=u^-1, y=v/u",
+      "transport": "(A dx+B dy)e0 -> [-u^(m-2)(A_sub+v B_sub)] du e1 + [u^(m-1)B_sub] dv e1"
+    },
+    "U0_to_U2": {
+      "differentials": [
+        "dx=s^-1 dt - t s^-2 ds",
+        "dy=-s^-2 ds"
+      ],
+      "substitution": "x=t/s, y=s^-1",
+      "transport": "-> [-s^(m-2)(t A_sub+B_sub)] ds e2 + [s^(m-1)A_sub] dt e2"
+    },
+    "U1_to_U0": {
+      "differentials": [
+        "du=-x^-2 dx",
+        "dv=-y x^-2 dx + x^-1 dy"
+      ],
+      "substitution": "u=x^-1, v=y/x",
+      "transport": "-> [-x^(m-2)(A_sub+y B_sub)] dx e0 + [x^(m-1)B_sub] dy e0"
+    },
+    "U1_to_U2": {
+      "differentials": [
+        "du=t^-1 ds - s t^-2 dt",
+        "dv=-t^-2 dt"
+      ],
+      "substitution": "u=s/t, v=t^-1",
+      "transport": "-> [t^(m-1)A_sub] ds e2 + [-t^(m-2)(s A_sub+B_sub)] dt e2"
+    },
+    "U2_to_U0": {
+      "differentials": [
+        "ds=-y^-2 dy",
+        "dt=y^-1 dx - x y^-2 dy"
+      ],
+      "substitution": "s=y^-1, t=x/y",
+      "transport": "-> [y^(m-1)B_sub] dx e0 + [-y^(m-2)(A_sub+x B_sub)] dy e0"
+    },
+    "U2_to_U1": {
+      "differentials": [
+        "ds=v^-1 du - u v^-2 dv",
+        "dt=-v^-2 dv"
+      ],
+      "substitution": "s=u/v, t=v^-1",
+      "transport": "-> [v^(m-1)A_sub] du e1 + [-v^(m-2)(u A_sub+B_sub)] dv e1"
+    }
+  },
+  "frame_rule": "e_i=(X_i/X_j)^m e_j",
+  "interpretation": "non-diagonal Jacobian mixing is source algebraic; no analytic/Hodge structure is used",
+  "mandatory_replay": {
+    "PPP_MMM_identity_loop_checks": 208,
+    "loop_failures": 0,
+    "pairwise_direct_vs_composed_checks": 936,
+    "pairwise_failures": 0
+  },
+  "researcher_id": "EM-HODGE-H0F-2B9E64",
+  "schema": "HODGE_H0F_DIFFERENTIAL_TRANSITION_DERIVATION_V1",
+  "status": "FROZEN"
+}

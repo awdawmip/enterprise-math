@@ -1,0 +1,59 @@
+{
+  "B_values": [
+    1,
+    2
+  ],
+  "actions": [
+    "P",
+    "M"
+  ],
+  "depth": 3,
+  "exponents": "r,s∈{0,...,B}",
+  "m_values": [
+    1,
+    2
+  ],
+  "no_postselection": true,
+  "primary_parameters": [
+    {
+      "B": 1,
+      "m": 1
+    },
+    {
+      "B": 2,
+      "m": 1
+    },
+    {
+      "B": 1,
+      "m": 2
+    },
+    {
+      "B": 2,
+      "m": 2
+    }
+  ],
+  "researcher_id": "EM-HODGE-H0F-2B9E64",
+  "retention_rule": "all four primary (m,B) instances retained; m=1 degeneration is retained as required negative/trivial control",
+  "root_chart": "U0",
+  "schema": "HODGE_H0F_PARAMETER_REGISTRY_V1",
+  "seed_count_formula": "4(B+1)^2",
+  "seed_shapes": [
+    {
+      "formula": "x^r y^s dx",
+      "id": "dx"
+    },
+    {
+      "formula": "x^r y^s dy",
+      "id": "dy"
+    },
+    {
+      "formula": "x^r y^s (dx+dy)",
+      "id": "plus"
+    },
+    {
+      "formula": "x^r y^s (y dx - x dy)",
+      "id": "angular"
+    }
+  ],
+  "status": "FROZEN_BEFORE_QUOTIENT_SUCCESS_EVALUATION"
+}

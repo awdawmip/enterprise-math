@@ -1,0 +1,36 @@
+{
+  "basis_change": {
+    "change": "beta1=dz1+dz2, beta2=dz2",
+    "failures": 0,
+    "regularity_checks": 312,
+    "semantic_strength": "regular invertible local basis change; no metric structure"
+  },
+  "claim": "presentation transport is exact at the declared standard-cover/basis scope",
+  "coordinate_permutations": [
+    {
+      "action_transport": {
+        "M": "P",
+        "P": "M"
+      },
+      "homogeneous_map": "0<->1",
+      "id": "transposition_01"
+    },
+    {
+      "action_transport": {
+        "M": "M",
+        "P": "P"
+      },
+      "homogeneous_map": "0->1->2->0",
+      "id": "cycle_012"
+    }
+  ],
+  "quotient_class_count_invariance": "PASS as a consequence of exact signature transport",
+  "researcher_id": "EM-HODGE-H0F-2B9E64",
+  "schema": "HODGE_H0F_PRESENTATION_NATURALITY_LEDGER_V1",
+  "scope": "standard P2 three-chart presentation and transported finite seed registry; no arbitrary-cover/full-aut(P2) theorem",
+  "status": "FROZEN",
+  "suffix_failures": 0,
+  "suffix_observation_transport_checks": 1936,
+  "transition_conjugacy_checks": 608,
+  "transition_failures": 0
+}

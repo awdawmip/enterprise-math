@@ -1,0 +1,65 @@
+{
+  "aggregate_direct_composition_checks": 936,
+  "aggregate_loop_identity_checks": 208,
+  "aggregate_nonfinal_generated_transitions": 304,
+  "copied_h0d_or_h0e_table": false,
+  "known_hodge_answer_used": false,
+  "parameter_replay": [
+    {
+      "B": 1,
+      "layer_counts": [
+        16,
+        1,
+        1,
+        1
+      ],
+      "m": 1,
+      "nonfinal_transition_count": 36,
+      "seed_count": 16,
+      "source_table_sha256": "9607a05824c54fb41d9b84e3e3b112475cb58739c1ef34519b0080cab6297868"
+    },
+    {
+      "B": 2,
+      "layer_counts": [
+        36,
+        1,
+        1,
+        1
+      ],
+      "m": 1,
+      "nonfinal_transition_count": 76,
+      "seed_count": 36,
+      "source_table_sha256": "77048f5760e639bbe3e4cd5e460b7598ba479d3cf0fe5dd94c9dd972176bfd3a"
+    },
+    {
+      "B": 1,
+      "layer_counts": [
+        16,
+        9,
+        13,
+        13
+      ],
+      "m": 2,
+      "nonfinal_transition_count": 76,
+      "seed_count": 16,
+      "source_table_sha256": "cdaf55a0891b0b818d9a5d715a4e25fcc91f75bd5685409b7cd3eddc566af95d"
+    },
+    {
+      "B": 2,
+      "layer_counts": [
+        36,
+        9,
+        13,
+        13
+      ],
+      "m": 2,
+      "nonfinal_transition_count": 116,
+      "seed_count": 36,
+      "source_table_sha256": "97123e1890b718e3935df19936aeb0025ed29aa6e9b1e329bac1e73b04ab92a8"
+    }
+  ],
+  "pipeline": "P2 chart ratios + exact Jacobian differential transport + O(m) frame factor + frozen seed registry -> generated source table -> digest -> behavior quotient",
+  "researcher_id": "EM-HODGE-H0F-2B9E64",
+  "schema": "HODGE_H0F_ALGEBRAIC_GENERATION_REPLAY_V1",
+  "status": "FROZEN"
+}

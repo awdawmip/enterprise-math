@@ -1,0 +1,140 @@
+{
+  "conclusion": "WHOLE_FORM_REGSUPP_RELATIVE_MASK_ALREADY_COMPLETE",
+  "normal_forms": [
+    {
+      "complete_for_future_language": false,
+      "counterexample": "m=2,B=1: angular_r0_s0 and plus_r0_s1 have identical split-pole summaries but opposite complete suffix behavior",
+      "definition": "transport A dz1 and B dz2 separately and remember only which target-basis coefficients have poles, before cross-component addition/cancellation",
+      "id": "NF0_COMPONENTWISE_SPLIT_POLE_BITS",
+      "strength": "WEAK_NEGATIVE_CONTROL"
+    },
+    {
+      "defeats_enterprise_attribution": true,
+      "definition": "compute whole-form RegSupp after exact Jacobian mixing/cancellation; at current chart c keep rho=(regular at P(c), regular at M(c)); SINK->00",
+      "general_theorem": "For the declared 3-chart sink-on-irregular transport semantics, rho is a source-native congruence: all suffix ACCEPT/REJECT observations factor through rho and P/M descend by the displayed table.",
+      "id": "NF1_WHOLE_FORM_RELATIVE_REGULARITY_MASK",
+      "parameter_partition_results": [
+        {
+          "B": 1,
+          "m": 1,
+          "q_partition_equals_rho_partition": true,
+          "rho_stage_counts": [
+            1,
+            1,
+            1
+          ],
+          "stage_distributions": [
+            {
+              "00": 16
+            },
+            {
+              "00": 1
+            },
+            {
+              "00": 1
+            }
+          ]
+        },
+        {
+          "B": 2,
+          "m": 1,
+          "q_partition_equals_rho_partition": true,
+          "rho_stage_counts": [
+            1,
+            1,
+            1
+          ],
+          "stage_distributions": [
+            {
+              "00": 36
+            },
+            {
+              "00": 1
+            },
+            {
+              "00": 1
+            }
+          ]
+        },
+        {
+          "B": 1,
+          "m": 2,
+          "q_partition_equals_rho_partition": true,
+          "rho_stage_counts": [
+            2,
+            2,
+            2
+          ],
+          "stage_distributions": [
+            {
+              "00": 12,
+              "11": 4
+            },
+            {
+              "00": 1,
+              "11": 8
+            },
+            {
+              "00": 1,
+              "11": 12
+            }
+          ]
+        },
+        {
+          "B": 2,
+          "m": 2,
+          "q_partition_equals_rho_partition": true,
+          "rho_stage_counts": [
+            2,
+            2,
+            2
+          ],
+          "stage_distributions": [
+            {
+              "00": 32,
+              "11": 4
+            },
+            {
+              "00": 1,
+              "11": 8
+            },
+            {
+              "00": 1,
+              "11": 12
+            }
+          ]
+        }
+      ],
+      "reason": "exact algebraic transport preserves the underlying rational twisted form and hence RegSupp; a move succeeds exactly when its target chart lies in RegSupp",
+      "source_native": true,
+      "strength": "LOAD_BEARING_FAIR_SOURCE_NORMAL_FORM",
+      "transition_law": {
+        "00": {
+          "M": "00",
+          "P": "00"
+        },
+        "01": {
+          "M": "10",
+          "P": "00"
+        },
+        "10": {
+          "M": "00",
+          "P": "01"
+        },
+        "11": {
+          "M": "11",
+          "P": "11"
+        }
+      }
+    },
+    {
+      "id": "NF2_PRINCIPAL_PARTS_REDUCED_DENOMINATORS",
+      "note": "basis-independent principal parts/reduced denominators may retain more source data; NF1 already recovers the entire declared suffix language with exactly the Enterprise class count",
+      "status": "NOT_NEEDED_FOR_QUALIFICATION_AFTER_NF1_COMPLETE",
+      "strength": "STRONGER_THAN_NEEDED"
+    }
+  ],
+  "researcher_id": "EM-HODGE-H0F-2B9E64",
+  "schema": "HODGE_H0F_SOURCE_NORMAL_FORM_REGISTRY_V1",
+  "status": "FROZEN"
+}

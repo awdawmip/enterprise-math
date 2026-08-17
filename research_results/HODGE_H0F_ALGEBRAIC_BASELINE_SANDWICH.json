@@ -1,0 +1,119 @@
+{
+  "B_raw_alg": {
+    "allowed": [
+      "exact chart/basis transport",
+      "direct P/M word execution",
+      "explicit intermediate states",
+      "whole-form target-chart regularity observation"
+    ],
+    "carrier": "exact local twisted one-form state (chart, exact Laurent coefficient pair) plus verification SINK",
+    "forbidden": [
+      "future/suffix quotient",
+      "generic behavioral minimization"
+    ],
+    "raw_nonfinal_interface_totals": [
+      {
+        "B": 1,
+        "count": 18,
+        "m": 1
+      },
+      {
+        "B": 2,
+        "count": 38,
+        "m": 1
+      },
+      {
+        "B": 1,
+        "count": 38,
+        "m": 2
+      },
+      {
+        "B": 2,
+        "count": 58,
+        "m": 2
+      }
+    ]
+  },
+  "B_std_alg": {
+    "allowed": [
+      "exact rational/Laurent simplification",
+      "common-denominator reduction and numerator cancellation",
+      "Jacobian/differential-basis matrix composition",
+      "exact O(m) frame changes",
+      "whole-form polar support and regularity support across U0,U1,U2",
+      "exact linear algebra on coefficient pairs",
+      "regular invertible local differential-basis changes",
+      "source-native chart permutation/relabeling",
+      "relative outgoing-regularity mask derived from whole-form RegSupp and the declared P/M chart graph"
+    ],
+    "candidate_transform_not_preinstalled": "no complete future-signature quotient or generic automaton minimization is inserted",
+    "extends": "B_raw_alg",
+    "fairness": "whole-form RegSupp is computed directly from exact algebraic polar/regularity data after mandatory cancellation; excluding it would repeat H0E baseline gaming",
+    "interface_totals": [
+      {
+        "B": 1,
+        "m": 1,
+        "stage_counts": [
+          1,
+          1,
+          1
+        ],
+        "total": 3
+      },
+      {
+        "B": 2,
+        "m": 1,
+        "stage_counts": [
+          1,
+          1,
+          1
+        ],
+        "total": 3
+      },
+      {
+        "B": 1,
+        "m": 2,
+        "stage_counts": [
+          2,
+          2,
+          2
+        ],
+        "total": 6
+      },
+      {
+        "B": 2,
+        "m": 2,
+        "stage_counts": [
+          2,
+          2,
+          2
+        ],
+        "total": 6
+      }
+    ],
+    "rho_transition_law": {
+      "00": {
+        "M": "00",
+        "P": "00"
+      },
+      "01": {
+        "M": "10",
+        "P": "00"
+      },
+      "10": {
+        "M": "00",
+        "P": "01"
+      },
+      "11": {
+        "M": "11",
+        "P": "11"
+      }
+    },
+    "source_native_recursive_interface": "rho(omega,c)=(1[P(c) in RegSupp(omega)],1[M(c) in RegSupp(omega)]), with verification SINK mapped to 00"
+  },
+  "hard_target_rule": "robust attribution requires a theorem-critical interface absent from both baselines",
+  "post_hoc_weakening_forbidden": true,
+  "researcher_id": "EM-HODGE-H0F-2B9E64",
+  "schema": "HODGE_H0F_ALGEBRAIC_BASELINE_SANDWICH_V1",
+  "status": "FROZEN_BEFORE_QUOTIENT_SUCCESS_EVALUATION"
+}

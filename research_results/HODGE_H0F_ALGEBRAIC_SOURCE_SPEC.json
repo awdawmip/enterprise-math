@@ -1,0 +1,61 @@
+{
+  "continuation": {
+    "actions": {
+      "M": "previous chart U0->U2->U1->U0",
+      "P": "next chart U0->U1->U2->U0"
+    },
+    "depth": 3,
+    "final_observation": "ACCEPT iff the complete remaining word avoids SINK; otherwise REJECT",
+    "semantics": "exact algebraic transport; a move succeeds iff the whole transported form is regular on the target chart",
+    "sink": "one absorbing verification-only SINK after failed regularity; not an algebraic/world state",
+    "stage0_words": [
+      "PPP",
+      "PPM",
+      "PMP",
+      "PMM",
+      "MPP",
+      "MPM",
+      "MMP",
+      "MMM"
+    ]
+  },
+  "forbidden_generators": [
+    "harmonic forms",
+    "Kaehler metric",
+    "Hodge decomposition",
+    "known Hodge numbers",
+    "known algebraic-cycle representatives",
+    "H0D/H0E transition tables"
+  ],
+  "parent_h0d_head": "102f6c73a099a97a412e72c810f8e63d2c370234",
+  "parent_h0e_head": "01bda7971b3023c486985bfe008ddfebbced52aa",
+  "researcher_id": "EM-HODGE-H0F-2B9E64",
+  "schema": "HODGE_H0F_ALGEBRAIC_SOURCE_SPEC_V1",
+  "source": {
+    "charts": {
+      "U0": "X0!=0; x=X1/X0, y=X2/X0",
+      "U1": "X1!=0; u=X0/X1, v=X2/X1",
+      "U2": "X2!=0; s=X0/X2, t=X1/X2"
+    },
+    "frame_convention": "e_i = X_i^m on U_i; e_i=(X_i/X_j)^m e_j on U_i∩U_j",
+    "homogeneous_coordinates": "[X0:X1:X2]",
+    "local_basis": "on U_i use d(X_k/X_i) for the two k!=i in ascending homogeneous-index order",
+    "regularity": "a transported twisted one-form is regular on U_i iff both exact Laurent-polynomial coefficients in the declared Kaehler basis have no negative exponent after full algebraic cancellation",
+    "root_chart": "U0",
+    "scalar_ray_quotient_used": false,
+    "seed_exponent_window": "r,s in {0,...,B}; polynomial/root-regular window frozen before quotient success evaluation",
+    "seed_formula": "x^r y^s times one of dx, dy, (dx+dy), (y dx - x dy), tensored with e_0",
+    "twisted_object": "Omega^1_X(m)",
+    "variety": "X = P^2_C"
+  },
+  "status": "FROZEN",
+  "task_id": "RS-HODGE-H0F-ALGEBRAIC-KAHLER-FORM-MIXING-ATTRIBUTED-R2",
+  "taskbook_source": "0e244755c7f726b1d5934f73eae125a8f79f8293",
+  "typing": {
+    "P2_Omega1m_rational_forms": "HX0_ALGEBRAIC_SOURCE / SOURCE_OUTSIDE_ENTERPRISE_N0",
+    "P_M_stage_process": "N1_DERIVED_OPERATIONAL_SEMANTICS",
+    "chart_coordinates_and_basis": "I0_IMPLEMENTATION_CARRIER + algebraic source presentation",
+    "future_behavior_quotient": "HX2_ENTERPRISE_DERIVED_OPERATIONAL / N2_READOUT_COLLAPSE",
+    "sink": "VERIFICATION_ONLY_NOT_ONTIC"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "basis_change_control": {
+    "basis": "beta1=dz1+dz2, beta2=dz2; coefficient transform (A,B)->(A,B-A)",
+    "failures": 0,
+    "matrix": "constant GL2 with determinant 1",
+    "regularity_invariance_checks": 312
+  },
+  "cancellation_control": {
+    "U0_to_U1_split_terms": [
+      {
+        "regular": false,
+        "target": "-u^-1 v du",
+        "term": "y dx"
+      },
+      {
+        "regular": false,
+        "target": "+u^-1 v du - dv",
+        "term": "-x dy"
+      }
+    ],
+    "exact_sum": "-dv",
+    "meaning": "Jacobian-induced cross-component cancellation changes whole-form regularity",
+    "parameter": {
+      "B": 1,
+      "m": 2
+    },
+    "seed": "angular_r0_s0 = y dx - x dy",
+    "sum_regular": true
+  },
+  "m1_degenerate_control": "retained: all declared m=1 polynomial-root seeds fail upon leaving U0; no instance removed",
+  "negative_scalarized_control": {
+    "angular_RegSupp": [
+      "U0",
+      "U1",
+      "U2"
+    ],
+    "angular_depth3": "8/8 ACCEPT",
+    "forms": [
+      "angular_r0_s0 = y dx - x dy",
+      "plus_r0_s1 = y(dx+dy)"
+    ],
+    "parameter": {
+      "B": 1,
+      "m": 2
+    },
+    "plus_RegSupp": [
+      "U0"
+    ],
+    "plus_depth3": "0/8 ACCEPT",
+    "same_weak_split_pole_summary": true,
+    "verdict": "COMPONENTWISE_SPLIT_POLE_SUPPORT_INCOMPLETE",
+    "weak_summary": "U0: no split poles; U1/U2: first target-basis coefficient has a pole in both separated source-component transports"
+  },
+  "non_diagonal_transition_present": true,
+  "researcher_id": "EM-HODGE-H0F-2B9E64",
+  "schema": "HODGE_H0F_MIXING_CANCELLATION_CONTROLS_V1",
+  "status": "FROZEN"
+}

@@ -1,0 +1,38 @@
+{
+  "researcher_id": "EM-HODGE-H0F-2B9E64",
+  "schema": "HODGE_H0F_COMPARISON_THEOREM_REGISTRY_V1",
+  "status": "FROZEN",
+  "theorems": [
+    {
+      "checks": 1144,
+      "id": "CT-F1-ALG-TRANSPORT",
+      "statement": "direct chart transport equals composed transport on every declared seed/chart pair; P^3 and M^3 replay identity",
+      "strength": "EXACT_FORMULA_PLUS_FINITE_REPLAY"
+    },
+    {
+      "id": "CT-F2-MIXING-CANCELLATION",
+      "statement": "for m=2, (y dx - x dy)e0 transports U0->U1 to -dv e1 because the two u^-1 v du terms cancel exactly",
+      "strength": "EXACT_SYMBOLIC_IDENTITY"
+    },
+    {
+      "checks": 968,
+      "id": "CT-F3-SUFFIX-QUOTIENT",
+      "statement": "all declared suffix observations factor through q_i, P/M descend, and q_i is coarsest sufficient for the declared complete suffix language",
+      "strength": "GENERAL_SIGNATURE_THEOREM_PLUS_FINITE_REPLAY"
+    },
+    {
+      "id": "CT-F4-SOURCE-NORMAL-FORM",
+      "statement": "on the declared three-chart regularity source, source-native rho from whole-form RegSupp is a recursive congruence and its partition equals q_i on every primary instance",
+      "strength": "GENERAL_SOURCE_THEOREM_PLUS_STATEWISE_FINITE_EQUALITY"
+    },
+    {
+      "basis_checks": 312,
+      "id": "CT-F5-PRESENTATION",
+      "statement": "homogeneous-coordinate transposition and 3-cycle conjugate exact source transitions and suffix observations with the induced P/M alphabet transport; regular GL2 basis change preserves whole-form regularity",
+      "strength": "EXACT_FINITE_COVARIANCE",
+      "suffix_checks": 1936,
+      "transition_checks": 608
+    }
+  ],
+  "universal_hodge_claim": false
+}
