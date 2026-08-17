@@ -1,0 +1,13 @@
+{
+  "schema":"R059D_STAGE_APR_ONE_STEP_FULL_ORBIT_THEOREM_V1",
+  "status":"PROVED",
+  "researcher_id":"EM-R059D-APR-7E4C2B",
+  "turn_law":"one target turn = sweep one signed sector, take coherent DOWN raw state, then apply the frozen axis-completion inside the same local update",
+  "forward_aux_cycle":[[1,0,0],[0,-1,0],[0,0,1],[-1,0,0],[0,1,0],[0,0,-1],[1,0,0]],
+  "forward_native_cycle":[[2,1,1],[1,-2,1],[1,1,2],[-2,1,1],[1,2,1],[1,1,-2],[2,1,1]],
+  "period":6,
+  "proof_obligations":{"one_step_length_preserved":"Every stored post-update endpoint is an A1 state with primitive budget B=1. The raw DOWN origin has B=0 but is an INTERNAL_PRECOMPLETION state normalized inside the same turn and is not an endpoint orbit state.","D6_order":"successor is R6 of the current anchor","no_premature_return":"R6 has order 6 on d0 and the six listed axis anchors are distinct native states","closure":"R6^6 d0=d0","reversal":"reverse orientation uses R6^{-1} and traverses the same six anchors in inverse order","endpoint_set":"exactly A1; no additional legitimate one-step endpoint is required"},
+  "hidden_dynamics":"Although the stored endpoint orbit is only the six axis anchors, every open source sector has a nontrivial collapse competition box. Coherent DOWN passes through an internal origin-budget state and axis-completion before the next anchor; coherent UP would enter the overlength actual-upper mixed sextet.",
+  "user_intuition_answer":"The visible one-step endpoint orbit really is the six axis points, but the source/readout collapse fiber is not trivial. The qualitative hidden-collapse intuition is correct; the specific ±3 M_UP magnitude and the 'small probability' claim are false.",
+  "UP_obstruction":"UP leaves the one-step class on the first open sector because B=2, so it cannot realize this fixed-length orbit under a completion rule that only fills missing budget."
+}
