@@ -1,0 +1,51 @@
+{
+  "schema": "R059D_STAGE_AO_CONTINUUM_CARRIER_SEMANTICS_V1",
+  "status": "FROZEN_BEFORE_LIMIT_PROOF",
+  "researcher_id": "EM-R059D-AO-2D7C46",
+  "task_id": "RS-R059D-STAGE-AO-MACROSCOPIC-BRC-DENSITY-PROFILE-LIMIT",
+  "taskbook_source_commit": "3839dcfe0e6cfe819ec49fb6ffc9d3cdaa937a7f",
+  "frozen_source_main": "454b57e4eab1c2d856074e653f5cb7db8c423e74",
+  "source_carrier": {
+    "name": "Theta_perp",
+    "type": "orthogonal/source compatibility angular circle",
+    "period": "2*pi_source = 2*kappa_perp",
+    "first_sector": "0 <= theta <= pi_source/3",
+    "first_half_sector": "0 <= theta <= pi_source/6",
+    "vertex_angle_first_sector": "theta(a,b)=atan2(sqrt(3)*b, 2*a+b)",
+    "typing": "theta, pi_source, sqrt(3) and source arc length are source-compatibility quantities only"
+  },
+  "target_carrier": {
+    "name": "E_r",
+    "type": "AL canonical Enterprise native elementary-turn cycle",
+    "edges": "e_(r,k)=(p_(r,k),p_(r,k+1)), k mod T_r",
+    "period": "T_r=C_E(r)",
+    "target_selection": "already frozen by AL; no source quantity selects or retunes E_r"
+  },
+  "brc_fibers": {
+    "closed_fiber": "F_(r,k) is the AM source angular arc between the rays through p_(r,k) and p_(r,k+1)",
+    "angular_width": "Delta_(r,k)=theta(p_(r,k+1))-theta(p_(r,k)) after cyclic unwrapping",
+    "representative_angle": "theta_(r,k)=(theta(p_k)+theta(p_(k+1)))/2 after unwrapping",
+    "boundary_ties": "neighboring closed fibers overlap only on common endpoint rays; these have zero source arc measure",
+    "coverage": "union_k F_(r,k)=Theta_perp",
+    "cyclic_order": "inherited from AM and preserved by D6"
+  },
+  "cumulative_count": {
+    "definition": "N_r(theta)=number of canonical first-sector turns completed from the sector axis up to source angle theta, using the right-continuous step convention",
+    "vertex_value": "at the nth sector vertex p_n, N_r(theta(p_n))=n",
+    "tie_irrelevance": "changing left/right convention at finitely many vertex rays changes N_r by at most 1 and does not affect N_r/r or weak limits"
+  },
+  "normalized_measures": {
+    "hat_nu_r": "(1/T_r) * sum_k delta_(theta_(r,k))",
+    "hat_mu_r_edge": "on target edges, hat_mu_r_edge(e_k)=Delta_(r,k)/(2*kappa_perp)=mu_r(e_k)/Circ_perp(r)",
+    "hat_mu_r_midpoint_embedding": "sum_k [Delta_(r,k)/(2*kappa_perp)] delta_(theta_(r,k))",
+    "exact_source_measure": "equivalently retain the normalized source arc measure uniformly on each closed fiber; midpoint embedding is used only for weak-limit comparison"
+  },
+  "firewall": {
+    "source_reselects_target": false,
+    "source_metric_defines_target_length": false,
+    "brc_bijective_point_map": false,
+    "kappa_perp_identified_with_kappa_E": false,
+    "standard_real_pi_new_theorem": false
+  },
+  "later_stage_consumed": false
+}
