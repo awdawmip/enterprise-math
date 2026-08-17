@@ -1,0 +1,68 @@
+{
+  "accepted_af_owner_head": "9e863cfc89cab71118959deb38187a21fe1e96e1",
+  "artifact_manifest_sha256": "ebcb311ae3091b3c08abfd97942898809e4777eec882872f4cc785b02623fcac",
+  "artifact_payload_head": "50d50aa05d639dd6c02c423b68de79d474061655",
+  "checker": {
+    "checks_digest_sha256": "54b53af610a6f8c7a805397275d7146f29da371b0c9debc1a52eab70697f68f0",
+    "checks_failed": 0,
+    "checks_passed": 60536,
+    "checks_total": 60536,
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "output_commit": "89240577f0a483459957cf943f37aaf5c3ecdcad",
+    "source_commit": "4a160daf9482bedfc43e173c24f668b8e3156b69",
+    "status": "PASS",
+    "validation_max_r": 16384
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "critical_boundaries": {
+    "AF_guard": "J still does not determine B or internal W arrangement; AF counterexample remains binding.",
+    "C": "C one-radius delay observation remains finite-census only and is not used in N proof.",
+    "next_problem": "full W_r -> W_(r+1) Motzkin word-growth law remains open.",
+    "runtime": "integer forward generator uses no sqrt, floating point, source-Q occupancy query, AF lookup table, pi, or radius-specific tuning.",
+    "theorem_status": "Beatty/Sturmian N jump law is proved symbolically from frozen N resolver semantics, not promoted from finite validation.",
+    "validation": "exact source-shell criterion, integer recurrence and polynomial floor certificates agree through r=16384; finite validation checks implementation only."
+  },
+  "freezes": {
+    "ALPHA_MINIMAL_POLYNOMIAL": "3*alpha^2+6*alpha-1=0; alpha is the unique positive root",
+    "B_GENERATOR_ESTABLISHED": false,
+    "CONTINUED_FRACTION": "alpha=[0;overline{6,2}]",
+    "C_PHASE_DELAY_STATUS": "FINITE_CENSUS_ONLY",
+    "C_PHASE_DELAY_THEOREM_ESTABLISHED": false,
+    "EXACT_DUAL_SUPPORT": "3q(a,b)-3max(a,b)+1<=3r^2",
+    "EXACT_SHELL_CRITERION": "(3m-1)^2<=12r^2",
+    "FULL_MOTZKIN_WORD_GROWTH_LAW_ESTABLISHED": false,
+    "INTEGER_EVENT_RECURRENCE": "with j=J_N(r-1), x=3j+2: increment iff x^2+6*r*x-3*r^2<=0",
+    "INTEGER_ONLY_FORWARD_GENERATOR_PROVED": true,
+    "INTERCEPT_SPECIFIC_SINGLE_FIXED_SUBSTITUTION_ESTABLISHED": false,
+    "JUMP_GAP_ALPHABET": [
+      6,
+      7
+    ],
+    "JUMP_POSITION": "r_m=ceil((m-1/3)/alpha)",
+    "MAX_SHELL": "M_r=floor((1+alpha)*r+1/3)",
+    "MOTZKIN_COUNTS": "#1=#3=floor(alpha*r+1/3); #2=r-floor(alpha*r+1/3); |W_r|=r+floor(alpha*r+1/3)",
+    "MOTZKIN_SYMBOL_DENSITIES": {
+      "symbol1": "alpha/(1+alpha)",
+      "symbol2": "(1-alpha)/(1+alpha)",
+      "symbol3": "alpha/(1+alpha)"
+    },
+    "N_BEATTY_THEOREM": "J_N(r)=floor(alpha*r+1/3) for all integer r>=0",
+    "STURMIAN_CONVENTION": "lower mechanical word of slope alpha and intercept 1/3"
+  },
+  "frozen_source_main": "fb5b7880e469c8e16769cf55601da15bb5f96b4f",
+  "immutability_gate": {
+    "compare_base": "fb5b7880e469c8e16769cf55601da15bb5f96b4f",
+    "compare_head": "57ad44c41e1c27c739f5aa7ceec0a53774491224",
+    "prior_stage_result_files_modified_or_deleted": 0,
+    "status": "PASS"
+  },
+  "later_stage_consumed": false,
+  "owner_branch": "research/r059d-stage-ag-n-beatty-proof-sturmian-jump-law",
+  "primary_disposition": "N_BEATTY_STURMIAN_JUMP_LAW_PROVED",
+  "researcher_id": "EM-R059D-AG-8C2E47",
+  "schema": "R059D_STAGE_AG_FROZEN_CHECKPOINT_V1",
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059D-STAGE-AG-N-BEATTY-PROOF-STURMIAN-JUMP-LAW",
+  "taskbook_source_commit": "f1dcbd5d26b79be6dc8b2f495c81266a1c41ce9f"
+}
