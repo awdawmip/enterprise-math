@@ -1,0 +1,28 @@
+{
+  "schema": "R059D_STAGE_AM_REALIZATION_SEPARATION_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AM-8E3C64",
+  "theorem": "ORTHOGONAL_CONTINUOUS_CIRCLE_AND_ENTERPRISE_NATIVE_CIRCLE_ARE_DISTINCT_REALIZATIONS_CONNECTED_BY_NONISOMETRIC_BRC_COLLAPSE",
+  "ingredients": {
+    "source_cardinality": "C_perp(O,r) is a continuous source state space",
+    "target_cardinality": "the canonical Enterprise orbit has exactly T_r finite elementary turns at each finite integer r",
+    "bridge": "the closed-fiber relation R_BRC,r is surjective onto target turns and covers the source circle",
+    "many_to_one": "each target turn has a nontrivial connected source arc fiber",
+    "metric_nondescend": "source arc widths are not constant over target turns already at r=3",
+    "target_independence": "AL canonicality fixes the target before this source comparison is constructed"
+  },
+  "not_coordinate_reparameterization": "the bridge is a quotient/collapse relation with nontrivial fibers, not a bijective coordinate chart change",
+  "not_isometry": "a metric-space isometry cannot be many-to-one and the stronger local equal-turn arc condition also fails exactly",
+  "preserved_structures": [
+    "source/target radius-class label r for compatibility",
+    "translation covariance",
+    "D6 action",
+    "orientation and cyclic order",
+    "complete source coverage and complete target surjectivity"
+  ],
+  "not_preserved_as_target_metric": [
+    "source pointwise continuum",
+    "source arc-length density per target turn",
+    "source circumference functional as a native target period functional"
+  ]
+}
