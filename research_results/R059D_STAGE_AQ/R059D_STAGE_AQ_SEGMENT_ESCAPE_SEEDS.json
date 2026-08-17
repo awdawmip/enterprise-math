@@ -1,0 +1,22 @@
+{
+  "schema": "R059D_STAGE_AQ_SEGMENT_ESCAPE_SEEDS_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AQ-3A7E61",
+  "seed_principle": "without a known circle arc, retain every elementary native cell incident to the free endpoint; do not choose a preferred side or triangle orientation",
+  "auxiliary_one_step_axis_vertices": [[1,0],[0,1],[-1,1],[-1,0],[0,-1],[1,-1]],
+  "base_orientation": {
+    "endpoint": [1,0],
+    "incident_cells": ["D(0,-1)","D(0,0)","D(1,-1)","U(0,0)","U(1,-1)","U(1,0)"],
+    "shell_distribution": {"0":2,"1":2,"2":2},
+    "count": 6
+  },
+  "all_orientations": "the other five seed sets are the D6 rotations of the base set; each has 6 cells with two seeds on each of shells 0,1,2",
+  "aggregate_geometric_seed_set": {
+    "count": 24,
+    "theorem": "union of all six orientation seed sets is exactly B_2={C:SHELL(C)<=2}",
+    "shell_distribution": {"0":6,"1":6,"2":12}
+  },
+  "orientation_provenance": "orientation tags may be retained when counting path provenance; duplicate geometric cells are not deleted from an orientation-tagged analysis, but the canonical set-valued geometric seed union contains each cell once",
+  "triangle_orientation_dependence": "U/D have different local neighbor formulas but the shell/FAR theorems are D6-covariant and orientation-independent at the structural level",
+  "source_arc_encoded": false
+}
