@@ -99,3 +99,31 @@ R059D 早期 W/X/Y/Z/AA 中围绕 root/frontier/staircase 的工作，不再解�
 - 二维展示统一称 **经典二维兼容图示**；
 - BRC collapse 默认研究 **垂直坐标系 ↔ 进取坐标系** 的桥梁；
 - 任何把 BRC 重新解释为“生成进取坐标系”的旧任务语义，除非用户重新指定，否则视为 superseded。
+
+## 9. 点态原点与位移零元：基础语义分层
+
+自 `2026-08-17` 起，本坐标定义受以下 canonical foundational semantic 约束：
+
+`definitions/ENTERPRISE_POINT_ORIGIN_AND_DISPLACEMENT_ZERO_20260817.md`
+
+正式冻结：
+
+`ENTERPRISE_POINT_STATE_ORIGIN = 1`
+
+`ENTERPRISE_DISPLACEMENT_ZERO = 0`
+
+并令：
+
+`rho = 1 + r`。
+
+其中 `rho>=1` 是原生点态层级，`r>=0` 是从中心出发的 primitive displacement / step radius。
+
+因此：
+
+- 中心作为原生存在点态标记为 `rho=1`；
+- 同一中心在位移空间中具有 `r=0`；
+- 所有有符号位移坐标、向量、旋转、残差和局部坐标中的 `0` 继续作为代数/位移零元；
+- 不得把 `(r,0)`、`R(a,b)=(-b,a+b)` 等 displacement-space 公式中的 `0` 机械改成 `1`；
+- R059D AG–AO 的半径变量 `r` 统一解释为 displacement/step radius，而不是 point-state label；若需点态标签，使用 `rho=r+1`。
+
+本修正不改变普通代数的加法零元 `0` 或乘法单位元 `1`，也不要求重算已冻结的 R059D 定理。
