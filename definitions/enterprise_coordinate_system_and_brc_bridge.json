@@ -1,5 +1,5 @@
 {
-  "schema": "ENTERPRISE_COORDINATE_SYSTEM_AND_BRC_BRIDGE_V2_ORIGIN_ONE_NO_ZERO",
+  "schema": "ENTERPRISE_COORDINATE_SYSTEM_AND_BRC_BRIDGE_V3_SIGNED_ORIGIN_ONE",
   "status": "ACTIVE",
   "date": "2026-08-17",
   "authority": "CANONICAL_FOUNDATIONAL_SUPERSESSION",
@@ -10,17 +10,26 @@
     "undirected_axis_count": 3,
     "directed_direction_count": 6,
     "axis_relation": "PAIRWISE_ENTERPRISE_ORTHOGONAL",
-    "coordinate_origin": 1,
-    "native_coordinate_values": "POSITIVE_INTEGER_STATES_1_2_3_ETC",
+    "coordinate_origin": "+1_EQUIV_MINUS1",
+    "origin_representatives": ["+1", "-1"],
+    "three_axis_origin": "(±1,±1,±1) all sign representatives equivalent",
     "zero_coordinate_exists": false,
-    "negative_coordinate_values_are_native": false,
-    "orientation_encoding": "DIRECTION_LABEL_NOT_SIGNED_ZERO_CENTERED_COORDINATE",
+    "negative_coordinate_values_are_native": true,
+    "native_axis_states": "{O_E} union {+n,-n:n>=2}",
+    "one_positive_step_from_origin": "+2",
+    "one_negative_step_from_origin": "-2",
+    "coordinate_magnitude": "MAG(±n)=n",
+    "external_adjacency_step_count": "DIST(O_E,±n)=n-1",
     "global_sign_freedom": "UNIQUE_UP_TO_GLOBAL_INVERSION"
   },
   "zero_typing": {
     "native_coordinate": "FORBIDDEN",
-    "external_cardinal_or_ambient_algebra_symbol": "ALLOWED_IF_EXPLICITLY_TYPED_NON_NATIVE",
-    "legacy_zero_centered_charts": "EXTERNAL_COMPUTATION_ONLY_PENDING_REENCODING_AUDIT"
+    "external_cardinal_or_auxiliary_algebra_symbol": "ALLOWED_IF_EXPLICITLY_NON_NATIVE"
+  },
+  "auxiliary_signed_chart": {
+    "encoding": "ENC_SIGNED(0)=O_E; ENC_SIGNED(k)=sign(k)(|k|+1) for k!=0",
+    "decoding": "DEC_SIGNED(O_E)=0; DEC_SIGNED(±n)=±(n-1) for n>=2",
+    "role": "EXTERNAL_COMPUTATION_CHART_PENDING_STRUCTURE_CONJUGACY_AUDIT"
   },
   "classical_view": {
     "name_zh": "经典二维兼容图示",
@@ -37,7 +46,6 @@
     "canonical_role": "COLLAPSE_BRIDGE_BETWEEN_ORTHOGONAL_AND_ENTERPRISE_COORDINATE_SYSTEMS",
     "relation": "BRC_COLLAPSE_BRIDGE(ORTHOGONAL_COORDINATE_SYSTEM, ENTERPRISE_COORDINATE_SYSTEM)",
     "invertibility_assumed": false,
-    "target_zero_centered_chart_native_status": "SUSPENDED",
     "required_task_fields": [
       "SOURCE_COORDINATE_SEMANTICS",
       "TARGET_NATIVE_COORDINATE_SEMANTICS",
@@ -48,16 +56,16 @@
     ]
   },
   "enterprise_square_relation": {
-    "canonical_definition": "definitions/ENTERPRISE_SQUARE_AND_ROOT_ORIGIN_ONE_20260817.md",
-    "raw_area": "(n-1)^2",
-    "square_state": "1+(n-1)^2",
-    "root_state": "ENTERPRISE_ROOT(1+(n-1)^2)=n",
-    "square_sequence": [1, 2, 5, 10, 17, 26],
-    "old_n_squared_native_coordinate_law": "SUPERSEDED"
+    "canonical_definition": "definitions/ENTERPRISE_SQUARE_AND_ROOT_SIGNED_ORIGIN_ONE_20260817.md",
+    "square_state": "ENTERPRISE_SQUARE(n)=n^2 for n>=1",
+    "root_state": "ENTERPRISE_ROOT(n^2)=n for n>=1",
+    "square_sequence": [1, 4, 9, 16, 25, 36],
+    "unit_quadrilateral_witness": "((±1,±1,±1),(2,1,1),(1,-2,1),(1,1,2)) has perimeter=4 area=4",
+    "shifted_square_law": "SUPERSEDED_BY_EXACT_COUNTEREXAMPLE"
   },
   "r059d_status": {
-    "zero_centered_chart_native_status": "SUSPENDED",
-    "combinatorial_and_limit_results": "PRESERVED_AS_LEGACY_CHART_RESULTS_PENDING_ORIGIN_ONE_REENCODING_AUDIT",
-    "automatic_native_circle_claim": "NOT_ALLOWED_UNTIL_REENCODING_AUDIT"
+    "combinatorial_and_limit_results": "PRESERVED",
+    "native_status": "PENDING_SIGNED_ORIGIN_CONJUGACY_AUDIT",
+    "automatic_zero_as_native_coordinate": "FORBIDDEN"
   }
 }
