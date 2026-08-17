@@ -1,0 +1,32 @@
+{
+  "schema":"R059D_STAGE_AT3_HI_DETERMINISTIC_CHECKER_OUTPUT_V1",
+  "status":"PASS",
+  "checks_total":978660,
+  "checks_passed":978660,
+  "checks_failed":0,
+  "checks_digest_sha256":"bb37d6174cce324c01d57c7d2333bca2659cd117e9f3326ee244f7f524389079",
+  "source_commit":"aa6640a03106ad4ba2110aa1ab58ff89d5a97e65",
+  "validation":{
+    "full_shell_enumeration_max_internal_r":255,
+    "cycle_support_exhaustive_r":"1..63",
+    "cycle_support_checkpoints":[127,255],
+    "geodesic_hull_exhaustive_r":"0..63",
+    "geodesic_hull_checkpoints":[127,255],
+    "hidden_fresh_lifetime_levels":"1..256",
+    "D6_full_ball_max_internal_r":255,
+    "area_count_recurrence_levels":"1..256"
+  },
+  "history_gate":"PASS_EXTERNAL_GITHUB_COMPARE",
+  "history_compare_taskbook_base":"5c05b8127b70543ba3df2e5c28fcced862fb035e",
+  "history_compare_parent_base":"58e82206b691ac49c98307efd798f9cfd1a78bc7",
+  "history_compare_head":"0d5ce194d63ea80084be925cc7c7d5d91423772c",
+  "prior_or_AT3_main_files_modified_or_deleted":0,
+  "firewalls":{
+    "native_zero_exists":false,
+    "void_is_native_zero":false,
+    "source_geometry_used_primary":false,
+    "AK_tau_used_primary":false,
+    "AL_A8_used_primary":false,
+    "guessed_area_formula_used_as_membership":false
+  }
+}
