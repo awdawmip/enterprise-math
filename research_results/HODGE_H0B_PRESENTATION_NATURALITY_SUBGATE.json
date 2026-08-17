@@ -1,0 +1,39 @@
+{
+  "schema": "HODGE_H0B_PRESENTATION_NATURALITY_SUBGATE_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0B-6A91D3",
+  "historical_h0a_status": "SUSPENDED_DO_NOT_EXECUTE_UNCHANGED",
+  "tests": [
+    {
+      "candidate": "ENT-A-BRC-BOOLEAN-ASSEMBLY",
+      "triggered": true,
+      "scope": "ordered finite cover/relation word",
+      "result": "PASS_ORDER_PRESERVING_RELABELING_ONLY",
+      "global_P1_claim": false
+    },
+    {
+      "candidate": "ENT-B-FUTURE-SAFE-QUOTIENT-ASSEMBLY",
+      "triggered": true,
+      "scope": "ordered finite cover with declared future direction",
+      "result": "PASS_ON_DECLARED_ORDERED_SCOPE",
+      "patch_swap_stress": "under tau(b_ij)=b_ji, the outgoing-signature quotient corresponds to the incoming-signature quotient for the reversed future language; fixed oriented language is not invariant under reversal",
+      "global_P1_claim": false
+    },
+    {
+      "candidate": "ENT-C-COMPOSITION-SAFE-REPAIR",
+      "triggered": true,
+      "scope": "oriented overlap pair",
+      "result": "CONDITIONAL_ORIENTATION_DEPENDENT",
+      "effect": "blocks any global presentation-free promotion even if leverage were later found"
+    },
+    {
+      "candidate": "ENT-D-A3-WEIGHTED-RELATION-ASSEMBLY",
+      "triggered": false,
+      "scope": "block-index permutation",
+      "result": "FORMULA_EQUIVARIANT_UNDER_SIMULTANEOUS_PERMUTATION_BUT_ASSEMBLY_COMPARISON_ALREADY_FAILS"
+    }
+  ],
+  "P1_standard_cover_stress": "NO_GLOBAL_CANDIDATE_PROMOTED",
+  "P1_nontrivial_morphism_stress": "NOT_REACHED_BECAUSE_NO_GLOBAL_ENTERPRISE_R2_CANDIDATE",
+  "P1xP1_factor_swap": "N/A_NO_PRODUCT_CLAIM"
+}

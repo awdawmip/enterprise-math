@@ -1,0 +1,100 @@
+{
+  "schema": "HODGE_H0B_COMPARISON_THEOREM_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0B-6A91D3",
+  "theorems": [
+    {
+      "id": "CT-A1",
+      "candidate": "ENT-A-BRC-BOOLEAN-ASSEMBLY",
+      "statement": "for any finite relation word and any support-preserving split policy, branchRun followed by literal-union recoalescence has exactly the same fine reachable support as direct relational execution",
+      "strength": "UNIVERSAL_THEOREM_IN_FROZEN_LEAN_MODULE",
+      "source": "EnterpriseMath.BranchRecoalescence.supportBranchInvariant",
+      "h0b_use": "correctness only; no strict leverage credit"
+    },
+    {
+      "id": "CT-B1",
+      "candidate": "ENT-B-FUTURE-SAFE-QUOTIENT-ASSEMBLY",
+      "statement": "on the finite surrogate, b00 and b10 have identical final support {c0}, b01 and b11 have identical final support {c1}; the two-class signature partition is the unique coarsest partition preserving declared one-step final support",
+      "strength": "SOUND_AND_COMPLETE_ON_DECLARED_FINITE_DOMAIN",
+      "exhaustive_partition_count": 15,
+      "sufficient_partition_count": 4,
+      "coarsest_partition": [
+        [
+          "b00",
+          "b10"
+        ],
+        [
+          "b01",
+          "b11"
+        ]
+      ],
+      "universal_support": "EnterpriseMath.BranchRecoalescence.oneStepCoarseSuccessorCoarsest"
+    },
+    {
+      "id": "CT-C1",
+      "candidate": "ENT-C-COMPOSITION-SAFE-REPAIR",
+      "statement": "for idempotent T, repair(q,q∘T) is transition-compatible and semiconjugates T to diagonalStep; on the declared four-state surrogate repair is bijective to the exact pair state",
+      "strength": "UNIVERSAL_THEOREM_PLUS_FINITE_EXACT_INSTANTIATION",
+      "sources": [
+        "EnterpriseMath.CompositionSafeCollapse.repair_transitionCompatible_of_idempotent",
+        "EnterpriseMath.CompositionSafeCollapse.repair_semiconj_diagonal_of_idempotent"
+      ]
+    },
+    {
+      "id": "CT-D-NEG",
+      "candidate": "ENT-D-A3-WEIGHTED-RELATION-ASSEMBLY",
+      "statement": "the A3 weighted field derived only from local capacities/totals is not complete for overlap assembly",
+      "strength": "EXACT_COUNTEREXAMPLE",
+      "good_system": {
+        "capacities": [
+          1,
+          1
+        ],
+        "totals": [
+          1,
+          1
+        ],
+        "weighted_field": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "compatibility_relation": [
+          [
+            "a",
+            "b"
+          ]
+        ],
+        "assembly_exists": true
+      },
+      "bad_system": {
+        "capacities": [
+          1,
+          1
+        ],
+        "totals": [
+          1,
+          1
+        ],
+        "weighted_field": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "compatibility_relation": [],
+        "assembly_exists": false
+      }
+    }
+  ],
+  "universal_general_hodge_claim": false
+}

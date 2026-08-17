@@ -1,0 +1,90 @@
+{
+  "schema": "HODGE_H0B_PROOF_LEVERAGE_CERTIFICATE_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0B-6A91D3",
+  "certificates": [
+    {
+      "certificate_id": "PLC-A",
+      "candidate": "ENT-A-BRC-BOOLEAN-ASSEMBLY",
+      "typed_source_object": "C_state(G_fin; finite local states and overlap relations)",
+      "typed_enterprise_object": "Boolean BranchConfig/branchRun at HX1/HX2 + N0/N1",
+      "source_theorem_critical_predicate_or_operator": "nonempty/global final reachable support through R01 then R12",
+      "independent_enterprise_definition": "branch split, relational direct image, literal-union recoalescence",
+      "comparison_theorem": "supportBranchInvariant",
+      "non_tautology_audit": "PASS",
+      "strict_leverage_class": null,
+      "strict_leverage_witness": "NONE; exact correctness does not reduce the already-relational source obligation",
+      "predeclared_measure_if_used": null,
+      "presentation_naturality_functoriality_scope": "ordered finite relation word; order-preserving relabelings only",
+      "target_leakage_audit": "PASS",
+      "prior_art_novelty_status": "GENERIC_RELATIONAL_REPACKAGING_NO_ENTERPRISE_R2_CREDIT",
+      "downstream_theorem_obligation_unlocked": "none beyond exact support execution",
+      "certificate_verdict": "FAIL_R2"
+    },
+    {
+      "certificate_id": "PLC-B",
+      "candidate": "ENT-B-FUTURE-SAFE-QUOTIENT-ASSEMBLY",
+      "typed_source_object": "C_state(G_fin; exact U1 local states b_ij)",
+      "typed_enterprise_object": "future support signature quotient at HX2/N1/N2",
+      "source_theorem_critical_predicate_or_operator": "declared one-step final-support behavior under R12",
+      "independent_enterprise_definition": "pointSignature from R12 + final observation; quotient by equality of signatures",
+      "comparison_theorem": "finite exhaustive coarsest safe partition + oneStepCoarseSuccessorCoarsest",
+      "non_tautology_audit": "PASS; signature is defined from relation execution/observation and never queries the boolean truth of a named assembly answer",
+      "strict_leverage_class": "DEPENDENCY_REDUCTION",
+      "strict_leverage_witness": "exact theorem-critical middle-state distinguishability reduces from 4 exact states to 2 future-safe classes while preserving complete declared final support",
+      "predeclared_measure_if_used": {
+        "name": "required_middle_state_classes_for_declared_final_support_language",
+        "source_value": 4,
+        "enterprise_value": 2,
+        "strict_improvement": true
+      },
+      "presentation_naturality_functoriality_scope": "PASS on ordered finite surrogate and order-preserving relabelings; global P^1/PGL2 claim not made",
+      "target_leakage_audit": "PASS",
+      "prior_art_novelty_status": "PRIOR_ART_RECOVERY_NO_ENTERPRISE_R2_CREDIT",
+      "downstream_theorem_obligation_unlocked": "one-step local-global continuation can be decided on the two-class quotient",
+      "certificate_verdict": "PASS_ABSTRACT_R2_CONTROL_ONLY",
+      "counts_toward_enterprise_hard_target": false
+    },
+    {
+      "certificate_id": "PLC-C",
+      "candidate": "ENT-C-COMPOSITION-SAFE-REPAIR",
+      "typed_source_object": "C_state(G_fin; overlap pair (i,j))",
+      "typed_enterprise_object": "repair(q,q∘T) + diagonalStep",
+      "source_theorem_critical_predicate_or_operator": "transition compatibility under idempotent T",
+      "independent_enterprise_definition": "pair repair from q and q∘T",
+      "comparison_theorem": "repair_transitionCompatible_of_idempotent + semiconjugacy theorem",
+      "non_tautology_audit": "PASS",
+      "strict_leverage_class": "NORMAL_FORM",
+      "strict_leverage_witness": "FAIL: on honest minimal four-state surrogate repair has four classes, exactly the source pair-state count; diagonalStep is the same (i,j)->(j,j) formula already present",
+      "predeclared_measure_if_used": {
+        "name": "carrier_class_count",
+        "source_value": 4,
+        "enterprise_value": 4,
+        "strict_improvement": false
+      },
+      "presentation_naturality_functoriality_scope": "oriented ordered-overlap scope only",
+      "target_leakage_audit": "PASS",
+      "prior_art_novelty_status": "GENERIC_RELATIONAL_REPACKAGING_NO_ENTERPRISE_R2_CREDIT",
+      "downstream_theorem_obligation_unlocked": "none with strict V2 improvement on this surrogate",
+      "certificate_verdict": "FAIL_R2"
+    },
+    {
+      "certificate_id": "PLC-D",
+      "candidate": "ENT-D-A3-WEIGHTED-RELATION-ASSEMBLY",
+      "typed_source_object": "C_state(G_fin; local capacities/totals plus separate overlap relation)",
+      "typed_enterprise_object": "A3 weighted integer field Z_ij",
+      "source_theorem_critical_predicate_or_operator": "existence of a compatible local assembly",
+      "independent_enterprise_definition": "Z_ij=m_j*c_i-m_i*c_j",
+      "comparison_theorem": "NEGATIVE: identical A3 field can coexist with different assembly truth values",
+      "non_tautology_audit": "PASS",
+      "strict_leverage_class": "INTEGRALITY_POSITIVITY_MONOTONICITY",
+      "strict_leverage_witness": "NOT_REACHED because source-to-A3 field loses overlap incidence identity",
+      "predeclared_measure_if_used": null,
+      "presentation_naturality_functoriality_scope": "block permutation equivariance is available, but irrelevant to missing incidence completeness",
+      "target_leakage_audit": "PASS",
+      "prior_art_novelty_status": "NOVELTY_UNRESOLVED",
+      "downstream_theorem_obligation_unlocked": "requires an algebraically sourced incidence-to-A3 richer-relation generation theorem before leverage can be assessed",
+      "certificate_verdict": "FAIL_R2"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "HODGE_H0B_BENCHMARK_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0B-6A91D3",
+  "task_id": "RS-HODGE-H0B-ENTERPRISE-OPERATIONAL-PROOF-LEVERAGE",
+  "taskbook_source": "a1bc5619b3cf9c55016933dfe2a121bcee676cdc",
+  "primary_benchmark": "ALGEBRAIC_LOCAL_TO_GLOBAL_ASSEMBLY",
+  "finite_exact_surrogate": {
+    "id": "BENCH-FINITE-OVERLAP-CHAIN",
+    "scope": "FINITE_EXACT_LOCAL_OVERLAP_SURROGATE_ONLY_NOT_A_SCHEME_DESCENT_THEOREM",
+    "patches": [
+      "U0",
+      "U1",
+      "U2"
+    ],
+    "local_states": {
+      "U0": [
+        "a0",
+        "a1"
+      ],
+      "U1": [
+        "b00",
+        "b01",
+        "b10",
+        "b11"
+      ],
+      "U2": [
+        "c0",
+        "c1"
+      ]
+    },
+    "restriction_labels": {
+      "rho_01_U0": {
+        "a0": 0,
+        "a1": 1
+      },
+      "rho_01_U1": {
+        "b00": 0,
+        "b01": 0,
+        "b10": 1,
+        "b11": 1
+      },
+      "rho_12_U1": {
+        "b00": 0,
+        "b01": 1,
+        "b10": 0,
+        "b11": 1
+      },
+      "rho_12_U2": {
+        "c0": 0,
+        "c1": 1
+      }
+    },
+    "compatibility_relations": {
+      "R01": [
+        [
+          "a0",
+          "b00"
+        ],
+        [
+          "a0",
+          "b01"
+        ],
+        [
+          "a1",
+          "b10"
+        ],
+        [
+          "a1",
+          "b11"
+        ]
+      ],
+      "R12": [
+        [
+          "b00",
+          "c0"
+        ],
+        [
+          "b01",
+          "c1"
+        ],
+        [
+          "b10",
+          "c0"
+        ],
+        [
+          "b11",
+          "c1"
+        ]
+      ]
+    },
+    "global_assembly_predicate": "there exists (s0,s1,s2) with R01(s0,s1) and R12(s1,s2)",
+    "consistent_control": {
+      "start_middle": [
+        "b00",
+        "b10"
+      ],
+      "allowed_U2": [
+        "c0"
+      ],
+      "expected_extendable": true
+    },
+    "inconsistent_control": {
+      "start_middle": [
+        "b01",
+        "b11"
+      ],
+      "allowed_U2": [
+        "c0"
+      ],
+      "expected_extendable": false
+    },
+    "finite_domain_claim_only": true
+  },
+  "toy_registry": [
+    {
+      "id": "T0",
+      "object": "point",
+      "result": "TRIVIAL_SANITY_ONLY"
+    },
+    {
+      "id": "T1",
+      "object": "P^1_C standard two-chart cover D_+(X), D_+(Y)",
+      "result": "PRESENTATION_STRESS_ONLY_NO_GLOBAL_R2_CLAIM"
+    },
+    {
+      "id": "T2",
+      "object": "P^1_C x P^1_C factor swap",
+      "result": "N/A_NO_PRODUCT_STRUCTURE_CLAIMED"
+    },
+    {
+      "id": "T3",
+      "object": "f:P^1->P^1, f([X:Y])=[X^2(X-Y):Y^3]",
+      "result": "REGISTRY_PRESENT_GLOBAL_FUNCTORIALITY_NOT_CLAIMED"
+    },
+    {
+      "id": "T4",
+      "object": "finite exact overlap chain",
+      "result": "EXHAUSTIVELY_CHECKED"
+    },
+    {
+      "id": "T5",
+      "object": "deliberately inconsistent local data",
+      "result": "EXHAUSTIVELY_CHECKED"
+    },
+    {
+      "id": "T6",
+      "object": "consistent local data",
+      "result": "EXHAUSTIVELY_CHECKED"
+    }
+  ],
+  "prior_art_control": {
+    "id": "CTRL-STACKS-DESCENT-QC",
+    "status": "CONTROL_ONLY",
+    "reference": "Stacks Project Tags 023A/023T",
+    "boundary": "classical descent data/cocycle/effectivity is a benchmark and never an Enterprise generator"
+  }
+}

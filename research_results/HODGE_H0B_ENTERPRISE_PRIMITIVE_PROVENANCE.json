@@ -1,0 +1,91 @@
+{
+  "schema": "HODGE_H0B_ENTERPRISE_PRIMITIVE_PROVENANCE_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0B-6A91D3",
+  "primitives": [
+    {
+      "candidate": "ENT-A-BRC-BOOLEAN-ASSEMBLY",
+      "frozen_sources": [
+        "EnterpriseMath/Relation/BranchRecoalescence.lean"
+      ],
+      "primitives": [
+        "Rel",
+        "relImage",
+        "BranchConfig",
+        "branchRun",
+        "exactRecoalesce",
+        "supportBranchInvariant",
+        "forgetfulRecoalescence_iff"
+      ],
+      "source_data": [
+        "finite local state sets",
+        "overlap compatibility relations"
+      ],
+      "forbidden_enrichments_absent": [
+        "multiplicity",
+        "provenance",
+        "probability",
+        "signed weight",
+        "amplitude"
+      ]
+    },
+    {
+      "candidate": "ENT-B-FUTURE-SAFE-QUOTIENT-ASSEMBLY",
+      "frozen_sources": [
+        "EnterpriseMath/Relation/BranchRecoalescence.lean",
+        "research_common_surface.json P023/A4 bridge"
+      ],
+      "primitives": [
+        "supportSignature",
+        "pointSignature",
+        "oneStepKey",
+        "oneStepCoarseSuccessorCoarsest"
+      ],
+      "source_data": [
+        "declared remaining relation",
+        "declared final support observation",
+        "declared finite future language"
+      ],
+      "future_language": "one remaining overlap relation R12"
+    },
+    {
+      "candidate": "ENT-C-COMPOSITION-SAFE-REPAIR",
+      "frozen_sources": [
+        "EnterpriseMath/Precision/CompositionSafeCollapse.lean"
+      ],
+      "primitives": [
+        "FiberConstant",
+        "repair",
+        "repair_transitionCompatible_of_idempotent",
+        "repair_coarsest_transitionCompatible",
+        "diagonalStep",
+        "repair_semiconj_diagonal_of_idempotent"
+      ],
+      "source_data": [
+        "incoming/outgoing overlap labels",
+        "idempotent transition T(i,j)=(j,j)"
+      ]
+    },
+    {
+      "candidate": "ENT-D-A3-WEIGHTED-RELATION-ASSEMBLY",
+      "frozen_sources": [
+        "src/enterprise_math/weighted_relation_field.py",
+        "src/enterprise_math/relation_lattice.py",
+        "src/enterprise_math/a3_a4_support_bridge.py"
+      ],
+      "primitives": [
+        "weighted_relation_field",
+        "weighted_relation_field_is_closed",
+        "coarsen_weighted_relation_field",
+        "recover_totals_from_weighted_field",
+        "relation_quantum"
+      ],
+      "source_data": [
+        "positive integer block capacities",
+        "integer local totals"
+      ],
+      "not_available_from_declared_inputs": "overlap-incidence identity"
+    }
+  ],
+  "typing_rule": "no theorem-critical structure is promoted above its frozen N/HX layer without a definability/invariance certificate"
+}
