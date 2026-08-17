@@ -1,0 +1,22 @@
+{
+  "schema": "R059D_STAGE_AL_CANONICAL_CIRCLE_CONSEQUENCES_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AL-5A9D31",
+  "definition": "C_E(O,r) is the endpoint orbit of the unique resolver in ADM_E(r), equivalently the accepted AK N fixed-length turn orbit.",
+  "terminology_upgrade": "accepted N native circle -> canonical Enterprise native circle within final ADM_E",
+  "consequences": {
+    "canonical_sector_word": "W_N(r)",
+    "canonical_period": "T_r=C_N(r)=6*(r+J_N(r))",
+    "canonical_circumference_count": "C_E(r)=C_N(r)",
+    "Beatty_formula": "J_N(r)=floor(alpha*r+1/3), 3alpha^2+6alpha-1=0, alpha>0",
+    "circle_constant": "lim T_r/(2r)=kappa_E, kappa_E^2=12, kappa_E>0",
+    "endpoint_convention": "Every fixed integer denominator shift 2r+epsilon with eventually positive denominator has the same kappa_E limit, by AI.",
+    "finite_sampling_robustness": "AJ remains valid: every C_s readout differs in circumference by at most 6 and converges uniformly to the same kappa_E."
+  },
+  "semantic_boundary": {
+    "standard_real_pi_identified": false,
+    "all_imaginable_discretizations_classified": false,
+    "C_s_promoted_to_native_primitive": false,
+    "unique_internal_register_encoding_claimed": false
+  }
+}
