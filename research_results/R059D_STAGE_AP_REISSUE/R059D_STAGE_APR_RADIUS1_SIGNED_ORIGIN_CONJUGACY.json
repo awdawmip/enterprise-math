@@ -1,0 +1,17 @@
+{
+  "schema":"R059D_STAGE_APR_RADIUS1_SIGNED_ORIGIN_CONJUGACY_V1",
+  "status":"PROVED_PARTIAL_CONJUGACY",
+  "researcher_id":"EM-R059D-APR-7E4C2B",
+  "encoding":"ENC_SIGNED(0)=O_E; ENC_SIGNED(k)=sign(k)(|k|+1) for k!=0",
+  "decoding":"DEC_SIGNED(O_E)=0; DEC_SIGNED(±n)=±(n-1)",
+  "channel_to_AK":"Psi(u,v,w)=(u-w,w-v)",
+  "D6_aux":"R6(u,v,w)=(-w,-u,-v)",
+  "D6_AK":"R(a,b)=(-b,a+b)",
+  "intertwining":"Psi(R6 d)=R(Psi(d))",
+  "A1_aux_cycle":[[1,0,0],[0,-1,0],[0,0,1],[-1,0,0],[0,1,0],[0,0,-1]],
+  "AK_radius1_cycle":[[1,0],[0,1],[-1,1],[-1,0],[0,-1],[1,-1]],
+  "conjugate_objects":{"endpoint_graph":true,"turn_order":true,"D6_action":true,"one_step_length_label":true,"minimal_period_6":true,"reversal":true},
+  "not_conjugate_objects":{"source_competition_fibers":"NEW_SIGNED_ORIGIN_REISSUE_SEMANTICS; legacy AK radius1 turn machine does not contain the four-corner source completion box","raw_DOWN_origin_and_axis_completion":"NEW_INTERNAL_FACTORING of the same visible one-turn edge; legacy AK normalizes directly between radius1 vertices","user_M_UP_sextet":"not a radius1 state and not an AP one-step competitor"},
+  "proof_side_support_check":"For the six A1 channel anchors, Psi gives the accepted AK radius1 D6 vertices. The actual coherent UP mixed state (1,-1,0) maps to (1,1), outside the radius1 endpoint set; the mandatory doubled M_UP maps still farther out. This comparison is audit evidence only and does not define AP native length.",
+  "native_status_restored_scope":"The visible one-step signed-origin endpoint cycle is exactly conjugate to legacy auxiliary radius1 AK. Hidden collapse-fiber semantics are an additional factorization, not inherited legacy structure."
+}
