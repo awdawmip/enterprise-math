@@ -1,0 +1,23 @@
+{
+  "schema":"R059D_STAGE_AH_STATE_INSUFFICIENCY_AUDIT_V1",
+  "status":"FROZEN",
+  "researcher_id":"EM-R059D-AH-7B1EFD",
+  "binding_lower_bound":{
+    "J_alone_insufficient":true,
+    "upstream_counterexample":"AF: r=15, J_N=J_C=2 but B_N=23, B_C=21"
+  },
+  "proved_sufficient_state":{
+    "name":"CONSTANT_SIZE_BOUNDARY_RESIDUAL_STATE",
+    "components":["a","b","rho"],
+    "plus":"immutable input radius r and emitted output prefix",
+    "sufficient_for_full_N_word":true,
+    "stores_2D_occupancy":false
+  },
+  "removal_audit":{
+    "remove_J":"no effect; AH generator does not require J as runtime state",
+    "remove_rho":"mathematically reconstructible from r,a,b using the AG support polynomial, but that reintroduces the forbidden support-oracle style computation; no smaller firewall-compliant recurrence was proved",
+    "remove_a_or_b":"no exact autonomous update/termination rule proved with the remaining variables alone"
+  },
+  "minimality_status":"MINIMAL_STATE_NOT_PROVED",
+  "approved_term":"CONSTANT_SIZE_SUFFICIENT_AUXILIARY_STATE_PROVED__MINIMALITY_OPEN"
+}
