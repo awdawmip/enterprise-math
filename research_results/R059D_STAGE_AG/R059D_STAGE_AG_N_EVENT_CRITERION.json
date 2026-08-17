@@ -1,0 +1,66 @@
+{
+  "AG_L1": {
+    "edge_support_costs_first_sector": {
+      "+a": "9q+9(a+b)+3",
+      "+a-b": "9q+9a+3",
+      "+b": "9q+9(a+b)+3",
+      "-a": "9q-9a+3",
+      "-a+b": "9q+9b+3",
+      "-b": "9q-9b+3"
+    },
+    "half_sector_monotonicity": {
+      "consequence": "before the sector bisector the outer envelope has no -a-only step; after reflection it has no +b-only step. Thus all Motzkin +1 symbols precede all -1 symbols.",
+      "diagonal_difference": "Phi(a-1,b+1)-Phi(a,b)=2-(a-b)",
+      "phi": "Phi(a,b)=q(a,b)-a+1/3 for a>=b",
+      "vertical_difference": "Phi(a,b+1)-Phi(a,b)=a+2b+1>0"
+    },
+    "minimum_support_cost": "G(a,b)=9q(a,b)-9*max(a,b)+3",
+    "peak_relation": "M_r=max_{selected sector vertices}(a+b)=r+J_N(r)",
+    "selection_criterion": "3q(a,b)-3*max(a,b)+1 <= 3r^2"
+  },
+  "accepted_af_owner_head": "9e863cfc89cab71118959deb38187a21fe1e96e1",
+  "definitions": {
+    "N_triangle_occupancy": "UP(a,b) occupied iff q(3a+1,3b+1)<=9r^2; DOWN(a,b) occupied iff q(3a+2,3b+2)<=9r^2",
+    "dual_selected": "vertex p is selected iff it is endpoint of at least one lattice edge whose two incident N triangles are occupied",
+    "q": "q(a,b)=a^2+a*b+b^2",
+    "sector": "a>=0,b>=0",
+    "shell": "m=a+b"
+  },
+  "event_criterion": {
+    "AF_integer_form": "3(3j+2)^2 + 6(3j+2)(3r) - (3r)^2 <= 0",
+    "given": "j=J_N(r-1)",
+    "new_pair": "Delta J_N(r)=1 iff shell m=r+j+1 exists",
+    "reduced_integer_form": "(3j+2)^2 + 6r(3j+2) - 3r^2 <= 0",
+    "shell_form": "(3r+3j+2)^2 <= 12r^2",
+    "tie": "equality has no solution for r>=1 because it would imply an integer ratio equal to the irrational positive root of y^2+6y-3=0"
+  },
+  "frozen_source_main": "fb5b7880e469c8e16769cf55601da15bb5f96b4f",
+  "researcher_id": "EM-R059D-AG-8C2E47",
+  "schema": "R059D_STAGE_AG_N_EVENT_CRITERION_V1",
+  "semantic_typing": {
+    "N_q": "frozen N-resolver bridge classifier, not promoted to Enterprise native metric",
+    "euclidean_curvature_used": false,
+    "pi_used": false,
+    "sqrt_runtime_used": false
+  },
+  "shell_minimization": {
+    "assume": "by a<->b symmetry take a>=b and a+b=m",
+    "difference": "f_m(a+1)-f_m(a)=2a-m",
+    "even_m_2k": {
+      "min_value": "3k^2-k",
+      "minimizers": "a=k,b=k and a=k+1,b=k-1",
+      "selection": "9k^2-3k+1<=3r^2"
+    },
+    "objective": "f_m(a)=q(a,m-a)-a=a^2-(m+1)a+m^2",
+    "odd_m_2k_plus_1": {
+      "min_value": "3k^2+2k",
+      "minimizer": "a=k+1,b=k",
+      "selection": "(3k+1)^2<=3r^2"
+    },
+    "uniform_integer_equivalence": "for even m the alternative inequality 9k^2-3k+1/4<=3r^2 is equivalent because 3r^2-9k^2+3k is integer",
+    "uniform_shell_criterion": "shell m exists iff (3m-1)^2 <= 12r^2"
+  },
+  "status": "PROVED",
+  "task_id": "RS-R059D-STAGE-AG-N-BEATTY-PROOF-STURMIAN-JUMP-LAW",
+  "taskbook_source_commit": "f1dcbd5d26b79be6dc8b2f495c81266a1c41ce9f"
+}
