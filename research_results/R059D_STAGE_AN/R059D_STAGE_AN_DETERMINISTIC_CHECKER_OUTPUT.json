@@ -1,0 +1,16 @@
+{
+  "schema": "R059D_STAGE_AN_DETERMINISTIC_CHECKER_OUTPUT_V1",
+  "status": "PASS",
+  "researcher_id": "EM-R059D-AN-4C2B91",
+  "checks_total": 13530,
+  "checks_passed": 13530,
+  "checks_failed": 0,
+  "checks_digest_sha256": "f655611f44f1a8feed6af44c458ecf7fc6921854bfc7f174cc694c83c5a3b5b1",
+  "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+  "history_compare_base": "c6be0626889b67763b56e7faebf2cd2185f0211c",
+  "history_compare_head": "60139b21a240a24f1b1db751262ab360ee25f3be",
+  "prior_stage_result_files_modified_or_deleted": 0,
+  "validation": "r=1..1024 plus checkpoints 2048,4096,8192; exact target endpoint/count structure, source weighted-sum coverage, r=1,2 equal controls, all replayed r>=3 nonproportionality, exact axis/central certificates, D6/reflection symmetry, zero-sum defect, persistent axis/central separation and target-generator firewall",
+  "theorem_role": "implementation validation only; all-radius nonproportionality and persistent two-limit distortion were frozen symbolically before replay",
+  "source_commit": "fc8db9c33b882e2782559ffc4c136a69a763110a"
+}
