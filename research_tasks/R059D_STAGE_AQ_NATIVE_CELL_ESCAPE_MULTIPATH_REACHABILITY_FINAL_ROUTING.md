@@ -1,2 +1,0 @@
-Canonical taskbook source: 78f0d56edecb5cd57967b9ff0f1a2d3567550120
-Expected owner branch: research/r059d-stage-aq-native-cell-escape-multipath-reachability
