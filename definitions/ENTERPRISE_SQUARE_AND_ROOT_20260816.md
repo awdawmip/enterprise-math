@@ -1,63 +1,41 @@
-# 进取半平方、进取平方与进取开方
+# 历史定义：进取半平方、进取平方与进取开方
 
-Status: `ACTIVE / GEOMETRIC_RETYPE_FROZEN`
+Status: `SUPERSEDED_BY_ORIGIN_ONE_REBUILD`
 Date: `2026-08-16`
 Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
 
-## 1. 术语修正
+本文件曾以零原点三角形
 
-此前把单个三角形 `T_n=((0,0,0),(n,0,0),(0,-n,0))` 直接称为“进取平方”，现正式修正：
+`T_n=((0,0,0),(n,0,0),(0,-n,0))`
 
-- 单个 `T_n`：**进取半平方**（`ENTERPRISE_HALF_SQUARE`）；
-- `T_n` 与其关于 `v` 轴的镜像三角形合成的完整四边形：**进取平方**（`ENTERPRISE_SQUARE`）；
-- 完整进取平方的逆边长读数：**进取开方**（`ENTERPRISE_ROOT`）。
+为基础，冻结：
 
-完整四边形在经典二维拍扁图上表现为平行四边形/菱形；其相邻边属于两条进取垂直轴，因此在进取几何中承担“正方形”的原生角色。
+`ENTERPRISE_SQUARE(n)=n*n`
 
-## 2. 对旧 `3,6,9,...` 读数的重新定型
+`ENTERPRISE_ROOT(n^2)=n`。
 
-Stage AC 已证明单个 `T_n` 的三边 unit-adjacency incidence count 为
+用户于 `2026-08-17` 明确冻结新的基础坐标语义：
 
-`B_n = 3n`。
+`ENTERPRISE_COORDINATE_ORIGIN = 1`
 
-这是一维边界/侧边 incidence 读数，不再作为二维面积定义。
+`ENTERPRISE_ZERO_COORDINATE_EXISTS = false`。
 
-因此此前的 `3,6,...` 不再解释为 `ENTERPRISE_SQUARE` 或 `ENTERPRISE_HALF_SQUARE` 的面积值，也不再由它们定义开方。
+因此本文件中把原生坐标标签 `n` 与从原点出发的 primitive interval 数直接等同的零原点推导失效。
 
-## 3. 二维胞元面积计数
+当前 canonical square/root definition：
 
-在 `T_n` 内：
+`definitions/ENTERPRISE_SQUARE_AND_ROOT_ORIGIN_ONE_20260817.md`
 
-- 一个朝向的单位 `T_1` 胞元数为 `n(n+1)/2`；
-- 反向单位三角胞元数为 `n(n-1)/2`；
-- 两类相加得到单位三角胞元总数 `n^2`。
+最新冻结：
 
-故单个 `T_n` 含 `n^2` 个单位半平方胞元。
+`ENTERPRISE_SQUARE_RAW_AREA(n)=(n-1)^2`
 
-其关于 `v` 轴的镜像含同样 `n^2` 个胞元；两半合成完整进取平方，共含 `2n^2` 个单位三角胞元。
+`ENTERPRISE_SQUARE(n)=1+(n-1)^2`
 
-定义完整 `n=1` 对称四边形为一个进取面积单位，即两个单位半平方胞元组成一个单位进取平方面积。于是
+`ENTERPRISE_ROOT(1+(n-1)^2)=n`。
 
-`ENTERPRISE_SQUARE_AREA(n)=n^2`。
+仍保留为历史几何事实的是：若外部 primitive interval 边长 magnitude 为 `m`，则半平方 elementary triangle 总数为 `m^2`，完整镜像平方含 `2m^2` elementary triangular cells，普通 magnitude area 为 `m^2`。
 
-从而进取平方与代数自乘统一：
+被 supersede 的是把原生坐标标签本身直接当成该 magnitude 的解释。
 
-`ENTERPRISE_SQUARE(n)=n*n`。
-
-在该合法平方域上：
-
-`ENTERPRISE_ROOT(n^2)=n`，`n>=0`。
-
-单个三角形作为进取半平方，其归一化面积为完整进取平方的一半：
-
-`ENTERPRISE_HALF_SQUARE_AREA(n)=n^2/2`。
-
-若要求整数优先，可保留其单位半平方胞元计数 `n^2`，而不强迫把 `1/2` 写入底层胞元计数。
-
-## 4. 语义纪律
-
-- `3n` 是三边 incidence / boundary readout，不是二维面积。
-- `n(n+1)/2` 只计一个朝向的单位三角胞元，不是完整面积。
-- 完整二维胞元计数必须包含两种朝向，因此为 `n^2`。
-- 进取平方必须保持“乘法的自乘特例”语义；不得再用旧 `3 <-> 1`, `6 <-> 3` 控制定义平方/开方。
-- 旧 Stage AC 结果保留为历史计数结果，并按以上语义重新定型，不删除原始工件。
+本文件只保留作历史记录，不得继续作为 canonical frozen input。
