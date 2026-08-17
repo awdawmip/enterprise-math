@@ -1,0 +1,17 @@
+{
+  "schema":"R059D_STAGE_APR_DOWN_COMPETITOR_TABLE_V1",
+  "status":"PROVED",
+  "researcher_id":"EM-R059D-APR-7E4C2B",
+  "axis_cycle_aux":[[1,0,0],[0,-1,0],[0,0,1],[-1,0,0],[0,1,0],[0,0,-1]],
+  "rows":[
+    {"sector":0,"start":[1,0,0],"end":[0,-1,0],"DOWN_raw":[0,0,0],"UP_raw":[1,-1,0]},
+    {"sector":1,"start":[0,-1,0],"end":[0,0,1],"DOWN_raw":[0,0,0],"UP_raw":[0,-1,1]},
+    {"sector":2,"start":[0,0,1],"end":[-1,0,0],"DOWN_raw":[0,0,0],"UP_raw":[-1,0,1]},
+    {"sector":3,"start":[-1,0,0],"end":[0,1,0],"DOWN_raw":[0,0,0],"UP_raw":[-1,1,0]},
+    {"sector":4,"start":[0,1,0],"end":[0,0,-1],"DOWN_raw":[0,0,0],"UP_raw":[0,1,-1]},
+    {"sector":5,"start":[0,0,-1],"end":[1,0,0],"DOWN_raw":[0,0,0],"UP_raw":[1,0,-1]}
+  ],
+  "theorem":"The lower coherent adjacent-integer competitor is the auxiliary origin on every open sector. This follows from 0<A,B<1 and the shared LOWER branch; it is not guessed from orbit closure.",
+  "native_typing":"DOWN_raw auxiliary [0,0,0] is stored natively only as the glued origin state (±1,±1,±1); auxiliary 0 is never called a native coordinate.",
+  "D6":"Every row is the R6 transport of sector 0."
+}
