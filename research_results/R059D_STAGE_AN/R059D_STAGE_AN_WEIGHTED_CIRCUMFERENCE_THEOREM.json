@@ -1,0 +1,23 @@
+{
+  "schema": "R059D_STAGE_AN_WEIGHTED_CIRCUMFERENCE_THEOREM_V1",
+  "status": "PROVED_BEFORE_REPLAY",
+  "researcher_id": "EM-R059D-AN-4C2B91",
+  "theorem": {
+    "weighted_source_sum": "Circ_perp(r)=sum_(k=0)^(T_r-1) mu_r({e_k})=sum_k w_(r,k)",
+    "native_target_sum": "C_E(r)=T_r=sum_(k=0)^(T_r-1) 1",
+    "same_carrier_two_measures": "mu_r and nu_r are measures on the same finite canonical target turn set E_r but have different atom weights in general"
+  },
+  "proof": "The AM closed fibers cover the full source circle, their interiors are pairwise disjoint and neighboring overlaps are boundary rays of source arc measure zero; finite additivity therefore gives the exact weighted sum. Target counting is the AK/AL minimal turn period by definition of nu_r.",
+  "source_constant_typing": {
+    "definition": "Circ_perp(r)=2*kappa_perp*r in the accepted orthogonal source realization",
+    "kappa_perp": "source-typed circumference/diameter constant only",
+    "not_identified_with_kappa_E": true
+  },
+  "global_mean": {
+    "formula": "bar_w_r=Circ_perp(r)/T_r=2*kappa_perp*r/T_r",
+    "accepted_target_limit": "T_r/(2r)->kappa_E",
+    "limit": "bar_w_r -> kappa_perp/kappa_E",
+    "target_constant": "kappa_E^2=12, kappa_E>0"
+  },
+  "semantic_boundary": "The global mean is a conversion statistic between two measures; it is not a local isometry factor."
+}
