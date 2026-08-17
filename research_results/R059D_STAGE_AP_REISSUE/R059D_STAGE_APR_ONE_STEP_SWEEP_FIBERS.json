@@ -1,0 +1,12 @@
+{
+  "schema":"R059D_STAGE_APR_ONE_STEP_SWEEP_FIBERS_V1",
+  "status":"PROVED",
+  "researcher_id":"EM-R059D-APR-7E4C2B",
+  "source_role":"ORTHOGONAL_COMPATIBILITY_TEACHER_ONLY",
+  "first_sector":{"axis_start":"d0=+u=(1,0,0)","axis_end":"d1=-v=(0,-1,0)","theta_domain":"0<=theta<=pi_source/3","precollapse_aux":"X(theta)=A(theta)d0+B(theta)d1=(A,-B,0)","A":"cos(theta)-sin(theta)/sqrt(3)","B":"2*sin(theta)/sqrt(3)","endpoint_values":{"theta_0":"(A,B)=(1,0)","theta_pi_over_3":"(A,B)=(0,1)"},"open_sector_inequality":"for 0<theta<pi_source/3, 0<A(theta)<1 and 0<B(theta)<1"},
+  "adjacent_integer_completion_box_open_sector":{"states_aux":[[0,0,0],[1,0,0],[0,-1,0],[1,-1,0]],"interpretation":["origin/lower extreme","start-axis corner","end-axis corner","mixed upper extreme"]},
+  "D6_transport":{"rotation_aux":"R6(u,v,w)=(-w,-u,-v)","sector_count":6,"open_fibers":"six open source arcs between consecutive A1 axis directions","boundary_overlap":"only the six source axis directions; zero angular measure under the continuous source-arc measure"},
+  "measure_statement":{"uniform_source_angle":"competition set has normalized measure 1; each open sector has normalized measure 1/6; the six axis boundaries have measure 0","general_source_measure":"competition mass is 1 minus any atomic mass placed on the six axis directions; this is source-measure dependent and is not a native probability"},
+  "symbolic_reason":"The inequalities 0<A,B<1 are exact on every open 60-degree sector, so the integer candidate set is constant throughout the open fiber and changes only at sector-axis endpoints.",
+  "firewalls":{"source_sweep_selects_target_winner":false,"source_angle_defines_native_length":false,"native_zero_used":false}
+}
