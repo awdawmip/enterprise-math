@@ -1,0 +1,18 @@
+{
+  "schema": "R059D_STAGE_AI_SCALE_INVARIANCE_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AI-4F8C2D",
+  "statement": "For every fixed positive integer h, both native diameter conventions converge to the same kappa_E along the subsequence hr.",
+  "transition_span": {
+    "ratio": "C_N(h*r)/(2*h*r)",
+    "strict_bound": "-2/(h*r) < ratio-kappa_E < 1/(h*r)",
+    "limit": "kappa_E"
+  },
+  "cell_count": {
+    "ratio": "C_N(h*r)/(2*h*r+1)",
+    "strict_bound": "(-4-kappa_E)/(2*h*r+1) < ratio-kappa_E < (2-kappa_E)/(2*h*r+1)",
+    "limit": "kappa_E"
+  },
+  "proof": "Apply the all-radius finite-error identities at radius h*r and send r to infinity; h is fixed and positive.",
+  "scope": "integer refinement subsequences; no continuous scaling premise is used"
+}
