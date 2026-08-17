@@ -1,0 +1,16 @@
+{
+  "schema":"R059D_STAGE_APR_AXIS_COMPLETION_SPEC_V1",
+  "status":"FROZEN_BEFORE_ORBIT_REPLAY",
+  "researcher_id":"EM-R059D-APR-7E4C2B",
+  "input_state":"(raw_aux, sector k, turn_orientation eps) after coherent collapse, before storing the next segment endpoint",
+  "target_budget":1,
+  "missing_budget":"m=1-B(raw_aux); completion is admissible only when m>=0",
+  "axis_encounter":{"forward":"exit axis of sector k, namely d_(k+1)","reverse":"entry axis of sector k, namely d_k","typing":"This is read from the discrete target turn-state (sector,orientation), not from source Euclidean distance or angle."},
+  "rule":"COMPLETE(raw,k,eps)=raw + m*axis_encounter(k,eps) when m>=0 and the addition is one signed primitive channel step per unit of missing budget.",
+  "DOWN_case":"raw=0, B=0, m=1, so forward completion is exactly d_(k+1) and reverse completion is d_k.",
+  "exact_axis_case":"If the precollapse input is already an integer axis anchor then B=1, m=0 and no extra step is added.",
+  "UP_case":"raw=d_k+d_(k+1), B=2 gives m=-1; completion is undefined because an axis-completion operation may fill a deficit but may not delete overlength budget.",
+  "native_storage":"Auxiliary zero is only an internal computation chart state. The composed DOWN+COMPLETE update stores the resulting A1 native anchor and never stores native coordinate 0.",
+  "covariance":"R6 transports the rule sectorwise; reversing turn orientation exchanges exit/entry axis and gives the inverse cycle.",
+  "noncircularity":"The rule depends only on target budget deficit and the sector/orientation axis encounter. It contains no closure lookup, radius table, source metric, or desired endpoint list beyond the already-frozen local axis incidence."
+}
