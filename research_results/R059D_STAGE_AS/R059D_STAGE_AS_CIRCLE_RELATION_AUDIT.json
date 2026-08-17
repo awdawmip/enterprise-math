@@ -1,0 +1,27 @@
+{
+  "schema": "R059D_STAGE_AS_CIRCLE_RELATION_AUDIT_V1",
+  "status": "POST_PRIMARY_COMPARISON_FROZEN",
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "r1": {
+    "endpoint_set": "EQUAL_TO_AP_AK_AL_RADIUS1",
+    "cyclic_order": "EQUAL",
+    "period": 6,
+    "hidden_state": "AS terminal-side representation reduces to AR; it is not identified with AK tau runtime state"
+  },
+  "r2_to_r6": {
+    "terminal_side_fixed_chain_arm": "NOT_EQUAL: no cycle survives; every axis lift blocks after two pivots",
+    "edgewise_raw_flip_arm": "NOT_EQUAL_AS_ALL_PATH_OBJECT: additional legal length-drift branches survive before any old-circle comparison",
+    "canonical_circle_containment": "NOT_PROVED_AND_NOT_USED_AS_SELECTOR",
+    "period_equality": "NOT_DERIVED",
+    "endpoint_order_equality": "NOT_DERIVED"
+  },
+  "mismatch_causes": [
+    "GENERAL_RADIUS_CARRIER_UNDERDETERMINATION",
+    "PRE_CIRCLE_LENGTH_UNDERDETERMINATION",
+    "TRIANGLE_FLIP_ADMISSIBILITY_DEPENDS_ON_LENGTH_TYPING",
+    "SEGMENT_ESCAPE_SCORE_UNDERDETERMINATION"
+  ],
+  "no_retuning": true,
+  "no_old_circle_pruning": true,
+  "conclusion": "The accepted canonical circle cannot select the missing AS ontology without circularity. AS establishes r=1 compatibility but no intrinsic general-radius equality theorem."
+}
