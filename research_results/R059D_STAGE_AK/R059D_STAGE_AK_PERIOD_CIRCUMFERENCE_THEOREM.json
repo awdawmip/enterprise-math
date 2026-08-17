@@ -1,0 +1,16 @@
+{
+  "schema": "R059D_STAGE_AK_PERIOD_CIRCUMFERENCE_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AK-3C7E52",
+  "turn_period": "T_r=min{k>0: tau^k(S_r(O))=S_r(O)}",
+  "boundary_edge_count": "E_r=number of elementary edges in the accepted AH D6 boundary",
+  "circumference_count": "C_N(r)=6*(r+J_N(r))",
+  "theorem": "T_r=E_r=C_N(r)=6*(r+J_N(r))=6*(r+floor(alpha*r+1/3))",
+  "proof": {
+    "upper_bound": "one sector emits exactly |W_N(r)|=r+J_N(r) edges and sector normalization consumes no extra turn; six sectors return to the anchor",
+    "minimality": "the endpoint path is a simple D6 cycle with no repeated endpoint before final closure, so no segment-state return can occur earlier",
+    "strict_class_separation": "T_r-T_(r-1)=6*(1+s_r) in {6,12}, hence T_r is strictly increasing and the closed turn orbit period distinguishes the radius/length class"
+  },
+  "inherited_asymptotic": "lim T_r/(2r)=kappa_E, kappa_E^2=12, kappa_E>0",
+  "semantic_upgrade": "circumference is the number of elementary legal target turns needed to close the fixed-length orbit, not an externally imposed formula"
+}
