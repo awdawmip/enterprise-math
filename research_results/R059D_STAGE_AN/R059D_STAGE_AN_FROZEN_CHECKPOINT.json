@@ -1,0 +1,53 @@
+{
+  "schema": "R059D_STAGE_AN_FROZEN_CHECKPOINT_V1",
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "researcher_id": "EM-R059D-AN-4C2B91",
+  "task_id": "RS-R059D-STAGE-AN-BRC-PUSHFORWARD-MEASURE-PERSISTENT-DISTORTION",
+  "taskbook_source_commit": "e15ff710fb36f4149739880267e9284fb3409969",
+  "frozen_source_main": "c6be0626889b67763b56e7faebf2cd2185f0211c",
+  "owner_branch": "research/r059d-stage-an-brc-pushforward-measure-persistent-distortion",
+  "primary_disposition": "BRC_PUSHFORWARD_MEASURE_DECOMPOSITION_PROVED__PERSISTENT_TWO_LIMIT_DISTORTION_ESTABLISHED",
+  "freezes": {
+    "MEASURES": "nu_r(e)=1 target-native counting; mu_r(e)=Arc_perp(F_r,e)=r*Delta_r,e source-arc pushforward",
+    "WEIGHTED_SUM": "Circ_perp(r)=sum_e mu_r(e); C_E(r)=T_r=sum_e 1",
+    "GLOBAL_MEAN": "bar_w_r=Circ_perp(r)/T_r -> kappa_perp/kappa_E",
+    "SHARP_NONPROPORTIONALITY": "mu_r proportional to nu_r iff r in {1,2}",
+    "AXIS_FORMULA": "tan Delta_axis(r)=sqrt(3)/(2r-1); r*Delta_axis(r)->sqrt(3)/2",
+    "CENTRAL_SEQUENCE": "canonical central symbol-2 turn has a+b=M_N(r), a-b in {1,2}",
+    "CENTRAL_FORMULA": "tan Delta_mid=2sqrt(3)M/(3M^2+d^2-2d); r*Delta_mid->1",
+    "PERSISTENT_DISTORTION": "axis and central local weights have distinct limits sqrt(3)/2 and 1",
+    "DEFECT": "d_r,k=w_r,k-bar_w_r; sum_k d_r,k=0; D6/reflection symmetric",
+    "GLOBAL_RENORMALIZATION": "lambda_r=bar_w_r matches total only; no scalar sequence yields uniform local isometry",
+    "TARGET_CANONICALITY_REOPENED": false,
+    "KAPPA_TYPING": "kappa_perp source typed; kappa_E target native with kappa_E^2=12,kappa_E>0"
+  },
+  "checker": {
+    "status": "PASS",
+    "checks_total": 13530,
+    "checks_passed": 13530,
+    "checks_failed": 0,
+    "checks_digest_sha256": "f655611f44f1a8feed6af44c458ecf7fc6921854bfc7f174cc694c83c5a3b5b1",
+    "source_commit": "fc8db9c33b882e2782559ffc4c136a69a763110a",
+    "output_commit": "23e240aabde2e979a372e6242469027d10db0597",
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "validation": "r=1..1024 plus 2048,4096,8192"
+  },
+  "immutability_gate": {
+    "status": "PASS",
+    "compare_base": "c6be0626889b67763b56e7faebf2cd2185f0211c",
+    "compare_head": "60139b21a240a24f1b1db751262ab360ee25f3be",
+    "prior_stage_result_files_modified_or_deleted": 0
+  },
+  "artifact_manifest_sha256": "840355430ebc2fbb9f682335099bc070959fcf66316963d0a890999227b8a089",
+  "artifact_payload_head": "31ef7950b678f67140e5bd6e3b399906c559e445",
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "remaining_open": {
+    "FULL_MACROSCOPIC_DEFECT_PROFILE": false,
+    "POSITIVE_LIMITING_VARIANCE_THEOREM": false,
+    "STANDARD_REAL_PI_NEW_THEOREM": false,
+    "KAPPA_PERP_EQUALS_KAPPA_E": false,
+    "BRC_LOCAL_ISOMETRY": false
+  },
+  "later_stage_consumed": false
+}
