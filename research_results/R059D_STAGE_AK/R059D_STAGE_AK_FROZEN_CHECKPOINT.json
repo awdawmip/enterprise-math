@@ -1,0 +1,59 @@
+{
+  "accepted_aj_owner_head": "bb8f61fbfdac65e37ad12590de092648c6b6ab4a",
+  "artifact_manifest_sha256": "4420d7ff517c1281082659c6d1552ca885c60977f1617ae4d8fd423535ea5505",
+  "artifact_payload_head": "f5868e881587e92698a64d937dcf75da84da6615",
+  "checker": {
+    "checks_digest_sha256": "aee36414f23757bf859639eb0aba413c5797a8ed8f94ce94f604e1cd8178426d",
+    "checks_failed": 0,
+    "checks_passed": 73745,
+    "checks_total": 73745,
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "output_commit": "af1c0173bccf61cdf3dab289df1bb2c57a3a6980",
+    "source_commit": "49fc5d84d19ce2d53cad6b87c59bb3848d3fb950",
+    "status": "PASS",
+    "validation_max_r": 16384
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "freezes": {
+    "ANCHOR": "S_r(O)=(O,r,0,L,r,0,-4)",
+    "D6_ROTATION_COVARIANCE": "tau(Rot_j S)=Rot_j tau(S)",
+    "ENDPOINT": "O+R^sector(a,b), R(a,b)=(-b,a+b)",
+    "ENDPOINT_ORBIT": "exactly the accepted AH N D6 boundary",
+    "ENTERPRISE_EQUAL_LENGTH": "same translated legal-turn orbit class generated from the same primitive-axis radius-r anchor",
+    "KAPPA": "lim T_r/(2r)=kappa_E; kappa_E^2=12,kappa_E>0",
+    "LOCAL_TURN_MACHINE": "constant-size integer one-edge-per-call tau",
+    "MIDLINE_RESIDUAL_TRANSFORM": "sigma=rho+9*b+3",
+    "REFLECTION": "conjugates tau to tau^{-1} at closed-orbit level",
+    "RIGHT_STEP_2": "if sigma>=0 emit 2; sigma<-sigma+3*(a-b-2); a<-a-1; b<-b+1",
+    "RIGHT_STEP_3": "if sigma<0 emit 3; sigma<-sigma+3*(2*a+b-2); a<-a-1",
+    "RUNTIME": "integer-only; no source-circle/Q, Euclidean distance, pi, sqrt, floating, trig, occupancy/word/boundary tables, or radius tuning",
+    "SEGMENT_STATE": "(O,r,sector,phase,a,b,z)",
+    "TARGET_FIXED_LENGTH": "PROVED_FOR_ACCEPTED_N_ORBIT",
+    "TRANSLATION_COVARIANCE": "tau(T_t S)=T_t tau(S)",
+    "TURN_PERIOD": "T_r=C_N(r)=6*(r+J_N(r))"
+  },
+  "frozen_source_main": "e28a11f6a3e94ec1bf1e1bf7ddbc0a062eef5183",
+  "immutability_gate": {
+    "compare_base": "e28a11f6a3e94ec1bf1e1bf7ddbc0a062eef5183",
+    "compare_head": "0d501448c13cf1c0d24cccd876c27e312493555d",
+    "prior_stage_result_files_modified_or_deleted": 0,
+    "status": "PASS"
+  },
+  "later_stage_consumed": false,
+  "owner_branch": "research/r059d-stage-ak-target-fixed-length-native-turn-orbit",
+  "primary_disposition": "TARGET_FIXED_LENGTH_NATIVE_TURN_ORBIT_THEOREM_PROVED__KAPPA_NATIVE_CIRCLE_CONSTANT",
+  "remaining_open": {
+    "C_FULL_AUTONOMOUS_FIXED_LENGTH_TURN_MACHINE": false,
+    "N_C_POINTWISE_ORBIT_IDENTITY": false,
+    "N_C_UNIQUE_CANONICAL_RESOLVER_SELECTION": false,
+    "STANDARD_REAL_PI_THEOREM": false,
+    "TRUE_INFORMATION_THEORETIC_MINIMAL_STATE": false
+  },
+  "researcher_id": "EM-R059D-AK-3C7E52",
+  "schema": "R059D_STAGE_AK_FROZEN_CHECKPOINT_V1",
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059D-STAGE-AK-TARGET-FIXED-LENGTH-NATIVE-TURN-ORBIT",
+  "taskbook_source_commit": "8628970bd3f072b7a8823873ec4597c1e31c4652",
+  "turn_machine_final_source_commit": "4f0a424c2c191d8866f811a478a552a2c9b8df43"
+}
