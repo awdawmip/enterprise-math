@@ -1,0 +1,25 @@
+{
+  "schema": "R059D_STAGE_AQ_MULTIPATH_STRUCTURE_THEOREM_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AQ-3A7E61",
+  "theorems": {
+    "DAG": "every escape edge raises SHELL by exactly one; hence the directed escape graph is acyclic",
+    "geodesic_equivalence": "escape paths are exactly the dual-graph paths whose shell increases by one at every jump, equivalently geodesic continuations away from STAR(O_E)",
+    "single_seed_shell": "a seed cell of shell s has every exact-J endpoint on shell s+J",
+    "aggregate_exact_endpoints": "for the full one-step D6 incidence seed set B_2, END_J=S_J union S_(J+1) union S_(J+2) for every J>=0",
+    "aggregate_reachability": "REACH_LE_J=B_(J+2) for every J>=0",
+    "all_shell_cells_reachable": "yes for the aggregate one-step D6 seed set on every shell admitted by the previous two identities",
+    "branching": "odd-shell cells have two equally far outward successors, so no canonical single path exists",
+    "merging": "distinct escape branches can recoalesce; aggregate branch mergers occur from J=2 onward",
+    "canonicality": "the full path family and reachable endpoint sets are canonical after the carrier, origin-star and graph-distance score are frozen; no tie selection is required"
+  },
+  "proof_skeleton": [
+    "dual-graph distance changes by at most one across an edge",
+    "the explicit shell certificate shows every cell has at least one shell+1 neighbor, with branch count 1 on even shells and 2 on odd shells",
+    "therefore FAR is exactly the outward-neighbor relation",
+    "the six one-step endpoint incident-cell families have geometric union B_2",
+    "every cell of positive shell has an inward predecessor, so reversing an inward geodesic supplies reachability from the appropriate seed shell"
+  ],
+  "set_valued_disposition": "CANONICAL_SET_VALUED_ESCAPE_RESOLVER_PROVED__NO_SINGLE_PATH_SELECTION_NEEDED",
+  "source_geometry_used": false
+}
