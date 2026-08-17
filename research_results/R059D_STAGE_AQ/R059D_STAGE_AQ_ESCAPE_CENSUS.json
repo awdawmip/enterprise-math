@@ -1,0 +1,46 @@
+{
+  "schema": "R059D_STAGE_AQ_ESCAPE_CENSUS_V1",
+  "status": "CENSUS_FROZEN_AFTER_THEOREM_DEFINITIONS",
+  "researcher_id": "EM-R059D-AQ-3A7E61",
+  "seed_set": "aggregate geometric one-step D6 seed union B_2, 24 cells",
+  "all_J_closed_forms": {
+    "shell_size": "q(s)=6*(floor(s/2)+1)",
+    "exact_endpoint_set": "END_J=S_J union S_(J+1) union S_(J+2)",
+    "endpoint_count_even_J": "9J+24",
+    "endpoint_count_odd_J": "9J+21",
+    "reach_le_J": "B_(J+2)",
+    "reach_count_if_J_2n": "6*(n+2)^2",
+    "reach_count_if_J_2n_plus_1": "6*(n+2)*(n+3)",
+    "path_count_if_J_2n": "24*2^n",
+    "path_count_if_J_2n_plus_1": "30*2^n",
+    "per_orientation_path_count_if_J_2n": "6*2^n",
+    "per_orientation_path_count_if_J_2n_plus_1": "8*2^n",
+    "per_orientation_endpoint_count_even_J": "3J+6",
+    "per_orientation_endpoint_count_odd_J": "3J+5",
+    "branch_merger_first_J": 2,
+    "endpoint_shape": "J=0 is B_2; every J>=1 exact endpoint set is a connected three-consecutive-shell annular band, never a simple cycle",
+    "D6_orbits_per_shell": "put m=floor(s/2)+1; if m odd, S_s has one orbit of size 6 plus (m-1)/2 orbits of size 12; if m even, it has m/2 orbits of size 12"
+  },
+  "path_multiplicity": {
+    "exact_recurrence": "m_0(C)=1 on B_2 and 0 elsewhere; m_(J+1)(D)=sum_{C: D in FAR(C)} m_J(C)",
+    "full_J0_32_endpoint_multiplicity_ledger_lines": 5496,
+    "full_ledger_sha256": "00723fe0bb1c8b7d8526e1083af710c91aef5fa508d599d3028479e538ae5f53",
+    "interpretation": "multiplicity is provenance only; every endpoint with positive multiplicity remains in the set-valued result"
+  },
+  "selected_rows": [
+    {"J":0,"paths":24,"endpoints":24,"reach_le":24,"shells":{"0":6,"1":6,"2":12},"multiplicity_histogram":{"1":24},"merged_endpoints":0,"max_multiplicity":1},
+    {"J":1,"paths":30,"endpoints":30,"reach_le":36,"shells":{"1":6,"2":12,"3":12},"multiplicity_histogram":{"1":30},"merged_endpoints":0,"max_multiplicity":1},
+    {"J":2,"paths":48,"endpoints":42,"reach_le":54,"shells":{"2":12,"3":12,"4":18},"multiplicity_histogram":{"1":36,"2":6},"merged_endpoints":6,"max_multiplicity":2},
+    {"J":3,"paths":60,"endpoints":48,"reach_le":72,"shells":{"3":12,"4":18,"5":18},"multiplicity_histogram":{"1":36,"2":12},"merged_endpoints":12,"max_multiplicity":2},
+    {"J":4,"paths":96,"endpoints":60,"reach_le":96,"shells":{"4":18,"5":18,"6":24},"multiplicity_histogram":{"1":36,"2":12,"3":12},"merged_endpoints":24,"max_multiplicity":3},
+    {"J":8,"paths":384,"endpoints":96,"reach_le":216,"shells":{"8":30,"9":30,"10":36},"multiplicity_histogram":{"1":36,"4":24,"5":12,"6":12,"10":12},"merged_endpoints":60,"max_multiplicity":10},
+    {"J":16,"paths":6144,"endpoints":168,"reach_le":600,"shells":{"16":54,"17":54,"18":60},"multiplicity_histogram":{"1":36,"8":24,"9":12,"28":24,"36":12,"56":24,"70":12,"84":12,"126":12},"merged_endpoints":132,"max_multiplicity":126},
+    {"J":24,"paths":98304,"endpoints":240,"reach_le":1176,"shells":{"24":78,"25":78,"26":84},"multiplicity_histogram":{"1":36,"12":24,"13":12,"66":24,"78":12,"220":24,"286":12,"495":24,"715":12,"792":24,"924":12,"1287":12,"1716":12},"merged_endpoints":204,"max_multiplicity":1716},
+    {"J":32,"paths":1572864,"endpoints":312,"reach_le":1944,"shells":{"32":102,"33":102,"34":108},"multiplicity_histogram":{"1":36,"16":24,"17":12,"120":24,"136":12,"560":24,"680":12,"1820":24,"2380":12,"4368":24,"6188":12,"8008":24,"11440":24,"12376":12,"12870":12,"19448":12,"24310":12},"merged_endpoints":276,"max_multiplicity":24310}
+  ],
+  "larger_checkpoints": [
+    {"J":64,"paths":103079215104,"endpoints":600,"reach_le":6936,"shells":{"64":198,"65":198,"66":204}},
+    {"J":128,"paths":442721857769029238784,"endpoints":1176,"reach_le":26136,"shells":{"128":390,"129":390,"130":396}}
+  ],
+  "probability_assigned": false
+}
