@@ -1,0 +1,41 @@
+{
+  "schema": "R059D_STAGE_AK_LOCAL_TURN_MACHINE_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AK-3C7E52",
+  "state": "S=(O,r,k,phase,a,b,z), k mod 6, phase in {L,R}",
+  "anchor": "(O,r,0,L,r,0,-4)",
+  "endpoint": "O+R^k(a,b), R(a,b)=(-b,a+b)",
+  "phase_L": {
+    "invariant": "a-b>=1; z=rho",
+    "branch_when_a_minus_b_gt_1": {
+      "rho_ge_0": "emit 1; rho<-rho-3*(a+2*b+3); b<-b+1",
+      "rho_lt_0": "emit 2; rho<-rho+3*(a-b-3); a<-a-1; b<-b+1"
+    },
+    "center_when_a_minus_b_eq_1": "emit 2 to (a-1,b+1); initialize right residual sigma=rho+9*b+3",
+    "zero_center_transition": "if an ordinary L step lands on a=b, normalize immediately to phase R with sigma=rho+9*b+3 without consuming another turn"
+  },
+  "phase_R": {
+    "invariant": "0<a<=b; z=sigma",
+    "sigma_ge_0": "emit 2; sigma<-sigma+3*(a-b-2); a<-a-1; b<-b+1",
+    "sigma_lt_0": "emit 3; sigma<-sigma+3*(2*a+b-2); a<-a-1",
+    "sector_finish": "when the emitted edge lands at a=0, the resulting state is normalized to the next sector anchor (k+1 mod 6,L,r,0,-4); this normalization is not an extra turn"
+  },
+  "right_residual_derivation": {
+    "reflected_support_form_used_only_in_proof": "L_R(a,b)=3*(a^2+a*b+b^2)-3*b+1",
+    "sigma_proof_invariant": "sigma=3*r^2-L_R(a-1,b+1)",
+    "midline_conversion": "sigma=rho+9*b+3 in both the a=b no-center case and the a-b=1 center case",
+    "step2_finite_difference": "sigma'=sigma+3*(a-b-2)",
+    "step3_finite_difference": "sigma'=sigma+3*(2*a+b-2)",
+    "runtime_support_evaluation": false
+  },
+  "termination": {
+    "left": "d=a-b decreases by 1 on symbol 1 and by 2 on symbol 2 until d in {0,1}",
+    "right": "a decreases by exactly 1 on every emitted right-half edge until a=0",
+    "sector_join": "R^k(0,r)=R^(k+1)(r,0)",
+    "full_join": "R^6=id"
+  },
+  "constant_size": true,
+  "unbounded_history": false,
+  "precomputed_word": false,
+  "runtime_integer_only": true
+}
