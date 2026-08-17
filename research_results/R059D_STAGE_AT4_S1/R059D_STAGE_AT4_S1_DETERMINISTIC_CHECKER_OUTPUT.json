@@ -1,0 +1,26 @@
+{
+  "schema":"R059D_STAGE_AT4_S1_DETERMINISTIC_CHECKER_OUTPUT_V1",
+  "status":"PASS",
+  "researcher_id":"EM-R059D-AT4S1-8C4E17",
+  "checks_total":418685,
+  "checks_passed":418685,
+  "checks_failed":0,
+  "checks_digest_sha256":"4b2a82f6c768401bc3b7e7810aa511afd80e7a55912f533478dd7a24757de286",
+  "checker_source_commit":"94b5ce3fb610500a3a9898da2fb61222b0068a67",
+  "history_gate":"PASS_EXTERNAL_GITHUB_COMPARE",
+  "history_compare_taskbook_base":"cba1b1bbd5c9e99fa7db0d9fad12e40f90fc5bb5",
+  "history_compare_at4_parent":"44ad1582bd45148b2d3811e4e750efa3771fc197",
+  "history_compare_head":"d5a934a458355a5720239d1a18b0c92fcfb05280",
+  "prior_or_at4_main_files_modified_or_deleted":0,
+  "validation":[
+    "exact U/D cell q-extrema and x<->y reflection through local labels 0..256",
+    "fresh-hidden generation through radius 256",
+    "first-hidden minimality and exact D(1,1) q-range",
+    "all 5530 primitive-edge strict overshoot events through r=64",
+    "all incident-cell hits on every overshoot edge",
+    "44 nearest-squared-norm ties",
+    "exact r=2 horizontal/vertical edge incidence",
+    "reverse geodesic cardinalities for first-hidden and critical overshoot states"
+  ],
+  "ci_status":"CI_NOT_REQUIRED_FOR_RESEARCH"
+}
