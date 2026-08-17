@@ -1,0 +1,20 @@
+{
+  "schema": "R059D_STAGE_AN_NONPROPORTIONALITY_THEOREM_V1",
+  "status": "PROVED_BEFORE_REPLAY",
+  "researcher_id": "EM-R059D-AN-4C2B91",
+  "theorem": "mu_r is proportional to nu_r iff r in {1,2}; hence mu_r is nonproportional to native counting measure for every integer r>=3.",
+  "r1_r2": {
+    "r1": "The canonical cycle is the six D6 axis turns, so the source circle is partitioned into six equal 60-degree fibers.",
+    "r2": "Each canonical sector has rays (2,0),(1,1),(0,2); source reflection about the sector bisector makes the two 30-degree fibers equal, and D6 transports this equality around the circle."
+  },
+  "r3": "The first two canonical symbol-2 turns have tan(Delta_0)/sqrt(3)=1/5 and tan(Delta_1)/sqrt(3)=3/13, hence unequal.",
+  "r4": "The first two canonical symbol-2 turns have tan(Delta_0)/sqrt(3)=1/7 and tan(Delta_1)/sqrt(3)=1/6, hence unequal.",
+  "r_ge_5": {
+    "AH_prefix": "At the anchor rho_0=-4, so the first symbol is always 2. After it rho_1=3*r-13, which is positive for every r>=5, so the second symbol is always 1.",
+    "first_weight": "tan(Delta_0)/sqrt(3)=1/(2*r-1)",
+    "second_weight": "tan(Delta_1)/sqrt(3)=(r-1)/(2*r^2-r+3)",
+    "equality_obstruction": "Equality would give (r-1)(2*r-1)=2*r^2-r+3, equivalently r=-1, impossible for r>=5."
+  },
+  "sharpness": true,
+  "proof_not_finite_census": true
+}
