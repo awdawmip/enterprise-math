@@ -1,0 +1,63 @@
+{
+  "artifact_manifest_sha256": "8d39fe9268609c6827e04f6a86234d6df496e3479e33b03892b9982145b73da9",
+  "artifact_payload_head": "774c2f0c371cb88d10117ad5044e4eabbad176db",
+  "checker": {
+    "checks_digest_sha256": "073a08162c7acc6b8387bc2c5c7f6563f0b2b764ba7243078148710607b98a50",
+    "checks_failed": 0,
+    "checks_passed": 5687,
+    "checks_total": 5687,
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "output_commit": "38b160d49bf9a075de2035100a97ebb236f0a4bd",
+    "source_commit": "70814eb89b38390ade30627f1cbdfec843ad9334",
+    "status": "PASS",
+    "validation": "anchors r<=256; carrier fibers r<=16; Arm-A dynamics r<=64; score shells r<=128; support witness r<=256; atlas r=2..6"
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "freezes": {
+    "AL_SUPPORT": "A8-disabled K_E(r) does not remove the first outer 1->2 drift witness; SUP(r-1,1)=9r^2-18r+21<=9r^2",
+    "ARM_A": "terminal-side plus fixed chain count: r=1 AR 6-cycles; every r>=2 axis lift blocks after two pivots",
+    "ARM_B": "edgewise/raw flips retain J=1 chain-count-increasing farthest-tied branches",
+    "CARRIER_UNDERDETERMINATION": "TERMINAL_SIDE_CHAIN and EDGEWISE_SIDE_STRIP both satisfy all pre-circle consistency axioms and coincide at r=1 but differ from r=2",
+    "CIRCLE_RELATION": "r=1 agrees post hoc; r>=2 AS diagnostic all-path objects are not equal to canonical circle",
+    "ESCAPE_SCORE_UNDERDETERMINATION": "free-endpoint shell ties inner/outer r=2 expansions while newly-entered-cell shell prefers outer",
+    "LENGTH_UNDERDETERMINATION": "L_chain and L_disp are both native/D6/axis-calibrated but disagree on O->(1,0)->(0,1)",
+    "LIFT_SEPARATION": "axis lift totals are 12 versus 6*2^r; at r=2, 12 versus 24",
+    "NATIVE_ZERO_EXISTS": false,
+    "RADIUS_TYPING": "r is primitive segment-unit count; signed-native axis coordinate magnitude is r+1",
+    "TRIANGLE_FLIPS": "1->2 changes chain cardinality +1; 2->1 changes -1; terminal pivot changes 0 and moves endpoint"
+  },
+  "frozen_source_main": "3350ee0e0fa1d35d379275bd08fb8554f15e9d33",
+  "immutability_gate": {
+    "compare_base": "3350ee0e0fa1d35d379275bd08fb8554f15e9d33",
+    "compare_head": "fd71d03e5b85ab78f1b6c34f0433316345f6fe1d",
+    "prior_stage_result_files_modified_or_deleted": 0,
+    "status": "PASS"
+  },
+  "later_stage_consumed": false,
+  "owner_branch": "research/r059d-stage-as-general-radius-segment-footprint-triangle-flip-escape",
+  "primary_disposition": "MULTIPLE_INEQUIVALENT_GENERAL_RADIUS_SEGMENT_LIFTS_SURVIVE__PRE_CIRCLE_LENGTH_AND_ESCAPE_LAW_UNDERDETERMINED__TRIANGLE_FLIP_CHAIN_DRIFT_PROVED",
+  "remaining_open": {
+    "CANONICAL_CIRCLE_CONTAINMENT_IN_WIDER_FOOTPRINT_GRAPH": false,
+    "CANONICAL_FLIP_COMPENSATION_OR_AXIS_COMPLETION": false,
+    "GENERAL_RADIUS_ALL_PATH_TURN_CLOSURE": false,
+    "INDEPENDENT_NATIVE_LONG_SEGMENT_ONTOLOGY": false,
+    "UNIQUE_GENERAL_RADIUS_LENGTH_INVARIANT": false,
+    "UNIQUE_SEGMENT_ESCAPE_SCORE": false
+  },
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "schema": "R059D_STAGE_AS_FROZEN_CHECKPOINT_V1",
+  "scope_qualifier": "R1_AR_REDUCTION_EXACT__R_GE_2_GENERAL_RADIUS_ONTOLOGY_NOT_CANONICALLY_SELECTED",
+  "semantic_boundaries": {
+    "AK_TAU_OR_SEG_E_USED_PRIMARY": false,
+    "AL_A8_USED_PRIMARY": false,
+    "GENERAL_RADIUS_CANONICAL_CARRIER_SELECTED": false,
+    "GENERAL_RADIUS_CIRCLE_CLOSURE_PROVED": false,
+    "NATIVE_ZERO_EXISTS": false,
+    "SOURCE_GEOMETRY_DEFINES_PRIMARY": false,
+    "TRIANGLE_EDGE_COUNT_EQUALS_UNIVERSAL_PHYSICAL_LENGTH": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059D-STAGE-AS-GENERAL-RADIUS-SEGMENT-FOOTPRINT-TRIANGLE-FLIP-ESCAPE",
+  "taskbook_source_commit": "75d2e38cf20bc7c6c64e0100c6d78ea151b5cbd6"
+}
