@@ -1,0 +1,32 @@
+{
+  "schema": "R059D_STAGE_AO_MICROSTRUCTURE_AUDIT_V1",
+  "status": "RESOLVED_BY_TWO_SCALE_LIMIT",
+  "researcher_id": "EM-R059D-AO-2D7C46",
+  "local_symbol_density": {
+    "left_symbol_1": "h_1(theta)=cos(theta)/sqrt(3)-sin(theta)",
+    "left_symbol_2": "h_2(theta)=sin(theta)+cos(theta)/sqrt(3)",
+    "right_symbol_2": "h_2(theta)=2*cos(theta)/sqrt(3)",
+    "right_symbol_3": "h_3(theta)=sin(theta)-cos(theta)/sqrt(3)",
+    "normalization": "the relevant h_s sum to g(theta) on each half-sector",
+    "conditional_frequencies": "f_s(theta)=h_s(theta)/g(theta)"
+  },
+  "exact_block_origin": "for any canonical block wholly inside one half-sector, symbol counts are exact endpoint-coordinate differences; scaled coordinate convergence turns these into the displayed local densities",
+  "pointwise_weight_status": {
+    "single_generic_limit": false,
+    "reason": "on every compact subinterval of an open half-sector the two relevant symbol densities are positive, while their limiting weight atoms are distinct except at symmetry endpoints",
+    "correct_object": "the Young measure Y_theta frozen in R059D_STAGE_AO_LOCAL_WEIGHT_PROFILE_THEOREM.json"
+  },
+  "macro_reconstruction": {
+    "target_weak_measure": "g(theta) alone is sufficient to reconstruct the weak limit of normalized native turn counting",
+    "source_weak_measure": "g together with the conditional mean identity integral w dY_theta=1/g reconstructs the weak source pushforward limit",
+    "second_moments": "g and the macro mean alone are not sufficient for individual-edge second moments; the Young microstructure is required"
+  },
+  "AN_extrema": {
+    "macro_axis": "w_macro(0)=sqrt(3)/2 is the minimum of the D6-periodic macro block-average profile",
+    "macro_bisector": "w_macro(pi_source/6)=1 is the maximum of the macro block-average profile",
+    "microscopic_caveat": "individual Young atoms have a wider local support; the AN axis/center values are extrema of the macro profile, not of every microscopic atom"
+  },
+  "symmetry": "symbol densities and Young laws extend by D6 period and reflection; symbol 1 and 3 interchange under reflection while symbol 2 is fixed",
+  "resolution": "the macroscopic density theorem is complete despite persistent symbol-scale oscillation; the oscillation is explicitly retained rather than averaged away silently",
+  "later_stage_consumed": false
+}
