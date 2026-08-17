@@ -1,0 +1,21 @@
+{
+  "schema": "R059D_STAGE_AK_FIXED_LENGTH_TURN_ORBIT_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AK-3C7E52",
+  "theorem": "TARGET_FIXED_LENGTH_NATIVE_TURN_ORBIT_THEOREM_PROVED",
+  "domain": "every integer r>=1 and every Enterprise center O",
+  "orbit": "C_E^N(O,r)={endpoint(tau^k(S_r(O))): k>=0}",
+  "claims": {
+    "fixed_center": "O is unchanged by every tau branch",
+    "legal_adjacency": "every tau call emits exactly one of the three canonical first-sector unit edges transported by R^sector, hence one of the six Enterprise adjacency directions globally",
+    "fixed_length": "L_E(tau(S))=L_E(S)=r",
+    "first_sector": "the L recurrence equals the accepted AH left half; the midline residual transform creates a forward R recurrence whose sigma sign exactly chooses the accepted reflected right-half edge",
+    "D6_completion": "landing at local (0,r) is normalized to the next-sector anchor because R^k(0,r)=R^(k+1)(r,0); after six sectors R^6=id",
+    "endpoint_orbit_equality": "the endpoint sequence is exactly the AH D6 boundary, edge for edge",
+    "simple_cycle": "inside each sector a never increases, b never decreases, and every edge changes the endpoint; interior vertices have a>0,b>0. Rotated open-sector interiors are disjoint and neighboring sectors meet only at their common axis endpoint.",
+    "no_early_endpoint_repeat": "for r>0 no endpoint repeats before the final return to O+(r,0)"
+  },
+  "runtime_source_geometry_query": false,
+  "runtime_history_storage": false,
+  "runtime_integer_only": true
+}
