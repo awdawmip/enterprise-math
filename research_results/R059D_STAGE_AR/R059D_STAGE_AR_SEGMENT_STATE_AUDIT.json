@@ -1,0 +1,23 @@
+{
+  "schema":"R059D_STAGE_AR_SEGMENT_STATE_AUDIT_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AR-5B8D24",
+  "task_id":"RS-R059D-STAGE-AR-STATEFUL-LINE-SEGMENT-MULTIPATH-ESCAPE-TURN-CLOSURE",
+  "taskbook_source_commit":"69719bbc84842386f1a3005420da3bff284b3c84",
+  "frozen_parent":"db226bb787620e6518f9be3c375c82ff3ffdd4ac",
+  "native_foundation":{"origin":"+1_EQUIV_MINUS1_EQ_O_E","native_zero_exists":false},
+  "minimal_state":"S=(e,C) with global fixed O_E; e=[O_E,p] a primitive radial native edge and C one of the two elementary origin-star triangles incident to e, interpreted as the side into which the segment is presently sweeping",
+  "component_audit":{
+    "fixed_endpoint_O_E":"NECESSARY_FOR_SEGMENT_SEMANTICS__GLOBAL_PARAMETER",
+    "primitive_segment_edge_e":"NECESSARY_FOR_SEGMENT_SEMANTICS__CARRIES_FREE_ENDPOINT_AND_ONE_STEP_INVARIANT",
+    "free_endpoint_p":"DERIVABLE_FROM_e_AS_THE_NON_ORIGIN_ENDPOINT",
+    "side_cell_C":"NECESSARY_FOR_SEGMENT_SEMANTICS__DISTINGUISHES_THE_TWO_NATIVE_SIDES_OF_e_AND_TURN_ORIENTATION",
+    "previous_cell_or_incoming_dual_edge":"NOT_NEEDED__THE_SEGMENT_IS_A_PRIMAL_EDGE_NOT_A_DUAL_CROSSING",
+    "directed_sector_or_angle":"DERIVABLE_COMBINATORIALLY_FROM_(e,C); NO_SOURCE_ANGLE_STORED",
+    "full_trace_history":"NOT_NEEDED_FOR_ONE_STEP_LOCAL_CONTINUATION",
+    "separate_length_label":"DERIVABLE_FROM_e_BEING_A_PRIMITIVE_EDGE_INCIDENT_TO_O_E"
+  },
+  "noncircularity":"state uses only native vertex-edge-triangle incidence and the independently frozen signed-origin primitive adjacency; no AK tau, SEG_E, AL A8, source angle or circle membership",
+  "key_rejection":"interpreting the two triangles incident to e as previous/current dual cells is invalid: the physical/native one-step segment lies along their shared primal edge rather than crossing it",
+  "disposition":"PRE_CIRCLE_STATEFUL_SEGMENT_LIFT_JUSTIFIED__MINIMAL_ORIENTED_EDGE_SIDE_FLAG"
+}
