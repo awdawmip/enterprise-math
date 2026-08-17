@@ -1,0 +1,26 @@
+{
+  "schema": "R059D_STAGE_AS_STATEFUL_ESCAPE_SCORE_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "candidate_scores": {
+    "FREE_ENDPOINT_SHELL": "primal graph distance d_graph(O_E,p) of the free endpoint",
+    "NEW_CELL_SHELL": "maximum AQ dual-cell shell among newly swept/entered elementary cells"
+  },
+  "properties": {
+    "FREE_ENDPOINT_SHELL": ["source-free","D6-covariant","translation-typed relative to fixed origin"],
+    "NEW_CELL_SHELL": ["source-free","D6-covariant","uses only accepted AQ cell incidence shell"]
+  },
+  "exact_disagreement_witness": {
+    "radius": 2,
+    "axis_chain_aux": [[0,0],[1,0],[2,0]],
+    "inner_edge_upper_expansion_cell": "U(0,0)",
+    "inner_cell_shell": 0,
+    "outer_edge_upper_expansion_cell": "U(1,0)",
+    "outer_cell_shell": 2,
+    "free_endpoint_after_both_expansions": [2,0],
+    "free_endpoint_shell_after_both": 2,
+    "result": "FREE_ENDPOINT_SHELL ties the two expansions; NEW_CELL_SHELL strictly prefers the outer expansion"
+  },
+  "formula_on_positive_axis_edge_i_upper_cell": "SHELL(U(i-1,0))=2*(i-1)",
+  "conclusion": "NO_UNIQUE_NATIVE_SEGMENT_ESCAPE_SCORE is forced by current pre-circle axioms. A single accepted FAR_STATE relation cannot be frozen without an additional state/length/score axiom."
+}
