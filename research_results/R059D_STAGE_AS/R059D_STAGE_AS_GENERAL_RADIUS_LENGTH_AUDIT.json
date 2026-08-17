@@ -1,0 +1,35 @@
+{
+  "schema": "R059D_STAGE_AS_GENERAL_RADIUS_LENGTH_AUDIT_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "primary_result": "GENERAL_RADIUS_PRE_CIRCLE_LENGTH_UNDERDETERMINED_ACROSS_SURVIVING_FOOTPRINT_SEMANTICS",
+  "candidate_chain_cardinality": {
+    "definition": "L_chain(P)=number of primitive edges in the ordered footprint chain",
+    "axis_anchor": "L_chain=r on every straight r-edge axis anchor",
+    "D6": "invariant",
+    "r1_reduction": "equals AR primitive-edge length 1",
+    "triangle_flip_effect": {"1_to_2":1,"2_to_1":-1,"terminal_pivot":0},
+    "typing": "valid native path-length observable for the chain carrier"
+  },
+  "candidate_endpoint_displacement": {
+    "definition": "L_disp(P)=native primal-graph distance from O_E to the free endpoint p",
+    "axis_anchor": "L_disp=r on every radius-r axis anchor",
+    "D6": "invariant",
+    "r1_reduction": "equals 1 on A1",
+    "triangle_flip_effect": "1<->2 flips preserve endpoints and therefore preserve L_disp; terminal pivots can change L_disp",
+    "typing": "valid native endpoint-displacement observable, but not proved identical to physical segment length"
+  },
+  "exact_disagreement_witness": {
+    "auxiliary_vertices": [[0,0],[1,0],[0,1]],
+    "chain": "O -> (1,0) -> (0,1)",
+    "L_chain": 2,
+    "L_disp": 1,
+    "direct_triangle_reduction": "O -> (0,1) has L_chain=1 and the same free endpoint",
+    "consequence": "the two source-free candidates agree on all axis anchors but disagree on a legal triangle footprint"
+  },
+  "path_independent_radius_class": "NOT_DERIVED from current frozen axioms",
+  "coordinate_magnitude_substitution": "FORBIDDEN",
+  "AL_support_rank_substitution": "FORBIDDEN",
+  "source_distance_substitution": "FORBIDDEN",
+  "conclusion": "A carrier-specific path length can be defined, but a carrier-independent pre-circle general-radius segment-length invariant is not uniquely determined."
+}
