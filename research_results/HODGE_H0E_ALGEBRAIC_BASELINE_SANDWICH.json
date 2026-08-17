@@ -1,0 +1,95 @@
+{
+  "B_raw_alg": {
+    "allowed": [
+      "exact O(a,b) frame transport",
+      "localization/coordinate substitution",
+      "raw X/Y continuation",
+      "explicit intermediate-state execution",
+      "final ACCEPT/REJECT observation"
+    ],
+    "carrier": "exact generated monomial-ray state (r,s,U_ij) plus verification SINK",
+    "forbidden": [
+      "future/suffix behavior quotient",
+      "behavioral minimization"
+    ],
+    "interface_counts_by_parameter": [
+      {
+        "B": 1,
+        "degree": [
+          1,
+          0
+        ],
+        "nonfinal_total": 22
+      },
+      {
+        "B": 2,
+        "degree": [
+          1,
+          0
+        ],
+        "nonfinal_total": 34
+      },
+      {
+        "B": 3,
+        "degree": [
+          1,
+          0
+        ],
+        "nonfinal_total": 48
+      },
+      {
+        "B": 1,
+        "degree": [
+          1,
+          1
+        ],
+        "nonfinal_total": 35
+      },
+      {
+        "B": 2,
+        "degree": [
+          1,
+          1
+        ],
+        "nonfinal_total": 50
+      },
+      {
+        "B": 3,
+        "degree": [
+          1,
+          1
+        ],
+        "nonfinal_total": 67
+      }
+    ]
+  },
+  "B_std_alg": {
+    "allowed": [
+      "composition of chart/frame transition maps",
+      "exact Laurent exponent simplification",
+      "elimination of explicit intermediate states",
+      "source-native regularity/equality checks",
+      "chart and factor relabeling symmetries",
+      "toric-boundary valuation signs and the regularity-support normal form RegSupp_{a,b}(r,s)"
+    ],
+    "candidate_transform_not_preinstalled": "no generic future-signature/behavior-minimization construction is inserted; only the independent algebraic RegSupp normal form is allowed",
+    "extends": "B_raw_alg",
+    "nonfinal_total": 12,
+    "source_native_recursive_interface": "stage-indexed RegSupp class (or verification SINK); on the reachable depth-3 source, RegSupp alone determines every remaining extension query and descended X/Y behavior",
+    "stage_class_counts": [
+      4,
+      4,
+      4
+    ],
+    "why_fair": "RegSupp is computed directly from algebraic localization exponents / pole support before any future-behavior quotient; excluding it would artificially weaken the algebraic baseline."
+  },
+  "anti_gaming": [
+    "B_std^alg is not weakened after quotient inspection",
+    "raw state-count reduction alone is insufficient",
+    "source-native divisor/regularity normal forms count as source leverage"
+  ],
+  "hard_target_rule": "Enterprise quotient must have attributed strict leverage absent from both baselines; equality with the B_std^alg recursive interface fails ROBUST_TRANSFORM_ATTRIBUTED.",
+  "researcher_id": "EM-HODGE-H0E-73A6C4",
+  "schema": "HODGE_H0E_ALGEBRAIC_BASELINE_SANDWICH_V1",
+  "status": "FROZEN_BEFORE_SUCCESS_COUNTS"
+}

@@ -1,0 +1,97 @@
+{
+  "cross_degree_control": "O(1,0) -> O(0,1), B=1,2,3 PASS",
+  "exact_tests": [
+    {
+      "B": 1,
+      "layer_bijection": true,
+      "source_degree": [
+        1,
+        1
+      ],
+      "suffix_observation_naturality": true,
+      "target_degree": [
+        1,
+        1
+      ],
+      "transition_naturality": true
+    },
+    {
+      "B": 2,
+      "layer_bijection": true,
+      "source_degree": [
+        1,
+        1
+      ],
+      "suffix_observation_naturality": true,
+      "target_degree": [
+        1,
+        1
+      ],
+      "transition_naturality": true
+    },
+    {
+      "B": 3,
+      "layer_bijection": true,
+      "source_degree": [
+        1,
+        1
+      ],
+      "suffix_observation_naturality": true,
+      "target_degree": [
+        1,
+        1
+      ],
+      "transition_naturality": true
+    },
+    {
+      "B": 1,
+      "layer_bijection": true,
+      "source_degree": [
+        1,
+        0
+      ],
+      "suffix_observation_naturality": true,
+      "target_degree": [
+        0,
+        1
+      ],
+      "transition_naturality": true
+    },
+    {
+      "B": 2,
+      "layer_bijection": true,
+      "source_degree": [
+        1,
+        0
+      ],
+      "suffix_observation_naturality": true,
+      "target_degree": [
+        0,
+        1
+      ],
+      "transition_naturality": true
+    },
+    {
+      "B": 3,
+      "layer_bijection": true,
+      "source_degree": [
+        1,
+        0
+      ],
+      "suffix_observation_naturality": true,
+      "target_degree": [
+        0,
+        1
+      ],
+      "transition_naturality": true
+    }
+  ],
+  "line_bundle_map": "tau^* O(a,b) = O(b,a)",
+  "morphism": "factor-swap tau(([X],[Y]))=([Y],[X])",
+  "primary_self_case": "O(1,1) -> O(1,1), B=1,2,3 PASS",
+  "researcher_id": "EM-HODGE-H0E-73A6C4",
+  "schema": "HODGE_H0E_FUNCTORIALITY_LEDGER_V1",
+  "state_map": "(r,s,i,j)->(s,r,j,i); X<->Y",
+  "status": "FROZEN",
+  "universal_functoriality_claim": false
+}

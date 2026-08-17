@@ -1,0 +1,38 @@
+{
+  "researcher_id": "EM-HODGE-H0E-73A6C4",
+  "schema": "HODGE_H0E_COMPARISON_THEOREM_REGISTRY_V1",
+  "status": "FROZEN",
+  "theorems": [
+    {
+      "id": "CT-E0-SOURCE-GENERATION",
+      "statement": "The finite X/Y source is deterministically generated from O(a,b) chart frames: p0=r,p1=a-r,q0=s,q1=b-s; target continuation is enabled iff both target exponents are nonnegative.",
+      "strength": "EXACT_ALGEBRAIC_FORMULA"
+    },
+    {
+      "id": "CT-E1-SUFFIX-CORRECTNESS",
+      "statement": "For every primary parameter, every generated nonfinal state and every remaining word, quotient execution and fine algebraic execution have identical ACCEPT/REJECT output.",
+      "strength": "1208/1208 EXACT FINITE CHECKS + general signature theorem"
+    },
+    {
+      "id": "CT-E2-COARSEST",
+      "statement": "Equality of complete remaining suffix signatures is the unique coarsest equivalence sufficient for all coordinates of that declared suffix language.",
+      "strength": "ELEMENTARY GENERAL FACTORIZATION THEOREM"
+    },
+    {
+      "id": "CT-E3-SOURCE-NORMAL-FORM",
+      "statement": "For the declared algebraic source, q_i classes equal the source-native RegSupp/toric-pole-support classes at every nonfinal cut.",
+      "strength": "GENERAL FOUR-CASE ALGEBRAIC PROOF + SIX-PARAMETER EXACT REPLAY"
+    },
+    {
+      "id": "CT-E4-PRESENTATION",
+      "statement": "Single-factor chart swaps conjugate source transitions and transport suffix signatures exactly; the U11-root alternative presentation is obtained by both swaps.",
+      "strength": "EXACT FINITE BIJECTION ON ALL SIX PRIMARY PARAMETERS"
+    },
+    {
+      "id": "CT-E5-FACTOR-SWAP",
+      "statement": "The algebraic factor swap sends O(a,b) to O(b,a), (r,s,i,j) to (s,r,j,i), and interchanges X/Y; generated source and suffix behavior commute with this map.",
+      "strength": "EXACT ON O(1,1) PRIMARY + O(1,0)->O(0,1) CONTROL"
+    }
+  ],
+  "universal_hodge_claim": false
+}

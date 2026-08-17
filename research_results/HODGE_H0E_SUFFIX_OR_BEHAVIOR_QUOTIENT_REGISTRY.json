@@ -1,0 +1,187 @@
+{
+  "aggregate": {
+    "all_pass": true,
+    "fine_suffix_vs_quotient_checks": 1208
+  },
+  "candidate_id": "E1_ALGEBRAIC_FULL_SUFFIX_QUOTIENT",
+  "coarsest_sufficient": "PASS by the general full-signature factorization theorem; every classifier recovering all remaining word outputs refines q_i",
+  "definition": "Sigma_i(s) is the complete ACCEPT/REJECT map for every remaining X/Y word; q_i identifies equality of Sigma_i.",
+  "general_behavior_theorem": {
+    "reason": [
+      "transport leaves the rational monomial ray and hence RegSupp invariant",
+      "a continuation succeeds exactly when its target chart is in RegSupp",
+      "the four possible root-regular RegSupp patterns have distinct depth-3/depth-2/depth-1 suffix languages on the reachable stages",
+      "therefore ker(Sigma_i)=ker(RegSupp_i) on every declared reachable stage"
+    ],
+    "scope": "all primary parameters; in fact the same four-case proof holds for a,b>=0 and B>=1 under the declared rooted depth-3 construction",
+    "statement": "On this rooted depth-3 monomial-regularity source, the full suffix-signature partition at every nonfinal cut equals the algebraic RegSupp/pole-support partition."
+  },
+  "novelty": "CLASSICAL_PRIOR_ART / PROJECT_EXISTING_FUTURE-SIGNATURE_PACKAGING",
+  "parameter_results": [
+    {
+      "B": 1,
+      "B_std_RegSupp_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "B_std_total": 12,
+      "degree": [
+        1,
+        0
+      ],
+      "descended_actions_well_defined": true,
+      "fine_suffix_checks": 96,
+      "q_partition_equals_source_RegSupp_partition": true,
+      "q_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "q_total": 12,
+      "raw_stage_counts": [
+        6,
+        8,
+        8
+      ]
+    },
+    {
+      "B": 2,
+      "B_std_RegSupp_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "B_std_total": 12,
+      "degree": [
+        1,
+        0
+      ],
+      "descended_actions_well_defined": true,
+      "fine_suffix_checks": 162,
+      "q_partition_equals_source_RegSupp_partition": true,
+      "q_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "q_total": 12,
+      "raw_stage_counts": [
+        12,
+        11,
+        11
+      ]
+    },
+    {
+      "B": 3,
+      "B_std_RegSupp_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "B_std_total": 12,
+      "degree": [
+        1,
+        0
+      ],
+      "descended_actions_well_defined": true,
+      "fine_suffix_checks": 244,
+      "q_partition_equals_source_RegSupp_partition": true,
+      "q_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "q_total": 12,
+      "raw_stage_counts": [
+        20,
+        14,
+        14
+      ]
+    },
+    {
+      "B": 1,
+      "B_std_RegSupp_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "B_std_total": 12,
+      "degree": [
+        1,
+        1
+      ],
+      "descended_actions_well_defined": true,
+      "fine_suffix_checks": 150,
+      "q_partition_equals_source_RegSupp_partition": true,
+      "q_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "q_total": 12,
+      "raw_stage_counts": [
+        9,
+        13,
+        13
+      ]
+    },
+    {
+      "B": 2,
+      "B_std_RegSupp_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "B_std_total": 12,
+      "degree": [
+        1,
+        1
+      ],
+      "descended_actions_well_defined": true,
+      "fine_suffix_checks": 230,
+      "q_partition_equals_source_RegSupp_partition": true,
+      "q_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "q_total": 12,
+      "raw_stage_counts": [
+        16,
+        17,
+        17
+      ]
+    },
+    {
+      "B": 3,
+      "B_std_RegSupp_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "B_std_total": 12,
+      "degree": [
+        1,
+        1
+      ],
+      "descended_actions_well_defined": true,
+      "fine_suffix_checks": 326,
+      "q_partition_equals_source_RegSupp_partition": true,
+      "q_stage_counts": [
+        4,
+        4,
+        4
+      ],
+      "q_total": 12,
+      "raw_stage_counts": [
+        25,
+        21,
+        21
+      ]
+    }
+  ],
+  "researcher_id": "EM-HODGE-H0E-73A6C4",
+  "schema": "HODGE_H0E_SUFFIX_OR_BEHAVIOR_QUOTIENT_REGISTRY_V1",
+  "status": "FROZEN"
+}

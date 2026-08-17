@@ -1,0 +1,71 @@
+{
+  "finite_window": {
+    "B_values": [
+      1,
+      2,
+      3
+    ],
+    "global_window_formula": "r in [-B,a+B], s in [-B,b+B]",
+    "root_state_rule": "stage-0 keeps exactly window monomial rays regular on U_00",
+    "why": "closed under the chart-swap reflections r->a-r and s->b-s"
+  },
+  "multistep_language": {
+    "actions": {
+      "X": "toggle first P^1 chart",
+      "Y": "toggle second P^1 chart"
+    },
+    "continuation_semantics": "transport the rational section algebraically; continuation succeeds only if it is regular on the target affine chart",
+    "depth": 3,
+    "final_observation": "ACCEPT iff no failed regularity transition occurred; otherwise REJECT",
+    "global_all_query": "all eight stage-0 words ACCEPT iff the monomial ray is regular on all four standard affine charts",
+    "root_chart": "U_00",
+    "stage_0_queries": [
+      "XXX",
+      "XXY",
+      "XYX",
+      "XYY",
+      "YXX",
+      "YXY",
+      "YYX",
+      "YYY"
+    ],
+    "verification_totalization": "a single absorbing SINK represents failed extendability for deterministic checking only; it is not an algebraic/world state"
+  },
+  "researcher_id": "EM-HODGE-H0E-73A6C4",
+  "schema": "HODGE_H0E_ALGEBRAIC_SOURCE_SPEC_V1",
+  "scope": "standard four-chart affine square of P^1xP^1, bounded monomial-ray family, depth-3 X/Y continuation language; no scheme/sheaf/Hodge theorem beyond this declared algebraic source family",
+  "source_object": {
+    "charts": {
+      "U_00": "X0 != 0, Y0 != 0; x=X1/X0, y=Y1/Y0",
+      "U_01": "X0 != 0, Y1 != 0; x=X1/X0, v=Y0/Y1=1/y",
+      "U_10": "X1 != 0, Y0 != 0; u=X0/X1=1/x, y=Y1/Y0",
+      "U_11": "X1 != 0, Y1 != 0; u=1/x, v=1/y"
+    },
+    "frame_convention": "e_ij = X_i^a Y_j^b on U_ij",
+    "homogeneous_coordinates": "([X0:X1],[Y0:Y1])",
+    "line_bundles": [
+      "O(1,0)",
+      "O(1,1)"
+    ],
+    "local_coefficient_exponents": {
+      "first_factor": "p_0(r)=r; p_1(r)=a-r",
+      "second_factor": "q_0(s)=s; q_1(s)=b-s",
+      "transition_x": "toggle i and p -> a-p",
+      "transition_y": "toggle j and q -> b-q"
+    },
+    "rational_monomial_ray": "[s_{r,s}] = C^* · x^r y^s e_00 on the dense torus; nonzero scalar is theorem-inert for regularity",
+    "regularity_rule": "[s_{r,s}] is regular on U_ij iff p_i(r)>=0 and q_j(s)>=0",
+    "source_native_normal_form": "RegSupp_{a,b}(r,s)={U_ij : p_i(r)>=0 and q_j(s)>=0}; equivalently the sign/pole-support pattern of the toric boundary valuations",
+    "variety": "X = P^1_C x P^1_C"
+  },
+  "status": "FROZEN",
+  "task_id": "RS-HODGE-H0E-ALGEBRAIC-SOURCE-INSTANTIATION-ATTRIBUTED-R2",
+  "taskbook_source": "89f058d618ad2d4834ed20b7917d17b4966267f2",
+  "typing": {
+    "algebraic_variety_line_bundle_rational_section": "HX0_ALGEBRAIC_SOURCE / SOURCE_OUTSIDE_ENTERPRISE_N0",
+    "chart_exponent_labels": "I0_IMPLEMENTATION_CARRIER + algebraic source coordinates",
+    "continuation_process": "source algebraic restriction/transport semantics; stage ordering is N1 when represented operationally",
+    "future_behavior_quotient": "HX2_ENTERPRISE_DERIVED_OPERATIONAL / N2_READOUT_COLLAPSE",
+    "sink": "VERIFICATION_ONLY_NOT_ONTIC"
+  }
+}
