@@ -1,0 +1,18 @@
+{
+  "schema": "R059D_STAGE_AJ_PRECISION_TIE_AUDIT_V1",
+  "researcher_id": "EM-R059D-AJ-6D4A19",
+  "status": "COMPLETE_FOR_THEOREM_CRITICAL_QUESTIONS",
+  "fixed_s_semantics": "Every integer s>=1 is a rigorously defined AD C_s resolver; no convergence in s is required to state the theorem.",
+  "uniform_phase_bound": "J_N(r)-J_C_s(r) is in {0,1} for every s>=1,r>=0; thus pointwise sampling instability cannot exceed one shell.",
+  "uniform_constant": "sup_{s>=1}|C_C_s(r)/(2r)-kappa_E|<5/r for r>=1; no sampling-stability threshold s0 is required for the algebraic constant theorem.",
+  "pointwise_all_s_stabilization": "OPEN / NOT REQUIRED: AJ does not claim a finite s0 after which every C_s event decision is identical for all radii.",
+  "arbitrarily_large_fixed_s_phase_changes": "OPEN AS A POINTWISE DYNAMICS QUESTION; it is not needed for resolver-robust kappa because the one-layer bound is already all-radius and uniform in s.",
+  "exact_half_ties_exist": [
+    {"s":2,"r":5,"m":6,"inside":2,"total":4},
+    {"s":8,"r":24,"m":28,"inside":32,"total":64},
+    {"s":12,"r":11,"m":13,"inside":72,"total":144}
+  ],
+  "canonical_tie_rule": "AD uses 2*K>=s^2, so exact halves are selected and have chi_s(r)=0 at that shell; no post-hoc tie rule was introduced.",
+  "AF_s1024_delay_pairs_reproduced": [[11,12],[24,25],[69,70],[82,83],[95,96],[153,154],[166,167],[179,180],[192,193],[250,251],[263,264],[276,277],[334,335],[347,348],[360,361],[373,374],[431,432],[444,445],[457,458]],
+  "interpretation": "Sampling can alter the local phase bit, but never the asymptotic Enterprise circle constant."
+}
