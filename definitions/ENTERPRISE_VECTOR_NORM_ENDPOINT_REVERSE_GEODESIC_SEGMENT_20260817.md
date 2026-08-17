@@ -1,4 +1,4 @@
-# 进取线段重基：固定累计向量模长，先定端点 cell，再反向取全部最短路径
+# 进取线段重基：象限内代数向量模先定端点，再反向取全部最短路径
 
 Status: `ACTIVE / CANONICAL / FOUNDATIONAL_SUPERSESSION`
 Date: `2026-08-17`
@@ -7,6 +7,7 @@ Depends on:
 - `definitions/ENTERPRISE_SIGNED_ORIGIN_ONE_COORDINATE_20260817.md`
 - `definitions/ENTERPRISE_INITIAL_CIRCLE_ALL_UNIT_INVARIANTS_20260817.md`
 - `definitions/ENTERPRISE_SQUARE_AND_ROOT_SIGNED_ORIGIN_ONE_20260817.md`
+- `definitions/ENTERPRISE_COORDINATE_SYSTEM_AND_BRC_BRIDGE_20260816.md`
 Supersedes as foundational radius/segment semantics:
 - `ELL_E(P)=1+d_E(O_E,P)` as the definition of circle radius / segment length;
 - `EXISTENCE_SPHERE_E(n)={P:d_E(O_E,P)=n-1}` as the canonical higher-circle endpoint rule;
@@ -14,15 +15,15 @@ Supersedes as foundational radius/segment semantics:
 
 ## 1. Foundational correction
 
-The previous geodesic-shell route inverted the logical order. It used shortest-jump count to define the length/radius first, then declared the endpoints at that graph distance to be the fixed-length shell.
+The previous geodesic-shell route inverted the logical order. It used shortest-jump count to define length/radius first and then declared the graph shell to be the fixed-length endpoint set.
 
 Freeze the corrected order:
 
 `VECTOR_LENGTH -> ENDPOINT_CELLS -> REVERSE_SHORTEST_PATH_FIBERS`.
 
-A fixed Enterprise segment/circle scale is determined first by a **native cumulative vector length**, not by primitive jump count.
+A fixed Enterprise segment/circle scale is determined first by a cumulative/resultant vector length, not by primitive jump count.
 
-Shortest paths remain important, but only after the endpoint cell is known: they are the complete minimal realizations of the already-selected endpoint, not the observable that selects the endpoint radius.
+Shortest paths remain important only after an endpoint cell is selected: they are the complete minimum-jump realizations of that endpoint.
 
 Freeze:
 
@@ -30,35 +31,98 @@ Freeze:
 
 `SHORTEST_PATHS_REALIZE_A_VECTOR_SELECTED_ENDPOINT`.
 
-## 2. Critical non-collapse: accumulate vectors first, take norm second
+## 2. Accumulate vectors first; never sum scalar edge lengths as radius
 
-Let a native spatial path after the origin carry primitive directed displacement vectors
+Let a path carry directed displacement vectors
 
 `Delta V_1, Delta V_2, ..., Delta V_k`.
 
-The radius observable must not be the scalar sum
+Do not define the radius by
 
 `sum_i ||Delta V_i||_E`.
 
-If all primitive steps have the same unit scalar length, that scalar sum collapses back to jump count and reproduces the rejected shell model.
+When primitive steps have common unit scalar length, that scalar sum collapses to jump count and reproduces the rejected shell model.
 
-Instead the path carries a cumulative/resultant vector state
+Instead compose the displacement vectors algebraically in the currently valid coordinate chamber:
 
-`V_cum(k) = V_base ⊕ Delta V_1 ⊕ ... ⊕ Delta V_k`,
+`V_cum = V_base + Delta V_1 + ... + Delta V_k`.
 
-where `V_base` is the native base/vector state associated with the initial circle/origin and `⊕` is the Enterprise-native vector composition law.
+Then measure the resultant vector.
 
-The quantity held fixed is
-
-`R_VEC(k) = ||V_cum(k)||_E`.
-
-Freeze the ordering:
+Freeze:
 
 `COMPOSE_VECTORS_FIRST__MEASURE_RESULTANT_SECOND`.
 
-Do not substitute a classical Euclidean norm or a scalar path-length sum.
+## 3. Quadrant/chamber-local algebraic vector norm is canonical
 
-## 3. Initial unit circle calibration retained
+The previous warning that the square-root-of-sum-of-squares formula had to be rediscovered was too strong.
+
+Current Enterprise axes are already frozen as pairwise `ENTERPRISE_ORTHOGONAL`. Together with the frozen arithmetic laws
+
+`ENTERPRISE_SQUARE(t)=t^2`
+
+and
+
+`ENTERPRISE_ROOT(t^2)=t`,
+
+the vector-length formula is accepted as an **algebraic norm inside one currently operable sign chamber / quadrant**.
+
+Let
+
+`V = v_1 e_1 + v_2 e_2 + v_3 e_3`
+
+be an Enterprise vector expressed in one fixed admissible sign chamber, with `e_i` the three native orthogonal axis directions. Then
+
+`||V||_E = ENTERPRISE_ROOT(v_1^2 + v_2^2 + v_3^2)`.
+
+Equivalently,
+
+`||V||_E = sqrt(v_1^2 + v_2^2 + v_3^2)`
+
+as an algebraic formula.
+
+If a local calculation has only two active components, the third vector-algebra component is zero and the same law reduces to
+
+`sqrt(x^2+y^2)`.
+
+This use of scalar/vector-algebra zero does **not** create native coordinate `0`. A zero vector component means only that the vector has no component along that algebraic basis direction.
+
+Freeze:
+
+`VECTOR_ALGEBRA_ZERO_COMPONENT != NATIVE_COORDINATE_ZERO`.
+
+`QUADRANT_LOCAL_PYTHAGOREAN_VECTOR_NORM = ACCEPTED_ALGEBRAIC_LAW`.
+
+This is not a claim that the Enterprise plane is globally Euclidean. It is a claim that, inside a fixed operable algebraic sign domain, orthogonal vector components combine by square, sum, and Enterprise root.
+
+## 4. Current quadrant restriction is structural, not a bug in the formula
+
+At present the Enterprise plane does **not** have a frozen coordinate-operation law that carries one raw coordinate expression continuously across a sign/quadrant boundary.
+
+Therefore the algebraic norm formula is applied only inside one fixed sign-consistent chart/chamber.
+
+When a path or endpoint analysis reaches a chamber boundary:
+
+1. stop the current coordinate arithmetic at the boundary;
+2. pass to an adjacent valid sign chart/chamber;
+3. re-express the vector there;
+4. continue with the same algebraic norm law in the new chamber.
+
+Do not perform a single raw-coordinate calculation that crosses a sign boundary as if the present coordinate algebra were globally chart-free.
+
+Freeze:
+
+`CURRENT_ENTERPRISE_COORDINATE_OPERATIONS_ARE_CHAMBER_LOCAL`.
+
+`CROSS_CHAMBER_GEOMETRY_REQUIRES_CHART_TRANSITION`.
+
+The word “quadrant” here denotes an Enterprise algebraic sign chamber; it is not assumed to mean the four classical Cartesian quadrants.
+
+This is consistent with the guiding principle:
+
+`ENTERPRISE_GEOMETRY_IS_CLOSER_TO_ALGEBRA_THAN_TO_CLASSICAL_CONTINUOUS_GEOMETRY`.
+
+## 5. Initial unit circle calibration
 
 The initial circle remains
 
@@ -68,138 +132,125 @@ with
 
 `R_E(1)=D_E(1)=P_E(1)=A_E(1)=1`.
 
-The vector-radius foundation must reduce to
+The exact embedding of the unique void-to-origin unit generation into the chamber-local vector representation must preserve the base norm one.
 
-`||V_base||_E = 1`
+Do not identify the raw native coordinate tuple `(±1,±1,±1)` with a three-component displacement vector by fiat. Native point coordinates and vector-algebra components are distinct typed objects.
 
-in the exact native sense eventually derived.
+Freeze:
 
-The algebraic representation of `V_base`, `⊕`, and `||.||_E` beyond this base calibration is not inserted by fiat here. It is a theorem problem.
+`POINT_COORDINATE_TUPLE != VECTOR_COMPONENT_TUPLE` unless an explicit chart map is given.
 
-## 4. Vector norm is native and currently underived
+This avoids the false inference that the origin vector norm is `sqrt(3)` merely because a three-axis point representative can be written `(±1,±1,±1)`.
 
-A valid Enterprise vector-length observable must be derived from native structure, not imported from the compatibility plane.
+## 6. Forward vector-radius endpoint generation
 
-At minimum it must be audited against:
+For target vector length `rho>=1`, generate admissible cumulative vectors **within each valid algebraic chamber** and retain every native cell reached with resultant norm `rho`.
 
-- three native axes and six directions;
-- `ENTERPRISE_ORTHOGONAL` axis semantics;
-- signed-origin/no-zero rules;
-- D6 covariance;
-- sign/reversal covariance;
-- axis calibration;
-- `ENTERPRISE_SQUARE(n)=n^2` without assuming a classical Pythagorean sum;
-- the initial-circle unit calibration.
+Write chamberwise:
 
-Do not assume
+`END_VEC_E(rho;Q) = { P : an admissible Q-local vector accumulation reaches P with ||V_cum||_E=rho }`.
 
-`sqrt(x^2+y^2)`,
+The global candidate endpoint support is obtained only by the justified union/gluing of the chamber-local supports along common axis/boundary states:
 
-`sqrt(x^2+y^2+z^2)`,
+`END_VEC_E(rho) = GLUE_Q END_VEC_E(rho;Q)`.
 
-`max(|a|,|b|,|a+b|)`,
+Do not obtain global support by a single cross-quadrant coordinate calculation.
 
-or any historical BRC/source norm as the native vector norm.
+If several chamber representations of the same boundary cell occur, retain the full provenance and prove their compatibility.
 
-Those may be tested only as candidates/certificates.
+The number of primitive jumps used to reach `P` is provenance, not the fixed radius.
 
-## 5. Forward vector-radius endpoint generation
+## 7. Reverse shortest-path realization fiber
 
-For a target native vector length `rho>=1`, run all admissible native vector-accumulation paths from the initial state and retain every cell reached with cumulative vector norm exactly `rho` under the frozen vector law.
+After an endpoint cell `P in END_VEC_E(rho)` is selected by vector norm, reverse the problem:
 
-Define, once the vector law is proved well-typed,
+`GEO_REV_E(P) = { gamma : VOID_E -> P | gamma has minimum admissible primitive jump count among paths to P }`.
 
-`END_VEC_E(rho) = { P : some admissible cumulative vector realization reaches cell P with ||V_cum||_E = rho }`.
-
-If the cumulative vector attached to a cell is path-independent, prove it and reduce this to a pointwise level set.
-
-If different admissible paths to the same cell can carry inequivalent cumulative vector states, do not select one: preserve the full fiber and type `END_VEC_E(rho)` set-valuedly.
-
-The forward generation step may use many jumps. The number of jumps used to reach `P` is provenance, not the fixed radius.
-
-## 6. Reverse shortest-path realization fiber
-
-After an endpoint cell `P in END_VEC_E(rho)` has been selected by vector norm, define its realization fiber by reversing the question:
-
-`GEO_REV_E(P) = { gamma : VOID_E -> P | gamma uses the minimum admissible primitive jump count among paths to P }`.
-
-Equivalently after deleting the unique `VOID_E -> O_E` prefix, retain all minimum-jump spatial tails from `O_E` to `P`.
+Equivalently, after deleting the unique `VOID_E -> O_E` prefix, retain every minimum-jump spatial tail from `O_E` to `P`.
 
 Freeze:
 
 `ALL_REVERSE_SHORTEST_REALIZATIONS_ARE_RETAINED`.
 
+`MIN_JUMP_COUNT(P) != VECTOR_RADIUS(P)` in general.
+
 No representative shortest path is privileged.
 
-But also freeze:
+## 8. New segment ontology
 
-`MIN_JUMP_COUNT(P) != VECTOR_RADIUS(P)` unless a later theorem proves equality on a declared subset.
-
-## 7. New segment ontology
-
-For target vector radius `rho` and endpoint `P in END_VEC_E(rho)`, the Enterprise segment state is the endpoint-selected realization fiber
+For vector radius `rho` and endpoint `P in END_VEC_E(rho)`, define
 
 `SEG_VEC_E(rho,P) = (rho, P, GEO_REV_E(P))`.
 
-The family of all segments of vector length `rho` is
+The complete fixed-length segment family is
 
-`SEG_VEC_E(rho) = { SEG_VEC_E(rho,P) : P in END_VEC_E(rho) }`.
+`SEG_VEC_E(rho) = {SEG_VEC_E(rho,P): P in END_VEC_E(rho)}`.
 
-Thus the endpoint cell and its vector-length class are primary; the shortest path family is secondary realization structure.
+Thus:
 
-This supersedes the prior identification
+- vector length is primary;
+- endpoint cell is selected by vector algebra;
+- shortest-path family is the secondary realization fiber.
+
+This supersedes
 
 `segment length = shortest path length`.
 
-## 8. Circle/perimeter consequence reopened
+## 9. Circle/perimeter consequence reopened
 
-A higher Enterprise circle may now be generated only after the vector-radius endpoint set is known.
+A higher Enterprise circle may be generated only after `END_VEC_E(rho)` is known.
 
-Candidate higher-circle support:
+Candidate support:
 
-`CIRCLE_SUPPORT_VEC_E(rho) = END_VEC_E(rho)`.
+`CIRCLE_SUPPORT_VEC_E(rho)=END_VEC_E(rho)`.
 
-Whether this endpoint support admits one or many native perimeter traversals, whether it is connected, and what its perimeter is are theorem questions.
+Whether the glued support is connected, whether it has one or many legal perimeter traversals, and how perimeter/area propagate are theorem questions.
 
-Do not replace `END_VEC_E(rho)` by a graph-distance shell merely because the latter is easy to enumerate.
+Do not replace it by a graph-distance shell merely because that shell is easy to enumerate.
 
-## 9. Interior and hidden-point consequence
+## 10. Hidden-interior consequence
 
-The AT3-HI negative theorem for the simple graph shell remains correct for that rejected candidate arm:
+The AT3-HI theorem remains exact for the rejected graph-shell candidate:
 
 `graph-distance shell + geodesic hull -> every vertex is perimeter-traced at birth`.
 
-It no longer constrains the vector-radius circle in the same way.
+That negative theorem no longer constrains the vector-radius support.
 
-Under vector-radius generation, a native cell may satisfy an interior/generation criterion while never belonging to any exact vector-norm perimeter endpoint set. Therefore the canonical fresh-hidden question is reopened from first principles.
+Because exact vector-norm levels need not coincide with minimum-jump shells, a cell can in principle become interior without ever lying on any prior exact vector-norm perimeter support.
 
-No claim that such a point must exist is frozen here; it must be found or ruled out under the derived vector law.
+The canonical fresh-hidden question is therefore reopened.
 
-## 10. What survives from the void-first foundation
+No claim that such a point must exist is frozen here.
 
-Retain:
+## 11. What survives
 
-- `VOID_E=∅` is external pre-coordinate nonexistence, not native `0`;
-- `VOID_E -> O_E=±1` is the unique first existence transition;
-- graph distance `d_E` is a valid combinatorial/min-jump observable;
-- all shortest realizations to a fixed endpoint are retained;
-- signed-origin and negative-coordinate rules;
-- initial circle `(R,D,P,A)=(1,1,1,1)`.
+Preserve:
+
+- `VOID_E=∅` external pre-coordinate nonexistence;
+- `VOID_E -> O_E=±1` unique first existence transition;
+- no native coordinate zero;
+- signed negative coordinates;
+- initial circle `(R,D,P,A)=(1,1,1,1)`;
+- graph distance/minimum jump count as a combinatorial observable;
+- all shortest paths to a fixed endpoint as reverse realization structure;
+- `ENTERPRISE_SQUARE(n)=n^2` and Enterprise root;
+- three pairwise `ENTERPRISE_ORTHOGONAL` native axes.
 
 Supersede:
 
-- `ELL_E=1+d_E` as the geometric segment radius/length;
-- fixed graph-distance existence shells as canonical higher circles.
+- `ELL_E=1+d_E` as geometric segment radius/length;
+- graph-distance shells as canonical higher circles;
+- the claim that the algebraic square-root-of-sum-of-squares vector norm is unavailable.
 
-`ELL_E` may remain as an external existence-depth / minimum-transition count if needed, but it is no longer the radius observable.
-
-## 11. Canonical summary
+## 12. Canonical summary
 
 Freeze:
 
-`RADIUS_IS_VECTOR_NORM_NOT_JUMP_COUNT`.
+`RADIUS_IS_RESULTANT_VECTOR_NORM_NOT_JUMP_COUNT`.
 
-`COMPOSE_VECTORS_FIRST__MEASURE_RESULTANT_SECOND`.
+`VECTOR_NORM_WITHIN_A_VALID_CHAMBER = sqrt(sum of squared orthogonal vector components)`.
+
+`CURRENT_COORDINATE_ARITHMETIC_CANNOT_CROSS_CHAMBERS_WITHOUT_RECHARTING`.
 
 `VECTOR_NORM_SELECTS_ENDPOINT_CELLS`.
 
@@ -208,5 +259,3 @@ Freeze:
 `SHORTEST_PATH_LENGTH_IS_NOT_SEGMENT_LENGTH`.
 
 `GRAPH_DISTANCE_SHELL_IS_NOT_CANONICAL_CIRCLE_BY_DEFINITION`.
-
-The exact native vector composition/norm law and its first hidden-interior consequences are the next research target.
