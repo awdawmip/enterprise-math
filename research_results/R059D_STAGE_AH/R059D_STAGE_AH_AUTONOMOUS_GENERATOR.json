@@ -1,0 +1,37 @@
+{
+  "schema":"R059D_STAGE_AH_AUTONOMOUS_GENERATOR_V1",
+  "status":"CANDIDATE_FROZEN_BEFORE_HOLDOUT",
+  "researcher_id":"EM-R059D-AH-7B1EFD",
+  "candidate_id":"AH-B3-RESIDUAL-BOUNDARY-WALK-001",
+  "form":"ALLOWED_FORM_C_EXACT_INDEPENDENT_WORD_ALGORITHM",
+  "input":"integer r>=0",
+  "initial_state":{"r0":"empty word","r_positive":"a=r,b=0,rho=-4,half=[]"},
+  "left_half_loop":{
+    "condition":"a-b>1",
+    "if_rho_nonnegative":{
+      "emit":"1",
+      "update":"rho:=rho-3*(a+2*b+3); b:=b+1"
+    },
+    "if_rho_negative":{
+      "emit":"2",
+      "update":"rho:=rho+3*(a-b-3); a:=a-1; b:=b+1"
+    }
+  },
+  "center_rule":"append symbol 2 iff a-b=1",
+  "reflection_completion":"append reverse(half) under 1->3,2->2",
+  "proof_invariant":"rho equals exact slack of the vertical boundary candidate (a,b+1) under the AG left-half support theorem",
+  "complexity":{"time":"O(|W_r|)=O(r)","auxiliary_state":"three integers a,b,rho plus output prefix","occupancy_state":"none"},
+  "runtime_firewall":{
+    "occupancy_lookup":false,
+    "source_Q":false,
+    "AG_support_predicate_call":false,
+    "floating_point":false,
+    "sqrt":false,
+    "pi":false,
+    "trigonometry":false,
+    "word_table":false,
+    "jump_table":false,
+    "radius_specific_parameters":false
+  },
+  "candidate_freeze_commit_precedes_holdout":true
+}
