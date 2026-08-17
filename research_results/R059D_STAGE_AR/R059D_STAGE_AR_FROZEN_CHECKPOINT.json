@@ -1,0 +1,61 @@
+{
+  "artifact_manifest_sha256": "bf9c55295297c5d34f7d293e5efee46cb09e3911f8915d097bd89f340481613c",
+  "artifact_payload_head": "7e9c15c64c5e2d19c641bf9f15b1ec138ed0f602",
+  "checker": {
+    "checks_digest_sha256": "ba4155ec2ad19084ff536086939fa091d4d9227ca21abe26d7dafdb39b8b6047",
+    "checks_failed": 0,
+    "checks_passed": 5075,
+    "checks_total": 5075,
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "output_commit": "096b2bd1af17f2254587bc66f9a3d20746ea5e19",
+    "source_commit": "37fdf9ef0bf949e346951c65a9fd032edba4ff8f",
+    "status": "PASS",
+    "validation": "all 12 lifts; J=0..64 plus 128..4096; BFS/DFS; SCC; D6/reversal; support arm r=1..32"
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "freezes": {
+    "ALL_BRANCH_CLOSURE": "every legitimate side lift closes with minimal state and endpoint period 6; no nonclosing branch survives",
+    "AL_SUPPORT_ARM": "support cap inactive on the one-step AR state space for every r>=1; r=1 frontier matches; no higher-r state lift generated",
+    "AQ_SHELL_INCREMENT": "Delta SHELL=0 on every AR transition; AQ strict +1 DAG does not survive",
+    "ENDPOINT_PROJECTION": "both oriented state cycles project to the same six A1 native endpoints in opposite orders",
+    "LIFT_COUNT": "exactly 12 = 6 A1 radial edges x 2 side lifts",
+    "MINIMAL_STATE": "S=(e,C) with global fixed O_E; e primitive radial edge; C one of two incident origin-star triangles as side/sweep flag",
+    "NATIVE_ZERO_EXISTS": false,
+    "POST_HOC_CIRCLE_RELATION": "AP/AK/AL radius-1 visible endpoint cycle agrees; hidden AR state semantics are new",
+    "PRE_CIRCLE_LENGTH": "L_pre=1 iff current segment edge is a primitive lattice edge incident to O_E; preserved exactly",
+    "STATEFUL_NEXT": "for (e,C), replace e by the unique other O_E-incident edge of C and C by the triangle across that edge",
+    "STATE_GRAPH": "two reversal-related directed 6-cycles",
+    "STATE_INDEX_LAW": "T(k,d)=(k+d,d), k mod 6, d in {+1,-1}"
+  },
+  "frozen_source_main": "db226bb787620e6518f9be3c375c82ff3ffdd4ac",
+  "immutability_gate": {
+    "compare_base": "db226bb787620e6518f9be3c375c82ff3ffdd4ac",
+    "compare_head": "c88665bc600473a41bc395b5953af7ab371e623b",
+    "prior_stage_result_files_modified_or_deleted": 0,
+    "status": "PASS"
+  },
+  "later_stage_consumed": false,
+  "owner_branch": "research/r059d-stage-ar-stateful-line-segment-multipath-escape-turn-closure",
+  "primary_disposition": "STATEFUL_ALL_PATH_SEGMENT_ESCAPE_DERIVES_NATIVE_TURN_CLOSURE__NO_SINGLE_PATH_SELECTOR_NEEDED",
+  "remaining_open": {
+    "GENERAL_RADIUS_PRE_CIRCLE_LENGTH_INVARIANT": false,
+    "RADIUS_R_STATEFUL_SEGMENT_LIFT_R_GT_1": false,
+    "STATEFUL_ESCAPE_GENERAL_RADIUS_CLOSURE": false,
+    "SUPPORT_PLUS_STATEFUL_ESCAPE_HIGHER_R_FRONTIER": false
+  },
+  "researcher_id": "EM-R059D-AR-5B8D24",
+  "schema": "R059D_STAGE_AR_FROZEN_CHECKPOINT_V1",
+  "scope_qualifier": "ONE_STEP_SIGNED_ORIGIN_SEGMENT_CLASS_ONLY__GENERAL_RADIUS_STATE_LIFT_OPEN",
+  "semantic_boundaries": {
+    "AK_SEG_E_MEMBERSHIP_USED": false,
+    "AK_TAU_USED_AS_PRIMARY_ORACLE": false,
+    "AL_A8_USED_AS_PRIMARY_SELECTOR": false,
+    "GENERAL_RADIUS_CLOSURE_PROVED": false,
+    "PREVIOUS_DUAL_CELL_MISTYPED_AS_SEGMENT_MEMORY": false,
+    "SOURCE_GEOMETRY_DEFINES_TRANSITION": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059D-STAGE-AR-STATEFUL-LINE-SEGMENT-MULTIPATH-ESCAPE-TURN-CLOSURE",
+  "taskbook_source_commit": "69719bbc84842386f1a3005420da3bff284b3c84"
+}
