@@ -1,0 +1,25 @@
+{
+  "schema":"R059D_STAGE_AT4_S1_HIDDEN_COLLAPSE_COUPLING_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AT4S1-8C4E17",
+  "canonical_surviving_policy":"EXACT_EDGE_AND_CELL_INCIDENCE",
+  "canonical_r_star":3,
+  "first_hidden_cell":"D(1,1)",
+  "mechanism":"STRICT_INTEGER_SQUARE_GAP_IN_WHOLE_CELL_NORM_RANGE",
+  "mechanism_certificate":"4 < q_min(D(1,1))=9/2 <= q <= q_max(D(1,1))=8 < 9. Thus integer-radius arcs r=1,2,3 all miss the cell while the radius-3 algebraic disk fully contains it.",
+  "collapse_direction_relevance":"IRRELEVANT_TO_CANONICAL_CELL_MEMBERSHIP_ONCE_EXACT_INCIDENCE_IS_USED",
+  "proxy_sensitivity_witness":{
+    "r":2,
+    "overshoot_edges":["(1,1)--(2,1)","(1,1)--(1,2)"],
+    "nearest_and_POST_proxy_vertices":[[2,1],[1,2]],
+    "relation_to_hidden_cell":"Both are vertices of D(1,1), although the exact radius-2 arc has q=4 and D(1,1) has q_min=9/2, so D(1,1) is not actually hit.",
+    "consequence":"Promoting endpoint proxies to cell trace would create false historical perimeter support and can erase the true r=3 hidden witness. This is over-tracing, not a native collapse law."
+  },
+  "policy_r_star_status":{
+    "EXACT_INCIDENCE":3,
+    "PRE_DOWN_PROXY":"NOT_ADMISSIBLE_AS_NATIVE_TRACE_POLICY",
+    "POST_UP_PROXY":"NOT_ADMISSIBLE_AS_NATIVE_TRACE_POLICY",
+    "NEAREST_PROXY":"NOT_ADMISSIBLE_AS_NATIVE_TRACE_POLICY"
+  },
+  "theorem":"The first hidden cell is caused by discrete integer-radius sampling of a continuous algebraic cell-norm interval, not by an independently selectable UP/DOWN collapse direction."
+}
