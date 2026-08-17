@@ -1,0 +1,26 @@
+{
+  "schema": "R059D_STAGE_AO_LIMIT_MEASURE_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AO-2D7C46",
+  "unnormalized_limits": {
+    "target_counting": "(1/r) sum_k delta_(theta_(r,k)) => g(theta) dtheta weakly",
+    "source_pushforward": "(1/r) sum_k mu_r(e_k) delta_(theta_(r,k)) = sum_k Delta_(r,k) delta_(theta_(r,k)) => dtheta weakly"
+  },
+  "normalized_limits": {
+    "hat_nu": "hat_nu_r => hat_nu_infty with d hat_nu_infty=[g(theta)/(2*kappa_E)] dtheta",
+    "hat_mu": "hat_mu_r => hat_mu_infty with d hat_mu_infty=[1/(2*kappa_perp)] dtheta",
+    "test_class": "all continuous periodic functions on the source-compatibility angular circle"
+  },
+  "proof_target": "uniform convergence of the scaled cumulative count to G implies convergence of its Stieltjes derivatives; T_r/r->2*kappa_E supplies normalization",
+  "proof_source": "AM fibers partition the source angular circle up to zero-measure boundary rays, max_k Delta_(r,k)=O(1/r), and midpoint weighted sums are Riemann sums for source angular measure",
+  "mutual_absolute_continuity": true,
+  "radon_nikodym": {
+    "source_over_target": "d hat_mu_infty / d hat_nu_infty = kappa_E/[kappa_perp*g(theta)]",
+    "target_over_source": "d hat_nu_infty / d hat_mu_infty = kappa_perp*g(theta)/kappa_E",
+    "nonconstant": "g(0)=2/sqrt(3) while g(pi_source/6)=1, so the ratio is nonconstant on positive-measure neighborhoods"
+  },
+  "local_mean_relation": "before normalization, d mu_limit/d nu_limit=1/g(theta)=w_macro(theta)",
+  "D6_reflection": "both limits respect the frozen D6 period and reflection symmetry; hat_mu_infty is source-angular uniform while hat_nu_infty has the nonconstant D6-periodic density g",
+  "typing": "kappa_perp remains source typed; kappa_E remains target native. This theorem is a comparison-measure result and does not install source angle or source density into target geometry.",
+  "later_stage_consumed": false
+}
