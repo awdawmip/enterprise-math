@@ -1,0 +1,17 @@
+{
+  "schema": "R059D_STAGE_AN_GLOBAL_RENORMALIZATION_NO_GO_V1",
+  "status": "PROVED_BEFORE_REPLAY",
+  "researcher_id": "EM-R059D-AN-4C2B91",
+  "global_factor": "lambda_r=bar_w_r=Circ_perp(r)/T_r",
+  "global_total_match": "lambda_r*T_r=Circ_perp(r) by construction",
+  "local_failure_all_r_ge_3": "By the sharp nonproportionality theorem, for every r>=3 there exists e_k with w_(r,k)!=lambda_r.",
+  "uniform_asymptotic_failure": {
+    "claim": "No scalar sequence lambda_r can satisfy sup_k |w_(r,k)-lambda_r| -> 0.",
+    "proof": "If such lambda_r existed, both canonical axis and central turns would approach lambda_r, so their weight difference would approach zero. But w_mid(r)-w_axis(r)->1-sqrt(3)/2>0."
+  },
+  "typing": {
+    "GLOBAL_MEAN_CONVERSION_FACTOR": "valid summary statistic",
+    "LOCAL_METRIC_ISOMETRY": false,
+    "BRC_ISOMETRY_RESCUED_BY_RADIUS_SCALING": false
+  }
+}
