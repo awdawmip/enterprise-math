@@ -1,0 +1,18 @@
+{
+  "AG_L4": {
+    "definition": "r_m=min{r>=0:J_N(r)=m}, m>=1",
+    "formula": "r_m=ceil((m-1/3)/alpha)=ceil(lambda*(m-1/3))",
+    "integer_certificate": "r_m is the unique first r with P_r(3m-1)<=0; at r_m-1 the same polynomial is >0",
+    "lambda": "1/alpha; unique positive root of x^2-6x-3=0",
+    "tie_handling": "alpha and lambda are irrational, so the ceiling argument is never an integer for m>=1"
+  },
+  "AG_L5": {
+    "proof": "6<lambda<7; for nonintegral x, ceil(x+lambda)-ceil(x) is in {6,7}. Both values occur infinitely often because r_m/m tends to irrational lambda, so all-6 or all-7 is impossible.",
+    "theorem": "g_m=r_(m+1)-r_m is always 6 or 7"
+  },
+  "researcher_id": "EM-R059D-AG-8C2E47",
+  "schema": "R059D_STAGE_AG_JUMP_POSITIONS_V1",
+  "status": "PROVED",
+  "validation_first_64_positions": [5,11,18,24,31,37,44,50,57,63,69,76,82,89,95,102,108,115,121,128,134,141,147,153,160,166,173,179,186,192,199,205,212,218,225,231,238,244,250,257,263,270,276,283,289,296,302,309,315,322,328,334,341,347,354,360,367,373,380,386,393,399,406,412],
+  "validation_gap_histogram_R16384": {"6":1358,"7":1175}
+}
