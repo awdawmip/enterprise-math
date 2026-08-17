@@ -1,0 +1,28 @@
+{
+  "schema": "R059D_STAGE_AM_SOURCE_ARC_DESCENT_AUDIT_V1",
+  "status": "SOURCE_EQUIDISTANCE_ARC_METRIC_DOES_NOT_DESCEND_THROUGH_CANONICAL_BRC",
+  "researcher_id": "EM-R059D-AM-8E3C64",
+  "source_edge_angle_certificate": {
+    "setup": "for consecutive target rays p=(a,b), q=(c,d) in one positive D6 sector, use the source compatibility embedding iota",
+    "det": "Delta_num=a*d-b*c>0",
+    "dot_twice": "D=2*a*c+2*b*d+a*d+b*c>0",
+    "formula": "tan(source angular width Delta)=sqrt(3)*Delta_num/D",
+    "arc_measure": "mu_perp(F)=r*Delta on C_perp(O,r)"
+  },
+  "first_nonuniform_radius": {
+    "r": 3,
+    "canonical_sector_word": "222",
+    "edge_0": "(3,0)->(2,1): det=3,D=15,tan(Delta_0)=sqrt(3)/5",
+    "edge_1": "(2,1)->(1,2): det=3,D=13,tan(Delta_1)=3*sqrt(3)/13",
+    "strict_inequality": "1/5 != 3/13, and both angles lie in (0,pi_source/3), so Delta_0 != Delta_1",
+    "same_target_turn_type": "both are elementary symbol-2 turns and each has target turn weight 1",
+    "r1_r2_audit": "r=1 has one turn per sector; r=2 has two reflection-paired turns per sector with equal source angular width. Hence r=3 is the first failure."
+  },
+  "theorem": {
+    "exists_lambda_r_for_every_turn_at_r3": false,
+    "source_arc_measure_is_target_one_turn_invariant": false,
+    "local_metric_descent": false,
+    "proof_independent_of_final_constant_comparison": true
+  },
+  "interpretation": "BRC preserves cyclic/radius compatibility but one target legal turn is a native combinatorial unit, not a constant source arc-length unit."
+}
