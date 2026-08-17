@@ -1,0 +1,28 @@
+{
+  "schema": "R059D_STAGE_AO_LIMITING_VARIANCE_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AO-2D7C46",
+  "mean_weight": "m_infty=kappa_perp/kappa_E",
+  "macro_profile": {
+    "weight": "w_macro(theta)=1/g(theta)",
+    "second_moment": "E_(hat_nu_infty)[w_macro^2]=(3/4)*log(3)",
+    "derivation": "by D6/reflection reduce to 12 copies of 0<=theta<=pi_source/6; there g=2*cos(theta)/sqrt(3), and integral sec(theta) from 0 to pi_source/6 is log(sqrt(3))",
+    "variance": "Var_macro=(3/4)*log(3)-(kappa_perp/kappa_E)^2",
+    "positivity": "strict because w_macro is nonconstant on a set of positive hat_nu_infty measure; no decimal evaluation of pi_source is used"
+  },
+  "edge_young_profile": {
+    "left_conditional_second_moment": "integral w^2 dY_theta = 3/4+sin(theta)^2",
+    "right_conditional_second_moment": "reflection of the left expression, equivalently 3/4+sin(pi_source/3-theta)^2",
+    "full_second_moment": "lim_r (1/T_r) sum_k w_(r,k)^2 = 5/6",
+    "variance": "Var_edge=5/6-(kappa_perp/kappa_E)^2",
+    "positivity": "strict because the limiting two-scale edge-weight law is not almost surely constant"
+  },
+  "micro_macro_gap": {
+    "identity": "Var_edge-Var_macro=5/6-(3/4)*log(3)",
+    "positive": "strictly positive because it is the integral of the positive conditional Young-measure variance on interior half-sectors",
+    "meaning": "the taskbook candidate (3/4)*log(3) is accepted for the squared macro block-average profile, but it is not the second moment of individual edge weights"
+  },
+  "discrete_convergence": "with bar_w_r=Circ_perp(r)/T_r, (1/T_r) sum_k (w_(r,k)-bar_w_r)^2 -> Var_edge",
+  "semantic_boundary": "log and trigonometric integration are source-compatibility analytics only. No statement here identifies kappa_perp with kappa_E or asserts a new theorem about standard real pi.",
+  "later_stage_consumed": false
+}
