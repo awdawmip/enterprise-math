@@ -1,0 +1,32 @@
+{
+  "schema": "R059D_STAGE_AM_CANONICAL_BRC_CIRCLE_BRIDGE_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AM-8E3C64",
+  "bridge_name": "CANONICAL_RADIAL_INCIDENCE_BRC_RELATION",
+  "target_is_pre_frozen": true,
+  "definition": {
+    "target_cycle": "let p_0,...,p_(T_r-1) be the AL canonical Enterprise endpoint cycle relative to O, in positive turn order, and e_k=(p_k,p_(k+1 mod T_r))",
+    "source_embedding": "use only the accepted source compatibility embedding iota into the orthogonal plane",
+    "fiber_relation": "(x,e_k) belongs to R_BRC,r iff the source ray d=x-O lies in the closed positively oriented angular cone from iota(p_k) to iota(p_(k+1))",
+    "equivalent_incidence": "for interior directions the ray from O through x meets the embedded canonical polygon on the relative interior of e_k",
+    "tie_rule": "a source ray through a target vertex belongs to both adjacent closed edge fibers; no artificial single-valued tie choice is required"
+  },
+  "derivation": "AD freezes the source orthogonal compatibility circle/chart and triangular incidence carrier; AL independently freezes the unique target frontier. The bridge uses only center-ray incidence between those two frozen objects and therefore compares them without reselecting the target.",
+  "strict_angular_progress_certificate": {
+    "symbol_1": "p=(a,b)->(a,b+1): det(p,p')=a>0 on a legal sector interior",
+    "symbol_2": "p=(a,b)->(a-1,b+1): det(p,p')=a+b>0",
+    "symbol_3": "p=(a,b)->(a-1,b): det(p,p')=b>0 on a legal sector interior",
+    "consequence": "each canonical turn subtends a nonzero source angular interval; one sector advances strictly from one axis ray to the next and D6 transport covers all six sectors"
+  },
+  "theorems": {
+    "surjective_onto_target_turns": true,
+    "source_circle_fully_covered": true,
+    "D6_equivariant": true,
+    "translation_covariant": true,
+    "cyclic_order_compatible": true,
+    "same_radius_class_label_preserved": true,
+    "generally_many_to_one": true,
+    "single_valued_function_required": false
+  },
+  "semantic_boundary": "R_BRC,r is a comparison/collapse relation from continuous source states to already-canonical target turns. It is not the target resolver and it does not define target membership."
+}
