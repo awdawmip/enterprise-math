@@ -1,0 +1,58 @@
+{
+  "accepted_ag_owner_head": "5063495ff0df643890cd1f4c72ffd2077161c13d",
+  "artifact_manifest_sha256": "616ec1e4fde192041930a2333e72e81f8796097ff0928a57eacf106eae532953",
+  "artifact_payload_head": "ab1697d1020bfd987108a9d5775fb471d422304f",
+  "candidate_freeze_commit": "12f33b2bb86412dcc83dbdad7d3731c5e68f72cc",
+  "checker": {
+    "checks_digest_sha256": "a63fa7ac7bf014ef1c91a0c27613ecef9bab8d360c7379224637a2b11c981c48",
+    "checks_failed": 0,
+    "checks_passed": 146779,
+    "checks_total": 146779,
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "output_commit": "582ef0e9a1bd6b6b897897a81bbbd959d37d3513",
+    "source_commit": "365786bcec8175e4d1a14f287b32db3d1902c65c",
+    "status": "PASS",
+    "validation_max_r": 16384
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "freezes": {
+    "AF_B_FUNCTIONAL": "B=sum current height before each a-decreasing step 2 or3",
+    "AG_COMPATIBILITY": "#1=#3=J_N(r)=floor(alpha*r+1/3); #2=r-J; |W|=r+J",
+    "AUXILIARY_STATE": "(a,b,rho), constant number of integers; minimality open",
+    "CENTER": "symbol 2 iff terminal a-b=1",
+    "COUNT_READOUTS": "D=2r+1; C=6r+6J=6|W|; V=1+3r(r+1)+6B",
+    "D6_API": "generate_enterprise_circle_N(r)->{W,B,J,D,C,V,sector_vertices,full_boundary}",
+    "HOLDOUT": "r=513..4096 complete word equality, zero mismatch; 8192/16384 checkpoints pass",
+    "REFLECTION": "right half = reverse(left) under 1<->3,2 fixed",
+    "RHO_INITIAL": "rho=-4",
+    "RHO_INVARIANT": "rho=3*r^2-[3*(a^2+a*(b+1)+(b+1)^2)-3*a+1] on left half",
+    "RUNTIME_FIREWALL": "integer-only; no occupancy/source-Q/support-call/word-table/jump-table/sqrt/pi/trig/floating",
+    "STEP_1": "if rho>=0 emit 1; rho<-rho-3*(a+2*b+3); b<-b+1",
+    "STEP_2": "if rho<0 emit 2; rho<-rho+3*(a-b-3); a<-a-1; b<-b+1",
+    "WORD_GROWTH_THEOREM": "PROVED_FOR_ALL_INTEGER_R_GE_0"
+  },
+  "frozen_source_main": "adc59649c9c8d9544037ec8972b4c80b71e9b14a",
+  "generator_source_freeze_commit": "aa50a612134f9ba2b90f33b48d11dccc5bee4bf7",
+  "immutability_gate": {
+    "compare_base": "adc59649c9c8d9544037ec8972b4c80b71e9b14a",
+    "compare_head": "2ba25d4e3f2428d409d0785540c30800ba5c3e1f",
+    "prior_stage_result_files_modified_or_deleted": 0,
+    "status": "PASS"
+  },
+  "later_stage_consumed": false,
+  "owner_branch": "research/r059d-stage-ah-n-motzkin-word-autonomous-growth",
+  "pre_candidate_protocol_commit": "25222b1fa3a2dc07a1b6848ae1cb47989268d903",
+  "primary_disposition": "FULL_N_MOTZKIN_WORD_FORWARD_GENERATOR_PROVED",
+  "remaining_open": {
+    "CLASSICAL_PI_THEOREM": false,
+    "C_WORD_GROWTH_THEOREM": false,
+    "N_C_RESOLVER_INDEPENDENT_SELECTION": false,
+    "TRUE_MINIMAL_STATE": false
+  },
+  "researcher_id": "EM-R059D-AH-7B1EFD",
+  "schema": "R059D_STAGE_AH_FROZEN_CHECKPOINT_V1",
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059D-STAGE-AH-N-MOTZKIN-WORD-AUTONOMOUS-GROWTH-LAW",
+  "taskbook_source_commit": "134eec2e1482c8edeb2fbe03a4ab6e012d1f9fd1"
+}
