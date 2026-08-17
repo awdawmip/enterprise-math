@@ -1,0 +1,21 @@
+{
+  "schema":"R059D_STAGE_AR_STATEFUL_CANDIDATE_RELATION_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AR-5B8D24",
+  "state":"S=(e,C) as frozen in Stage A",
+  "local_incidence_theorem":"An origin-star elementary triangle C has exactly two primitive edges incident to O_E. For a state (e,C), one is the current segment edge e and there is a unique other radial edge e_next(C,e).",
+  "successor_construction":"Let D be the unique elementary triangle other than C incident to e_next. Define NEXT(e,C)={(e_next,D)}.",
+  "candidate_exclusions":{
+    "across_current_edge_e":"excluded because it immediately undoes the chosen side-cell sweep rather than continuing through C",
+    "across_opposite_nonorigin_edge":"excluded because the shared edge is not incident to O_E and therefore cannot be the next fixed-origin one-step segment edge",
+    "other_radial_edge":"the unique legitimate continuation"
+  },
+  "candidate_count":1,
+  "AQ_baseline_relation":"AQ N3(C) has three cell-neighbors; segment-edge incidence legitimately removes two of them before the escape score is applied",
+  "base_CCW_example":"( [O,(1,0)], U(0,0) ) -> ( [O,(0,1)], D(-1,0) )",
+  "base_CW_example":"( [O,(1,0)], D(0,-1) ) -> ( [O,(1,-1)], U(0,-1) )",
+  "D6_reversal":"the rule is incidence-defined and commutes with D6; exchanging side orientation reverses the six-state traversal",
+  "source_or_circle_oracle_used":false,
+  "AK_tau_used":false,
+  "AL_A8_used":false
+}
