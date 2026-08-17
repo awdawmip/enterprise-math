@@ -1,0 +1,18 @@
+{
+  "schema": "R059D_STAGE_AO_CUMULATIVE_TURN_COUNT_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AO-2D7C46",
+  "sector_setup": "canonical first-sector vertices p_n=(a_n,b_n), n=0..M_N(r), with p_0=(r,0), p_M=(0,r)",
+  "left_half_identity": "if a_n>=b_n then n=b_n",
+  "right_half_identity": "if a_n<=b_n then n=M_N(r)-a_n",
+  "center_consistency": "when a_n=b_n both identities hold simultaneously; if the central turn crosses the bisector without a bisector vertex, the two one-sided conventions differ only on that single edge",
+  "proof_left": "before the bisector every legal symbol is 1:(a,b)->(a,b+1) or 2:(a,b)->(a-1,b+1), so b increases by exactly one on every turn",
+  "proof_right": "after the bisector every legal symbol is 2:(a,b)->(a-1,b+1) or 3:(a,b)->(a-1,b), so a decreases by exactly one on every turn; exactly a turns remain to (0,r)",
+  "exact_block_counts": {
+    "left_interval": "for left-half vertices i<j: total=j-i=b_j-b_i; #2=a_i-a_j; #1=(a_j+b_j)-(a_i+b_i)",
+    "right_interval": "for right-half vertices i<j: total=j-i=a_i-a_j; #2=b_j-b_i; #3=(a_i+b_i)-(a_j+b_j)"
+  },
+  "target_native": "all identities follow from the frozen AK turn alphabet and monotone target path; source angle or arc length is not used",
+  "consequence_for_continuum": "after division by r, the cumulative turn count is controlled directly by b/r on the left and M_N(r)/r-a/r on the right",
+  "later_stage_consumed": false
+}
