@@ -1,0 +1,18 @@
+{
+  "schema": "R059D_STAGE_AT4_S1_SECTOR_CELL_HIT_THEOREM_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AT4S1-8C4E17",
+  "arc": "ARC_E(r;S0)={V in S0:q(V)=r^2}",
+  "cell_hit_rule": "A closed native triangular cell C is hit iff q_min(C)<=r^2<=q_max(C).",
+  "proof_certificate": "C is connected and q is continuous, so q(C) is an interval; the exact extrema are frozen in the sector model. Hence the level q=r^2 intersects C exactly when r^2 lies in that interval.",
+  "disk_intersection": "C intersects q<=r^2 iff q_min(C)<=r^2.",
+  "full_containment": "C is fully contained in q<=r^2 iff q_max(C)<=r^2; the chamber-local algebraic disk is convex and every triangle vertex lies in the disk exactly in this case.",
+  "tie_rule": "If the algebraic arc lies on a native vertex or crosses/touches a native edge, every sector cell incident to that vertex/edge is retained. No preferred tie cell is selected.",
+  "primitive_edge_families": {
+    "H(i,j)": "v(i,j)--v(i+1,j)",
+    "V(i,j)": "v(i,j)--v(i,j+1)",
+    "G(i,j)": "v(i+1,j)--v(i,j+1)"
+  },
+  "overshoot_incidence": "For every strict bracket q(P)<r^2<q(Q) on a primitive edge P--Q, the algebraic arc crosses the edge interior. The native shell hit is therefore the set of all sector triangles incident to that edge (two away from sector boundaries), not either endpoint chosen by scalar proximity.",
+  "disposition": "EXACT_ALGEBRAIC_LEVEL_TO_NATIVE_CELL_INCIDENCE_PROVED__SET_VALUED_ON_BOUNDARY_TIES"
+}
