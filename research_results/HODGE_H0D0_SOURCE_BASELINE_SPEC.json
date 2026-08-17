@@ -1,0 +1,158 @@
+{
+  "schema": "HODGE_H0D0_SOURCE_BASELINE_SPEC_V1",
+  "status": "FROZEN_BEFORE_ATTRIBUTION_EVALUATION",
+  "researcher_id": "EM-HODGE-H0D0-5C7E21",
+  "baseline_contract": {
+    "required_fields": [
+      "typed_source_carrier",
+      "source_predicate_or_operator",
+      "source_representation",
+      "allowed_source_operations",
+      "known_source_normal_forms_or_obstruction_rules",
+      "predeclared_structural_measure",
+      "scope_limitations"
+    ],
+    "universal_impossibility_claim_forbidden": true,
+    "post_hoc_weakening_forbidden": true,
+    "comparison_rule": "If the exact credited leverage is already obtainable inside the frozen B_src, attribution is SOURCE_INHERITED even if a target representation makes it visually explicit."
+  },
+  "baselines": [
+    {
+      "baseline_id": "B-P1-DFT2-DENSE",
+      "candidate": "P1_INVERTIBLE_DFT2_NORMAL_FORM",
+      "typed_source_carrier": "Q^2 in the original coordinate basis",
+      "source_predicate_or_operator": "2-point circular convolution by a=(1,1)",
+      "source_representation": "dense operator A=[[1,1],[1,1]] in the original basis",
+      "allowed_source_operations": [
+        "rational vector arithmetic",
+        "application/composition of the displayed dense operator in the original basis",
+        "inspection of matrix entries"
+      ],
+      "known_source_normal_forms_or_obstruction_rules": [
+        "none beyond the displayed dense matrix representation"
+      ],
+      "predeclared_structural_measure": {
+        "name": "OFF_DIAGONAL_NONZERO_COUNT",
+        "source_value": 2
+      },
+      "scope_limitations": "fixed 2-point operator and declared transform F; no universal statement that the source can never be diagonalized by some other method",
+      "forbidden_post_hoc_change": "Do not add the DFT diagonal normal form to B_src after observing the transformed result."
+    },
+    {
+      "baseline_id": "B-N1-RENAME",
+      "candidate": "N0_BIJECTIVE_LABEL_RENAMING",
+      "typed_source_carrier": "finite set S with theorem-critical relation/predicate P",
+      "source_predicate_or_operator": "P on S",
+      "source_representation": "original labels and P",
+      "allowed_source_operations": [
+        "evaluate P",
+        "ordinary logical transport under equality"
+      ],
+      "known_source_normal_forms_or_obstruction_rules": [
+        "all theorem-critical structure is already present item-by-item"
+      ],
+      "predeclared_structural_measure": null,
+      "scope_limitations": "finite bijective relabeling only"
+    },
+    {
+      "baseline_id": "B-N2-HIDDEN-COLOR",
+      "candidate": "N1_ARBITRARY_HIDDEN_COLOR",
+      "typed_source_carrier": "theorem-relevant state s",
+      "source_predicate_or_operator": "theorem-critical predicates depend only on s",
+      "source_representation": "s without arbitrary color",
+      "allowed_source_operations": [
+        "all declared theorem-critical operations on s"
+      ],
+      "known_source_normal_forms_or_obstruction_rules": [
+        "color is absent from theorem language"
+      ],
+      "predeclared_structural_measure": null,
+      "scope_limitations": "weak readout may forget color; no theorem uses color"
+    },
+    {
+      "baseline_id": "B-H0C-S1-RHO-GRAPH",
+      "candidate": "S1_SUPPORT_INDEXED_A3_SIGNED_FIELD",
+      "typed_source_carrier": "finite overlap system (I,E,m,c,rho) with rho_i=c_i/m_i",
+      "source_predicate_or_operator": "rho_i=rho_j for every support edge {i,j} in E",
+      "source_representation": "rational vertex states rho plus explicit support graph E",
+      "allowed_source_operations": [
+        "rational equality and subtraction",
+        "graph connectivity/path traversal",
+        "choose a spanning forest as an implementation aid"
+      ],
+      "known_source_normal_forms_or_obstruction_rules": [
+        "equality transitivity along source graph paths",
+        "for each connected component, equality on any spanning tree/forest implies equality on every support edge"
+      ],
+      "predeclared_structural_measure": {
+        "name": "number_of_equality_checks_in_obstruction_basis",
+        "raw_triangle": 3,
+        "forest_triangle": 2
+      },
+      "scope_limitations": "finite source graph; attribution audit concerns the exact H0C spanning-forest leverage only"
+    },
+    {
+      "baseline_id": "B-H0C-S2-RHO-PATH",
+      "candidate": "S2_SIGNED_RECOALESCENCE_PATH_WEIGHT",
+      "typed_source_carrier": "finite overlap graph with rational local states rho_i",
+      "source_predicate_or_operator": "pathwise propagation of source discrepancy rho_u-rho_v",
+      "source_representation": "vertex potentials rho and oriented source edges",
+      "allowed_source_operations": [
+        "rational subtraction",
+        "addition of edge differences along a path",
+        "endpoint comparison"
+      ],
+      "known_source_normal_forms_or_obstruction_rules": [
+        "source differences telescope: sum(rho_v_k-rho_v_k+1)=rho_start-rho_end",
+        "all source paths with the same endpoints therefore have the same accumulated source difference"
+      ],
+      "predeclared_structural_measure": {
+        "name": "distinct_path_discrepancy_tokens_for_fixed_endpoints",
+        "raw_diamond_paths": 2,
+        "source_endpoint_tokens": 1
+      },
+      "scope_limitations": "source-generated exact potential differences only; arbitrary weighted paths are outside the baseline"
+    },
+    {
+      "baseline_id": "B-H0C-S3-RHO-KERNEL",
+      "candidate": "S3_ZERO_CLASS_QUOTIENT_WITH_SUPPORT",
+      "typed_source_carrier": "finite overlap system with rational local states rho and support E",
+      "source_predicate_or_operator": "rho_i=rho_j on each support edge",
+      "source_representation": "source equality relation ker(rho): i~j iff rho_i=rho_j",
+      "allowed_source_operations": [
+        "rational equality",
+        "form equality classes/kernel quotient",
+        "transport support to quotient classes"
+      ],
+      "known_source_normal_forms_or_obstruction_rules": [
+        "assembly iff every source support edge has equal endpoints",
+        "equivalently every support edge becomes diagonal under the source equality quotient"
+      ],
+      "predeclared_structural_measure": null,
+      "scope_limitations": "finite equality-kernel quotient; raw A3 partition-sum cancellation is not included as a safe source normal form"
+    },
+    {
+      "baseline_id": "B-H0B-B-ONE-STEP-SUPPORT",
+      "candidate": "ENT-B-FUTURE-SAFE-QUOTIENT-ASSEMBLY",
+      "typed_source_carrier": "exact middle states {b00,b01,b10,b11}, declared relation R12, and final observation O",
+      "source_predicate_or_operator": "one-step final reachable-observation support sigma_src(b)=O[relImage(R12,{b})]",
+      "source_representation": "four exact middle-state labels plus their source one-step support behavior",
+      "allowed_source_operations": [
+        "relational direct image under R12",
+        "apply final observation O",
+        "compare exact final support sets for equality"
+      ],
+      "known_source_normal_forms_or_obstruction_rules": [
+        "on the frozen finite scope sigma_src has exactly two values: {c0} on b00,b10 and {c1} on b01,b11",
+        "the fibers of the source behavior map are the unique coarsest classes preserving that one-step output language"
+      ],
+      "predeclared_structural_measure": {
+        "name": "required_middle_state_classes_for_declared_final_support_language",
+        "exact_state_labels": 4,
+        "source_behavior_classes": 2
+      },
+      "scope_limitations": "only the one-step final-support language proved in H0B; no claim about a larger compositional multi-step future language",
+      "anti_post_hoc_note": "R12 execution and O are part of the original theorem-critical source language; they are not added after seeing the Enterprise quotient."
+    }
+  ]
+}

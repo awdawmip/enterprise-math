@@ -1,0 +1,29 @@
+{
+  "schema": "HODGE_H0D0_NOVELTY_DECOUPLING_LEDGER_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0D0-5C7E21",
+  "rules": [
+    {
+      "rule": "PRIOR_ART_IS_NOT_A_NEGATIVE_R2_GATE",
+      "verified_by": "P1 DFT: CLASSICAL_PRIOR_ART + TRANSFORM_ATTRIBUTED_LEVERAGE + operational R2"
+    },
+    {
+      "rule": "NOVEL_THEOREM_NOT_REQUIRED_FOR_R2",
+      "verified_by": "P1 DFT has zero external novelty credit and still passes attribution/R2 control"
+    },
+    {
+      "rule": "NOVELTY_STATUS_DOES_NOT_DETERMINE_OPERATIONAL_RANK",
+      "verified_by": "hidden color may have unresolved novelty but remains R0; DFT is old but R2"
+    },
+    {
+      "rule": "SOURCE_ALREADY_HAS_SAME_LEVERAGE => NO_ATTRIBUTION_CREDIT",
+      "verified_by": "H0C S1/S2/S3 and H0B Candidate B on frozen scopes"
+    }
+  ],
+  "stage_reinterpretation": {
+    "H0B_H0C_historical_filter": "Historical stages used prior-art status as a practical Enterprise-specific credit filter; those dispositions remain immutable.",
+    "H0D0_repair": "Future Hodge-special qualification reports novelty separately and decides leverage credit by source-baseline attribution instead.",
+    "does_not_retroactively_claim_novelty": true,
+    "does_not_retroactively_open_H1": true
+  }
+}

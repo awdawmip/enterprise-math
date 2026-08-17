@@ -1,0 +1,41 @@
+{
+  "schema": "HODGE_H0D0_LEVERAGE_ATTRIBUTION_CERTIFICATE_SPEC_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0D0-5C7E21",
+  "name": "LEVERAGE_ATTRIBUTION_CERTIFICATE",
+  "required_fields": [
+    "certificate_id",
+    "typed_source_baseline",
+    "typed_enterprise_realization",
+    "realization_or_transform_map",
+    "source_theorem_critical_obligation",
+    "enterprise_operational_obligation",
+    "comparison_theorem",
+    "strict_leverage_certificate",
+    "source_baseline_countercheck",
+    "attribution_witness",
+    "novelty_status",
+    "information_tag",
+    "presentation_naturality_scope",
+    "target_leakage_audit",
+    "downstream_route_use"
+  ],
+  "allowed_attribution_outcomes": [
+    "TRANSFORM_ATTRIBUTED_LEVERAGE",
+    "SOURCE_INHERITED_LEVERAGE",
+    "ATTRIBUTION_SHARED_OR_PARTIAL",
+    "ATTRIBUTION_UNRESOLVED"
+  ],
+  "negative_control_status": "NO_LEVERAGE_TO_ATTRIBUTE",
+  "transform_attributed_rule": "The exact credited operational form is absent from B_src and the realization/transform is load-bearing in constructing it.",
+  "source_inherited_rule": "The same credited operational form/certificate is already available using B_src operations/lemmas; target representation only transports or exposes it.",
+  "shared_rule": "Only a precisely identified subcomponent is transform-created; inherited and attributed parts must be listed separately.",
+  "unresolved_rule": "Freeze the missing baseline/comparison object; novelty may not substitute for attribution evidence.",
+  "anti_gaming": [
+    "BASELINE_MUST_BE_PREDECLARED",
+    "POST_HOC_WEAKENING_OF_SOURCE_BASELINE_IS_FORBIDDEN",
+    "PRIOR_ART_STATUS_CANNOT_DECIDE_ATTRIBUTION",
+    "NOVELTY_STATUS_CANNOT_DECIDE_OPERATIONAL_RANK",
+    "SOURCE_ALREADY_HAS_SAME_LEVERAGE => NO_ATTRIBUTION_CREDIT"
+  ]
+}

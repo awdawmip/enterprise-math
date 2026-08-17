@@ -1,0 +1,66 @@
+{
+  "schema": "HODGE_H0D0_FOUR_AXIS_MODEL_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0D0-5C7E21",
+  "task_id": "RS-HODGE-H0D0-PROOF-LEVERAGE-ATTRIBUTION-REPAIR",
+  "criterion_parent": "HODGE_H0A0_REALIZATION_CLASSIFIER_V2",
+  "axes": {
+    "A_INFORMATION_RECOVERABILITY": {
+      "role": "secondary descriptive axis relative to an explicitly typed comparison target",
+      "values": [
+        "INFO_EQUIVALENT_OR_FULLY_RECOVERABLE",
+        "INFO_ENRICHED_RELATIVE_TO_DECLARED_READOUT",
+        "INFO_LOSSY_RELATIVE_TO_DECLARED_SOURCE",
+        "INFO_RELATION_UNRESOLVED"
+      ],
+      "determines_operational_rank": false
+    },
+    "B_OPERATIONAL_RANK": {
+      "role": "H0A0 V2 mathematical proof-leverage rank; historical abstract rank is preserved",
+      "values": [
+        "R0_INERT_REPARAMETRIZATION",
+        "R1_DERIVED_REORGANIZATION",
+        "R2_NONTRIVIAL_OPERATIONAL_REALIZATION",
+        "R3_HODGE_RELEVANT_OPERATIONAL_REALIZATION"
+      ],
+      "changed_by_h0d0": false
+    },
+    "C_LEVERAGE_ATTRIBUTION": {
+      "role": "relative to a predeclared source baseline, asks whether the realization/transform is load-bearing in producing the credited strict operational form",
+      "values": [
+        "TRANSFORM_ATTRIBUTED_LEVERAGE",
+        "SOURCE_INHERITED_LEVERAGE",
+        "ATTRIBUTION_SHARED_OR_PARTIAL",
+        "ATTRIBUTION_UNRESOLVED",
+        "NO_LEVERAGE_TO_ATTRIBUTE"
+      ]
+    },
+    "D_NOVELTY_PRIOR_ART": {
+      "role": "external/project originality reporting only",
+      "values": [
+        "CLASSICAL_PRIOR_ART",
+        "PROJECT_EXISTING_REPACKAGING",
+        "PROJECT_NATIVE_DERIVATION_OF_PRIOR_ART_STRUCTURE",
+        "NOVELTY_UNRESOLVED",
+        "NEW_ENTERPRISE_THEOREM_CANDIDATE"
+      ],
+      "determines_operational_rank": false,
+      "determines_attribution": false
+    }
+  },
+  "frozen_invariants": [
+    "NOVELTY_STATUS_DOES_NOT_DETERMINE_OPERATIONAL_RANK",
+    "PRIOR_ART_IS_NOT_A_NEGATIVE_R2_GATE",
+    "SOURCE_INHERITED_LEVERAGE_DOES_NOT_EARN_TRANSFORM_ATTRIBUTION",
+    "KNOWN_PRIOR_ART_TRANSFORM_CAN_PASS_R2",
+    "NOVEL_THEOREM_NOT_REQUIRED_FOR_R2",
+    "BASELINE_MUST_BE_PREDECLARED",
+    "POST_HOC_WEAKENING_OF_SOURCE_BASELINE_IS_FORBIDDEN"
+  ],
+  "hodge_special_R2_addendum": {
+    "name": "R2_ATTRIBUTION_ADDENDUM_PASS",
+    "rule": "A future Hodge-special R2 claim requires strict V2 leverage attributable, on the declared baseline/scope, to the realization/transform rather than inherited unchanged from the source baseline.",
+    "abstract_operational_rank_is_not_rewritten": true,
+    "novelty_is_not_a_gate": true
+  }
+}

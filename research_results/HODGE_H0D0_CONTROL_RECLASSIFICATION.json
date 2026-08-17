@@ -1,0 +1,43 @@
+{
+  "schema": "HODGE_H0D0_CONTROL_RECLASSIFICATION_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0D0-5C7E21",
+  "controls": [
+    {
+      "id": "P1_INVERTIBLE_DFT2_NORMAL_FORM",
+      "baseline_id": "B-P1-DFT2-DENSE",
+      "information_tag": "INFO_EQUIVALENT_OR_FULLY_RECOVERABLE",
+      "operational_rank": "R2_NONTRIVIAL_OPERATIONAL_REALIZATION",
+      "attribution_status": "TRANSFORM_ATTRIBUTED_LEVERAGE",
+      "novelty_status": "CLASSICAL_PRIOR_ART",
+      "transform": "F=[[1,1],[1,-1]], F^-1=(1/2)[[1,1],[1,-1]]",
+      "strict_leverage": "NORMAL_FORM: A=[[1,1],[1,1]] -> F A F^-1=diag(2,0); predeclared off-diagonal nonzero count 2 -> 0",
+      "source_baseline_countercheck": "B_src contains the dense source-basis operator but not the DFT diagonal normal form; F is load-bearing for this credited representation-normal-form differential.",
+      "R2_ATTRIBUTION_ADDENDUM_PASS": true,
+      "external_novelty_credit": 0,
+      "meaning": "mandatory proof that prior-art status does not erase transform-caused leverage"
+    },
+    {
+      "id": "N0_BIJECTIVE_LABEL_RENAMING",
+      "baseline_id": "B-N1-RENAME",
+      "information_tag": "INFO_EQUIVALENT_OR_FULLY_RECOVERABLE",
+      "operational_rank": "R0_INERT_REPARAMETRIZATION",
+      "attribution_status": "NO_LEVERAGE_TO_ATTRIBUTE",
+      "novelty_status": "CLASSICAL_PRIOR_ART",
+      "strict_leverage": null,
+      "R2_ATTRIBUTION_ADDENDUM_PASS": false
+    },
+    {
+      "id": "N1_ARBITRARY_HIDDEN_COLOR",
+      "baseline_id": "B-N2-HIDDEN-COLOR",
+      "information_tag": "INFO_ENRICHED_RELATIVE_TO_DECLARED_READOUT",
+      "operational_rank": "R0_INERT_REPARAMETRIZATION",
+      "attribution_status": "NO_LEVERAGE_TO_ATTRIBUTE",
+      "novelty_status": "NOVELTY_UNRESOLVED",
+      "strict_leverage": null,
+      "R2_ATTRIBUTION_ADDENDUM_PASS": false,
+      "meaning": "information enrichment and possible originality do not create theorem-critical leverage"
+    }
+  ],
+  "nonvacuity_verdict": "PASS"
+}
