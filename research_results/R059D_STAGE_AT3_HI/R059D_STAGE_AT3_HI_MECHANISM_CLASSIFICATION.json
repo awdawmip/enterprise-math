@@ -1,0 +1,25 @@
+{
+  "schema":"R059D_STAGE_AT3_HI_MECHANISM_CLASSIFICATION_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AT3HI-4D6B21",
+  "candidate_arm":"EXISTENCE_SHELL_INDUCED_CYCLE_TRACE_PLUS_GEODESIC_HULL",
+  "fresh_hidden_birth_mechanism":"NONE",
+  "current_hidden_mechanism":"BOUNDARY_AGING_OF_PREVIOUSLY_TRACED_GENERATIONS",
+  "minimal_witness":{
+    "level":2,
+    "point":"O_E",
+    "facts":["O_E is TRACE_CAND(1)","O_E belongs to INTERIOR_CAND(2)=B_1","O_E is not on TRACE_CAND(2)=S_1","therefore O_E is current-hidden at n=2 but not lifetime-hidden or fresh-hidden"]
+  },
+  "general_local_certificate":"For any x with h(x)=s, x lies on perimeter shell S_s at generation n=s+1. At every later generation n>=s+2 it lies strictly inside B_(n-1), so it is current-hidden while remaining present in TRACE_HISTORY. Thus hiding occurs only after exposure, never before exposure.",
+  "candidate_mechanism_audit":{
+    "PERIMETER_SKIP":"FALSE in candidate arm: every newly generated shell vertex is on the unique induced shell cycle support.",
+    "GEODESIC_INTERLEAVING":"DOES_NOT_CREATE_FRESH_HIDDEN_VERTICES: geodesic interleaving fills B_r, but every newly added vertex belongs to S_r and is traced that generation.",
+    "CELL_FILL":"NOT_FORCED_AS_A_VERTEX_HIDDENNESS_MECHANISM under current candidate carrier; no independent canonical cell/packet interior has been frozen.",
+    "PATH_MERGER":"DOES_NOT_CREATE_FRESH_HIDDEN_VERTICES; merged geodesic vertices have their own earlier/current shell generation.",
+    "HISTORICAL_REINDEXING_ARTIFACT":"PARTIAL ANALOGY ONLY: void-first indexing removes any apparent zero-level ambiguity, but the exact mechanism is boundary aging rather than a mistaken index.",
+    "BOUNDARY_AGING":"TRUE AND COMPLETE for current-hidden vertices in this candidate arm."
+  },
+  "stronger_theorem":"CURRENT_HIDDEN_CAND(n)=INTERIOR_CAND(n-1) for every n>=2, while LIFETIME_HIDDEN_CAND(n)=empty. Hence current hiddenness carries no evidence of a never-perimeter-traced interior generation event.",
+  "D6_covariant":true,
+  "source_geometry_used":false
+}
