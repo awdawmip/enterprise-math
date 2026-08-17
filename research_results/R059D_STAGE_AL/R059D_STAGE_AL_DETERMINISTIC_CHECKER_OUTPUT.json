@@ -1,0 +1,24 @@
+{
+  "schema": "R059D_STAGE_AL_DETERMINISTIC_CHECKER_OUTPUT_V1",
+  "status": "PASS",
+  "researcher_id": "EM-R059D-AL-5A9D31",
+  "checks_total": 14267,
+  "checks_passed": 14267,
+  "checks_failed": 0,
+  "checks_digest_sha256": "bf1bee3b6baedab95a5d9dfc63dc47e2a88e1bbe4523ff4cfa43312e8cecb7ad",
+  "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+  "compare_base": "d4fba69cd2b65323eb78dd775443896a0645e989",
+  "compare_head": "87109a551e7910bf0061f2e00dacc4a66e6ab6d9",
+  "prior_stage_result_files_modified_or_deleted": 0,
+  "validation_max_r": 16384,
+  "adversarial_motzkin_candidates_r_le_7": 10878,
+  "validation": {
+    "r_1_4096": "AK/AH N word equals independently extracted primitive-support frontier at every radius; exact counts/period also checked",
+    "checkpoints": [8192, 16384],
+    "small_radius_adversarial": "all Motzkin sector candidates through r=7 enumerated; final A8 has exactly one survivor per r and it equals N",
+    "counterexamples": "pure-axis hexagon and packed-exact-count alternatives replayed at r=5",
+    "C_sampling_witness": "r=5 gives J_C_1=1,J_C_2=1,J_C_3=0",
+    "runtime_firewall": "AK tau source scanned for forbidden runtime dependency tokens"
+  },
+  "theorem_role": "Finite replay/enumeration is adversarial implementation evidence only. All-radius uniqueness is proved symbolically by the primitive-support first-divergence argument."
+}
