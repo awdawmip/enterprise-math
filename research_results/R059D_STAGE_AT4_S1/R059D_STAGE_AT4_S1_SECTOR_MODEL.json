@@ -1,0 +1,41 @@
+{
+  "schema": "R059D_STAGE_AT4_S1_SECTOR_MODEL_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AT4S1-8C4E17",
+  "task_id": "RS-R059D-STAGE-AT4-S1-SINGLE-CHAMBER-SECTOR-HIDDEN-CELL-ALGEBRAIC-COLLAPSE",
+  "taskbook_source_commit": "cba1b1bbd5c9e99fa7db0d9fad12e40f90fc5bb5",
+  "at4_main_parent": "44ad1582bd45148b2d3811e4e750efa3771fc197",
+  "chamber": {
+    "name": "Q0",
+    "active_native_directions": ["e_x", "e_y"],
+    "local_vector": "V=x e_x + y e_y",
+    "domain": "x>=0, y>=0",
+    "squared_norm": "q(V)=x^2+y^2",
+    "zero_typing": "x=0 or y=0 is vector-algebra zero, never native coordinate zero"
+  },
+  "local_native_cell_chart": {
+    "typing": "AUXILIARY_A2_CELL_ID_AND_INCIDENCE_ONLY",
+    "vertex": "v(i,j) with i,j nonnegative cell labels maps chamber-locally to vector components (x,y)=(i,j)",
+    "U(i,j)": [["v(i,j)"],["v(i+1,j)"],["v(i,j+1)"]],
+    "D(i,j)": [["v(i+1,j)"],["v(i,j+1)"],["v(i+1,j+1)"]],
+    "native_recovery": "vertex labels are restored through the signed-origin ENC_SIGNED conjugacy; auxiliary 0 is not native coordinate 0"
+  },
+  "representativeness": {
+    "theorem": "Every adjacent-direction fundamental sector is equivalent to S0 after native D6 transport followed by mandatory chamber recharting; raw (x,y) expressions are never transported across chambers.",
+    "reflection": "x<->y preserves S0 and q=x^2+y^2",
+    "inequivalent_sector_types_in_scope": 1
+  },
+  "cell_norm_range": {
+    "U": "q_min=i^2+j^2; q_max=i^2+j^2+2*max(i,j)+1",
+    "D_max": "q_max=(i+1)^2+(j+1)^2",
+    "D_min": "if |i-j|<=1: (i+j+1)^2/2; if j>=i+2: (i+1)^2+j^2; if i>=j+2: i^2+(j+1)^2",
+    "derivation": "q is continuous/convex; U minimum is its lower vertex; D minimum is the orthogonal algebraic minimum on the inner diagonal edge, clamped to that edge segment; maxima occur at vertices"
+  },
+  "firewalls": {
+    "cross_chamber_raw_arithmetic": false,
+    "graph_distance_as_radius": false,
+    "source_angle_or_pi": false,
+    "historical_circle_membership_oracle": false,
+    "native_zero_created": false
+  }
+}
