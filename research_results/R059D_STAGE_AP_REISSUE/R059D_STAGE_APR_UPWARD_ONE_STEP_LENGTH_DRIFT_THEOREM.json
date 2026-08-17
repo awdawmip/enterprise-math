@@ -1,0 +1,10 @@
+{
+  "schema":"R059D_STAGE_APR_UPWARD_ONE_STEP_LENGTH_DRIFT_THEOREM_V1",
+  "status":"PROVED_WITH_M_UP_CORRECTION",
+  "researcher_id":"EM-R059D-APR-7E4C2B",
+  "one_step_invariant":"L_E(P)=B(DEC_SIGNED(P))=1",
+  "actual_UP":{"aux":"d_k+d_(k+1)","budget":2,"native_sextet":[[2,-2,1],[1,-2,2],[-2,1,2],[-2,2,1],[1,2,-2],[2,1,-2]],"theorem":"Every coherent UP choice on an open one-step sector changes the primitive channel budget from the required class 1 to 2. Hence UP immediately leaves the one-step segment class before any full-turn closure question arises."},
+  "mandatory_user_M_UP":{"aux":"2(d_k+d_(k+1))","budget":4,"native_sextet":[[3,-3,1],[1,-3,3],[-3,1,3],[-3,3,1],[1,3,-3],[3,1,-3]],"reachability":"NOT_REACHED_BY_ONE_STEP_ADJACENT_COMPLETION","conditional_length_statement":"If such a state were manually selected, its primitive budget would be 4, so it is even farther outside L_E=1."},
+  "first_divergence":"Every open sector is already a competition fiber; coherent UP on the first sector produces an overbudget state. A completion operator that only fills missing budget cannot repair an overbudget state without changing from UP into a different contraction policy.",
+  "result_labels":{"UPWARD_COLLAPSE_FROM_ONE_STEP_CAUSES_LENGTH_INFLATION":true,"USER_M_UP_IS_ACTUAL_UP_COMPETITOR":false,"USER_M_UP_IF_FORCED_IS_OVERLENGTH":true}
+}
