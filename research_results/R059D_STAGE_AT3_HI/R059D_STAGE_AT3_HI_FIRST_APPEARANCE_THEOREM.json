@@ -1,0 +1,29 @@
+{
+  "schema":"R059D_STAGE_AT3_HI_FIRST_APPEARANCE_THEOREM_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AT3HI-4D6B21",
+  "canonical_higher_circle_status":"UNDERDEFINED_UNDER_CURRENT_FROZEN_FOUNDATION",
+  "primary_disposition":"CANONICAL_HIGHER_PERIMETER_UNDERDEFINED__EXISTENCE_SHELL_GEODESIC_HULL_HAS_NO_FRESH_HIDDEN_POINTS_FOR_ALL_LEVELS",
+  "candidate_arm":"EXISTENCE_SHELL_INDUCED_CYCLE_TRACE_PLUS_ALL_SHORTEST_GEODESIC_HULL",
+  "notation":{"r":"n-1","S_r":"{v:h(v)=r}","B_r":"{v:h(v)<=r}"},
+  "identities":{
+    "TRACE_CAND(n)":"S_r",
+    "INTERIOR_CAND(n)":"B_r",
+    "TRACE_HISTORY_CAND(n)":"union_{s=0}^r S_s = B_r",
+    "HIDDEN_CAND(1)":"empty",
+    "HIDDEN_CAND(n)_n_ge_2":"B_(r-1)=INTERIOR_CAND(n-1)",
+    "LIFETIME_HIDDEN_CAND(n)":"empty for every n>=1",
+    "FRESH_HIDDEN_CAND(n)":"empty for every n>=1"
+  },
+  "first_fresh_hidden_level":"DOES_NOT_EXIST_IN_THE_CANDIDATE_ARM",
+  "first_current_hidden_level":2,
+  "first_current_hidden_set":"{O_E}",
+  "first_current_hidden_interpretation":"O_E was already ALWAYS_TRACED at n=1; it becomes current-hidden at n=2 only because the boundary has advanced outward.",
+  "infinite_family_proof":"Every v with h(v)=s first belongs to INTERIOR_CAND at n=s+1 and is simultaneously on TRACE_CAND(s+1)=S_s. Hence no vertex can first enter the interior without having been traced by its own generation level.",
+  "robustness":"For r>=1 the induced shell graph is C_(6r), so every primitive closed perimeter traversal has identical S_r vertex support. There are no SOMETIMES_TRACED shell vertices and the no-fresh-hidden theorem is independent of start point or orientation.",
+  "quantifier":"NO candidate-arm interior vertex is NEVER_TRACED over its lifetime through the level at which it is present.",
+  "native_zero_exists":false,
+  "source_geometry_used":false,
+  "historical_AK_AL_membership_used":false,
+  "scope_warning":"This is not yet a canonical theorem about CIRCLE_E(n), n>=2, because the frozen foundation has not selected a unique higher-circle perimeter/generation law."
+}
