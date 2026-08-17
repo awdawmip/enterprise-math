@@ -1,0 +1,48 @@
+{
+  "schema": "R059D_STAGE_AO_LOCAL_WEIGHT_PROFILE_THEOREM_V1",
+  "status": "PROVED_AS_TWO_SCALE_YOUNG_PROFILE",
+  "researcher_id": "EM-R059D-AO-2D7C46",
+  "source_weight": "w_(r,k)=r*Delta_(r,k), with Delta the AM source angular fiber width",
+  "exact_edge_formula": "for consecutive first-sector rays p=(a,b), q=(c,d): tan(Delta)=sqrt(3)*(a*d-b*c)/(2*a*c+2*b*d+a*d+b*c)",
+  "symbol_exact_denominators": {
+    "1": "q=(a,b+1): tan(Delta)=sqrt(3)*a/[2*Q_E(a,b)+a+2*b]",
+    "2": "q=(a-1,b+1): tan(Delta)=sqrt(3)*(a+b)/[2*Q_E(a,b)-a+b]",
+    "3": "q=(a-1,b): tan(Delta)=sqrt(3)*b/[2*Q_E(a,b)-2*a-b]"
+  },
+  "macroscopic_coordinates": "A(theta)=cos(theta)-sin(theta)/sqrt(3), B(theta)=2*sin(theta)/sqrt(3)",
+  "symbol_weight_limits": {
+    "ell_1": "(sqrt(3)/2)*A(theta)=[sqrt(3)*cos(theta)-sin(theta)]/2",
+    "ell_2": "(sqrt(3)/2)*(A(theta)+B(theta))=[sqrt(3)*cos(theta)+sin(theta)]/2",
+    "ell_3": "(sqrt(3)/2)*B(theta)=sin(theta)",
+    "justification": "Q_E/r^2->1 uniformly and max Delta=O(1/r), so r*(Delta-tan Delta)->0"
+  },
+  "local_symbol_densities": {
+    "left": {
+      "h_1": "cos(theta)/sqrt(3)-sin(theta)",
+      "h_2": "sin(theta)+cos(theta)/sqrt(3)",
+      "sum": "g(theta)=2*cos(theta)/sqrt(3)"
+    },
+    "right": {
+      "h_2": "2*cos(theta)/sqrt(3)",
+      "h_3": "sin(theta)-cos(theta)/sqrt(3)",
+      "sum": "g(theta)=sin(theta)+cos(theta)/sqrt(3)"
+    },
+    "derivation": "exact block symbol counts from Stage B divided by r and the scaled coordinate theorem"
+  },
+  "young_measure": {
+    "left": "Y_theta=[h_1/g] delta_(ell_1)+[h_2/g] delta_(ell_2), 0<theta<pi_source/6",
+    "right": "Y_theta=[h_2/g] delta_(ell_2)+[h_3/g] delta_(ell_3), pi_source/6<theta<pi_source/3",
+    "D6": "extend by sector rotation and reflection",
+    "generic_non_pointwise": "inside each open half-sector both relevant symbol densities are positive on positive-measure subintervals and the two weight atoms are distinct; therefore arbitrary individual-edge sequences do not admit one universal pointwise weight profile"
+  },
+  "macro_block_average": {
+    "identity_left": "h_1*ell_1+h_2*ell_2=1",
+    "identity_right": "h_2*ell_2+h_3*ell_3=1",
+    "profile": "w_macro(theta)=integral w dY_theta=1/g(theta)",
+    "axis": "w_macro(0)=sqrt(3)/2, recovering AN axis limit",
+    "bisector": "w_macro(pi_source/6)=1, recovering AN central limit",
+    "extrema": "w_macro ranges from sqrt(3)/2 at sector axes to 1 at sector bisectors"
+  },
+  "semantic_boundary": "the correct full local object is two-scale/Young. The single function 1/g is the local block-average/Radon-Nikodym weight, not the limit of every individual edge.",
+  "later_stage_consumed": false
+}
