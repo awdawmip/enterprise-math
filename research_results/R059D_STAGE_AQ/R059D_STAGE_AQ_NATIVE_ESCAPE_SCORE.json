@@ -1,0 +1,29 @@
+{
+  "schema": "R059D_STAGE_AQ_NATIVE_ESCAPE_SCORE_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AQ-3A7E61",
+  "definition": "SHELL(C)=dual-graph distance from STAR(O_E) to C",
+  "source_free": true,
+  "exact_combinatorial_certificate": {
+    "K(U(i,j))": ["3i+1","3j+1"],
+    "K(D(i,j))": ["3i+2","3j+2"],
+    "H(x,y)": "max(|x|,|y|,|x+y|)",
+    "formula": "SHELL(C)=floor(2*(H(K(C))-2)/3)",
+    "typing": "K and H are auxiliary A2 incidence-label certificates for graph distance, not source Euclidean coordinates or a target length metric"
+  },
+  "shell_theorems": {
+    "shell_size": "|S_s|=6*(floor(s/2)+1) for every s>=0",
+    "edge_lipschitz": "adjacent cells differ in shell by at most 1",
+    "outward_neighbor_exists": true,
+    "outward_branch_count": "every even-shell cell has exactly one shell-(s+1) neighbor; every odd-shell cell has exactly two",
+    "D6_invariant": true
+  },
+  "farthest_rule": {
+    "FAR(C)": "argmax_{D in N3(C)} SHELL(D)",
+    "FAR_PLUS(C)": "{D in FAR(C): SHELL(D)>SHELL(C)}",
+    "global_relation": "FAR(C)=FAR_PLUS(C)={D in N3(C): SHELL(D)=SHELL(C)+1} for every cell C",
+    "tie_handling": "all outward maximizers survive; no tie breaker"
+  },
+  "translation_semantics": "shell is centered at the fixed signed origin-star; a translated problem must translate both the distinguished star and cell carrier before recomputing graph distance",
+  "disposition": "STRICT_OUTWARD_NATIVE_ESCAPE_SCORE_PROVED"
+}
