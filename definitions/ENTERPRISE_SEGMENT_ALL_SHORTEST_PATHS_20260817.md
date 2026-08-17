@@ -1,102 +1,61 @@
-# 进取线段：原点到坐标的全部最短路径族
+# 进取最短路径族：固定端点后的反向 realization fiber
 
-Status: `SUPERSEDED_AS_FOUNDATIONAL_START_CONVENTION / RETAINED_AS_SPATIAL_TAIL_THEOREM`
+Status: `RETAINED / REVERSE_GEODESIC_REALIZATION_ONLY / SUPERSEDED_AS_SEGMENT_LENGTH_ONTOLOGY`
 Date: `2026-08-17`
 Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
-Superseded by: `definitions/ENTERPRISE_VOID_ORIGIN_EXISTENCE_GEODESIC_20260817.md`
+Current foundational route:
+`definitions/ENTERPRISE_VECTOR_NORM_ENDPOINT_REVERSE_GEODESIC_SEGMENT_20260817.md`
 
-> 本文件“全部最短路径构成线段”的结构保留，但“线段从原点开始、长度等于原点后邻接步数”的 foundational 起点约定已被 supersede。当前最高定义从外部虚无态 `VOID_E=∅` 出发，`VOID_E -> O_E=±1` 为第一步。本文以下 `GEO_E(O_E,P)` 只应解释为完整进取线段删除第一条存在生成边后的 **spatial tail**。
+## 1. Retained theorem
 
-## 1. Retained spatial-tail theorem
+For a fixed native endpoint cell `P`, define
 
-For the native Enterprise vertex-adjacency graph `G_E`, fixed origin `O_E=(±1,±1,±1)` and native coordinate/state `P`, define native graph distance
+`GEO_REV_E(P)`
 
-`d_E(O_E,P) = minimum number of primitive native adjacency edges in any path from O_E to P`.
+as the complete family of paths from `VOID_E` to `P` using the minimum possible primitive jump count. Equivalently, delete the unique first edge `VOID_E->O_E` and retain all minimum-jump spatial tails from `O_E` to `P`.
 
-The integer path count used by `d_E` is an external combinatorial count. It does not create a native coordinate `0`; native zero remains nonexistent.
+Freeze:
 
-The complete spatial geodesic tail from `O_E` to `P` is
+`ALL_REVERSE_SHORTEST_REALIZATIONS_ARE_RETAINED`.
 
-`GEO_E(O_E,P) = { gamma : O_E -> P | |gamma| = d_E(O_E,P) }`.
+No minimizer is privileged or deleted merely to fit a desired perimeter/circle.
 
-Freeze as retained structure:
+## 2. Foundational correction
 
-`ALL_SHORTEST_SPATIAL_PATHS_ARE_RETAINED`.
+The old identification
 
-No shortest path may be privileged or deleted merely to obtain a desired turn/circle.
+`segment length = minimum jump count`
 
-Current full segment is instead
+is superseded.
 
-`SEG_E(P)=GEO_(G~_E)(VOID_E,P)`
+The current logic is:
 
-with unique first edge `VOID_E -> O_E`, so deleting that first edge gives a canonical bijection
+`native cumulative vector length -> endpoint cell P -> GEO_REV_E(P)`.
 
-`SEG_E(P) <-> GEO_E(O_E,P)`.
+Therefore shortest paths do not select the radius level. They realize an endpoint already selected by vector norm.
 
-## 2. Superseded length statement
+Freeze:
 
-The old foundational statement
+`SHORTEST_PATH_LENGTH_IS_NOT_FOUNDATIONAL_SEGMENT_LENGTH`.
 
-`L_E(O_E,P)=d_E(O_E,P)`
+## 3. Spatial footprint remains derived
 
-is no longer the total Enterprise segment length.
+For fixed `P`, the reverse geodesic footprint may still be defined as unions over all minimizers:
 
-Current total/existence length is
+- `VERT_GEO_REV(P)`;
+- `EDGE_GEO_REV(P)`;
+- induced triangle/cell incidence as secondary structure.
 
-`ELL_E(P)=1+d_E(O_E,P)`.
+A chosen chain, strip, packet, or representative geodesic is not canonical unless proved equivalent to the whole reverse fiber.
 
-On one signed axis,
+## 4. Local geodesic moves
 
-`ELL_E(±n)=n` for all `n>=1`.
+Equal-endpoint local deformations among minimum-jump paths remain a valid realization-level question. Triangle `1->2` detours, `2<->2` exchanges, and related moves are typed only inside the reverse realization fiber.
 
-The old quantity `d_E(O_E,P)` remains a valid **post-origin spatial displacement count**.
+They do not determine the vector radius.
 
-## 3. Segment footprint — retained
+## 5. Current route
 
-The spatial footprint is derived, not separately axiomatized:
+Read first:
 
-- `VERT(GEO_E)` = union of vertices over all spatial geodesics;
-- `EDGE(GEO_E)` = union of primitive edges over all spatial geodesics;
-- any triangle/strip representation is secondary incidence data induced by this full geodesic family.
-
-Therefore a chosen ordered chain, terminal-side chain, edgewise side strip, packet stack, or other single carrier is not the line-segment ontology unless proved equivalent to the complete geodesic family.
-
-## 4. One-post-origin-step reduction — retained with retyping
-
-If `d_E(O_E,P)=1`, there is one primitive radial edge from `O_E` to `P`, so the spatial tail is that edge. The full segment has total existence length `ELL_E(P)=2` because its first edge is `VOID_E -> O_E`.
-
-Stage AR's extra side triangle `C` may remain useful as a **turn/sweep state augmentation**, but it is not part of the identity of the segment itself.
-
-## 5. Auxiliary chart firewall — retained
-
-The zero-centered A2 chart may be used only as an auxiliary computation/incidence certificate via the accepted signed-origin conjugacy.
-
-If `P` decodes to auxiliary `(a,b)`, a later theorem may prove a closed form for `d_E`; that formula is not inserted here as an axiom.
-
-## 6. Local deformation consequence — retained for spatial tails
-
-A local triangle `1->2` replacement between the same two spatial subpath endpoints increases primitive spatial path length by one and therefore cannot remain in `GEO_E(O_E,P)` unless some other change alters the endpoints/target or restores geodesicity by an independently proved mechanism.
-
-The natural geodesic-preserving local ambiguity is expected to be equal-length path replacement (for example a `2<->2` rhombus/step-order exchange where valid), but this must be proved rather than assumed.
-
-## 7. Fixed-length endpoint set — superseded indexing
-
-The old spatial shell
-
-`SPHERE_E(O_E,r)={P:d_E(O_E,P)=r}`
-
-remains a valid graph shell, but it is no longer indexed by the total Enterprise segment length.
-
-Current fixed-existence-length endpoint set is
-
-`EXISTENCE_SPHERE_E(n)={P:ELL_E(P)=n}`
-
-`={P:d_E(O_E,P)=n-1}`.
-
-Whether this shell is the canonical Enterprise circle remains a theorem question.
-
-## 8. Historical typing
-
-Stage AS correctly proved underdetermination under weaker carrier axioms. The later all-shortest-path ontology selected graph distance; the current void-start foundation further shifts the full segment start one step outward from `O_E` to `VOID_E`.
-
-Historical results that define segment length through membership in a previously selected turn orbit must be re-audited. Algebraic/combinatorial identities may survive even if their native `line segment / circle` interpretation changes.
+`definitions/ENTERPRISE_VECTOR_NORM_ENDPOINT_REVERSE_GEODESIC_SEGMENT_20260817.md`.
