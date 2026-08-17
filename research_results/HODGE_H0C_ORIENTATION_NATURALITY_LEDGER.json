@@ -1,0 +1,26 @@
+{
+  "schema": "HODGE_H0C_ORIENTATION_NATURALITY_LEDGER_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0C-8D3F62",
+  "orientation_rule": {
+    "storage_orientation": "ordered pair (i,j) may be chosen for storage",
+    "reversal": "Z_ji=-Z_ij; eta_ji=-eta_ij",
+    "theorem_critical_invariant": "zero/nonzero and quotient-class equality do not depend on orientation"
+  },
+  "patch_relabeling": {
+    "status": "PASS",
+    "law": "for permutation sigma, transported Z satisfies Z'_{sigma(i),sigma(j)}=Z_ij",
+    "exhaustive_check": "all 6 permutations on n=3 small domain PASS"
+  },
+  "p1_two_chart_swap_stress": {
+    "scope": "finite two-patch surrogate only",
+    "status": "PASS",
+    "meaning": "swapping patch labels flips oriented sign but preserves zero assembly constraint"
+  },
+  "spanning_forest_choice": {
+    "status": "IMPLEMENTATION_CHOICE_ONLY",
+    "theorem": "zero-on-any-spanning-forest iff zero on all support edges for source-generated potential field",
+    "global_canonical_tree_claim": false
+  },
+  "full_PGL2_naturality_claim": false
+}

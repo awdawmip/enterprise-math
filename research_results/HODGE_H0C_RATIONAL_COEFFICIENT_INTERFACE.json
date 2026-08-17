@@ -1,0 +1,25 @@
+{
+  "schema": "HODGE_H0C_RATIONAL_COEFFICIENT_INTERFACE_V1",
+  "status": "FROZEN_INTERFACE_ONLY",
+  "researcher_id": "EM-HODGE-H0C-8D3F62",
+  "integral_core": {
+    "Z_edge": "Z-valued",
+    "reason": "integer-first cross products avoid division in zero tests"
+  },
+  "rational_normalization": {
+    "eta_ij": "Z_ij/(m_i*m_j) in Q",
+    "identity": "eta_ij=rho_i-rho_j"
+  },
+  "q_extension": {
+    "carrier": "Q^E or Z^E tensor_Z Q",
+    "embedding": "Z^E -> Q^E",
+    "orientation": "extends Q-linearly",
+    "zero_constraint": "unchanged under embedding"
+  },
+  "hodge_boundary": {
+    "rational_hodge_coefficients_acknowledged": true,
+    "integral_hodge_replacement_claim": false,
+    "C_H_to_this_carrier_map_constructed": false,
+    "meaning": "this is only a coefficient interface, not a Hodge bridge"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "HODGE_H0C_ALGEBRAIC_OVERLAP_SOURCE_SPEC_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0C-8D3F62",
+  "task_id": "RS-HODGE-H0C-ALGEBRAIC-SIGNED-INCIDENCE-ASSEMBLY",
+  "taskbook_source": "bfeaa30a22e980628bddac491eeace0c277980c4",
+  "scope": "FINITE_ALGEBRAIC_STYLE_LOCAL_OVERLAP_SURROGATE_ONLY",
+  "source_object": {
+    "patches": "finite index set I",
+    "required_overlap_support": "E subset of unordered pairs {i,j}; E is explicit source incidence identity, not inferred from local totals",
+    "local_capacity": "m_i in Z_{>0}",
+    "local_total": "c_i in Z",
+    "local_rational_state": "rho_i=c_i/m_i in Q",
+    "source_assembly_predicate": "for every {i,j} in E, rho_i=rho_j"
+  },
+  "independence_from_forbidden_targets": {
+    "known_hodge_answers_used": false,
+    "known_cycles_used": false,
+    "cech_cocycle_truth_used": false,
+    "classical_boundary_matrix_used": false,
+    "kahler_harmonic_used": false,
+    "euclidean_geometry_used": false
+  },
+  "required_examples": {
+    "consistent_triangle": {
+      "m": [
+        1,
+        1,
+        1
+      ],
+      "c": [
+        2,
+        2,
+        2
+      ],
+      "E": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "assembly": true
+    },
+    "inconsistent_triangle": {
+      "m": [
+        1,
+        1,
+        1
+      ],
+      "c": [
+        2,
+        2,
+        3
+      ],
+      "E": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "assembly": false
+    },
+    "h0b_incidence_boundary_pair": {
+      "same_m": [
+        1,
+        1
+      ],
+      "same_c": [
+        0,
+        1
+      ],
+      "system_A": {
+        "E": [],
+        "assembly": true
+      },
+      "system_B": {
+        "E": [
+          [
+            0,
+            1
+          ]
+        ],
+        "assembly": false
+      },
+      "meaning": "same local capacities/totals but different overlap incidence gives different assembly truth; incidence identity cannot be reconstructed from A3 local totals alone"
+    }
+  },
+  "comparison_level": "C_state(X;O_overlap,m,c) / finite source surrogate",
+  "universal_scheme_claim": false,
+  "hodge_claim": false
+}

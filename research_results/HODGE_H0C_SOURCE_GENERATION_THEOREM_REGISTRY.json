@@ -1,0 +1,40 @@
+{
+  "schema": "HODGE_H0C_SOURCE_GENERATION_THEOREM_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0C-8D3F62",
+  "theorems": [
+    {
+      "id": "H0C-GEN-1",
+      "name": "SIGNED_FIELD_GENERATION",
+      "statement": "For finite I, m_i>0 and c_i in Z, Z_ij=m_j*c_i-m_i*c_j is generated without querying assembly truth.",
+      "strength": "UNIVERSAL_ELEMENTARY_THEOREM_ON_DECLARED_FINITE_DATA",
+      "proof": "definition uses only m,c"
+    },
+    {
+      "id": "H0C-GEN-2",
+      "name": "ORIENTATION_REVERSAL",
+      "statement": "Z_ji=-Z_ij and Z_ii=0.",
+      "strength": "UNIVERSAL_ALGEBRAIC_IDENTITY"
+    },
+    {
+      "id": "H0C-GEN-3",
+      "name": "RATIONAL_NORMALIZATION",
+      "statement": "eta_ij:=Z_ij/(m_i*m_j)=rho_i-rho_j in Q.",
+      "strength": "UNIVERSAL_ALGEBRAIC_IDENTITY",
+      "consequence": "Z_ij=0 iff rho_i=rho_j"
+    },
+    {
+      "id": "H0C-GEN-4",
+      "name": "WEIGHTED_THREE_BLOCK_CLOSURE",
+      "statement": "m_k*Z_ij+m_i*Z_jk+m_j*Z_ki=0.",
+      "strength": "UNIVERSAL_ALGEBRAIC_IDENTITY"
+    },
+    {
+      "id": "H0C-GEN-5",
+      "name": "PATCH_RELABEL_EQUIVARIANCE",
+      "statement": "Any permutation sigma of patch labels transports m,c,E and satisfies Z'_{sigma(i),sigma(j)}=Z_ij.",
+      "strength": "UNIVERSAL_RELABELLING_EQUIVARIANCE"
+    }
+  ],
+  "algebraic_source_claim_scope": "finite algebraic-style local summary data only; not a scheme/sheaf theorem"
+}

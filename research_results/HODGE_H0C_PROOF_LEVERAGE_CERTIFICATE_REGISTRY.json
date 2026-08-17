@@ -1,0 +1,75 @@
+{
+  "schema": "HODGE_H0C_PROOF_LEVERAGE_CERTIFICATE_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0C-8D3F62",
+  "certificates": [
+    {
+      "certificate_id": "PLC-S1-TREE",
+      "candidate": "S1_SUPPORT_INDEXED_A3_SIGNED_FIELD",
+      "typed_source_object": "C_state(finite overlap system; E,m,c,rho)",
+      "typed_enterprise_object": "support-indexed A3 Z field at HX1/HX2 + N0/N1",
+      "source_theorem_critical_predicate_or_operator": "all overlap equality constraints on E",
+      "independent_enterprise_definition": "Z_ij=m_j*c_i-m_i*c_j plus explicit support E",
+      "comparison_theorem": "AC-S1 + AC-S1-TREE",
+      "non_tautology_audit": "PASS",
+      "strict_leverage_class": "FINITE_OBSTRUCTION_BASIS",
+      "strict_leverage_witness": "on cyclic support, check any spanning forest only; triangle 3 edge defects -> 2 tree defects",
+      "predeclared_measure": {
+        "name": "number_of_signed_zero_constraints_in_obstruction_basis",
+        "raw_triangle": 3,
+        "basis_triangle": 2,
+        "strict_improvement": true
+      },
+      "presentation_naturality_functoriality_scope": "orientation reversal + arbitrary patch permutation equivariance; spanning-forest theorem is choice-independent although a concrete tree is an implementation choice",
+      "target_leakage_audit": "PASS",
+      "prior_art_novelty_status": "PRIOR_ART_RECOVERY_NO_ENTERPRISE_R2_CREDIT",
+      "downstream_theorem_obligation_unlocked": "finite ratio-consistency can be certified on a forest",
+      "certificate_verdict": "PASS_ABSTRACT_R2_CONTROL_ONLY",
+      "counts_toward_enterprise_hard_target": false
+    },
+    {
+      "certificate_id": "PLC-S2-PATH",
+      "candidate": "S2_SIGNED_RECOALESCENCE_PATH_WEIGHT",
+      "typed_source_object": "C_state(finite overlap graph; rational local states)",
+      "typed_enterprise_object": "signed endpoint/path-weight token eta_path",
+      "source_theorem_critical_predicate_or_operator": "pathwise propagation of local rational discrepancy",
+      "independent_enterprise_definition": "eta_ij=Z_ij/(m_i*m_j), path composition by addition",
+      "comparison_theorem": "AC-S2-PATH",
+      "non_tautology_audit": "PASS",
+      "strict_leverage_class": "COMPOSITIONAL_FACTORING",
+      "strict_leverage_witness": "all source-generated paths between fixed endpoints carry the same telescoping weight; diamond 2 path tokens -> 1 endpoint-weight token",
+      "predeclared_measure": {
+        "name": "distinct_path_weight_tokens_for_fixed_endpoints",
+        "raw_diamond_paths": 2,
+        "recoalesced_tokens": 1,
+        "strict_improvement": true
+      },
+      "presentation_naturality_functoriality_scope": "path reversal negates eta; patch relabeling equivariant",
+      "target_leakage_audit": "PASS",
+      "prior_art_novelty_status": "PRIOR_ART_RECOVERY_NO_ENTERPRISE_R2_CREDIT",
+      "downstream_theorem_obligation_unlocked": "path consistency can be evaluated by endpoint potential difference",
+      "certificate_verdict": "PASS_ABSTRACT_R2_CONTROL_ONLY",
+      "counts_toward_enterprise_hard_target": false
+    },
+    {
+      "certificate_id": "PLC-S3-QUOTIENT",
+      "candidate": "S3_ZERO_CLASS_QUOTIENT_WITH_SUPPORT",
+      "typed_source_object": "C_state(finite overlap system; E,m,c)",
+      "typed_enterprise_object": "A3 zero-relation quotient + transported support",
+      "source_theorem_critical_predicate_or_operator": "assembly equality on every overlap edge",
+      "independent_enterprise_definition": "i~j iff Z_ij=0; quotient support diagonal test",
+      "comparison_theorem": "AC-S3",
+      "non_tautology_audit": "PASS",
+      "strict_leverage_class": "NORMAL_FORM",
+      "strict_leverage_witness": "numeric equality constraints are replaced by the exact normal form 'no off-diagonal support after zero-class quotient'",
+      "predeclared_measure_if_used": null,
+      "presentation_naturality_functoriality_scope": "quotient is patch-relabel equivariant",
+      "target_leakage_audit": "PASS",
+      "prior_art_novelty_status": "PRIOR_ART_RECOVERY_NO_ENTERPRISE_R2_CREDIT",
+      "downstream_theorem_obligation_unlocked": "assembly becomes a quotient-support diagonal condition",
+      "certificate_verdict": "PASS_ABSTRACT_R2_CONTROL_ONLY",
+      "counts_toward_enterprise_hard_target": false
+    }
+  ],
+  "enterprise_specific_R2_certificate_count": 0
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "HODGE_H0C_A3_A4_BRIDGE_AUDIT_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0C-8D3F62",
+  "tests": {
+    "zero_relation_classes": {
+      "status": "PASS",
+      "meaning": "Z_ij=0 classes are exact ratio-equality classes for source-generated field"
+    },
+    "generated_support_identity": {
+      "status": "NOT_A_SUBSTITUTE_FOR_SOURCE_OVERLAP",
+      "meaning": "A3 threshold-generated A4 support depends only on A3 field and therefore cannot distinguish two source systems with same field but different overlap incidence"
+    },
+    "antisymmetry": {
+      "status": "PASS",
+      "formula": "Z_ji=-Z_ij"
+    },
+    "weighted_three_block_closure": {
+      "status": "PASS",
+      "formula": "m_k Z_ij + m_i Z_jk + m_j Z_ki = 0"
+    },
+    "partition_coarsening": {
+      "status": "PASS_AS_A3_FIELD_IDENTITY",
+      "formula": "Z'_AB=sum_{i in A,j in B} Z_ij"
+    },
+    "signed_cancellation": {
+      "status": "COUNTEREXAMPLE_CONFIRMED",
+      "example": {
+        "m": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "c": [
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "A": [
+          0,
+          1
+        ],
+        "B": [
+          2,
+          3
+        ],
+        "fine_cross_Z": [
+          0,
+          2,
+          -2,
+          0
+        ],
+        "coarse_cross_Z": 0
+      }
+    },
+    "support_plus_signed_repairs_h0b_incidence_loss": {
+      "status": "PASS_ON_DECLARED_SURROGATE",
+      "meaning": "explicit E prevents same-field/different-incidence systems from collapsing"
+    },
+    "strict_enterprise_leverage": {
+      "status": "FAIL_NOVELTY",
+      "meaning": "all proved reductions factor through standard potential/coboundary/kernel mathematics"
+    }
+  },
+  "raw_pair_carrier_verdict": "R1_IF_USED_WITHOUT_STRICT_LEVERAGE",
+  "a3_generated_a4_support_as_algebraic_overlap_verdict": "FORBIDDEN_INFERENCE"
+}

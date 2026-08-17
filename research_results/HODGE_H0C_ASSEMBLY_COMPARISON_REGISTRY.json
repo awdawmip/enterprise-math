@@ -1,0 +1,85 @@
+{
+  "schema": "HODGE_H0C_ASSEMBLY_COMPARISON_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0C-8D3F62",
+  "comparisons": [
+    {
+      "id": "AC-S1",
+      "candidate": "S1_SUPPORT_INDEXED_A3_SIGNED_FIELD",
+      "source_predicate": "for all {i,j} in E, rho_i=rho_j",
+      "enterprise_constraint": "for all {i,j} in E, Z_ij=0",
+      "theorem": "EQUIVALENCE_ON_DECLARED_FINITE_SOURCE_CLASS",
+      "proof": "cross multiplication by positive m_i*m_j",
+      "exhaustive_check": {
+        "domain": "n=3; m_i in {1,2}; c_i in {-1,0,1}; all 8 overlap graphs",
+        "case_count": 1728,
+        "result": "PASS_1728_OF_1728"
+      }
+    },
+    {
+      "id": "AC-S1-TREE",
+      "candidate": "S1_SUPPORT_INDEXED_A3_SIGNED_FIELD",
+      "source_predicate": "all supported edge defects vanish",
+      "enterprise_constraint": "defects vanish on any spanning forest of each support component",
+      "theorem": "EQUIVALENCE_FOR_SOURCE_GENERATED_POTENTIAL_FIELD",
+      "leverage": "for a triangle, edge-zero checks 3 -> 2; generally |E| -> |V|-components when cycles exist",
+      "exhaustive_check": {
+        "domain": "same n=3 domain",
+        "case_count": 1728,
+        "strict_cycle_cases": 216,
+        "result": "PASS"
+      }
+    },
+    {
+      "id": "AC-S2-PATH",
+      "candidate": "S2_SIGNED_RECOALESCENCE_PATH_WEIGHT",
+      "theorem": "For every oriented path i0->...->ik, sum eta = rho_i0-rho_ik; hence path weight depends only on endpoints.",
+      "strength": "UNIVERSAL_TELESCOPING_IDENTITY",
+      "diamond_check": {
+        "domain": "m_i in {1,2}, c_i in {-1,0,1} on four vertices",
+        "case_count": 1296,
+        "two_paths_to_one_endpoint_weight": "PASS_1296_OF_1296"
+      }
+    },
+    {
+      "id": "AC-S2-CANCEL-NEG",
+      "candidate": "S2_SIGNED_RECOALESCENCE_PATH_WEIGHT",
+      "theorem": "Net signed cancellation alone is not assembly-complete.",
+      "counterexample": "branch defects +1 and -1 sum to 0 although neither defect is 0",
+      "strength": "EXACT_COUNTEREXAMPLE"
+    },
+    {
+      "id": "AC-S3",
+      "candidate": "S3_ZERO_CLASS_QUOTIENT_WITH_SUPPORT",
+      "source_predicate": "all support edges connect equal rational local states",
+      "enterprise_constraint": "every support edge is diagonal after quotient by Z_ij=0",
+      "theorem": "EQUIVALENCE_ON_DECLARED_FINITE_SOURCE_CLASS",
+      "exhaustive_check": {
+        "domain": "n=3; m_i in {1,2}; c_i in {-1,0,1}; all overlap graphs",
+        "case_count": 1728,
+        "result": "PASS_1728_OF_1728"
+      }
+    },
+    {
+      "id": "AC-S3-COARSE-NEG",
+      "candidate": "S3_ZERO_CLASS_QUOTIENT_WITH_SUPPORT",
+      "statement": "A3 summed coarsening alone is not assembly-complete because signed defects cancel.",
+      "strength": "EXACT_COUNTEREXAMPLE",
+      "example": {
+        "fine_cross_Z": [
+          0,
+          2,
+          -2,
+          0
+        ],
+        "coarse_Z": 0,
+        "fine_assembly": false
+      }
+    }
+  ],
+  "false_positive_audit": "PASS for S1/S3 exact constraints on exhaustive registry",
+  "false_negative_audit": "PASS for S1/S3 exact constraints on exhaustive registry",
+  "incidence_deletion": "detected because E is retained separately",
+  "orientation_reversal": "zero constraints invariant",
+  "duplicated_local_state": "does not alter universal algebraic identities; no novelty claim"
+}

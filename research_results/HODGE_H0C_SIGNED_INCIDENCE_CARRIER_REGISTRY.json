@@ -1,0 +1,59 @@
+{
+  "schema": "HODGE_H0C_SIGNED_INCIDENCE_CARRIER_REGISTRY_V1",
+  "status": "FROZEN",
+  "researcher_id": "EM-HODGE-H0C-8D3F62",
+  "criterion": "REALIZATION_CLASSIFIER_V2",
+  "carriers": [
+    {
+      "id": "S1_SUPPORT_INDEXED_A3_SIGNED_FIELD",
+      "family": "Candidate S1 — Support-indexed A3 signed field",
+      "carrier_type": "(I,E,m,Z) with E explicit overlap support and Z_ij=m_j*c_i-m_i*c_j",
+      "source_generation": "E copied as source incidence identity; Z independently generated from m,c by frozen A3 law",
+      "support_role": "determines which local pairs carry assembly obligations",
+      "signed_role": "Z_ji=-Z_ij; Z_ij=0 exactly when rho_i=rho_j",
+      "reversal_law": "orientation reversal sends Z_ij to -Z_ij; zero obstruction invariant",
+      "composition_recoalescence": "weighted three-block closure is available; no branch cancellation is used for assembly truth",
+      "collapse_coarsening": "A3 partition sums are exact but can cancel and are not assembly-complete without retained support/fine obstruction",
+      "retained": [
+        "overlap incidence identity",
+        "capacities",
+        "signed cross-product field"
+      ],
+      "lost": [
+        "common rational offset/scale information not needed by assembly zero-language"
+      ],
+      "assembly_complete": true,
+      "abstract_operational_rank": "R2_NONTRIVIAL_OPERATIONAL_REALIZATION_CONTROL_ONLY",
+      "enterprise_novelty": "PRIOR_ART_RECOVERY_NO_ENTERPRISE_R2_CREDIT",
+      "reason": "exact spanning-forest obstruction reduction is standard graph potential/coboundary mathematics after eta_ij=Z_ij/(m_i*m_j)=rho_i-rho_j"
+    },
+    {
+      "id": "S2_SIGNED_RECOALESCENCE_PATH_WEIGHT",
+      "family": "Candidate S2 — Signed recoalescence / cancellation carrier",
+      "carrier_type": "oriented path token (endpoint, eta_path in Q), eta_ij=Z_ij/(m_i*m_j)",
+      "source_generation": "eta_ij is generated from S1 signed field and positive capacities",
+      "reversal_law": "eta_ji=-eta_ij",
+      "composition_recoalescence": "path composition adds eta; source-generated eta telescopes, so all paths with same endpoints have the same accumulated eta and may recoalesce by endpoint+weight",
+      "unsafe_cancellation_control": "net arithmetic cancellation of unrelated branches is forbidden: +1 and -1 can sum to 0 although neither branch is compatible",
+      "assembly_complete": "only when support/provenance is retained; scalar signed sum alone is incomplete",
+      "abstract_operational_rank": "R2_NONTRIVIAL_OPERATIONAL_REALIZATION_CONTROL_ONLY",
+      "enterprise_novelty": "PRIOR_ART_RECOVERY_NO_ENTERPRISE_R2_CREDIT",
+      "reason": "gradient path telescoping and weighted-path recoalescence are standard potential/weighted-path constructions"
+    },
+    {
+      "id": "S3_ZERO_CLASS_QUOTIENT_WITH_SUPPORT",
+      "family": "Candidate S3 — Quotient/coarsening-compatible signed incidence",
+      "carrier_type": "zero-relation quotient q_Z:I->I/~ where i~j iff Z_ij=0, together with transported source support E",
+      "source_generation": "zero classes are generated from the A3 field; support remains source-supplied",
+      "assembly_constraint": "all support edges map to diagonal quotient pairs q_Z(i)=q_Z(j)",
+      "assembly_complete": true,
+      "raw_a3_coarsening_complete": false,
+      "cancellation_counterexample": "m=(1,1,1,1), c=(1,-1,1,-1), partition {0,1}|{2,3}: summed cross Z is 0 although fine cross defects include +2 and -2",
+      "abstract_operational_rank": "R2_NONTRIVIAL_OPERATIONAL_REALIZATION_CONTROL_ONLY",
+      "enterprise_novelty": "PRIOR_ART_RECOVERY_NO_ENTERPRISE_R2_CREDIT",
+      "reason": "quotienting by equality/kernel classes and testing off-diagonal support is classical partition/kernel graph mathematics"
+    }
+  ],
+  "enterprise_specific_R2_found": false,
+  "strongest_enterprise_specific_rank": "R1_DERIVED_REORGANIZATION"
+}
