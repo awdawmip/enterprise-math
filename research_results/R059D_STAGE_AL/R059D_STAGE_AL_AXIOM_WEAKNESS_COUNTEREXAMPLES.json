@@ -1,0 +1,43 @@
+{
+  "schema": "R059D_STAGE_AL_AXIOM_WEAKNESS_COUNTEREXAMPLES_V1",
+  "status": "PROVED_COUNTEREXAMPLE_CENSUS",
+  "researcher_id": "EM-R059D-AL-5A9D31",
+  "counterexamples": [
+    {
+      "id": "AL-CE1-PURE-AXIS-HEXAGON",
+      "tested_axioms": "A0-A7 and A0-A7+monotone/single-peak",
+      "sector_word": "2^r",
+      "local_machine": "state=(O,r,sector,a,b); while a>0 emit 2 and (a,b)<-(a-1,b+1); at (0,r) normalize to next D6 sector anchor",
+      "proof_of_axioms": "one-edge local constant-state law; r is preserved; no sampling/source oracle; translation and D6 transport commute; six monotone sectors form a simple hexagonal cycle meeting only at axis anchors",
+      "period": "6r",
+      "first_radius_different_from_N": 5,
+      "N_word_at_first_difference": "212232",
+      "alternative_word_at_first_difference": "22222",
+      "circle_constant": "3 under transition-span diameter 2r",
+      "killed_by": "A8 primitive-support frontier maximality: at r=5 the N/support carrier admits an outward symbol-1 move that the hexagon refuses, so the hexagon lies strictly inward of the outer frontier"
+    },
+    {
+      "id": "AL-CE2-PACKED-EXACT-COUNT",
+      "tested_axioms": "A0-A7+monotone/single-peak+exact AG J/count/period",
+      "sector_word": "1^J 2^(r-J) 3^J with J=J_N(r)",
+      "local_machine": "compute J by accepted AG integer recurrence, then use finite phase counters UP/FLAT/DOWN; no word table",
+      "proof_of_axioms": "constant-size integer counters; local one-edge turns; D6 simple cycle; exactly #1=#3=J and #2=r-J, hence exactly the accepted sector length r+J and full period C_N(r)",
+      "first_radius_different_from_N": 5,
+      "J_at_first_difference": 1,
+      "N_word_at_first_difference": "212232",
+      "alternative_word_at_first_difference": "122223",
+      "period_at_first_difference": 36,
+      "same_period_as_N": true,
+      "killed_by": "A8 primitive-support frontier maximality: its first step takes an outward move before that move belongs to K_E(5), so it exits the target support carrier"
+    }
+  ],
+  "diagnosis": {
+    "A0_A7_sufficient": false,
+    "monotone_single_peak_sufficient": false,
+    "exact_J_and_period_sufficient": false,
+    "missing_information": "which locally available monotone edge is the intrinsic outer supported continuation",
+    "rigidity_carrier": "A8 primitive-support frontier maximality"
+  },
+  "adversarial_small_radius_plan": "enumerate all Motzkin sector words for r<=7; every such word gives a simple D6 cycle in this bounded census, while the final support-frontier criterion has exactly one survivor per r and that survivor is W_N(r).",
+  "finite_census_is_not_proof": true
+}
