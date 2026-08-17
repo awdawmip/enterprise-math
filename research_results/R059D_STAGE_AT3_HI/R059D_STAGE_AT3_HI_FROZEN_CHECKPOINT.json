@@ -1,0 +1,65 @@
+{
+  "artifact_manifest_sha256": "9a8cdc3d6889721f50acd5ed14e6981529f22282f44fcdb600559e7aa562f061",
+  "artifact_payload_head": "c9a8ab0aa8deba274bb3f2956f99b10481ecb434",
+  "checker": {
+    "checks_digest_sha256": "bb37d6174cce324c01d57c7d2333bca2659cd117e9f3326ee244f7f524389079",
+    "checks_failed": 0,
+    "checks_passed": 978660,
+    "checks_total": 978660,
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "output_commit": "f23f73b1431dfa6f4e2993cef1c6e963259165f6",
+    "source_commit": "aa6640a03106ad4ba2110aa1ab58ff89d5a97e65",
+    "status": "PASS",
+    "validation": "shell/D6 to r=255; induced cycles through r=63 plus 127/255; geodesic hull through r=63 plus 127/255; hidden identities through n=256"
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "freezes": {
+    "AREA_COUNTING": "A_naive(n)=1+3n(n-1)=candidate interior vertex count=cumulative trace-history support; not a native AREA_E theorem",
+    "CANDIDATE_INTERIOR": "GEODESIC_HULL=B_(n-1)",
+    "CANDIDATE_TRACE": "EXISTENCE_SHELL S_(n-1); induced graph C_(6(n-1)) for n>=2",
+    "CANONICAL_HIGHER_TRACE": "UNDERDEFINED_FOR_N_GE_2_AT_THIS_PARENT",
+    "CURRENT_HIDDEN": "empty at n=1; B_(n-2)=previous interior for n>=2",
+    "FIRST_CURRENT_HIDDEN": "n=2, exactly {O_E}, already traced at n=1",
+    "FIRST_FRESH_HIDDEN_LEVEL": "does not exist in the existence-shell candidate arm",
+    "FRESH_HIDDEN": "empty for every n>=1",
+    "LIFETIME_HIDDEN": "empty for every n>=1",
+    "MECHANISM": "BOUNDARY_AGING_OF_PREVIOUSLY_TRACED_GENERATIONS",
+    "PATH_ROBUSTNESS": "all primitive closed shell traversals have identical support; no SOMETIMES_TRACED shell vertices",
+    "TRACE_HISTORY": "B_(n-1)=candidate interior"
+  },
+  "frozen_parent": "58e82206b691ac49c98307efd798f9cfd1a78bc7",
+  "immutability_gate": {
+    "compare_head": "0d5ce194d63ea80084be925cc7c7d5d91423772c",
+    "compare_parent_base": "58e82206b691ac49c98307efd798f9cfd1a78bc7",
+    "compare_taskbook_base": "5c05b8127b70543ba3df2e5c28fcced862fb035e",
+    "prior_or_AT3_main_files_modified_or_deleted": 0,
+    "status": "PASS"
+  },
+  "later_stage_consumed": false,
+  "owner_branch": "research/r059d-stage-at3-hi-hidden-interior-first-appearance",
+  "primary_disposition": "CANONICAL_HIGHER_PERIMETER_UNDERDEFINED__EXISTENCE_SHELL_GEODESIC_HULL_HAS_NO_FRESH_HIDDEN_POINTS_FOR_ALL_LEVELS",
+  "remaining_open": {
+    "CANONICAL_HIGHER_CIRCLE_PERIMETER_LAW": false,
+    "CANONICAL_INTERIOR_CARRIER_N_GE_2": false,
+    "FIRST_FRESH_HIDDEN_LEVEL_FOR_EVENTUAL_AT3_CANONICAL_CIRCLE": false,
+    "NATIVE_AREA_LAW": false
+  },
+  "researcher_id": "EM-R059D-AT3HI-4D6B21",
+  "schema": "R059D_STAGE_AT3_HI_FROZEN_CHECKPOINT_V1",
+  "scope_qualifier": "PARALLEL_AT3_HI_DIAGNOSTIC__DOES_NOT_CONSUME_OR_MODIFY_AT3_MAIN",
+  "semantic_boundaries": {
+    "AK_TAU_OR_HISTORICAL_N_USED_AS_MEMBERSHIP_ORACLE": false,
+    "AL_A8_USED_PRIMARY": false,
+    "AT3_MAIN_CONSUMED": false,
+    "AT3_MAIN_MODIFIED": false,
+    "CANDIDATE_SUPPORT_COUNT_PROMOTED_TO_AREA": false,
+    "EXISTENCE_SHELL_PROMOTED_TO_CANONICAL_CIRCLE": false,
+    "NATIVE_ZERO_EXISTS": false,
+    "SOURCE_GEOMETRY_USED_PRIMARY": false,
+    "VOID_IS_NATIVE_ZERO": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059D-STAGE-AT3-HI-HIDDEN-INTERIOR-FIRST-APPEARANCE",
+  "taskbook_source_commit": "5c05b8127b70543ba3df2e5c28fcced862fb035e"
+}
