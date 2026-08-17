@@ -1,0 +1,69 @@
+{
+  "schema": "R059D_STAGE_AO_FROZEN_CHECKPOINT_V1",
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "researcher_id": "EM-R059D-AO-2D7C46",
+  "task_id": "RS-R059D-STAGE-AO-MACROSCOPIC-BRC-DENSITY-PROFILE-LIMIT",
+  "taskbook_source_commit": "3839dcfe0e6cfe819ec49fb6ffc9d3cdaa937a7f",
+  "frozen_source_main": "454b57e4eab1c2d856074e653f5cb7db8c423e74",
+  "owner_branch": "research/r059d-stage-ao-macroscopic-brc-density-profile-limit",
+  "primary_disposition": "FULL_MACROSCOPIC_BRC_DENSITY_PROFILE_PROVED__NONCONSTANT_RADON_NIKODYM_LIMIT__POSITIVE_LIMITING_VARIANCE",
+  "freezes": {
+    "SCALED_FRONTIER": "uniform Q_E(a,b)/r^2->1 on the AL canonical frontier; explicit |Q_E-r^2|<3r+3 replay/proof bound",
+    "CUMULATIVE_TURNS": "sector vertex index n=b on a>=b and n=M_N(r)-a on a<=b",
+    "G_LEFT": "G(theta)=2*sin(theta)/sqrt(3)",
+    "G_RIGHT": "G(theta)=beta-cos(theta)+sin(theta)/sqrt(3), 3*beta^2=4",
+    "TURN_DENSITY_LEFT": "g(theta)=2*cos(theta)/sqrt(3)",
+    "TURN_DENSITY_RIGHT": "g(theta)=sin(theta)+cos(theta)/sqrt(3)=2*cos(pi_source/3-theta)/sqrt(3)",
+    "TURN_DENSITY_MASS": "integral_full g dtheta=2*kappa_E",
+    "TARGET_LIMIT_MEASURE": "d hat_nu_infty=g(theta)dtheta/(2*kappa_E)",
+    "SOURCE_LIMIT_MEASURE": "d hat_mu_infty=dtheta/(2*kappa_perp)",
+    "RN_DERIVATIVE": "d hat_mu_infty/d hat_nu_infty=kappa_E/[kappa_perp*g(theta)] and is nonconstant",
+    "LOCAL_WEIGHT_OBJECT": "generic individual-edge profile is two-scale/Young, not one pointwise function",
+    "MACRO_WEIGHT": "w_macro(theta)=1/g(theta)",
+    "YOUNG_LEFT": "Y_theta=(h1/g)delta_ell1+(h2/g)delta_ell2",
+    "YOUNG_RIGHT": "Y_theta=(h2/g)delta_ell2+(h3/g)delta_ell3",
+    "MACRO_SECOND_MOMENT": "E[w_macro^2]=(3/4)*log(3)",
+    "EDGE_SECOND_MOMENT": "lim (1/T_r)sum_k w_(r,k)^2=5/6",
+    "MACRO_VARIANCE": "(3/4)*log(3)-(kappa_perp/kappa_E)^2 > 0",
+    "EDGE_VARIANCE": "5/6-(kappa_perp/kappa_E)^2 > 0",
+    "AN_LIMITS_RECOVERED": "axis macro weight sqrt(3)/2; bisector macro weight 1",
+    "TARGET_CANONICALITY_REOPENED": false,
+    "KAPPA_TYPING": "kappa_perp source typed; kappa_E target native with kappa_E^2=12,kappa_E>0"
+  },
+  "checker": {
+    "status": "PASS",
+    "checks_total": 30763,
+    "checks_passed": 30763,
+    "checks_failed": 0,
+    "checks_digest_sha256": "187b3ae44600cf74bd0d48aedcf8bd84045f5a4aea5b21b61e96492be8015fa4",
+    "source_commit": "04daf73d67a2bfa1a88679d26200b17c25727de8",
+    "output_commit": "4186ce2f57dc6350b7a195ef3238877e37363902",
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "validation": "r=1..2048 plus 4096,8192,16384"
+  },
+  "immutability_gate": {
+    "status": "PASS",
+    "compare_base": "454b57e4eab1c2d856074e653f5cb7db8c423e74",
+    "compare_head": "58df91074e81ae022b4c7f13618e894651113009",
+    "prior_stage_result_files_modified_or_deleted": 0
+  },
+  "artifact_manifest_sha256": "5f120db4b2f7df2912f88bf2c63176b4d6c05a822233787e9d8b3ccc3c73e180",
+  "artifact_payload_head": "e7aa63c3973b06840f13096780b3b54391e19d62",
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "semantic_boundaries": {
+    "SOURCE_QUANTITIES_SELECT_TARGET": false,
+    "KAPPA_PERP_IDENTIFIED_WITH_KAPPA_E": false,
+    "STANDARD_REAL_PI_NEW_THEOREM": false,
+    "BRC_BIJECTIVE_POINT_MAP": false,
+    "GENERIC_SINGLE_EDGE_POINTWISE_PROFILE": false
+  },
+  "remaining_open": {
+    "SHARP_UNIFORM_CONVERGENCE_RATE_CONSTANTS": false,
+    "HIGHER_ORDER_FLUCTUATION_LAW": false,
+    "CENTRAL_LIMIT_OR_DISCREPANCY_THEOREM_FOR_MICROSTRUCTURE": false,
+    "KAPPA_PERP_EQUALS_KAPPA_E": false,
+    "STANDARD_REAL_PI_NEW_THEOREM": false
+  },
+  "later_stage_consumed": false
+}
