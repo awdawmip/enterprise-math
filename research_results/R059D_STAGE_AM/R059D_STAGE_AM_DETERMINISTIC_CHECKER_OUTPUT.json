@@ -1,0 +1,38 @@
+{
+  "schema": "R059D_STAGE_AM_DETERMINISTIC_CHECKER_OUTPUT_V1",
+  "status": "PASS",
+  "researcher_id": "EM-R059D-AM-8E3C64",
+  "checks_total": 2580,
+  "checks_passed": 2580,
+  "checks_failed": 0,
+  "checks_digest_sha256": "2018fda8340885b7fbb6950c7196d4d9176ac7dc6ef3a27180009cd699df9f18",
+  "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+  "history_compare": {
+    "base": "3e05dc4b50c7b3743db7c1d37692cda3d320b73e",
+    "head": "c5944f7a6b3a2b104403d4b034b9cd7bc40b4ca0",
+    "prior_stage_result_files_modified_or_deleted": 0
+  },
+  "validation": {
+    "full_radii": "1..256",
+    "checkpoints": [512,1024,4096],
+    "properties": [
+      "exact target period and AG count compatibility",
+      "strict positive source angular cone for every target turn",
+      "strict interior source-direction sample in every fiber",
+      "neighbor tie-ray consistency",
+      "D6 equivariance",
+      "translation covariance",
+      "simple target cycle",
+      "D6-repeated exact tangent signatures",
+      "r=1,2 equal-fiber controls",
+      "first exact nonuniform source-fiber witness at r=3"
+    ]
+  },
+  "first_nonuniform_witness": {
+    "r": 3,
+    "edge0": "det/D=3/15=1/5",
+    "edge1": "det/D=3/13",
+    "conclusion": "source angular widths differ"
+  },
+  "summary": "Canonical radial-incidence BRC fibers form an exact cyclic D6-compatible source-circle cover of the canonical target turns. Source arc widths fail to be uniform from r=3, validating the local metric-nondescend implementation."
+}
