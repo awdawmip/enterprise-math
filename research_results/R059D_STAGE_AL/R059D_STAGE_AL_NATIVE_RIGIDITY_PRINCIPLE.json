@@ -1,0 +1,34 @@
+{
+  "schema": "R059D_STAGE_AL_NATIVE_RIGIDITY_PRINCIPLE_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AL-5A9D31",
+  "principle": "PRIMITIVE_SUPPORT_FRONTIER_MAXIMALITY",
+  "target_construction": {
+    "quadratic_support_index": {
+      "definition_method": "Let Q(a,b)=A a^2+B ab+C b^2 be an integral quadratic form invariant under the native 60-degree transport R(a,b)=(-b,a+b). Invariance forces A=B=C; primitive normalization Q(1,0)=1 gives Q_E(a,b)=a^2+ab+b^2.",
+      "typing": "Q_E is an incidence/support grading on triangular-lattice barycentric numerators. It is not L_E, not endpoint distance and not a Euclidean metric premise."
+    },
+    "triangle_rank": "For elementary triangle t, c(t)=sum of its three vertices and rank(t)=Q_E(c(t)).",
+    "vertex_rank": "For vertex p, support_rank(p)=min over incident primitive edges e of max(rank(t_e^+),rank(t_e^-)).",
+    "anchor_level": "support_level(r)=Q_E(3r,0)=9r^2.",
+    "carrier": "K_E(r)={p:support_rank(p)<=9r^2}.",
+    "frontier": "The oriented first-sector circle path is the outer monotone frontier of K_E(r), transported to all sectors by D6."
+  },
+  "proof_side_coordinate_reduction": {
+    "AG_bridge_identity": "For a,b>=0, support_rank(a,b)=9q(a,b)-9max(a,b)+3 with q=a^2+ab+b^2.",
+    "left_half": "For a>=b define L(a,b)=3q(a,b)-3a+1. Then carrier membership is L(a,b)<=3r^2.",
+    "vertical_difference": "L(a,b+1)-L(a,b)=3(a+2b+1)>0.",
+    "diagonal_difference": "L(a-1,b+1)-L(a,b)=3(b-a+2)<=0 whenever a-b>=2.",
+    "right_half": "By reflection, the symmetric statements hold for a<=b.",
+    "consequence": "Every carrier column/row is an inward initial interval; before the bisector, if the outward vertical successor is supported the outer frontier must take it, otherwise diagonal closure guarantees the inward-diagonal successor is supported. The reflected rule is forced after the bisector."
+  },
+  "uniqueness_induction": "Start at (r,0). Suppose an admissible path agrees with the outer frontier to p. At the next step, taking an outward candidate not in K_E exits the carrier; taking an inward candidate while an outward candidate remains in K_E violates frontier maximality. At the bisector D6/reflection compatibility fixes the unique crossing. Therefore the next step is forced. Induction reaches (0,r), proving a unique sector frontier for every r>=1.",
+  "non_tautology_audit": {
+    "contains_N_word": false,
+    "contains_N_residual_recurrence": false,
+    "contains_radius_specific_decisions": false,
+    "independent_native_inputs": "triangular adjacency, D6 transport, primitive integer normalization, barycentric incidence, outer-frontier order",
+    "AG_support_polynomial_role": "proof-side coordinate certificate for the target support construction only"
+  },
+  "minimality_scope": "A8 is the weakest member of the explicitly tested axiom chain A0-A7 -> +monotone -> +exact AG counts/period -> +primitive-support frontier that removes all exhibited alternatives. No claim is made that no logically different equivalent rigidity axiom exists."
+}
