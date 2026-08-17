@@ -1,0 +1,59 @@
+{
+  "accepted_ag_owner_head": "5063495ff0df643890cd1f4c72ffd2077161c13d",
+  "accepted_ah_owner_payload_head": "ab1697d1020bfd987108a9d5775fb471d422304f",
+  "artifact_manifest_sha256": "131a71deddba95233687942b1ca76912c8881f357988f407c7a9028b0b16a334",
+  "artifact_payload_head": "ac663abe4b4c89dd3cdb3677c07d1f430c308d10",
+  "checker": {
+    "checks_digest_sha256": "4147a5d0db87af62b30b37c9eb1e3eb03dbeaeadb44656b6cc5a092b61b8d2e5",
+    "checks_failed": 0,
+    "checks_passed": 59441,
+    "checks_total": 59441,
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "output_commit": "7128aec39ffe46acb1da43fc14c11c5b87292125",
+    "source_commit": "473738faf6b818bed9388738aa1d1b60b09bd605",
+    "status": "PASS",
+    "validation_max_r": 16384
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "freezes": {
+    "CELL_ERROR": "(-4-kappa_E)/(2r+1) < C_N(r)/(2r+1)-kappa_E < (2-kappa_E)/(2r+1)",
+    "CIRCUMFERENCE_INCREMENT": "C_N(r)-C_N(r-1)=6*(1+s_r) in {6,12}, ordered by AG Sturmian jump word",
+    "ENDPOINT_ROBUSTNESS": "for every fixed integer epsilon, C_N(r)/(2r+epsilon)->kappa_E whenever denominator is eventually positive",
+    "ENTERPRISE_CIRCLE_CONSTANT": "kappa_E",
+    "EXACT_CIRCUMFERENCE": "C_N(r)=6*(r+floor(alpha*r+1/3))=6*M_r",
+    "INTEGER_CERTIFICATE": "dyadic bisection against x^2-12; width 2^-n after n levels; integer-only",
+    "KAPPA_ALPHA_RELATION": "kappa_E=3*(1+alpha)",
+    "KAPPA_DEFINITION": "lim_{r->infinity} C_N(r)/(2r)",
+    "KAPPA_MINIMAL_POLYNOMIAL": "x^2-12",
+    "KAPPA_ROOT_TYPING": "unique positive root",
+    "SCALE_INVARIANCE": "for every fixed h>=1, step and cell ratios along hr converge to kappa_E",
+    "SHELL_THRESHOLD": "for r>=1, M_r=max{m>=0:(3m-1)^2<=12r^2}; M_0:=0",
+    "STEP_ERROR": "with delta_r=frac(alpha*r+1/3), -2/r < C_N(r)/(2r)-kappa_E < 1/r"
+  },
+  "frozen_source_main": "6a0a07f43ede4d1df61525364269492fbc7ca631",
+  "immutability_gate": {
+    "compare_base": "6a0a07f43ede4d1df61525364269492fbc7ca631",
+    "compare_head": "1a16a772c9758ed7fb4b96cfb827fe03f03bdbaa",
+    "prior_stage_result_files_modified_or_deleted": 0,
+    "status": "PASS"
+  },
+  "later_stage_consumed": false,
+  "owner_branch": "research/r059d-stage-ai-algebraic-enterprise-circle-constant",
+  "pre_theorem_protocol_commit": "a835f79b67541b99112c4fad5135de7151cbf5fd",
+  "primary_disposition": "ENTERPRISE_CIRCLE_CONSTANT_ALGEBRAIC_THEOREM_PROVED__KAPPA_SQUARED_EQ_12",
+  "researcher_id": "EM-R059D-AI-4F8C2D",
+  "schema": "R059D_STAGE_AI_FROZEN_CHECKPOINT_V1",
+  "semantic_boundaries": {
+    "CLASSICAL_EUCLIDEAN_CIRCLE_REDEFINED": false,
+    "C_RESOLVER_LIMIT_THEOREM": false,
+    "KAPPA_IDENTIFIED_WITH_STANDARD_PI": false,
+    "N_C_RESOLVER_INDEPENDENT_SELECTION": false,
+    "SHELL_LITERAL_R0_NOTE": "taskbook literal max-set is empty at r=0; totalized theorem freezes M_0=0",
+    "STANDARD_REAL_PI_THEOREM": false
+  },
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059D-STAGE-AI-ALGEBRAIC-ENTERPRISE-CIRCLE-CONSTANT",
+  "taskbook_source_commit": "bd4afe69a3c81491c741c79689087835ed197221",
+  "theorem_commit": "9507e50323aa4fffc13c978a38284f732532a103"
+}
