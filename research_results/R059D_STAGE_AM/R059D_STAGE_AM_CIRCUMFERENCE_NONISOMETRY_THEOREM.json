@@ -1,0 +1,19 @@
+{
+  "schema": "R059D_STAGE_AM_CIRCUMFERENCE_NONISOMETRY_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AM-8E3C64",
+  "typed_functionals": {
+    "source": "Circ_perp(O,r)=total source Euclidean arc measure around C_perp(O,r)",
+    "target": "Circ_E(r)=T_r, the minimal number of legal canonical Enterprise turns required to close the AL orbit"
+  },
+  "theorem": "SOURCE_ARC_CIRCUMFERENCE_IS_NOT_A_BRC_INVARIANT",
+  "proof": [
+    "R_BRC,r collapses each connected source arc fiber F_k to one target turn e_k.",
+    "At r=3 the source measures mu_perp(F_0) and mu_perp(F_1) are unequal while both target turns have native weight 1.",
+    "Therefore no target-local common source arc unit lambda(3) makes the collapse edgewise isometric.",
+    "Consequently compatibility/surjectivity/cyclic order do not imply equality between source total arc functional and target turn-period functional under a fixed local unit normalization."
+  ],
+  "conditional_isometry_statement": "If an extra axiom required every target elementary turn at radius r to carry one common source arc unit lambda(r), then source circumference would equal lambda(r)*T_r; if the unit normalization were also fixed compatibly with diameter, the source and target circumference/diameter constants would be forced to coincide. This is an additional isometry axiom, not a BRC theorem, and r=3 refutes its equal-fiber premise.",
+  "target_constant_preserved": "kappa_E remains defined natively by lim T_r/(2r), with kappa_E^2=12 and kappa_E>0",
+  "source_constant_not_identified": true
+}
