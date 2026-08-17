@@ -1,0 +1,47 @@
+{
+  "schema": "R059D_STAGE_AI_ALGEBRAIC_CONSTANT_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AI-4F8C2D",
+  "primary_disposition": "ENTERPRISE_CIRCLE_CONSTANT_ALGEBRAIC_THEOREM_PROVED__KAPPA_SQUARED_EQ_12",
+  "AI_T1": {
+    "circumference": "C_N(r)=6*(r+floor(alpha*r+1/3)) for every integer r>=0",
+    "beta_form": "C_N(r)=6*floor(beta*r+1/3), beta=1+alpha",
+    "shell_total_definition": "M_0=0; for r>=1, M_r=max{m>=0 integer:(3m-1)^2<=12*r^2}",
+    "shell_equivalent_all_r": "M_r=max({0} union {m>=1 integer:(3m-1)^2<=12*r^2})",
+    "shell_readout": "C_N(r)/6=M_r"
+  },
+  "AI_T2": {
+    "alpha_polynomial": "3*alpha^2+6*alpha-1=0",
+    "beta_definition": "beta=1+alpha",
+    "beta_polynomial": "3*beta^2-4=0",
+    "kappa_definition": "kappa_E=3*beta",
+    "minimal_polynomial": "kappa_E^2-12=0",
+    "root_typing": "kappa_E is the unique positive root of x^2-12=0",
+    "conventional_closed_form_after_proof_only": "kappa_E=2*sqrt(3)"
+  },
+  "AI_T3": {
+    "ratio": "R_step(r)=C_N(r)/(2*r), r>=1",
+    "limit": "lim_{r->infinity} R_step(r)=kappa_E",
+    "exact_error_state": "delta_r=alpha*r+1/3-floor(alpha*r+1/3), with 0<delta_r<1",
+    "exact_error_identity": "R_step(r)-kappa_E=(1-3*delta_r)/r",
+    "strict_bound": "-2/r < R_step(r)-kappa_E < 1/r"
+  },
+  "AI_T4": {
+    "cell_ratio": "R_cell(r)=C_N(r)/(2*r+1)",
+    "cell_exact_error": "R_cell(r)-kappa_E=(2-kappa_E-6*delta_r)/(2*r+1)",
+    "cell_strict_interval": "(-4-kappa_E)/(2*r+1) < R_cell(r)-kappa_E < (2-kappa_E)/(2*r+1) < 0",
+    "bounded_endpoint_generalization": "For fixed integer epsilon and 2*r+epsilon>0, R_epsilon=C_N(r)/(2*r+epsilon) satisfies R_epsilon-kappa_E=(2-kappa_E*epsilon-6*delta_r)/(2*r+epsilon) and tends to 0.",
+    "general_strict_interval": "(-4-kappa_E*epsilon)/(2*r+epsilon) < R_epsilon-kappa_E < (2-kappa_E*epsilon)/(2*r+epsilon)"
+  },
+  "AI_T6": {
+    "statement": "For every fixed positive integer h, C_N(h*r)/(2*h*r)->kappa_E and C_N(h*r)/(2*h*r+1)->kappa_E.",
+    "step_bound": "-2/(h*r) < C_N(h*r)/(2*h*r)-kappa_E < 1/(h*r)"
+  },
+  "optional_increment_theorem": {
+    "statement": "C_N(r)-C_N(r-1)=6*(1+s_r), where s_r=J_N(r)-J_N(r-1) is the accepted Sturmian jump bit.",
+    "increment_alphabet": [6, 12],
+    "ordering": "Sturmian, inherited from AG",
+    "interpretation": "circumference growth divided by the simultaneous diameter-transition growth 2 has asymptotic mean kappa_E"
+  },
+  "semantic_boundary": "This proves an algebraic native Enterprise N-circle count-geometric constant. It does not prove the standard real number pi algebraic and does not alter standard Euclidean definitions."
+}
