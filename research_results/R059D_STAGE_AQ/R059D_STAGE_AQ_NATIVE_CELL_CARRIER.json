@@ -1,0 +1,35 @@
+{
+  "schema": "R059D_STAGE_AQ_NATIVE_CELL_CARRIER_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AQ-3A7E61",
+  "task_id": "RS-R059D-STAGE-AQ-NATIVE-CELL-ESCAPE-MULTIPATH-REACHABILITY",
+  "taskbook_source_commit": "78f0d56edecb5cd57967b9ff0f1a2d3567550120",
+  "frozen_parent": "c25b6d0385648c27292f25aeeeff2b816654a4ba",
+  "native_typing": {
+    "signed_origin": "+1_EQUIV_MINUS1_EQ_O_E",
+    "native_zero_exists": false,
+    "cell_id_chart": "AUXILIARY_A2_INCIDENCE_LABEL_ONLY",
+    "vertex_native_encoding": "auxiliary A2 vertex (i,j,-i-j) is encoded componentwise by ENC_SIGNED; auxiliary zeros map to the glued origin state and are never native zero coordinates"
+  },
+  "elementary_cells": {
+    "U(i,j)": [["v(i,j)"],["v(i+1,j)"],["v(i,j+1)"]],
+    "D(i,j)": [["v(i+1,j)"],["v(i,j+1)"],["v(i+1,j+1)"]],
+    "interpretation": "the two orientations are the accepted triangular/half-square elementary incidence cells; i,j are cell-ID labels, not native numerical point coordinates"
+  },
+  "edge_neighbors": {
+    "N3(U(i,j))": ["D(i,j)","D(i,j-1)","D(i-1,j)"],
+    "N3(D(i,j))": ["U(i,j)","U(i+1,j)","U(i,j+1)"],
+    "degree_theorem": "EVERY_ELEMENTARY_CELL_HAS_EXACTLY_THREE_EDGE_ADJACENT_CELLS"
+  },
+  "origin_star": ["U(0,0)","U(-1,0)","U(0,-1)","D(-1,-1)","D(-1,0)","D(0,-1)"],
+  "origin_star_theorem": "these are exactly the six elementary cells incident to the auxiliary origin vertex whose signed-native image is O_E",
+  "D6_action": {
+    "vertex_rotation": "R(i,j)=(-j,i+j)",
+    "vertex_reflection": "F(i,j)=(j,i)",
+    "cell_rotation": "R(U(i,j))=D(-j-1,i+j); R(D(i,j))=U(-j-1,i+j+1)",
+    "cell_reflection": "F(U(i,j))=U(j,i); F(D(i,j))=D(j,i)",
+    "properties": ["preserves shared edges","preserves STAR(O_E)","gives the six-axis signed-origin transport"]
+  },
+  "source_geometry_used": false,
+  "disposition": "THREE_NEIGHBOR_NATIVE_CELL_PREMISE_PROVED"
+}
