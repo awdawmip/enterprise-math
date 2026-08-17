@@ -1,0 +1,29 @@
+{
+  "schema": "R059D_STAGE_AI_INTEGER_CERTIFICATE_V1",
+  "status": "PROVED_EXECUTABLE",
+  "researcher_id": "EM-R059D-AI-4F8C2D",
+  "target": "kappa_E is the unique positive root of x^2-12=0",
+  "initial_bracket": "3<kappa_E<4 because 9<12<16",
+  "state": "At level n store integers L,U with U-L=1 and L/2^n<kappa_E<U/2^n.",
+  "step": [
+    "M=L+U represents the midpoint M/2^(n+1).",
+    "Compare M^2 with 12*2^(2n+2) using integers only.",
+    "If M^2 is smaller, set (L,U)<-(M,2U); otherwise set (L,U)<-(2L,M)."
+  ],
+  "invariants": [
+    "U-L=1 at every level.",
+    "L^2 < 12*2^(2n) < U^2 at every level.",
+    "bracket width is exactly 2^(-n).",
+    "equality cannot occur because x^2=12 has no positive rational root."
+  ],
+  "arbitrary_accuracy": "After n iterations the rational bracket width is 2^(-n).",
+  "runtime": {
+    "integer_only": true,
+    "floating_point": false,
+    "sqrt": false,
+    "classical_pi": false,
+    "trigonometry": false,
+    "source_circle": false
+  },
+  "implementation": "research_results/R059D_STAGE_AI/r059d_stage_ai_integer_certificate.py"
+}
