@@ -1,0 +1,30 @@
+{
+  "schema": "R059D_STAGE_AS_TRIANGLE_FLIP_GRAMMAR_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "carrier": "ordered primitive-edge chain",
+  "one_to_two": {
+    "input": "one chain edge [x,y] and an incident elementary triangle {x,y,z} whose third vertex can be inserted without violating the declared simple-chain condition",
+    "output": "replace [x,y] by [x,z],[z,y]",
+    "endpoint_effect": "none",
+    "chain_edge_count_delta": 1
+  },
+  "two_to_one": {
+    "input": "consecutive chain edges [x,z],[z,y] bounding one elementary triangle with primitive third edge [x,y] and legal simplicity after deletion",
+    "output": "replace the two-edge subpath by [x,y]",
+    "endpoint_effect": "none",
+    "chain_edge_count_delta": -1
+  },
+  "terminal_one_to_one_pivot": {
+    "input": "terminal edge [x,y] and an incident side triangle {x,y,z}",
+    "output": "replace terminal edge by [x,z], preserving the prefix through x",
+    "endpoint_effect": "y -> z",
+    "chain_edge_count_delta": 0,
+    "r1_reduction": "this is exactly the AR incidence turn when x=O_E"
+  },
+  "paired_compensation": "a disjoint 1->2 and 2->1 pair has net chain-count delta 0, but incidence alone does not select which sites must be paired or simultaneous",
+  "axis_completion": "NO_CANONICAL_GENERAL_RADIUS_AXIS_COMPLETION_DERIVED",
+  "user_up_down_typing": "Within the chain-cardinality interpretation, raw 1->2 is a literal +1 primitive-edge-count drift and raw 2->1 is -1. This realizes the earlier up/down intuition only for that carrier/length typing; it is not yet a carrier-independent native length theorem.",
+  "source_geometry_used": false,
+  "AK_AL_selector_used": false
+}
