@@ -1,0 +1,52 @@
+{
+  "schema": "R059D_STAGE_AL_ADMISSIBLE_RESOLVER_AXIOMS_V1",
+  "status": "FROZEN_BEFORE_RIGIDITY_PROOF",
+  "researcher_id": "EM-R059D-AL-5A9D31",
+  "task_id": "RS-R059D-STAGE-AL-CANONICAL-NATIVE-RESOLVER-RIGIDITY",
+  "frozen_source_main": "d4fba69cd2b65323eb78dd775443896a0645e989",
+  "taskbook_source_commit": "2d39f29d713ba2be475aba8e32ea3cdd030a7d41",
+  "axiom_versions": {
+    "A0_7": [
+      "A0 fixed primitive-axis anchor class r and turnwise preservation of that class label",
+      "A1 one primitive adjacency edge per turn",
+      "A2 radius-uniform constant-size integer/finite-control state",
+      "A3 sampling-free target runtime; no source circle/Q, Euclidean distance, pi, sqrt, float, trig, word/boundary table or radius tuning",
+      "A4 translation covariance",
+      "A5 one D6-transported law and reflection reversal",
+      "A6 one simple complete closed endpoint orbit",
+      "A7 exactly one directed-axis anchor encounter per orientation and no extra axis excursion"
+    ],
+    "A0_7_plus_monotone": "Add first-sector a nonincreasing, b nondecreasing, Motzkin nonnegative/single-peak typing. Still nonunique.",
+    "A0_7_plus_AG_count": "Additionally require #1=#3=J_N(r), #2=r-J_N(r), hence the accepted sector/full period. Still nonunique.",
+    "FINAL_ADM_E": "A0-A7 plus A8 Primitive-Support Frontier Maximality. The support carrier is constructed independently from target D6 lattice incidence: primitive D6-invariant quadratic support index -> elementary-triangle barycentric support rank -> incident-edge two-triangle vertex support rank -> radius-r anchor support sublevel carrier. An admissible sector path is the oriented outer monotone frontier of this carrier. The axiom does not contain the N word, N residual sign sequence, or N turn table."
+  },
+  "A8": {
+    "name": "PRIMITIVE_SUPPORT_FRONTIER_MAXIMALITY",
+    "support_index_typing": "incidence/support ordering only; explicitly not ENTERPRISE_LENGTH and not Euclidean distance",
+    "construction": [
+      "Q_E is the primitive integral quadratic form invariant under R(a,b)=(-b,a+b), normalized Q_E(1,0)=1; D6 invariance uniquely yields Q_E(a,b)=a^2+ab+b^2.",
+      "For an elementary triangle t with vertices v1,v2,v3, define c(t)=v1+v2+v3 and triangle_support_rank(t)=Q_E(c(t)).",
+      "For a primitive edge e incident to vertex p with adjacent elementary triangles t+,t-, define edge_pair_rank(e)=max(rank(t+),rank(t-)).",
+      "Define vertex_support_rank(p)=min over primitive incident edges e of edge_pair_rank(e).",
+      "Define the radius-r primitive-support carrier K_E(r)={p: vertex_support_rank(p)<=Q_E(3r,0)=9r^2}.",
+      "The canonical sector path is required to be the outer monotone frontier of K_E(r), choosing the outward candidate whenever it remains in K_E(r), with the bisector move fixed by D6/reflection compatibility."
+    ],
+    "runtime_dependency": "A8 is a structural admissibility theorem/selection principle; the accepted AK tau keeps its residual recurrence and does not evaluate Q_E/support_rank at runtime.",
+    "proof_side_coordinate_certificate": "AG implies in the first sector vertex_support_rank(a,b)=9*(a^2+ab+b^2)-9*max(a,b)+3. This identity certifies the abstract target carrier and is not a source metric definition."
+  },
+  "strengthening_reasons": [
+    "A0-A7 admit the pure-axis hexagon resolver for every r.",
+    "Monotone/single-peak typing still admits the same hexagon and many bulged Motzkin cycles.",
+    "Even the exact AG J/period count does not determine the internal word arrangement; a packed-count resolver differs from N at r=5.",
+    "A8 is the first tested non-tautological target principle that removes both underdeterminations by selecting the unique outer support frontier."
+  ],
+  "firewall": {
+    "defines_admissibility_as_equals_N": false,
+    "contains_N_word_table": false,
+    "contains_N_residual_sign_sequence": false,
+    "uses_source_circle_runtime": false,
+    "uses_euclidean_equal_distance": false,
+    "uses_standard_pi": false
+  },
+  "later_stage_consumed": false
+}
