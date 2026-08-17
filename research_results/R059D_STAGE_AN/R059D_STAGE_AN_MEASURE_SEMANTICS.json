@@ -1,0 +1,30 @@
+{
+  "schema": "R059D_STAGE_AN_MEASURE_SEMANTICS_V1",
+  "status": "FROZEN_BEFORE_REPLAY",
+  "researcher_id": "EM-R059D-AN-4C2B91",
+  "task_id": "RS-R059D-STAGE-AN-BRC-PUSHFORWARD-MEASURE-PERSISTENT-DISTORTION",
+  "frozen_source_main": "c6be0626889b67763b56e7faebf2cd2185f0211c",
+  "taskbook_source_commit": "e15ff710fb36f4149739880267e9284fb3409969",
+  "target": {
+    "cycle": "E_r={e_0,...,e_(T_r-1)} is the AL canonical Enterprise native turn cycle, with T_r=C_E(r)",
+    "native_counting_measure": "nu_r({e_k})=1",
+    "total": "nu_r(E_r)=T_r"
+  },
+  "source": {
+    "fibers": "F_(r,k) are the AM canonical closed radial-incidence source fibers for target turn e_k",
+    "source_arc_measure": "Arc_perp is the orthogonal/source arc measure only",
+    "pushforward_atom": "mu_r({e_k})=Arc_perp(F_(r,k)); closed-fiber endpoint overlaps have Arc_perp-measure zero",
+    "angular_form": "mu_r({e_k})=r*Delta_(r,k), where Delta_(r,k) is the source angular width of the fiber in radians",
+    "total": "mu_r(E_r)=Circ_perp(r)"
+  },
+  "local_weight": "w_(r,k)=mu_r({e_k})=r*Delta_(r,k)",
+  "global_mean": "bar_w_r=Circ_perp(r)/T_r",
+  "typing_firewall": {
+    "source_arc_measure_is_target_metric": false,
+    "target_counting_measure_is_source_metric": false,
+    "source_quantity_selects_target_orbit": false,
+    "kappa_perp_identified_with_kappa_E": false,
+    "relational_BRC_replaced_by_bijection": false
+  },
+  "later_stage_consumed": false
+}
