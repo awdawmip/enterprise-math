@@ -1,0 +1,25 @@
+{
+  "schema": "R059D_STAGE_AM_SOURCE_CONSTANT_TYPED_AUDIT_V1",
+  "status": "TYPED_COMPATIBILITY_ONLY",
+  "researcher_id": "EM-R059D-AM-8E3C64",
+  "source_constant": {
+    "symbol": "kappa_perp",
+    "definition": "kappa_perp=Circ_perp(O,r)/(2r) in the source orthogonal continuous realization",
+    "standard_source_name": "pi_source (the standard Euclidean circumference/diameter constant, source-typed only)",
+    "used_to_select_target": false,
+    "used_to_tune_bridge_fibers": false
+  },
+  "target_constant": {
+    "symbol": "kappa_E",
+    "definition": "lim_(r->infinity) T_r/(2r) for the canonical Enterprise fixed-length turn orbit",
+    "theorem": "kappa_E^2=12, kappa_E>0",
+    "independent_of_source_metric": true
+  },
+  "conditional_compatibility": "A hypothetical BRC isometry with a common normalized source arc unit per target turn would force kappa_perp=kappa_E. The common-unit premise is false already at r=3 by the exact fiber-width witness.",
+  "semantic_firewall": {
+    "kappa_perp_equals_kappa_E_claimed": false,
+    "standard_real_pi_algebraicity_claimed": false,
+    "Lindemann_or_standard_pi_theorem_modified": false,
+    "source_theorem_redefines_target_circle": false
+  }
+}
