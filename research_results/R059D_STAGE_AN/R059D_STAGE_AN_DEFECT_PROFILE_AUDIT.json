@@ -1,0 +1,20 @@
+{
+  "schema": "R059D_STAGE_AN_DEFECT_PROFILE_AUDIT_V1",
+  "status": "FROZEN_BEFORE_REPLAY",
+  "researcher_id": "EM-R059D-AN-4C2B91",
+  "definition": "d_(r,k)=w_(r,k)-bar_w_r with bar_w_r=Circ_perp(r)/T_r",
+  "exact_zero_sum": "sum_k d_(r,k)=0",
+  "symmetry": {
+    "D6": "d is transported unchanged by 60-degree rotations of the canonical cycle",
+    "reflection": "d is reversed under sector reflection with equal reflected weights"
+  },
+  "distinguished_limits": {
+    "mean": "bar_w_r -> kappa_perp/kappa_E",
+    "axis_defect": "d_axis(r)->sqrt(3)/2-kappa_perp/kappa_E",
+    "central_defect": "d_mid(r)->1-kappa_perp/kappa_E",
+    "separation": "d_mid-d_axis -> 1-sqrt(3)/2 > 0"
+  },
+  "consequence": "At least two canonical macroscopic-position turn sequences retain separated local source weights under refinement.",
+  "variance_theorem": "OPEN_NOT_REQUIRED; two isolated subsequences do not by themselves imply a positive limiting mean-square variance.",
+  "full_continuous_profile": "OPEN_NOT_REQUIRED"
+}
