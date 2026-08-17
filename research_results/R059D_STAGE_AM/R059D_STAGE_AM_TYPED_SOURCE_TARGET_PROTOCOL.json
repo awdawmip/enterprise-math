@@ -1,0 +1,39 @@
+{
+  "schema": "R059D_STAGE_AM_TYPED_SOURCE_TARGET_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_BRIDGE",
+  "researcher_id": "EM-R059D-AM-8E3C64",
+  "task_id": "RS-R059D-STAGE-AM-CANONICAL-BRC-CIRCLE-COLLAPSE-NONISOMETRY",
+  "taskbook_source_commit": "be8c77e69748b83cfccf4366e010e355ac58022b",
+  "frozen_source_main": "3e05dc4b50c7b3743db7c1d37692cda3d320b73e",
+  "source_side": {
+    "SOURCE_POINT_STATE": "x in C_perp(O,r), the accepted orthogonal/continuous compatibility circle with fixed source center O and source radius r",
+    "SOURCE_COMPATIBILITY_CHART": "iota(a,b)=(a+b/2,(sqrt(3)/2)b); source squared radius in this chart is a^2+ab+b^2",
+    "SOURCE_CYCLIC_ORDER": "positive orientation of rays from O in the orthogonal compatibility plane",
+    "SOURCE_RADIUS_CLASS": "the source/teacher fixed-length class r",
+    "SOURCE_ARC_MEASURE": "ordinary source-side Euclidean arc measure on C_perp(O,r)",
+    "SOURCE_CIRCUMFERENCE_FUNCTIONAL": "total source arc measure around C_perp(O,r)",
+    "typing_guard": "all metric/equidistance language in this object is SOURCE_ONLY"
+  },
+  "target_side": {
+    "TARGET_STATE": "the AL canonical Enterprise fixed-length segment/turn state",
+    "TARGET_ENDPOINT_ORBIT": "the unique final-ADM_E orbit established by AL, equal to the accepted AK N orbit",
+    "TARGET_TURN": "one application of tau_E, equivalently one oriented canonical boundary edge",
+    "TARGET_RADIUS_CLASS": "the Enterprise anchor length-class label r",
+    "TARGET_CIRCUMFERENCE": "minimal legal-turn period T_r=C_E(r)=C_N(r)",
+    "TARGET_CONSTANT": "kappa_E with kappa_E^2=12 and kappa_E>0",
+    "not_defined_by_source_metric": true
+  },
+  "comparison_policy": {
+    "same_r_means": "source radius class r is compared with the already fixed target anchor class r; it does not assert metric identity",
+    "target_reselection_from_source": false,
+    "preferred_bridge_carrier": "target elementary turns/edges rather than vertices, because one target circumference unit is one legal turn",
+    "boundary_ties": "retain a closed-fiber relation rather than manufacture a metric tie-breaking function"
+  },
+  "firewall": {
+    "source_circle_selects_target": false,
+    "target_length_is_source_distance": false,
+    "source_arc_error_retunes_target": false,
+    "source_constant_identified_with_kappa_E": false,
+    "later_stage_consumed": false
+  }
+}
