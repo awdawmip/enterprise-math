@@ -1,0 +1,14 @@
+{
+  "schema":"R059D_STAGE_APR_COLLAPSE_DIRECTION_NECESSITY_V1",
+  "status":"PROVED_WITH_EXPLICIT_SCOPE_BOUNDARY",
+  "researcher_id":"EM-R059D-APR-7E4C2B",
+  "coherent_policy_class":{"name":"APR_COHERENT_COUPLED_COLLAPSE_CLASS","axioms":["same one-step precollapse sector fibers as the sweep theorem","one shared LOWER/UPPER bit across all active fractional channels","axis completion may only add missing primitive budget and may not delete overbudget units","D6 covariance and orientation reversal","no source metric or closure lookup in branch selection"]},
+  "necessity_theorem":"Within APR_COHERENT_COUPLED_COLLAPSE_CLASS, a full stored endpoint orbit with L_E=1 at every turn exists iff every open-sector collapse chooses DOWN and the resulting deficit is completed by the frozen encountered-axis rule.",
+  "first_divergence_proof":"At the first sector where a coherent policy chooses UP, the raw auxiliary state is d_k+d_(k+1) with B=2. The target class requires B=1 and the completion operator only fills deficits. Therefore the policy leaves the one-step class immediately. If all sectors choose DOWN, raw B=0 and the unique deficit-1 encountered-axis completion yields d_(k+1), so the six-turn orbit closes.",
+  "broader_policy_audit":{"name":"APR_COMPONENTWISE_ADJACENT_INTEGER_BOX_CLASS","extra_candidates":"d_k and d_(k+1) are allowed by independent per-channel lower/upper bits","counterpolicy":"DIRECT_FORWARD_AXIS chooses d_(k+1) on each open sector and already has B=1; it traverses the same six-axis cycle without raw DOWN","conclusion":"Unqualified global necessity of DOWN is false in this broader class."},
+  "missing_independent_axiom":"COHERENT_COUPLED_COLLAPSE_DIRECTION: one collapse event has one shared direction bit across all active noninteger channels. This is the exact axiom that excludes direct mixed per-channel branch choices.",
+  "sufficiency":true,
+  "necessity_within_coherent_class":true,
+  "necessity_without_coherent_axiom":false,
+  "no_forced_uniqueness":"The report must not present scoped necessity as uniqueness among every conceivable componentwise integer policy."
+}
