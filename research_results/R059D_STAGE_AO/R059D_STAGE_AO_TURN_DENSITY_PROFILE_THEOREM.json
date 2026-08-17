@@ -1,0 +1,31 @@
+{
+  "schema": "R059D_STAGE_AO_TURN_DENSITY_PROFILE_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AO-2D7C46",
+  "inputs": "scaled AL frontier plus exact AO cumulative turn identities and accepted M_N(r)/r->beta, 3*beta^2=4",
+  "uniform_cumulative_limit": {
+    "statement": "sup_theta |N_r(theta)/r-G(theta)| -> 0 on each closed half-sector",
+    "rate_typing": "O(1/r) from the uniform frontier radial bound, one-turn interpolation error, and |M_N(r)-beta*r|<1",
+    "left": "G(theta)=(2/sqrt(3))*sin(theta), 0<=theta<=pi_source/6",
+    "right": "G(theta)=beta-[cos(theta)-sin(theta)/sqrt(3)], pi_source/6<=theta<=pi_source/3",
+    "beta": "positive algebraic root of 3*beta^2=4; 2/sqrt(3) is only a source-compatible display"
+  },
+  "density_profile": {
+    "left": "g(theta)=G'(theta)=(2/sqrt(3))*cos(theta)",
+    "right": "g(theta)=G'(theta)=sin(theta)+cos(theta)/sqrt(3)=(2/sqrt(3))*cos(pi_source/3-theta)",
+    "positivity": "g(theta)>0 everywhere on the sector",
+    "reflection": "g(pi_source/3-theta)=g(theta)",
+    "D6_period": "g(theta+pi_source/3)=g(theta)",
+    "regularity": "continuous and piecewise C^1, with the expected reflection cusp in derivative at the sector bisector",
+    "axis_value": "g(0)=2/sqrt(3)",
+    "bisector_value": "g(pi_source/6)=1"
+  },
+  "mass": {
+    "half_sector": "integral_0^(pi_source/6) g(theta)dtheta=1/sqrt(3)",
+    "sector": "integral_sector g(theta)dtheta=beta=2/sqrt(3)",
+    "full_circle": "integral_full g(theta)dtheta=6*beta=2*kappa_E",
+    "compatibility": "matches T_r/r -> 2*kappa_E"
+  },
+  "theorem_typing": "g is the macroscopic density of canonical target turns with respect to the source-compatibility angular carrier. It is not a target metric and source angle never enters the target generator.",
+  "later_stage_consumed": false
+}
