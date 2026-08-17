@@ -1,37 +1,37 @@
 {
-  "schema": "ENTERPRISE_SQUARE_ROOT_ORIGIN_ONE_V1",
-  "status": "ACTIVE_CANONICAL_FOUNDATIONAL_REBUILD",
+  "schema": "ENTERPRISE_SQUARE_ROOT_SIGNED_ORIGIN_ONE_V2",
+  "status": "ACTIVE_CANONICAL_FOUNDATIONAL_CORRECTION",
   "date": "2026-08-17",
-  "coordinate_origin": 1,
+  "coordinate_origin": "+1_EQUIV_MINUS1",
   "zero_is_native_coordinate": false,
-  "native_scalar_states": "1,2,3,...",
-  "external_step_count": "m=n-1",
-  "external_step_count_is_native_coordinate": false,
-  "half_square_cell_counts": {
-    "positive_orientation": "n(n-1)/2",
-    "negative_orientation": "(n-1)(n-2)/2",
-    "total": "(n-1)^2"
+  "negative_coordinate_values_are_native": true,
+  "native_scalar_magnitudes": "1,2,3,...",
+  "coordinate_magnitude": "MAG(±n)=n",
+  "external_adjacency_step_count": "DIST(O_E,±n)=n-1",
+  "step_count_redefines_coordinate_magnitude": false,
+  "unit_quadrilateral": {
+    "vertices": ["(±1,±1,±1)", "(2,1,1)", "(1,-2,1)", "(1,1,2)"],
+    "perimeter": 4,
+    "area": 4,
+    "consequence": "ENTERPRISE_SQUARE(2)=4"
   },
-  "full_square": {
-    "elementary_triangles": "2(n-1)^2",
-    "raw_area_magnitude": "(n-1)^2",
-    "native_area_state_encoding": "ENC_E(q)=q+1",
-    "square_state": "ENTERPRISE_SQUARE(n)=1+(n-1)^2",
-    "recurrence_initial": "S_E(1)=1",
-    "recurrence_step": "S_E(n+1)=S_E(n)+(2n-1)",
-    "first_values": [1, 2, 5, 10, 17, 26]
+  "square": {
+    "law": "ENTERPRISE_SQUARE(n)=n^2 for n>=1",
+    "signed_input": "SQUARE_E(+n)=SQUARE_E(-n)=n^2",
+    "first_values": [1, 4, 9, 16, 25, 36]
   },
   "root": {
-    "exact_square_domain": "{1+k^2 : k external nonnegative integer}",
-    "state_inverse": "ENTERPRISE_ROOT(y)=1+sqrt(y-1)",
-    "raw_area_inverse": "ENTERPRISE_ROOT_FROM_RAW_AREA(A)=1+sqrt(A)",
-    "first_pairs": [[1,1],[2,2],[5,3],[10,4],[17,5],[26,6]]
+    "exact_square_domain": "{n^2:n integer,n>=1}",
+    "state_inverse": "ENTERPRISE_ROOT(n^2)=n",
+    "first_pairs": [[1,1],[4,2],[9,3],[16,4],[25,5],[36,6]],
+    "direction_recovery": "NOT_FROM_SQUARE_VALUE_ALONE"
   },
   "supersedes": [
-    "definitions/ENTERPRISE_SQUARE_AND_ROOT_20260816.md",
-    "ENTERPRISE_SQUARE(n)=n*n AS NATIVE_COORDINATE_STATE_GEOMETRY",
-    "ENTERPRISE_ROOT(n^2)=n AS NATIVE_COORDINATE_STATE_INVERSE"
+    "definitions/ENTERPRISE_SQUARE_AND_ROOT_ORIGIN_ONE_20260817.md",
+    "ENTERPRISE_SQUARE(n)=1+(n-1)^2",
+    "ENTERPRISE_ROOT(1+(n-1)^2)=n"
   ],
-  "preserves_as_external_magnitude_fact": "m primitive intervals span raw area m^2",
+  "counterexample_to_shifted_law": "n=2 unit quadrilateral has native area=4, while shifted law gives 2",
+  "canonical_definition": "definitions/ENTERPRISE_SQUARE_AND_ROOT_SIGNED_ORIGIN_ONE_20260817.md",
   "revalidation_policy": "EXACT_COUNTEREXAMPLE_OR_STRONGER_FOUNDATIONAL_SUPERSESSION_REOPENS_DEFINITION"
 }
