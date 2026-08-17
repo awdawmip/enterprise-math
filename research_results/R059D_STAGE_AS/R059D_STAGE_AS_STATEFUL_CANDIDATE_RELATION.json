@@ -1,0 +1,22 @@
+{
+  "schema": "R059D_STAGE_AS_STATEFUL_CANDIDATE_RELATION_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "raw_incidence_candidates": [
+    "legal 1->2 triangle expansion at every eligible chain edge/side",
+    "legal 2->1 triangle contraction at every eligible two-edge triangular corner",
+    "legal terminal 1->1 pivot through the retained terminal side triangle when simplicity/connectivity is preserved"
+  ],
+  "fixed_chain_cardinality_arm": {
+    "length_semantics": "L_chain=r",
+    "admissibility": "single 1<->2 flips are excluded because they change the independently declared chain-cardinality length; terminal 1->1 pivots are retained",
+    "r1": "reduces exactly to AR"
+  },
+  "fixed_endpoint_displacement_arm": {
+    "length_semantics": "L_disp=r",
+    "admissibility": "1<->2 flips are retained because endpoints do not move; a terminal pivot is retained only when the new free endpoint stays on primal graph shell r",
+    "r1": "initial state reduces to AR, but the resulting transition family is not the AR dynamics because footprint detours are now legal"
+  },
+  "carrier_dependence": "EDGEWISE_SIDE_STRIP exposes additional simultaneous/local active sites absent from TERMINAL_SIDE_CHAIN",
+  "primary_conclusion": "NO_UNIQUE_GENERAL_RADIUS_STATEFUL_CANDIDATE_RELATION follows before selecting a carrier and a pre-circle length semantics."
+}
