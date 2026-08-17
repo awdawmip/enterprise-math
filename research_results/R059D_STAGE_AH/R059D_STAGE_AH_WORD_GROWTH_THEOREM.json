@@ -1,0 +1,24 @@
+{
+  "schema":"R059D_STAGE_AH_WORD_GROWTH_THEOREM_V1",
+  "status":"PROVED",
+  "researcher_id":"EM-R059D-AH-7B1EFD",
+  "theorem":"FULL_N_MOTZKIN_WORD_FORWARD_GENERATOR_PROVED",
+  "domain":"all integers r>=0",
+  "generator_candidate_id":"AH-B3-RESIDUAL-BOUNDARY-WALK-001",
+  "lemmas":{
+    "left_support":"On a>=b, L(a,b)=3(a^2+ab+b^2)-3a+1 and N selection is L<=3r^2.",
+    "vertical_monotonicity":"L(a,b+1)-L(a,b)=3(a+2b+1)>0.",
+    "diagonal_closure":"L(a-1,b+1)-L(a,b)=3(b-a+2)<=0 when a-b>=2.",
+    "residual":"rho=3r^2-L(a,b+1), rho0=-4.",
+    "step1_update":"rho'=rho-3(a+2b+3).",
+    "step2_update":"rho'=rho+3(a-b-3).",
+    "termination":"d=a-b decreases by 1 on symbol1 and by 2 on symbol2 until d in {0,1}.",
+    "reflection":"right half is reverse(left) with 1<->3 and 2 fixed."
+  },
+  "word_formula":"W_N(r)=H_r + center_r + mirror(H_r), where H_r is emitted by the integer residual recurrence and center_r=2 iff terminal a-b=1.",
+  "runtime_autonomy":true,
+  "runtime_source_geometry_query":false,
+  "runtime_word_lookup":false,
+  "auxiliary_state":"constant-size integer tuple (a,b,rho)",
+  "minimality":"OPEN; J-alone insufficiency remains the proved lower bound"
+}
