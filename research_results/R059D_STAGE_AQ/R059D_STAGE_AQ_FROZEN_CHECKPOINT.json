@@ -1,0 +1,62 @@
+{
+  "schema": "R059D_STAGE_AQ_FROZEN_CHECKPOINT_V1",
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "researcher_id": "EM-R059D-AQ-3A7E61",
+  "task_id": "RS-R059D-STAGE-AQ-NATIVE-CELL-ESCAPE-MULTIPATH-REACHABILITY",
+  "taskbook_source_commit": "78f0d56edecb5cd57967b9ff0f1a2d3567550120",
+  "frozen_source_main": "c25b6d0385648c27292f25aeeeff2b816654a4ba",
+  "owner_branch": "research/r059d-stage-aq-native-cell-escape-multipath-reachability",
+  "primary_disposition": "CANONICAL_SET_VALUED_ESCAPE_RESOLVER_PROVED__ESCAPE_OBJECT_DISTINCT_FROM_CIRCLE",
+  "freezes": {
+    "NATIVE_CELL_CARRIER": "A2 triangular U/D elementary half-cells with exact degree-3 edge adjacency; signed native vertices through ENC_SIGNED; no native zero",
+    "SHELL": "dual-graph distance from STAR(O_E), with exact incidence certificate floor(2*(max(|x|,|y|,|x+y|)-2)/3)",
+    "SHELL_SIZE": "|S_s|=6*(floor(s/2)+1)",
+    "FAR": "FAR=FAR_PLUS globally; even shell has 1 outward neighbor, odd shell has 2; all ties survive",
+    "SEEDS": "all six incident cells at each one-step free endpoint; six D6 orientations union exactly B_2 with 24 cells",
+    "EXACT_ENDPOINTS": "END_J=S_J union S_(J+1) union S_(J+2) for all J>=0",
+    "UP_TO_J": "REACH_LE_J=B_(J+2) for all J>=0",
+    "PATH_COUNTS": "P_(2n)=24*2^n; P_(2n+1)=30*2^n for aggregate geometric seed set",
+    "SET_VALUED": "escape paths are exactly outward dual-geodesics; odd shells branch; no single-path selection needed",
+    "BRANCH_MERGERS": "present from J=2 onward; multiplicity is provenance only",
+    "CIRCLE": "AQ object distinct from AP/legacy circle; r=1 exact obstruction for every J; AQ DAG cannot realize period-6 closed orbit",
+    "AP_RELATION": "AP DOWN+completion and DIRECT_FORWARD_AXIS are not distinguished AQ cell paths; coherent coupled collapse direction is not needed for AQ but remains an AP scoping axiom",
+    "PROBABILITY": "none intrinsic; path counts are not probabilities",
+    "JUMP_BUDGET": "independent integer control; no native J(r) circle law proved"
+  },
+  "checker": {
+    "status": "PASS",
+    "checks_total": 334521,
+    "checks_passed": 334521,
+    "checks_failed": 0,
+    "checks_digest_sha256": "20b24c59143b5f5324e39d2c3e8a0735521b367ad9de8b4a0d68c58c20656256",
+    "source_commit": "7408454c1b725d52a99a5e9a2bd1120d38de7060",
+    "output_commit": "c5cd9829f15df6b7adb1761e722bb5312671cc3b",
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "validation": "independent BFS shell<=134; D6 shell<=40; all J=0..32; checkpoints 64,128; BFS/DFS; reverse provenance"
+  },
+  "immutability_gate": {
+    "status": "PASS",
+    "compare_base": "c25b6d0385648c27292f25aeeeff2b816654a4ba",
+    "compare_head": "c0948bcbe1d34283793d8bfcd5b279c8516b3a93",
+    "prior_stage_result_files_modified_or_deleted": 0
+  },
+  "artifact_manifest_sha256": "0e582a0c395112505e4740ead1497c80e5980c0e79c862f66e922810e188a1b4",
+  "artifact_payload_head": "6170152d0f27a1132845d3890fc68d64b7697c1c",
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "remaining_open": {
+    "NATIVE_SECOND_CONSTRAINT_FOR_CIRCLE_BOUNDARY": false,
+    "NATURAL_J_OF_R_CIRCLE_LAW": false,
+    "ESCAPE_BASED_COORDINATE_GENERATION_THEOREM": false,
+    "AP_COHERENT_AXIOM_DERIVATION": false
+  },
+  "semantic_boundaries": {
+    "NATIVE_ZERO_EXISTS": false,
+    "SOURCE_GEOMETRY_DEFINES_ESCAPE": false,
+    "UNIQUE_ESCAPE_PATH_SELECTED": false,
+    "PATH_COUNT_IS_INTRINSIC_PROBABILITY": false,
+    "AQ_EQUALS_AP_CIRCLE": false,
+    "AP_POLICY_AXIOM_SUPERSEDED_BY_AQ": false
+  },
+  "later_stage_consumed": false
+}
