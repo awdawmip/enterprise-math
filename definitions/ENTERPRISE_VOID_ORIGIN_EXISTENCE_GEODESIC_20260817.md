@@ -1,150 +1,75 @@
-# 进取虚无起点、存在原点与全最短路径线段
+# 进取虚无起点与最小跳数深度（重定型）
 
-Status: `ACTIVE / CANONICAL / FOUNDATIONAL_SUPERSESSION`
+Status: `RETAINED_FOR_VOID_START_AND_MIN_JUMP_DEPTH / SUPERSEDED_AS_RADIUS_AND_SEGMENT_LENGTH`
 Date: `2026-08-17`
 Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
-Supersedes the start-point convention in `definitions/ENTERPRISE_SEGMENT_ALL_SHORTEST_PATHS_20260817.md`.
+Superseded in geometric radius/segment semantics by:
+`definitions/ENTERPRISE_VECTOR_NORM_ENDPOINT_REVERSE_GEODESIC_SEGMENT_20260817.md`
 
-## 1. Foundational freeze: start from void, not from the origin
+## 1. Still frozen
 
-The Enterprise coordinate space does not begin at a coordinate zero.
+`VOID_E=∅` is an external pre-coordinate nonexistence state, not native coordinate `0`.
 
-Freeze an external pre-coordinate state
+`O_E=[+1]=[-1]` is the first occupied/native coordinate state.
 
-`VOID_E = ∅`.
+`VOID_E -> O_E` is the unique first existence transition.
 
-`VOID_E` is **not** a native coordinate, not a vertex of the ordinary native coordinate graph `G_E`, and is not the number `0`.
+The ordinary native adjacency graph `G_E` and its minimum-jump distance remain valid combinatorial objects:
 
-The native coordinate origin remains
+`d_E(P,Q)=minimum primitive adjacency jump count from P to Q`.
 
-`O_E = [+1] = [-1]`.
+Define the void-prefixed minimum-transition depth
 
-The first existence/generation step is
+`ELL_JUMP_E(P)=1+d_E(O_E,P)`.
 
-`VOID_E -> O_E`.
+This is a valid **existence-transition depth / minimum-jump count**.
 
-Thus the extended existence graph `G~_E` is obtained from the native coordinate adjacency graph `G_E` by adjoining exactly one external state `VOID_E` and exactly one generation edge from `VOID_E` to the glued origin `O_E`.
+It is NOT, under the current foundation, the Enterprise vector radius or segment length.
 
-There is no edge from `VOID_E` directly to any other coordinate state.
+## 2. Superseded identification
 
-Freeze:
+Do not use:
 
-`VOID_TO_ORIGIN_IS_FIRST_STEP`.
+`SEGMENT_LENGTH_E(P)=ELL_JUMP_E(P)`
 
-`NATIVE_ZERO_COORDINATE_EXISTS = false`.
+or
 
-## 2. Two distances, two types
+`RADIUS_E(P)=ELL_JUMP_E(P)`
 
-For native coordinate states `P,Q in G_E`, keep the internal spatial/native adjacency distance
+as foundational geometry.
 
-`d_E(P,Q) = minimum number of primitive native adjacency edges from P to Q inside G_E`.
+Do not canonize
 
-For a native state `P`, define the existence length from void
+`{P:ELL_JUMP_E(P)=n}`
 
-`ELL_E(P) = d_(G~_E)(VOID_E,P)`.
+as the higher Enterprise circle merely because it is a graph shell.
 
-Because every path from `VOID_E` to a native coordinate must first traverse `VOID_E -> O_E`,
+The AT3-HI diagnostic proved that this shell route traces every vertex at birth and therefore cannot produce fresh-hidden vertices. That theorem remains valid for the shell candidate and is one reason this identification is rejected as foundational radius semantics.
 
-`ELL_E(P) = 1 + d_E(O_E,P)`.
+## 3. Current role of shortest paths
 
-In particular
+Once a cell `P` is selected by the current vector-norm endpoint rule, the quantity `d_E(O_E,P)` and its void-prefixed version are used to find the minimum-jump realization fiber.
 
-`ELL_E(O_E)=1`.
+Retain all minimizers.
 
-On one signed native axis,
+Thus graph geodesics are now **reverse realization structure**, not the generator of the radius level.
 
-`ELL_E(±n)=n` for every `n>=1`,
+## 4. Axis statement
 
-where `±1` is the glued origin state and `±n, n>=2` are ordinary signed native coordinates.
+On one signed native axis, `ELL_JUMP_E(±n)=n` remains an exact minimum-transition-depth statement because the unique void prefix plus `n-1` post-origin steps totals `n`.
 
-Thus native coordinate magnitude and existence length are aligned on the axes:
+This numerical equality with native coordinate magnitude on axes does not imply that minimum-jump depth is the general vector norm.
 
-`ENTERPRISE_COORDINATE_MAGNITUDE(±n)=ELL_E(±n)=n`.
+## 5. Current route
 
-The former is a coordinate label/magnitude; the latter is a path-length theorem. Their equality on axes does not identify the two types globally unless separately proved.
+Read first for segment/radius semantics:
 
-## 3. Enterprise segment from void to a coordinate
-
-The foundational Enterprise segment terminating at native coordinate `P` is the complete shortest-path family in the extended existence graph:
-
-`SEG_E(P) = GEO_(G~_E)(VOID_E,P)`
-
-`= { gamma : VOID_E -> P | |gamma| = ELL_E(P) }`.
+`definitions/ENTERPRISE_VECTOR_NORM_ENDPOINT_REVERSE_GEODESIC_SEGMENT_20260817.md`.
 
 Freeze:
 
-`ALL_SHORTEST_VOID_TO_POINT_PATHS_ARE_THE_SEGMENT`.
+`VOID_START_PRESERVED`.
 
-Since `VOID_E -> O_E` is the unique first edge, removing that first edge gives a canonical bijection
+`MIN_JUMP_DEPTH_PRESERVED_AS_COMBINATORIAL_OBSERVABLE`.
 
-`SEG_E(P) <-> GEO_E(O_E,P)`.
-
-Therefore the previous all-shortest-path family from `O_E` remains the **spatial tail** of the segment, but it is no longer the full foundational segment.
-
-## 4. Origin is the first occupied point-state
-
-The statement
-
-`ORIGIN = ±1`
-
-now has a stronger structural meaning:
-
-- `VOID_E` is non-coordinate / nonexistence;
-- first step produces the first occupied coordinate state `O_E=±1`;
-- subsequent primitive steps produce higher signed coordinate states.
-
-There is still no native coordinate `0` between void and origin.
-
-The sequence on one positive/negative axis is therefore
-
-`VOID_E -> ±1 -> ±2 -> ±3 -> ...`.
-
-## 5. Fixed existence-length endpoint sets
-
-For integer `n>=1`, define
-
-`EXISTENCE_SPHERE_E(n) = {P in G_E : ELL_E(P)=n}`.
-
-Equivalently,
-
-`EXISTENCE_SPHERE_E(n) = {P : d_E(O_E,P)=n-1}`.
-
-Hence
-
-`EXISTENCE_SPHERE_E(1)={O_E}`.
-
-For `n>=2`, the endpoint set is the ordinary native graph-distance shell of internal radius `n-1`.
-
-Whether this fixed-existence-length shell is the canonical Enterprise circle, its induced cycle structure, circumference law, and circle constant are theorem questions and must be re-derived under this start-point convention.
-
-## 6. Consequence for square/root calibration
-
-This foundation removes the previous apparent offset between axis coordinate magnitude and segment length:
-
-`±n` has existence length `n`.
-
-Therefore the already frozen algebraic/native square calibration
-
-`ENTERPRISE_SQUARE(n)=n^2`
-
-is no longer in tension with a segment-length convention that counted only `n-1` post-origin adjacency steps.
-
-No new square formula is introduced here; this is a typing reconciliation.
-
-## 7. Historical typing
-
-`definitions/ENTERPRISE_SEGMENT_ALL_SHORTEST_PATHS_20260817.md` remains useful for its all-shortest-path ontology, but its statement that the foundational segment starts at `O_E` is superseded.
-
-Retain from it:
-
-- all shortest spatial paths are kept;
-- no representative geodesic is selected;
-- triangle/strip/packet representations are derived, not ontological primitives.
-
-Replace its length/start convention by:
-
-`SEG_E(P)=all shortest VOID_E-to-P paths`;
-
-`ELL_E(P)=1+d_E(O_E,P)`.
-
-Historical AK/AL/AI circle interpretations remain subject to exact re-audit. No result is protected from contradiction under the new foundation.
+`MIN_JUMP_DEPTH_IS_NOT_FOUNDATIONAL_RADIUS`.
