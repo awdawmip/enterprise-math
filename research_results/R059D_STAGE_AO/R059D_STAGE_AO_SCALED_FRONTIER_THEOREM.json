@@ -1,0 +1,27 @@
+{
+  "schema": "R059D_STAGE_AO_SCALED_FRONTIER_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AO-2D7C46",
+  "target_input": "AL primitive-support outer frontier; no source selection",
+  "first_sector_support_certificate": "SUP(a,b)=9*(a^2+a*b+b^2)-9*max(a,b)+3",
+  "carrier_threshold": "SUP(a,b)<=9*r^2",
+  "coordinate_monotonicity": "on the canonical first sector 0<=a<=r and 0<=b<=r",
+  "upper_bound": "Q_E(a,b)-r^2 <= max(a,b)-1/3 <= r-1/3",
+  "outer_frontier_neighbor_bound": {
+    "statement": "every non-axis outer-frontier vertex has a primitive adjacent outward state u outside the carrier",
+    "support_lipschitz": "|SUP(u)-SUP(p)| <= 27*r+18 for primitive neighbors in the radius-r sector neighborhood",
+    "consequence": "SUP(p) > 9*r^2-(27*r+18)"
+  },
+  "uniform_radial_bound": "-3*r-7/3 < Q_E(a,b)-r^2 <= r-1/3; hence |Q_E(a,b)-r^2| < 3*r+3",
+  "scaling_limit": "sup_frontier |Q_E(a,b)/r^2-1| -> 0",
+  "source_compatibility_embedding": {
+    "rho": "rho=sqrt(Q_E(a,b)) is used only as the orthogonal/source compatibility radial magnitude after target canonicality is frozen",
+    "exact_coordinates": "a=rho*(cos(theta)-sin(theta)/sqrt(3)); b=(2*rho/sqrt(3))*sin(theta)",
+    "uniform_radius": "rho/r -> 1 uniformly on the canonical frontier",
+    "limit_A": "A(theta)=lim a/r=cos(theta)-sin(theta)/sqrt(3)",
+    "limit_B": "B(theta)=lim b/r=(2/sqrt(3))*sin(theta)"
+  },
+  "D6": "the same radial bound and coordinate limit transport to all six sectors by the frozen D6 action",
+  "semantic_boundary": "Q_E remains AL's primitive incidence/support rank. This theorem does not redefine Enterprise length by Q_E or source radial magnitude.",
+  "later_stage_consumed": false
+}
