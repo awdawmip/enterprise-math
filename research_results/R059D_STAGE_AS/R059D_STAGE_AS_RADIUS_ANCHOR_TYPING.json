@@ -1,0 +1,19 @@
+{
+  "schema": "R059D_STAGE_AS_RADIUS_ANCHOR_TYPING_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "task_id": "RS-R059D-STAGE-AS-GENERAL-RADIUS-SEGMENT-FOOTPRINT-TRIANGLE-FLIP-ESCAPE",
+  "taskbook_source_commit": "75d2e38cf20bc7c6c64e0100c6d78ea151b5cbd6",
+  "frozen_parent": "3350ee0e0fa1d35d379275bd08fb8554f15e9d33",
+  "signed_origin": "+1_EQUIV_MINUS1_EQ_O_E; native zero absent",
+  "radius_type": "r>=1 is EXTERNAL_PRIMITIVE_SEGMENT_UNIT_COUNT",
+  "auxiliary_axis_anchors": [["r",0],[0,"r"],["-r","r"],["-r",0],[0,"-r"],["r","-r"]],
+  "native_axis_anchor_rule": "ENC_SIGNED sends auxiliary nonzero magnitude r to native coordinate magnitude r+1 on the moved axis, with all untouched zero components represented by O_E",
+  "distinction": {
+    "primitive_segment_unit_count": "r",
+    "axis_endpoint_native_coordinate_magnitude": "r+1",
+    "ak_orbit_membership_used": false,
+    "source_radius_used": false
+  },
+  "D6": "six anchors form one D6 orbit under auxiliary R(i,j)=(-j,i+j), then encode to signed native coordinates"
+}
