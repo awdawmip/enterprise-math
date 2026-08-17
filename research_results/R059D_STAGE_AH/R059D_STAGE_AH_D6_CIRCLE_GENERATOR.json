@@ -1,0 +1,14 @@
+{
+  "schema":"R059D_STAGE_AH_D6_CIRCLE_GENERATOR_V1",
+  "status":"PROVED",
+  "researcher_id":"EM-R059D-AH-7B1EFD",
+  "api":"generate_enterprise_circle_N(r) -> {W,B,J,D,C,V,sector_vertices,full_boundary}",
+  "sector_start":"(r,0)",
+  "sector_end":"(0,r)",
+  "rotation60":"R(a,b)=(-b,a+b)",
+  "completion":"concatenate R^k(sector_vertices), k=0..5, dropping duplicated join vertices",
+  "proof":"Each sector copy is locally adjacent and lies in one adjacent-axis sector; successive copies meet only at their shared axis endpoint; R^6=id closes the cycle.",
+  "edge_count":"6*|W| = 6*r+6*J = C",
+  "runtime_integer_only":true,
+  "source_geometry_runtime_query":false
+}
