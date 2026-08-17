@@ -1,0 +1,45 @@
+{
+  "schema":"R059D_STAGE_AT4_S1_REVERSE_GEODESIC_CERTIFICATES_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AT4S1-8C4E17",
+  "typing":"Reverse minimum-jump fibers are secondary realization certificates after vector/cell selection; they never define radius or collapse direction.",
+  "auxiliary_spatial_tail_chart":"A2 vertex labels (a,b) with primitive directions X=(1,0), Y=(0,1), Z=(-1,1); in the chosen nonnegative sector, shortest tails to (a,b) use only a copies of X and b copies of Y and have length a+b.",
+  "first_hidden_cell":{
+    "cell":"D(1,1)",
+    "minimum_entry_vertices":[[2,1],[1,2]],
+    "spatial_min_jump_count":3,
+    "full_VOID_to_cell_min_jump_count":4,
+    "minimum_spatial_tails":{
+      "to_(2,1)":["XXY","XYX","YXX"],
+      "to_(1,2)":["XYY","YXY","YYX"]
+    },
+    "fiber_cardinality":6,
+    "far_vertex_note":"(2,2) has spatial distance 4 and is not a minimum-entry realization of the cell."
+  },
+  "r2_horizontal_overshoot":{
+    "edge":[[1,1],[2,1]],
+    "target_vector_radius":2,
+    "PRE_vertex":[1,1],
+    "PRE_spatial_min_jump":2,
+    "PRE_full_VOID_jump":3,
+    "PRE_tails":["XY","YX"],
+    "POST_vertex":[2,1],
+    "POST_spatial_min_jump":3,
+    "POST_full_VOID_jump":4,
+    "POST_tails":["XXY","XYX","YXX"],
+    "exact_shell_crossing":["sqrt(3)",1]
+  },
+  "r2_vertical_overshoot":{
+    "edge":[[1,1],[1,2]],
+    "target_vector_radius":2,
+    "PRE_vertex":[1,1],
+    "PRE_spatial_min_jump":2,
+    "PRE_full_VOID_jump":3,
+    "POST_vertex":[1,2],
+    "POST_spatial_min_jump":3,
+    "POST_full_VOID_jump":4,
+    "POST_tails":["XYY","YXY","YYX"],
+    "exact_shell_crossing":[1,"sqrt(3)"]
+  },
+  "conclusion":"Reverse jump counts differ across PRE/POST representatives while the target vector radius is fixed; therefore minimum-jump provenance cannot select the algebraic collapse direction."
+}
