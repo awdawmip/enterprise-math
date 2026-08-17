@@ -1,0 +1,26 @@
+{
+  "schema": "R059D_STAGE_AK_TURN_COVARIANCE_AUDIT_V1",
+  "status": "PASS",
+  "researcher_id": "EM-R059D-AK-3C7E52",
+  "translation": {
+    "action": "T_t(O,r,k,phase,a,b,z)=(O+t,r,k,phase,a,b,z)",
+    "endpoint": "endpoint(T_t S)=endpoint(S)+t",
+    "conjugacy": "tau(T_t S)=T_t(tau(S))",
+    "proof": "tau never reads O"
+  },
+  "rotation": {
+    "R": "R(a,b)=(-b,a+b)",
+    "action_about_fixed_endpoint": "Rot_j(O,r,k,phase,a,b,z)=(O,r,k+j mod 6,phase,a,b,z)",
+    "endpoint": "endpoint(Rot_j S)=O+R^j(endpoint(S)-O)",
+    "conjugacy": "tau(Rot_j S)=Rot_j(tau(S))",
+    "proof": "all branch and residual formulas are sector-independent; sector enters only through endpoint projection"
+  },
+  "sign_inversion": "R^3 is global sign inversion of the relative endpoint and is already included in the same rotation conjugacy",
+  "reflection_reversal": {
+    "status": "PASS_AT_ORBIT_LEVEL",
+    "statement": "Every D6 reflection maps the simple endpoint cycle to itself with reversed orientation and therefore conjugates forward tau to tau^{-1} on the closed orbit.",
+    "new_tuned_machine_required": false
+  },
+  "six_sector_independent_rules": false,
+  "runtime_origin_dependence": false
+}
