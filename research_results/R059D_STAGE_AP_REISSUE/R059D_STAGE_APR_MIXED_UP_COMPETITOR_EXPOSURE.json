@@ -1,0 +1,14 @@
+{
+  "schema":"R059D_STAGE_APR_MIXED_UP_COMPETITOR_EXPOSURE_V1",
+  "status":"PROVED_WITH_USER_SEXTET_CORRECTION",
+  "researcher_id":"EM-R059D-APR-7E4C2B",
+  "mandatory_user_M_UP_native":[[3,-3,1],[1,-3,3],[-3,1,3],[-3,3,1],[1,3,-3],[3,1,-3]],
+  "mandatory_user_M_UP_aux":[[2,-2,0],[0,-2,2],[-2,0,2],[-2,2,0],[0,2,-2],[2,0,-2]],
+  "actual_upper_sextet_aux":[[1,-1,0],[0,-1,1],[-1,0,1],[-1,1,0],[0,1,-1],[1,0,-1]],
+  "actual_upper_sextet_native":[[2,-2,1],[1,-2,2],[-2,1,2],[-2,2,1],[1,2,-2],[2,1,-2]],
+  "theorem":"For every open one-step source sector the two active precollapse channel coefficients have magnitudes strictly between 0 and 1. Therefore an adjacent integer completion can only use magnitudes 0 or 1 in the auxiliary chart. The outward coherent completion is the actual_upper_sextet_aux. No component of magnitude 2 can occur, so the user-specified M_UP is not reached, not an isolated tie, and has empty source fiber.",
+  "exposure":{"actual_upper_sextet":"one member per open sector; positive source arc measure; under uniform source angle each member has probability 1/6 if the UP policy is applied","mandatory_user_M_UP":"empty fiber; probability 0 under every source measure because no source orientation admits it as an adjacent one-step completion"},
+  "length_budget_diagnostic":{"actual_upper":"B=2","mandatory_user_M_UP":"B=4","one_step_target":"B=1"},
+  "correction_flags":{"SMALL_NONZERO_M_UP_PROBABILITY":false,"M_UP_IS_ONE_STEP_COMPETITOR":false,"HIDDEN_NONAXIS_COMPETITION_EXISTS":true,"TRUE_UP_COMPETITOR_IS_ONE_NATIVE_LEVEL_LOWER":true},
+  "D6":"Both sextets are D6 orbits under R6(u,v,w)=(-w,-u,-v), but only the actual_upper sextet lies in the adjacent integer completion box of a one-step sweep."
+}
