@@ -1,0 +1,17 @@
+{
+  "schema":"R059D_STAGE_APR_ONE_STEP_SEGMENT_CLASS_V1",
+  "status":"PROVED_TARGET_SEMANTICS_FROZEN",
+  "researcher_id":"EM-R059D-APR-7E4C2B",
+  "task_id":"RS-R059D-STAGE-AP-REISSUE-SIGNED-ORIGIN-ONE-STEP-SEGMENT-COLLAPSE-CLOSURE",
+  "taskbook_source_commit":"398e6a466ca87c78a8d9e2aed639e3964d1769c4",
+  "superseded_length2_marker":"f25f98dcf200235d487eee569f71dde2b392e2b6",
+  "owner_branch":"research/r059d-stage-ap-reissue-one-step-segment-collapse",
+  "signed_origin":{"native_origin":"O_E=[+1]=[-1] in every origin component","zero_native":false,"ENC_SIGNED":"ENC(0)=O_E; ENC(k)=sign(k)(|k|+1) for k!=0","DEC_SIGNED":"DEC(O_E)=0; DEC(±n)=±(n-1), n>=2"},
+  "auxiliary_channel_semantics":{"channel_state":"d=(u,v,w) in Z^3 is AUXILIARY only","primitive_budget":"B(d)=|u|+|v|+|w|","native_length_class":"L_E(P)=B(DEC_SIGNED(P)) on the AP one-step channel state domain","one_step_condition":"L_E=1"},
+  "A1_cycle_native":[[2,1,1],[1,-2,1],[1,1,2],[-2,1,1],[1,2,1],[1,1,-2]],
+  "A1_cycle_aux":[[1,0,0],[0,-1,0],[0,0,1],[-1,0,0],[0,1,0],[0,0,-1]],
+  "theorem":"Among integer auxiliary channel states, B(d)=1 iff d is one of the six signed unit-channel anchors above. Thus the native one-step endpoint class is exactly A1; coordinate magnitude 2 at an axis anchor is not primitive length 2.",
+  "D6":{"rotation_aux":"R6(u,v,w)=(-w,-u,-v)","rotation_order":6,"half_turn":"R6^3=-Id","reversal":"global channel sign inversion together with turn-orientation reversal","A1_orbit":"R6 cyclically permutes the listed A1 cycle"},
+  "legacy_radius1_conjugacy_preview":{"Psi":"Psi(u,v,w)=(u-w,w-v)","AK_rotation":"R(a,b)=(-b,a+b)","conjugacy":"Psi(R6 d)=R(Psi(d))","A1_image":[[1,0],[0,1],[-1,1],[-1,0],[0,-1],[1,-1]]},
+  "firewalls":{"source_metric_defines_length":false,"source_Q_defines_length":false,"collapse_rule_defines_length":false,"native_zero_used":false,"length2_task_consumed":false}
+}
