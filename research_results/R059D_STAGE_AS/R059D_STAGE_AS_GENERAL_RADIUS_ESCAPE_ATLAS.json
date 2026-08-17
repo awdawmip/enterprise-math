@@ -1,0 +1,39 @@
+{
+  "schema": "R059D_STAGE_AS_GENERAL_RADIUS_ESCAPE_ATLAS_V1",
+  "status": "THEOREM_FROZEN_DIAGNOSTIC_ARMS",
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "canonical_graph_status": "NOT_DEFINED_BECAUSE_CARRIER_LENGTH_AND_SCORE_ARE_UNDERDETERMINED",
+  "arm_A_terminal_side_fixed_chain_count": {
+    "state": "ordered simple r-edge chain plus terminal side triangle",
+    "admissible_primary_move": "length-preserving terminal 1->1 pivot only",
+    "r1": {
+      "initial_lifts": 12,
+      "state_graph": "two reversal-related directed 6-cycles",
+      "minimal_period": 6,
+      "AR_reduction": "exact"
+    },
+    "r2_to_r6": {
+      "initial_lifts_each_r": 12,
+      "reachable_J0": 12,
+      "reachable_J1": 12,
+      "reachable_J2": 12,
+      "total_distinct_reachable": 36,
+      "J_ge_3": 0,
+      "SCC_cycles": 0,
+      "termination_certificate": "starting from a straight axis chain, terminal direction can rotate by side sign through k, k+d, k+2d; the next k+3d points to v_(r-2), already in the prefix, so the simple-chain pivot is blocked",
+      "D6_reversal": "all six orientations and both side signs obey the same three-layer pattern"
+    }
+  },
+  "arm_B_edgewise_strip_raw_flip": {
+    "axis_lifts_per_orientation": "2^r",
+    "initial_total_axis_lifts": "6*2^r",
+    "first_step_fact_for_r_ge_2": "each straight seed has at least r legal stored-side 1->2 expansions plus a legal terminal tangential pivot before length filtering",
+    "FREE_ENDPOINT_SHELL": "all 1->2 expansions leave the free endpoint unchanged on shell r; the first terminal pivot also remains on shell r",
+    "all_ties_survive": true,
+    "chain_count_effect": "every expansion branch has L_chain=r+1",
+    "fixed_chain_all_path_closure": "FAILS_AT_J1_IF_RAW_FLIPS_ARE_RETAINED",
+    "complete_graph": "not canonically meaningful because the carrier/length/score choice is itself unresolved; no branch was pruned to manufacture a finite census"
+  },
+  "budgets": "Arm A exhausts completely before J=3 for r>=2 and was replayed through the required J=64 convention as empty thereafter; Arm B is used only as an exact first-divergence counterarm because no canonical state graph has been selected.",
+  "circle_comparison_used_in_construction": false
+}
