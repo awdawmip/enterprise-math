@@ -1,0 +1,23 @@
+{
+  "schema": "R059D_STAGE_AN_PERSISTENT_DISTORTION_THEOREM_V1",
+  "status": "PROVED_BEFORE_REPLAY",
+  "researcher_id": "EM-R059D-AN-4C2B91",
+  "local_weight": "w_(r,k)=r*Delta_(r,k)",
+  "axis_sequence": {
+    "turn": "(r,0)->(r-1,1)",
+    "exact": "tan Delta_axis(r)=sqrt(3)/(2*r-1)",
+    "limit": "r*Delta_axis(r)->sqrt(3)/2"
+  },
+  "central_sequence": {
+    "construction": "For each r choose the canonical central symbol-2 turn at the left-half termination: its start satisfies m=a+b=M_N(r)=r+J_N(r), d=a-b in {1,2}.",
+    "existence": "If AH terminates with d=1, the center symbol 2 is chosen. If it terminates with d=0, the last left-half step must be symbol 2 from d=2 to d=0; choose that step.",
+    "exact": "tan Delta_mid(r)=2*sqrt(3)*m/(3*m^2+d^2-2*d)",
+    "scale": "M_N(r)/r -> beta, where beta=1+alpha and 3*beta^2=4, beta>0; source-side display beta=2/sqrt(3) is allowed only for this compatibility limit.",
+    "coordinate_limit": "a/r,b/r -> 1/sqrt(3)",
+    "limit": "r*Delta_mid(r)->1"
+  },
+  "distinct_limits": "1-sqrt(3)/2>0 because 3<4",
+  "persistent_distortion": "The local weight field cannot converge uniformly to any single constant, nor to any radius-dependent constant lambda_r, because the axis and central canonical turns have distinct subsequential limits.",
+  "strength": "PERSISTENT_TWO_LIMIT_DISTORTION_ESTABLISHED",
+  "not_claimed": "A full macroscopic limiting defect profile or positive limiting variance is not required or claimed here."
+}
