@@ -1,0 +1,22 @@
+{
+  "schema": "R059D_STAGE_AS_AL_SUPPORT_GENERAL_RADIUS_AUDIT_V1",
+  "status": "POST_PRIMARY_COMPARISON_FROZEN",
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "typing": "SUP/K_E(r) is support/incidence only; not length; AL A8 disabled; AK tau disabled",
+  "state_cap_tested": "all footprint vertices must lie in K_E(r)",
+  "first_drift_witness": {
+    "radius_scope": "all r>=2",
+    "axis_outer_edge": "[(r-1,0),(r,0)] in first-sector auxiliary chart",
+    "legal_upper_expansion_third_vertex": "(r-1,1)",
+    "q": "r^2-r+1",
+    "SUP": "9*r^2-18*r+21",
+    "bound": "SUP <= 9*r^2 for every r>=2",
+    "consequence": "the immediate 1->2 chain-count-increasing footprint remains inside K_E(r)"
+  },
+  "carrier_selection": "NOT_RESOLVED",
+  "length_selection": "NOT_RESOLVED",
+  "escape_score_selection": "NOT_RESOLVED",
+  "frontier_result": "AL_SUPPORT_CARRIER_DOES_NOT_REPAIR_GENERAL_RADIUS_ESCAPE_UNDERDETERMINATION_WITH_A8_DISABLED",
+  "r1": "compatible with the already accepted AR/AL radius-1 equality",
+  "higher_r": "support cap alone does not derive a unique finite all-path turn frontier"
+}
