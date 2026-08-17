@@ -1,0 +1,27 @@
+{
+  "schema": "R059D_STAGE_AL_UNIQUE_NATIVE_RESOLVER_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AL-5A9D31",
+  "theorem": "UNIQUE_CANONICAL_ENTERPRISE_NATIVE_RESOLVER_PROVED",
+  "admissible_class": "ADM_E(r)=target fixed-length turn resolvers satisfying A0-A7 plus A8 Primitive-Support Frontier Maximality",
+  "domain": "every integer r>=1 and every fixed endpoint O",
+  "claims": {
+    "N_membership": "The accepted AK turn operator satisfies A0-A7 by AK and A8 because AH/AG identify its first-sector path with the outer frontier of K_E(r).",
+    "sector_uniqueness": "For every r>=1, ADM_E^sector(r) has exactly one endpoint path. Starting at (r,0), the first-difference induction forces the outward supported successor when available and otherwise forces the unique inward-diagonal supported successor; D6/reflection fixes the bisector crossing.",
+    "sector_identity": "The unique sector path is exactly W_N(r) / the AK local-turn endpoint sequence.",
+    "full_orbit_uniqueness": "A5 D6 covariance transports the unique sector path to all six sectors; A6-A7 fix the joins/orientation, so the full simple orbit is uniquely the accepted AK/AH N D6 boundary.",
+    "turn_representation": "Different internal register encodings may represent the same unique endpoint resolver; uniqueness is geometric/orbit-level, not a claim of unique machine encoding.",
+    "period": "The unique orbit has minimal positive turn period T_r=C_N(r)=6*(r+J_N(r)).",
+    "constant": "Its native asymptotic period/transition-span constant is kappa_E with kappa_E^2=12 and kappa_E>0."
+  },
+  "proof_kernel": [
+    "Q_E and support_rank construct K_E(r) without the N word or recurrence.",
+    "AG gives the coordinate certificate support_rank=9q-9max+3 and the left/right monotonicity/closure inequalities.",
+    "Those inequalities make K_E(r) sectorwise downward closed with one outer monotone frontier.",
+    "At a first proposed divergence from that frontier, an outward move is either unsupported (inadmissible) or supported (so choosing the inward move violates A8). Therefore divergence is impossible.",
+    "D6 covariance upgrades sector uniqueness to full-orbit uniqueness."
+  ],
+  "canonicality_scope": "Unique within the explicitly frozen non-tautological target-native admissible class ADM_E. AL does not claim to classify all imaginable rules that reject one of these native axioms.",
+  "runtime_firewall": "The canonical runtime remains the AK constant-size integer tau; support_rank/Q_E are proof/admissibility structures and are not evaluated by tau at runtime.",
+  "later_stage_consumed": false
+}
