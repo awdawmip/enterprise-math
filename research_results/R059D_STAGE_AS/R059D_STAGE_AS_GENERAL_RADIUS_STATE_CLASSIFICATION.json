@@ -1,0 +1,42 @@
+{
+  "schema": "R059D_STAGE_AS_GENERAL_RADIUS_STATE_CLASSIFICATION_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "primary_result": "MULTIPLE_INEQUIVALENT_GENERAL_RADIUS_SEGMENT_LIFTS_SURVIVE_PRE_CIRCLE",
+  "common_primal_carrier": {
+    "type": "ordered simple primitive-edge chain P=(v_0=O_E,v_1,...,v_m=p)",
+    "axis_anchor": "for count r the axis seed is the unique straight r-edge chain",
+    "classification": "JUSTIFIED_PRE_CIRCLE_AS_A_NATIVE_FOOTPRINT_CARRIER",
+    "caveat": "incidence alone does not force this footprint to be the unique ontology of a rigid line segment"
+  },
+  "model_terminal_side_chain": {
+    "state": "(P,C_terminal) where C_terminal is one of the two elementary triangles incident to the terminal edge",
+    "axis_lifts_per_orientation": 2,
+    "r1_reduction": "exactly AR S=(e,C)",
+    "classification": "JUSTIFIED_PRE_CIRCLE_AS_MINIMAL_FREE_ENDPOINT_FOOTPRINT"
+  },
+  "model_edgewise_side_strip": {
+    "state": "(P,C_1,...,C_m) with one incident side triangle retained for every primitive edge",
+    "axis_lifts_per_orientation": "2^r",
+    "r1_reduction": "exactly AR S=(e,C)",
+    "classification": "UNDERDETERMINED_BUT_POSSIBLE_CONNECTED_SWEPT_STRIP"
+  },
+  "exact_separation_witness": {
+    "radius": 2,
+    "terminal_side_total_axis_lifts": 12,
+    "edgewise_strip_total_axis_lifts": 24,
+    "reason_not_isomorphic_over_anchor_projection": "fibers over each visible axis anchor have cardinalities 2 and 4"
+  },
+  "mandatory_consistency_shared": [
+    "AR_R1_REDUCTION",
+    "AXIS_ANCHOR_CORRECTNESS",
+    "D6_COVARIANCE",
+    "REVERSAL_COVARIANCE",
+    "TRANSLATION_COVARIANCE",
+    "PREFIX_RESTRICTION_ON_AXIS_SEEDS",
+    "NO_SOURCE_ANGLE",
+    "NO_AK_OR_AL_ORBIT_MEMBERSHIP"
+  ],
+  "nested_packet_stack": "UNDERDETERMINED_BUT_POSSIBLE; requires an additional coherent-motion rule not forced by current incidence",
+  "conclusion": "No currently frozen pre-circle native observable selects terminal-only side memory over edgewise strip memory. Carrier choice is therefore underdetermined from r>=2 onward."
+}
