@@ -1,0 +1,14 @@
+{
+  "schema":"R059D_STAGE_APR_UP_DOWN_COLLAPSE_SPEC_V1",
+  "status":"FROZEN_BEFORE_CLOSURE_TEST",
+  "researcher_id":"EM-R059D-APR-7E4C2B",
+  "common_precollapse_input":"On sector k, X=A d_k+B d_(k+1), with 0<A,B<1 on the open source fiber.",
+  "full_adjacent_integer_box":"{0,d_k,d_(k+1),d_k+d_(k+1)}",
+  "primitive_budget_order":"B(d)=sum_i |d_i|, giving budgets 0,1,1,2 respectively.",
+  "coherent_coupled_completion_axiom":"All noninteger active channel magnitudes use one shared branch bit: LOWER means every active magnitude collapses toward the signed origin; UPPER means every active magnitude collapses away from the signed origin. Per-channel mixed branch bits are excluded from the coherent collapse-direction class but retained as a broader-policy control.",
+  "DOWN":{"rule":"shared LOWER branch","result_aux":"0","result_native":"O_E=(±1,±1,±1)","raw_budget":0},
+  "UP":{"rule":"shared UPPER branch","result_aux":"d_k+d_(k+1)","result_native":"one member of [(2,-2,1),(1,-2,2),(-2,1,2),(-2,2,1),(1,2,-2),(2,1,-2)]","raw_budget":2},
+  "intermediate_axis_corners":{"states":"d_k and d_(k+1)","budget":1,"classification":"legal componentwise integer completions but not coherent all-lower/all-upper outcomes","importance":"If arbitrary independent channel branches are admitted, direct axis policies can close a one-step cycle without raw DOWN; this is the exact scope boundary for the later necessity theorem."},
+  "noncircularity":"The branch definitions use only the common componentwise adjacent-integer box, a single shared branch bit, and the target primitive budget order. No closure result or desired endpoint is read by UP or DOWN.",
+  "firewalls":{"source_angle_selects_UP_or_DOWN":false,"closure_selects_branch":false,"M_UP_user_inserted_as_candidate":false}
+}
