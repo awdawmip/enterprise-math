@@ -1,0 +1,15 @@
+{
+  "schema": "R059D_STAGE_AJ_RESOLVER_ROBUST_CONSTANT_THEOREM_V1",
+  "researcher_id": "EM-R059D-AJ-6D4A19",
+  "status": "PROVED",
+  "input": "AI theorem kappa_E^2=12, kappa_E>0 and -2/r<C_N(r)/(2r)-kappa_E<1/r",
+  "uniform_phase_input": "C_C_s(r)=C_N(r)-6*chi_s(r), chi_s(r) in {0,1} for every s>=1,r>=0",
+  "main_theorem": "For every integer s>=1, lim_{r->infinity} C_C_s(r)/(2r)=kappa_E, where kappa_E is the unique positive root of x^2-12=0.",
+  "uniform_stronger_form": "sup_{s>=1}|C_C_s(r)/(2r)-kappa_E|<5/r for every r>=1; therefore convergence to kappa_E is uniform in the entire finite-sampling resolver family.",
+  "step_ratio_interval": "-5/r < C_C_s(r)/(2r)-kappa_E < 1/r",
+  "endpoint_robustness": "For every fixed integer epsilon with 2r+epsilon eventually positive, C_C_s(r)/(2r+epsilon)->kappa_E for every s, uniformly in s. Exact numerator form: C_C_s-(2r+epsilon)kappa_E = 2-6delta_r-6chi_s(r)-epsilon*kappa_E, 0<delta_r<1.",
+  "uniform_endpoint_bound": "|C_C_s(r)/(2r+epsilon)-kappa_E| <= (10+|epsilon|*kappa_E)/(2r+epsilon) eventually; a rational-only coarser certificate may replace kappa_E by 4 since 3<kappa_E<4.",
+  "scale_subsequence": "For every fixed h>=1 and every s>=1, C_C_s(hr)/(2hr)->kappa_E and the same holds for 2hr+epsilon.",
+  "algebraic_typing": "kappa_E is Enterprise-native/count-geometry constant; this does not identify it with standard real pi or assert any theorem about Euclidean pi.",
+  "C_word_generator": "not required/proved here; only the exact C_s boundary/event and phase theorem are promoted"
+}
