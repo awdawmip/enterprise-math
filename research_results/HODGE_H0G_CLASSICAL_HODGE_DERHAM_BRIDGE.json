@@ -1,0 +1,38 @@
+{
+  "classical_sources": [
+    {
+      "allowed_statement": "For smooth complex algebraic varieties, algebraic de Rham hypercohomology compares canonically with the usual complex cohomology of the associated analytic/topological space in the algebraic de Rham theorem scope.",
+      "author": "A. Grothendieck",
+      "doi": "10.1007/BF02684807",
+      "title": "On the de Rham cohomology of algebraic varieties",
+      "venue": "Publ. Math. IHES 29 (1966), 95-103"
+    },
+    {
+      "allowed_statement": "For smooth projective complex varieties, the stupid filtration on the de Rham complex yields the classical Hodge filtration under the standard Hodge-theoretic comparison.",
+      "author": "P. Deligne",
+      "doi": "10.1007/BF02684692",
+      "title": "Theorie de Hodge II",
+      "venue": "Publ. Math. IHES 40 (1971), 5-57"
+    }
+  ],
+  "finite_carrier_completeness": "NOT_PROVED_AND_NOT_CLAIMED",
+  "rational_weight2_fact": {
+    "cycle_inference_forbidden": "F^1 membership does not imply existence of an algebraic cycle.",
+    "proof": [
+      "F^1=H^(2,0) direct-sum H^(1,1).",
+      "Conjugation-fixed alpha_C in F^1 also lies in conjugate(F^1)=H^(1,1) direct-sum H^(0,2).",
+      "Their intersection is H^(1,1); converse is immediate."
+    ],
+    "statement": "For alpha in H^2(X,Q) in a pure weight-2 Hodge structure, alpha_C is fixed by conjugation; hence alpha is of type (1,1) iff alpha_C lies in F^1."
+  },
+  "researcher_id": "EM-HODGE-H0G-6F3A12",
+  "role": "CONTROL_OR_TYPED_BRIDGE_ONLY",
+  "schema": "HODGE_H0G_CLASSICAL_HODGE_DERHAM_BRIDGE_V1",
+  "status": "FROZEN_TYPED_CONTROL_ONLY",
+  "typed_chain": {
+    "C_H_X": "rational singular cohomology with pure weight-2 Hodge structure; external/classical comparison layer",
+    "F1_H_dR_2": "Hodge filtration side represented by the filtered de Rham complex under the classical comparison",
+    "H_dR_2_X_C": "algebraic de Rham hypercohomology over C",
+    "K_finite": "H0G bounded exact Cech-de Rham source slice; NOT asserted complete for H_dR^2(P^2)"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "abstract_V2_rank": "R2_NONTRIVIAL_OPERATIONAL_REALIZATION_CONTROL",
+  "candidate_id": "G1_FULL_FUTURE_REPAIR_QUOTIENT",
+  "definition": "At cut i, Sigma_i(r) is the affine set r+R_i of all final low residuals reachable by remaining algebraic repair blocks; q_i identifies equality of these complete reachable-residual sets.",
+  "exact_theorem": {
+    "coarsest": "Any state descriptor recovering the complete affine reachable-residual set refines the coset quotient.",
+    "descended_relational_transition": "Because R_i=W_i+R_(i+1), the set of Q_(i+1) classes reachable from a Q_i class by W_i is representative-independent.",
+    "final_factorization": "FILTRATION_LIFT at cut i iff q_i(r)=0.",
+    "quotient": "Q_i = L_Z/R_i",
+    "signature_equality": "Sigma_i(r)=Sigma_i(r') iff r-r' lies in R_i"
+  },
+  "information_tag": "INFO_LOSSY_RELATIVE_TO_EXACT_LOW_RESIDUAL",
+  "measure": {
+    "enterprise_total": 34,
+    "source_total": 57,
+    "stage_quotient_dims": [
+      10,
+      11,
+      13
+    ],
+    "strict_reduction": true
+  },
+  "novelty": "CLASSICAL_PRIOR_ART / PROJECT_EXISTING_FUTURE_SIGNATURE_PACKAGING",
+  "researcher_id": "EM-HODGE-H0G-6F3A12",
+  "schema": "HODGE_H0G_FUTURE_QUOTIENT_REGISTRY_V1",
+  "stage_results": [
+    {
+      "cut": 0,
+      "next_repair_block": "U12_PAIR_FUNCTIONS",
+      "quotient_dim": 10,
+      "raw_residual_dim": 19,
+      "remaining_blocks": [
+        "U12",
+        "U01",
+        "U02"
+      ],
+      "remaining_repair_span_rank": 9
+    },
+    {
+      "cut": 1,
+      "next_repair_block": "U01_PAIR_FUNCTIONS",
+      "quotient_dim": 11,
+      "raw_residual_dim": 19,
+      "remaining_blocks": [
+        "U01",
+        "U02"
+      ],
+      "remaining_repair_span_rank": 8
+    },
+    {
+      "cut": 2,
+      "next_repair_block": "U02_PAIR_FUNCTIONS",
+      "quotient_dim": 13,
+      "raw_residual_dim": 19,
+      "remaining_blocks": [
+        "U02"
+      ],
+      "remaining_repair_span_rank": 6
+    }
+  ],
+  "status": "FROZEN",
+  "strict_leverage_classes": [
+    "DEPENDENCY_REDUCTION",
+    "COMPOSITIONAL_FACTORING",
+    "NORMAL_FORM"
+  ]
+}

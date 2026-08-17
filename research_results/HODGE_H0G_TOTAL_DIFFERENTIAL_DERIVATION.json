@@ -1,0 +1,26 @@
+{
+  "cech": {
+    "degree0_to1": "(delta a)_ij = a_j|Uij - a_i|Uij",
+    "degree1_to2": "(delta b)_012 = b_12 - b_02 + b_01"
+  },
+  "de_rham": {
+    "d(2-form)": "0 on the surface charts",
+    "d(A dx + B dy)": "(B_x-A_y) dx wedge dy",
+    "d(f)": "f_x dx + f_y dy"
+  },
+  "exact_checker_counts": {
+    "K1_basis_D2_checks": 42,
+    "K2_basis_D2_checks": 152
+  },
+  "proof_D2_zero": [
+    "delta^2=0 by alternating Cech signs",
+    "d^2=0 algebraically",
+    "delta d=d delta because algebraic restriction/localization commutes with d",
+    "the (-1)^p sign makes the mixed terms cancel"
+  ],
+  "researcher_id": "EM-HODGE-H0G-6F3A12",
+  "schema": "HODGE_H0G_TOTAL_DIFFERENTIAL_DERIVATION_V1",
+  "sign_convention": "D=delta+(-1)^p d on Cech degree p",
+  "status": "FROZEN",
+  "verdict": "PASS_ON_DECLARED_SOURCE"
+}

@@ -1,0 +1,32 @@
+{
+  "arbitrary_cover_refinement_claim": false,
+  "automorphism_checks": {
+    "cycle_X0_X1_X2_D_equiv_basis_count": 194,
+    "swap_X1_X2_D_equiv_basis_count": 194
+  },
+  "checks": [
+    {
+      "id": "CECH_ORIENTATION",
+      "result": "PASS",
+      "statement": "Permutation of ordered cover indices acts with the usual alternating sign; delta is conjugated by the signed permutation."
+    },
+    {
+      "id": "ALGEBRAIC_PULLBACK_D",
+      "result": "PASS",
+      "statement": "For homogeneous-coordinate transposition (12) and cycle (012), exact algebraic pullback commutes with D on all 42 K1 and 152 K2 frozen basis vectors."
+    },
+    {
+      "id": "BOUNDED_WINDOW_CLOSURE",
+      "result": "NOT_GLOBAL",
+      "statement": "The rectangular bounded seed window is not invariant as a set under those projective automorphisms; therefore finite enumeration claims are explicitly restricted to the chosen standard-coordinate window."
+    },
+    {
+      "id": "SOURCE_OBSTRUCTION_ISOMORPHISM",
+      "result": "PASS_THEOREM",
+      "statement": "Under any filtration-preserving chain isomorphism, pi(Z)/pi(B) transports isomorphically; the source-normal-form attribution conclusion is not dependent on a chosen linear basis."
+    }
+  ],
+  "researcher_id": "EM-HODGE-H0G-6F3A12",
+  "schema": "HODGE_H0G_PRESENTATION_NATURALITY_LEDGER_V1",
+  "status": "FROZEN_SCOPE_RESTRICTED"
+}

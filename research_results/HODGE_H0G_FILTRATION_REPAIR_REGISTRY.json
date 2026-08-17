@@ -1,0 +1,41 @@
+{
+  "counts": {
+    "closed_space_dim": 54,
+    "liftable_closed_dim": 44,
+    "nonliftable_obstruction_dim": 10
+  },
+  "negative_control": {
+    "FILTRATION_LIFT_1": false,
+    "closed": true,
+    "closed_derivation": [
+      "delta beta = 2 x^-3 dx",
+      "d gamma = -2 x^-3 dx",
+      "d beta=0"
+    ],
+    "id": "Z_MINUS_X_NEG2",
+    "obstruction_monomial_exponent": [
+      -2,
+      0
+    ],
+    "reason_false": "x^-2 is in the low projection of closed cocycles but not in im(pi0 D|K1) for the frozen B1=1 repair window.",
+    "z": [
+      "beta_12=2 x^-3 dx = -2 u du",
+      "gamma_012=x^-2"
+    ]
+  },
+  "positive_control": {
+    "FILTRATION_LIFT_1": true,
+    "closed": true,
+    "id": "Z_PLUS_CONSTANT_TRIPLE",
+    "repair": "take K1 pair function g_12=-1; delta(g)_012=-1 and d(g)=0, so z+Dg=0",
+    "z": "gamma_012=1, all other degree-2 components zero"
+  },
+  "researcher_id": "EM-HODGE-H0G-6F3A12",
+  "schema": "HODGE_H0G_FILTRATION_REPAIR_REGISTRY_V1",
+  "source_theorem": {
+    "coboundary_invariance": "Replacing z by z+D c changes pi0(z) by an element of the projected repair image and hence leaves the obstruction class unchanged.",
+    "proof": "F1_K2=ker(pi0). Existence of b with z+D b in F1 is exactly pi0(z)+pi0(D b)=0; the projected image is a vector space, so sign is immaterial.",
+    "statement": "For closed z in K2, FILTRATION_LIFT_1(z) iff pi0(z) lies in im(pi0 D|K1)."
+  },
+  "status": "FROZEN"
+}

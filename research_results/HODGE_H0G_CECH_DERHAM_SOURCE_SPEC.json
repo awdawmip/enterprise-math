@@ -1,0 +1,66 @@
+{
+  "coefficient_field": "Q for exact finite coordinate arithmetic, then Q embeds into C",
+  "coefficient_warning": "Q-valued finite coordinates are not identified with rational singular cohomology classes.",
+  "coordinates": {
+    "U0": "x=X1/X0, y=X2/X0",
+    "U1": "u=X0/X1=1/x, v=X2/X1=y/x",
+    "U2": "s=X0/X2=1/y, t=X1/X2=x/y"
+  },
+  "cover": [
+    "U0={X0!=0}",
+    "U1={X1!=0}",
+    "U2={X2!=0}"
+  ],
+  "differential_replay_checks": [
+    "du=-x^-2 dx",
+    "dv=x^-1 dy-y x^-2 dx",
+    "ds=-y^-2 dy",
+    "dt=y^-1 dx-x y^-2 dy"
+  ],
+  "filtration": {
+    "F1_K2": "kernel of pi0, where pi0 projects total degree 2 to Cech^2(Omega^0)",
+    "predicate": "FILTRATION_LIFT_1(z) iff Dz=0 and exists b in K1 with z+D b in F1_K2"
+  },
+  "finite_primary_window": {
+    "repair_degree_window_B1": 1,
+    "state_degree_window_B2": 2
+  },
+  "intersection_rings": {
+    "U01": "Q[x,x^-1,y] embedded in Q[x^±1,y^±1]",
+    "U012": "Q[x^±1,y^±1]",
+    "U02": "Q[x,y,y^-1] embedded in Q[x^±1,y^±1]",
+    "U12": "Q[u,v,v^-1], u=1/x,v=y/x, embedded in Q[x^±1,y^±1]"
+  },
+  "pre_enterprise_source_repair_control": {
+    "action": "Before Enterprise quotient evaluation, freeze one-shell-gap carrier B1=1,B2=2 to satisfy the taskbook requirement for both positive and negative source controls.",
+    "initial_equal_window": {
+      "B1": 1,
+      "B2": 1,
+      "obstruction_dimension": 0,
+      "source_theorem": "all closed states in that finite carrier are filtration-liftable"
+    },
+    "not_success_driven": "The change was triggered by the source-only all-positive theorem, before any Enterprise quotient/attribution success count."
+  },
+  "researcher_id": "EM-HODGE-H0G-6F3A12",
+  "schema": "HODGE_H0G_CECH_DERHAM_SOURCE_SPEC_V1",
+  "status": "FROZEN",
+  "task_id": "RS-HODGE-H0G-ALGEBRAIC-DERHAM-FILTRATION-REPAIR-ATTRIBUTED-R2",
+  "taskbook_source": "1034152e33b8141fb8a6ebcb5ab88ad7dfb679ef",
+  "total_complex": {
+    "degree2_components": [
+      "Cech^0(Omega^2)",
+      "Cech^1(Omega^1)",
+      "Cech^2(Omega^0)"
+    ],
+    "identity": "D^2=0 because delta^2=d^2=0 and restriction commutes with d",
+    "total_differential": "D=delta+(-1)^p d on Cech degree p"
+  },
+  "typing": {
+    "Enterprise_quotients": "N2_READOUT_COLLAPSE",
+    "Hodge_comparison": "CLASSICAL_TYPED_CONTROL_NOT_GENERATOR",
+    "P2_Cech_deRham": "HX0_CLASSICAL_ALGEBRAIC_SOURCE",
+    "finite_basis_coordinates": "I0_IMPLEMENTATION_CARRIER",
+    "ordered_repair_language": "N1_DERIVED_OPERATIONAL_SEMANTICS"
+  },
+  "variety": "P^2_C"
+}

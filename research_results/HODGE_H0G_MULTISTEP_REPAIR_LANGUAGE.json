@@ -1,0 +1,76 @@
+{
+  "final_observation": "ACCEPT iff zero low residual is reachable after all remaining repair blocks; this is exactly FILTRATION_LIFT_1 for the declared source.",
+  "ordered_stages": [
+    {
+      "block_rank": 6,
+      "repair_block": "U12 pair functions",
+      "stage": 0
+    },
+    {
+      "block_rank": 6,
+      "repair_block": "U01 pair functions",
+      "stage": 1
+    },
+    {
+      "block_rank": 6,
+      "repair_block": "U02 pair functions",
+      "stage": 2
+    }
+  ],
+  "raw_recursive_interface_measure": {
+    "name": "TOTAL_LIVE_LOW_RESIDUAL_LINEAR_DIMENSION_AT_NONFINAL_CUTS",
+    "stage_values": [
+      19,
+      19,
+      19
+    ],
+    "value": 57
+  },
+  "remaining_span_ranks": [
+    9,
+    8,
+    6,
+    0
+  ],
+  "repair_choice_semantics": "At each stage choose any vector in the algebraically generated repair block; this is a linear relational continuation language, not synthetic L/R actions.",
+  "researcher_id": "EM-HODGE-H0G-6F3A12",
+  "schema": "HODGE_H0G_MULTISTEP_REPAIR_LANGUAGE_V1",
+  "stage_records": [
+    {
+      "cut": 0,
+      "next_repair_block": "U12_PAIR_FUNCTIONS",
+      "quotient_dim": 10,
+      "raw_residual_dim": 19,
+      "remaining_blocks": [
+        "U12",
+        "U01",
+        "U02"
+      ],
+      "remaining_repair_span_rank": 9
+    },
+    {
+      "cut": 1,
+      "next_repair_block": "U01_PAIR_FUNCTIONS",
+      "quotient_dim": 11,
+      "raw_residual_dim": 19,
+      "remaining_blocks": [
+        "U01",
+        "U02"
+      ],
+      "remaining_repair_span_rank": 8
+    },
+    {
+      "cut": 2,
+      "next_repair_block": "U02_PAIR_FUNCTIONS",
+      "quotient_dim": 13,
+      "raw_residual_dim": 19,
+      "remaining_blocks": [
+        "U02"
+      ],
+      "remaining_repair_span_rank": 6
+    }
+  ],
+  "status": "FROZEN",
+  "theorem_critical_state": "low-filtration residual r=pi0(z) in L_Z=pi0(Z2), dim 19",
+  "why_only_pair_functions_affect_low_component": "For K1, local Cech^0(Omega^1) repairs have no Cech^2(Omega^0) projection; only Cech^1(Omega^0) pair-function repairs contribute through delta."
+}
