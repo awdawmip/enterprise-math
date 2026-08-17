@@ -1,0 +1,42 @@
+{
+  "schema": "R059D_STAGE_AK_TARGET_SEGMENT_SEMANTICS_V1",
+  "status": "FROZEN_BEFORE_TURN_MACHINE",
+  "researcher_id": "EM-R059D-AK-3C7E52",
+  "task_id": "RS-R059D-STAGE-AK-TARGET-FIXED-LENGTH-NATIVE-TURN-ORBIT",
+  "frozen_source_main": "e28a11f6a3e94ec1bf1e1bf7ddbc0a062eef5183",
+  "taskbook_source_commit": "8628970bd3f072b7a8823873ec4597c1e31c4652",
+  "state_space": {
+    "SEGMENT_STATE": "S=(O,r,sector,phase,a,b,z) restricted to states reachable from an anchor by the frozen local turn law; O is the fixed endpoint, r>=1, sector in Z/6Z, phase in {L,R}, a,b,z are integers.",
+    "ENDPOINT_STATE": "endpoint(S)=O+R^sector(a,b), with R(a,b)=(-b,a+b).",
+    "ANCHOR": "S_r(O)=(O,r,0,L,r,0,-4); endpoint(S_r(O))=O+(r,0).",
+    "LOCAL_RESIDUAL_TYPING": "z=rho in phase L and z=sigma in phase R; the two residuals are target-local turn state, not an endpoint metric.",
+    "CENTER": "phase L with a-b=1 emits the unique center symbol 2; phase transitions that do not move the endpoint are normalized inside the same turn update and never consume a separate turn."
+  },
+  "enterprise_length_class": {
+    "anchor_measure": "r is the number of elementary Enterprise axis translations from O to O+(r,0) in the canonical anchor segment.",
+    "equal_length_relation": "Two admissible segment states are ENTERPRISE_EQUAL_LENGTH iff, after translating their fixed endpoints to a common origin, they lie in the legal-turn orbit generated from the same radius-r anchor.",
+    "class_map": "L_E(S)=r.",
+    "not_euclidean": true,
+    "not_defined_by_endpoint_Q": true
+  },
+  "semantic_requirements": {
+    "fixed_endpoint": "tau never changes O",
+    "translation": "translation acts by O<-O+t and endpoint<-endpoint+t, leaving r and local turn registers unchanged",
+    "D6": "rotation transport acts by O<-R^j O and sector<-sector+j, leaving canonical local registers unchanged",
+    "closure_target": "the endpoint orbit must equal the accepted AH N D6 boundary exactly",
+    "period_target": "minimal positive segment-state period must equal C_N(r)"
+  },
+  "runtime_firewall": {
+    "source_circle_query": false,
+    "source_Q_lookup": false,
+    "euclidean_distance": false,
+    "classical_pi": false,
+    "sqrt": false,
+    "floating_point": false,
+    "trigonometry": false,
+    "occupancy_table": false,
+    "word_table": false,
+    "radius_specific_tuning": false
+  },
+  "later_stage_consumed": false
+}
