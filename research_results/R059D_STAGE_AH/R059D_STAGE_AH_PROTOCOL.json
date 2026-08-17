@@ -1,0 +1,49 @@
+{
+  "schema": "R059D_STAGE_AH_PROTOCOL_V1",
+  "status": "PRE_CANDIDATE_FROZEN",
+  "researcher_id": "EM-R059D-AH-7B1EFD",
+  "task_id": "RS-R059D-STAGE-AH-N-MOTZKIN-WORD-AUTONOMOUS-GROWTH-LAW",
+  "taskbook_source_commit": "134eec2e1482c8edeb2fbe03a4ab6e012d1f9fd1",
+  "frozen_source_main": "adc59649c9c8d9544037ec8972b4c80b71e9b14a",
+  "accepted_ag_owner_head": "5063495ff0df643890cd1f4c72ffd2077161c13d",
+  "owner_branch": "research/r059d-stage-ah-n-motzkin-word-autonomous-growth",
+  "canonical_sector": {
+    "start": "(r,0)",
+    "end": "(0,r)",
+    "vertex_domain": "a>=0,b>=0",
+    "step_symbols": {
+      "1": {"delta": [0,1], "motzkin_height_delta": 1},
+      "2": {"delta": [-1,1], "motzkin_height_delta": 0},
+      "3": {"delta": [-1,0], "motzkin_height_delta": -1}
+    },
+    "height": "h=a+b-r"
+  },
+  "frozen_upstream": {
+    "AG_J": "J_N(r)=floor(alpha*r+1/3), 3*alpha^2+6*alpha-1=0, unique positive alpha",
+    "AG_integer_jump": "with j=J_N(r-1), x=3j+2, increment iff x^2+6*r*x-3*r^2<=0",
+    "AG_dual_support": "3*(a^2+a*b+b^2)-3*max(a,b)+1<=3*r^2",
+    "AF_word": "nonnegative Motzkin excursion; #1=#3=J; #2=r-J",
+    "AF_B": "B is the sum of current height immediately before every a-decreasing step symbol 2 or 3"
+  },
+  "reflection": {
+    "coordinate": "(a,b)->(b,a)",
+    "word_anti_involution": "reverse word and map 1<->3, 2->2"
+  },
+  "D6": {"rotation60": "R(a,b)=(-b,a+b)"},
+  "runtime_firewall": {
+    "occupancy_arrays": false,
+    "source_circle_membership": false,
+    "source_Q_per_cell_oracle": false,
+    "precomputed_word_table": false,
+    "precomputed_jump_table": false,
+    "floating_point": false,
+    "sqrt_runtime": false,
+    "pi_or_trigonometry": false,
+    "radius_specific_tuning": false,
+    "AG_J_integer_recurrence_allowed": true,
+    "integer_residual_state_allowed": true
+  },
+  "discovery_range": [1,512],
+  "holdout_range": [513,4096],
+  "candidate_scoring_before_this_freeze": false
+}
