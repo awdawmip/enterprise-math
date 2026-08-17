@@ -1,0 +1,19 @@
+{
+  "schema":"R059D_STAGE_AR_STATEFUL_CLOSURE_THEOREM_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AR-5B8D24",
+  "state_graph":"disjoint union of two directed 6-cycles, one for each side/sweep orientation",
+  "DAG":false,
+  "SCCs":"exactly two strongly connected components of size 6",
+  "state_return":"every legitimate lifted state has minimal positive return time 6; returns occur exactly at multiples of 6",
+  "free_endpoint_return":"projected free endpoint also has minimal positive return time 6 along each oriented lifted path",
+  "all_branches_close":true,
+  "nonclosing_branches_survive":false,
+  "simple_D6_cycles":2,
+  "natural_first_return":6,
+  "jump_budget_tuning_required":false,
+  "reversal":"the two directed cycles are exchanged and orientation reversed; reversal gives the inverse path family",
+  "quantifier":"for every one-step A1 anchor and for both legitimate side-cell lifts, the unique all-admissible stateful escape path closes after exactly six jumps",
+  "old_circle_oracle_used":false,
+  "disposition":"STATEFUL_ALL_PATH_ONE_STEP_TURN_CLOSURE_PROVED"
+}
