@@ -1,0 +1,25 @@
+{
+  "schema": "R059D_STAGE_AJ_C_SEMANTICS_PROTOCOL_V1",
+  "researcher_id": "EM-R059D-AJ-6D4A19",
+  "task_id": "RS-R059D-STAGE-AJ-C-PHASE-DELAY-RESOLVER-ROBUST-ALGEBRAIC-CONSTANT",
+  "taskbook_source_commit": "cc13f27dfd91ff7023170523874e691fe99516b5",
+  "frozen_source_main": "1be8c27fef28ff04ed770d57eec0323bfdd7d832",
+  "accepted_ai_owner_head": "ef12fb31595b6803525ab3f466962006aae9e65b",
+  "status": "FROZEN_BEFORE_PHASE_PROOF",
+  "canonical_object": "the full finite-sampling family C_s for every integer s>=1; no new continuum resolver is introduced",
+  "quadratic_form": "Q(x,y)=x^2+x*y+y^2",
+  "reference_microcentroids": {
+    "A_s": "(u,v)=(3i+1,3j+1), i,j>=0, i+j<=s-1",
+    "B_s": "(u,v)=(3i+2,3j+2), i,j>=0, i+j<=s-2",
+    "cardinality": "|A_s union B_s|=s^2"
+  },
+  "triangle_sampling": "for D=3s and macrotriangle vertices P0,P1,P2, sample Z=D*P0+u*(P1-P0)+v*(P2-P0)",
+  "selection_rule": "triangle is C_s-occupied iff 2*#{Z:Q(Z)<=(rD)^2}>=s^2",
+  "tie_rule": "exact half coverage is SELECTED; this is the inherited AD >= rule",
+  "carrier": "EDGE_SUPPORTED_DUAL_CELL_CARRIER: a dual vertex is selected iff it is endpoint of an edge shared by two C_s-occupied triangles",
+  "D6_completion": "the first sextant state is rotated by the frozen sixfold lattice action",
+  "AD_shortcuts": "centroid deep-inside/deep-outside branches are implementation shortcuts only; canonical theorem semantics is the exact finite microcentroid majority rule",
+  "theorem_target": "uniform-in-s for every s>=1 and every integer r>=0",
+  "forbidden_replacement": "no s->infinity/continuum-area resolver may silently replace C_s",
+  "classical_pi_used": false
+}
