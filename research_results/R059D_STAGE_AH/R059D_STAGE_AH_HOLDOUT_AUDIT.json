@@ -1,0 +1,22 @@
+{
+  "schema":"R059D_STAGE_AH_HOLDOUT_AUDIT_V1",
+  "status":"PASS",
+  "researcher_id":"EM-R059D-AH-7B1EFD",
+  "candidate_freeze_commit":"12f33b2bb86412dcc83dbdad7d3731c5e68f72cc",
+  "generator_source_freeze_commit":"aa50a612134f9ba2b90f33b48d11dccc5bee4bf7",
+  "discovery_range":[1,512],
+  "untouched_holdout_range":[513,4096],
+  "reference":"checker-only greedy first-sector boundary extracted from the frozen AG exact support theorem; never called by the AH runtime generator",
+  "holdout":{
+    "radii_checked":3584,
+    "word_character_mismatches":0,
+    "radius_mismatches":0,
+    "AG_symbol_count_mismatches":0,
+    "Motzkin_failures":0
+  },
+  "extended_checkpoints":{
+    "8192":{"word_equal":true,"word_length":9459,"J":1267,"B":7019457,"C":56754,"V":243467911},
+    "16384":{"word_equal":true,"word_length":18918,"J":2534,"B":28078005,"C":113508,"V":973823551}
+  },
+  "interpretation":"Finite holdout validates implementation; the all-radius promotion rests on the symbolic residual-invariant proof."
+}
