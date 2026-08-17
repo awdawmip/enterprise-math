@@ -1,0 +1,24 @@
+{
+  "schema": "R059D_STAGE_AM_BRC_FIBER_THEOREM_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AM-8E3C64",
+  "fiber": "F_k={x in C_perp(O,r): source ray x-O lies in the closed angular cone from iota(p_k) to iota(p_(k+1))}",
+  "theorem": {
+    "nonempty": "every F_k contains a positive-length open source arc because det(p_k,p_(k+1))>0",
+    "connected": "each F_k is one closed source arc interval",
+    "cyclic_order": "F_k occur in the same cyclic order as target turns e_k",
+    "interior_disjointness": "interiors of distinct F_k are disjoint",
+    "neighbor_overlap": "F_(k-1) intersect F_k only at the source point on the ray through target vertex p_k; non-neighbor fibers are disjoint",
+    "coverage": "union_k F_k=C_perp(O,r)",
+    "fiber_boundary_count": "there are exactly T_r target-vertex ray boundaries on the source circle, counted cyclically",
+    "many_to_one": "for every r>=1 each target turn has an uncountable source-arc fiber while the target orbit has finitely many turns"
+  },
+  "proof_outline": [
+    "AK/AL give a simple D6 cycle and a strictly angle-increasing sector path.",
+    "For each legal primitive step, the determinant with the next endpoint is strictly positive, so consecutive endpoint rays are distinct and correctly ordered.",
+    "D6 sector joins advance by exactly one sixth-turn and after six sectors return to the first ray.",
+    "Closed angular intervals between consecutive rays therefore form a cyclic interval cover of the source circle with only endpoint overlaps."
+  ],
+  "correct_comparison_unit": "target elementary edge/turn; vertex fibers are tie boundaries rather than circumference units",
+  "point_fiber_warning": "a vertex-only assignment would hide the continuous arc carried by each elementary target turn and is not the correct metric-descent carrier"
+}
