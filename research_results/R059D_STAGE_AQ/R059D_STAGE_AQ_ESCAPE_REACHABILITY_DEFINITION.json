@@ -1,0 +1,23 @@
+{
+  "schema": "R059D_STAGE_AQ_ESCAPE_REACHABILITY_DEFINITION_V1",
+  "status": "DEFINITION_FROZEN",
+  "researcher_id": "EM-R059D-AQ-3A7E61",
+  "path_law": {
+    "ESCAPE_0(C)": "{(C)}",
+    "extension": "if gamma ends at C and has length j<J, extend gamma by every D in FAR(C)",
+    "strict_rule": "FAR_PLUS is used equivalently because FAR=FAR_PLUS globally",
+    "tie_policy": "ALL_ADMISSIBLE_REACHABLE_PATHS_ARE_VALID",
+    "pruning": false
+  },
+  "outputs": {
+    "END_J(seedset)": "all terminal cells of exact-J escape paths from any seed",
+    "REACH_LE_J(seedset)": "union of endpoint sets at all jump counts 0..J",
+    "path_multiplicity": "recorded as provenance only; never used to delete an endpoint"
+  },
+  "jump_budget": {
+    "type": "independent nonnegative integer control",
+    "not_assumed_equal_to": ["native coordinate magnitude","legacy radius","source precision","source angle subdivision"]
+  },
+  "structural_consequence": "because every escape edge raises SHELL by exactly one, every exact-J path is a geodesic continuation away from STAR(O_E), and every strictly shell-increasing dual-graph path is an admissible escape path",
+  "probability_default": "NONE"
+}
