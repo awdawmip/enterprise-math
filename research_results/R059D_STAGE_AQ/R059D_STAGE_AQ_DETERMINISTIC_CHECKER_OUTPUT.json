@@ -1,0 +1,32 @@
+{
+  "schema": "R059D_STAGE_AQ_DETERMINISTIC_CHECKER_OUTPUT_V1",
+  "status": "PASS",
+  "researcher_id": "EM-R059D-AQ-3A7E61",
+  "checks_total": 334521,
+  "checks_passed": 334521,
+  "checks_failed": 0,
+  "checks_digest_sha256": "20b24c59143b5f5324e39d2c3e8a0735521b367ad9de8b4a0d68c58c20656256",
+  "source_commit": "7408454c1b725d52a99a5e9a2bd1120d38de7060",
+  "validation": [
+    "independent BFS shell-distance replay through shell 134",
+    "closed shell formula and exact degree-3 adjacency",
+    "D6/reflection shell invariance through shell 40",
+    "global FAR=FAR_PLUS and even/odd outward branch count",
+    "all six one-step orientation seed families and D6 covariance",
+    "all branches J=0..32",
+    "independent iterative/BFS-style and DFS endpoint replay equality",
+    "exact path-count, endpoint-count and reachability-ball formulas",
+    "branch-merger accounting",
+    "reverse provenance reconstruction from every J<=32 endpoint",
+    "larger exact endpoint checkpoints J=64,128",
+    "no-native-zero and no-source-geometry escape-score firewalls",
+    "AQ DAG / AP period-6 non-equivalence"
+  ],
+  "history_gate": {
+    "status": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "compare_base": "c25b6d0385648c27292f25aeeeff2b816654a4ba",
+    "compare_head": "c0948bcbe1d34283793d8bfcd5b279c8516b3a93",
+    "prior_stage_result_files_modified_or_deleted": 0
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH"
+}
