@@ -1,0 +1,27 @@
+{
+  "schema":"R059D_STAGE_AR_STATEFUL_ESCAPE_CENSUS_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AR-5B8D24",
+  "budget_range_frozen":"all J>=0 by period theorem; explicit replay required J=0..64",
+  "full_twelve_lift_seed_family":{
+    "exact_J_path_count":12,
+    "exact_J_distinct_state_endpoints":12,
+    "exact_J_projected_cells":6,
+    "exact_J_projected_free_endpoints":6,
+    "projected_free_endpoint_multiplicity":2,
+    "projected_cell_multiplicity":2,
+    "exact_J_state_set":"the same twelve lifted states for every J because transition is a permutation",
+    "reach_le_J_state_set":"all twelve states already at J=0"
+  },
+  "single_axis_orientation_with_both_side_lifts":{
+    "exact_J_path_count":2,
+    "endpoint_formula":"if the starting radial edge has D6 index k, the two free-endpoint projections after J jumps have indices k+J and k-J modulo 6",
+    "coincidence":"the two projected endpoints coincide iff J=0 mod 3; otherwise they are two distinct A1 anchors",
+    "up_to_J_projected_endpoint_set":"all six A1 anchors by J=3",
+    "state_paths":"two deterministic orientation-reversed paths; no local branching after the initial legitimate side ambiguity"
+  },
+  "shell_distribution":"all state cell projections remain on shell 0 for every J",
+  "branch_mergers":"none at full lifted-state level because the transition is a permutation; projection mergers occur because opposite side states can share the same free endpoint",
+  "probability":"none intrinsic; path counts are cardinalities/provenance only",
+  "J_semantics":"independent micro-jump count; period theorem later shows native first return at J=6 but J is not defined as radius or precision"
+}
