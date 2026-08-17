@@ -1,0 +1,17 @@
+{
+  "schema":"R059D_STAGE_AR_STATEFUL_ESCAPE_LAW_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AR-5B8D24",
+  "escape_observable":"AQ SHELL(cell)=dual-graph distance from STAR(O_E)",
+  "FAR_STATE":"argmax over NEXT(S) of SHELL(pi_cell(S'))",
+  "theorem":"NEXT(S) is a singleton for every legitimate one-step lifted segment state, hence FAR_STATE(S)=NEXT(S) without tie breaking.",
+  "shell_increment":"Delta_SHELL=0 on every primary AR transition",
+  "reason":"both current and successor side cells belong to STAR(O_E), whose shell is 0",
+  "AQ_DAG_status":"BROKEN: AQ's cell-only Delta_SHELL=+1 theorem does not survive the segment-edge incidence lift",
+  "state_graph":"two orientation-reversed directed six-cycles on the twelve lifted states",
+  "Lyapunov_obstruction":"no strictly increasing shell or derived cell-distance Lyapunov function exists on the six-cycles",
+  "all_ties_retained":true,
+  "primary_transition_source_free":true,
+  "source_geometry_used":false,
+  "AK_or_AL_selector_used":false
+}
