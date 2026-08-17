@@ -1,0 +1,16 @@
+{
+  "schema":"R059D_STAGE_AR_ONE_STEP_SEGMENT_LIFTS_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AR-5B8D24",
+  "auxiliary_axis_edges":["[v(0,0),v(1,0)]","[v(0,0),v(0,1)]","[v(0,0),v(-1,1)]","[v(0,0),v(-1,0)]","[v(0,0),v(0,-1)]","[v(0,0),v(1,-1)]"],
+  "base_edge":"e0=[v(0,0),v(1,0)]",
+  "base_lifts":[{"state":"(e0,U(0,0))","side":"CCW_SIDE"},{"state":"(e0,D(0,-1))","side":"CW_SIDE"}],
+  "lift_count_per_axis_anchor":2,
+  "total_lift_count":12,
+  "theorem":"Every primitive radial one-step edge is contained in exactly two elementary triangles, hence every A1 endpoint orientation has exactly two legitimate pre-circle segment lifts and there are exactly twelve lifted states in the full D6 family.",
+  "projections":{"cell":"pi_cell(e,C)=C","segment_edge":"pi_edge(e,C)=e","free_endpoint":"pi_end(e,C)=the non-origin endpoint of e"},
+  "D6_covariance":"rotate/reflection acts simultaneously on the radial edge and incident triangle; the twelve-state family is closed",
+  "reversal":"holding e fixed and exchanging its two incident side triangles reverses the local sweep orientation; together with global D6 reversal this interchanges the two six-state oriented families",
+  "ambiguity_policy":"both side lifts survive; neither is selected as canonical",
+  "AQ_seed_relation":"AR uses 2 cells incident to the segment EDGE, not AQ's 6 cells incident only to the free endpoint; the reduction is segment-incidence information, not circle matching"
+}
