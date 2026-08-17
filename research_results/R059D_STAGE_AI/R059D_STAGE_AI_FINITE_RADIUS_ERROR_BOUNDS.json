@@ -1,0 +1,31 @@
+{
+  "schema": "R059D_STAGE_AI_FINITE_RADIUS_ERROR_BOUNDS_V1",
+  "status": "PROVED",
+  "researcher_id": "EM-R059D-AI-4F8C2D",
+  "floor_slack": {
+    "definition": "delta_r=alpha*r+1/3-floor(alpha*r+1/3)",
+    "domain": "integer r>=1",
+    "strict_range": "0<delta_r<1",
+    "reason": "alpha is irrational, so alpha*r+1/3 is never integral for nonzero integer r"
+  },
+  "circumference_identity": "C_N(r)=2*kappa_E*r+2-6*delta_r",
+  "transition_span": {
+    "D": "2*r",
+    "exact_error": "C_N(r)/(2*r)-kappa_E=(1-3*delta_r)/r",
+    "strict_bound": "-2/r < error < 1/r"
+  },
+  "cell_endpoint_count": {
+    "D": "2*r+1",
+    "exact_error": "C_N(r)/(2*r+1)-kappa_E=(2-kappa_E-6*delta_r)/(2*r+1)",
+    "strict_bound": "(-4-kappa_E)/(2*r+1) < error < (2-kappa_E)/(2*r+1) < 0",
+    "rational_coarse_bound": "abs(error)<8/(2*r+1), using 3<kappa_E<4"
+  },
+  "fixed_endpoint_shift": {
+    "ratio": "R_epsilon(r)=C_N(r)/(2*r+epsilon)",
+    "domain": "fixed integer epsilon; r sufficiently large so denominator>0",
+    "exact_error": "R_epsilon-kappa_E=(2-kappa_E*epsilon-6*delta_r)/(2*r+epsilon)",
+    "strict_bound": "(-4-kappa_E*epsilon)/(2*r+epsilon) < error < (2-kappa_E*epsilon)/(2*r+epsilon)",
+    "limit": "0"
+  },
+  "conclusion": "All fixed bounded endpoint conventions share the same limit kappa_E."
+}
