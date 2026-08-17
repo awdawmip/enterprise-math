@@ -1,0 +1,50 @@
+{
+  "schema":"R059D_STAGE_AH_STATE_CANDIDATES_V1",
+  "status":"CANDIDATE_FAMILY_AUDIT_FROZEN",
+  "researcher_id":"EM-R059D-AH-7B1EFD",
+  "candidates":[
+    {
+      "id":"AH-B3-RESIDUAL-BOUNDARY-WALK-001",
+      "family":"B3_RESIDUAL_ERROR_DYNAMICAL_STATE / ALLOWED_FORM_C",
+      "state":"(a,b,rho) plus immutable input r and emitted half-word prefix",
+      "rho_invariant":"rho = 3*r^2 - [3*(a^2+a*(b+1)+(b+1)^2)-3*a+1] while a-b>1",
+      "initial":"a=r,b=0,rho=-4",
+      "decision":"rho>=0 -> emit 1; rho<0 -> emit 2",
+      "updates":{
+        "1":"rho'=rho-3*(a+2*b+3); a'=a; b'=b+1",
+        "2":"rho'=rho+3*(a-b-3); a'=a-1; b'=b+1"
+      },
+      "termination":"stop left-half recurrence when a-b<=1; center=2 iff a-b=1; complete by reflection anti-involution",
+      "runtime_2D_scan":false,
+      "runtime_source_Q":false,
+      "runtime_occupancy_lookup":false,
+      "auxiliary_state_size":"constant number of integers",
+      "status":"PROMOTED_TO_THEOREM_PROOF_TARGET"
+    },
+    {
+      "id":"AH-B2-COLUMN-HEIGHT-PROFILE-001",
+      "family":"B2_COLUMN_HEIGHT_RECURRENCE",
+      "state":"O(r) monotone boundary profile",
+      "status":"EXACT_SUFFICIENT_REPRESENTATION_BUT_DOMINATED_BY_CONSTANT_STATE_BOUNDARY_WALK"
+    },
+    {
+      "id":"AH-B5-INSERTION-ONLY-001",
+      "family":"B5_LOCAL_WORD_REWRITE",
+      "status":"KILLED_AS_SIMPLE_ROUTE",
+      "first_counterexample":"W_11 is not a subsequence of W_12",
+      "discovery_max_insertion_deletion_distance":{"value":45,"radius":412}
+    },
+    {
+      "id":"AH-B1-COUPLED-MECHANICAL-001",
+      "family":"B1_COUPLED_MECHANICAL_WORDS",
+      "status":"NOT_NEEDED_FOR_CLOSURE__NO_SEPARATE_EXACT_SLOPE_THEOREM_PROMOTED"
+    },
+    {
+      "id":"AH-B4-SADIC-001",
+      "family":"B4_CONTINUED_FRACTION_S_ADIC",
+      "status":"NOT_NEEDED_FOR_CLOSURE__AG_STURMIAN_SKELETON_REMAINS_FROZEN_INPUT"
+    }
+  ],
+  "selected_candidate":"AH-B3-RESIDUAL-BOUNDARY-WALK-001",
+  "minimality_status":"NOT_PROVED; use CONSTANT_SIZE_SUFFICIENT_AUXILIARY_STATE, not MINIMAL_STATE"
+}
