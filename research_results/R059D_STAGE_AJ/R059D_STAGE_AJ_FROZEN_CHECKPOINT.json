@@ -1,0 +1,49 @@
+{
+  "artifact_manifest_sha256": "14b81fd13bf47f8155943358a5bc382ee97813a60ac7e9a4e428e2901bdea751",
+  "artifact_payload_head": "536c0b896b8e09a5bb909593fc865908fb0d9d9d",
+  "checker": {
+    "checks_digest_sha256": "b8e19e6cac0189433293feda2bdb4be96ee5c89ccac491420e0ea817bea97ec2",
+    "checks_failed": 0,
+    "checks_passed": 122985,
+    "checks_total": 122985,
+    "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+    "output_commit": "8c79e04693aec6ffe8a1d2d73cadce526a13fab6",
+    "source_commit": "92d371e7af9f63b2df7d737baed27624f0ebf0f6",
+    "status": "PASS",
+    "validation_max_r": 16384
+  },
+  "ci_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "freezes": {
+    "CIRCUMFERENCE": "C_C_s(r)=C_N(r)-6chi_s(r); 0<=C_N-C_C_s<=6",
+    "C_SEMANTICS": "entire inherited finite-sampling family C_s, every integer s>=1",
+    "DELAY_BIT": "chi_s(r)=1 iff 2*K_s(r,M_N(r))<s^2; exact half ties selected",
+    "ENDPOINT_ROBUSTNESS": "every fixed integer epsilon with eventually positive denominator has the same limit, uniformly in s",
+    "KAPPA": "lim C_C_s(r)/(2r)=kappa_E uniformly in s; kappa_E^2=12,kappa_E>0",
+    "PHASE_THEOREM": "J_C_s(r)=J_N(r)-chi_s(r), chi_s(r) in {0,1}, all s>=1,r>=0",
+    "TIES": "exact half ties exist; inherited >= rule preserved",
+    "UNIFORM_RATIO_BOUND": "sup_s |C_C_s/(2r)-kappa_E|<5/r for r>=1"
+  },
+  "frozen_source_main": "1be8c27fef28ff04ed770d57eec0323bfdd7d832",
+  "immutability_gate": {
+    "compare_base": "1be8c27fef28ff04ed770d57eec0323bfdd7d832",
+    "compare_head": "bde2022954e5fff615cc2c19e0780c3e20320589",
+    "prior_stage_result_files_modified_or_deleted": 0,
+    "status": "PASS"
+  },
+  "later_stage_consumed": false,
+  "owner_branch": "research/r059d-stage-aj-c-phase-delay-resolver-robust-constant",
+  "precision_boundaries": {
+    "ARBITRARILY_LARGE_FIXED_s_PHASE_CHANGES": "OPEN / NOT REQUIRED",
+    "C_FULL_AUTONOMOUS_WORD_GENERATOR": "NOT PROVED",
+    "N_C_UNIQUE_RESOLVER_SELECTION": "NOT PROVED",
+    "POINTWISE_ALL_s_STABILIZATION_S0": "OPEN / NOT REQUIRED",
+    "STANDARD_REAL_PI_THEOREM": "NOT PROVED"
+  },
+  "primary_disposition": "N_C_ONE_LAYER_PHASE_THEOREM_PROVED__RESOLVER_ROBUST_KAPPA_SQUARED_EQ_12",
+  "researcher_id": "EM-R059D-AJ-6D4A19",
+  "schema": "R059D_STAGE_AJ_FROZEN_CHECKPOINT_V1",
+  "status": "FROZEN_FOR_DRIVER_REVIEW",
+  "stop_condition": "STOP_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059D-STAGE-AJ-C-PHASE-DELAY-RESOLVER-ROBUST-ALGEBRAIC-CONSTANT",
+  "taskbook_source_commit": "cc13f27dfd91ff7023170523874e691fe99516b5"
+}
