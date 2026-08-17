@@ -1,0 +1,30 @@
+{
+  "schema": "R059D_STAGE_AS_STATE_CONSISTENCY_AUDIT_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AS-6E2A91",
+  "models": {
+    "TERMINAL_SIDE_CHAIN": {
+      "AR_reduction": "PASS",
+      "axis_anchor": "PASS",
+      "D6": "PASS",
+      "reversal": "PASS",
+      "translation": "PASS",
+      "prefix_restriction": "PASS on straight axis seeds; deleting the outer edge gives the r-1 straight seed and its two terminal-side lifts",
+      "hidden_source_angle": false,
+      "old_orbit_membership": false
+    },
+    "EDGEWISE_SIDE_STRIP": {
+      "AR_reduction": "PASS",
+      "axis_anchor": "PASS",
+      "D6": "PASS",
+      "reversal": "PASS by reversing chain order and side orientation",
+      "translation": "PASS",
+      "prefix_restriction": "PASS by deleting outer edge and its side bit",
+      "hidden_source_angle": false,
+      "old_orbit_membership": false
+    }
+  },
+  "constant_memory_required": false,
+  "state_size": "terminal model O(r) chain plus O(1) side state; strip model O(r) chain plus O(r) side state",
+  "undertermination_theorem": "All mandatory Stage-B consistency axioms are jointly insufficient to distinguish the two models for r>=2."
+}
