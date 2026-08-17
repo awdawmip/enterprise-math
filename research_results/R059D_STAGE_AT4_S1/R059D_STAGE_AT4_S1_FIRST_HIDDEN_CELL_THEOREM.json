@@ -1,0 +1,35 @@
+{
+  "schema": "R059D_STAGE_AT4_S1_FIRST_HIDDEN_CELL_THEOREM_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AT4S1-8C4E17",
+  "interior_policy": "FIRST_FULL_CONTAINMENT_IN_ALGEBRAIC_DISK",
+  "historical_trace_policy": "union of exact integer-radius algebraic arc cell hits with all incidence ties retained",
+  "r_star": 3,
+  "first_hidden_cells": [
+    {
+      "cell": "D(1,1)",
+      "auxiliary_vertices": [[2,1],[1,2],[2,2]],
+      "native_vertex_encodings": [[3,2,-4],[2,3,-4],[3,3,-5]],
+      "q_min": "9/2",
+      "q_min_location": ["3/2","3/2"],
+      "q_max": "8",
+      "q_max_location": [2,2],
+      "norm_interval": ["3/sqrt(2)","2*sqrt(2)"],
+      "first_full_containment_radius": 3,
+      "integer_square_gap": "4 < 9/2 <= q(C) <= 8 < 9",
+      "historical_integer_radii_checked": [1,2,3],
+      "historical_hit": false,
+      "robust_never_traced": true,
+      "mechanism": "STRICT_CONSECUTIVE_INTEGER_SQUARE_GAP"
+    }
+  ],
+  "minimality": {
+    "r1_full_cells": ["U(0,0)"],
+    "r2_full_cells": ["U(0,0)","D(0,0)","U(1,0)","U(0,1)"],
+    "r1_r2_statement": "Every fully contained cell through radius 2 has q-range containing integer square 1 or 4 and is therefore historically perimeter-hit.",
+    "r3_uniqueness": "Among the ten fully contained sector cells at radius 3, D(1,1) is the unique cell whose q-range contains none of 1,4,9."
+  },
+  "general_lifetime_hidden_criterion": "A sector cell C is never hit by any integer-radius perimeter iff [q_min(C),q_max(C)] contains no positive integer square. It becomes fresh hidden at r=ceil(sqrt(q_max(C))) when full containment is adopted.",
+  "scope": "single chamber Q0 / sector S0 only; no global chamber gluing is claimed",
+  "primary_disposition": "FIRST_SECTOR_FRESH_HIDDEN_CELL_PROVED__R_STAR_3__STRICT_SQUARE_GAP"
+}
