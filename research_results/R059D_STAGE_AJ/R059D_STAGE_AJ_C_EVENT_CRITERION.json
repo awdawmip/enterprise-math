@@ -1,0 +1,32 @@
+{
+  "schema": "R059D_STAGE_AJ_C_EVENT_CRITERION_V1",
+  "researcher_id": "EM-R059D-AJ-6D4A19",
+  "status": "PROVED",
+  "balanced_shell": "a_m=ceil(m/2), b_m=floor(m/2), T_m=U(a_m-1,b_m)",
+  "microset": "Omega_s=A_s union B_s from the frozen C_s protocol, |Omega_s|=s^2",
+  "integer_count": "K_s(r,m)=#{(u,v) in Omega_s : Q(3s(a_m-1)+u, 3s*b_m+v) <= (3sr)^2}",
+  "event_function": "F_C(r,m,s)=s^2-2*K_s(r,m)",
+  "exact_event_theorem": "shell m is present in the C_s dual boundary iff F_C(r,m,s)<=0",
+  "tie_rule": "F_C=0 is present/selected",
+  "proof_components": {
+    "support_pair": "edge support on a>=b reduces exactly to majority selection of T_m at the balanced shell point",
+    "balanced_optimality": "the lower-majority Q order statistic is minimized at the balanced shell triangle",
+    "monotonicity": "the event is initial in m; hence M_C_s(r)=max{m:F_C(r,m,s)<=0}",
+    "no_ledger": "K_s is evaluated from the exact microcentroid rule, not a precomputed C table"
+  },
+  "tangent_halfspace_lemma": {
+    "statement": "For every s>=1 and every balanced T_m, strictly fewer than s^2/2 microcentroids lie on the inward side of the Q-tangent through the macrotriangle centroid c_m.",
+    "odd_shell": "for m=2k+1 the tangent weights reduce to (-2,1,1) in barycentric composition coordinates.",
+    "even_shell": "for m=2k the tangent weights are (-6k+1,3k-2,3k+1).",
+    "composition_layers": "A_s corresponds to p0+p1+p2=s-1 and B_s to p0+p1+p2=s-2; additive residue constants cancel because the tangent weights sum to zero.",
+    "even_exact_floor_sum": "N_k(S)=sum_{j=0}^{floor(((6k-1)S-1)/(9k))} ( floor(((6k-1)S-1-9k*j)/(9k-3)) + 1 ).",
+    "large_s_bound": "N_k(S)<=25*S^2/108+13*S/12+1. Summing S=s-1,s-2 leaves half-sample deficit s^2/27-7s/9+5/54>0 for every s>=21.",
+    "small_s_certificate": "for 1<=s<=20 exact composition enumeration checks k=1..13; for S<=19 every sign is stable for k>=13 because any crossing has |k|<=2S/3<13. The worst inward count remains strictly below s^2/2."
+  },
+  "previous_shell_lemma": {
+    "statement": "If the N limiting centroid c_m is inside radius r and m>=2, then every point of T_{m-1} is inside radius r, so C_s necessarily contains shell m-1 for every s.",
+    "m_even_2k_vertex_gaps": "Q(c_m)-Q(v) are (15k-8)/3, 2(3k-1)/3, 2(3k-1)/3 >0.",
+    "m_odd_2k_plus_1_vertex_gaps": "Q(c_m)-Q(v) are (15k-2)/3, (6k+1)/3, 2(3k-1)/3 >0 for k>=1.",
+    "baseline_case": "T_r is wholly inside Q<=r^2 because all its nonnegative vertices satisfy x+y<=r."
+  }
+}
