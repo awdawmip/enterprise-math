@@ -1,0 +1,22 @@
+{
+  "schema": "R059D_STAGE_AT3_HI_INTERIOR_DEFINITION_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AT3HI-4D6B21",
+  "canonical_status": "INTERIOR_E_N_GE_2_UNDERDEFINED_UNTIL_A_CANONICAL_HIGHER_CIRCLE_BOUNDARY_IS_FROZEN",
+  "accepted_candidate_arm": {
+    "boundary": "S_r from EXISTENCE_SPHERE_E(n), r=n-1",
+    "definition": "GEODESIC_HULL_CAND(n)=union of all vertices on all shortest VOID_E->P segments for P in S_r",
+    "spatial_tail_equivalence": "after deleting the unique VOID_E->O_E edge this is the union of all shortest O_E->P native paths",
+    "auxiliary_certificate": "with h(a,b)=max(|a|,|b|,|a+b|), GEODESIC_HULL_CAND(n)=B_r={(a,b):h(a,b)<=r}",
+    "extension_proof": "every v in B_r lies on a shortest O_E-to-boundary path: a shortest origin-to-v path can be extended within an A2 Weyl sector along a shell-increasing primitive direction until h=r",
+    "containment_proof": "every vertex on a shortest path to S_r has distance <=r, hence belongs to B_r",
+    "n1": "B_0={O_E}",
+    "nesting": "B_(r-1) subset B_r, strict for r>=1",
+    "D6_covariant": true,
+    "vertex_count": "|B_r|=1+3r(r+1)=1+3n(n-1)",
+    "source_geometry_used": false,
+    "area_formula_used_as_membership_oracle": false
+  },
+  "cell_packet_status": "No strictly more intrinsic cell/packet carrier is forced by the current frozen foundation independently of a higher-circle generation rule. Such carriers remain parallel candidates rather than canonical replacements.",
+  "semantic_boundary": "The equality GEODESIC_HULL_CAND(n)=B_(n-1) is an exact theorem of the existence-shell candidate arm; it does not by itself canonize EXISTENCE_SPHERE_E(n) as CIRCLE_E(n)."
+}
