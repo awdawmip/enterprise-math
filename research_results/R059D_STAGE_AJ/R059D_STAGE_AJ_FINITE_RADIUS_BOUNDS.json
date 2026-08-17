@@ -1,0 +1,20 @@
+{
+  "schema": "R059D_STAGE_AJ_FINITE_RADIUS_BOUNDS_V1",
+  "researcher_id": "EM-R059D-AJ-6D4A19",
+  "status": "PROVED",
+  "all_s_all_r": "0<=C_N(r)-C_C_s(r)=6*chi_s(r)<=6",
+  "transition_span": {
+    "domain": "r>=1, s>=1",
+    "bound": "-5/r < C_C_s(r)/(2r)-kappa_E < 1/r",
+    "absolute": "|C_C_s(r)/(2r)-kappa_E|<5/r",
+    "derivation": "subtract 3*chi_s/r from AI's -2/r<R_N-kappa_E<1/r"
+  },
+  "fixed_endpoint_epsilon": {
+    "exact_numerator": "C_C_s(r)-(2r+epsilon)kappa_E = 2-6delta_r-6chi_s(r)-epsilon*kappa_E",
+    "slack": "0<delta_r<1, chi_s in {0,1}",
+    "uniform_bound": "absolute numerator <10+|epsilon|*kappa_E; using 3<kappa_E<4 gives the rational coarser bound <10+4|epsilon|",
+    "conclusion": "ratio error tends to zero as O(1/r), uniformly in s"
+  },
+  "refinement": "replace r by h*r for any fixed integer h>=1; all bounds improve by factor 1/h on the transition-span denominator",
+  "sharp_difference_constant": 6
+}
