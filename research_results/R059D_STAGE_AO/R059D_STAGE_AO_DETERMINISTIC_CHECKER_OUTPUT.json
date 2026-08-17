@@ -1,0 +1,40 @@
+{
+  "schema": "R059D_STAGE_AO_DETERMINISTIC_CHECKER_OUTPUT_V1",
+  "status": "PASS",
+  "checks_total": 30763,
+  "checks_passed": 30763,
+  "checks_failed": 0,
+  "checks_digest_sha256": "187b3ae44600cf74bd0d48aedcf8bd84045f5a4aea5b21b61e96492be8015fa4",
+  "source_commit": "04daf73d67a2bfa1a88679d26200b17c25727de8",
+  "validation": "all r=1..2048 plus checkpoints 4096,8192,16384",
+  "exact_checks": [
+    "AG shell threshold for M_N(r)",
+    "sector endpoint and reflection law",
+    "AO cumulative identities n=b / n=M-a",
+    "AL support-carrier membership",
+    "uniform |Q_E-r^2|<3r+3 replay bound",
+    "source angular monotonicity and fiber partition",
+    "axis and central exact tangent formulas",
+    "r=1,2 proportional controls and r>=3 nonproportionality through replay range"
+  ],
+  "limit_checks": {
+    "scaled_cdf": "N_r(theta)/r versus proved G",
+    "target_cos6": "->1/35",
+    "target_cos12": "->-1/143",
+    "source_uniform_cos6": "->0",
+    "edge_second_moment": "->5/6",
+    "macro_second_moment": "->(3/4)*log(3)",
+    "axis_scaled_weight": "->sqrt(3)/2",
+    "central_scaled_weight": "->1",
+    "symbol_block_densities": "left 1/2 and right 2/3 densities match proved h_s",
+    "edge_variance": "converges to 5/6-(kappa_perp/kappa_E)^2",
+    "macro_variance": "converges to (3/4)log(3)-(kappa_perp/kappa_E)^2"
+  },
+  "symmetry": "D6 roundtrip and first-sector reflection PASS",
+  "target_runtime_firewall": "PASS; no source angle/trig/sqrt/pi/coverage/occupancy enters the autonomous target word generator",
+  "history_gate": "PASS_EXTERNAL_GITHUB_COMPARE",
+  "history_compare_base": "454b57e4eab1c2d856074e653f5cb7db8c423e74",
+  "history_compare_head": "58df91074e81ae022b4c7f13618e894651113009",
+  "prior_stage_result_files_modified_or_deleted": 0,
+  "note": "finite replay validates implementation only; symbolic scaled-frontier/cumulative/Young/weak-limit proofs carry the theorem"
+}
