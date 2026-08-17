@@ -1,0 +1,24 @@
+{
+  "schema":"R059D_STAGE_AH_TARGET_LEAKAGE_AUDIT_V1",
+  "status":"PASS",
+  "researcher_id":"EM-R059D-AH-7B1EFD",
+  "generator_file":"research_results/R059D_STAGE_AH/r059d_stage_ah_generator.py",
+  "forbidden_runtime":{
+    "occupancy_arrays":false,
+    "source_circle_membership":false,
+    "source_Q":false,
+    "AG_support_predicate_call":false,
+    "precomputed_word_table":false,
+    "precomputed_jump_table":false,
+    "radius_specific_tuning":false,
+    "floating_point":false,
+    "sqrt":false,
+    "pi":false,
+    "trigonometry":false,
+    "classical_circumference_or_area":false
+  },
+  "allowed_proof_only_input":"AG exact dual support theorem used only to derive and prove the residual invariant/update equations.",
+  "canonical_runtime_operations":["integer addition","integer subtraction","integer multiplication by fixed small integers","integer comparison","finite string emission","integer D6 rotation"],
+  "generator_is_forward_autonomous":true,
+  "no_hidden_table":true
+}
