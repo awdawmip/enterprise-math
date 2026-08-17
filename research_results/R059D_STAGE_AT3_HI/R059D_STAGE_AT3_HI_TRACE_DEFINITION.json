@@ -1,0 +1,31 @@
+{
+  "schema": "R059D_STAGE_AT3_HI_TRACE_DEFINITION_V1",
+  "status": "THEOREM_FROZEN",
+  "researcher_id": "EM-R059D-AT3HI-4D6B21",
+  "task_id": "RS-R059D-STAGE-AT3-HI-HIDDEN-INTERIOR-FIRST-APPEARANCE",
+  "taskbook_source_commit": "5c05b8127b70543ba3df2e5c28fcced862fb035e",
+  "frozen_parent": "58e82206b691ac49c98307efd798f9cfd1a78bc7",
+  "canonical_status": "PERIMETER_TRACE_UNDERDEFINED_FOR_N_GE_2_UNDER_CURRENT_FROZEN_FOUNDATION",
+  "reason": "CIRCLE_E(1) alone is canonical; for n>=2 the foundation explicitly leaves whether EXISTENCE_SPHERE_E(n) is CIRCLE_E(n), and how its perimeter is generated, as theorem questions. Historical AK/AL membership is firewall-prohibited.",
+  "noncircular_candidate_arm": {
+    "name": "EXISTENCE_SHELL_INDUCED_CYCLE_TRACE",
+    "auxiliary_vertex_chart": "A2 labels (a,b) only as incidence certificates; native states are their ENC_SIGNED images and auxiliary 0 is never native zero",
+    "hex_norm": "h(a,b)=max(|a|,|b|,|a+b|)",
+    "existence_level": "ELL_E(P)=1+h(a,b)",
+    "level_to_internal_radius": "r=n-1",
+    "boundary_endpoint_set": "S_r={(a,b):h(a,b)=r}",
+    "n1_trace": "TRACE_CAND(1)={O_E}; ordinary trace-edge count is 0 although primitive PERIMETER_E(CIRCLE_E(1))=1 is a distinct invariant",
+    "r_ge_1_induced_graph": "the native adjacency graph induced on S_r is exactly the simple cycle C_(6r)",
+    "perimeter_path_family": "all primitive simple closed traversals of that induced cycle; start vertex and orientation are not privileged",
+    "path_sequence_multiplicity": "12r for r>=1 if start vertex and direction are retained as provenance",
+    "vertex_support_theorem": "every admitted candidate perimeter traversal has exactly vertex support S_r",
+    "edge_support_theorem": "every admitted candidate perimeter traversal has exactly the 6r shell edges",
+    "trace_vertex_count": "1 at n=1; 6(n-1) for n>=2",
+    "trace_edge_count": "0 at n=1 as an ordinary graph diagnostic; 6(n-1) for n>=2",
+    "robustness": "no SOMETIMES_TRACED shell vertices occur in this candidate arm: every S_r vertex is ALWAYS_TRACED by every primitive closed traversal",
+    "D6_covariant": true,
+    "source_geometry_used": false,
+    "historical_circle_membership_used": false
+  },
+  "semantic_boundary": "The candidate trace theorem must not be promoted to canonical CIRCLE_E(n) or PERIMETER_E(n) for n>=2 before AT3/main proves a higher-circle generation law."
+}
