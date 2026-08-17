@@ -38,6 +38,9 @@ def translate(S,t):
     return SegmentState(add(S.O,tuple(t)),S.r,S.sector,S.phase,S.a,S.b,S.z)
 
 def rotate_state(S,j=1):
+    return SegmentState(S.O,S.r,(S.sector+j)%6,S.phase,S.a,S.b,S.z)
+
+def rotate_chart(S,j=1):
     return SegmentState(rotk(S.O,j),S.r,(S.sector+j)%6,S.phase,S.a,S.b,S.z)
 
 def _next_sector(S):
