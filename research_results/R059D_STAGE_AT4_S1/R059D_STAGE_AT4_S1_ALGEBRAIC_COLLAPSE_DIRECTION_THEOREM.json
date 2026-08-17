@@ -1,0 +1,22 @@
+{
+  "schema":"R059D_STAGE_AT4_S1_ALGEBRAIC_COLLAPSE_DIRECTION_THEOREM_V1",
+  "status":"THEOREM_FROZEN",
+  "researcher_id":"EM-R059D-AT4S1-8C4E17",
+  "primary_disposition":"EXACT_EDGE_INCIDENCE_DOMINATES__PRE_POST_NEAREST_ENDPOINT_COLLAPSE_NOT_CANONICAL__CELL_HIT_IS_SET_VALUED",
+  "theorem":[
+    "At every strict overshoot edge P--Q with q(P)<r^2<q(Q), the exact algebraic arc has a unique interior crossing point on that edge because q is continuous and strictly monotone on the oriented edge.",
+    "That crossing belongs to every native triangular cell incident to the crossed edge. Away from sector boundaries this is exactly two cells; all are legitimate shell hits.",
+    "PRE/DOWN replaces the shell point by P, POST/UP replaces it by Q, and NEAREST_SQUARED_NORM replaces it by whichever endpoint has smaller q-deficit. None of these substitutions is the exact shell-to-cell incidence map.",
+    "Nearest ties occur on some diagonal edges, but even a non-tied nearest endpoint can be noncanonical: at r=2 nearest selects POST while the exact shell crosses the edge at (sqrt(3),1) or (1,sqrt(3)).",
+    "Therefore q arithmetic alone does not select a canonical endpoint collapse direction. The canonical local geometric object presently justified is the set-valued incident-cell hit of the exact algebraic edge crossing."
+  ],
+  "policy_status":{
+    "PRE_DOWN":"DIAGNOSTIC_ENDPOINT_PROXY_ONLY",
+    "POST_UP":"DIAGNOSTIC_ENDPOINT_PROXY_ONLY",
+    "NEAREST_SQUARED_NORM":"DIAGNOSTIC_ENDPOINT_PROXY_ONLY",
+    "EXACT_EDGE_INCIDENCE":"CANONICAL_WITHIN_Q0_S0"
+  },
+  "continuity":"Exact incidence preserves sector arc continuity automatically. Proxy endpoint substitution can mark cells not intersected by q=r^2 and therefore may alter trace history; such over-tracing is not allowed to override incidence.",
+  "reverse_path_firewall":"Minimum-jump distance to PRE/POST vertices is secondary provenance and cannot choose the vector-radius shell or collapse direction.",
+  "scope":"single chamber/sector; global chamber gluing remains AT4-main work"
+}
