@@ -16,3 +16,6 @@ import EnterpriseMath.Quotient.RootFutureClosure
 import EnterpriseMath.Relation.BranchRecoalescence
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
+import EnterpriseMath.R009.LeanA
+import EnterpriseMath.R009.LeanB
+import EnterpriseMath.R009.PrecisionProofs
