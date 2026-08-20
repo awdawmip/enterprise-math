@@ -1,0 +1,191 @@
+{
+  "boundary_packet_contract": {
+    "boundary_representation": "cyclic nearest-neighbor triangular-lattice vertex/edge walk supplied by the teacher-geometry registry",
+    "deployable_aggregation": "A deployable grammar must specify a deterministic cyclic partition/segmentation policy into disjoint contiguous packets, apply declared surrogates to those packets, and aggregate contributions without hidden overlap or target copying.",
+    "packet": "B=(x_0,x_1,...,x_k) contiguous on the cyclic boundary",
+    "packet_catalog_note": "The packet catalog may contain overlapping windows for analysis; deployed reconstruction must state how disjoint aggregation is obtained.",
+    "packet_metadata_minimum": [
+      "k",
+      "cyclic_direction_word",
+      "cyclic_turn_word",
+      "D6_equivalence_metadata",
+      "cyclic_equivalence_metadata",
+      "endpoint_displacement",
+      "endpoint_chord_length"
+    ]
+  },
+  "evaluation_protocol": {
+    "data_visibility_rule": "Every reported comparison names the teacher-registry version and the exact teacher data visible when the decision was made. If data expand, re-score parent and child on the same comparison set before attributing improvement to the grammar change.",
+    "frontier_policy": "Maintain a Pareto frontier over error, complexity, and phase/orientation robustness; do not reduce evaluation to one scalar.",
+    "length_like_normalization": "pi_hat = P_hat / (2*r)",
+    "primary_objective": "global circumference/pi reconstruction across the currently visible teacher corpus",
+    "required_metrics": [
+      "absolute_pi_error",
+      "relative_pi_error",
+      "per_radius_error",
+      "per_phase_error",
+      "per_orientation_error",
+      "worst_case_error",
+      "signed_bias",
+      "grammar_complexity_vector",
+      "packet_type_count",
+      "conditional_branch_count",
+      "free_coefficient_count",
+      "coefficient_algebraic_complexity",
+      "target_literal_degenerate"
+    ]
+  },
+  "first_round_independence": {
+    "allowed_shared_inputs": [
+      "classical pi",
+      "teacher circle",
+      "teacher center",
+      "radius",
+      "diameter",
+      "chord",
+      "tangent",
+      "arc",
+      "area",
+      "Euclidean geometry",
+      "R056 read-only checkpoint"
+    ],
+    "cross_arm_comparison": "Not part of Stage 0 and prohibited before the independent R057G serious grammar checkpoint is frozen.",
+    "forbidden_to_read_or_import": [
+      "R057-A best operator mapping",
+      "R057-A selected collapse counts",
+      "R057-A fitted coefficients",
+      "R057-A compressed generators or recurrences"
+    ],
+    "state": "FIREWALL_ACTIVE_UNTIL_FIRST_SERIOUS_R057G_GRAMMAR_CHECKPOINT"
+  },
+  "fit_theorem_separation": {
+    "fit_status_values": [
+      "UNFIT",
+      "FITTED",
+      "FRONTIER",
+      "SELECTED",
+      "REJECTED",
+      "TARGET_LITERAL_BASELINE"
+    ],
+    "invariant": "fit_status and theorem_status are separate fields; no fit quality upgrades theorem status.",
+    "theorem_status_values": [
+      "NONE",
+      "EMPIRICAL_PATTERN",
+      "CONJECTURE",
+      "PROVED_CONDITIONAL",
+      "PROVED",
+      "DISPROVED"
+    ]
+  },
+  "genealogy_invariant": {
+    "additional_fields": [
+      "version",
+      "teacher_registry_version",
+      "comparison_teacher_data",
+      "target_guided",
+      "target_literal_degenerate",
+      "timestamp_or_sequence_id"
+    ],
+    "hidden_post_selection": "FORBIDDEN",
+    "required_fields": [
+      "parent",
+      "motivating_error_or_pattern",
+      "modification",
+      "score_before",
+      "score_after",
+      "complexity_before",
+      "complexity_after",
+      "teacher_data_visible_at_decision_time"
+    ],
+    "required_for": "Every meaningful grammar/data/search-language change and every selected candidate change that alters the reported frontier or best rule.",
+    "visible_post_selection": "ALLOWED"
+  },
+  "hashing_contract": {
+    "digest": "SHA-256 over exact file bytes",
+    "serialization": "UTF-8 JSON, ensure_ascii=false, sort_keys=true, indent=2, LF newlines, exactly one terminal LF"
+  },
+  "provenance": {
+    "arm_relation": "SIBLING_TO_R057_A_NOT_CONTINUATION",
+    "epistemic_class": "EXPLICIT_PI_SUPERVISED_GEOMETRIC_DISCOVERY_NOT_FOUNDATIONAL",
+    "frozen_packet_source_commit": "5b9d21c0c4b30c5e128756e098718132db19e4f1",
+    "generation": "R057G",
+    "r056_read_only_checkpoint": "a41a47f3a5bb96fd5cc5cdc10c497afbd288eae7",
+    "researcher_id": "EM-R057G-93D4A8",
+    "stage": "STAGE_0",
+    "task_id": "RS-R057G-PI-SUPERVISED-GEOMETRIC-COLLAPSE-SYNTHESIS",
+    "taskbook_source_commit": "fb48226afb3f6c2ffb0910985ec336b2b089e1d3"
+  },
+  "purpose": "Freeze the evolution, supervision, classification, evaluation, and independence rules for R057G before any expensive teacher-corpus generation, packet enumeration, or geometric synthesis.",
+  "schema": "R057G_GEOMETRIC_DISCOVERY_PROTOCOL_V1",
+  "stage0_boundary": {
+    "allowed_now": [
+      "read the frozen taskbook, frozen problem packet, repository operating rules, and R056 read-only context",
+      "define the initial teacher-geometry registry without instantiating the full corpus",
+      "define the initial geometric grammar and grammar-evolution meta-rules without running a large search",
+      "validate and hash the three Stage-0 protocol artifacts"
+    ],
+    "forbidden_until_driver_review": [
+      "expensive teacher-corpus generation",
+      "packet census or exhaustive packet enumeration",
+      "geometric grammar synthesis or symbolic-regression search",
+      "large coefficient fitting",
+      "cross-arm comparison with R057-A selected grammar"
+    ],
+    "stop_rule": "After freezing and returning the three Stage-0 SHA256 anchors, stop for Driver review."
+  },
+  "status": "FROZEN_STAGE_0",
+  "supervision_policy": {
+    "adaptive_expansion_allowed": {
+      "K": true,
+      "coefficient_domain": true,
+      "conditional_rules": true,
+      "feature_set": true,
+      "geometric_surrogate_family": true,
+      "packet_context": true,
+      "recursive_or_multiscale_grouping": true,
+      "teacher_center_phases": true,
+      "teacher_lattice_orientations": true,
+      "teacher_radii": true
+    },
+    "discovery_methods_allowed": [
+      "post_selection",
+      "overfitting",
+      "symbolic_regression",
+      "program_synthesis",
+      "target_guided_error_analysis",
+      "rational_coefficient_fitting",
+      "algebraic_coefficient_fitting",
+      "floating_coefficient_fitting",
+      "structural_inspiration_from_existing_pi_algorithms"
+    ],
+    "epistemic_statement": "These uses are legal supervision, not contamination, because R057G is a supervised discovery arm.",
+    "teacher_objects_allowed": [
+      "classical_pi",
+      "teacher_circle",
+      "teacher_center",
+      "radius",
+      "diameter",
+      "chord",
+      "tangent",
+      "arc",
+      "area",
+      "sector",
+      "Euclidean_length",
+      "Euclidean_angle",
+      "Euclidean_area"
+    ]
+  },
+  "target_literal_policy": {
+    "degenerate_class": "TARGET_LITERAL_DEGENERATE",
+    "fitted_parameter_exception": "Parameters learned by fitting declared geometric features against pi are allowed and remain supervised fitted parameters, even when their numerical value is close to a familiar constant. Degeneracy is determined by direct target-label/literal use in deployed evaluation, not merely by the fact that pi supervised fitting.",
+    "required_candidate_fields": [
+      "target_literal_degenerate",
+      "target_literal_origin",
+      "supervision_used",
+      "fit_status",
+      "theorem_status"
+    ],
+    "rule": "A deployed candidate that directly references a pi/teacher-target literal or copies a target contribution so that the answer is tautologically emitted is TARGET_LITERAL_DEGENERATE. It may be retained only as a baseline or sanity upper bound and never counted as structural geometric discovery.",
+    "structural_class": "STRUCTURAL_GEOMETRIC_RULE"
+  }
+}
