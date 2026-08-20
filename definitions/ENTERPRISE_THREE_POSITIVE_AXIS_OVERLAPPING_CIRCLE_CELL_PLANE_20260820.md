@@ -1,10 +1,10 @@
 # 进取平面重基：三正轴整数圆心格、半径 1/sqrt(3) 的重叠圆 Cell 覆盖
 
-Status: `ACTIVE / CANONICAL / FOUNDATIONAL_SUPERSESSION`
+Status: `ACTIVE / CANONICAL / FOUNDATIONAL_CORRECTION`
 Date: `2026-08-20`
 Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
 
-This file supersedes the 2026-08-18 triple-intersection draft where the first cell radius and origin-to-center distance were both normalized to 1 and the native axes were described as bisectors. The current construction instead normalizes nearest-neighbor cell-center spacing to 1, takes every circle-cell radius to be `1/sqrt(3)`, and uses three positive native axes parallel to the three nearest-neighbor center-center directions.
+This file is the corrected current foundation. It keeps the three-positive-axis overlapping circle-cell carrier with nearest center spacing 1 and cell radius `1/sqrt(3)`, but corrects the native angular/metric semantics: in Enterprise geometry the `120 degree` sector between adjacent positive axes is the native right angle. Therefore the former Euclidean-carrier quadratic form `a^2+b^2+c^2-ab-bc-ca` is not the native Enterprise Pythagorean metric.
 
 ## 1. Native origin and object types
 
@@ -12,13 +12,11 @@ The native Enterprise plane origin is
 
 `O_E = 0`.
 
-Freeze:
-
-`ENTERPRISE_NATIVE_ORIGIN = 0`.
-
 Every native cell is a circle/disk carrier with a distinguished center.
 
 Freeze:
+
+`ENTERPRISE_NATIVE_ORIGIN = 0`.
 
 `ENTERPRISE_CELL = CIRCLE_CELL`.
 
@@ -40,9 +38,9 @@ Strictly distinguish:
 2. `CIRCLE_CELL` — the closed circular carrier around that center;
 3. `COORDINATE_VERTEX` — a triple boundary-intersection event of three cells.
 
-## 2. Integer center lattice and primitive spacing
+## 2. Integer center carrier and three positive directions
 
-Cell centers form a planar triangular lattice. Normalize nearest-neighbor center spacing to
+Cell centers form the same gap-free triangular carrier arrangement. Normalize nearest-neighbor center spacing to
 
 `D_CENTER = 1`.
 
@@ -50,66 +48,65 @@ Freeze:
 
 `NEAREST_CELL_CENTER_DISTANCE = 1`.
 
-Let `e_1,e_2,e_3` be the three positive primitive center-lattice directions, each of length 1, separated pairwise by 120 degrees and satisfying
+Let the three positive native axis rays be `E_1,E_2,E_3`. In the planar carrier presentation their directions occur successively at `120 degree` separation.
 
-`e_1 + e_2 + e_3 = 0`.
+The earlier statement
 
-The full six geometric neighbor directions are obtained from the three positive directions because
+`e_1+e_2+e_3=0`
 
-`-e_1 = e_2+e_3`,
-
-`-e_2 = e_3+e_1`,
-
-`-e_3 = e_1+e_2`.
-
-No native negative axis is required.
+was a relation of a classical planar vector presentation of the three carrier directions. It is **not** a native Enterprise vector identity and must not be used to define native length, opposite directions, or coordinate equivalence.
 
 Freeze:
 
-`ENTERPRISE_NATIVE_AXES = THREE_POSITIVE_AXES`.
+`CARRIER_DIRECTION_RELATION != NATIVE_VECTOR_RELATION`.
 
-`ENTERPRISE_PRIMITIVE_AXIS_DIRECTIONS = {e_1,e_2,e_3}`.
+`NO_NATIVE_DIAGONAL_SHIFT_QUOTIENT`.
+
+No native negative axes are required. The three positive rays themselves partition the plane into three native sectors.
+
+Freeze:
+
+`ENTERPRISE_NATIVE_AXES = THREE_POSITIVE_RAYS`.
 
 `NO_NATIVE_NEGATIVE_AXES_REQUIRED`.
 
-## 3. Nonnegative integer three-axis addressing
+## 3. Three positive integer coordinates are sector coordinates
 
-Use nonnegative integer triples as algebraic addresses:
+Use nonnegative integer triples
 
-`(a,b,c) in N_0^3`.
+`(a,b,c) in N_0^3`
 
-Because `e_1+e_2+e_3=0`, addresses are equivalent under common diagonal shift:
-
-`(a,b,c) ~ (a+k,b+k,c+k)`.
-
-Choose the canonical representative by
+with canonical condition
 
 `min(a,b,c)=0`.
 
-Thus the native three-axis address space is
+This is **not** a quotient by common diagonal shift. It is a sector typing rule.
 
-`A_E = { (a,b,c) in N_0^3 : min(a,b,c)=0 }`.
+Define the three native sectors:
 
-This stores all directions without negative coordinates.
+- `S_12 = {(a,b,0): a,b >= 0}`;
+- `S_23 = {(0,b,c): b,c >= 0}`;
+- `S_31 = {(a,0,c): a,c >= 0}`.
 
-Examples of the six unit geometric directions in canonical nonnegative form:
+For an interior point/cell center of one sector exactly one component is zero. On a positive axis two components are zero. At the origin all three components are zero.
 
-- `+e_1 = (1,0,0)`;
-- `+e_2 = (0,1,0)`;
-- `+e_3 = (0,0,1)`;
-- `-e_1 = (0,1,1)`;
-- `-e_2 = (1,0,1)`;
-- `-e_3 = (1,1,0)`.
+Thus
 
-Cell centers carry integer lattice addresses. Because the geometric origin is a triple-intersection vertex rather than a center, the center lattice is an affine coset relative to the origin. Therefore distinguish:
+`A_E = {(a,b,c) in N_0^3 : min(a,b,c)=0}`
 
-`INTEGER_CELL_ADDRESS != CLAIM_THAT_CELL_CENTER_LIES_ON_A_NATIVE_AXIS`.
+is the glued union of three two-axis positive coordinate charts.
 
-A fixed affine embedding maps integer cell addresses to their circle centers.
+Freeze:
+
+`THREE_POSITIVE_COORDINATES = THREE_GLUED_TWO_AXIS_SECTOR_CHARTS`.
+
+`(a,b,c) IS_NOT_EQUIVALENT_TO (a+k,b+k,c+k)`.
+
+Cell centers carry integer addresses in this sector atlas. Because the geometric origin is a triple-intersection vertex rather than a center, the center lattice is an affine carrier relative to the origin; integer address does not mean that a center lies on a number axis.
 
 ## 4. Cell radius
 
-Every circle cell has the same radius
+Every circle cell has the same carrier radius
 
 `R_CELL = 1/sqrt(3)`.
 
@@ -117,19 +114,13 @@ Freeze:
 
 `ENTERPRISE_CELL_RADIUS = 1/sqrt(3)`.
 
-This value is forced by the normalization `D_CENTER=1` together with the requirement that the three cells centered at the vertices of every elementary unit equilateral triangle meet at its circumcenter.
-
-For an equilateral triangle of side 1, the circumradius is exactly
-
-`1/sqrt(3)`.
-
-Hence every elementary center triangle determines one triple cell-intersection vertex.
+With nearest center spacing 1, this is the critical radius at which the three cells centered at the vertices of every elementary unit center triangle meet at one common boundary point.
 
 ## 5. Pairwise overlap and exact triple intersections
 
-For neighboring centers `C_i,C_j`,
+For neighboring centers,
 
-`dist(C_i,C_j)=1 < 2/sqrt(3)`.
+`D_CENTER = 1 < 2/sqrt(3)`.
 
 Therefore neighboring circle cells overlap with positive area.
 
@@ -137,61 +128,53 @@ Freeze:
 
 `NEIGHBORING_CELLS_OVERLAP_WITH_POSITIVE_AREA`.
 
-The next possible nonzero center distance in the triangular lattice is `sqrt(3)`, and
+At `R_CELL=1/sqrt(3)`, every elementary three-center triangle has one common triple boundary-intersection point. The next nonzero center separation is too large for non-neighbor circles to intersect. Hence every circle-boundary crossing in the carrier occurs as a three-cell intersection rather than as an isolated two-cell crossing.
 
-`sqrt(3) > 2/sqrt(3)`.
-
-Therefore only nearest-neighbor circle cells intersect.
-
-Each nearest-neighbor pair belongs to exactly two elementary unit equilateral center triangles, one on each side of the shared center-center edge. Their two circle-boundary intersection points are precisely the two circumcenters of those triangles. At each such point a unique third neighboring circle cell also passes through the point.
-
-Thus every circle-boundary intersection is a triple intersection:
+Freeze:
 
 `EVERY_CELL_BOUNDARY_INTERSECTION_IS_TRIPLE`.
 
-No four-cell boundary intersection occurs in the generic lattice geometry.
-
 ## 6. Gap-free dense-discrete cover
 
-The triangular lattice with nearest-neighbor spacing 1 has covering radius exactly `1/sqrt(3)`.
-
-Since `R_CELL=1/sqrt(3)`, the union of all circle cells covers the entire plane:
+At nearest center spacing 1, radius `1/sqrt(3)` is exactly the covering threshold of this triangular center carrier. Therefore
 
 `UNION_ALL_ENTERPRISE_CELLS = ENTERPRISE_PLANE`.
-
-There are no uncovered void/gap regions.
 
 Freeze:
 
 `NO_GEOMETRIC_GAPS_BETWEEN_CELLS`.
 
-`DENSE_DISCRETE` is to be understood here as:
+`DENSE_DISCRETE = DISCRETE_INTEGER_CENTER_ADDRESSES + GAP_FREE_OVERLAPPING_CIRCLE_CELLS`.
 
-`DISCRETE_INTEGER_CENTER_LATTICE + GAP_FREE_OVERLAPPING_CELL_COVER`.
+At the critical radius, three neighboring cells have a common set consisting of a single triple-intersection point rather than a positive-area three-cell overlap region.
 
-It does not mean that the set of cell centers is topologically dense.
+## 7. Native right angle is 120 degrees
 
-At the critical radius `1/sqrt(3)`, three neighboring cells have a common set consisting of a single triple-intersection point rather than a positive-area triple-overlap region.
+This is the highest angular correction.
 
-## 7. Three positive number axes
-
-The three native number axes are the three positive rays from `O_E` parallel to the three families of nearest-neighbor center-center lines.
-
-They are not the center rays and not the angular bisectors used in the superseded 2026-08-18 draft.
+The three positive native axes divide one full turn into three equal sectors. Each sector has carrier opening `120 degrees`, and this is the native Enterprise right angle.
 
 Freeze:
 
-`NATIVE_NUMBER_AXES_ARE_PARALLEL_TO_CENTER_CENTER_DIRECTIONS`.
+`ENTERPRISE_RIGHT_ANGLE = 120_DEGREES`.
 
-`NATIVE_NUMBER_AXES = THREE_POSITIVE_RAYS_FROM_ORIGIN`.
+Equivalently:
 
-The three positive axis directions are separated by 120 degrees and satisfy the same relation
+`E_1 PERP_E E_2`,
 
-`e_1+e_2+e_3=0`.
+`E_2 PERP_E E_3`,
 
-The axes pass through the same-orientation sublattice of triple-intersection vertices at unit spacing:
+`E_3 PERP_E E_1`,
 
-`0,1,2,3,...`.
+where `PERP_E` is Enterprise orthogonality, not classical Euclidean orthogonality of the carrier drawing.
+
+Thus the Enterprise plane has three native right sectors per full turn rather than four classical 90-degree quadrants.
+
+The three native number axes remain the three positive rays from `O_E`, parallel in the carrier presentation to the three center-center direction families. Their ticks are
+
+`0,1,2,3,...`
+
+at native unit spacing.
 
 Freeze:
 
@@ -199,47 +182,65 @@ Freeze:
 
 `NATIVE_AXIS_UNIT_LENGTH = 1`.
 
-Because the origin is a triangle circumcenter and the axes are parallel to center-center lines, these axis rays do not pass through cell centers.
-
-Freeze:
-
 `NATIVE_NUMBER_AXIS_NEVER_PASSES_THROUGH_CELL_CENTER`.
 
-## 8. Native three-axis metric
+## 8. Native Pythagorean metric
 
-The native three axes are not pairwise orthogonal. Their Gram relations are
+Inside each native right sector, the two bounding positive axes are Enterprise-orthogonal. Therefore the native Pythagorean law is primitive:
 
-`||e_i||^2 = 1`,
+For `P=(a,b,0)` in `S_12`,
 
-`<e_i,e_j> = -1/2` for `i != j`.
+`L_E(P)^2 = a^2+b^2`.
 
-Therefore for a displacement represented by any triple `(a,b,c)` modulo common diagonal shift,
+For `P=(0,b,c)` in `S_23`,
 
-`V = a e_1 + b e_2 + c e_3`,
+`L_E(P)^2 = b^2+c^2`.
 
-the native squared length is
+For `P=(a,0,c)` in `S_31`,
 
-`Q_E(a,b,c) = a^2+b^2+c^2-ab-bc-ca`.
+`L_E(P)^2 = a^2+c^2`.
 
-Equivalently,
+Because every canonical native address has at least one zero component, these three cases combine into
 
-`Q_E(a,b,c) = 1/2 * ((a-b)^2 + (b-c)^2 + (c-a)^2)`.
-
-This quadratic form is invariant under
-
-`(a,b,c) -> (a+k,b+k,c+k)`.
+`L_E(a,b,c)^2 = a^2+b^2+c^2`, for `min(a,b,c)=0`.
 
 Freeze:
 
-`NATIVE_THREE_AXIS_LENGTH_SQUARED = a^2+b^2+c^2-ab-bc-ca`.
+`NATIVE_SECTOR_PYTHAGOREAN_LAW = a^2+b^2` on each active two-axis sector.
 
-`NATIVE_THREE_AXIS_LENGTH = sqrt(Q_E)`.
+`NATIVE_ORIGIN_LENGTH_SQUARED = a^2+b^2+c^2` for canonical sector addresses.
 
-This supersedes direct use of `sqrt(a^2+b^2+c^2)` on native three-axis addresses. The ordinary square-sum-root formula remains applicable only to separately chosen pairwise-orthogonal components.
+Example:
 
-For two cell-center integer addresses `P,Q`, compute the raw address difference, add a common diagonal shift if desired to restore a nonnegative canonical representative, and evaluate the same `Q_E`; common diagonal normalization does not change the length.
+`(3,4,0)` lies in the native right sector `S_12` and has
 
-## 9. Discrete cell-state principle
+`L_E(3,4,0)=5`.
+
+Thus the classical integer triple `3,4,5` maps directly into the Enterprise plane, but its right angle is the native `120 degree` angle between the two positive sector axes.
+
+The former carrier-induced quadratic form
+
+`a^2+b^2+c^2-ab-bc-ca`
+
+is superseded as the **native Enterprise metric**. It may still describe distances in a classical planar carrier presentation, but it does not define Enterprise length or Enterprise orthogonality.
+
+Freeze:
+
+`CARRIER_EUCLIDEAN_LENGTH != NATIVE_ENTERPRISE_LENGTH`.
+
+## 9. Global distance and chart transition status
+
+The origin-based native norm in each sector is now fixed by the Pythagorean law above.
+
+For arbitrary point-to-point displacement across different sectors, do not reintroduce the deleted diagonal-shift quotient and do not automatically subtract global three-component coordinates as though the three sectors formed one linear Euclidean basis.
+
+Freeze:
+
+`CROSS_SECTOR_POINT_TO_POINT_METRIC = REQUIRES_EXPLICIT_NATIVE_CHART_TRANSITION`.
+
+This is the next metric/gluing question; it does not alter the sector-local Pythagorean theorem.
+
+## 10. Discrete cell-state principle
 
 The instantaneous geometric state remains one circle cell identified by one cell-center address.
 
@@ -251,23 +252,24 @@ Triple-intersection vertices are transition/incidence events between cells, not 
 
 If several cell trajectories are admissible, retain multiple single-cell trajectories rather than a multi-cell instantaneous state.
 
-## 10. Superseded coordinate foundations
+## 11. Superseded metric/address claims
 
 Superseded as current native foundation:
 
 - signed-origin-one / no-native-zero ontology;
 - origin-circle ontology;
 - first cell radius = 1;
-- origin-to-first-center distance = 1;
 - tangent close packing;
 - gap-center origin;
 - three bisector-axis lines / six signed native axes;
-- treating the three native axes as pairwise orthogonal components;
-- direct native-axis norm `sqrt(a^2+b^2+c^2)`.
+- `e_1+e_2+e_3=0` as a native vector identity;
+- `-e_1=e_2+e_3` and cyclic variants as native vector identities;
+- `(a,b,c)~(a+k,b+k,c+k)` as native coordinate equivalence;
+- the claim that the three native 120-degree axis pairs are not Enterprise-orthogonal;
+- native metric `a^2+b^2+c^2-ab-bc-ca`;
+- using classical carrier angle to decide native Pythagorean orthogonality.
 
-Historical computations remain archived and require explicit retyping before reuse.
-
-## 11. Canonical summary
+## 12. Canonical summary
 
 Freeze:
 
@@ -281,18 +283,18 @@ Freeze:
 
 `NEIGHBOR CELLS OVERLAP`.
 
-`EVERY BOUNDARY INTERSECTION IS A THREE-CELL INTERSECTION`.
-
-`ALL CELLS TOGETHER COVER THE PLANE WITHOUT GAPS`.
+`ALL CELLS COVER THE PLANE WITHOUT GAPS`.
 
 `THREE POSITIVE AXES ONLY`.
 
-`AXES ARE PARALLEL TO CENTER-CENTER DIRECTIONS`.
+`THREE POSITIVE AXES CUT THE PLANE INTO THREE 120-DEGREE NATIVE RIGHT SECTORS`.
 
-`AXIS TICKS ARE 0,1,2,... WITH UNIT SPACING`.
+`ENTERPRISE RIGHT ANGLE = 120 DEGREES`.
 
-`CELL CENTERS HAVE INTEGER ADDRESSES`.
+`THREE-COORDINATE ADDRESS = GLUED TWO-AXIS SECTOR CHART, NOT DIAGONAL-SHIFT QUOTIENT`.
 
-`NONNEGATIVE THREE-AXIS ADDRESSES ARE CANONICALIZED BY min(a,b,c)=0`.
+`CELL CENTERS HAVE NONNEGATIVE INTEGER SECTOR ADDRESSES`.
 
-`NATIVE LENGTH^2 = a^2+b^2+c^2-ab-bc-ca`.
+`NATIVE PYTHAGOREAN LENGTH^2 = SUM OF SQUARES OF THE TWO ACTIVE AXIS COORDINATES`.
+
+`(3,4,0) HAS NATIVE LENGTH 5`.
