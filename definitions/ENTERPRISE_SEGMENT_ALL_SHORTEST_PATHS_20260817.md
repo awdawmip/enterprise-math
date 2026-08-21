@@ -1,61 +1,23 @@
-# 进取最短路径族：固定端点后的反向 realization fiber
+# 最短路径族：历史 downstream realization
 
-Status: `RETAINED / REVERSE_GEODESIC_REALIZATION_ONLY / SUPERSEDED_AS_SEGMENT_LENGTH_ONTOLOGY`
-Date: `2026-08-17`
-Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
-Current foundational route:
-`definitions/ENTERPRISE_VECTOR_NORM_ENDPOINT_REVERSE_GEODESIC_SEGMENT_20260817.md`
+Status: `RETAINED / DOWNSTREAM_REALIZATION_ONLY / SUPERSEDED_AS_NATIVE_SEGMENT_IDENTITY`
+Original date: `2026-08-17`
+Reconciled: `2026-08-21`
 
-## 1. Retained theorem
+本文件只保留一个弱而稳定的作用：**当一个目标对象/目标 cell 已由当前 native semantics 独立确定后，可以研究到该对象的全部最短路径作为组合 realization family。**
 
-For a fixed native endpoint cell `P`, define
+它不再定义 native segment identity、native line membership 或 native length。
 
-`GEO_REV_E(P)`
+当前线段/线身份请读：
 
-as the complete family of paths from `VOID_E` to `P` using the minimum possible primitive jump count. Equivalently, delete the unique first edge `VOID_E->O_E` and retain all minimum-jump spatial tails from `O_E` to `P`.
+- `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`；
+- `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`；
+- `definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`。
 
-Freeze:
+冻结边界：
 
-`ALL_REVERSE_SHORTEST_REALIZATIONS_ARE_RETAINED`.
+`MIN_JUMP_COUNT != NATIVE_LINE_LENGTH` in general。
 
-No minimizer is privileged or deleted merely to fit a desired perimeter/circle.
+`SAME_ENDPOINT_PATH != SAME_NATIVE_LINE_PATH` in general。
 
-## 2. Foundational correction
-
-The old identification
-
-`segment length = minimum jump count`
-
-is superseded.
-
-The current logic is:
-
-`native cumulative vector length -> endpoint cell P -> GEO_REV_E(P)`.
-
-Therefore shortest paths do not select the radius level. They realize an endpoint already selected by vector norm.
-
-Freeze:
-
-`SHORTEST_PATH_LENGTH_IS_NOT_FOUNDATIONAL_SEGMENT_LENGTH`.
-
-## 3. Spatial footprint remains derived
-
-For fixed `P`, the reverse geodesic footprint may still be defined as unions over all minimizers:
-
-- `VERT_GEO_REV(P)`;
-- `EDGE_GEO_REV(P)`;
-- induced triangle/cell incidence as secondary structure.
-
-A chosen chain, strip, packet, or representative geodesic is not canonical unless proved equivalent to the whole reverse fiber.
-
-## 4. Local geodesic moves
-
-Equal-endpoint local deformations among minimum-jump paths remain a valid realization-level question. Triangle `1->2` detours, `2<->2` exchanges, and related moves are typed only inside the reverse realization fiber.
-
-They do not determine the vector radius.
-
-## 5. Current route
-
-Read first:
-
-`definitions/ENTERPRISE_VECTOR_NORM_ENDPOINT_REVERSE_GEODESIC_SEGMENT_20260817.md`.
+因此最短路径是 downstream combinatorial realization，不是当前原生线段 ontology。原始文本保留在 Git 历史中。
