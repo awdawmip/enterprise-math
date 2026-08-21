@@ -1,26 +1,57 @@
 # Enterprise Math Research Taskbook Authoring and Review
 
-Status: `ACTIVE / CANONICAL TASKBOOK AUTHORING PROCESS`
+Status: `ACTIVE / CANONICAL TASKBOOK AUTHORING PROCESS / V2`
+Effective: `2026-08-22`
+Contract: `research_taskbook_contract.json`
+Architecture: `research_architecture.json`
 
 ## Purpose
 
-A taskbook is a task-specific research contract, not a second copy of repository operating policy and not a binding to one runtime conversation.
+A taskbook is a **task-specific execution contract**. It is not:
 
-Researchers already load the repository execution rules. Therefore a taskbook should contain only:
+- a second copy of repository operating policy;
+- a runtime conversation identity binding;
+- a raw free-research candidate;
+- automatic evidence that a previous successful stage deserves another stage.
 
-- the mother question and task-local semantics;
-- frozen inputs, assumptions, dependencies and exclusions;
-- exact deliverables and evidence requirements;
-- PASS / KILL / return criteria;
-- any **intentional temporary override** of inherited repository policy.
+A good taskbook contains only the mother question, frozen inputs/scope, task-local deliverables/evidence, PASS/KILL/return criteria, lineage, and any narrow temporary policy override.
 
-The taskbook should not repeat generic GitHub, CI, identity, scheduler, ownership, promotion, liveness, or completion rules merely for emphasis.
+## 1. Choose task lineage first
 
-## Canonical flow
+Every newly authored taskbook declares one of:
 
-### 1. Generate
+- `NEW_DIRECTION`;
+- `CONTINUATION`;
+- `REPLAY`;
+- `INTEGRATION`;
+- `MAINTENANCE`.
 
-Create new taskbooks through:
+This is control-plane provenance, not mathematical truth.
+
+### Continuation gate
+
+`CONTINUATION` means the new task exists because a parent result exposed a genuinely new information gap.
+
+It therefore requires:
+
+- `parent_task_id`;
+- `new_information_gap`;
+- `why_parent_result_does_not_close_it`;
+- `discriminating_outcomes`;
+- `kill_condition`;
+- `why_new_stage_or_task_is_better_than_same_task_or_closure`.
+
+Freeze:
+
+`PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
+
+Stage numbering, recent success, momentum, unused ideas in a return report, or “there is more to explore” do not satisfy the gate.
+
+If the frontier still belongs to the mother question, prefer `CONTINUE_SAME_TASK`. If no new discriminating gap remains, close/park/return to exploration rather than manufacturing another stage.
+
+## 2. Generate
+
+New direction:
 
 ```bash
 python tools/research_taskbook.py new \
@@ -30,22 +61,45 @@ python tools/research_taskbook.py new \
   --priority P1 \
   --leverage HIGH \
   --lane R... \
+  --lineage NEW_DIRECTION \
   --output research_tasks/....md
 ```
 
-The generator writes the required Driver/identity-policy metadata and a `policy_review` block stamped against the current policy set, initially as:
+Continuation:
+
+```bash
+python tools/research_taskbook.py new \
+  --task-id RS-... \
+  --title "..." \
+  --lane R... \
+  --lineage CONTINUATION \
+  --parent-task-id RS-PARENT-... \
+  --output research_tasks/....md
+```
+
+The continuation skeleton intentionally leaves `successor_gate` incomplete. Driver review cannot approve it until those fields are filled.
+
+The generator also writes Driver/identity-policy metadata and a `policy_review` block initially marked:
 
 `PENDING_DRIVER_REVIEW`.
 
-It deliberately creates only a task-local skeleton. It does **not** assign a fixed runtime Researcher-ID.
+It never assigns a fixed runtime Researcher-ID.
 
-### 2. Write task-local content
+## 3. Write task-local content
 
-Fill the taskbook with the actual mathematical/research problem.
+Include only what is different about this task:
 
-Do **not** paste repository rules into the body. If the instruction would still be true for nearly every Enterprise Math task, it probably belongs in repository policy rather than in this taskbook.
+- mother question;
+- frozen inputs/assumptions/exclusions;
+- exact mathematical/executable/formal outputs;
+- task-local witnesses/discriminators;
+- PASS/KILL/return criteria.
 
-### 3. Automatic conflict audit
+Do not paste generic GitHub, scheduler, identity, promotion, liveness, Working Truth or successor-gate prose into the body. Those rules are inherited from repository policy.
+
+If the task came from a free-research axiom candidate, the candidate must already have passed Phase-B audit and Driver intake under `research_axiom_candidate_state_machine.json`. Do not turn a raw blind candidate directly into a dispatchable taskbook.
+
+## 4. Automatic audit
 
 Run:
 
@@ -55,22 +109,24 @@ python tools/research_taskbook.py review research_tasks/<task>.md
 
 The audit checks:
 
-- required taskbook metadata;
-- forbidden fixed runtime identity metadata;
-- policy-sensitive directives that appear to alter GitHub/CI, scheduler, promotion, or similar inherited behavior;
-- generic repository-policy restatement;
-- temporary override schema;
-- whether the taskbook policy stamp matches the current repository policy digest.
+- required metadata;
+- task lineage;
+- continuation successor gate;
+- forbidden fixed runtime identity;
+- stale policy digest;
+- policy-sensitive runtime directives;
+- generic policy restatement;
+- temporary-override schema.
 
-A machine pass does not replace Driver judgment. It prevents silent policy drift and catches known conflict classes before dispatch.
+A machine pass does not replace Driver mathematical judgment.
 
-### 4. Declare temporary overrides only when genuinely needed
+## 5. Temporary overrides
 
-If a task must intentionally differ from inherited policy, record a narrow entry in:
+If a task must intentionally differ from inherited policy, record a narrow item in:
 
 `policy_review.temporary_overrides`.
 
-Every override must contain:
+Required fields:
 
 - `conflict_id`;
 - `scope`;
@@ -78,35 +134,25 @@ Every override must contain:
 - `replacement_behavior`;
 - `expires_when`.
 
-Example shape:
+An override cannot silently weaken theorem truth, safety, authorization, owner isolation, candidate maturity, successor-stage requirements or canonical-promotion rules.
 
-```json
-{
-  "conflict_id": "TB-REMOTE-RUNTIME",
-  "scope": "one final validation after a complete proof candidate exists",
-  "reason": "the repository-pinned compiler is unavailable locally",
-  "replacement_behavior": "one batched remote validation; no iterative remote proof loop",
-  "expires_when": "the validation result is captured or the task ends"
-}
-```
+## 6. Driver approval
 
-An override is not permission to weaken theorem truth, safety, authorization, owner isolation, or canonical promotion rules. It only replaces the named inherited behavior inside the declared scope and lifetime.
-
-### 5. Driver approval stamp
-
-After machine findings are resolved and any override has been reviewed:
+After findings are resolved:
 
 ```bash
 python tools/research_taskbook.py review research_tasks/<task>.md --approve
 ```
 
-This records the current policy digest and sets:
+This refreshes the current policy digest and sets:
 
 `policy_review.review_state = PASS`.
 
-### 6. Taskbook dispatch gate
+For a continuation, approval also means the Driver has explicitly accepted the successor information gap—not merely the parent PASS.
 
-Immediately before dispatch or re-dispatch:
+## 7. Dispatch gate
+
+Immediately before dispatch/re-dispatch:
 
 ```bash
 python tools/research_taskbook.py audit research_tasks/<task>.md --dispatch
@@ -114,9 +160,11 @@ python tools/research_taskbook.py audit research_tasks/<task>.md --dispatch
 
 A taskbook is dispatchable only when this passes.
 
-### 7. Bind runtime identity outside the taskbook
+Historical taskbooks may remain unstamped or lack newer lineage fields. They are preserved as provenance. A new dispatch under current policy requires current review.
 
-For a **Driver-mediated manual relay** into a new researcher conversation, taskbook PASS is not the last mechanical step. The Driver must preallocate the concrete runtime Researcher-ID in a separate dispatch envelope:
+## 8. Runtime identity lives outside the taskbook
+
+For Driver-mediated manual relay into a new researcher conversation:
 
 ```bash
 python tools/research_identity.py allocate \
@@ -126,66 +174,43 @@ python tools/research_identity.py allocate \
   --dispatch-id <unique-dispatch-id>
 ```
 
-Persist that Researcher-ID in:
+Persist the resulting Researcher-ID in the dispatch/relay envelope and receiving research return metadata.
 
-- the `USER_RELAY_QUEUE` entry;
-- the user-visible handoff prompt;
-- the first researcher return/PR/commit metadata.
+The reusable taskbook remains runtime-ID-free.
 
-The receiving conversation starts with that ID already bound. Do not rely on the researcher remembering to invent or allocate an ID later.
+Scheduler CLAIMs and direct task entry use their own identity bootstrap. Driver conversations expose Driver-ID, not Researcher-ID.
 
-This identity binding lives **outside** the taskbook because a taskbook may be reused by a later/new conversation. The same researcher conversation preserves its existing Researcher-ID on continuation; a new dispatch envelope normally gets a new one.
+## 9. Policy changes invalidate old stamps automatically
 
-Scheduler CLAIMs and direct self-started research keep their own automatic bootstrap paths.
+`research_taskbook_policy.json` lists the inherited policy inputs. The authoring tool hashes them into the taskbook policy digest.
 
-Driver conversations use `Driver-ID`; they do not consume the `Researcher-ID` visible label.
+When architecture/role/Driver/foundation semantics change:
 
-## Rule updates automatically invalidate old review stamps
+1. the digest changes;
+2. existing stamped taskbooks remain historical artifacts;
+3. another dispatch fails until current Driver review refreshes the stamp;
+4. only still-live taskbooks need re-review.
 
-`research_taskbook_policy.json` names the repository files that form the inherited taskbook policy set.
+Do not copy global policy text into every taskbook to keep it “in sync”. The digest is the synchronization mechanism.
 
-The tool computes a SHA-256 digest from the contents of that set.
+An already-running frozen research execution is not retroactively erased by a policy update; the new policy governs subsequent control-plane actions/re-dispatch according to its scope.
 
-Therefore:
+## Design separation
 
-1. a Driver reviews a taskbook against policy version `P`;
-2. one inherited rule later changes;
-3. the policy digest changes automatically;
-4. the old taskbook stamp becomes stale;
-5. `audit --dispatch` fails;
-6. the Driver must review the still-live taskbook again and approve a new stamp.
+Repository policy answers:
 
-The updated rule is therefore reflected in the taskbook by a new review digest, **without copying the rule text into the taskbook**.
+> How does Enterprise Math research operate?
 
-Historical unstamped taskbooks may remain in the repository. They are not automatically rewritten. But they cannot be newly dispatched under the current process until reviewed and stamped.
+The taskbook answers:
 
-## Policy-update procedure
-
-When a repository execution rule covered by `research_taskbook_policy.json` changes:
-
-1. change the canonical rule once;
-2. do not manually copy the change into every taskbook;
-3. run the taskbook audit on any still-live taskbook before its next dispatch;
-4. re-review only the tasks that remain active/reusable;
-5. update task-specific text only where the new rule creates an actual conflict or changes a temporary override;
-6. if the task is being manually relayed by Driver, bind a runtime Researcher-ID in the relay envelope after the new taskbook PASS stamp.
-
-The policy digest handles synchronization. Taskbook text changes only for semantic conflicts or explicit overrides.
-
-## Design rule
-
-The normal taskbook should be shorter after this protocol, not longer.
-
-A good taskbook answers:
-
-> What exactly is different about this task?
-
-The repository policy answers:
-
-> How does an Enterprise Math participant operate in general?
+> What exact selected question is this researcher executing, and why does this task exist?
 
 The dispatch envelope answers:
 
-> Which concrete researcher conversation is executing this approved task now?
+> Which concrete researcher conversation is executing it now?
 
-Keeping those three layers separate prevents contradictory duplicated rules, missing runtime identity, and stale taskbooks reopening previously closed operational loopholes.
+The axiom-candidate packet answers:
+
+> What was independently discovered before the control plane selected it?
+
+Keeping these layers separate prevents route anchoring, stale identity, duplicated rules and automatic stage cascades.
