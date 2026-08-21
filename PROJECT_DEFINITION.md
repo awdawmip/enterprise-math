@@ -1,511 +1,178 @@
 # Enterprise Math Project Definition
 
-Status: `ACTIVE / PROJECT-LEVEL DEFINITION`
-Date: `2026-08-16`
+Status: `ACTIVE / PROJECT-LEVEL DEFINITION / V3`
+Date: `2026-08-21`
+Driver: `CONTROL_PLANE`
 
 ## One-sentence definition
 
-> **Enterprise Math does not aim to discard the mature tools of existing mathematics. It aims to rebuild their foundations: starting from finite resolution, discrete state, integer-first structure, and precision-aware number theory, then re-deriving algebraic, geometric, trigonometric, analytic, and physical tools and determining where classical systems are exactly recovered, approximately recovered, or systematically corrected.**
+> **Enterprise Math rebuilds the foundations of useful modern mathematical tools from a finite-resolution, precision-aware, integer-first and discretely computable substrate, then classifies when classical algebraic, geometric, trigonometric, analytic and physical tools are exactly recovered, recovered only at finite precision or asymptotically, or require systematic correction.**
 
-Project-level principle:
+Project principle:
 
-`REFOUND, NOT REJECT`
+`REFOUND, NOT REJECT`.
 
-That is:
+## 0. Authority chain
 
-**rebuild the foundation rather than abolish the tool.**
+This file defines project mission, layers and routing. Mutable concrete geometry is no longer duplicated across several top-level authority files.
 
----
+The current native-plane foundation is:
 
-## 0. Highest structural definition: Enterprise dimensions, axes, and directions
+`definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`.
 
-This section is the project-level highest definition of the native axis structure used by Enterprise Math. If a lower-level research note, historical task, or older carrier description conflicts with this section, this section controls. Older constructions remain usable as historical experiments, implementation carriers, or classical compatibility projections, but may not override this definition.
+Current downstream frozen definitions include:
 
-### 0.1 Enterprise dimension
+- `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`
+- `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`
+- `definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`
+- `definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`
 
-In Enterprise Math:
+When older 2026-08-16/17 coordinate documents or historical taskbooks conflict with a later explicit foundational correction/supersession, the later correction controls. Older documents remain provenance/history, not competing current authority.
 
-> **One Enterprise dimension is one native undirected axis family; every Enterprise dimension has two mutually opposite directed directions.**
+## 1. Current highest native-plane structure
 
-Therefore:
+The current Enterprise plane freezes:
 
-`ENTERPRISE_DIMENSION = NATIVE_UNDIRECTED_AXIS_FAMILY_COUNT`
+- `O_E = 0`;
+- the origin is a triple circle-cell boundary intersection, not a cell center and not a cell;
+- `ENTERPRISE_CELL = CIRCLE_CELL`, identified by its discrete center;
+- nearest center spacing `D_CENTER=1`;
+- uniform cell radius `R_CELL=1/sqrt(3)`;
+- neighboring cells overlap with positive area and the circle-cell family covers the plane without gaps;
+- the native axes are exactly three **positive rays** `E_1,E_2,E_3`;
+- native negative axes are not required and must not be silently reintroduced;
+- the three positive axes divide one full turn into three native `120°` right sectors;
+- `ENTERPRISE_RIGHT_ANGLE = 120_DEGREES`;
+- the three axes are pairwise `ENTERPRISE_ORTHOGONAL`, which is native Enterprise orthogonality rather than Euclidean 90-degree perpendicularity in the carrier drawing.
 
-`DIRECTED_DIRECTION_COUNT = 2 * ENTERPRISE_DIMENSION`
+Therefore the older native-plane rule
 
-Enterprise dimension is not defined as the minimum number of linearly independent basis vectors in classical linear algebra, and it is not automatically identical to Euclidean or topological dimension. Classical ranks and dimensions may still be computed in compatibility layers, but they do not override the native Enterprise dimension definition.
+`three undirected axes -> six native directed directions -> alternating signs every 60 degrees`
 
-### 0.2 Enterprise plane
+is superseded.
 
-The native Enterprise plane is defined by:
+`ENTERPRISE_PLANE_DIMENSION = 3` remains project-specific dimension semantics and is not classical linear rank, Euclidean dimension or topological dimension. Under the current plane foundation the three native dimension components are carried by the three positive axis families, not by automatically adjoining an opposite native direction to every axis.
 
-`ENTERPRISE_PLANE_DIMENSION = 3`
+## 2. Current coordinates and length
 
-`ENTERPRISE_PLANE_AXIS_COUNT = 3`
+Native addresses use
 
-`ENTERPRISE_PLANE_DIRECTED_DIRECTION_COUNT = 6`
+`A_E={(a,b,c) in N_0^3 : min(a,b,c)=0}`,
 
-Thus:
+as the glued union of three positive two-axis sector charts:
 
-> **An Enterprise plane is three-dimensional in the Enterprise sense, with three native axes and six directed directions.**
+- `S_12={(a,b,0)}`;
+- `S_23={(0,b,c)}`;
+- `S_31={(a,0,c)}`.
 
-When flattened onto a classical two-dimensional drawing surface, the three undirected axes may be displayed as:
+This is not a common diagonal-shift quotient.
 
-`0° / 180°`
+Inside each native `120°` right sector:
 
-`60° / 240°`
+`L_E^2=a^2+b^2`.
 
-`120° / 300°`
+Hence for a canonical origin-sector triple:
 
-The three axis families are pairwise **Enterprise Orthogonal** (`ENTERPRISE_ORTHOGONAL`). In a classical flattened calibration drawing, adjacent Enterprise-axis families appear one `60°` sector apart. This does not redefine Euclidean perpendicularity from `90°` to `60°`; it is the two-dimensional display of the native Enterprise-axis relation.
+`L_E(a,b,c)^2=a^2+b^2+c^2`,
 
-### 0.3 Alternating sign rule in an Enterprise plane
+and `(3,4,0)` has native length `5`.
 
-Within any Enterprise plane:
+Historical carrier identities such as `e_1+e_2+e_3=0` or `u+v+w=0`, and the A2/C6 rank-two presentation, are `I0_IMPLEMENTATION_CARRIER / CLASSICAL_COMPATIBILITY` structures only. They do not define native vector identity, native negative axes, coordinate equivalence or native metric.
 
-1. choose any one directed axis direction and declare it `+u`;
-2. traverse the six directions cyclically;
-3. every adjacent `60°` sector flips sign.
+## 3. Current line and point-to-point structure
 
-Hence the six directed directions have the strict alternating pattern:
+Current line identity is
 
-`+ - + - + -`
+`ENTERPRISE_LINE_IDENTITY = NATIVE_COMPONENT_TRACE`.
 
-If the displayed `0°` direction is declared positive:
+One trace may have many discrete single-cell path representatives. For example, the `(3,4)` trace has `35` shuffle/path representatives while native length is `5`.
 
-`0°:+`
+Arbitrary point-to-point structure uses the frozen **directed native line gauge**. It is positive, translation invariant and triangle-subadditive, but is generally reversal-asymmetric, hence
 
-`60°:-`
+`NATIVE_INTEGER_VERTEX_DISTANCE_IS_METRIC = false`.
 
-`120°:+`
+For an unordered endpoint pair, the canonical datum is the bidirectional trace pair together with its bidirectional length spectrum. Many symmetric scalar metrics may be added conditionally, but current premises do not canonically select one.
 
-`180°:-`
+## 4. BRC
 
-`240°:+`
+The name and bridge role are retained:
 
-`300°:-`
+`BRC = Branch-Recoalescence Collapse`.
 
-The globally inverted assignment is equivalent. Apart from total sign inversion, the axes may not be assigned signs independently.
+Classical/orthogonal coordinate semantics may be related to Enterprise coordinate semantics through a typed collapse/readout bridge, but target-side classical definitions may not be copied into native premises.
 
-### 0.4 Native axis definition of our solid world
+R062 further freezes the enrichment tower
 
-Enterprise Math currently models our solid spatial world by:
+`PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`
 
-`ENTERPRISE_WORLD_DIMENSION = 6`
+and
 
-`ENTERPRISE_WORLD_AXIS_COUNT = 6`
+`BRC_IS_EXACT_BOOLEAN_SHADOW_OF_COMPONENT_TYPED_NATIVE_MULTIPATH = true`.
 
-`ENTERPRISE_WORLD_DIRECTED_DIRECTION_COUNT = 12`
+Boolean BRC preserves support, not discarded path identity, multiplicity or provenance. Component labels are necessary to distinguish same endpoint from same native line.
 
-That is:
+## 5. Precision Mathematics lineage
 
-> **Our solid world is modeled in Enterprise Math as six Enterprise dimensions and twelve directed directions.**
+`Precision Mathematics / 精度数学` is the predecessor of Enterprise Math and is no longer a peer active project.
 
-The six undirected axes may be combinatorially labeled by the six pair-relations among four base labels:
+From 2026-08-21 onward, finite-resolution number lines, precision-defined numbers, precision-aware state and related integer/discrete research belong to Enterprise Math. Historical Precision Mathematics materials remain provenance.
 
-`12, 13, 14, 23, 24, 34`
+## 6. Account worldview and the six-dimensional/twelve-direction model
 
-These labels encode incidence between axes and lower-dimensional Enterprise planes; they are not additional dimensions.
+The protected account-level `我眼中的世界.md` contains an ACTIVE user-chosen research axiom that models solid space as six Enterprise dimensions / twelve directions. This project cleanup does **not** modify that file.
 
-The six-dimensional axis structure contains four three-dimensional Enterprise subplanes:
+However, the 2026-08-16 project definition implemented that worldview using a native plane with six directed directions and 60-degree alternating signs. That plane realization has been superseded by the current three-positive-axis / 120-degree foundation.
 
-`P123={12,13,23}`
+Therefore the project currently distinguishes:
 
-`P124={12,14,24}`
+- `WORLDVIEW_6D_12_DIRECTION = ACTIVE_USER_CHOSEN_RESEARCH_AXIOM`;
+- `OLD_60_DEGREE_SIX_DIRECTION_PLANE_REALIZATION = SUPERSEDED`;
+- `CURRENT_THREE_POSITIVE_AXIS_TO_6D_WORLD_BRIDGE = OPEN / REQUIRES_REDERIVATION`.
 
-`P134={13,14,34}`
+An ACTIVE worldview entry does not silently restore the superseded plane realization.
 
-`P234={23,24,34}`
+## 7. Definition is not inherited
 
-Each subplane inherits the same native three-dimensional plane rule: three axes, six directions, and opposite signs across every adjacent `60°` sector.
+`Definition is not inherited` does not prohibit mature mathematical concepts.
 
-### 0.5 Global closure of the twelve-direction sign system
+VECTOR, LENGTH, DISTANCE, ANGLE, NORM, DOT/PAIRING, PROJECTION, SIN/COS/TAN, AREA/VOLUME, PI, Euclidean geometry and continuum models remain admissible concepts and correct conditional tools at their declared layers.
 
-The twelve-direction sign system is not created by independently attaching `+/-` labels to six axes. It propagates globally from one initial direction:
+The forbidden move is to import a successful target-side definition as a native premise and then count its reappearance as a new foundational derivation.
 
-> **Choose any one directed direction as positive. Any two directions that are adjacent by `60°` inside any three-dimensional Enterprise subplane must have opposite signs.**
+Classical and engineering success is strong evidence and a calibration target, not automatic native ontology.
 
-This propagation closes globally across all four subplanes.
+## 8. Project layers
 
-Equivalently, the `60°`-adjacency graph of the twelve directions is connected and bipartite. Therefore:
+- `P0`: number, precision, integer structure, discrete state, relations and collapse/quotient;
+- `P1`: packet/cell, adjacency, transition, path, branching/recoalescence, Enterprise coordinates and algebra;
+- `P2`: rebuilt length, distance, angle, norm, pairing, projection, area/volume, curve and related geometry;
+- `P3`: rebuilt trigonometry, pi semantics, coordinate transforms and analytic tools;
+- `P4`: classical/continuous/engineering recovery and deviation classification;
+- `P5`: physical and engineering calibration only after mathematical semantics are frozen.
 
-`ALTERNATING_SIGN_SYSTEM_EXISTS = true`
+Always preserve
 
-`ALTERNATING_SIGN_SYSTEM_GLOBAL_CLOSURE = true`
+`PACKET_COUNT != TRANSITION_COUNT != GEOMETRIC_LENGTH`.
 
-`SIGN_ASSIGNMENT_UNIQUE_UP_TO_GLOBAL_INVERSION = true`
+## 9. Recovery classes
 
-Once one direction is declared positive, the signs of the other eleven directions are uniquely forced. The only other solution is simultaneous inversion of all twelve signs.
+Use:
 
-This guarantees that the four three-dimensional Enterprise subplanes inherit one consistent sign system on shared directed directions.
+- `EXACT_RECOVERY`
+- `FINITE_PRECISION_RECOVERY`
+- `ASYMPTOTIC_RECOVERY`
+- `DOMAIN_RESTRICTED_RECOVERY`
+- `SYSTEMATIC_DEVIATION`
+- `NONRECOVERY`
 
-### 0.6 Relation to the older two-degree-of-freedom A2 carrier
+A deviation is not automatically an improvement; it must be derived, reproducible and testable.
 
-Earlier work used the carrier
+## 10. Canonical project stack
 
-`Lambda={(a,b,c) in Z^3 : a+b+c=0}`
+`NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> THREE-POSITIVE-AXIS ENTERPRISE COORDINATES -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`.
 
-with `u+v+w=0`, and described it using the classical statement `PLANE_DIMENSION=2`.
+Project slogan:
 
-From this definition onward that statement is retyped as:
+> **Do not tear down old mathematics; give it a better foundation.**
 
-`CLASSICAL_OR_IMPLEMENTATION_RANK = 2`
-
-`ENTERPRISE_PLANE_DIMENSION = 3`
-
-The A2/C6 two-degree-of-freedom structure remains available as a classical flattened projection, implementation coordinate scaffold, combinatorial carrier, or compatibility model, but it no longer defines the native Enterprise dimension of a plane.
-
----
-
-## 1. What the project is trying to do
-
-Enterprise Math treats the extraordinary success of continuous mathematics, Euclidean geometry, calculus, trigonometry, vector analysis, and related systems as evidence that must be preserved and explained.
-
-The project does not challenge the usefulness of those concepts. It challenges a deeper assumption:
-
-> When mathematics is used to describe nature, must the classical definitions currently attached to those concepts also be nature's most primitive definitions?
-
-The research direction is:
-
-```text
-finite-resolution / precision-aware numbers
-    ↓
-integer and discrete states
-    ↓
-relations, collapse, paths, counts, forward evolution
-    ↓
-Enterprise axes / Enterprise dimensions / native direction structure
-    ↓
-vector and algebraic structure
-    ↓
-rebuilt length, angle, metric, area, and other geometric quantities
-    ↓
-rebuilt sin / cos / tan, pi, projection, coordinate decomposition, and analytic tools
-    ↓
-comparison with Euclidean geometry, continuous analysis, and engineering formulas
-    ↓
-classification: exact recovery / finite-precision recovery / asymptotic recovery / domain-restricted recovery / systematic correction
-    ↓
-physical and engineering calibration
-```
-
-The aim is therefore not to create a language isolated from modern mathematics. It is to give the useful parts of modern mathematics a more explicit foundation.
-
----
-
-## 2. What “definition is not inherited” means
-
-Enterprise Math uses the rule:
-
-> `Definition is not inherited.`
-
-This is interpreted precisely.
-
-### What may be inherited
-
-- concepts;
-- terminology;
-- notation;
-- mature computational tools;
-- correct conditional mathematics;
-- long-running engineering success;
-- classical formulas as calibration targets and interoperability interfaces.
-
-The following concepts are all retained:
-
-- VECTOR;
-- LENGTH;
-- ANGLE;
-- NORM;
-- DOT PRODUCT / PAIRING;
-- SIN / COS / TAN;
-- AREA / VOLUME;
-- pi;
-- Euclidean geometry;
-- continuum models;
-- and other classical mathematical tools that have proved useful.
-
-### What may not be inherited automatically
-
-A classical definition does not become a primitive Enterprise Math definition merely because it has worked for centuries.
-
-Therefore:
-
-> **Concepts may be inherited; definitions must re-earn their foundational status.**
-
-A classical definition may ultimately be re-derived exactly, or even shown to be uniquely natural at the appropriate layer. That is a successful recovery, not a failure of the program.
-
----
-
-## 3. Relation to Euclidean geometry
-
-Enterprise Math is **not anti-Euclidean**.
-
-Euclidean geometry is one of the most successful tool systems in mathematics and a major reference model for the project.
-
-The program is to:
-
-1. avoid preloading all Euclidean definitions into the native substrate;
-2. rebuild geometric objects from the discrete / precision-aware number-theoretic base;
-3. compare the rebuilt objects with Euclidean results;
-4. preserve every structure that is re-proved correct, stable, and useful;
-5. develop explicit corrections where finite precision, small scale, or special state structure produces systematic deviations.
-
-Recovery classifications include:
-
-- `EXACT_RECOVERY`;
-- `FINITE_PRECISION_RECOVERY`;
-- `ASYMPTOTIC_RECOVERY`;
-- `DOMAIN_RESTRICTED_RECOVERY`;
-- `SYSTEMATIC_DEVIATION`;
-- `NONRECOVERY`.
-
-The intended outcome is a deeper, more explicit, precision-aware version of the geometric toolchain, not difference for its own sake.
-
----
-
-## 4. Project layers
-
-### P0 — number and precision substrate
-
-Core themes include:
-
-- finite-information / precision-defined numerical states;
-- integer-first exact arithmetic;
-- explicit scale and resolution;
-- discrete state;
-- collapse / quotient / merging;
-- relation and forward evolution.
-
-Precision is part of state, not merely an error bar attached after computation.
-
-### P1 — discrete objects, paths, and algebra
-
-Includes:
-
-- unit packets;
-- adjacency;
-- occupancy;
-- transition events;
-- paths;
-- packet count;
-- transition/path count;
-- branching / recoalescence;
-- Enterprise axes, dimensions, directions, and sign propagation;
-- vectors, modules, group actions, coordinates, and other mature algebraic structures.
-
-Different integers must remain typed distinctly:
-
-`PACKET_COUNT != TRANSITION_COUNT`.
-
-Likewise:
-
-`TRANSITION_COUNT` does not automatically define `GEOMETRIC_LENGTH`.
-
-This does not deny LENGTH. It means LENGTH requires its own rebuilt definition.
-
-### P2 — rebuilt geometry
-
-From frozen P0/P1 structure, define and study:
-
-- length;
-- distance;
-- angle;
-- norm;
-- inner product / bilinear pairing;
-- projection;
-- straightness;
-- line / curve;
-- area / volume;
-- curvature;
-- boundary;
-- other geometric objects.
-
-These concepts are permitted. Each definition must state its dependencies, precision layer, and any additional choices.
-
-### P3 — rebuilt trigonometric and analytic tools
-
-Using rebuilt geometry, reconstruct or retype:
-
-- sin / cos / tan;
-- inverse trigonometric functions;
-- Pythagorean-type identities;
-- law-of-cosines-type relations;
-- the foundational semantics of pi;
-- coordinate transformations;
-- vector decomposition;
-- limits, completion, and other analytic tools where appropriate.
-
-Classical formulas are not forbidden. They are major recovery tests.
-
-### P4 — classical compatibility layer
-
-Compare rebuilt tools with:
-
-- Euclidean geometry;
-- classical trigonometry;
-- continuous analysis;
-- PDE / Fourier / spectral methods;
-- engineering computation.
-
-The question is:
-
-**Why does the classical formula work, under what conditions does it work, how does precision enter, and where is correction required?**
-
-### P5 — physics and engineering
-
-Only after mathematical definitions and bridge semantics are frozen should the project calibrate:
-
-- physical length;
-- physical angle;
-- time and velocity;
-- mechanics, materials, and fields;
-- probability / statistical physics;
-- quantum bridges;
-- cosmological models;
-- engineering prediction and experiment.
-
-A mathematical object does not acquire physical meaning merely because its name resembles a physical quantity.
-
----
-
-## 5. Current native axis structure
-
-The project-level native axis structure is defined by Section 0:
-
-- Enterprise plane: `3` Enterprise dimensions, `3` undirected axes, `6` directed directions;
-- our solid world: `6` Enterprise dimensions, `6` undirected axes, `12` directed directions;
-- adjacent `60°` directions inside any Enterprise plane carry opposite signs;
-- the six-dimensional world contains four three-dimensional Enterprise subplanes sharing one globally closed alternating-sign system;
-- once any one directed direction is declared positive, all remaining signs are uniquely determined up to total inversion.
-
-The historical carrier
-
-`Lambda = {(a,b,c) in Z^3 : a+b+c=0}`
-
-with
-
-`u=(1,-1,0)`
-
-`v=(0,1,-1)`
-
-`w=(-1,0,1)`
-
-and `u+v+w=0`
-
-remains available as an A2/C6 classical flattened projection, combinatorial relation carrier, or implementation scaffold. Its two degrees of freedom are a compatibility/implementation rank, not the native Enterprise dimension of the plane.
-
-The native axis definition does not by itself pre-decide the final formulas for LENGTH, classical ANGLE, NORM, or trigonometry; those tools remain to be rebuilt on this substrate.
-
----
-
-## 6. Length, cell count, and path count must remain distinct
-
-Enterprise Math currently distinguishes:
-
-1. **packet/cell count** — how many discrete units belong to a declared object or segment;
-2. **transition/path count** — how many actual adjacency transitions occurred;
-3. **geometric length** — a geometric quantity that requires a separately frozen definition and calibration.
-
-These may coincide in simple regimes, but they are not definitionally identical.
-
-A task may therefore state:
-
-`SEGMENT_PACKET_COUNT = 4`
-
-or:
-
-`TRANSITION_COUNT = 4`
-
-but should state:
-
-`LENGTH = 4`
-
-only after the rebuilt LENGTH semantics and the correspondence theorem are frozen.
-
-This distinction is intended to make the concept of length more precise, not to eliminate it.
-
----
-
-## 7. Research method: explain why mature mathematics works
-
-The core inverse method is:
-
-```text
-classical / engineering success
-    ↓ evidence, not native definition
-native discrete mechanism
-    ↓
-exact mathematical structure
-    ↓
-rebuilt mature tool
-    ↓
-classical recovery / deviation / correction
-```
-
-Research discipline includes:
-
-- raw-history versus compressed-count verification;
-- exact integer arithmetic where available;
-- preservation of negative results;
-- no target leakage;
-- no copying the desired classical answer into the premise;
-- classical recovery must be a derived result, not a hidden assumption.
-
----
-
-## 8. What Enterprise Math is not
-
-Enterprise Math is not:
-
-- renaming every classical concept merely to look novel;
-- declaring that length, angle, or trigonometry do not exist;
-- declaring Euclidean geometry wrong as a whole;
-- forcing every classical formula to deviate;
-- treating a discrete grid as only a low-resolution approximation of an assumed continuum;
-- assigning physical meaning automatically to every combinatorial object;
-- replacing proof with finite enumeration.
-
-The actual objective is:
-
-> **Preserve the best tools of modern mathematics while rebuilding their foundation into a finite-resolution, precision-aware, discrete-computable system that can explain classical success and expose corrections where needed.**
-
----
-
-## 9. Success criteria
-
-A successful Enterprise Math foundation should eventually:
-
-1. support rich algebra and geometry on its own substrate;
-2. reconstruct mature tools such as length, angle, and trigonometric functions;
-3. explain why classical Euclidean / continuous mathematics succeeds so broadly in engineering;
-4. state the validity domain and precision conditions of classical tools;
-5. provide computable corrections where finite-resolution or discrete effects matter;
-6. reuse the same foundational mechanisms across independent phenomena rather than fit targets one by one;
-7. ultimately produce new experimentally testable predictions where the classical framework is less natural.
-
----
-
-## 10. Project stack
-
-The long-term stack is:
-
-```text
-number
-→ precision
-→ discrete state
-→ relation and count
-→ Enterprise axes and Enterprise dimensions
-→ algebra and vector structure
-→ rebuilt geometry
-→ rebuilt trigonometry and analysis
-→ classical compatibility / correction
-→ physics
-→ engineering
-```
-
-Project-level slogan:
-
-> **Do not tear down the old mathematics; give it a better foundation.**
-
-This file is the project-level definition. Foundational research discipline is governed by `FOUNDATIONAL_LOGIC.md`, `foundational_logic.json`, and `native_semantics_admissibility.json`. Geometric-tool refoundation details are recorded in `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md`.
+Foundational discipline is governed by `FOUNDATIONAL_LOGIC.md`, `foundational_logic.json`, `native_semantics_admissibility.json`, and `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md`.
