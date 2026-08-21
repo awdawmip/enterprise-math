@@ -40,6 +40,7 @@ def test_identity_machine_tracks_mode_and_free_context_provenance():
     rule = identity["free_research_context_rule"]
     assert rule["clean_blind_label_requires_preexisting_agenda_absent"] is True
     assert rule["preexisting_agenda_cannot_be_unread"] is True
+    assert rule["fresh_identity_alone_does_not_make_context_clean"] is True
     assert "ANCHOR_EXPOSED" in identity["role_transition"]["task_to_free_same_conversation"]
 
 
@@ -53,9 +54,34 @@ def test_axiom_candidate_is_not_working_truth_or_direct_backflow():
     assert arch["axiom_candidate_lifecycle"]["raw_candidate_is_working_truth"] is False
 
 
+def test_candidate_to_task_transition_preserves_free_origin():
+    sm = load_json("research_axiom_candidate_state_machine.json")
+    contract = load_json("research_taskbook_contract.json")
+    transition = sm["explicit_task_transition"]
+    required = transition["taskbook_required_metadata"]
+    assert required["origin_kind"] == "FREE_AXIOM_CANDIDATE"
+    assert required["origin_candidate_id"] == "candidate_id"
+    assert "audited" in required["origin_candidate_state"]
+    assert transition["origin_may_be_relabelled_driver_roadmap"] is False
+    allowed = set(contract["task_origin_contract"]["free_candidate_allowed_states"])
+    assert set(transition["allowed_from"]) == allowed
+
+
 def test_discovery_and_validation_evidence_are_typed_separately():
     sm = load_json("research_axiom_candidate_state_machine.json")
     assert sm["evidence_typing"]["rule"] == "DISCOVERY_EVIDENCE != INDEPENDENT_VALIDATION_EVIDENCE"
+
+
+def test_independent_replication_tracks_context_independence_not_just_identity():
+    sm = load_json("research_axiom_candidate_state_machine.json")
+    repl = sm["independent_replication"]
+    assert set(repl["independence_status_values"]) == {
+        "CLEAN_INDEPENDENT_CONTEXT",
+        "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+        "NOT_INDEPENDENT",
+    }
+    assert repl["fresh_identity_alone_does_not_prove_independence"] is True
+    assert repl["candidate_visibility_between_runs_before_freeze"] is False
 
 
 def test_foundation_backflow_and_steward_require_audited_candidate_state():
@@ -74,6 +100,20 @@ def test_driver_contract_forbids_automatic_successor_stage_and_raw_working_truth
     assert "AXIOM_CANDIDATE != WORKING_TRUTH" in text
     assert "Working Truth activation boundary" in text
     assert "NO_IMPLICIT_DEFAULT_NEXT_ROUTE" in text
+    assert "alternative_route_or_free_exploration_considered" in text
+    assert "origin_kind=FREE_AXIOM_CANDIDATE" in text
+    assert "may not be labeled `NEW_DIRECTION`" in text
+
+
+def test_role_policy_mirrors_task_origin_and_successor_guards():
+    role = load_json("research_role_policy.json")
+    auth = role["official_taskbook_authority"]
+    assert auth["task_origin_required_for_new_taskbooks"] is True
+    assert auth["free_candidate_origin_requires_audited_candidate_id_and_state"] is True
+    assert auth["successor_stage_gate_required_for_continuation"] is True
+    assert auth["successor_gate_requires_alternative_route_or_free_exploration_considered"] is True
+    assert auth["obvious_stage_two_plus_must_be_continuation"] is True
+    assert auth["renaming_does_not_reset_semantic_lineage"] is True
 
 
 def test_taskbook_contract_requires_origin_lineage_and_continuation_gate():
@@ -97,6 +137,7 @@ def test_taskbook_contract_requires_origin_lineage_and_continuation_gate():
         "alternative_route_or_free_exploration_considered",
     } <= required
     assert lineage["obvious_stage_continuation_rule"]["required_lineage"] == "CONTINUATION"
+    assert "Renaming" in lineage["semantic_anti_evasion_rule"]
 
 
 def test_taskbook_tool_parses_and_enforces_continuation_gate():
@@ -167,9 +208,16 @@ def test_taskbook_policy_digest_includes_architecture_and_candidate_state():
     assert "research_architecture.json" in inputs
     assert "research_axiom_candidate_state_machine.json" in inputs
     assert "docs/RESEARCH_ARCHITECTURE.md" in inputs
+    semantics = "\n".join(policy["semantic_review_requirements"])
+    assert "provenance laundering" in semantics
+    assert "Stage 2+" in semantics
+    assert "independent/free exploration" in semantics
 
 
 def test_architecture_keeps_common_surface_as_lookup_not_default_context_dump():
     arch = load_json("research_architecture.json")
     assert "LOOKUP" in arch["read_performance"]["shared_common_surface"]
     assert arch["read_performance"]["explicit_task_soft_remote_read_budget_before_substantive_work"] == 3
+    assert arch["successor_stage_gate"]["obvious_stage_two_plus_must_be_continuation"] is True
+    assert arch["successor_stage_gate"]["renaming_does_not_reset_lineage"] is True
+    assert "alternative_route_or_free_exploration_considered" in arch["successor_stage_gate"]["new_continuation_task_requires"]
