@@ -1,41 +1,32 @@
-# 历史定义：进取半平方、进取平方与进取开方
+# 进取平方与开方 — 历史路线索引
 
-Status: `SUPERSEDED_BY_ORIGIN_ONE_REBUILD`
-Date: `2026-08-16`
-Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
+Status: `SUPERSEDED / HISTORICAL_PROVENANCE`
+Original date: `2026-08-16`
+Reconciled: `2026-08-21`
 
-本文件曾以零原点三角形
+本文件最初从旧零原点/A2 型几何讨论平方与开方，后续又曾被 origin-one / signed-origin-one 路线接管。上述坐标 ontology 均已被当前三正轴 / origin=0 foundation supersede。
 
-`T_n=((0,0,0),(n,0,0),(0,-n,0))`
+## 当前可安全保留的代数事实
 
-为基础，冻结：
+在当前原生 `120°` right sector 中，native squared length 使用两 active components 的平方和：
 
-`ENTERPRISE_SQUARE(n)=n*n`
+`L_E^2=a^2+b^2`。
 
-`ENTERPRISE_ROOT(n^2)=n`。
+因此普通标量平方/开方关系 `r^2 <-> r` 可以作为代数标量事实继续使用；它不需要、也不得再依赖 signed-origin-one、unit-origin circle 或旧三角面积证明。
 
-用户于 `2026-08-17` 明确冻结新的基础坐标语义：
+当前更丰富的 square-native-norm 开方对象见：
 
-`ENTERPRISE_COORDINATE_ORIGIN = 1`
+`definitions/ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md`。
 
-`ENTERPRISE_ZERO_COORDINATE_EXISTS = false`。
+该定义把 `sqrt(r^2)=r` 作为 scalar readout，同时保留全部满足 `a^2+b^2=r^2` 的 ordered nonnegative component-root branches 及其 native multipath fibers。
 
-因此本文件中把原生坐标标签 `n` 与从原点出发的 primitive interval 数直接等同的零原点推导失效。
+## 不再使用的历史证明链
 
-当前 canonical square/root definition：
+不得从本文件或后续 origin-one/signed-origin-one 文件恢复：
 
-`definitions/ENTERPRISE_SQUARE_AND_ROOT_ORIGIN_ONE_20260817.md`
+- native origin = 1 或 `±1`；
+- native zero 不存在；
+- signed-axis ontology；
+- 旧 unit quadrilateral / initial circle 作为当前 square law 的 foundational proof。
 
-最新冻结：
-
-`ENTERPRISE_SQUARE_RAW_AREA(n)=(n-1)^2`
-
-`ENTERPRISE_SQUARE(n)=1+(n-1)^2`
-
-`ENTERPRISE_ROOT(1+(n-1)^2)=n`。
-
-仍保留为历史几何事实的是：若外部 primitive interval 边长 magnitude 为 `m`，则半平方 elementary triangle 总数为 `m^2`，完整镜像平方含 `2m^2` elementary triangular cells，普通 magnitude area 为 `m^2`。
-
-被 supersede 的是把原生坐标标签本身直接当成该 magnitude 的解释。
-
-本文件只保留作历史记录，不得继续作为 canonical frozen input。
+这些只保留在 Git 历史中作为 provenance。
