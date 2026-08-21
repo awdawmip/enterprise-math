@@ -1,9 +1,9 @@
 {
-  "schema": "ENTERPRISE_MATH_AXIOM_CANDIDATE_STATE_MACHINE_V1",
+  "schema": "ENTERPRISE_MATH_AXIOM_CANDIDATE_STATE_MACHINE_V2",
   "status": "DRIVER_PROPOSED_GOVERNANCE_PAYLOAD",
   "effective": "2026-08-22",
   "driver_id": "EM-DVR-K7Q4N8",
-  "purpose": "Keep independent discovery, audit, Driver intake and canonical promotion as separate states so an early candidate cannot become a research agenda merely because it was interesting or recent.",
+  "purpose": "Keep independent discovery, audit, Driver intake, selected-task execution and canonical promotion as separate states so an early candidate cannot become a research agenda merely because it was interesting or recent.",
   "states": [
     "DISCOVERY_IN_PROGRESS",
     "BLIND_CANDIDATE_FROZEN",
@@ -87,6 +87,20 @@
     "working_truth_activation": "ONLY_AFTER_PROMOTED_TO_EXPLICIT_TASK_AND_EXPLICIT_DRIVER_DIRECTION_FREEZE",
     "candidate_status_alone_is_not_working_truth": true
   },
+  "explicit_task_transition": {
+    "allowed_from": [
+      "AUDITED_AXIOM_CANDIDATE",
+      "AUDITED_REPLACEMENT_CANDIDATE",
+      "EXACT_NEGATIVE_OBSTRUCTION"
+    ],
+    "taskbook_required_metadata": {
+      "origin_kind": "FREE_AXIOM_CANDIDATE",
+      "origin_candidate_id": "candidate_id",
+      "origin_candidate_state": "current audited state"
+    },
+    "origin_may_be_relabelled_driver_roadmap": false,
+    "working_truth_after_transition": "NOT_AUTOMATIC; requires explicit Driver direction freeze/taskbook semantics"
+  },
   "foundation_intake": {
     "eligible_from": [
       "EXACT_NEGATIVE_OBSTRUCTION",
@@ -110,6 +124,13 @@
   "independent_replication": {
     "new_context_required_for_clean_independence": true,
     "candidate_visibility_between_runs_before_freeze": false,
+    "foundation_snapshot_should_match_when_comparability_matters": true,
+    "independence_status_values": [
+      "CLEAN_INDEPENDENT_CONTEXT",
+      "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+      "NOT_INDEPENDENT"
+    ],
+    "fresh_identity_alone_does_not_prove_independence": true,
     "convergent_candidates": "STRUCTURAL_INTEREST_SIGNAL_NOT_PROOF",
     "divergent_candidates": "PRESERVE_ALL_BEFORE_DRIVER_SELECTION"
   }
