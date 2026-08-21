@@ -100,13 +100,16 @@ def test_historical_machine_records_cannot_restore_old_ontology():
         assert '"right_angle_degrees": 120' in dumped
 
 
-def test_research_tool_surface_matches_three_read_hot_path():
+def test_research_tool_surface_matches_three_read_exact_task_first_hot_path():
     text = read("docs/EM_RESEARCH_TOOL_SURFACE.md")
     assert "MAX_ROUTINE_SOURCE_READS_BEFORE_SUBSTANTIVE_WORK = 3" in text
     assert "AGENTS.md" in text
-    assert "one** common/router surface" in text
-    assert "one exact task entry" in text
-    assert "Triggered reads" in text
+    assert "the exact task entry" in text
+    assert "the first exact dependency actually needed to begin" in text
+    assert "Do **not** make `research_common_surface.json`" in text
+    assert "triggered ownership/theorem/tool/conflict lookup surfaces" in text
     assert "definitions/00_CURRENT_NATIVE_FOUNDATION.md" in text
     assert "Do not poll CI" in text
-    assert "re-reading unchanged routers" in text.lower()
+    assert "Re-reading unchanged routers/PR metadata" in text
+    assert "FREE_AXIOM_DISCOVERY" in text
+    assert "ANCHOR_EXPOSED" in text
