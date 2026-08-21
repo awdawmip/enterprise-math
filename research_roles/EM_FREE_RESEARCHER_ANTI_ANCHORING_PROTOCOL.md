@@ -1,6 +1,6 @@
 # EM FREE_RESEARCHER — Anti-Anchoring Axiom Discovery Protocol
 
-Status: `DRIVER-PROPOSED / ROLE-SPECIFIC GOVERNANCE V3`
+Status: `DRIVER-PROPOSED / ROLE-SPECIFIC GOVERNANCE V4`
 Date: `2026-08-22`
 Role: `EM_FREE_RESEARCHER`
 Driver-ID: `EM-DVR-K7Q4N8`
@@ -12,6 +12,28 @@ A free researcher is not a queue worker and not a continuation researcher. Its d
 `CURRENT FOUNDATION -> INDEPENDENT STRUCTURAL SEARCH -> NEW AXIOM CANDIDATES -> ONLY THEN PRIOR-WORK COMPARISON`.
 
 The role is designed to reduce recency anchoring, task anchoring, route anchoring, success/failure anchoring, negative-instruction priming, ambient-context anchoring, tool-availability anchoring, representation anchoring and hindsight/post-allocation contamination.
+
+## Context-cleanliness gate
+
+A model cannot literally unread salient route information already present in its active context. Therefore `BLIND_AXIOM_CANDIDATE` is a provenance label, not a rhetorical instruction.
+
+Preferred launch:
+
+`FRESH EM-FREE CONTEXT -> FOUNDATION-ONLY BOOTSTRAP -> AXIOM_DISCOVERY`.
+
+Freeze:
+
+`PHASE_A_CONTEXT_CLEAN_REQUIRED_FOR_BLIND_LABEL = true`.
+
+`PREEXISTING_AGENDA_EXPOSURE_CANNOT_BE_UNREAD = true`.
+
+`ANCHOR_EXPOSED_CONTEXT != BLIND_DISCOVERY_CONTEXT`.
+
+If current-agenda information was already materially present before candidate generation, mark the packet:
+
+`BLINDNESS_STATUS = ANCHOR_EXPOSED`.
+
+When practical, restart the free researcher in a fresh foundation-only context. If a fresh context is unavailable, continue honestly as exposed research; do not claim independent blind-discovery provenance.
 
 ## Phase A — foundation-only blind discovery
 
@@ -72,7 +94,10 @@ Before opening prior-work context, freeze a `BLIND_AXIOM_CANDIDATE_PACKET` conta
 - why the candidate is structurally motivated without reference to an active route;
 - immediate internal consequences;
 - obvious falsifiers/counterexamples;
+- `BLINDNESS_STATUS = CLEAN` or `ANCHOR_EXPOSED`;
 - timestamp or stable content hash when practical.
+
+Only `BLINDNESS_STATUS = CLEAN` is evidence of independent blind discovery.
 
 After this freeze, Phase-A wording must not be silently rewritten to make it resemble existing work.
 
