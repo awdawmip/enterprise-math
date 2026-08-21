@@ -2,6 +2,7 @@
 
 Status: `DRIVER_RECONCILIATION / NO_NEW_MATHEMATICS / PENDING_CANONICAL_PROMOTION`
 Date: `2026-08-21`
+Final audit: `2026-08-22`
 Driver-ID: `EM-DVR-K7Q4N8`
 Base generation: `main@a09d3bd7e1234f344d51c137c1fe33b50fa9fe35`
 Current-main combination checked against: `main@74cacc89ec09a8af7dd7ff01c10f2baf082daf81`
@@ -17,13 +18,15 @@ The stale authority chain allowed a researcher to read both generations during m
 This generation introduces no new mathematical theorem. It:
 
 1. upgrades `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, `project_definition.json`, and `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md` so they route mutable geometry to the later canonical foundation;
-2. adds `definitions/00_CURRENT_NATIVE_FOUNDATION.md` as a stable source current router;
-3. changes the researcher tool surface to require that router;
+2. adds `definitions/00_CURRENT_NATIVE_FOUNDATION.md` as a stable dependency-lazy source current router;
+3. aligns the researcher tool surface with the three-read source hot-path contract in `AGENTS.md`;
 4. retypes obsolete signed-origin-one, no-zero, origin-circle, six-direction/60-degree, signed-chamber, legacy reverse-geodesic and old square/root machine records as historical, partially superseded, auxiliary or downstream-only as appropriate;
 5. preserves safe weaker principles without resurrecting the ontology in which they were first discovered;
 6. preserves all original text through Git history rather than deleting provenance;
 7. records Precision Mathematics as Enterprise Math predecessor rather than active peer;
-8. aligns source routing with the user's direct 2026-08-21 update of the protected account worldview to the current three-positive-axis foundation.
+8. aligns source routing with the user's direct update of the protected account worldview to the current three-positive-axis foundation;
+9. records the worldview-level merge `OVERFITTING / SURFACE_FIT = POST_ALLOCATION` as one underlying learning mechanism without changing the spatial mathematics;
+10. freezes two-stage authority resolution: select the current generation first, then let the exact current definition outrank router summaries inside that generation.
 
 ## Current foundation after reconciliation
 
@@ -34,10 +37,12 @@ This generation introduces no new mathematical theorem. It:
 - no native negative axes required;
 - three `120°` native right sectors;
 - canonical sector atlas `N_0^3` with `min(a,b,c)=0`;
+- no native common diagonal-shift quotient;
 - native sector Pythagorean law `L_E^2=a^2+b^2`;
 - line identity = native component trace;
 - arbitrary-point length object = directed native line gauge;
 - unoriented datum = bidirectional trace pair / length spectrum;
+- `CANONICAL_BRC_BASE_LAYER=BOOLEAN_RESULT_SUPPORT_SEMANTICS`;
 - BRC enrichment `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
 
 ## Current-main combination
@@ -51,6 +56,8 @@ They have zero path overlap with the reconciliation payload. No mathematical rec
 
 ## Promotion state
 
-An existing non-draft L4 PR (#444) currently occupies the serialized canonical-promotion lane and is not mergeable. This reconciliation therefore remains Draft/pending promotion rather than bypassing unrelated L4 governance.
+An existing non-draft L4 PR (#444) occupies the serialized canonical-promotion lane. Its transient mergeability/check state is intentionally **not frozen into this durable review artifact**; that state must be read live only when promotion is actually attempted.
+
+This reconciliation therefore remains Draft/pending promotion rather than bypassing unrelated L4 governance. Draft status is a governance state, not an unresolved semantic conflict.
 
 `CI_NOT_REQUIRED_FOR_RESEARCH` for the Draft reconciliation checkpoint. No workflow-status polling is authorized merely because this checkpoint is published.
