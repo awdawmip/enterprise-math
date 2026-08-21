@@ -1,164 +1,68 @@
-# 进取坐标系与 BRC 坍缩桥梁
+# 进取坐标系与 BRC 坍缩桥梁 — 历史路由
 
-Status: `ACTIVE / CANONICAL_TERMINOLOGY_AND_ROUTE`
-Date: `2026-08-16`
-Updated: `2026-08-17 SIGNED-ORIGIN-ONE / NO-ZERO CORRECTION`
-Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
+Status: `SUPERSEDED / HISTORICAL_PROVENANCE`
+Original date: `2026-08-16`
+Superseded: `2026-08-20`
+Driver reconciliation: `2026-08-21`
 
-## 1. 正式名称：进取坐标系
+## 当前状态
 
-进取数论平面上的三轴原生坐标结构正式命名为：
+本文件曾经同时承载：
 
-**进取坐标系**（`ENTERPRISE_COORDINATE_SYSTEM`）。
+1. “进取坐标系”正式命名；
+2. 三条无向轴 / 六个有向方向 / 60° 正负交错；
+3. signed-origin-one / no-zero 坐标；
+4. BRC 作为垂直坐标系与进取坐标系之间桥梁的定位。
 
-进取坐标系的平面结构为：
+其中第 2、3 项已经被新的 foundational correction 推翻，不再是当前原生基础。
 
-- `3` 个进取维；
-- `3` 条原生无向数轴；
-- `6` 个有向方向；
-- 三条轴两两满足 `ENTERPRISE_ORTHOGONAL`（进取垂直）；
-- 任取一个方向为正后，相邻 `60°` 方向正负交错，除整体反号外全局唯一。
+当前必须改读：
 
-`0°/60°/120°` 只是在经典二维兼容图示中标注三条进取轴方向的校准方式；它们不改变进取坐标系自身的三维轴定义。
+`definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
 
-## 2. 带符号原点一 / 零不存在
+以及当前 downstream definitions：
 
-当前最高 foundational definition：
+- `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`
+- `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`
+- `definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`
+- `definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`
 
-`definitions/ENTERPRISE_SIGNED_ORIGIN_ONE_COORDINATE_20260817.md`
+## 已 supersede 的内容
 
-正式冻结：
+不得再从本历史文件恢复以下 native claims：
 
-`+1 ≡ -1 ≡ O_E`
+- `ORIGIN = ±1`；
+- `0` 不存在于原生坐标；
+- 三条原生无向轴自动产生六个原生有向方向；
+- 相邻 `60°` 方向正负交错；
+- 原生负轴是基础结构；
+- origin circle / diameter-one circle ontology；
+- 用旧 signed chart 作为当前 native coordinate system。
 
-`ENTERPRISE_ZERO_COORDINATE_EXISTS = false`。
+当前 foundation 冻结：
 
-因此：
+`O_E = 0`；
 
-- 原点不是单符号 `1`，而是 `+1/-1` 两个方向代表粘合成的同一个状态；
-- 原生一维轴写成 `...,-4,-3,-2,±1,+2,+3,+4,...`；
-- 沿正方向离开原点一个 primitive step 到 `+2`；
-- 沿负方向离开原点一个 primitive step 到 `-2`；
-- `0` 不作为原生坐标点、坐标分量或轴端点；
-- `-2,-3,...` 是合法的原生负方向坐标；
-- 三轴原点可写成 `(±1,±1,±1)`，所有符号组合代表同一个几何原点状态。
+`ENTERPRISE_NATIVE_AXES = THREE_POSITIVE_RAYS`；
 
-必须区分：
+`NO_NATIVE_NEGATIVE_AXES_REQUIRED`；
 
-`ENTERPRISE_COORDINATE_MAGNITUDE(±n)=n`
+`ENTERPRISE_RIGHT_ANGLE = 120_DEGREES`；
 
-与
+`A_E={(a,b,c) in N_0^3 : min(a,b,c)=0}` 为三个正二轴扇区 chart 的粘合。
 
-`EXTERNAL_ADJACENCY_STEP_COUNT(O_E,±n)=n-1`。
+## 保留的术语/路线
 
-后者是外部图距离，不能用来把原生尺度整体减一。
+以下历史贡献继续保留：
 
-## 3. 旧零中心 chart 的正确位置
+- “进取坐标系 / ENTERPRISE_COORDINATE_SYSTEM”作为项目术语；
+- “经典二维兼容图示”作为表示层术语；
+- `ORTHOGONAL_COORDINATE_SYSTEM` 作为经典/垂直坐标语义名称；
+- BRC 可作为垂直/经典坐标语义与进取坐标语义之间的 typed collapse/readout bridge；
+- BRC bridge 不预设双射，必须声明 source/target semantics、collapse relation、fiber/collision、inverse/readout status 与 precision layer。
 
-旧 `(a,b,...) in Z^k` 零中心有符号坐标不再直接作为原生坐标出现，但存在自然外部重编码：
+这些保留内容必须在当前三正轴 foundation 上重新类型化使用。
 
-`ENC_SIGNED(0)=O_E=[+1]=[-1]`
+## Provenance
 
-`ENC_SIGNED(k)=sign(k)*(|k|+1)` for `k!=0`。
-
-因此旧零中心 chart 可以继续作为 `AUXILIARY / EXTERNAL COMPUTATION CHART`。若要恢复某历史结果的 native typing，必须证明相关结构在 `ENC_SIGNED` 共轭下保持，而不能把辅助 chart 的 `0` 直接认作原生坐标。
-
-## 4. 图示术语
-
-需要在传统二维纸面或屏幕上表达进取坐标系时，统一使用：
-
-- **经典二维兼容图示**；
-- `CLASSICAL_2D_COMPATIBILITY_VIEW`。
-
-图示只是表示接口，不定义进取坐标系本体。
-
-## 5. 垂直坐标系
-
-传统以经典垂直/直角/正交关系建立的坐标表示称为：
-
-**垂直坐标系**（`ORTHOGONAL_COORDINATE_SYSTEM`）。
-
-经典欧式/笛卡尔工具保留在兼容层，不作为进取坐标系的原生定义。
-
-## 6. BRC 的定位
-
-BRC 正式定位为：
-
-> **垂直坐标系与进取坐标系之间的可计算桥梁。**
-
-记：
-
-`BRC_COLLAPSE_BRIDGE(ORTHOGONAL_COORDINATE_SYSTEM, ENTERPRISE_COORDINATE_SYSTEM)`。
-
-BRC 不是在进取坐标系内部重新生成坐标系，也不是把经典平方根机械取整。
-
-后续 BRC 必须分别声明：
-
-- source coordinate semantics；
-- target native coordinate semantics；
-- collapse relation；
-- collision / fiber；
-- inverse or compatibility readout status；
-- precision layer。
-
-## 7. 桥梁不预设可逆
-
-允许：
-
-- 多个垂直坐标状态坍缩到同一个进取状态；
-- 一个进取状态在经典兼容层有多个表示；
-- 只在声明域内存在精确逆映射；
-- 在有限精度下形成等价类或区间对应。
-
-## 8. 与 R059D 历史路线的关系
-
-R059D W–AO 中围绕 frontier/circle/BRC 的组合和极限结果继续保留。
-
-此前因为用户先冻结“原点 1、0 不存在”而将其零中心 chart native status 暂停。现在 signed-origin 结构给出了显式 `ENC_SIGNED` 重编码，因此下一步若需要恢复 R059D native status，应做**共轭重编码审计**，而不是从头假定旧 `0` 是原生点。
-
-当前冻结：
-
-`R059D_COMBINATORIAL_RESULTS = PRESERVED`
-
-`R059D_NATIVE_STATUS = PENDING_SIGNED_ORIGIN_CONJUGACY_AUDIT`。
-
-## 9. 进取平方与平方根
-
-当前 canonical definition：
-
-`definitions/ENTERPRISE_SQUARE_AND_ROOT_SIGNED_ORIGIN_ONE_20260817.md`
-
-用户给出的基础四边形
-
-`Q=((±1,±1,±1),(2,1,1),(1,-2,1),(1,1,2))`
-
-满足：
-
-`PERIMETER_E(Q)=4`
-
-`AREA_E(Q)=4`。
-
-因此此前 `1+(n-1)^2` 重推被 exact counterexample 推倒。
-
-正式恢复：
-
-`ENTERPRISE_SQUARE(n)=n^2`, `n>=1`
-
-`ENTERPRISE_ROOT(n^2)=n`, `n>=1`。
-
-平方态序列为：
-
-`1,4,9,16,25,...`，不含 `0` 项。
-
-## 10. 最高路由规则
-
-以后研究中：
-
-1. 平面三轴原生结构统一称 **进取坐标系**；
-2. 原点统一为 `+1 ≡ -1` 的 signed glued origin；
-3. `0` 不属于进取原生坐标系；
-4. `-n (n>=2)` 是合法负方向原生坐标；
-5. 二维展示统一称 **经典二维兼容图示**；
-6. BRC 默认研究 **垂直坐标系 ↔ 进取坐标系**；
-7. 旧零中心 chart 仅作为辅助计算 chart，恢复 native status 需做 `ENC_SIGNED` 共轭审计；
-8. 进取平方/开方保持 `n^2 <-> n`，不得再因邻接步数 `n-1` 擅自平移公式。
+原始 2026-08-16/17 文本保留在 Git 历史中。本文件现在只承担历史索引和 supersession 路由，避免其旧 `ACTIVE / CANONICAL` 标记继续与当前 foundation 争夺权威。
