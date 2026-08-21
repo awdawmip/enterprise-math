@@ -76,13 +76,27 @@ def test_driver_contract_forbids_automatic_successor_stage_and_raw_working_truth
     assert "NO_IMPLICIT_DEFAULT_NEXT_ROUTE" in text
 
 
-def test_taskbook_contract_requires_lineage_and_continuation_gate():
+def test_taskbook_contract_requires_origin_lineage_and_continuation_gate():
     contract = load_json("research_taskbook_contract.json")
+    origin = contract["task_origin_contract"]
+    assert origin["required_for_new_taskbooks"] is True
+    assert "FREE_AXIOM_CANDIDATE" in origin["allowed_values"]
+    assert set(origin["free_candidate_allowed_states"]) == {
+        "AUDITED_AXIOM_CANDIDATE",
+        "AUDITED_REPLACEMENT_CANDIDATE",
+        "EXACT_NEGATIVE_OBSTRUCTION",
+    }
     lineage = contract["task_lineage_contract"]
     assert lineage["required_for_new_taskbooks"] is True
     assert "CONTINUATION" in lineage["allowed_values"]
     required = set(lineage["continuation_required_successor_gate_fields"])
-    assert {"new_information_gap", "discriminating_outcomes", "kill_condition"} <= required
+    assert {
+        "new_information_gap",
+        "discriminating_outcomes",
+        "kill_condition",
+        "alternative_route_or_free_exploration_considered",
+    } <= required
+    assert lineage["obvious_stage_continuation_rule"]["required_lineage"] == "CONTINUATION"
 
 
 def test_taskbook_tool_parses_and_enforces_continuation_gate():
@@ -91,12 +105,16 @@ def test_taskbook_tool_parses_and_enforces_continuation_gate():
     ns = runpy.run_path(str(ROOT / "tools" / "research_taskbook.py"))
     lineage_findings = ns["lineage_findings"]
     incomplete = {
+        "task_id": "RS-X-STAGE2-TEST",
+        "title": "Stage 2 test",
         "task_lineage": "CONTINUATION",
         "parent_task_id": "RS-PARENT",
         "successor_gate": {"new_information_gap": "something"},
     }
     assert any(item["code"] == "TB-SUCCESSOR-GATE" for item in lineage_findings(incomplete, dispatch=True))
     complete = {
+        "task_id": "RS-X-STAGE2-TEST",
+        "title": "Stage 2 test",
         "task_lineage": "CONTINUATION",
         "parent_task_id": "RS-PARENT",
         "successor_gate": {
@@ -104,10 +122,43 @@ def test_taskbook_tool_parses_and_enforces_continuation_gate():
             "why_parent_result_does_not_close_it": "parent proves only a weaker object",
             "discriminating_outcomes": ["positive theorem", "exact no-go"],
             "kill_condition": "no structure beyond parent result",
-            "why_new_stage_or_task_is_better_than_same_task_or_closure": "requires an independent owner/evidence surface"
+            "alternative_route_or_free_exploration_considered": "independent structural search was considered; this exact dependency remains task-local",
+            "why_new_stage_or_task_is_better_than_same_task_or_closure": "requires an independent owner/evidence surface",
         },
     }
     assert not [item for item in lineage_findings(complete, dispatch=True) if item["severity"] == "ERROR"]
+
+
+def test_obvious_stage_two_cannot_be_relabelled_new_direction():
+    ns = runpy.run_path(str(ROOT / "tools" / "research_taskbook.py"))
+    findings = ns["lineage_findings"](
+        {
+            "task_id": "RS-R999-STAGE2-SOMETHING",
+            "title": "R999 Stage 2",
+            "task_lineage": "NEW_DIRECTION",
+        },
+        dispatch=True,
+    )
+    assert any(item["code"] == "TB-STAGE-LINEAGE" for item in findings)
+
+
+def test_free_candidate_origin_requires_audited_candidate_provenance():
+    ns = runpy.run_path(str(ROOT / "tools" / "research_taskbook.py"))
+    origin_findings = ns["origin_findings"]
+    missing = {"origin_kind": "FREE_AXIOM_CANDIDATE"}
+    assert any(item["code"] == "TB-ORIGIN-CANDIDATE" for item in origin_findings(missing, dispatch=True))
+    raw = {
+        "origin_kind": "FREE_AXIOM_CANDIDATE",
+        "origin_candidate_id": "AX-1",
+        "origin_candidate_state": "BLIND_CANDIDATE_FROZEN",
+    }
+    assert any(item["code"] == "TB-ORIGIN-CANDIDATE-STATE" for item in origin_findings(raw, dispatch=True))
+    audited = {
+        "origin_kind": "FREE_AXIOM_CANDIDATE",
+        "origin_candidate_id": "AX-1",
+        "origin_candidate_state": "AUDITED_AXIOM_CANDIDATE",
+    }
+    assert not [item for item in origin_findings(audited, dispatch=True) if item["severity"] == "ERROR"]
 
 
 def test_taskbook_policy_digest_includes_architecture_and_candidate_state():
