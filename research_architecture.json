@@ -1,0 +1,175 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ARCHITECTURE_V2",
+  "status": "DRIVER_PROPOSED_GOVERNANCE_PAYLOAD",
+  "effective": "2026-08-22",
+  "driver_id": "EM-DVR-K7Q4N8",
+  "purpose": "Separate independent axiom discovery, task execution, Driver portfolio control, Foundation maintenance, persistence and canonical promotion so that no one control surface silently becomes the research agenda.",
+  "core_invariants": [
+    "FOUNDATION_IS_STARTING_SUBSTRATE_NOT_DEFAULT_RESEARCH_AGENDA",
+    "EXPLORATION_AND_EXPLOITATION_ARE_DISTINCT_RESEARCH_MODES",
+    "FREE_RESEARCHER_DOES_NOT_AUTO_DISPATCH",
+    "TASK_RESEARCHER_MAY_CONSUME_EXPLICIT_AGENDA_CONTEXT",
+    "DRIVER_WORKING_TRUTH_APPLIES_ONLY_AFTER_EXPLICIT_DIRECTION_FREEZE",
+    "RAW_AXIOM_CANDIDATE_IS_NOT_WORKING_TRUTH",
+    "STAGE_PASS_DOES_NOT_IMPLY_SUCCESSOR_STAGE",
+    "FOUNDATION_BACKFLOW_ACCEPTS_AUDITED_CANDIDATES_NOT_RAW_DISCOVERY_DRAFTS",
+    "DISCOVERY_EVIDENCE_AND_VALIDATION_EVIDENCE_REMAIN_TYPED_SEPARATELY",
+    "CURRENT_MAIN_IS_CANONICAL_TRUTH_ONLY_AFTER_EXISTING_GATES"
+  ],
+  "research_modes": {
+    "FREE_AXIOM_DISCOVERY": {
+      "role_label": "RESEARCHER",
+      "role_key": "EM_FREE_RESEARCHER",
+      "visible_identity": "Researcher-ID",
+      "mission": "Search independently from the current foundation for new axiom candidates, smaller primitives, structural laws or exact obstructions before seeing the current research agenda.",
+      "agenda_visibility_before_candidate_freeze": "FOUNDATION_ONLY",
+      "scheduler_eligible": false,
+      "inherits_other_branch_working_truth": false,
+      "default_state": "AXIOM_DISCOVERY",
+      "candidate_protocol": "research_axiom_candidate_state_machine.json",
+      "source_role_contract": "research_roles/EM_FREE_RESEARCHER_ROLE.md",
+      "anti_anchoring_contract": "research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md"
+    },
+    "TASK_RESEARCH": {
+      "role_label": "RESEARCHER",
+      "visible_identity": "Researcher-ID",
+      "mission": "Execute an explicit user-selected, Driver-approved or scheduler-selected mother question with maximal theorem/evidence rigor.",
+      "agenda_visibility_before_work": "TASK_SCOPED",
+      "scheduler_eligible": true,
+      "inherits_driver_working_truth": "ONLY_IF_THE_EXPLICIT_TASKBOOK_OR_DRIVER_HANDOFF_FREEZES_IT",
+      "default_state": "TASK_EXECUTION"
+    },
+    "RESEARCH_DRIVER": {
+      "role_label": "RESEARCH_DRIVER",
+      "visible_identity": "Driver-ID",
+      "mission": "Own roadmap routing, portfolio balance, de-duplication, continuation/termination, task creation, Working Truth freeze and canonical promotion decisions; do not monopolize primary discovery.",
+      "scheduler_eligible": false,
+      "default_state": "CONTROL_PLANE"
+    },
+    "FOUNDATION_STEWARD": {
+      "role_label": "FOUNDATION_STEWARD",
+      "mission": "Maintain and verify shared definitions, interfaces, status and reusable tools; classify mature feedback without becoming the default investigator of new conjectures.",
+      "scheduler_eligible": "GOVERNANCE_TASKS_ONLY",
+      "default_state": "VERIFY_OR_MAINTAIN"
+    }
+  },
+  "role_precedence": {
+    "rule": "A more specific active role/mode contract controls over generic no-user-task dispatch or generic researcher freedom language for the same scope.",
+    "free_research_exception": "Generic scheduler rules do not apply during FREE_AXIOM_DISCOVERY Phase A.",
+    "explicit_user_override": true
+  },
+  "context_visibility": {
+    "free_phase_a": {
+      "allow": [
+        "current foundation generation and exact primitive definitions actually needed",
+        "protected user worldview facts relevant to the substrate",
+        "identity/repository safety/provenance",
+        "foundational/native-semantic typing rules when needed"
+      ],
+      "withhold_as_discovery_prior": [
+        "scheduler and dispatch queues",
+        "current numbered taskbooks",
+        "Research Relay and current PR/issue descriptions",
+        "recent commit history/titles",
+        "other branch Working Truth",
+        "theorem-family success or failure catalogs",
+        "suggested questions",
+        "benchmark/teacher targets selected to steer discovery",
+        "ambient project/chat/journal/continuity context not explicitly supplied by the current user instruction",
+        "available scripts/checkers/Lean modules as hints about ontology",
+        "implementation coordinates/file order/existing names as primitive hints"
+      ]
+    },
+    "task_research": {
+      "rule": "Load the exact task entry first and expand only to dependencies actually used. Shared theorem/tool catalogs are lookup surfaces, not default context dumps."
+    }
+  },
+  "axiom_candidate_lifecycle": {
+    "state_machine": "research_axiom_candidate_state_machine.json",
+    "raw_candidate_is_dispatchable": false,
+    "raw_candidate_is_working_truth": false,
+    "raw_candidate_is_foundation_backflow_ready": false,
+    "driver_intake_requires": "PHASE_B_AUDIT_COMPLETE",
+    "eligible_driver_routes": [
+      "PARK",
+      "REJECT",
+      "RETURN_AS_DERIVED_THEOREM",
+      "RETURN_AS_DUPLICATE_OR_PRIOR_ART",
+      "OPEN_EXPLICIT_TASK",
+      "OPEN_FOUNDATION_QUESTION",
+      "REQUEST_INDEPENDENT_REPLICATION"
+    ]
+  },
+  "working_truth_boundary": {
+    "applies_to": "EXPLICIT_TASK_DIRECTION_AFTER_DRIVER_FREEZE",
+    "does_not_apply_to": [
+      "FREE_AXIOM_DISCOVERY_PHASE_A",
+      "RAW_BLIND_AXIOM_CANDIDATE",
+      "PHASE_B_DEDUP_OR_PRIOR_ART_AUDIT",
+      "UNREVIEWED_SIDE_BRANCH_PROPOSAL"
+    ],
+    "activation_event": "DRIVER_EXPLICIT_DIRECTION_FREEZE_OR_DRIVER_APPROVED_TASKBOOK",
+    "falsifiers": [
+      "explicit user/Driver supersession",
+      "exact counterexample under the same premises",
+      "formal contradiction",
+      "frozen theorem-critical checker/certificate failure"
+    ]
+  },
+  "successor_stage_gate": {
+    "rule": "PASS_IS_NOT_A_SUCCESSOR_TRIGGER",
+    "new_continuation_task_requires": [
+      "parent_task_id",
+      "new_information_gap",
+      "why_parent_result_does_not_already_close_the_gap",
+      "discriminating_outcomes",
+      "kill_condition",
+      "why_same_task_continuation_is_inadequate_or_why_a_new_stage_improves_provenance"
+    ],
+    "if_missing": "CLOSE_OR_CONTINUE_SAME_TASK_OR_RETURN_TO_EXPLORATION",
+    "taskbook_contract": "research_taskbook_contract.json"
+  },
+  "scheduler_boundary": {
+    "portfolio": "TASK_RESEARCH_EXPLOITATION_QUEUE",
+    "eligible_mode": "TASK_RESEARCH",
+    "excluded_mode": "FREE_AXIOM_DISCOVERY",
+    "static_scheduler_fallback": "REQUIRES_BOUNDED_CURRENT_SCOPE_VALIDATION_BEFORE_CLAIM",
+    "scheduler_done_is_truth": false,
+    "scheduler_done_implies_successor": false
+  },
+  "foundation_backflow_boundary": {
+    "raw_free_candidate_auto_backflow": false,
+    "minimum_candidate_state": "AUDITED_AXIOM_CANDIDATE_OR_AUDITED_REPLACEMENT_CANDIDATE_OR_EXACT_NEGATIVE_OBSTRUCTION",
+    "steward_may_reclassify": true,
+    "steward_may_auto_promote_to_foundation": false,
+    "router": "foundation_backflow.json"
+  },
+  "independence_and_replication": {
+    "independent_free_runs": "Use separate clean contexts and do not expose one run's candidate packet to another before each run freezes its own packet.",
+    "independent_convergence": "INCREASES_STRUCTURAL_INTEREST_BUT_IS_NOT_PROOF",
+    "replication_after_freeze": true,
+    "cross_run_post_allocation_rewrite": false
+  },
+  "read_performance": {
+    "principle": "SMALLEST_SUFFICIENT_ROLE_PACKET",
+    "explicit_task_soft_remote_read_budget_before_substantive_work": 3,
+    "free_phase_a": "FOUNDATION_ONLY_AND_REMOTE_SILENT_AFTER_MINIMAL_READS",
+    "shared_common_surface": "LOOKUP_AND_CONFLICT_INDEX_NOT_DEFAULT_CONTEXT_DUMP",
+    "reuse_immutable_fetched_blobs": true,
+    "ci_polling_for_research": false
+  },
+  "persistence_and_promotion": {
+    "L1_L2_L3": "REMOTE_SILENT_BETWEEN_SEMANTIC_CHECKPOINTS",
+    "owner_branch": "ONE_BOUNDED_OWNER_GENERATION_BY_DEFAULT",
+    "draft_pr": "AT_MOST_ONE_PER_BOUNDED_OWNER_GENERATION_BY_DEFAULT",
+    "canonical_promotion": "ONE_ACTIVE_READY_L4_LANE_BY_DEFAULT",
+    "journal": "CAPTURE_PROGRESS_WITHOUT_PROMOTING_TRUTH",
+    "driver_continuity": "ROUTING_ONLY_NO_IMPLICIT_DEFAULT_NEXT_ROUTE",
+    "canonical_truth": "GATED_SOURCE_MAIN"
+  },
+  "legacy_surface_interpretation": {
+    "research_common_surface_mandatory_preflight": "TRIGGERED_REFERENCE_LIST_NOT_UNCONDITIONAL_STARTUP_SEQUENCE",
+    "research_common_surface_auto_select_when_user_task_absent": "GENERIC_TASK_RESEARCH_BEHAVIOR_ONLY_NOT_FREE_AXIOM_DISCOVERY",
+    "generic_AGENTS_scheduler_rule": "DOES_NOT_OVERRIDE_MORE_SPECIFIC_FREE_RESEARCH_ROLE_CONTRACT"
+  }
+}
