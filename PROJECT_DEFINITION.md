@@ -117,19 +117,20 @@ Boolean BRC preserves support, not discarded path identity, multiplicity or prov
 
 From 2026-08-21 onward, finite-resolution number lines, precision-defined numbers, precision-aware state and related integer/discrete research belong to Enterprise Math. Historical Precision Mathematics materials remain provenance.
 
-## 6. Account worldview and the six-dimensional/twelve-direction model
+## 6. Account worldview is now aligned to the three-positive-axis foundation
 
-The protected account-level `我眼中的世界.md` contains an ACTIVE user-chosen research axiom that models solid space as six Enterprise dimensions / twelve directions. This project cleanup does **not** modify that file.
+The protected account-level `我眼中的世界.md` was explicitly changed by the user in the current 2026-08-21 conversation. The old six-dimensional/twelve-direction world model and the per-plane six-direction/60-degree alternating-sign formulation are no longer ACTIVE.
 
-However, the 2026-08-16 project definition implemented that worldview using a native plane with six directed directions and 60-degree alternating signs. That plane realization has been superseded by the current three-positive-axis / 120-degree foundation.
+Current worldview and current project foundation agree:
 
-Therefore the project currently distinguishes:
+- `WORLDVIEW_SPATIAL_FOUNDATION = THREE_POSITIVE_AXIS_ENTERPRISE_PLANE`;
+- `O_E=0`;
+- `NO_NATIVE_NEGATIVE_AXES_REQUIRED`;
+- `ENTERPRISE_RIGHT_ANGLE=120_DEGREES`;
+- `OLD_6D_12_DIRECTION_WORLD_MODEL = SUPERSEDED_BY_USER`;
+- `OLD_60_DEGREE_ALTERNATING_SIGN_PLANE = SUPERSEDED_BY_USER`.
 
-- `WORLDVIEW_6D_12_DIRECTION = ACTIVE_USER_CHOSEN_RESEARCH_AXIOM`;
-- `OLD_60_DEGREE_SIX_DIRECTION_PLANE_REALIZATION = SUPERSEDED`;
-- `CURRENT_THREE_POSITIVE_AXIS_TO_6D_WORLD_BRIDGE = OPEN / REQUIRES_REDERIVATION`.
-
-An ACTIVE worldview entry does not silently restore the superseded plane realization.
+The project therefore retains no second active six-dimensional/twelve-direction world implementation and requires no bridge back to that superseded model. Historical materials remain provenance only.
 
 ## 7. Definition is not inherited
 
