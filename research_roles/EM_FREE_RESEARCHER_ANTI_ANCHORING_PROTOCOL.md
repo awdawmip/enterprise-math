@@ -1,6 +1,6 @@
 # EM FREE_RESEARCHER — Anti-Anchoring Axiom Discovery Protocol
 
-Status: `DRIVER-PROPOSED / ROLE-SPECIFIC GOVERNANCE V2`
+Status: `DRIVER-PROPOSED / ROLE-SPECIFIC GOVERNANCE V3`
 Date: `2026-08-22`
 Role: `EM_FREE_RESEARCHER`
 Driver-ID: `EM-DVR-K7Q4N8`
@@ -11,7 +11,7 @@ A free researcher is not a queue worker and not a continuation researcher. Its d
 
 `CURRENT FOUNDATION -> INDEPENDENT STRUCTURAL SEARCH -> NEW AXIOM CANDIDATES -> ONLY THEN PRIOR-WORK COMPARISON`.
 
-The role is designed to reduce recency anchoring, task anchoring, route anchoring, success-pattern anchoring, negative-instruction priming, ambient-context anchoring and hindsight/post-allocation contamination.
+The role is designed to reduce recency anchoring, task anchoring, route anchoring, success/failure anchoring, negative-instruction priming, ambient-context anchoring, tool-availability anchoring, representation anchoring and hindsight/post-allocation contamination.
 
 ## Phase A — foundation-only blind discovery
 
@@ -34,11 +34,13 @@ Phase A MUST NOT read or use merely for inspiration:
 - suggested open questions copied from prior research;
 - benchmark targets, teacher answers or classical target values chosen only to steer discovery;
 - existing candidate names as the vocabulary from which the new axiom must be selected;
-- incidental project-chat summaries, remembered recent work, ambient model/session memory or earlier conversation material that was not explicitly supplied by the user's current instruction as a research premise.
+- incidental project-chat summaries, remembered recent work, ambient model/session memory or earlier conversation material that was not explicitly supplied by the user's current instruction as a research premise;
+- the fact that a particular script/checker/formal module/notebook/visualization/enumerator already exists or is easy to use;
+- implementation carriers, coordinate encodings, drawing conventions, filenames or router ordering treated as hints about what should be primitive.
 
 This is an information barrier, not a ban on later comparison.
 
-Important: do not “anti-anchor” by repeatedly naming the route to avoid. Negative instructions can themselves prime the forbidden route. Phase-A bootstrap and role files should therefore use generic categories such as `current numbered route` rather than listing salient current route names.
+Important: do not “anti-anchor” by repeatedly naming the route to avoid. Negative instructions can themselves prime the forbidden route. Phase-A bootstrap and role files should use generic categories such as `current numbered route` rather than listing salient current route names.
 
 ## Candidate generation
 
@@ -56,7 +58,7 @@ Search for primitive regularities that would compress or explain many downstream
 - distinctions between state, process, path, quotient and readout;
 - which current primitives appear derivable from a smaller relation.
 
-The candidate should be stated at the lowest semantic layer justified by the evidence. A new axiom is not required to preserve current downstream language.
+The candidate should be stated at the lowest semantic layer justified by the evidence. A new axiom is not required to preserve current downstream language, current filenames, current coordinate encodings, or current tool interfaces.
 
 The current foundation is a starting substrate and comparison authority, not a required final axiom set. A candidate may propose that a current primitive is derivable, overspecified, split incorrectly, or replaceable, but may not silently edit canonical files.
 
@@ -84,16 +86,18 @@ Only after the Phase-A packet is frozen may the researcher inspect:
 - scheduler / Relay / PRs;
 - existing theorem families and current research branches;
 - prior failed routes;
-- classical literature or known analogues for novelty comparison.
+- classical literature or known analogues for novelty comparison;
+- available scripts, formal tools, enumerators and visualizations for verification.
 
 Phase B asks:
 
 1. Is the candidate already known in Enterprise Math under another name?
 2. Does it contradict a current frozen premise?
 3. Is it merely a theorem/derived property rather than a new axiom?
-4. Is it an implementation-carrier artifact?
+4. Is it an implementation-carrier or coordinate artifact?
 5. Did an apparent connection to an active route emerge only after comparison, or was that route already influencing Phase-A reasoning?
-6. Does external/classical prior art reclassify novelty without invalidating the mathematics?
+6. Did available tooling or file order influence the candidate itself, or only its later verification?
+7. Does external/classical prior art reclassify novelty without invalidating the mathematics?
 
 If the candidate collides with an existing route, record the collision as a comparison result. Do not retroactively turn the free research session into continuation of that route.
 
@@ -120,6 +124,14 @@ Freeze:
 `AMBIENT_RECENT_RESEARCH_CONTEXT = BLINDED_IN_PHASE_A`.
 
 `NEGATIVE_INSTRUCTION_PRIMING = AVOID_BY_GENERIC_BLINDING`.
+
+`TOOL_AVAILABILITY != DISCOVERY_PRIOR`.
+
+`IMPLEMENTATION_CONVENIENCE != AXIOM_PRIOR`.
+
+`FILE_ORDER != RESEARCH_PRIORITY`.
+
+`EXISTING_NAME != REQUIRED_PRIMITIVE`.
 
 `PHASE_A_CANDIDATE_FREEZE_PRECEDES_PRIOR_WORK_DEDUP`.
 
