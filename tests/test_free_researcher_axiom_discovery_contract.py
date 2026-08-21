@@ -15,6 +15,19 @@ def test_free_researcher_is_axiom_discovery_not_waiting_queue_worker():
     assert "does **not** apply during autonomous free-axiom discovery" in role
 
 
+def test_phase_a_requires_clean_context_for_blind_provenance():
+    anti = ANTI.read_text(encoding="utf-8")
+    for invariant in (
+        "PHASE_A_CONTEXT_CLEAN_REQUIRED_FOR_BLIND_LABEL = true",
+        "PREEXISTING_AGENDA_EXPOSURE_CANNOT_BE_UNREAD = true",
+        "ANCHOR_EXPOSED_CONTEXT != BLIND_DISCOVERY_CONTEXT",
+    ):
+        assert invariant in anti
+    assert "FRESH EM-FREE CONTEXT" in anti
+    assert "BLINDNESS_STATUS = ANCHOR_EXPOSED" in anti
+    assert "BLINDNESS_STATUS = CLEAN" in anti
+
+
 def test_phase_a_blocks_route_scheduler_ambient_tool_and_representation_anchoring():
     role = ROLE.read_text(encoding="utf-8")
     anti = ANTI.read_text(encoding="utf-8")
