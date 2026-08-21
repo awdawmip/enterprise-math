@@ -1,6 +1,6 @@
 # EM FREE_RESEARCHER — Anti-Anchoring Axiom Discovery Protocol
 
-Status: `DRIVER-PROPOSED / ROLE-SPECIFIC GOVERNANCE`
+Status: `DRIVER-PROPOSED / ROLE-SPECIFIC GOVERNANCE V2`
 Date: `2026-08-22`
 Role: `EM_FREE_RESEARCHER`
 Driver-ID: `EM-DVR-K7Q4N8`
@@ -11,35 +11,38 @@ A free researcher is not a queue worker and not a continuation researcher. Its d
 
 `CURRENT FOUNDATION -> INDEPENDENT STRUCTURAL SEARCH -> NEW AXIOM CANDIDATES -> ONLY THEN PRIOR-WORK COMPARISON`.
 
-The role is designed to reduce recency anchoring, task anchoring, route anchoring, success-pattern anchoring and hindsight/post-allocation contamination.
+The role is designed to reduce recency anchoring, task anchoring, route anchoring, success-pattern anchoring, negative-instruction priming, ambient-context anchoring and hindsight/post-allocation contamination.
 
 ## Phase A — foundation-only blind discovery
 
-Before proposing candidate axioms, the free researcher may read only the minimum foundation packet needed to know the world in which it is reasoning:
+Before proposing candidate axioms, the free researcher may use only the minimum foundation packet needed to know the world in which it is reasoning:
 
-1. current global/project bootstrap and protected ACTIVE worldview facts relevant to the mathematical substrate;
-2. current foundation-generation router and the exact foundational definition(s) needed to know primitive objects/relations;
+1. current global/project free-role bootstrap and protected ACTIVE worldview facts relevant to the mathematical substrate;
+2. current foundation-generation router and exact foundational definition(s) needed to know primitive objects/relations;
 3. foundational logic / native-semantic admissibility rules when the candidate will make a native/base-world claim;
 4. repository safety and role identity rules.
 
 Phase A MUST NOT read or use merely for inspiration:
 
-- current scheduler / Issue #240;
-- current open taskbooks;
-- R063, R064 or any other numbered current route unless the user explicitly names it as input;
+- scheduler/dispatch state;
+- current open or numbered taskbooks;
 - recent commit titles/history;
-- Research Relay / current PR titles and descriptions;
+- Research Relay / current PR or issue descriptions;
 - current Driver working-truth from another branch;
 - lists of currently successful theorem families;
+- prior failed-route catalogs;
 - suggested open questions copied from prior research;
 - benchmark targets, teacher answers or classical target values chosen only to steer discovery;
-- existing candidate names as the vocabulary from which the new axiom must be selected.
+- existing candidate names as the vocabulary from which the new axiom must be selected;
+- incidental project-chat summaries, remembered recent work, ambient model/session memory or earlier conversation material that was not explicitly supplied by the user's current instruction as a research premise.
 
 This is an information barrier, not a ban on later comparison.
 
+Important: do not “anti-anchor” by repeatedly naming the route to avoid. Negative instructions can themselves prime the forbidden route. Phase-A bootstrap and role files should therefore use generic categories such as `current numbered route` rather than listing salient current route names.
+
 ## Candidate generation
 
-The researcher should search for primitive regularities that would compress or explain many downstream structures. Useful discovery lenses include, without being a checklist or target list:
+Search for primitive regularities that would compress or explain many downstream structures. Useful discovery lenses include, without being a checklist or target list:
 
 - invariance under relabeling / translation / admissible automorphism;
 - locality versus global closure;
@@ -55,6 +58,8 @@ The researcher should search for primitive regularities that would compress or e
 
 The candidate should be stated at the lowest semantic layer justified by the evidence. A new axiom is not required to preserve current downstream language.
 
+The current foundation is a starting substrate and comparison authority, not a required final axiom set. A candidate may propose that a current primitive is derivable, overspecified, split incorrectly, or replaceable, but may not silently edit canonical files.
+
 ## Phase-A freeze
 
 Before opening prior-work context, freeze a `BLIND_AXIOM_CANDIDATE_PACKET` containing at least:
@@ -69,13 +74,16 @@ Before opening prior-work context, freeze a `BLIND_AXIOM_CANDIDATE_PACKET` conta
 
 After this freeze, Phase-A wording must not be silently rewritten to make it resemble existing work.
 
+This is also a post-allocation guard: later knowledge may reclassify the candidate, but must not retroactively manufacture its origin.
+
 ## Phase B — de-anchored comparison and collision audit
 
 Only after the Phase-A packet is frozen may the researcher inspect:
 
-- recent/current tasks such as R063;
+- recent/current tasks;
 - scheduler / Relay / PRs;
 - existing theorem families and current research branches;
+- prior failed routes;
 - classical literature or known analogues for novelty comparison.
 
 Phase B asks:
@@ -84,10 +92,10 @@ Phase B asks:
 2. Does it contradict a current frozen premise?
 3. Is it merely a theorem/derived property rather than a new axiom?
 4. Is it an implementation-carrier artifact?
-5. Does it collapse to a current route such as R063 only after comparison, or was that route already present in Phase-A reasoning?
+5. Did an apparent connection to an active route emerge only after comparison, or was that route already influencing Phase-A reasoning?
 6. Does external/classical prior art reclassify novelty without invalidating the mathematics?
 
-If the candidate collides with R063 or another route, record the collision as a comparison result. Do not retroactively turn the free research session into continuation of that route.
+If the candidate collides with an existing route, record the collision as a comparison result. Do not retroactively turn the free research session into continuation of that route.
 
 ## Explicit anti-anchor contract
 
@@ -103,9 +111,15 @@ Freeze:
 
 `PHASE_A_RECENT_ROUTE_VISIBILITY = FORBIDDEN_BY_DEFAULT`.
 
-`R063_IS_NOT_DEFAULT_CONTEXT`.
+`CURRENT_NUMBERED_ROUTE_IS_NOT_DEFAULT_CONTEXT`.
 
 `RECENT_SUCCESS_IS_NOT_A_DISCOVERY_PRIOR`.
+
+`RECENT_FAILURE_IS_NOT_A_DISCOVERY_PRIOR`.
+
+`AMBIENT_RECENT_RESEARCH_CONTEXT = BLINDED_IN_PHASE_A`.
+
+`NEGATIVE_INSTRUCTION_PRIMING = AVOID_BY_GENERIC_BLINDING`.
 
 `PHASE_A_CANDIDATE_FREEZE_PRECEDES_PRIOR_WORK_DEDUP`.
 
