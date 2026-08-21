@@ -1,171 +1,150 @@
 # GEOMETRIC TOOL REFOUNDATION POLICY
 
-Status: DRIVER-FROZEN PROJECT POLICY
-Date: 2026-08-16
-Driver: EM-DVR-9GP3M7 / CONTROL_PLANE
+Status: `ACTIVE / DRIVER-FROZEN PROJECT POLICY / V2`
+Date: 2026-08-21
+Driver: `CONTROL_PLANE`
 
 Authority context:
 
 - `PROJECT_DEFINITION.md`
 - `PROJECT_DEFINITION.zh-CN.md`
 - `project_definition.json`
+- `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
 
-This policy is a geometric-tool specialization of the project-level definition. If wording conflicts, the project-level definition controls.
+If this policy conflicts with a later explicit foundational correction, the later correction controls.
 
 ## Core principle
 
-Enterprise Math does **not** aim to abolish Euclidean geometry or its mature tools.
+Enterprise Math does **not** abolish Euclidean geometry or mature geometric tools.
 
-The goal is:
+The mode is:
 
 `REFOUND, NOT REJECT`.
 
-Classical concepts such as vector, length, angle, norm, dot product, sine, cosine, tangent, area, and related geometric constructions remain legitimate mathematical concepts and engineering tools.
+Keep the concepts; withhold automatic promotion of classical definitions into the native substrate; rebuild the definitions from the declared discrete/precision substrate; then classify recovery or deviation.
 
-What is withheld is only their **automatic inheritance as native foundational definitions**.
+## Current native-plane authority
 
-`Definition is not inherited` means:
+The current plane foundation is not the historical six-direction/60-degree signed-axis model.
 
-- keep the concept;
-- keep successful classical formulas as evidence, calibration targets, and interoperability targets;
-- rebuild or re-derive the definition from the project's discrete / precision-defined number-theoretic substrate;
-- determine exactly when the rebuilt object agrees with the classical Euclidean object;
-- record any finite-precision or discrete deviations as mathematical findings rather than treating them as forbidden.
+Freeze the current routing facts:
 
-## Native axis authority update — 2026-08-16
+- `ENTERPRISE_PLANE_DIMENSION = 3`;
+- `ENTERPRISE_NATIVE_AXES = THREE_POSITIVE_RAYS`;
+- `NO_NATIVE_NEGATIVE_AXES_REQUIRED`;
+- `O_E = 0` and the origin is a triple circle-cell boundary intersection;
+- native cells are overlapping circle cells identified by discrete centers;
+- nearest center spacing is `1`;
+- cell radius is `1/sqrt(3)`;
+- the three positive axes cut the plane into three native right sectors;
+- `ENTERPRISE_RIGHT_ANGLE = 120_DEGREES`;
+- the axes are pairwise `ENTERPRISE_ORTHOGONAL` in the Enterprise sense;
+- canonical sector coordinates satisfy `min(a,b,c)=0` in `N_0^3`;
+- the sector Pythagorean law is `L_E^2=a^2+b^2` on the two active coordinates.
 
-The project-level definition now freezes the following native axis semantics:
+The old rule
 
-- one Enterprise dimension = one native undirected axis family;
-- one Enterprise dimension has two opposite directed directions;
-- an Enterprise plane has `3` Enterprise dimensions / `3` axes / `6` directed directions;
-- its three axis families are pairwise `ENTERPRISE_ORTHOGONAL` and appear in a flattened classical drawing at `0°`, `60°`, `120°` modulo `180°`;
-- choose any one directed direction as positive; every adjacent `60°` direction has the opposite sign, giving `+ - + - + -` around each Enterprise plane;
-- our solid spatial world is modeled as `6` Enterprise dimensions / `6` axes / `12` directed directions;
-- the six-dimensional axis structure contains four three-dimensional Enterprise subplanes, and the alternating sign assignment closes globally and is unique up to simultaneous sign inversion.
+`three undirected axes -> six native directed directions -> alternating signs every 60 degrees`
 
-These are native project definitions, not consequences of Euclidean basis rank.
+is historical/superseded as the native plane foundation.
 
-## Layering
+## Geometry layers
 
-### G0 — discrete arithmetic / relational substrate
+### G0 — declared native/relational substrate
 
-May contain declared integer or precision-defined number axes, Enterprise dimensions and directions, packet counts, adjacency, transition events, exact vector-module operations, and other explicitly frozen primitive relations.
+May contain the currently frozen circle-cell carrier, three positive native axes, integer sector addresses, adjacency/incidence, packet/cell count, transition/path events and other explicitly declared native relations.
+
+Classical Euclidean embedding facts do not become G0 merely because they are convenient for drawing or computation.
 
 ### G1 — rebuilt geometric primitives
 
-May define, when a task requires them:
+May define, when justified:
 
 - VECTOR;
 - LENGTH;
+- DISTANCE;
 - ANGLE;
 - NORM;
 - DOT / BILINEAR PAIRING;
 - PROJECTION;
 - AREA / VOLUME;
-- other geometric readouts.
+- straightness, line, curve and related geometry.
 
-These names are not forbidden. Their definitions must be explicitly frozen and typed.
+The names are legitimate; their definitions must be explicit and typed.
+
+Current frozen examples include the sector-local native Pythagorean law, the native component-trace line identity, the arbitrary-point directed native line gauge, and the bidirectional unoriented segment spectrum.
 
 ### G2 — rebuilt trigonometric / analytic tools
 
-May define or reconstruct:
+May reconstruct sin, cos, tan, inverse trig, pi semantics, coordinate transforms, law-of-cosines-type identities and analytic/completion tools after the required geometric primitives are frozen.
 
-- sin;
-- cos;
-- tan;
-- inverse trigonometric relations;
-- Pythagorean-type identities;
-- law-of-cosines-type relations;
-- coordinate/vector decompositions.
+### G3 — Euclidean/classical compatibility
 
-Classical identities may be recovered exactly, approximately, or only on a declared domain. The status must be proved, not assumed.
+Classical Euclidean geometry remains a major comparison and calibration layer.
 
-### G3 — Euclidean compatibility / calibration layer
+Use recovery classes:
 
-Classical Euclidean geometry is a major reference model and tool layer.
+- `EXACT_RECOVERY`;
+- `FINITE_PRECISION_RECOVERY`;
+- `ASYMPTOTIC_RECOVERY`;
+- `DOMAIN_RESTRICTED_RECOVERY`;
+- `SYSTEMATIC_DEVIATION`;
+- `NONRECOVERY`.
 
-Tasks may explicitly compare rebuilt definitions against classical Euclidean results and classify:
+Classical success is evidence; it is not automatic proof that its definition belongs in G0.
 
-- EXACT_RECOVERY;
-- FINITE_PRECISION_RECOVERY;
-- ASYMPTOTIC_RECOVERY;
-- DOMAIN_RESTRICTED_RECOVERY;
-- SYSTEMATIC_DEVIATION;
-- NONRECOVERY.
+## Historical carrier boundary
 
-A classical formula's success is evidence and a calibration target; it is not by itself proof that the classical definition belongs in G0.
+The A2/C6 carrier
 
-## Historical A2/C6 carrier — compatibility role only
+`Lambda={(a,b,c) in Z^3 : a+b+c=0}`
 
-The historical relation carrier
+with relations such as `u+v+w=0` remains useful as:
 
-`Lambda = {(a,b,c) in Z^3 : a+b+c=0}`
+- `I0_IMPLEMENTATION_CARRIER`;
+- classical flattened projection;
+- combinatorial relation carrier;
+- compatibility model.
 
-with
+It must not be used to manufacture native negative axes, native coordinate equivalence, Enterprise orthogonality or native metric.
 
-`u=(1,-1,0)`
-`v=(0,1,-1)`
-`w=(-1,0,1)`
+In particular:
 
-and
+`CARRIER_DIRECTION_RELATION != NATIVE_VECTOR_RELATION`.
 
-`u+v+w=0`
+## Current line/distance boundary
 
-has classical / implementation rank `2` and six directed vector steps
+Do not equate discrete path-letter count with native length.
 
-`{+u,-u,+v,-v,+w,-w}`.
+One native component trace may have many path representatives. The current arbitrary-point point-to-point object is a directed native line gauge and is generally reversal-asymmetric. The canonical unoriented datum is a bidirectional trace pair / length spectrum, not a uniquely chosen symmetric scalar metric.
 
-It remains valid as:
+## BRC boundary
 
-- a flattened classical projection;
-- an implementation coordinate scaffold;
-- a combinatorial relation carrier;
-- a compatibility model.
+BRC remains a typed collapse/readout bridge and the canonical historical BRC core is Boolean result-support semantics.
 
-It no longer defines the native Enterprise dimension of a plane. The authoritative native statement is:
+The current enrichment tower is:
 
-`ENTERPRISE_PLANE_DIMENSION = 3`.
+`PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
+
+Component typing must be fixed before carrier enrichment. Unlabeled endpoint reachability is not a native-line membership oracle.
+
+## World-model boundary
+
+The protected account worldview may retain a six-Enterprise-dimension / twelve-direction research axiom. The old six-direction plane implementation is nevertheless superseded. Any current bridge from the three-positive-axis plane to that world model must be derived separately.
 
 ## Stage-specific premise rule
 
-A task may say that a quantity is **not a premise for that task** without declaring the concept globally forbidden.
+A task may withhold LENGTH, ANGLE, TRIG, metric, probability or another mature tool from its premises without declaring the concept globally forbidden.
 
-For example, a BRC6 branch-count selector may freeze:
+Preferred wording includes:
 
-`LENGTH_NOT_USED_AS_SELECTOR_PREMISE`
+- `CLASSICAL_LENGTH_DEFINITION_NOT_INHERITED`;
+- `CLASSICAL_ANGLE_DEFINITION_NOT_INHERITED`;
+- `CLASSICAL_TRIG_DEFINITION_NOT_INHERITED`;
+- `EUCLIDEAN_RESULT_USED_AS_CALIBRATION_NOT_PREMISE`.
 
-while still allowing LENGTH to exist elsewhere as a rebuilt geometric readout.
-
-Likewise:
-
-`ANGLE_NOT_USED_AS_SELECTOR_PREMISE`
-
-or
-
-`TRIG_NOT_USED_AS_SELECTOR_PREMISE`
-
-mean only that the current theorem does not depend on those readouts.
-
-## Prohibited mistake
-
-Do not write project-wide claims of the form:
-
-- NO LENGTH;
-- NO ANGLE;
-- NO TRIGONOMETRY;
-- NO NORM;
-- NO EUCLIDEAN GEOMETRY.
-
-unless a narrowly scoped historical experiment explicitly requires temporary withholding.
-
-Preferred wording:
-
-- CLASSICAL_LENGTH_DEFINITION_NOT_INHERITED;
-- CLASSICAL_ANGLE_DEFINITION_NOT_INHERITED;
-- CLASSICAL_TRIG_DEFINITION_NOT_INHERITED;
-- EUCLIDEAN_RESULT_USED_AS_CALIBRATION_NOT_PREMISE.
+Do not write project-wide `NO LENGTH`, `NO ANGLE`, `NO TRIGONOMETRY`, `NO NORM`, or `NO EUCLIDEAN GEOMETRY` claims merely because one stage withholds those definitions.
 
 ## Scientific objective
 
-The objective is to repair and improve the toolchain built above classical Euclidean geometry by giving its concepts a more explicit discrete / precision-aware foundation, while preserving compatibility wherever the classical tool is already correct and useful.
+The objective is to keep the mature mathematical toolchain while giving it a smaller, explicit, finite-resolution and precision-aware foundation that explains classical success and exposes genuine domain-dependent corrections without target leakage.
