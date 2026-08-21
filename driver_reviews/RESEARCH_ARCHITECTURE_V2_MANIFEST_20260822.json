@@ -1,6 +1,6 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_ARCHITECTURE_V2_MANIFEST",
-  "status": "DRAFT_PROMOTION_PAYLOAD_AUDITED_CURRENT_MAIN_COMBINATION_GREEN",
+  "status": "DRAFT_PROMOTION_PAYLOAD_FINAL_STATIC_AUDIT_GREEN",
   "driver_id": "EM-DVR-K7Q4N8",
   "date": "2026-08-22",
   "classification": "NO_NEW_MATHEMATICS_GOVERNANCE",
@@ -13,27 +13,42 @@
       "research_tasks/R063_STAGE4_THREE_SECTOR_C4_PROCESS_GLOBALIZATION_GLUING_OBSTRUCTION_20260822.md"
     ],
     "path_overlap_with_architecture_payload": 0,
-    "semantic_action": "NO_RECONCILIATION_REQUIRED; already-open Stage4 remains a legacy/pre-V2 TASK_RESEARCH execution and is not retroactively invalidated"
+    "semantic_action": "NO_RECONCILIATION_REQUIRED; already-open Stage4 remains a pre-V2 TASK_RESEARCH execution and is not retroactively invalidated; any later continuation/re-dispatch is governed by current origin/lineage/successor policy"
   },
+  "draft_pr": 575,
+  "changed_file_count": 19,
   "architecture": "research_architecture.json",
   "candidate_state_machine": "research_axiom_candidate_state_machine.json",
-  "draft_pr": 575,
   "key_invariants": [
     "FREE_AXIOM_DISCOVERY_NE_TASK_RESEARCH",
-    "RAW_AXIOM_CANDIDATE_NE_WORKING_TRUTH",
+    "RAW_AXIOM_CANDIDATE_NE_WORKING_TRUTH_NE_CANONICAL_FOUNDATION",
     "DISCOVERY_EVIDENCE_NE_INDEPENDENT_VALIDATION_EVIDENCE",
+    "TASK_ORIGIN_AND_LINEAGE_CANNOT_BE_ERASED_BY_RENAMING",
     "PASS_IS_NOT_A_SUCCESSOR_TRIGGER",
+    "STAGE2_PLUS_REQUIRES_CONTINUATION",
+    "CONTINUATION_GATE_INCLUDES_ALTERNATIVE_ROUTE_OR_FREE_EXPLORATION_CONSIDERATION",
     "FREE_AXIOM_DISCOVERY_NOT_SCHEDULER_ELIGIBLE",
     "RAW_FREE_CANDIDATE_NOT_FOUNDATION_BACKFLOW_READY",
     "NO_IMPLICIT_DEFAULT_NEXT_ROUTE"
   ],
+  "task_origin_provenance_gate": true,
   "taskbook_continuation_gate": true,
+  "stage_continuation_lexical_anti_evasion": true,
+  "semantic_lineage_renaming_does_not_reset": true,
   "free_context_cleanliness_gate": true,
-  "independent_replication_isolation": true,
+  "independent_replication_context_status": true,
   "common_surface_default_context_dump": false,
   "mathematical_definition_files_changed": 0,
   "current_numbered_research_task_result_files_changed_by_payload": 0,
   "overlap_with_authority_reconciliation_pr_571": 0,
   "supersedes_free_role_only_pr_573": true,
+  "local_pytest_attempt": {
+    "attempted": true,
+    "result": "NOT_RUN_ENVIRONMENT_NETWORK_UNAVAILABLE",
+    "detail": "isolated git clone could not resolve github.com in the container; this is not a test failure and is not represented as a PASS"
+  },
+  "static_contract_audit": "GREEN",
+  "source_path_boundary_audit": "GREEN",
+  "current_main_combination_audit": "GREEN",
   "canonical_promotion": "UNCHANGED_EXISTING_GATES"
 }
