@@ -1,0 +1,116 @@
+{
+  "schema": "ENTERPRISE_MATH_AXIOM_CANDIDATE_STATE_MACHINE_V1",
+  "status": "DRIVER_PROPOSED_GOVERNANCE_PAYLOAD",
+  "effective": "2026-08-22",
+  "driver_id": "EM-DVR-K7Q4N8",
+  "purpose": "Keep independent discovery, audit, Driver intake and canonical promotion as separate states so an early candidate cannot become a research agenda merely because it was interesting or recent.",
+  "states": [
+    "DISCOVERY_IN_PROGRESS",
+    "BLIND_CANDIDATE_FROZEN",
+    "PHASE_B_AUDIT_IN_PROGRESS",
+    "FALSIFIED",
+    "DUPLICATE_OR_ALREADY_KNOWN",
+    "DERIVED_NOT_AXIOM",
+    "IMPLEMENTATION_ARTIFACT",
+    "PRIOR_ART_ANALOGUE",
+    "EXACT_NEGATIVE_OBSTRUCTION",
+    "AUDITED_AXIOM_CANDIDATE",
+    "AUDITED_REPLACEMENT_CANDIDATE",
+    "DRIVER_INTAKE",
+    "PARKED",
+    "REJECTED",
+    "INDEPENDENT_REPLICATION_REQUESTED",
+    "PROMOTED_TO_EXPLICIT_TASK",
+    "PROMOTED_TO_FOUNDATION_QUESTION",
+    "CANONICALIZED"
+  ],
+  "initial_state": "DISCOVERY_IN_PROGRESS",
+  "phase_a_freeze": {
+    "target_state": "BLIND_CANDIDATE_FROZEN",
+    "required_fields": [
+      "candidate_id",
+      "candidate_statement",
+      "foundation_snapshot_ref",
+      "worldview_snapshot_ref_or_none",
+      "primitive_dependencies",
+      "semantic_layer",
+      "structural_motivation_without_active_route_reference",
+      "immediate_consequences",
+      "obvious_falsifiers",
+      "blindness_status",
+      "created_at_or_content_hash"
+    ],
+    "blindness_status_values": ["CLEAN", "ANCHOR_EXPOSED"],
+    "clean_required_for_independent_discovery_claim": true,
+    "post_freeze_rewrite_of_origin_story": false
+  },
+  "phase_b_audit": {
+    "entry_from": "BLIND_CANDIDATE_FROZEN",
+    "required_checks": [
+      "dedup_against_current_enterprise_math",
+      "contradiction_against_current_foundation",
+      "axiom_vs_derived_theorem",
+      "implementation_carrier_artifact",
+      "prior_art_or_external_analogue_when_novelty_matters",
+      "counterexample_or_small_model_pressure_test",
+      "semantic_layer_recheck",
+      "relation_to_active_routes_only_after_phase_a_freeze"
+    ],
+    "allowed_terminal_classifications": [
+      "FALSIFIED",
+      "DUPLICATE_OR_ALREADY_KNOWN",
+      "DERIVED_NOT_AXIOM",
+      "IMPLEMENTATION_ARTIFACT",
+      "PRIOR_ART_ANALOGUE",
+      "EXACT_NEGATIVE_OBSTRUCTION",
+      "AUDITED_AXIOM_CANDIDATE",
+      "AUDITED_REPLACEMENT_CANDIDATE"
+    ]
+  },
+  "driver_intake": {
+    "eligible_from": [
+      "EXACT_NEGATIVE_OBSTRUCTION",
+      "AUDITED_AXIOM_CANDIDATE",
+      "AUDITED_REPLACEMENT_CANDIDATE",
+      "DERIVED_NOT_AXIOM",
+      "DUPLICATE_OR_ALREADY_KNOWN",
+      "PRIOR_ART_ANALOGUE"
+    ],
+    "raw_blind_candidate_eligible": false,
+    "driver_actions": [
+      "PARKED",
+      "REJECTED",
+      "INDEPENDENT_REPLICATION_REQUESTED",
+      "PROMOTED_TO_EXPLICIT_TASK",
+      "PROMOTED_TO_FOUNDATION_QUESTION"
+    ],
+    "working_truth_activation": "ONLY_AFTER_PROMOTED_TO_EXPLICIT_TASK_AND_EXPLICIT_DRIVER_DIRECTION_FREEZE",
+    "candidate_status_alone_is_not_working_truth": true
+  },
+  "foundation_intake": {
+    "eligible_from": [
+      "EXACT_NEGATIVE_OBSTRUCTION",
+      "AUDITED_AXIOM_CANDIDATE",
+      "AUDITED_REPLACEMENT_CANDIDATE"
+    ],
+    "requires_driver_or_steward_classification": true,
+    "raw_candidate_auto_open_foundation_question": false,
+    "raw_candidate_auto_schedule_research": false
+  },
+  "canonicalization": {
+    "direct_candidate_to_main": false,
+    "required_route": "NORMAL_TASK_OR_FOUNDATION_VERIFICATION_AND_EXISTING_PROMOTION_GATES",
+    "canonical_truth": "GATED_SOURCE_MAIN"
+  },
+  "evidence_typing": {
+    "discovery_evidence": "Evidence used to generate or motivate a candidate; may not be relabeled as independent validation without disclosure.",
+    "validation_evidence": "Evidence not consumed by the candidate-generation choice or explicitly corrected for adaptive/post-allocation reuse.",
+    "rule": "DISCOVERY_EVIDENCE != INDEPENDENT_VALIDATION_EVIDENCE"
+  },
+  "independent_replication": {
+    "new_context_required_for_clean_independence": true,
+    "candidate_visibility_between_runs_before_freeze": false,
+    "convergent_candidates": "STRUCTURAL_INTEREST_SIGNAL_NOT_PROOF",
+    "divergent_candidates": "PRESERVE_ALL_BEFORE_DRIVER_SELECTION"
+  }
+}
