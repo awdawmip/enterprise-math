@@ -1,0 +1,104 @@
+{
+  "firewalls": {
+    "known_Lefschetz_surjectivity_generator": false,
+    "known_Picard_basis_generator": false,
+    "known_ruling_divisor_generator": false,
+    "native_rank_two_used_for_source_selection": false
+  },
+  "non_product_stress": {
+    "X": "P^2_C",
+    "bounded_B": 3,
+    "bounded_gauge_class_count": 7,
+    "charts": [
+      "V0",
+      "V1",
+      "V2"
+    ],
+    "deterministic_rule": "choose g01,g02 then derive g12=g01^-1 g02 and require membership in C^*(y/x)^Z",
+    "full_cocycle_count": 28,
+    "known_Picard_rank_used_as_generator": false,
+    "pair_units": {
+      "01": "C^* x^Z",
+      "02": "C^* y^Z",
+      "12": "C^* (y/x)^Z"
+    },
+    "source_table_sha256": "42ad0fcdec1beb655e25a9acbf756ad50a66cd0b7e443a6d7fcc5a6de7168ffb",
+    "symbolic_solution": "g01=x^n, g02=y^n, g12=(y/x)^n up to vertex-sign coboundary"
+  },
+  "positive_boundary_controls": {
+    "bounded_no_lift_meaning": "NO_LIFT_WITHIN_DECLARED_B=3_GRAMMAR_ONLY; not a global nonexistence claim",
+    "bounded_no_lift_target": [
+      4,
+      0
+    ],
+    "invalid_multiplicative_control": "zero exponents with signs g01=+1,g12=+1,g02=-1 has zero dlog but fails multiplicative triangle cocycle",
+    "positive_generated_class": [
+      2,
+      -1
+    ]
+  },
+  "primary": {
+    "X": "P^1_C x P^1_C",
+    "bounded_grammar": {
+      "B": 3,
+      "constant_subgrammar": [
+        1,
+        -1
+      ],
+      "rule": "all allowed monomial units with exponent coordinates in [-3,3] and constant sign ±1"
+    },
+    "charts": [
+      "U00",
+      "U10",
+      "U01",
+      "U11"
+    ],
+    "dense_torus_coordinates": [
+      "x=X1/X0",
+      "y=Y1/Y0"
+    ],
+    "deterministic_generation": {
+      "anchors": [
+        "g_01 on 00-10",
+        "g_02 on 00-01",
+        "g_03 on 00-11"
+      ],
+      "derived": [
+        "g_12=g_01^-1 g_02",
+        "g_13=g_01^-1 g_03",
+        "g_23=g_02^-1 g_03"
+      ],
+      "full_cocycle_count": 392,
+      "membership_check": "derived units must lie in their exact overlap-unit grammar",
+      "source_table_sha256": "e5f20256de530cac90a69d18f8ad28f2f7d1f4d01cc229ab9e217f5695719b2a"
+    },
+    "edge_order": [
+      "00-10",
+      "00-01",
+      "00-11",
+      "10-01",
+      "10-11",
+      "01-11"
+    ],
+    "overlap_unit_groups": {
+      "00-01": "C^* y^Z",
+      "00-10": "C^* x^Z",
+      "00-11": "C^* x^Z y^Z",
+      "01-11": "C^* x^Z",
+      "10-01": "C^* x^Z y^Z",
+      "10-11": "C^* y^Z"
+    },
+    "symbolic_cocycle_solution": {
+      "bounded_gauge_class_count": 49,
+      "constant_cocycles": "all ±1 edge-sign cocycles are vertex-sign coboundaries",
+      "derived_without_known_Picard_answer": true,
+      "exponent_shape": "[(a,0),(0,b),(a,b),(-a,b),(0,b),(a,0)]",
+      "gauge_quotient_parameter": "(a,b) in Z^2; bounded audit |a|,|b|<=3",
+      "known_Picard_Z2_used_as_generator": false
+    }
+  },
+  "researcher_id": "EM-HODGE-H0H-R1-9C4E71",
+  "schema": "HODGE_H0H_R1_ALGEBRAIC_SOURCE_SPEC_V1",
+  "status": "FROZEN_BEFORE_ENTERPRISE_SUCCESS_EVALUATION",
+  "taskbook_source": "637ef5cd5dbe3ce1fbe8ef06844c6b28ae36947d"
+}

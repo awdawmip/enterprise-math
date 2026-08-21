@@ -1,0 +1,47 @@
+{
+  "H4_control_status": "COORDINATE_COMPATIBLE_NON_LOAD_BEARING",
+  "Q_E_used_in_picard_divisor_source": false,
+  "authority": {
+    "commit": "c4649b276a3d604822c586dddafd028e15d02976",
+    "file_blob_sha": "2e80d8b25c779173273e684445afc35309696801",
+    "path": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+    "required_facts": {
+      "O_E": "0",
+      "Q_E": "a^2+b^2+c^2-ab-bc-ca",
+      "address_space": "nonnegative triples modulo common diagonal shift; canonical min(a,b,c)=0",
+      "cell": "CIRCLE_CELL",
+      "cell_radius": "1/sqrt(3)",
+      "center_lattice": "TRIANGULAR_NEAREST_NEIGHBOR_SPACING_1",
+      "direction_relation": "e1+e2+e3=0",
+      "object_type_separation": [
+        "CELL_CENTER",
+        "CIRCLE_CELL",
+        "COORDINATE_VERTEX"
+      ],
+      "primitive_directions": [
+        "e1",
+        "e2",
+        "e3"
+      ]
+    }
+  },
+  "historical_forbidden_as_generator": [
+    "O_E=[+1]=[-1]",
+    "ZERO_IS_NOT_AN_ENTERPRISE_COORDINATE",
+    "signed native axis ontology",
+    "pairwise-orthogonal three-axis metric",
+    "sqrt(a^2+b^2+c^2) as native three-axis norm"
+  ],
+  "load_bearing_coordinate_policy": "H1/H2/H3 are coordinate-free source/Picard/divisor operations. H4 is a non-load-bearing rank-two reparameterization control only.",
+  "overall_coordinate_status": "COORDINATE_IRRELEVANT",
+  "researcher_id": "EM-HODGE-H0H-R1-9C4E71",
+  "schema": "HODGE_H0H_R1_COORDINATE_AUTHORITY_LEDGER_V1",
+  "status": "FROZEN",
+  "task_id": "RS-HODGE-H0H-R1-LEFSCHETZ-11-PICARD-LIFTING-CANONICAL-PLANE",
+  "zero_typing": {
+    "0_source": "abelian/group/lattice zero in source mathematics",
+    "1_Ox": "multiplicative unit",
+    "O_E=0": "Enterprise geometric origin",
+    "identified_by_numeral_alone": false
+  }
+}
