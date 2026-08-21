@@ -1,71 +1,32 @@
 {
-  "schema": "ENTERPRISE_COORDINATE_SYSTEM_AND_BRC_BRIDGE_V3_SIGNED_ORIGIN_ONE",
-  "status": "ACTIVE",
-  "date": "2026-08-17",
-  "authority": "CANONICAL_FOUNDATIONAL_SUPERSESSION",
-  "enterprise_coordinate_system": {
-    "name_zh": "进取坐标系",
-    "name_en": "ENTERPRISE_COORDINATE_SYSTEM",
-    "enterprise_dimension_count": 3,
+  "schema": "ENTERPRISE_COORDINATE_SYSTEM_AND_BRC_BRIDGE_HISTORICAL_V4",
+  "status": "SUPERSEDED_HISTORICAL_PROVENANCE",
+  "original_date": "2026-08-17",
+  "reconciled": "2026-08-21",
+  "superseded_by": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+  "old_native_ontology": {
     "undirected_axis_count": 3,
     "directed_direction_count": 6,
-    "axis_relation": "PAIRWISE_ENTERPRISE_ORTHOGONAL",
     "coordinate_origin": "+1_EQUIV_MINUS1",
-    "origin_representatives": ["+1", "-1"],
-    "three_axis_origin": "(±1,±1,±1) all sign representatives equivalent",
     "zero_coordinate_exists": false,
     "negative_coordinate_values_are_native": true,
-    "native_axis_states": "{O_E} union {+n,-n:n>=2}",
-    "one_positive_step_from_origin": "+2",
-    "one_negative_step_from_origin": "-2",
-    "coordinate_magnitude": "MAG(±n)=n",
-    "external_adjacency_step_count": "DIST(O_E,±n)=n-1",
-    "global_sign_freedom": "UNIQUE_UP_TO_GLOBAL_INVERSION"
+    "status": "SUPERSEDED"
   },
-  "zero_typing": {
-    "native_coordinate": "FORBIDDEN",
-    "external_cardinal_or_auxiliary_algebra_symbol": "ALLOWED_IF_EXPLICITLY_NON_NATIVE"
+  "current_native_route": {
+    "origin": 0,
+    "axis_semantics": "THREE_POSITIVE_NATIVE_RAYS",
+    "native_negative_axes_required": false,
+    "right_angle_degrees": 120,
+    "address_carrier": "N_0^3",
+    "canonical_condition": "min(a,b,c)=0",
+    "foundation": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md"
   },
-  "auxiliary_signed_chart": {
-    "encoding": "ENC_SIGNED(0)=O_E; ENC_SIGNED(k)=sign(k)(|k|+1) for k!=0",
-    "decoding": "DEC_SIGNED(O_E)=0; DEC_SIGNED(±n)=±(n-1) for n>=2",
-    "role": "EXTERNAL_COMPUTATION_CHART_PENDING_STRUCTURE_CONJUGACY_AUDIT"
+  "retained_terminology": {
+    "enterprise_coordinate_system": true,
+    "classical_2d_compatibility_view": true,
+    "orthogonal_coordinate_system_name": true,
+    "brc_bridge_role": "TYPED_COLLAPSE_READOUT_BRIDGE_IF_SOURCE_AND_TARGET_SEMANTICS_ARE_EXPLICIT"
   },
-  "classical_view": {
-    "name_zh": "经典二维兼容图示",
-    "name_en": "CLASSICAL_2D_COMPATIBILITY_VIEW",
-    "ontology_status": "DISPLAY_INTERFACE_ONLY",
-    "axis_calibration": ["0/180", "60/240", "120/300"]
-  },
-  "orthogonal_coordinate_system": {
-    "name_zh": "垂直坐标系",
-    "name_en": "ORTHOGONAL_COORDINATE_SYSTEM",
-    "role": "CLASSICAL_COMPATIBILITY_COORDINATE_SEMANTICS"
-  },
-  "brc": {
-    "canonical_role": "COLLAPSE_BRIDGE_BETWEEN_ORTHOGONAL_AND_ENTERPRISE_COORDINATE_SYSTEMS",
-    "relation": "BRC_COLLAPSE_BRIDGE(ORTHOGONAL_COORDINATE_SYSTEM, ENTERPRISE_COORDINATE_SYSTEM)",
-    "invertibility_assumed": false,
-    "required_task_fields": [
-      "SOURCE_COORDINATE_SEMANTICS",
-      "TARGET_NATIVE_COORDINATE_SEMANTICS",
-      "COLLAPSE_RELATION",
-      "FIBER_OR_COLLISION_STATUS",
-      "INVERSE_OR_COMPATIBILITY_READOUT_STATUS",
-      "PRECISION_LAYER"
-    ]
-  },
-  "enterprise_square_relation": {
-    "canonical_definition": "definitions/ENTERPRISE_SQUARE_AND_ROOT_SIGNED_ORIGIN_ONE_20260817.md",
-    "square_state": "ENTERPRISE_SQUARE(n)=n^2 for n>=1",
-    "root_state": "ENTERPRISE_ROOT(n^2)=n for n>=1",
-    "square_sequence": [1, 4, 9, 16, 25, 36],
-    "unit_quadrilateral_witness": "((±1,±1,±1),(2,1,1),(1,-2,1),(1,1,2)) has perimeter=4 area=4",
-    "shifted_square_law": "SUPERSEDED_BY_EXACT_COUNTEREXAMPLE"
-  },
-  "r059d_status": {
-    "combinatorial_and_limit_results": "PRESERVED",
-    "native_status": "PENDING_SIGNED_ORIGIN_CONJUGACY_AUDIT",
-    "automatic_zero_as_native_coordinate": "FORBIDDEN"
-  }
+  "current_brc_route": "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+  "warning": "Do not use the superseded signed-origin or six-direction fields as current native premises."
 }
