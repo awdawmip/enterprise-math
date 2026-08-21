@@ -99,7 +99,9 @@ def _nonempty(value: Any) -> bool:
     return value is not None
 
 
-def lineage_findings(meta: dict[str, Any], *, dispatch: bool) -> list[dict[str, str]]:
+def lineage_findings(
+    meta: dict[str, Any], *, dispatch: bool, root: Path = ROOT
+) -> list[dict[str, str]]:
     findings: list[dict[str, str]] = []
     lineage = meta.get("task_lineage")
     if lineage is None:
@@ -126,7 +128,7 @@ def lineage_findings(meta: dict[str, Any], *, dispatch: bool) -> list[dict[str, 
                 "code": "TB-SUCCESSOR-PARENT",
                 "message": "CONTINUATION requires nonempty parent_task_id",
             })
-        contract = load_json(ROOT / "research_taskbook_contract.json")["task_lineage_contract"]
+        contract = load_json(root / "research_taskbook_contract.json")["task_lineage_contract"]
         required = contract["continuation_required_successor_gate_fields"]
         if not isinstance(gate, dict):
             findings.append({
@@ -167,7 +169,7 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
         elif isinstance(expected, str) and meta[key] != expected:
             findings.append({"severity": "ERROR", "code": "TB-META", "message": f"{key} must be {expected!r}"})
 
-    findings.extend(lineage_findings(meta, dispatch=dispatch))
+    findings.extend(lineage_findings(meta, dispatch=dispatch, root=root))
 
     for key in contract.get("forbidden_fixed_runtime_metadata", []):
         if key in meta:
