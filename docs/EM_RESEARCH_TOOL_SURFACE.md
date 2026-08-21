@@ -37,11 +37,15 @@ Read:
 
 - `research_common_surface.json` OR the current human Common Surface selected by `AGENTS.md`;
 - `PROJECT_DEFINITION.zh-CN.md` (or the English equivalent when appropriate);
+- `project_definition.json` when machine-readable project authority matters;
+- `definitions/00_CURRENT_NATIVE_FOUNDATION.md`;
 - `FOUNDATIONAL_LOGIC.md` and `foundational_logic.json`;
 - `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md`;
 - `native_semantics_admissibility.json`.
 
-The current global Enterprise foundation router may require additional canonical definitions. Those routed files are mandatory when listed as current `Read first` inputs.
+The source current-native-foundation router and the current global Enterprise foundation router may require additional canonical definitions. Those routed files are mandatory when listed as current `Read first` inputs.
+
+Do not infer current authority from an older definition file merely because that file still exists in Git history or because its historical text once used the word `CANONICAL`.
 
 ### CONDITIONAL — taskbook tooling
 
