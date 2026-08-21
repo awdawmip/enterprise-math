@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 POLICY_PATH = ROOT / "research_taskbook_policy.json"
 FRONTMATTER_PREFIX = "<!-- ENTERPRISE_MATH_TASK_V1\n"
 FRONTMATTER_SUFFIX = "\n-->"
+VALID_LINEAGES = {"NEW_DIRECTION", "CONTINUATION", "REPLAY", "INTEGRATION", "MAINTENANCE"}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -90,6 +91,66 @@ def regex_hits(body: str, patterns: list[str]) -> list[str]:
     return hits
 
 
+def _nonempty(value: Any) -> bool:
+    if isinstance(value, str):
+        return bool(value.strip())
+    if isinstance(value, (list, tuple, set, dict)):
+        return bool(value)
+    return value is not None
+
+
+def lineage_findings(meta: dict[str, Any], *, dispatch: bool) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    lineage = meta.get("task_lineage")
+    if lineage is None:
+        findings.append({
+            "severity": "ERROR" if dispatch else "WARN",
+            "code": "TB-LINEAGE-MISSING",
+            "message": "new dispatch requires task_lineage; legacy files may remain historical until redispatch",
+        })
+        return findings
+    if lineage not in VALID_LINEAGES:
+        findings.append({
+            "severity": "ERROR",
+            "code": "TB-LINEAGE-VALUE",
+            "message": f"task_lineage must be one of {sorted(VALID_LINEAGES)}, got {lineage!r}",
+        })
+        return findings
+
+    parent = meta.get("parent_task_id")
+    gate = meta.get("successor_gate")
+    if lineage == "CONTINUATION":
+        if not isinstance(parent, str) or not parent.strip():
+            findings.append({
+                "severity": "ERROR",
+                "code": "TB-SUCCESSOR-PARENT",
+                "message": "CONTINUATION requires nonempty parent_task_id",
+            })
+        contract = load_json(ROOT / "research_taskbook_contract.json")["task_lineage_contract"]
+        required = contract["continuation_required_successor_gate_fields"]
+        if not isinstance(gate, dict):
+            findings.append({
+                "severity": "ERROR",
+                "code": "TB-SUCCESSOR-GATE",
+                "message": "CONTINUATION requires successor_gate object",
+            })
+        else:
+            for field in required:
+                if not _nonempty(gate.get(field)):
+                    findings.append({
+                        "severity": "ERROR",
+                        "code": "TB-SUCCESSOR-GATE",
+                        "message": f"CONTINUATION successor_gate missing/nonempty field: {field}",
+                    })
+    elif _nonempty(parent) or _nonempty(gate):
+        findings.append({
+            "severity": "WARN",
+            "code": "TB-LINEAGE-EXTRA",
+            "message": "parent_task_id/successor_gate present on non-CONTINUATION lineage; verify that the lineage classification is intentional",
+        })
+    return findings
+
+
 def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> list[dict[str, str]]:
     policy = policy_manifest(root)
     contract = load_json(root / "research_taskbook_contract.json")
@@ -105,6 +166,8 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
             findings.append({"severity": "ERROR", "code": "TB-META", "message": f"missing metadata: {key}"})
         elif isinstance(expected, str) and meta[key] != expected:
             findings.append({"severity": "ERROR", "code": "TB-META", "message": f"{key} must be {expected!r}"})
+
+    findings.extend(lineage_findings(meta, dispatch=dispatch))
 
     for key in contract.get("forbidden_fixed_runtime_metadata", []):
         if key in meta:
@@ -185,6 +248,17 @@ def command_audit(args: argparse.Namespace) -> int:
 
 
 def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
+    successor_gate: dict[str, Any] | None = None
+    if args.lineage == "CONTINUATION":
+        if not args.parent_task_id:
+            raise SystemExit("--parent-task-id is required for --lineage CONTINUATION")
+        successor_gate = {
+            "new_information_gap": "",
+            "why_parent_result_does_not_close_it": "",
+            "discriminating_outcomes": [],
+            "kill_condition": "",
+            "why_new_stage_or_task_is_better_than_same_task_or_closure": "",
+        }
     return {
         "task_id": args.task_id,
         "title": args.title,
@@ -207,6 +281,9 @@ def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
         "task_authority": "DRIVER_APPROVED",
         "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
         "identity_lane": args.lane,
+        "task_lineage": args.lineage,
+        "parent_task_id": args.parent_task_id,
+        "successor_gate": successor_gate,
         "policy_review": {
             "policy_set": "research_taskbook_policy.json",
             "policy_digest": policy_digest(ROOT),
@@ -241,12 +318,12 @@ Status: `DRAFT / POLICY_REVIEW_PENDING / NOT DISPATCHABLE`
 
 ## 3. Success, kill, and return criteria
 
-<task-specific PASS/KILL conditions>
+<task-specific PASS/KILL conditions. If this is a continuation, the frontmatter successor_gate must independently justify why another stage exists.>
 """
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(render_taskbook(meta, body), encoding="utf-8")
     print(out.relative_to(ROOT))
-    print("created with PENDING_DRIVER_REVIEW; edit task-local content, then run review --approve")
+    print("created with PENDING_DRIVER_REVIEW; edit task-local content, complete any successor gate, then run review --approve")
     return 0
 
 
@@ -303,6 +380,8 @@ def main() -> int:
     new.add_argument("--priority", default="P1")
     new.add_argument("--leverage", default="MEDIUM")
     new.add_argument("--lane", default="")
+    new.add_argument("--lineage", choices=sorted(VALID_LINEAGES), default="NEW_DIRECTION")
+    new.add_argument("--parent-task-id", default=None)
     new.add_argument("--output", required=True)
     new.set_defaults(func=command_new)
 
