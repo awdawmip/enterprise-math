@@ -1,0 +1,83 @@
+{
+  "schema": "R063_STAGE3_REGRESSION_V1",
+  "researcher_id": "EM-R063S3-F1CF9D",
+  "taskbook_source": "f1cf9d88428c14ae56e228ed97eba9b657b1fb90",
+  "stage2_head": "96fbcd431f4cbb8263347bffb5c8bf33b7639e98",
+  "stage2_driver_acceptance": "b31419774f6d7190a4ed51332a9f69f4c7359b31",
+  "checker": "scripts/r063_stage3_validate_pairwise_interaction_process.py",
+  "status": "PASS",
+  "mismatch_count": 0,
+  "exhaustive_word_domain": {
+    "max_word_length": 6,
+    "max_rectangle_cells": 36,
+    "word_count": 126,
+    "ordered_pair_count": 15876,
+    "rows_sha256": "8eb68b77c48a81b27ba764362db5aee20f512cd7f31010edb1bad51f975d47df"
+  },
+  "mandatory_witnesses": {
+    "W1": {
+      "trace": "(1,1)x(1,1)",
+      "interaction_counts": {"plus_i":1,"plus_j":2,"minus_i":1},
+      "count_normal_form": [0,2],
+      "all_four_source_path_pairs_relation": ["jj"]
+    },
+    "W2": {
+      "trace": "(2,1)x(2,1)",
+      "source_words": ["iij","iji","jii"],
+      "target": [3,4],
+      "full_target_path_count": 35,
+      "relation_size_matrix": [[5,14,8],[14,11,14],[8,14,5]],
+      "all_nine_relations_sha256": "b24d59897bbe0d927aa62dfdaa7427c7e2a105096257f51d7e76481efe654686",
+      "union_support_count": 31,
+      "missing_from_full_target_fibre": ["iijjjji","ijjjjii","jiiijjj","jjjiiij"]
+    },
+    "W3": {
+      "trace": "(1,2)x(1,2)",
+      "raw": [-3,4],
+      "unit_shift_C4": 3,
+      "ordered_i_readout": [4,3]
+    },
+    "W4": {
+      "trace": "(1,1)^2",
+      "same_unit_orbit": true,
+      "ordered_i_readout": [0,2],
+      "ordered_j_readout": [2,0]
+    },
+    "W5": {
+      "full_interaction_tensor_associator_cases": 512,
+      "associator_sha256": "f7a044cbed0ee705d456a7906754f90e171058e5ce6eced9a79a0d7ae8c2aaae",
+      "binary_readout_nonassociativity": {
+        "p":"ij","q":"ij","r":"ji",
+        "left":["jiji","jjii"],
+        "right":["iijj","ijij"]
+      }
+    },
+    "full_support_nonuniform_weight": {
+      "p":"jij","q":"jiiij","target":[8,1],
+      "support_count":9,"full_target_path_count":9,
+      "process_formal_witness_count":260,
+      "coefficient_min":14,"coefficient_max":41
+    }
+  },
+  "minimal_positional_nonconfluence": {
+    "p":"iij","q":"ij","rectangle_cells":6,
+    "residual_process_object_count":2,
+    "minimal_element_counts":[1,2],
+    "pairing_target_relations":[["ijjj"],["ijjj","jijj"]]
+  },
+  "acceptance_gates": {
+    "STAGE2_FROZEN_DEPENDENCY_REPLAY_INTACT":"PASS",
+    "PAIRWISE_INTERACTION_TABLE_DERIVED_OR_NONUNIQUENESS_CLASSIFIED":"DERIVED_UNIQUELY",
+    "INTERACTION_COUNT_COLLAPSE_EQUALS_RAW_ROOT_PRODUCT":"PASS",
+    "SIGNED_CANCELLATION_TRACE_NORMAL_FORM_EXACT":"PASS",
+    "REPRESENTATIVE_LEVEL_CANCELLATION_CONFLUENCE_OR_MINIMAL_COUNTEREXAMPLE":"NONCONFLUENT_MINIMAL_3x2",
+    "UNIT_EQUIVARIANT_PROCESS_LEVEL_CLASSIFIED":"EXACT_N1_PROCESS",
+    "SOURCE_PATH_ORDER_RETENTION_OR_TOTAL_ERASURE_CLASSIFIED":"RETENTION_PROVED",
+    "TRIVIAL_WHOLE_TARGET_FIBRE_RELATION_STRICTLY_IMPROVED_OR_PROVED_UNIMPROVABLE":"STRICTLY_IMPROVED",
+    "PROCESS_ASSOCIATIVITY_COHERENCE_OR_NO_GO_CLASSIFIED":"CANONICAL_ASSOCIATOR_BEFORE_DESTRUCTIVE_READOUT",
+    "MINIMAL_ADDITIONAL_PROCESS_STRUCTURE_CLASSIFIED":"PASS",
+    "ALL_MULTIPLICITY_LAYERS_SEPARATED":"PASS",
+    "SEMANTIC_SCOPE_CLAIM_LEDGER_COMPLETE":"PASS",
+    "DETERMINISTIC_CHECKER_ZERO_UNCLASSIFIED_MISMATCHES":"PASS"
+  }
+}
