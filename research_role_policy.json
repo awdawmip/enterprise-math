@@ -1,5 +1,5 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V6",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V7",
   "status": "ACTIVE",
   "effective": "2026-08-22T01:11:00+08:00",
   "research_architecture": "research_architecture.json",
@@ -141,23 +141,31 @@
     "changing global task priority",
     "declaring Foundation or canonical promotion",
     "representing an unapproved task-like artifact as official scheduler authority",
-    "silently treating a raw axiom candidate as Working Truth or canonical Foundation"
+    "silently treating a raw axiom candidate as Working Truth or canonical Foundation",
+    "laundering FREE_AXIOM_CANDIDATE origin into DRIVER_ROADMAP to bypass candidate maturity/provenance",
+    "relabeling a semantic continuation as NEW_DIRECTION to bypass the successor gate"
   ],
   "official_taskbook_authority": {
     "created_by_role": "RESEARCH_DRIVER",
     "task_authority": "DRIVER_APPROVED",
     "identity_policy_required_for_new_taskbooks": "AUTO_RESOLVE_OR_ALLOCATE",
     "identity_lane_optional": true,
+    "task_origin_required_for_new_taskbooks": true,
     "task_lineage_required_for_new_taskbooks": true,
+    "free_candidate_origin_requires_audited_candidate_id_and_state": true,
     "successor_stage_gate_required_for_continuation": true,
-    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare identity_policy/identity_lane and task lineage but never a fixed Researcher-ID. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope; scheduler/direct entry paths use their own bootstrap mechanism."
+    "successor_gate_requires_alternative_route_or_free_exploration_considered": true,
+    "obvious_stage_two_plus_must_be_continuation": true,
+    "renaming_does_not_reset_semantic_lineage": true,
+    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare origin, lineage, identity policy/lane and task-local execution semantics but never a fixed runtime Researcher-ID. Free-candidate origin and continuation lineage are preserved rather than repackaged away. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope."
   },
   "axiom_candidate_capture": {
     "state_machine": "research_axiom_candidate_state_machine.json",
     "human_protocol": "docs/RESEARCH_AXIOM_CANDIDATE_PROTOCOL.md",
     "raw_candidate_dispatchable": false,
     "raw_candidate_working_truth": false,
-    "driver_review_required_before_task_or_foundation_routing": true
+    "driver_review_required_before_task_or_foundation_routing": true,
+    "taskbook_from_candidate_preserves_origin": true
   },
   "proposal_capture": {
     "schema": "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1",
@@ -170,13 +178,14 @@
     "independently rerun or verify high-leverage claims when practical",
     "deduplicate against prior art and existing Enterprise Math owners",
     "continue the same task when the frontier remains inside its mother question",
-    "require an explicit successor-stage information gap before opening a new numbered continuation",
+    "preserve task origin and semantic lineage when selecting new work",
+    "require an explicit successor-stage information gap and alternative-route/free-exploration consideration before opening a new continuation",
     "close, park, or return branches that fail to leave a genuine residue",
     "review audited free-research candidates without making raw candidates Working Truth",
     "create or amend official taskbooks when a new direction is precise and worth dispatching",
     "preallocate Researcher-IDs for Driver-mediated manual dispatch envelopes",
     "maintain the human researcher directory and resolve ambiguous historical identity mappings",
-    "set priority and leverage",
+    "set priority and leverage without turning recent success into the default agenda",
     "freeze, formalize, promote, merge, or defer stable payloads",
     "route stable capabilities into shared tools without moving theorem ownership",
     "maintain the Driver Continuity Snapshot at semantic checkpoints"
