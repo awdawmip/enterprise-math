@@ -1,16 +1,19 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V5",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V6",
   "status": "ACTIVE",
-  "effective": "2026-08-11T15:29:00+08:00",
+  "effective": "2026-08-22T01:11:00+08:00",
+  "research_architecture": "research_architecture.json",
   "default_role": "RESEARCHER",
+  "default_research_mode_when_explicit_task_exists": "TASK_RESEARCH",
   "identity_bootstrap": {
     "state_machine": "research_identity_state_machine.json",
     "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
     "helper": "tools/research_identity.py",
     "taskbook_contract": "research_taskbook_contract.json",
-    "invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve its role identity before substantive work begins. RESEARCHER uses Researcher-ID; RESEARCH_DRIVER uses Driver-ID.",
+    "invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve its role identity before substantive work begins. RESEARCHER uses Researcher-ID; RESEARCH_DRIVER uses Driver-ID. Research mode is resolved separately from identity.",
     "entry_triggers": [
       "direct user research task",
+      "explicit EM_FREE_RESEARCHER activation",
       "scheduler CLAIM",
       "official taskbook execution",
       "role transition into RESEARCHER",
@@ -22,6 +25,36 @@
     "missing_identity": "AUTO_RESOLVE_OR_ALLOCATE",
     "registration_failure": "REGISTER_PENDING_NONBLOCKING",
     "registration_is_hard_block": false
+  },
+  "research_modes": {
+    "FREE_AXIOM_DISCOVERY": {
+      "role_key": "EM_FREE_RESEARCHER",
+      "visible_role": "RESEARCHER",
+      "identity_lane": "EM-FREE",
+      "default_state": "AXIOM_DISCOVERY",
+      "default_objective": "DISCOVER_NEW_AXIOM_CANDIDATES",
+      "scheduler_eligible": false,
+      "agenda_visibility_before_candidate_freeze": "FOUNDATION_ONLY",
+      "inherits_other_branch_working_truth": false,
+      "role_contract": "research_roles/EM_FREE_RESEARCHER_ROLE.md",
+      "anti_anchoring_contract": "research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md",
+      "candidate_state_machine": "research_axiom_candidate_state_machine.json",
+      "generic_no_user_task_scheduler_rule_applies": false
+    },
+    "TASK_RESEARCH": {
+      "visible_role": "RESEARCHER",
+      "default_state": "TASK_EXECUTION",
+      "scheduler_eligible": true,
+      "agenda_visibility": "TASK_SCOPED",
+      "working_truth": "ONLY_WHEN_EXPLICITLY_FROZEN_BY_DRIVER_OR_DRIVER_APPROVED_TASKBOOK"
+    }
+  },
+  "mode_resolution": {
+    "explicit_free_role": "FREE_AXIOM_DISCOVERY",
+    "explicit_user_task_or_taskbook": "TASK_RESEARCH",
+    "scheduler_claim": "TASK_RESEARCH",
+    "driver_manual_dispatch": "TASK_RESEARCH",
+    "rule": "No-user-topic does not by itself make a generic researcher free or scheduled. EM_FREE_RESEARCHER is an explicit role/mode contract and is excluded from automatic dispatch."
   },
   "driver_activation": {
     "mode": "EXPLICIT_CURRENT_CONVERSATION_ONLY",
@@ -42,7 +75,7 @@
     "directory_repository": "awdawmip/chatgpt-global-knowledge",
     "directory_path": "projects/enterprise-math/RESEARCHER_DIRECTORY.md",
     "visible_markers": {
-      "RESEARCHER": "Researcher-ID: <ID> / <TASK>",
+      "RESEARCHER": "Researcher-ID: <ID> / <TASK-or-MODE>",
       "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE"
     },
     "rules": [
@@ -51,9 +84,10 @@
       "Driver-mediated manual relay preallocates a Researcher-ID in the dispatch envelope before the user transfers the task; the reusable taskbook itself remains instance-free.",
       "Direct user research tasks outside a Driver relay self-allocate a Researcher-ID when the current conversation has none.",
       "Researcher-ID identifies a RESEARCHER conversation/session instance. Driver-ID identifies a RESEARCH_DRIVER conversation/session instance.",
+      "Research mode is not encoded into identity uniqueness; mode is explicit metadata/state.",
       "Every substantive final Enterprise Math response displays the role-appropriate identity marker.",
       "If Global-Knowledge-Sync is also emitted, the role identity marker appears immediately before it.",
-      "Semantic-checkpoint commits and research PR/handoff metadata persist role identity, research_task, and research_role when the write surface supports it.",
+      "Semantic-checkpoint commits and research PR/handoff metadata persist role identity, research_task or research_mode, and research_role when the write surface supports it.",
       "Legacy commits and historical identity records are not rewritten solely to rename their visible identity field."
     ]
   },
@@ -74,6 +108,7 @@
     "path": "projects/enterprise-math/DRIVER_CONTINUITY.md",
     "authority": "ROUTING_AND_CONTINUITY_ONLY",
     "not_theorem_evidence": true,
+    "no_implicit_default_next_route": true,
     "update_at": [
       "task created, closed, split, merged, parked, or reprioritized",
       "research return accepted, rejected, frozen, or returned to owner",
@@ -88,37 +123,56 @@
       "facts already represented by immutable journal entries with no routing consequence"
     ]
   },
-  "researcher_freedom_clause": [
-    "Researchers may freely reason, prove, disprove, compute, experiment, formalize, browse allowed sources, write notes, proof drafts, code, Lean, reports, handoffs, and proposal candidates.",
-    "Role policy restricts scheduling and promotion authority, not scientific exploration.",
-    "Researchers should not interrupt productive research merely to package every side branch."
-  ],
+  "researcher_freedom_clause": {
+    "TASK_RESEARCH": [
+      "Researchers may freely reason, prove, disprove, compute, experiment, formalize, browse allowed task-relevant sources, write notes, proof drafts, code, Lean, reports, handoffs, and proposal candidates inside the selected mother question.",
+      "Role policy restricts scheduling and promotion authority, not scientific exploration inside the selected task.",
+      "Researchers should not interrupt productive research merely to package every side branch."
+    ],
+    "FREE_AXIOM_DISCOVERY": [
+      "Freedom includes choosing the primitive question, not merely pivoting inside a supplied problem.",
+      "Before candidate freeze, current agenda, recent route history, other branch Working Truth, suggested questions, and tool/representation convenience are not discovery priors.",
+      "After candidate freeze, prior/current work may be opened for falsification, deduplication, prior-art and integration audit."
+    ]
+  },
   "researcher_forbidden_authority": [
     "creating a dispatchable READY taskbook",
-    "self-approving a proposal into the roadmap",
+    "self-approving a proposal or axiom candidate into the roadmap",
     "changing global task priority",
     "declaring Foundation or canonical promotion",
-    "representing an unapproved task-like artifact as official scheduler authority"
+    "representing an unapproved task-like artifact as official scheduler authority",
+    "silently treating a raw axiom candidate as Working Truth or canonical Foundation"
   ],
   "official_taskbook_authority": {
     "created_by_role": "RESEARCH_DRIVER",
     "task_authority": "DRIVER_APPROVED",
     "identity_policy_required_for_new_taskbooks": "AUTO_RESOLVE_OR_ALLOCATE",
     "identity_lane_optional": true,
-    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare identity_policy/identity_lane but never a fixed Researcher-ID. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope; scheduler/direct entry paths use their own bootstrap mechanism."
+    "task_lineage_required_for_new_taskbooks": true,
+    "successor_stage_gate_required_for_continuation": true,
+    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare identity_policy/identity_lane and task lineage but never a fixed Researcher-ID. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope; scheduler/direct entry paths use their own bootstrap mechanism."
+  },
+  "axiom_candidate_capture": {
+    "state_machine": "research_axiom_candidate_state_machine.json",
+    "human_protocol": "docs/RESEARCH_AXIOM_CANDIDATE_PROTOCOL.md",
+    "raw_candidate_dispatchable": false,
+    "raw_candidate_working_truth": false,
+    "driver_review_required_before_task_or_foundation_routing": true
   },
   "proposal_capture": {
     "schema": "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1",
     "dispatchable": false,
     "default_review_state": "PENDING_DRIVER_REVIEW",
-    "rule": "Batch worthwhile side branches at a semantic checkpoint; Driver may APPROVE, MERGE, PARK, or REJECT them."
+    "rule": "Batch worthwhile side branches at a semantic checkpoint; Driver may APPROVE, MERGE, PARK, or REJECT them. A free-research axiom candidate uses the dedicated axiom-candidate lifecycle instead of bypassing it through a generic proposal bundle."
   },
   "driver_actions": [
     "review research returns and evidence",
     "independently rerun or verify high-leverage claims when practical",
     "deduplicate against prior art and existing Enterprise Math owners",
     "continue the same task when the frontier remains inside its mother question",
+    "require an explicit successor-stage information gap before opening a new numbered continuation",
     "close, park, or return branches that fail to leave a genuine residue",
+    "review audited free-research candidates without making raw candidates Working Truth",
     "create or amend official taskbooks when a new direction is precise and worth dispatching",
     "preallocate Researcher-IDs for Driver-mediated manual dispatch envelopes",
     "maintain the human researcher directory and resolve ambiguous historical identity mappings",
@@ -127,6 +181,6 @@
     "route stable capabilities into shared tools without moving theorem ownership",
     "maintain the Driver Continuity Snapshot at semantic checkpoints"
   ],
-  "artifact_rule": "Artifact creation is not progress by itself; scientific evidence, theorem/counterexample content, validated computation, formalization, reusable tooling, or a real routing decision is progress.",
-  "nonblocking_rule": "Governance, scheduler, CI, workflow, identity registration, and snapshot maintenance are never mathematical HARD_BLOCK reasons."
+  "artifact_rule": "Artifact creation is not progress by itself; scientific evidence, theorem/counterexample content, validated computation, formalization, reusable tooling, a mature axiom candidate, or a real routing decision is progress.",
+  "nonblocking_rule": "Governance, scheduler, CI, workflow, identity registration, snapshot maintenance, candidate intake and replication coordination are never mathematical HARD_BLOCK reasons."
 }
