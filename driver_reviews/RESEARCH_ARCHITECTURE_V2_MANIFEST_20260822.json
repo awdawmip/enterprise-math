@@ -1,12 +1,23 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_ARCHITECTURE_V2_MANIFEST",
-  "status": "DRAFT_PROMOTION_PAYLOAD_AUDITED",
+  "status": "DRAFT_PROMOTION_PAYLOAD_AUDITED_CURRENT_MAIN_COMBINATION_GREEN",
   "driver_id": "EM-DVR-K7Q4N8",
   "date": "2026-08-22",
   "classification": "NO_NEW_MATHEMATICS_GOVERNANCE",
-  "base_main": "f1cf9d88428c14ae56e228ed97eba9b657b1fb90",
+  "owner_base_main": "f1cf9d88428c14ae56e228ed97eba9b657b1fb90",
+  "current_main_combination_checked": "978726a44a3ab16e461b4f59fc77986e5d67f1df",
+  "current_main_delta_since_owner_base": {
+    "commit_count": 2,
+    "paths": [
+      "driver_reviews/R063_STAGE3_PAIRWISE_INTERACTION_SIGNED_CANCELLATION_DRIVER_REVIEW_20260822.md",
+      "research_tasks/R063_STAGE4_THREE_SECTOR_C4_PROCESS_GLOBALIZATION_GLUING_OBSTRUCTION_20260822.md"
+    ],
+    "path_overlap_with_architecture_payload": 0,
+    "semantic_action": "NO_RECONCILIATION_REQUIRED; already-open Stage4 remains a legacy/pre-V2 TASK_RESEARCH execution and is not retroactively invalidated"
+  },
   "architecture": "research_architecture.json",
   "candidate_state_machine": "research_axiom_candidate_state_machine.json",
+  "draft_pr": 575,
   "key_invariants": [
     "FREE_AXIOM_DISCOVERY_NE_TASK_RESEARCH",
     "RAW_AXIOM_CANDIDATE_NE_WORKING_TRUTH",
@@ -21,7 +32,8 @@
   "independent_replication_isolation": true,
   "common_surface_default_context_dump": false,
   "mathematical_definition_files_changed": 0,
-  "current_numbered_research_task_result_files_changed": 0,
+  "current_numbered_research_task_result_files_changed_by_payload": 0,
   "overlap_with_authority_reconciliation_pr_571": 0,
+  "supersedes_free_role_only_pr_573": true,
   "canonical_promotion": "UNCHANGED_EXISTING_GATES"
 }
