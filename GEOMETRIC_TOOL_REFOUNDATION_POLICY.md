@@ -128,9 +128,17 @@ The current enrichment tower is:
 
 Component typing must be fixed before carrier enrichment. Unlabeled endpoint reachability is not a native-line membership oracle.
 
-## World-model boundary
+## Worldview boundary
 
-The protected account worldview may retain a six-Enterprise-dimension / twelve-direction research axiom. The old six-direction plane implementation is nevertheless superseded. Any current bridge from the three-positive-axis plane to that world model must be derived separately.
+The protected account worldview was directly updated by the user on 2026-08-21 and now uses the same current three-positive-axis / 120-degree spatial foundation.
+
+Therefore:
+
+- `OLD_6D_12_DIRECTION_WORLD_MODEL = SUPERSEDED_BY_USER`;
+- `OLD_60_DEGREE_ALTERNATING_SIGN_PLANE = SUPERSEDED_BY_USER`;
+- no active project/worldview layer may reintroduce that old plane ontology as a current native premise.
+
+Historical references remain provenance only.
 
 ## Stage-specific premise rule
 
