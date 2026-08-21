@@ -12,8 +12,10 @@
     "DRIVER_WORKING_TRUTH_APPLIES_ONLY_AFTER_EXPLICIT_DIRECTION_FREEZE",
     "RAW_AXIOM_CANDIDATE_IS_NOT_WORKING_TRUTH",
     "STAGE_PASS_DOES_NOT_IMPLY_SUCCESSOR_STAGE",
+    "TASK_ORIGIN_AND_LINEAGE_CANNOT_BE_ERASED_BY_RENAMING",
     "FOUNDATION_BACKFLOW_ACCEPTS_AUDITED_CANDIDATES_NOT_RAW_DISCOVERY_DRAFTS",
     "DISCOVERY_EVIDENCE_AND_VALIDATION_EVIDENCE_REMAIN_TYPED_SEPARATELY",
+    "RESEARCH_PORTFOLIO_MUST_NOT_COLLAPSE_TO_RECENT_SUCCESS_ROUTE_BY_DEFAULT",
     "CURRENT_MAIN_IS_CANONICAL_TRUTH_ONLY_AFTER_EXISTING_GATES"
   ],
   "research_modes": {
@@ -98,7 +100,8 @@
       "OPEN_EXPLICIT_TASK",
       "OPEN_FOUNDATION_QUESTION",
       "REQUEST_INDEPENDENT_REPLICATION"
-    ]
+    ],
+    "task_origin_rule": "If an explicit task is opened from a free candidate, taskbook origin metadata must preserve the audited candidate id/state. Repackaging does not erase discovery provenance."
   },
   "working_truth_boundary": {
     "applies_to": "EXPLICIT_TASK_DIRECTION_AFTER_DRIVER_FREEZE",
@@ -124,10 +127,19 @@
       "why_parent_result_does_not_already_close_the_gap",
       "discriminating_outcomes",
       "kill_condition",
+      "alternative_route_or_free_exploration_considered",
       "why_same_task_continuation_is_inadequate_or_why_a_new_stage_improves_provenance"
     ],
+    "obvious_stage_two_plus_must_be_continuation": true,
+    "renaming_does_not_reset_lineage": true,
     "if_missing": "CLOSE_OR_CONTINUE_SAME_TASK_OR_RETURN_TO_EXPLORATION",
     "taskbook_contract": "research_taskbook_contract.json"
+  },
+  "portfolio_balance": {
+    "rule": "A chain of successful task stages is not itself evidence that the next highest-leverage question lies on the same route.",
+    "no_numeric_quota": true,
+    "driver_check_before_continuation": "Record whether an alternative owner, route closure, or independent/free exploration was considered. A task-local exact dependency may still justify continuation.",
+    "free_research_is_not_required_to_match_active_routes": true
   },
   "scheduler_boundary": {
     "portfolio": "TASK_RESEARCH_EXPLOITATION_QUEUE",
@@ -148,7 +160,8 @@
     "independent_free_runs": "Use separate clean contexts and do not expose one run's candidate packet to another before each run freezes its own packet.",
     "independent_convergence": "INCREASES_STRUCTURAL_INTEREST_BUT_IS_NOT_PROOF",
     "replication_after_freeze": true,
-    "cross_run_post_allocation_rewrite": false
+    "cross_run_post_allocation_rewrite": false,
+    "shared_ambient_context_must_be_disclosed": true
   },
   "read_performance": {
     "principle": "SMALLEST_SUFFICIENT_ROLE_PACKET",
