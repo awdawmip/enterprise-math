@@ -1,0 +1,41 @@
+{
+  "status": "EXACT_BOUNDED_CROSS_ROUTE_PROBE / NOT_THEOREM_BEYOND_BOUND",
+  "max_upper_endpoint": 4004000,
+  "power_scan": {
+    "2": {"scanned_basin_count": 1999, "no_least_count": 35, "no_least_k": [25,47,62,123,130,151,157,162,196,217,308,364,365,479,556,888,924,935,1008,1056,1078,1162,1290,1345,1454,1511,1541,1577,1612,1627,1679,1781,1790,1865,1897]},
+    "3": {"scanned_basin_count": 156, "no_least_count": 0, "no_least_k": []},
+    "4": {"scanned_basin_count": 42, "no_least_count": 0, "no_least_k": []},
+    "5": {"scanned_basin_count": 18, "no_least_count": 0, "no_least_k": []},
+    "6": {"scanned_basin_count": 10, "no_least_count": 0, "no_least_k": []},
+    "7": {"scanned_basin_count": 6, "no_least_count": 0, "no_least_k": []},
+    "8": {"scanned_basin_count": 4, "no_least_count": 0, "no_least_k": []}
+  },
+  "square_summary": {
+    "no_least_basin_count": 35,
+    "residual_composite_total": 36,
+    "max_residual_composites_in_one_basin": 2,
+    "residual_factor_exponent_patterns": {"(1, 1, 1)": 4, "(2, 1)": 32}
+  },
+  "earliest_square_no_least": {
+    "k": 25,
+    "open_basin": "625 < n < 676",
+    "horizon": 25,
+    "candidate_witnesses": [2,3,5,7,11,13,17,19,23],
+    "forced_core": [2,3,5,11,17,23],
+    "residual_edges": {"637": [7,13]},
+    "inclusion_minimal_safe_bases": [[2,3,5,7,11,17,23],[2,3,5,11,13,17,23]]
+  },
+  "first_three_prime_residual": {
+    "k": 888,
+    "n": 790079,
+    "factorization": [[73,1],[79,1],[137,1]],
+    "edge": [73,79,137]
+  },
+  "first_two_residual_edge_basin": {
+    "k": 1781,
+    "residual_edges": {"3172511": [101,311], "3175339": [101,149,211]},
+    "residual_inclusion_minimal_transversals": [[101],[149,311],[211,311]],
+    "unique_minimum_cardinality_transversal": [101],
+    "least_transversal_exists": false
+  }
+}

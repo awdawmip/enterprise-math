@@ -1,0 +1,28 @@
+{
+  "status": "R005-A witness-cover structural probe / exact finite",
+  "root_factor": {
+    "N": 30,
+    "witness_universe": [2, 3, 5, 7, 11, 13, 17, 19, 23, 29],
+    "forced_basis": [2, 3, 5],
+    "forced_collisions": {
+      "2": [4, 6, 8, 10, 14, 16, 20, 22, 26, 28],
+      "3": [9, 15, 21, 27],
+      "5": [25]
+    },
+    "unique_least_basis": [2, 3, 5],
+    "safe_family_count": 128
+  },
+  "miller_rabin": {
+    "N": 100000,
+    "candidate_bases": [2, 3, 5, 7, 11, 13, 17, 19, 23, 29],
+    "forced_basis": [],
+    "minimum_safe_subsets": [[2,3],[2,5],[2,7],[2,13],[3,5],[5,11],[5,13],[5,19],[7,13],[7,23],[7,29],[11,29],[13,19],[19,29]],
+    "least_cover_exists": false
+  },
+  "partition_boundary": {
+    "states": [9, 17, 341],
+    "mr2_pass_implies_fermat2_pass": true,
+    "mr2_refines_fermat2_partition": false,
+    "fermat2_refines_mr2_partition": false
+  }
+}

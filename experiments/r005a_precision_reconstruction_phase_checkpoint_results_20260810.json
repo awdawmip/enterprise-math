@@ -1,0 +1,29 @@
+{
+  "status": "R005-A PRECISION / RECONSTRUCTION / DESERT-PHASE CHECKPOINT",
+  "lattice_reconstruction_checks": 5476722,
+  "reconstruction_phase": {
+    "generic_boundary": "r>2p",
+    "critical_square_exception": "(p,r)=(2,4)",
+    "p3_r6": "critical_equality_constant_fails",
+    "p3_r7": "asymptotically_forced_by_scale"
+  },
+  "desert_phase_capacity": {
+    "categories": {
+      "cube_spike": 0,
+      "no_desert_capacity": 2440,
+      "positive_capacity_phase_miss": 7,
+      "residual": 50
+    },
+    "positive_capacity_blocks": 57,
+    "same_bottleneck_residuals": 30,
+    "split_bottleneck_residuals": 20
+  },
+  "theorems": {
+    "T-A38": "fixed residue c mod m is unique in A<d*c<=U when d*m>=U-A",
+    "T-A39": "square-basin odd divisor product d>=k is state-complete",
+    "T-A40": "under r-root forcing, p-power reconstruction scale is t/r>(p-1)/p; maximal residual last-factor boundary r>2p, with exact (2,4) exception",
+    "T-A41": "all e=1 deserts compress to W-R*<h<=L*",
+    "T-A42": "mu=L*+R*-W is the exact count of compatible integer phases when positive",
+    "T-A43": "residual phase slacks ell+u=mu"
+  }
+}

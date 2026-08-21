@@ -1,0 +1,99 @@
+{
+  "status": "R005-A AMBIENT CLOSURE COMPLEX x NONFORCED SHADOW EXACT CHECK",
+  "verified_basins": 49,
+  "ambient_block_total": 2497,
+  "residual_block_total": 50,
+  "ambient_rank_counts": {
+    "rank1": 0,
+    "rank2": 148,
+    "rank3": 2349
+  },
+  "residual_rank_counts": {
+    "rank2": 45,
+    "rank3": 5
+  },
+  "ambient_linearity_pair_checks": 7195,
+  "theorems": {
+    "induced_shadow": "R_k = H_k[NF_k] on the fourth-root-forced slice",
+    "linearity": "distinct ambient support blocks intersect in at most one witness",
+    "squarefree_sector": "rank-3 ambient blocks form a partial Steiner triple system",
+    "repair": "forced core union T is safe iff T is a transversal of R_k",
+    "pair_minimality": "a factor pair determines its ambient block, but one witness need not determine a residual block"
+  },
+  "single_witness_negative_boundary": {
+    "k": 1781,
+    "witness": 101,
+    "distinct_residual_blocks": [
+      {
+        "support": [101, 311],
+        "N": 3172511
+      },
+      {
+        "support": [101, 149, 211],
+        "N": 3175339
+      }
+    ],
+    "conclusion": "k plus one witness is insufficient for generic residual-block reconstruction"
+  },
+  "current_certificate_repair_observation": {
+    "all_49_no_least_basins_have_tau": 1,
+    "not_a_global_theorem": true
+  },
+  "rows_omitted": true,
+  "selected_rows": [
+    {
+      "k": 25,
+      "ambient_blocks": 1,
+      "ambient_vertices": 2,
+      "nonforced_ambient_vertices": 2,
+      "residual_blocks": 1,
+      "repair_number_tau": 1,
+      "minimum_repairs": [[7], [13]]
+    },
+    {
+      "k": 47,
+      "ambient_blocks": 4,
+      "ambient_vertices": 6,
+      "nonforced_ambient_vertices": 3,
+      "residual_blocks": 1,
+      "repair_number_tau": 1,
+      "minimum_repairs": [[11], [19]]
+    },
+    {
+      "k": 888,
+      "ambient_blocks": 20,
+      "ambient_vertices": 35,
+      "nonforced_ambient_vertices": 14,
+      "residual_blocks": 1,
+      "repair_number_tau": 1,
+      "minimum_repairs": [[73], [79], [137]]
+    },
+    {
+      "k": 1781,
+      "ambient_blocks": 35,
+      "ambient_vertices": 58,
+      "nonforced_ambient_vertices": 20,
+      "residual_blocks": 2,
+      "repair_number_tau": 1,
+      "minimum_repairs": [[101]]
+    },
+    {
+      "k": 4412,
+      "ambient_blocks": 73,
+      "ambient_vertices": 112,
+      "nonforced_ambient_vertices": 39,
+      "residual_blocks": 1,
+      "repair_number_tau": 1,
+      "minimum_repairs": [[193], [281], [359]]
+    },
+    {
+      "k": 35901,
+      "ambient_blocks": 498,
+      "ambient_vertices": 619,
+      "nonforced_ambient_vertices": 174,
+      "residual_blocks": 1,
+      "repair_number_tau": 1,
+      "minimum_repairs": [[641], [3137]]
+    }
+  ]
+}
