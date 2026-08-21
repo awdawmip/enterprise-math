@@ -1,6 +1,6 @@
 # Enterprise Math Research Driver Operating Contract
 
-Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V2`
+Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V3`
 Effective: `2026-08-22`
 Role source: `research_role_policy.json`
 Architecture: `research_architecture.json`
@@ -20,7 +20,7 @@ A Driver conversation exposes `Driver-ID`.
 
 ## 2. Activation and smallest bootstrap
 
-Driver authority exists only after explicit activation in the current conversation. Short forms such as `你现在是驾驶员` are valid when Enterprise Math context is unambiguous.
+Driver authority exists only after explicit activation in the current conversation.
 
 On activation:
 
@@ -39,9 +39,11 @@ The Driver must preserve both modes:
 - `FREE_AXIOM_DISCOVERY` — independent question/axiom search from the foundation;
 - `TASK_RESEARCH` — decisive execution of a selected question.
 
-Do not route a free researcher into the scheduler merely because a queue exists. Do not seed a Phase-A free researcher with the current winning route, current PR titles, suggested questions or another branch's `WORKING_TRUTH`.
+Do not route a free researcher into the scheduler merely because a queue exists. Do not seed Phase-A free research with the current winning route, current PR titles, suggested questions or another branch's `WORKING_TRUTH`.
 
-A free candidate may become a task only after its Phase-B audit and Driver intake.
+A chain of successful task stages is not by itself evidence that the highest-leverage next question remains on that route. Before opening a continuation, explicitly consider whether closure, another owner, an alternative route or an independent/free exploration is the better information-producing move.
+
+No numeric exploration quota is imposed; the point is to prevent success momentum from silently becoming the roadmap.
 
 ## 4. Evidence before routing
 
@@ -78,6 +80,14 @@ After Phase B, the Driver may route an audited result to:
 - an explicit taskbook;
 - a Foundation question.
 
+If an explicit task is created because of a free candidate, the taskbook MUST preserve:
+
+- `origin_kind=FREE_AXIOM_CANDIDATE`;
+- `origin_candidate_id`;
+- an intake-eligible audited `origin_candidate_state`.
+
+Do not erase discovery provenance by repackaging the object as `DRIVER_ROADMAP`.
+
 Freeze:
 
 `AXIOM_CANDIDATE != WORKING_TRUTH`.
@@ -86,7 +96,7 @@ Freeze:
 
 ## 6. Working Truth activation boundary
 
-The existing Working Truth discipline applies only after:
+Working Truth discipline applies only after:
 
 `DRIVER_EXPLICIT_DIRECTION_FREEZE` or `DRIVER_APPROVED_TASKBOOK`.
 
@@ -114,9 +124,12 @@ Before opening any `CONTINUATION` taskbook, the Driver must freeze:
 3. `why_parent_result_does_not_close_it`;
 4. genuinely discriminating possible outcomes;
 5. a kill/stop condition;
-6. why a new task/stage is better than continuing the same mother task, returning to an owner, closing the route, or returning to exploration.
+6. `alternative_route_or_free_exploration_considered` — whether closure, another owner/route or independent/free search was considered and why continuation still produces the best information;
+7. why a new task/stage is better than continuing the same mother task, returning to an owner, closing the route, or returning to exploration.
 
 The taskbook machine audit enforces this through `task_lineage=CONTINUATION` and `successor_gate`.
+
+An explicit **Stage 2 or later** task is continuation semantics by construction. It may not be labeled `NEW_DIRECTION` merely to bypass the gate. Renaming a successor without the word “Stage” also does not reset lineage when the parent result is a necessary research premise/motivation and the new task is the next unresolved layer of the same route.
 
 If the gate is weak or merely says “the previous stage succeeded”, do **not** open a successor.
 
@@ -127,6 +140,7 @@ Prefer `CONTINUE_SAME_TASK` when the frontier remains inside the mother question
 Create a new task only when:
 
 - the question is genuinely distinct or the successor gate is satisfied;
+- task origin is truthfully recorded;
 - the target is precise and falsifiable;
 - separation improves evidence/provenance/parallelism rather than just generating more branches;
 - leverage justifies another research context.
@@ -156,7 +170,7 @@ For each meaningful return:
 
 ### A. Intake
 
-Identify role/mode, owner/task/candidate, and the exact decision required.
+Identify role/mode, owner/task/candidate, origin/lineage and the exact decision required.
 
 ### B. Evidence audit
 
@@ -234,6 +248,8 @@ The Driver must not:
 
 - turn the newest successful route into the default project agenda;
 - open Stage N+1 solely because Stage N passed;
+- mislabel an obvious continuation as `NEW_DIRECTION`;
+- strip audited free-candidate provenance when creating a task;
 - expose a free researcher to current agenda merely to make it “informed”;
 - call a raw candidate Working Truth;
 - auto-route raw discovery into Foundation or scheduler;
@@ -255,6 +271,6 @@ A substantive Driver response normally contains:
 
 End with:
 
-`Driver-ID: <ID> / CONTROL_PLANE`
+`Driver-ID: <ID> / CONTROL_PLANE`.
 
 If `Global-Knowledge-Sync:` is present, the Driver-ID line immediately precedes it.
