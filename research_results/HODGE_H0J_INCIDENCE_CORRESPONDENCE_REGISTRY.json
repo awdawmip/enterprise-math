@@ -1,0 +1,84 @@
+{
+  "cartier_cut_tokens": {
+    "A": {
+      "local_function": "c",
+      "plucker": "p24",
+      "sign_ignored": true
+    },
+    "A2": {
+      "line_bundle": "O_F(2)",
+      "local_function": "c^2",
+      "source_section": "p24^2"
+    },
+    "B": {
+      "local_function": "d",
+      "plucker": "p25",
+      "sign_ignored": true
+    },
+    "Bp": {
+      "local_function": "d+c",
+      "same_ideal_after_A": true,
+      "source_section": "p25-p24"
+    },
+    "C": {
+      "local_function": "g",
+      "plucker": "p04",
+      "sign_ignored": false
+    }
+  },
+  "equations": [
+    "x1=a+e*lambda",
+    "x2=lambda",
+    "x3=b+f*lambda",
+    "x4=c+g*lambda",
+    "x5=d+h*lambda"
+  ],
+  "failed_partial_control": {
+    "combined_jacobian_rank_at_L0": 6,
+    "curve_obligation": false,
+    "cut_word": "A,A,B",
+    "effective_ideal": "I_F+(c,d)",
+    "local_dimension_on_F": 2,
+    "reason": "duplicate scheme cut A does not add a third independent codimension condition"
+  },
+  "incidence_chart": "U_02 x {s!=0} with lambda=t/s and x0=1",
+  "incidence_surface_control": {
+    "conclusion": "q(P_C) has local dimension 2 at the frozen point; q_*[P_C] defines a nonzero local codimension-two algebraic cycle germ S0 at declared scope.",
+    "dq_rank_on_curve_tangent_plus_fiber_tangent": 2,
+    "fiber_point": {
+      "L0": true,
+      "affine_X_point_x1_to_x5": [
+        -1,
+        1,
+        -1,
+        0,
+        0
+      ],
+      "lambda": 1
+    },
+    "point_on_X": true
+  },
+  "multiplicity_control": {
+    "boolean_support_same_as_S0": true,
+    "cycle_evaluation": "2*S0",
+    "ideal": "I_F+(c^2,d,g)",
+    "normal_slice_length": "dim_Q Q[c]/(c^2)=2",
+    "radical": "I_F+(c,d,g)"
+  },
+  "regular_curve_control": {
+    "combined_jacobian_rank_at_L0": 7,
+    "curve_tangent_vector_in_(a,b,c,d,e,f,g,h)": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "ideal": "I_F+(c,d,g)",
+    "local_dimension": 1
+  },
+  "schema": "HODGE_H0J_INCIDENCE_CORRESPONDENCE_REGISTRY_V1"
+}

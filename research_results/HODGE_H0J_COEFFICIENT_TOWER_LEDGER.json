@@ -1,0 +1,32 @@
+{
+  "canonical_positive_tower": [
+    "PATH_FORMAL_BRC",
+    "N_BRC",
+    "BOOLEAN_BRC"
+  ],
+  "positive_lane": {
+    "N_BRC_path_occurrence_count": 6,
+    "algebraic_cycle_evaluation": "6*S0 if formally summing six occurrences; each individual occurrence evaluates to S0",
+    "boolean_terminal_support": 1,
+    "example": "sum of six A/B/C order paths",
+    "path_formal_basis_count": 6
+  },
+  "rational_lane": {
+    "classification": "STANDARD_RATIONAL_CYCLE_EXTENSION_CONTROL",
+    "construction": "Q tensor extension after Z typing",
+    "denominator_clearing": "2*((1/2)*[A2,B,C])=[A2,B,C] evaluates to 2*S0",
+    "example": "(1/2)*[A2,B,C] evaluates to S0"
+  },
+  "schema": "HODGE_H0J_COEFFICIENT_TOWER_LEDGER_V1",
+  "scheme_multiplicity_warning": {
+    "A2_intersection_multiplicity_per_path": 2,
+    "A2_path_occurrence_count_per_path": 1,
+    "conclusion": "N_BRC route multiplicity cannot be identified with algebraic intersection multiplicity."
+  },
+  "signed_lane": {
+    "canonical_brc_predeclared": false,
+    "classification": "STANDARD_FREE_ABELIAN_GROUP_COMPLETION_CONTROL",
+    "construction": "Z-group completion of free path-formal N-semimodule",
+    "example_kernel": "[A,B,C]-[A,C,B] is nonzero provenance but evaluates to 0 in the ordinary cycle group"
+  }
+}

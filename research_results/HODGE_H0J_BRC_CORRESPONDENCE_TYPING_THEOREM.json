@@ -1,0 +1,36 @@
+{
+  "associativity_reason": "word concatenation is strictly associative; algebraic evaluation is compatible because iterated fiber products are canonically associative and local cut evaluation is ideal-sum/intersection composition.",
+  "composition": "typed concatenation extended distributively",
+  "critical_distinction": "PATH_OCCURRENCE_MULTIPLICITY != SCHEME_INTERSECTION_MULTIPLICITY",
+  "forgetful_maps": {
+    "beta_support": "positive coefficient -> 1, zero -> 0 on the selected carrier",
+    "epsilon_path_to_N_BRC": "sum of path occurrence coefficients; counts routes, not scheme multiplicity",
+    "mu_alg_to_cycle_N": "sum of path coefficients weighted by exact algebraic intersection multiplicity"
+  },
+  "hard_block": false,
+  "ordinary_correspondence_compatibility": "evaluation of concatenated typed path equals composition of its ordinary algebraic operations on every frozen valid witness",
+  "path_formal_sum": "free finite N-sum on typed path witnesses with matching source/target",
+  "path_witness": "finite typed word of concrete algebraic cut/fiber/push operations with section labels, intermediate ideals, line chart, and fiber parameter provenance",
+  "schema": "HODGE_H0J_BRC_CORRESPONDENCE_TYPING_THEOREM_V1",
+  "status": true,
+  "theorem": "ALGEBRAIC_CORRESPONDENCE_PATH_FORMAL_CARRIER_IS_WELL_TYPED",
+  "typed_edges": [
+    "CUT_f: F_k -> F_{k-1} by scheme-theoretic fiber product with Cartier zero locus V(f), when the regular codimension obligation passes",
+    "INC_PULL: F_1 -> P_2 by P x_F C",
+    "INC_PUSH: P_2 -> X_2 by proper cycle pushforward q_*"
+  ],
+  "typed_objects": [
+    {
+      "meaning": "declared local algebraic cycle germ of dimension k on F(X)",
+      "type": "F_k"
+    },
+    {
+      "meaning": "incidence fiber product P x_F Z over an F-cycle Z",
+      "type": "P_kplus1"
+    },
+    {
+      "meaning": "proper q-pushforward cycle on X when dimension/codimension obligation passes",
+      "type": "X_kplus1"
+    }
+  ]
+}

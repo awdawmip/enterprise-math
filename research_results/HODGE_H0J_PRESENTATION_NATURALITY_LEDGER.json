@@ -1,0 +1,22 @@
+{
+  "chart_reframe": {
+    "U02_to_U13": "exact GL2 row-frame rebase on p13!=0",
+    "p13_at_L0": 1,
+    "status": "PASS"
+  },
+  "cut_order": {
+    "ordinary_cycle_same": true,
+    "path_provenance_distinct": true,
+    "six_permutations_same_scheme_ideal": true
+  },
+  "generator_recombination": {
+    "(c,d+c,g)=(c,d,g)": true,
+    "status": "PASS"
+  },
+  "path_count_noninvariance": {
+    "consequence": "raw N_BRC path count is not a Hodge/cycle invariant unless quotiented by source evaluation equivalence",
+    "statement": "presentation duplication/permutation can change raw path occurrence count without changing the algebraic cycle"
+  },
+  "schema": "HODGE_H0J_PRESENTATION_NATURALITY_LEDGER_V1",
+  "scope_boundary": "U02/U13 overlap and frozen local cut/incidence grammar only; no arbitrary-cover or global correspondence-functoriality claim."
+}

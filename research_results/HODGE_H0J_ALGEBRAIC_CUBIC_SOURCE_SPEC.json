@@ -1,0 +1,36 @@
+{
+  "cubic_equation": "x0^3+x1^3+2*x2^3+2*x3^3+x4^3+x5^3+x0*x4^2+x2*x5^2",
+  "field": "Q",
+  "projective_coordinates": [
+    "x0",
+    "x1",
+    "x2",
+    "x3",
+    "x4",
+    "x5"
+  ],
+  "researcher_id": "EM-HODGE-H0J-4E8C31",
+  "schema": "HODGE_H0J_ALGEBRAIC_CUBIC_SOURCE_SPEC_V1",
+  "smoothness_certificate": {
+    "argument": [
+      "d1=d3=0 gives x1=x3=0.",
+      "If x4=0 then d0=0 gives x0=0; if x4!=0 then d4=0 gives x0=-3*x4/2, and d0=(31/4)*x4^2!=0.",
+      "Hence x0=x4=0.",
+      "If x5=0 then d2=0 gives x2=0; if x5!=0 then d5=0 gives x2=-3*x5/2, and d2=(29/2)*x5^2!=0.",
+      "Hence x2=x5=0, so the only common affine cone critical point is the origin, excluded projectively."
+    ],
+    "partials": {
+      "d0": "3*x0^2+x4^2",
+      "d1": "3*x1^2",
+      "d2": "6*x2^2+x5^2",
+      "d3": "6*x3^2",
+      "d4": "x4*(3*x4+2*x0)",
+      "d5": "x5*(3*x5+2*x2)"
+    },
+    "status": "SMOOTH_OVER_CHARACTERISTIC_ZERO"
+  },
+  "source_scope": "U_02 big cell plus U_13 overlap around explicit line L0; local regular-curve/incidence-cycle germs; no full global elimination claim.",
+  "target_leakage_note": "No Hodge class, plane, scroll, special-cubic lattice generator, known Chow generator, or known surface representative is used to choose the cubic, cuts, or path grammar.",
+  "task_id": "RS-HODGE-H0J-CUBIC-FOURFOLD-BRC-MULTIPATH-CORRESPONDENCE-LIFTING",
+  "taskbook_source": "769435a951030da4281a5d342752ce4651bfae5d"
+}

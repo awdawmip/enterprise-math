@@ -1,0 +1,474 @@
+{
+  "family_counts": {
+    "FAIL_DUPLICATE_CUT": 3,
+    "R1_REGULAR": 6,
+    "R2_MULTIPLICITY2": 6,
+    "R3_RECOMBINED_PRESENTATION": 6
+  },
+  "schema": "HODGE_H0J_MULTIPATH_PROVENANCE_REGISTRY_V1",
+  "stress_results": {
+    "failed_partial": "A,A,B leaves ideal (c,d), local F-dimension 2, so the codim-3 curve / X-surface obligation fails",
+    "presentation_recombination": "A,B,C and A,Bp,C generate the same ideal (c,d,g) because (c,d+c,g)=(c,d,g)",
+    "same_final_cycle_distinct_path_provenance": "six permutations of A,B,C all evaluate to S0",
+    "same_support_different_multiplicity": "(c,d,g) vs (c^2,d,g) have the same radical but multiplicities 1 and 2"
+  },
+  "witness_table_sha256": "60cab9f2d7062e1689202a01c1e713990e97705e8c3fc52019ce904eaac94ee7",
+  "witnesses": [
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "A",
+        "B",
+        "C"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R1_REGULAR",
+      "final_local_ideal": [
+        "c",
+        "d",
+        "g"
+      ],
+      "id": "P00",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "A",
+        "C",
+        "B"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R1_REGULAR",
+      "final_local_ideal": [
+        "c",
+        "d",
+        "g"
+      ],
+      "id": "P01",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "B",
+        "A",
+        "C"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R1_REGULAR",
+      "final_local_ideal": [
+        "c",
+        "d",
+        "g"
+      ],
+      "id": "P02",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "B",
+        "C",
+        "A"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R1_REGULAR",
+      "final_local_ideal": [
+        "c",
+        "d",
+        "g"
+      ],
+      "id": "P03",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "C",
+        "A",
+        "B"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R1_REGULAR",
+      "final_local_ideal": [
+        "c",
+        "d",
+        "g"
+      ],
+      "id": "P04",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "C",
+        "B",
+        "A"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R1_REGULAR",
+      "final_local_ideal": [
+        "c",
+        "d",
+        "g"
+      ],
+      "id": "P05",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "A2",
+        "B",
+        "C"
+      ],
+      "cycle_evaluation": "2*S0",
+      "family": "R2_MULTIPLICITY2",
+      "final_local_ideal": [
+        "c^2",
+        "d",
+        "g"
+      ],
+      "id": "P06",
+      "intersection_multiplicity": 2,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "A2",
+        "C",
+        "B"
+      ],
+      "cycle_evaluation": "2*S0",
+      "family": "R2_MULTIPLICITY2",
+      "final_local_ideal": [
+        "c^2",
+        "d",
+        "g"
+      ],
+      "id": "P07",
+      "intersection_multiplicity": 2,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "B",
+        "A2",
+        "C"
+      ],
+      "cycle_evaluation": "2*S0",
+      "family": "R2_MULTIPLICITY2",
+      "final_local_ideal": [
+        "c^2",
+        "d",
+        "g"
+      ],
+      "id": "P08",
+      "intersection_multiplicity": 2,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "B",
+        "C",
+        "A2"
+      ],
+      "cycle_evaluation": "2*S0",
+      "family": "R2_MULTIPLICITY2",
+      "final_local_ideal": [
+        "c^2",
+        "d",
+        "g"
+      ],
+      "id": "P09",
+      "intersection_multiplicity": 2,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "C",
+        "A2",
+        "B"
+      ],
+      "cycle_evaluation": "2*S0",
+      "family": "R2_MULTIPLICITY2",
+      "final_local_ideal": [
+        "c^2",
+        "d",
+        "g"
+      ],
+      "id": "P10",
+      "intersection_multiplicity": 2,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "C",
+        "B",
+        "A2"
+      ],
+      "cycle_evaluation": "2*S0",
+      "family": "R2_MULTIPLICITY2",
+      "final_local_ideal": [
+        "c^2",
+        "d",
+        "g"
+      ],
+      "id": "P11",
+      "intersection_multiplicity": 2,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "A",
+        "Bp",
+        "C"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R3_RECOMBINED_PRESENTATION",
+      "final_local_ideal": [
+        "c",
+        "d+c",
+        "g"
+      ],
+      "id": "P12",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "A",
+        "C",
+        "Bp"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R3_RECOMBINED_PRESENTATION",
+      "final_local_ideal": [
+        "c",
+        "d+c",
+        "g"
+      ],
+      "id": "P13",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "Bp",
+        "A",
+        "C"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R3_RECOMBINED_PRESENTATION",
+      "final_local_ideal": [
+        "c",
+        "d+c",
+        "g"
+      ],
+      "id": "P14",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "Bp",
+        "C",
+        "A"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R3_RECOMBINED_PRESENTATION",
+      "final_local_ideal": [
+        "c",
+        "d+c",
+        "g"
+      ],
+      "id": "P15",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "C",
+        "A",
+        "Bp"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R3_RECOMBINED_PRESENTATION",
+      "final_local_ideal": [
+        "c",
+        "d+c",
+        "g"
+      ],
+      "id": "P16",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": true,
+      "cut_word": [
+        "C",
+        "Bp",
+        "A"
+      ],
+      "cycle_evaluation": "S0",
+      "family": "R3_RECOMBINED_PRESENTATION",
+      "final_local_ideal": [
+        "c",
+        "d+c",
+        "g"
+      ],
+      "id": "P17",
+      "intersection_multiplicity": 1,
+      "radical_support_ideal": [
+        "c",
+        "d",
+        "g"
+      ]
+    },
+    {
+      "codim3_curve_obligation": false,
+      "cut_word": [
+        "A",
+        "A",
+        "B"
+      ],
+      "cycle_evaluation": "INVALID_CODIM2_F_SIDE",
+      "family": "FAIL_DUPLICATE_CUT",
+      "final_local_ideal": [
+        "c",
+        "d"
+      ],
+      "id": "P18",
+      "intersection_multiplicity": 0,
+      "radical_support_ideal": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "codim3_curve_obligation": false,
+      "cut_word": [
+        "A",
+        "B",
+        "A"
+      ],
+      "cycle_evaluation": "INVALID_CODIM2_F_SIDE",
+      "family": "FAIL_DUPLICATE_CUT",
+      "final_local_ideal": [
+        "c",
+        "d"
+      ],
+      "id": "P19",
+      "intersection_multiplicity": 0,
+      "radical_support_ideal": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "codim3_curve_obligation": false,
+      "cut_word": [
+        "B",
+        "A",
+        "A"
+      ],
+      "cycle_evaluation": "INVALID_CODIM2_F_SIDE",
+      "family": "FAIL_DUPLICATE_CUT",
+      "final_local_ideal": [
+        "c",
+        "d"
+      ],
+      "id": "P20",
+      "intersection_multiplicity": 0,
+      "radical_support_ideal": [
+        "c",
+        "d"
+      ]
+    }
+  ]
+}

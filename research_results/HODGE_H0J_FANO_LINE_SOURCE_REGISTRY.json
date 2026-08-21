@@ -1,0 +1,105 @@
+{
+  "chart": "U_02 = {p02 != 0}",
+  "explicit_line_L0": {
+    "coordinates": {
+      "a": -1,
+      "b": 0,
+      "c": 0,
+      "d": 0,
+      "e": 0,
+      "f": -1,
+      "g": 0,
+      "h": 0
+    },
+    "geometric_line": "[s:-s:t:-t:0:0]",
+    "p13": 1
+  },
+  "fano_equations": [
+    "a**3 + 2*b**3 + c**3 + c**2 + d**3 + 1",
+    "3*a**2*e + 6*b**2*f + 3*c**2*g + 2*c*g + 3*d**2*h + d**2",
+    "3*a*e**2 + 6*b*f**2 + 3*c*g**2 + 3*d*h**2 + 2*d*h + g**2",
+    "e**3 + 2*f**3 + g**3 + h**3 + h**2 + 2"
+  ],
+  "line_parameterization": [
+    "s",
+    "a*s+e*t",
+    "t",
+    "b*s+f*t",
+    "c*s+g*t",
+    "d*s+h*t"
+  ],
+  "local_smoothness": {
+    "ambient_dimension": 8,
+    "fano_jacobian_rank_at_L0": 4,
+    "local_dimension": 4
+  },
+  "overlap_U13": {
+    "delta": "a*f-b*e",
+    "frame_change_matrix": "(1/delta)*[[f,-b],[-e,a]]",
+    "pivot_columns_1_3": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "reframed_matrix": [
+      [
+        "f/(a*f - b*e)",
+        "1",
+        "-b/(a*f - b*e)",
+        "0",
+        "(-b*g + c*f)/(a*f - b*e)",
+        "(-b*h + d*f)/(a*f - b*e)"
+      ],
+      [
+        "-e/(a*f - b*e)",
+        "0",
+        "a/(a*f - b*e)",
+        "1",
+        "(a*g - c*e)/(a*f - b*e)",
+        "(a*h - d*e)/(a*f - b*e)"
+      ]
+    ],
+    "status": "EXACT_REFRAME_SAME_LINE_ON_DELTA_NONZERO"
+  },
+  "plucker_coordinates": {
+    "p01": "e",
+    "p02": "1",
+    "p03": "f",
+    "p04": "g",
+    "p05": "h",
+    "p12": "a",
+    "p13": "a*f-b*e",
+    "p14": "a*g-c*e",
+    "p15": "a*h-d*e",
+    "p23": "-b",
+    "p24": "-c",
+    "p25": "-d",
+    "p34": "b*g-c*f",
+    "p35": "b*h-d*f",
+    "p45": "c*h-d*g"
+  },
+  "row_reduced_line_matrix": [
+    [
+      "1",
+      "a",
+      "0",
+      "b",
+      "c",
+      "d"
+    ],
+    [
+      "0",
+      "e",
+      "1",
+      "f",
+      "g",
+      "h"
+    ]
+  ],
+  "schema": "HODGE_H0J_FANO_LINE_SOURCE_REGISTRY_V1"
+}
