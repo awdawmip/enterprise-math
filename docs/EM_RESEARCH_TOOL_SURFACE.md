@@ -23,6 +23,8 @@ Before substantive work, normally use only:
 
 Then work. Do not wait to read an unrelated protocol merely because it exists.
 
+This explicit-task packet is not the discovery packet for `EM_FREE_RESEARCHER`.
+
 ## Triggered reads — binding when relevant, not universal
 
 - `docs/GITHUB_INTERACTION_BUDGET.md` — before expanded remote/PR/Issue/CI preflight or when liveness details are materially needed;
@@ -46,9 +48,20 @@ Do not infer current authority from an older file merely because it still exists
 
 When the user supplies an explicit taskbook, the taskbook is the normal third hot-start read. Use its frozen source/ref/owner lane exactly. Helper tooling such as `tools/research_taskbook.py` is conditional on actual need.
 
-## Waiting free researcher
+## Free researcher — foundation-only axiom discovery
 
-`EM_FREE_RESEARCHER` in `WAITING_FOR_TOPIC` does not create/claim a taskbook, scheduler issue or topic merely to complete bootstrap. Read only the role/identity surfaces needed to establish the waiting state.
+`EM_FREE_RESEARCHER` is not a waiting queue role.
+
+Its default state is `AXIOM_DISCOVERY`, and its default objective is to discover new axiom candidates from the current foundation before seeing the current research agenda.
+
+Before the first `BLIND_AXIOM_CANDIDATE_PACKET` is frozen, do not load current scheduler/Issue #240, current taskbooks, Research Relay, recent commit/PR titles, R063/R064/current route material, another branch's `WORKING_TRUTH`, theorem-family success catalogs, or suggested questions merely for inspiration.
+
+Role-specific source contract:
+
+- `research_roles/EM_FREE_RESEARCHER_ROLE.md`;
+- `research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md` once promoted.
+
+The generic no-user-task scheduler rule does not apply to this role during Phase-A axiom discovery. After the blind candidate freeze, prior/current work may be opened for deduplication, contradiction, prior-art and integration audits.
 
 ## Tests / Lean / computation
 
@@ -61,6 +74,8 @@ Inspect the actually available runtime tool surface before promising an operatio
 ## Read stability
 
 Within one execution phase, reuse immutable content already fetched at a known SHA/ref. Re-reading unchanged routers or PR metadata merely for reassurance is a performance defect. Refresh only when freshness/concurrency can materially change the result or immediately before a concurrency-sensitive write.
+
+For free research, loading more current-route context before Phase-A freeze is not an optimization; it is an anchoring defect.
 
 ## Stability invariant
 
