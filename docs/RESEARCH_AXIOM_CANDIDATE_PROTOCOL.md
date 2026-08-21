@@ -1,6 +1,6 @@
 # Enterprise Math Axiom Candidate Protocol
 
-Status: `DRIVER-PROPOSED / NO_NEW_MATHEMATICS / GOVERNANCE`
+Status: `DRIVER-PROPOSED / NO_NEW_MATHEMATICS / GOVERNANCE / V2`
 Date: `2026-08-22`
 Driver-ID: `EM-DVR-K7Q4N8`
 Machine state machine: `research_axiom_candidate_state_machine.json`
@@ -70,6 +70,20 @@ Only when the Driver explicitly freezes a task direction does `WORKING_TRUTH` be
 
 `WORKING_TRUTH != CANONICAL_FOUNDATION`.
 
+## Transition to explicit task
+
+If an audited free candidate becomes a selected task, the taskbook must preserve its origin:
+
+- `origin_kind=FREE_AXIOM_CANDIDATE`;
+- `origin_candidate_id=<candidate_id>`;
+- `origin_candidate_state=<audited intake-eligible state>`.
+
+Do not relabel the same origin as `DRIVER_ROADMAP` merely because the Driver has now selected it.
+
+Selection changes **control-plane status**, not discovery provenance.
+
+Working Truth still does not activate automatically at the moment of candidate classification; it requires the explicit Driver direction/task freeze.
+
 ## Evidence roles
 
 Evidence used to choose or shape a candidate is **discovery evidence**.
@@ -87,9 +101,17 @@ This is the research analogue of the account-level post-allocation principle: la
 For strong independence evidence:
 
 - use a fresh context;
-- freeze the same foundation snapshot when comparability matters;
+- freeze the same foundation/worldview snapshot when comparability matters;
 - do not expose another run's candidate before the new run freezes its own;
 - compare afterwards.
+
+Record one of:
+
+- `CLEAN_INDEPENDENT_CONTEXT`;
+- `SHARED_AMBIENT_CONTEXT_DISCLOSED`;
+- `NOT_INDEPENDENT`.
+
+A new Researcher-ID alone does not prove independence if the contexts share salient project memory, candidate packets or agenda exposure.
 
 Convergence is a salience/compression signal, not proof. Divergence must be preserved before Driver selection.
 
