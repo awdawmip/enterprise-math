@@ -1,0 +1,68 @@
+{
+  "class_matrix_columns_Sstar_Q": [
+    [
+      "1/2",
+      "1/2"
+    ],
+    [
+      "-1/2",
+      "1/2"
+    ]
+  ],
+  "controls": [
+    {
+      "ambient_Gr_dimension": 4,
+      "bundle": "S*",
+      "class_derivation": "Exact Chern-Weil: c2(S*)=1/2((tr A)^2-tr(A^2)).",
+      "class_vector_tau_basis": [
+        "1/2",
+        "-1/2"
+      ],
+      "codimension": 2,
+      "local_regular_check": "On U12 with F=[[1,0,a,b],[0,1,c,d]], section coordinates are (b,d), a regular sequence.",
+      "plucker_ideal": [
+        "p14",
+        "p24",
+        "p34"
+      ],
+      "projective_dimension": 2,
+      "quotient_coordinate_ring": "Q[p12,p13,p23] (Plücker relation vanishes after quotient)",
+      "reduced": true,
+      "section": "e4*|_W",
+      "top_chern_zero_locus": "PASS_SOURCE_CONTROL",
+      "zero_locus_description": "2-planes W contained in ker(e4*)"
+    },
+    {
+      "ambient_Gr_dimension": 4,
+      "bundle": "Q",
+      "class_derivation": "With B=X∧Y, tr(B)=-tr(A), tr(B^2)=-tr(A^2), hence c2(Q)=1/2(tau1+tau2).",
+      "class_vector_tau_basis": [
+        "1/2",
+        "1/2"
+      ],
+      "codimension": 2,
+      "local_regular_check": "On U14 with F=[[1,a,b,0],[0,c,d,1]], Q-section coordinates are (-c,-d), a regular sequence.",
+      "plucker_ideal": [
+        "p12",
+        "p13",
+        "p23"
+      ],
+      "projective_dimension": 2,
+      "quotient_coordinate_ring": "Q[p14,p24,p34] (Plücker relation vanishes after quotient)",
+      "reduced": true,
+      "section": "e4 mod W",
+      "top_chern_zero_locus": "PASS_SOURCE_CONTROL",
+      "zero_locus_description": "2-planes W containing e4"
+    }
+  ],
+  "credit": "ZERO_HODGE_LIFTING_CREDIT_BY_ITSELF",
+  "determinant": "1/2",
+  "owner_branch": "research/hodge-h0i-codim2-class-first-lifting",
+  "prior_art_control": "Regular rank-r section zero-locus/top-Chern compatibility is classical source mathematics.",
+  "researcher_id": "EM-HODGE-H0I-7B2D94",
+  "schema": "HODGE_H0I_BUNDLE_FIRST_CONTROL_V1",
+  "status": "FROZEN_CONTROL_ONLY",
+  "task_id": "RS-HODGE-H0I-CODIM2-CLASS-FIRST-VECTOR-BUNDLE-ZERO-LOCUS-LIFTING",
+  "taskbook_source": "3726e64557d625e36915028d83421d1f47b26fd2",
+  "warning": "BUNDLE_FIRST_GENERATION != CLASS_FIRST_LIFTING"
+}

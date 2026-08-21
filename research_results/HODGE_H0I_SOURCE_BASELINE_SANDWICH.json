@@ -1,0 +1,44 @@
+{
+  "B_raw_codim2": {
+    "I1_raw_interface_total": 1170,
+    "allowed": [
+      "exact Plücker chart transitions",
+      "direct GL2 cocycle/gauge checks",
+      "bounded section enumeration",
+      "zero-locus ideal construction",
+      "local codimension checks",
+      "direct class comparison",
+      "brute-force exact target search"
+    ],
+    "forbidden": [
+      "future-signature minimization as a preinstalled source primitive"
+    ]
+  },
+  "B_std_codim2": {
+    "allowed": [
+      "GL2 cocycle/gauge quotient",
+      "ordinary transition-matrix linear algebra",
+      "Chern-class/Whitney formulas",
+      "regular-section/top-Chern theorem",
+      "determinantal/Fitting ideals",
+      "Gröbner/radical/saturation/elimination normal forms",
+      "source-derived rational-equivalence/Chow operations",
+      "exact rational lattice and matrix inversion/SNF/HNF",
+      "independently derived realization obstruction"
+    ],
+    "extends": "B_raw_codim2",
+    "hard_target_rule": "Only a transform-caused operational form absent from both baselines can receive ROBUST_TRANSFORM_ATTRIBUTED.",
+    "independently_available_normal_forms": {
+      "I1": "bundle gauge class plus source c2/section obligations",
+      "I2": "ideal/scheme structure with multiplicity and cycle class",
+      "I3": "2x2 class matrix inversion over Q and rational cycle combination"
+    }
+  },
+  "anti_gaming": "Raw reduction alone never earns Hodge-special R2.",
+  "owner_branch": "research/hodge-h0i-codim2-class-first-lifting",
+  "researcher_id": "EM-HODGE-H0I-7B2D94",
+  "schema": "HODGE_H0I_SOURCE_BASELINE_SANDWICH_V1",
+  "status": "FROZEN_BEFORE_ENTERPRISE_SUCCESS_COUNTS",
+  "task_id": "RS-HODGE-H0I-CODIM2-CLASS-FIRST-VECTOR-BUNDLE-ZERO-LOCUS-LIFTING",
+  "taskbook_source": "3726e64557d625e36915028d83421d1f47b26fd2"
+}

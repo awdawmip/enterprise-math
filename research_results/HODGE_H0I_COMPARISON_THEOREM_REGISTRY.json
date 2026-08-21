@@ -1,0 +1,31 @@
+{
+  "owner_branch": "research/hodge-h0i-codim2-class-first-lifting",
+  "researcher_id": "EM-HODGE-H0I-7B2D94",
+  "schema": "HODGE_H0I_COMPARISON_THEOREM_REGISTRY_V1",
+  "status": "FROZEN",
+  "task_id": "RS-HODGE-H0I-CODIM2-CLASS-FIRST-VECTOR-BUNDLE-ZERO-LOCUS-LIFTING",
+  "taskbook_source": "3726e64557d625e36915028d83421d1f47b26fd2",
+  "theorems": [
+    {
+      "id": "CT-I0-TARGET",
+      "statement": "tau1,tau2 span the exact two-dimensional invariant (2,2) degree-four carrier of the declared symmetric-pair source; neither is defined from a cycle or bundle c2.",
+      "strength": "EXACT_ON_DECLARED_SOURCE"
+    },
+    {
+      "id": "CT-I1-COCYCLE",
+      "statement": "The finite I1 full-future quotient preserves every declared GL2 cocycle/gauge/class/section obligation; its strict reduction is source-equivalent to the ordinary bundle gauge quotient.",
+      "strength": "SOUND_COMPLETE_FINITE"
+    },
+    {
+      "id": "CT-I2-PROVENANCE",
+      "statement": "Ideal provenance distinguishes same-support multiplicity 1 versus 2 and identifies generator-recombined presentations with the same ideal.",
+      "strength": "EXACT_FINITE_SOURCE"
+    },
+    {
+      "id": "CT-I3-CLASS-FIRST",
+      "proof": "Use source-derived c2 vectors c2(S*)=(tau1-tau2)/2 and c2(Q)=(tau1+tau2)/2 plus regular-section top-Chern cycle equality.",
+      "statement": "For v=r tau1+s tau2, cl((r-s)Z_Sstar+(r+s)Z_Q)=v.",
+      "strength": "EXACT_ON_V_TARGET"
+    }
+  ]
+}

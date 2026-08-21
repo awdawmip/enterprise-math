@@ -1,0 +1,75 @@
+{
+  "Q_cocycle_exact_checks": 216,
+  "Q_local_quotient_map": "R_I:C^4->C^2 has kernel W, identity on complement columns C_I, and sends pivot basis vectors to minus the corresponding complement row of F_I.",
+  "Q_transition_formula": "G^Q_(J<-I)=R_J[:,C_I], so R_J=G^Q_(J<-I) R_I.",
+  "S_cocycle_exact_checks": 216,
+  "S_transition_formula": "G^S_(J<-I)=F_I[:,J]^{-1}",
+  "Sstar_transition_formula": "G^(S*)_(J<-I)=(G^S_(J<-I))^{-T}",
+  "ambient": "2-planes W in C^4",
+  "candidate_bundles": {
+    "E_11": "L⊕L where L=det(S*) is generated from determinant transitions",
+    "E_21": "L^2⊕L",
+    "E_Q": "universal quotient Q generated from quotient-map transitions",
+    "E_Sstar": "tautological dual S* generated from row-frame transitions"
+  },
+  "candidate_grammar_freeze_order": [
+    "FIRST freeze V_target and target descriptors",
+    "THEN freeze candidate bundle family {S*, Q, L⊕L, L^2⊕L}",
+    "THEN compute c2/zero-locus comparisons"
+  ],
+  "chart_rule": "On U_ij, normalize a 2x4 row-basis matrix F_ij so pivot columns i,j form I_2.",
+  "charts": [
+    "U12",
+    "U13",
+    "U14",
+    "U23",
+    "U24",
+    "U34"
+  ],
+  "overlap_localization": "U_I ∩ U_J localizes by det(F_I[:,J]) != 0; F_J = F_I[:,J]^{-1} F_I.",
+  "owner_branch": "research/hodge-h0i-codim2-class-first-lifting",
+  "plucker_coordinates": [
+    "p12",
+    "p13",
+    "p14",
+    "p23",
+    "p24",
+    "p34"
+  ],
+  "plucker_relation": "p12*p34 - p13*p24 + p14*p23 = 0",
+  "predeclared_sections": {
+    "E_11": "(p12,p34)",
+    "E_11_recombined": "(p12,p34+p12)",
+    "E_21": "(p12^2,p34)",
+    "Q": "ambient vector e4 projected to C^4/W",
+    "Sstar": "ambient covector e4* restricted to W"
+  },
+  "researcher_id": "EM-HODGE-H0I-7B2D94",
+  "schema": "HODGE_H0I_ALGEBRAIC_SOURCE_SPEC_V1",
+  "source_vs_native_typing": "All load-bearing algebraic/vector-bundle/ideal operations are classical source mathematics and COORDINATE_IRRELEVANT relative to Enterprise native plane.",
+  "status": "FROZEN_BEFORE_ENTERPRISE_SUCCESS_EVALUATION",
+  "target_answer_inputs_forbidden": [
+    "Schubert cycle basis",
+    "known Chow basis",
+    "known c2(S/Q) answer",
+    "known Hodge rank used to tailor V_target"
+  ],
+  "task_id": "RS-HODGE-H0I-CODIM2-CLASS-FIRST-VECTOR-BUNDLE-ZERO-LOCUS-LIFTING",
+  "taskbook_source": "3726e64557d625e36915028d83421d1f47b26fd2",
+  "transition_sample_digest_sha256": "d1cd16dc1ebb9cdfe59dbefed878a0f626c6b64614df33faf7f393de6b112854",
+  "transition_sample_matrix": [
+    [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    [
+      "1",
+      "2",
+      "3",
+      "5"
+    ]
+  ],
+  "variety": "X=Gr(2,4)_C"
+}

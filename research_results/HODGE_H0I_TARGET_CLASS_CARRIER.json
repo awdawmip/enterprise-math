@@ -1,0 +1,202 @@
+{
+  "V_target": "Q*tau1 ⊕ Q*tau2",
+  "carrier_id": "VTARGET_GR24_SYMMETRIC_PAIR_DEG4",
+  "not_defined_from": [
+    "c2(S)",
+    "c2(Q)",
+    "Schubert cycles",
+    "Chow basis"
+  ],
+  "owner_branch": "research/hodge-h0i-codim2-class-first-lifting",
+  "post_search_rationality_result": "After independent bundle search, tau1=c2(S*)+c2(Q) and tau2=-c2(S*)+c2(Q); hence these target channels lie in the rational cycle-class image on the declared benchmark.",
+  "researcher_id": "EM-HODGE-H0I-7B2D94",
+  "schema": "HODGE_H0I_TARGET_CLASS_CARRIER_V1",
+  "source_independent_construction": {
+    "Hodge_type": "Each basis form has bidegree (2,2).",
+    "basis_definitions": {
+      "tau1": "(tr A)^2",
+      "tau2": "tr(A^2)"
+    },
+    "bracket_block": "For X in p^+, Y in p^-, first isotropy block A=Y∧X; under GL(E)×GL(F), A transforms by conjugation in the E block.",
+    "closedness": "On the symmetric pair [p,p]⊂k, the invariant-form differential is zero.",
+    "cohomology_typing": "For the compact symmetric model, classical averaging/Cartan theory identifies de Rham classes with invariant forms; this is source/prior mathematics, not a cycle generator.",
+    "compact_symmetric_model": "SU(4)/S(U(2)×U(2))",
+    "complexified_tangent": "p^+ = Hom(E,F), p^- = Hom(F,E), dim_C E=dim_C F=2",
+    "exact_invariance": "PASS under sl2(E), sl2(F), and center-difference infinitesimal generators",
+    "invariant_bidegree_space_dimension": 2,
+    "linear_independence": "PASS exact exterior-algebra rank=2",
+    "rationality_boundary": "Q-coefficients in the formal invariant carrier are not assumed a priori to equal the singular rational lattice. Rationality is established only after source-generated integral Chern/zero-locus classes are compared.",
+    "tau1_terms": [
+      {
+        "coeff": "-2",
+        "wedge": [
+          "x00",
+          "x01",
+          "y00",
+          "y10"
+        ]
+      },
+      {
+        "coeff": "-2",
+        "wedge": [
+          "x00",
+          "x10",
+          "y00",
+          "y01"
+        ]
+      },
+      {
+        "coeff": "-2",
+        "wedge": [
+          "x00",
+          "x11",
+          "y00",
+          "y11"
+        ]
+      },
+      {
+        "coeff": "2",
+        "wedge": [
+          "x01",
+          "x10",
+          "y01",
+          "y10"
+        ]
+      },
+      {
+        "coeff": "-2",
+        "wedge": [
+          "x01",
+          "x11",
+          "y10",
+          "y11"
+        ]
+      },
+      {
+        "coeff": "-2",
+        "wedge": [
+          "x10",
+          "x11",
+          "y01",
+          "y11"
+        ]
+      }
+    ],
+    "tau2_terms": [
+      {
+        "coeff": "2",
+        "wedge": [
+          "x00",
+          "x01",
+          "y00",
+          "y10"
+        ]
+      },
+      {
+        "coeff": "-2",
+        "wedge": [
+          "x00",
+          "x10",
+          "y00",
+          "y01"
+        ]
+      },
+      {
+        "coeff": "2",
+        "wedge": [
+          "x00",
+          "x11",
+          "y01",
+          "y10"
+        ]
+      },
+      {
+        "coeff": "-2",
+        "wedge": [
+          "x01",
+          "x10",
+          "y00",
+          "y11"
+        ]
+      },
+      {
+        "coeff": "-2",
+        "wedge": [
+          "x01",
+          "x11",
+          "y10",
+          "y11"
+        ]
+      },
+      {
+        "coeff": "2",
+        "wedge": [
+          "x10",
+          "x11",
+          "y01",
+          "y11"
+        ]
+      }
+    ]
+  },
+  "status": "FROZEN_BEFORE_BUNDLE_SEARCH",
+  "targets_frozen_before_bundle_search": [
+    {
+      "coords": [
+        "1",
+        "0"
+      ],
+      "id": "T_tau1",
+      "lift_cycle_coeffs_ZSstar_ZQ": [
+        "1",
+        "1"
+      ]
+    },
+    {
+      "coords": [
+        "0",
+        "1"
+      ],
+      "id": "T_tau2",
+      "lift_cycle_coeffs_ZSstar_ZQ": [
+        "-1",
+        "1"
+      ]
+    },
+    {
+      "coords": [
+        "1",
+        "1"
+      ],
+      "id": "T_sum",
+      "lift_cycle_coeffs_ZSstar_ZQ": [
+        "0",
+        "2"
+      ]
+    },
+    {
+      "coords": [
+        "1",
+        "-1"
+      ],
+      "id": "T_diff",
+      "lift_cycle_coeffs_ZSstar_ZQ": [
+        "2",
+        "0"
+      ]
+    },
+    {
+      "coords": [
+        "1/2",
+        "0"
+      ],
+      "id": "T_half_tau1",
+      "lift_cycle_coeffs_ZSstar_ZQ": [
+        "1/2",
+        "1/2"
+      ]
+    }
+  ],
+  "task_id": "RS-HODGE-H0I-CODIM2-CLASS-FIRST-VECTOR-BUNDLE-ZERO-LOCUS-LIFTING",
+  "taskbook_source": "3726e64557d625e36915028d83421d1f47b26fd2"
+}

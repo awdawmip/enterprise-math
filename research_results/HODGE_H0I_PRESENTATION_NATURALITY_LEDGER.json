@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "statement": "Pivot-chart formula F_J=F_I[:,J]^{-1}F_I is equivariant under simultaneous ambient-coordinate permutation.",
+      "type": "chart_relabeling",
+      "verdict": "PASS"
+    },
+    {
+      "statement": "Transitions conjugate/change by h_J g_JI h_I^{-1}; trace Chern polynomials and bundle class are invariant.",
+      "type": "GL2_local_gauge",
+      "verdict": "PASS"
+    },
+    {
+      "statement": "GL4 ambient basis permutations carry nonzero vector/covector controls to equivalent Q/S* sections and transport zero schemes.",
+      "type": "section_symmetry",
+      "verdict": "PASS"
+    },
+    {
+      "statement": "(p12,p34) and (p12,p34+p12) generate the same ideal.",
+      "type": "ideal_generator_change",
+      "verdict": "PASS"
+    },
+    {
+      "statement": "Under an invertible basis change T on V_target, class matrix and target vector both transform by T, leaving cycle coefficient solution invariant.",
+      "type": "target_basis_change",
+      "verdict": "PASS"
+    }
+  ],
+  "owner_branch": "research/hodge-h0i-codim2-class-first-lifting",
+  "researcher_id": "EM-HODGE-H0I-7B2D94",
+  "schema": "HODGE_H0I_PRESENTATION_NATURALITY_LEDGER_V1",
+  "scope_warning": "No arbitrary-cover or universal-functoriality claim beyond standard Plücker charts, constant GL2 gauges, declared ambient symmetries, and exact target-basis changes.",
+  "status": "FROZEN",
+  "task_id": "RS-HODGE-H0I-CODIM2-CLASS-FIRST-VECTOR-BUNDLE-ZERO-LOCUS-LIFTING",
+  "taskbook_source": "3726e64557d625e36915028d83421d1f47b26fd2"
+}

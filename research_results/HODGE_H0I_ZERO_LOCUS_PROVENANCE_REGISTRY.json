@@ -1,0 +1,78 @@
+{
+  "I2_cases": [
+    {
+      "bundle": "L⊕L",
+      "cycle_class_tau_basis": [
+        "1",
+        "0"
+      ],
+      "id": "I2_A_REDUCED",
+      "ideal": [
+        "p12",
+        "p34"
+      ],
+      "radical_support": [
+        "p12",
+        "p34"
+      ],
+      "reason": "c2(L⊕L)=c1(L)^2=tau1",
+      "scheme_multiplicity_generic": 1,
+      "section": [
+        "p12",
+        "p34"
+      ]
+    },
+    {
+      "bundle": "L⊕L",
+      "cycle_class_tau_basis": [
+        "1",
+        "0"
+      ],
+      "id": "I2_A_RECOMBINED",
+      "ideal_normal_form": [
+        "p12",
+        "p34"
+      ],
+      "same_scheme_as": "I2_A_REDUCED",
+      "section": [
+        "p12",
+        "p34+p12"
+      ],
+      "stress": "section component presentation differs but ideal/cycle does not"
+    },
+    {
+      "bundle": "L^2⊕L",
+      "cycle_class_tau_basis": [
+        "2",
+        "0"
+      ],
+      "id": "I2_B_DOUBLE",
+      "ideal": [
+        "p12^2",
+        "p34"
+      ],
+      "radical_support": [
+        "p12",
+        "p34"
+      ],
+      "reason": "c2(L^2⊕L)=2*c1(L)^2=2*tau1",
+      "same_boolean_support_as": "I2_A_REDUCED",
+      "scheme_multiplicity_generic": 2,
+      "section": [
+        "p12^2",
+        "p34"
+      ]
+    }
+  ],
+  "attribution": "SOURCE_INHERITED_LEVERAGE because B_std^codim2 already includes ideal/Gröbner/saturation and Chow multiplicity normal forms.",
+  "enterprise_provenance_candidate": "retain canonical ideal/scheme multiplicity/class provenance rather than Boolean support",
+  "naive_boolean_support_verdict": "FAIL: I2_A_REDUCED and I2_B_DOUBLE have the same radical support but different scheme multiplicity and cycle class.",
+  "owner_branch": "research/hodge-h0i-codim2-class-first-lifting",
+  "recombination_verdict": "Generator change (f,g)->(f,g+f) must recoalesce; ideal provenance correctly merges A with A_recombined.",
+  "researcher_id": "EM-HODGE-H0I-7B2D94",
+  "schema": "HODGE_H0I_ZERO_LOCUS_PROVENANCE_REGISTRY_V1",
+  "status": "FROZEN",
+  "strict_reduction": "3 section presentations -> 2 scheme/cycle provenance states",
+  "task_id": "RS-HODGE-H0I-CODIM2-CLASS-FIRST-VECTOR-BUNDLE-ZERO-LOCUS-LIFTING",
+  "taskbook_source": "3726e64557d625e36915028d83421d1f47b26fd2"
+}

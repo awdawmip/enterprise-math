@@ -1,0 +1,100 @@
+{
+  "bundle_nonuniqueness": "Different bundle/section presentations may yield the same target class; candidate search stores provenance separately from class equality.",
+  "candidate_bundle_family_frozen_after_target": [
+    "S*",
+    "Q",
+    "L⊕L",
+    "L^2⊕L"
+  ],
+  "class_first_rule": "Input target v=r*tau1+s*tau2 is fixed before candidate bundle/section selection.",
+  "class_matrix": [
+    [
+      "1/2",
+      "1/2"
+    ],
+    [
+      "-1/2",
+      "1/2"
+    ]
+  ],
+  "class_matrix_det": "1/2",
+  "comparison_statement": "cl((r-s) Z_Sstar + (r+s) Z_Q)=r*tau1+s*tau2 on the declared V_target.",
+  "cycle_nonuniqueness": "Class equality is weaker than equality of local ideals or schemes.",
+  "existence_vs_representation": "The lift constructs a rational cycle class combination; it does not assert a unique bundle or unique cycle representative.",
+  "frozen_target_results": [
+    {
+      "coords": [
+        "1",
+        "0"
+      ],
+      "id": "T_tau1",
+      "lift_cycle_coeffs_ZSstar_ZQ": [
+        "1",
+        "1"
+      ]
+    },
+    {
+      "coords": [
+        "0",
+        "1"
+      ],
+      "id": "T_tau2",
+      "lift_cycle_coeffs_ZSstar_ZQ": [
+        "-1",
+        "1"
+      ]
+    },
+    {
+      "coords": [
+        "1",
+        "1"
+      ],
+      "id": "T_sum",
+      "lift_cycle_coeffs_ZSstar_ZQ": [
+        "0",
+        "2"
+      ]
+    },
+    {
+      "coords": [
+        "1",
+        "-1"
+      ],
+      "id": "T_diff",
+      "lift_cycle_coeffs_ZSstar_ZQ": [
+        "2",
+        "0"
+      ]
+    },
+    {
+      "coords": [
+        "1/2",
+        "0"
+      ],
+      "id": "T_half_tau1",
+      "lift_cycle_coeffs_ZSstar_ZQ": [
+        "1/2",
+        "1/2"
+      ]
+    }
+  ],
+  "genuinely_higher_codim_control": "tau1 is the divisor-square channel h^2, while tau2 is linearly independent from the divisor-product line and is lifted by -Z_Sstar+Z_Q.",
+  "hard_target_attribution": "FAIL because exact inversion/rational cycle combination is already available in B_std^codim2 via Chern-class and rational lattice linear algebra.",
+  "inverse_lift_formula": "v=(r,s) -> cycle coefficients (r-s, r+s) on (Z_Sstar,Z_Q)",
+  "owner_branch": "research/hodge-h0i-codim2-class-first-lifting",
+  "researcher_id": "EM-HODGE-H0I-7B2D94",
+  "schema": "HODGE_H0I_CLASS_FIRST_LIFT_REGISTRY_V1",
+  "source_generated_primary_cycle_classes": {
+    "Z_Q": [
+      "1/2",
+      "1/2"
+    ],
+    "Z_Sstar": [
+      "1/2",
+      "-1/2"
+    ]
+  },
+  "status": "FROZEN",
+  "task_id": "RS-HODGE-H0I-CODIM2-CLASS-FIRST-VECTOR-BUNDLE-ZERO-LOCUS-LIFTING",
+  "taskbook_source": "3726e64557d625e36915028d83421d1f47b26fd2"
+}
