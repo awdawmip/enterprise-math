@@ -1,537 +1,184 @@
 # 进取数论项目定义
 
-Status: `ACTIVE / PROJECT-LEVEL DEFINITION`
-Date: `2026-08-16`
+Status: `ACTIVE / PROJECT-LEVEL DEFINITION / V3`
+Date: `2026-08-21`
+Driver: `CONTROL_PLANE`
 
 ## 一句话定义
 
-> **进取数论不是要推翻现有数学工具，而是要重新建立它们的底层定义：从有限分辨率、离散状态、整数优先和精度内生的数论基础出发，重新推导代数、几何、三角、分析与物理工具，并检验何时精确恢复、近似恢复或修正现有经典体系。**
+> **进取数论以有限分辨率、精度内生、整数优先和离散可计算为底层研究立场，重新奠基现代数学中已经证明有用的代数、几何、三角、分析与物理工具，并明确它们何时精确恢复、有限精度恢复、渐近恢复或发生系统修正。**
 
 项目总原则：
 
 `REFOUND, NOT REJECT`
 
-即：
+即：**重建，而不是废弃。**
 
-**重建，而不是废弃。**
+## 0. 权威链
 
----
+本文件定义项目使命、层次和最高路由规则；易变化的具体几何/坐标数学不再复制在多个顶层文件中。
 
-## 0. 最高结构定义：进取维、进取数轴与方向
+当前原生平面基础的权威来源为：
 
-本节是进取数论关于原生空间轴结构的项目级最高定义。若较低层研究文档、历史任务或旧载体描述与本节冲突，以本节为准；旧结论保留为历史实验、实现载体或经典兼容投影，不得反向覆盖本节。
+`definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
 
-### 0.1 进取维的定义
+其后当前线、任意点位移、无向段和 BRC × multipath 的冻结定义依次见：
 
-进取数论中：
+- `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`
+- `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`
+- `definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`
+- `definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`
 
-> **一个“进取维”定义为一条原生无向数轴族；每一个进取维具有两个互为反向的有向方向。**
+若本文件历史版本、2026-08-16/17 的旧坐标文件或旧任务书与上述当前基础冲突，以较新的明确 supersession/foundational correction 为准。旧文件保留为历史/provenance，不得与当前 foundation 并列争夺权威。
 
-因此：
+## 1. 当前进取平面的最高结构
 
-`ENTERPRISE_DIMENSION = NATIVE_UNDIRECTED_AXIS_FAMILY_COUNT`
+当前原生平面冻结：
 
-`DIRECTED_DIRECTION_COUNT = 2 * ENTERPRISE_DIMENSION`
+- `O_E = 0`；
+- 原点是三个圆胞元边界的三重交点，不是 cell center，也不是 cell；
+- `ENTERPRISE_CELL = CIRCLE_CELL`，cell 由离散圆心标识；
+- 最近圆心间距 `D_CENTER=1`；
+- 圆胞元半径 `R_CELL=1/sqrt(3)`；
+- 相邻圆胞元有正面积重叠，全部圆胞元无缝覆盖平面；
+- 原生轴恰为三条**正射线** `E_1,E_2,E_3`；
+- 不要求、也不得自动补回原生负轴；
+- 三条正轴把一周分成三个 `120°` 原生直角扇区；
+- `ENTERPRISE_RIGHT_ANGLE = 120_DEGREES`；
+- 三轴两两 `ENTERPRISE_ORTHOGONAL`，这里的“垂直”是进取垂直，不是载体图上的欧式 90°。
 
-这里的“进取维数”不是传统线性代数中“最小独立基向量个数”的同义词，也不自动等于经典欧式/拓扑维数。传统维数可在兼容层单独计算，但不得覆盖进取维定义。
+因此，旧的：
 
-### 0.2 进取平面与进取坐标系
+`3 条无向轴 -> 6 个原生有向方向 -> 60° 正负交错`
 
-进取数论的原生平面定义为：
+不再是当前原生平面定义。
 
-`ENTERPRISE_PLANE_DIMENSION = 3`
+`ENTERPRISE_PLANE_DIMENSION = 3` 继续作为项目自己的维数语义；它不等同于经典线性代数秩、欧式维数或拓扑维数。当前平面中的三个原生维分量由三条正轴/三个正轴族承担，而不是由每轴自动补出的正负双向定义。
 
-`ENTERPRISE_PLANE_AXIS_COUNT = 3`
+## 2. 当前坐标与长度
 
-`ENTERPRISE_PLANE_DIRECTED_DIRECTION_COUNT = 6`
+原生地址使用：
 
-即：
+`A_E={(a,b,c) in N_0^3 : min(a,b,c)=0}`
 
-> **进取平面是三维的，包含三条原生数轴、六个有向方向；该平面三轴原生坐标结构正式称为“进取坐标系”（`ENTERPRISE_COORDINATE_SYSTEM`）。**
+它是三个二轴正扇区 chart 的粘合：
 
-在经典二维兼容图示中，可把三条无向轴标示为：
+- `S_12={(a,b,0)}`；
+- `S_23={(0,b,c)}`；
+- `S_31={(a,0,c)}`。
 
-`0° / 180°`
+这不是公共对角平移商。
 
-`60° / 240°`
+在每个原生 `120°` 直角扇区内：
 
-`120° / 300°`
+`L_E^2=a^2+b^2`
 
-三个轴族在进取数论内部定义为两两 **进取垂直**（`ENTERPRISE_ORTHOGONAL`）。在经典二维兼容图示中，相邻轴族显示为一个 `60°` 扇区；这不是把经典欧式 `90°` 垂直改写为 `60°`，而是进取数论自己的原生轴关系在经典兼容图示中的表达。
+因此对 canonical origin-sector triple：
 
-以后描述该结构统一使用“进取坐标系”；二维展示统一称“经典二维兼容图示”，不再沿用此前的非正式比喻称呼。
+`L_E(a,b,c)^2=a^2+b^2+c^2`。
 
-### 0.3 三维进取平面的正负号规则
+`(3,4,0)` 的原生长度为 `5`。
 
-在任意一个进取平面内：
+旧载体关系 `e_1+e_2+e_3=0`、`u+v+w=0` 及二自由度 A2/C6 表示只能作为 `I0_IMPLEMENTATION_CARRIER / CLASSICAL_COMPATIBILITY` 使用，不能作为原生向量恒等式、负轴来源或 native metric。
 
-1. 任取一条轴的一个有向方向，定义为 `+u`；
-2. 沿该平面的六个方向循环，每跨一个相邻 `60°` 扇区，符号翻转一次；
-3. 因而六方向符号严格交错：
+## 3. 当前线与点到点结构
 
-`+ - + - + -`
+当前线身份：
 
-如果把 `0°` 方向定义为正，则：
+`ENTERPRISE_LINE_IDENTITY = NATIVE_COMPONENT_TRACE`。
 
-`0°:+`
+同一 trace 可以有多个离散单 cell 路径代表；例如 `(3,4)` trace 有 `35` 个 shuffle/path representatives，而 native length 为 `5`。
 
-`60°:-`
+任意点之间使用当前冻结的**有向原生线 gauge**。它平移不变、正定并满足三角次可加，但一般不满足反向长度对称，因此：
 
-`120°:+`
+`NATIVE_INTEGER_VERTEX_DISTANCE_IS_METRIC = false`。
 
-`180°:-`
+无向端点对的 canonical 数据是双向 trace pair 与 bidirectional length spectrum；可以附加构造多种对称 metric，但当前 premises 不唯一选择其中任何一个作为 canonical native scalar metric。
 
-`240°:+`
+## 4. BRC 的定位
 
-`300°:-`
+BRC 保留其正式名称和桥梁定位：
 
-整体同时反号得到等价的另一套取向；除整体翻号外，不允许逐轴任意改号。
+`BRC = Branch-Recoalescence Collapse`。
 
-### 0.4 我们现实立体世界的进取数轴定义
+经典/垂直坐标语义与进取坐标语义之间可以建立可计算 collapse/readout bridge，但不得把经典目标定义复制进 native premise。
 
-进取数论当前采用的现实立体世界原生轴模型为：
+当前 R062 进一步冻结：
 
-`ENTERPRISE_WORLD_DIMENSION = 6`
+`PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`
 
-`ENTERPRISE_WORLD_AXIS_COUNT = 6`
+以及：
 
-`ENTERPRISE_WORLD_DIRECTED_DIRECTION_COUNT = 12`
+`BRC_IS_EXACT_BOOLEAN_SHADOW_OF_COMPONENT_TYPED_NATIVE_MULTIPATH = true`。
 
-即：
+Boolean BRC 保存 support，不保存已经丢弃的路径身份、multiplicity 或 provenance；component labels 对区分“同 endpoint”与“同 native line”是必要的。
 
-> **我们生活的立体世界在进取数论中按六个进取维、十二个有向方向建模。**
+## 5. 精度数学的项目归属
 
-这六条无向轴可用四个基础位置标签的两两关系作为组合标记：
+`Precision Mathematics / 精度数学` 是进取数论的前身，不再作为独立同级研究项目。
 
-`12, 13, 14, 23, 24, 34`
+从 2026-08-21 起，有限分辨率数轴、precision-defined number、精度内生、离散/整数优先等路线的全部新工作统一属于 Enterprise Math。
 
-这些编号只用于表达轴与下延平面的关联结构，不是额外维度。
+历史精度数学文件继续保留来源关系，不抹除其 provenance。
 
-六维数轴结构包含四个三维进取下延平面：
+## 6. 《我眼中的世界》与六维/十二方向世界模型
 
-`P123={12,13,23}`
+账户级受保护文件 `我眼中的世界.md` 中关于“现实空间按进取维理解为六维十二方向”的 ACTIVE 条目仍是用户选择的研究公理；本次项目整理**不修改该文件**。
 
-`P124={12,14,24}`
+但 2026-08-16 旧项目定义曾用“每个平面六个有向方向、60° 正负交错”直接实现该世界模型。该平面实现已被当前“三正轴 / 120°”foundation supersede。
 
-`P134={13,14,34}`
+因此项目层当前严格区分：
 
-`P234={23,24,34}`
+- `WORLDVIEW_6D_12_DIRECTION = ACTIVE_USER_CHOSEN_RESEARCH_AXIOM`；
+- `OLD_60_DEGREE_SIX_DIRECTION_PLANE_REALIZATION = SUPERSEDED`；
+- `CURRENT_THREE_POSITIVE_AXIS_TO_6D_WORLD_BRIDGE = OPEN / REQUIRES_REDERIVATION`。
 
-每个下延平面都必须继承同一个三维进取平面定义：三条轴、六个方向、相邻 `60°` 方向异号。
+不得因为 worldview 仍 ACTIVE，就把旧的六方向平面实现偷偷恢复成当前基础。
 
-### 0.5 十二方向符号的全局闭合
+## 7. “定义不继承”的正式含义
 
-六维/十二方向的符号不是分别给六条轴任意贴 `+/-`，而是由一个方向向全局传播：
+`Definition is not inherited.` 不等于禁止成熟概念。
 
-> **任选一个有向方向定义为正；任意两个在某个三维下延平面中相邻 `60°` 的方向必须异号。**
+允许保留：VECTOR、LENGTH、DISTANCE、ANGLE、NORM、PAIRING/DOT、PROJECTION、SIN/COS/TAN、AREA/VOLUME、PI、Euclidean geometry、continuum models 等概念和正确条件数学。
 
-该传播在四个下延平面之间全局闭合。
+禁止的是：因为经典定义成功，就未经证明把它当成 native premise，再把同一对象的恢复当成新推导。
 
-等价地：十二方向的 `60°` 邻接图是一个连通二部图，因此：
+经典/工程成功是强证据和 calibration target，但不是 native definition 的自动来源。
 
-`ALTERNATING_SIGN_SYSTEM_EXISTS = true`
+## 8. 项目层次
 
-`ALTERNATING_SIGN_SYSTEM_GLOBAL_CLOSURE = true`
+- `P0`：数、精度、整数、离散状态、关系、collapse/quotient；
+- `P1`：packet/cell、adjacency、transition、path、branch/recoalescence、进取坐标/代数；
+- `P2`：重建 length、distance、angle、norm、pairing、projection、area/volume、curve 等几何工具；
+- `P3`：重建 trig、pi 语义、坐标变换、分析工具；
+- `P4`：与欧式/连续/工程数学做 recovery/deviation 分类；
+- `P5`：数学定义冻结后进入物理和工程校准。
 
-`SIGN_ASSIGNMENT_UNIQUE_UP_TO_GLOBAL_INVERSION = true`
+必须继续区分：
 
-也就是说，任选一个方向为正后，其余十一个方向的符号全部被唯一确定；另一套解只是十二个方向整体正负反转。
+`PACKET_COUNT != TRANSITION_COUNT != GEOMETRIC_LENGTH`。
 
-这保证六维结构切出的四个三维进取平面在共享方向上符号一致，不发生局部平面之间的定义冲突。
+## 9. 恢复分类
 
-### 0.6 与旧二维/A2载体的关系
+成熟工具与经典对象比较时使用：
 
-历史上曾使用：
+- `EXACT_RECOVERY`
+- `FINITE_PRECISION_RECOVERY`
+- `ASYMPTOTIC_RECOVERY`
+- `DOMAIN_RESTRICTED_RECOVERY`
+- `SYSTEMATIC_DEVIATION`
+- `NONRECOVERY`
 
-`Lambda={(a,b,c) in Z^3 : a+b+c=0}`
+偏差本身不是“更好”的证据；必须可推导、可复现、可检验。
 
-以及 `u+v+w=0` 的 A2/C6 型二维载体，并按传统自由度记为 `PLANE_DIMENSION=2`。
+## 10. 总纲
 
-从本定义起，该说法被重新定型为：
+当前项目栈：
 
-`CLASSICAL_OR_IMPLEMENTATION_RANK = 2`
+`NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> THREE-POSITIVE-AXIS ENTERPRISE COORDINATES -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`
 
-`ENTERPRISE_PLANE_DIMENSION = 3`
-
-即：A2/C6 的二自由度描述可以继续作为经典二维兼容表示、实现坐标、关系脚手架或兼容模型使用，但**不得再作为进取数论“平面维数”的最高定义**。
-
-### 0.7 BRC 坍缩的最高定位
-
-传统以经典垂直/直角/正交关系建立的坐标表示，后续统一称为 **垂直坐标系**（`ORTHOGONAL_COORDINATE_SYSTEM`）。
-
-BRC 算法所寻找的“坍缩”正式定位为：
-
-> **垂直坐标系与进取坐标系之间的可计算桥梁。**
-
-记作：
-
-`BRC_COLLAPSE_BRIDGE(ORTHOGONAL_COORDINATE_SYSTEM, ENTERPRISE_COORDINATE_SYSTEM)`。
-
-BRC 的任务不是重新生成进取坐标系本身，也不是把某个经典根号结果机械取整；它研究同一对象在两套坐标语义之间怎样发生离散坍缩、合流、对应与读出。
-
-该桥梁不预设为双射：允许多对一坍缩、多个经典兼容表示、有限精度等价类以及仅在声明域内存在逆映射。后续 BRC 任务必须显式声明 source coordinate semantics、target coordinate semantics、collapse relation、fiber/collision、inverse/readout status 与 precision layer。
-
----
-
-## 1. 项目到底要做什么
-
-进取数论认为，现有连续数学、欧式几何、微积分、三角函数、向量分析等体系在大量科学与工程问题中极其成功，这种成功必须被保留并解释。
-
-项目挑战的不是这些成熟概念和工具本身，而是一个更底层的问题：
-
-> 当数学被用于描述自然时，这些工具今天所使用的经典定义，是否一定就是自然最底层、最原生的定义？
-
-进取数论的研究路线是：
-
-```text
-有限分辨率 / 精度内生的数
-    ↓
-整数与离散状态
-    ↓
-关系、坍缩、路径、计数、前向演化
-    ↓
-进取数轴 / 进取维 / 进取坐标系
-    ↓
-BRC：垂直坐标系 ↔ 进取坐标系桥梁
-    ↓
-向量与代数结构
-    ↓
-重新定义长度、角度、度量、面积等几何量
-    ↓
-重新构造 sin / cos / tan、π、投影、坐标分解等成熟工具
-    ↓
-与欧式几何、连续分析和工程公式比较
-    ↓
-分类：精确恢复 / 有限精度恢复 / 渐近恢复 / 局部恢复 / 系统修正
-    ↓
-进入物理与工程校准
-```
-
-所以项目的目标不是建立一个与现代数学完全隔离的新语言，而是给现代数学中真正有用的工具**重新打地基**。
-
----
-
-## 2. “定义不继承”到底是什么意思
-
-项目已有原则：
-
-> `Definition is not inherited.`
-
-现在明确解释为：
-
-### 可以继承的
-
-- 概念；
-- 术语；
-- 符号；
-- 成熟计算工具；
-- 已证明的条件数学；
-- 长期工程成功；
-- 经典公式作为校准目标和兼容接口。
-
-例如以下概念全部保留：
-
-- VECTOR / 向量；
-- LENGTH / 长度；
-- ANGLE / 角度；
-- NORM / 范数；
-- DOT PRODUCT / 内积或配对；
-- SIN / COS / TAN；
-- AREA / VOLUME；
-- π；
-- 欧式几何；
-- 连续模型；
-- 以及其它已经证明非常有用的经典数学工具。
-
-### 不能自动继承的
-
-不能因为一个经典定义长期成功，就直接把它未经检查地放入进取数论的最底层原语，再把后续“恢复”当成新理论的证明。
-
-因此：
-
-> **概念可以继承；定义需要重新取得资格。**
-
-一个经典定义最终完全可能被重新证明为正确，甚至被证明在某个层次上就是唯一自然定义。那是成功的恢复，不是失败。
-
----
-
-## 3. 对欧式几何的态度
-
-进取数论**不反欧式几何**。
-
-欧式几何是极其成功的成熟工具体系，也是项目最重要的参考模型之一。
-
-项目要做的是：
-
-1. 不把欧式几何的全部定义预装到底层；
-2. 从新的离散 / 精度数论底层重建几何对象；
-3. 再与欧式结果比较；
-4. 保留所有被重新证明为正确、稳定、好用的结构；
-5. 对有限精度、极小尺度或特殊状态下出现的系统偏差，建立修正工具。
-
-允许的恢复分类包括：
-
-- `EXACT_RECOVERY`：与经典欧式定义/公式精确一致；
-- `FINITE_PRECISION_RECOVERY`：在声明精度下精确一致；
-- `ASYMPTOTIC_RECOVERY`：在尺度增大或精度提高时趋于经典结果；
-- `DOMAIN_RESTRICTED_RECOVERY`：在特定状态域或结构域内一致；
-- `SYSTEMATIC_DEVIATION`：出现可重复的结构性修正；
-- `NONRECOVERY`：无法恢复，应保留为真实负结果。
-
-项目希望得到的是**比现有欧式工具更底层、更可解释、更精度感知的版本**，而不是为了不同而不同。
-
----
-
-## 4. 进取数论的层次结构
-
-### P0 — 数与精度底层
-
-核心对象包括：
-
-- 有限信息 / 精度定义的数值状态；
-- 整数优先的精确运算；
-- 显式尺度与分辨率；
-- 离散状态；
-- 坍缩 / 商 / 合流；
-- 关系与前向演化。
-
-精度不是运算结束后的误差条，而是状态本身的一部分。
-
-### P1 — 离散对象、路径与代数
-
-包括：
-
-- unit packet；
-- adjacency；
-- occupancy；
-- transition event；
-- path；
-- packet count；
-- transition/path count；
-- branching / recoalescence；
-- 进取数轴、进取维、进取坐标系、方向与符号传播；
-- BRC 坍缩桥梁的离散关系结构；
-- 向量、模、群作用、坐标编码等成熟代数结构。
-
-这里要严格区分不同整数：
-
-`PACKET_COUNT != TRANSITION_COUNT`。
-
-同样：
-
-`TRANSITION_COUNT` 不是自动定义的 `GEOMETRIC_LENGTH`。
-
-这不是说 LENGTH 不存在，而是说 LENGTH 需要自己的重建定义。
-
-### P2 — 重建几何
-
-从 P0/P1 已冻结结构中研究和定义：
-
-- length；
-- distance；
-- angle；
-- norm；
-- inner product / bilinear pairing；
-- projection；
-- straightness；
-- line / curve；
-- area / volume；
-- curvature；
-- boundary；
-- 其它几何对象。
-
-这些概念全部允许，但每个定义必须说明依赖哪些底层结构、在哪个精度层成立、是否依赖额外选择。
-
-### P3 — 重建三角与分析工具
-
-基于重新定义的几何量，研究：
-
-- sin / cos / tan；
-- inverse trig；
-- Pythagorean-type identities；
-- law-of-cosines-type relations；
-- π 的新底层语义；
-- 坐标变换；
-- 向量分解；
-- 极限、连续化及其它分析工具的重新奠基。
-
-经典公式不是禁止项，而是重要的恢复测试。
-
-### P4 — 经典数学兼容层
-
-把重新建立的工具与：
-
-- 欧式几何；
-- 经典三角；
-- 连续分析；
-- PDE / Fourier / spectral 工具；
-- 工程计算体系
-
-进行精确比较。
-
-目标不是强迫结果不同，而是明确：
-
-**为什么经典公式有效、在哪些条件下有效、精度如何进入、何时需要修正。**
-
-### P5 — 物理与工程层
-
-只有在数学定义和桥接语义冻结后，才进入：
-
-- 物理长度；
-- 物理角度；
-- 时间与速度；
-- 力学、材料、场；
-- 概率 / 统计物理；
-- 量子桥；
-- 宇宙尺度模型；
-- 工程预测与实验。
-
-数学结构与物理解读必须分层，不能因为数学对象名字相同就自动完成物理校准。
-
----
-
-## 5. 当前原生数轴与坐标结构的定位
-
-项目当前最高结构由第0节定义：
-
-- **进取坐标系**：平面 `3` 个进取维、`3` 条无向轴、`6` 个方向；
-- 现实立体世界：`6` 个进取维、`6` 条无向轴、`12` 个方向；
-- 三维平面中相邻 `60°` 方向必须异号；
-- 六维世界由四个三维进取下延平面组成，它们共享一套全局闭合的交错符号系统；
-- 任意一个有向方向一旦被定义为正，其余方向的符号即唯一确定，除整体反号外无额外自由度；
-- BRC 默认研究垂直坐标系与进取坐标系之间的坍缩桥梁，而不是生成进取坐标系本身。
-
-旧的：
-
-`Lambda = {(a,b,c) in Z^3 : a+b+c=0}`
-
-及：
-
-`u=(1,-1,0)`
-
-`v=(0,1,-1)`
-
-`w=(-1,0,1)`
-
-`u+v+w=0`
-
-仍可作为 A2/C6 型经典二维兼容表示、组合关系载体或实现脚手架使用。它的“两个自由度”属于兼容/实现层秩，不再定义进取平面的原生维数。
-
-同时，进取坐标系定义本身并不预先决定最终的 LENGTH、经典 ANGLE、NORM 或 TRIG 公式；这些工具继续在该底层和 BRC 桥梁之上重建。
-
----
-
-## 6. 长度、数格子与路径计数必须区分
-
-项目当前特别强调三个不同层次：
-
-1. **packet/cell count**：对象或声明段中包含多少离散单元；
-2. **transition/path count**：发生了多少次真实相邻迁移；
-3. **geometric length**：一个需要单独重建和校准的几何量。
-
-三者可能在某些简单情形下一致，但不能在定义层直接画等号。
-
-因此一个实验可以说：
-
-`SEGMENT_PACKET_COUNT = 4`
-
-或：
-
-`TRANSITION_COUNT = 4`
-
-但只有在 LENGTH 定义已经冻结并证明对应关系后，才能写：
-
-`LENGTH = 4`。
-
-这项区分的目的不是削弱长度概念，而是让长度概念获得更准确的底层定义。
-
----
-
-## 7. 研究方法：反向解释成熟数学为什么有效
-
-项目使用的基本方法是：
-
-```text
-经典/工程成功
-    ↓ 作为证据，不作为底层定义
-离散原生机制
-    ↓
-进取坐标系
-    ↓
-BRC 坍缩桥梁
-    ↓
-精确数学结构
-    ↓
-重建成熟工具
-    ↓
-经典恢复 / 偏差 / 修正
-```
-
-其中必须保持：
-
-- raw-history 与压缩计数核对；
-- 精确整数优先；
-- 负结果保留；
-- 不允许 target leakage；
-- 不允许为了恢复经典答案把答案偷偷放回输入；
-- 经典恢复必须是推导结果，而不是预设结果。
-
----
-
-## 8. 项目不是要做什么
-
-进取数论不是：
-
-- 为了创新而给所有经典概念改名；
-- 宣布长度、角度、三角函数不存在；
-- 宣布欧式几何错误；
-- 强迫所有经典公式出现偏差；
-- 把离散网格简单当成连续数学的低精度版本；
-- 把每个组合结构直接解释成物理量；
-- 用有限枚举替代理论证明。
-
-项目真正要做的是：
-
-> **保留现代数学最好用的工具，同时把它们的基础改造成有限分辨率、精度内生、离散可计算并且能够解释经典成功的体系。**
-
----
-
-## 9. 成功标准
-
-一个真正成功的进取数论基础至少应做到：
-
-1. 能在自己的底层上定义并证明足够丰富的代数与几何；
-2. 能重新构造长度、角度、三角函数等成熟工具；
-3. 能解释经典欧式/连续数学为何在宏观工程中如此成功；
-4. 能明确给出经典工具的适用域与精度条件；
-5. 如果存在有限精度或离散修正，能给出可计算、可检验的修正；
-6. 能跨多个独立现象复用同一个底层机制，而不是逐个拟合答案；
-7. 最终能产生经典体系难以自然表达但实验可检验的新预测。
-
----
-
-## 10. 项目总纲
-
-最终目标可以压缩为：
-
-```text
-数
-→ 精度
-→ 离散状态
-→ 关系与计数
-→ 进取数轴与进取维
-→ 进取坐标系
-→ BRC：垂直坐标系 ↔ 进取坐标系桥梁
-→ 代数与向量
-→ 重建几何
-→ 重建三角与分析
-→ 经典数学兼容/修正
-→ 物理
-→ 工程
-```
-
-以及一句项目级口号：
+项目口号保持：
 
 > **不是把旧数学推倒，而是让它拥有一个更好的地基。**
 
-本文件是项目总体定义。具体基础研究纪律由 `FOUNDATIONAL_LOGIC.md`、`foundational_logic.json`、`native_semantics_admissibility.json` 控制；几何工具重建细则见 `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md`；进取坐标系与 BRC 桥梁的正式术语见 `definitions/ENTERPRISE_COORDINATE_SYSTEM_AND_BRC_BRIDGE_20260816.md`。
+具体基础研究纪律继续由 `FOUNDATIONAL_LOGIC.md`、`foundational_logic.json`、`native_semantics_admissibility.json` 和 `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md` 控制。
