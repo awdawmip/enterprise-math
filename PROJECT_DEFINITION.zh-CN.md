@@ -121,19 +121,20 @@ Boolean BRC 保存 support，不保存已经丢弃的路径身份、multiplicity
 
 历史精度数学文件继续保留来源关系，不抹除其 provenance。
 
-## 6. 《我眼中的世界》与六维/十二方向世界模型
+## 6. 《我眼中的世界》已经统一到三正轴
 
-账户级受保护文件 `我眼中的世界.md` 中关于“现实空间按进取维理解为六维十二方向”的 ACTIVE 条目仍是用户选择的研究公理；本次项目整理**不修改该文件**。
+账户级受保护文件 `我眼中的世界.md` 已由用户在 2026-08-21 当前对话中直接修改：旧“六维十二方向 / 每平面六方向 / 60° 正负交错”世界模型不再 ACTIVE。
 
-但 2026-08-16 旧项目定义曾用“每个平面六个有向方向、60° 正负交错”直接实现该世界模型。该平面实现已被当前“三正轴 / 120°”foundation supersede。
+当前世界观与本项目当前 foundation 一致：
 
-因此项目层当前严格区分：
+- `WORLDVIEW_SPATIAL_FOUNDATION = THREE_POSITIVE_AXIS_ENTERPRISE_PLANE`；
+- `O_E=0`；
+- `NO_NATIVE_NEGATIVE_AXES_REQUIRED`；
+- `ENTERPRISE_RIGHT_ANGLE=120_DEGREES`；
+- `OLD_6D_12_DIRECTION_WORLD_MODEL = SUPERSEDED_BY_USER`；
+- `OLD_60_DEGREE_ALTERNATING_SIGN_PLANE = SUPERSEDED_BY_USER`。
 
-- `WORLDVIEW_6D_12_DIRECTION = ACTIVE_USER_CHOSEN_RESEARCH_AXIOM`；
-- `OLD_60_DEGREE_SIX_DIRECTION_PLANE_REALIZATION = SUPERSEDED`；
-- `CURRENT_THREE_POSITIVE_AXIS_TO_6D_WORLD_BRIDGE = OPEN / REQUIRES_REDERIVATION`。
-
-不得因为 worldview 仍 ACTIVE，就把旧的六方向平面实现偷偷恢复成当前基础。
+因此项目层不再保留第二套“六维/十二方向”世界实现，也不需要三正轴到该旧模型的桥接任务。历史材料只保留 provenance。
 
 ## 7. “定义不继承”的正式含义
 
