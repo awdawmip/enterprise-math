@@ -1,75 +1,71 @@
 # Enterprise Math Research Architecture V2
 
-Status: `DRIVER-PROPOSED / NO_NEW_MATHEMATICS / GOVERNANCE`
+Status: `DRIVER-PROPOSED / NO_NEW_MATHEMATICS / GOVERNANCE / V2.2`
 Date: `2026-08-22`
 Driver-ID: `EM-DVR-K7Q4N8`
 Machine contract: `research_architecture.json`
+Candidate lifecycle: `research_axiom_candidate_state_machine.json`
 
 ## 1. Why this architecture exists
 
 Enterprise Math needs two opposite capabilities at the same time:
 
 1. **independent exploration** that can discover a new primitive or axiom without being pulled toward the most recent successful route;
-2. **decisive exploitation** that can push a frozen question hard enough to prove, falsify, formalize and integrate it.
+2. **decisive exploitation** that can push a selected/frozen question hard enough to prove, falsify, formalize and integrate it.
 
-Trying to make one generic `RESEARCHER` behavior do both creates failure modes:
+Trying to make one generic `RESEARCHER` behavior do both creates:
 
-- recent-route anchoring;
-- scheduler anchoring;
+- recent-route / scheduler anchoring;
 - continuation inertia;
 - tool/representation anchoring;
-- early conjectures becoming Driver `WORKING_TRUTH` before audit;
+- early conjectures becoming `WORKING_TRUTH` before audit;
+- candidate provenance being lost when a Driver selects it;
 - Foundation backflow treating discovery drafts as mature shared structure;
 - large common-surface preloads reducing both independence and performance.
 
-V2 therefore separates research by **mode**, while keeping the existing role/identity system compact.
+V2 separates research by **mode** while keeping identity compact.
 
-## 2. Four functional roles
+## 2. Four functional roles/modes
 
-### 2.1 FREE_AXIOM_DISCOVERY
+### FREE_AXIOM_DISCOVERY
 
-A free researcher receives the current foundation but not the current agenda.
+Receives current foundation, not current agenda:
 
-Mission:
+`FOUNDATION SNAPSHOT -> INDEPENDENT STRUCTURAL SEARCH -> FROZEN CANDIDATE -> OPEN-CONTEXT AUDIT`.
 
-`FOUNDATION -> INDEPENDENT STRUCTURAL SEARCH -> FROZEN CANDIDATE -> OPEN-CONTEXT AUDIT`.
-
-Before candidate freeze it does not auto-dispatch, does not inherit another branch's `WORKING_TRUTH`, and does not use recent task/PR/Relay/success/failure/tool availability as the discovery prior.
+Before candidate freeze it does not auto-dispatch, inherit another branch's `WORKING_TRUTH`, or use recent route/task/PR/Relay/success/failure/tool availability as the discovery prior.
 
 The current foundation is a starting substrate and comparison authority, not a required final axiom list.
 
-### 2.2 TASK_RESEARCH
+### TASK_RESEARCH
 
-A task researcher owns a selected mother question. The question may come from the user, Driver or scheduler.
+Executes a selected mother question from the user, Driver, scheduler or an audited-candidate transition.
 
-This mode may see task history and relevant current route context because the question is already selected. It should still load only the smallest task packet and exact dependencies actually used.
+This mode may see task-scoped history/current route context because the question is already selected. It still loads only the smallest exact task/dependency packet.
 
-Driver-frozen `WORKING_TRUTH` applies here when explicitly activated.
+Driver-frozen `WORKING_TRUTH` applies only when explicitly activated.
 
-### 2.3 RESEARCH_DRIVER
+### RESEARCH_DRIVER
 
-The Driver owns portfolio control, not primary discovery monopoly.
+Owns portfolio control, not primary-discovery monopoly. The Driver:
 
-The Driver:
-
-- decides whether a result continues, stops, parks, returns, splits or promotes;
+- routes, closes, parks, returns, splits and promotes;
 - de-duplicates and attacks novelty claims;
-- turns an **audited** candidate into an explicit task or Foundation question when justified;
+- turns an **audited** candidate into a task/Foundation question when justified;
+- preserves candidate origin and semantic task lineage;
 - prevents automatic successor-stage cascades;
 - owns Working Truth activation;
 - maintains continuity as routing state rather than theorem memory.
 
-### 2.4 FOUNDATION_STEWARD
+### FOUNDATION_STEWARD
 
-The Steward maintains shared mathematical language, status, interfaces and reusable tools.
+Maintains shared mathematical language, status, interfaces and reusable tools. Raw free candidates are not Foundation inputs; audited mature objects are classified/verified without making the Steward the default investigator.
 
-The Steward does not treat a raw free-research candidate as Foundation input. Candidate intake occurs only after the Phase-B audit has classified the object at sufficient maturity.
-
-## 3. Exploration and exploitation are different information regimes
+## 3. Exploration and exploitation use different information regimes
 
 For FREE Phase A, information withholding is deliberate experimental control.
 
-Allowed context:
+Allowed:
 
 - current foundation facts actually needed;
 - relevant protected worldview facts;
@@ -78,35 +74,28 @@ Allowed context:
 
 Withheld as discovery priors:
 
-- current scheduler/taskbooks;
-- Relay/PR/issue summaries;
-- recent commits;
-- current theorem-family success/failure lists;
-- other branch Working Truth;
-- suggested questions;
-- benchmark/teacher targets selected to steer discovery;
-- ambient recent-project memory not explicitly supplied by the user;
-- convenient existing tools, coordinates, filenames and names as hints about ontology.
+- scheduler/current taskbooks;
+- Relay/PR/issue summaries and recent commits;
+- Driver Continuity/recent project journal/candidate packets from other runs;
+- theorem-family success/failure catalogs;
+- other-branch Working Truth;
+- suggested questions and target/teacher answers chosen to steer discovery;
+- ambient recent-project memory not explicitly supplied by the current user;
+- convenient existing tools, coordinates, filenames, router order and names as ontology hints.
 
-After the candidate is frozen, all of that context may be opened for audit and verification.
+After freeze, all may be opened for audit/verification.
 
-For TASK research, this blind barrier does not apply because the question is already selected.
+For TASK research, this blind barrier does not apply because the mother question is already selected.
 
 ## 4. Axiom candidates have a lifecycle
 
 Machine state: `research_axiom_candidate_state_machine.json`.
 
-A candidate is not a theorem, not a task, not Working Truth and not Foundation truth merely because it is interesting.
+A candidate is not a theorem, task, Working Truth or Foundation truth merely because it is interesting.
 
-Lifecycle:
+`DISCOVERY_IN_PROGRESS -> BLIND_CANDIDATE_FROZEN -> PHASE_B_AUDIT_IN_PROGRESS`
 
-`DISCOVERY_IN_PROGRESS`
-
-`-> BLIND_CANDIDATE_FROZEN`
-
-`-> PHASE_B_AUDIT_IN_PROGRESS`
-
-then classify into one of:
+then classify as one of:
 
 - `FALSIFIED`;
 - `DUPLICATE_OR_ALREADY_KNOWN`;
@@ -117,116 +106,145 @@ then classify into one of:
 - `AUDITED_AXIOM_CANDIDATE`;
 - `AUDITED_REPLACEMENT_CANDIDATE`.
 
-Only after this classification may the Driver route it into replication, an explicit task, a Foundation question, park/reject, or another existing owner.
+Only audited/mature classifications may enter Driver intake for replication, explicit task, Foundation question, park/reject or owner return.
 
-## 5. Working Truth starts later than discovery
+Freeze:
 
-`WORKING_TRUTH` is a task-execution discipline, not a candidate-generation discipline.
+`RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION`.
 
-It activates only after an explicit Driver direction freeze or Driver-approved taskbook.
+## 5. Candidate origin survives task selection
 
-It does not apply to:
+Selecting a free candidate for exploitation changes its control-plane status; it does not erase discovery provenance.
 
-- blind free discovery;
-- a raw candidate packet;
+A task opened from free discovery must retain:
+
+- `origin_kind=FREE_AXIOM_CANDIDATE`;
+- `origin_candidate_id`;
+- audited `origin_candidate_state`.
+
+It may not be repackaged as `DRIVER_ROADMAP` merely because the Driver selected it.
+
+`TASK_ORIGIN_AND_LINEAGE_CANNOT_BE_ERASED_BY_RENAMING`.
+
+## 6. Working Truth starts later than discovery
+
+`WORKING_TRUTH` is a TASK execution discipline.
+
+It activates only after explicit Driver direction freeze or a Driver-approved taskbook and does not apply to:
+
+- FREE Phase A;
+- raw candidate packets;
 - Phase-B prior-art/dedup audit;
-- an unreviewed side branch.
+- unreviewed side proposals.
 
-This prevents early speculation from becoming a self-confirming control-plane premise.
+This prevents early speculation from becoming a self-confirming premise.
 
-## 6. PASS does not automatically create Stage N+1
+## 7. PASS does not automatically create Stage N+1
 
-A completed stage may expose a real new gap, but completion alone is not such a gap.
+A completed stage may expose a real gap, but completion is not itself a gap.
 
-A new continuation/stage requires a **successor gate** recording:
+A `CONTINUATION` task requires:
 
 - parent task;
 - exact new information gap;
-- why the parent result does not already close it;
+- why parent result does not close it;
 - discriminating possible outcomes;
 - kill condition;
-- why another task/stage is better than continuing or closing the current one.
+- `alternative_route_or_free_exploration_considered`;
+- why another stage/task is better than same-task continuation, owner return, closure or renewed exploration.
 
-If this information is absent, the Driver should close/park, continue the same mother task, return to an existing owner, or reopen independent exploration.
+Any explicitly named **Stage 2 or later** task is continuation semantics by construction and must use `task_lineage=CONTINUATION`.
 
-`PASS -> NEXT_STAGE` is forbidden as an automatic control rule.
+Renaming the next unresolved layer without the word “Stage” does not reset semantic lineage when the parent result remains a necessary premise/motivation.
 
-## 7. Scheduler is exploitation infrastructure
+`PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
-The scheduler coordinates selected work. It does not choose the free researcher's problem.
+If the gate is absent/weak, close/park, continue the same mother task, return to another owner, or reopen independent exploration.
 
-`TASK_RESEARCH` may be scheduler-eligible.
+## 8. Portfolio balance without quotas
 
-`FREE_AXIOM_DISCOVERY` is not.
+A chain of successful task stages is not evidence that the highest-leverage next question remains on that route.
 
-A static scheduler fallback is a task catalog, not a truth source. Before claiming an old fallback task, validate that its scope/dependencies still make sense against current source.
+Before another continuation, the Driver records whether closure, another owner/route or independent/free exploration was considered and why continuation still produces the best new information.
 
-Scheduler `DONE` means execution closure only. It does not imply theorem truth, canonical promotion or successor-stage creation.
+No artificial numeric quota between exploration and exploitation is imposed. A task-local exact dependency can legitimately justify continuation; it just cannot be justified by momentum alone.
 
-## 8. Foundation backflow is a maturity boundary
+## 9. Scheduler is exploitation infrastructure
+
+Scheduler coordinates selected `TASK_RESEARCH`. It does not choose the free researcher's question.
+
+A static fallback is a task catalog, not truth authority; validate stale scope/dependencies before claim.
+
+Scheduler `DONE` means execution closure only—not theorem truth, canonical status or successor-stage creation.
+
+## 10. Foundation backflow is a maturity boundary
 
 Raw discovery does not automatically become a Foundation question.
 
-Minimum free-candidate intake is an audited candidate/replacement candidate or exact negative obstruction. The Steward/Driver then decides whether it is:
+Minimum free-candidate intake is an audited candidate/replacement candidate or exact negative obstruction. Steward/Driver then classifies maintenance vs Foundation question vs local/not-ready.
 
-- direct maintenance already determined by canonical evidence;
-- a Foundation question requiring research;
-- application-local/not ready.
+No discovery draft bypasses ordinary evidence/promotion gates.
 
-No discovery draft bypasses the ordinary evidence and promotion gates.
+## 11. Independent replication
 
-## 9. Independent replication
-
-When structural importance justifies multiple free researchers, run them independently:
+For independence evidence:
 
 1. separate fresh contexts;
-2. same frozen foundation snapshot when comparability matters;
-3. no sharing of candidate packets before each run freezes its own candidate;
-4. compare only afterwards.
+2. same frozen foundation/worldview snapshot when comparability matters;
+3. no candidate sharing before each run freezes its own;
+4. compare afterwards.
 
-Independent convergence raises structural interest but is not proof. Divergence is preserved before Driver selection.
+Record independence honestly:
 
-## 10. Snapshot discipline
+- `CLEAN_INDEPENDENT_CONTEXT`;
+- `SHARED_AMBIENT_CONTEXT_DISCLOSED`;
+- `NOT_INDEPENDENT`.
 
-A free-discovery run should record the foundation/worldview snapshot that existed before candidate generation and should not chase moving `main` during Phase A.
+A fresh Researcher-ID alone does not prove independent discovery.
 
-Later source changes are handled in Phase B as comparison/supersession evidence.
+Independent convergence raises structural interest but is not proof. Preserve divergence before Driver selection.
 
-This makes discovery provenance reproducible and prevents moving-main changes from silently rewriting the premises mid-search.
+## 12. Snapshot and evidence discipline
 
-## 11. Read-path performance
+A free run records the foundation/worldview snapshot before candidate generation and does not chase moving main during Phase A. Later movement is Phase-B comparison/supersession evidence.
 
-The architectural principle is:
+Discovery evidence used to choose/shape a candidate is typed separately from independent validation evidence:
+
+`DISCOVERY_EVIDENCE != INDEPENDENT_VALIDATION_EVIDENCE`.
+
+Later comparison may reclassify the candidate but must not rewrite its origin story.
+
+## 13. Read-path performance
 
 `SMALLEST_SUFFICIENT_ROLE_PACKET > UNIVERSAL_PRELOAD`.
 
-The Common Surface remains valuable as an index, tool registry and conflict/ownership lookup. It is not a default context dump.
+The Common Surface remains an index/tool registry/ownership/conflict lookup, not a default context dump.
 
-Task researchers should normally start from:
+TASK startup normally:
 
-`AGENTS / exact task entry / exact first dependency`.
+`AGENTS -> exact task entry -> first exact dependency -> work -> triggered expansion`.
 
-Free researchers start from the foundation-only route.
+FREE starts from the foundation-only route.
 
 Repeated rereads, CI polling, whole-repository preflight and unrelated theorem catalogs are performance defects.
 
-## 12. Persistence and promotion
+## 14. Persistence and promotion
 
-- L1/L2/L3: remote-silent between semantic checkpoints;
-- one bounded owner generation: normally one owner branch and at most one Draft PR;
-- canonical promotion: one active ready L4 lane by default;
-- GLOBAL_KNOWLEDGE journal: history/provenance, not theorem truth;
-- Driver Continuity: routing only, no implicit default next route;
-- canonical truth: gated source `main`.
+- L1/L2/L3 remote-silent between semantic checkpoints;
+- normally one owner branch + at most one Draft PR per bounded owner generation;
+- one ready L4 lane by default;
+- GLOBAL_KNOWLEDGE journal = history/provenance, not theorem truth;
+- Driver Continuity = routing only / no implicit default next route;
+- canonical truth = gated source main.
 
-## 13. Legacy interpretation rule
+## 15. Legacy interpretation
 
-Older surfaces may still contain broad wording such as `auto_select_when_user_task_absent=true` or long `mandatory_preflight` lists.
+Older surfaces may still contain broad `auto_select_when_user_task_absent=true` or `mandatory_preflight` lists.
 
-Under this architecture:
+Under V2:
 
-- auto-selection is generic TASK_RESEARCH behavior, not FREE discovery behavior;
-- legacy preflight lists are triggered lookup lists, not unconditional startup sequences;
-- role-specific FREE contracts control over generic scheduler wording for the same scope.
+- generic auto-selection applies to TASK research, not FREE discovery;
+- legacy preflight lists are triggered lookup/reference surfaces, not unconditional startup sequences;
+- specific FREE contracts override generic scheduler wording for that scope.
 
-This retyping avoids rewriting historical provenance merely to make newer role semantics explicit.
+This retyping preserves historical provenance without allowing legacy control fields to override current role semantics.
