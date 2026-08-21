@@ -1,25 +1,25 @@
 # Enterprise Math — Current Native Foundation Router
 
-Status: `ACTIVE / STABLE CURRENT ROUTER`
-Date: `2026-08-21`
-Purpose: one source-repository entrypoint for current native mathematical definitions.
+Status: `ACTIVE / STABLE CURRENT ROUTER / LAZY LOAD`
+Date: `2026-08-22`
+Purpose: select the current native mathematical generation without forcing every downstream definition into startup context.
 
-This file is a router, not a duplicate theory document. Read the referenced canonical definitions for exact statements and proofs/checker provenance.
+This file is a router, not a duplicate proof document. **Load by dependency.** For exact statements/proofs/checker provenance, read the exact canonical file actually used by the task.
 
-## Authority order
+## Current canonical registry — not a preload manifest
 
-For current native geometry and downstream line/BRC semantics, use the following order:
+1. plane / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
+2. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
+3. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
+4. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
+5. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
+6. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` only when R063/root work requires it.
 
-1. `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
-2. `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`
-3. `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`
-4. `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`
-5. `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`
-6. `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when square-native-norm root discovery is relevant.
+Do not read all six simply because they are current. Begin with the plane router for native spatial claims, then add only the downstream definitions whose objects are actually used.
 
-Project-level mission/routing is governed by root `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, and `project_definition.json`.
+Project mission/routing remains governed by root `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, and `project_definition.json` when those surfaces are task-relevant.
 
-## Minimal current foundation
+## Minimal current native foundation
 
 - `O_E=0`.
 - Origin = triple circle-cell boundary intersection; not a cell center; not a cell.
@@ -31,38 +31,60 @@ Project-level mission/routing is governed by root `PROJECT_DEFINITION.md`, `PROJ
 - Three native right sectors per full turn.
 - `ENTERPRISE_RIGHT_ANGLE=120_DEGREES`.
 - Canonical addresses: `(a,b,c) in N_0^3`, `min(a,b,c)=0`.
-- Sector-local Pythagorean law: `L_E^2=a^2+b^2` on the two active components.
+- No native common diagonal-shift quotient.
+- Sector-local Pythagorean law: `L_E^2=a^2+b^2` on the two active components; canonical triple form is the sum of the three coordinate squares because at least one coordinate is zero.
+- A2/C6 relations are implementation/carrier relations unless independently promoted; they are not native vector identities.
 - Native line identity = component trace.
-- One line trace may have many discrete path representatives.
-- Arbitrary-point native line length object = directed native line gauge; reversal symmetry generally fails.
-- Unoriented endpoint pair = canonical bidirectional trace pair + bidirectional length spectrum.
-- Historical BRC = Boolean result-support semantics; current enrichment tower is `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
+- One line trace may have many discrete path representatives; path-letter count is not native line length.
+- Arbitrary-point native line length object = directed native line gauge; reversal symmetry generally fails, so it is not a symmetric metric.
+- Unoriented endpoint pair = canonical bidirectional trace pair + bidirectional length spectrum; no unique canonical symmetric scalar metric is derived from current premises.
+- `CANONICAL_BRC_BASE_LAYER=BOOLEAN_RESULT_SUPPORT_SEMANTICS`.
+- Current enrichment tower: `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
+- BRC is the exact Boolean shadow of component-typed native multipath at the frozen R062 scope; discarded path identity/multiplicity/provenance is not invertibly recoverable from Boolean support alone.
 
 ## Historical / superseded family
 
-The following themes are historical unless a later current definition explicitly rederives a result independently:
+The following themes are historical unless a current definition explicitly rederives a weaker result independently:
 
 - signed-origin-one / no-native-zero ontology;
-- origin-circle / all-unit initial circle ontology;
+- origin-circle / all-unit initial-circle ontology;
 - three undirected axes automatically yielding six native directed directions;
 - alternating signs every 60 degrees as native plane ontology;
 - native negative axes derived from carrier opposites;
 - A2/C6 carrier relations used as native vector identities;
+- common diagonal-shift quotient as native address identity;
 - signed-chamber geometry based on those axes;
-- graph/minimum-jump count as native segment length.
+- carrier quadratic `a^2+b^2+c^2-ab-bc-ca` as native metric;
+- graph/minimum-jump count or all-shortest-path family as the native segment/length definition.
 
-Files that preserve those histories must carry `SUPERSEDED`, `HISTORICAL`, `PARTIALLY_SUPERSEDED`, or an equally explicit downstream-only status. Their Git history remains provenance.
+Historical files may retain explicitly typed downstream constructions, but they cannot restore the ontology in which those constructions were first discovered.
+
+## Two-stage authority rule
+
+Do not use one flat priority list for old and current files.
+
+### Stage 1 — generation selection
+
+`EXPLICIT CURRENT USER INSTRUCTION -> PROTECTED WORLDVIEW WHEN APPLICABLE -> CURRENT PROJECT/SOURCE ROUTER + EXPLICIT SUPERSESSION -> HISTORICAL GENERATIONS`
+
+An old file does not become current because its historical header said `CANONICAL`.
+
+### Stage 2 — exact content inside the selected current generation
+
+`EXACT CURRENT CANONICAL DEFINITION -> CURRENT ROUTER SUMMARY -> EXPLICITLY RETAINED DOWNSTREAM NOTE`
+
+A router selects; it does not silently rewrite an exact theorem file.
 
 ## Worldview alignment
 
-The protected account-level `我眼中的世界.md` was directly changed by the user on 2026-08-21 to the current three-positive-axis / 120-degree foundation. The previous six-dimensional/twelve-direction and 60-degree alternating-sign spatial formulation is no longer ACTIVE.
+The protected account-level `我眼中的世界.md` uses the same current three-positive-axis / `O_E=0` / `120°` spatial foundation. The previous six-dimensional/twelve-direction and 60° alternating-sign formulation is superseded by direct user instruction.
+
+The same worldview now also merges traditional “overfitting/surface-fit” with the higher-level `POST_ALLOCATION / 后分配` learning mechanism; that causal-learning convention does not alter the spatial mathematics in this router.
 
 ## Precision Mathematics lineage
 
-Precision Mathematics is the predecessor of Enterprise Math, not a peer active project. New finite-resolution / precision-defined number research routes to Enterprise Math while historical provenance is retained.
+Precision Mathematics is Enterprise Math's predecessor, not a peer active project. New finite-resolution / precision-defined number research routes to Enterprise Math while historical provenance remains recoverable.
 
 ## No silent resurrection
 
-A historical taskbook, implementation carrier, old JSON record, source comment, or Git commit does not override this router or the later canonical definitions merely because it used stronger words such as `CANONICAL` at the time it was written.
-
-Use explicit supersession date and current authority, not filename age or old status language, to resolve conflicts.
+Historical taskbooks, implementation carriers, old JSON records, comments and Git commits are provenance. They do not override this generation router or the later exact definitions unless a current explicit task intentionally freezes one of them as a historical/comparator input.
