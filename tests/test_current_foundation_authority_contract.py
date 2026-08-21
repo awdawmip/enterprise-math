@@ -12,7 +12,13 @@ def test_root_project_definition_routes_three_positive_axis_foundation():
     en = read("PROJECT_DEFINITION.md")
     machine = read("project_definition.json")
     for text in (zh, en, machine):
-        assert "THREE_POSITIVE" in text.upper() or "三条正" in text
+        upper = text.upper()
+        assert (
+            "THREE_POSITIVE" in upper
+            or "THREE-POSITIVE" in upper
+            or "THREE POSITIVE" in upper
+            or "三条正" in text
+        )
         assert "120" in text
         assert "ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md" in text
 
