@@ -1,0 +1,66 @@
+{
+  "task_id": "RS-R042-POLYGONAL-NONSQUARE-BRANCH-LIMIT-PELL-RECURRENCE",
+  "researcher_id": "EM-R042-963283",
+  "accepted_stage2_head": "b3ca1369c147e50d1a841d3f86c081f2cb152f68",
+  "classification": "HIT_ANCESTRY_ONTOLOGY_REPLACED / SMALLER_EXACT_RECURRENCE_OBJECT_FOUND / NOT_CANONICAL",
+  "claims": {
+    "aggregate_return_object": {
+      "statement": "A hit-to-hit block of length d aggregates to P=p+sqrt(r)q and shell compatibility can be decided arithmetically from (d,P) before endpoint legality.",
+      "status": "PROVED"
+    },
+    "two_source_shell_theorem": {
+      "statement": "For fixed nonzero (d,P), at most two integral source pairs on N=-B can map to N=-B under xi -> sqrt(r)^d xi + P.",
+      "status": "PROVED"
+    },
+    "growing_norm_divisibility": {
+      "statement": "Every shell-to-shell block satisfies r^ceil(d/2) | N(P)+B.",
+      "status": "PROVED"
+    },
+    "shell_correction_exception": {
+      "statement": "For fixed nonsquare r>=5, the exceptional case N(P)=-B can occur only for finitely many return-gap lengths d.",
+      "status": "PROVED"
+    },
+    "rank_doubling_tail": {
+      "statement": "There is a cell constant C** such that every sufficiently high dynamically reachable hit-to-hit edge has target Pell rank n > 2m-C**.",
+      "status": "PROVED",
+      "relation": "PROVED but quantitatively subsumed by consumed e65eaad4 superlacunarity theorem; retained as elementary growing-norm corollary"
+    },
+    "arithmetic_not_sufficient": {
+      "statement": "Shell-compatible aggregate arithmetic is strictly weaker than dynamic accessibility; exact endpoint legality remains mandatory.",
+      "status": "EXECUTABLE_CHECKED"
+    },
+    "infinite_recurrence": {
+      "statement": "Existence or impossibility of an infinite dynamically legal norm-shell return ray remains open.",
+      "status": "CONJECTURAL / OPEN"
+    },
+    "correction_word_elimination": {
+      "statement": "For each reconstructed (d,P) shell candidate in r>=5, unique reverse endpoint ancestry decides dynamic legality deterministically; no correction word is needed as input.",
+      "status": "PROVED"
+    }
+  },
+  "false_positive_certificate": {
+    "s": 7,
+    "r": 7,
+    "d": 4,
+    "outer_correction_word": [-12, -32, -22, 18],
+    "aggregate_P": [-206, -106],
+    "reconstructed_source_pair": [17, 7],
+    "arithmetic_target_pair": [627, 237],
+    "implied_endpoint_indices": [1, 2, 4, 9, 24, 63],
+    "failure": "4->9 is illegal; exact children of parent 4 are 10,11",
+    "status": "EXECUTABLE_CHECKED",
+    "local_gate_residual": {
+      "E": 1960,
+      "legal_open_interval": [-1640, 1840],
+      "meaning": "global Lorentz shell arithmetic passes, but the ordered exact local gate fails"
+    }
+  },
+  "validation": {
+    "focused_tests": 7,
+    "result": "PASS",
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH"
+  },
+  "frontier": "Combine the shell-chord/growing-norm obstruction with the consumed superlacunary shrinking target and deterministic ordered reverse-gate trace; kill all infinite accepted chord chains or construct one exact generator.",
+  "consumed_concurrent_owner_head": "e65eaad4ce240213745797dc75ecb8f1be5b5999",
+  "refined_classification": "LOCAL_GATE_INPUT_STATE_COMPRESSED_TO_SHELL_CHORD / TWO_SOURCE_LORENTZ_CERTIFICATE_FOUND / GROWING_NORM_DIVISIBILITY_PROVED / INFINITE_RECURRENCE_OPEN / NOT_CANONICAL"
+}
