@@ -21,8 +21,8 @@ def test_midpoint_divisor_action_is_ternary_monotone_up():
     first = midpoint_divisor_defect_transition(0, 2, 5, 2)
     assert first["input_defect"] == -1
     assert first["output_defect"] == 0
-    # 0 -> +1 example.
-    second = midpoint_divisor_defect_transition(0, 2, 4, 2)
+    # 0 -> +1 minimal example.
+    second = midpoint_divisor_defect_transition(1, 2, 3, 2)
     assert second["input_defect"] == 0
     assert second["output_defect"] == 1
     # +1 is absorbing.
