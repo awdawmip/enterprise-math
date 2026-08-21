@@ -54,7 +54,9 @@ When the user supplies an explicit taskbook, the taskbook is the normal third ho
 
 Its default state is `AXIOM_DISCOVERY`, and its default objective is to discover new axiom candidates from the current foundation before seeing the current research agenda.
 
-Before the first `BLIND_AXIOM_CANDIDATE_PACKET` is frozen, do not load current scheduler/Issue #240, current taskbooks, Research Relay, recent commit/PR titles, R063/R064/current route material, another branch's `WORKING_TRUTH`, theorem-family success catalogs, or suggested questions merely for inspiration.
+Before the first `BLIND_AXIOM_CANDIDATE_PACKET` is frozen, do not load scheduler/dispatch state, current taskbooks, Research Relay, recent commit/PR titles, current numbered-route material, another branch's `WORKING_TRUTH`, theorem-family success/failure catalogs, suggested questions, or ambient remembered/project-chat context merely for inspiration.
+
+Do not repeatedly name a salient route merely to say it is forbidden; negative instructions can themselves prime it. Use generic agenda categories during Phase A.
 
 Role-specific source contract:
 
