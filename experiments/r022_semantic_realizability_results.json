@@ -1,0 +1,40 @@
+{
+  "interval_fast_path": {
+    "counterexample": false,
+    "crossing_nonlaminar_example": {
+      "greedy_width": 2,
+      "intervals": [[0, 1], [1, 2]],
+      "laminar": false
+    },
+    "families": 32767
+  },
+  "overlap_component_factorization": {
+    "counterexample": false,
+    "families": 32767
+  },
+  "proof_carrying_normalization": {
+    "greedy_exact": true,
+    "greedy_width": 3,
+    "lesson": "heuristic proposer may be suboptimal while an independent RJC verifier preserves exactness",
+    "optimum_width": 2,
+    "unsafe_cap_exact": false
+  },
+  "representation_relative_width": {
+    "all_exact": true,
+    "existing_dictionary_width": 2,
+    "free_synthetic_width": 1,
+    "lesson": "branch width is representation-class relative; carrier grammar and cost must be explicit",
+    "semantic_singleton_width": 3,
+    "target_atoms": ["a", "b", "c"]
+  },
+  "semantic_realization_boundary": {
+    "explicit_signature_exactness_check": "one materialized join equality",
+    "implicit_signature_warning": "cheap verification claim is scoped to explicit finite signatures; symbolic/implicit future signatures may require separate proofs",
+    "optimal_existing_token_basis": "Set-Cover-hard from R022 pass 3"
+  },
+  "weighted_laminar": {
+    "cost_trials": 2559,
+    "counterexample": false,
+    "families": 63
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "omitted_atom_kill": {
+    "dropped_atom": 4,
+    "exact_after_drop": false,
+    "factor_after_drop_connects": false,
+    "first_failure": [1, 16],
+    "missing_singleton_pair_should_connect": true
+  },
+  "proof_carrying_factor": {
+    "exact_factor_accepted": true,
+    "truncated_factor_rejected": true,
+    "truncated_failure_witness": [1, 8]
+  },
+  "scaling": [
+    {
+      "boolean_atom_dimension": 2,
+      "branch_atom_bitmask_bits": 2,
+      "branches_each_side": 4,
+      "dense_membership_bits_both_sides": 16,
+      "deterministic_row_classes": 4,
+      "full_relation_cells": 16,
+      "k": 2,
+      "relation_to_factor_membership_ratio": 1.0,
+      "row_label_bits": 2
+    },
+    {
+      "boolean_atom_dimension": 5,
+      "branch_atom_bitmask_bits": 5,
+      "branches_each_side": 32,
+      "dense_membership_bits_both_sides": 320,
+      "deterministic_row_classes": 32,
+      "full_relation_cells": 1024,
+      "k": 5,
+      "relation_to_factor_membership_ratio": 3.2,
+      "row_label_bits": 5
+    },
+    {
+      "boolean_atom_dimension": 10,
+      "branch_atom_bitmask_bits": 10,
+      "branches_each_side": 1024,
+      "dense_membership_bits_both_sides": 20480,
+      "deterministic_row_classes": 1024,
+      "full_relation_cells": 1048576,
+      "k": 10,
+      "relation_to_factor_membership_ratio": 51.2,
+      "row_label_bits": 10
+    }
+  ],
+  "subset_intersection_k5": {
+    "atom_dimension": 5,
+    "atom_membership_incidences_both_sides": 160,
+    "average_live_atoms_per_branch": 2.5,
+    "boolean_rank_exact": 5,
+    "boolean_rank_lower_bound": 5,
+    "boolean_rank_lower_bound_reason": "singleton-subset rows/columns induce a k x k identity submatrix, whose diagonal 1s require k bicliques",
+    "branch_atom_bitmask_bits": 5,
+    "compatible_cells": 781,
+    "dense_membership_bits_both_sides": 320,
+    "deterministic_row_label_bits": 5,
+    "distinct_left_compatibility_rows": 32,
+    "distinct_right_compatibility_columns": 32,
+    "factorization_exact": true,
+    "factorization_failure": null,
+    "full_compatibility_table_cells": 1024,
+    "full_table_to_dense_membership_ratio": 3.2,
+    "left_branches": 32,
+    "max_live_atoms_per_branch": 5,
+    "right_branches": 32,
+    "warning": "atom vocabulary compresses relation/interface structure; branch membership/configuration information remains charged"
+  }
+}

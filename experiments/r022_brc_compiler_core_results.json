@@ -1,0 +1,40 @@
+{
+  "end_to_end": {
+    "current_checkpoint_sufficient": false,
+    "current_partition": [[0,1,2],[3,4,5]],
+    "deterministic_interface_row_classes": 8,
+    "dropped_feature_rejected": true,
+    "dropped_feature_witness": [1,2],
+    "dropped_future_rejected": true,
+    "feature_basis_exact": true,
+    "future_basis_exact": true,
+    "interface_factor_exact": true,
+    "required_distinction_pairs": [[0,1],[0,2],[1,2],[3,4],[3,5],[4,5]],
+    "required_pair_count": 6,
+    "side_alphabet": 3,
+    "side_bits": 2,
+    "support_rewrite_exact": true,
+    "target_partition": [[0],[1],[2],[3],[4],[5]],
+    "truncated_interface_factor_rejected": true,
+    "truncated_interface_witness": [1,4],
+    "unsafe_support_rewrite_rejected": true
+  },
+  "mutation_suite": {
+    "checks": {
+      "checkpoint_no_resurrection": true,
+      "feature_mutation": true,
+      "future_mutation": true,
+      "interface_mutation": true,
+      "rjc_mutation": true
+    },
+    "passed": 5,
+    "total": 5
+  },
+  "surviving_interfaces": {
+    "connect": ["deterministic_row_quotient","verify_boolean_interface_factor"],
+    "proof_carrying": ["verify_future_basis","verify_feature_basis","verify_residual_join","verify_residual_aggregate","verify_boolean_interface_factor"],
+    "replay": ["side_alphabet","side_bits","checkpoint_sufficient"],
+    "semantic": ["future_kernel","target_precision","required_distinction_pairs"],
+    "status": "research-only consolidation; not a canonical/shared tool"
+  }
+}
