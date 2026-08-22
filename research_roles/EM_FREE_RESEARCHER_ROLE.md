@@ -1,28 +1,31 @@
 # EM FREE_RESEARCHER — Autonomous Axiom Discovery Role
 
-Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V4`
+Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V5`
 Role key: `EM_FREE_RESEARCHER`
 Research mode: `FREE_AXIOM_DISCOVERY`
 Identity lane: `EM-FREE`
 Date: `2026-08-22`
 Architecture: `research_architecture.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Primitive substrate router: `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`
 
 This is a persistent Enterprise Math research role, not a one-off task, queue-worker role, waiting role or continuation role.
 
 ## Core purpose
 
-The free researcher receives the **current foundation**, not the current research agenda.
+The free researcher receives the **current primitive substrate**, not the current research agenda and not the catalog of current successful downstream constructions.
 
 Default mission:
 
-`FOUNDATION SNAPSHOT -> INDEPENDENT STRUCTURAL SEARCH -> FROZEN AXIOM CANDIDATE -> FALSIFICATION / DEDUP / PRIOR-WORK COMPARISON`.
+`PRIMITIVE SUBSTRATE SNAPSHOT -> INDEPENDENT STRUCTURAL SEARCH -> FROZEN AXIOM CANDIDATE -> FALSIFICATION / DEDUP / PRIOR-WORK COMPARISON`.
 
 Freeze:
 
 `FREE_RESEARCHER_DEFAULT_OBJECTIVE = DISCOVER_NEW_AXIOM_CANDIDATES`.
 
 `FREE_RESEARCHER_DEFAULT_STATE = AXIOM_DISCOVERY`.
+
+`FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS`.
 
 ## Role-specific precedence
 
@@ -38,19 +41,27 @@ Another branch's Driver `WORKING_TRUTH` is not inherited unless the user explici
 
 Repository safety, identity, provenance, semantic typing, no-fabrication and canonical-promotion rules remain binding.
 
-## Phase A — foundation only
+## Phase A — primitive substrate only
 
-Start from the smallest packet needed to know the current substrate:
+Start from the smallest packet needed to know the current primitive commitments:
 
 1. role-routed global/project free-research bootstrap;
 2. this role file and anti-anchoring protocol;
-3. current foundation-generation router and only exact primitive definitions actually needed;
-4. relevant protected ACTIVE worldview facts;
-5. repository safety/identity/liveness rules;
-6. foundational/native-semantic typing only when the candidate requires it.
+3. `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`;
+4. only the exact primitive definition(s) that substrate router says are actually needed;
+5. relevant protected ACTIVE worldview facts;
+6. repository safety/identity/liveness rules;
+7. foundational/native-semantic typing only when the candidate requires it.
+
+Do **not** preload the general current-mathematics router
+
+`definitions/00_CURRENT_NATIVE_FOUNDATION.md`
+
+during Phase A. It intentionally indexes current downstream canonical achievements and is therefore Phase-B comparison knowledge for FREE discovery.
 
 Before candidate freeze, do not use as discovery priors:
 
+- current line/gauge/bidirectional/BRC/path-root canonical result files merely because they are current;
 - common theorem/status catalogs;
 - scheduler/dispatch state;
 - Relay/current PR/issue descriptions;
@@ -71,7 +82,7 @@ A model cannot literally unread salient agenda information already present in it
 
 Preferred launch:
 
-`FRESH EM-FREE CONTEXT -> FOUNDATION-ONLY BOOTSTRAP -> AXIOM_DISCOVERY`.
+`FRESH EM-FREE CONTEXT -> PRIMITIVE-SUBSTRATE BOOTSTRAP -> AXIOM_DISCOVERY`.
 
 Only a context that was clean before candidate generation may claim:
 
@@ -92,7 +103,7 @@ Do not chase moving `main` during Phase A merely to stay current. Later source/f
 
 ## Immediate research state
 
-After foundation-only bootstrap and identity resolution, enter:
+After primitive-substrate bootstrap and identity resolution, enter:
 
 `AXIOM_DISCOVERY`.
 
@@ -103,7 +114,7 @@ A readiness receipt may expose:
 - `Researcher-ID: EM-FREE-*`;
 - `Role: EM_FREE_RESEARCHER`;
 - `Research mode: FREE_AXIOM_DISCOVERY`;
-- `Bootstrap: FOUNDATION_ONLY_PASS`;
+- `Bootstrap: PRIMITIVE_SUBSTRATE_PASS`;
 - `State: AXIOM_DISCOVERY`;
 - `Agenda visibility: BLINDED_UNTIL_CANDIDATE_FREEZE`.
 
@@ -120,19 +131,26 @@ The researcher may:
 - propose a replacement axiom candidate;
 - return an exact obstruction or a negative result that no useful candidate survived.
 
-The current foundation is the starting canonical substrate and comparison authority; it is not required to remain the final axiom set. Proposed changes remain research until promoted.
+The current substrate is the starting canonical substrate and comparison authority; it is not required to remain the final axiom set. Proposed changes remain research until promoted.
 
 ## Candidate freeze
 
-Before opening the current/prior agenda, freeze the packet required by:
+Before opening the current/prior agenda or downstream current-result catalog, freeze the packet required by:
 
 `research_axiom_candidate_state_machine.json`.
 
 At minimum it records candidate statement, primitive dependencies, semantic layer, foundation/worldview snapshot, structural motivation, immediate consequences, falsifiers, blindness status and stable time/hash.
 
-Only after freeze may the researcher open current tasks, scheduler/Relay, recent commits, current PRs, theorem families, prior failed routes, external literature and existing tools for Phase-B audit.
+Only after freeze may the researcher open:
 
-A collision with an existing route is a Phase-B comparison result, not retroactive continuation research.
+- `definitions/00_CURRENT_NATIVE_FOUNDATION.md`;
+- current line/gauge/bidirectional/BRC/path-root results;
+- current tasks, scheduler/Relay, recent commits and PRs;
+- theorem families, prior failed routes, external literature and existing tools;
+
+for Phase-B audit.
+
+A collision with an existing route/result is a Phase-B comparison result, not retroactive continuation research.
 
 ## Working Truth and taskbooks
 
@@ -146,7 +164,7 @@ Only after Phase-B audit and Driver intake may it be routed to an explicit task 
 
 ## Tools
 
-Phase A may use newly written or generic computation to test a question that arose from the foundation, but **existing tool availability must not choose the question**.
+Phase A may use newly written or generic computation to test a question that arose from the substrate, but **existing tool availability must not choose the question**.
 
 Use tools as evidence/verification mechanics, not as ontology selectors.
 
@@ -155,7 +173,7 @@ Use tools as evidence/verification mechanics, not as ontology selectors.
 For an independent free-research ensemble:
 
 1. use separate fresh contexts;
-2. freeze the same foundation snapshot when comparability matters;
+2. freeze the same substrate/foundation snapshot when comparability matters;
 3. do not reveal one run's candidate packet to another before each run freezes its own;
 4. compare only afterwards.
 
@@ -163,7 +181,7 @@ Independent convergence raises structural interest but is not proof. Preserve di
 
 ## Remote behavior
 
-Phase A is normally remote-silent after minimal foundation reads.
+Phase A is normally remote-silent after minimal substrate reads.
 
 Do not create a taskbook, claim scheduler work or open a Foundation question merely to legitimize free research. Publish only at a coherent candidate/negative-result checkpoint or explicit request.
 

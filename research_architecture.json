@@ -6,6 +6,8 @@
   "purpose": "Separate independent axiom discovery, task execution, Driver portfolio control, Foundation maintenance, persistence and canonical promotion so that no one control surface silently becomes the research agenda.",
   "core_invariants": [
     "FOUNDATION_IS_STARTING_SUBSTRATE_NOT_DEFAULT_RESEARCH_AGENDA",
+    "FOUNDATION_FOR_DISCOVERY_IS_NOT_CATALOG_OF_CURRENT_ACHIEVEMENTS",
+    "FREE_PHASE_A_USES_PRIMITIVE_SUBSTRATE_NOT_GENERAL_CURRENT_RESULT_ROUTER",
     "EXPLORATION_AND_EXPLOITATION_ARE_DISTINCT_RESEARCH_MODES",
     "FREE_RESEARCHER_DOES_NOT_AUTO_DISPATCH",
     "TASK_RESEARCHER_MAY_CONSUME_EXPLICIT_AGENDA_CONTEXT",
@@ -25,8 +27,11 @@
       "role_label": "RESEARCHER",
       "role_key": "EM_FREE_RESEARCHER",
       "visible_identity": "Researcher-ID",
-      "mission": "Search independently from the current foundation for new axiom candidates, smaller primitives, structural laws or exact obstructions before seeing the current research agenda.",
-      "agenda_visibility_before_candidate_freeze": "FOUNDATION_ONLY",
+      "mission": "Search independently from the current primitive substrate for new axiom candidates, smaller primitives, structural laws or exact obstructions before seeing current downstream achievements or research agenda.",
+      "phase_a_substrate_router": "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md",
+      "general_current_router_before_candidate_freeze": false,
+      "general_current_router_phase_b": "definitions/00_CURRENT_NATIVE_FOUNDATION.md",
+      "agenda_visibility_before_candidate_freeze": "PRIMITIVE_SUBSTRATE_ONLY",
       "scheduler_eligible": false,
       "inherits_other_branch_working_truth": false,
       "default_state": "AXIOM_DISCOVERY",
@@ -59,18 +64,21 @@
   },
   "role_precedence": {
     "rule": "A more specific active role/mode contract controls over generic no-user-task dispatch or generic researcher freedom language for the same scope.",
-    "free_research_exception": "Generic scheduler rules do not apply during FREE_AXIOM_DISCOVERY Phase A.",
+    "free_research_exception": "Generic scheduler rules and the general current-result router do not apply as Phase-A discovery input during FREE_AXIOM_DISCOVERY.",
     "explicit_user_override": true
   },
   "context_visibility": {
     "free_phase_a": {
       "allow": [
-        "current foundation generation and exact primitive definitions actually needed",
+        "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md",
+        "exact primitive definitions explicitly routed from the free substrate packet and actually needed",
         "protected user worldview facts relevant to the substrate",
         "identity/repository safety/provenance",
         "foundational/native-semantic typing rules when needed"
       ],
       "withhold_as_discovery_prior": [
+        "definitions/00_CURRENT_NATIVE_FOUNDATION.md general current-result router",
+        "current line-trace, arbitrary-gauge, bidirectional-segment, BRC-multipath and path-root canonical results",
         "scheduler and dispatch queues",
         "current numbered taskbooks",
         "Research Relay and current PR/issue descriptions",
@@ -85,7 +93,7 @@
       ]
     },
     "task_research": {
-      "rule": "Load the exact task entry first and expand only to dependencies actually used. Shared theorem/tool catalogs are lookup surfaces, not default context dumps."
+      "rule": "Load the exact task entry first and expand only to dependencies actually used. The general current foundation router and shared theorem/tool catalogs are lookup surfaces, not default context dumps."
     }
   },
   "axiom_candidate_lifecycle": {
@@ -168,7 +176,8 @@
   "read_performance": {
     "principle": "SMALLEST_SUFFICIENT_ROLE_PACKET",
     "explicit_task_soft_remote_read_budget_before_substantive_work": 3,
-    "free_phase_a": "FOUNDATION_ONLY_AND_REMOTE_SILENT_AFTER_MINIMAL_READS",
+    "free_phase_a": "PRIMITIVE_SUBSTRATE_ONLY_AND_REMOTE_SILENT_AFTER_MINIMAL_READS",
+    "free_phase_a_general_current_router_preload": false,
     "shared_common_surface": "LOOKUP_AND_CONFLICT_INDEX_NOT_DEFAULT_CONTEXT_DUMP",
     "reuse_immutable_fetched_blobs": true,
     "ci_polling_for_research": false
@@ -217,6 +226,7 @@
     "research_common_surface_mandatory_preflight": "TRIGGERED_REFERENCE_LIST_NOT_UNCONDITIONAL_STARTUP_SEQUENCE",
     "research_common_surface_auto_select_when_user_task_absent": "GENERIC_TASK_RESEARCH_BEHAVIOR_ONLY_NOT_FREE_AXIOM_DISCOVERY",
     "generic_AGENTS_scheduler_rule": "DOES_NOT_OVERRIDE_MORE_SPECIFIC_FREE_RESEARCH_ROLE_CONTRACT",
+    "general_current_native_foundation_router": "TASK_AND_PHASE_B_LOOKUP; NOT_FREE_PHASE_A_DISCOVERY_INPUT",
     "generic_ready_l4_lane_wording": "READY_PR_IS_CANDIDATE_STATUS_NOT_AN_INDEFINITE_ATTEMPT_LEASE; GOVERNANCE_MAINTENANCE_FOLLOWS_LATER_NARROW_PROTOCOL"
   }
 }
