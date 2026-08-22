@@ -1,21 +1,38 @@
 {
-  "schema": "ENTERPRISE_MATH_TOOLBOX_REGISTRY_V1",
+  "schema": "ENTERPRISE_MATH_TOOLBOX_REGISTRY_V2",
   "status": "ACTIVE_CURRENT_TOOL_ROUTER",
   "date": "2026-08-22",
   "authority": "ROUTING_ONLY_EXACT_SOURCES_CONTROL",
-  "tool_acceptance_rule": "NEW_THEOREM != NEW_TOOL; accepted tools require reusable input/output, structural law or certificate, explicit failure boundary, and reuse across at least two distinct problem families",
+  "invocation_policy": "tool_invocation_policy.json",
+  "method_inventory": "research_method_inventory.json",
+  "executable_router": "tools/enterprise_toolbox.py",
+  "repository_tool_paths": [
+    "tools/enterprise_toolbox.py",
+    "tools/tool_discovery_native_valuation_ehrhart_brion_calculus_check.py"
+  ],
+  "common_surface_bridge": {
+    "machine_checker": "tools/check_research_common_surface.py",
+    "ownership_rule": "tools/*.py is covered exactly by the disjoint union of research_common_surface.json operational repo_tools and this registry's repository_tool_paths",
+    "human_index": "docs/ENTERPRISE_TOOLBOX_REGISTRY.md"
+  },
+  "tool_acceptance_rule": "NEW_THEOREM != NEW_TOOL; accepted tools require reusable input/output, structural law or certificate, explicit failure boundary, and reuse across distinct problem families",
   "tools": [
     {
       "id": "T0_BRC",
       "name": "BRC",
       "status": "PREEXISTING_CANONICAL_TOOL_FAMILY",
-      "scope": "use exact current BRC definitions"
+      "scope": "support/result/provenance-valued composition; use exact current BRC definitions",
+      "triggers": ["BRC", "support", "Boolean result", "path formal", "branch", "recoalescence", "multipath"],
+      "capabilities": ["support algebra", "path/result projection", "multipath composition", "provenance-aware result semantics"],
+      "hard_boundary": "Use exact current BRC typing; do not infer erased provenance from Boolean support."
     },
     {
       "id": "T1_SCALE_ENUMERATION_VALUATION",
       "name": "Enterprise Scale Enumeration / Valuation Calculus",
       "status": "ACCEPTED_DERIVED_TOOL",
       "api": ["DELTA", "GEN", "VAL", "MOBIUS", "LOCAL"],
+      "triggers": ["scale", "shell", "count", "enumeration", "growth", "finite difference", "generating function", "valuation", "inclusion-exclusion", "Mobius", "basin"],
+      "capabilities": ["scale enumeration", "shell extraction", "finite-difference certificates", "rational-series/recurrence compression", "valuation and local-to-global overlap correction"],
       "hard_boundary": "NO_UNIVERSAL_NATIVE_EHRHART_POLYNOMIALITY",
       "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_DRIVER_REVIEW_20260822.md",
       "result": "research_notes/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_CALCULUS_REPORT_20260822.md"
@@ -24,16 +41,21 @@
       "id": "T2_BLOCK_FINITE_CERTIFICATE",
       "name": "Enterprise Block Finite-Certificate Calculus",
       "status": "ACCEPTED_DERIVED_TOOL",
+      "triggers": ["compatibility", "constraint", "certificate", "Helly", "local-to-global", "intersection", "obstruction", "feasible", "gluing"],
+      "capabilities": ["bounded failure certificate", "bad-block extraction", "success witness assembly", "independent-block max-law"],
       "core_law": "INDEPENDENT_BLOCK_COMPOSITION -> GLOBAL_CERTIFICATE_NUMBER <= MAX_LOCAL_CERTIFICATE_NUMBER",
       "hard_boundary": "propagating coupling can force unbounded minimal obstruction size even on bounded local domains/arity and path/tree interaction graphs",
       "driver_review": "driver_reviews/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_DRIVER_REVIEW_20260822.md",
-      "result": "research_notes/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_CERTIFICATE_CALCULUS_RESULT_20260822.md"
+      "result": "research_notes/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_CERTIFICATE_CALCULUS_RESULT_20260822.md",
+      "known_specializations": ["src/enterprise_math/box_collapse.py"]
     },
     {
       "id": "T3_TYPED_INCIDENCE_CIRCUIT",
       "name": "Typed Incidence Circuit Calculus",
       "status": "ACCEPTED_DERIVED_TOOL_SCOPE_NARROWED",
       "api": ["SIGN", "CIRCUITS", "ELIMINATE", "SEPARATE", "DUAL", "REALIZATION_CHECK"],
+      "triggers": ["circuit", "cocircuit", "cycle", "cut", "separator", "path difference", "provenance defect", "reroute", "incidence"],
+      "capabilities": ["signed cycle certificates", "circuit elimination", "minimal cut/cocircuit", "same-endpoint path-defect decomposition", "metric-erasure realization check"],
       "hard_boundary": "DIRECTION_ONLY_SIGNED_CIRCUIT_NOT_DERIVED",
       "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_DRIVER_REVIEW_20260822.md",
       "result": "research_notes/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_CIRCUIT_CALCULUS_RESULT_20260822.md"
@@ -43,10 +65,66 @@
       "name": "Finite Fiber Capacity / Collision-Minima Calculus",
       "status": "ACCEPTED_TOOL_COMPOSITION_NOVELTY_DOWNGRADED",
       "api": ["RAW_CAPACITY", "QUOTIENT_CAPACITY", "FIBER_FREE", "COLLISION_DEFECT", "COLLISION_WITNESS", "REPRESENTATIVE_PACKING_COVERING", "SUCCESSIVE_COLLISION_MINIMA"],
+      "triggers": ["fiber", "quotient capacity", "collision", "representative", "compression", "packing", "covering", "minima", "same observation"],
+      "capabilities": ["fiber capacity", "collision defect", "equal-fiber witness", "optimal one-representative-per-fiber compression", "first collision scales"],
       "hard_boundary": "semantic observation/quotient must already be declared or derived; the tool cannot invent pi to force a capacity theorem",
       "prior_enterprise_machinery": ["predictive quotient", "operation quotient", "function/relation collision spectra", "finite preimage multiplicity"],
       "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_DRIVER_REVIEW_20260822.md",
       "result": "research_notes/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_MINIMA_CALCULUS_RESULT_20260822.md"
+    },
+    {
+      "id": "T5_PRECISION_REFINEMENT",
+      "name": "Integer Precision / Refinement Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": ["precision", "refinement", "coarse", "fine", "projection", "detail", "carry", "borrow", "mixed radix", "scale chain", "graded transport"],
+      "capabilities": ["exact projection/recomposition", "fiber detail", "carry/borrow", "precision-chain decomposition", "graded transport", "nonlinear projection defect"],
+      "hard_boundary": "finite integer precision only unless a separate theorem supplies continuum/limit semantics",
+      "source_methods": ["src/enterprise_math/precision.py", "src/enterprise_math/graded_precision.py", "src/enterprise_math/precision_system.py", "src/enterprise_math/precision_proof.py"]
+    },
+    {
+      "id": "T6_OPERATION_SAFE_QUOTIENT",
+      "name": "Operation-Safe Quotient / Predictive Refinement Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": ["quotient", "collapse", "projection", "future observation", "predictive", "descent", "congruence", "stable partition", "operation family", "coarse graining"],
+      "capabilities": ["fiber-constancy witness", "descent test", "coarsest repair", "predictive partition", "operation-family closure", "safe-operation census"],
+      "hard_boundary": "the preserved observation/operation language must be declared; the calculus does not choose what distinctions are semantically disposable",
+      "source_methods": ["src/enterprise_math/predictive_quotient.py", "src/enterprise_math/composition_safe_collapse.py", "src/enterprise_math/operation_quotient.py", "src/enterprise_math/partial_operation_quotient.py", "src/enterprise_math/safe_operation_algebra.py"]
+    },
+    {
+      "id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "name": "Finite Symmetry / Orbit / Equivariance Calculus",
+      "status": "HARVESTED_AND_TOOLIZED",
+      "triggers": ["symmetry", "group action", "orbit", "stabilizer", "equivariant", "relabeling", "automorphism", "canonical choice", "torsor", "orientation"],
+      "capabilities": ["orbit partition", "stabilizer", "fixed-point/canonical-choice obstruction", "equivariant-map count/enumeration", "finite torsor/stabilizer audit"],
+      "hard_boundary": "a canonical choice or signed structure cannot be inferred when the declared symmetry action has no required invariant datum; extra carrier structure may not be imported silently",
+      "source_methods": ["src/enterprise_math/finite_symmetry.py", "driver_reviews/R064_PHASEA_N0_FIRST_LOCAL_INTERACTION_CARRIER_DRIVER_REVIEW_20260822.md", "research_tasks/FQ009_ORIENTATION_TORSOR_ATLAS_STEWARD_VERIFICATION_20260822.md"]
+    },
+    {
+      "id": "T8_RELATION_OBSERVABLE_SPECTRUM",
+      "name": "Relation Observable / Spectrum Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": ["relation", "correspondence", "multivalued", "support", "observable", "branching", "overlap", "spectrum", "common target", "set-valued future"],
+      "capabilities": ["powerset-valued future signatures", "raw-vs-observed branching audit", "relation collision spectra", "relation-safe quotient test", "capacity-weighted relation invariants"],
+      "hard_boundary": "relation branching, observable nondeterminism and quotient safety are different questions and may not be conflated",
+      "source_methods": ["src/enterprise_math/relation_observable_signature.py", "src/enterprise_math/relational_spectrum.py", "src/enterprise_math/relation_observable_composition.py", "src/enterprise_math/relation_future_powerset.py", "src/enterprise_math/weighted_relation_field.py", "src/enterprise_math/relation_lattice.py"]
+    },
+    {
+      "id": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "name": "Holonomy / Cocycle / Gluing-Obstruction Calculus",
+      "status": "HARVESTED_PREEXISTING_PLUS_RECENT_DERIVED_TOOL_FAMILY",
+      "triggers": ["holonomy", "cocycle", "loop transport", "route dependence", "chart transition", "gluing obstruction", "torsor", "groupoid", "defect transport"],
+      "capabilities": ["staged-vs-direct transport check", "loop defect/holonomy readout", "cocycle obstruction", "strict-gluing no-go", "route-independent quotient diagnosis"],
+      "hard_boundary": "nonzero holonomy diagnoses failure of strict global trivialization; it does not by itself identify a unique repaired global object or promote transport data to N0",
+      "source_methods": ["src/enterprise_math/precision_holonomy.py", "src/enterprise_math/precision_signed_holonomy.py", "src/enterprise_math/p023_borrow_cocycle.py", "src/enterprise_math/material_loop_identity.py", "driver_reviews/R063_STAGE4_THREE_SECTOR_C4_PROCESS_GLOBALIZATION_DRIVER_REVIEW_20260822.md"]
+    }
+  ],
+  "domain_facades": [
+    {
+      "id": "D1_PRIME_TOOLKIT",
+      "name": "Prime Toolkit",
+      "status": "PREEXISTING_DOMAIN_TOOL_LIBRARY",
+      "sources": ["src/enterprise_math/prime_toolkit.py", "src/enterprise_math/prime_method_inventory.json"],
+      "rule": "Use its status-preserving facade for prime-specific methods; do not duplicate generic T1/T5/T6 machinery inside prime routes."
     }
   ],
   "foundation_mutation": false
