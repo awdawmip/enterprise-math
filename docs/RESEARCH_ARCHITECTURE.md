@@ -1,6 +1,6 @@
 # Enterprise Math Research Architecture V2
 
-Status: `DRIVER-PROPOSED / NO_NEW_MATHEMATICS / GOVERNANCE / V2.3`
+Status: `ACTIVE / CANONICAL GOVERNANCE / V2.3`
 Date: `2026-08-22`
 Driver-ID: `EM-DVR-K7Q4N8`
 Machine contract: `research_architecture.json`
