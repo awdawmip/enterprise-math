@@ -19,6 +19,8 @@ The audit used two complementary surfaces:
 
 Archive-only superseded prose is not promoted merely because it contains an algorithmic phrase. Exact owners remain authoritative, and `tools/enterprise_toolbox.py` scans all current executable modules dynamically so an uncurated current helper remains discoverable.
 
+The harvest remains live during its integration window: a concurrently accepted research return is classified before final merge rather than being excluded merely because it landed after the initial baseline snapshot.
+
 ## 2. Main finding
 
 The project did not primarily lack tools. It lacked **cross-route ownership and lookup discipline**.
@@ -234,6 +236,23 @@ Harvest classification:
 `GLOBAL_SUBTOOL -> T7` for orbit/stabilizer/torsor analysis.
 
 Again, indexing a method does not promote its Foundation conclusion.
+
+### CBRC F0 — signed recoalescence forward derivation
+
+This result was accepted concurrently during the harvest window at Driver review commit:
+
+`d4c7dd11287b313360be9e53a5bad5dfd7f1b502`.
+
+Harvest classification:
+
+- conservative signed group completion of the nonnegative typed Path-formal occurrence monoid -> `GLOBAL_SUBTOOL -> T0_BRC`;
+- sign-valued elementary-diamond / gauge diagnostic for the accepted minimal signed carrier -> `GLOBAL_SUBTOOL -> T9`;
+- scalar-readout underdetermination -> `RESULT_ONLY`;
+- the minimal-carrier integer-linear branch-mixing no-go is retained as a scope boundary on the T9 entry, not generalized to richer carriers.
+
+The group-completion and finite gauge mathematics are standard/general. Tool value is the exact typed Enterprise interface and reuse boundary; no generic novelty claim is made.
+
+The subsequently issued CBRC F1 is an explicit blind-forward task. Under the new invocation policy its current-tool catalog remains hidden until the taskbook's raw F1 packet freeze, then post-freeze tool dedup is mandatory before method-novelty claims.
 
 ### LSR-N2
 
