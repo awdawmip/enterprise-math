@@ -82,6 +82,8 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "created_by_role": "RESEARCH_DRIVER",
             "task_authority": "DRIVER_APPROVED",
             "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+            "origin_kind": "DIRECT_USER_DIRECTION",
+            "task_lineage": "NEW_DIRECTION",
             "policy_review": {
                 "policy_set": "research_taskbook_policy.json",
                 "policy_digest": digest or rt.policy_digest(root),
