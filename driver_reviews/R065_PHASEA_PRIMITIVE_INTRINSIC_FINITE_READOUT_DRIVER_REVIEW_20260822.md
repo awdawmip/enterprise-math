@@ -21,14 +21,18 @@ Owner branch:
 
 `research/r065-phasea-primitive-intrinsic-readout`
 
+Frozen owner head:
+
+`fa9a6a7932afc898a0b834b7d3b0033526ec226f`
+
 Researcher:
 
 `EM-R065A-7E6F46`
 
 Intake comparison:
 
-- owner branch ahead of taskbook source by 2 commits;
-- behind by 0 commits;
+- frozen owner head is exactly 2 commits ahead of taskbook source;
+- owner branch was 0 commits behind the taskbook source at intake;
 - all 14 mandatory outputs/checker artifacts are present;
 - no taskbook, blind-packet, Foundation or canonical-definition file was modified on the owner branch.
 
@@ -168,7 +172,7 @@ Accordingly the replication gate is reclassified:
 
 Thus:
 
-`LSR_N2_BLIND_REPLICATION_PROGRAM = MATHEMATICALLY COMPLETE_AT_RELATION_PLUS_UNDERDETERMINATION_BOUNDARY`.
+`LSR_N2_BLIND_REPLICATION_PROGRAM = MATHEMATICALLY_COMPLETE_AT_RELATION_PLUS_UNDERDETERMINATION_BOUNDARY`.
 
 No additional blind run is justified merely to seek accidental scalar convergence.
 
