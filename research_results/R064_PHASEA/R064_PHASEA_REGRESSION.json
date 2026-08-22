@@ -1,0 +1,67 @@
+{
+  "schema": "R064_PHASEA_REGRESSION_V1",
+  "task_id": "RS-R064-PHASEA-N0-FIRST-LOCAL-INTERACTION-CARRIER-RECONSTRUCTION",
+  "freeze_timestamp": "2026-08-22T15:49:42+08:00",
+  "max_word_length": 5,
+  "axes": ["E1","E2","E3"],
+  "sectors": [["E1","E2"],["E1","E3"],["E2","E3"]],
+  "automorphism_count": 6,
+  "automorphism_group": "S3",
+  "source_word_count": 186,
+  "event_occurrence_count": 774,
+  "ordered_event_pair_count": 599076,
+  "local_context_class_count": 11,
+  "local_context_counts": {
+    "DS_DIFFSECTOR_PRIVATE_PRIVATE": 99846,
+    "DS_DIFFSECTOR_PRIVATE_SHARED": 99846,
+    "DS_DIFFSECTOR_SHARED_PRIVATE": 99846,
+    "DS_DIFFSECTOR_SHARED_SHARED": 99846,
+    "DS_SAMESECTOR_DIFF": 98514,
+    "DS_SAMESECTOR_SAME": 97740,
+    "SS_EQ_SAME": 774,
+    "SS_GT_DIFF": 666,
+    "SS_GT_SAME": 666,
+    "SS_LT_DIFF": 666,
+    "SS_LT_SAME": 666
+  },
+  "abstract_local_context_orbit_count": 11,
+  "abstract_orbit_sizes": [6,6,6,6,6,6,6,6,6,6,6],
+  "full_context_axis_output_equivariant_family_size": 177147,
+  "component_only_equivariant_law_count": 3,
+  "component_only_law_classes": ["LEFT_PROJECTION","RIGHT_PROJECTION","COMPONENT_COMPLEMENT"],
+  "candidate_state_count": 3,
+  "candidate_states_are_preexisting_n0_axes": true,
+  "closure": true,
+  "commutative": true,
+  "idempotent": true,
+  "derived_involution_x_x_y_eq_y": true,
+  "associative": false,
+  "associativity_counterexample": {"x":"E1","y":"E1","z":"E2","lhs":"E3","rhs":"E2"},
+  "identity_exists": false,
+  "identity_counterexamples": {
+    "E1": {"candidate_identity":"E1","x":"E2","left":"E3","right":"E3"},
+    "E2": {"candidate_identity":"E2","x":"E1","left":"E3","right":"E3"},
+    "E3": {"candidate_identity":"E3","x":"E1","left":"E2","right":"E2"}
+  },
+  "context_nonuniqueness_witness": {
+    "sector":["E1","E2"],"word":["E1","E1"],"pos1":0,"pos2":1,"tag1":"E1","tag2":"E1",
+    "context_class":"SS_LT_SAME","component_only_output":"E1","context_sensitive_output":"E2"
+  },
+  "event_level_sector_lift_ambiguity": {
+    "input_sector":["E1","E2"],"input_tags":["E1","E2"],"component_output":"E3",
+    "admissible_output_sectors":[["E1","E3"],["E2","E3"]],"count":2
+  },
+  "provenance_failures": [],
+  "mismatch_count": 0,
+  "mismatches": [],
+  "allowed_sources": {
+    "FOUNDATIONAL_LOGIC.md": {"blob":"f089400136341efbf10a5e24e8f0729800b942cd","commit":"d16877c3b62a7d3b7568780c732f610c260c13c1"},
+    "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md": {"blob":"b631242db84c5bd3640e6dc554b19a1d04d464f3","commit":"d16877c3b62a7d3b7568780c732f610c260c13c1"},
+    "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md": {"blob":"393060ebfd6a86ad45f258747d78a14d9c8ac153","commit":"d16877c3b62a7d3b7568780c732f610c260c13c1"},
+    "foundational_logic.json": {"blob":"6875d84746ee369ea222fd32bdcd92206c2db9b2","commit":"d16877c3b62a7d3b7568780c732f610c260c13c1"},
+    "native_semantics_admissibility.json": {"blob":"58ad0af8c2e3df56b353575bf0004095507bffbf","commit":"d16877c3b62a7d3b7568780c732f610c260c13c1"}
+  },
+  "checker_file_sha256": "ea9176457830dbecc19a022e4c216c5030cafd7ad44d867d0a45fe0f2fc8a238",
+  "deterministic_digest": "f7240ed04b9625095cb2197369fea5fe85b761e0a53c4a4893f22501566fd57b",
+  "verdict": "PASS"
+}
