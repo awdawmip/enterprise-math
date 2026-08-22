@@ -20,6 +20,22 @@ The central anti-duplication rule is:
 
 FREE Phase A is deliberately excluded from pre-freeze catalog lookup; Phase B uses this registry after candidate freeze for deduplication.
 
+## Common Surface bridge and repository-tool ownership
+
+The pre-existing `research_common_surface.json` remains the owner of universal theorem/formal/operational infrastructure. This Toolbox is **not** a competing replacement. `tools/check_research_common_surface.py` now audits both surfaces together.
+
+Repository `tools/*.py` ownership is exact and disjoint:
+
+- Common Surface owns its long-lived universal operational helpers;
+- Toolbox owns mathematical-tool routing and research-local tool checkers declared by `enterprise_toolbox_registry.json`.
+
+Toolbox-owned repository tools are currently:
+
+- `tools/enterprise_toolbox.py` — global reuse-before-invention coverage router;
+- `tools/tool_discovery_native_valuation_ehrhart_brion_calculus_check.py` — frozen T1 discovery evidence checker.
+
+The union of Common-Surface-owned and Toolbox-owned repository tools must equal the actual `tools/*.py` directory exactly. A path may not have two owner surfaces. This is mechanically enforced by the shared Common Surface integrity gate.
+
 ## T0 — BRC
 
 Status: `PREEXISTING CANONICAL TOOL FAMILY`.
