@@ -1,6 +1,6 @@
 # EM FREE_RESEARCHER — Autonomous Axiom Discovery Role
 
-Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V6`
+Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V6.1`
 Role key: `EM_FREE_RESEARCHER`
 Research mode: `FREE_AXIOM_DISCOVERY`
 Identity lane: `EM-FREE`
@@ -73,9 +73,9 @@ Before candidate freeze, the generic exclusion is:
 
 ## No suggested discovery lens
 
-Phase A deliberately supplies **no default list** such as “look for invariance, locality, composition, cancellation, symmetry, obstruction, minimal state…” or any equivalent menu.
+Phase A deliberately supplies no default list of promising question types, invariant classes, obstruction classes, proof methods, or conceptual templates.
 
-Those may be ideas the researcher independently arrives at, but the control plane does not seed them before the first candidate.
+Those concepts may arise independently from the researcher, but the control plane does not seed any particular family before the first candidate.
 
 The first substantive question should be authored by the researcher from the primitive substrate itself.
 

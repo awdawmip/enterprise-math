@@ -1,263 +1,238 @@
-# Enterprise Math agent operating rules
+# Enterprise Math agent operating router
 
-These are execution rules, not a research roadmap.
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.3`
 
-## Role identity bootstrap comes before task execution
+`AGENTS.md` is an execution router, **not** a theorem catalog, research roadmap, task queue, Foundation summary, or current-achievement preload.
 
-Every Enterprise Math conversation that enters `RESEARCHER` or `RESEARCH_DRIVER` mode must resolve or allocate a visible **role identity** before substantive work begins.
+Detailed policies live in the canonical files named below and are loaded only when their function is material.
 
-Visible labels are role-specific:
+## 1. Precedence and mode resolution
 
-- `RESEARCHER` → `Researcher-ID`;
-- `RESEARCH_DRIVER` → `Driver-ID`.
+Current explicit user instruction controls the current task/role scope.
 
-This applies to:
+More-specific current role/mode contracts control over generic wording in this file.
 
-- direct user tasks;
-- official taskbooks;
-- scheduler/Issue #240 dispatch;
-- Driver-mediated manual relay;
-- role conversion into researcher or Driver;
-- handoff into a new conversation;
-- continuation of an existing Enterprise Math conversation.
+Research modes:
 
-Canonical identity state machine:
+- explicit `EM_FREE_RESEARCHER` -> `FREE_AXIOM_DISCOVERY`;
+- explicit user task, Driver handoff, approved taskbook or actual scheduler dispatch -> `TASK_RESEARCH`;
+- explicit Driver activation -> `RESEARCH_DRIVER`.
 
-`research_identity_state_machine.json`
+A missing user topic by itself does **not** auto-dispatch a generic researcher and does not make a generic researcher FREE.
 
-Human protocol:
+Canonical mode/role authority:
 
-`docs/RESEARCH_IDENTITY_PROTOCOL.md`
+- `research_architecture.json`;
+- `research_role_policy.json`;
+- `research_identity_state_machine.json`.
 
-Reference helper:
+## 2. Identity before substantive work
 
-`tools/research_identity.py`
+Resolve or allocate the role identity before substantive research:
 
-Bootstrap rule:
+- researcher -> `Researcher-ID`;
+- Driver -> `Driver-ID`.
 
-1. reuse the role identity already visible in this conversation if one exists;
-2. otherwise restore an unambiguous persisted identity for this same conversation if available;
-3. Driver-mediated manual relay uses the Researcher-ID preallocated in the separate dispatch envelope;
-4. scheduler CLAIMs use the CLAIM Researcher-ID, with automatic derivation from `task_id + claim_id` when omitted;
-5. direct/self-started tasks or role transitions with no existing identity self-generate a new role-appropriate short-code identity immediately;
-6. show `Researcher-ID` for researcher work and `Driver-ID` for Driver work in substantive final responses, and persist the underlying execution handle in semantic-checkpoint commit/PR/handoff metadata;
-7. central directory registration is best-effort and may be completed at a semantic checkpoint; inability to register is never a `HARD_BLOCK`.
+Reuse the current conversation's valid identity when one already exists. Driver-mediated manual dispatch uses the preallocated Researcher-ID from the dispatch envelope. Scheduler/direct entry follows the identity state machine.
 
-Do **not** wait for a Driver to assign an ID on direct/self-started research or scheduler paths. Conversely, when the Driver is already performing a manual user relay, the Driver must preallocate the runtime Researcher-ID before handoff; the receiving researcher must not be expected to invent it later.
+Identity registration is nonblocking; failure to update a directory is not a mathematical `HARD_BLOCK`.
 
-New Driver-approved taskbooks declare `identity_policy: AUTO_RESOLVE_OR_ALLOCATE` and may declare `identity_lane`; they never hard-code a fixed runtime Researcher-ID. A Driver-mediated manual relay binds the concrete Researcher-ID in a separate dispatch envelope, not in the reusable taskbook.
+Exact identity mechanics:
 
-## Driver working-truth protocol
+- `research_identity_state_machine.json`;
+- `docs/RESEARCH_IDENTITY_PROTOCOL.md`.
 
-This protocol governs `RESEARCH_DRIVER` decisions, Driver-approved taskbooks, and Driver review of research results.
+## 3. FREE_AXIOM_DISCOVERY information boundary
 
-Core rule:
+FREE Phase A receives the **primitive substrate**, not the current-achievement catalog.
 
-> **Once the Driver freezes a research direction, the active conjecture is the branch's `WORKING_TRUTH`. Research proceeds from it decisively until a hard falsifier or explicit supersession exists.**
+Canonical FREE substrate router:
 
-Operationally:
+`definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`.
 
-1. a Driver-frozen conjecture/theorem candidate/project stance is not to be continuously weakened into `maybe`, `one possibility`, or a compromise with classical doctrine merely because it is not yet externally proved;
-2. researchers must build the strongest rigorous derivation, construction, discriminator, or falsification test **from the frozen direction**, rather than spending the task rediscovering whether the direction deserves confidence;
-3. reviewers are skeptical about proof quality, implementation, semantics, leakage, and evidence, but **uncompromising about the frozen direction**: review must not silently dilute the theorem being pursued;
-4. literature consensus, authority, conventional geometry, reputation, or apparent radicalness are not falsifiers. They are comparison evidence only;
-5. the internal working truth may be overturned only by one of: an explicit user/Driver supersession; an exact counterexample under the same frozen premises; a formal contradiction; or a frozen checker/certificate failure that directly falsifies the theorem-critical claim rather than merely leaving it unproved;
-6. when a possible contradiction appears, first audit typing, implementation carrier, target leakage, hidden classical premises, domain mismatch, precision layer, and theorem assumptions. If the contradiction survives that audit, preserve it as a first-class negative result and escalate it to the Driver; do not hide it by changing definitions after the fact;
-7. research-direction language in taskbooks and internal reviews should be confident and imperative. The active theorem is **the theorem to prove**, not a suggestion to negotiate away;
-8. external/public descriptions remain epistemically exact: distinguish `PROJECT_STANCE`, `WORKING_TRUTH`, `CONJECTURE`, `CONDITIONAL_THEOREM`, `PROVED`, and `CANONICALIZED`. Internal conviction never licenses a false external proof claim;
-9. `WORKING_TRUTH` is an execution discipline, not permission to fabricate evidence. Proof gates, exact replay, counterexample preservation, and theorem-vs-finite-computation separation remain fully binding.
+Before first candidate freeze:
 
-Short form:
+- do not preload `definitions/00_CURRENT_NATIVE_FOUNDATION.md`;
+- do not preload Common Surface/current-result catalogs, scheduler/task/route state, Relay/PR/recent-history context or Driver Continuity;
+- do not inherit another branch's `WORKING_TRUTH`;
+- do not use current success/failure vocabulary, available tools, implementation representations or file order to choose the question;
+- do not supply a suggested-question or discovery-lens menu;
+- use generic exclusion categories rather than enumerating salient forbidden current results.
 
-`INTERNAL_DIRECTION = MAXIMALLY_CONFIDENT`
+Freeze:
 
-`AUDIT_RIGOR = MAXIMAL`
+`FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS`.
 
-`EXTERNAL_CLAIM_STATUS = EXACT`
+`NO_DEFAULT_DISCOVERY_LENS_MENU`.
 
-A Driver who keeps reopening a frozen direction without a hard falsifier is creating research drift. A reviewer who weakens a frozen theorem because it conflicts with conventional expectations is violating the control-plane role.
+FREE candidate provenance and Phase-B audit are governed by:
 
-## Foundational engineering-success inversion
+- `research_roles/EM_FREE_RESEARCHER_ROLE.md`;
+- `research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md`;
+- `research_axiom_candidate_state_machine.json`.
 
-`FOUNDATIONAL_LOGIC.md` and `foundational_logic.json` define the highest-level research logic for foundation-facing work. They are mandatory startup context whenever a task uses successful classical/continuous/engineering mathematics to reason about the native substrate.
+## 4. TASK_RESEARCH hot start
 
-Core rule:
+For an explicit selected task, use the smallest sufficient packet.
 
-> **Definition is not inherited. Success is evidence. Explain the success from a smaller native logic.**
+Normal source-read order:
 
-Operationally:
+1. this `AGENTS.md` router if not already loaded;
+2. **the exact task entry** — taskbook/theorem/spec/code object;
+3. **the first exact dependency actually required to begin**.
 
-1. do not import a successful effective theory's definitions into N0 merely because the theory works;
-2. preserve robust engineering success as evidence constraints: controlled input/output relations, scale regimes, independent-channel agreement, composition/intervention behavior, and error envelopes;
-3. treat foundation research as an inverse problem: `engineering success -> surviving structure -> native mechanism/collapse -> effective law`;
-4. never copy a target-side object into the native premises and then count recovery of that object as a foundational result;
-5. keep `FOUNDATION` and `CALIBRATION` distinct: foundation derives native structure without target-definition leakage; calibration tests already-derived structure against engineering success;
-6. prefer explanatory compression across many independent observables/scales over fitting one scalar or one formula;
-7. preserve correct classical/continuous mathematics under semantic retyping; the foundational question is why it works, what information it removes, and where it stops working.
+Then work.
 
-For example, if bare N0 has no distance/equidistance structure, a classical circle may be an effective-side engineering description but cannot be inserted into N0 as "points equally distant from a center" and then used to select the supposedly native collapse. Likewise classical pi may be an effective output/calibration parameter, but using its value to choose a collapse later claimed to explain pi is circular target leakage.
+Soft routine source-read budget before substantive work: `<= 3`.
 
-Foundation-facing semantic checkpoints that consume engineering success must explicitly record the effective definitions withheld from native premises, the engineering-success constraints consumed, and a target-leakage audit.
+The Common Surface is an ownership/tool/conflict **lookup**, not the automatic second read.
 
-## Native-semantics admissibility gate
+General current-result router:
 
-`native_semantics_admissibility.json` is a mandatory semantic typing rule for Enterprise Math research. Its compact rules below are part of the normal startup context; when a task makes a native/intrinsic/base-world/Foundation-ontology claim, read the machine policy itself before freezing that claim.
+`definitions/00_CURRENT_NATIVE_FOUNDATION.md`
 
-Before labeling any result `native`, `intrinsic`, `base-world`, or equivalent:
+is loaded only when the selected task actually needs current foundation/result routing.
 
-1. declare the task's actual `N0_NATIVE_RELATIONAL` substrate;
-2. type every theorem-critical coordinate/encoding as `I0_IMPLEMENTATION_CARRIER`, every added process/choice/metric/propagation as `N1_DERIVED_OPERATIONAL_SEMANTICS`, every quotient/scalar/geometric/spectral aggregate as `N2_READOUT_COLLAPSE`, and continuum/classical objects as `N3_CONTINUUM_CLASSICAL`;
-3. do not silently promote root choice, seed-as-center, shortest-path/word metric, graph distance, equal-distance classes, radius, norm, Euclidean length/angle/area/volume, convex hull, curvature, isotropy, random-walk/heat kernel, optimization rule, Fourier/Bloch readout, or continuum formulas into N0;
-4. implementation coordinates may compute/check a native relation but do not make their Euclidean embedding or orientation native;
-5. a derived structure may be promoted toward N0 only with an explicit construction from N0 plus the relevant choice-independence / relabeling / automorphism-invariance certificate; words such as `natural`, `canonical`, `nearest`, `radial`, or `physical` are not such a certificate;
-6. mathematically correct conditional results are preserved: if they use N1/N2/N3, reclassify them as conditional/readout/continuum results and state the dependency instead of discarding the mathematics;
-7. for collapse/precision claims, type the future language separately from the base ontology; an exact future carrier is not thereby a native state descriptor;
-8. semantic mismatch is a research correction, not a `HARD_BLOCK`: retype the claim, weaken it to the strongest admissible statement, and recompute only when the theorem-critical derivation actually depended on the invalid promotion.
+## 5. Working Truth boundary
 
-Any semantic checkpoint containing affected ontology/native claims must include the claim-ledger fields required by `native_semantics_admissibility.json` or an equivalent machine-readable artifact. A taskbook cannot silently waive this gate; an enlarged base substrate must be explicitly declared as part of the mathematical problem rather than inferred from conventional mathematics.
+`WORKING_TRUTH` is a TASK execution discipline after an explicit Driver direction freeze or Driver-approved taskbook.
 
-## Remote-liveness rule comes first
+It is not a FREE Phase-A premise and not a raw-candidate status.
 
-Read and follow `docs/GITHUB_INTERACTION_BUDGET.md` before expanding repository/Issue/PR preflight. It is the later narrow authority for **when GitHub must be touched**. Older documents remain authoritative for mathematical ownership, status, scheduler semantics, Foundation stewardship, and final gates, but their long preflight lists must not be executed as an unconditional sequence of remote calls.
+Once activated, pursue the frozen task direction decisively while preserving maximal proof/evidence audit rigor and exact external status.
+
+It may be overturned only by:
+
+- explicit user/Driver supersession;
+- exact same-premise counterexample;
+- formal contradiction;
+- theorem-critical frozen checker/certificate failure.
+
+Detailed Driver behavior:
+
+`docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md`.
+
+## 6. Evidence and semantic integrity
+
+Never fabricate proof, computation, hashes, validation status, novelty, provenance or tool results.
+
+Keep statuses exact. Conjectural, computed/executable-checked, proved, formal/Lean-checked and canonical-main are distinct.
+
+Finite enumeration or successful software is not automatically a theorem proof.
+
+Preserve exact negative results and counterexamples rather than editing definitions after the fact to hide them.
+
+For foundation-facing inverse/recovery reasoning, load:
+
+- `FOUNDATIONAL_LOGIC.md` / `foundational_logic.json`.
+
+Before freezing a claim as native/intrinsic/base-world, load:
+
+- `native_semantics_admissibility.json`.
+
+These are **triggered** policies, not universal Phase-A FREE preloads.
+
+## 7. Candidate -> task -> continuation provenance
+
+Freeze:
+
+`RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION`.
+
+A task opened from FREE discovery preserves audited candidate origin/ID/state.
+
+Task lineage is semantic provenance and cannot be reset by renaming.
+
+`PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
+
+A continuation requires a genuine new information gap, discriminating outcomes, kill condition, and explicit consideration of closure/another owner/free exploration.
+
+Exact taskbook contract/tooling:
+
+- `research_taskbook_contract.json`;
+- `research_taskbook_policy.json`;
+- `docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md`;
+- `tools/research_taskbook.py`.
+
+## 8. Remote liveness
 
 Core invariant:
 
-> **Research is the hot path. GitHub is a sparse persistence and integration boundary.**
+`RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
-For an explicit current user task, start from the smallest sufficient packet:
+Do not perform universal scheduler/Issue/PR/CI/repository-tree preflight.
 
-1. `AGENTS.md` / `docs/GITHUB_INTERACTION_BUDGET.md` if not already loaded;
-2. one common router — normally `research_common_surface.json` **or** `docs/RESEARCH_COMMON_SURFACE.en.md`, not both by default;
-3. the exact relevant canonical theorem/spec/code/test/Lean files needed to begin.
+Use remote systems when their function becomes material, and reuse immutable fetched blobs/SHAs within one execution phase.
 
-Then work. Do not load scheduler, Issue #240, Relay #82, `PROBLEM_STATUS`, owner-isolation, Foundation surfaces, or Lean diagnostic governance unless the current task actually needs that surface. The explicit-task startup soft budget is at most three routine Enterprise Math GitHub reads before substantive work begins.
+Do not poll CI/review/status merely to wait for change.
 
-Use local checkout/search/tests when available. In connector-only environments, fetch a minimal task packet once and reuse it. Do not refetch unchanged blobs/SHAs/PRs/Issues in one uninterrupted execution phase.
+Do not repeatedly reconcile against moving `main` without a concrete current action.
 
-## Conditional routing surfaces
+Only a complete mathematical/research `HARD_BLOCK` with:
 
-Load these only when their function is material:
+- `missing_object`;
+- `owner`;
+- `necessity`;
+- `unblock_condition`
 
-- `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`, `research_scheduler.json`, Issue #240: auto-dispatch, scheduler reconciliation/event semantics;
-- `docs/RESEARCH_SCHEDULER_NONBLOCKING_STARTUP.md`: scheduler/CI/review liveness or when those paths are actually used;
-- `docs/RESEARCH_OWNER_ISOLATION.en.md`: branch creation/reconciliation, scope audit, or promotion;
-- `docs/PROBLEM_STATUS.en.md`: numbered status/canonical scope/promotion;
-- latest relevant Research Relay #82 entries: when consuming relevant WIP or publishing a reusable cross-route result;
-- `docs/LEAN_DIAGNOSTIC_LIVENESS.md`: Lean theorem diagnosis/import/root-registration failures;
-- `docs/TEST_DISCOVERY_LIVENESS.md`: test discovery, test-file lookup, or repeated test-related GitHub operations;
-- `docs/FOUNDATION_STEWARD_PROTOCOL.en.md`, `docs/FOUNDATION_BACKFLOW_LOOP.en.md`, `foundation_backflow.json`, Issue #164: foundation-facing work, flagged contradictions, or mature backflow candidates.
+may stop a research route. Tool/scheduler/CI availability is not such a block.
 
-Inspect overlapping executable specs/tests/Lean modules before inventing a parallel tool or theorem family, but only within the task-relevant owner/interface surface. **Do not satisfy this rule by recursively traversing the GitHub repository tree.** Use known paths, the local checkout/index, or one targeted lexical lookup.
+Detailed remote rules:
 
-## GitHub publication cadence
+`docs/GITHUB_INTERACTION_BUDGET.md`.
 
-L1/L2/L3 research is `REMOTE_SILENT` between semantic checkpoints:
+## 9. Triggered control surfaces
 
-- no routine remote write for proof search, small edits, import diagnosis, heartbeat bookkeeping, PR-body narration, workflow checking, or chasing moving `main`;
-- publish when a coherent semantic checkpoint, handoff, loss-risk boundary, user-requested publication, or frozen promotion payload exists;
-- batch related changes at the checkpoint; remote publication need not mirror local commit frequency;
-- one bounded owner generation normally has one branch and at most one **Draft PR**;
-- research PRs stay Draft by default. Do not toggle ready-for-review merely to get CI;
-- emit at most one coordination packet per checkpoint by default instead of duplicating the same progress across scheduler, Relay, PRs, and downstream Issues.
+Load only when relevant:
 
-Canonical promotion is serialized in the control plane as well as mathematically: default to **one active ready-for-review L4 promotion lane**. Other mature payloads freeze/queue until that lane is available. Promotion performs one current-main admission refresh, one conflict snapshot, one frozen-head validation cycle, then one final current-main combination check when merge is actually attempted.
+- branch/scope/promotion work -> owner-isolation protocol;
+- actual scheduler dispatch/reconciliation -> scheduler protocol/state;
+- Foundation feedback/verification -> Foundation Steward/backflow contracts;
+- Driver portfolio decision -> Driver contract + continuity when needed;
+- test diagnosis -> test-diagnostic liveness;
+- Lean diagnosis -> Lean-diagnostic liveness;
+- cross-owner theorem/tool lookup -> Common Surface;
+- exact current math generation/current-result lookup -> current native foundation router.
 
-## Scheduler and handoff
+Do not recursively traverse these surfaces merely because they exist.
 
-- an explicit current user task always overrides automatic dispatch;
-- scheduler availability is never a startup gate;
-- with no user-selected task, select from live Issue #240 when available non-blockingly or from static `research_scheduler.json` otherwise;
-- no scheduler write is required to start research. `CLAIM`, `PROGRESS`, `HEARTBEAT`, `HANDOFF` are best-effort coordination signals;
-- scheduler CLAIM reduction is identity-aware: if `researcher_id` is absent, the state machine derives one automatically from the task lane and `claim_id`;
-- post scheduler events only when the write path is immediately available and the event adds real coordination value; do not retry solely for bookkeeping;
-- a successfully published `CLAIM` still obeys the live-lease race/reduction rule;
-- if an unleased session later sees an overlapping live lease, preserve the mathematics and route it as non-conflicting owner-local/Relay `TEST` evidence rather than discarding work or blocking the user;
-- `DONE` closes only the scheduler frontier; it does not promote theorem truth;
-- only the complete four-field mathematical/research `HARD_BLOCK` (`missing_object`, `owner`, `necessity`, `unblock_condition`) may stop a route. Scheduler/tool/workflow availability is never a `HARD_BLOCK`.
+## 10. Persistence and publication
 
-## Scheduling and owner isolation
+L1/L2/L3 research is remote-silent between semantic checkpoints by default.
 
-- research on L1/L2/L3 is parallel by default; canonical promotion is serialized;
-- L1/L2/L3 owners may legitimately be behind `main`; never whole-tree synchronize moving `main` merely to stay current;
-- canonical promotion freezes the exact proved owner payload and replays only that payload on a fresh current-main L4 integration;
-- unrelated `main` movement during validation does not create a new replay generation; only a genuine semantic/file conflict or failed final gate requires rework;
-- synchronization-induced off-owner files are `SCOPE_DRIFT`; route them back to their real owner/source while preserving provenance;
-- `defer`, `consume from`, `owner moved`, `audit against`, `replay after` are routing instructions, not stop conditions;
-- `no_new_mathematics_during_replay=true` on L1/L2/L3 constrains only that replay slice; L4 integration is globally `NO NEW MATHEMATICS`.
+Publish when a coherent semantic checkpoint, handoff, loss-risk boundary, explicit user request or promotion payload exists.
 
-## CI, workflow, review, and concurrent-governance liveness
+One bounded owner generation normally uses one owner branch and at most one Draft PR.
 
-- workflow/review status is an observation, never a wait primitive;
-- for an unchanged commit/run/concurrent-PR set, take at most one routine status snapshot in one uninterrupted execution phase;
-- `queued` / `pending` / `requested` / `in_progress` becomes `CI_PENDING`; stop checking that unchanged object;
-- never sleep/backoff/retry/recursively refresh solely to see whether status changed;
-- `Reviewing Concurrent Governance Pull Requests` is a one-snapshot conflict audit, not a loop;
-- recheck only for a genuinely new SHA/run/event, explicit user refresh request, or a later turn where current status is again necessary;
-- required CI/review may defer the merge/promotion action but never research or user-facing completion;
-- a newly observed failure permits one targeted diagnostic/log pass, not renewed polling.
+Journal/continuity/promotion have distinct meanings:
 
-## Reconciliation liveness
+- journal = what happened / provenance;
+- Driver Continuity = pending routing state only;
+- source task/result files = exact research content;
+- source `main` = canonical truth only after the applicable gates.
 
-- `Reconciling`, `Reconciling branch with main`, `Reconciling current-main state`, or equivalent wording names a **bounded transform**, never a wait state;
-- L1/L2/L3 research does not reconcile against moving `main` merely because the owner is behind, a PR is stale, or another branch advanced;
-- branch/main reconciliation is allowed only when it answers the current concrete action: scope-drift recovery, explicit dependency intake, or an actual L4 promotion/merge attempt;
-- for one frozen source head and one observed base SHA, perform at most **one reconciliation attempt** in one uninterrupted execution phase;
-- a reconciliation attempt may take one current-main/base snapshot and one conflict snapshot. It must not loop through `fetch -> compare -> merge/rebase/replay -> refetch -> repeat` on unchanged semantic inputs;
-- if reconciliation would require waiting for another PR, repeated moving-main refreshes, repeated conflict scans, multiple speculative merge/rebase attempts, or remote state that is not immediately available, stop and record `RECONCILIATION_DEFERRED`; continue research or finish the user-facing response;
-- a genuine semantic/file conflict may defer the specific promotion, but reconciliation/tooling availability is never a mathematical `HARD_BLOCK`;
-- a successful reconciliation that creates a new head SHA produces one new validation object. Do not reconcile that new head again merely because unrelated `main` moves while validation is pending;
-- the final current-main combination check is performed only when the merge action is actually being attempted. If it cannot complete in one bounded pass, report the merge as deferred instead of entering `Reconciling` loops;
-- repeated `Reconciling` activity on the same frozen head/base pair without new semantic input is a protocol violation.
+## 11. Promotion liveness
 
-## Test discovery and test-execution liveness
+Freeze:
 
-- `Inspecting Repository Tree for Test Files` is **not** a normal research step; recursive GitHub tree traversal for tests is prohibited by default;
-- the canonical Python test root is `tests/`, and the canonical full-suite command is `PYTHONPATH=src python -m unittest discover -s tests -v` as declared by `.github/workflows/quality.yml`;
-- if a target source/test path is already known, use it directly; do not list the repository or `tests/` again;
-- when a local checkout exists, use local `find`/`rg`/IDE index/unittest discovery; do not mirror discovery through GitHub;
-- in connector-only execution, if the companion test filename is genuinely unknown, allow **at most one targeted repository search** using the exact module/theorem/tool identifier; no recursive tree enumeration and no series of broad `test/tests/unittest/pytest` searches;
-- do not fetch many test files merely to learn the test inventory;
-- full-suite execution belongs to a bounded validation/promotion boundary, not after every small research edit;
-- if broader tests have not run, record `LOCAL_TEST_PENDING`, `FULL_SUITE_PENDING`, or `CI_PENDING` rather than expanding into remote exploration;
-- detailed authority: `docs/TEST_DISCOVERY_LIVENESS.md`.
+`READY_PR != PROMOTION_LANE_LEASE`.
 
-## Lean diagnostic liveness
+Mathematical L4 promotion remains serialized as **one bounded active promotion attempt at a time**. Ready/non-Draft status is candidate status, not a permanent lock.
 
-- diagnose missing imports/tactics/identifiers/instances on the changed owner-local module first;
-- `Adding Imports for <module> Diagnosis` is bounded, not open-ended;
-- do not repeatedly add umbrella imports or perform `add import -> root build -> add import -> root build` cycles;
-- after one import adjustment for the same unresolved missing object, inspect the new concrete compiler error before changing imports again;
-- do not register a module in `EnterpriseMath.lean` merely to test local compilation;
-- validation ladder: local module -> immediate family if needed -> root registration/common-surface update -> one final warnings-fatal root/repository Lean gate;
-- if local compilation is unavailable, preserve exact evidence and mark verification pending instead of accumulating speculative imports/full-root rebuilds;
-- pending Lean CI uses the same one-snapshot/no-polling rule.
+Strict `NO_NEW_MATHEMATICS` governance maintenance uses its own bounded attempt under:
 
-## Knowledge propagation and promotion sync
+`docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`.
 
-- reusable proved results/counterexamples cross routes with source commit, weakest assumptions, relation class, owner, and one action class: `INFORM`, `CONSUME`, `TEST`, or `HARD_DEPENDENCY`;
-- canonical theorem/executable families remain discoverable through `docs/RESEARCH_COMMON_SURFACE.*` and `research_common_surface.json`;
-- canonical promotion of a reusable theorem/formalization/executable/negative boundary/interface alert includes a shared-surface delta or explicit `N/A` rationale;
-- adding/removing a root import in `EnterpriseMath.lean` updates the exact `lean_root_imports` human/machine indexes in the same promotion;
-- adding/removing `tools/*.py` updates the exact shared repository-tool indexes in the same promotion;
-- `tools/check_research_common_surface.py` is a mechanical routing/control-plane gate, not a proof of theorem truth;
-- mature weaker primitives/minimal repairs/reusable tools/cross-route invariants/negative boundaries/layering laws should emit one Foundation Feedback Packet when appropriate;
-- do not duplicate a mother theorem merely to make a program branch self-contained;
-- distinguish `CANONICAL_MAIN`, `LEAN_CHECKED_MAIN`, `PROVED_WIP_RELAY`, `EXECUTABLE_CHECKED`, and conjectural claims.
+Governance maintenance may not smuggle theorem/native-definition/evidence/ownership changes.
 
-## Foundation stewardship
+## 12. No hidden startup tax
 
-- the foundation steward verifies shared language/notation/formula integrity/theorem interfaces/tool routing/backflow; it does not seize mathematical ownership;
-- classify backflow candidates as `DIRECT_FOUNDATION_MAINTENANCE`, `FOUNDATION_QUESTION`, or `APPLICATION_LOCAL_OR_NOT_READY`;
-- mechanical determined maintenance is fixed directly; unresolved mathematical choices/contradictions/missing hypotheses/high-value structures/prior-art uncertainty become `FQ-*` items after minimum verification;
-- static FQ-to-task links remain durable recovery metadata even if Issue #240 is unavailable;
-- researcher RETURN, scheduler `DONE`, steward `ACCEPTED`, and canonical main are distinct states;
-- only gated source-main integration permits `CANONICALIZED` status and common-surface/global-knowledge propagation;
-- application elegance, WIP status, or physical interpretation alone never justifies foundation promotion.
+Do not satisfy rigor by loading everything.
 
-## Completion rule
+Correct pattern:
 
-If `hard_block = NONE`, continue the best mathematical frontier rather than waiting for a branch, conversation, review, CI checkpoint, integration replay, scheduler event, connector workflow, GitHub write, reconciliation, repeated test discovery, or repeated Lean rebuild.
+- FREE -> primitive substrate -> self-generated question -> candidate freeze -> Phase B expansion;
+- TASK -> exact task -> first dependency -> work -> triggered expansion;
+- Driver -> exact decision evidence -> route;
+- Steward -> exact maintenance/verification evidence -> classify.
 
-The default lifecycle is:
-
-`role identity bootstrap -> small task packet -> remote-silent research -> semantic checkpoint batch -> Draft owner record -> frozen payload queue -> one L4 lane -> final gates -> main`.
+The existence of a policy, theorem catalog, tool, branch or current success is not itself a reason to load it.
