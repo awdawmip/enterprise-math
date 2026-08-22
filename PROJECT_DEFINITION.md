@@ -1,163 +1,111 @@
 # Enterprise Math Project Definition
 
-Status: `ACTIVE / PROJECT-LEVEL DEFINITION / V3`
-Date: `2026-08-21`
+Status: `ACTIVE / PROJECT-LEVEL DEFINITION / V4`
+Date: `2026-08-22`
 Driver: `CONTROL_PLANE`
 
 ## One-sentence definition
 
-> **Enterprise Math rebuilds the foundations of useful modern mathematical tools from a finite-resolution, precision-aware, integer-first and discretely computable substrate, then classifies when classical algebraic, geometric, trigonometric, analytic and physical tools are exactly recovered, recovered only at finite precision or asymptotically, or require systematic correction.**
+> **Enterprise Math rebuilds useful modern mathematical tools from a finite-resolution, precision-aware, integer-first and discretely computable substrate, then classifies when classical algebraic, geometric, trigonometric, analytic and physical tools are exactly recovered, recovered only at finite precision or asymptotically, or require systematic correction.**
 
 Project principle:
 
 `REFOUND, NOT REJECT`.
 
-## 0. Authority chain
+## 0. Current authority
 
-This file defines project mission, layers and routing. Mutable concrete geometry is no longer duplicated across several top-level authority files.
+This file defines project mission, layers and current routing.
 
-The current native-plane foundation is:
+Stable current native-mathematics router:
 
-`definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`.
+`definitions/00_CURRENT_NATIVE_FOUNDATION.md`.
 
-Current downstream frozen definitions include:
+FREE axiom-discovery primitive router:
 
-- `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`
-- `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`
-- `definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`
-- `definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`
+`definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`.
 
-When older 2026-08-16/17 coordinate documents or historical taskbooks conflict with a later explicit foundational correction/supersession, the later correction controls. Older documents remain provenance/history, not competing current authority.
+Exact mathematical claims are controlled by the exact canonical definition actually used by the task.
 
-## 1. Current highest native-plane structure
+## 1. Current Enterprise plane
 
-The current Enterprise plane freezes:
-
-- `O_E = 0`;
-- the origin is a triple circle-cell boundary intersection, not a cell center and not a cell;
-- `ENTERPRISE_CELL = CIRCLE_CELL`, identified by its discrete center;
-- nearest center spacing `D_CENTER=1`;
-- uniform cell radius `R_CELL=1/sqrt(3)`;
-- neighboring cells overlap with positive area and the circle-cell family covers the plane without gaps;
-- the native axes are exactly three **positive rays** `E_1,E_2,E_3`;
-- native negative axes are not required and must not be silently reintroduced;
-- the three positive axes divide one full turn into three native `120°` right sectors;
-- `ENTERPRISE_RIGHT_ANGLE = 120_DEGREES`;
-- the three axes are pairwise `ENTERPRISE_ORTHOGONAL`, which is native Enterprise orthogonality rather than Euclidean 90-degree perpendicularity in the carrier drawing.
-
-Therefore the older native-plane rule
-
-`three undirected axes -> six native directed directions -> alternating signs every 60 degrees`
-
-is superseded.
-
-`ENTERPRISE_PLANE_DIMENSION = 3` remains project-specific dimension semantics and is not classical linear rank, Euclidean dimension or topological dimension. Under the current plane foundation the three native dimension components are carried by the three positive axis families, not by automatically adjoining an opposite native direction to every axis.
+- `O_E=0`;
+- origin = triple boundary intersection of three circle cells;
+- `ENTERPRISE_CELL=CIRCLE_CELL`;
+- nearest-center spacing `D_CENTER=1`;
+- `R_CELL=1/sqrt(3)`;
+- native axes = three positive rays `E_1,E_2,E_3`;
+- `ENTERPRISE_RIGHT_ANGLE=120_DEGREES`;
+- the axes are pairwise `ENTERPRISE_ORTHOGONAL`;
+- `ENTERPRISE_PLANE_DIMENSION=3` is project-native dimension semantics.
 
 ## 2. Current coordinates and length
 
-Native addresses use
+Native addresses:
 
-`A_E={(a,b,c) in N_0^3 : min(a,b,c)=0}`,
+`A_E={(a,b,c) in N_0^3 : min(a,b,c)=0}`.
 
-as the glued union of three positive two-axis sector charts:
+Positive two-axis charts:
 
 - `S_12={(a,b,0)}`;
 - `S_23={(0,b,c)}`;
 - `S_31={(a,0,c)}`.
 
-This is not a common diagonal-shift quotient.
-
-Inside each native `120°` right sector:
+Inside a native `120°` sector:
 
 `L_E^2=a^2+b^2`.
 
-Hence for a canonical origin-sector triple:
+For a canonical triple:
 
-`L_E(a,b,c)^2=a^2+b^2+c^2`,
+`L_E(a,b,c)^2=a^2+b^2+c^2`.
 
-and `(3,4,0)` has native length `5`.
-
-Historical carrier identities such as `e_1+e_2+e_3=0` or `u+v+w=0`, and the A2/C6 rank-two presentation, are `I0_IMPLEMENTATION_CARRIER / CLASSICAL_COMPATIBILITY` structures only. They do not define native vector identity, native negative axes, coordinate equivalence or native metric.
+Carrier relations are used only at explicitly typed implementation/classical layers and do not automatically define native identity or native metric.
 
 ## 3. Current line and point-to-point structure
 
-Current line identity is
+`ENTERPRISE_LINE_IDENTITY=NATIVE_COMPONENT_TRACE`.
 
-`ENTERPRISE_LINE_IDENTITY = NATIVE_COMPONENT_TRACE`.
+One trace may have multiple discrete single-cell path representatives; path-letter count is not native line length.
 
-One trace may have many discrete single-cell path representatives. For example, the `(3,4)` trace has `35` shuffle/path representatives while native length is `5`.
+Arbitrary points use the current **directed native line gauge**.
 
-Arbitrary point-to-point structure uses the frozen **directed native line gauge**. It is positive, translation invariant and triangle-subadditive, but is generally reversal-asymmetric, hence
-
-`NATIVE_INTEGER_VERTEX_DISTANCE_IS_METRIC = false`.
-
-For an unordered endpoint pair, the canonical datum is the bidirectional trace pair together with its bidirectional length spectrum. Many symmetric scalar metrics may be added conditionally, but current premises do not canonically select one.
+For an unordered endpoint pair, the canonical datum is the bidirectional trace pair plus bidirectional length spectrum. Current premises do not uniquely select a canonical symmetric scalar metric.
 
 ## 4. BRC
 
-The name and bridge role are retained:
+`BRC=Branch-Recoalescence Collapse`.
 
-`BRC = Branch-Recoalescence Collapse`.
+Current base layer:
 
-Classical/orthogonal coordinate semantics may be related to Enterprise coordinate semantics through a typed collapse/readout bridge, but target-side classical definitions may not be copied into native premises.
+`CANONICAL_BRC_BASE_LAYER=BOOLEAN_RESULT_SUPPORT_SEMANTICS`.
 
-R062 further freezes the enrichment tower
+Current enrichment:
 
-`PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`
+`PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
 
-and
+Classical/engineering readout may be used as a typed compatibility layer, but target-side definitions may not be copied back into native premises.
 
-`BRC_IS_EXACT_BOOLEAN_SHADOW_OF_COMPONENT_TYPED_NATIVE_MULTIPATH = true`.
+## 5. Definition is not inherited
 
-Boolean BRC preserves support, not discarded path identity, multiplicity or provenance. Component labels are necessary to distinguish same endpoint from same native line.
+`Definition is not inherited.`
 
-## 5. Precision Mathematics lineage
+Mature concepts remain admissible. What is forbidden is importing a successful classical definition directly as a native premise and then counting its recovery as a new foundational derivation.
 
-`Precision Mathematics / 精度数学` is the predecessor of Enterprise Math and is no longer a peer active project.
+Classical/engineering success is strong evidence and a calibration target, not automatic ontology.
 
-From 2026-08-21 onward, finite-resolution number lines, precision-defined numbers, precision-aware state and related integer/discrete research belong to Enterprise Math. Historical Precision Mathematics materials remain provenance.
+## 6. Project layers
 
-## 6. Account worldview is now aligned to the three-positive-axis foundation
+- `P0`: number, precision, integer structure, discrete state, relation, collapse/quotient;
+- `P1`: packet/cell, adjacency, transition, path, branching/recoalescence, Enterprise coordinates/algebra;
+- `P2`: rebuilt length, distance, angle, norm, pairing, projection, area/volume, curve;
+- `P3`: rebuilt trigonometry, pi semantics, coordinate transforms and analysis;
+- `P4`: classical/continuous/engineering recovery/deviation classification;
+- `P5`: physical and engineering calibration after mathematical semantics are frozen.
 
-The protected account-level `我眼中的世界.md` was explicitly changed by the user in the current 2026-08-21 conversation. The old six-dimensional/twelve-direction world model and the per-plane six-direction/60-degree alternating-sign formulation are no longer ACTIVE.
-
-Current worldview and current project foundation agree:
-
-- `WORLDVIEW_SPATIAL_FOUNDATION = THREE_POSITIVE_AXIS_ENTERPRISE_PLANE`;
-- `O_E=0`;
-- `NO_NATIVE_NEGATIVE_AXES_REQUIRED`;
-- `ENTERPRISE_RIGHT_ANGLE=120_DEGREES`;
-- `OLD_6D_12_DIRECTION_WORLD_MODEL = SUPERSEDED_BY_USER`;
-- `OLD_60_DEGREE_ALTERNATING_SIGN_PLANE = SUPERSEDED_BY_USER`.
-
-The project therefore retains no second active six-dimensional/twelve-direction world implementation and requires no bridge back to that superseded model. Historical materials remain provenance only.
-
-## 7. Definition is not inherited
-
-`Definition is not inherited` does not prohibit mature mathematical concepts.
-
-VECTOR, LENGTH, DISTANCE, ANGLE, NORM, DOT/PAIRING, PROJECTION, SIN/COS/TAN, AREA/VOLUME, PI, Euclidean geometry and continuum models remain admissible concepts and correct conditional tools at their declared layers.
-
-The forbidden move is to import a successful target-side definition as a native premise and then count its reappearance as a new foundational derivation.
-
-Classical and engineering success is strong evidence and a calibration target, not automatic native ontology.
-
-## 8. Project layers
-
-- `P0`: number, precision, integer structure, discrete state, relations and collapse/quotient;
-- `P1`: packet/cell, adjacency, transition, path, branching/recoalescence, Enterprise coordinates and algebra;
-- `P2`: rebuilt length, distance, angle, norm, pairing, projection, area/volume, curve and related geometry;
-- `P3`: rebuilt trigonometry, pi semantics, coordinate transforms and analytic tools;
-- `P4`: classical/continuous/engineering recovery and deviation classification;
-- `P5`: physical and engineering calibration only after mathematical semantics are frozen.
-
-Always preserve
+Always preserve:
 
 `PACKET_COUNT != TRANSITION_COUNT != GEOMETRIC_LENGTH`.
 
-## 9. Recovery classes
-
-Use:
+## 7. Recovery classes
 
 - `EXACT_RECOVERY`
 - `FINITE_PRECISION_RECOVERY`
@@ -166,14 +114,18 @@ Use:
 - `SYSTEMATIC_DEVIATION`
 - `NONRECOVERY`
 
-A deviation is not automatically an improvement; it must be derived, reproducible and testable.
+A deviation must be derived, reproducible and testable.
 
-## 10. Canonical project stack
+## 8. Current project stack
 
 `NUMBER -> PRECISION -> DISCRETE STATE -> RELATION/PATH/BRC -> THREE-POSITIVE-AXIS ENTERPRISE COORDINATES -> REBUILT GEOMETRY -> TRIG/ANALYSIS -> CLASSICAL COMPATIBILITY/CORRECTION -> PHYSICS -> ENGINEERING`.
 
-Project slogan:
-
 > **Do not tear down old mathematics; give it a better foundation.**
 
-Foundational discipline is governed by `FOUNDATIONAL_LOGIC.md`, `foundational_logic.json`, `native_semantics_admissibility.json`, and `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md`.
+## 9. Current worldview
+
+The protected account-level `我眼中的世界.md` is aligned with the current spatial foundation and supplies the current finite-resolution and post-allocation research axioms.
+
+## 10. Historical access
+
+This current definition does not repeat retired generations, closed routes or supersession narratives. Retrieve history/provenance from Git history, journals or explicit historical records only when required.
