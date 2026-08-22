@@ -107,7 +107,7 @@ Canonical policy:
 - `research_method_inventory.json`;
 - `tools/enterprise_toolbox.py`.
 
-For `TASK_RESEARCH`, `RESEARCH_DRIVER`, and shared Steward work, once the problem's information structure is understood and **before constructing a new general-purpose mechanism/tool/helper calculus**, perform a current tool-coverage lookup.
+For ordinary `TASK_RESEARCH`, `RESEARCH_DRIVER`, and shared Steward work, once the problem's information structure is understood and **before constructing a new general-purpose mechanism/tool/helper calculus**, perform a current tool-coverage lookup.
 
 Freeze:
 
@@ -129,7 +129,20 @@ Do not create a new tool family merely because the same mechanism appears under 
 
 Every Driver/Steward-accepted research return must receive a method-harvest classification so reusable methods flow back into the shared inventory instead of remaining hidden in route-local artifacts.
 
-**FREE Phase-A exception:** the current toolbox/method catalog is hidden as a discovery prior until candidate freeze. Tool availability may not choose the primitive question. After freeze, Phase B runs the same reuse/dedup gate.
+### Discovery-firewall timing exception
+
+Tool lookup is delayed when the controlling research protocol explicitly declares a discovery information firewall and a freeze point.
+
+This includes:
+
+- FREE Phase A;
+- a TASK research taskbook that explicitly requires blind-forward / source-whitelist isolation until a named raw candidate/no-go freeze.
+
+Before that declared freeze, the current toolbox/method catalog is hidden as a discovery prior and its tool names must not be exposed merely to enforce reuse. The researcher obeys the exact task-local whitelist/firewall.
+
+Immediately after the declared freeze, the same lookup becomes mandatory before method-novelty claims or a new tool continuation. The frozen result is preserved even when it collides with an existing tool; deduplication is classification, not retroactive steering.
+
+An ordinary TASK may not self-declare blindness simply to skip the reuse gate. The exception must come from the controlling role/task contract.
 
 The lookup is selective rather than a universal preload: query by the actual need. When a local checkout is available, `python tools/enterprise_toolbox.py coverage <need>` searches curated tool families, harvested methods and the current executable Python surface without importing modules.
 
