@@ -1,0 +1,69 @@
+{
+  "schema": "R064_PHASEA_N0_SUBSTRATE_DECLARATION_V1",
+  "task_id": "RS-R064-PHASEA-N0-FIRST-LOCAL-INTERACTION-CARRIER-RECONSTRUCTION",
+  "researcher_id": "EM-R064A-9D3DB8",
+  "freeze_timestamp": "2026-08-22T15:49:42+08:00",
+  "taskbook_source_commit": "9d3db83d0c276e8bb3a06eadc4b9f910c4888ba7",
+  "allowed_evidence_commit": "d16877c3b62a7d3b7568780c732f610c260c13c1",
+  "allowed_sources": {
+    "FOUNDATIONAL_LOGIC.md": {
+      "blob": "f089400136341efbf10a5e24e8f0729800b942cd",
+      "commit": "d16877c3b62a7d3b7568780c732f610c260c13c1"
+    },
+    "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md": {
+      "blob": "b631242db84c5bd3640e6dc554b19a1d04d464f3",
+      "commit": "d16877c3b62a7d3b7568780c732f610c260c13c1"
+    },
+    "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md": {
+      "blob": "393060ebfd6a86ad45f258747d78a14d9c8ac153",
+      "commit": "d16877c3b62a7d3b7568780c732f610c260c13c1"
+    },
+    "foundational_logic.json": {
+      "blob": "6875d84746ee369ea222fd32bdcd92206c2db9b2",
+      "commit": "d16877c3b62a7d3b7568780c732f610c260c13c1"
+    },
+    "native_semantics_admissibility.json": {
+      "blob": "58ad0af8c2e3df56b353575bf0004095507bffbf",
+      "commit": "d16877c3b62a7d3b7568780c732f610c260c13c1"
+    }
+  },
+  "declared_n0_primitives": {
+    "origin": "O_E=0",
+    "native_axes": ["E1", "E2", "E3"],
+    "axis_count_source_status": "DECLARED_BY_FOUNDATION_NOT_TARGET_SELECTED",
+    "sectors": [["E1", "E2"], ["E2", "E3"], ["E3", "E1"]],
+    "sector_semantics": "three glued two-axis positive sector charts; a physical axis is shared identically across its two incident sectors",
+    "elementary_event_type": "a finite path-representative occurrence carrying one native component tag X_i on a sector-local positive path",
+    "path_representative_structure": ["finite source identity", "intrinsic finite linear position order", "sector membership", "component tag"],
+    "native_trace_equivalence": "adjacent component-preserving commutation X_i X_j ~ X_j X_i inside one sector",
+    "preexisting_trace_composition": "T_(a,b) * T_(c,d) = T_(a+c,b+d) inside one sector",
+    "shared_axis_incidence": "intersection of two distinct sectors is exactly their common positive axis"
+  },
+  "available_but_not_theorem_critical": [
+    "circle-cell radius 1/sqrt(3)",
+    "nearest center spacing 1",
+    "gap-free circle-cell cover",
+    "sector-local native Pythagorean length"
+  ],
+  "explicitly_withheld": [
+    "negative native axes",
+    "preferred global orientation",
+    "continuum angle or phase variable as an interaction selector",
+    "complex or Gaussian multiplication",
+    "external signed alphabet",
+    "target state cardinality",
+    "target interaction table",
+    "optimizer/rank/lexicographic process selector",
+    "cross-sector point-to-point trace/metric law",
+    "event-output sector/source placement rule"
+  ],
+  "implementation_carrier_policy": "labels/tuple ordering used by the checker are I0_IMPLEMENTATION_CARRIER only",
+  "foundation_typing": {
+    "axis_objects": "N0_PRIMITIVE",
+    "sector_incidence": "N0_PRIMITIVE",
+    "component_tag_of_event": "N0_PRIMITIVE_OR_DECLARED_EVENT_TYPING",
+    "source_identity_and_intrinsic_order": "N0_PRIMITIVE_WITHIN_FROZEN_FINITE_PATH_REPRESENTATIVE",
+    "local_context_quotient": "TO_BE_PROVED_N0_DEFINABLE_DERIVED",
+    "interaction_operation": "NOT_PREDECLARED"
+  }
+}
