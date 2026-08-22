@@ -1,0 +1,81 @@
+{
+  "schema": "ENTERPRISE_MATH_ACTIVE_TURN_LIVENESS_V1",
+  "status": "ACTIVE_CANONICAL",
+  "effective": "2026-08-22",
+  "scope": [
+    "FREE_AXIOM_DISCOVERY",
+    "TASK_RESEARCH",
+    "RESEARCH_DRIVER",
+    "FOUNDATION_STEWARD",
+    "REMOTE_AND_PUBLICATION_SUBFLOWS"
+  ],
+  "execution_stack": [
+    "PARENT_USER_OBJECTIVE",
+    "CURRENT_SUBFLOW",
+    "NEXT_EXECUTABLE_ACTION"
+  ],
+  "core_invariants": [
+    "SUBFLOW_COMPLETE_IS_NOT_USER_OBJECTIVE_COMPLETE",
+    "DETERMINISTIC_NEXT_STEP_EXISTS_IMPLIES_CONTINUE_IN_SAME_TURN",
+    "PROGRESS_UPDATE_IS_NOT_A_SYNCHRONIZATION_BARRIER",
+    "TOOL_RESULT_RECEIVED_IMPLIES_RESUME_PARENT_TASK",
+    "CHECKPOINT_PERSISTED_IMPLIES_RESUME_PARENT_TASK",
+    "PENDING_NONBLOCKING_IMPLIES_CONTINUE_PARENT_TASK",
+    "LOCAL_ROUTE_CLOSURE_DOES_NOT_CLOSE_PARENT_GOAL",
+    "USER_WAKEUP_MESSAGE_MUST_NOT_BE_REQUIRED_WHEN_IT_ADDS_NO_INFORMATION"
+  ],
+  "continuation_lease": {
+    "activation_semantics": [
+      "continue",
+      "keep going",
+      "do not stop",
+      "until no further progress",
+      "until satisfied",
+      "solve blocker and continue",
+      "multi-step parent completion criterion"
+    ],
+    "state": "ACTIVE_UNTIL_PARENT_CRITERION_MET_OR_USER_REVOKES",
+    "cannot_be_consumed_by": [
+      "STAGE_TERMINAL_VERDICT",
+      "ROUTE_CLOSURE",
+      "SEMANTIC_CHECKPOINT",
+      "JOURNAL_WRITE",
+      "PR_OR_BRANCH_SUBFLOW",
+      "PUBLICATION_SUBFLOW"
+    ]
+  },
+  "nonterminal_boundaries": [
+    "TOOL_SUCCESS",
+    "RECOVERABLE_TOOL_ERROR_WITH_ALTERNATIVE",
+    "SEMANTIC_CHECKPOINT",
+    "JOURNAL_WRITE",
+    "BRANCH_OR_PR_METADATA_BOUNDARY",
+    "MERGEABLE_OR_CI_OR_REVIEW_PENDING_NONBLOCKING",
+    "STAGE_PASS_FAIL_OR_CLOSE",
+    "DRIVER_VERDICT",
+    "PROGRESS_UPDATE",
+    "PUBLICATION_COMPLETE",
+    "LOCAL_SOFT_BLOCK_WITH_INDEPENDENT_WORK_AVAILABLE"
+  ],
+  "stage_rule": {
+    "pass_is_not_successor_trigger": true,
+    "stage_terminal_requires_same_turn_successor_gate_evaluation": true,
+    "local_close_may_happen_without_successor": true,
+    "if_parent_goal_open_after_local_close": "SELECT_NEXT_HIGHEST_LEVERAGE_EXECUTABLE_PORTFOLIO_ACTION_IN_SAME_TURN"
+  },
+  "remote_rule": {
+    "remote_subflow_terminated_is_parent_task_terminated": false,
+    "ci_pending_nonblocking": "CONTINUE_PARENT_TASK",
+    "checkpoint_persisted": "RESUME_PARENT_TASK",
+    "tool_result_received": "RESUME_PARENT_TASK",
+    "supported_alternative_after_tool_failure": "TAKE_ALTERNATIVE_WITHOUT_USER_WAKEUP_UNLESS_AUTHORIZATION_OR_SAFETY_REQUIRES_INPUT"
+  },
+  "terminal_conditions": [
+    "PARENT_USER_OBJECTIVE_COMPLETE",
+    "USER_EXPLICITLY_REQUESTS_STOP_PAUSE_REVIEW_ONLY_OR_WAIT",
+    "GENUINE_SAFETY_AUTHORIZATION_MISSING_USER_DATA_OR_UNAVOIDABLE_EXTERNAL_EVENT_BLOCK",
+    "PLATFORM_OR_TOOL_LIMIT_MAKES_FURTHER_ACTION_IMPOSSIBLE_THIS_TURN"
+  ],
+  "before_terminal_block": "EXHAUST_INDEPENDENT_AND_DOWNSTREAM_SAFE_WORK_AND_RETURN_STRONGEST_CURRENT_RESULT",
+  "forbidden_state": "WAITING_FOR_CONTINUE_WHEN_CONTINUE_ADDS_NO_INFORMATION"
+}

@@ -10,30 +10,35 @@ Scope: repository reads, GitHub connector/API use, branch/PR publication, Issue 
 
 Ordinary L1/L2/L3 research is `REMOTE_SILENT` between semantic checkpoints.
 
+`REMOTE_SILENT` means low repository traffic. It does **not** mean the assistant stops working or waits for a user wake-up message.
+
+Active-turn parent-task liveness is governed by:
+
+`docs/ACTIVE_TURN_CONTINUATION_LIVENESS.md`.
+
+Freeze:
+
+`REMOTE_SUBFLOW_TERMINATED != PARENT_TASK_TERMINATED`.
+
 ## 2. ChatGPT GitHub route
 
 In ChatGPT/Project execution, when the connected GitHub capability is available:
 
 `CONNECTED_GITHUB_PLUGIN = PRIMARY_REMOTE_GITHUB_PATH`.
 
-Use the GitHub connector/plugin for:
+Use the connected GitHub capability for repository reads/search, commits/branches, PRs/issues/comments and allowed workflow/status operations.
 
-- repository file reads/search;
-- commits/branches;
-- PRs/issues/comments;
-- allowed workflow/status operations.
+Do not use ChatGPT/container networking to clone/fetch GitHub or read raw GitHub URLs when the connected capability supports the required action.
 
-Do not use ChatGPT/container networking to `git clone`, curl/fetch GitHub, or read `raw.githubusercontent.com` when the connected capability supports the required action.
+A pre-existing local checkout may be used for actual local execution/tests. It is not the fallback transport for remote GitHub synchronization.
 
-A local checkout may be used for **local execution** only when already available: file processing, tests, Lean/module diagnosis, generated artifacts, etc. It is not the fallback transport for remote GitHub retrieval/synchronization.
-
-If a local/container GitHub network route is known unavailable, do not retry it later and do not keep reporting the same environment failure. Only a failure of the connected GitHub route that prevents the requested operation is a remote-access issue worth surfacing.
+If a local/container GitHub network route is known unavailable, do not retry it later and do not keep reporting the same environment failure.
 
 ## 3. Startup read budget
 
 Do not execute a universal repository preflight.
 
-For an explicit TASK_RESEARCH task, normal remote startup is:
+For explicit TASK_RESEARCH, normal remote startup is:
 
 1. `AGENTS.md` if needed;
 2. exact task entry;
@@ -41,11 +46,11 @@ For an explicit TASK_RESEARCH task, normal remote startup is:
 
 Soft budget: `<= 3` routine source reads before substantive work.
 
-FREE Phase A follows its primitive-substrate route and does not preload current-result/project-control catalogs.
+FREE Phase A follows its primitive-substrate route.
 
 Reuse immutable fetched blobs/SHAs within one execution phase.
 
-## 4. CI circuit breaker
+## 4. CI/status circuit breaker
 
 Ordinary L1/L2/L3 research has **0 routine workflow-status queries**.
 
@@ -58,7 +63,11 @@ CI/status may be read only when:
 
 For one unchanged validation object, take at most one status snapshot.
 
-Pending/running status is nonblocking for research and user-facing completion.
+Pending/running status is nonblocking:
+
+`CI_PENDING_NONBLOCKING -> CONTINUE_PARENT_TASK`.
+
+Do not return a pending status and stop when independent/downstream-safe parent work remains.
 
 ## 5. Remote-silent research
 
@@ -72,6 +81,8 @@ Between semantic checkpoints:
 
 Do not use GitHub as scratchpad state.
 
+Research reasoning and tool-independent work continue normally.
+
 ## 6. Semantic checkpoint batching
 
 Publish when a coherent theorem/counterexample/tool/artifact checkpoint, handoff, loss-risk boundary, user request or promotion payload exists.
@@ -81,7 +92,12 @@ At one checkpoint:
 1. batch related changes;
 2. publish/update the owner branch once;
 3. create/update at most one Draft PR for the bounded owner generation when useful;
-4. stop remote activity and return to research/finish.
+4. terminate the remote publication subflow;
+5. **resume the parent research/Driver/user objective in the same turn unless that parent objective is complete.**
+
+Freeze:
+
+`CHECKPOINT_PERSISTED -> RESUME_PARENT_TASK`.
 
 Generated artifacts additionally follow `docs/ARTIFACT_PUBLICATION_LIVENESS.md`.
 
@@ -94,15 +110,19 @@ For L1/L2/L3:
 - do not toggle ready merely to trigger CI;
 - report local/executable evidence honestly.
 
+A PR metadata boundary is not a conversational stop point. If the next authorized action is already determined, take it in the same turn.
+
 ## 8. Promotion liveness
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
-Mathematical L4 remains serialized as one **bounded active promotion attempt** at a time.
+Mathematical L4 remains serialized as one bounded active promotion attempt at a time.
 
 An actual attempt uses only the bounded current-main/conflict/head/final-combination checks defined by current governance.
 
-Strict `NO_NEW_MATHEMATICS` governance maintenance follows `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md` and may not smuggle theorem/native-definition/evidence/ownership changes.
+Strict `NO_NEW_MATHEMATICS` governance maintenance follows `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`.
+
+When an attempt ends in merge/defer/failure, release the remote subflow and resume the parent objective. Do not wait for user `继续` if the parent task still has an executable next action.
 
 ## 9. Coordination compression
 
@@ -114,12 +134,12 @@ GLOBAL_KNOWLEDGE append-only journaling is a separate loss-prevention channel.
 
 - explicit TASK startup: `<= 3` routine source reads before work;
 - ordinary L1/L2/L3: `0` routine source writes, `0` CI/status reads;
-- checkpoint: one bounded publication batch;
+- checkpoint: one bounded publication batch, then resume parent task;
 - allowed CI/validation: one snapshot per unchanged validation object;
-- promotion: one bounded attempt, then release.
+- promotion: one bounded attempt, then release and resume parent task.
 
 Remote/tool limitations are performance signals, not mathematical `HARD_BLOCK`s.
 
 ## 11. Current-only policy surface
 
-This file describes current remote behavior only. Older workflow/preflight/lane policies remain in Git history and are not restated here.
+This file describes current remote behavior only. Historical policy provenance remains in Git history.

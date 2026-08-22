@@ -1,34 +1,67 @@
 # Enterprise Math Research Architecture V2
 
-Status: `ACTIVE / CANONICAL GOVERNANCE / V2.3`
+Status: `ACTIVE / CANONICAL GOVERNANCE / V2.4`
 Date: `2026-08-22`
 Driver-ID: `EM-DVR-K7Q4N8`
-Machine contract: `research_architecture.json`
-Candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Machine contracts:
+
+- `research_architecture.json`;
+- `active_turn_liveness.json`;
+- `research_axiom_candidate_state_machine.json`.
+
 FREE substrate: `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`
 Promotion liveness: `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`
 
-## 1. Why this architecture exists
-
-Enterprise Math needs both **independent exploration** and **decisive exploitation**.
-
-A single generic researcher mode creates recency/scheduler/tool/representation anchoring, continuation inertia, premature Working Truth, candidate-provenance loss, excessive preloading and promotion starvation.
-
-The architecture therefore separates research by mode.
-
-## 2. Four functions
+## 1. Four functions
 
 ### FREE_AXIOM_DISCOVERY
 
-FREE receives the **primitive substrate**, not the current-achievement catalog:
+`PRIMITIVE SUBSTRATE -> RESEARCHER GENERATES ITS OWN QUESTION -> FROZEN CANDIDATE -> PHASE-B AUDIT`.
 
-`PRIMITIVE SUBSTRATE SNAPSHOT -> RESEARCHER GENERATES ITS OWN QUESTION -> FROZEN CANDIDATE -> OPEN-CONTEXT AUDIT`.
+FREE receives primitive substrate, not the current-achievement catalog or a suggestion/lens menu.
 
-Phase-A source router:
+### TASK_RESEARCH
 
-`definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`.
+Executes a selected mother question from the user, Driver, scheduler, Foundation intake or audited-candidate transition.
 
-The general current router `definitions/00_CURRENT_NATIVE_FOUNDATION.md` is deliberately postponed until Phase B because it indexes successful downstream current results.
+### RESEARCH_DRIVER
+
+Owns portfolio routing, candidate intake, de-duplication, task creation, Working Truth activation, continuation/closure and promotion.
+
+### FOUNDATION_STEWARD
+
+Maintains/verifies shared definitions, interfaces, status and reusable tools; raw discovery is not automatic Foundation input.
+
+## 2. Active-turn execution stack
+
+Every role preserves:
+
+`PARENT_USER_OBJECTIVE -> CURRENT_SUBFLOW -> NEXT_EXECUTABLE_ACTION`.
+
+Freeze:
+
+`SUBFLOW_COMPLETE != USER_OBJECTIVE_COMPLETE`.
+
+`DETERMINISTIC_NEXT_STEP_EXISTS -> CONTINUE_IN_SAME_TURN`.
+
+The following do not terminate the parent objective by themselves:
+
+- tool return;
+- recoverable tool error with an available alternative;
+- semantic checkpoint/journal write;
+- Stage verdict or route closure;
+- Driver verdict;
+- branch/PR/publication boundary;
+- `PENDING_NONBLOCKING` state;
+- progress update.
+
+When a user instruction establishes open-ended continuation (`continue`, `do not stop`, `until no further progress`, `until satisfied`, `solve blocker and continue`, or equivalent), that continuation lease survives all subflow boundaries until the parent completion criterion is met or the user revokes it.
+
+Detailed current contract:
+
+`docs/ACTIVE_TURN_CONTINUATION_LIVENESS.md`.
+
+## 3. FREE Phase-A information regime
 
 Freeze:
 
@@ -36,97 +69,57 @@ Freeze:
 
 `NO_DEFAULT_DISCOVERY_LENS_MENU`.
 
-FREE Phase A is not given suggested questions, preferred invariants, preferred obstruction families, proof methods, or conceptual menus. It authors its first substantive question from the primitive substrate itself.
+FREE Phase A loads only the primitive-substrate router, exact primitive files actually needed, relevant protected worldview facts, and necessary integrity/typing rules.
 
-Negative instructions also use generic categories rather than enumerating salient forbidden current results; listing what not to think about can itself prime it.
+Current task/route/history, downstream achievements, other-branch Working Truth, success/failure catalogs, suggested questions/lens menus, ambient recent-project context, and tool/representation convenience are not discovery priors.
 
-### TASK_RESEARCH
-
-TASK executes a selected mother question from user, Driver, scheduler, Foundation intake or an audited-candidate transition. It may use task-scoped current-result context and Working Truth when explicitly frozen.
-
-### RESEARCH_DRIVER
-
-Driver owns portfolio routing, candidate intake, de-duplication, task creation, Working Truth activation, continuation/closure and promotion—not primary-discovery monopoly.
-
-### FOUNDATION_STEWARD
-
-Steward maintains/verifies shared definitions, interfaces, status and reusable tools. Raw free candidates are not Foundation inputs.
-
-## 3. FREE Phase-A information regime
-
-Allowed by default:
-
-- the primitive-substrate router;
-- exact primitive files it explicitly routes and the researcher actually needs;
-- relevant protected worldview facts;
-- identity/safety/provenance;
-- foundational/native-semantic typing when needed.
-
-Withheld as discovery priors, expressed only as generic categories:
-
-- the general current-result router and downstream current achievements;
-- current task/route/coordination state and recent project history;
-- other-branch Working Truth;
-- success/failure catalogs and existing research vocabulary;
-- suggested questions/lens menus/target prompts;
-- ambient recent-project context not explicitly supplied by the user;
-- available tools and existing implementation representations as hints about what question to ask.
-
-After candidate freeze, this context becomes Phase-B audit/comparison material.
+After candidate freeze, current/prior context becomes Phase-B audit/comparison material.
 
 ## 4. Candidate lifecycle
 
 `RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION`.
 
-`DISCOVERY_IN_PROGRESS -> BLIND_CANDIDATE_FROZEN -> PHASE_B_AUDIT_IN_PROGRESS -> classification -> DRIVER_INTAKE`.
+`DISCOVERY_IN_PROGRESS -> BLIND_CANDIDATE_FROZEN -> PHASE_B_AUDIT -> CLASSIFICATION -> DRIVER_INTAKE`.
 
-Phase B classifies falsification, duplicate/prior-art, derived-not-axiom, implementation artifact, exact obstruction, audited candidate or audited replacement candidate.
-
-Only mature audited states may enter task/Foundation/replication routing.
-
-## 5. Candidate origin survives task selection
-
-A task created from free discovery preserves:
-
-- `origin_kind=FREE_AXIOM_CANDIDATE`;
-- candidate ID;
-- audited candidate state.
-
-Selection does not erase discovery provenance.
+Tasks created from free discovery preserve candidate origin/ID/audited state.
 
 `TASK_ORIGIN_AND_LINEAGE_CANNOT_BE_ERASED_BY_RENAMING`.
 
-## 6. Working Truth starts after discovery
+## 5. Working Truth
 
-Working Truth activates only after explicit Driver/taskbook freeze. It is not a Phase-A premise, raw-candidate status or Phase-B dedup prior.
+Working Truth activates only after explicit Driver/taskbook freeze. It is not a FREE Phase-A premise, raw-candidate state or Phase-B dedup prior.
 
-## 7. Successor-stage gate
+## 6. Stage / successor rule
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
-A continuation requires parent, exact new information gap, why parent does not close it, discriminating outcomes, kill condition, consideration of closure/another route/free exploration, and justification for another task/stage.
+A continuation requires a genuine new information gap, discriminating outcomes, kill condition, and explicit consideration of closure/another owner/free exploration.
 
-Stage 2+ is continuation semantics. Renaming does not reset semantic lineage.
+Stage 2+ is continuation semantics; renaming does not reset lineage.
 
-## 8. Portfolio balance
+But:
 
-Recent success is not itself roadmap evidence. Before continuation, Driver considers closure, existing owner/other route and independent/free exploration. No numeric exploration quota is imposed.
+`STAGE_TERMINAL_VERDICT -> SAME_TURN_SUCCESSOR_GATE_EVALUATION`.
 
-## 9. Scheduler / Foundation
+The Driver immediately evaluates continue-same-task, justified successor, route closure plus another portfolio action, FREE exploration, or parent completion. Local stage/route closure is not automatically parent-goal closure.
+
+## 7. Scheduler / Foundation / portfolio
 
 Scheduler is TASK exploitation infrastructure, not FREE question selection.
 
-Raw discovery does not auto-enter Foundation backflow. Mature audited candidate/replacement/obstruction may be classified for Foundation intake under normal verification gates.
+Raw discovery does not auto-enter Foundation backflow.
 
-## 10. Independence and post-allocation
+Recent route success is not itself roadmap evidence. No numeric exploration quota is imposed.
 
-A clean blind claim requires a clean pre-generation context and a pinned substrate/worldview snapshot.
+## 8. Independence and evidence
+
+A clean blind-discovery claim requires a clean pre-generation context and frozen substrate/worldview snapshot.
 
 `DISCOVERY_EVIDENCE != INDEPENDENT_VALIDATION_EVIDENCE`.
 
-Independent runs use separate contexts and do not share candidate packets or a common suggestion/lens menu before freeze. Shared suggestion menus create artificial convergence, not independent confirmation.
+Independent runs do not share candidate packets or a common suggestion menu before freeze.
 
-## 11. Read performance
+## 9. Read performance
 
 `SMALLEST_SUFFICIENT_ROLE_PACKET > UNIVERSAL_PRELOAD`.
 
@@ -138,29 +131,35 @@ TASK:
 
 `AGENTS -> EXACT TASK -> FIRST DEPENDENCY -> WORK -> TRIGGERED EXPANSION`.
 
-Common Surface and general current router are lookup/current-state surfaces, not default FREE inputs.
+## 10. Remote / publication liveness
 
-## 12. Promotion liveness
+`REMOTE_SILENT` describes repository activity, not conversational inactivity.
+
+`CI_PENDING_NONBLOCKING -> CONTINUE_PARENT_TASK`.
+
+`CHECKPOINT_PERSISTED -> RESUME_PARENT_TASK`.
+
+`PUBLICATION_COMPLETE -> RESUME_PARENT_TASK`.
+
+GitHub/publication subflows follow the bounded current protocols and then return to the parent objective in the same turn when it remains open.
+
+## 11. Promotion
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
-Mathematical L4 remains one bounded active promotion attempt at a time. Ready status is candidate status, not a permanent lock.
+Mathematical L4 remains one bounded active promotion attempt at a time. Strict `NO_NEW_MATHEMATICS` governance maintenance uses a separate bounded attempt and cannot change theorem/native-definition/evidence/ownership semantics.
 
-Strict `NO_NEW_MATHEMATICS` governance maintenance uses a separate bounded attempt under `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md` and cannot change theorem content, native definitions, evidence interpretation or theorem ownership.
+## 12. Persistence / truth
 
-## 13. Persistence / truth
+- journal = event provenance, not theorem truth;
+- Driver Continuity = routing only, no implicit default route;
+- exact mathematical canonical truth = gated source `main`;
+- semantic checkpoints persist state but do not by themselves end an active parent user objective.
 
-- L1/L2/L3 remote-silent between semantic checkpoints;
-- normally one bounded owner generation / at most one Draft PR;
-- journal = history/provenance, not theorem truth;
-- Driver Continuity = routing only / no implicit default route;
-- exact mathematical canonical truth = gated source main.
+## 13. Turn termination
 
-## 14. Legacy interpretation
+A turn ends only when the parent objective is complete, the user explicitly asks to stop/pause/wait, or no executable next action remains because of a genuine safety/authorization/missing-user-data/unavoidable-external-event/platform limitation.
 
-Older broad scheduler/preflight/current-router wording is interpreted through this more specific architecture:
+Before using a blocking terminal condition, exhaust independent/downstream-safe work and return the strongest current result.
 
-- generic auto-dispatch = TASK behavior only;
-- broad preflight = triggered lookup, not startup sequence;
-- general current-result router = TASK/Driver/FREE Phase-B, not FREE Phase-A;
-- ready PR = candidate, not indefinite lane lock.
+Never use `WAITING_FOR_CONTINUE` when `continue` would add no information.
