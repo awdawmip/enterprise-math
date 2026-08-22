@@ -16,6 +16,8 @@
     "FOUNDATION_BACKFLOW_ACCEPTS_AUDITED_CANDIDATES_NOT_RAW_DISCOVERY_DRAFTS",
     "DISCOVERY_EVIDENCE_AND_VALIDATION_EVIDENCE_REMAIN_TYPED_SEPARATELY",
     "RESEARCH_PORTFOLIO_MUST_NOT_COLLAPSE_TO_RECENT_SUCCESS_ROUTE_BY_DEFAULT",
+    "READY_PR_IS_NOT_A_PERSISTENT_PROMOTION_LOCK",
+    "NO_NEW_MATHEMATICS_GOVERNANCE_MAINTENANCE_MAY_NOT_BE_STARVED_BY_A_READY_L4_CANDIDATE",
     "CURRENT_MAIN_IS_CANONICAL_TRUTH_ONLY_AFTER_EXISTING_GATES"
   ],
   "research_modes": {
@@ -171,11 +173,42 @@
     "reuse_immutable_fetched_blobs": true,
     "ci_polling_for_research": false
   },
+  "promotion_channels": {
+    "protocol": "docs/GOVERNANCE_MAINTENANCE_LIVENESS.md",
+    "mathematical_l4": {
+      "ready_pr_is_lane_lock": false,
+      "one_bounded_active_attempt_at_a_time": true,
+      "attempt_lifecycle": "SELECT -> CURRENT_MAIN_SNAPSHOT -> CONFLICT_SNAPSHOT -> FROZEN_HEAD_VALIDATION -> FINAL_COMBINATION -> MERGE_OR_DEFER -> RELEASE",
+      "candidate_readiness_may_persist_without_lock": true,
+      "mathematical_truth_gates_unchanged": true
+    },
+    "governance_maintenance": {
+      "eligible_classification": "NO_NEW_MATHEMATICS",
+      "may_proceed_while_mathematical_candidates_are_ready": true,
+      "one_bounded_active_attempt_at_a_time": true,
+      "requires_current_main_snapshot": true,
+      "requires_path_and_semantic_conflict_audit": true,
+      "requires_governance_regression": true,
+      "requires_expected_head_or_equivalent_atomic_merge_guard_when_supported": true,
+      "forbidden_deltas": [
+        "NEW_THEOREM",
+        "THEOREM_STRENGTH_CHANGE",
+        "PROOF_STATUS_CHANGE_WITHOUT_EVIDENCE",
+        "NEW_NATIVE_MATHEMATICAL_DEFINITION",
+        "SEMANTIC_CHANGE_TO_FROZEN_CURRENT_DEFINITION",
+        "EVIDENCE_REINTERPRETATION",
+        "THEOREM_OWNERSHIP_TRANSFER"
+      ],
+      "authority_reconciliation_allowed": "ONLY_TO_ALREADY_FROZEN_CANONICAL_DEFINITION_WITH_EXACT_PROVENANCE",
+      "if_semantic_delta_is_uncertain": "ROUTE_AS_MATHEMATICAL_OR_FOUNDATION_PROMOTION"
+    }
+  },
   "persistence_and_promotion": {
     "L1_L2_L3": "REMOTE_SILENT_BETWEEN_SEMANTIC_CHECKPOINTS",
     "owner_branch": "ONE_BOUNDED_OWNER_GENERATION_BY_DEFAULT",
     "draft_pr": "AT_MOST_ONE_PER_BOUNDED_OWNER_GENERATION_BY_DEFAULT",
-    "canonical_promotion": "ONE_ACTIVE_READY_L4_LANE_BY_DEFAULT",
+    "mathematical_canonical_promotion": "ONE_BOUNDED_ACTIVE_L4_ATTEMPT_AT_A_TIME; READY_STATUS_IS_NOT_A_PERSISTENT_LOCK",
+    "governance_maintenance": "SEPARATE_BOUNDED_NO_NEW_MATHEMATICS_ATTEMPT",
     "journal": "CAPTURE_PROGRESS_WITHOUT_PROMOTING_TRUTH",
     "driver_continuity": "ROUTING_ONLY_NO_IMPLICIT_DEFAULT_NEXT_ROUTE",
     "canonical_truth": "GATED_SOURCE_MAIN"
@@ -183,6 +216,7 @@
   "legacy_surface_interpretation": {
     "research_common_surface_mandatory_preflight": "TRIGGERED_REFERENCE_LIST_NOT_UNCONDITIONAL_STARTUP_SEQUENCE",
     "research_common_surface_auto_select_when_user_task_absent": "GENERIC_TASK_RESEARCH_BEHAVIOR_ONLY_NOT_FREE_AXIOM_DISCOVERY",
-    "generic_AGENTS_scheduler_rule": "DOES_NOT_OVERRIDE_MORE_SPECIFIC_FREE_RESEARCH_ROLE_CONTRACT"
+    "generic_AGENTS_scheduler_rule": "DOES_NOT_OVERRIDE_MORE_SPECIFIC_FREE_RESEARCH_ROLE_CONTRACT",
+    "generic_ready_l4_lane_wording": "READY_PR_IS_CANDIDATE_STATUS_NOT_AN_INDEFINITE_ATTEMPT_LEASE; GOVERNANCE_MAINTENANCE_FOLLOWS_LATER_NARROW_PROTOCOL"
   }
 }
