@@ -221,3 +221,39 @@ def test_architecture_keeps_common_surface_as_lookup_not_default_context_dump():
     assert arch["successor_stage_gate"]["obvious_stage_two_plus_must_be_continuation"] is True
     assert arch["successor_stage_gate"]["renaming_does_not_reset_lineage"] is True
     assert "alternative_route_or_free_exploration_considered" in arch["successor_stage_gate"]["new_continuation_task_requires"]
+
+
+def test_promotion_lane_is_bounded_attempt_not_ready_pr_lock():
+    arch = load_json("research_architecture.json")
+    channels = arch["promotion_channels"]
+    math_lane = channels["mathematical_l4"]
+    gov = channels["governance_maintenance"]
+    assert math_lane["ready_pr_is_lane_lock"] is False
+    assert math_lane["one_bounded_active_attempt_at_a_time"] is True
+    assert math_lane["candidate_readiness_may_persist_without_lock"] is True
+    assert gov["eligible_classification"] == "NO_NEW_MATHEMATICS"
+    assert gov["may_proceed_while_mathematical_candidates_are_ready"] is True
+    assert gov["one_bounded_active_attempt_at_a_time"] is True
+    assert gov["requires_current_main_snapshot"] is True
+    assert gov["requires_path_and_semantic_conflict_audit"] is True
+    assert gov["requires_expected_head_or_equivalent_atomic_merge_guard_when_supported"] is True
+    assert "NEW_THEOREM" in gov["forbidden_deltas"]
+    assert "NEW_NATIVE_MATHEMATICAL_DEFINITION" in gov["forbidden_deltas"]
+
+
+def test_governance_liveness_protocol_forbids_permanent_lane_ownership_and_math_smuggling():
+    text = (ROOT / "docs" / "GOVERNANCE_MAINTENANCE_LIVENESS.md").read_text(encoding="utf-8")
+    assert "READY_PR != PROMOTION_LANE_LEASE" in text
+    assert "STALE_OR_UNMERGEABLE_READY_PR != PERMANENT_LANE_LOCK" in text
+    assert "Only one governance-maintenance merge attempt" in text
+    assert "does not introduce a new theorem" in text
+    assert "new native mathematical definition" in text
+    assert "expected-head" in text
+
+
+def test_driver_contract_uses_attempt_semantics_for_promotion():
+    text = (ROOT / "docs" / "RESEARCH_DRIVER_OPERATING_CONTRACT.md").read_text(encoding="utf-8")
+    assert "READY_PR != PROMOTION_LANE_LEASE" in text
+    assert "one bounded promotion attempt" in text
+    assert "separate bounded governance-maintenance attempt" in text
+    assert "use the governance-maintenance lane to smuggle mathematical claim changes" in text
