@@ -1,0 +1,62 @@
+{
+  "admissibility_rule": "ADJACENCY(source_packet,target_packet)_MUST_BE_DECLARED_FOR_EACH_ACTUAL_TRANSITION",
+  "authority": [
+    "research_tasks/R059L_UNIT_PACKET_PATH_ONLY_FOUNDATIONS_REISSUE_20260814.md",
+    "PACKET_PATH_FOUNDATION.md",
+    "packet_path_foundation.json",
+    "FOUNDATIONAL_LOGIC.md",
+    "foundational_logic.json",
+    "native_semantics_admissibility.json"
+  ],
+  "event_fields": [
+    "event_id",
+    "source_packet",
+    "target_packet",
+    "order_index"
+  ],
+  "event_semantics": "DYNAMIC_EVENT_ONLY",
+  "event_type": "ORDERED_TRANSITION_EVENT",
+  "generation": "R059L",
+  "geometric_displacement_per_transition": null,
+  "metric_weight_per_transition": null,
+  "one_transition_case": {
+    "adjacency": [
+      [
+        "A",
+        "B"
+      ]
+    ],
+    "history": [
+      "A",
+      "B"
+    ],
+    "transition_count": 1
+  },
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_PATH_EVENT_PROTOCOL_V1",
+  "stage": "STAGE_0",
+  "stage_a_authorized": false,
+  "status": "FROZEN_STAGE0_CANDIDATE_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059L-UNIT-PACKET-PATH-ONLY-CRYSTAL-FOUNDATIONS-V2",
+  "taskbook_source_commit": "52ebad39ac51331902cc5130ff10644fc45024b6",
+  "transition_count_codomain": "NONNEGATIVE_INTEGER",
+  "two_transition_case": {
+    "adjacency": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "B",
+        "C"
+      ]
+    ],
+    "history": [
+      "A",
+      "B",
+      "C"
+    ],
+    "transition_count": 2
+  },
+  "unit_transition_increment": 1
+}

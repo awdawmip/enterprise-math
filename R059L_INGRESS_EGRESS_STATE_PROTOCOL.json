@@ -1,0 +1,60 @@
+{
+  "authority": [
+    "research_tasks/R059L_UNIT_PACKET_PATH_ONLY_FOUNDATIONS_REISSUE_20260814.md",
+    "PACKET_PATH_FOUNDATION.md",
+    "packet_path_foundation.json",
+    "FOUNDATIONAL_LOGIC.md",
+    "foundational_logic.json",
+    "native_semantics_admissibility.json"
+  ],
+  "channel_pair_geometry": null,
+  "generation": "R059L",
+  "packet_local_state": {
+    "I_x": {
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "values": "NONNEGATIVE_INTEGER"
+    },
+    "M_x": {
+      "indices": "ORDERED_PAIRS_(a,b)_IN_{0,...,5}^2",
+      "values": "NONNEGATIVE_INTEGER"
+    },
+    "O_x": {
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "values": "NONNEGATIVE_INTEGER"
+    }
+  },
+  "passage_semantics": "INGRESS_LABEL_TO_EGRESS_LABEL_EVENT_COUNT",
+  "researcher_id": "EM-R059L-5F9D05",
+  "same_channel_case": {
+    "M_x_2_2": 1,
+    "egress_channel": 2,
+    "geometric_interpretation": null,
+    "ingress_channel": 2,
+    "packet": "X"
+  },
+  "same_channel_ingress_egress_allowed": true,
+  "schema": "R059L_INGRESS_EGRESS_STATE_PROTOCOL_V1",
+  "scope": "ONLY_WHEN_IDEAL_C6_CHANNEL_STATE_IS_DECLARED",
+  "stage": "STAGE_0",
+  "stage0_conservation_identity_imposed": false,
+  "stage0_direction_interpretation_imposed": false,
+  "stage0_flux_interpretation_imposed": false,
+  "stage_a_authorized": false,
+  "status": "FROZEN_STAGE0_CANDIDATE_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059L-UNIT-PACKET-PATH-ONLY-CRYSTAL-FOUNDATIONS-V2",
+  "taskbook_source_commit": "52ebad39ac51331902cc5130ff10644fc45024b6"
+}

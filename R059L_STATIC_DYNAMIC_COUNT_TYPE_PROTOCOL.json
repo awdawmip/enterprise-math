@@ -1,0 +1,63 @@
+{
+  "authority": [
+    "research_tasks/R059L_UNIT_PACKET_PATH_ONLY_FOUNDATIONS_REISSUE_20260814.md",
+    "PACKET_PATH_FOUNDATION.md",
+    "packet_path_foundation.json",
+    "FOUNDATIONAL_LOGIC.md",
+    "foundational_logic.json",
+    "native_semantics_admissibility.json"
+  ],
+  "count_types": {
+    "PACKET_COUNT": {
+      "increment_event": "OBJECT_MEMBERSHIP_NOT_PATH_VISIT",
+      "type": "STATIC_OBJECT_COUNT",
+      "unit_trigger": "PACKET_EXISTS_IN_DECLARED_FINITE_CONFIGURATION"
+    },
+    "TRANSITION_COUNT": {
+      "increment": 1,
+      "type": "DYNAMIC_EVENT_COUNT",
+      "unit_trigger": "ACTUAL_DECLARED_ADJACENCY_TRANSITION_OCCURS"
+    }
+  },
+  "divergence_example": {
+    "occupied_configuration": [
+      "A",
+      "B"
+    ],
+    "packet_count": 2,
+    "path_history": [
+      "A",
+      "B",
+      "A",
+      "B",
+      "A"
+    ],
+    "revisit_counted_as_new_packet": false,
+    "transition_count": 4
+  },
+  "foundational_distinction": "PACKET_COUNT_NE_TRANSITION_COUNT",
+  "generation": "R059L",
+  "loop_example": {
+    "occupied_configuration": [
+      "A",
+      "B",
+      "C"
+    ],
+    "packet_count": 3,
+    "path_history": [
+      "A",
+      "B",
+      "C",
+      "A"
+    ],
+    "transition_count": 3
+  },
+  "researcher_id": "EM-R059L-5F9D05",
+  "schema": "R059L_STATIC_DYNAMIC_COUNT_TYPE_PROTOCOL_V1",
+  "stage": "STAGE_0",
+  "stage_a_authorized": false,
+  "status": "FROZEN_STAGE0_CANDIDATE_FOR_DRIVER_REVIEW",
+  "task_id": "RS-R059L-UNIT-PACKET-PATH-ONLY-CRYSTAL-FOUNDATIONS-V2",
+  "taskbook_source_commit": "52ebad39ac51331902cc5130ff10644fc45024b6",
+  "type_equality_forbidden": true
+}
