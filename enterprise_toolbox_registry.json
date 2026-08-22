@@ -1,0 +1,53 @@
+{
+  "schema": "ENTERPRISE_MATH_TOOLBOX_REGISTRY_V1",
+  "status": "ACTIVE_CURRENT_TOOL_ROUTER",
+  "date": "2026-08-22",
+  "authority": "ROUTING_ONLY_EXACT_SOURCES_CONTROL",
+  "tool_acceptance_rule": "NEW_THEOREM != NEW_TOOL; accepted tools require reusable input/output, structural law or certificate, explicit failure boundary, and reuse across at least two distinct problem families",
+  "tools": [
+    {
+      "id": "T0_BRC",
+      "name": "BRC",
+      "status": "PREEXISTING_CANONICAL_TOOL_FAMILY",
+      "scope": "use exact current BRC definitions"
+    },
+    {
+      "id": "T1_SCALE_ENUMERATION_VALUATION",
+      "name": "Enterprise Scale Enumeration / Valuation Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL",
+      "api": ["DELTA", "GEN", "VAL", "MOBIUS", "LOCAL"],
+      "hard_boundary": "NO_UNIVERSAL_NATIVE_EHRHART_POLYNOMIALITY",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_CALCULUS_REPORT_20260822.md"
+    },
+    {
+      "id": "T2_BLOCK_FINITE_CERTIFICATE",
+      "name": "Enterprise Block Finite-Certificate Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL",
+      "core_law": "INDEPENDENT_BLOCK_COMPOSITION -> GLOBAL_CERTIFICATE_NUMBER <= MAX_LOCAL_CERTIFICATE_NUMBER",
+      "hard_boundary": "propagating coupling can force unbounded minimal obstruction size even on bounded local domains/arity and path/tree interaction graphs",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_CERTIFICATE_CALCULUS_RESULT_20260822.md"
+    },
+    {
+      "id": "T3_TYPED_INCIDENCE_CIRCUIT",
+      "name": "Typed Incidence Circuit Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL_SCOPE_NARROWED",
+      "api": ["SIGN", "CIRCUITS", "ELIMINATE", "SEPARATE", "DUAL", "REALIZATION_CHECK"],
+      "hard_boundary": "DIRECTION_ONLY_SIGNED_CIRCUIT_NOT_DERIVED",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_CIRCUIT_CALCULUS_RESULT_20260822.md"
+    },
+    {
+      "id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+      "name": "Finite Fiber Capacity / Collision-Minima Calculus",
+      "status": "ACCEPTED_TOOL_COMPOSITION_NOVELTY_DOWNGRADED",
+      "api": ["RAW_CAPACITY", "QUOTIENT_CAPACITY", "FIBER_FREE", "COLLISION_DEFECT", "COLLISION_WITNESS", "REPRESENTATIVE_PACKING_COVERING", "SUCCESSIVE_COLLISION_MINIMA"],
+      "hard_boundary": "semantic observation/quotient must already be declared or derived; the tool cannot invent pi to force a capacity theorem",
+      "prior_enterprise_machinery": ["predictive quotient", "operation quotient", "function/relation collision spectra", "finite preimage multiplicity"],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_MINIMA_CALCULUS_RESULT_20260822.md"
+    }
+  ],
+  "foundation_mutation": false
+}
