@@ -1,23 +1,22 @@
 """Finite symmetry/orbit/equivariance calculus for Enterprise Math.
 
 The module is intentionally representation-light: a finite group action is supplied
-as a complete finite set of permutations.  It supports orbit/stabilizer analysis,
+as a complete finite set of permutations. It supports orbit/stabilizer analysis,
 canonical-choice obstructions, equivariance checks, and exact enumeration of
 finite equivariant maps from orbit representatives.
 
 This is standard finite group-action mathematics packaged as a reusable Enterprise
-Math tool.  It is especially useful for relabeling audits such as the three-axis
+Math tool. It is especially useful for relabeling audits such as the three-axis
 S3 calculations, but it contains no Enterprise-specific target table.
 """
 from __future__ import annotations
 
-from itertools import product
 from collections.abc import Hashable, Mapping, Sequence
+from itertools import product
 from typing import TypeVar
 
 Element = TypeVar("Element", bound=Hashable)
 Target = TypeVar("Target", bound=Hashable)
-Action = Mapping[Element, Element]
 
 
 def _elements(values: Sequence[Element]) -> tuple[Element, ...]:
@@ -29,7 +28,9 @@ def _elements(values: Sequence[Element]) -> tuple[Element, ...]:
     return result
 
 
-def _action_signature(elements: tuple[Element, ...], action: Action[Element]) -> tuple[Element, ...]:
+def _action_signature(
+    elements: tuple[Element, ...], action: Mapping[Element, Element]
+) -> tuple[Element, ...]:
     if set(action) != set(elements):
         raise ValueError("every action must be total on exactly the declared elements")
     image = tuple(action[element] for element in elements)
@@ -39,18 +40,19 @@ def _action_signature(elements: tuple[Element, ...], action: Action[Element]) ->
 
 
 def validate_finite_group_action(
-    elements: Sequence[Element], actions: Mapping[Hashable, Action[Element]]
+    elements: Sequence[Element],
+    actions: Mapping[Hashable, Mapping[Element, Element]],
 ) -> tuple[Element, ...]:
     """Validate that the supplied permutation image is a finite group.
 
     Non-faithful duplicate group elements are intentionally quotient out: callers
-    should supply the distinct permutation image of the action.  Closure and an
+    should supply the distinct permutation image of the action. Closure and an
     identity permutation are checked exactly.
     """
     elems = _elements(elements)
     if not actions:
         raise ValueError("at least one action is required")
-    signatures = {}
+    signatures: dict[tuple[Element, ...], Hashable] = {}
     for name, action in actions.items():
         signature = _action_signature(elems, action)
         if signature in signatures:
@@ -72,7 +74,9 @@ def validate_finite_group_action(
 
 
 def orbit(
-    elements: Sequence[Element], actions: Mapping[Hashable, Action[Element]], seed: Element
+    elements: Sequence[Element],
+    actions: Mapping[Hashable, Mapping[Element, Element]],
+    seed: Element,
 ) -> frozenset[Element]:
     elems = validate_finite_group_action(elements, actions)
     if seed not in elems:
@@ -81,7 +85,8 @@ def orbit(
 
 
 def orbit_partition(
-    elements: Sequence[Element], actions: Mapping[Hashable, Action[Element]]
+    elements: Sequence[Element],
+    actions: Mapping[Hashable, Mapping[Element, Element]],
 ) -> tuple[frozenset[Element], ...]:
     elems = validate_finite_group_action(elements, actions)
     unseen = set(elems)
@@ -96,7 +101,9 @@ def orbit_partition(
 
 
 def stabilizer(
-    elements: Sequence[Element], actions: Mapping[Hashable, Action[Element]], point: Element
+    elements: Sequence[Element],
+    actions: Mapping[Hashable, Mapping[Element, Element]],
+    point: Element,
 ) -> tuple[Hashable, ...]:
     elems = validate_finite_group_action(elements, actions)
     if point not in elems:
@@ -105,20 +112,24 @@ def stabilizer(
 
 
 def global_fixed_points(
-    elements: Sequence[Element], actions: Mapping[Hashable, Action[Element]]
+    elements: Sequence[Element],
+    actions: Mapping[Hashable, Mapping[Element, Element]],
 ) -> frozenset[Element]:
     elems = validate_finite_group_action(elements, actions)
     return frozenset(
-        element for element in elems if all(action[element] == element for action in actions.values())
+        element
+        for element in elems
+        if all(action[element] == element for action in actions.values())
     )
 
 
 def canonical_choice_obstruction(
-    elements: Sequence[Element], actions: Mapping[Hashable, Action[Element]]
+    elements: Sequence[Element],
+    actions: Mapping[Hashable, Mapping[Element, Element]],
 ) -> bool:
     """Whether full relabeling symmetry forbids an invariant singleton choice.
 
-    ``True`` means there is no element fixed by every supplied symmetry.  Any
+    ``True`` means there is no element fixed by every supplied symmetry. Any
     canonical single-valued choice from the bare carrier would therefore require
     additional symmetry-breaking structure.
     """
@@ -160,7 +171,9 @@ def equivariant_map_count(
     for current_orbit in orbit_partition(dom, domain_actions):
         representative = next(element for element in dom if element in current_orbit)
         stable_names = [
-            name for name, action in domain_actions.items() if action[representative] == representative
+            name
+            for name, action in domain_actions.items()
+            if action[representative] == representative
         ]
         allowed = [
             value
@@ -182,7 +195,7 @@ def enumerate_equivariant_maps(
     """Enumerate exact equivariant maps without brute-forcing all functions.
 
     Each domain orbit contributes one target seed fixed by the stabilizer of an
-    orbit representative.  The seed is propagated equivariantly across the orbit.
+    orbit representative. The seed is propagated equivariantly across the orbit.
     """
     if isinstance(max_maps, bool) or not isinstance(max_maps, int) or max_maps < 1:
         raise ValueError("max_maps must be a positive integer")
@@ -195,7 +208,9 @@ def enumerate_equivariant_maps(
     for current_orbit in orbit_partition(dom, domain_actions):
         representative = next(element for element in dom if element in current_orbit)
         stable_names = [
-            name for name, action in domain_actions.items() if action[representative] == representative
+            name
+            for name, action in domain_actions.items()
+            if action[representative] == representative
         ]
         allowed = [
             value
