@@ -1,0 +1,201 @@
+{
+  "K1": {
+    "classification_against_B_std": "SOURCE_INHERITED_LEVERAGE",
+    "measure": "216 global cyclotomic coefficients generated from 6 local table entries + tensor rule",
+    "process": "three local pair interactions multiplied in Q(zeta_3), then summed over phase triples",
+    "reason": "exactly tensor-product character/DFT arithmetic already allowed in B_std^Fermat",
+    "reconstructs_complex_fourier_plane_to_character_map": true,
+    "strict_leverage_vs_B_raw": [
+      "COMPOSITIONAL_FACTORING",
+      "DEPENDENCY_REDUCTION",
+      "NORMAL_FORM"
+    ]
+  },
+  "K2": {
+    "classification_against_B_std": "SOURCE_INHERITED_LEVERAGE",
+    "process": "Galois conjugation plus trace/anti-trace descent to U,V rational block coordinates",
+    "reason": "ordinary cyclotomic arithmetic and Galois descent"
+  },
+  "K3": {
+    "classification_against_B_std": "SOURCE_INHERITED_LEVERAGE",
+    "coverage_by_block": {
+      "B_0_1_2": [
+        "M07",
+        "M08",
+        "M10",
+        "M11",
+        "M13",
+        "M14"
+      ],
+      "B_0_1_3": [
+        "M04",
+        "M05",
+        "M09",
+        "M11",
+        "M12",
+        "M14"
+      ],
+      "B_0_1_4": [
+        "M03",
+        "M05",
+        "M06",
+        "M08",
+        "M12",
+        "M13"
+      ],
+      "B_0_1_5": [
+        "M03",
+        "M04",
+        "M06",
+        "M07",
+        "M09",
+        "M10"
+      ],
+      "B_0_2_3": [
+        "M01",
+        "M02",
+        "M09",
+        "M10",
+        "M12",
+        "M13"
+      ],
+      "B_0_2_4": [
+        "M00",
+        "M02",
+        "M06",
+        "M07",
+        "M12",
+        "M14"
+      ],
+      "B_0_2_5": [
+        "M00",
+        "M01",
+        "M06",
+        "M08",
+        "M09",
+        "M11"
+      ],
+      "B_0_3_4": [
+        "M00",
+        "M01",
+        "M03",
+        "M04",
+        "M13",
+        "M14"
+      ],
+      "B_0_3_5": [
+        "M00",
+        "M02",
+        "M03",
+        "M05",
+        "M10",
+        "M11"
+      ],
+      "B_0_4_5": [
+        "M01",
+        "M02",
+        "M04",
+        "M05",
+        "M07",
+        "M08"
+      ]
+    },
+    "coverage_by_pairing": {
+      "M00": [
+        "B_0_2_4",
+        "B_0_2_5",
+        "B_0_3_4",
+        "B_0_3_5"
+      ],
+      "M01": [
+        "B_0_2_3",
+        "B_0_2_5",
+        "B_0_3_4",
+        "B_0_4_5"
+      ],
+      "M02": [
+        "B_0_2_3",
+        "B_0_2_4",
+        "B_0_3_5",
+        "B_0_4_5"
+      ],
+      "M03": [
+        "B_0_1_4",
+        "B_0_1_5",
+        "B_0_3_4",
+        "B_0_3_5"
+      ],
+      "M04": [
+        "B_0_1_3",
+        "B_0_1_5",
+        "B_0_3_4",
+        "B_0_4_5"
+      ],
+      "M05": [
+        "B_0_1_3",
+        "B_0_1_4",
+        "B_0_3_5",
+        "B_0_4_5"
+      ],
+      "M06": [
+        "B_0_1_4",
+        "B_0_1_5",
+        "B_0_2_4",
+        "B_0_2_5"
+      ],
+      "M07": [
+        "B_0_1_2",
+        "B_0_1_5",
+        "B_0_2_4",
+        "B_0_4_5"
+      ],
+      "M08": [
+        "B_0_1_2",
+        "B_0_1_4",
+        "B_0_2_5",
+        "B_0_4_5"
+      ],
+      "M09": [
+        "B_0_1_3",
+        "B_0_1_5",
+        "B_0_2_3",
+        "B_0_2_5"
+      ],
+      "M10": [
+        "B_0_1_2",
+        "B_0_1_5",
+        "B_0_2_3",
+        "B_0_3_5"
+      ],
+      "M11": [
+        "B_0_1_2",
+        "B_0_1_3",
+        "B_0_2_5",
+        "B_0_3_5"
+      ],
+      "M12": [
+        "B_0_1_3",
+        "B_0_1_4",
+        "B_0_2_3",
+        "B_0_2_4"
+      ],
+      "M13": [
+        "B_0_1_2",
+        "B_0_1_4",
+        "B_0_2_3",
+        "B_0_3_4"
+      ],
+      "M14": [
+        "B_0_1_2",
+        "B_0_1_3",
+        "B_0_2_4",
+        "B_0_3_4"
+      ]
+    },
+    "process": "pairing-to-block incidence tensor; each of 15 pairings covers 4 rational blocks, each block is covered by 6 pairings",
+    "reason": "ordinary finite-group representation decomposition and sparse DFT"
+  },
+  "future_signature_quotient_reused": false,
+  "schema": "HODGE_H0K_INTERACTION_PROCESS_REGISTRY_V1",
+  "status": "FROZEN"
+}

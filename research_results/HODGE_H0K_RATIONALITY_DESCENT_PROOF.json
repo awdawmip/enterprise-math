@@ -1,0 +1,89 @@
+{
+  "coefficient_distribution_per_block": {
+    "B_0_1_2": {
+      "denominator": 243,
+      "trace_numerator_counts": {
+        "-1": 162,
+        "2": 81
+      }
+    },
+    "B_0_1_3": {
+      "denominator": 243,
+      "trace_numerator_counts": {
+        "-1": 162,
+        "2": 81
+      }
+    },
+    "B_0_1_4": {
+      "denominator": 243,
+      "trace_numerator_counts": {
+        "-1": 162,
+        "2": 81
+      }
+    },
+    "B_0_1_5": {
+      "denominator": 243,
+      "trace_numerator_counts": {
+        "-1": 162,
+        "2": 81
+      }
+    },
+    "B_0_2_3": {
+      "denominator": 243,
+      "trace_numerator_counts": {
+        "-1": 162,
+        "2": 81
+      }
+    },
+    "B_0_2_4": {
+      "denominator": 243,
+      "trace_numerator_counts": {
+        "-1": 162,
+        "2": 81
+      }
+    },
+    "B_0_2_5": {
+      "denominator": 243,
+      "trace_numerator_counts": {
+        "-1": 162,
+        "2": 81
+      }
+    },
+    "B_0_3_4": {
+      "denominator": 243,
+      "trace_numerator_counts": {
+        "-1": 162,
+        "2": 81
+      }
+    },
+    "B_0_3_5": {
+      "denominator": 243,
+      "trace_numerator_counts": {
+        "-1": 162,
+        "2": 81
+      }
+    },
+    "B_0_4_5": {
+      "denominator": 243,
+      "trace_numerator_counts": {
+        "-1": 162,
+        "2": 81
+      }
+    }
+  },
+  "complex_eigenline_vs_rational_block": "EXPLICITLY_DISTINGUISHED",
+  "field": "Q(zeta_3), zeta_3^2+zeta_3+1=0",
+  "galois": "sigma(zeta_3)=zeta_3^2",
+  "projector_coefficients": "2/243 if chi_a(g)=1, else -1/243",
+  "projector_formula": "e_[a]=(1/|G|)*sum_g (chi_a(g)^(-1)+chi_2a(g)^(-1))*g^*",
+  "proof_points": [
+    "e_a and e_2a are orthogonal primitive idempotents over Q(zeta_3)",
+    "their sum is Galois-fixed, hence lies in Q[G]",
+    "each g is a homeomorphism of X_F(C), hence acts Q-linearly on H^4(X_F,Q)",
+    "over Q(zeta_3), im(e_[a]) splits as the two one-dimensional conjugate eigenspaces",
+    "for k=3 both eigenspaces have Hodge type (2,2), so the Q-image is a rational Hodge block of dimension 2",
+    "the ten pairwise-orthogonal blocks plus Q*h^2 give a 21-dimensional rational Hodge carrier"
+  ],
+  "schema": "HODGE_H0K_RATIONALITY_DESCENT_PROOF_V1",
+  "status": "FROZEN"
+}
