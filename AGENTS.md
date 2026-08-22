@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.4`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.5`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -20,7 +20,32 @@ Exact role authority:
 - `research_role_policy.json`;
 - `research_identity_state_machine.json`.
 
-## 2. Identity
+## 2. Active-turn continuation liveness
+
+Canonical contract:
+
+- `active_turn_liveness.json`;
+- `docs/ACTIVE_TURN_CONTINUATION_LIVENESS.md`.
+
+Maintain:
+
+`PARENT_USER_OBJECTIVE -> CURRENT_SUBFLOW -> NEXT_EXECUTABLE_ACTION`.
+
+Freeze:
+
+`SUBFLOW_COMPLETE != USER_OBJECTIVE_COMPLETE`.
+
+`DETERMINISTIC_NEXT_STEP_EXISTS -> CONTINUE_IN_SAME_TURN`.
+
+A semantic checkpoint, journal write, tool return, recoverable tool error, PR/branch metadata boundary, `PENDING_NONBLOCKING` state, Stage verdict, Driver verdict, progress update, publication completion, or local soft block is not a reason to wait for a user `继续` message when the parent objective remains open and an executable next step exists.
+
+When the user's instruction semantically means continue/keep going/do not stop/until satisfied/until no further progress/solve the blocker and continue, the parent continuation lease remains active until that parent criterion is met or the user revokes it.
+
+`PASS_IS_NOT_A_SUCCESSOR_TRIGGER` remains binding, but every Stage terminal verdict must be followed in the **same turn** by successor-gate/closure/portfolio evaluation. Closing one route does not close the parent user objective.
+
+Before ending a nonterminal turn, if the parent objective is incomplete and another executable action exists, execute it now.
+
+## 3. Identity
 
 Resolve the visible role identity before substantive work:
 
@@ -29,7 +54,7 @@ Resolve the visible role identity before substantive work:
 
 Identity registration is nonblocking.
 
-## 3. FREE_AXIOM_DISCOVERY
+## 4. FREE_AXIOM_DISCOVERY
 
 FREE Phase A receives the **primitive substrate**, not the current-result catalog and not a suggestion menu.
 
@@ -56,7 +81,7 @@ Candidate lifecycle:
 
 `research_axiom_candidate_state_machine.json`.
 
-## 4. TASK_RESEARCH hot start
+## 5. TASK_RESEARCH hot start
 
 For a selected task:
 
@@ -70,7 +95,7 @@ Soft routine source-read budget before substantive work: `<= 3`.
 
 The Common Surface is a lookup, not a default preload.
 
-## 5. GitHub/service routing
+## 6. GitHub/service routing
 
 In ChatGPT/Project execution with the connected GitHub capability available:
 
@@ -88,13 +113,13 @@ Detailed remote rules:
 
 `docs/GITHUB_INTERACTION_BUDGET.md`.
 
-## 6. Working Truth
+## 7. Working Truth
 
 `WORKING_TRUTH` is TASK execution discipline after an explicit Driver/taskbook freeze.
 
 It is not a FREE Phase-A premise and not raw-candidate status.
 
-## 7. Evidence integrity
+## 8. Evidence integrity
 
 Never fabricate proof, computation, hashes, validation status, novelty, provenance or tool results.
 
@@ -106,7 +131,7 @@ Load triggered semantic policies only when the claim requires them:
 - `native_semantics_admissibility.json` — native/intrinsic/base-world claims;
 - geometry/refoundation policy — geometry/refoundation tasks.
 
-## 8. Candidate / task / continuation provenance
+## 9. Candidate / task / continuation provenance
 
 `RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION`.
 
@@ -123,7 +148,7 @@ Exact taskbook contract:
 - `docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md`;
 - `tools/research_taskbook.py`.
 
-## 9. Remote liveness
+## 10. Remote liveness
 
 `RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
@@ -135,7 +160,9 @@ Do not chase moving `main` without a concrete action.
 
 Tool/scheduler/CI availability is not a mathematical `HARD_BLOCK`.
 
-## 10. Triggered control surfaces
+`REMOTE_SUBFLOW_TERMINATED != PARENT_TASK_TERMINATED`.
+
+## 11. Triggered control surfaces
 
 Load only when relevant:
 
@@ -146,15 +173,17 @@ Load only when relevant:
 - test/Lean diagnostics for actual diagnosis;
 - owner-isolation/promotion policy for actual publication/promotion work.
 
-## 11. Persistence and publication
+## 12. Persistence and publication
 
 L1/L2/L3 research is remote-silent between semantic checkpoints by default.
+
+`REMOTE_SILENT` describes repository traffic, **not conversational inactivity**.
 
 Journal, Driver Continuity, source task/result files and source `main` have distinct roles.
 
 Current source `main` is canonical only after applicable gates.
 
-## 12. Promotion liveness
+## 13. Promotion liveness
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
@@ -164,8 +193,8 @@ Strict `NO_NEW_MATHEMATICS` governance maintenance uses the separate bounded pro
 
 `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`.
 
-## 13. Current-only hot path
+## 14. Current-only hot path
 
 Normal startup files describe **current behavior/current authority only**.
 
-Closed numbered routes, superseded definitions, retired worldview models and completed governance episodes are not repeated in hot routers. Retrieve them from Git history or explicit historical records only when the task actually asks for history/provenance/comparison.
+Historical/provenance material is retrieved only when the task explicitly needs history/provenance/comparison.
