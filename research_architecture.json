@@ -8,6 +8,8 @@
     "FOUNDATION_IS_STARTING_SUBSTRATE_NOT_DEFAULT_RESEARCH_AGENDA",
     "FOUNDATION_FOR_DISCOVERY_IS_NOT_CATALOG_OF_CURRENT_ACHIEVEMENTS",
     "FREE_PHASE_A_USES_PRIMITIVE_SUBSTRATE_NOT_GENERAL_CURRENT_RESULT_ROUTER",
+    "FREE_PHASE_A_HAS_NO_DEFAULT_DISCOVERY_LENS_MENU",
+    "FREE_PHASE_A_NEGATIVE_RULES_USE_GENERIC_CATEGORIES_NOT_SALIENT_FORBIDDEN_OBJECT_ENUMERATION",
     "EXPLORATION_AND_EXPLOITATION_ARE_DISTINCT_RESEARCH_MODES",
     "FREE_RESEARCHER_DOES_NOT_AUTO_DISPATCH",
     "TASK_RESEARCHER_MAY_CONSUME_EXPLICIT_AGENDA_CONTEXT",
@@ -27,11 +29,14 @@
       "role_label": "RESEARCHER",
       "role_key": "EM_FREE_RESEARCHER",
       "visible_identity": "Researcher-ID",
-      "mission": "Search independently from the current primitive substrate for new axiom candidates, smaller primitives, structural laws or exact obstructions before seeing current downstream achievements or research agenda.",
+      "mission": "Search independently from the current primitive substrate for a self-generated question and axiom candidate before seeing current downstream achievements or research agenda.",
       "phase_a_substrate_router": "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md",
       "general_current_router_before_candidate_freeze": false,
       "general_current_router_phase_b": "definitions/00_CURRENT_NATIVE_FOUNDATION.md",
       "agenda_visibility_before_candidate_freeze": "PRIMITIVE_SUBSTRATE_ONLY",
+      "default_discovery_lens_menu": null,
+      "default_suggested_question_menu": null,
+      "phase_a_forbidden_object_enumeration": false,
       "scheduler_eligible": false,
       "inherits_other_branch_working_truth": false,
       "default_state": "AXIOM_DISCOVERY",
@@ -77,20 +82,16 @@
         "foundational/native-semantic typing rules when needed"
       ],
       "withhold_as_discovery_prior": [
-        "definitions/00_CURRENT_NATIVE_FOUNDATION.md general current-result router",
-        "current line-trace, arbitrary-gauge, bidirectional-segment, BRC-multipath and path-root canonical results",
-        "scheduler and dispatch queues",
-        "current numbered taskbooks",
-        "Research Relay and current PR/issue descriptions",
-        "recent commit history/titles",
+        "the general current-result router and all downstream current results it indexes",
+        "current task/route/coordination state and recent project history",
         "other branch Working Truth",
-        "theorem-family success or failure catalogs",
-        "suggested questions",
-        "benchmark/teacher targets selected to steer discovery",
+        "success/failure catalogs and existing research vocabulary",
+        "suggested questions, discovery-lens menus and target/teacher prompts",
         "ambient project/chat/journal/continuity context not explicitly supplied by the current user instruction",
-        "available scripts/checkers/Lean modules as hints about ontology",
-        "implementation coordinates/file order/existing names as primitive hints"
-      ]
+        "available tools and existing implementation representations as hints about what question to ask"
+      ],
+      "negative_instruction_style": "GENERIC_CATEGORIES_ONLY_DO_NOT_ENUMERATE_SALIENT_FORBIDDEN_RESULTS",
+      "candidate_generation_prompt_style": "NO_DEFAULT_QUESTION_OR_LENS_MENU"
     },
     "task_research": {
       "rule": "Load the exact task entry first and expand only to dependencies actually used. The general current foundation router and shared theorem/tool catalogs are lookup surfaces, not default context dumps."
@@ -171,13 +172,15 @@
     "independent_convergence": "INCREASES_STRUCTURAL_INTEREST_BUT_IS_NOT_PROOF",
     "replication_after_freeze": true,
     "cross_run_post_allocation_rewrite": false,
-    "shared_ambient_context_must_be_disclosed": true
+    "shared_ambient_context_must_be_disclosed": true,
+    "shared_control_plane_suggestion_menu_allowed_before_freeze": false
   },
   "read_performance": {
     "principle": "SMALLEST_SUFFICIENT_ROLE_PACKET",
     "explicit_task_soft_remote_read_budget_before_substantive_work": 3,
     "free_phase_a": "PRIMITIVE_SUBSTRATE_ONLY_AND_REMOTE_SILENT_AFTER_MINIMAL_READS",
     "free_phase_a_general_current_router_preload": false,
+    "free_phase_a_default_discovery_prompt_menu": false,
     "shared_common_surface": "LOOKUP_AND_CONFLICT_INDEX_NOT_DEFAULT_CONTEXT_DUMP",
     "reuse_immutable_fetched_blobs": true,
     "ci_polling_for_research": false
