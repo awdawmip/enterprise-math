@@ -6,6 +6,15 @@
   "invocation_policy": "tool_invocation_policy.json",
   "method_inventory": "research_method_inventory.json",
   "executable_router": "tools/enterprise_toolbox.py",
+  "repository_tool_paths": [
+    "tools/enterprise_toolbox.py",
+    "tools/tool_discovery_native_valuation_ehrhart_brion_calculus_check.py"
+  ],
+  "common_surface_bridge": {
+    "machine_checker": "tools/check_research_common_surface.py",
+    "ownership_rule": "tools/*.py is covered exactly by the disjoint union of research_common_surface.json operational repo_tools and this registry's repository_tool_paths",
+    "human_index": "docs/ENTERPRISE_TOOLBOX_REGISTRY.md"
+  },
   "tool_acceptance_rule": "NEW_THEOREM != NEW_TOOL; accepted tools require reusable input/output, structural law or certificate, explicit failure boundary, and reuse across distinct problem families",
   "tools": [
     {
