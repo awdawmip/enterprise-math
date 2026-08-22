@@ -3,20 +3,11 @@
   "status": "ACTIVE_CURRENT_REUSE_INDEX",
   "date": "2026-08-22",
   "authority": "ROUTING_AND_REUSE_ONLY_EXACT_SOURCES_CONTROL",
-  "classification_vocabulary": [
-    "GLOBAL_TOOL_FAMILY",
-    "GLOBAL_SUBTOOL",
-    "DOMAIN_FACADE",
-    "DOMAIN_OPERATOR",
-    "RESULT_ONLY",
-    "CANDIDATE_NOT_TOOL",
-    "DUPLICATE_ALIAS",
-    "NO_TOOL_PAYLOAD"
-  ],
+  "classification_vocabulary": ["GLOBAL_TOOL_FAMILY", "GLOBAL_SUBTOOL", "DOMAIN_FACADE", "DOMAIN_OPERATOR", "RESULT_ONLY", "CANDIDATE_NOT_TOOL", "DUPLICATE_ALIAS", "NO_TOOL_PAYLOAD"],
   "harvest_scope": {
     "priority_window": "2026-08-20..2026-08-22",
     "current_executable_surface": "src/enterprise_math/*.py",
-    "rule": "Curated records below capture mature reusable methods and the recent research routes most likely to be reinvented. tools/enterprise_toolbox.py additionally scans every current Python module by AST/docstring/public API, so absence from this curated file is not evidence of a capability gap."
+    "rule": "Curated records cover the mature reusable mechanisms and recent routes most likely to be reinvented. The executable router additionally scans every current Python module by AST/docstring/public API, so absence here is not evidence of a capability gap."
   },
   "methods": [
     {
@@ -27,7 +18,7 @@
       "status": "CANONICAL_MAIN",
       "source_refs": ["src/enterprise_math/prime_toolkit.py", "src/enterprise_math/prime_method_inventory.json"],
       "triggers": ["prime", "factor", "sieve", "square basin", "primality"],
-      "capabilities": ["status-preserving dispatch", "prime method inventory", "factor witness", "proof horizon", "bounded exact prime baselines"]
+      "capabilities": ["status-preserving dispatch", "prime method inventory", "factor witness", "proof horizon"]
     },
     {
       "method_id": "precision.integer_projection_calculus",
@@ -35,19 +26,9 @@
       "classification": "GLOBAL_SUBTOOL",
       "family_id": "T5_PRECISION_REFINEMENT",
       "status": "CANONICAL_MAIN_EXECUTABLE",
-      "source_refs": ["src/enterprise_math/precision.py"],
-      "triggers": ["precision", "coarse", "fine", "projection", "detail", "carry", "borrow", "mixed radix"],
-      "capabilities": ["project/recompose", "nested detail", "addition carry", "subtraction borrow", "precision chains", "transported Mobius shells"]
-    },
-    {
-      "method_id": "precision.graded_transport",
-      "name": "Graded precision transport and nonlinear defect calculus",
-      "classification": "GLOBAL_SUBTOOL",
-      "family_id": "T5_PRECISION_REFINEMENT",
-      "status": "CANONICAL_MAIN_EXECUTABLE",
-      "source_refs": ["src/enterprise_math/graded_precision.py"],
-      "triggers": ["graded precision", "degree", "homogeneous", "monomial defect", "multiplication carry", "Mobius shell"],
-      "capabilities": ["degree transport", "degree projection/detail", "graded products", "nonlinear projection defect", "degree-aware shells"]
+      "source_refs": ["src/enterprise_math/precision.py", "src/enterprise_math/graded_precision.py"],
+      "triggers": ["precision", "coarse", "fine", "projection", "detail", "carry", "borrow", "mixed radix", "graded transport"],
+      "capabilities": ["project/recompose", "nested detail", "carry/borrow", "precision chains", "degree transport", "nonlinear projection defect"]
     },
     {
       "method_id": "quotient.predictive_partition",
@@ -67,27 +48,17 @@
       "status": "CANONICAL_MAIN_EXECUTABLE",
       "source_refs": ["src/enterprise_math/composition_safe_collapse.py"],
       "triggers": ["collapse", "quotient", "factor through", "descent", "future-safe", "repair"],
-      "capabilities": ["fiber constancy witness", "descends-through test", "coarsest one-step repair", "stable future partition", "future signatures"]
+      "capabilities": ["fiber constancy witness", "descends-through test", "coarsest repair", "stable future partition"]
     },
     {
       "method_id": "quotient.operation_family_closure",
-      "name": "Operation-family quotient closure",
+      "name": "Operation-family quotient closure and safe-operation census",
       "classification": "GLOBAL_SUBTOOL",
       "family_id": "T6_OPERATION_SAFE_QUOTIENT",
       "status": "CANONICAL_MAIN_EXECUTABLE",
-      "source_refs": ["src/enterprise_math/operation_quotient.py"],
-      "triggers": ["operation quotient", "family descends", "operation words", "stable family partition"],
-      "capabilities": ["operation descent", "family refinement", "stable family partition", "bounded word observation signatures"]
-    },
-    {
-      "method_id": "quotient.safe_operation_census",
-      "name": "Quotient-safe operation algebra census",
-      "classification": "GLOBAL_SUBTOOL",
-      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
-      "status": "CANONICAL_MAIN_EXECUTABLE",
-      "source_refs": ["src/enterprise_math/safe_operation_algebra.py", "EnterpriseMath/Quotient/OperationCongruence.lean"],
-      "triggers": ["safe operation", "operation congruence", "quotient algebra", "operation census", "addition obstruction"],
-      "capabilities": ["safe-operation count", "uniform-fiber closed form", "descent obstruction witness", "growth-quotient pressure test"]
+      "source_refs": ["src/enterprise_math/operation_quotient.py", "src/enterprise_math/partial_operation_quotient.py", "src/enterprise_math/safe_operation_algebra.py"],
+      "triggers": ["operation quotient", "operation congruence", "family descends", "stable family partition", "safe operation"],
+      "capabilities": ["operation descent", "family refinement", "stable family partition", "safe-operation count", "descent obstruction"]
     },
     {
       "method_id": "symmetry.finite_group_action",
@@ -97,47 +68,27 @@
       "status": "TOOLBOX_INTEGRATION_CANDIDATE",
       "source_refs": ["src/enterprise_math/finite_symmetry.py", "driver_reviews/R064_PHASEA_N0_FIRST_LOCAL_INTERACTION_CARRIER_DRIVER_REVIEW_20260822.md"],
       "triggers": ["symmetry", "group action", "orbit", "stabilizer", "equivariant map", "canonical choice", "relabeling"],
-      "capabilities": ["orbit partition", "stabilizer", "global fixed points", "canonical-choice obstruction", "equivariant-map count/enumeration"]
+      "capabilities": ["orbit partition", "stabilizer", "fixed points", "canonical-choice obstruction", "equivariant-map count/enumeration"]
     },
     {
       "method_id": "relation.observable_signature",
-      "name": "Relation-valued observable signature calculus",
+      "name": "Relation observable/signature/spectrum calculus",
       "classification": "GLOBAL_SUBTOOL",
       "family_id": "T8_RELATION_OBSERVABLE_SPECTRUM",
       "status": "CANONICAL_MAIN_EXECUTABLE",
-      "source_refs": ["src/enterprise_math/relation_observable_signature.py"],
-      "triggers": ["relation", "multivalued", "observable", "branching", "set-valued future", "relation-safe quotient"],
-      "capabilities": ["raw target sets", "powerset-valued signatures", "observable determinism", "relation observation partition", "quotient safety"]
-    },
-    {
-      "method_id": "relation.collision_spectrum",
-      "name": "Finite relation overlap/collision spectrum",
-      "classification": "GLOBAL_SUBTOOL",
-      "family_id": "T8_RELATION_OBSERVABLE_SPECTRUM",
-      "status": "CANONICAL_MAIN_EXECUTABLE",
-      "source_refs": ["src/enterprise_math/relational_spectrum.py"],
-      "triggers": ["relation spectrum", "overlap", "collision multiplicity", "common target", "hypergraph"],
-      "capabilities": ["target occupancies", "witness spectrum", "source-group collision spectrum", "postcomposition behavior", "function-graph degeneration"]
+      "source_refs": ["src/enterprise_math/relation_observable_signature.py", "src/enterprise_math/relational_spectrum.py", "src/enterprise_math/relation_observable_composition.py", "src/enterprise_math/relation_future_powerset.py"],
+      "triggers": ["relation", "multivalued", "observable", "branching", "set-valued future", "overlap", "collision spectrum"],
+      "capabilities": ["powerset-valued signatures", "observable determinism", "relation-safe quotient", "target occupancies", "collision spectra"]
     },
     {
       "method_id": "relation.capacity_lattice",
-      "name": "Capacity-weighted relation lattice invariants",
+      "name": "Capacity-weighted relation invariants",
       "classification": "GLOBAL_SUBTOOL",
       "family_id": "T8_RELATION_OBSERVABLE_SPECTRUM",
       "status": "CANONICAL_MAIN_EXECUTABLE",
       "source_refs": ["src/enterprise_math/relation_lattice.py", "src/enterprise_math/weighted_relation_field.py"],
       "triggers": ["relation quantum", "capacity gcd", "field preserving shift", "translation period"],
-      "capabilities": ["relation quantum", "primitive capacity vector", "translation period", "field-preserving shift", "coarsening divisibility"]
-    },
-    {
-      "method_id": "collision.common_collapse_inversion",
-      "name": "Common-collapse target inversion",
-      "classification": "DOMAIN_OPERATOR",
-      "family_id": "T8_RELATION_OBSERVABLE_SPECTRUM",
-      "status": "CANONICAL_MAIN_EXECUTABLE",
-      "source_refs": ["src/enterprise_math/common_collapse.py"],
-      "triggers": ["collision", "shared target", "common collapse", "target bucket"],
-      "capabilities": ["common-target witness", "intersection multiplicity", "inverted target-bucket collision enumeration"]
+      "capabilities": ["relation quantum", "primitive capacity vector", "translation period", "field-preserving shift"]
     },
     {
       "method_id": "certificate.integer_box_helly",
@@ -147,27 +98,27 @@
       "status": "CANONICAL_MAIN_EXECUTABLE_PRIOR_SPECIALIZATION",
       "source_refs": ["src/enterprise_math/box_collapse.py"],
       "triggers": ["box", "interval", "Helly 2", "intersection certificate", "facet witness", "deletion safe"],
-      "capabilities": ["exact box intersection", "pairwise-to-global Helly check", "2n-facet witness", "deletion-safe extrema"]
+      "capabilities": ["exact intersection", "pairwise-to-global certificate", "2n-facet witness", "deletion-safe extrema"]
+    },
+    {
+      "method_id": "collision.common_collapse_inversion",
+      "name": "Common-collapse target inversion",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T8_RELATION_OBSERVABLE_SPECTRUM",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": ["src/enterprise_math/common_collapse.py"],
+      "triggers": ["collision", "shared target", "common collapse", "target bucket"],
+      "capabilities": ["common-target witness", "intersection multiplicity", "target-bucket inversion"]
     },
     {
       "method_id": "holonomy.precision_defect_transport",
-      "name": "Discrete defect transport/holonomy calculus",
+      "name": "Discrete defect transport/holonomy/cocycle calculus",
       "classification": "GLOBAL_SUBTOOL",
       "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
       "status": "CANONICAL_MAIN_EXECUTABLE",
-      "source_refs": ["src/enterprise_math/precision_holonomy.py", "src/enterprise_math/precision_signed_holonomy.py"],
-      "triggers": ["holonomy", "defect transport", "loop", "coherence", "route dependence", "carry"],
-      "capabilities": ["defect transport", "bulk/carry decomposition", "staged-vs-direct coherence", "holonomy composition", "visibility threshold"]
-    },
-    {
-      "method_id": "holonomy.borrow_cocycle",
-      "name": "Borrow/cocycle finite obstruction helpers",
-      "classification": "GLOBAL_SUBTOOL",
-      "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
-      "status": "CANONICAL_MAIN_EXECUTABLE",
-      "source_refs": ["src/enterprise_math/p023_borrow_cocycle.py", "src/enterprise_math/material_loop_identity.py"],
-      "triggers": ["cocycle", "borrow", "loop identity", "gluing defect"],
-      "capabilities": ["finite cocycle diagnostics", "loop identity/obstruction checks"]
+      "source_refs": ["src/enterprise_math/precision_holonomy.py", "src/enterprise_math/precision_signed_holonomy.py", "src/enterprise_math/p023_borrow_cocycle.py", "src/enterprise_math/material_loop_identity.py"],
+      "triggers": ["holonomy", "cocycle", "defect transport", "loop", "coherence", "route dependence", "gluing defect"],
+      "capabilities": ["defect transport", "staged/direct coherence", "holonomy composition", "cocycle/loop obstruction"]
     },
     {
       "method_id": "recent.r061.native_line_trace",
@@ -187,7 +138,7 @@
       "status": "CANONICAL_CURRENT_DEFINITION",
       "source_refs": ["definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md", "commit:3f14ae778a8a7f23f93b117c9fc469be354838f3"],
       "triggers": ["directed gauge", "arbitrary point", "cross sector line"],
-      "capabilities": ["directed arbitrary-point length/gauge object", "symmetry-obstruction-aware routing"]
+      "capabilities": ["directed arbitrary-point gauge", "symmetry-obstruction-aware routing"]
     },
     {
       "method_id": "recent.r061.bidirectional_segment_spectrum",
@@ -227,7 +178,7 @@
       "status": "ACCEPTED_CONDITIONAL_DERIVED",
       "source_refs": ["driver_reviews/R063_STAGE4_THREE_SECTOR_C4_PROCESS_GLOBALIZATION_DRIVER_REVIEW_20260822.md", "commit:5157f8a74ef5c897fa152e2bcd90c8428de53ee6"],
       "triggers": ["C4", "sector gluing", "odd holonomy", "phase torsor", "route independent quotient"],
-      "capabilities": ["strict global-gluing no-go", "loop holonomy readout", "local-system survivor", "phase-orbit quotient product"]
+      "capabilities": ["strict gluing no-go", "loop holonomy", "local-system survivor", "phase-orbit quotient"]
     },
     {
       "method_id": "recent.r064.s3_equivariant_map_census",
@@ -237,7 +188,7 @@
       "status": "ACCEPTED_PHASEA_SCOPE_NARROWED",
       "source_refs": ["driver_reviews/R064_PHASEA_N0_FIRST_LOCAL_INTERACTION_CARRIER_DRIVER_REVIEW_20260822.md", "commit:ecec4605dde40cda90690628f4957adc510458fa"],
       "triggers": ["S3", "equivariant law", "orbit census", "component complement", "relabeling"],
-      "capabilities": ["equivariant-map classification", "orbit reduction", "component-complement uniqueness on the component carrier", "event-level nonuniqueness diagnosis"]
+      "capabilities": ["equivariant-map classification", "orbit reduction", "component-carrier law census"]
     },
     {
       "method_id": "recent.fq008.mixed_difference_separability",
@@ -247,7 +198,7 @@
       "status": "STEWARD_ACCEPTED_REFACTOR_NOT_ASSUMED_CANONICAL_HERE",
       "source_refs": ["research_tasks/FQ008_TRANSVERSE_INDEPENDENCE_STEWARD_VERIFICATION_20260822.md"],
       "triggers": ["mixed difference", "transverse independence", "separable scalar", "axis calibration"],
-      "capabilities": ["test Delta_a Delta_b Q=0", "recover additive decomposition from boundary calibration when hypotheses hold"]
+      "capabilities": ["test mixed finite-difference vanishing", "recover additive decomposition when boundary hypotheses hold"]
     },
     {
       "method_id": "recent.fq009.orientation_torsor",
@@ -255,9 +206,9 @@
       "classification": "GLOBAL_SUBTOOL",
       "family_id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
       "status": "STEWARD_ACCEPTED_REFACTOR_NOT_ASSUMED_CANONICAL_HERE",
-      "source_refs": ["research_tasks/FQ009_ORIENTATION_TORSOR_STEWARD_VERIFICATION_20260822.md"],
+      "source_refs": ["research_tasks/FQ009_ORIENTATION_TORSOR_ATLAS_STEWARD_VERIFICATION_20260822.md"],
       "triggers": ["orientation torsor", "stabilizer", "S3 A3", "cyclic orientation"],
-      "capabilities": ["orientation orbit quotient", "residual stabilizer classification", "choice-dependence audit"]
+      "capabilities": ["orientation orbit quotient", "residual stabilizer", "choice-dependence audit"]
     },
     {
       "method_id": "recent.lsr_n2.kernel_readout",
@@ -265,10 +216,10 @@
       "classification": "CANDIDATE_NOT_TOOL",
       "family_id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
       "status": "AUDITED_REPLACEMENT_CANDIDATE_REPLICATION_PENDING",
-      "source_refs": ["GLOBAL_KNOWLEDGE:journal/enterprise-math/2026-08-22/20260822T205900+0800-square-path-line-closure-lsr-n2-driver-intake.md"],
+      "source_refs": ["GLOBAL_KNOWLEDGE:LSR-N2-20260822"],
       "triggers": ["kernel", "component observation", "squared line scale"],
       "capabilities": ["kernel/fiber cardinal readout candidate"],
-      "note": "Do not create a new tool family from this candidate; generic kernel/fiber machinery is already routed through T4/T6."
+      "note": "Do not create a new tool family from this candidate; generic kernel/fiber machinery already routes through T4/T6."
     },
     {
       "method_id": "recent.resolution_glue.symmetry_no_go",
@@ -278,47 +229,17 @@
       "status": "EXACT_NEGATIVE_OBSTRUCTION_PARKED",
       "source_refs": ["GLOBAL_KNOWLEDGE:EMFREE-NG-20260822-RESOLUTION-GLUE-01"],
       "triggers": ["canonical map", "target relabeling", "symmetry breaking", "cross resolution glue"],
-      "capabilities": ["prove invariant singleton choice impossible when the target action has no global fixed point"]
+      "capabilities": ["fixed-point/canonical-choice obstruction"]
     },
     {
-      "method_id": "tool.t1.scale_valuation",
-      "name": "Enterprise Scale Enumeration / Valuation Calculus",
+      "method_id": "tool.discovery.quartet_20260822",
+      "name": "22-August discrete-geometry tool-discovery families",
       "classification": "GLOBAL_TOOL_FAMILY",
-      "family_id": "T1_SCALE_ENUMERATION_VALUATION",
-      "status": "ACCEPTED_DERIVED_TOOL",
-      "source_refs": ["research_notes/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_CALCULUS_REPORT_20260822.md"],
-      "triggers": ["scale", "shell", "valuation", "generating function", "finite difference"],
-      "capabilities": ["DELTA", "GEN", "VAL", "MOBIUS", "LOCAL"]
-    },
-    {
-      "method_id": "tool.t2.finite_certificate",
-      "name": "Enterprise Block Finite-Certificate Calculus",
-      "classification": "GLOBAL_TOOL_FAMILY",
-      "family_id": "T2_BLOCK_FINITE_CERTIFICATE",
-      "status": "ACCEPTED_DERIVED_TOOL",
-      "source_refs": ["research_notes/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_CERTIFICATE_CALCULUS_RESULT_20260822.md"],
-      "triggers": ["certificate", "compatibility", "local to global", "Helly", "obstruction"],
-      "capabilities": ["bounded failure certificate", "max local certificate composition", "success witness assembly"]
-    },
-    {
-      "method_id": "tool.t3.incidence_circuit",
-      "name": "Typed Incidence Circuit Calculus",
-      "classification": "GLOBAL_TOOL_FAMILY",
-      "family_id": "T3_TYPED_INCIDENCE_CIRCUIT",
-      "status": "ACCEPTED_DERIVED_TOOL_SCOPE_NARROWED",
-      "source_refs": ["research_notes/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_CIRCUIT_CALCULUS_RESULT_20260822.md"],
-      "triggers": ["circuit", "cocircuit", "path defect", "cut", "reroute"],
-      "capabilities": ["SIGN", "CIRCUITS", "ELIMINATE", "SEPARATE", "DUAL", "REALIZATION_CHECK"]
-    },
-    {
-      "method_id": "tool.t4.fiber_capacity",
-      "name": "Finite Fiber Capacity / Collision-Minima Calculus",
-      "classification": "GLOBAL_TOOL_FAMILY",
-      "family_id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
-      "status": "ACCEPTED_TOOL_COMPOSITION_NOVELTY_DOWNGRADED",
-      "source_refs": ["research_notes/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_MINIMA_CALCULUS_RESULT_20260822.md"],
-      "triggers": ["fiber", "capacity", "collision", "packing", "covering", "minima"],
-      "capabilities": ["fiber capacity", "collision defect", "representative packing/covering", "successive collision minima"]
+      "family_id": null,
+      "status": "DRIVER_INTEGRATED",
+      "source_refs": ["docs/ENTERPRISE_TOOLBOX_REGISTRY.md", "docs/RESEARCH_METHOD_HARVEST_20260820_20260822.md"],
+      "triggers": ["valuation", "finite certificate", "circuit", "fiber capacity"],
+      "capabilities": ["routes to T1", "routes to T2", "routes to T3", "routes to T4"]
     }
   ]
 }
