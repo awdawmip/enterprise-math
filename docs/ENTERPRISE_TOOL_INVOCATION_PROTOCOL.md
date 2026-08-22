@@ -41,7 +41,7 @@ This is a reuse discipline, not a theorem premise and not a Foundation change.
 
 Do not preload the whole toolbox before understanding a task. Tool names can anchor the formulation of the problem.
 
-For `TASK_RESEARCH`, first read the exact task and the first necessary dependency. Once the information structure of the problem is clear, perform the tool lookup **before constructing a new general-purpose method, helper calculus, quotient, certificate, invariant or search engine**.
+For ordinary `TASK_RESEARCH`, first read the exact task and the first necessary dependency. Once the information structure of the problem is clear, perform the tool lookup **before constructing a new general-purpose method, helper calculus, quotient, certificate, invariant or search engine**.
 
 This preserves the hot-start rule while preventing duplicate invention.
 
@@ -117,24 +117,32 @@ A strict superset with one new operation normally extends the existing family.
 
 A new family is reserved for a genuinely different semantic input/output contract or structural law.
 
-## 5. FREE researcher firewall
+## 5. Discovery-firewall timing
 
-FREE Phase A is the one deliberate exception to pre-invention lookup.
+The universal lookup rule has one principled timing exception: **a controlling research protocol may explicitly delay current-tool visibility to protect an independent discovery phase**.
 
-Before candidate freeze:
+This covers both:
+
+1. FREE Phase A; and
+2. a TASK research taskbook that explicitly declares a blind-forward/source-whitelist information firewall and names the raw candidate/no-go freeze point.
+
+Before the declared freeze:
 
 - do not expose the toolbox registry;
 - do not expose the method inventory;
 - do not run the coverage router as a discovery prior;
-- do not name current tool families in the prompt merely to forbid them.
+- do not name current tool families merely to forbid them;
+- obey the exact task-local source whitelist/firewall.
 
-A FREE researcher may still use generic computation/formalization after its own primitive question has arisen:
+For FREE research, generic computation/formalization may still test a primitive question that arose independently:
 
 `QUESTION_FIRST -> TOOL_SECOND`.
 
-But current project tool availability may not choose the question or candidate.
+For a blind-forward TASK, only the tools/ordinary mathematics permitted by the controlling taskbook may be used before freeze.
 
-Immediately **after** the candidate/no-go packet is frozen, Phase B must run the tool coverage lookup before claiming that the candidate also discovers a new method/tool. Existing-tool collision is then a dedup/integration result, not retroactive continuation.
+Immediately **after** the declared candidate/no-go packet is frozen, the normal reuse gate becomes mandatory before claiming method novelty or opening a tool continuation. Existing-tool collision is a dedup/integration result; it must not rewrite the frozen discovery packet after the fact.
+
+An ordinary TASK may not self-declare a discovery firewall merely to skip the reuse gate. The exception must be explicit in the controlling role/task contract.
 
 ## 6. Driver gate
 
@@ -153,6 +161,8 @@ Before opening a new method/tool task, the Driver must resolve:
 `REUSE / COMPOSE / EXTEND / GAP_CONFIRMED / NOT_APPLICABLE`.
 
 A task whose only novelty is rediscovering an existing tool under a new route name should be closed or redirected immediately.
+
+For an explicitly blind-forward successor, the Driver may authorize delayed lookup only by writing the information firewall and freeze point into the controlling taskbook. Post-freeze dedup remains mandatory.
 
 ## 7. Steward gate
 
