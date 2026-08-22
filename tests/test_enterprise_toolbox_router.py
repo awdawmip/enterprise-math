@@ -42,13 +42,17 @@ class EnterpriseToolboxRouterTests(unittest.TestCase):
         lsr = next(method for method in inventory["methods"] if method["method_id"] == "recent.lsr_n2.kernel_readout")
         self.assertEqual(lsr["classification"], "CANDIDATE_NOT_TOOL")
 
-    def test_invocation_policy_preserves_free_phase_a_blindness(self):
+    def test_invocation_policy_preserves_discovery_firewalls(self):
         policy = json.loads((ROOT / "tool_invocation_policy.json").read_text(encoding="utf-8"))
         phase_a = policy["role_timing"]["FREE_AXIOM_DISCOVERY_PHASE_A"]
         phase_b = policy["role_timing"]["FREE_AXIOM_DISCOVERY_PHASE_B"]
+        task_firewall = policy["role_timing"]["TASK_RESEARCH_DISCOVERY_FIREWALL"]
         self.assertEqual(phase_a["tool_catalog_visibility"], "HIDDEN_AS_DISCOVERY_PRIOR")
         self.assertTrue(phase_a["forbidden_as_question_prior"])
         self.assertTrue(phase_b["mandatory"])
+        self.assertFalse(task_firewall["mandatory_before_declared_freeze"])
+        self.assertTrue(task_firewall["mandatory_after_declared_freeze"])
+        self.assertIn("taskbook", task_firewall["scope_rule"])
 
 
 if __name__ == "__main__":
