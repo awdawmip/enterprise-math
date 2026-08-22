@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.5`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.6`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -81,6 +81,8 @@ Candidate lifecycle:
 
 `research_axiom_candidate_state_machine.json`.
 
+After the candidate/no-go packet is frozen, Phase B may open current/prior work and must include the tool-coverage/dedup lookup before claiming a new reusable method.
+
 ## 5. TASK_RESEARCH hot start
 
 For a selected task:
@@ -95,7 +97,43 @@ Soft routine source-read budget before substantive work: `<= 3`.
 
 The Common Surface is a lookup, not a default preload.
 
-## 6. GitHub/service routing
+## 6. Universal tool reuse gate
+
+Canonical policy:
+
+- `tool_invocation_policy.json`;
+- `docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md`;
+- `enterprise_toolbox_registry.json`;
+- `research_method_inventory.json`;
+- `tools/enterprise_toolbox.py`.
+
+For `TASK_RESEARCH`, `RESEARCH_DRIVER`, and shared Steward work, once the problem's information structure is understood and **before constructing a new general-purpose mechanism/tool/helper calculus**, perform a current tool-coverage lookup.
+
+Freeze:
+
+`UNDERSTAND_TASK_FIRST -> TOOL_LOOKUP_SECOND`.
+
+`EXISTING_TOOL_COVERAGE -> REUSE_OR_COMPOSE_UNLESS_EXACT_SCOPE_GAP_IS_RECORDED`.
+
+`NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP`.
+
+The coverage outcome is one of:
+
+- `REUSE_EXISTING_TOOL`;
+- `COMPOSE_EXISTING_TOOLS`;
+- `EXTEND_EXISTING_TOOL`;
+- `CAPABILITY_GAP_CONFIRMED`;
+- `NOT_APPLICABLE`.
+
+Do not create a new tool family merely because the same mechanism appears under another historical name, route, application domain or filename. Use aliases, specializations, domain facades or subtools.
+
+Every Driver/Steward-accepted research return must receive a method-harvest classification so reusable methods flow back into the shared inventory instead of remaining hidden in route-local artifacts.
+
+**FREE Phase-A exception:** the current toolbox/method catalog is hidden as a discovery prior until candidate freeze. Tool availability may not choose the primitive question. After freeze, Phase B runs the same reuse/dedup gate.
+
+The lookup is selective rather than a universal preload: query by the actual need. When a local checkout is available, `python tools/enterprise_toolbox.py coverage <need>` searches curated tool families, harvested methods and the current executable Python surface without importing modules.
+
+## 7. GitHub/service routing
 
 In ChatGPT/Project execution with the connected GitHub capability available:
 
@@ -113,13 +151,13 @@ Detailed remote rules:
 
 `docs/GITHUB_INTERACTION_BUDGET.md`.
 
-## 7. Working Truth
+## 8. Working Truth
 
 `WORKING_TRUTH` is TASK execution discipline after an explicit Driver/taskbook freeze.
 
 It is not a FREE Phase-A premise and not raw-candidate status.
 
-## 8. Evidence integrity
+## 9. Evidence integrity
 
 Never fabricate proof, computation, hashes, validation status, novelty, provenance or tool results.
 
@@ -131,7 +169,7 @@ Load triggered semantic policies only when the claim requires them:
 - `native_semantics_admissibility.json` — native/intrinsic/base-world claims;
 - geometry/refoundation policy — geometry/refoundation tasks.
 
-## 9. Candidate / task / continuation provenance
+## 10. Candidate / task / continuation provenance
 
 `RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION`.
 
@@ -148,7 +186,7 @@ Exact taskbook contract:
 - `docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md`;
 - `tools/research_taskbook.py`.
 
-## 10. Remote liveness
+## 11. Remote liveness
 
 `RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
@@ -162,18 +200,19 @@ Tool/scheduler/CI availability is not a mathematical `HARD_BLOCK`.
 
 `REMOTE_SUBFLOW_TERMINATED != PARENT_TASK_TERMINATED`.
 
-## 11. Triggered control surfaces
+## 12. Triggered control surfaces
 
 Load only when relevant:
 
 - scheduler/Relay/Foundation surfaces for actual coordination actions;
 - Driver contract + continuity for actual Driver portfolio decisions;
 - Common Surface for exact cross-owner theorem/tool/conflict lookup;
+- toolbox registry/method inventory for actual method selection or method-harvest/dedup;
 - current native router for current-result/generation lookup;
 - test/Lean diagnostics for actual diagnosis;
 - owner-isolation/promotion policy for actual publication/promotion work.
 
-## 12. Persistence and publication
+## 13. Persistence and publication
 
 L1/L2/L3 research is remote-silent between semantic checkpoints by default.
 
@@ -183,7 +222,7 @@ Journal, Driver Continuity, source task/result files and source `main` have dist
 
 Current source `main` is canonical only after applicable gates.
 
-## 13. Promotion liveness
+## 14. Promotion liveness
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
@@ -193,7 +232,7 @@ Strict `NO_NEW_MATHEMATICS` governance maintenance uses the separate bounded pro
 
 `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`.
 
-## 14. Current-only hot path
+## 15. Current-only hot path
 
 Normal startup files describe **current behavior/current authority only**.
 

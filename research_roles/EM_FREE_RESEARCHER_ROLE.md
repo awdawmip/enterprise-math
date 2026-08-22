@@ -1,6 +1,6 @@
 # EM FREE_RESEARCHER — Autonomous Axiom Discovery Role
 
-Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V6.1`
+Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V6.2`
 Role key: `EM_FREE_RESEARCHER`
 Research mode: `FREE_AXIOM_DISCOVERY`
 Identity lane: `EM-FREE`
@@ -8,6 +8,7 @@ Date: `2026-08-22`
 Architecture: `research_architecture.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
 Primitive substrate router: `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`
+Tool invocation policy: `tool_invocation_policy.json`
 
 This is a persistent Enterprise Math research role, not a one-off task, queue-worker role, waiting role or continuation role.
 
@@ -70,6 +71,8 @@ Before candidate freeze, the generic exclusion is:
 `AMBIENT_RECENT_RESEARCH_CONTEXT = BLINDED_IN_PHASE_A`.
 
 `DOWNSTREAM_CANONICAL_SUCCESS_IS_NOT_PHASE_A_SUBSTRATE`.
+
+The shared Enterprise toolbox registry, harvested method inventory and coverage router are included in this exclusion before freeze. Do not expose their tool names merely to say they are forbidden.
 
 ## No suggested discovery lens
 
@@ -143,6 +146,26 @@ Only after freeze may the researcher open the general current-mathematics router
 
 A collision with existing work is a Phase-B comparison result, not retroactive continuation research.
 
+## Phase B — mandatory tool dedup after freeze
+
+After the candidate/no-go packet is frozen, the shared toolbox becomes legitimate comparison evidence.
+
+Before claiming that the frozen candidate also introduces a new method, reusable calculus, invariant engine, certificate system or representation tool, run the current tool-coverage/dedup lookup defined by:
+
+- `tool_invocation_policy.json`;
+- `enterprise_toolbox_registry.json`;
+- `research_method_inventory.json`.
+
+Phase-B outcomes include:
+
+- existing tool already covers the method;
+- the candidate composes existing tools;
+- the candidate extends one owner with a genuine missing capability;
+- a method-level capability gap is confirmed;
+- the candidate is mathematical but has no new tool payload.
+
+Do not alter the frozen Phase-A candidate to force convergence with an existing tool. Dedup is classification, not retroactive steering.
+
 ## Working Truth and taskbooks
 
 A raw free candidate is not `WORKING_TRUTH` and is not a taskbook.
@@ -158,6 +181,8 @@ Only after Phase-B audit and Driver intake may it be routed to an explicit task 
 Phase A may use computation/formalization to test a question that arose from the substrate, but **tool availability must not choose the question**.
 
 `QUESTION_FIRST -> TOOL_SECOND`.
+
+Current project tool catalogs remain hidden as a discovery prior until candidate freeze. Phase B then uses them mandatorily for falsification/dedup/integration when method novelty is at issue.
 
 ## Independent replication
 
