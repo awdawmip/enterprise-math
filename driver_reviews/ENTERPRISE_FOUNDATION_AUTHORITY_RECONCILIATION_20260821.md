@@ -1,32 +1,52 @@
 # Enterprise Math Foundation Authority Reconciliation
 
-Status: `DRIVER_RECONCILIATION / NO_NEW_MATHEMATICS / PENDING_CANONICAL_PROMOTION`
+Status: `DRIVER_RECONCILIATION / NO_NEW_MATHEMATICS / GOVERNANCE_MAINTENANCE_READY`
 Date: `2026-08-21`
 Final audit: `2026-08-22`
 Driver-ID: `EM-DVR-K7Q4N8`
 Base generation: `main@a09d3bd7e1234f344d51c137c1fe33b50fa9fe35`
-Current-main combination checked against: `main@74cacc89ec09a8af7dd7ff01c10f2baf082daf81`
+Current-main combination checked against: `main@4c99e07149a94e6214fd3e5a5c6b9a2b3c7e084a`
+Promotion liveness authority: `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md@main`
 
 ## Problem repaired
 
 Root project-definition surfaces still declared the 2026-08-16 native plane ontology (three undirected axes, six native directed directions, alternating signs every 60 degrees) as the highest project structural definition even though the later 2026-08-20/21 canonical foundation had already replaced it with the three-positive-axis / 120-degree native-right-angle system.
 
-The stale authority chain allowed a researcher to read both generations during mandatory bootstrap and obtain contradictory answers about the current native plane.
+The stale authority chain allows a researcher to read two generations and obtain contradictory answers about the current native plane.
+
+## Why this is governance maintenance rather than new mathematics
+
+This payload does **not** discover or alter the current three-positive-axis mathematics. It routes stale root/status/historical surfaces to exact definitions that were already frozen before this reconciliation.
+
+Governance-maintenance eligibility audit:
+
+- no new theorem;
+- no theorem-strength change;
+- no proof-status reinterpretation;
+- no new native mathematical definition;
+- no semantic change to a frozen current canonical definition;
+- no evidence reinterpretation;
+- no theorem-ownership transfer;
+- no modification of the exact current canonical plane/line/gauge/bidirectional/BRC definition files themselves.
+
+The changed `definitions/*` files in this payload are historical/superseded routing/status surfaces, not changes to the exact frozen current definition set. The root project definition is shortened/retyped to route into that already-frozen set rather than competing with it.
+
+If any of those semantic claims were false, this payload would cease to qualify as governance maintenance and would require mathematical/Foundation promotion instead.
 
 ## Reconciliation payload
 
-This generation introduces no new mathematical theorem. It:
+This generation:
 
-1. upgrades `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, `project_definition.json`, and `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md` so they route mutable geometry to the later canonical foundation;
+1. upgrades `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, `project_definition.json`, and `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md` so mutable geometry routes to the later canonical foundation;
 2. adds `definitions/00_CURRENT_NATIVE_FOUNDATION.md` as a stable dependency-lazy source current router;
-3. aligns the researcher tool surface with the three-read source hot-path contract in `AGENTS.md`;
+3. aligns the researcher tool surface with exact-task-first / at-most-three-read startup;
 4. retypes obsolete signed-origin-one, no-zero, origin-circle, six-direction/60-degree, signed-chamber, legacy reverse-geodesic and old square/root machine records as historical, partially superseded, auxiliary or downstream-only as appropriate;
 5. preserves safe weaker principles without resurrecting the ontology in which they were first discovered;
-6. preserves all original text through Git history rather than deleting provenance;
+6. preserves original text through Git history rather than deleting provenance;
 7. records Precision Mathematics as Enterprise Math predecessor rather than active peer;
-8. aligns source routing with the user's direct update of the protected account worldview to the current three-positive-axis foundation;
-9. records the worldview-level merge `OVERFITTING / SURFACE_FIT = POST_ALLOCATION` as one underlying learning mechanism without changing the spatial mathematics;
-10. freezes two-stage authority resolution: select the current generation first, then let the exact current definition outrank router summaries inside that generation.
+8. aligns source routing with the user's explicit protected-worldview update to the current three-positive-axis foundation;
+9. records the worldview-level merge `OVERFITTING / SURFACE_FIT = POST_ALLOCATION` without changing the spatial mathematics;
+10. freezes two-stage authority resolution: select current generation first, then exact current definition outranks router summaries inside that generation.
 
 ## Current foundation after reconciliation
 
@@ -45,19 +65,26 @@ This generation introduces no new mathematical theorem. It:
 - `CANONICAL_BRC_BASE_LAYER=BOOLEAN_RESULT_SUPPORT_SEMANTICS`;
 - BRC enrichment `PATH_FORMAL_BRC -> N_BRC -> BOOLEAN_BRC`.
 
+These bullets summarize the already-frozen current generation; the exact canonical files remain the content authority.
+
 ## Current-main combination
 
-The source main delta since the owner base consists of two R063 control-plane files:
+Since owner base `a09d3bd...`, current source main has advanced by 49 commits / 27 changed paths through:
 
-- `driver_reviews/R063_STAGE1_GENERAL_PATH_NORM_ROOT_DRIVER_REVIEW_20260821.md`;
-- `research_tasks/R063_STAGE2_MULTIPLICATIVE_PATH_NORM_ROOT_PROVENANCE_ALGEBRA_20260821.md`.
+`main@4c99e07149a94e6214fd3e5a5c6b9a2b3c7e084a`.
 
-They have zero path overlap with the reconciliation payload. No mathematical reconciliation was needed.
+Those changes include R063 through its Stage-4 route closure and Research Architecture V2.3. The current-main changed-path set has **zero path overlap** with this 28-file authority reconciliation payload.
+
+No mathematical or file reconciliation is required.
 
 ## Promotion state
 
-An existing non-draft L4 PR (#444) occupies the serialized canonical-promotion lane. Its transient mergeability/check state is intentionally **not frozen into this durable review artifact**; that state must be read live only when promotion is actually attempted.
+Research Architecture V2.3 now defines:
 
-This reconciliation therefore remains Draft/pending promotion rather than bypassing unrelated L4 governance. Draft status is a governance state, not an unresolved semantic conflict.
+`READY_PR != PROMOTION_LANE_LEASE`.
 
-`CI_NOT_REQUIRED_FOR_RESEARCH` for the Draft reconciliation checkpoint. No workflow-status polling is authorized merely because this checkpoint is published.
+A ready mathematical candidate is not an indefinite repository lock. This authority repair is classified as bounded `NO_NEW_MATHEMATICS` governance maintenance under `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md` because it repairs source authority routing to already-frozen canonical mathematics.
+
+Mathematical L4 theorem gates are unchanged and are not bypassed.
+
+The merge attempt, when executed, must use one current-main snapshot, one path/semantic conflict audit, the strongest available governance regression evidence, and an expected-head/atomic merge guard where supported; then it releases immediately on merge/defer/failure.
