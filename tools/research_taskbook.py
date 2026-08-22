@@ -13,6 +13,15 @@ ROOT = Path(__file__).resolve().parents[1]
 POLICY_PATH = ROOT / "research_taskbook_policy.json"
 FRONTMATTER_PREFIX = "<!-- ENTERPRISE_MATH_TASK_V1\n"
 FRONTMATTER_SUFFIX = "\n-->"
+VALID_LINEAGES = {"NEW_DIRECTION", "CONTINUATION", "REPLAY", "INTEGRATION", "MAINTENANCE"}
+VALID_ORIGINS = {
+    "DIRECT_USER_DIRECTION",
+    "DRIVER_ROADMAP",
+    "FREE_AXIOM_CANDIDATE",
+    "FOUNDATION_QUESTION",
+    "REPLAY_OR_INTEGRATION",
+    "MAINTENANCE",
+}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -90,6 +99,129 @@ def regex_hits(body: str, patterns: list[str]) -> list[str]:
     return hits
 
 
+def _nonempty(value: Any) -> bool:
+    if isinstance(value, str):
+        return bool(value.strip())
+    if isinstance(value, (list, tuple, set, dict)):
+        return bool(value)
+    return value is not None
+
+
+def _stage_number(meta: dict[str, Any]) -> int | None:
+    text = f"{meta.get('task_id', '')} {meta.get('title', '')}"
+    numbers = [int(m.group(1)) for m in re.finditer(r"\bSTAGE[- _]?(\d+)\b", text, flags=re.IGNORECASE)]
+    return max(numbers) if numbers else None
+
+
+def origin_findings(
+    meta: dict[str, Any], *, dispatch: bool, root: Path = ROOT
+) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    origin = meta.get("origin_kind")
+    if origin is None:
+        findings.append({
+            "severity": "ERROR" if dispatch else "WARN",
+            "code": "TB-ORIGIN-MISSING",
+            "message": "new dispatch requires origin_kind; legacy files may remain historical until redispatch",
+        })
+        return findings
+    if origin not in VALID_ORIGINS:
+        findings.append({
+            "severity": "ERROR",
+            "code": "TB-ORIGIN-VALUE",
+            "message": f"origin_kind must be one of {sorted(VALID_ORIGINS)}, got {origin!r}",
+        })
+        return findings
+
+    contract = load_json(root / "research_taskbook_contract.json")["task_origin_contract"]
+    if origin == "FREE_AXIOM_CANDIDATE":
+        for field in contract["free_candidate_required_fields"]:
+            if not _nonempty(meta.get(field)):
+                findings.append({
+                    "severity": "ERROR",
+                    "code": "TB-ORIGIN-CANDIDATE",
+                    "message": f"FREE_AXIOM_CANDIDATE origin requires {field}",
+                })
+        state = meta.get("origin_candidate_state")
+        if _nonempty(state) and state not in contract["free_candidate_allowed_states"]:
+            findings.append({
+                "severity": "ERROR",
+                "code": "TB-ORIGIN-CANDIDATE-STATE",
+                "message": "free candidate origin must already be in an audited intake-eligible state",
+            })
+    elif origin == "FOUNDATION_QUESTION":
+        field = contract["foundation_question_required_field"]
+        if not _nonempty(meta.get(field)):
+            findings.append({
+                "severity": "ERROR",
+                "code": "TB-ORIGIN-FOUNDATION",
+                "message": f"FOUNDATION_QUESTION origin requires {field}",
+            })
+    return findings
+
+
+def lineage_findings(
+    meta: dict[str, Any], *, dispatch: bool, root: Path = ROOT
+) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    lineage = meta.get("task_lineage")
+    if lineage is None:
+        findings.append({
+            "severity": "ERROR" if dispatch else "WARN",
+            "code": "TB-LINEAGE-MISSING",
+            "message": "new dispatch requires task_lineage; legacy files may remain historical until redispatch",
+        })
+        return findings
+    if lineage not in VALID_LINEAGES:
+        findings.append({
+            "severity": "ERROR",
+            "code": "TB-LINEAGE-VALUE",
+            "message": f"task_lineage must be one of {sorted(VALID_LINEAGES)}, got {lineage!r}",
+        })
+        return findings
+
+    stage = _stage_number(meta)
+    if stage is not None and stage >= 2 and lineage != "CONTINUATION":
+        findings.append({
+            "severity": "ERROR",
+            "code": "TB-STAGE-LINEAGE",
+            "message": f"Stage {stage} task is explicit continuation semantics and must use task_lineage=CONTINUATION",
+        })
+
+    parent = meta.get("parent_task_id")
+    gate = meta.get("successor_gate")
+    if lineage == "CONTINUATION":
+        if not isinstance(parent, str) or not parent.strip():
+            findings.append({
+                "severity": "ERROR",
+                "code": "TB-SUCCESSOR-PARENT",
+                "message": "CONTINUATION requires nonempty parent_task_id",
+            })
+        contract = load_json(root / "research_taskbook_contract.json")["task_lineage_contract"]
+        required = contract["continuation_required_successor_gate_fields"]
+        if not isinstance(gate, dict):
+            findings.append({
+                "severity": "ERROR",
+                "code": "TB-SUCCESSOR-GATE",
+                "message": "CONTINUATION requires successor_gate object",
+            })
+        else:
+            for field in required:
+                if not _nonempty(gate.get(field)):
+                    findings.append({
+                        "severity": "ERROR",
+                        "code": "TB-SUCCESSOR-GATE",
+                        "message": f"CONTINUATION successor_gate missing/nonempty field: {field}",
+                    })
+    elif _nonempty(parent) or _nonempty(gate):
+        findings.append({
+            "severity": "WARN",
+            "code": "TB-LINEAGE-EXTRA",
+            "message": "parent_task_id/successor_gate present on non-CONTINUATION lineage; verify that the lineage classification is intentional",
+        })
+    return findings
+
+
 def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> list[dict[str, str]]:
     policy = policy_manifest(root)
     contract = load_json(root / "research_taskbook_contract.json")
@@ -103,8 +235,13 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
     for key, expected in required.items():
         if key not in meta:
             findings.append({"severity": "ERROR", "code": "TB-META", "message": f"missing metadata: {key}"})
+        elif isinstance(expected, str) and expected.startswith("<"):
+            pass
         elif isinstance(expected, str) and meta[key] != expected:
             findings.append({"severity": "ERROR", "code": "TB-META", "message": f"{key} must be {expected!r}"})
+
+    findings.extend(origin_findings(meta, dispatch=dispatch, root=root))
+    findings.extend(lineage_findings(meta, dispatch=dispatch, root=root))
 
     for key in contract.get("forbidden_fixed_runtime_metadata", []):
         if key in meta:
@@ -185,7 +322,26 @@ def command_audit(args: argparse.Namespace) -> int:
 
 
 def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
-    return {
+    if args.origin_kind == "FREE_AXIOM_CANDIDATE":
+        if not args.origin_candidate_id or not args.origin_candidate_state:
+            raise SystemExit("FREE_AXIOM_CANDIDATE requires --origin-candidate-id and --origin-candidate-state")
+    if args.origin_kind == "FOUNDATION_QUESTION" and not args.origin_foundation_question_id:
+        raise SystemExit("FOUNDATION_QUESTION requires --origin-foundation-question-id")
+
+    successor_gate: dict[str, Any] | None = None
+    if args.lineage == "CONTINUATION":
+        if not args.parent_task_id:
+            raise SystemExit("--parent-task-id is required for --lineage CONTINUATION")
+        successor_gate = {
+            "new_information_gap": "",
+            "why_parent_result_does_not_close_it": "",
+            "discriminating_outcomes": [],
+            "kill_condition": "",
+            "alternative_route_or_free_exploration_considered": "",
+            "why_new_stage_or_task_is_better_than_same_task_or_closure": "",
+        }
+
+    meta = {
         "task_id": args.task_id,
         "title": args.title,
         "kind": args.kind,
@@ -207,6 +363,10 @@ def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
         "task_authority": "DRIVER_APPROVED",
         "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
         "identity_lane": args.lane,
+        "origin_kind": args.origin_kind,
+        "task_lineage": args.lineage,
+        "parent_task_id": args.parent_task_id,
+        "successor_gate": successor_gate,
         "policy_review": {
             "policy_set": "research_taskbook_policy.json",
             "policy_digest": policy_digest(ROOT),
@@ -214,6 +374,13 @@ def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
             "temporary_overrides": [],
         },
     }
+    if args.origin_candidate_id:
+        meta["origin_candidate_id"] = args.origin_candidate_id
+    if args.origin_candidate_state:
+        meta["origin_candidate_state"] = args.origin_candidate_state
+    if args.origin_foundation_question_id:
+        meta["origin_foundation_question_id"] = args.origin_foundation_question_id
+    return meta
 
 
 def command_new(args: argparse.Namespace) -> int:
@@ -241,12 +408,12 @@ Status: `DRAFT / POLICY_REVIEW_PENDING / NOT DISPATCHABLE`
 
 ## 3. Success, kill, and return criteria
 
-<task-specific PASS/KILL conditions>
+<task-specific PASS/KILL conditions. If this is a continuation, the frontmatter successor_gate must independently justify why another stage exists.>
 """
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(render_taskbook(meta, body), encoding="utf-8")
     print(out.relative_to(ROOT))
-    print("created with PENDING_DRIVER_REVIEW; edit task-local content, then run review --approve")
+    print("created with PENDING_DRIVER_REVIEW; edit task-local content, complete any successor gate, then run review --approve")
     return 0
 
 
@@ -303,6 +470,12 @@ def main() -> int:
     new.add_argument("--priority", default="P1")
     new.add_argument("--leverage", default="MEDIUM")
     new.add_argument("--lane", default="")
+    new.add_argument("--origin-kind", choices=sorted(VALID_ORIGINS), default="DRIVER_ROADMAP")
+    new.add_argument("--origin-candidate-id", default=None)
+    new.add_argument("--origin-candidate-state", default=None)
+    new.add_argument("--origin-foundation-question-id", default=None)
+    new.add_argument("--lineage", choices=sorted(VALID_LINEAGES), default="NEW_DIRECTION")
+    new.add_argument("--parent-task-id", default=None)
     new.add_argument("--output", required=True)
     new.set_defaults(func=command_new)
 

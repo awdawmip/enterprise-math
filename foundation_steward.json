@@ -1,9 +1,11 @@
 {
   "schema": "ENTERPRISE_MATH_FOUNDATION_STEWARD_V1",
   "status": "ACTIVE",
-  "effective": "2026-08-09",
+  "effective": "2026-08-22",
   "role": "FOUNDATION_STEWARD",
-  "mission": "Maintain and verify shared mathematical language, notation, formulas, theorem interfaces/status, and reusable tools; actively extract verified cross-route tools and structural logic back into foundation maintenance without becoming the primary investigator of newly exposed research problems.",
+  "research_architecture": "research_architecture.json",
+  "axiom_candidate_state_machine": "research_axiom_candidate_state_machine.json",
+  "mission": "Maintain and verify shared mathematical language, notation, formulas, theorem interfaces/status, and reusable tools; actively extract verified cross-route tools and structural logic back into foundation maintenance without becoming the primary investigator of newly exposed research problems or raw free-research candidates.",
   "protocol": {
     "en": "docs/FOUNDATION_STEWARD_PROTOCOL.en.md",
     "zh": "docs/FOUNDATION_STEWARD_PROTOCOL.zh-CN.md"
@@ -15,6 +17,18 @@
     "research_relay_issue": 82,
     "foundation_problem_issue": 164,
     "research_dispatch_issue": 240
+  },
+  "free_axiom_candidate_intake": {
+    "raw_candidate_is_steward_maintenance_input": false,
+    "raw_candidate_auto_opens_foundation_question": false,
+    "minimum_eligible_states": [
+      "AUDITED_AXIOM_CANDIDATE",
+      "AUDITED_REPLACEMENT_CANDIDATE",
+      "EXACT_NEGATIVE_OBSTRUCTION"
+    ],
+    "steward_role_after_intake": "VERIFY_CLASSIFY_AND_ROUTE_NOT_DEFAULT_PRIMARY_INVESTIGATION",
+    "working_truth_required_before_verification": false,
+    "canonicalization_requires_existing_gates": true
   },
   "problem_set": {
     "repository": "awdawmip/enterprise-math",
@@ -87,12 +101,13 @@
     "contradiction_or_unsoundness_risk",
     "missing_hypothesis_or_scope_uncertainty",
     "cross_route_incompatibility",
-    "new_structural_pattern_worth_research",
+    "audited_new_structural_pattern_worth_research",
     "prior_art_or_lineage_uncertainty",
     "tool_or_theorem_sufficiency_question"
   ],
   "research_backflow": {
     "enabled": true,
+    "raw_free_candidate_eligible": false,
     "extraction_targets": [
       "minimal_sufficient_state",
       "minimal_repair_or_extension_data",
