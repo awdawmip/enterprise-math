@@ -47,13 +47,48 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         }
         (root / "research_taskbook_policy.json").write_text(json.dumps(policy))
         contract = {
-            "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V2",
+            "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V5",
             "status": "ACTIVE",
             "new_dispatchable_taskbook_required_metadata": {
                 "created_by_role": "RESEARCH_DRIVER",
                 "task_authority": "DRIVER_APPROVED",
                 "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+                "origin_kind": "<one allowed origin kind>",
                 "policy_review": {},
+            },
+            "task_origin_contract": {
+                "required_for_new_taskbooks": True,
+                "field": "origin_kind",
+                "allowed_values": [
+                    "DIRECT_USER_DIRECTION",
+                    "DRIVER_ROADMAP",
+                    "FREE_AXIOM_CANDIDATE",
+                    "FOUNDATION_QUESTION",
+                    "REPLAY_OR_INTEGRATION",
+                    "MAINTENANCE",
+                ],
+                "free_candidate_required_fields": [
+                    "origin_candidate_id",
+                    "origin_candidate_state",
+                ],
+                "free_candidate_allowed_states": [
+                    "AUDITED_AXIOM_CANDIDATE",
+                    "AUDITED_REPLACEMENT_CANDIDATE",
+                    "EXACT_NEGATIVE_OBSTRUCTION",
+                ],
+                "foundation_question_required_field": "origin_foundation_question_id",
+            },
+            "task_lineage_contract": {
+                "required_for_new_taskbooks": True,
+                "field": "task_lineage",
+                "continuation_required_successor_gate_fields": [
+                    "new_information_gap",
+                    "why_parent_result_does_not_close_it",
+                    "discriminating_outcomes",
+                    "kill_condition",
+                    "alternative_route_or_free_exploration_considered",
+                    "why_new_stage_or_task_is_better_than_same_task_or_closure",
+                ],
             },
             "forbidden_fixed_runtime_metadata": ["researcher_id"],
         }
@@ -82,6 +117,8 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "created_by_role": "RESEARCH_DRIVER",
             "task_authority": "DRIVER_APPROVED",
             "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+            "origin_kind": "DIRECT_USER_DIRECTION",
+            "task_lineage": "NEW_DIRECTION",
             "policy_review": {
                 "policy_set": "research_taskbook_policy.json",
                 "policy_digest": digest or rt.policy_digest(root),
