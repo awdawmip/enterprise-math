@@ -29,18 +29,23 @@ def omega(n:int)->int:
 
 
 def proper_large_pj_count(k:int,n:int,j:int)->int:
-    """C_j^o(n): proper divisors D with k<D<n and Omega(D)=j."""
+    """C_j^o(n): proper divisors D with k<D<n and Omega(D)=j.
+
+    In an open square basin, isqrt(n)=k.  Hence every divisor pair has one
+    member <=k and the complementary member >k.  Enumerate the small side and
+    count its complementary large divisor; do not try to enumerate integers in
+    the empty interval (k,sqrt(n)].
+    """
     if k<2 or not k*k<n<(k+1)*(k+1):
         raise ValueError("n must lie in the square basin")
     if j<1: raise ValueError("j>=1 required")
-    total=0
-    for d in range(k+1,isqrt(n)+1):
+    seen=set()
+    for d in range(1,k+1):
         if n%d: continue
-        e=n//d
-        for x in (d,e) if d!=e else (d,):
-            if x<n and omega(x)==j:
-                total+=1
-    return total
+        D=n//d
+        if k<D<n and omega(D)==j:
+            seen.add(D)
+    return len(seen)
 
 
 def squarefree_prime_factors(n:int)->tuple[int,...]:
@@ -66,6 +71,8 @@ def switching_ladder_certificate(k:int,n:int)->dict[str,object]:
             branches.append(D)
     if len(branches)<s-1 or len(set(branches))!=len(branches):
         raise AssertionError("proper-large branch ladder failed")
+    if proper_large_pj_count(k,n,s-1)!=len(branches):
+        raise AssertionError("direct proper-large count disagrees with deleted-prime branches")
     return {"k":k,"n":n,"omega":s,"branches":tuple(sorted(branches)),"count":len(branches)}
 
 
