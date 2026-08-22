@@ -1,0 +1,116 @@
+{
+  "schema": "R065_PHASEA_SEMANTIC_SCOPE_CLAIM_LEDGER_V1",
+  "researcher_id": "EM-R065A-7E6F46",
+  "input_ref": "research_inputs/R065_PHASEA_BLIND_PRIMITIVE_PACKET_20260822.md@00765cc76ea71f789481fbe91c29d852bbf6b209",
+  "claims": [
+    {
+      "claim_id": "P001",
+      "object": "abstract three-element component-type set",
+      "layer": "PRIMITIVE_OBJECT",
+      "status": "SUPPLIED"
+    },
+    {
+      "claim_id": "P002",
+      "object": "all unordered two-component sector supports",
+      "layer": "PRIMITIVE_RELATION",
+      "status": "SUPPLIED"
+    },
+    {
+      "claim_id": "P003",
+      "object": "nonnegative multiplicity content with support<=2",
+      "layer": "PRIMITIVE_OBJECT",
+      "status": "SUPPLIED"
+    },
+    {
+      "claim_id": "P004",
+      "object": "typed finite-token realization",
+      "layer": "IMPLEMENTATION_CARRIER_WITH_PRIMITIVE_TYPING",
+      "status": "SUPPLIED_FOR_FINITE_REASONING"
+    },
+    {
+      "claim_id": "P005",
+      "object": "componentwise partial composition",
+      "layer": "PRIMITIVE_OPERATION",
+      "status": "SUPPLIED"
+    },
+    {
+      "claim_id": "D001",
+      "object": "type-equality token relation",
+      "layer": "DEFINABLE_DERIVED_RELATION",
+      "status": "DERIVED"
+    },
+    {
+      "claim_id": "D002",
+      "object": "occupied type partition / quotient",
+      "layer": "DEFINABLE_DERIVED_OBJECT",
+      "status": "DERIVED"
+    },
+    {
+      "claim_id": "D003",
+      "object": "Lambda(n)=sorted multiplicity triple",
+      "layer": "DEFINABLE_DERIVED_OBJECT",
+      "status": "DERIVED_COMPLETE_UNLABELED_INVARIANT"
+    },
+    {
+      "claim_id": "N001",
+      "object": "TOTAL token cardinality",
+      "layer": "NUMERICAL_READOUT",
+      "status": "DERIVED_NOT_PRIMITIVE"
+    },
+    {
+      "claim_id": "N002",
+      "object": "SUPPORT cardinality",
+      "layer": "NUMERICAL_READOUT",
+      "status": "DERIVED_NOT_PRIMITIVE"
+    },
+    {
+      "claim_id": "N003",
+      "object": "MAXBLOCK cardinality",
+      "layer": "NUMERICAL_READOUT",
+      "status": "DERIVED_NOT_PRIMITIVE"
+    },
+    {
+      "claim_id": "N004",
+      "object": "CROSS2 cardinality",
+      "layer": "NUMERICAL_READOUT",
+      "status": "DERIVED_NOT_PRIMITIVE"
+    },
+    {
+      "claim_id": "N005",
+      "object": "SAME2 cardinality",
+      "layer": "NUMERICAL_READOUT",
+      "status": "DERIVED_NOT_PRIMITIVE"
+    },
+    {
+      "claim_id": "A001",
+      "object": "additivity of unknown readout",
+      "layer": "CONDITIONAL_OPERATIONAL_ASSUMPTION",
+      "status": "NOT_SUPPLIED"
+    },
+    {
+      "claim_id": "A002",
+      "object": "unit normalization of unknown readout",
+      "layer": "CONDITIONAL_OPERATIONAL_ASSUMPTION",
+      "status": "NOT_SUPPLIED"
+    },
+    {
+      "claim_id": "S001",
+      "object": "interpret scalar as magnitude/scale",
+      "layer": "SEMANTIC_ROLE_ASSIGNMENT",
+      "status": "NOT_DERIVED"
+    },
+    {
+      "claim_id": "I001",
+      "object": "token indices / lexical names",
+      "layer": "IMPLEMENTATION_ONLY_CARRIER",
+      "status": "NONSEMANTIC"
+    },
+    {
+      "claim_id": "F001",
+      "object": "new Foundation primitive",
+      "layer": "FOUNDATION_PROMOTION",
+      "status": "PROHIBITED_IN_PHASE_A"
+    }
+  ],
+  "ledger_verdict": "SEMANTIC_SCOPE_CLAIM_LEDGER_COMPLETE"
+}

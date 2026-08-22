@@ -1,0 +1,23 @@
+{
+  "schema": "R065_PHASEA_REGRESSION_V1",
+  "researcher_id": "EM-R065A-7E6F46",
+  "checker": "scripts/r065_phasea_validate_primitive_intrinsic_readout.py",
+  "domain": {
+    "admissible_composition_pairs_tested": 7057,
+    "component_multiplicity_range": [0,6],
+    "s3_permutation_count": 6,
+    "sector_supported_state_count": 127,
+    "state_permutation_checks": 762
+  },
+  "theorem_checks": {
+    "conditional_additive_family_c_times_total_tokens": "PASS",
+    "orbit_quotient_composition_not_single_valued_without_relative_alignment": "PASS",
+    "orbit_signature_complete_for_s3_isomorphism": "PASS",
+    "s3_invariance": "PASS",
+    "token_renaming_via_canonical_isomorphism_reduction": "PASS",
+    "total_and_largest_block_zero_unit_normalized_monotone": "PASS",
+    "total_tokens_additive_on_all_admissible_compositions": "PASS"
+  },
+  "retained_candidates": ["ORBIT_SIGNATURE","TYPE_PARTITION","TOTAL_TOKENS","SUPPORT_CARDINALITY","LARGEST_TYPE_BLOCK","CROSS_TYPE_UNORDERED_PAIRS","SAME_TYPE_UNORDERED_PAIRS"],
+  "verdict": "PASS_ZERO_UNCLASSIFIED_MISMATCHES"
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "R065_PHASEA_INVARIANCE_CERTIFICATE_V1",
+  "researcher_id": "EM-R065A-7E6F46",
+  "input_ref": "research_inputs/R065_PHASEA_BLIND_PRIMITIVE_PACKET_20260822.md@00765cc76ea71f789481fbe91c29d852bbf6b209",
+  "presentation_group": {
+    "token_renaming": "arbitrary fiberwise bijections",
+    "component_relabeling": "full S3",
+    "sector_orientation": "none supplied"
+  },
+  "candidates": {
+    "R065A-C0-ORBIT": {
+      "token_renaming": "INVARIANT",
+      "s3_component_relabeling": "INVARIANT",
+      "chosen_sector_dependence": "NONE",
+      "ordered_sector_name_dependence": "NONE",
+      "unlabeled_isomorphism_survival": "YES"
+    },
+    "R065A-C1-PARTITION": {
+      "token_renaming": "EQUIVARIANT; isomorphism class invariant",
+      "s3_component_relabeling": "EQUIVARIANT; unlabeled partition invariant",
+      "chosen_sector_dependence": "NONE",
+      "ordered_sector_name_dependence": "NONE",
+      "unlabeled_isomorphism_survival": "YES"
+    },
+    "R065A-C2-TOTAL": {
+      "token_renaming": "INVARIANT",
+      "s3_component_relabeling": "INVARIANT",
+      "chosen_sector_dependence": "NONE",
+      "ordered_sector_name_dependence": "NONE",
+      "unlabeled_isomorphism_survival": "YES"
+    },
+    "R065A-C3-SUPPORT": {
+      "token_renaming": "INVARIANT",
+      "s3_component_relabeling": "INVARIANT",
+      "chosen_sector_dependence": "NONE",
+      "ordered_sector_name_dependence": "NONE",
+      "unlabeled_isomorphism_survival": "YES"
+    },
+    "R065A-C4-MAXBLOCK": {
+      "token_renaming": "INVARIANT",
+      "s3_component_relabeling": "INVARIANT",
+      "chosen_sector_dependence": "NONE",
+      "ordered_sector_name_dependence": "NONE",
+      "unlabeled_isomorphism_survival": "YES"
+    },
+    "R065A-C5-CROSS2": {
+      "token_renaming": "INVARIANT",
+      "s3_component_relabeling": "INVARIANT",
+      "chosen_sector_dependence": "NONE",
+      "ordered_sector_name_dependence": "NONE",
+      "unlabeled_isomorphism_survival": "YES"
+    },
+    "R065A-C6-SAME2": {
+      "token_renaming": "INVARIANT",
+      "s3_component_relabeling": "INVARIANT",
+      "chosen_sector_dependence": "NONE",
+      "ordered_sector_name_dependence": "NONE",
+      "unlabeled_isomorphism_survival": "YES"
+    }
+  },
+  "finite_checker": {
+    "multiplicity_domain": "0..6 with support<=2",
+    "state_count": 127,
+    "s3_permutation_checks": 762,
+    "token_renaming_method": "canonical finite-isomorphism reduction to component-fiber cardinalities",
+    "unclassified_mismatches": 0
+  },
+  "certificate_verdict": "TOKEN_RENAMING_INVARIANCE_AND_S3_EQUIVARIANCE_CLASSIFIED"
+}

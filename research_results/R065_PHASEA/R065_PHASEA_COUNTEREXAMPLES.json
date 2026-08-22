@@ -1,0 +1,108 @@
+{
+  "schema": "R065_PHASEA_COUNTEREXAMPLES_V1",
+  "researcher_id": "EM-R065A-7E6F46",
+  "nonuniqueness": {
+    "claim_rejected": "symmetry + zero normalization + unit normalization + componentwise monotonicity selects a unique scalar",
+    "candidate_A": "TOTAL_TOKENS",
+    "candidate_B": "LARGEST_TYPE_BLOCK",
+    "witness_state": [
+      0,
+      1,
+      1
+    ],
+    "values": {
+      "TOTAL_TOKENS": 2,
+      "LARGEST_TYPE_BLOCK": 1
+    }
+  },
+  "orbit_composition_not_well_defined": {
+    "aligned_case": {
+      "left": [
+        1,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        0,
+        0
+      ],
+      "sum": [
+        2,
+        0,
+        0
+      ]
+    },
+    "aligned_sum_orbit": [
+      0,
+      0,
+      2
+    ],
+    "distinct_type_case": {
+      "left": [
+        1,
+        0,
+        0
+      ],
+      "right": [
+        0,
+        1,
+        0
+      ],
+      "sum": [
+        1,
+        1,
+        0
+      ]
+    },
+    "distinct_type_sum_orbit": [
+      0,
+      1,
+      1
+    ],
+    "input_orbit_left": [
+      0,
+      0,
+      1
+    ],
+    "input_orbit_right": [
+      0,
+      0,
+      1
+    ]
+  },
+  "additivity_failures": {
+    "CROSS_TYPE_UNORDERED_PAIRS": {
+      "left": [0,0,1],
+      "right": [0,1,0],
+      "sum": [0,1,1]
+    },
+    "LARGEST_TYPE_BLOCK": {
+      "left": [0,0,1],
+      "right": [0,1,0],
+      "sum": [0,1,1]
+    },
+    "SAME_TYPE_UNORDERED_PAIRS": {
+      "left": [0,0,1],
+      "right": [0,0,1],
+      "sum": [0,0,2]
+    },
+    "SUPPORT_CARDINALITY": {
+      "left": [0,0,1],
+      "right": [0,0,1],
+      "sum": [0,0,2]
+    }
+  },
+  "scalar_family_distinguishers": {
+    "TOTAL_TOKENS__VS__SUPPORT_CARDINALITY": {"state":[0,0,2],"TOTAL_TOKENS":2,"SUPPORT_CARDINALITY":1},
+    "TOTAL_TOKENS__VS__LARGEST_TYPE_BLOCK": {"state":[0,1,1],"TOTAL_TOKENS":2,"LARGEST_TYPE_BLOCK":1},
+    "TOTAL_TOKENS__VS__CROSS_TYPE_UNORDERED_PAIRS": {"state":[0,0,1],"TOTAL_TOKENS":1,"CROSS_TYPE_UNORDERED_PAIRS":0},
+    "TOTAL_TOKENS__VS__SAME_TYPE_UNORDERED_PAIRS": {"state":[0,0,1],"TOTAL_TOKENS":1,"SAME_TYPE_UNORDERED_PAIRS":0},
+    "SUPPORT_CARDINALITY__VS__LARGEST_TYPE_BLOCK": {"state":[0,0,2],"SUPPORT_CARDINALITY":1,"LARGEST_TYPE_BLOCK":2},
+    "SUPPORT_CARDINALITY__VS__CROSS_TYPE_UNORDERED_PAIRS": {"state":[0,0,1],"SUPPORT_CARDINALITY":1,"CROSS_TYPE_UNORDERED_PAIRS":0},
+    "SUPPORT_CARDINALITY__VS__SAME_TYPE_UNORDERED_PAIRS": {"state":[0,0,1],"SUPPORT_CARDINALITY":1,"SAME_TYPE_UNORDERED_PAIRS":0},
+    "LARGEST_TYPE_BLOCK__VS__CROSS_TYPE_UNORDERED_PAIRS": {"state":[0,0,1],"LARGEST_TYPE_BLOCK":1,"CROSS_TYPE_UNORDERED_PAIRS":0},
+    "LARGEST_TYPE_BLOCK__VS__SAME_TYPE_UNORDERED_PAIRS": {"state":[0,0,1],"LARGEST_TYPE_BLOCK":1,"SAME_TYPE_UNORDERED_PAIRS":0},
+    "CROSS_TYPE_UNORDERED_PAIRS__VS__SAME_TYPE_UNORDERED_PAIRS": {"state":[0,0,2],"CROSS_TYPE_UNORDERED_PAIRS":0,"SAME_TYPE_UNORDERED_PAIRS":1}
+  }
+}
