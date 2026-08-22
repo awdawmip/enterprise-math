@@ -3,8 +3,16 @@
 Status: `ACTIVE / CANONICAL / FOUNDATIONAL_CORRECTION`
 Date: `2026-08-20`
 Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
+Refoundation integration: `FQ-20260822-008 + FQ-20260822-009 / EM-DVR-ZX1UEJ`
 
 This file is the corrected current foundation. It keeps the three-positive-axis overlapping circle-cell carrier with nearest center spacing 1 and cell radius `1/sqrt(3)`, but corrects the native angular/metric semantics: in Enterprise geometry the `120 degree` sector between adjacent positive axes is the native right angle. Therefore the former Euclidean-carrier quadratic form `a^2+b^2+c^2-ab-bc-ca` is not the native Enterprise Pythagorean metric.
+
+The 2026-08-22 refoundation integration changes only two primitive/derived boundaries while preserving the same native model class:
+
+1. the three positive direction families are generated from the unordered elementary origin-center triangle plus one selected orientation-torsor element;
+2. within each already-typed two-channel sector, the global sum-of-squares scalar law is derived from one-dimensional square calibration plus local transverse scalar independence.
+
+The canonical native address atlas remains declared/primitive: the carrier min-zero normal form is not promoted into an absolute native address derivation.
 
 ## 1. Native origin and object types
 
@@ -38,7 +46,7 @@ Strictly distinguish:
 2. `CIRCLE_CELL` — the closed circular carrier around that center;
 3. `COORDINATE_VERTEX` — a triple boundary-intersection event of three cells.
 
-## 2. Integer center carrier and three positive directions
+## 2. Integer center carrier and oriented generation of the three positive directions
 
 Cell centers form the same gap-free triangular carrier arrangement. Normalize nearest-neighbor center spacing to
 
@@ -48,13 +56,57 @@ Freeze:
 
 `NEAREST_CELL_CENTER_DISTANCE = 1`.
 
-Let the three positive native axis rays be `E_1,E_2,E_3`. In the planar carrier presentation their directions occur successively at `120 degree` separation.
+Because the origin is the common boundary point of exactly three neighboring origin-incident cells, their three centers canonically determine an **unordered elementary carrier triangle** `T`.
 
-The earlier statement
+Freeze:
 
-`e_1+e_2+e_3=0`
+`ORIGIN_INCIDENT_CENTER_TRIANGLE = UNORDERED_ELEMENTARY_TRIANGLE_T`.
 
-was a relation of a classical planar vector presentation of the three carrier directions. It is **not** a native Enterprise vector identity and must not be used to define native length, opposite directions, or coordinate equivalence.
+Bare incidence plus the triangular translation carrier does not select a cyclic orientation of `T`. Its automorphism group is
+
+`Aut(T) ~= S3`,
+
+and the two cyclic orientations form the two-sheet torsor
+
+`Or(T) ~= S3/A3 ~= C2`.
+
+Select one primitive orientation element
+
+`o in Or(T)`.
+
+This is a torsor element, not a detached Boolean whose literal `0/1` labels have intrinsic native meaning.
+
+Freeze:
+
+`NATIVE_ORIENTATION_DATUM = o in Or(T)`.
+
+Orient the three boundary translation classes of `T` cyclically according to `o`. Their translation classes generate the three positive carrier direction families. The three native axis rays are the rays from `O_E` parallel, in the carrier presentation, to those three positive direction families.
+
+Freeze:
+
+`THREE_POSITIVE_DIRECTION_FAMILIES = DERIVED_FROM_ORIENTED_ORIGIN_TRIANGLE`.
+
+`ENTERPRISE_NATIVE_AXES = THREE_POSITIVE_RAYS`.
+
+The names `E_1,E_2,E_3` are cyclic gauge labels for these three derived positive direction families. The orientation datum does not choose an absolute first axis, base edge, or first vertex.
+
+After choosing `o`, the residual automorphism group preserving the oriented triangle is
+
+`Aut(T,o)=A3 ~= C3`.
+
+Freeze:
+
+`ABSOLUTE_AXIS_LABELS_ARE_GAUGE`.
+
+`RESIDUAL_ORIENTED_TRIANGLE_AUTOMORPHISM = A3 ~= C3`.
+
+In the planar carrier presentation the three positive directions occur successively at `120 degree` separation. The orientation refoundation does **not** derive the native right-angle or scalar law from that carrier angle; those semantic layers are stated separately below.
+
+The carrier boundary translations satisfy the classical presentation relation corresponding to one cyclic triangle traversal, often serialized as
+
+`e_1+e_2+e_3=0`.
+
+This is a relation of a classical planar/translation carrier presentation. It is **not** a native Enterprise vector identity and must not be used to define native length, opposite directions, or coordinate equivalence.
 
 Freeze:
 
@@ -66,11 +118,9 @@ No native negative axes are required. The three positive rays themselves partiti
 
 Freeze:
 
-`ENTERPRISE_NATIVE_AXES = THREE_POSITIVE_RAYS`.
-
 `NO_NATIVE_NEGATIVE_AXES_REQUIRED`.
 
-## 3. Three positive integer coordinates are sector coordinates
+## 3. Three positive integer coordinates are primitive sector coordinates, not a carrier quotient
 
 Use nonnegative integer triples
 
@@ -80,7 +130,7 @@ with canonical condition
 
 `min(a,b,c)=0`.
 
-This is **not** a quotient by common diagonal shift. It is a sector typing rule.
+This is **not** a quotient by common diagonal shift. It is a native sector typing/address rule.
 
 Define the three native sectors:
 
@@ -100,9 +150,25 @@ Freeze:
 
 `THREE_POSITIVE_COORDINATES = THREE_GLUED_TWO_AXIS_SECTOR_CHARTS`.
 
+`NATIVE_ADDRESS_ATLAS = DECLARED_PRIMITIVE_SECTOR_ATTACHMENT`.
+
 `(a,b,c) IS_NOT_EQUIVALENT_TO (a+k,b+k,c+k)`.
 
-Cell centers carry integer addresses in this sector atlas. Because the geometric origin is a triple-intersection vertex rather than a center, the center lattice is an affine carrier relative to the origin; integer address does not mean that a center lies on a number axis.
+The oriented triangle does not by itself derive the absolute attachment of these addresses to cell centers. The reason is structural: after choosing `o`, the residual `A3 ~= C3` symmetry still cyclically permutes the three oriented-triangle roles, while the geometric origin is not itself a center. Hence the center carrier is affine relative to the origin and an absolute address attachment requires more than a carrier displacement normal form.
+
+At the carrier-presentation layer only, if the three oriented boundary translation classes are serialized as `e_1,e_2,e_3`, the coefficient map has kernel
+
+`ker(Phi)=Z(1,1,1)`.
+
+Subtracting the common minimum from an integer coefficient triple therefore gives a unique min-zero **carrier displacement normal form**. This theorem is permitted only as carrier representation/decoding mathematics.
+
+Freeze:
+
+`CARRIER_MIN_ZERO_NORMAL_FORM != NATIVE_ABSOLUTE_ADDRESS_DERIVATION`.
+
+`CARRIER_DIAGONAL_KERNEL != NATIVE_DIAGONAL_EQUIVALENCE`.
+
+Cell centers carry the declared integer addresses in this sector atlas. Because the geometric origin is a triple-intersection vertex rather than a center, the center lattice is an affine carrier relative to the origin; integer address does not mean that a center lies on a number axis.
 
 ## 4. Cell radius
 
@@ -184,9 +250,51 @@ Freeze:
 
 `NATIVE_NUMBER_AXIS_NEVER_PASSES_THROUGH_CELL_CENTER`.
 
-## 8. Native Pythagorean metric
+The orientation-torsor refoundation in Section 2 does not derive this `120 degree` native-right-angle declaration.
 
-Inside each native right sector, the two bounding positive axes are Enterprise-orthogonal. Therefore the native Pythagorean law is primitive:
+## 8. Native sector scalar: axis calibration + transverse independence
+
+Inside each native right sector, let
+
+`Q_ij = L_E^2`
+
+be the scalar on the two active nonnegative integer coordinates of sector `S_ij`.
+
+The current sector scalar primitive is factored into two independent pieces.
+
+### Primitive A — one-dimensional square calibration
+
+Along either active native axis,
+
+`Q_ij(n,0)=n^2`,
+
+`Q_ij(0,n)=n^2`,
+
+for every `n in N_0`.
+
+Freeze:
+
+`NATIVE_AXIS_SCALAR_CALIBRATION = n^2`.
+
+### Primitive B — local transverse scalar independence
+
+For every elementary plaquette of the two-channel sector,
+
+`Q_ij(a+1,b+1)-Q_ij(a+1,b)-Q_ij(a,b+1)+Q_ij(a,b)=0`.
+
+Equivalently, the marginal scalar increment of one active channel is invariant under the transverse channel background.
+
+Freeze:
+
+`NATIVE_SECTOR_TRANSVERSE_INTERACTION = 0`.
+
+`TRANSVERSE_INDEPENDENCE_IS_SECTOR_PRODUCT_RELATIVE`.
+
+This is not invariant under arbitrary channel-mixing coordinate transformations. The current native sectors already preserve the two active channel foliations; no stronger coordinate-free claim is made.
+
+### Derived theorem — sector sum of squares
+
+On a connected two-channel sector, zero mixed second difference implies additive separation. Combining that theorem with the two axis calibrations gives:
 
 For `P=(a,b,0)` in `S_12`,
 
@@ -206,7 +314,7 @@ Because every canonical native address has at least one zero component, these th
 
 Freeze:
 
-`NATIVE_SECTOR_PYTHAGOREAN_LAW = a^2+b^2` on each active two-axis sector.
+`NATIVE_SECTOR_SUM_OF_SQUARES = DERIVED_THEOREM`.
 
 `NATIVE_ORIGIN_LENGTH_SQUARED = a^2+b^2+c^2` for canonical sector addresses.
 
@@ -230,7 +338,7 @@ Freeze:
 
 ## 9. Global distance and chart transition status
 
-The origin-based native norm in each sector is now fixed by the Pythagorean law above.
+The origin-based native norm in each sector is fixed by the derived sum-of-squares theorem above from the accepted sector primitives.
 
 For arbitrary point-to-point displacement across different sectors, do not reintroduce the deleted diagonal-shift quotient and do not automatically subtract global three-component coordinates as though the three sectors formed one linear Euclidean basis.
 
@@ -238,7 +346,7 @@ Freeze:
 
 `CROSS_SECTOR_POINT_TO_POINT_METRIC = REQUIRES_EXPLICIT_NATIVE_CHART_TRANSITION`.
 
-This is the next metric/gluing question; it does not alter the sector-local Pythagorean theorem.
+This is the next metric/gluing question; it does not alter the sector-local sum-of-squares theorem.
 
 ## 10. Discrete cell-state principle
 
@@ -267,7 +375,9 @@ Superseded as current native foundation:
 - `(a,b,c)~(a+k,b+k,c+k)` as native coordinate equivalence;
 - the claim that the three native 120-degree axis pairs are not Enterprise-orthogonal;
 - native metric `a^2+b^2+c^2-ab-bc-ca`;
-- using classical carrier angle to decide native Pythagorean orthogonality.
+- using classical carrier angle to decide native Pythagorean orthogonality;
+- treating the global sector formula `a^2+b^2` as the sole primitive scalar statement rather than the derived consequence of axis calibration plus transverse independence;
+- treating the carrier diagonal kernel/min-zero displacement normal form as an absolute native address quotient or derivation.
 
 ## 12. Canonical summary
 
@@ -285,16 +395,28 @@ Freeze:
 
 `ALL CELLS COVER THE PLANE WITHOUT GAPS`.
 
-`THREE POSITIVE AXES ONLY`.
+`ORIGIN-INCIDENT CELL CENTERS = UNORDERED ELEMENTARY TRIANGLE T`.
+
+`NATIVE CHIRAL DATUM = ONE ELEMENT o OF Or(T) ~= C2`.
+
+`THREE POSITIVE DIRECTION FAMILIES = DERIVED FROM (T,o) + CARRIER TRANSLATION`.
+
+`ABSOLUTE AXIS LABELS = CYCLIC GAUGE; Aut(T,o)=A3 ~= C3`.
 
 `THREE POSITIVE AXES CUT THE PLANE INTO THREE 120-DEGREE NATIVE RIGHT SECTORS`.
 
 `ENTERPRISE RIGHT ANGLE = 120 DEGREES`.
 
-`THREE-COORDINATE ADDRESS = GLUED TWO-AXIS SECTOR CHART, NOT DIAGONAL-SHIFT QUOTIENT`.
+`THREE-COORDINATE ADDRESS = PRIMITIVE GLUED TWO-AXIS SECTOR ATTACHMENT, NOT DIAGONAL-SHIFT QUOTIENT`.
+
+`CARRIER MIN-ZERO NORMAL FORM != ABSOLUTE NATIVE ADDRESS DERIVATION`.
 
 `CELL CENTERS HAVE NONNEGATIVE INTEGER SECTOR ADDRESSES`.
 
-`NATIVE PYTHAGOREAN LENGTH^2 = SUM OF SQUARES OF THE TWO ACTIVE AXIS COORDINATES`.
+`NATIVE AXIS SCALAR CALIBRATION = n^2`.
+
+`NATIVE SECTOR TRANSVERSE INTERACTION = 0`.
+
+`NATIVE SECTOR SUM-OF-SQUARES = DERIVED`.
 
 `(3,4,0) HAS NATIVE LENGTH 5`.
