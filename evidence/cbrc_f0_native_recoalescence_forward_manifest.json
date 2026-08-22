@@ -1,0 +1,38 @@
+{
+  "artifact_sha256": {
+    "research_reports/CBRC_F0_ABLATION_AND_COUNTERMODEL_PACKET_20260822.md": "c55be9bdaf20d32129c5be3e42637e57eeb24991558e21cdbd5420ace9644883",
+    "research_reports/CBRC_F0_NATIVE_RECOALESCENCE_FORWARD_DERIVATION_RETURN_20260822.md": "2d78f88d3eb2872d406ba084ff069645487fa0ff3a2990c987c01768dee1b203",
+    "research_reports/CBRC_F0_SOURCE_AND_TARGET_LEAK_AUDIT_20260822.md": "9b8c38795e9991a955107df9d42ff6245484abd817c484651775fbc706c09a6e",
+    "scripts/cbrc_f0_validate_native_recoalescence_forward.py": "e429fdad187737221fe18dd0eb93c363961fd5e132aa91d2acf35959ab58f406"
+  },
+  "checker": {
+    "command": "python3 scripts/cbrc_f0_validate_native_recoalescence_forward.py",
+    "composition_depth": 4,
+    "deterministic_result_digest_sha256": "362738cc8a1a0f87c291d897308c4476e385c3266240f1f8b598cda1c50194ca",
+    "mismatch_count": 0,
+    "path": "scripts/cbrc_f0_validate_native_recoalescence_forward.py"
+  },
+  "date": "2026-08-22",
+  "frozen_issue_base": "18260c780295edabbaaca746e5210478a1d98180",
+  "hard_target": "NATIVE_RECOALESCENCE_MINIMAL_EXTENSION_CLASSIFIED",
+  "hard_target_status": true,
+  "notes": [
+    "Artifact SHA-256 values are over UTF-8 file contents.",
+    "Manifest self-digest is intentionally not embedded to avoid recursive hashing."
+  ],
+  "owner_branch": "research/cbrc-f0-native-recoalescence-forward-derivation",
+  "phase": "A_BLIND_FORWARD",
+  "phase_a_forbidden_preload_used": false,
+  "primary_verdict": "F0_UNDERDETERMINED_BY_CURRENT_FOUNDATION",
+  "researcher_id": "EM-CBRCF0-4E91C7",
+  "schema": "CBRC_F0_NATIVE_RECOALESCENCE_FORWARD_MANIFEST_V1",
+  "source_blobs": {
+    "definitions/00_CURRENT_NATIVE_FOUNDATION.md": "c3140417e061932b4415f86cad397fc2de91d3c2",
+    "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md": "6ec0d73a19e28ec586c59a97d24f5798c9119771",
+    "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md": "b631242db84c5bd3640e6dc554b19a1d04d464f3",
+    "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md": "393060ebfd6a86ad45f258747d78a14d9c8ac153"
+  },
+  "target_leak_audit": "PASS",
+  "task_id": "RS-CBRC-F0-NATIVE-RECOALESCENCE-FORWARD-DERIVATION",
+  "taskbook_source_commit": "b3ae07ca418d3e747d3b58bf8e6e2c8ab256dd7a"
+}
