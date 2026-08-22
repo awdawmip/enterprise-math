@@ -1,5 +1,5 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V7",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V8",
   "status": "ACTIVE",
   "effective": "2026-08-22T01:11:00+08:00",
   "research_architecture": "research_architecture.json",
@@ -33,8 +33,13 @@
       "identity_lane": "EM-FREE",
       "default_state": "AXIOM_DISCOVERY",
       "default_objective": "DISCOVER_NEW_AXIOM_CANDIDATES",
+      "phase_a_substrate_router": "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md",
+      "agenda_visibility_before_candidate_freeze": "PRIMITIVE_SUBSTRATE_ONLY",
+      "general_current_router_before_candidate_freeze": false,
+      "default_suggested_question_menu": null,
+      "default_discovery_lens_menu": null,
+      "negative_instruction_style": "GENERIC_CATEGORIES_ONLY",
       "scheduler_eligible": false,
-      "agenda_visibility_before_candidate_freeze": "FOUNDATION_ONLY",
       "inherits_other_branch_working_truth": false,
       "role_contract": "research_roles/EM_FREE_RESEARCHER_ROLE.md",
       "anti_anchoring_contract": "research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md",
@@ -130,8 +135,9 @@
       "Researchers should not interrupt productive research merely to package every side branch."
     ],
     "FREE_AXIOM_DISCOVERY": [
-      "Freedom includes choosing the primitive question, not merely pivoting inside a supplied problem.",
-      "Before candidate freeze, current agenda, recent route history, other branch Working Truth, suggested questions, and tool/representation convenience are not discovery priors.",
+      "Freedom includes authoring the primitive question itself, not merely pivoting inside a supplied problem.",
+      "Before candidate freeze, only the primitive substrate and binding integrity rules are default research input; the general current-result router, current agenda/history, other branch Working Truth, current-success vocabulary, tool/representation convenience, suggested questions and discovery-lens menus are not discovery priors.",
+      "The control plane deliberately supplies no default suggested-question list or discovery-lens list before the first candidate.",
       "After candidate freeze, prior/current work may be opened for falsification, deduplication, prior-art and integration audit."
     ]
   },
