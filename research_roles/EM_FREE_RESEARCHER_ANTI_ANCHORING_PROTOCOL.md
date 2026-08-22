@@ -1,6 +1,6 @@
 # EM FREE_RESEARCHER — Anti-Anchoring Axiom Discovery Protocol
 
-Status: `ACTIVE / ROLE-SPECIFIC GOVERNANCE V6`
+Status: `ACTIVE / ROLE-SPECIFIC GOVERNANCE V7`
 Date: `2026-08-22`
 Role: `EM_FREE_RESEARCHER`
 Research mode: `FREE_AXIOM_DISCOVERY`
@@ -11,21 +11,25 @@ Primitive substrate router: `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`
 
 ## Purpose
 
-A free researcher is not a queue worker and not a continuation researcher.
+A free researcher is not a queue worker, continuation researcher, or recipient of a disguised “interesting question” menu.
 
 Default route:
 
-`SNAPSHOTTED PRIMITIVE SUBSTRATE -> INDEPENDENT STRUCTURAL SEARCH -> FROZEN AXIOM CANDIDATE -> ONLY THEN CURRENT/PRIOR-WORK COMPARISON`.
+`SNAPSHOTTED PRIMITIVE SUBSTRATE -> RESEARCHER GENERATES ITS OWN QUESTION -> FROZEN AXIOM CANDIDATE -> ONLY THEN CURRENT/PRIOR-WORK COMPARISON`.
 
-The protocol reduces recency, task, route, success/failure, negative-instruction, ambient-context, tool-availability, representation and hindsight/post-allocation anchoring.
+The protocol reduces recency, task, route, success/failure, negative-instruction, ambient-context, tool-availability, representation, suggestion-menu and hindsight/post-allocation anchoring.
 
 Freeze:
 
 `FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS`.
 
+`NO_DEFAULT_DISCOVERY_LENS_MENU`.
+
+`NEGATIVE_INSTRUCTION_MUST_NOT_ENUMERATE_SALIENT_FORBIDDEN_OBJECTS`.
+
 ## Context-cleanliness gate
 
-A model cannot literally unread salient route information already present in its active context.
+A model cannot literally unread salient route/result information already present in its active context.
 
 Preferred launch:
 
@@ -35,7 +39,7 @@ Preferred launch:
 
 `PREEXISTING_AGENDA_EXPOSURE_CANNOT_BE_UNREAD = true`.
 
-If agenda information was materially present before candidate generation, mark:
+If agenda/current-result information was materially present before candidate generation, mark:
 
 `BLINDNESS_STATUS = ANCHOR_EXPOSED`.
 
@@ -45,7 +49,7 @@ Do not claim blind provenance merely because a later instruction says to ignore 
 
 Before substantive Phase-A adaptation, record/pin:
 
-- `FOUNDATION_SNAPSHOT_REF` — the primitive-substrate router and any exact primitive file actually loaded;
+- `FOUNDATION_SNAPSHOT_REF` — primitive-substrate router plus any exact primitive file actually loaded;
 - `WORLDVIEW_SNAPSHOT_REF` when relevant.
 
 Phase A reasons against that frozen starting packet. Do not repeatedly chase moving `main`.
@@ -62,53 +66,35 @@ Allowed context is the minimum needed to know current primitive commitments and 
 4. foundational/native-semantic typing when the candidate makes such claims;
 5. repository safety, identity and provenance rules.
 
-Do **not** preload `definitions/00_CURRENT_NATIVE_FOUNDATION.md` during Phase A. It is a general current-mathematics router and deliberately indexes successful downstream constructions.
+Do **not** preload `definitions/00_CURRENT_NATIVE_FOUNDATION.md` during Phase A. It is a general current-mathematics/current-achievement router for TASK/Driver/current-state lookup and FREE Phase B.
 
-Phase A MUST NOT read or use merely for inspiration:
+Do not enumerate the router's downstream contents in a Phase-A-facing prohibition. The generic boundary is sufficient:
 
-- current line-trace / arbitrary-gauge / bidirectional-segment / BRC-multipath / path-root canonical result files;
-- scheduler/dispatch state;
-- current/open/numbered taskbooks;
-- recent commit titles/history;
-- Research Relay / current PR or issue descriptions;
-- another branch's Driver Working Truth;
-- current theorem-family success catalogs;
-- prior failed-route catalogs;
-- suggested open questions;
-- benchmark targets, teacher answers or classical target values selected to steer discovery;
-- existing candidate names as a closed menu;
-- current Driver Continuity or recent Enterprise journal as a source of what to study next;
-- incidental project-chat summaries, remembered recent work, ambient model/session memory or earlier conversation material not explicitly supplied by the user's current instruction;
-- existence/ease of a script, checker, formal module, notebook, visualization or enumerator;
-- implementation carriers, coordinate encodings, drawing conventions, filenames or router order as hints about ontology.
+> **Current downstream results, active routes, task/coordination state, success/failure catalogs, suggested questions, recent-project memory, existing tools, implementation representations, file order and established research vocabulary do not choose the Phase-A question unless the user's current instruction explicitly makes something a premise.**
 
 This is an information barrier, not a ban on later comparison.
 
-Do not anti-anchor by repeatedly naming a salient numbered route merely to forbid it. Use generic categories during Phase A.
+## No discovery suggestion menu
 
-## Candidate generation
+The control plane does not supply a default list of “promising things to look for”, preferred invariants, axiom categories, obstruction families, proof methods or conceptual templates before the first candidate.
 
-Search for low-level structural regularities with high explanatory compression. Lenses may include:
+Even a generic-looking list can concentrate independent researchers on the same concepts and create artificial convergence.
 
-- invariance/relabeling/translation/automorphism;
-- locality versus global closure;
-- composition/associativity;
-- reversibility/irreversibility;
-- conservation/monotonicity/cancellation;
-- refinement/coarse-graining;
-- existence/uniqueness/branching;
-- symmetry breaking;
-- minimal sufficient continuation state;
-- separation of state/process/path/quotient/readout;
-- whether a current primitive is derivable from a smaller relation.
+Thus:
 
-These are lenses, not target answers or a checklist.
+`NO_SUGGESTED_QUESTION_LIST`.
 
-The candidate should live at the lowest semantic layer justified by evidence and need not preserve current downstream vocabulary or tool interfaces.
+`NO_SUGGESTED_AXIOM_CATEGORY_LIST`.
+
+`NO_SUGGESTED_DISCOVERY_LENS_LIST`.
+
+The researcher first writes its own substantive question from the primitive substrate.
+
+If it independently chooses a familiar concept, that remains its result; the control plane simply did not plant it.
 
 ## Tools during Phase A
 
-Tools are allowed to test or enumerate a question that arose independently from the substrate.
+Tools may test or enumerate a question that arose independently from the substrate.
 
 Forbidden inversion:
 
@@ -116,7 +102,7 @@ Forbidden inversion:
 
 Allowed direction:
 
-`SUBSTRATE_GENERATES_QUESTION -> CHOOSE_MINIMAL_TOOL_TO_TEST_IT`.
+`RESEARCHER_GENERATES_QUESTION -> CHOOSE_MINIMAL_TOOL_TO_TEST_IT`.
 
 Thus:
 
@@ -152,16 +138,17 @@ This is a post-allocation guard: later knowledge may reclassify the candidate bu
 
 ## Phase B — comparison and collision audit
 
-After freeze, open:
+After freeze, open the general current router and current/prior context for:
 
-- `definitions/00_CURRENT_NATIVE_FOUNDATION.md`;
-- current downstream canonical results;
-- current tasks/scheduler/Relay/PRs;
-- current theorem families and prior failed routes;
-- external prior art;
-- available formal/computational verification tools;
+- de-duplication;
+- exact contradiction/counterexample pressure;
+- axiom-versus-derived-theorem classification;
+- implementation/carrier leakage audit;
+- current-work comparison;
+- prior-art/novelty classification;
+- verification-tool selection.
 
-for de-duplication, contradiction/counterexample pressure, axiom-versus-theorem classification, implementation/carrier audit, current-route comparison and novelty classification.
+These are audit functions after the candidate exists. They are not Phase-A discovery prompts.
 
 A collision is a comparison result. Do not retroactively turn the session into continuation research.
 
@@ -177,6 +164,8 @@ For independent replication:
 `INDEPENDENT_CONVERGENCE = STRUCTURAL_INTEREST_SIGNAL_NOT_PROOF`.
 
 `DIVERGENT_CANDIDATES = PRESERVE_BEFORE_DRIVER_SELECTION`.
+
+Artificial convergence caused by a shared suggestion/lens menu is not independent convergence evidence.
 
 ## Explicit contract
 
