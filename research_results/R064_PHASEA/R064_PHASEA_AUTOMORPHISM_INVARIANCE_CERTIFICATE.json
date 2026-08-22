@@ -1,0 +1,34 @@
+{
+  "schema": "R064_PHASEA_AUTOMORPHISM_INVARIANCE_CERTIFICATE_V1",
+  "freeze_timestamp": "2026-08-22T15:49:42+08:00",
+  "declared_axis_objects": ["E1", "E2", "E3"],
+  "declared_sector_incidence": [["E1", "E2"], ["E2", "E3"], ["E3", "E1"]],
+  "preferred_orientation_present": false,
+  "automorphism_classification": {
+    "group": "S3",
+    "order": 6,
+    "derivation": [
+      "Every substrate automorphism permutes the three distinct positive axis objects.",
+      "Every permutation of the three axes sends the three unordered two-axis sectors to the same three-sector atlas.",
+      "Shared-axis identity, component typing, finite path order, and the component-preserving commutation relation are preserved under the induced relabeling.",
+      "No N0 predicate in the allowed sources distinguishes a reflection from a cyclic relabeling; cyclic transport therefore proves a 3-cycle exists but does not reduce the full automorphism set to C3."
+    ],
+    "forbidden_shortcut": "No orientation predicate was added to exclude odd permutations."
+  },
+  "local_context_action": {
+    "abstract_context_count": 66,
+    "orbit_count": 11,
+    "orbit_sizes": [6,6,6,6,6,6,6,6,6,6,6],
+    "stabilizer_size_each_orbit": 1
+  },
+  "component_pair_action": {
+    "orbits": ["DIAGONAL", "OFF_DIAGONAL"],
+    "diagonal_orbit_size": 3,
+    "off_diagonal_orbit_size": 6,
+    "equivariant_total_axis_output_law_count": 3
+  },
+  "component_complement_equivariance": "PASS: F(g.x,g.y)=g.F(x,y) for all six automorphisms and all nine component pairs",
+  "context_sensitive_counterlaw_equivariance": "PASS: an inequivalent N0-context-sensitive law also satisfies the same equivariance gate",
+  "checker_digest": "f7240ed04b9625095cb2197369fea5fe85b761e0a53c4a4893f22501566fd57b",
+  "verdict": "PASS"
+}
