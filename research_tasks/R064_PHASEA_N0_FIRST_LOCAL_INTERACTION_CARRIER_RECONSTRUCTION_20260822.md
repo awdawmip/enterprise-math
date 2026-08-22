@@ -42,7 +42,7 @@
   "successor_gate": null,
   "policy_review": {
     "policy_set": "research_taskbook_policy.json",
-    "policy_digest": "sha256:5d52404621f4ce23ecef65e3a1c2e78356fb088f282a24f0dabc4c69618dc423",
+    "policy_digest": "sha256:9cb0f9abbec5b946fb67557c2ef8e7d371df3e5aa059d409da1192a55cf0eac2",
     "review_state": "PASS",
     "temporary_overrides": []
   }
