@@ -1,10 +1,11 @@
 # Enterprise Math Research Driver Operating Contract
 
-Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V3`
+Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V4`
 Effective: `2026-08-22`
 Role source: `research_role_policy.json`
 Architecture: `research_architecture.json`
 Axiom-candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Promotion liveness: `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`
 
 ## 1. Purpose
 
@@ -230,19 +231,52 @@ Scheduler is `TASK_RESEARCH` exploitation infrastructure. It does not choose FRE
 
 Foundation backflow accepts mature audited objects, not raw discovery drafts. The Foundation Steward verifies/classifies; it does not auto-promote a fresh candidate or become its default primary investigator.
 
-## 12. GitHub / promotion liveness
+## 12. Promotion liveness: candidate status is not a permanent lock
 
-Obey `docs/GITHUB_INTERACTION_BUDGET.md`.
+Obey `docs/GITHUB_INTERACTION_BUDGET.md` plus the later narrow `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md` for the NO_NEW_MATHEMATICS governance slice.
+
+Freeze:
+
+`READY_PR != PROMOTION_LANE_LEASE`.
+
+### Mathematical L4
+
+Mathematical canonical promotion remains serialized, but the lane exists only during one bounded promotion attempt:
+
+`SELECT -> CURRENT_MAIN_SNAPSHOT -> CONFLICT_SNAPSHOT -> FROZEN_HEAD_VALIDATION -> FINAL_COMBINATION -> MERGE_OR_DEFER -> RELEASE`.
+
+At most one mathematical L4 attempt is active at a time. A non-Draft/ready PR is a candidate, not an eternal lock. A stale or currently unmergeable ready candidate does not permanently starve later control-plane work.
+
+### Governance maintenance
+
+A separate bounded governance-maintenance attempt may proceed while mathematical candidates are ready only when the payload is explicitly `NO_NEW_MATHEMATICS` and passes the narrow eligibility contract.
+
+Governance maintenance may repair role/policy/router/status/machine contracts or reconcile source authority to an **already-frozen canonical definition**. It must not introduce or alter theorem content, proof strength/status without evidence, native mathematical definitions, frozen-definition semantics, evidence interpretation or theorem ownership.
+
+If that semantic classification is uncertain, the payload is not governance maintenance and must go through mathematical/Foundation promotion.
+
+A governance merge still requires:
+
+- one fresh current-main snapshot;
+- one path/semantic conflict audit against relevant open payloads;
+- relevant governance regression evidence;
+- one final atomic/expected-head merge guard when supported;
+- immediate release on merge/defer/failure; no polling lock.
+
+Only one governance-maintenance merge attempt should be active at a time.
+
+This distinction prevents control-plane starvation without weakening mathematical gates.
+
+## 13. General GitHub liveness
 
 - research is the hot path;
 - ordinary L1/L2/L3 work is remote-silent between semantic checkpoints;
 - workflow/review status is not a wait primitive;
-- one ready L4 lane is the default serialized canonical-promotion boundary;
 - moving `main`, scheduler bookkeeping, identity registration and CI are not mathematical `HARD_BLOCK` reasons.
 
-At actual promotion time, perform the bounded current-main/conflict/frozen-head checks required by current governance. Do not continuously reconcile merely because `main` moved.
+At actual promotion/maintenance time, perform only the bounded current-main/conflict/validation checks for that attempt. Do not continuously reconcile merely because `main` moved.
 
-## 13. Anti-patterns
+## 14. Anti-patterns
 
 The Driver must not:
 
@@ -256,11 +290,13 @@ The Driver must not:
 - create a new task for every interesting observation;
 - let continuity prose override current source evidence;
 - store theorem databases or transcripts in Driver Continuity;
+- treat ready PR status as a permanent promotion lock;
+- use the governance-maintenance lane to smuggle mathematical claim changes;
 - use CI/reconciliation as synchronous wait states;
 - preserve novelty by renaming after prior art catches it;
 - merge entire historical branches when a narrow frozen payload suffices.
 
-## 14. Preferred Driver response
+## 15. Preferred Driver response
 
 A substantive Driver response normally contains:
 
