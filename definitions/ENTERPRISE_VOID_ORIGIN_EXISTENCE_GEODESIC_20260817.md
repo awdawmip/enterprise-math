@@ -1,75 +1,31 @@
-# 进取虚无起点与最小跳数深度（重定型）
+# 虚无起点与最小跳数深度 — 历史/辅助路线
 
-Status: `RETAINED_FOR_VOID_START_AND_MIN_JUMP_DEPTH / SUPERSEDED_AS_RADIUS_AND_SEGMENT_LENGTH`
-Date: `2026-08-17`
-Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
-Superseded in geometric radius/segment semantics by:
-`definitions/ENTERPRISE_VECTOR_NORM_ENDPOINT_REVERSE_GEODESIC_SEGMENT_20260817.md`
+Status: `RETAINED_AS_AUXILIARY_DEPTH_NOT_NATIVE_GEOMETRY`
+Original date: `2026-08-17`
+Reconciled: `2026-08-21`
 
-## 1. Still frozen
+本文件保留 `VOID_E`、existence-start 与 minimum-jump depth 作为可声明的辅助过程/计数语义，但它不定义当前 native origin、radius、segment identity 或 line length。
 
-`VOID_E=∅` is an external pre-coordinate nonexistence state, not native coordinate `0`.
+当前原生 origin 为：
 
-`O_E=[+1]=[-1]` is the first occupied/native coordinate state.
+`O_E=0`，三重 circle-cell boundary intersection。
 
-`VOID_E -> O_E` is the unique first existence transition.
+当前 native line/length 由三正轴 sector foundation、component trace 和 directed native line gauge 给出，而不是由 void-to-target geodesic depth 给出。
 
-The ordinary native adjacency graph `G_E` and its minimum-jump distance remain valid combinatorial objects:
+因此：
 
-`d_E(P,Q)=minimum primitive adjacency jump count from P to Q`.
+`VOID_START = OPTIONAL N1/PROCESS SEMANTICS`；
 
-Define the void-prefixed minimum-transition depth
+`MIN_JUMP_DEPTH = COMBINATORIAL/PROCESS COUNT`；
 
-`ELL_JUMP_E(P)=1+d_E(O_E,P)`.
+`MIN_JUMP_DEPTH != NATIVE_LINE_LENGTH` in general。
 
-This is a valid **existence-transition depth / minimum-jump count**.
+若某任务需要 `VOID_E -> O_E` 的 existence transition，必须把它显式声明为额外过程语义，不得把它重新解释为当前 native coordinate ontology。
 
-It is NOT, under the current foundation, the Enterprise vector radius or segment length.
+当前几何路由：
 
-## 2. Superseded identification
+- `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`；
+- `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`；
+- `definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`。
 
-Do not use:
-
-`SEGMENT_LENGTH_E(P)=ELL_JUMP_E(P)`
-
-or
-
-`RADIUS_E(P)=ELL_JUMP_E(P)`
-
-as foundational geometry.
-
-Do not canonize
-
-`{P:ELL_JUMP_E(P)=n}`
-
-as the higher Enterprise circle merely because it is a graph shell.
-
-The AT3-HI diagnostic proved that this shell route traces every vertex at birth and therefore cannot produce fresh-hidden vertices. That theorem remains valid for the shell candidate and is one reason this identification is rejected as foundational radius semantics.
-
-## 3. Current role of shortest paths
-
-Once a cell `P` is selected by the current vector-norm endpoint rule, the quantity `d_E(O_E,P)` and its void-prefixed version are used to find the minimum-jump realization fiber.
-
-Retain all minimizers.
-
-Thus graph geodesics are now **reverse realization structure**, not the generator of the radius level.
-
-## 4. Axis statement
-
-On one signed native axis, `ELL_JUMP_E(±n)=n` remains an exact minimum-transition-depth statement because the unique void prefix plus `n-1` post-origin steps totals `n`.
-
-This numerical equality with native coordinate magnitude on axes does not imply that minimum-jump depth is the general vector norm.
-
-## 5. Current route
-
-Read first for segment/radius semantics:
-
-`definitions/ENTERPRISE_VECTOR_NORM_ENDPOINT_REVERSE_GEODESIC_SEGMENT_20260817.md`.
-
-Freeze:
-
-`VOID_START_PRESERVED`.
-
-`MIN_JUMP_DEPTH_PRESERVED_AS_COMBINATORIAL_OBSERVABLE`.
-
-`MIN_JUMP_DEPTH_IS_NOT_FOUNDATIONAL_RADIUS`.
+原始文本保留在 Git 历史中。

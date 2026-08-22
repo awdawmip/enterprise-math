@@ -1,31 +1,27 @@
 # 历史定义：进取点态原点与位移零元
 
-Status: `SUPERSEDED / DO_NOT_USE_AS_CANONICAL`
-Date: `2026-08-17`
-Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
+Status: `SUPERSEDED / HISTORICAL_PROVENANCE / DO_NOT_USE_AS_CANONICAL`
+Original date: `2026-08-17`
+Reconciled: `2026-08-21`
 
-本文件曾冻结：
+本文件曾冻结 point-state origin 与 zero-centered displacement-space 的双层语义，随后又被 origin-one / no-zero 路线替代。
 
-`ENTERPRISE_POINT_STATE_ORIGIN = 1`
+这些后继 origin-one/signed-origin-one ontology 本身也已经被当前 2026-08-20 三正轴 foundation supersede。因此不得再沿着历史 supersession 链把本文件重定向到另一个已退役坐标定义。
 
-`ENTERPRISE_DISPLACEMENT_ZERO = 0`
+当前 native foundation：
 
-以及 point-space / zero-centered displacement-space 双层语义。
+`definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`。
 
-该定义已被用户明确 supersede。
+当前冻结：
 
-当前 canonical foundational definition：
+`O_E=0`；
 
-`definitions/ENTERPRISE_COORDINATE_ORIGIN_ONE_NO_ZERO_20260817.md`
+origin = triple circle-cell boundary intersection；
 
-最新冻结：
+`ENTERPRISE_NATIVE_AXES=THREE_POSITIVE_RAYS`；
 
-`ENTERPRISE_COORDINATE_ORIGIN = 1`
+canonical addresses = `(a,b,c) in N_0^3` with `min(a,b,c)=0`。
 
-`ENTERPRISE_ZERO_COORDINATE_EXISTS = false`
+旧 zero-centered signed lattices 仍可作为显式 `I0_IMPLEMENTATION_CARRIER / AUXILIARY_COMPUTATION_CHART`，但不是当前 native coordinate ontology。
 
-即：`0` 不属于进取坐标系，也不再存在“原生位移空间中的零坐标”。
-
-所有旧 `(r,0)`、`(0,r)`、`(0,0,0)`、有符号零中心格等表述，从当前定义起只能作为 `LEGACY_SIGNED_AUXILIARY_CHART / EXTERNAL_COMPUTATION_CHART` 使用，不能继续称为进取原生坐标。
-
-本文件仅保留作为历史 superseded 记录；不得继续作为后续任务的 frozen input。
+本文件只保留历史/provenance；原始完整文本保留在 Git 历史中。

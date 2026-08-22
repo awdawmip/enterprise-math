@@ -1,27 +1,16 @@
-# 进取圆基态：原点本身是直径 1 的圆
+# 原点是直径一圆 — 历史定义
 
-Status: `SUPERSEDED / DO NOT USE AS CANONICAL`
-Date: `2026-08-17`
-Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
+Status: `SUPERSEDED / HISTORICAL_PROVENANCE`
+Original date: `2026-08-17`
+Superseded by: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
 
-This file is superseded by:
+本文件曾把 origin 本身识别为 diameter-one / radius-related initial circle state。该 ontology 已被当前 circle-cell foundation supersede。
 
-`definitions/ENTERPRISE_INITIAL_CIRCLE_ALL_UNIT_INVARIANTS_20260817.md`
+当前：
 
-Reason: the prior formulation froze only
+- `O_E=0`；
+- origin 是三个相邻 circle cells 的三重边界交点；
+- origin 不是 cell center，也不是 cell；
+- circle cell 的统一半径为 `1/sqrt(3)`，最近圆心间距为 `1`。
 
-`DIAMETER_E(CIRCLE_E(1))=1`,
-
-but the user clarified the stronger foundational statement that the origin is the normalized initial Enterprise circle with
-
-`RADIUS_E=1`,
-
-`DIAMETER_E=1`,
-
-`PERIMETER_E=1`,
-
-`AREA_E=1`
-
-simultaneously.
-
-Do not derive any of these four base values from classical formulas. Do not use this older diameter-only file as a canonical foundation.
+因此本文件只保留历史/provenance 用途，不能作为当前原生圆、半径、直径或 origin ontology 的 premise。原始文本保留在 Git 历史中。

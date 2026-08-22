@@ -1,25 +1,13 @@
-# 进取坐标系原点一与零不存在原则
+# 进取坐标原点一 / 零不存在 — 历史短定义
 
-Status: `SUPERSEDED_BY_SIGNED_ORIGIN_ONE`
-Date: `2026-08-17`
-Driver: `EM-DVR-9GP3M7 / CONTROL_PLANE`
+Status: `SUPERSEDED / HISTORICAL_PROVENANCE`
+Original date: `2026-08-17`
+Superseded by: `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`
 
-本文件已被更精确的 signed-origin 定义 supersede：
+本文件曾把原生 origin 定义为 `1` 并排除 native zero。当前 foundation 已改为：
 
-`definitions/ENTERPRISE_SIGNED_ORIGIN_ONE_COORDINATE_20260817.md`
+`O_E = 0 = TRIPLE CELL BOUNDARY INTERSECTION`。
 
-保留的结论：
+三条原生轴为正射线，canonical coordinates 为 `N_0^3` 中 `min(a,b,c)=0` 的 sector atlas。
 
-- `0` 不属于进取原生坐标系。
-
-被撤销/修正的结论：
-
-- 原点不是单符号 `1`，而是 `+1 ≡ -1 ≡ O_E` 的双向粘合态；
-- `-2,-3,...` 是合法原生负方向坐标，不应全部改写成独立方向标签加正整数；
-- 从原点沿负方向一个 primitive step 到 `-2`，不是到 `-1`；
-- 三轴原点可写成 `(±1,±1,±1)`，所有符号选择代表同一个原点状态；
-- 外部 step count `n-1` 不重新定义原生坐标幅值 `n`。
-
-因此本文件此前据 `n-1` 重推平方/平方根的路由也已失效。当前平方/平方根见：
-
-`definitions/ENTERPRISE_SQUARE_AND_ROOT_SIGNED_ORIGIN_ONE_20260817.md`。
+因此本文件只用于历史/provenance；不得作为当前 native coordinate premise。原始文本保留在 Git 历史中。

@@ -1,79 +1,107 @@
 # Enterprise Math Research Tool Surface
 
-Status: `ACTIVE / STABLE ROUTER`
-Purpose: stable tool/protocol entrypoint for Enterprise Math researcher roles.
+Status: `ACTIVE / STABLE ROUTER / HOT-PATH V3`
+Purpose: stable tool/protocol entrypoint without recreating a remote-preflight tax or a research-agenda preload.
 
-This file names stable tool surfaces. It does not duplicate mutable project facts, task status, current SHAs, or topic-specific instructions.
+## Liveness invariant
 
-## Mandatory startup tool/protocol knowledge
+`RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
-Before an Enterprise Math researcher declares bootstrap complete, it must know and, where marked, read the following current repository surfaces.
+For an explicit selected task:
 
-### MANDATORY — repository interaction and liveness
+`MAX_ROUTINE_SOURCE_READS_BEFORE_SUBSTANTIVE_WORK = 3`.
 
-Read:
+A missing concrete dependency may trigger another read later; that is different from universally preloading governance/catalog files.
 
-- `AGENTS.md`
-- `docs/GITHUB_INTERACTION_BUDGET.md`
+## Research-mode precedence
 
-These govern sparse remote interaction, publication cadence, no-polling behavior, owner isolation, task execution, and liveness.
+When current source contains `research_architecture.json` with schema `ENTERPRISE_MATH_RESEARCH_ARCHITECTURE_V2`, its role/mode contract controls research-context visibility:
 
-### MANDATORY — researcher identity
+- `FREE_AXIOM_DISCOVERY` uses foundation-only discovery before candidate freeze;
+- `TASK_RESEARCH` uses exact-task-first execution.
 
-Read:
+Until that source governance is promoted, current GLOBAL_KNOWLEDGE role bootstraps provide the ChatGPT-side transition guard.
 
-- `research_identity_state_machine.json`
-- `docs/RESEARCH_IDENTITY_PROTOCOL.md`
+This tool surface does not itself choose the research question.
 
-Reference helper:
+## Explicit TASK_RESEARCH hot start
 
-- `tools/research_identity.py`
+Before substantive work, normally use only:
 
-Identity is visible and role-specific. A free researcher uses the `EM-FREE-*` identity lane unless an existing identity is being continued.
+1. `AGENTS.md` — role/safety/liveness contract;
+2. **the exact task entry** — supplied `research_tasks/<taskbook>.md`, exact theorem/spec/code object, or `definitions/00_CURRENT_NATIVE_FOUNDATION.md` when foundation selection is itself the task;
+3. **the first exact dependency actually needed to begin**.
 
-### MANDATORY — current mathematical routing
+Then work.
 
-Read:
+Do **not** make `research_common_surface.json` or the human Common Surface an automatic second read. They are triggered ownership/theorem/tool/conflict lookup surfaces, not default context dumps.
 
-- `research_common_surface.json` OR the current human Common Surface selected by `AGENTS.md`;
-- `PROJECT_DEFINITION.zh-CN.md` (or the English equivalent when appropriate);
-- `FOUNDATIONAL_LOGIC.md` and `foundational_logic.json`;
-- `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md`;
-- `native_semantics_admissibility.json`.
+This explicit-task packet is not the discovery packet for `EM_FREE_RESEARCHER`.
 
-The current global Enterprise foundation router may require additional canonical definitions. Those routed files are mandatory when listed as current `Read first` inputs.
+## Triggered reads — binding when relevant, not universal
 
-### CONDITIONAL — taskbook tooling
+- Common Surface — cross-owner theorem/tool lookup, de-dup/conflict routing, executable-module registry;
+- `docs/GITHUB_INTERACTION_BUDGET.md` — expanded remote/PR/Issue/CI operations;
+- `docs/RESEARCH_IDENTITY_PROTOCOL.md` + `research_identity_state_machine.json` — unresolved identity/mode mechanics;
+- `FOUNDATIONAL_LOGIC.md` / `foundational_logic.json` — foundation-facing inverse/recovery reasoning;
+- `native_semantics_admissibility.json` — before freezing native/intrinsic/base-world claims;
+- `GEOMETRIC_TOOL_REFOUNDATION_POLICY.md` — geometry/refoundation-policy work;
+- `project_definition.json` — machine-readable project mission/authority when materially needed;
+- exact definitions routed by `definitions/00_CURRENT_NATIVE_FOUNDATION.md` — only for mathematical objects actually used;
+- scheduler, Relay, Foundation, owner isolation, Lean/test diagnostics — only when that function becomes active.
 
-When an explicit taskbook exists, inspect and use the taskbook protocol/helper as needed, including:
+Triggered dependencies are not optional. Lazy loading means avoid irrelevant reads, not ignore relevant rules.
 
-- `tools/research_taskbook.py`
-- the exact `research_tasks/<taskbook>.md`
-- its frozen source SHA and owner lane.
+## Current native authority
 
-A `FREE_RESEARCHER` waiting for a topic does not create or claim a taskbook merely to bootstrap.
+`definitions/00_CURRENT_NATIVE_FOUNDATION.md` selects the current mathematical generation. For exact statements, follow it to the exact task-relevant canonical definition.
 
-### CONDITIONAL — scheduler
+Do not infer current authority from an older file merely because it exists or historically used `ACTIVE`, `CANONICAL`, or `FOUNDATIONAL`.
 
-Scheduler surfaces are used only when the role/task explicitly opts into scheduling. They are not a waiting-role startup gate.
+## Taskbooks
 
-A `FREE_RESEARCHER` in `WAITING_FOR_TOPIC` MUST NOT auto-claim Issue #240 or `research_scheduler.json` work.
+When an explicit taskbook is supplied, it is the normal second task-research read. Use its frozen source/ref/owner lane exactly.
 
-### CONDITIONAL — Lean, tests, diagnostics, computation
+When current taskbook V5 governance is present, new/re-dispatched tasks also preserve task origin/lineage and enforce the continuation successor gate. Legacy already-running tasks are not retroactively erased merely because governance advanced.
 
-Read the relevant liveness/diagnostic protocol before repeated tool use, including when applicable:
+## Free researcher — foundation-only axiom discovery
 
-- `docs/LEAN_DIAGNOSTIC_LIVENESS.md`
-- `docs/TEST_DISCOVERY_LIVENESS.md`
+`EM_FREE_RESEARCHER` is not a waiting queue role.
 
-Use repository Python/Lean/checker tooling, symbolic computation, brute force, or external tools according to the supplied topic and current rules. Do not infer native semantics from an implementation tool merely because the tool is convenient.
+Its default mode is `FREE_AXIOM_DISCOVERY`, state `AXIOM_DISCOVERY`, objective `DISCOVER_NEW_AXIOM_CANDIDATES`.
 
-## Runtime connected tools
+Before candidate freeze, do not load current scheduler/taskbooks/Relay/PR/recent commit context, Driver Continuity, recent route success/failure catalogs, other-branch `WORKING_TRUTH`, suggested questions, ambient recent-project memory, or existing tools/representations merely for inspiration.
 
-At role startup, inspect the actually available runtime tool surface before promising an operation. Connected GitHub access may be used for current canonical reads and authorized writes. Web, Python, file, or other tools are used only when available and appropriate.
+Use a fresh clean context for a genuine blind-discovery claim when practical; preexisting agenda exposure cannot literally be unread and must be disclosed as `ANCHOR_EXPOSED`.
 
-Do not claim access to an unavailable tool. Tool availability is not mathematical evidence.
+Do not repeatedly name a salient route merely to say it is forbidden; negative instructions can themselves prime it. Use generic agenda categories during Phase A.
+
+Role-specific source contracts when current:
+
+- `research_roles/EM_FREE_RESEARCHER_ROLE.md`;
+- `research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md`;
+- `research_axiom_candidate_state_machine.json`.
+
+The generic no-user-task scheduler rule does not apply during Phase-A free axiom discovery. After candidate freeze, prior/current work may be opened for falsification, de-duplication, prior-art and integration audits.
+
+## Tests / Lean / computation
+
+Use relevant diagnostics only when actual repeated formal/test/tool work begins. Do not poll CI.
+
+Python, Lean, symbolic/brute-force tooling and external tools are evidence/mechanics surfaces, never a substitute for native semantic typing or a reason to select an ontology/question merely because the tool exists.
+
+## Runtime tools
+
+Inspect the actually available runtime tool surface before promising an operation. Connected GitHub may be used for canonical reads and authorized writes. Web/Python/file tools are used only when available and appropriate.
+
+## Read stability
+
+Within one execution phase, reuse immutable content already fetched at a known SHA/ref. Re-reading unchanged routers/PR metadata merely for reassurance is a performance defect.
+
+Refresh only when freshness/concurrency can materially change the result or immediately before a concurrency-sensitive write.
+
+For free research, loading more current-route context before Phase-A freeze is an anchoring defect, not an optimization.
 
 ## Stability invariant
 
-The Project suffix should point to stable bootstrap files rather than copying this list. This file may evolve as tools change without requiring the host Project suffix or visible EM badge configuration to change.
+Host Project instructions should point to stable bootstrap/router files instead of copying this list. Mutable tool details remain behind this stable router.
