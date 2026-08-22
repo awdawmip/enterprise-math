@@ -12,6 +12,7 @@
     "EXISTING_TOOL_COVERAGE -> REUSE_OR_COMPOSE_UNLESS_EXACT_SCOPE_GAP_IS_RECORDED",
     "NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP",
     "TOOL_USE_PRESERVES_SEMANTIC_TYPING_AND_HARD_BOUNDARIES",
+    "EXPLICIT_DISCOVERY_FIREWALL_CONTROLS_TOOL_VISIBILITY_UNTIL_ITS_FREEZE_POINT",
     "TOOL_ACCEPTANCE_DOES_NOT_MUTATE_FOUNDATION",
     "EVERY_ACCEPTED_RESEARCH_RETURN_GETS_METHOD_HARVEST_CLASSIFICATION"
   ],
@@ -25,8 +26,16 @@
   "role_timing": {
     "TASK_RESEARCH": {
       "mandatory": true,
-      "when": "after the exact task semantics and first necessary dependency are understood, before constructing a new general-purpose mechanism or helper calculus",
+      "when": "after the exact task semantics and first necessary dependency are understood, before constructing a new general-purpose mechanism or helper calculus, unless the exact taskbook declares an active discovery-information firewall that postpones current-tool visibility until a named freeze point",
       "action": "query the current toolbox registry, method inventory and executable-source search surface; reuse the narrowest adequate tool or record the exact missing capability"
+    },
+    "TASK_RESEARCH_DISCOVERY_FIREWALL": {
+      "mandatory_before_declared_freeze": false,
+      "tool_catalog_visibility_before_declared_freeze": "HIDDEN_IF_TASKBOOK_EXPLICITLY_REQUIRES_BLIND_FORWARD_OR_OTHER_DISCOVERY_ISOLATION",
+      "mandatory_after_declared_freeze": true,
+      "action_before_freeze": "obey the exact task-local source whitelist/information firewall; do not expose current tool names or catalogs merely to enforce reuse",
+      "action_after_freeze": "run the same toolbox/method dedup lookup before claiming method novelty or opening a tool continuation; preserve the frozen result even when it collides with an existing tool",
+      "scope_rule": "this exception exists only when the controlling taskbook explicitly declares a discovery firewall and freeze point; ordinary TASK_RESEARCH cannot self-declare blindness to skip reuse"
     },
     "RESEARCH_DRIVER": {
       "mandatory": true,
