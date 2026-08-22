@@ -1,6 +1,6 @@
 # Enterprise Math Axiom Candidate Protocol
 
-Status: `DRIVER-PROPOSED / NO_NEW_MATHEMATICS / GOVERNANCE / V2`
+Status: `ACTIVE / CANONICAL GOVERNANCE / V2`
 Date: `2026-08-22`
 Driver-ID: `EM-DVR-K7Q4N8`
 Machine state machine: `research_axiom_candidate_state_machine.json`
