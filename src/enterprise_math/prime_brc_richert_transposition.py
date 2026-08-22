@@ -1,8 +1,8 @@
 """Exact Prime-BRC cofactor-prefix transposition identities.
 
-Owner-local L3 research support.  This module packages only finite identities:
-P017 cofactor windows, Abel prefix recoalescence, and aggregate interval-sieve
-remainders.  It makes no P2 or prime-existence claim.
+Owner-local L3 research support. This module packages only finite identities:
+P017/Campbell-compatible cofactor windows, Abel prefix recoalescence, and
+aggregate interval-sieve remainders. It makes no P2 or prime-existence claim.
 """
 
 from __future__ import annotations
@@ -11,49 +11,81 @@ from fractions import Fraction
 from typing import Iterable, Mapping, Sequence
 
 from .legendre import interior_hit_count
-from .p017_cofactor_window import centered_cofactor_window, is_p_rough
+from .p017_cofactor_window import centered_cofactor_window
 
 
 def _strictly_increasing(values: Sequence[int]) -> bool:
     return all(a < b for a, b in zip(values, values[1:]))
 
 
-def cofactor_window(k: int, prime: int) -> tuple[int, int]:
+def campbell_hit_count(k: int, divisor: int) -> int:
+    """Count multiples in Campbell's A(k^2)=Z intersect (k^2,k^2+2k).
+
+    Campbell deliberately excludes the integer k^2+2k=k(k+2), whereas the
+    full P017 square basin contains it. Keeping this distinction explicit
+    prevents a one-endpoint mismatch in the Richert transposition.
+    """
+    if k < 1 or divisor <= 0:
+        raise ValueError("require k>=1 and divisor>0")
+    lower = k * k
+    upper_inclusive = lower + 2 * k - 1
+    return upper_inclusive // divisor - lower // divisor
+
+
+def cofactor_window(k: int, prime: int, *, campbell: bool = False) -> tuple[int, int]:
+    """Return a raw first-factor cofactor window.
+
+    ``campbell=False`` returns canonical P017 W_p(k), including the final basin
+    state k(k+2). ``campbell=True`` returns the strict-upper subwindow matching
+    Campbell's analytic set A(k^2)=Z intersect (k^2,k^2+2k).
+    """
     data = centered_cofactor_window(k, prime)
-    return int(data["q_min"]), int(data["q_max"])
+    lo = int(data["q_min"])
+    if not campbell:
+        return lo, int(data["q_max"])
+    hi = (k * k + 2 * k - 1) // prime
+    return lo, hi
 
 
-def cofactor_windows_are_disjoint(k: int, primes: Sequence[int]) -> bool:
-    """Replay the L054 disjoint-window property on the supplied prime list."""
+def cofactor_windows_are_disjoint(
+    k: int, primes: Sequence[int], *, campbell: bool = False
+) -> bool:
+    """Replay L054 disjointness; Campbell subwindows inherit it."""
     ps = tuple(primes)
     if not _strictly_increasing(ps):
         raise ValueError("primes must be strictly increasing")
-    windows = [cofactor_window(k, p) for p in ps]
+    windows = [cofactor_window(k, p, campbell=campbell) for p in ps]
     return all(windows[i][1] < windows[i - 1][0] for i in range(1, len(windows)))
 
 
-def cofactor_sift_count(k: int, prime: int, z_primes: Sequence[int]) -> int:
-    """Count values in W_p(k) surviving the supplied primes < z."""
-    lo, hi = cofactor_window(k, prime)
+def cofactor_sift_count(
+    k: int, prime: int, z_primes: Sequence[int], *, campbell: bool = False
+) -> int:
+    """Count values in the selected W_p window surviving supplied primes <z."""
+    lo, hi = cofactor_window(k, prime, campbell=campbell)
     return sum(all(q % ell for ell in z_primes) for q in range(lo, hi + 1))
 
 
-def shell_sift_count(k: int, prime: int, z_primes: Sequence[int]) -> int:
-    """Count n=pq in the raw p-shell window surviving the supplied primes < z.
+def shell_sift_count(
+    k: int, prime: int, z_primes: Sequence[int], *, campbell: bool = False
+) -> int:
+    """Count n=pq in the selected p-shell window surviving primes <z.
 
-    This interface assumes every supplied sifting prime is strictly smaller than
-    ``prime``.  Under that condition n=pq is z-rough iff q is z-rough.
+    Every supplied sifting prime must be strictly smaller than ``prime``. Under
+    that condition n=pq is z-rough iff q is z-rough.
     """
     if any(ell >= prime for ell in z_primes):
         raise ValueError("every sifting prime must be smaller than shell prime")
-    lo, hi = cofactor_window(k, prime)
+    lo, hi = cofactor_window(k, prime, campbell=campbell)
     return sum(
         all((prime * q) % ell for ell in z_primes)
         for q in range(lo, hi + 1)
     )
 
 
-def abel_prefix_recoalescence(values: Sequence[Fraction], weights: Sequence[Fraction]) -> dict[str, object]:
+def abel_prefix_recoalescence(
+    values: Sequence[Fraction], weights: Sequence[Fraction]
+) -> dict[str, object]:
     """Exact Abel-prefix identity for nonincreasing nonnegative weights."""
     if len(values) != len(weights):
         raise ValueError("values and weights must have equal length")
@@ -82,18 +114,26 @@ def abel_prefix_recoalescence(values: Sequence[Fraction], weights: Sequence[Frac
     }
 
 
-def shell_remainder(k: int, prime: int, divisor: int) -> Fraction:
-    """Return r_p(d)=H_{pd}(k)-H_p(k)/d exactly."""
+def shell_remainder(
+    k: int, prime: int, divisor: int, *, campbell: bool = False
+) -> Fraction:
+    """Return r_p(d)=H_{pd}-H_p/d exactly for the selected interval."""
     if divisor <= 0:
         raise ValueError("divisor must be positive")
-    hp = interior_hit_count(k, prime, 2)
-    hpd = interior_hit_count(k, prime * divisor, 2)
+    counter = campbell_hit_count if campbell else lambda kk, dd: interior_hit_count(kk, dd, 2)
+    hp = counter(k, prime)
+    hpd = counter(k, prime * divisor)
     return Fraction(hpd * divisor - hp, divisor)
 
 
-def prefix_remainder(k: int, primes: Sequence[int], divisor: int) -> Fraction:
+def prefix_remainder(
+    k: int, primes: Sequence[int], divisor: int, *, campbell: bool = False
+) -> Fraction:
     """Aggregate shell remainders before taking absolute value."""
-    return sum((shell_remainder(k, p, divisor) for p in primes), Fraction(0))
+    return sum(
+        (shell_remainder(k, p, divisor, campbell=campbell) for p in primes),
+        Fraction(0),
+    )
 
 
 def brc_before_absolute_value(
@@ -103,7 +143,7 @@ def brc_before_absolute_value(
 ) -> dict[str, Fraction]:
     """Verify the common-modulus Abel L1 inequality.
 
-    ``rows[i][d]`` is a shell remainder r_i(d).  Prefix rows are exact sums.
+    ``rows[i][d]`` is a shell remainder r_i(d). Prefix rows are exact sums.
     The theorem is purely algebraic and does not assume the rows come from a
     sieve; using actual sieve rows is a specialization.
     """
