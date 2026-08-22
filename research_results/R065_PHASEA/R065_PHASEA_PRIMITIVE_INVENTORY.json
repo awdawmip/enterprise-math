@@ -1,0 +1,72 @@
+{
+  "schema": "R065_PHASEA_PRIMITIVE_INVENTORY_V1",
+  "researcher_id": "EM-R065A-7E6F46",
+  "task_id": "RS-R065-PHASEA-PRIMITIVE-INTRINSIC-FINITE-READOUT-DISCOVERY",
+  "mathematical_input": "research_inputs/R065_PHASEA_BLIND_PRIMITIVE_PACKET_20260822.md@00765cc76ea71f789481fbe91c29d852bbf6b209",
+  "primitive_structure": {
+    "component_type_set": {
+      "description": "An abstract three-element set C of positive component types.",
+      "cardinality": 3,
+      "preferred_labels": false,
+      "preferred_orientation": false
+    },
+    "sector_supports": {
+      "description": "All unordered two-element subsets of C.",
+      "cardinality": 3,
+      "automorphism_group": "S3",
+      "extra_structure_beyond_distinctness": false
+    },
+    "content_state": {
+      "description": "A function n:C->N with support cardinality <=2; zero state included.",
+      "coordinates_are_bookkeeping_only": true
+    },
+    "token_realization": {
+      "description": "A finite set U(n) partitioned by the primitive component-type map tau:U(n)->C.",
+      "token_names_semantic": false
+    },
+    "admissible_relabelings": {
+      "component_types": "all S3 permutations",
+      "tokens": "all bijections preserving declared typing, with unlabeled compatibility under S3"
+    },
+    "partial_composition": {
+      "description": "componentwise addition / typed disjoint union when resulting support has cardinality <=2",
+      "law_for_unknown_readout_supplied": false
+    }
+  },
+  "primitive_atomic_relations": [
+    "token equality",
+    "component-type equality",
+    "token-to-component typing",
+    "membership of support in an unordered two-component sector"
+  ],
+  "derived_not_primitive": [
+    "same-component token equivalence relation",
+    "token partition into occupied component classes",
+    "support set / occupied-type quotient",
+    "class-size multiset",
+    "S3-orbit signature sort(n)",
+    "all numerical cardinality readouts",
+    "all pair/subset constructions"
+  ],
+  "explicitly_not_supplied": [
+    "metric",
+    "norm",
+    "length",
+    "inner product",
+    "angle",
+    "sign",
+    "orientation",
+    "multiplication law",
+    "pair relation",
+    "quotient valuation",
+    "scalar normalization",
+    "additivity",
+    "multiplicativity",
+    "monotonicity",
+    "target formula",
+    "target scalar",
+    "preferred observation resolution",
+    "semantic magnitude/scale role"
+  ],
+  "inventory_verdict": "PRIMITIVE_INVENTORY_COMPLETE"
+}
