@@ -47,6 +47,20 @@ def test_machine_architecture_routes_free_phase_a_to_primitive_substrate_without
     assert arch["read_performance"]["free_phase_a_default_discovery_prompt_menu"] is False
 
 
+def test_role_policy_matches_primitive_zero_suggestion_machine_contract():
+    policy = json.loads(read("research_role_policy.json"))
+    free = policy["research_modes"]["FREE_AXIOM_DISCOVERY"]
+    assert free["phase_a_substrate_router"] == "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md"
+    assert free["agenda_visibility_before_candidate_freeze"] == "PRIMITIVE_SUBSTRATE_ONLY"
+    assert free["general_current_router_before_candidate_freeze"] is False
+    assert free["default_suggested_question_menu"] is None
+    assert free["default_discovery_lens_menu"] is None
+    assert free["negative_instruction_style"] == "GENERIC_CATEGORIES_ONLY"
+    freedom = "\n".join(policy["researcher_freedom_clause"]["FREE_AXIOM_DISCOVERY"])
+    assert "authored by the researcher" in freedom
+    assert "no default suggested-question list or discovery-lens list" in freedom
+
+
 def test_free_role_and_anti_anchor_do_not_name_specific_downstream_achievements_or_seed_lens_menu():
     role = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
     anti = read("research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md")
@@ -60,6 +74,17 @@ def test_free_role_and_anti_anchor_do_not_name_specific_downstream_achievements_
     assert "there are no suggestions to ignore" in role
     assert "NO_SUGGESTED_DISCOVERY_LENS_LIST" in anti
     assert "NEGATIVE_INSTRUCTION_MUST_NOT_ENUMERATE_SALIENT_FORBIDDEN_OBJECTS" in anti
+
+
+def test_human_architecture_matches_primitive_zero_suggestion_contract():
+    text = read("docs/RESEARCH_ARCHITECTURE.md")
+    assert "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md" in text
+    assert "FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS" in text
+    assert "NO_DEFAULT_DISCOVERY_LENS_MENU" in text
+    assert "Negative instructions also use generic categories" in text
+    assert "FREE Phase A is not given suggested questions" in text
+    for downstream in DOWNSTREAM_NAMES:
+        assert downstream not in text
 
 
 def test_general_current_router_remains_available_only_after_free_candidate_freeze():
