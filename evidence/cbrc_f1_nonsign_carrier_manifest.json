@@ -1,0 +1,68 @@
+{
+  "schema": "CBRC_F1_NONSIGN_CARRIER_MANIFEST_V1",
+  "date": "2026-08-22",
+  "researcher_id": "EM-CBRCF1-8D27A4",
+  "task_id": "RS-CBRC-F1-NONSIGN-RECOALESCENCE-CARRIER-FORWARD-CLASSIFICATION",
+  "taskbook": {
+    "path": "research_tasks/COHERENT_BRC_F1_NONSIGN_RECOALESCENCE_CARRIER_FORWARD_CLASSIFICATION_20260822.md",
+    "source_commit": "e279377a6578ac9adb93c2c21d52b31c569bae20",
+    "blob_sha": "684be33edff6c22882cb5659b67829ae50aa665d"
+  },
+  "owner_branch": "research/cbrc-f1-nonsign-recoalescence-carrier-forward-classification",
+  "primary_verdict": "F1_UNIQUE_MINIMAL_NONSIGN_CARRIER",
+  "hard_target": "NONSIGN_RECOALESCENCE_MINIMAL_CARRIER_CLASSIFIED",
+  "inherited_f0_boundary": {
+    "provenance_head": "501ab10b868f27a8468b1c0863d4435153ba4a2b",
+    "facts": [
+      "minimal conservative cancellation carrier is the sign-only signed layer",
+      "rank-one reversible scalar transport is exactly plus-or-minus identity"
+    ]
+  },
+  "native_source_blobs": {
+    "definitions/00_CURRENT_NATIVE_FOUNDATION.md": "c3140417e061932b4415f86cad397fc2de91d3c2",
+    "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md": "393060ebfd6a86ad45f258747d78a14d9c8ac153",
+    "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md": "b631242db84c5bd3640e6dc554b19a1d04d464f3",
+    "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md": "6ec0d73a19e28ec586c59a97d24f5798c9119771"
+  },
+  "classification": {
+    "minimal_carrier": "Z e direct-sum <tau | 3 tau = 0>",
+    "transport": "R(e)=e+tau; R(tau)=tau",
+    "transport_order": 3,
+    "elementary_orbit_size": 3,
+    "sign_involution_in_transport_subgroup": false,
+    "reversal": "S(e)=e; S(tau)=-tau; S R S^-1 = R^-1",
+    "torsion_status": "ADMITTED_AND_MINIMAL_UNDER_DECLARED_ORDER",
+    "path_composition": "ADDITIVE_AUTOMORPHISM_ACTION_WITH_DIAMOND_INVARIANT",
+    "internal_multiplication_required": false,
+    "two_sided_unital_internal_product_compatible_with_R": false,
+    "directed_nonunital_product_family_size": 2,
+    "readout_selected": false,
+    "torsion_free_counterfactual": {
+      "minimal_rank": 2,
+      "transport_orders": [3, 4, 6]
+    }
+  },
+  "checker": {
+    "path": "scripts/cbrc_f1_validate_nonsign_carrier_forward.py",
+    "mismatch_count": 0,
+    "composition_cases_depth_le_4": 148,
+    "diamond_edge_assignments": 81,
+    "diamond_holonomy_histogram": {
+      "0": 27,
+      "1": 27,
+      "2": 27
+    },
+    "multiplication_survivors": 2,
+    "two_sided_unital_survivors": 0,
+    "deterministic_digest": "d3e570e05b76fc4f6d3269ac5fd58f9f833ce537f9121403b09f9c7fad132080"
+  },
+  "artifact_sha256": {
+    "research_reports/CBRC_F1_NONSIGN_RECOALESCENCE_CARRIER_RETURN_20260822.md": "c664778aa616bed20f16fb15d3d66ec1418ca05e6176631c5e3fde951c2a1547",
+    "research_reports/CBRC_F1_SOURCE_AND_TARGET_LEAK_AUDIT_20260822.md": "1d20a709ea6b0a394b7d1ca334c04e53b9455433f427d23c05afbac62eb7d1f5",
+    "research_reports/CBRC_F1_ABLATION_AND_COUNTERMODEL_PACKET_20260822.md": "a37e6cdf6366f3634d673e509ea07999b964e00108d17329ce5241a8059e5564",
+    "scripts/cbrc_f1_validate_nonsign_carrier_forward.py": "3ad2fc2e24f0e557f4ca8f1b693f462e068d5d0407c675dfd596d3bb60d16ab6"
+  },
+  "target_leak_audit": "PASS",
+  "phase_a_blindness": "PASS",
+  "downstream_comparison_performed": false
+}
