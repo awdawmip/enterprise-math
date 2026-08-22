@@ -1,0 +1,52 @@
+{
+  "schema": "R064_PHASEA_CONTEXT_INDEPENDENCE_CERTIFICATE_V1",
+  "task_id": "RS-R064-PHASEA-N0-FIRST-LOCAL-INTERACTION-CARRIER-RECONSTRUCTION",
+  "researcher_id": "EM-R064A-9D3DB8",
+  "freeze_timestamp": "2026-08-22T15:49:42+08:00",
+  "taskbook_source_commit": "9d3db83d0c276e8bb3a06eadc4b9f910c4888ba7",
+  "allowed_evidence_commit": "d16877c3b62a7d3b7568780c732f610c260c13c1",
+  "allowed_source_blobs": {
+    "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md": "393060ebfd6a86ad45f258747d78a14d9c8ac153",
+    "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md": "b631242db84c5bd3640e6dc554b19a1d04d464f3",
+    "FOUNDATIONAL_LOGIC.md": "f089400136341efbf10a5e24e8f0729800b942cd",
+    "foundational_logic.json": "6875d84746ee369ea222fd32bdcd92206c2db9b2",
+    "native_semantics_admissibility.json": "58ad0af8c2e3df56b353575bf0004095507bffbf"
+  },
+  "boundary": {
+    "prior_numbered_route_material_used": false,
+    "driver_review_or_continuity_used": false,
+    "journal_or_route_summary_used": false,
+    "target_state_cardinality_supplied": false,
+    "target_interaction_table_supplied": false,
+    "downstream_formula_used_as_selector": false,
+    "phase_b_started": false,
+    "working_truth_activated": false
+  },
+  "ordinary_math_used": ["finite permutations and automorphisms", "equivariance and orbit counting", "finite exhaustive enumeration"],
+  "target_leakage_audit": "PASS",
+  "independence_status": "PHASEA_INDEPENDENT_ALLOWED_INPUT_ONLY",
+  "frozen_classification": "N0_DEFINABLE_LOCAL_PROCESS_RELATION_FAMILY_NONUNIQUE_WITH_EXACT_MISSING_AXIOM",
+  "artifact_hash_type": "GIT_BLOB_SHA1",
+  "artifact_hashes": {
+    "scripts/r064_phasea_validate_n0_local_interaction_carrier.py": "8bce361d97a7e58a6a405152d75869d141fd0cc0",
+    "R064_PHASEA_N0_SUBSTRATE_DECLARATION.json": "13dbcaa11b739b7e14feaf03ad72b7a106a84e7a",
+    "R064_PHASEA_LOCAL_CONTEXT_EQUIVALENCE_CLASSIFICATION.md": "da6d21f5e262760ba7d3ed364d31e5841975fe87",
+    "R064_PHASEA_INTERACTION_LAW_OR_NO_GO.md": "90adea8a45570b9cd71efeae95736f6959216772",
+    "R064_PHASEA_MINIMAL_INTERNAL_STATE_CARRIER.md": "1e6355e6de0e9891b4244533a13514198c47a530",
+    "R064_PHASEA_AUTOMORPHISM_INVARIANCE_CERTIFICATE.json": "7914bb92134a1bda29c9c31691dbd450f3fb4c25",
+    "R064_PHASEA_CLOSURE_AND_COMPOSITION_CLASSIFICATION.md": "5edb5a9c1125b86805e97cc08411b14d426833fc",
+    "R064_PHASEA_COUNTEREXAMPLES.json": "12b45d7f9f7ceab96f1eb555f537d6760223e001",
+    "R064_PHASEA_RAW_AXIOM_CANDIDATE.md": "1aed755d2fec9c615c0dec2f8ead8f26ed0c5a4d",
+    "R064_PHASEA_SEMANTIC_SCOPE_CLAIM_LEDGER.json": "bea337b7e6647ba85b1a57371e250571a505a1a1",
+    "R064_PHASEA_REGRESSION.json": "19d844402958cff41ab7f6991c61e0ef67154852",
+    "R064_PHASEA_MISMATCHES.json": "3573a4f0b75c2d4f55a950d64bfb16653c4e33ac",
+    "R064_PHASEA_FINAL_CLASSIFICATION.md": "05fffa25dc6c1e3657f0b881c38297ad895e30fc"
+  },
+  "checker": {
+    "deterministic_digest": "f7240ed04b9625095cb2197369fea5fe85b761e0a53c4a4893f22501566fd57b",
+    "checker_source_sha256": "ea9176457830dbecc19a022e4c216c5030cafd7ad44d867d0a45fe0f2fc8a238",
+    "mismatch_count": 0
+  },
+  "self_hash_policy": "certificate self-hash omitted to avoid recursive self-reference",
+  "stop_rule": "PHASEA_FROZEN_NO_DOWNSTREAM_COMPARISON"
+}
