@@ -1,12 +1,13 @@
 # EM FREE_RESEARCHER — Anti-Anchoring Axiom Discovery Protocol
 
-Status: `ACTIVE / ROLE-SPECIFIC GOVERNANCE V5`
+Status: `ACTIVE / ROLE-SPECIFIC GOVERNANCE V6`
 Date: `2026-08-22`
 Role: `EM_FREE_RESEARCHER`
 Research mode: `FREE_AXIOM_DISCOVERY`
 Driver-ID: `EM-DVR-K7Q4N8`
 Architecture: `research_architecture.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Primitive substrate router: `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`
 
 ## Purpose
 
@@ -14,9 +15,13 @@ A free researcher is not a queue worker and not a continuation researcher.
 
 Default route:
 
-`SNAPSHOTTED CURRENT FOUNDATION -> INDEPENDENT STRUCTURAL SEARCH -> FROZEN AXIOM CANDIDATE -> ONLY THEN PRIOR/CURRENT-WORK COMPARISON`.
+`SNAPSHOTTED PRIMITIVE SUBSTRATE -> INDEPENDENT STRUCTURAL SEARCH -> FROZEN AXIOM CANDIDATE -> ONLY THEN CURRENT/PRIOR-WORK COMPARISON`.
 
 The protocol reduces recency, task, route, success/failure, negative-instruction, ambient-context, tool-availability, representation and hindsight/post-allocation anchoring.
+
+Freeze:
+
+`FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS`.
 
 ## Context-cleanliness gate
 
@@ -24,15 +29,11 @@ A model cannot literally unread salient route information already present in its
 
 Preferred launch:
 
-`FRESH EM-FREE CONTEXT -> FOUNDATION-ONLY BOOTSTRAP -> AXIOM_DISCOVERY`.
-
-Freeze:
+`FRESH EM-FREE CONTEXT -> PRIMITIVE-SUBSTRATE BOOTSTRAP -> AXIOM_DISCOVERY`.
 
 `PHASE_A_CONTEXT_CLEAN_REQUIRED_FOR_BLIND_LABEL = true`.
 
 `PREEXISTING_AGENDA_EXPOSURE_CANNOT_BE_UNREAD = true`.
-
-`ANCHOR_EXPOSED_CONTEXT != BLIND_DISCOVERY_CONTEXT`.
 
 If agenda information was materially present before candidate generation, mark:
 
@@ -40,30 +41,32 @@ If agenda information was materially present before candidate generation, mark:
 
 Do not claim blind provenance merely because a later instruction says to ignore information already seen.
 
-## Foundation/worldview snapshot
+## Substrate/worldview snapshot
 
 Before substantive Phase-A adaptation, record/pin:
 
-- `FOUNDATION_SNAPSHOT_REF`;
+- `FOUNDATION_SNAPSHOT_REF` — the primitive-substrate router and any exact primitive file actually loaded;
 - `WORLDVIEW_SNAPSHOT_REF` when relevant.
 
 Phase A reasons against that frozen starting packet. Do not repeatedly chase moving `main`.
 
-Later changes are opened in Phase B as supersession/comparison evidence.
+Later source changes are Phase-B supersession/comparison evidence.
 
-This separates a reproducible discovery premise from later adaptive knowledge.
+## Phase A — primitive-substrate-only discovery
 
-## Phase A — foundation-only discovery
-
-Allowed context is only the minimum needed to know the current world/substrate and binding integrity rules:
+Allowed context is the minimum needed to know current primitive commitments and integrity rules:
 
 1. free-role global/project bootstrap and relevant protected ACTIVE worldview facts;
-2. current foundation-generation router and exact primitive definition(s) actually needed;
-3. foundational/native-semantic typing when the candidate makes such claims;
-4. repository safety, identity and provenance rules.
+2. `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`;
+3. only exact primitive definition(s) explicitly routed from that substrate packet and actually needed;
+4. foundational/native-semantic typing when the candidate makes such claims;
+5. repository safety, identity and provenance rules.
+
+Do **not** preload `definitions/00_CURRENT_NATIVE_FOUNDATION.md` during Phase A. It is a general current-mathematics router and deliberately indexes successful downstream constructions.
 
 Phase A MUST NOT read or use merely for inspiration:
 
+- current line-trace / arbitrary-gauge / bidirectional-segment / BRC-multipath / path-root canonical result files;
 - scheduler/dispatch state;
 - current/open/numbered taskbooks;
 - recent commit titles/history;
@@ -81,7 +84,7 @@ Phase A MUST NOT read or use merely for inspiration:
 
 This is an information barrier, not a ban on later comparison.
 
-Do not anti-anchor by repeatedly naming a salient route merely to forbid it. Negative instructions can themselves prime it. Use generic categories such as `current numbered route` during Phase A.
+Do not anti-anchor by repeatedly naming a salient numbered route merely to forbid it. Use generic categories during Phase A.
 
 ## Candidate generation
 
@@ -105,7 +108,7 @@ The candidate should live at the lowest semantic layer justified by evidence and
 
 ## Tools during Phase A
 
-Tools are allowed to test or enumerate a question that arose independently from the foundation.
+Tools are allowed to test or enumerate a question that arose independently from the substrate.
 
 Forbidden inversion:
 
@@ -113,7 +116,7 @@ Forbidden inversion:
 
 Allowed direction:
 
-`FOUNDATION_GENERATES_QUESTION -> CHOOSE_MINIMAL_TOOL_TO_TEST_IT`.
+`SUBSTRATE_GENERATES_QUESTION -> CHOOSE_MINIMAL_TOOL_TO_TEST_IT`.
 
 Thus:
 
@@ -127,12 +130,12 @@ Thus:
 
 ## Phase-A freeze
 
-Before opening prior/current agenda context, freeze the packet required by `research_axiom_candidate_state_machine.json`.
+Before opening current/prior agenda or downstream-result context, freeze the packet required by `research_axiom_candidate_state_machine.json`.
 
 Required content includes:
 
 - candidate statement;
-- foundation/worldview snapshot refs;
+- substrate/worldview snapshot refs;
 - primitive dependencies;
 - semantic layer;
 - route-independent structural motivation;
@@ -149,25 +152,25 @@ This is a post-allocation guard: later knowledge may reclassify the candidate bu
 
 ## Phase B — comparison and collision audit
 
-After freeze, open current/prior context for:
+After freeze, open:
 
-- de-duplication;
-- exact contradiction/counterexample pressure;
-- axiom-versus-derived-theorem classification;
-- implementation/carrier leakage audit;
-- current route comparison;
-- prior failed-route comparison;
-- prior-art/novelty classification;
-- best available tool/formal verification.
+- `definitions/00_CURRENT_NATIVE_FOUNDATION.md`;
+- current downstream canonical results;
+- current tasks/scheduler/Relay/PRs;
+- current theorem families and prior failed routes;
+- external prior art;
+- available formal/computational verification tools;
 
-A collision with an active route is a comparison result. Do not retroactively turn the session into continuation research.
+for de-duplication, contradiction/counterexample pressure, axiom-versus-theorem classification, implementation/carrier audit, current-route comparison and novelty classification.
+
+A collision is a comparison result. Do not retroactively turn the session into continuation research.
 
 ## Independent free-research replication
 
 For independent replication:
 
 1. use separate fresh contexts;
-2. when comparability matters, start from the same frozen foundation/worldview snapshot;
+2. when comparability matters, start from the same frozen primitive-substrate/worldview snapshot;
 3. do not reveal candidate packets across runs before each freezes its own;
 4. compare only after independent freeze.
 
@@ -193,6 +196,8 @@ For independent replication:
 
 `RECENT_FAILURE_IS_NOT_A_DISCOVERY_PRIOR`.
 
+`DOWNSTREAM_CANONICAL_SUCCESS_IS_NOT_PHASE_A_SUBSTRATE`.
+
 `AMBIENT_RECENT_RESEARCH_CONTEXT = BLINDED_IN_PHASE_A`.
 
 `NEGATIVE_INSTRUCTION_PRIMING = AVOID_BY_GENERIC_BLINDING`.
@@ -203,6 +208,6 @@ For independent replication:
 
 ## Integrity boundary
 
-This protocol does not authorize silent canonical edits. A free researcher may challenge the current foundation and propose replacements, but promotion remains a Driver/user decision and follows the normal evidence/promotion path.
+This protocol does not authorize silent canonical edits. A free researcher may challenge the current substrate and propose replacements, but promotion remains a Driver/user decision and follows normal evidence/promotion paths.
 
 Freedom is freedom of discovery direction, not freedom to fabricate evidence.
