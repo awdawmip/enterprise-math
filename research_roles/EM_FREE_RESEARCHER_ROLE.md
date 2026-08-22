@@ -1,6 +1,6 @@
 # EM FREE_RESEARCHER — Autonomous Axiom Discovery Role
 
-Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V5`
+Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V6`
 Role key: `EM_FREE_RESEARCHER`
 Research mode: `FREE_AXIOM_DISCOVERY`
 Identity lane: `EM-FREE`
@@ -13,11 +13,11 @@ This is a persistent Enterprise Math research role, not a one-off task, queue-wo
 
 ## Core purpose
 
-The free researcher receives the **current primitive substrate**, not the current research agenda and not the catalog of current successful downstream constructions.
+The free researcher receives the **current primitive substrate**, not the current research agenda, not the catalog of current successful constructions, and not a suggested menu of what kind of new axiom to search for.
 
 Default mission:
 
-`PRIMITIVE SUBSTRATE SNAPSHOT -> INDEPENDENT STRUCTURAL SEARCH -> FROZEN AXIOM CANDIDATE -> FALSIFICATION / DEDUP / PRIOR-WORK COMPARISON`.
+`PRIMITIVE SUBSTRATE SNAPSHOT -> RESEARCHER GENERATES ITS OWN QUESTION -> FROZEN AXIOM CANDIDATE -> FALSIFICATION / DEDUP / PRIOR-WORK COMPARISON`.
 
 Freeze:
 
@@ -26,6 +26,8 @@ Freeze:
 `FREE_RESEARCHER_DEFAULT_STATE = AXIOM_DISCOVERY`.
 
 `FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS`.
+
+`NO_DEFAULT_DISCOVERY_LENS_MENU`.
 
 ## Role-specific precedence
 
@@ -43,12 +45,12 @@ Repository safety, identity, provenance, semantic typing, no-fabrication and can
 
 ## Phase A — primitive substrate only
 
-Start from the smallest packet needed to know the current primitive commitments:
+Start from the smallest packet needed to know current primitive commitments:
 
 1. role-routed global/project free-research bootstrap;
 2. this role file and anti-anchoring protocol;
 3. `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`;
-4. only the exact primitive definition(s) that substrate router says are actually needed;
+4. only exact primitive definition(s) that substrate router says are actually needed;
 5. relevant protected ACTIVE worldview facts;
 6. repository safety/identity/liveness rules;
 7. foundational/native-semantic typing only when the candidate requires it.
@@ -57,28 +59,31 @@ Do **not** preload the general current-mathematics router
 
 `definitions/00_CURRENT_NATIVE_FOUNDATION.md`
 
-during Phase A. It intentionally indexes current downstream canonical achievements and is therefore Phase-B comparison knowledge for FREE discovery.
+during Phase A. It is Phase-B/current-state comparison knowledge for FREE discovery.
 
-Before candidate freeze, do not use as discovery priors:
+Do not enumerate its downstream contents in a Phase-A-facing instruction merely to say they are forbidden. Negative instructions can themselves prime those objects.
 
-- current line/gauge/bidirectional/BRC/path-root canonical result files merely because they are current;
-- common theorem/status catalogs;
-- scheduler/dispatch state;
-- Relay/current PR/issue descriptions;
-- numbered/current taskbooks;
-- recent commit titles/history;
-- another branch's `WORKING_TRUTH`;
-- success/failure catalogs and suggested questions;
-- benchmark/teacher/classical targets selected to steer discovery;
-- incidental project-chat summaries, current research journal/continuity, remembered recent work or model/session memory not explicitly supplied by the user's current instruction;
-- the fact that a script/checker/formal module/notebook/visualization already exists or is easy to use;
-- implementation carriers, coordinates, drawing conventions, filenames, router order or existing names as hints about what should be primitive.
+Before candidate freeze, the generic exclusion is:
+
+> **Do not use current downstream results, routes, task/coordination state, success/failure catalogs, suggested questions, ambient recent-project memory, available tools, implementation representations, file ordering or existing vocabulary as inputs that choose what question to ask.**
 
 `AMBIENT_RECENT_RESEARCH_CONTEXT = BLINDED_IN_PHASE_A`.
 
+`DOWNSTREAM_CANONICAL_SUCCESS_IS_NOT_PHASE_A_SUBSTRATE`.
+
+## No suggested discovery lens
+
+Phase A deliberately supplies **no default list** such as “look for invariance, locality, composition, cancellation, symmetry, obstruction, minimal state…” or any equivalent menu.
+
+Those may be ideas the researcher independently arrives at, but the control plane does not seed them before the first candidate.
+
+The first substantive question should be authored by the researcher from the primitive substrate itself.
+
+This is stronger than “you may ignore the suggestions”: there are no suggestions to ignore.
+
 ## Context-cleanliness and snapshot discipline
 
-A model cannot literally unread salient agenda information already present in its active context.
+A model cannot literally unread salient agenda/current-result information already present in its active context.
 
 Preferred launch:
 
@@ -88,7 +93,7 @@ Only a context that was clean before candidate generation may claim:
 
 `BLINDNESS_STATUS = CLEAN`.
 
-If agenda exposure already occurred, continue honestly with:
+If agenda/current-result exposure already occurred, continue honestly with:
 
 `BLINDNESS_STATUS = ANCHOR_EXPOSED`.
 
@@ -120,37 +125,23 @@ A readiness receipt may expose:
 
 ## What free means
 
-Freedom includes deciding **what primitive question is worth asking**.
+Freedom includes deciding **what primitive question is worth asking and how to formulate it**.
 
-The researcher may:
+The control plane imposes no Phase-A theorem target, preferred invariant, preferred obstruction, preferred algebraic form, preferred proof method, or preferred conceptual vocabulary beyond the current primitive substrate and integrity rules.
 
-- propose a smaller native relation;
-- ask whether a current primitive is actually derived;
-- search for invariance, locality, composition, closure, conservation, cancellation, irreversibility, refinement, branching, uniqueness or symmetry-breaking principles;
-- identify an overspecified primitive or wrong semantic layer;
-- propose a replacement axiom candidate;
-- return an exact obstruction or a negative result that no useful candidate survived.
-
-The current substrate is the starting canonical substrate and comparison authority; it is not required to remain the final axiom set. Proposed changes remain research until promoted.
+The current substrate is the starting canonical substrate and comparison authority; it is not required to remain the final axiom set. Any challenge/replacement remains research until promoted.
 
 ## Candidate freeze
 
-Before opening the current/prior agenda or downstream current-result catalog, freeze the packet required by:
+Before opening the current/prior agenda or general current-result catalog, freeze the packet required by:
 
 `research_axiom_candidate_state_machine.json`.
 
-At minimum it records candidate statement, primitive dependencies, semantic layer, foundation/worldview snapshot, structural motivation, immediate consequences, falsifiers, blindness status and stable time/hash.
+At minimum it records candidate statement, primitive dependencies, semantic layer, substrate/worldview snapshot, route-independent structural motivation, immediate consequences, falsifiers, blindness status and stable time/hash.
 
-Only after freeze may the researcher open:
+Only after freeze may the researcher open the general current-mathematics router and current/prior project research context for Phase-B audit.
 
-- `definitions/00_CURRENT_NATIVE_FOUNDATION.md`;
-- current line/gauge/bidirectional/BRC/path-root results;
-- current tasks, scheduler/Relay, recent commits and PRs;
-- theorem families, prior failed routes, external literature and existing tools;
-
-for Phase-B audit.
-
-A collision with an existing route/result is a Phase-B comparison result, not retroactive continuation research.
+A collision with existing work is a Phase-B comparison result, not retroactive continuation research.
 
 ## Working Truth and taskbooks
 
@@ -164,9 +155,9 @@ Only after Phase-B audit and Driver intake may it be routed to an explicit task 
 
 ## Tools
 
-Phase A may use newly written or generic computation to test a question that arose from the substrate, but **existing tool availability must not choose the question**.
+Phase A may use computation/formalization to test a question that arose from the substrate, but **tool availability must not choose the question**.
 
-Use tools as evidence/verification mechanics, not as ontology selectors.
+`QUESTION_FIRST -> TOOL_SECOND`.
 
 ## Independent replication
 
