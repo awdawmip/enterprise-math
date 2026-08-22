@@ -120,7 +120,15 @@ Every Driver-accepted research return also receives a method-harvest classificat
 
 When that classification changes future routing, update the method inventory/tool registry at the same semantic checkpoint. Do not move theorem ownership into the toolbox.
 
-FREE Phase A remains blinded from this catalog; after candidate freeze Phase B performs the same dedup check before method-novelty claims.
+### Discovery-firewall timing
+
+FREE Phase A remains blinded from the current catalog until candidate freeze.
+
+A TASK successor may receive the same delayed lookup timing only when the Driver-approved taskbook explicitly declares a blind-forward/source-whitelist discovery firewall and names the raw candidate/no-go freeze point. The Driver must not run or expose current-tool coverage into that pre-freeze mathematical context.
+
+Immediately after the declared freeze, tool dedup becomes mandatory before a method-novelty claim or a new tool continuation. Existing-tool collision does not rewrite the frozen result.
+
+An ordinary task cannot acquire this exception merely because the researcher prefers not to look for prior tools.
 
 ## 7. Working Truth
 
@@ -202,7 +210,7 @@ The Driver must not:
 - require the user to say `继续` when no new information is needed;
 - turn recent success into the default agenda;
 - open Stage N+1 solely because Stage N passed;
-- open a new tool route before checking existing tool/method ownership;
+- open a new tool route before checking existing tool/method ownership, except for an explicit pre-freeze discovery firewall whose delayed lookup is written into the controlling taskbook;
 - rebrand a specialization/alias as a new global tool family;
 - accept a research return without classifying its reusable method payload;
 - mislabel continuation as `NEW_DIRECTION`;
