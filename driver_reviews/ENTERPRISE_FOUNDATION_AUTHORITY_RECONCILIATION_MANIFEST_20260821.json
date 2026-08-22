@@ -1,9 +1,9 @@
 {
-  "schema": "ENTERPRISE_FOUNDATION_AUTHORITY_RECONCILIATION_V2",
-  "status": "DRAFT_PROMOTION_PAYLOAD_FINAL_AUDIT_GREEN",
+  "schema": "ENTERPRISE_FOUNDATION_AUTHORITY_RECONCILIATION_V3",
+  "status": "GOVERNANCE_MAINTENANCE_PAYLOAD_FINAL_AUDIT_GREEN",
   "driver_id": "EM-DVR-K7Q4N8",
   "audit_date": "2026-08-22",
-  "classification": "NO_NEW_MATHEMATICS_AUTHORITY_RECONCILIATION",
+  "classification": "NO_NEW_MATHEMATICS_AUTHORITY_RECONCILIATION_GOVERNANCE_MAINTENANCE",
   "current_native_foundation": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
   "current_router": "definitions/00_CURRENT_NATIVE_FOUNDATION.md",
   "worldview_alignment": "THREE_POSITIVE_AXIS_O_E_0_120_DEGREE",
@@ -11,16 +11,38 @@
   "old_spatial_worldview": "SUPERSEDED_BY_DIRECT_USER_INSTRUCTION",
   "precision_mathematics": "MERGED_PREDECESSOR",
   "source_owner_branch": "driver/authority-reconcile-20260821",
-  "current_main_combination_checked": "74cacc89ec09a8af7dd7ff01c10f2baf082daf81",
-  "current_main_delta_path_overlap": 0,
+  "current_main_combination_checked": "4c99e07149a94e6214fd3e5a5c6b9a2b3c7e084a",
+  "current_main_delta_since_owner_base": {
+    "base": "a09d3bd7e1234f344d51c137c1fe33b50fa9fe35",
+    "commit_count": 49,
+    "changed_path_count": 27,
+    "path_overlap_with_reconciliation_payload": 0,
+    "contains_research_architecture_v2_3": true,
+    "contains_r063_stage4_route_closure": true,
+    "semantic_action": "NO_RECONCILIATION_REQUIRED; source-main additions are orthogonal to the authority payload"
+  },
   "pr_changed_file_count": 28,
   "authority_resolution": {
     "generation_selection": "CURRENT_USER_THEN_CURRENT_ROUTER_AND_SUPERSESSION_THEN_HISTORY",
     "within_current_generation": "EXACT_CANONICAL_DEFINITION_THEN_ROUTER_SUMMARY_THEN_RETAINED_DOWNSTREAM"
   },
+  "governance_maintenance_eligibility": {
+    "protocol": "docs/GOVERNANCE_MAINTENANCE_LIVENESS.md@main",
+    "no_new_theorem": true,
+    "no_theorem_strength_change": true,
+    "no_proof_status_reinterpretation": true,
+    "no_new_native_mathematical_definition": true,
+    "no_semantic_change_to_frozen_current_definition": true,
+    "no_evidence_reinterpretation": true,
+    "no_theorem_ownership_transfer": true,
+    "authority_reconciliation_only_to_already_frozen_canonical_definition": true,
+    "exact_current_canonical_definition_files_modified": false,
+    "historical_and_router_surfaces_only": true
+  },
   "read_performance": {
     "explicit_task_max_routine_source_reads_before_substantive_work": 3,
-    "mode": "TRIGGERED_LAZY_EXPANSION",
+    "mode": "EXACT_TASK_FIRST_TRIGGERED_LAZY_EXPANSION",
+    "common_surface": "LOOKUP_ONLY_NOT_DEFAULT_CONTEXT_DUMP",
     "immutable_blob_reuse": true,
     "ci_polling": false
   },
@@ -29,7 +51,10 @@
   "historical_machine_records_covered": 2,
   "known_authority_conflicts_after_payload_audit": 0,
   "known_source_path_conflicts_with_current_main": 0,
-  "ci_status_query": "NOT_REQUIRED_FOR_DRAFT_RESEARCH_PAYLOAD",
-  "promotion_lane": "QUEUED_BEHIND_EXISTING_NON_DRAFT_L4_PR_444",
-  "canonical_promotion_status": "NOT_YET_MAIN_BY_DESIGN"
+  "promotion_liveness": {
+    "ready_pr_is_persistent_lane_lock": false,
+    "route": "BOUNDED_NO_NEW_MATHEMATICS_GOVERNANCE_MAINTENANCE_ATTEMPT",
+    "mathematical_l4_gates_changed": false
+  },
+  "canonical_promotion_status": "READY_FOR_BOUNDED_GOVERNANCE_MAINTENANCE_ATTEMPT"
 }
