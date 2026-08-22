@@ -1,8 +1,8 @@
 {
-  "schema": "ENTERPRISE_MATH_PROJECT_DEFINITION_V3",
+  "schema": "ENTERPRISE_MATH_PROJECT_DEFINITION_V4",
   "status": "ACTIVE",
   "authority": "PROJECT_LEVEL_DEFINITION",
-  "date": "2026-08-21",
+  "date": "2026-08-22",
   "core_mode": "REFOUND_NOT_REJECT",
   "one_sentence_definition": "Enterprise Math rebuilds useful modern mathematical tools from a finite-resolution, precision-aware, integer-first and discretely computable substrate, then classifies exact, finite-precision, asymptotic, domain-restricted recovery or systematic deviation.",
   "authority_chain": {
@@ -11,30 +11,16 @@
       "PROJECT_DEFINITION.zh-CN.md",
       "project_definition.json"
     ],
-    "current_native_plane_foundation": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
-    "current_downstream_definitions": [
-      "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md",
-      "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
-      "definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md",
-      "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md"
-    ],
-    "supersession_rule": "A later explicit foundational correction or supersession controls over older project-definition text, historical taskbooks and compatibility carriers. Historical files remain provenance, not competing current authority."
-  },
-  "precision_mathematics_lineage": {
-    "precision_mathematics_is_predecessor": true,
-    "active_peer_project": false,
-    "new_precision_work_routes_to": "enterprise-math",
-    "historical_materials_preserve_provenance": true
+    "current_native_router": "definitions/00_CURRENT_NATIVE_FOUNDATION.md",
+    "free_discovery_substrate_router": "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md",
+    "exact_claim_rule": "EXACT_CURRENT_CANONICAL_DEFINITION_CONTROLS"
   },
   "current_native_plane": {
     "enterprise_dimension": 3,
     "axis_count": 3,
     "axis_semantics": "THREE_POSITIVE_NATIVE_RAYS",
-    "native_negative_axes_required": false,
     "origin": 0,
     "origin_type": "TRIPLE_CIRCLE_CELL_BOUNDARY_INTERSECTION",
-    "origin_is_cell_center": false,
-    "origin_is_cell": false,
     "cell_type": "CIRCLE_CELL_IDENTIFIED_BY_DISCRETE_CENTER",
     "nearest_center_spacing": 1,
     "cell_radius": "1/sqrt(3)",
@@ -42,9 +28,7 @@
     "gap_free_cover": true,
     "right_angle_degrees": 120,
     "right_sector_count_per_turn": 3,
-    "pairwise_enterprise_orthogonal": true,
-    "euclidean_perpendicularity_redefined": false,
-    "old_six_direction_60_degree_native_plane": "SUPERSEDED"
+    "pairwise_enterprise_orthogonal": true
   },
   "current_coordinate_atlas": {
     "carrier": "N_0^3",
@@ -54,51 +38,36 @@
       "S_23": "{(0,b,c):b,c>=0}",
       "S_31": "{(a,0,c):a,c>=0}"
     },
-    "common_diagonal_shift_quotient": false,
     "sector_pythagorean_law": "L_E^2=a^2+b^2 on the two active coordinates",
-    "canonical_origin_length_squared": "a^2+b^2+c^2",
-    "example_3_4_0_length": 5
+    "canonical_origin_length_squared": "a^2+b^2+c^2"
   },
-  "historical_carrier_typing": {
-    "a2_c6_carrier": "I0_IMPLEMENTATION_CARRIER_OR_CLASSICAL_COMPATIBILITY",
-    "carrier_relation_e1_plus_e2_plus_e3_zero_is_native_vector_identity": false,
-    "carrier_relation_may_define_native_negative_axes": false,
-    "carrier_euclidean_metric_is_native_metric": false
+  "carrier_typing": {
+    "rule": "IMPLEMENTATION_OR_CLASSICAL_CARRIER_RELATIONS_DO_NOT_AUTOMATICALLY_DEFINE_NATIVE_IDENTITY_OR_METRIC"
   },
   "current_line_and_distance": {
     "line_identity": "NATIVE_COMPONENT_TRACE",
     "one_line_may_have_multiple_discrete_path_representatives": true,
-    "three_four_trace_path_count": 35,
-    "three_four_native_length": 5,
     "point_to_point_length_object": "DIRECTED_NATIVE_LINE_GAUGE",
-    "reversal_length_symmetry": false,
-    "native_integer_vertex_distance_is_metric": false,
     "unoriented_structure": "BIDIRECTIONAL_CANONICAL_TRACE_PAIR",
     "orientation_free_length_data": "BIDIRECTIONAL_LENGTH_SPECTRUM",
     "canonical_symmetric_scalar_metric_derived": false
   },
   "brc": {
     "name": "Branch-Recoalescence Collapse",
-    "historical_core": "BOOLEAN_RESULT_SUPPORT_SEMANTICS",
+    "base_layer": "BOOLEAN_RESULT_SUPPORT_SEMANTICS",
     "enrichment_tower": [
       "PATH_FORMAL_BRC",
       "N_BRC",
       "BOOLEAN_BRC"
     ],
     "boolean_shadow_of_component_typed_native_multipath": true,
-    "boolean_layer_recovers_discarded_paths_by_inversion": false,
-    "component_labels_required_for_native_line_membership": true,
-    "foundation_rule": "Do not copy target-side classical coordinate definitions into native premises."
+    "foundation_rule": "TARGET_SIDE_CLASSICAL_DEFINITIONS_MAY_NOT_BE_COPIED_INTO_NATIVE_PREMISES"
   },
   "worldview_alignment": {
     "protected_source": "我眼中的世界.md",
-    "updated_by_direct_user_instruction": true,
     "current_spatial_worldview": "THREE_POSITIVE_AXIS_ENTERPRISE_PLANE",
     "origin": 0,
-    "native_negative_axes_required": false,
-    "enterprise_right_angle_degrees": 120,
-    "old_six_dimension_twelve_direction_world_model": "SUPERSEDED_BY_USER",
-    "old_60_degree_alternating_sign_plane": "SUPERSEDED_BY_USER"
+    "enterprise_right_angle_degrees": 120
   },
   "definition_not_inherited": {
     "concepts_may_be_retained": true,
@@ -107,23 +76,6 @@
     "classical_definition_is_native_by_default": false,
     "target_definition_copying_into_native_premise": "FORBIDDEN"
   },
-  "admitted_mature_concepts": [
-    "VECTOR",
-    "LENGTH",
-    "DISTANCE",
-    "ANGLE",
-    "NORM",
-    "DOT_OR_PAIRING",
-    "PROJECTION",
-    "SIN",
-    "COS",
-    "TAN",
-    "AREA",
-    "VOLUME",
-    "PI",
-    "EUCLIDEAN_GEOMETRY",
-    "CONTINUUM_MODELS"
-  ],
   "project_layers": {
     "P0": "NUMBER_PRECISION_INTEGER_DISCRETE_RELATION_COLLAPSE",
     "P1": "PACKET_CELL_ADJACENCY_TRANSITION_PATH_BRC_ENTERPRISE_COORDINATES_ALGEBRA",
@@ -132,12 +84,7 @@
     "P4": "CLASSICAL_CONTINUUM_ENGINEERING_COMPATIBILITY_AND_CORRECTION",
     "P5": "PHYSICS_AND_ENGINEERING_CALIBRATION"
   },
-  "count_type_separation": {
-    "packet_count": "STATIC_OBJECT_COUNT",
-    "transition_count": "DYNAMIC_EVENT_COUNT",
-    "geometric_length": "SEPARATELY_REBUILT_GEOMETRIC_QUANTITY",
-    "rule": "PACKET_COUNT != TRANSITION_COUNT != GEOMETRIC_LENGTH"
-  },
+  "count_type_separation": "PACKET_COUNT != TRANSITION_COUNT != GEOMETRIC_LENGTH",
   "classical_recovery_classes": [
     "EXACT_RECOVERY",
     "FINITE_PRECISION_RECOVERY",
@@ -148,10 +95,5 @@
   ],
   "canonical_stack": "NUMBER -> PRECISION -> DISCRETE_STATE -> RELATION_PATH_BRC -> THREE_POSITIVE_AXIS_ENTERPRISE_COORDINATES -> REBUILT_GEOMETRY -> TRIG_ANALYSIS -> CLASSICAL_COMPATIBILITY_CORRECTION -> PHYSICS -> ENGINEERING",
   "canonical_slogan": "Do not tear down old mathematics; give it a better foundation.",
-  "governing_sources": [
-    "FOUNDATIONAL_LOGIC.md",
-    "foundational_logic.json",
-    "native_semantics_admissibility.json",
-    "GEOMETRIC_TOOL_REFOUNDATION_POLICY.md"
-  ]
+  "history_access": "GIT_HISTORY_OR_EXPLICIT_HISTORICAL_RECORDS_ONLY_WHEN_REQUESTED"
 }
