@@ -1,0 +1,48 @@
+{
+  "anti_conflation_rule": "S0 does not imply S1/S2/S3/S4",
+  "generation": "R060",
+  "levels": {
+    "S0": {
+      "criterion": "all maximal D3_L1 branches finite",
+      "name": "TERMINATION",
+      "stage0_status": "PROVED_EXACT"
+    },
+    "S1": {
+      "criterion": "|T(C0)|=1",
+      "name": "SINGLE_INITIAL_CONFLUENCE_MOD_AUTOMORPHISM",
+      "stage0_status": "DEFINED_NOT_SEARCHED"
+    },
+    "S2": {
+      "criterion": "S1(C0) and T(C1)=T(C0) for every C1 in P1_ADJACENT_RELOCATION(C0)",
+      "name": "LOCAL_PERTURBATION_ROBUSTNESS",
+      "stage0_status": "DEFINED_NOT_SEARCHED"
+    },
+    "S3": {
+      "domain": "all carrier-automorphism orbits of finite connected N-packet states",
+      "name": "FIXED_N_BASIN_COHERENCE",
+      "outcome_classes": {
+        "S3_EXACT_FINITE_BASIN_ATLAS": "if uniqueness fails, exhaustively freeze the finite terminal-orbit family plus exact initial-orbit -> reachable-terminal-orbit incidence; report as multi-basin structure, not uniqueness",
+        "S3_INCOMPLETE": "coverage/reachability not exhaustive",
+        "S3_UNIQUE_ORBIT": "union over initial C of T(C) has cardinality 1"
+      },
+      "stage0_status": "DEFINED_NOT_SEARCHED"
+    },
+    "S4": {
+      "criterion": "RESERVED; no continuum-convergence semantics frozen in Stage 0",
+      "name": "SIZE_REFINEMENT_COHERENCE",
+      "stage0_status": "RESERVED"
+    }
+  },
+  "local_perturbation_neighborhood": {
+    "definition": "all connected fixed-N states from one occupied-u to adjacent-empty-v relocation, without requiring B descent; duplicates compared only by full carrier automorphism",
+    "name": "P1_ADJACENT_RELOCATION(C)"
+  },
+  "primary_later_target": "STRONG_STAGE_LOCAL_STABILITY = S1 + S2",
+  "researcher_id": "EM-R060-00CD9F",
+  "schema": "R060_STABLE_COLLAPSE_HIERARCHY_V1",
+  "stage": "0",
+  "status": "FROZEN_STAGE0",
+  "task_id": "RS-R060-STAGE-0-RELATIONAL-3D-STABLE-COLLAPSE-FOUNDATION",
+  "taskbook_source_commit": "1d4b7dd5b2dd326019e1d91dbcbe050b0cd13f89",
+  "terminal_orbit_set": "T(C)=carrier-automorphism orbits of all terminal endpoints of maximal D3_L1 branches from C"
+}
