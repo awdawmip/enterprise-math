@@ -1,0 +1,39 @@
+{
+  "schema": "R064_PHASEA_COUNTEREXAMPLES_V1",
+  "freeze_timestamp": "2026-08-22T15:49:42+08:00",
+  "associativity_rejection": {
+    "x": "E1",
+    "y": "E1",
+    "z": "E2",
+    "lhs": "E3",
+    "rhs": "E2"
+  },
+  "identity_rejection_by_candidate_axis": {
+    "E1": {"candidate_identity":"E1","x":"E2","left":"E3","right":"E3"},
+    "E2": {"candidate_identity":"E2","x":"E1","left":"E3","right":"E3"},
+    "E3": {"candidate_identity":"E3","x":"E1","left":"E2","right":"E2"}
+  },
+  "event_context_nonuniqueness": {
+    "sector": ["E1","E2"],
+    "word": ["E1","E1"],
+    "pos1": 0,
+    "pos2": 1,
+    "tag1": "E1",
+    "tag2": "E1",
+    "context_class": "SS_LT_SAME",
+    "component_only_output": "E1",
+    "context_sensitive_output": "E2"
+  },
+  "event_level_sector_lift_ambiguity": {
+    "input_sector": ["E1","E2"],
+    "input_tags": ["E1","E2"],
+    "component_output": "E3",
+    "admissible_output_sectors": [["E1","E3"],["E2","E3"]],
+    "count": 2
+  },
+  "interpretation": {
+    "event_context_nonuniqueness": "Two deterministic N0-definable S3-equivariant axis-output laws disagree already on a length-2 same-source pair, so N0 does not force context erasure.",
+    "event_level_sector_lift_ambiguity": "For distinct inputs in one sector the component-complement axis is outside the input sector and lies in exactly two incident sectors; choosing a single output event sector requires an additional choice."
+  },
+  "unclassified_counterexample_count": 0
+}
