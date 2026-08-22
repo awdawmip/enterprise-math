@@ -1,10 +1,11 @@
 # Enterprise Math Research Architecture V2
 
-Status: `DRIVER-PROPOSED / NO_NEW_MATHEMATICS / GOVERNANCE / V2.2`
+Status: `DRIVER-PROPOSED / NO_NEW_MATHEMATICS / GOVERNANCE / V2.3`
 Date: `2026-08-22`
 Driver-ID: `EM-DVR-K7Q4N8`
 Machine contract: `research_architecture.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Promotion liveness: `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`
 
 ## 1. Why this architecture exists
 
@@ -21,7 +22,8 @@ Trying to make one generic `RESEARCHER` behavior do both creates:
 - early conjectures becoming `WORKING_TRUTH` before audit;
 - candidate provenance being lost when a Driver selects it;
 - Foundation backflow treating discovery drafts as mature shared structure;
-- large common-surface preloads reducing both independence and performance.
+- large common-surface preloads reducing both independence and performance;
+- stale ready promotion candidates becoming accidental repository-wide locks.
 
 V2 separates research by **mode** while keeping identity compact.
 
@@ -228,23 +230,61 @@ FREE starts from the foundation-only route.
 
 Repeated rereads, CI polling, whole-repository preflight and unrelated theorem catalogs are performance defects.
 
-## 14. Persistence and promotion
+## 14. Promotion is an attempt, not a permanent PR lock
+
+Promotion liveness is defined by `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`.
+
+Freeze:
+
+`READY_PR != PROMOTION_LANE_LEASE`.
+
+A mathematical PR being ready-for-review means it is a candidate. The mathematical L4 lane exists only while a Driver is executing one bounded promotion attempt:
+
+`SELECT -> CURRENT_MAIN_SNAPSHOT -> CONFLICT_SNAPSHOT -> FROZEN_HEAD_VALIDATION -> FINAL_COMBINATION -> MERGE_OR_DEFER -> RELEASE`.
+
+Only one mathematical L4 promotion attempt is active at a time. A stale/unmergeable ready candidate does not permanently block every later repository action.
+
+## 15. Governance maintenance is separate from mathematical L4
+
+A bounded `NO_NEW_MATHEMATICS` governance-maintenance attempt may proceed while mathematical L4 candidates are ready when all narrow eligibility gates pass.
+
+Eligible examples include role/policy/router repair, machine/human synchronization, stale-status repair, and authority routing to an **already-frozen** canonical definition.
+
+Governance maintenance must not introduce or change:
+
+- theorem claims or proof strength;
+- proof status without evidence;
+- native mathematical definitions;
+- semantic content of frozen current definitions;
+- evidence interpretation;
+- theorem ownership.
+
+If the semantic delta is uncertain, it is not governance maintenance: route it through mathematical/Foundation promotion.
+
+Governance maintenance still requires a fresh current-main snapshot, path/semantic conflict audit, relevant regression evidence, and an atomic/expected-head merge guard when supported. Only one governance-maintenance merge attempt should be active at a time.
+
+This prevents control-plane starvation without weakening mathematical canonical gates.
+
+## 16. Persistence and canonical truth
 
 - L1/L2/L3 remote-silent between semantic checkpoints;
 - normally one owner branch + at most one Draft PR per bounded owner generation;
-- one ready L4 lane by default;
+- mathematical L4: one **bounded active attempt** at a time, not one permanent ready-PR lock;
+- governance maintenance: separate bounded `NO_NEW_MATHEMATICS` attempt;
 - GLOBAL_KNOWLEDGE journal = history/provenance, not theorem truth;
 - Driver Continuity = routing only / no implicit default next route;
-- canonical truth = gated source main.
+- canonical mathematical truth = gated source main.
 
-## 15. Legacy interpretation
+## 17. Legacy interpretation
 
-Older surfaces may still contain broad `auto_select_when_user_task_absent=true` or `mandatory_preflight` lists.
+Older surfaces may still contain broad `auto_select_when_user_task_absent=true`, `mandatory_preflight` lists, or wording that sounds like a ready PR permanently owns the L4 lane.
 
-Under V2:
+Under V2.3:
 
 - generic auto-selection applies to TASK research, not FREE discovery;
 - legacy preflight lists are triggered lookup/reference surfaces, not unconditional startup sequences;
-- specific FREE contracts override generic scheduler wording for that scope.
+- specific FREE contracts override generic scheduler wording for that scope;
+- ready PR status is candidate status, not an indefinite lane lease;
+- the later narrow governance-maintenance liveness protocol controls the NO_NEW_MATHEMATICS maintenance slice.
 
-This retyping preserves historical provenance without allowing legacy control fields to override current role semantics.
+This retyping preserves historical provenance without allowing legacy control fields to override current role/promotion semantics.
