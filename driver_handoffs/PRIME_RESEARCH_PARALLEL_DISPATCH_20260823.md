@@ -4,7 +4,7 @@ Status: `DRIVER_DISPATCH_ENVELOPE`
 
 Dispatch batch source for the five newly issued taskbooks:
 
-`b6377a8dc0ed92959ca73fa372d48af226168079`
+`12725505c636449df7dd913ac06e581bf418b89c`
 
 Driver branch:
 
@@ -28,7 +28,7 @@ Researcher-ID: `EM-PNFREP-E2FE4E`
 
 Taskbook source：
 
-`b6377a8dc0ed92959ca73fa372d48af226168079`
+`12725505c636449df7dd913ac06e581bf418b89c`
 
 Owner branch：
 
@@ -56,7 +56,7 @@ Researcher-ID: `EM-HDPWA-03E870`
 
 Taskbook source：
 
-`b6377a8dc0ed92959ca73fa372d48af226168079`
+`12725505c636449df7dd913ac06e581bf418b89c`
 
 Owner branch：
 
@@ -84,7 +84,7 @@ Researcher-ID: `EM-TSFPR-D14474`
 
 Taskbook source：
 
-`b6377a8dc0ed92959ca73fa372d48af226168079`
+`12725505c636449df7dd913ac06e581bf418b89c`
 
 Owner branch：
 
@@ -112,7 +112,7 @@ Researcher-ID: `EM-VBSEQ-7021BF`
 
 Taskbook source：
 
-`b6377a8dc0ed92959ca73fa372d48af226168079`
+`12725505c636449df7dd913ac06e581bf418b89c`
 
 Owner branch：
 
@@ -140,7 +140,7 @@ Researcher-ID: `EM-VBBMK-A550CC`
 
 Taskbook source：
 
-`b6377a8dc0ed92959ca73fa372d48af226168079`
+`12725505c636449df7dd913ac06e581bf418b89c`
 
 Owner branch：
 
