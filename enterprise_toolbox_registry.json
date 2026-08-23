@@ -1,10 +1,11 @@
 {
   "schema": "ENTERPRISE_MATH_TOOLBOX_REGISTRY_V2",
   "status": "ACTIVE_CURRENT_TOOL_ROUTER",
-  "date": "2026-08-22",
+  "date": "2026-08-23",
   "authority": "ROUTING_ONLY_EXACT_SOURCES_CONTROL",
   "invocation_policy": "tool_invocation_policy.json",
   "method_inventory": "research_method_inventory.json",
+  "method_inventory_addenda": ["research_method_inventory_addenda/*.json"],
   "executable_router": "tools/enterprise_toolbox.py",
   "repository_tool_paths": [
     "tools/enterprise_toolbox.py",
@@ -116,6 +117,43 @@
       "capabilities": ["staged-vs-direct transport check", "loop defect/holonomy readout", "cocycle obstruction", "strict-gluing no-go", "route-independent quotient diagnosis"],
       "hard_boundary": "nonzero holonomy diagnoses failure of strict global trivialization; it does not by itself identify a unique repaired global object or promote transport data to N0",
       "source_methods": ["src/enterprise_math/precision_holonomy.py", "src/enterprise_math/precision_signed_holonomy.py", "src/enterprise_math/p023_borrow_cocycle.py", "src/enterprise_math/material_loop_identity.py", "driver_reviews/R063_STAGE4_THREE_SECTOR_C4_PROCESS_GLOBALIZATION_DRIVER_REVIEW_20260822.md"]
+    },
+    {
+      "id": "T10_LOCAL_REDISTRIBUTION_TOPPLING",
+      "name": "Local Redistribution / Toppling / Potential Calculus",
+      "status": "DRIVER_ACCEPTED_NEW_GLOBAL_TOOL_FAMILY",
+      "api": ["VALIDATE_TOPPLING", "INCIDENCE", "DIV", "LAPLACIAN", "FIRE", "STABILIZE", "ODOMETER", "LEAST_ACTION_CERT", "REDUCED_LAPLACIAN", "EQUIVALENCE_CLASS", "OBSTRUCTION"],
+      "triggers": ["toppling", "chip firing", "sandpile", "local redistribution", "stabilization", "odometer", "least action", "reduced Laplacian", "sink", "conservative defect", "potential"],
+      "capabilities": ["legal integer local redistribution", "strict termination witness", "order-independent stabilization", "odometer", "least-action certificate", "sink dissipation accounting", "reduced-Laplacian/cokernel invariant"],
+      "hard_boundary": "A graph-Laplacian identity alone is not the tool. The caller must declare the toppling carrier, legality and semantics; sinkless/inaccessible systems may fail to terminate; potential is not automatically geometry or energy.",
+      "source_methods": ["src/enterprise_math/discrete_laplacian_chip_firing.py"],
+      "known_specializations": ["T5 mixed-radix carry/toppling", "weighted Dirichlet/flow variational layer from RS-TD-IE"],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_DISCRETE_LAPLACIAN_CHIP_FIRING_POTENTIAL_RESULT_20260823.md"
+    },
+    {
+      "id": "T11_DISCRETE_MORSE_CHAIN_REDUCTION",
+      "name": "Discrete Morse / Acyclic-Matching Chain Reduction",
+      "status": "DRIVER_ACCEPTED_NEW_ENTERPRISE_TOOL_INTERFACE",
+      "api": ["VALIDATE_CHAIN_COMPLEX", "MATCH", "ACYCLIC", "CANCELLABLE_PAIR", "CANCEL", "MORSE_REDUCE", "CRITICAL_GENERATORS", "MORSE_BOUNDARY", "PROJECT", "LIFT", "HOMOLOGY_CERT", "OBSTRUCTION"],
+      "triggers": ["discrete Morse", "acyclic matching", "chain complex", "critical generators", "Morse reduction", "unit cancellation", "chain homotopy", "homology compression"],
+      "capabilities": ["exact adjacent-grade matching validation", "closed-gradient obstruction", "unit-incidence cancellation", "critical-generator reduction", "exact reduced boundary", "projection/lift/homotopy strong-deformation-retract certificate"],
+      "hard_boundary": "Requires an explicit finite free chain complex. Over Z only unit pivots plus/minus 1 cancel. Homology equivalence is not T6 operation safety, and greedy matching is not canonical or optimal by default.",
+      "source_methods": ["src/enterprise_math/discrete_morse_collapse.py"],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_DISCRETE_MORSE_ACYCLIC_MATCHING_RESULT_20260823.md"
+    },
+    {
+      "id": "T12_IDEMPOTENT_PATH_CLOSURE_BELLMAN",
+      "name": "Idempotent Path Closure / Bellman Fixed-Point Calculus",
+      "status": "DRIVER_ACCEPTED_NEW_ENTERPRISE_TOOL_INTERFACE",
+      "api": ["VALIDATE_SEMIRING", "WEIGHTED_RELATION", "COMPOSE", "PATH_VALUE", "POWER", "CLOSURE", "RESIDUAL_LEFT", "RESIDUAL_RIGHT", "BELLMAN_OPERATOR", "LEAST_FIXED_POINT", "GREATEST_FIXED_POINT", "OPTIMAL_PATH_CERT", "UNBOUNDED_CYCLE_CERT", "OBSTRUCTION"],
+      "triggers": ["tropical", "min-plus", "max-plus", "idempotent semiring", "Kleene star", "path closure", "all-path envelope", "Bellman", "fixed point", "residuation", "weighted path"],
+      "capabilities": ["semiring matrix path composition", "fixed-length path envelopes", "all-path closure under exact cycle/completeness hypotheses", "improving-cycle certificate", "Bellman least/greatest fixed points", "matrix residual inequality solving with P008 ownership retained"],
+      "hard_boundary": "Weights must be explicitly declared. Residuation/Galois adjunction alone remains P008-owned. Improving cycles or incomplete carriers may obstruct a finite closure; a path envelope is not automatically a metric.",
+      "implementation_status": "INTERFACE_AND_EXACT_CHECKER_ACCEPTED_NO_PRODUCTION_MODULE_YET",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_TROPICAL_RESIDUATION_IDEMPOTENT_CLOSURE_RESULT_20260823.md"
     }
   ],
   "domain_facades": [
