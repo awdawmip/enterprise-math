@@ -63,20 +63,44 @@ class ToolDiscoverySixReturnIntegrationTests(unittest.TestCase):
     def test_downgraded_methods_remain_discoverable(self):
         energy = toolbox.method_suggestions("weighted incidence Dirichlet energy")
         self.assertTrue(
-            any(item["method_id"] == "specialization.weighted_incidence_energy" for item in energy)
+            any(
+                item["method_id"] == "specialization.weighted_incidence_energy"
+                for item in energy
+            )
         )
         voronoi = toolbox.method_suggestions("Voronoi nearest site empty ball")
         self.assertTrue(
-            any(item["method_id"] == "domain.carrier_voronoi_delaunay" for item in voronoi)
+            any(
+                item["method_id"] == "domain.carrier_voronoi_delaunay"
+                for item in voronoi
+            )
         )
         conformal = toolbox.method_suggestions("circle packing conformal curvature")
         self.assertTrue(
-            any(item["method_id"] == "result.discrete_conformal_admissibility" for item in conformal)
+            any(
+                item["method_id"] == "result.discrete_conformal_admissibility"
+                for item in conformal
+            )
         )
 
     def test_accepted_executable_modules_are_present(self):
-        self.assertTrue((ROOT / "src/enterprise_math/discrete_laplacian_chip_firing.py").is_file())
-        self.assertTrue((ROOT / "src/enterprise_math/discrete_morse_collapse.py").is_file())
+        names = [
+            "discrete_laplacian_chip_firing.py",
+            "discrete_morse_collapse.py",
+            "idempotent_path_closure.py",
+        ]
+        for name in names:
+            with self.subTest(name=name):
+                self.assertTrue((ROOT / "src" / "enterprise_math" / name).is_file())
+
+    def test_t12_production_module_is_router_discoverable(self):
+        refs = [
+            item["source_ref"]
+            for item in toolbox.module_suggestions(
+                "min-plus max-plus Kleene Bellman path closure"
+            )
+        ]
+        self.assertIn("src/enterprise_math/idempotent_path_closure.py", refs)
 
     def test_all_six_frozen_checkers_are_preserved(self):
         names = [
