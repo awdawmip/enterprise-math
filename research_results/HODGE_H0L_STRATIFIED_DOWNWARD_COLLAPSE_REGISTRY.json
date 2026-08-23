@@ -1,0 +1,42 @@
+{
+  "correctness": "The L2 carrier maps isomorphically onto V_Hdg,Q for Z_21 and preserves the exact support truth j^*alpha=0.",
+  "layers": [
+    {
+      "count": 36855,
+      "detail": "405 plane components + 4860 line-intersection pairs + 31590 point-intersection pairs",
+      "layer": "L0_SUPPORT_PRESENTATION",
+      "measure": "nonempty pair-incidence obligations plus component objects"
+    },
+    {
+      "count": 405,
+      "layer": "L1_TOP_LOCAL_COHOMOLOGY",
+      "map": "discard lower-dimensional incidence strata for H_Z^4 top carrier via Borel-Moore/purity",
+      "measure": "irreducible codim-2 fundamental generators"
+    },
+    {
+      "count": 21,
+      "layer": "L2_GYSIN_IMAGE_BASIS",
+      "map": "exact Gysin Gram rank profile / 21-plane pivot",
+      "measure": "independent support generators needed for the universal degree-4 kernel"
+    }
+  ],
+  "leverage_classes": [
+    "LAYER_LOWERING",
+    "LOCALIZATION",
+    "DEPENDENCY_REDUCTION",
+    "NORMAL_FORM"
+  ],
+  "mechanism": "support/localization descent, not future-signature quotient",
+  "not_future_signature": true,
+  "researcher_id": "EM-HODGE-H0L-8D4C27",
+  "schema": "HODGE_H0L_STRATIFIED_DOWNWARD_COLLAPSE_REGISTRY_V1",
+  "status": "FROZEN",
+  "strict_reductions": [
+    "36855->405",
+    "405->21"
+  ],
+  "task_id": "RS-HODGE-H0L-CONIVEAU-SUPPORT-DOWNWARD-COLLAPSE",
+  "taskbook_source": "e74eeb9966f0adb7deb74408b74336c2aa20c542",
+  "unique_geometric_strata_count_before_top_collapse": 8145,
+  "unique_strata_formula": "405 planes + 4050 unique lines + 3690 unique points"
+}

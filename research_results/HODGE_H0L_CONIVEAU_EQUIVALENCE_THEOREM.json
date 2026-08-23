@@ -1,0 +1,21 @@
+{
+  "definition": "N^p H^{2p}(X,Q)=sum/union over closed Z with codim_X Z>=p of ker[H^{2p}(X,Q)->H^{2p}(X-Z,Q)]",
+  "enterprise_credit": false,
+  "generalized_hodge_conjecture_claimed": false,
+  "ordinary_hodge_equivalent_statement": "At degree 2p only: H^{2p}(X,Q)∩H^{p,p} subset N^p H^{2p}(X,Q) is equivalent to rational algebraicity.",
+  "proof_steps": [
+    "Localization gives ker(j^*)=im[H_Z^{2p}(X,Q)->H^{2p}(X,Q)].",
+    "For smooth codimension-p support component W, purity/Gysin identifies the degree-2p support generator H^0(W,Q)(-p) with the fundamental class [W].",
+    "For singular W, stratify or resolve; lower-dimensional singular strata contribute in higher support degree, while the degree-2p top contribution is the fundamental class of each codimension-p irreducible component.",
+    "Components of codimension >p have no degree-2p top support contribution.",
+    "Thus every degree-2p supported class is a rational linear combination of codimension-p fundamental classes; conversely every such cycle class restricts to zero off its support."
+  ],
+  "researcher_id": "EM-HODGE-H0L-8D4C27",
+  "schema": "HODGE_H0L_CONIVEAU_EQUIVALENCE_THEOREM_V1",
+  "scope": "smooth projective complex variety X; rational coefficients; degree n=2p",
+  "singular_support_typing": "Use resolution/stratification plus top Borel-Moore homology; no smoothness of the support itself is assumed.",
+  "status": "FROZEN",
+  "task_id": "RS-HODGE-H0L-CONIVEAU-SUPPORT-DOWNWARD-COLLAPSE",
+  "taskbook_source": "e74eeb9966f0adb7deb74408b74336c2aa20c542",
+  "theorem": "N^p H^{2p}(X,Q) equals the Q-span of codimension-p algebraic cycle classes"
+}

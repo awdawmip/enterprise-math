@@ -1,0 +1,28 @@
+{
+  "Z21_minimality": {
+    "claim": "21 irreducible codimension-2 components are necessary and sufficient to support the entire 21-dimensional V_Hdg,Q at once.",
+    "necessity": "For Z with m irreducible surface components, dim H_4^BM(Z,Q)=m, hence dim im(H_Z^4->H^4)<=m.",
+    "scope": "component-count minimality for unions of codimension-2 irreducible supports at the degree-4 top-support carrier level; not minimal degree/complexity of one singular support scheme.",
+    "sufficiency": "The frozen 21-plane support Z_21 has nonzero Gram determinant 27 and image V_Hdg,Q."
+  },
+  "full_H4_dimension": 23,
+  "kernel_dimension": 21,
+  "nonHdg_dimension": 2,
+  "nonHdg_false_positive_count": 0,
+  "phase_A_independence_certificate": {
+    "H0K_cycle_lift_registry_read_before_freeze": false,
+    "H0K_plane_class_matrix_read_before_freeze": false,
+    "source_inputs": "Fermat equation, character Hodge carrier, plane support equations, exact intersection/purity/Gysin source mathematics only."
+  },
+  "proof": {
+    "equality": "The 21-dimensional support image therefore equals V_Hdg,Q.",
+    "lower_bound": "Source-generated 405-plane Gysin Gram has rank 21; a canonical RREF principal pivot minor has determinant 27.",
+    "upper_bound": "Every codimension-2 support Gysin image is of Hodge type (2,2), and the cycle-independent rational Hodge carrier has dimension 21."
+  },
+  "researcher_id": "EM-HODGE-H0L-8D4C27",
+  "schema": "HODGE_H0L_UNIVERSAL_SUPPORT_KERNEL_V1",
+  "status": "FROZEN_PHASE_A",
+  "strong_outcome": "ker[j_all^*:H^4(X_F,Q)->H^4(X_F-Z_all,Q)] = V_Hdg,Q",
+  "task_id": "RS-HODGE-H0L-CONIVEAU-SUPPORT-DOWNWARD-COLLAPSE",
+  "taskbook_source": "e74eeb9966f0adb7deb74408b74336c2aa20c542"
+}
