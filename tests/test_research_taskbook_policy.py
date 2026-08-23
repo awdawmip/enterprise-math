@@ -21,6 +21,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
                 "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
                 "research_role_policy.json",
                 "research_identity_state_machine.json",
+                "final_response_identity_policy.json",
                 "research_taskbook_contract.json",
             ],
             "conflict_checks": [
@@ -100,6 +101,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
             "research_role_policy.json",
             "research_identity_state_machine.json",
+            "final_response_identity_policy.json",
         ]:
             p = root / rel
             p.parent.mkdir(parents=True, exist_ok=True)
@@ -155,6 +157,13 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         self.addCleanup(td.cleanup)
         path = self.write_task(root)
         (root / "AGENTS.md").write_text("changed")
+        self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+
+    def test_final_response_policy_change_makes_stamp_stale(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        (root / "final_response_identity_policy.json").write_text("changed-footer-policy")
         self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
     def test_remote_directive_requires_explicit_override(self):
