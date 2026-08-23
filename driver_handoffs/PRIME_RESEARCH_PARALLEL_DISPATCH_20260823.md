@@ -10,11 +10,13 @@ Driver branch:
 
 `driver/prime-research-parallel-batch-20260823`
 
-This envelope allocates runtime researcher identities outside the taskbooks, as required by the current taskbook contract. Each researcher reads only the named taskbook and its declared locked inputs.
+This envelope allocates runtime researcher identities outside the taskbooks, as required by the current taskbook contract. Each identity is deterministically derived from the task id, the displayed lane, and its unique batch dispatch token through `tools/research_identity.py allocate --dispatch-id` semantics. Each researcher reads only the named taskbook and its declared locked inputs.
 
 ## Lane 1 — Native prime filament sharp bound
 
-Researcher-ID: `EM-PNFREP-E3C214`
+Dispatch-ID: `PRIME-BATCH-20260823-L1`
+
+Researcher-ID: `EM-PNFREP-E2FE4E`
 
 领取：
 
@@ -40,7 +42,9 @@ Owner branch：
 
 ## Lane 2 — High-dimensional prime-wall equivalence audit
 
-Researcher-ID: `EM-HDPWA-EB9C67`
+Dispatch-ID: `PRIME-BATCH-20260823-L2`
+
+Researcher-ID: `EM-HDPWA-03E870`
 
 领取：
 
@@ -66,7 +70,9 @@ Owner branch：
 
 ## Lane 3 — Third-sector factor-phase reconstruction
 
-Researcher-ID: `EM-TSFPR-48295C`
+Dispatch-ID: `PRIME-BATCH-20260823-L3`
+
+Researcher-ID: `EM-TSFPR-D14474`
 
 领取：
 
@@ -92,7 +98,9 @@ Owner branch：
 
 ## Lane 4 — Valley pure-state equivalence
 
-Researcher-ID: `EM-VBSEQ-93882B`
+Dispatch-ID: `PRIME-BATCH-20260823-L4`
+
+Researcher-ID: `EM-VBSEQ-7021BF`
 
 领取：
 
@@ -118,7 +126,9 @@ Owner branch：
 
 ## Lane 5 — Valley benchmark and ablation
 
-Researcher-ID: `EM-VBBMK-5C1707`
+Dispatch-ID: `PRIME-BATCH-20260823-L5`
+
+Researcher-ID: `EM-VBBMK-A550CC`
 
 领取：
 
@@ -144,7 +154,9 @@ Owner branch：
 
 ## Lane 6 — Existing Prime Fusion phase-extension verification
 
-Researcher-ID: `EM-PFVEXT-4D7BE1`
+Dispatch-ID: `PRIME-BATCH-20260823-L6`
+
+Researcher-ID: `EM-PFVEXT-B47C27`
 
 领取：
 
