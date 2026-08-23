@@ -1,0 +1,33 @@
+{
+  "schema": "CBRC_F3_BALANCED_MIXING_MANIFEST_V1",
+  "date": "2026-08-23",
+  "researcher_id": "EM-CBRC-F3-7B31A9",
+  "task_id": "RS-CBRC-F3-BALANCED-REVERSIBLE-MIXING-CONSERVATION-FORWARD-CLASSIFICATION",
+  "owner_branch": "research/cbrc-f3-balanced-reversible-mixing-conservation-forward-classification",
+  "taskbook_source_commit": "bbdc0ad66c5bde1c712f2fbd80308929cd6159e6",
+  "blind_input_source_commit": "19ed5cfdba021cf67be0f059d8e26be1fb5af3b2",
+  "blind_input_blob_sha": "82cf1607f6ad87080dba68cd0a12aa8d31dd1882",
+  "primary_verdict": "F3_CURRENT_CARRIER_BALANCED_MIXING_FAMILY",
+  "hard_target": "BALANCED_REVERSIBLE_MIXING_SCALAR_CONSERVATION_MINIMAL_EXTENSION_CLASSIFIED",
+  "current_carrier_viable": true,
+  "carrier_extension_required": false,
+  "canonical_survivor": {
+    "free_matrix": [[2, 3], [3, 4]],
+    "determinant": -1,
+    "cross_block": [[0, 0], [0, 0]],
+    "torsion_block": [[1, 0], [0, 1]],
+    "balanced_split_free_coefficients": [2, 3],
+    "balanced_split_scalars": ["1/2", "1/2"],
+    "scalar_family": "q_delta=f(n mod 6)+delta*1_{3|n and torsion!=0}, delta>=0"
+  },
+  "checker_deterministic_digest": "aa2b1736c163362b9dbd179d09e85183ab5a46c335db316f46754c95ec37d3a8",
+  "artifact_sha256": {
+    "research_reports/CBRC_F3_BALANCED_REVERSIBLE_MIXING_CONSERVATION_RETURN_20260823.md": "47ba36d4e98d9c4830736344621fc5f596d354f66d097d6c64152aba118d9c3b",
+    "research_reports/CBRC_F3_SOURCE_AND_TARGET_LEAK_AUDIT_20260823.md": "9794c0c8c53b6c7487abe0d4256a4f7ffdcc03083abab4e870353fcaae192512",
+    "research_reports/CBRC_F3_ABLATION_AND_COUNTERMODEL_PACKET_20260823.md": "3a85f779988c54fe55fd14d372e2988576077e8be448bd1eb99af2698bedff25",
+    "scripts/cbrc_f3_validate_balanced_mixing_forward.py": "cd291361fe4a6dead9974fa7ab02d297332da63c03af8822be0639239bb97dd6"
+  },
+  "target_leak_audit": "PASS",
+  "theorem_enumeration_mismatches": 0,
+  "downstream_comparison_opened": false
+}
