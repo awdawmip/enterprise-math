@@ -362,6 +362,7 @@ def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
         "created_by_role": "RESEARCH_DRIVER",
         "task_authority": "DRIVER_APPROVED",
         "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+        "final_response_identity_policy": "INHERIT_GLOBAL",
         "identity_lane": args.lane,
         "origin_kind": args.origin_kind,
         "task_lineage": args.lineage,
@@ -423,6 +424,7 @@ def command_review(args: argparse.Namespace) -> int:
         path = ROOT / path
     text = path.read_text(encoding="utf-8")
     meta, body = split_taskbook(text)
+    meta["final_response_identity_policy"] = "INHERIT_GLOBAL"
     review = taskbook_review(meta) or {"policy_set": "research_taskbook_policy.json", "temporary_overrides": []}
     review["policy_set"] = "research_taskbook_policy.json"
     review["policy_digest"] = policy_digest(ROOT)

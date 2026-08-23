@@ -3,12 +3,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def read(path: str) -> str:
+    return (ROOT / path).read_text(encoding="utf-8")
+
+
 def test_agents_is_small_execution_router_not_research_catalog():
-    text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    text = read("AGENTS.md")
     assert "STABLE EXECUTION ROUTER" in text
+    assert "V2.7" in text
     assert "not** a theorem catalog" in text
-    assert len(text.splitlines()) < 260
-    assert len(text) < 12000
+    assert len(text.splitlines()) < 340
+    assert len(text) < 18000
     for stale_or_agenda_token in (
         "Issue #240",
         "Issue #164",
@@ -24,26 +29,25 @@ def test_agents_is_small_execution_router_not_research_catalog():
 
 
 def test_agents_routes_free_to_primitive_substrate_without_menu():
-    text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    text = read("AGENTS.md")
     assert "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md" in text
     assert "FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS" in text
     assert "NO_DEFAULT_DISCOVERY_LENS_MENU" in text
-    assert "do not preload `definitions/00_CURRENT_NATIVE_FOUNDATION.md`" in text
-    assert "do not supply a suggested-question or discovery-lens menu" in text
+    assert "do not preload the general current-result router" in text
+    assert "do not supply suggested questions or discovery-lens menus" in text
     assert "generic exclusion categories" in text
 
 
 def test_agents_task_start_is_exact_task_first_not_common_surface_first():
-    text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    text = read("AGENTS.md")
     assert "**the exact task entry**" in text
-    assert "**the first exact dependency actually required to begin**" in text
+    assert "the first exact dependency required to begin" in text
     assert "Soft routine source-read budget before substantive work: `<= 3`" in text
-    assert "Common Surface is an ownership/tool/conflict **lookup**" in text
-    assert "automatic second read" in text
+    assert "Common Surface is a lookup" in text
 
 
 def test_agents_uses_current_candidate_successor_and_promotion_boundaries():
-    text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    text = read("AGENTS.md")
     for marker in (
         "RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION",
         "PASS_IS_NOT_A_SUCCESSOR_TRIGGER",
@@ -53,8 +57,38 @@ def test_agents_uses_current_candidate_successor_and_promotion_boundaries():
         assert marker in text
 
 
+def test_agents_preserves_tool_reuse_gate_after_identity_merge():
+    text = read("AGENTS.md")
+    for marker in (
+        "tool_invocation_policy.json",
+        "docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md",
+        "enterprise_toolbox_registry.json",
+        "research_method_inventory.json",
+        "tools/enterprise_toolbox.py",
+        "UNDERSTAND_TASK_FIRST -> TOOL_LOOKUP_SECOND",
+        "NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP",
+        "Discovery-firewall timing exception",
+    ):
+        assert marker in text
+
+
+def test_agents_makes_final_role_identity_footer_unconditional():
+    text = read("AGENTS.md")
+    assert "final_response_identity_policy.json" in text
+    assert (
+        "ACTIVE_ENTERPRISE_MATH_ROLE -> "
+        "EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER"
+        in text
+    )
+    assert "Driver-ID: <ID> / CONTROL_PLANE" in text
+    assert "Researcher-ID: <ID> / <TASK_ID>" in text
+    assert "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY" in text
+    assert "Researcher-ID: <ID> / TASK_RESEARCH" in text
+    assert "Do not use `DIRECT` as a visible researcher scope" in text
+
+
 def test_tool_surface_matches_agents_role_routing_without_transition_guard():
-    text = (ROOT / "docs" / "EM_RESEARCH_TOOL_SURFACE.md").read_text(encoding="utf-8")
+    text = read("docs/EM_RESEARCH_TOOL_SURFACE.md")
     assert "HOT-PATH V4" in text
     assert "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md" in text
     assert "definitions/00_CURRENT_NATIVE_FOUNDATION.md" in text
@@ -64,10 +98,14 @@ def test_tool_surface_matches_agents_role_routing_without_transition_guard():
     assert "suggested question/discovery-lens menu" in text
 
 
-def test_free_role_has_no_residual_concrete_lens_examples():
-    text = (ROOT / "research_roles" / "EM_FREE_RESEARCHER_ROLE.md").read_text(encoding="utf-8")
-    assert "V6.1" in text
+def test_free_role_preserves_blind_tool_timing_and_has_footer():
+    text = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
+    assert "V6.3" in text
     assert "NO_DEFAULT_DISCOVERY_LENS_MENU" in text
+    assert "Phase B — mandatory tool dedup after freeze" in text
+    assert "tool_invocation_policy.json" in text
+    assert "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY" in text
+    assert "every final response" in text
     for seeded_example in (
         "invariance / locality",
         "composition / cancellation",

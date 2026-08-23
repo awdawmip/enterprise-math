@@ -1,7 +1,7 @@
 # Enterprise Math Role Identity Protocol
 
-Status: `ACTIVE / CANONICAL ROLE IDENTITY + DISPATCH PREALLOCATION CONTRACT`  
-Effective: 2026-08-11
+Status: `ACTIVE / CANONICAL ROLE IDENTITY + FINAL-FOOTER + DISPATCH PREALLOCATION CONTRACT`  
+Effective: 2026-08-23
 
 ## 1. Purpose
 
@@ -18,7 +18,8 @@ A role identity identifies a conversation/session instance. It does not grant th
 
 Machine authority:
 
-`research_identity_state_machine.json`
+- `research_identity_state_machine.json`;
+- `final_response_identity_policy.json`.
 
 Helper:
 
@@ -42,6 +43,8 @@ This applies to:
 8. resumption of an existing Enterprise Math conversation.
 
 Identity registration is provenance infrastructure, not a mathematical hard block.
+
+Identity resolution and identity display are separate obligations. A correctly allocated ID that is omitted from a final response does **not** satisfy the visible-identity contract.
 
 ## 3. Resolution order
 
@@ -72,6 +75,7 @@ Examples:
 - `EM-R012-01`
 - `EM-R012-K7M4`
 - `EM-P017-8C21F4`
+- `EM-FREE-7A2C`
 - `EM-DVR-Q4N7`
 
 `EM-DRIVER-01` is reserved for the explicitly designated primary Driver continuity conversation.
@@ -102,7 +106,7 @@ python tools/research_identity.py allocate \
   --dispatch-id <unique-dispatch-id>
 ```
 
-The relay queue and the user-visible handoff carry that Researcher-ID. The receiving conversation preserves it from its first substantive response onward.
+The relay queue and the user-visible handoff carry that Researcher-ID. The receiving conversation preserves it for the execution session and emits it on every final response while the role remains active.
 
 This solves two different needs without mixing them:
 
@@ -129,6 +133,15 @@ python tools/research_identity.py allocate \
   --role RESEARCHER
 ```
 
+A free researcher without a task may make the visible mode explicit:
+
+```bash
+python tools/research_identity.py allocate \
+  --role RESEARCHER \
+  --lane FREE \
+  --research-mode FREE_AXIOM_DISCOVERY
+```
+
 A non-primary Driver conversation self-allocates:
 
 ```bash
@@ -143,17 +156,33 @@ python tools/research_identity.py allocate \
   --primary-driver
 ```
 
-## 8. Visible markers
+## 8. Mandatory visible marker on every final response
 
-Researcher final marker:
+Canonical machine contract:
 
-`Researcher-ID: EM-R020-ABC123 / RS-R020-...`
+`final_response_identity_policy.json`.
 
-Driver final marker:
+Freeze:
 
-`Driver-ID: EM-DVR-Q4N7 / CONTROL_PLANE`
+`ACTIVE_ENTERPRISE_MATH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER`.
 
-If `Global-Knowledge-Sync:` is also emitted, the role identity marker appears immediately before it.
+This applies to every assistant message on the `final` channel while `RESEARCHER` or `RESEARCH_DRIVER` is active. It includes short status replies, readiness/completion receipts, handoffs, blocked/no-go conclusions, refusals, and ordinary research answers. Commentary/progress/tool messages are not final responses and do not require the footer.
+
+Researcher marker resolution is deterministic:
+
+1. active explicit task → `Researcher-ID: <ID> / <TASK_ID>`;
+2. no task + free mode → `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`;
+3. other direct task research → `Researcher-ID: <ID> / TASK_RESEARCH`.
+
+`DIRECT` is an internal identity-source/lane concept and must not appear as the visible researcher scope.
+
+Driver marker is always:
+
+`Driver-ID: <ID> / CONTROL_PLANE`.
+
+The marker appears **exactly once**. Registration state such as `REGISTER_PENDING` never suppresses it.
+
+If `Global-Knowledge-Sync:` is also emitted, the role identity marker appears immediately before it and the Global-Knowledge-Sync line remains last.
 
 ## 9. Registration
 
@@ -223,4 +252,4 @@ Role identity is observability/provenance only. It does not weaken or replace:
 
 The intended invariant is now:
 
-> Every Enterprise Math conversation knows its role identity before substantive work begins, and a Driver-mediated manual research relay arrives with its Researcher-ID already bound.
+> Every Enterprise Math conversation resolves its role identity before substantive work begins and emits exactly one role-appropriate identity marker on every final response while that role remains active.

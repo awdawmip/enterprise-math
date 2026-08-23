@@ -1,9 +1,10 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V3",
+  "schema": "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V4",
   "status": "ACTIVE",
-  "effective": "2026-08-22T01:11:00+08:00",
+  "effective": "2026-08-23",
   "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
   "helper": "tools/research_identity.py",
+  "final_response_policy": "final_response_identity_policy.json",
   "research_architecture": "research_architecture.json",
   "states": [
     "UNRESOLVED",
@@ -13,6 +14,7 @@
     "REGISTERED"
   ],
   "entry_invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve or allocate its role identity before substantive work begins. Researchers expose Researcher-ID; Drivers expose Driver-ID. Research mode is a separate typed state and does not alter identity uniqueness.",
+  "final_response_invariant": "While an Enterprise Math RESEARCHER or RESEARCH_DRIVER role is active, every assistant final response ends with exactly one role-appropriate identity marker. Identity registration state never suppresses this obligation.",
   "entry_events": [
     "direct user research task",
     "explicit EM_FREE_RESEARCHER activation",
@@ -49,12 +51,29 @@
     "RESEARCH_DRIVER": "Driver-ID"
   },
   "research_mode": {
-    "allowed_for_researcher": ["FREE_AXIOM_DISCOVERY", "TASK_RESEARCH"],
+    "allowed_for_researcher": [
+      "FREE_AXIOM_DISCOVERY",
+      "TASK_RESEARCH"
+    ],
     "driver_mode": "CONTROL_PLANE",
     "resolution_source": "research_role_policy.json",
     "persist_when_possible": true,
     "mode_change_does_not_require_new_identity_in_same_conversation": true,
     "mode_change_may_change_blindness_provenance": true
+  },
+  "final_response": {
+    "policy": "final_response_identity_policy.json",
+    "marker_count": 1,
+    "driver_scope": "CONTROL_PLANE",
+    "researcher_scope_precedence": [
+      "ACTIVE_TASK_ID",
+      "FREE_AXIOM_DISCOVERY",
+      "TASK_RESEARCH"
+    ],
+    "direct_is_not_visible_scope": true,
+    "registration_pending_does_not_suppress_marker": true,
+    "commentary_progress_exempt": true,
+    "when_global_knowledge_sync_present": "IDENTITY_MARKER_IMMEDIATELY_BEFORE_GLOBAL_KNOWLEDGE_SYNC"
   },
   "free_research_context_rule": {
     "preferred_launch": "NEW_CONVERSATION_OR_OTHERWISE_CONTEXT_CLEAN_EM_FREE_SESSION",
@@ -79,7 +98,7 @@
     "derivation": "SHA-256(task_id + NUL + dispatch_id), uppercase first 6 hex characters, prefixed by EM-<LANE>-",
     "helper": "python tools/research_identity.py allocate --task <TASK> --role RESEARCHER --lane <LANE> --dispatch-id <DISPATCH_ID>",
     "state": "PREALLOCATED_FOR_DISPATCH",
-    "first_use": "the receiving conversation preserves the preallocated Researcher-ID and shows it in its first substantive return"
+    "first_use": "the receiving conversation preserves the preallocated Researcher-ID from first use and emits the required identity footer on every final response"
   },
   "scheduler_claim": {
     "research_mode": "TASK_RESEARCH",
@@ -87,7 +106,11 @@
     "claim_field": "researcher_id",
     "missing_field_behavior": "AUTO_DERIVE_FROM_TASK_AND_CLAIM_ID",
     "derivation": "SHA-256(task_id + NUL + claim_id), uppercase first 6 hex characters, prefixed by EM-<LANE>-",
-    "state_output_fields": ["researcher_id", "last_researcher_id", "identity_source"],
+    "state_output_fields": [
+      "researcher_id",
+      "last_researcher_id",
+      "identity_source"
+    ],
     "legacy_event_compatibility": true
   },
   "direct_task_or_role_transition": {
@@ -97,7 +120,7 @@
     "registration": "CREATE_OWN_REGISTRATION_RECORD_IF_WRITE_PATH_AVAILABLE_ELSE_REGISTER_PENDING"
   },
   "role_transition": {
-    "same_conversation": "preserve the underlying execution handle and switch the visible role label/mode; update Research-Role / Research-Mode / Research-Task metadata",
+    "same_conversation": "preserve the underlying execution handle and switch the visible role label/mode; update Research-Role / Research-Mode / Research-Task metadata and immediately use the new role footer template",
     "new_conversation": "allocate a new role identity",
     "task_to_free_same_conversation": "identity may be preserved but the free run is ANCHOR_EXPOSED unless the context was independently clean before discovery began",
     "free_to_task_same_conversation": "identity may be preserved; once an explicit task is accepted, switch to TASK_RESEARCH and normal task context may be loaded",
@@ -110,7 +133,7 @@
     },
     "optional_field": "identity_lane",
     "research_mode": "TASK_RESEARCH",
-    "rule": "Taskbooks declare the identity policy/lane, never a fixed runtime Researcher-ID. Manual relay binds a Researcher-ID in a separate dispatch envelope; scheduler/direct entry paths resolve identity independently."
+    "rule": "Taskbooks declare the identity policy/lane, never a fixed runtime Researcher-ID. Manual relay binds a Researcher-ID in a separate dispatch envelope; scheduler/direct entry paths resolve identity independently. The active role footer is governed globally by final_response_identity_policy.json and does not need to be restated in each taskbook."
   },
   "registration": {
     "repository": "awdawmip/chatgpt-global-knowledge",
@@ -124,10 +147,18 @@
     "legacy_path_name_note": "the historical folder name researchers/ is retained for compatibility and may contain Driver identity records"
   },
   "visibility": {
-    "RESEARCHER": "Researcher-ID: <ID> / <TASK-or-MODE>",
+    "RESEARCHER_TASK": "Researcher-ID: <ID> / <TASK_ID>",
+    "RESEARCHER_FREE": "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY",
+    "RESEARCHER_DIRECT_TASK_FALLBACK": "Researcher-ID: <ID> / TASK_RESEARCH",
     "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE",
     "commit_subject_prefix": "[<EXECUTION-ID>]",
     "pr_title_prefix": "[<EXECUTION-ID>]",
-    "metadata_fields": ["execution_id", "researcher_id or driver_id", "research_task", "research_role", "research_mode when applicable"]
+    "metadata_fields": [
+      "execution_id",
+      "researcher_id or driver_id",
+      "research_task",
+      "research_role",
+      "research_mode when applicable"
+    ]
   }
 }

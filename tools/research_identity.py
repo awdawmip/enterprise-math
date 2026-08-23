@@ -21,6 +21,7 @@ ID_RE = re.compile(r"^EM-[A-Z0-9]+-(?:[0-9]{2}|[A-Z0-9]{4,8})$")
 LANE_RE = re.compile(r"[^A-Z0-9]+")
 TASK_LANE_RE = re.compile(r"^RS-((?:R|P)\d{3}[A-Z]?)\b")
 REGISTRATION_ROOT = "projects/enterprise-math/researchers"
+RESEARCHER_MODES = {"TASK_RESEARCH", "FREE_AXIOM_DISCOVERY"}
 
 
 def normalize_lane(value: str) -> str:
@@ -63,6 +64,47 @@ def identity_label(role: str) -> str:
     if role == "RESEARCHER":
         return "Researcher-ID"
     raise ValueError(f"unsupported research role: {role}")
+
+
+def visible_scope(
+    *, role: str, task_id: str | None = None, research_mode: str | None = None
+) -> str:
+    """Return the canonical right-hand scope used in the visible final marker.
+
+    Driver scope is always CONTROL_PLANE. Researcher scope is task-first; without
+    a task, FREE_AXIOM_DISCOVERY is preserved explicitly and all other direct
+    research falls back to TASK_RESEARCH. `DIRECT` is an internal lane/source
+    notion and is never a user-visible research scope.
+    """
+    if role == "RESEARCH_DRIVER":
+        return "CONTROL_PLANE"
+    if role != "RESEARCHER":
+        raise ValueError(f"unsupported research role: {role}")
+    if task_id and task_id.strip():
+        return task_id.strip()
+    if research_mode is not None:
+        mode = research_mode.strip().upper()
+        if mode not in RESEARCHER_MODES:
+            raise ValueError(f"unsupported researcher mode: {research_mode}")
+        if mode == "FREE_AXIOM_DISCOVERY":
+            return mode
+    return "TASK_RESEARCH"
+
+
+def visible_marker(
+    execution_id: str,
+    *,
+    role: str,
+    task_id: str | None = None,
+    research_mode: str | None = None,
+) -> str:
+    normalized = execution_id.strip().upper()
+    if not valid_execution_id(normalized):
+        raise ValueError(f"invalid Enterprise Math execution identity: {execution_id}")
+    return (
+        f"{identity_label(role)}: {normalized} / "
+        f"{visible_scope(role=role, task_id=task_id, research_mode=research_mode)}"
+    )
 
 
 def _deterministic_id(task_id: str, token: str, *, lane: str | None = None) -> str:
@@ -110,6 +152,7 @@ def identity_payload(
     source: str,
     execution_id: str | None = None,
     researcher_id: str | None = None,
+    research_mode: str | None = None,
 ) -> dict[str, Any]:
     """Build role-aware identity metadata.
 
@@ -120,24 +163,31 @@ def identity_payload(
     resolved = execution_id or researcher_id
     if not resolved or not valid_execution_id(resolved):
         raise ValueError(f"invalid Enterprise Math execution identity: {resolved}")
-    task = task_id or ("CONTROL_PLANE" if role == "RESEARCH_DRIVER" else "DIRECT")
+    scope = visible_scope(role=role, task_id=task_id, research_mode=research_mode)
     label = identity_label(role)
     payload: dict[str, Any] = {
-        "schema": "ENTERPRISE_MATH_ROLE_IDENTITY_V2",
+        "schema": "ENTERPRISE_MATH_ROLE_IDENTITY_V3",
         "execution_id": resolved,
         "identity_label": label,
-        "research_task": task,
+        "research_task": task_id or scope,
         "research_role": role,
         "identity_source": source,
         "registration_repository": "awdawmip/chatgpt-global-knowledge",
         "registration_path": registration_path(resolved),
         "registration_state": "REGISTER_PENDING",
-        "visible_marker": f"{label}: {resolved} / {task}",
+        "visible_scope": scope,
+        "visible_marker": visible_marker(
+            resolved,
+            role=role,
+            task_id=task_id,
+            research_mode=research_mode,
+        ),
     }
     if role == "RESEARCH_DRIVER":
         payload["driver_id"] = resolved
     else:
         payload["researcher_id"] = resolved
+        payload["research_mode"] = research_mode or "TASK_RESEARCH"
     return payload
 
 
@@ -148,6 +198,7 @@ def build_parser() -> argparse.ArgumentParser:
     allocate = sub.add_parser("allocate")
     allocate.add_argument("--task")
     allocate.add_argument("--role", choices=["RESEARCHER", "RESEARCH_DRIVER"], default="RESEARCHER")
+    allocate.add_argument("--research-mode", choices=sorted(RESEARCHER_MODES))
     allocate.add_argument("--lane")
     allocate.add_argument("--claim-id")
     allocate.add_argument("--dispatch-id")
@@ -170,6 +221,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.claim_id and args.dispatch_id:
         raise ValueError("--claim-id and --dispatch-id are mutually exclusive")
+    if args.role == "RESEARCH_DRIVER" and args.research_mode:
+        raise ValueError("--research-mode is only valid for RESEARCHER")
 
     if args.claim_id:
         if args.role != "RESEARCHER":
@@ -199,6 +252,7 @@ def main(argv: list[str] | None = None) -> int:
         task_id=args.task,
         role=args.role,
         source=source,
+        research_mode=args.research_mode,
     )
     if args.marker_only:
         print(payload["visible_marker"])

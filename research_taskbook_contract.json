@@ -1,10 +1,11 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V5",
+  "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V6",
   "status": "ACTIVE",
-  "effective": "2026-08-22T01:11:00+08:00",
+  "effective": "2026-08-23",
   "authority_source": "research_role_policy.json",
   "research_architecture": "research_architecture.json",
   "identity_state_machine": "research_identity_state_machine.json",
+  "final_response_identity_policy": "final_response_identity_policy.json",
   "axiom_candidate_state_machine": "research_axiom_candidate_state_machine.json",
   "authoring_protocol": "docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md",
   "authoring_tool": "tools/research_taskbook.py",
@@ -13,6 +14,7 @@
     "created_by_role": "RESEARCH_DRIVER",
     "task_authority": "DRIVER_APPROVED",
     "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+    "final_response_identity_policy": "INHERIT_GLOBAL",
     "origin_kind": "<one allowed origin kind>",
     "policy_review": {
       "policy_set": "research_taskbook_policy.json",
@@ -32,7 +34,10 @@
       "REPLAY_OR_INTEGRATION",
       "MAINTENANCE"
     ],
-    "free_candidate_required_fields": ["origin_candidate_id", "origin_candidate_state"],
+    "free_candidate_required_fields": [
+      "origin_candidate_id",
+      "origin_candidate_state"
+    ],
     "free_candidate_allowed_states": [
       "AUDITED_AXIOM_CANDIDATE",
       "AUDITED_REPLACEMENT_CANDIDATE",
@@ -84,19 +89,20 @@
     "execution_id"
   ],
   "dispatch_gate": "python tools/research_taskbook.py audit <taskbook-path> --dispatch",
-  "manual_dispatch_identity_gate": "Driver-mediated manual relay must preallocate a Researcher-ID outside the taskbook before user handoff.",
+  "manual_dispatch_identity_gate": "Driver-mediated manual relay must preallocate a Researcher-ID outside the taskbook before user handoff and the receiving final-response footer follows final_response_identity_policy.json.",
   "manual_dispatch_identity_helper": "python tools/research_identity.py allocate --task <TASK> --role RESEARCHER --lane <LANE> --dispatch-id <UNIQUE_DISPATCH_ID>",
   "rules": [
     "A taskbook defines task-specific work, not a particular conversation instance and not a copy of repository operating policy.",
+    "Every newly authored or re-reviewed dispatchable taskbook carries final_response_identity_policy=INHERIT_GLOBAL so a strict taskbook-only execution packet still exposes the existence of the mandatory final-output identity contract without copying its template text into the mathematical body.",
     "Every newly authored taskbook declares task origin and task lineage. A free-candidate origin preserves audited candidate provenance; a continuation preserves parent/successor provenance.",
     "CONTINUATION requires parent_task_id and a complete successor_gate; stage numbering or parent PASS is never a substitute for the gate.",
     "An obvious Stage 2+ task is CONTINUATION by construction and cannot be labeled NEW_DIRECTION merely to bypass the gate.",
-    "The taskbook body inherits current repository policy through research_taskbook_policy.json; generic rules already visible to the executing researcher must not be restated.",
+    "The taskbook body inherits current repository policy through research_taskbook_policy.json; generic rules already visible to the executing researcher must not be restated in the body.",
     "Taskbook authoring uses tools/research_taskbook.py new, followed by task-local editing, machine audit, Driver review, and an approved policy_review stamp before dispatch.",
     "The policy_review digest is derived from the current policy set. If any policy input changes, a previously stamped taskbook becomes stale and must be re-reviewed before another dispatch.",
     "Task-specific instructions that conflict with inherited policy are forbidden unless recorded as a narrow temporary_overrides entry with conflict_id, scope, reason, replacement_behavior, and expires_when.",
-    "Temporary overrides alter only the named policy behavior for the declared scope and lifetime; they do not silently weaken theorem truth, safety, authorization, ownership, canonical-promotion requirements, candidate maturity, origin provenance, or successor-stage requirements.",
-    "Legacy taskbooks may remain unstamped or lack origin/lineage as historical artifacts, but any new dispatch of an unstamped/stale legacy taskbook requires current review; newly authored taskbooks must satisfy V5.",
+    "Temporary overrides alter only the named policy behavior for the declared scope and lifetime; they do not silently weaken theorem truth, safety, authorization, ownership, canonical-promotion requirements, candidate maturity, origin provenance, successor-stage requirements, or final-response identity visibility.",
+    "Legacy taskbooks may remain unstamped or lack origin/lineage/footer inheritance as historical artifacts, but any new dispatch of an unstamped/stale legacy taskbook requires current review; newly authored taskbooks must satisfy V6.",
     "Taskbooks never bind a fixed runtime Researcher-ID. For Driver-mediated manual relay, the Driver preallocates one Researcher-ID in a separate dispatch envelope and records it in the relay/handoff. Scheduler CLAIM and direct self-start paths use their own identity bootstrap.",
     "A continuation in the same researcher conversation preserves its existing Researcher-ID; a genuinely new manual dispatch receives a new preallocated Researcher-ID unless explicitly routed to the same conversation.",
     "Researcher identity never grants Driver authority or theorem ownership. Driver conversations use Driver-ID, not Researcher-ID, as their visible identity label.",
@@ -104,6 +110,7 @@
   ],
   "recommended_flow": [
     "python tools/research_taskbook.py new ... --origin-kind <...> --lineage <NEW_DIRECTION|CONTINUATION|REPLAY|INTEGRATION|MAINTENANCE>",
+    "verify generated frontmatter contains final_response_identity_policy=INHERIT_GLOBAL",
     "for FREE_AXIOM_CANDIDATE origin, supply audited candidate id/state",
     "for CONTINUATION, set --parent-task-id and complete successor_gate including alternative exploration consideration",
     "write only task-local mathematical/research content",
