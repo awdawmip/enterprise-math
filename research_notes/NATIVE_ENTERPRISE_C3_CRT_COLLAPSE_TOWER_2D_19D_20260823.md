@@ -1,6 +1,6 @@
 # Native Enterprise C3 CRT collapse tower: dimensions 2 through 19
 
-Status: `FREE_RESEARCH_HIGH_DIMENSIONAL_COLLAPSE_CANDIDATE / EXACT_STRUCTURE + FINITE_PRIME_EXPERIMENT / NOT_CANONICAL_FOUNDATION`
+Status: `FREE_RESEARCH_HIGH_DIMENSIONAL_COLLAPSE_CANDIDATE / EXACT_STRUCTURE + FINITE_PROBABLE_PRIME_EXPERIMENT / NOT_CANONICAL_FOUNDATION`
 
 Date: `2026-08-23`
 
@@ -113,6 +113,8 @@ The frozen CSV records for every `d=2,...,19`:
 - unit density `phi(P_d)/P_d`;
 - cumulative local resonance gain from the added q>3 channels.
 
+These structural columns are exact integer/rational consequences of the CRT tower.
+
 Endpoint examples:
 
 - d=2: `P_2=6`, `phi=2`, unit density `1/3`;
@@ -123,7 +125,7 @@ Endpoint examples:
 
 So increasing collapse dimension makes the primitive basin occupy a smaller fraction of the full residue space while increasing the local C3 resonance advantage.
 
-## 6. Identity-fiber prime experiment along the tower
+## 6. Identity-fiber probable-prime experiment along the tower
 
 For even shell r, the shell-unit identity fiber is
 
@@ -133,15 +135,17 @@ For even shell r, the shell-unit identity fiber is
 
 `M_+(r)=3r^2/2+r+1`.
 
-At each exact primorial shell `r=P_d`, a three-bit mask records which of the three values are prime. None of `d=2,...,19` has all three bits equal to 1 at the exact base primorial shell.
+At each exact primorial shell `r=P_d`, a three-bit mask records the result of the primality/probable-primality test on the three values. None of `d=2,...,19` has all three bits equal to 1 at the exact base primorial shell.
 
 A separate finite search asks for the smallest multiplier
 
 `1 <= k <= 20000`
 
-such that the identity fiber is fully prime on
+such that all three identity-fiber values pass the research environment's primality test on
 
 `r=P_d k`.
+
+For values below `2^64`, the test used is deterministic. For larger values, the current SymPy `isprime` path uses strong BPSW and therefore has a small unproved pseudoprime possibility. Accordingly, the large-number hits in this section are classified as **probable-prime hits**, not certified primality theorems.
 
 A hit was found inside this bound for every `d=2,...,19`.
 
@@ -150,16 +154,16 @@ First examples:
 - d=2,3,4 all first hit the same shell `r=630` with multipliers `105,21,3` respectively;
 - d=5 and d=6 first hit the same shell `r=90090` with multipliers `39,3`;
 - d=7: first hit `k=306`, `r=156216060`;
-- d=12: first hit `k=85`, `r=630762741458850`;
-- d=19: first hit `k=12253`, `r=96288013965386512235686489770`.
+- d=12: first probable-prime hit `k=85`, `r=630762741458850`;
+- d=19: first probable-prime hit `k=12253`, `r=96288013965386512235686489770`.
 
-These are finite computational observations, not infinitude or least-prime theorems beyond the searched interval. Primality was checked with exact big-integer primality testing in the research environment.
+These are bounded computational observations, not infinitude claims and not certified least-prime theorems for the large-number rows.
 
 ## 7. Dimensional persistence
 
 If a shell `r` is divisible by `P_d`, it is automatically divisible by every `P_j` with `j<d`.
 
-Therefore a fully-bright identity fiber on a d-channel shell projects to the same identity fiber through every lower collapse dimension.
+Therefore a bright identity fiber on a d-channel shell projects to the same identity fiber through every lower collapse dimension.
 
 This explains repeated first-hit shells at low dimensions:
 
