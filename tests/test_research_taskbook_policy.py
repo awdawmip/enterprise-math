@@ -23,12 +23,16 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
                 "research_identity_state_machine.json",
                 "final_response_identity_policy.json",
                 "research_taskbook_contract.json",
+                "tool_invocation_policy.json",
             ],
             "conflict_checks": [
                 {
                     "id": "TB-REMOTE-RUNTIME",
                     "severity": "ERROR",
-                    "patterns": ["github actions", "\\bremote validation\\b"],
+                    "patterns": [
+                        "github actions",
+                        "\\bremote validation\\b",
+                    ],
                 }
             ],
             "restatement_checks": [
@@ -48,13 +52,14 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         }
         (root / "research_taskbook_policy.json").write_text(json.dumps(policy))
         contract = {
-            "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V6",
+            "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V7",
             "status": "ACTIVE",
             "new_dispatchable_taskbook_required_metadata": {
                 "created_by_role": "RESEARCH_DRIVER",
                 "task_authority": "DRIVER_APPROVED",
                 "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
                 "final_response_identity_policy": "INHERIT_GLOBAL",
+                "tool_invocation_policy": "INHERIT_GLOBAL",
                 "origin_kind": "<one allowed origin kind>",
                 "policy_review": {},
             },
@@ -102,13 +107,20 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "research_role_policy.json",
             "research_identity_state_machine.json",
             "final_response_identity_policy.json",
+            "tool_invocation_policy.json",
         ]:
-            p = root / rel
-            p.parent.mkdir(parents=True, exist_ok=True)
-            p.write_text(rel)
+            path = root / rel
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(rel)
         return td, root
 
-    def write_task(self, root, body="## Work\nDo mathematics.\n", overrides=None, digest=None):
+    def write_task(
+        self,
+        root,
+        body="## Work\nDo mathematics.\n",
+        overrides=None,
+        digest=None,
+    ):
         meta = {
             "task_id": "RS-TEST",
             "title": "Test",
@@ -121,6 +133,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "task_authority": "DRIVER_APPROVED",
             "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
             "final_response_identity_policy": "INHERIT_GLOBAL",
+            "tool_invocation_policy": "INHERIT_GLOBAL",
             "origin_kind": "DIRECT_USER_DIRECTION",
             "task_lineage": "NEW_DIRECTION",
             "policy_review": {
@@ -135,7 +148,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         return path
 
     def codes(self, findings):
-        return {f["code"] for f in findings}
+        return {finding["code"] for finding in findings}
 
     def test_clean_dispatch_passes(self):
         td, root = self.make_root()
@@ -150,27 +163,66 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         meta, body = rt.split_taskbook(path.read_text())
         meta.pop("final_response_identity_policy")
         path.write_text(rt.render_taskbook(meta, body))
-        self.assertIn("TB-META", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        self.assertIn(
+            "TB-META",
+            self.codes(rt.audit_taskbook(path, root=root, dispatch=True)),
+        )
+
+    def test_missing_tool_invocation_inheritance_fails_dispatch(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        meta, body = rt.split_taskbook(path.read_text())
+        meta.pop("tool_invocation_policy")
+        path.write_text(rt.render_taskbook(meta, body))
+        self.assertIn(
+            "TB-META",
+            self.codes(rt.audit_taskbook(path, root=root, dispatch=True)),
+        )
 
     def test_policy_change_makes_stamp_stale(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         path = self.write_task(root)
         (root / "AGENTS.md").write_text("changed")
-        self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        self.assertIn(
+            "TB-POLICY-STALE",
+            self.codes(rt.audit_taskbook(path, root=root, dispatch=True)),
+        )
 
     def test_final_response_policy_change_makes_stamp_stale(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         path = self.write_task(root)
-        (root / "final_response_identity_policy.json").write_text("changed-footer-policy")
-        self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        (root / "final_response_identity_policy.json").write_text(
+            "changed-footer-policy"
+        )
+        self.assertIn(
+            "TB-POLICY-STALE",
+            self.codes(rt.audit_taskbook(path, root=root, dispatch=True)),
+        )
+
+    def test_tool_invocation_policy_change_makes_stamp_stale(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        (root / "tool_invocation_policy.json").write_text("changed-tool-policy")
+        self.assertIn(
+            "TB-POLICY-STALE",
+            self.codes(rt.audit_taskbook(path, root=root, dispatch=True)),
+        )
 
     def test_remote_directive_requires_explicit_override(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
-        path = self.write_task(root, body="Use GitHub Actions for remote validation.\n")
-        self.assertIn("TB-REMOTE-RUNTIME", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        path = self.write_task(
+            root,
+            body="Use GitHub Actions for remote validation.\n",
+        )
+        self.assertIn(
+            "TB-REMOTE-RUNTIME",
+            self.codes(rt.audit_taskbook(path, root=root, dispatch=True)),
+        )
 
     def test_complete_override_allows_policy_sensitive_directive(self):
         td, root = self.make_root()
@@ -182,14 +234,27 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "replacement_behavior": "one batched remote validation; no iterative remote proof loop",
             "expires_when": "the validation result is captured or the task ends",
         }
-        path = self.write_task(root, body="Use GitHub Actions for one remote validation.\n", overrides=[override])
-        self.assertNotIn("TB-REMOTE-RUNTIME", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        path = self.write_task(
+            root,
+            body="Use GitHub Actions for one remote validation.\n",
+            overrides=[override],
+        )
+        self.assertNotIn(
+            "TB-REMOTE-RUNTIME",
+            self.codes(rt.audit_taskbook(path, root=root, dispatch=True)),
+        )
 
     def test_generic_policy_restatement_is_rejected(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
-        path = self.write_task(root, body="CI_NOT_REQUIRED_FOR_RESEARCH.\n")
-        self.assertIn("TB-RESTATE-REMOTE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        path = self.write_task(
+            root,
+            body="CI_NOT_REQUIRED_FOR_RESEARCH.\n",
+        )
+        self.assertIn(
+            "TB-RESTATE-REMOTE",
+            self.codes(rt.audit_taskbook(path, root=root, dispatch=True)),
+        )
 
     def test_unstamped_legacy_warns_but_cannot_dispatch(self):
         td, root = self.make_root()
@@ -205,8 +270,22 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         path.write_text(rt.render_taskbook(meta, "# Old\n"))
         non_dispatch = rt.audit_taskbook(path, root=root, dispatch=False)
         dispatch = rt.audit_taskbook(path, root=root, dispatch=True)
-        self.assertEqual(next(f["severity"] for f in non_dispatch if f["code"] == "TB-POLICY-UNSTAMPED"), "WARN")
-        self.assertEqual(next(f["severity"] for f in dispatch if f["code"] == "TB-POLICY-UNSTAMPED"), "ERROR")
+        self.assertEqual(
+            next(
+                finding["severity"]
+                for finding in non_dispatch
+                if finding["code"] == "TB-POLICY-UNSTAMPED"
+            ),
+            "WARN",
+        )
+        self.assertEqual(
+            next(
+                finding["severity"]
+                for finding in dispatch
+                if finding["code"] == "TB-POLICY-UNSTAMPED"
+            ),
+            "ERROR",
+        )
 
 
 if __name__ == "__main__":
