@@ -10,9 +10,28 @@
       "classification": "GLOBAL_TOOL_FAMILY",
       "family_id": "T10_LOCAL_REDISTRIBUTION_TOPPLING",
       "status": "DRIVER_ACCEPTED",
-      "source_refs": ["src/enterprise_math/discrete_laplacian_chip_firing.py", "research_notes/TOOL_DISCOVERY_DISCRETE_LAPLACIAN_CHIP_FIRING_POTENTIAL_RESULT_20260823.md"],
-      "triggers": ["toppling", "chip firing", "sandpile", "stabilization", "odometer", "least action", "local redistribution", "reduced Laplacian"],
-      "capabilities": ["legal local redistribution", "termination witness", "abelian stabilization", "odometer", "least-action certificate", "cokernel invariant"]
+      "source_refs": [
+        "src/enterprise_math/discrete_laplacian_chip_firing.py",
+        "research_notes/TOOL_DISCOVERY_DISCRETE_LAPLACIAN_CHIP_FIRING_POTENTIAL_RESULT_20260823.md"
+      ],
+      "triggers": [
+        "toppling",
+        "chip firing",
+        "sandpile",
+        "stabilization",
+        "odometer",
+        "least action",
+        "local redistribution",
+        "reduced Laplacian"
+      ],
+      "capabilities": [
+        "legal local redistribution",
+        "termination witness",
+        "abelian stabilization",
+        "odometer",
+        "least-action certificate",
+        "cokernel invariant"
+      ]
     },
     {
       "method_id": "tool.discrete_morse_chain_reduction",
@@ -20,19 +39,54 @@
       "classification": "GLOBAL_TOOL_FAMILY",
       "family_id": "T11_DISCRETE_MORSE_CHAIN_REDUCTION",
       "status": "DRIVER_ACCEPTED",
-      "source_refs": ["src/enterprise_math/discrete_morse_collapse.py", "research_notes/TOOL_DISCOVERY_DISCRETE_MORSE_ACYCLIC_MATCHING_RESULT_20260823.md"],
-      "triggers": ["discrete Morse", "acyclic matching", "chain complex", "critical generators", "chain homotopy", "unit cancellation"],
-      "capabilities": ["matching validation", "closed-gradient obstruction", "unit cancellation", "Morse boundary", "project/lift/homotopy certificate"]
+      "source_refs": [
+        "src/enterprise_math/discrete_morse_collapse.py",
+        "research_notes/TOOL_DISCOVERY_DISCRETE_MORSE_ACYCLIC_MATCHING_RESULT_20260823.md"
+      ],
+      "triggers": [
+        "discrete Morse",
+        "acyclic matching",
+        "chain complex",
+        "critical generators",
+        "chain homotopy",
+        "unit cancellation"
+      ],
+      "capabilities": [
+        "matching validation",
+        "closed-gradient obstruction",
+        "unit cancellation",
+        "Morse boundary",
+        "project/lift/homotopy certificate"
+      ]
     },
     {
       "method_id": "tool.idempotent_path_closure_bellman",
       "name": "Idempotent-semiring path closure and Bellman fixed-point interface",
       "classification": "GLOBAL_TOOL_FAMILY",
       "family_id": "T12_IDEMPOTENT_PATH_CLOSURE_BELLMAN",
-      "status": "DRIVER_ACCEPTED_INTERFACE",
-      "source_refs": ["research_notes/TOOL_DISCOVERY_TROPICAL_RESIDUATION_IDEMPOTENT_CLOSURE_RESULT_20260823.md", "scripts/tool_discovery_tropical_residuation_idempotent_closure_check.py"],
-      "triggers": ["tropical", "min-plus", "max-plus", "Kleene star", "path closure", "Bellman", "fixed point", "residuation"],
-      "capabilities": ["semiring path composition", "all-path closure", "improving-cycle obstruction", "Bellman fixed points", "matrix residual inequality solving"],
+      "status": "DRIVER_ACCEPTED_PRODUCTION_CALLABLE",
+      "source_refs": [
+        "src/enterprise_math/idempotent_path_closure.py",
+        "research_notes/TOOL_DISCOVERY_TROPICAL_RESIDUATION_IDEMPOTENT_CLOSURE_RESULT_20260823.md",
+        "scripts/tool_discovery_tropical_residuation_idempotent_closure_check.py"
+      ],
+      "triggers": [
+        "tropical",
+        "min-plus",
+        "max-plus",
+        "Kleene star",
+        "path closure",
+        "Bellman",
+        "fixed point",
+        "residuation"
+      ],
+      "capabilities": [
+        "semiring path composition",
+        "all-path closure",
+        "improving-cycle obstruction",
+        "Bellman fixed points",
+        "matrix residual inequality solving"
+      ],
       "note": "Residual/Galois adjunction alone remains P008-owned; T12 is routed for the path-compositional closure/Bellman layer."
     },
     {
@@ -41,9 +95,25 @@
       "classification": "GLOBAL_SUBTOOL",
       "family_id": "T10_LOCAL_REDISTRIBUTION_TOPPLING",
       "status": "DRIVER_ACCEPTED_DOMAIN_SPECIALIZATION",
-      "source_refs": ["research_notes/TOOL_DISCOVERY_WEIGHTED_INCIDENCE_ENERGY_DIRICHLET_RESULT_20260823.md", "scripts/tool_discovery_weighted_incidence_energy_dirichlet_check.py"],
-      "triggers": ["Dirichlet energy", "flow energy", "effective resistance", "Thomson", "Kron reduction", "weighted incidence"],
-      "capabilities": ["positive weighted Dirichlet form", "minimum-energy potential/flow", "gradient-circulation orthogonality", "effective resistance", "Schur/Kron reduction"],
+      "source_refs": [
+        "research_notes/TOOL_DISCOVERY_WEIGHTED_INCIDENCE_ENERGY_DIRICHLET_RESULT_20260823.md",
+        "scripts/tool_discovery_weighted_incidence_energy_dirichlet_check.py"
+      ],
+      "triggers": [
+        "Dirichlet energy",
+        "flow energy",
+        "effective resistance",
+        "Thomson",
+        "Kron reduction",
+        "weighted incidence"
+      ],
+      "capabilities": [
+        "positive weighted Dirichlet form",
+        "minimum-energy potential/flow",
+        "gradient-circulation orthogonality",
+        "effective resistance",
+        "Schur/Kron reduction"
+      ],
       "note": "BARE_INCIDENCE != ENERGY. No separate global energy family; preferred ownership is T10 weighted variational subtool plus T3 circuit witnesses."
     },
     {
@@ -52,9 +122,25 @@
       "classification": "DOMAIN_OPERATOR",
       "family_id": null,
       "status": "CURRENT_CENTER_CARRIER_SPECIALIZATION_ONLY",
-      "source_refs": ["research_notes/TOOL_DISCOVERY_CARRIER_VORONOI_DELAUNAY_DUAL_CELL_RESULT_20260823.md", "scripts/tool_discovery_carrier_voronoi_delaunay_dual_cell_check.py"],
-      "triggers": ["Voronoi", "Delaunay", "nearest site", "empty ball", "carrier dual cell", "tie stratum"],
-      "capabilities": ["carrier nearest-site cells", "ties", "dual adjacency", "empty-ball certificate", "degeneracy classification"],
+      "source_refs": [
+        "research_notes/TOOL_DISCOVERY_CARRIER_VORONOI_DELAUNAY_DUAL_CELL_RESULT_20260823.md",
+        "scripts/tool_discovery_carrier_voronoi_delaunay_dual_cell_check.py"
+      ],
+      "triggers": [
+        "Voronoi",
+        "Delaunay",
+        "nearest site",
+        "empty ball",
+        "carrier dual cell",
+        "tie stratum"
+      ],
+      "capabilities": [
+        "carrier nearest-site cells",
+        "ties",
+        "dual adjacency",
+        "empty-ball certificate",
+        "degeneracy classification"
+      ],
       "note": "CARRIER_NEAREST_SITE_TOOL != NATIVE_ENTERPRISE_METRIC; no second admitted Enterprise metric family, so no global tool promotion."
     },
     {
@@ -63,9 +149,24 @@
       "classification": "RESULT_ONLY",
       "family_id": null,
       "status": "CURRENT_FOUNDATION_EXTRA_STRUCTURE_REQUIRED",
-      "source_refs": ["research_notes/TOOL_DISCOVERY_DISCRETE_CONFORMAL_CIRCLE_PATTERN_ADMISSIBILITY_RESULT_20260823.md", "scripts/tool_discovery_discrete_conformal_circle_pattern_admissibility_check.py"],
-      "triggers": ["discrete conformal", "circle packing", "circle pattern", "curvature", "cotangent Laplacian", "vertex scaling"],
-      "capabilities": ["model-selection gate", "metric-layer admissibility audit", "circle-packing no-go for current cells", "conditional carrier curvature interface"],
+      "source_refs": [
+        "research_notes/TOOL_DISCOVERY_DISCRETE_CONFORMAL_CIRCLE_PATTERN_ADMISSIBILITY_RESULT_20260823.md",
+        "scripts/tool_discovery_discrete_conformal_circle_pattern_admissibility_check.py"
+      ],
+      "triggers": [
+        "discrete conformal",
+        "circle packing",
+        "circle pattern",
+        "curvature",
+        "cotangent Laplacian",
+        "vertex scaling"
+      ],
+      "capabilities": [
+        "model-selection gate",
+        "metric-layer admissibility audit",
+        "circle-packing no-go for current cells",
+        "conditional carrier curvature interface"
+      ],
       "note": "CURRENT_ENTERPRISE_CIRCLE_CELLS != CIRCLE_PACKING. Mode-C weighted curvature derivatives route to T10 weighted variational/Laplacian ownership; no global conformal tool accepted."
     }
   ]
