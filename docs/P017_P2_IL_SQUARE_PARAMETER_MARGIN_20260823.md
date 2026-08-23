@@ -1,6 +1,6 @@
 # P017 — Iwaniec–Laborde Square-Window Parameter Margin
 
-Status: `REPRODUCED PARAMETER CERTIFICATE + ROUTE NARROWING / NOT AN EXPLICIT P2 THEOREM / NOT CANONICAL`
+Status: `REPRODUCED + SELBERG-LEVEL-CORRECTED PARAMETER CERTIFICATE / NOT AN EXPLICIT P2 THEOREM / NOT CANONICAL`
 
 Date: `2026-08-23`
 
@@ -8,172 +8,224 @@ Owner branch: `research/p017-p2-chen-carry-bridge-20260823`
 
 Depends on: `docs/P017_P2_CHEN_CARRY_BRIDGE_20260823.md`.
 
-## 1. Why this checkpoint exists
+## 1. Purpose and boundary
 
-The 1981 Iwaniec–Laborde theorem proves a pointwise `P2` in intervals of length `x^0.45` for sufficiently large `x`.  For the square basin we only need the wider scale `y=x^(1/2)`.
+Iwaniec–Laborde (1981) prove a pointwise `P2` in intervals of length `x^0.45` for sufficiently large `x`.  A consecutive-square interval has the wider length scale `y=x^(1/2+o(1))`.
 
-The purpose of this checkpoint is to quantify how far the square-window specialization lies from the 1981 critical parameter boundary.
+This note quantifies the parameter margin of the square specialization.  It does **not** make `sufficiently large` explicit and does **not** claim an all-`K` semiprime theorem.
 
-It does **not** make the ineffective phrase `sufficiently large` explicit, and it does **not** claim an all-`K` semiprime theorem.
+An earlier version of this note mechanically substituted `theta=1/2` into the paper's final displayed `G(b,c)` formula.  That misses one section-6 hypothesis: the two-dimensional Selberg level must also satisfy `D1<=z^2`.  The present version repairs that point exactly.
 
-## 2. Published Iwaniec–Laborde main-term function
+## 2. Main-term notation
 
-In the notation of section 7 of Iwaniec–Laborde, set
-
-`D=x^d=y^(1+alpha)`, `a=6`.
-
-Their final lower-bound coefficient is controlled by
+Write
 
 \[
-G(b,c)=B_1(c-b)+B_2
--\frac c6\log\frac6{1+\alpha}
--\frac{6-c}{6}\log\frac{6\alpha}{1+\alpha}
--2\left(\frac{c\theta(1+\alpha)-6\theta}{3(3\theta-1)}\right)^2,
+D=x^d=y^{1+\alpha},\qquad a=6,\qquad z=D^{1/6},
 \]
 
-with
+and
 
 \[
 b+c+1=\frac6d.
 \]
 
-The paper reports at its critical choice `theta=0.45`
+The Laborde constants `B1,B2` can be numerically reconstructed from the printed 1981 optimum
 
 \[
-c=5.1828\ldots,\qquad b=4.8698\ldots,\qquad G=0.00177\ldots.
+\theta=0.45,\quad c=5.1828\ldots,\quad b=4.8698\ldots,\quad G=0.00177\ldots,
 \]
 
-The constants `B1,B2` are the constants `B,D` from Laborde's 1979 Buchstab-weight paper.
-
-## 3. Numerical reconstruction of the Laborde constants
-
-The published critical-point equation
-
-\[
-c=
-\left(2B_1+\frac16\log\alpha\right)
-\left(\frac{3(3\theta-1)}{2(1+\alpha)\theta}\right)^2
-+\frac6{1+\alpha}
-\]
-
-allows `B1` to be reconstructed from the printed `theta,c`; substituting the printed `G,b,c` into the displayed formula for `G` then reconstructs `B2`.
-
-Using the printed values gives approximately
+giving approximately
 
 \[
 B_1\approx0.2433071,\qquad B_2\approx1.3382043.
 \]
 
-This inverse reconstruction is used only as a numerical certificate.  To make a formal explicit theorem one should import independently certified explicit values/intervals for Laborde's constants rather than rely on printed-decimal inversion.
+This inverse reconstruction is a numerical certificate only.  A fully explicit theorem should import independently certified intervals for the Laborde constants.
 
-## 4. Square-window specialization at `D=x^(5/9)`
+## 3. General section-6 Selberg penalty
+
+Iwaniec–Laborde Lemma 6 gives
+
+\[
+T(\mathcal A,z;y,w)
+\le
+\left(2\frac{\log(w/y)}{\log D_1}\right)^2\frac{y}{\log w}
++O\!\left(\frac{\varepsilon y}{\log y}\right),
+\]
+
+under
+
+\[
+D_1\le (y^3/x)^{1/2}x^{-2\varepsilon},
+\qquad
+D_1\le z^2,
+\qquad
+y<w<y^{3/2}.
+\]
+
+For the Laborde high-prime weight one has
+
+\[
+w=D^{c/6}.
+\]
+
+Let
+
+\[
+\delta_1=\frac{\log D_1}{\log x}.
+\]
+
+After normalizing by the same common factor used in section 7, the exact high-prime penalty contributed by Lemma 6 is
+
+\[
+\boxed{
+2\left(\frac{cd/6-\theta}{\delta_1}\right)^2.
+}
+\]
+
+When the original 1981 choice
+
+\[
+\delta_1=\frac{3\theta-1}{2}
+\]
+
+is legal, this reduces to their printed final expression.
+
+## 4. Legal square-window Selberg level
+
+Now set
+
+\[
+\theta=\frac12.
+\]
+
+The analytic Lemma-6 ceiling has exponent
+
+\[
+\frac{3\theta-1}{2}=\frac14,
+\]
+
+whereas
+
+\[
+z^2=D^{1/3}=x^{d/3}.
+\]
+
+For every level of interest here (`d<5/8`),
+
+\[
+\frac d3<\frac14.
+\]
+
+Thus the binding condition is `D1<=z^2`.  We may take asymptotically
+
+\[
+\boxed{
+\delta_1=\frac d3-o(1).
+}
+\]
+
+The square-window main coefficient is therefore governed by the corrected function
+
+\[
+\boxed{
+G_{\rm sq}(b,c;d)=
+B_1(c-b)+B_2
+-\frac c6\log\frac6{1+\alpha}
+-\frac{6-c}{6}\log\frac{6\alpha}{1+\alpha}
+-2\left(\frac{cd/6-1/2}{d/3}\right)^2,
+}
+\]
+
+with
+
+\[
+\alpha=2d-1,
+\qquad
+b=\frac6d-1-c.
+\]
+
+Equivalently, the last penalty is
+
+\[
+\frac12\left(c-\frac3d\right)^2.
+\]
+
+## 5. Corrected reference point `d=5/9`
 
 Take
 
 \[
-\theta=\frac12,\qquad d=\frac59,\qquad \alpha=\frac19.
+d=\frac59,\qquad \alpha=\frac19.
 \]
 
-The constraints
-
-\[
-3\le b<\frac{6\theta}{d}<c\le6
-\]
-
-are satisfied near the optimum
+Optimizing the corrected legal function gives approximately
 
 \[
 \boxed{
- c\approx5.61945,\qquad b\approx4.18055.
+ c\approx5.52041,
+ \qquad
+ b\approx4.27959,
+ \qquad
+ G_{\rm sq}\approx0.12208.
 }
 \]
 
-Substitution into the published `G` formula gives
+All power-level section-6 constraints are then compatible:
+
+- `D1=z^(2-o(1))`;
+- `D1<(y^3/x)^(1/2)` because `d/3<1/4`;
+- `z^2<y` because `d/3<1/2`;
+- `w>y` because `c>3/d`;
+- `w<y^(3/2)` with a wide exponent margin.
+
+Thus the earlier mechanically extrapolated value `G≈0.12805` was slightly optimistic, but the fully section-6-compatible correction still leaves a large positive coefficient around `0.122`.
+
+## 6. Section-5 bilinear level margin
+
+The strongest 1981 exponent pair gives
 
 \[
-\boxed{G\approx0.12805.}
+D_{\max}=y^2x^{-5/14+o(1)}=x^{9/14+o(1)}
 \]
 
-This should be compared with `0.00177...` at the original `theta=0.45` critical point: the square-window main term is not close to zero.
+at `theta=1/2`, so `d=5/9` lies below that ceiling by `11/126`.
 
-### Coarse robustness check
+More importantly for explicitization, the companion note
 
-To avoid leaning on the final printed digit, widen the published critical data far beyond the displayed rounding:
+`docs/P017_P2_IL_BASE_EXPONENT_PAIR_SUPERROOT_20260823.md`
+
+shows that after the Iwaniec–Laborde circle-method rearrangement even the base exponent pair `(1/2,1/2)` permits
 
 \[
-5.182\le c_0\le5.184,
-\quad
-4.869\le b_0\le4.871,
-\quad
-0.0017\le G_0\le0.0019.
+\boxed{D=x^{5/8-O(\varepsilon)}}.
 \]
 
-Reconstruct `B1,B2` at all endpoint combinations and evaluate the square case at the simple fixed choice `c=5.62`.  The resulting minimum is still
+Hence the advanced `(1/14,11/14)` pair is not load-bearing for the square specialization.
+
+At `d=5/9`, the base-pair exponent gap is
 
 \[
-\boxed{G>0.1271.}
+\boxed{\frac58-\frac59=\frac5{72}}.
 \]
 
-Thus the conclusion that the square specialization has a large positive main-term margin is insensitive to the displayed numerical rounding.
-
-## 5. Independent analytic level margin
-
-The same 1981 bilinear framework permits, up to its small epsilon loss,
-
-\[
-D_{\max}=y^2x^{-5/14}
-=x^{2\theta-5/14}.
-\]
-
-At `theta=1/2`,
-
-\[
-\boxed{D_{\max}=x^{9/14+o(1)}}.
-\]
-
-Our reference choice `D=x^(5/9)` therefore lies below the ceiling by
-
-\[
-\boxed{
-\frac9{14}-\frac59=\frac{11}{126}\approx0.0873016.
-}
-\]
-
-At `x=10^31` the bare power ratio is only
-
-\[
-x^{11/126}\approx5.08\times10^2.
-\]
-
-That number is important: it is a real margin, but it is **not** large enough to dismiss explicit constants and logarithmic losses by handwaving.
-
-## 6. A more favorable level/main-term tradeoff exists
-
-Using the same reconstructed constants and optimizing `G` for `theta=1/2` over the admissible Laborde family shows that positivity begins numerically near
-
-\[
-d\approx0.52855.
-\]
-
-This is diagnostic, not a formal theorem because of the reconstructed constants.  It shows that the square problem does not need to run near `D_max=x^(9/14)`.
-
-A useful middle choice is around `d≈0.54`: it retains a visibly positive main term while increasing the power separation from the bilinear ceiling.  Therefore an explicit proof should optimize **main-term margin versus explicit remainder constants**, not maximize the sieve level.
-
-## 7. Interface with P017
+## 7. P017 interface
 
 For the square basin
 
 \[
-I_K=(K^2,(K+1)^2),\qquad x\asymp K^2,
+I_K=(K^2,(K+1)^2)
 \]
 
-P017 supplies
+P017 gives
 
 \[
-O_m(K)=H_m(K)-H_{2m}(K),
+O_m(K)=H_m(K)-H_{2m}(K)
 \]
 
-and the exact remainder transfer
+and the exact ordinary-to-binary remainder transfer
 
 \[
 \boxed{
@@ -185,21 +237,21 @@ O_m(K)-\frac Km
 }
 \]
 
-Thus any explicit pointwise Iwaniec–Laborde bilinear estimate for the ordinary interval remainder transfers to the binary-carry remainder with at most the two scales `m` and `2m`.
+Thus an explicit pointwise bilinear estimate for the ordinary short-interval floor remainder transfers to the binary-carry remainder at the two scales `m` and `2m`.
 
-The earlier P017 identity expressing the full Möbius carry field as a roughness-displacement discrepancy is a negative boundary: generic carry/Fourier reformulation alone does not improve the sieve.  Any project-specific gain must exploit the square diagonal/low-height coupling or improve explicit constants.
+The older P017 identity `carry field = shifted roughness count - origin roughness count` remains a negative boundary: generic carry/Fourier repackaging by itself does not beat the classical sieve.
 
-## 8. Current frontier after this checkpoint
+## 8. Current frontier
 
-The mathematical route is now separated cleanly:
+The corrected picture is now:
 
-1. **Asymptotic existence:** already prior art, since Iwaniec–Laborde prove the stronger `x^0.45` pointwise `P2` theorem.
-2. **Square-window parameter positivity:** strongly noncritical; reproduced here with `G>0.127` at `D=x^(5/9)`.
-3. **Analytic level room:** `11/126` power separation from the 1981 ceiling at that choice.
-4. **Missing load-bearing object:** a fully explicit version of the relevant bilinear/Fourier remainder bounds, with constants small enough to start at or below the finite `P2` overlap supplied by the modern consecutive-square computation.
+1. asymptotic square-window `P2` is prior art, since Iwaniec–Laborde prove the stronger `x^0.45` pointwise theorem;
+2. the square-window Laborde main term remains strongly positive after enforcing the missing `D1<=z^2` condition (`G_sq≈0.12208` at `d=5/9`);
+3. the section-5 deep remainder can be run with only the base exponent pair `(1/2,1/2)` after the circle-method rearrangement;
+4. the missing load-bearing object is therefore **explicit constant bookkeeping**, not a new sieve or a deep exponent-pair chain.
 
-The next attack should test whether, at the wider square exponent and a deliberately shallower `D`, the pre-`(1/14,11/14)` second-derivative estimate in Iwaniec–Laborde is already sufficient.  If yes, explicitization reduces to standard explicit second-derivative van der Corput constants.  If not, make only the exact surviving exponent-pair step explicit.
+The next high-value task is to rerun section 5 with exact exponent gaps rather than one global `x^epsilon` cushion, using a modern corrected explicit terminal B-process / second-derivative estimate, and compare the resulting numerical error with the positive `G_sq` margin near the finite-computation overlap.
 
 ## Artifact
 
-`experiments/p017_p2_il_square_parameter_margin.py`
+`experiments/p017_p2_il_square_parameter_margin.py` is updated to use the legal Selberg cap.
