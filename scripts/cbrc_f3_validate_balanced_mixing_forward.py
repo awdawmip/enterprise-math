@@ -157,6 +157,7 @@ def check_scalar_family():
         assert split == (((2, 0)), ((3, 0)))
         assert q(*split[0], delta) == Fraction(1, 2)
         assert q(*split[1], delta) == Fraction(1, 2)
+    # non-uniqueness and failure of global strict positivity
     assert q(0, 1, Fraction(0)) == 0
     assert q(0, 1, Fraction(1)) == 1
     assert q(6, 0, Fraction(1)) == 0
@@ -173,6 +174,7 @@ def check_composition_depth4():
             back = cur
             for _ in range(4):
                 back = apply_m_inv(back)
+            # free residues are represented by 0..5; exact inverse recovers exact integers after M^4 then inverse^4
             assert back == st
     return True
 
@@ -199,6 +201,9 @@ def torsion_survivor_counts():
 
 
 def check_free_periodic_classification():
+    # Exact finite linear consequence encoded constructively:
+    # any t in [0,1] gives the conservation family before balance;
+    # balance on A(e,0) requires w(2)=w(3), hence t=1/2.
     def wt(n, t):
         r = n % 6
         if r == 0:
@@ -232,7 +237,7 @@ def check_recoalescence_discriminator():
         agg0 = coeff_add(*out0)
         agg1 = coeff_add(*out1)
         assert agg0 != agg1
-        assert coeff_add(agg1, coeff_neg(agg0)) == (0, 2)
+        assert coeff_add(agg1, coeff_neg(agg0)) == (0, 2)  # -tau
     return {
         "input_unmarked": [coeff_add(*st0), coeff_add(*st1)],
         "output_unmarked": [coeff_add(*apply_m(st0)), coeff_add(*apply_m(st1))],
@@ -240,6 +245,7 @@ def check_recoalescence_discriminator():
 
 
 def check_ablations():
+    # M3 removed: non-bijective height-3 matrix still exactly conserves balanced q on mod 6.
     N = ((2, 3), (3, 2))
     assert det2(N) == -5
     for x, y in itertools.product(range(6), repeat=2):
@@ -247,6 +253,7 @@ def check_ablations():
         assert q_base(u) + q_base(v) == q_base(x) + q_base(y)
     assert q_base(2) == q_base(3) == Fraction(1, 2)
 
+    # M4/balance removed: t can be asymmetric while M conservation still holds.
     def wt_t(n, t):
         r = n % 6
         if r == 0:
@@ -262,6 +269,7 @@ def check_ablations():
         u, v = mvec(A, (x, y))
         assert wt_t(u, t) + wt_t(v, t) == wt_t(x, t) + wt_t(y, t)
 
+    # M6 removed: an orbit-invariant assignment can satisfy elementary balance yet fail globally.
     def q_bad(n, torsion=0):
         n = abs(n)
         if n == 0:
@@ -278,6 +286,8 @@ def check_ablations():
     u, v = mvec(A, (2, 0))
     out_q = q_bad(u) + q_bad(v)
     assert in_q != out_q
+
+    # Strict positivity on every nonzero coefficient is not implied by the accepted requirements.
     assert q(6, 0, Fraction(1)) == 0 and (6, 0) != (0, 0)
 
     return {
@@ -292,6 +302,7 @@ def check_polynomial_relation():
     A2 = mmul(A, A)
     rhs = ((6 * A[0][0] + 1, 6 * A[0][1]), (6 * A[1][0], 6 * A[1][1] + 1))
     assert A2 == rhs
+    # On torsion D=I, I - 6I - I = -6I = 0 because exponent is 3.
     return {"relation": "M^2 - 6 M - I = 0 on C1^2", "free_A2": A2}
 
 
