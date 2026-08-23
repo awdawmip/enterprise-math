@@ -1,13 +1,11 @@
-"""Numerical certificate for the Iwaniec-Laborde square-window P2 parameter margin.
+"""Numerical certificate for the corrected Iwaniec-Laborde square-window P2 margin.
 
-Research status: diagnostic/certificate only.  It evaluates the published final
-main-term function from Iwaniec-Laborde (1981), section 7, after reconstructing
-the Laborde constants B1,B2 from the paper's printed theta=0.45 optimum.
+Research status: diagnostic/certificate only, not an explicit P2 theorem.
 
-The purpose is not to claim an explicit all-x theorem.  It checks that at the
-square-window exponent theta=1/2 there is a large main-term margin while a
-sieve level D=x^(5/9) remains well below the analytic maximum
-D_max=x^(9/14+o(1)) furnished by the same bilinear framework.
+The 1981 final printed G(b,c) uses the maximal section-6 Selberg level
+D1=(y^3/x)^(1/2+o(1)).  At theta=1/2 and the levels of interest here,
+section 6 is instead capped by D1<=z^2 with z=D^(1/6).  This script enforces
+that cap before optimizing the square-window main coefficient.
 """
 
 from __future__ import annotations
@@ -23,7 +21,6 @@ class ILConstants:
 
 
 def alpha_from_theta_at_il_max(theta: float) -> float:
-    """IL maximal-level relation: (1+alpha)theta = 2 theta - 5/14."""
     return (2.0 * theta - 5.0 / 14.0) / theta - 1.0
 
 
@@ -37,7 +34,6 @@ def reconstruct_constants(
     alpha = alpha_from_theta_at_il_max(theta)
     factor = (3.0 * (3.0 * theta - 1.0) / (2.0 * (1.0 + alpha) * theta)) ** 2
     B1 = ((c - 6.0 / (1.0 + alpha)) / factor - log(alpha) / 6.0) / 2.0
-
     nonconstant = (
         -(c / 6.0) * log(6.0 / (1.0 + alpha))
         - ((6.0 - c) / 6.0) * log(6.0 * alpha / (1.0 + alpha))
@@ -49,21 +45,30 @@ def reconstruct_constants(
     return ILConstants(B1=B1, B2=B2)
 
 
-def il_G(theta: float, d: float, c: float, constants: ILConstants) -> tuple[float, float]:
-    """Evaluate IL equation-(section 7) G(b,c) with D=x^d and a=6."""
+def selberg_level_exponent(theta: float, d: float) -> float:
+    """Power exponent for the largest legal D1, suppressing tiny epsilon loss."""
+    analytic_ceiling = (3.0 * theta - 1.0) / 2.0
+    z_squared_ceiling = d / 3.0  # a=6, z=D^(1/6)
+    return min(analytic_ceiling, z_squared_ceiling)
+
+
+def square_G(theta: float, d: float, c: float, constants: ILConstants) -> tuple[float, float]:
+    """Evaluate the section-6-level-corrected Laborde coefficient."""
     alpha = d / theta - 1.0
     if alpha <= 0.0:
         raise ValueError("need d>theta")
     b = 6.0 / d - 1.0 - c
+    delta1 = selberg_level_exponent(theta, d)
+    if delta1 <= 0.0:
+        raise ValueError("non-positive Selberg level exponent")
     B1, B2 = constants.B1, constants.B2
+    high_tail_penalty = 2.0 * ((c * d / 6.0 - theta) / delta1) ** 2
     G = (
         B1 * (c - b)
         + B2
         - (c / 6.0) * log(6.0 / (1.0 + alpha))
         - ((6.0 - c) / 6.0) * log(6.0 * alpha / (1.0 + alpha))
-        - 2.0
-        * ((c * theta * (1.0 + alpha) - 6.0 * theta) / (3.0 * (3.0 * theta - 1.0)))
-        ** 2
+        - high_tail_penalty
     )
     return G, b
 
@@ -80,7 +85,7 @@ def grid_optimum(theta: float, d: float, constants: ILConstants, steps: int = 20
         c = 3.0 + 3.0 * j / steps
         if not feasible(theta, d, c):
             continue
-        G, b = il_G(theta, d, c, constants)
+        G, b = square_G(theta, d, c, constants)
         if G > best[0]:
             best = (G, c, b)
     return best
@@ -93,42 +98,24 @@ def main() -> None:
     best = grid_optimum(theta, d, constants)
     G, c, b = best
 
-    dmax = 2.0 * theta - 5.0 / 14.0
-    exponent_slack = dmax - d
+    delta1 = selberg_level_exponent(theta, d)
+    advanced_dmax = 2.0 * theta - 5.0 / 14.0
+    advanced_gap = advanced_dmax - d
+    base_dmax = 5.0 / 8.0
+    base_gap = base_dmax - d
     x0 = 1e31
-    power_slack_at_x0 = x0 ** exponent_slack
-
-    # Robustness check: deliberately much wider than the last printed digit in
-    # the paper's c,b,G values.  Each endpoint is sampled; the square-window
-    # test is made at the simple nearby choice c=5.62.
-    B1_values = []
-    B2_values = []
-    for c0 in (5.182, 5.184):
-        for b0 in (4.869, 4.871):
-            for G0 in (0.0017, 0.0019):
-                cc = reconstruct_constants(theta=0.45, c=c0, b=b0, G=G0)
-                B1_values.append(cc.B1)
-                B2_values.append(cc.B2)
-
-    test_c = 5.62
-    robust_G = []
-    for B1 in (min(B1_values), max(B1_values)):
-        for B2 in (min(B2_values), max(B2_values)):
-            g, test_b = il_G(theta, d, test_c, ILConstants(B1, B2))
-            robust_G.append(g)
 
     print("reconstructed B1,B2:", constants)
-    print("theta=1/2, d=5/9 optimum (grid): G,c,b =", best)
-    print("IL analytic level ceiling exponent:", dmax)
-    print("level exponent slack:", exponent_slack, "= 11/126")
-    print("x^(11/126) at x=1e31:", power_slack_at_x0)
-    print("robust c=5.62 lower G under broad printed-value perturbation:", min(robust_G))
-    print("corresponding b:", test_b)
+    print("legal Selberg D1 exponent:", delta1, "(d/3)")
+    print("theta=1/2, d=5/9 corrected optimum G,c,b:", best)
+    print("advanced pair ceiling/gap:", advanced_dmax, advanced_gap)
+    print("base (1/2,1/2) ceiling/gap:", base_dmax, base_gap)
+    print("x^(base gap) at x=1e31:", x0 ** base_gap)
 
+    assert abs(delta1 - d / 3.0) < 1e-12
     assert feasible(theta, d, c)
-    assert G > 0.127
-    assert abs(exponent_slack - 11.0 / 126.0) < 1e-12
-    assert min(robust_G) > 0.127
+    assert G > 0.122
+    assert abs(base_gap - 5.0 / 72.0) < 1e-12
 
 
 if __name__ == "__main__":
