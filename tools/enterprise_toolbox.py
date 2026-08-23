@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Search the Enterprise Math shared toolbox before inventing new machinery.
 
-This router is deliberately lightweight.  It reads the curated tool-family registry,
-the harvested method inventory, and (when available) the current executable Python
-surface.  It never imports source modules while searching, so discovery has no runtime
-side effects.
+This router is deliberately lightweight. It reads the curated tool-family registry,
+the base harvested method inventory plus dated addenda, and (when available) the
+current executable Python surface. It never imports source modules while searching,
+so discovery has no runtime side effects.
 
-FREE axiom-discovery Phase A must not use this catalog as a discovery prior.  The
+FREE axiom-discovery Phase A must not use this catalog as a discovery prior. The
 control-plane timing rule lives in ``tool_invocation_policy.json``.
 """
 from __future__ import annotations
@@ -21,6 +21,7 @@ from typing import Any, Iterable
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY_PATH = ROOT / "enterprise_toolbox_registry.json"
 METHOD_INVENTORY_PATH = ROOT / "research_method_inventory.json"
+METHOD_INVENTORY_ADDENDA_ROOT = ROOT / "research_method_inventory_addenda"
 SOURCE_ROOT = ROOT / "src" / "enterprise_math"
 
 TOKEN_RE = re.compile(r"[A-Za-z0-9_+.-]+")
@@ -29,7 +30,7 @@ SYNONYMS: dict[str, tuple[str, ...]] = {
     "growth": ("growth", "scale", "shell", "difference", "enumeration"),
     "glue": ("glue", "gluing", "compatibility", "holonomy", "cocycle", "transport"),
     "gluing": ("glue", "gluing", "compatibility", "holonomy", "cocycle", "transport"),
-    "path": ("path", "provenance", "circuit", "brc", "transition", "trace"),
+    "path": ("path", "provenance", "circuit", "brc", "transition", "trace", "closure", "bellman"),
     "quotient": ("quotient", "projection", "collapse", "fiber", "predictive", "descent"),
     "coarse": ("coarse", "precision", "projection", "refinement", "quotient"),
     "precision": ("precision", "refinement", "coarse", "fine", "carry", "borrow", "detail"),
@@ -38,12 +39,36 @@ SYNONYMS: dict[str, tuple[str, ...]] = {
     "relation": ("relation", "correspondence", "support", "spectrum", "observable", "multivalued"),
     "collision": ("collision", "fiber", "capacity", "overlap", "witness", "spectrum"),
     "constraint": ("constraint", "certificate", "compatibility", "helly", "obstruction", "feasible"),
-    "cycle": ("cycle", "circuit", "cocircuit", "holonomy", "loop", "provenance"),
+    "cycle": ("cycle", "circuit", "cocircuit", "holonomy", "loop", "provenance", "toppling"),
+    "stabilize": ("stabilize", "stabilization", "toppling", "odometer", "least action"),
+    "stabilization": ("stabilize", "stabilization", "toppling", "odometer", "least action"),
+    "morse": ("morse", "acyclic", "matching", "chain", "homotopy", "critical"),
+    "energy": ("energy", "dirichlet", "thomson", "resistance", "weighted", "quadratic"),
+    "tropical": ("tropical", "min-plus", "max-plus", "idempotent", "kleene", "bellman", "residuation"),
+    "voronoi": ("voronoi", "delaunay", "nearest", "empty ball", "dual cell"),
+    "conformal": ("conformal", "circle packing", "circle pattern", "curvature", "vertex scaling"),
 }
 
 
 def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_method_inventory() -> dict[str, Any]:
+    """Return base method inventory plus all dated addenda, preserving base compatibility."""
+    base = load_json(METHOD_INVENTORY_PATH)
+    methods = list(base.get("methods", []))
+    addenda: list[str] = []
+    if METHOD_INVENTORY_ADDENDA_ROOT.exists():
+        for path in sorted(METHOD_INVENTORY_ADDENDA_ROOT.glob("*.json")):
+            shard = load_json(path)
+            methods.extend(shard.get("methods", []))
+            addenda.append(str(path.relative_to(ROOT)))
+    ids = [str(method.get("method_id", "")) for method in methods]
+    if len(ids) != len(set(ids)):
+        duplicates = sorted({method_id for method_id in ids if ids.count(method_id) > 1})
+        raise ValueError(f"duplicate method_id across inventory/addenda: {duplicates}")
+    return {**base, "methods": methods, "loaded_addenda": addenda}
 
 
 def _tokens(text: str) -> set[str]:
@@ -62,6 +87,7 @@ def _record_text(record: dict[str, Any]) -> str:
         record.get("description", ""),
         record.get("scope", ""),
         record.get("hard_boundary", ""),
+        record.get("note", ""),
         " ".join(record.get("triggers", [])),
         " ".join(record.get("capabilities", [])),
         " ".join(record.get("api", [])),
@@ -103,7 +129,7 @@ def tool_suggestions(
 def method_suggestions(
     query: str, *, inventory: dict[str, Any] | None = None, limit: int = 12
 ) -> list[dict[str, Any]]:
-    inventory = inventory or load_json(METHOD_INVENTORY_PATH)
+    inventory = inventory or load_method_inventory()
     scored = [(_score(query, method), method) for method in inventory.get("methods", [])]
     return [
         {"score": score, **method}
@@ -196,7 +222,7 @@ def main(argv: Iterable[str] | None = None) -> int:
     show.add_argument("tool_id")
     suggest = sub.add_parser("suggest", help="suggest tool families for a need")
     suggest.add_argument("query", nargs="+")
-    method = sub.add_parser("methods", help="search harvested methods")
+    method = sub.add_parser("methods", help="search harvested methods and dated addenda")
     method.add_argument("query", nargs="+")
     modules = sub.add_parser("modules", help="search current executable source without importing it")
     modules.add_argument("query", nargs="+")
