@@ -1,0 +1,68 @@
+{
+  "schema": "CBRC_F3R2_SURVIVOR_MEMBERSHIP_MANIFEST_V1",
+  "date": "2026-08-23",
+  "researcher_id": "EM-CBRC-F3R2-6C8E41",
+  "task_id": "RS-CBRC-F3R2-SURVIVOR-MEMBERSHIP-PREDICATE-COMPLETION",
+  "owner_branch": "research/cbrc-f3r2-survivor-membership-predicate-completion",
+  "taskbook_source_commit": "f4a98e4c0f9f8669f75e44ee1ef979236334b48a",
+  "taskbook_blob_sha": "ea6b172d59825bf531959cd941ee55e11497a99b",
+  "allowed_f3r_owner_packet_commit": "02dd3cc0be4843cbfa4b4bb3b83ec886b6429648",
+  "driver_review_commit": "93c48c015c4b1522eaf8566586ed76bab31fa324",
+  "driver_review_blob_sha": "b9c4ee0f004db1a5f20e43f6096b31ccb2bacb4c",
+  "primary_verdict": "F3R2_ALL_SURVIVORS_DECIDABLE_BY_FINITE_EXACT_PREDICATE",
+  "hard_target": "BALANCED_MIXING_SURVIVOR_MEMBERSHIP_PREDICATE_CLASSIFIED",
+  "hard_target_status": "CLOSED",
+  "membership_predicate": {
+    "ambient_operator": "A in GL_2(Z), B in M_2(F3), D in GL_2(F3)",
+    "g": "gcd(|a|,|d|)",
+    "h": "gcd(|b|,|c|)",
+    "iff_inside_ambient_automorphisms": "g>1 and h>1",
+    "full_iff": "det(A)=+-1 and det(D)!=0 mod 3 and gcd(|a|,|d|)>1 and gcd(|b|,|c|)>1",
+    "B_restriction": "NONE",
+    "lifts_per_surviving_free_block": 3888,
+    "lifts_per_nonsurviving_free_block": 0,
+    "torsion_sensitive_only_lift_exists": false
+  },
+  "support_split_strata": {
+    "position": "UNIVERSAL_EXACT_COVER",
+    "identity": "SurvivorFree = union_{distinct primes p,r} S_{p,r}",
+    "outside_support_split_survivors_exist": false
+  },
+  "second_column_classification": {
+    "every_unimodular_completion_survives": false,
+    "exact_form": "For fixed primitive admissible (a,c) and determinant sign, successful completions are the finite union of CRT arithmetic progressions k_{p,r}+pr Z over p|a, r|c."
+  },
+  "scalar_elimination": {
+    "torsion_min_envelope": "f(n)=min_{t in F3} q(n,t) converts every full survivor into a torsion-blind free survivor",
+    "forced_period": "g*h after four mixed-difference annihilators and Laurent-polynomial gcd reduction",
+    "membership_obstruction": "g=1 forces f(c)=0; h=1 forces f(a)=0; both contradict balanced value 1/2"
+  },
+  "physical_equivalence": {
+    "membership_invariant": "(gcd(|a|,|d|), gcd(|b|,|c|))",
+    "decision_algorithm": "verify det(A), verify D invertible mod 3, compute two Euclidean gcds, accept iff both exceed one",
+    "termination": "FINITE_EXACT"
+  },
+  "checker": {
+    "path": "scripts/cbrc_f3r2_validate_survivor_membership.py",
+    "deterministic_digest": "5df55db542c5027adbd5ad1e3f9c9278b0cf1275a8e9ba6cf74be4c340f5696c",
+    "theorem_enumeration_mismatches": 0,
+    "bounded_gl2_tested": 1768,
+    "bounded_survivors": 96,
+    "admissible_first_column_but_failed": 800,
+    "completion_parameterization_checks": 33184,
+    "torsion_affine_bijection_checks": 34992,
+    "physical_equivalence_checks": 144
+  },
+  "artifact_sha256": {
+    "research_reports/CBRC_F3R2_SURVIVOR_MEMBERSHIP_RETURN_20260823.md": "8333ea4b26b1697ef9cf4c0c3c9ecabbcfc824a32b85fb77578258502c1fe99c",
+    "research_reports/CBRC_F3R2_MEMBERSHIP_OBSTRUCTION_AND_COUNTERMODEL_PACKET_20260823.md": "4a95162767e5345951b366d36a4c7dd3dac52367bf4c594544e4fb6ecfd4d3c4",
+    "research_reports/CBRC_F3R2_SOURCE_AND_TARGET_LEAK_AUDIT_20260823.md": "08b760ac7049fdd13d42ffdcef06c46d6503a07688803cf85e64b00295d57f5e",
+    "scripts/cbrc_f3r2_validate_survivor_membership.py": "b5ff18e15d2d77ca1b28a3d01dc6bf3a5389e3b9e1c73cba8cbc6bfe5e693c1a"
+  },
+  "content_freeze_head_pre_manifest": "4ea85363cc0f35f2ffc346aa6e2da6c30833d6ee",
+  "owner_head_recording_policy": "THE_MANIFEST_COMMIT_SHA_IS_THE_FINAL_OWNER_HEAD_AND_IS_REPORTED_IN_THE_HANDOFF; A FILE_CANNOT_CONTAIN_ITS_OWN_FINAL_COMMIT_SHA_WITHOUT_CHANGING_THAT_SHA",
+  "clean_tree_status": "REMOTE_BRANCH_ONLY; ALL GENERATED ARTIFACTS COMMITTED; NO_LOCAL_WORKTREE_STATE",
+  "target_leak_audit": "PASS",
+  "downstream_comparison_opened": false,
+  "forbidden_math_opened": false
+}
