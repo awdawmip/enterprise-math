@@ -1,24 +1,47 @@
 # Enterprise Math Research Taskbook Authoring and Review
 
-Status: `ACTIVE / CANONICAL TASKBOOK AUTHORING PROCESS / V3`
-Effective: `2026-08-22`
+Status: `ACTIVE / CANONICAL TASKBOOK AUTHORING PROCESS / V4`
+Effective: `2026-08-23`
 Contract: `research_taskbook_contract.json`
 Architecture: `research_architecture.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Tool policy: `tool_invocation_policy.json`
 
 ## Purpose
 
-A taskbook is a **task-specific execution contract**. It is not:
+A taskbook is a task-specific execution contract. It is not:
 
 - a second copy of repository operating policy;
 - a runtime conversation identity binding;
 - a raw free-research candidate;
-- a way to erase where a selected question came from;
-- automatic evidence that a previous successful stage deserves another stage.
+- a way to erase task origin or lineage;
+- automatic evidence that a successful parent deserves another stage.
 
-A good taskbook contains the mother question, frozen inputs/scope, task-local deliverables/evidence, PASS/KILL/return criteria, **origin**, **lineage**, and any narrow temporary policy override.
+A good taskbook contains the mother question, frozen inputs/scope,
+deliverables/evidence, PASS/KILL/return criteria, origin, lineage and any narrow
+temporary override.
 
-## 1. Declare task origin
+## 1. Required inherited-policy markers
+
+Every newly authored or re-reviewed dispatchable taskbook carries:
+
+- `final_response_identity_policy = INHERIT_GLOBAL`;
+- `tool_invocation_policy = INHERIT_GLOBAL`.
+
+These compact fields solve the strict taskbook-only last mile.
+
+The identity field exposes that every final response needs the global role
+footer. The tool field exposes that ordinary TASK work must understand the task
+first, then look up existing tools before inventing a general mechanism.
+
+Neither field copies the full policy into the mathematical body.
+
+For an explicit blind-forward/source-whitelist task, tool names remain hidden
+until the taskbook's named freeze point. Immediately after freeze, the normal
+dedup lookup becomes mandatory. The inheritance field does not weaken the
+firewall and does not preload a discovery menu.
+
+## 2. Declare task origin
 
 Every new taskbook declares `origin_kind`:
 
@@ -29,26 +52,15 @@ Every new taskbook declares `origin_kind`:
 - `REPLAY_OR_INTEGRATION`;
 - `MAINTENANCE`.
 
-This prevents a selected task from losing its provenance as it moves into execution.
+For `FREE_AXIOM_CANDIDATE`, include `origin_candidate_id` and an intake-eligible
+`origin_candidate_state`. A raw blind candidate may not be laundered into
+`DRIVER_ROADMAP`.
 
-### Free-candidate origin
+For `FOUNDATION_QUESTION`, include `origin_foundation_question_id`.
 
-If `origin_kind=FREE_AXIOM_CANDIDATE`, the taskbook must include:
+## 3. Choose task lineage
 
-- `origin_candidate_id`;
-- `origin_candidate_state`.
-
-The state must already be one of the audit/intake-eligible states defined by `research_taskbook_contract.json`.
-
-A raw blind candidate may not become a taskbook by simply being relabeled `DRIVER_ROADMAP`.
-
-### Foundation-question origin
-
-If `origin_kind=FOUNDATION_QUESTION`, include `origin_foundation_question_id`.
-
-## 2. Choose task lineage
-
-Every newly authored taskbook declares one of:
+Every new taskbook declares:
 
 - `NEW_DIRECTION`;
 - `CONTINUATION`;
@@ -56,13 +68,7 @@ Every newly authored taskbook declares one of:
 - `INTEGRATION`;
 - `MAINTENANCE`.
 
-Origin and lineage are different: a task can originate in a free candidate and still be a continuation of a later research task, or originate in the Driver roadmap and be a genuinely new direction.
-
-### Continuation gate
-
-`CONTINUATION` means a parent result exposed a genuinely new information gap.
-
-It requires:
+`CONTINUATION` requires:
 
 - `parent_task_id`;
 - `new_information_gap`;
@@ -76,17 +82,12 @@ Freeze:
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
-Stage numbering, recent success, momentum, unused ideas in a return report, or “there is more to explore” do not satisfy the gate.
+Any task explicitly named Stage 2 or later is continuation semantics. Renaming
+the next unresolved layer does not reset lineage.
 
-Any task explicitly named **Stage 2 or later** is continuation semantics by construction and the machine audit requires `task_lineage=CONTINUATION`.
+## 4. Generate
 
-Renaming the next unresolved layer to avoid the word “Stage” does not make it a new direction when the parent result remains a necessary research premise/motivation. Driver semantic review must preserve lineage even where a lexical checker cannot infer it.
-
-If the frontier still belongs to the mother question, prefer `CONTINUE_SAME_TASK`. If no new discriminating gap remains, close/park/return to exploration rather than manufacturing another stage.
-
-## 3. Generate
-
-New Driver-roadmap direction:
+Example:
 
 ```bash
 python tools/research_taskbook.py new \
@@ -101,55 +102,34 @@ python tools/research_taskbook.py new \
   --output research_tasks/....md
 ```
 
-Continuation:
+The generator writes:
 
-```bash
-python tools/research_taskbook.py new \
-  --task-id RS-...-STAGE2-... \
-  --title "... Stage 2 ..." \
-  --lane R... \
-  --origin-kind DRIVER_ROADMAP \
-  --lineage CONTINUATION \
-  --parent-task-id RS-PARENT-... \
-  --output research_tasks/....md
-```
+- Driver/task authority;
+- identity inheritance;
+- tool-invocation inheritance;
+- origin and lineage;
+- a policy-review stamp marked `PENDING_DRIVER_REVIEW`.
 
-Task opened from an audited free candidate:
+It never writes a fixed runtime Researcher-ID.
 
-```bash
-python tools/research_taskbook.py new \
-  --task-id RS-... \
-  --title "..." \
-  --origin-kind FREE_AXIOM_CANDIDATE \
-  --origin-candidate-id AX-... \
-  --origin-candidate-state AUDITED_AXIOM_CANDIDATE \
-  --lineage NEW_DIRECTION \
-  --output research_tasks/....md
-```
+## 5. Write task-local content
 
-The continuation skeleton intentionally leaves `successor_gate` incomplete. Driver review cannot approve it until all fields are filled.
-
-The generator also writes Driver/identity-policy metadata and a `policy_review` block initially marked:
-
-`PENDING_DRIVER_REVIEW`.
-
-It never assigns a fixed runtime Researcher-ID.
-
-## 4. Write task-local content
-
-Include only what is different about this task:
+Include only task-specific material:
 
 - mother question;
-- frozen inputs/assumptions/exclusions;
-- exact mathematical/executable/formal outputs;
-- task-local witnesses/discriminators;
+- inputs/assumptions/exclusions;
+- outputs;
+- witnesses/discriminators;
 - PASS/KILL/return criteria.
 
-Do not paste generic GitHub, scheduler, identity, promotion, liveness, Working Truth, candidate-lifecycle or successor-gate policy prose into the body. Those rules are inherited from repository policy.
+Do not paste generic GitHub, scheduler, identity, promotion, liveness, tool
+catalog, Working Truth, candidate-lifecycle or successor-gate prose into the
+body. These rules are inherited through policy and digest.
 
-If the task came from free discovery, Phase-B audit and Driver intake must already be complete and the candidate provenance remains in metadata.
+If the task came from free discovery, Phase-B audit and Driver intake must
+already be complete and the provenance remains in metadata.
 
-## 5. Automatic audit
+## 6. Automatic audit
 
 Run:
 
@@ -160,22 +140,22 @@ python tools/research_taskbook.py review research_tasks/<task>.md
 The audit checks:
 
 - required metadata;
-- task origin;
-- free-candidate/Foundation provenance when applicable;
-- task lineage;
-- Stage-2+ anti-evasion;
-- continuation successor gate;
+- identity-footer inheritance;
+- tool-invocation inheritance;
+- origin and provenance;
+- lineage and Stage-2+ anti-evasion;
+- successor gate;
 - forbidden fixed runtime identity;
 - stale policy digest;
-- policy-sensitive runtime directives;
+- policy-sensitive directives;
 - generic policy restatement;
 - temporary-override schema.
 
-A machine pass does not replace Driver mathematical/semantic judgment. In particular, a semantically continuous route can still be misnamed to evade a lexical Stage check; the Driver must reject that misclassification.
+A machine pass does not replace Driver semantic judgment.
 
-## 6. Temporary overrides
+## 7. Temporary overrides
 
-If a task must intentionally differ from inherited policy, record a narrow item in:
+Record a narrow override under:
 
 `policy_review.temporary_overrides`.
 
@@ -187,9 +167,11 @@ Required fields:
 - `replacement_behavior`;
 - `expires_when`.
 
-An override cannot silently weaken theorem truth, safety, authorization, owner isolation, candidate maturity, task-origin provenance, successor-stage requirements or canonical-promotion rules.
+An override cannot silently weaken theorem truth, safety, authorization,
+ownership, candidate maturity, origin, successor rules, role identity visibility
+or post-freeze tool dedup.
 
-## 7. Driver approval
+## 8. Driver approval
 
 After findings are resolved:
 
@@ -197,13 +179,10 @@ After findings are resolved:
 python tools/research_taskbook.py review research_tasks/<task>.md --approve
 ```
 
-This refreshes the current policy digest and sets:
-
+This refreshes the current digest and sets
 `policy_review.review_state = PASS`.
 
-For a continuation, approval means the Driver accepted the **new information gap and route choice**, not merely the parent PASS.
-
-## 8. Dispatch gate
+## 9. Dispatch gate
 
 Immediately before dispatch/re-dispatch:
 
@@ -211,13 +190,12 @@ Immediately before dispatch/re-dispatch:
 python tools/research_taskbook.py audit research_tasks/<task>.md --dispatch
 ```
 
-A taskbook is dispatchable only when this passes.
+Historical taskbooks remain provenance artifacts. A new dispatch under current
+policy requires current metadata and a fresh stamp.
 
-Historical taskbooks may remain unstamped or lack newer origin/lineage fields. They are preserved as provenance. A new dispatch under current policy requires current review and the missing current metadata.
+## 10. Runtime identity lives outside the taskbook
 
-## 9. Runtime identity lives outside the taskbook
-
-For Driver-mediated manual relay into a new researcher conversation:
+For a new Driver-mediated researcher conversation:
 
 ```bash
 python tools/research_identity.py allocate \
@@ -227,47 +205,30 @@ python tools/research_identity.py allocate \
   --dispatch-id <unique-dispatch-id>
 ```
 
-Persist the resulting Researcher-ID in the dispatch/relay envelope and receiving research return metadata.
-
 The reusable taskbook remains runtime-ID-free.
 
-Scheduler CLAIMs and direct task entry use their own identity bootstrap. Driver conversations expose Driver-ID, not Researcher-ID.
+## 11. Policy changes invalidate old stamps
 
-## 10. Policy changes invalidate old stamps automatically
+`research_taskbook_policy.json` lists inherited inputs. The authoring tool
+hashes them into the taskbook policy digest.
 
-`research_taskbook_policy.json` lists the inherited policy inputs. The authoring tool hashes them into the taskbook policy digest.
-
-When architecture/role/Driver/foundation semantics change:
-
-1. the digest changes;
-2. existing stamped taskbooks remain historical artifacts;
-3. another dispatch fails until current Driver review refreshes the stamp;
-4. only still-live taskbooks need re-review.
-
-Do not copy global policy text into every taskbook to keep it “in sync”. The digest is the synchronization mechanism.
-
-An already-running frozen research execution is not retroactively erased by a policy update; the new policy governs subsequent control-plane actions/re-dispatch according to its scope.
+A change to `final_response_identity_policy.json`,
+`tool_invocation_policy.json`, the taskbook contract, or another policy input
+makes prior stamps stale for redispatch. Running frozen work is not
+retroactively erased.
 
 ## Design separation
 
-Repository policy answers:
+Repository policy answers how research operates.
 
-> How does Enterprise Math research operate?
+The candidate packet answers what was independently discovered.
 
-The axiom-candidate packet answers:
+Taskbook origin/lineage answers why the selected task exists.
 
-> What was independently discovered before the control plane selected it?
+The taskbook body answers what exact selected question is executed.
 
-The taskbook origin/lineage answers:
+The dispatch envelope answers which concrete researcher conversation executes
+it.
 
-> Why does this selected task exist, and what did it come from?
-
-The taskbook body answers:
-
-> What exact selected question is this researcher executing?
-
-The dispatch envelope answers:
-
-> Which concrete researcher conversation is executing it now?
-
-Keeping these layers separate prevents route anchoring, provenance laundering, stale identity, duplicated rules and automatic stage cascades.
+The registry/inventory/executable router answers which reusable machinery is
+already available at the role-appropriate time.
