@@ -66,7 +66,7 @@ Current coverage audit at the frozen source baseline found:
 
 - no registered T0–T9 family whose declared interface is a discrete Laplacian, chip-firing/sandpile stabilization, or least-action potential calculus;
 - no curated method-inventory entry named for Laplacian, chip firing, sandpile, odometer, or harmonic potential;
-- repository searches for `laplacian`, `chip firing`, and `Morse` produced no direct current-source owner;
+- repository searches for `laplacian` and `chip firing` produced no direct current-source owner;
 - `src/enterprise_math/adjoint_boundary_precision.py` is an order-adjoint threshold-pullback calculus, not a graph Laplacian or chip-firing system.
 
 This is only a **capability-gap candidate**. The researcher must still compare against the closest current owners, especially T3 incidence circuits, T5 precision/refinement, T6 operation-safe quotient, T9 holonomy/gluing, and any current source discovered during execution.
@@ -289,7 +289,7 @@ The hard target closes when the strongest justified classification is frozen, no
 Return:
 
 1. `research_notes/TOOL_DISCOVERY_DISCRETE_LAPLACIAN_CHIP_FIRING_POTENTIAL_RESULT_20260823.md`
-2. `scripts/tool_discovery_discrete_laplACIAN_CHIP_FIRING_POTENTIAL_check.py`
+2. `scripts/tool_discovery_discrete_laplacian_chip_firing_potential_check.py`
 3. optional reusable source module only if the tool gate is actually met.
 
 The report must include:
