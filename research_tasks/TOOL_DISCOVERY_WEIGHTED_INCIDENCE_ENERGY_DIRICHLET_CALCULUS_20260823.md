@@ -17,8 +17,10 @@
   "source_refs": [
     "src/enterprise_math/collapse_incidence.py@7af320f5a0c0bde90ba227f0eded044786e84060",
     "enterprise_toolbox_registry.json@main:bd10bc351dbe7c90b47a3ffba3ef7796479170f5",
-    "research_method_inventory.json@main:bd10bc351dbe7c90b47a3ffba3ef7796479170f5",
-    "task:RS-TD-LP-DISCRETE-LAPLACIAN-CHIP-FIRING-POTENTIAL-CALCULUS"
+    "research_method_inventory.json@main:bd10bc351dbe7c90b47a3ffba3ef7796479170f5"
+  ],
+  "related_task_ids": [
+    "RS-TD-LP-DISCRETE-LAPLACIAN-CHIP-FIRING-POTENTIAL-CALCULUS"
   ],
   "evidence_status": "TASKBOOK_DRIVER_APPROVED",
   "tags": [
@@ -154,11 +156,7 @@ Show that physically/semantically meaningful energy outputs are invariant under 
 
 ### 4.2 Positivity / semidefiniteness
 
-State exactly which hypotheses imply
-
-`E(x) >= 0`
-
-and characterize the zero-energy kernel at the supported level.
+State exactly which hypotheses imply `E(x) >= 0` and characterize the zero-energy kernel at the supported level.
 
 For a connected weighted graph with positive conductances, constants may form the potential kernel; for disconnected carriers, classify components separately.
 
