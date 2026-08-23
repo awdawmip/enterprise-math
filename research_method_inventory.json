@@ -1,0 +1,267 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_V1",
+  "status": "ACTIVE_CURRENT_REUSE_INDEX",
+  "date": "2026-08-22",
+  "authority": "ROUTING_AND_REUSE_ONLY_EXACT_SOURCES_CONTROL",
+  "classification_vocabulary": ["GLOBAL_TOOL_FAMILY", "GLOBAL_SUBTOOL", "DOMAIN_FACADE", "DOMAIN_OPERATOR", "RESULT_ONLY", "CANDIDATE_NOT_TOOL", "DUPLICATE_ALIAS", "NO_TOOL_PAYLOAD"],
+  "harvest_scope": {
+    "priority_window": "2026-08-20..2026-08-22",
+    "current_executable_surface": "src/enterprise_math/*.py",
+    "rule": "Curated records cover the mature reusable mechanisms and recent routes most likely to be reinvented. The executable router additionally scans every current Python module by AST/docstring/public API, so absence here is not evidence of a capability gap."
+  },
+  "methods": [
+    {
+      "method_id": "domain.prime_toolkit",
+      "name": "Prime Toolkit status-preserving facade",
+      "classification": "DOMAIN_FACADE",
+      "family_id": null,
+      "status": "CANONICAL_MAIN",
+      "source_refs": ["src/enterprise_math/prime_toolkit.py", "src/enterprise_math/prime_method_inventory.json"],
+      "triggers": ["prime", "factor", "sieve", "square basin", "primality"],
+      "capabilities": ["status-preserving dispatch", "prime method inventory", "factor witness", "proof horizon"]
+    },
+    {
+      "method_id": "precision.integer_projection_calculus",
+      "name": "Integer precision projection/detail/carry calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T5_PRECISION_REFINEMENT",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": ["src/enterprise_math/precision.py", "src/enterprise_math/graded_precision.py"],
+      "triggers": ["precision", "coarse", "fine", "projection", "detail", "carry", "borrow", "mixed radix", "graded transport"],
+      "capabilities": ["project/recompose", "nested detail", "carry/borrow", "precision chains", "degree transport", "nonlinear projection defect"]
+    },
+    {
+      "method_id": "quotient.predictive_partition",
+      "name": "Finite predictive quotient compiler",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": ["src/enterprise_math/predictive_quotient.py"],
+      "triggers": ["predictive quotient", "future observation", "partition refinement", "distinguishing horizon"],
+      "capabilities": ["finite-horizon partition", "stable predictive partition", "future block profile", "distinguishing horizon"]
+    },
+    {
+      "method_id": "quotient.composition_safe_collapse",
+      "name": "Composition-safe collapse repair",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": ["src/enterprise_math/composition_safe_collapse.py"],
+      "triggers": ["collapse", "quotient", "factor through", "descent", "future-safe", "repair"],
+      "capabilities": ["fiber constancy witness", "descends-through test", "coarsest repair", "stable future partition"]
+    },
+    {
+      "method_id": "quotient.operation_family_closure",
+      "name": "Operation-family quotient closure and safe-operation census",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": ["src/enterprise_math/operation_quotient.py", "src/enterprise_math/partial_operation_quotient.py", "src/enterprise_math/safe_operation_algebra.py"],
+      "triggers": ["operation quotient", "operation congruence", "family descends", "stable family partition", "safe operation"],
+      "capabilities": ["operation descent", "family refinement", "stable family partition", "safe-operation count", "descent obstruction"]
+    },
+    {
+      "method_id": "symmetry.finite_group_action",
+      "name": "Finite symmetry/orbit/equivariance calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "source_refs": ["src/enterprise_math/finite_symmetry.py", "driver_reviews/R064_PHASEA_N0_FIRST_LOCAL_INTERACTION_CARRIER_DRIVER_REVIEW_20260822.md"],
+      "triggers": ["symmetry", "group action", "orbit", "stabilizer", "equivariant map", "canonical choice", "relabeling"],
+      "capabilities": ["orbit partition", "stabilizer", "fixed points", "canonical-choice obstruction", "equivariant-map count/enumeration"]
+    },
+    {
+      "method_id": "relation.observable_signature",
+      "name": "Relation observable/signature/spectrum calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T8_RELATION_OBSERVABLE_SPECTRUM",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": ["src/enterprise_math/relation_observable_signature.py", "src/enterprise_math/relational_spectrum.py", "src/enterprise_math/relation_observable_composition.py", "src/enterprise_math/relation_future_powerset.py"],
+      "triggers": ["relation", "multivalued", "observable", "branching", "set-valued future", "overlap", "collision spectrum"],
+      "capabilities": ["powerset-valued signatures", "observable determinism", "relation-safe quotient", "target occupancies", "collision spectra"]
+    },
+    {
+      "method_id": "relation.capacity_lattice",
+      "name": "Capacity-weighted relation invariants",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T8_RELATION_OBSERVABLE_SPECTRUM",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": ["src/enterprise_math/relation_lattice.py", "src/enterprise_math/weighted_relation_field.py"],
+      "triggers": ["relation quantum", "capacity gcd", "field preserving shift", "translation period"],
+      "capabilities": ["relation quantum", "primitive capacity vector", "translation period", "field-preserving shift"]
+    },
+    {
+      "method_id": "certificate.integer_box_helly",
+      "name": "Integer-box Helly and deletion-safe facet certificates",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T2_BLOCK_FINITE_CERTIFICATE",
+      "status": "CANONICAL_MAIN_EXECUTABLE_PRIOR_SPECIALIZATION",
+      "source_refs": ["src/enterprise_math/box_collapse.py"],
+      "triggers": ["box", "interval", "Helly 2", "intersection certificate", "facet witness", "deletion safe"],
+      "capabilities": ["exact intersection", "pairwise-to-global certificate", "2n-facet witness", "deletion-safe extrema"]
+    },
+    {
+      "method_id": "collision.common_collapse_inversion",
+      "name": "Common-collapse target inversion",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T8_RELATION_OBSERVABLE_SPECTRUM",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": ["src/enterprise_math/common_collapse.py"],
+      "triggers": ["collision", "shared target", "common collapse", "target bucket"],
+      "capabilities": ["common-target witness", "intersection multiplicity", "target-bucket inversion"]
+    },
+    {
+      "method_id": "holonomy.precision_defect_transport",
+      "name": "Discrete defect transport/holonomy/cocycle calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "status": "CANONICAL_MAIN_EXECUTABLE",
+      "source_refs": ["src/enterprise_math/precision_holonomy.py", "src/enterprise_math/precision_signed_holonomy.py", "src/enterprise_math/p023_borrow_cocycle.py", "src/enterprise_math/material_loop_identity.py"],
+      "triggers": ["holonomy", "cocycle", "defect transport", "loop", "coherence", "route dependence", "gluing defect"],
+      "capabilities": ["defect transport", "staged/direct coherence", "holonomy composition", "cocycle/loop obstruction"]
+    },
+    {
+      "method_id": "recent.r061.native_line_trace",
+      "name": "Native line trace formula",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": null,
+      "status": "CANONICAL_CURRENT_DEFINITION",
+      "source_refs": ["definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md", "commit:037a2dd9d095200c310853858e3c209ed100e727"],
+      "triggers": ["native line", "component trace", "shuffle path", "line identity"],
+      "capabilities": ["line trace identity", "path representative classification"]
+    },
+    {
+      "method_id": "recent.r061.directed_line_gauge",
+      "name": "Arbitrary-point directed native line gauge",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": null,
+      "status": "CANONICAL_CURRENT_DEFINITION",
+      "source_refs": ["definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md", "commit:3f14ae778a8a7f23f93b117c9fc469be354838f3"],
+      "triggers": ["directed gauge", "arbitrary point", "cross sector line"],
+      "capabilities": ["directed arbitrary-point gauge", "symmetry-obstruction-aware routing"]
+    },
+    {
+      "method_id": "recent.r061.bidirectional_segment_spectrum",
+      "name": "Unoriented bidirectional segment spectrum",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": null,
+      "status": "CANONICAL_CURRENT_DEFINITION",
+      "source_refs": ["definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md", "commit:0c48451162065dd62decb09ffa017e03b3862cb0"],
+      "triggers": ["unoriented segment", "bidirectional spectrum", "reverse gauge"],
+      "capabilities": ["bidirectional trace pair", "bidirectional length spectrum"]
+    },
+    {
+      "method_id": "recent.r062.brc_multipath_bridge",
+      "name": "BRC multipath enrichment bridge",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "CANONICAL_CURRENT_DEFINITION",
+      "source_refs": ["definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md", "commit:06040d03081c02893f5e4a448a64075d119d4e8d"],
+      "triggers": ["BRC multipath", "path formal BRC", "N BRC", "Boolean BRC"],
+      "capabilities": ["PATH_FORMAL_BRC to N_BRC to BOOLEAN_BRC projection", "multipath enrichment"]
+    },
+    {
+      "method_id": "recent.r063.path_valued_root",
+      "name": "Path-valued square-root decomposition",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+      "status": "CANONICAL_CURRENT_DEFINITION",
+      "source_refs": ["definitions/ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md", "commit:fb2331b0602e74cae506ebac49c4582e7147479d"],
+      "triggers": ["path root", "path-valued square root", "root branch", "component trace fiber"],
+      "capabilities": ["root branch enumeration", "path-fiber preservation", "component trace decomposition"]
+    },
+    {
+      "method_id": "recent.r063.c4_gluing_holonomy",
+      "name": "Three-sector C4 gluing/holonomy classification",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "status": "ACCEPTED_CONDITIONAL_DERIVED",
+      "source_refs": ["driver_reviews/R063_STAGE4_THREE_SECTOR_C4_PROCESS_GLOBALIZATION_DRIVER_REVIEW_20260822.md", "commit:5157f8a74ef5c897fa152e2bcd90c8428de53ee6"],
+      "triggers": ["C4", "sector gluing", "odd holonomy", "phase torsor", "route independent quotient"],
+      "capabilities": ["strict gluing no-go", "loop holonomy", "local-system survivor", "phase-orbit quotient"]
+    },
+    {
+      "method_id": "recent.r064.s3_equivariant_map_census",
+      "name": "S3 equivariant finite-law census",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "status": "ACCEPTED_PHASEA_SCOPE_NARROWED",
+      "source_refs": ["driver_reviews/R064_PHASEA_N0_FIRST_LOCAL_INTERACTION_CARRIER_DRIVER_REVIEW_20260822.md", "commit:ecec4605dde40cda90690628f4957adc510458fa"],
+      "triggers": ["S3", "equivariant law", "orbit census", "component complement", "relabeling"],
+      "capabilities": ["equivariant-map classification", "orbit reduction", "component-carrier law census"]
+    },
+    {
+      "method_id": "recent.fq008.mixed_difference_separability",
+      "name": "Mixed finite-difference separability diagnostic",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T1_SCALE_ENUMERATION_VALUATION",
+      "status": "STEWARD_ACCEPTED_REFACTOR_NOT_ASSUMED_CANONICAL_HERE",
+      "source_refs": ["research_tasks/FQ008_TRANSVERSE_INDEPENDENCE_STEWARD_VERIFICATION_20260822.md"],
+      "triggers": ["mixed difference", "transverse independence", "separable scalar", "axis calibration"],
+      "capabilities": ["test mixed finite-difference vanishing", "recover additive decomposition when boundary hypotheses hold"]
+    },
+    {
+      "method_id": "recent.fq009.orientation_torsor",
+      "name": "Finite orientation torsor/stabilizer analysis",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "status": "STEWARD_ACCEPTED_REFACTOR_NOT_ASSUMED_CANONICAL_HERE",
+      "source_refs": ["research_tasks/FQ009_ORIENTATION_TORSOR_ATLAS_STEWARD_VERIFICATION_20260822.md"],
+      "triggers": ["orientation torsor", "stabilizer", "S3 A3", "cyclic orientation"],
+      "capabilities": ["orientation orbit quotient", "residual stabilizer", "choice-dependence audit"]
+    },
+    {
+      "method_id": "recent.cbrc_f0.signed_group_completion",
+      "name": "Conservative signed group completion for nonnegative path-occurrence carriers",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T0_BRC",
+      "status": "DRIVER_ACCEPTED_SCOPE_NARROWED",
+      "source_refs": ["driver_reviews/CBRC_F0_NATIVE_RECOALESCENCE_FORWARD_DERIVATION_DRIVER_REVIEW_20260822.md", "commit:d4c7dd11287b313360be9e53a5bad5dfd7f1b502"],
+      "triggers": ["cancellation", "signed completion", "group completion", "nonnegative path coefficients", "dark fiber"],
+      "capabilities": ["universal additive-inverse completion", "exact cancellation while preserving typed path witnesses"],
+      "note": "Standard group-completion mathematics; accepted value is the typed BRC carrier refoundation, not a generic novelty claim."
+    },
+    {
+      "method_id": "recent.cbrc_f0.sign_diamond_holonomy",
+      "name": "Sign-transport gauge / elementary-diamond diagnostic",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "status": "DRIVER_ACCEPTED_SCOPE_NARROWED",
+      "source_refs": ["driver_reviews/CBRC_F0_NATIVE_RECOALESCENCE_FORWARD_DERIVATION_DRIVER_REVIEW_20260822.md", "commit:d4c7dd11287b313360be9e53a5bad5dfd7f1b502"],
+      "triggers": ["sign transport", "diamond ratio", "gauge", "dark cancellation", "branch swap", "integer linear mixing"],
+      "capabilities": ["rank-one reversible transport classification as plus/minus identity", "sign-valued elementary-diamond gauge invariant", "minimal-carrier branch-mixing no-go"],
+      "note": "Scope is the accepted minimal signed/free-additive carrier. It is not a no-go for richer coefficient carriers."
+    },
+    {
+      "method_id": "recent.lsr_n2.kernel_readout",
+      "name": "Maximal line-safe kernel cardinal readout",
+      "classification": "CANDIDATE_NOT_TOOL",
+      "family_id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+      "status": "AUDITED_REPLACEMENT_CANDIDATE_REPLICATION_PENDING",
+      "source_refs": ["GLOBAL_KNOWLEDGE:LSR-N2-20260822"],
+      "triggers": ["kernel", "component observation", "squared line scale"],
+      "capabilities": ["kernel/fiber cardinal readout candidate"],
+      "note": "Do not create a new tool family from this candidate; generic kernel/fiber machinery already routes through T4/T6."
+    },
+    {
+      "method_id": "recent.resolution_glue.symmetry_no_go",
+      "name": "Canonical-choice obstruction under target relabeling",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "status": "EXACT_NEGATIVE_OBSTRUCTION_PARKED",
+      "source_refs": ["GLOBAL_KNOWLEDGE:EMFREE-NG-20260822-RESOLUTION-GLUE-01"],
+      "triggers": ["canonical map", "target relabeling", "symmetry breaking", "cross resolution glue"],
+      "capabilities": ["fixed-point/canonical-choice obstruction"]
+    },
+    {
+      "method_id": "tool.discovery.quartet_20260822",
+      "name": "22-August discrete-geometry tool-discovery families",
+      "classification": "GLOBAL_TOOL_FAMILY",
+      "family_id": null,
+      "status": "DRIVER_INTEGRATED",
+      "source_refs": ["docs/ENTERPRISE_TOOLBOX_REGISTRY.md", "docs/RESEARCH_METHOD_HARVEST_20260820_20260822.md"],
+      "triggers": ["valuation", "finite certificate", "circuit", "fiber capacity"],
+      "capabilities": ["routes to T1", "routes to T2", "routes to T3", "routes to T4"]
+    }
+  ]
+}

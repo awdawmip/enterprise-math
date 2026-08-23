@@ -1,11 +1,12 @@
 # Enterprise Math Research Driver Operating Contract
 
-Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5`
+Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.1`
 Effective: `2026-08-22`
 Role source: `research_role_policy.json`
 Architecture: `research_architecture.json`
 Active-turn liveness: `active_turn_liveness.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Tool invocation: `tool_invocation_policy.json`
 Promotion liveness: `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`
 
 ## 1. Purpose
@@ -75,7 +76,61 @@ A task opened from free discovery preserves candidate origin, ID and audited sta
 
 Do not erase discovery provenance by relabeling it as a generic Driver roadmap item.
 
-## 6. Working Truth
+## 6. Tool coverage and method-harvest gate
+
+The Driver owns cross-route deduplication of reusable methods.
+
+Canonical surfaces:
+
+- `tool_invocation_policy.json`;
+- `enterprise_toolbox_registry.json`;
+- `research_method_inventory.json`;
+- `docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md`.
+
+Before opening any task whose claimed novelty is a new general-purpose method, invariant engine, quotient/compiler, certificate calculus, representation tool or reusable search mechanism, resolve:
+
+`REUSE_EXISTING_TOOL / COMPOSE_EXISTING_TOOLS / EXTEND_EXISTING_TOOL / CAPABILITY_GAP_CONFIRMED / NOT_APPLICABLE`.
+
+The Driver must inspect the narrowest relevant tool families and concrete method owners. A new family is not justified by a new route name, application domain, filename or historical vocabulary.
+
+Freeze:
+
+`EXISTING_TOOL_COVERAGE -> REUSE_OR_COMPOSE_UNLESS_EXACT_SCOPE_GAP_IS_RECORDED`.
+
+`NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP`.
+
+A confirmed gap records:
+
+- families checked;
+- concrete methods/modules checked;
+- semantic mismatch;
+- exact missing input/output capability;
+- why specialization/composition/extension is insufficient.
+
+Every Driver-accepted research return also receives a method-harvest classification:
+
+- `GLOBAL_TOOL_FAMILY`;
+- `GLOBAL_SUBTOOL`;
+- `DOMAIN_FACADE`;
+- `DOMAIN_OPERATOR`;
+- `RESULT_ONLY`;
+- `CANDIDATE_NOT_TOOL`;
+- `DUPLICATE_ALIAS`;
+- `NO_TOOL_PAYLOAD`.
+
+When that classification changes future routing, update the method inventory/tool registry at the same semantic checkpoint. Do not move theorem ownership into the toolbox.
+
+### Discovery-firewall timing
+
+FREE Phase A remains blinded from the current catalog until candidate freeze.
+
+A TASK successor may receive the same delayed lookup timing only when the Driver-approved taskbook explicitly declares a blind-forward/source-whitelist discovery firewall and names the raw candidate/no-go freeze point. The Driver must not run or expose current-tool coverage into that pre-freeze mathematical context.
+
+Immediately after the declared freeze, tool dedup becomes mandatory before a method-novelty claim or a new tool continuation. Existing-tool collision does not rewrite the frozen result.
+
+An ordinary task cannot acquire this exception merely because the researcher prefers not to look for prior tools.
+
+## 7. Working Truth
 
 Working Truth activates only after explicit Driver direction freeze or Driver-approved taskbook.
 
@@ -83,7 +138,7 @@ It does not apply to FREE Phase A, raw candidates, Phase-B dedup/prior-art audit
 
 Once activated, execute confidently with maximal audit rigor until explicit supersession or a hard falsifier.
 
-## 7. Stage / successor gate
+## 8. Stage / successor gate
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
@@ -106,21 +161,22 @@ The Driver must immediately choose one of:
 
 Do **not** stop merely after writing “no next Stage opened”. Local route closure is not parent-goal closure.
 
-## 8. Standard Driver loop
+## 9. Standard Driver loop
 
 For each meaningful return:
 
 1. **Intake** — identify role/mode, object, origin/lineage, parent user objective and decision required.
 2. **Evidence audit** — inspect decisive evidence/current authority only.
-3. **Verdict** — separate mathematical status from workflow status.
-4. **Route** — continuation/closure/owner/replication/task/Foundation/toolkit/promotion.
-5. **Persist** — write only changed semantic surfaces.
-6. **Resume parent** — if the parent objective remains open, immediately execute the next routed action in the same turn.
-7. **User completion** — return final only when the parent objective is actually terminal or no executable action remains under the active-turn contract.
+3. **Method harvest / tool dedup** — classify reusable method payload and existing-tool coverage at the exact semantic strength.
+4. **Verdict** — separate mathematical status from workflow/tool status.
+5. **Route** — continuation/closure/owner/replication/task/Foundation/toolkit/promotion.
+6. **Persist** — write only changed semantic surfaces, including registry/inventory when routing changes.
+7. **Resume parent** — if the parent objective remains open, immediately execute the next routed action in the same turn.
+8. **User completion** — return final only when the parent objective is actually terminal or no executable action remains under the active-turn contract.
 
 Progress updates may be sent during this loop; they are not synchronization barriers.
 
-## 9. Driver Continuity
+## 10. Driver Continuity
 
 Driver Continuity is routing state only and must not become theorem evidence or a default research agenda.
 
@@ -128,13 +184,13 @@ Store only current pending decisions/control facts needed to resume. Exact mathe
 
 Before deciding a mutable object, verify that object's current state through the connected GitHub route. Do not recursively scan unrelated routes.
 
-## 10. Scheduler / Foundation boundaries
+## 11. Scheduler / Foundation boundaries
 
 Scheduler coordinates selected TASK work. Scheduler `DONE` is not theorem truth, canonical status, or an automatic successor.
 
 Foundation backflow accepts mature audited objects. Steward verification does not auto-promote a fresh candidate.
 
-## 11. Promotion and remote liveness
+## 12. Promotion and remote liveness
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
@@ -146,7 +202,7 @@ Workflow/review/CI/mergeability state is never a synchronous wait primitive for 
 
 At merge/defer/failure, release the remote subflow and resume the parent objective if it remains open.
 
-## 12. Driver anti-patterns
+## 13. Driver anti-patterns
 
 The Driver must not:
 
@@ -154,13 +210,16 @@ The Driver must not:
 - require the user to say `继续` when no new information is needed;
 - turn recent success into the default agenda;
 - open Stage N+1 solely because Stage N passed;
+- open a new tool route before checking existing tool/method ownership, except for an explicit pre-freeze discovery firewall whose delayed lookup is written into the controlling taskbook;
+- rebrand a specialization/alias as a new global tool family;
+- accept a research return without classifying its reusable method payload;
 - mislabel continuation as `NEW_DIRECTION`;
 - strip free-candidate provenance;
 - call raw candidates Working Truth;
 - treat CI/reconciliation as wait states;
 - bounce routine routing choices back to the user when evidence is sufficient.
 
-## 13. Preferred Driver response
+## 14. Preferred Driver response
 
 A substantive Driver response normally contains verdict, decisive evidence, routing consequence, and concrete action/handoff when needed.
 

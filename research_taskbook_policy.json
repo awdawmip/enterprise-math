@@ -1,7 +1,7 @@
 {
-  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3",
+  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.1",
   "status": "ACTIVE",
-  "effective": "2026-08-22T01:11:00+08:00",
+  "effective": "2026-08-22T22:39:00+08:00",
   "policy_inputs": [
     "AGENTS.md",
     "FOUNDATIONAL_LOGIC.md",
@@ -14,6 +14,7 @@
     "research_role_policy.json",
     "research_identity_state_machine.json",
     "research_taskbook_contract.json",
+    "tool_invocation_policy.json",
     "native_semantics_admissibility.json"
   ],
   "conflict_checks": [
@@ -96,7 +97,10 @@
     "For task_lineage=CONTINUATION, audit the successor gate rather than accepting parent PASS, stage numbering, momentum or recent success as the reason for another stage.",
     "Any obvious Stage 2+ task is CONTINUATION. More generally, renaming the next unresolved layer of the same parent route does not reset semantic lineage.",
     "Continuation review must record whether closure, another owner/route or independent/free exploration was considered; no numeric exploration quota is imposed.",
-    "Working Truth is a task-execution discipline and must not be retroactively applied to Phase-A discovery or Phase-B prior-art/dedup audit."
+    "Working Truth is a task-execution discipline and must not be retroactively applied to Phase-A discovery or Phase-B prior-art/dedup audit.",
+    "Ordinary task execution inherits tool_invocation_policy.json: after task semantics are understood and before inventing new general-purpose machinery, current tool/method coverage must be checked and adequate existing tools must be reused/composed/extended rather than reimplemented under a new route name.",
+    "A taskbook with an explicit blind-forward/source-whitelist discovery firewall may delay current toolbox/method visibility only until its named raw candidate/no-go freeze point; the same task must run current-tool dedup after that freeze before claiming method novelty or opening a tool continuation.",
+    "FREE Phase A follows the same discovery-firewall timing principle: no current toolbox prior before freeze; mandatory current-tool dedup in Phase B after freeze."
   ],
   "override_required_fields": [
     "conflict_id",

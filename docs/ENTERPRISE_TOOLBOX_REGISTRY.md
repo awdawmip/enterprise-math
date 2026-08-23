@@ -1,127 +1,281 @@
 # Enterprise Math Toolbox Registry
 
-Status: `ACTIVE / CURRENT TOOL ROUTER / NOT FOUNDATION AUTHORITY`
+Status: `ACTIVE / CURRENT TOOL ROUTER / NOT FOUNDATION AUTHORITY / V2`
 Date: `2026-08-22`
 Driver: `EM-DVR-ZX1UEJ`
+Invocation protocol: `docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md`
+Machine registry: `enterprise_toolbox_registry.json`
+Method inventory: `research_method_inventory.json`
+Executable router: `tools/enterprise_toolbox.py`
 
 ## Purpose
 
-This registry lists reusable mathematical tools that have cleared the project threshold
+This registry routes reusable mathematical mechanisms across Enterprise Math.
 
-`NEW THEOREM != NEW TOOL`.
+A tool family is admitted only when it has a reusable input/output interface, structural law/certificate, explicit failure boundary and meaningful reuse. Exact theorem authority stays with the cited owner.
 
-A registry entry must have a callable input/output interface, structural laws or certificates, an explicit failure boundary, and demonstrated reuse across more than one problem family. Exact theorem authority remains in the cited source/report or canonical definition; this file is a routing surface.
+The central anti-duplication rule is:
+
+`UNDERSTAND TASK -> LOOK UP EXISTING TOOL -> REUSE / COMPOSE / EXTEND -> NEW FAMILY ONLY AFTER GAP CONFIRMED`.
+
+FREE Phase A is deliberately excluded from pre-freeze catalog lookup; Phase B uses this registry after candidate freeze for deduplication.
+
+## Common Surface bridge and repository-tool ownership
+
+The pre-existing `research_common_surface.json` remains the owner of universal theorem/formal/operational infrastructure. This Toolbox is **not** a competing replacement. `tools/check_research_common_surface.py` now audits both surfaces together.
+
+Repository `tools/*.py` ownership is exact and disjoint:
+
+- Common Surface owns its long-lived universal operational helpers;
+- Toolbox owns mathematical-tool routing and research-local tool checkers declared by `enterprise_toolbox_registry.json`.
+
+Toolbox-owned repository tools are currently:
+
+- `tools/enterprise_toolbox.py` — global reuse-before-invention coverage router;
+- `tools/tool_discovery_native_valuation_ehrhart_brion_calculus_check.py` — frozen T1 discovery evidence checker.
+
+The union of Common-Surface-owned and Toolbox-owned repository tools must equal the actual `tools/*.py` directory exactly. A path may not have two owner surfaces. This is mechanically enforced by the shared Common Surface integrity gate.
 
 ## T0 — BRC
 
-Status: `PREEXISTING CANONICAL TOOL FAMILY`
+Status: `PREEXISTING CANONICAL TOOL FAMILY`.
 
-Current BRC routing remains controlled by the exact current BRC definitions. The toolbox does not redefine BRC.
+Use for support/result/provenance-valued composition, branching, multipath and recoalescence semantics. Current exact BRC definitions remain authoritative.
 
-Use when the problem is naturally support/result/provenance-valued and requires composition across multiple path or branch realizations.
+Hard boundary: Boolean support does not reconstruct provenance already erased.
 
 ## T1 — Enterprise Scale Enumeration / Valuation Calculus
 
-Status: `ACCEPTED_DERIVED_TOOL`
+Status: `ACCEPTED DERIVED TOOL`.
 
-Core object: integer-indexed finite admissible family `S(s)` with enumerator `F(s)=|S(s)|`.
+Use for integer-indexed finite scale families, shells, counts, finite differences, generating functions, valuations, inclusion-exclusion and local-to-global count decompositions.
 
-Primary operations:
+Primary interface:
 
-- `DELTA` — finite-difference shell and degree detection;
-- `GEN` — exact generating-function construction when recurrence/difference structure justifies it;
-- `VAL` — finite valuation / inclusion-exclusion;
-- `MOBIUS` — inversion of cumulative finite-poset data;
-- `LOCAL` — semantics-preserving local decomposition.
+`DELTA / GEN / VAL / MOBIUS / LOCAL`.
 
-Use for scale growth, shell counts, precision-state counts, path/shuffle counts, basin widths, BRC state counts, and other finite scale families.
+Known recent specialization: mixed finite-difference separability from FQ008.
 
-Hard boundary: `NO_UNIVERSAL_NATIVE_EHRHART_POLYNOMIALITY`.
+Hard boundary:
 
-Driver review: `driver_reviews/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_DRIVER_REVIEW_20260822.md`.
+`NO_UNIVERSAL_NATIVE_EHRHART_POLYNOMIALITY`.
+
+Growth degree is not automatically native geometric dimension.
 
 ## T2 — Enterprise Block Finite-Certificate Calculus
 
-Status: `ACCEPTED_DERIVED_TOOL`
+Status: `ACCEPTED DERIVED TOOL`.
 
-Core mechanism:
+Core law:
 
-`INDEPENDENT_BLOCK_COMPOSITION -> GLOBAL_CERTIFICATE_NUMBER <= MAX_LOCAL_CERTIFICATE_NUMBER`.
+`INDEPENDENT BLOCKS -> GLOBAL CERTIFICATE NUMBER <= MAX LOCAL CERTIFICATE NUMBER`.
 
-When local bounds are sharp and realized, equality follows.
+Use for local-to-global compatibility, finite gluing/constraint feasibility and bounded obstruction extraction.
 
-Primary operations:
+Existing specialization:
 
-- factor compatibility constraints into certified independent blocks;
-- compute local certificate numbers;
-- extract a bounded obstruction witness;
-- assemble a global success witness;
-- reject application when coupling destroys block independence.
+`src/enterprise_math/box_collapse.py` already gives integer-box Helly number `2`, compact extremal facet witnesses and deletion-safe certificates.
 
-Use for local-to-global feasibility, gluing, chart consistency, support assertions, finite constraint systems, and other compatibility questions.
-
-Hard boundary: bounded local arity, finite domain size, or path/tree interaction topology alone do not force bounded obstruction size under propagating coupling.
-
-Existing integer-box Helly number `2` is a specialization, not a new discovery of this task.
-
-Driver review: `driver_reviews/TOOL_DISCOVERY_ENTERPRISE_HELLY_RADON_DRIVER_REVIEW_20260822.md`.
+Hard boundary: bounded local arity/domain or path/tree interaction topology does not guarantee bounded global obstruction size when relations propagate through arbitrarily long coupled chains.
 
 ## T3 — Typed Incidence Circuit Calculus
 
-Status: `ACCEPTED_DERIVED_TOOL / SCOPE_NARROWED`
+Status: `ACCEPTED DERIVED TOOL / SCOPE NARROWED`.
 
-Input: finite component-typed incidence skeleton `Gamma=(V,E,s,t,tau)`.
+Use for finite typed incidence skeletons, path differences, cycles, provenance defects, rerouting and cut/separator certificates.
 
-Primary operations:
+Interface:
 
-- `SIGN`;
-- `CIRCUITS`;
-- `ELIMINATE`;
-- `SEPARATE`;
-- `DUAL`;
-- `REALIZATION_CHECK`;
-- same-endpoint path-defect decomposition into circuits.
+`SIGN / CIRCUITS / ELIMINATE / SEPARATE / DUAL / REALIZATION_CHECK`.
 
-Use for path/shuffle provenance, cycle defects, recoalescence diamonds, incidence obstructions, and dual cut/cocircuit certificates without metric coordinates.
+Hard boundary:
 
-Hard boundary: the bare three positive direction types do not currently determine a signed circuit/chirotope. Carrier linear relations may not be imported as native circuit dependencies.
+`BARE THREE POSITIVE DIRECTIONS != NATIVE SIGNED CIRCUIT`.
 
-Driver review: `driver_reviews/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_DRIVER_REVIEW_20260822.md`.
+Carrier linear relations may not be imported to manufacture native dependencies.
 
 ## T4 — Finite Fiber Capacity / Collision-Minima Calculus
 
-Status: `ACCEPTED_TOOL_COMPOSITION / NOVELTY_DOWNGRADED`
+Status: `ACCEPTED TOOL COMPOSITION / NOVELTY DOWNGRADED`.
 
-Input: finite or locally finite state data with an already declared/derived semantic observation `pi:X->Q` and admissible finite bodies/filtration.
+Use after an observation/fiber map is already semantically justified. Provides raw capacity, occupied quotient capacity, collision defect/witnesses, representative packing/covering and successive collision minima.
 
-Primary operations:
+Typical composition:
 
-- `nu(A)=|A|` raw capacity;
-- `kappa(A)=|pi(A)|` quotient capacity;
-- fiber-free/injective test;
-- `delta(A)=|A|-|pi(A)|` collision defect;
-- same-fiber witness extraction;
-- representative packing/covering compression;
-- successive collision minima `lambda_k` along a declared filtration.
+`T6/T8 constructs or certifies observation -> T4 counts/compresses its fibers`.
 
-Use when a problem already has meaningful quotient/fiber semantics and asks existence, compression, packing/covering, or first-collision-scale questions.
+Hard boundary: T4 cannot invent `pi` simply to force a capacity theorem.
 
-Hard boundary: the quotient/observation is an input, not something this tool may invent. Much of its quotient/collision mathematics predates this discovery; the accepted contribution is a reusable geometry-of-numbers-style composition layer.
+## T5 — Integer Precision / Refinement Calculus
 
-Driver review: `driver_reviews/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_DRIVER_REVIEW_20260822.md`.
+Status: `HARVESTED PREEXISTING DERIVED TOOL FAMILY`.
 
-## Tool-selection rule
+This family consolidates mature older modules that had been scattered across P018/precision routes.
 
-Prefer the narrowest tool matching the actual information structure:
+Main owners:
 
-- scale family / shell growth -> `T1`;
-- finite local-to-global compatibility -> `T2`;
-- incidence cycles / path differences / cuts -> `T3`;
-- declared quotient fibers / capacity / first collision -> `T4`;
-- support/provenance algebra already modeled by BRC -> `T0`.
+- `src/enterprise_math/precision.py`;
+- `src/enterprise_math/graded_precision.py`;
+- related precision-system/proof modules.
 
-Tools may compose, but composition must preserve semantic typing. A result obtained only after inventing a target observation, metric, orientation, convexity, or carrier relation is conditional on that extra datum.
+Use for:
 
-## Promotion rule
+- coarse/fine integer projections;
+- exact bounded fiber details and recomposition;
+- nested refinement identities;
+- carry/borrow;
+- mixed-radix precision chains;
+- degree-aware transport;
+- nonlinear homogeneous projection defects.
 
-Tool acceptance is not Foundation canonicalization. This registry does not create native primitives. A tool may be used by later research immediately at its accepted derived semantic scope; any attempt to promote one of its assumptions or readouts into Foundation follows the separate Foundation route.
+Hard boundary: finite integer precision semantics do not create a continuum or a limit theory.
+
+## T6 — Operation-Safe Quotient / Predictive Refinement Calculus
+
+Status: `HARVESTED PREEXISTING DERIVED TOOL FAMILY`.
+
+This is one of the most important anti-duplication consolidations.
+
+Existing modules:
+
+- `predictive_quotient.py`;
+- `composition_safe_collapse.py`;
+- `operation_quotient.py`;
+- `partial_operation_quotient.py`;
+- `safe_operation_algebra.py`.
+
+Shared mother operation:
+
+> Given declared observations/operations, find the coarsest quotient/refinement on which the required behavior descends, or produce a witness that it does not.
+
+Use for predictive state, future-equivalence, operation congruence, quotient-safe collapse and minimal repair.
+
+Hard boundary: the observation/operation language is input. T6 does not decide what information should be forgotten.
+
+## T7 — Finite Symmetry / Orbit / Equivariance Calculus
+
+Status: `HARVESTED AND TOOLIZED`.
+
+Shared executable owner:
+
+`src/enterprise_math/finite_symmetry.py`.
+
+Harvested from the common method behind R064, FQ009 and the resolution-glue symmetry obstruction.
+
+Interface:
+
+- finite group-action validation;
+- `orbit` / `orbit_partition`;
+- `stabilizer`;
+- global fixed points;
+- canonical-choice obstruction;
+- exact equivariant-map count/enumeration.
+
+Use for relabeling/automorphism audits, orbit reduction, equivariant law classification, torsor/stabilizer calculations and canonical-choice impossibility.
+
+Hard boundary: if the declared symmetry has no invariant datum, the tool diagnoses missing symmetry breaking; it does not invent one from carrier presentation.
+
+## T8 — Relation Observable / Spectrum Calculus
+
+Status: `HARVESTED PREEXISTING DERIVED TOOL FAMILY`.
+
+Existing modules include:
+
+- `relation_observable_signature.py`;
+- `relational_spectrum.py`;
+- `relation_observable_composition.py`;
+- `relation_future_powerset.py`;
+- `weighted_relation_field.py`;
+- `relation_lattice.py`.
+
+Use for multivalued relations/correspondences, powerset-valued future observations, common-target collision spectra, relation-safe quotients and capacity-weighted relation invariants.
+
+Critical distinction:
+
+`RAW RELATION BRANCHING != OBSERVABLE NONDETERMINISM != QUOTIENT SAFETY`.
+
+## T9 — Holonomy / Cocycle / Gluing-Obstruction Calculus
+
+Status: `HARVESTED PREEXISTING + RECENT DERIVED TOOL FAMILY`.
+
+Existing/recent owners:
+
+- `precision_holonomy.py`;
+- `precision_signed_holonomy.py`;
+- `p023_borrow_cocycle.py`;
+- `material_loop_identity.py`;
+- R063 Stage-4 C4 globalization result.
+
+Use for local transports, chart/process gluing, staged-vs-direct transport, loop defects, cocycles, route dependence, torsors and strict-globalization obstructions.
+
+Core pattern:
+
+`LOCAL TRANSPORT -> LOOP COMPOSITION -> HOLONOMY/DEFECT -> STRICT GLUING VERDICT`.
+
+Hard boundary: nonzero holonomy proves failure of strict trivialization but does not select a unique repaired global object.
+
+## Domain facade D1 — Prime Toolkit
+
+Status: `PREEXISTING DOMAIN TOOL LIBRARY`.
+
+Sources:
+
+- `src/enterprise_math/prime_toolkit.py`;
+- `src/enterprise_math/prime_method_inventory.json`.
+
+Prime Toolkit already preserves mathematical/toolization/provenance status next to returned values. Keep using it for prime-specific dispatch, but route generic mechanisms such as precision or quotient refinement through T5/T6 rather than duplicating them in prime-only code.
+
+## Tool-family and method layers
+
+The family registry answers:
+
+> Which mathematical mechanism owns this problem shape?
+
+`research_method_inventory.json` answers:
+
+> Which exact callable method, recent result interface, specialization or domain operator already exists?
+
+The executable router searches both and then scans all current Python source by AST/docstring/public API.
+
+Therefore a method does not need to be manually remembered to be discoverable.
+
+## Current selection guide
+
+- support/result/provenance algebra -> T0;
+- scale/shell/count/growth -> T1;
+- local-to-global compatibility/certificates -> T2;
+- incidence cycles/path differences/cuts -> T3;
+- declared fibers/capacity/compression -> T4;
+- coarse/fine precision/carry/detail -> T5;
+- future-preserving quotient/descent -> T6;
+- symmetry/orbits/equivariance/canonical choice -> T7;
+- relation-valued observations/collision spectra -> T8;
+- loop transport/cocycle/holonomy/gluing obstruction -> T9.
+
+Tools may compose, but semantic input contracts remain binding.
+
+## Recent-route harvest
+
+Priority research from 20–22 August 2026 is indexed in:
+
+`docs/RESEARCH_METHOD_HARVEST_20260820_20260822.md`.
+
+Key decisions:
+
+- R061 line/gauge/segment results are domain operators, not new generic families;
+- R062 multipath bridge is a T0 subtool;
+- R063 path-root is a domain operator while Stage-4 holonomy is T9;
+- R064 orbit/equivariant-map method is T7;
+- FQ008 mixed differences route to T1;
+- FQ009 torsor/stabilizer route to T7;
+- LSR-N2 remains a candidate, not a tool family; generic fiber/kernel machinery already belongs to T4/T6.
+
+## Invocation and promotion rule
+
+For TASK/Driver/Steward work:
+
+`UNDERSTAND TASK -> TOOL COVERAGE LOOKUP -> REUSE/COMPOSE/EXTEND/GAP`.
+
+For FREE Phase A the catalog remains hidden until candidate freeze; Phase B then performs the same dedup lookup.
+
+Tool acceptance never promotes a Foundation premise. The exact owner/source controls theorem status.

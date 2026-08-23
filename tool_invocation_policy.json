@@ -1,0 +1,115 @@
+{
+  "schema": "ENTERPRISE_MATH_TOOL_INVOCATION_POLICY_V1",
+  "status": "ACTIVE",
+  "effective": "2026-08-22T22:39:00+08:00",
+  "registry": "enterprise_toolbox_registry.json",
+  "method_inventory": "research_method_inventory.json",
+  "executable_router": "tools/enterprise_toolbox.py",
+  "human_protocol": "docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md",
+  "invariants": [
+    "QUESTION_OR_TASK_SEMANTICS_FIRST",
+    "EXISTING_TOOL_COVERAGE_CHECK_BEFORE_NEW_MECHANISM_INVENTION",
+    "EXISTING_TOOL_COVERAGE -> REUSE_OR_COMPOSE_UNLESS_EXACT_SCOPE_GAP_IS_RECORDED",
+    "NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP",
+    "TOOL_USE_PRESERVES_SEMANTIC_TYPING_AND_HARD_BOUNDARIES",
+    "EXPLICIT_DISCOVERY_FIREWALL_CONTROLS_TOOL_VISIBILITY_UNTIL_ITS_FREEZE_POINT",
+    "TOOL_ACCEPTANCE_DOES_NOT_MUTATE_FOUNDATION",
+    "EVERY_ACCEPTED_RESEARCH_RETURN_GETS_METHOD_HARVEST_CLASSIFICATION"
+  ],
+  "coverage_verdicts": [
+    "REUSE_EXISTING_TOOL",
+    "COMPOSE_EXISTING_TOOLS",
+    "EXTEND_EXISTING_TOOL",
+    "CAPABILITY_GAP_CONFIRMED",
+    "NOT_APPLICABLE"
+  ],
+  "role_timing": {
+    "TASK_RESEARCH": {
+      "mandatory": true,
+      "when": "after the exact task semantics and first necessary dependency are understood, before constructing a new general-purpose mechanism or helper calculus, unless the exact taskbook declares an active discovery-information firewall that postpones current-tool visibility until a named freeze point",
+      "action": "query the current toolbox registry, method inventory and executable-source search surface; reuse the narrowest adequate tool or record the exact missing capability"
+    },
+    "TASK_RESEARCH_DISCOVERY_FIREWALL": {
+      "mandatory_before_declared_freeze": false,
+      "tool_catalog_visibility_before_declared_freeze": "HIDDEN_IF_TASKBOOK_EXPLICITLY_REQUIRES_BLIND_FORWARD_OR_OTHER_DISCOVERY_ISOLATION",
+      "mandatory_after_declared_freeze": true,
+      "action_before_freeze": "obey the exact task-local source whitelist/information firewall; do not expose current tool names or catalogs merely to enforce reuse",
+      "action_after_freeze": "run the same toolbox/method dedup lookup before claiming method novelty or opening a tool continuation; preserve the frozen result even when it collides with an existing tool",
+      "scope_rule": "this exception exists only when the controlling taskbook explicitly declares a discovery firewall and freeze point; ordinary TASK_RESEARCH cannot self-declare blindness to skip reuse"
+    },
+    "RESEARCH_DRIVER": {
+      "mandatory": true,
+      "when": "during intake/routing of a research return and before opening any task whose novelty is a new method/tool/mechanism",
+      "action": "deduplicate against existing tool families, subtools, domain facades and executable methods; route to reuse/composition/extension unless a capability gap is explicit"
+    },
+    "FOUNDATION_STEWARD": {
+      "mandatory": true,
+      "when": "before accepting a shared method/tool surface or a Foundation-facing decomposition that appears to introduce reusable machinery",
+      "action": "check whether the mechanism already exists and preserve theorem/tool ownership and semantic layer"
+    },
+    "FREE_AXIOM_DISCOVERY_PHASE_A": {
+      "mandatory": false,
+      "tool_catalog_visibility": "HIDDEN_AS_DISCOVERY_PRIOR",
+      "forbidden_as_question_prior": true,
+      "action": "computation/formalization may test a question that independently arose from the primitive substrate, but current tool families/method inventories may not choose the first question or candidate"
+    },
+    "FREE_AXIOM_DISCOVERY_PHASE_B": {
+      "mandatory": true,
+      "when": "immediately after the candidate/no-go packet is frozen and before claiming method novelty, uniqueness or a new reusable mechanism",
+      "action": "open the toolbox/method surfaces for falsification, deduplication, reuse and integration"
+    }
+  },
+  "lookup_layers": [
+    {
+      "order": 1,
+      "surface": "CURATED_TOOL_FAMILIES",
+      "source": "enterprise_toolbox_registry.json"
+    },
+    {
+      "order": 2,
+      "surface": "CURATED_METHOD_INVENTORY",
+      "source": "research_method_inventory.json"
+    },
+    {
+      "order": 3,
+      "surface": "CURRENT_EXECUTABLE_SOURCE",
+      "source": "src/enterprise_math/*.py",
+      "rule": "AST/docstring/public-function discovery through tools/enterprise_toolbox.py; absence from curated inventories is not evidence that no reusable method exists"
+    }
+  ],
+  "new_mechanism_gate": {
+    "required_questions": [
+      "Which current tool families were checked?",
+      "Which concrete callable methods or recent harvested methods were checked?",
+      "Why is reuse or composition insufficient at the required semantic strength?",
+      "Is the residue an extension of an existing tool or a genuinely new family?",
+      "What exact input/output capability is missing?"
+    ],
+    "rule": "If the gap is only naming, packaging, a special case, or a different application domain, do not create a new tool family. Register an alias, specialization, domain facade or subtool instead."
+  },
+  "post_return_harvest": {
+    "required_for": [
+      "Driver-accepted research return",
+      "Steward-accepted shared result",
+      "route closure with a reusable procedure/certificate/operator",
+      "new executable general-purpose module"
+    ],
+    "classifications": [
+      "GLOBAL_TOOL_FAMILY",
+      "GLOBAL_SUBTOOL",
+      "DOMAIN_FACADE",
+      "DOMAIN_OPERATOR",
+      "RESULT_ONLY",
+      "CANDIDATE_NOT_TOOL",
+      "DUPLICATE_ALIAS",
+      "NO_TOOL_PAYLOAD"
+    ],
+    "required_action": "update the registry/inventory when reuse value or routing changes; otherwise persist the no-tool classification in the Driver/Steward review"
+  },
+  "anti_duplication": {
+    "same_mechanism_different_historical_name": "ALIAS_OR_SUBTOOL",
+    "same_mechanism_different_problem_domain": "DOMAIN_FACADE_OR_SPECIALIZATION",
+    "strict_superset_with_new_capability": "EXTEND_EXISTING_TOOL",
+    "incompatible_semantic_type_or_new_input_output_contract": "CAPABILITY_GAP_MAY_BE_CONFIRMED"
+  }
+}

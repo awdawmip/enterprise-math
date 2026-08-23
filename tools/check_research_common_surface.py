@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Check that the shared theorem/tool router and Foundation backflow cannot drift.
+"""Check that the shared theorem/tool routers and Foundation backflow cannot drift.
 
 This checker is intentionally mechanical. It does not decide whether a theorem
 is true or whether a Python module is mathematically reusable. It enforces
-objective synchronization of the common theorem/tool surface and the static
-research-to-Foundation control-plane links. Live FQ and lease state remain on
-GitHub Issues #164 and #240.
+objective synchronization of the Common Research Surface, the mathematical
+Toolbox Registry, and the static research-to-Foundation control-plane links.
+Live FQ and lease state remain on GitHub Issues #164 and #240.
 """
 
 from __future__ import annotations
@@ -19,12 +19,14 @@ from typing import Any, Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
 COMMON_JSON = ROOT / "research_common_surface.json"
+TOOLBOX_JSON = ROOT / "enterprise_toolbox_registry.json"
 FOUNDATION_JSON = ROOT / "foundation_steward.json"
 BACKFLOW_JSON = ROOT / "foundation_backflow.json"
 SCHEDULER_JSON = ROOT / "research_scheduler.json"
 LEAN_ROOT = ROOT / "EnterpriseMath.lean"
 COMMON_EN = ROOT / "docs" / "RESEARCH_COMMON_SURFACE.en.md"
 COMMON_ZH = ROOT / "docs" / "RESEARCH_COMMON_SURFACE.zh-CN.md"
+TOOLBOX_DOC = ROOT / "docs" / "ENTERPRISE_TOOLBOX_REGISTRY.md"
 TOOLS_DIR = ROOT / "tools"
 
 FQ_RE = re.compile(r"^FQ-\d{8}-\d{3}$")
@@ -59,7 +61,21 @@ def _repo_python_tools() -> list[str]:
     )
 
 
-def _declared_paths(common: dict) -> Iterable[str]:
+def _toolbox_repo_tools(toolbox: dict) -> list[str]:
+    entries = toolbox.get("repository_tool_paths", [])
+    if not isinstance(entries, list) or not all(isinstance(entry, str) for entry in entries):
+        raise AssertionError("toolbox repository_tool_paths must be a string list")
+    if len(entries) != len(set(entries)):
+        raise AssertionError("toolbox repository_tool_paths contains duplicates")
+    router = toolbox.get("executable_router")
+    if not isinstance(router, str) or not router:
+        raise AssertionError("toolbox executable_router must be a nonempty path")
+    if router not in entries:
+        raise AssertionError("toolbox executable_router must appear in repository_tool_paths")
+    return sorted(entries)
+
+
+def _declared_paths(common: dict, toolbox: dict) -> Iterable[str]:
     modules = common.get("canonical_executable_modules", {})
     for family, entries in modules.items():
         if not isinstance(entries, list):
@@ -78,6 +94,8 @@ def _declared_paths(common: dict) -> Iterable[str]:
             raise AssertionError("tool_roots.repo_tools contains a non-string")
         yield entry
 
+    yield from _toolbox_repo_tools(toolbox)
+
 
 def _require_equal(label: str, declared: list[str], actual: list[str]) -> None:
     if declared == actual:
@@ -87,8 +105,8 @@ def _require_equal(label: str, declared: list[str], actual: list[str]) -> None:
     missing = sorted(actual_set - declared_set)
     stale = sorted(declared_set - actual_set)
     raise AssertionError(
-        f"{label} drift: missing_from_common_surface={missing}; "
-        f"stale_in_common_surface={stale}"
+        f"{label} drift: missing_from_declared_surface={missing}; "
+        f"stale_in_declared_surface={stale}"
     )
 
 
@@ -227,19 +245,23 @@ def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> li
 
 def check() -> None:
     common = _load_json(COMMON_JSON)
+    toolbox = _load_json(TOOLBOX_JSON)
     foundation = _load_json(FOUNDATION_JSON)
     backflow = _load_json(BACKFLOW_JSON)
     scheduler = _load_json(SCHEDULER_JSON)
 
     if common.get("schema") != "ENTERPRISE_MATH_COMMON_RESEARCH_SURFACE_V1":
         raise AssertionError("unexpected research_common_surface schema")
+    if toolbox.get("schema") != "ENTERPRISE_MATH_TOOLBOX_REGISTRY_V2":
+        raise AssertionError("unexpected enterprise_toolbox_registry schema")
 
     en_text = COMMON_EN.read_text(encoding="utf-8")
     zh_text = COMMON_ZH.read_text(encoding="utf-8")
+    toolbox_text = TOOLBOX_DOC.read_text(encoding="utf-8")
 
     # 1. Every explicitly registered executable/tool path must still exist.
     missing_paths = sorted(
-        entry for entry in set(_declared_paths(common)) if not (ROOT / entry).exists()
+        entry for entry in set(_declared_paths(common, toolbox)) if not (ROOT / entry).exists()
     )
     if missing_paths:
         raise AssertionError(f"registered shared paths do not exist: {missing_paths}")
@@ -251,12 +273,21 @@ def check() -> None:
     _require_human_visibility("English Lean root index", actual_lean, en_text)
     _require_human_visibility("Chinese Lean root index", actual_lean, zh_text)
 
-    # 3. Every repository Python tool is shared operational infrastructure.
+    # 3. Every repository Python tool has exactly one shared owner surface.
+    # Common Surface owns universal operational infrastructure; Toolbox owns
+    # mathematical-tool routing and research-local tool checkers. The union must
+    # equal tools/*.py exactly, so neither registry can silently drift.
     actual_tools = _repo_python_tools()
-    declared_tools = sorted(common.get("tool_roots", {}).get("repo_tools", []))
-    _require_equal("repository tool index", declared_tools, actual_tools)
-    _require_human_visibility("English repository tool index", actual_tools, en_text)
-    _require_human_visibility("Chinese repository tool index", actual_tools, zh_text)
+    common_tools = sorted(common.get("tool_roots", {}).get("repo_tools", []))
+    toolbox_tools = _toolbox_repo_tools(toolbox)
+    overlap = sorted(set(common_tools) & set(toolbox_tools))
+    if overlap:
+        raise AssertionError(f"repository tool path has two owner surfaces: {overlap}")
+    declared_tools = sorted(common_tools + toolbox_tools)
+    _require_equal("repository tool ownership index", declared_tools, actual_tools)
+    _require_human_visibility("English Common Surface repository tool index", common_tools, en_text)
+    _require_human_visibility("Chinese Common Surface repository tool index", common_tools, zh_text)
+    _require_human_visibility("Toolbox-owned repository tool index", toolbox_tools, toolbox_text)
 
     # 4. The steward and common router must expose the same active FQ set.
     foundation_active = sorted(
@@ -290,7 +321,8 @@ def check() -> None:
 
     print(
         "research common surface: OK "
-        f"({len(actual_lean)} Lean root imports, {len(actual_tools)} repo tools, "
+        f"({len(actual_lean)} Lean root imports, {len(actual_tools)} repo tools "
+        f"[{len(common_tools)} common + {len(toolbox_tools)} toolbox], "
         f"{len(common_active)} active foundation questions, "
         f"{len(backflow.get('question_scheduler_links', []))} active FQ scheduler links)"
     )
