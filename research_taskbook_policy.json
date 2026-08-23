@@ -1,5 +1,5 @@
 {
-  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.2",
+  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.3",
   "status": "ACTIVE",
   "effective": "2026-08-23",
   "policy_inputs": [
@@ -99,10 +99,12 @@
     "Any obvious Stage 2+ task is CONTINUATION. More generally, renaming the next unresolved layer of the same parent route does not reset semantic lineage.",
     "Continuation review must record whether closure, another owner/route or independent/free exploration was considered; no numeric exploration quota is imposed.",
     "Working Truth is a task-execution discipline and must not be retroactively applied to Phase-A discovery or Phase-B prior-art/dedup audit.",
-    "Ordinary task execution inherits tool_invocation_policy.json: after task semantics are understood and before inventing new general-purpose machinery, current tool/method coverage must be checked and adequate existing tools must be reused/composed/extended rather than reimplemented under a new route name.",
+    "Ordinary task execution inherits tool_invocation_policy.json: after task semantics are understood and before inventing new general-purpose machinery, registry/base-inventory/dated-addenda/executable coverage must be checked and adequate existing tools reused/composed/extended rather than reimplemented under a new route name.",
+    "Every newly authored or re-reviewed taskbook carries tool_invocation_policy=INHERIT_GLOBAL, so a strict taskbook-only packet exposes the lookup obligation without copying or preloading the current tool catalog.",
     "A taskbook with an explicit blind-forward/source-whitelist discovery firewall may delay current toolbox/method visibility only until its named raw candidate/no-go freeze point; the same task must run current-tool dedup after that freeze before claiming method novelty or opening a tool continuation.",
     "FREE Phase A follows the same discovery-firewall timing principle: no current toolbox prior before freeze; mandatory current-tool dedup in Phase B after freeze.",
-    "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json; any change to that policy invalidates prior policy-review digests for redispatch."
+    "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json; any change to that policy invalidates prior policy-review digests for redispatch.",
+    "Taskbooks that inherit tool invocation behavior are version-coupled to tool_invocation_policy.json; any change to that policy invalidates prior policy-review digests for redispatch."
   ],
   "override_required_fields": [
     "conflict_id",
