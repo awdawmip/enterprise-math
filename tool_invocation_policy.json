@@ -1,11 +1,19 @@
 {
-  "schema": "ENTERPRISE_MATH_TOOL_INVOCATION_POLICY_V1",
+  "schema": "ENTERPRISE_MATH_TOOL_INVOCATION_POLICY_V2",
   "status": "ACTIVE",
-  "effective": "2026-08-22T22:39:00+08:00",
+  "effective": "2026-08-23T20:00:00+08:00",
   "registry": "enterprise_toolbox_registry.json",
   "method_inventory": "research_method_inventory.json",
+  "method_inventory_base": "research_method_inventory.json",
+  "method_inventory_addenda": "research_method_inventory_addenda/*.json",
   "executable_router": "tools/enterprise_toolbox.py",
   "human_protocol": "docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md",
+  "taskbook_inheritance": {
+    "contract": "research_taskbook_contract.json",
+    "required_metadata_field": "tool_invocation_policy",
+    "required_metadata_value": "INHERIT_GLOBAL",
+    "reason": "A strict taskbook-only execution packet must expose that current role-timed tool lookup is inherited without copying the entire catalog or policy into the task body."
+  },
   "invariants": [
     "QUESTION_OR_TASK_SEMANTICS_FIRST",
     "EXISTING_TOOL_COVERAGE_CHECK_BEFORE_NEW_MECHANISM_INVENTION",
@@ -14,7 +22,10 @@
     "TOOL_USE_PRESERVES_SEMANTIC_TYPING_AND_HARD_BOUNDARIES",
     "EXPLICIT_DISCOVERY_FIREWALL_CONTROLS_TOOL_VISIBILITY_UNTIL_ITS_FREEZE_POINT",
     "TOOL_ACCEPTANCE_DOES_NOT_MUTATE_FOUNDATION",
-    "EVERY_ACCEPTED_RESEARCH_RETURN_GETS_METHOD_HARVEST_CLASSIFICATION"
+    "EVERY_ACCEPTED_RESEARCH_RETURN_GETS_METHOD_HARVEST_CLASSIFICATION",
+    "ACCEPTED_TOOL_ROUTING_CHANGE -> REGISTRY_AND_METHOD_INVENTORY_UPDATE",
+    "PRODUCTION_CALLABLE_TOOL -> EXECUTABLE_SOURCE_AND_ROUTER_DISCOVERY_AND_REGRESSION",
+    "TASKBOOK_ONLY_EXECUTION -> TOOL_INVOCATION_INHERITANCE_VISIBLE_IN_FRONTMATTER"
   ],
   "coverage_verdicts": [
     "REUSE_EXISTING_TOOL",
@@ -27,25 +38,25 @@
     "TASK_RESEARCH": {
       "mandatory": true,
       "when": "after the exact task semantics and first necessary dependency are understood, before constructing a new general-purpose mechanism or helper calculus, unless the exact taskbook declares an active discovery-information firewall that postpones current-tool visibility until a named freeze point",
-      "action": "query the current toolbox registry, method inventory and executable-source search surface; reuse the narrowest adequate tool or record the exact missing capability"
+      "action": "query the current toolbox registry, base method inventory, dated method-inventory addenda and executable-source search surface; reuse the narrowest adequate tool or record the exact missing capability"
     },
     "TASK_RESEARCH_DISCOVERY_FIREWALL": {
       "mandatory_before_declared_freeze": false,
       "tool_catalog_visibility_before_declared_freeze": "HIDDEN_IF_TASKBOOK_EXPLICITLY_REQUIRES_BLIND_FORWARD_OR_OTHER_DISCOVERY_ISOLATION",
       "mandatory_after_declared_freeze": true,
       "action_before_freeze": "obey the exact task-local source whitelist/information firewall; do not expose current tool names or catalogs merely to enforce reuse",
-      "action_after_freeze": "run the same toolbox/method dedup lookup before claiming method novelty or opening a tool continuation; preserve the frozen result even when it collides with an existing tool",
+      "action_after_freeze": "run the same registry/base/addenda/executable dedup lookup before claiming method novelty or opening a tool continuation; preserve the frozen result even when it collides with an existing tool",
       "scope_rule": "this exception exists only when the controlling taskbook explicitly declares a discovery firewall and freeze point; ordinary TASK_RESEARCH cannot self-declare blindness to skip reuse"
     },
     "RESEARCH_DRIVER": {
       "mandatory": true,
       "when": "during intake/routing of a research return and before opening any task whose novelty is a new method/tool/mechanism",
-      "action": "deduplicate against existing tool families, subtools, domain facades and executable methods; route to reuse/composition/extension unless a capability gap is explicit"
+      "action": "deduplicate against existing tool families, base/addendum methods, domain facades and executable modules; route to reuse/composition/extension unless a capability gap is explicit"
     },
     "FOUNDATION_STEWARD": {
       "mandatory": true,
       "when": "before accepting a shared method/tool surface or a Foundation-facing decomposition that appears to introduce reusable machinery",
-      "action": "check whether the mechanism already exists and preserve theorem/tool ownership and semantic layer"
+      "action": "check all current registry/inventory/executable surfaces and preserve theorem/tool ownership and semantic layer"
     },
     "FREE_AXIOM_DISCOVERY_PHASE_A": {
       "mandatory": false,
@@ -56,7 +67,7 @@
     "FREE_AXIOM_DISCOVERY_PHASE_B": {
       "mandatory": true,
       "when": "immediately after the candidate/no-go packet is frozen and before claiming method novelty, uniqueness or a new reusable mechanism",
-      "action": "open the toolbox/method surfaces for falsification, deduplication, reuse and integration"
+      "action": "open the registry, base inventory, dated addenda and executable source for falsification, deduplication, reuse and integration"
     }
   },
   "lookup_layers": [
@@ -67,20 +78,26 @@
     },
     {
       "order": 2,
-      "surface": "CURATED_METHOD_INVENTORY",
+      "surface": "BASE_METHOD_INVENTORY",
       "source": "research_method_inventory.json"
     },
     {
       "order": 3,
+      "surface": "DATED_METHOD_INVENTORY_ADDENDA",
+      "source": "research_method_inventory_addenda/*.json",
+      "rule": "All addenda are loaded by tools/enterprise_toolbox.py with duplicate method_id rejection."
+    },
+    {
+      "order": 4,
       "surface": "CURRENT_EXECUTABLE_SOURCE",
       "source": "src/enterprise_math/*.py",
-      "rule": "AST/docstring/public-function discovery through tools/enterprise_toolbox.py; absence from curated inventories is not evidence that no reusable method exists"
+      "rule": "AST/docstring/public-function discovery through tools/enterprise_toolbox.py; absence from curated inventories is not evidence that no reusable method exists."
     }
   ],
   "new_mechanism_gate": {
     "required_questions": [
       "Which current tool families were checked?",
-      "Which concrete callable methods or recent harvested methods were checked?",
+      "Which concrete callable methods, dated harvested methods and current executable modules were checked?",
       "Why is reuse or composition insufficient at the required semantic strength?",
       "Is the residue an extension of an existing tool or a genuinely new family?",
       "What exact input/output capability is missing?"
@@ -104,7 +121,30 @@
       "DUPLICATE_ALIAS",
       "NO_TOOL_PAYLOAD"
     ],
-    "required_action": "update the registry/inventory when reuse value or routing changes; otherwise persist the no-tool classification in the Driver/Steward review"
+    "required_action": "Persist the classification. When routing value changes, update the family registry plus the base inventory or a dated addendum. When production callability is claimed, also add executable source, router discoverability and regression. Otherwise record the exact interface-only/domain/no-tool boundary."
+  },
+  "integration_closure_gate": {
+    "production_callable_tool_requires": [
+      "family registry entry",
+      "base or dated method-inventory record",
+      "production source module",
+      "executable-router discoverability",
+      "deterministic regression",
+      "human registry visibility",
+      "semantic hard boundary"
+    ],
+    "interface_only_tool_requires": [
+      "explicit interface-only status",
+      "exact checker or formal certificate",
+      "method-inventory record",
+      "no claim of production callability"
+    ],
+    "non_promoted_result_requires": [
+      "method-inventory result/domain/specialization record when future rediscovery risk exists",
+      "exact no-go or missing-structure boundary",
+      "no global family number"
+    ],
+    "machine_checker": "tools/check_toolbox_logic_closure.py"
   },
   "anti_duplication": {
     "same_mechanism_different_historical_name": "ALIAS_OR_SUBTOOL",
