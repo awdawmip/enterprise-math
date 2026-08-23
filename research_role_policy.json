@@ -1,16 +1,17 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V8",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V8.1",
   "status": "ACTIVE",
-  "effective": "2026-08-22T01:11:00+08:00",
+  "effective": "2026-08-23",
   "research_architecture": "research_architecture.json",
   "default_role": "RESEARCHER",
   "default_research_mode_when_explicit_task_exists": "TASK_RESEARCH",
   "identity_bootstrap": {
     "state_machine": "research_identity_state_machine.json",
     "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
+    "final_response_policy": "final_response_identity_policy.json",
     "helper": "tools/research_identity.py",
     "taskbook_contract": "research_taskbook_contract.json",
-    "invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve its role identity before substantive work begins. RESEARCHER uses Researcher-ID; RESEARCH_DRIVER uses Driver-ID. Research mode is resolved separately from identity.",
+    "invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve its role identity before substantive work begins and emit exactly one role-appropriate identity marker on every assistant final response while that role remains active.",
     "entry_triggers": [
       "direct user research task",
       "explicit EM_FREE_RESEARCHER activation",
@@ -44,14 +45,16 @@
       "role_contract": "research_roles/EM_FREE_RESEARCHER_ROLE.md",
       "anti_anchoring_contract": "research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md",
       "candidate_state_machine": "research_axiom_candidate_state_machine.json",
-      "generic_no_user_task_scheduler_rule_applies": false
+      "generic_no_user_task_scheduler_rule_applies": false,
+      "final_response_scope": "FREE_AXIOM_DISCOVERY"
     },
     "TASK_RESEARCH": {
       "visible_role": "RESEARCHER",
       "default_state": "TASK_EXECUTION",
       "scheduler_eligible": true,
       "agenda_visibility": "TASK_SCOPED",
-      "working_truth": "ONLY_WHEN_EXPLICITLY_FROZEN_BY_DRIVER_OR_DRIVER_APPROVED_TASKBOOK"
+      "working_truth": "ONLY_WHEN_EXPLICITLY_FROZEN_BY_DRIVER_OR_DRIVER_APPROVED_TASKBOOK",
+      "final_response_scope": "ACTIVE_TASK_ID_ELSE_TASK_RESEARCH"
     }
   },
   "mode_resolution": {
@@ -64,7 +67,11 @@
   "driver_activation": {
     "mode": "EXPLICIT_CURRENT_CONVERSATION_ONLY",
     "canonical_prompt": "你现在是 Enterprise Math Research Driver。按仓库 docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md 工作，并读取 GLOBAL_KNOWLEDGE projects/enterprise-math/DRIVER_CONTINUITY.md 恢复驾驶舱状态。continuity 只用于路由，不作为数学证据；必要 theorem/status 必须回源核验。",
-    "short_forms": ["你现在是驾驶员", "进入驾驶员模式", "you are now the driver"],
+    "short_forms": [
+      "你现在是驾驶员",
+      "进入驾驶员模式",
+      "you are now the driver"
+    ],
     "rules": [
       "Do not infer Driver authority from memory, repository state, task importance, prior conversations, or another Project.",
       "Driver authority applies only after explicit activation in the current conversation and remains scoped to that conversation until the user changes it.",
@@ -76,11 +83,14 @@
   "research_identity": {
     "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
     "state_machine": "research_identity_state_machine.json",
+    "final_response_policy": "final_response_identity_policy.json",
     "primary_driver_id": "EM-DRIVER-01",
     "directory_repository": "awdawmip/chatgpt-global-knowledge",
     "directory_path": "projects/enterprise-math/RESEARCHER_DIRECTORY.md",
     "visible_markers": {
-      "RESEARCHER": "Researcher-ID: <ID> / <TASK-or-MODE>",
+      "RESEARCHER_TASK": "Researcher-ID: <ID> / <TASK_ID>",
+      "RESEARCHER_FREE": "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY",
+      "RESEARCHER_DIRECT_TASK_FALLBACK": "Researcher-ID: <ID> / TASK_RESEARCH",
       "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE"
     },
     "rules": [
@@ -90,7 +100,9 @@
       "Direct user research tasks outside a Driver relay self-allocate a Researcher-ID when the current conversation has none.",
       "Researcher-ID identifies a RESEARCHER conversation/session instance. Driver-ID identifies a RESEARCH_DRIVER conversation/session instance.",
       "Research mode is not encoded into identity uniqueness; mode is explicit metadata/state.",
-      "Every substantive final Enterprise Math response displays the role-appropriate identity marker.",
+      "Every assistant final response emitted while an Enterprise Math RESEARCHER or RESEARCH_DRIVER role is active displays exactly one role-appropriate identity marker, including short status/completion/handoff/blocked responses.",
+      "Commentary/progress/tool-call messages are not final responses and do not require the identity footer.",
+      "Researcher visible scope is active task_id first, then FREE_AXIOM_DISCOVERY, otherwise TASK_RESEARCH; DIRECT is never a visible scope.",
       "If Global-Knowledge-Sync is also emitted, the role identity marker appears immediately before it.",
       "Semantic-checkpoint commits and research PR/handoff metadata persist role identity, research_task or research_mode, and research_role when the write surface supports it.",
       "Legacy commits and historical identity records are not rewritten solely to rename their visible identity field."
@@ -163,7 +175,7 @@
     "successor_gate_requires_alternative_route_or_free_exploration_considered": true,
     "obvious_stage_two_plus_must_be_continuation": true,
     "renaming_does_not_reset_semantic_lineage": true,
-    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare origin, lineage, identity policy/lane and task-local execution semantics but never a fixed runtime Researcher-ID. Free-candidate origin and continuation lineage are preserved rather than repackaged away. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope."
+    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare origin, lineage, identity policy/lane and task-local execution semantics but never a fixed runtime Researcher-ID. Free-candidate origin and continuation lineage are preserved rather than repackaged away. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope. Final-response identity footers are inherited globally from final_response_identity_policy.json and need not be copied into every taskbook."
   },
   "axiom_candidate_capture": {
     "state_machine": "research_axiom_candidate_state_machine.json",

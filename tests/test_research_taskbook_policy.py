@@ -47,12 +47,13 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         }
         (root / "research_taskbook_policy.json").write_text(json.dumps(policy))
         contract = {
-            "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V5",
+            "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V6",
             "status": "ACTIVE",
             "new_dispatchable_taskbook_required_metadata": {
                 "created_by_role": "RESEARCH_DRIVER",
                 "task_authority": "DRIVER_APPROVED",
                 "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+                "final_response_identity_policy": "INHERIT_GLOBAL",
                 "origin_kind": "<one allowed origin kind>",
                 "policy_review": {},
             },
@@ -117,6 +118,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "created_by_role": "RESEARCH_DRIVER",
             "task_authority": "DRIVER_APPROVED",
             "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+            "final_response_identity_policy": "INHERIT_GLOBAL",
             "origin_kind": "DIRECT_USER_DIRECTION",
             "task_lineage": "NEW_DIRECTION",
             "policy_review": {
@@ -138,6 +140,15 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         self.addCleanup(td.cleanup)
         path = self.write_task(root)
         self.assertEqual(rt.audit_taskbook(path, root=root, dispatch=True), [])
+
+    def test_missing_final_response_identity_inheritance_fails_dispatch(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        meta, body = rt.split_taskbook(path.read_text())
+        meta.pop("final_response_identity_policy")
+        path.write_text(rt.render_taskbook(meta, body))
+        self.assertIn("TB-META", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
     def test_policy_change_makes_stamp_stale(self):
         td, root = self.make_root()

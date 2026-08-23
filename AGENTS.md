@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.6`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.7`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -45,7 +45,7 @@ When the user's instruction semantically means continue/keep going/do not stop/u
 
 Before ending a nonterminal turn, if the parent objective is incomplete and another executable action exists, execute it now.
 
-## 3. Identity
+## 3. Identity and mandatory final footer
 
 Resolve the visible role identity before substantive work:
 
@@ -53,6 +53,27 @@ Resolve the visible role identity before substantive work:
 - Driver -> `Driver-ID`.
 
 Identity registration is nonblocking.
+
+Canonical final-response contract:
+
+`final_response_identity_policy.json`.
+
+Freeze:
+
+`ACTIVE_ENTERPRISE_MATH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER`.
+
+This applies even to short status replies, readiness/completion receipts, handoffs, blocked/no-go conclusions, refusals, and ordinary research answers. Commentary/progress/tool-call messages are not final responses and do not need the footer.
+
+Exact final marker:
+
+- `RESEARCH_DRIVER` -> `Driver-ID: <ID> / CONTROL_PLANE`;
+- `RESEARCHER` with an active task -> `Researcher-ID: <ID> / <TASK_ID>`;
+- `RESEARCHER` in free mode without a task -> `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`;
+- other direct task-research fallback -> `Researcher-ID: <ID> / TASK_RESEARCH`.
+
+Do not use `DIRECT` as a visible researcher scope. Registration state `REGISTER_PENDING` never suppresses the marker.
+
+If `Global-Knowledge-Sync:` is also emitted, the role identity marker appears immediately before it and the sync line remains last.
 
 ## 4. FREE_AXIOM_DISCOVERY
 
