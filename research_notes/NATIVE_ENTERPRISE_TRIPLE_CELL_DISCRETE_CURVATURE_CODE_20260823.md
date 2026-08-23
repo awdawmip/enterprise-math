@@ -1,6 +1,6 @@
 # Native Enterprise triple-cell discrete curvature code
 
-Status: `FREE_RESEARCH_EXACT_PRIME_FREE_INCIDENCE_INVARIANT / NOT_CANONICAL_FOUNDATION`
+Status: `FREE_RESEARCH_EXACT_PRESENTATION_EQUIVARIANT_INCIDENCE_CODE / NOT_CANONICAL_FOUNDATION`
 
 Date: `2026-08-23`
 
@@ -8,11 +8,11 @@ Researcher-ID: `EM-FREE-NEPS-239A6D`
 
 Parent: `NATIVE_ENTERPRISE_TRIPLE_CELL_PRIME_INCIDENCE_HEXACODE_20260823.md`
 
-## 1. Ordered incident-cell labels
+## 1. Ordered incident-cell labels in the forward unit-step presentation
 
 Let `(x,y,z)` be the three integer labels, in the fixed geometric vertex order, of one elementary triple-cell incidence event.
 
-Using the exact formulas from the two elementary triangle orientations:
+Under the forward monotone side traversal selected in the frozen unit-step allocation:
 
 ### A_sigma
 
@@ -32,13 +32,13 @@ Using the exact formulas from the two elementary triangle orientations:
 
 No primality condition is imposed in this file.
 
-## 2. Exact second-difference curvature
+## 2. Exact second-difference curvature in one presentation
 
-Define the ordered discrete curvature
+Define
 
 `K=x-2y+z`.
 
-Then identically:
+In the forward presentation:
 
 `K=4` for every A incidence;
 
@@ -46,15 +46,43 @@ Then identically:
 
 The value is independent of shell `r`, side position `t`, and cyclic sector slot `sigma`.
 
-Freeze:
+## 3. Orientation-reversal audit
 
-`TRIPLE_CELL_ORIENTATION = DISCRETE_LABEL_CURVATURE K in {4,2}`.
+The current tri-sector allocation is conditionally unique only up to global orientation reversal of the unit-step side traversal.
 
-This converts the two primitive elementary incidence orientations into two parallel arithmetic curvature classes.
+Under the reverse traversal
 
-## 3. Cyclic slot from the first difference
+`t -> r-1-t`
 
-Let
+applied consistently in all three sector blocks, direct recomputation gives:
+
+`K=2` for A,
+
+`K=4` for B.
+
+Therefore the statement
+
+`A=4, B=2`
+
+is **not** an absolute presentation-independent invariant.
+
+The presentation-stable content is:
+
+`{K_A,K_B}={2,4}`.
+
+Define the centered sign
+
+`chi=K-3 in {+1,-1}`.
+
+Then either geometric orientation flip `A<->B` or side-traversal reversal flips `chi`. Thus `chi` is a relative chirality / C2-torsor coordinate between geometric triangle orientation and allocation orientation.
+
+Freeze corrected claim:
+
+`DISCRETE_CURVATURE CHIRALITY = PRESENTATION-EQUIVARIANT, NOT ABSOLUTE`.
+
+## 4. Cyclic slot from the first difference
+
+In the forward presentation let
 
 `D1=y-x`.
 
@@ -63,71 +91,56 @@ Modulo 3:
 - for A: `D1 == sigma (mod 3)`;
 - for B: `D1 == 1+sigma (mod 3)`.
 
-Therefore the full six-state incidence type is recovered exactly from the ordered integer labels:
+Thus within the chosen forward presentation the six-state incidence type is recovered exactly from `(K,D1 mod 3)`.
 
-1. compute `K=x-2y+z` to recover A versus B;
-2. compute `D1 mod 3` to recover `sigma`.
+Under global orientation reversal the decoding table is transported accordingly; the abstract six-state package survives, while the named A/B curvature representatives swap.
 
-Explicitly:
-
-- if `K=4`, `sigma == y-x mod 3`;
-- if `K=2`, `sigma == y-x-1 mod 3`.
-
-Thus
-
-`ORDERED INCIDENT INTEGER LABELS -> (ORIENTATION, C3 SLOT)`
-
-without any primality readout.
-
-## 4. Prime hexacode as a quotient shadow
+## 5. Prime hexacode as a quotient shadow
 
 If `x,y,z` are all primes greater than 3, each is `+-1 mod 6`.
 
-Reducing the prime-free curvature code modulo 2 and 3 forces the six nonconstant mod-6 words found in the incidence-hexacode note.
+Reducing the presentation-equivariant curvature code modulo 2 and 3 forces the six nonconstant mod-6 words found in the incidence-hexacode note.
 
-Hence the mod-6 prime hexacode is not an isolated pattern. It is the prime-support shadow of the stronger integer invariant:
+The exact six-state code therefore survives as an equivariant package even though the absolute assignment of curvature 2 versus 4 to A/B depends on traversal orientation.
 
-`K in {4,2}` together with `D1 mod 3`.
+## 6. Finite-field normalized curvature plane
 
-## 5. Finite-field curvature planes
+For any odd prime `q>=5`, K is invertible. Normalize by
 
-For any odd prime `q`, reduction modulo q places an incidence triple on one of two affine planes in `F_q^3`:
+`(X,Y,Z)=K^{-1}(x,y,z) mod q`.
 
-`A_q: x-2y+z=4`,
+Then both geometric orientations, in either global side-traversal presentation, land on the same affine plane
 
-`B_q: x-2y+z=2`.
+`X-2Y+Z=1`.
 
-For `q>2` these planes are distinct.
+If all three labels avoid q, the local state lies in
 
-If all three labels avoid q, the allowed local residue states are the points of the corresponding plane inside `(F_q^*)^3`.
+`H_q={(X,Y,Z) in (F_q^*)^3 : X-2Y+Z=1}`.
 
-For any odd prime q not dividing the curvature constant, the number of such nonzero states is exactly
+Its exact size is
 
 `q^2-3q+3`.
 
-Proof: choose nonzero `(x,y)`, giving `(q-1)^2` possibilities; `z=0` occurs for exactly `q-2` of them, so the survivor count is `(q-1)^2-(q-2)`.
+Thus normalization by the observed curvature precisely quotients the presentation-dependent chirality and leaves one common incidence-state space.
 
-For q=5 this gives exactly 13 admissible states per orientation.
+This is why the later 2D-19D incidence CRT tower survives the forward/reverse presentation ablation as an abstract state tower.
 
-## 6. Research significance
+## 7. Research significance and boundary
 
-The invariant is stronger than a prime-density statement:
+The strongest honest prime-free statement is not an absolute numeric curvature attached to a named triangle orientation. It is the equivariant structure:
 
-- it is defined before deciding whether any of the three labels are prime;
-- it is selected by native triple-cell incidence rather than an arithmetic-progression grouping;
-- it survives across every shell and side position;
-- the six-state prime residue code is derived from it rather than fitted to data.
-
-No novelty claim is made for finite differences or affine planes themselves.
-
-The Enterprise-specific candidate is the exact bridge
-
-`PRIMITIVE TRIPLE-CELL INCIDENCE ORIENTATION`
+`TWO PRIMITIVE INCIDENCE ORIENTATIONS`
 
 `<->`
 
-`INTEGER SECOND-DIFFERENCE CURVATURE`.
+`TWO CURVATURE REPRESENTATIVES {2,4}`
+
+with reversal swapping them, plus the normalized common plane `H_q`.
+
+No novelty claim is made for finite differences, affine planes, or chirality torsors themselves.
 
 Current verdict:
 
-`DISCRETE_INCIDENCE_CURVATURE = STRONGEST PRIME-FREE LOCAL INVARIANT IN THE NATIVE PRIME-ALLOCATION LANE SO FAR`.
+`DISCRETE_INCIDENCE_CURVATURE = STRONG PRESENTATION-EQUIVARIANT LOCAL STRUCTURE`.
+
+`ABSOLUTE A=4/B=2 CLAIM = REJECTED`.
