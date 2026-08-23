@@ -10,9 +10,9 @@ tri-sector shell spiral sends the three cyclic rotations to quadratic labels
 
 where B_r = 3r(r-1)/2 + 1.
 
-This script enumerates primitive rays of bounded coordinate complexity and
-measures prime rate plus C3 imbalance.  Placement is fixed before primality
-is tested; this is an exploration statistic, not a theorem of infinitude.
+The script measures per-slot prime rate, C3 imbalance, full-bright C3 count,
+and complete-coverage gates at q=3,5,7. Placement is fixed before primality
+is tested. Finite census statistics are not infinitude theorems.
 """
 
 from __future__ import annotations
@@ -23,8 +23,6 @@ import math
 import statistics
 from pathlib import Path
 
-
-# Deterministic Miller-Rabin for unsigned 64-bit integers.
 _MR_BASES = (2, 325, 9375, 28178, 450775, 9780504, 1795265022)
 
 
@@ -62,20 +60,31 @@ def label(u: int, v: int, cyclic_slot: int, m: int) -> int:
     return base + (cyclic_slot * s + v) * m
 
 
+def saturated_gate(u: int, v: int, q: int) -> bool:
+    for m in range(1, q):
+        if all(label(u, v, k, m) % q for k in range(3)):
+            return False
+    return True
+
+
 def census(max_sum: int, samples: int):
     rows = []
     for u in range(max_sum + 1):
         for v in range(max_sum + 1 - u):
             if u == v == 0 or math.gcd(u, v) != 1:
                 continue
-            counts = []
-            rates = []
-            for k in range(3):
-                c = sum(is_prime(label(u, v, k, m)) for m in range(1, samples + 1))
-                counts.append(c)
-                rates.append(c / samples)
+            counts = [0, 0, 0]
+            triple_count = 0
+            for m in range(1, samples + 1):
+                flags = [is_prime(label(u, v, k, m)) for k in range(3)]
+                for k, flag in enumerate(flags):
+                    counts[k] += int(flag)
+                triple_count += int(all(flags))
+            rates = [c / samples for c in counts]
             mean = statistics.mean(rates)
             cv = statistics.pstdev(rates) / mean if mean else 0.0
+            gates = [q for q in (3, 5, 7) if saturated_gate(u, v, q)]
+            gate_product = math.prod(gates)
             rows.append({
                 "u": u,
                 "v": v,
@@ -89,8 +98,31 @@ def census(max_sum: int, samples: int):
                 "slot2_rate": rates[2],
                 "mean_rate": mean,
                 "c3_cv": cv,
+                "full_c3_prime_count": triple_count,
+                "saturated_gates": "*".join(map(str, gates)),
+                "gate_product": gate_product,
             })
     return rows
+
+
+def pareto_front(rows):
+    out = []
+    for r in rows:
+        dominated = False
+        for s in rows:
+            if (
+                s["mean_rate"] >= r["mean_rate"]
+                and s["c3_cv"] <= r["c3_cv"]
+                and (
+                    s["mean_rate"] > r["mean_rate"]
+                    or s["c3_cv"] < r["c3_cv"]
+                )
+            ):
+                dominated = True
+                break
+        if not dominated:
+            out.append(r)
+    return out
 
 
 def run(max_sum: int, samples: int, out: Path) -> None:
@@ -104,18 +136,33 @@ def run(max_sum: int, samples: int, out: Path) -> None:
         writer.writeheader()
         writer.writerows(rows)
 
-    balanced = [r for r in rows if r["c3_cv"] < 0.1]
-    balanced.sort(key=lambda r: (-r["mean_rate"], r["c3_cv"], r["complexity_u_plus_v"]))
-    best = balanced[0] if balanced else None
+    midpoint = next(r for r in rows if r["u"] == r["v"] == 1)
+    front = pareto_front(rows)
+    midpoint_dominated = midpoint not in front
+
+    maximal_gate = [r for r in rows if r["gate_product"] == 105]
+    min_gate_complexity = min(r["complexity_u_plus_v"] for r in maximal_gate)
+    min_gate_classes = [
+        (r["u"], r["v"])
+        for r in maximal_gate
+        if r["complexity_u_plus_v"] == min_gate_complexity
+    ]
+
     print(f"RAYS={len(rows)}")
     print(f"CSV={path}")
-    if best:
-        print(
-            "BEST_C3_BALANCED="
-            f"(u,v)=({best['u']},{best['v']}),"
-            f"counts={best['slot0_prime_count']}/{best['slot1_prime_count']}/{best['slot2_prime_count']},"
-            f"mean={best['mean_rate']:.12f},cv={best['c3_cv']:.12f}"
-        )
+    print(
+        "MIDPOINT="
+        f"counts={midpoint['slot0_prime_count']}/"
+        f"{midpoint['slot1_prime_count']}/"
+        f"{midpoint['slot2_prime_count']},"
+        f"mean={midpoint['mean_rate']:.12f},"
+        f"cv={midpoint['c3_cv']:.12f},"
+        f"gate={midpoint['gate_product']},"
+        f"pareto={not midpoint_dominated}"
+    )
+    print(f"MAX_GATE_CLASSES={len(maximal_gate)}")
+    print(f"MIN_MAX_GATE_COMPLEXITY={min_gate_complexity}")
+    print(f"MIN_MAX_GATE_CLASSES={min_gate_classes}")
 
 
 if __name__ == "__main__":
