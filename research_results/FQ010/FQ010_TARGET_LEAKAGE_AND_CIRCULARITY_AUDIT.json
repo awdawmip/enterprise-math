@@ -1,0 +1,100 @@
+{
+  "schema": "FQ010_TARGET_LEAKAGE_AND_CIRCULARITY_AUDIT_V1",
+  "researcher_id": "EM-FQ010-CA2555",
+  "task_id": "RS-FQ010-LINE-SCALE-SEMANTIC-ADMISSION-COMPARATIVE-REFOUNDATION",
+  "overall_verdict": "PASS",
+  "provenance_partition": {
+    "r065_clean_relation_evidence": {
+      "status": "CLEAN_PHASE_A_BLIND",
+      "sources": [
+        "research_results/R065_PHASEA/R065_PHASEA_BLIND_CANDIDATE_OR_NO_GO_FREEZE.json@fa9a6a7932afc898a0b834b7d3b0033526ec226f",
+        "research_results/R065_PHASEA/R065_PHASEA_DEFINABILITY_SPACE.md@fa9a6a7932afc898a0b834b7d3b0033526ec226f"
+      ],
+      "claims_consumed": [
+        "component typing is primitive in the blind substrate",
+        "R_type is parameter-free definable from type equality",
+        "multiple inequivalent intrinsic scalarizations survive",
+        "no scalar magnitude/scale role was selected"
+      ]
+    },
+    "driver_post_freeze_derivation": {
+      "source": "driver_reviews/R065_PHASEA_PRIMITIVE_INTRINSIC_FINITE_READOUT_DRIVER_REVIEW_20260822.md@18f429470bcb5b7df41c46dad2c5a29964629a09",
+      "claims_consumed": [
+        "R_type=ker(tau)",
+        "finite cardinality of R_type is inside the frozen definability envelope",
+        "Q_R=|R_type|=sum_i n_i^2",
+        "the scale role remains an open N2 semantic choice"
+      ],
+      "retroactively_rewritten_as_blind_phase_a": false
+    },
+    "fq008_comparison_only": {
+      "source": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md@b6ec6eb58f1c724657db7c5bd7deb82827774439",
+      "used_for": [
+        "bidirectional scalar theorem comparison",
+        "semantic-budget comparison",
+        "observation-resolution discrimination"
+      ],
+      "used_to_construct_R_type": false,
+      "used_to_choose_R_type_cardinality_before_R065_freeze": false
+    },
+    "current_line_trace_calibration_only": {
+      "source": "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md@9866e523b7e7f134497d8aca9ba2b6a093600257",
+      "used_for": [
+        "downstream shuffle/component-trace calibration",
+        "transition-count versus relation-readout comparison",
+        "domain-restricted comparison with current sector length output"
+      ],
+      "used_to_construct_R_type": false,
+      "used_to_select_cardinality_as_an_N0_primitive": false
+    }
+  },
+  "construction_premises_for_R_type": [
+    "finite token carrier U",
+    "primitive component observation tau",
+    "ordinary equality on component types"
+  ],
+  "construction_premises_for_Q_K": [
+    "already-constructed R_type",
+    "ordinary finite cardinality of the ordered-pair relation carrier"
+  ],
+  "explicitly_withheld_from_construction_premises": [
+    "current LENGTH",
+    "current L_E^2",
+    "current sum-of-squares output",
+    "FQ008 target scalar values",
+    "metric",
+    "norm",
+    "orientation",
+    "classical Euclidean length"
+  ],
+  "semantic_boundary": {
+    "relation_definability": "N0_DEFINABLE_DERIVED",
+    "cardinality_readout": "N2_READOUT_COLLAPSE",
+    "squared_line_scale_role": "REQUIRES_SEPARATE_DECLARATION_OR_CALIBRATION",
+    "blind_scalar_uniqueness_claimed": false
+  },
+  "circularity_tests": [
+    {
+      "id": "NO_TARGET_FORMULA_IN_RELATION_PREMISE",
+      "pass": true
+    },
+    {
+      "id": "NO_CURRENT_LENGTH_IN_CARDINALITY_CONSTRUCTION",
+      "pass": true
+    },
+    {
+      "id": "R065_PROVENANCE_NOT_RETROACTIVELY_REWRITTEN",
+      "pass": true
+    },
+    {
+      "id": "DOWNSTREAM_LINE_TRACE_USED_ONLY_AFTER_K_CONSTRUCTION",
+      "pass": true
+    },
+    {
+      "id": "FORMULA_AGREEMENT_NOT_USED_AS_SOLE_REPLACEMENT_ARGUMENT",
+      "pass": true
+    }
+  ],
+  "replacement_gate_effect": "The audit permits structural/comparative use of K, but does not itself license promotion of relation cardinality to an N0 scale. Final disposition must preserve the residual N2 semantic choice.",
+  "foundation_definition_mutation_performed": false
+}
