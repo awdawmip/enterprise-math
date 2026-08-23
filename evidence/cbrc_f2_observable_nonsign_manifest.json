@@ -1,0 +1,42 @@
+{
+  "acceptance_labels": [
+    "F1_CARRIER_RELATIVE_OBSERVABILITY_ORBIT_SPACE_CLASSIFIED",
+    "NONSIGN_RECOALESCENCE_READOUT_EXISTENCE_CLASSIFIED",
+    "OBSERVABLE_NONSIGN_MINIMAL_CARRIER_FAMILY_CLASSIFIED",
+    "OBSERVABLE_NONSIGN_FINITE_FIBER_EXTENSION_CLASSIFIED",
+    "READOUT_SELECTOR_DEPENDENCY_CLASSIFIED",
+    "TARGET_LEAK_AUDIT_PASS"
+  ],
+  "artifact_sha256": {
+    "research_reports/CBRC_F2_ABLATION_AND_COUNTERMODEL_PACKET_20260822.md": "7394cb68ec2549cdb65cf162b27d5f535c0435cb35d930dae298040ae2b48c1f",
+    "research_reports/CBRC_F2_OBSERVABLE_NONSIGN_RECOALESCENCE_RETURN_20260822.md": "d10322b672faa56f62090c3ac6920e3cb61c7cbd3031174d965b563090dcadf8",
+    "research_reports/CBRC_F2_SOURCE_AND_TARGET_LEAK_AUDIT_20260822.md": "cb647d245b54014b91a8e44cf7c6714f5a6f001be5b57b1f0a2a14a386b105b6",
+    "scripts/cbrc_f2_validate_observable_nonsign_forward.py": "2333a6d8edfeca5a51e56c83216fc6b09ce407a0341c797a746464a8d6d8a6b8"
+  },
+  "blind_input_source": "155297ab859e4207634dae75566c89ca1a430000",
+  "checker": {
+    "deterministic_digest": "8d3a47d9f755826dce69c8a198ef0092bfb668a630c7737a3b864b60227f92d3",
+    "exact_orbit_window": {
+      "n_max": 9,
+      "n_min": -9
+    },
+    "execution_status": "PASS",
+    "max_serial_depth_checked": 4,
+    "path": "scripts/cbrc_f2_validate_observable_nonsign_forward.py",
+    "theorem_enumeration_mismatches": 0,
+    "three_alternative_cases": 216
+  },
+  "hard_target": "OBSERVABLE_NONSIGN_RECOALESCENCE_MINIMAL_EXTENSION_CLASSIFIED",
+  "manifest_self_sha256": "reported in handoff; intentionally not embedded to avoid self-reference",
+  "owner_branch": "research/cbrc-f2-observable-nonsign-recoalescence-forward-classification",
+  "phase_a_math_sources": [
+    "research_inputs/CBRC_F2_BLIND_OBSERVABILITY_PACKET_20260822.md@155297ab859e4207634dae75566c89ca1a430000"
+  ],
+  "primary_verdict": "F2_F1_CARRIER_OBSERVABLE_READOUT_FAMILY",
+  "raw_freeze": "F2_RAW_FREEZE_COMPLETE",
+  "researcher_id": "EM-CBRC-F2-CB605B",
+  "schema": "CBRC_F2_OBSERVABLE_NONSIGN_MANIFEST_V1",
+  "target_leak_audit": "TARGET_LEAK_AUDIT_PASS",
+  "task_id": "RS-CBRC-F2-OBSERVABLE-NONSIGN-RECOALESCENCE-FORWARD-CLASSIFICATION",
+  "taskbook_source": "9866e523b7e7f134497d8aca9ba2b6a093600257"
+}
