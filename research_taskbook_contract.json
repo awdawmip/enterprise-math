@@ -1,11 +1,12 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V6",
+  "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V7",
   "status": "ACTIVE",
   "effective": "2026-08-23",
   "authority_source": "research_role_policy.json",
   "research_architecture": "research_architecture.json",
   "identity_state_machine": "research_identity_state_machine.json",
   "final_response_identity_policy": "final_response_identity_policy.json",
+  "tool_invocation_policy": "tool_invocation_policy.json",
   "axiom_candidate_state_machine": "research_axiom_candidate_state_machine.json",
   "authoring_protocol": "docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md",
   "authoring_tool": "tools/research_taskbook.py",
@@ -15,6 +16,7 @@
     "task_authority": "DRIVER_APPROVED",
     "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
     "final_response_identity_policy": "INHERIT_GLOBAL",
+    "tool_invocation_policy": "INHERIT_GLOBAL",
     "origin_kind": "<one allowed origin kind>",
     "policy_review": {
       "policy_set": "research_taskbook_policy.json",
@@ -75,6 +77,16 @@
     "semantic_anti_evasion_rule": "Even without Stage naming, if the parent result is a necessary research premise/motivation and the new task is the next unresolved layer of the same mother route, classify it CONTINUATION. Renaming does not reset lineage.",
     "rule": "PASS or DONE on a parent task is not itself evidence for a successor. A CONTINUATION taskbook is dispatchable only when its successor gate names a genuine new information gap, falsifiable outcomes, a stop rule, and whether an independent/alternative exploration path was considered."
   },
+  "tool_invocation_inheritance_contract": {
+    "required_for_new_taskbooks": true,
+    "field": "tool_invocation_policy",
+    "required_value": "INHERIT_GLOBAL",
+    "ordinary_task_timing": "UNDERSTAND_TASK_FIRST_THEN_LOOKUP_BEFORE_NEW_GENERAL_MECHANISM",
+    "discovery_firewall_timing": "HIDDEN_UNTIL_TASKBOOK_NAMED_FREEZE_THEN_MANDATORY_DEDUP",
+    "free_phase_a_timing": "HIDDEN_AS_DISCOVERY_PRIOR",
+    "free_phase_b_timing": "MANDATORY_AFTER_FREEZE",
+    "rule": "The compact frontmatter field exposes the existence of the inherited tool-lookup obligation to strict taskbook-only executions. It does not copy tool names into blind discovery or replace the exact role/task timing rule."
+  },
   "optional_metadata": {
     "identity_lane": "compact human-readable lane such as R012, R005C, P017",
     "parent_task_id": "required when task_lineage=CONTINUATION; otherwise normally null",
@@ -94,6 +106,8 @@
   "rules": [
     "A taskbook defines task-specific work, not a particular conversation instance and not a copy of repository operating policy.",
     "Every newly authored or re-reviewed dispatchable taskbook carries final_response_identity_policy=INHERIT_GLOBAL so a strict taskbook-only execution packet still exposes the existence of the mandatory final-output identity contract without copying its template text into the mathematical body.",
+    "Every newly authored or re-reviewed dispatchable taskbook carries tool_invocation_policy=INHERIT_GLOBAL so a strict taskbook-only execution packet still exposes the role-timed reuse-before-invention obligation without preloading the current catalog.",
+    "The tool-invocation inheritance field never overrides an explicit blind-forward/source-whitelist freeze: before freeze the catalog remains hidden; immediately after freeze the normal dedup lookup becomes mandatory.",
     "Every newly authored taskbook declares task origin and task lineage. A free-candidate origin preserves audited candidate provenance; a continuation preserves parent/successor provenance.",
     "CONTINUATION requires parent_task_id and a complete successor_gate; stage numbering or parent PASS is never a substitute for the gate.",
     "An obvious Stage 2+ task is CONTINUATION by construction and cannot be labeled NEW_DIRECTION merely to bypass the gate.",
@@ -101,8 +115,8 @@
     "Taskbook authoring uses tools/research_taskbook.py new, followed by task-local editing, machine audit, Driver review, and an approved policy_review stamp before dispatch.",
     "The policy_review digest is derived from the current policy set. If any policy input changes, a previously stamped taskbook becomes stale and must be re-reviewed before another dispatch.",
     "Task-specific instructions that conflict with inherited policy are forbidden unless recorded as a narrow temporary_overrides entry with conflict_id, scope, reason, replacement_behavior, and expires_when.",
-    "Temporary overrides alter only the named policy behavior for the declared scope and lifetime; they do not silently weaken theorem truth, safety, authorization, ownership, canonical-promotion requirements, candidate maturity, origin provenance, successor-stage requirements, or final-response identity visibility.",
-    "Legacy taskbooks may remain unstamped or lack origin/lineage/footer inheritance as historical artifacts, but any new dispatch of an unstamped/stale legacy taskbook requires current review; newly authored taskbooks must satisfy V6.",
+    "Temporary overrides alter only the named policy behavior for the declared scope and lifetime; they do not silently weaken theorem truth, safety, authorization, ownership, canonical-promotion requirements, candidate maturity, origin provenance, successor-stage requirements, final-response identity visibility, or post-freeze tool dedup.",
+    "Legacy taskbooks may remain unstamped or lack origin/lineage/footer/tool-invocation inheritance as historical artifacts, but any new dispatch of an unstamped/stale legacy taskbook requires current review; newly authored taskbooks must satisfy V7.",
     "Taskbooks never bind a fixed runtime Researcher-ID. For Driver-mediated manual relay, the Driver preallocates one Researcher-ID in a separate dispatch envelope and records it in the relay/handoff. Scheduler CLAIM and direct self-start paths use their own identity bootstrap.",
     "A continuation in the same researcher conversation preserves its existing Researcher-ID; a genuinely new manual dispatch receives a new preallocated Researcher-ID unless explicitly routed to the same conversation.",
     "Researcher identity never grants Driver authority or theorem ownership. Driver conversations use Driver-ID, not Researcher-ID, as their visible identity label.",
@@ -111,6 +125,7 @@
   "recommended_flow": [
     "python tools/research_taskbook.py new ... --origin-kind <...> --lineage <NEW_DIRECTION|CONTINUATION|REPLAY|INTEGRATION|MAINTENANCE>",
     "verify generated frontmatter contains final_response_identity_policy=INHERIT_GLOBAL",
+    "verify generated frontmatter contains tool_invocation_policy=INHERIT_GLOBAL",
     "for FREE_AXIOM_CANDIDATE origin, supply audited candidate id/state",
     "for CONTINUATION, set --parent-task-id and complete successor_gate including alternative exploration consideration",
     "write only task-local mathematical/research content",
