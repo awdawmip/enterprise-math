@@ -1,0 +1,382 @@
+{
+  "band_and_multiplier_relations": {
+    "extrapolated_parameter_checks": 1152,
+    "gcd_M_N_early_factor": 7,
+    "intermediate_parameter_checks": 1580,
+    "matrix_and_relation_checks": 2732,
+    "multiplier_cases": [
+      {
+        "M": 1,
+        "N": 77,
+        "T": 77,
+        "checks": 312
+      },
+      {
+        "M": 3,
+        "N": 77,
+        "T": 231,
+        "checks": 621
+      },
+      {
+        "M": 5,
+        "N": 77,
+        "T": 385,
+        "checks": 302
+      },
+      {
+        "M": 9,
+        "N": 77,
+        "T": 693,
+        "checks": 454
+      },
+      {
+        "M": 25,
+        "N": 77,
+        "T": 1925,
+        "checks": 737
+      },
+      {
+        "M": 1,
+        "N": 91,
+        "T": 91,
+        "checks": 306
+      }
+    ],
+    "negative_band_values_seen": 1948,
+    "principal_endpoint_checks": 144,
+    "square_absolute_band_values_seen": 306,
+    "square_class_orbits_distinct": true,
+    "square_multiplier_character_checks": 50
+  },
+  "corpus_rule": {
+    "case_count": 20,
+    "cases": [
+      {
+        "N": 895204858755057033238453,
+        "attempt": 0,
+        "case": 0,
+        "p": 917771088869,
+        "q": 975411918737
+      },
+      {
+        "N": 1119957466377549817754449,
+        "attempt": 1,
+        "case": 1,
+        "p": 1040742679511,
+        "q": 1076113710359
+      },
+      {
+        "N": 1055891940277214105827513,
+        "attempt": 1,
+        "case": 2,
+        "p": 1004926680787,
+        "q": 1050715400899
+      },
+      {
+        "N": 791377714680498830726351,
+        "attempt": 1,
+        "case": 3,
+        "p": 809046445019,
+        "q": 978161043229
+      },
+      {
+        "N": 751932430638254757708079,
+        "attempt": 0,
+        "case": 4,
+        "p": 712670195533,
+        "q": 1055091731563
+      },
+      {
+        "N": 733954298291541561414451,
+        "attempt": 0,
+        "case": 5,
+        "p": 1061947881641,
+        "q": 691139660411
+      },
+      {
+        "N": 780988847498344710217819,
+        "attempt": 0,
+        "case": 6,
+        "p": 726087571841,
+        "q": 1075612471259
+      },
+      {
+        "N": 756262877771118855062539,
+        "attempt": 2,
+        "case": 7,
+        "p": 873466293751,
+        "q": 865818043789
+      },
+      {
+        "N": 620667103280256004438903,
+        "attempt": 0,
+        "case": 8,
+        "p": 654650541871,
+        "q": 948089191993
+      },
+      {
+        "N": 653360630273636400415283,
+        "attempt": 0,
+        "case": 9,
+        "p": 783884172133,
+        "q": 833491290551
+      },
+      {
+        "N": 837710240559435938017823,
+        "attempt": 0,
+        "case": 10,
+        "p": 1058042299609,
+        "q": 791754961847
+      },
+      {
+        "N": 668857612066056235035217,
+        "attempt": 0,
+        "case": 11,
+        "p": 640525683769,
+        "q": 1044232306393
+      },
+      {
+        "N": 691677872250007651113283,
+        "attempt": 0,
+        "case": 12,
+        "p": 1097138060173,
+        "q": 630438317071
+      },
+      {
+        "N": 643125473929327316575937,
+        "attempt": 1,
+        "case": 13,
+        "p": 695144649421,
+        "q": 925167840197
+      },
+      {
+        "N": 746211445404691389129767,
+        "attempt": 0,
+        "case": 14,
+        "p": 784074368717,
+        "q": 951710035651
+      },
+      {
+        "N": 696275117201628168642133,
+        "attempt": 0,
+        "case": 15,
+        "p": 1072427765371,
+        "q": 649251296623
+      },
+      {
+        "N": 951268873312270600375699,
+        "attempt": 0,
+        "case": 16,
+        "p": 1022139050357,
+        "q": 930664837607
+      },
+      {
+        "N": 652669394640594088089127,
+        "attempt": 0,
+        "case": 17,
+        "p": 792079117747,
+        "q": 823995204541
+      },
+      {
+        "N": 762527644363384635573469,
+        "attempt": 0,
+        "case": 18,
+        "p": 769756616557,
+        "q": 990608756017
+      },
+      {
+        "N": 647235748510269568978063,
+        "attempt": 0,
+        "case": 19,
+        "p": 822634941439,
+        "q": 786783682417
+      }
+    ],
+    "construction": "SHA-256-derived 40-bit odd start; upward deterministic prime scan; retry until p!=q and bit_length(p*q)=80",
+    "seed": "EM-VBSEQ-7021BF|2026-08-23|balanced-exact-80-bit-semiprime|v1",
+    "steps_per_case": 5000
+  },
+  "mismatch_count": 0,
+  "mismatch_log": "D:\\em\\lanes\\EM-VBSEQ-7021BF\\research_output\\evidence\\VALLEY_BAND_MISMATCH_LOG_20260823.jsonl",
+  "negative_controls": {
+    "ambiguous_sign_fixed_state_nonterminal": true,
+    "global_sign_double_cover_commutes": true,
+    "recurrence_sign_failures": {
+      "flip_2Ca": {
+        "T": 3,
+        "a": 1,
+        "expected": {
+          "A": 1,
+          "B": -2,
+          "C": -1
+        },
+        "n": 1,
+        "observed": {
+          "A": -3,
+          "B": -2,
+          "C": -1
+        },
+        "observed_invariant": -5,
+        "state": {
+          "A": -2,
+          "B": 1,
+          "C": 1
+        }
+      },
+      "flip_Aa2": {
+        "T": 3,
+        "a": 1,
+        "expected": {
+          "A": -2,
+          "B": 1,
+          "C": 1
+        },
+        "n": 0,
+        "observed": {
+          "A": -4,
+          "B": 1,
+          "C": 1
+        },
+        "observed_invariant": 5,
+        "state": {
+          "A": 1,
+          "B": -3,
+          "C": 0
+        }
+      },
+      "flip_Aa_in_Cprime": {
+        "T": 3,
+        "a": 1,
+        "expected": {
+          "A": -2,
+          "B": 1,
+          "C": 1
+        },
+        "n": 0,
+        "observed": {
+          "A": -2,
+          "B": 1,
+          "C": -1
+        },
+        "observed_invariant": 3,
+        "state": {
+          "A": 1,
+          "B": -3,
+          "C": 0
+        }
+      },
+      "flip_B_term": {
+        "T": 3,
+        "a": 1,
+        "expected": {
+          "A": -2,
+          "B": 1,
+          "C": 1
+        },
+        "n": 0,
+        "observed": {
+          "A": 4,
+          "B": 1,
+          "C": 1
+        },
+        "observed_invariant": -3,
+        "state": {
+          "A": 1,
+          "B": -3,
+          "C": 0
+        }
+      },
+      "flip_Bprime": {
+        "T": 3,
+        "a": 1,
+        "expected": {
+          "A": -2,
+          "B": 1,
+          "C": 1
+        },
+        "n": 0,
+        "observed": {
+          "A": -2,
+          "B": -1,
+          "C": 1
+        },
+        "observed_invariant": -1,
+        "state": {
+          "A": 1,
+          "B": -3,
+          "C": 0
+        }
+      },
+      "flip_C_in_Cprime": {
+        "T": 3,
+        "a": 1,
+        "expected": {
+          "A": 1,
+          "B": -2,
+          "C": -1
+        },
+        "n": 1,
+        "observed": {
+          "A": 1,
+          "B": -2,
+          "C": -3
+        },
+        "observed_invariant": 11,
+        "state": {
+          "A": -2,
+          "B": 1,
+          "C": 1
+        }
+      }
+    },
+    "recurrence_sign_variants_rejected": 6,
+    "square_T_terminal_detected": true,
+    "weak_domain_smallest_counterexample_confirmed": true,
+    "wrong_quotient_direction_rejected": true
+  },
+  "orbit": {
+    "map_roundtrips": 99980,
+    "paired_steps": 100000,
+    "paired_stream_sha256": "cdfc900c1daaeaf21cd353795c72a5569cc0500e8403c0e1e2dd28e969ad607c",
+    "reduced_domain_checks": 99980
+  },
+  "relation_assembly": {
+    "band_relations_fully_factored": 2448,
+    "double_large_prime_parallel_edge_cycle_verified": true,
+    "dropped_A_relation_rejected": true,
+    "gf2_dependencies_found": 256,
+    "mutated_value_rejected": true,
+    "mutated_witness_rejected": true,
+    "nontrivial_factor_dependencies": 180,
+    "same_modulus_dependencies_verified": 256,
+    "signed_minus_one_rejected_if_sign_omitted": true,
+    "single_large_prime_pair_verified": true,
+    "square_factor_dependency_verified": true
+  },
+  "researcher_id": "EM-VBSEQ-7021BF",
+  "roots": {
+    "hensel_simple_roots": 38,
+    "hensel_unique_lifts": 38,
+    "invalid_root_negative_controls": 13600,
+    "ramified_lift_profiles": {
+      "0": 11,
+      "2": 7
+    },
+    "root_branch_counts": {
+      "constant_none": 1,
+      "linear_one": 317,
+      "p2_constant_none": 72,
+      "p2_linear_one": 173,
+      "p2_zero_all": 1,
+      "quadratic_nonresidue_none": 6897,
+      "quadratic_ramified_double": 3,
+      "quadratic_split_two": 6137,
+      "zero_polynomial_all": 1
+    },
+    "root_exhaustion_cases": 13602,
+    "root_residues_tested": 2848992
+  },
+  "schema": "enterprise_math.valley_band_checker_summary.v1",
+  "task_id": "RS-VALLEY-BAND-PURE-STATE-EQUIVALENCE-CLASSIFICATION",
+  "validation_status": "PASS"
+}
