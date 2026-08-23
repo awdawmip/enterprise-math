@@ -1,0 +1,68 @@
+{
+  "schema": "valley-band-benchmark-config-v1",
+  "frozen_at": "2026-08-23",
+  "task_id": "RS-VALLEY-BAND-FACTORING-REPRODUCIBLE-BENCHMARK-ABLATION",
+  "researcher_id": "EM-VBBMK-A550CC",
+  "source_commit": "12725505c636449df7dd913ac06e581bf418b89c",
+  "locked_packet_ref": "f341b1347939e004e6d55c96e119c53337c0c9a0",
+  "corpus": {
+    "seed": "EM-VBBMK-A550CC|2026-08-23|balanced-semiprimes|v1",
+    "expected_canonical_digest": "8897e83bff43616e52705a4640449f638505a35f46452ac00efada67885d7fd1",
+    "prime_rule": "SHA256 counter candidate; exact half-width; top two bits and low bit set; first deterministic Miller-Rabin prime; reject equal factors or wrong product bit length",
+    "groups": [
+      {"purpose": "state_equivalence", "bits": 80, "count": 20},
+      {"purpose": "benchmark", "bits": 96, "count": 10},
+      {"purpose": "benchmark", "bits": 104, "count": 5},
+      {"purpose": "benchmark", "bits": 112, "count": 3}
+    ],
+    "fixed_checkpoints": [104, 112, 128]
+  },
+  "splits": {
+    "training_ids": ["R96-00", "R96-01", "R96-02", "R96-03", "R96-04", "R96-05", "R104-00", "R104-01", "R104-02", "R112-00", "R112-01"],
+    "holdout_ids": ["R96-06", "R96-07", "R96-08", "R96-09", "R104-03", "R104-04", "R112-02", "F104", "F112", "F128"]
+  },
+  "equivalence": {
+    "paired_steps_total": 100000,
+    "steps_per_80bit_instance": 5000
+  },
+  "factor_base_bounds": {"80": 400, "96": 1200, "104": 2000, "112": 3200, "128": 5000},
+  "large_prime_multiplier": 64,
+  "multiplier_candidates": [1, 3, 5, 7, 11, 13, 15, 17, 19, 21, 23, 29, 31],
+  "multiplier_static_prime_limit": 97,
+  "multiplier_static_top_k": 5,
+  "multiplier_pilot_steps": 4000,
+  "band_thresholds": [32, 64, 128, 256, 512],
+  "adaptive_policy": {
+    "training_split_only": true,
+    "minimum_a": 32,
+    "laplace_relation_numerator": 1,
+    "laplace_width_denominator": 2,
+    "open_when_expected_full_relations_ge": 0.75,
+    "setup_equivalent_candidates_per_root": 0.125
+  },
+  "rank_target_margin": 8,
+  "run_limits": {
+    "96": {"max_orbit_steps": 60000, "timeout_seconds": 20},
+    "104": {"max_orbit_steps": 120000, "timeout_seconds": 30},
+    "112": {"max_orbit_steps": 160000, "timeout_seconds": 35},
+    "128": {"max_orbit_steps": 200000, "timeout_seconds": 40}
+  },
+  "timing_repetitions_sub128": 3,
+  "frozen_matrix": {
+    "completed_sub128_core_instances": ["R96-00", "R96-01", "R96-02"],
+    "core_variants": [
+      {"algorithm": "cfrac_point", "threshold": null, "multiplier_policy": "M1", "large_prime_mode": "none"},
+      {"algorithm": "closed_point", "threshold": null, "multiplier_policy": "M1", "large_prime_mode": "none"},
+      {"algorithm": "closed_band", "threshold": 32, "multiplier_policy": "M1", "large_prime_mode": "slp"},
+      {"algorithm": "closed_band", "threshold": 64, "multiplier_policy": "M1", "large_prime_mode": "slp"},
+      {"algorithm": "closed_band", "threshold": 128, "multiplier_policy": "M1", "large_prime_mode": "slp"},
+      {"algorithm": "closed_band", "threshold": 256, "multiplier_policy": "M1", "large_prime_mode": "slp"},
+      {"algorithm": "closed_band", "threshold": 512, "multiplier_policy": "M1", "large_prime_mode": "slp"}
+    ],
+    "large_prime_ablation_instance": "R96-00",
+    "large_prime_modes": ["none", "slp", "dlp"],
+    "checkpoint_instances": ["F104", "F112", "F128"],
+    "context_qs_instances": ["R96-00", "F104", "F112", "F128"]
+  },
+  "known_factor_firewall": "factors are loaded only by corpus verification and post-run correctness checks; algorithm RunSpec contains N but no factor fields"
+}
