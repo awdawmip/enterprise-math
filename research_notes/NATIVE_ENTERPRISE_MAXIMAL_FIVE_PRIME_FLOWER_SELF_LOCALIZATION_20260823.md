@@ -8,9 +8,11 @@ Researcher-ID: `EM-FREE-NEPS-239A6D`
 
 Parent: `NATIVE_ENTERPRISE_SEVEN_CELL_STAR_POISSON_SELF_LOCALIZATION_20260823.md`
 
-## 1. Question
+## 1. Question and corrected priority
 
-The 13-state loop code uses only prime/composite Boolean bits. This note asks for the smallest multi-Cell readout that genuinely uses the prime values themselves and recovers native geometric information that Boolean brightness alone does not contain.
+The 13-state loop code uses only prime/composite Boolean bits. This note studies a stronger multi-Cell packet that uses actual prime values and recovers native shell information from a maximal local flower.
+
+Later audit identified a smaller prime-valued localizer: one ordered fully-prime triple-cell incidence already recovers `(r,t,sigma)` from its three prime values. Therefore this five-prime flower is **not** the first/minimal non-Boolean prime-valued readout. Its distinct role is stronger presentation robustness after sorting, maximal local prime occupancy, and propagation into constant-`h` filaments.
 
 ## 2. At most four prime neighbors
 
@@ -151,14 +153,16 @@ The absolute sector slot in which maximal eligibility appears remains presentati
 
 ## 8. Interpretation
 
-This is the first prime-specific multi-Cell readout in this lane that is not recoverable from prime/composite Boolean bits alone.
+The five-prime flower is a **nonminimal but stronger composite packet** in the prime-valued hierarchy.
 
 The five prime values themselves carry a native geometric coordinate:
 
 `MAXIMAL PRIME FLOWER VALUES -> NATIVE SHELL INDEX`.
 
+Compared with the smaller triple-prime incidence localizer, it additionally supplies maximal local occupancy, a sorted orientation-robust shell diameter, parity curvature, and the seed for constant-`h` rolling filaments.
+
 It is still an exact consequence of the frozen integer allocation and local incidence formulas; no claim is made that it constitutes a new theorem about the classical primes independent of this coordinate system.
 
 Current verdict:
 
-`MAXIMAL_FIVE_PRIME_FLOWER_SELF_LOCALIZATION = FIRST NONBOOLEAN PRIME-VALUED NATIVE READOUT`.
+`MAXIMAL_FIVE_PRIME_FLOWER_SELF_LOCALIZATION = MAXIMAL LOCAL PRIME PACKET + FILAMENT SEED; MINIMAL PRIME-VALUED LOCALIZER IS THE TRIPLE-PRIME INCIDENCE`.
