@@ -1,6 +1,6 @@
-# Native Enterprise tri-sector allocation: minimal uniqueness inside the linear C3 class
+# Native Enterprise typed tri-sector allocation：minimal uniqueness inside the linear C3 class
 
-Status: `FREE_RESEARCH_EXACT_CONDITIONAL_UNIQUENESS / NOT_CANONICAL_FOUNDATION`
+Status: `FREE_RESEARCH_EXACT_CONDITIONAL_UNIQUENESS / TYPED_CELL_CORRECTION / NOT_CANONICAL_FOUNDATION`
 
 Date: `2026-08-23`
 
@@ -8,94 +8,149 @@ Researcher-ID: `EM-FREE-NEPS-239A6D`
 
 ## 1. Question
 
-The prime patterns are only meaningful as native-coordinate evidence if the shell allocation was not selected after looking at primality. This note classifies the allocation inside a deliberately narrow, transparent class of simple native rules.
+The prime patterns are meaningful as native-coordinate evidence only if the integer allocation was fixed without looking at primality. This note classifies the allocation inside a deliberately narrow, transparent class of simple rules **on the canonical typed affine Cell charts**.
 
-No claim is made that every conceivable nonlinear Enterprise allocation must coincide with this one.
+This typed version supersedes the earlier research interpretation that deduplicated shared-axis Cell states through one global half-open min-zero address. Canonical Enterprise semantics distinguishes `VADDR` from `CADDR` and retains distinct sector-local Cell trajectories/anchors.
 
-## 2. Unique C3-symmetric linear shell coordinate
+No claim is made that every nonlinear, nonlocal, or history-dependent allocation must coincide with this rule.
 
-Let a candidate shell readout on canonical addresses be linear:
+## 2. Typed Cell charts
 
-`R(a,b,c)=alpha*a+beta*b+gamma*c`.
+For each open native sector use its canonical affine Cell chart:
+
+- `C_12(a,b)`;
+- `C_23(b,c)`;
+- `C_31(a,c)`;
+
+with both local components in `N_0`.
+
+The three `C_ij(0,0)` are distinct origin-anchor Cells.
+
+The three sectors are related by the native cyclic symmetry `C3`.
+
+## 3. Unique linear component-step shell coordinate
+
+Fix one sector and write its typed local Cell coordinates as `(u,v) in N_0^2`.
+
+Let a candidate linear shell readout be
+
+`S(u,v)=alpha*u+beta*v`.
 
 Require:
 
-1. origin normalization `R(0,0,0)=0`;
-2. cyclic axis symmetry `R(a,b,c)=R(b,c,a)`;
-3. native axis unit normalization `R(n,0,0)=n` and cyclic equivalents.
+1. anchor normalization `S(0,0)=0`;
+2. one step in either positive native component increases shell by one:
+   `S(u+1,v)-S(u,v)=1` and `S(u,v+1)-S(u,v)=1`;
+3. the same rule is transported cyclically to all three sectors.
 
-Cyclic symmetry forces
+The unit-step conditions force
 
-`alpha=beta=gamma`.
+`alpha=beta=1`.
 
-Axis normalization forces the common coefficient to be 1.
+Therefore the unique linear typed-Cell shell coordinate in this class is
 
-Therefore the unique readout in this class is
+`s=u+v`.
 
-`R(a,b,c)=a+b+c`.
+This selection is prime-free and uses native component content rather than carrier Euclidean radius.
 
-Thus the tri-sector shell index `r=a+b+c` was not fitted to prime data; it is the unique C3-symmetric linear extension of the native unit axis coordinate.
+## 4. Shell cardinality
 
-## 3. Shell cardinality
+At fixed `s>=0`, one typed sector contains exactly
 
-Under the canonical `min(a,b,c)=0` atlas, use oriented half-open sector charts so shared axes are counted once.
+`(u,v)=(s-t,t)`, `0<=t<=s`,
 
-At shell `r>=1` each of the three sectors contributes exactly r addresses. Hence
+so exactly `s+1` Cells.
 
-`|Shell(r)|=3r`.
+Because the three sector Cell charts are typed/distinct, the full shell contains
 
-This is a direct consequence of the three positive sectors and does not use a Euclidean radius.
+`|Shell_C(s)|=3(s+1)`
 
-## 4. Unique gap-free shell start
+Cells.
 
-Require positive integers to be allocated shell by shell in increasing r with no gaps and no duplicates, starting at integer 1.
+At `s=0` these are exactly the three distinct anchor Cells incident to the origin.
 
-The first integer on shell r must then be
+## 5. Unique gap-free shell start
 
-`B_r=1+sum_{j=1}^{r-1} 3j`
+Require positive integers to be allocated shell by shell in increasing s, with no gaps and no duplicate typed Cell states, starting at integer 1.
+
+The first integer on shell s is forced to be
+
+`B_s^C = 1 + sum_{j=0}^{s-1} 3(j+1)`
 
 so
 
-`B_r=1+3r(r-1)/2`.
+`B_s^C = 1 + 3s(s+1)/2`.
 
 No primality information enters this formula.
 
-## 5. C3-equivariant within-shell allocation
+## 6. C3-equivariant unit-step within-shell allocation
 
-Now impose the simple within-shell class:
+Now impose the minimal within-shell class:
 
-- the three half-open sector blocks are contiguous;
-- each block uses unit integer step along its side coordinate;
-- cyclic sector relabeling uses the same side-coordinate rule in each block.
+- the three typed sector blocks are contiguous;
+- each block uses consecutive integer labels along the side coordinate t;
+- the same side-coordinate rule is transported cyclically to all three sector blocks.
 
-Choose a presentation slot `sigma in {0,1,2}` and side position `t in {0,...,r-1}`. Then the allocation is forced to
+Choose presentation slot `sigma in {0,1,2}` and `0<=t<=s`. Then the allocation is forced to
 
-`N(r,t,sigma)=B_r+t+sigma*r`,
+`N_C(s,t,sigma)=B_s^C+t+sigma*(s+1)`
 
 up to:
 
-- which positive axis is chosen as the first cyclic slot;
-- global orientation reversal of the half-open sector presentation.
+1. cyclic choice of which sector is numeric block 0;
+2. simultaneous reversal `t -> s-t` in all three sector blocks.
 
-Those are presentation choices, not changes to shell cardinality or the C3 block structure.
+These six choices form the natural `C3 x C2` / dihedral presentation family.
 
-## 6. Consequences independent of prime fitting
+## 7. Relation to the legacy research variable r
+
+Earlier experiments used
+
+`N(r,t,sigma)=1+3r(r-1)/2+t+sigma*r`,
+
+with `r>=1`, `0<=t<r`.
+
+Set
+
+`r=s+1`.
+
+Then identically
+
+`N(r,t,sigma)=N_C(s,t,sigma)`.
+
+Thus all numerical experiments remain valid. The corrected meaning is
+
+`LEGACY r = TYPED CELL TRACE SHELL s + 1`.
+
+## 8. Consequences independent of prime fitting
 
 Before primality is evaluated, the rule already implies:
 
-- every folded C3 fiber is `B_r+t, B_r+t+r, B_r+t+2r`;
-- its common arithmetic difference is exactly native shell index r;
-- the equal-coordinate locus is the geometric side midpoint for even r;
-- the midpoint label bouquet is the symmetric quadratic triplet already studied.
+- exact elementary triple-Cell incidence label formulas;
+- the local second-difference curvature pair `{2,4}` up to orientation presentation;
+- the seven-Cell star Poisson law;
+- the shell/transverse filament coordinate;
+- the global typed carrier seam label identities.
 
-Therefore the main prime structures are consequences of a coordinate rule that is conditionally unique inside the C3-symmetric linear/gap-free/unit-step class.
+Prime-incidence results are therefore consequences of a prime-free allocation that is conditionally unique inside this linear/component-step/gap-free/C3-equivariant class.
 
-## 7. Boundary
+## 9. Presentation audit
 
-This is a conditional uniqueness theorem, not a claim that nonlinear, nonlocal, history-dependent, or alternative native shell notions are impossible.
+The strongest global connectivity statements were independently replayed over all
 
-The correct statement is:
+`3 cyclic starts x 2 side orientations`.
 
-`WITHIN LINEAR C3-SYMMETRIC AXIS-NORMALIZED SHELLS + GAP-FREE C3-EQUIVARIANT UNIT-STEP ALLOCATION, THE TRI-SECTOR RULE IS UNIQUE UP TO PRESENTATION.`
+Every presentation gives:
 
-That is sufficient to remove the strongest post-selection concern for the current experiment while leaving broader native allocations open for later ablation.
+- zero fully-prime cross-sector seam bridges;
+- mod-30 maximum eligibility component size 9.
+
+So the sharp-nine/prime-5 connectivity results do not depend on selecting one visually favorable member of the six-presentation family.
+
+## 10. Boundary
+
+This is a conditional uniqueness theorem for a deliberately simple allocation class. It does not rule out every nonlinear or nonlocal native integer allocation.
+
+Correct freeze:
+
+`WITHIN TYPED AFFINE CELL CHARTS + LINEAR UNIT COMPONENT SHELL + GAP-FREE C3-EQUIVARIANT UNIT-STEP ALLOCATION, N_C(s,t,sigma) IS UNIQUE UP TO D3 PRESENTATION.`
