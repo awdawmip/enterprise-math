@@ -1,0 +1,52 @@
+{
+  "schema": "FQ010_REGRESSION_V1",
+  "researcher_id": "EM-FQ010-CA2555",
+  "task_id": "RS-FQ010-LINE-SCALE-SEMANTIC-ADMISSION-COMPARATIVE-REFOUNDATION",
+  "checker": "scripts/fq010_validate_line_scale_comparative_refoundation.py",
+  "checker_commit": "255864f775ad8450d0bd8740e7800a430b3eceaa",
+  "execution_mode": "exact finite/integer/relational operations only",
+  "max_component_multiplicity": 8,
+  "sector_supported_state_count": 217,
+  "relation_construction_checks": 217,
+  "component_relabeling_checks": 1302,
+  "token_renaming_regression_checks": 434,
+  "maximality_exhaustive_token_limit": 6,
+  "maximality_state_count": 64,
+  "equivalence_partitions_enumerated": 4675,
+  "component_preserving_equivalence_partitions": 1609,
+  "axis_square_checks": 27,
+  "mixed_second_difference_checks": 192,
+  "fq008_reconstruction_checks": 243,
+  "observation_resolution_checks": 217,
+  "scalar_collision_group_count": 3,
+  "scalar_collision_groups": [
+    {
+      "q": 25,
+      "orbit_signatures": [[0, 0, 5], [0, 3, 4]]
+    },
+    {
+      "q": 50,
+      "orbit_signatures": [[0, 1, 7], [0, 5, 5]]
+    },
+    {
+      "q": 65,
+      "orbit_signatures": [[0, 1, 8], [0, 4, 7]]
+    }
+  ],
+  "observation_resolution_discriminator": {
+    "fine_axis_n2": 2,
+    "component_axis_n2": 4,
+    "coarse_axis_n2": 4,
+    "fine_mixed_d2": 0,
+    "component_mixed_d2": 0,
+    "coarse_mixed_d2": 2
+  },
+  "mismatch_count": 0,
+  "status": "PASS",
+  "notes": [
+    "General proofs are supplied in the theorem packet; finite checking is regression support only.",
+    "Exhaustive equivalence-relation enumeration is performed on every tested sector-supported carrier with at most six tokens.",
+    "Token-renaming regression uses two deterministic fiberwise bijections on every 0..8 state; arbitrary-renaming invariance is proved symbolically in the relation theorem.",
+    "FQ008 reconstruction is generated from axis-square boundary values and the zero mixed-second-difference recurrence rather than by copying the sum-of-squares formula."
+  ]
+}
