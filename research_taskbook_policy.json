@@ -1,7 +1,7 @@
 {
-  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.2",
+  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.3",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-24",
   "policy_inputs": [
     "AGENTS.md",
     "FOUNDATIONAL_LOGIC.md",
@@ -15,6 +15,7 @@
     "research_identity_state_machine.json",
     "final_response_identity_policy.json",
     "research_taskbook_contract.json",
+    "research_work_state_machine.json",
     "tool_invocation_policy.json",
     "native_semantics_admissibility.json"
   ],
@@ -102,7 +103,8 @@
     "Ordinary task execution inherits tool_invocation_policy.json: after task semantics are understood and before inventing new general-purpose machinery, current tool/method coverage must be checked and adequate existing tools must be reused/composed/extended rather than reimplemented under a new route name.",
     "A taskbook with an explicit blind-forward/source-whitelist discovery firewall may delay current toolbox/method visibility only until its named raw candidate/no-go freeze point; the same task must run current-tool dedup after that freeze before claiming method novelty or opening a tool continuation.",
     "FREE Phase A follows the same discovery-firewall timing principle: no current toolbox prior before freeze; mandatory current-tool dedup in Phase B after freeze.",
-    "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json; any change to that policy invalidates prior policy-review digests for redispatch."
+    "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json; any change to that policy invalidates prior policy-review digests for redispatch.",
+    "A Driver-approved dispatchable taskbook is not considered published to the claimable queue until its immutable TASK_PUBLISH envelope is appended under research_work_state_machine.json; publication happens in the same Driver turn and does not require the user to relay a task id."
   ],
   "override_required_fields": [
     "conflict_id",
