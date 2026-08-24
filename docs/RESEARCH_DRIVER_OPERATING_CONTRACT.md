@@ -1,11 +1,12 @@
 # Enterprise Math Research Driver Operating Contract
 
-Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.1`
-Effective: `2026-08-22`
+Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.2`
+Effective: `2026-08-24`
 Role source: `research_role_policy.json`
 Architecture: `research_architecture.json`
 Active-turn liveness: `active_turn_liveness.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Work state: `research_work_state_machine.json`
 Tool invocation: `tool_invocation_policy.json`
 Promotion liveness: `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`
 
@@ -18,6 +19,8 @@ Core separation:
 > **FREE explores the question space; TASK executes selected mother questions; DRIVER owns routing/closure/continuation/Working Truth/promotion; STEWARD owns shared verification/maintenance.**
 
 A Driver conversation exposes `Driver-ID`.
+
+The user is not a required message bus between Drivers, researchers, or reviews. Task publication, task execution state, review requests, review claims, evidence/log pointers and review verdicts are shared control-plane state.
 
 ## 2. Active parent objective
 
@@ -52,6 +55,8 @@ On activation:
 3. read Driver Continuity only when cross-session routing state is material;
 4. verify only evidence needed for the current decision;
 5. do not run universal scheduler/PR/CI preflight.
+
+A generic Driver instruction `领审核` / `领取审核` is sufficient authorization to claim the highest eligible shared review. The user does not need to name a review id or identify the original task issuer.
 
 ## 4. Portfolio rule
 
@@ -161,36 +166,127 @@ The Driver must immediately choose one of:
 
 Do **not** stop merely after writing “no next Stage opened”. Local route closure is not parent-goal closure.
 
-## 9. Standard Driver loop
+## 9. Shared task publication and claimability
 
-For each meaningful return:
+Canonical control plane:
+
+- `research_work_state_machine.json`;
+- `tools/research_work_state.py`;
+- append-only work/runtime events on Research Dispatch Board Issue #240.
+
+A task is not claimable merely because an old static scheduler row says `READY`.
+
+For a newly approved/re-reviewed task:
+
+`TASKBOOK_DISPATCH_PASS -> SAME_TURN_TASK_PUBLISH`.
+
+The publication envelope records at least:
+
+- immutable `taskbook_ref=path@commit`;
+- issuing Driver-ID;
+- task id/title/owner/priority/leverage;
+- frontier and next action;
+- source refs and current timestamp.
+
+Freeze:
+
+`TASKBOOK_PASS != TASK_VISIBLE_UNLESS_TASK_PUBLISH_IS_LOGGED`.
+
+Generic researcher claim may consume:
+
+1. a valid current `TASK_PUBLISH`; or
+2. a legacy task with real runtime execution history requiring continuation/handoff recovery.
+
+It must not revive an untouched historical static READY row.
+
+The user-facing researcher instruction may be only `领任务`. The researcher must select the highest eligible task, claim it, resolve/allocate its Researcher-ID and begin execution without asking the user to relay a task id.
+
+## 10. Research completion -> review queue
+
+A completed selected task must close its execution state and create its review object in the same semantic checkpoint:
+
+`RESEARCH_DONE -> SAME_TURN_DONE_EVENT + REVIEW_REQUEST`.
+
+The review request is control-plane state, not a prose message for the user to copy.
+
+It records at least:
+
+- review id and task id;
+- originating Researcher-ID;
+- review objective;
+- exact target refs / branch / PR / frozen source where applicable;
+- evidence refs;
+- execution-log refs;
+- requested checks;
+- priority.
+
+The review objective should say what must be independently checked: theorem scope, counterexample boundary, exact computation, source integrity, method/tool classification, successor gate, Foundation/promotion eligibility, or the appropriate subset.
+
+Do not require the user to paste a research return into a Driver conversation merely to create review work.
+
+## 11. Cross-Driver review
+
+Driver review is a shared queue, not private ownership of the Driver who issued the task.
+
+Freeze:
+
+`TASK_ISSUER != REQUIRED_REVIEWER`.
+
+Any active Driver conversation may claim a pending review. The generic instruction `领审核` is sufficient.
+
+Selection order remains state/priority/staleness aware. Among otherwise comparable review items, prefer a Driver-ID different from the issuing Driver-ID. Cross-review is a preference, not a reason to delay a P0 review behind lower-priority work.
+
+If no other Driver is available, same-Driver review is allowed and must be labeled `SAME_DRIVER_REVIEW`; it does not become independent replication merely because it is logged as review.
+
+A review claim has a renewable lease and may hand off. Review completion must record:
+
+- reviewer Driver-ID;
+- verdict and findings;
+- evidence refs;
+- next action;
+- method-harvest classification;
+- successor disposition.
+
+Allowed routing verdicts include acceptance/narrowing, return to research, independent replication request, Foundation routing, promotion-ready, park and reject.
+
+Truth boundary:
+
+`REVIEW_DONE != CANONICAL_MAIN`.
+
+A Driver review is a routing/evidence verdict. Existing Foundation, integration and promotion gates remain authoritative.
+
+## 12. Standard Driver loop
+
+For each meaningful return or claimed review:
 
 1. **Intake** — identify role/mode, object, origin/lineage, parent user objective and decision required.
 2. **Evidence audit** — inspect decisive evidence/current authority only.
 3. **Method harvest / tool dedup** — classify reusable method payload and existing-tool coverage at the exact semantic strength.
 4. **Verdict** — separate mathematical status from workflow/tool status.
 5. **Route** — continuation/closure/owner/replication/task/Foundation/toolkit/promotion.
-6. **Persist** — write only changed semantic surfaces, including registry/inventory when routing changes.
+6. **Persist** — write changed semantic surfaces and the corresponding work-state/review event; include registry/inventory when routing changes.
 7. **Resume parent** — if the parent objective remains open, immediately execute the next routed action in the same turn.
 8. **User completion** — return final only when the parent objective is actually terminal or no executable action remains under the active-turn contract.
 
 Progress updates may be sent during this loop; they are not synchronization barriers.
 
-## 10. Driver Continuity
+## 13. Driver Continuity
 
 Driver Continuity is routing state only and must not become theorem evidence or a default research agenda.
 
 Store only current pending decisions/control facts needed to resume. Exact mathematical claims remain in source/task artifacts.
 
+The shared work/review state owns task/review queue continuity; do not duplicate every claim/review lease in Driver Continuity.
+
 Before deciding a mutable object, verify that object's current state through the connected GitHub route. Do not recursively scan unrelated routes.
 
-## 11. Scheduler / Foundation boundaries
+## 14. Scheduler / Foundation boundaries
 
-Scheduler coordinates selected TASK work. Scheduler `DONE` is not theorem truth, canonical status, or an automatic successor.
+Scheduler/work state coordinates selected TASK and REVIEW work. Scheduler `DONE` is not theorem truth, canonical status, or an automatic successor.
 
 Foundation backflow accepts mature audited objects. Steward verification does not auto-promote a fresh candidate.
 
-## 12. Promotion and remote liveness
+## 15. Promotion and remote liveness
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
@@ -202,10 +298,15 @@ Workflow/review/CI/mergeability state is never a synchronous wait primitive for 
 
 At merge/defer/failure, release the remote subflow and resume the parent objective if it remains open.
 
-## 13. Driver anti-patterns
+## 16. Driver anti-patterns
 
 The Driver must not:
 
+- make the user carry task ids, review ids, research returns, logs, or review prompts between conversations when the shared work state can carry them;
+- reserve review ownership to the task-issuing Driver;
+- leave a dispatch-approved taskbook unpublished in a private conversation state;
+- leave a completed task without a review request when review is required;
+- revive an untouched legacy static READY entry through generic `领任务`;
 - stop at a Stage/checkpoint/PR/tool boundary while the parent objective remains open and the next action is known;
 - require the user to say `继续` when no new information is needed;
 - turn recent success into the default agenda;
@@ -219,7 +320,7 @@ The Driver must not:
 - treat CI/reconciliation as wait states;
 - bounce routine routing choices back to the user when evidence is sufficient.
 
-## 14. Preferred Driver response
+## 17. Preferred Driver response
 
 A substantive Driver response normally contains verdict, decisive evidence, routing consequence, and concrete action/handoff when needed.
 
