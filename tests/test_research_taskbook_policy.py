@@ -13,7 +13,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         (root / "docs").mkdir()
         (root / "research_tasks").mkdir()
         policy = {
-            "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V1",
+            "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.3",
             "status": "ACTIVE",
             "policy_inputs": [
                 "AGENTS.md",
@@ -23,6 +23,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
                 "research_identity_state_machine.json",
                 "final_response_identity_policy.json",
                 "research_taskbook_contract.json",
+                "research_scheduler.json",
             ],
             "conflict_checks": [
                 {
@@ -48,7 +49,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         }
         (root / "research_taskbook_policy.json").write_text(json.dumps(policy))
         contract = {
-            "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V6",
+            "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V7.1",
             "status": "ACTIVE",
             "new_dispatchable_taskbook_required_metadata": {
                 "created_by_role": "RESEARCH_DRIVER",
@@ -56,6 +57,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
                 "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
                 "final_response_identity_policy": "INHERIT_GLOBAL",
                 "origin_kind": "<one allowed origin kind>",
+                "scheduler_registration": {},
                 "policy_review": {},
             },
             "task_origin_contract": {
@@ -102,6 +104,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "research_role_policy.json",
             "research_identity_state_machine.json",
             "final_response_identity_policy.json",
+            "research_scheduler.json",
         ]:
             p = root / rel
             p.parent.mkdir(parents=True, exist_ok=True)
@@ -114,7 +117,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "title": "Test",
             "kind": "RESEARCH",
             "owner": "taskbook/unassigned",
-            "base_state": "READY",
+            "base_state": "DRAFT",
             "priority": "P1",
             "leverage": "HIGH",
             "created_by_role": "RESEARCH_DRIVER",
@@ -123,6 +126,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "final_response_identity_policy": "INHERIT_GLOBAL",
             "origin_kind": "DIRECT_USER_DIRECTION",
             "task_lineage": "NEW_DIRECTION",
+            "scheduler_registration": dict(rt.SCHEDULER_REGISTRATION),
             "policy_review": {
                 "policy_set": "research_taskbook_policy.json",
                 "policy_digest": digest or rt.policy_digest(root),
@@ -137,11 +141,31 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
     def codes(self, findings):
         return {f["code"] for f in findings}
 
-    def test_clean_dispatch_passes(self):
+    def test_clean_publication_gate_passes_while_base_state_remains_draft(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         path = self.write_task(root)
         self.assertEqual(rt.audit_taskbook(path, root=root, dispatch=True), [])
+        meta, _ = rt.split_taskbook(path.read_text())
+        self.assertEqual("DRAFT", meta["base_state"])
+
+    def test_taskbook_ready_is_rejected_before_scheduler_approval(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        meta, body = rt.split_taskbook(path.read_text())
+        meta["base_state"] = "READY"
+        path.write_text(rt.render_taskbook(meta, body))
+        self.assertIn("TB-SCHEDULER-BASE-STATE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+
+    def test_missing_scheduler_registration_fails_publication_gate(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        meta, body = rt.split_taskbook(path.read_text())
+        meta.pop("scheduler_registration")
+        path.write_text(rt.render_taskbook(meta, body))
+        self.assertIn("TB-SCHEDULER-REGISTRATION", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
     def test_missing_final_response_identity_inheritance_fails_dispatch(self):
         td, root = self.make_root()
@@ -157,6 +181,13 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         self.addCleanup(td.cleanup)
         path = self.write_task(root)
         (root / "AGENTS.md").write_text("changed")
+        self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+
+    def test_scheduler_change_makes_stamp_stale(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        (root / "research_scheduler.json").write_text("changed-scheduler")
         self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
     def test_final_response_policy_change_makes_stamp_stale(self):
@@ -191,7 +222,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         path = self.write_task(root, body="CI_NOT_REQUIRED_FOR_RESEARCH.\n")
         self.assertIn("TB-RESTATE-REMOTE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
-    def test_unstamped_legacy_warns_but_cannot_dispatch(self):
+    def test_unstamped_legacy_warns_but_cannot_publish(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         meta = {
