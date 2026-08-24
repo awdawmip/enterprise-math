@@ -80,7 +80,10 @@ def check_access_structure(k: int, q: int) -> None:
             counts = {}
             for a in range(q):
                 for b in range(q):
-                    projection = (word(k, q, chi, a, b)[i], word(k, q, chi, a, b)[j])
+                    projection = (
+                        word(k, q, chi, a, b)[i],
+                        word(k, q, chi, a, b)[j],
+                    )
                     counts[projection] = counts.get(projection, 0) + 1
             assert len(counts) == q * q
             assert set(counts.values()) == {1}
@@ -123,7 +126,8 @@ def check_integer_glue() -> None:
                     k, r, c, i, j
                 )
 
-    # Frozen sharp-nine packets.
+    # Frozen sharp-nine Cell windows.  These starts are two shells earlier than
+    # the corresponding five-flower-window starts.
     even_packet = (
         171283421, 171315481, 171347543, 171379609, 171411677,
         171443749, 171475823, 171507901, 171539981,
@@ -134,7 +138,7 @@ def check_integer_glue() -> None:
         17437412767,
     )
 
-    for vals, r in ((even_packet, 10688), (odd_packet, 107813)):
+    for vals, r in ((even_packet, 10686), (odd_packet, 107811)):
         expected_chi = 1 if r % 2 == 0 else -1
         decoded_sequences = set()
         for i, j in combinations(range(9), 2):
@@ -149,7 +153,10 @@ def check_integer_glue() -> None:
 
 
 def main() -> None:
-    for k, q in ((3, 5), (4, 7), (5, 7), (6, 7), (7, 11), (8, 11), (9, 11)):
+    for k, q in (
+        (3, 5), (4, 7), (5, 7), (6, 7),
+        (7, 11), (8, 11), (9, 11),
+    ):
         check_access_structure(k, q)
     check_integer_glue()
 
