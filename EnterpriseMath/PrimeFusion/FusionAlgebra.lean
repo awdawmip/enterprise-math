@@ -5,15 +5,16 @@ import Mathlib.RingTheory.Ideal.Quotient.Operations
 namespace EnterpriseMath.PrimeFusion
 
 open Polynomial
+open scoped Function
 
 /-- The Gaussian fusion factor `X² + 1`. -/
-def gaussianPoly : Polynomial ℤ := X ^ 2 + 1
+noncomputable def gaussianPoly : Polynomial ℤ := X ^ 2 + 1
 
 /-- The Eisenstein fusion factor `X² + X + 1`. -/
-def eisensteinPoly : Polynomial ℤ := X ^ 2 + X + 1
+noncomputable def eisensteinPoly : Polynomial ℤ := X ^ 2 + X + 1
 
 /-- The Prime Fusion polynomial `F = (X²+1)(X²+X+1)`. -/
-def fusionPoly : Polynomial ℤ := gaussianPoly * eisensteinPoly
+noncomputable def fusionPoly : Polynomial ℤ := gaussianPoly * eisensteinPoly
 
 /-- T3's integral Bézout certificate. -/
 theorem fusion_bezout :
@@ -22,13 +23,13 @@ theorem fusion_bezout :
   ring
 
 /-- Principal Gaussian factor ideal. -/
-def gaussianIdeal : Ideal (Polynomial ℤ) := Ideal.span {gaussianPoly}
+noncomputable def gaussianIdeal : Ideal (Polynomial ℤ) := Ideal.span {gaussianPoly}
 
 /-- Principal Eisenstein factor ideal. -/
-def eisensteinIdeal : Ideal (Polynomial ℤ) := Ideal.span {eisensteinPoly}
+noncomputable def eisensteinIdeal : Ideal (Polynomial ℤ) := Ideal.span {eisensteinPoly}
 
 /-- Principal fusion ideal. -/
-def fusionIdeal : Ideal (Polynomial ℤ) := Ideal.span {fusionPoly}
+noncomputable def fusionIdeal : Ideal (Polynomial ℤ) := Ideal.span {fusionPoly}
 
 /-- The two polynomial factor ideals are comaximal over `ℤ[X]`. -/
 theorem fusionFactors_isCoprime : IsCoprime gaussianIdeal eisensteinIdeal := by
@@ -48,7 +49,8 @@ theorem fusionIdeal_eq_inf : fusionIdeal = gaussianIdeal ⊓ eisensteinIdeal := 
       Ideal.mul_eq_inf_of_coprime (Ideal.isCoprime_iff_sup_eq.mp fusionFactors_isCoprime)
 
 /-- The factor-ideal family used by the finite integral CRT. -/
-def factorIdeal : Fin 2 → Ideal (Polynomial ℤ) := ![gaussianIdeal, eisensteinIdeal]
+noncomputable def factorIdeal : Fin 2 → Ideal (Polynomial ℤ) :=
+  ![gaussianIdeal, eisensteinIdeal]
 
 /-- The two-element factor family is pairwise comaximal. -/
 theorem factorIdeal_pairwise : Pairwise (IsCoprime on factorIdeal) := by
@@ -69,13 +71,21 @@ theorem factorIdeal_iInf :
 theorem fusionIdeal_eq_iInf : fusionIdeal = ⨅ i, factorIdeal i := by
   rw [factorIdeal_iInf, fusionIdeal_eq_inf]
 
-/-- T3: transparent integral CRT decomposition of the fusion quotient. -/
+/-- T3: the integral CRT decomposition, with the two factors kept definitionally visible. -/
 noncomputable def fusionCRT :
     (Polynomial ℤ ⧸ fusionIdeal) ≃+*
-      (Polynomial ℤ ⧸ gaussianIdeal) × (Polynomial ℤ ⧸ eisensteinIdeal) := by
+      (Polynomial ℤ ⧸ factorIdeal 0) × (Polynomial ℤ ⧸ factorIdeal 1) := by
   let e₁ := Ideal.quotEquivOfEq fusionIdeal_eq_iInf
   let e₂ := Ideal.quotientInfRingEquivPiQuotient factorIdeal factorIdeal_pairwise
   let e₃ := RingEquiv.piFinTwo (fun i => Polynomial ℤ ⧸ factorIdeal i)
-  simpa [factorIdeal] using e₁.trans (e₂.trans e₃)
+  exact e₁.trans (e₂.trans e₃)
+
+/-- The first CRT factor is exactly the Gaussian quotient. -/
+theorem factorIdeal_zero : factorIdeal 0 = gaussianIdeal := by
+  simp [factorIdeal]
+
+/-- The second CRT factor is exactly the Eisenstein quotient. -/
+theorem factorIdeal_one : factorIdeal 1 = eisensteinIdeal := by
+  simp [factorIdeal]
 
 end EnterpriseMath.PrimeFusion
