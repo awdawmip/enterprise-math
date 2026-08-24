@@ -57,6 +57,19 @@ def test_agents_uses_current_candidate_successor_and_promotion_boundaries():
         assert marker in text
 
 
+def test_agents_routes_all_task_coordination_through_scheduler_v2():
+    text = read("AGENTS.md")
+    for marker in (
+        "research_scheduler_v2.json",
+        "docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md",
+        "PUBLISH != READY",
+        "RETURN != DONE",
+        "LEASE_EXPIRY -> ORPHANED",
+        "EXECUTABLE_TASKBOOK -> REGISTERED_TASK_ID",
+    ):
+        assert marker in text
+
+
 def test_agents_preserves_tool_reuse_gate_after_identity_merge():
     text = read("AGENTS.md")
     for marker in (
@@ -98,14 +111,16 @@ def test_tool_surface_matches_agents_role_routing_without_transition_guard():
     assert "suggested question/discovery-lens menu" in text
 
 
-def test_free_role_preserves_blind_tool_timing_and_has_footer():
+def test_free_role_preserves_blind_tool_timing_and_can_publish_mature_work():
     text = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
-    assert "V6.3" in text
+    assert "V7.0" in text
     assert "NO_DEFAULT_DISCOVERY_LENS_MENU" in text
-    assert "Phase B — mandatory tool dedup after freeze" in text
+    assert "Phase B" in text
     assert "tool_invocation_policy.json" in text
+    assert "PUBLISHED / NEEDS_REVIEW" in text
+    assert "FREE researcher may author the derived taskbook itself" in text
     assert "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY" in text
-    assert "every final response" in text
+    assert "Every final response" in text
     for seeded_example in (
         "invariance / locality",
         "composition / cancellation",
