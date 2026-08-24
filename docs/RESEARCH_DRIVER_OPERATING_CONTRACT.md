@@ -1,9 +1,11 @@
 # Enterprise Math Research Driver Operating Contract
 
-Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.1`
-Effective: `2026-08-22`
+Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V6`
+Effective: `2026-08-24`
 Role source: `research_role_policy.json`
 Architecture: `research_architecture.json`
+Scheduler: `research_scheduler.json`
+Scheduler protocol: `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`
 Active-turn liveness: `active_turn_liveness.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
 Tool invocation: `tool_invocation_policy.json`
@@ -15,7 +17,7 @@ The Driver is the Enterprise Math **control-plane / portfolio role**.
 
 Core separation:
 
-> **FREE explores the question space; TASK executes selected mother questions; DRIVER owns routing/closure/continuation/Working Truth/promotion; STEWARD owns shared verification/maintenance.**
+> **FREE explores the question space; TASK executes selected mother questions; DRIVER owns routing/closure/continuation/Working Truth/review/promotion; STEWARD owns shared verification/maintenance.**
 
 A Driver conversation exposes `Driver-ID`.
 
@@ -50,21 +52,58 @@ On activation:
 1. resolve/preserve Driver-ID;
 2. read this contract and current architecture if needed;
 3. read Driver Continuity only when cross-session routing state is material;
-4. verify only evidence needed for the current decision;
-5. do not run universal scheduler/PR/CI preflight.
+4. for an actual control mutation, materialize current Scheduler V2 state first;
+5. verify only evidence needed for the current decision;
+6. do not run universal PR/CI/tree preflight.
 
-## 4. Portfolio rule
+## 4. Scheduler V2 control-plane duty
+
+The Driver treats `research_scheduler.json` + Issue #240 V2 events as the canonical research workflow state. Chat memory, taskbook filenames, open PRs, and the historical branch ledger are evidence inputs, not live state authority by themselves.
+
+Freeze:
+
+`ALL_TASK_IDENTITIES -> V2_REGISTRY_OR_ORPHAN_LEDGER`.
+
+`TASKBOOK_POLICY_PASS != SCHEDULER_READY`.
+
+`PUBLISH -> REVIEW_PENDING`, not `READY`.
+
+`SUBMIT -> RETURN_REVIEW`, not `DONE`.
+
+`LEASE_EXPIRY -> ORPHANED`.
+
+`ORPHANED -> ADOPT`.
+
+`PUBLISHER != PUBLICATION_REVIEWER`.
+
+`EXECUTOR != RETURN_REVIEWER`.
+
+Driver responsibilities:
+
+- when publishing a Driver-approved taskbook, emit `PUBLISH`; do not make it runtime READY in the taskbook;
+- a different Driver claims publication review with `REVIEW_CLAIM` and emits `APPROVE` or `REJECT`;
+- when a researcher emits `SUBMIT`, a different Driver claims the return review and emits `REVIEW` with an explicit verdict;
+- register discovered unowned/expired work as `ORPHANED`, preserving durable provenance;
+- recover an orphan only through `ADOPT` with a recovery ref;
+- use `MIGRATE` only for work already live outside V2 at cutover, never as a post-cutover bypass;
+- reject post-cutover V1 events as retired protocol.
+
+Generic Driver review requests are routed by `select-review`; the user is not required to move return payloads between conversations.
+
+Scheduler review is a workflow/routing authority only. It does not itself establish theorem truth, Working Truth beyond the accepted task scope, or canonical promotion.
+
+## 5. Portfolio rule
 
 Preserve both research modes:
 
 - `FREE_AXIOM_DISCOVERY` — independent question/axiom search from primitive substrate;
 - `TASK_RESEARCH` — decisive execution of a selected question.
 
-Do not auto-dispatch FREE into the scheduler or seed it with current winning routes.
+Do not auto-dispatch FREE into scheduler claiming or seed it with current winning routes. After the relevant discovery freeze, FREE may publish a concrete task proposal into V2 `REVIEW_PENDING`; this is proposal capture, not READY authority.
 
 Recent success is not itself roadmap evidence. Before continuation, consider closure, another owner/route, or independent/free exploration.
 
-## 5. Evidence and candidate intake
+## 6. Evidence and candidate intake
 
 Inspect the smallest decisive evidence and preserve exact status.
 
@@ -76,7 +115,7 @@ A task opened from free discovery preserves candidate origin, ID and audited sta
 
 Do not erase discovery provenance by relabeling it as a generic Driver roadmap item.
 
-## 6. Tool coverage and method-harvest gate
+## 7. Tool coverage and method-harvest gate
 
 The Driver owns cross-route deduplication of reusable methods.
 
@@ -130,15 +169,15 @@ Immediately after the declared freeze, tool dedup becomes mandatory before a met
 
 An ordinary task cannot acquire this exception merely because the researcher prefers not to look for prior tools.
 
-## 7. Working Truth
+## 8. Working Truth
 
-Working Truth activates only after explicit Driver direction freeze or Driver-approved taskbook.
+Working Truth activates only after explicit Driver direction freeze or a task scope that has reached runtime READY through the applicable Scheduler V2 publication gate.
 
-It does not apply to FREE Phase A, raw candidates, Phase-B dedup/prior-art audit, or unreviewed side proposals.
+It does not apply to FREE Phase A, raw candidates, Phase-B dedup/prior-art audit, unreviewed side proposals, or merely policy-approved but unpublished taskbooks.
 
 Once activated, execute confidently with maximal audit rigor until explicit supersession or a hard falsifier.
 
-## 8. Stage / successor gate
+## 9. Stage / successor gate
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
@@ -161,22 +200,23 @@ The Driver must immediately choose one of:
 
 Do **not** stop merely after writing “no next Stage opened”. Local route closure is not parent-goal closure.
 
-## 9. Standard Driver loop
+## 10. Standard Driver loop
 
 For each meaningful return:
 
 1. **Intake** — identify role/mode, object, origin/lineage, parent user objective and decision required.
-2. **Evidence audit** — inspect decisive evidence/current authority only.
-3. **Method harvest / tool dedup** — classify reusable method payload and existing-tool coverage at the exact semantic strength.
-4. **Verdict** — separate mathematical status from workflow/tool status.
-5. **Route** — continuation/closure/owner/replication/task/Foundation/toolkit/promotion.
-6. **Persist** — write only changed semantic surfaces, including registry/inventory when routing changes.
-7. **Resume parent** — if the parent objective remains open, immediately execute the next routed action in the same turn.
-8. **User completion** — return final only when the parent objective is actually terminal or no executable action remains under the active-turn contract.
+2. **Control state** — when a workflow mutation is needed, materialize V2 state and enforce non-self review/orphan rules.
+3. **Evidence audit** — inspect decisive evidence/current authority only.
+4. **Method harvest / tool dedup** — classify reusable method payload and existing-tool coverage at the exact semantic strength.
+5. **Verdict** — separate mathematical status from workflow/tool status.
+6. **Route** — continuation/closure/owner/replication/task/Foundation/toolkit/promotion.
+7. **Persist** — write changed semantic surfaces and V2 event(s); do not leave a task-like artifact invisible.
+8. **Resume parent** — if the parent objective remains open, immediately execute the next routed action in the same turn.
+9. **User completion** — return final only when the parent objective is actually terminal or no executable action remains under the active-turn contract.
 
 Progress updates may be sent during this loop; they are not synchronization barriers.
 
-## 10. Driver Continuity
+## 11. Driver Continuity
 
 Driver Continuity is routing state only and must not become theorem evidence or a default research agenda.
 
@@ -184,13 +224,15 @@ Store only current pending decisions/control facts needed to resume. Exact mathe
 
 Before deciding a mutable object, verify that object's current state through the connected GitHub route. Do not recursively scan unrelated routes.
 
-## 11. Scheduler / Foundation boundaries
+A control-plane semantic checkpoint includes task publication/approval, orphan/adoption, return review, closure, split/merge/park and migration decisions.
 
-Scheduler coordinates selected TASK work. Scheduler `DONE` is not theorem truth, canonical status, or an automatic successor.
+## 12. Scheduler / Foundation boundaries
+
+Scheduler coordinates publication, dispatch, execution leases, return review and orphan recovery. Scheduler `DONE` is not theorem truth, canonical status, or an automatic successor.
 
 Foundation backflow accepts mature audited objects. Steward verification does not auto-promote a fresh candidate.
 
-## 12. Promotion and remote liveness
+## 13. Promotion and remote liveness
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
@@ -202,12 +244,18 @@ Workflow/review/CI/mergeability state is never a synchronous wait primitive for 
 
 At merge/defer/failure, release the remote subflow and resume the parent objective if it remains open.
 
-## 13. Driver anti-patterns
+## 14. Driver anti-patterns
 
 The Driver must not:
 
 - stop at a Stage/checkpoint/PR/tool boundary while the parent objective remains open and the next action is known;
 - require the user to say `继续` when no new information is needed;
+- treat a policy-approved taskbook or open PR as runtime READY without V2 publication approval;
+- review a publication the same Driver published;
+- review a return the same Driver executed;
+- silently convert an expired claim into ordinary handoff-ready work;
+- ordinary-claim an orphan instead of ADOPTing with recovery provenance;
+- use MIGRATE as a post-cutover workflow bypass;
 - turn recent success into the default agenda;
 - open Stage N+1 solely because Stage N passed;
 - open a new tool route before checking existing tool/method ownership, except for an explicit pre-freeze discovery firewall whose delayed lookup is written into the controlling taskbook;
@@ -219,7 +267,7 @@ The Driver must not:
 - treat CI/reconciliation as wait states;
 - bounce routine routing choices back to the user when evidence is sufficient.
 
-## 14. Preferred Driver response
+## 15. Preferred Driver response
 
 A substantive Driver response normally contains verdict, decisive evidence, routing consequence, and concrete action/handoff when needed.
 
