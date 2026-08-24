@@ -1,181 +1,183 @@
 # Enterprise Math / 进取数论研究调度协议
 
-状态：`ACTIVE / CANONICAL SCHEDULING CONTRACT`  
-生效：2026-08-09  
-范围：全部 L1 core owner、L2 program owner、L3 bridge/probe 与 L4 integration replay。
+状态：`ACTIVE / CANONICAL SCHEDULING CONTRACT / V2`  
+生效：`2026-08-25`  
+机器契约：`research_scheduler_v2.json`  
+Reducer / 事件生成器：`tools/research_scheduler.py`  
+运行时事件日志：GitHub Issue #240
 
-本协议用于消除 Architecture v2 迁移期间形成的调度歧义。旧迁移说明、replay manifest、branch ledger 或 Relay 文本如果可能被理解为“某条研究线必须等待另一条研究线”，其调度解释以本协议为准。
+## 1. 核心不变量
 
-## 1. 第一不变量：研究并行，规范晋升串行
+进取数论把科研自由与控制面权限分开：
 
-Enterprise Math 必须区分两类活动：
+> **任何具备资格的角色都可以发布成熟任务；只有经过审核的任务才能执行；执行者提交 RETURN；Driver 独立审核后才能 DONE；任何失联任务都必须留下孤儿记录。**
 
-- **研究/发现**：新证明、反例、构造、工具、实验、领域特化；
-- **规范晋升**：语义归属审计、编号、中英文 replay、reference/lineage 登记、最终仓库门禁以及合入 `main`。
+状态机负责“任务是否存在、是否可派工、由谁执行、是否已返回、谁审核、是否成为孤儿、如何恢复”；它不负责把数学结论自动提升为规范真理。
 
-研究/发现默认并行。只有规范晋升在仓库一致性确有必要时才串行。
+冻结：
 
-某个依赖对 theorem ownership 或未来 integration 有必要，**不等于正在进行的研究必须等待它**。
+`TASKBOOK_FILE != RUNTIME_STATE_AUTHORITY`  
+`PUBLISH != READY`  
+`RETURN != DONE`  
+`LEASE_EXPIRY != SILENT_HANDOFF`
 
-## 2. `defer` 不等于 blocker
+## 2. 所有任务统一进入一个 registry
 
-`defer`、`consume from`、`owner moved`、`audit against`、`replay after`、`depends on owner` 以及同义路由文字，只表示：
+官方任务必须存在于 Scheduler V2。
 
-> 本路线不要复制母定理，也不要过早把它提升为自己的规范结果。
+任务有两类登记入口：
 
-它们绝不自动表示：
+1. V2 `PUBLISH`：事件一经合法接受，任务立即进入 `PUBLISHED / NEEDS_REVIEW`；
+2. V2 迁移：旧 V1 registry 中的任务以及明确列入 V2 bootstrap 的历史有效任务被导入。
 
-> 停止本路线，等另一条 branch 完成以后再研究。
+Markdown taskbook 只描述任务，不能靠文件中的 `READY`、`DONE` 字样绕过状态机。
 
-只要缺失结果并不妨碍提出和检验问题，本路线就继续。可以使用已证明的上游定理、把下游结果写成条件定理、构造例子/反例、推导特化、或精确隔离真正缺失的 lemma。
+CI 必须检查 taskbook 与 registry 的差集：任何 taskbook 自称处于可执行状态而 task_id 不在 registry，直接失败。
 
-## 3. 只有显式 `HARD_BLOCK` 才允许停止
-
-一条路线只有同时记录以下四项时才允许等待：
-
-```text
-HARD_BLOCK:
-  missing_object: <精确缺失的定理/数据/实验/产物>
-  owner: <负责路线或外部来源>
-  necessity: <为什么不存在有意义的独立下一步>
-  unblock_condition: <什么精确条件满足后恢复>
-```
-
-少任何一项，都不是 hard block。
-
-`HARD_BLOCK` 应极少出现。只要还能证明条件定理、寻找反例、削弱假设、构造 executable oracle、验证特例、或攻击同路线的另一个 open frontier，就不属于真正 blocked。
-
-## 4. L1/L2/L3 owner 始终允许产生新数学
-
-- L1 core owner：允许并且应当继续产生新的可复用母定理；
-- L2 program owner：允许并且应当继续产生 program-specific 数学、应用、反例和候选推广；
-- L3 bridge/probe：在其声明的桥梁问题范围内允许新数学；
-- L4 integration replay：**NO NEW MATHEMATICS**。
-
-如果某个 L1/L2/L3 owner branch 的 replay manifest 写有
-
-`no_new_mathematics_during_replay = true`
-
-该约束只作用于明确标识的 replay slice 或 replay 操作，绝不能冻结整个 owner branch。
-
-如果搬运某个 replay slice 时发现了新定理，应回到正确的 L1/L2/L3 research frontier 记录和证明；不得把新数学偷偷塞进 L4 transport commit。
-
-## 5. `main` 持续移动不是研究 blocker
-
-如果 `main` 每推进一次就重建同一份已验证结果，会形成 integration livelock。
-
-改用以下规则：
-
-1. 用 source commit/blob/theorem identity 冻结已经证明的语义 payload；
-2. 其他研究照常继续；
-3. 真正准备晋升时再创建或刷新 L4 integration replay；
-4. merge 前只需针对当时 current `main` 做一次最终 combination gate；
-5. 如果 `main` 只是加入无关变化，不得因此创建新的 research generation，也不得重新证明；
-6. 只有新 `main` 造成真实语义冲突或使某项假设失效，才重新进入研究。
-
-因此要求的是**最终合并状态兼容**，不是追逐每一个中间 `main` head。
-
-## 6. Relay 下游动作四分类
-
-今后的跨路线 Relay 条目必须把 requested downstream action 明确归入且仅归入以下一种：
-
-- `INFORM`：提供有价值上下文；继续研究不需要先处理；
-- `CONSUME`：应复用该结果，不再复制母定理；
-- `TEST`：适合时进行压力测试、桥梁验证或反例搜索；
-- `HARD_DEPENDENCY`：下游当前声明的 frontier 确实无法在缺少该结果时继续。
-
-只有 `HARD_DEPENDENCY` 才可能形成 `HARD_BLOCK`，而且下游自己仍必须记录上述四个 `HARD_BLOCK` 字段。
-
-下游没有 ACK，不阻断上游继续推进。
-
-## 7. 路线 heartbeat
-
-每条 active owner 都应能给出：
+## 3. 正常生命周期
 
 ```text
-frontier: <当前数学问题>
-hard_block: NONE | <HARD_BLOCK 记录>
-last_progress: <commit/PR/Relay result>
-shared_surface_seen: <main SHA 或 common-surface revision>
+PUBLISH
+  -> PUBLISHED / NEEDS_REVIEW
+  -> REVIEW(DISPATCH, ACCEPT)
+  -> READY / NEEDS_DISPATCH
+  -> CLAIM
+  -> CLAIMED / IN_PROGRESS
+  -> RETURN
+  -> RETURNED / NEEDS_REVIEW
+  -> REVIEW(RETURN, ACCEPT)
+  -> DONE / COMPLETE
 ```
 
-只要 `hard_block = NONE`，该路线就应继续研究，而不是等待另一个对话、branch、review 或 replay。
+允许的旁路包括：
 
-## 8. 调度状态机与对话接力
+```text
+RETURNED -> REVIEW(RETURN, CHANGES_REQUESTED) -> CHANGES_REQUESTED -> CLAIM ...
+PUBLISHED -> REVIEW(DISPATCH, CHANGES_REQUESTED) -> PUBLISHED
+PUBLISHED -> REVIEW(DISPATCH, REJECT) -> REJECTED
+执行中 -> HANDOFF -> HANDOFF_READY
+执行中 -> HARD_BLOCK -> BLOCKED -> UNBLOCK -> HANDOFF_READY
+任务 -> ORPHAN -> ORPHANED -> RECOVER / REVIEW(RECOVERY) -> HANDOFF_READY
+任务 -> SUPERSEDE -> SUPERSEDED
+```
 
-上述路线 heartbeat 由 `research_scheduler.json`、`tools/research_scheduler.py` 与实时 Research Dispatch Board Issue #240 落成可执行调度层。
+## 4. 自由研究员可以发布，但不能自行派工
 
-scheduler 负责的是**谁来继续哪一个研究前沿**，不负责判定定理是否已证明、是否 canonical、是否具有 novelty、或是否已经可以晋升。
+FREE Phase A 仍不参加 scheduler 自动选题/CLAIM，避免当前研究议程反向污染自由发现。
 
-### 8.1 任务状态
+当自由研究候选完成规定的 Phase-B 审计并达到 candidate lifecycle 要求的 intake-eligible 状态后，原 FREE researcher 可以自行撰写 taskbook，并发送 `PUBLISH`。
 
-持久任务前沿使用以下状态：
+这一步只得到：
 
-`BACKLOG -> READY -> CLAIMED -> IN_PROGRESS -> HANDOFF_READY -> DONE`
+`PUBLISHED / NEEDS_REVIEW`。
 
-并有两个异常出口：
+研究员不能把自己发布的任务改成 `READY`。是否进入 `READY` 必须由 Driver 的 `REVIEW(stage=DISPATCH)` 决定。
 
-- `BLOCKED`：只允许由完整四字段 `HARD_BLOCK` 进入；
-- `SUPERSEDED`：该任务前沿已被另一项明确任务替代。
+## 5. Driver 交叉审核是一等状态转移
 
-`READY` 与 `HANDOFF_READY` 可被调度；`BACKLOG` 明确保持休眠。存在 live claim 的任务暂时租给一个执行者。已经完成或被替代的任务不会再被自动选择。
+`REVIEW` 有三类：
 
-### 8.2 CLAIM 是可续期租约
+- `DISPATCH`：审核 `PUBLISHED` 是否进入 `READY`；
+- `RETURN`：审核 `RETURNED` 是否进入 `DONE`；
+- `RECOVERY`：审核 `ORPHANED` 如何恢复或退出。
 
-`CLAIM` 是临时执行租约，不是永久占有。默认租约时长由 `research_scheduler.json` 声明。
+若任务由某 Driver-ID 发布，该 Driver-ID 不得自己把任务审核为 READY。
 
-- `PROGRESS` 续租并记录真实阶段成果；
-- 没有更好进展事件可记录时，`HEARTBEAT` 用于续租；
-- `HANDOFF` 主动释放任务，并且必须给出一个具体 `next_action`；
-- 如果执行者消失而没有 handoff，租约到期后任务自动回到 `HANDOFF_READY / NEEDS_DISPATCH`；
-- 第二个 claim 不能抢占尚未到期的 live lease；
-- 租约过期、handoff、unblock 或其他合法释放后，新的对话可以重新 claim。
+执行结果也不能由执行身份自己审核为 DONE。
 
-运行时事件以 `ENTERPRISE_MATH_SCHEDULER_EVENT_V1` 结构追加到 Issue #240。事件顺序按 GitHub comment 创建顺序确定；若时间相同，以 comment ID 作为次序。
+审核必须携带 `review_ref`，并写入 `review_history`。
 
-### 8.3 新对话自动选取任务
+## 6. 执行者使用 RETURN，不使用 DONE
 
-用户当前显式指定的任务始终覆盖自动调度。
+`CLAIM` 是可续租的执行 lease，仅 `READY`、`HANDOFF_READY`、`CHANGES_REQUESTED` 可领取。
 
-如果一个新的 Enterprise Math 研究对话没有由用户指定任务，它必须：
+- `HEARTBEAT`：续租，不代表科研进展；
+- `PROGRESS`：续租并记录真实 checkpoint；
+- `HANDOFF`：主动释放，必须给出明确 next_action；
+- `RETURN`：提交执行结果，释放 claim，进入待审核；
+- V2 执行者不得发送 `DONE`。
 
-1. 读取 common surface、本调度协议、`research_scheduler.json`、owner isolation 与 Issue #240 live events；
-2. 把所有合法运行时事件归约成当前任务状态；
-3. 排除存在 live lease 的任务、已完成任务、blocked 任务以及休眠的 `BACKLOG`；
-4. 优先选择 `HANDOFF_READY`，其次才是新的 `READY`，使被中断的研究优先接上而不是不断开新线；
-5. 在同一状态层内，依次按 scheduler priority、跨路线 leverage、最旧 last-progress 时间、稳定 task ID 排序；
-6. 在开始实质性 task-specific 研究前，先发布合法 `CLAIM`；
-7. 在证明新内容前，刷新所选任务对应的 source PR/branch/Relay/canonical dependencies。
+只有 Driver `REVIEW(RETURN, ACCEPT)` 才把任务变成 `DONE`。
 
-该选择规则是确定性的，因此多个 agent 看见同一状态时会选出同一个首选候选；真正并发领取时，以 GitHub 上第一个合法 CLAIM 事件获胜。
+## 7. 孤儿任务是一等状态
 
-### 8.4 会话退出契约
+claim lease 到期时，V2 不再静默转成 `HANDOFF_READY`。
 
-研究会话不得从控制面静默消失。
+状态变为：
 
-未完成任务而准备结束会话时，必须发布 `HANDOFF`，至少包含：
+`ORPHANED / ORPHANED`。
 
-- task ID 与当前 claim ID；
-- 最近一次有意义的 commit/PR/Relay 或其他 progress reference；
-- 一个具体的下一步数学/工程动作；
-- 除非完整例外 blocker 确实成立，否则 `hard_block = NONE`。
+并持久保留尽可能完整的信息：
 
-只有 scheduler task 声明的 frontier 确实完成后才使用 `DONE`。Canonical promotion 仍是独立的 L4 lifecycle 操作，除非 promotion 本身就是该 scheduler task 声明的任务。
+- orphaned_at、reason；
+- 原 claim_id；
+- actor / Researcher-ID；
+- last_progress_ref；
+- next_action。
 
-接力不要求下游 ACK。真正保证继续的是 scheduler，而不是另一个对话是否回复确认。
+显式 `ORPHAN` 还可以登记 branch、last_commit、source_ref、发现人和失联原因。
 
-### 8.5 控制面一致性
+`orphan_history` 在恢复后仍保留。ORPHANED 不参与自动派工，必须先由 Driver `RECOVER` 或 `REVIEW(RECOVERY, ...)`。
 
-`branch_governance_overrides.json` 是机器 owner registry；每一个 `ACTIVE_OWNER`/`ACTIVE_BRIDGE` 都必须获得 scheduler 覆盖，即使对应 scheduler task 被有意放在 `BACKLOG`。`tools/research_scheduler.py validate` 会检查这项覆盖并拒绝不完整的 hard-block 记录。
+## 8. HARD_BLOCK 仍然是例外
 
-历史 branch ledger 仍可作为 provenance/snapshot 使用，但不再是实时执行者分配面。实时 dispatch 权威由 current owner registry + `research_scheduler.json` + Issue #240 runtime events 共同构成。
+必须同时有：
 
-CI、review、L4 replay 或 moving `main` 可以改变 evidence/promotion 状态，但不得静默把 research task 变成 `BLOCKED`。
+```text
+missing_object
+owner
+necessity
+unblock_condition
+```
 
-## 9. 与 Architecture v2 的关系
+CI、review、scheduler 工具、moving main、没有 ACK 都不是数学 HARD_BLOCK。
 
-本协议保留 Architecture v2 的 theorem ownership 与 non-destructive replay 原则，只纠正错误的调度解释：
+## 9. 自动选择
 
-> 母定理归属唯一；知识全局共享；研究保持并行。
+TASK_RESEARCH 无用户指定任务时，只从 `dispatch_state=NEEDS_DISPATCH` 选择：
 
-A0–A5 归属轴的作用是防止重复维护母定理，绝不能演变成串行依赖链。
+1. `HANDOFF_READY`；
+2. `CHANGES_REQUESTED`；
+3. `READY`；
+
+再按 priority、leverage、最旧进度时间、稳定 task_id 排序。
+
+`PUBLISHED`、`RETURNED`、`ORPHANED`、`BLOCKED`、终态和 live lease 均不会被自动领取。
+
+FREE_AXIOM_DISCOVERY 不走该自动选择路径。
+
+## 10. 事件与兼容
+
+新事件统一使用：
+
+`ENTERPRISE_MATH_SCHEDULER_EVENT_V2`。
+
+Issue #240 是 append-only 日志。V2 reducer 为迁移保留旧 V1 事件兼容；历史 V1 `DONE` 可以 grandfather，但 V2 激活后不得再产生新的 V1 DONE。
+
+优先用生成器：
+
+```text
+python tools/research_scheduler.py emit-publish ...
+python tools/research_scheduler.py emit-review ...
+python tools/research_scheduler.py emit-claim ...
+python tools/research_scheduler.py emit-progress ...
+python tools/research_scheduler.py emit-handoff ...
+python tools/research_scheduler.py emit-return ...
+python tools/research_scheduler.py emit-orphan ...
+python tools/research_scheduler.py emit-recover ...
+```
+
+## 11. 必须通过的控制面检查
+
+```text
+python tools/research_scheduler.py validate
+python tools/research_scheduler.py registry-integrity
+```
+
+单元测试必须覆盖：任务发布、Driver 独立审核、RETURN 审核、lease expiry 孤儿化、显式 orphan、恢复、选择顺序、V1 迁移以及隐藏 taskbook 检测。
+
+## 12. 研究仍然并行
+
+V2 不把所有数学研究串行化。它只对同一个任务的冲突 claim 和必要审核转移做序列化。
+
+`ownership is unique; knowledge is shared; research remains parallel.`
