@@ -4,6 +4,7 @@
   "effective": "2026-08-25",
   "scheduler_issue": 240,
   "seed_registry": "research_scheduler.json",
+  "seed_task_overrides": {},
   "claim_lease_minutes": 120,
   "event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V2",
   "accepted_legacy_event_schemas": [
@@ -12,7 +13,7 @@
   "authority": {
     "explicit_user_task_overrides_auto_dispatch": true,
     "runtime_event_log": "GitHub Issue #240",
-    "task_existence_authority": "V2 seed/bootstrap registry plus valid PUBLISH events",
+    "task_existence_authority": "V2 seed/bootstrap registry + valid PUBLISH events + automatic ORPHANED registration of otherwise-unregistered taskbooks",
     "runtime_state_authority": "V2 reducer over append-only Issue #240 events",
     "owner_registry": "branch_governance_overrides.json",
     "taskbook_contract": "research_taskbook_contract.json",
@@ -113,6 +114,7 @@
       "accept_to": "READY",
       "changes_requested_to": "PUBLISHED",
       "reject_to": "REJECTED",
+      "taskbook_policy_pass_required_when_taskbook_ref_present": true,
       "cross_review_rule": "reviewer_id must differ from publisher_id when publisher_id is present"
     },
     "return": {
@@ -150,7 +152,8 @@
     "skip_live_leases": true,
     "skip_complete_hard_dependencies": false,
     "research_only_by_default": true,
-    "orphan_requires_recovery_review_before_dispatch": true
+    "orphan_requires_recovery_review_before_dispatch": true,
+    "live_cli_selection_requires_runtime_event_export": true
   },
   "handoff_contract": {
     "unfinished_session_requires_handoff": true,
@@ -162,12 +165,14 @@
       "progress_ref",
       "next_action"
     ],
-    "silent_abandonment_recovery": "claim lease expiry produces ORPHANED plus a durable derived orphan_history record",
+    "v2_silent_abandonment_recovery": "V2 claim lease expiry produces ORPHANED plus a durable derived orphan_history record",
+    "legacy_v1_replay": "Historical V1 claim expiry preserves a durable orphan_history record but retains the old HANDOFF_READY/reclaim behavior so append-only V1 history is not rewritten.",
     "ack_required": false
   },
   "orphan_contract": {
     "state": "ORPHANED",
-    "auto_on_lease_expiry": true,
+    "auto_on_v2_lease_expiry": true,
+    "auto_register_untracked_taskbooks_as_orphaned": true,
     "preserve_history_after_recovery": true,
     "explicit_event": "ORPHAN",
     "explicit_required_fields": [
@@ -186,7 +191,7 @@
     ],
     "recovery_requires_driver": true,
     "recovery_event": "RECOVER",
-    "rule": "An orphan is never silently converted to HANDOFF_READY. It remains visibly ORPHANED until a Driver records recovery/adoption or rejection."
+    "rule": "A V2 orphan is never silently converted to HANDOFF_READY. It remains visibly ORPHANED until a Driver records recovery/adoption or rejection. Historical V1 expiry may replay its old handoff semantics only while retaining an orphan_history record."
   },
   "hard_block_contract": {
     "required_fields": [
@@ -211,23 +216,126 @@
   "registry_integrity": {
     "taskbook_directory": "research_tasks",
     "taskbook_frontmatter_prefix": "ENTERPRISE_MATH_TASK_V1",
-    "must_be_registered_taskbook_states": [
-      "READY",
-      "CLAIMED",
-      "IN_PROGRESS",
-      "RETURNED",
-      "CHANGES_REQUESTED",
-      "HANDOFF_READY",
-      "ORPHANED",
-      "BLOCKED"
-    ],
-    "published_taskbooks_may_exist_only_with_runtime_publish_event": true,
+    "auto_register_untracked_taskbooks_as_orphaned": true,
+    "untracked_taskbook_state": "ORPHANED",
+    "untracked_taskbook_dispatchable": false,
+    "published_taskbooks_without_publish_event_become_orphaned": true,
     "legacy_seed_registry_is_imported": true,
     "duplicate_task_id_is_error": true,
-    "unknown_ready_taskbook_is_error": true,
-    "rule": "A taskbook may not claim an executable/runtime state while remaining invisible to the scheduler registry."
+    "runtime_event_unknown_task_id_is_error": true,
+    "rule": "No taskbook can be invisible to Scheduler V2. If it lacks seed/bootstrap/PUBLISH registration, the reducer imports it as a durable non-dispatchable ORPHANED migration record until Driver recovery/closure."
   },
   "bootstrap_tasks": [
+    {
+      "task_id": "RS-R043-NATIVE-SURFACE-FRONTIER-RECONSTRUCTION-MARKOV-CARRIER",
+      "title": "R043 Native Surface Frontier Reconstruction Markov Carrier",
+      "kind": "RESEARCH",
+      "owner": "program/p022-geometry-v2",
+      "base_state": "DONE",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "frontier": "Historical R043 execution recovered stationary native slot-cut carrier K_partial and isolated the remaining G0 completion question.",
+      "next_action": "Do not redispatch. Successor chain R043-C1 through C4 owns the remaining frontier.",
+      "dependencies": [],
+      "source_refs": [
+        "research_tasks/R043_NATIVE_SURFACE_FRONTIER_RECONSTRUCTION_MARKOV_CARRIER_20260812.md",
+        "driver_reviews/R043_RETURN_RECOVERY_AND_C1_SUCCESSOR_DRIVER_REVIEW_20260824.md",
+        "Draft PR #532"
+      ],
+      "evidence_status": "DONE_RETURNED_RECOVERED_DO_NOT_REDISPATCH",
+      "last_progress_ref": "R043 recovery Driver intake / PR #620",
+      "last_progress_at": "2026-08-24T13:30:00+08:00",
+      "hard_block": null,
+      "tags": ["R043", "native-surface", "migration", "done"],
+      "identity_lane": "R043",
+      "taskbook_ref": "research_tasks/R043_NATIVE_SURFACE_FRONTIER_RECONSTRUCTION_MARKOV_CARRIER_20260812.md",
+      "registry_source": "V2_BOOTSTRAP_MIGRATION",
+      "publication_review_exempt": true,
+      "publication_review_exempt_reason": "Recovered and Driver-accepted before Scheduler V2 activation."
+    },
+    {
+      "task_id": "RS-R043C1-NATIVE-SLOT-COMPLETION-G0-INJECTIVITY",
+      "title": "R043-C1 Native Slot Completion G0 Injectivity",
+      "kind": "RESEARCH",
+      "owner": "program/p022-geometry-v2",
+      "base_state": "DONE",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "frontier": "Raw K_partial to G0 injectivity was refuted by globally realizable shielded-cavity collisions, shown future-harmless for addition-only Boolean horizons.",
+      "next_action": "Do not redispatch. R043-C2 consumed this result.",
+      "dependencies": [],
+      "source_refs": [
+        "research_tasks/R043C1_NATIVE_SLOT_COMPLETION_G0_INJECTIVITY_20260824.md",
+        "driver_reviews/R043C1_SHIELDED_CAVITY_COLLISION_AND_C2_SUCCESSOR_DRIVER_REVIEW_20260824.md",
+        "PR #621",
+        "PR #622"
+      ],
+      "evidence_status": "DONE_DRIVER_ACCEPTED_SUCCESSOR_OPENED",
+      "last_progress_ref": "PR #622 Driver intake",
+      "last_progress_at": "2026-08-24T13:46:00+08:00",
+      "hard_block": null,
+      "tags": ["R043C1", "native-surface", "migration", "done"],
+      "identity_lane": "R043C1",
+      "taskbook_ref": "research_tasks/R043C1_NATIVE_SLOT_COMPLETION_G0_INJECTIVITY_20260824.md",
+      "registry_source": "V2_BOOTSTRAP_MIGRATION",
+      "publication_review_exempt": true,
+      "publication_review_exempt_reason": "Execution and Driver intake completed before Scheduler V2 activation."
+    },
+    {
+      "task_id": "RS-R043C2-G0-FUTURE-SUFFICIENCY-MODULO-SHIELDED-COMPONENTS",
+      "title": "R043-C2 G0 Future Sufficiency Modulo Shielded Components",
+      "kind": "RESEARCH",
+      "owner": "program/p022-geometry-v2",
+      "base_state": "DONE",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "frontier": "Addition-only surface dynamics factorizes exactly over current unoccupied connected components; relative component placement is future-redundant.",
+      "next_action": "Do not redispatch. R043-C3 consumed the remaining component-grouping question.",
+      "dependencies": [],
+      "source_refs": [
+        "research_tasks/R043C2_G0_FUTURE_SUFFICIENCY_MODULO_SHIELDED_COMPONENTS_20260824.md",
+        "driver_reviews/R043C2_COMPONENT_FACTORIZATION_AND_C3_FRONTIER_CONNECTIVITY_DRIVER_REVIEW_20260824.md",
+        "PR #623"
+      ],
+      "evidence_status": "DONE_DRIVER_ACCEPTED_SUCCESSOR_OPENED",
+      "last_progress_ref": "R043-C2 Driver intake",
+      "last_progress_at": "2026-08-24T14:03:00+08:00",
+      "hard_block": null,
+      "tags": ["R043C2", "native-surface", "migration", "done"],
+      "identity_lane": "R043C2",
+      "taskbook_ref": "research_tasks/R043C2_G0_FUTURE_SUFFICIENCY_MODULO_SHIELDED_COMPONENTS_20260824.md",
+      "registry_source": "V2_BOOTSTRAP_MIGRATION",
+      "publication_review_exempt": true,
+      "publication_review_exempt_reason": "Execution and Driver intake completed before Scheduler V2 activation."
+    },
+    {
+      "task_id": "RS-R043C3-UNOCCUPIED-COMPONENT-FRONTIER-CONNECTIVITY",
+      "title": "R043-C3 Unoccupied Component Frontier Connectivity",
+      "kind": "RESEARCH",
+      "owner": "program/p022-geometry-v2",
+      "base_state": "DONE",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "frontier": "Exact thick-void pressure found no counterexample and reduced the global grouping question to a finite native FCC/HCP interface/link separator lemma.",
+      "next_action": "Do not redispatch. R043-C4 owns the isolated local link/interface closure.",
+      "dependencies": [],
+      "source_refs": [
+        "research_tasks/R043C3_UNOCCUPIED_COMPONENT_FRONTIER_CONNECTIVITY_20260824.md",
+        "driver_reviews/R043C3_LOCAL_LINK_REDUCTION_AND_C4_DRIVER_REVIEW_20260824.md",
+        "PR #625",
+        "PR #626"
+      ],
+      "evidence_status": "DONE_DRIVER_ACCEPTED_C4_OPENED",
+      "last_progress_ref": "PR #626 Driver intake",
+      "last_progress_at": "2026-08-24T14:12:00+08:00",
+      "hard_block": null,
+      "tags": ["R043C3", "native-surface", "migration", "done"],
+      "identity_lane": "R043C3",
+      "taskbook_ref": "research_tasks/R043C3_UNOCCUPIED_COMPONENT_FRONTIER_CONNECTIVITY_20260824.md",
+      "registry_source": "V2_BOOTSTRAP_MIGRATION",
+      "publication_review_exempt": true,
+      "publication_review_exempt_reason": "Execution and Driver intake completed before Scheduler V2 activation."
+    },
     {
       "task_id": "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
       "title": "R043-C4 Native Interface Link-Separator Closure",
@@ -260,7 +368,7 @@
       "taskbook_ref": "research_tasks/R043C4_NATIVE_INTERFACE_LINK_SEPARATOR_CLOSURE_20260824.md",
       "registry_source": "V2_BOOTSTRAP_MIGRATION",
       "publication_review_exempt": true,
-      "publication_review_exempt_reason": "Driver-approved READY taskbook predates scheduler V2 and is explicitly migrated into the canonical registry."
+      "publication_review_exempt_reason": "Driver-approved READY taskbook predates Scheduler V2 and is explicitly migrated into the canonical registry."
     }
   ]
 }
