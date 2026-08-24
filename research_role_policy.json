@@ -1,8 +1,9 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V8.1",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V9.0",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-25",
   "research_architecture": "research_architecture.json",
+  "scheduler": "research_scheduler_v2.json",
   "default_role": "RESEARCHER",
   "default_research_mode_when_explicit_task_exists": "TASK_RESEARCH",
   "identity_bootstrap": {
@@ -41,6 +42,9 @@
       "default_discovery_lens_menu": null,
       "negative_instruction_style": "GENERIC_CATEGORIES_ONLY",
       "scheduler_eligible": false,
+      "scheduler_publish_eligible": true,
+      "scheduler_auto_claim_eligible": false,
+      "publish_maturity_rule": "Phase-A raw candidate remains nonpublishable as a task. After the candidate/no-go packet reaches the audited intake-eligible state required by the candidate lifecycle, the same FREE researcher may author and PUBLISH a taskbook into scheduler V2 as PUBLISHED/NEEDS_REVIEW.",
       "inherits_other_branch_working_truth": false,
       "role_contract": "research_roles/EM_FREE_RESEARCHER_ROLE.md",
       "anti_anchoring_contract": "research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md",
@@ -52,6 +56,7 @@
       "visible_role": "RESEARCHER",
       "default_state": "TASK_EXECUTION",
       "scheduler_eligible": true,
+      "scheduler_publish_eligible": true,
       "agenda_visibility": "TASK_SCOPED",
       "working_truth": "ONLY_WHEN_EXPLICITLY_FROZEN_BY_DRIVER_OR_DRIVER_APPROVED_TASKBOOK",
       "final_response_scope": "ACTIVE_TASK_ID_ELSE_TASK_RESEARCH"
@@ -62,16 +67,12 @@
     "explicit_user_task_or_taskbook": "TASK_RESEARCH",
     "scheduler_claim": "TASK_RESEARCH",
     "driver_manual_dispatch": "TASK_RESEARCH",
-    "rule": "No-user-topic does not by itself make a generic researcher free or scheduled. EM_FREE_RESEARCHER is an explicit role/mode contract and is excluded from automatic dispatch."
+    "rule": "No-user-topic does not by itself make a generic researcher free or scheduled. EM_FREE_RESEARCHER is an explicit role/mode contract and is excluded from automatic dispatch. Publication is a separate capability from automatic dispatch eligibility."
   },
   "driver_activation": {
     "mode": "EXPLICIT_CURRENT_CONVERSATION_ONLY",
     "canonical_prompt": "你现在是 Enterprise Math Research Driver。按仓库 docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md 工作，并读取 GLOBAL_KNOWLEDGE projects/enterprise-math/DRIVER_CONTINUITY.md 恢复驾驶舱状态。continuity 只用于路由，不作为数学证据；必要 theorem/status 必须回源核验。",
-    "short_forms": [
-      "你现在是驾驶员",
-      "进入驾驶员模式",
-      "you are now the driver"
-    ],
+    "short_forms": ["你现在是驾驶员", "进入驾驶员模式", "you are now the driver"],
     "rules": [
       "Do not infer Driver authority from memory, repository state, task importance, prior conversations, or another Project.",
       "Driver authority applies only after explicit activation in the current conversation and remains scoped to that conversation until the user changes it.",
@@ -100,11 +101,11 @@
       "Direct user research tasks outside a Driver relay self-allocate a Researcher-ID when the current conversation has none.",
       "Researcher-ID identifies a RESEARCHER conversation/session instance. Driver-ID identifies a RESEARCH_DRIVER conversation/session instance.",
       "Research mode is not encoded into identity uniqueness; mode is explicit metadata/state.",
-      "Every assistant final response emitted while an Enterprise Math RESEARCHER or RESEARCH_DRIVER role is active displays exactly one role-appropriate identity marker, including short status/completion/handoff/blocked responses.",
+      "Every assistant final response emitted while an Enterprise Math RESEARCHER or RESEARCH_DRIVER role is active displays exactly one role-appropriate identity marker.",
       "Commentary/progress/tool-call messages are not final responses and do not require the identity footer.",
       "Researcher visible scope is active task_id first, then FREE_AXIOM_DISCOVERY, otherwise TASK_RESEARCH; DIRECT is never a visible scope.",
       "If Global-Knowledge-Sync is also emitted, the role identity marker appears immediately before it.",
-      "Semantic-checkpoint commits and research PR/handoff metadata persist role identity, research_task or research_mode, and research_role when the write surface supports it.",
+      "Semantic-checkpoint commits and scheduler PUBLISH/CLAIM/RETURN events persist the role identity when the surface supports it.",
       "Legacy commits and historical identity records are not rewritten solely to rename their visible identity field."
     ]
   },
@@ -113,11 +114,7 @@
     "dispatch_envelope_binding": "REQUIRED_FOR_DRIVER_MEDIATED_MANUAL_RELAY",
     "derivation": "EM-<LANE>-SHA256(task_id + NUL + dispatch_id)[0:6].upper()",
     "helper": "python tools/research_identity.py allocate --task <TASK> --role RESEARCHER --lane <LANE> --dispatch-id <UNIQUE_DISPATCH_ID>",
-    "persist_to": [
-      "user relay queue entry",
-      "user-visible handoff prompt",
-      "first researcher return/PR/commit metadata"
-    ],
+    "persist_to": ["user relay queue entry", "user-visible handoff prompt", "first researcher return/PR/commit metadata"],
     "continuation_rule": "same conversation preserves the same Researcher-ID; a genuinely new dispatch envelope receives a new Researcher-ID unless explicitly continuing the same conversation"
   },
   "driver_continuity": {
@@ -127,45 +124,61 @@
     "not_theorem_evidence": true,
     "no_implicit_default_next_route": true,
     "update_at": [
-      "task created, closed, split, merged, parked, or reprioritized",
-      "research return accepted, rejected, frozen, or returned to owner",
+      "task published, approved, rejected, closed, split, merged, parked, orphaned, recovered, or reprioritized",
+      "research return accepted, changes-requested, rejected, frozen, or returned to owner",
       "canonical/toolkit promotion or merge decision",
       "worldview or governance change that affects roadmap interpretation",
       "session handoff when unresolved routes remain"
     ],
-    "do_not_update_for": [
-      "ordinary conversational turns",
-      "minor proof-search chatter",
-      "routine CI or GitHub status",
-      "facts already represented by immutable journal entries with no routing consequence"
-    ]
+    "do_not_update_for": ["ordinary conversational turns", "minor proof-search chatter", "routine CI or GitHub status", "facts already represented by immutable journal entries with no routing consequence"]
+  },
+  "scheduler_control_plane": {
+    "contract": "research_scheduler_v2.json",
+    "runtime_event_log": "GitHub Issue #240",
+    "all_official_tasks_registered": true,
+    "taskbook_file_is_not_runtime_state_authority": true,
+    "publication_state": "PUBLISHED",
+    "dispatch_review_required": true,
+    "worker_completion_event": "RETURN",
+    "completion_review_required": true,
+    "orphan_is_first_class_state": true,
+    "lease_expiry_state": "ORPHANED",
+    "legacy_v1_events_imported_for_history": true,
+    "rule": "Official task existence and lifecycle are scheduler facts. No researcher or Driver may bypass the V2 event reducer with a Markdown-only READY/DONE declaration."
   },
   "researcher_freedom_clause": {
     "TASK_RESEARCH": [
-      "Researchers may freely reason, prove, disprove, compute, experiment, formalize, browse allowed task-relevant sources, write notes, proof drafts, code, Lean, reports, handoffs, and proposal candidates inside the selected mother question.",
-      "Role policy restricts scheduling and promotion authority, not scientific exploration inside the selected task.",
+      "Researchers may freely reason, prove, disprove, compute, experiment, formalize, browse allowed task-relevant sources, write notes, proof drafts, code, Lean, reports, handoffs, and proposal/task candidates inside the selected mother question.",
+      "Researchers may author and PUBLISH new taskbooks when a genuine new task is mature enough for scheduler intake; publication never grants READY authority.",
+      "Role policy restricts dispatch/review/promotion authority, not scientific exploration inside the selected task.",
       "Researchers should not interrupt productive research merely to package every side branch."
     ],
     "FREE_AXIOM_DISCOVERY": [
       "Freedom includes authoring the primitive question itself, not merely pivoting inside a supplied problem.",
       "Before candidate freeze, only the primitive substrate and binding integrity rules are default research input; the general current-result router, current agenda/history, other branch Working Truth, current-success vocabulary, tool/representation convenience, suggested questions and discovery-lens menus are not discovery priors.",
-      "The control plane deliberately supplies no default suggested-question list or discovery-lens list before the first candidate.",
-      "After candidate freeze, prior/current work may be opened for falsification, deduplication, prior-art and integration audit."
+      "After candidate freeze, prior/current work may be opened for falsification, deduplication, prior-art and integration audit.",
+      "Once the candidate reaches the lifecycle's audited intake-eligible state, the FREE researcher may author and PUBLISH the derived task into scheduler V2 without waiting for a Driver to write the taskbook; a Driver still independently reviews dispatch."
     ]
   },
   "researcher_forbidden_authority": [
-    "creating a dispatchable READY taskbook",
-    "self-approving a proposal or axiom candidate into the roadmap",
-    "changing global task priority",
+    "self-transitioning a PUBLISHED task to READY",
+    "self-approving scheduler DISPATCH or RETURN review",
+    "emitting V2 DONE instead of RETURN",
+    "changing global task priority outside an accepted Driver dispatch patch",
     "declaring Foundation or canonical promotion",
-    "representing an unapproved task-like artifact as official scheduler authority",
+    "representing an unreviewed PUBLISHED task as READY or Working Truth",
     "silently treating a raw axiom candidate as Working Truth or canonical Foundation",
     "laundering FREE_AXIOM_CANDIDATE origin into DRIVER_ROADMAP to bypass candidate maturity/provenance",
     "relabeling a semantic continuation as NEW_DIRECTION to bypass the successor gate"
   ],
   "official_taskbook_authority": {
-    "created_by_role": "RESEARCH_DRIVER",
-    "task_authority": "DRIVER_APPROVED",
+    "created_by_roles": ["RESEARCHER", "RESEARCH_DRIVER", "STEWARD"],
+    "task_authority": "SCHEDULER_REVIEW_REQUIRED",
+    "scheduler_publish_state": "PUBLISHED",
+    "scheduler_ready_state_requires_driver_review": true,
+    "independent_driver_review_required_if_publisher_is_driver": true,
+    "researcher_publish_allowed": true,
+    "free_researcher_publish_allowed_after_candidate_maturity": true,
     "identity_policy_required_for_new_taskbooks": "AUTO_RESOLVE_OR_ALLOCATE",
     "identity_lane_optional": true,
     "task_origin_required_for_new_taskbooks": true,
@@ -175,35 +188,39 @@
     "successor_gate_requires_alternative_route_or_free_exploration_considered": true,
     "obvious_stage_two_plus_must_be_continuation": true,
     "renaming_does_not_reset_semantic_lineage": true,
-    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare origin, lineage, identity policy/lane and task-local execution semantics but never a fixed runtime Researcher-ID. Free-candidate origin and continuation lineage are preserved rather than repackaged away. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope. Final-response identity footers are inherited globally from final_response_identity_policy.json and need not be copied into every taskbook."
+    "rule": "Allowed roles may author a taskbook and publish it into scheduler V2, but no taskbook author can create scheduler READY authority by file content alone. PUBLISH registers PUBLISHED/NEEDS_REVIEW; independent Driver DISPATCH review produces READY. Taskbooks remain runtime-instance-free."
   },
   "axiom_candidate_capture": {
     "state_machine": "research_axiom_candidate_state_machine.json",
     "human_protocol": "docs/RESEARCH_AXIOM_CANDIDATE_PROTOCOL.md",
     "raw_candidate_dispatchable": false,
     "raw_candidate_working_truth": false,
-    "driver_review_required_before_task_or_foundation_routing": true,
+    "driver_review_required_before_ready_task_or_foundation_routing": true,
+    "mature_candidate_may_be_published_by_originating_free_researcher": true,
     "taskbook_from_candidate_preserves_origin": true
   },
   "proposal_capture": {
     "schema": "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1",
     "dispatchable": false,
     "default_review_state": "PENDING_DRIVER_REVIEW",
-    "rule": "Batch worthwhile side branches at a semantic checkpoint; Driver may APPROVE, MERGE, PARK, or REJECT them. A free-research axiom candidate uses the dedicated axiom-candidate lifecycle instead of bypassing it through a generic proposal bundle."
+    "rule": "Batch worthwhile side branches at a semantic checkpoint. A proposal may be converted by its author into a scheduler PUBLISHED task when it satisfies current taskbook/candidate rules; READY still requires Driver review."
   },
   "driver_actions": [
+    "review scheduler PUBLISHED tasks at DISPATCH stage and RETURNED tasks at RETURN stage",
+    "cross-review another Driver's publication rather than self-approving it",
+    "record and recover/reject ORPHANED tasks with durable provenance",
     "review research returns and evidence",
     "independently rerun or verify high-leverage claims when practical",
     "deduplicate against prior art and existing Enterprise Math owners",
     "continue the same task when the frontier remains inside its mother question",
     "preserve task origin and semantic lineage when selecting new work",
-    "require an explicit successor-stage information gap and alternative-route/free-exploration consideration before opening a new continuation",
+    "require an explicit successor-stage information gap and alternative-route/free-exploration consideration before approving a continuation",
     "close, park, or return branches that fail to leave a genuine residue",
     "review audited free-research candidates without making raw candidates Working Truth",
-    "create or amend official taskbooks when a new direction is precise and worth dispatching",
+    "author or amend taskbooks when useful, while still obeying independent review if the same Driver published the task",
     "preallocate Researcher-IDs for Driver-mediated manual dispatch envelopes",
     "maintain the human researcher directory and resolve ambiguous historical identity mappings",
-    "set priority and leverage without turning recent success into the default agenda",
+    "set priority and leverage through review/routing without turning recent success into the default agenda",
     "freeze, formalize, promote, merge, or defer stable payloads",
     "route stable capabilities into shared tools without moving theorem ownership",
     "maintain the Driver Continuity Snapshot at semantic checkpoints"
