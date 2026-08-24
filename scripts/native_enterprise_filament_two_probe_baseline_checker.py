@@ -29,22 +29,29 @@ def predicted_fiber(M: int, ell: int) -> int:
     return math.gcd(ell, U) if ell % 2 else math.gcd(ell, 2 * U)
 
 
-def projection_fibers(M: int, k: int, i: int, j: int) -> set[int]:
+def projection_fibers(words: set[tuple[int, ...]], i: int, j: int) -> set[int]:
     counts: dict[tuple[int, int], int] = {}
-    for w in code(M, k):
+    for w in words:
         p = (w[i], w[j])
         counts[p] = counts.get(p, 0) + 1
     return set(counts.values())
+
+
+def is_prime(n: int) -> bool:
+    if n < 2:
+        return False
+    return all(n % p for p in range(2, math.isqrt(n) + 1))
 
 
 def main() -> None:
     # Exhaust several composite moduli, all island lengths and all baselines.
     for M in (6, 12, 18, 24, 30, 42, 60, 66, 70, 90, 210):
         for k in range(3, 10):
+            words = code(M, k)
             for i in range(k):
                 for j in range(i + 1, k):
                     ell = j - i
-                    got = projection_fibers(M, k, i, j)
+                    got = projection_fibers(words, i, j)
                     expected = predicted_fiber(M, ell)
                     assert got == {expected}, (M, k, i, j, got, expected)
 
@@ -63,26 +70,32 @@ def main() -> None:
         }
         assert got == protected
 
-    # Stable baselines across all first-19-prime channels.
-    primes = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67)
-    P = 1
-    stable = set(range(1, 1001))
-    for q in primes:
-        P *= q
-        if P % 6:
-            continue
-        stable &= {ell for ell in stable if predicted_fiber(P, ell) == 1}
-    expected_19 = {1, 3, 9, 27, 81, 243, 729}
-    assert stable == expected_19
+    # Through dimension19, the nine-Cell baseline set has already stabilized.
+    primes_19 = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67)
+    P19 = math.prod(primes_19)
+    assert {
+        ell for ell in range(1, 9)
+        if predicted_fiber(P19, ell) == 1
+    } == {1, 3}
 
-    # Infinite characterization up to a large finite cutoff.
-    prime_channels = [q for q in range(5, 1001) if all(q % p for p in range(2, math.isqrt(q) + 1))]
-    stable = set(range(1, 1001))
-    U = 1
-    for q in prime_channels:
-        U *= q
-        stable &= {ell for ell in stable if ell % 2 and math.gcd(ell, U) == 1}
-    assert stable == expected_19
+    # At larger baseline scales, dimension19 still protects numbers whose
+    # prime factors all lie outside 5..67; do not confuse this finite stage
+    # with the infinite-channel statement.
+    stable_19 = {
+        ell for ell in range(1, 1001)
+        if predicted_fiber(P19, ell) == 1
+    }
+    assert 73 in stable_19 and 79 in stable_19 and 5 not in stable_19
+
+    # Infinite characterization up to a finite cutoff: include every possible
+    # prime factor of an ell<=1000, so only powers of3 remain.
+    U = math.prod(q for q in range(5, 1001) if is_prime(q))
+    stable_infinite_cutoff = {
+        ell for ell in range(1, 1001)
+        if ell % 2 and math.gcd(ell, U) == 1
+    }
+    powers3 = {1, 3, 9, 27, 81, 243, 729}
+    assert stable_infinite_cutoff == powers3
 
     print("TWO_PROBE_FIBER_FORMULA=PASS")
     print("D2_BASELINES=1,3,5,7")
