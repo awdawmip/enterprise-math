@@ -3,6 +3,8 @@
 
 The legacy research scheduler remains the task-state engine. This wrapper adds:
 - dynamic TASK_PUBLISH events for Driver-approved taskbooks;
+- publication generations that reset older runtime terminal events for the same task id;
+- safe generic task claiming that excludes untouched legacy READY rows;
 - a Driver cross-review queue on the same append-only Issue #240 event log;
 - generic task/review selection without requiring the user to name an ID.
 
@@ -102,6 +104,9 @@ def validate_task_publish(event: dict[str, Any], machine: dict[str, Any]) -> lis
     ref = event.get("taskbook_ref")
     if not isinstance(ref, str) or "@" not in ref:
         errors.append("TASK_PUBLISH taskbook_ref must be immutable path@commit")
+    issuer = event.get("issuer_driver_id")
+    if not isinstance(issuer, str) or not issuer.strip():
+        errors.append("TASK_PUBLISH issuer_driver_id must be nonempty")
     task = event.get("task")
     if not isinstance(task, dict):
         errors.append("TASK_PUBLISH task must be an object")
@@ -113,7 +118,30 @@ def validate_task_publish(event: dict[str, Any], machine: dict[str, Any]) -> lis
         errors.append("TASK_PUBLISH task missing fields: " + ", ".join(missing_task))
     if task.get("base_state") not in {"READY", "HANDOFF_READY"}:
         errors.append("TASK_PUBLISH task base_state must be READY or HANDOFF_READY")
+    if task.get("kind") not in {"RESEARCH", "GOVERNANCE"}:
+        errors.append("TASK_PUBLISH task kind must be RESEARCH or GOVERNANCE")
     return errors
+
+
+def latest_publications(
+    events: list[dict[str, Any]], machine: dict[str, Any]
+) -> dict[str, dict[str, Any]]:
+    """Return the latest valid publication envelope and comment-order index per task."""
+    out: dict[str, dict[str, Any]] = {}
+    for index, event in enumerate(events):
+        if event.get("schema") != WORK_SCHEMA or event.get("event") != "TASK_PUBLISH":
+            continue
+        if validate_task_publish(event, machine):
+            continue
+        task_id = str(event["task"]["task_id"])
+        out[task_id] = {
+            "index": index,
+            "taskbook_ref": event["taskbook_ref"],
+            "issuer_driver_id": event["issuer_driver_id"],
+            "published_at": event["at"],
+            "event": event,
+        }
+    return out
 
 
 def composed_scheduler(
@@ -126,13 +154,8 @@ def composed_scheduler(
     by_id = {task["task_id"]: copy.deepcopy(task) for task in cfg.get("tasks", [])}
     order = [task["task_id"] for task in cfg.get("tasks", [])]
 
-    for event in work_events(events):
-        if event.get("event") != "TASK_PUBLISH":
-            continue
-        if validate_task_publish(event, machine):
-            continue
-        task = copy.deepcopy(event["task"])
-        task_id = task["task_id"]
+    for task_id, publication in latest_publications(events, machine).items():
+        task = copy.deepcopy(publication["event"]["task"])
         if task_id not in by_id:
             order.append(task_id)
         by_id[task_id] = task
@@ -141,14 +164,29 @@ def composed_scheduler(
     return cfg
 
 
-def normalized_task_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Return legacy-compatible task runtime events in board comment order."""
+def normalized_task_events(
+    events: list[dict[str, Any]], machine: dict[str, Any] | None = None
+) -> list[dict[str, Any]]:
+    """Return legacy-compatible task runtime events in board comment order.
+
+    A valid TASK_PUBLISH starts a new runtime generation for that task id. Runtime
+    events before the latest publication are provenance for the older generation
+    and cannot kill or claim the newly published generation.
+    """
+    publications = latest_publications(events, machine) if machine is not None else {}
     out: list[dict[str, Any]] = []
-    for event in events:
-        if event.get("schema") == LEGACY_SCHEMA and event.get("event") in TASK_RUNTIME_EVENTS:
+    for index, event in enumerate(events):
+        kind = event.get("event")
+        task_id = event.get("task_id")
+        if not isinstance(task_id, str) or kind not in TASK_RUNTIME_EVENTS:
+            continue
+        publication = publications.get(task_id)
+        if publication is not None and index <= int(publication["index"]):
+            continue
+        if event.get("schema") == LEGACY_SCHEMA:
             out.append(event)
             continue
-        if event.get("schema") == WORK_SCHEMA and event.get("event") in TASK_RUNTIME_EVENTS:
+        if event.get("schema") == WORK_SCHEMA:
             clone = copy.deepcopy(event)
             clone["schema"] = LEGACY_SCHEMA
             out.append(clone)
@@ -158,29 +196,41 @@ def normalized_task_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]
 def published_task_ids(
     events: list[dict[str, Any]], machine: dict[str, Any]
 ) -> set[str]:
-    ids: set[str] = set()
-    for event in work_events(events):
-        if event.get("event") != "TASK_PUBLISH":
-            continue
-        if validate_task_publish(event, machine):
-            continue
-        ids.add(str(event["task"]["task_id"]))
-    return ids
+    return set(latest_publications(events, machine))
 
 
-def runtime_touched_task_ids(events: list[dict[str, Any]]) -> set[str]:
-    ids: set[str] = set()
-    for event in normalized_task_events(events):
-        task_id = event.get("task_id")
-        if isinstance(task_id, str) and task_id:
-            ids.add(task_id)
-    return ids
+def runtime_continuation_task_ids(
+    legacy_config: dict[str, Any],
+    events: list[dict[str, Any]],
+    machine: dict[str, Any],
+    now: datetime,
+) -> set[str]:
+    """Return legacy task ids with at least one reducer-accepted runtime event."""
+    normalized = normalized_task_events(events, machine)
+    default_lease = int(legacy_config.get("claim_lease_minutes", 120))
+    out: set[str] = set()
+    for task in legacy_config.get("tasks", []):
+        task_id = task["task_id"]
+        matching = [event for event in normalized if event.get("task_id") == task_id]
+        if not matching:
+            continue
+        state = legacy.reduce_task(
+            task,
+            normalized,
+            default_lease_minutes=default_lease,
+            now=now,
+        )
+        accepted_count = len(matching) - len(state.get("ignored_events", []))
+        if accepted_count > 0:
+            out.add(task_id)
+    return out
 
 
 def generic_claim_scheduler(
     legacy_config: dict[str, Any],
     events: list[dict[str, Any]],
     machine: dict[str, Any],
+    now: datetime,
 ) -> dict[str, Any]:
     """Restrict generic claiming to published work or real runtime continuations.
 
@@ -188,7 +238,9 @@ def generic_claim_scheduler(
     silently re-enter the automatic queue merely because an old JSON entry exists.
     """
     cfg = composed_scheduler(legacy_config, events, machine)
-    allowed = published_task_ids(events, machine) | runtime_touched_task_ids(events)
+    allowed = published_task_ids(events, machine) | runtime_continuation_task_ids(
+        legacy_config, events, machine, now
+    )
     cfg["tasks"] = [
         task for task in cfg.get("tasks", [])
         if task.get("task_id") in allowed
@@ -203,7 +255,7 @@ def effective_task_states(
     now: datetime,
 ) -> list[dict[str, Any]]:
     cfg = composed_scheduler(legacy_config, events, machine)
-    return legacy.effective_states(cfg, normalized_task_events(events), now)
+    return legacy.effective_states(cfg, normalized_task_events(events, machine), now)
 
 
 def select_task(
@@ -214,8 +266,27 @@ def select_task(
     *,
     kind: str = "RESEARCH",
 ) -> dict[str, Any] | None:
-    cfg = generic_claim_scheduler(legacy_config, events, machine)
-    return legacy.select_task(cfg, normalized_task_events(events), now, kind=kind)
+    cfg = generic_claim_scheduler(legacy_config, events, machine, now)
+    chosen = legacy.select_task(
+        cfg,
+        normalized_task_events(events, machine),
+        now,
+        kind=kind,
+    )
+    if chosen is None:
+        return None
+    publication = latest_publications(events, machine).get(chosen["task_id"])
+    if publication is not None:
+        chosen = copy.deepcopy(chosen)
+        chosen["taskbook_ref"] = publication["taskbook_ref"]
+        chosen["issuer_driver_id"] = publication["issuer_driver_id"]
+        chosen["published_at"] = publication["published_at"]
+        chosen["review_required"] = bool(
+            machine.get("research_completion", {}).get(
+                "review_request_required_for_new_published_tasks", True
+            )
+        )
+    return chosen
 
 
 def _review_base(event: dict[str, Any], machine: dict[str, Any]) -> dict[str, Any]:
