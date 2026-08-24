@@ -190,11 +190,13 @@ theorem mixed_locus_order_twelve {p q : ℕ} [Fact p.Prime] [Fact q.Prime]
   have hordD : orderOf r ∣ 12 := orderOf_dvd_of_pow_eq_one h12
   have hrpow : r ^ orderOf r = 1 := pow_orderOf_eq_one r
   have hpone : r.1 ^ orderOf r = 1 := by
-    have h := congrArg Prod.fst hrpow
-    simpa using h
+    have h := congrArg (fun z : MixedCarrier p q => z.1) hrpow
+    change r.1 ^ orderOf r = (1 : ZMod p) at h
+    exact h
   have hqone : r.2 ^ orderOf r = 1 := by
-    have h := congrArg Prod.snd hrpow
-    simpa using h
+    have h := congrArg (fun z : MixedCarrier p q => z.2) hrpow
+    change r.2 ^ orderOf r = (1 : ZMod q) at h
+    exact h
   have h4d : 4 ∣ orderOf r := by
     have h := orderOf_dvd_of_pow_eq_one hpone
     rw [hpord] at h
