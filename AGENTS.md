@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.7`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.8`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -11,7 +11,7 @@ Current explicit user instruction controls scope.
 Current research modes:
 
 - `EM_FREE_RESEARCHER` -> `FREE_AXIOM_DISCOVERY`;
-- explicit user task / Driver handoff / approved taskbook / scheduler dispatch -> `TASK_RESEARCH`;
+- explicit user task / Driver handoff / approved taskbook / Scheduler V2 `CLAIM` or `ADOPT` -> `TASK_RESEARCH`;
 - explicit Driver activation -> `RESEARCH_DRIVER`.
 
 Exact role authority:
@@ -19,6 +19,44 @@ Exact role authority:
 - `research_architecture.json`;
 - `research_role_policy.json`;
 - `research_identity_state_machine.json`.
+
+## 1A. Scheduler V2 control plane
+
+Canonical runtime authority:
+
+- `research_scheduler.json`;
+- `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`;
+- `docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md`;
+- `tools/research_scheduler.py`;
+- `tools/research_scheduler_event.py`;
+- live Research Dispatch Board Issue #240.
+
+For an actual coordination action, materialize current Scheduler V2 state before routing. Do not infer task state from chat memory, a taskbook filename, an open PR, or the historical branch ledger.
+
+Freeze:
+
+`TASKBOOK_POLICY_PASS != SCHEDULER_READY`.
+
+`PUBLISH != READY`.
+
+`SUBMIT != DONE`.
+
+`LEASE_EXPIRY -> ORPHANED`, not silent `HANDOFF_READY`.
+
+`ORPHANED -> ADOPT`, not ordinary `CLAIM`.
+
+`PUBLISHER != PUBLICATION_REVIEWER` and `EXECUTOR != RETURN_REVIEWER`.
+
+Generic intent routing is machine-defined in `research_scheduler.json`:
+
+- generic researcher task claim -> select highest eligible `NEEDS_DISPATCH`, emit `CLAIM`, resolve identity, start;
+- generic Driver review claim -> select highest eligible non-self `NEEDS_REVIEW`, emit `REVIEW_CLAIM`, start review;
+- researcher/FREE task publication -> `PUBLISH -> REVIEW_PENDING`; a different Driver must `APPROVE` before runtime `READY`;
+- orphan recovery -> inspect `ORPHAN_RECOVERY`, then `ADOPT` with recovery provenance.
+
+FREE Phase A remains outside automatic scheduler claiming. After the relevant discovery freeze, a FREE researcher may publish a concrete proposal into `REVIEW_PENDING`; this does not grant Working Truth, dispatch authority, or self-approval.
+
+V2 direct `DONE` is forbidden. Execution finishes with `SUBMIT`; scheduler completion requires a different Driver's `REVIEW` verdict.
 
 ## 2. Active-turn continuation liveness
 
@@ -224,7 +262,7 @@ Exact taskbook contract:
 
 `RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
-Do not perform universal scheduler/Issue/PR/CI/tree preflight.
+Do not perform universal scheduler/Issue/PR/CI/tree preflight. For an actual scheduler coordination action, however, current V2 materialized state is the authority and must be read before mutation.
 
 Do not poll CI/review/status merely to wait for change.
 
@@ -238,7 +276,7 @@ Tool/scheduler/CI availability is not a mathematical `HARD_BLOCK`.
 
 Load only when relevant:
 
-- scheduler/Relay/Foundation surfaces for actual coordination actions;
+- Scheduler V2/Relay/Foundation surfaces for actual coordination actions;
 - Driver contract + continuity for actual Driver portfolio decisions;
 - Common Surface for exact cross-owner theorem/tool/conflict lookup;
 - toolbox registry/method inventory for actual method selection or method-harvest/dedup;
