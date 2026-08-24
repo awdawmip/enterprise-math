@@ -34,16 +34,17 @@ theorem gaussian_root_order {p : ℕ} [Fact p.Prime] (hp2 : 2 < p)
   have hsq : x ^ 2 = -1 := gaussian_root_sq hx
   have h1 : x ≠ 1 := by
     intro hxeq
-    have hz := hx
-    rw [hxeq] at hz
     apply htwo
-    simpa using hz
+    calc
+      (2 : ZMod p) = (1 : ZMod p) ^ 2 + 1 := by ring
+      _ = 0 := by simpa [hxeq] using hx
   have h2 : x ^ 2 ≠ 1 := by
     intro heq
     have hneg : (-1 : ZMod p) = 1 := hsq.symm.trans heq
-    have hadd := congrArg (fun z : ZMod p => z + 1) hneg
     apply htwo
-    simpa using hadd.symm
+    calc
+      (2 : ZMod p) = 1 - (-1) := by ring
+      _ = 0 := by rw [hneg]; ring
   have h4 : x ^ 4 = 1 := gaussian_root_pow_four hx
   have h3 : x ^ 3 ≠ 1 := by
     intro heq
@@ -52,14 +53,25 @@ theorem gaussian_root_order {p : ℕ} [Fact p.Prime] (hp2 : 2 < p)
       x = x ^ 3 * x := by rw [heq]; simp
       _ = x ^ 4 := by ring
       _ = 1 := h4
-  rw [orderOf_eq_iff (by norm_num : 0 < 4)]
-  refine ⟨h4, ?_⟩
-  intro m hm hpos
-  interval_cases m
-  · omega
-  · simpa using h1
-  · simpa using h2
-  · simpa using h3
+  have hordD : orderOf x ∣ 4 := orderOf_dvd_of_pow_eq_one h4
+  have hordNe : orderOf x ≠ 0 := by
+    intro hzero
+    rw [hzero] at hordD
+    norm_num at hordD
+  have hordPos : 0 < orderOf x := Nat.pos_of_ne_zero hordNe
+  have hordLe : orderOf x ≤ 4 := Nat.le_of_dvd (by norm_num) hordD
+  have hcases :
+      orderOf x = 1 ∨ orderOf x = 2 ∨ orderOf x = 3 ∨ orderOf x = 4 := by
+    omega
+  rcases hcases with ho | ho | ho | ho
+  · exact (h1 (orderOf_eq_one_iff.mp ho)).elim
+  · have hp := pow_orderOf_eq_one x
+    rw [ho] at hp
+    exact (h2 hp).elim
+  · have hp := pow_orderOf_eq_one x
+    rw [ho] at hp
+    exact (h3 hp).elim
+  · exact ho
 
 /-- An Eisenstein local root has cube one. -/
 theorem eisenstein_root_pow_three {q : ℕ} {x : ZMod q}
@@ -80,10 +92,10 @@ theorem eisenstein_root_order {q : ℕ} [Fact q.Prime] (hq3 : 3 < q)
     omega
   have h1 : x ≠ 1 := by
     intro hxeq
-    have hz := hx
-    rw [hxeq] at hz
     apply hthree
-    simpa using hz
+    calc
+      (3 : ZMod q) = (1 : ZMod q) ^ 2 + 1 + 1 := by ring
+      _ = 0 := by simpa [hxeq] using hx
   have h3 : x ^ 3 = 1 := eisenstein_root_pow_three hx
   have h2 : x ^ 2 ≠ 1 := by
     intro heq
@@ -92,13 +104,21 @@ theorem eisenstein_root_order {q : ℕ} [Fact q.Prime] (hq3 : 3 < q)
       x = x * x ^ 2 := by rw [heq]; simp
       _ = x ^ 3 := by ring
       _ = 1 := h3
-  rw [orderOf_eq_iff (by norm_num : 0 < 3)]
-  refine ⟨h3, ?_⟩
-  intro m hm hpos
-  interval_cases m
-  · omega
-  · simpa using h1
-  · simpa using h2
+  have hordD : orderOf x ∣ 3 := orderOf_dvd_of_pow_eq_one h3
+  have hordNe : orderOf x ≠ 0 := by
+    intro hzero
+    rw [hzero] at hordD
+    norm_num at hordD
+  have hordPos : 0 < orderOf x := Nat.pos_of_ne_zero hordNe
+  have hordLe : orderOf x ≤ 3 := Nat.le_of_dvd (by norm_num) hordD
+  have hcases : orderOf x = 1 ∨ orderOf x = 2 ∨ orderOf x = 3 := by
+    omega
+  rcases hcases with ho | ho | ho
+  · exact (h1 (orderOf_eq_one_iff.mp ho)).elim
+  · have hp := pow_orderOf_eq_one x
+    rw [ho] at hp
+    exact (h2 hp).elim
+  · exact ho
 
 /-- The local power used for the exponent `5` in the mixed orbit. -/
 theorem gaussian_root_pow_five {p : ℕ} {x : ZMod p} (hx : x ^ 2 + 1 = 0) : x ^ 5 = x := by
@@ -147,7 +167,7 @@ theorem eisenstein_root_pow_eleven {q : ℕ} {x : ZMod q}
 
 /-- T10: every point of the corrected mixed locus has exact global multiplicative order `12`. -/
 theorem mixed_locus_order_twelve {p q : ℕ} [Fact p.Prime] [Fact q.Prime]
-    (hp3 : 3 < p) (hq3 : 3 < q) (hpq : p ≠ q)
+    (hp3 : 3 < p) (hq3 : 3 < q) (_hpq : p ≠ q)
     {r : MixedCarrier p q} (hr : MixedLocus r) : orderOf r = 12 := by
   have hpord : orderOf r.1 = 4 := gaussian_root_order (by omega) hr.1
   have hqord : orderOf r.2 = 3 := eisenstein_root_order hq3 hr.2
@@ -167,27 +187,27 @@ theorem mixed_locus_order_twelve {p q : ℕ} [Fact p.Prime] [Fact q.Prime]
       calc
         r.2 ^ 12 = (r.2 ^ 3) ^ 4 := by ring
         _ = 1 := by rw [hq3p]; simp
-  rw [orderOf_eq_iff (by norm_num : 0 < 12)]
-  refine ⟨h12, ?_⟩
-  intro m hm hpos hmone
-  have hpone : r.1 ^ m = 1 := by
-    have h := congrArg Prod.fst hmone
+  have hordD : orderOf r ∣ 12 := orderOf_dvd_of_pow_eq_one h12
+  have hrpow : r ^ orderOf r = 1 := pow_orderOf_eq_one r
+  have hpone : r.1 ^ orderOf r = 1 := by
+    have h := congrArg Prod.fst hrpow
     simpa using h
-  have hqone : r.2 ^ m = 1 := by
-    have h := congrArg Prod.snd hmone
+  have hqone : r.2 ^ orderOf r = 1 := by
+    have h := congrArg Prod.snd hrpow
     simpa using h
-  have h4d : 4 ∣ m := by
+  have h4d : 4 ∣ orderOf r := by
     have h := orderOf_dvd_of_pow_eq_one hpone
-    simpa [hpord] using h
-  have h3d : 3 ∣ m := by
+    rw [hpord] at h
+    exact h
+  have h3d : 3 ∣ orderOf r := by
     have h := orderOf_dvd_of_pow_eq_one hqone
-    simpa [hqord] using h
-  have h12d : 12 ∣ m := by
+    rw [hqord] at h
+    exact h
+  have h12d : 12 ∣ orderOf r := by
     have h := (show Nat.Coprime 4 3 by norm_num).mul_dvd_of_dvd_of_dvd h4d h3d
     norm_num at h ⊢
     exact h
-  have hle : 12 ≤ m := Nat.le_of_dvd hpos h12d
-  omega
+  exact Nat.dvd_antisymm hordD h12d
 
 /-- The Gaussian equation has only the two roots determined by a chosen root over a prime field. -/
 theorem gaussian_root_two_choices {p : ℕ} [Fact p.Prime] {r x : ZMod p}
@@ -257,27 +277,42 @@ theorem mixed_orbit_inverse_only_eleven {p q : ℕ} [Fact p.Prime] [Fact q.Prime
   have hord : orderOf r = 12 := mixed_locus_order_twelve hp3 hq3 hpq hr
   constructor
   · intro hmul
-    rcases hx with rfl | rfl | rfl | rfl
-    · exfalso
-      have hp : r ^ 2 = 1 := by simpa [pow_succ, mul_comm] using hmul
+    rcases hx with hx0 | hx5 | hx7 | hx11
+    · rw [hx0] at hmul
+      exfalso
+      have hp : r ^ 2 = 1 := by
+        calc
+          r ^ 2 = r * r := by ring
+          _ = 1 := hmul
       have hd := orderOf_dvd_of_pow_eq_one hp
       rw [hord] at hd
       norm_num at hd
-    · exfalso
-      have hp : r ^ 6 = 1 := by simpa [pow_succ, mul_comm] using hmul
+    · rw [hx5] at hmul
+      exfalso
+      have hp : r ^ 6 = 1 := by
+        calc
+          r ^ 6 = r * r ^ 5 := by ring
+          _ = 1 := hmul
       have hd := orderOf_dvd_of_pow_eq_one hp
       rw [hord] at hd
       norm_num at hd
-    · exfalso
-      have hp : r ^ 8 = 1 := by simpa [pow_succ, mul_comm] using hmul
+    · rw [hx7] at hmul
+      exfalso
+      have hp : r ^ 8 = 1 := by
+        calc
+          r ^ 8 = r * r ^ 7 := by ring
+          _ = 1 := hmul
       have hd := orderOf_dvd_of_pow_eq_one hp
       rw [hord] at hd
       norm_num at hd
-    · rfl
-  · rintro rfl
+    · exact hx11
+  · intro hx11
+    rw [hx11]
     have hp := pow_orderOf_eq_one r
     rw [hord] at hp
-    simpa [pow_succ, mul_comm] using hp
+    calc
+      r * r ^ 11 = r ^ 12 := by ring
+      _ = 1 := hp
 
 /-- T11 local sixth-power signature on the Gaussian channel. -/
 theorem gaussian_root_pow_six {p : ℕ} {x : ZMod p} (hx : x ^ 2 + 1 = 0) : x ^ 6 = -1 := by
