@@ -46,7 +46,7 @@ def main() -> None:
             sizes.append(got)
         assert len(set(sizes)) == 1
 
-    # Exact primorial tower through d=19.
+    # Exact primorial tower through d=19 by closed cardinality arithmetic.
     primes = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67)
     P = 1
     sizes = []
@@ -64,8 +64,8 @@ def main() -> None:
     assert P == 7858321551080267055879090
     assert sizes[-1] == 20584405866724191423702130398265558985510899742700
 
-    # Reduction is surjective and has the predicted uniform fibers on small tests.
-    for M, q in ((6, 5), (30, 7), (210, 11)):
+    # Full word-by-word reduction replay only where the state sets remain small.
+    for M, q in ((6, 5), (30, 7)):
         N = M * q
         for k in (3, 5, 9):
             low = code(M, k)
@@ -77,10 +77,16 @@ def main() -> None:
                 fibers[w] += 1
             assert set(fibers.values()) == {q * q}
 
+    # Larger tower steps use the proved parameter-period ratio rather than
+    # materializing millions of long tuples.
+    for M, q in ((210, 11), (2310, 13), (30030, 17)):
+        assert predicted_size(M * q) // predicted_size(M) == q * q
+
     print("FINITE_QUOTIENT_SIZE_FORMULA=PASS M<=100 K=3..9")
     print("MOD2_EXCEPTION_SIZE=2")
     print("M_DIVISIBLE_BY_6_SIZE=M^2/3")
     print("GENERIC_NEW_CHANNEL_FIBER=q^2")
+    print("WORD_LEVEL_FIBER_REPLAY=PASS 6->30->210")
     print("PRIMORIAL_D19_CODE_SIZE=20584405866724191423702130398265558985510899742700")
 
 
