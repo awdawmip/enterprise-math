@@ -25,16 +25,20 @@ def packet(k: int, r: int, c: int) -> tuple[int, ...]:
     return tuple(c + 3 * r * j + eta(j, chi) for j in range(k))
 
 
+def numerator(i: int, j: int, vi: int, vj: int, s: int) -> int:
+    return (
+        2 * (vj - vi)
+        - 3 * (j * j - i * i)
+        - s * (epsilon(j) - epsilon(i))
+    )
+
+
 def decode_two(i: int, j: int, vi: int, vj: int):
     assert i < j
     d = j - i
     out = []
     for s in (1, -1):
-        q_s = (
-            2 * (vj - vi)
-            - 3 * (j * j - i * i)
-            - s * (epsilon(j) - epsilon(i))
-        )
+        q_s = numerator(i, j, vi, vj, s)
         den = 6 * d
         if q_s % den:
             continue
@@ -115,6 +119,37 @@ def check_access_structure(k: int, q: int) -> None:
                         assert recovered == chi % q
 
 
+def check_probe_channel_dichotomy() -> None:
+    # Replay many integer packets and all two-probe positions.
+    for k in range(3, 10):
+        for r in range(-40, 41):
+            chi = 1 if r % 2 == 0 else -1
+            vals = packet(k, r, 10_000 + 17 * r)
+            for i, j in combinations(range(k), 2):
+                d = j - i
+                nums = {s: numerator(i, j, vals[i], vals[j], s) for s in (1, -1)}
+                assert nums[-chi] - nums[chi] in (-2, 2)
+
+                if epsilon(i) == epsilon(j):
+                    # The offset vanishes; only the parity lock distinguishes sheets.
+                    assert nums[1] == nums[-1]
+                    common_r = nums[chi] // (6 * d)
+                    assert common_r == r
+                    assert (1 if common_r % 2 == 0 else -1) == chi
+                elif d == 1:
+                    # Both pre-slopes are integral; exactly one is a multiple of 3.
+                    slopes = {s: nums[s] // (2 * d) for s in (1, -1)}
+                    assert all(nums[s] % (2 * d) == 0 for s in (1, -1))
+                    assert slopes[chi] == 3 * r
+                    assert slopes[chi] % 3 == 0
+                    assert slopes[-chi] % 3 != 0
+                else:
+                    # Opposite parity implies odd d; the false pre-slope is nonintegral.
+                    assert d % 2 == 1 and d > 1
+                    assert nums[chi] % (2 * d) == 0
+                    assert nums[-chi] % (2 * d) != 0
+
+
 def check_integer_glue() -> None:
     for k in range(3, 10):
         for r in range(-40, 41):
@@ -158,12 +193,16 @@ def main() -> None:
         (7, 11), (8, 11), (9, 11),
     ):
         check_access_structure(k, q)
+    check_probe_channel_dichotomy()
     check_integer_glue()
 
     print("CHIRAL_DOUBLE_COVER_SIZE=2*q^2")
     print("ACCESS_IFF=MIXED_PARITY_AND_AT_LEAST_3")
     print("EVERY_TWO_PROBE_PROJECTION=PERFECTLY_MODE_BLIND")
     print("PARITY_BRIDGE_SYNDROME=PASS")
+    print("SAME_PARITY_SELECTOR=CHANNEL2")
+    print("NONADJACENT_PARITY_BRIDGE_SELECTOR=INDEX_DISTANCE")
+    print("ADJACENT_PARITY_BRIDGE_SELECTOR=CHANNEL3")
     print("ANY_TWO_INDEXED_INTEGER_VALUES=UNIQUE_NATIVE_DECODER")
     print("SHARP9_ALL_PAIR_DECODERS=PASS")
 
