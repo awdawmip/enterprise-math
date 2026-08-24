@@ -100,15 +100,18 @@ def test_agents_makes_final_role_identity_footer_unconditional():
     assert "Do not use `DIRECT` as a visible researcher scope" in text
 
 
-def test_tool_surface_matches_agents_role_routing_without_transition_guard():
+def test_tool_surface_matches_agents_role_routing_and_scheduler_v2():
     text = read("docs/EM_RESEARCH_TOOL_SURFACE.md")
-    assert "HOT-PATH V4" in text
+    assert "HOT-PATH V6" in text
     assert "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md" in text
     assert "definitions/00_CURRENT_NATIVE_FOUNDATION.md" in text
-    assert "the exact task entry" in text
-    assert "Do **not** make Common Surface an automatic second read" in text
-    assert "Until that source governance is promoted" not in text
+    assert "exact task entry" in text
+    assert "Common Surface is a lookup" in text
     assert "suggested question/discovery-lens menu" in text
+    assert "research_scheduler_v2.json" in text
+    assert "PUBLISH != READY" in text
+    assert "RETURN != DONE" in text
+    assert "V2_LEASE_EXPIRY -> ORPHANED" in text
 
 
 def test_free_role_preserves_blind_tool_timing_and_can_publish_mature_work():
@@ -118,7 +121,7 @@ def test_free_role_preserves_blind_tool_timing_and_can_publish_mature_work():
     assert "Phase B" in text
     assert "tool_invocation_policy.json" in text
     assert "PUBLISHED / NEEDS_REVIEW" in text
-    assert "FREE researcher may author the derived taskbook itself" in text
+    assert "may author the derived taskbook itself" in text
     assert "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY" in text
     assert "Every final response" in text
     for seeded_example in (
