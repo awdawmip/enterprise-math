@@ -1,37 +1,128 @@
 # Enterprise Math Research Scheduling Protocol
 
-Status: `ACTIVE / CANONICAL SCHEDULING CONTRACT`  
-Effective: 2026-08-09  
-Scope: all L1 core owners, L2 program owners, L3 bridges/probes, and L4 integration replays.
+Status: `ACTIVE / CANONICAL SCHEDULING CONTRACT / V2`  
+Effective: `2026-08-25`  
+Machine contract: `research_scheduler_v2.json`  
+Reducer / event emitter: `tools/research_scheduler.py`  
+Runtime event log: GitHub Issue #240
 
-This protocol resolves ambiguity created during Architecture v2 migration. Where older migration notes, replay manifests, branch ledgers, or Relay wording can be read as requiring one research line to wait for another, this protocol controls the scheduling interpretation.
+## 1. Core invariant
 
-## 1. Primary invariant: research is parallel, canonical promotion is serialized
+Enterprise Math separates scientific work from control-plane authority:
 
-Enterprise Math separates two different activities:
+> **any eligible role may publish a mature task; only reviewed tasks may execute; executors return results; Drivers independently close them; every abandoned task remains visible.**
 
-- **research/discovery**: new proofs, counterexamples, constructions, tools, experiments, and specializations;
-- **canonical promotion**: semantic ownership audit, numbering, bilingual replay, reference/lineage registration, final repository gates, and merge to `main`.
+Scheduler state coordinates task existence, dispatch, execution, review, handoff, and orphan recovery. It does not decide theorem truth or canonical mathematical promotion.
 
-Research/discovery is parallel by default. Canonical promotion is serialized only where repository consistency requires it.
+`TASKBOOK_FILE != RUNTIME_STATE_AUTHORITY`.
 
-A dependency needed for canonical ownership or later integration is **not automatically a dependency of ongoing research**.
+`PUBLISH != READY`.
 
-## 2. `defer` is not a blocker
+`RETURN != DONE`.
 
-The words `defer`, `consume from`, `owner moved`, `audit against`, `replay after`, `depends on owner`, or equivalent routing language mean:
+`LEASE_EXPIRY != SILENT_HANDOFF`.
 
-> do not duplicate or prematurely promote the mother theorem here.
+## 2. One task registry
 
-They do **not** mean:
+Every official task must exist in scheduler V2.
 
-> stop this research line until another branch finishes.
+There are two creation paths:
 
-A route continues with every question that can be stated and tested without the missing result. It may use an already proved upstream theorem, keep a downstream statement conditional, construct examples/counterexamples, derive specializations, or isolate the exact missing lemma.
+1. **V2 runtime publication** — a valid `PUBLISH` event creates the task immediately in state `PUBLISHED`;
+2. **migration/bootstrap** — tasks that already existed before V2 are imported from the V1 seed registry or an explicit V2 bootstrap record.
 
-## 3. Only an explicit `HARD_BLOCK` may stop a route
+A Markdown taskbook may describe a task, but it cannot create scheduler `READY`, `RETURNED`, `ORPHANED`, or `DONE` authority by itself.
 
-A route may wait only if all of the following are recorded:
+CI runs registry-integrity checks. A taskbook claiming an executable state while its task ID is absent from the scheduler registry is an error.
+
+## 3. Normal lifecycle
+
+The normal lifecycle is:
+
+```text
+PUBLISH
+  -> PUBLISHED / NEEDS_REVIEW
+  -> REVIEW(stage=DISPATCH, verdict=ACCEPT)
+  -> READY / NEEDS_DISPATCH
+  -> CLAIM
+  -> CLAIMED
+  -> PROGRESS ...
+  -> IN_PROGRESS
+  -> RETURN
+  -> RETURNED / NEEDS_REVIEW
+  -> REVIEW(stage=RETURN, verdict=ACCEPT)
+  -> DONE / COMPLETE
+```
+
+Other valid branches include:
+
+```text
+RETURNED -> REVIEW(RETURN, CHANGES_REQUESTED) -> CHANGES_REQUESTED -> CLAIM ...
+PUBLISHED -> REVIEW(DISPATCH, CHANGES_REQUESTED) -> PUBLISHED
+PUBLISHED -> REVIEW(DISPATCH, REJECT) -> REJECTED
+active task -> HANDOFF -> HANDOFF_READY
+active task -> HARD_BLOCK -> BLOCKED -> UNBLOCK -> HANDOFF_READY
+active/legacy task -> ORPHAN -> ORPHANED -> RECOVER or REVIEW(RECOVERY) -> HANDOFF_READY
+any nonterminal task -> SUPERSEDE (Driver-authorized in V2) -> SUPERSEDED
+```
+
+## 4. Publication
+
+`PUBLISH` is task registration, not approval.
+
+Allowed publisher roles are defined by `research_scheduler_v2.json` and currently include RESEARCHER, RESEARCH_DRIVER, STEWARD, and USER-originated control-plane publication.
+
+A researcher may therefore publish a mature task without waiting for a Driver to author the taskbook. A FREE researcher remains excluded from automatic scheduler selection/CLAIM during autonomous Phase A; after its candidate has reached the required audited intake state, it may author and publish the derived task. The result is still only `PUBLISHED / NEEDS_REVIEW`.
+
+A published task cannot be claimed until Driver dispatch review accepts it.
+
+## 5. Driver cross-review
+
+`REVIEW` is a scheduler event with three stages:
+
+- `DISPATCH` — decide whether a `PUBLISHED` task becomes executable;
+- `RETURN` — decide whether a `RETURNED` execution is complete;
+- `RECOVERY` — decide how an `ORPHANED` task re-enters or exits the active portfolio.
+
+A Driver publication cannot be approved into `READY` by the same Driver-ID. A research execution cannot be reviewed into `DONE` by its executor identity. Review evidence is recorded by `review_ref` and remains in `review_history`.
+
+`REVIEW` controls workflow state only. Mathematical/canonical promotion remains governed by its own evidence and promotion contracts.
+
+## 6. Claims and progress
+
+A `CLAIM` is a renewable execution lease. Only `READY`, `HANDOFF_READY`, and `CHANGES_REQUESTED` are claimable.
+
+- `HEARTBEAT` renews a lease without claiming scientific progress;
+- `PROGRESS` renews and records a meaningful checkpoint;
+- `HANDOFF` deliberately releases a claim and requires a concrete next action;
+- `RETURN` releases a claim and submits the result for Driver review;
+- a V2 executor never emits `DONE`.
+
+A second claim cannot preempt a live lease.
+
+## 7. Orphans are first-class state
+
+When a live lease expires, V2 does **not** silently rewrite the task as `HANDOFF_READY`.
+
+The reducer creates a durable derived orphan record preserving, when available:
+
+- orphan time and reason;
+- claim ID;
+- actor and Researcher-ID;
+- last progress reference;
+- last known next action.
+
+The effective state becomes:
+
+`ORPHANED / ORPHANED`.
+
+An explicit `ORPHAN` event may additionally record discovered branch, last commit, source reference, discovering actor, and exact reason. Orphan history survives recovery.
+
+An orphan is not automatically selected. A Driver records `RECOVER` or `REVIEW(stage=RECOVERY, ...)` before it becomes `HANDOFF_READY` again.
+
+## 8. Hard blocks remain exceptional
+
+Only a complete record may stop a route:
 
 ```text
 HARD_BLOCK:
@@ -41,141 +132,58 @@ HARD_BLOCK:
   unblock_condition: <precise condition that resumes work>
 ```
 
-If any field is absent, the condition is not a hard block.
+CI, review, scheduler tooling, moving `main`, or lack of downstream acknowledgement are not mathematical hard blocks.
 
-`HARD_BLOCK` must be exceptional. If a route can continue by proving a conditional theorem, searching for a counterexample, weakening assumptions, building an executable oracle, testing a special case, or attacking a different open frontier, it is not blocked.
+## 9. Deterministic automatic selection
 
-## 4. L1/L2/L3 owners may always create new mathematics
+When TASK_RESEARCH has no user-selected task, the reducer considers only tasks with `dispatch_state=NEEDS_DISPATCH`.
 
-- L1 core owner: new reusable mother theorems are allowed and expected.
-- L2 program owner: new program-specific mathematics, applications, counterexamples, and candidate generalizations are allowed and expected.
-- L3 bridge/probe: new mathematics is allowed within the bridge's declared question.
-- L4 integration replay: **NO NEW MATHEMATICS**.
+It prefers:
 
-A replay manifest on an L1/L2/L3 owner branch containing
+1. `HANDOFF_READY`;
+2. `CHANGES_REQUESTED`;
+3. fresh `READY`;
 
-`no_new_mathematics_during_replay = true`
+then priority, leverage, oldest progress, and stable task ID. `PUBLISHED`, `RETURNED`, `ORPHANED`, `BLOCKED`, terminal states, and live leases are never auto-selected.
 
-applies only to the identified replay slice or replay operation. It must never freeze the owner branch as a whole.
+FREE_AXIOM_DISCOVERY does not enter this automatic selection path.
 
-If a new theorem is discovered while moving one replay slice, record it on the appropriate L1/L2/L3 research frontier; do not smuggle it into the L4 transport commit.
+## 10. Runtime event schema
 
-## 5. Moving `main` is not a research blocker
+New events use:
 
-Repeatedly rebuilding the same validated result every time `main` advances creates integration livelock.
+`ENTERPRISE_MATH_SCHEDULER_EVENT_V2`.
 
-Use this rule instead:
+The event log is append-only. The reducer accepts legacy V1 events for migration/history. In particular, a historical V1 `DONE` remains grandfathered rather than rewriting append-only history. No new V1 `DONE` should be emitted after V2 activation.
 
-1. freeze the proved semantic payload by source commit/blob/theorem identity;
-2. continue unrelated research normally;
-3. create or refresh the L4 integration replay when promotion is actually ready;
-4. perform one final combination gate against the then-current `main` before merge;
-5. if `main` moved only by unrelated changes, do not create a new research generation or restart the proof;
-6. restart research only when the new `main` introduces a genuine semantic conflict or invalidates an assumption.
-
-Thus the requirement is **final-state compatibility**, not continuous chase of every intermediate `main` head.
-
-## 6. Relay action classes
-
-Every new cross-route Relay entry should classify its requested downstream action as exactly one of:
-
-- `INFORM` — useful context; no action required before continuing;
-- `CONSUME` — reuse this result rather than duplicating it;
-- `TEST` — pressure-test or seek a bridge/counterexample when convenient to that route;
-- `HARD_DEPENDENCY` — the downstream route truly cannot continue on its declared frontier without this result.
-
-Only `HARD_DEPENDENCY` may create a `HARD_BLOCK`, and the downstream route must still record the four `HARD_BLOCK` fields itself.
-
-Absence of an acknowledgement does not block the upstream route.
-
-## 7. Route heartbeat
-
-Every active owner should be able to state:
+Use the emitter commands rather than hand-writing JSON where practical:
 
 ```text
-frontier: <current mathematical question>
-hard_block: NONE | <HARD_BLOCK record>
-last_progress: <commit/PR/Relay result>
-shared_surface_seen: <main SHA or common-surface revision>
+python tools/research_scheduler.py emit-publish ...
+python tools/research_scheduler.py emit-review ...
+python tools/research_scheduler.py emit-claim ...
+python tools/research_scheduler.py emit-progress ...
+python tools/research_scheduler.py emit-handoff ...
+python tools/research_scheduler.py emit-return ...
+python tools/research_scheduler.py emit-orphan ...
+python tools/research_scheduler.py emit-recover ...
 ```
 
-If `hard_block = NONE`, the route should continue research rather than waiting for another conversation, branch, review, or replay.
+The emitted JSON is appended to Issue #240 by the available connected GitHub/control-plane path.
 
-## 8. Dispatch state machine and conversation handoff
+## 11. Required checks
 
-The route heartbeat is made executable by `research_scheduler.json`, `tools/research_scheduler.py`, and the live Research Dispatch Board Issue #240.
+Repository/control-plane maintenance must pass:
 
-The scheduler coordinates **who continues which frontier**. It does not decide whether a theorem is proved, canonical, novel, or ready for promotion.
+```text
+python tools/research_scheduler.py validate
+python tools/research_scheduler.py registry-integrity
+```
 
-### 8.1 Task states
+The unit-test suite pressure-tests publication, independent review, execution return, lease expiry, orphan persistence, recovery, selection, legacy migration, and hidden-task detection.
 
-The durable task frontier uses the states:
+## 12. Research remains parallel
 
-`BACKLOG -> READY -> CLAIMED -> IN_PROGRESS -> HANDOFF_READY -> DONE`
+The V2 state machine does not serialize mathematical research globally. It serializes only conflicting execution leases and required review transitions for the same task.
 
-with two exceptional exits:
-
-- `BLOCKED` — only after a complete four-field `HARD_BLOCK`;
-- `SUPERSEDED` — the task frontier has been replaced by another explicit task.
-
-`READY` and `HANDOFF_READY` are dispatchable. `BACKLOG` is intentionally dormant. A task with a live claim is leased to one executor. A completed or superseded task is never automatically selected again.
-
-### 8.2 Claims are renewable leases
-
-A `CLAIM` is a temporary execution lease, not permanent ownership. Its default duration is declared in `research_scheduler.json`.
-
-- `PROGRESS` renews the lease and records a real checkpoint;
-- `HEARTBEAT` renews the lease when no better progress event exists;
-- `HANDOFF` releases the claim deliberately and must state one concrete `next_action`;
-- if a claimant disappears without handoff, lease expiry automatically returns the task to `HANDOFF_READY / NEEDS_DISPATCH`;
-- a second claim cannot preempt a live lease;
-- after expiry, handoff, unblock, or other valid release, another conversation may claim the task.
-
-Runtime events are append-only comments on Issue #240 using schema `ENTERPRISE_MATH_SCHEDULER_EVENT_V1`. Event ordering is GitHub comment creation order, with comment ID breaking any timestamp tie.
-
-### 8.3 New-conversation automatic selection
-
-A current explicit user task always overrides automatic selection.
-
-If a new Enterprise Math research conversation has no user-selected task, it must:
-
-1. read the common surface, this scheduling protocol, `research_scheduler.json`, owner isolation, and live Issue #240 events;
-2. reduce all valid runtime events to the current task states;
-3. ignore tasks with a live lease, complete tasks, blocked tasks, and dormant `BACKLOG` tasks;
-4. prefer `HANDOFF_READY` over fresh `READY` work so interrupted research is continued before opening another frontier;
-5. within that state order, rank by scheduler priority, then cross-route leverage, then oldest last-progress time, then stable task ID;
-6. post a valid `CLAIM` before substantive task-specific research begins;
-7. refresh the selected task's source PR/branch/Relay/canonical dependencies before proving anything new.
-
-This selection rule is deterministic so multiple agents inspecting the same state choose the same first candidate; the live-claim race is resolved by the first valid GitHub claim event.
-
-### 8.4 Session exit contract
-
-A research session must not silently disappear from the control plane.
-
-Before ending an unfinished task, post `HANDOFF` with:
-
-- task ID and current claim ID;
-- last meaningful commit/PR/Relay or other progress reference;
-- one concrete next mathematical/engineering action;
-- `hard_block = NONE` unless the full exceptional block record is justified.
-
-Use `DONE` only when the scheduler task's declared frontier is actually complete. Canonical promotion remains a separate L4 lifecycle operation unless promotion was itself the declared scheduler task.
-
-No downstream ACK is required for handoff. The scheduler, not another conversation's acknowledgement, is the continuation mechanism.
-
-### 8.5 Control-plane consistency
-
-`branch_governance_overrides.json` is the machine owner registry; every `ACTIVE_OWNER`/`ACTIVE_BRIDGE` must have scheduler coverage, even when its scheduler task is deliberately `BACKLOG`. `tools/research_scheduler.py validate` enforces this coverage and rejects partial hard-block records.
-
-Historical branch ledgers remain useful provenance/snapshots, but they are not the live executor assignment surface. Live dispatch authority is the combination of current owner registry + `research_scheduler.json` + Issue #240 runtime events.
-
-CI, review, L4 replay, or moving `main` may affect evidence/promotion status, but they do not silently mutate a research task into `BLOCKED`.
-
-## 9. Relationship to Architecture v2
-
-This protocol preserves Architecture v2's theorem ownership and non-destructive replay rules. It changes only the mistaken scheduling interpretation:
-
-> ownership is unique; knowledge is shared; research remains parallel.
-
-The A0–A5 ownership axis prevents duplicate mother theorems. It must not become a serial dependency chain.
+Ownership remains unique; knowledge remains shared; independent research remains parallel; canonical promotion remains a separate bounded lifecycle.
