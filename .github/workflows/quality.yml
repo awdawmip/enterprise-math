@@ -28,3 +28,7 @@ jobs:
         env:
           PYTHONPATH: src
         run: python -m unittest discover -s tests -v
+      - name: Research scheduler V2 registry integrity
+        env:
+          PYTHONPATH: src
+        run: python tools/research_scheduler.py validate
