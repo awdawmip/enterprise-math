@@ -32,6 +32,10 @@ jobs:
         env:
           PYTHONPATH: src
         run: python tools/research_scheduler.py registry-integrity
+      - name: Scheduler V2 control-plane wiring
+        env:
+          PYTHONPATH: src
+        run: python tools/audit_scheduler_v2_control_plane.py
       - name: Unit tests
         env:
           PYTHONPATH: src
