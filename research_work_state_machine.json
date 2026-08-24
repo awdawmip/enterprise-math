@@ -1,0 +1,159 @@
+{
+  "schema": "ENTERPRISE_MATH_WORK_STATE_MACHINE_V1",
+  "status": "ACTIVE",
+  "effective": "2026-08-24",
+  "purpose": "Unify task publication/execution and Driver cross-review on one append-only control plane so the user is not a manual router.",
+  "board": {
+    "repository": "awdawmip/enterprise-math",
+    "issue": 240,
+    "event_log": "append-only GitHub issue comments",
+    "legacy_scheduler": "research_scheduler.json",
+    "legacy_event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+    "work_event_schema": "ENTERPRISE_MATH_WORK_EVENT_V1",
+    "tool": "tools/research_work_state.py"
+  },
+  "task_publication": {
+    "event": "TASK_PUBLISH",
+    "rule": "DRIVER_APPROVED_DISPATCHABLE_TASKBOOK -> SAME_TURN_TASK_PUBLISH",
+    "publication_authority": "RESEARCH_DRIVER",
+    "immutable_taskbook_ref_required": true,
+    "published_task_can_override_same_id_legacy_static_definition": true,
+    "publication_is_theorem_truth": false,
+    "required_task_fields": [
+      "task_id",
+      "title",
+      "kind",
+      "owner",
+      "base_state",
+      "priority",
+      "leverage",
+      "frontier",
+      "next_action",
+      "source_refs",
+      "last_progress_at",
+      "hard_block"
+    ],
+    "required_event_fields": [
+      "at",
+      "issuer_driver_id",
+      "taskbook_ref",
+      "task"
+    ]
+  },
+  "task_claim": {
+    "generic_user_intents": [
+      "领任务",
+      "领取任务",
+      "claim task",
+      "get task"
+    ],
+    "rule": "GENERIC_TASK_CLAIM_INTENT -> SELECT_HIGHEST_ELIGIBLE_TASK -> CLAIM -> START_TASK",
+    "task_id_required_from_user": false,
+    "researcher_id": "AUTO_RESOLVE_OR_ALLOCATE_ON_CLAIM",
+    "selection": "legacy scheduler state ordering/priority/leverage/staleness with dynamic TASK_PUBLISH overlays",
+    "free_research_excluded": true
+  },
+  "research_completion": {
+    "rule": "RESEARCH_DONE -> SAME_TURN_DONE_EVENT + REVIEW_REQUEST",
+    "user_relay_required": false,
+    "review_request_required_for_new_published_tasks": true,
+    "review_request_fields": [
+      "review_id",
+      "task_id",
+      "at",
+      "originating_researcher_id",
+      "review_objective",
+      "target_refs",
+      "evidence_refs",
+      "execution_log_refs",
+      "requested_checks",
+      "priority"
+    ]
+  },
+  "review": {
+    "review_states": [
+      "READY",
+      "CLAIMED",
+      "IN_PROGRESS",
+      "HANDOFF_READY",
+      "DONE",
+      "SUPERSEDED"
+    ],
+    "events": [
+      "REVIEW_REQUEST",
+      "REVIEW_CLAIM",
+      "REVIEW_PROGRESS",
+      "REVIEW_HANDOFF",
+      "REVIEW_DONE",
+      "REVIEW_SUPERSEDE"
+    ],
+    "generic_user_intents": [
+      "领审核",
+      "领取审核",
+      "claim review",
+      "get review"
+    ],
+    "rule": "GENERIC_REVIEW_CLAIM_INTENT -> SELECT_HIGHEST_ELIGIBLE_REVIEW -> REVIEW_CLAIM -> START_REVIEW",
+    "reviewer_role": "RESEARCH_DRIVER",
+    "issuer_lock": false,
+    "prefer_reviewer_different_from_issuer": true,
+    "same_driver_review_allowed": true,
+    "same_driver_review_must_be_labeled": true,
+    "claim_lease_minutes": 1440,
+    "required_review_request_fields": [
+      "review_id",
+      "task_id",
+      "originating_researcher_id",
+      "review_objective",
+      "target_refs",
+      "evidence_refs",
+      "execution_log_refs",
+      "requested_checks",
+      "priority"
+    ],
+    "review_done_verdicts": [
+      "ACCEPT",
+      "ACCEPT_WITH_NARROWING",
+      "RETURN_TO_RESEARCH",
+      "REQUEST_INDEPENDENT_REPLICATION",
+      "ROUTE_TO_FOUNDATION",
+      "PROMOTION_READY",
+      "PARK",
+      "REJECT"
+    ],
+    "review_done_required_fields": [
+      "review_id",
+      "reviewer_driver_id",
+      "verdict",
+      "findings",
+      "evidence_refs",
+      "next_action",
+      "method_harvest",
+      "successor_disposition"
+    ],
+    "review_truth_boundary": "REVIEW_DONE is a Driver routing verdict, not canonical theorem truth or source-main promotion."
+  },
+  "cross_review": {
+    "principle": "TASK_ISSUER != REQUIRED_REVIEWER",
+    "review_claim_authority": "any active RESEARCH_DRIVER conversation",
+    "selection_preference": "different Driver-ID from issuer_driver_id when a comparable review is available",
+    "self_review_fallback": "allowed without user relay; mark SAME_DRIVER_REVIEW in the review log"
+  },
+  "compatibility": {
+    "legacy_static_tasks_remain_visible": true,
+    "legacy_scheduler_events_remain_valid": true,
+    "runtime_SUPERSEDE_remains_terminal": true,
+    "existing_running_tasks_not_invalidated": true,
+    "manual_driver_dispatch_remains_fallback_not_primary": true
+  },
+  "invariants": [
+    "TASKBOOK_PASS != TASK_VISIBLE_UNLESS_TASK_PUBLISH_IS_LOGGED",
+    "TASKBOOK_PASS -> SAME_TURN_TASK_PUBLISH",
+    "RESEARCH_DONE -> SAME_TURN_REVIEW_REQUEST",
+    "TASK_ISSUER != REQUIRED_REVIEWER",
+    "USER_NEED_NOT_NAME_TASK_ID",
+    "USER_NEED_NOT_NAME_REVIEW_ID",
+    "SCHEDULER_DONE != THEOREM_TRUTH",
+    "REVIEW_DONE != CANONICAL_MAIN"
+  ]
+}
