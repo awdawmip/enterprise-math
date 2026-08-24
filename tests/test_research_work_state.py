@@ -18,7 +18,10 @@ def machine():
                 "last_progress_at", "hard_block"
             ],
         },
-        "task_claim": {"task_id_required_from_user": False},
+        "task_claim": {
+            "task_id_required_from_user": False,
+            "legacy_unpublished_ready_auto_claim": False,
+        },
         "review": {
             "issuer_lock": False,
             "prefer_reviewer_different_from_issuer": True,
@@ -133,6 +136,42 @@ class WorkMachineTests(unittest.TestCase):
         )
         self.assertEqual("RS-NEW", chosen["task_id"])
 
+    def test_unpublished_legacy_ready_is_not_selected_by_generic_claim(self):
+        cfg = legacy_config(legacy_task("RS-STALE", state="READY", priority="P0"))
+        chosen = ws.select_task(
+            cfg, [], machine(), ws.parse_time("2026-08-24T09:05:00+08:00")
+        )
+        self.assertIsNone(chosen)
+
+    def test_runtime_touched_legacy_handoff_remains_claimable(self):
+        cfg = legacy_config(legacy_task("RS-LIVE", state="READY", priority="P1"))
+        events = [
+            {
+                "schema": ws.LEGACY_SCHEMA,
+                "event": "CLAIM",
+                "task_id": "RS-LIVE",
+                "actor": "old researcher",
+                "at": "2026-08-24T08:00:00+08:00",
+                "claim_id": "old-claim",
+                "lease_minutes": 30,
+            },
+            {
+                "schema": ws.LEGACY_SCHEMA,
+                "event": "HANDOFF",
+                "task_id": "RS-LIVE",
+                "actor": "old researcher",
+                "at": "2026-08-24T08:10:00+08:00",
+                "claim_id": "old-claim",
+                "progress_ref": "checkpoint:1",
+                "next_action": "continue exact proof",
+            },
+        ]
+        chosen = ws.select_task(
+            cfg, events, machine(), ws.parse_time("2026-08-24T09:05:00+08:00")
+        )
+        self.assertEqual("RS-LIVE", chosen["task_id"])
+        self.assertEqual("HANDOFF_READY", chosen["state"])
+
     def test_task_publish_can_refresh_same_id_without_duplicate(self):
         cfg = legacy_config(legacy_task("RS-X", priority="P3"))
         event = publish_event("RS-X", priority="P0")
@@ -153,7 +192,7 @@ class WorkMachineTests(unittest.TestCase):
         self.assertEqual(ws.LEGACY_SCHEMA, normalized[0]["schema"])
         self.assertEqual("SUPERSEDE", normalized[0]["event"])
 
-    def test_cross_review_prefers_driver_other_than_issuer(self):
+    def test_cross_review_prefers_driver_other_than_issuer_when_priority_equal(self):
         events = [
             review_request(
                 "RVW-SAME", "RS-A", issuer="EM-DVR-ME",
@@ -169,6 +208,23 @@ class WorkMachineTests(unittest.TestCase):
             driver_id="EM-DVR-ME",
         )
         self.assertEqual("RVW-CROSS", chosen["review_id"])
+
+    def test_higher_priority_same_issuer_beats_lower_priority_cross_issuer(self):
+        events = [
+            review_request(
+                "RVW-P0-SAME", "RS-A", issuer="EM-DVR-ME", priority="P0",
+                at="2026-08-24T09:00:00+08:00",
+            ),
+            review_request(
+                "RVW-P1-CROSS", "RS-B", issuer="EM-DVR-OTHER", priority="P1",
+                at="2026-08-24T08:00:00+08:00",
+            ),
+        ]
+        chosen = ws.select_review(
+            events, machine(), ws.parse_time("2026-08-24T09:20:00+08:00"),
+            driver_id="EM-DVR-ME",
+        )
+        self.assertEqual("RVW-P0-SAME", chosen["review_id"])
 
     def test_same_driver_review_is_allowed_when_it_is_the_only_item(self):
         events = [review_request("RVW-ONLY", "RS-A", issuer="EM-DVR-ME")]
