@@ -1,12 +1,13 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V6",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-24",
   "authority_source": "research_role_policy.json",
   "research_architecture": "research_architecture.json",
   "identity_state_machine": "research_identity_state_machine.json",
   "final_response_identity_policy": "final_response_identity_policy.json",
   "axiom_candidate_state_machine": "research_axiom_candidate_state_machine.json",
+  "work_state_machine": "research_work_state_machine.json",
   "authoring_protocol": "docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md",
   "authoring_tool": "tools/research_taskbook.py",
   "policy_set": "research_taskbook_policy.json",
@@ -75,6 +76,34 @@
     "semantic_anti_evasion_rule": "Even without Stage naming, if the parent result is a necessary research premise/motivation and the new task is the next unresolved layer of the same mother route, classify it CONTINUATION. Renaming does not reset lineage.",
     "rule": "PASS or DONE on a parent task is not itself evidence for a successor. A CONTINUATION taskbook is dispatchable only when its successor gate names a genuine new information gap, falsifiable outcomes, a stop rule, and whether an independent/alternative exploration path was considered."
   },
+  "publication_contract": {
+    "after_dispatch_audit_pass": "SAME_TURN_TASK_PUBLISH",
+    "event_schema": "ENTERPRISE_MATH_WORK_EVENT_V1",
+    "event": "TASK_PUBLISH",
+    "board_issue": 240,
+    "immutable_taskbook_ref_required": true,
+    "user_relay_required": false,
+    "publication_is_theorem_truth": false,
+    "legacy_unpublished_ready_is_generic_claimable": false,
+    "rule": "A dispatch PASS makes a task eligible for publication, not privately assigned. The approving Driver must append one immutable TASK_PUBLISH envelope in the same turn. Generic researcher claim discovers published tasks from shared work state; untouched legacy static READY rows are not automatically claimable."
+  },
+  "completion_review_contract": {
+    "rule": "For shared-state tasks, RESEARCH_DONE writes DONE plus REVIEW_REQUEST in the same semantic checkpoint when review is required.",
+    "review_request_owner": "SHARED_DRIVER_REVIEW_QUEUE",
+    "user_relay_required": false,
+    "issuing_driver_review_lock": false,
+    "required_review_fields": [
+      "review_id",
+      "task_id",
+      "originating_researcher_id",
+      "review_objective",
+      "target_refs",
+      "evidence_refs",
+      "execution_log_refs",
+      "requested_checks",
+      "priority"
+    ]
+  },
   "optional_metadata": {
     "identity_lane": "compact human-readable lane such as R012, R005C, P017",
     "parent_task_id": "required when task_lineage=CONTINUATION; otherwise normally null",
@@ -89,7 +118,7 @@
     "execution_id"
   ],
   "dispatch_gate": "python tools/research_taskbook.py audit <taskbook-path> --dispatch",
-  "manual_dispatch_identity_gate": "Driver-mediated manual relay must preallocate a Researcher-ID outside the taskbook before user handoff and the receiving final-response footer follows final_response_identity_policy.json.",
+  "manual_dispatch_identity_gate": "Driver-mediated manual relay is a fallback. If used, preallocate a Researcher-ID outside the taskbook; normal shared-state claiming allocates/resolves identity at CLAIM time.",
   "manual_dispatch_identity_helper": "python tools/research_identity.py allocate --task <TASK> --role RESEARCHER --lane <LANE> --dispatch-id <UNIQUE_DISPATCH_ID>",
   "rules": [
     "A taskbook defines task-specific work, not a particular conversation instance and not a copy of repository operating policy.",
@@ -99,12 +128,13 @@
     "An obvious Stage 2+ task is CONTINUATION by construction and cannot be labeled NEW_DIRECTION merely to bypass the gate.",
     "The taskbook body inherits current repository policy through research_taskbook_policy.json; generic rules already visible to the executing researcher must not be restated in the body.",
     "Taskbook authoring uses tools/research_taskbook.py new, followed by task-local editing, machine audit, Driver review, and an approved policy_review stamp before dispatch.",
-    "The policy_review digest is derived from the current policy set. If any policy input changes, a previously stamped taskbook becomes stale and must be re-reviewed before another dispatch.",
+    "After dispatch audit passes, the approving Driver publishes one immutable TASK_PUBLISH event to the shared work state in the same turn. A taskbook left only in a private Driver conversation is not claimable publication.",
+    "The policy_review digest is derived from the current policy set. If any policy input changes, a previously stamped taskbook becomes stale and must be re-reviewed before another dispatch/publication.",
     "Task-specific instructions that conflict with inherited policy are forbidden unless recorded as a narrow temporary_overrides entry with conflict_id, scope, reason, replacement_behavior, and expires_when.",
-    "Temporary overrides alter only the named policy behavior for the declared scope and lifetime; they do not silently weaken theorem truth, safety, authorization, ownership, canonical-promotion requirements, candidate maturity, origin provenance, successor-stage requirements, or final-response identity visibility.",
+    "Temporary overrides alter only the named policy behavior for the declared scope and lifetime; they do not silently weaken theorem truth, safety, authorization, ownership, canonical-promotion requirements, candidate maturity, origin provenance, successor-stage requirements, final-response identity visibility, or shared-state publication/review requirements.",
     "Legacy taskbooks may remain unstamped or lack origin/lineage/footer inheritance as historical artifacts, but any new dispatch of an unstamped/stale legacy taskbook requires current review; newly authored taskbooks must satisfy V6.",
-    "Taskbooks never bind a fixed runtime Researcher-ID. For Driver-mediated manual relay, the Driver preallocates one Researcher-ID in a separate dispatch envelope and records it in the relay/handoff. Scheduler CLAIM and direct self-start paths use their own identity bootstrap.",
-    "A continuation in the same researcher conversation preserves its existing Researcher-ID; a genuinely new manual dispatch receives a new preallocated Researcher-ID unless explicitly routed to the same conversation.",
+    "Taskbooks never bind a fixed runtime Researcher-ID. Shared-state CLAIM resolves/allocates the Researcher-ID. Manual Driver relay remains a fallback and may preallocate a Researcher-ID in a separate envelope.",
+    "A continuation in the same researcher conversation preserves its existing Researcher-ID; a genuinely new shared-state CLAIM receives/resolves an identity according to the identity state machine.",
     "Researcher identity never grants Driver authority or theorem ownership. Driver conversations use Driver-ID, not Researcher-ID, as their visible identity label.",
     "A free-research axiom candidate enters taskbook authoring only after Phase-B audit and Driver intake under research_axiom_candidate_state_machine.json, and its candidate provenance must remain visible in taskbook metadata."
   ],
@@ -117,7 +147,10 @@
     "declare any intentional temporary override in policy_review.temporary_overrides",
     "python tools/research_taskbook.py review <path> --approve",
     "python tools/research_taskbook.py audit <path> --dispatch",
-    "for Driver-mediated manual relay, preallocate Researcher-ID with tools/research_identity.py and put it in the dispatch envelope",
-    "dispatch only after taskbook PASS and identity binding"
+    "append TASK_PUBLISH with immutable taskbook_ref and task routing fields to the shared work state",
+    "researcher generic `领任务` selects/claims published work without user-supplied task id",
+    "on completion append DONE plus REVIEW_REQUEST with objective/targets/evidence/execution logs",
+    "Driver generic `领审核` selects/claims shared review; issuer Driver has no exclusive lock",
+    "use manual Driver relay only as a fallback"
   ]
 }
