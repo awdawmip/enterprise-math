@@ -93,15 +93,17 @@ This is a strict threshold reduction from the odd-channel projection:
 
 `INTEGER NATIVE CARRIER: 2 ARBITRARY PROBES`.
 
-## 5. Orthogonal roles of 2 and 3
+## 5. Complementary roles of 2, 3 and index-distance integrality
 
-The two small channels resolve complementary probe geometries.
+Let the two probe positions be separated by
+
+`d=j-i`.
 
 ### Same-parity pair
 
 The chirality offsets cancel between the two probes.  Both signs produce the same shell candidate R.
 
-The q=3 slope condition cannot distinguish them.
+Neither the q=3 slope condition nor index-distance divisibility distinguishes them.
 
 The q=2 parity lock
 
@@ -111,55 +113,61 @@ is necessary and sufficient.
 
 ### Opposite-parity pair
 
-Changing the sign changes the shell numerator by exactly two.
+Changing the sign changes the pre-slope numerator by exactly two.
 
-The q=2 divisibility condition is unchanged, but modulo3 exactly one sign has slope divisible by3.
+There are two possible selectors:
 
-Thus the q=3 lock
+1. exact divisibility by the index distance d;
+2. the native q=3 slope lock `b=3R`.
 
-`b=3R`
+If `d>1`, the two pre-slope numerators cannot both be divisible by `2d`, so index-distance integrality may already select the sheet before the factor3 condition is applied.
 
-is necessary and sufficient.
+If `d=1`, both pre-slopes are integral and differ by one; then exactly one is divisible by3.  Therefore channel3 is genuinely necessary for the adjacent opposite-parity pair and is the unique selector that works uniformly for every opposite-parity separation.
 
-Freeze:
+Freeze the precise form:
 
-`SAME-PARITY TWO-PROBE GLUE = CHANNEL 2`,
+`SAME-PARITY UNIVERSAL GLUE = CHANNEL 2`,
 
-`OPPOSITE-PARITY TWO-PROBE GLUE = CHANNEL 3`.
+`OPPOSITE-PARITY UNIFORM GLUE = CHANNEL 3`,
+
+`NONADJACENT OPPOSITE-PARITY PAIRS MAY ALSO BE RESOLVED BY INDEX-DISTANCE INTEGRALITY`.
 
 ## 6. Minimality ablations
 
 ### Remove channel 2
 
-For every same-parity pair, the two chirality candidates remain indistinguishable in every odd modulus and under the slope-multiple-of-3 condition.
+For every same-parity pair, the two chirality candidates remain indistinguishable in every odd modulus and under all slope/index divisibility conditions.
 
 So channel2 cannot be replaced by any finite collection of good odd channels.
 
 ### Remove channel 3
 
-For every opposite-parity pair, the two sign candidates differ by a shell shift of `+-1/(3d)` at the rational level.  Without enforcing 3-divisibility, the parity condition alone does not provide the universal sheet selector.
+Some nonadjacent opposite-parity pairs remain decodable because their index distance rejects one pre-slope candidate.
 
-So channel3 is the unique uniform first-order slope glue for opposite-parity pairs.
+However adjacent opposite-parity pairs retain two integral pre-slopes differing by one, and parity alone does not select the correct one uniformly.  The multiple-of-3 slope law is then indispensable.
+
+Thus channel3 is necessary for a decoder required to work for **arbitrary** two-probe placement, even though it is not individually necessary for every nonadjacent pair.
 
 ### Remove both
 
-The full odd-channel family remains the two-sheet double cover, and the sharp recovery threshold returns to a parity-mixed triple.
+The full good-odd-channel family remains the two-sheet double cover, and the sharp carrier-only recovery threshold returns to a parity-mixed triple.
 
-Thus `{2,3}` is the minimal universal arithmetic glue set for arbitrary two-probe reconstruction.
+Therefore `{2,3}` is the minimal universal arithmetic glue set for arbitrary two-probe reconstruction.
 
 ## 7. Channel/probe phase table
 
-| available information | minimal guaranteed spatial probes | parity condition |
+| available information | minimal guaranteed spatial probes | qualification |
 |---|---:|---|
 | one fixed chirality sheet | 2 | none |
-| odd-channel two-sheet union | 3 | both parities required |
-| union + channel2 only | 2 for same-parity pairs; not universal | same parity |
-| union + channel3 only | 2 for opposite-parity pairs; not universal | opposite parity |
-| full native integer glue `{2,3}` | 2 | none |
+| good-odd-channel two-sheet union | 3 | both parities required |
+| union + channel2 | 2 for same-parity pairs | not universal for opposite parity |
+| union + exact index divisibility | 2 for many nonadjacent opposite-parity pairs | fails as a uniform adjacent-pair rule |
+| union + channel3 | 2 for every opposite-parity pair | not universal for same parity |
+| full native integer glue `{2,3}` | 2 | arbitrary distinct positions |
 
 ## 8. Prime-valued interpretation
 
-For an actual prime island, two indexed prime values recover its native value trajectory only because the full integer values retain the 2/3 glue.
+For an actual prime island, two indexed prime values recover its native value trajectory only because the full integer values retain the small-channel and integrality glue.
 
 Reducing those primes to a single large odd residue channel destroys this two-probe property and restores the hidden chirality double cover.
 
@@ -167,9 +175,10 @@ Therefore the value-level localization is genuinely multiscale:
 
 - large odd channels carry the affine packet;
 - channel2 carries parity chirality;
-- channel3 carries native slope quantization;
+- channel3 supplies the uniform native slope quantization;
+- index-distance integrality can provide additional nonadjacent resolution;
 - their recoalescence restores the unique integer trajectory.
 
 ## 9. Boundary
 
-Threshold access structures and Reed-Solomon interpolation are classical.  The research-specific content is the exact native tradeoff selected by the alternating-curvature filament and the separate, indispensable roles played by the arithmetic channels 2 and3.
+Threshold access structures and Reed-Solomon interpolation are classical.  The research-specific content is the exact native tradeoff selected by the alternating-curvature filament and the distinct roles played by channels2,3 and discrete probe separation.
