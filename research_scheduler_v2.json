@@ -1,0 +1,266 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V2",
+  "status": "ACTIVE / CANONICAL CONTROL PLANE",
+  "effective": "2026-08-25",
+  "scheduler_issue": 240,
+  "seed_registry": "research_scheduler.json",
+  "claim_lease_minutes": 120,
+  "event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V2",
+  "accepted_legacy_event_schemas": [
+    "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
+  ],
+  "authority": {
+    "explicit_user_task_overrides_auto_dispatch": true,
+    "runtime_event_log": "GitHub Issue #240",
+    "task_existence_authority": "V2 seed/bootstrap registry plus valid PUBLISH events",
+    "runtime_state_authority": "V2 reducer over append-only Issue #240 events",
+    "owner_registry": "branch_governance_overrides.json",
+    "taskbook_contract": "research_taskbook_contract.json",
+    "problem_status": "docs/PROBLEM_STATUS.en.md",
+    "common_surface": "docs/RESEARCH_COMMON_SURFACE.en.md",
+    "research_relay_issue": 82,
+    "foundation_problem_issue": 164,
+    "foundation_backflow_router": "foundation_backflow.json",
+    "note": "Scheduler state coordinates task existence, review, execution, handoff and orphan recovery. It does not promote mathematical truth or canonical theorem status."
+  },
+  "task_states": [
+    "BACKLOG",
+    "PUBLISHED",
+    "READY",
+    "CLAIMED",
+    "IN_PROGRESS",
+    "RETURNED",
+    "CHANGES_REQUESTED",
+    "HANDOFF_READY",
+    "ORPHANED",
+    "BLOCKED",
+    "DONE",
+    "REJECTED",
+    "SUPERSEDED"
+  ],
+  "computed_dispatch_states": [
+    "NEEDS_REVIEW",
+    "NEEDS_DISPATCH",
+    "LEASED",
+    "ORPHANED",
+    "BLOCKED",
+    "COMPLETE",
+    "DORMANT"
+  ],
+  "event_types": [
+    "PUBLISH",
+    "REVIEW",
+    "CLAIM",
+    "HEARTBEAT",
+    "PROGRESS",
+    "HANDOFF",
+    "RETURN",
+    "HARD_BLOCK",
+    "UNBLOCK",
+    "ORPHAN",
+    "RECOVER",
+    "SUPERSEDE"
+  ],
+  "publish_contract": {
+    "allowed_publisher_roles": [
+      "RESEARCHER",
+      "RESEARCH_DRIVER",
+      "STEWARD",
+      "USER"
+    ],
+    "publication_state": "PUBLISHED",
+    "publication_is_dispatch_approval": false,
+    "free_researcher_may_publish": true,
+    "free_researcher_is_auto_dispatch_eligible": false,
+    "publisher_id_required_for_roles": [
+      "RESEARCHER",
+      "RESEARCH_DRIVER",
+      "STEWARD"
+    ],
+    "required_task_fields": [
+      "title",
+      "kind",
+      "owner",
+      "priority",
+      "leverage",
+      "frontier",
+      "next_action"
+    ],
+    "rule": "PUBLISH creates a first-class scheduler task immediately but never makes it dispatchable. Independent Driver dispatch review is required before READY."
+  },
+  "review_contract": {
+    "event": "REVIEW",
+    "reviewer_role": "RESEARCH_DRIVER",
+    "reviewer_id_required": true,
+    "required_fields": [
+      "review_stage",
+      "verdict",
+      "reviewer_id",
+      "review_ref"
+    ],
+    "review_stages": [
+      "DISPATCH",
+      "RETURN",
+      "RECOVERY"
+    ],
+    "verdicts": [
+      "ACCEPT",
+      "CHANGES_REQUESTED",
+      "REJECT"
+    ],
+    "dispatch": {
+      "from_states": ["PUBLISHED"],
+      "accept_to": "READY",
+      "changes_requested_to": "PUBLISHED",
+      "reject_to": "REJECTED",
+      "cross_review_rule": "reviewer_id must differ from publisher_id when publisher_id is present"
+    },
+    "return": {
+      "from_states": ["RETURNED"],
+      "accept_to": "DONE",
+      "changes_requested_to": "CHANGES_REQUESTED",
+      "reject_allowed": false,
+      "cross_review_rule": "reviewer_id must differ from the last executor identity"
+    },
+    "recovery": {
+      "from_states": ["ORPHANED"],
+      "accept_to": "HANDOFF_READY",
+      "changes_requested_to": "ORPHANED",
+      "reject_to": "REJECTED",
+      "next_action_required_on_accept": true
+    },
+    "rule": "No V2 worker event can transition a research task directly to DONE. RETURNED becomes DONE only through an accepted Driver RETURN review."
+  },
+  "selection_policy": {
+    "default_kind": "RESEARCH",
+    "eligible_task_states": [
+      "HANDOFF_READY",
+      "CHANGES_REQUESTED",
+      "READY"
+    ],
+    "state_order": [
+      "HANDOFF_READY",
+      "CHANGES_REQUESTED",
+      "READY"
+    ],
+    "priority_order": ["P0", "P1", "P2", "P3"],
+    "leverage_order": ["HIGH", "MEDIUM", "LOW"],
+    "staleness_order": "oldest_last_progress_first",
+    "tie_break": "task_id",
+    "skip_live_leases": true,
+    "skip_complete_hard_dependencies": false,
+    "research_only_by_default": true,
+    "orphan_requires_recovery_review_before_dispatch": true
+  },
+  "handoff_contract": {
+    "unfinished_session_requires_handoff": true,
+    "required_fields": [
+      "task_id",
+      "actor",
+      "at",
+      "claim_id",
+      "progress_ref",
+      "next_action"
+    ],
+    "silent_abandonment_recovery": "claim lease expiry produces ORPHANED plus a durable derived orphan_history record",
+    "ack_required": false
+  },
+  "orphan_contract": {
+    "state": "ORPHANED",
+    "auto_on_lease_expiry": true,
+    "preserve_history_after_recovery": true,
+    "explicit_event": "ORPHAN",
+    "explicit_required_fields": [
+      "orphan_reason",
+      "discovered_by",
+      "source_ref"
+    ],
+    "derived_record_fields": [
+      "orphaned_at",
+      "reason",
+      "claim_id",
+      "actor",
+      "researcher_id",
+      "last_progress_ref",
+      "next_action"
+    ],
+    "recovery_requires_driver": true,
+    "recovery_event": "RECOVER",
+    "rule": "An orphan is never silently converted to HANDOFF_READY. It remains visibly ORPHANED until a Driver records recovery/adoption or rejection."
+  },
+  "hard_block_contract": {
+    "required_fields": [
+      "missing_object",
+      "owner",
+      "necessity",
+      "unblock_condition"
+    ],
+    "only_hard_dependency_can_block": true,
+    "ci_review_moving_main_are_not_hard_blocks": true
+  },
+  "foundation_link_contract": {
+    "router": "foundation_backflow.json",
+    "research_fq_must_link_to_kind": "RESEARCH",
+    "research_task_must_explicitly_declare_question": true,
+    "research_task_question_field": "foundation_questions",
+    "live_claim_scope_must_not_be_reinterpreted": true,
+    "steward_verification_or_integration_must_link_to_kind": "GOVERNANCE",
+    "question_status_authority": "GitHub Issue #164",
+    "runtime_execution_authority": "GitHub Issue #240"
+  },
+  "registry_integrity": {
+    "taskbook_directory": "research_tasks",
+    "taskbook_frontmatter_prefix": "ENTERPRISE_MATH_TASK_V1",
+    "must_be_registered_taskbook_states": [
+      "READY",
+      "CLAIMED",
+      "IN_PROGRESS",
+      "RETURNED",
+      "CHANGES_REQUESTED",
+      "HANDOFF_READY",
+      "ORPHANED",
+      "BLOCKED"
+    ],
+    "published_taskbooks_may_exist_only_with_runtime_publish_event": true,
+    "legacy_seed_registry_is_imported": true,
+    "duplicate_task_id_is_error": true,
+    "unknown_ready_taskbook_is_error": true,
+    "rule": "A taskbook may not claim an executable/runtime state while remaining invisible to the scheduler registry."
+  },
+  "bootstrap_tasks": [
+    {
+      "task_id": "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
+      "title": "R043-C4 Native Interface Link-Separator Closure",
+      "kind": "RESEARCH",
+      "owner": "program/p022-geometry-v2",
+      "base_state": "READY",
+      "priority": "P1",
+      "leverage": "HIGH",
+      "frontier": "Prove or refute the exact FCC/HCP native interface-to-frontier connectivity lemma isolated by R043-C3, thereby deciding whether one unoccupied connected component can expose multiple disconnected visible G0 frontier pieces.",
+      "next_action": "Build the exact FCC and HCP local site-link/interface incidence cases; prove the native connectivity lift or freeze and globally realize the first exact separator.",
+      "dependencies": [],
+      "source_refs": [
+        "research_tasks/R043C4_NATIVE_INTERFACE_LINK_SEPARATOR_CLOSURE_20260824.md",
+        "driver_reviews/R043C3_LOCAL_LINK_REDUCTION_AND_C4_DRIVER_REVIEW_20260824.md"
+      ],
+      "evidence_status": "GLOBAL_GROUPING_GATE_REDUCED_TO_NATIVE_LOCAL_LINK_SEPARATOR",
+      "last_progress_ref": "R043-C3 Driver intake / C4 dispatch",
+      "last_progress_at": "2026-08-24T14:12:00+08:00",
+      "hard_block": null,
+      "tags": [
+        "R043C4",
+        "native-surface",
+        "FCC",
+        "HCP",
+        "interface",
+        "link-graph",
+        "separator"
+      ],
+      "identity_lane": "R043C4",
+      "taskbook_ref": "research_tasks/R043C4_NATIVE_INTERFACE_LINK_SEPARATOR_CLOSURE_20260824.md",
+      "registry_source": "V2_BOOTSTRAP_MIGRATION",
+      "publication_review_exempt": true,
+      "publication_review_exempt_reason": "Driver-approved READY taskbook predates scheduler V2 and is explicitly migrated into the canonical registry."
+    }
+  ]
+}
