@@ -74,7 +74,9 @@ If `epsilon_i!=epsilon_j`, then for opposite signs s and -s,
 
 The right side is a nonzero proper fraction of absolute value `1/(3d)`.  Therefore the two candidates cannot both be integers.
 
-Equivalently, modulo 3 the two numerators differ by `+-2`, so exactly one sign can pass the native slope-divisibility condition.
+At the uniform channel level, the two numerators differ by `+-2` modulo3, so exactly one sign can pass the native multiple-of-3 slope condition.
+
+At the full integer level there is also a finer distinction: for `d>1`, divisibility by the index distance d can already reject one pre-slope candidate; for the adjacent case `d=1`, channel3 is the indispensable selector between two integral pre-slopes.
 
 Thus every pair of distinct indexed integer values has exactly one valid `(chi,R)` candidate.
 
@@ -104,7 +106,7 @@ The positions need not be endpoints and the window size need not be supplied to 
 
 ## 5. Small-channel complementarity
 
-The two odd-field code sheets are glued by the two smallest arithmetic channels.
+The two odd-field code sheets are glued by the smallest arithmetic channels together with exact index divisibility.
 
 ### Same-parity pair
 
@@ -116,15 +118,17 @@ The missing bit is exactly the q=2 relation
 
 ### Opposite-parity pair
 
-The two signs differ in the numerator by two units.  The q=3 condition that the affine slope be a multiple of 3 selects exactly one sheet.
+The q=3 condition that the affine slope be a multiple of3 selects exactly one sheet for every separation.  For nonadjacent probes, index-distance divisibility can sometimes select the same sheet earlier; for adjacent probes it cannot, and q=3 is genuinely necessary.
 
 Thus
 
-`q=2` glues same-parity observations,
+`q=2` is the universal same-parity glue,
 
-`q=3` glues opposite-parity observations.
+`q=3` is the universal opposite-parity glue,
 
-This gives a new role for the mandatory 2 and 3 channels: besides selecting long-incidence eligibility, together they restore the unique global integer packet hidden behind every odd-channel double cover.
+while exact index separation supplies additional nonadjacent resolution.
+
+This gives a new role for the mandatory 2 and3 channels: besides selecting long-incidence eligibility, together they guarantee reconstruction of the unique global integer packet hidden behind every good-odd-channel double cover.
 
 ## 6. Finite-modulus persistence of ambiguity
 
@@ -136,9 +140,9 @@ The unique native lift is selected only when the excluded small-channel/integral
 
 This is the exact local-to-global chain
 
-`ODD PRIME CHANNELS -> TWO-SHEET AFFINE CODE`,
+`GOOD ODD PRIME CHANNELS -> TWO-SHEET AFFINE CODE`,
 
-`2/3-ADIC ARITHMETIC GLUE -> ONE INTEGER FILAMENT`.
+`2/3 + INDEX INTEGRALITY GLUE -> ONE INTEGER FILAMENT`.
 
 ## 7. Prime-valued specialization
 
