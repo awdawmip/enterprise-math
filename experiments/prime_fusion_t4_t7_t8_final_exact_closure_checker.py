@@ -12,7 +12,7 @@ Audit ranges:
     -16 <= x,y <= 16
   * T7 all idempotents: 1 <= H <= 1000
   * T7 cell witness table: positive primitive 1 <= a,b <= 40, H<=1000
-  * T8 positive cells: 1 <= a,b <= 100
+  * T8 nonnegative cells: 0 <= a,b <= 100, (a,b)!=(0,0)
 """
 
 from math import gcd, isqrt
@@ -298,21 +298,28 @@ def audit_t8() -> dict:
     dual = 0
     semiprime_equivalence_checks = 0
 
-    for a in range(1, T8_CELL_MAX + 1):
-        for b in range(1, T8_CELL_MAX + 1):
+    for a in range(T8_CELL_MAX + 1):
+        for b in range(T8_CELL_MAX + 1):
+            if a == 0 and b == 0:
+                continue
             cells += 1
             n = n_channel(a, b)
             c = c_channel(a, b)
             h = n * c
-            if n <= 1 or c <= 1:
-                continue
-            eligible += 1
             dual_prime = is_prime(n) and is_prime(c)
             sf_semiprime = is_squarefree_semiprime(h)
+
+            # Stronger cell-family statement: even without assuming primitive,
+            # interior, or N,C>1, dual-prime iff H is a square-free semiprime.
+            # Boundary norm-one cases have H in {1,2}, so neither side fires.
             assert dual_prime == sf_semiprime
             semiprime_equivalence_checks += 1
+
+            if n > 1 and c > 1:
+                eligible += 1
             if dual_prime:
                 dual += 1
+                assert n > 1 and c > 1
                 assert n != c
                 assert gcd(n, c) == 1
                 assert gcd(a, b) == 1
@@ -320,6 +327,14 @@ def audit_t8() -> dict:
     # Positive dual-prime control.
     assert (n_channel(1, 2), c_channel(1, 2)) == (5, 3)
     assert is_squarefree_semiprime(15)
+
+    # Boundary/axis controls: all fail both sides of the stronger equivalence.
+    assert (n_channel(1, 0), c_channel(1, 0)) == (1, 1)
+    assert not is_squarefree_semiprime(1)
+    assert (n_channel(1, 1), c_channel(1, 1)) == (2, 1)
+    assert not is_squarefree_semiprime(2)
+    assert (n_channel(2, 0), c_channel(2, 0)) == (4, 4)
+    assert not is_squarefree_semiprime(16)
 
     # Prime-power/composite channel control.
     assert (n_channel(3, 4), c_channel(3, 4)) == (25, 13)
@@ -334,13 +349,17 @@ def audit_t8() -> dict:
     assert not is_squarefree_semiprime(70)
 
     return {
-        "positive_cell_box": [1, T8_CELL_MAX],
+        "nonnegative_cell_box": [0, T8_CELL_MAX],
+        "zero_cell_excluded": True,
         "cells_checked": cells,
         "eligible_NC_gt_1": eligible,
         "dual_prime_cells": dual,
         "squarefree_semiprime_equivalence_checks": semiprime_equivalence_checks,
         "controls": {
             "dual_prime": {"cell": (1, 2), "N": 5, "C": 3, "H": 15},
+            "primitive_diagonal_boundary": {"cell": (1, 1), "N": 2, "C": 1, "H": 2},
+            "primitive_axis": {"cell": (1, 0), "N": 1, "C": 1, "H": 1},
+            "nonprimitive_axis": {"cell": (2, 0), "N": 4, "C": 4, "H": 16},
             "prime_power": {"cell": (3, 4), "N": 25, "C": 13, "H": 325},
             "composite": {"cell": (1, 3), "N": 10, "C": 7, "H": 70},
         },
