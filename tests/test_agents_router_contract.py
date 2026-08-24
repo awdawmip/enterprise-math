@@ -10,7 +10,7 @@ def read(path: str) -> str:
 def test_agents_is_small_execution_router_not_research_catalog():
     text = read("AGENTS.md")
     assert "STABLE EXECUTION ROUTER" in text
-    assert "V2.7" in text
+    assert "V2.8" in text
     assert "not** a theorem catalog" in text
     assert len(text.splitlines()) < 340
     assert len(text) < 18000
@@ -44,6 +44,20 @@ def test_agents_task_start_is_exact_task_first_not_common_surface_first():
     assert "the first exact dependency required to begin" in text
     assert "Soft routine source-read budget before substantive work: `<= 3`" in text
     assert "Common Surface is a lookup" in text
+
+
+def test_agents_generic_task_and_review_claims_are_state_machine_driven():
+    text = read("AGENTS.md")
+    for marker in (
+        "research_work_state_machine.json",
+        "tools/research_work_state.py",
+        "GENERIC_TASK_CLAIM_INTENT -> SELECT_HIGHEST_ELIGIBLE_TASK -> CLAIM -> START_TASK",
+        "GENERIC_REVIEW_CLAIM_INTENT -> SELECT_HIGHEST_ELIGIBLE_REVIEW -> REVIEW_CLAIM -> START_REVIEW",
+        "TASK_ISSUER != REQUIRED_REVIEWER",
+        "TASKBOOK_DISPATCH_PASS -> SAME_TURN_TASK_PUBLISH",
+        "RESEARCH_DONE -> SAME_TURN_REVIEW_REQUEST",
+    ):
+        assert marker in text
 
 
 def test_agents_uses_current_candidate_successor_and_promotion_boundaries():
