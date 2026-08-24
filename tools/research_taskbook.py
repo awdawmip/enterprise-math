@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Create and audit Enterprise Math research taskbooks against current repository policy."""
+"""Create and audit Enterprise Math research taskbooks.
+
+Taskbook policy review and scheduler dispatch review are deliberately separate:
+policy PASS makes a taskbook publishable; only scheduler V2 REVIEW/DISPATCH can
+make the registered task READY.
+"""
 from __future__ import annotations
 
 import argparse
@@ -15,13 +20,12 @@ FRONTMATTER_PREFIX = "<!-- ENTERPRISE_MATH_TASK_V1\n"
 FRONTMATTER_SUFFIX = "\n-->"
 VALID_LINEAGES = {"NEW_DIRECTION", "CONTINUATION", "REPLAY", "INTEGRATION", "MAINTENANCE"}
 VALID_ORIGINS = {
-    "DIRECT_USER_DIRECTION",
-    "DRIVER_ROADMAP",
-    "FREE_AXIOM_CANDIDATE",
-    "FOUNDATION_QUESTION",
-    "REPLAY_OR_INTEGRATION",
-    "MAINTENANCE",
+    "DIRECT_USER_DIRECTION", "DRIVER_ROADMAP", "FREE_AXIOM_CANDIDATE",
+    "FOUNDATION_QUESTION", "REPLAY_OR_INTEGRATION", "MAINTENANCE",
 }
+VALID_AUTHOR_ROLES = {"RESEARCHER", "RESEARCH_DRIVER", "STEWARD"}
+NEW_TASK_AUTHORITY = "SCHEDULER_REVIEW_REQUIRED"
+LEGACY_TASK_AUTHORITY = "DRIVER_APPROVED"
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -33,7 +37,6 @@ def policy_manifest(root: Path = ROOT) -> dict[str, Any]:
 
 
 def git_blob_identity(data: bytes) -> bytes:
-    """Return the raw SHA-1 identity Git assigns to this exact file content."""
     header = f"blob {len(data)}\0".encode("ascii")
     return hashlib.sha1(header + data).digest()
 
@@ -58,21 +61,13 @@ def split_taskbook(text: str) -> tuple[dict[str, Any], str]:
     end = text.find(FRONTMATTER_SUFFIX, len(FRONTMATTER_PREFIX))
     if end < 0:
         raise ValueError("unterminated taskbook frontmatter")
-    raw = text[len(FRONTMATTER_PREFIX):end]
-    meta = json.loads(raw)
+    meta = json.loads(text[len(FRONTMATTER_PREFIX):end])
     body = text[end + len(FRONTMATTER_SUFFIX):].lstrip("\n")
     return meta, body
 
 
 def render_taskbook(meta: dict[str, Any], body: str) -> str:
-    return (
-        FRONTMATTER_PREFIX
-        + json.dumps(meta, indent=2, ensure_ascii=False)
-        + FRONTMATTER_SUFFIX
-        + "\n\n"
-        + body.rstrip()
-        + "\n"
-    )
+    return FRONTMATTER_PREFIX + json.dumps(meta, indent=2, ensure_ascii=False) + FRONTMATTER_SUFFIX + "\n\n" + body.rstrip() + "\n"
 
 
 def taskbook_review(meta: dict[str, Any]) -> dict[str, Any] | None:
@@ -82,8 +77,8 @@ def taskbook_review(meta: dict[str, Any]) -> dict[str, Any] | None:
 
 def override_map(meta: dict[str, Any]) -> dict[str, dict[str, Any]]:
     review = taskbook_review(meta) or {}
-    overrides = review.get("temporary_overrides", [])
     out: dict[str, dict[str, Any]] = {}
+    overrides = review.get("temporary_overrides", [])
     if isinstance(overrides, list):
         for item in overrides:
             if isinstance(item, dict) and isinstance(item.get("conflict_id"), str):
@@ -92,11 +87,7 @@ def override_map(meta: dict[str, Any]) -> dict[str, dict[str, Any]]:
 
 
 def regex_hits(body: str, patterns: list[str]) -> list[str]:
-    hits: list[str] = []
-    for pat in patterns:
-        if re.search(pat, body, flags=re.IGNORECASE | re.MULTILINE):
-            hits.append(pat)
-    return hits
+    return [pat for pat in patterns if re.search(pat, body, flags=re.IGNORECASE | re.MULTILINE)]
 
 
 def _nonempty(value: Any) -> bool:
@@ -113,116 +104,93 @@ def _stage_number(meta: dict[str, Any]) -> int | None:
     return max(numbers) if numbers else None
 
 
-def origin_findings(
-    meta: dict[str, Any], *, dispatch: bool, root: Path = ROOT
-) -> list[dict[str, str]]:
+def origin_findings(meta: dict[str, Any], *, publish: bool, root: Path = ROOT) -> list[dict[str, str]]:
     findings: list[dict[str, str]] = []
     origin = meta.get("origin_kind")
     if origin is None:
-        findings.append({
-            "severity": "ERROR" if dispatch else "WARN",
-            "code": "TB-ORIGIN-MISSING",
-            "message": "new dispatch requires origin_kind; legacy files may remain historical until redispatch",
-        })
+        findings.append({"severity": "ERROR" if publish else "WARN", "code": "TB-ORIGIN-MISSING", "message": "publication requires origin_kind; legacy files may remain historical"})
         return findings
     if origin not in VALID_ORIGINS:
-        findings.append({
-            "severity": "ERROR",
-            "code": "TB-ORIGIN-VALUE",
-            "message": f"origin_kind must be one of {sorted(VALID_ORIGINS)}, got {origin!r}",
-        })
+        findings.append({"severity": "ERROR", "code": "TB-ORIGIN-VALUE", "message": f"origin_kind must be one of {sorted(VALID_ORIGINS)}, got {origin!r}"})
         return findings
-
     contract = load_json(root / "research_taskbook_contract.json")["task_origin_contract"]
     if origin == "FREE_AXIOM_CANDIDATE":
         for field in contract["free_candidate_required_fields"]:
             if not _nonempty(meta.get(field)):
-                findings.append({
-                    "severity": "ERROR",
-                    "code": "TB-ORIGIN-CANDIDATE",
-                    "message": f"FREE_AXIOM_CANDIDATE origin requires {field}",
-                })
+                findings.append({"severity": "ERROR", "code": "TB-ORIGIN-CANDIDATE", "message": f"FREE_AXIOM_CANDIDATE origin requires {field}"})
         state = meta.get("origin_candidate_state")
         if _nonempty(state) and state not in contract["free_candidate_allowed_states"]:
-            findings.append({
-                "severity": "ERROR",
-                "code": "TB-ORIGIN-CANDIDATE-STATE",
-                "message": "free candidate origin must already be in an audited intake-eligible state",
-            })
+            findings.append({"severity": "ERROR", "code": "TB-ORIGIN-CANDIDATE-STATE", "message": "free candidate origin must already be in an audited intake-eligible state"})
     elif origin == "FOUNDATION_QUESTION":
         field = contract["foundation_question_required_field"]
         if not _nonempty(meta.get(field)):
-            findings.append({
-                "severity": "ERROR",
-                "code": "TB-ORIGIN-FOUNDATION",
-                "message": f"FOUNDATION_QUESTION origin requires {field}",
-            })
+            findings.append({"severity": "ERROR", "code": "TB-ORIGIN-FOUNDATION", "message": f"FOUNDATION_QUESTION origin requires {field}"})
     return findings
 
 
-def lineage_findings(
-    meta: dict[str, Any], *, dispatch: bool, root: Path = ROOT
-) -> list[dict[str, str]]:
+def lineage_findings(meta: dict[str, Any], *, publish: bool, root: Path = ROOT) -> list[dict[str, str]]:
     findings: list[dict[str, str]] = []
     lineage = meta.get("task_lineage")
     if lineage is None:
-        findings.append({
-            "severity": "ERROR" if dispatch else "WARN",
-            "code": "TB-LINEAGE-MISSING",
-            "message": "new dispatch requires task_lineage; legacy files may remain historical until redispatch",
-        })
+        findings.append({"severity": "ERROR" if publish else "WARN", "code": "TB-LINEAGE-MISSING", "message": "publication requires task_lineage; legacy files may remain historical"})
         return findings
     if lineage not in VALID_LINEAGES:
-        findings.append({
-            "severity": "ERROR",
-            "code": "TB-LINEAGE-VALUE",
-            "message": f"task_lineage must be one of {sorted(VALID_LINEAGES)}, got {lineage!r}",
-        })
+        findings.append({"severity": "ERROR", "code": "TB-LINEAGE-VALUE", "message": f"task_lineage must be one of {sorted(VALID_LINEAGES)}, got {lineage!r}"})
         return findings
-
     stage = _stage_number(meta)
     if stage is not None and stage >= 2 and lineage != "CONTINUATION":
-        findings.append({
-            "severity": "ERROR",
-            "code": "TB-STAGE-LINEAGE",
-            "message": f"Stage {stage} task is explicit continuation semantics and must use task_lineage=CONTINUATION",
-        })
-
+        findings.append({"severity": "ERROR", "code": "TB-STAGE-LINEAGE", "message": f"Stage {stage} task must use task_lineage=CONTINUATION"})
     parent = meta.get("parent_task_id")
     gate = meta.get("successor_gate")
     if lineage == "CONTINUATION":
         if not isinstance(parent, str) or not parent.strip():
-            findings.append({
-                "severity": "ERROR",
-                "code": "TB-SUCCESSOR-PARENT",
-                "message": "CONTINUATION requires nonempty parent_task_id",
-            })
+            findings.append({"severity": "ERROR", "code": "TB-SUCCESSOR-PARENT", "message": "CONTINUATION requires nonempty parent_task_id"})
         contract = load_json(root / "research_taskbook_contract.json")["task_lineage_contract"]
         required = contract["continuation_required_successor_gate_fields"]
         if not isinstance(gate, dict):
-            findings.append({
-                "severity": "ERROR",
-                "code": "TB-SUCCESSOR-GATE",
-                "message": "CONTINUATION requires successor_gate object",
-            })
+            findings.append({"severity": "ERROR", "code": "TB-SUCCESSOR-GATE", "message": "CONTINUATION requires successor_gate object"})
         else:
             for field in required:
                 if not _nonempty(gate.get(field)):
-                    findings.append({
-                        "severity": "ERROR",
-                        "code": "TB-SUCCESSOR-GATE",
-                        "message": f"CONTINUATION successor_gate missing/nonempty field: {field}",
-                    })
+                    findings.append({"severity": "ERROR", "code": "TB-SUCCESSOR-GATE", "message": f"CONTINUATION successor_gate missing/nonempty field: {field}"})
     elif _nonempty(parent) or _nonempty(gate):
-        findings.append({
-            "severity": "WARN",
-            "code": "TB-LINEAGE-EXTRA",
-            "message": "parent_task_id/successor_gate present on non-CONTINUATION lineage; verify that the lineage classification is intentional",
-        })
+        findings.append({"severity": "WARN", "code": "TB-LINEAGE-EXTRA", "message": "parent_task_id/successor_gate present on non-CONTINUATION lineage"})
     return findings
 
 
-def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> list[dict[str, str]]:
+def _required_metadata(contract: dict[str, Any]) -> dict[str, Any]:
+    return contract.get("new_taskbook_required_metadata") or contract.get("new_dispatchable_taskbook_required_metadata") or {}
+
+
+def authorship_findings(meta: dict[str, Any], contract: dict[str, Any], *, publish: bool) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    role = meta.get("created_by_role")
+    authority = meta.get("task_authority")
+    author_contract = contract.get("author_contract")
+    if isinstance(author_contract, dict):
+        allowed = set(author_contract.get("allowed_roles", [])) or VALID_AUTHOR_ROLES
+        if role not in allowed:
+            findings.append({"severity": "ERROR", "code": "TB-AUTHOR-ROLE", "message": f"created_by_role must be one of {sorted(allowed)}, got {role!r}"})
+        if authority != NEW_TASK_AUTHORITY:
+            if authority == LEGACY_TASK_AUTHORITY:
+                findings.append({"severity": "ERROR" if publish else "WARN", "code": "TB-LEGACY-AUTHORITY", "message": "DRIVER_APPROVED is legacy-only; V2 publication requires SCHEDULER_REVIEW_REQUIRED"})
+            else:
+                findings.append({"severity": "ERROR", "code": "TB-AUTHORITY", "message": f"task_authority must be {NEW_TASK_AUTHORITY}"})
+    else:
+        # Synthetic/legacy V6 contract compatibility.
+        expected = _required_metadata(contract)
+        if expected.get("created_by_role") and role != expected["created_by_role"]:
+            findings.append({"severity": "ERROR", "code": "TB-META", "message": f"created_by_role must be {expected['created_by_role']!r}"})
+        if expected.get("task_authority") and authority != expected["task_authority"]:
+            findings.append({"severity": "ERROR", "code": "TB-META", "message": f"task_authority must be {expected['task_authority']!r}"})
+    return findings
+
+
+def audit_taskbook(path: Path, *, root: Path = ROOT, publish: bool = False, dispatch: bool | None = None) -> list[dict[str, str]]:
+    # `dispatch` is retained as a compatibility alias for old callers/tests. Under V7
+    # it means "strict pre-publication audit"; scheduler V2 owns actual dispatch.
+    if dispatch is not None:
+        publish = bool(dispatch)
     policy = policy_manifest(root)
     contract = load_json(root / "research_taskbook_contract.json")
     findings: list[dict[str, str]] = []
@@ -231,8 +199,10 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
     except Exception as exc:
         return [{"severity": "ERROR", "code": "TB-PARSE", "message": str(exc)}]
 
-    required = contract["new_dispatchable_taskbook_required_metadata"]
+    required = _required_metadata(contract)
     for key, expected in required.items():
+        if key in {"created_by_role", "task_authority"}:
+            continue
         if key not in meta:
             findings.append({"severity": "ERROR", "code": "TB-META", "message": f"missing metadata: {key}"})
         elif isinstance(expected, str) and expected.startswith("<"):
@@ -240,8 +210,9 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
         elif isinstance(expected, str) and meta[key] != expected:
             findings.append({"severity": "ERROR", "code": "TB-META", "message": f"{key} must be {expected!r}"})
 
-    findings.extend(origin_findings(meta, dispatch=dispatch, root=root))
-    findings.extend(lineage_findings(meta, dispatch=dispatch, root=root))
+    findings.extend(authorship_findings(meta, contract, publish=publish))
+    findings.extend(origin_findings(meta, publish=publish, root=root))
+    findings.extend(lineage_findings(meta, publish=publish, root=root))
 
     for key in contract.get("forbidden_fixed_runtime_metadata", []):
         if key in meta:
@@ -249,12 +220,7 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
 
     review = taskbook_review(meta)
     if review is None:
-        sev = "ERROR" if dispatch else "WARN"
-        findings.append({
-            "severity": sev,
-            "code": "TB-POLICY-UNSTAMPED",
-            "message": "taskbook has no policy_review stamp; legacy files may remain archived, but dispatch requires review",
-        })
+        findings.append({"severity": "ERROR" if publish else "WARN", "code": "TB-POLICY-UNSTAMPED", "message": "taskbook has no current policy_review stamp; publication requires review"})
         overrides: dict[str, dict[str, Any]] = {}
     else:
         overrides = override_map(meta)
@@ -262,14 +228,9 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
             findings.append({"severity": "ERROR", "code": "TB-POLICY-SET", "message": "policy_review.policy_set must be research_taskbook_policy.json"})
         current = policy_digest(root)
         if review.get("policy_digest") != current:
-            findings.append({
-                "severity": "ERROR" if dispatch else "WARN",
-                "code": "TB-POLICY-STALE",
-                "message": f"policy digest stale: taskbook={review.get('policy_digest')} current={current}",
-            })
-        if dispatch and review.get("review_state") != "PASS":
-            findings.append({"severity": "ERROR", "code": "TB-POLICY-REVIEW", "message": "dispatch requires policy_review.review_state=PASS"})
-
+            findings.append({"severity": "ERROR" if publish else "WARN", "code": "TB-POLICY-STALE", "message": f"policy digest stale: taskbook={review.get('policy_digest')} current={current}"})
+        if publish and review.get("review_state") != "PASS":
+            findings.append({"severity": "ERROR", "code": "TB-POLICY-REVIEW", "message": "publication requires policy_review.review_state=PASS"})
         required_override_fields = policy.get("override_required_fields", [])
         for cid, item in overrides.items():
             for field in required_override_fields:
@@ -279,21 +240,11 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
     for check in policy.get("conflict_checks", []):
         hits = regex_hits(body, check["patterns"])
         if hits and check["id"] not in overrides:
-            findings.append({
-                "severity": check.get("severity", "ERROR"),
-                "code": check["id"],
-                "message": "policy-sensitive task-local directive found without explicit temporary override: " + ", ".join(hits),
-            })
-
+            findings.append({"severity": check.get("severity", "ERROR"), "code": check["id"], "message": "policy-sensitive task-local directive found without explicit temporary override: " + ", ".join(hits)})
     for check in policy.get("restatement_checks", []):
         hits = regex_hits(body, check["patterns"])
         if hits:
-            findings.append({
-                "severity": check.get("severity", "ERROR"),
-                "code": check["id"],
-                "message": "generic repository policy is restated in taskbook; remove it and inherit the repository rule: " + ", ".join(hits),
-            })
-
+            findings.append({"severity": check.get("severity", "ERROR"), "code": check["id"], "message": "generic repository policy is restated in taskbook; remove it and inherit the repository rule: " + ", ".join(hits)})
     return findings
 
 
@@ -306,15 +257,13 @@ def print_findings(path: Path, findings: list[dict[str, str]]) -> None:
 
 
 def command_audit(args: argparse.Namespace) -> int:
-    if args.all:
-        paths = sorted((ROOT / "research_tasks").glob("*.md"))
-    else:
-        paths = [Path(p) if Path(p).is_absolute() else ROOT / p for p in args.paths]
+    paths = sorted((ROOT / "research_tasks").glob("*.md")) if args.all else [Path(p) if Path(p).is_absolute() else ROOT / p for p in args.paths]
     if not paths:
         raise SystemExit("no taskbooks selected")
     errors = 0
+    strict = bool(args.publish or args.dispatch)
     for path in paths:
-        findings = audit_taskbook(path, dispatch=args.dispatch)
+        findings = audit_taskbook(path, publish=strict)
         display = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
         print_findings(display, findings)
         errors += sum(item["severity"] == "ERROR" for item in findings)
@@ -322,12 +271,10 @@ def command_audit(args: argparse.Namespace) -> int:
 
 
 def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
-    if args.origin_kind == "FREE_AXIOM_CANDIDATE":
-        if not args.origin_candidate_id or not args.origin_candidate_state:
-            raise SystemExit("FREE_AXIOM_CANDIDATE requires --origin-candidate-id and --origin-candidate-state")
+    if args.origin_kind == "FREE_AXIOM_CANDIDATE" and (not args.origin_candidate_id or not args.origin_candidate_state):
+        raise SystemExit("FREE_AXIOM_CANDIDATE requires --origin-candidate-id and --origin-candidate-state")
     if args.origin_kind == "FOUNDATION_QUESTION" and not args.origin_foundation_question_id:
         raise SystemExit("FOUNDATION_QUESTION requires --origin-foundation-question-id")
-
     successor_gate: dict[str, Any] | None = None
     if args.lineage == "CONTINUATION":
         if not args.parent_task_id:
@@ -340,7 +287,6 @@ def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
             "alternative_route_or_free_exploration_considered": "",
             "why_new_stage_or_task_is_better_than_same_task_or_closure": "",
         }
-
     meta = {
         "task_id": args.task_id,
         "title": args.title,
@@ -359,8 +305,8 @@ def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
         "hard_block": None,
         "tags": [],
         "claim_lease_minutes": 1440,
-        "created_by_role": "RESEARCH_DRIVER",
-        "task_authority": "DRIVER_APPROVED",
+        "created_by_role": args.author_role,
+        "task_authority": NEW_TASK_AUTHORITY,
         "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
         "final_response_identity_policy": "INHERIT_GLOBAL",
         "identity_lane": args.lane,
@@ -371,7 +317,7 @@ def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
         "policy_review": {
             "policy_set": "research_taskbook_policy.json",
             "policy_digest": policy_digest(ROOT),
-            "review_state": "PENDING_DRIVER_REVIEW",
+            "review_state": "PENDING_POLICY_REVIEW",
             "temporary_overrides": [],
         },
     }
@@ -393,7 +339,7 @@ def command_new(args: argparse.Namespace) -> int:
     meta = base_metadata(args)
     body = f"""# {args.title}
 
-Status: `DRAFT / POLICY_REVIEW_PENDING / NOT DISPATCHABLE`
+Status: `DRAFT / POLICY_REVIEW_PENDING / NOT PUBLISHED / NOT DISPATCHABLE`
 
 ## 0. Task-local mother question
 
@@ -414,7 +360,7 @@ Status: `DRAFT / POLICY_REVIEW_PENDING / NOT DISPATCHABLE`
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(render_taskbook(meta, body), encoding="utf-8")
     print(out.relative_to(ROOT))
-    print("created with PENDING_DRIVER_REVIEW; edit task-local content, complete any successor gate, then run review --approve")
+    print("created as DRAFT; complete task-local content, then run review --approve. Scheduler publication/review is still required.")
     return 0
 
 
@@ -422,37 +368,35 @@ def command_review(args: argparse.Namespace) -> int:
     path = Path(args.path)
     if not path.is_absolute():
         path = ROOT / path
-    text = path.read_text(encoding="utf-8")
-    meta, body = split_taskbook(text)
+    meta, body = split_taskbook(path.read_text(encoding="utf-8"))
     meta["final_response_identity_policy"] = "INHERIT_GLOBAL"
     review = taskbook_review(meta) or {"policy_set": "research_taskbook_policy.json", "temporary_overrides": []}
     review["policy_set"] = "research_taskbook_policy.json"
     review["policy_digest"] = policy_digest(ROOT)
-    review["review_state"] = "PENDING_DRIVER_REVIEW"
+    review["review_state"] = "PENDING_POLICY_REVIEW"
     meta["policy_review"] = review
     path.write_text(render_taskbook(meta, body), encoding="utf-8")
-
-    findings = audit_taskbook(path, dispatch=False)
+    findings = audit_taskbook(path, publish=False)
     blocking = [f for f in findings if f["severity"] == "ERROR"]
     if blocking:
         print_findings(path.relative_to(ROOT), findings)
-        print("review not approved")
+        print("policy review not approved")
         return 1
-
     if args.approve:
         review["review_state"] = "PASS"
         meta["policy_review"] = review
         if meta.get("base_state") == "DRAFT":
-            meta["base_state"] = "READY"
+            meta["base_state"] = "PUBLISHED"
+        if meta.get("evidence_status") == "TASKBOOK_DRAFT":
+            meta["evidence_status"] = "TASKBOOK_POLICY_PASS_PENDING_SCHEDULER_REVIEW"
         path.write_text(render_taskbook(meta, body), encoding="utf-8")
-        dispatch_findings = audit_taskbook(path, dispatch=True)
-        if any(f["severity"] == "ERROR" for f in dispatch_findings):
-            print_findings(path.relative_to(ROOT), dispatch_findings)
+        publish_findings = audit_taskbook(path, publish=True)
+        if any(f["severity"] == "ERROR" for f in publish_findings):
+            print_findings(path.relative_to(ROOT), publish_findings)
             return 1
-        print(f"{path.relative_to(ROOT)}: POLICY_REVIEW_PASS")
+        print(f"{path.relative_to(ROOT)}: POLICY_REVIEW_PASS / PUBLISHED_READY / SCHEDULER_DISPATCH_REVIEW_REQUIRED")
         return 0
-
-    print(f"{path.relative_to(ROOT)}: review refreshed; approval still pending")
+    print(f"{path.relative_to(ROOT)}: policy review refreshed; approval still pending")
     return 0
 
 
@@ -464,7 +408,6 @@ def command_digest(_: argparse.Namespace) -> int:
 def main() -> int:
     p = argparse.ArgumentParser()
     sp = p.add_subparsers(dest="cmd", required=True)
-
     new = sp.add_parser("new")
     new.add_argument("--task-id", required=True)
     new.add_argument("--title", required=True)
@@ -472,6 +415,7 @@ def main() -> int:
     new.add_argument("--priority", default="P1")
     new.add_argument("--leverage", default="MEDIUM")
     new.add_argument("--lane", default="")
+    new.add_argument("--author-role", choices=sorted(VALID_AUTHOR_ROLES), default="RESEARCH_DRIVER")
     new.add_argument("--origin-kind", choices=sorted(VALID_ORIGINS), default="DRIVER_ROADMAP")
     new.add_argument("--origin-candidate-id", default=None)
     new.add_argument("--origin-candidate-state", default=None)
@@ -480,21 +424,18 @@ def main() -> int:
     new.add_argument("--parent-task-id", default=None)
     new.add_argument("--output", required=True)
     new.set_defaults(func=command_new)
-
     audit = sp.add_parser("audit")
     audit.add_argument("paths", nargs="*")
     audit.add_argument("--all", action="store_true")
-    audit.add_argument("--dispatch", action="store_true")
+    audit.add_argument("--publish", action="store_true", help="strict pre-PUBLISH gate")
+    audit.add_argument("--dispatch", action="store_true", help="legacy alias for --publish; actual dispatch belongs to scheduler V2")
     audit.set_defaults(func=command_audit)
-
     review = sp.add_parser("review")
     review.add_argument("path")
-    review.add_argument("--approve", action="store_true")
+    review.add_argument("--approve", action="store_true", help="approve taskbook policy only; does not make scheduler READY")
     review.set_defaults(func=command_review)
-
     digest = sp.add_parser("policy-digest")
     digest.set_defaults(func=command_digest)
-
     args = p.parse_args()
     return args.func(args)
 
