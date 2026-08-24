@@ -16,10 +16,13 @@ def test_role_modes_separate_free_discovery_from_task_research():
     free = arch["research_modes"]["FREE_AXIOM_DISCOVERY"]
     task = arch["research_modes"]["TASK_RESEARCH"]
     assert free["scheduler_eligible"] is False
-    assert free["agenda_visibility_before_candidate_freeze"] == "FOUNDATION_ONLY"
+    assert free["scheduler_auto_claim_eligible"] is False
+    assert free["scheduler_publish_eligible_after_candidate_maturity"] is True
+    assert free["agenda_visibility_before_candidate_freeze"] == "PRIMITIVE_SUBSTRATE_ONLY"
     assert free["inherits_other_branch_working_truth"] is False
     assert task["scheduler_eligible"] is True
     assert role["research_modes"]["FREE_AXIOM_DISCOVERY"]["generic_no_user_task_scheduler_rule_applies"] is False
+    assert role["research_modes"]["FREE_AXIOM_DISCOVERY"]["scheduler_publish_eligible"] is True
     assert role["research_modes"]["TASK_RESEARCH"]["scheduler_eligible"] is True
 
 
@@ -33,10 +36,12 @@ def test_legacy_common_surface_is_explicitly_retyped_not_silently_obeyed():
     assert "TRIGGERED" in legacy["research_common_surface_mandatory_preflight"]
 
 
-def test_identity_machine_tracks_mode_and_free_context_provenance():
+def test_identity_machine_tracks_mode_free_context_and_publication():
     identity = load_json("research_identity_state_machine.json")
     assert set(identity["research_mode"]["allowed_for_researcher"]) == {"FREE_AXIOM_DISCOVERY", "TASK_RESEARCH"}
     assert identity["scheduler_claim"]["free_axiom_discovery_eligible"] is False
+    assert identity["scheduler_publish"]["free_axiom_discovery_publish_eligible_after_candidate_maturity"] is True
+    assert identity["scheduler_publish"]["publication_grants_ready_authority"] is False
     rule = identity["free_research_context_rule"]
     assert rule["clean_blind_label_requires_preexisting_agenda_absent"] is True
     assert rule["preexisting_agenda_cannot_be_unread"] is True
@@ -105,7 +110,7 @@ def test_driver_contract_forbids_automatic_successor_stage_and_raw_working_truth
     assert "may not be labeled `NEW_DIRECTION`" in text
 
 
-def test_role_policy_mirrors_task_origin_and_successor_guards():
+def test_role_policy_mirrors_task_origin_successor_and_scheduler_guards():
     role = load_json("research_role_policy.json")
     auth = role["official_taskbook_authority"]
     assert auth["task_origin_required_for_new_taskbooks"] is True
@@ -114,6 +119,9 @@ def test_role_policy_mirrors_task_origin_and_successor_guards():
     assert auth["successor_gate_requires_alternative_route_or_free_exploration_considered"] is True
     assert auth["obvious_stage_two_plus_must_be_continuation"] is True
     assert auth["renaming_does_not_reset_semantic_lineage"] is True
+    assert auth["task_authority"] == "SCHEDULER_REVIEW_REQUIRED"
+    assert auth["researcher_publish_allowed"] is True
+    assert auth["scheduler_ready_state_requires_driver_review"] is True
 
 
 def test_taskbook_contract_requires_origin_lineage_and_continuation_gate():
@@ -138,6 +146,9 @@ def test_taskbook_contract_requires_origin_lineage_and_continuation_gate():
     } <= required
     assert lineage["obvious_stage_continuation_rule"]["required_lineage"] == "CONTINUATION"
     assert "Renaming" in lineage["semantic_anti_evasion_rule"]
+    assert contract["scheduler_gate"]["publication_state"] == "PUBLISHED"
+    assert contract["scheduler_gate"]["dispatch_accept_state"] == "READY"
+    assert contract["scheduler_gate"]["completion_accept_state"] == "DONE"
 
 
 def test_taskbook_tool_parses_and_enforces_continuation_gate():
@@ -152,7 +163,7 @@ def test_taskbook_tool_parses_and_enforces_continuation_gate():
         "parent_task_id": "RS-PARENT",
         "successor_gate": {"new_information_gap": "something"},
     }
-    assert any(item["code"] == "TB-SUCCESSOR-GATE" for item in lineage_findings(incomplete, dispatch=True))
+    assert any(item["code"] == "TB-SUCCESSOR-GATE" for item in lineage_findings(incomplete, publish=True))
     complete = {
         "task_id": "RS-X-STAGE2-TEST",
         "title": "Stage 2 test",
@@ -167,7 +178,7 @@ def test_taskbook_tool_parses_and_enforces_continuation_gate():
             "why_new_stage_or_task_is_better_than_same_task_or_closure": "requires an independent owner/evidence surface",
         },
     }
-    assert not [item for item in lineage_findings(complete, dispatch=True) if item["severity"] == "ERROR"]
+    assert not [item for item in lineage_findings(complete, publish=True) if item["severity"] == "ERROR"]
 
 
 def test_obvious_stage_two_cannot_be_relabelled_new_direction():
@@ -178,7 +189,7 @@ def test_obvious_stage_two_cannot_be_relabelled_new_direction():
             "title": "R999 Stage 2",
             "task_lineage": "NEW_DIRECTION",
         },
-        dispatch=True,
+        publish=True,
     )
     assert any(item["code"] == "TB-STAGE-LINEAGE" for item in findings)
 
@@ -187,31 +198,34 @@ def test_free_candidate_origin_requires_audited_candidate_provenance():
     ns = runpy.run_path(str(ROOT / "tools" / "research_taskbook.py"))
     origin_findings = ns["origin_findings"]
     missing = {"origin_kind": "FREE_AXIOM_CANDIDATE"}
-    assert any(item["code"] == "TB-ORIGIN-CANDIDATE" for item in origin_findings(missing, dispatch=True))
+    assert any(item["code"] == "TB-ORIGIN-CANDIDATE" for item in origin_findings(missing, publish=True))
     raw = {
         "origin_kind": "FREE_AXIOM_CANDIDATE",
         "origin_candidate_id": "AX-1",
         "origin_candidate_state": "BLIND_CANDIDATE_FROZEN",
     }
-    assert any(item["code"] == "TB-ORIGIN-CANDIDATE-STATE" for item in origin_findings(raw, dispatch=True))
+    assert any(item["code"] == "TB-ORIGIN-CANDIDATE-STATE" for item in origin_findings(raw, publish=True))
     audited = {
         "origin_kind": "FREE_AXIOM_CANDIDATE",
         "origin_candidate_id": "AX-1",
         "origin_candidate_state": "AUDITED_AXIOM_CANDIDATE",
     }
-    assert not [item for item in origin_findings(audited, dispatch=True) if item["severity"] == "ERROR"]
+    assert not [item for item in origin_findings(audited, publish=True) if item["severity"] == "ERROR"]
 
 
-def test_taskbook_policy_digest_includes_architecture_and_candidate_state():
+def test_taskbook_policy_digest_includes_architecture_candidate_and_scheduler_state():
     policy = load_json("research_taskbook_policy.json")
     inputs = set(policy["policy_inputs"])
     assert "research_architecture.json" in inputs
     assert "research_axiom_candidate_state_machine.json" in inputs
     assert "docs/RESEARCH_ARCHITECTURE.md" in inputs
+    assert "research_scheduler_v2.json" in inputs
+    assert "docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md" in inputs
     semantics = "\n".join(policy["semantic_review_requirements"])
     assert "provenance laundering" in semantics
     assert "Stage 2+" in semantics
     assert "independent/free exploration" in semantics
+    assert "PUBLISH gate" in semantics
 
 
 def test_architecture_keeps_common_surface_as_lookup_not_default_context_dump():
@@ -221,6 +235,18 @@ def test_architecture_keeps_common_surface_as_lookup_not_default_context_dump():
     assert arch["successor_stage_gate"]["obvious_stage_two_plus_must_be_continuation"] is True
     assert arch["successor_stage_gate"]["renaming_does_not_reset_lineage"] is True
     assert "alternative_route_or_free_exploration_considered" in arch["successor_stage_gate"]["new_continuation_task_requires"]
+
+
+def test_scheduler_v2_architecture_boundary_is_explicit():
+    arch = load_json("research_architecture.json")
+    boundary = arch["scheduler_boundary"]
+    assert boundary["contract"] == "research_scheduler_v2.json"
+    assert boundary["all_official_tasks_registered"] is True
+    assert boundary["publication_state"] == "PUBLISHED"
+    assert boundary["ready_requires_driver_dispatch_review"] is True
+    assert boundary["worker_completion_event"] == "RETURN"
+    assert boundary["done_requires_driver_return_review"] is True
+    assert boundary["lease_expiry_state"] == "ORPHANED"
 
 
 def test_promotion_lane_is_bounded_attempt_not_ready_pr_lock():
