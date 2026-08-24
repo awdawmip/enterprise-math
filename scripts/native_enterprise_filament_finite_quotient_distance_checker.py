@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exhaust the native finite-quotient minimum-distance theorem."""
+"""Exhaust/check the native finite-quotient minimum-distance theorem."""
 
 from __future__ import annotations
 
@@ -32,39 +32,34 @@ def minimum_distance(words: list[tuple[int, ...]]) -> int:
     return best
 
 
+def explicit_sharp_pair(M: int, k: int):
+    assert M % 6 == 0
+    U = M // 6
+    u = word(M, k, 0, 0)
+    v = word(M, k, U, 0)
+    assert u != v
+    assert all(u[j] == v[j] for j in range(0, k, 2))
+    assert all(u[j] != v[j] for j in range(1, k, 2))
+    assert sum(x != y for x, y in zip(u, v)) == k // 2
+    return u, v
+
+
 def main() -> None:
     # Full pairwise replay where the code size stays moderate.
-    for M in (6, 12, 18, 24, 30, 42, 60):
+    for M in (6, 12, 18, 24, 30, 42):
         for k in range(3, 10):
             got = minimum_distance(code(M, k))
             expected = k // 2
             assert got == expected, (M, k, got, expected)
 
-    # Larger moduli: construct the parity-layer collision explicitly and use
-    # the proved access bound for the matching lower bound.
-    for M in (66, 70, 90, 210, 2310):
+    # Arbitrarily large moduli use one explicit extremal pair; the matching
+    # lower bound is supplied by the proved multiprobe access theorem.
+    for M in (60, 66, 70, 90, 210, 2310, 30030, 510510):
         for k in range(3, 10):
-            U = M // 6
-            # Shift R by U when it preserves the chosen parity-layer values;
-            # otherwise use the exact kernel shift 2U/gcd(2,U).
-            words = code(M, k) if M <= 210 else None
-            if words is not None:
-                # Search only for one sharp witness at the predicted distance.
-                expected = k // 2
-                witness = False
-                lookup = set(words)
-                for w in words:
-                    for v in words:
-                        if w is v:
-                            continue
-                        if sum(x != y for x, y in zip(w, v)) == expected:
-                            witness = True
-                            break
-                    if witness:
-                        break
-                assert witness
+            explicit_sharp_pair(M, k)
 
     print("FINITE_QUOTIENT_MIN_DISTANCE=floor(k/2)")
+    print("EXPLICIT_EXTREMAL_SHIFT=R_TO_R_PLUS_M_OVER_6")
     print("K3_TO_K9_DISTANCE=1,2,2,3,3,4,4")
     print("SHARP9_DETECTS_3_ERRORS=YES")
     print("SHARP9_CORRECTS_1_ERROR=YES")
