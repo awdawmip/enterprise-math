@@ -22,6 +22,9 @@ def machine():
             "task_id_required_from_user": False,
             "legacy_unpublished_ready_auto_claim": False,
         },
+        "research_completion": {
+            "review_request_required_for_new_published_tasks": True,
+        },
         "review": {
             "issuer_lock": False,
             "prefer_reviewer_different_from_issuer": True,
@@ -89,15 +92,22 @@ def legacy_config(*tasks):
     }
 
 
-def publish_event(task_id="RS-NEW", *, issuer="EM-DVR-ISSUER", priority="P0"):
+def publish_event(
+    task_id="RS-NEW",
+    *,
+    issuer="EM-DVR-ISSUER",
+    priority="P0",
+    at="2026-08-24T09:01:00+08:00",
+    ref_suffix="abcdef123456",
+):
     task = legacy_task(task_id, state="READY", priority=priority)
     task["last_progress_at"] = "2026-08-24T09:00:00+08:00"
     return {
         "schema": ws.WORK_SCHEMA,
         "event": "TASK_PUBLISH",
-        "at": "2026-08-24T09:01:00+08:00",
+        "at": at,
         "issuer_driver_id": issuer,
-        "taskbook_ref": f"research_tasks/{task_id}.md@abcdef123456",
+        "taskbook_ref": f"research_tasks/{task_id}.md@{ref_suffix}",
         "task": task,
     }
 
@@ -135,11 +145,30 @@ class WorkMachineTests(unittest.TestCase):
             cfg, events, machine(), ws.parse_time("2026-08-24T09:05:00+08:00")
         )
         self.assertEqual("RS-NEW", chosen["task_id"])
+        self.assertEqual("research_tasks/RS-NEW.md@abcdef123456", chosen["taskbook_ref"])
+        self.assertEqual("EM-DVR-ISSUER", chosen["issuer_driver_id"])
+        self.assertTrue(chosen["review_required"])
 
     def test_unpublished_legacy_ready_is_not_selected_by_generic_claim(self):
         cfg = legacy_config(legacy_task("RS-STALE", state="READY", priority="P0"))
         chosen = ws.select_task(
             cfg, [], machine(), ws.parse_time("2026-08-24T09:05:00+08:00")
+        )
+        self.assertIsNone(chosen)
+
+    def test_invalid_runtime_event_does_not_make_legacy_ready_claimable(self):
+        cfg = legacy_config(legacy_task("RS-STALE", state="READY", priority="P0"))
+        events = [
+            {
+                "schema": ws.LEGACY_SCHEMA,
+                "event": "CLAIM",
+                "task_id": "RS-STALE",
+                "actor": "broken",
+                "at": "2026-08-24T08:00:00+08:00"
+            }
+        ]
+        chosen = ws.select_task(
+            cfg, events, machine(), ws.parse_time("2026-08-24T09:05:00+08:00")
         )
         self.assertIsNone(chosen)
 
@@ -179,6 +208,32 @@ class WorkMachineTests(unittest.TestCase):
         matching = [t for t in composed["tasks"] if t["task_id"] == "RS-X"]
         self.assertEqual(1, len(matching))
         self.assertEqual("P0", matching[0]["priority"])
+
+    def test_republish_starts_new_generation_after_old_supersede(self):
+        cfg = legacy_config(legacy_task("RS-X", priority="P1"))
+        events = [
+            {
+                "schema": ws.LEGACY_SCHEMA,
+                "event": "SUPERSEDE",
+                "task_id": "RS-X",
+                "actor": "old driver",
+                "at": "2026-08-24T08:00:00+08:00",
+            },
+            publish_event(
+                "RS-X",
+                issuer="EM-DVR-NEW",
+                priority="P0",
+                at="2026-08-24T09:01:00+08:00",
+                ref_suffix="newgeneration",
+            ),
+        ]
+        chosen = ws.select_task(
+            cfg, events, machine(), ws.parse_time("2026-08-24T09:05:00+08:00")
+        )
+        self.assertEqual("RS-X", chosen["task_id"])
+        self.assertEqual("READY", chosen["state"])
+        self.assertEqual("EM-DVR-NEW", chosen["issuer_driver_id"])
+        self.assertTrue(chosen["taskbook_ref"].endswith("@newgeneration"))
 
     def test_work_schema_runtime_event_is_legacy_compatible(self):
         raw = {
