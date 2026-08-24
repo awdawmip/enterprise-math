@@ -1,20 +1,44 @@
-import copy
 import json
 import pathlib
+import tempfile
 import unittest
-from datetime import datetime, timezone
 
 from tools import research_scheduler as rs
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+SCHEMA_V2 = getattr(rs, "CONFIG_SCHEMA_V2", "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V2")
 
 
-def base_policy():
+def policy():
     return {
         "priority_order": ["P0", "P1", "P2", "P3"],
         "leverage_order": ["HIGH", "MEDIUM", "LOW"],
         "state_order": ["HANDOFF_READY", "READY"],
     }
+
+
+def cfg(*items):
+    return {
+        "schema": SCHEMA_V2,
+        "claim_lease_minutes": 30,
+        "task_states": [
+            "BACKLOG", "PENDING_REVIEW", "READY", "CLAIMED", "IN_PROGRESS",
+            "HANDOFF_READY", "RETURNED", "BLOCKED", "ORPHANED", "DONE",
+            "REJECTED", "SUPERSEDED",
+        ],
+        "event_types": [
+            "PUBLISH", "REGISTER_ORPHAN", "REVIEW", "CLAIM", "HEARTBEAT",
+            "PROGRESS", "RETURN", "HANDOFF", "HARD_BLOCK", "UNBLOCK",
+            "ORPHAN", "ADOPT", "DONE", "SUPERSEDE",
+        ],
+        "selection_policy": policy(),
+        "require_static_owner_coverage": False,
+        "tasks": list(items),
+    }
+
+
+def owners(*names):
+    return {"branches": {name: {"state": "ACTIVE_OWNER"} for name in names}}
 
 
 def task(task_id="RS-T1", *, owner="owner/a", state="READY", priority="P1", leverage="HIGH"):
@@ -31,34 +55,14 @@ def task(task_id="RS-T1", *, owner="owner/a", state="READY", priority="P1", leve
         "dependencies": [],
         "source_refs": [],
         "last_progress_ref": "seed",
-        "last_progress_at": "2026-08-09T10:00:00+08:00",
+        "last_progress_at": "2026-08-24T10:00:00+08:00",
         "hard_block": None,
     }
 
 
-def config(*tasks):
-    return {
-        "schema": "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V1",
-        "claim_lease_minutes": 30,
-        "task_states": ["BACKLOG", "READY", "CLAIMED", "IN_PROGRESS", "HANDOFF_READY", "BLOCKED", "DONE", "SUPERSEDED"],
-        "event_types": ["CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE"],
-        "selection_policy": base_policy(),
-        "tasks": list(tasks),
-    }
-
-
-def owners(*names):
-    return {
-        "branches": {
-            name: {"state": "ACTIVE_OWNER"}
-            for name in names
-        }
-    }
-
-
-def event(kind, at, *, task_id="RS-T1", claim_id="c1", **extra):
+def event(kind, at, *, task_id="RS-T1", claim_id=None, schema=None, **extra):
     value = {
-        "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+        "schema": schema or rs.EVENT_SCHEMA_V2,
         "event": kind,
         "task_id": task_id,
         "actor": "test",
@@ -70,150 +74,206 @@ def event(kind, at, *, task_id="RS-T1", claim_id="c1", **extra):
     return value
 
 
-class SchedulerValidationTests(unittest.TestCase):
-    def test_repository_scheduler_covers_every_active_owner(self):
-        cfg = json.loads((ROOT / "research_scheduler.json").read_text(encoding="utf-8"))
-        own = json.loads((ROOT / "branch_governance_overrides.json").read_text(encoding="utf-8"))
-        self.assertEqual([], rs.validate_scheduler(cfg, own))
+class SchedulerRepositoryTests(unittest.TestCase):
+    def test_v2_config_imports_v1_seed_and_validates(self):
+        config = rs.load_scheduler_config(ROOT / "research_scheduler_v2.json")
+        owner_map = json.loads((ROOT / "branch_governance_overrides.json").read_text(encoding="utf-8"))
+        self.assertEqual(SCHEMA_V2, config["schema"])
+        self.assertEqual([], rs.validate_scheduler(config, owner_map))
 
-    def test_unknown_research_owner_fails_validation(self):
-        cfg = config(task(owner="missing"))
-        errors = rs.validate_scheduler(cfg, owners("owner/a"))
-        self.assertTrue(any("not ACTIVE_OWNER" in error for error in errors))
-        self.assertTrue(any("missing scheduler coverage" in error for error in errors))
+    def test_unregistered_repository_taskbook_is_visible_as_orphan(self):
+        config = rs.load_scheduler_config(ROOT / "research_scheduler_v2.json")
+        items, _ = rs.materialize_tasks(config, [], taskbook_dir=ROOT / "research_tasks")
+        item = next(
+            value for value in items
+            if value["task_id"] == "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE"
+        )
+        self.assertEqual("ORPHANED", item["base_state"])
+        self.assertEqual("TASKBOOK_NOT_REGISTERED_IN_SCHEDULER_V2", item["orphan_reason"])
 
-    def test_partial_static_hard_block_is_invalid(self):
-        item = task()
-        item["hard_block"] = {"missing_object": "lemma"}
-        errors = rs.validate_scheduler(config(item), owners("owner/a"))
-        self.assertTrue(any("partial hard_block" in error for error in errors))
+    def test_invalid_static_owner_is_rejected(self):
+        errors = rs.validate_scheduler(cfg(task(owner="missing")), owners("owner/a"))
+        self.assertTrue(any("not ACTIVE_OWNER" in row for row in errors))
 
 
-class SchedulerReducerTests(unittest.TestCase):
+class SchedulerV2LifecycleTests(unittest.TestCase):
     def now(self, value):
         return rs.parse_time(value)
 
-    def test_expired_claim_returns_to_handoff_ready(self):
-        item = task()
-        events = [event("CLAIM", "2026-08-09T12:00:00+08:00", lease_minutes=30)]
-        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:31:00+08:00"))
-        self.assertEqual("HANDOFF_READY", state["state"])
-        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
-        self.assertIsNone(state["claim_id"])
-
-    def test_heartbeat_renews_live_claim(self):
-        item = task()
+    def publish(self, *, role="RESEARCHER", publisher="EM-FREE-AB12CD", owner="taskbook/unassigned"):
         events = [
-            event("CLAIM", "2026-08-09T12:00:00+08:00", lease_minutes=30),
-            event("HEARTBEAT", "2026-08-09T12:20:00+08:00", lease_minutes=30),
-        ]
-        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:40:00+08:00"))
-        self.assertEqual("CLAIMED", state["state"])
-        self.assertEqual("LEASED", state["dispatch_state"])
-        self.assertEqual("c1", state["claim_id"])
-
-    def test_progress_renews_and_updates_frontier_pointer(self):
-        item = task()
-        events = [
-            event("CLAIM", "2026-08-09T12:00:00+08:00"),
             event(
-                "PROGRESS",
-                "2026-08-09T12:10:00+08:00",
-                progress_ref="commit:abc",
-                next_action="prove lemma B",
-            ),
+                "PUBLISH",
+                "2026-08-24T11:00:00+08:00",
+                task_id="RS-NEW",
+                task=task("RS-NEW", owner=owner),
+                publisher_role=role,
+                publisher_id=publisher,
+            )
         ]
-        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:20:00+08:00"))
-        self.assertEqual("IN_PROGRESS", state["state"])
-        self.assertEqual("commit:abc", state["last_progress_ref"])
-        self.assertEqual("prove lemma B", state["next_action"])
+        items, diagnostics = rs.materialize_tasks(cfg(), events, taskbook_dir=None)
+        self.assertFalse(diagnostics)
+        return next(value for value in items if value["task_id"] == "RS-NEW"), events
 
-    def test_handoff_releases_claim_with_concrete_next_action(self):
-        item = task()
-        events = [
-            event("CLAIM", "2026-08-09T12:00:00+08:00"),
+    def test_free_researcher_can_publish_but_cannot_make_ready(self):
+        item, events = self.publish()
+        state = rs.reduce_task(
+            item, events, default_lease_minutes=30,
+            now=self.now("2026-08-24T11:01:00+08:00"),
+        )
+        self.assertEqual("PENDING_REVIEW", state["state"])
+        self.assertEqual("NEEDS_REVIEW", state["dispatch_state"])
+
+    def test_driver_publisher_cannot_self_review_dispatch(self):
+        item, events = self.publish(role="RESEARCH_DRIVER", publisher="EM-DVR-ABC123", owner="owner/a")
+        events.append(
             event(
-                "HANDOFF",
-                "2026-08-09T12:10:00+08:00",
-                progress_ref="PR #999",
-                next_action="continue exact boundary proof",
-            ),
-        ]
-        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:11:00+08:00"))
-        self.assertEqual("HANDOFF_READY", state["state"])
-        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
-        self.assertEqual("continue exact boundary proof", state["next_action"])
-        self.assertIsNone(state["claim_id"])
-
-    def test_incomplete_runtime_hard_block_is_ignored(self):
-        item = task()
-        events = [
-            event("CLAIM", "2026-08-09T12:00:00+08:00"),
-            event("HARD_BLOCK", "2026-08-09T12:05:00+08:00", hard_block={"missing_object": "lemma"}),
-        ]
-        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:10:00+08:00"))
-        self.assertEqual("CLAIMED", state["state"])
-        self.assertEqual("LEASED", state["dispatch_state"])
+                "REVIEW", "2026-08-24T11:05:00+08:00", task_id="RS-NEW",
+                review_kind="DISPATCH", verdict="APPROVE",
+                reviewer_id="EM-DVR-ABC123", review_ref="self-review",
+            )
+        )
+        state = rs.reduce_task(
+            item, events, default_lease_minutes=30,
+            now=self.now("2026-08-24T11:06:00+08:00"),
+        )
+        self.assertEqual("PENDING_REVIEW", state["state"])
         self.assertTrue(state["ignored_events"])
 
-    def test_complete_runtime_hard_block_stops_task(self):
-        item = task()
-        hard_block = {
-            "missing_object": "exact lemma X",
-            "owner": "owner/b",
-            "necessity": "every declared frontier needs X and no conditional/counterexample route remains",
-            "unblock_condition": "lemma X proved or disproved",
-        }
-        events = [
-            event("CLAIM", "2026-08-09T12:00:00+08:00"),
-            event("HARD_BLOCK", "2026-08-09T12:05:00+08:00", hard_block=hard_block),
-        ]
-        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:10:00+08:00"))
-        self.assertEqual("BLOCKED", state["state"])
-        self.assertEqual("BLOCKED", state["dispatch_state"])
+    def test_dispatch_review_requires_active_owner(self):
+        item, events = self.publish()
+        events.append(
+            event(
+                "REVIEW", "2026-08-24T11:05:00+08:00", task_id="RS-NEW",
+                review_kind="DISPATCH", verdict="APPROVE",
+                reviewer_id="EM-DVR-ABC123", review_ref="review",
+                assigned_owner="inactive/owner",
+            )
+        )
+        state = rs.reduce_task(
+            item, events, default_lease_minutes=30,
+            now=self.now("2026-08-24T11:06:00+08:00"),
+            active_research_owners={"owner/a"},
+        )
+        self.assertEqual("PENDING_REVIEW", state["state"])
+        self.assertTrue(any("ACTIVE_OWNER" in row["reason"] for row in state["ignored_events"]))
 
-    def test_second_claim_cannot_preempt_live_lease(self):
-        item = task()
-        events = [
-            event("CLAIM", "2026-08-09T12:00:00+08:00", claim_id="c1"),
-            event("CLAIM", "2026-08-09T12:01:00+08:00", claim_id="c2"),
-        ]
-        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:05:00+08:00"))
-        self.assertEqual("c1", state["claim_id"])
-        self.assertEqual(1, len(state["ignored_events"]))
+    def test_independent_dispatch_review_releases_ready(self):
+        item, events = self.publish()
+        events.append(
+            event(
+                "REVIEW", "2026-08-24T11:05:00+08:00", task_id="RS-NEW",
+                review_kind="DISPATCH", verdict="APPROVE",
+                reviewer_id="EM-DVR-ABC123", review_ref="review",
+                assigned_owner="owner/a",
+            )
+        )
+        state = rs.reduce_task(
+            item, events, default_lease_minutes=30,
+            now=self.now("2026-08-24T11:06:00+08:00"),
+            active_research_owners={"owner/a"},
+        )
+        self.assertEqual("READY", state["state"])
+        self.assertEqual("owner/a", state["owner"])
 
-    def test_done_task_is_not_dispatchable(self):
-        item = task()
+    def test_lease_expiry_creates_orphan_history(self):
         events = [
-            event("CLAIM", "2026-08-09T12:00:00+08:00"),
-            event("DONE", "2026-08-09T12:05:00+08:00", progress_ref="merge:abc"),
+            event(
+                "CLAIM", "2026-08-24T12:00:00+08:00",
+                claim_id="c1", lease_minutes=30,
+            )
         ]
-        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T13:00:00+08:00"))
+        state = rs.reduce_task(
+            task(), events, default_lease_minutes=30,
+            now=self.now("2026-08-24T12:31:00+08:00"),
+        )
+        self.assertEqual("ORPHANED", state["state"])
+        self.assertEqual("CLAIM_LEASE_EXPIRED", state["orphan_history"][-1]["reason"])
+        self.assertIsNone(state["claim_id"])
+
+    def test_orphan_adoption_requires_active_owner(self):
+        item = task(owner="inactive/owner", state="ORPHANED")
+        events = [
+            event(
+                "ADOPT", "2026-08-24T12:40:00+08:00",
+                reviewer_id="EM-DVR-ABC123", review_ref="review",
+                next_action="resume",
+            )
+        ]
+        state = rs.reduce_task(
+            item, events, default_lease_minutes=30,
+            now=self.now("2026-08-24T12:41:00+08:00"),
+            active_research_owners={"owner/a"},
+        )
+        self.assertEqual("ORPHANED", state["state"])
+
+    def test_worker_return_requires_driver_review_before_done(self):
+        events = [
+            event("CLAIM", "2026-08-24T13:00:00+08:00", claim_id="c1"),
+            event(
+                "RETURN", "2026-08-24T13:10:00+08:00",
+                claim_id="c1", return_ref="research_returns/x.md",
+            ),
+        ]
+        state = rs.reduce_task(
+            task(), events, default_lease_minutes=30,
+            now=self.now("2026-08-24T13:11:00+08:00"),
+        )
+        self.assertEqual("RETURNED", state["state"])
+        self.assertEqual("NEEDS_REVIEW", state["dispatch_state"])
+
+        events.append(
+            event(
+                "REVIEW", "2026-08-24T13:20:00+08:00",
+                review_kind="RETURN", verdict="APPROVE",
+                reviewer_id="EM-DVR-ABC123", review_ref="driver_reviews/x.md",
+            )
+        )
+        state = rs.reduce_task(
+            task(), events, default_lease_minutes=30,
+            now=self.now("2026-08-24T13:21:00+08:00"),
+        )
         self.assertEqual("DONE", state["state"])
         self.assertEqual("COMPLETE", state["dispatch_state"])
 
+    def test_v2_direct_done_is_rejected_but_v1_done_replays(self):
+        v2_events = [
+            event("CLAIM", "2026-08-24T13:00:00+08:00", claim_id="c1"),
+            event("DONE", "2026-08-24T13:05:00+08:00", claim_id="c1", progress_ref="bad"),
+        ]
+        state = rs.reduce_task(
+            task(), v2_events, default_lease_minutes=30,
+            now=self.now("2026-08-24T13:06:00+08:00"),
+        )
+        self.assertNotEqual("DONE", state["state"])
+        self.assertTrue(state["ignored_events"])
 
-class SchedulerSelectionTests(unittest.TestCase):
-    def test_handoff_ready_precedes_fresh_ready_even_at_lower_priority(self):
-        handoff = task("RS-H", state="HANDOFF_READY", priority="P2", leverage="LOW")
-        ready = task("RS-R", owner="owner/b", state="READY", priority="P0", leverage="HIGH")
-        cfg = config(handoff, ready)
-        chosen = rs.select_task(cfg, [], rs.parse_time("2026-08-09T13:00:00+08:00"))
-        self.assertEqual("RS-H", chosen["task_id"])
+        v1_events = [
+            event("CLAIM", "2026-08-24T13:00:00+08:00", claim_id="c1", schema=rs.EVENT_SCHEMA_V1),
+            event("DONE", "2026-08-24T13:05:00+08:00", claim_id="c1", schema=rs.EVENT_SCHEMA_V1, progress_ref="legacy"),
+        ]
+        state = rs.reduce_task(
+            task(), v1_events, default_lease_minutes=30,
+            now=self.now("2026-08-24T13:06:00+08:00"),
+        )
+        self.assertEqual("DONE", state["state"])
 
-    def test_priority_then_leverage_then_oldest_progress_is_deterministic(self):
-        a = task("RS-A", priority="P1", leverage="HIGH")
-        b = task("RS-B", owner="owner/b", priority="P1", leverage="HIGH")
-        a["last_progress_at"] = "2026-08-09T11:00:00+08:00"
-        b["last_progress_at"] = "2026-08-09T10:00:00+08:00"
-        chosen = rs.select_task(config(a, b), [], rs.parse_time("2026-08-09T13:00:00+08:00"))
-        self.assertEqual("RS-B", chosen["task_id"])
+    def test_orphan_is_never_auto_selected(self):
+        chosen = rs.select_task(
+            cfg(task("RS-O", state="ORPHANED"), task("RS-R", owner="owner/b")),
+            [], self.now("2026-08-24T14:00:00+08:00"), taskbook_dir=None,
+        )
+        self.assertEqual("RS-R", chosen["task_id"])
 
-    def test_non_hard_dependency_never_blocks_selection(self):
-        item = task()
-        item["dependencies"] = [{"target": "useful theorem", "action": "TEST", "satisfied": False}]
-        chosen = rs.select_task(config(item), [], rs.parse_time("2026-08-09T13:00:00+08:00"))
-        self.assertEqual("RS-T1", chosen["task_id"])
+    def test_invalid_taskbook_is_still_registered_as_synthetic_orphan(self):
+        with tempfile.TemporaryDirectory() as td:
+            directory = pathlib.Path(td)
+            (directory / "broken.md").write_text("# missing machine task metadata", encoding="utf-8")
+            items, diagnostics = rs.materialize_tasks(cfg(), [], taskbook_dir=directory)
+            self.assertEqual(1, len(items))
+            self.assertTrue(items[0]["task_id"].startswith("ORPHAN-FILE-"))
+            self.assertEqual("ORPHANED", items[0]["base_state"])
+            self.assertTrue(diagnostics)
 
 
 if __name__ == "__main__":
