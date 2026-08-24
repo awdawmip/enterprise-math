@@ -1,10 +1,11 @@
 # Enterprise Math Research Taskbook Authoring and Review
 
-Status: `ACTIVE / CANONICAL TASKBOOK AUTHORING PROCESS / V3`
-Effective: `2026-08-22`
+Status: `ACTIVE / CANONICAL TASKBOOK AUTHORING PROCESS / V3.1`
+Effective: `2026-08-24`
 Contract: `research_taskbook_contract.json`
 Architecture: `research_architecture.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Shared work state: `research_work_state_machine.json`
 
 ## Purpose
 
@@ -14,9 +15,12 @@ A taskbook is a **task-specific execution contract**. It is not:
 - a runtime conversation identity binding;
 - a raw free-research candidate;
 - a way to erase where a selected question came from;
-- automatic evidence that a previous successful stage deserves another stage.
+- automatic evidence that a previous successful stage deserves another stage;
+- by itself a published/claimable work item.
 
 A good taskbook contains the mother question, frozen inputs/scope, task-local deliverables/evidence, PASS/KILL/return criteria, **origin**, **lineage**, and any narrow temporary policy override.
+
+A claimable task additionally has an immutable `TASK_PUBLISH` envelope in the shared work state.
 
 ## 1. Declare task origin
 
@@ -145,7 +149,7 @@ Include only what is different about this task:
 - task-local witnesses/discriminators;
 - PASS/KILL/return criteria.
 
-Do not paste generic GitHub, scheduler, identity, promotion, liveness, Working Truth, candidate-lifecycle or successor-gate policy prose into the body. Those rules are inherited from repository policy.
+Do not paste generic GitHub, scheduler/work-state, identity, promotion, liveness, Working Truth, candidate-lifecycle or successor-gate policy prose into the body. Those rules are inherited from repository policy.
 
 If the task came from free discovery, Phase-B audit and Driver intake must already be complete and the candidate provenance remains in metadata.
 
@@ -187,7 +191,7 @@ Required fields:
 - `replacement_behavior`;
 - `expires_when`.
 
-An override cannot silently weaken theorem truth, safety, authorization, owner isolation, candidate maturity, task-origin provenance, successor-stage requirements or canonical-promotion rules.
+An override cannot silently weaken theorem truth, safety, authorization, owner isolation, candidate maturity, task-origin provenance, successor-stage requirements, shared-state publication/review, or canonical-promotion rules.
 
 ## 7. Driver approval
 
@@ -203,7 +207,9 @@ This refreshes the current policy digest and sets:
 
 For a continuation, approval means the Driver accepted the **new information gap and route choice**, not merely the parent PASS.
 
-## 8. Dispatch gate
+Approval does not privately bind the task to this Driver or to one researcher conversation.
+
+## 8. Dispatch gate and automatic publication
 
 Immediately before dispatch/re-dispatch:
 
@@ -213,11 +219,86 @@ python tools/research_taskbook.py audit research_tasks/<task>.md --dispatch
 
 A taskbook is dispatchable only when this passes.
 
+After PASS, the approving Driver must in the **same turn** append a `TASK_PUBLISH` event under `research_work_state_machine.json` to the shared work board. The event points to the exact immutable `taskbook_ref=path@commit` and carries the routing fields required by the work-state machine.
+
+Freeze:
+
+`TASKBOOK_DISPATCH_PASS -> SAME_TURN_TASK_PUBLISH`.
+
+`TASKBOOK_PASS != TASK_VISIBLE_UNLESS_TASK_PUBLISH_IS_LOGGED`.
+
 Historical taskbooks may remain unstamped or lack newer origin/lineage fields. They are preserved as provenance. A new dispatch under current policy requires current review and the missing current metadata.
 
-## 9. Runtime identity lives outside the taskbook
+Untouched historical static `READY` rows are not silently eligible for generic claiming merely because they still exist in `research_scheduler.json`.
 
-For Driver-mediated manual relay into a new researcher conversation:
+## 9. Researcher generic claim
+
+Normal task discovery no longer uses a Driver-authored handoff prompt.
+
+A researcher conversation may receive only:
+
+`领任务`
+
+or equivalent generic task-claim intent.
+
+It then:
+
+1. reads the shared work-state queue;
+2. selects the highest eligible published/runtime-continuation task;
+3. posts the task CLAIM;
+4. resolves/allocates Researcher-ID;
+5. reads the exact published taskbook/dependency needed to start;
+6. begins work.
+
+The user does not supply a task id.
+
+FREE Phase-A is separate and is never auto-dispatched by this generic claim path.
+
+## 10. Research completion and shared review request
+
+For a shared-state task, completion is not a prose handoff to the user.
+
+At the terminal semantic checkpoint, persist:
+
+1. task `DONE` with frozen progress/result refs; and
+2. a `REVIEW_REQUEST` in the shared Driver review queue when review is required.
+
+The review request records:
+
+- review id / task id;
+- originating Researcher-ID;
+- exact review objective;
+- target refs;
+- evidence refs;
+- execution-log refs;
+- requested checks;
+- priority.
+
+This is the durable packet another Driver needs to audit the work without the user copying commands or reports between conversations.
+
+## 11. Cross-Driver review
+
+A review belongs to the shared queue, not to the Driver that authored/published the task.
+
+A Driver conversation may receive only:
+
+`领审核`
+
+or equivalent generic review-claim intent.
+
+It then selects and claims the highest eligible review. State and priority come first; among comparable reviews, prefer a Driver-ID different from the issuing Driver-ID. If no other reviewer is available, same-Driver review is allowed and labeled rather than blocking the queue.
+
+Review completion records verdict, findings, evidence refs, next action, method-harvest classification and successor disposition in the state machine.
+
+A review verdict is routing/evidence state, not canonical theorem truth:
+
+`REVIEW_DONE != CANONICAL_MAIN`.
+
+## 12. Runtime identity lives outside the taskbook
+
+Shared-state CLAIM is the normal identity bootstrap for a new researcher execution.
+
+For the fallback case of Driver-mediated manual relay into a new researcher conversation:
 
 ```bash
 python tools/research_identity.py allocate \
@@ -227,21 +308,19 @@ python tools/research_identity.py allocate \
   --dispatch-id <unique-dispatch-id>
 ```
 
-Persist the resulting Researcher-ID in the dispatch/relay envelope and receiving research return metadata.
-
 The reusable taskbook remains runtime-ID-free.
 
-Scheduler CLAIMs and direct task entry use their own identity bootstrap. Driver conversations expose Driver-ID, not Researcher-ID.
+Manual relay is no longer the primary task-discovery path.
 
-## 10. Policy changes invalidate old stamps automatically
+## 13. Policy changes invalidate old stamps automatically
 
-`research_taskbook_policy.json` lists the inherited policy inputs. The authoring tool hashes them into the taskbook policy digest.
+`research_taskbook_policy.json` lists the inherited policy inputs, including the shared work-state contract. The authoring tool hashes them into the taskbook policy digest.
 
-When architecture/role/Driver/foundation semantics change:
+When architecture/role/Driver/foundation/work-state semantics change:
 
 1. the digest changes;
 2. existing stamped taskbooks remain historical artifacts;
-3. another dispatch fails until current Driver review refreshes the stamp;
+3. another dispatch/publication fails until current Driver review refreshes the stamp;
 4. only still-live taskbooks need re-review.
 
 Do not copy global policy text into every taskbook to keep it “in sync”. The digest is the synchronization mechanism.
@@ -266,8 +345,16 @@ The taskbook body answers:
 
 > What exact selected question is this researcher executing?
 
-The dispatch envelope answers:
+The `TASK_PUBLISH` envelope answers:
+
+> Which reviewed task is currently visible to the shared claim queue?
+
+The task CLAIM answers:
 
 > Which concrete researcher conversation is executing it now?
 
-Keeping these layers separate prevents route anchoring, provenance laundering, stale identity, duplicated rules and automatic stage cascades.
+The `REVIEW_REQUEST` / review CLAIM answer:
+
+> What must be checked next, and which Driver conversation owns that review lease?
+
+Keeping these layers separate prevents route anchoring, provenance laundering, stale identity, duplicated rules, private review ownership, user relay bottlenecks and automatic stage cascades.
