@@ -120,7 +120,7 @@ There are two possible selectors:
 1. exact divisibility by the index distance d;
 2. the native q=3 slope lock `b=3R`.
 
-If `d>1`, the two pre-slope numerators cannot both be divisible by `2d`, so index-distance integrality may already select the sheet before the factor3 condition is applied.
+Because opposite-parity positions have odd d, if `d>1` then `2d` cannot divide the difference2.  Since the true pre-slope numerator is divisible by `2d`, the false one is not.  Therefore every nonadjacent opposite-parity pair is already resolved by exact index-distance integrality.
 
 If `d=1`, both pre-slopes are integral and differ by one; then exactly one is divisible by3.  Therefore channel3 is genuinely necessary for the adjacent opposite-parity pair and is the unique selector that works uniformly for every opposite-parity separation.
 
@@ -128,9 +128,9 @@ Freeze the precise form:
 
 `SAME-PARITY UNIVERSAL GLUE = CHANNEL 2`,
 
-`OPPOSITE-PARITY UNIFORM GLUE = CHANNEL 3`,
+`NONADJACENT OPPOSITE-PARITY GLUE = INDEX-DISTANCE INTEGRALITY`,
 
-`NONADJACENT OPPOSITE-PARITY PAIRS MAY ALSO BE RESOLVED BY INDEX-DISTANCE INTEGRALITY`.
+`ADJACENT OPPOSITE-PARITY GLUE = CHANNEL 3`.
 
 ## 6. Minimality ablations
 
@@ -142,17 +142,17 @@ So channel2 cannot be replaced by any finite collection of good odd channels.
 
 ### Remove channel 3
 
-Some nonadjacent opposite-parity pairs remain decodable because their index distance rejects one pre-slope candidate.
+Every nonadjacent opposite-parity pair remains decodable because its index distance rejects the false pre-slope candidate.
 
 However adjacent opposite-parity pairs retain two integral pre-slopes differing by one, and parity alone does not select the correct one uniformly.  The multiple-of-3 slope law is then indispensable.
 
-Thus channel3 is necessary for a decoder required to work for **arbitrary** two-probe placement, even though it is not individually necessary for every nonadjacent pair.
+Thus channel3 is necessary for a decoder required to work for **arbitrary** two-probe placement, although it is not needed for nonadjacent opposite-parity pairs.
 
 ### Remove both
 
 The full good-odd-channel family remains the two-sheet double cover, and the sharp carrier-only recovery threshold returns to a parity-mixed triple.
 
-Therefore `{2,3}` is the minimal universal arithmetic glue set for arbitrary two-probe reconstruction.
+Therefore `{2,3}` is the minimal universal arithmetic channel set for arbitrary two-probe reconstruction; exact index distance supplies a third, geometric selector on nonadjacent opposite-parity pairs.
 
 ## 7. Channel/probe phase table
 
@@ -161,7 +161,7 @@ Therefore `{2,3}` is the minimal universal arithmetic glue set for arbitrary two
 | one fixed chirality sheet | 2 | none |
 | good-odd-channel two-sheet union | 3 | both parities required |
 | union + channel2 | 2 for same-parity pairs | not universal for opposite parity |
-| union + exact index divisibility | 2 for many nonadjacent opposite-parity pairs | fails as a uniform adjacent-pair rule |
+| union + exact index divisibility | 2 for every nonadjacent opposite-parity pair | fails for adjacent pairs |
 | union + channel3 | 2 for every opposite-parity pair | not universal for same parity |
 | full native integer glue `{2,3}` | 2 | arbitrary distinct positions |
 
@@ -175,8 +175,8 @@ Therefore the value-level localization is genuinely multiscale:
 
 - large odd channels carry the affine packet;
 - channel2 carries parity chirality;
-- channel3 supplies the uniform native slope quantization;
-- index-distance integrality can provide additional nonadjacent resolution;
+- exact index separation resolves nonadjacent parity bridges;
+- channel3 quantizes adjacent parity bridges;
 - their recoalescence restores the unique integer trajectory.
 
 ## 9. Boundary
