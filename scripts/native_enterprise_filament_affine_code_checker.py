@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact checker for the curvature-flattened affine filament code."""
+"""Exact checker for the curvature-flattened affine global-island code."""
 
 from __future__ import annotations
 
@@ -50,7 +50,7 @@ def generic_spectrum(k: int, m: int) -> dict[int, int]:
 
 def distance_checks() -> None:
     q = 59
-    for k in range(5,10):
+    for k in range(3,10):
         min_same = k
         for da in range(q):
             for db in range(q):
@@ -77,7 +77,7 @@ def distance_checks() -> None:
 
 def endpoint_information_check() -> None:
     q=59
-    for k in range(5,10):
+    for k in range(3,10):
         for chi in (1,-1):
             seen={}
             for a in range(q):
@@ -90,7 +90,7 @@ def endpoint_information_check() -> None:
 
 
 def generic_weight_checks() -> None:
-    test_primes = {5:7, 6:29, 7:29, 8:59, 9:59}
+    test_primes = {3:5, 4:7, 5:7, 6:29, 7:29, 8:59, 9:59}
     for k,q in test_primes.items():
         for chi in (1,-1):
             assert zero_spectrum(k,q,chi) == generic_spectrum(k,q)
@@ -108,9 +108,9 @@ def main() -> None:
     endpoint_information_check()
     generic_weight_checks()
     exceptional_and_padic_checks()
-    print("FIXED_CHIRALITY_AFFINE_MDS_DISTANCE=PASS k=5..9")
-    print("TWO_CHIRAL_COSET_UNION_DISTANCE=floor(k/2)")
-    print("ENDPOINT_INFORMATION_SETS=PASS")
+    print("FIXED_MODE_AFFINE_MDS_DISTANCE=PASS k=3..9")
+    print("TWO_MODE_COSET_UNION_DISTANCE=floor(k/2)")
+    print("ENDPOINT_INFORMATION_SETS=PASS k=3..9")
     print("GENERIC_WEIGHT_SPECTRA=PASS")
     print("K9_EXCEPTIONAL_Q={11,13,23,31,53}")
     print("K9_EXCEPTIONAL_CONCURRENCES_DESINGULARIZE_AT_Q_SQUARED=PASS")
