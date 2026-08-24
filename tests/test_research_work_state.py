@@ -149,6 +149,10 @@ class WorkMachineTests(unittest.TestCase):
         self.assertEqual("EM-DVR-ISSUER", chosen["issuer_driver_id"])
         self.assertTrue(chosen["review_required"])
 
+    def test_noncommit_taskbook_ref_is_rejected(self):
+        event = publish_event("RS-BAD", ref_suffix="branch-name")
+        self.assertTrue(ws.validate_task_publish(event, machine()))
+
     def test_unpublished_legacy_ready_is_not_selected_by_generic_claim(self):
         cfg = legacy_config(legacy_task("RS-STALE", state="READY", priority="P0"))
         chosen = ws.select_task(
@@ -224,7 +228,7 @@ class WorkMachineTests(unittest.TestCase):
                 issuer="EM-DVR-NEW",
                 priority="P0",
                 at="2026-08-24T09:01:00+08:00",
-                ref_suffix="newgeneration",
+                ref_suffix="1234abc5678",
             ),
         ]
         chosen = ws.select_task(
@@ -233,7 +237,7 @@ class WorkMachineTests(unittest.TestCase):
         self.assertEqual("RS-X", chosen["task_id"])
         self.assertEqual("READY", chosen["state"])
         self.assertEqual("EM-DVR-NEW", chosen["issuer_driver_id"])
-        self.assertTrue(chosen["taskbook_ref"].endswith("@newgeneration"))
+        self.assertTrue(chosen["taskbook_ref"].endswith("@1234abc5678"))
 
     def test_work_schema_runtime_event_is_legacy_compatible(self):
         raw = {
