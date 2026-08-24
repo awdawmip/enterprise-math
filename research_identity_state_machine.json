@@ -1,24 +1,21 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V4",
+  "schema": "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V5",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-25",
   "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
   "helper": "tools/research_identity.py",
+  "scheduler": "research_scheduler_v2.json",
   "final_response_policy": "final_response_identity_policy.json",
   "research_architecture": "research_architecture.json",
-  "states": [
-    "UNRESOLVED",
-    "RESOLVED_LOCAL",
-    "PREALLOCATED_FOR_DISPATCH",
-    "REGISTER_PENDING",
-    "REGISTERED"
-  ],
-  "entry_invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve or allocate its role identity before substantive work begins. Researchers expose Researcher-ID; Drivers expose Driver-ID. Research mode is a separate typed state and does not alter identity uniqueness.",
-  "final_response_invariant": "While an Enterprise Math RESEARCHER or RESEARCH_DRIVER role is active, every assistant final response ends with exactly one role-appropriate identity marker. Identity registration state never suppresses this obligation.",
+  "states": ["UNRESOLVED", "RESOLVED_LOCAL", "PREALLOCATED_FOR_DISPATCH", "REGISTER_PENDING", "REGISTERED"],
+  "entry_invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve or allocate its role identity before substantive work begins. Researchers expose Researcher-ID; Drivers expose Driver-ID. Research mode is separate typed state.",
+  "final_response_invariant": "While an Enterprise Math RESEARCHER or RESEARCH_DRIVER role is active, every assistant final response ends with exactly one role-appropriate identity marker. Registration state never suppresses this obligation.",
   "entry_events": [
     "direct user research task",
     "explicit EM_FREE_RESEARCHER activation",
+    "scheduler/PUBLISH by a researcher or Driver",
     "scheduler/CLAIM dispatch",
+    "scheduler/REVIEW by a Driver",
     "Driver-mediated manual relay",
     "taskbook execution",
     "role transition into RESEARCHER",
@@ -37,24 +34,12 @@
     "legacy_sequential": "EM-<LANE>-<NN>",
     "automatic": "EM-<LANE>-<SHORTCODE>",
     "automatic_shortcode": "4-8 uppercase alphanumeric characters",
-    "examples": [
-      "EM-R012-01",
-      "EM-R012-K7M4",
-      "EM-P017-8C21F4",
-      "EM-FREE-7A2C",
-      "EM-DVR-Q4N7"
-    ],
+    "examples": ["EM-R012-01", "EM-R012-K7M4", "EM-P017-8C21F4", "EM-FREE-7A2C", "EM-DVR-Q4N7"],
     "primary_driver_reserved_id": "EM-DRIVER-01"
   },
-  "role_labels": {
-    "RESEARCHER": "Researcher-ID",
-    "RESEARCH_DRIVER": "Driver-ID"
-  },
+  "role_labels": {"RESEARCHER": "Researcher-ID", "RESEARCH_DRIVER": "Driver-ID"},
   "research_mode": {
-    "allowed_for_researcher": [
-      "FREE_AXIOM_DISCOVERY",
-      "TASK_RESEARCH"
-    ],
+    "allowed_for_researcher": ["FREE_AXIOM_DISCOVERY", "TASK_RESEARCH"],
     "driver_mode": "CONTROL_PLANE",
     "resolution_source": "research_role_policy.json",
     "persist_when_possible": true,
@@ -65,11 +50,7 @@
     "policy": "final_response_identity_policy.json",
     "marker_count": 1,
     "driver_scope": "CONTROL_PLANE",
-    "researcher_scope_precedence": [
-      "ACTIVE_TASK_ID",
-      "FREE_AXIOM_DISCOVERY",
-      "TASK_RESEARCH"
-    ],
+    "researcher_scope_precedence": ["ACTIVE_TASK_ID", "FREE_AXIOM_DISCOVERY", "TASK_RESEARCH"],
     "direct_is_not_visible_scope": true,
     "registration_pending_does_not_suppress_marker": true,
     "commentary_progress_exempt": true,
@@ -98,7 +79,18 @@
     "derivation": "SHA-256(task_id + NUL + dispatch_id), uppercase first 6 hex characters, prefixed by EM-<LANE>-",
     "helper": "python tools/research_identity.py allocate --task <TASK> --role RESEARCHER --lane <LANE> --dispatch-id <DISPATCH_ID>",
     "state": "PREALLOCATED_FOR_DISPATCH",
-    "first_use": "the receiving conversation preserves the preallocated Researcher-ID from first use and emits the required identity footer on every final response"
+    "first_use": "receiving conversation preserves the preallocated Researcher-ID from first use"
+  },
+  "scheduler_publish": {
+    "event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V2",
+    "researcher_publish_field": "publisher_id",
+    "driver_publish_field": "publisher_id",
+    "publisher_role_field": "publisher_role",
+    "free_axiom_discovery_publish_eligible_after_candidate_maturity": true,
+    "publication_changes_research_mode": false,
+    "publication_allocates_new_identity": false,
+    "publication_grants_ready_authority": false,
+    "rule": "Use the already-resolved role identity as publisher_id. PUBLISH registers provenance; it neither changes role/mode nor authorizes execution."
   },
   "scheduler_claim": {
     "research_mode": "TASK_RESEARCH",
@@ -106,12 +98,14 @@
     "claim_field": "researcher_id",
     "missing_field_behavior": "AUTO_DERIVE_FROM_TASK_AND_CLAIM_ID",
     "derivation": "SHA-256(task_id + NUL + claim_id), uppercase first 6 hex characters, prefixed by EM-<LANE>-",
-    "state_output_fields": [
-      "researcher_id",
-      "last_researcher_id",
-      "identity_source"
-    ],
+    "state_output_fields": ["researcher_id", "last_researcher_id", "identity_source"],
     "legacy_event_compatibility": true
+  },
+  "scheduler_review": {
+    "driver_identity_field": "reviewer_id",
+    "valid_driver_forms": ["EM-DRIVER-<NN>", "EM-DVR-<SHORTCODE>"],
+    "review_does_not_create_new_driver_identity": true,
+    "cross_review": "scheduler V2 rejects an accepting DISPATCH review from the same Driver-ID that published the task and rejects self-review of execution identity on RETURN"
   },
   "direct_task_or_role_transition": {
     "existing_id": "PRESERVE",
@@ -120,20 +114,18 @@
     "registration": "CREATE_OWN_REGISTRATION_RECORD_IF_WRITE_PATH_AVAILABLE_ELSE_REGISTER_PENDING"
   },
   "role_transition": {
-    "same_conversation": "preserve the underlying execution handle and switch the visible role label/mode; update Research-Role / Research-Mode / Research-Task metadata and immediately use the new role footer template",
+    "same_conversation": "preserve execution handle and switch visible role label/mode; update Research-Role / Research-Mode / Research-Task metadata and use the new footer template",
     "new_conversation": "allocate a new role identity",
-    "task_to_free_same_conversation": "identity may be preserved but the free run is ANCHOR_EXPOSED unless the context was independently clean before discovery began",
-    "free_to_task_same_conversation": "identity may be preserved; once an explicit task is accepted, switch to TASK_RESEARCH and normal task context may be loaded",
-    "primary_driver": "EM-DRIVER-01 only when the conversation is explicitly the primary Driver continuity conversation",
+    "task_to_free_same_conversation": "identity may be preserved but the free run is ANCHOR_EXPOSED unless context was independently clean before discovery began",
+    "free_to_task_same_conversation": "identity may be preserved; once an explicit READY task is accepted/claimed, switch to TASK_RESEARCH and normal task context may be loaded",
+    "primary_driver": "EM-DRIVER-01 only when conversation is explicitly the primary Driver continuity conversation",
     "non_primary_driver_visible_label": "Driver-ID"
   },
   "taskbook_contract": {
-    "required_for_new_driver_approved_taskbooks": {
-      "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE"
-    },
+    "required_for_new_taskbooks": {"identity_policy": "AUTO_RESOLVE_OR_ALLOCATE"},
     "optional_field": "identity_lane",
-    "research_mode": "TASK_RESEARCH",
-    "rule": "Taskbooks declare the identity policy/lane, never a fixed runtime Researcher-ID. Manual relay binds a Researcher-ID in a separate dispatch envelope; scheduler/direct entry paths resolve identity independently. The active role footer is governed globally by final_response_identity_policy.json and does not need to be restated in each taskbook."
+    "research_mode": "TASK_RESEARCH after accepted dispatch/claim; task publication alone does not force mode transition",
+    "rule": "Taskbooks declare identity policy/lane, never a fixed runtime Researcher-ID. Publisher identity lives in scheduler PUBLISH; claim identity lives in CLAIM; Driver identity lives in REVIEW."
   },
   "registration": {
     "repository": "awdawmip/chatgpt-global-knowledge",
@@ -144,7 +136,7 @@
     "registration_is_uniqueness_source": false,
     "registration_failure": "REGISTER_PENDING; continue work and persist the role identity visibly; retry only at a semantic checkpoint",
     "not_a_hard_block": true,
-    "legacy_path_name_note": "the historical folder name researchers/ is retained for compatibility and may contain Driver identity records"
+    "legacy_path_name_note": "historical folder name researchers/ is retained for compatibility and may contain Driver identity records"
   },
   "visibility": {
     "RESEARCHER_TASK": "Researcher-ID: <ID> / <TASK_ID>",
@@ -153,12 +145,6 @@
     "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE",
     "commit_subject_prefix": "[<EXECUTION-ID>]",
     "pr_title_prefix": "[<EXECUTION-ID>]",
-    "metadata_fields": [
-      "execution_id",
-      "researcher_id or driver_id",
-      "research_task",
-      "research_role",
-      "research_mode when applicable"
-    ]
+    "metadata_fields": ["execution_id", "researcher_id or driver_id", "research_task", "research_role", "research_mode when applicable"]
   }
 }
