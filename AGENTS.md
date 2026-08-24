@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.7`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.8`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -19,6 +19,43 @@ Exact role authority:
 - `research_architecture.json`;
 - `research_role_policy.json`;
 - `research_identity_state_machine.json`.
+
+## 1A. Unified task/review claim fast path
+
+Canonical work-state control plane:
+
+- `research_work_state_machine.json`;
+- `tools/research_work_state.py`.
+
+A generic researcher request such as `领任务` / `领取任务` is explicit scheduler intent, not an invitation to ask the user for a task id.
+
+Freeze:
+
+`GENERIC_TASK_CLAIM_INTENT -> SELECT_HIGHEST_ELIGIBLE_TASK -> CLAIM -> START_TASK`.
+
+FREE Phase A is excluded from automatic task dispatch.
+
+A Driver request such as `领审核` / `领取审核` is explicit review-queue intent.
+
+Freeze:
+
+`GENERIC_REVIEW_CLAIM_INTENT -> SELECT_HIGHEST_ELIGIBLE_REVIEW -> REVIEW_CLAIM -> START_REVIEW`.
+
+The task-issuing Driver has no exclusive review lock:
+
+`TASK_ISSUER != REQUIRED_REVIEWER`.
+
+Prefer cross-Driver review when a comparable pending review exists; same-Driver review remains a labeled fallback, not a blocker.
+
+A Driver-approved dispatchable taskbook is published to the shared work state in the same turn:
+
+`TASKBOOK_DISPATCH_PASS -> SAME_TURN_TASK_PUBLISH`.
+
+A completed research task returns to the shared work state rather than through the user:
+
+`RESEARCH_DONE -> SAME_TURN_REVIEW_REQUEST`.
+
+The user need not relay task ids, review ids, return prompts, logs, or review targets between conversations.
 
 ## 2. Active-turn continuation liveness
 
@@ -238,7 +275,7 @@ Tool/scheduler/CI availability is not a mathematical `HARD_BLOCK`.
 
 Load only when relevant:
 
-- scheduler/Relay/Foundation surfaces for actual coordination actions;
+- unified work-state/scheduler/Relay/Foundation surfaces for actual coordination actions;
 - Driver contract + continuity for actual Driver portfolio decisions;
 - Common Surface for exact cross-owner theorem/tool/conflict lookup;
 - toolbox registry/method inventory for actual method selection or method-harvest/dedup;
