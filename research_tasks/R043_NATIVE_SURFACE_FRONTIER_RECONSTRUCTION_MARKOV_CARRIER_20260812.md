@@ -227,4 +227,4 @@ Return exactly one primary research verdict:
 - `SURFACE_SPECIFIC_RESIDUE_REDUCES_TO_EXISTING_OWNER`;
 - `OPEN_WITH_EXACT_NEW_BOUNDARY`.
 
-The return must state the weakest supported claim. No Foundation or canonical promotion follows automatically from this task.
+The return must state the weakest supported claim. No Foundation-state change or source-canonicality claim follows automatically from this task.
