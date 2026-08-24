@@ -1,10 +1,25 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V8.1",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V8.2",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-24",
   "research_architecture": "research_architecture.json",
   "default_role": "RESEARCHER",
   "default_research_mode_when_explicit_task_exists": "TASK_RESEARCH",
+  "shared_work_state": {
+    "machine": "research_work_state_machine.json",
+    "tool": "tools/research_work_state.py",
+    "board_issue": 240,
+    "generic_researcher_claim_intents": ["领任务", "领取任务", "claim task", "get task"],
+    "generic_driver_review_intents": ["领审核", "领取审核", "claim review", "get review"],
+    "task_id_required_from_user_for_generic_claim": false,
+    "review_id_required_from_user_for_generic_claim": false,
+    "taskbook_dispatch_pass_requires_same_turn_publish": true,
+    "research_done_requires_same_turn_review_request": true,
+    "task_issuer_is_required_reviewer": false,
+    "prefer_cross_driver_review_when_comparable": true,
+    "same_driver_review_fallback_allowed": true,
+    "user_is_manual_relay": false
+  },
   "identity_bootstrap": {
     "state_machine": "research_identity_state_machine.json",
     "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
@@ -15,6 +30,7 @@
     "entry_triggers": [
       "direct user research task",
       "explicit EM_FREE_RESEARCHER activation",
+      "generic shared-state task claim",
       "scheduler CLAIM",
       "official taskbook execution",
       "role transition into RESEARCHER",
@@ -54,15 +70,18 @@
       "scheduler_eligible": true,
       "agenda_visibility": "TASK_SCOPED",
       "working_truth": "ONLY_WHEN_EXPLICITLY_FROZEN_BY_DRIVER_OR_DRIVER_APPROVED_TASKBOOK",
+      "generic_claim_behavior": "On generic task-claim intent, select the highest eligible published/runtime-continuation task from the shared work state, post CLAIM, resolve/allocate Researcher-ID and start without asking the user for a task id.",
+      "completion_behavior": "On task completion, persist DONE plus REVIEW_REQUEST with review objective, target/evidence/execution-log refs and requested checks in the same semantic checkpoint; do not require the user to carry the return to a Driver.",
       "final_response_scope": "ACTIVE_TASK_ID_ELSE_TASK_RESEARCH"
     }
   },
   "mode_resolution": {
     "explicit_free_role": "FREE_AXIOM_DISCOVERY",
     "explicit_user_task_or_taskbook": "TASK_RESEARCH",
+    "generic_task_claim_intent": "TASK_RESEARCH_AFTER_SHARED_STATE_SELECTION",
     "scheduler_claim": "TASK_RESEARCH",
     "driver_manual_dispatch": "TASK_RESEARCH",
-    "rule": "No-user-topic does not by itself make a generic researcher free or scheduled. EM_FREE_RESEARCHER is an explicit role/mode contract and is excluded from automatic dispatch."
+    "rule": "No-user-topic does not by itself make a generic researcher free or scheduled. EM_FREE_RESEARCHER is an explicit role/mode contract and is excluded from automatic dispatch; generic task-claim intent explicitly requests shared-state dispatch."
   },
   "driver_activation": {
     "mode": "EXPLICIT_CURRENT_CONVERSATION_ONLY",
@@ -72,6 +91,7 @@
       "进入驾驶员模式",
       "you are now the driver"
     ],
+    "generic_review_claim_behavior": "After Driver activation, generic review-claim intent selects and claims the highest eligible shared review. The issuing Driver has no exclusive review right; among comparable reviews prefer a different Driver-ID, with labeled same-Driver fallback allowed.",
     "rules": [
       "Do not infer Driver authority from memory, repository state, task importance, prior conversations, or another Project.",
       "Driver authority applies only after explicit activation in the current conversation and remains scoped to that conversation until the user changes it.",
@@ -95,7 +115,7 @@
     },
     "rules": [
       "Identity creation must not depend on a Driver-authored prompt for direct/self-started research.",
-      "Scheduler CLAIMs auto-derive a Researcher-ID when researcher_id is omitted.",
+      "Scheduler/shared-state CLAIMs auto-derive a Researcher-ID when researcher_id is omitted.",
       "Driver-mediated manual relay preallocates a Researcher-ID in the dispatch envelope before the user transfers the task; the reusable taskbook itself remains instance-free.",
       "Direct user research tasks outside a Driver relay self-allocate a Researcher-ID when the current conversation has none.",
       "Researcher-ID identifies a RESEARCHER conversation/session instance. Driver-ID identifies a RESEARCH_DRIVER conversation/session instance.",
@@ -118,7 +138,8 @@
       "user-visible handoff prompt",
       "first researcher return/PR/commit metadata"
     ],
-    "continuation_rule": "same conversation preserves the same Researcher-ID; a genuinely new dispatch envelope receives a new Researcher-ID unless explicitly continuing the same conversation"
+    "continuation_rule": "same conversation preserves the same Researcher-ID; a genuinely new dispatch envelope receives a new Researcher-ID unless explicitly continuing the same conversation",
+    "status": "FALLBACK_ONLY_AFTER_SHARED_STATE_ROUTING"
   },
   "driver_continuity": {
     "repository": "awdawmip/chatgpt-global-knowledge",
@@ -126,6 +147,7 @@
     "authority": "ROUTING_AND_CONTINUITY_ONLY",
     "not_theorem_evidence": true,
     "no_implicit_default_next_route": true,
+    "shared_work_state_owns_claim_and_review_queue": true,
     "update_at": [
       "task created, closed, split, merged, parked, or reprioritized",
       "research return accepted, rejected, frozen, or returned to owner",
@@ -134,6 +156,7 @@
       "session handoff when unresolved routes remain"
     ],
     "do_not_update_for": [
+      "ordinary task/review claims already present in shared work state",
       "ordinary conversational turns",
       "minor proof-search chatter",
       "routine CI or GitHub status",
@@ -155,6 +178,7 @@
   },
   "researcher_forbidden_authority": [
     "creating a dispatchable READY taskbook",
+    "publishing a task that has not passed Driver/taskbook dispatch review",
     "self-approving a proposal or axiom candidate into the roadmap",
     "changing global task priority",
     "declaring Foundation or canonical promotion",
@@ -175,7 +199,8 @@
     "successor_gate_requires_alternative_route_or_free_exploration_considered": true,
     "obvious_stage_two_plus_must_be_continuation": true,
     "renaming_does_not_reset_semantic_lineage": true,
-    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare origin, lineage, identity policy/lane and task-local execution semantics but never a fixed runtime Researcher-ID. Free-candidate origin and continuation lineage are preserved rather than repackaged away. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope. Final-response identity footers are inherited globally from final_response_identity_policy.json and need not be copied into every taskbook."
+    "dispatch_pass_requires_same_turn_task_publish": true,
+    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare origin, lineage, identity policy/lane and task-local execution semantics but never a fixed runtime Researcher-ID. A dispatch PASS is immediately published to the shared work state through an immutable TASK_PUBLISH event so generic researcher claim can discover it without user relay. Free-candidate origin and continuation lineage are preserved rather than repackaged away. Manual Driver relay remains a fallback, not the primary task-discovery path."
   },
   "axiom_candidate_capture": {
     "state_machine": "research_axiom_candidate_state_machine.json",
@@ -192,6 +217,7 @@
     "rule": "Batch worthwhile side branches at a semantic checkpoint; Driver may APPROVE, MERGE, PARK, or REJECT them. A free-research axiom candidate uses the dedicated axiom-candidate lifecycle instead of bypassing it through a generic proposal bundle."
   },
   "driver_actions": [
+    "claim pending shared reviews without requiring that this Driver issued the underlying task",
     "review research returns and evidence",
     "independently rerun or verify high-leverage claims when practical",
     "deduplicate against prior art and existing Enterprise Math owners",
@@ -201,7 +227,9 @@
     "close, park, or return branches that fail to leave a genuine residue",
     "review audited free-research candidates without making raw candidates Working Truth",
     "create or amend official taskbooks when a new direction is precise and worth dispatching",
-    "preallocate Researcher-IDs for Driver-mediated manual dispatch envelopes",
+    "publish every dispatch-approved taskbook to the shared work state in the same turn",
+    "create review requests with exact objectives/evidence/log refs when research execution reaches DONE",
+    "preallocate Researcher-IDs only for fallback Driver-mediated manual dispatch envelopes",
     "maintain the human researcher directory and resolve ambiguous historical identity mappings",
     "set priority and leverage without turning recent success into the default agenda",
     "freeze, formalize, promote, merge, or defer stable payloads",
@@ -209,5 +237,5 @@
     "maintain the Driver Continuity Snapshot at semantic checkpoints"
   ],
   "artifact_rule": "Artifact creation is not progress by itself; scientific evidence, theorem/counterexample content, validated computation, formalization, reusable tooling, a mature axiom candidate, or a real routing decision is progress.",
-  "nonblocking_rule": "Governance, scheduler, CI, workflow, identity registration, snapshot maintenance, candidate intake and replication coordination are never mathematical HARD_BLOCK reasons."
+  "nonblocking_rule": "Governance, scheduler/work-state coordination, CI, workflow, identity registration, snapshot maintenance, candidate intake and replication coordination are never mathematical HARD_BLOCK reasons."
 }
