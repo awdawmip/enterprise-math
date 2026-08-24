@@ -22,6 +22,11 @@ VALID_ORIGINS = {
     "REPLAY_OR_INTEGRATION",
     "MAINTENANCE",
 }
+SCHEDULER_REGISTRATION = {
+    "schema": "ENTERPRISE_MATH_SCHEDULER_TASK_REGISTRATION_V2",
+    "publication_required": True,
+    "runtime_ready_requires": "PUBLISH_PLUS_CROSS_DRIVER_APPROVE",
+}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -122,7 +127,7 @@ def origin_findings(
         findings.append({
             "severity": "ERROR" if dispatch else "WARN",
             "code": "TB-ORIGIN-MISSING",
-            "message": "new dispatch requires origin_kind; legacy files may remain historical until redispatch",
+            "message": "new publication requires origin_kind; legacy files may remain historical until republished",
         })
         return findings
     if origin not in VALID_ORIGINS:
@@ -169,7 +174,7 @@ def lineage_findings(
         findings.append({
             "severity": "ERROR" if dispatch else "WARN",
             "code": "TB-LINEAGE-MISSING",
-            "message": "new dispatch requires task_lineage; legacy files may remain historical until redispatch",
+            "message": "new publication requires task_lineage; legacy files may remain historical until republished",
         })
         return findings
     if lineage not in VALID_LINEAGES:
@@ -222,6 +227,34 @@ def lineage_findings(
     return findings
 
 
+def scheduler_registration_findings(
+    meta: dict[str, Any], *, dispatch: bool
+) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    marker = meta.get("scheduler_registration")
+    if not isinstance(marker, dict):
+        findings.append({
+            "severity": "ERROR" if dispatch else "WARN",
+            "code": "TB-SCHEDULER-REGISTRATION",
+            "message": "new publication requires scheduler_registration=ENTERPRISE_MATH_SCHEDULER_TASK_REGISTRATION_V2",
+        })
+        return findings
+    for key, expected in SCHEDULER_REGISTRATION.items():
+        if marker.get(key) != expected:
+            findings.append({
+                "severity": "ERROR",
+                "code": "TB-SCHEDULER-REGISTRATION",
+                "message": f"scheduler_registration.{key} must be {expected!r}",
+            })
+    if dispatch and meta.get("base_state") != "DRAFT":
+        findings.append({
+            "severity": "ERROR",
+            "code": "TB-SCHEDULER-BASE-STATE",
+            "message": "policy-approved taskbooks remain base_state=DRAFT; runtime READY is created only by Scheduler V2 cross-Driver APPROVE",
+        })
+    return findings
+
+
 def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> list[dict[str, str]]:
     policy = policy_manifest(root)
     contract = load_json(root / "research_taskbook_contract.json")
@@ -242,6 +275,7 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
 
     findings.extend(origin_findings(meta, dispatch=dispatch, root=root))
     findings.extend(lineage_findings(meta, dispatch=dispatch, root=root))
+    findings.extend(scheduler_registration_findings(meta, dispatch=dispatch))
 
     for key in contract.get("forbidden_fixed_runtime_metadata", []):
         if key in meta:
@@ -253,7 +287,7 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
         findings.append({
             "severity": sev,
             "code": "TB-POLICY-UNSTAMPED",
-            "message": "taskbook has no policy_review stamp; legacy files may remain archived, but dispatch requires review",
+            "message": "taskbook has no policy_review stamp; legacy files may remain archived, but publication requires review",
         })
         overrides: dict[str, dict[str, Any]] = {}
     else:
@@ -268,7 +302,7 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
                 "message": f"policy digest stale: taskbook={review.get('policy_digest')} current={current}",
             })
         if dispatch and review.get("review_state") != "PASS":
-            findings.append({"severity": "ERROR", "code": "TB-POLICY-REVIEW", "message": "dispatch requires policy_review.review_state=PASS"})
+            findings.append({"severity": "ERROR", "code": "TB-POLICY-REVIEW", "message": "publication gate requires policy_review.review_state=PASS"})
 
         required_override_fields = policy.get("override_required_fields", [])
         for cid, item in overrides.items():
@@ -363,6 +397,7 @@ def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
         "task_authority": "DRIVER_APPROVED",
         "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
         "final_response_identity_policy": "INHERIT_GLOBAL",
+        "scheduler_registration": dict(SCHEDULER_REGISTRATION),
         "identity_lane": args.lane,
         "origin_kind": args.origin_kind,
         "task_lineage": args.lineage,
@@ -414,7 +449,7 @@ Status: `DRAFT / POLICY_REVIEW_PENDING / NOT DISPATCHABLE`
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(render_taskbook(meta, body), encoding="utf-8")
     print(out.relative_to(ROOT))
-    print("created with PENDING_DRIVER_REVIEW; edit task-local content, complete any successor gate, then run review --approve")
+    print("created as V2 DRAFT; edit task-local content, complete any successor gate, then run review --approve; PUBLISH + cross-Driver APPROVE is still required for runtime READY")
     return 0
 
 
@@ -425,6 +460,8 @@ def command_review(args: argparse.Namespace) -> int:
     text = path.read_text(encoding="utf-8")
     meta, body = split_taskbook(text)
     meta["final_response_identity_policy"] = "INHERIT_GLOBAL"
+    meta["base_state"] = "DRAFT"
+    meta["scheduler_registration"] = dict(SCHEDULER_REGISTRATION)
     review = taskbook_review(meta) or {"policy_set": "research_taskbook_policy.json", "temporary_overrides": []}
     review["policy_set"] = "research_taskbook_policy.json"
     review["policy_digest"] = policy_digest(ROOT)
@@ -442,14 +479,14 @@ def command_review(args: argparse.Namespace) -> int:
     if args.approve:
         review["review_state"] = "PASS"
         meta["policy_review"] = review
-        if meta.get("base_state") == "DRAFT":
-            meta["base_state"] = "READY"
+        meta["base_state"] = "DRAFT"
+        meta["scheduler_registration"] = dict(SCHEDULER_REGISTRATION)
         path.write_text(render_taskbook(meta, body), encoding="utf-8")
         dispatch_findings = audit_taskbook(path, dispatch=True)
         if any(f["severity"] == "ERROR" for f in dispatch_findings):
             print_findings(path.relative_to(ROOT), dispatch_findings)
             return 1
-        print(f"{path.relative_to(ROOT)}: POLICY_REVIEW_PASS")
+        print(f"{path.relative_to(ROOT)}: POLICY_REVIEW_PASS / SCHEDULER_PUBLISH_REQUIRED / BASE_STATE_DRAFT")
         return 0
 
     print(f"{path.relative_to(ROOT)}: review refreshed; approval still pending")
