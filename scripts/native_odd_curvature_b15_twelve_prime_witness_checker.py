@@ -62,16 +62,12 @@ def main() -> None:
     assert gaps == [9158,9172,9188,9202,9218,9232,9248,9262,9278,9292,9308]
 
     second = [vals[i] - 2*vals[i+1] + vals[i+2] for i in range(10)]
-    # With the current sign convention the second difference alternates -14,-16.
-    assert second == [-14,-16,-14,-16,-14,-16,-14,-16,-14,-16]
-
-    # Equivalent positive curvature in forward-difference convention.
-    forward_second = [vals[i+2] - 2*vals[i+1] + vals[i] for i in range(10)]
-    assert forward_second == [-14,-16,-14,-16,-14,-16,-14,-16,-14,-16]
+    assert second == [14,16,14,16,14,16,14,16,14,16]
 
     print("B15_TWELVE_VALUES=PASS")
     print("ALL_12_PRIME_64BIT=PASS")
     print("GAP_WORD=PASS")
+    print("SECOND_DIFFERENCE=14,16_ALTERNATING")
     print("NATIVE_SHARP9_CONTROL_EXCEEDED=12")
 
 
