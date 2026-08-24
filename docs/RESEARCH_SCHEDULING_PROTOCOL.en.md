@@ -17,7 +17,7 @@ The registry is the union of:
 - every task-like artifact under `research_tasks/`;
 - V2 `PUBLISH`, `MIGRATE`, and `ORPHAN` events.
 
-A pre-V2 taskbook that has no accepted runtime history is registered as `ORPHANED`, not silently re-dispatched. A V2 task can be created dynamically by `PUBLISH` even before its taskbook is merged to `main`.
+A pre-V2 taskbook that is already represented by accepted historical scheduler events keeps that historical runtime meaning. A pre-V2 taskbook that lacks a reliable accepted runtime history is registered as `ORPHANED`, not silently re-dispatched. A V2 task can be created dynamically by `PUBLISH` even before its taskbook is merged to `main`.
 
 ## 2. Canonical lifecycle
 
@@ -98,9 +98,9 @@ The emitted JSON object is appended as one Issue #240 comment.
 
 ## 8. Generic intents
 
-A generic task request such as `领任务` means: materialize current V2 registry, select the highest eligible `NEEDS_DISPATCH` task, claim it, resolve identity, and start.
+A generic request to claim research work means: materialize the current V2 registry, select the highest eligible `NEEDS_DISPATCH` task, claim it, resolve identity, and start.
 
-A generic Driver review request such as `领审核` means: select the highest eligible `NEEDS_REVIEW` item that is not self-review, claim the review lease, and start.
+A generic Driver request to claim a review means: select the highest eligible `NEEDS_REVIEW` item that is not self-review, claim the review lease, and start.
 
 The user is not the routing bus and does not need to copy task IDs or return payloads between conversations.
 
