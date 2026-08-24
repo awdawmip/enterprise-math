@@ -1,9 +1,9 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_ARCHITECTURE_V2",
-  "status": "ACTIVE_CANONICAL_GOVERNANCE_V2_3",
-  "effective": "2026-08-22",
-  "driver_id": "EM-DVR-K7Q4N8",
-  "purpose": "Separate independent axiom discovery, task execution, Driver portfolio control, Foundation maintenance, persistence and canonical promotion so that no one control surface silently becomes the research agenda.",
+  "status": "ACTIVE_CANONICAL_GOVERNANCE_V2_4",
+  "effective": "2026-08-25",
+  "driver_id": "EM-DVR-ZX1UEJ",
+  "purpose": "Separate independent axiom discovery, task execution, Driver portfolio/review control, Foundation maintenance, persistence and canonical promotion while ensuring every official task is registered and recoverable in one scheduler state machine.",
   "core_invariants": [
     "FOUNDATION_IS_STARTING_SUBSTRATE_NOT_DEFAULT_RESEARCH_AGENDA",
     "FOUNDATION_FOR_DISCOVERY_IS_NOT_CATALOG_OF_CURRENT_ACHIEVEMENTS",
@@ -12,6 +12,11 @@
     "FREE_PHASE_A_NEGATIVE_RULES_USE_GENERIC_CATEGORIES_NOT_SALIENT_FORBIDDEN_OBJECT_ENUMERATION",
     "EXPLORATION_AND_EXPLOITATION_ARE_DISTINCT_RESEARCH_MODES",
     "FREE_RESEARCHER_DOES_NOT_AUTO_DISPATCH",
+    "FREE_RESEARCHER_MAY_PUBLISH_MATURE_AUDITED_TASKS",
+    "ALL_OFFICIAL_TASKS_ARE_SCHEDULER_REGISTERED",
+    "PUBLISH_IS_NOT_READY",
+    "RETURN_IS_NOT_DONE",
+    "LEASE_EXPIRY_IS_ORPHANED_NOT_SILENT_HANDOFF",
     "TASK_RESEARCHER_MAY_CONSUME_EXPLICIT_AGENDA_CONTEXT",
     "DRIVER_WORKING_TRUTH_APPLIES_ONLY_AFTER_EXPLICIT_DIRECTION_FREEZE",
     "RAW_AXIOM_CANDIDATE_IS_NOT_WORKING_TRUTH",
@@ -38,6 +43,8 @@
       "default_suggested_question_menu": null,
       "phase_a_forbidden_object_enumeration": false,
       "scheduler_eligible": false,
+      "scheduler_auto_claim_eligible": false,
+      "scheduler_publish_eligible_after_candidate_maturity": true,
       "inherits_other_branch_working_truth": false,
       "default_state": "AXIOM_DISCOVERY",
       "candidate_protocol": "research_axiom_candidate_state_machine.json",
@@ -47,29 +54,33 @@
     "TASK_RESEARCH": {
       "role_label": "RESEARCHER",
       "visible_identity": "Researcher-ID",
-      "mission": "Execute an explicit user-selected, Driver-approved or scheduler-selected mother question with maximal theorem/evidence rigor.",
+      "mission": "Execute an explicit user-selected or scheduler-READY mother question with maximal theorem/evidence rigor; publish mature new task candidates without self-dispatch authority.",
       "agenda_visibility_before_work": "TASK_SCOPED",
       "scheduler_eligible": true,
-      "inherits_driver_working_truth": "ONLY_IF_THE_EXPLICIT_TASKBOOK_OR_DRIVER_HANDOFF_FREEZES_IT",
+      "scheduler_publish_eligible": true,
+      "inherits_driver_working_truth": "ONLY_IF_THE_EXPLICIT_TASKBOOK_OR_DRIVER_HANDOFF_FREEZES_IT_AFTER_ACCEPTED_DISPATCH",
       "default_state": "TASK_EXECUTION"
     },
     "RESEARCH_DRIVER": {
       "role_label": "RESEARCH_DRIVER",
       "visible_identity": "Driver-ID",
-      "mission": "Own roadmap routing, portfolio balance, de-duplication, continuation/termination, task creation, Working Truth freeze and canonical promotion decisions; do not monopolize primary discovery.",
+      "mission": "Own portfolio routing, cross-review of dispatch/return/recovery, de-duplication, continuation/termination, Working Truth freeze and canonical promotion decisions; do not monopolize primary discovery.",
       "scheduler_eligible": false,
+      "scheduler_review_eligible": true,
+      "scheduler_publish_eligible": true,
       "default_state": "CONTROL_PLANE"
     },
     "FOUNDATION_STEWARD": {
       "role_label": "FOUNDATION_STEWARD",
       "mission": "Maintain and verify shared definitions, interfaces, status and reusable tools; classify mature feedback without becoming the default investigator of new conjectures.",
       "scheduler_eligible": "GOVERNANCE_TASKS_ONLY",
+      "scheduler_publish_eligible": true,
       "default_state": "VERIFY_OR_MAINTAIN"
     }
   },
   "role_precedence": {
     "rule": "A more specific active role/mode contract controls over generic no-user-task dispatch or generic researcher freedom language for the same scope.",
-    "free_research_exception": "Generic scheduler rules and the general current-result router do not apply as Phase-A discovery input during FREE_AXIOM_DISCOVERY.",
+    "free_research_exception": "Generic scheduler automatic-selection rules and the general current-result router do not apply as Phase-A discovery input during FREE_AXIOM_DISCOVERY; mature publication is a separate post-freeze control action.",
     "explicit_user_override": true
   },
   "context_visibility": {
@@ -103,26 +114,28 @@
     "raw_candidate_is_working_truth": false,
     "raw_candidate_is_foundation_backflow_ready": false,
     "driver_intake_requires": "PHASE_B_AUDIT_COMPLETE",
+    "mature_candidate_may_be_scheduler_published_by_originating_free_researcher": true,
     "eligible_driver_routes": [
       "PARK",
       "REJECT",
       "RETURN_AS_DERIVED_THEOREM",
       "RETURN_AS_DUPLICATE_OR_PRIOR_ART",
-      "OPEN_EXPLICIT_TASK",
+      "REVIEW_PUBLISHED_EXPLICIT_TASK",
       "OPEN_FOUNDATION_QUESTION",
       "REQUEST_INDEPENDENT_REPLICATION"
     ],
-    "task_origin_rule": "If an explicit task is opened from a free candidate, taskbook origin metadata must preserve the audited candidate id/state. Repackaging does not erase discovery provenance."
+    "task_origin_rule": "If an explicit task is published/opened from a free candidate, taskbook origin metadata must preserve the audited candidate id/state. Repackaging does not erase discovery provenance."
   },
   "working_truth_boundary": {
-    "applies_to": "EXPLICIT_TASK_DIRECTION_AFTER_DRIVER_FREEZE",
+    "applies_to": "EXPLICIT_TASK_DIRECTION_AFTER_DRIVER_FREEZE_OR_ACCEPTED_SCHEDULER_DISPATCH",
     "does_not_apply_to": [
       "FREE_AXIOM_DISCOVERY_PHASE_A",
       "RAW_BLIND_AXIOM_CANDIDATE",
       "PHASE_B_DEDUP_OR_PRIOR_ART_AUDIT",
+      "UNREVIEWED_PUBLISHED_TASK",
       "UNREVIEWED_SIDE_BRANCH_PROPOSAL"
     ],
-    "activation_event": "DRIVER_EXPLICIT_DIRECTION_FREEZE_OR_DRIVER_APPROVED_TASKBOOK",
+    "activation_event": "DRIVER_EXPLICIT_DIRECTION_FREEZE_OR_SCHEDULER_DISPATCH_REVIEW_ACCEPT",
     "falsifiers": [
       "explicit user/Driver supersession",
       "exact counterexample under the same premises",
@@ -153,10 +166,20 @@
     "free_research_is_not_required_to_match_active_routes": true
   },
   "scheduler_boundary": {
-    "portfolio": "TASK_RESEARCH_EXPLOITATION_QUEUE",
-    "eligible_mode": "TASK_RESEARCH",
-    "excluded_mode": "FREE_AXIOM_DISCOVERY",
-    "static_scheduler_fallback": "REQUIRES_BOUNDED_CURRENT_SCOPE_VALIDATION_BEFORE_CLAIM",
+    "contract": "research_scheduler_v2.json",
+    "quickstart": "docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md",
+    "portfolio": "TASK_RESEARCH_EXPLOITATION_AND_REVIEW_CONTROL_PLANE",
+    "automatic_selection_eligible_mode": "TASK_RESEARCH",
+    "automatic_selection_excluded_mode": "FREE_AXIOM_DISCOVERY",
+    "free_publish_is_allowed_after_maturity": true,
+    "all_official_tasks_registered": true,
+    "publication_state": "PUBLISHED",
+    "ready_requires_driver_dispatch_review": true,
+    "worker_completion_event": "RETURN",
+    "done_requires_driver_return_review": true,
+    "lease_expiry_state": "ORPHANED",
+    "orphan_requires_driver_recovery": true,
+    "legacy_v1_seed_and_events_are_migration_inputs": true,
     "scheduler_done_is_truth": false,
     "scheduler_done_implies_successor": false
   },
@@ -230,6 +253,7 @@
     "research_common_surface_auto_select_when_user_task_absent": "GENERIC_TASK_RESEARCH_BEHAVIOR_ONLY_NOT_FREE_AXIOM_DISCOVERY",
     "generic_AGENTS_scheduler_rule": "DOES_NOT_OVERRIDE_MORE_SPECIFIC_FREE_RESEARCH_ROLE_CONTRACT",
     "general_current_native_foundation_router": "TASK_AND_PHASE_B_LOOKUP; NOT_FREE_PHASE_A_DISCOVERY_INPUT",
-    "generic_ready_l4_lane_wording": "READY_PR_IS_CANDIDATE_STATUS_NOT_AN_INDEFINITE_ATTEMPT_LEASE; GOVERNANCE_MAINTENANCE_FOLLOWS_LATER_NARROW_PROTOCOL"
+    "generic_ready_l4_lane_wording": "READY_PR_IS_CANDIDATE_STATUS_NOT_AN_INDEFINITE_ATTEMPT_LEASE; GOVERNANCE_MAINTENANCE_FOLLOWS_LATER_NARROW_PROTOCOL",
+    "v1_scheduler_done_and_expiry": "HISTORICAL_EVENTS_ARE_GRANDFATHERED; NEW_EVENTS_USE_V2_RETURN_REVIEW_AND_ORPHAN_SEMANTICS"
   }
 }
