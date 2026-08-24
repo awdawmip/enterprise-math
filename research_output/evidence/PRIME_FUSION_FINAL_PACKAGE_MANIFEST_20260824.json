@@ -1,0 +1,151 @@
+{
+  "schema": "PRIME_FUSION_FINAL_PACKAGE_MANIFEST_V1",
+  "date": "2026-08-24",
+  "task_id": "GS-PRIME-FUSION-FINAL-SOURCE-REPAIR-AND-PACKAGE-FREEZE",
+  "researcher_id": "EM-PFFINAL-0AA882",
+  "owner_branch": "integration/prime-fusion-evidence-typed-package",
+  "hard_target": "PRIME_FUSION_15_THEOREM_CORRECTED_SOURCE_PACKAGE_FROZEN_AND_REVIEW_READY",
+  "final_classification": "PRIME_FUSION_FINAL_PACKAGE_FROZEN",
+  "theorem_row_count": 15,
+  "retained_theorem_rows": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7",
+    "T8",
+    "T9",
+    "T10",
+    "T11",
+    "T12",
+    "T13",
+    "T14",
+    "T15"
+  ],
+  "independent_audit_coverage": "15/15",
+  "all_15_blindly_replicated": false,
+  "evidence_typing": {
+    "T1": "INDEPENDENT_EXACT",
+    "T2": "INDEPENDENT_EXACT",
+    "T3": "INDEPENDENT_EXACT_STATEMENT_EXPOSED",
+    "T4": "INDEPENDENT_EXACT_STATEMENT_EXPOSED",
+    "T5": "INDEPENDENT_EQUIVALENT_EXACT",
+    "T6": "INDEPENDENT_EXACT_STATEMENT_EXPOSED",
+    "T7": "INDEPENDENT_EXACT_STATEMENT_EXPOSED",
+    "T8": "INDEPENDENT_EXACT_STATEMENT_EXPOSED",
+    "T9": "INDEPENDENT_EXACT",
+    "T10": "INDEPENDENT_EXACT_AFTER_SCOPE_REPAIR",
+    "T11": "INDEPENDENT_EXACT_STATEMENT_EXPOSED",
+    "T12": "INDEPENDENT_EXACT",
+    "T13": "INDEPENDENT_EXACT",
+    "T14": "INDEPENDENT_EXACT",
+    "T15": "INDEPENDENT_EXACT_STRONGER_FORM"
+  },
+  "t10_scope_repair": {
+    "locus": "M_{p,q}={x mod pq : x^2+1=0 mod p and x^2+x+1=0 mod q}",
+    "exact_orbit": "M_{p,q}={r,r^5,r^7,r^11}",
+    "full_fused_root_set_claim": false,
+    "shared_coefficient_pair": "{r,r^11}={r,r^{-1}}",
+    "pressure_witness": {
+      "cell": [
+        2,
+        3
+      ],
+      "p": 13,
+      "q": 7,
+      "H": 91,
+      "r": 60,
+      "oriented_mixed_roots": [
+        18,
+        44,
+        60,
+        86
+      ],
+      "full_fused_roots": [
+        9,
+        16,
+        18,
+        44,
+        60,
+        74,
+        81,
+        86
+      ]
+    }
+  },
+  "dependency_graph": {
+    "kind": "NON_LINEAR",
+    "false_chain_rejected": "T3 -> T6 -> T10 -> T11",
+    "required_facts": [
+      "T6 does not logically require T3",
+      "T10 follows from local orders plus CRT and does not logically require T3",
+      "T11 follows from the two oriented local equations and does not require T10 orbit completeness",
+      "on the oriented locus x^6=2e-1 mod H connects T6 and T11",
+      "T4 uses T3 product decomposition for the product-quotient presentation",
+      "T7 uses the channel split and square reconstruction",
+      "T8 uses quotient/channel structure plus primality/semiprime equivalence"
+    ]
+  },
+  "source_refs": {
+    "taskbook": "research_tasks/PRIME_FUSION_FINAL_SOURCE_REPAIR_AND_PACKAGE_FREEZE_20260824.md@0aa8824250c609283363c662ed875d661972dd43",
+    "historical_package": "research/PRIME_FUSION_THEOREM_PACKAGE_20260823.md@e5138e17f8c4009f5e357f43326f2812c9df1359",
+    "final_reconciliation": "driver_reviews/PRIME_FUSION_15_THEOREM_FINAL_EVIDENCE_RECONCILIATION_20260824.md@e19ee6713be002dd9c346261173d39fd8d54f9dc",
+    "blind_core_review": "driver_reviews/PRIME_FUSION_INDEPENDENT_REPLICATION_DRIVER_REVIEW_20260823.md@be07e5d9af0ca428ae74c2807fdde586d0d665a3",
+    "phase_extension_review": "driver_reviews/PRIME_FUSION_PHASE_EXTENSION_TARGETED_VERIFICATION_DRIVER_REVIEW_20260823.md@ffaf098cb612f8a54f1d49df33484d3d36019a92",
+    "t4_t7_t8_exact_closure_review": "driver_reviews/PRIME_FUSION_T4_T7_T8_FINAL_EXACT_CLOSURE_DRIVER_REVIEW_20260824.md@ed016687bcd2d75957041ce820e335678aeb1f53"
+  },
+  "component_checkers": [
+    {
+      "family": "source-package",
+      "path": "experiments/prime_fusion_theorem_package_checker.py",
+      "git_blob_sha1": "07db705c1227d86df0fa021e56eb07eaddeee3c5",
+      "authority": "research/prime-fusion-theorem-package-clean@e5138e17f8c4009f5e357f43326f2812c9df1359"
+    },
+    {
+      "family": "blind-core",
+      "path": "experiments/prime_fusion_independent_replication_checker.py",
+      "git_blob_sha1": "fc67f08f146782728b00472ee0156c64bdf7747e",
+      "authority": "driver_reviews/PRIME_FUSION_INDEPENDENT_REPLICATION_DRIVER_REVIEW_20260823.md@be07e5d9af0ca428ae74c2807fdde586d0d665a3"
+    },
+    {
+      "family": "phase-extension",
+      "path": "experiments/prime_fusion_phase_extension_targeted_verification_checker.py",
+      "git_blob_sha1": "f2570534c99a92e75ca55b9ba24286854bc48fff",
+      "authority": "driver_reviews/PRIME_FUSION_PHASE_EXTENSION_TARGETED_VERIFICATION_DRIVER_REVIEW_20260823.md@ffaf098cb612f8a54f1d49df33484d3d36019a92"
+    },
+    {
+      "family": "t4-t7-t8-final-exact-closure",
+      "path": "experiments/prime_fusion_t4_t7_t8_final_exact_closure_checker.py",
+      "git_blob_sha1": "c2319bf4092e41cc21d70ee6eb407480de0450ed",
+      "authority": "driver_reviews/PRIME_FUSION_T4_T7_T8_FINAL_EXACT_CLOSURE_DRIVER_REVIEW_20260824.md@ed016687bcd2d75957041ce820e335678aeb1f53"
+    }
+  ],
+  "combined_checker": {
+    "path": "experiments/prime_fusion_final_package_checker.py",
+    "composition_mode": "THIN_GIT_BLOB_COMPOSITION",
+    "copies_theorem_logic": false,
+    "component_checkers_executed_in_this_freeze_task": false,
+    "reason_not_rerun": "Task explicitly forbids new replication; the final checker composes already-frozen checker families and may be run by reviewers."
+  },
+  "artifact_git_blob_sha1": {
+    "research/PRIME_FUSION_THEOREM_PACKAGE_EVIDENCE_TYPED_FINAL_20260824.md": "055bdaaca81c5ac7ab350a71acf3b69fe5e564a9",
+    "research/PRIME_FUSION_T1_T15_FINAL_EVIDENCE_MATRIX_20260824.csv": "3c9f6fa670f9405eebbab6eae5d5374c2de4a037",
+    "research/PRIME_FUSION_FINAL_DEPENDENCY_GRAPH_20260824.md": "54d1fbb8c3fb657ac55f556c982501386a8eaf25",
+    "experiments/prime_fusion_final_package_checker.py": "b529d1f2e56d6125b35f09494f417feb38468611"
+  },
+  "self_digest": "OMITTED_BY_CONSTRUCTION",
+  "return_digest": "OMITTED_BY_CONSTRUCTION",
+  "boundaries": {
+    "new_mathematics_added": false,
+    "t16_t17_added": false,
+    "replication_rerun": false,
+    "foundation_definitions_changed": false,
+    "negative_controls_erased": false,
+    "t10_pressure_witness_preserved": true
+  },
+  "tool_reuse_classification": "COMPOSE_EXISTING_TOOLS",
+  "review_state": "FROZEN_AND_REVIEW_READY",
+  "stop_after_return_freeze": true
+}
