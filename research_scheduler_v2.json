@@ -1,0 +1,139 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V2",
+  "status": "ACTIVE",
+  "effective": "2026-08-24",
+  "scheduler_issue": 240,
+  "claim_lease_minutes": 120,
+  "event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V2",
+  "legacy_event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+  "legacy_seed_config": "research_scheduler.json",
+  "require_static_owner_coverage": true,
+  "authority": {
+    "explicit_user_task_overrides_auto_dispatch": true,
+    "runtime_event_log": "GitHub Issue #240",
+    "owner_registry": "branch_governance_overrides.json",
+    "taskbook_inventory": "research_tasks/*.md",
+    "problem_status": "docs/PROBLEM_STATUS.en.md",
+    "common_surface": "docs/RESEARCH_COMMON_SURFACE.en.md",
+    "research_relay_issue": 82,
+    "foundation_problem_issue": 164,
+    "foundation_backflow_router": "foundation_backflow.json",
+    "note": "Scheduler V2 is the workflow registry/control plane. It never promotes mathematical truth or canonical theorem status."
+  },
+  "taskbook_registry": {
+    "discover": true,
+    "path": "research_tasks",
+    "embedded_schema": "ENTERPRISE_MATH_TASK_V1",
+    "unregistered_taskbook_state": "ORPHANED",
+    "invalid_taskbook_state": "ORPHANED",
+    "rule": "Every taskbook is visible to the scheduler. A taskbook that was never registered in V2 is inventory-visible as ORPHANED and cannot be dispatched until Driver recovery/adoption."
+  },
+  "task_states": [
+    "BACKLOG",
+    "PENDING_REVIEW",
+    "READY",
+    "CLAIMED",
+    "IN_PROGRESS",
+    "HANDOFF_READY",
+    "RETURNED",
+    "BLOCKED",
+    "ORPHANED",
+    "DONE",
+    "REJECTED",
+    "SUPERSEDED"
+  ],
+  "computed_dispatch_states": [
+    "NEEDS_REVIEW",
+    "NEEDS_DISPATCH",
+    "LEASED",
+    "BLOCKED",
+    "ORPHANED",
+    "DORMANT",
+    "COMPLETE"
+  ],
+  "event_types": [
+    "PUBLISH",
+    "REGISTER_ORPHAN",
+    "REVIEW",
+    "CLAIM",
+    "HEARTBEAT",
+    "PROGRESS",
+    "RETURN",
+    "HANDOFF",
+    "HARD_BLOCK",
+    "UNBLOCK",
+    "ORPHAN",
+    "ADOPT",
+    "DONE",
+    "SUPERSEDE"
+  ],
+  "review_contract": {
+    "driver_id_required": true,
+    "dispatch_review_required_for_published_tasks": true,
+    "return_review_required_for_v2_done": true,
+    "driver_publisher_cannot_self_review_dispatch": true,
+    "researcher_cannot_emit_v2_done": true,
+    "review_kinds": ["DISPATCH", "RETURN", "ORPHAN_RECOVERY"],
+    "verdicts": ["APPROVE", "REVISE", "REJECT"],
+    "rule": "PUBLISH creates PENDING_REVIEW. RETURN creates RETURNED. Only a valid Driver REVIEW can release published work to READY or close a V2 return as DONE."
+  },
+  "publication_contract": {
+    "researcher_can_publish": true,
+    "free_researcher_can_publish": true,
+    "driver_can_publish": true,
+    "published_state": "PENDING_REVIEW",
+    "publication_is_dispatch_authority": false,
+    "rule": "Publishing registers a task; it does not approve or dispatch it. FREE publication cannot bypass the axiom-candidate/taskbook maturity gates because READY still requires Driver review."
+  },
+  "orphan_contract": {
+    "lease_expiry_state": "ORPHANED",
+    "explicit_event": "ORPHAN",
+    "external_recovery_registration_event": "REGISTER_ORPHAN",
+    "recovery_events": ["ADOPT", "REVIEW/ORPHAN_RECOVERY"],
+    "orphan_history_required": true,
+    "rule": "A silent expiry, unregistered taskbook, historical branch/return discovered without a task, or explicit abandonment remains visible as an ORPHANED registry item until reviewed and recovered/superseded."
+  },
+  "selection_policy": {
+    "default_kind": "RESEARCH",
+    "eligible_task_states": ["HANDOFF_READY", "READY"],
+    "state_order": ["HANDOFF_READY", "READY"],
+    "priority_order": ["P0", "P1", "P2", "P3"],
+    "leverage_order": ["HIGH", "MEDIUM", "LOW"],
+    "staleness_order": "oldest_last_progress_first",
+    "tie_break": "task_id",
+    "skip_live_leases": true,
+    "skip_orphaned": true,
+    "skip_pending_review": true,
+    "research_only_by_default": true
+  },
+  "handoff_contract": {
+    "unfinished_session_requires_handoff": true,
+    "required_fields": ["task_id", "actor", "at", "claim_id", "next_action"],
+    "silent_abandonment_recovery": "claim lease expiry becomes ORPHANED and records an orphan-history entry",
+    "ack_required": false
+  },
+  "hard_block_contract": {
+    "required_fields": ["missing_object", "owner", "necessity", "unblock_condition"],
+    "only_hard_dependency_can_block": true,
+    "ci_review_moving_main_are_not_hard_blocks": true
+  },
+  "foundation_link_contract": {
+    "router": "foundation_backflow.json",
+    "research_fq_must_link_to_kind": "RESEARCH",
+    "research_task_must_explicitly_declare_question": true,
+    "research_task_question_field": "foundation_questions",
+    "live_claim_scope_must_not_be_reinterpreted": true,
+    "steward_verification_or_integration_must_link_to_kind": "GOVERNANCE",
+    "question_status_authority": "GitHub Issue #164",
+    "runtime_execution_authority": "GitHub Issue #240"
+  },
+  "bootstrap_migration": {
+    "authority": "Explicit user direction on 2026-08-24 to repair the broken scheduler directly before cross-review can function.",
+    "one_time": true,
+    "post_v2_self_review_exception": false,
+    "legacy_v1_done_events_preserved": true,
+    "legacy_static_tasks_imported": true,
+    "legacy_unregistered_taskbooks_become_orphaned": true
+  },
+  "tasks": []
+}
