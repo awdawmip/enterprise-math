@@ -20,7 +20,10 @@ import re
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
-from tools import research_scheduler as legacy
+try:
+    from tools import research_scheduler as legacy
+except ModuleNotFoundError:  # direct `python tools/research_work_state.py ...`
+    import research_scheduler as legacy  # type: ignore[no-redef]
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_MACHINE = ROOT / "research_work_state_machine.json"
