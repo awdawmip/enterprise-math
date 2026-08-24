@@ -51,21 +51,53 @@ Given any positive integer n, find the unique s with this inequality and set
 
 Thus one boundary value `p_min` recovers its exact typed Cell coordinate `(s,t,sigma)` before primality is used.
 
-## 3. No-branching makes the forward path deterministic
+Write
 
-The global prime-incidence classification proved that every nonempty component is a 3-uniform tight path and that no typed Cell has two admissible forward branch directions inside one component.
+`r=s+1`
 
-The local mod-6 incidence type and the typed coordinate of the lower endpoint determine the unique eligible forward tight-path trajectory:
+for the legacy incidence-layer shell used in the local formulas.
 
-- short sigma0/sigma2 packets terminate by size4;
-- long sigma1 packets follow one constant-h shell filament;
-- typed-sector seams admit no prime-incidence bridge.
+## 3. Finite short-path dictionary and the long path
 
-Therefore, after localizing `p_min`, there is at most one ordered carrier path on which a component with that lower boundary can lie.
+The no-branching theorem says every realized component is one tight path, but the lower endpoint alone need not name the A/B orientation in advance.  The correct decoder uses a finite local dictionary.
 
-## 4. Strict label monotonicity
+### Three-Cell candidate
 
-Along every admissible forward path, Cell labels strictly increase.
+Every primitive triangle beginning at `(r,t,sigma)` has endpoint span
+
+`S_3=6r+4+2sigma`.
+
+The two A/B choices differ only in the middle label, and the unique odd middle candidate is selected for a fully-prime triangle above3.
+
+### Four-Cell candidates
+
+The two alternating-curvature diamonds have spans
+
+`S_4^A=9r+10+3sigma`,
+
+`S_4^B=9r+11+3sigma`.
+
+These correspond to initial curvature4 or2 respectively.
+
+The three short spans are strictly ordered:
+
+`S_3 < S_4^A < S_4^B`,
+
+because
+
+`S_4^A-S_3=3r+6+sigma>0`,
+
+`S_4^B-S_4^A=1`.
+
+Therefore `p_max-p_min` selects at most one short size/orientation once `p_min` has supplied `(r,sigma)`.
+
+### Long sigma1 candidate
+
+Every component of size at least5 lies on the unique constant-h sigma1 filament.  Its entire forward trajectory is fixed by `(r,t)`.
+
+Typed-sector seams admit no prime-incidence bridge, so no cross-chart candidate must be added.
+
+## 4. Strict long-path monotonicity
 
 For the long sigma1 filament the exact potential is
 
@@ -78,22 +110,22 @@ Its consecutive gaps are
 
 Both are positive.
 
-The short triangle/diamond dictionaries likewise have positive gaps, explicitly given by the primitive incidence formulas.
+Hence the long trajectory can hit the numeric endpoint `p_max` at most once.
 
-Hence a fixed forward path can hit the numeric endpoint `p_max` at most once.
+Together with the disjoint short spans, this makes the whole finite candidate dictionary unambiguous.
 
 ## 5. Self-delimiting decoder
 
 The complete decoder is:
 
-1. invert `p_min` to its typed Cell coordinate;
-2. select the unique eligible forward tight-path trajectory from the local incidence dictionary;
-3. generate its strictly increasing Cell labels;
-4. stop at the unique label equal to `p_max`;
-5. the number of generated Cells is the island size k;
-6. all generated intermediate labels are the reconstructed interior prime values.
+1. invert `p_min` to `(r,t,sigma)`;
+2. test the three exact short spans/dictionaries;
+3. when `sigma=1`, also generate the strictly increasing constant-h trajectory;
+4. retain the unique candidate whose terminal label equals `p_max` and whose first local incidence coordinates agree with the inverse coordinate of `p_min`;
+5. the candidate length is the island size k;
+6. its generated intermediate labels are the reconstructed interior prime values.
 
-The global sharp-nine theorem guarantees termination after at most nine Cells for an actual component.
+The global sharp-nine theorem guarantees that an actual component terminates after at most nine Cells.
 
 Thus
 
@@ -144,7 +176,7 @@ The self-delimiting boundary decoder solves the complementary problem:
 - the probes are known to be component boundaries;
 - their separation `d=k-1` is not supplied;
 - the inverse allocation localizes the first probe;
-- strict path monotonicity recovers d.
+- the finite short dictionary or strict long-span monotonicity recovers d.
 
 Together they show that the frozen prime islands carry both
 
@@ -170,4 +202,4 @@ No island-size input is used.
 
 ## 9. Boundary
 
-The result is exact for the frozen typed Enterprise allocation and its no-branching prime-incidence graph.  It does not say that arbitrary classical prime sets are reconstructible from two extrema.
+The result is exact for the frozen typed Enterprise allocation and its classified tight-path incidence dictionary.  It does not say that arbitrary classical prime sets are reconstructible from two extrema.
