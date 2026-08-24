@@ -22,49 +22,70 @@ theorem eval_isCoprime (r : ℤ) : IsCoprime (gaussianEval r) (eisensteinEval r)
   refine ⟨r + 1, -r, ?_⟩
   simpa [sub_eq_add_neg] using eval_bezout r
 
+/-- Local no-leakage on the left: if `h=n*c`, `n|f`, and `f` is coprime to the
+opposite factor `c`, then the gcd with `h` recovers exactly `n`. -/
+theorem gcd_recover_left_local {n c h : ℕ} {f : ℤ}
+    (hH : h = n * c) (hnf : (n : ℤ) ∣ f) (hfc : IsCoprime f (c : ℤ)) :
+    Int.gcd (h : ℤ) f = n := by
+  have hHInt : (h : ℤ) = (n : ℤ) * (c : ℤ) := by
+    exact_mod_cast hH
+  let d : ℕ := Int.gcd (h : ℤ) f
+  have hnH : (n : ℤ) ∣ (h : ℤ) := ⟨c, hHInt⟩
+  have hndInt : (n : ℤ) ∣ (d : ℤ) := by
+    simpa [d] using Int.dvd_coe_gcd hnH hnf
+  have hdf : (d : ℤ) ∣ f := by
+    simpa [d] using Int.gcd_dvd_right (h : ℤ) f
+  have hdc : IsCoprime (d : ℤ) (c : ℤ) :=
+    hfc.of_isCoprime_of_dvd_left hdf
+  have hdh : (d : ℤ) ∣ (h : ℤ) := by
+    simpa [d] using Int.gcd_dvd_left (h : ℤ) f
+  have hdhMul : (d : ℤ) ∣ (n : ℤ) * (c : ℤ) := by
+    rw [← hHInt]
+    exact hdh
+  have hdnInt : (d : ℤ) ∣ (n : ℤ) := hdc.dvd_of_dvd_mul_right hdhMul
+  have hnd : n ∣ d := by exact_mod_cast hndInt
+  have hdn : d ∣ n := by exact_mod_cast hdnInt
+  have hdeq : d = n := Nat.dvd_antisymm hdn hnd
+  simpa [d] using hdeq
+
+/-- Local no-leakage on the right. -/
+theorem gcd_recover_right_local {n c h : ℕ} {g : ℤ}
+    (hH : h = n * c) (hcg : (c : ℤ) ∣ g) (hgn : IsCoprime g (n : ℤ)) :
+    Int.gcd (h : ℤ) g = c := by
+  have hHInt : (h : ℤ) = (n : ℤ) * (c : ℤ) := by
+    exact_mod_cast hH
+  let d : ℕ := Int.gcd (h : ℤ) g
+  have hcH : (c : ℤ) ∣ (h : ℤ) := ⟨n, by rw [hHInt]; ring⟩
+  have hcdInt : (c : ℤ) ∣ (d : ℤ) := by
+    simpa [d] using Int.dvd_coe_gcd hcH hcg
+  have hdg : (d : ℤ) ∣ g := by
+    simpa [d] using Int.gcd_dvd_right (h : ℤ) g
+  have hdn : IsCoprime (d : ℤ) (n : ℤ) :=
+    hgn.of_isCoprime_of_dvd_left hdg
+  have hdh : (d : ℤ) ∣ (h : ℤ) := by
+    simpa [d] using Int.gcd_dvd_left (h : ℤ) g
+  have hdhMul : (d : ℤ) ∣ (c : ℤ) * (n : ℤ) := by
+    rw [mul_comm, ← hHInt]
+    exact hdh
+  have hdcInt : (d : ℤ) ∣ (c : ℤ) := hdn.dvd_of_dvd_mul_right hdhMul
+  have hcd : c ∣ d := by exact_mod_cast hcdInt
+  have hdc : d ∣ c := by exact_mod_cast hdcInt
+  have hdeq : d = c := Nat.dvd_antisymm hdc hcd
+  simpa [d] using hdeq
+
 /-- A no-leakage lemma: if `h = n*c`, `n | f`, `c | g`, and `f,g` are coprime,
 then the first gcd recovers exactly `n`. -/
 theorem gcd_recover_left {n c h : ℕ} {f g : ℤ}
     (hH : h = n * c) (hnf : (n : ℤ) ∣ f) (hcg : (c : ℤ) ∣ g)
-    (hfg : IsCoprime f g) : Int.gcd (h : ℤ) f = n := by
-  have hHInt : (h : ℤ) = (n : ℤ) * (c : ℤ) := by
-    exact_mod_cast hH
-  have hnH : (n : ℤ) ∣ (h : ℤ) := ⟨c, hHInt⟩
-  have hndInt : (n : ℤ) ∣ (Int.gcd (h : ℤ) f : ℤ) :=
-    Int.dvd_coe_gcd hnH hnf
-  have hdf : (Int.gcd (h : ℤ) f : ℤ) ∣ f := Int.gcd_dvd_right _ _
-  have hfc : IsCoprime f (c : ℤ) := hfg.of_isCoprime_of_dvd_right hcg
-  have hdc : IsCoprime (Int.gcd (h : ℤ) f : ℤ) (c : ℤ) :=
-    hfc.of_isCoprime_of_dvd_left hdf
-  have hdh : (Int.gcd (h : ℤ) f : ℤ) ∣ (h : ℤ) := Int.gcd_dvd_left _ _
-  have hdnInt : (Int.gcd (h : ℤ) f : ℤ) ∣ (n : ℤ) := by
-    rw [hHInt] at hdh
-    exact hdc.dvd_of_dvd_mul_right hdh
-  have hnd : n ∣ Int.gcd (h : ℤ) f := by exact_mod_cast hndInt
-  have hdn : Int.gcd (h : ℤ) f ∣ n := by exact_mod_cast hdnInt
-  exact Nat.dvd_antisymm hdn hnd
+    (hfg : IsCoprime f g) : Int.gcd (h : ℤ) f = n :=
+  gcd_recover_left_local hH hnf (hfg.of_isCoprime_of_dvd_right hcg)
 
 /-- Symmetric no-leakage lemma for the second factor. -/
 theorem gcd_recover_right {n c h : ℕ} {f g : ℤ}
     (hH : h = n * c) (hnf : (n : ℤ) ∣ f) (hcg : (c : ℤ) ∣ g)
-    (hfg : IsCoprime f g) : Int.gcd (h : ℤ) g = c := by
-  have hHInt : (h : ℤ) = (n : ℤ) * (c : ℤ) := by
-    exact_mod_cast hH
-  have hcH : (c : ℤ) ∣ (h : ℤ) := ⟨n, by rw [hHInt]; ring⟩
-  have hcdInt : (c : ℤ) ∣ (Int.gcd (h : ℤ) g : ℤ) :=
-    Int.dvd_coe_gcd hcH hcg
-  have hdg : (Int.gcd (h : ℤ) g : ℤ) ∣ g := Int.gcd_dvd_right _ _
-  have hgn : IsCoprime g (n : ℤ) :=
-    hfg.symm.of_isCoprime_of_dvd_right hnf
-  have hdn : IsCoprime (Int.gcd (h : ℤ) g : ℤ) (n : ℤ) :=
-    hgn.of_isCoprime_of_dvd_left hdg
-  have hdh : (Int.gcd (h : ℤ) g : ℤ) ∣ (h : ℤ) := Int.gcd_dvd_left _ _
-  have hdcInt : (Int.gcd (h : ℤ) g : ℤ) ∣ (c : ℤ) := by
-    rw [hHInt, mul_comm] at hdh
-    exact hdn.dvd_of_dvd_mul_right hdh
-  have hcd : c ∣ Int.gcd (h : ℤ) g := by exact_mod_cast hcdInt
-  have hdc : Int.gcd (h : ℤ) g ∣ c := by exact_mod_cast hdcInt
-  exact Nat.dvd_antisymm hdc hcd
+    (hfg : IsCoprime f g) : Int.gcd (h : ℤ) g = c :=
+  gcd_recover_right_local hH hcg
+    (hfg.symm.of_isCoprime_of_dvd_right hnf)
 
 /-- T5: exact channel recovery, with the Gaussian factor carrying `n` and the
 Eisenstein factor carrying `c`. The signed Bézout identity rules out leakage. -/
@@ -124,6 +145,7 @@ theorem rootIdempotent_isIdempotent {r : R} (hF : fusionEval r = 0) :
       r * (r + 1) * fusionEval r := by
     simp [rootIdempotent, reciprocalCandidate, fusionEval]
     ring
+  apply sub_eq_zero.mp
   rw [hid, hF]
   ring
 
