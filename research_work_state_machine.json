@@ -50,7 +50,9 @@
     "rule": "GENERIC_TASK_CLAIM_INTENT -> SELECT_HIGHEST_ELIGIBLE_TASK -> CLAIM -> START_TASK",
     "task_id_required_from_user": false,
     "researcher_id": "AUTO_RESOLVE_OR_ALLOCATE_ON_CLAIM",
-    "selection": "legacy scheduler state ordering/priority/leverage/staleness with dynamic TASK_PUBLISH overlays",
+    "selection": "published tasks plus runtime-touched legacy continuations, then legacy scheduler state ordering/priority/leverage/staleness",
+    "legacy_unpublished_ready_auto_claim": false,
+    "legacy_runtime_touched_tasks_remain_claimable": true,
     "free_research_excluded": true
   },
   "research_completion": {
@@ -136,7 +138,7 @@
   "cross_review": {
     "principle": "TASK_ISSUER != REQUIRED_REVIEWER",
     "review_claim_authority": "any active RESEARCH_DRIVER conversation",
-    "selection_preference": "different Driver-ID from issuer_driver_id when a comparable review is available",
+    "selection_preference": "same state and priority: prefer a Driver-ID different from issuer_driver_id; then oldest request",
     "self_review_fallback": "allowed without user relay; mark SAME_DRIVER_REVIEW in the review log"
   },
   "compatibility": {
@@ -149,6 +151,7 @@
   "invariants": [
     "TASKBOOK_PASS != TASK_VISIBLE_UNLESS_TASK_PUBLISH_IS_LOGGED",
     "TASKBOOK_PASS -> SAME_TURN_TASK_PUBLISH",
+    "GENERIC_AUTO_CLAIM_EXCLUDES_UNPUBLISHED_LEGACY_READY",
     "RESEARCH_DONE -> SAME_TURN_REVIEW_REQUEST",
     "TASK_ISSUER != REQUIRED_REVIEWER",
     "USER_NEED_NOT_NAME_TASK_ID",
