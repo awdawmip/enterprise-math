@@ -38,7 +38,7 @@
   ],
   "evidence_status": "CURRENT_POLICY_REVIEWED_ORPHAN_CONTINUATION / G0_RECONSTRUCTION_OR_MINIMAL_CORRELATION_DEBT_GATE",
   "last_progress_ref": "Driver orphan-frontier maintenance sweep 2026-08-24; R043 had no runtime CLAIM/return and remained unresolved after R044",
-  "last_progress_at": "2026-08-24T10:12:00+08:00",
+  "last_progress_at": "2026-08-24T09:48:00+08:00",
   "hard_block": null,
   "tags": [
     "R043",
