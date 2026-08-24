@@ -92,12 +92,12 @@ theorem channel_gcd_exact (a b : ℤ) :
     have hprimNC : Int.gcd (N a' b') (C a' b') = 1 := primitive_channel_gcd hprim
     have hscaleN :
         N a b = ((Int.gcd a b : ℤ) ^ 2) * N a' b' := by
-      rw [ha, hb]
+      conv_lhs => rw [ha, hb]
       simp [N]
       ring
     have hscaleC :
         C a b = ((Int.gcd a b : ℤ) ^ 2) * C a' b' := by
-      rw [ha, hb]
+      conv_lhs => rw [ha, hb]
       simp [C]
       ring
     have hbez :
