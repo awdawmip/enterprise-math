@@ -19,3 +19,4 @@ import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion.Channels
 import EnterpriseMath.PrimeFusion.FusionAlgebra
 import EnterpriseMath.PrimeFusion.ArithmeticSplit
+import EnterpriseMath.PrimeFusion.MixedLocus
