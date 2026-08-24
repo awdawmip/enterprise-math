@@ -74,9 +74,12 @@ If `epsilon_i!=epsilon_j`, then for opposite signs s and -s,
 
 The right side is a nonzero proper fraction of absolute value `1/(3d)`.  Therefore the two candidates cannot both be integers.
 
-At the uniform channel level, the two numerators differ by `+-2` modulo3, so exactly one sign can pass the native multiple-of-3 slope condition.
+At the pre-slope level the two numerators differ by exactly2.
 
-At the full integer level there is also a finer distinction: for `d>1`, divisibility by the index distance d can already reject one pre-slope candidate; for the adjacent case `d=1`, channel3 is the indispensable selector between two integral pre-slopes.
+- If `d>1`, then `2d` cannot divide that difference, so the false pre-slope candidate is automatically nonintegral.
+- If `d=1`, both pre-slopes are integral and differ by one; exactly one is divisible by3, so channel3 selects the native slope.
+
+At the uniform channel level, modulo3 exactly one sign passes the multiple-of-3 slope condition for every separation.
 
 Thus every pair of distinct indexed integer values has exactly one valid `(chi,R)` candidate.
 
@@ -118,15 +121,17 @@ The missing bit is exactly the q=2 relation
 
 ### Opposite-parity pair
 
-The q=3 condition that the affine slope be a multiple of3 selects exactly one sheet for every separation.  For nonadjacent probes, index-distance divisibility can sometimes select the same sheet earlier; for adjacent probes it cannot, and q=3 is genuinely necessary.
+The q=3 condition that the affine slope be a multiple of3 selects exactly one sheet for every separation.
+
+For every nonadjacent pair, exact index-distance divisibility already selects the same sheet; for an adjacent pair it cannot, and q=3 is genuinely necessary.
 
 Thus
 
 `q=2` is the universal same-parity glue,
 
-`q=3` is the universal opposite-parity glue,
+`index distance` glues nonadjacent opposite-parity observations,
 
-while exact index separation supplies additional nonadjacent resolution.
+`q=3` glues adjacent opposite-parity observations and supplies a uniform rule for the whole opposite-parity class.
 
 This gives a new role for the mandatory 2 and3 channels: besides selecting long-incidence eligibility, together they guarantee reconstruction of the unique global integer packet hidden behind every good-odd-channel double cover.
 
