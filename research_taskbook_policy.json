@@ -1,7 +1,7 @@
 {
-  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.2",
+  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.3",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-24",
   "policy_inputs": [
     "AGENTS.md",
     "FOUNDATIONAL_LOGIC.md",
@@ -15,6 +15,7 @@
     "research_identity_state_machine.json",
     "final_response_identity_policy.json",
     "research_taskbook_contract.json",
+    "research_scheduler.json",
     "tool_invocation_policy.json",
     "native_semantics_admissibility.json"
   ],
@@ -93,16 +94,18 @@
     "For foundation-facing tasks, enforce foundational_logic.json before freezing native premises or importing successful effective/classical definitions.",
     "When engineering success is used, separate effective definitions withheld from native premises from engineering-success constraints consumed as evidence.",
     "Target-side definitions copied into native premises invalidate the claimed foundational derivation unless separately declared or derived at the correct semantic strength.",
-    "A raw free-research axiom candidate is not dispatchable; taskbook creation requires the candidate lifecycle to have reached Driver intake when the task originates from free discovery.",
+    "A raw free-research axiom candidate is not Driver-taskbook dispatchable; taskbook creation requires the candidate lifecycle to have reached Driver intake when the task originates from free discovery.",
+    "FREE researchers may nevertheless publish a non-dispatchable Scheduler V2 task proposal into REVIEW_PENDING; publication is not Driver approval or Working Truth.",
     "If origin_kind=FREE_AXIOM_CANDIDATE, preserve the audited candidate id/state. Repackaging the same origin as DRIVER_ROADMAP is provenance laundering and fails review.",
     "For task_lineage=CONTINUATION, audit the successor gate rather than accepting parent PASS, stage numbering, momentum or recent success as the reason for another stage.",
     "Any obvious Stage 2+ task is CONTINUATION. More generally, renaming the next unresolved layer of the same parent route does not reset semantic lineage.",
     "Continuation review must record whether closure, another owner/route or independent/free exploration was considered; no numeric exploration quota is imposed.",
     "Working Truth is a task-execution discipline and must not be retroactively applied to Phase-A discovery or Phase-B prior-art/dedup audit.",
-    "Ordinary task execution inherits tool_invocation_policy.json: after task semantics are understood and before inventing new general-purpose machinery, current tool/method coverage must be checked and adequate existing tools must be reused/composed/extended rather than reimplemented under a new route name.",
-    "A taskbook with an explicit blind-forward/source-whitelist discovery firewall may delay current toolbox/method visibility only until its named raw candidate/no-go freeze point; the same task must run current-tool dedup after that freeze before claiming method novelty or opening a tool continuation.",
+    "Ordinary task execution inherits tool_invocation_policy.json and must reuse/combine/extend adequate existing tools before inventing new general-purpose machinery.",
+    "A taskbook with an explicit blind-forward/source-whitelist discovery firewall may delay current toolbox/method visibility only until its named raw candidate/no-go freeze point; the same task must run current-tool dedup after that freeze.",
     "FREE Phase A follows the same discovery-firewall timing principle: no current toolbox prior before freeze; mandatory current-tool dedup in Phase B after freeze.",
-    "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json; any change to that policy invalidates prior policy-review digests for redispatch."
+    "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json.",
+    "Taskbook policy PASS is only the content gate. Scheduler V2 PUBLISH plus cross-Driver APPROVE is the runtime READY gate; direct V2 DONE is forbidden and returns close only after cross-Driver REVIEW."
   ],
   "override_required_fields": [
     "conflict_id",
