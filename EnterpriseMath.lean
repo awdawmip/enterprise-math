@@ -20,4 +20,5 @@ import EnterpriseMath.PrimeFusion.Channels
 import EnterpriseMath.PrimeFusion.FusionAlgebra
 import EnterpriseMath.PrimeFusion.ArithmeticSplit
 import EnterpriseMath.PrimeFusion.MixedLocus
+import EnterpriseMath.PrimeFusion.PhaseReadout
 import EnterpriseMath.PrimeFusion.PointedQuotient
