@@ -1,6 +1,6 @@
 # Enterprise Math Research Tool Surface
 
-Status: `ACTIVE / STABLE ROUTER / HOT-PATH V5`
+Status: `ACTIVE / STABLE ROUTER / HOT-PATH V6`
 Purpose: current tool/protocol entrypoint without remote-preflight tax, historical preload or agenda preload.
 
 ## Liveness
@@ -49,9 +49,28 @@ Phase A begins from:
 2. `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`;
 3. only exact primitive definitions actually required.
 
-Do not preload the general current-result router, project-control context, or a suggested question/lens menu before candidate freeze.
+Do not preload the general current-result router, project-control context, or a suggested question/discovery-lens menu before candidate freeze.
 
-After freeze, current-result/project context may be opened for Phase-B audit.
+After freeze, current-result/project context may be opened for Phase-B audit. After candidate maturity, FREE may publish a derived task into Scheduler V2 without becoming an automatic scheduler worker.
+
+## Scheduler V2 trigger
+
+When the active function is task publication, dispatch review, claim, progress, handoff, return, orphan registration or recovery, use:
+
+- `research_scheduler_v2.json`;
+- `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`;
+- `docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md`;
+- `tools/research_scheduler.py`.
+
+Freeze:
+
+`PUBLISH != READY`.
+
+`RETURN != DONE`.
+
+`V2_LEASE_EXPIRY -> ORPHANED`.
+
+An unregistered legacy taskbook is automatically surfaced as a non-dispatchable orphan migration record; it is not silently executed.
 
 ## Triggered reads
 
@@ -63,7 +82,7 @@ Load only when material:
 - foundational/native-semantic policy — when such claims are being frozen;
 - geometry/refoundation policy — geometry/refoundation work;
 - exact current definitions — when their objects are used;
-- scheduler/Relay/Foundation/owner-isolation/test/Lean diagnostics — only when that function is active.
+- Scheduler V2 / Relay / Foundation / owner-isolation / test / Lean diagnostics — only when that function is active.
 
 ## Current mathematical authority
 
@@ -80,6 +99,8 @@ Exact current canonical definitions control over router summaries.
 ## Taskbooks
 
 A supplied current taskbook is the normal second TASK read. Use its frozen source/ref/owner lane and current origin/lineage/successor contract.
+
+Taskbook policy PASS permits scheduler publication only. Runtime READY is a Scheduler V2 Driver-review state.
 
 ## Computation / tests / Lean
 
