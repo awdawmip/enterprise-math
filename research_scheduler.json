@@ -10,6 +10,19 @@
   "claim_lease_minutes": 1440,
   "review_lease_minutes": 240,
   "direct_done_allowed": false,
+  "agent_quickstart": "docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md",
+  "generic_intents": {
+    "researcher_claim": ["领任务", "领取任务", "claim task", "get task"],
+    "driver_review_claim": ["领审核", "领取审核", "claim review", "get review"],
+    "free_or_researcher_publish": ["发布任务建议", "发布任务", "publish task proposal"],
+    "orphan_recovery": ["领孤儿任务", "领取孤儿任务", "adopt orphan task"]
+  },
+  "generic_intent_actions": {
+    "researcher_claim": "materialize registry -> select highest NEEDS_DISPATCH -> CLAIM -> start",
+    "driver_review_claim": "materialize registry -> select highest eligible NEEDS_REVIEW excluding self-review -> REVIEW_CLAIM -> start review",
+    "free_or_researcher_publish": "emit PUBLISH -> REVIEW_PENDING; never READY without cross-Driver approval",
+    "orphan_recovery": "inspect highest-priority ORPHAN_RECOVERY -> ADOPT with recovery_ref -> resume"
+  },
   "task_states": [
     "DRAFT", "REVIEW_PENDING", "READY", "CLAIMED", "IN_PROGRESS",
     "HANDOFF_READY", "RETURN_REVIEW", "ORPHANED", "BLOCKED", "BACKLOG",
