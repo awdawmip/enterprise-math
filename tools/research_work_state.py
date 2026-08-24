@@ -155,6 +155,47 @@ def normalized_task_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]
     return out
 
 
+def published_task_ids(
+    events: list[dict[str, Any]], machine: dict[str, Any]
+) -> set[str]:
+    ids: set[str] = set()
+    for event in work_events(events):
+        if event.get("event") != "TASK_PUBLISH":
+            continue
+        if validate_task_publish(event, machine):
+            continue
+        ids.add(str(event["task"]["task_id"]))
+    return ids
+
+
+def runtime_touched_task_ids(events: list[dict[str, Any]]) -> set[str]:
+    ids: set[str] = set()
+    for event in normalized_task_events(events):
+        task_id = event.get("task_id")
+        if isinstance(task_id, str) and task_id:
+            ids.add(task_id)
+    return ids
+
+
+def generic_claim_scheduler(
+    legacy_config: dict[str, Any],
+    events: list[dict[str, Any]],
+    machine: dict[str, Any],
+) -> dict[str, Any]:
+    """Restrict generic claiming to published work or real runtime continuations.
+
+    Legacy static READY rows remain visible to status/provenance, but they do not
+    silently re-enter the automatic queue merely because an old JSON entry exists.
+    """
+    cfg = composed_scheduler(legacy_config, events, machine)
+    allowed = published_task_ids(events, machine) | runtime_touched_task_ids(events)
+    cfg["tasks"] = [
+        task for task in cfg.get("tasks", [])
+        if task.get("task_id") in allowed
+    ]
+    return cfg
+
+
 def effective_task_states(
     legacy_config: dict[str, Any],
     events: list[dict[str, Any]],
@@ -173,7 +214,7 @@ def select_task(
     *,
     kind: str = "RESEARCH",
 ) -> dict[str, Any] | None:
-    cfg = composed_scheduler(legacy_config, events, machine)
+    cfg = generic_claim_scheduler(legacy_config, events, machine)
     return legacy.select_task(cfg, normalized_task_events(events), now, kind=kind)
 
 
@@ -398,9 +439,9 @@ def select_review(
             else 0
         )
         return (
-            same_issuer,
             state_order.get(state["state"], 9),
             priority_order.get(state.get("priority"), 9),
+            same_issuer,
             parse_time(state["requested_at"]),
             state["review_id"],
         )
@@ -421,6 +462,8 @@ def validate_machine(machine: dict[str, Any]) -> list[str]:
         errors.append("review event set is incomplete")
     if machine.get("task_claim", {}).get("task_id_required_from_user") is not False:
         errors.append("generic task claim must not require a task id")
+    if machine.get("task_claim", {}).get("legacy_unpublished_ready_auto_claim") is not False:
+        errors.append("generic claims must exclude unpublished legacy READY tasks")
     return errors
 
 
