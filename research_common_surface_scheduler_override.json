@@ -1,0 +1,32 @@
+{
+  "schema": "ENTERPRISE_MATH_COMMON_SURFACE_SCHEDULER_OVERRIDE_V1",
+  "status": "ACTIVE / CANONICAL FOR SCHEDULER FIELDS",
+  "effective": "2026-08-25",
+  "applies_to": "research_common_surface.json",
+  "scope": "dispatch_scheduler and scheduler references only; mathematical theorem/tool catalog content is untouched",
+  "precedence": "HIGHER_THAN_research_common_surface.dispatch_scheduler_FOR_RUNTIME_TASK_COORDINATION",
+  "canonical_dispatch_scheduler": {
+    "config": "research_scheduler_v2.json",
+    "runtime_issue": 240,
+    "event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V2",
+    "accepted_legacy_event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+    "tool": "tools/research_scheduler.py",
+    "quickstart": "docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md",
+    "all_official_tasks_registered": true,
+    "publish_state": "PUBLISHED",
+    "ready_requires_driver_review": true,
+    "worker_completion_event": "RETURN",
+    "done_requires_driver_review": true,
+    "v2_expired_claim_state": "ORPHANED",
+    "unregistered_taskbook_state": "ORPHANED",
+    "free_researcher_auto_claim": false,
+    "free_researcher_mature_publish": true
+  },
+  "legacy_fields": {
+    "research_common_surface.dispatch_scheduler.config=research_scheduler.json": "LEGACY_V1_STATIC_SEED_REFERENCE_ONLY",
+    "research_common_surface.dispatch_scheduler.event_schema=ENTERPRISE_MATH_SCHEDULER_EVENT_V1": "LEGACY_EVENT_REPLAY_ONLY",
+    "research_common_surface.dispatch_scheduler.expired_claim_returns_to_dispatch=true": "SUPERSEDED_FOR_V2_CLAIMS; HISTORICAL_V1_REPLAY_ONLY",
+    "research_common_surface.mandatory_preflight reference to research_scheduler.json": "LEGACY_COMMON_SURFACE_TEXT; current execution router and Scheduler V2 protocol control"
+  },
+  "rule": "Any agent/tool that loads research_common_surface.json for theorem/tool lookup must use this override for scheduler semantics. The large common surface remains a compatibility theorem/tool catalog; it is not the current scheduler authority."
+}
