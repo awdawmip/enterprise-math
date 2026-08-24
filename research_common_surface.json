@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_COMMON_RESEARCH_SURFACE_V1",
   "status": "ACTIVE",
-  "effective": "2026-08-09",
+  "effective": "2026-08-24",
   "scheduling_protocol": {
     "document_en": "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md",
     "document_zh": "docs/RESEARCH_SCHEDULING_PROTOCOL.zh-CN.md",
@@ -15,14 +15,21 @@
   "dispatch_scheduler": {
     "config": "research_scheduler.json",
     "runtime_issue": 240,
-    "event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+    "event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V2",
+    "legacy_event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
     "tool": "tools/research_scheduler.py",
-    "default_claim_semantics": "RENEWABLE_LEASE",
+    "event_helper": "tools/research_scheduler_event.py",
+    "default_claim_semantics": "RENEWABLE_LEASE_WITH_DURABLE_ORPHAN_RECOVERY",
     "auto_select_when_user_task_absent": true,
     "explicit_user_task_overrides": true,
     "handoff_required_for_unfinished_session": true,
-    "expired_claim_returns_to_dispatch": true,
-    "live_dispatch_authority": "current owner registry + research_scheduler.json + Issue #240 runtime events",
+    "expired_claim_returns_to_dispatch": false,
+    "lease_expiry_state": "ORPHANED",
+    "cross_driver_review_required": true,
+    "free_researcher_publish_pending": true,
+    "direct_done_allowed": false,
+    "task_artifact_discovery_enabled": true,
+    "live_dispatch_authority": "research_scheduler.json + task artifact registry + Issue #240 V2 runtime events; frozen V1 data is historical provenance only",
     "historical_branch_ledger_is_live_dispatch_authority": false
   },
   "foundation_steward": {
@@ -288,7 +295,7 @@
     "lean_root": "EnterpriseMath.lean",
     "tests": "tests/",
     "experiments": "experiments/",
-    "repo_tools": ["tools/audit_branch_lifecycle.py", "tools/check_bilingual_pairs.py", "tools/check_references.py", "tools/check_research_common_surface.py", "tools/research_identity.py", "tools/research_scheduler.py", "tools/research_taskbook.py"]
+    "repo_tools": ["tools/audit_branch_lifecycle.py", "tools/check_bilingual_pairs.py", "tools/check_references.py", "tools/check_research_common_surface.py", "tools/research_identity.py", "tools/research_scheduler.py", "tools/research_scheduler_event.py", "tools/research_taskbook.py"]
   },
   "promotion_sync": {
     "rule": "every canonical promotion of a reusable theorem, formalization, executable tool family, negative boundary, or active interface alert must update the shared human/machine surface or explicitly justify N/A",
@@ -300,5 +307,5 @@
   },
   "relay_action_classes": ["INFORM", "CONSUME", "TEST", "HARD_DEPENDENCY"],
   "route_heartbeat_fields": ["frontier", "hard_block", "last_progress", "shared_surface_seen"],
-  "runtime_handoff_events": ["CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE"]
+  "runtime_handoff_events": ["PUBLISH", "REVIEW_CLAIM", "REVIEW_HEARTBEAT", "REVIEW_HANDOFF", "APPROVE", "REJECT", "CLAIM", "ADOPT", "HEARTBEAT", "PROGRESS", "HANDOFF", "SUBMIT", "REVIEW", "ORPHAN", "HARD_BLOCK", "UNBLOCK", "MIGRATE", "SUPERSEDE"]
 }
