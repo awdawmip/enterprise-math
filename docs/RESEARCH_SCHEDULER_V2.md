@@ -18,7 +18,7 @@ The registry is the union of:
 2. every taskbook discovered under `research_tasks/*.md`;
 3. the read-only V1 static seed in `research_scheduler.json` during migration.
 
-A taskbook file is not dispatch authority. A taskbook that exists but was never registered in V2 is automatically visible as `ORPHANED`, never silently ignored and never auto-dispatched.
+A taskbook file is not dispatch authority. A taskbook with no scheduler history is automatically visible as `ORPHANED`, never silently ignored and never auto-dispatched. During migration only, a pre-V2 taskbook that already has a genuine V1 runtime event is treated as `LEGACY_EVENT_REGISTERED_TASKBOOK` so its historical CLAIM/HANDOFF/DONE chain can replay instead of being falsely orphaned.
 
 The scheduler controls workflow only. It does not prove a theorem, promote canonical mathematics, or replace Foundation/Steward gates.
 
@@ -78,7 +78,7 @@ Other orphan sources are also first-class:
 - a historical branch/return discovered without a scheduler task, registered with `REGISTER_ORPHAN`;
 - explicit `ORPHAN` by a coordinator/agent.
 
-`ORPHANED` is never selected by normal dispatch. Recovery requires Driver adoption/review or explicit supersession.
+`ORPHANED` is never selected by normal dispatch. Recovery requires Driver adoption/review or explicit supersession. `ADOPT` and `REVIEW(ORPHAN_RECOVERY, APPROVE)` may also supply `assigned_owner`; this is the correct way to recover work whose former owner is retired, invalid, or `taskbook/unassigned`.
 
 ## 6. Role permissions
 
@@ -151,6 +151,14 @@ python tools/research_scheduler.py emit return \
   --task-id RS-EXAMPLE --claim-id claim-001 \
   --return-ref research_returns/EXAMPLE_RETURN.md \
   --actor agent --at 2026-08-24T21:00:00+08:00
+
+python tools/research_scheduler.py emit adopt \
+  --task-id RS-ORPHAN \
+  --reviewer-id EM-DVR-ABC123 \
+  --review-ref driver_reviews/ORPHAN_RECOVERY.md \
+  --assigned-owner program/example \
+  --next-action "resume from frozen evidence" \
+  --at 2026-08-24T21:05:00+08:00
 ```
 
 For a branch/return that exists without a scheduler task, use `emit register-orphan` with a recovered task payload and evidence references.
