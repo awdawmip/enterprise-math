@@ -26,7 +26,8 @@
     "embedded_schema": "ENTERPRISE_MATH_TASK_V1",
     "unregistered_taskbook_state": "ORPHANED",
     "invalid_taskbook_state": "ORPHANED",
-    "rule": "Every taskbook is visible to the scheduler. A taskbook that was never registered in V2 is inventory-visible as ORPHANED and cannot be dispatched until Driver recovery/adoption."
+    "legacy_runtime_event_registration": "LEGACY_EVENT_REGISTERED_TASKBOOK",
+    "rule": "Every taskbook is visible to the scheduler. A taskbook with no scheduler history is inventory-visible as ORPHANED and cannot be dispatched until Driver recovery/adoption; during migration, a pre-V2 taskbook with genuine V1 runtime events preserves its taskbook base state so those events can replay."
   },
   "task_states": [
     "BACKLOG",
@@ -83,15 +84,18 @@
     "driver_can_publish": true,
     "published_state": "PENDING_REVIEW",
     "publication_is_dispatch_authority": false,
-    "rule": "Publishing registers a task; it does not approve or dispatch it. FREE publication cannot bypass the axiom-candidate/taskbook maturity gates because READY still requires Driver review."
+    "dynamic_task_payload_validation_required": true,
+    "rule": "Publishing registers a structurally valid task; it does not approve or dispatch it. FREE publication cannot bypass the axiom-candidate/taskbook maturity gates because READY still requires Driver review."
   },
   "orphan_contract": {
     "lease_expiry_state": "ORPHANED",
     "explicit_event": "ORPHAN",
     "external_recovery_registration_event": "REGISTER_ORPHAN",
     "recovery_events": ["ADOPT", "REVIEW/ORPHAN_RECOVERY"],
+    "recovery_can_reassign_owner": true,
+    "recovery_owner_must_be_active": true,
     "orphan_history_required": true,
-    "rule": "A silent expiry, unregistered taskbook, historical branch/return discovered without a task, or explicit abandonment remains visible as an ORPHANED registry item until reviewed and recovered/superseded."
+    "rule": "A silent expiry, unregistered taskbook, historical branch/return discovered without a task, or explicit abandonment remains visible as an ORPHANED registry item until reviewed and recovered/superseded. Recovery may reassign a retired/unassigned owner, but only to a current ACTIVE_OWNER/ACTIVE_BRIDGE research owner."
   },
   "selection_policy": {
     "default_kind": "RESEARCH",
@@ -133,6 +137,7 @@
     "post_v2_self_review_exception": false,
     "legacy_v1_done_events_preserved": true,
     "legacy_static_tasks_imported": true,
+    "legacy_v1_runtime_event_taskbooks_replayed": true,
     "legacy_unregistered_taskbooks_become_orphaned": true
   },
   "tasks": []
