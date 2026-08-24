@@ -89,16 +89,22 @@ theorem channel_gcd_exact (a b : ℤ) :
     simp [N, C]
   · have hdpos : 0 < Int.gcd a b := Nat.pos_of_ne_zero hd
     obtain ⟨a', b', hprim, ha, hb⟩ := Int.exists_gcd_one hdpos
+    let d : ℕ := Int.gcd a b
+    have hdDef : d = Int.gcd a b := rfl
+    have haD : a = a' * (d : ℤ) := by
+      simpa [d] using ha
+    have hbD : b = b' * (d : ℤ) := by
+      simpa [d] using hb
     have hprimNC : Int.gcd (N a' b') (C a' b') = 1 := primitive_channel_gcd hprim
     have hscaleN :
-        N a b = ((Int.gcd a b : ℤ) ^ 2) * N a' b' := by
-      conv_lhs => rw [ha, hb]
-      simp [N]
+        N a b = ((d : ℤ) ^ 2) * N a' b' := by
+      rw [haD, hbD]
+      simp only [N]
       ring
     have hscaleC :
-        C a b = ((Int.gcd a b : ℤ) ^ 2) * C a' b' := by
-      conv_lhs => rw [ha, hb]
-      simp [C]
+        C a b = ((d : ℤ) ^ 2) * C a' b' := by
+      rw [haD, hbD]
+      simp only [C]
       ring
     have hbez :
         (1 : ℤ) =
@@ -106,19 +112,19 @@ theorem channel_gcd_exact (a b : ℤ) :
             C a' b' * Int.gcdB (N a' b') (C a' b') := by
       simpa [hprimNC] using Int.gcd_eq_gcd_ab (N a' b') (C a' b')
     have hgreat :
-        ((Int.gcd a b : ℤ) ^ 2) = (Int.gcd (N a b) (C a b) : ℤ) := by
+        ((d : ℤ) ^ 2) = (Int.gcd (N a b) (C a b) : ℤ) := by
       apply Int.gcd_greatest
       · positivity
       · exact ⟨N a' b', hscaleN⟩
       · exact ⟨C a' b', hscaleC⟩
       · intro e heN heC
         have hcombo :
-            ((Int.gcd a b : ℤ) ^ 2) =
+            ((d : ℤ) ^ 2) =
               N a b * Int.gcdA (N a' b') (C a' b') +
                 C a b * Int.gcdB (N a' b') (C a' b') := by
           calc
-            ((Int.gcd a b : ℤ) ^ 2) = ((Int.gcd a b : ℤ) ^ 2) * 1 := by ring
-            _ = ((Int.gcd a b : ℤ) ^ 2) *
+            ((d : ℤ) ^ 2) = ((d : ℤ) ^ 2) * 1 := by ring
+            _ = ((d : ℤ) ^ 2) *
                 (N a' b' * Int.gcdA (N a' b') (C a' b') +
                   C a' b' * Int.gcdB (N a' b') (C a' b')) := by rw [hbez]
             _ = N a b * Int.gcdA (N a' b') (C a' b') +
@@ -127,6 +133,8 @@ theorem channel_gcd_exact (a b : ℤ) :
               ring
         rw [hcombo]
         exact dvd_add (dvd_mul_of_dvd_left heN _) (dvd_mul_of_dvd_left heC _)
-    exact_mod_cast hgreat.symm
+    have hgreatNat : Int.gcd (N a b) (C a b) = d ^ 2 := by
+      exact_mod_cast hgreat.symm
+    simpa [hdDef] using hgreatNat
 
 end EnterpriseMath.PrimeFusion
