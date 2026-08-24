@@ -56,10 +56,12 @@ noncomputable def factorIdeal : Fin 2 → Ideal (Polynomial ℤ) :=
 theorem factorIdeal_pairwise : Pairwise (IsCoprime on factorIdeal) := by
   intro i j hij
   fin_cases i <;> fin_cases j
-  · simp at hij
-  · simpa [factorIdeal] using fusionFactors_isCoprime
-  · simpa [factorIdeal] using fusionFactors_isCoprime.symm
-  · simp at hij
+  · exact (hij rfl).elim
+  · change IsCoprime gaussianIdeal eisensteinIdeal
+    exact fusionFactors_isCoprime
+  · change IsCoprime eisensteinIdeal gaussianIdeal
+    exact fusionFactors_isCoprime.symm
+  · exact (hij rfl).elim
 
 /-- The finite infimum of the two factor ideals is their ordinary intersection. -/
 theorem factorIdeal_iInf :
