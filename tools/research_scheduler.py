@@ -1,19 +1,17 @@
 #!/usr/bin/env python3
-"""Validate, inventory and reduce the Enterprise Math research scheduler V2.
+"""Enterprise Math unified research scheduler / registry state machine.
 
-V2 makes the scheduler a unified workflow registry rather than a static owner list.
-The registry is materialized from three sources:
+V2 makes the scheduler the control-plane registry for research work.
 
-* the read-only V1 seed during migration;
-* all taskbooks discoverable under ``research_tasks``;
-* V2 PUBLISH / REGISTER_ORPHAN events from the append-only runtime log.
+Durable sources:
+- ``research_scheduler.json`` contains migration seeds and policy.
+- ``research_tasks/*.md`` are discovered inventory artifacts; unregistered legacy
+  taskbooks are represented as ORPHANED rather than silently ignored.
+- GitHub Issue #240 remains the append-only runtime event surface.  Events may be
+  exported to JSON/JSONL and supplied through ``--events``.
 
-GitHub Issue #240 remains the append-only runtime coordination surface.  V1
-events remain replayable so the migration cannot erase historical workflow state.
-
-The scheduler deliberately does not decide mathematical truth or canonical status.
-Research identity is runtime provenance: CLAIMs automatically resolve a stable
-Researcher-ID when legacy callers do not supply one explicitly.
+Scientific truth remains outside this state machine.  The scheduler controls
+publication, review, claiming, handoff, orphan recovery and workflow closure.
 """
 
 from __future__ import annotations
@@ -26,29 +24,66 @@ import pathlib
 import re
 import sys
 from datetime import datetime, timedelta, timezone
-from typing import Any, Iterable
+from typing import Any, Iterable, Sequence
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = ROOT / "research_scheduler_v2.json"
 DEFAULT_OWNERS = ROOT / "branch_governance_overrides.json"
 DEFAULT_TASKBOOK_DIR = ROOT / "research_tasks"
-EVENT_SCHEMA_V2 = "ENTERPRISE_MATH_SCHEDULER_EVENT_V2"
+
+SCHEDULER_SCHEMA_V1 = "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V1"
+SCHEDULER_SCHEMA_V2 = "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V2"
 EVENT_SCHEMA_V1 = "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
-CONFIG_SCHEMA_V2 = "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V2"
-CONFIG_SCHEMA_V1 = "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V1"
+EVENT_SCHEMA_V2 = "ENTERPRISE_MATH_SCHEDULER_EVENT_V2"
+TASKBOOK_SCHEMA_V1 = "ENTERPRISE_MATH_TASK_V1"
 
 HARD_BLOCK_FIELDS = ("missing_object", "owner", "necessity", "unblock_condition")
 ACTIVE_OWNER_STATES = {"ACTIVE_OWNER", "ACTIVE_BRIDGE"}
 DEPENDENCY_ACTIONS = {"INFORM", "CONSUME", "TEST", "HARD_DEPENDENCY"}
 RESEARCHER_ID_RE = re.compile(r"^EM-[A-Z0-9]+-(?:[0-9]{2}|[A-Z0-9]{4,8})$")
-DRIVER_ID_RE = re.compile(r"^(?:EM-DRIVER-\d{2}|EM-DVR-[A-Z0-9]+)$")
+DRIVER_ID_RE = re.compile(r"^EM-(?:DRIVER-[0-9]{2}|DVR-[A-Z0-9]{4,8})$")
 TASK_LANE_RE = re.compile(r"^RS-((?:R|P)\d{3}[A-Z0-9]*)\b")
 LANE_RE = re.compile(r"[^A-Z0-9]+")
-TASKBOOK_META_RE = re.compile(r"<!--\s*ENTERPRISE_MATH_TASK_V1\s*(\{.*?\})\s*-->", re.S)
-DISPATCHABLE_STATES = {"READY", "HANDOFF_READY"}
+TASKBOOK_RE = re.compile(
+    r"<!--\s*ENTERPRISE_MATH_TASK_V1\s*(\{.*?\})\s*-->", re.DOTALL
+)
+
+V2_TASK_STATES = {
+    "BACKLOG",
+    "PENDING_REVIEW",
+    "READY",
+    "CLAIMED",
+    "IN_PROGRESS",
+    "HANDOFF_READY",
+    "RETURNED",
+    "BLOCKED",
+    "ORPHANED",
+    "DONE",
+    "REJECTED",
+    "SUPERSEDED",
+}
+V2_EVENT_TYPES = {
+    "PUBLISH",
+    "REGISTER_ORPHAN",
+    "REVIEW",
+    "CLAIM",
+    "HEARTBEAT",
+    "PROGRESS",
+    "RETURN",
+    "HANDOFF",
+    "HARD_BLOCK",
+    "UNBLOCK",
+    "ORPHAN",
+    "ADOPT",
+    "DONE",  # legacy import only in V2; new unreviewed DONE is rejected
+    "SUPERSEDE",
+}
 TERMINAL_STATES = {"DONE", "REJECTED", "SUPERSEDED"}
+DISPATCHABLE_STATES = {"READY", "HANDOFF_READY"}
+LIVE_CLAIM_STATES = {"CLAIMED", "IN_PROGRESS"}
 REVIEW_KINDS = {"DISPATCH", "RETURN", "ORPHAN_RECOVERY"}
 REVIEW_VERDICTS = {"APPROVE", "REVISE", "REJECT"}
+ACTOR_ROLES = {"RESEARCHER", "RESEARCH_DRIVER", "STEWARD", "SYSTEM"}
 
 
 class SchedulerError(ValueError):
@@ -59,32 +94,27 @@ def load_json(path: pathlib.Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def load_scheduler_config(path: pathlib.Path = DEFAULT_CONFIG) -> dict[str, Any]:
+def load_scheduler_config(path: pathlib.Path) -> dict[str, Any]:
     config = load_json(path)
-    if config.get("schema") != CONFIG_SCHEMA_V2:
-        return config
-    legacy_path = config.get("legacy_seed_config")
-    if not legacy_path:
-        return config
-    legacy_file = pathlib.Path(legacy_path)
-    if not legacy_file.is_absolute():
-        legacy_file = path.parent / legacy_file
-    if not legacy_file.exists():
-        raise SchedulerError(f"legacy seed config does not exist: {legacy_file}")
-    legacy = load_json(legacy_file)
-    if legacy.get("schema") != CONFIG_SCHEMA_V1:
-        raise SchedulerError("legacy_seed_config is not an Enterprise Math scheduler V1 config")
-    merged = copy.deepcopy(config)
-    migrated_tasks: list[dict[str, Any]] = []
-    for item in legacy.get("tasks", []):
-        migrated = copy.deepcopy(item)
-        migrated.setdefault("registry_source", "LEGACY_STATIC_SEED")
-        migrated.setdefault("publication_review_state", "LEGACY_PREAPPROVED")
-        migrated_tasks.append(migrated)
-    migrated_tasks.extend(copy.deepcopy(config.get("tasks", [])))
-    merged["tasks"] = migrated_tasks
-    merged["_legacy_seed"] = legacy
-    return merged
+    if not isinstance(config, dict):
+        raise SchedulerError("scheduler config must be a JSON object")
+    legacy_ref = config.get("legacy_seed_config")
+    if config.get("schema") == SCHEDULER_SCHEMA_V2 and isinstance(legacy_ref, str) and legacy_ref.strip():
+        legacy_path = pathlib.Path(legacy_ref)
+        if not legacy_path.is_absolute():
+            legacy_path = ROOT / legacy_path
+        legacy = load_json(legacy_path)
+        imported = []
+        for task in legacy.get("tasks", []):
+            item = copy.deepcopy(task)
+            item["registry_source"] = "LEGACY_STATIC_SEED"
+            item["publication_review_state"] = "LEGACY_PREAPPROVED"
+            imported.append(item)
+        explicit = copy.deepcopy(config.get("tasks", []))
+        seen = {task.get("task_id") for task in imported}
+        imported.extend(task for task in explicit if task.get("task_id") not in seen)
+        config["tasks"] = imported
+    return config
 
 
 def parse_time(value: str) -> datetime:
@@ -148,27 +178,42 @@ def release_claim_identity(state: dict[str, Any]) -> None:
     state["identity_source"] = None
 
 
-def _validate_task(
+def task_required_fields(task: dict[str, Any]) -> list[str]:
+    missing = []
+    for field in ("task_id", "title", "kind", "priority", "leverage", "frontier", "next_action"):
+        if not isinstance(task.get(field), str) or not task[field].strip():
+            missing.append(field)
+    return missing
+
+
+def normalize_published_task(payload: dict[str, Any], *, base_state: str, at: str | None = None) -> dict[str, Any]:
+    task = copy.deepcopy(payload)
+    task.setdefault("owner", "taskbook/unassigned")
+    task.setdefault("dependencies", [])
+    task.setdefault("source_refs", [])
+    task.setdefault("evidence_status", "PUBLISHED_UNREVIEWED")
+    task.setdefault("last_progress_ref", "scheduler publication")
+    task.setdefault("last_progress_at", at or datetime.now(timezone.utc).isoformat())
+    task.setdefault("hard_block", None)
+    task.setdefault("tags", [])
+    task["base_state"] = base_state
+    return task
+
+
+def validate_task_shape(
     task: dict[str, Any],
     *,
     task_states: set[str],
     priorities: set[str],
     leverage: set[str],
+    allow_unassigned_owner: bool,
     active_owners: set[str],
-    require_active_owner: bool,
-    prefix: str,
 ) -> list[str]:
     errors: list[str] = []
-    task_id = task.get("task_id")
-    if not isinstance(task_id, str) or not task_id:
-        return [f"{prefix}: missing task_id"]
-
-    if "identity_lane" in task:
-        try:
-            identity_lane(task)
-        except SchedulerError as exc:
-            errors.append(f"{task_id}: {exc}")
-
+    task_id = str(task.get("task_id", "<unknown>"))
+    missing = task_required_fields(task)
+    if missing:
+        errors.append(f"{task_id}: missing task fields: {', '.join(missing)}")
     state = task.get("base_state")
     if state not in task_states:
         errors.append(f"{task_id}: invalid base_state {state!r}")
@@ -178,14 +223,16 @@ def _validate_task(
         errors.append(f"{task_id}: invalid leverage {task.get('leverage')!r}")
 
     owner = task.get("owner")
-    if task.get("kind") == "RESEARCH":
-        if require_active_owner and owner not in active_owners:
-            errors.append(f"{task_id}: research owner is not ACTIVE_OWNER/ACTIVE_BRIDGE: {owner!r}")
-    elif task.get("kind") == "GOVERNANCE":
+    kind = task.get("kind")
+    if kind == "RESEARCH":
+        if owner not in active_owners:
+            if not (allow_unassigned_owner and owner == "taskbook/unassigned"):
+                errors.append(f"{task_id}: research owner is not ACTIVE_OWNER/ACTIVE_BRIDGE: {owner!r}")
+    elif kind == "GOVERNANCE":
         if owner != "governance":
             errors.append(f"{task_id}: governance task must use owner='governance'")
     else:
-        errors.append(f"{task_id}: invalid task kind {task.get('kind')!r}")
+        errors.append(f"{task_id}: invalid task kind {kind!r}")
 
     hard_block = task.get("hard_block")
     if hard_block is not None and not complete_hard_block(hard_block):
@@ -194,82 +241,89 @@ def _validate_task(
         errors.append(f"{task_id}: BLOCKED requires a complete hard_block")
 
     for dep_index, dependency in enumerate(task.get("dependencies", [])):
+        if not isinstance(dependency, dict):
+            errors.append(f"{task_id}: dependency[{dep_index}] is not an object")
+            continue
         action = dependency.get("action")
         if action not in DEPENDENCY_ACTIONS:
             errors.append(f"{task_id}: dependency[{dep_index}] has invalid action {action!r}")
 
-    for field in ("frontier", "next_action", "last_progress_at"):
-        if not isinstance(task.get(field), str) or not task[field].strip():
-            errors.append(f"{task_id}: missing {field}")
-    if isinstance(task.get("last_progress_at"), str):
+    last_progress_at = task.get("last_progress_at")
+    if isinstance(last_progress_at, str):
         try:
-            parse_time(task["last_progress_at"])
+            parse_time(last_progress_at)
         except (TypeError, ValueError):
             errors.append(f"{task_id}: invalid last_progress_at")
+    else:
+        errors.append(f"{task_id}: missing last_progress_at")
+
+    if "identity_lane" in task:
+        try:
+            identity_lane(task)
+        except SchedulerError as exc:
+            errors.append(f"{task_id}: {exc}")
     return errors
 
 
 def validate_scheduler(config: dict[str, Any], owners: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     schema = config.get("schema")
-    if schema not in {CONFIG_SCHEMA_V2, CONFIG_SCHEMA_V1}:
+    if schema not in {SCHEDULER_SCHEMA_V1, SCHEDULER_SCHEMA_V2}:
         errors.append("unexpected scheduler schema")
 
     task_states = set(config.get("task_states", []))
     event_types = set(config.get("event_types", []))
-    if schema == CONFIG_SCHEMA_V2:
-        required_states = {
-            "PENDING_REVIEW", "READY", "HANDOFF_READY", "RETURNED", "BLOCKED",
-            "ORPHANED", "DONE", "REJECTED", "SUPERSEDED",
-        }
-        required_events = {
-            "PUBLISH", "REGISTER_ORPHAN", "REVIEW", "CLAIM", "HEARTBEAT",
-            "PROGRESS", "RETURN", "HANDOFF", "HARD_BLOCK", "UNBLOCK",
-            "ORPHAN", "ADOPT", "SUPERSEDE",
-        }
+    if schema == SCHEDULER_SCHEMA_V2:
+        if not V2_TASK_STATES <= task_states:
+            errors.append("scheduler task_states are incomplete for V2")
+        if not V2_EVENT_TYPES <= event_types:
+            errors.append("scheduler event_types are incomplete for V2")
     else:
         required_states = {"READY", "HANDOFF_READY", "BLOCKED", "DONE", "SUPERSEDED"}
         required_events = {"CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE"}
-    if not required_states <= task_states:
-        errors.append("scheduler task_states are incomplete")
-    if not required_events <= event_types:
-        errors.append("scheduler event_types are incomplete")
+        if not required_states <= task_states:
+            errors.append("scheduler task_states are incomplete")
+        if not required_events <= event_types:
+            errors.append("scheduler event_types are incomplete")
 
     owner_entries = owners.get("branches", {})
     active_owners = {
         name for name, spec in owner_entries.items()
         if spec.get("state") in ACTIVE_OWNER_STATES
     }
+    priorities = set(config.get("selection_policy", {}).get("priority_order", []))
+    leverage = set(config.get("selection_policy", {}).get("leverage_order", []))
 
     tasks = config.get("tasks", [])
     seen: set[str] = set()
     covered_active: set[str] = set()
-    priorities = set(config.get("selection_policy", {}).get("priority_order", []))
-    leverage = set(config.get("selection_policy", {}).get("leverage_order", []))
-
     for index, task in enumerate(tasks):
+        if not isinstance(task, dict):
+            errors.append(f"tasks[{index}] is not an object")
+            continue
         task_id = task.get("task_id")
-        if isinstance(task_id, str):
-            if task_id in seen:
-                errors.append(f"duplicate task_id: {task_id}")
-            seen.add(task_id)
-        task_errors = _validate_task(
-            task,
-            task_states=task_states,
-            priorities=priorities,
-            leverage=leverage,
-            active_owners=active_owners,
-            require_active_owner=True,
-            prefix=f"tasks[{index}]",
+        if not isinstance(task_id, str) or not task_id:
+            errors.append(f"tasks[{index}]: missing task_id")
+            continue
+        if task_id in seen:
+            errors.append(f"duplicate task_id: {task_id}")
+        seen.add(task_id)
+        errors.extend(
+            validate_task_shape(
+                task,
+                task_states=task_states,
+                priorities=priorities,
+                leverage=leverage,
+                allow_unassigned_owner=False,
+                active_owners=active_owners,
+            )
         )
-        errors.extend(task_errors)
         if task.get("kind") == "RESEARCH" and task.get("owner") in active_owners:
             covered_active.add(task["owner"])
 
-    if config.get("require_static_owner_coverage", True):
-        missing_coverage = sorted(active_owners - covered_active)
-        if missing_coverage:
-            errors.append("active research owners missing scheduler coverage: " + ", ".join(missing_coverage))
+    missing_coverage = sorted(active_owners - covered_active)
+    if missing_coverage and config.get("require_static_owner_coverage", True):
+        errors.append("active research owners missing scheduler coverage: " + ", ".join(missing_coverage))
     return errors
 
 
@@ -300,11 +354,116 @@ def load_events(path: pathlib.Path | None) -> list[dict[str, Any]]:
     return events
 
 
-def lease_duration(event: dict[str, Any], default_minutes: int) -> timedelta:
-    minutes = event.get("lease_minutes", default_minutes)
-    if not isinstance(minutes, int) or minutes <= 0:
-        raise SchedulerError("lease_minutes must be a positive integer")
-    return timedelta(minutes=minutes)
+def extract_taskbook_task(path: pathlib.Path) -> tuple[dict[str, Any] | None, str | None]:
+    try:
+        text = path.read_text(encoding="utf-8")
+    except UnicodeDecodeError as exc:
+        return None, f"UTF-8 decode failed: {exc}"
+    match = TASKBOOK_RE.search(text)
+    if not match:
+        return None, "missing ENTERPRISE_MATH_TASK_V1 embedded metadata"
+    try:
+        task = json.loads(match.group(1))
+    except json.JSONDecodeError as exc:
+        return None, f"invalid embedded task JSON: {exc}"
+    if not isinstance(task, dict):
+        return None, "embedded task metadata is not an object"
+    return task, None
+
+
+def discover_taskbooks(directory: pathlib.Path = DEFAULT_TASKBOOK_DIR) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    discovered: list[dict[str, Any]] = []
+    diagnostics: list[dict[str, Any]] = []
+    seen_task_ids: dict[str, str] = {}
+    if not directory.exists():
+        return discovered, diagnostics
+    for path in sorted(directory.glob("*.md")):
+        task, error = extract_taskbook_task(path)
+        rel = str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path)
+        if error:
+            synthetic_id = "ORPHAN-FILE-" + hashlib.sha256(rel.encode("utf-8")).hexdigest()[:12].upper()
+            discovered.append(
+                {
+                    "task_id": synthetic_id,
+                    "title": path.stem,
+                    "kind": "RESEARCH",
+                    "owner": "taskbook/unassigned",
+                    "base_state": "ORPHANED",
+                    "priority": "P3",
+                    "leverage": "LOW",
+                    "frontier": "Unregistered task artifact requires Driver triage.",
+                    "next_action": "Recover metadata, classify historical status, then review/adopt/supersede.",
+                    "dependencies": [],
+                    "source_refs": [rel],
+                    "evidence_status": "ORPHANED_TASKBOOK_ARTIFACT",
+                    "last_progress_ref": rel,
+                    "last_progress_at": "1970-01-01T00:00:00+00:00",
+                    "hard_block": None,
+                    "tags": ["scheduler-v2", "orphan", "metadata-missing"],
+                    "registry_source": "TASKBOOK_ORPHAN",
+                    "orphan_reason": error,
+                    "taskbook_path": rel,
+                }
+            )
+            diagnostics.append({"path": rel, "severity": "ORPHAN", "message": error, "task_id": synthetic_id})
+            continue
+        task_id = task.get("task_id")
+        if not isinstance(task_id, str) or not task_id.strip():
+            synthetic_id = "ORPHAN-FILE-" + hashlib.sha256(rel.encode("utf-8")).hexdigest()[:12].upper()
+            diagnostics.append({"path": rel, "severity": "ORPHAN", "message": "embedded metadata missing task_id", "task_id": synthetic_id})
+            discovered.append(
+                {
+                    "task_id": synthetic_id,
+                    "title": path.stem,
+                    "kind": "RESEARCH",
+                    "owner": "taskbook/unassigned",
+                    "base_state": "ORPHANED",
+                    "priority": "P3",
+                    "leverage": "LOW",
+                    "frontier": "Taskbook metadata lacks task_id.",
+                    "next_action": "Recover the task identity, then review/adopt/supersede.",
+                    "dependencies": [],
+                    "source_refs": [rel],
+                    "evidence_status": "ORPHANED_TASKBOOK_ARTIFACT",
+                    "last_progress_ref": rel,
+                    "last_progress_at": "1970-01-01T00:00:00+00:00",
+                    "hard_block": None,
+                    "tags": ["scheduler-v2", "orphan", "task-id-missing"],
+                    "registry_source": "TASKBOOK_ORPHAN",
+                    "orphan_reason": "TASKBOOK_TASK_ID_MISSING",
+                    "taskbook_path": rel,
+                }
+            )
+            continue
+        if task_id in seen_task_ids:
+            synthetic_id = "ORPHAN-DUP-" + hashlib.sha256((task_id + "\0" + rel).encode("utf-8")).hexdigest()[:12].upper()
+            diagnostics.append(
+                {
+                    "path": rel,
+                    "severity": "ORPHAN",
+                    "message": f"duplicate task_id {task_id}; first seen at {seen_task_ids[task_id]}",
+                    "task_id": synthetic_id,
+                }
+            )
+            duplicate = copy.deepcopy(task)
+            duplicate["task_id"] = synthetic_id
+            duplicate["base_state"] = "ORPHANED"
+            duplicate["registry_source"] = "TASKBOOK_ORPHAN"
+            duplicate["orphan_reason"] = f"DUPLICATE_TASK_ID:{task_id}"
+            duplicate["duplicate_of_task_id"] = task_id
+            duplicate["taskbook_path"] = rel
+            discovered.append(duplicate)
+            continue
+        seen_task_ids[task_id] = rel
+        item = copy.deepcopy(task)
+        item["taskbook_path"] = rel
+        item["registry_source"] = "TASKBOOK_DISCOVERY"
+        discovered.append(item)
+    return discovered, diagnostics
+
+
+def event_schema(event: dict[str, Any]) -> str:
+    return str(event.get("schema") or EVENT_SCHEMA_V1)
 
 
 def event_time(event: dict[str, Any]) -> datetime:
@@ -314,195 +473,166 @@ def event_time(event: dict[str, Any]) -> datetime:
     return parse_time(value)
 
 
-def extract_taskbook_task(path: pathlib.Path) -> tuple[dict[str, Any] | None, str | None]:
-    try:
-        text = path.read_text(encoding="utf-8")
-    except (OSError, UnicodeDecodeError) as exc:
-        return None, f"cannot read taskbook: {exc}"
-    match = TASKBOOK_META_RE.search(text)
-    if not match:
-        return None, "missing ENTERPRISE_MATH_TASK_V1 metadata"
-    try:
-        task = json.loads(match.group(1))
-    except json.JSONDecodeError as exc:
-        return None, f"invalid taskbook JSON: {exc}"
-    if not isinstance(task, dict):
-        return None, "taskbook metadata is not an object"
-    return task, None
+def lease_duration(event: dict[str, Any], default_minutes: int) -> timedelta:
+    minutes = event.get("lease_minutes", default_minutes)
+    if not isinstance(minutes, int) or minutes <= 0:
+        raise SchedulerError("lease_minutes must be a positive integer")
+    return timedelta(minutes=minutes)
 
 
-def synthetic_orphan_id(path: pathlib.Path, *, prefix: str = "ORPHAN-FILE") -> str:
-    digest = hashlib.sha256(str(path).encode("utf-8")).hexdigest()[:12].upper()
-    return f"{prefix}-{digest}"
+def validate_publisher(event: dict[str, Any]) -> str | None:
+    role = event.get("publisher_role") or event.get("actor_role")
+    publisher_id = event.get("publisher_id") or event.get("actor_id")
+    if role not in {"RESEARCHER", "RESEARCH_DRIVER"}:
+        return "PUBLISH requires publisher_role RESEARCHER or RESEARCH_DRIVER"
+    if role == "RESEARCHER" and not valid_researcher_id(publisher_id):
+        return "PUBLISH researcher publisher_id is invalid"
+    if role == "RESEARCH_DRIVER" and not valid_driver_id(publisher_id):
+        return "PUBLISH driver publisher_id is invalid"
+    return None
 
 
-def discover_taskbooks(taskbook_dir: pathlib.Path | None = DEFAULT_TASKBOOK_DIR) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    if taskbook_dir is None or not taskbook_dir.exists():
-        return [], []
-    tasks: list[dict[str, Any]] = []
-    diagnostics: list[dict[str, Any]] = []
-    seen_task_ids: set[str] = set()
-    for path in sorted(taskbook_dir.glob("*.md")):
-        task, error = extract_taskbook_task(path)
-        if error or task is None:
-            task_id = synthetic_orphan_id(path)
-            tasks.append(
-                {
-                    "task_id": task_id,
-                    "title": path.name,
-                    "kind": "RESEARCH",
-                    "owner": "taskbook/unassigned",
-                    "base_state": "ORPHANED",
-                    "priority": "P3",
-                    "leverage": "LOW",
-                    "frontier": "Taskbook-like artifact is not machine-readable by Scheduler V2.",
-                    "next_action": "Driver must inspect, register, repair, supersede, or classify this artifact.",
-                    "dependencies": [],
-                    "source_refs": [str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path)],
-                    "last_progress_ref": str(path),
-                    "last_progress_at": "1970-01-01T00:00:00+00:00",
-                    "hard_block": None,
-                    "registry_source": "TASKBOOK_DISCOVERY_INVALID",
-                    "taskbook_path": str(path),
-                    "orphan_reason": error,
-                }
-            )
-            diagnostics.append({"path": str(path), "task_id": task_id, "problem": error})
-            continue
-        task = copy.deepcopy(task)
-        task_id = task.get("task_id")
-        if not isinstance(task_id, str) or not task_id:
-            synthetic = synthetic_orphan_id(path)
-            diagnostics.append({"path": str(path), "task_id": synthetic, "problem": "metadata has no task_id"})
-            task["task_id"] = synthetic
-            task_id = synthetic
-        if task_id in seen_task_ids:
-            duplicate_id = synthetic_orphan_id(path, prefix="ORPHAN-DUP")
-            diagnostics.append({"path": str(path), "task_id": duplicate_id, "problem": f"duplicate task_id {task_id}"})
-            task["task_id"] = duplicate_id
-            task["title"] = f"Duplicate taskbook registration for {task_id}: {path.name}"
-            task["base_state"] = "ORPHANED"
-            task["registry_source"] = "TASKBOOK_DISCOVERY_DUPLICATE"
-            task["orphan_reason"] = f"duplicate task_id {task_id}"
-            task["original_task_id"] = task_id
-            task["taskbook_path"] = str(path)
-            tasks.append(task)
-            continue
-        seen_task_ids.add(task_id)
-        task.setdefault("registry_source", "TASKBOOK_DISCOVERY")
-        task["taskbook_path"] = str(path)
-        tasks.append(task)
-    return tasks, diagnostics
-
-
-def publication_task_from_event(event: dict[str, Any]) -> tuple[dict[str, Any] | None, str | None]:
-    if event.get("schema") != EVENT_SCHEMA_V2:
-        return None, "PUBLISH requires V2 event schema"
-    publisher_role = event.get("publisher_role")
-    if publisher_role not in {"RESEARCHER", "RESEARCH_DRIVER"}:
-        return None, "PUBLISH publisher_role must be RESEARCHER or RESEARCH_DRIVER"
-    publisher_id = event.get("publisher_id")
-    if publisher_role == "RESEARCHER" and not valid_researcher_id(publisher_id):
-        return None, "PUBLISH requires valid Researcher-ID"
-    if publisher_role == "RESEARCH_DRIVER" and not valid_driver_id(publisher_id):
-        return None, "PUBLISH requires valid Driver-ID"
-    task = event.get("task")
-    if not isinstance(task, dict):
-        return None, "PUBLISH requires task object"
-    task = copy.deepcopy(task)
-    if task.get("task_id") != event.get("task_id"):
-        return None, "PUBLISH task.task_id must equal event.task_id"
-    task["base_state"] = "PENDING_REVIEW"
-    task["registry_source"] = "PUBLISH_EVENT"
-    task["publisher_id"] = str(publisher_id).strip().upper()
-    task["publisher_role"] = publisher_role
-    task["published_at"] = event.get("at")
-    task["publication_review_state"] = "PENDING"
-    return task, None
-
-
-def orphan_task_from_event(event: dict[str, Any]) -> tuple[dict[str, Any] | None, str | None]:
-    if event.get("schema") != EVENT_SCHEMA_V2:
-        return None, "REGISTER_ORPHAN requires V2 event schema"
-    task = event.get("task")
-    if not isinstance(task, dict):
-        return None, "REGISTER_ORPHAN requires task object"
-    task = copy.deepcopy(task)
-    if task.get("task_id") != event.get("task_id"):
-        return None, "REGISTER_ORPHAN task.task_id must equal event.task_id"
-    reason = event.get("orphan_reason")
-    if not isinstance(reason, str) or not reason.strip():
-        return None, "REGISTER_ORPHAN requires orphan_reason"
-    task["base_state"] = "ORPHANED"
-    task["registry_source"] = "REGISTER_ORPHAN_EVENT"
-    task["orphan_reason"] = reason
-    task["orphan_evidence_refs"] = copy.deepcopy(event.get("evidence_refs", []))
-    return task, None
+def validate_reviewer(event: dict[str, Any]) -> str | None:
+    reviewer_id = event.get("reviewer_id")
+    if not valid_driver_id(reviewer_id):
+        return "REVIEW requires a valid Driver-ID reviewer_id"
+    if not isinstance(event.get("review_ref"), str) or not event["review_ref"].strip():
+        return "REVIEW requires review_ref"
+    kind = event.get("review_kind")
+    verdict = event.get("verdict")
+    if kind not in REVIEW_KINDS:
+        return f"REVIEW review_kind must be one of {sorted(REVIEW_KINDS)}"
+    if verdict not in REVIEW_VERDICTS:
+        return f"REVIEW verdict must be one of {sorted(REVIEW_VERDICTS)}"
+    return None
 
 
 def materialize_tasks(
     config: dict[str, Any],
-    events: list[dict[str, Any]],
+    events: Sequence[dict[str, Any]],
     *,
     taskbook_dir: pathlib.Path | None = DEFAULT_TASKBOOK_DIR,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    catalog: dict[str, dict[str, Any]] = {}
+    """Build one catalog from static seeds, taskbook inventory and creation events.
+
+    Pre-V2 taskbooks that are not already static/event registered are surfaced as
+    ORPHANED inventory records.  They are never silently dispatchable merely
+    because a Markdown file exists.
+    """
+
+    by_id: dict[str, dict[str, Any]] = {}
     diagnostics: list[dict[str, Any]] = []
 
     for task in config.get("tasks", []):
         item = copy.deepcopy(task)
-        item.setdefault("registry_source", "STATIC_CONFIG")
-        catalog[item["task_id"]] = item
+        item.setdefault("registry_source", "STATIC_SEED")
+        item.setdefault("publication_review_state", "LEGACY_PREAPPROVED")
+        by_id[item["task_id"]] = item
 
-    taskbooks, taskbook_diagnostics = discover_taskbooks(taskbook_dir)
-    diagnostics.extend(taskbook_diagnostics)
-    for task in taskbooks:
-        task_id = task["task_id"]
-        if task_id in catalog:
-            catalog[task_id].setdefault("taskbook_path", task.get("taskbook_path"))
-            continue
-        item = copy.deepcopy(task)
-        if item.get("base_state") != "ORPHANED":
-            item["base_state"] = "ORPHANED"
-            item["registry_source"] = "TASKBOOK_DISCOVERY_ORPHAN"
-            item["orphan_reason"] = "TASKBOOK_NOT_REGISTERED_IN_SCHEDULER_V2"
-        catalog[task_id] = item
+    if taskbook_dir is not None and config.get("taskbook_registry", {}).get("discover", True):
+        discovered, taskbook_diagnostics = discover_taskbooks(taskbook_dir)
+        diagnostics.extend(taskbook_diagnostics)
+        for task in discovered:
+            task_id = task["task_id"]
+            if task_id in by_id:
+                by_id[task_id].setdefault("taskbook_path", task.get("taskbook_path"))
+                by_id[task_id].setdefault("taskbook_registry_source", task.get("registry_source"))
+                continue
+            item = copy.deepcopy(task)
+            # A pre-V2 taskbook that already has a real V1 runtime event was
+            # operationally registered even when it never entered the old static
+            # JSON catalog. Preserve its taskbook base state so those historical
+            # events can replay. A taskbook with no such evidence is a durable
+            # orphan and must be explicitly recovered under V2.
+            legacy_runtime_kinds = {
+                "CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF",
+                "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE",
+            }
+            has_legacy_runtime_registration = any(
+                event.get("task_id") == task_id
+                and event_schema(event) == EVENT_SCHEMA_V1
+                and event.get("event") in legacy_runtime_kinds
+                for event in events
+            )
+            if has_legacy_runtime_registration:
+                item["registry_source"] = "LEGACY_EVENT_REGISTERED_TASKBOOK"
+                item["publication_review_state"] = "LEGACY_PREAPPROVED"
+            else:
+                original_state = item.get("base_state")
+                item["legacy_taskbook_base_state"] = original_state
+                item["base_state"] = "ORPHANED"
+                item["orphan_reason"] = item.get("orphan_reason") or "TASKBOOK_NOT_REGISTERED_IN_SCHEDULER_V2"
+                item["registry_source"] = item.get("registry_source") or "TASKBOOK_DISCOVERY"
+                item["publication_review_state"] = "UNREGISTERED_LEGACY"
+            by_id[task_id] = item
 
-    last_create_index: dict[str, int] = {}
     for index, event in enumerate(events):
+        schema = event_schema(event)
         kind = event.get("event")
-        if kind not in {"PUBLISH", "REGISTER_ORPHAN"}:
+        if schema != EVENT_SCHEMA_V2 or kind not in {"PUBLISH", "REGISTER_ORPHAN"}:
             continue
-        task_id = event.get("task_id")
-        if not isinstance(task_id, str) or not task_id:
-            diagnostics.append({"event_index": index, "problem": f"{kind} missing task_id"})
+        task_payload = event.get("task")
+        if not isinstance(task_payload, dict):
+            diagnostics.append({"event_index": index, "severity": "ERROR", "message": f"{kind} requires task object"})
             continue
+        task_id = event.get("task_id") or task_payload.get("task_id")
+        if not isinstance(task_id, str) or task_payload.get("task_id") != task_id:
+            diagnostics.append({"event_index": index, "severity": "ERROR", "message": f"{kind} task_id mismatch"})
+            continue
+        if task_id in by_id and by_id[task_id].get("registry_source") not in {"TASKBOOK_DISCOVERY", "TASKBOOK_ORPHAN"}:
+            diagnostics.append({"event_index": index, "severity": "ERROR", "message": f"duplicate registration for {task_id}"})
+            continue
+
         if kind == "PUBLISH":
-            item, error = publication_task_from_event(event)
+            publisher_error = validate_publisher(event)
+            if publisher_error:
+                diagnostics.append({"event_index": index, "severity": "ERROR", "message": publisher_error})
+                continue
+            item = normalize_published_task(task_payload, base_state="PENDING_REVIEW", at=event.get("at"))
+            item["registry_source"] = "PUBLISH_EVENT"
+            item["publisher_id"] = event.get("publisher_id") or event.get("actor_id")
+            item["publisher_role"] = event.get("publisher_role") or event.get("actor_role")
+            item["published_at"] = event.get("at")
+            item["publication_review_state"] = "PENDING"
         else:
-            item, error = orphan_task_from_event(event)
-        if error or item is None:
-            diagnostics.append({"event_index": index, "task_id": task_id, "problem": error})
+            reason = event.get("orphan_reason")
+            if not isinstance(reason, str) or not reason.strip():
+                diagnostics.append({"event_index": index, "severity": "ERROR", "message": "REGISTER_ORPHAN requires orphan_reason"})
+                continue
+            item = normalize_published_task(task_payload, base_state="ORPHANED", at=event.get("at"))
+            item["registry_source"] = "REGISTER_ORPHAN_EVENT"
+            item["orphan_reason"] = reason
+            item["orphan_evidence_refs"] = copy.deepcopy(event.get("evidence_refs", []))
+            item["publication_review_state"] = "ORPHANED"
+
+        dynamic_shape_errors = validate_task_shape(
+            item,
+            task_states=set(config.get("task_states", [])),
+            priorities=set(config.get("selection_policy", {}).get("priority_order", [])),
+            leverage=set(config.get("selection_policy", {}).get("leverage_order", [])),
+            allow_unassigned_owner=(item.get("kind") == "RESEARCH"),
+            active_owners=set(),
+        )
+        # Publication/recovery may legitimately defer owner assignment, but all
+        # other task schema/priority/dependency/time invariants are enforced now.
+        dynamic_shape_errors = [
+            error for error in dynamic_shape_errors
+            if "research owner is not ACTIVE_OWNER/ACTIVE_BRIDGE" not in error
+        ]
+        if dynamic_shape_errors:
+            diagnostics.append({
+                "event_index": index,
+                "severity": "ERROR",
+                "message": f"{kind} invalid task payload: {'; '.join(dynamic_shape_errors)}",
+            })
             continue
-        prior_index = last_create_index.get(task_id)
-        if prior_index is not None:
-            diagnostics.append({"event_index": index, "task_id": task_id, "problem": f"duplicate create event; prior index {prior_index}"})
-            continue
-        last_create_index[task_id] = index
-        prior = catalog.get(task_id)
-        if prior is not None and prior.get("registry_source") not in {
-            "TASKBOOK_DISCOVERY_ORPHAN", "TASKBOOK_DISCOVERY_INVALID", "TASKBOOK_DISCOVERY_DUPLICATE"
-        }:
-            diagnostics.append({"event_index": index, "task_id": task_id, "problem": "task_id already registered"})
-            continue
-        if prior is not None and prior.get("taskbook_path") and not item.get("taskbook_path"):
-            item["taskbook_path"] = prior["taskbook_path"]
-        catalog[task_id] = item
-    return [catalog[key] for key in sorted(catalog)], diagnostics
+        by_id[task_id] = item
+
+    return list(by_id.values()), diagnostics
 
 
 def state_from_task(task: dict[str, Any]) -> dict[str, Any]:
-    return {
+    state = {
         "task_id": task["task_id"],
         "state": task["base_state"],
         "claim_id": None,
@@ -518,36 +648,46 @@ def state_from_task(task: dict[str, Any]) -> dict[str, Any]:
         "owner": task.get("owner"),
         "publisher_id": task.get("publisher_id"),
         "publisher_role": task.get("publisher_role"),
-        "publication_review_state": task.get("publication_review_state"),
+        "publication_review_state": task.get("publication_review_state", "LEGACY_PREAPPROVED"),
         "dispatch_review": None,
-        "return_ref": None,
         "return_review": None,
+        "orphan_recovery_review": None,
+        "return_ref": None,
+        "orphan_history": [],
         "orphan_reason": task.get("orphan_reason"),
         "orphan_evidence_refs": copy.deepcopy(task.get("orphan_evidence_refs", [])),
-        "orphan_history": [],
-        "orphan_recovery_review": None,
         "ignored_events": [],
     }
+    if state["state"] == "ORPHANED" and task.get("orphan_reason"):
+        state["orphan_history"].append(
+            {
+                "source": "REGISTRY",
+                "reason": task["orphan_reason"],
+                "at": task.get("last_progress_at"),
+                "claim_id": None,
+                "researcher_id": None,
+            }
+        )
+    return state
 
 
 def expire_claim(state: dict[str, Any], at: datetime) -> None:
     lease_until = state.get("lease_until")
     if state.get("claim_id") and isinstance(lease_until, datetime) and at >= lease_until:
-        orphan = {
-            "source": "LEASE_EXPIRY",
-            "reason": "CLAIM_LEASE_EXPIRED",
-            "at": lease_until.isoformat(),
-            "claim_id": state.get("claim_id"),
-            "actor": state.get("actor"),
-            "researcher_id": state.get("researcher_id"),
-            "last_progress_ref": state.get("last_progress_ref"),
-            "last_progress_at": state.get("last_progress_at"),
-            "next_action": state.get("next_action"),
-        }
-        state["orphan_history"].append(orphan)
+        state["orphan_history"].append(
+            {
+                "source": "LEASE_EXPIRY",
+                "reason": "CLAIM_LEASE_EXPIRED",
+                "at": lease_until.isoformat(),
+                "claim_id": state.get("claim_id"),
+                "actor": state.get("actor"),
+                "researcher_id": state.get("researcher_id"),
+                "last_progress_ref": state.get("last_progress_ref"),
+                "next_action": state.get("next_action"),
+            }
+        )
         state["state"] = "ORPHANED"
         state["orphan_reason"] = "CLAIM_LEASE_EXPIRED"
-        state["orphan_evidence_refs"] = [state.get("last_progress_ref")] if state.get("last_progress_ref") else []
         state["claim_id"] = None
         state["actor"] = None
         release_claim_identity(state)
@@ -559,8 +699,9 @@ def ignore(state: dict[str, Any], index: int, reason: str) -> None:
 
 
 def event_actor_identity_matches_claim(state: dict[str, Any], event: dict[str, Any], kind: str) -> str | None:
+    claim_id = event.get("claim_id")
     live_claim = state.get("claim_id")
-    if not live_claim or event.get("claim_id") != live_claim:
+    if not live_claim or claim_id != live_claim:
         return f"{kind} requires the current live claim_id"
     event_researcher_id = event.get("researcher_id")
     if event_researcher_id is not None:
@@ -571,25 +712,16 @@ def event_actor_identity_matches_claim(state: dict[str, Any], event: dict[str, A
     return None
 
 
-def validate_reviewer(event: dict[str, Any]) -> str | None:
-    reviewer_id = event.get("reviewer_id")
-    if not valid_driver_id(reviewer_id):
-        return "REVIEW requires a valid Driver-ID reviewer_id"
-    if event.get("review_kind") not in REVIEW_KINDS:
-        return f"invalid review_kind {event.get('review_kind')!r}"
-    if event.get("verdict") not in REVIEW_VERDICTS:
-        return f"invalid review verdict {event.get('verdict')!r}"
-    if not isinstance(event.get("review_ref"), str) or not event["review_ref"].strip():
-        return "REVIEW requires review_ref"
-    return None
-
-
 def review_is_independent(state: dict[str, Any], event: dict[str, Any], review_kind: str) -> str | None:
-    reviewer = str(event.get("reviewer_id", "")).strip().upper()
-    if review_kind == "DISPATCH" and state.get("publisher_role") == "RESEARCH_DRIVER":
-        publisher = str(state.get("publisher_id", "")).strip().upper()
-        if publisher and reviewer == publisher:
-            return "Driver publisher cannot self-review DISPATCH"
+    reviewer_id = event.get("reviewer_id")
+    if review_kind == "DISPATCH":
+        publisher_id = state.get("publisher_id")
+        if publisher_id and reviewer_id == publisher_id:
+            return "dispatch reviewer must be independent from publisher"
+    if review_kind == "RETURN":
+        worker_driver_id = event.get("worker_driver_id")
+        if worker_driver_id and reviewer_id == worker_driver_id:
+            return "return reviewer must be independent from worker Driver"
     return None
 
 
@@ -606,8 +738,8 @@ def reduce_task(
 
     last_event_time: datetime | None = None
     for index, event in enumerate(matching):
-        schema = event.get("schema")
-        if schema not in (None, EVENT_SCHEMA_V1, EVENT_SCHEMA_V2):
+        schema = event_schema(event)
+        if schema not in {EVENT_SCHEMA_V1, EVENT_SCHEMA_V2}:
             ignore(state, index, "wrong event schema")
             continue
         try:
@@ -717,14 +849,22 @@ def reduce_task(
                     continue
                 state["orphan_recovery_review"] = review_record
                 if verdict == "APPROVE":
-                    if (
-                        task.get("kind") == "RESEARCH"
-                        and active_research_owners is not None
-                        and state.get("owner") not in active_research_owners
-                    ):
-                        ignore(state, index, f"ORPHAN_RECOVERY owner is not ACTIVE_OWNER/ACTIVE_BRIDGE: {state.get('owner')!r}")
+                    recovery_owner = event.get("assigned_owner") or state.get("owner")
+                    if task.get("kind") == "RESEARCH":
+                        if not isinstance(recovery_owner, str) or not recovery_owner.strip():
+                            ignore(state, index, "ORPHAN_RECOVERY APPROVE requires assigned_owner")
+                            state["orphan_recovery_review"] = None
+                            continue
+                        if active_research_owners is not None and recovery_owner not in active_research_owners:
+                            ignore(state, index, f"ORPHAN_RECOVERY owner is not ACTIVE_OWNER/ACTIVE_BRIDGE: {recovery_owner!r}")
+                            state["orphan_recovery_review"] = None
+                            continue
+                    elif task.get("kind") == "GOVERNANCE" and recovery_owner != "governance":
+                        ignore(state, index, "GOVERNANCE orphan recovery must assign owner='governance'")
                         state["orphan_recovery_review"] = None
                         continue
+                    task["owner"] = recovery_owner
+                    state["owner"] = recovery_owner
                     state["state"] = "HANDOFF_READY"
                     state["orphan_reason"] = None
                     if event.get("next_action"):
@@ -904,12 +1044,16 @@ def reduce_task(
             if state["state"] != "ORPHANED":
                 ignore(state, index, "ADOPT requires ORPHANED state")
                 continue
-            if (
-                task.get("kind") == "RESEARCH"
-                and active_research_owners is not None
-                and state.get("owner") not in active_research_owners
-            ):
-                ignore(state, index, f"ADOPT owner is not ACTIVE_OWNER/ACTIVE_BRIDGE: {state.get('owner')!r}")
+            recovery_owner = event.get("assigned_owner") or state.get("owner")
+            if task.get("kind") == "RESEARCH":
+                if not isinstance(recovery_owner, str) or not recovery_owner.strip():
+                    ignore(state, index, "ADOPT requires assigned_owner for unowned research task")
+                    continue
+                if active_research_owners is not None and recovery_owner not in active_research_owners:
+                    ignore(state, index, f"ADOPT owner is not ACTIVE_OWNER/ACTIVE_BRIDGE: {recovery_owner!r}")
+                    continue
+            elif task.get("kind") == "GOVERNANCE" and recovery_owner != "governance":
+                ignore(state, index, "GOVERNANCE adoption must assign owner='governance'")
                 continue
             reviewer_id = event.get("reviewer_id")
             if not valid_driver_id(reviewer_id):
@@ -918,6 +1062,8 @@ def reduce_task(
             if not isinstance(event.get("review_ref"), str) or not event["review_ref"].strip():
                 ignore(state, index, "ADOPT requires review_ref")
                 continue
+            task["owner"] = recovery_owner
+            state["owner"] = recovery_owner
             state["state"] = "HANDOFF_READY"
             state["orphan_reason"] = None
             state["orphan_recovery_review"] = {
@@ -1016,7 +1162,7 @@ def effective_states(
             {
                 "title": task.get("title"),
                 "kind": task.get("kind"),
-                "owner": reduced.get("owner", task.get("owner")),
+                "owner": task.get("owner"),
                 "priority": task.get("priority"),
                 "leverage": task.get("leverage"),
                 "frontier": task.get("frontier"),
@@ -1027,6 +1173,7 @@ def effective_states(
             }
         )
         results.append(reduced)
+    # Attach catalog diagnostics once, without changing legacy list shape.
     if catalog_diagnostics:
         for result in results:
             result.setdefault("catalog_diagnostics_count", len(catalog_diagnostics))
@@ -1067,14 +1214,13 @@ def select_task(
 ) -> dict[str, Any] | None:
     policy = config["selection_policy"]
     states = effective_states(config, events, now, taskbook_dir=taskbook_dir, owners=owners)
-    task_by_id, _ = materialize_tasks(config, events, taskbook_dir=taskbook_dir)
-    task_lookup = {task["task_id"]: task for task in task_by_id}
     state_rank = {name: index for index, name in enumerate(policy["state_order"])}
     priority_rank = {name: index for index, name in enumerate(policy["priority_order"])}
     leverage_rank = {name: index for index, name in enumerate(policy["leverage_order"])}
 
     candidates = [
-        state for state in states
+        state
+        for state in states
         if state["dispatch_state"] == "NEEDS_DISPATCH"
         and (kind == "ANY" or state["kind"] == kind)
     ]
@@ -1082,17 +1228,16 @@ def select_task(
         return None
 
     def candidate_key(state: dict[str, Any]) -> tuple[Any, ...]:
-        task = task_lookup[state["task_id"]]
         try:
             last_progress = parse_time(state["last_progress_at"])
         except (TypeError, ValueError):
             last_progress = datetime(1970, 1, 1, tzinfo=timezone.utc)
         return (
             state_rank.get(state["state"], len(state_rank)),
-            priority_rank.get(task["priority"], len(priority_rank)),
-            leverage_rank.get(task["leverage"], len(leverage_rank)),
+            priority_rank.get(state["priority"], len(priority_rank)),
+            leverage_rank.get(state["leverage"], len(leverage_rank)),
             last_progress,
-            task["task_id"],
+            state["task_id"],
         )
 
     return min(candidates, key=candidate_key)
@@ -1145,73 +1290,104 @@ def load_emit_task_payload(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def emit_event(kind: str, args: argparse.Namespace) -> dict[str, Any]:
-    event: dict[str, Any] = {
+    base = {
         "schema": EVENT_SCHEMA_V2,
         "event": kind,
-        "task_id": args.task_id,
+        "task_id": getattr(args, "task_id", None),
         "actor": getattr(args, "actor", None),
         "at": args.at,
     }
     if kind in {"PUBLISH", "REGISTER_ORPHAN"}:
-        event["task"] = load_emit_task_payload(args)
-    if kind == "PUBLISH":
-        event["publisher_id"] = args.publisher_id
-        event["publisher_role"] = args.publisher_role
-    elif kind == "REGISTER_ORPHAN":
-        event["orphan_reason"] = args.orphan_reason
-        event["evidence_refs"] = args.evidence_refs or []
-    elif kind in {"CLAIM", "HEARTBEAT", "PROGRESS", "RETURN", "HANDOFF", "HARD_BLOCK"}:
-        event["claim_id"] = args.claim_id
-        if getattr(args, "researcher_id", None):
-            event["researcher_id"] = args.researcher_id
-        if getattr(args, "lease_minutes", None):
-            event["lease_minutes"] = args.lease_minutes
-        if getattr(args, "progress_ref", None):
-            event["progress_ref"] = args.progress_ref
-        if getattr(args, "return_ref", None):
-            event["return_ref"] = args.return_ref
-        if getattr(args, "next_action", None):
-            event["next_action"] = args.next_action
-        if kind == "HARD_BLOCK":
-            event["hard_block"] = {
-                "missing_object": args.missing_object,
-                "owner": args.block_owner,
-                "necessity": args.necessity,
-                "unblock_condition": args.unblock_condition,
+        payload = load_emit_task_payload(args)
+        task_id = getattr(args, "task_id", None) or payload.get("task_id")
+        if not task_id:
+            raise SchedulerError("task payload requires task_id")
+        if payload.get("task_id") != task_id:
+            raise SchedulerError("event task_id must match task payload task_id")
+        base["task_id"] = task_id
+        base["task"] = payload
+        if kind == "PUBLISH":
+            base["publisher_role"] = args.publisher_role
+            base["publisher_id"] = args.publisher_id
+            base["actor_role"] = args.publisher_role
+            base["actor_id"] = args.publisher_id
+        else:
+            base["orphan_reason"] = args.orphan_reason
+            base["evidence_refs"] = args.evidence_refs or []
+    elif kind == "CLAIM":
+        base["claim_id"] = args.claim_id
+        if args.researcher_id:
+            base["researcher_id"] = args.researcher_id
+        if args.lease_minutes:
+            base["lease_minutes"] = args.lease_minutes
+    elif kind == "HEARTBEAT":
+        base["claim_id"] = args.claim_id
+        if args.researcher_id:
+            base["researcher_id"] = args.researcher_id
+        if args.lease_minutes:
+            base["lease_minutes"] = args.lease_minutes
+    elif kind == "PROGRESS":
+        base.update({"claim_id": args.claim_id, "progress_ref": args.progress_ref, "next_action": args.next_action})
+        if args.researcher_id:
+            base["researcher_id"] = args.researcher_id
+    elif kind == "RETURN":
+        base.update({"claim_id": args.claim_id, "return_ref": args.return_ref, "next_action": args.next_action})
+        if args.researcher_id:
+            base["researcher_id"] = args.researcher_id
+    elif kind == "HANDOFF":
+        base.update({"claim_id": args.claim_id, "progress_ref": args.progress_ref, "next_action": args.next_action})
+        if args.researcher_id:
+            base["researcher_id"] = args.researcher_id
+    elif kind == "HARD_BLOCK":
+        base.update(
+            {
+                "claim_id": args.claim_id,
+                "progress_ref": args.progress_ref,
+                "hard_block": {
+                    "missing_object": args.missing_object,
+                    "owner": args.block_owner,
+                    "necessity": args.necessity,
+                    "unblock_condition": args.unblock_condition,
+                },
             }
+        )
+        if args.researcher_id:
+            base["researcher_id"] = args.researcher_id
     elif kind == "UNBLOCK":
-        event["next_action"] = args.next_action
+        base["next_action"] = args.next_action
     elif kind == "REVIEW":
-        event.update(
+        base.update(
             {
                 "review_kind": args.review_kind,
                 "verdict": args.verdict,
                 "reviewer_id": args.reviewer_id,
                 "review_ref": args.review_ref,
+                "next_action": args.next_action,
+                "assigned_owner": args.assigned_owner,
+                "note": args.note,
             }
         )
-        if args.next_action:
-            event["next_action"] = args.next_action
-        if args.assigned_owner:
-            event["assigned_owner"] = args.assigned_owner
-        if args.note:
-            event["note"] = args.note
     elif kind == "ORPHAN":
-        event["orphan_reason"] = args.orphan_reason
-        event["evidence_refs"] = args.evidence_refs or []
+        base.update({"orphan_reason": args.orphan_reason, "evidence_refs": args.evidence_refs or []})
     elif kind == "ADOPT":
-        event["reviewer_id"] = args.reviewer_id
-        event["review_ref"] = args.review_ref
-        if args.next_action:
-            event["next_action"] = args.next_action
-        if args.note:
-            event["note"] = args.note
+        base.update(
+            {
+                "reviewer_id": args.reviewer_id,
+                "review_ref": args.review_ref,
+                "next_action": args.next_action,
+                "assigned_owner": args.assigned_owner,
+                "note": args.note,
+            }
+        )
     elif kind == "SUPERSEDE":
-        event["reviewer_id"] = args.reviewer_id
-        event["review_ref"] = args.review_ref
-        if args.next_action:
-            event["next_action"] = args.next_action
-    return event
+        base.update(
+            {
+                "reviewer_id": args.reviewer_id,
+                "review_ref": args.review_ref,
+                "next_action": args.next_action,
+            }
+        )
+    return {key: value for key, value in base.items() if value is not None}
 
 
 def select_review(
@@ -1224,34 +1400,37 @@ def select_review(
     owners: dict[str, Any] | None = None,
 ) -> dict[str, Any] | None:
     states = effective_states(config, events, now, taskbook_dir=taskbook_dir, owners=owners)
-    candidates = [state for state in states if state["dispatch_state"] == "NEEDS_REVIEW"]
-    reviewer = reviewer_id.strip().upper() if isinstance(reviewer_id, str) else None
-    if reviewer:
-        candidates = [
-            state for state in candidates
-            if not (
-                state["state"] == "PENDING_REVIEW"
-                and state.get("publisher_role") == "RESEARCH_DRIVER"
-                and str(state.get("publisher_id", "")).upper() == reviewer
-            )
-        ]
+    priority_rank = {name: index for index, name in enumerate(config["selection_policy"]["priority_order"])}
+    leverage_rank = {name: index for index, name in enumerate(config["selection_policy"]["leverage_order"])}
+    candidates = []
+    for state in states:
+        if state["dispatch_state"] != "NEEDS_REVIEW":
+            continue
+        if reviewer_id and state.get("publisher_id") == reviewer_id and state["state"] == "PENDING_REVIEW":
+            continue
+        candidates.append(state)
     if not candidates:
         return None
-    priority_rank = {name: i for i, name in enumerate(config["selection_policy"]["priority_order"])}
-    review_state_rank = {"RETURNED": 0, "PENDING_REVIEW": 1}
-    return min(
-        candidates,
-        key=lambda state: (
-            review_state_rank.get(state["state"], 9),
-            priority_rank.get(state.get("priority"), 99),
-            parse_time(state["last_progress_at"]) if state.get("last_progress_at") else datetime(1970, 1, 1, tzinfo=timezone.utc),
+
+    def review_key(state: dict[str, Any]) -> tuple[Any, ...]:
+        review_kind_rank = 0 if state["state"] == "RETURNED" else 1
+        try:
+            last_progress = parse_time(state["last_progress_at"])
+        except (TypeError, ValueError):
+            last_progress = datetime(1970, 1, 1, tzinfo=timezone.utc)
+        return (
+            review_kind_rank,
+            priority_rank.get(state["priority"], len(priority_rank)),
+            leverage_rank.get(state["leverage"], len(leverage_rank)),
+            last_progress,
             state["task_id"],
-        ),
-    )
+        )
+
+    return min(candidates, key=review_key)
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Enterprise Math research scheduler V2")
+    parser = argparse.ArgumentParser(description="Enterprise Math unified research scheduler V2")
     parser.add_argument("--config", type=pathlib.Path, default=DEFAULT_CONFIG)
     parser.add_argument("--owners", type=pathlib.Path, default=DEFAULT_OWNERS)
     parser.add_argument("--taskbook-dir", type=pathlib.Path, default=DEFAULT_TASKBOOK_DIR)
@@ -1277,38 +1456,37 @@ def build_parser() -> argparse.ArgumentParser:
     select.add_argument("--now")
     select.add_argument("--kind", choices=["RESEARCH", "GOVERNANCE", "ANY"], default="RESEARCH")
 
-    select_review_parser = sub.add_parser("select-review")
-    select_review_parser.add_argument("--events", type=pathlib.Path)
-    select_review_parser.add_argument("--now")
-    select_review_parser.add_argument("--reviewer-id")
+    review_select = sub.add_parser("select-review")
+    review_select.add_argument("--events", type=pathlib.Path)
+    review_select.add_argument("--now")
+    review_select.add_argument("--reviewer-id")
 
     identity = sub.add_parser("identity")
-    identity.add_argument("--events", type=pathlib.Path)
     identity.add_argument("--task-id", required=True)
     identity.add_argument("--claim-id", required=True)
 
     emit = sub.add_parser("emit")
     emit_sub = emit.add_subparsers(dest="emit_kind", required=True)
 
-    def add_common(p: argparse.ArgumentParser, *, actor: bool = True) -> None:
-        p.add_argument("--task-id", required=True)
+    def add_common(p: argparse.ArgumentParser, *, require_task_id: bool = True) -> None:
+        p.add_argument("--task-id", required=require_task_id)
         p.add_argument("--at", required=True)
-        if actor:
-            p.add_argument("--actor", default="agent")
+        p.add_argument("--actor", default="scheduler-cli")
+
+    def add_task_source(p: argparse.ArgumentParser) -> None:
+        group = p.add_mutually_exclusive_group(required=True)
+        group.add_argument("--task-json", type=pathlib.Path)
+        group.add_argument("--taskbook", type=pathlib.Path)
 
     publish = emit_sub.add_parser("publish")
-    add_common(publish)
-    source = publish.add_mutually_exclusive_group(required=True)
-    source.add_argument("--task-json", type=pathlib.Path)
-    source.add_argument("--taskbook", type=pathlib.Path)
-    publish.add_argument("--publisher-id", required=True)
+    add_common(publish, require_task_id=False)
+    add_task_source(publish)
     publish.add_argument("--publisher-role", choices=["RESEARCHER", "RESEARCH_DRIVER"], required=True)
+    publish.add_argument("--publisher-id", required=True)
 
     register_orphan = emit_sub.add_parser("register-orphan")
-    add_common(register_orphan)
-    source = register_orphan.add_mutually_exclusive_group(required=True)
-    source.add_argument("--task-json", type=pathlib.Path)
-    source.add_argument("--taskbook", type=pathlib.Path)
+    add_common(register_orphan, require_task_id=False)
+    add_task_source(register_orphan)
     register_orphan.add_argument("--orphan-reason", required=True)
     register_orphan.add_argument("--evidence-refs", nargs="*")
 
@@ -1330,7 +1508,6 @@ def build_parser() -> argparse.ArgumentParser:
     progress.add_argument("--progress-ref", required=True)
     progress.add_argument("--next-action", required=True)
     progress.add_argument("--researcher-id")
-    progress.add_argument("--lease-minutes", type=int)
 
     ret = emit_sub.add_parser("return")
     add_common(ret)
@@ -1380,6 +1557,7 @@ def build_parser() -> argparse.ArgumentParser:
     adopt.add_argument("--reviewer-id", required=True)
     adopt.add_argument("--review-ref", required=True)
     adopt.add_argument("--next-action")
+    adopt.add_argument("--assigned-owner")
     adopt.add_argument("--note")
 
     supersede = emit_sub.add_parser("supersede")
