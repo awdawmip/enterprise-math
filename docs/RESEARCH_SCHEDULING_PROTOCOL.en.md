@@ -1,10 +1,10 @@
 # Enterprise Math Research Scheduling Protocol
 
-Status: `ACTIVE / CANONICAL SCHEDULING CONTRACT`  
-Effective: 2026-08-09  
-Scope: all L1 core owners, L2 program owners, L3 bridges/probes, and L4 integration replays.
+Status: `ACTIVE / CANONICAL SCHEDULING CONTRACT / V2`  
+Effective: 2026-08-24  
+Scope: all L1 core owners, L2 program owners, L3 bridges/probes, L4 integration replays, and shared Driver review work.
 
-This protocol resolves ambiguity created during Architecture v2 migration. Where older migration notes, replay manifests, branch ledgers, or Relay wording can be read as requiring one research line to wait for another, this protocol controls the scheduling interpretation.
+This protocol resolves ambiguity created during Architecture v2 migration and later task/review growth. Where older migration notes, replay manifests, branch ledgers, Relay wording, or static scheduler rows can be read as requiring one research line to wait for another or as privately assigning work to one conversation, this protocol controls the scheduling interpretation.
 
 ## 1. Primary invariant: research is parallel, canonical promotion is serialized
 
@@ -101,15 +101,23 @@ shared_surface_seen: <main SHA or common-surface revision>
 
 If `hard_block = NONE`, the route should continue research rather than waiting for another conversation, branch, review, or replay.
 
-## 8. Dispatch state machine and conversation handoff
+## 8. Unified task/review state machine and conversation handoff
 
-The route heartbeat is made executable by `research_scheduler.json`, `tools/research_scheduler.py`, and the live Research Dispatch Board Issue #240.
+The route heartbeat is made executable by:
 
-The scheduler coordinates **who continues which frontier**. It does not decide whether a theorem is proved, canonical, novel, or ready for promotion.
+- `research_scheduler.json` / `tools/research_scheduler.py` for the legacy task-state reducer;
+- `research_work_state_machine.json` / `tools/research_work_state.py` for task publication, safe generic claiming and Driver review state;
+- the append-only Research Dispatch Board Issue #240 as the shared event log.
 
-### 8.1 Task states
+The control plane coordinates **who executes which selected task and who reviews which return**. It does not decide whether a theorem is proved, canonical, novel, or ready for promotion.
 
-The durable task frontier uses the states:
+Freeze:
+
+`USER != MANUAL_TASK_OR_REVIEW_MESSAGE_BUS`.
+
+### 8.1 Task states and publication generations
+
+The durable task frontier retains the legacy states:
 
 `BACKLOG -> READY -> CLAIMED -> IN_PROGRESS -> HANDOFF_READY -> DONE`
 
@@ -118,64 +126,118 @@ with two exceptional exits:
 - `BLOCKED` — only after a complete four-field `HARD_BLOCK`;
 - `SUPERSEDED` — the task frontier has been replaced by another explicit task.
 
-`READY` and `HANDOFF_READY` are dispatchable. `BACKLOG` is intentionally dormant. A task with a live claim is leased to one executor. A completed or superseded task is never automatically selected again.
+But a static `READY` row is no longer sufficient by itself for generic automatic claiming.
+
+For a newly approved or re-reviewed taskbook:
+
+`TASKBOOK_DISPATCH_PASS -> SAME_TURN_TASK_PUBLISH`.
+
+`TASK_PUBLISH` records an immutable `taskbook_ref=path@commit`, issuing Driver-ID and current routing fields. The latest valid publication is the current task generation. Runtime DONE/SUPERSEDE/claim events from an older generation of the same task id remain provenance and do not mutate the new generation.
+
+Generic claim eligibility is limited to:
+
+1. current published task generations; and
+2. legacy tasks with reducer-accepted runtime execution history that genuinely need continuation/handoff recovery.
+
+Untouched historical static `READY`/`HANDOFF_READY` entries remain visible as provenance but do not silently re-enter the generic queue.
 
 ### 8.2 Claims are renewable leases
 
-A `CLAIM` is a temporary execution lease, not permanent ownership. Its default duration is declared in `research_scheduler.json`.
+A `CLAIM` is a temporary execution lease, not permanent ownership. Its default duration is declared by the task/scheduler contract.
 
 - `PROGRESS` renews the lease and records a real checkpoint;
 - `HEARTBEAT` renews the lease when no better progress event exists;
 - `HANDOFF` releases the claim deliberately and must state one concrete `next_action`;
-- if a claimant disappears without handoff, lease expiry automatically returns the task to `HANDOFF_READY / NEEDS_DISPATCH`;
+- if a claimant disappears without handoff, lease expiry returns the task to `HANDOFF_READY / NEEDS_DISPATCH`;
 - a second claim cannot preempt a live lease;
 - after expiry, handoff, unblock, or other valid release, another conversation may claim the task.
 
-Runtime events are append-only comments on Issue #240 using schema `ENTERPRISE_MATH_SCHEDULER_EVENT_V1`. Event ordering is GitHub comment creation order, with comment ID breaking any timestamp tie.
+Legacy runtime task events remain valid under `ENTERPRISE_MATH_SCHEDULER_EVENT_V1`; the unified layer may also normalize compatible task runtime events from `ENTERPRISE_MATH_WORK_EVENT_V1`. Event authority follows append-only board comment order.
 
-### 8.3 New-conversation automatic selection
+### 8.3 Generic researcher claim: `领任务`
 
-A current explicit user task always overrides automatic selection.
+A current explicit user-selected task always overrides generic selection.
 
-If a new Enterprise Math research conversation has no user-selected task, it must:
+A generic request such as `领任务`, `领取任务`, `claim task`, or equivalent explicitly requests shared-state TASK dispatch. It is distinct from FREE Phase-A research and from an ordinary conversation with no selected topic.
 
-1. read the common surface, this scheduling protocol, `research_scheduler.json`, owner isolation, and live Issue #240 events;
-2. reduce all valid runtime events to the current task states;
-3. ignore tasks with a live lease, complete tasks, blocked tasks, and dormant `BACKLOG` tasks;
-4. prefer `HANDOFF_READY` over fresh `READY` work so interrupted research is continued before opening another frontier;
-5. within that state order, rank by scheduler priority, then cross-route leverage, then oldest last-progress time, then stable task ID;
-6. post a valid `CLAIM` before substantive task-specific research begins;
-7. refresh the selected task's source PR/branch/Relay/canonical dependencies before proving anything new.
+On generic claim, a researcher must:
 
-This selection rule is deterministic so multiple agents inspecting the same state choose the same first candidate; the live-claim race is resolved by the first valid GitHub claim event.
+1. read the unified work-state rules and current board events needed for selection;
+2. reduce the current published/runtime-continuation task states;
+3. ignore live leases, complete/superseded tasks, valid blocked tasks, dormant BACKLOG, and untouched unpublished legacy READY rows;
+4. prefer `HANDOFF_READY` over fresh `READY` within the eligible shared queue;
+5. within that state order rank by priority, leverage, oldest accepted progress, then stable task id;
+6. post a valid `CLAIM` before substantive task-specific research;
+7. resolve/allocate the Researcher-ID from the claim;
+8. load the exact published taskbook ref when present, then only the first dependencies needed to start;
+9. begin the task without asking the user to provide a task id or handoff prompt.
 
-### 8.4 Session exit contract
+This rule is deterministic; concurrent claim races are resolved by the first valid append-only claim event.
 
-A research session must not silently disappear from the control plane.
+FREE Phase A is never entered or scheduled by this generic task-claim command.
 
-Before ending an unfinished task, post `HANDOFF` with:
+### 8.4 Research completion and review request
 
-- task ID and current claim ID;
-- last meaningful commit/PR/Relay or other progress reference;
-- one concrete next mathematical/engineering action;
-- `hard_block = NONE` unless the full exceptional block record is justified.
+A shared-state research session must not silently disappear from the control plane.
 
-Use `DONE` only when the scheduler task's declared frontier is actually complete. Canonical promotion remains a separate L4 lifecycle operation unless promotion was itself the declared scheduler task.
+Before ending an unfinished task, post `HANDOFF` with task/claim id, last meaningful progress ref and one concrete next action.
 
-No downstream ACK is required for handoff. The scheduler, not another conversation's acknowledgement, is the continuation mechanism.
+Use `DONE` only when the declared task frontier is actually complete. For a completed shared task requiring review, the same semantic checkpoint also appends `REVIEW_REQUEST` with:
 
-### 8.5 Control-plane consistency
+- review id and task id;
+- originating Researcher-ID;
+- issuing Driver-ID when known from task publication;
+- exact review objective;
+- target refs;
+- evidence refs;
+- execution-log refs;
+- requested checks;
+- priority.
 
-`branch_governance_overrides.json` is the machine owner registry; every `ACTIVE_OWNER`/`ACTIVE_BRIDGE` must have scheduler coverage, even when its scheduler task is deliberately `BACKLOG`. `tools/research_scheduler.py validate` enforces this coverage and rejects partial hard-block records.
+Freeze:
 
-Historical branch ledgers remain useful provenance/snapshots, but they are not the live executor assignment surface. Live dispatch authority is the combination of current owner registry + `research_scheduler.json` + Issue #240 runtime events.
+`RESEARCH_DONE -> SAME_TURN_DONE_EVENT + REVIEW_REQUEST`.
+
+The user does not need to copy the return, logs, task id, or review instructions into another conversation.
+
+### 8.5 Generic Driver review claim: `领审核`
+
+A Driver request such as `领审核`, `领取审核`, `claim review`, or equivalent explicitly requests the shared review queue.
+
+Reviews use renewable leases analogous to task claims and support `REVIEW_PROGRESS`, `REVIEW_HANDOFF`, `REVIEW_DONE`, and `REVIEW_SUPERSEDE`.
+
+There is no private issuer lock:
+
+`TASK_ISSUER != REQUIRED_REVIEWER`.
+
+Any active Driver may claim a review. Selection uses review state and priority first; among otherwise comparable items it prefers a Driver-ID different from the task-issuing Driver-ID, then older request time. A P0 review is not delayed merely to obtain a different Driver when only lower-priority cross-review work exists.
+
+If no different Driver is available, same-Driver review is permitted and is explicitly labeled. It is not independent replication merely because a review record exists.
+
+`REVIEW_DONE` records verdict, findings, evidence refs, next action, method-harvest classification and successor disposition.
+
+Truth boundaries remain:
+
+`SCHEDULER_DONE != THEOREM_TRUTH`.
+
+`REVIEW_DONE != CANONICAL_MAIN`.
+
+Foundation and promotion gates remain separate.
+
+### 8.6 Control-plane consistency
+
+`branch_governance_overrides.json` remains the machine owner registry. `research_scheduler.json` remains the durable legacy coverage surface. `TASK_PUBLISH` is the current publication surface for newly approved/re-reviewed task generations; runtime task/review events are the live lease/result surface.
+
+Historical branch ledgers and untouched old scheduler rows remain provenance/snapshots, not automatic executor assignments.
 
 CI, review, L4 replay, or moving `main` may affect evidence/promotion status, but they do not silently mutate a research task into `BLOCKED`.
 
+Policy updates may stale a taskbook for future dispatch/publication without retroactively erasing an already-running frozen execution.
+
 ## 9. Relationship to Architecture v2
 
-This protocol preserves Architecture v2's theorem ownership and non-destructive replay rules. It changes only the mistaken scheduling interpretation:
+This protocol preserves Architecture v2's theorem ownership and non-destructive replay rules. It changes only the mistaken scheduling interpretation and the user-relay bottleneck:
 
-> ownership is unique; knowledge is shared; research remains parallel.
+> ownership is unique; knowledge is shared; tasks and reviews are shared state; research remains parallel.
 
-The A0–A5 ownership axis prevents duplicate mother theorems. It must not become a serial dependency chain.
+The A0–A5 ownership axis prevents duplicate mother theorems. It must not become a serial dependency chain or a private review chain.
