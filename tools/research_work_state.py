@@ -16,6 +16,7 @@ import argparse
 import copy
 import json
 import pathlib
+import re
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
@@ -26,6 +27,7 @@ DEFAULT_MACHINE = ROOT / "research_work_state_machine.json"
 DEFAULT_SCHEDULER = ROOT / "research_scheduler.json"
 WORK_SCHEMA = "ENTERPRISE_MATH_WORK_EVENT_V1"
 LEGACY_SCHEMA = "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
+IMMUTABLE_TASKBOOK_REF_RE = re.compile(r"^.+@[0-9a-fA-F]{7,64}$")
 
 REVIEW_EVENTS = {
     "REVIEW_REQUEST",
@@ -102,8 +104,8 @@ def validate_task_publish(event: dict[str, Any], machine: dict[str, Any]) -> lis
     except (TypeError, ValueError):
         errors.append("TASK_PUBLISH has invalid at timestamp")
     ref = event.get("taskbook_ref")
-    if not isinstance(ref, str) or "@" not in ref:
-        errors.append("TASK_PUBLISH taskbook_ref must be immutable path@commit")
+    if not isinstance(ref, str) or not IMMUTABLE_TASKBOOK_REF_RE.fullmatch(ref):
+        errors.append("TASK_PUBLISH taskbook_ref must be immutable path@commit-sha")
     issuer = event.get("issuer_driver_id")
     if not isinstance(issuer, str) or not issuer.strip():
         errors.append("TASK_PUBLISH issuer_driver_id must be nonempty")
