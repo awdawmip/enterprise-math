@@ -18,6 +18,8 @@ Freeze:
 
 `STALE_CONVERSATION != WAITING_WORKER`.
 
+`BEFORE_NEW_EXECUTION_GENERATION -> RECONCILE_DURABLE_FRONTIER`.
+
 A model must not require the user to send `继续`, `continue`, `完成了`, or an equivalent wake-up message when that message supplies no new information and the next action is already determined by the current objective and evidence.
 
 A model must also not keep an open parent objective blocked merely because an earlier conversation appears to be executing it. Once that conversation has produced no new **verifiable action** for 10 continuous minutes, recovery is from durable state, not from trust in the old chat.
@@ -59,6 +61,31 @@ Conversation-local scratch reasoning, uncommitted edits and assistant progress m
 
 Operationally, do not carry more than one meaningful semantic phase exclusively inside a conversation. At phase boundaries, persist reusable evidence and a concrete next action whenever a write path is available.
 
+## Pre-execution frontier reconciliation
+
+Before creating a new researcher execution identity, owner branch, execution stamp, Scheduler `CLAIM`, Scheduler `ADOPT`, or direct rerun for an existing exact task, reconstruct its durable frontier first. This is a narrow task-specific intake check, not a universal repository preflight.
+
+Resolve the exact task id, immutable taskbook ref, declared owner branch and expected return/evidence locations, then classify exactly one:
+
+- `VERIFIED_COMPLETE` — durable evidence already satisfies the assigned objective. Consume the frozen result; do not create another execution generation or redo mathematics.
+- `IN_PROGRESS_RECOVERABLE` — a valid frontier exists. Resume/ADOPT from it and preserve valid evidence.
+- `UNFINISHED` — execution began but the durable result is incomplete. Preserve what is valid and restart only the missing portion.
+- `NEVER_STARTED` — no substantive durable execution began. Normal dispatch is allowed.
+
+Freeze:
+
+`VERIFIED_COMPLETE -> CONSUME_NOT_REDISPATCH`.
+
+`IN_PROGRESS_RECOVERABLE -> TAKEOVER_SAME_DURABLE_FRONTIER`.
+
+`UNFINISHED -> RESTART_ONLY_MISSING_WORK`.
+
+`NEVER_STARTED -> NORMAL_DISPATCH`.
+
+A stale conversation or ordinary continuation is not itself a fresh independent replication. Create a new clean independent child only when the controlling independence protocol explicitly requires a distinct run.
+
+For blind/independent work, this intake reconciles status/provenance metadata without reading withheld mathematical content before the declared freeze.
+
 ## Cross-conversation stale recovery
 
 If an active conversation has no new verifiable action for **10 continuous minutes**, classify that conversation as stale for control purposes. Do not wait for it to finish and do not ask the user to keep it alive.
@@ -96,10 +123,12 @@ If one route closes while the parent objective remains open, the controller must
 
 Before entering a long substantive research phase:
 
-1. resolve role/identity and exact task/object;
-2. create the earliest supported durable execution stamp or accepted runtime claim;
-3. bind the owner branch / taskbook ref when the task contract requires them;
-4. record the first concrete next action.
+1. resolve the exact task/object and immutable taskbook ref;
+2. reconcile its durable frontier and classify `VERIFIED_COMPLETE / IN_PROGRESS_RECOVERABLE / UNFINISHED / NEVER_STARTED`;
+3. stop execution setup and consume the result if `VERIFIED_COMPLETE`;
+4. otherwise resolve the role/identity for the execution that is actually required;
+5. create/bind the earliest supported durable execution stamp or accepted runtime claim plus owner branch/taskbook ref as required;
+6. record the first concrete next action.
 
 After a meaningful phase produces reusable evidence, persist the changed knowledge/control facts and next action before moving deep into the next phase whenever possible.
 
@@ -177,6 +206,12 @@ After a commentary/progress update, execution continues automatically unless the
 For long tool chains, keep the user informed at the normal platform cadence while continuing work. Prefer progress messages that follow a real tool/checkpoint advance so the visible state tracks durable reality.
 
 ## Minimal state test
+
+Before starting/restarting an exact task, ask internally:
+
+`WHAT_IS_THE_DURABLE_FRONTIER?`
+
+Then classify it. Do not dispatch until that classification is complete.
 
 Before ending any nontrivial turn, ask internally:
 
