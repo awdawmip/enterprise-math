@@ -1,5 +1,5 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_STATE_MACHINE_V1",
+  "schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_STATE_MACHINE_V1.1",
   "status": "ACTIVE_CANONICAL_ON_MERGE",
   "effective": "2026-08-25",
   "purpose": "Control one concrete research execution instance from dispatch audit through startup gates, substantive work, handoff/return, Driver review, recovery and closure. This machine controls execution legality; it does not promote mathematical truth.",
@@ -15,86 +15,22 @@
   },
   "initial_state": "UNBOUND",
   "states": {
-    "UNBOUND": {
-      "class": "PREFLIGHT",
-      "meaning": "An execution record exists, but the taskbook has not yet passed the current dispatch audit.",
-      "substantive_math_allowed": false
-    },
-    "DISPATCH_READY": {
-      "class": "PREFLIGHT",
-      "meaning": "The exact taskbook revision passed current dispatch audit and may be bound to a concrete execution.",
-      "substantive_math_allowed": false
-    },
-    "CLAIMED": {
-      "class": "STARTUP",
-      "meaning": "A concrete conversation/execution has accepted the task but identity/startup requirements are not yet fully resolved.",
-      "substantive_math_allowed": false
-    },
-    "IDENTITY_READY": {
-      "class": "STARTUP",
-      "meaning": "Role identity is locally resolved. The execution must now classify and satisfy all task-declared pre-math gates.",
-      "substantive_math_allowed": false
-    },
-    "PRE_MATH_GATES_PENDING": {
-      "class": "STARTUP",
-      "meaning": "At least one task-declared PRE_MATH gate lacks durable verified evidence.",
-      "substantive_math_allowed": false
-    },
-    "EXECUTION_READY": {
-      "class": "EXECUTION",
-      "meaning": "Identity and all PRE_MATH gates are satisfied; task-whitelisted substantive work may begin.",
-      "substantive_math_allowed": true
-    },
-    "IN_PROGRESS": {
-      "class": "EXECUTION",
-      "meaning": "Substantive work has begun under the taskbook whitelist and current execution gates.",
-      "substantive_math_allowed": true
-    },
-    "HANDOFF_READY": {
-      "class": "TERMINAL_FOR_EXECUTION_INSTANCE",
-      "meaning": "A durable handoff exists. This execution instance does not continue substantive work unless explicitly resumed in the same conversation; a new conversation creates/binds a new execution identity.",
-      "substantive_math_allowed": false
-    },
-    "RETURNED": {
-      "class": "REVIEW",
-      "meaning": "A durable research return exists; the execution awaits Driver review.",
-      "substantive_math_allowed": false
-    },
-    "DRIVER_REVIEW_PENDING": {
-      "class": "REVIEW",
-      "meaning": "Driver is reviewing the durable return and its evidence.",
-      "substantive_math_allowed": false
-    },
-    "RETURN_ACCEPTED": {
-      "class": "REVIEW",
-      "meaning": "Driver accepted the return as a valid completion of this execution. This does not by itself promote theorem/candidate/canonical truth and does not imply a successor task.",
-      "substantive_math_allowed": false
-    },
-    "RETURN_REJECTED": {
-      "class": "TERMINAL_FOR_EXECUTION_INSTANCE",
-      "meaning": "Driver rejected this execution return or found it non-compliant; any further attempt is a new or explicitly resumed execution according to routing policy.",
-      "substantive_math_allowed": false
-    },
-    "RECOVERY_REQUIRED": {
-      "class": "RECOVERY",
-      "meaning": "Chat/runtime continuity is unreliable or stale. Durable repository evidence must be reconciled before any further substantive work.",
-      "substantive_math_allowed": false
-    },
-    "REDISPATCH_REQUIRED": {
-      "class": "TERMINAL_FOR_EXECUTION_INSTANCE",
-      "meaning": "This execution cannot be safely resumed; Driver/scheduler may create a fresh execution without changing mathematical truth.",
-      "substantive_math_allowed": false
-    },
-    "NONSTART_TERMINAL": {
-      "class": "TERMINAL_FOR_EXECUTION_INSTANCE",
-      "meaning": "A mandatory startup/pre-math gate failed before mathematics. This is an execution/liveness outcome, not a mathematical verdict.",
-      "substantive_math_allowed": false
-    },
-    "CLOSED": {
-      "class": "TERMINAL",
-      "meaning": "This execution instance is closed after Driver review and parent/successor routing evaluation.",
-      "substantive_math_allowed": false
-    }
+    "UNBOUND": {"class": "PREFLIGHT", "meaning": "An execution record exists, but the taskbook has not yet passed the current dispatch audit.", "substantive_math_allowed": false},
+    "DISPATCH_READY": {"class": "PREFLIGHT", "meaning": "The exact taskbook revision passed current dispatch audit and may be bound to a concrete execution.", "substantive_math_allowed": false},
+    "CLAIMED": {"class": "STARTUP", "meaning": "A concrete conversation/execution has accepted the task but identity/startup requirements are not yet fully resolved.", "substantive_math_allowed": false},
+    "IDENTITY_READY": {"class": "STARTUP", "meaning": "Role identity is locally resolved. The execution must now classify and satisfy all task-declared pre-math gates.", "substantive_math_allowed": false},
+    "PRE_MATH_GATES_PENDING": {"class": "STARTUP", "meaning": "At least one task-declared PRE_MATH gate lacks durable verified evidence.", "substantive_math_allowed": false},
+    "EXECUTION_READY": {"class": "EXECUTION", "meaning": "Identity and all PRE_MATH gates are satisfied; task-whitelisted substantive work may begin, subject to later gate-ledger action guards.", "substantive_math_allowed": true},
+    "IN_PROGRESS": {"class": "EXECUTION", "meaning": "Substantive work has begun under the taskbook whitelist and current execution gates.", "substantive_math_allowed": true},
+    "HANDOFF_READY": {"class": "TERMINAL_FOR_EXECUTION_INSTANCE", "meaning": "A durable handoff exists. This execution instance does not continue substantive work unless explicitly resumed in the same conversation; a new conversation creates/binds a new execution identity.", "substantive_math_allowed": false},
+    "RETURNED": {"class": "REVIEW", "meaning": "A durable research return exists; the execution awaits Driver review.", "substantive_math_allowed": false},
+    "DRIVER_REVIEW_PENDING": {"class": "REVIEW", "meaning": "Driver is reviewing the durable return and its evidence.", "substantive_math_allowed": false},
+    "RETURN_ACCEPTED": {"class": "REVIEW", "meaning": "Driver accepted the return as a valid completion of this execution. This does not by itself promote theorem/candidate/canonical truth and does not imply a successor task.", "substantive_math_allowed": false},
+    "RETURN_REJECTED": {"class": "TERMINAL_FOR_EXECUTION_INSTANCE", "meaning": "Driver rejected this execution return or found it non-compliant; any further attempt is a new or explicitly resumed execution according to routing policy.", "substantive_math_allowed": false},
+    "RECOVERY_REQUIRED": {"class": "RECOVERY", "meaning": "Chat/runtime continuity is unreliable or stale. Durable repository evidence must be reconciled before any further substantive work.", "substantive_math_allowed": false},
+    "REDISPATCH_REQUIRED": {"class": "TERMINAL_FOR_EXECUTION_INSTANCE", "meaning": "This execution cannot be safely resumed; Driver/scheduler may create a fresh execution without changing mathematical truth.", "substantive_math_allowed": false},
+    "NONSTART_TERMINAL": {"class": "TERMINAL_FOR_EXECUTION_INSTANCE", "meaning": "A mandatory startup/pre-math gate failed before mathematics. This is an execution/liveness outcome, not a mathematical verdict.", "substantive_math_allowed": false},
+    "CLOSED": {"class": "TERMINAL", "meaning": "This execution instance is closed after Driver review and parent/successor routing evaluation.", "substantive_math_allowed": false}
   },
   "action_classes": {
     "CONTROL_PLANE_READ": "Read governance/taskbook/startup material expressly allowed before mathematics.",
@@ -130,10 +66,32 @@
     "allowed_gate_phases": ["PRE_MATH", "MID_EXECUTION", "PRE_RETURN"],
     "required_gate_fields": ["gate_id", "phase", "must_precede", "evidence"],
     "required_evidence_fields": ["kind"],
+    "gate_status_values": ["PENDING", "SATISFIED", "FAILED"],
+    "initial_gate_status": "PENDING",
+    "gate_ledger_rule": "Every declared execution gate is instantiated as PENDING for the concrete execution. Only durable evidence satisfying the gate's evidence contract may move it to SATISFIED. A failed gate remains FAILED until Driver-authorized recovery/re-dispatch or an explicitly permitted same-execution repair.",
+    "action_guard_rule": "An action is legal only if both the current execution state allows the action class and every declared gate whose must_precede contains that action is SATISFIED. State permission alone never bypasses an unsatisfied gate.",
     "pre_math_rule": "If any declared gate has phase=PRE_MATH, the execution must enter PRE_MATH_GATES_PENDING after identity resolution and may reach EXECUTION_READY only after every PRE_MATH gate has durable verified evidence.",
+    "mid_execution_rule": "MID_EXECUTION gates do not prevent entering EXECUTION_READY unless they name a mathematical action that occurs immediately; they block each listed must_precede action at the point of use until SATISFIED.",
+    "pre_return_rule": "PRE_RETURN gates must include RETURN_WRITE in must_precede and therefore prevent RETURN_ARTIFACT_PERSISTED until SATISFIED.",
     "no_gate_rule": "If execution_gates is empty, IDENTITY_READY may transition directly to EXECUTION_READY after startup classification.",
     "evidence_rule": "A chat statement, progress message, intention, local-only unverified write or oral completion claim is never durable gate evidence.",
-    "failure_rule": "Failure of a mandatory PRE_MATH gate transitions to NONSTART_TERMINAL or RECOVERY_REQUIRED/REDISPATCH_REQUIRED as applicable; it never manufactures a mathematical verdict."
+    "failure_rule": "Failure of a mandatory PRE_MATH gate transitions to NONSTART_TERMINAL or RECOVERY_REQUIRED/REDISPATCH_REQUIRED as applicable; it never manufactures a mathematical verdict. Failure of a later gate blocks the guarded action and must be recovered, repaired if authorized, or returned as an execution failure rather than silently bypassed."
+  },
+  "premath_directive_detection": {
+    "purpose": "Catch obvious prose-only startup gates that were omitted from machine-readable execution_gates.",
+    "patterns": [
+      "before mathematics",
+      "before reading any mathematical",
+      "before reading mathematical",
+      "before any mathematical",
+      "before doing any mathematical",
+      "pre-math",
+      "开始数学前",
+      "开始数学之前",
+      "读取数学.*之前",
+      "读数学.*之前"
+    ],
+    "rule": "If taskbook body matches one of these obvious task-local patterns but declares no PRE_MATH gate, dispatch audit fails EX-PREMATH-UNDECLARED. Driver semantic review remains responsible for equivalent wording not caught lexically."
   },
   "transitions": [
     {"from": "UNBOUND", "event": "DISPATCH_AUDIT_PASS", "to": "DISPATCH_READY", "requires": ["taskbook_path", "taskbook_blob_or_commit", "dispatch_audit_pass"]},
@@ -146,10 +104,10 @@
     {"from": "EXECUTION_READY", "event": "SUBSTANTIVE_WORK_STARTED", "to": "IN_PROGRESS", "requires": ["action_within_taskbook_whitelist"]},
     {"from": "IN_PROGRESS", "event": "CHECKPOINT_PERSISTED", "to": "IN_PROGRESS", "requires": ["durable_progress_ref"]},
     {"from": "IN_PROGRESS", "event": "HANDOFF_PERSISTED", "to": "HANDOFF_READY", "requires": ["durable_handoff_ref", "next_action"]},
-    {"from": "EXECUTION_READY", "event": "RETURN_ARTIFACT_PERSISTED", "to": "RETURNED", "requires": ["durable_return_ref"]},
-    {"from": "IN_PROGRESS", "event": "RETURN_ARTIFACT_PERSISTED", "to": "RETURNED", "requires": ["durable_return_ref"]},
+    {"from": "EXECUTION_READY", "event": "RETURN_ARTIFACT_PERSISTED", "to": "RETURNED", "requires": ["durable_return_ref", "return_write_action_guard_pass"]},
+    {"from": "IN_PROGRESS", "event": "RETURN_ARTIFACT_PERSISTED", "to": "RETURNED", "requires": ["durable_return_ref", "return_write_action_guard_pass"]},
     {"from": "RETURNED", "event": "DRIVER_REVIEW_STARTED", "to": "DRIVER_REVIEW_PENDING", "requires": ["driver_identity"]},
-    {"from": "DRIVER_REVIEW_PENDING", "event": "DRIVER_ACCEPTS_RETURN", "to": "RETURN_ACCEPTED", "requires": ["durable_driver_review_ref"]},
+    {"from": "DRIVER_REVIEW_PENDING", "event": "DRIVER_ACCEPTS_RETURN", "to": "RETURN_ACCEPTED", "requires": ["durable_driver_review_ref", "execution_gate_ledger_complete"]},
     {"from": "DRIVER_REVIEW_PENDING", "event": "DRIVER_REJECTS_RETURN", "to": "RETURN_REJECTED", "requires": ["durable_driver_review_ref", "rejection_reason"]},
     {"from": "RETURN_ACCEPTED", "event": "ROUTING_EVALUATED_AND_EXECUTION_CLOSED", "to": "CLOSED", "requires": ["parent_objective_or_successor_gate_evaluated"]},
     {"from": "RETURN_REJECTED", "event": "REDISPATCH_DECIDED", "to": "REDISPATCH_REQUIRED", "requires": ["redispatch_reason"]}
@@ -158,7 +116,7 @@
     "trigger_event": "LIVENESS_OR_CONTINUITY_FAILURE_DETECTED",
     "triggerable_from": ["CLAIMED", "IDENTITY_READY", "PRE_MATH_GATES_PENDING", "EXECUTION_READY", "IN_PROGRESS", "RETURNED", "DRIVER_REVIEW_PENDING"],
     "to": "RECOVERY_REQUIRED",
-    "reconcile_rule": "Recover from durable repository evidence only. Determine the last legal state whose required evidence actually exists; do not infer completion from chat text.",
+    "reconcile_rule": "Recover from durable repository evidence only. Determine the last legal state and gate ledger whose required evidence actually exists; do not infer completion from chat text.",
     "resume_targets": ["IDENTITY_READY", "PRE_MATH_GATES_PENDING", "EXECUTION_READY", "IN_PROGRESS", "RETURNED", "DRIVER_REVIEW_PENDING"],
     "resume_event": "DURABLE_FRONTIER_RECONCILED",
     "redispatch_event": "DURABLE_FRONTIER_NOT_RESUMABLE",
@@ -172,7 +130,8 @@
     "CHECKPOINT_PERSISTED and progress messages are nonterminal under active_turn_liveness.json.",
     "A local-stage PASS or accepted return triggers parent/successor evaluation; it never automatically creates a successor task.",
     "Any mathematical source read or derivation while state is PRE_MATH_GATES_PENDING is an illegal execution transition and invalidates independence/liveness claims that depend on that gate.",
-    "Any claimed state advance without the transition's required evidence is invalid and must be reconciled to the last evidenced legal state.",
+    "Any action listed in an unsatisfied execution gate's must_precede is illegal even when the current state would otherwise permit that action class.",
+    "Any claimed state advance without the transition's required evidence is invalid and must be reconciled to the last evidenced legal state and gate ledger.",
     "A failed PRE_MATH publication/liveness gate is classified as execution failure, not mathematical failure.",
     "A new conversation after handoff/redispatch must run identity bootstrap again and bind a new execution instance unless repository policy explicitly preserves the same conversation identity."
   ],
