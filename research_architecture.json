@@ -1,9 +1,9 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_ARCHITECTURE_V2",
-  "status": "ACTIVE_CANONICAL_GOVERNANCE_V2_3",
-  "effective": "2026-08-22",
-  "driver_id": "EM-DVR-K7Q4N8",
-  "purpose": "Separate independent axiom discovery, task execution, Driver portfolio control, Foundation maintenance, persistence and canonical promotion so that no one control surface silently becomes the research agenda.",
+  "status": "ACTIVE_CANONICAL_GOVERNANCE_V2_4",
+  "effective": "2026-08-25",
+  "driver_id": "EM-DVR-A4319A",
+  "purpose": "Separate independent axiom discovery, task authority, concrete task execution, Driver portfolio control, Foundation maintenance, persistence and canonical promotion so that no one control surface silently becomes the research agenda or silently authorizes work.",
   "core_invariants": [
     "FOUNDATION_IS_STARTING_SUBSTRATE_NOT_DEFAULT_RESEARCH_AGENDA",
     "FOUNDATION_FOR_DISCOVERY_IS_NOT_CATALOG_OF_CURRENT_ACHIEVEMENTS",
@@ -13,6 +13,10 @@
     "EXPLORATION_AND_EXPLOITATION_ARE_DISTINCT_RESEARCH_MODES",
     "FREE_RESEARCHER_DOES_NOT_AUTO_DISPATCH",
     "TASK_RESEARCHER_MAY_CONSUME_EXPLICIT_AGENDA_CONTEXT",
+    "ALL_TASK_RESEARCH_USES_THE_CONCRETE_EXECUTION_STATE_MACHINE",
+    "TASK_AUTHORITY_READY_IS_NOT_EXECUTION_READY",
+    "UNSATISFIED_EXECUTION_GATE_BLOCKS_ITS_GUARDED_ACTION",
+    "EXECUTION_ACCEPTANCE_IS_NOT_MATHEMATICAL_TRUTH_PROMOTION",
     "DRIVER_WORKING_TRUTH_APPLIES_ONLY_AFTER_EXPLICIT_DIRECTION_FREEZE",
     "RAW_AXIOM_CANDIDATE_IS_NOT_WORKING_TRUTH",
     "STAGE_PASS_DOES_NOT_IMPLY_SUCCESSOR_STAGE",
@@ -47,18 +51,28 @@
     "TASK_RESEARCH": {
       "role_label": "RESEARCHER",
       "visible_identity": "Researcher-ID",
-      "mission": "Execute an explicit user-selected, Driver-approved or scheduler-selected mother question with maximal theorem/evidence rigor.",
+      "mission": "Execute an explicit user-selected, Driver-approved or scheduler-selected mother question with maximal theorem/evidence rigor under one concrete execution lifecycle.",
       "agenda_visibility_before_work": "TASK_SCOPED",
       "scheduler_eligible": true,
       "inherits_driver_working_truth": "ONLY_IF_THE_EXPLICIT_TASKBOOK_OR_DRIVER_HANDOFF_FREEZES_IT",
-      "default_state": "TASK_EXECUTION"
+      "execution_state_machine": "research_execution_state_machine.json",
+      "execution_protocol": "docs/RESEARCH_EXECUTION_STATE_MACHINE.md",
+      "allowed_task_authorities": [
+        "OFFICIAL_TASKBOOK",
+        "DIRECT_USER_TASK",
+        "SCHEDULER_TASK",
+        "DRIVER_DISPATCH_ENVELOPE"
+      ],
+      "default_state": "UNBOUND",
+      "substantive_work_gate": "EXECUTION_READY_PLUS_ACTION_GATE_LEDGER"
     },
     "RESEARCH_DRIVER": {
       "role_label": "RESEARCH_DRIVER",
       "visible_identity": "Driver-ID",
       "mission": "Own roadmap routing, portfolio balance, de-duplication, continuation/termination, task creation, Working Truth freeze and canonical promotion decisions; do not monopolize primary discovery.",
       "scheduler_eligible": false,
-      "default_state": "CONTROL_PLANE"
+      "default_state": "CONTROL_PLANE",
+      "task_execution_review_authority": "research_execution_state_machine.json"
     },
     "FOUNDATION_STEWARD": {
       "role_label": "FOUNDATION_STEWARD",
@@ -94,7 +108,7 @@
       "candidate_generation_prompt_style": "NO_DEFAULT_QUESTION_OR_LENS_MENU"
     },
     "task_research": {
-      "rule": "Load the exact task entry first and expand only to dependencies actually used. The general current foundation router and shared theorem/tool catalogs are lookup surfaces, not default context dumps."
+      "rule": "Load the exact task authority and execution-control metadata first. Normalize task-local gates and reach EXECUTION_READY before mathematical source reads/derivations. Then expand only to mathematical dependencies actually used. The general current foundation router and shared theorem/tool catalogs are lookup surfaces, not default context dumps."
     }
   },
   "axiom_candidate_lifecycle": {
@@ -158,7 +172,9 @@
     "excluded_mode": "FREE_AXIOM_DISCOVERY",
     "static_scheduler_fallback": "REQUIRES_BOUNDED_CURRENT_SCOPE_VALIDATION_BEFORE_CLAIM",
     "scheduler_done_is_truth": false,
-    "scheduler_done_implies_successor": false
+    "scheduler_done_implies_successor": false,
+    "scheduler_claim_is_execution_ready": false,
+    "execution_state_machine": "research_execution_state_machine.json"
   },
   "foundation_backflow_boundary": {
     "raw_free_candidate_auto_backflow": false,
@@ -173,11 +189,13 @@
     "replication_after_freeze": true,
     "cross_run_post_allocation_rewrite": false,
     "shared_ambient_context_must_be_disclosed": true,
-    "shared_control_plane_suggestion_menu_allowed_before_freeze": false
+    "shared_control_plane_suggestion_menu_allowed_before_freeze": false,
+    "task_execution_independence_gate_rule": "If independence depends on a pre-math/source firewall, the corresponding execution gate must be satisfied before any mathematical source read or derivation."
   },
   "read_performance": {
     "principle": "SMALLEST_SUFFICIENT_ROLE_PACKET",
-    "explicit_task_soft_remote_read_budget_before_substantive_work": 3,
+    "explicit_task_soft_control_plane_read_budget_before_substantive_work": 3,
+    "explicit_task_math_read_gate": "EXECUTION_READY",
     "free_phase_a": "PRIMITIVE_SUBSTRATE_ONLY_AND_REMOTE_SILENT_AFTER_MINIMAL_READS",
     "free_phase_a_general_current_router_preload": false,
     "free_phase_a_default_discovery_prompt_menu": false,
@@ -223,6 +241,7 @@
     "governance_maintenance": "SEPARATE_BOUNDED_NO_NEW_MATHEMATICS_ATTEMPT",
     "journal": "CAPTURE_PROGRESS_WITHOUT_PROMOTING_TRUTH",
     "driver_continuity": "ROUTING_ONLY_NO_IMPLICIT_DEFAULT_NEXT_ROUTE",
+    "execution_acceptance": "SEPARATE_FROM_THEOREM_CANDIDATE_OR_CANONICAL_TRUTH_PROMOTION",
     "canonical_truth": "GATED_SOURCE_MAIN"
   },
   "legacy_surface_interpretation": {
