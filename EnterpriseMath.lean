@@ -22,3 +22,4 @@ import EnterpriseMath.PrimeFusion.ArithmeticSplit
 import EnterpriseMath.PrimeFusion.MixedLocus
 import EnterpriseMath.PrimeFusion.PhaseReadout
 import EnterpriseMath.PrimeFusion.PointedQuotient
+import EnterpriseMath.PrimeFusion.PointedRecovery
