@@ -73,6 +73,7 @@
     ],
     "state": "ACTIVE_UNTIL_PARENT_CRITERION_MET_OR_USER_REVOKES",
     "base_liveness_dependency": false,
+    "terminal_block_or_limit_consumes_lease": false,
     "cannot_be_consumed_by": [
       "STAGE_TERMINAL_VERDICT",
       "ROUTE_CLOSURE",
@@ -93,6 +94,7 @@
     "if_supported_alternative_available": "SWITCH_STRATEGY",
     "if_no_alternative_and_parent_not_recomputed": "RECOMPUTE_PARENT_STATE",
     "if_parent_recomputed_without_change": "CONTROL_STATE_INCONSISTENT",
+    "if_safe_work_claimed_remaining_but_recompute_produces_no_action": "CONTROL_STATE_INCONSISTENT",
     "max_identical_no_progress_retry_without_transition": 0
   },
   "nonterminal_boundaries": [
