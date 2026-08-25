@@ -21,8 +21,10 @@ The point is to make questions such as the following decidable without relying o
 
 - who has authority to act;
 - which task/generation is live;
+- whether a task-local publication/liveness gate allows substantive mathematics to start;
 - whether the context is blind, statement-exposed or post-freeze;
 - whether source and independent evidence are open/closed;
+- whether an axiom-admission result is only a research recommendation or has actually reached Foundation disposition;
 - whether a Driver verdict is still pending;
 - whether formalization is admitted;
 - whether a benchmark supports a performance claim;
@@ -37,9 +39,9 @@ For every substantive Enterprise Math action:
 
 1. **Resolve role + identity.** Use the current role contract and identity state machine.
 2. **Resolve object.** Identify task/candidate/control object, origin, lineage and exact immutable refs.
-3. **Classify control profile.** Choose one of `STANDARD_RESEARCH`, `FREE_CANDIDATE_AUDIT`, `INDEPENDENT_AUDIT`, `FORMALIZATION`, `FOUNDATION_DISPOSITION`, `INTEGRATION`, `BENCHMARK`, `MATHEMATICAL_PROMOTION`, `GOVERNANCE_MAINTENANCE`.
-4. **Materialize runtime state.** For task work, reduce current Scheduler V2 events; do not infer state from a filename, PR or chat.
-5. **Materialize information/evidence state.** Record firewall/freeze/source exposure plus source, independent, Driver, formalization/benchmark/canonical state.
+3. **Classify control profile.** Choose one of `STANDARD_RESEARCH`, `FREE_CANDIDATE_AUDIT`, `INDEPENDENT_AUDIT`, `AXIOM_ADMISSION_AUDIT`, `FORMALIZATION`, `FOUNDATION_DISPOSITION`, `INTEGRATION`, `BENCHMARK`, `MATHEMATICAL_PROMOTION`, `GOVERNANCE_MAINTENANCE`.
+4. **Materialize runtime state.** For task work, reduce current Scheduler V2 events; do not infer state from a filename, PR or chat. If the taskbook declares a pre-math/publication liveness gate, record it as `pre_math_gate` before doing mathematics.
+5. **Materialize information/evidence state.** Record firewall/freeze/source exposure plus source, independent, axiom-admission, Driver, formalization/benchmark/canonical state.
 6. **Execute only an allowed transition.** Role permissions and profile guards both apply.
 7. **Before Driver closure, bind evidence + routing.** Every accepted/narrowed return needs evidence class, method-harvest classification and explicit route disposition.
 8. **Evaluate the parent objective.** `scheduler DONE`, Stage PASS, PR creation, checkpoint freeze or remote pending never ends an open parent objective by itself.
@@ -51,7 +53,7 @@ For every substantive Enterprise Math action:
 
 `READY/HANDOFF_READY -> CLAIM -> PROGRESS* -> SUBMIT`.
 
-Never emit V2 `DONE`. Never self-review. A hard block must name a genuinely missing object/dependency, its owner, necessity and unblock condition.
+Never emit V2 `DONE`. Never self-review. A hard block must name a genuinely missing object/dependency, its owner, necessity and unblock condition. If the taskbook requires a branch/publication stamp, source freeze, or another explicit pre-math gate, substantive mathematics is forbidden until `pre_math_gate=SATISFIED`.
 
 ### FREE researcher
 
@@ -64,6 +66,14 @@ This is a `RESEARCHER` task specialization, not a new authority role.
 The task must declare its information firewall. Clean independence requires a distinct execution context when the protocol claims independent replication. Source proofs/checkers withheld by the taskbook stay withheld until the named freeze.
 
 **Do not use same-task handoff to represent a new independent replication.** If a Driver decides a new independent run is needed, the parent review is parked and a **distinct child task id/taskbook** is opened with fresh provenance and an explicit independence/firewall protocol.
+
+### Axiom-admission auditor
+
+This is a `RESEARCHER` task specialization with profile `AXIOM_ADMISSION_AUDIT`.
+
+Its job is to classify whether a proposed rule is model-relative, conservative/admissible, restricted-admissible, deferred, rejected, invalid, or unsupported at the audited level. It may recommend admission, but it **cannot itself change Foundation** and it cannot mark the rule canonical. If a Driver accepts or narrows an admission recommendation, the only valid semantic path is `ROUTE_TO_FOUNDATION` with a concrete route ref and `foundation_status=PENDING` until a Foundation Steward disposes it.
+
+For tasks such as current CBRC F5A that require a publication-liveness stamp before mathematics, `pre_math_gate=REQUIRED_UNSATISFIED` is a hard local execution gate, not a reason to reinterpret the mathematics.
 
 ### Formalizer
 
@@ -82,7 +92,7 @@ For every accepted/narrowed return, record:
 - `route_disposition`;
 - route/successor/child refs when applicable.
 
-A Driver verdict is a routing event, not parent-objective completion.
+A Driver verdict is a routing event, not parent-objective completion. A Driver acceptance of an axiom-admission audit is still only a routing decision until Foundation Steward disposition.
 
 ### Foundation Steward
 
@@ -122,7 +132,8 @@ Additional guards:
 - `OPEN_CONTINUATION` requires `successor_gate_ref` and a distinct route/task ref;
 - `ROUTE_TO_FOUNDATION`, `ROUTE_TO_FORMALIZATION`, `ROUTE_TO_PROMOTION` require the concrete route ref;
 - independent replication uses `PARK + OPEN_INDEPENDENT_REPLICATION_CHILD`, with distinct child task id/ref and independence protocol;
-- `REQUEST_INDEPENDENT_REPLICATION` as a same-task Scheduler verdict is forbidden.
+- `REQUEST_INDEPENDENT_REPLICATION` as a new same-task Scheduler verdict is forbidden after the cross-layer cutover;
+- an accepted `ADMIT_RECOMMENDED` / `RESTRICTED_ADMISSION_RECOMMENDED` axiom audit routes to Foundation; it does not mutate Foundation in place.
 
 ## 6. Profile guards for the current research portfolio
 
@@ -133,6 +144,10 @@ Profile `FORMALIZATION`: corrected/frozen package + closed independent evidence 
 ### Native-prime companion replay and CBRC F5R
 
 Profile `INDEPENDENT_AUDIT`: firewall and freeze state are first-class control fields. A blind audit cannot close before raw freeze and cannot claim clean independence from the source execution context if it reused that context.
+
+### CBRC F5A branch-ontology axiom admission
+
+Profile `AXIOM_ADMISSION_AUDIT`: preserve the taskbook whitelist/firewall and its publication-liveness pre-math gate. The research verdict may recommend unrestricted or restricted admission, but only a Driver may route that recommendation to Foundation, and only a Foundation Steward may dispose the Foundation status. `canonical_status=CANONICAL` is illegal in the research-audit profile.
 
 ### FQ010 scale-role decision
 
