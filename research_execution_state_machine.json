@@ -1,0 +1,185 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_STATE_MACHINE_V1",
+  "status": "ACTIVE_CANONICAL_ON_MERGE",
+  "effective": "2026-08-25",
+  "purpose": "Control one concrete research execution instance from dispatch audit through startup gates, substantive work, handoff/return, Driver review, recovery and closure. This machine controls execution legality; it does not promote mathematical truth.",
+  "authority_and_scope": {
+    "task_semantics": "research_taskbook_contract.json",
+    "role_authority": "research_role_policy.json",
+    "identity": "research_identity_state_machine.json",
+    "task_coordination": "research_scheduler.json",
+    "turn_liveness": "active_turn_liveness.json",
+    "candidate_maturity": "research_axiom_candidate_state_machine.json",
+    "final_response_identity": "final_response_identity_policy.json",
+    "rule": "Scheduler/taskbook/identity/candidate states remain separate dimensions. No other state surface may silently advance this execution instance."
+  },
+  "initial_state": "UNBOUND",
+  "states": {
+    "UNBOUND": {
+      "class": "PREFLIGHT",
+      "meaning": "An execution record exists, but the taskbook has not yet passed the current dispatch audit.",
+      "substantive_math_allowed": false
+    },
+    "DISPATCH_READY": {
+      "class": "PREFLIGHT",
+      "meaning": "The exact taskbook revision passed current dispatch audit and may be bound to a concrete execution.",
+      "substantive_math_allowed": false
+    },
+    "CLAIMED": {
+      "class": "STARTUP",
+      "meaning": "A concrete conversation/execution has accepted the task but identity/startup requirements are not yet fully resolved.",
+      "substantive_math_allowed": false
+    },
+    "IDENTITY_READY": {
+      "class": "STARTUP",
+      "meaning": "Role identity is locally resolved. The execution must now classify and satisfy all task-declared pre-math gates.",
+      "substantive_math_allowed": false
+    },
+    "PRE_MATH_GATES_PENDING": {
+      "class": "STARTUP",
+      "meaning": "At least one task-declared PRE_MATH gate lacks durable verified evidence.",
+      "substantive_math_allowed": false
+    },
+    "EXECUTION_READY": {
+      "class": "EXECUTION",
+      "meaning": "Identity and all PRE_MATH gates are satisfied; task-whitelisted substantive work may begin.",
+      "substantive_math_allowed": true
+    },
+    "IN_PROGRESS": {
+      "class": "EXECUTION",
+      "meaning": "Substantive work has begun under the taskbook whitelist and current execution gates.",
+      "substantive_math_allowed": true
+    },
+    "HANDOFF_READY": {
+      "class": "TERMINAL_FOR_EXECUTION_INSTANCE",
+      "meaning": "A durable handoff exists. This execution instance does not continue substantive work unless explicitly resumed in the same conversation; a new conversation creates/binds a new execution identity.",
+      "substantive_math_allowed": false
+    },
+    "RETURNED": {
+      "class": "REVIEW",
+      "meaning": "A durable research return exists; the execution awaits Driver review.",
+      "substantive_math_allowed": false
+    },
+    "DRIVER_REVIEW_PENDING": {
+      "class": "REVIEW",
+      "meaning": "Driver is reviewing the durable return and its evidence.",
+      "substantive_math_allowed": false
+    },
+    "RETURN_ACCEPTED": {
+      "class": "REVIEW",
+      "meaning": "Driver accepted the return as a valid completion of this execution. This does not by itself promote theorem/candidate/canonical truth and does not imply a successor task.",
+      "substantive_math_allowed": false
+    },
+    "RETURN_REJECTED": {
+      "class": "TERMINAL_FOR_EXECUTION_INSTANCE",
+      "meaning": "Driver rejected this execution return or found it non-compliant; any further attempt is a new or explicitly resumed execution according to routing policy.",
+      "substantive_math_allowed": false
+    },
+    "RECOVERY_REQUIRED": {
+      "class": "RECOVERY",
+      "meaning": "Chat/runtime continuity is unreliable or stale. Durable repository evidence must be reconciled before any further substantive work.",
+      "substantive_math_allowed": false
+    },
+    "REDISPATCH_REQUIRED": {
+      "class": "TERMINAL_FOR_EXECUTION_INSTANCE",
+      "meaning": "This execution cannot be safely resumed; Driver/scheduler may create a fresh execution without changing mathematical truth.",
+      "substantive_math_allowed": false
+    },
+    "NONSTART_TERMINAL": {
+      "class": "TERMINAL_FOR_EXECUTION_INSTANCE",
+      "meaning": "A mandatory startup/pre-math gate failed before mathematics. This is an execution/liveness outcome, not a mathematical verdict.",
+      "substantive_math_allowed": false
+    },
+    "CLOSED": {
+      "class": "TERMINAL",
+      "meaning": "This execution instance is closed after Driver review and parent/successor routing evaluation.",
+      "substantive_math_allowed": false
+    }
+  },
+  "action_classes": {
+    "CONTROL_PLANE_READ": "Read governance/taskbook/startup material expressly allowed before mathematics.",
+    "STARTUP_WRITE": "Create identity/evidence/branch/stamp artifacts required by a startup gate.",
+    "MATHEMATICAL_SOURCE_READ": "Read a mathematical input, theorem packet, proof source or other task mathematics.",
+    "MATHEMATICAL_DERIVATION": "Perform substantive mathematical reasoning, computation, experiment or formal proof work.",
+    "CHECKPOINT_WRITE": "Persist progress/evidence without terminating the parent objective.",
+    "RETURN_WRITE": "Persist the research return/handoff required by the taskbook.",
+    "DRIVER_REVIEW": "Review evidence and route the execution outcome."
+  },
+  "allowed_action_classes_by_state": {
+    "UNBOUND": ["CONTROL_PLANE_READ"],
+    "DISPATCH_READY": ["CONTROL_PLANE_READ"],
+    "CLAIMED": ["CONTROL_PLANE_READ", "STARTUP_WRITE"],
+    "IDENTITY_READY": ["CONTROL_PLANE_READ", "STARTUP_WRITE"],
+    "PRE_MATH_GATES_PENDING": ["CONTROL_PLANE_READ", "STARTUP_WRITE"],
+    "EXECUTION_READY": ["CONTROL_PLANE_READ", "MATHEMATICAL_SOURCE_READ", "MATHEMATICAL_DERIVATION", "CHECKPOINT_WRITE", "RETURN_WRITE"],
+    "IN_PROGRESS": ["CONTROL_PLANE_READ", "MATHEMATICAL_SOURCE_READ", "MATHEMATICAL_DERIVATION", "CHECKPOINT_WRITE", "RETURN_WRITE"],
+    "HANDOFF_READY": ["CONTROL_PLANE_READ"],
+    "RETURNED": ["CONTROL_PLANE_READ", "DRIVER_REVIEW"],
+    "DRIVER_REVIEW_PENDING": ["CONTROL_PLANE_READ", "DRIVER_REVIEW"],
+    "RETURN_ACCEPTED": ["CONTROL_PLANE_READ", "DRIVER_REVIEW"],
+    "RETURN_REJECTED": ["CONTROL_PLANE_READ", "DRIVER_REVIEW"],
+    "RECOVERY_REQUIRED": ["CONTROL_PLANE_READ", "DRIVER_REVIEW"],
+    "REDISPATCH_REQUIRED": ["CONTROL_PLANE_READ", "DRIVER_REVIEW"],
+    "NONSTART_TERMINAL": ["CONTROL_PLANE_READ", "DRIVER_REVIEW"],
+    "CLOSED": ["CONTROL_PLANE_READ"]
+  },
+  "execution_gate_contract": {
+    "taskbook_policy_field": "execution_state_policy",
+    "taskbook_policy_value": "INHERIT_GLOBAL",
+    "taskbook_gate_field": "execution_gates",
+    "allowed_gate_phases": ["PRE_MATH", "MID_EXECUTION", "PRE_RETURN"],
+    "required_gate_fields": ["gate_id", "phase", "must_precede", "evidence"],
+    "required_evidence_fields": ["kind"],
+    "pre_math_rule": "If any declared gate has phase=PRE_MATH, the execution must enter PRE_MATH_GATES_PENDING after identity resolution and may reach EXECUTION_READY only after every PRE_MATH gate has durable verified evidence.",
+    "no_gate_rule": "If execution_gates is empty, IDENTITY_READY may transition directly to EXECUTION_READY after startup classification.",
+    "evidence_rule": "A chat statement, progress message, intention, local-only unverified write or oral completion claim is never durable gate evidence.",
+    "failure_rule": "Failure of a mandatory PRE_MATH gate transitions to NONSTART_TERMINAL or RECOVERY_REQUIRED/REDISPATCH_REQUIRED as applicable; it never manufactures a mathematical verdict."
+  },
+  "transitions": [
+    {"from": "UNBOUND", "event": "DISPATCH_AUDIT_PASS", "to": "DISPATCH_READY", "requires": ["taskbook_path", "taskbook_blob_or_commit", "dispatch_audit_pass"]},
+    {"from": "DISPATCH_READY", "event": "CLAIM_BOUND", "to": "CLAIMED", "requires": ["task_id", "execution_handle_or_claim_ref"]},
+    {"from": "CLAIMED", "event": "IDENTITY_RESOLVED", "to": "IDENTITY_READY", "requires": ["role_identity"]},
+    {"from": "IDENTITY_READY", "event": "STARTUP_CLASSIFIED_WITH_PRE_MATH_GATES", "to": "PRE_MATH_GATES_PENDING", "requires": ["declared_pre_math_gate_ids"]},
+    {"from": "IDENTITY_READY", "event": "STARTUP_CLASSIFIED_NO_PRE_MATH_GATES", "to": "EXECUTION_READY", "requires": ["execution_gates_checked_empty_of_pre_math"]},
+    {"from": "PRE_MATH_GATES_PENDING", "event": "PRE_MATH_GATES_SATISFIED", "to": "EXECUTION_READY", "requires": ["durable_evidence_refs_for_all_pre_math_gates", "remote_verification_if_required_by_gate"]},
+    {"from": "PRE_MATH_GATES_PENDING", "event": "PRE_MATH_GATE_FAILED", "to": "NONSTART_TERMINAL", "requires": ["failed_gate_id", "failure_evidence_or_reason"]},
+    {"from": "EXECUTION_READY", "event": "SUBSTANTIVE_WORK_STARTED", "to": "IN_PROGRESS", "requires": ["action_within_taskbook_whitelist"]},
+    {"from": "IN_PROGRESS", "event": "CHECKPOINT_PERSISTED", "to": "IN_PROGRESS", "requires": ["durable_progress_ref"]},
+    {"from": "IN_PROGRESS", "event": "HANDOFF_PERSISTED", "to": "HANDOFF_READY", "requires": ["durable_handoff_ref", "next_action"]},
+    {"from": "EXECUTION_READY", "event": "RETURN_ARTIFACT_PERSISTED", "to": "RETURNED", "requires": ["durable_return_ref"]},
+    {"from": "IN_PROGRESS", "event": "RETURN_ARTIFACT_PERSISTED", "to": "RETURNED", "requires": ["durable_return_ref"]},
+    {"from": "RETURNED", "event": "DRIVER_REVIEW_STARTED", "to": "DRIVER_REVIEW_PENDING", "requires": ["driver_identity"]},
+    {"from": "DRIVER_REVIEW_PENDING", "event": "DRIVER_ACCEPTS_RETURN", "to": "RETURN_ACCEPTED", "requires": ["durable_driver_review_ref"]},
+    {"from": "DRIVER_REVIEW_PENDING", "event": "DRIVER_REJECTS_RETURN", "to": "RETURN_REJECTED", "requires": ["durable_driver_review_ref", "rejection_reason"]},
+    {"from": "RETURN_ACCEPTED", "event": "ROUTING_EVALUATED_AND_EXECUTION_CLOSED", "to": "CLOSED", "requires": ["parent_objective_or_successor_gate_evaluated"]},
+    {"from": "RETURN_REJECTED", "event": "REDISPATCH_DECIDED", "to": "REDISPATCH_REQUIRED", "requires": ["redispatch_reason"]}
+  ],
+  "recovery_transitions": {
+    "trigger_event": "LIVENESS_OR_CONTINUITY_FAILURE_DETECTED",
+    "triggerable_from": ["CLAIMED", "IDENTITY_READY", "PRE_MATH_GATES_PENDING", "EXECUTION_READY", "IN_PROGRESS", "RETURNED", "DRIVER_REVIEW_PENDING"],
+    "to": "RECOVERY_REQUIRED",
+    "reconcile_rule": "Recover from durable repository evidence only. Determine the last legal state whose required evidence actually exists; do not infer completion from chat text.",
+    "resume_targets": ["IDENTITY_READY", "PRE_MATH_GATES_PENDING", "EXECUTION_READY", "IN_PROGRESS", "RETURNED", "DRIVER_REVIEW_PENDING"],
+    "resume_event": "DURABLE_FRONTIER_RECONCILED",
+    "redispatch_event": "DURABLE_FRONTIER_NOT_RESUMABLE",
+    "redispatch_to": "REDISPATCH_REQUIRED"
+  },
+  "cross_surface_invariants": [
+    "Scheduler CLAIMED/IN_PROGRESS/DONE coordinates task leasing only and cannot by itself advance this execution state.",
+    "Taskbook base_state=READY is not equivalent to EXECUTION_READY; identity and PRE_MATH gates still apply.",
+    "Identity REGISTER_PENDING is nonblocking once a valid local role identity exists, but identity must be resolved before substantive work.",
+    "Axiom-candidate promotion and canonical theorem truth are separate from RETURN_ACCEPTED. A valid negative/null result may be RETURN_ACCEPTED.",
+    "CHECKPOINT_PERSISTED and progress messages are nonterminal under active_turn_liveness.json.",
+    "A local-stage PASS or accepted return triggers parent/successor evaluation; it never automatically creates a successor task.",
+    "Any mathematical source read or derivation while state is PRE_MATH_GATES_PENDING is an illegal execution transition and invalidates independence/liveness claims that depend on that gate.",
+    "Any claimed state advance without the transition's required evidence is invalid and must be reconciled to the last evidenced legal state.",
+    "A failed PRE_MATH publication/liveness gate is classified as execution failure, not mathematical failure.",
+    "A new conversation after handoff/redispatch must run identity bootstrap again and bind a new execution instance unless repository policy explicitly preserves the same conversation identity."
+  ],
+  "f5a_regression_guard": {
+    "scenario": "Researcher reports completion but mandatory pre-math remote branch/stamp evidence is absent.",
+    "required_classification": "NONSTART_TERMINAL_OR_REDISPATCH_REQUIRED",
+    "forbidden_classifications": ["EXECUTION_READY", "IN_PROGRESS", "RETURN_ACCEPTED", "CLOSED"],
+    "reason": "Oral/chat completion cannot satisfy a durable PRE_MATH publication-liveness gate."
+  }
+}
