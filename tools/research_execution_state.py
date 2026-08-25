@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate and query the Enterprise Math research execution state machine."""
+"""Validate and query the Enterprise Math TASK_RESEARCH execution state machine."""
 from __future__ import annotations
 
 import argparse
@@ -40,6 +40,35 @@ def _nonempty(value: Any) -> bool:
     return value is not None
 
 
+def _action_guard_set(machine: dict[str, Any], action: str) -> set[str]:
+    """Return action plus all parent action classes whose guards also apply."""
+    classes = set(machine.get("action_classes", {}))
+    if action not in classes:
+        raise ValueError(f"unknown action class: {action}")
+    implies = machine.get("action_class_implies", {})
+    out: set[str] = set()
+    visiting: set[str] = set()
+
+    def visit(current: str) -> None:
+        if current in out:
+            return
+        if current in visiting:
+            raise ValueError(f"cyclic action_class_implies at {current}")
+        visiting.add(current)
+        out.add(current)
+        parents = implies.get(current, [])
+        if not isinstance(parents, list):
+            raise ValueError(f"action_class_implies[{current}] must be a list")
+        for parent in parents:
+            if parent not in classes:
+                raise ValueError(f"action_class_implies[{current}] references unknown {parent}")
+            visit(parent)
+        visiting.remove(current)
+
+    visit(action)
+    return out
+
+
 def validate_machine(machine: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     states = machine.get("states")
@@ -57,7 +86,8 @@ def validate_machine(machine: dict[str, Any]) -> list[str]:
         "SCHEDULER_TASK",
         "DRIVER_DISPATCH_ENVELOPE",
     }
-    if not required_authorities.issubset(set(authority.get("allowed_authority_kinds", []))):
+    authority_kinds = set(authority.get("allowed_authority_kinds", []))
+    if not required_authorities.issubset(authority_kinds):
         errors.append("task authority contract must cover official/direct/scheduler/Driver-envelope task authority")
 
     allowed = machine.get("allowed_action_classes_by_state")
@@ -77,11 +107,26 @@ def validate_machine(machine: dict[str, Any]) -> list[str]:
         if unknown:
             errors.append(f"{state}: unknown action classes {unknown}")
 
+    for child, parents in machine.get("action_class_implies", {}).items():
+        if child not in action_names:
+            errors.append(f"action_class_implies unknown child {child!r}")
+            continue
+        if not isinstance(parents, list):
+            errors.append(f"action_class_implies[{child}] must be a list")
+            continue
+        unknown = sorted(set(parents) - action_names)
+        if unknown:
+            errors.append(f"action_class_implies[{child}] unknown parents {unknown}")
+        try:
+            _action_guard_set(machine, child)
+        except ValueError as exc:
+            errors.append(str(exc))
+
     for state in ("UNBOUND", "DISPATCH_READY", "CLAIMED", "IDENTITY_READY", "PRE_MATH_GATES_PENDING"):
         if state in states:
             if states[state].get("substantive_math_allowed") is not False:
                 errors.append(f"{state}: substantive_math_allowed must be false")
-            for forbidden in ("MATHEMATICAL_SOURCE_READ", "MATHEMATICAL_DERIVATION"):
+            for forbidden in ("MATHEMATICAL_SOURCE_READ", "POST_FREEZE_SOURCE_READ", "MATHEMATICAL_DERIVATION"):
                 if forbidden in allowed.get(state, []):
                     errors.append(f"{state}: {forbidden} must be forbidden")
 
@@ -117,6 +162,14 @@ def validate_machine(machine: dict[str, Any]) -> list[str]:
         req = item.get("requires", [])
         if not isinstance(req, list):
             errors.append(f"{key}: requires must be a list")
+        allowed_kinds = item.get("allowed_authority_kinds")
+        if allowed_kinds is not None:
+            if not isinstance(allowed_kinds, list) or not allowed_kinds:
+                errors.append(f"{key}: allowed_authority_kinds must be a nonempty list")
+            else:
+                unknown = sorted(set(allowed_kinds) - authority_kinds)
+                if unknown:
+                    errors.append(f"{key}: unknown authority kinds {unknown}")
 
     required_regressions = {
         ("UNBOUND", "DISPATCH_AUDIT_PASS", "DISPATCH_READY"),
@@ -126,6 +179,8 @@ def validate_machine(machine: dict[str, Any]) -> list[str]:
         ("IDENTITY_READY", "STARTUP_CLASSIFIED_WITH_PRE_MATH_GATES", "PRE_MATH_GATES_PENDING"),
         ("PRE_MATH_GATES_PENDING", "PRE_MATH_GATES_SATISFIED", "EXECUTION_READY"),
         ("PRE_MATH_GATES_PENDING", "PRE_MATH_GATE_FAILED", "NONSTART_TERMINAL"),
+        ("HANDOFF_READY", "SAME_CONVERSATION_EXECUTION_RESUMED", "IN_PROGRESS"),
+        ("RETURNED", "RETURN_DELIVERED_WITHOUT_DRIVER_REVIEW", "DELIVERED_UNREVIEWED"),
     }
     actual = {
         (item.get("from"), item.get("event"), item.get("to"))
@@ -143,7 +198,8 @@ def validate_machine(machine: dict[str, Any]) -> list[str]:
 
     guard = machine.get("f5a_regression_guard", {})
     forbidden = set(guard.get("forbidden_classifications", []))
-    if not {"EXECUTION_READY", "IN_PROGRESS", "RETURN_ACCEPTED", "CLOSED"}.issubset(forbidden):
+    required_forbidden = {"EXECUTION_READY", "IN_PROGRESS", "RETURN_ACCEPTED", "DELIVERED_UNREVIEWED", "CLOSED"}
+    if not required_forbidden.issubset(forbidden):
         errors.append("F5A regression guard does not forbid all false-success states")
     return errors
 
@@ -238,7 +294,7 @@ def audit_taskbook_execution(
                     findings.append({
                         "severity": "ERROR",
                         "code": "EX-PREMATH-COVERAGE",
-                        "message": f"PRE_MATH gate {gate_id!r} must precede both math action classes; missing {missing}",
+                        "message": f"PRE_MATH gate {gate_id!r} must precede both generic source reads and math derivation; missing {missing}",
                     })
             if phase == "PRE_RETURN" and "RETURN_WRITE" not in must_precede:
                 findings.append({
@@ -332,15 +388,14 @@ def allowed_action(machine: dict[str, Any], state: str, action: str) -> bool:
 def gate_blockers(
     meta: dict[str, Any], machine: dict[str, Any], action: str, satisfied_gate_ids: set[str]
 ) -> list[str]:
-    if action not in machine["action_classes"]:
-        raise ValueError(f"unknown action class: {action}")
+    guard_classes = _action_guard_set(machine, action)
     blockers: list[str] = []
     for gate in _declared_gates(meta, machine):
         gate_id = gate.get("gate_id")
         if not isinstance(gate_id, str) or not gate_id:
             continue
         must_precede = gate.get("must_precede")
-        if isinstance(must_precede, list) and action in must_precede and gate_id not in satisfied_gate_ids:
+        if isinstance(must_precede, list) and guard_classes.intersection(must_precede) and gate_id not in satisfied_gate_ids:
             blockers.append(gate_id)
     return sorted(blockers)
 
@@ -359,6 +414,31 @@ def allowed_task_action(
     return not blockers, blockers
 
 
+def _transition_authority_audit(
+    machine: dict[str, Any], event: str, evidence: dict[str, Any]
+) -> None:
+    authority_events = {
+        "DISPATCH_AUDIT_PASS": ("OFFICIAL_TASKBOOK", "taskbook_authority_body"),
+        "DIRECT_USER_TASK_AUTHORITY_ACCEPTED": ("DIRECT_USER_TASK", "authority_body"),
+        "SCHEDULER_TASK_AUTHORITY_ACCEPTED": ("SCHEDULER_TASK", "authority_body"),
+        "DRIVER_DISPATCH_ENVELOPE_ACCEPTED": ("DRIVER_DISPATCH_ENVELOPE", "authority_body"),
+    }
+    if event not in authority_events:
+        return
+    expected_kind, body_field = authority_events[event]
+    spec = evidence.get("normalized_execution_spec")
+    if not isinstance(spec, dict):
+        raise ValueError("authority transition requires normalized_execution_spec object")
+    if spec.get("authority_kind") != expected_kind:
+        raise ValueError(f"{event} requires normalized authority_kind={expected_kind}")
+    body = evidence.get(body_field, "")
+    findings = audit_execution_spec(spec, machine, authority_body=body if isinstance(body, str) else "")
+    errors = [item for item in findings if item["severity"] == "ERROR"]
+    if errors:
+        detail = "; ".join(f"{item['code']}:{item['message']}" for item in errors)
+        raise ValueError(f"normalized execution spec audit failed: {detail}")
+
+
 def next_state(machine: dict[str, Any], state: str, event: str, evidence: dict[str, Any]) -> str:
     if state == "RECOVERY_REQUIRED":
         recovery = machine["recovery_transitions"]
@@ -368,6 +448,8 @@ def next_state(machine: dict[str, Any], state: str, event: str, evidence: dict[s
                 raise ValueError(f"resume_state must be one of {recovery['resume_targets']}")
             if not _nonempty(evidence.get("durable_frontier_ref")):
                 raise ValueError("DURABLE_FRONTIER_RECONCILED requires durable_frontier_ref")
+            if evidence.get("execution_gate_ledger_reconciled") is not True:
+                raise ValueError("DURABLE_FRONTIER_RECONCILED requires execution_gate_ledger_reconciled=true")
             return target
         if event == recovery["redispatch_event"]:
             if not _nonempty(evidence.get("reason")):
@@ -382,6 +464,8 @@ def next_state(machine: dict[str, Any], state: str, event: str, evidence: dict[s
             raise ValueError(f"{event} requires reason")
         return recovery["to"]
 
+    _transition_authority_audit(machine, event, evidence)
+
     matches = [
         item for item in machine["transitions"]
         if item["from"] == state and item["event"] == event
@@ -393,12 +477,18 @@ def next_state(machine: dict[str, Any], state: str, event: str, evidence: dict[s
     if missing:
         raise ValueError(f"missing transition evidence: {missing}")
 
+    allowed_kinds = transition.get("allowed_authority_kinds")
+    if allowed_kinds is not None and evidence.get("authority_kind") not in allowed_kinds:
+        raise ValueError(f"transition {event} allowed only for authority kinds {allowed_kinds}")
+
     strict_true = {
         "dispatch_audit_pass",
         "execution_gates_checked_empty_of_pre_math",
         "action_within_task_scope",
         "return_write_action_guard_pass",
         "execution_gate_ledger_complete",
+        "execution_gate_ledger_reconciled",
+        "parent_objective_or_successor_gate_evaluated",
     }
     false_fields = [
         field for field in transition.get("requires", [])
