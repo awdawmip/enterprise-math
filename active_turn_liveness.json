@@ -27,8 +27,8 @@
     "USER_WAKEUP_MESSAGE_MUST_NOT_BE_REQUIRED_WHEN_IT_ADDS_NO_INFORMATION"
   ],
   "runtime_enforcement": {
-    "snapshot_builder": "tools/research_runtime.py::build_runtime_snapshot",
-    "pre_final_gate": "tools/research_runtime.py::pre_final_gate",
+    "snapshot_builder": "src/enterprise_math/research_runtime.py::build_runtime_snapshot",
+    "pre_final_gate": "src/enterprise_math/research_runtime.py::pre_final_gate",
     "fail_closed": true,
     "rule": "PARENT_OBJECTIVE_OPEN_WITHOUT_PROVED_TERMINAL_CONDITION -> FINAL_DENIED",
     "known_next_action": "EXECUTE_NEXT_ACTION_IN_SAME_TURN",
