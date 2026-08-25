@@ -9,9 +9,10 @@ Canonical machine sources:
 - `research_runtime_state_machine.json`
 - `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`
 
-Executable publication gate:
+Executable gates:
 
-`tools/research_task_registry.py`
+- `tools/research_task_registry.py`
+- `tools/check_task_registry_cutover.py`
 
 ## 1. One publication path
 
@@ -125,11 +126,15 @@ python tools/research_task_registry.py publish \
   --research-value "<WHY THIS TASK MUST NOT BE LOST>"
 ```
 
-Publication is complete only when:
+Publication is complete only when both:
 
 `python tools/research_task_registry.py audit`
 
-passes.
+and
+
+`python tools/check_task_registry_cutover.py`
+
+pass.
 
 ## 6. Orphan prevention
 
@@ -153,15 +158,33 @@ Freeze:
 
 ## 7. Legacy cutover
 
-Pre-cutover tasks already present on canonical `main` are treated as `LEGACY_BASELINE_REGISTERED` for continuation of existing executions only.
+The cutover is exact and machine-checked.
 
-They do not need bulk historical rewriting.
+`research_task_registry.json` records the Git blob SHA-1 of the frozen legacy task-definition file:
 
-However:
+`research_scheduler.json`.
 
-`LEGACY_TASK + FRESH_REDISPATCH -> EXPLICIT_REGISTRY_RECORD`.
+That file defines the legacy baseline for already-existing executions only. Its Issue/runtime event stream may continue to carry owner-claim progress for those existing tasks.
 
-A new policy review or modification cannot use legacy status to bypass registration.
+Freeze:
+
+`LEGACY_SCHEDULER_RUNTIME_EVENTS_MAY_CONTINUE`.
+
+`LEGACY_SCHEDULER_DEFINITION_FILE_MAY_NOT_PUBLISH_NEW_TASKS`.
+
+`NEW_OR_MODIFIED_TASK -> RESEARCH_TASK_REGISTRY`.
+
+The checker:
+
+`tools/check_task_registry_cutover.py`
+
+fails if `research_scheduler.json` drifts from the frozen baseline. This prevents the old scheduler from remaining a hidden second task registry.
+
+Legacy tasks do not need bulk historical rewriting, but:
+
+`LEGACY_TASK + FRESH_REDISPATCH / MODIFICATION / CURRENT-POLICY REVIEW -> EXPLICIT_REGISTRY_RECORD`.
+
+A new policy review or task modification cannot use legacy status to bypass registration.
 
 ## 8. Runtime relationship
 
@@ -169,7 +192,7 @@ The unified runtime composes the task registry before owner/session execution.
 
 Canonical order:
 
-`PARENT_OBJECTIVE -> REGISTERED_TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED`.
+`PARENT_OBJECTIVE -> TASK_REGISTRATION -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED`.
 
 Task registration controls whether a task exists as executable work. Owner lease controls who owns it. Session liveness controls whether the current conversation is alive. These are distinct controls.
 
