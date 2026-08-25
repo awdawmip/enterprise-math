@@ -92,6 +92,25 @@ class UnifiedDispatchTests(unittest.TestCase):
     def registered_definition(self):
         return next(item for item in dispatch.merged_definitions(ROOT) if item["task_id"] == REGISTERED_TASK)
 
+    def inline_claim(self, **overrides):
+        task = self.registered_definition()
+        value = {
+            "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+            "event": "CLAIM",
+            "task_id": REGISTERED_TASK,
+            "actor": "test",
+            "at": "2026-08-25T22:00:00+08:00",
+            "claim_id": "inline-claim-1",
+            "publication_id": task["publication_id"],
+            "theorem_owner": "QUADRATIC_PACKET_FRONTIER",
+            "execution_branch": "research/inline-claim-test",
+            "execution_branch_base": "a" * 40,
+            "allowed_outputs": ["research_returns/", "research_output/evidence/"],
+            "lease_minutes": 120,
+        }
+        value.update(overrides)
+        return value
+
     def test_registered_and_legacy_tasks_share_one_view_without_duplicates(self):
         definitions = dispatch.merged_definitions(ROOT)
         by_id = {item["task_id"]: item for item in definitions}
@@ -109,14 +128,14 @@ class UnifiedDispatchTests(unittest.TestCase):
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertEqual("IMMUTABLE_TASK_RECORD", state["registration_source"])
 
-    def test_registered_claim_without_execution_intent_is_ignored(self):
+    def test_incomplete_registered_claim_envelope_is_ignored(self):
         events = [{
             "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
             "event": "CLAIM",
             "task_id": REGISTERED_TASK,
             "actor": "test",
             "at": "2026-08-25T22:00:00+08:00",
-            "claim_id": "missing-intent",
+            "claim_id": "missing-envelope",
             "lease_minutes": 120,
         }]
         state = dispatch.reduce_definition(
@@ -126,7 +145,33 @@ class UnifiedDispatchTests(unittest.TestCase):
             root=ROOT,
         )
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
-        self.assertTrue(any("execution intent" in item["reason"] for item in state["ignored_events"]))
+        self.assertTrue(any("publication_id" in item["reason"] for item in state["ignored_events"]))
+
+    def test_inline_claim_envelope_needs_no_preclaim_repository_record(self):
+        event = self.inline_claim()
+        with mock.patch.object(dispatch.research_execution_records, "intent_for_claim", return_value=None):
+            state = dispatch.reduce_definition(
+                self.registered_definition(),
+                [event],
+                now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+                root=ROOT,
+            )
+        self.assertEqual("LEASED", state["dispatch_state"])
+        self.assertEqual("inline-claim-1", state["claim_id"])
+        self.assertTrue(state["researcher_id"].startswith("EM-QPHJA-"))
+        self.assertFalse(state["ignored_events"])
+
+    def test_inline_claim_rejects_stale_publication_without_extra_remote_write(self):
+        event = self.inline_claim(publication_id="TP-STALE")
+        with mock.patch.object(dispatch.research_execution_records, "intent_for_claim", return_value=None):
+            state = dispatch.reduce_definition(
+                self.registered_definition(),
+                [event],
+                now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+                root=ROOT,
+            )
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertTrue(any("publication_id" in item["reason"] for item in state["ignored_events"]))
 
     def test_registered_done_without_reviewed_result_is_ignored_after_valid_intent(self):
         intent = {
