@@ -239,6 +239,14 @@ def _next_action_count(next_action: Any) -> int:
     raise RuntimeStateError("next_action must be null, string, or object")
 
 
+def _unfinished_unit_present(value: Any) -> bool:
+    if value is None:
+        return False
+    if isinstance(value, str):
+        return bool(value.strip())
+    return True
+
+
 def pre_final_gate(state: Mapping[str, Any]) -> dict[str, Any]:
     """Evaluate final permission from the canonical runtime object."""
     require_canonical_state(state)
@@ -246,6 +254,21 @@ def pre_final_gate(state: Mapping[str, Any]) -> dict[str, Any]:
     if not isinstance(control, Mapping):
         raise RuntimeStateError("control must be an object when present")
     parent_complete = str(state["parent_objective"].get("status", "OPEN")).upper() == "COMPLETE"
+    next_action_count = _next_action_count(state.get("next_action"))
+    if parent_complete and (
+        next_action_count > 0 or _unfinished_unit_present(state.get("current_unfinished_unit"))
+    ):
+        transition = active_turn_liveness.CONTROL_STATE_INCONSISTENT
+        continuation_lease_active = _bool(control, "continuation_lease_active")
+        return {
+            "transition": transition,
+            "final_allowed": False,
+            "reason": "parent objective is marked complete while runtime still records unfinished work",
+            "required_action": active_turn_liveness.REQUIRED_ACTIONS[transition],
+            "continuation_lease_preserved": continuation_lease_active,
+            "terminal_scope": state.get("terminal_scope"),
+            "canonical_final_allowed": False,
+        }
     primitive = {
         "parent_objective_complete": parent_complete,
         "user_requested_stop_pause_review_or_wait": _bool(control, "user_requested_stop_pause_review_or_wait"),
@@ -255,7 +278,7 @@ def pre_final_gate(state: Mapping[str, Any]) -> dict[str, Any]:
         "same_action_repeated_without_state_change": _bool(control, "same_action_repeated_without_state_change"),
         "supported_alternative_available": _bool(control, "supported_alternative_available"),
         "parent_state_recomputed_without_change": _bool(control, "parent_state_recomputed_without_change"),
-        "executable_next_actions": _next_action_count(state.get("next_action")),
+        "executable_next_actions": next_action_count,
         "continuation_lease_active": _bool(control, "continuation_lease_active"),
     }
     decision = active_turn_liveness.evaluate(primitive)
