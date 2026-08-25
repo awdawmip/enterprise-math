@@ -9,8 +9,9 @@ def pointedLift (a b : ℤ) (hab : IsCoprime a b) : ℤ :=
 
 @[simp] theorem pointedLift_cast (a b : ℤ) (hab : IsCoprime a b) :
     ((pointedLift a b hab : ℤ) : ZMod (Hmodulus a b)) = pointedResidue a b hab := by
-  simpa [pointedLift] using
-    (ZMod.intCast_zmod_cast (pointedResidue a b hab))
+  change (((pointedResidue a b hab).cast : ℤ) : ZMod (Hmodulus a b)) =
+    pointedResidue a b hab
+  exact ZMod.intCast_zmod_cast (pointedResidue a b hab)
 
 /-- The canonical lift satisfies the source defining congruence `b*r+a=0 mod H`. -/
 theorem pointedLift_linear_dvd (a b : ℤ) (hab : IsCoprime a b) :
@@ -32,6 +33,7 @@ theorem pointed_factor_divisibilities_of_linear {a b r : ℤ} (hab : IsCoprime a
     refine ⟨(Cmodulus a b : ℤ), ?_⟩
     rw [Hmodulus_eq_mul]
     push_cast
+    rfl
   have hCH : (Cmodulus a b : ℤ) ∣ (Hmodulus a b : ℤ) := by
     refine ⟨(Nmodulus a b : ℤ), ?_⟩
     rw [Hmodulus_eq_mul]
@@ -91,7 +93,9 @@ theorem pointed_factor_divisibilities_of_linear {a b r : ℤ} (hab : IsCoprime a
           (2 * s * t * b + t ^ 2 * C a b) * eisensteinEval r) := by
             rw [hk]
             ring
-  constructor <;> simpa using ‹_›
+  constructor
+  · simpa only [coe_Nmodulus] using hNdiv
+  · simpa only [coe_Cmodulus] using hCdiv
 
 /-- The T4 pointed lift carries the Gaussian and Eisenstein factors in their designated channels. -/
 theorem pointed_factor_divisibilities (a b : ℤ) (hab : IsCoprime a b) :
@@ -148,10 +152,17 @@ theorem pointed_idempotent_congruence (a b : ℤ) (hab : IsCoprime a b) :
   rcases hN with ⟨kN, hkN⟩
   rcases hC with ⟨kC, hkC⟩
   refine ⟨kN * kC, ?_⟩
-  rw [Hmodulus_eq_mul]
-  push_cast
-  rw [hkN, hkC]
-  ring
+  calc
+    pointedIdempotentLift a b hab * (pointedIdempotentLift a b hab - 1) =
+        ((Nmodulus a b : ℤ) * kN) * (pointedIdempotentLift a b hab - 1) := by
+          exact congrArg
+            (fun x : ℤ => x * (pointedIdempotentLift a b hab - 1)) hkN
+    _ = ((Nmodulus a b : ℤ) * kN) * ((Cmodulus a b : ℤ) * kC) := by
+          exact congrArg (fun x : ℤ => ((Nmodulus a b : ℤ) * kN) * x) hkC
+    _ = (Hmodulus a b : ℤ) * (kN * kC) := by
+          rw [Hmodulus_eq_mul]
+          push_cast
+          ring
 
 /-- Accepted T6 strengthening specialized to the pointed primitive cell. -/
 theorem pointed_idempotent_partition (a b : ℤ) (hab : IsCoprime a b) :
