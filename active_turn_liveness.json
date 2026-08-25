@@ -40,6 +40,18 @@
       "PLATFORM_OR_TOOL_LIMIT"
     ]
   },
+  "terminal_scope_contract": {
+    "allowed_scopes": [
+      "NONE",
+      "SUBFLOW",
+      "TASK",
+      "PARENT_OBJECTIVE"
+    ],
+    "SUBFLOW": "REEVALUATE_PARENT_OBJECTIVE",
+    "TASK": "REEVALUATE_PARENT_OBJECTIVE",
+    "PARENT_OBJECTIVE": "EMIT_PARENT_TERMINAL_FINAL only when parent objective is actually complete",
+    "rule": "LOCAL_TERMINAL_SCOPE_MUST_NOT_BE_PROMOTED_TO_PARENT_TERMINAL_SCOPE"
+  },
   "continuation_lease": {
     "activation_semantics": [
       "continue",
