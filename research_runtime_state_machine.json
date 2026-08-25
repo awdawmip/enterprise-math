@@ -14,6 +14,12 @@
     "final_response_policy": "final_response_identity_policy.json"
   },
   "executable_runtime": "tools/research_runtime.py",
+  "repository_tool_paths": [
+    "tools/active_turn_liveness.py",
+    "tools/research_runtime.py"
+  ],
+  "human_index": "docs/RESEARCH_RUNTIME_STATE_MACHINE.md",
+  "tool_ownership_boundary": "These are control-plane runtime tools, not mathematical/research-tool families. They are owned by the Runtime surface and participate in the repository-wide exact tool ownership union.",
   "canonical_state_fields": [
     "PARENT_OBJECTIVE",
     "TASK",
