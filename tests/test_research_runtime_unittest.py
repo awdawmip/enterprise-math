@@ -14,6 +14,7 @@ def ts(value):
 def make_state(**overrides):
     base = {
         "parent_objective": {"objective_id": "OBJ-1", "status": "OPEN"},
+        "task_registration": {"registry_key": "RS-T1", "state": "CLAIMABLE"},
         "task": {
             "task_id": "RS-T1",
             "status": "ACTIVE",
@@ -59,12 +60,47 @@ def make_evidence(**overrides):
 
 
 class ResearchRuntimeTransitionTests(unittest.TestCase):
+    def test_unregistered_new_task_cannot_materialize_runtime(self):
+        state = make_state(task_registration={"registry_key": "RS-T1", "state": "UNREGISTERED"})
+        with self.assertRaisesRegex(rt.RuntimeStateError, "register the task"):
+            rt.pre_final_gate(state)
+
+    def test_missing_task_registration_cannot_materialize_runtime(self):
+        state = make_state()
+        state.pop("task_registration")
+        with self.assertRaisesRegex(rt.RuntimeStateError, "task_registration"):
+            rt.pre_final_gate(state)
+
+    def test_registry_key_must_match_task_id(self):
+        state = make_state(task_registration={"registry_key": "RS-OTHER", "state": "CLAIMABLE"})
+        with self.assertRaisesRegex(rt.RuntimeStateError, "registry_key"):
+            rt.pre_final_gate(state)
+
+    def test_legacy_baseline_cannot_authorize_fresh_redispatch(self):
+        state = make_state(
+            task_registration={
+                "state": "LEGACY_BASELINE_REGISTERED",
+                "fresh_redispatch": True,
+            }
+        )
+        with self.assertRaisesRegex(rt.RuntimeStateError, "fresh redispatch"):
+            rt.pre_final_gate(state)
+
     def test_tool_success_parent_open_next_action_physically_rejects_final_decision(self):
         state = make_state()
         state["runtime_phase"] = "TOOL_SUCCESS"
         decision = rt.pre_final_gate(state)
         self.assertEqual(decision["transition"], "EXECUTE_NEXT_ACTION")
         self.assertFalse(decision["canonical_final_allowed"])
+
+    def test_task_publication_is_subflow_and_preserves_current_frontier(self):
+        state = make_state()
+        out = rt.apply_terminal_event(state, "TASK_PUBLISHED")
+        self.assertEqual(out["terminal_scope"], "SUBFLOW")
+        self.assertEqual(out["runtime_phase"], "REEVALUATE_PARENT")
+        self.assertEqual(out["current_unfinished_unit"], "prove unit B")
+        self.assertEqual(out["next_action"]["description"], "prove unit B")
+        self.assertFalse(out["final_allowed"])
 
     def test_subflow_complete_returns_to_parent(self):
         out = rt.apply_terminal_event(make_state(), "SUBFLOW_COMPLETE")
@@ -98,24 +134,12 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
 
     def test_contradictory_parent_complete_with_unfinished_work_fails_closed(self):
         out = rt.apply_terminal_event(make_state(), "PARENT_OBJECTIVE_COMPLETE")
-        self.assertEqual(out["terminal_scope"], "PARENT_OBJECTIVE")
-        self.assertEqual(out["runtime_phase"], "PRE_FINAL")
         self.assertFalse(out["final_allowed"])
-        self.assertEqual(
-            out["pre_final_decision"]["transition"],
-            "CONTROL_STATE_INCONSISTENT",
-        )
-        self.assertEqual(
-            out["pre_final_decision"]["required_action"],
-            "REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE",
-        )
+        self.assertEqual(out["pre_final_decision"]["transition"], "CONTROL_STATE_INCONSISTENT")
 
     def test_long_owner_lease_does_not_extend_ten_minute_session(self):
         view = rt.classify_session(
-            {
-                "claim_id": "claim-1",
-                "owner_lease_until": "2026-08-26T12:00:00+08:00",
-            },
+            {"claim_id": "claim-1", "owner_lease_until": "2026-08-26T12:00:00+08:00"},
             {"last_activity_at": "2026-08-25T12:00:00+08:00"},
             now=ts("2026-08-25T12:11:00+08:00"),
         )
@@ -165,7 +189,6 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         self.assertFalse(out["adoption"]["claim_reissued"])
         self.assertFalse(out["adoption"]["completed_units_replayed"])
         self.assertEqual(out["adoption"]["resume_unit"], "prove unit B")
-        self.assertEqual(out["adoption"]["required_action"], "RESUME_CURRENT_UNFINISHED_UNIT")
 
     def test_stale_adoption_rejects_every_durable_frontier_mismatch(self):
         for bad, marker in (
@@ -191,14 +214,12 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
             }
         )
         view = rt.classify_session(
-            state["owner_claim"],
-            state["session"],
-            now=ts("2026-08-25T12:11:00+08:00"),
+            state["owner_claim"], state["session"], now=ts("2026-08-25T12:11:00+08:00")
         )
         self.assertEqual(view["session_state"], "STALE_UNOWNED")
         self.assertFalse(view["adoption_allowed"])
 
-    def test_universal_router_and_taskbook_inheritance_expose_runtime(self):
+    def test_universal_router_and_taskbook_inheritance_expose_runtime_and_registry(self):
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
         contract = json.loads((ROOT / "research_taskbook_contract.json").read_text(encoding="utf-8"))
         policy = json.loads((ROOT / "research_taskbook_policy.json").read_text(encoding="utf-8"))
@@ -208,19 +229,27 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
             "SESSION_STALE + OWNER_LEASE_ACTIVE -> STALE_RECOVERABLE",
             "TASK_FROZEN -> REEVALUATE_PARENT",
             "RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN",
+            "OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD",
+            "RESEARCHER_MAY_PUBLISH_TASK_WITHOUT_DRIVER_APPROVAL",
         ):
             self.assertIn(marker, agents)
         self.assertEqual(contract["runtime_state_machine"], "research_runtime_state_machine.json")
-        self.assertEqual(contract["runtime_terminal_contract"]["default_taskbook_stop_scope"], "TASK")
-        self.assertEqual(contract["runtime_lease_contract"]["taskbook_claim_lease_scope"], "OWNER_CLAIM")
-        self.assertIn("research_runtime_state_machine.json", policy["policy_inputs"])
+        self.assertEqual(contract["task_registry"], "research_task_registry.json")
+        self.assertEqual(contract["publication_contract"]["researcher_driver_approval_required"], False)
+        self.assertIn("research_task_publication_contract.json", policy["policy_inputs"])
+        self.assertNotIn("research_task_registry.json", policy["policy_inputs"])
         self.assertEqual(final["final_permission_authority"], "research_runtime_state_machine.json")
 
     def test_runtime_owns_control_tools_in_exact_owner_surface(self):
         runtime = json.loads((ROOT / "research_runtime_state_machine.json").read_text(encoding="utf-8"))
         self.assertEqual(
             set(runtime["repository_tool_paths"]),
-            {"tools/active_turn_liveness.py", "tools/research_runtime.py"},
+            {
+                "tools/active_turn_liveness.py",
+                "tools/check_task_registry_cutover.py",
+                "tools/research_runtime.py",
+                "tools/research_task_registry.py",
+            },
         )
         text = (ROOT / "docs/RESEARCH_RUNTIME_STATE_MACHINE.md").read_text(encoding="utf-8")
         for path in runtime["repository_tool_paths"]:

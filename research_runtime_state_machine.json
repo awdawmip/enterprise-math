@@ -3,10 +3,14 @@
   "status": "ACTIVE_CANONICAL_RUNTIME",
   "effective": "2026-08-25",
   "classification": "NO_NEW_MATHEMATICS_GOVERNANCE_MAINTENANCE",
-  "purpose": "Unify parent-objective liveness, task ownership, conversation/session liveness, durable frontier recovery, terminal scope and final-response permission without changing mathematical truth or task ownership semantics.",
+  "purpose": "Unify parent-objective liveness, task publication/registration, task ownership, conversation/session liveness, durable frontier recovery, terminal scope and final-response permission without changing mathematical truth.",
   "composes": {
     "active_turn_liveness": "active_turn_liveness.json",
     "pre_final_primitive": "tools/active_turn_liveness.py",
+    "task_publication_contract": "research_task_publication_contract.json",
+    "task_registry": "research_task_registry.json",
+    "task_publication_tool": "tools/research_task_registry.py",
+    "registry_cutover_checker": "tools/check_task_registry_cutover.py",
     "scheduler": "research_scheduler.json",
     "scheduler_reducer": "tools/research_scheduler.py",
     "taskbook_contract": "research_taskbook_contract.json",
@@ -16,12 +20,15 @@
   "executable_runtime": "tools/research_runtime.py",
   "repository_tool_paths": [
     "tools/active_turn_liveness.py",
-    "tools/research_runtime.py"
+    "tools/check_task_registry_cutover.py",
+    "tools/research_runtime.py",
+    "tools/research_task_registry.py"
   ],
   "human_index": "docs/RESEARCH_RUNTIME_STATE_MACHINE.md",
   "tool_ownership_boundary": "These are control-plane runtime tools, not mathematical/research-tool families. They are owned by the Runtime surface and participate in the repository-wide exact tool ownership union.",
   "canonical_state_fields": [
     "PARENT_OBJECTIVE",
+    "TASK_REGISTRATION",
     "TASK",
     "OWNER_CLAIM",
     "SESSION",
@@ -37,6 +44,12 @@
     "PARENT_OBJECTIVE"
   ],
   "core_invariants": [
+    "OFFICIAL_TASK_REQUIRES_CANONICAL_REGISTRY_RECORD",
+    "UNREGISTERED_TASK_CANNOT_ENTER_READY_CLAIM_OR_EXECUTION",
+    "ALL_TASK_PUBLISHERS_USE_ONE_PUBLICATION_TEMPLATE",
+    "RESEARCHER_TASK_PUBLICATION_IS_ALLOWED_WITHOUT_DRIVER_APPROVAL",
+    "TASK_PUBLICATION_DOES_NOT_GRANT_WORKING_TRUTH_OR_PROMOTION",
+    "LEGACY_SCHEDULER_DEFINITION_FILE_IS_FROZEN_FOR_NEW_TASK_PUBLICATION",
     "OWNER_LEASE_IS_NOT_SESSION_LIVENESS",
     "SESSION_STALE_DOES_NOT_IMPLY_OWNER_CLAIM_RELEASE",
     "SESSION_STALE_AND_OWNER_LEASE_ACTIVE_IMPLIES_STALE_RECOVERABLE",
@@ -50,6 +63,28 @@
     "PARENT_COMPLETE_WITH_UNFINISHED_RUNTIME_WORK_IMPLIES_CONTROL_STATE_INCONSISTENT",
     "FINAL_RESPONSE_RENDERING_REQUIRES_RUNTIME_FINAL_ALLOWED"
   ],
+  "task_registration": {
+    "authority": "research_task_registry.json",
+    "publication_contract": "research_task_publication_contract.json",
+    "mandatory_template": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
+    "publication_tool": "tools/research_task_registry.py",
+    "cutover_checker": "tools/check_task_registry_cutover.py",
+    "allowed_publishers": [
+      "RESEARCHER",
+      "RESEARCH_DRIVER",
+      "FOUNDATION_STEWARD"
+    ],
+    "researcher_driver_approval_required": false,
+    "execution_gate": "REGISTERED_OR_LEGACY_BASELINE_REGISTERED",
+    "new_task_without_registry_record": "CONTROL_STATE_INCONSISTENT",
+    "new_task_claim_without_registry_record": "FORBIDDEN",
+    "taskbook_or_handoff_alone_is_registration": false,
+    "legacy_scheduler_file_is_new_task_publication_path": false,
+    "legacy_scheduler_runtime_events_may_continue": true,
+    "publication_is_subflow_not_parent_terminal": true,
+    "after_publication": "REEVALUATE_PARENT",
+    "valuable_residue_capture": "PUBLISH_REGISTERED_TASK_WITH_RESEARCH_VALUE_WITHOUT_SWITCHING_CURRENT_TASK"
+  },
   "lease_model": {
     "owner_lease": {
       "authority": "research_scheduler.json / scheduler CLAIM lease / task-local owner lease where explicitly provided",
@@ -103,6 +138,12 @@
       "next_state": "REEVALUATE_PARENT",
       "direct_final_allowed": false
     },
+    "TASK_PUBLISHED": {
+      "terminal_scope": "SUBFLOW",
+      "clear_local_execution_frontier": false,
+      "next_state": "REEVALUATE_PARENT",
+      "direct_final_allowed": false
+    },
     "TASK_FROZEN": {
       "terminal_scope": "TASK",
       "clear_local_execution_frontier": true,
@@ -130,13 +171,22 @@
     "final_channel_rule": "RUNTIME_FINAL_ALLOWED_FALSE_IMPLIES_FINAL_CHANNEL_FORBIDDEN"
   },
   "dispatch_semantics": {
+    "UNREGISTERED_NEW_TASK": "FORBID_DISPATCH_AND_REGISTER_FIRST",
+    "REGISTERED_CLAIMABLE_TASK": "ELIGIBLE_FOR_CLAIM",
+    "LEGACY_SCHEDULER_DEFINITION_EDIT": "FORBIDDEN_AS_NEW_TASK_PUBLICATION_PATH",
     "LEASED_AND_SESSION_ACTIVE": "KEEP_CURRENT_SESSION",
     "LEASED_AND_SESSION_STALE_RECOVERABLE": "ADOPT_OWNER_CLAIM",
     "LEASED_AND_SESSION_LIVENESS_UNKNOWN": "VERIFY_SESSION_LIVENESS",
     "NEEDS_DISPATCH": "CLAIM_NEW_OWNER",
-    "rule": "skip_live_leases applies to live owner/session pairs; it must not turn an unverified or stale conversation into an indefinite dispatch lock."
+    "rule": "Task registration controls whether work exists as an executable task. Owner lease controls who owns it. Session liveness controls whether the current conversation is alive. Legacy scheduler definitions are frozen at cutover; only its runtime event surface remains live."
   },
   "required_end_to_end_regressions": [
+    "NEW_TASK_WITHOUT_REGISTRY_RECORD_CANNOT_EXECUTE",
+    "RESEARCHER_CAN_PUBLISH_REGISTERED_CLAIMABLE_TASK_WITHOUT_DRIVER_APPROVAL",
+    "FREE_RESEARCH_RAW_CANDIDATE_CANNOT_PUBLISH_TASK",
+    "CURRENT_POLICY_PASS_TASK_WITHOUT_REGISTRY_RECORD_FAILS_ORPHAN_AUDIT",
+    "LEGACY_SCHEDULER_DEFINITION_DRIFT_FAILS_CUTOVER_AUDIT",
+    "TASK_PUBLICATION_DOES_NOT_GRANT_WORKING_TRUTH_OR_PROMOTION",
     "TOOL_SUCCESS_AND_PARENT_OPEN_AND_NEXT_ACTION_EXISTS_REJECTS_FINAL",
     "SUBFLOW_COMPLETE_CLEARS_LOCAL_FRONTIER_AND_REEVALUATES_PARENT",
     "TASK_FROZEN_CLEARS_LOCAL_FRONTIER_AND_REEVALUATES_PARENT",
@@ -149,8 +199,11 @@
   ],
   "compatibility": {
     "research_scheduler_v1_supported": true,
+    "legacy_scheduler_definition_file_frozen": true,
+    "legacy_scheduler_runtime_events_supported": true,
     "legacy_scheduler_lease_until_interpretation": "OWNER_LEASE_ONLY",
+    "legacy_task_baseline": "EXISTING_EXECUTION_MAY_CONTINUE; FRESH_REDISPATCH_REQUIRES_REGISTRY_RECORD",
     "active_turn_liveness_v2_remains_the_pre_final_primitive": true,
-    "no_taskbook_requires_rewrite_only_for_runtime_adoption": true
+    "no_legacy_taskbook_requires_bulk_rewrite_only_for_registry_cutover": true
   }
 }

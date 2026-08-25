@@ -11,7 +11,7 @@ Current explicit user instruction controls scope.
 Current research modes:
 
 - `EM_FREE_RESEARCHER` -> `FREE_AXIOM_DISCOVERY`;
-- explicit user task / Driver handoff / approved taskbook / scheduler dispatch -> `TASK_RESEARCH`;
+- explicit user task / registered task / taskbook / scheduler dispatch -> `TASK_RESEARCH`;
 - explicit Driver activation -> `RESEARCH_DRIVER`.
 
 Exact role authority:
@@ -37,13 +37,11 @@ Freeze:
 
 `DETERMINISTIC_NEXT_STEP_EXISTS -> CONTINUE_IN_SAME_TURN`.
 
-A semantic checkpoint, journal write, tool return, recoverable tool error, PR/branch metadata boundary, `PENDING_NONBLOCKING` state, Stage verdict, Driver verdict, progress update, publication completion, or local soft block is not a reason to wait for a user `继续` message when the parent objective remains open and an executable next step exists.
+A semantic checkpoint, journal write, tool return, recoverable tool error, PR/branch metadata boundary, `PENDING_NONBLOCKING`, Stage/Driver verdict, task publication, progress update, or local soft block is not a reason to wait for `继续` when the parent remains open and an executable next step exists.
 
-When the user's instruction semantically means continue/keep going/do not stop/until satisfied/until no further progress/solve the blocker and continue, the parent continuation lease remains active until that parent criterion is met or the user revokes it.
+When the user says continue/keep going/do not stop/until satisfied/until no further progress/solve blocker and continue, the parent continuation lease remains active until that criterion is met or revoked.
 
-`PASS_IS_NOT_A_SUCCESSOR_TRIGGER` remains binding, but every Stage terminal verdict must be followed in the **same turn** by successor-gate/closure/portfolio evaluation. Closing one route does not close the parent user objective.
-
-Before ending a nonterminal turn, if the parent objective is incomplete and another executable action exists, execute it now.
+`PASS_IS_NOT_A_SUCCESSOR_TRIGGER` remains binding, but every Stage terminal verdict receives same-turn successor-gate/closure/portfolio evaluation.
 
 ### Unified runtime gate
 
@@ -53,9 +51,9 @@ Canonical runtime:
 - `tools/research_runtime.py`;
 - `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`.
 
-For every nontrivial research/control turn, preserve one coherent runtime view of:
+Preserve one coherent runtime view:
 
-`PARENT_OBJECTIVE -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED`.
+`PARENT_OBJECTIVE -> TASK_REGISTRATION -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED`.
 
 Freeze:
 
@@ -67,60 +65,86 @@ Freeze:
 
 `TASK_FROZEN -> REEVALUATE_PARENT`.
 
-A stale replacement conversation must verify the taskbook source, owner branch, live claim, remote HEAD, execution stamp and durable outputs, then **adopt the existing owner claim** and resume the first unfinished unit. Do not issue a second claim and do not replay already durable work.
+A stale replacement conversation verifies taskbook source, owner branch, live claim, remote HEAD, execution stamp and durable outputs, then adopts the existing claim and resumes the first unfinished unit. Do not re-claim or replay durable work.
 
-The existing scheduler `claim_lease_minutes` / `lease_until` is an **owner-lease** clock only. It does not prove that a conversation is alive. Session liveness uses the runtime's separate short liveness window.
+Scheduler `claim_lease_minutes` / `lease_until` is owner lease only. It does not prove conversation liveness.
 
-Immediately before any final-channel response, evaluate runtime PRE_FINAL permission. The existing `tools/active_turn_liveness.py` remains the primitive liveness evaluator, but `tools/research_runtime.py` is the canonical orchestrator when a runtime object exists.
+Immediately before final-channel output, evaluate PRE_FINAL through the runtime. `tools/active_turn_liveness.py` remains the primitive evaluator.
 
 `PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FINAL_ALLOWED=false`.
 
 `RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN`.
 
+### Unified task publication / orphan prevention
+
+Canonical task-publication surfaces:
+
+- `research_task_publication_contract.json`;
+- `research_task_registry.json`;
+- `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`;
+- `tools/research_task_registry.py`;
+- `docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md`.
+
+Every new official task—researcher, free researcher after audit, Driver, or Foundation Steward—uses the **same publication template and canonical registry**.
+
+Freeze:
+
+`TASKBOOK_FILE != PUBLISHED_TASK`.
+
+`OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD`.
+
+`UNREGISTERED_NEW_TASK -> NO READY / NO CLAIM / NO EXECUTION`.
+
+`RESEARCHER_MAY_PUBLISH_TASK_WITHOUT_DRIVER_APPROVAL`.
+
+A researcher-published task defaults to effective `P2 / MEDIUM`; publication may record a requested rank, but Driver portfolio reprioritization remains separate authority.
+
+Publication never grants Working Truth, Foundation status, theorem truth, canonical promotion, or Driver authority.
+
+Every published task must carry a nonempty `parent_objective_id` and registry `research_value` explaining why the work must not be lost.
+
+FREE Phase A cannot publish task agenda. After Phase-B audit, an eligible `AUDITED_AXIOM_CANDIDATE`, `AUDITED_REPLACEMENT_CANDIDATE`, or `EXACT_NEGATIVE_OBSTRUCTION` may be published directly by the free researcher while preserving `origin_kind=FREE_AXIOM_CANDIDATE`, candidate ID and audited state.
+
+A task researcher may publish a valuable side residue without switching the current task. Publication is a SUBFLOW: after registry audit PASS, return to the current parent objective.
+
+Legacy pre-registry tasks may continue existing executions, but fresh redispatch, modification, or current-policy re-review requires explicit registry migration.
+
 ## 3. Identity and mandatory final footer
 
-Resolve the visible role identity before substantive work:
+Resolve visible identity before substantive work:
 
 - researcher -> `Researcher-ID`;
 - Driver -> `Driver-ID`.
 
-Identity registration is nonblocking.
+Identity registration is nonblocking. Publisher identity is persisted in the registry; reusable taskbooks do not freeze execution identity.
 
-Canonical final-response contract:
-
-`final_response_identity_policy.json`.
+Canonical final-response contract: `final_response_identity_policy.json`.
 
 Freeze:
 
 `ACTIVE_ENTERPRISE_MATH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER`.
 
-This applies even to short status replies, readiness/completion receipts, handoffs, blocked/no-go conclusions, refusals, and ordinary research answers. Commentary/progress/tool-call messages are not final responses and do not need the footer.
-
-Exact final marker:
+Exact marker:
 
 - `RESEARCH_DRIVER` -> `Driver-ID: <ID> / CONTROL_PLANE`;
-- `RESEARCHER` with an active task -> `Researcher-ID: <ID> / <TASK_ID>`;
-- `RESEARCHER` in free mode without a task -> `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`;
-- other direct task-research fallback -> `Researcher-ID: <ID> / TASK_RESEARCH`.
+- `RESEARCHER` with active task -> `Researcher-ID: <ID> / <TASK_ID>`;
+- free researcher -> `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`;
+- direct fallback -> `Researcher-ID: <ID> / TASK_RESEARCH`.
 
-Do not use `DIRECT` as a visible researcher scope. Registration state `REGISTER_PENDING` never suppresses the marker.
-
-If `Global-Knowledge-Sync:` is also emitted, the role identity marker appears immediately before it and the sync line remains last.
+Do not use `DIRECT` as a visible researcher scope. If `Global-Knowledge-Sync:` is emitted, identity appears immediately before it.
 
 ## 4. FREE_AXIOM_DISCOVERY
 
 FREE Phase A receives the **primitive substrate**, not the current-result catalog and not a suggestion menu.
 
-Canonical substrate router:
-
-`definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`.
+Canonical substrate router: `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`.
 
 Before candidate freeze:
 
 - do not preload the general current-result router;
-- do not preload current task/route/coordination/recent-history context;
+- do not preload task/route/coordination/recent-history context;
 - do not inherit unrelated `WORKING_TRUTH`;
-- do not let existing tools, representations, filenames or current research vocabulary choose the question;
+- do not let tools, representations, filenames or current vocabulary choose the question;
 - do not supply suggested questions or discovery-lens menus;
 - use generic exclusion categories rather than naming hidden current results.
 
@@ -130,11 +154,9 @@ Freeze:
 
 `NO_DEFAULT_DISCOVERY_LENS_MENU`.
 
-Candidate lifecycle:
+Candidate lifecycle: `research_axiom_candidate_state_machine.json`.
 
-`research_axiom_candidate_state_machine.json`.
-
-After the candidate/no-go packet is frozen, Phase B may open current/prior work and must include the tool-coverage/dedup lookup before claiming a new reusable method.
+After candidate/no-go freeze, Phase B may open current/prior work and must run tool-coverage/dedup before method-novelty claims. Eligible audited candidates may then be registered as tasks without Driver intake merely to preserve the work.
 
 ## 5. TASK_RESEARCH hot start
 
@@ -142,9 +164,9 @@ For a selected task:
 
 1. this router if not already loaded;
 2. the **exact task entry**;
-3. the first exact dependency required to begin;
-4. work;
-5. expand only when a concrete dependency is triggered.
+3. verify it is registered or covered by legacy-baseline continuation before new claim/execution;
+4. load the first exact dependency required to begin;
+5. work and expand only when a concrete dependency triggers.
 
 Soft routine source-read budget before substantive work: `<= 3`.
 
@@ -160,7 +182,7 @@ Canonical policy:
 - `research_method_inventory.json`;
 - `tools/enterprise_toolbox.py`.
 
-For ordinary `TASK_RESEARCH`, `RESEARCH_DRIVER`, and shared Steward work, once the problem's information structure is understood and **before constructing a new general-purpose mechanism/tool/helper calculus**, perform a current tool-coverage lookup.
+For ordinary `TASK_RESEARCH`, `RESEARCH_DRIVER`, and shared Steward work, once the problem structure is understood and **before constructing a new general-purpose mechanism/tool/helper calculus**, perform current tool coverage lookup.
 
 Freeze:
 
@@ -170,99 +192,66 @@ Freeze:
 
 `NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP`.
 
-The coverage outcome is one of:
+Outcomes: `REUSE_EXISTING_TOOL`, `COMPOSE_EXISTING_TOOLS`, `EXTEND_EXISTING_TOOL`, `CAPABILITY_GAP_CONFIRMED`, `NOT_APPLICABLE`.
 
-- `REUSE_EXISTING_TOOL`;
-- `COMPOSE_EXISTING_TOOLS`;
-- `EXTEND_EXISTING_TOOL`;
-- `CAPABILITY_GAP_CONFIRMED`;
-- `NOT_APPLICABLE`.
-
-Do not create a new tool family merely because the same mechanism appears under another historical name, route, application domain or filename. Use aliases, specializations, domain facades or subtools.
-
-Every Driver/Steward-accepted research return must receive a method-harvest classification so reusable methods flow back into the shared inventory instead of remaining hidden in route-local artifacts.
+Do not create a new tool family merely because the mechanism appears under another route/domain/name. Every Driver/Steward-accepted return receives method-harvest classification.
 
 ### Discovery-firewall timing exception
 
-Tool lookup is delayed when the controlling research protocol explicitly declares a discovery information firewall and a freeze point.
-
-This includes:
-
-- FREE Phase A;
-- a TASK research taskbook that explicitly requires blind-forward / source-whitelist isolation until a named raw candidate/no-go freeze.
-
-Before that declared freeze, the current toolbox/method catalog is hidden as a discovery prior and its tool names must not be exposed merely to enforce reuse. The researcher obeys the exact task-local whitelist/firewall.
-
-Immediately after the declared freeze, the same lookup becomes mandatory before method-novelty claims or a new tool continuation. The frozen result is preserved even when it collides with an existing tool; deduplication is classification, not retroactive steering.
-
-An ordinary TASK may not self-declare blindness simply to skip the reuse gate. The exception must come from the controlling role/task contract.
-
-The lookup is selective rather than a universal preload: query by the actual need. When a local checkout is available, `python tools/enterprise_toolbox.py coverage <need>` searches curated tool families, harvested methods and the current executable Python surface without importing modules.
+Tool lookup is delayed for FREE Phase A and explicit task-local blind-forward/source-whitelist protocols until their declared freeze. Immediately after freeze, dedup becomes mandatory before method-novelty or new-tool continuation claims.
 
 ## 7. GitHub/service routing
 
-In ChatGPT/Project execution with the connected GitHub capability available:
-
 `CONNECTED_GITHUB_PLUGIN = PRIMARY_REMOTE_GITHUB_PATH`.
 
-Use the GitHub connector/plugin for remote repository files, search, commits, branches, PRs, issues and allowed workflow/status operations.
+Use connected GitHub capability for remote repository files, commits, branches, PRs, issues and workflow/status operations. Do not use container networking to duplicate GitHub access when the connector supports the action.
 
-Do **not** use ChatGPT/container networking to clone GitHub, fetch raw GitHub URLs, or reproduce remote GitHub access when the connected capability can perform the action.
-
-A pre-existing local checkout may be used for actual local execution/tests. It is not the fallback transport for remote synchronization.
-
-Do not repeatedly retry or report a known unavailable local GitHub network route. A remote-access problem is surfaced only when the connected GitHub route itself cannot complete a required action.
-
-Detailed remote rules:
-
-`docs/GITHUB_INTERACTION_BUDGET.md`.
+Detailed rules: `docs/GITHUB_INTERACTION_BUDGET.md`.
 
 ## 8. Working Truth
 
-`WORKING_TRUTH` is TASK execution discipline after an explicit Driver/taskbook freeze.
+`WORKING_TRUTH` is TASK execution discipline only after an explicit Driver freeze or exact task semantics that grant the premise.
+
+Mere task registration/publication does not activate Working Truth.
 
 It is not a FREE Phase-A premise and not raw-candidate status.
 
 ## 9. Evidence integrity
 
-Never fabricate proof, computation, hashes, validation status, novelty, provenance or tool results.
+Never fabricate proof, computation, hashes, validation status, novelty, provenance, registry state or tool results. Finite enumeration/software success is not automatically theorem proof.
 
-Keep claim status exact. Finite enumeration/software success is not automatically theorem proof.
+Load triggered semantic policies only when needed:
 
-Load triggered semantic policies only when the claim requires them:
-
-- `FOUNDATIONAL_LOGIC.md` / `foundational_logic.json` — foundation-facing inverse/recovery reasoning;
-- `native_semantics_admissibility.json` — native/intrinsic/base-world claims;
-- geometry/refoundation policy — geometry/refoundation tasks.
+- `FOUNDATIONAL_LOGIC.md` / `foundational_logic.json`;
+- `native_semantics_admissibility.json`;
+- geometry/refoundation policy for relevant tasks.
 
 ## 10. Candidate / task / continuation provenance
 
 `RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION`.
 
-A task opened from FREE discovery preserves audited candidate origin/ID/state.
+A task from FREE discovery preserves audited candidate origin/ID/state.
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
-A continuation requires a genuine new information gap, discriminating outcomes, kill condition, and explicit consideration of closure/another owner/free exploration.
+A continuation requires a genuine information gap, discriminating outcomes, kill condition, and consideration of closure/another owner/free exploration.
 
-Exact taskbook contract:
+Exact task/publication contracts:
 
 - `research_taskbook_contract.json`;
 - `research_taskbook_policy.json`;
+- `research_task_publication_contract.json`;
+- `research_task_registry.json`;
 - `docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md`;
-- `tools/research_taskbook.py`.
+- `docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md`.
 
 ## 11. Remote liveness
 
 `RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
-Do not perform universal scheduler/Issue/PR/CI/tree preflight.
+Do not run universal scheduler/Issue/PR/CI/tree preflight, poll CI merely to wait, or chase moving main without a concrete action.
 
-Do not poll CI/review/status merely to wait for change.
-
-Do not chase moving `main` without a concrete action.
-
-Tool/scheduler/CI availability is not a mathematical `HARD_BLOCK`.
+Tool/scheduler/registry/CI availability is not a mathematical `HARD_BLOCK`.
 
 `REMOTE_SUBFLOW_TERMINATED != PARENT_TASK_TERMINATED`.
 
@@ -270,13 +259,13 @@ Tool/scheduler/CI availability is not a mathematical `HARD_BLOCK`.
 
 Load only when relevant:
 
-- scheduler/Relay/Foundation surfaces for actual coordination actions;
-- Driver contract + continuity for actual Driver portfolio decisions;
+- task registry/scheduler/Relay/Foundation for actual coordination;
+- Driver contract + continuity for portfolio decisions;
 - Common Surface for exact cross-owner theorem/tool/conflict lookup;
-- toolbox registry/method inventory for actual method selection or method-harvest/dedup;
-- current native router for current-result/generation lookup;
+- toolbox/method inventory for method selection/harvest;
+- current native router for current-result lookup;
 - test/Lean diagnostics for actual diagnosis;
-- owner-isolation/promotion policy for actual publication/promotion work.
+- owner-isolation/promotion policy for publication/promotion work.
 
 ## 13. Persistence and publication
 
@@ -284,22 +273,14 @@ L1/L2/L3 research is remote-silent between semantic checkpoints by default.
 
 `REMOTE_SILENT` describes repository traffic, **not conversational inactivity**.
 
-Journal, Driver Continuity, source task/result files and source `main` have distinct roles.
-
-Current source `main` is canonical only after applicable gates.
+Task registry records task existence; taskbooks carry task content; Driver Continuity carries routing summary; source main carries gated canonical truth. These roles must not be conflated.
 
 ## 14. Promotion liveness
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
-Mathematical L4 is one bounded active promotion attempt at a time.
-
-Strict `NO_NEW_MATHEMATICS` governance maintenance uses the separate bounded protocol in:
-
-`docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`.
+Mathematical L4 is one bounded active promotion attempt at a time. Strict `NO_NEW_MATHEMATICS` maintenance follows `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`.
 
 ## 15. Current-only hot path
 
-Normal startup files describe **current behavior/current authority only**.
-
-Historical/provenance material is retrieved only when the task explicitly needs history/provenance/comparison.
+Normal startup files describe current behavior/current authority only. Historical/provenance material is loaded only when explicitly needed.

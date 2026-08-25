@@ -1,9 +1,9 @@
 {
-  "schema": "ENTERPRISE_MATH_AXIOM_CANDIDATE_STATE_MACHINE_V2",
+  "schema": "ENTERPRISE_MATH_AXIOM_CANDIDATE_STATE_MACHINE_V3",
   "status": "ACTIVE_CANONICAL_GOVERNANCE",
-  "effective": "2026-08-22",
+  "effective": "2026-08-25",
   "driver_id": "EM-DVR-K7Q4N8",
-  "purpose": "Keep independent discovery, audit, Driver intake, selected-task execution and canonical promotion as separate states so an early candidate cannot become a research agenda merely because it was interesting or recent.",
+  "purpose": "Keep independent discovery, audit, task publication, Driver portfolio intake and canonical promotion as separate states so discovery can be preserved without making raw candidates Working Truth or orphan tasks.",
   "states": [
     "DISCOVERY_IN_PROGRESS",
     "BLIND_CANDIDATE_FROZEN",
@@ -16,6 +16,7 @@
     "EXACT_NEGATIVE_OBSTRUCTION",
     "AUDITED_AXIOM_CANDIDATE",
     "AUDITED_REPLACEMENT_CANDIDATE",
+    "TASK_PUBLICATION_ELIGIBLE",
     "DRIVER_INTAKE",
     "PARKED",
     "REJECTED",
@@ -40,7 +41,10 @@
       "blindness_status",
       "created_at_or_content_hash"
     ],
-    "blindness_status_values": ["CLEAN", "ANCHOR_EXPOSED"],
+    "blindness_status_values": [
+      "CLEAN",
+      "ANCHOR_EXPOSED"
+    ],
     "clean_required_for_independent_discovery_claim": true,
     "post_freeze_rewrite_of_origin_story": false
   },
@@ -67,6 +71,37 @@
       "AUDITED_REPLACEMENT_CANDIDATE"
     ]
   },
+  "task_publication": {
+    "contract": "research_task_publication_contract.json",
+    "registry": "research_task_registry.json",
+    "eligible_from": [
+      "EXACT_NEGATIVE_OBSTRUCTION",
+      "AUDITED_AXIOM_CANDIDATE",
+      "AUDITED_REPLACEMENT_CANDIDATE"
+    ],
+    "publisher_roles": [
+      "RESEARCHER",
+      "RESEARCH_DRIVER"
+    ],
+    "researcher_driver_approval_required": false,
+    "raw_blind_candidate_eligible": false,
+    "transition": "REGISTERED_PUBLICATION -> PROMOTED_TO_EXPLICIT_TASK",
+    "taskbook_required_metadata": {
+      "origin_kind": "FREE_AXIOM_CANDIDATE",
+      "origin_candidate_id": "candidate_id",
+      "origin_candidate_state": "current audited state"
+    },
+    "registry_required_fields": [
+      "parent_objective_id",
+      "publisher_role",
+      "publisher_id",
+      "research_value"
+    ],
+    "origin_may_be_relabelled_driver_roadmap": false,
+    "working_truth_after_transition": "NOT_AUTOMATIC",
+    "publication_grants_foundation_status": false,
+    "publication_grants_canonical_status": false
+  },
   "driver_intake": {
     "eligible_from": [
       "EXACT_NEGATIVE_OBSTRUCTION",
@@ -74,7 +109,8 @@
       "AUDITED_REPLACEMENT_CANDIDATE",
       "DERIVED_NOT_AXIOM",
       "DUPLICATE_OR_ALREADY_KNOWN",
-      "PRIOR_ART_ANALOGUE"
+      "PRIOR_ART_ANALOGUE",
+      "PROMOTED_TO_EXPLICIT_TASK"
     ],
     "raw_blind_candidate_eligible": false,
     "driver_actions": [
@@ -82,9 +118,11 @@
       "REJECTED",
       "INDEPENDENT_REPLICATION_REQUESTED",
       "PROMOTED_TO_EXPLICIT_TASK",
-      "PROMOTED_TO_FOUNDATION_QUESTION"
+      "PROMOTED_TO_FOUNDATION_QUESTION",
+      "REPRIORITIZE_REGISTERED_TASK"
     ],
-    "working_truth_activation": "ONLY_AFTER_PROMOTED_TO_EXPLICIT_TASK_AND_EXPLICIT_DRIVER_DIRECTION_FREEZE",
+    "driver_intake_is_required_to_make_task_exist": false,
+    "working_truth_activation": "ONLY_AFTER_EXPLICIT_DRIVER_DIRECTION_FREEZE_OR_EXACT_TASKBOOK_WORKING_TRUTH_SEMANTICS",
     "candidate_status_alone_is_not_working_truth": true
   },
   "explicit_task_transition": {
@@ -93,13 +131,16 @@
       "AUDITED_REPLACEMENT_CANDIDATE",
       "EXACT_NEGATIVE_OBSTRUCTION"
     ],
+    "route": "UNIFIED_REGISTERED_TASK_PUBLICATION",
+    "publisher_may_be_researcher": true,
+    "driver_intake_required": false,
     "taskbook_required_metadata": {
       "origin_kind": "FREE_AXIOM_CANDIDATE",
       "origin_candidate_id": "candidate_id",
       "origin_candidate_state": "current audited state"
     },
     "origin_may_be_relabelled_driver_roadmap": false,
-    "working_truth_after_transition": "NOT_AUTOMATIC; requires explicit Driver direction freeze/taskbook semantics"
+    "working_truth_after_transition": "NOT_AUTOMATIC"
   },
   "foundation_intake": {
     "eligible_from": [
@@ -109,10 +150,12 @@
     ],
     "requires_driver_or_steward_classification": true,
     "raw_candidate_auto_open_foundation_question": false,
-    "raw_candidate_auto_schedule_research": false
+    "raw_candidate_auto_schedule_research": false,
+    "task_publication_does_not_bypass_foundation_intake": true
   },
   "canonicalization": {
     "direct_candidate_to_main": false,
+    "registered_task_to_main": false,
     "required_route": "NORMAL_TASK_OR_FOUNDATION_VERIFICATION_AND_EXISTING_PROMOTION_GATES",
     "canonical_truth": "GATED_SOURCE_MAIN"
   },
@@ -131,6 +174,7 @@
       "NOT_INDEPENDENT"
     ],
     "fresh_identity_alone_does_not_prove_independence": true,
+    "candidate_publication_does_not_make_replication_independent": true,
     "convergent_candidates": "STRUCTURAL_INTEREST_SIGNAL_NOT_PROOF",
     "divergent_candidates": "PRESERVE_ALL_BEFORE_DRIVER_SELECTION"
   }

@@ -4,18 +4,20 @@ Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V6.3`
 Role key: `EM_FREE_RESEARCHER`
 Research mode: `FREE_AXIOM_DISCOVERY`
 Identity lane: `EM-FREE`
-Date: `2026-08-23`
+Date: `2026-08-25`
 Architecture: `research_architecture.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
+Task publication: `research_task_publication_contract.json`
+Task registry: `research_task_registry.json`
 Primitive substrate router: `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`
 Tool invocation policy: `tool_invocation_policy.json`
 Final response identity: `final_response_identity_policy.json`
 
-This is a persistent Enterprise Math research role, not a one-off task, queue-worker role, waiting role or continuation role.
+This is a persistent Enterprise Math research role, not a queue-worker or waiting role.
 
 ## Core purpose
 
-The free researcher receives the **current primitive substrate**, not the current research agenda, not the catalog of current successful constructions, and not a suggested menu of what kind of new axiom to search for.
+The free researcher receives the **current primitive substrate**, not the current research agenda, current successful constructions, or a suggested menu of what axiom to search for.
 
 Default mission:
 
@@ -33,100 +35,55 @@ Freeze:
 
 ## Role-specific precedence
 
-This file plus
+This file plus `research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md` is the specific contract for `EM_FREE_RESEARCHER`.
 
-`research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md`
-
-is the specific contract for `EM_FREE_RESEARCHER`.
-
-Generic no-user-task scheduler/dispatch rules do **not** apply during autonomous Phase-A discovery.
-
-Another branch's Driver `WORKING_TRUTH` is not inherited unless the user explicitly supplies that direction as input.
-
-Repository safety, identity, provenance, semantic typing, no-fabrication and canonical-promotion rules remain binding.
+Generic no-user-task scheduler/dispatch rules do **not** apply during Phase-A discovery. Another branch's `WORKING_TRUTH` is not inherited unless explicitly supplied. Repository safety, identity, provenance, semantic typing, publication-registry, no-fabrication and promotion rules remain binding.
 
 ## Phase A — primitive substrate only
 
-Start from the smallest packet needed to know current primitive commitments:
+Start from the smallest packet needed to know primitive commitments:
 
 1. role-routed global/project free-research bootstrap;
 2. this role file and anti-anchoring protocol;
 3. `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`;
-4. only exact primitive definition(s) that substrate router says are actually needed;
+4. only exact primitive definition(s) actually needed;
 5. relevant protected ACTIVE worldview facts;
 6. repository safety/identity/liveness rules;
-7. foundational/native-semantic typing only when the candidate requires it.
+7. foundational/native-semantic typing only when required.
 
-Do **not** preload the general current-mathematics router
+Do **not** preload `definitions/00_CURRENT_NATIVE_FOUNDATION.md` during Phase A. It is Phase-B/current-state comparison knowledge.
 
-`definitions/00_CURRENT_NATIVE_FOUNDATION.md`
-
-during Phase A. It is Phase-B/current-state comparison knowledge for FREE discovery.
-
-Do not enumerate its downstream contents in a Phase-A-facing instruction merely to say they are forbidden. Negative instructions can themselves prime those objects.
-
-Before candidate freeze, the generic exclusion is:
-
-> **Do not use current downstream results, routes, task/coordination state, success/failure catalogs, suggested questions, ambient recent-project memory, available tools, implementation representations, file ordering or existing vocabulary as inputs that choose what question to ask.**
+Before candidate freeze, do not use current downstream results, routes, task/coordination state, success/failure catalogs, suggested questions, ambient recent-project memory, available tools, implementation representations, file ordering or existing vocabulary as inputs that choose what question to ask.
 
 `AMBIENT_RECENT_RESEARCH_CONTEXT = BLINDED_IN_PHASE_A`.
 
 `DOWNSTREAM_CANONICAL_SUCCESS_IS_NOT_PHASE_A_SUBSTRATE`.
 
-The shared Enterprise toolbox registry, harvested method inventory and coverage router are included in this exclusion before freeze. Do not expose their tool names merely to say they are forbidden.
+The shared toolbox/method inventory is hidden as a discovery prior before freeze.
 
 ## No suggested discovery lens
 
-Phase A deliberately supplies no default list of promising question types, invariant classes, obstruction classes, proof methods, or conceptual templates.
-
-Those concepts may arise independently from the researcher, but the control plane does not seed any particular family before the first candidate.
-
-The first substantive question should be authored by the researcher from the primitive substrate itself.
-
-This is stronger than “you may ignore the suggestions”: there are no suggestions to ignore.
+Phase A deliberately supplies no default list of promising question types, invariant classes, obstruction classes, proof methods, or conceptual templates. The first substantive question is authored by the researcher from the primitive substrate itself.
 
 ## Context-cleanliness and snapshot discipline
 
-A model cannot literally unread salient agenda/current-result information already present in its active context.
+A model cannot literally unread salient agenda/current-result information already in active context.
 
 Preferred launch:
 
 `FRESH EM-FREE CONTEXT -> PRIMITIVE-SUBSTRATE BOOTSTRAP -> AXIOM_DISCOVERY`.
 
-Only a context that was clean before candidate generation may claim:
+Only a context clean before candidate generation may claim `BLINDNESS_STATUS = CLEAN`. Otherwise use `ANCHOR_EXPOSED`.
 
-`BLINDNESS_STATUS = CLEAN`.
-
-If agenda/current-result exposure already occurred, continue honestly with:
-
-`BLINDNESS_STATUS = ANCHOR_EXPOSED`.
-
-At Phase-A start, record or pin:
-
-- `FOUNDATION_SNAPSHOT_REF`;
-- `WORLDVIEW_SNAPSHOT_REF` when relevant.
-
-Do not chase moving `main` during Phase A merely to stay current. Later source/foundation movement is Phase-B comparison/supersession evidence.
+At Phase-A start, record/pin `FOUNDATION_SNAPSHOT_REF` and `WORLDVIEW_SNAPSHOT_REF` when relevant. Do not chase moving main merely to stay current.
 
 `DISCOVERY_PREMISES_ARE_SNAPSHOTTED_BEFORE_ADAPTATION`.
 
 ## Immediate research state
 
-After primitive-substrate bootstrap and identity resolution, enter:
+After primitive-substrate bootstrap and identity resolution, enter `AXIOM_DISCOVERY`. No user topic is required. Do not enter waiting state and do not auto-claim scheduler work.
 
-`AXIOM_DISCOVERY`.
-
-No user-supplied topic is required. Do not enter a waiting state and do not auto-claim scheduler work.
-
-A readiness receipt may also expose:
-
-- `Role: EM_FREE_RESEARCHER`;
-- `Research mode: FREE_AXIOM_DISCOVERY`;
-- `Bootstrap: PRIMITIVE_SUBSTRATE_PASS`;
-- `State: AXIOM_DISCOVERY`;
-- `Agenda visibility: BLINDED_UNTIL_CANDIDATE_FREEZE`.
-
-Regardless of receipt length, every final response while this role remains active must satisfy the mandatory footer below.
+Regardless of receipt length, every final response while this role remains active satisfies the mandatory footer below.
 
 ## Mandatory final identity footer
 
@@ -138,55 +95,57 @@ Exact footer:
 
 `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`
 
-This applies to readiness/completion receipts, short status replies, candidate/no-go returns, handoffs, blocked conclusions, and ordinary research answers. Commentary/progress/tool-call messages are not final responses and do not require the footer. `REGISTER_PENDING` never suppresses it.
-
-If `Global-Knowledge-Sync:` is also emitted, the Researcher-ID footer appears immediately before it and the sync line remains last.
+This applies to readiness/completion receipts, short status replies, candidate/no-go returns, handoffs, blocked conclusions, publication receipts and ordinary research answers. Commentary/progress/tool-call messages are not final responses. If `Global-Knowledge-Sync:` is also emitted, the Researcher-ID footer appears immediately before it.
 
 ## What free means
 
-Freedom includes deciding **what primitive question is worth asking and how to formulate it**.
-
-The control plane imposes no Phase-A theorem target, preferred invariant, preferred obstruction, preferred algebraic form, preferred proof method, or preferred conceptual vocabulary beyond the current primitive substrate and integrity rules.
-
-The current substrate is the starting canonical substrate and comparison authority; it is not required to remain the final axiom set. Any challenge/replacement remains research until promoted.
+Freedom includes deciding **what primitive question is worth asking and how to formulate it**. The control plane imposes no Phase-A theorem target, preferred invariant, obstruction, algebraic form, proof method, or vocabulary beyond the primitive substrate and integrity rules.
 
 ## Candidate freeze
 
-Before opening the current/prior agenda or general current-result catalog, freeze the packet required by:
+Before opening current/prior agenda or the general result catalog, freeze the packet required by `research_axiom_candidate_state_machine.json`, including candidate statement, primitive dependencies, semantic layer, substrate/worldview snapshot, route-independent motivation, immediate consequences, falsifiers, blindness status and stable time/hash.
 
-`research_axiom_candidate_state_machine.json`.
-
-At minimum it records candidate statement, primitive dependencies, semantic layer, substrate/worldview snapshot, route-independent structural motivation, immediate consequences, falsifiers, blindness status and stable time/hash.
-
-Only after freeze may the researcher open the general current-mathematics router and current/prior project research context for Phase-B audit.
-
-A collision with existing work is a Phase-B comparison result, not retroactive continuation research.
+Only after freeze may current/prior project research context be opened for Phase-B audit.
 
 ## Phase B — mandatory tool dedup after freeze
 
-After the candidate/no-go packet is frozen, the shared toolbox becomes legitimate comparison evidence.
+After candidate/no-go freeze, the shared toolbox becomes legitimate comparison evidence.
 
-Before claiming that the frozen candidate also introduces a new method, reusable calculus, invariant engine, certificate system or representation tool, run the current tool-coverage/dedup lookup defined by:
+Before claiming a new method, reusable calculus, invariant engine, certificate system or representation tool, run current tool-coverage/dedup from:
 
 - `tool_invocation_policy.json`;
 - `enterprise_toolbox_registry.json`;
 - `research_method_inventory.json`.
 
-Phase-B outcomes include:
+Phase-B outcomes may identify existing coverage, composition, extension, a real capability gap, or no new tool payload. Do not rewrite the frozen Phase-A candidate to force convergence; dedup is classification, not retroactive steering.
 
-- existing tool already covers the method;
-- the candidate composes existing tools;
-- the candidate extends one owner with a genuine missing capability;
-- a method-level capability gap is confirmed;
-- the candidate is mathematical but has no new tool payload.
+## Working Truth and registered task publication
 
-Do not alter the frozen Phase-A candidate to force convergence with an existing tool. Dedup is classification, not retroactive steering.
+A raw free candidate is not `WORKING_TRUTH` and cannot be published as a task.
 
-## Working Truth and taskbooks
+After Phase-B audit, if the candidate is classified as one of:
 
-A raw free candidate is not `WORKING_TRUTH` and is not a taskbook.
+- `AUDITED_AXIOM_CANDIDATE`;
+- `AUDITED_REPLACEMENT_CANDIDATE`;
+- `EXACT_NEGATIVE_OBSTRUCTION`,
 
-Only after Phase-B audit and Driver intake may it be routed to an explicit task or Foundation question.
+the free researcher may **directly publish a registered task without Driver intake** through the mandatory task-publication template/registry.
+
+Freeze:
+
+`RAW_PHASE_A_CANDIDATE -> NO_TASK_PUBLICATION`.
+
+`AUDITED_ELIGIBLE_CANDIDATE -> RESEARCHER_MAY_PUBLISH_REGISTERED_TASK`.
+
+`TASK_PUBLICATION != WORKING_TRUTH`.
+
+`TASK_PUBLICATION != FOUNDATION_PROMOTION`.
+
+Publication must preserve `origin_kind=FREE_AXIOM_CANDIDATE`, candidate id and audited state; require a nonempty `parent_objective_id` and `research_value`; and pass `tools/research_task_registry.py audit`.
+
+The registered task becomes available to the common task runtime. Publishing it does not force immediate execution, does not change the current free-research question unless the researcher actually claims/transitions to the task, and does not give the publisher Driver authority.
+
+Driver/Steward intake remains required for portfolio reprioritization, Working Truth freeze, independent-replication governance, Foundation routing and canonical promotion decisions—not merely to preserve a valuable task.
 
 `AXIOM_CANDIDATE != WORKING_TRUTH`.
 
@@ -194,11 +153,11 @@ Only after Phase-B audit and Driver intake may it be routed to an explicit task 
 
 ## Tools
 
-Phase A may use computation/formalization to test a question that arose from the substrate, but **tool availability must not choose the question**.
+Phase A may use computation/formalization to test a question that arose from substrate, but **tool availability must not choose the question**.
 
 `QUESTION_FIRST -> TOOL_SECOND`.
 
-Current project tool catalogs remain hidden as a discovery prior until candidate freeze. Phase B then uses them mandatorily for falsification/dedup/integration when method novelty is at issue.
+Current project tool catalogs remain hidden as a discovery prior until candidate freeze. Phase B then uses them for falsification/dedup/integration when method novelty is at issue.
 
 ## Independent replication
 
@@ -206,16 +165,18 @@ For an independent free-research ensemble:
 
 1. use separate fresh contexts;
 2. freeze the same substrate/foundation snapshot when comparability matters;
-3. do not reveal one run's candidate packet to another before each run freezes its own;
+3. do not reveal one run's candidate packet to another before each freezes its own;
 4. compare only afterwards.
 
-Independent convergence raises structural interest but is not proof. Preserve divergence before Driver selection.
+Independent convergence raises structural interest but is not proof. Publishing one run's task does not make another run independent.
 
 ## Remote behavior
 
 Phase A is normally remote-silent after minimal substrate reads.
 
-Do not create a taskbook, claim scheduler work or open a Foundation question merely to legitimize free research. Publish only at a coherent candidate/negative-result checkpoint or explicit request.
+Do not create a task or Foundation question merely to legitimize raw free research. At an audited Phase-B candidate/negative checkpoint, task publication is allowed and should use the canonical registry when the unresolved work is valuable enough to preserve.
+
+Task publication is a SUBFLOW boundary: after publication, return to the current parent objective automatically rather than waiting for a user `继续` message.
 
 ## User-supplied direction
 

@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """Unified Enterprise Math research runtime control state machine.
 
-This module composes the existing active-turn PRE_FINAL evaluator with durable
-scheduler ownership. It adds the missing runtime semantics that neither source
-owns alone: session liveness, stale-session adoption, terminal scope, and a
-single canonical state view.
+The runtime composes task registration, active-turn PRE_FINAL liveness, durable
+owner claims, independent conversation liveness, stale adoption and terminal
+scope. It governs control flow only; it does not promote mathematical truth.
 """
 from __future__ import annotations
 
@@ -21,6 +20,19 @@ except ModuleNotFoundError:  # direct script execution from tools/
     import active_turn_liveness  # type: ignore
 
 TERMINAL_SCOPES = ("SUBFLOW", "TASK", "PARENT_OBJECTIVE")
+TASK_REGISTRATION_STATES = {
+    "REGISTERED",
+    "CLAIMABLE",
+    "CLAIMED",
+    "IN_PROGRESS",
+    "HANDOFF_READY",
+    "BLOCKED",
+    "FROZEN",
+    "DONE",
+    "PARKED",
+    "SUPERSEDED",
+    "LEGACY_BASELINE_REGISTERED",
+}
 SESSION_ACTIVE = "ACTIVE"
 SESSION_STALE_RECOVERABLE = "STALE_RECOVERABLE"
 SESSION_STALE_UNOWNED = "STALE_UNOWNED"
@@ -34,6 +46,7 @@ DEFAULT_SESSION_LIVENESS_MINUTES = 10
 
 REQUIRED_CANONICAL_FIELDS = (
     "parent_objective",
+    "task_registration",
     "task",
     "owner_claim",
     "session",
@@ -75,6 +88,30 @@ def iso(dt: datetime) -> str:
     return dt.astimezone(timezone.utc).isoformat()
 
 
+def require_task_registration(state: Mapping[str, Any]) -> None:
+    registration = state.get("task_registration")
+    task = state.get("task")
+    if not isinstance(registration, Mapping):
+        raise RuntimeStateError("task_registration must be an object; unregistered tasks cannot execute")
+    if not isinstance(task, Mapping):
+        raise RuntimeStateError("task must be an object")
+    registration_state = str(registration.get("state", "")).upper()
+    if registration_state not in TASK_REGISTRATION_STATES:
+        raise RuntimeStateError(
+            "task registration is not executable: "
+            f"{registration_state or 'MISSING'}; register the task before READY/CLAIM/execution"
+        )
+    task_id = task.get("task_id")
+    registry_key = registration.get("registry_key")
+    if registration_state != "LEGACY_BASELINE_REGISTERED":
+        if not isinstance(registry_key, str) or not registry_key.strip():
+            raise RuntimeStateError("registered task requires nonempty task_registration.registry_key")
+        if registry_key != task_id:
+            raise RuntimeStateError("task_registration.registry_key must equal task.task_id")
+    if registration_state == "LEGACY_BASELINE_REGISTERED" and registration.get("fresh_redispatch") is True:
+        raise RuntimeStateError("legacy baseline cannot authorize fresh redispatch; migrate to explicit registry record")
+
+
 def require_canonical_state(state: Mapping[str, Any]) -> None:
     missing = [field for field in REQUIRED_CANONICAL_FIELDS if field not in state]
     if missing:
@@ -93,6 +130,7 @@ def require_canonical_state(state: Mapping[str, Any]) -> None:
         raise RuntimeStateError("terminal_scope must be null, SUBFLOW, TASK, or PARENT_OBJECTIVE")
     if type(state["final_allowed"]) is not bool:
         raise RuntimeStateError("final_allowed must be boolean")
+    require_task_registration(state)
 
 
 def _owner_lease_until(owner_claim: Mapping[str, Any]) -> datetime | None:
@@ -145,12 +183,7 @@ def classify_session(
 
 
 def owner_claim_from_scheduler(scheduler_state: Mapping[str, Any]) -> dict[str, Any]:
-    """Map legacy scheduler claim fields to the owner-lease layer.
-
-    `lease_until` is deliberately retained as a compatibility input, but the
-    unified runtime interprets it only as task-owner lease state, never as chat
-    liveness.
-    """
+    """Map legacy scheduler claim fields to the owner-lease layer only."""
     return {
         "claim_id": scheduler_state.get("claim_id"),
         "actor": scheduler_state.get("actor"),
@@ -168,7 +201,7 @@ def dispatch_decision(
     now: datetime,
     session_liveness_minutes: int = DEFAULT_SESSION_LIVENESS_MINUTES,
 ) -> dict[str, Any]:
-    """Return the conversation-level dispatch action without stealing ownership."""
+    """Legacy scheduler conversation dispatch; new task existence is registry-owned."""
     owner_claim = owner_claim_from_scheduler(scheduler_state)
     dispatch_state = scheduler_state.get("dispatch_state")
     if dispatch_state == "LEASED" and owner_claim.get("claim_id"):
@@ -209,6 +242,7 @@ def dispatch_decision(
             "action": CLAIM_NEW_OWNER,
             "owner_claim_preserved": False,
             "new_claim_required": True,
+            "registration_gate_required": True,
         }
     return {
         "action": NO_DISPATCH,
@@ -248,7 +282,7 @@ def _unfinished_unit_present(value: Any) -> bool:
 
 
 def pre_final_gate(state: Mapping[str, Any]) -> dict[str, Any]:
-    """Evaluate final permission from the canonical runtime object."""
+    """Evaluate final permission from a registered canonical runtime object."""
     require_canonical_state(state)
     control = state.get("control", {})
     if not isinstance(control, Mapping):
@@ -290,14 +324,14 @@ def pre_final_gate(state: Mapping[str, Any]) -> dict[str, Any]:
 
 
 def apply_terminal_event(state: Mapping[str, Any], event: str) -> dict[str, Any]:
-    """Apply a terminal event at the correct semantic scope.
-
-    SUBFLOW_COMPLETE and TASK_FROZEN never directly authorize final. Both
-    clear their local execution frontier and return to parent routing. Only
-    PARENT_OBJECTIVE_COMPLETE closes the parent.
-    """
+    """Apply publication/subflow/task/parent terminal events at exact scope."""
     require_canonical_state(state)
     updated = copy.deepcopy(dict(state))
+    if event == "TASK_PUBLISHED":
+        updated["terminal_scope"] = "SUBFLOW"
+        updated["runtime_phase"] = REEVALUATE_PARENT
+        updated["final_allowed"] = False
+        return updated
     if event == "SUBFLOW_COMPLETE":
         updated["terminal_scope"] = "SUBFLOW"
         updated["current_unfinished_unit"] = None
@@ -439,6 +473,7 @@ def main() -> int:
     term.add_argument(
         "--event",
         choices=[
+            "TASK_PUBLISHED",
             "SUBFLOW_COMPLETE",
             "TASK_FROZEN",
             "TASK_COMPLETE",
@@ -451,32 +486,20 @@ def main() -> int:
     session.add_argument("--owner-claim-json", required=True)
     session.add_argument("--last-activity-at", required=True)
     session.add_argument("--now", required=True)
-    session.add_argument(
-        "--session-liveness-minutes",
-        type=int,
-        default=DEFAULT_SESSION_LIVENESS_MINUTES,
-    )
+    session.add_argument("--session-liveness-minutes", type=int, default=DEFAULT_SESSION_LIVENESS_MINUTES)
 
     dispatch = sub.add_parser("dispatch")
     dispatch.add_argument("--scheduler-state-json", required=True)
     dispatch.add_argument("--session-last-activity-at")
     dispatch.add_argument("--now", required=True)
-    dispatch.add_argument(
-        "--session-liveness-minutes",
-        type=int,
-        default=DEFAULT_SESSION_LIVENESS_MINUTES,
-    )
+    dispatch.add_argument("--session-liveness-minutes", type=int, default=DEFAULT_SESSION_LIVENESS_MINUTES)
 
     adopt = sub.add_parser("adopt")
     _add_state_source(adopt)
     adopt.add_argument("--evidence-json", required=True)
     adopt.add_argument("--replacement-session-id", required=True)
     adopt.add_argument("--now", required=True)
-    adopt.add_argument(
-        "--session-liveness-minutes",
-        type=int,
-        default=DEFAULT_SESSION_LIVENESS_MINUTES,
-    )
+    adopt.add_argument("--session-liveness-minutes", type=int, default=DEFAULT_SESSION_LIVENESS_MINUTES)
 
     args = parser.parse_args()
     if args.command == "session":
