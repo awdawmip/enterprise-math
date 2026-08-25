@@ -57,6 +57,7 @@ class SchedulerSessionLivenessTests(unittest.TestCase):
         self.assertIn("SESSION_ADOPT", config["additional_event_types"])
         self.assertIn("STALE_RECOVERABLE", config["additional_computed_dispatch_states"])
         self.assertIn("DORMANT", config["additional_computed_dispatch_states"])
+        self.assertTrue(overlay["owner_claim_lease"]["renewed_by_live_heartbeat"])
 
     def test_session_can_go_stale_while_owner_claim_remains_live(self):
         state = self.reduce(
@@ -68,6 +69,22 @@ class SchedulerSessionLivenessTests(unittest.TestCase):
         self.assertEqual("claim-1", state["claim_id"])
         self.assertIsNotNone(state["researcher_id"])
         self.assertIsNotNone(state["owner_lease_until"])
+
+    def test_live_heartbeat_renews_owner_even_if_session_later_goes_stale(self):
+        state = rs.reduce_task(
+            task(),
+            [
+                event("CLAIM", "2026-08-25T12:00:00+08:00", lease_minutes=30),
+                event("HEARTBEAT", "2026-08-25T12:05:00+08:00", lease_minutes=30),
+            ],
+            default_lease_minutes=30,
+            session_liveness_minutes=10,
+            now=rs.parse_time("2026-08-25T12:31:00+08:00"),
+        )
+        self.assertEqual("STALE", state["session_state"])
+        self.assertEqual("STALE_RECOVERABLE", state["dispatch_state"])
+        self.assertEqual("claim-1", state["claim_id"])
+        self.assertTrue(state["owner_lease_until"].startswith("2026-08-25T04:35:00"))
 
     def test_stale_owner_claim_is_not_newly_dispatchable(self):
         cfg = {
