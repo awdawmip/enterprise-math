@@ -13,6 +13,18 @@
   "agent_quickstart": "docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md",
   "cross_layer_control": "research_control_state_machine.json",
   "cross_layer_validator": "tools/research_control.py",
+  "authority": {
+    "explicit_user_task_overrides_auto_dispatch": true,
+    "runtime_claim_log": "GitHub Issue #240",
+    "owner_registry": "branch_governance_overrides.json",
+    "problem_status": "docs/PROBLEM_STATUS.en.md",
+    "common_surface": "docs/RESEARCH_COMMON_SURFACE.en.md",
+    "research_relay_issue": 82,
+    "foundation_problem_issue": 164,
+    "foundation_backflow_router": "foundation_backflow.json",
+    "task_definition_authority": "materialized V2 registry = legacy static registry + discovered taskbooks + V2 publish/migrate events",
+    "note": "Scheduler state coordinates work; it does not promote mathematical truth, canonical status, or parent-objective completion."
+  },
   "generic_intents": {
     "researcher_claim": ["领任务", "领取任务", "claim task", "get task"],
     "driver_review_claim": ["领审核", "领取审核", "claim review", "get review"],
@@ -49,6 +61,17 @@
     "truth_boundary": "A scheduler review verdict routes work; it does not by itself promote theorem truth, complete the parent user objective, or canonicalize source.",
     "new_event_forbidden_after_cross_layer_effective_at": ["REQUEST_INDEPENDENT_REPLICATION"],
     "historical_replay_rule": "Pre-cross-layer events retain their original Scheduler V2 semantics; new cross-layer guards are not retroactively applied."
+  },
+  "foundation_link_contract": {
+    "router": "foundation_backflow.json",
+    "research_fq_must_link_to_kind": "RESEARCH",
+    "research_task_must_explicitly_declare_question": true,
+    "research_task_question_field": "foundation_questions",
+    "static_link_validation_sources": ["legacy_static_registry", "structured taskbooks"],
+    "runtime_execution_authority": "GitHub Issue #240 V2 events",
+    "question_status_authority": "GitHub Issue #164",
+    "live_claim_scope_must_not_be_reinterpreted": true,
+    "steward_verification_or_integration_must_link_to_kind": "GOVERNANCE"
   },
   "orphan_contract": {
     "lease_expiry_state": "ORPHANED",
@@ -87,6 +110,7 @@
     "SCHEDULER_DONE != THEOREM_TRUTH",
     "SCHEDULER_DONE != PARENT_USER_OBJECTIVE_COMPLETE",
     "REVIEW_DONE != CANONICAL_MAIN",
+    "FOUNDATION_STATIC_LINKS_RESOLVE_IN_LEGACY_OR_TASKBOOK_REGISTRY_DURING_V2_CUTOVER",
     "PARENT_OPEN_AND_NEXT_ACTION_EXISTS -> CONTINUE_IN_SAME_TURN"
   ],
   "cross_layer_effective_at": "2026-08-25T10:50:39+08:00"
