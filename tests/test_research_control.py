@@ -12,12 +12,13 @@ def base(profile="STANDARD_RESEARCH"):
     return {
         "actor": {"role":"RESEARCHER","mode":"TASK_RESEARCH","identity_state":"REGISTERED"},
         "object": {"control_profile":profile,"task_id":"RS-X","task_lineage":"NEW_DIRECTION"},
-        "runtime": {"scheduler_state":"IN_PROGRESS","dispatch_state":"LEASED"},
+        "runtime": {"scheduler_state":"IN_PROGRESS","dispatch_state":"LEASED","pre_math_gate":"NOT_REQUIRED"},
         "information": {"firewall":"NONE","freeze_state":"NOT_REQUIRED","source_exposure":"NORMAL"},
         "evidence": {
             "source_status":"PROVED_SOURCE","independent_status":"NOT_REQUIRED","driver_verdict":"PENDING",
-            "formalization_status":"NOT_APPLICABLE","foundation_status":"NOT_APPLICABLE","integration_status":"NOT_APPLICABLE",
-            "benchmark_status":"NOT_APPLICABLE","promotion_status":"NOT_APPLICABLE","canonical_status":"NONCANONICAL"
+            "axiom_admission_status":"NOT_APPLICABLE","formalization_status":"NOT_APPLICABLE","foundation_status":"NOT_APPLICABLE",
+            "integration_status":"NOT_APPLICABLE","benchmark_status":"NOT_APPLICABLE","promotion_status":"NOT_APPLICABLE",
+            "canonical_status":"NONCANONICAL"
         },
         "routing": {"working_truth":"ACTIVE","method_harvest":"PENDING","successor_gate":"NOT_APPLICABLE","route_disposition":"PENDING"},
         "parent": {"objective":"OPEN","completion_basis":"NONE","next_executable_action":"continue work"},
@@ -50,6 +51,34 @@ class ControlStateTests(unittest.TestCase):
     def test_blind_audit_cannot_close_before_freeze(self):
         s=base("INDEPENDENT_AUDIT"); s["information"].update(firewall="TASK_BLIND_FORWARD",freeze_state="REQUIRED_NOT_FROZEN",source_exposure="WITHHELD"); s["evidence"]["independent_status"]="CLOSED"
         self.assertTrue(any("raw freeze" in e for e in rc.validate_snapshot(s,SPEC)))
+
+    def test_pre_math_gate_blocks_substantive_math(self):
+        s=base(); s["runtime"]["pre_math_gate"]="REQUIRED_UNSATISFIED"; s["substantive_math_started"]=True
+        self.assertTrue(any("pre-math gate" in e for e in rc.validate_snapshot(s,SPEC)))
+
+    def test_cbrc_f5a_axiom_admission_requires_foundation_route(self):
+        s=base("AXIOM_ADMISSION_AUDIT")
+        s["runtime"]["pre_math_gate"]="SATISFIED"
+        s["information"].update(firewall="STATEMENT_EXPOSED_AUDIT",freeze_state="FROZEN",source_exposure="POST_FREEZE_ONLY")
+        s["evidence"].update(driver_verdict="ACCEPTED",axiom_admission_status="ADMIT_RECOMMENDED",foundation_status="NOT_APPLICABLE")
+        s["routing"].update(method_harvest="CLASSIFIED",route_disposition="CLOSE")
+        errors=rc.validate_snapshot(s,SPEC)
+        self.assertTrue(any("route to Foundation" in e for e in errors))
+
+    def test_cbrc_f5a_valid_driver_to_foundation_handoff(self):
+        s=base("AXIOM_ADMISSION_AUDIT")
+        s["runtime"]["pre_math_gate"]="SATISFIED"
+        s["information"].update(firewall="STATEMENT_EXPOSED_AUDIT",freeze_state="FROZEN",source_exposure="POST_FREEZE_ONLY")
+        s["evidence"].update(driver_verdict="ACCEPTED",axiom_admission_status="RESTRICTED_ADMISSION_RECOMMENDED",foundation_status="PENDING")
+        s["routing"].update(method_harvest="CLASSIFIED",route_disposition="ROUTE_TO_FOUNDATION",route_ref="foundation/F5A@abcdef1")
+        self.assertEqual([],rc.validate_snapshot(s,SPEC))
+
+    def test_cbrc_f5a_cannot_self_canonicalize(self):
+        s=base("AXIOM_ADMISSION_AUDIT")
+        s["runtime"]["pre_math_gate"]="SATISFIED"
+        s["information"]["firewall"]="STATEMENT_EXPOSED_AUDIT"
+        s["evidence"].update(axiom_admission_status="OPEN",canonical_status="CANONICAL")
+        self.assertTrue(any("directly canonicalize" in e for e in rc.validate_snapshot(s,SPEC)))
 
     def test_fq010_pending_blocks_canonical(self):
         s=base("FOUNDATION_DISPOSITION"); s["actor"]={"role":"FOUNDATION_STEWARD","mode":"VERIFY_OR_MAINTAIN","identity_state":"REGISTERED"}; s["evidence"]["foundation_status"]="PENDING"; s["evidence"]["canonical_status"]="CANONICAL"; s["routing"]["working_truth"]="INACTIVE"
@@ -91,11 +120,11 @@ class ControlStateTests(unittest.TestCase):
             self.assertEqual(profile,snap["object"]["control_profile"])
 
     def test_cbrc_f5r_orphan_migration_profile_is_valid_nonterminal(self):
-        s=base("INDEPENDENT_AUDIT"); s["runtime"]={"scheduler_state":"ORPHANED","dispatch_state":"ORPHAN_RECOVERY"}; s["information"].update(firewall="TASK_BLIND_FORWARD",freeze_state="REQUIRED_NOT_FROZEN",source_exposure="WITHHELD"); s["evidence"].update(source_status="FROZEN",independent_status="REQUIRED_OPEN"); s["routing"]["working_truth"]="ACTIVE"; s["parent"]["next_executable_action"]="MIGRATE/ADOPT with preserved blind packet and fresh context"
+        s=base("INDEPENDENT_AUDIT"); s["runtime"]={"scheduler_state":"ORPHANED","dispatch_state":"ORPHAN_RECOVERY","pre_math_gate":"SATISFIED"}; s["information"].update(firewall="TASK_BLIND_FORWARD",freeze_state="REQUIRED_NOT_FROZEN",source_exposure="WITHHELD"); s["evidence"].update(source_status="FROZEN",independent_status="REQUIRED_OPEN"); s["routing"]["working_truth"]="ACTIVE"; s["parent"]["next_executable_action"]="MIGRATE/ADOPT with preserved blind packet and fresh context"
         self.assertEqual([], rc.validate_snapshot(s,SPEC))
 
     def test_independent_replication_same_task_handoff_rejected(self):
-        s=base(); s["runtime"]={"scheduler_state":"HANDOFF_READY","dispatch_state":"NEEDS_DISPATCH"}; s["routing"].update(route_disposition="OPEN_INDEPENDENT_REPLICATION_CHILD",child_task_id="RS-X",child_task_ref="x@abcdef1",independence_protocol="blind")
+        s=base(); s["runtime"]={"scheduler_state":"HANDOFF_READY","dispatch_state":"NEEDS_DISPATCH","pre_math_gate":"NOT_REQUIRED"}; s["routing"].update(route_disposition="OPEN_INDEPENDENT_REPLICATION_CHILD",child_task_id="RS-X",child_task_ref="x@abcdef1",independence_protocol="blind")
         errors=rc.validate_snapshot(s,SPEC); self.assertGreaterEqual(len(errors),2)
 
     def test_accept_requires_method_harvest_and_route(self):
