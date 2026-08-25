@@ -1,9 +1,9 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_ARCHITECTURE_V2",
-  "status": "ACTIVE_CANONICAL_GOVERNANCE_V2_4",
+  "status": "ACTIVE_CANONICAL_GOVERNANCE_V2_5",
   "effective": "2026-08-25",
   "driver_id": "EM-DVR-A4319A",
-  "purpose": "Separate independent axiom discovery, task authority, concrete task execution, Driver portfolio control, Foundation maintenance, persistence and canonical promotion so that no one control surface silently becomes the research agenda or silently authorizes work.",
+  "purpose": "Separate independent axiom discovery, task authority, concrete task execution, Driver portfolio control, Foundation maintenance, persistence and canonical promotion so that no control surface silently becomes the research agenda, silently authorizes work, or silently promotes execution delivery into truth.",
   "core_invariants": [
     "FOUNDATION_IS_STARTING_SUBSTRATE_NOT_DEFAULT_RESEARCH_AGENDA",
     "FOUNDATION_FOR_DISCOVERY_IS_NOT_CATALOG_OF_CURRENT_ACHIEVEMENTS",
@@ -16,6 +16,9 @@
     "ALL_TASK_RESEARCH_USES_THE_CONCRETE_EXECUTION_STATE_MACHINE",
     "TASK_AUTHORITY_READY_IS_NOT_EXECUTION_READY",
     "UNSATISFIED_EXECUTION_GATE_BLOCKS_ITS_GUARDED_ACTION",
+    "POST_FREEZE_SOURCE_VISIBILITY_IS_MACHINE_GATED",
+    "HANDOFF_PAUSE_REQUIRES_LEDGER_RECONCILIATION_BEFORE_SAME_EXECUTION_RESUME",
+    "DIRECT_RETURN_DELIVERY_IS_NOT_DRIVER_ACCEPTANCE",
     "EXECUTION_ACCEPTANCE_IS_NOT_MATHEMATICAL_TRUTH_PROMOTION",
     "DRIVER_WORKING_TRUTH_APPLIES_ONLY_AFTER_EXPLICIT_DIRECTION_FREEZE",
     "RAW_AXIOM_CANDIDATE_IS_NOT_WORKING_TRUTH",
@@ -57,14 +60,13 @@
       "inherits_driver_working_truth": "ONLY_IF_THE_EXPLICIT_TASKBOOK_OR_DRIVER_HANDOFF_FREEZES_IT",
       "execution_state_machine": "research_execution_state_machine.json",
       "execution_protocol": "docs/RESEARCH_EXECUTION_STATE_MACHINE.md",
-      "allowed_task_authorities": [
-        "OFFICIAL_TASKBOOK",
-        "DIRECT_USER_TASK",
-        "SCHEDULER_TASK",
-        "DRIVER_DISPATCH_ENVELOPE"
-      ],
+      "allowed_task_authorities": ["OFFICIAL_TASKBOOK", "DIRECT_USER_TASK", "SCHEDULER_TASK", "DRIVER_DISPATCH_ENVELOPE"],
       "default_state": "UNBOUND",
-      "substantive_work_gate": "EXECUTION_READY_PLUS_ACTION_GATE_LEDGER"
+      "substantive_work_gate": "EXECUTION_READY_PLUS_ACTION_GATE_LEDGER",
+      "phased_source_action": "POST_FREEZE_SOURCE_READ",
+      "verdict_action": "VERDICT_FREEZE",
+      "direct_delivery_terminal": "DELIVERED_UNREVIEWED",
+      "same_execution_handoff_resume_requires": ["durable_handoff_ref", "execution_gate_ledger_reconciled"]
     },
     "RESEARCH_DRIVER": {
       "role_label": "RESEARCH_DRIVER",
@@ -108,7 +110,7 @@
       "candidate_generation_prompt_style": "NO_DEFAULT_QUESTION_OR_LENS_MENU"
     },
     "task_research": {
-      "rule": "Load the exact task authority and execution-control metadata first. Normalize task-local gates and reach EXECUTION_READY before mathematical source reads/derivations. Then expand only to mathematical dependencies actually used. The general current foundation router and shared theorem/tool catalogs are lookup surfaces, not default context dumps."
+      "rule": "Load exact task authority and execution-control metadata first. Normalize task-local gates and reach EXECUTION_READY before mathematical source reads/derivations. If a source class is deliberately withheld until a named raw/independent/Phase-A freeze, represent it as POST_FREEZE_SOURCE_READ and keep it blocked until the freeze gate is satisfied. Then expand only to dependencies actually used."
     }
   },
   "axiom_candidate_lifecycle": {
@@ -117,32 +119,14 @@
     "raw_candidate_is_working_truth": false,
     "raw_candidate_is_foundation_backflow_ready": false,
     "driver_intake_requires": "PHASE_B_AUDIT_COMPLETE",
-    "eligible_driver_routes": [
-      "PARK",
-      "REJECT",
-      "RETURN_AS_DERIVED_THEOREM",
-      "RETURN_AS_DUPLICATE_OR_PRIOR_ART",
-      "OPEN_EXPLICIT_TASK",
-      "OPEN_FOUNDATION_QUESTION",
-      "REQUEST_INDEPENDENT_REPLICATION"
-    ],
+    "eligible_driver_routes": ["PARK", "REJECT", "RETURN_AS_DERIVED_THEOREM", "RETURN_AS_DUPLICATE_OR_PRIOR_ART", "OPEN_EXPLICIT_TASK", "OPEN_FOUNDATION_QUESTION", "REQUEST_INDEPENDENT_REPLICATION"],
     "task_origin_rule": "If an explicit task is opened from a free candidate, taskbook origin metadata must preserve the audited candidate id/state. Repackaging does not erase discovery provenance."
   },
   "working_truth_boundary": {
     "applies_to": "EXPLICIT_TASK_DIRECTION_AFTER_DRIVER_FREEZE",
-    "does_not_apply_to": [
-      "FREE_AXIOM_DISCOVERY_PHASE_A",
-      "RAW_BLIND_AXIOM_CANDIDATE",
-      "PHASE_B_DEDUP_OR_PRIOR_ART_AUDIT",
-      "UNREVIEWED_SIDE_BRANCH_PROPOSAL"
-    ],
+    "does_not_apply_to": ["FREE_AXIOM_DISCOVERY_PHASE_A", "RAW_BLIND_AXIOM_CANDIDATE", "PHASE_B_DEDUP_OR_PRIOR_ART_AUDIT", "UNREVIEWED_SIDE_BRANCH_PROPOSAL"],
     "activation_event": "DRIVER_EXPLICIT_DIRECTION_FREEZE_OR_DRIVER_APPROVED_TASKBOOK",
-    "falsifiers": [
-      "explicit user/Driver supersession",
-      "exact counterexample under the same premises",
-      "formal contradiction",
-      "frozen theorem-critical checker/certificate failure"
-    ]
+    "falsifiers": ["explicit user/Driver supersession", "exact counterexample under the same premises", "formal contradiction", "frozen theorem-critical checker/certificate failure"]
   },
   "successor_stage_gate": {
     "rule": "PASS_IS_NOT_A_SUCCESSOR_TRIGGER",
@@ -190,12 +174,13 @@
     "cross_run_post_allocation_rewrite": false,
     "shared_ambient_context_must_be_disclosed": true,
     "shared_control_plane_suggestion_menu_allowed_before_freeze": false,
-    "task_execution_independence_gate_rule": "If independence depends on a pre-math/source firewall, the corresponding execution gate must be satisfied before any mathematical source read or derivation."
+    "task_execution_independence_gate_rule": "If independence depends on a pre-math/source firewall, startup restrictions guard MATHEMATICAL_SOURCE_READ/DERIVATION and later withheld source classes guard POST_FREEZE_SOURCE_READ until the named independent freeze."
   },
   "read_performance": {
     "principle": "SMALLEST_SUFFICIENT_ROLE_PACKET",
     "explicit_task_soft_control_plane_read_budget_before_substantive_work": 3,
     "explicit_task_math_read_gate": "EXECUTION_READY",
+    "explicit_task_post_freeze_source_gate": "POST_FREEZE_SOURCE_READ",
     "free_phase_a": "PRIMITIVE_SUBSTRATE_ONLY_AND_REMOTE_SILENT_AFTER_MINIMAL_READS",
     "free_phase_a_general_current_router_preload": false,
     "free_phase_a_default_discovery_prompt_menu": false,
@@ -220,15 +205,7 @@
       "requires_path_and_semantic_conflict_audit": true,
       "requires_governance_regression": true,
       "requires_expected_head_or_equivalent_atomic_merge_guard_when_supported": true,
-      "forbidden_deltas": [
-        "NEW_THEOREM",
-        "THEOREM_STRENGTH_CHANGE",
-        "PROOF_STATUS_CHANGE_WITHOUT_EVIDENCE",
-        "NEW_NATIVE_MATHEMATICAL_DEFINITION",
-        "SEMANTIC_CHANGE_TO_FROZEN_CURRENT_DEFINITION",
-        "EVIDENCE_REINTERPRETATION",
-        "THEOREM_OWNERSHIP_TRANSFER"
-      ],
+      "forbidden_deltas": ["NEW_THEOREM", "THEOREM_STRENGTH_CHANGE", "PROOF_STATUS_CHANGE_WITHOUT_EVIDENCE", "NEW_NATIVE_MATHEMATICAL_DEFINITION", "SEMANTIC_CHANGE_TO_FROZEN_CURRENT_DEFINITION", "EVIDENCE_REINTERPRETATION", "THEOREM_OWNERSHIP_TRANSFER"],
       "authority_reconciliation_allowed": "ONLY_TO_ALREADY_FROZEN_CANONICAL_DEFINITION_WITH_EXACT_PROVENANCE",
       "if_semantic_delta_is_uncertain": "ROUTE_AS_MATHEMATICAL_OR_FOUNDATION_PROMOTION"
     }
@@ -242,6 +219,7 @@
     "journal": "CAPTURE_PROGRESS_WITHOUT_PROMOTING_TRUTH",
     "driver_continuity": "ROUTING_ONLY_NO_IMPLICIT_DEFAULT_NEXT_ROUTE",
     "execution_acceptance": "SEPARATE_FROM_THEOREM_CANDIDATE_OR_CANONICAL_TRUTH_PROMOTION",
+    "direct_delivery": "DELIVERED_UNREVIEWED_IS_EXECUTION_TERMINAL_ONLY",
     "canonical_truth": "GATED_SOURCE_MAIN"
   },
   "legacy_surface_interpretation": {
