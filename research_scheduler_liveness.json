@@ -23,6 +23,7 @@
     "default_minutes": 120,
     "purpose": "prevent duplicate ownership/dispatch",
     "preserved_when_session_stale": true,
+    "renewed_by_live_heartbeat": true,
     "expiry_transition": "HANDOFF_READY -> NEEDS_DISPATCH"
   },
   "session_liveness_lease": {
@@ -46,7 +47,7 @@
     "meaning": "replacement conversation verifies the durable frontier, adopts the still-live owner claim in place, and resumes from the smallest unfinished unit"
   },
   "session_activity": {
-    "HEARTBEAT": "renews only a still-live session; cannot revive a stale session",
+    "HEARTBEAT": "while the session is still live, renew both owner and session leases; a stale session cannot be revived by heartbeat alone",
     "PROGRESS": "durable progress may renew both owner and session leases",
     "SESSION_ADOPT": "verified stale-session recovery renews the same owner claim and a new session lease",
     "HANDOFF_HARD_BLOCK_DONE_SUPERSEDE": "release session together with owner claim"
@@ -61,6 +62,7 @@
   ],
   "core_invariants": [
     "OWNER_LEASE != SESSION_LIVENESS_LEASE",
+    "LIVE_HEARTBEAT_RENEWS_OWNER_AND_SESSION",
     "STALE_SESSION != RELEASED_OWNER",
     "STALE_SESSION + LIVE_OWNER -> SESSION_ADOPT_NOT_NEW_CLAIM",
     "VERIFIED_DURABLE_FRONTIER -> RESUME_NOT_RESTART",
