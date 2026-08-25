@@ -6,7 +6,8 @@
   "task_registry": "research_task_registry.json",
   "mandatory_template": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
   "publication_tool": "tools/research_task_registry.py",
-  "purpose": "Make every official task a centrally registered runtime object so researcher/Driver task publication cannot create orphan work or lose valuable research residues.",
+  "cutover_checker": "tools/check_task_registry_cutover.py",
+  "purpose": "Make every official new task a centrally registered runtime object so researcher/Driver task publication cannot create orphan work or lose valuable research residues.",
   "publisher_roles": [
     "RESEARCHER",
     "RESEARCH_DRIVER",
@@ -48,7 +49,8 @@
     "EVERY_PUBLISHED_TASK_PRESERVES_RESEARCH_VALUE_AND_NEXT_FRONTIER",
     "FREE_RESEARCH_TASK_PUBLICATION_REQUIRES_AUDITED_CANDIDATE_STATE",
     "CONTINUATION_PUBLICATION_REQUIRES_SUCCESSOR_GATE",
-    "LEGACY_TASK_MAY_CONTINUE_EXISTING_EXECUTION_BUT_FRESH_REDISPATCH_REQUIRES_REGISTRATION"
+    "LEGACY_TASK_MAY_CONTINUE_EXISTING_EXECUTION_BUT_FRESH_REDISPATCH_REQUIRES_REGISTRATION",
+    "LEGACY_SCHEDULER_DEFINITION_FILE_IS_FROZEN_AND_CANNOT_PUBLISH_NEW_TASKS"
   ],
   "researcher_publication": {
     "allowed": true,
@@ -97,15 +99,21 @@
     "WRITE_CANONICAL_REGISTRY_RECORD",
     "PIN_TASKBOOK_BLOB_IN_REGISTRY",
     "RUN_REGISTRY_ORPHAN_AUDIT",
+    "RUN_LEGACY_SCHEDULER_CUTOVER_AUDIT",
     "ONLY_THEN_MARK_TASK_CLAIMABLE"
   ],
-  "orphan_definition": "Any task-like artifact, handoff, scheduler item, or READY/CLAIM execution target that lacks a canonical task registry record after the cutover gate.",
+  "orphan_definition": "Any post-cutover task-like artifact, handoff, scheduler item, READY/CLAIM target or modified legacy task that lacks a canonical task registry record.",
   "orphan_handling": "FAIL_CLOSED_REGISTER_OR_CLASSIFY_AS_LEGACY_BEFORE_EXECUTION",
   "legacy_cutover": {
-    "baseline_semantics": "All already-existing taskbooks/scheduler tasks reachable from the first parent main of the first canonical registry merge are LEGACY_BASELINE_REGISTERED for existing execution only.",
+    "baseline_semantics": "The frozen research_scheduler.json Git blob recorded in research_task_registry.json defines the legacy baseline for already-existing executions.",
+    "scheduler_definition_file_frozen": true,
+    "scheduler_runtime_event_log_may_continue": true,
+    "scheduler_file_may_publish_new_tasks": false,
+    "new_or_modified_task_publication_path": "research_task_registry.json",
     "fresh_redispatch_requires_explicit_registry_record": true,
     "new_policy_review_pass_requires_explicit_registry_record": true,
-    "legacy_baseline_does_not_authorize_new_or_modified_taskbooks": true
+    "legacy_baseline_does_not_authorize_new_or_modified_taskbooks": true,
+    "cutover_check": "python tools/check_task_registry_cutover.py"
   },
   "priority_boundary": {
     "researcher_publication_default": "P2/MEDIUM",
@@ -113,5 +121,5 @@
     "driver_retains_portfolio_reprioritization": true,
     "user_explicit_priority_instruction_overrides_default": true
   },
-  "publication_completion_rule": "TASKBOOK_FILE_OR_HANDOFF_ALONE_IS_NOT_PUBLICATION; REGISTRY_AUDIT_PASS_IS_REQUIRED"
+  "publication_completion_rule": "TASKBOOK_FILE_OR_HANDOFF_OR_LEGACY_SCHEDULER_ROW_ALONE_IS_NOT_NEW_TASK_PUBLICATION; REGISTRY_AND_CUTOVER_AUDITS_MUST_PASS"
 }
