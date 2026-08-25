@@ -1,6 +1,6 @@
 import unittest
 
-from tools import research_runtime as rr
+from enterprise_math import research_runtime as rr
 
 
 class PreFinalGateTests(unittest.TestCase):
