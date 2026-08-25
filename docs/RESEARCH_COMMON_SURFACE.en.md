@@ -10,7 +10,7 @@ Purpose: give every research route one compact shared view of reusable mathemati
 Before substantive L1/L2/L3 research:
 
 1. read this file and `research_common_surface.json`;
-2. read `docs/RESEARCH_SCHEDULING_PROTOCOL.*`, `research_scheduler.json`, and live Dispatch Board Issue #240;
+2. read `docs/RESEARCH_SCHEDULING_PROTOCOL.*`, `research_scheduler.json`, `research_control_state_machine.json`, `docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md`, and live Dispatch Board Issue #240;
 3. read `docs/RESEARCH_OWNER_ISOLATION.*`;
 4. read `docs/PROBLEM_STATUS.*` and the relevant canonical theorem/result documents;
 5. read the latest relevant Research Relay Issue #82 entries;
@@ -40,9 +40,10 @@ A source/test module entering `main` does not automatically make every mathemati
 - canonical `docs/Pxxx_*.{en,zh-CN}.md` — exact modern theorem statements and hypotheses;
 - `EnterpriseMath.lean` and its imported `EnterpriseMath/**.lean` — root Lean-checked subset;
 - `research_common_surface.json` — machine-readable theorem/tool/formalization router;
+- `research_control_state_machine.json` + `docs/RESEARCH_CONTROL_STATE_MACHINE.md` — cross-layer research-control composition and role/profile guards;
 - Research Relay Issue #82 — cross-route WIP results, negative boundaries, and canonical consumption notices;
 - Foundation Problem Set Issue #164 — verified unresolved foundation questions;
-- `research_scheduler.json` + Issue #240 — dispatch/lease/handoff only.
+- `research_scheduler.json` + Issue #240 — task-runtime dispatch/lease/handoff event source. Ordinary materialization should enter through `tools/research_control.py registry --events ...` so cross-layer guards run before the Scheduler reducer.
 
 ## 4. Shared mathematical homes
 
@@ -349,9 +350,13 @@ Every `tools/*.py` file is shared operational infrastructure and must remain mac
 - `tools/check_bilingual_pairs.py`
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
+- `tools/research_control.py`
 - `tools/research_identity.py`
 - `tools/research_scheduler.py`
+- `tools/research_scheduler_event.py`
 - `tools/research_taskbook.py`
+
+For ordinary Scheduler V2 operation, `tools/research_scheduler_event.py` emits guarded new-event shapes and `tools/research_control.py registry --events ...` is the safe registry/materialization entrypoint. The latter validates versioned cross-layer APPROVE/REVIEW guards before invoking the canonical Scheduler reducer. Direct `tools/research_scheduler.py registry ...` is the low-level reducer/debug path.
 
 `tools/check_research_common_surface.py` is mechanical only. It checks declared-path existence, exact root-Lean imports, exact repository-tool membership, active-FQ agreement, and active-alert validity. It does not prove mathematics or decide semantic reusability.
 
