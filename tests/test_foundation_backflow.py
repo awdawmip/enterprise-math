@@ -14,6 +14,9 @@ class FoundationBackflowValidationTests(unittest.TestCase):
         scheduler = json.loads((ROOT / "research_scheduler.json").read_text(encoding="utf-8"))
         return backflow, scheduler
 
+    def load_legacy_scheduler(self):
+        return json.loads((ROOT / "research_scheduler_v1_legacy.json").read_text(encoding="utf-8"))
+
     def test_repository_backflow_links_are_valid(self):
         backflow, scheduler = self.load_repository_state()
         self.assertEqual([], common.validate_backflow(backflow, scheduler))
@@ -51,8 +54,12 @@ class FoundationBackflowValidationTests(unittest.TestCase):
         self.assertTrue(any("must explicitly declare" in error for error in errors))
 
     def test_research_task_must_explicitly_declare_fq(self):
-        backflow, scheduler = self.load_repository_state()
-        broken_scheduler = copy.deepcopy(scheduler)
+        backflow, _ = self.load_repository_state()
+        # Scheduler V2 keeps durable static task definitions in the frozen V1
+        # registry plus taskbooks; it no longer exposes an inline `tasks` array.
+        # Mutate the durable V1 definition directly so the test still checks the
+        # semantic Foundation-link contract rather than a retired storage shape.
+        broken_scheduler = copy.deepcopy(self.load_legacy_scheduler())
         task = next(item for item in broken_scheduler["tasks"] if item["task_id"] == "RS-P022-GRAPH-DISTANCE-API")
         task.pop("foundation_questions", None)
         errors = common.validate_backflow(backflow, broken_scheduler)
