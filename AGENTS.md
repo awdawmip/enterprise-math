@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.7`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.8`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -14,11 +14,14 @@ Current research modes:
 - explicit user task / Driver handoff / approved taskbook / scheduler dispatch -> `TASK_RESEARCH`;
 - explicit Driver activation -> `RESEARCH_DRIVER`.
 
-Exact role authority:
+Exact role/execution authority:
 
 - `research_architecture.json`;
 - `research_role_policy.json`;
-- `research_identity_state_machine.json`.
+- `research_identity_state_machine.json`;
+- `research_execution_state_machine.json`.
+
+For `TASK_RESEARCH`, task authority and execution readiness are separate. A valid direct user task, approved taskbook, scheduler task, or Driver dispatch envelope may establish task authority; none of them by itself means substantive work is authorized.
 
 ## 2. Active-turn continuation liveness
 
@@ -75,7 +78,50 @@ Do not use `DIRECT` as a visible researcher scope. Registration state `REGISTER_
 
 If `Global-Knowledge-Sync:` is also emitted, the role identity marker appears immediately before it and the sync line remains last.
 
-## 4. FREE_AXIOM_DISCOVERY
+## 4. TASK_RESEARCH execution-state gate
+
+Canonical contract:
+
+- `research_execution_state_machine.json`;
+- `docs/RESEARCH_EXECUTION_STATE_MACHINE.md`;
+- `tools/research_execution_state.py`.
+
+Every concrete `TASK_RESEARCH` run normalizes its task authority into one execution spec:
+
+`task_id + authority_kind + authority_ref + execution_gates`.
+
+Allowed task-authority kinds are:
+
+- `OFFICIAL_TASKBOOK`;
+- `DIRECT_USER_TASK`;
+- `SCHEDULER_TASK`;
+- `DRIVER_DISPATCH_ENVELOPE`.
+
+Freeze:
+
+`TASK_AUTHORITY_READY != EXECUTION_READY`.
+
+`STATE_PERMISSION + ALL_GUARDING_GATES_SATISFIED -> ACTION_ALLOWED`.
+
+Before any mathematical source read or mathematical derivation:
+
+1. resolve the concrete task authority;
+2. normalize explicit task-local startup/process/return constraints into `execution_gates`;
+3. resolve Researcher-ID;
+4. if any `PRE_MATH` gate exists, enter `PRE_MATH_GATES_PENDING`;
+5. satisfy and durably verify every PRE_MATH gate;
+6. reach `EXECUTION_READY`;
+7. only then begin substantive mathematics.
+
+A taskbook `READY`, scheduler `CLAIMED`, Driver relay, direct task acceptance, or chat statement “done” never skips these steps.
+
+Every normalized gate starts `PENDING`. An action remains blocked until every gate whose `must_precede` contains that action is `SATISFIED`, even if the current state otherwise permits it. `PRE_RETURN` gates therefore can block `RETURN_WRITE` while the research state is already `IN_PROGRESS`.
+
+A failed mandatory pre-math publication/liveness gate is an **execution non-start**, not a mathematical rejection.
+
+If chat/runtime continuity becomes unreliable, enter `RECOVERY_REQUIRED` and reconstruct the last legal state **and gate ledger** from durable evidence. Do not infer execution completion from chat text.
+
+## 5. FREE_AXIOM_DISCOVERY
 
 FREE Phase A receives the **primitive substrate**, not the current-result catalog and not a suggestion menu.
 
@@ -104,21 +150,29 @@ Candidate lifecycle:
 
 After the candidate/no-go packet is frozen, Phase B may open current/prior work and must include the tool-coverage/dedup lookup before claiming a new reusable method.
 
-## 5. TASK_RESEARCH hot start
+## 6. TASK_RESEARCH hot start
 
 For a selected task:
 
 1. this router if not already loaded;
-2. the **exact task entry**;
-3. the first exact dependency required to begin;
-4. work;
-5. expand only when a concrete dependency is triggered.
+2. the **exact task authority** (current user instruction, taskbook, scheduler task, or Driver envelope) and execution-control metadata only;
+3. normalize/validate the execution spec and resolve identity;
+4. satisfy all `PRE_MATH` gates and reach `EXECUTION_READY`;
+5. read the first exact mathematical dependency required to begin;
+6. work;
+7. expand only when a concrete dependency is triggered.
 
-Soft routine source-read budget before substantive work: `<= 3`.
+Soft routine source-read budget before substantive work: `<= 3` **control-plane/task-authority reads**. A task-local `PRE_MATH` firewall overrides this budget and forbids mathematical-source reads until the gate is satisfied.
 
 The Common Surface is a lookup, not a default preload.
 
-## 6. Universal tool reuse gate
+For an official taskbook, Driver dispatch/re-dispatch uses the single composite gate:
+
+`python tools/research_control_gate.py audit research_tasks/<task>.md`.
+
+For a direct user/scheduler/Driver-envelope task without an official taskbook, normalize the current authority into the runtime spec and validate it with `tools/research_execution_state.py audit-spec` when a machine check is needed.
+
+## 7. Universal tool reuse gate
 
 Canonical policy:
 
@@ -167,7 +221,7 @@ An ordinary TASK may not self-declare blindness simply to skip the reuse gate. T
 
 The lookup is selective rather than a universal preload: query by the actual need. When a local checkout is available, `python tools/enterprise_toolbox.py coverage <need>` searches curated tool families, harvested methods and the current executable Python surface without importing modules.
 
-## 7. GitHub/service routing
+## 8. GitHub/service routing
 
 In ChatGPT/Project execution with the connected GitHub capability available:
 
@@ -185,13 +239,13 @@ Detailed remote rules:
 
 `docs/GITHUB_INTERACTION_BUDGET.md`.
 
-## 8. Working Truth
+## 9. Working Truth
 
 `WORKING_TRUTH` is TASK execution discipline after an explicit Driver/taskbook freeze.
 
 It is not a FREE Phase-A premise and not raw-candidate status.
 
-## 9. Evidence integrity
+## 10. Evidence integrity
 
 Never fabricate proof, computation, hashes, validation status, novelty, provenance or tool results.
 
@@ -203,7 +257,7 @@ Load triggered semantic policies only when the claim requires them:
 - `native_semantics_admissibility.json` — native/intrinsic/base-world claims;
 - geometry/refoundation policy — geometry/refoundation tasks.
 
-## 10. Candidate / task / continuation provenance
+## 11. Candidate / task / continuation provenance
 
 `RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION`.
 
@@ -220,7 +274,7 @@ Exact taskbook contract:
 - `docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md`;
 - `tools/research_taskbook.py`.
 
-## 11. Remote liveness
+## 12. Remote liveness
 
 `RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
@@ -234,10 +288,13 @@ Tool/scheduler/CI availability is not a mathematical `HARD_BLOCK`.
 
 `REMOTE_SUBFLOW_TERMINATED != PARENT_TASK_TERMINATED`.
 
-## 12. Triggered control surfaces
+A task-declared remote `PRE_MATH` gate is different: it is an explicit execution-legality prerequisite for that concrete run, not generic remote preflight and not a mathematical hard dependency.
+
+## 13. Triggered control surfaces
 
 Load only when relevant:
 
+- execution-state protocol for every concrete `TASK_RESEARCH` startup/recovery/action-gate decision;
 - scheduler/Relay/Foundation surfaces for actual coordination actions;
 - Driver contract + continuity for actual Driver portfolio decisions;
 - Common Surface for exact cross-owner theorem/tool/conflict lookup;
@@ -246,7 +303,7 @@ Load only when relevant:
 - test/Lean diagnostics for actual diagnosis;
 - owner-isolation/promotion policy for actual publication/promotion work.
 
-## 13. Persistence and publication
+## 14. Persistence and publication
 
 L1/L2/L3 research is remote-silent between semantic checkpoints by default.
 
@@ -256,7 +313,7 @@ Journal, Driver Continuity, source task/result files and source `main` have dist
 
 Current source `main` is canonical only after applicable gates.
 
-## 14. Promotion liveness
+## 15. Promotion liveness
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
@@ -266,7 +323,7 @@ Strict `NO_NEW_MATHEMATICS` governance maintenance uses the separate bounded pro
 
 `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`.
 
-## 15. Current-only hot path
+## 16. Current-only hot path
 
 Normal startup files describe **current behavior/current authority only**.
 
