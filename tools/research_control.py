@@ -4,7 +4,7 @@
 This module does not reduce Scheduler events and does not replace any existing
 submachine. It validates the composition: semantic/evidence/routing/liveness
 state around Scheduler V2 and validates the extra evidence carried by new V2
-APPROVE/REVIEW events.
+APPROVE/REVIEW/CLAIM/ADOPT/ORPHAN events.
 """
 from __future__ import annotations
 
@@ -42,12 +42,13 @@ def validate_spec(spec: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     if spec.get("schema") != "ENTERPRISE_MATH_RESEARCH_CONTROL_STATE_MACHINE_V1":
         return ["unexpected control-state schema"]
-    required_sections = {"actor", "object", "runtime", "information", "evidence", "routing", "parent"}
+    required_sections = {"actor", "object", "runtime", "conversation", "information", "evidence", "routing", "parent"}
     missing = required_sections - set(spec.get("state_vector", {}))
     if missing:
         errors.append("missing state-vector sections: " + ", ".join(sorted(missing)))
     required_profiles = {
         "STANDARD_RESEARCH",
+        "FREE_CANDIDATE_AUDIT",
         "INDEPENDENT_AUDIT",
         "AXIOM_ADMISSION_AUDIT",
         "FORMALIZATION",
@@ -59,12 +60,24 @@ def validate_spec(spec: dict[str, Any]) -> list[str]:
     }
     if not required_profiles <= set(spec.get("control_profiles", [])):
         errors.append("control_profiles do not cover all current control classes")
+    intake = spec.get("pre_execution_reconciliation_contract", {})
+    if intake.get("required_before_new_execution_generation") is not True:
+        errors.append("new execution generation must require durable-frontier reconciliation")
+    if set(intake.get("classification", [])) != {"VERIFIED_COMPLETE", "IN_PROGRESS_RECOVERABLE", "UNFINISHED", "NEVER_STARTED"}:
+        errors.append("pre-execution reconciliation must use the canonical four-way frontier classification")
+    recovery = spec.get("conversation_recovery_contract", {})
+    if recovery.get("stale_after_minutes_without_verifiable_action") != 10:
+        errors.append("conversation recovery must use the canonical 10-minute stale threshold")
+    if recovery.get("scheduler_release_event") != "ORPHAN" or recovery.get("scheduler_resume_event") != "ADOPT":
+        errors.append("conversation recovery must bridge through Scheduler ORPHAN -> ADOPT")
+    if recovery.get("durable_frontier_required_for_recoverable_takeover") is not True:
+        errors.append("recoverable conversation takeover must require a durable frontier")
     return errors
 
 
 def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[str]:
     errors: list[str] = []
-    for section in ("actor", "object", "runtime", "information", "evidence", "routing", "parent"):
+    for section in ("actor", "object", "runtime", "conversation", "information", "evidence", "routing", "parent"):
         if not isinstance(snapshot.get(section), dict):
             errors.append(f"missing section: {section}")
     if errors:
@@ -73,6 +86,7 @@ def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[st
     actor = snapshot["actor"]
     obj = snapshot["object"]
     runtime = snapshot["runtime"]
+    conv = snapshot["conversation"]
     info = snapshot["information"]
     ev = snapshot["evidence"]
     route = snapshot["routing"]
@@ -81,6 +95,7 @@ def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[st
     enum_fields = {
         "actor": (actor, ("role", "mode", "identity_state")),
         "runtime": (runtime, ("scheduler_state", "dispatch_state", "pre_math_gate")),
+        "conversation": (conv, ("liveness", "recovery_class")),
         "information": (info, ("firewall", "freeze_state", "source_exposure")),
         "evidence": (
             ev,
@@ -105,6 +120,37 @@ def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[st
             allowed = _enum(spec, section, field)
             if payload.get(field) not in allowed:
                 errors.append(f"{section}.{field}: invalid value {payload.get(field)!r}")
+
+    generation = conv.get("generation")
+    if not isinstance(generation, int) or generation < 0:
+        errors.append("conversation.generation must be a nonnegative integer")
+    last_verified = conv.get("last_verified_action_at")
+    if nonempty(last_verified):
+        try:
+            datetime.fromisoformat(str(last_verified).replace("Z", "+00:00"))
+        except ValueError:
+            errors.append("conversation.last_verified_action_at must be ISO-8601 or null")
+
+    liveness = conv.get("liveness")
+    recovery_class = conv.get("recovery_class")
+    durable_frontier = conv.get("durable_frontier_ref")
+    takeover_ref = conv.get("takeover_ref")
+    if liveness == "ACTIVE" and recovery_class != "NONE":
+        errors.append("active conversation must not carry a stale recovery classification")
+    if liveness == "NOT_APPLICABLE" and recovery_class != "NONE":
+        errors.append("conversation recovery_class must be NONE when liveness is NOT_APPLICABLE")
+    if liveness in {"STALE", "RECOVERING", "RECOVERED"} and recovery_class == "NONE":
+        errors.append("stale/recovering/recovered conversation requires an explicit recovery classification")
+    if liveness in {"STALE", "RECOVERING"} and not nonempty(durable_frontier):
+        errors.append("stale/recovering conversation requires a durable frontier")
+    if recovery_class in {"IN_PROGRESS_RECOVERABLE", "UNFINISHED"} and not nonempty(durable_frontier):
+        errors.append("recoverable/unfinished predecessor requires durable_frontier_ref")
+    if liveness == "RECOVERING" and not nonempty(takeover_ref):
+        errors.append("recovering conversation requires takeover_ref")
+    if recovery_class == "VERIFIED_COMPLETE" and runtime.get("dispatch_state") in {"LEASED", "NEEDS_DISPATCH", "ORPHAN_RECOVERY"}:
+        errors.append("VERIFIED_COMPLETE recovery forbids duplicate task execution or redispatch")
+    if liveness == "RECOVERED" and recovery_class in {"IN_PROGRESS_RECOVERABLE", "UNFINISHED", "NEVER_STARTED"} and not nonempty(takeover_ref):
+        errors.append("recovered execution requires takeover_ref")
 
     profile = obj.get("control_profile")
     if profile not in set(spec.get("control_profiles", [])):
@@ -235,9 +281,21 @@ def cross_layer_guard_applies(event: dict[str, Any], spec: dict[str, Any]) -> bo
         return True
 
 
+def pre_execution_guard_applies(event: dict[str, Any], spec: dict[str, Any]) -> bool:
+    effective = spec.get("pre_execution_reconciliation_effective_at") or spec.get("pre_execution_reconciliation_contract", {}).get("effective_at")
+    at = event.get("at")
+    if not isinstance(effective, str) or not isinstance(at, str):
+        return True
+    try:
+        return datetime.fromisoformat(at) >= datetime.fromisoformat(effective)
+    except ValueError:
+        return True
+
+
 def validate_events(events: list[dict[str, Any]], spec: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     contract = spec["review_event_contract"]
+    recovery = spec["conversation_recovery_contract"]
     harvest = set(contract["method_harvest_values"])
     evidence_classes = set(contract["evidence_class_values"])
     routes = set(contract["route_disposition_values"])
@@ -247,6 +305,20 @@ def validate_events(events: list[dict[str, Any]], spec: dict[str, Any]) -> list[
         kind = event.get("event")
         if not cross_layer_guard_applies(event, spec):
             continue
+        if kind == "ORPHAN" and event.get("reason") == recovery.get("scheduler_release_reason"):
+            if not nonempty(event.get("evidence_ref")) and not nonempty(event.get("recovery_ref")):
+                errors.append(f"event[{i}] stale-conversation ORPHAN requires evidence_ref or recovery_ref")
+        if pre_execution_guard_applies(event, spec):
+            if kind == "CLAIM":
+                if event.get("frontier_class") != "NEVER_STARTED":
+                    errors.append(f"event[{i}] CLAIM requires frontier_class=NEVER_STARTED after durable-frontier reconciliation")
+                if not nonempty(event.get("frontier_ref")):
+                    errors.append(f"event[{i}] CLAIM requires frontier_ref proving pre-execution reconciliation")
+            elif kind == "ADOPT":
+                if event.get("frontier_class") not in {"IN_PROGRESS_RECOVERABLE", "UNFINISHED"}:
+                    errors.append(f"event[{i}] ADOPT requires frontier_class=IN_PROGRESS_RECOVERABLE or UNFINISHED")
+                if not nonempty(event.get("recovery_ref")):
+                    errors.append(f"event[{i}] ADOPT requires recovery_ref to the durable frontier")
         if kind == "APPROVE":
             if event.get("taskbook_audit") != "PASS":
                 errors.append(f"event[{i}] APPROVE requires taskbook_audit=PASS")
@@ -310,6 +382,14 @@ def template_snapshot(profile: str, spec: dict[str, Any]) -> dict[str, Any]:
         "actor": {"role": "RESEARCHER", "mode": "TASK_RESEARCH", "identity_state": "RESOLVED_LOCAL"},
         "object": {"control_profile": profile, "task_id": None, "task_lineage": "NOT_APPLICABLE"},
         "runtime": {"scheduler_state": "NONE", "dispatch_state": "NONE", "pre_math_gate": "NOT_REQUIRED"},
+        "conversation": {
+            "liveness": "ACTIVE",
+            "recovery_class": "NONE",
+            "last_verified_action_at": None,
+            "durable_frontier_ref": None,
+            "takeover_ref": None,
+            "generation": 0,
+        },
         "information": {"firewall": "NONE", "freeze_state": "NOT_REQUIRED", "source_exposure": "NORMAL"},
         "evidence": {
             "source_status": "NONE",

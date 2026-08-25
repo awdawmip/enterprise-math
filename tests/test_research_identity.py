@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 import unittest
@@ -13,6 +14,12 @@ def load_tool(name: str, relative: str):
     assert spec.loader is not None
     spec.loader.exec_module(module)
     return module
+
+
+def scheduler_config():
+    config = json.loads((ROOT / "research_scheduler.json").read_text(encoding="utf-8"))
+    config["claim_lease_minutes"] = 120
+    return config
 
 
 identity = load_tool("research_identity", "tools/research_identity.py")
@@ -111,6 +118,9 @@ class ResearchIdentityTests(unittest.TestCase):
             "task_id": "RS-R012-A3A4-RELATION-GENESIS-CATEGORY-BOUNDARY",
             "base_state": "READY",
         }
+        # Historical Issue #240 events before the V2 cutover did not always carry
+        # an explicit schema. V4 identity policy freezes legacy-event compatibility,
+        # so V2 must still replay this event as historical V1 state.
         events = [
             {
                 "event": "CLAIM",
@@ -123,7 +133,7 @@ class ResearchIdentityTests(unittest.TestCase):
         state = scheduler.reduce_task(
             task,
             events,
-            default_lease_minutes=120,
+            config=scheduler_config(),
             now=datetime(2026, 8, 10, 16, 30, tzinfo=timezone.utc),
         )
         expected = scheduler.researcher_id_for_claim(task, "claim-alpha")
@@ -158,13 +168,13 @@ class ResearchIdentityTests(unittest.TestCase):
         state = scheduler.reduce_task(
             task,
             events,
-            default_lease_minutes=120,
+            config=scheduler_config(),
             now=datetime(2026, 8, 10, 16, 30, tzinfo=timezone.utc),
         )
         self.assertEqual(state["state"], "CLAIMED")
         self.assertEqual(state["researcher_id"], correct)
         self.assertEqual(len(state["ignored_events"]), 1)
-        self.assertIn("does not match live claim identity", state["ignored_events"][0]["reason"])
+        self.assertIn("current live claim", state["ignored_events"][0]["reason"])
 
     def test_handoff_releases_live_identity_but_keeps_last(self):
         task = {"task_id": "RS-P017-GLOBAL-CAPACITY", "base_state": "READY"}
@@ -188,7 +198,7 @@ class ResearchIdentityTests(unittest.TestCase):
         state = scheduler.reduce_task(
             task,
             events,
-            default_lease_minutes=120,
+            config=scheduler_config(),
             now=datetime(2026, 8, 10, 16, 30, tzinfo=timezone.utc),
         )
         self.assertIsNone(state["researcher_id"])

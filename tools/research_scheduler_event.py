@@ -3,7 +3,8 @@
 
 This helper prevents hand-written event-shape drift. It emits one JSON object to
 stdout; callers append that exact object as one Issue #240 comment. Cross-layer
-APPROVE/REVIEW evidence is emitted here and checked by tools/research_control.py.
+APPROVE/REVIEW/CLAIM/ADOPT/ORPHAN evidence is emitted here and checked by
+tools/research_control.py.
 """
 from __future__ import annotations
 
@@ -47,8 +48,8 @@ def main(argv: list[str] | None = None) -> int:
 
     rc = sp.add_parser("review-claim"); rc.add_argument("--task-id", required=True); rc.add_argument("--reviewer-id", required=True); rc.add_argument("--review-claim-id", required=True); rc.add_argument("--at", required=True); rc.add_argument("--lease-minutes", type=int)
     ap = sp.add_parser("approve"); ap.add_argument("--task-id", required=True); ap.add_argument("--reviewer-id", required=True); ap.add_argument("--review-claim-id", required=True); ap.add_argument("--taskbook-ref", required=True); ap.add_argument("--review-ref", required=True); ap.add_argument("--taskbook-audit", choices=["PASS"], required=True); ap.add_argument("--policy-digest", required=True); ap.add_argument("--at", required=True)
-    cl = sp.add_parser("claim"); cl.add_argument("--task-id", required=True); cl.add_argument("--execution-id", required=True); cl.add_argument("--claim-id", required=True); cl.add_argument("--at", required=True); cl.add_argument("--lease-minutes", type=int); cl.add_argument("--actor")
-    ad = sp.add_parser("adopt"); ad.add_argument("--task-id", required=True); ad.add_argument("--execution-id", required=True); ad.add_argument("--claim-id", required=True); ad.add_argument("--recovery-ref", required=True); ad.add_argument("--at", required=True); ad.add_argument("--lease-minutes", type=int); ad.add_argument("--actor")
+    cl = sp.add_parser("claim"); cl.add_argument("--task-id", required=True); cl.add_argument("--execution-id", required=True); cl.add_argument("--claim-id", required=True); cl.add_argument("--frontier-ref", required=True); cl.add_argument("--at", required=True); cl.add_argument("--lease-minutes", type=int); cl.add_argument("--actor")
+    ad = sp.add_parser("adopt"); ad.add_argument("--task-id", required=True); ad.add_argument("--execution-id", required=True); ad.add_argument("--claim-id", required=True); ad.add_argument("--recovery-ref", required=True); ad.add_argument("--frontier-class", required=True, choices=["IN_PROGRESS_RECOVERABLE","UNFINISHED"]); ad.add_argument("--at", required=True); ad.add_argument("--lease-minutes", type=int); ad.add_argument("--actor")
     pr = sp.add_parser("progress"); pr.add_argument("--task-id", required=True); pr.add_argument("--execution-id", required=True); pr.add_argument("--claim-id", required=True); pr.add_argument("--progress-ref", required=True); pr.add_argument("--next-action", required=True); pr.add_argument("--at", required=True); pr.add_argument("--lease-minutes", type=int)
     su = sp.add_parser("submit"); su.add_argument("--task-id", required=True); su.add_argument("--execution-id", required=True); su.add_argument("--claim-id", required=True); su.add_argument("--return-ref", required=True); su.add_argument("--evidence-ref", action="append", default=[]); su.add_argument("--at", required=True)
     rv = sp.add_parser("review"); rv.add_argument("--task-id", required=True); rv.add_argument("--reviewer-id", required=True); rv.add_argument("--review-claim-id", required=True); rv.add_argument("--verdict", required=True); rv.add_argument("--review-ref", required=True); rv.add_argument("--next-action"); rv.add_argument("--finding", action="append", default=[]); rv.add_argument("--at", required=True)
@@ -56,7 +57,7 @@ def main(argv: list[str] | None = None) -> int:
     rv.add_argument("--evidence-class", required=True, choices=["SOURCE_ONLY","BLIND_REPLICATION","STATEMENT_EXPOSED_AUDIT","MIXED_INDEPENDENT_EVIDENCE","FORMAL_KERNEL","BENCHMARK","GOVERNANCE","NEGATIVE_OBSTRUCTION"])
     rv.add_argument("--route-disposition", required=True, choices=["CONTINUE_SAME_TASK","OPEN_CONTINUATION","OPEN_INDEPENDENT_REPLICATION_CHILD","ROUTE_TO_FOUNDATION","ROUTE_TO_FORMALIZATION","ROUTE_TO_PROMOTION","PARK","CLOSE"])
     rv.add_argument("--route-ref"); rv.add_argument("--successor-gate-ref"); rv.add_argument("--child-task-id"); rv.add_argument("--child-task-ref"); rv.add_argument("--independence-protocol")
-    oo = sp.add_parser("orphan"); oo.add_argument("--task-id", required=True); oo.add_argument("--driver-id", required=True); oo.add_argument("--reason", required=True); oo.add_argument("--evidence-ref"); oo.add_argument("--at", required=True)
+    oo = sp.add_parser("orphan"); oo.add_argument("--task-id", required=True); oo.add_argument("--driver-id", required=True); oo.add_argument("--reason", required=True); oo.add_argument("--evidence-ref"); oo.add_argument("--recovery-ref"); oo.add_argument("--at", required=True)
     mi = sp.add_parser("migrate"); mi.add_argument("--task-id", required=True); mi.add_argument("--driver-id", required=True); mi.add_argument("--migration-ref", required=True); mi.add_argument("--target-state", required=True); mi.add_argument("--at", required=True); mi.add_argument("--taskbook", type=pathlib.Path); mi.add_argument("--execution-id"); mi.add_argument("--claim-id"); mi.add_argument("--return-ref"); mi.add_argument("--lease-minutes", type=int); mi.add_argument("--actor")
 
     args = p.parse_args(argv)
@@ -77,7 +78,12 @@ def main(argv: list[str] | None = None) -> int:
         event=base(args,"ADOPT" if args.cmd=="adopt" else "CLAIM"); event.update(execution_id=args.execution_id,claim_id=args.claim_id,actor_role="RESEARCHER")
         if args.actor: event["actor"]=args.actor
         if args.lease_minutes: event["lease_minutes"]=args.lease_minutes
-        if args.cmd=="adopt": event["recovery_ref"]=args.recovery_ref
+        if args.cmd=="adopt":
+            event["recovery_ref"]=args.recovery_ref
+            event["frontier_class"]=args.frontier_class
+        else:
+            event["frontier_class"]="NEVER_STARTED"
+            event["frontier_ref"]=args.frontier_ref
         emit(event); return 0
     if args.cmd == "progress":
         event=base(args,"PROGRESS"); event.update(execution_id=args.execution_id,claim_id=args.claim_id,progress_ref=args.progress_ref,next_action=args.next_action)
@@ -106,6 +112,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "orphan":
         event=base(args,"ORPHAN"); event.update(driver_id=args.driver_id,reason=args.reason)
         if args.evidence_ref: event["evidence_ref"]=args.evidence_ref
+        if args.recovery_ref: event["recovery_ref"]=args.recovery_ref
         emit(event); return 0
     if args.cmd == "migrate":
         event=base(args,"MIGRATE"); event.update(driver_id=args.driver_id,migration_ref=args.migration_ref,target_state=args.target_state)

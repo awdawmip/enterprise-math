@@ -3,7 +3,9 @@
   "status": "CANDIDATE_CANONICAL_CROSS_LAYER_CONTRACT",
   "effective": "2026-08-25",
   "cross_layer_effective_at": "2026-08-25T10:50:39+08:00",
-  "purpose": "Compose the existing identity, role, Scheduler V2, candidate, taskbook, active-turn, evidence, formalization and promotion controls into one machine-checkable research-control state vector without replacing any submachine as its local source of truth.",
+  "conversation_recovery_effective_at": "2026-08-25T11:47:00+08:00",
+  "pre_execution_reconciliation_effective_at": "2026-08-25T12:00:00+08:00",
+  "purpose": "Compose the existing identity, role, Scheduler V2, candidate, taskbook, active-turn, evidence, formalization and promotion controls into one machine-checkable research-control state vector without replacing any submachine as its local source of truth. Conversation liveness, durable-frontier intake reconciliation and takeover are part of the composition so a dead or already-completed predecessor cannot retain effective control or be blindly re-executed.",
   "not_a_replacement_for": [
     "research_identity_state_machine.json",
     "research_role_policy.json",
@@ -51,6 +53,14 @@
       "dispatch_state": ["NONE", "NEEDS_REVIEW", "NEEDS_DISPATCH", "LEASED", "REVIEW_LEASED", "ORPHAN_RECOVERY", "BLOCKED", "COMPLETE", "DORMANT"],
       "pre_math_gate": ["NOT_REQUIRED", "REQUIRED_UNSATISFIED", "SATISFIED"]
     },
+    "conversation": {
+      "liveness": ["ACTIVE", "STALE", "RECOVERING", "RECOVERED", "NOT_APPLICABLE"],
+      "recovery_class": ["NONE", "VERIFIED_COMPLETE", "IN_PROGRESS_RECOVERABLE", "UNFINISHED", "NEVER_STARTED"],
+      "last_verified_action_at": "ISO-8601 timestamp or null",
+      "durable_frontier_ref": "externally verifiable ref or null",
+      "takeover_ref": "durable recovery/orphan/adopt ref or null",
+      "generation": "nonnegative integer"
+    },
     "information": {
       "firewall": ["NONE", "FREE_PHASE_A_BLIND", "TASK_BLIND_FORWARD", "STATEMENT_EXPOSED_AUDIT", "MIXED_EVIDENCE_AUDIT", "POST_FREEZE_OPEN"],
       "freeze_state": ["NOT_REQUIRED", "REQUIRED_NOT_FROZEN", "FROZEN"],
@@ -80,6 +90,42 @@
       "next_executable_action": "string or null"
     }
   },
+  "pre_execution_reconciliation_contract": {
+    "effective_at": "2026-08-25T12:00:00+08:00",
+    "required_before_new_execution_generation": true,
+    "classification": ["VERIFIED_COMPLETE", "IN_PROGRESS_RECOVERABLE", "UNFINISHED", "NEVER_STARTED"],
+    "scheduler_claim_rule": "CLAIM is legal only after durable-frontier reconciliation classifies the exact task as NEVER_STARTED; the event binds frontier_class=NEVER_STARTED and frontier_ref.",
+    "scheduler_adopt_rule": "ADOPT is legal only after durable-frontier reconciliation classifies the exact task as IN_PROGRESS_RECOVERABLE or UNFINISHED; the event binds frontier_class and recovery_ref.",
+    "direct_task_rule": "Direct task/taskbook execution that does not use Scheduler must perform the same reconciliation before creating a new identity, owner branch, execution stamp or substantive rerun.",
+    "verified_complete_rule": "VERIFIED_COMPLETE is consumed and routed/reviewed; it must not produce CLAIM, ADOPT, a new owner branch, a new execution stamp or duplicate mathematics.",
+    "independence_rule": "Stale recovery or ordinary continuation is not a new independent replication. A fresh clean independent child is created only when the controlling independence protocol explicitly requires a distinct run.",
+    "preferred_frontier_sources": ["owner branch head", "execution stamp", "frozen return/result", "manifest", "PR/review state", "Scheduler runtime event", "checker/build evidence"]
+  },
+  "conversation_recovery_contract": {
+    "stale_after_minutes_without_verifiable_action": 10,
+    "progress_prose_is_not_a_verified_action": true,
+    "chat_memory_is_not_durable_frontier": true,
+    "task_claim_lease_may_be_preempted_for_evidenced_stale_conversation": true,
+    "scheduler_release_event": "ORPHAN",
+    "scheduler_release_authority": ["RESEARCH_DRIVER", "SYSTEM"],
+    "scheduler_release_reason": "STALE_CONVERSATION_NO_VERIFIABLE_ACTION_10M",
+    "scheduler_resume_event": "ADOPT",
+    "recovery_classes": ["VERIFIED_COMPLETE", "IN_PROGRESS_RECOVERABLE", "UNFINISHED", "NEVER_STARTED"],
+    "durable_frontier_required_for_recoverable_takeover": true,
+    "required_takeover_sequence": [
+      "RECONSTRUCT_DURABLE_FRONTIER",
+      "CLASSIFY_PREDECESSOR",
+      "ORPHAN_LIVE_CLAIM_IF_NEEDED",
+      "ADOPT_OR_RESUME_WITH_FRESH_EXECUTION_ID",
+      "CONTINUE_PARENT_OBJECTIVE"
+    ],
+    "forbidden": [
+      "WAIT_FOR_STALE_CHAT_UNTIL_24H_TASK_LEASE_EXPIRES",
+      "TRUST_PROGRESS_PROSE_AS_EXECUTION_EVIDENCE",
+      "REDO_VERIFIED_COMPLETE_WORK",
+      "DISCARD_VALID_DURABLE_EVIDENCE_WHEN_ONLY_PARTIAL_WORK_IS_MISSING"
+    ]
+  },
   "review_event_contract": {
     "approval_required_fields": ["taskbook_audit", "policy_digest", "review_ref", "taskbook_ref"],
     "taskbook_audit_value": "PASS",
@@ -106,7 +152,16 @@
     "PARENT_OPEN_PLUS_NEXT_EXECUTABLE_ACTION_FORBIDS_WAITING_FOR_CONTINUE",
     "FORMALIZATION_CANNOT_START_WITH_REQUIRED_INDEPENDENT_EVIDENCE_OPEN",
     "CANONICAL_MUTATION_REQUIRES_COMPLETED_PROMOTION_GATE",
-    "BLOCKED_PARENT_REQUIRES_UNAVOIDABLE_BLOCK_OR_PLATFORM_LIMIT"
+    "BLOCKED_PARENT_REQUIRES_UNAVOIDABLE_BLOCK_OR_PLATFORM_LIMIT",
+    "PROGRESS_PROSE_DOES_NOT_REFRESH_VERIFIED_LIVENESS",
+    "STALE_CONVERSATION_IS_RECOVERED_FROM_DURABLE_FRONTIER_NOT_CHAT_MEMORY",
+    "STALE_CONVERSATION_MAY_BE_ORPHANED_BEFORE_ORDINARY_TASK_LEASE_EXPIRY",
+    "IN_PROGRESS_RECOVERABLE_REQUIRES_DURABLE_FRONTIER_AND_TAKEOVER_REF",
+    "VERIFIED_COMPLETE_RECOVERY_FORBIDS_DUPLICATE_EXECUTION",
+    "PARENT_OBJECTIVE_CANNOT_WAIT_FOR_A_STALE_PREDECESSOR_CONVERSATION",
+    "NEW_EXECUTION_GENERATION_REQUIRES_DURABLE_FRONTIER_RECONCILIATION",
+    "VERIFIED_COMPLETE_CANNOT_BE_CLAIMED_OR_ADOPTED_AGAIN",
+    "RECOVERABLE_EXECUTION_PRESERVES_AND_RESUMES_DURABLE_EVIDENCE"
   ],
   "current_control_case_coverage": {
     "PRIME_FUSION_F1": "FORMALIZATION",
@@ -120,6 +175,8 @@
     "CONTROL_PLANE_REPAIR": "GOVERNANCE_MAINTENANCE",
     "QUADRATIC_PACKET_RANK2_RIGIDITY_AUDIT": "INDEPENDENT_AUDIT",
     "HODGE_PRESENTATION_FIBER_RESEARCH": "STANDARD_RESEARCH",
-    "MATHEMATICAL_L4_PROMOTION": "MATHEMATICAL_PROMOTION"
+    "MATHEMATICAL_L4_PROMOTION": "MATHEMATICAL_PROMOTION",
+    "STALE_CONVERSATION_TAKEOVER": "GOVERNANCE_MAINTENANCE",
+    "PRE_EXECUTION_DURABLE_FRONTIER_RECONCILIATION": "GOVERNANCE_MAINTENANCE"
   }
 }
