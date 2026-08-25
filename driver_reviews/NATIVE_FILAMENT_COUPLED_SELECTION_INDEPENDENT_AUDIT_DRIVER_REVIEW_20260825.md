@@ -15,7 +15,7 @@ Audit branch/head: `audit/native-filament-coupled-selection-20260825@1bb9f11d087
 Frozen return:
 `research_returns/NATIVE_FILAMENT_COUPLED_SELECTION_INDEPENDENT_AUDIT_RETURN_20260825.md`
 
-Return blob: `91778dc9ec63482052d97d71cfa4689ea7d75785`
+Return blob: `c5bd232e78999aaf0230d7c8dbb0a0954b115b1e`
 
 Blind packet blob: `bce8b9ae6620f5c280e72656b0d22ff7063965c6`
 
