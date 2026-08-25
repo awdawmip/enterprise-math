@@ -82,8 +82,49 @@ The least carrier is selected by the issued lexicographic order:
 
 The unary minimizer is characterized invariantly as the unique lift class admitting a complement on which all inherited unary maps act trivially. This criterion refers only to added unary structure/data and does not appeal to resemblance to any downstream algebraic object.
 
-## 7. Conclusion
+## 7. Exact pushed-checker identity and result
 
-No mathematical source outside the F6 blind whitelist influenced the raw discovery or classification, and no forbidden target structure was used directly or indirectly as a tie-breaker.
+Checker path:
+
+`scripts/cbrc_f6_validate_minimal_rank_two_conservative_carrier.py`
+
+Checkpoint-B checker commit:
+
+`e673df1842fd371a66fb827c1f6b8d8a5e02c487`
+
+Remote Git blob SHA-1 returned by GitHub:
+
+`be8f34e8d10bd934497439d8fabd231b82480020`
+
+The locally executed byte sequence had the same Git blob SHA-1, so the executed checker was byte-identical to the pushed checker.
+
+Byte count: `17810`
+
+Checker SHA-256:
+
+`682c3ba50ede00bf5cad9ea948e03b8542f1d8a0ded927c2aef34664bd2e9b2a`
+
+Deterministic stdout SHA-256:
+
+`1cf4c992156d34f12183d7b160805c332e31b146704d3f0bea96429a8e329e7e`
+
+Execution result:
+
+- exit code: `0`;
+- status: `PASS`;
+- finite-presentation / SNF examples: `C_min -> free rank 2, torsion [3]`; `C_9 -> free rank 2, torsion [9]`; `C_33 -> free rank 2, torsion [3,3]`;
+- bounded primitive embedding regression: `48` primitive and `32` nonprimitive vectors at bound `4`;
+- exact valid unary parameter cases: `22`;
+- typed gauge equivalence classes: `6`;
+- unique minimal unary class: `true`;
+- composition depth: `4`;
+- words checked across all lifts: `2662`;
+- upstream generator comparisons: `5324`;
+- theorem/model mismatches: `0`;
+- all required ablations: passed their expected exact distinction checks.
+
+## 8. Conclusion
+
+No mathematical source outside the F6 blind whitelist influenced the raw discovery or classification, no forbidden target structure was used directly or indirectly as a tie-breaker, and the exact pushed deterministic checker passed with zero theorem/model mismatch.
 
 `TARGET_LEAK_AUDIT_PASS`
