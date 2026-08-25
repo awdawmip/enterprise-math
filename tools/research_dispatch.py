@@ -4,14 +4,16 @@
 Post-cutover task definitions come from immutable task publication records.
 The frozen research_scheduler.json remains a compatibility baseline only.
 Issue #240 events are still reduced by tools/research_scheduler.py, but the
-canonical selector consumes the merged definition view, execution intents and
-result/review state.
+canonical selector consumes the merged definition view and result/review state.
+For registered tasks, the CLAIM event itself is the execution envelope; no
+separate pre-claim repository write is required.
 """
 from __future__ import annotations
 
 import argparse
 import copy
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -85,6 +87,7 @@ def registered_definition(record: dict[str, Any], root: Path = ROOT) -> dict[str
         "claim_lease_minutes": int(meta.get("claim_lease_minutes") or 120),
         "identity_lane": meta.get("identity_lane"),
         "publication_id": record.get("publication_id"),
+        "taskbook_blob_sha1": record.get("taskbook_blob_sha1"),
         "registration_source": "IMMUTABLE_TASK_RECORD",
     }
 
@@ -104,6 +107,55 @@ def merged_definitions(root: Path = ROOT) -> list[dict[str, Any]]:
 
 def _is_registered(task: dict[str, Any]) -> bool:
     return task.get("registration_source") == "IMMUTABLE_TASK_RECORD"
+
+
+def _inline_claim_envelope(
+    task: dict[str, Any], event: dict[str, Any]
+) -> tuple[dict[str, Any] | None, str | None]:
+    """Validate one self-contained registered CLAIM without another repo write."""
+    claim_id = event.get("claim_id")
+    if not isinstance(claim_id, str) or not claim_id:
+        return None, "registered CLAIM requires claim_id"
+    if event.get("publication_id") != task.get("publication_id"):
+        return None, "registered CLAIM publication_id does not match current task publication"
+    theorem_owner = event.get("theorem_owner")
+    if not isinstance(theorem_owner, str) or not theorem_owner.strip():
+        return None, "registered CLAIM requires theorem_owner"
+    execution_branch = event.get("execution_branch")
+    if not isinstance(execution_branch, str) or not execution_branch.strip():
+        return None, "registered CLAIM requires execution_branch"
+    execution_branch_base = event.get("execution_branch_base")
+    if not isinstance(execution_branch_base, str) or not re.fullmatch(
+        r"[0-9a-fA-F]{40}", execution_branch_base.strip()
+    ):
+        return None, "registered CLAIM requires a 40-hex execution_branch_base"
+    allowed_outputs = event.get("allowed_outputs")
+    if (
+        not isinstance(allowed_outputs, list)
+        or not allowed_outputs
+        or any(not isinstance(item, str) or not item.strip() for item in allowed_outputs)
+        or len(set(allowed_outputs)) != len(allowed_outputs)
+    ):
+        return None, "registered CLAIM requires unique nonempty allowed_outputs"
+    lease = event.get("lease_minutes", task.get("claim_lease_minutes", 120))
+    if type(lease) is not int or lease <= 0:
+        return None, "registered CLAIM lease_minutes must be a positive integer"
+    supplied = event.get("researcher_id")
+    if supplied is None:
+        try:
+            researcher_id = research_scheduler.researcher_id_for_claim(task, claim_id)
+        except Exception as exc:
+            return None, f"registered CLAIM could not derive researcher_id: {exc}"
+    elif not research_scheduler.valid_researcher_id(supplied):
+        return None, "registered CLAIM researcher_id has invalid format"
+    else:
+        researcher_id = str(supplied).strip().upper()
+    normalized = copy.deepcopy(event)
+    normalized["researcher_id"] = researcher_id
+    normalized["lease_minutes"] = lease
+    normalized["taskbook_blob_sha1"] = task.get("taskbook_blob_sha1")
+    normalized["execution_branch_base"] = execution_branch_base.lower()
+    return normalized, None
 
 
 def _filter_registered_events(
@@ -127,27 +179,35 @@ def _filter_registered_events(
             if not isinstance(claim_id, str) or not claim_id:
                 accepted.append(event)
                 continue
+
+            # Compatibility: an already-frozen intent may still authorize a CLAIM.
             try:
                 intent = research_execution_records.intent_for_claim(task["task_id"], claim_id, root)
             except Exception as exc:
                 rejected.append({"index": index, "reason": f"execution intent lookup failed: {exc}"})
                 continue
-            if intent is None:
+            if intent is not None:
+                supplied = event.get("researcher_id")
+                if supplied is not None and str(supplied).strip().upper() != intent["researcher_id"]:
+                    rejected.append({
+                        "index": index,
+                        "reason": "registered CLAIM researcher_id does not match execution intent",
+                    })
+                    continue
+                normalized = copy.deepcopy(event)
+                normalized["researcher_id"] = intent["researcher_id"]
+                normalized.setdefault("lease_minutes", intent["owner_lease_minutes"])
+                accepted.append(normalized)
+                continue
+
+            # Preferred low-burden path: CLAIM itself carries the execution envelope.
+            normalized, reason = _inline_claim_envelope(task, event)
+            if normalized is None:
                 rejected.append({
                     "index": index,
-                    "reason": "registered CLAIM requires a matching immutable execution intent",
+                    "reason": reason or "registered CLAIM execution envelope is invalid",
                 })
                 continue
-            supplied = event.get("researcher_id")
-            if supplied is not None and str(supplied).strip().upper() != intent["researcher_id"]:
-                rejected.append({
-                    "index": index,
-                    "reason": "registered CLAIM researcher_id does not match execution intent",
-                })
-                continue
-            normalized = copy.deepcopy(event)
-            normalized["researcher_id"] = intent["researcher_id"]
-            normalized.setdefault("lease_minutes", intent["owner_lease_minutes"])
             accepted.append(normalized)
             continue
         if kind == "DONE":
