@@ -229,7 +229,7 @@ def audit_registry(*, root: Path = ROOT, strict: bool = True) -> list[str]:
                 and meta.get("task_id") not in by_id
             ):
                 errors.append(
-                    f"{relative(path, root)}: V1 published taskbook missing compatibility mirror; "
+                    f"{relative(path, root)}: orphaned V1 published taskbook missing compatibility mirror; "
                     "post-cutover authority must also exist in immutable task records"
                 )
     if strict:
