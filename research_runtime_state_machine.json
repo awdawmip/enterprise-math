@@ -2,7 +2,7 @@
   "schema": "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_MACHINE_V1",
   "status": "ACTIVE_CANONICAL",
   "effective": "2026-08-25",
-  "runtime": "tools/research_runtime.py",
+  "runtime": "src/enterprise_math/research_runtime.py",
   "scheduler_runtime": "tools/research_scheduler.py",
   "scheduler_liveness_contract": "research_scheduler_liveness.json",
   "state_vector": [
@@ -34,7 +34,7 @@
     "OWNER_LEASE_EXPIRED": "HANDOFF_READY"
   },
   "final_gate": {
-    "callable": "tools/research_runtime.py::pre_final_gate",
+    "callable": "src/enterprise_math/research_runtime.py::pre_final_gate",
     "fail_closed": true,
     "final_allowed_only_when": [
       "PARENT_USER_OBJECTIVE_COMPLETE",
@@ -42,7 +42,7 @@
       "GENUINE_TERMINAL_BLOCK"
     ]
   },
-  "snapshot_builder": "tools/research_runtime.py::build_runtime_snapshot",
+  "snapshot_builder": "src/enterprise_math/research_runtime.py::build_runtime_snapshot",
   "recovery_invariant": "VERIFIED_COMPLETE -> CONSUME_NOT_RESTART; RECOVERABLE_VALID_FRONTIER -> RESUME_FROM_FIRST_SMALLEST_UNFINISHED_UNIT",
   "ownership_invariant": "STALE_SESSION != RELEASED_OWNER; replacement session adopts same live claim and preserves execution identity",
   "terminal_invariant": "SUBFLOW_TERMINAL != TASK_TERMINAL != PARENT_OBJECTIVE_TERMINAL"
