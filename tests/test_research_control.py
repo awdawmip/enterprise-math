@@ -13,6 +13,7 @@ def base(profile="STANDARD_RESEARCH"):
         "actor": {"role":"RESEARCHER","mode":"TASK_RESEARCH","identity_state":"REGISTERED"},
         "object": {"control_profile":profile,"task_id":"RS-X","task_lineage":"NEW_DIRECTION"},
         "runtime": {"scheduler_state":"IN_PROGRESS","dispatch_state":"LEASED","pre_math_gate":"NOT_REQUIRED"},
+        "conversation": {"liveness":"ACTIVE","recovery_class":"NONE","last_verified_action_at":None,"durable_frontier_ref":None,"takeover_ref":None,"generation":0},
         "information": {"firewall":"NONE","freeze_state":"NOT_REQUIRED","source_exposure":"NORMAL"},
         "evidence": {
             "source_status":"PROVED_SOURCE","independent_status":"NOT_REQUIRED","driver_verdict":"PENDING",
@@ -114,10 +115,13 @@ class ControlStateTests(unittest.TestCase):
         s=base(); s["parent"].update(objective="BLOCKED",completion_basis="NONE",next_executable_action=None)
         self.assertTrue(any("blocked parent" in e for e in rc.validate_snapshot(s,SPEC)))
 
-    def test_template_covers_all_profiles(self):
+    def test_template_covers_all_profiles_and_conversation_state(self):
         for profile in SPEC["control_profiles"]:
             snap=rc.template_snapshot(profile,SPEC)
             self.assertEqual(profile,snap["object"]["control_profile"])
+            self.assertEqual("ACTIVE", snap["conversation"]["liveness"])
+            self.assertEqual("NONE", snap["conversation"]["recovery_class"])
+            self.assertEqual([], rc.validate_snapshot(snap, SPEC) if profile not in {"FORMALIZATION", "FOUNDATION_DISPOSITION"} else rc.validate_spec(SPEC))
 
     def test_cbrc_f5r_orphan_migration_profile_is_valid_nonterminal(self):
         s=base("INDEPENDENT_AUDIT"); s["runtime"]={"scheduler_state":"ORPHANED","dispatch_state":"ORPHAN_RECOVERY","pre_math_gate":"SATISFIED"}; s["information"].update(firewall="TASK_BLIND_FORWARD",freeze_state="REQUIRED_NOT_FROZEN",source_exposure="WITHHELD"); s["evidence"].update(source_status="FROZEN",independent_status="REQUIRED_OPEN"); s["routing"]["working_truth"]="ACTIVE"; s["parent"]["next_executable_action"]="MIGRATE/ADOPT with preserved blind packet and fresh context"
@@ -134,6 +138,26 @@ class ControlStateTests(unittest.TestCase):
     def test_open_parent_with_next_action_cannot_terminal_stop(self):
         s=base(); s["terminal_output"]=True
         self.assertTrue(any("active-turn" in e for e in rc.validate_snapshot(s,SPEC)))
+
+    def test_stale_recoverable_requires_durable_frontier(self):
+        s=base(); s["conversation"].update(liveness="STALE",recovery_class="IN_PROGRESS_RECOVERABLE",last_verified_action_at="2026-08-25T11:00:00+08:00")
+        errors=rc.validate_snapshot(s,SPEC)
+        self.assertTrue(any("durable frontier" in e or "durable_frontier_ref" in e for e in errors))
+        s["conversation"]["durable_frontier_ref"]="research/checkpoint.md@abcdef1"
+        self.assertEqual([],rc.validate_snapshot(s,SPEC))
+
+    def test_recovering_requires_takeover_ref(self):
+        s=base(); s["conversation"].update(liveness="RECOVERING",recovery_class="IN_PROGRESS_RECOVERABLE",last_verified_action_at="2026-08-25T11:00:00+08:00",durable_frontier_ref="research/checkpoint.md@abcdef1",generation=1)
+        self.assertTrue(any("takeover_ref" in e for e in rc.validate_snapshot(s,SPEC)))
+        s["conversation"]["takeover_ref"]="scheduler#240:orphan-adopt-1"
+        self.assertEqual([],rc.validate_snapshot(s,SPEC))
+
+    def test_verified_complete_cannot_be_redispatched(self):
+        s=base(); s["conversation"].update(liveness="RECOVERED",recovery_class="VERIFIED_COMPLETE",durable_frontier_ref="research_returns/done.md@abcdef1")
+        self.assertTrue(any("duplicate" in e for e in rc.validate_snapshot(s,SPEC)))
+        s["runtime"].update(scheduler_state="DONE",dispatch_state="COMPLETE")
+        s["parent"].update(objective="COMPLETE",completion_basis="USER_OBJECTIVE_SATISFIED",next_executable_action=None)
+        self.assertEqual([],rc.validate_snapshot(s,SPEC))
 
     def test_review_event_requires_harvest_evidence_and_route(self):
         ev={"schema":rc.V2_SCHEMA,"event":"REVIEW","task_id":"RS-X","verdict":"ACCEPT","review_ref":"r@abcdef1"}
