@@ -174,7 +174,7 @@ class ResearchIdentityTests(unittest.TestCase):
         self.assertEqual(state["state"], "CLAIMED")
         self.assertEqual(state["researcher_id"], correct)
         self.assertEqual(len(state["ignored_events"]), 1)
-        self.assertIn("does not match live claim identity", state["ignored_events"][0]["reason"])
+        self.assertIn("current live claim", state["ignored_events"][0]["reason"])
 
     def test_handoff_releases_live_identity_but_keeps_last(self):
         task = {"task_id": "RS-P017-GLOBAL-CAPACITY", "base_state": "READY"}
