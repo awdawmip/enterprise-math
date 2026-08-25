@@ -14,12 +14,14 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
     def test_canonical_machine_is_structurally_valid(self):
         self.assertEqual(ex.validate_machine(self.machine), [])
 
-    def test_pre_math_pending_blocks_both_math_action_classes(self):
+    def test_pre_math_pending_blocks_all_math_action_classes(self):
         self.assertFalse(ex.allowed_action(self.machine, "PRE_MATH_GATES_PENDING", "MATHEMATICAL_SOURCE_READ"))
+        self.assertFalse(ex.allowed_action(self.machine, "PRE_MATH_GATES_PENDING", "POST_FREEZE_SOURCE_READ"))
         self.assertFalse(ex.allowed_action(self.machine, "PRE_MATH_GATES_PENDING", "MATHEMATICAL_DERIVATION"))
 
     def test_execution_ready_allows_math_by_state(self):
         self.assertTrue(ex.allowed_action(self.machine, "EXECUTION_READY", "MATHEMATICAL_SOURCE_READ"))
+        self.assertTrue(ex.allowed_action(self.machine, "EXECUTION_READY", "POST_FREEZE_SOURCE_READ"))
         self.assertTrue(ex.allowed_action(self.machine, "EXECUTION_READY", "MATHEMATICAL_DERIVATION"))
 
     def test_premath_gate_cannot_be_skipped(self):
@@ -33,12 +35,7 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
 
     def test_premath_gate_requires_durable_evidence(self):
         with self.assertRaisesRegex(ValueError, "missing transition evidence"):
-            ex.next_state(
-                self.machine,
-                "PRE_MATH_GATES_PENDING",
-                "PRE_MATH_GATES_SATISFIED",
-                {},
-            )
+            ex.next_state(self.machine, "PRE_MATH_GATES_PENDING", "PRE_MATH_GATES_SATISFIED", {})
         target = ex.next_state(
             self.machine,
             "PRE_MATH_GATES_PENDING",
@@ -84,23 +81,50 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
                 "user_instruction_ref": "conversation:turn42",
                 "task_scope_snapshot": "prove the selected claim",
                 "normalized_execution_spec": spec,
+                "authority_body": "prove the selected claim",
             },
         )
         self.assertEqual(target, "DISPATCH_READY")
 
-    def test_direct_user_before_math_constraint_must_be_normalized_into_gate(self):
+    def test_authority_event_must_match_normalized_authority_kind(self):
+        spec = {
+            "task_id": "BAD-AUTH",
+            "authority_kind": "SCHEDULER_TASK",
+            "authority_ref": "claim:1",
+            "execution_gates": [],
+        }
+        with self.assertRaisesRegex(ValueError, "requires normalized authority_kind=DIRECT_USER_TASK"):
+            ex.next_state(
+                self.machine,
+                "UNBOUND",
+                "DIRECT_USER_TASK_AUTHORITY_ACCEPTED",
+                {
+                    "user_instruction_ref": "conversation:turn42",
+                    "task_scope_snapshot": "do the task",
+                    "normalized_execution_spec": spec,
+                    "authority_body": "do the task",
+                },
+            )
+
+    def test_authority_transition_rejects_undeclared_premath_constraint(self):
         spec = {
             "task_id": "DIRECT-2",
             "authority_kind": "DIRECT_USER_TASK",
             "authority_ref": "conversation:turn43",
             "execution_gates": [],
         }
-        findings = ex.audit_execution_spec(
-            spec,
-            self.machine,
-            authority_body="Before mathematics, write a remote execution stamp.",
-        )
-        self.assertIn("EX-PREMATH-UNDECLARED", {item["code"] for item in findings})
+        with self.assertRaisesRegex(ValueError, "EX-PREMATH-UNDECLARED"):
+            ex.next_state(
+                self.machine,
+                "UNBOUND",
+                "DIRECT_USER_TASK_AUTHORITY_ACCEPTED",
+                {
+                    "user_instruction_ref": "conversation:turn43",
+                    "task_scope_snapshot": "Before mathematics, write a remote execution stamp.",
+                    "normalized_execution_spec": spec,
+                    "authority_body": "Before mathematics, write a remote execution stamp.",
+                },
+            )
 
     def test_scheduler_task_authority_is_distinct_from_execution_ready(self):
         spec = {
@@ -118,12 +142,61 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
                 "scheduler_task_id": "RS-SCHEDULED",
                 "scheduler_authority_ref": "Issue #240 claim:xyz",
                 "normalized_execution_spec": spec,
+                "authority_body": "scheduled task",
             },
         )
         self.assertEqual(target, "DISPATCH_READY")
         self.assertFalse(ex.allowed_action(self.machine, target, "MATHEMATICAL_DERIVATION"))
 
-    def test_liveness_failure_requires_durable_reconciliation_before_resume(self):
+    def test_direct_user_return_can_terminate_without_fake_driver_acceptance(self):
+        target = ex.next_state(
+            self.machine,
+            "RETURNED",
+            "RETURN_DELIVERED_WITHOUT_DRIVER_REVIEW",
+            {
+                "authority_kind": "DIRECT_USER_TASK",
+                "delivery_ref": "conversation:final",
+                "execution_gate_ledger_complete": True,
+            },
+        )
+        self.assertEqual(target, "DELIVERED_UNREVIEWED")
+        with self.assertRaisesRegex(ValueError, "allowed only"):
+            ex.next_state(
+                self.machine,
+                "RETURNED",
+                "RETURN_DELIVERED_WITHOUT_DRIVER_REVIEW",
+                {
+                    "authority_kind": "SCHEDULER_TASK",
+                    "delivery_ref": "scheduler:return",
+                    "execution_gate_ledger_complete": True,
+                },
+            )
+
+    def test_handoff_same_conversation_resume_requires_gate_ledger_reconciliation(self):
+        with self.assertRaisesRegex(ValueError, "exact true"):
+            ex.next_state(
+                self.machine,
+                "HANDOFF_READY",
+                "SAME_CONVERSATION_EXECUTION_RESUMED",
+                {
+                    "durable_handoff_ref": "commit:h1",
+                    "resume_authority_ref": "conversation:same",
+                    "execution_gate_ledger_reconciled": False,
+                },
+            )
+        target = ex.next_state(
+            self.machine,
+            "HANDOFF_READY",
+            "SAME_CONVERSATION_EXECUTION_RESUMED",
+            {
+                "durable_handoff_ref": "commit:h1",
+                "resume_authority_ref": "conversation:same",
+                "execution_gate_ledger_reconciled": True,
+            },
+        )
+        self.assertEqual(target, "IN_PROGRESS")
+
+    def test_liveness_failure_requires_durable_state_and_gate_reconciliation_before_resume(self):
         target = ex.next_state(
             self.machine,
             "IN_PROGRESS",
@@ -131,18 +204,22 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
             {"reason": "conversation stalled"},
         )
         self.assertEqual(target, "RECOVERY_REQUIRED")
-        with self.assertRaisesRegex(ValueError, "durable_frontier_ref"):
+        with self.assertRaisesRegex(ValueError, "execution_gate_ledger_reconciled"):
             ex.next_state(
                 self.machine,
                 "RECOVERY_REQUIRED",
                 "DURABLE_FRONTIER_RECONCILED",
-                {"resume_state": "IN_PROGRESS"},
+                {"resume_state": "IN_PROGRESS", "durable_frontier_ref": "commit:def456"},
             )
         resumed = ex.next_state(
             self.machine,
             "RECOVERY_REQUIRED",
             "DURABLE_FRONTIER_RECONCILED",
-            {"resume_state": "IN_PROGRESS", "durable_frontier_ref": "commit:def456"},
+            {
+                "resume_state": "IN_PROGRESS",
+                "durable_frontier_ref": "commit:def456",
+                "execution_gate_ledger_reconciled": True,
+            },
         )
         self.assertEqual(resumed, "IN_PROGRESS")
 
@@ -205,7 +282,38 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
         codes = {item["code"] for item in ex.audit_taskbook_execution(meta, self.machine)}
         self.assertIn("EX-PRERETURN-COVERAGE", codes)
 
-    def test_gate_ledger_blocks_action_even_when_state_allows_it(self):
+    def test_post_freeze_source_read_inherits_premath_source_guard(self):
+        meta = {
+            "execution_state_policy": "INHERIT_GLOBAL",
+            "execution_gates": [
+                {
+                    "gate_id": "START",
+                    "phase": "PRE_MATH",
+                    "must_precede": ["MATHEMATICAL_SOURCE_READ", "MATHEMATICAL_DERIVATION"],
+                    "evidence": {"kind": "STAMP"},
+                },
+                {
+                    "gate_id": "PHASE-A-FREEZE",
+                    "phase": "MID_EXECUTION",
+                    "must_precede": ["POST_FREEZE_SOURCE_READ"],
+                    "evidence": {"kind": "FROZEN_RETURN_AND_CHECKER"},
+                },
+            ],
+        }
+        allowed, blockers = ex.allowed_task_action(meta, self.machine, "EXECUTION_READY", "POST_FREEZE_SOURCE_READ", set())
+        self.assertFalse(allowed)
+        self.assertEqual(blockers, ["PHASE-A-FREEZE", "START"])
+        allowed, blockers = ex.allowed_task_action(meta, self.machine, "IN_PROGRESS", "MATHEMATICAL_SOURCE_READ", {"START"})
+        self.assertTrue(allowed)
+        self.assertEqual(blockers, [])
+        allowed, blockers = ex.allowed_task_action(meta, self.machine, "IN_PROGRESS", "POST_FREEZE_SOURCE_READ", {"START"})
+        self.assertFalse(allowed)
+        self.assertEqual(blockers, ["PHASE-A-FREEZE"])
+        allowed, blockers = ex.allowed_task_action(meta, self.machine, "IN_PROGRESS", "POST_FREEZE_SOURCE_READ", {"START", "PHASE-A-FREEZE"})
+        self.assertTrue(allowed)
+        self.assertEqual(blockers, [])
+
+    def test_gate_ledger_blocks_return_even_when_state_allows_it(self):
         meta = {
             "execution_state_policy": "INHERIT_GLOBAL",
             "execution_gates": [
@@ -217,14 +325,10 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
                 }
             ],
         }
-        allowed, blockers = ex.allowed_task_action(
-            meta, self.machine, "IN_PROGRESS", "RETURN_WRITE", set()
-        )
+        allowed, blockers = ex.allowed_task_action(meta, self.machine, "IN_PROGRESS", "RETURN_WRITE", set())
         self.assertFalse(allowed)
         self.assertEqual(blockers, ["FINAL"])
-        allowed, blockers = ex.allowed_task_action(
-            meta, self.machine, "IN_PROGRESS", "RETURN_WRITE", {"FINAL"}
-        )
+        allowed, blockers = ex.allowed_task_action(meta, self.machine, "IN_PROGRESS", "RETURN_WRITE", {"FINAL"})
         self.assertTrue(allowed)
         self.assertEqual(blockers, [])
 
@@ -240,14 +344,10 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
                 }
             ],
         }
-        allowed, blockers = ex.allowed_task_action(
-            meta, self.machine, "IN_PROGRESS", "VERDICT_FREEZE", set()
-        )
+        allowed, blockers = ex.allowed_task_action(meta, self.machine, "IN_PROGRESS", "VERDICT_FREEZE", set())
         self.assertFalse(allowed)
         self.assertEqual(blockers, ["CHECKER"])
-        allowed, blockers = ex.allowed_task_action(
-            meta, self.machine, "IN_PROGRESS", "VERDICT_FREEZE", {"CHECKER"}
-        )
+        allowed, blockers = ex.allowed_task_action(meta, self.machine, "IN_PROGRESS", "VERDICT_FREEZE", {"CHECKER"})
         self.assertTrue(allowed)
         self.assertEqual(blockers, [])
 
@@ -256,11 +356,14 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
         self.assertEqual(ex.audit_taskbook_path(path, root=ROOT), [])
         meta, _ = ex.split_taskbook(path.read_text(encoding="utf-8"))
         gates = {gate["gate_id"]: gate for gate in meta["execution_gates"]}
-        gate = gates["F5AR-PUBLICATION-LIVENESS-PREMATH"]
-        self.assertEqual(gate["phase"], "PRE_MATH")
-        self.assertEqual(gate["evidence"]["path"], "evidence/cbrc_f5ar_execution_stamp.json")
-        self.assertEqual(gate["evidence"]["required_fields"]["phase"], "STARTED_BEFORE_MATH")
-        self.assertIsNone(gate["evidence"]["required_fields"]["admission_verdict"])
+        start = gates["F5AR-PUBLICATION-LIVENESS-PREMATH"]
+        self.assertEqual(start["phase"], "PRE_MATH")
+        self.assertEqual(start["evidence"]["path"], "evidence/cbrc_f5ar_execution_stamp.json")
+        self.assertEqual(start["evidence"]["required_fields"]["phase"], "STARTED_BEFORE_MATH")
+        self.assertIsNone(start["evidence"]["required_fields"]["admission_verdict"])
+        allowed, blockers = ex.allowed_task_action(meta, self.machine, "EXECUTION_READY", "POST_FREEZE_SOURCE_READ", set())
+        self.assertFalse(allowed)
+        self.assertIn("F5AR-PUBLICATION-LIVENESS-PREMATH", blockers)
         checkpoint_a = gates["F5AR-CHECKPOINT-A-BEFORE-VERDICT"]
         checkpoint_b = gates["F5AR-CHECKPOINT-B-BEFORE-VERDICT"]
         self.assertIn("VERDICT_FREEZE", checkpoint_a["must_precede"])
@@ -269,7 +372,11 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
         self.assertEqual(final_gate["phase"], "PRE_RETURN")
         self.assertIn("RETURN_WRITE", final_gate["must_precede"])
         allowed, blockers = ex.allowed_task_action(
-            meta, self.machine, "IN_PROGRESS", "VERDICT_FREEZE", {"F5AR-PUBLICATION-LIVENESS-PREMATH"}
+            meta,
+            self.machine,
+            "IN_PROGRESS",
+            "VERDICT_FREEZE",
+            {"F5AR-PUBLICATION-LIVENESS-PREMATH"},
         )
         self.assertFalse(allowed)
         self.assertEqual(
