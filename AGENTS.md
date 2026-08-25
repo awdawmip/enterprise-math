@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.8`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.7`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
