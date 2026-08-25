@@ -1,7 +1,7 @@
 {
-  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.2",
+  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.3",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-25",
   "policy_inputs": [
     "AGENTS.md",
     "FOUNDATIONAL_LOGIC.md",
@@ -9,8 +9,10 @@
     "docs/GITHUB_INTERACTION_BUDGET.md",
     "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
     "docs/RESEARCH_ARCHITECTURE.md",
+    "docs/RESEARCH_EXECUTION_STATE_MACHINE.md",
     "research_architecture.json",
     "research_axiom_candidate_state_machine.json",
+    "research_execution_state_machine.json",
     "research_role_policy.json",
     "research_identity_state_machine.json",
     "final_response_identity_policy.json",
@@ -98,11 +100,15 @@
     "For task_lineage=CONTINUATION, audit the successor gate rather than accepting parent PASS, stage numbering, momentum or recent success as the reason for another stage.",
     "Any obvious Stage 2+ task is CONTINUATION. More generally, renaming the next unresolved layer of the same parent route does not reset semantic lineage.",
     "Continuation review must record whether closure, another owner/route or independent/free exploration was considered; no numeric exploration quota is imposed.",
+    "Every new or re-dispatched taskbook must expose execution_state_policy=INHERIT_GLOBAL and a machine-readable execution_gates list; use [] only when no task-local execution gate exists.",
+    "Any PRE_MATH gate must block both mathematical source reads and mathematical derivation until durable required evidence exists and the execution reaches EXECUTION_READY.",
+    "A startup publication/liveness gate may intentionally require one narrow remote branch/file write/verification. Such task-local remote behavior must be represented both as an execution gate and, when it matches TB-REMOTE-RUNTIME, as a narrow temporary override; the override does not waive the gate.",
     "Working Truth is a task-execution discipline and must not be retroactively applied to Phase-A discovery or Phase-B prior-art/dedup audit.",
     "Ordinary task execution inherits tool_invocation_policy.json: after task semantics are understood and before inventing new general-purpose machinery, current tool/method coverage must be checked and adequate existing tools must be reused/composed/extended rather than reimplemented under a new route name.",
     "A taskbook with an explicit blind-forward/source-whitelist discovery firewall may delay current toolbox/method visibility only until its named raw candidate/no-go freeze point; the same task must run current-tool dedup after that freeze before claiming method novelty or opening a tool continuation.",
     "FREE Phase A follows the same discovery-firewall timing principle: no current toolbox prior before freeze; mandatory current-tool dedup in Phase B after freeze.",
-    "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json; any change to that policy invalidates prior policy-review digests for redispatch."
+    "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json; any change to that policy invalidates prior policy-review digests for redispatch.",
+    "Taskbooks that inherit execution-state behavior are version-coupled to research_execution_state_machine.json and docs/RESEARCH_EXECUTION_STATE_MACHINE.md; changes invalidate prior policy-review digests for redispatch."
   ],
   "override_required_fields": [
     "conflict_id",
