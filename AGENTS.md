@@ -163,7 +163,7 @@ After candidate/no-go freeze, Phase B may open current/prior work and must run t
 For a selected task:
 
 1. this router if not already loaded;
-2. the **the exact task entry**? No: use the **exact task entry**;
+2. the **exact task entry**;
 3. verify it is registered or covered by legacy-baseline continuation before new claim/execution;
 4. load the first exact dependency required to begin;
 5. work and expand only when a concrete dependency triggers.
