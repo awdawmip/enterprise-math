@@ -4,6 +4,7 @@ Status: `CANDIDATE CANONICAL CROSS-LAYER CONTROL / NO NEW MATHEMATICS`
 
 Machine-readable contract: `research_control_state_machine.json`  
 Task runtime submachine: `research_scheduler.json`  
+Execution-liveness submachine: `active_turn_liveness.json`  
 Cross-layer validator: `tools/research_control.py`  
 Event emitter: `tools/research_scheduler_event.py`
 
@@ -15,13 +16,15 @@ This file defines their **composition**.
 
 The operative state is a vector:
 
-`ACTOR × OBJECT × RUNTIME × INFORMATION × EVIDENCE × ROUTING × PARENT`.
+`ACTOR × OBJECT × RUNTIME × CONVERSATION × INFORMATION × EVIDENCE × ROUTING × PARENT`.
 
 The point is to make questions such as the following decidable without relying on chat memory:
 
 - who has authority to act;
 - which task/generation is live;
 - whether a task-local publication/liveness gate allows substantive mathematics to start;
+- whether the executing conversation is actually alive or must be recovered;
+- what the latest durable frontier is if a conversation stalls;
 - whether the context is blind, statement-exposed or post-freeze;
 - whether source and independent evidence are open/closed;
 - whether an axiom-admission result is only a research recommendation or has actually reached Foundation disposition;
@@ -31,7 +34,7 @@ The point is to make questions such as the following decidable without relying o
 - whether a successor gate is satisfied;
 - whether the current task is locally done but the parent user objective is still open.
 
-Scheduler V2 remains the source of truth for task-runtime state. The cross-layer machine does **not** invent a second scheduler.
+Scheduler V2 remains the source of truth for task-runtime state. The cross-layer machine does **not** invent a second scheduler. Conversation recovery uses the Scheduler's existing `ORPHAN -> ADOPT` path when a live claim must be released.
 
 ## 2. The one algorithm every role follows
 
@@ -41,11 +44,12 @@ For every substantive Enterprise Math action:
 2. **Resolve object.** Identify task/candidate/control object, origin, lineage and exact immutable refs.
 3. **Classify control profile.** Choose one of `STANDARD_RESEARCH`, `FREE_CANDIDATE_AUDIT`, `INDEPENDENT_AUDIT`, `AXIOM_ADMISSION_AUDIT`, `FORMALIZATION`, `FOUNDATION_DISPOSITION`, `INTEGRATION`, `BENCHMARK`, `MATHEMATICAL_PROMOTION`, `GOVERNANCE_MAINTENANCE`.
 4. **Materialize runtime state.** For task work, reduce current Scheduler V2 events; do not infer state from a filename, PR or chat. If the taskbook declares a pre-math/publication liveness gate, record it as `pre_math_gate` before doing mathematics.
-5. **Materialize information/evidence state.** Record firewall/freeze/source exposure plus source, independent, axiom-admission, Driver, formalization/benchmark/canonical state.
-6. **Execute only an allowed transition.** Role permissions and profile guards both apply.
-7. **Before Driver closure, bind evidence + routing.** Every accepted/narrowed return needs evidence class, method-harvest classification and explicit route disposition.
-8. **Evaluate the parent objective.** `scheduler DONE`, Stage PASS, PR creation, checkpoint freeze or remote pending never ends an open parent objective by itself.
-9. **Persist changed control facts, then continue.** If the parent objective is open and an executable action exists, execute it in the same turn.
+5. **Resolve conversation liveness.** A progress message is not a heartbeat. If the predecessor has no new verifiable action for 10 continuous minutes, rebuild the durable frontier and recover instead of waiting.
+6. **Materialize information/evidence state.** Record firewall/freeze/source exposure plus source, independent, axiom-admission, Driver, formalization/benchmark/canonical state.
+7. **Execute only an allowed transition.** Role permissions and profile guards both apply.
+8. **Before Driver closure, bind evidence + routing.** Every accepted/narrowed return needs evidence class, method-harvest classification and explicit route disposition.
+9. **Evaluate the parent objective.** `scheduler DONE`, Stage PASS, PR creation, checkpoint freeze, conversation replacement or remote pending never ends an open parent objective by itself.
+10. **Persist changed control facts, then continue.** If the parent objective is open and an executable action exists, execute it in the same turn or recovering conversation.
 
 ## 3. Role-specific use
 
@@ -54,6 +58,8 @@ For every substantive Enterprise Math action:
 `READY/HANDOFF_READY -> CLAIM -> PROGRESS* -> SUBMIT`.
 
 Never emit V2 `DONE`. Never self-review. A hard block must name a genuinely missing object/dependency, its owner, necessity and unblock condition. If the taskbook requires a branch/publication stamp, source freeze, or another explicit pre-math gate, substantive mathematics is forbidden until `pre_math_gate=SATISFIED`.
+
+Create the earliest supported durable execution stamp/claim before a long research phase. At meaningful phase boundaries, persist reusable evidence and a concrete next action; do not carry more than one meaningful semantic phase only in chat-local state.
 
 ### FREE researcher
 
@@ -66,6 +72,8 @@ This is a `RESEARCHER` task specialization, not a new authority role.
 The task must declare its information firewall. Clean independence requires a distinct execution context when the protocol claims independent replication. Source proofs/checkers withheld by the taskbook stay withheld until the named freeze.
 
 **Do not use same-task handoff to represent a new independent replication.** If a Driver decides a new independent run is needed, the parent review is parked and a **distinct child task id/taskbook** is opened with fresh provenance and an explicit independence/firewall protocol.
+
+A stale-conversation recovery is not automatically a fresh independent replication. Recovery resumes the same durable task frontier unless the audit protocol separately requires a new clean context.
 
 ### Axiom-admission auditor
 
@@ -83,7 +91,7 @@ Formalization may start only after Driver admission, frozen/corrected source mat
 
 ### Driver
 
-Drivers own task publication/review, return review, route disposition, method harvest, successor gating, formalization admission, Foundation routing and promotion routing.
+Drivers own task publication/review, return review, route disposition, method harvest, successor gating, formalization admission, Foundation routing, promotion routing, and control-plane release of an evidenced stale execution claim.
 
 For every accepted/narrowed return, record:
 
@@ -93,6 +101,8 @@ For every accepted/narrowed return, record:
 - route/successor/child refs when applicable.
 
 A Driver verdict is a routing event, not parent-objective completion. A Driver acceptance of an axiom-admission audit is still only a routing decision until Foundation Steward disposition.
+
+When a predecessor chat has produced no verifiable action for 10 minutes, the Driver must reconstruct the durable frontier before touching its claim. If a live Scheduler claim must be released, use `ORPHAN` with reason `STALE_CONVERSATION_NO_VERIFIABLE_ACTION_10M` and a concrete evidence/recovery ref; the replacement execution uses `ADOPT` with a fresh execution identity and `recovery_ref`.
 
 ### Foundation Steward
 
@@ -169,7 +179,36 @@ Profile `MATHEMATICAL_PROMOTION`: canonical mutation is downstream of a bounded 
 
 Profile `GOVERNANCE_MAINTENANCE`: `NO_NEW_MATHEMATICS`; use current-main conflict audit and the bounded governance-maintenance lane.
 
-## 7. Cutover and orphan rule
+## 7. Conversation liveness and takeover
+
+The control plane distinguishes **task ownership lease** from **conversation liveness**.
+
+Current Scheduler V2 task claim lease: `1440 minutes`.
+
+Conversation stale threshold: `10 minutes without a new verifiable action`.
+
+These clocks serve different purposes. The 24-hour task lease prevents accidental duplicate dispatch. It does not authorize the system to wait 24 hours for a dead chat.
+
+A verifiable action is a new external/tool/compute/control result that materially advances the objective. Progress prose by itself does not count.
+
+After 10 minutes of no verifiable action, rebuild the durable frontier from branch/commit, taskbook immutable ref, return/evidence, PR, Scheduler Issue #240 accepted event, execution stamp, or persisted checker/build evidence. Never use stale chat prose as the sole recovery authority.
+
+Classify exactly one:
+
+- `VERIFIED_COMPLETE`: consume the durable result; duplicate execution is forbidden.
+- `IN_PROGRESS_RECOVERABLE`: preserve the frontier, release the stale live claim if necessary, `ADOPT` with a fresh execution identity, continue only the remainder.
+- `UNFINISHED`: preserve valid evidence, explicitly orphan/requeue, restart only the missing portion.
+- `NEVER_STARTED`: release the stale assignment and dispatch normally.
+
+Freeze:
+
+`10_MIN_NO_VERIFIABLE_ACTION + DURABLE_FRONTIER -> RECOVER_NOW`.
+
+`24H_TASK_LEASE != WAIT_24H_FOR_STALE_CHAT`.
+
+`TAKEOVER != NEW_INDEPENDENT_REPLICATION` unless a separate independence protocol requires a clean child execution.
+
+## 8. Cutover and orphan rule
 
 A taskbook discovered outside V2 registration is not silently READY. It appears as `ORPHANED`.
 
@@ -179,12 +218,13 @@ This is intentional and covers work created concurrently with the V2 cutover. A 
 
 - `MIGRATE` for already-live cutover work;
 - `ADOPT` for genuine orphan recovery;
+- `ORPHAN(reason=STALE_CONVERSATION_NO_VERIFIABLE_ACTION_10M)` for an evidenced dead execution chat that still owns a live claim;
 - `SUPERSEDE` for dead/stale work;
 - or re-author/review/publish it through the ordinary V2 gate.
 
-No live task is allowed to disappear merely because it was issued during a control-plane migration.
+No live task is allowed to disappear merely because it was issued during a control-plane migration or its original chat stopped responding.
 
-## 8. Mandatory checks
+## 9. Mandatory checks
 
 Static machine:
 
@@ -212,10 +252,10 @@ For a materialized cross-layer snapshot:
 
 The validator is a guard over the existing submachines. A PASS never proves mathematics; it proves only that the control state is internally admissible.
 
-## 9. Nonterminal rule
+## 10. Nonterminal rule
 
 Always end the control decision with:
 
 `PARENT_USER_OBJECTIVE -> CURRENT_SUBFLOW -> NEXT_EXECUTABLE_ACTION`.
 
-If the parent objective is open and the next executable action is known, continue now. Do not turn `DONE`, `PASS`, freeze, publication, review, PR/CI pending or a progress update into a user wake-up barrier.
+If the parent objective is open and the next executable action is known, continue now. Do not turn `DONE`, `PASS`, freeze, publication, review, PR/CI pending, a progress update, or a stale predecessor conversation into a user wake-up barrier.
