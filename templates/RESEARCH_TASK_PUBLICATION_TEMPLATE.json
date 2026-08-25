@@ -1,0 +1,49 @@
+{
+  "schema": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "status": "MANDATORY",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "taskbook_frontmatter_required": {
+    "task_id": "<stable task id>",
+    "title": "<title>",
+    "kind": "RESEARCH|GOVERNANCE",
+    "owner": "<owner branch/lane or taskbook/unassigned>",
+    "base_state": "DRAFT before publication; READY after registered publication",
+    "priority": "<publisher request>",
+    "leverage": "<publisher request>",
+    "frontier": "<exact unresolved frontier>",
+    "next_action": "<first executable action>",
+    "created_by_role": "RESEARCHER|RESEARCH_DRIVER|FOUNDATION_STEWARD",
+    "task_authority": "PENDING_PUBLICATION -> PUBLISHED_REGISTERED",
+    "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+    "publication_template": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+    "registry_key": "<same as task_id>",
+    "parent_objective_id": "<required nonempty parent objective>",
+    "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+    "final_response_identity_policy": "INHERIT_GLOBAL",
+    "origin_kind": "<current allowed origin>",
+    "task_lineage": "NEW_DIRECTION|CONTINUATION|REPLAY|INTEGRATION|MAINTENANCE",
+    "parent_task_id": "<required for continuation>",
+    "successor_gate": "<required for continuation>",
+    "policy_review": "<current policy digest and PASS at publication>"
+  },
+  "registry_record_required": {
+    "publisher_role": "<role>",
+    "publisher_id": "<Researcher-ID/Driver-ID/Steward identity>",
+    "published_at": "<ISO-8601>",
+    "research_value": "<why this task must not be lost>",
+    "effective_priority": "<runtime priority>",
+    "effective_leverage": "<runtime leverage>",
+    "registry_state": "CLAIMABLE",
+    "terminal_scope": "TASK",
+    "working_truth_granted": false,
+    "canonical_promotion_granted": false
+  },
+  "mandatory_body_sections": [
+    "Mother question",
+    "Frozen inputs and scope",
+    "Hard target and required outputs",
+    "Research value to preserve",
+    "Success, kill, and return criteria"
+  ],
+  "rule": "No alternative free-form task publication format is official. A task may have richer task-local sections, but these publication fields/sections cannot be omitted."
+}
