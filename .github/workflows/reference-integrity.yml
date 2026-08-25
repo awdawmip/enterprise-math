@@ -28,3 +28,5 @@ jobs:
         run: python tools/check_references.py
       - name: Check shared theorem and tool routing
         run: python tools/check_research_common_surface.py
+      - name: Check canonical task registry and orphan prevention
+        run: python tools/research_task_registry.py audit
