@@ -95,6 +95,31 @@ def test_true_parent_blocker_allows_final_only_after_safe_work_exhaustion():
     assert exhausted["final_allowed"] is True
 
 
+def test_terminal_blocker_preserves_active_continuation_lease():
+    liveness = load_liveness_helper()
+    decision = liveness.evaluate(
+        base_state(
+            parent_hard_blocker=True,
+            independent_safe_work_exhausted=True,
+            continuation_lease_active=True,
+        )
+    )
+    assert decision["transition"] == liveness.FINAL_ALLOWED_WITH_BLOCKER
+    assert decision["continuation_lease_preserved"] is True
+
+
+def test_claimed_safe_work_after_unchanged_recompute_is_inconsistent():
+    liveness = load_liveness_helper()
+    decision = liveness.evaluate(
+        base_state(
+            independent_safe_work_exhausted=False,
+            parent_state_recomputed_without_change=True,
+        )
+    )
+    assert decision["transition"] == liveness.CONTROL_STATE_INCONSISTENT
+    assert decision["final_allowed"] is False
+
+
 def test_platform_limit_allows_final_only_after_safe_work_exhaustion():
     liveness = load_liveness_helper()
     decision = liveness.evaluate(
