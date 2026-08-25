@@ -17,10 +17,40 @@ class PreFinalGateTests(unittest.TestCase):
         self.assertFalse(verdict["final_allowed"])
         self.assertEqual("RESOLVE_NEXT_ACTION_OR_TERMINAL_BLOCK", verdict["required_transition"])
 
+    def test_subflow_terminal_requires_parent_reevaluation(self):
+        verdict = rr.pre_final_gate(
+            parent_objective_complete=False,
+            terminal_scope="SUBFLOW",
+            next_executable_action="inspect parent portfolio",
+        )
+        self.assertFalse(verdict["final_allowed"])
+        self.assertEqual("REEVALUATE_PARENT_OBJECTIVE", verdict["required_transition"])
+        self.assertEqual("SUBFLOW", verdict["terminal_scope"])
+
+    def test_task_terminal_requires_parent_reevaluation(self):
+        verdict = rr.pre_final_gate(
+            parent_objective_complete=False,
+            terminal_scope="TASK",
+        )
+        self.assertFalse(verdict["final_allowed"])
+        self.assertEqual("REEVALUATE_PARENT_OBJECTIVE", verdict["required_transition"])
+        self.assertEqual("TASK_TERMINAL_IS_LOCAL_NOT_PARENT_TERMINAL", verdict["reason"])
+
     def test_parent_completion_allows_terminal_final(self):
-        verdict = rr.pre_final_gate(parent_objective_complete=True)
+        verdict = rr.pre_final_gate(
+            parent_objective_complete=True,
+            terminal_scope="PARENT_OBJECTIVE",
+        )
         self.assertTrue(verdict["final_allowed"])
         self.assertEqual("PARENT_USER_OBJECTIVE_COMPLETE", verdict["reason"])
+        self.assertEqual("PARENT_OBJECTIVE", verdict["terminal_scope"])
+
+    def test_parent_scope_cannot_be_declared_while_parent_is_open(self):
+        with self.assertRaises(rr.RuntimeStateError):
+            rr.pre_final_gate(
+                parent_objective_complete=False,
+                terminal_scope="PARENT_OBJECTIVE",
+            )
 
     def test_explicit_user_stop_allows_final_without_claiming_parent_complete(self):
         verdict = rr.pre_final_gate(
@@ -45,6 +75,13 @@ class PreFinalGateTests(unittest.TestCase):
             rr.pre_final_gate(
                 parent_objective_complete=False,
                 terminal_block_reason="JUST_FEELS_DONE",
+            )
+
+    def test_unknown_terminal_scope_is_rejected(self):
+        with self.assertRaises(rr.RuntimeStateError):
+            rr.pre_final_gate(
+                parent_objective_complete=False,
+                terminal_scope="SOMETHING_ELSE",
             )
 
 
