@@ -1,50 +1,23 @@
 # Enterprise Math Research Execution State Machine
 
-Status: `ACTIVE_CANONICAL_ON_MERGE / V1.3`
+Status: `ACTIVE_CANONICAL_ON_MERGE / V1.4`
 
-Canonical machine-readable authority: `research_execution_state_machine.json`.
+Machine authority: `research_execution_state_machine.json`.
 
-This protocol applies to every concrete `TASK_RESEARCH` execution. It also governs Driver recovery/review of those executions. It does **not** replace scheduler task state, Researcher-ID state, axiom-candidate maturity, theorem truth, or Foundation/canonical promotion.
+This protocol applies to every concrete `TASK_RESEARCH` execution. It does not replace scheduler task state, Researcher-ID state, candidate maturity, theorem truth, Foundation status or canonical promotion.
 
-## 1. The one rule everyone must remember
+## 1. Core rule
 
 A valid task authority does **not** mean substantive work is ready.
 
-Task authority can come from an approved taskbook, a current direct user task, a scheduler task, or a Driver dispatch envelope. In every case, mathematical source reads/derivations are legal only after the concrete runtime state reaches:
+Task authority may come from:
 
-`EXECUTION_READY`
+- `OFFICIAL_TASKBOOK`;
+- `DIRECT_USER_TASK`;
+- `SCHEDULER_TASK`;
+- `DRIVER_DISPATCH_ENVELOPE`.
 
-and the requested action is not blocked by an unsatisfied execution gate.
-
-If the task declares any `PRE_MATH` execution gate, the required route is:
-
-`TASK_AUTHORITY_READY -> CLAIMED -> IDENTITY_READY -> PRE_MATH_GATES_PENDING -> EXECUTION_READY -> IN_PROGRESS`
-
-The jump
-
-`PRE_MATH_GATES_PENDING -> IN_PROGRESS`
-
-is forbidden.
-
-## 2. Four independent dimensions
-
-Do not collapse these into one status word:
-
-1. **Task authority / scheduler state** — what authorizes the selected work and who may work it.
-2. **Execution state** — whether this concrete run is legally allowed to start/continue/freeze a verdict/return.
-3. **Identity state** — whether the conversation has a valid Researcher-ID/Driver-ID.
-4. **Mathematical/candidate truth state** — whether a theorem, obstruction, axiom candidate or canonical artifact has been reviewed/promoted.
-
-Examples:
-
-- scheduler `CLAIMED` + execution `PRE_MATH_GATES_PENDING` => **no mathematics yet**;
-- taskbook `READY` + execution `IDENTITY_READY` => **still no mathematics if a PRE_MATH gate is pending**;
-- execution `RETURN_ACCEPTED` => Driver accepted the return as a valid run, but no theorem/candidate promotion follows automatically;
-- a failed publication stamp before mathematics => `NONSTART_TERMINAL`, **not** a negative mathematical verdict.
-
-## 3. Normalize task authority first
-
-Every concrete `TASK_RESEARCH` execution starts by normalizing one allowed authority source into:
+Every run normalizes to:
 
 ```json
 {
@@ -55,154 +28,187 @@ Every concrete `TASK_RESEARCH` execution starts by normalizing one allowed autho
 }
 ```
 
-Allowed `authority_kind` values:
+Freeze:
 
-- `OFFICIAL_TASKBOOK`;
-- `DIRECT_USER_TASK`;
-- `SCHEDULER_TASK`;
-- `DRIVER_DISPATCH_ENVELOPE`.
+`TASK_AUTHORITY_READY != EXECUTION_READY`.
 
-Rules:
+`STATE_PERMISSION + ALL_GUARDING_GATES_SATISFIED -> ACTION_ALLOWED`.
 
-- `OFFICIAL_TASKBOOK` requires the exact revision to pass `python tools/research_control_gate.py audit <taskbook>` before entering `DISPATCH_READY`.
-- `DIRECT_USER_TASK` does not require manufacturing a taskbook. The current instruction is authority; explicit task-local startup/process/verdict/return constraints are normalized into `execution_gates` before substantive work.
-- `SCHEDULER_TASK` is task authority/coordination only. A scheduler claim never means `EXECUTION_READY`.
-- A `DRIVER_DISPATCH_ENVELOPE` cannot waive an official taskbook audit or gate if the envelope points to that taskbook.
+Mathematical source reads/derivations are legal only after the concrete runtime reaches `EXECUTION_READY`, and later guarded actions remain blocked until their gates are satisfied.
 
-A normalized direct/scheduler/envelope spec can be machine-checked with:
+## 2. Independent dimensions
 
-```bash
-python tools/research_execution_state.py audit-spec \
-  --spec-json '{"task_id":"...","authority_kind":"DIRECT_USER_TASK","authority_ref":"conversation:...","execution_gates":[]}' \
-  --authority-body 'current task instruction when prose-gate detection is needed'
-```
+Never collapse these into one status:
 
-## 4. Every declared gate has a runtime ledger entry
+1. task authority / scheduler coordination;
+2. concrete execution state and gate ledger;
+3. role identity;
+4. mathematical/candidate/canonical truth.
 
-Every normalized `execution_gates` entry becomes a concrete runtime gate initially in:
+Examples:
 
-`PENDING`.
+- scheduler `CLAIMED` + execution `PRE_MATH_GATES_PENDING` => no mathematics yet;
+- taskbook `READY` != `EXECUTION_READY`;
+- `RETURN_ACCEPTED` means Driver accepted the run, not that a theorem/candidate is canonical;
+- `DELIVERED_UNREVIEWED` means a direct-user task return was delivered without Driver review, not that Driver accepted or promoted it;
+- a failed mandatory pre-math publication gate is an execution non-start, not a negative mathematical verdict.
 
-A gate may become:
+## 3. State path
 
-- `SATISFIED` — its declared durable evidence contract has been met;
-- `FAILED` — the gate failed and may not be silently bypassed.
+Typical startup with no pre-math gate:
 
-An action is legal only when **both** are true:
+`UNBOUND -> DISPATCH_READY -> CLAIMED -> IDENTITY_READY -> EXECUTION_READY -> IN_PROGRESS`.
 
-1. the current execution state permits the action class;
-2. every gate whose `must_precede` contains that action is `SATISFIED`.
+With a pre-math gate:
 
-Therefore `EXECUTION_READY` is necessary but not always sufficient. For example, a task can be `IN_PROGRESS` while a checker/audit gate still blocks `VERDICT_FREEZE`, or while a final materialization gate blocks `RETURN_WRITE`.
+`UNBOUND -> DISPATCH_READY -> CLAIMED -> IDENTITY_READY -> PRE_MATH_GATES_PENDING -> EXECUTION_READY -> IN_PROGRESS`.
 
-## 5. Action classes researchers must distinguish
+The jump `PRE_MATH_GATES_PENDING -> IN_PROGRESS` is forbidden.
 
-The machine uses these control-relevant action classes:
+A durable handoff enters `HANDOFF_READY`, which pauses the run. The same conversation may resume the same execution only through `SAME_CONVERSATION_EXECUTION_RESUMED` after durable handoff and gate-ledger reconciliation. A genuinely new conversation binds a new execution instance.
+
+A durable return enters `RETURNED`. From there:
+
+- Driver-reviewed routes use `DRIVER_REVIEW_PENDING -> RETURN_ACCEPTED/RETURN_REJECTED`;
+- a direct-user task with no applicable Driver review may use `RETURN_DELIVERED_WITHOUT_DRIVER_REVIEW -> DELIVERED_UNREVIEWED`.
+
+`DELIVERED_UNREVIEWED` is terminal only for the execution instance. It promotes no mathematical truth.
+
+## 4. Action classes
+
+Control-relevant action classes are:
 
 - `CONTROL_PLANE_READ`;
 - `STARTUP_WRITE`;
 - `MATHEMATICAL_SOURCE_READ`;
+- `POST_FREEZE_SOURCE_READ`;
 - `MATHEMATICAL_DERIVATION`;
 - `CHECKPOINT_WRITE`;
 - `VERDICT_FREEZE`;
 - `RETURN_WRITE`;
 - `DRIVER_REVIEW`.
 
-`VERDICT_FREEZE` means selecting/freezing the task's primary/final/terminal mathematical classification. If the task says “checker/audit/checkpoint X must happen before the final verdict”, that condition must guard `VERDICT_FREEZE`; merely guarding `RETURN_WRITE` is too late.
+`POST_FREEZE_SOURCE_READ` means reading a source class deliberately withheld until a named raw/independent/Phase-A freeze, such as current toolbox/prior-art/downstream comparison material opened only in Phase B.
 
-Researchers may continue any other state/gate-allowed work while a verdict gate is pending, but must not announce/freeze the terminal verdict until every gate guarding `VERDICT_FREEZE` is satisfied.
+It **inherits** the guards on `MATHEMATICAL_SOURCE_READ`, so a startup gate that blocks mathematical source reads also blocks post-freeze source reads. A later Phase-A-freeze gate may additionally guard only `POST_FREEZE_SOURCE_READ`, leaving already-authorized Phase-A sources readable.
 
-## 6. Mandatory startup protocol for researchers
+`VERDICT_FREEZE` means selecting/freezing the primary/final terminal mathematical classification. A task that requires checker/audit/checkpoint X before its final verdict must guard `VERDICT_FREEZE`; guarding only `RETURN_WRITE` is too late.
 
-For every task execution:
+## 5. Gate ledger
 
-1. Read only the task authority and control-plane/startup material permitted before mathematics.
-2. Normalize the concrete execution spec and all explicit task-local gates.
-3. Resolve/allocate the required role identity.
-4. Instantiate every declared gate as `PENDING`.
-5. If there is no `PRE_MATH` gate, classify startup as `EXECUTION_READY` only after task authority and identity are ready.
-6. If any `PRE_MATH` gate exists, enter `PRE_MATH_GATES_PENDING`.
-7. Satisfy every PRE_MATH gate exactly as declared and verify the required durable evidence.
-8. Only then enter `EXECUTION_READY` and read mathematical sources / perform mathematical derivations.
-9. Before every later guarded action, including `VERDICT_FREEZE` and `RETURN_WRITE`, check the gate ledger again.
+Every normalized execution gate begins `PENDING` and may become:
 
-A chat claim, intention, screenshot without the required repository evidence, local-only file, or “I already completed it” statement does not satisfy a durable gate when the gate requires durable/remote evidence.
+- `SATISFIED` — the declared evidence contract is met;
+- `FAILED` — the gate failed and may not be silently bypassed.
 
-## 7. Official taskbook fields
+An action is blocked when any unsatisfied gate guards that action **or an implied parent action class**.
 
-Every new or re-dispatched taskbook must carry:
+### PRE_MATH
 
-```json
-"execution_state_policy": "INHERIT_GLOBAL",
-"execution_gates": []
+A `PRE_MATH` gate must guard:
+
+- `MATHEMATICAL_SOURCE_READ`;
+- `MATHEMATICAL_DERIVATION`.
+
+Because of action implication it also blocks `POST_FREEZE_SOURCE_READ`.
+
+### MID_EXECUTION
+
+Use a MID gate for ordered in-task boundaries, especially:
+
+- Phase-A/raw/independent freeze before `POST_FREEZE_SOURCE_READ`;
+- checker/audit/materialization checkpoint before `VERDICT_FREEZE`.
+
+### PRE_RETURN
+
+A `PRE_RETURN` gate must guard `RETURN_WRITE`.
+
+A chat claim, intention, local-only unverified file or self-report does not satisfy a gate that requires durable/remote evidence.
+
+## 6. Task-authority rules
+
+### Official taskbook
+
+The exact revision must first pass:
+
+```bash
+python tools/research_control_gate.py audit research_tasks/<TASK>.md
 ```
 
-Use `[]` only when there truly is no task-local execution gate.
+Taskbook `READY` is only dispatchability, not runtime readiness.
 
-A gate has the minimum form:
+### Direct user task
 
-```json
-{
-  "gate_id": "UNIQUE-ID",
-  "phase": "PRE_MATH",
-  "must_precede": [
-    "MATHEMATICAL_SOURCE_READ",
-    "MATHEMATICAL_DERIVATION"
-  ],
-  "evidence": {
-    "kind": "DURABLE_EVIDENCE_KIND"
-  }
-}
+Do not manufacture an artificial taskbook. The current instruction is authority. Normalize every explicit startup/process/source-visibility/verdict/return constraint into the runtime execution spec before substantive work.
+
+Machine-check the normalized spec when useful:
+
+```bash
+python tools/research_execution_state.py audit-spec \
+  --spec-json '{"task_id":"...","authority_kind":"DIRECT_USER_TASK","authority_ref":"conversation:...","execution_gates":[]}' \
+  --authority-body 'the current task instruction'
 ```
 
-Taskbooks may add exact branch/path/hash/required-field constraints inside `evidence`.
+### Scheduler task
 
-Phase rules:
+Scheduler `CLAIMED/IN_PROGRESS/DONE` coordinates work only. Normalize the scheduler-selected task and its task-local gates into this execution machine; scheduler state never means `EXECUTION_READY` or theorem truth.
 
-- `PRE_MATH` must guard both `MATHEMATICAL_SOURCE_READ` and `MATHEMATICAL_DERIVATION`;
-- `MID_EXECUTION` guards later actions such as `VERDICT_FREEZE` when the task declares an ordered checkpoint;
-- `PRE_RETURN` must guard `RETURN_WRITE`.
+### Driver dispatch envelope
 
-The machine audit also recognizes obvious task-local prose such as “before mathematics” / “开始数学前”. If that prose exists but no machine-readable `PRE_MATH` gate is declared, the authority/gate audit fails with `EX-PREMATH-UNDECLARED`.
+The envelope may bind task authority/identity. If it points to an official taskbook, it cannot waive the taskbook composite audit or execution gates.
 
-Semantic Driver/taskbook review remains responsible for mapping equivalent task-local phrases such as “before final verdict” into a `VERDICT_FREEZE` gate even when a lexical checker cannot infer them safely.
+## 7. Mandatory researcher startup
 
-## 8. Mandatory Driver protocol
+For every TASK run:
 
-Before official-taskbook dispatch/re-dispatch:
+1. resolve the task authority;
+2. normalize the execution spec and all explicit task-local gates;
+3. resolve/allocate Researcher-ID;
+4. instantiate every gate `PENDING`;
+5. if any PRE_MATH gate exists, enter `PRE_MATH_GATES_PENDING`;
+6. satisfy and verify every PRE_MATH gate;
+7. only then reach `EXECUTION_READY` and begin mathematical source reads/derivation;
+8. before any guarded later action, check the gate ledger again.
 
-- audit the taskbook against current taskbook policy;
-- audit its execution-state metadata/gates;
-- use the single composite command `python tools/research_control_gate.py audit <taskbook-path>`;
-- bind a runtime identity outside the reusable taskbook when manual dispatch requires it.
+The machine detects obvious prose such as “before mathematics” / “开始数学前”. An official taskbook or supplied authority body that contains such a directive but declares no PRE_MATH gate fails with `EX-PREMATH-UNDECLARED`.
 
-For direct/scheduler/envelope tasks, ensure the current authority is normalized into the same execution spec/gate schema; do not manufacture a taskbook merely to enter the state machine.
+Semantic review remains responsible for equivalent language and for mapping phase-specific source firewalls to `POST_FREEZE_SOURCE_READ` and pre-verdict checkpoints to `VERDICT_FREEZE`.
 
-On return:
+## 8. Recovery
 
-- review the durable return/evidence, not the conversation’s self-reported status;
-- verify the concrete gate ledger is complete;
-- verify any task-declared verdict-before-checker chronology via the `VERDICT_FREEZE` gate;
-- classify the execution result separately from mathematical truth/promotion;
-- after `RETURN_ACCEPTED`, evaluate closure/successor routing under the existing liveness and lineage contracts.
+When chat/runtime continuity becomes unreliable:
 
-On stalled or ambiguous conversations:
+`... -> RECOVERY_REQUIRED`.
 
-`... -> RECOVERY_REQUIRED`
+Reconstruct the last legal state **and gate ledger** from durable authority/evidence only. Resume requires both a durable frontier reference and `execution_gate_ledger_reconciled=true`. If no safe frontier exists, use `REDISPATCH_REQUIRED`.
 
-Then reconstruct the last legal state **and gate ledger** from durable authority/evidence. Resume only from an evidenced legal frontier. If no safe frontier exists, use `REDISPATCH_REQUIRED`.
+Do not infer completion from chat self-report.
 
-## 9. F5A regression rule
+## 9. Driver review
 
-The following historical failure mode is permanently guarded:
+The Driver checks execution legality before mathematical acceptance:
 
-> A researcher reports completion, but a mandatory pre-math remote branch/stamp is absent.
+- authority kind/spec;
+- startup gate evidence;
+- any Phase-A source-visibility freeze;
+- any checker/audit gate before `VERDICT_FREEZE`;
+- final `RETURN_WRITE` gate;
+- durable return;
+- recovered gate ledger when continuity failed.
 
-The execution must **not** be classified `EXECUTION_READY`, `IN_PROGRESS`, `RETURN_ACCEPTED`, or `CLOSED`. It is a startup/liveness failure and must end in `NONSTART_TERMINAL` or a recovery/redispatch path.
+Then classify execution status separately from mathematical/candidate/canonical status.
 
-## 10. Machine checks
+## 10. F5A regression guard
 
-Validate the machine:
+Historical failure mode:
+
+> researcher reports completion but mandatory pre-math remote branch/stamp evidence is absent.
+
+The run must not become `EXECUTION_READY`, `IN_PROGRESS`, `RETURN_ACCEPTED`, `DELIVERED_UNREVIEWED` or `CLOSED`. It is a startup/liveness failure and must follow non-start/recovery/redispatch.
+
+## 11. Machine checks
+
+Validate machine:
 
 ```bash
 python tools/research_execution_state.py validate-machine
@@ -214,7 +220,7 @@ Audit official-taskbook execution metadata:
 python tools/research_execution_state.py audit-taskbook research_tasks/<TASK>.md
 ```
 
-Ask whether the bare state permits an action:
+Check bare state permission:
 
 ```bash
 python tools/research_execution_state.py check-action \
@@ -222,21 +228,27 @@ python tools/research_execution_state.py check-action \
   --action MATHEMATICAL_SOURCE_READ
 ```
 
-Expected result: `BLOCKED_BY_STATE`.
+Check state + task gate ledger:
 
-Ask the authoritative task-aware question, including satisfied gate IDs:
+```bash
+python tools/research_execution_state.py check-task-action \
+  --taskbook research_tasks/<TASK>.md \
+  --state IN_PROGRESS \
+  --action POST_FREEZE_SOURCE_READ \
+  --satisfied-gates START-GATE,PHASE-A-FREEZE
+```
+
+or:
 
 ```bash
 python tools/research_execution_state.py check-task-action \
   --taskbook research_tasks/<TASK>.md \
   --state IN_PROGRESS \
   --action VERDICT_FREEZE \
-  --satisfied-gates GATE-A,GATE-B
+  --satisfied-gates START-GATE,CHECKER-GATE
 ```
 
-This combines state permission with the task’s gate ledger. If an unsatisfied gate guards the action, the result is `BLOCKED: <gate-id>`.
-
-Check a state transition and its required evidence:
+Check transition evidence:
 
 ```bash
 python tools/research_execution_state.py next-state \
@@ -245,10 +257,10 @@ python tools/research_execution_state.py next-state \
   --evidence-json '{"durable_evidence_refs_for_all_pre_math_gates":["commit:..."],"remote_verification_if_required_by_gate":"verified"}'
 ```
 
-Boolean pass fields such as `dispatch_audit_pass`, `action_within_task_scope`, `return_write_action_guard_pass` and `execution_gate_ledger_complete` must be literal `true`; a false/non-boolean placeholder cannot fake a transition.
+Pass booleans such as `dispatch_audit_pass`, `action_within_task_scope`, `execution_gate_ledger_reconciled`, `return_write_action_guard_pass`, `execution_gate_ledger_complete` and `parent_objective_or_successor_gate_evaluated` must be literal `true` where required.
 
-## 11. Handoff and recovery
+## 12. Parent-objective liveness
 
-A durable handoff is terminal for the current execution instance unless the same conversation is explicitly resumed. A genuinely new conversation performs identity bootstrap again and binds a new execution instance; it may consume the previous durable handoff as its frontier.
+Execution-state completion is not automatically parent-objective completion. A tool call, checkpoint, handoff, scheduler `DONE`, PR state or Driver verdict cannot terminate an open parent objective by itself.
 
-Neither a tool call, progress message, checkpoint, CI state nor scheduler `DONE` terminates the parent user objective by itself. `active_turn_liveness.json` remains authoritative for same-turn continuation and successor evaluation.
+`active_turn_liveness.json` remains authoritative for same-turn continuation and successor/closure evaluation.
