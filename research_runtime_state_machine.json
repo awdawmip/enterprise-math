@@ -44,8 +44,10 @@
     "STALE_RECOVERY_RESUMES_FROM_DURABLE_FRONTIER_AND_FIRST_UNFINISHED_UNIT",
     "SUBFLOW_COMPLETE_IMPLIES_REEVALUATE_PARENT",
     "TASK_FROZEN_IMPLIES_REEVALUATE_PARENT",
+    "SUBFLOW_OR_TASK_TERMINAL_CLEARS_LOCAL_EXECUTION_FRONTIER_BEFORE_PARENT_REEVALUATION",
     "TASK_TERMINAL_IS_NOT_PARENT_OBJECTIVE_TERMINAL",
     "PARENT_OPEN_AND_EXECUTABLE_NEXT_ACTION_IMPLIES_FINAL_FORBIDDEN",
+    "PARENT_COMPLETE_WITH_UNFINISHED_RUNTIME_WORK_IMPLIES_CONTROL_STATE_INCONSISTENT",
     "FINAL_RESPONSE_RENDERING_REQUIRES_RUNTIME_FINAL_ALLOWED"
   ],
   "lease_model": {
@@ -97,22 +99,26 @@
   "terminal_transitions": {
     "SUBFLOW_COMPLETE": {
       "terminal_scope": "SUBFLOW",
+      "clear_local_execution_frontier": true,
       "next_state": "REEVALUATE_PARENT",
       "direct_final_allowed": false
     },
     "TASK_FROZEN": {
       "terminal_scope": "TASK",
+      "clear_local_execution_frontier": true,
       "next_state": "REEVALUATE_PARENT",
       "direct_final_allowed": false
     },
     "TASK_COMPLETE": {
       "terminal_scope": "TASK",
+      "clear_local_execution_frontier": true,
       "next_state": "REEVALUATE_PARENT",
       "direct_final_allowed": false
     },
     "PARENT_OBJECTIVE_COMPLETE": {
       "terminal_scope": "PARENT_OBJECTIVE",
       "next_state": "PRE_FINAL",
+      "consistency_guard": "CURRENT_UNFINISHED_UNIT=null AND NEXT_ACTION=null OR CONTROL_STATE_INCONSISTENT",
       "direct_final_allowed": "ONLY_IF_PRE_FINAL_GATE_RETURNS_FINAL_ALLOWED"
     }
   },
@@ -120,6 +126,7 @@
     "orchestrator": "tools/research_runtime.py",
     "primitive": "tools/active_turn_liveness.py",
     "base_rule": "PARENT_OBJECTIVE_OPEN_AND_EXECUTABLE_NEXT_ACTION_EXISTS_IMPLIES_FINAL_ALLOWED_FALSE",
+    "completion_consistency_rule": "PARENT_OBJECTIVE_COMPLETE_AND_RUNTIME_UNFINISHED_WORK_EXISTS_IMPLIES_CONTROL_STATE_INCONSISTENT",
     "final_channel_rule": "RUNTIME_FINAL_ALLOWED_FALSE_IMPLIES_FINAL_CHANNEL_FORBIDDEN"
   },
   "dispatch_semantics": {
@@ -131,8 +138,9 @@
   },
   "required_end_to_end_regressions": [
     "TOOL_SUCCESS_AND_PARENT_OPEN_AND_NEXT_ACTION_EXISTS_REJECTS_FINAL",
-    "SUBFLOW_COMPLETE_REEVALUATES_PARENT",
-    "TASK_FROZEN_REEVALUATES_PARENT",
+    "SUBFLOW_COMPLETE_CLEARS_LOCAL_FRONTIER_AND_REEVALUATES_PARENT",
+    "TASK_FROZEN_CLEARS_LOCAL_FRONTIER_AND_REEVALUATES_PARENT",
+    "PARENT_COMPLETE_WITH_UNFINISHED_WORK_FAILS_CLOSED",
     "SESSION_STALE_OWNER_LEASE_ACTIVE_BECOMES_STALE_RECOVERABLE",
     "STALE_ADOPTION_PRESERVES_CLAIM_AND_RESEARCHER_ID",
     "STALE_ADOPTION_DOES_NOT_REPLAY_COMPLETED_UNITS",
