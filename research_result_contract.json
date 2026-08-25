@@ -1,0 +1,56 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_RESULT_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL",
+  "effective": "2026-08-25",
+  "result_store": "research_result_records/<task-id>/<result-id>.json",
+  "review_store": "research_result_reviews/<result-id>/<review-id>.json",
+  "tool": "tools/research_result_records.py",
+  "dispatch": "tools/research_dispatch.py",
+  "purpose": "Prevent orphan results by making frozen execution evidence and Driver disposition machine-linked, immutable, and task-addressable.",
+  "result_required_fields": [
+    "result_id",
+    "task_id",
+    "return_path",
+    "return_blob_sha1",
+    "owner_head",
+    "researcher_id",
+    "frozen_at",
+    "terminal_verdict",
+    "output_manifest",
+    "method_harvest",
+    "driver_review_required"
+  ],
+  "review_required_fields": [
+    "review_id",
+    "result_id",
+    "task_id",
+    "driver_id",
+    "review_path",
+    "review_blob_sha1",
+    "reviewed_at",
+    "disposition",
+    "terminal"
+  ],
+  "core_invariants": [
+    "TASK_RESULT_AND_DRIVER_REVIEW_ARE_SEPARATE_IMMUTABLE_RECORDS",
+    "FROZEN_RETURN_WITHOUT_DRIVER_REVIEW_IMPLIES_AWAITING_DRIVER_REVIEW",
+    "AWAITING_DRIVER_REVIEW_IS_NOT_RESEARCHER_DISPATCHABLE",
+    "REGISTERED_TASK_DONE_REQUIRES_REVIEWED_MATCHING_RESULT",
+    "RETURN_TO_OWNER_OR_REVISION_REOPENS_EXECUTION",
+    "TERMINAL_DRIVER_DISPOSITION_CLOSES_TASK_DISPATCH",
+    "METHOD_HARVEST_CLASSIFICATION_IS_REQUIRED_AT_RESULT_FREEZE",
+    "RESULT_OR_REVIEW_ARTIFACT_BLOB_DRIFT_IS_CI_FAILURE"
+  ],
+  "terminal_driver_dispositions": [
+    "ACCEPTED",
+    "REJECTED",
+    "PARKED",
+    "CLOSED",
+    "SUPERSEDED"
+  ],
+  "nonterminal_driver_dispositions": [
+    "RETURN_TO_OWNER",
+    "REQUEST_REPLICATION",
+    "REQUEST_REVISION"
+  ]
+}

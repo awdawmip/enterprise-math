@@ -1,0 +1,33 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_DISPATCH_CONTRACT_V2",
+  "status": "ACTIVE_CANONICAL_POST_CUTOVER",
+  "effective": "2026-08-25",
+  "canonical_tool": "tools/research_dispatch.py",
+  "task_definition_authority": [
+    "research_task_records/<task-id>/<publication-id>.json",
+    "frozen research_scheduler.json legacy baseline only"
+  ],
+  "runtime_event_authority": "GitHub Issue #240 ENTERPRISE_MATH_SCHEDULER_EVENT_V1 events",
+  "result_authority": [
+    "research_result_records/<task-id>/<result-id>.json",
+    "research_result_reviews/<result-id>/<review-id>.json"
+  ],
+  "core_invariants": [
+    "REGISTERED_TASKS_AND_LEGACY_TASKS_SHARE_ONE_DERIVED_DISPATCH_VIEW",
+    "IMMUTABLE_REGISTERED_DEFINITION_OVERRIDES_SAME_ID_LEGACY_DEFINITION",
+    "REGISTRY_CLAIMABLE_IS_VISIBLE_TO_SCHEDULER_SELECTION",
+    "RESULT_PENDING_REVIEW_IS_NOT_RESEARCHER_DISPATCHABLE",
+    "TERMINAL_DRIVER_REVIEW_CLOSES_DISPATCH",
+    "REGISTERED_DONE_EVENT_REQUIRES_MATCHING_REVIEWED_RESULT",
+    "LEGACY_EVENT_REDUCER_REMAINS_COMPATIBILITY_PRIMITIVE_NOT_TASK_DEFINITION_AUTHORITY"
+  ],
+  "derived_dispatch_states": [
+    "NEEDS_DISPATCH",
+    "LEASED",
+    "AWAITING_REVIEW",
+    "BLOCKED",
+    "COMPLETE",
+    "DORMANT"
+  ],
+  "selection_rule": "Use the historical state/priority/leverage/staleness ordering over the merged canonical view; AWAITING_REVIEW and COMPLETE are never selected."
+}
