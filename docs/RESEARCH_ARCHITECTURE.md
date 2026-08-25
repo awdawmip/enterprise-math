@@ -1,15 +1,17 @@
 # Enterprise Math Research Architecture V2
 
-Status: `ACTIVE / CANONICAL GOVERNANCE / V2.4`
-Date: `2026-08-22`
-Driver-ID: `EM-DVR-K7Q4N8`
+Status: `ACTIVE / CANONICAL GOVERNANCE / V2.5`
+Date: `2026-08-25`
+Driver-ID: `EM-DVR-A4319A`
 Machine contracts:
 
 - `research_architecture.json`;
 - `active_turn_liveness.json`;
+- `research_execution_state_machine.json`;
 - `research_axiom_candidate_state_machine.json`.
 
 FREE substrate: `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`
+Execution protocol: `docs/RESEARCH_EXECUTION_STATE_MACHINE.md`
 Promotion liveness: `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`
 
 ## 1. Four functions
@@ -22,11 +24,13 @@ FREE receives primitive substrate, not the current-achievement catalog or a sugg
 
 ### TASK_RESEARCH
 
-Executes a selected mother question from the user, Driver, scheduler, Foundation intake or audited-candidate transition.
+Executes a selected mother question from the user, Driver, scheduler, Foundation intake or audited-candidate transition under one concrete execution lifecycle.
+
+Task authority is not execution readiness. Every run normalizes its authority and task-local gates, resolves identity, and reaches `EXECUTION_READY` before mathematical source reads/derivations.
 
 ### RESEARCH_DRIVER
 
-Owns portfolio routing, candidate intake, de-duplication, task creation, Working Truth activation, continuation/closure and promotion.
+Owns portfolio routing, candidate intake, de-duplication, task creation, Working Truth activation, continuation/closure, execution-review decisions and promotion.
 
 ### FOUNDATION_STEWARD
 
@@ -61,7 +65,36 @@ Detailed current contract:
 
 `docs/ACTIVE_TURN_CONTINUATION_LIVENESS.md`.
 
-## 3. FREE Phase-A information regime
+## 3. TASK_RESEARCH execution lifecycle
+
+Allowed task-authority kinds:
+
+- `OFFICIAL_TASKBOOK`;
+- `DIRECT_USER_TASK`;
+- `SCHEDULER_TASK`;
+- `DRIVER_DISPATCH_ENVELOPE`.
+
+All normalize to:
+
+`task_id + authority_kind + authority_ref + execution_gates`.
+
+Freeze:
+
+`TASK_AUTHORITY_READY != EXECUTION_READY`.
+
+`STATE_PERMISSION + ALL_GUARDING_GATES_SATISFIED -> ACTION_ALLOWED`.
+
+For an official taskbook, the exact taskbook revision first passes the composite dispatch gate. A direct user task does not require an artificial taskbook; its current task-local constraints are normalized directly into the execution ledger. Scheduler `CLAIMED` is coordination only and never means `EXECUTION_READY`. A Driver envelope cannot waive taskbook gates when it points to a taskbook.
+
+Every declared gate begins `PENDING`; an action listed in `must_precede` is blocked until that gate becomes `SATISFIED` from its required evidence.
+
+A `PRE_MATH` gate blocks both mathematical source reads and derivations. A `PRE_RETURN` gate can still block `RETURN_WRITE` after the run is already `IN_PROGRESS`.
+
+A failed mandatory startup/publication gate is an execution non-start, not a mathematical rejection.
+
+When continuity becomes unreliable, enter `RECOVERY_REQUIRED` and reconstruct the last legal state and gate ledger from durable evidence.
+
+## 4. FREE Phase-A information regime
 
 Freeze:
 
@@ -75,7 +108,7 @@ Current task/route/history, downstream achievements, other-branch Working Truth,
 
 After candidate freeze, current/prior context becomes Phase-B audit/comparison material.
 
-## 4. Candidate lifecycle
+## 5. Candidate lifecycle
 
 `RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION`.
 
@@ -85,11 +118,11 @@ Tasks created from free discovery preserve candidate origin/ID/audited state.
 
 `TASK_ORIGIN_AND_LINEAGE_CANNOT_BE_ERASED_BY_RENAMING`.
 
-## 5. Working Truth
+## 6. Working Truth
 
 Working Truth activates only after explicit Driver/taskbook freeze. It is not a FREE Phase-A premise, raw-candidate state or Phase-B dedup prior.
 
-## 6. Stage / successor rule
+## 7. Stage / successor rule
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
@@ -103,15 +136,17 @@ But:
 
 The Driver immediately evaluates continue-same-task, justified successor, route closure plus another portfolio action, FREE exploration, or parent completion. Local stage/route closure is not automatically parent-goal closure.
 
-## 7. Scheduler / Foundation / portfolio
+## 8. Scheduler / Foundation / portfolio
 
-Scheduler is TASK exploitation infrastructure, not FREE question selection.
+Scheduler is TASK exploitation infrastructure, not FREE question selection and not an execution-readiness authority.
+
+`SCHEDULER_CLAIMED != EXECUTION_READY`.
 
 Raw discovery does not auto-enter Foundation backflow.
 
 Recent route success is not itself roadmap evidence. No numeric exploration quota is imposed.
 
-## 8. Independence and evidence
+## 9. Independence and evidence
 
 A clean blind-discovery claim requires a clean pre-generation context and frozen substrate/worldview snapshot.
 
@@ -119,7 +154,9 @@ A clean blind-discovery claim requires a clean pre-generation context and frozen
 
 Independent runs do not share candidate packets or a common suggestion menu before freeze.
 
-## 9. Read performance
+For TASK independence/replication, a task-local pre-math/source firewall must be encoded as an execution gate and satisfied before the forbidden source read/derivation can occur.
+
+## 10. Read performance
 
 `SMALLEST_SUFFICIENT_ROLE_PACKET > UNIVERSAL_PRELOAD`.
 
@@ -129,9 +166,11 @@ FREE:
 
 TASK:
 
-`AGENTS -> EXACT TASK -> FIRST DEPENDENCY -> WORK -> TRIGGERED EXPANSION`.
+`AGENTS -> EXACT TASK AUTHORITY -> NORMALIZE EXECUTION SPEC -> IDENTITY -> PRE_MATH GATES -> EXECUTION_READY -> FIRST MATHEMATICAL DEPENDENCY -> WORK -> TRIGGERED EXPANSION`.
 
-## 10. Remote / publication liveness
+The soft pre-work read budget applies to control-plane/task-authority reads. It never overrides a task-local pre-math mathematical-source firewall.
+
+## 11. Remote / publication liveness
 
 `REMOTE_SILENT` describes repository activity, not conversational inactivity.
 
@@ -143,20 +182,25 @@ TASK:
 
 GitHub/publication subflows follow the bounded current protocols and then return to the parent objective in the same turn when it remains open.
 
-## 11. Promotion
+A task-declared remote `PRE_MATH` publication/liveness gate is different from generic remote preflight: it is an explicit legality condition for that concrete execution and must be satisfied or the run is classified non-start/recovery/redispatch.
+
+## 12. Promotion
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
 Mathematical L4 remains one bounded active promotion attempt at a time. Strict `NO_NEW_MATHEMATICS` governance maintenance uses a separate bounded attempt and cannot change theorem/native-definition/evidence/ownership semantics.
 
-## 12. Persistence / truth
+Execution `RETURN_ACCEPTED` is also not canonical truth promotion.
+
+## 13. Persistence / truth
 
 - journal = event provenance, not theorem truth;
 - Driver Continuity = routing only, no implicit default route;
+- execution return/acceptance = concrete-run validity, not theorem/candidate truth;
 - exact mathematical canonical truth = gated source `main`;
 - semantic checkpoints persist state but do not by themselves end an active parent user objective.
 
-## 13. Turn termination
+## 14. Turn termination
 
 A turn ends only when the parent objective is complete, the user explicitly asks to stop/pause/wait, or no executable next action remains because of a genuine safety/authorization/missing-user-data/unavoidable-external-event/platform limitation.
 
