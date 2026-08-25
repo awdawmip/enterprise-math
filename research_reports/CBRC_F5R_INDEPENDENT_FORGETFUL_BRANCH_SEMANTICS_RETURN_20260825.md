@@ -1,6 +1,6 @@
 # CBRC F5R — Independent Forgetful-Branch Semantic Replication Return
 
-Status: `CHECKPOINT_A_DRAFT / RAW_MATHEMATICAL_FREEZE_PENDING`
+Status: `FINAL_FROZEN`
 Researcher-ID: `EM-CBRC-F5R-8120F1`
 Task: `RS-CBRC-F5R-INDEPENDENT-FORGETFUL-BRANCH-SEMANTIC-REPLICATION`
 Owner branch: `research/cbrc-f5r-independent-forgetful-branch-semantics`
@@ -8,15 +8,15 @@ Taskbook source: `3015cee704b6864c955bf577637383dd8c3dfd19`
 
 ## Source firewall
 
-Mathematics in this draft uses only:
+Mathematics in this execution used only:
 
 1. `research_inputs/CBRC_F5_BLIND_FORGETFUL_BRANCH_SEMANTICS_PACKET_20260823.md@a107c133e11597623bbe79ef37397fc8ba5c13f7`;
 2. `definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md@6ec0d73a19e28ec586c59a97d24f5798c9119771`;
 3. `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md@b631242db84c5bd3640e6dc554b19a1d04d464f3`.
 
-No downstream coherent-wave, R063/R064/R065/FQ, rank-two carrier, complex/quadratic carrier, phase group, norm, inner product, square law, or external wave/quantum semantics is used.
+No downstream coherent-wave, R063/R064/R065/FQ, rank-two carrier, complex/quadratic carrier, phase group, norm, inner product, square law, or external wave/quantum semantics was used before raw freeze.
 
-## Provisional primary verdict
+## Primary verdict
 
 `F5R_NEW_AXIOM_REQUIRED`.
 
@@ -24,7 +24,9 @@ The candidate
 
 `FORGETFUL_BRANCH_NONDEGENERACY : pi(x) != 0 and pi(y) != 0`
 
-is compatible with the allowed semantics but is not forced by them. A retained marked slot and a concrete Path-formal witness are different types. The allowed sources do not supply a canonical total map from marked slots to concrete Path-formal basis witnesses with nonzero old coefficients.
+is compatible with the allowed semantics but is not forced by them. A retained marked slot and a concrete Path-formal witness are different types. The allowed sources do not supply a canonical total rule identifying every retained marked slot with concrete Path-formal support carrying a nonzero old coefficient.
+
+The status is stronger than informal ambiguity: exact candidate-true and candidate-false models coexist under the common retraction, reversibility, total old-coordinate conservation, old Boolean support preservation, marker identity and no-resurrection tests. Enforcing the candidate therefore requires an additional branch-to-old-support axiom.
 
 ## Q1 — exact type boundary
 
@@ -112,7 +114,7 @@ Freeze:
 
 `F5R_BRANCH_SURVIVAL_LOAD_BEARING_AXIOMS_CLASSIFIED`.
 
-## Q4 — strongest derived substitute
+## Q4 — strongest genuinely derived substitute
 
 There are two exact scopes.
 
@@ -136,11 +138,11 @@ is imposed, then
 
 Proof: if both projections were zero their sum would be zero, contradicting `e != 0` in the old signed occurrence coordinate.
 
-This is maximal among natural branch-count strengthening in this scope: `M_B` satisfies conservation but has exactly one zero branch projection, while a reversible conserving model with free-coordinate matrix
+This is maximal among natural two-branch nonzero-count strengthenings in this scope. The S-B countermodel satisfies conservation but has exactly one zero branch projection. Conversely the reversible conserving old-coordinate block
 
 `[[2,1],[-1,0]]`
 
-maps `(e,0)` to old projections `(2e,-e)`, showing that the same scope also permits both projections nonzero.
+maps `(e,0)` to old projections `(2e,-e)`, so the same scope also permits both projections nonzero.
 
 Hence conservation determines neither `both nonzero` nor `exactly one nonzero`; it forces only `at least one nonzero`.
 
@@ -150,11 +152,11 @@ Freeze:
 
 ## Q5 — rank consequence
 
-The accepted F4 boundary says that a successful torsion-free-rank-one model has a signed-permutation free quotient block, whose first column cannot have two nonzero old-coordinate projections.
+The accepted F4 boundary in the blind packet says that a successful torsion-free-rank-one model has a signed-permutation free quotient block, whose first column cannot have two nonzero old-coordinate projections.
 
 Because F5R does not derive two nonzero branch projections from native semantics, no unconditional rank lift follows.
 
-If the new S-A / per-branch nondegeneracy axiom is added, then and only then the F4 boundary gives
+If the new S-A / per-branch nondegeneracy axiom is added, then and only then the accepted F4 boundary gives
 
 `torsion_free_rank(C) >= 2`.
 
@@ -166,12 +168,46 @@ The weaker conserving consequence
 
 `pi(x) != 0 or pi(y) != 0`
 
-does not kill the F4 torsion loophole: a signed-permutation first column is compatible with exactly one nonzero old-coordinate projection and one nonzero pure-enrichment/torsion branch.
+does not kill the F4 torsion loophole: a signed-permutation first column is compatible with exactly one nonzero old-coordinate projection and one nonzero projection-zero enrichment branch.
 
 Freeze:
 
 `F5R_CONDITIONAL_RANK_CONSEQUENCE_CLASSIFIED`.
 
-## Checkpoint-A theorem set
+## Deterministic checker
 
-The theorem statements above are stable enough for deterministic model checking and ablation. Final polish, source/target-leak audit, checker digest, manifest, artifact hashes and owner-head freeze remain pending.
+Pushed checker:
+
+`scripts/cbrc_f5r_validate_forgetful_branch_semantics.py`
+
+Remote checker Git blob SHA:
+
+`b83995d4d1bf00db3d078fcb349ef5ed5223f8a4`.
+
+The executed checker file had the identical Git blob SHA. Exact result:
+
+- `CBRC_F5R_CHECK_RESULT=PASS`;
+- `CBRC_F5R_MISMATCH_COUNT=0`;
+- `CBRC_F5R_DETERMINISTIC_DIGEST=14201c39734a17782aa7dabb48a22c0e97fc72a002f6f78578cf3645869d9a97`;
+- semantic/model checks: `39`;
+- two-slot finite states checked: `100`.
+
+The checker is evidence only; the implication and independence claims above are proved semantically by the explicit exact models and type audit.
+
+## Required acceptance labels
+
+- `F5R_PATH_WITNESS_VS_MARKED_SLOT_SEMANTIC_BOUNDARY_CLASSIFIED`
+- `F5R_FORGETFUL_BRANCH_NONDEGENERACY_DERIVABILITY_CLASSIFIED`
+- `F5R_BRANCH_SURVIVAL_LOAD_BEARING_AXIOMS_CLASSIFIED`
+- `F5R_MAXIMAL_DERIVED_FORGETFUL_BRANCH_CONDITION_CLASSIFIED`
+- `F5R_CONDITIONAL_RANK_CONSEQUENCE_CLASSIFIED`
+- `TARGET_LEAK_AUDIT_PASS`
+- `F5R_PUSHED_CHECKER_PASS`
+
+## Final freeze
+
+Primary verdict:
+
+`F5R_NEW_AXIOM_REQUIRED`.
+
+No F6, rank-two construction, downstream wave comparison or Foundation promotion is initiated by this execution.
