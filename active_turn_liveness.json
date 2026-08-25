@@ -1,7 +1,7 @@
 {
-  "schema": "ENTERPRISE_MATH_ACTIVE_TURN_LIVENESS_V1",
+  "schema": "ENTERPRISE_MATH_ACTIVE_TURN_LIVENESS_V2",
   "status": "ACTIVE_CANONICAL",
-  "effective": "2026-08-22",
+  "effective": "2026-08-25",
   "scope": [
     "FREE_AXIOM_DISCOVERY",
     "TASK_RESEARCH",
@@ -17,13 +17,50 @@
   "core_invariants": [
     "SUBFLOW_COMPLETE_IS_NOT_USER_OBJECTIVE_COMPLETE",
     "DETERMINISTIC_NEXT_STEP_EXISTS_IMPLIES_CONTINUE_IN_SAME_TURN",
+    "PARENT_INCOMPLETE_AND_EXECUTABLE_ACTION_EXISTS_FORBIDS_FINAL_WITH_OR_WITHOUT_CONTINUATION_LEASE",
+    "CONTINUATION_LEASE_STRENGTHENS_PERSISTENCE_BUT_IS_NOT_REQUIRED_FOR_BASE_LIVENESS",
     "PROGRESS_UPDATE_IS_NOT_A_SYNCHRONIZATION_BARRIER",
     "TOOL_RESULT_RECEIVED_IMPLIES_RESUME_PARENT_TASK",
     "CHECKPOINT_PERSISTED_IMPLIES_RESUME_PARENT_TASK",
     "PENDING_NONBLOCKING_IMPLIES_CONTINUE_PARENT_TASK",
     "LOCAL_ROUTE_CLOSURE_DOES_NOT_CLOSE_PARENT_GOAL",
-    "USER_WAKEUP_MESSAGE_MUST_NOT_BE_REQUIRED_WHEN_IT_ADDS_NO_INFORMATION"
+    "BLOCKED_SUBFLOW_IS_NOT_PARENT_BLOCK_WHEN_INDEPENDENT_SAFE_WORK_EXISTS",
+    "USER_WAKEUP_MESSAGE_MUST_NOT_BE_REQUIRED_WHEN_IT_ADDS_NO_INFORMATION",
+    "NO_PROGRESS_ACTION_MUST_NOT_REPEAT_WITHOUT_STATE_CHANGE"
   ],
+  "pre_final_guard": {
+    "evaluator": "tools/active_turn_liveness.py",
+    "required_for_nontrivial_turn": true,
+    "required_inputs": [
+      "parent_objective_complete",
+      "user_requested_stop_pause_review_or_wait",
+      "parent_hard_blocker",
+      "platform_or_tool_hard_limit",
+      "independent_safe_work_exhausted",
+      "same_action_repeated_without_state_change",
+      "supported_alternative_available",
+      "parent_state_recomputed_without_change",
+      "executable_next_actions"
+    ],
+    "optional_inputs": [
+      "continuation_lease_active"
+    ],
+    "transitions": [
+      "FINAL_ALLOWED",
+      "FINAL_ALLOWED_WITH_BLOCKER",
+      "FINAL_ALLOWED_WITH_LIMIT",
+      "EXECUTE_NEXT_ACTION",
+      "SWITCH_STRATEGY",
+      "RECOMPUTE_PARENT_STATE",
+      "CONTROL_STATE_INCONSISTENT"
+    ],
+    "final_allowed_transitions": [
+      "FINAL_ALLOWED",
+      "FINAL_ALLOWED_WITH_BLOCKER",
+      "FINAL_ALLOWED_WITH_LIMIT"
+    ],
+    "base_rule": "PARENT_INCOMPLETE_AND_EXECUTABLE_ACTION_EXISTS_IMPLIES_FINAL_FORBIDDEN_REGARDLESS_OF_CONTINUATION_LEASE"
+  },
   "continuation_lease": {
     "activation_semantics": [
       "continue",
@@ -35,6 +72,7 @@
       "multi-step parent completion criterion"
     ],
     "state": "ACTIVE_UNTIL_PARENT_CRITERION_MET_OR_USER_REVOKES",
+    "base_liveness_dependency": false,
     "cannot_be_consumed_by": [
       "STAGE_TERMINAL_VERDICT",
       "ROUTE_CLOSURE",
@@ -43,6 +81,19 @@
       "PR_OR_BRANCH_SUBFLOW",
       "PUBLICATION_SUBFLOW"
     ]
+  },
+  "blocked_subflow_semantics": {
+    "blocked_subflow_is_parent_blocker": false,
+    "parent_block_requires": "NO_EXECUTABLE_INDEPENDENT_OR_DOWNSTREAM_SAFE_WORK_REMAINS",
+    "local_block_with_other_work": "EXECUTE_NEXT_ACTION",
+    "terminal_block_requires_independent_safe_work_exhausted": true
+  },
+  "loop_safety": {
+    "same_action_without_state_change_must_not_repeat": true,
+    "if_supported_alternative_available": "SWITCH_STRATEGY",
+    "if_no_alternative_and_parent_not_recomputed": "RECOMPUTE_PARENT_STATE",
+    "if_parent_recomputed_without_change": "CONTROL_STATE_INCONSISTENT",
+    "max_identical_no_progress_retry_without_transition": 0
   },
   "nonterminal_boundaries": [
     "TOOL_SUCCESS",
@@ -73,9 +124,15 @@
   "terminal_conditions": [
     "PARENT_USER_OBJECTIVE_COMPLETE",
     "USER_EXPLICITLY_REQUESTS_STOP_PAUSE_REVIEW_ONLY_OR_WAIT",
-    "GENUINE_SAFETY_AUTHORIZATION_MISSING_USER_DATA_OR_UNAVOIDABLE_EXTERNAL_EVENT_BLOCK",
-    "PLATFORM_OR_TOOL_LIMIT_MAKES_FURTHER_ACTION_IMPOSSIBLE_THIS_TURN"
+    "GENUINE_SAFETY_AUTHORIZATION_MISSING_USER_DATA_OR_UNAVOIDABLE_EXTERNAL_EVENT_BLOCK_WITH_NO_OTHER_SAFE_WORK",
+    "PLATFORM_OR_TOOL_LIMIT_MAKES_ALL_FURTHER_ACTION_IMPOSSIBLE_THIS_TURN"
   ],
   "before_terminal_block": "EXHAUST_INDEPENDENT_AND_DOWNSTREAM_SAFE_WORK_AND_RETURN_STRONGEST_CURRENT_RESULT",
-  "forbidden_state": "WAITING_FOR_CONTINUE_WHEN_CONTINUE_ADDS_NO_INFORMATION"
+  "forbidden_states": [
+    "WAITING_FOR_CONTINUE_WHEN_CONTINUE_ADDS_NO_INFORMATION",
+    "PREMATURE_FINAL_WHILE_PARENT_INCOMPLETE_AND_EXECUTABLE_ACTION_EXISTS",
+    "REPEATING_IDENTICAL_NO_PROGRESS_ACTION_WITHOUT_STATE_CHANGE"
+  ],
+  "forbidden_state": "WAITING_FOR_CONTINUE_WHEN_CONTINUE_ADDS_NO_INFORMATION",
+  "enforcement_boundary": "REPOSITORY_CANONICAL_EVALUATOR_AND_REGRESSION_GUARD; PRODUCT_RUNTIME_MUST_INVOKE_OR_REIMPLEMENT_THIS_DECISION_TO_PHYSICALLY_BLOCK_A_FINAL_RESPONSE"
 }
