@@ -59,15 +59,19 @@ The child task records its own blindness/independence provenance.
 
 Every unregistered taskbook is visible as an orphan. An orphan is not auto-dispatchable. Inspect its refs, then `ADOPT`, `MIGRATE`, `SUPERSEDE`, or re-author/review/publish it.
 
-This explicitly covers taskbooks created concurrently with the V2 cutover so live research cannot vanish during migration.
+This explicitly covers taskbooks created concurrently with the V2 cutover so live research cannot vanish during migration. Cross-layer guards apply to new events at/after `2026-08-25T10:50:39+08:00`; earlier Scheduler V2 events keep their historical replay semantics.
 
 ## Control checks / 控制检查
 
 `python tools/research_scheduler.py validate`
 
-`python tools/research_scheduler.py registry --events <exported-events.jsonl>`
-
 `python tools/research_control.py validate-spec`
+
+Safe registry/materialization entrypoint:
+
+`python tools/research_control.py registry --events <exported-events.jsonl>`
+
+The wrapper validates the versioned cross-layer event contract first, then invokes the canonical Scheduler V2 reducer. Direct `python tools/research_scheduler.py registry ...` is reserved for low-level reducer/debug use.
 
 `python tools/research_control.py template <CONTROL_PROFILE>`
 
