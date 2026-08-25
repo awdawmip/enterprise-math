@@ -11,8 +11,8 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
-import sys
 import subprocess
+import sys
 from datetime import datetime
 from typing import Any
 
@@ -46,7 +46,17 @@ def validate_spec(spec: dict[str, Any]) -> list[str]:
     missing = required_sections - set(spec.get("state_vector", {}))
     if missing:
         errors.append("missing state-vector sections: " + ", ".join(sorted(missing)))
-    required_profiles = {"STANDARD_RESEARCH", "INDEPENDENT_AUDIT", "FORMALIZATION", "FOUNDATION_DISPOSITION", "INTEGRATION", "BENCHMARK", "MATHEMATICAL_PROMOTION", "GOVERNANCE_MAINTENANCE"}
+    required_profiles = {
+        "STANDARD_RESEARCH",
+        "INDEPENDENT_AUDIT",
+        "AXIOM_ADMISSION_AUDIT",
+        "FORMALIZATION",
+        "FOUNDATION_DISPOSITION",
+        "INTEGRATION",
+        "BENCHMARK",
+        "MATHEMATICAL_PROMOTION",
+        "GOVERNANCE_MAINTENANCE",
+    }
     if not required_profiles <= set(spec.get("control_profiles", [])):
         errors.append("control_profiles do not cover all current control classes")
     return errors
@@ -60,14 +70,33 @@ def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[st
     if errors:
         return errors
 
-    actor = snapshot["actor"]; obj = snapshot["object"]; runtime = snapshot["runtime"]
-    info = snapshot["information"]; ev = snapshot["evidence"]; route = snapshot["routing"]; parent = snapshot["parent"]
+    actor = snapshot["actor"]
+    obj = snapshot["object"]
+    runtime = snapshot["runtime"]
+    info = snapshot["information"]
+    ev = snapshot["evidence"]
+    route = snapshot["routing"]
+    parent = snapshot["parent"]
 
     enum_fields = {
         "actor": (actor, ("role", "mode", "identity_state")),
-        "runtime": (runtime, ("scheduler_state", "dispatch_state")),
+        "runtime": (runtime, ("scheduler_state", "dispatch_state", "pre_math_gate")),
         "information": (info, ("firewall", "freeze_state", "source_exposure")),
-        "evidence": (ev, ("source_status", "independent_status", "driver_verdict", "formalization_status", "foundation_status", "integration_status", "benchmark_status", "promotion_status", "canonical_status")),
+        "evidence": (
+            ev,
+            (
+                "source_status",
+                "independent_status",
+                "driver_verdict",
+                "axiom_admission_status",
+                "formalization_status",
+                "foundation_status",
+                "integration_status",
+                "benchmark_status",
+                "promotion_status",
+                "canonical_status",
+            ),
+        ),
         "routing": (route, ("working_truth", "method_harvest", "successor_gate", "route_disposition")),
         "parent": (parent, ("objective", "completion_basis")),
     }
@@ -90,6 +119,9 @@ def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[st
         errors.append("actor role/mode mismatch")
     if actor.get("identity_state") == "UNRESOLVED" and runtime.get("scheduler_state") not in {"NONE", "DRAFT", "REVIEW_PENDING"}:
         errors.append("active work cannot proceed with unresolved role identity")
+
+    if runtime.get("pre_math_gate") == "REQUIRED_UNSATISFIED" and snapshot.get("substantive_math_started") is True:
+        errors.append("substantive mathematics cannot start before the task-local pre-math gate is satisfied")
 
     if ev.get("driver_verdict") in {"ACCEPTED", "NARROWED"}:
         if route.get("method_harvest") == "PENDING":
@@ -120,6 +152,24 @@ def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[st
             exec_ctx = snapshot.get("execution_context")
             if nonempty(src_ctx) and src_ctx == exec_ctx:
                 errors.append("clean independent audit requires a distinct execution context")
+
+    if profile == "AXIOM_ADMISSION_AUDIT":
+        if info.get("firewall") == "NONE":
+            errors.append("axiom-admission audit requires an explicit information firewall/whitelist classification")
+        admission = ev.get("axiom_admission_status")
+        if admission in {"NOT_APPLICABLE", None}:
+            errors.append("axiom-admission audit requires explicit axiom_admission_status")
+        if ev.get("canonical_status") != "NONCANONICAL":
+            errors.append("axiom-admission research cannot directly canonicalize an axiom")
+        if ev.get("foundation_status") in {"ACCEPTED", "NARROWED"}:
+            errors.append("axiom-admission research cannot impersonate Foundation Steward disposition")
+        if admission in {"ADMIT_RECOMMENDED", "RESTRICTED_ADMISSION_RECOMMENDED"} and ev.get("driver_verdict") in {"ACCEPTED", "NARROWED"}:
+            if route.get("route_disposition") != "ROUTE_TO_FOUNDATION":
+                errors.append("accepted axiom-admission recommendation must route to Foundation rather than mutate Foundation directly")
+            if not nonempty(route.get("route_ref")):
+                errors.append("accepted axiom-admission recommendation requires a concrete Foundation route_ref")
+            if ev.get("foundation_status") != "PENDING":
+                errors.append("accepted axiom-admission recommendation routed to Foundation must remain foundation_status=PENDING until Steward disposition")
 
     if profile == "FORMALIZATION":
         if ev.get("formalization_status") in {"NOT_APPLICABLE", "NOT_ADMITTED"}:
@@ -195,8 +245,7 @@ def validate_events(events: list[dict[str, Any]], spec: dict[str, Any]) -> list[
         if event.get("schema") != V2_SCHEMA:
             continue
         kind = event.get("event")
-        guarded = cross_layer_guard_applies(event, spec)
-        if not guarded:
+        if not cross_layer_guard_applies(event, spec):
             continue
         if kind == "APPROVE":
             if event.get("taskbook_audit") != "PASS":
@@ -260,21 +309,39 @@ def template_snapshot(profile: str, spec: dict[str, Any]) -> dict[str, Any]:
     snap = {
         "actor": {"role": "RESEARCHER", "mode": "TASK_RESEARCH", "identity_state": "RESOLVED_LOCAL"},
         "object": {"control_profile": profile, "task_id": None, "task_lineage": "NOT_APPLICABLE"},
-        "runtime": {"scheduler_state": "NONE", "dispatch_state": "NONE"},
+        "runtime": {"scheduler_state": "NONE", "dispatch_state": "NONE", "pre_math_gate": "NOT_REQUIRED"},
         "information": {"firewall": "NONE", "freeze_state": "NOT_REQUIRED", "source_exposure": "NORMAL"},
         "evidence": {
-            "source_status": "NONE", "independent_status": "NOT_REQUIRED", "driver_verdict": "NONE",
-            "formalization_status": "NOT_APPLICABLE", "foundation_status": "NOT_APPLICABLE",
-            "integration_status": "NOT_APPLICABLE", "benchmark_status": "NOT_APPLICABLE",
-            "promotion_status": "NOT_APPLICABLE", "canonical_status": "NONCANONICAL"
+            "source_status": "NONE",
+            "independent_status": "NOT_REQUIRED",
+            "driver_verdict": "NONE",
+            "axiom_admission_status": "NOT_APPLICABLE",
+            "formalization_status": "NOT_APPLICABLE",
+            "foundation_status": "NOT_APPLICABLE",
+            "integration_status": "NOT_APPLICABLE",
+            "benchmark_status": "NOT_APPLICABLE",
+            "promotion_status": "NOT_APPLICABLE",
+            "canonical_status": "NONCANONICAL",
         },
         "routing": {"working_truth": "INACTIVE", "method_harvest": "PENDING", "successor_gate": "NOT_APPLICABLE", "route_disposition": "PENDING"},
         "parent": {"objective": "OPEN", "completion_basis": "NONE", "next_executable_action": None},
-        "terminal_output": False
+        "terminal_output": False,
     }
     if profile in {"INDEPENDENT_AUDIT", "FREE_CANDIDATE_AUDIT"}:
-        snap["information"].update(firewall="TASK_BLIND_FORWARD" if profile == "INDEPENDENT_AUDIT" else "FREE_PHASE_A_BLIND", freeze_state="REQUIRED_NOT_FROZEN", source_exposure="WITHHELD")
+        snap["information"].update(
+            firewall="TASK_BLIND_FORWARD" if profile == "INDEPENDENT_AUDIT" else "FREE_PHASE_A_BLIND",
+            freeze_state="REQUIRED_NOT_FROZEN",
+            source_exposure="WITHHELD",
+        )
         snap["evidence"]["independent_status"] = "REQUIRED_OPEN"
+    elif profile == "AXIOM_ADMISSION_AUDIT":
+        snap["runtime"]["pre_math_gate"] = "REQUIRED_UNSATISFIED"
+        snap["information"].update(
+            firewall="STATEMENT_EXPOSED_AUDIT",
+            freeze_state="REQUIRED_NOT_FROZEN",
+            source_exposure="WITHHELD",
+        )
+        snap["evidence"]["axiom_admission_status"] = "OPEN"
     elif profile == "FORMALIZATION":
         snap["evidence"]["formalization_status"] = "NOT_ADMITTED"
         snap["math_change_policy"] = "NO_NEW_MATHEMATICS"
@@ -298,10 +365,14 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--spec", type=pathlib.Path, default=DEFAULT_SPEC)
     sp = p.add_subparsers(dest="cmd", required=True)
     sp.add_parser("validate-spec")
-    t = sp.add_parser("template"); t.add_argument("profile")
-    s = sp.add_parser("validate-snapshot"); s.add_argument("path", type=pathlib.Path)
-    e = sp.add_parser("validate-events"); e.add_argument("path", type=pathlib.Path)
-    r = sp.add_parser("registry"); r.add_argument("--events", required=True, type=pathlib.Path)
+    t = sp.add_parser("template")
+    t.add_argument("profile")
+    s = sp.add_parser("validate-snapshot")
+    s.add_argument("path", type=pathlib.Path)
+    e = sp.add_parser("validate-events")
+    e.add_argument("path", type=pathlib.Path)
+    r = sp.add_parser("registry")
+    r.add_argument("--events", required=True, type=pathlib.Path)
     args = p.parse_args(argv)
     spec = load_json(args.spec)
     errors = validate_spec(spec)
