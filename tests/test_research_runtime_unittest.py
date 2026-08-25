@@ -77,12 +77,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
             rt.pre_final_gate(state)
 
     def test_legacy_baseline_cannot_authorize_fresh_redispatch(self):
-        state = make_state(
-            task_registration={
-                "state": "LEGACY_BASELINE_REGISTERED",
-                "fresh_redispatch": True,
-            }
-        )
+        state = make_state(task_registration={"state": "LEGACY_BASELINE_REGISTERED", "fresh_redispatch": True})
         with self.assertRaisesRegex(rt.RuntimeStateError, "fresh redispatch"):
             rt.pre_final_gate(state)
 
@@ -94,8 +89,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         self.assertFalse(decision["canonical_final_allowed"])
 
     def test_task_publication_is_subflow_and_preserves_current_frontier(self):
-        state = make_state()
-        out = rt.apply_terminal_event(state, "TASK_PUBLISHED")
+        out = rt.apply_terminal_event(make_state(), "TASK_PUBLISHED")
         self.assertEqual(out["terminal_scope"], "SUBFLOW")
         self.assertEqual(out["runtime_phase"], "REEVALUATE_PARENT")
         self.assertEqual(out["current_unfinished_unit"], "prove unit B")
@@ -119,12 +113,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         state = make_state(
             current_unfinished_unit=None,
             next_action=None,
-            task={
-                "task_id": "RS-T1",
-                "status": "COMPLETE",
-                "taskbook_source": "abc123",
-                "owner_branch": "research/t1",
-            },
+            task={"task_id": "RS-T1", "status": "COMPLETE", "taskbook_source": "abc123", "owner_branch": "research/t1"},
         )
         out = rt.apply_terminal_event(state, "PARENT_OBJECTIVE_COMPLETE")
         self.assertEqual(out["terminal_scope"], "PARENT_OBJECTIVE")
@@ -149,13 +138,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
 
     def test_scheduler_lease_is_owner_only_and_stale_dispatch_adopts(self):
         decision = rt.dispatch_decision(
-            {
-                "state": "IN_PROGRESS",
-                "dispatch_state": "LEASED",
-                "claim_id": "claim-1",
-                "researcher_id": "EM-T1-ABC123",
-                "lease_until": "2026-08-26T12:00:00+08:00",
-            },
+            {"state": "IN_PROGRESS", "dispatch_state": "LEASED", "claim_id": "claim-1", "researcher_id": "EM-T1-ABC123", "lease_until": "2026-08-26T12:00:00+08:00"},
             session_last_activity_at="2026-08-25T12:00:00+08:00",
             now=ts("2026-08-25T12:11:00+08:00"),
         )
@@ -165,12 +148,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
 
     def test_unknown_session_liveness_never_counts_as_live_chat(self):
         decision = rt.dispatch_decision(
-            {
-                "state": "IN_PROGRESS",
-                "dispatch_state": "LEASED",
-                "claim_id": "claim-1",
-                "lease_until": "2026-08-26T12:00:00+08:00",
-            },
+            {"state": "IN_PROGRESS", "dispatch_state": "LEASED", "claim_id": "claim-1", "lease_until": "2026-08-26T12:00:00+08:00"},
             session_last_activity_at=None,
             now=ts("2026-08-25T12:11:00+08:00"),
         )
@@ -178,12 +156,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         self.assertFalse(decision["new_claim_required"])
 
     def test_stale_adoption_preserves_claim_identity_and_does_not_replay(self):
-        out = rt.adopt_stale_session(
-            make_state(),
-            make_evidence(),
-            replacement_session_id="replacement",
-            now=ts("2026-08-25T12:11:00+08:00"),
-        )
+        out = rt.adopt_stale_session(make_state(), make_evidence(), replacement_session_id="replacement", now=ts("2026-08-25T12:11:00+08:00"))
         self.assertEqual(out["owner_claim"]["claim_id"], "claim-1")
         self.assertEqual(out["owner_claim"]["researcher_id"], "EM-T1-ABC123")
         self.assertFalse(out["adoption"]["claim_reissued"])
@@ -198,24 +171,11 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         ):
             with self.subTest(marker=marker):
                 with self.assertRaisesRegex(rt.RuntimeStateError, marker):
-                    rt.adopt_stale_session(
-                        make_state(),
-                        bad,
-                        replacement_session_id="replacement",
-                        now=ts("2026-08-25T12:11:00+08:00"),
-                    )
+                    rt.adopt_stale_session(make_state(), bad, replacement_session_id="replacement", now=ts("2026-08-25T12:11:00+08:00"))
 
     def test_expired_owner_claim_cannot_be_adopted(self):
-        state = make_state(
-            owner_claim={
-                "claim_id": "claim-1",
-                "researcher_id": "EM-T1-ABC123",
-                "owner_lease_until": "2026-08-25T12:05:00+08:00",
-            }
-        )
-        view = rt.classify_session(
-            state["owner_claim"], state["session"], now=ts("2026-08-25T12:11:00+08:00")
-        )
+        state = make_state(owner_claim={"claim_id": "claim-1", "researcher_id": "EM-T1-ABC123", "owner_lease_until": "2026-08-25T12:05:00+08:00"})
+        view = rt.classify_session(state["owner_claim"], state["session"], now=ts("2026-08-25T12:11:00+08:00"))
         self.assertEqual(view["session_state"], "STALE_UNOWNED")
         self.assertFalse(view["adoption_allowed"])
 
@@ -250,6 +210,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
                 "tools/active_turn_liveness.py",
                 "tools/check_task_registry_cutover.py",
                 "tools/research_dispatch.py",
+                "tools/research_execution_records.py",
                 "tools/research_result_records.py",
                 "tools/research_runtime.py",
                 "tools/research_runtime_guard.py",
