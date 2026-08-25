@@ -239,6 +239,8 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         self.assertIn("research_task_publication_contract.json", policy["policy_inputs"])
         self.assertNotIn("research_task_registry.json", policy["policy_inputs"])
         self.assertEqual(final["final_permission_authority"], "research_runtime_state_machine.json")
+        self.assertEqual(final["pre_final_permission_gate"]["evaluator"], "tools/research_runtime_guard.py")
+        self.assertFalse(final["pre_final_permission_gate"]["caller_supplied_registration_is_authority"])
 
     def test_runtime_owns_control_tools_in_exact_owner_surface(self):
         runtime = json.loads((ROOT / "research_runtime_state_machine.json").read_text(encoding="utf-8"))
@@ -247,10 +249,15 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
             {
                 "tools/active_turn_liveness.py",
                 "tools/check_task_registry_cutover.py",
+                "tools/research_dispatch.py",
+                "tools/research_result_records.py",
                 "tools/research_runtime.py",
+                "tools/research_runtime_guard.py",
+                "tools/research_task_records.py",
                 "tools/research_task_registry.py",
             },
         )
+        self.assertEqual(runtime["executable_runtime"], "tools/research_runtime_guard.py")
         text = (ROOT / "docs/RESEARCH_RUNTIME_STATE_MACHINE.md").read_text(encoding="utf-8")
         for path in runtime["repository_tool_paths"]:
             self.assertIn(path, text)
