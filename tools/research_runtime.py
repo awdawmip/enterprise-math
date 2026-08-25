@@ -293,18 +293,23 @@ def apply_terminal_event(state: Mapping[str, Any], event: str) -> dict[str, Any]
     """Apply a terminal event at the correct semantic scope.
 
     SUBFLOW_COMPLETE and TASK_FROZEN never directly authorize final. Both
-    return to parent routing. Only PARENT_OBJECTIVE_COMPLETE closes the parent.
+    clear their local execution frontier and return to parent routing. Only
+    PARENT_OBJECTIVE_COMPLETE closes the parent.
     """
     require_canonical_state(state)
     updated = copy.deepcopy(dict(state))
     if event == "SUBFLOW_COMPLETE":
         updated["terminal_scope"] = "SUBFLOW"
+        updated["current_unfinished_unit"] = None
+        updated["next_action"] = None
         updated["runtime_phase"] = REEVALUATE_PARENT
         updated["final_allowed"] = False
         return updated
     if event in {"TASK_FROZEN", "TASK_COMPLETE"}:
         updated["terminal_scope"] = "TASK"
         updated["task"]["status"] = "FROZEN" if event == "TASK_FROZEN" else "COMPLETE"
+        updated["current_unfinished_unit"] = None
+        updated["next_action"] = None
         updated["runtime_phase"] = REEVALUATE_PARENT
         updated["final_allowed"] = False
         return updated
