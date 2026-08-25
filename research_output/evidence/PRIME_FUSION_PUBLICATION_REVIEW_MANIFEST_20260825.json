@@ -1,0 +1,182 @@
+{
+  "schema": "PRIME_FUSION_PUBLICATION_REVIEW_MANIFEST_V1",
+  "status": "FROZEN_PUBLICATION_REVIEW_MANIFEST",
+  "date": "2026-08-25",
+  "researcher_id": "EM-PFPUB-7C3E91",
+  "task_id": "GS-PRIME-FUSION-PUBLICATION-ATTRIBUTION-AND-CLAIM-REVIEW",
+  "taskbook": {
+    "path": "research_tasks/PRIME_FUSION_PUBLICATION_ATTRIBUTION_AND_CLAIM_REVIEW_20260825.md",
+    "source_commit": "9d1aceb5d98c4e029a68734ef89f7b80e6c1bf8c",
+    "git_blob_sha": "a2c65d45fe7a1d53739569f8ac1df209462320b2"
+  },
+  "owner_branch": "review/prime-fusion-publication-attribution",
+  "hard_target": "PRIME_FUSION_PUBLICATION_PACKAGE_ATTRIBUTION_CLAIM_STRENGTH_AND_RELEASE_FORM_INDEPENDENTLY_CLASSIFIED",
+  "hard_target_reached": true,
+  "primary_publication_disposition": "PRIME_FUSION_PUBLICATION_READY_AS_STRUCTURAL_OR_EXPOSITORY_NOTE",
+  "lean_publication_synchronization": "F1_LEAN_SCOPE_CORRECTLY_DISCLOSED",
+  "theorem_rows_retained": 15,
+  "new_theorem_rows_added": 0,
+  "new_mathematics_added": false,
+  "historical_novelty_established": false,
+  "source_authority": [
+    {
+      "path": "research/PRIME_FUSION_THEOREM_PACKAGE_EVIDENCE_TYPED_FINAL_20260824.md",
+      "git_blob_sha": "055bdaaca81c5ac7ab350a71acf3b69fe5e564a9"
+    },
+    {
+      "path": "research/PRIME_FUSION_T1_T15_FINAL_EVIDENCE_MATRIX_20260824.csv",
+      "git_blob_sha": "3c9f6fa670f9405eebbab6eae5d5374c2de4a037"
+    },
+    {
+      "path": "research/PRIME_FUSION_FINAL_DEPENDENCY_GRAPH_20260824.md",
+      "git_blob_sha": "54d1fbb8c3fb657ac55f556c982501386a8eaf25"
+    },
+    {
+      "path": "research_output/evidence/PRIME_FUSION_FINAL_PACKAGE_MANIFEST_20260824.json",
+      "git_blob_sha": "6b388f3b17eddf1443de12ec6cf9f6db3e6999c2"
+    },
+    {
+      "path": "driver_reviews/PRIME_FUSION_F1_LEAN_FINITE_ALGEBRA_FORMALIZATION_DRIVER_REVIEW_20260825.md",
+      "source_commit": "d94be81c99bb9b300969a7a8cabb26299e248941",
+      "git_blob_sha": "c50ecb08ba632ccd8bc37e98bc53dd6612d2232d"
+    },
+    {
+      "path": "EnterpriseMath/PrimeFusion.lean",
+      "main_commit": "9825c13ff368a1feda37f2baacc7a777d967b8db",
+      "note": "F1 finite-algebra kernel merged to main; this manifest does not claim all T1-T15 are Lean formalized"
+    }
+  ],
+  "t10_guard": {
+    "scope": "CHANNEL_ORIENTED_MIXED_LOCUS_M_PQ",
+    "definition": "M_{p,q}={x mod pq : x^2+1=0 mod p and x^2+x+1=0 mod q}",
+    "four_phase_result_scope_only": true,
+    "full_fused_root_set_claim": false,
+    "pressure_witness_h": 91,
+    "oriented_root_count_at_h91": 4,
+    "full_fused_root_count_at_h91": 8
+  },
+  "evidence_claim_guards": {
+    "allowed": "15/15 retained theorem rows independently audited",
+    "forbidden": "15/15 blindly replicated",
+    "all_15_blindly_replicated": false
+  },
+  "lean_claim_guards": {
+    "allowed": "the F1 finite-algebra kernel is Lean-checked on main",
+    "forbidden": "all fifteen theorems are Lean-verified",
+    "all_15_lean_verified": false
+  },
+  "forbidden_result_level_claims": [
+    "infinitely many dual-prime cells",
+    "Bateman-Horn asymptotics as a theorem",
+    "factoring speedup or efficient generic factorization algorithm",
+    "global three-sector seam theorem",
+    "historical novelty without evidence",
+    "L3/L4 promotion from package completeness or formalization alone"
+  ],
+  "attribution_summary": {
+    "CLASSICAL_DIRECT_COROLLARY": ["T1", "T2", "T5", "T11", "T12"],
+    "CLASSICAL_COMPOSITION": ["T3", "T4", "T8", "T10", "T13"],
+    "PROJECT_SPECIFIC_REPACKAGING": ["T6", "T7", "T15"],
+    "POSSIBLE_NEW_COMBINATION_NOT_ESTABLISHED": ["T9", "T14"],
+    "HISTORICAL_NOVELTY_ESTABLISHED": []
+  },
+  "literature_search": {
+    "method": "theorem-family and exact-combination web-accessible prior-art review; absence of an exact hit is not treated as novelty evidence",
+    "authoritative_domains_or_sources": [
+      "ams.org",
+      "link.springer.com",
+      "onlinelibrary.wiley.com",
+      "cambridge.org/core",
+      "stacks.math.columbia.edu",
+      "WorldCat/Crossref-style bibliographic records",
+      "broad scholarly web indexing"
+    ],
+    "query_clusters": [
+      "Gaussian and Eisenstein norms; primitive representations; binary quadratic forms; simultaneous a^2+b^2 and a^2-ab+b^2",
+      "Phi_4; Phi_3; cyclotomic resultants; discriminant product formula; comaximal polynomial factors; CRT quotient rings",
+      "Gaussian/Eisenstein principal quotients; cyclic quotient criterion; Smith/Hermite normal form",
+      "quadratic reciprocity; supplementary laws for -1, 2, 3, -3; roots of x^2+1 and x^2+x+1 modulo primes",
+      "local orders 4, 3, 12; CRT mixed roots; inversion orbit; units modulo 12",
+      "square-free semiprime residue rings as products of finite fields",
+      "quadratic root counts via discriminants and Legendre symbols; 2+chi_-4+chi_-3",
+      "sector-local adjacency; congruence obstruction; matching graph",
+      "finite torus; unimodular change of variables; finite averaging and double counting"
+    ],
+    "exact_combination_searches": [
+      "gcd(a^2+b^2, a^2-ab+b^2) exact identity",
+      "p congruent 1 mod 8 iff q congruent 1 mod 12 for paired Gaussian/Eisenstein prime values",
+      "{r,r^5,r^7,r^11} cyclotomic CRT order-12 orbit",
+      "2+chi_-4+chi_-3 quadratic corridor root count",
+      "nearest-neighbor matching for simultaneous Gaussian/Eisenstein prime-value cells",
+      "unimodular corridor mean preservation finite sieve"
+    ],
+    "material_exact_antecedent_not_located": ["T9", "T14"],
+    "novelty_inference_from_absence": false,
+    "limitation": "This review is not a substitute for a subscription MathSciNet/zbMATH citation-tree review by a domain specialist; T9/T14 cannot be promoted to a historical novelty claim on this record."
+  },
+  "bibliographic_anchors": [
+    "Cox2013",
+    "IrelandRosen1990",
+    "Serre1973",
+    "Lemmermeyer2000",
+    "Washington1997",
+    "Apostol1970",
+    "LidlNiederreiter1997",
+    "Diestel2017",
+    "StacksCRT",
+    "StacksGL"
+  ],
+  "artifacts": [
+    {
+      "path": "research/PRIME_FUSION_PUBLICATION_ATTRIBUTION_LEDGER_20260825.csv",
+      "git_blob_sha": "e3f26fe8b97a005e1c7859bb59e38a04c7b1a38d",
+      "status": "FROZEN"
+    },
+    {
+      "path": "research/PRIME_FUSION_CLASSICAL_PRIOR_ART_REVIEW_20260825.md",
+      "git_blob_sha": "aa7422930e78ecb83891ffe07ec0ffadd0d2cdba",
+      "status": "FROZEN"
+    },
+    {
+      "path": "research/PRIME_FUSION_PUBLICATION_PACKAGE_20260825.md",
+      "git_blob_sha": "5c10bfb5f5c260ce1ca17d6d2dd8270c7e24766f",
+      "commit_sha": "c13011ec860088a8a0c235026ca00b8c47fcdf5e",
+      "status": "FROZEN"
+    },
+    {
+      "path": "research/PRIME_FUSION_PUBLICATION_CLAIM_GUARDS_20260825.md",
+      "git_blob_sha": "bce2a138db532b88ca3849e4affba414660361ab",
+      "commit_sha": "3b4e47554a6ef11887100657db91b8edcc22d267",
+      "status": "FROZEN"
+    },
+    {
+      "path": "research/PRIME_FUSION_PUBLICATION_BIBLIOGRAPHY_20260825.bib",
+      "git_blob_sha": "4c12b15adb98e388beaf8f93eb789cd5bc2b8d1e",
+      "commit_sha": "aa1a444ab3404a806be71fd092f4df5a2cef0166",
+      "status": "FROZEN"
+    },
+    {
+      "path": "research_returns/PRIME_FUSION_PUBLICATION_ATTRIBUTION_AND_CLAIM_REVIEW_RETURN_20260825.md",
+      "git_blob_sha": "d39be2b260bc9825635e0ef4ea526f52383250dd",
+      "commit_sha": "1a28533674d17317361f32d9f6f90016e6ea8b6a",
+      "status": "FROZEN"
+    },
+    {
+      "path": "research_output/evidence/PRIME_FUSION_PUBLICATION_REVIEW_MANIFEST_20260825.json",
+      "git_blob_sha": null,
+      "status": "FROZEN",
+      "digest_note": "self digest intentionally omitted from self-referential manifest; verify by repository blob after creation"
+    }
+  ],
+  "stop_condition": {
+    "every_row_attributed": true,
+    "every_row_has_citation_confidence_evidence_lean_and_safe_wording": true,
+    "venue_neutral_package_frozen": true,
+    "bibliography_frozen": true,
+    "claim_guards_frozen": true,
+    "manifest_frozen": true,
+    "return_frozen": true,
+    "stop": true,
+    "open_successor_prime_fusion_task": false
+  }
+}
