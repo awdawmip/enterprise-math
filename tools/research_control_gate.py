@@ -11,9 +11,20 @@ import tools.research_taskbook as taskbook
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def machine_findings() -> list[dict[str, str]]:
+    return [
+        {"severity": "ERROR", "code": "EX-MACHINE", "message": message}
+        for message in execution.validate_machine(execution.load_machine(ROOT))
+    ]
+
+
 def audit_one(path: Path) -> list[dict[str, str]]:
-    findings = list(taskbook.audit_taskbook(path, root=ROOT, dispatch=True))
-    findings.extend(execution.audit_taskbook_path(path, root=ROOT))
+    # research_taskbook.audit_taskbook(..., dispatch=True) already composes the
+    # taskbook-policy audit with the execution-gate/taskbook audit. Keep this
+    # wrapper as the single user-facing dispatch command and add a structural
+    # validation of the machine itself without duplicating findings.
+    findings = machine_findings()
+    findings.extend(taskbook.audit_taskbook(path, root=ROOT, dispatch=True))
     return findings
 
 
