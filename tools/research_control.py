@@ -44,7 +44,7 @@ def validate_spec(spec: dict[str, Any]) -> list[str]:
     missing = required_sections - set(spec.get("state_vector", {}))
     if missing:
         errors.append("missing state-vector sections: " + ", ".join(sorted(missing)))
-    required_profiles = {"STANDARD_RESEARCH", "INDEPENDENT_AUDIT", "FORMALIZATION", "FOUNDATION_DISPOSITION", "INTEGRATION", "BENCHMARK", "GOVERNANCE_MAINTENANCE"}
+    required_profiles = {"STANDARD_RESEARCH", "INDEPENDENT_AUDIT", "FORMALIZATION", "FOUNDATION_DISPOSITION", "INTEGRATION", "BENCHMARK", "MATHEMATICAL_PROMOTION", "GOVERNANCE_MAINTENANCE"}
     if not required_profiles <= set(spec.get("control_profiles", [])):
         errors.append("control_profiles do not cover all current control classes")
     return errors
@@ -65,7 +65,7 @@ def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[st
         "actor": (actor, ("role", "mode", "identity_state")),
         "runtime": (runtime, ("scheduler_state", "dispatch_state")),
         "information": (info, ("firewall", "freeze_state", "source_exposure")),
-        "evidence": (ev, ("source_status", "independent_status", "driver_verdict", "formalization_status", "benchmark_status", "canonical_status")),
+        "evidence": (ev, ("source_status", "independent_status", "driver_verdict", "formalization_status", "foundation_status", "integration_status", "benchmark_status", "promotion_status", "canonical_status")),
         "routing": (route, ("working_truth", "method_harvest", "successor_gate", "route_disposition")),
         "parent": (parent, ("objective", "completion_basis")),
     }
@@ -124,12 +124,14 @@ def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[st
             errors.append("formalization work cannot start before Driver admission")
         if ev.get("source_status") in {"NONE", "DRAFT", "PROVED_SOURCE", "REPAIR_REQUIRED"}:
             errors.append("formalization requires frozen/corrected accepted source mathematics")
+        if ev.get("independent_status") in {"REQUIRED_OPEN", "PARTIAL"}:
+            errors.append("formalization cannot start while required independent evidence remains open")
         if snapshot.get("math_change_policy") != "NO_NEW_MATHEMATICS":
             errors.append("formalization profile requires NO_NEW_MATHEMATICS")
         if snapshot.get("statement_mismatch") is True and ev.get("formalization_status") != "RETURN_REQUIRED":
             errors.append("statement/interface mismatch must return to Driver, never silently weaken theorem")
 
-    if ev.get("foundation_gate") == "PENDING":
+    if ev.get("foundation_status") == "PENDING":
         if ev.get("canonical_status") == "CANONICAL":
             errors.append("pending Foundation disposition blocks canonical mutation")
         if ev.get("formalization_status") in {"ADMITTED", "IN_PROGRESS", "PASS"} and profile == "FOUNDATION_DISPOSITION":
@@ -143,14 +145,24 @@ def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[st
     if profile == "BENCHMARK" and ev.get("benchmark_status") in {"PARTIAL", "NEGATIVE"} and snapshot.get("result_level") == "L4":
         errors.append("partial/negative benchmark cannot carry L4 performance status")
 
-    if profile == "INTEGRATION" and ev.get("package_status") == "FROZEN":
+    if profile == "INTEGRATION" and ev.get("integration_status") == "FROZEN":
         if ev.get("source_status") == "REPAIR_REQUIRED":
             errors.append("package cannot freeze while source repair is required")
-        if ev.get("independent_status") == "REQUIRED_OPEN":
+        if ev.get("independent_status") in {"REQUIRED_OPEN", "PARTIAL"}:
             errors.append("package cannot freeze while required independent evidence remains open")
+
+    if profile == "MATHEMATICAL_PROMOTION":
+        if ev.get("promotion_status") in {"IN_ATTEMPT", "MERGED"}:
+            for field in ("promotion_attempt_ref", "current_main_snapshot", "conflict_audit_ref", "frozen_head_ref"):
+                if not nonempty(snapshot.get(field)):
+                    errors.append(f"mathematical promotion requires {field}")
+        if ev.get("canonical_status") == "CANONICAL" and ev.get("promotion_status") != "MERGED":
+            errors.append("canonical mutation requires completed mathematical promotion gate")
 
     if parent.get("objective") == "COMPLETE" and parent.get("completion_basis") == "NONE":
         errors.append("parent completion requires an explicit completion basis")
+    if parent.get("objective") == "BLOCKED" and parent.get("completion_basis") not in {"UNAVOIDABLE_BLOCK", "PLATFORM_LIMIT"}:
+        errors.append("blocked parent requires UNAVOIDABLE_BLOCK or PLATFORM_LIMIT completion basis")
     if parent.get("objective") == "OPEN" and nonempty(parent.get("next_executable_action")) and snapshot.get("terminal_output") is True:
         errors.append("parent objective is open with executable work; final stop would violate active-turn liveness")
 
@@ -226,16 +238,63 @@ def load_events(path: pathlib.Path) -> list[dict[str, Any]]:
     return [json.loads(line) for line in text.splitlines() if line.strip()]
 
 
+def template_snapshot(profile: str, spec: dict[str, Any]) -> dict[str, Any]:
+    if profile not in set(spec.get("control_profiles", [])):
+        raise ValueError(f"unknown control profile: {profile}")
+    snap = {
+        "actor": {"role": "RESEARCHER", "mode": "TASK_RESEARCH", "identity_state": "RESOLVED_LOCAL"},
+        "object": {"control_profile": profile, "task_id": None, "task_lineage": "NOT_APPLICABLE"},
+        "runtime": {"scheduler_state": "NONE", "dispatch_state": "NONE"},
+        "information": {"firewall": "NONE", "freeze_state": "NOT_REQUIRED", "source_exposure": "NORMAL"},
+        "evidence": {
+            "source_status": "NONE", "independent_status": "NOT_REQUIRED", "driver_verdict": "NONE",
+            "formalization_status": "NOT_APPLICABLE", "foundation_status": "NOT_APPLICABLE",
+            "integration_status": "NOT_APPLICABLE", "benchmark_status": "NOT_APPLICABLE",
+            "promotion_status": "NOT_APPLICABLE", "canonical_status": "NONCANONICAL"
+        },
+        "routing": {"working_truth": "INACTIVE", "method_harvest": "PENDING", "successor_gate": "NOT_APPLICABLE", "route_disposition": "PENDING"},
+        "parent": {"objective": "OPEN", "completion_basis": "NONE", "next_executable_action": None},
+        "terminal_output": False
+    }
+    if profile in {"INDEPENDENT_AUDIT", "FREE_CANDIDATE_AUDIT"}:
+        snap["information"].update(firewall="TASK_BLIND_FORWARD" if profile == "INDEPENDENT_AUDIT" else "FREE_PHASE_A_BLIND", freeze_state="REQUIRED_NOT_FROZEN", source_exposure="WITHHELD")
+        snap["evidence"]["independent_status"] = "REQUIRED_OPEN"
+    elif profile == "FORMALIZATION":
+        snap["evidence"]["formalization_status"] = "NOT_ADMITTED"
+        snap["math_change_policy"] = "NO_NEW_MATHEMATICS"
+    elif profile == "FOUNDATION_DISPOSITION":
+        snap["actor"].update(role="FOUNDATION_STEWARD", mode="VERIFY_OR_MAINTAIN")
+        snap["evidence"]["foundation_status"] = "PENDING"
+    elif profile == "INTEGRATION":
+        snap["evidence"]["integration_status"] = "OPEN"
+    elif profile == "BENCHMARK":
+        snap["evidence"]["benchmark_status"] = "OPEN"
+    elif profile == "MATHEMATICAL_PROMOTION":
+        snap["actor"].update(role="RESEARCH_DRIVER", mode="CONTROL_PLANE")
+        snap["evidence"]["promotion_status"] = "NOT_READY"
+    elif profile == "GOVERNANCE_MAINTENANCE":
+        snap["actor"].update(role="RESEARCH_DRIVER", mode="CONTROL_PLANE")
+    return snap
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Enterprise Math cross-layer research control validator")
     p.add_argument("--spec", type=pathlib.Path, default=DEFAULT_SPEC)
     sp = p.add_subparsers(dest="cmd", required=True)
     sp.add_parser("validate-spec")
+    t = sp.add_parser("template"); t.add_argument("profile")
     s = sp.add_parser("validate-snapshot"); s.add_argument("path", type=pathlib.Path)
     e = sp.add_parser("validate-events"); e.add_argument("path", type=pathlib.Path)
     args = p.parse_args(argv)
     spec = load_json(args.spec)
     errors = validate_spec(spec)
+    if not errors and args.cmd == "template":
+        try:
+            print(json.dumps(template_snapshot(args.profile, spec), ensure_ascii=False, indent=2))
+        except ValueError as exc:
+            print("ERROR:", exc)
+            return 1
+        return 0
     if not errors and args.cmd == "validate-snapshot":
         errors = validate_snapshot(load_json(args.path), spec)
     elif not errors and args.cmd == "validate-events":
