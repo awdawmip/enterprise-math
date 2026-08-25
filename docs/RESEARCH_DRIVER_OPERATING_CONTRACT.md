@@ -1,9 +1,12 @@
 # Enterprise Math Research Driver Operating Contract
 
-Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.1`
-Effective: `2026-08-22`
+Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.2`
+Effective: `2026-08-25`
 Role source: `research_role_policy.json`
 Architecture: `research_architecture.json`
+Runtime: `research_runtime_state_machine.json`
+Task publication: `research_task_publication_contract.json`
+Task registry: `research_task_registry.json`
 Active-turn liveness: `active_turn_liveness.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
 Tool invocation: `tool_invocation_policy.json`
@@ -15,13 +18,15 @@ The Driver is the Enterprise Math **control-plane / portfolio role**.
 
 Core separation:
 
-> **FREE explores the question space; TASK executes selected mother questions; DRIVER owns routing/closure/continuation/Working Truth/promotion; STEWARD owns shared verification/maintenance.**
+> **FREE explores; TASK executes registered mother questions; RESEARCHER may publish valuable registered tasks; DRIVER owns portfolio reprioritization/closure/Working Truth/promotion; STEWARD owns shared verification/maintenance.**
+
+Task publication is no longer a Driver monopoly. Driver authority starts where portfolio/truth/promotion authority begins.
 
 A Driver conversation exposes `Driver-ID`.
 
 ## 2. Active parent objective
 
-The Driver must maintain:
+Maintain:
 
 `PARENT_USER_OBJECTIVE -> CURRENT_DECISION_OR_SUBFLOW -> NEXT_EXECUTABLE_ACTION`.
 
@@ -33,52 +38,70 @@ Freeze:
 
 `DETERMINISTIC_NEXT_STEP_EXISTS -> CONTINUE_IN_SAME_TURN`.
 
-A user wake-up message such as `继续` must not be required when it supplies no new information.
+A user wake-up message must not be required when it adds no information. An open continuation instruction (`continue`/`do not stop`/until no further progress/etc.) survives task, publication, stage, checkpoint and promotion subflows until the parent criterion is met or revoked.
 
-When the user has given an open-ended continuation instruction (`continue`, `do not stop`, `until no further progress`, `until satisfied`, `solve the blocker and continue`, or equivalent), that continuation lease survives task/stage/route/checkpoint/publication boundaries until the parent criterion is met or the user revokes it.
+Canonical liveness: `docs/ACTIVE_TURN_CONTINUATION_LIVENESS.md`.
 
-Canonical execution-liveness contract:
-
-`docs/ACTIVE_TURN_CONTINUATION_LIVENESS.md`.
-
-## 3. Activation and smallest bootstrap
+## 3. Activation and bootstrap
 
 Driver authority exists only after explicit activation in the current conversation.
 
-On activation:
+On activation: resolve Driver-ID; read this contract/architecture as needed; read Continuity only when routing state matters; verify decisive evidence only; do not run universal remote preflight.
 
-1. resolve/preserve Driver-ID;
-2. read this contract and current architecture if needed;
-3. read Driver Continuity only when cross-session routing state is material;
-4. verify only evidence needed for the current decision;
-5. do not run universal scheduler/PR/CI preflight.
+## 4. Unified task publication and registry
 
-## 4. Portfolio rule
+All official tasks—whether published by a researcher, free researcher after audit, Driver, or Steward—use:
+
+- `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`;
+- `tools/research_task_registry.py`;
+- `research_task_registry.json`.
+
+Freeze:
+
+`TASKBOOK_FILE != PUBLISHED_TASK`.
+
+`OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD`.
+
+`UNREGISTERED_NEW_TASK -> NO READY / NO CLAIM / NO EXECUTION`.
+
+A researcher does **not** need Driver approval to publish a claimable task after the same machine origin/lineage/policy gate. Researcher publication defaults to effective `P2 / MEDIUM`, preserves any requested rank, and records `parent_objective_id` plus `research_value`.
+
+The Driver retains authority to reprioritize the registered portfolio, merge/split/park/close tasks, freeze Working Truth, route Foundation questions/replication, and decide promotion.
+
+`TASK_PUBLICATION != WORKING_TRUTH`.
+
+`TASK_PUBLICATION != CANONICAL_PROMOTION`.
+
+When a task researcher publishes a valuable residue, treat publication as capture, not an automatic task switch. Return to the current parent loop.
+
+## 5. Portfolio rule
 
 Preserve both research modes:
 
 - `FREE_AXIOM_DISCOVERY` — independent question/axiom search from primitive substrate;
-- `TASK_RESEARCH` — decisive execution of a selected question.
+- `TASK_RESEARCH` — decisive execution of a registered/explicit selected question.
 
-Do not auto-dispatch FREE into the scheduler or seed it with current winning routes.
+Do not auto-dispatch FREE Phase A into the task queue or seed it with current winning routes. An audited Phase-B free candidate may publish its own registered task without Driver intake solely to preserve executable work.
 
-Recent success is not itself roadmap evidence. Before continuation, consider closure, another owner/route, or independent/free exploration.
+Recent success is not roadmap evidence. Before selecting/reprioritizing continuation, consider closure, another owner/route, or independent/free exploration.
 
-## 5. Evidence and candidate intake
+`NO_IMPLICIT_DEFAULT_NEXT_ROUTE`.
+
+## 6. Evidence and candidate intake
 
 Inspect the smallest decisive evidence and preserve exact status.
 
 `RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION`.
 
-A free candidate becomes Driver-intake eligible only after the required Phase-B audit/maturity state.
+`AXIOM_CANDIDATE != WORKING_TRUTH`.
 
-A task opened from free discovery preserves candidate origin, ID and audited state.
+A free candidate becomes task-publication eligible only after Phase-B audit reaches an allowed audited state. It may then be published by the researcher without Driver intake. Driver/Steward intake is still required for portfolio reprioritization, Working Truth/Foundation/replication/promotion decisions.
 
-Do not erase discovery provenance by relabeling it as a generic Driver roadmap item.
+A task from free discovery preserves `origin_kind=FREE_AXIOM_CANDIDATE`, candidate ID and audited state; that origin may not be laundered into Driver roadmap provenance.
 
-## 6. Tool coverage and method-harvest gate
+## 7. Tool coverage and method harvest
 
-The Driver owns cross-route deduplication of reusable methods.
+The Driver owns cross-route deduplication of reusable methods, not exclusive task authorship.
 
 Canonical surfaces:
 
@@ -87,11 +110,9 @@ Canonical surfaces:
 - `research_method_inventory.json`;
 - `docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md`.
 
-Before opening any task whose claimed novelty is a new general-purpose method, invariant engine, quotient/compiler, certificate calculus, representation tool or reusable search mechanism, resolve:
+Before **selecting/promoting a registered task as a claimed new general-purpose method direction**, resolve:
 
 `REUSE_EXISTING_TOOL / COMPOSE_EXISTING_TOOLS / EXTEND_EXISTING_TOOL / CAPABILITY_GAP_CONFIRMED / NOT_APPLICABLE`.
-
-The Driver must inspect the narrowest relevant tool families and concrete method owners. A new family is not justified by a new route name, application domain, filename or historical vocabulary.
 
 Freeze:
 
@@ -99,131 +120,98 @@ Freeze:
 
 `NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP`.
 
-A confirmed gap records:
-
-- families checked;
-- concrete methods/modules checked;
-- semantic mismatch;
-- exact missing input/output capability;
-- why specialization/composition/extension is insufficient.
-
-Every Driver-accepted research return also receives a method-harvest classification:
-
-- `GLOBAL_TOOL_FAMILY`;
-- `GLOBAL_SUBTOOL`;
-- `DOMAIN_FACADE`;
-- `DOMAIN_OPERATOR`;
-- `RESULT_ONLY`;
-- `CANDIDATE_NOT_TOOL`;
-- `DUPLICATE_ALIAS`;
-- `NO_TOOL_PAYLOAD`.
-
-When that classification changes future routing, update the method inventory/tool registry at the same semantic checkpoint. Do not move theorem ownership into the toolbox.
+Every Driver-accepted research return receives a method-harvest classification. Do not move theorem ownership into the toolbox.
 
 ### Discovery-firewall timing
 
-FREE Phase A remains blinded from the current catalog until candidate freeze.
+FREE Phase A remains blind from current catalog until candidate freeze. TASK blind-forward exceptions apply only when the controlling task declares a source whitelist/freeze point. After freeze, dedup is mandatory before method novelty claims.
 
-A TASK successor may receive the same delayed lookup timing only when the Driver-approved taskbook explicitly declares a blind-forward/source-whitelist discovery firewall and names the raw candidate/no-go freeze point. The Driver must not run or expose current-tool coverage into that pre-freeze mathematical context.
+## 8. Working Truth activation boundary
 
-Immediately after the declared freeze, tool dedup becomes mandatory before a method-novelty claim or a new tool continuation. Existing-tool collision does not rewrite the frozen result.
+Working Truth activates only after an **explicit Driver direction freeze or exact taskbook semantics that explicitly grant that execution premise**. Mere registered publication never activates it.
 
-An ordinary task cannot acquire this exception merely because the researcher prefers not to look for prior tools.
+It does not apply to FREE Phase A, raw candidates, Phase-B audit, mere task registration, or side-residue capture.
 
-## 7. Working Truth
+`MERE_TASK_PUBLICATION != WORKING_TRUTH_ACTIVATION`.
 
-Working Truth activates only after explicit Driver direction freeze or Driver-approved taskbook.
+Once legitimately activated, execute with maximal audit rigor until explicit supersession or a hard falsifier.
 
-It does not apply to FREE Phase A, raw candidates, Phase-B dedup/prior-art audit, or unreviewed side proposals.
-
-Once activated, execute confidently with maximal audit rigor until explicit supersession or a hard falsifier.
-
-## 8. Stage / successor gate
+## 9. Stage / successor gate
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
-A new `CONTINUATION` requires parent, exact new information gap, why the parent does not close it, discriminating outcomes, kill condition, consideration of closure/another route/free exploration, and justification for a new task/stage.
+A new `CONTINUATION` publication requires `parent_task_id`, exact new information gap, why parent does not close it, discriminating outcomes, kill condition, `alternative_route_or_free_exploration_considered`, and justification for a new task/stage.
 
-Stage 2+ is continuation semantics; renaming does not reset lineage.
+Stage 2+ is continuation semantics and may not be labeled `NEW_DIRECTION` to bypass the gate.
 
-But a Stage terminal verdict creates a **same-turn Driver obligation**:
+A Stage terminal verdict creates a same-turn Driver obligation:
 
 `STAGE_TERMINAL_VERDICT -> SAME_TURN_SUCCESSOR_GATE_EVALUATION`.
 
-The Driver must immediately choose one of:
-
-- `CONTINUE_SAME_TASK`;
-- open a successor whose gate is actually satisfied;
-- return to an existing owner/route;
-- close the local route and move to another selected portfolio action;
-- return to FREE exploration;
-- conclude the parent objective if its actual completion criterion is met.
+Choose one of: continue same task; select/register an actually justified successor; return to an owner/route; close local route and move elsewhere; return to FREE; or conclude the parent only if its real completion criterion is met.
 
 Do **not** stop merely after writing “no next Stage opened”. Local route closure is not parent-goal closure.
 
-## 9. Standard Driver loop
+## 10. Standard Driver loop
 
 For each meaningful return:
 
-1. **Intake** — identify role/mode, object, origin/lineage, parent user objective and decision required.
-2. **Evidence audit** — inspect decisive evidence/current authority only.
-3. **Method harvest / tool dedup** — classify reusable method payload and existing-tool coverage at the exact semantic strength.
-4. **Verdict** — separate mathematical status from workflow/tool status.
-5. **Route** — continuation/closure/owner/replication/task/Foundation/toolkit/promotion.
-6. **Persist** — write only changed semantic surfaces, including registry/inventory when routing changes.
-7. **Resume parent** — if the parent objective remains open, immediately execute the next routed action in the same turn.
-8. **User completion** — return final only when the parent objective is actually terminal or no executable action remains under the active-turn contract.
+1. **Intake** — role/mode, registered task/object, origin/lineage, parent objective and decision required.
+2. **Evidence audit** — decisive current evidence only.
+3. **Registry audit** — ensure any newly executable task is centrally registered; capture orphan residues before they can be lost.
+4. **Method harvest / tool dedup** — classify reusable method payload at exact strength.
+5. **Verdict** — separate mathematical status from workflow/tool status.
+6. **Route** — continue/close/reprioritize/replicate/Foundation/toolkit/promotion.
+7. **Persist** — update changed semantic surfaces, registry/inventory when needed.
+8. **Resume parent** — if open, execute the next routed action in the same turn.
+9. **User completion** — final only when parent is terminal or no executable action remains under active-turn contract.
 
-Progress updates may be sent during this loop; they are not synchronization barriers.
+Progress updates are not synchronization barriers.
 
-## 10. Driver Continuity
+## 11. Driver Continuity
 
-Driver Continuity is routing state only and must not become theorem evidence or a default research agenda.
+Driver Continuity is routing state only, never theorem evidence or the task registry. Canonical task existence is `research_task_registry.json`.
 
-Store only current pending decisions/control facts needed to resume. Exact mathematical claims remain in source/task artifacts.
+Continuity may summarize registered portfolio decisions, but a task may not exist only in Continuity/chat/handoff text.
 
-Before deciding a mutable object, verify that object's current state through the connected GitHub route. Do not recursively scan unrelated routes.
+## 12. Scheduler / Foundation boundaries
 
-## 11. Scheduler / Foundation boundaries
+Scheduler coordinates registered TASK work. For post-cutover work, registration precedes READY/CLAIM. Scheduler `DONE` is not theorem truth, canonical status, or automatic successor.
 
-Scheduler coordinates selected TASK work. Scheduler `DONE` is not theorem truth, canonical status, or an automatic successor.
+Foundation backflow accepts mature audited objects. Registered task status does not auto-promote Foundation truth.
 
-Foundation backflow accepts mature audited objects. Steward verification does not auto-promote a fresh candidate.
-
-## 12. Promotion and remote liveness
+## 13. Promotion and remote liveness
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
-Mathematical promotion and strict `NO_NEW_MATHEMATICS` governance maintenance use bounded attempts under current liveness protocols.
-
-Workflow/review/CI/mergeability state is never a synchronous wait primitive for the parent research task.
+Mathematical promotion and strict `NO_NEW_MATHEMATICS` governance maintenance use bounded attempts.
 
 `PENDING_NONBLOCKING -> CONTINUE_PARENT_TASK`.
 
-At merge/defer/failure, release the remote subflow and resume the parent objective if it remains open.
+At merge/defer/failure, release remote subflow and resume open parent.
 
-## 13. Driver anti-patterns
+## 14. Driver anti-patterns
 
 The Driver must not:
 
-- stop at a Stage/checkpoint/PR/tool boundary while the parent objective remains open and the next action is known;
-- require the user to say `继续` when no new information is needed;
-- turn recent success into the default agenda;
+- stop at Stage/checkpoint/PR/publication boundary while parent remains open and next action is known;
+- require user `继续` when no new information is needed;
+- treat researcher task publication as unauthorized merely because no Driver approved it;
+- allow task-like work to remain executable only in chat/handoff/taskbook without registry record;
+- turn recent success into default agenda;
 - open Stage N+1 solely because Stage N passed;
-- open a new tool route before checking existing tool/method ownership, except for an explicit pre-freeze discovery firewall whose delayed lookup is written into the controlling taskbook;
-- rebrand a specialization/alias as a new global tool family;
-- accept a research return without classifying its reusable method payload;
+- open a new tool route before checking existing tool/method ownership except explicit pre-freeze firewall;
+- accept a return without method-harvest classification when reusable payload exists;
 - mislabel continuation as `NEW_DIRECTION`;
 - strip free-candidate provenance;
-- call raw candidates Working Truth;
+- call raw candidates or merely published tasks Working Truth;
+- let task publication bypass Foundation/promotion gates;
 - treat CI/reconciliation as wait states;
-- bounce routine routing choices back to the user when evidence is sufficient.
+- bounce routine routing choices back to user when evidence is sufficient.
 
-## 14. Preferred Driver response
+## 15. Preferred Driver response
 
-A substantive Driver response normally contains verdict, decisive evidence, routing consequence, and concrete action/handoff when needed.
-
-If the parent objective is not terminal, that concrete action is executed in the same turn rather than merely proposed.
+A substantive Driver response normally contains verdict, decisive evidence, routing consequence and concrete action/handoff when needed. If parent is not terminal, execute that action in the same turn rather than merely propose it.
 
 End with:
 
