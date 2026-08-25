@@ -1,23 +1,43 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_CONTRACT_V1",
   "status": "ACTIVE_CANONICAL",
-  "effective": "2026-08-25",
+  "effective": "2026-08-26",
   "record_store": "research_execution_records/<task-id>/<execution-record-id>.json",
   "tool": "tools/research_execution_records.py",
   "dispatch": "tools/research_dispatch.py",
   "result_contract": "research_result_contract.json",
-  "purpose": "Bind one immutable task publication generation to a concrete claim identity, Researcher-ID, theorem-owner classification, execution branch/base, output scope and owner lease before registered task execution begins.",
+  "purpose": "Bind one immutable task publication generation to a concrete claim identity, Researcher-ID, theorem-owner classification, execution branch/base, output scope and owner lease without turning GitHub persistence into the research hot path.",
   "core_invariants": [
     "THEOREM_OWNER_AND_EXECUTION_BRANCH_ARE_DISTINCT_TYPED_FIELDS",
-    "REGISTERED_CLAIM_REQUIRES_IMMUTABLE_EXECUTION_INTENT",
-    "EXECUTION_INTENT_PINS_PUBLICATION_ID_AND_TASKBOOK_BLOB",
-    "EXECUTION_INTENT_PINS_CLAIM_ID_AND_RESEARCHER_ID",
-    "EXECUTION_INTENT_PINS_EXECUTION_BRANCH_AND_BASE",
-    "EXECUTION_INTENT_PINS_ALLOWED_OUTPUT_SCOPE",
+    "REGISTERED_CLAIM_IS_THE_EXECUTION_AUTHORIZATION_ENVELOPE",
+    "REGISTERED_CLAIM_PINS_CURRENT_PUBLICATION_ID",
+    "REGISTERED_CLAIM_PINS_CLAIM_ID_AND_RESEARCHER_ID",
+    "REGISTERED_CLAIM_PINS_EXECUTION_BRANCH_AND_BASE",
+    "REGISTERED_CLAIM_PINS_ALLOWED_OUTPUT_SCOPE",
+    "NO_SEPARATE_REMOTE_EXECUTION_RECORD_WRITE_IS_REQUIRED_BEFORE_CLAIM",
     "FIRST_VALID_ISSUE_CLAIM_COMMITS_THE_DISTRIBUTED_CLAIM_RACE",
-    "ISSUE_CLAIM_WITHOUT_MATCHING_EXECUTION_INTENT_IS_IGNORED",
+    "INCOMPLETE_OR_STALE_REGISTERED_CLAIM_ENVELOPE_IS_IGNORED",
+    "IMMUTABLE_EXECUTION_RECORD_MAY_BE_FROZEN_AT_A_DURABLE_CHECKPOINT",
     "RESULT_FREEZE_REQUIRES_MATCHING_EXECUTION_RECORD"
   ],
+  "claim_envelope_required_fields": [
+    "task_id",
+    "claim_id",
+    "publication_id",
+    "theorem_owner",
+    "execution_branch",
+    "execution_branch_base",
+    "allowed_outputs"
+  ],
+  "claim_envelope_optional_fields": [
+    "researcher_id",
+    "lease_minutes"
+  ],
+  "claim_envelope_normalization": {
+    "researcher_id": "If absent, derive deterministically from task_id plus claim_id using the existing identity lane.",
+    "taskbook_blob_sha1": "Resolved from the current immutable publication record; callers do not need to duplicate it.",
+    "lease_minutes": "If absent, inherit the task claim lease."
+  },
   "record_required_fields": [
     "execution_record_id",
     "task_id",
@@ -32,5 +52,11 @@
     "owner_lease_minutes",
     "prepared_at"
   ],
-  "distributed_transaction": "Create/verify branch -> create immutable execution intent -> append CLAIM event on Issue #240 -> canonical reducer accepts only the first valid live claim. Multiple losing intents remain provenance and never become live claims."
+  "persistence_boundary": {
+    "claim": "One Issue #240 CLAIM is sufficient to begin a registered execution after local/canonical validation; do not require a prior commit, PR, merge, CI wait, heartbeat, or second GitHub write.",
+    "execution_record": "The immutable execution record is durable provenance for result freezing. It may be created locally after CLAIM and batched with the first genuine durable checkpoint or final return; it is not a pre-math remote publication gate.",
+    "between_checkpoints": "Zero routine repository writes, zero CI polling, and zero scheduler heartbeat are required solely by this contract."
+  },
+  "distributed_transaction": "Validate current task publication -> create/verify execution branch -> append one self-contained CLAIM envelope on Issue #240 -> first valid live CLAIM wins -> freeze the matching execution record only when a genuine durable checkpoint/result requires provenance.",
+  "compatibility": "A previously frozen immutable execution intent may still authorize its matching CLAIM, but new executions should prefer the single-write CLAIM-envelope path."
 }
