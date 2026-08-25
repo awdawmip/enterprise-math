@@ -1,6 +1,6 @@
 # CBRC F5R — Semantic Countermodel and Ablation Packet
 
-Status: `CHECKPOINT_A_DRAFT`
+Status: `FINAL_FROZEN`
 Researcher-ID: `EM-CBRC-F5R-8120F1`
 
 ## 1. Semantic models
@@ -29,7 +29,7 @@ On `(e,0)` the outputs have old projections
 
 `(2e,-e)`.
 
-Thus both marked outputs are nonzero after forgetting. If each marked output is additionally required to refine concrete old Path-formal support, the candidate is derived.
+Thus both marked outputs are nonzero after forgetting. If each marked output is additionally required to refine concrete old Path-formal support carrying a nonzero old coefficient, the candidate is derived.
 
 ### Model S-B witness — candidate false with exact reversible kernel branch
 
@@ -96,7 +96,7 @@ Path-formal provenance retention also fails to imply the candidate unless streng
 
 ## 4. Strongest conserving substitute
 
-Under the added total old-coordinate conservation equation
+Under the separately imposed total old-coordinate conservation equation
 
 `pi(x)+pi(y)=e`,
 
@@ -125,15 +125,36 @@ Without total old-coordinate preservation, the allowed source abstraction gives 
 | old Boolean support preservation | `UNCHANGED_INDEPENDENT` | S-B already preserves old support; removal does not alter the counterexample |
 | marker identity/provenance retention | `UNCHANGED_INDEPENDENT / INTERPRETATION_WEAKER` | the slotwise formula remains evaluable, but its interpretation as retained branch survival becomes less semantically anchored |
 
-## 6. Rank-boundary consequence
+## 6. Deterministic model evidence
+
+Pushed checker:
+
+`scripts/cbrc_f5r_validate_forgetful_branch_semantics.py`
+
+Remote/executed Git blob SHA:
+
+`b83995d4d1bf00db3d078fcb349ef5ed5223f8a4`.
+
+Result:
+
+- `PASS`;
+- mismatch count `0`;
+- deterministic digest `14201c39734a17782aa7dabb48a22c0e97fc72a002f6f78578cf3645869d9a97`;
+- `(1,1)` Path-formal count `2`, N-augmentation `2`, Boolean terminal support `1`;
+- S-A projection pair `(2,-1)`, candidate true;
+- S-B projection pair `(1,0)`, candidate false;
+- S-C total-only recovery true with candidate false;
+- all seven mandatory ablations covered.
+
+## 7. Rank-boundary consequence
 
 The S-B witness has exactly the projection pattern tolerated by the accepted F4 torsion loophole: one old-supported output and one projection-zero nonzero enriched output.
 
 Therefore the weaker `at least one nonzero` theorem does not eliminate the rank-one loophole. A rank lift follows only after adding the stronger per-branch nondegeneracy rule, and is therefore `CONDITIONAL_ON_NEW_AXIOM`.
 
-## 7. Draft classification
+## 8. Final classification
 
-Primary draft verdict:
+Primary verdict:
 
 `F5R_NEW_AXIOM_REQUIRED`.
 
