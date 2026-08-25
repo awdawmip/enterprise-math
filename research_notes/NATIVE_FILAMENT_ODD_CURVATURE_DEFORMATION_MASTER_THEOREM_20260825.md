@@ -1,10 +1,12 @@
 # Native filament odd-curvature deformation master theorem
 
-Status: `FREE_RESEARCH_EXACT_PARAMETERIZED_THEOREM_FAMILY / EXTERNAL_NOVELTY_UNRESOLVED / NOT_CANONICAL_FOUNDATION`
+Status: `FREE_RESEARCH_EXACT_PARAMETERIZED_THEOREM_FAMILY / POST_AUDIT_V2_NARROWED / EXTERNAL_NOVELTY_UNRESOLVED / NOT_CANONICAL_FOUNDATION`
 
 Date: `2026-08-25`
 
 Researcher-ID: `EM-FREE-NEPS-239A6D`
+
+Post-audit authority: `NATIVE_FILAMENT_COUPLED_SELECTION_POST_AUDIT_V2_STATEMENT_FREEZE_20260825.md`.
 
 This note deforms the native coefficient `3` to an arbitrary positive odd curvature coefficient `B`. The actual Enterprise filament is the specialization `B=3`; values `B!=3` are a mathematical deformation family and are not claimed to be native Enterprise geometry.
 
@@ -56,8 +58,6 @@ with characteristic polynomial
 
 `(lambda-1)^3(lambda+1)`.
 
-So changing `B` changes only the quadratic backbone, not the mode decomposition.
-
 ## 3. Exact finite-quotient cardinality
 
 For modulus `M>=2`, let `C_(k,B)(M)` be the set of length-`k` residue words obtained from all integer `(H,R)`, with `k>=3`.
@@ -72,25 +72,27 @@ and
 
 Let
 
-`g=gcd(B,M)`.
+`g=gcd(B,M)`
 
-The exact effective period of `R` is
+and
 
 `L_(B,M)=lcm(2,M/g)`.
 
-For every `M>2`, the first three coordinates recover the effective state, because after fixing the intercept the difference equations are
+### M>2
 
-`Delta b + Delta s = 0 mod M`,
+After fixing the intercept, the exact/minimal effective `R` period is
 
-`2 Delta b = 0 mod M`,
+`L_(B,M)`.
 
-where `Delta s` is `0,+1,-1`; since `M>2`, this forces `Delta s=Delta b=0`.
+The first three coordinates recover the effective state, and
 
-Therefore
+`|C_(k,B)(M)|=M*L_(B,M)`.
 
-`|C_(k,B)(M)|=M*lcm(2,M/gcd(B,M))` for every `M>2`.
+### M=2
 
-At `M=2`, there are exactly two words:
+After fixing the intercept, the exact/minimal effective `R` period is `1`.
+
+There are exactly two words:
 
 - if `B=3 mod4`, the two constant words;
 - if `B=1 mod4`, the two alternating words.
@@ -101,11 +103,7 @@ Thus
 
 The count is independent of `k` once `k>=3`.
 
-If `M|N`, reduction `C_(k,B)(N)->C_(k,B)(M)` is surjective with uniform fiber size
-
-`(N/M)*(L_(B,N)/L_(B,M))`.
-
-For a new prime `q` with `q` not dividing `B*M`, the fiber multiplier is exactly `q^2`.
+If `M|N` and both moduli are above the exceptional `M=2` collapse, reduction is surjective with uniform fibers. For a new prime `q` with `q∤B*M`, the fiber multiplier is `q^2`.
 
 ## 4. Fixed-chirality affine MDS sheet
 
@@ -113,11 +111,9 @@ Let `q` be prime with
 
 `q>max(2,k-1)`
 
-and `q` not dividing `B`.
+and `q∤B`.
 
-Fix one chirality `chi`. Since `B` is invertible mod `q`, the slope `B*R` runs over all of `F_q`.
-
-Subtract the curvature offset
+Fix chirality `chi`. Subtract the curvature offset
 
 `eta_j^(B,chi)=(B*j^2+chi*eps(j))/2`.
 
@@ -125,80 +121,81 @@ Then
 
 `W_j=V_j-eta_j^(B,chi)=a+b*j`.
 
-Hence each fixed-chirality sheet is an affine translate of the `[k,2,k-1]` Reed-Solomon code.
-
-This MDS statement is classical once the flattening identity is known; the deformation-specific content is the exact integer lock that produces it.
+Hence each fixed-chirality sheet is an affine translate of the `[k,2,k-1]` Reed--Solomon code.
 
 ## 5. Exact zero-line concurrence formulas
 
-For divisibility by an odd prime `q`, the `j`-th coordinate defines the parameter line
+For divisibility by an odd prime `q`, the `j`-th coordinate defines
 
 `L_j: a+b*j+eta_j^(B,chi)=0`.
 
-Assume `q>k-1`, so the slopes `j` are distinct mod `q`.
-
 ### 5.1 Same-parity triples
 
-For three distinct indices of one parity, the determinant is a nonzero Vandermonde factor times `B/2`.
-
-Therefore a same-parity triple is concurrent mod `q^a` iff
+If three distinct same-parity indices remain slope-distinct modulo `q`, their determinant is a nonzero Vandermonde factor times `B/2`. Therefore such a triple is concurrent modulo `q^a` iff
 
 `q^a | B`.
 
 ### 5.2 Mixed-parity triples
 
-Let `u,v` be the two same-parity indices and `w` the opposite-parity index. Put
+Let `u,v` be the same-parity pair, let `w` have opposite parity, and put `e=eps(u)=eps(v)`.
 
-`e=eps(u)=eps(v)`.
+The exact determinant is
 
-Then the triple determinant is a unit Vandermonde factor times
+`(u-v)/2 * [B*(w-u)*(w-v)+chi*(1-2*e)]`.
 
-`B*(w-u)*(w-v)+chi*(1-2*e)`.
+Therefore the displayed obstruction is an iff criterion modulo `q^a` provided
 
-Therefore the triple is concurrent mod `q^a` iff
+`q∤(u-v)`.
 
-`q^a | B*(w-u)*(w-v)+chi*(1-2*e)`.
+Equivalently, in a length-`k` window the stronger hypothesis
 
-## 6. Union discriminant across both chiralities
+`q>k-1`
 
-For `k>=5`, define the mixed-parity product
+automatically supplies the distinct-slope/unit condition for every distinct index triple.
 
-`D_(k,B)=B * product_T (B^2*A_T^2-1)`,
+Without this condition the obstruction alone is not an iff criterion.
 
-where `T` runs over mixed-parity triples and
+## 6. Chirality-dependent dual-parabola form
 
-`A_T=(w-u)*(w-v)`.
+For `e in {0,1}` define
 
-For every prime `q>k-1`:
+`Q_e^(chi)(x)=x^2/(2B)-chi*e/2`.
 
-`q is exceptional for at least one chirality`
+The zero line at index `j` is tangent at `x=-Bj` to
+
+`Q_(eps(j))^(chi)`.
+
+The older chirality-independent pair `Q_0,Q_1` is valid without modification only for `chi=+1`.
+
+## 7. Union discriminant across both chiralities
+
+In the inherited regime
+
+`q` odd, `q∤B`, `q>k-1`,
+
+same-parity triples are generic and the mixed-parity union discriminant is
+
+`mathfrak D_(k,B)=product_T (B^2*A_T^2-1)`,
+
+where `A_T=(w-u)*(w-v)`.
+
+Then
+
+`q` changes the mixed tangent-arrangement intersection type for at least one chirality
 
 iff
 
-`q | D_(k,B)`.
+`q | mathfrak D_(k,B)`.
 
-The factor `B` records same-parity concurrence. The factors `B^2*A_T^2-1` record the two possible mixed-parity chiral concurrences.
+For fixed chirality, the exact q-adic persistence depth is
 
-For fixed `chi`, define the exact local depth
+`max_T v_q(B*A_T+chi*(1-2*e_T))`.
 
-`nu_(q,k,B,chi)`
+Do not identify the two-chirality union-discriminant valuation with a fixed-chirality depth.
 
-as the maximum of
+If one extends outside `q∤B`, same-parity triples and small-`k` existence conditions must be handled separately.
 
-- `v_q(B)` from same-parity triples;
-- `v_q(B*A_T+chi*(1-2*e_T))` over mixed-parity triples.
-
-Then, in the distinct-slope regime,
-
-`defect at modulus q^a is nonzero`
-
-iff
-
-`a <= nu_(q,k,B,chi)`.
-
-Thus the disappearance depth is exact, not merely bounded above.
-
-## 7. Exceptional-prime cutoff away from divisors of B
+## 8. Exceptional-prime cutoff away from divisors of B
 
 For `k>=5`, the maximum possible absolute mixed-parity distance product is
 
@@ -212,27 +209,17 @@ Therefore any odd exceptional prime `q` not dividing `B` satisfies
 
 `q <= (B*M_k+1)/2`.
 
-For the native specialization `B=3`, this recovers the cutoff staircase and, at `k=8,9`, the terminal bound `q<=53`.
+For the native specialization `B=3`, this recovers the terminal bound `q<=53` at `k=8,9`.
 
-## 8. Transparency formula for arbitrary B
+## 9. Transparency formula for arbitrary B
 
-Consider the full infinite filament modulo an odd prime `q>3` using transverse variable `H`.
+For odd prime `q>3`, call `H mod q` transparent if no shell value is divisible by `q`.
 
-Write `r=2m` or `2m+1`.
-
-Then
-
-`F_B(H,2m)=H+2*B*m^2`,
-
-`F_B(H,2m+1)=H+(B*(2m+1)^2+1)/2`.
-
-Call `H mod q` transparent if no value on either parity branch is divisible by `q`.
-
-If `q|B`, the two branches are constant in the square variable and exactly two `H` classes are killed, so
+If `q|B`,
 
 `T_B(q)=q-2`.
 
-If `q` does not divide `B`, the two root conditions reduce to two linear arguments of the quadratic character. Standard character sums give
+If `q∤B`,
 
 `T_B(q)=[q-3 + Legendre(B/q)+Legendre(-B/q)]/4`.
 
@@ -240,29 +227,15 @@ Hence for every `q>=7`,
 
 `T_B(q)>0`.
 
-No prime `q>=7` is a universal single-channel breaker anywhere in this odd-curvature family.
+No prime `q>=7` is a universal single-channel breaker anywhere in this family.
 
-## 9. Complete q=5 phase diagram
+## 10. Complete q=5 phase diagram
 
 Modulo `5`:
 
-### `B=0 mod5`
-
-`T_B(5)=3`.
-
-There are three transparent transverse classes.
-
-### `B=+-1 mod5` (quadratic-residue phase)
-
-`T_B(5)=1`.
-
-There is exactly one transparent transverse class.
-
-### `B=+-2 mod5` (quadratic-nonresidue phase)
-
-`T_B(5)=0`.
-
-Every transverse class is hit by a 5-divisible Cell.
+- `B=0 mod5`: `T_B(5)=3`;
+- `B=+-1 mod5`: `T_B(5)=1`;
+- `B=+-2 mod5`: `T_B(5)=0`.
 
 Therefore
 
@@ -272,41 +245,38 @@ iff
 
 `Legendre(B/5)=-1`.
 
-This includes the native coefficient `B=3`.
+This includes `B=3`.
 
-## 10. Sharp length-nine cap in the breaker phase
+## 11. Exact breaker-coprime capacity in the q=5 breaker phase
 
 Assume `Legendre(B/5)=-1`.
 
-The sequence modulo `5` has period `10` in `r`. Since there are no transparent `H` classes, every period contains a zero, so every run of nonzero values has length at most `9`.
+The sequence modulo `5` has period `10` in `r`. Every period contains a zero, so every consecutive run of values coprime to `5` has length at most `9`.
 
-The bound is sharp in exactly two tangency channels:
+The bound is sharp exactly in the two normalized tangency classes
 
-- `H=0`: the even branch has the single double root `m=0`, while the odd branch has no root; the 9-run starts at `r=1 mod10`;
-- `H=-1/2=2 mod5`: the odd branch has the single double root `2m+1=0`, while the even branch has no root; the 9-run starts at `r=6 mod10`.
+`H=0,2 mod5`.
 
-Hence
-
-`Legendre(B/5)=-1`
-
-implies
+Thus
 
 `MAX CONSECUTIVE 5-COPRIME RUN LENGTH = 9`.
 
-If `Legendre(B/5)=+1` or `5|B`, at least one transparent filament exists, so no finite run cap is forced by channel 5.
+### Scope guard
 
-## 11. Finite-wheel dichotomy above the base channels
+This is a divisibility/nonzero-run capacity, not an unrestricted prime-run theorem for arbitrary integer `(H,R)`.
 
-For every prime `q>=7`, at least one transparent class exists. Therefore, by CRT, any finite collection of such individually nonbreaking channels has a simultaneous transparent transverse class.
+The actual native typed-Cell theorem `MAX GLOBAL PRIME-INCIDENCE ISLAND SIZE = 9` is a separate stronger result from the parent native branch, using native domain/incidence/seam structure in addition to the breaker calculation.
+
+## 12. Finite-wheel dichotomy
+
+For every prime `q>=7`, at least one transparent class exists. By CRT, any finite collection of individually nonbreaking channels has a simultaneous transparent transverse class.
 
 Consequently, after the base `2/3` selection:
 
-- if `Legendre(B/5)=-1`, channel 5 alone breaks every long filament, with sharp local cap 9;
+- if `Legendre(B/5)=-1`, channel `5` breaks every long filament with breaker-coprime capacity `9`;
 - otherwise, no finite collection of prime channels `q>=5` can break every filament.
 
-This gives a one-parameter connectivity phase transition controlled entirely by `B mod5`.
-
-## 12. Native interpretation
+## 13. Native interpretation
 
 The Enterprise filament has `B=3`. Therefore
 
@@ -316,23 +286,21 @@ The Enterprise filament has `B=3`. Therefore
 
 `-> channel 5 is the unique breaker above3`,
 
-`-> sharp filament / island cap 9`.
+`-> breaker-coprime run capacity 9`.
 
-So the constants `5` and `9` are not independent accidents: they are consequences of the curvature coefficient selected by the three-sector allocation.
+Separately, the full native typed-Cell incidence theorem proves an actual prime-incidence island cap of `9`.
 
-## 13. Nonuniform p-adic depth outside the native specialization
+So the constants `5` and `9` are coupled, but the divisibility-capacity theorem and the actual-prime-incidence theorem remain logically distinct.
+
+## 14. Nonuniform p-adic depth outside the native specialization
 
 The native `B=3`, `k<=9` exceptional channels all heal by the second residue layer because every relevant obstruction has q-adic valuation one.
 
 This is not universal in the deformation family.
 
-Example: `B=49`, `k=5`, `q=5`, negative chirality. One mixed-parity obstruction has 5-adic valuation two. Direct enumeration gives nonzero defect mod `5` and mod `25`, but zero defect mod `125`.
+Example: `B=49`, `k=5`, `q=5`, negative chirality has a mixed obstruction of 5-adic valuation two. Direct enumeration gives nonzero defect mod `5` and mod `25`, but zero defect mod `125`.
 
-More generally, by choosing `B` in a prescribed residue class modulo `q^a`, mixed-parity obstruction depth can be made arbitrarily large while keeping `q` not dividing `B`.
-
-Thus `q^2` healing is a rigid property of the native `B=3` packet, not of the whole odd-curvature family.
-
-## 14. Boundary
+## 15. Boundary
 
 The finite-field method, affine/MDS code theory, quadratic-character sums, CRT and arithmetic-arrangement language are classical.
 
@@ -348,6 +316,6 @@ The research candidate is the exact coupled deformation law
 
 `-> Legendre(B/5) connectivity phase`
 
-`-> sharp 9-cap in the nonresidue phase`.
+`-> sharp breaker-coprime 9-cap in the nonresidue phase`.
 
-External novelty remains unresolved pending independent statement-level literature review.
+External novelty remains unresolved pending a separate independent literature review.
