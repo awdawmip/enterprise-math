@@ -8,24 +8,58 @@ Canonical machine:
 
 - `research_runtime_state_machine.json`
 - `tools/research_runtime.py`
+- `tools/active_turn_liveness.py`
+- `tools/research_task_registry.py`
 
-This runtime composes, rather than replaces, the existing scheduler, identity, taskbook and active-turn contracts.
+Task publication/registry:
+
+- `research_task_publication_contract.json`
+- `research_task_registry.json`
+- `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`
+- `docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md`
+
+This runtime composes, rather than replaces, the scheduler, identity, taskbook, task-publication and active-turn contracts.
 
 ## 1. Why this object exists
 
 The runtime is the single control object that answers all of the following at once:
 
-`PARENT_OBJECTIVE -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED`
+`PARENT_OBJECTIVE -> TASK_REGISTRATION -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED`
 
-A role-specific contract may still own its own semantics, but no local terminal state may be interpreted as permission to end the whole research turn without passing through this runtime.
+A role-specific contract may still own its own semantics, but no local terminal state and no unregistered task-like artifact may be interpreted as executable work outside this runtime.
 
-## 2. Canonical runtime object
+## 2. Registered-task gate
+
+Task existence is now explicit runtime state.
+
+Freeze:
+
+`TASKBOOK_FILE != PUBLISHED_TASK`.
+
+`OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD`.
+
+`UNREGISTERED_NEW_TASK -> NO READY / NO CLAIM / NO EXECUTION`.
+
+Every new task published by a researcher, Driver or Foundation Steward uses the same publication template and is written to `research_task_registry.json` through `tools/research_task_registry.py` or an exact equivalent transaction.
+
+Researchers may publish claimable tasks without Driver approval. Researcher publication defaults to runtime rank `P2 / MEDIUM`; a publisher request is preserved, and Driver portfolio reprioritization remains separate authority. Publication does not grant Working Truth, Foundation status, theorem truth, canonical promotion or Driver authority.
+
+FREE Phase A remains non-agenda discovery. A free researcher may publish a task only after Phase-B audit has produced an audited candidate/negative-obstruction state allowed by the candidate lifecycle. Driver intake is not required merely to register that task.
+
+A task researcher may publish a valuable side residue without switching or terminating the current task. The publication record must preserve `parent_objective_id`, exact lineage, frontier, next action and `research_value`.
+
+Legacy pre-cutover tasks may continue existing executions under baseline compatibility, but any fresh redispatch or current-policy re-review requires explicit registration.
+
+Task publication is a `SUBFLOW`; after it succeeds the runtime returns to the current parent objective.
+
+## 3. Canonical runtime object
 
 Every nontrivial research/control turn should be representable as:
 
 ```json
 {
   "parent_objective": {"objective_id": "...", "status": "OPEN"},
+  "task_registration": {"registry_key": "...", "state": "REGISTERED_OR_LEGACY_BASELINE_REGISTERED"},
   "task": {
     "task_id": "...",
     "status": "ACTIVE",
@@ -54,29 +88,19 @@ Every nontrivial research/control turn should be representable as:
 }
 ```
 
-Not every route needs every value populated immediately, but the nine canonical fields themselves are not optional when the runtime object is materialized.
-
-## 3. Two leases, never one
+## 4. Two leases, never one
 
 ### Owner lease
 
-The owner lease answers:
+The owner lease answers who still owns the task/branch/claim. Existing scheduler `claim_lease_minutes` and `lease_until` are **owner-lease** fields. Long owner leases remain legal ownership policy.
 
-> Who still owns this task/branch/claim?
-
-The existing scheduler `claim_lease_minutes` and `lease_until` are interpreted as **owner-lease** fields. A task-local 120-minute or 1440-minute claim remains legal as ownership policy.
-
-It does **not** mean the current chat is alive.
+They do **not** mean the current chat is alive.
 
 ### Session liveness
 
-The session liveness clock answers:
-
-> Is this exact conversation instance still making visible or durable progress?
+The session clock answers whether this exact conversation is still making visible or durable progress.
 
 Default stale window: **10 minutes**.
-
-The clock may be renewed by visible/durable session progress or an explicit session heartbeat. It must not inherit the owner-lease duration.
 
 Freeze:
 
@@ -84,14 +108,14 @@ Freeze:
 
 `LONG_OWNER_LEASE != LIVE_CONVERSATION`.
 
-## 4. Session states
+## 5. Session states
 
 The runtime classifies the conversation as:
 
-- `ACTIVE` — session is within the liveness window;
-- `STALE_RECOVERABLE` — session is stale but its owner claim is still valid;
-- `STALE_UNOWNED` — session is stale and the owner claim is no longer valid;
-- `TERMINATED` — session was explicitly terminated.
+- `ACTIVE`;
+- `STALE_RECOVERABLE`;
+- `STALE_UNOWNED`;
+- `TERMINATED`.
 
 Critical transition:
 
@@ -99,35 +123,19 @@ Critical transition:
 
 Do not wait for owner-lease expiry merely because the old conversation died.
 
-## 5. Stale adoption
+## 6. Stale adoption
 
-When a replacement conversation sees `STALE_RECOVERABLE`, it must **adopt the existing owner claim** rather than issue a second claim.
+When a replacement conversation sees `STALE_RECOVERABLE`, it adopts the existing owner claim rather than issuing a second claim.
 
-Before adoption, verify all of:
-
-1. exact `taskbook_source`;
-2. exact `owner_branch`;
-3. exact live `claim_id`;
-4. refreshed remote `HEAD` against the durable frontier;
-5. execution stamp;
-6. durable outputs/checkpoints;
-7. `durable_frontier_verified=true`.
+Before adoption, verify taskbook source, owner branch, live claim id, refreshed remote HEAD, execution stamp, durable outputs and durable-frontier integrity.
 
 Then:
 
 `STALE_RECOVERABLE -> ADOPT_EXISTING_OWNER_CLAIM -> RESUME_FROM_DURABLE_FRONTIER`.
 
-Adoption invariants:
+Adoption preserves the claim and Researcher-ID, does not replay completed units, resumes at the first unfinished unit, and reevaluates the parent when no unfinished unit remains.
 
-- claim is not reissued;
-- Researcher-ID is preserved;
-- completed units are not replayed;
-- resume at `CURRENT_UNFINISHED_UNIT`;
-- if no unfinished unit remains, `REEVALUATE_PARENT`.
-
-A mismatch in taskbook source, branch, claim, remote head, execution stamp or frozen durable frontier is a control error, not permission to guess.
-
-## 6. Terminal scope
+## 7. Terminal scope
 
 Exactly three semantic terminal scopes exist:
 
@@ -139,82 +147,76 @@ Required transitions:
 
 `SUBFLOW_COMPLETE -> REEVALUATE_PARENT`
 
+`TASK_PUBLISHED -> REEVALUATE_PARENT`
+
 `TASK_FROZEN -> REEVALUATE_PARENT`
 
 `TASK_COMPLETE -> REEVALUATE_PARENT`
 
 `PARENT_OBJECTIVE_COMPLETE -> PRE_FINAL`
 
-A taskbook instruction such as “freeze and stop; do not open F6” is normally a **TASK terminal**, not proof that the parent Driver objective is complete. The researcher stops that task; the controlling loop then returns to the parent objective for review/routing.
-
 Freeze:
 
 `TASK_TERMINAL != PARENT_OBJECTIVE_TERMINAL`.
 
-## 7. PRE_FINAL
+## 8. PRE_FINAL
 
-The unified runtime delegates the base liveness decision to the existing canonical primitive:
-
-`tools/active_turn_liveness.py`.
-
-The runtime orchestration entry is:
-
-`tools/research_runtime.py`.
+The runtime delegates base liveness to `tools/active_turn_liveness.py`; orchestration entry is `tools/research_runtime.py`.
 
 Core rule:
 
 `PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FINAL_ALLOWED=false`.
 
-Only runtime transitions whose liveness primitive returns one of the final-allowed outcomes may render a final response. `final_response_identity_policy.json` is evaluated **after** final permission; it cannot create permission by itself.
-
-Therefore:
-
 `RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN`.
 
-## 8. Operator procedure for every researcher/Driver
+## 9. Operator procedure
 
-At a meaningful boundary, use this order:
+At a meaningful boundary:
 
-1. identify the parent user/Driver objective;
-2. identify the exact current task and owner claim;
-3. classify the current session independently from owner lease;
-4. refresh/verify the durable frontier when recovery or handoff is involved;
-5. identify the first unfinished unit;
-6. materialize the next executable action;
-7. classify any completion as `SUBFLOW`, `TASK`, or `PARENT_OBJECTIVE`;
-8. for `SUBFLOW`/`TASK`, return to parent routing;
-9. immediately before final, run the PRE_FINAL decision;
-10. only if final is allowed, render the final response and identity footer.
+1. identify parent objective;
+2. verify current task registration before READY/CLAIM/execution;
+3. identify task and owner claim;
+4. classify session independently from owner lease;
+5. verify durable frontier when recovery/handoff is involved;
+6. identify first unfinished unit and next executable action;
+7. classify terminal scope;
+8. return SUBFLOW/TASK terminals to parent routing;
+9. immediately before final, run PRE_FINAL;
+10. only then render final response and identity footer.
 
-Do not replace this with “the latest tool call succeeded”, “the task froze”, “the PR is ready”, “the scheduler lease is still live”, or “the user can send continue”. None is a parent-terminal proof.
+Do not replace this with “taskbook exists”, “handoff exists”, “scheduler entry exists”, “tool call succeeded”, “task froze”, “PR is ready”, “lease is live”, or “the user can send continue”.
 
-## 9. Scheduler compatibility
+## 10. Scheduler compatibility
 
-`research_scheduler.json` remains the durable task/owner queue. Its current V1 lease remains supported.
+`research_scheduler.json` remains the durable legacy task/owner queue. For post-cutover tasks, registration is a prerequisite to scheduling/claim.
 
 Runtime interpretation:
 
+- `UNREGISTERED new task` -> register before dispatch;
+- `REGISTERED/CLAIMABLE` -> eligible for claim;
 - `LEASED + ACTIVE session` -> `KEEP_CURRENT_SESSION`;
 - `LEASED + STALE_RECOVERABLE` -> `ADOPT_OWNER_CLAIM`;
 - `LEASED + unknown session liveness` -> `VERIFY_SESSION_LIVENESS`;
-- `NEEDS_DISPATCH` -> `CLAIM_NEW_OWNER`.
+- `NEEDS_DISPATCH` -> `CLAIM_NEW_OWNER` only after registration gate.
 
-Thus `selection_policy.skip_live_leases=true` remains valid for actual live owner/session pairs, but an unverified or stale conversation is no longer silently treated as a live chat merely because the owner lease has time remaining.
+Task registration, owner lease and session liveness are distinct controls.
 
-## 10. Required regressions
+## 11. Required regressions
 
-The repository regression suite must exercise transitions, not only policy wording. At minimum:
+The repository tests transitions, not only policy wording. Required cases include:
 
+- researcher can publish a registered claimable task without Driver approval;
+- raw free-research candidate cannot publish a task;
+- current-policy dispatchable task without registry record fails orphan audit;
+- publication cannot grant Working Truth or canonical promotion;
+- unregistered new task cannot execute;
 - tool success + open parent + next action -> final rejected;
-- subflow complete -> parent reevaluated;
 - task frozen -> parent reevaluated;
 - 1440-minute owner lease + 11-minute idle session -> `STALE_RECOVERABLE`;
-- stale replacement preserves claim and Researcher-ID;
-- stale replacement resumes the first unfinished unit without replay;
+- stale adoption preserves claim/identity and does not replay completed work;
 - mismatched recovery evidence is rejected;
-- expired owner lease cannot be adopted;
-- parent completion passes through PRE_FINAL before final rendering.
+- parent completion passes PRE_FINAL.
 
-## 11. Enforcement boundary
+## 12. Enforcement boundary
 
-The repository now contains an executable canonical control-plane runtime and transition regressions. A ChatGPT/product harness still has to invoke or faithfully implement the runtime decision to physically intercept a final-channel emission. Repository conformance must never be misreported as a product-level interceptor when the host runtime does not call it.
+The repository contains executable canonical control-plane runtime, task-publication registry and transition regressions. A ChatGPT/product harness still has to invoke or faithfully implement these decisions to physically intercept a final-channel emission. Repository conformance must never be misreported as a product-level interceptor when the host runtime does not call it.
