@@ -79,12 +79,36 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         self.assertEqual(out["runtime_phase"], "REEVALUATE_PARENT")
         self.assertFalse(out["final_allowed"])
 
-    def test_parent_complete_still_passes_pre_final(self):
-        out = rt.apply_terminal_event(make_state(), "PARENT_OBJECTIVE_COMPLETE")
+    def test_consistent_parent_complete_passes_pre_final(self):
+        state = make_state(
+            current_unfinished_unit=None,
+            next_action=None,
+            task={
+                "task_id": "RS-T1",
+                "status": "COMPLETE",
+                "taskbook_source": "abc123",
+                "owner_branch": "research/t1",
+            },
+        )
+        out = rt.apply_terminal_event(state, "PARENT_OBJECTIVE_COMPLETE")
         self.assertEqual(out["terminal_scope"], "PARENT_OBJECTIVE")
         self.assertEqual(out["runtime_phase"], "PRE_FINAL")
         self.assertTrue(out["final_allowed"])
         self.assertEqual(out["pre_final_decision"]["transition"], "FINAL_ALLOWED")
+
+    def test_contradictory_parent_complete_with_unfinished_work_fails_closed(self):
+        out = rt.apply_terminal_event(make_state(), "PARENT_OBJECTIVE_COMPLETE")
+        self.assertEqual(out["terminal_scope"], "PARENT_OBJECTIVE")
+        self.assertEqual(out["runtime_phase"], "PRE_FINAL")
+        self.assertFalse(out["final_allowed"])
+        self.assertEqual(
+            out["pre_final_decision"]["transition"],
+            "CONTROL_STATE_INCONSISTENT",
+        )
+        self.assertEqual(
+            out["pre_final_decision"]["required_action"],
+            "REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE",
+        )
 
     def test_long_owner_lease_does_not_extend_ten_minute_session(self):
         view = rt.classify_session(
