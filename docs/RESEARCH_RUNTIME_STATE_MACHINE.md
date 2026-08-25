@@ -1,7 +1,7 @@
 # Enterprise Math Unified Research Runtime
 
 Status: `ACTIVE / CANONICAL CONTROL-PLANE RUNTIME / V1.2`  
-Effective: `2026-08-25`  
+Effective: `2026-08-26`  
 Classification: `NO_NEW_MATHEMATICS`
 
 Canonical machine:
@@ -34,6 +34,12 @@ The runtime answers:
 `PARENT_OBJECTIVE -> TASK_REGISTRATION -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED`.
 
 Task existence, execution identity, live owner claim, session liveness and result disposition are different facts. The runtime is a projection of their authoritative sources; it is not a fourth independent persistent database.
+
+The runtime also inherits the GitHub interaction budget:
+
+> **Research remains the hot path. Control records are sparse semantic-boundary persistence, not per-step research telemetry.**
+
+Between genuine publication/checkpoint/result/review boundaries, this runtime adds no routine repository write, CI poll, review poll, moving-main chase, or scheduler heartbeat requirement.
 
 ## 2. Authenticated task existence
 
@@ -77,33 +83,40 @@ Freeze:
 
 The V1 shared `research_task_registry.json` remains a compatibility mirror during migration and is not post-cutover publication authority.
 
-## 4. Task -> execution binding
+Task publication is a semantic checkpoint. It may be batched with the taskbook publication commit; it does not create a requirement for routine research-time writes afterwards.
+
+## 4. Task -> execution binding without a second pre-claim write
 
 Publication does not decide who executes the task or which branch is used.
 
-Before a registered CLAIM can become live, `tools/research_execution_records.py` creates an immutable execution intent:
+For new registered executions, the **Issue #240 CLAIM itself is the execution authorization envelope**. One CLAIM carries or resolves:
 
-`research_execution_records/<task-id>/<execution-record-id>.json`.
-
-The intent pins:
-
-- exact `task_id` and `publication_id`;
-- exact taskbook blob;
+- exact `task_id` and current `publication_id`;
 - `claim_id`;
-- `Researcher-ID`;
+- `Researcher-ID` or the information needed to derive it deterministically;
 - `theorem_owner`;
 - `execution_branch`;
 - exact `execution_branch_base` commit;
 - allowed output paths/prefixes;
 - owner lease duration.
 
+The taskbook blob is resolved from the immutable publication record rather than duplicated by the caller.
+
 `theorem_owner` and `execution_branch` are typed separately even when a particular owner-generation uses the same branch name for both.
 
-The distributed claim transaction is:
+Freeze:
 
-`CREATE/VERIFY BRANCH -> IMMUTABLE EXECUTION INTENT -> APPEND CLAIM TO ISSUE #240 -> FIRST VALID CLAIM WINS`.
+`REGISTERED_CLAIM = EXECUTION_AUTHORIZATION_ENVELOPE`.
 
-The canonical reducer ignores a registered CLAIM that has no matching execution intent. Multiple losing intents may remain as provenance, but they do not become live owner claims.
+`NO_SEPARATE_REMOTE_EXECUTION_RECORD_WRITE_REQUIRED_BEFORE_CLAIM`.
+
+The preferred distributed claim transaction is:
+
+`VALIDATE CURRENT PUBLICATION -> CREATE/VERIFY BRANCH -> APPEND ONE CLAIM ENVELOPE TO ISSUE #240 -> FIRST VALID CLAIM WINS`.
+
+A registered CLAIM with a stale publication ID or incomplete owner/branch/output envelope is ignored. No PR, merge, CI wait, heartbeat, or second GitHub write is required merely to make the CLAIM valid.
+
+`research_execution_records/<task-id>/<execution-record-id>.json` remains the immutable durable-provenance form used by result freezing. It may be materialized locally after CLAIM and batched with the first genuine durable checkpoint or final return. Historical pre-claim execution-intent records remain compatible but are not the preferred path.
 
 ## 5. One canonical dispatch view
 
@@ -117,8 +130,8 @@ It merges:
 
 - current immutable task publication records;
 - the frozen legacy task baseline;
-- matching immutable execution intents;
-- Issue #240 runtime events;
+- Issue #240 runtime events, including self-contained registered CLAIM envelopes;
+- compatible immutable execution records when already present;
 - immutable result and Driver-review records.
 
 If the same task ID exists in both the frozen legacy baseline and immutable publications, the immutable publication generation controls the definition.
@@ -127,15 +140,15 @@ Freeze:
 
 `REGISTERED_TASK + CLAIMABLE -> VISIBLE_TO_CANONICAL_SELECTION`.
 
-`REGISTERED_CLAIM_WITHOUT_EXECUTION_INTENT -> IGNORE_EVENT`.
+`REGISTERED_CLAIM_WITH_STALE_OR_INCOMPLETE_EXECUTION_ENVELOPE -> IGNORE_EVENT`.
 
-This eliminates the prior split where registry tasks could be marked claimable yet remain invisible to the actual scheduler.
+This eliminates both prior splits: registry tasks can no longer be invisible to the real scheduler, and claim validity no longer depends on a second pre-claim repository publication.
 
 ## 6. Result-side loss prevention
 
-Task preservation alone is insufficient. The result chain is:
+Task preservation alone is insufficient. The durable result chain is:
 
-`TASK_GENERATION -> EXECUTION_RECORD -> FROZEN_RESULT -> DRIVER_REVIEW -> DISPOSITION`.
+`TASK_GENERATION -> CLAIM_ENVELOPE -> EXECUTION_RECORD_AT_DURABLE_CHECKPOINT -> FROZEN_RESULT -> DRIVER_REVIEW -> DISPOSITION`.
 
 Frozen returns are stored at:
 
@@ -159,9 +172,11 @@ Required state semantics:
 
 For immutable registered tasks, a `DONE` event is accepted only when it references the matching frozen result and that result has a terminal Driver disposition.
 
+The execution/result record files are intended to be created in the same publication batch as the durable return/checkpoint whenever possible; they are not separate conversational stop points.
+
 ## 7. Owner lease is not session liveness
 
-The execution intent and Issue CLAIM establish task ownership. They do not establish that the current conversation remains alive.
+The valid Issue CLAIM establishes task ownership. A compatible execution record preserves durable provenance. Neither establishes that the current conversation remains alive.
 
 Freeze:
 
@@ -172,6 +187,8 @@ Default session stale window remains 10 minutes.
 `SESSION_STALE + OWNER_LEASE_ACTIVE -> STALE_RECOVERABLE`.
 
 A replacement session verifies the taskbook source, branch, claim, remote HEAD, execution stamp and durable outputs, adopts the existing claim and Researcher-ID, and resumes the first unfinished unit. It does not replay completed work or issue a second claim.
+
+No routine heartbeat is required merely to keep an actively progressing research conversation legitimate; visible/durable progress and stale-recovery semantics remain distinct from owner-lease duration.
 
 ## 8. Terminal scope
 
@@ -217,15 +234,15 @@ A parent marked complete while runtime work remains is `CONTROL_STATE_INCONSISTE
 
 For a new registered task:
 
-1. publish one immutable task generation;
+1. publish one immutable task generation at the task-publication checkpoint;
 2. create/verify the execution branch from an exact base;
-3. create one immutable execution intent with owner/output/identity scope;
-4. append the CLAIM event;
-5. use `tools/research_dispatch.py` for status and selection;
-6. keep session liveness separate from the owner lease;
-7. freeze the exact return and output manifest through `tools/research_result_records.py`;
-8. wait in control-plane state `AWAITING_DRIVER_REVIEW`, not a researcher-dispatchable state;
-9. create an immutable Driver review/disposition;
+3. append one self-contained CLAIM envelope; do **not** make a separate pre-claim repository commit/PR merely for execution intent;
+4. begin research after the CLAIM validates;
+5. between semantic checkpoints, research locally/remotely-silent with zero governance-only heartbeat/CI polling requirements;
+6. at the first genuine durable checkpoint or final return, materialize the matching execution record together with the research artifact when durable provenance is needed;
+7. freeze the exact return and output manifest through `tools/research_result_records.py` in that same bounded publication batch when practical;
+8. enter control-plane state `AWAITING_DRIVER_REVIEW`, not a researcher-dispatchable state;
+9. create an immutable Driver review/disposition together with the actual Driver review artifact;
 10. return TASK terminality to the parent objective;
 11. invoke authenticated PRE_FINAL only at the parent boundary.
 
@@ -238,8 +255,10 @@ Repository tests must prove behavior, not merely policy wording. Required cases 
 - forged registration cannot authorize an unknown task;
 - registered and legacy tasks share one derived dispatch view;
 - registered tasks are selectable without a row in the frozen scheduler file;
-- registered CLAIM without execution intent is ignored;
-- execution intent pins publication, Researcher-ID, branch/base, output scope and lease;
+- incomplete or stale registered CLAIM envelope is ignored;
+- a complete registered CLAIM becomes live **without** a pre-claim execution-record repository write;
+- a compatible historical execution intent may still authorize its matching CLAIM;
+- execution provenance pins publication, Researcher-ID, branch/base, output scope and lease before result freeze;
 - immutable task publication cannot overwrite an earlier generation;
 - placeholder/empty mandatory task sections cannot publish;
 - frozen result without Driver review becomes `AWAITING_DRIVER_REVIEW`;
@@ -247,7 +266,8 @@ Repository tests must prove behavior, not merely policy wording. Required cases 
 - terminal Driver review closes dispatch;
 - return/review blob drift fails audit;
 - stale adoption preserves claim identity;
-- open parent plus executable action forbids final.
+- open parent plus executable action forbids final;
+- ordinary execution introduces no governance-only heartbeat, CI-poll, or second pre-claim persistence requirement.
 
 ## 12. Enforcement boundary
 
