@@ -95,7 +95,7 @@ theorem mem_ker_channelResidueMap_iff (n : ℕ) (a b : ℤ) (z : ℤ × ℤ) :
     z ∈ (channelResidueMap n a b).ker ↔ (n : ℤ) ∣ b * z.1 - a * z.2 := by
   rw [AddMonoidHom.mem_ker]
   simpa [channelResidueMap] using
-    (ZMod.intCast_zmod_eq_zero_iff_dvd n (b * z.1 - a * z.2))
+    (ZMod.intCast_zmod_eq_zero_iff_dvd (b * z.1 - a * z.2) n)
 
 /-- Primitive input makes the linear residue map surjective for every modulus. -/
 theorem channelResidueMap_surjective {n : ℕ} {a b : ℤ}
@@ -109,7 +109,6 @@ theorem channelResidueMap_surjective {n : ℕ} {a b : ℤ}
     (b : ZMod n) * ((t * z.cast : ℤ) : ZMod n) -
         (a : ZMod n) * ((-s * z.cast : ℤ) : ZMod n) = z
   push_cast
-  rw [ZMod.intCast_zmod_cast]
   linear_combination z * hbez
 
 /-- Gaussian cyclic quotient map from the primitive lattice coordinates. -/
@@ -197,7 +196,7 @@ def pointedBUnit (a b : ℤ) (hab : IsCoprime a b) : (ZMod (Hmodulus a b))ˣ :=
   simp [pointedBUnit]
 
 /-- T4 pointed residue `r = -a b⁻¹` in the fused quotient. -/
-def pointedResidue (a b : ℤ) (hab : IsCoprime a b) : ZMod (Hmodulus a b) :=
+def pointedResidue (a b : ℤ) (_hab : IsCoprime a b) : ZMod (Hmodulus a b) :=
   -(a : ZMod (Hmodulus a b)) * (b : ZMod (Hmodulus a b))⁻¹
 
 /-- The pointed residue satisfies the defining linear equation `b r = -a`. -/
