@@ -124,7 +124,7 @@ class ResearchIdentityTests(unittest.TestCase):
             task,
             events,
             default_lease_minutes=120,
-            now=datetime(2026, 8, 10, 16, 30, tzinfo=timezone.utc),
+            now=datetime(2026, 8, 10, 16, 5, tzinfo=timezone.utc),
         )
         expected = scheduler.researcher_id_for_claim(task, "claim-alpha")
         self.assertEqual(state["researcher_id"], expected)
