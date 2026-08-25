@@ -1,6 +1,6 @@
 # CBRC F5R — Source and Target Leak Audit
 
-Status: `CHECKPOINT_B / RAW_FREEZE_AUDIT`
+Status: `CHECKPOINT_B / RAW_FREEZE_AUDIT / CHECKER_RECORDED`
 Researcher-ID: `EM-CBRC-F5R-8120F1`
 Taskbook source: `3015cee704b6864c955bf577637383dd8c3dfd19`
 
@@ -67,10 +67,38 @@ No rank-two carrier was constructed, named, classified or selected. The only ran
 
 Because the antecedent is not derived, the execution labels the lower bound `CONDITIONAL_ON_NEW_AXIOM` and does not promote it to an unconditional theorem.
 
-## 6. Raw-freeze verdict
+## 6. Pushed-checker execution record
+
+Pushed checker:
+
+`scripts/cbrc_f5r_validate_forgetful_branch_semantics.py`
+
+Owner-branch commit containing checker:
+
+`1f67d0b475efc8d6afd900f2632b280534c26e20`.
+
+Remote checker Git blob SHA:
+
+`b83995d4d1bf00db3d078fcb349ef5ed5223f8a4`.
+
+The executed file had the identical Git blob SHA `b83995d4d1bf00db3d078fcb349ef5ed5223f8a4`, establishing byte identity with the pushed owner-branch checker.
+
+Exact execution result:
+
+- `CBRC_F5R_CHECK_RESULT=PASS`;
+- `CBRC_F5R_MISMATCH_COUNT=0`;
+- `CBRC_F5R_DETERMINISTIC_DIGEST=14201c39734a17782aa7dabb48a22c0e97fc72a002f6f78578cf3645869d9a97`;
+- finite carrier elements checked: `10`;
+- two-slot states checked: `100`;
+- complete additivity sample states: `36`;
+- semantic/model checks: `39`.
+
+## 7. Raw-freeze verdict
 
 `TARGET_LEAK_AUDIT_PASS`.
 
 `F5R_SOURCE_FIREWALL_PASS`.
 
 `F5R_RAW_MATHEMATICAL_FREEZE_INDEPENDENT = true`.
+
+`F5R_PUSHED_CHECKER_PASS = true`.
