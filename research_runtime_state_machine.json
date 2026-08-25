@@ -1,0 +1,142 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_MACHINE_V1",
+  "status": "ACTIVE_CANONICAL_RUNTIME",
+  "effective": "2026-08-25",
+  "classification": "NO_NEW_MATHEMATICS_GOVERNANCE_MAINTENANCE",
+  "purpose": "Unify parent-objective liveness, task ownership, conversation/session liveness, durable frontier recovery, terminal scope and final-response permission without changing mathematical truth or task ownership semantics.",
+  "composes": {
+    "active_turn_liveness": "active_turn_liveness.json",
+    "pre_final_primitive": "tools/active_turn_liveness.py",
+    "scheduler": "research_scheduler.json",
+    "scheduler_reducer": "tools/research_scheduler.py",
+    "taskbook_contract": "research_taskbook_contract.json",
+    "identity_state_machine": "research_identity_state_machine.json",
+    "final_response_policy": "final_response_identity_policy.json"
+  },
+  "executable_runtime": "tools/research_runtime.py",
+  "canonical_state_fields": [
+    "PARENT_OBJECTIVE",
+    "TASK",
+    "OWNER_CLAIM",
+    "SESSION",
+    "DURABLE_FRONTIER",
+    "CURRENT_UNFINISHED_UNIT",
+    "NEXT_ACTION",
+    "TERMINAL_SCOPE",
+    "FINAL_ALLOWED"
+  ],
+  "terminal_scopes": [
+    "SUBFLOW",
+    "TASK",
+    "PARENT_OBJECTIVE"
+  ],
+  "core_invariants": [
+    "OWNER_LEASE_IS_NOT_SESSION_LIVENESS",
+    "SESSION_STALE_DOES_NOT_IMPLY_OWNER_CLAIM_RELEASE",
+    "SESSION_STALE_AND_OWNER_LEASE_ACTIVE_IMPLIES_STALE_RECOVERABLE",
+    "STALE_RECOVERY_ADOPTS_EXISTING_OWNER_CLAIM_INSTEAD_OF_RECLAIMING",
+    "STALE_RECOVERY_RESUMES_FROM_DURABLE_FRONTIER_AND_FIRST_UNFINISHED_UNIT",
+    "SUBFLOW_COMPLETE_IMPLIES_REEVALUATE_PARENT",
+    "TASK_FROZEN_IMPLIES_REEVALUATE_PARENT",
+    "TASK_TERMINAL_IS_NOT_PARENT_OBJECTIVE_TERMINAL",
+    "PARENT_OPEN_AND_EXECUTABLE_NEXT_ACTION_IMPLIES_FINAL_FORBIDDEN",
+    "FINAL_RESPONSE_RENDERING_REQUIRES_RUNTIME_FINAL_ALLOWED"
+  ],
+  "lease_model": {
+    "owner_lease": {
+      "authority": "research_scheduler.json / scheduler CLAIM lease / task-local owner lease where explicitly provided",
+      "legacy_field": "claim_lease_minutes",
+      "legacy_runtime_field": "lease_until",
+      "canonical_runtime_field": "owner_lease_until",
+      "semantic_scope": "TASK_OWNERSHIP",
+      "may_be_long": true,
+      "does_not_prove_session_alive": true
+    },
+    "session_liveness": {
+      "authority": "research_runtime_state_machine.json",
+      "default_minutes": 10,
+      "semantic_scope": "CURRENT_CONVERSATION_INSTANCE",
+      "renewed_by": [
+        "VISIBLE_OR_DURABLE_SESSION_PROGRESS",
+        "EXPLICIT_SESSION_HEARTBEAT"
+      ],
+      "must_not_inherit_owner_lease_minutes": true
+    }
+  },
+  "session_states": [
+    "ACTIVE",
+    "STALE_RECOVERABLE",
+    "STALE_UNOWNED",
+    "TERMINATED"
+  ],
+  "stale_recovery": {
+    "trigger": "SESSION_STALE_AND_OWNER_LEASE_ACTIVE",
+    "state": "STALE_RECOVERABLE",
+    "required_verification": [
+      "taskbook_source",
+      "owner_branch",
+      "claim_id",
+      "remote_head",
+      "execution_stamp",
+      "durable_outputs",
+      "durable_frontier_verified"
+    ],
+    "transition": "ADOPT_EXISTING_OWNER_CLAIM",
+    "claim_reissued": false,
+    "researcher_identity_preserved": true,
+    "completed_units_replayed": false,
+    "resume_target": "CURRENT_UNFINISHED_UNIT_AFTER_VERIFIED_DURABLE_FRONTIER",
+    "if_no_current_unfinished_unit": "REEVALUATE_PARENT"
+  },
+  "terminal_transitions": {
+    "SUBFLOW_COMPLETE": {
+      "terminal_scope": "SUBFLOW",
+      "next_state": "REEVALUATE_PARENT",
+      "direct_final_allowed": false
+    },
+    "TASK_FROZEN": {
+      "terminal_scope": "TASK",
+      "next_state": "REEVALUATE_PARENT",
+      "direct_final_allowed": false
+    },
+    "TASK_COMPLETE": {
+      "terminal_scope": "TASK",
+      "next_state": "REEVALUATE_PARENT",
+      "direct_final_allowed": false
+    },
+    "PARENT_OBJECTIVE_COMPLETE": {
+      "terminal_scope": "PARENT_OBJECTIVE",
+      "next_state": "PRE_FINAL",
+      "direct_final_allowed": "ONLY_IF_PRE_FINAL_GATE_RETURNS_FINAL_ALLOWED"
+    }
+  },
+  "pre_final_gate": {
+    "orchestrator": "tools/research_runtime.py",
+    "primitive": "tools/active_turn_liveness.py",
+    "base_rule": "PARENT_OBJECTIVE_OPEN_AND_EXECUTABLE_NEXT_ACTION_EXISTS_IMPLIES_FINAL_ALLOWED_FALSE",
+    "final_channel_rule": "RUNTIME_FINAL_ALLOWED_FALSE_IMPLIES_FINAL_CHANNEL_FORBIDDEN"
+  },
+  "dispatch_semantics": {
+    "LEASED_AND_SESSION_ACTIVE": "KEEP_CURRENT_SESSION",
+    "LEASED_AND_SESSION_STALE_RECOVERABLE": "ADOPT_OWNER_CLAIM",
+    "LEASED_AND_SESSION_LIVENESS_UNKNOWN": "VERIFY_SESSION_LIVENESS",
+    "NEEDS_DISPATCH": "CLAIM_NEW_OWNER",
+    "rule": "skip_live_leases applies to live owner/session pairs; it must not turn an unverified or stale conversation into an indefinite dispatch lock."
+  },
+  "required_end_to_end_regressions": [
+    "TOOL_SUCCESS_AND_PARENT_OPEN_AND_NEXT_ACTION_EXISTS_REJECTS_FINAL",
+    "SUBFLOW_COMPLETE_REEVALUATES_PARENT",
+    "TASK_FROZEN_REEVALUATES_PARENT",
+    "SESSION_STALE_OWNER_LEASE_ACTIVE_BECOMES_STALE_RECOVERABLE",
+    "STALE_ADOPTION_PRESERVES_CLAIM_AND_RESEARCHER_ID",
+    "STALE_ADOPTION_DOES_NOT_REPLAY_COMPLETED_UNITS",
+    "LEGACY_1440_MINUTE_OWNER_LEASE_DOES_NOT_EXTEND_10_MINUTE_SESSION_LIVENESS",
+    "EXPIRED_OWNER_LEASE_CANNOT_BE_ADOPTED"
+  ],
+  "compatibility": {
+    "research_scheduler_v1_supported": true,
+    "legacy_scheduler_lease_until_interpretation": "OWNER_LEASE_ONLY",
+    "active_turn_liveness_v2_remains_the_pre_final_primitive": true,
+    "no_taskbook_requires_rewrite_only_for_runtime_adoption": true
+  }
+}
