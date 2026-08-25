@@ -1,46 +1,51 @@
-# Native filament generalization: current promotion frontier after deformation and control audits
+# Native filament generalization: current promotion frontier after independent blind audit
 
-Status: `FREE_RESEARCH_FRONTIER_VERDICT / NO_EXTERNAL_NOVELTY_CLAIM`
+Status: `FREE_RESEARCH_FRONTIER_VERDICT / STATEMENT_STRENGTH_INDEPENDENTLY_VERIFIED_WITH_NARROWING / NO_EXTERNAL_NOVELTY_CLAIM`
 
 Date: `2026-08-25`
 
 Researcher-ID: `EM-FREE-NEPS-239A6D`
 
-## 1. Re-ranked theorem families
+Independent audit: PR `#631`.
 
-The original A/B/C package is no longer treated as three equal novelty candidates.
+Frozen verdict:
+
+`PACKAGE_VERIFIED_WITH_NARROWING`.
+
+Authoritative corrected statement layer:
+
+`research_notes/NATIVE_FILAMENT_COUPLED_SELECTION_POST_AUDIT_V2_STATEMENT_FREEZE_20260825.md`.
+
+## 1. Re-ranked theorem families
 
 ### A. Arithmetic arrangement lift
 
-Verdict:
+Verdict: `KNOWN GENERAL FRAMEWORK + EXPLICIT SPECIALIZATION`.
 
-`KNOWN GENERAL FRAMEWORK + EXPLICIT SPECIALIZATION`.
-
-Characteristic quasi-polynomials, finite-field arrangement counting and coefficient monotonicity under divisibility are established literature. The explicit determinant-valuation healing depth remains useful as a transparent specialization, but A is not the promotion lead.
+Characteristic quasi-polynomials, finite-field arrangement counting and coefficient monotonicity are established literature. Determinant-valuation depth remains useful support, not the promotion lead.
 
 ### B. Locked finite-quotient / MDS code
 
-Verdict:
+Verdict: `EXACT SPECIAL FAMILY / CLASSICAL CODE CLASSIFICATION / SUPPORTING BRIDGE`.
 
-`EXACT SPECIAL FAMILY / CLASSICAL CODE CLASSIFICATION / SUPPORTING BRIDGE`.
+Post-audit correction:
 
-The exact quotient period and cardinality imposed by the native integer locks are useful. Reed--Solomon/MDS theory itself is classical. B is retained as the algebraic bridge from geometry to the divisor-line arrangement.
+- for `M>2`, exact effective shell period is `lcm(2,M/gcd(B,M))`;
+- for `M=2`, exact/minimal effective period after fixing the intercept is `1`.
+
+The total code still has exactly two words. Reed--Solomon/MDS remains classical.
 
 ### C. Transparency / breaker count
 
-Verdict:
+Verdict: `CLASSICAL CHARACTER SUM + STRONG MODEL-SPECIFIC CONNECTIVITY CONSEQUENCE`.
 
-`CLASSICAL CHARACTER SUM + STRONG MODEL-SPECIFIC CONNECTIVITY CONSEQUENCE`.
-
-The quadratic-character calculation is elementary. The finite-wheel breaker iff statement is retained as a model theorem.
+The local quadratic-character/cyclotomic counts are classical; the finite-wheel breaker classification remains exact for the model.
 
 ### D. Odd-curvature / sector-count deformation family
 
-Verdict:
+Verdict: `PRIMARY GENERALIZATION CANDIDATE / STATEMENT STRENGTH VERIFIED WITH NARROWING`.
 
-`PRIMARY GENERALIZATION CANDIDATE`.
-
-D couples all earlier layers in one parameterized family:
+D couples
 
 `odd sector count s`
 
@@ -50,7 +55,7 @@ D couples all earlier layers in one parameterized family:
 
 `-> exact finite quotient code`
 
-`-> Legendre-dual two-parabola geometry`
+`-> chirality-dependent dual-parabola tangent geometry`
 
 `-> sampled tangent discriminant / p-adic depth`
 
@@ -60,104 +65,114 @@ D couples all earlier layers in one parameterized family:
 
 `-> extinction vs no-break high-dimensional basin phase`.
 
-No direct theorem-statement match for this full coupled family has been found in the current audit.
+## 2. Mandatory post-audit statement repairs
 
-External novelty remains unresolved.
+### N1 — `M=2`
 
-## 2. Strongest exact D statements
+Do not use the unqualified period formula at `M=2`.
 
-For positive odd B:
+- `M>2`: `lcm(2,M/gcd(B,M))`;
+- `M=2`: exact/minimal effective period `1`.
+
+### N2 — dual parabola
+
+Use
+
+`Q_e^(chi)(x)=x^2/(2B)-chi e/2`.
+
+The chirality-independent pair is valid without modification only for `chi=+1`.
+
+### N3 — concurrence iff
+
+For the mixed triple with same-parity pair `u,v`, require `q∤(u-v)`. The finite-window assumption `q>k-1` is sufficient. Without a distinct-slope/unit condition, the obstruction alone is not an iff criterion.
+
+## 3. Correct meaning of the capacities `1,5,9`
+
+The first-breaker phases have exact **breaker-coprime/divisibility run capacities**
+
+`1,5,9`
+
+for breakers `2,3,5`.
+
+These are not unrestricted prime-run caps for arbitrary `(H,R)` in the deformation family.
+
+The actual native theorem
+
+`MAX GLOBAL TYPED-CELL PRIME-INCIDENCE ISLAND SIZE = 9`
+
+is a separate stronger result from the parent native branch, using native incidence/seam/domain structure in addition to the breaker calculation.
+
+## 4. Strongest exact D statements after audit
+
+For positive odd `B`:
 
 1. `F_B(H,r)=H+(B*r^2+eps(r))/2`.
 2. local curvature alternates `B-1,B+1`.
 3. every trajectory satisfies `(E-1)^3(E+1)=0`.
-4. `|C_(k,B)(M)|=M*lcm(2,M/gcd(B,M))` for `M>2`.
-5. fixed-chirality good-prime packets flatten to affine RS(k,2).
-6. zero lines are sampled tangents to two vertically shifted parabolas.
-7. mixed tangent concurrence is controlled by `B(w-u)(w-v)+/-1`.
-8. q-adic concurrence depth equals the valuation of the corresponding integer obstruction.
-9. breaker primes are only2,3,5.
-10. first-breaker phase is completely classified by B mod60.
-11. B=3 is the smallest positive odd coefficient whose first breaker is5.
-12. breaker phases have sharp coprime-run capacities1,5,9 for q=2,3,5.
+4. finite-quotient cardinality is exact, with the `M=2` period exception above.
+5. fixed-chirality good-prime packets flatten to affine `RS(k,2)`.
+6. zero lines are sampled tangents to `Q_e^(chi)`.
+7. mixed tangent concurrence is controlled by `B(w-u)(w-v)+chi(1-2e)` in the distinct-slope regime.
+8. fixed-chirality q-adic depth equals the maximum valuation of the corresponding fixed-chirality obstruction.
+9. breaker primes are only `2,3,5`.
+10. first-breaker phase is classified by `B mod60`.
+11. `B=3` is the smallest positive odd coefficient whose first breaker is `5`.
+12. breaker phases have exact breaker-coprime capacities `1,5,9`.
 13. no-break phases have nonempty transparent basins in every finite collapse dimension.
-14. those basins are asymptotically sparse-expanding and yield Haar-null/full-dimension profinite product sets.
+14. the audited CRT/profinite/asymptotic statements survive at their explicit metric/scope.
 
-## 3. Native-specific selection chain
+## 5. Native-specific selection chain
 
-The actual Enterprise tri-sector allocation supplies B without looking at primes:
+The actual Enterprise tri-sector allocation supplies the scalar before prime testing:
 
-- sector count =3;
-- mean filament curvature =3;
-- normalized seven-Cell Poisson source =3.
+- sector count `3`;
+- mean filament curvature `(2+4)/2=3`;
+- normalized seven-Cell Poisson source `18/6=3`.
 
-Then arithmetic acts on this frozen local scalar:
+Then arithmetic acts on the frozen scalar:
 
-`3 is nonbreaking at2`,
+`3` is nonbreaking at `2`,
 
-`3 is nonbreaking at3`,
+`3` is nonbreaking at `3`,
 
 `Legendre(3/5)=-1`,
 
-so
+so the first universal breaker is `5`, with breaker-coprime capacity `9`.
 
-`first breaker=5`,
+Separately, the full native incidence theorem proves actual prime-incidence capacity `9`.
 
-and the sharp local/global prime-incidence capacity is9.
+## 6. Control evidence
 
-Thus the native `3 -> 5 -> 9` chain is now interpreted as a geometry-to-arithmetic selection law, not as three unrelated observed constants.
+The no-break deformation `B=15` has a deterministically verified run of twelve consecutive actual prime values below `2^64`.
 
-## 4. Control experiment eliminates a major alternative explanation
+Therefore
 
-The B=15 deformation lies in the no-breaker phase.
+`9 IS NOT A UNIVERSAL PRIME-RUN CAP OF QUADRATIC+PARITY FILAMENTS`.
 
-An explicit B=15 filament contains twelve consecutive actual prime values, all deterministically verified below `2^64`.
+## 7. Promotion priority
 
-Therefore:
-
-`9 IS NOT A UNIVERSAL CAP OF QUADRATIC+PARITY FILAMENTS`.
-
-The native sharp9 theorem depends essentially on the B=3 breaker phase.
-
-This is currently the strongest experimental control supporting the causal interpretation of the phase theorem.
-
-## 5. Profinite boundary
-
-No-breaker does NOT imply an ordinary integer filament avoiding every prime forever.
-
-Every finite prime subsystem is integer-satisfiable by CRT, but no ordinary integer H satisfies all prime constraints simultaneously because some positive filament value must have a prime divisor.
-
-The compatible all-prime object exists only in the squarefree profinite completion.
-
-Thus the exact local-global pattern is
-
-`FINITE INTEGER SATISFIABILITY`
-
-`-> PROFINITE GLOBAL REALIZATION`
-
-`-> NO DIAGONAL INTEGER REALIZATION`.
-
-This prevents overinterpreting the high-dimensional survivor fractal as an actual infinite prime/composite-free integer trajectory.
-
-## 6. Promotion priority
-
-Current order:
-
-1. **D coupled sector/curvature/dual-parabola/breaker phase theorem**;
-2. **native B=3 local-to-global corollaries and control witnesses**;
+1. D coupled sector/curvature/dual-parabola/breaker phase theorem;
+2. native `B=3` local-to-global corollaries and control witnesses;
 3. B finite-quotient closed forms as supporting structure;
 4. C breaker lemma as supporting arithmetic;
 5. A only as known-framework specialization.
 
-## 7. Required next audit
+## 8. External novelty state
 
-Before any external novelty claim, independently compare D against:
+The blind audit verified mathematics, not novelty.
 
-- quadratic/conic duality over finite fields;
-- covering by quadratic value sets;
-- periodic integer sequences and modular covering systems;
-- arithmetic dynamics / polynomial orbit sieves;
-- deterministic arithmetic percolation;
-- modular code families with periodic offsets.
+Treat as classical / do not claim:
 
-The promotion target is the *coupled theorem statement*, never the classical tools used in its proof.
+- characteristic quasi-polynomials / arithmetic-G-Tutte theory;
+- coefficient monotonicity;
+- Reed--Solomon/MDS;
+- CRT;
+- quadratic character sums / order-2 cyclotomy;
+- Legendre transform / conic duality;
+- standard profinite / Hausdorff arguments.
+
+Current external-novelty candidate is only the exact coupled pipeline
+
+`sector allocation -> curvature scalar -> integer quotient code -> dual-parabola tangent/value geometry -> breaker/exception phase -> high-dimensional extinction-vs-survival`.
+
+Novelty remains `UNRESOLVED` and is the next independent-audit target.
