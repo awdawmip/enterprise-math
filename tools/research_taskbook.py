@@ -9,6 +9,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+import tools.research_execution_state as execution
+
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_PATH = ROOT / "research_taskbook_policy.json"
 FRONTMATTER_PREFIX = "<!-- ENTERPRISE_MATH_TASK_V1\n"
@@ -294,6 +296,9 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
                 "message": "generic repository policy is restated in taskbook; remove it and inherit the repository rule: " + ", ".join(hits),
             })
 
+    if dispatch:
+        findings.extend(execution.audit_taskbook_path(path, root=root))
+
     return findings
 
 
@@ -363,6 +368,8 @@ def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
         "task_authority": "DRIVER_APPROVED",
         "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
         "final_response_identity_policy": "INHERIT_GLOBAL",
+        "execution_state_policy": "INHERIT_GLOBAL",
+        "execution_gates": [],
         "identity_lane": args.lane,
         "origin_kind": args.origin_kind,
         "task_lineage": args.lineage,
@@ -393,7 +400,7 @@ def command_new(args: argparse.Namespace) -> int:
     meta = base_metadata(args)
     body = f"""# {args.title}
 
-Status: `DRAFT / POLICY_REVIEW_PENDING / NOT DISPATCHABLE`
+Status: `DRAFT / POLICY_REVIEW_PENDING / NOT_DISPATCHABLE`
 
 ## 0. Task-local mother question
 
@@ -414,7 +421,7 @@ Status: `DRAFT / POLICY_REVIEW_PENDING / NOT DISPATCHABLE`
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(render_taskbook(meta, body), encoding="utf-8")
     print(out.relative_to(ROOT))
-    print("created with PENDING_DRIVER_REVIEW; edit task-local content, complete any successor gate, then run review --approve")
+    print("created with PENDING_DRIVER_REVIEW and execution_gates=[]; classify any task-local gates before review --approve")
     return 0
 
 
@@ -425,6 +432,7 @@ def command_review(args: argparse.Namespace) -> int:
     text = path.read_text(encoding="utf-8")
     meta, body = split_taskbook(text)
     meta["final_response_identity_policy"] = "INHERIT_GLOBAL"
+    meta["execution_state_policy"] = "INHERIT_GLOBAL"
     review = taskbook_review(meta) or {"policy_set": "research_taskbook_policy.json", "temporary_overrides": []}
     review["policy_set"] = "research_taskbook_policy.json"
     review["policy_digest"] = policy_digest(ROOT)
@@ -449,7 +457,7 @@ def command_review(args: argparse.Namespace) -> int:
         if any(f["severity"] == "ERROR" for f in dispatch_findings):
             print_findings(path.relative_to(ROOT), dispatch_findings)
             return 1
-        print(f"{path.relative_to(ROOT)}: POLICY_REVIEW_PASS")
+        print(f"{path.relative_to(ROOT)}: POLICY_AND_EXECUTION_REVIEW_PASS")
         return 0
 
     print(f"{path.relative_to(ROOT)}: review refreshed; approval still pending")
