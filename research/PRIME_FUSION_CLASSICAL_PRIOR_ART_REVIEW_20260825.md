@@ -2,7 +2,7 @@
 
 Status: `FROZEN_PUBLICATION_REVIEW / NO_NEW_MATHEMATICS`  
 Date: `2026-08-25`  
-Researcher-ID: `EM-PFPUB-7C3E91`  
+Researcher-ID: `EM-PFPUB-9D1ACE`  
 Task-ID: `GS-PRIME-FUSION-PUBLICATION-ATTRIBUTION-AND-CLAIM-REVIEW`  
 Owner branch: `review/prime-fusion-publication-attribution`
 
