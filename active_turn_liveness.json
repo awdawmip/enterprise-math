@@ -24,6 +24,22 @@
     "LOCAL_ROUTE_CLOSURE_DOES_NOT_CLOSE_PARENT_GOAL",
     "USER_WAKEUP_MESSAGE_MUST_NOT_BE_REQUIRED_WHEN_IT_ADDS_NO_INFORMATION"
   ],
+  "runtime_enforcement": {
+    "pre_final_gate": "tools/research_runtime.py::pre_final_gate",
+    "fail_closed": true,
+    "rule": "PARENT_OBJECTIVE_OPEN_WITHOUT_PROVED_TERMINAL_CONDITION -> FINAL_DENIED",
+    "known_next_action": "EXECUTE_NEXT_ACTION_IN_SAME_TURN",
+    "unknown_next_action": "RESOLVE_NEXT_ACTION_OR_TERMINAL_BLOCK",
+    "allowed_terminal_reasons": [
+      "PARENT_USER_OBJECTIVE_COMPLETE",
+      "USER_EXPLICIT_STOP_PAUSE_REVIEW_ONLY_OR_WAIT",
+      "SAFETY",
+      "AUTHORIZATION",
+      "MISSING_USER_DATA",
+      "UNAVOIDABLE_EXTERNAL_EVENT",
+      "PLATFORM_OR_TOOL_LIMIT"
+    ]
+  },
   "continuation_lease": {
     "activation_semantics": [
       "continue",
