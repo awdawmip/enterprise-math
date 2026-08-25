@@ -4,7 +4,8 @@
   "effective": "2026-08-25",
   "cross_layer_effective_at": "2026-08-25T10:50:39+08:00",
   "conversation_recovery_effective_at": "2026-08-25T11:47:00+08:00",
-  "purpose": "Compose the existing identity, role, Scheduler V2, candidate, taskbook, active-turn, evidence, formalization and promotion controls into one machine-checkable research-control state vector without replacing any submachine as its local source of truth. Conversation liveness and takeover are part of the composition so a dead chat cannot retain effective control of a live task.",
+  "pre_execution_reconciliation_effective_at": "2026-08-25T12:00:00+08:00",
+  "purpose": "Compose the existing identity, role, Scheduler V2, candidate, taskbook, active-turn, evidence, formalization and promotion controls into one machine-checkable research-control state vector without replacing any submachine as its local source of truth. Conversation liveness, durable-frontier intake reconciliation and takeover are part of the composition so a dead or already-completed predecessor cannot retain effective control or be blindly re-executed.",
   "not_a_replacement_for": [
     "research_identity_state_machine.json",
     "research_role_policy.json",
@@ -89,6 +90,17 @@
       "next_executable_action": "string or null"
     }
   },
+  "pre_execution_reconciliation_contract": {
+    "effective_at": "2026-08-25T12:00:00+08:00",
+    "required_before_new_execution_generation": true,
+    "classification": ["VERIFIED_COMPLETE", "IN_PROGRESS_RECOVERABLE", "UNFINISHED", "NEVER_STARTED"],
+    "scheduler_claim_rule": "CLAIM is legal only after durable-frontier reconciliation classifies the exact task as NEVER_STARTED; the event binds frontier_class=NEVER_STARTED and frontier_ref.",
+    "scheduler_adopt_rule": "ADOPT is legal only after durable-frontier reconciliation classifies the exact task as IN_PROGRESS_RECOVERABLE or UNFINISHED; the event binds frontier_class and recovery_ref.",
+    "direct_task_rule": "Direct task/taskbook execution that does not use Scheduler must perform the same reconciliation before creating a new identity, owner branch, execution stamp or substantive rerun.",
+    "verified_complete_rule": "VERIFIED_COMPLETE is consumed and routed/reviewed; it must not produce CLAIM, ADOPT, a new owner branch, a new execution stamp or duplicate mathematics.",
+    "independence_rule": "Stale recovery or ordinary continuation is not a new independent replication. A fresh clean independent child is created only when the controlling independence protocol explicitly requires a distinct run.",
+    "preferred_frontier_sources": ["owner branch head", "execution stamp", "frozen return/result", "manifest", "PR/review state", "Scheduler runtime event", "checker/build evidence"]
+  },
   "conversation_recovery_contract": {
     "stale_after_minutes_without_verifiable_action": 10,
     "progress_prose_is_not_a_verified_action": true,
@@ -146,7 +158,10 @@
     "STALE_CONVERSATION_MAY_BE_ORPHANED_BEFORE_ORDINARY_TASK_LEASE_EXPIRY",
     "IN_PROGRESS_RECOVERABLE_REQUIRES_DURABLE_FRONTIER_AND_TAKEOVER_REF",
     "VERIFIED_COMPLETE_RECOVERY_FORBIDS_DUPLICATE_EXECUTION",
-    "PARENT_OBJECTIVE_CANNOT_WAIT_FOR_A_STALE_PREDECESSOR_CONVERSATION"
+    "PARENT_OBJECTIVE_CANNOT_WAIT_FOR_A_STALE_PREDECESSOR_CONVERSATION",
+    "NEW_EXECUTION_GENERATION_REQUIRES_DURABLE_FRONTIER_RECONCILIATION",
+    "VERIFIED_COMPLETE_CANNOT_BE_CLAIMED_OR_ADOPTED_AGAIN",
+    "RECOVERABLE_EXECUTION_PRESERVES_AND_RESUMES_DURABLE_EVIDENCE"
   ],
   "current_control_case_coverage": {
     "PRIME_FUSION_F1": "FORMALIZATION",
@@ -161,6 +176,7 @@
     "QUADRATIC_PACKET_RANK2_RIGIDITY_AUDIT": "INDEPENDENT_AUDIT",
     "HODGE_PRESENTATION_FIBER_RESEARCH": "STANDARD_RESEARCH",
     "MATHEMATICAL_L4_PROMOTION": "MATHEMATICAL_PROMOTION",
-    "STALE_CONVERSATION_TAKEOVER": "GOVERNANCE_MAINTENANCE"
+    "STALE_CONVERSATION_TAKEOVER": "GOVERNANCE_MAINTENANCE",
+    "PRE_EXECUTION_DURABLE_FRONTIER_RECONCILIATION": "GOVERNANCE_MAINTENANCE"
   }
 }
