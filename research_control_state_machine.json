@@ -1,0 +1,108 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_CONTROL_STATE_MACHINE_V1",
+  "status": "CANDIDATE_CANONICAL_CROSS_LAYER_CONTRACT",
+  "effective": "2026-08-25",
+  "purpose": "Compose the existing identity, role, Scheduler V2, candidate, taskbook, active-turn, evidence, formalization and promotion controls into one machine-checkable research-control state vector without replacing any submachine as its local source of truth.",
+  "not_a_replacement_for": [
+    "research_identity_state_machine.json",
+    "research_role_policy.json",
+    "research_scheduler.json",
+    "research_axiom_candidate_state_machine.json",
+    "research_taskbook_contract.json",
+    "active_turn_liveness.json",
+    "docs/GOVERNANCE_MAINTENANCE_LIVENESS.md"
+  ],
+  "submachines": {
+    "identity": "research_identity_state_machine.json",
+    "role_and_mode": "research_role_policy.json",
+    "task_runtime": "research_scheduler.json",
+    "axiom_candidate": "research_axiom_candidate_state_machine.json",
+    "taskbook": "research_taskbook_contract.json",
+    "active_turn": "active_turn_liveness.json",
+    "method_reuse": "tool_invocation_policy.json",
+    "promotion": "docs/GOVERNANCE_MAINTENANCE_LIVENESS.md"
+  },
+  "control_profiles": [
+    "STANDARD_RESEARCH",
+    "FREE_CANDIDATE_AUDIT",
+    "INDEPENDENT_AUDIT",
+    "FORMALIZATION",
+    "FOUNDATION_DISPOSITION",
+    "INTEGRATION",
+    "BENCHMARK",
+    "GOVERNANCE_MAINTENANCE"
+  ],
+  "state_vector": {
+    "actor": {
+      "role": ["RESEARCHER", "RESEARCH_DRIVER", "FOUNDATION_STEWARD"],
+      "mode": ["FREE_AXIOM_DISCOVERY", "TASK_RESEARCH", "CONTROL_PLANE", "VERIFY_OR_MAINTAIN"],
+      "identity_state": ["UNRESOLVED", "RESOLVED_LOCAL", "PREALLOCATED_FOR_DISPATCH", "REGISTER_PENDING", "REGISTERED"]
+    },
+    "object": {
+      "control_profile": "one control_profiles value",
+      "task_id": "string or null for pure FREE Phase A / portfolio-only Driver work",
+      "task_lineage": ["NEW_DIRECTION", "CONTINUATION", "REPLAY", "INTEGRATION", "MAINTENANCE", "NOT_APPLICABLE"]
+    },
+    "runtime": {
+      "scheduler_state": ["NONE", "DRAFT", "REVIEW_PENDING", "READY", "CLAIMED", "IN_PROGRESS", "HANDOFF_READY", "RETURN_REVIEW", "ORPHANED", "BLOCKED", "BACKLOG", "DONE", "REJECTED", "SUPERSEDED"],
+      "dispatch_state": ["NONE", "NEEDS_REVIEW", "NEEDS_DISPATCH", "LEASED", "REVIEW_LEASED", "ORPHAN_RECOVERY", "BLOCKED", "COMPLETE", "DORMANT"]
+    },
+    "information": {
+      "firewall": ["NONE", "FREE_PHASE_A_BLIND", "TASK_BLIND_FORWARD", "STATEMENT_EXPOSED_AUDIT", "MIXED_EVIDENCE_AUDIT", "POST_FREEZE_OPEN"],
+      "freeze_state": ["NOT_REQUIRED", "REQUIRED_NOT_FROZEN", "FROZEN"],
+      "source_exposure": ["NORMAL", "WITHHELD", "POST_FREEZE_ONLY"]
+    },
+    "evidence": {
+      "source_status": ["NONE", "DRAFT", "PROVED_SOURCE", "REPAIR_REQUIRED", "FROZEN", "REPAIRED_FROZEN", "DRIVER_ACCEPTED", "CANONICAL"],
+      "independent_status": ["NOT_REQUIRED", "REQUIRED_OPEN", "PARTIAL", "CLOSED"],
+      "driver_verdict": ["NONE", "PENDING", "ACCEPTED", "NARROWED", "RETURNED", "PARKED", "REJECTED"],
+      "formalization_status": ["NOT_APPLICABLE", "NOT_ADMITTED", "ADMITTED", "IN_PROGRESS", "PASS", "RETURN_REQUIRED"],
+      "benchmark_status": ["NOT_APPLICABLE", "OPEN", "PARTIAL", "NEGATIVE", "PASS", "CLOSED"],
+      "canonical_status": ["NONCANONICAL", "PROMOTION_READY", "CANONICAL"]
+    },
+    "routing": {
+      "working_truth": ["INACTIVE", "ACTIVE", "SUPERSEDED"],
+      "method_harvest": ["NOT_APPLICABLE", "PENDING", "CLASSIFIED"],
+      "successor_gate": ["NOT_APPLICABLE", "REQUIRED_UNSATISFIED", "SATISFIED"],
+      "route_disposition": ["PENDING", "CONTINUE_SAME_TASK", "OPEN_CONTINUATION", "OPEN_INDEPENDENT_REPLICATION_CHILD", "ROUTE_TO_FOUNDATION", "ROUTE_TO_FORMALIZATION", "ROUTE_TO_PROMOTION", "PARK", "CLOSE"]
+    },
+    "parent": {
+      "objective": ["OPEN", "COMPLETE", "BLOCKED"],
+      "completion_basis": ["NONE", "USER_OBJECTIVE_SATISFIED", "USER_STOP", "UNAVOIDABLE_BLOCK", "PLATFORM_LIMIT"],
+      "next_executable_action": "string or null"
+    }
+  },
+  "review_event_contract": {
+    "approval_required_fields": ["taskbook_audit", "policy_digest", "review_ref", "taskbook_ref"],
+    "taskbook_audit_value": "PASS",
+    "return_review_required_fields": ["evidence_class", "method_harvest", "route_disposition", "review_ref"],
+    "method_harvest_values": ["GLOBAL_TOOL_FAMILY", "GLOBAL_SUBTOOL", "DOMAIN_FACADE", "DOMAIN_OPERATOR", "RESULT_ONLY", "CANDIDATE_NOT_TOOL", "DUPLICATE_ALIAS", "NO_TOOL_PAYLOAD"],
+    "evidence_class_values": ["SOURCE_ONLY", "BLIND_REPLICATION", "STATEMENT_EXPOSED_AUDIT", "MIXED_INDEPENDENT_EVIDENCE", "FORMAL_KERNEL", "BENCHMARK", "GOVERNANCE", "NEGATIVE_OBSTRUCTION"],
+    "route_disposition_values": ["CONTINUE_SAME_TASK", "OPEN_CONTINUATION", "OPEN_INDEPENDENT_REPLICATION_CHILD", "ROUTE_TO_FOUNDATION", "ROUTE_TO_FORMALIZATION", "ROUTE_TO_PROMOTION", "PARK", "CLOSE"],
+    "independent_replication_rule": "Never use Scheduler V2 REQUEST_INDEPENDENT_REPLICATION as a same-task HANDOFF. Use REVIEW verdict PARK with route_disposition=OPEN_INDEPENDENT_REPLICATION_CHILD, materialize a distinct child taskbook/task_id with explicit independence/firewall provenance, then publish that child through the ordinary cross-Driver gate."
+  },
+  "hard_invariants": [
+    "SCHEDULER_STATE_IS_WORKFLOW_NOT_THEOREM_TRUTH",
+    "SCHEDULER_DONE_DOES_NOT_COMPLETE_PARENT_USER_OBJECTIVE",
+    "ACCEPTED_RETURN_REQUIRES_METHOD_HARVEST_AND_EXPLICIT_ROUTE_DISPOSITION",
+    "CONTINUATION_REQUIRES_SATISFIED_SUCCESSOR_GATE",
+    "INDEPENDENT_REPLICATION_REQUIRES_DISTINCT_CHILD_TASK_AND_INDEPENDENCE_PROVENANCE",
+    "BLIND_AUDIT_CANNOT_CONSUME_WITHHELD_SOURCE_BEFORE_FREEZE",
+    "FORMALIZATION_REQUIRES_DRIVER_ADMISSION_AND_FROZEN_SOURCE_MATHEMATICS",
+    "FORMALIZATION_MISMATCH_RETURNS_TO_DRIVER_NEVER_WEAKENS_THEOREM_SILENTLY",
+    "FOUNDATION_DISPOSITION_PENDING_BLOCKS_CANONICAL_MUTATION",
+    "BENCHMARK_PERFORMANCE_CLAIM_REQUIRES_FAIR_BASELINE_AND_COMPLETE_COST_ACCOUNTING",
+    "REMOTE_OR_CI_PENDING_IS_NONBLOCKING_FOR_PARENT_OBJECTIVE",
+    "PARENT_OPEN_PLUS_NEXT_EXECUTABLE_ACTION_FORBIDS_WAITING_FOR_CONTINUE"
+  ],
+  "current_control_case_coverage": {
+    "PRIME_FUSION_F1": "FORMALIZATION",
+    "NATIVE_PRIME_COMPANION_REPLAY": "INDEPENDENT_AUDIT",
+    "FQ010_SCALE_ROLE": "FOUNDATION_DISPOSITION",
+    "VALLEY_FACTORING": "BENCHMARK",
+    "THIRD_SECTOR_COMPUTATIONAL_ROLE": "BENCHMARK",
+    "PRIME_FUSION_PACKAGE": "INTEGRATION",
+    "CBRC_F5R": "INDEPENDENT_AUDIT",
+    "CONTROL_PLANE_REPAIR": "GOVERNANCE_MAINTENANCE"
+  }
+}
