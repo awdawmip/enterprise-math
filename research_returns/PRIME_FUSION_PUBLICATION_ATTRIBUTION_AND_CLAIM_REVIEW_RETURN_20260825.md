@@ -2,7 +2,7 @@
 
 Status: `FROZEN / HARD_TARGET_REACHED / STOP`  
 Date: `2026-08-25`  
-Researcher-ID: `EM-PFPUB-7C3E91`  
+Researcher-ID: `EM-PFPUB-9D1ACE`  
 Task-ID: `GS-PRIME-FUSION-PUBLICATION-ATTRIBUTION-AND-CLAIM-REVIEW`  
 Taskbook source: `9d1aceb5d98c4e029a68734ef89f7b80e6c1bf8c`  
 Owner branch: `review/prime-fusion-publication-attribution`
@@ -24,6 +24,22 @@ Lean/publication synchronization:
 `F1_LEAN_SCOPE_CORRECTLY_DISCLOSED`
 
 The accepted T1–T15 mathematics is not reopened or enlarged. The strongest honest publication positioning is a structural/expository research note, optionally with a formalization-backed secondary emphasis. The current evidence does not support presenting Prime Fusion as fifteen historically new theorems or as a new general prime/factoring theory.
+
+## 0A. Runtime identity metadata correction
+
+This return is frozen again only to repair runtime identity provenance under the controlling Driver review
+
+`driver_reviews/PRIME_FUSION_PUBLICATION_ATTRIBUTION_AND_CLAIM_REVIEW_DRIVER_REVIEW_20260825.md@2f9a46f0aedc72c79155ada053486dd0d02f7e23`.
+
+The unbound metadata literal `EM-PFPUB-7C3E91` in the affected publication-review artifacts was corrected to the dispatch-bound `EM-PFPUB-9D1ACE`.
+
+No prior-art search, mathematics, Lean work, replication, attribution class, T10 guard, Lean label, or publication disposition was changed.
+
+`METADATA_CORRECTION_ONLY = true`
+
+`RUNTIME_IDENTITY_METADATA_CORRECTED = true`
+
+`PRIME_FUSION_PUBLICATION_PROVENANCE_GATE = PASS`
 
 ## 1. Recovery and execution note
 
@@ -222,6 +238,10 @@ Any future attempt to reposition Prime Fusion as a theorem-centered research pap
 `ALL_15_LEAN_VERIFIED = false`
 
 `HISTORICAL_NOVELTY_ESTABLISHED = false`
+
+`RUNTIME_IDENTITY_METADATA_CORRECTED = true`
+
+`PRIME_FUSION_PUBLICATION_PROVENANCE_GATE = PASS`
 
 `STOP_CONDITION_REACHED = true`
 
