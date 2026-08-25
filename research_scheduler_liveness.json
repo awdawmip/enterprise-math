@@ -5,9 +5,19 @@
   "scheduler": "research_scheduler.json",
   "runtime": "tools/research_scheduler.py",
   "authority_scope": {
-    "domain": "owner-claim lease, conversation/session liveness, stale recovery, and computed dispatch-state semantics only",
-    "precedence": "Within this narrow liveness domain, this contract supersedes any legacy single-lease implication in research_scheduler.json. The scheduler task table, priorities, dependencies, and owner assignments remain governed by research_scheduler.json.",
-    "reason": "Avoid rewriting the durable task catalog merely to evolve runtime lease semantics."
+    "domain": "owner-claim lease, conversation/session liveness, stale recovery, liveness event admission, and computed dispatch-state semantics only",
+    "precedence": "Within this narrow liveness domain, this contract is the active overlay on research_scheduler.json. Legacy scheduler event/state lists are extended by the overlays declared here; the scheduler task table, priorities, dependencies, and owner assignments remain governed by research_scheduler.json.",
+    "reason": "Keep the durable task catalog stable while evolving runtime liveness semantics without leaving implementation-only states or events."
+  },
+  "scheduler_config_overlay": {
+    "session_liveness_minutes": 10,
+    "additional_event_types": [
+      "SESSION_ADOPT"
+    ],
+    "additional_computed_dispatch_states": [
+      "STALE_RECOVERABLE",
+      "DORMANT"
+    ]
   },
   "owner_claim_lease": {
     "default_minutes": 120,
@@ -54,6 +64,7 @@
     "STALE_SESSION != RELEASED_OWNER",
     "STALE_SESSION + LIVE_OWNER -> SESSION_ADOPT_NOT_NEW_CLAIM",
     "VERIFIED_DURABLE_FRONTIER -> RESUME_NOT_RESTART",
-    "STALE_HEARTBEAT_ALONE_CANNOT_REVIVE_SESSION"
+    "STALE_HEARTBEAT_ALONE_CANNOT_REVIVE_SESSION",
+    "RUNTIME_EVENT_OR_STATE_MUST_BE_ADMITTED_BY_CANONICAL_SCHEDULER_OR_LIVENESS_OVERLAY"
   ]
 }
