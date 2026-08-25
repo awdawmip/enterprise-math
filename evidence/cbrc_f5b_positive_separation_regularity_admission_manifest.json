@@ -1,0 +1,52 @@
+{
+  "artifact_git_blobs": {
+    "evidence/cbrc_f5b_execution_stamp.json": "78a93f1da75258e527b479fb422699522e83c322",
+    "research_reports/CBRC_F5B_POSITIVE_SEPARATION_REGULARITY_ADMISSION_RETURN_20260825.md": "be5cd2a033124c1be6f8f688917536eb638fc901",
+    "research_reports/CBRC_F5B_REGULARITY_COUNTERMODEL_AND_ABLATION_PACKET_20260825.md": "73cde4e7cf106496471a945931a6c80ae57ceb10",
+    "research_reports/CBRC_F5B_SOURCE_AND_TARGET_LEAK_AUDIT_20260825.md": "2ccb5eaa19e6ddc40874e1cda960e11428cae219",
+    "scripts/cbrc_f5b_validate_positive_separation_regularity_admission.py": "719a7f1820e4b6c9d495e2cdb83e77af4c6c64f1"
+  },
+  "artifact_sha256": {
+    "evidence/cbrc_f5b_execution_stamp.json": "65595d22b297da81e36e6eea0756b90a0d2fa54aefb8737144c32cc69d8f89c9",
+    "research_reports/CBRC_F5B_POSITIVE_SEPARATION_REGULARITY_ADMISSION_RETURN_20260825.md": "a87e161f9673b8ea5536ca08062982648e40f72a83afa27b16685fbd549699a9",
+    "research_reports/CBRC_F5B_REGULARITY_COUNTERMODEL_AND_ABLATION_PACKET_20260825.md": "c5b02c4db29d0ceeb75a793dfe36b93b60685f901d4e7b3cbd7a6ee7b69b8693",
+    "research_reports/CBRC_F5B_SOURCE_AND_TARGET_LEAK_AUDIT_20260825.md": "7cddfa7affe96d6d6f592158d24ef182ef306a1acc9c9bba4874fd4dbf6295a4",
+    "scripts/cbrc_f5b_validate_positive_separation_regularity_admission.py": "8a472298db0b9270213f2deaf4180cadbe4fb8bb4c1d5fcecb6f2deaa7157895"
+  },
+  "checker": {
+    "byte_identity_with_pushed_blob": true,
+    "check_count": 101,
+    "deterministic_digest": "668c57c8da749b33eac111420644ee27739cacd267b83b9903edfb7e0ab53f7e",
+    "mismatch_count": 0,
+    "result": "PASS",
+    "sha256": "8a472298db0b9270213f2deaf4180cadbe4fb8bb4c1d5fcecb6f2deaa7157895"
+  },
+  "checkpoint_commits": {
+    "checkpoint_A": "4e20806510e9a5046aad17254109da3fe92e5353",
+    "checkpoint_B_checker": "fe3d452b13cf4cebd8c64d4b99d2c58c2a66a7f3",
+    "completed_pre_math_stamp": "0741557dfb97c3eb956c26c6dac1339547e792e1",
+    "final_audit": "388dc6791bb575edab4fa94f4eea100535a4109d",
+    "final_return": "ea669359add4363bd374405d41ab83d99498260f",
+    "initial_pre_math_stamp": "861228cce0886f2b501ab69756ca69aff58d01ad",
+    "manifest_parent_head": "e49f354fe3f574a9c158d447e7815b6e8ab189b4"
+  },
+  "clean_tree_status": "CLEAN_REMOTE_COMMIT_STATE",
+  "f6_opened": false,
+  "hard_target": "POSITIVE_SEPARATION_REGULARITY_AXIOM_ADMISSION_STATUS_CLASSIFIED",
+  "math_source_read_before_stamp": false,
+  "native_foundation_promoted": false,
+  "owner_branch": "research/cbrc-f5b-positive-separation-regularity-axiom-admission",
+  "primary_verdict": "F5B_ADMIT_RESTRICTED_FREE_FIBER_POSITIVITY_ONLY",
+  "rank_two_carrier_constructed": false,
+  "researcher_id": "EM-CBRCF5B-B8E421",
+  "status": "FINAL_FROZEN",
+  "target_leak_audit": "PASS",
+  "task_id": "RS-CBRC-F5B-POSITIVE-SEPARATION-REGULARITY-AXIOM-ADMISSION",
+  "taskbook_source": "11c5c651df54cf0117f936d5dbf421e37b9b7a34",
+  "theorem_status": "WORKING_EXTENSION_THEOREM",
+  "weaker_model_relative_rules": [
+    "P6_ZERO_SUBGROUP_EXCLUSION",
+    "P7_ENVELOPE_APERIODICITY"
+  ],
+  "working_extension_axiom": "FREE_PROJECTION_ZERO_SEPARATION: pi(z) != 0 => q(z)>0"
+}
