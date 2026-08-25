@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -78,6 +79,15 @@ def validate_machine(machine: dict[str, Any]) -> list[str]:
         if state in states and states[state].get("substantive_math_allowed") is not True:
             errors.append(f"{state}: substantive_math_allowed must be true")
 
+    gate_contract = machine.get("execution_gate_contract", {})
+    if gate_contract.get("initial_gate_status") != "PENDING":
+        errors.append("execution gates must initialize PENDING")
+    required_statuses = {"PENDING", "SATISFIED", "FAILED"}
+    if not required_statuses.issubset(set(gate_contract.get("gate_status_values", []))):
+        errors.append("gate_status_values must include PENDING/SATISFIED/FAILED")
+    if not _nonempty(gate_contract.get("action_guard_rule")):
+        errors.append("execution gate contract must define action_guard_rule")
+
     transition_keys: set[tuple[str, str]] = set()
     for item in machine.get("transitions", []):
         if not isinstance(item, dict):
@@ -126,7 +136,15 @@ def validate_machine(machine: dict[str, Any]) -> list[str]:
     return errors
 
 
-def audit_taskbook_execution(meta: dict[str, Any], machine: dict[str, Any]) -> list[dict[str, str]]:
+def _declared_gates(meta: dict[str, Any], machine: dict[str, Any]) -> list[dict[str, Any]]:
+    field = machine["execution_gate_contract"]["taskbook_gate_field"]
+    gates = meta.get(field, [])
+    return [gate for gate in gates if isinstance(gate, dict)] if isinstance(gates, list) else []
+
+
+def audit_taskbook_execution(
+    meta: dict[str, Any], machine: dict[str, Any], *, body: str = ""
+) -> list[dict[str, str]]:
     findings: list[dict[str, str]] = []
     gate_contract = machine["execution_gate_contract"]
 
@@ -150,6 +168,7 @@ def audit_taskbook_execution(meta: dict[str, Any], machine: dict[str, Any]) -> l
 
     seen: set[str] = set()
     allowed_phases = set(gate_contract["allowed_gate_phases"])
+    pre_math_gate_count = 0
     for idx, gate in enumerate(gates):
         if not isinstance(gate, dict):
             findings.append({
@@ -182,6 +201,8 @@ def audit_taskbook_execution(meta: dict[str, Any], machine: dict[str, Any]) -> l
                 "code": "EX-GATE-PHASE",
                 "message": f"gate {gate_id!r} phase must be one of {sorted(allowed_phases)}",
             })
+        if phase == "PRE_MATH":
+            pre_math_gate_count += 1
 
         must_precede = gate.get("must_precede")
         if not isinstance(must_precede, list) or not must_precede:
@@ -207,6 +228,12 @@ def audit_taskbook_execution(meta: dict[str, Any], machine: dict[str, Any]) -> l
                         "code": "EX-PREMATH-COVERAGE",
                         "message": f"PRE_MATH gate {gate_id!r} must precede both math action classes; missing {missing}",
                     })
+            if phase == "PRE_RETURN" and "RETURN_WRITE" not in must_precede:
+                findings.append({
+                    "severity": "ERROR",
+                    "code": "EX-PRERETURN-COVERAGE",
+                    "message": f"PRE_RETURN gate {gate_id!r} must precede RETURN_WRITE",
+                })
 
         evidence = gate.get("evidence")
         if not isinstance(evidence, dict):
@@ -223,15 +250,28 @@ def audit_taskbook_execution(meta: dict[str, Any], machine: dict[str, Any]) -> l
                         "code": "EX-GATE-EVIDENCE",
                         "message": f"gate {gate_id!r} evidence missing/nonempty field {field}",
                     })
+
+    detector = machine.get("premath_directive_detection", {})
+    hits = [
+        pattern
+        for pattern in detector.get("patterns", [])
+        if re.search(pattern, body, flags=re.IGNORECASE | re.MULTILINE)
+    ]
+    if hits and pre_math_gate_count == 0:
+        findings.append({
+            "severity": "ERROR",
+            "code": "EX-PREMATH-UNDECLARED",
+            "message": "taskbook body contains an obvious pre-math directive but frontmatter declares no PRE_MATH execution gate: " + ", ".join(hits),
+        })
     return findings
 
 
 def audit_taskbook_path(path: Path, root: Path = ROOT) -> list[dict[str, str]]:
     try:
-        meta, _ = split_taskbook(path.read_text(encoding="utf-8"))
+        meta, body = split_taskbook(path.read_text(encoding="utf-8"))
     except Exception as exc:
         return [{"severity": "ERROR", "code": "EX-TASKBOOK-PARSE", "message": str(exc)}]
-    return audit_taskbook_execution(meta, load_machine(root))
+    return audit_taskbook_execution(meta, load_machine(root), body=body)
 
 
 def allowed_action(machine: dict[str, Any], state: str, action: str) -> bool:
@@ -240,6 +280,36 @@ def allowed_action(machine: dict[str, Any], state: str, action: str) -> bool:
     if action not in machine["action_classes"]:
         raise ValueError(f"unknown action class: {action}")
     return action in machine["allowed_action_classes_by_state"][state]
+
+
+def gate_blockers(
+    meta: dict[str, Any], machine: dict[str, Any], action: str, satisfied_gate_ids: set[str]
+) -> list[str]:
+    if action not in machine["action_classes"]:
+        raise ValueError(f"unknown action class: {action}")
+    blockers: list[str] = []
+    for gate in _declared_gates(meta, machine):
+        gate_id = gate.get("gate_id")
+        if not isinstance(gate_id, str) or not gate_id:
+            continue
+        must_precede = gate.get("must_precede")
+        if isinstance(must_precede, list) and action in must_precede and gate_id not in satisfied_gate_ids:
+            blockers.append(gate_id)
+    return sorted(blockers)
+
+
+def allowed_task_action(
+    meta: dict[str, Any],
+    machine: dict[str, Any],
+    state: str,
+    action: str,
+    satisfied_gate_ids: set[str] | None = None,
+) -> tuple[bool, list[str]]:
+    satisfied = satisfied_gate_ids or set()
+    if not allowed_action(machine, state, action):
+        return False, [f"STATE:{state}"]
+    blockers = gate_blockers(meta, machine, action, satisfied)
+    return not blockers, blockers
 
 
 def next_state(machine: dict[str, Any], state: str, event: str, evidence: dict[str, Any]) -> str:
@@ -275,6 +345,20 @@ def next_state(machine: dict[str, Any], state: str, event: str, evidence: dict[s
     missing = [field for field in transition.get("requires", []) if not _nonempty(evidence.get(field))]
     if missing:
         raise ValueError(f"missing transition evidence: {missing}")
+
+    strict_true = {
+        "dispatch_audit_pass",
+        "execution_gates_checked_empty_of_pre_math",
+        "action_within_taskbook_whitelist",
+        "return_write_action_guard_pass",
+        "execution_gate_ledger_complete",
+    }
+    false_fields = [
+        field for field in transition.get("requires", [])
+        if field in strict_true and evidence.get(field) is not True
+    ]
+    if false_fields:
+        raise ValueError(f"transition requires exact true evidence: {false_fields}")
     return transition["to"]
 
 
@@ -311,8 +395,27 @@ def command_check_action(args: argparse.Namespace) -> int:
     except ValueError as exc:
         print(f"ERROR: {exc}")
         return 2
-    print("ALLOWED" if ok else "BLOCKED")
+    print("ALLOWED_BY_STATE" if ok else "BLOCKED_BY_STATE")
     return 0 if ok else 1
+
+
+def command_check_task_action(args: argparse.Namespace) -> int:
+    machine = load_machine()
+    path = Path(args.taskbook)
+    if not path.is_absolute():
+        path = ROOT / path
+    try:
+        meta, _ = split_taskbook(path.read_text(encoding="utf-8"))
+        satisfied = {item for item in args.satisfied_gates.split(",") if item}
+        ok, blockers = allowed_task_action(meta, machine, args.state, args.action, satisfied)
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        print(f"ERROR: {exc}")
+        return 2
+    if ok:
+        print("ALLOWED")
+        return 0
+    print("BLOCKED: " + ",".join(blockers))
+    return 1
 
 
 def command_next_state(args: argparse.Namespace) -> int:
@@ -343,6 +446,13 @@ def main() -> int:
     ca.add_argument("--state", required=True)
     ca.add_argument("--action", required=True)
     ca.set_defaults(func=command_check_action)
+
+    cta = sub.add_parser("check-task-action")
+    cta.add_argument("--taskbook", required=True)
+    cta.add_argument("--state", required=True)
+    cta.add_argument("--action", required=True)
+    cta.add_argument("--satisfied-gates", default="")
+    cta.set_defaults(func=command_check_task_action)
 
     ns = sub.add_parser("next-state")
     ns.add_argument("--state", required=True)
