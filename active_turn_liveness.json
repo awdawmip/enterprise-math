@@ -2,6 +2,8 @@
   "schema": "ENTERPRISE_MATH_ACTIVE_TURN_LIVENESS_V1",
   "status": "ACTIVE_CANONICAL",
   "effective": "2026-08-22",
+  "unified_runtime_state_machine": "research_runtime_state_machine.json",
+  "scheduler_liveness_contract": "research_scheduler_liveness.json",
   "scope": [
     "FREE_AXIOM_DISCOVERY",
     "TASK_RESEARCH",
@@ -25,6 +27,7 @@
     "USER_WAKEUP_MESSAGE_MUST_NOT_BE_REQUIRED_WHEN_IT_ADDS_NO_INFORMATION"
   ],
   "runtime_enforcement": {
+    "snapshot_builder": "tools/research_runtime.py::build_runtime_snapshot",
     "pre_final_gate": "tools/research_runtime.py::pre_final_gate",
     "fail_closed": true,
     "rule": "PARENT_OBJECTIVE_OPEN_WITHOUT_PROVED_TERMINAL_CONDITION -> FINAL_DENIED",
