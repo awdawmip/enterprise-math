@@ -1,0 +1,54 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_SCHEDULER_LIVENESS_V1",
+  "status": "ACTIVE_CANONICAL",
+  "effective": "2026-08-25",
+  "scheduler": "research_scheduler.json",
+  "runtime": "tools/research_scheduler.py",
+  "owner_claim_lease": {
+    "default_minutes": 120,
+    "purpose": "prevent duplicate ownership/dispatch",
+    "preserved_when_session_stale": true,
+    "expiry_transition": "HANDOFF_READY -> NEEDS_DISPATCH"
+  },
+  "session_liveness_lease": {
+    "default_minutes": 10,
+    "purpose": "detect whether the current conversation/session is still an active executor",
+    "must_be_shorter_than_owner_claim_lease": true,
+    "stale_transition": "LIVE -> STALE_RECOVERABLE",
+    "stale_does_not_release_owner_claim": true
+  },
+  "stale_recovery": {
+    "event": "SESSION_ADOPT",
+    "same_claim_required": true,
+    "same_researcher_identity_preserved": true,
+    "new_claim_preemption_forbidden": true,
+    "required_fields": [
+      "actor",
+      "recovery_ref",
+      "unfinished_unit",
+      "next_action"
+    ],
+    "meaning": "replacement conversation verifies the durable frontier, adopts the still-live owner claim in place, and resumes from the smallest unfinished unit"
+  },
+  "session_activity": {
+    "HEARTBEAT": "renews only a still-live session; cannot revive a stale session",
+    "PROGRESS": "durable progress may renew both owner and session leases",
+    "SESSION_ADOPT": "verified stale-session recovery renews the same owner claim and a new session lease",
+    "HANDOFF_HARD_BLOCK_DONE_SUPERSEDE": "release session together with owner claim"
+  },
+  "computed_dispatch_states": [
+    "NEEDS_DISPATCH",
+    "LEASED",
+    "STALE_RECOVERABLE",
+    "BLOCKED",
+    "COMPLETE",
+    "DORMANT"
+  ],
+  "core_invariants": [
+    "OWNER_LEASE != SESSION_LIVENESS_LEASE",
+    "STALE_SESSION != RELEASED_OWNER",
+    "STALE_SESSION + LIVE_OWNER -> SESSION_ADOPT_NOT_NEW_CLAIM",
+    "VERIFIED_DURABLE_FRONTIER -> RESUME_NOT_RESTART",
+    "STALE_HEARTBEAT_ALONE_CANNOT_REVIVE_SESSION"
+  ]
+}
