@@ -12,6 +12,8 @@ import argparse
 import json
 import pathlib
 import sys
+import subprocess
+from datetime import datetime
 from typing import Any
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -172,6 +174,17 @@ def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[st
     return errors
 
 
+def cross_layer_guard_applies(event: dict[str, Any], spec: dict[str, Any]) -> bool:
+    effective = spec.get("cross_layer_effective_at")
+    at = event.get("at")
+    if not isinstance(effective, str) or not isinstance(at, str):
+        return True
+    try:
+        return datetime.fromisoformat(at) >= datetime.fromisoformat(effective)
+    except ValueError:
+        return True
+
+
 def validate_events(events: list[dict[str, Any]], spec: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     contract = spec["review_event_contract"]
@@ -182,6 +195,9 @@ def validate_events(events: list[dict[str, Any]], spec: dict[str, Any]) -> list[
         if event.get("schema") != V2_SCHEMA:
             continue
         kind = event.get("event")
+        guarded = cross_layer_guard_applies(event, spec)
+        if not guarded:
+            continue
         if kind == "APPROVE":
             if event.get("taskbook_audit") != "PASS":
                 errors.append(f"event[{i}] APPROVE requires taskbook_audit=PASS")
@@ -285,6 +301,7 @@ def main(argv: list[str] | None = None) -> int:
     t = sp.add_parser("template"); t.add_argument("profile")
     s = sp.add_parser("validate-snapshot"); s.add_argument("path", type=pathlib.Path)
     e = sp.add_parser("validate-events"); e.add_argument("path", type=pathlib.Path)
+    r = sp.add_parser("registry"); r.add_argument("--events", required=True, type=pathlib.Path)
     args = p.parse_args(argv)
     spec = load_json(args.spec)
     errors = validate_spec(spec)
@@ -299,6 +316,11 @@ def main(argv: list[str] | None = None) -> int:
         errors = validate_snapshot(load_json(args.path), spec)
     elif not errors and args.cmd == "validate-events":
         errors = validate_events(load_events(args.path), spec)
+    elif not errors and args.cmd == "registry":
+        errors = validate_events(load_events(args.events), spec)
+        if not errors:
+            cmd = [sys.executable, str(ROOT / "tools" / "research_scheduler.py"), "registry", "--events", str(args.events)]
+            return subprocess.run(cmd, check=False).returncode
     if errors:
         for error in errors:
             print("ERROR:", error)
