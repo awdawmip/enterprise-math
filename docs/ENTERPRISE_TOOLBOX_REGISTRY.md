@@ -1,7 +1,7 @@
 # Enterprise Math Toolbox Registry
 
 Status: `ACTIVE / CURRENT TOOL ROUTER / NOT FOUNDATION AUTHORITY / V3`
-Date: `2026-08-23`
+Date: `2026-08-25`
 Driver: `EM-DVR-ZX1UEJ`
 Machine registry: `enterprise_toolbox_registry.json`
 Executable router: `tools/enterprise_toolbox.py`
@@ -35,6 +35,29 @@ The Common Research Surface and Toolbox divide ownership of repository `tools/*.
 - **T7 Finite Symmetry / Orbit / Equivariance** — orbit/stabilizer, relabeling, equivariant-map classification and canonical-choice obstruction.
 - **T8 Relation Observable / Spectrum** — multivalued relation signatures, collision spectra and relation-safe quotient diagnostics.
 - **T9 Holonomy / Cocycle / Gluing-Obstruction** — loop transport, cocycle/route dependence and strict-globalization obstruction.
+
+### T1 narrowed subtool — Triaxial directional defect
+
+Classification: `GLOBAL_SUBTOOL` under `T1_SCALE_ENUMERATION_VALUATION`.
+
+Executable surface:
+
+- `src/enterprise_math/triaxial_directional_defect.py` — narrowed public adapter;
+- `src/enterprise_math/_triaxial_directional_defect_core.py` — independently verified operator core transplanted from `b1f79d2314de2d1ae1511a693cdf37e7c7812cf8`;
+- `tests/test_triaxial_directional_defect_integration.py` — integration regressions.
+
+Use for declared primitive/canonical commuting three-direction frames, shared first/second/third finite differences, native-hex tomography kernel/uniqueness certificates, exposed-vertex augmentation, and Hive/rhombus reuse of the same operator core.
+
+The public API keeps `FULL_ADJOINT` / `CHIRALITY_ADJOINT` separate from `COMPRESSED_GRAM` / `GRAM_FACTOR`. Full-field adjoint output and compressed native-hex `G*G` matrices are different typed surfaces.
+
+Hard boundaries:
+
+- primitive/canonical frame assumptions are explicit and unoriented frame/ray deduplication is explicit;
+- the simple width/uniqueness law is only routed on the verified native-hex/support-compatible domain;
+- coefficient characteristics on the integrated adjoint/Gram diagnostic path are restricted to the independently checked `0,2,3,5,7` set, retaining failure guards;
+- exposed-vertex unimodular augmentation is the robust ambiguity-killing certificate;
+- endpoint coalescence is not native trace identity;
+- Y–Delta/general rational boundary response, binary/nonlinear tomography, Foundation mutation, width-theorem expansion and new top-level family promotion are out of scope.
 
 ## T10 — Local Redistribution / Toppling / Potential
 
@@ -152,9 +175,10 @@ Dated Driver-accepted harvest shards live in:
 
 The executable router loads the base plus all addenda, rejects duplicate `method_id` values, and separately scans current `src/enterprise_math/*.py` by AST/docstring/public API without importing modules.
 
-Current harvest shard:
+Current harvest shards include:
 
-`research_method_inventory_addenda/20260823_tool_discovery_six_return.json`.
+- `research_method_inventory_addenda/20260823_tool_discovery_six_return.json`;
+- `research_method_inventory_addenda/20260825_triaxial_directional_defect_t1.json`.
 
 ## Selection guide
 
@@ -172,4 +196,4 @@ Current harvest shard:
 - chain-complex acyclic cancellation -> T11
 - weighted idempotent path closure/Bellman fixed point -> T12
 
-Conditional weighted energy -> T10 specialization. Carrier Voronoi/Delaunay -> indexed domain operator. Discrete conformal/circle packing -> semantic-admissibility result until extra structure is independently supplied.
+T1 triaxial directional defects are a subtool, not a new family. Conditional weighted energy -> T10 specialization. Carrier Voronoi/Delaunay -> indexed domain operator. Discrete conformal/circle packing -> semantic-admissibility result until extra structure is independently supplied.
