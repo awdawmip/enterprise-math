@@ -30,3 +30,5 @@ jobs:
         run: python tools/check_research_common_surface.py
       - name: Check canonical task registry and orphan prevention
         run: python tools/research_task_registry.py audit
+      - name: Check legacy scheduler cutover is frozen
+        run: python tools/check_task_registry_cutover.py
