@@ -73,6 +73,7 @@ def _decision(
     reason: str,
     *,
     continuation_lease_active: bool,
+    lease_terminates: bool = False,
 ) -> dict[str, Any]:
     final_allowed = transition in {
         FINAL_ALLOWED,
@@ -83,7 +84,7 @@ def _decision(
         "transition": transition,
         "final_allowed": final_allowed,
         "reason": reason,
-        "continuation_lease_preserved": continuation_lease_active and not final_allowed,
+        "continuation_lease_preserved": continuation_lease_active and not lease_terminates,
     }
 
 
@@ -104,6 +105,7 @@ def evaluate(state: Mapping[str, Any]) -> dict[str, Any]:
             FINAL_ALLOWED,
             "parent user objective is complete",
             continuation_lease_active=continuation_lease_active,
+            lease_terminates=True,
         )
 
     if values["user_requested_stop_pause_review_or_wait"]:
@@ -111,6 +113,7 @@ def evaluate(state: Mapping[str, Any]) -> dict[str, Any]:
             FINAL_ALLOWED,
             "user explicitly requested a terminal interaction boundary",
             continuation_lease_active=continuation_lease_active,
+            lease_terminates=True,
         )
 
     if executable_next_actions > 0:
@@ -140,6 +143,12 @@ def evaluate(state: Mapping[str, Any]) -> dict[str, Any]:
         )
 
     if not values["independent_safe_work_exhausted"]:
+        if values["parent_state_recomputed_without_change"]:
+            return _decision(
+                CONTROL_STATE_INCONSISTENT,
+                "safe work is claimed to remain, but parent-state recomputation produced no executable action",
+                continuation_lease_active=continuation_lease_active,
+            )
         return _decision(
             RECOMPUTE_PARENT_STATE,
             "no next action is selected but independent/downstream-safe work has not been exhausted",
