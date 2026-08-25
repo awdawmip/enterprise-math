@@ -31,6 +31,16 @@ TRANSITIONS = (
     CONTROL_STATE_INCONSISTENT,
 )
 
+REQUIRED_ACTIONS = {
+    FINAL_ALLOWED: "RETURN_FINAL",
+    FINAL_ALLOWED_WITH_BLOCKER: "RETURN_STRONGEST_RESULT_AND_EXPLICIT_PARENT_BLOCKER",
+    FINAL_ALLOWED_WITH_LIMIT: "RETURN_STRONGEST_RESULT_AND_EXPLICIT_PLATFORM_OR_TOOL_LIMIT",
+    EXECUTE_NEXT_ACTION: "EXECUTE_SELECTED_NEXT_ACTION_NOW",
+    SWITCH_STRATEGY: "TAKE_DIFFERENT_SUPPORTED_ROUTE_NOW",
+    RECOMPUTE_PARENT_STATE: "RECOMPUTE_PARENT_ROUTING_ONCE",
+    CONTROL_STATE_INCONSISTENT: "REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE",
+}
+
 _BOOL_FIELDS = (
     "parent_objective_complete",
     "user_requested_stop_pause_review_or_wait",
@@ -84,6 +94,7 @@ def _decision(
         "transition": transition,
         "final_allowed": final_allowed,
         "reason": reason,
+        "required_action": REQUIRED_ACTIONS[transition],
         "continuation_lease_preserved": continuation_lease_active and not lease_terminates,
     }
 
