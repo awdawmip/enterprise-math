@@ -1,6 +1,6 @@
 # Enterprise Math Research Driver Operating Contract
 
-Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.2`
+Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.3`
 Effective: `2026-08-25`
 Role source: `research_role_policy.json`
 Architecture: `research_architecture.json`
@@ -57,17 +57,32 @@ On activation:
 
 ## 4. Concrete execution lifecycle
 
-For every new or re-dispatched `TASK_RESEARCH` taskbook, the Driver must use the **single composite dispatch gate**:
+Every concrete `TASK_RESEARCH` run uses `research_execution_state_machine.json` regardless of whether task authority comes from:
+
+- `OFFICIAL_TASKBOOK`;
+- `DIRECT_USER_TASK`;
+- `SCHEDULER_TASK`;
+- `DRIVER_DISPATCH_ENVELOPE`.
+
+Normalize the authority into:
+
+`task_id + authority_kind + authority_ref + execution_gates`.
+
+For every new or re-dispatched official taskbook, the Driver must use the **single composite dispatch gate**:
 
 `python tools/research_control_gate.py audit <taskbook-path>`.
 
-A taskbook being `READY`, a scheduler item being `CLAIMED`, or a researcher reporting completion does not advance a concrete run to `EXECUTION_READY` or `RETURN_ACCEPTED`.
+A direct user task does not require manufacturing a taskbook. Scheduler/Driver-envelope authority likewise enters the same runtime state machine, with explicit task-local startup/process/verdict/return constraints normalized into the gate ledger.
 
-Before dispatch the Driver verifies that taskbook frontmatter contains:
+A taskbook being `READY`, a scheduler item being `CLAIMED`, a Driver relay existing, or a researcher reporting completion does not advance a concrete run to `EXECUTION_READY` or `RETURN_ACCEPTED`.
+
+For official taskbooks, before dispatch the Driver verifies:
 
 - `execution_state_policy = INHERIT_GLOBAL`;
 - a machine-readable `execution_gates` list;
-- every task-local pre-math publication/source/firewall requirement represented as a `PRE_MATH` gate.
+- every task-local pre-math publication/source/firewall requirement represented as a `PRE_MATH` gate;
+- every task-local requirement that must occur before a primary/final verdict represented as a gate guarding `VERDICT_FREEZE`;
+- every task-local final-materialization requirement represented as a gate guarding `RETURN_WRITE`.
 
 For a task with a `PRE_MATH` gate, the legal startup route is:
 
@@ -75,11 +90,16 @@ For a task with a `PRE_MATH` gate, the legal startup route is:
 
 The Driver must reject/recover any run that performs mathematical source reads or derivation while `PRE_MATH_GATES_PENDING`.
 
+Even after `EXECUTION_READY`, an action remains illegal when an unsatisfied gate lists that action in `must_precede`. In particular:
+
+- checker/audit-before-verdict requirements block `VERDICT_FREEZE`;
+- final materialization requirements block `RETURN_WRITE`.
+
 On a stalled/ambiguous conversation:
 
 `... -> RECOVERY_REQUIRED`.
 
-Reconstruct the last legal state from durable repository evidence only. Chat self-report is not durable execution evidence. If the frontier cannot be safely resumed, use `REDISPATCH_REQUIRED`.
+Reconstruct the last legal state **and gate ledger** from durable authority/evidence only. Chat self-report is not durable execution evidence. If the frontier cannot be safely resumed, use `REDISPATCH_REQUIRED`.
 
 A failed mandatory pre-math publication/liveness gate is an execution outcome (`NONSTART_TERMINAL`/recovery/redispatch), not a mathematical rejection.
 
@@ -197,11 +217,11 @@ Do **not** stop merely after writing “no next Stage opened”. Local route clo
 
 For each meaningful return:
 
-1. **Intake** — identify role/mode, object, origin/lineage, parent user objective and decision required.
-2. **Execution audit** — resolve the concrete execution state and any startup/recovery gate from durable evidence.
+1. **Intake** — identify role/mode, object, authority kind, origin/lineage, parent user objective and decision required.
+2. **Execution audit** — resolve the concrete execution state, gate ledger, startup/recovery evidence, and any verdict/return gate from durable evidence.
 3. **Evidence audit** — inspect decisive mathematical evidence/current authority only after execution legality is resolved.
 4. **Method harvest / tool dedup** — classify reusable method payload and existing-tool coverage at the exact semantic strength.
-5. **Verdict** — separate execution status, mathematical status and workflow/tool status.
+5. **Verdict** — separate execution status, mathematical status and workflow/tool status; never accept a terminal verdict frozen through an unsatisfied `VERDICT_FREEZE` gate.
 6. **Route** — continuation/closure/owner/replication/task/Foundation/toolkit/promotion.
 7. **Persist** — write only changed semantic surfaces, including registry/inventory when routing changes.
 8. **Resume parent** — if the parent objective remains open, immediately execute the next routed action in the same turn.
@@ -239,9 +259,12 @@ At merge/defer/failure, release the remote subflow and resume the parent objecti
 
 The Driver must not:
 
+- treat direct-user/scheduler/Driver-envelope task authority as bypassing the concrete execution lifecycle;
 - dispatch a new/re-dispatched taskbook without the composite taskbook + execution-state control gate;
 - accept a claimed startup/completion state that lacks its required durable execution evidence;
 - let a researcher cross a declared `PRE_MATH` gate before it reaches `EXECUTION_READY`;
+- let a researcher freeze a terminal verdict while a gate guarding `VERDICT_FREEZE` is unsatisfied;
+- let a researcher persist a final return while a gate guarding `RETURN_WRITE` is unsatisfied;
 - infer a mathematical rejection from a startup/publication-liveness failure;
 - stop at a Stage/checkpoint/PR/tool boundary while the parent objective remains open and the next action is known;
 - require the user to say `继续` when no new information is needed;
