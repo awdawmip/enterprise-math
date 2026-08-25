@@ -1,0 +1,358 @@
+#!/usr/bin/env python3
+"""Validate and query the Enterprise Math research execution state machine."""
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+from typing import Any
+
+ROOT = Path(__file__).resolve().parents[1]
+MACHINE_PATH = ROOT / "research_execution_state_machine.json"
+FRONTMATTER_PREFIX = "<!-- ENTERPRISE_MATH_TASK_V1\n"
+FRONTMATTER_SUFFIX = "\n-->"
+
+
+def load_json(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_machine(root: Path = ROOT) -> dict[str, Any]:
+    return load_json(root / "research_execution_state_machine.json")
+
+
+def split_taskbook(text: str) -> tuple[dict[str, Any], str]:
+    if not text.startswith(FRONTMATTER_PREFIX):
+        raise ValueError("missing ENTERPRISE_MATH_TASK_V1 frontmatter")
+    end = text.find(FRONTMATTER_SUFFIX, len(FRONTMATTER_PREFIX))
+    if end < 0:
+        raise ValueError("unterminated taskbook frontmatter")
+    raw = text[len(FRONTMATTER_PREFIX):end]
+    return json.loads(raw), text[end + len(FRONTMATTER_SUFFIX):].lstrip("\n")
+
+
+def _nonempty(value: Any) -> bool:
+    if isinstance(value, str):
+        return bool(value.strip())
+    if isinstance(value, (list, tuple, set, dict)):
+        return bool(value)
+    return value is not None
+
+
+def validate_machine(machine: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    states = machine.get("states")
+    if not isinstance(states, dict) or not states:
+        return ["states must be a nonempty object"]
+
+    initial = machine.get("initial_state")
+    if initial not in states:
+        errors.append(f"initial_state {initial!r} is not declared")
+
+    allowed = machine.get("allowed_action_classes_by_state")
+    if not isinstance(allowed, dict):
+        errors.append("allowed_action_classes_by_state must be an object")
+        allowed = {}
+    elif set(allowed) != set(states):
+        errors.append("allowed_action_classes_by_state keys must exactly match states")
+
+    action_classes = machine.get("action_classes", {})
+    action_names = set(action_classes)
+    for state, actions in allowed.items():
+        if not isinstance(actions, list):
+            errors.append(f"{state}: allowed actions must be a list")
+            continue
+        unknown = sorted(set(actions) - action_names)
+        if unknown:
+            errors.append(f"{state}: unknown action classes {unknown}")
+
+    for state in ("UNBOUND", "DISPATCH_READY", "CLAIMED", "IDENTITY_READY", "PRE_MATH_GATES_PENDING"):
+        if state in states:
+            if states[state].get("substantive_math_allowed") is not False:
+                errors.append(f"{state}: substantive_math_allowed must be false")
+            for forbidden in ("MATHEMATICAL_SOURCE_READ", "MATHEMATICAL_DERIVATION"):
+                if forbidden in allowed.get(state, []):
+                    errors.append(f"{state}: {forbidden} must be forbidden")
+
+    for state in ("EXECUTION_READY", "IN_PROGRESS"):
+        if state in states and states[state].get("substantive_math_allowed") is not True:
+            errors.append(f"{state}: substantive_math_allowed must be true")
+
+    transition_keys: set[tuple[str, str]] = set()
+    for item in machine.get("transitions", []):
+        if not isinstance(item, dict):
+            errors.append("every transition must be an object")
+            continue
+        src, event, dst = item.get("from"), item.get("event"), item.get("to")
+        if src not in states:
+            errors.append(f"transition source {src!r} is not a state")
+        if dst not in states:
+            errors.append(f"transition target {dst!r} is not a state")
+        if not _nonempty(event):
+            errors.append(f"transition from {src!r} has no event")
+        key = (str(src), str(event))
+        if key in transition_keys:
+            errors.append(f"duplicate transition key {key}")
+        transition_keys.add(key)
+        req = item.get("requires", [])
+        if not isinstance(req, list):
+            errors.append(f"{key}: requires must be a list")
+
+    required_regressions = {
+        ("UNBOUND", "DISPATCH_AUDIT_PASS", "DISPATCH_READY"),
+        ("CLAIMED", "IDENTITY_RESOLVED", "IDENTITY_READY"),
+        ("IDENTITY_READY", "STARTUP_CLASSIFIED_WITH_PRE_MATH_GATES", "PRE_MATH_GATES_PENDING"),
+        ("PRE_MATH_GATES_PENDING", "PRE_MATH_GATES_SATISFIED", "EXECUTION_READY"),
+        ("PRE_MATH_GATES_PENDING", "PRE_MATH_GATE_FAILED", "NONSTART_TERMINAL"),
+    }
+    actual = {
+        (item.get("from"), item.get("event"), item.get("to"))
+        for item in machine.get("transitions", [])
+        if isinstance(item, dict)
+    }
+    for regression in sorted(required_regressions - actual):
+        errors.append(f"missing required regression transition {regression}")
+
+    recovery = machine.get("recovery_transitions", {})
+    if recovery.get("to") != "RECOVERY_REQUIRED":
+        errors.append("liveness recovery must enter RECOVERY_REQUIRED")
+    if recovery.get("redispatch_to") != "REDISPATCH_REQUIRED":
+        errors.append("non-resumable recovery must end REDISPATCH_REQUIRED")
+
+    guard = machine.get("f5a_regression_guard", {})
+    forbidden = set(guard.get("forbidden_classifications", []))
+    if not {"EXECUTION_READY", "IN_PROGRESS", "RETURN_ACCEPTED", "CLOSED"}.issubset(forbidden):
+        errors.append("F5A regression guard does not forbid all false-success states")
+    return errors
+
+
+def audit_taskbook_execution(meta: dict[str, Any], machine: dict[str, Any]) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    gate_contract = machine["execution_gate_contract"]
+
+    policy_field = gate_contract["taskbook_policy_field"]
+    policy_value = gate_contract["taskbook_policy_value"]
+    if meta.get(policy_field) != policy_value:
+        findings.append({
+            "severity": "ERROR",
+            "code": "EX-STATE-POLICY",
+            "message": f"{policy_field} must be {policy_value!r}",
+        })
+
+    gates = meta.get(gate_contract["taskbook_gate_field"])
+    if not isinstance(gates, list):
+        findings.append({
+            "severity": "ERROR",
+            "code": "EX-GATES",
+            "message": f"{gate_contract['taskbook_gate_field']} must be a list (use [] when none)",
+        })
+        return findings
+
+    seen: set[str] = set()
+    allowed_phases = set(gate_contract["allowed_gate_phases"])
+    for idx, gate in enumerate(gates):
+        if not isinstance(gate, dict):
+            findings.append({
+                "severity": "ERROR",
+                "code": "EX-GATE-SCHEMA",
+                "message": f"execution_gates[{idx}] must be an object",
+            })
+            continue
+        for field in gate_contract["required_gate_fields"]:
+            if not _nonempty(gate.get(field)):
+                findings.append({
+                    "severity": "ERROR",
+                    "code": "EX-GATE-SCHEMA",
+                    "message": f"execution_gates[{idx}] missing/nonempty field {field}",
+                })
+        gate_id = gate.get("gate_id")
+        if isinstance(gate_id, str):
+            if gate_id in seen:
+                findings.append({
+                    "severity": "ERROR",
+                    "code": "EX-GATE-DUPLICATE",
+                    "message": f"duplicate gate_id {gate_id!r}",
+                })
+            seen.add(gate_id)
+
+        phase = gate.get("phase")
+        if phase not in allowed_phases:
+            findings.append({
+                "severity": "ERROR",
+                "code": "EX-GATE-PHASE",
+                "message": f"gate {gate_id!r} phase must be one of {sorted(allowed_phases)}",
+            })
+
+        must_precede = gate.get("must_precede")
+        if not isinstance(must_precede, list) or not must_precede:
+            findings.append({
+                "severity": "ERROR",
+                "code": "EX-GATE-ACTIONS",
+                "message": f"gate {gate_id!r} must_precede must be a nonempty list",
+            })
+        else:
+            unknown = sorted(set(must_precede) - set(machine["action_classes"]))
+            if unknown:
+                findings.append({
+                    "severity": "ERROR",
+                    "code": "EX-GATE-ACTIONS",
+                    "message": f"gate {gate_id!r} names unknown action classes {unknown}",
+                })
+            if phase == "PRE_MATH":
+                required_math = {"MATHEMATICAL_SOURCE_READ", "MATHEMATICAL_DERIVATION"}
+                missing = sorted(required_math - set(must_precede))
+                if missing:
+                    findings.append({
+                        "severity": "ERROR",
+                        "code": "EX-PREMATH-COVERAGE",
+                        "message": f"PRE_MATH gate {gate_id!r} must precede both math action classes; missing {missing}",
+                    })
+
+        evidence = gate.get("evidence")
+        if not isinstance(evidence, dict):
+            findings.append({
+                "severity": "ERROR",
+                "code": "EX-GATE-EVIDENCE",
+                "message": f"gate {gate_id!r} evidence must be an object",
+            })
+        else:
+            for field in gate_contract["required_evidence_fields"]:
+                if not _nonempty(evidence.get(field)):
+                    findings.append({
+                        "severity": "ERROR",
+                        "code": "EX-GATE-EVIDENCE",
+                        "message": f"gate {gate_id!r} evidence missing/nonempty field {field}",
+                    })
+    return findings
+
+
+def audit_taskbook_path(path: Path, root: Path = ROOT) -> list[dict[str, str]]:
+    try:
+        meta, _ = split_taskbook(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return [{"severity": "ERROR", "code": "EX-TASKBOOK-PARSE", "message": str(exc)}]
+    return audit_taskbook_execution(meta, load_machine(root))
+
+
+def allowed_action(machine: dict[str, Any], state: str, action: str) -> bool:
+    if state not in machine["states"]:
+        raise ValueError(f"unknown state: {state}")
+    if action not in machine["action_classes"]:
+        raise ValueError(f"unknown action class: {action}")
+    return action in machine["allowed_action_classes_by_state"][state]
+
+
+def next_state(machine: dict[str, Any], state: str, event: str, evidence: dict[str, Any]) -> str:
+    if state == "RECOVERY_REQUIRED":
+        recovery = machine["recovery_transitions"]
+        if event == recovery["resume_event"]:
+            target = evidence.get("resume_state")
+            if target not in recovery["resume_targets"]:
+                raise ValueError(f"resume_state must be one of {recovery['resume_targets']}")
+            if not _nonempty(evidence.get("durable_frontier_ref")):
+                raise ValueError("DURABLE_FRONTIER_RECONCILED requires durable_frontier_ref")
+            return target
+        if event == recovery["redispatch_event"]:
+            if not _nonempty(evidence.get("reason")):
+                raise ValueError("DURABLE_FRONTIER_NOT_RESUMABLE requires reason")
+            return recovery["redispatch_to"]
+
+    recovery = machine["recovery_transitions"]
+    if event == recovery["trigger_event"]:
+        if state not in recovery["triggerable_from"]:
+            raise ValueError(f"{event} is not legal from {state}")
+        if not _nonempty(evidence.get("reason")):
+            raise ValueError(f"{event} requires reason")
+        return recovery["to"]
+
+    matches = [
+        item for item in machine["transitions"]
+        if item["from"] == state and item["event"] == event
+    ]
+    if len(matches) != 1:
+        raise ValueError(f"no unique transition from {state} on {event}")
+    transition = matches[0]
+    missing = [field for field in transition.get("requires", []) if not _nonempty(evidence.get(field))]
+    if missing:
+        raise ValueError(f"missing transition evidence: {missing}")
+    return transition["to"]
+
+
+def _print_findings(findings: list[dict[str, str]]) -> int:
+    if not findings:
+        print("PASS")
+        return 0
+    for item in findings:
+        print(f"{item['severity']} {item['code']}: {item['message']}")
+    return 1 if any(item["severity"] == "ERROR" for item in findings) else 0
+
+
+def command_validate_machine(_: argparse.Namespace) -> int:
+    errors = validate_machine(load_machine())
+    if not errors:
+        print("research_execution_state_machine.json: PASS")
+        return 0
+    for item in errors:
+        print(f"ERROR EX-MACHINE: {item}")
+    return 1
+
+
+def command_audit_taskbook(args: argparse.Namespace) -> int:
+    path = Path(args.path)
+    if not path.is_absolute():
+        path = ROOT / path
+    return _print_findings(audit_taskbook_path(path))
+
+
+def command_check_action(args: argparse.Namespace) -> int:
+    machine = load_machine()
+    try:
+        ok = allowed_action(machine, args.state, args.action)
+    except ValueError as exc:
+        print(f"ERROR: {exc}")
+        return 2
+    print("ALLOWED" if ok else "BLOCKED")
+    return 0 if ok else 1
+
+
+def command_next_state(args: argparse.Namespace) -> int:
+    machine = load_machine()
+    try:
+        evidence = json.loads(args.evidence_json)
+        if not isinstance(evidence, dict):
+            raise ValueError("--evidence-json must decode to an object")
+        print(next_state(machine, args.state, args.event, evidence))
+        return 0
+    except (ValueError, json.JSONDecodeError) as exc:
+        print(f"ERROR: {exc}")
+        return 2
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    sub = parser.add_subparsers(dest="cmd", required=True)
+
+    vm = sub.add_parser("validate-machine")
+    vm.set_defaults(func=command_validate_machine)
+
+    at = sub.add_parser("audit-taskbook")
+    at.add_argument("path")
+    at.set_defaults(func=command_audit_taskbook)
+
+    ca = sub.add_parser("check-action")
+    ca.add_argument("--state", required=True)
+    ca.add_argument("--action", required=True)
+    ca.set_defaults(func=command_check_action)
+
+    ns = sub.add_parser("next-state")
+    ns.add_argument("--state", required=True)
+    ns.add_argument("--event", required=True)
+    ns.add_argument("--evidence-json", default="{}")
+    ns.set_defaults(func=command_next_state)
+
+    args = parser.parse_args()
+    return args.func(args)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
