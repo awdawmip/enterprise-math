@@ -4,7 +4,8 @@
 Post-cutover task definitions come from immutable task publication records.
 The frozen research_scheduler.json remains a compatibility baseline only.
 Issue #240 events are still reduced by tools/research_scheduler.py, but the
-canonical selector consumes the merged definition view and result/review state.
+canonical selector consumes the merged definition view, execution intents and
+result/review state.
 """
 from __future__ import annotations
 
@@ -16,11 +17,13 @@ from pathlib import Path
 from typing import Any
 
 try:
+    from tools import research_execution_records
     from tools import research_result_records
     from tools import research_scheduler
     from tools import research_task_records
     from tools import research_taskbook
 except ModuleNotFoundError:
+    import research_execution_records  # type: ignore
     import research_result_records  # type: ignore
     import research_scheduler  # type: ignore
     import research_task_records  # type: ignore
@@ -103,7 +106,7 @@ def _is_registered(task: dict[str, Any]) -> bool:
     return task.get("registration_source") == "IMMUTABLE_TASK_RECORD"
 
 
-def _filter_registered_done_events(
+def _filter_registered_events(
     task: dict[str, Any], events: list[dict[str, Any]], root: Path
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     if not _is_registered(task):
@@ -115,21 +118,51 @@ def _filter_registered_done_events(
     accepted: list[dict[str, Any]] = []
     rejected: list[dict[str, Any]] = []
     for index, event in enumerate(events):
-        if event.get("task_id") != task["task_id"] or event.get("event") != "DONE":
+        if event.get("task_id") != task["task_id"]:
             accepted.append(event)
             continue
-        if not terminal_result_id:
-            rejected.append({
-                "index": index,
-                "reason": "registered DONE requires a frozen result with terminal Driver review",
-            })
+        kind = event.get("event")
+        if kind == "CLAIM":
+            claim_id = event.get("claim_id")
+            if not isinstance(claim_id, str) or not claim_id:
+                accepted.append(event)
+                continue
+            try:
+                intent = research_execution_records.intent_for_claim(task["task_id"], claim_id, root)
+            except Exception as exc:
+                rejected.append({"index": index, "reason": f"execution intent lookup failed: {exc}"})
+                continue
+            if intent is None:
+                rejected.append({
+                    "index": index,
+                    "reason": "registered CLAIM requires a matching immutable execution intent",
+                })
+                continue
+            supplied = event.get("researcher_id")
+            if supplied is not None and str(supplied).strip().upper() != intent["researcher_id"]:
+                rejected.append({
+                    "index": index,
+                    "reason": "registered CLAIM researcher_id does not match execution intent",
+                })
+                continue
+            normalized = copy.deepcopy(event)
+            normalized["researcher_id"] = intent["researcher_id"]
+            normalized.setdefault("lease_minutes", intent["owner_lease_minutes"])
+            accepted.append(normalized)
             continue
-        if event.get("result_id") != terminal_result_id:
-            rejected.append({
-                "index": index,
-                "reason": "registered DONE result_id does not match terminal reviewed result",
-            })
-            continue
+        if kind == "DONE":
+            if not terminal_result_id:
+                rejected.append({
+                    "index": index,
+                    "reason": "registered DONE requires a frozen result with terminal Driver review",
+                })
+                continue
+            if event.get("result_id") != terminal_result_id:
+                rejected.append({
+                    "index": index,
+                    "reason": "registered DONE result_id does not match terminal reviewed result",
+                })
+                continue
         accepted.append(event)
     return accepted, rejected
 
@@ -185,7 +218,7 @@ def reduce_definition(
     default_lease_minutes: int = 120,
     root: Path = ROOT,
 ) -> dict[str, Any]:
-    filtered, rejected = _filter_registered_done_events(task, events, root)
+    filtered, rejected = _filter_registered_events(task, events, root)
     lease = int(task.get("claim_lease_minutes") or default_lease_minutes)
     state = research_scheduler.reduce_task(
         task,
@@ -264,6 +297,7 @@ def validate(root: Path = ROOT) -> list[str]:
     owners = load_json(root / "branch_governance_overrides.json")
     errors.extend(research_scheduler.validate_scheduler(legacy, owners))
     errors.extend(research_task_records.audit(root))
+    errors.extend(research_execution_records.audit(root))
     errors.extend(research_result_records.audit(root))
     try:
         definitions = merged_definitions(root)
