@@ -11,6 +11,8 @@
   "review_lease_minutes": 240,
   "direct_done_allowed": false,
   "agent_quickstart": "docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md",
+  "cross_layer_control": "research_control_state_machine.json",
+  "cross_layer_validator": "tools/research_control.py",
   "generic_intents": {
     "researcher_claim": ["领任务", "领取任务", "claim task", "get task"],
     "driver_review_claim": ["领审核", "领取审核", "claim review", "get review"],
@@ -44,7 +46,9 @@
     "publish_state": "REVIEW_PENDING",
     "publish_does_not_make_working_truth": true,
     "publish_does_not_make_task_dispatchable": true,
-    "cross_driver_approval_required_before_ready": true
+    "cross_driver_approval_required_before_ready": true,
+    "approve_must_bind_taskbook_content_gate": true,
+    "approve_required_evidence": ["taskbook_audit=PASS", "policy_digest=sha256:...", "immutable taskbook_ref", "review_ref"]
   },
   "review_contract": {
     "cross_driver_required": true,
@@ -53,10 +57,11 @@
     "review_claim_required": true,
     "verdicts": [
       "ACCEPT", "ACCEPT_WITH_NARROWING", "RETURN_TO_RESEARCH",
-      "REQUEST_INDEPENDENT_REPLICATION", "ROUTE_TO_FOUNDATION",
-      "PROMOTION_READY", "PARK", "REJECT"
+      "ROUTE_TO_FOUNDATION", "PROMOTION_READY", "PARK", "REJECT"
     ],
-    "truth_boundary": "A scheduler review verdict routes work; it does not by itself promote theorem truth or canonical source."
+    "cross_layer_required_fields": ["evidence_class", "method_harvest", "route_disposition", "review_ref"],
+    "independent_replication": "PARK parent + OPEN_INDEPENDENT_REPLICATION_CHILD; never same-task HANDOFF_READY",
+    "truth_boundary": "A scheduler review verdict routes work; it does not by itself promote theorem truth, complete the parent user objective, or canonicalize source."
   },
   "orphan_contract": {
     "lease_expiry_state": "ORPHANED",
@@ -71,7 +76,8 @@
   "migration_contract": {
     "event": "MIGRATE",
     "authority": "RESEARCH_DRIVER",
-    "purpose": "One-time explicit import of pre-V2 external/live task state; never a substitute for normal V2 publication/review after cutover."
+    "purpose": "One-time explicit import of pre-V2 or cutover-concurrent external/live task state; never a substitute for normal V2 publication/review after cutover.",
+    "post_cutover_legacy_taskbooks": "discover as ORPHANED first, then reconcile explicitly with MIGRATE/ADOPT/SUPERSEDE so no live task disappears during control-plane cutover"
   },
   "selection_policy": {
     "eligible_task_states": ["HANDOFF_READY", "READY"],
@@ -85,13 +91,18 @@
     "TASK_ARTIFACT_EXISTS -> TASK_ID_VISIBLE_IN_REGISTRY_OR_ORPHAN_LEDGER",
     "FREE_RESEARCHER_PUBLISH -> REVIEW_PENDING_NOT_READY",
     "PUBLISHER_CANNOT_APPROVE_OWN_TASK",
+    "APPROVE_BINDS_TASKBOOK_POLICY_AUDIT_AND_DIGEST",
     "EXECUTOR_CANNOT_REVIEW_OWN_RETURN",
     "V2_DIRECT_DONE_FORBIDDEN",
     "SUBMIT -> RETURN_REVIEW -> CROSS_DRIVER_REVIEW -> DONE_OR_RETURN",
+    "RETURN_REVIEW_BINDS_EVIDENCE_CLASS_METHOD_HARVEST_AND_ROUTE_DISPOSITION",
+    "INDEPENDENT_REPLICATION_IS_DISTINCT_CHILD_TASK_NOT_SAME_TASK_HANDOFF",
     "CLAIM_LEASE_EXPIRY -> ORPHANED_WITH_DURABLE_RECORD",
     "ORPHANED -> ADOPT_REQUIRED_BEFORE_EXECUTION",
     "V1_EVENTS_ARE_HISTORY_ONLY_AFTER_EFFECTIVE_AT",
     "SCHEDULER_DONE != THEOREM_TRUTH",
-    "REVIEW_DONE != CANONICAL_MAIN"
+    "SCHEDULER_DONE != PARENT_USER_OBJECTIVE_COMPLETE",
+    "REVIEW_DONE != CANONICAL_MAIN",
+    "PARENT_OPEN_AND_NEXT_ACTION_EXISTS -> CONTINUE_IN_SAME_TURN"
   ]
 }
