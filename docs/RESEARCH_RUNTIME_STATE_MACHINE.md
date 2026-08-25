@@ -1,6 +1,6 @@
 # Enterprise Math Unified Research Runtime
 
-Status: `ACTIVE / CANONICAL CONTROL-PLANE RUNTIME / V1.1`  
+Status: `ACTIVE / CANONICAL CONTROL-PLANE RUNTIME / V1.2`  
 Effective: `2026-08-25`  
 Classification: `NO_NEW_MATHEMATICS`
 
@@ -11,27 +11,33 @@ Canonical machine:
 - `tools/research_runtime.py`
 - `tools/active_turn_liveness.py`
 - `tools/research_task_records.py`
+- `tools/research_execution_records.py`
 - `tools/research_dispatch.py`
 - `tools/research_result_records.py`
 - `tools/research_task_registry.py`
 - `tools/check_task_registry_cutover.py`
 
-Compatibility and contracts:
+Contracts and compatibility:
 
-- `research_task_publication_contract.json` — V1 taskbook/publication compatibility
-- `research_task_publication_contract_v2.json` — immutable publication transaction
-- `research_task_registry.json` — V1 compatibility mirror and frozen scheduler cutover metadata
-- `research_dispatch_contract.json`
-- `research_result_contract.json`
-- `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`
+- `research_task_publication_contract.json` — V1 taskbook/shared-registry compatibility
+- `research_task_publication_contract_v2.json` — immutable post-cutover publication
+- `research_execution_contract.json` — task-generation to concrete execution binding
+- `research_dispatch_contract.json` — merged registered/legacy dispatch
+- `research_result_contract.json` — return/review/disposition chain
+- `research_task_registry.json` — V1 compatibility mirror plus frozen scheduler cutover metadata
+- `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json` — the single taskbook template
 
-## 1. Canonical stack
+## 1. Canonical control stack
 
 The runtime answers:
 
 `PARENT_OBJECTIVE -> TASK_REGISTRATION -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED`.
 
-The crucial V1.1 change is that `TASK_REGISTRATION` is no longer trusted merely because a caller supplied a plausible object. `tools/research_runtime_guard.py` authenticates the task against repository state before delegating to the pure runtime.
+Task existence, execution identity, live owner claim, session liveness and result disposition are different facts. The runtime is a projection of their authoritative sources; it is not a fourth independent persistent database.
+
+## 2. Authenticated task existence
+
+A caller cannot authorize a task by supplying a plausible registration object.
 
 Freeze:
 
@@ -39,104 +45,137 @@ Freeze:
 
 `UNKNOWN_TASK + FAKE_CLAIMABLE_STATE -> REJECT`.
 
-## 2. Post-cutover task publication
-
-Reusable taskbooks still use the single mandatory taskbook template:
-
-`templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`.
-
-The post-cutover publication transaction is now immutable:
-
-1. draft taskbook;
-2. `tools/research_task_records.py prepare` performs normalization and machine review;
-3. preparation may mark policy PASS only after lint actually succeeds;
-4. `tools/research_task_records.py publish` does **not** rewrite the taskbook;
-5. official task existence begins when one immutable record is exclusively created at:
+Canonical post-cutover task existence is an immutable record:
 
 `research_task_records/<task-id>/<publication-id>.json`.
 
-There is no overwrite/`--replace` publication. A corrected generation must explicitly name the exact prior `publication_id` it supersedes.
+`tools/research_runtime_guard.py` authenticates the task from repository state before delegating to `tools/research_runtime.py` and `tools/active_turn_liveness.py`.
 
-Therefore:
+A frozen legacy scheduler task is recognized only by an exact task ID in the frozen baseline. Legacy baseline status cannot be self-declared and cannot authorize a fresh redispatch.
+
+## 3. Immutable publication transaction
+
+The reusable taskbook format remains singular:
+
+`templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`.
+
+Post-cutover publication uses `tools/research_task_records.py`:
+
+1. draft the taskbook;
+2. `prepare` validates body, metadata, lineage/origin and policy in memory/temporary state;
+3. policy PASS is written only after the validator succeeds;
+4. `publish` requires the already prepared exact taskbook and does not rewrite it;
+5. publication occurs only by exclusive creation of one immutable publication record.
+
+No V2 `--replace` exists. A correction is a new immutable generation that explicitly names the publication ID it supersedes.
+
+Freeze:
 
 `TASKBOOK_PREPARED != TASK_PUBLISHED`.
 
 `IMMUTABLE_PUBLICATION_RECORD_CREATED -> TASK_EXISTS`.
 
-`SHARED_TASKS_ARRAY != POST_CUTOVER_TASK_AUTHORITY`.
+The V1 shared `research_task_registry.json` remains a compatibility mirror during migration and is not post-cutover publication authority.
 
-The historical `research_task_registry.json` remains a compatibility mirror while V1 readers are being retired.
+## 4. Task -> execution binding
 
-## 3. Legacy scheduler cutover
+Publication does not decide who executes the task or which branch is used.
 
-`research_scheduler.json` remains frozen at its recorded Git blob. It is a legacy definition baseline, not a new-publication path.
+Before a registered CLAIM can become live, `tools/research_execution_records.py` creates an immutable execution intent:
 
-`tools/research_scheduler.py` remains the legacy event-reduction primitive.
+`research_execution_records/<task-id>/<execution-record-id>.json`.
 
-The canonical scheduling entrypoint is now:
+The intent pins:
+
+- exact `task_id` and `publication_id`;
+- exact taskbook blob;
+- `claim_id`;
+- `Researcher-ID`;
+- `theorem_owner`;
+- `execution_branch`;
+- exact `execution_branch_base` commit;
+- allowed output paths/prefixes;
+- owner lease duration.
+
+`theorem_owner` and `execution_branch` are typed separately even when a particular owner-generation uses the same branch name for both.
+
+The distributed claim transaction is:
+
+`CREATE/VERIFY BRANCH -> IMMUTABLE EXECUTION INTENT -> APPEND CLAIM TO ISSUE #240 -> FIRST VALID CLAIM WINS`.
+
+The canonical reducer ignores a registered CLAIM that has no matching execution intent. Multiple losing intents may remain as provenance, but they do not become live owner claims.
+
+## 5. One canonical dispatch view
+
+`research_scheduler.json` is a frozen legacy task-definition baseline. `tools/research_scheduler.py` remains the legacy event-reduction primitive.
+
+Canonical scheduling is:
 
 `tools/research_dispatch.py`.
 
 It merges:
 
-- immutable post-cutover task records;
-- frozen legacy task definitions;
+- current immutable task publication records;
+- the frozen legacy task baseline;
+- matching immutable execution intents;
 - Issue #240 runtime events;
-- immutable result/Driver-review state.
+- immutable result and Driver-review records.
 
-If a task ID exists in both the legacy baseline and immutable records, the immutable registered definition controls.
+If the same task ID exists in both the frozen legacy baseline and immutable publications, the immutable publication generation controls the definition.
 
 Freeze:
 
 `REGISTERED_TASK + CLAIMABLE -> VISIBLE_TO_CANONICAL_SELECTION`.
 
-This closes the prior gap where registry publication could make a task “claimable” while the actual scheduler could not see it.
+`REGISTERED_CLAIM_WITHOUT_EXECUTION_INTENT -> IGNORE_EVENT`.
 
-## 4. Result-side loss prevention
+This eliminates the prior split where registry tasks could be marked claimable yet remain invisible to the actual scheduler.
 
-Task preservation alone is insufficient. V1.1 adds an immutable result chain:
+## 6. Result-side loss prevention
 
-`TASK -> FROZEN_RESULT -> DRIVER_REVIEW -> DISPOSITION`.
+Task preservation alone is insufficient. The result chain is:
 
-Frozen returns are recorded at:
+`TASK_GENERATION -> EXECUTION_RECORD -> FROZEN_RESULT -> DRIVER_REVIEW -> DISPOSITION`.
+
+Frozen returns are stored at:
 
 `research_result_records/<task-id>/<result-id>.json`.
 
-Driver reviews are separately recorded at:
+Driver reviews are independently stored at:
 
 `research_result_reviews/<result-id>/<review-id>.json`.
 
-The two records are deliberately separate so an executor cannot self-promote a result merely by freezing it.
+The executor cannot self-promote the result merely by freezing it.
 
-Required semantics:
+Required state semantics:
 
 `FROZEN_RETURN + NO_DRIVER_REVIEW -> AWAITING_DRIVER_REVIEW`.
 
 `AWAITING_DRIVER_REVIEW -> NOT_RESEARCHER_DISPATCHABLE`.
 
-`TERMINAL_DRIVER_REVIEW -> COMPLETE`.
-
 `RETURN_TO_OWNER / REQUEST_REVISION -> HANDOFF_READY`.
 
-For an immutably registered task, a `DONE` event is accepted only when it names the matching frozen result and that result has a terminal Driver disposition.
+`TERMINAL_DRIVER_REVIEW -> COMPLETE`.
 
-## 5. Two leases, never one
+For immutable registered tasks, a `DONE` event is accepted only when it references the matching frozen result and that result has a terminal Driver disposition.
 
-Owner lease and conversation/session liveness remain distinct.
+## 7. Owner lease is not session liveness
+
+The execution intent and Issue CLAIM establish task ownership. They do not establish that the current conversation remains alive.
+
+Freeze:
 
 `OWNER_LEASE != SESSION_LIVENESS`.
-
-A long task/scheduler lease does not prove that the current conversation is alive.
 
 Default session stale window remains 10 minutes.
 
 `SESSION_STALE + OWNER_LEASE_ACTIVE -> STALE_RECOVERABLE`.
 
-Stale adoption preserves the existing claim and Researcher-ID after durable-frontier verification; it does not replay completed work.
+A replacement session verifies the taskbook source, branch, claim, remote HEAD, execution stamp and durable outputs, adopts the existing claim and Researcher-ID, and resumes the first unfinished unit. It does not replay completed work or issue a second claim.
 
-## 6. Terminal scope
+## 8. Terminal scope
 
-Exactly three semantic terminal scopes remain:
+Exactly three semantic terminal scopes exist:
 
 - `SUBFLOW`
 - `TASK`
@@ -156,64 +195,60 @@ Required transitions:
 
 `TASK_TERMINAL != PARENT_OBJECTIVE_TERMINAL`.
 
-## 7. Authenticated PRE_FINAL
+Publication is capture, not a current-task switch. Task/subflow terminality never silently closes the parent objective.
+
+## 9. Authenticated PRE_FINAL
 
 Canonical PRE_FINAL entrypoint:
 
 `tools/research_runtime_guard.py`.
 
-It first authenticates task existence from:
-
-- an immutable task publication record; or
-- an exact frozen legacy task ID for an already-owned continuation.
-
-Only then does it delegate:
-
-`tools/research_runtime.py -> tools/active_turn_liveness.py`.
+It authenticates task existence first, then delegates liveness to the pure runtime and `tools/active_turn_liveness.py`.
 
 Freeze:
 
 `PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FINAL_ALLOWED=false`.
 
-A parent marked complete while runtime work remains is `CONTROL_STATE_INCONSISTENT`.
+`AUTHENTICATED_RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN`.
 
-## 8. Legacy execution boundary
+A parent marked complete while runtime work remains is `CONTROL_STATE_INCONSISTENT`, not permission to final.
 
-Legacy tasks may continue only as already-owned executions. A caller cannot turn the frozen baseline into fresh dispatch authority merely by sending:
+## 10. Operator procedure
 
-`{"state":"LEGACY_BASELINE_REGISTERED"}`.
+For a new registered task:
 
-For legacy execution/adoption the authenticated runtime requires a real task ID from the frozen baseline and an existing owner claim. Fresh redispatch requires immutable migration.
+1. publish one immutable task generation;
+2. create/verify the execution branch from an exact base;
+3. create one immutable execution intent with owner/output/identity scope;
+4. append the CLAIM event;
+5. use `tools/research_dispatch.py` for status and selection;
+6. keep session liveness separate from the owner lease;
+7. freeze the exact return and output manifest through `tools/research_result_records.py`;
+8. wait in control-plane state `AWAITING_DRIVER_REVIEW`, not a researcher-dispatchable state;
+9. create an immutable Driver review/disposition;
+10. return TASK terminality to the parent objective;
+11. invoke authenticated PRE_FINAL only at the parent boundary.
 
-## 9. Operator procedure
+For legacy tasks, already-owned execution may continue; fresh redispatch requires immutable migration first.
 
-At a meaningful control boundary:
+## 11. Required regressions
 
-1. resolve the exact task ID;
-2. authenticate task publication/legacy status;
-3. use `tools/research_dispatch.py`, not the frozen scheduler file, for selection/status;
-4. keep owner lease separate from session liveness;
-5. freeze return evidence through `tools/research_result_records.py` when task research ends;
-6. keep the task in `AWAITING_DRIVER_REVIEW` until an immutable Driver review/disposition exists;
-7. return SUBFLOW/TASK terminals to the parent objective;
-8. invoke authenticated PRE_FINAL only at the parent boundary.
-
-## 10. Required regressions
-
-Repository regressions must prove behavior, not merely policy text:
+Repository tests must prove behavior, not merely policy wording. Required cases include:
 
 - forged registration cannot authorize an unknown task;
-- registered tasks enter the same dispatch view as legacy tasks;
-- immutable task publication cannot overwrite a prior generation;
-- placeholders/empty mandatory sections cannot publish;
-- publish cannot self-mark PASS before machine lint;
+- registered and legacy tasks share one derived dispatch view;
+- registered tasks are selectable without a row in the frozen scheduler file;
+- registered CLAIM without execution intent is ignored;
+- execution intent pins publication, Researcher-ID, branch/base, output scope and lease;
+- immutable task publication cannot overwrite an earlier generation;
+- placeholder/empty mandatory task sections cannot publish;
 - frozen result without Driver review becomes `AWAITING_DRIVER_REVIEW`;
-- registered `DONE` without matching reviewed result is ignored;
+- registered DONE without a matching terminal reviewed result is ignored;
 - terminal Driver review closes dispatch;
 - return/review blob drift fails audit;
 - stale adoption preserves claim identity;
 - open parent plus executable action forbids final.
 
-## 11. Enforcement boundary
+## 12. Enforcement boundary
 
-This repository now contains an authenticated canonical runtime entrypoint and result-side closure, but a product host still has to invoke or faithfully implement PRE_FINAL to physically intercept final-channel emission. Repository conformance must not be misreported as host-level enforcement.
+The repository contains executable canonical publication, execution, dispatch, result and authenticated-runtime gates. A ChatGPT/product host still has to invoke or faithfully implement PRE_FINAL to physically intercept final-channel emission. Repository conformance must never be misreported as host-level enforcement.
