@@ -8,14 +8,14 @@ Reducer: `tools/research_scheduler.py`
 Cross-layer validator: `tools/research_control.py`  
 Event emitter: `tools/research_scheduler_event.py`
 
-Scheduler V2 controls **task runtime**. The cross-layer state machine composes runtime with role/identity, information firewall, evidence state, Driver routing, formalization/Foundation/benchmark/promotion gates and parent-objective liveness.
+Scheduler V2 controls **task runtime**. The cross-layer state machine composes runtime with role/identity, task-local pre-math gates, information firewall, evidence state, Driver routing, axiom-admission/formalization/Foundation/benchmark/promotion gates and parent-objective liveness.
 
 ## Universal start / 所有人统一入口
 
 1. Resolve role + visible identity.
 2. Resolve the exact task/candidate/control object.
-3. Classify the control profile (`STANDARD_RESEARCH`, `FREE_CANDIDATE_AUDIT`, `INDEPENDENT_AUDIT`, `FORMALIZATION`, `FOUNDATION_DISPOSITION`, `INTEGRATION`, `BENCHMARK`, `MATHEMATICAL_PROMOTION`, `GOVERNANCE_MAINTENANCE`).
-4. Materialize Scheduler V2 state for task work.
+3. Classify the control profile (`STANDARD_RESEARCH`, `FREE_CANDIDATE_AUDIT`, `INDEPENDENT_AUDIT`, `AXIOM_ADMISSION_AUDIT`, `FORMALIZATION`, `FOUNDATION_DISPOSITION`, `INTEGRATION`, `BENCHMARK`, `MATHEMATICAL_PROMOTION`, `GOVERNANCE_MAINTENANCE`).
+4. Materialize Scheduler V2 state for task work. If the taskbook declares a publication/liveness gate before mathematics, record it as `pre_math_gate` and do not start substantive mathematics until it is satisfied.
 5. Respect the profile's information/evidence guards.
 6. Use only legal events/transitions.
 7. Before Driver closure, bind evidence class + method harvest + route disposition.
@@ -26,7 +26,8 @@ Scheduler V2 controls **task runtime**. The cross-layer state machine composes r
 - `领任务` -> `select` -> `CLAIM` -> work.
 - Finish work with `SUBMIT`, never V2 `DONE`.
 - Lease loss creates `ORPHANED`; resume with `ADOPT`, not ordinary `CLAIM`.
-- Formalizers and independent auditors are task specializations and inherit additional cross-layer guards.
+- Formalizers, independent auditors and axiom-admission auditors are task specializations and inherit additional cross-layer guards.
+- `pre_math_gate=REQUIRED_UNSATISFIED` means complete the taskbook's branch/publication/liveness prerequisite first; it is not permission to reinterpret or weaken the task.
 
 ## FREE researcher / 自由研究员
 
@@ -44,6 +45,7 @@ It cannot become `READY` until a different Driver reviews the publication and bi
 - Return review: `REVIEW` with verdict + `evidence_class` + `method_harvest` + `route_disposition`.
 - A Driver cannot review a task they published or a return they executed.
 - Use `MIGRATE` only for cutover/pre-V2 work already live outside V2.
+- An accepted axiom-admission recommendation does not change Foundation. Route it with `ROUTE_TO_FOUNDATION` and keep Foundation status pending until Steward disposition.
 
 ### Independent replication routing
 
@@ -87,7 +89,9 @@ The invariants to remember are:
 `SUBMIT != DONE`  
 `SCHEDULER_DONE != THEOREM_TRUTH`  
 `SCHEDULER_DONE != PARENT_USER_OBJECTIVE_COMPLETE`  
+`PRE_MATH_GATE_UNSATISFIED != MATH_ALLOWED`  
 `ORPHANED != HANDOFF_READY`  
 `INDEPENDENT_REPLICATION != SAME_TASK_HANDOFF`  
+`AXIOM_ADMISSION_RECOMMENDATION != FOUNDATION_ACCEPTED`  
 `ACCEPTED_RETURN -> METHOD_HARVEST + ROUTE_DISPOSITION`  
 `PARENT_OPEN + NEXT_ACTION -> CONTINUE_IN_SAME_TURN`
