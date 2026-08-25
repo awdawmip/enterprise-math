@@ -8,13 +8,13 @@ Reducer: `tools/research_scheduler.py`
 Cross-layer validator: `tools/research_control.py`  
 Event emitter: `tools/research_scheduler_event.py`
 
-Scheduler V2 controls **task runtime**. The cross-layer state machine composes runtime with role/identity, information firewall, evidence state, Driver routing, formalization/Foundation/benchmark gates and parent-objective liveness.
+Scheduler V2 controls **task runtime**. The cross-layer state machine composes runtime with role/identity, information firewall, evidence state, Driver routing, formalization/Foundation/benchmark/promotion gates and parent-objective liveness.
 
 ## Universal start / 所有人统一入口
 
 1. Resolve role + visible identity.
 2. Resolve the exact task/candidate/control object.
-3. Classify the control profile (`STANDARD_RESEARCH`, `INDEPENDENT_AUDIT`, `FORMALIZATION`, `FOUNDATION_DISPOSITION`, `INTEGRATION`, `BENCHMARK`, etc.).
+3. Classify the control profile (`STANDARD_RESEARCH`, `FREE_CANDIDATE_AUDIT`, `INDEPENDENT_AUDIT`, `FORMALIZATION`, `FOUNDATION_DISPOSITION`, `INTEGRATION`, `BENCHMARK`, `MATHEMATICAL_PROMOTION`, `GOVERNANCE_MAINTENANCE`).
 4. Materialize Scheduler V2 state for task work.
 5. Respect the profile's information/evidence guards.
 6. Use only legal events/transitions.
@@ -65,7 +65,11 @@ This explicitly covers taskbooks created concurrently with the V2 cutover so liv
 
 `python tools/research_scheduler.py validate`
 
+`python tools/research_scheduler.py registry --events <exported-events.jsonl>`
+
 `python tools/research_control.py validate-spec`
+
+`python tools/research_control.py template <CONTROL_PROFILE>`
 
 `python tools/research_control.py validate-events <events.jsonl>`
 
