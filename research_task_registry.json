@@ -1,0 +1,35 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_TASK_REGISTRY_V1",
+  "status": "ACTIVE_CANONICAL_TASK_REGISTRY",
+  "effective": "2026-08-25",
+  "runtime_state_machine": "research_runtime_state_machine.json",
+  "publication_contract": "research_task_publication_contract.json",
+  "mandatory_template": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
+  "publication_tool": "tools/research_task_registry.py",
+  "registry_key": "task_id",
+  "registry_states": [
+    "REGISTERED",
+    "CLAIMABLE",
+    "CLAIMED",
+    "IN_PROGRESS",
+    "HANDOFF_READY",
+    "BLOCKED",
+    "FROZEN",
+    "DONE",
+    "PARKED",
+    "SUPERSEDED"
+  ],
+  "legacy_baseline": {
+    "mode": "FIRST_PARENT_MAIN_OF_FIRST_CANONICAL_REGISTRY_MERGE",
+    "classification": "LEGACY_BASELINE_REGISTERED_EXISTING_EXECUTION_ONLY",
+    "fresh_redispatch_requires_explicit_record": true
+  },
+  "orphan_policy": {
+    "orphan_tasks_forbidden": true,
+    "unregistered_ready_or_claimed_task": "CONTROL_STATE_INCONSISTENT",
+    "unregistered_task_execution": "FORBIDDEN",
+    "unregistered_handoff": "REGISTER_BEFORE_HANDOFF",
+    "current_policy_pass_without_registry_record": "CI_FAILURE"
+  },
+  "tasks": []
+}
