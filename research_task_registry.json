@@ -20,16 +20,22 @@
     "SUPERSEDED"
   ],
   "legacy_baseline": {
-    "mode": "FIRST_PARENT_MAIN_OF_FIRST_CANONICAL_REGISTRY_MERGE",
+    "mode": "FROZEN_SCHEDULER_DEFINITION_FILE",
+    "scheduler_path": "research_scheduler.json",
+    "scheduler_git_blob_sha1": "1dd988154ac6f94435b2ea301b15f2e185bd0f3f",
     "classification": "LEGACY_BASELINE_REGISTERED_EXISTING_EXECUTION_ONLY",
-    "fresh_redispatch_requires_explicit_record": true
+    "scheduler_file_may_publish_new_tasks": false,
+    "runtime_event_log_may_continue": true,
+    "fresh_redispatch_requires_explicit_record": true,
+    "modified_legacy_task_requires_explicit_record": true
   },
   "orphan_policy": {
     "orphan_tasks_forbidden": true,
     "unregistered_ready_or_claimed_task": "CONTROL_STATE_INCONSISTENT",
     "unregistered_task_execution": "FORBIDDEN",
     "unregistered_handoff": "REGISTER_BEFORE_HANDOFF",
-    "current_policy_pass_without_registry_record": "CI_FAILURE"
+    "current_policy_pass_without_registry_record": "CI_FAILURE",
+    "legacy_scheduler_definition_drift": "CI_FAILURE"
   },
   "tasks": []
 }
