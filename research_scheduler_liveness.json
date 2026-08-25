@@ -4,6 +4,11 @@
   "effective": "2026-08-25",
   "scheduler": "research_scheduler.json",
   "runtime": "tools/research_scheduler.py",
+  "authority_scope": {
+    "domain": "owner-claim lease, conversation/session liveness, stale recovery, and computed dispatch-state semantics only",
+    "precedence": "Within this narrow liveness domain, this contract supersedes any legacy single-lease implication in research_scheduler.json. The scheduler task table, priorities, dependencies, and owner assignments remain governed by research_scheduler.json.",
+    "reason": "Avoid rewriting the durable task catalog merely to evolve runtime lease semantics."
+  },
   "owner_claim_lease": {
     "default_minutes": 120,
     "purpose": "prevent duplicate ownership/dispatch",
