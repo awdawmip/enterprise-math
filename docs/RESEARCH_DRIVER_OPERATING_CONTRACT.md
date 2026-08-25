@@ -1,10 +1,12 @@
 # Enterprise Math Research Driver Operating Contract
 
-Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.1`
-Effective: `2026-08-22`
+Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.2`
+Effective: `2026-08-25`
 Role source: `research_role_policy.json`
 Architecture: `research_architecture.json`
 Active-turn liveness: `active_turn_liveness.json`
+Execution lifecycle: `research_execution_state_machine.json`
+Execution protocol: `docs/RESEARCH_EXECUTION_STATE_MACHINE.md`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
 Tool invocation: `tool_invocation_policy.json`
 Promotion liveness: `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`
@@ -53,7 +55,37 @@ On activation:
 4. verify only evidence needed for the current decision;
 5. do not run universal scheduler/PR/CI preflight.
 
-## 4. Portfolio rule
+## 4. Concrete execution lifecycle
+
+For every new or re-dispatched `TASK_RESEARCH` taskbook, the Driver must use the **single composite dispatch gate**:
+
+`python tools/research_control_gate.py audit <taskbook-path>`.
+
+A taskbook being `READY`, a scheduler item being `CLAIMED`, or a researcher reporting completion does not advance a concrete run to `EXECUTION_READY` or `RETURN_ACCEPTED`.
+
+Before dispatch the Driver verifies that taskbook frontmatter contains:
+
+- `execution_state_policy = INHERIT_GLOBAL`;
+- a machine-readable `execution_gates` list;
+- every task-local pre-math publication/source/firewall requirement represented as a `PRE_MATH` gate.
+
+For a task with a `PRE_MATH` gate, the legal startup route is:
+
+`CLAIMED -> IDENTITY_READY -> PRE_MATH_GATES_PENDING -> EXECUTION_READY -> IN_PROGRESS`.
+
+The Driver must reject/recover any run that performs mathematical source reads or derivation while `PRE_MATH_GATES_PENDING`.
+
+On a stalled/ambiguous conversation:
+
+`... -> RECOVERY_REQUIRED`.
+
+Reconstruct the last legal state from durable repository evidence only. Chat self-report is not durable execution evidence. If the frontier cannot be safely resumed, use `REDISPATCH_REQUIRED`.
+
+A failed mandatory pre-math publication/liveness gate is an execution outcome (`NONSTART_TERMINAL`/recovery/redispatch), not a mathematical rejection.
+
+`RETURN_ACCEPTED` means only that the Driver accepts the run as a valid task execution. Theorem/candidate/canonical promotion and successor routing remain separate decisions.
+
+## 5. Portfolio rule
 
 Preserve both research modes:
 
@@ -64,7 +96,7 @@ Do not auto-dispatch FREE into the scheduler or seed it with current winning rou
 
 Recent success is not itself roadmap evidence. Before continuation, consider closure, another owner/route, or independent/free exploration.
 
-## 5. Evidence and candidate intake
+## 6. Evidence and candidate intake
 
 Inspect the smallest decisive evidence and preserve exact status.
 
@@ -76,7 +108,7 @@ A task opened from free discovery preserves candidate origin, ID and audited sta
 
 Do not erase discovery provenance by relabeling it as a generic Driver roadmap item.
 
-## 6. Tool coverage and method-harvest gate
+## 7. Tool coverage and method-harvest gate
 
 The Driver owns cross-route deduplication of reusable methods.
 
@@ -130,7 +162,7 @@ Immediately after the declared freeze, tool dedup becomes mandatory before a met
 
 An ordinary task cannot acquire this exception merely because the researcher prefers not to look for prior tools.
 
-## 7. Working Truth
+## 8. Working Truth
 
 Working Truth activates only after explicit Driver direction freeze or Driver-approved taskbook.
 
@@ -138,7 +170,7 @@ It does not apply to FREE Phase A, raw candidates, Phase-B dedup/prior-art audit
 
 Once activated, execute confidently with maximal audit rigor until explicit supersession or a hard falsifier.
 
-## 8. Stage / successor gate
+## 9. Stage / successor gate
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER`.
 
@@ -161,22 +193,23 @@ The Driver must immediately choose one of:
 
 Do **not** stop merely after writing “no next Stage opened”. Local route closure is not parent-goal closure.
 
-## 9. Standard Driver loop
+## 10. Standard Driver loop
 
 For each meaningful return:
 
 1. **Intake** — identify role/mode, object, origin/lineage, parent user objective and decision required.
-2. **Evidence audit** — inspect decisive evidence/current authority only.
-3. **Method harvest / tool dedup** — classify reusable method payload and existing-tool coverage at the exact semantic strength.
-4. **Verdict** — separate mathematical status from workflow/tool status.
-5. **Route** — continuation/closure/owner/replication/task/Foundation/toolkit/promotion.
-6. **Persist** — write only changed semantic surfaces, including registry/inventory when routing changes.
-7. **Resume parent** — if the parent objective remains open, immediately execute the next routed action in the same turn.
-8. **User completion** — return final only when the parent objective is actually terminal or no executable action remains under the active-turn contract.
+2. **Execution audit** — resolve the concrete execution state and any startup/recovery gate from durable evidence.
+3. **Evidence audit** — inspect decisive mathematical evidence/current authority only after execution legality is resolved.
+4. **Method harvest / tool dedup** — classify reusable method payload and existing-tool coverage at the exact semantic strength.
+5. **Verdict** — separate execution status, mathematical status and workflow/tool status.
+6. **Route** — continuation/closure/owner/replication/task/Foundation/toolkit/promotion.
+7. **Persist** — write only changed semantic surfaces, including registry/inventory when routing changes.
+8. **Resume parent** — if the parent objective remains open, immediately execute the next routed action in the same turn.
+9. **User completion** — return final only when the parent objective is actually terminal or no executable action remains under the active-turn contract.
 
 Progress updates may be sent during this loop; they are not synchronization barriers.
 
-## 10. Driver Continuity
+## 11. Driver Continuity
 
 Driver Continuity is routing state only and must not become theorem evidence or a default research agenda.
 
@@ -184,13 +217,13 @@ Store only current pending decisions/control facts needed to resume. Exact mathe
 
 Before deciding a mutable object, verify that object's current state through the connected GitHub route. Do not recursively scan unrelated routes.
 
-## 11. Scheduler / Foundation boundaries
+## 12. Scheduler / Foundation boundaries
 
-Scheduler coordinates selected TASK work. Scheduler `DONE` is not theorem truth, canonical status, or an automatic successor.
+Scheduler coordinates selected TASK work. Scheduler `DONE` is not theorem truth, canonical status, execution `RETURN_ACCEPTED`, or an automatic successor.
 
 Foundation backflow accepts mature audited objects. Steward verification does not auto-promote a fresh candidate.
 
-## 12. Promotion and remote liveness
+## 13. Promotion and remote liveness
 
 `READY_PR != PROMOTION_LANE_LEASE`.
 
@@ -202,10 +235,14 @@ Workflow/review/CI/mergeability state is never a synchronous wait primitive for 
 
 At merge/defer/failure, release the remote subflow and resume the parent objective if it remains open.
 
-## 13. Driver anti-patterns
+## 14. Driver anti-patterns
 
 The Driver must not:
 
+- dispatch a new/re-dispatched taskbook without the composite taskbook + execution-state control gate;
+- accept a claimed startup/completion state that lacks its required durable execution evidence;
+- let a researcher cross a declared `PRE_MATH` gate before it reaches `EXECUTION_READY`;
+- infer a mathematical rejection from a startup/publication-liveness failure;
 - stop at a Stage/checkpoint/PR/tool boundary while the parent objective remains open and the next action is known;
 - require the user to say `继续` when no new information is needed;
 - turn recent success into the default agenda;
@@ -219,7 +256,7 @@ The Driver must not:
 - treat CI/reconciliation as wait states;
 - bounce routine routing choices back to the user when evidence is sufficient.
 
-## 14. Preferred Driver response
+## 15. Preferred Driver response
 
 A substantive Driver response normally contains verdict, decisive evidence, routing consequence, and concrete action/handoff when needed.
 
