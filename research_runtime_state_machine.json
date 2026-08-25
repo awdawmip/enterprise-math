@@ -1,0 +1,49 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_MACHINE_V1",
+  "status": "ACTIVE_CANONICAL",
+  "effective": "2026-08-25",
+  "runtime": "tools/research_runtime.py",
+  "scheduler_runtime": "tools/research_scheduler.py",
+  "scheduler_liveness_contract": "research_scheduler_liveness.json",
+  "state_vector": [
+    "PARENT_OBJECTIVE",
+    "CURRENT_SUBFLOW",
+    "TASK",
+    "OWNER_CLAIM",
+    "SESSION",
+    "DURABLE_FRONTIER",
+    "CURRENT_UNFINISHED_UNIT",
+    "NEXT_EXECUTABLE_ACTION",
+    "TERMINAL_SCOPE",
+    "FINAL_GATE"
+  ],
+  "terminal_scopes": [
+    "NONE",
+    "SUBFLOW",
+    "TASK",
+    "PARENT_OBJECTIVE"
+  ],
+  "core_transitions": {
+    "SUBFLOW_TERMINAL": "REEVALUATE_PARENT_OBJECTIVE",
+    "TASK_TERMINAL": "REEVALUATE_PARENT_OBJECTIVE",
+    "PARENT_TERMINAL": "EMIT_PARENT_TERMINAL_FINAL",
+    "PARENT_OPEN_WITH_NEXT_ACTION": "EXECUTE_NEXT_ACTION_IN_SAME_TURN",
+    "PARENT_OPEN_WITHOUT_PROVED_TERMINAL": "RESOLVE_NEXT_ACTION_OR_TERMINAL_BLOCK",
+    "SESSION_STALE_WITH_LIVE_OWNER": "STALE_RECOVERABLE",
+    "STALE_RECOVERABLE_AFTER_DURABLE_RECONCILIATION": "SESSION_ADOPT_SAME_CLAIM",
+    "OWNER_LEASE_EXPIRED": "HANDOFF_READY"
+  },
+  "final_gate": {
+    "callable": "tools/research_runtime.py::pre_final_gate",
+    "fail_closed": true,
+    "final_allowed_only_when": [
+      "PARENT_USER_OBJECTIVE_COMPLETE",
+      "USER_EXPLICIT_STOP_PAUSE_REVIEW_ONLY_OR_WAIT",
+      "GENUINE_TERMINAL_BLOCK"
+    ]
+  },
+  "snapshot_builder": "tools/research_runtime.py::build_runtime_snapshot",
+  "recovery_invariant": "VERIFIED_COMPLETE -> CONSUME_NOT_RESTART; RECOVERABLE_VALID_FRONTIER -> RESUME_FROM_FIRST_SMALLEST_UNFINISHED_UNIT",
+  "ownership_invariant": "STALE_SESSION != RELEASED_OWNER; replacement session adopts same live claim and preserves execution identity",
+  "terminal_invariant": "SUBFLOW_TERMINAL != TASK_TERMINAL != PARENT_OBJECTIVE_TERMINAL"
+}
