@@ -7,6 +7,7 @@
     "research_task_records/<task-id>/<publication-id>.json",
     "frozen research_scheduler.json legacy baseline only"
   ],
+  "execution_intent_authority": "research_execution_records/<task-id>/<execution-record-id>.json",
   "runtime_event_authority": "GitHub Issue #240 ENTERPRISE_MATH_SCHEDULER_EVENT_V1 events",
   "result_authority": [
     "research_result_records/<task-id>/<result-id>.json",
@@ -16,6 +17,9 @@
     "REGISTERED_TASKS_AND_LEGACY_TASKS_SHARE_ONE_DERIVED_DISPATCH_VIEW",
     "IMMUTABLE_REGISTERED_DEFINITION_OVERRIDES_SAME_ID_LEGACY_DEFINITION",
     "REGISTRY_CLAIMABLE_IS_VISIBLE_TO_SCHEDULER_SELECTION",
+    "REGISTERED_CLAIM_REQUIRES_MATCHING_EXECUTION_INTENT",
+    "REGISTERED_CLAIM_RESEARCHER_ID_AND_LEASE_ARE_BOUND_BY_EXECUTION_INTENT",
+    "FIRST_VALID_ISSUE_CLAIM_COMMITS_THE_OWNER_RACE",
     "RESULT_PENDING_REVIEW_IS_NOT_RESEARCHER_DISPATCHABLE",
     "TERMINAL_DRIVER_REVIEW_CLOSES_DISPATCH",
     "REGISTERED_DONE_EVENT_REQUIRES_MATCHING_REVIEWED_RESULT",
@@ -29,5 +33,5 @@
     "COMPLETE",
     "DORMANT"
   ],
-  "selection_rule": "Use the historical state/priority/leverage/staleness ordering over the merged canonical view; AWAITING_REVIEW and COMPLETE are never selected."
+  "selection_rule": "Use the historical state/priority/leverage/staleness ordering over the merged canonical view; AWAITING_REVIEW and COMPLETE are never selected. Registered CLAIM events are ignored unless their claim_id resolves to one immutable execution intent for the current task publication."
 }
