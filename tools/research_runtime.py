@@ -9,12 +9,17 @@ block has been classified.
 
 Local terminal events are scoped. SUBFLOW and TASK completion return to the
 parent objective for re-evaluation; they are not aliases for parent completion.
+The runtime snapshot then binds parent objective, task, owner claim, session,
+durable frontier, unfinished unit, next action, terminal scope, and final gate
+into one inspectable object.
 """
 
 from __future__ import annotations
 
 from typing import Any
 
+
+RUNTIME_SCHEMA = "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_V1"
 
 TERMINAL_BLOCK_REASONS = {
     "SAFETY",
@@ -43,6 +48,22 @@ def _clean_action(value: Any) -> str | None:
         raise RuntimeStateError("next_executable_action must be a string or null")
     value = value.strip()
     return value or None
+
+
+def _clean_optional_text(value: Any, field: str) -> str | None:
+    if value is None:
+        return None
+    if not isinstance(value, str):
+        raise RuntimeStateError(f"{field} must be a string or null")
+    value = value.strip()
+    return value or None
+
+
+def _required_text(value: Any, field: str) -> str:
+    cleaned = _clean_optional_text(value, field)
+    if cleaned is None:
+        raise RuntimeStateError(f"{field} must be a non-empty string")
+    return cleaned
 
 
 def _clean_terminal_scope(value: str) -> str:
@@ -146,4 +167,117 @@ def pre_final_gate(
         "terminal_scope": scope,
         "next_executable_action": None,
         "recovery_record_required": False,
+    }
+
+
+def build_runtime_snapshot(
+    *,
+    parent_objective: str,
+    parent_objective_complete: bool,
+    current_subflow: str | None = None,
+    task_id: str | None = None,
+    scheduler_state: dict[str, Any] | None = None,
+    durable_frontier: str | None = None,
+    current_unfinished_unit: str | None = None,
+    next_executable_action: str | None = None,
+    terminal_scope: str = "NONE",
+    user_requested_stop: bool = False,
+    terminal_block_reason: str | None = None,
+) -> dict[str, Any]:
+    """Build the canonical cross-control-plane runtime snapshot.
+
+    Scheduler state is optional so the same runtime can cover direct/free work.
+    When it is present, task/claim/session/frontier fields are derived from that
+    durable reducer state unless an explicit current-turn field is supplied.
+    """
+
+    parent = _required_text(parent_objective, "parent_objective")
+    if scheduler_state is not None and not isinstance(scheduler_state, dict):
+        raise RuntimeStateError("scheduler_state must be an object or null")
+
+    scheduler_state = scheduler_state or {}
+    resolved_task_id = _clean_optional_text(
+        task_id if task_id is not None else scheduler_state.get("task_id"),
+        "task_id",
+    )
+    subflow = _clean_optional_text(current_subflow, "current_subflow")
+
+    frontier = _clean_optional_text(
+        durable_frontier if durable_frontier is not None else scheduler_state.get("last_progress_ref"),
+        "durable_frontier",
+    )
+    recovery_ref = _clean_optional_text(scheduler_state.get("last_recovery_ref"), "last_recovery_ref")
+    unfinished = _clean_optional_text(
+        current_unfinished_unit
+        if current_unfinished_unit is not None
+        else scheduler_state.get("current_unfinished_unit"),
+        "current_unfinished_unit",
+    )
+    action = _clean_action(
+        next_executable_action
+        if next_executable_action is not None
+        else scheduler_state.get("next_action")
+    )
+
+    claim_id = _clean_optional_text(scheduler_state.get("claim_id"), "claim_id")
+    owner_claim = None
+    if claim_id is not None:
+        owner_claim = {
+            "claim_id": claim_id,
+            "actor": _clean_optional_text(scheduler_state.get("actor"), "actor"),
+            "researcher_id": _clean_optional_text(
+                scheduler_state.get("researcher_id"), "researcher_id"
+            ),
+            "owner_lease_until": _clean_optional_text(
+                scheduler_state.get("owner_lease_until") or scheduler_state.get("lease_until"),
+                "owner_lease_until",
+            ),
+        }
+
+    session_state = _clean_optional_text(scheduler_state.get("session_state"), "session_state")
+    session = {
+        "state": session_state or ("NONE" if claim_id is None else "UNKNOWN"),
+        "session_lease_until": _clean_optional_text(
+            scheduler_state.get("session_lease_until"), "session_lease_until"
+        ),
+        "last_session_activity_at": _clean_optional_text(
+            scheduler_state.get("last_session_activity_at"), "last_session_activity_at"
+        ),
+        "last_session_adopt_at": _clean_optional_text(
+            scheduler_state.get("last_session_adopt_at"), "last_session_adopt_at"
+        ),
+    }
+
+    gate = pre_final_gate(
+        parent_objective_complete=parent_objective_complete,
+        next_executable_action=action,
+        terminal_scope=terminal_scope,
+        user_requested_stop=user_requested_stop,
+        terminal_block_reason=terminal_block_reason,
+    )
+
+    return {
+        "schema": RUNTIME_SCHEMA,
+        "parent_objective": {
+            "id": parent,
+            "complete": bool(parent_objective_complete),
+        },
+        "current_subflow": subflow,
+        "task": {
+            "task_id": resolved_task_id,
+            "scheduler_state": _clean_optional_text(scheduler_state.get("state"), "scheduler_state"),
+            "dispatch_state": _clean_optional_text(
+                scheduler_state.get("dispatch_state"), "dispatch_state"
+            ),
+        },
+        "owner_claim": owner_claim,
+        "session": session,
+        "durable_frontier": {
+            "progress_ref": frontier,
+            "recovery_ref": recovery_ref,
+        },
+        "current_unfinished_unit": unfinished,
+        "next_executable_action": action,
+        "terminal_scope": gate["terminal_scope"],
+        "final_gate": gate,
     }
