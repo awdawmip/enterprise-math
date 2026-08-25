@@ -2,9 +2,9 @@
 """Unified Enterprise Math research runtime control state machine.
 
 This module composes the existing active-turn PRE_FINAL evaluator with durable
-scheduler ownership. It adds the runtime semantics that neither source owns
-alone: session liveness, stale-session adoption, terminal scope, and a single
-canonical state view.
+scheduler ownership. It adds the missing runtime semantics that neither source
+owns alone: session liveness, stale-session adoption, terminal scope, and a
+single canonical state view.
 """
 from __future__ import annotations
 
@@ -147,16 +147,15 @@ def classify_session(
 def owner_claim_from_scheduler(scheduler_state: Mapping[str, Any]) -> dict[str, Any]:
     """Map legacy scheduler claim fields to the owner-lease layer.
 
-    `lease_until` is retained as a compatibility input, but the unified runtime
-    interprets it only as task-owner lease state, never as chat liveness.
+    `lease_until` is deliberately retained as a compatibility input, but the
+    unified runtime interprets it only as task-owner lease state, never as chat
+    liveness.
     """
     return {
         "claim_id": scheduler_state.get("claim_id"),
         "actor": scheduler_state.get("actor"),
         "researcher_id": scheduler_state.get("researcher_id"),
-        "owner_lease_until": scheduler_state.get(
-            "owner_lease_until", scheduler_state.get("lease_until")
-        ),
+        "owner_lease_until": scheduler_state.get("owner_lease_until", scheduler_state.get("lease_until")),
         "scheduler_state": scheduler_state.get("state"),
         "dispatch_state": scheduler_state.get("dispatch_state"),
     }
@@ -246,28 +245,16 @@ def pre_final_gate(state: Mapping[str, Any]) -> dict[str, Any]:
     control = state.get("control", {})
     if not isinstance(control, Mapping):
         raise RuntimeStateError("control must be an object when present")
-    parent_complete = (
-        str(state["parent_objective"].get("status", "OPEN")).upper() == "COMPLETE"
-    )
+    parent_complete = str(state["parent_objective"].get("status", "OPEN")).upper() == "COMPLETE"
     primitive = {
         "parent_objective_complete": parent_complete,
-        "user_requested_stop_pause_review_or_wait": _bool(
-            control, "user_requested_stop_pause_review_or_wait"
-        ),
+        "user_requested_stop_pause_review_or_wait": _bool(control, "user_requested_stop_pause_review_or_wait"),
         "parent_hard_blocker": _bool(control, "parent_hard_blocker"),
         "platform_or_tool_hard_limit": _bool(control, "platform_or_tool_hard_limit"),
-        "independent_safe_work_exhausted": _bool(
-            control, "independent_safe_work_exhausted"
-        ),
-        "same_action_repeated_without_state_change": _bool(
-            control, "same_action_repeated_without_state_change"
-        ),
-        "supported_alternative_available": _bool(
-            control, "supported_alternative_available"
-        ),
-        "parent_state_recomputed_without_change": _bool(
-            control, "parent_state_recomputed_without_change"
-        ),
+        "independent_safe_work_exhausted": _bool(control, "independent_safe_work_exhausted"),
+        "same_action_repeated_without_state_change": _bool(control, "same_action_repeated_without_state_change"),
+        "supported_alternative_available": _bool(control, "supported_alternative_available"),
+        "parent_state_recomputed_without_change": _bool(control, "parent_state_recomputed_without_change"),
         "executable_next_actions": _next_action_count(state.get("next_action")),
         "continuation_lease_active": _bool(control, "continuation_lease_active"),
     }
@@ -282,8 +269,8 @@ def pre_final_gate(state: Mapping[str, Any]) -> dict[str, Any]:
 def apply_terminal_event(state: Mapping[str, Any], event: str) -> dict[str, Any]:
     """Apply a terminal event at the correct semantic scope.
 
-    SUBFLOW_COMPLETE and TASK_FROZEN never directly authorize final. Both return
-    to parent routing. Only PARENT_OBJECTIVE_COMPLETE closes the parent.
+    SUBFLOW_COMPLETE and TASK_FROZEN never directly authorize final. Both
+    return to parent routing. Only PARENT_OBJECTIVE_COMPLETE closes the parent.
     """
     require_canonical_state(state)
     updated = copy.deepcopy(dict(state))
@@ -355,6 +342,12 @@ def adopt_stale_session(
     expected_head = frontier.get("remote_head")
     if expected_head and evidence["remote_head"] != expected_head:
         raise RuntimeStateError("remote_head does not match refreshed durable frontier")
+    expected_stamp = frontier.get("execution_stamp")
+    if expected_stamp and evidence["execution_stamp"] != expected_stamp:
+        raise RuntimeStateError("execution_stamp does not match refreshed durable frontier")
+    expected_outputs = frontier.get("durable_outputs")
+    if expected_outputs is not None and evidence["durable_outputs"] != expected_outputs:
+        raise RuntimeStateError("durable_outputs do not match refreshed durable frontier")
 
     updated = copy.deepcopy(dict(state))
     updated["session"] = {
@@ -400,19 +393,21 @@ def _load_json_arg(value: str | None, path: str | None) -> dict[str, Any]:
     return data
 
 
+def _add_state_source(parser: argparse.ArgumentParser) -> None:
+    src = parser.add_mutually_exclusive_group(required=True)
+    src.add_argument("--state-json")
+    src.add_argument("--state-file")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Enterprise Math unified research runtime")
     sub = parser.add_subparsers(dest="command", required=True)
 
     pf = sub.add_parser("pre-final")
-    src = pf.add_mutually_exclusive_group(required=True)
-    src.add_argument("--state-json")
-    src.add_argument("--state-file")
+    _add_state_source(pf)
 
     term = sub.add_parser("terminal")
-    src = term.add_mutually_exclusive_group(required=True)
-    src.add_argument("--state-json")
-    src.add_argument("--state-file")
+    _add_state_source(term)
     term.add_argument(
         "--event",
         choices=[
@@ -424,15 +419,77 @@ def main() -> int:
         required=True,
     )
 
+    session = sub.add_parser("session")
+    session.add_argument("--owner-claim-json", required=True)
+    session.add_argument("--last-activity-at", required=True)
+    session.add_argument("--now", required=True)
+    session.add_argument(
+        "--session-liveness-minutes",
+        type=int,
+        default=DEFAULT_SESSION_LIVENESS_MINUTES,
+    )
+
+    dispatch = sub.add_parser("dispatch")
+    dispatch.add_argument("--scheduler-state-json", required=True)
+    dispatch.add_argument("--session-last-activity-at")
+    dispatch.add_argument("--now", required=True)
+    dispatch.add_argument(
+        "--session-liveness-minutes",
+        type=int,
+        default=DEFAULT_SESSION_LIVENESS_MINUTES,
+    )
+
+    adopt = sub.add_parser("adopt")
+    _add_state_source(adopt)
+    adopt.add_argument("--evidence-json", required=True)
+    adopt.add_argument("--replacement-session-id", required=True)
+    adopt.add_argument("--now", required=True)
+    adopt.add_argument(
+        "--session-liveness-minutes",
+        type=int,
+        default=DEFAULT_SESSION_LIVENESS_MINUTES,
+    )
+
     args = parser.parse_args()
-    state = _load_json_arg(
-        getattr(args, "state_json", None), getattr(args, "state_file", None)
-    )
-    result = (
-        pre_final_gate(state)
-        if args.command == "pre-final"
-        else apply_terminal_event(state, args.event)
-    )
+    if args.command == "session":
+        owner_claim = json.loads(args.owner_claim_json)
+        if not isinstance(owner_claim, dict):
+            raise RuntimeStateError("owner claim must decode to an object")
+        result = classify_session(
+            owner_claim,
+            {"last_activity_at": args.last_activity_at},
+            now=parse_time(args.now),
+            session_liveness_minutes=args.session_liveness_minutes,
+        )
+    elif args.command == "dispatch":
+        scheduler_state = json.loads(args.scheduler_state_json)
+        if not isinstance(scheduler_state, dict):
+            raise RuntimeStateError("scheduler state must decode to an object")
+        result = dispatch_decision(
+            scheduler_state,
+            session_last_activity_at=args.session_last_activity_at,
+            now=parse_time(args.now),
+            session_liveness_minutes=args.session_liveness_minutes,
+        )
+    else:
+        state = _load_json_arg(args.state_json, args.state_file)
+        if args.command == "pre-final":
+            result = pre_final_gate(state)
+        elif args.command == "terminal":
+            result = apply_terminal_event(state, args.event)
+        elif args.command == "adopt":
+            evidence = json.loads(args.evidence_json)
+            if not isinstance(evidence, dict):
+                raise RuntimeStateError("adoption evidence must decode to an object")
+            result = adopt_stale_session(
+                state,
+                evidence,
+                replacement_session_id=args.replacement_session_id,
+                now=parse_time(args.now),
+                session_liveness_minutes=args.session_liveness_minutes,
+            )
+        else:
+            raise AssertionError(args.command)
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
     return 0
 
