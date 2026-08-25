@@ -1,7 +1,7 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V8.1",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V8.2",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-25",
   "research_architecture": "research_architecture.json",
   "default_role": "RESEARCHER",
   "default_research_mode_when_explicit_task_exists": "TASK_RESEARCH",
@@ -27,6 +27,28 @@
     "registration_failure": "REGISTER_PENDING_NONBLOCKING",
     "registration_is_hard_block": false
   },
+  "execution_control": {
+    "state_machine": "research_execution_state_machine.json",
+    "protocol": "docs/RESEARCH_EXECUTION_STATE_MACHINE.md",
+    "single_dispatch_gate": "tools/research_control_gate.py",
+    "taskbook_policy_field": "execution_state_policy",
+    "taskbook_gate_field": "execution_gates",
+    "applies_to": ["TASK_RESEARCH"],
+    "free_discovery_rule": "FREE_AXIOM_DISCOVERY remains governed by its dedicated discovery/candidate lifecycle until it becomes an official task execution; once task-dispatched it must use the execution state machine.",
+    "researcher_rules": [
+      "Taskbook READY, scheduler CLAIMED, or an oral/chat completion claim never authorizes mathematics by itself.",
+      "A concrete task execution must resolve identity, classify task-declared execution gates, and reach EXECUTION_READY before reading mathematical sources or beginning mathematical derivation.",
+      "If any PRE_MATH gate exists, PRE_MATH_GATES_PENDING blocks both mathematical source reads and mathematical derivation until every required durable evidence item is verified.",
+      "If a PRE_MATH gate fails, return the declared execution/liveness failure without doing mathematics; do not manufacture a mathematical verdict.",
+      "A checkpoint/progress message is not a terminal state. Persist a durable handoff or return when required."
+    ],
+    "driver_rules": [
+      "Use the composite dispatch gate, not a taskbook-policy-only audit, for every new or re-dispatched taskbook.",
+      "On stalled/ambiguous executions, enter RECOVERY_REQUIRED and reconstruct the last legal state from durable repository evidence only.",
+      "Do not accept RETURNED/RETURN_ACCEPTED from chat self-report alone; review the durable return and required gate evidence.",
+      "Separate execution acceptance from theorem/candidate/canonical promotion and evaluate successor routing independently after accepted return."
+    ]
+  },
   "research_modes": {
     "FREE_AXIOM_DISCOVERY": {
       "role_key": "EM_FREE_RESEARCHER",
@@ -51,6 +73,7 @@
     "TASK_RESEARCH": {
       "visible_role": "RESEARCHER",
       "default_state": "TASK_EXECUTION",
+      "execution_state_machine": "research_execution_state_machine.json",
       "scheduler_eligible": true,
       "agenda_visibility": "TASK_SCOPED",
       "working_truth": "ONLY_WHEN_EXPLICITLY_FROZEN_BY_DRIVER_OR_DRIVER_APPROVED_TASKBOOK",
@@ -142,7 +165,7 @@
   },
   "researcher_freedom_clause": {
     "TASK_RESEARCH": [
-      "Researchers may freely reason, prove, disprove, compute, experiment, formalize, browse allowed task-relevant sources, write notes, proof drafts, code, Lean, reports, handoffs, and proposal candidates inside the selected mother question.",
+      "Researchers may freely reason, prove, disprove, compute, experiment, formalize, browse allowed task-relevant sources, write notes, proof drafts, code, Lean, reports, handoffs, and proposal candidates inside the selected mother question after the concrete execution reaches EXECUTION_READY.",
       "Role policy restricts scheduling and promotion authority, not scientific exploration inside the selected task.",
       "Researchers should not interrupt productive research merely to package every side branch."
     ],
@@ -161,12 +184,16 @@
     "representing an unapproved task-like artifact as official scheduler authority",
     "silently treating a raw axiom candidate as Working Truth or canonical Foundation",
     "laundering FREE_AXIOM_CANDIDATE origin into DRIVER_ROADMAP to bypass candidate maturity/provenance",
-    "relabeling a semantic continuation as NEW_DIRECTION to bypass the successor gate"
+    "relabeling a semantic continuation as NEW_DIRECTION to bypass the successor gate",
+    "bypassing a declared PRE_MATH execution gate or self-declaring EXECUTION_READY without its durable evidence"
   ],
   "official_taskbook_authority": {
     "created_by_role": "RESEARCH_DRIVER",
     "task_authority": "DRIVER_APPROVED",
     "identity_policy_required_for_new_taskbooks": "AUTO_RESOLVE_OR_ALLOCATE",
+    "execution_state_policy_required_for_new_or_redispatched_taskbooks": "INHERIT_GLOBAL",
+    "execution_gates_required_for_new_or_redispatched_taskbooks": true,
+    "single_dispatch_gate": "python tools/research_control_gate.py audit <taskbook-path>",
     "identity_lane_optional": true,
     "task_origin_required_for_new_taskbooks": true,
     "task_lineage_required_for_new_taskbooks": true,
@@ -175,7 +202,7 @@
     "successor_gate_requires_alternative_route_or_free_exploration_considered": true,
     "obvious_stage_two_plus_must_be_continuation": true,
     "renaming_does_not_reset_semantic_lineage": true,
-    "rule": "Only Driver-approved taskbooks are dispatchable. Taskbooks declare origin, lineage, identity policy/lane and task-local execution semantics but never a fixed runtime Researcher-ID. Free-candidate origin and continuation lineage are preserved rather than repackaged away. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope. Final-response identity footers are inherited globally from final_response_identity_policy.json and need not be copied into every taskbook."
+    "rule": "Only Driver-approved taskbooks that pass the composite control gate are dispatchable. Taskbooks declare origin, lineage, identity policy/lane, execution-state inheritance, machine-readable execution gates and task-local semantics but never a fixed runtime Researcher-ID. Free-candidate origin and continuation lineage are preserved rather than repackaged away. For Driver-mediated manual relay, the Driver binds one runtime Researcher-ID in the separate dispatch envelope. Final-response identity footers are inherited globally from final_response_identity_policy.json."
   },
   "axiom_candidate_capture": {
     "state_machine": "research_axiom_candidate_state_machine.json",
@@ -198,6 +225,8 @@
     "continue the same task when the frontier remains inside its mother question",
     "preserve task origin and semantic lineage when selecting new work",
     "require an explicit successor-stage information gap and alternative-route/free-exploration consideration before opening a new continuation",
+    "run the composite taskbook/execution control gate before every new or re-dispatch",
+    "reconcile stalled executions from durable evidence through RECOVERY_REQUIRED rather than chat self-report",
     "close, park, or return branches that fail to leave a genuine residue",
     "review audited free-research candidates without making raw candidates Working Truth",
     "create or amend official taskbooks when a new direction is precise and worth dispatching",
@@ -209,5 +238,5 @@
     "maintain the Driver Continuity Snapshot at semantic checkpoints"
   ],
   "artifact_rule": "Artifact creation is not progress by itself; scientific evidence, theorem/counterexample content, validated computation, formalization, reusable tooling, a mature axiom candidate, or a real routing decision is progress.",
-  "nonblocking_rule": "Governance, scheduler, CI, workflow, identity registration, snapshot maintenance, candidate intake and replication coordination are never mathematical HARD_BLOCK reasons."
+  "nonblocking_rule": "Governance, scheduler, CI, workflow, identity registration, snapshot maintenance, candidate intake and replication coordination are never mathematical HARD_BLOCK reasons. A task-declared PRE_MATH gate is an execution legality gate, not a mathematical hard dependency; if it fails, classify the execution as non-start/recovery/redispatch rather than doing mathematics anyway."
 }
