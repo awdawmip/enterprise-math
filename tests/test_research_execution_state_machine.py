@@ -28,7 +28,7 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
                 self.machine,
                 "PRE_MATH_GATES_PENDING",
                 "SUBSTANTIVE_WORK_STARTED",
-                {"action_within_taskbook_whitelist": True},
+                {"action_within_task_scope": True},
             )
 
     def test_premath_gate_requires_durable_evidence(self):
@@ -67,6 +67,61 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
                 "RETURN_ARTIFACT_PERSISTED",
                 {"durable_return_ref": "commit:abc", "return_write_action_guard_pass": False},
             )
+
+    def test_direct_user_task_can_enter_same_execution_lifecycle_without_taskbook(self):
+        spec = {
+            "task_id": "DIRECT-1",
+            "authority_kind": "DIRECT_USER_TASK",
+            "authority_ref": "conversation:turn42",
+            "execution_gates": [],
+        }
+        self.assertEqual(ex.audit_execution_spec(spec, self.machine), [])
+        target = ex.next_state(
+            self.machine,
+            "UNBOUND",
+            "DIRECT_USER_TASK_AUTHORITY_ACCEPTED",
+            {
+                "user_instruction_ref": "conversation:turn42",
+                "task_scope_snapshot": "prove the selected claim",
+                "normalized_execution_spec": spec,
+            },
+        )
+        self.assertEqual(target, "DISPATCH_READY")
+
+    def test_direct_user_before_math_constraint_must_be_normalized_into_gate(self):
+        spec = {
+            "task_id": "DIRECT-2",
+            "authority_kind": "DIRECT_USER_TASK",
+            "authority_ref": "conversation:turn43",
+            "execution_gates": [],
+        }
+        findings = ex.audit_execution_spec(
+            spec,
+            self.machine,
+            authority_body="Before mathematics, write a remote execution stamp.",
+        )
+        self.assertIn("EX-PREMATH-UNDECLARED", {item["code"] for item in findings})
+
+    def test_scheduler_task_authority_is_distinct_from_execution_ready(self):
+        spec = {
+            "task_id": "RS-SCHEDULED",
+            "authority_kind": "SCHEDULER_TASK",
+            "authority_ref": "Issue #240 claim:xyz",
+            "execution_gates": [],
+        }
+        self.assertEqual(ex.audit_execution_spec(spec, self.machine), [])
+        target = ex.next_state(
+            self.machine,
+            "UNBOUND",
+            "SCHEDULER_TASK_AUTHORITY_ACCEPTED",
+            {
+                "scheduler_task_id": "RS-SCHEDULED",
+                "scheduler_authority_ref": "Issue #240 claim:xyz",
+                "normalized_execution_spec": spec,
+            },
+        )
+        self.assertEqual(target, "DISPATCH_READY")
+        self.assertFalse(ex.allowed_action(self.machine, target, "MATHEMATICAL_DERIVATION"))
 
     def test_liveness_failure_requires_durable_reconciliation_before_resume(self):
         target = ex.next_state(
