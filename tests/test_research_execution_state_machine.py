@@ -228,25 +228,30 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
         self.assertTrue(allowed)
         self.assertEqual(blockers, [])
 
-    def test_mid_execution_gate_can_guard_checkpoint_write(self):
+    def test_mid_execution_gate_can_guard_verdict_freeze(self):
         meta = {
             "execution_state_policy": "INHERIT_GLOBAL",
             "execution_gates": [
                 {
                     "gate_id": "CHECKER",
                     "phase": "MID_EXECUTION",
-                    "must_precede": ["CHECKPOINT_WRITE"],
+                    "must_precede": ["VERDICT_FREEZE"],
                     "evidence": {"kind": "CHECKER_PASS"},
                 }
             ],
         }
         allowed, blockers = ex.allowed_task_action(
-            meta, self.machine, "IN_PROGRESS", "CHECKPOINT_WRITE", set()
+            meta, self.machine, "IN_PROGRESS", "VERDICT_FREEZE", set()
         )
         self.assertFalse(allowed)
         self.assertEqual(blockers, ["CHECKER"])
+        allowed, blockers = ex.allowed_task_action(
+            meta, self.machine, "IN_PROGRESS", "VERDICT_FREEZE", {"CHECKER"}
+        )
+        self.assertTrue(allowed)
+        self.assertEqual(blockers, [])
 
-    def test_f5ar_taskbook_declares_machine_readable_premath_and_prereturn_gates(self):
+    def test_f5ar_taskbook_declares_all_machine_readable_execution_gates(self):
         path = ROOT / "research_tasks" / "COHERENT_BRC_F5AR_INDEPENDENT_BRANCH_ONTOLOGY_AXIOM_ADMISSION_REPLICATION_20260825.md"
         self.assertEqual(ex.audit_taskbook_path(path, root=ROOT), [])
         meta, _ = ex.split_taskbook(path.read_text(encoding="utf-8"))
@@ -256,9 +261,21 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
         self.assertEqual(gate["evidence"]["path"], "evidence/cbrc_f5ar_execution_stamp.json")
         self.assertEqual(gate["evidence"]["required_fields"]["phase"], "STARTED_BEFORE_MATH")
         self.assertIsNone(gate["evidence"]["required_fields"]["admission_verdict"])
+        checkpoint_a = gates["F5AR-CHECKPOINT-A-BEFORE-VERDICT"]
+        checkpoint_b = gates["F5AR-CHECKPOINT-B-BEFORE-VERDICT"]
+        self.assertIn("VERDICT_FREEZE", checkpoint_a["must_precede"])
+        self.assertIn("VERDICT_FREEZE", checkpoint_b["must_precede"])
         final_gate = gates["F5AR-FINAL-MATERIALIZATION"]
         self.assertEqual(final_gate["phase"], "PRE_RETURN")
         self.assertIn("RETURN_WRITE", final_gate["must_precede"])
+        allowed, blockers = ex.allowed_task_action(
+            meta, self.machine, "IN_PROGRESS", "VERDICT_FREEZE", {"F5AR-PUBLICATION-LIVENESS-PREMATH"}
+        )
+        self.assertFalse(allowed)
+        self.assertEqual(
+            blockers,
+            ["F5AR-CHECKPOINT-A-BEFORE-VERDICT", "F5AR-CHECKPOINT-B-BEFORE-VERDICT"],
+        )
 
 
 if __name__ == "__main__":
