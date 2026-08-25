@@ -139,12 +139,43 @@ def _require_human_visibility(label: str, entries: Iterable[str], text: str) -> 
         raise AssertionError(f"{label} missing shared-surface entries: {missing}")
 
 
+def _validation_dispatch_tasks(scheduler: dict[str, Any]) -> list[dict[str, Any]]:
+    """Build the canonical task-definition view without breaking legacy callers.
+
+    Historical tests and callers pass an in-memory scheduler object so they can
+    pressure-test legacy metadata. Preserve that injected legacy baseline, then
+    overlay immutable post-cutover task definitions from repository-local state.
+    This is deterministic local computation: it performs no GitHub/API reads and
+    adds no runtime heartbeat or polling obligation.
+    """
+    by_id: dict[str, dict[str, Any]] = {}
+    for task in scheduler.get("tasks", []):
+        if isinstance(task, dict) and isinstance(task.get("task_id"), str):
+            by_id[task["task_id"]] = task
+    for task in research_dispatch.merged_definitions(ROOT):
+        if (
+            isinstance(task, dict)
+            and isinstance(task.get("task_id"), str)
+            and task.get("registration_source") == "IMMUTABLE_TASK_RECORD"
+        ):
+            by_id[task["task_id"]] = task
+    return [by_id[key] for key in sorted(by_id)]
+
+
 def validate_backflow(
     backflow: dict[str, Any],
     scheduler: dict[str, Any],
-    dispatch_tasks: list[dict[str, Any]],
+    dispatch_tasks: list[dict[str, Any]] | None = None,
 ) -> list[str]:
-    """Validate static #82/#164/#240 links against canonical task existence."""
+    """Validate static #82/#164/#240 links against canonical task existence.
+
+    ``dispatch_tasks`` remains injectable for focused tests/new callers. When it
+    is omitted, the historical two-argument API is preserved and transparently
+    derives the registered-plus-supplied-legacy view locally.
+    """
+    if dispatch_tasks is None:
+        dispatch_tasks = _validation_dispatch_tasks(scheduler)
+
     errors: list[str] = []
 
     if backflow.get("schema") != "ENTERPRISE_MATH_FOUNDATION_BACKFLOW_V1":
