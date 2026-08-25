@@ -1,4 +1,6 @@
+import importlib.util
 import json
+from itertools import product
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -8,18 +10,220 @@ def read(path: str) -> str:
     return (ROOT / path).read_text(encoding="utf-8")
 
 
+def load_liveness_helper():
+    path = ROOT / "tools" / "active_turn_liveness.py"
+    spec = importlib.util.spec_from_file_location("enterprise_math_active_turn_liveness", path)
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def base_state(**overrides):
+    state = {
+        "parent_objective_complete": False,
+        "user_requested_stop_pause_review_or_wait": False,
+        "parent_hard_blocker": False,
+        "platform_or_tool_hard_limit": False,
+        "independent_safe_work_exhausted": False,
+        "same_action_repeated_without_state_change": False,
+        "supported_alternative_available": False,
+        "parent_state_recomputed_without_change": False,
+        "executable_next_actions": 0,
+        "continuation_lease_active": False,
+    }
+    state.update(overrides)
+    return state
+
+
 def test_machine_active_turn_contract_is_current_and_forbids_waiting_for_continue():
     data = json.loads(read("active_turn_liveness.json"))
     assert data["status"] == "ACTIVE_CANONICAL"
+    assert data["schema"] == "ENTERPRISE_MATH_ACTIVE_TURN_LIVENESS_V2"
     assert data["execution_stack"] == [
         "PARENT_USER_OBJECTIVE",
         "CURRENT_SUBFLOW",
         "NEXT_EXECUTABLE_ACTION",
     ]
     assert "DETERMINISTIC_NEXT_STEP_EXISTS_IMPLIES_CONTINUE_IN_SAME_TURN" in data["core_invariants"]
+    assert "PARENT_INCOMPLETE_AND_EXECUTABLE_ACTION_EXISTS_FORBIDS_FINAL_WITH_OR_WITHOUT_CONTINUATION_LEASE" in data["core_invariants"]
     assert "USER_WAKEUP_MESSAGE_MUST_NOT_BE_REQUIRED_WHEN_IT_ADDS_NO_INFORMATION" in data["core_invariants"]
+    assert data["continuation_lease"]["base_liveness_dependency"] is False
+    assert data["blocked_subflow_semantics"]["blocked_subflow_is_parent_blocker"] is False
+    assert data["loop_safety"]["max_identical_no_progress_retry_without_transition"] == 0
     assert data["stage_rule"]["stage_terminal_requires_same_turn_successor_gate_evaluation"] is True
+    assert data["pre_final_guard"]["evaluator"] == "tools/active_turn_liveness.py"
+    assert data["pre_final_guard"]["required_actions"]["CONTROL_STATE_INCONSISTENT"] == "REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE"
     assert data["forbidden_state"] == "WAITING_FOR_CONTINUE_WHEN_CONTINUE_ADDS_NO_INFORMATION"
+
+
+def test_pre_final_guard_continues_without_continuation_lease():
+    liveness = load_liveness_helper()
+    decision = liveness.evaluate(base_state(executable_next_actions=1))
+    assert decision["transition"] == liveness.EXECUTE_NEXT_ACTION
+    assert decision["final_allowed"] is False
+    assert decision["continuation_lease_preserved"] is False
+
+
+def test_pre_final_guard_continues_and_preserves_active_lease():
+    liveness = load_liveness_helper()
+    decision = liveness.evaluate(
+        base_state(executable_next_actions=1, continuation_lease_active=True)
+    )
+    assert decision["transition"] == liveness.EXECUTE_NEXT_ACTION
+    assert decision["final_allowed"] is False
+    assert decision["continuation_lease_preserved"] is True
+
+
+def test_blocked_subflow_does_not_override_other_executable_work():
+    liveness = load_liveness_helper()
+    decision = liveness.evaluate(
+        base_state(parent_hard_blocker=True, executable_next_actions=1)
+    )
+    assert decision["transition"] == liveness.EXECUTE_NEXT_ACTION
+    assert decision["final_allowed"] is False
+
+
+def test_true_parent_blocker_allows_final_only_after_safe_work_exhaustion():
+    liveness = load_liveness_helper()
+    not_exhausted = liveness.evaluate(
+        base_state(parent_hard_blocker=True, independent_safe_work_exhausted=False)
+    )
+    assert not_exhausted["transition"] == liveness.RECOMPUTE_PARENT_STATE
+    exhausted = liveness.evaluate(
+        base_state(parent_hard_blocker=True, independent_safe_work_exhausted=True)
+    )
+    assert exhausted["transition"] == liveness.FINAL_ALLOWED_WITH_BLOCKER
+    assert exhausted["final_allowed"] is True
+
+
+def test_terminal_blocker_preserves_active_continuation_lease():
+    liveness = load_liveness_helper()
+    decision = liveness.evaluate(
+        base_state(
+            parent_hard_blocker=True,
+            independent_safe_work_exhausted=True,
+            continuation_lease_active=True,
+        )
+    )
+    assert decision["transition"] == liveness.FINAL_ALLOWED_WITH_BLOCKER
+    assert decision["continuation_lease_preserved"] is True
+
+
+def test_claimed_safe_work_after_unchanged_recompute_is_inconsistent():
+    liveness = load_liveness_helper()
+    decision = liveness.evaluate(
+        base_state(
+            independent_safe_work_exhausted=False,
+            parent_state_recomputed_without_change=True,
+        )
+    )
+    assert decision["transition"] == liveness.CONTROL_STATE_INCONSISTENT
+    assert decision["final_allowed"] is False
+    assert decision["required_action"] == "REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE"
+
+
+def test_platform_limit_allows_final_only_after_safe_work_exhaustion():
+    liveness = load_liveness_helper()
+    decision = liveness.evaluate(
+        base_state(platform_or_tool_hard_limit=True, independent_safe_work_exhausted=True)
+    )
+    assert decision["transition"] == liveness.FINAL_ALLOWED_WITH_LIMIT
+    assert decision["final_allowed"] is True
+
+
+def test_explicit_user_stop_is_terminal_even_when_more_actions_exist():
+    liveness = load_liveness_helper()
+    decision = liveness.evaluate(
+        base_state(
+            user_requested_stop_pause_review_or_wait=True,
+            executable_next_actions=3,
+            continuation_lease_active=True,
+        )
+    )
+    assert decision["transition"] == liveness.FINAL_ALLOWED
+    assert decision["final_allowed"] is True
+
+
+def test_no_progress_loop_switches_strategy_when_alternative_exists():
+    liveness = load_liveness_helper()
+    decision = liveness.evaluate(
+        base_state(
+            executable_next_actions=1,
+            same_action_repeated_without_state_change=True,
+            supported_alternative_available=True,
+        )
+    )
+    assert decision["transition"] == liveness.SWITCH_STRATEGY
+    assert decision["final_allowed"] is False
+
+
+def test_no_progress_loop_recomputes_once_then_declares_inconsistency():
+    liveness = load_liveness_helper()
+    first = liveness.evaluate(
+        base_state(
+            executable_next_actions=1,
+            same_action_repeated_without_state_change=True,
+        )
+    )
+    assert first["transition"] == liveness.RECOMPUTE_PARENT_STATE
+    second = liveness.evaluate(
+        base_state(
+            executable_next_actions=1,
+            same_action_repeated_without_state_change=True,
+            parent_state_recomputed_without_change=True,
+        )
+    )
+    assert second["transition"] == liveness.CONTROL_STATE_INCONSISTENT
+    assert second["final_allowed"] is False
+
+
+def test_open_parent_with_no_action_or_blocker_recomputes_then_inconsistent():
+    liveness = load_liveness_helper()
+    first = liveness.evaluate(base_state(independent_safe_work_exhausted=True))
+    assert first["transition"] == liveness.RECOMPUTE_PARENT_STATE
+    second = liveness.evaluate(
+        base_state(
+            independent_safe_work_exhausted=True,
+            parent_state_recomputed_without_change=True,
+        )
+    )
+    assert second["transition"] == liveness.CONTROL_STATE_INCONSISTENT
+
+
+def test_exhaustive_boolean_guard_never_allows_premature_final():
+    liveness = load_liveness_helper()
+    bool_keys = [
+        "parent_hard_blocker",
+        "platform_or_tool_hard_limit",
+        "independent_safe_work_exhausted",
+        "same_action_repeated_without_state_change",
+        "supported_alternative_available",
+        "parent_state_recomputed_without_change",
+        "continuation_lease_active",
+    ]
+    for bits in product((False, True), repeat=len(bool_keys)):
+        overrides = dict(zip(bool_keys, bits, strict=True))
+
+        with_action = liveness.evaluate(
+            base_state(executable_next_actions=1, **overrides)
+        )
+        assert with_action["final_allowed"] is False
+
+        if not overrides["independent_safe_work_exhausted"]:
+            without_action = liveness.evaluate(
+                base_state(executable_next_actions=0, **overrides)
+            )
+            assert without_action["final_allowed"] is False
+
+
+def test_every_transition_has_exact_required_action():
+    liveness = load_liveness_helper()
+    assert set(liveness.REQUIRED_ACTIONS) == set(liveness.TRANSITIONS)
+    assert liveness.REQUIRED_ACTIONS[liveness.EXECUTE_NEXT_ACTION] == "EXECUTE_SELECTED_NEXT_ACTION_NOW"
+    assert liveness.REQUIRED_ACTIONS[liveness.SWITCH_STRATEGY] == "TAKE_DIFFERENT_SUPPORTED_ROUTE_NOW"
+    assert liveness.REQUIRED_ACTIONS[liveness.RECOMPUTE_PARENT_STATE] == "RECOMPUTE_PARENT_ROUTING_ONCE"
+    assert liveness.REQUIRED_ACTIONS[liveness.CONTROL_STATE_INCONSISTENT] == "REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE"
 
 
 def test_agents_routes_active_turn_contract_and_remote_silent_is_not_conversation_silent():

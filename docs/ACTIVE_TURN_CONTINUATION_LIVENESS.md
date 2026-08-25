@@ -1,8 +1,9 @@
 # Enterprise Math Active-Turn Continuation Liveness
 
-Status: `ACTIVE / CANONICAL EXECUTION-LIVENESS CONTRACT`
-Effective: `2026-08-22`
+Status: `ACTIVE / CANONICAL EXECUTION-LIVENESS CONTRACT / V2`
+Effective: `2026-08-25`
 Scope: `FREE_AXIOM_DISCOVERY / TASK_RESEARCH / RESEARCH_DRIVER / FOUNDATION_STEWARD / GitHub-publication subflows`
+Executable evaluator: `tools/active_turn_liveness.py`
 
 ## Core invariant
 
@@ -16,7 +17,82 @@ Freeze:
 
 `DETERMINISTIC_NEXT_STEP_EXISTS -> CONTINUE_IN_SAME_TURN`.
 
+`PARENT_INCOMPLETE + EXECUTABLE_NEXT_ACTION -> FINAL_FORBIDDEN`.
+
+The last rule is **independent of continuation-lease state**. A user does not need to have said `继续` for base liveness to apply. The continuation lease strengthens persistence across multi-step boundaries; it is not the prerequisite for continuing ordinary unfinished work.
+
 A model must not require the user to send `继续`, `continue`, `完成了`, or an equivalent wake-up message when that message supplies no new information and the next action is already determined by the current objective and evidence.
+
+## Canonical PRE_FINAL guard
+
+Before ending any nontrivial turn, evaluate the canonical state using the decision semantics implemented in:
+
+`tools/active_turn_liveness.py`.
+
+The evaluator returns exactly one of:
+
+- `FINAL_ALLOWED`;
+- `FINAL_ALLOWED_WITH_BLOCKER`;
+- `FINAL_ALLOWED_WITH_LIMIT`;
+- `EXECUTE_NEXT_ACTION`;
+- `SWITCH_STRATEGY`;
+- `RECOMPUTE_PARENT_STATE`;
+- `CONTROL_STATE_INCONSISTENT`.
+
+Only the first three permit a final response. Every transition also binds one required controller action:
+
+- `FINAL_ALLOWED` -> `RETURN_FINAL`;
+- `FINAL_ALLOWED_WITH_BLOCKER` -> `RETURN_STRONGEST_RESULT_AND_EXPLICIT_PARENT_BLOCKER`;
+- `FINAL_ALLOWED_WITH_LIMIT` -> `RETURN_STRONGEST_RESULT_AND_EXPLICIT_PLATFORM_OR_TOOL_LIMIT`;
+- `EXECUTE_NEXT_ACTION` -> `EXECUTE_SELECTED_NEXT_ACTION_NOW`;
+- `SWITCH_STRATEGY` -> `TAKE_DIFFERENT_SUPPORTED_ROUTE_NOW`;
+- `RECOMPUTE_PARENT_STATE` -> `RECOMPUTE_PARENT_ROUTING_ONCE`;
+- `CONTROL_STATE_INCONSISTENT` -> `REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE`.
+
+`CONTROL_STATE_INCONSISTENT` is a control fault, not permission to final. The caller must rebuild derived control state from the authoritative parent objective/conversation/task state. If the runtime truly cannot perform that repair, the inability itself must be classified under the platform/tool-limit terminal path rather than silently stopping.
+
+The PRE_FINAL decision order is:
+
+1. if the parent objective is complete -> `FINAL_ALLOWED`;
+2. if the user explicitly requested stop/pause/review-only/wait -> `FINAL_ALLOWED`;
+3. if one or more executable next actions exist -> final is forbidden;
+4. if the selected action repeated without any state change, do not retry it unchanged: switch to a supported alternative when one exists, otherwise recompute parent routing once;
+5. a parent-level blocker or platform/tool limit permits final only after all independent/downstream-safe work is exhausted and no executable next action remains;
+6. if safe work is still claimed to remain but one parent-state recomputation still produces no executable action -> `CONTROL_STATE_INCONSISTENT`;
+7. if the parent remains incomplete, no executable action exists, no terminal blocker exists, and a parent-state recomputation changes nothing -> `CONTROL_STATE_INCONSISTENT` rather than silent termination or infinite retry.
+
+## Blocked subflow is not blocked parent
+
+Freeze:
+
+`BLOCKED_SUBFLOW != BLOCKED_PARENT`.
+
+A single reproduction route, PR, CI run, reviewer, unavailable helper, or other subflow can be blocked while the parent objective remains executable through another route.
+
+A blocked subflow becomes a terminal parent blocker only when:
+
+`NO_EXECUTABLE_INDEPENDENT_OR_DOWNSTREAM_SAFE_WORK_REMAINS`.
+
+Therefore:
+
+`LOCAL_BLOCK + OTHER_EXECUTABLE_WORK -> EXECUTE_NEXT_ACTION`.
+
+## Loop-safety
+
+The liveness contract must not repair premature stopping by creating infinite retries.
+
+Freeze:
+
+`IDENTICAL_ACTION + IDENTICAL_STATE + NO_PROGRESS -> DO_NOT_REPEAT_UNCHANGED`.
+
+Transition rules:
+
+- supported alternative exists -> `SWITCH_STRATEGY`;
+- no alternative selected yet -> `RECOMPUTE_PARENT_STATE` once;
+- recomputation leaves the same parent state and no alternative/blocker appears -> `CONTROL_STATE_INCONSISTENT`;
+- safe work is claimed to remain, but recomputation still materializes no executable action -> `CONTROL_STATE_INCONSISTENT`.
+
+A repeated no-progress action has zero automatic identical retries under this guard.
 
 ## Non-terminal boundaries
 
@@ -42,6 +118,8 @@ When the user's instruction semantically means `continue`, `keep going`, `do not
 `CONTINUATION_LEASE = ACTIVE_UNTIL_PARENT_CRITERION_MET_OR_USER_REVOKES`.
 
 A stage, route, checkpoint, PR, or publication subflow cannot consume that lease.
+
+The lease is **not** required for the base rule `unfinished parent + executable action -> continue`. It only makes the persistence condition explicit across multiple local completion boundaries. A terminal blocker or platform/tool limit can end the current turn without consuming an otherwise-active lease; the lease ends only when the parent criterion is met or the user revokes/suspends it.
 
 If one route closes while the parent objective remains open, the controller must evaluate the next highest-leverage executable route in the same turn. It may close the local route without automatically opening a semantic successor, but it must not equate local closure with parent completion.
 
@@ -81,8 +159,8 @@ A turn may stop only when at least one holds:
 
 1. the current parent user objective is actually complete;
 2. the user explicitly asked to stop, pause, review only, or wait for their next instruction;
-3. no executable next step remains within current capabilities because a genuine safety, authorization, missing-user-data, or unavoidable external-event dependency blocks the parent objective;
-4. a platform/tool limit makes further action impossible in the current turn.
+3. no executable next step remains within current capabilities because a genuine safety, authorization, missing-user-data, or unavoidable external-event dependency blocks the **parent** objective, and independent/downstream-safe work has been exhausted;
+4. a platform/tool hard limit makes **all** further action impossible in the current turn after independent/downstream-safe work has been exhausted.
 
 Before using 3 or 4, exhaust independent/downstream-safe work and return the strongest current result. Do not output a passive `WAITING_FOR_CONTINUE` state.
 
@@ -94,14 +172,24 @@ After a commentary/progress update, execution continues automatically unless the
 
 For long tool chains, keep the user informed at the normal platform cadence while continuing work.
 
-## Minimal state test
+## Regression contract
 
-Before ending any nontrivial turn, ask internally:
+The repository tests must cover at least these cases:
 
-`PARENT_OBJECTIVE_COMPLETE?`
+- parent incomplete + executable next action + **no continuation lease** -> `EXECUTE_NEXT_ACTION`;
+- parent incomplete + executable next action + active continuation lease -> `EXECUTE_NEXT_ACTION`;
+- checkpoint/PR/journal/Driver verdict does not create terminal state by itself;
+- blocked subflow + other executable work -> continue;
+- true parent blocker + no remaining executable safe work -> `FINAL_ALLOWED_WITH_BLOCKER`, preserving any still-active continuation lease;
+- hard platform/tool limit + no remaining executable safe work -> `FINAL_ALLOWED_WITH_LIMIT`;
+- safe work still claimed after an unchanged parent-state recomputation but no action materialized -> `CONTROL_STATE_INCONSISTENT`;
+- explicit user stop -> `FINAL_ALLOWED`;
+- repeated identical no-progress action + alternative -> `SWITCH_STRATEGY`;
+- repeated identical no-progress action + no alternative -> one `RECOMPUTE_PARENT_STATE`;
+- same state after that recomputation -> `CONTROL_STATE_INCONSISTENT`.
 
-If no:
+## Enforcement boundary
 
-`IS_THERE_AN_EXECUTABLE_NEXT_ACTION?`
+This repository contract and helper are the canonical Enterprise Math control-plane evaluator and regression guard. They can be invoked directly where a local checkout/runtime is available, or their decision table can be implemented by the caller.
 
-If yes, execute it now.
+They do **not** by themselves intercept the ChatGPT product runtime. A product/runtime caller must invoke or faithfully implement the same PRE_FINAL decision in order to physically block a final response. Do not claim runtime enforcement merely because the repository test passes.
