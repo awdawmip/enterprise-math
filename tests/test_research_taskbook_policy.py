@@ -6,6 +6,9 @@ import unittest
 import tools.research_taskbook as rt
 
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
 class ResearchTaskbookPolicyTests(unittest.TestCase):
     def make_root(self):
         td = tempfile.TemporaryDirectory()
@@ -21,6 +24,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
                 "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
                 "research_role_policy.json",
                 "research_identity_state_machine.json",
+                "research_execution_state_machine.json",
                 "final_response_identity_policy.json",
                 "research_taskbook_contract.json",
             ],
@@ -48,13 +52,15 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         }
         (root / "research_taskbook_policy.json").write_text(json.dumps(policy))
         contract = {
-            "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V6",
+            "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V7",
             "status": "ACTIVE",
             "new_dispatchable_taskbook_required_metadata": {
                 "created_by_role": "RESEARCH_DRIVER",
                 "task_authority": "DRIVER_APPROVED",
                 "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
                 "final_response_identity_policy": "INHERIT_GLOBAL",
+                "execution_state_policy": "INHERIT_GLOBAL",
+                "execution_gates": [],
                 "origin_kind": "<one allowed origin kind>",
                 "policy_review": {},
             },
@@ -95,6 +101,10 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "forbidden_fixed_runtime_metadata": ["researcher_id"],
         }
         (root / "research_taskbook_contract.json").write_text(json.dumps(contract))
+        (root / "research_execution_state_machine.json").write_text(
+            (REPO_ROOT / "research_execution_state_machine.json").read_text(encoding="utf-8"),
+            encoding="utf-8",
+        )
         for rel in [
             "AGENTS.md",
             "docs/GITHUB_INTERACTION_BUDGET.md",
@@ -121,6 +131,8 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "task_authority": "DRIVER_APPROVED",
             "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
             "final_response_identity_policy": "INHERIT_GLOBAL",
+            "execution_state_policy": "INHERIT_GLOBAL",
+            "execution_gates": [],
             "origin_kind": "DIRECT_USER_DIRECTION",
             "task_lineage": "NEW_DIRECTION",
             "policy_review": {
@@ -152,6 +164,44 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         path.write_text(rt.render_taskbook(meta, body))
         self.assertIn("TB-META", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
+    def test_missing_execution_state_inheritance_fails_dispatch(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        meta, body = rt.split_taskbook(path.read_text())
+        meta.pop("execution_state_policy")
+        path.write_text(rt.render_taskbook(meta, body))
+        codes = self.codes(rt.audit_taskbook(path, root=root, dispatch=True))
+        self.assertIn("TB-META", codes)
+        self.assertIn("EX-STATE-POLICY", codes)
+
+    def test_missing_execution_gates_fails_dispatch(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        meta, body = rt.split_taskbook(path.read_text())
+        meta.pop("execution_gates")
+        path.write_text(rt.render_taskbook(meta, body))
+        codes = self.codes(rt.audit_taskbook(path, root=root, dispatch=True))
+        self.assertIn("TB-META", codes)
+        self.assertIn("EX-GATES", codes)
+
+    def test_invalid_premath_gate_fails_dispatch(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        meta, body = rt.split_taskbook(path.read_text())
+        meta["execution_gates"] = [
+            {
+                "gate_id": "BAD",
+                "phase": "PRE_MATH",
+                "must_precede": ["MATHEMATICAL_DERIVATION"],
+                "evidence": {"kind": "REMOTE_COMMIT_CONTAINS_FILE"},
+            }
+        ]
+        path.write_text(rt.render_taskbook(meta, body))
+        self.assertIn("EX-PREMATH-COVERAGE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+
     def test_policy_change_makes_stamp_stale(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
@@ -164,6 +214,13 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         self.addCleanup(td.cleanup)
         path = self.write_task(root)
         (root / "final_response_identity_policy.json").write_text("changed-footer-policy")
+        self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+
+    def test_execution_machine_change_makes_stamp_stale(self):
+        td, root = self.make_root()
+        self.addCleanup(td.cleanup)
+        path = self.write_task(root)
+        (root / "research_execution_state_machine.json").write_text("{}")
         self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
     def test_remote_directive_requires_explicit_override(self):
