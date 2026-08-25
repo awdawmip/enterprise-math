@@ -158,6 +158,8 @@ Profile `GOVERNANCE_MAINTENANCE`: `NO_NEW_MATHEMATICS`; use current-main conflic
 
 A taskbook discovered outside V2 registration is not silently READY. It appears as `ORPHANED`.
 
+Cross-layer event guards take effect at `2026-08-25T10:50:39+08:00`. Scheduler V2 events earlier than that timestamp retain their original V2 replay semantics. Do not rewrite historical events merely to add newer audit fields; new events at/after the cross-layer cutover must satisfy the stronger APPROVE/REVIEW contract.
+
 This is intentional and covers work created concurrently with the V2 cutover. A Driver must reconcile it explicitly:
 
 - `MIGRATE` for already-live cutover work;
@@ -179,7 +181,13 @@ To avoid hand-building the state vector:
 
 `python tools/research_control.py template <CONTROL_PROFILE>`
 
-For an exported Scheduler event stream before control-plane acceptance/migration:
+Safe default for an exported Scheduler event stream:
+
+`python tools/research_control.py registry --events <events.jsonl>`
+
+This command first enforces the versioned cross-layer event guards and only then materializes the canonical Scheduler V2 registry. Direct `python tools/research_scheduler.py registry ...` is a low-level reducer/debug path and should not be the ordinary coordination entry point.
+
+For validation only:
 
 `python tools/research_control.py validate-events <events.jsonl>`
 
