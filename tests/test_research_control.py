@@ -16,7 +16,8 @@ def base(profile="STANDARD_RESEARCH"):
         "information": {"firewall":"NONE","freeze_state":"NOT_REQUIRED","source_exposure":"NORMAL"},
         "evidence": {
             "source_status":"PROVED_SOURCE","independent_status":"NOT_REQUIRED","driver_verdict":"PENDING",
-            "formalization_status":"NOT_APPLICABLE","benchmark_status":"NOT_APPLICABLE","canonical_status":"NONCANONICAL"
+            "formalization_status":"NOT_APPLICABLE","foundation_status":"NOT_APPLICABLE","integration_status":"NOT_APPLICABLE",
+            "benchmark_status":"NOT_APPLICABLE","promotion_status":"NOT_APPLICABLE","canonical_status":"NONCANONICAL"
         },
         "routing": {"working_truth":"ACTIVE","method_harvest":"PENDING","successor_gate":"NOT_APPLICABLE","route_disposition":"PENDING"},
         "parent": {"objective":"OPEN","completion_basis":"NONE","next_executable_action":"continue work"},
@@ -50,7 +51,7 @@ class ControlStateTests(unittest.TestCase):
         self.assertTrue(any("raw freeze" in e for e in rc.validate_snapshot(s,SPEC)))
 
     def test_fq010_pending_blocks_canonical(self):
-        s=base("FOUNDATION_DISPOSITION"); s["actor"]={"role":"FOUNDATION_STEWARD","mode":"VERIFY_OR_MAINTAIN","identity_state":"REGISTERED"}; s["evidence"]["foundation_gate"]="PENDING"; s["evidence"]["canonical_status"]="CANONICAL"; s["routing"]["working_truth"]="INACTIVE"
+        s=base("FOUNDATION_DISPOSITION"); s["actor"]={"role":"FOUNDATION_STEWARD","mode":"VERIFY_OR_MAINTAIN","identity_state":"REGISTERED"}; s["evidence"]["foundation_status"]="PENDING"; s["evidence"]["canonical_status"]="CANONICAL"; s["routing"]["working_truth"]="INACTIVE"
         self.assertTrue(any("Foundation disposition" in e for e in rc.validate_snapshot(s,SPEC)))
 
     def test_valley_negative_benchmark_cannot_be_l4(self):
@@ -62,8 +63,31 @@ class ControlStateTests(unittest.TestCase):
         errors=rc.validate_snapshot(s,SPEC); self.assertTrue(any("fair baseline" in e for e in errors))
 
     def test_prime_fusion_package_cannot_freeze_with_repair_open(self):
-        s=base("INTEGRATION"); s["evidence"]["package_status"]="FROZEN"; s["evidence"]["source_status"]="REPAIR_REQUIRED"; s["evidence"]["independent_status"]="CLOSED"
+        s=base("INTEGRATION"); s["evidence"]["integration_status"]="FROZEN"; s["evidence"]["source_status"]="REPAIR_REQUIRED"; s["evidence"]["independent_status"]="CLOSED"
         self.assertTrue(any("source repair" in e for e in rc.validate_snapshot(s,SPEC)))
+
+    def test_formalization_rejects_open_required_independent_evidence(self):
+        s=base("FORMALIZATION"); s["evidence"].update(source_status="FROZEN",independent_status="REQUIRED_OPEN",formalization_status="ADMITTED"); s["math_change_policy"]="NO_NEW_MATHEMATICS"
+        self.assertTrue(any("independent evidence" in e for e in rc.validate_snapshot(s,SPEC)))
+
+    def test_mathematical_promotion_requires_bounded_attempt_evidence(self):
+        s=base("MATHEMATICAL_PROMOTION"); s["actor"]={"role":"RESEARCH_DRIVER","mode":"CONTROL_PLANE","identity_state":"REGISTERED"}; s["evidence"]["promotion_status"]="IN_ATTEMPT"
+        errors=rc.validate_snapshot(s,SPEC); self.assertTrue(any("current_main_snapshot" in e for e in errors))
+        s.update(promotion_attempt_ref="promo@abcdef1",current_main_snapshot="main@abcdef2",conflict_audit_ref="audit@abcdef3",frozen_head_ref="head@abcdef4")
+        self.assertEqual([],rc.validate_snapshot(s,SPEC))
+
+    def test_canonical_requires_merged_promotion(self):
+        s=base("MATHEMATICAL_PROMOTION"); s["actor"]={"role":"RESEARCH_DRIVER","mode":"CONTROL_PLANE","identity_state":"REGISTERED"}; s["evidence"].update(promotion_status="READY",canonical_status="CANONICAL")
+        self.assertTrue(any("completed mathematical promotion" in e for e in rc.validate_snapshot(s,SPEC)))
+
+    def test_blocked_parent_requires_real_block_basis(self):
+        s=base(); s["parent"].update(objective="BLOCKED",completion_basis="NONE",next_executable_action=None)
+        self.assertTrue(any("blocked parent" in e for e in rc.validate_snapshot(s,SPEC)))
+
+    def test_template_covers_all_profiles(self):
+        for profile in SPEC["control_profiles"]:
+            snap=rc.template_snapshot(profile,SPEC)
+            self.assertEqual(profile,snap["object"]["control_profile"])
 
     def test_cbrc_f5r_orphan_migration_profile_is_valid_nonterminal(self):
         s=base("INDEPENDENT_AUDIT"); s["runtime"]={"scheduler_state":"ORPHANED","dispatch_state":"ORPHAN_RECOVERY"}; s["information"].update(firewall="TASK_BLIND_FORWARD",freeze_state="REQUIRED_NOT_FROZEN",source_exposure="WITHHELD"); s["evidence"].update(source_status="FROZEN",independent_status="REQUIRED_OPEN"); s["routing"]["working_truth"]="ACTIVE"; s["parent"]["next_executable_action"]="MIGRATE/ADOPT with preserved blind packet and fresh context"
