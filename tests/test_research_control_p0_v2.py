@@ -5,6 +5,7 @@ from pathlib import Path
 from unittest import mock
 
 from tools import research_dispatch as dispatch
+from tools import research_execution_records as executions
 from tools import research_result_records as results
 from tools import research_runtime_guard as guard
 from tools import research_task_records as records
@@ -28,15 +29,8 @@ def runtime_state(task_id, registration=None):
             "researcher_id": "EM-TEST-ABC123",
             "owner_lease_until": "2026-08-26T12:00:00+08:00",
         },
-        "session": {
-            "session_id": "session-1",
-            "last_activity_at": "2026-08-25T12:00:00+08:00",
-        },
-        "durable_frontier": {
-            "remote_head": "deadbeef",
-            "execution_stamp": "stamp",
-            "durable_outputs": [],
-        },
+        "session": {"session_id": "session-1", "last_activity_at": "2026-08-25T12:00:00+08:00"},
+        "durable_frontier": {"remote_head": "deadbeef", "execution_stamp": "stamp", "durable_outputs": []},
         "current_unfinished_unit": "unit",
         "next_action": {"description": "continue", "executable": True},
         "terminal_scope": None,
@@ -48,18 +42,14 @@ def runtime_state(task_id, registration=None):
 class RuntimeAuthorizationTests(unittest.TestCase):
     def test_forged_registration_cannot_authorize_unknown_task(self):
         with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "neither immutably registered"):
-            guard.canonicalize_registration(
-                runtime_state("RS-DEFINITELY-NOT-A-REAL-TASK"),
-                purpose="pre_final",
-                root=ROOT,
-            )
+            guard.canonicalize_registration(runtime_state("RS-DEFINITELY-NOT-A-REAL-TASK"), purpose="pre_final", root=ROOT)
 
     def test_caller_registration_state_is_replaced_by_repository_authority(self):
-        state = runtime_state(
-            REGISTERED_TASK,
-            registration={"state": "DONE", "registry_key": REGISTERED_TASK},
+        safe = guard.canonicalize_registration(
+            runtime_state(REGISTERED_TASK, registration={"state": "DONE", "registry_key": REGISTERED_TASK}),
+            purpose="pre_final",
+            root=ROOT,
         )
-        safe = guard.canonicalize_registration(state, purpose="pre_final", root=ROOT)
         self.assertEqual("IMMUTABLE_REGISTERED", safe["task_registration"]["state"])
         self.assertEqual(REGISTERED_TASK, safe["task_registration"]["registry_key"])
         self.assertTrue(safe["task_registration"]["publication_id"])
@@ -73,27 +63,45 @@ class RuntimeAuthorizationTests(unittest.TestCase):
             guard.canonicalize_registration(state, purpose="pre_final", root=ROOT)
 
 
+class ExecutionIntentTests(unittest.TestCase):
+    def test_execution_intent_pins_publication_identity_branch_base_and_outputs(self):
+        record = executions.prepare_intent(
+            task_id=REGISTERED_TASK,
+            claim_id="claim-test-1",
+            researcher_id=None,
+            theorem_owner="QUADRATIC_PACKET_FRONTIER",
+            execution_branch="research/test-execution-intent",
+            execution_branch_base="a" * 40,
+            allowed_outputs=["research_returns/", "research_output/evidence/"],
+            owner_lease_minutes=120,
+            prepared_at="2026-08-25T22:30:00+08:00",
+            root=ROOT,
+        )
+        current = records.current_records(ROOT)[REGISTERED_TASK]
+        self.assertEqual(current["publication_id"], record["publication_id"])
+        self.assertEqual(current["taskbook_blob_sha1"], record["taskbook_blob_sha1"])
+        self.assertEqual("claim-test-1", record["claim_id"])
+        self.assertEqual("QUADRATIC_PACKET_FRONTIER", record["theorem_owner"])
+        self.assertEqual("research/test-execution-intent", record["execution_branch"])
+        self.assertEqual("a" * 40, record["execution_branch_base"])
+        self.assertEqual(["research_returns/", "research_output/evidence/"], record["allowed_outputs"])
+        self.assertTrue(record["researcher_id"].startswith("EM-QPHJA-"))
+
+
 class UnifiedDispatchTests(unittest.TestCase):
+    def registered_definition(self):
+        return next(item for item in dispatch.merged_definitions(ROOT) if item["task_id"] == REGISTERED_TASK)
+
     def test_registered_and_legacy_tasks_share_one_view_without_duplicates(self):
         definitions = dispatch.merged_definitions(ROOT)
         by_id = {item["task_id"]: item for item in definitions}
         self.assertEqual(len(definitions), len(by_id))
-        self.assertEqual(
-            "IMMUTABLE_TASK_RECORD",
-            by_id[REGISTERED_TASK]["registration_source"],
-        )
-        self.assertEqual(
-            "FROZEN_LEGACY_BASELINE",
-            by_id["RS-P017-GLOBAL-CAPACITY"]["registration_source"],
-        )
+        self.assertEqual("IMMUTABLE_TASK_RECORD", by_id[REGISTERED_TASK]["registration_source"])
+        self.assertEqual("FROZEN_LEGACY_BASELINE", by_id["RS-P017-GLOBAL-CAPACITY"]["registration_source"])
 
     def test_registered_task_is_dispatchable_without_static_scheduler_row(self):
-        task = next(
-            item for item in dispatch.merged_definitions(ROOT)
-            if item["task_id"] == REGISTERED_TASK
-        )
         state = dispatch.reduce_definition(
-            task,
+            self.registered_definition(),
             [],
             now=dispatch.research_scheduler.parse_time("2026-08-25T22:20:00+08:00"),
             root=ROOT,
@@ -101,63 +109,56 @@ class UnifiedDispatchTests(unittest.TestCase):
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertEqual("IMMUTABLE_TASK_RECORD", state["registration_source"])
 
-    def test_registered_done_without_reviewed_result_is_ignored(self):
-        task = next(
-            item for item in dispatch.merged_definitions(ROOT)
-            if item["task_id"] == REGISTERED_TASK
-        )
-        events = [
-            {
-                "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
-                "event": "CLAIM",
-                "task_id": REGISTERED_TASK,
-                "actor": "test",
-                "at": "2026-08-25T22:00:00+08:00",
-                "claim_id": "c1",
-                "lease_minutes": 120,
-            },
-            {
-                "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
-                "event": "DONE",
-                "task_id": REGISTERED_TASK,
-                "actor": "test",
-                "at": "2026-08-25T22:01:00+08:00",
-                "claim_id": "c1",
-                "result_id": "RR-NOT-REVIEWED",
-            },
-        ]
+    def test_registered_claim_without_execution_intent_is_ignored(self):
+        events = [{
+            "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+            "event": "CLAIM",
+            "task_id": REGISTERED_TASK,
+            "actor": "test",
+            "at": "2026-08-25T22:00:00+08:00",
+            "claim_id": "missing-intent",
+            "lease_minutes": 120,
+        }]
         state = dispatch.reduce_definition(
-            task,
+            self.registered_definition(),
             events,
             now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
             root=ROOT,
         )
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertTrue(any("execution intent" in item["reason"] for item in state["ignored_events"]))
+
+    def test_registered_done_without_reviewed_result_is_ignored_after_valid_intent(self):
+        intent = {
+            "task_id": REGISTERED_TASK,
+            "claim_id": "c1",
+            "researcher_id": "EM-QPHJA-ABC123",
+            "owner_lease_minutes": 120,
+        }
+        events = [
+            {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1", "event": "CLAIM", "task_id": REGISTERED_TASK, "actor": "test", "at": "2026-08-25T22:00:00+08:00", "claim_id": "c1"},
+            {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1", "event": "DONE", "task_id": REGISTERED_TASK, "actor": "test", "at": "2026-08-25T22:01:00+08:00", "claim_id": "c1", "result_id": "RR-NOT-REVIEWED"},
+        ]
+        with mock.patch.object(dispatch.research_execution_records, "intent_for_claim", return_value=intent):
+            state = dispatch.reduce_definition(
+                self.registered_definition(),
+                events,
+                now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+                root=ROOT,
+            )
         self.assertEqual("LEASED", state["dispatch_state"])
-        self.assertTrue(
-            any("review" in item["reason"] for item in state["ignored_events"])
-        )
+        self.assertTrue(any("review" in item["reason"] for item in state["ignored_events"]))
 
     def test_unreviewed_frozen_result_is_not_researcher_dispatchable(self):
-        task = next(
-            item for item in dispatch.merged_definitions(ROOT)
-            if item["task_id"] == REGISTERED_TASK
-        )
         pending = {
             "state": "AWAITING_DRIVER_REVIEW",
             "terminal": False,
-            "result": {
-                "result_id": "RR-PENDING",
-                "_record_path": "research_result_records/test.json",
-            },
+            "result": {"result_id": "RR-PENDING", "_record_path": "research_result_records/test.json"},
             "review": None,
         }
-        with mock.patch.object(
-            dispatch.research_result_records,
-            "task_result_state",
-            return_value=pending,
-        ):
+        with mock.patch.object(dispatch.research_result_records, "task_result_state", return_value=pending):
             state = dispatch.reduce_definition(
-                task,
+                self.registered_definition(),
                 [],
                 now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
                 root=ROOT,
@@ -200,10 +201,8 @@ real criteria
         self.assertTrue(any("placeholder" in error for error in errors))
 
     def test_repository_migrated_records_are_auditable(self):
-        errors = records.audit(ROOT)
-        self.assertEqual([], errors)
-        current = records.current_records(ROOT)
-        self.assertIn(REGISTERED_TASK, current)
+        self.assertEqual([], records.audit(ROOT))
+        self.assertIn(REGISTERED_TASK, records.current_records(ROOT))
 
 
 class ResultLifecycleTests(unittest.TestCase):
@@ -216,16 +215,7 @@ class ResultLifecycleTests(unittest.TestCase):
                 "record_schema": results.RESULT_SCHEMA,
                 "result_id": "RR-ONE",
                 "task_id": "RS-T",
-                "state": "FROZEN_RETURN",
-                "return_path": "return.md",
-                "return_blob_sha1": "sha1:x",
-                "owner_head": "head",
-                "researcher_id": "EM-TEST-ABC123",
                 "frozen_at": "2026-08-25T22:00:00+08:00",
-                "terminal_verdict": "PASS",
-                "output_manifest": ["return.md"],
-                "method_harvest": "RESULT_ONLY",
-                "driver_review_required": True,
             }
             (result_dir / "RR-ONE.json").write_text(json.dumps(result), encoding="utf-8")
             state = results.task_result_state("RS-T", root)
@@ -239,21 +229,8 @@ class ResultLifecycleTests(unittest.TestCase):
             result_dir.mkdir(parents=True)
             review_dir = root / "research_result_reviews" / "RR-ONE"
             review_dir.mkdir(parents=True)
-            result = {
-                "record_schema": results.RESULT_SCHEMA,
-                "result_id": "RR-ONE",
-                "task_id": "RS-T",
-                "frozen_at": "2026-08-25T22:00:00+08:00",
-            }
-            review = {
-                "record_schema": results.REVIEW_SCHEMA,
-                "review_id": "DR-ONE",
-                "result_id": "RR-ONE",
-                "task_id": "RS-T",
-                "reviewed_at": "2026-08-25T22:01:00+08:00",
-                "disposition": "ACCEPTED",
-                "terminal": True,
-            }
+            result = {"record_schema": results.RESULT_SCHEMA, "result_id": "RR-ONE", "task_id": "RS-T", "frozen_at": "2026-08-25T22:00:00+08:00"}
+            review = {"record_schema": results.REVIEW_SCHEMA, "review_id": "DR-ONE", "result_id": "RR-ONE", "task_id": "RS-T", "reviewed_at": "2026-08-25T22:01:00+08:00", "disposition": "ACCEPTED", "terminal": True}
             (result_dir / "RR-ONE.json").write_text(json.dumps(result), encoding="utf-8")
             (review_dir / "DR-ONE.json").write_text(json.dumps(review), encoding="utf-8")
             state = results.task_result_state("RS-T", root)
