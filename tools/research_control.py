@@ -1,0 +1,252 @@
+#!/usr/bin/env python3
+"""Cross-layer validator for Enterprise Math Research Control State Machine V1.
+
+This module does not reduce Scheduler events and does not replace any existing
+submachine. It validates the composition: semantic/evidence/routing/liveness
+state around Scheduler V2 and validates the extra evidence carried by new V2
+APPROVE/REVIEW events.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import pathlib
+import sys
+from typing import Any
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+DEFAULT_SPEC = ROOT / "research_control_state_machine.json"
+V2_SCHEMA = "ENTERPRISE_MATH_SCHEDULER_EVENT_V2"
+
+
+def load_json(path: pathlib.Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def nonempty(value: Any) -> bool:
+    if isinstance(value, str):
+        return bool(value.strip())
+    if isinstance(value, (list, dict, tuple, set)):
+        return bool(value)
+    return value is not None
+
+
+def _enum(spec: dict[str, Any], section: str, field: str) -> set[str]:
+    value = spec["state_vector"][section][field]
+    return set(value) if isinstance(value, list) else set()
+
+
+def validate_spec(spec: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    if spec.get("schema") != "ENTERPRISE_MATH_RESEARCH_CONTROL_STATE_MACHINE_V1":
+        return ["unexpected control-state schema"]
+    required_sections = {"actor", "object", "runtime", "information", "evidence", "routing", "parent"}
+    missing = required_sections - set(spec.get("state_vector", {}))
+    if missing:
+        errors.append("missing state-vector sections: " + ", ".join(sorted(missing)))
+    required_profiles = {"STANDARD_RESEARCH", "INDEPENDENT_AUDIT", "FORMALIZATION", "FOUNDATION_DISPOSITION", "INTEGRATION", "BENCHMARK", "GOVERNANCE_MAINTENANCE"}
+    if not required_profiles <= set(spec.get("control_profiles", [])):
+        errors.append("control_profiles do not cover all current control classes")
+    return errors
+
+
+def validate_snapshot(snapshot: dict[str, Any], spec: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    for section in ("actor", "object", "runtime", "information", "evidence", "routing", "parent"):
+        if not isinstance(snapshot.get(section), dict):
+            errors.append(f"missing section: {section}")
+    if errors:
+        return errors
+
+    actor = snapshot["actor"]; obj = snapshot["object"]; runtime = snapshot["runtime"]
+    info = snapshot["information"]; ev = snapshot["evidence"]; route = snapshot["routing"]; parent = snapshot["parent"]
+
+    enum_fields = {
+        "actor": (actor, ("role", "mode", "identity_state")),
+        "runtime": (runtime, ("scheduler_state", "dispatch_state")),
+        "information": (info, ("firewall", "freeze_state", "source_exposure")),
+        "evidence": (ev, ("source_status", "independent_status", "driver_verdict", "formalization_status", "benchmark_status", "canonical_status")),
+        "routing": (route, ("working_truth", "method_harvest", "successor_gate", "route_disposition")),
+        "parent": (parent, ("objective", "completion_basis")),
+    }
+    for section, (payload, fields) in enum_fields.items():
+        for field in fields:
+            allowed = _enum(spec, section, field)
+            if payload.get(field) not in allowed:
+                errors.append(f"{section}.{field}: invalid value {payload.get(field)!r}")
+
+    profile = obj.get("control_profile")
+    if profile not in set(spec.get("control_profiles", [])):
+        errors.append(f"object.control_profile: invalid value {profile!r}")
+
+    role_mode = {
+        "RESEARCH_DRIVER": {"CONTROL_PLANE"},
+        "FOUNDATION_STEWARD": {"VERIFY_OR_MAINTAIN"},
+        "RESEARCHER": {"FREE_AXIOM_DISCOVERY", "TASK_RESEARCH"},
+    }
+    if actor.get("mode") not in role_mode.get(actor.get("role"), set()):
+        errors.append("actor role/mode mismatch")
+    if actor.get("identity_state") == "UNRESOLVED" and runtime.get("scheduler_state") not in {"NONE", "DRAFT", "REVIEW_PENDING"}:
+        errors.append("active work cannot proceed with unresolved role identity")
+
+    if ev.get("driver_verdict") in {"ACCEPTED", "NARROWED"}:
+        if route.get("method_harvest") == "PENDING":
+            errors.append("accepted/narrowed return requires method-harvest classification")
+        if route.get("route_disposition") == "PENDING":
+            errors.append("accepted/narrowed return requires explicit route disposition")
+
+    if route.get("route_disposition") == "OPEN_CONTINUATION" and route.get("successor_gate") != "SATISFIED":
+        errors.append("continuation requires satisfied successor gate")
+
+    if route.get("route_disposition") == "OPEN_INDEPENDENT_REPLICATION_CHILD":
+        if runtime.get("scheduler_state") == "HANDOFF_READY":
+            errors.append("independent replication cannot be represented as same-task HANDOFF_READY")
+        child = route.get("child_task_id")
+        if not nonempty(child) or child == obj.get("task_id"):
+            errors.append("independent replication requires distinct child_task_id")
+        if not nonempty(route.get("child_task_ref")) or not nonempty(route.get("independence_protocol")):
+            errors.append("independent replication requires child_task_ref and independence_protocol")
+
+    if profile in {"INDEPENDENT_AUDIT", "FREE_CANDIDATE_AUDIT"}:
+        if info.get("firewall") == "NONE":
+            errors.append("independent/blind audit requires explicit information firewall classification")
+        if ev.get("independent_status") == "CLOSED" and info.get("firewall") in {"FREE_PHASE_A_BLIND", "TASK_BLIND_FORWARD"}:
+            if info.get("freeze_state") != "FROZEN" or info.get("source_exposure") != "POST_FREEZE_ONLY":
+                errors.append("blind independent closure requires raw freeze before source exposure")
+        if snapshot.get("independence_status") == "CLEAN_INDEPENDENT_CONTEXT":
+            src_ctx = snapshot.get("source_execution_context")
+            exec_ctx = snapshot.get("execution_context")
+            if nonempty(src_ctx) and src_ctx == exec_ctx:
+                errors.append("clean independent audit requires a distinct execution context")
+
+    if profile == "FORMALIZATION":
+        if ev.get("formalization_status") in {"NOT_APPLICABLE", "NOT_ADMITTED"}:
+            errors.append("formalization work cannot start before Driver admission")
+        if ev.get("source_status") in {"NONE", "DRAFT", "PROVED_SOURCE", "REPAIR_REQUIRED"}:
+            errors.append("formalization requires frozen/corrected accepted source mathematics")
+        if snapshot.get("math_change_policy") != "NO_NEW_MATHEMATICS":
+            errors.append("formalization profile requires NO_NEW_MATHEMATICS")
+        if snapshot.get("statement_mismatch") is True and ev.get("formalization_status") != "RETURN_REQUIRED":
+            errors.append("statement/interface mismatch must return to Driver, never silently weaken theorem")
+
+    if ev.get("foundation_gate") == "PENDING":
+        if ev.get("canonical_status") == "CANONICAL":
+            errors.append("pending Foundation disposition blocks canonical mutation")
+        if ev.get("formalization_status") in {"ADMITTED", "IN_PROGRESS", "PASS"} and profile == "FOUNDATION_DISPOSITION":
+            errors.append("pending Foundation disposition blocks downstream formalization admission")
+
+    if profile == "BENCHMARK" and snapshot.get("performance_claim") == "POSITIVE":
+        if ev.get("benchmark_status") != "PASS":
+            errors.append("positive performance claim requires benchmark PASS")
+        if snapshot.get("fair_baseline") is not True or snapshot.get("cost_accounting") != "COMPLETE":
+            errors.append("positive performance claim requires fair baseline and complete cost accounting")
+    if profile == "BENCHMARK" and ev.get("benchmark_status") in {"PARTIAL", "NEGATIVE"} and snapshot.get("result_level") == "L4":
+        errors.append("partial/negative benchmark cannot carry L4 performance status")
+
+    if profile == "INTEGRATION" and ev.get("package_status") == "FROZEN":
+        if ev.get("source_status") == "REPAIR_REQUIRED":
+            errors.append("package cannot freeze while source repair is required")
+        if ev.get("independent_status") == "REQUIRED_OPEN":
+            errors.append("package cannot freeze while required independent evidence remains open")
+
+    if parent.get("objective") == "COMPLETE" and parent.get("completion_basis") == "NONE":
+        errors.append("parent completion requires an explicit completion basis")
+    if parent.get("objective") == "OPEN" and nonempty(parent.get("next_executable_action")) and snapshot.get("terminal_output") is True:
+        errors.append("parent objective is open with executable work; final stop would violate active-turn liveness")
+
+    if runtime.get("dispatch_state") in {"BLOCKED", "DORMANT"} and snapshot.get("remote_pending_only") is True and parent.get("objective") == "BLOCKED":
+        errors.append("remote/CI pending alone is not a parent HARD_BLOCK")
+
+    return errors
+
+
+def validate_events(events: list[dict[str, Any]], spec: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    contract = spec["review_event_contract"]
+    harvest = set(contract["method_harvest_values"])
+    evidence_classes = set(contract["evidence_class_values"])
+    routes = set(contract["route_disposition_values"])
+    for i, event in enumerate(events):
+        if event.get("schema") != V2_SCHEMA:
+            continue
+        kind = event.get("event")
+        if kind == "APPROVE":
+            if event.get("taskbook_audit") != "PASS":
+                errors.append(f"event[{i}] APPROVE requires taskbook_audit=PASS")
+            digest = event.get("policy_digest")
+            if not isinstance(digest, str) or not digest.startswith("sha256:"):
+                errors.append(f"event[{i}] APPROVE requires policy_digest=sha256:...")
+            if not nonempty(event.get("taskbook_ref")) or not nonempty(event.get("review_ref")):
+                errors.append(f"event[{i}] APPROVE requires taskbook_ref and review_ref")
+        if kind == "REVIEW":
+            if event.get("verdict") == "REQUEST_INDEPENDENT_REPLICATION":
+                errors.append(f"event[{i}] same-task REQUEST_INDEPENDENT_REPLICATION is forbidden; PARK parent and open a distinct child task")
+            if event.get("method_harvest") not in harvest:
+                errors.append(f"event[{i}] REVIEW requires method_harvest classification")
+            if event.get("evidence_class") not in evidence_classes:
+                errors.append(f"event[{i}] REVIEW requires evidence_class")
+            route = event.get("route_disposition")
+            if route not in routes:
+                errors.append(f"event[{i}] REVIEW requires route_disposition")
+                continue
+            verdict = event.get("verdict")
+            expected = {
+                "RETURN_TO_RESEARCH": {"CONTINUE_SAME_TASK"},
+                "ROUTE_TO_FOUNDATION": {"ROUTE_TO_FOUNDATION"},
+                "PROMOTION_READY": {"ROUTE_TO_PROMOTION"},
+                "REJECT": {"CLOSE"},
+            }
+            if verdict in expected and route not in expected[verdict]:
+                errors.append(f"event[{i}] REVIEW verdict/route_disposition mismatch")
+            if route == "OPEN_CONTINUATION" and not nonempty(event.get("successor_gate_ref")):
+                errors.append(f"event[{i}] OPEN_CONTINUATION requires successor_gate_ref")
+            if route == "OPEN_INDEPENDENT_REPLICATION_CHILD":
+                if verdict != "PARK":
+                    errors.append(f"event[{i}] independent replication child requires PARK parent review verdict")
+                child = event.get("child_task_id")
+                if not nonempty(child) or child == event.get("task_id"):
+                    errors.append(f"event[{i}] independent replication requires distinct child_task_id")
+                for field in ("child_task_ref", "independence_protocol"):
+                    if not nonempty(event.get(field)):
+                        errors.append(f"event[{i}] independent replication requires {field}")
+            if route in {"ROUTE_TO_FOUNDATION", "ROUTE_TO_FORMALIZATION", "ROUTE_TO_PROMOTION", "OPEN_CONTINUATION"} and not nonempty(event.get("route_ref")):
+                errors.append(f"event[{i}] {route} requires route_ref")
+    return errors
+
+
+def load_events(path: pathlib.Path) -> list[dict[str, Any]]:
+    text = path.read_text(encoding="utf-8").strip()
+    if not text:
+        return []
+    if text.startswith("["):
+        data = json.loads(text)
+        if not isinstance(data, list):
+            raise ValueError("events JSON must be an array")
+        return data
+    return [json.loads(line) for line in text.splitlines() if line.strip()]
+
+
+def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(description="Enterprise Math cross-layer research control validator")
+    p.add_argument("--spec", type=pathlib.Path, default=DEFAULT_SPEC)
+    sp = p.add_subparsers(dest="cmd", required=True)
+    sp.add_parser("validate-spec")
+    s = sp.add_parser("validate-snapshot"); s.add_argument("path", type=pathlib.Path)
+    e = sp.add_parser("validate-events"); e.add_argument("path", type=pathlib.Path)
+    args = p.parse_args(argv)
+    spec = load_json(args.spec)
+    errors = validate_spec(spec)
+    if not errors and args.cmd == "validate-snapshot":
+        errors = validate_snapshot(load_json(args.path), spec)
+    elif not errors and args.cmd == "validate-events":
+        errors = validate_events(load_events(args.path), spec)
+    if errors:
+        for error in errors:
+            print("ERROR:", error)
+        return 1
+    print("PASS")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
