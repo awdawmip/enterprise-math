@@ -1,8 +1,9 @@
 # Enterprise Math Research Architecture V2
 
-Status: `ACTIVE / CANONICAL GOVERNANCE / V2.5`
+Status: `ACTIVE / CANONICAL GOVERNANCE / V2.6`
 Date: `2026-08-25`
 Driver-ID: `EM-DVR-A4319A`
+
 Machine contracts:
 
 - `research_architecture.json`;
@@ -28,6 +29,8 @@ Executes a selected mother question from the user, Driver, scheduler, Foundation
 
 Task authority is not execution readiness. Every run normalizes its authority and task-local gates, resolves identity, and reaches `EXECUTION_READY` before mathematical source reads/derivations.
 
+A source class deliberately hidden until a later raw/independent/Phase-A freeze is represented as `POST_FREEZE_SOURCE_READ` and remains machine-gated until that freeze. Ordered checker/audit-before-verdict constraints guard `VERDICT_FREEZE`; final materialization constraints guard `RETURN_WRITE`.
+
 ### RESEARCH_DRIVER
 
 Owns portfolio routing, candidate intake, de-duplication, task creation, Working Truth activation, continuation/closure, execution-review decisions and promotion.
@@ -48,22 +51,11 @@ Freeze:
 
 `DETERMINISTIC_NEXT_STEP_EXISTS -> CONTINUE_IN_SAME_TURN`.
 
-The following do not terminate the parent objective by themselves:
+Tool returns, checkpoints, Stage verdicts, route closure, Driver verdicts, PR/publication boundaries, `PENDING_NONBLOCKING` states and progress updates do not terminate an open parent objective by themselves.
 
-- tool return;
-- recoverable tool error with an available alternative;
-- semantic checkpoint/journal write;
-- Stage verdict or route closure;
-- Driver verdict;
-- branch/PR/publication boundary;
-- `PENDING_NONBLOCKING` state;
-- progress update.
+When the user establishes open-ended continuation, that continuation lease survives subflow boundaries until the parent completion criterion is met or the user revokes it.
 
-When a user instruction establishes open-ended continuation (`continue`, `do not stop`, `until no further progress`, `until satisfied`, `solve blocker and continue`, or equivalent), that continuation lease survives all subflow boundaries until the parent completion criterion is met or the user revokes it.
-
-Detailed current contract:
-
-`docs/ACTIVE_TURN_CONTINUATION_LIVENESS.md`.
+Detailed contract: `docs/ACTIVE_TURN_CONTINUATION_LIVENESS.md`.
 
 ## 3. TASK_RESEARCH execution lifecycle
 
@@ -84,13 +76,17 @@ Freeze:
 
 `STATE_PERMISSION + ALL_GUARDING_GATES_SATISFIED -> ACTION_ALLOWED`.
 
-For an official taskbook, the exact taskbook revision first passes the composite dispatch gate. A direct user task does not require an artificial taskbook; its current task-local constraints are normalized directly into the execution ledger. Scheduler `CLAIMED` is coordination only and never means `EXECUTION_READY`. A Driver envelope cannot waive taskbook gates when it points to a taskbook.
+For an official taskbook, the exact revision first passes the composite dispatch gate. A direct user task does not require an artificial taskbook; its current constraints are normalized directly into the runtime ledger. Scheduler `CLAIMED` is coordination only. A Driver envelope cannot waive taskbook gates when it points to a taskbook.
 
-Every declared gate begins `PENDING`; an action listed in `must_precede` is blocked until that gate becomes `SATISFIED` from its required evidence.
+Every declared gate begins `PENDING`; an action listed in `must_precede`, or an implied parent action, is blocked until the gate becomes `SATISFIED` from its declared evidence.
 
-A `PRE_MATH` gate blocks both mathematical source reads and derivations. A `PRE_RETURN` gate can still block `RETURN_WRITE` after the run is already `IN_PROGRESS`.
+A `PRE_MATH` gate blocks mathematical source reads and derivations. `POST_FREEZE_SOURCE_READ` inherits the generic source-read guard and may additionally be held behind a later Phase-A/raw/independent freeze. A pre-verdict gate blocks `VERDICT_FREEZE`. A `PRE_RETURN` gate blocks `RETURN_WRITE`.
 
 A failed mandatory startup/publication gate is an execution non-start, not a mathematical rejection.
+
+A durable handoff enters `HANDOFF_READY` and pauses the current execution. Same-conversation resume requires durable handoff plus gate-ledger reconciliation. A new conversation binds a new execution instance.
+
+A direct-user task with no applicable Driver review may terminate as `DELIVERED_UNREVIEWED`; this records delivery only, not Driver acceptance or truth promotion.
 
 When continuity becomes unreliable, enter `RECOVERY_REQUIRED` and reconstruct the last legal state and gate ledger from durable evidence.
 
@@ -154,7 +150,10 @@ A clean blind-discovery claim requires a clean pre-generation context and frozen
 
 Independent runs do not share candidate packets or a common suggestion menu before freeze.
 
-For TASK independence/replication, a task-local pre-math/source firewall must be encoded as an execution gate and satisfied before the forbidden source read/derivation can occur.
+For TASK independence/replication:
+
+- a startup/source firewall is encoded as a `PRE_MATH` gate;
+- sources hidden only until a later independent/raw freeze are represented as `POST_FREEZE_SOURCE_READ` and guarded by that freeze gate.
 
 ## 10. Read performance
 
@@ -166,9 +165,9 @@ FREE:
 
 TASK:
 
-`AGENTS -> EXACT TASK AUTHORITY -> NORMALIZE EXECUTION SPEC -> IDENTITY -> PRE_MATH GATES -> EXECUTION_READY -> FIRST MATHEMATICAL DEPENDENCY -> WORK -> TRIGGERED EXPANSION`.
+`AGENTS -> EXACT TASK AUTHORITY -> NORMALIZE EXECUTION SPEC -> IDENTITY -> PRE_MATH GATES -> EXECUTION_READY -> CURRENTLY-VISIBLE MATHEMATICAL DEPENDENCY -> WORK -> OPTIONAL RAW/PHASE-A FREEZE -> POST_FREEZE_SOURCE_READ -> TRIGGERED EXPANSION`.
 
-The soft pre-work read budget applies to control-plane/task-authority reads. It never overrides a task-local pre-math mathematical-source firewall.
+The soft pre-work read budget applies to control-plane/task-authority reads. It never overrides a task-local source firewall.
 
 ## 11. Remote / publication liveness
 
@@ -180,9 +179,7 @@ The soft pre-work read budget applies to control-plane/task-authority reads. It 
 
 `PUBLICATION_COMPLETE -> RESUME_PARENT_TASK`.
 
-GitHub/publication subflows follow the bounded current protocols and then return to the parent objective in the same turn when it remains open.
-
-A task-declared remote `PRE_MATH` publication/liveness gate is different from generic remote preflight: it is an explicit legality condition for that concrete execution and must be satisfied or the run is classified non-start/recovery/redispatch.
+A task-declared remote `PRE_MATH` publication/liveness gate is an explicit legality condition for that concrete execution and must be satisfied or the run is classified non-start/recovery/redispatch.
 
 ## 12. Promotion
 
@@ -190,13 +187,13 @@ A task-declared remote `PRE_MATH` publication/liveness gate is different from ge
 
 Mathematical L4 remains one bounded active promotion attempt at a time. Strict `NO_NEW_MATHEMATICS` governance maintenance uses a separate bounded attempt and cannot change theorem/native-definition/evidence/ownership semantics.
 
-Execution `RETURN_ACCEPTED` is also not canonical truth promotion.
+Neither execution `RETURN_ACCEPTED` nor `DELIVERED_UNREVIEWED` is canonical truth promotion.
 
 ## 13. Persistence / truth
 
 - journal = event provenance, not theorem truth;
 - Driver Continuity = routing only, no implicit default route;
-- execution return/acceptance = concrete-run validity, not theorem/candidate truth;
+- execution return/acceptance/delivery = concrete-run state, not theorem/candidate truth;
 - exact mathematical canonical truth = gated source `main`;
 - semantic checkpoints persist state but do not by themselves end an active parent user objective.
 
