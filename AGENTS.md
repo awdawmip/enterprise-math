@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.9`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.10`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -33,6 +33,8 @@ Canonical runtime authority:
 
 For an actual coordination action, materialize current Scheduler V2 state before routing. Do not infer task state from chat memory, a taskbook filename, an open PR, or the historical branch ledger.
 
+Before **any new execution generation** for an exact task — including a direct user reissue, new researcher identity, owner-branch start, execution stamp, Scheduler `CLAIM`, or orphan `ADOPT` — reconcile the durable frontier first. Resolve the exact task id/taskbook ref, declared owner branch, expected return/evidence paths and available durable branch/commit/manifest/checker state; then classify exactly one of `VERIFIED_COMPLETE`, `IN_PROGRESS_RECOVERABLE`, `UNFINISHED`, or `NEVER_STARTED`.
+
 Freeze:
 
 `TASKBOOK_POLICY_PASS != SCHEDULER_READY`.
@@ -45,19 +47,31 @@ Freeze:
 
 `ORPHANED -> ADOPT`, not ordinary `CLAIM`.
 
+`BEFORE_REISSUE -> RECONCILE_DURABLE_FRONTIER`.
+
+`VERIFIED_COMPLETE -> CONSUME_NOT_REDISPATCH`.
+
+`IN_PROGRESS_RECOVERABLE -> RESUME_SAME_DURABLE_FRONTIER`.
+
+`UNFINISHED -> PRESERVE_VALID_EVIDENCE_AND_RESTART_ONLY_MISSING_WORK`.
+
+`NEVER_STARTED -> NORMAL_DISPATCH`.
+
 `PUBLISHER != PUBLICATION_REVIEWER` and `EXECUTOR != RETURN_REVIEWER`.
 
 Generic intent routing is machine-defined in `research_scheduler.json`:
 
-- generic researcher task claim -> select highest eligible `NEEDS_DISPATCH`, emit `CLAIM`, resolve identity, start;
+- generic researcher task claim -> select highest eligible `NEEDS_DISPATCH`, reconcile the exact durable frontier, emit `CLAIM(frontier_class=NEVER_STARTED, frontier_ref=...)` only if it is genuinely never started, resolve identity, start;
 - generic Driver review claim -> select highest eligible non-self `NEEDS_REVIEW`, emit `REVIEW_CLAIM`, start review;
 - researcher/FREE task publication -> `PUBLISH -> REVIEW_PENDING`; a different Driver must `APPROVE` before runtime `READY`;
-- orphan recovery -> inspect `ORPHAN_RECOVERY`, then `ADOPT` with recovery provenance;
-- stalled-conversation recovery -> rebuild the durable frontier, classify the predecessor, release a stale live claim if needed, then `ADOPT`/resume or consume the verified-complete result.
+- orphan recovery -> inspect `ORPHAN_RECOVERY`, rebuild the durable frontier, then `ADOPT` only `IN_PROGRESS_RECOVERABLE`/`UNFINISHED` work with recovery provenance;
+- stalled-conversation recovery -> rebuild the durable frontier, classify the predecessor, release a stale live claim if needed, then `ADOPT`/resume recoverable work or consume the verified-complete result.
 
 FREE Phase A remains outside automatic scheduler claiming. After the relevant discovery freeze, a FREE researcher may publish a concrete proposal into `REVIEW_PENDING`; this does not grant Working Truth, dispatch authority, or self-approval.
 
 V2 direct `DONE` is forbidden. Execution finishes with `SUBMIT`; scheduler completion requires a different Driver's `REVIEW` verdict.
+
+A stale conversation or ordinary continuation is **not** itself a fresh independent replication. A new clean independent child is created only when the controlling independence protocol explicitly requires a distinct run.
 
 ## 2. Active-turn continuation liveness
 
@@ -80,6 +94,8 @@ Freeze:
 
 `TASK_CLAIM_LEASE != CONVERSATION_LIVENESS_LEASE`.
 
+`NEW_EXECUTION_GENERATION -> DURABLE_FRONTIER_RECONCILIATION_FIRST`.
+
 A semantic checkpoint, journal write, tool return, recoverable tool error, PR/branch metadata boundary, `PENDING_NONBLOCKING` state, Stage verdict, Driver verdict, progress update, publication completion, or local soft block is not a reason to wait for a user `继续` message when the parent objective remains open and an executable next step exists.
 
 When the user's instruction semantically means continue/keep going/do not stop/until satisfied/until no further progress/solve the blocker and continue, the parent continuation lease remains active until that parent criterion is met or the user revokes it.
@@ -98,7 +114,7 @@ Before ending a nonterminal turn, if the parent objective is incomplete and anot
 
 ## 3. Identity and mandatory final footer
 
-Resolve the visible role identity before substantive work:
+Resolve the visible role identity before substantive work, but for an existing task do not create a new execution identity until durable-frontier reconciliation says a new/recovery execution is actually required:
 
 - researcher -> `Researcher-ID`;
 - Driver -> `Driver-ID`.
@@ -157,15 +173,20 @@ After the candidate/no-go packet is frozen, Phase B may open current/prior work 
 
 ## 5. TASK_RESEARCH hot start
 
-For a selected task:
+For a selected or explicitly reissued task:
 
 1. this router if not already loaded;
-2. the **exact task entry**;
-3. the first exact dependency required to begin;
-4. work;
-5. expand only when a concrete dependency is triggered.
+2. the **exact task entry/taskbook ref**;
+3. reconcile the declared owner branch, execution stamp, expected return/evidence paths and other durable frontier for that exact task;
+4. classify `VERIFIED_COMPLETE / IN_PROGRESS_RECOVERABLE / UNFINISHED / NEVER_STARTED`;
+5. consume completed work, recover the same frontier, restart only missing work, or create a new execution only according to that classification;
+6. load the first exact dependency required to continue;
+7. work;
+8. expand only when a concrete dependency is triggered.
 
-Soft routine source-read budget before substantive work: `<= 3`.
+Soft routine source-read budget before substantive work: `<= 3`; the durable-frontier intake check is control-plane reconciliation, not permission to preload hidden mathematical source beyond the task's information firewall.
+
+For a blind/independent task, reconcile existence/status metadata without reading withheld mathematical content before its freeze. Recovery must preserve the task's blindness protocol.
 
 The Common Surface is a lookup, not a default preload.
 
@@ -275,7 +296,7 @@ Exact taskbook contract:
 
 `RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
-Do not perform universal scheduler/Issue/PR/CI/tree preflight. For an actual scheduler coordination action, however, current V2 materialized state is the authority and must be read before mutation.
+Do not perform universal scheduler/Issue/PR/CI/tree preflight. For an actual scheduler coordination action, however, current V2 materialized state is the authority and must be read before mutation. For an explicitly selected/reissued task, the narrow durable-frontier intake reconciliation is mandatory and is not the prohibited universal preflight.
 
 Do not poll CI/review/status merely to wait for change. A concrete promotion/merge/control decision may inspect current status as its evidence gate; `PENDING_NONBLOCKING` then returns control to other executable work.
 
