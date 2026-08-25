@@ -6,6 +6,7 @@ from tools import research_runtime as rt
 def state():
     return {
         "parent_objective": {"objective_id": "OBJ", "status": "OPEN"},
+        "task_registration": {"registry_key": "RS-X", "state": "CLAIMABLE"},
         "task": {
             "task_id": "RS-X",
             "status": "ACTIVE",
