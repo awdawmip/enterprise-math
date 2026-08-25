@@ -214,17 +214,49 @@ Freeze the distinction:
 
 `GLOBAL BREAKER = HYPERBOLA HAS MINIMAL SIGN-ORBIT QUOTIENT`.
 
-## 8. Why global breakers stop at 5
+## 8. Orbit-capacity theorem: why global breakers stop at 5
 
-For `q>=7` and nonzero `B,C`, Burnside gives
+This bound does not require the explicit quadratic-character sum.
 
-`|R_i/G| >= 2`.
+The complete split hyperbola has
 
-Hence no such characteristic can be a universal breaker.
+`|R_i|=q-1`
 
-At `q=5`, the orbit quotient has size `1` exactly when the relevant quadratic character is negative.
+representation points.
 
-This gives the conceptual reason the global-breaker spectrum terminates at `5`: it is a statement about the smallest possible sign-orbit quotient of the complete split hyperbola, not about the size of a finite tangent sample.
+The sign group has only
+
+`|G|=4`
+
+elements, so every orbit has size at most `4`.
+
+If a universal breaker occurs, then `|R_i/G|=1`, so the whole `q-1` point hyperbola must be one `G`-orbit. Therefore
+
+`q-1 <= 4`,
+
+hence
+
+`q <= 5`.
+
+Thus:
+
+`NONZERO TRANSLATED-QUADRATIC BREAKER => q <= 5`.
+
+Equivalently, for every odd `q>=7`,
+
+`tau_B(q)>=1`.
+
+More quantitatively,
+
+`|R_i/G| >= ceil((q-1)/4)`,
+
+so
+
+`tau_B(q) >= ceil((q-1)/4)-1`.
+
+At `q=5`, breaker means the four representation points form one regular `G`-orbit. This occurs exactly when neither `x=0` nor `y=0` occurs on `R_i`, equivalently when both fixed-point character tests are negative. In the native shift this is precisely the familiar quadratic-nonresidue condition.
+
+Hence the character formula refines the small cases; the terminal bound `5` itself is a finite-symmetry orbit-capacity theorem.
 
 ## 9. Native B=3: 5 and 53 acquire different roles on the same hyperbola
 
@@ -240,7 +272,7 @@ Therefore
 
 `tau_3(5)=0`.
 
-Channel `5` is a global breaker because the complete split hyperbola forms one sign orbit at the dual-value level.
+Channel `5` is a global breaker because the complete split hyperbola is one regular sign orbit at the dual-value level.
 
 ### q=53 — finite-window sample hit, but no breaker
 
