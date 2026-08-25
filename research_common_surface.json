@@ -19,6 +19,9 @@
     "legacy_event_schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
     "tool": "tools/research_scheduler.py",
     "event_helper": "tools/research_scheduler_event.py",
+    "cross_layer_control": "research_control_state_machine.json",
+    "cross_layer_validator": "tools/research_control.py",
+    "safe_registry_entrypoint": "python tools/research_control.py registry --events <events.jsonl>",
     "default_claim_semantics": "RENEWABLE_LEASE_WITH_DURABLE_ORPHAN_RECOVERY",
     "auto_select_when_user_task_absent": true,
     "explicit_user_task_overrides": true,
@@ -295,7 +298,7 @@
     "lean_root": "EnterpriseMath.lean",
     "tests": "tests/",
     "experiments": "experiments/",
-    "repo_tools": ["tools/audit_branch_lifecycle.py", "tools/check_bilingual_pairs.py", "tools/check_references.py", "tools/check_research_common_surface.py", "tools/research_identity.py", "tools/research_scheduler.py", "tools/research_scheduler_event.py", "tools/research_taskbook.py"]
+    "repo_tools": ["tools/audit_branch_lifecycle.py", "tools/check_bilingual_pairs.py", "tools/check_references.py", "tools/check_research_common_surface.py", "tools/research_control.py", "tools/research_identity.py", "tools/research_scheduler.py", "tools/research_scheduler_event.py", "tools/research_taskbook.py"]
   },
   "promotion_sync": {
     "rule": "every canonical promotion of a reusable theorem, formalization, executable tool family, negative boundary, or active interface alert must update the shared human/machine surface or explicitly justify N/A",
