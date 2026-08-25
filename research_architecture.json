@@ -1,20 +1,23 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_ARCHITECTURE_V2",
-  "status": "ACTIVE_CANONICAL_GOVERNANCE_V2_3",
+  "status": "ACTIVE_CANONICAL_GOVERNANCE_V2_4",
   "effective": "2026-08-25",
   "driver_id": "EM-DVR-K7Q4N8",
-  "purpose": "Separate independent axiom discovery, task execution, Driver portfolio control, Foundation maintenance, persistence and canonical promotion so that no one control surface silently becomes the research agenda.",
+  "purpose": "Separate independent discovery, registered task publication/execution, Driver portfolio control, Foundation maintenance, persistence and canonical promotion so valuable research cannot become orphaned and no publisher can silently promote truth.",
   "runtime_control_plane": {
     "state_machine": "research_runtime_state_machine.json",
     "executable": "tools/research_runtime.py",
+    "task_publication_contract": "research_task_publication_contract.json",
+    "task_registry": "research_task_registry.json",
+    "task_publication_tool": "tools/research_task_registry.py",
     "scope": [
       "FREE_AXIOM_DISCOVERY",
       "TASK_RESEARCH",
       "RESEARCH_DRIVER",
       "FOUNDATION_STEWARD"
     ],
-    "canonical_state_stack": "PARENT_OBJECTIVE -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED",
-    "rule": "Role-specific machines retain their local authority, but no local SUBFLOW/TASK terminal, scheduler owner lease, or final-response identity policy may bypass the unified runtime's parent reevaluation, session-liveness/adoption, or PRE_FINAL decision."
+    "canonical_state_stack": "PARENT_OBJECTIVE -> TASK_REGISTRATION -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED",
+    "rule": "No new official task, local terminal state, scheduler owner lease, or final-response policy may bypass registration, parent reevaluation, session liveness/adoption, or PRE_FINAL."
   },
   "core_invariants": [
     "FOUNDATION_IS_STARTING_SUBSTRATE_NOT_DEFAULT_RESEARCH_AGENDA",
@@ -24,8 +27,13 @@
     "FREE_PHASE_A_NEGATIVE_RULES_USE_GENERIC_CATEGORIES_NOT_SALIENT_FORBIDDEN_OBJECT_ENUMERATION",
     "EXPLORATION_AND_EXPLOITATION_ARE_DISTINCT_RESEARCH_MODES",
     "FREE_RESEARCHER_DOES_NOT_AUTO_DISPATCH",
+    "OFFICIAL_NEW_TASK_REQUIRES_CANONICAL_REGISTRY_RECORD",
+    "ALL_TASK_PUBLISHERS_USE_ONE_TEMPLATE",
+    "RESEARCHER_MAY_PUBLISH_REGISTERED_TASK_WITHOUT_DRIVER_APPROVAL",
+    "TASK_PUBLICATION_DOES_NOT_GRANT_WORKING_TRUTH_OR_PROMOTION",
+    "EVERY_PUBLISHED_TASK_HAS_PARENT_OBJECTIVE_AND_RESEARCH_VALUE",
     "TASK_RESEARCHER_MAY_CONSUME_EXPLICIT_AGENDA_CONTEXT",
-    "DRIVER_WORKING_TRUTH_APPLIES_ONLY_AFTER_EXPLICIT_DIRECTION_FREEZE",
+    "DRIVER_WORKING_TRUTH_APPLIES_ONLY_AFTER_EXPLICIT_DIRECTION_FREEZE_OR_EXACT_TASK_SEMANTICS",
     "RAW_AXIOM_CANDIDATE_IS_NOT_WORKING_TRUTH",
     "STAGE_PASS_DOES_NOT_IMPLY_SUCCESSOR_STAGE",
     "TASK_ORIGIN_AND_LINEAGE_CANNOT_BE_ERASED_BY_RENAMING",
@@ -44,7 +52,7 @@
       "role_label": "RESEARCHER",
       "role_key": "EM_FREE_RESEARCHER",
       "visible_identity": "Researcher-ID",
-      "mission": "Search independently from the current primitive substrate for a self-generated question and axiom candidate before seeing current downstream achievements or research agenda.",
+      "mission": "Search independently from the primitive substrate for a self-generated question/candidate before seeing current downstream agenda.",
       "phase_a_substrate_router": "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md",
       "general_current_router_before_candidate_freeze": false,
       "general_current_router_phase_b": "definitions/00_CURRENT_NATIVE_FOUNDATION.md",
@@ -56,60 +64,89 @@
       "inherits_other_branch_working_truth": false,
       "default_state": "AXIOM_DISCOVERY",
       "candidate_protocol": "research_axiom_candidate_state_machine.json",
+      "task_publication": "AFTER_PHASE_B_AUDIT_FROM_ELIGIBLE_CANDIDATE_STATE",
+      "task_publication_driver_intake_required": false,
       "source_role_contract": "research_roles/EM_FREE_RESEARCHER_ROLE.md",
       "anti_anchoring_contract": "research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md"
     },
     "TASK_RESEARCH": {
       "role_label": "RESEARCHER",
       "visible_identity": "Researcher-ID",
-      "mission": "Execute an explicit user-selected, Driver-approved or scheduler-selected mother question with maximal theorem/evidence rigor.",
+      "mission": "Execute an explicit user-selected or registered task with maximal theorem/evidence rigor while preserving valuable residues through registered publication.",
       "agenda_visibility_before_work": "TASK_SCOPED",
       "scheduler_eligible": true,
-      "inherits_driver_working_truth": "ONLY_IF_THE_EXPLICIT_TASKBOOK_OR_DRIVER_HANDOFF_FREEZES_IT",
+      "task_publication": "ALLOWED_REGISTERED_PUBLICATION",
+      "side_residue_publication_switches_current_task": false,
+      "inherits_driver_working_truth": "ONLY_IF_EXPLICITLY_FROZEN_BY_DRIVER_OR_EXACT_TASK_SEMANTICS",
       "default_state": "TASK_EXECUTION"
     },
     "RESEARCH_DRIVER": {
       "role_label": "RESEARCH_DRIVER",
       "visible_identity": "Driver-ID",
-      "mission": "Own roadmap routing, portfolio balance, de-duplication, continuation/termination, task creation, Working Truth freeze and canonical promotion decisions; do not monopolize primary discovery.",
+      "mission": "Own portfolio routing/reprioritization, closure/continuation, Working Truth freeze and promotion; publish tasks through the same registry/template rather than monopolizing task creation.",
       "scheduler_eligible": false,
+      "task_publication": "ALLOWED_SAME_TEMPLATE",
       "default_state": "CONTROL_PLANE"
     },
     "FOUNDATION_STEWARD": {
       "role_label": "FOUNDATION_STEWARD",
-      "mission": "Maintain and verify shared definitions, interfaces, status and reusable tools; classify mature feedback without becoming the default investigator of new conjectures.",
+      "mission": "Maintain/verify shared definitions and governance; publish governance tasks through the same registry without auto-promoting Foundation truth.",
       "scheduler_eligible": "GOVERNANCE_TASKS_ONLY",
+      "task_publication": "GOVERNANCE_SAME_TEMPLATE",
       "default_state": "VERIFY_OR_MAINTAIN"
     }
   },
+  "task_publication": {
+    "contract": "research_task_publication_contract.json",
+    "registry": "research_task_registry.json",
+    "mandatory_template": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
+    "tool": "tools/research_task_registry.py",
+    "publisher_roles": [
+      "RESEARCHER",
+      "RESEARCH_DRIVER",
+      "FOUNDATION_STEWARD"
+    ],
+    "researcher_driver_approval_required": false,
+    "researcher_default_effective_rank": "P2/MEDIUM",
+    "driver_portfolio_reprioritization_preserved": true,
+    "parent_objective_id_required": true,
+    "research_value_required": true,
+    "publication_grants_working_truth": false,
+    "publication_grants_foundation_or_canonical_status": false,
+    "unregistered_new_task_execution": "FORBIDDEN",
+    "publication_is_subflow": true,
+    "after_publication": "REEVALUATE_PARENT",
+    "legacy_existing_execution": "CONTINUE_ALLOWED",
+    "legacy_fresh_redispatch": "REGISTRY_MIGRATION_REQUIRED"
+  },
   "role_precedence": {
-    "rule": "A more specific active role/mode contract controls over generic no-user-task dispatch or generic researcher freedom language for the same scope.",
-    "free_research_exception": "Generic scheduler rules and the general current-result router do not apply as Phase-A discovery input during FREE_AXIOM_DISCOVERY.",
+    "rule": "A more specific active role/mode contract controls over generic dispatch/freedom language for the same scope.",
+    "free_research_exception": "Generic scheduler/current-result rules do not apply as Phase-A discovery input; publication opens only after the audited candidate boundary.",
     "explicit_user_override": true
   },
   "context_visibility": {
     "free_phase_a": {
       "allow": [
         "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md",
-        "exact primitive definitions explicitly routed from the free substrate packet and actually needed",
-        "protected user worldview facts relevant to the substrate",
+        "exact primitive definitions actually needed",
+        "protected user worldview facts relevant to substrate",
         "identity/repository safety/provenance",
         "foundational/native-semantic typing rules when needed"
       ],
       "withhold_as_discovery_prior": [
-        "the general current-result router and all downstream current results it indexes",
+        "general current-result router/downstream results",
         "current task/route/coordination state and recent project history",
         "other branch Working Truth",
         "success/failure catalogs and existing research vocabulary",
-        "suggested questions, discovery-lens menus and target/teacher prompts",
-        "ambient project/chat/journal/continuity context not explicitly supplied by the current user instruction",
-        "available tools and existing implementation representations as hints about what question to ask"
+        "suggested questions/discovery-lens menus/target prompts",
+        "ambient project/chat/journal context not explicitly supplied",
+        "available tools/implementations as hints about what question to ask"
       ],
       "negative_instruction_style": "GENERIC_CATEGORIES_ONLY_DO_NOT_ENUMERATE_SALIENT_FORBIDDEN_RESULTS",
       "candidate_generation_prompt_style": "NO_DEFAULT_QUESTION_OR_LENS_MENU"
     },
     "task_research": {
-      "rule": "Load the exact task entry first and expand only to dependencies actually used. The general current foundation router and shared theorem/tool catalogs are lookup surfaces, not default context dumps."
+      "rule": "Load the exact task entry first and expand only to dependencies actually used. Shared routers/catalogs are lookup surfaces, not context dumps."
     }
   },
   "axiom_candidate_lifecycle": {
@@ -117,30 +154,33 @@
     "raw_candidate_is_dispatchable": false,
     "raw_candidate_is_working_truth": false,
     "raw_candidate_is_foundation_backflow_ready": false,
+    "task_publication_minimum": "PHASE_B_AUDIT_COMPLETE_AND_ELIGIBLE_AUDITED_STATE",
+    "task_publication_driver_intake_required": false,
     "driver_intake_requires": "PHASE_B_AUDIT_COMPLETE",
     "eligible_driver_routes": [
       "PARK",
       "REJECT",
       "RETURN_AS_DERIVED_THEOREM",
       "RETURN_AS_DUPLICATE_OR_PRIOR_ART",
-      "OPEN_EXPLICIT_TASK",
+      "REPRIORITIZE_REGISTERED_TASK",
       "OPEN_FOUNDATION_QUESTION",
       "REQUEST_INDEPENDENT_REPLICATION"
     ],
-    "task_origin_rule": "If an explicit task is opened from a free candidate, taskbook origin metadata must preserve the audited candidate id/state. Repackaging does not erase discovery provenance."
+    "task_origin_rule": "A task from free discovery preserves audited candidate origin/ID/state whether published by researcher or Driver."
   },
   "working_truth_boundary": {
-    "applies_to": "EXPLICIT_TASK_DIRECTION_AFTER_DRIVER_FREEZE",
+    "applies_to": "EXPLICIT_TASK_DIRECTION_AFTER_DRIVER_FREEZE_OR_EXACT_TASKBOOK_WORKING_TRUTH_SEMANTICS",
     "does_not_apply_to": [
       "FREE_AXIOM_DISCOVERY_PHASE_A",
       "RAW_BLIND_AXIOM_CANDIDATE",
       "PHASE_B_DEDUP_OR_PRIOR_ART_AUDIT",
+      "MERE_TASK_PUBLICATION",
       "UNREVIEWED_SIDE_BRANCH_PROPOSAL"
     ],
-    "activation_event": "DRIVER_EXPLICIT_DIRECTION_FREEZE_OR_DRIVER_APPROVED_TASKBOOK",
+    "activation_event": "DRIVER_EXPLICIT_DIRECTION_FREEZE_OR_EXACT_TASK_SEMANTICS",
     "falsifiers": [
       "explicit user/Driver supersession",
-      "exact counterexample under the same premises",
+      "exact counterexample under same premises",
       "formal contradiction",
       "frozen theorem-critical checker/certificate failure"
     ]
@@ -164,14 +204,16 @@
   "portfolio_balance": {
     "rule": "A chain of successful task stages is not itself evidence that the next highest-leverage question lies on the same route.",
     "no_numeric_quota": true,
-    "driver_check_before_continuation": "Record whether an alternative owner, route closure, or independent/free exploration was considered. A task-local exact dependency may still justify continuation.",
-    "free_research_is_not_required_to_match_active_routes": true
+    "driver_check_before_continuation": "Record whether an alternative owner, route closure or independent/free exploration was considered.",
+    "free_research_is_not_required_to_match_active_routes": true,
+    "registered_task_capture_does_not_imply_immediate_selection": true
   },
   "scheduler_boundary": {
-    "portfolio": "TASK_RESEARCH_EXPLOITATION_QUEUE",
+    "portfolio": "REGISTERED_TASK_RESEARCH_QUEUE",
     "eligible_mode": "TASK_RESEARCH",
-    "excluded_mode": "FREE_AXIOM_DISCOVERY",
-    "static_scheduler_fallback": "REQUIRES_BOUNDED_CURRENT_SCOPE_VALIDATION_BEFORE_CLAIM",
+    "excluded_mode": "FREE_AXIOM_DISCOVERY_BEFORE_TASK_PUBLICATION",
+    "post_cutover_task_registration_required_before_claim": true,
+    "static_scheduler_fallback": "REQUIRES_REGISTERED_OR_LEGACY_BASELINE_TASK_AND_BOUNDED_SCOPE_VALIDATION",
     "scheduler_done_is_truth": false,
     "scheduler_done_implies_successor": false,
     "lease_scope": "OWNER_CLAIM_ONLY",
@@ -182,14 +224,16 @@
   "foundation_backflow_boundary": {
     "raw_free_candidate_auto_backflow": false,
     "minimum_candidate_state": "AUDITED_AXIOM_CANDIDATE_OR_AUDITED_REPLACEMENT_CANDIDATE_OR_EXACT_NEGATIVE_OBSTRUCTION",
+    "registered_task_auto_promotes_foundation": false,
     "steward_may_reclassify": true,
     "steward_may_auto_promote_to_foundation": false,
     "router": "foundation_backflow.json"
   },
   "independence_and_replication": {
-    "independent_free_runs": "Use separate clean contexts and do not expose one run's candidate packet to another before each run freezes its own packet.",
+    "independent_free_runs": "Use separate clean contexts and do not expose one run's candidate packet before each run freezes its own packet.",
     "independent_convergence": "INCREASES_STRUCTURAL_INTEREST_BUT_IS_NOT_PROOF",
     "replication_after_freeze": true,
+    "task_publication_does_not_establish_independence": true,
     "cross_run_post_allocation_rewrite": false,
     "shared_ambient_context_must_be_disclosed": true,
     "shared_control_plane_suggestion_menu_allowed_before_freeze": false
@@ -238,6 +282,7 @@
     "L1_L2_L3": "REMOTE_SILENT_BETWEEN_SEMANTIC_CHECKPOINTS",
     "owner_branch": "ONE_BOUNDED_OWNER_GENERATION_BY_DEFAULT",
     "draft_pr": "AT_MOST_ONE_PER_BOUNDED_OWNER_GENERATION_BY_DEFAULT",
+    "task_registry": "CANONICAL_TASK_EXISTENCE_AND_ORPHAN_PREVENTION",
     "mathematical_canonical_promotion": "ONE_BOUNDED_ACTIVE_L4_ATTEMPT_AT_A_TIME; READY_STATUS_IS_NOT_A_PERSISTENT_LOCK",
     "governance_maintenance": "SEPARATE_BOUNDED_NO_NEW_MATHEMATICS_ATTEMPT",
     "journal": "CAPTURE_PROGRESS_WITHOUT_PROMOTING_TRUTH",
@@ -246,10 +291,11 @@
   },
   "legacy_surface_interpretation": {
     "research_common_surface_mandatory_preflight": "TRIGGERED_REFERENCE_LIST_NOT_UNCONDITIONAL_STARTUP_SEQUENCE",
-    "research_common_surface_auto_select_when_user_task_absent": "GENERIC_TASK_RESEARCH_BEHAVIOR_ONLY_NOT_FREE_AXIOM_DISCOVERY",
+    "research_common_surface_auto_select_when_user_task_absent": "REGISTERED_GENERIC_TASK_RESEARCH_ONLY_NOT_FREE_PHASE_A",
     "generic_AGENTS_scheduler_rule": "DOES_NOT_OVERRIDE_MORE_SPECIFIC_FREE_RESEARCH_ROLE_CONTRACT",
     "general_current_native_foundation_router": "TASK_AND_PHASE_B_LOOKUP; NOT_FREE_PHASE_A_DISCOVERY_INPUT",
     "generic_ready_l4_lane_wording": "READY_PR_IS_CANDIDATE_STATUS_NOT_AN_INDEFINITE_ATTEMPT_LEASE; GOVERNANCE_MAINTENANCE_FOLLOWS_LATER_NARROW_PROTOCOL",
-    "scheduler_skip_live_leases": "OWNER_LEASE_PROTECTION_ONLY; conversation liveness and stale adoption are decided by research_runtime_state_machine.json"
+    "scheduler_skip_live_leases": "OWNER_LEASE_PROTECTION_ONLY; session liveness/stale adoption are runtime decisions",
+    "pre_registry_taskbooks": "LEGACY_BASELINE_EXISTING_EXECUTION_ONLY; FRESH_REDISPATCH_REQUIRES_REGISTRATION"
   }
 }
