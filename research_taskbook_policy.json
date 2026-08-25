@@ -1,5 +1,5 @@
 {
-  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.4",
+  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.5",
   "status": "ACTIVE",
   "effective": "2026-08-25",
   "policy_inputs": [
@@ -101,7 +101,8 @@
     "Any obvious Stage 2+ task is CONTINUATION. More generally, renaming the next unresolved layer of the same parent route does not reset semantic lineage.",
     "Continuation review must record whether closure, another owner/route or independent/free exploration was considered; no numeric exploration quota is imposed.",
     "Every new or re-dispatched taskbook must expose execution_state_policy=INHERIT_GLOBAL and a machine-readable execution_gates list; use [] only when no task-local execution gate exists.",
-    "Any PRE_MATH gate must block both mathematical source reads and mathematical derivation until durable required evidence exists and the execution reaches EXECUTION_READY.",
+    "Any PRE_MATH gate must block both mathematical source reads and mathematical derivation until the declared required evidence exists and the execution reaches EXECUTION_READY; POST_FREEZE_SOURCE_READ inherits that generic source-read guard.",
+    "If a task deliberately withholds a source class until a named raw/independent/Phase-A freeze, encode the withheld class as POST_FREEZE_SOURCE_READ and add a MID_EXECUTION gate guarding it with exact freeze evidence. Do not rely on prose-only Phase-A/Phase-B chronology.",
     "If task-local wording requires a checkpoint, checker, audit or publication step before selecting/freezing the primary or final verdict, encode it as a gate whose must_precede includes VERDICT_FREEZE; guarding only RETURN_WRITE is too late.",
     "If task-local wording requires final materialization/checker/manifest evidence before the return is persisted, encode it as a PRE_RETURN gate whose must_precede includes RETURN_WRITE.",
     "A startup publication/liveness gate may intentionally require one narrow remote branch/file write/verification. Such task-local remote behavior must be represented both as an execution gate and, when it matches TB-REMOTE-RUNTIME, as a narrow temporary override; the override does not waive the gate.",
