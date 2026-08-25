@@ -37,7 +37,7 @@ For every substantive Enterprise Math action:
 
 1. **Resolve role + identity.** Use the current role contract and identity state machine.
 2. **Resolve object.** Identify task/candidate/control object, origin, lineage and exact immutable refs.
-3. **Classify control profile.** Choose one of `STANDARD_RESEARCH`, `FREE_CANDIDATE_AUDIT`, `INDEPENDENT_AUDIT`, `FORMALIZATION`, `FOUNDATION_DISPOSITION`, `INTEGRATION`, `BENCHMARK`, `GOVERNANCE_MAINTENANCE`.
+3. **Classify control profile.** Choose one of `STANDARD_RESEARCH`, `FREE_CANDIDATE_AUDIT`, `INDEPENDENT_AUDIT`, `FORMALIZATION`, `FOUNDATION_DISPOSITION`, `INTEGRATION`, `BENCHMARK`, `MATHEMATICAL_PROMOTION`, `GOVERNANCE_MAINTENANCE`.
 4. **Materialize runtime state.** For task work, reduce current Scheduler V2 events; do not infer state from a filename, PR or chat.
 5. **Materialize information/evidence state.** Record firewall/freeze/source exposure plus source, independent, Driver, formalization/benchmark/canonical state.
 6. **Execute only an allowed transition.** Role permissions and profile guards both apply.
@@ -69,7 +69,7 @@ The task must declare its information firewall. Clean independence requires a di
 
 This is a `RESEARCHER` task specialization with profile `FORMALIZATION`.
 
-Formalization may start only after Driver admission and frozen/corrected source mathematics. `NO_NEW_MATHEMATICS` is binding. If Lean or another proof kernel exposes a statement/interface mismatch, return it to the Driver. Never weaken a theorem, change the accepted universe, add an unreviewed hypothesis or insert an axiom merely to pass the build.
+Formalization may start only after Driver admission, frozen/corrected source mathematics, and closure of any required independent evidence. `NO_NEW_MATHEMATICS` is binding. If Lean or another proof kernel exposes a statement/interface mismatch, return it to the Driver. Never weaken a theorem, change the accepted universe, add an unreviewed hypothesis or insert an axiom merely to pass the build.
 
 ### Driver
 
@@ -146,6 +146,10 @@ Profile `BENCHMARK`: structural theorem status is separate from performance stat
 
 Profile `INTEGRATION`: package freeze is illegal while mandatory source repair or required independent evidence remains open.
 
+### Mathematical L4 promotion
+
+Profile `MATHEMATICAL_PROMOTION`: canonical mutation is downstream of a bounded promotion attempt. `IN_ATTEMPT`/`MERGED` states require an attempt ref, current-main snapshot, conflict audit ref and frozen candidate head. `canonical_status=CANONICAL` is illegal until `promotion_status=MERGED`.
+
 ### Scheduler/control-plane repair
 
 Profile `GOVERNANCE_MAINTENANCE`: `NO_NEW_MATHEMATICS`; use current-main conflict audit and the bounded governance-maintenance lane.
@@ -170,6 +174,10 @@ Static machine:
 `python tools/research_scheduler.py validate`
 
 `python tools/research_control.py validate-spec`
+
+To avoid hand-building the state vector:
+
+`python tools/research_control.py template <CONTROL_PROFILE>`
 
 For an exported Scheduler event stream before control-plane acceptance/migration:
 
