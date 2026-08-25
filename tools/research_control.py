@@ -4,7 +4,7 @@
 This module does not reduce Scheduler events and does not replace any existing
 submachine. It validates the composition: semantic/evidence/routing/liveness
 state around Scheduler V2 and validates the extra evidence carried by new V2
-APPROVE/REVIEW events.
+APPROVE/REVIEW/CLAIM/ADOPT/ORPHAN events.
 """
 from __future__ import annotations
 
@@ -60,6 +60,11 @@ def validate_spec(spec: dict[str, Any]) -> list[str]:
     }
     if not required_profiles <= set(spec.get("control_profiles", [])):
         errors.append("control_profiles do not cover all current control classes")
+    intake = spec.get("pre_execution_reconciliation_contract", {})
+    if intake.get("required_before_new_execution_generation") is not True:
+        errors.append("new execution generation must require durable-frontier reconciliation")
+    if set(intake.get("classification", [])) != {"VERIFIED_COMPLETE", "IN_PROGRESS_RECOVERABLE", "UNFINISHED", "NEVER_STARTED"}:
+        errors.append("pre-execution reconciliation must use the canonical four-way frontier classification")
     recovery = spec.get("conversation_recovery_contract", {})
     if recovery.get("stale_after_minutes_without_verifiable_action") != 10:
         errors.append("conversation recovery must use the canonical 10-minute stale threshold")
@@ -276,9 +281,21 @@ def cross_layer_guard_applies(event: dict[str, Any], spec: dict[str, Any]) -> bo
         return True
 
 
+def pre_execution_guard_applies(event: dict[str, Any], spec: dict[str, Any]) -> bool:
+    effective = spec.get("pre_execution_reconciliation_effective_at") or spec.get("pre_execution_reconciliation_contract", {}).get("effective_at")
+    at = event.get("at")
+    if not isinstance(effective, str) or not isinstance(at, str):
+        return True
+    try:
+        return datetime.fromisoformat(at) >= datetime.fromisoformat(effective)
+    except ValueError:
+        return True
+
+
 def validate_events(events: list[dict[str, Any]], spec: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     contract = spec["review_event_contract"]
+    recovery = spec["conversation_recovery_contract"]
     harvest = set(contract["method_harvest_values"])
     evidence_classes = set(contract["evidence_class_values"])
     routes = set(contract["route_disposition_values"])
@@ -288,6 +305,20 @@ def validate_events(events: list[dict[str, Any]], spec: dict[str, Any]) -> list[
         kind = event.get("event")
         if not cross_layer_guard_applies(event, spec):
             continue
+        if kind == "ORPHAN" and event.get("reason") == recovery.get("scheduler_release_reason"):
+            if not nonempty(event.get("evidence_ref")) and not nonempty(event.get("recovery_ref")):
+                errors.append(f"event[{i}] stale-conversation ORPHAN requires evidence_ref or recovery_ref")
+        if pre_execution_guard_applies(event, spec):
+            if kind == "CLAIM":
+                if event.get("frontier_class") != "NEVER_STARTED":
+                    errors.append(f"event[{i}] CLAIM requires frontier_class=NEVER_STARTED after durable-frontier reconciliation")
+                if not nonempty(event.get("frontier_ref")):
+                    errors.append(f"event[{i}] CLAIM requires frontier_ref proving pre-execution reconciliation")
+            elif kind == "ADOPT":
+                if event.get("frontier_class") not in {"IN_PROGRESS_RECOVERABLE", "UNFINISHED"}:
+                    errors.append(f"event[{i}] ADOPT requires frontier_class=IN_PROGRESS_RECOVERABLE or UNFINISHED")
+                if not nonempty(event.get("recovery_ref")):
+                    errors.append(f"event[{i}] ADOPT requires recovery_ref to the durable frontier")
         if kind == "APPROVE":
             if event.get("taskbook_audit") != "PASS":
                 errors.append(f"event[{i}] APPROVE requires taskbook_audit=PASS")
