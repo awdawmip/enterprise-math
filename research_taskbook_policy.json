@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.2",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-25",
   "policy_inputs": [
     "AGENTS.md",
     "FOUNDATIONAL_LOGIC.md",
@@ -9,10 +9,13 @@
     "docs/GITHUB_INTERACTION_BUDGET.md",
     "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
     "docs/RESEARCH_ARCHITECTURE.md",
+    "docs/RESEARCH_RUNTIME_STATE_MACHINE.md",
     "research_architecture.json",
+    "research_runtime_state_machine.json",
     "research_axiom_candidate_state_machine.json",
     "research_role_policy.json",
     "research_identity_state_machine.json",
+    "active_turn_liveness.json",
     "final_response_identity_policy.json",
     "research_taskbook_contract.json",
     "tool_invocation_policy.json",
@@ -102,7 +105,9 @@
     "Ordinary task execution inherits tool_invocation_policy.json: after task semantics are understood and before inventing new general-purpose machinery, current tool/method coverage must be checked and adequate existing tools must be reused/composed/extended rather than reimplemented under a new route name.",
     "A taskbook with an explicit blind-forward/source-whitelist discovery firewall may delay current toolbox/method visibility only until its named raw candidate/no-go freeze point; the same task must run current-tool dedup after that freeze before claiming method novelty or opening a tool continuation.",
     "FREE Phase A follows the same discovery-firewall timing principle: no current toolbox prior before freeze; mandatory current-tool dedup in Phase B after freeze.",
-    "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json; any change to that policy invalidates prior policy-review digests for redispatch."
+    "Task-local freeze/stop language is TASK-terminal unless the parent objective is separately proven complete; TASK_FROZEN must return to research_runtime_state_machine REEVALUATE_PARENT rather than silently terminating the parent control loop.",
+    "Taskbook or scheduler claim-lease minutes govern OWNER_CLAIM only. They must never be reused as session-liveness minutes; stale conversations follow research_runtime_state_machine stale-adoption semantics.",
+    "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json and research_runtime_state_machine.json; any change to those policies invalidates prior policy-review digests for redispatch."
   ],
   "override_required_fields": [
     "conflict_id",
