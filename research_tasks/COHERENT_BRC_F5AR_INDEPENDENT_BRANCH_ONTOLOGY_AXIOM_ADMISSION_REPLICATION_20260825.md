@@ -24,7 +24,96 @@
   "created_by_role": "RESEARCH_DRIVER",
   "task_authority": "DRIVER_APPROVED",
   "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
-  "identity_lane": "CBRCF5AR"
+  "final_response_identity_policy": "INHERIT_GLOBAL",
+  "execution_state_policy": "INHERIT_GLOBAL",
+  "execution_gates": [
+    {
+      "gate_id": "F5AR-PUBLICATION-LIVENESS-PREMATH",
+      "phase": "PRE_MATH",
+      "must_precede": ["MATHEMATICAL_SOURCE_READ", "MATHEMATICAL_DERIVATION"],
+      "evidence": {
+        "kind": "REMOTE_COMMIT_CONTAINS_FILE",
+        "branch": "research/cbrc-f5ar-independent-branch-ontology-axiom-admission",
+        "path": "evidence/cbrc_f5ar_execution_stamp.json",
+        "required_fields": {
+          "task_id": "RS-CBRC-F5AR-INDEPENDENT-BRANCH-ONTOLOGY-AXIOM-ADMISSION-REPLICATION",
+          "phase": "STARTED_BEFORE_MATH",
+          "admission_verdict": null
+        },
+        "required_dynamic_fields": ["researcher_id", "taskbook_source_commit", "owner_branch", "source_refs"],
+        "taskbook_source_commit_rule": "must equal the exact taskbook source commit used for this execution",
+        "source_refs_rule": "must equal the exact mathematical source refs in Section 3",
+        "remote_branch_must_resolve_to_evidence_commit": true
+      }
+    },
+    {
+      "gate_id": "F5AR-CHECKPOINT-A-BEFORE-VERDICT",
+      "phase": "MID_EXECUTION",
+      "must_precede": ["VERDICT_FREEZE"],
+      "evidence": {
+        "kind": "REMOTE_ARTIFACT_SET",
+        "trigger": "theorem lattice/minimality stable",
+        "branch": "research/cbrc-f5ar-independent-branch-ontology-axiom-admission",
+        "required_paths": [
+          "research_reports/CBRC_F5AR_BRANCH_ONTOLOGY_AXIOM_ADMISSION_RETURN_20260825.md",
+          "research_reports/CBRC_F5AR_AXIOM_COUNTERMODEL_AND_ABLATION_PACKET_20260825.md"
+        ],
+        "required_remote_verification": true
+      }
+    },
+    {
+      "gate_id": "F5AR-CHECKPOINT-B-BEFORE-VERDICT",
+      "phase": "MID_EXECUTION",
+      "must_precede": ["VERDICT_FREEZE"],
+      "evidence": {
+        "kind": "REMOTE_CHECKER_AND_AUDIT_PASS",
+        "branch": "research/cbrc-f5ar-independent-branch-ontology-axiom-admission",
+        "required_paths": [
+          "research_reports/CBRC_F5AR_SOURCE_AND_TARGET_LEAK_AUDIT_20260825.md",
+          "scripts/cbrc_f5ar_validate_branch_ontology_axiom_admission.py"
+        ],
+        "checker_path": "scripts/cbrc_f5ar_validate_branch_ontology_axiom_admission.py",
+        "checker_must_execute_exact_pushed_bytes": true,
+        "required_checker_result": "PASS",
+        "required_remote_verification": true
+      }
+    },
+    {
+      "gate_id": "F5AR-FINAL-MATERIALIZATION",
+      "phase": "PRE_RETURN",
+      "must_precede": ["RETURN_WRITE"],
+      "evidence": {
+        "kind": "REMOTE_FINAL_ARTIFACT_SET_AND_OWNER_HEAD_VERIFIED",
+        "branch": "research/cbrc-f5ar-independent-branch-ontology-axiom-admission",
+        "required_paths": [
+          "evidence/cbrc_f5ar_execution_stamp.json",
+          "research_reports/CBRC_F5AR_BRANCH_ONTOLOGY_AXIOM_ADMISSION_RETURN_20260825.md",
+          "research_reports/CBRC_F5AR_SOURCE_AND_TARGET_LEAK_AUDIT_20260825.md",
+          "research_reports/CBRC_F5AR_AXIOM_COUNTERMODEL_AND_ABLATION_PACKET_20260825.md",
+          "scripts/cbrc_f5ar_validate_branch_ontology_axiom_admission.py",
+          "evidence/cbrc_f5ar_branch_ontology_axiom_admission_manifest.json"
+        ],
+        "required_remote_owner_head_verification": true
+      }
+    }
+  ],
+  "identity_lane": "CBRCF5AR",
+  "origin_kind": "REPLAY_OR_INTEGRATION",
+  "task_lineage": "REPLAY",
+  "policy_review": {
+    "policy_set": "research_taskbook_policy.json",
+    "policy_digest": "sha256:96d7c314cda534a463d39d98297a5ae4b6b0d4acd422c975bc6973b8040897f9",
+    "review_state": "PASS",
+    "temporary_overrides": [
+      {
+        "conflict_id": "TB-REMOTE-RUNTIME",
+        "scope": "F5AR owner-branch execution stamp and task-local materialization checkpoints required for publication-liveness and verdict/return evidence",
+        "reason": "This recovery execution must durably prove that required startup/checkpoint artifacts existed on its precreated owner branch before mathematics, verdict freeze, and final return acceptance.",
+        "replacement_behavior": "Allow only the exact F5AR owner-branch commit/push/remote-verification operations named in Sections 2, 13 and 16; no CI polling, PR workflow, or moving-main loop.",
+        "expires_when": "the final evidence manifest and owner-head verification are captured or the execution terminates"
+      }
+    ]
+  }
 }
 -->
 
