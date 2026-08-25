@@ -5,3 +5,15 @@ import EnterpriseMath.PrimeFusion.MixedLocus
 import EnterpriseMath.PrimeFusion.PhaseReadout
 import EnterpriseMath.PrimeFusion.PointedQuotient
 import EnterpriseMath.PrimeFusion.PointedRecovery
+
+#print axioms EnterpriseMath.PrimeFusion.channel_gcd_exact
+#print axioms EnterpriseMath.PrimeFusion.fusionCRT
+#print axioms EnterpriseMath.PrimeFusion.pointedCRT
+#print axioms EnterpriseMath.PrimeFusion.pointedResidue_fusion_root
+#print axioms EnterpriseMath.PrimeFusion.pointed_channel_recovery
+#print axioms EnterpriseMath.PrimeFusion.pointed_idempotent_channel_recovery
+#print axioms EnterpriseMath.PrimeFusion.mixed_locus_order_twelve
+#print axioms EnterpriseMath.PrimeFusion.mixed_locus_four_orbit
+#print axioms EnterpriseMath.PrimeFusion.mixed_orbit_inverse_only_eleven
+#print axioms EnterpriseMath.PrimeFusion.dualPrime_sixth_gcd_readout
+#print axioms EnterpriseMath.PrimeFusion.mixed_sixth_eq_two_rootIdempotent_sub_one
