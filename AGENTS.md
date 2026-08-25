@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.8`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.9`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -106,18 +106,28 @@ Freeze:
 Before any mathematical source read or mathematical derivation:
 
 1. resolve the concrete task authority;
-2. normalize explicit task-local startup/process/return constraints into `execution_gates`;
+2. normalize explicit task-local startup/process/source-visibility/verdict/return constraints into `execution_gates`;
 3. resolve Researcher-ID;
 4. if any `PRE_MATH` gate exists, enter `PRE_MATH_GATES_PENDING`;
-5. satisfy and durably verify every PRE_MATH gate;
+5. satisfy and verify every PRE_MATH gate;
 6. reach `EXECUTION_READY`;
 7. only then begin substantive mathematics.
 
 A taskbook `READY`, scheduler `CLAIMED`, Driver relay, direct task acceptance, or chat statement “done” never skips these steps.
 
-Every normalized gate starts `PENDING`. An action remains blocked until every gate whose `must_precede` contains that action is `SATISFIED`, even if the current state otherwise permits it. `PRE_RETURN` gates therefore can block `RETURN_WRITE` while the research state is already `IN_PROGRESS`.
+Every normalized gate starts `PENDING`. An action remains blocked until every gate whose `must_precede` guards that action is `SATISFIED`, even if the current state otherwise permits it.
+
+Special ordered actions:
+
+- `POST_FREEZE_SOURCE_READ` = read sources deliberately withheld until a named raw/independent/Phase-A freeze. It inherits the generic `MATHEMATICAL_SOURCE_READ` startup guard and may also be blocked by a later Phase-A-freeze gate.
+- `VERDICT_FREEZE` = freeze/select the task's primary/final terminal mathematical classification. A checker/audit required before final verdict must guard this action.
+- `RETURN_WRITE` = persist the final return. A final materialization/checker gate must guard this action.
 
 A failed mandatory pre-math publication/liveness gate is an **execution non-start**, not a mathematical rejection.
+
+`HANDOFF_READY` pauses a same-conversation execution. Resume the same execution only after reconciling the durable handoff and gate ledger. A new conversation binds a new execution instance.
+
+A direct-user task that has no applicable Driver-review step may end as `DELIVERED_UNREVIEWED`; this means only that the execution return was delivered, not that Driver accepted or mathematical truth was promoted.
 
 If chat/runtime continuity becomes unreliable, enter `RECOVERY_REQUIRED` and reconstruct the last legal state **and gate ledger** from durable evidence. Do not infer execution completion from chat text.
 
@@ -158,9 +168,10 @@ For a selected task:
 2. the **exact task authority** (current user instruction, taskbook, scheduler task, or Driver envelope) and execution-control metadata only;
 3. normalize/validate the execution spec and resolve identity;
 4. satisfy all `PRE_MATH` gates and reach `EXECUTION_READY`;
-5. read the first exact mathematical dependency required to begin;
+5. read the first exact currently-visible mathematical dependency required to begin;
 6. work;
-7. expand only when a concrete dependency is triggered.
+7. if the task has a blind/source-whitelist phase boundary, freeze the declared Phase-A/raw/independent artifact before any `POST_FREEZE_SOURCE_READ`;
+8. expand only when a concrete dependency or satisfied source-visibility gate permits it.
 
 Soft routine source-read budget before substantive work: `<= 3` **control-plane/task-authority reads**. A task-local `PRE_MATH` firewall overrides this budget and forbids mathematical-source reads until the gate is satisfied.
 
@@ -170,7 +181,7 @@ For an official taskbook, Driver dispatch/re-dispatch uses the single composite 
 
 `python tools/research_control_gate.py audit research_tasks/<task>.md`.
 
-For a direct user/scheduler/Driver-envelope task without an official taskbook, normalize the current authority into the runtime spec and validate it with `tools/research_execution_state.py audit-spec` when a machine check is needed.
+For a direct user/scheduler/Driver-envelope task without an official taskbook, normalize the current authority into the runtime spec and validate it with `tools/research_execution_state.py audit-spec`, supplying the authority body when prose-gate detection is needed.
 
 ## 7. Universal tool reuse gate
 
@@ -211,7 +222,9 @@ Tool lookup is delayed when the controlling research protocol explicitly declare
 This includes:
 
 - FREE Phase A;
-- a TASK research taskbook that explicitly requires blind-forward / source-whitelist isolation until a named raw candidate/no-go freeze.
+- a TASK research taskbook that explicitly requires blind-forward / source-whitelist isolation until a named raw candidate/no-go/independent freeze.
+
+For TASK_RESEARCH, such delayed sources are represented as `POST_FREEZE_SOURCE_READ` and remain machine-blocked until the declared freeze gate is satisfied.
 
 Before that declared freeze, the current toolbox/method catalog is hidden as a discovery prior and its tool names must not be exposed merely to enforce reuse. The researcher obeys the exact task-local whitelist/firewall.
 
