@@ -1,0 +1,134 @@
+{
+  "schema": "TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_MANIFEST_V1",
+  "researcher_id": "EM-TDDEF-79114C",
+  "task_id": "RS-TRIAXIAL-DIRECTIONAL-DEFECT-INDEPENDENT-TOOL-VERIFICATION",
+  "hard_target": "TRIAXIAL_DIRECTIONAL_DEFECT_CALCULUS_T1_SUBTOOL_INDEPENDENTLY_RECONSTRUCTED_AND_CROSS_DOMAIN_VERIFIED_OR_NARROWED_OR_REJECTED",
+  "owner_branch": "research/triaxial-directional-defect-independent-tool-verification",
+  "taskbook": {
+    "path": "research_tasks/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_20260825.md",
+    "source_commit": "3acc2fd24b074a6de02c47f60730c1fc13ab42bb",
+    "git_blob_sha1": "5f0ef7dba1c417563485e245ef6a0178228d8a5b"
+  },
+  "phase_a_whitelist": [
+    {
+      "path": "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+      "git_blob_sha1": "393060ebfd6a86ad45f258747d78a14d9c8ac153"
+    },
+    {
+      "path": "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+      "git_blob_sha1": "03c3cd9d11df4005f2c1c3ab8bd76ee8eb6763a6"
+    }
+  ],
+  "independence_control": {
+    "initial_execution_stamp_commit": "0f6e3d558411c282af1ffd1cdeae7f045c5722c7",
+    "initial_stamp_parent_is_taskbook_source": true,
+    "phase_a_freeze_commit": "9ff6b64bee6431be0a44bf876254875c47a6e588",
+    "withheld_material_read_before_phase_a_freeze": false,
+    "phase_b_inventory_opened_after_phase_a_freeze": true
+  },
+  "artifacts": [
+    {
+      "path": "src/enterprise_math/triaxial_directional_defect.py",
+      "commit": "61471a5a9526d608bd948161fe39bc4cfa11041f",
+      "git_blob_sha1": "5261da8b9e7848ac5cce935f81d7e7e0381b210b",
+      "role": "independent executable operator"
+    },
+    {
+      "path": "tests/test_triaxial_directional_defect.py",
+      "commit": "58aabd31eb799874e489dc561c3558e438bba0b5",
+      "git_blob_sha1": "32833a720f85bd61613e55e3ac41bccae62ec560",
+      "role": "independent unit regressions"
+    },
+    {
+      "path": "research_output/evidence/triaxial_directional_defect_independent_checker.py",
+      "commit": "01d4e8bcc8b7d113bb402d4df9c47e9356d02fa6",
+      "git_blob_sha1": "40ba6107fc27c76cbee35edf79dd1383c7972c3c",
+      "role": "deterministic Phase-A checker"
+    },
+    {
+      "path": "research_returns/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_PHASE_A_RETURN_20260825.md",
+      "commit": "9ff6b64bee6431be0a44bf876254875c47a6e588",
+      "git_blob_sha1": "52ff992c4843dfebf073ccb75a1d1bcd5def9948",
+      "role": "frozen independent Phase-A return"
+    },
+    {
+      "path": "research_outputs/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_20260825.md",
+      "commit": "b59f533d775b26adcea3f9729ca34389c2496160",
+      "git_blob_sha1": "155ec40f59b84c5dab4ea295278e5fdb50c376e4",
+      "role": "full Phase-A plus Phase-B verification report"
+    },
+    {
+      "path": "research_returns/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_RETURN_20260825.md",
+      "commit": "903f2a0d697f21bbfbbf61cf32b8cecd4d03fe99",
+      "git_blob_sha1": "97ab9b3d49c1fd7f6454477019682f9390e8c28f",
+      "role": "final four-way disposition return"
+    },
+    {
+      "path": "evidence/triaxial_directional_defect_execution_stamp.json",
+      "commit": "aa73d8e079f343d03aa23183d2fe2c4ac28c027b",
+      "git_blob_sha1": "0a21837725c33fa96bb6d380c0cbea0d5ac58a58",
+      "role": "execution stamp closed after Phase-B dedup"
+    }
+  ],
+  "phase_b_dedup_inputs": [
+    {
+      "path": "enterprise_toolbox_registry.json",
+      "git_blob_sha1": "81ab862925df4946ac41c83cb2b7b048d5909a3c"
+    },
+    {
+      "path": "research_method_inventory.json",
+      "git_blob_sha1": "9c855ac0a8477174ce29e6de482c1b36bc0ef7d3"
+    },
+    {
+      "path": "tools/enterprise_toolbox.py",
+      "git_blob_sha1": "5f37cb82bb62dbc06da12d823fbcfc387599eb5e"
+    },
+    {
+      "path": "src/enterprise_math/difference_response.py",
+      "git_blob_sha1": "2d795216d40ae3ca7f99d9b7ff22dea5d90806c9"
+    },
+    {
+      "path": "src/enterprise_math/adjoint_boundary_precision.py",
+      "git_blob_sha1": "a1e73b6d97f116cbb1127d1ba08a47a061318897"
+    },
+    {
+      "path": "src/enterprise_math/discrete_laplacian_chip_firing.py",
+      "git_blob_sha1": "f7b6cd7429f78fa09432735862dead05133e84ac"
+    }
+  ],
+  "verification": {
+    "unit_suite": {
+      "status": "PASS",
+      "passed": 11,
+      "total": 11,
+      "execution": "independent local execution before final return"
+    },
+    "checker_coverage": {
+      "tomography_exact_cases": 14,
+      "characteristics": [0, 2, 3, 5, 7],
+      "primitive_frame_census_max_width": 32,
+      "mixed_multiframe": true,
+      "exposed_vertex_unimodular": true,
+      "gram_small_characteristic_failures": true,
+      "hive_rhombus_same_operator": true,
+      "y_delta_negative_discriminator": true,
+      "finite_support_translation_invariant_left_inverse": false
+    }
+  },
+  "accepted_claims": {
+    "tomography_exact_kernel": true,
+    "tomography_uniqueness_threshold": "sum(frame_widths) > box_radius",
+    "primitive_unoriented_width_census": "phi(w)",
+    "primitive_oriented_width_census": "2*phi(w)",
+    "eight_state_trace_cube_distinct_from_six_point_endpoint_stencil": true,
+    "exposed_vertex_minimal_field_measurement": true,
+    "gram_laplacian_factorization": true,
+    "full_adjoint_finite_support_injective": true,
+    "compressed_gram_characteristic_uniform": false,
+    "hive_rhombus_cross_domain_reuse": true,
+    "y_delta_inside_interface": false
+  },
+  "final_verdict": "NEEDS_NARROWER_TOOL_INTERFACE",
+  "shared_toolbox_registry_modified": false,
+  "driver_integration_required": true
+}
