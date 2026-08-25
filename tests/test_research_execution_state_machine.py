@@ -1,6 +1,4 @@
-import json
 from pathlib import Path
-import tempfile
 import unittest
 
 import tools.research_execution_state as ex
@@ -20,7 +18,7 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
         self.assertFalse(ex.allowed_action(self.machine, "PRE_MATH_GATES_PENDING", "MATHEMATICAL_SOURCE_READ"))
         self.assertFalse(ex.allowed_action(self.machine, "PRE_MATH_GATES_PENDING", "MATHEMATICAL_DERIVATION"))
 
-    def test_execution_ready_allows_math(self):
+    def test_execution_ready_allows_math_by_state(self):
         self.assertTrue(ex.allowed_action(self.machine, "EXECUTION_READY", "MATHEMATICAL_SOURCE_READ"))
         self.assertTrue(ex.allowed_action(self.machine, "EXECUTION_READY", "MATHEMATICAL_DERIVATION"))
 
@@ -60,6 +58,15 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
             {"failed_gate_id": "STAMP", "failure_evidence_or_reason": "remote stamp absent"},
         )
         self.assertEqual(target, "NONSTART_TERMINAL")
+
+    def test_false_boolean_cannot_fake_transition_pass(self):
+        with self.assertRaisesRegex(ValueError, "exact true"):
+            ex.next_state(
+                self.machine,
+                "IN_PROGRESS",
+                "RETURN_ARTIFACT_PERSISTED",
+                {"durable_return_ref": "commit:abc", "return_write_action_guard_pass": False},
+            )
 
     def test_liveness_failure_requires_durable_reconciliation_before_resume(self):
         target = ex.next_state(
@@ -119,7 +126,72 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
         codes = {item["code"] for item in ex.audit_taskbook_execution(meta, self.machine)}
         self.assertIn("EX-PREMATH-COVERAGE", codes)
 
-    def test_f5ar_taskbook_declares_machine_readable_premath_gate(self):
+    def test_obvious_prose_premath_gate_cannot_remain_undeclared(self):
+        meta = {"execution_state_policy": "INHERIT_GLOBAL", "execution_gates": []}
+        findings = ex.audit_taskbook_execution(
+            meta,
+            self.machine,
+            body="Before mathematics, create and verify the execution stamp.",
+        )
+        self.assertIn("EX-PREMATH-UNDECLARED", {item["code"] for item in findings})
+
+    def test_prereturn_gate_must_cover_return_write(self):
+        meta = {
+            "execution_state_policy": "INHERIT_GLOBAL",
+            "execution_gates": [
+                {
+                    "gate_id": "FINAL",
+                    "phase": "PRE_RETURN",
+                    "must_precede": ["CHECKPOINT_WRITE"],
+                    "evidence": {"kind": "CHECKER_PASS"},
+                }
+            ],
+        }
+        codes = {item["code"] for item in ex.audit_taskbook_execution(meta, self.machine)}
+        self.assertIn("EX-PRERETURN-COVERAGE", codes)
+
+    def test_gate_ledger_blocks_action_even_when_state_allows_it(self):
+        meta = {
+            "execution_state_policy": "INHERIT_GLOBAL",
+            "execution_gates": [
+                {
+                    "gate_id": "FINAL",
+                    "phase": "PRE_RETURN",
+                    "must_precede": ["RETURN_WRITE"],
+                    "evidence": {"kind": "CHECKER_PASS"},
+                }
+            ],
+        }
+        allowed, blockers = ex.allowed_task_action(
+            meta, self.machine, "IN_PROGRESS", "RETURN_WRITE", set()
+        )
+        self.assertFalse(allowed)
+        self.assertEqual(blockers, ["FINAL"])
+        allowed, blockers = ex.allowed_task_action(
+            meta, self.machine, "IN_PROGRESS", "RETURN_WRITE", {"FINAL"}
+        )
+        self.assertTrue(allowed)
+        self.assertEqual(blockers, [])
+
+    def test_mid_execution_gate_can_guard_checkpoint_write(self):
+        meta = {
+            "execution_state_policy": "INHERIT_GLOBAL",
+            "execution_gates": [
+                {
+                    "gate_id": "CHECKER",
+                    "phase": "MID_EXECUTION",
+                    "must_precede": ["CHECKPOINT_WRITE"],
+                    "evidence": {"kind": "CHECKER_PASS"},
+                }
+            ],
+        }
+        allowed, blockers = ex.allowed_task_action(
+            meta, self.machine, "IN_PROGRESS", "CHECKPOINT_WRITE", set()
+        )
+        self.assertFalse(allowed)
+        self.assertEqual(blockers, ["CHECKER"])
+
+    def test_f5ar_taskbook_declares_machine_readable_premath_and_prereturn_gates(self):
         path = ROOT / "research_tasks" / "COHERENT_BRC_F5AR_INDEPENDENT_BRANCH_ONTOLOGY_AXIOM_ADMISSION_REPLICATION_20260825.md"
         self.assertEqual(ex.audit_taskbook_path(path, root=ROOT), [])
         meta, _ = ex.split_taskbook(path.read_text(encoding="utf-8"))
@@ -129,6 +201,9 @@ class ResearchExecutionStateMachineTests(unittest.TestCase):
         self.assertEqual(gate["evidence"]["path"], "evidence/cbrc_f5ar_execution_stamp.json")
         self.assertEqual(gate["evidence"]["required_fields"]["phase"], "STARTED_BEFORE_MATH")
         self.assertIsNone(gate["evidence"]["required_fields"]["admission_verdict"])
+        final_gate = gates["F5AR-FINAL-MATERIALIZATION"]
+        self.assertEqual(final_gate["phase"], "PRE_RETURN")
+        self.assertIn("RETURN_WRITE", final_gate["must_precede"])
 
 
 if __name__ == "__main__":
