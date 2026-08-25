@@ -178,3 +178,44 @@ Freeze:
 `TARGET_LEAK_AUDIT_PASS`.
 
 Stop boundary remains active: no F6, no rank-two construction/classification, no downstream wave comparison, no Foundation promotion.
+
+## 8. Exact pushed-checker execution evidence
+
+Pushed checker commit:
+
+`d8abcf11e2129b4ffececde4813c46c786f58064`.
+
+Remote checker Git blob SHA:
+
+`8c2008bf39a9ab0517e5f4c074f17fc0a59bf629`.
+
+The bytes executed locally were hashed using Git's canonical blob hash
+
+`sha1("blob " + len(bytes) + NUL + bytes)`,
+
+and reproduced exactly:
+
+`8c2008bf39a9ab0517e5f4c074f17fc0a59bf629`.
+
+Therefore:
+
+`EXECUTED_CHECKER_BYTES_IDENTICAL_TO_PUSHED_BLOB = true`.
+
+Checker file SHA-256:
+
+`315539c4cf0509c99d5d12a6ca38c65a3d528c0544328226653d695c4def9368`.
+
+Exact execution result:
+
+- `F5AR_CHECKER_RESULT=PASS`;
+- `check_count=65`;
+- `mismatch_count=0`;
+- `finite_tree_depth=4`;
+- `finite_tree_models=6561`;
+- deterministic digest `eab541a2e3144852acd883f5b6152d61a39e560b5913fba2371d39273c4831b0`.
+
+The checker is evidence only. The arbitrary-depth closure claim is proved in the theorem report by induction and one-step extension, not inferred from depth-4 enumeration.
+
+Freeze:
+
+`F5AR_PUSHED_CHECKER_PASS`.
