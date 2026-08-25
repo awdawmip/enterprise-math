@@ -1,0 +1,109 @@
+{
+  "schema": "CBRC_F5AR_BRANCH_ONTOLOGY_AXIOM_ADMISSION_MANIFEST_V1",
+  "date": "2026-08-25",
+  "researcher_id": "EM-CBRCF5AR-7E8B04",
+  "task_id": "RS-CBRC-F5AR-INDEPENDENT-BRANCH-ONTOLOGY-AXIOM-ADMISSION-REPLICATION",
+  "taskbook": "research_tasks/COHERENT_BRC_F5AR_INDEPENDENT_BRANCH_ONTOLOGY_AXIOM_ADMISSION_REPLICATION_20260825.md",
+  "taskbook_source": "7fc3522b2e5b9273025c8d399206460e44b13f6b",
+  "owner_branch": "research/cbrc-f5ar-independent-branch-ontology-axiom-admission",
+  "phase": "FINAL_FREEZE",
+  "hard_target": "BRANCH_TO_OLD_SUPPORT_FAITHFULNESS_AXIOM_ADMISSION_STATUS_INDEPENDENTLY_CLASSIFIED",
+  "primary_verdict": "F5AR_ADMIT_RESTRICTED_ELEMENTARY_RULE_ONLY",
+  "admitted_rule": "A0_ELEMENTARY_PROJECTION_NONDEGENERACY_ONLY",
+  "deliverables": {
+    "F5AR_BRANCH_FAITHFULNESS_AXIOM_LATTICE_CLASSIFIED": true,
+    "F5AR_CANONICAL_BRC_CONSISTENCY_CLASSIFIED": true,
+    "F5AR_REFINEMENT_COMPOSITION_CLOSURE_CLASSIFIED": true,
+    "F5AR_MINIMAL_LOOPHOLE_CLOSING_RULE_CLASSIFIED": true,
+    "F5AR_CONSERVATIVITY_AND_ONTOLOGY_COST_CLASSIFIED": true,
+    "BRANCH_TO_OLD_SUPPORT_FAITHFULNESS_AXIOM_ADMISSION_STATUS_INDEPENDENTLY_CLASSIFIED": true,
+    "TARGET_LEAK_AUDIT_PASS": true
+  },
+  "publication_liveness": {
+    "initial_stamp_commit": "7426380728a9c3d9ede199b1867c86f3f8f683d4",
+    "reconciled_pre_math_stamp_commit": "680ff7d2eb164b3be33522c52561afaa30c48ce4",
+    "phase_at_pre_math_gate": "STARTED_BEFORE_MATH",
+    "admission_verdict_at_pre_math_gate": null,
+    "remote_owner_identical_to_reconciled_stamp_before_math": true
+  },
+  "mathematical_whitelist": [
+    "research_inputs/CBRC_F5A_BRANCH_ONTOLOGY_AXIOM_ADMISSION_PACKET_20260825.md@b904a86aa24ed35564956181a7c1309074a782ea",
+    "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md@6ec0d73a19e28ec586c59a97d24f5798c9119771",
+    "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md@b631242db84c5bd3640e6dc554b19a1d04d464f3",
+    "driver_reviews/CBRC_F5R_INDEPENDENT_FORGETFUL_BRANCH_SEMANTICS_DRIVER_REVIEW_20260825.md@6e40f56745c405042ad2216d1f62b110312ffb83"
+  ],
+  "source_firewall": {
+    "target_leak_audit": "PASS",
+    "downstream_coherent_wave_used": false,
+    "R063_R064_R065_FQ_used": false,
+    "rank_two_or_complex_or_quadratic_target_used": false,
+    "phase_group_norm_inner_product_square_law_used": false,
+    "F6_answer_used": false
+  },
+  "theorem_summary": {
+    "candidate_implications": [
+      "A1=>A0",
+      "A3=>A4",
+      "A4=>A0"
+    ],
+    "all_other_distinct_candidate_implications": "FALSE_WITH_EXACT_COUNTERMODELS",
+    "A2_relation": "INCOMPARABLE_WITH_A0_A1_A3_A4",
+    "strict_intermediate_rules": [
+      "A1pi_TYPED_PROJECTION_ONLY",
+      "D_d_FINITE_DEPTH_HIERARCHY",
+      "H_HEREDITARY_REFINEMENT_TRANSPORT",
+      "Csum_TOTAL_OLD_COORDINATE_CONSERVATION_ORTHOGONAL"
+    ],
+    "arbitrary_depth_closure": "A4_EQUIVALENT_TO_LOCAL_HEREDITARY_CHILD_NONDEGENERACY_ON_REACHABLE_ACTIVE_BRANCHES",
+    "minimal_F4_loophole_rule": "A0",
+    "A3_status": "UNNECESSARILY_STRONG",
+    "signed_cancellation": "COMPATIBLE_IF_POST_ERASURE_RECOALESCED_AGGREGATE_EXITS_ACTIVE_BRANCH_TYPE",
+    "base_theory_conservativity": "A0_CONSERVATIVE_OVER_CANONICAL_PATH_N_BOOLEAN_BRC_BY_EXTENSION",
+    "conditional_consequence": "GLOBAL_ZERO_SEPARATION + ADMITTED_BRANCH_FAITHFULNESS => torsion_free_rank(C) >= 2",
+    "conditional_consequence_status": "CONDITIONAL_THEOREM_ONLY_NOT_A_SELECTOR"
+  },
+  "checkpoints": {
+    "checkpoint_A_remote_head": "a51e00c213580ff6c9e0ba1d0693e838da61df39",
+    "checkpoint_B_remote_head": "e96ba3ac6dbda1a0cb63d7455ea647c263ec8976",
+    "pre_manifest_remote_head": "e96ba3ac6dbda1a0cb63d7455ea647c263ec8976"
+  },
+  "checker": {
+    "path": "scripts/cbrc_f5ar_validate_branch_ontology_axiom_admission.py",
+    "pushed_commit": "d8abcf11e2129b4ffececde4813c46c786f58064",
+    "git_blob_sha1": "8c2008bf39a9ab0517e5f4c074f17fc0a59bf629",
+    "sha256": "315539c4cf0509c99d5d12a6ca38c65a3d528c0544328226653d695c4def9368",
+    "executed_bytes_identical_to_pushed_blob": true,
+    "result": "PASS",
+    "check_count": 65,
+    "mismatch_count": 0,
+    "finite_tree_depth": 4,
+    "finite_tree_models": 6561,
+    "deterministic_digest": "eab541a2e3144852acd883f5b6152d61a39e560b5913fba2371d39273c4831b0"
+  },
+  "artifacts": {
+    "evidence/cbrc_f5ar_execution_stamp.json": {
+      "git_blob_sha1": "d308219442967380936a284f1a9d6a5aea050fb6",
+      "sha256": "685814b8dd605fc9168616374371de7062435e68c3acc487e0dd5da4c09b73f6"
+    },
+    "research_reports/CBRC_F5AR_BRANCH_ONTOLOGY_AXIOM_ADMISSION_RETURN_20260825.md": {
+      "git_blob_sha1": "d77e3d553c5e9f0fe2f6ce3a168e09fe6104a450",
+      "sha256": "c96e62a3cc74468968d3d61345066d6d5e5783da2ae6f8269dab2521c550051f"
+    },
+    "research_reports/CBRC_F5AR_SOURCE_AND_TARGET_LEAK_AUDIT_20260825.md": {
+      "git_blob_sha1": "e24187af7b67baaa7c4f12f11cf6c707ae9a37e5",
+      "sha256": "82cf4d2bc2fa9970371df4707d83a39def0361301e07bdfa20a710b88bca5bca"
+    },
+    "research_reports/CBRC_F5AR_AXIOM_COUNTERMODEL_AND_ABLATION_PACKET_20260825.md": {
+      "git_blob_sha1": "2d1366aa50115a2d4c517d246dc4402124540cbb",
+      "sha256": "631de40eeaadb9868465bac7deb0bd9fbaba6bcc55ab202c331e92315aa0055a"
+    },
+    "scripts/cbrc_f5ar_validate_branch_ontology_axiom_admission.py": {
+      "git_blob_sha1": "8c2008bf39a9ab0517e5f4c074f17fc0a59bf629",
+      "sha256": "315539c4cf0509c99d5d12a6ca38c65a3d528c0544328226653d695c4def9368"
+    }
+  },
+  "worktree_status": "NOT_APPLICABLE_REMOTE_CONTENTS_API_NO_LOCAL_CHECKOUT",
+  "remote_materialization_complete_before_manifest": true,
+  "freeze_commit_rule": "FINAL_OWNER_HEAD_IS_THIS_MANIFEST_COMMIT_AND_IS_VERIFIED_EXTERNALLY",
+  "stop_boundary": "STOP_AFTER_FREEZE_NO_F6_NO_RANK_TWO_CONSTRUCTION_NO_DOWNSTREAM_WAVE_NO_FOUNDATION_PROMOTION"
+}
