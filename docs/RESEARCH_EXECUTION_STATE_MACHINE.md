@@ -1,6 +1,6 @@
 # Enterprise Math Research Execution State Machine
 
-Status: `ACTIVE_CANONICAL_ON_MERGE / V1.1`
+Status: `ACTIVE_CANONICAL_ON_MERGE / V1.2`
 
 Canonical machine-readable authority: `research_execution_state_machine.json`.
 
@@ -8,9 +8,9 @@ This protocol applies to every concrete `TASK_RESEARCH` execution. It also gover
 
 ## 1. The one rule everyone must remember
 
-A taskbook being `READY`, a scheduler item being `CLAIMED`, or a researcher saying “done” does **not** mean mathematics may start or that the execution is complete.
+A valid task authority does **not** mean substantive work is ready.
 
-For a concrete execution, mathematical source reads/derivations are legal only after the runtime state reaches:
+Task authority can come from an approved taskbook, a current direct user task, a scheduler task, or a Driver dispatch envelope. In every case, mathematical source reads/derivations are legal only after the concrete runtime state reaches:
 
 `EXECUTION_READY`
 
@@ -18,7 +18,7 @@ and the requested action is not blocked by an unsatisfied execution gate.
 
 If the task declares any `PRE_MATH` execution gate, the required route is:
 
-`CLAIMED -> IDENTITY_READY -> PRE_MATH_GATES_PENDING -> EXECUTION_READY -> IN_PROGRESS`
+`TASK_AUTHORITY_READY -> CLAIMED -> IDENTITY_READY -> PRE_MATH_GATES_PENDING -> EXECUTION_READY -> IN_PROGRESS`
 
 The jump
 
@@ -30,7 +30,7 @@ is forbidden.
 
 Do not collapse these into one status word:
 
-1. **Scheduler task state** — who may work and whether a task is leased/queued.
+1. **Task authority / scheduler state** — what authorizes the selected work and who may work it.
 2. **Execution state** — whether this concrete run is legally allowed to start/continue/return.
 3. **Identity state** — whether the conversation has a valid Researcher-ID/Driver-ID.
 4. **Mathematical/candidate truth state** — whether a theorem, obstruction, axiom candidate or canonical artifact has been reviewed/promoted.
@@ -38,12 +38,48 @@ Do not collapse these into one status word:
 Examples:
 
 - scheduler `CLAIMED` + execution `PRE_MATH_GATES_PENDING` => **no mathematics yet**;
+- taskbook `READY` + execution `IDENTITY_READY` => **still no mathematics if a PRE_MATH gate is pending**;
 - execution `RETURN_ACCEPTED` => Driver accepted the return as a valid run, but no theorem/candidate promotion follows automatically;
 - a failed publication stamp before mathematics => `NONSTART_TERMINAL`, **not** a negative mathematical verdict.
 
-## 3. Every declared gate has a runtime ledger entry
+## 3. Normalize task authority first
 
-Every taskbook `execution_gates` entry becomes a concrete runtime gate initially in:
+Every concrete `TASK_RESEARCH` execution starts by normalizing one allowed authority source into:
+
+```json
+{
+  "task_id": "...",
+  "authority_kind": "...",
+  "authority_ref": "...",
+  "execution_gates": []
+}
+```
+
+Allowed `authority_kind` values:
+
+- `OFFICIAL_TASKBOOK`;
+- `DIRECT_USER_TASK`;
+- `SCHEDULER_TASK`;
+- `DRIVER_DISPATCH_ENVELOPE`.
+
+Rules:
+
+- `OFFICIAL_TASKBOOK` requires the exact revision to pass `python tools/research_control_gate.py audit <taskbook>` before entering `DISPATCH_READY`.
+- `DIRECT_USER_TASK` does not require manufacturing a taskbook. The current instruction is authority; explicit task-local startup/process/return constraints are normalized into `execution_gates` before substantive work.
+- `SCHEDULER_TASK` is task authority/coordination only. A scheduler claim never means `EXECUTION_READY`.
+- A `DRIVER_DISPATCH_ENVELOPE` cannot waive an official taskbook audit or gate if the envelope points to that taskbook.
+
+A normalized direct/scheduler/envelope spec can be machine-checked with:
+
+```bash
+python tools/research_execution_state.py audit-spec \
+  --spec-json '{"task_id":"...","authority_kind":"DIRECT_USER_TASK","authority_ref":"conversation:...","execution_gates":[]}' \
+  --authority-body 'current task instruction when prose-gate detection is needed'
+```
+
+## 4. Every declared gate has a runtime ledger entry
+
+Every normalized `execution_gates` entry becomes a concrete runtime gate initially in:
 
 `PENDING`.
 
@@ -59,25 +95,23 @@ An action is legal only when **both** are true:
 
 Therefore `EXECUTION_READY` is necessary but not always sufficient. For example, a `PRE_RETURN` checker/manifest gate can still block `RETURN_WRITE` while research is otherwise `IN_PROGRESS`.
 
-## 4. Mandatory startup protocol for researchers
+## 5. Mandatory startup protocol for researchers
 
 For every task execution:
 
-1. Read only the taskbook and control-plane/startup material permitted before mathematics.
-2. Resolve/allocate the required role identity.
-3. Read the taskbook frontmatter fields:
-   - `execution_state_policy`;
-   - `execution_gates`.
+1. Read only the task authority and control-plane/startup material permitted before mathematics.
+2. Normalize the concrete execution spec and all explicit task-local gates.
+3. Resolve/allocate the required role identity.
 4. Instantiate every declared gate as `PENDING`.
-5. If `execution_gates` contains no `PRE_MATH` gate, classify startup as `EXECUTION_READY` only after the taskbook itself passed dispatch audit and identity is ready.
+5. If there is no `PRE_MATH` gate, classify startup as `EXECUTION_READY` only after task authority and identity are ready.
 6. If any `PRE_MATH` gate exists, enter `PRE_MATH_GATES_PENDING`.
 7. Satisfy every PRE_MATH gate exactly as declared and verify the required durable evidence.
 8. Only then enter `EXECUTION_READY` and read mathematical sources / perform mathematical derivations.
 9. Before any later guarded action, check the gate ledger again.
 
-A chat claim, intention, screenshot without the required repository evidence, local-only file, or “I already completed it” statement does not satisfy a durable gate.
+A chat claim, intention, screenshot without the required repository evidence, local-only file, or “I already completed it” statement does not satisfy a durable gate when the gate requires durable/remote evidence.
 
-## 5. Mandatory taskbook fields
+## 6. Official taskbook fields
 
 Every new or re-dispatched taskbook must carry:
 
@@ -112,16 +146,18 @@ Phase rules:
 - `MID_EXECUTION` guards whatever later action classes the task specifically requires;
 - `PRE_RETURN` must guard `RETURN_WRITE`.
 
-The machine audit also recognizes obvious task-local prose such as “before mathematics” / “开始数学前”. If that prose exists but no machine-readable `PRE_MATH` gate is declared, dispatch fails with `EX-PREMATH-UNDECLARED`.
+The machine audit also recognizes obvious task-local prose such as “before mathematics” / “开始数学前”. If that prose exists but no machine-readable `PRE_MATH` gate is declared, the authority/gate audit fails with `EX-PREMATH-UNDECLARED`.
 
-## 6. Mandatory Driver protocol
+## 7. Mandatory Driver protocol
 
-Before dispatch:
+Before official-taskbook dispatch/re-dispatch:
 
 - audit the taskbook against current taskbook policy;
 - audit its execution-state metadata/gates;
 - use the single composite command `python tools/research_control_gate.py audit <taskbook-path>`;
 - bind a runtime identity outside the reusable taskbook when manual dispatch requires it.
+
+For direct/scheduler/envelope tasks, ensure the current authority is normalized into the same execution spec/gate schema; do not manufacture a taskbook merely to enter the state machine.
 
 On return:
 
@@ -134,9 +170,9 @@ On stalled or ambiguous conversations:
 
 `... -> RECOVERY_REQUIRED`
 
-Then reconstruct the last legal state **and gate ledger** from durable repository evidence only. Resume only from an evidenced legal frontier. If no safe frontier exists, use `REDISPATCH_REQUIRED`.
+Then reconstruct the last legal state **and gate ledger** from durable authority/evidence. Resume only from an evidenced legal frontier. If no safe frontier exists, use `REDISPATCH_REQUIRED`.
 
-## 7. F5A regression rule
+## 8. F5A regression rule
 
 The following historical failure mode is permanently guarded:
 
@@ -144,7 +180,7 @@ The following historical failure mode is permanently guarded:
 
 The execution must **not** be classified `EXECUTION_READY`, `IN_PROGRESS`, `RETURN_ACCEPTED`, or `CLOSED`. It is a startup/liveness failure and must end in `NONSTART_TERMINAL` or a recovery/redispatch path.
 
-## 8. Machine checks
+## 9. Machine checks
 
 Validate the machine:
 
@@ -152,7 +188,7 @@ Validate the machine:
 python tools/research_execution_state.py validate-machine
 ```
 
-Audit task execution metadata:
+Audit official-taskbook execution metadata:
 
 ```bash
 python tools/research_execution_state.py audit-taskbook research_tasks/<TASK>.md
@@ -189,9 +225,9 @@ python tools/research_execution_state.py next-state \
   --evidence-json '{"durable_evidence_refs_for_all_pre_math_gates":["commit:..."],"remote_verification_if_required_by_gate":"verified"}'
 ```
 
-Boolean pass fields such as `dispatch_audit_pass`, `return_write_action_guard_pass` and `execution_gate_ledger_complete` must be literal `true`; a false/non-boolean placeholder cannot fake a transition.
+Boolean pass fields such as `dispatch_audit_pass`, `action_within_task_scope`, `return_write_action_guard_pass` and `execution_gate_ledger_complete` must be literal `true`; a false/non-boolean placeholder cannot fake a transition.
 
-## 9. Handoff and recovery
+## 10. Handoff and recovery
 
 A durable handoff is terminal for the current execution instance unless the same conversation is explicitly resumed. A genuinely new conversation performs identity bootstrap again and binds a new execution instance; it may consume the previous durable handoff as its frontier.
 
