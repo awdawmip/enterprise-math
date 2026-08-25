@@ -1,7 +1,7 @@
 {
-  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.3",
+  "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V3.4",
   "status": "ACTIVE",
-  "effective": "2026-08-24",
+  "effective": "2026-08-25",
   "policy_inputs": [
     "AGENTS.md",
     "FOUNDATIONAL_LOGIC.md",
@@ -16,6 +16,7 @@
     "final_response_identity_policy.json",
     "research_taskbook_contract.json",
     "research_scheduler.json",
+    "research_control_state_machine.json",
     "tool_invocation_policy.json",
     "native_semantics_admissibility.json"
   ],
@@ -105,7 +106,10 @@
     "A taskbook with an explicit blind-forward/source-whitelist discovery firewall may delay current toolbox/method visibility only until its named raw candidate/no-go freeze point; the same task must run current-tool dedup after that freeze.",
     "FREE Phase A follows the same discovery-firewall timing principle: no current toolbox prior before freeze; mandatory current-tool dedup in Phase B after freeze.",
     "Taskbooks that inherit final-response identity behavior are version-coupled to final_response_identity_policy.json.",
-    "Taskbook policy PASS is only the content gate. Scheduler V2 PUBLISH plus cross-Driver APPROVE is the runtime READY gate; direct V2 DONE is forbidden and returns close only after cross-Driver REVIEW."
+    "Taskbook policy PASS is only the content gate. Scheduler V2 PUBLISH plus cross-Driver APPROVE is the runtime READY gate; direct V2 DONE is forbidden and returns close only after cross-Driver REVIEW.",
+    "research_control_state_machine.json is the cross-layer composition contract around Scheduler V2. Before a control-plane verdict, validate information-firewall state, evidence/admission state, method-harvest classification, route disposition, successor/replication provenance, and parent-objective liveness at the profile strength actually claimed.",
+    "New Scheduler V2 APPROVE events must bind taskbook_audit=PASS and the current policy_digest; new REVIEW events must bind evidence_class, method_harvest, route_disposition, and any route-specific successor/child/Foundation/formalization/promotion reference required by research_control_state_machine.json.",
+    "Independent replication is never a same-task HANDOFF_READY transition. The reviewed parent is parked/closed as appropriate and a distinct child task with explicit independence/firewall provenance is authored, reviewed, published, and claimed in a fresh execution context."
   ],
   "override_required_fields": [
     "conflict_id",
