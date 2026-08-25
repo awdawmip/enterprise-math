@@ -48,7 +48,8 @@ The PRE_FINAL decision order is:
 3. if one or more executable next actions exist -> final is forbidden;
 4. if the selected action repeated without any state change, do not retry it unchanged: switch to a supported alternative when one exists, otherwise recompute parent routing once;
 5. a parent-level blocker or platform/tool limit permits final only after all independent/downstream-safe work is exhausted and no executable next action remains;
-6. if the parent remains incomplete, no executable action exists, no terminal blocker exists, and a parent-state recomputation changes nothing -> `CONTROL_STATE_INCONSISTENT` rather than silent termination or infinite retry.
+6. if safe work is still claimed to remain but one parent-state recomputation still produces no executable action -> `CONTROL_STATE_INCONSISTENT`;
+7. if the parent remains incomplete, no executable action exists, no terminal blocker exists, and a parent-state recomputation changes nothing -> `CONTROL_STATE_INCONSISTENT` rather than silent termination or infinite retry.
 
 ## Blocked subflow is not blocked parent
 
@@ -78,7 +79,8 @@ Transition rules:
 
 - supported alternative exists -> `SWITCH_STRATEGY`;
 - no alternative selected yet -> `RECOMPUTE_PARENT_STATE` once;
-- recomputation leaves the same parent state and no alternative/blocker appears -> `CONTROL_STATE_INCONSISTENT`.
+- recomputation leaves the same parent state and no alternative/blocker appears -> `CONTROL_STATE_INCONSISTENT`;
+- safe work is claimed to remain, but recomputation still materializes no executable action -> `CONTROL_STATE_INCONSISTENT`.
 
 A repeated no-progress action has zero automatic identical retries under this guard.
 
@@ -107,7 +109,7 @@ When the user's instruction semantically means `continue`, `keep going`, `do not
 
 A stage, route, checkpoint, PR, or publication subflow cannot consume that lease.
 
-The lease is **not** required for the base rule `unfinished parent + executable action -> continue`. It only makes the persistence condition explicit across multiple local completion boundaries.
+The lease is **not** required for the base rule `unfinished parent + executable action -> continue`. It only makes the persistence condition explicit across multiple local completion boundaries. A terminal blocker or platform/tool limit can end the current turn without consuming an otherwise-active lease; the lease ends only when the parent criterion is met or the user revokes/suspends it.
 
 If one route closes while the parent objective remains open, the controller must evaluate the next highest-leverage executable route in the same turn. It may close the local route without automatically opening a semantic successor, but it must not equate local closure with parent completion.
 
@@ -168,8 +170,9 @@ The repository tests must cover at least these cases:
 - parent incomplete + executable next action + active continuation lease -> `EXECUTE_NEXT_ACTION`;
 - checkpoint/PR/journal/Driver verdict does not create terminal state by itself;
 - blocked subflow + other executable work -> continue;
-- true parent blocker + no remaining executable safe work -> `FINAL_ALLOWED_WITH_BLOCKER`;
+- true parent blocker + no remaining executable safe work -> `FINAL_ALLOWED_WITH_BLOCKER`, preserving any still-active continuation lease;
 - hard platform/tool limit + no remaining executable safe work -> `FINAL_ALLOWED_WITH_LIMIT`;
+- safe work still claimed after an unchanged parent-state recomputation but no action materialized -> `CONTROL_STATE_INCONSISTENT`;
 - explicit user stop -> `FINAL_ALLOWED`;
 - repeated identical no-progress action + alternative -> `SWITCH_STRATEGY`;
 - repeated identical no-progress action + no alternative -> one `RECOMPUTE_PARENT_STATE`;
