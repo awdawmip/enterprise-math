@@ -16,7 +16,10 @@ import sys
 from datetime import datetime, timezone
 from typing import Any
 
-from tools import research_scheduler as rs
+try:
+    from tools import research_scheduler as rs
+except ModuleNotFoundError:  # direct `python tools/research_stale_candidates.py`
+    import research_scheduler as rs
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = ROOT / "research_scheduler.json"
