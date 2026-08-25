@@ -9,6 +9,7 @@
   "taskbook_root": "research_tasks",
   "claim_lease_minutes": 1440,
   "review_lease_minutes": 240,
+  "conversation_stale_minutes": 10,
   "direct_done_allowed": false,
   "agent_quickstart": "docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md",
   "cross_layer_control": "research_control_state_machine.json",
@@ -29,13 +30,15 @@
     "researcher_claim": ["领任务", "领取任务", "claim task", "get task"],
     "driver_review_claim": ["领审核", "领取审核", "claim review", "get review"],
     "free_or_researcher_publish": ["发布任务建议", "发布任务", "publish task proposal"],
-    "orphan_recovery": ["领孤儿任务", "领取孤儿任务", "adopt orphan task"]
+    "orphan_recovery": ["领孤儿任务", "领取孤儿任务", "adopt orphan task"],
+    "stale_conversation_recovery": ["接管卡住的对话", "恢复卡住的任务", "take over stale conversation", "recover stalled task"]
   },
   "generic_intent_actions": {
     "researcher_claim": "materialize registry -> select highest NEEDS_DISPATCH -> CLAIM -> start",
     "driver_review_claim": "materialize registry -> select highest eligible NEEDS_REVIEW excluding self-review -> REVIEW_CLAIM -> start review",
     "free_or_researcher_publish": "emit PUBLISH -> REVIEW_PENDING; never READY without cross-Driver approval",
-    "orphan_recovery": "inspect highest-priority ORPHAN_RECOVERY -> ADOPT with recovery_ref -> resume"
+    "orphan_recovery": "inspect highest-priority ORPHAN_RECOVERY -> ADOPT with recovery_ref -> resume",
+    "stale_conversation_recovery": "rebuild durable frontier -> classify predecessor -> Driver/SYSTEM ORPHAN live claim if stale threshold met -> ADOPT or consume completed result -> continue parent objective"
   },
   "task_states": ["DRAFT", "REVIEW_PENDING", "READY", "CLAIMED", "IN_PROGRESS", "HANDOFF_READY", "RETURN_REVIEW", "ORPHANED", "BLOCKED", "BACKLOG", "DONE", "REJECTED", "SUPERSEDED"],
   "computed_dispatch_states": ["NEEDS_REVIEW", "NEEDS_DISPATCH", "LEASED", "REVIEW_LEASED", "ORPHAN_RECOVERY", "BLOCKED", "COMPLETE", "DORMANT"],
@@ -80,6 +83,25 @@
     "recovery_event": "ADOPT",
     "silent_abandonment_forbidden": true
   },
+  "conversation_recovery_contract": {
+    "source_of_policy": "active_turn_liveness.json",
+    "stale_after_minutes_without_verifiable_action": 10,
+    "ordinary_claim_lease_minutes": 1440,
+    "lease_relationship": "The 24-hour claim lease is a duplicate-dispatch ownership ceiling, not a requirement to wait for a stale chat. Evidenced conversation staleness may release the claim early.",
+    "stale_preempts_unexpired_claim_lease": true,
+    "stale_release_authority": ["RESEARCH_DRIVER", "SYSTEM"],
+    "stale_release_event": "ORPHAN",
+    "stale_release_reason": "STALE_CONVERSATION_NO_VERIFIABLE_ACTION_10M",
+    "stale_release_requires": ["evidence_ref or recovery_ref to durable-frontier reconstruction", "no new verifiable action for at least 10 minutes"],
+    "resume_event": "ADOPT",
+    "resume_requires": ["fresh execution identity", "fresh claim_id", "recovery_ref to durable frontier"],
+    "recovery_classes": ["VERIFIED_COMPLETE", "IN_PROGRESS_RECOVERABLE", "UNFINISHED", "NEVER_STARTED"],
+    "verified_complete_action": "do not orphan/re-execute completed work; consume the durable return/review/result",
+    "in_progress_recoverable_action": "release stale live claim if necessary, ADOPT from durable frontier, continue only remaining work",
+    "unfinished_action": "preserve valid evidence, orphan/requeue incomplete execution, restart only missing portion",
+    "never_started_action": "release stale assignment and dispatch normally",
+    "chat_claims_are_not_recovery_authority": true
+  },
   "migration_contract": {
     "event": "MIGRATE",
     "authority": "RESEARCH_DRIVER",
@@ -106,12 +128,16 @@
     "NEW_INDEPENDENT_REPLICATION_AFTER_CROSS_LAYER_CUTOVER_IS_DISTINCT_CHILD_TASK_NOT_SAME_TASK_HANDOFF",
     "CLAIM_LEASE_EXPIRY -> ORPHANED_WITH_DURABLE_RECORD",
     "ORPHANED -> ADOPT_REQUIRED_BEFORE_EXECUTION",
+    "EVIDENCED_10_MIN_STALE_CONVERSATION -> DRIVER_OR_SYSTEM_MAY_ORPHAN_BEFORE_CLAIM_LEASE_EXPIRY",
+    "STALE_CONVERSATION_RECOVERY -> DURABLE_FRONTIER -> CLASSIFY -> ORPHAN_IF_NEEDED -> ADOPT_OR_CONSUME_COMPLETE",
+    "PROGRESS_PROSE_ALONE != VERIFIED_LIVENESS",
+    "24H_TASK_LEASE != 24H_WAIT_FOR_STALE_CHAT",
     "V1_EVENTS_ARE_HISTORY_ONLY_AFTER_EFFECTIVE_AT",
     "SCHEDULER_DONE != THEOREM_TRUTH",
     "SCHEDULER_DONE != PARENT_USER_OBJECTIVE_COMPLETE",
     "REVIEW_DONE != CANONICAL_MAIN",
     "FOUNDATION_STATIC_LINKS_RESOLVE_IN_LEGACY_OR_TASKBOOK_REGISTRY_DURING_V2_CUTOVER",
-    "PARENT_OPEN_AND_NEXT_ACTION_EXISTS -> CONTINUE_IN_SAME_TURN"
+    "PARENT_OPEN_AND_NEXT_ACTION_EXISTS -> CONTINUE_IN_SAME_TURN_OR_RECOVERING_CONVERSATION"
   ],
   "cross_layer_effective_at": "2026-08-25T10:50:39+08:00"
 }
