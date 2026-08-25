@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.7`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.8`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -44,6 +44,22 @@ When the user's instruction semantically means continue/keep going/do not stop/u
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER` remains binding, but every Stage terminal verdict must be followed in the **same turn** by successor-gate/closure/portfolio evaluation. Closing one route does not close the parent user objective.
 
 Before ending a nonterminal turn, if the parent objective is incomplete and another executable action exists, execute it now.
+
+### Executable pre-final gate
+
+The continuation contract is enforced by the deterministic runtime guard:
+
+`tools/research_runtime.py::pre_final_gate`.
+
+Immediately before **every final-channel response** in an active Enterprise Math task, classify the current parent state with that gate (or behavior exactly equivalent to it). If `final_allowed=false`, do **not** emit a final response; perform the returned `required_transition` instead.
+
+Freeze:
+
+`PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FINAL_DENIED -> EXECUTE_NEXT_ACTION_IN_SAME_TURN`.
+
+`PARENT_OBJECTIVE_OPEN + NO_PROVED_TERMINAL_CONDITION -> FINAL_DENIED -> RESOLVE_NEXT_ACTION_OR_TERMINAL_BLOCK`.
+
+A missing next-action string is not evidence of completion. Finalization is allowed only after parent completion, an explicit user stop/pause/review-only/wait request, or a genuine safety/authorization/missing-user-data/unavoidable-external-event/platform-tool-limit terminal classification. This guard is fail-closed.
 
 ## 3. Identity and mandatory final footer
 
