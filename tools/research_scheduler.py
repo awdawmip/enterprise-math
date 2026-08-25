@@ -424,6 +424,7 @@ def reduce_task(
                 ignore(state, index, "stale session requires SESSION_ADOPT or durable PROGRESS")
                 continue
             try:
+                renew_owner(state, at=at, default_lease_minutes=default_lease_minutes, event=event)
                 touch_session(
                     state,
                     at=at,
