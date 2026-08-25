@@ -1,9 +1,9 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_MACHINE_V1",
-  "status": "ACTIVE_CANONICAL_RUNTIME_V1_1",
+  "status": "ACTIVE_CANONICAL_RUNTIME_V1_2",
   "effective": "2026-08-25",
   "classification": "NO_NEW_MATHEMATICS_GOVERNANCE_MAINTENANCE",
-  "purpose": "Unify authenticated task existence, merged dispatch, owner/session liveness, durable frontier recovery, immutable result/review capture, terminal scope and final-response permission without changing mathematical truth.",
+  "purpose": "Unify authenticated task existence, execution intent, merged dispatch, owner/session liveness, durable frontier recovery, immutable result/review capture, terminal scope and final-response permission without changing mathematical truth.",
   "composes": {
     "active_turn_liveness": "active_turn_liveness.json",
     "pre_final_primitive": "tools/active_turn_liveness.py",
@@ -14,6 +14,9 @@
     "legacy_task_registry": "research_task_registry.json",
     "immutable_task_records": "research_task_records/<task-id>/<publication-id>.json",
     "task_publication_tool": "tools/research_task_records.py",
+    "execution_contract": "research_execution_contract.json",
+    "execution_records": "research_execution_records/<task-id>/<execution-record-id>.json",
+    "execution_tool": "tools/research_execution_records.py",
     "registry_cutover_checker": "tools/check_task_registry_cutover.py",
     "canonical_dispatch_contract": "research_dispatch_contract.json",
     "canonical_dispatch": "tools/research_dispatch.py",
@@ -30,6 +33,7 @@
     "tools/active_turn_liveness.py",
     "tools/check_task_registry_cutover.py",
     "tools/research_dispatch.py",
+    "tools/research_execution_records.py",
     "tools/research_result_records.py",
     "tools/research_runtime.py",
     "tools/research_runtime_guard.py",
@@ -37,7 +41,7 @@
     "tools/research_task_registry.py"
   ],
   "human_index": "docs/RESEARCH_RUNTIME_STATE_MACHINE.md",
-  "tool_ownership_boundary": "These are control-plane runtime tools, not mathematical/research-tool families. The pure V1 reducer/runtime remain compatibility primitives; canonical post-cutover entrypoints are research_task_records.py, research_dispatch.py and research_runtime_guard.py.",
+  "tool_ownership_boundary": "These are control-plane runtime tools, not mathematical/research-tool families. The pure V1 reducer/runtime remain compatibility primitives; canonical post-cutover entrypoints are research_task_records.py, research_execution_records.py, research_dispatch.py, research_result_records.py and research_runtime_guard.py.",
   "canonical_state_fields": [
     "PARENT_OBJECTIVE",
     "TASK_REGISTRATION",
@@ -50,11 +54,7 @@
     "TERMINAL_SCOPE",
     "FINAL_ALLOWED"
   ],
-  "terminal_scopes": [
-    "SUBFLOW",
-    "TASK",
-    "PARENT_OBJECTIVE"
-  ],
+  "terminal_scopes": ["SUBFLOW", "TASK", "PARENT_OBJECTIVE"],
   "core_invariants": [
     "OFFICIAL_POST_CUTOVER_TASK_REQUIRES_IMMUTABLE_PUBLICATION_RECORD",
     "UNREGISTERED_TASK_CANNOT_ENTER_READY_CLAIM_OR_EXECUTION",
@@ -64,6 +64,9 @@
     "IMMUTABLE_REGISTERED_DEFINITION_OVERRIDES_SAME_ID_LEGACY_DEFINITION",
     "ALL_TASK_PUBLISHERS_USE_ONE_TASKBOOK_TEMPLATE_AND_IMMUTABLE_PUBLICATION_TRANSACTION",
     "TASK_PUBLICATION_DOES_NOT_GRANT_WORKING_TRUTH_OR_PROMOTION",
+    "THEOREM_OWNER_AND_EXECUTION_BRANCH_ARE_DISTINCT_TYPED_FIELDS",
+    "REGISTERED_CLAIM_REQUIRES_MATCHING_IMMUTABLE_EXECUTION_INTENT",
+    "EXECUTION_INTENT_PINS_PUBLICATION_CLAIM_IDENTITY_BRANCH_BASE_OUTPUT_SCOPE_AND_LEASE",
     "LEGACY_SCHEDULER_DEFINITION_FILE_IS_FROZEN_FOR_NEW_TASK_PUBLICATION",
     "OWNER_LEASE_IS_NOT_SESSION_LIVENESS",
     "SESSION_STALE_DOES_NOT_IMPLY_OWNER_CLAIM_RELEASE",
@@ -72,6 +75,7 @@
     "STALE_RECOVERY_RESUMES_FROM_DURABLE_FRONTIER_AND_FIRST_UNFINISHED_UNIT",
     "FROZEN_RETURN_WITHOUT_DRIVER_REVIEW_IMPLIES_AWAITING_DRIVER_REVIEW",
     "REGISTERED_TASK_DONE_REQUIRES_MATCHING_REVIEWED_RESULT",
+    "RESULT_FREEZE_REQUIRES_MATCHING_EXECUTION_RECORD",
     "SUBFLOW_COMPLETE_IMPLIES_REEVALUATE_PARENT",
     "TASK_FROZEN_IMPLIES_REEVALUATE_PARENT",
     "SUBFLOW_OR_TASK_TERMINAL_CLEARS_LOCAL_EXECUTION_FRONTIER_BEFORE_PARENT_REEVALUATION",
@@ -104,14 +108,24 @@
     "republication_requires_explicit_supersedes_publication_id": true,
     "shared_registry_tasks_array_is_post_cutover_authority": false
   },
+  "execution_transaction": {
+    "contract": "research_execution_contract.json",
+    "tool": "tools/research_execution_records.py",
+    "record_store": "research_execution_records/<task-id>/<execution-record-id>.json",
+    "theorem_owner_field": "theorem_owner",
+    "execution_branch_field": "execution_branch",
+    "claim_commit_authority": "first valid Issue #240 CLAIM event matching an immutable execution intent",
+    "registered_claim_without_intent": "IGNORE_EVENT",
+    "execution_intent_requires_current_publication": true,
+    "execution_intent_pins_allowed_outputs": true,
+    "losing_concurrent_intent": "PROVENANCE_ONLY_NOT_LIVE_CLAIM"
+  },
   "dispatch": {
     "contract": "research_dispatch_contract.json",
     "tool": "tools/research_dispatch.py",
-    "definition_sources": [
-      "immutable task publication records",
-      "frozen legacy scheduler baseline"
-    ],
+    "definition_sources": ["immutable task publication records", "frozen legacy scheduler baseline"],
     "runtime_events": "GitHub Issue #240",
+    "execution_intent_overlay": "research_execution_records",
     "result_review_overlay": "research_result_records + research_result_reviews",
     "registered_claimable_visible_to_selection": true,
     "awaiting_driver_review_dispatchable_to_researcher": false
@@ -125,11 +139,12 @@
     "driver_review_record_immutable": true,
     "task_return_and_driver_disposition_are_separate": true,
     "pending_review_state": "AWAITING_DRIVER_REVIEW",
+    "result_must_pin_execution_record": true,
     "done_gate": "MATCHING_FROZEN_RESULT_PLUS_TERMINAL_DRIVER_REVIEW"
   },
   "lease_model": {
     "owner_lease": {
-      "authority": "legacy/dispatch CLAIM lease or task-local owner lease where explicitly provided",
+      "authority": "execution intent + matching Issue #240 CLAIM lease; legacy scheduler claim for legacy tasks",
       "legacy_field": "claim_lease_minutes",
       "legacy_runtime_field": "lease_until",
       "canonical_runtime_field": "owner_lease_until",
@@ -141,31 +156,15 @@
       "authority": "research_runtime_state_machine.json",
       "default_minutes": 10,
       "semantic_scope": "CURRENT_CONVERSATION_INSTANCE",
-      "renewed_by": [
-        "VISIBLE_OR_DURABLE_SESSION_PROGRESS",
-        "EXPLICIT_SESSION_HEARTBEAT"
-      ],
+      "renewed_by": ["VISIBLE_OR_DURABLE_SESSION_PROGRESS", "EXPLICIT_SESSION_HEARTBEAT"],
       "must_not_inherit_owner_lease_minutes": true
     }
   },
-  "session_states": [
-    "ACTIVE",
-    "STALE_RECOVERABLE",
-    "STALE_UNOWNED",
-    "TERMINATED"
-  ],
+  "session_states": ["ACTIVE", "STALE_RECOVERABLE", "STALE_UNOWNED", "TERMINATED"],
   "stale_recovery": {
     "trigger": "SESSION_STALE_AND_OWNER_LEASE_ACTIVE",
     "state": "STALE_RECOVERABLE",
-    "required_verification": [
-      "taskbook_source",
-      "owner_branch",
-      "claim_id",
-      "remote_head",
-      "execution_stamp",
-      "durable_outputs",
-      "durable_frontier_verified"
-    ],
+    "required_verification": ["taskbook_source", "owner_branch", "claim_id", "remote_head", "execution_stamp", "durable_outputs", "durable_frontier_verified"],
     "transition": "ADOPT_EXISTING_OWNER_CLAIM",
     "claim_reissued": false,
     "researcher_identity_preserved": true,
@@ -174,36 +173,11 @@
     "if_no_current_unfinished_unit": "REEVALUATE_PARENT"
   },
   "terminal_transitions": {
-    "SUBFLOW_COMPLETE": {
-      "terminal_scope": "SUBFLOW",
-      "clear_local_execution_frontier": true,
-      "next_state": "REEVALUATE_PARENT",
-      "direct_final_allowed": false
-    },
-    "TASK_PUBLISHED": {
-      "terminal_scope": "SUBFLOW",
-      "clear_local_execution_frontier": false,
-      "next_state": "REEVALUATE_PARENT",
-      "direct_final_allowed": false
-    },
-    "TASK_FROZEN": {
-      "terminal_scope": "TASK",
-      "clear_local_execution_frontier": true,
-      "next_state": "REEVALUATE_PARENT",
-      "direct_final_allowed": false
-    },
-    "TASK_COMPLETE": {
-      "terminal_scope": "TASK",
-      "clear_local_execution_frontier": true,
-      "next_state": "REEVALUATE_PARENT",
-      "direct_final_allowed": false
-    },
-    "PARENT_OBJECTIVE_COMPLETE": {
-      "terminal_scope": "PARENT_OBJECTIVE",
-      "next_state": "PRE_FINAL",
-      "consistency_guard": "CURRENT_UNFINISHED_UNIT=null AND NEXT_ACTION=null OR CONTROL_STATE_INCONSISTENT",
-      "direct_final_allowed": "ONLY_IF_AUTHENTICATED_PRE_FINAL_GATE_RETURNS_FINAL_ALLOWED"
-    }
+    "SUBFLOW_COMPLETE": {"terminal_scope": "SUBFLOW", "clear_local_execution_frontier": true, "next_state": "REEVALUATE_PARENT", "direct_final_allowed": false},
+    "TASK_PUBLISHED": {"terminal_scope": "SUBFLOW", "clear_local_execution_frontier": false, "next_state": "REEVALUATE_PARENT", "direct_final_allowed": false},
+    "TASK_FROZEN": {"terminal_scope": "TASK", "clear_local_execution_frontier": true, "next_state": "REEVALUATE_PARENT", "direct_final_allowed": false},
+    "TASK_COMPLETE": {"terminal_scope": "TASK", "clear_local_execution_frontier": true, "next_state": "REEVALUATE_PARENT", "direct_final_allowed": false},
+    "PARENT_OBJECTIVE_COMPLETE": {"terminal_scope": "PARENT_OBJECTIVE", "next_state": "PRE_FINAL", "consistency_guard": "CURRENT_UNFINISHED_UNIT=null AND NEXT_ACTION=null OR CONTROL_STATE_INCONSISTENT", "direct_final_allowed": "ONLY_IF_AUTHENTICATED_PRE_FINAL_GATE_RETURNS_FINAL_ALLOWED"}
   },
   "pre_final_gate": {
     "canonical_orchestrator": "tools/research_runtime_guard.py",
@@ -216,7 +190,9 @@
   },
   "dispatch_semantics": {
     "UNREGISTERED_NEW_TASK": "FORBID_DISPATCH_AND_PUBLISH_IMMUTABLE_RECORD_FIRST",
-    "IMMUTABLE_REGISTERED_CLAIMABLE_TASK": "ELIGIBLE_FOR_CLAIM",
+    "IMMUTABLE_REGISTERED_CLAIMABLE_TASK": "ELIGIBLE_FOR_SELECTION",
+    "REGISTERED_CLAIM_WITHOUT_EXECUTION_INTENT": "IGNORE_EVENT",
+    "REGISTERED_CLAIM_WITH_EXECUTION_INTENT": "ELIGIBLE_FOR_OWNER_LEASE",
     "LEGACY_SCHEDULER_DEFINITION_EDIT": "FORBIDDEN_AS_NEW_TASK_PUBLICATION_PATH",
     "LEGACY_ALREADY_OWNED_EXECUTION": "CONTINUATION_ALLOWED",
     "LEGACY_FRESH_REDISPATCH": "MIGRATION_REQUIRED",
@@ -228,6 +204,8 @@
     "FORGED_REGISTRATION_OBJECT_CANNOT_AUTHORIZE_UNKNOWN_TASK",
     "REGISTERED_TASK_IS_VISIBLE_TO_CANONICAL_DISPATCH",
     "LEGACY_AND_REGISTERED_TASKS_SHARE_ONE_SELECTION_VIEW",
+    "REGISTERED_CLAIM_WITHOUT_EXECUTION_INTENT_IS_IGNORED",
+    "EXECUTION_INTENT_PINS_PUBLICATION_ID_RESEARCHER_ID_BRANCH_BASE_AND_OUTPUT_SCOPE",
     "V2_PUBLICATION_DOES_NOT_OVERWRITE_PRIOR_GENERATION",
     "V2_PUBLISH_REQUIRES_PREVALIDATED_CURRENT_POLICY_PASS",
     "PLACEHOLDER_MANDATORY_SECTION_REJECTS_PUBLICATION",
