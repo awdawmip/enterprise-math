@@ -1,5 +1,6 @@
 import importlib.util
 import json
+from itertools import product
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -186,6 +187,32 @@ def test_open_parent_with_no_action_or_blocker_recomputes_then_inconsistent():
         )
     )
     assert second["transition"] == liveness.CONTROL_STATE_INCONSISTENT
+
+
+def test_exhaustive_boolean_guard_never_allows_premature_final():
+    liveness = load_liveness_helper()
+    bool_keys = [
+        "parent_hard_blocker",
+        "platform_or_tool_hard_limit",
+        "independent_safe_work_exhausted",
+        "same_action_repeated_without_state_change",
+        "supported_alternative_available",
+        "parent_state_recomputed_without_change",
+        "continuation_lease_active",
+    ]
+    for bits in product((False, True), repeat=len(bool_keys)):
+        overrides = dict(zip(bool_keys, bits, strict=True))
+
+        with_action = liveness.evaluate(
+            base_state(executable_next_actions=1, **overrides)
+        )
+        assert with_action["final_allowed"] is False
+
+        if not overrides["independent_safe_work_exhausted"]:
+            without_action = liveness.evaluate(
+                base_state(executable_next_actions=0, **overrides)
+            )
+            assert without_action["final_allowed"] is False
 
 
 def test_agents_routes_active_turn_contract_and_remote_silent_is_not_conversation_silent():
