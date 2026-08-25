@@ -1,0 +1,69 @@
+{
+  "schema": "CBRC_F6_MINIMAL_RANK_TWO_CONSERVATIVE_CARRIER_MANIFEST_V1",
+  "researcher_id": "EM-CBRCF6-D694C8",
+  "task_id": "RS-CBRC-F6-MINIMAL-RANK-TWO-CONSERVATIVE-CARRIER-CLASSIFICATION",
+  "taskbook_source": "e5d3c761e291b3193ccbbd85a4a2b05c70338141",
+  "blind_mathematical_source_ref": "research_inputs/CBRC_F6_BLIND_MINIMAL_RANK_TWO_CONSERVATIVE_CARRIER_PACKET_20260825.md@d0991001455a0a40a50f66ac6c14595448d29f21",
+  "owner_branch": "research/cbrc-f6-minimal-rank-two-conservative-carrier",
+  "phase": "FINAL_FROZEN",
+  "publication_liveness": {
+    "execution_stamp_commit": "a741fe611e62fbf54f9c5462ffb9f4a450f49d86",
+    "remote_stamp_verified_before_math": true,
+    "math_source_read_before_stamp": false
+  },
+  "checkpoints": {
+    "raw_freeze_checkpoint_a_head": "e8903934f01af9fade5979ebf2507b763b6aea50",
+    "checker_checkpoint_b_commit": "e673df1842fd371a66fb827c1f6b8d8a5e02c487",
+    "target_leak_audit_commit": "a0fefb5144fbc7042ba3e118eb81c2d38c60bf51",
+    "countermodel_ablation_final_commit": "82c2e31126786aa022f373c23dc852cd72bb8999",
+    "final_return_commit": "90cab1c155d7e5db5d5a1264a6730f7f669ceb3a"
+  },
+  "primary_verdict": "F6_UNIQUE_MINIMAL_RANK_TWO_CARRIER_AND_UNARY_CLASS",
+  "hard_target": "MINIMAL_RANK_TWO_CONSERVATIVE_CARRIER_AND_UNARY_TRANSPORT_CLASSIFIED",
+  "classification_labels": [
+    "F6_RANK_TWO_ADDITIVE_CARRIER_NORMAL_FORM_CLASSIFIED",
+    "F6_CONSERVATIVE_EXTENSION_NOTIONS_CLASSIFIED",
+    "F6_INHERITED_UNARY_TRANSPORT_LIFTS_CLASSIFIED",
+    "F6_MINIMAL_RANK_TWO_CARRIER_UNARY_CLASSIFIED",
+    "F6_UPSTREAM_RELATIVE_STRUCTURE_PRESERVED"
+  ],
+  "target_leak_audit": "TARGET_LEAK_AUDIT_PASS",
+  "least_carrier": {
+    "normal_form": "Z e ⊕ Z f ⊕ <tau | 3 tau = 0>",
+    "old_projection": "pi(e)=e, pi(f)=0, pi(tau)=0",
+    "extra_torsion_beyond_inherited_tau": false
+  },
+  "unary_classification": {
+    "raw_parameter_solutions": 22,
+    "typed_gauge_equivalence_classes": 6,
+    "unique_minimal_class": true,
+    "minimal_representative_delta_sigma_r_j_s": [1, 1, 0, 0, 0],
+    "minimal_complement_action": "R(f)=J(f)=S(f)=f",
+    "free_quotient_R_action": "FIXED",
+    "free_quotient_J_S_action": "SIGN_ONLY"
+  },
+  "checker": {
+    "path": "scripts/cbrc_f6_validate_minimal_rank_two_conservative_carrier.py",
+    "checkpoint_commit": "e673df1842fd371a66fb827c1f6b8d8a5e02c487",
+    "git_blob_sha1": "be8f34e8d10bd934497439d8fabd231b82480020",
+    "bytes": 17810,
+    "sha256": "682c3ba50ede00bf5cad9ea948e03b8542f1d8a0ded927c2aef34664bd2e9b2a",
+    "stdout_sha256": "1cf4c992156d34f12183d7b160805c332e31b146704d3f0bea96429a8e329e7e",
+    "exit_code": 0,
+    "result": "PASS",
+    "composition_depth": 4,
+    "word_lift_checks": 2662,
+    "upstream_generator_comparisons": 5324,
+    "theorem_model_mismatches": 0
+  },
+  "artifact_sha256": {
+    "evidence/cbrc_f6_execution_stamp.json": "d5f8a06158cae358299ce63e543094921fc39fd00926f1c8ee55bee06e28b459",
+    "research_reports/CBRC_F6_MINIMAL_RANK_TWO_CONSERVATIVE_CARRIER_RETURN_20260825.md": "893bfa9afb1a3ba0b4cc6c0fbf63fafd8f919a67cb1d66007c460882fad01632",
+    "research_reports/CBRC_F6_SOURCE_AND_TARGET_LEAK_AUDIT_20260825.md": "0a20bb808753b962b044997064226af22aea03ca9467f977df3cb2da2c07111a",
+    "research_reports/CBRC_F6_CARRIER_COUNTERMODEL_AND_ABLATION_PACKET_20260825.md": "47c193b78858099a6d080a189bcf65df76d03b0732cf28eb04caf601b6bf1f6e",
+    "scripts/cbrc_f6_validate_minimal_rank_two_conservative_carrier.py": "682c3ba50ede00bf5cad9ea948e03b8542f1d8a0ded927c2aef34664bd2e9b2a"
+  },
+  "clean_tree_status": "N/A_REMOTE_CONTENTS_API_ALL_ARTIFACTS_COMMITTED",
+  "scope_stop": "TWO_SLOT_MIXING_AND_ALL_DOWNSTREAM_SCALAR_RING_NORM_WAVE_CLASSIFICATION_NOT_OPENED",
+  "manifest_self_sha256_policy": "COMPUTE_AND_REPORT_AFTER_MATERIALIZATION"
+}
