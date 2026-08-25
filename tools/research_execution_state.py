@@ -50,6 +50,16 @@ def validate_machine(machine: dict[str, Any]) -> list[str]:
     if initial not in states:
         errors.append(f"initial_state {initial!r} is not declared")
 
+    authority = machine.get("task_authority_contract", {})
+    required_authorities = {
+        "OFFICIAL_TASKBOOK",
+        "DIRECT_USER_TASK",
+        "SCHEDULER_TASK",
+        "DRIVER_DISPATCH_ENVELOPE",
+    }
+    if not required_authorities.issubset(set(authority.get("allowed_authority_kinds", []))):
+        errors.append("task authority contract must cover official/direct/scheduler/Driver-envelope task authority")
+
     allowed = machine.get("allowed_action_classes_by_state")
     if not isinstance(allowed, dict):
         errors.append("allowed_action_classes_by_state must be an object")
@@ -110,6 +120,8 @@ def validate_machine(machine: dict[str, Any]) -> list[str]:
 
     required_regressions = {
         ("UNBOUND", "DISPATCH_AUDIT_PASS", "DISPATCH_READY"),
+        ("UNBOUND", "DIRECT_USER_TASK_AUTHORITY_ACCEPTED", "DISPATCH_READY"),
+        ("UNBOUND", "SCHEDULER_TASK_AUTHORITY_ACCEPTED", "DISPATCH_READY"),
         ("CLAIMED", "IDENTITY_RESOLVED", "IDENTITY_READY"),
         ("IDENTITY_READY", "STARTUP_CLASSIFIED_WITH_PRE_MATH_GATES", "PRE_MATH_GATES_PENDING"),
         ("PRE_MATH_GATES_PENDING", "PRE_MATH_GATES_SATISFIED", "EXECUTION_READY"),
@@ -261,8 +273,43 @@ def audit_taskbook_execution(
         findings.append({
             "severity": "ERROR",
             "code": "EX-PREMATH-UNDECLARED",
-            "message": "taskbook body contains an obvious pre-math directive but frontmatter declares no PRE_MATH execution gate: " + ", ".join(hits),
+            "message": "task authority contains an obvious pre-math directive but declares no PRE_MATH execution gate: " + ", ".join(hits),
         })
+    return findings
+
+
+def audit_execution_spec(
+    spec: dict[str, Any], machine: dict[str, Any], *, authority_body: str = ""
+) -> list[dict[str, str]]:
+    findings: list[dict[str, str]] = []
+    contract = machine["task_authority_contract"]
+    for field in contract["normalized_execution_spec_fields"]:
+        value = spec.get(field)
+        if field == "execution_gates":
+            if not isinstance(value, list):
+                findings.append({
+                    "severity": "ERROR",
+                    "code": "EX-SPEC",
+                    "message": "normalized execution spec requires execution_gates list",
+                })
+        elif not _nonempty(value):
+            findings.append({
+                "severity": "ERROR",
+                "code": "EX-SPEC",
+                "message": f"normalized execution spec missing/nonempty field {field}",
+            })
+    authority_kind = spec.get("authority_kind")
+    if _nonempty(authority_kind) and authority_kind not in contract["allowed_authority_kinds"]:
+        findings.append({
+            "severity": "ERROR",
+            "code": "EX-AUTHORITY-KIND",
+            "message": f"authority_kind must be one of {contract['allowed_authority_kinds']}",
+        })
+    fake_meta = {
+        machine["execution_gate_contract"]["taskbook_policy_field"]: machine["execution_gate_contract"]["taskbook_policy_value"],
+        machine["execution_gate_contract"]["taskbook_gate_field"]: spec.get("execution_gates"),
+    }
+    findings.extend(audit_taskbook_execution(fake_meta, machine, body=authority_body))
     return findings
 
 
@@ -349,7 +396,7 @@ def next_state(machine: dict[str, Any], state: str, event: str, evidence: dict[s
     strict_true = {
         "dispatch_audit_pass",
         "execution_gates_checked_empty_of_pre_math",
-        "action_within_taskbook_whitelist",
+        "action_within_task_scope",
         "return_write_action_guard_pass",
         "execution_gate_ledger_complete",
     }
@@ -386,6 +433,17 @@ def command_audit_taskbook(args: argparse.Namespace) -> int:
     if not path.is_absolute():
         path = ROOT / path
     return _print_findings(audit_taskbook_path(path))
+
+
+def command_audit_spec(args: argparse.Namespace) -> int:
+    try:
+        spec = json.loads(args.spec_json)
+        if not isinstance(spec, dict):
+            raise ValueError("--spec-json must decode to an object")
+        return _print_findings(audit_execution_spec(spec, load_machine(), authority_body=args.authority_body))
+    except (ValueError, json.JSONDecodeError) as exc:
+        print(f"ERROR: {exc}")
+        return 2
 
 
 def command_check_action(args: argparse.Namespace) -> int:
@@ -441,6 +499,11 @@ def main() -> int:
     at = sub.add_parser("audit-taskbook")
     at.add_argument("path")
     at.set_defaults(func=command_audit_taskbook)
+
+    asp = sub.add_parser("audit-spec")
+    asp.add_argument("--spec-json", required=True)
+    asp.add_argument("--authority-body", default="")
+    asp.set_defaults(func=command_audit_spec)
 
     ca = sub.add_parser("check-action")
     ca.add_argument("--state", required=True)
