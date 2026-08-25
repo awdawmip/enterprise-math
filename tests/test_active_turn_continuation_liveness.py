@@ -53,6 +53,7 @@ def test_machine_active_turn_contract_is_current_and_forbids_waiting_for_continu
     assert data["loop_safety"]["max_identical_no_progress_retry_without_transition"] == 0
     assert data["stage_rule"]["stage_terminal_requires_same_turn_successor_gate_evaluation"] is True
     assert data["pre_final_guard"]["evaluator"] == "tools/active_turn_liveness.py"
+    assert data["pre_final_guard"]["required_actions"]["CONTROL_STATE_INCONSISTENT"] == "REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE"
     assert data["forbidden_state"] == "WAITING_FOR_CONTINUE_WHEN_CONTINUE_ADDS_NO_INFORMATION"
 
 
@@ -119,6 +120,7 @@ def test_claimed_safe_work_after_unchanged_recompute_is_inconsistent():
     )
     assert decision["transition"] == liveness.CONTROL_STATE_INCONSISTENT
     assert decision["final_allowed"] is False
+    assert decision["required_action"] == "REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE"
 
 
 def test_platform_limit_allows_final_only_after_safe_work_exhaustion():
@@ -213,6 +215,15 @@ def test_exhaustive_boolean_guard_never_allows_premature_final():
                 base_state(executable_next_actions=0, **overrides)
             )
             assert without_action["final_allowed"] is False
+
+
+def test_every_transition_has_exact_required_action():
+    liveness = load_liveness_helper()
+    assert set(liveness.REQUIRED_ACTIONS) == set(liveness.TRANSITIONS)
+    assert liveness.REQUIRED_ACTIONS[liveness.EXECUTE_NEXT_ACTION] == "EXECUTE_SELECTED_NEXT_ACTION_NOW"
+    assert liveness.REQUIRED_ACTIONS[liveness.SWITCH_STRATEGY] == "TAKE_DIFFERENT_SUPPORTED_ROUTE_NOW"
+    assert liveness.REQUIRED_ACTIONS[liveness.RECOMPUTE_PARENT_STATE] == "RECOMPUTE_PARENT_ROUTING_ONCE"
+    assert liveness.REQUIRED_ACTIONS[liveness.CONTROL_STATE_INCONSISTENT] == "REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE"
 
 
 def test_agents_routes_active_turn_contract_and_remote_silent_is_not_conversation_silent():
