@@ -45,6 +45,38 @@ When the user's instruction semantically means continue/keep going/do not stop/u
 
 Before ending a nonterminal turn, if the parent objective is incomplete and another executable action exists, execute it now.
 
+### Unified runtime gate
+
+Canonical runtime:
+
+- `research_runtime_state_machine.json`;
+- `tools/research_runtime.py`;
+- `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`.
+
+For every nontrivial research/control turn, preserve one coherent runtime view of:
+
+`PARENT_OBJECTIVE -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED`.
+
+Freeze:
+
+`OWNER_LEASE != SESSION_LIVENESS`.
+
+`SESSION_STALE + OWNER_LEASE_ACTIVE -> STALE_RECOVERABLE`.
+
+`SUBFLOW_COMPLETE -> REEVALUATE_PARENT`.
+
+`TASK_FROZEN -> REEVALUATE_PARENT`.
+
+A stale replacement conversation must verify the taskbook source, owner branch, live claim, remote HEAD, execution stamp and durable outputs, then **adopt the existing owner claim** and resume the first unfinished unit. Do not issue a second claim and do not replay already durable work.
+
+The existing scheduler `claim_lease_minutes` / `lease_until` is an **owner-lease** clock only. It does not prove that a conversation is alive. Session liveness uses the runtime's separate short liveness window.
+
+Immediately before any final-channel response, evaluate runtime PRE_FINAL permission. The existing `tools/active_turn_liveness.py` remains the primitive liveness evaluator, but `tools/research_runtime.py` is the canonical orchestrator when a runtime object exists.
+
+`PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FINAL_ALLOWED=false`.
+
+`RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN`.
+
 ## 3. Identity and mandatory final footer
 
 Resolve the visible role identity before substantive work:

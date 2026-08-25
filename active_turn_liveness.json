@@ -2,6 +2,8 @@
   "schema": "ENTERPRISE_MATH_ACTIVE_TURN_LIVENESS_V2",
   "status": "ACTIVE_CANONICAL",
   "effective": "2026-08-25",
+  "runtime_orchestrator": "research_runtime_state_machine.json",
+  "runtime_evaluator": "tools/research_runtime.py",
   "scope": [
     "FREE_AXIOM_DISCOVERY",
     "TASK_RESEARCH",
@@ -30,6 +32,8 @@
   ],
   "pre_final_guard": {
     "evaluator": "tools/active_turn_liveness.py",
+    "primitive_for_runtime": true,
+    "runtime_rule": "When a canonical research runtime object exists, tools/research_runtime.py orchestrates final permission and delegates the liveness decision to this primitive evaluator.",
     "required_for_nontrivial_turn": true,
     "required_inputs": [
       "parent_objective_complete",
@@ -145,5 +149,5 @@
     "REPEATING_IDENTICAL_NO_PROGRESS_ACTION_WITHOUT_STATE_CHANGE"
   ],
   "forbidden_state": "WAITING_FOR_CONTINUE_WHEN_CONTINUE_ADDS_NO_INFORMATION",
-  "enforcement_boundary": "REPOSITORY_CANONICAL_EVALUATOR_AND_REGRESSION_GUARD; PRODUCT_RUNTIME_MUST_INVOKE_OR_REIMPLEMENT_THIS_DECISION_TO_PHYSICALLY_BLOCK_A_FINAL_RESPONSE"
+  "enforcement_boundary": "REPOSITORY_CANONICAL_RUNTIME_ORCHESTRATOR_PLUS_PRIMITIVE_EVALUATOR_AND_REGRESSION_GUARD; PRODUCT_RUNTIME_MUST_INVOKE_OR_REIMPLEMENT_THIS DECISION TO PHYSICALLY BLOCK A FINAL RESPONSE"
 }

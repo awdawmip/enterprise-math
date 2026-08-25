@@ -1,9 +1,21 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_ARCHITECTURE_V2",
   "status": "ACTIVE_CANONICAL_GOVERNANCE_V2_3",
-  "effective": "2026-08-22",
+  "effective": "2026-08-25",
   "driver_id": "EM-DVR-K7Q4N8",
   "purpose": "Separate independent axiom discovery, task execution, Driver portfolio control, Foundation maintenance, persistence and canonical promotion so that no one control surface silently becomes the research agenda.",
+  "runtime_control_plane": {
+    "state_machine": "research_runtime_state_machine.json",
+    "executable": "tools/research_runtime.py",
+    "scope": [
+      "FREE_AXIOM_DISCOVERY",
+      "TASK_RESEARCH",
+      "RESEARCH_DRIVER",
+      "FOUNDATION_STEWARD"
+    ],
+    "canonical_state_stack": "PARENT_OBJECTIVE -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED",
+    "rule": "Role-specific machines retain their local authority, but no local SUBFLOW/TASK terminal, scheduler owner lease, or final-response identity policy may bypass the unified runtime's parent reevaluation, session-liveness/adoption, or PRE_FINAL decision."
+  },
   "core_invariants": [
     "FOUNDATION_IS_STARTING_SUBSTRATE_NOT_DEFAULT_RESEARCH_AGENDA",
     "FOUNDATION_FOR_DISCOVERY_IS_NOT_CATALOG_OF_CURRENT_ACHIEVEMENTS",
@@ -22,6 +34,9 @@
     "RESEARCH_PORTFOLIO_MUST_NOT_COLLAPSE_TO_RECENT_SUCCESS_ROUTE_BY_DEFAULT",
     "READY_PR_IS_NOT_A_PERSISTENT_PROMOTION_LOCK",
     "NO_NEW_MATHEMATICS_GOVERNANCE_MAINTENANCE_MAY_NOT_BE_STARVED_BY_A_READY_L4_CANDIDATE",
+    "OWNER_LEASE_IS_NOT_SESSION_LIVENESS",
+    "TASK_TERMINAL_IS_NOT_PARENT_OBJECTIVE_TERMINAL",
+    "PARENT_OPEN_AND_EXECUTABLE_NEXT_ACTION_FORBIDS_FINAL",
     "CURRENT_MAIN_IS_CANONICAL_TRUTH_ONLY_AFTER_EXISTING_GATES"
   ],
   "research_modes": {
@@ -158,7 +173,11 @@
     "excluded_mode": "FREE_AXIOM_DISCOVERY",
     "static_scheduler_fallback": "REQUIRES_BOUNDED_CURRENT_SCOPE_VALIDATION_BEFORE_CLAIM",
     "scheduler_done_is_truth": false,
-    "scheduler_done_implies_successor": false
+    "scheduler_done_implies_successor": false,
+    "lease_scope": "OWNER_CLAIM_ONLY",
+    "session_liveness_authority": "research_runtime_state_machine.json",
+    "leased_state_without_session_evidence": "VERIFY_SESSION_LIVENESS",
+    "stale_owner_recovery": "ADOPT_EXISTING_OWNER_CLAIM_AFTER_DURABLE_FRONTIER_VERIFICATION"
   },
   "foundation_backflow_boundary": {
     "raw_free_candidate_auto_backflow": false,
@@ -230,6 +249,7 @@
     "research_common_surface_auto_select_when_user_task_absent": "GENERIC_TASK_RESEARCH_BEHAVIOR_ONLY_NOT_FREE_AXIOM_DISCOVERY",
     "generic_AGENTS_scheduler_rule": "DOES_NOT_OVERRIDE_MORE_SPECIFIC_FREE_RESEARCH_ROLE_CONTRACT",
     "general_current_native_foundation_router": "TASK_AND_PHASE_B_LOOKUP; NOT_FREE_PHASE_A_DISCOVERY_INPUT",
-    "generic_ready_l4_lane_wording": "READY_PR_IS_CANDIDATE_STATUS_NOT_AN_INDEFINITE_ATTEMPT_LEASE; GOVERNANCE_MAINTENANCE_FOLLOWS_LATER_NARROW_PROTOCOL"
+    "generic_ready_l4_lane_wording": "READY_PR_IS_CANDIDATE_STATUS_NOT_AN_INDEFINITE_ATTEMPT_LEASE; GOVERNANCE_MAINTENANCE_FOLLOWS_LATER_NARROW_PROTOCOL",
+    "scheduler_skip_live_leases": "OWNER_LEASE_PROTECTION_ONLY; conversation liveness and stale adoption are decided by research_runtime_state_machine.json"
   }
 }

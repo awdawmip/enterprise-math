@@ -1,9 +1,10 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_TASKBOOK_CONTRACT_V6",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-25",
   "authority_source": "research_role_policy.json",
   "research_architecture": "research_architecture.json",
+  "runtime_state_machine": "research_runtime_state_machine.json",
   "identity_state_machine": "research_identity_state_machine.json",
   "final_response_identity_policy": "final_response_identity_policy.json",
   "axiom_candidate_state_machine": "research_axiom_candidate_state_machine.json",
@@ -75,6 +76,23 @@
     "semantic_anti_evasion_rule": "Even without Stage naming, if the parent result is a necessary research premise/motivation and the new task is the next unresolved layer of the same mother route, classify it CONTINUATION. Renaming does not reset lineage.",
     "rule": "PASS or DONE on a parent task is not itself evidence for a successor. A CONTINUATION taskbook is dispatchable only when its successor gate names a genuine new information gap, falsifiable outcomes, a stop rule, and whether an independent/alternative exploration path was considered."
   },
+  "runtime_terminal_contract": {
+    "terminal_scopes": [
+      "SUBFLOW",
+      "TASK",
+      "PARENT_OBJECTIVE"
+    ],
+    "default_taskbook_stop_scope": "TASK",
+    "task_freeze_transition": "TASK_FROZEN -> REEVALUATE_PARENT",
+    "subflow_complete_transition": "SUBFLOW_COMPLETE -> REEVALUATE_PARENT",
+    "rule": "A taskbook may close or freeze its own task without opening an unauthorized successor, but task-local STOP/FREEZE does not silently close the parent user/Driver objective. Parent completion is decided only by the unified runtime and PRE_FINAL gate."
+  },
+  "runtime_lease_contract": {
+    "taskbook_claim_lease_scope": "OWNER_CLAIM",
+    "scheduler_claim_lease_scope": "OWNER_CLAIM",
+    "session_liveness_authority": "research_runtime_state_machine.json",
+    "rule": "Taskbook or scheduler lease minutes may be long and preserve ownership; they never prove that the current conversation is alive and must not replace the runtime session-liveness clock."
+  },
   "optional_metadata": {
     "identity_lane": "compact human-readable lane such as R012, R005C, P017",
     "parent_task_id": "required when task_lineage=CONTINUATION; otherwise normally null",
@@ -101,10 +119,12 @@
     "Taskbook authoring uses tools/research_taskbook.py new, followed by task-local editing, machine audit, Driver review, and an approved policy_review stamp before dispatch.",
     "The policy_review digest is derived from the current policy set. If any policy input changes, a previously stamped taskbook becomes stale and must be re-reviewed before another dispatch.",
     "Task-specific instructions that conflict with inherited policy are forbidden unless recorded as a narrow temporary_overrides entry with conflict_id, scope, reason, replacement_behavior, and expires_when.",
-    "Temporary overrides alter only the named policy behavior for the declared scope and lifetime; they do not silently weaken theorem truth, safety, authorization, ownership, canonical-promotion requirements, candidate maturity, origin provenance, successor-stage requirements, or final-response identity visibility.",
+    "Temporary overrides alter only the named policy behavior for the declared scope and lifetime; they do not silently weaken theorem truth, safety, authorization, ownership, canonical-promotion requirements, candidate maturity, origin provenance, successor-stage requirements, runtime terminal scope, stale-adoption integrity, or final-response permission.",
     "Legacy taskbooks may remain unstamped or lack origin/lineage/footer inheritance as historical artifacts, but any new dispatch of an unstamped/stale legacy taskbook requires current review; newly authored taskbooks must satisfy V6.",
     "Taskbooks never bind a fixed runtime Researcher-ID. For Driver-mediated manual relay, the Driver preallocates one Researcher-ID in a separate dispatch envelope and records it in the relay/handoff. Scheduler CLAIM and direct self-start paths use their own identity bootstrap.",
     "A continuation in the same researcher conversation preserves its existing Researcher-ID; a genuinely new manual dispatch receives a new preallocated Researcher-ID unless explicitly routed to the same conversation.",
+    "A stale replacement conversation under a still-valid owner lease adopts the existing owner claim after durable-frontier verification; it does not manufacture a second Researcher-ID or replay completed units.",
+    "A taskbook STOP/FREEZE is TASK-terminal by default. It prohibits unauthorized task continuation but returns the controlling runtime to the parent objective; only explicit parent completion plus PRE_FINAL permission may terminate the parent turn.",
     "Researcher identity never grants Driver authority or theorem ownership. Driver conversations use Driver-ID, not Researcher-ID, as their visible identity label.",
     "A free-research axiom candidate enters taskbook authoring only after Phase-B audit and Driver intake under research_axiom_candidate_state_machine.json, and its candidate provenance must remain visible in taskbook metadata."
   ],
@@ -118,6 +138,7 @@
     "python tools/research_taskbook.py review <path> --approve",
     "python tools/research_taskbook.py audit <path> --dispatch",
     "for Driver-mediated manual relay, preallocate Researcher-ID with tools/research_identity.py and put it in the dispatch envelope",
-    "dispatch only after taskbook PASS and identity binding"
+    "dispatch only after taskbook PASS and identity binding",
+    "during execution, treat claim lease as OWNER_CLAIM only and route session liveness/terminal scope/final permission through research_runtime_state_machine.json"
   ]
 }
