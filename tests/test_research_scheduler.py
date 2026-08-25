@@ -101,15 +101,16 @@ class SchedulerReducerTests(unittest.TestCase):
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertIsNone(state["claim_id"])
 
-    def test_heartbeat_renews_live_claim(self):
+    def test_heartbeat_keeps_live_session_alive_inside_owner_lease(self):
         item = task()
         events = [
             event("CLAIM", "2026-08-09T12:00:00+08:00", lease_minutes=30),
-            event("HEARTBEAT", "2026-08-09T12:20:00+08:00", lease_minutes=30),
+            event("HEARTBEAT", "2026-08-09T12:05:00+08:00"),
         ]
-        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:40:00+08:00"))
+        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:14:00+08:00"))
         self.assertEqual("CLAIMED", state["state"])
         self.assertEqual("LEASED", state["dispatch_state"])
+        self.assertEqual("LIVE", state["session_state"])
         self.assertEqual("c1", state["claim_id"])
 
     def test_progress_renews_and_updates_frontier_pointer(self):
