@@ -1,6 +1,6 @@
 {
   "schema": "ENTERPRISE_MATH_ACTIVE_TURN_LIVENESS_V1",
-  "revision": 2,
+  "revision": 3,
   "status": "ACTIVE_CANONICAL_CANDIDATE_UPDATE",
   "effective": "2026-08-25",
   "scope": [
@@ -29,7 +29,10 @@
     "STALE_CONVERSATION_IS_NOT_A_WAITING_WORKER",
     "STALE_CONVERSATION_CANNOT_HOLD_THE_PARENT_OBJECTIVE_HOSTAGE",
     "RECOVERY_REBUILDS_FROM_DURABLE_FRONTIER_NOT_CHAT_MEMORY",
-    "TASK_CLAIM_LEASE_IS_AN_UPPER_BOUND_NOT_A_STALE_CONVERSATION_WAIT_PERIOD"
+    "TASK_CLAIM_LEASE_IS_AN_UPPER_BOUND_NOT_A_STALE_CONVERSATION_WAIT_PERIOD",
+    "NEW_EXECUTION_GENERATION_REQUIRES_DURABLE_FRONTIER_RECONCILIATION",
+    "VERIFIED_COMPLETE_WORK_IS_CONSUMED_NOT_REDISPATCHED",
+    "RECOVERABLE_WORK_RESUMES_FROM_ITS_DURABLE_FRONTIER_NOT_FROM_ZERO"
   ],
   "continuation_lease": {
     "activation_semantics": [
@@ -86,6 +89,37 @@
     ],
     "checkpoint_rule": "Do not carry more than one meaningful semantic phase exclusively in conversation-local state. Persist a resume-capable checkpoint at phase boundaries and before relinquishing a task."
   },
+  "pre_execution_frontier_reconciliation": {
+    "required_before": [
+      "NEW_TASK_EXECUTION_IDENTITY",
+      "NEW_OWNER_BRANCH_OR_EXECUTION_STAMP_FOR_EXISTING_TASK",
+      "SCHEDULER_CLAIM",
+      "SCHEDULER_ADOPT",
+      "DIRECT_TASK_REISSUE_OR_RECOVERY"
+    ],
+    "classification": [
+      "VERIFIED_COMPLETE",
+      "IN_PROGRESS_RECOVERABLE",
+      "UNFINISHED",
+      "NEVER_STARTED"
+    ],
+    "protocol": [
+      "Resolve the exact task id, immutable taskbook ref, declared owner branch and expected return/evidence locations before creating a new execution generation.",
+      "Rebuild the durable frontier from repository and control-plane evidence; do not infer predecessor state from chat recency or progress prose.",
+      "If VERIFIED_COMPLETE, consume the frozen return/result and do not create a new execution identity, branch, stamp or mathematical rerun.",
+      "If IN_PROGRESS_RECOVERABLE, resume or ADOPT the same durable frontier and preserve valid evidence; do not restart from zero.",
+      "If UNFINISHED, preserve valid evidence, release/requeue the incomplete execution as needed, and restart only the missing portion.",
+      "If NEVER_STARTED, dispatch normally and create the required execution identity/stamp.",
+      "A fresh clean independent-replication child is created only when the controlling independence protocol explicitly requires a distinct new run; stale recovery by itself is not a new independent replication."
+    ],
+    "freeze": [
+      "BEFORE_REISSUE_RECONCILE_DURABLE_FRONTIER",
+      "VERIFIED_COMPLETE_IMPLIES_CONSUME_NOT_REDISPATCH",
+      "IN_PROGRESS_RECOVERABLE_IMPLIES_TAKEOVER_SAME_DURABLE_FRONTIER",
+      "UNFINISHED_IMPLIES_RESTART_ONLY_MISSING_WORK",
+      "NEVER_STARTED_IMPLIES_NORMAL_DISPATCH"
+    ]
+  },
   "cross_conversation_recovery": {
     "stale_after_minutes_without_verifiable_action": 10,
     "stale_does_not_require_task_claim_lease_expiry": true,
@@ -113,7 +147,7 @@
     }
   },
   "start_and_checkpoint_rule": {
-    "before_substantive_work": "Resolve task/identity and create the earliest supported durable execution stamp or accepted runtime claim before entering a long research phase.",
+    "before_substantive_work": "First perform pre-execution durable-frontier reconciliation for the exact task. Only if the result permits execution, resolve/create the execution identity and earliest supported durable execution stamp or accepted runtime claim before entering a long research phase.",
     "after_material_phase": "Persist changed knowledge/control facts and a concrete next action when the phase has produced reusable evidence.",
     "progress_update": "User-facing progress is observability only; if a durable checkpoint is available, persist it before the update rather than leaving the only frontier in prose."
   },
