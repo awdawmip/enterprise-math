@@ -1,6 +1,10 @@
+import json
+import pathlib
 import unittest
 
 from tools import research_scheduler as rs
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
 
 
 def task():
@@ -45,6 +49,14 @@ class SchedulerSessionLivenessTests(unittest.TestCase):
             session_liveness_minutes=10,
             now=rs.parse_time(now),
         )
+
+    def test_canonical_liveness_overlay_admits_recovery_event_and_state(self):
+        overlay = json.loads((ROOT / "research_scheduler_liveness.json").read_text(encoding="utf-8"))
+        config = overlay["scheduler_config_overlay"]
+        self.assertEqual(10, config["session_liveness_minutes"])
+        self.assertIn("SESSION_ADOPT", config["additional_event_types"])
+        self.assertIn("STALE_RECOVERABLE", config["additional_computed_dispatch_states"])
+        self.assertIn("DORMANT", config["additional_computed_dispatch_states"])
 
     def test_session_can_go_stale_while_owner_claim_remains_live(self):
         state = self.reduce(
