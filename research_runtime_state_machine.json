@@ -10,6 +10,7 @@
     "task_publication_contract": "research_task_publication_contract.json",
     "task_registry": "research_task_registry.json",
     "task_publication_tool": "tools/research_task_registry.py",
+    "registry_cutover_checker": "tools/check_task_registry_cutover.py",
     "scheduler": "research_scheduler.json",
     "scheduler_reducer": "tools/research_scheduler.py",
     "taskbook_contract": "research_taskbook_contract.json",
@@ -19,6 +20,7 @@
   "executable_runtime": "tools/research_runtime.py",
   "repository_tool_paths": [
     "tools/active_turn_liveness.py",
+    "tools/check_task_registry_cutover.py",
     "tools/research_runtime.py",
     "tools/research_task_registry.py"
   ],
@@ -47,6 +49,7 @@
     "ALL_TASK_PUBLISHERS_USE_ONE_PUBLICATION_TEMPLATE",
     "RESEARCHER_TASK_PUBLICATION_IS_ALLOWED_WITHOUT_DRIVER_APPROVAL",
     "TASK_PUBLICATION_DOES_NOT_GRANT_WORKING_TRUTH_OR_PROMOTION",
+    "LEGACY_SCHEDULER_DEFINITION_FILE_IS_FROZEN_FOR_NEW_TASK_PUBLICATION",
     "OWNER_LEASE_IS_NOT_SESSION_LIVENESS",
     "SESSION_STALE_DOES_NOT_IMPLY_OWNER_CLAIM_RELEASE",
     "SESSION_STALE_AND_OWNER_LEASE_ACTIVE_IMPLIES_STALE_RECOVERABLE",
@@ -65,6 +68,7 @@
     "publication_contract": "research_task_publication_contract.json",
     "mandatory_template": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
     "publication_tool": "tools/research_task_registry.py",
+    "cutover_checker": "tools/check_task_registry_cutover.py",
     "allowed_publishers": [
       "RESEARCHER",
       "RESEARCH_DRIVER",
@@ -75,6 +79,8 @@
     "new_task_without_registry_record": "CONTROL_STATE_INCONSISTENT",
     "new_task_claim_without_registry_record": "FORBIDDEN",
     "taskbook_or_handoff_alone_is_registration": false,
+    "legacy_scheduler_file_is_new_task_publication_path": false,
+    "legacy_scheduler_runtime_events_may_continue": true,
     "publication_is_subflow_not_parent_terminal": true,
     "after_publication": "REEVALUATE_PARENT",
     "valuable_residue_capture": "PUBLISH_REGISTERED_TASK_WITH_RESEARCH_VALUE_WITHOUT_SWITCHING_CURRENT_TASK"
@@ -167,17 +173,19 @@
   "dispatch_semantics": {
     "UNREGISTERED_NEW_TASK": "FORBID_DISPATCH_AND_REGISTER_FIRST",
     "REGISTERED_CLAIMABLE_TASK": "ELIGIBLE_FOR_CLAIM",
+    "LEGACY_SCHEDULER_DEFINITION_EDIT": "FORBIDDEN_AS_NEW_TASK_PUBLICATION_PATH",
     "LEASED_AND_SESSION_ACTIVE": "KEEP_CURRENT_SESSION",
     "LEASED_AND_SESSION_STALE_RECOVERABLE": "ADOPT_OWNER_CLAIM",
     "LEASED_AND_SESSION_LIVENESS_UNKNOWN": "VERIFY_SESSION_LIVENESS",
     "NEEDS_DISPATCH": "CLAIM_NEW_OWNER",
-    "rule": "Task registration controls whether work exists as an executable task. Owner lease controls who owns it. Session liveness controls whether the current conversation is alive. These controls must not be collapsed."
+    "rule": "Task registration controls whether work exists as an executable task. Owner lease controls who owns it. Session liveness controls whether the current conversation is alive. Legacy scheduler definitions are frozen at cutover; only its runtime event surface remains live."
   },
   "required_end_to_end_regressions": [
     "NEW_TASK_WITHOUT_REGISTRY_RECORD_CANNOT_EXECUTE",
     "RESEARCHER_CAN_PUBLISH_REGISTERED_CLAIMABLE_TASK_WITHOUT_DRIVER_APPROVAL",
     "FREE_RESEARCH_RAW_CANDIDATE_CANNOT_PUBLISH_TASK",
     "CURRENT_POLICY_PASS_TASK_WITHOUT_REGISTRY_RECORD_FAILS_ORPHAN_AUDIT",
+    "LEGACY_SCHEDULER_DEFINITION_DRIFT_FAILS_CUTOVER_AUDIT",
     "TASK_PUBLICATION_DOES_NOT_GRANT_WORKING_TRUTH_OR_PROMOTION",
     "TOOL_SUCCESS_AND_PARENT_OPEN_AND_NEXT_ACTION_EXISTS_REJECTS_FINAL",
     "SUBFLOW_COMPLETE_CLEARS_LOCAL_FRONTIER_AND_REEVALUATES_PARENT",
@@ -191,6 +199,8 @@
   ],
   "compatibility": {
     "research_scheduler_v1_supported": true,
+    "legacy_scheduler_definition_file_frozen": true,
+    "legacy_scheduler_runtime_events_supported": true,
     "legacy_scheduler_lease_until_interpretation": "OWNER_LEASE_ONLY",
     "legacy_task_baseline": "EXISTING_EXECUTION_MAY_CONTINUE; FRESH_REDISPATCH_REQUIRES_REGISTRY_RECORD",
     "active_turn_liveness_v2_remains_the_pre_final_primitive": true,
