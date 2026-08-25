@@ -49,7 +49,7 @@ Before ending a nonterminal turn, if the parent objective is incomplete and anot
 
 The continuation contract is enforced by the deterministic runtime guard:
 
-`tools/research_runtime.py::pre_final_gate`.
+`src/enterprise_math/research_runtime.py::pre_final_gate`.
 
 Immediately before **every final-channel response** in an active Enterprise Math task, classify the current parent state with that gate (or behavior exactly equivalent to it). If `final_allowed=false`, do **not** emit a final response; perform the returned `required_transition` instead.
 
