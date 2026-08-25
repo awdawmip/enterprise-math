@@ -211,7 +211,9 @@ def _pre_v2_runtime_ids(config: dict[str, Any], events: list[dict[str, Any]]) ->
     cutoff = parse_time(config["effective_at"])
     out: set[str] = set()
     for event in events:
-        if event.get("schema") != V1_SCHEMA or not isinstance(event.get("task_id"), str):
+        # Historical Scheduler V1 comments predate mandatory schema tagging.
+        # Treat a missing schema as V1 only before the V2 cutover.
+        if event.get("schema") not in (None, V1_SCHEMA) or not isinstance(event.get("task_id"), str):
             continue
         try:
             at = event_time(event)
@@ -432,6 +434,8 @@ def validate_scheduler(
 def release_claim_identity(state: dict[str, Any]) -> None:
     if state.get("execution_id"):
         state["last_execution_id"] = state["execution_id"]
+    if state.get("researcher_id"):
+        state["last_researcher_id"] = state["researcher_id"]
     state["execution_id"] = None
     state["researcher_id"] = None
     state["actor"] = None
@@ -452,6 +456,8 @@ def state_from_task(task: dict[str, Any]) -> dict[str, Any]:
         "actor": None,
         "execution_id": None,
         "researcher_id": None,
+        "last_researcher_id": None,
+        "identity_source": None,
         "last_execution_id": None,
         "lease_until": None,
         "review_claim_id": None,
@@ -534,6 +540,15 @@ def _event_execution_id(event: dict[str, Any], task: dict[str, Any], claim_id: s
     return None
 
 
+def _event_identity_source(event: dict[str, Any]) -> str | None:
+    for field in ("execution_id", "researcher_id", "driver_id", "actor_id"):
+        if valid_execution_id(event.get(field)):
+            return "EVENT"
+    if event.get("actor_role") == "RESEARCHER":
+        return "AUTO_CLAIM_DERIVED"
+    return None
+
+
 def _driver_for_event(event: dict[str, Any]) -> str | None:
     for field in ("driver_id", "reviewer_id", "actor_id"):
         value = event.get(field)
@@ -589,17 +604,30 @@ def _handle_v1_event(
         if not isinstance(claim_id, str) or not claim_id:
             ignore(state, index, "legacy CLAIM requires claim_id")
             return
-        execution_id = event.get("researcher_id")
-        if execution_id is not None and not valid_execution_id(execution_id):
+        supplied_researcher_id = event.get("researcher_id")
+        if supplied_researcher_id is not None and not valid_execution_id(supplied_researcher_id):
             ignore(state, index, "legacy CLAIM researcher_id invalid")
             return
-        execution_id = str(execution_id).strip().upper() if execution_id else researcher_id_for_claim(task, claim_id)
+        execution_id = (
+            str(supplied_researcher_id).strip().upper()
+            if supplied_researcher_id
+            else researcher_id_for_claim(task, claim_id)
+        )
         try:
             duration = lease_duration(event, default_lease_minutes)
         except SchedulerError as exc:
             ignore(state, index, str(exc))
             return
-        state.update({"state": "CLAIMED", "claim_id": claim_id, "actor": event.get("actor"), "execution_id": execution_id, "researcher_id": execution_id, "lease_until": at + duration})
+        state.update({
+            "state": "CLAIMED",
+            "claim_id": claim_id,
+            "actor": event.get("actor"),
+            "execution_id": execution_id,
+            "researcher_id": execution_id,
+            "last_researcher_id": execution_id,
+            "identity_source": "EVENT" if supplied_researcher_id is not None else "AUTO_CLAIM_DERIVED",
+            "lease_until": at + duration,
+        })
         return
     if kind in {"HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "DONE"} and not _claim_matches(state, event):
         ignore(state, index, f"legacy {kind} requires current live claim")
@@ -688,7 +716,9 @@ def reduce_task(
         expire_claim(state, at)
         expire_review_claim(state, at)
         schema = event.get("schema")
-        if schema == V1_SCHEMA:
+        # Historical V1 comments may have no explicit schema. They remain valid
+        # only before the V2 cutover; schema-less post-cutover writes are rejected.
+        if schema in (None, V1_SCHEMA):
             if at >= cutoff:
                 ignore(state, index, "V1 event schema retired at V2 cutover")
                 continue
@@ -804,7 +834,18 @@ def reduce_task(
             except SchedulerError as exc:
                 ignore(state, index, str(exc))
                 continue
-            state.update({"state": "CLAIMED", "claim_id": claim_id, "actor": event.get("actor"), "execution_id": execution_id, "researcher_id": execution_id if not execution_id.startswith("EM-DVR-") else None, "lease_until": at + duration})
+            researcher_id = execution_id if not valid_driver_id(execution_id) else None
+            state.update({
+                "state": "CLAIMED",
+                "claim_id": claim_id,
+                "actor": event.get("actor"),
+                "execution_id": execution_id,
+                "researcher_id": researcher_id,
+                "identity_source": _event_identity_source(event),
+                "lease_until": at + duration,
+            })
+            if researcher_id:
+                state["last_researcher_id"] = researcher_id
             continue
 
         if kind == "ADOPT":
@@ -824,7 +865,18 @@ def reduce_task(
             except SchedulerError as exc:
                 ignore(state, index, str(exc))
                 continue
-            state.update({"state": "CLAIMED", "claim_id": claim_id, "actor": event.get("actor"), "execution_id": execution_id, "researcher_id": execution_id if not execution_id.startswith("EM-DVR-") else None, "lease_until": at + duration})
+            researcher_id = execution_id if not valid_driver_id(execution_id) else None
+            state.update({
+                "state": "CLAIMED",
+                "claim_id": claim_id,
+                "actor": event.get("actor"),
+                "execution_id": execution_id,
+                "researcher_id": researcher_id,
+                "identity_source": _event_identity_source(event),
+                "lease_until": at + duration,
+            })
+            if researcher_id:
+                state["last_researcher_id"] = researcher_id
             state["orphan_records"].append({"reason": "ADOPTED", "at": event["at"], "adopted_by": execution_id, "recovery_ref": event["recovery_ref"]})
             continue
 
@@ -973,7 +1025,10 @@ def reduce_task(
                     duration = timedelta(minutes=default_lease)
                 state["claim_id"] = claim_id
                 state["execution_id"] = str(execution_id).strip().upper()
-                state["researcher_id"] = state["execution_id"] if not state["execution_id"].startswith("EM-DVR-") else None
+                state["researcher_id"] = state["execution_id"] if not valid_driver_id(state["execution_id"]) else None
+                if state["researcher_id"]:
+                    state["last_researcher_id"] = state["researcher_id"]
+                state["identity_source"] = "EVENT"
                 state["actor"] = event.get("actor")
                 state["lease_until"] = at + duration
             elif target == "RETURN_REVIEW":

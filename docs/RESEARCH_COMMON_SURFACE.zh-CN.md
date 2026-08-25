@@ -10,7 +10,7 @@
 开展实质性的 L1/L2/L3 研究前：
 
 1. 阅读本文件与 `research_common_surface.json`；
-2. 阅读 `docs/RESEARCH_SCHEDULING_PROTOCOL.*`、`research_scheduler.json` 与实时 Dispatch Board Issue #240；
+2. 阅读 `docs/RESEARCH_SCHEDULING_PROTOCOL.*`、`research_scheduler.json`、`research_control_state_machine.json`、`docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md` 与实时 Dispatch Board Issue #240；
 3. 阅读 `docs/RESEARCH_OWNER_ISOLATION.*`；
 4. 阅读 `docs/PROBLEM_STATUS.*` 及相关 canonical theorem/result 文档；
 5. 阅读 Research Relay Issue #82 中最新且相关的条目；
@@ -40,9 +40,10 @@ source/test module 进入 `main` 不会自动把其所有数学或物理解释�
 - canonical `docs/Pxxx_*.{en,zh-CN}.md`：现代 theorem 的精确陈述与假设；
 - `EnterpriseMath.lean` 及其 import 的 `EnterpriseMath/**.lean`：root Lean-checked 子集；
 - `research_common_surface.json`：机器可读 theorem/tool/formalization router；
+- `research_control_state_machine.json` + `docs/RESEARCH_CONTROL_STATE_MACHINE.md`：跨层研究控制组合、角色与 profile 守卫；
 - Research Relay Issue #82：跨路线 WIP、负向边界与 canonical consumption 通知；
 - Foundation Problem Set Issue #164：已验证但尚未解决的底层问题；
-- `research_scheduler.json` + Issue #240：仅用于 dispatch/lease/handoff。
+- `research_scheduler.json` + Issue #240：task-runtime dispatch/lease/handoff 事件源。普通 registry/materialization 应从 `tools/research_control.py registry --events ...` 进入，使 cross-layer guard 先于 Scheduler reducer 执行。
 
 ## 4. 共享数学归属面
 
@@ -349,9 +350,13 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 - `tools/check_bilingual_pairs.py`
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
+- `tools/research_control.py`
 - `tools/research_identity.py`
 - `tools/research_scheduler.py`
+- `tools/research_scheduler_event.py`
 - `tools/research_taskbook.py`
+
+普通 Scheduler V2 操作中，`tools/research_scheduler_event.py` 用于生成符合新守卫的事件；`tools/research_control.py registry --events ...` 是安全的 registry/materialization 入口，会先验证版本化 cross-layer APPROVE/REVIEW 约束，再调用 canonical Scheduler reducer。直接使用 `tools/research_scheduler.py registry ...` 仅保留给底层 reducer/debug 场景。
 
 `tools/check_research_common_surface.py` 只做机械检查：registered path 存在性、root-Lean imports 精确一致、repository-tool membership 精确一致、active-FQ 集合一致、active-alert 有效性。它不证明数学，也不判断语义复用价值。
 

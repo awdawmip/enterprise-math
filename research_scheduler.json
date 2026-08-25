@@ -9,69 +9,114 @@
   "taskbook_root": "research_tasks",
   "claim_lease_minutes": 1440,
   "review_lease_minutes": 240,
+  "conversation_stale_minutes": 10,
   "direct_done_allowed": false,
   "agent_quickstart": "docs/RESEARCH_SCHEDULER_V2_QUICKSTART.md",
+  "cross_layer_control": "research_control_state_machine.json",
+  "cross_layer_validator": "tools/research_control.py",
+  "authority": {
+    "explicit_user_task_overrides_auto_dispatch": true,
+    "runtime_claim_log": "GitHub Issue #240",
+    "owner_registry": "branch_governance_overrides.json",
+    "problem_status": "docs/PROBLEM_STATUS.en.md",
+    "common_surface": "docs/RESEARCH_COMMON_SURFACE.en.md",
+    "research_relay_issue": 82,
+    "foundation_problem_issue": 164,
+    "foundation_backflow_router": "foundation_backflow.json",
+    "task_definition_authority": "materialized V2 registry = legacy static registry + discovered taskbooks + V2 publish/migrate events",
+    "note": "Scheduler state coordinates work; it does not promote mathematical truth, canonical status, or parent-objective completion."
+  },
   "generic_intents": {
     "researcher_claim": ["领任务", "领取任务", "claim task", "get task"],
     "driver_review_claim": ["领审核", "领取审核", "claim review", "get review"],
     "free_or_researcher_publish": ["发布任务建议", "发布任务", "publish task proposal"],
-    "orphan_recovery": ["领孤儿任务", "领取孤儿任务", "adopt orphan task"]
+    "orphan_recovery": ["领孤儿任务", "领取孤儿任务", "adopt orphan task"],
+    "stale_conversation_recovery": ["接管卡住的对话", "恢复卡住的任务", "take over stale conversation", "recover stalled task"]
   },
   "generic_intent_actions": {
-    "researcher_claim": "materialize registry -> select highest NEEDS_DISPATCH -> CLAIM -> start",
+    "researcher_claim": "materialize registry -> select highest NEEDS_DISPATCH -> reconcile durable frontier for exact task -> only NEVER_STARTED may emit CLAIM(frontier_class=NEVER_STARTED, frontier_ref=...) -> start",
     "driver_review_claim": "materialize registry -> select highest eligible NEEDS_REVIEW excluding self-review -> REVIEW_CLAIM -> start review",
     "free_or_researcher_publish": "emit PUBLISH -> REVIEW_PENDING; never READY without cross-Driver approval",
-    "orphan_recovery": "inspect highest-priority ORPHAN_RECOVERY -> ADOPT with recovery_ref -> resume"
+    "orphan_recovery": "inspect highest-priority ORPHAN_RECOVERY -> rebuild durable frontier -> ADOPT only IN_PROGRESS_RECOVERABLE/UNFINISHED with recovery_ref -> resume",
+    "stale_conversation_recovery": "rebuild durable frontier -> classify predecessor -> Driver/SYSTEM ORPHAN live claim if stale threshold met -> ADOPT recoverable/unfinished work or consume completed result -> continue parent objective"
   },
-  "task_states": [
-    "DRAFT", "REVIEW_PENDING", "READY", "CLAIMED", "IN_PROGRESS",
-    "HANDOFF_READY", "RETURN_REVIEW", "ORPHANED", "BLOCKED", "BACKLOG",
-    "DONE", "REJECTED", "SUPERSEDED"
-  ],
-  "computed_dispatch_states": [
-    "NEEDS_REVIEW", "NEEDS_DISPATCH", "LEASED", "REVIEW_LEASED",
-    "ORPHAN_RECOVERY", "BLOCKED", "COMPLETE", "DORMANT"
-  ],
-  "event_types": [
-    "PUBLISH", "REVIEW_CLAIM", "REVIEW_HEARTBEAT", "REVIEW_HANDOFF",
-    "APPROVE", "REJECT", "CLAIM", "ADOPT", "HEARTBEAT", "PROGRESS",
-    "HANDOFF", "SUBMIT", "REVIEW", "ORPHAN", "HARD_BLOCK", "UNBLOCK",
-    "MIGRATE", "SUPERSEDE"
-  ],
+  "task_states": ["DRAFT", "REVIEW_PENDING", "READY", "CLAIMED", "IN_PROGRESS", "HANDOFF_READY", "RETURN_REVIEW", "ORPHANED", "BLOCKED", "BACKLOG", "DONE", "REJECTED", "SUPERSEDED"],
+  "computed_dispatch_states": ["NEEDS_REVIEW", "NEEDS_DISPATCH", "LEASED", "REVIEW_LEASED", "ORPHAN_RECOVERY", "BLOCKED", "COMPLETE", "DORMANT"],
+  "event_types": ["PUBLISH", "REVIEW_CLAIM", "REVIEW_HEARTBEAT", "REVIEW_HANDOFF", "APPROVE", "REJECT", "CLAIM", "ADOPT", "HEARTBEAT", "PROGRESS", "HANDOFF", "SUBMIT", "REVIEW", "ORPHAN", "HARD_BLOCK", "UNBLOCK", "MIGRATE", "SUPERSEDE"],
   "publication_contract": {
     "all_tasks_must_register": true,
     "free_researcher_may_publish_pending": true,
     "publish_state": "REVIEW_PENDING",
     "publish_does_not_make_working_truth": true,
     "publish_does_not_make_task_dispatchable": true,
-    "cross_driver_approval_required_before_ready": true
+    "cross_driver_approval_required_before_ready": true,
+    "approve_must_bind_taskbook_content_gate": true,
+    "approve_required_evidence": ["taskbook_audit=PASS", "policy_digest=sha256:...", "immutable taskbook_ref", "review_ref"]
   },
   "review_contract": {
     "cross_driver_required": true,
     "publisher_self_review_forbidden": true,
     "submitter_self_review_forbidden": true,
     "review_claim_required": true,
-    "verdicts": [
-      "ACCEPT", "ACCEPT_WITH_NARROWING", "RETURN_TO_RESEARCH",
-      "REQUEST_INDEPENDENT_REPLICATION", "ROUTE_TO_FOUNDATION",
-      "PROMOTION_READY", "PARK", "REJECT"
-    ],
-    "truth_boundary": "A scheduler review verdict routes work; it does not by itself promote theorem truth or canonical source."
+    "verdicts": ["ACCEPT", "ACCEPT_WITH_NARROWING", "RETURN_TO_RESEARCH", "ROUTE_TO_FOUNDATION", "PROMOTION_READY", "REQUEST_INDEPENDENT_REPLICATION", "PARK", "REJECT"],
+    "cross_layer_required_fields": ["evidence_class", "method_harvest", "route_disposition", "review_ref"],
+    "independent_replication": "PARK parent + OPEN_INDEPENDENT_REPLICATION_CHILD; never same-task HANDOFF_READY",
+    "truth_boundary": "A scheduler review verdict routes work; it does not by itself promote theorem truth, complete the parent user objective, or canonicalize source.",
+    "new_event_forbidden_after_cross_layer_effective_at": ["REQUEST_INDEPENDENT_REPLICATION"],
+    "historical_replay_rule": "Pre-cross-layer events retain their original Scheduler V2 semantics; new cross-layer guards are not retroactively applied."
+  },
+  "foundation_link_contract": {
+    "router": "foundation_backflow.json",
+    "research_fq_must_link_to_kind": "RESEARCH",
+    "research_task_must_explicitly_declare_question": true,
+    "research_task_question_field": "foundation_questions",
+    "static_link_validation_sources": ["legacy_static_registry", "structured taskbooks"],
+    "runtime_execution_authority": "GitHub Issue #240 V2 events",
+    "question_status_authority": "GitHub Issue #164",
+    "live_claim_scope_must_not_be_reinterpreted": true,
+    "steward_verification_or_integration_must_link_to_kind": "GOVERNANCE"
+  },
+  "pre_execution_reconciliation_contract": {
+    "source_of_policy": "active_turn_liveness.json",
+    "effective_at": "2026-08-25T12:00:00+08:00",
+    "required_before_new_execution_generation": true,
+    "classes": ["VERIFIED_COMPLETE", "IN_PROGRESS_RECOVERABLE", "UNFINISHED", "NEVER_STARTED"],
+    "claim_requires": ["frontier_class=NEVER_STARTED", "frontier_ref to durable reconciliation evidence"],
+    "adopt_requires": ["frontier_class in IN_PROGRESS_RECOVERABLE/UNFINISHED", "recovery_ref to durable frontier"],
+    "verified_complete_action": "consume durable result; do not CLAIM, ADOPT, create a new execution identity, or rerun mathematics",
+    "direct_task_rule": "taskbook/direct execution uses the same durable-frontier reconciliation before a new branch/stamp/identity even when Issue #240 is not the immediate execution transport"
   },
   "orphan_contract": {
     "lease_expiry_state": "ORPHANED",
     "unregistered_taskbook_state": "ORPHANED",
-    "durable_fields": [
-      "task_id", "reason", "orphaned_at", "claim_id", "execution_id",
-      "actor", "last_progress_ref", "next_action", "recovery_ref"
-    ],
+    "durable_fields": ["task_id", "reason", "orphaned_at", "claim_id", "execution_id", "actor", "last_progress_ref", "next_action", "recovery_ref"],
     "recovery_event": "ADOPT",
     "silent_abandonment_forbidden": true
+  },
+  "conversation_recovery_contract": {
+    "source_of_policy": "active_turn_liveness.json",
+    "stale_after_minutes_without_verifiable_action": 10,
+    "ordinary_claim_lease_minutes": 1440,
+    "lease_relationship": "The 24-hour claim lease is a duplicate-dispatch ownership ceiling, not a requirement to wait for a stale chat. Evidenced conversation staleness may release the claim early.",
+    "stale_preempts_unexpired_claim_lease": true,
+    "stale_release_authority": ["RESEARCH_DRIVER", "SYSTEM"],
+    "stale_release_event": "ORPHAN",
+    "stale_release_reason": "STALE_CONVERSATION_NO_VERIFIABLE_ACTION_10M",
+    "stale_release_requires": ["evidence_ref or recovery_ref to durable-frontier reconstruction", "no new verifiable action for at least 10 minutes"],
+    "resume_event": "ADOPT",
+    "resume_requires": ["fresh execution identity", "fresh claim_id", "recovery_ref to durable frontier", "frontier_class in IN_PROGRESS_RECOVERABLE/UNFINISHED"],
+    "recovery_classes": ["VERIFIED_COMPLETE", "IN_PROGRESS_RECOVERABLE", "UNFINISHED", "NEVER_STARTED"],
+    "verified_complete_action": "do not orphan/re-execute completed work; consume the durable return/review/result",
+    "in_progress_recoverable_action": "release stale live claim if necessary, ADOPT from durable frontier, continue only remaining work",
+    "unfinished_action": "preserve valid evidence, orphan/requeue incomplete execution, restart only missing portion",
+    "never_started_action": "release stale assignment and dispatch normally",
+    "chat_claims_are_not_recovery_authority": true
   },
   "migration_contract": {
     "event": "MIGRATE",
     "authority": "RESEARCH_DRIVER",
-    "purpose": "One-time explicit import of pre-V2 external/live task state; never a substitute for normal V2 publication/review after cutover."
+    "purpose": "One-time explicit import of pre-V2 or cutover-concurrent external/live task state; never a substitute for normal V2 publication/review after cutover.",
+    "post_cutover_legacy_taskbooks": "discover as ORPHANED first, then reconcile explicitly with MIGRATE/ADOPT/SUPERSEDE so no live task disappears during control-plane cutover"
   },
   "selection_policy": {
     "eligible_task_states": ["HANDOFF_READY", "READY"],
@@ -85,13 +130,28 @@
     "TASK_ARTIFACT_EXISTS -> TASK_ID_VISIBLE_IN_REGISTRY_OR_ORPHAN_LEDGER",
     "FREE_RESEARCHER_PUBLISH -> REVIEW_PENDING_NOT_READY",
     "PUBLISHER_CANNOT_APPROVE_OWN_TASK",
+    "APPROVE_BINDS_TASKBOOK_POLICY_AUDIT_AND_DIGEST",
     "EXECUTOR_CANNOT_REVIEW_OWN_RETURN",
     "V2_DIRECT_DONE_FORBIDDEN",
     "SUBMIT -> RETURN_REVIEW -> CROSS_DRIVER_REVIEW -> DONE_OR_RETURN",
+    "RETURN_REVIEW_BINDS_EVIDENCE_CLASS_METHOD_HARVEST_AND_ROUTE_DISPOSITION",
+    "NEW_INDEPENDENT_REPLICATION_AFTER_CROSS_LAYER_CUTOVER_IS_DISTINCT_CHILD_TASK_NOT_SAME_TASK_HANDOFF",
     "CLAIM_LEASE_EXPIRY -> ORPHANED_WITH_DURABLE_RECORD",
     "ORPHANED -> ADOPT_REQUIRED_BEFORE_EXECUTION",
+    "BEFORE_NEW_EXECUTION_GENERATION -> RECONCILE_DURABLE_FRONTIER",
+    "VERIFIED_COMPLETE -> CONSUME_NOT_REDISPATCH",
+    "CLAIM_AFTER_INTAKE -> FRONTIER_CLASS_NEVER_STARTED",
+    "ADOPT_AFTER_INTAKE -> FRONTIER_CLASS_RECOVERABLE_OR_UNFINISHED",
+    "EVIDENCED_10_MIN_STALE_CONVERSATION -> DRIVER_OR_SYSTEM_MAY_ORPHAN_BEFORE_CLAIM_LEASE_EXPIRY",
+    "STALE_CONVERSATION_RECOVERY -> DURABLE_FRONTIER -> CLASSIFY -> ORPHAN_IF_NEEDED -> ADOPT_OR_CONSUME_COMPLETE",
+    "PROGRESS_PROSE_ALONE != VERIFIED_LIVENESS",
+    "24H_TASK_LEASE != 24H_WAIT_FOR_STALE_CHAT",
     "V1_EVENTS_ARE_HISTORY_ONLY_AFTER_EFFECTIVE_AT",
     "SCHEDULER_DONE != THEOREM_TRUTH",
-    "REVIEW_DONE != CANONICAL_MAIN"
-  ]
+    "SCHEDULER_DONE != PARENT_USER_OBJECTIVE_COMPLETE",
+    "REVIEW_DONE != CANONICAL_MAIN",
+    "FOUNDATION_STATIC_LINKS_RESOLVE_IN_LEGACY_OR_TASKBOOK_REGISTRY_DURING_V2_CUTOVER",
+    "PARENT_OPEN_AND_NEXT_ACTION_EXISTS -> CONTINUE_IN_SAME_TURN_OR_RECOVERING_CONVERSATION"
+  ],
+  "cross_layer_effective_at": "2026-08-25T10:50:39+08:00"
 }

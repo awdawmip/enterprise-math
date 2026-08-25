@@ -6,6 +6,11 @@ is true or whether a Python module is mathematically reusable. It enforces
 objective synchronization of the Common Research Surface, the mathematical
 Toolbox Registry, and the static research-to-Foundation control-plane links.
 Live FQ and lease state remain on GitHub Issues #164 and #240.
+
+Scheduler V2 no longer stores the complete task registry inline. Static
+Foundation links therefore resolve against the same durable definition layers
+used by V2 before runtime events: the legacy static registry during cutover plus
+structured taskbooks. Runtime execution remains on Issue #240.
 """
 
 from __future__ import annotations
@@ -35,6 +40,8 @@ ROLE_TO_KIND = {
     "STEWARD_VERIFICATION": "GOVERNANCE",
     "INTEGRATION": "GOVERNANCE",
 }
+TASKBOOK_PREFIX = "<!-- ENTERPRISE_MATH_TASK_V1\n"
+TASKBOOK_SUFFIX = "\n-->"
 
 
 def _load_json(path: Path) -> dict:
@@ -116,6 +123,60 @@ def _require_human_visibility(label: str, entries: Iterable[str], text: str) -> 
         raise AssertionError(f"{label} missing shared-surface entries: {missing}")
 
 
+def _taskbook_metadata(text: str) -> dict[str, Any] | None:
+    if not text.startswith(TASKBOOK_PREFIX):
+        return None
+    end = text.find(TASKBOOK_SUFFIX, len(TASKBOOK_PREFIX))
+    if end < 0:
+        return None
+    try:
+        value = json.loads(text[len(TASKBOOK_PREFIX):end])
+    except json.JSONDecodeError:
+        return None
+    return value if isinstance(value, dict) else None
+
+
+def _static_scheduler_tasks(scheduler: dict[str, Any]) -> list[dict[str, Any]]:
+    """Resolve durable task definitions without depending on live Issue events.
+
+    V1 carried tasks inline. V2 materializes from the frozen V1 registry,
+    structured taskbooks, and runtime events. Static Foundation routing cannot
+    depend on an ephemeral event-only proposal, so this checker uses the first
+    two durable layers and mirrors V2 precedence: legacy definitions win when a
+    task id exists in both layers; new taskbook ids extend the registry.
+    """
+    if scheduler.get("schema") == "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V1":
+        return [task for task in scheduler.get("tasks", []) if isinstance(task, dict)]
+
+    by_id: dict[str, dict[str, Any]] = {}
+    legacy_rel = scheduler.get("legacy_static_registry")
+    if isinstance(legacy_rel, str) and legacy_rel:
+        legacy_path = ROOT / legacy_rel
+        if not legacy_path.exists():
+            raise AssertionError(f"Scheduler V2 legacy_static_registry missing: {legacy_rel}")
+        legacy = _load_json(legacy_path)
+        if legacy.get("schema") != "ENTERPRISE_MATH_RESEARCH_SCHEDULER_V1":
+            raise AssertionError("Scheduler V2 legacy_static_registry must use V1 schema")
+        for task in legacy.get("tasks", []):
+            if isinstance(task, dict) and isinstance(task.get("task_id"), str):
+                by_id[task["task_id"]] = task
+
+    task_root = ROOT / str(scheduler.get("taskbook_root", "research_tasks"))
+    if task_root.exists():
+        for path in sorted(task_root.glob("*.md")):
+            try:
+                meta = _taskbook_metadata(path.read_text(encoding="utf-8"))
+            except OSError:
+                continue
+            if not isinstance(meta, dict):
+                continue
+            task_id = meta.get("task_id")
+            if isinstance(task_id, str) and task_id and task_id not in by_id:
+                by_id[task_id] = meta
+
+    return list(by_id.values())
+
+
 def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> list[str]:
     """Validate the static #82/#164/#240 backflow-to-scheduler routing contract."""
     errors: list[str] = []
@@ -172,7 +233,12 @@ def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> li
     if question_field != "foundation_questions":
         errors.append("research_task_question_field must be 'foundation_questions'")
 
-    task_by_id = {task.get("task_id"): task for task in scheduler.get("tasks", [])}
+    try:
+        durable_tasks = _static_scheduler_tasks(scheduler)
+    except (AssertionError, OSError, json.JSONDecodeError) as exc:
+        errors.append(str(exc))
+        durable_tasks = []
+    task_by_id = {task.get("task_id"): task for task in durable_tasks}
     seen_questions: set[str] = set()
     active_links = backflow.get("question_scheduler_links", [])
     for index, link in enumerate(active_links):
@@ -188,7 +254,7 @@ def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> li
         task_id = link.get("scheduler_task_id")
         task = task_by_id.get(task_id)
         if task is None:
-            errors.append(f"{prefix}: unknown scheduler task {task_id!r}")
+            errors.append(f"{prefix}: unknown durable scheduler task {task_id!r}")
             continue
 
         role = link.get("scheduler_role")
@@ -308,7 +374,8 @@ def check() -> None:
             f"{sorted(alerts - active)}"
         )
 
-    # 5. Foundation backflow links are static control-plane contracts.
+    # 5. Foundation backflow links are static durable-definition contracts.
+    # V2 runtime leases/reviews remain on Issue #240 and are not reinterpreted here.
     backflow_errors = validate_backflow(backflow, scheduler)
     if backflow_errors:
         raise AssertionError("foundation backflow drift: " + "; ".join(backflow_errors))

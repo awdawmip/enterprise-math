@@ -1,13 +1,15 @@
 {
   "schema": "ENTERPRISE_MATH_ACTIVE_TURN_LIVENESS_V1",
-  "status": "ACTIVE_CANONICAL",
-  "effective": "2026-08-22",
+  "revision": 3,
+  "status": "ACTIVE_CANONICAL_CANDIDATE_UPDATE",
+  "effective": "2026-08-25",
   "scope": [
     "FREE_AXIOM_DISCOVERY",
     "TASK_RESEARCH",
     "RESEARCH_DRIVER",
     "FOUNDATION_STEWARD",
-    "REMOTE_AND_PUBLICATION_SUBFLOWS"
+    "REMOTE_AND_PUBLICATION_SUBFLOWS",
+    "CROSS_CONVERSATION_RECOVERY"
   ],
   "execution_stack": [
     "PARENT_USER_OBJECTIVE",
@@ -22,7 +24,15 @@
     "CHECKPOINT_PERSISTED_IMPLIES_RESUME_PARENT_TASK",
     "PENDING_NONBLOCKING_IMPLIES_CONTINUE_PARENT_TASK",
     "LOCAL_ROUTE_CLOSURE_DOES_NOT_CLOSE_PARENT_GOAL",
-    "USER_WAKEUP_MESSAGE_MUST_NOT_BE_REQUIRED_WHEN_IT_ADDS_NO_INFORMATION"
+    "USER_WAKEUP_MESSAGE_MUST_NOT_BE_REQUIRED_WHEN_IT_ADDS_NO_INFORMATION",
+    "PROGRESS_PROSE_DOES_NOT_REFRESH_VERIFIED_LIVENESS",
+    "STALE_CONVERSATION_IS_NOT_A_WAITING_WORKER",
+    "STALE_CONVERSATION_CANNOT_HOLD_THE_PARENT_OBJECTIVE_HOSTAGE",
+    "RECOVERY_REBUILDS_FROM_DURABLE_FRONTIER_NOT_CHAT_MEMORY",
+    "TASK_CLAIM_LEASE_IS_AN_UPPER_BOUND_NOT_A_STALE_CONVERSATION_WAIT_PERIOD",
+    "NEW_EXECUTION_GENERATION_REQUIRES_DURABLE_FRONTIER_RECONCILIATION",
+    "VERIFIED_COMPLETE_WORK_IS_CONSUMED_NOT_REDISPATCHED",
+    "RECOVERABLE_WORK_RESUMES_FROM_ITS_DURABLE_FRONTIER_NOT_FROM_ZERO"
   ],
   "continuation_lease": {
     "activation_semantics": [
@@ -41,8 +51,105 @@
       "SEMANTIC_CHECKPOINT",
       "JOURNAL_WRITE",
       "PR_OR_BRANCH_SUBFLOW",
-      "PUBLICATION_SUBFLOW"
+      "PUBLICATION_SUBFLOW",
+      "CONVERSATION_STALL_OR_REPLACEMENT"
     ]
+  },
+  "verifiable_action_contract": {
+    "refreshes_liveness": [
+      "new tool or compute result that materially advances the objective",
+      "new durable branch/commit/PR/issue-comment/taskbook/return/checker evidence",
+      "validated control-state transition",
+      "resume-capable checkpoint with a concrete next action"
+    ],
+    "does_not_refresh_liveness": [
+      "progress prose alone",
+      "promise to continue",
+      "passive waiting",
+      "repeating an earlier result",
+      "unverified claim that another conversation is still working"
+    ]
+  },
+  "durable_frontier_contract": {
+    "definition": "The newest externally verifiable state sufficient for another conversation to resume without trusting stale chat claims.",
+    "preferred_sources": [
+      "owner branch and commit SHA",
+      "taskbook path@immutable source SHA",
+      "research_return or frozen evidence artifact",
+      "pull request state and changed files",
+      "Scheduler Issue #240 accepted event",
+      "execution stamp or semantic checkpoint",
+      "persisted checker/build/test result with its source ref"
+    ],
+    "forbidden_as_sole_source": [
+      "assistant progress message",
+      "conversation-local scratch reasoning",
+      "uncommitted local edits",
+      "statement that work is happening elsewhere"
+    ],
+    "checkpoint_rule": "Do not carry more than one meaningful semantic phase exclusively in conversation-local state. Persist a resume-capable checkpoint at phase boundaries and before relinquishing a task."
+  },
+  "pre_execution_frontier_reconciliation": {
+    "required_before": [
+      "NEW_TASK_EXECUTION_IDENTITY",
+      "NEW_OWNER_BRANCH_OR_EXECUTION_STAMP_FOR_EXISTING_TASK",
+      "SCHEDULER_CLAIM",
+      "SCHEDULER_ADOPT",
+      "DIRECT_TASK_REISSUE_OR_RECOVERY"
+    ],
+    "classification": [
+      "VERIFIED_COMPLETE",
+      "IN_PROGRESS_RECOVERABLE",
+      "UNFINISHED",
+      "NEVER_STARTED"
+    ],
+    "protocol": [
+      "Resolve the exact task id, immutable taskbook ref, declared owner branch and expected return/evidence locations before creating a new execution generation.",
+      "Rebuild the durable frontier from repository and control-plane evidence; do not infer predecessor state from chat recency or progress prose.",
+      "If VERIFIED_COMPLETE, consume the frozen return/result and do not create a new execution identity, branch, stamp or mathematical rerun.",
+      "If IN_PROGRESS_RECOVERABLE, resume or ADOPT the same durable frontier and preserve valid evidence; do not restart from zero.",
+      "If UNFINISHED, preserve valid evidence, release/requeue the incomplete execution as needed, and restart only the missing portion.",
+      "If NEVER_STARTED, dispatch normally and create the required execution identity/stamp.",
+      "A fresh clean independent-replication child is created only when the controlling independence protocol explicitly requires a distinct new run; stale recovery by itself is not a new independent replication."
+    ],
+    "freeze": [
+      "BEFORE_REISSUE_RECONCILE_DURABLE_FRONTIER",
+      "VERIFIED_COMPLETE_IMPLIES_CONSUME_NOT_REDISPATCH",
+      "IN_PROGRESS_RECOVERABLE_IMPLIES_TAKEOVER_SAME_DURABLE_FRONTIER",
+      "UNFINISHED_IMPLIES_RESTART_ONLY_MISSING_WORK",
+      "NEVER_STARTED_IMPLIES_NORMAL_DISPATCH"
+    ]
+  },
+  "cross_conversation_recovery": {
+    "stale_after_minutes_without_verifiable_action": 10,
+    "stale_does_not_require_task_claim_lease_expiry": true,
+    "classification": [
+      "VERIFIED_COMPLETE",
+      "IN_PROGRESS_RECOVERABLE",
+      "UNFINISHED",
+      "NEVER_STARTED"
+    ],
+    "protocol": [
+      "Detect that the predecessor conversation has produced no new verifiable action for the stale threshold.",
+      "Do not wait for or interrogate the predecessor conversation as an execution authority.",
+      "Rebuild the durable frontier from repository and control-plane evidence.",
+      "Classify the predecessor as VERIFIED_COMPLETE, IN_PROGRESS_RECOVERABLE, UNFINISHED, or NEVER_STARTED.",
+      "If VERIFIED_COMPLETE, consume the durable result and do not repeat the work.",
+      "If IN_PROGRESS_RECOVERABLE, persist a takeover/recovery ref, use Driver or SYSTEM ORPHAN authority when a live Scheduler claim must be released, then ADOPT or otherwise resume from the same durable frontier.",
+      "If UNFINISHED, preserve valid evidence, explicitly orphan/requeue the incomplete execution, and restart only the missing portion.",
+      "If NEVER_STARTED, release the stale assignment and dispatch normally.",
+      "Continue the parent objective in the recovering conversation; never ask the user to keep another conversation alive."
+    ],
+    "scheduler_bridge": {
+      "live_claim_preemption": "A Driver or SYSTEM may emit ORPHAN with reason=STALE_CONVERSATION_NO_VERIFIABLE_ACTION_10M and an evidence/recovery ref even when the ordinary task claim lease has not expired.",
+      "recovery": "ADOPT requires a fresh execution identity/claim plus recovery_ref pointing to the reconstructed durable frontier.",
+      "ordinary_claim_lease": "The long task claim lease protects ownership against accidental duplicate dispatch; it must not be interpreted as permission to wait on a stale chat for its full duration."
+    }
+  },
+  "start_and_checkpoint_rule": {
+    "before_substantive_work": "First perform pre-execution durable-frontier reconciliation for the exact task. Only if the result permits execution, resolve/create the execution identity and earliest supported durable execution stamp or accepted runtime claim before entering a long research phase.",
+    "after_material_phase": "Persist changed knowledge/control facts and a concrete next action when the phase has produced reusable evidence.",
+    "progress_update": "User-facing progress is observability only; if a durable checkpoint is available, persist it before the update rather than leaving the only frontier in prose."
   },
   "nonterminal_boundaries": [
     "TOOL_SUCCESS",
@@ -55,7 +162,8 @@
     "DRIVER_VERDICT",
     "PROGRESS_UPDATE",
     "PUBLICATION_COMPLETE",
-    "LOCAL_SOFT_BLOCK_WITH_INDEPENDENT_WORK_AVAILABLE"
+    "LOCAL_SOFT_BLOCK_WITH_INDEPENDENT_WORK_AVAILABLE",
+    "RECOVERABLE_PREDECESSOR_CONVERSATION_STALL"
   ],
   "stage_rule": {
     "pass_is_not_successor_trigger": true,
@@ -68,7 +176,8 @@
     "ci_pending_nonblocking": "CONTINUE_PARENT_TASK",
     "checkpoint_persisted": "RESUME_PARENT_TASK",
     "tool_result_received": "RESUME_PARENT_TASK",
-    "supported_alternative_after_tool_failure": "TAKE_ALTERNATIVE_WITHOUT_USER_WAKEUP_UNLESS_AUTHORIZATION_OR_SAFETY_REQUIRES_INPUT"
+    "supported_alternative_after_tool_failure": "TAKE_ALTERNATIVE_WITHOUT_USER_WAKEUP_UNLESS_AUTHORIZATION_OR_SAFETY_REQUIRES_INPUT",
+    "other_conversation_apparently_running": "NOT_A_BLOCKER_AFTER_STALE_THRESHOLD; RECOVER_FROM_DURABLE_FRONTIER"
   },
   "terminal_conditions": [
     "PARENT_USER_OBJECTIVE_COMPLETE",
@@ -77,5 +186,5 @@
     "PLATFORM_OR_TOOL_LIMIT_MAKES_FURTHER_ACTION_IMPOSSIBLE_THIS_TURN"
   ],
   "before_terminal_block": "EXHAUST_INDEPENDENT_AND_DOWNSTREAM_SAFE_WORK_AND_RETURN_STRONGEST_CURRENT_RESULT",
-  "forbidden_state": "WAITING_FOR_CONTINUE_WHEN_CONTINUE_ADDS_NO_INFORMATION"
+  "forbidden_state": "WAITING_FOR_CONTINUE_OR_WAITING_FOR_ANOTHER_CONVERSATION_WHEN_RECOVERY_OR_CONTINUATION_ADDS_NO_REQUIRED_USER_INFORMATION"
 }
