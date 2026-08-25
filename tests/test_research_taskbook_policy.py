@@ -220,7 +220,10 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         path = self.write_task(root)
-        (root / "research_execution_state_machine.json").write_text("{}")
+        machine_path = root / "research_execution_state_machine.json"
+        machine = json.loads(machine_path.read_text())
+        machine["test_revision_marker"] = "changed"
+        machine_path.write_text(json.dumps(machine))
         self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
     def test_remote_directive_requires_explicit_override(self):
