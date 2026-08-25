@@ -331,6 +331,7 @@ All routes must remember:
 - `EnterpriseMath/Precision/CompositionSafeCollapse.lean`
 - `EnterpriseMath/Precision/QuotientBasin.lean`
 - `EnterpriseMath/Precision/QuotientCoalescence.lean`
+- `EnterpriseMath/PrimeFusion.lean`
 - `EnterpriseMath/Quotient/OperationCongruence.lean`
 - `EnterpriseMath/Quotient/PowerFreeActionBasis.lean`
 - `EnterpriseMath/Quotient/RootAdjacentBoundary.lean`
