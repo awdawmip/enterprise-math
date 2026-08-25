@@ -29,9 +29,10 @@ class ControlStateTests(unittest.TestCase):
     def test_spec_covers_current_control_classes(self):
         self.assertEqual([], rc.validate_spec(SPEC))
 
-    def test_scheduler_config_forbids_same_task_replication_verdict(self):
+    def test_scheduler_config_preserves_legacy_replay_but_forbids_new_same_task_replication(self):
         cfg=json.loads((ROOT / "research_scheduler.json").read_text())
-        self.assertNotIn("REQUEST_INDEPENDENT_REPLICATION", cfg["review_contract"]["verdicts"])
+        self.assertIn("REQUEST_INDEPENDENT_REPLICATION", cfg["review_contract"]["verdicts"])
+        self.assertIn("REQUEST_INDEPENDENT_REPLICATION", cfg["review_contract"]["new_event_forbidden_after_cross_layer_effective_at"])
         self.assertEqual("research_control_state_machine.json", cfg["cross_layer_control"])
 
     def test_prime_fusion_f1_formalization(self):
@@ -118,10 +119,21 @@ class ControlStateTests(unittest.TestCase):
         self.assertEqual([], rc.validate_events([ev],SPEC))
 
     def test_approve_event_requires_content_gate_binding(self):
-        bad={"schema":rc.V2_SCHEMA,"event":"APPROVE","task_id":"RS-X","taskbook_ref":"x@abcdef1","review_ref":"r@abcdef2"}
+        bad={"schema":rc.V2_SCHEMA,"event":"APPROVE","task_id":"RS-X","at":"2026-08-25T11:00:00+08:00","taskbook_ref":"x@abcdef1","review_ref":"r@abcdef2"}
         self.assertEqual(2,len(rc.validate_events([bad],SPEC)))
         good=dict(bad,taskbook_audit="PASS",policy_digest="sha256:abc")
         self.assertEqual([],rc.validate_events([good],SPEC))
+
+    def test_pre_cutover_approve_replays_without_new_fields(self):
+        legacy={"schema":rc.V2_SCHEMA,"event":"APPROVE","task_id":"RS-X","at":"2026-08-25T10:00:00+08:00","taskbook_ref":"x@abcdef1","review_ref":"r@abcdef2"}
+        self.assertEqual([],rc.validate_events([legacy],SPEC))
+
+    def test_pre_cutover_same_task_replication_replays_but_post_cutover_fails(self):
+        base_ev={"schema":rc.V2_SCHEMA,"event":"REVIEW","task_id":"RS-X","verdict":"REQUEST_INDEPENDENT_REPLICATION","review_ref":"r@abcdef1"}
+        legacy=dict(base_ev,at="2026-08-25T10:00:00+08:00")
+        current=dict(base_ev,at="2026-08-25T11:00:00+08:00",method_harvest="NO_TOOL_PAYLOAD",evidence_class="SOURCE_ONLY",route_disposition="PARK")
+        self.assertEqual([],rc.validate_events([legacy],SPEC))
+        self.assertTrue(any("forbidden" in e for e in rc.validate_events([current],SPEC)))
 
 
 if __name__ == "__main__": unittest.main()
