@@ -17,15 +17,15 @@ theorem mixed_rootIdempotent_eq_channelIdempotent {p q : ℕ} {x : MixedCarrier 
     rw [rootIdempotent_eq_polynomial]
     have hsq := gaussian_root_sq hx.1
     calc
-      x.1 ^ 3 + x.1 ^ 2 + x.1 + 1 =
-          x.1 * (-1) + (-1) + x.1 + 1 := by rw [hsq]; ring
+      x.1 ^ 3 + x.1 ^ 2 + x.1 + 1 = x.1 * x.1 ^ 2 + x.1 ^ 2 + x.1 + 1 := by ring
+      _ = x.1 * (-1) + (-1) + x.1 + 1 := by rw [hsq]
       _ = 0 := by ring
   · change rootIdempotent x.2 = (1 : ZMod q)
     rw [rootIdempotent_eq_polynomial]
     have h3 := eisenstein_root_pow_three hx.2
     calc
-      x.2 ^ 3 + x.2 ^ 2 + x.2 + 1 =
-          1 + (x.2 ^ 2 + x.2 + 1) := by ring
+      x.2 ^ 3 + x.2 ^ 2 + x.2 + 1 = 1 + x.2 ^ 2 + x.2 + 1 := by rw [h3]
+      _ = 1 + (x.2 ^ 2 + x.2 + 1) := by ring
       _ = 1 := by rw [hx.2]; ring
 
 /-- T6/T11 cross-link in the source form: the sixth power is `2e-1`, where `e`
