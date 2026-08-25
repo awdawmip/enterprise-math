@@ -152,7 +152,7 @@ class SchedulerReducerTests(unittest.TestCase):
             event("CLAIM", "2026-08-09T12:00:00+08:00"),
             event("HARD_BLOCK", "2026-08-09T12:05:00+08:00", hard_block={"missing_object": "lemma"}),
         ]
-        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:10:00+08:00"))
+        state = rs.reduce_task(item, events, default_lease_minutes=30, now=self.now("2026-08-09T12:09:00+08:00"))
         self.assertEqual("CLAIMED", state["state"])
         self.assertEqual("LEASED", state["dispatch_state"])
         self.assertTrue(state["ignored_events"])
