@@ -8,6 +8,11 @@ objects in GitHub comment order to JSON/JSONL and pass them with --events.
 This tool deliberately does not decide mathematical truth or canonical status.
 Research identity is runtime provenance: CLAIMs automatically resolve a stable
 Researcher-ID even when legacy callers do not supply one explicitly.
+
+Owner/resource ownership and conversation/session liveness are intentionally
+separate.  A stale session does not release the owner claim; it becomes
+STALE_RECOVERABLE and may be adopted by a replacement conversation using the
+same claim after durable-frontier reconciliation.
 """
 
 from __future__ import annotations
@@ -32,6 +37,7 @@ DEPENDENCY_ACTIONS = {"INFORM", "CONSUME", "TEST", "HARD_DEPENDENCY"}
 RESEARCHER_ID_RE = re.compile(r"^EM-[A-Z0-9]+-(?:[0-9]{2}|[A-Z0-9]{4,8})$")
 TASK_LANE_RE = re.compile(r"^RS-((?:R|P)\d{3}[A-Z]?)\b")
 LANE_RE = re.compile(r"[^A-Z0-9]+")
+DEFAULT_SESSION_LIVENESS_MINUTES = 10
 
 
 class SchedulerError(ValueError):
@@ -110,6 +116,15 @@ def validate_scheduler(config: dict[str, Any], owners: dict[str, Any]) -> list[s
         errors.append("scheduler task_states are incomplete")
     if not {"CLAIM", "HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "UNBLOCK", "DONE", "SUPERSEDE"} <= event_types:
         errors.append("scheduler event_types are incomplete")
+
+    session_minutes = config.get("session_liveness_minutes", DEFAULT_SESSION_LIVENESS_MINUTES)
+    if not isinstance(session_minutes, int) or session_minutes <= 0:
+        errors.append("session_liveness_minutes must be a positive integer when present")
+    claim_minutes = config.get("claim_lease_minutes", 120)
+    if not isinstance(claim_minutes, int) or claim_minutes <= 0:
+        errors.append("claim_lease_minutes must be a positive integer")
+    elif isinstance(session_minutes, int) and session_minutes >= claim_minutes:
+        errors.append("session_liveness_minutes must be shorter than claim_lease_minutes")
 
     owner_entries = owners.get("branches", {})
     active_owners = {
@@ -216,6 +231,13 @@ def lease_duration(event: dict[str, Any], default_minutes: int) -> timedelta:
     return timedelta(minutes=minutes)
 
 
+def session_duration(event: dict[str, Any], default_minutes: int) -> timedelta:
+    minutes = event.get("session_liveness_minutes", default_minutes)
+    if not isinstance(minutes, int) or minutes <= 0:
+        raise SchedulerError("session_liveness_minutes must be a positive integer")
+    return timedelta(minutes=minutes)
+
+
 def event_time(event: dict[str, Any]) -> datetime:
     value = event.get("at")
     if not isinstance(value, str) or not value:
@@ -232,7 +254,13 @@ def state_from_task(task: dict[str, Any]) -> dict[str, Any]:
         "researcher_id": None,
         "last_researcher_id": None,
         "identity_source": None,
-        "lease_until": None,
+        "owner_lease_until": None,
+        "session_lease_until": None,
+        "session_state": "NONE",
+        "last_session_activity_at": None,
+        "last_session_adopt_at": None,
+        "last_recovery_ref": None,
+        "current_unfinished_unit": None,
         "hard_block": copy.deepcopy(task.get("hard_block")),
         "last_progress_ref": task.get("last_progress_ref"),
         "last_progress_at": task.get("last_progress_at"),
@@ -241,18 +269,66 @@ def state_from_task(task: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def expire_claim(state: dict[str, Any], at: datetime) -> None:
-    lease_until = state.get("lease_until")
+def release_claim(state: dict[str, Any]) -> None:
+    state["claim_id"] = None
+    state["actor"] = None
+    release_claim_identity(state)
+    state["owner_lease_until"] = None
+    state["session_lease_until"] = None
+    state["session_state"] = "NONE"
+
+
+def expire_owner_claim(state: dict[str, Any], at: datetime) -> None:
+    lease_until = state.get("owner_lease_until")
     if state.get("claim_id") and isinstance(lease_until, datetime) and at >= lease_until:
         state["state"] = "HANDOFF_READY"
-        state["claim_id"] = None
-        state["actor"] = None
-        release_claim_identity(state)
-        state["lease_until"] = None
+        release_claim(state)
+
+
+def refresh_session_state(state: dict[str, Any], at: datetime) -> None:
+    if not state.get("claim_id"):
+        state["session_state"] = "NONE"
+        return
+    session_until = state.get("session_lease_until")
+    if isinstance(session_until, datetime) and at >= session_until:
+        state["session_state"] = "STALE"
+    else:
+        state["session_state"] = "LIVE"
+
+
+def touch_session(
+    state: dict[str, Any],
+    *,
+    at: datetime,
+    at_text: str,
+    default_session_minutes: int,
+    event: dict[str, Any],
+) -> None:
+    state["session_lease_until"] = at + session_duration(event, default_session_minutes)
+    state["session_state"] = "LIVE"
+    state["last_session_activity_at"] = at_text
+
+
+def renew_owner(
+    state: dict[str, Any],
+    *,
+    at: datetime,
+    default_lease_minutes: int,
+    event: dict[str, Any],
+) -> None:
+    state["owner_lease_until"] = at + lease_duration(event, default_lease_minutes)
 
 
 def ignore(state: dict[str, Any], index: int, reason: str) -> None:
     state["ignored_events"].append({"index": index, "reason": reason})
+
+
+def _event_actor_matches(state: dict[str, Any], event: dict[str, Any]) -> bool:
+    event_actor = event.get("actor")
+    current_actor = state.get("actor")
+    if event_actor is None or current_actor is None:
+        return True
+    return event_actor == current_actor
 
 
 def reduce_task(
@@ -261,6 +337,7 @@ def reduce_task(
     *,
     default_lease_minutes: int,
     now: datetime,
+    session_liveness_minutes: int = DEFAULT_SESSION_LIVENESS_MINUTES,
 ) -> dict[str, Any]:
     state = state_from_task(task)
     matching = [event for event in events if event.get("task_id") == task["task_id"]]
@@ -279,7 +356,8 @@ def reduce_task(
             ignore(state, index, "events must be supplied in GitHub comment order / nondecreasing event time")
             continue
         last_event_time = at
-        expire_claim(state, at)
+        expire_owner_claim(state, at)
+        refresh_session_state(state, at)
 
         kind = event.get("event")
         claim_id = event.get("claim_id")
@@ -302,9 +380,19 @@ def reduce_task(
                 else researcher_id_for_claim(task, claim_id)
             )
             try:
-                duration = lease_duration(event, default_lease_minutes)
+                renew_owner(state, at=at, default_lease_minutes=default_lease_minutes, event=event)
+                touch_session(
+                    state,
+                    at=at,
+                    at_text=event["at"],
+                    default_session_minutes=session_liveness_minutes,
+                    event=event,
+                )
             except SchedulerError as exc:
                 ignore(state, index, str(exc))
+                state["owner_lease_until"] = None
+                state["session_lease_until"] = None
+                state["session_state"] = "NONE"
                 continue
             state["state"] = "CLAIMED"
             state["claim_id"] = claim_id
@@ -312,10 +400,10 @@ def reduce_task(
             state["researcher_id"] = researcher_id
             state["last_researcher_id"] = researcher_id
             state["identity_source"] = "EVENT" if supplied_researcher_id is not None else "AUTO_CLAIM_DERIVED"
-            state["lease_until"] = at + duration
             continue
 
-        if kind in {"HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "DONE"}:
+        claim_scoped = {"HEARTBEAT", "PROGRESS", "SESSION_ADOPT", "HANDOFF", "HARD_BLOCK", "DONE"}
+        if kind in claim_scoped:
             if not live_claim or claim_id != live_claim:
                 ignore(state, index, f"{kind} requires the current live claim_id")
                 continue
@@ -327,17 +415,36 @@ def reduce_task(
                 if event_researcher_id.strip().upper() != state.get("researcher_id"):
                     ignore(state, index, f"{kind} researcher_id does not match live claim identity")
                     continue
+            if kind != "SESSION_ADOPT" and not _event_actor_matches(state, event):
+                ignore(state, index, f"{kind} actor does not match current session actor")
+                continue
 
         if kind == "HEARTBEAT":
+            if state.get("session_state") == "STALE":
+                ignore(state, index, "stale session requires SESSION_ADOPT or durable PROGRESS")
+                continue
             try:
-                state["lease_until"] = at + lease_duration(event, default_lease_minutes)
+                touch_session(
+                    state,
+                    at=at,
+                    at_text=event["at"],
+                    default_session_minutes=session_liveness_minutes,
+                    event=event,
+                )
             except SchedulerError as exc:
                 ignore(state, index, str(exc))
             continue
 
         if kind == "PROGRESS":
             try:
-                state["lease_until"] = at + lease_duration(event, default_lease_minutes)
+                renew_owner(state, at=at, default_lease_minutes=default_lease_minutes, event=event)
+                touch_session(
+                    state,
+                    at=at,
+                    at_text=event["at"],
+                    default_session_minutes=session_liveness_minutes,
+                    event=event,
+                )
             except SchedulerError as exc:
                 ignore(state, index, str(exc))
                 continue
@@ -347,6 +454,43 @@ def reduce_task(
             state["last_progress_at"] = event["at"]
             if event.get("next_action"):
                 state["next_action"] = event["next_action"]
+            continue
+
+        if kind == "SESSION_ADOPT":
+            if state.get("session_state") != "STALE":
+                ignore(state, index, "SESSION_ADOPT requires a stale session on a still-live owner claim")
+                continue
+            actor = event.get("actor")
+            recovery_ref = event.get("recovery_ref")
+            unfinished_unit = event.get("unfinished_unit")
+            next_action = event.get("next_action")
+            required = {
+                "actor": actor,
+                "recovery_ref": recovery_ref,
+                "unfinished_unit": unfinished_unit,
+                "next_action": next_action,
+            }
+            if not all(isinstance(value, str) and value.strip() for value in required.values()):
+                ignore(state, index, "SESSION_ADOPT requires actor, recovery_ref, unfinished_unit, and next_action")
+                continue
+            try:
+                renew_owner(state, at=at, default_lease_minutes=default_lease_minutes, event=event)
+                touch_session(
+                    state,
+                    at=at,
+                    at_text=event["at"],
+                    default_session_minutes=session_liveness_minutes,
+                    event=event,
+                )
+            except SchedulerError as exc:
+                ignore(state, index, str(exc))
+                continue
+            state["state"] = "IN_PROGRESS"
+            state["actor"] = actor
+            state["last_session_adopt_at"] = event["at"]
+            state["last_recovery_ref"] = recovery_ref
+            state["current_unfinished_unit"] = unfinished_unit
+            state["next_action"] = next_action
             continue
 
         if kind == "HANDOFF":
@@ -359,10 +503,7 @@ def reduce_task(
                 state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]
             state["next_action"] = next_action
-            state["claim_id"] = None
-            state["actor"] = None
-            release_claim_identity(state)
-            state["lease_until"] = None
+            release_claim(state)
             continue
 
         if kind == "HARD_BLOCK":
@@ -375,10 +516,7 @@ def reduce_task(
             state["last_progress_at"] = event["at"]
             if event.get("progress_ref"):
                 state["last_progress_ref"] = event["progress_ref"]
-            state["claim_id"] = None
-            state["actor"] = None
-            release_claim_identity(state)
-            state["lease_until"] = None
+            release_claim(state)
             continue
 
         if kind == "UNBLOCK":
@@ -397,18 +535,12 @@ def reduce_task(
             if event.get("progress_ref"):
                 state["last_progress_ref"] = event["progress_ref"]
             state["last_progress_at"] = event["at"]
-            state["claim_id"] = None
-            state["actor"] = None
-            release_claim_identity(state)
-            state["lease_until"] = None
+            release_claim(state)
             continue
 
         if kind == "SUPERSEDE":
             state["state"] = "SUPERSEDED"
-            state["claim_id"] = None
-            state["actor"] = None
-            release_claim_identity(state)
-            state["lease_until"] = None
+            release_claim(state)
             state["last_progress_at"] = event["at"]
             if event.get("next_action"):
                 state["next_action"] = event["next_action"]
@@ -416,13 +548,23 @@ def reduce_task(
 
         ignore(state, index, f"unknown event type: {kind!r}")
 
-    expire_claim(state, now)
-    state["lease_until"] = state["lease_until"].isoformat() if isinstance(state.get("lease_until"), datetime) else None
+    expire_owner_claim(state, now)
+    refresh_session_state(state, now)
+
+    owner_lease_until = state.get("owner_lease_until")
+    session_lease_until = state.get("session_lease_until")
+    state["owner_lease_until"] = owner_lease_until.isoformat() if isinstance(owner_lease_until, datetime) else None
+    state["session_lease_until"] = session_lease_until.isoformat() if isinstance(session_lease_until, datetime) else None
+    # Compatibility alias for callers that previously interpreted lease_until as
+    # the only lease.  It now explicitly mirrors the owner/resource lease.
+    state["lease_until"] = state["owner_lease_until"]
 
     if state["state"] in {"DONE", "SUPERSEDED"}:
         state["dispatch_state"] = "COMPLETE"
     elif state["state"] == "BLOCKED" and complete_hard_block(state.get("hard_block")):
         state["dispatch_state"] = "BLOCKED"
+    elif state.get("claim_id") and state.get("session_state") == "STALE":
+        state["dispatch_state"] = "STALE_RECOVERABLE"
     elif state.get("claim_id"):
         state["dispatch_state"] = "LEASED"
     elif state["state"] in {"READY", "HANDOFF_READY"}:
@@ -434,9 +576,16 @@ def reduce_task(
 
 def effective_states(config: dict[str, Any], events: list[dict[str, Any]], now: datetime) -> list[dict[str, Any]]:
     default_lease = int(config.get("claim_lease_minutes", 120))
+    session_liveness = int(config.get("session_liveness_minutes", DEFAULT_SESSION_LIVENESS_MINUTES))
     results = []
     for task in config.get("tasks", []):
-        reduced = reduce_task(task, events, default_lease_minutes=default_lease, now=now)
+        reduced = reduce_task(
+            task,
+            events,
+            default_lease_minutes=default_lease,
+            now=now,
+            session_liveness_minutes=session_liveness,
+        )
         reduced.update({
             "title": task.get("title"),
             "kind": task.get("kind"),
