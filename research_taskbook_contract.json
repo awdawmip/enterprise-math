@@ -10,6 +10,13 @@
   "authoring_protocol": "docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md",
   "authoring_tool": "tools/research_taskbook.py",
   "policy_set": "research_taskbook_policy.json",
+  "terminal_scope_contract": {
+    "taskbook_stop_default_scope": "TASK",
+    "task_freeze_or_stop_transition": "TASK_TERMINAL -> RETURN_CONTROL_TO_PARENT_OBJECTIVE",
+    "task_terminal_is_parent_terminal": false,
+    "parent_terminal_authority": "Only the active parent user objective/control loop may classify PARENT_OBJECTIVE terminal after re-evaluation.",
+    "rule": "A taskbook instruction such as freeze/stop/do-not-open-next-stage terminates that task's execution authority; it does not silently terminate the Driver portfolio or parent user objective."
+  },
   "new_dispatchable_taskbook_required_metadata": {
     "created_by_role": "RESEARCH_DRIVER",
     "task_authority": "DRIVER_APPROVED",
@@ -93,6 +100,7 @@
   "manual_dispatch_identity_helper": "python tools/research_identity.py allocate --task <TASK> --role RESEARCHER --lane <LANE> --dispatch-id <UNIQUE_DISPATCH_ID>",
   "rules": [
     "A taskbook defines task-specific work, not a particular conversation instance and not a copy of repository operating policy.",
+    "Taskbook-local freeze/stop/do-not-open-next-stage language is TASK-scoped by default. After that task freezes, control returns to the parent objective/Driver loop for re-evaluation; TASK terminal must never be silently promoted to PARENT_OBJECTIVE terminal.",
     "Every newly authored or re-reviewed dispatchable taskbook carries final_response_identity_policy=INHERIT_GLOBAL so a strict taskbook-only execution packet still exposes the existence of the mandatory final-output identity contract without copying its template text into the mathematical body.",
     "Every newly authored taskbook declares task origin and task lineage. A free-candidate origin preserves audited candidate provenance; a continuation preserves parent/successor provenance.",
     "CONTINUATION requires parent_task_id and a complete successor_gate; stage numbering or parent PASS is never a substitute for the gate.",
