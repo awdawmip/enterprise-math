@@ -2,7 +2,7 @@
   "schema": "PRIME_FUSION_PUBLICATION_REVIEW_MANIFEST_V1",
   "status": "FROZEN_PUBLICATION_REVIEW_MANIFEST",
   "date": "2026-08-25",
-  "researcher_id": "EM-PFPUB-7C3E91",
+  "researcher_id": "EM-PFPUB-9D1ACE",
   "task_id": "GS-PRIME-FUSION-PUBLICATION-ATTRIBUTION-AND-CLAIM-REVIEW",
   "taskbook": {
     "path": "research_tasks/PRIME_FUSION_PUBLICATION_ATTRIBUTION_AND_CLAIM_REVIEW_20260825.md",
@@ -10,6 +10,36 @@
     "git_blob_sha": "a2c65d45fe7a1d53739569f8ac1df209462320b2"
   },
   "owner_branch": "review/prime-fusion-publication-attribution",
+  "metadata_correction": {
+    "type": "RUNTIME_IDENTITY_METADATA_CORRECTION",
+    "controlling_driver_review": {
+      "path": "driver_reviews/PRIME_FUSION_PUBLICATION_ATTRIBUTION_AND_CLAIM_REVIEW_DRIVER_REVIEW_20260825.md",
+      "source_commit": "2f9a46f0aedc72c79155ada053486dd0d02f7e23"
+    },
+    "dispatch": {
+      "path": "driver_handoffs/PRIME_FUSION_PUBLICATION_ATTRIBUTION_AND_CLAIM_REVIEW_DISPATCH_20260825.md",
+      "source_commit": "83a36a7eee31552206c92255b6b895c754c3304f"
+    },
+    "incorrect_unbound_researcher_id": "EM-PFPUB-7C3E91",
+    "correct_dispatch_bound_researcher_id": "EM-PFPUB-9D1ACE",
+    "affected_artifacts": [
+      "research/PRIME_FUSION_CLASSICAL_PRIOR_ART_REVIEW_20260825.md",
+      "research/PRIME_FUSION_PUBLICATION_PACKAGE_20260825.md",
+      "research/PRIME_FUSION_PUBLICATION_CLAIM_GUARDS_20260825.md",
+      "research_returns/PRIME_FUSION_PUBLICATION_ATTRIBUTION_AND_CLAIM_REVIEW_RETURN_20260825.md",
+      "research_output/evidence/PRIME_FUSION_PUBLICATION_REVIEW_MANIFEST_20260825.json"
+    ],
+    "prior_art_search_rerun": false,
+    "mathematics_changed": false,
+    "lean_changed": false,
+    "replication_rerun": false,
+    "attribution_changed": false,
+    "t10_guard_changed": false,
+    "lean_label_changed": false,
+    "publication_disposition_changed": false,
+    "artifact_digests_refreshed": true,
+    "provenance_gate": "PASS"
+  },
   "hard_target": "PRIME_FUSION_PUBLICATION_PACKAGE_ATTRIBUTION_CLAIM_STRENGTH_AND_RELEASE_FORM_INDEPENDENTLY_CLASSIFIED",
   "hard_target_reached": true,
   "primary_publication_disposition": "PRIME_FUSION_PUBLICATION_READY_AS_STRUCTURAL_OR_EXPOSITORY_NOTE",
@@ -134,19 +164,20 @@
     },
     {
       "path": "research/PRIME_FUSION_CLASSICAL_PRIOR_ART_REVIEW_20260825.md",
-      "git_blob_sha": "aa7422930e78ecb83891ffe07ec0ffadd0d2cdba",
+      "git_blob_sha": "d03a5cb0dc2a7894929c1c4e5e308bc51c6b8a16",
+      "commit_sha": "34983bace1d7434122d7fbacf3d21326d7ca83da",
       "status": "FROZEN"
     },
     {
       "path": "research/PRIME_FUSION_PUBLICATION_PACKAGE_20260825.md",
-      "git_blob_sha": "5c10bfb5f5c260ce1ca17d6d2dd8270c7e24766f",
-      "commit_sha": "c13011ec860088a8a0c235026ca00b8c47fcdf5e",
+      "git_blob_sha": "a72e15d06a82e6ab5fc47bbbda569ffb62f72f2d",
+      "commit_sha": "98c7b7b29d42c95bc0ff239c7581d235c5465f6d",
       "status": "FROZEN"
     },
     {
       "path": "research/PRIME_FUSION_PUBLICATION_CLAIM_GUARDS_20260825.md",
-      "git_blob_sha": "bce2a138db532b88ca3849e4affba414660361ab",
-      "commit_sha": "3b4e47554a6ef11887100657db91b8edcc22d267",
+      "git_blob_sha": "d59ecb128a9daee69727c2b9bc6689b4c5608fdb",
+      "commit_sha": "4e02064a5e39aa023c655c6850357848ce859242",
       "status": "FROZEN"
     },
     {
@@ -157,8 +188,8 @@
     },
     {
       "path": "research_returns/PRIME_FUSION_PUBLICATION_ATTRIBUTION_AND_CLAIM_REVIEW_RETURN_20260825.md",
-      "git_blob_sha": "d39be2b260bc9825635e0ef4ea526f52383250dd",
-      "commit_sha": "1a28533674d17317361f32d9f6f90016e6ea8b6a",
+      "git_blob_sha": "64d0c6b04854353c77fb31e42a6dc2cf3464630a",
+      "commit_sha": "14d01bb086322bed0033dcbff95cf2ab84b6f8df",
       "status": "FROZEN"
     },
     {
@@ -176,6 +207,8 @@
     "claim_guards_frozen": true,
     "manifest_frozen": true,
     "return_frozen": true,
+    "runtime_identity_metadata_corrected": true,
+    "publication_provenance_gate": "PASS",
     "stop": true,
     "open_successor_prime_fusion_task": false
   }
