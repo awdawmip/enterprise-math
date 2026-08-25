@@ -39,7 +39,17 @@ The evaluator returns exactly one of:
 - `RECOMPUTE_PARENT_STATE`;
 - `CONTROL_STATE_INCONSISTENT`.
 
-Only the first three permit a final response.
+Only the first three permit a final response. Every transition also binds one required controller action:
+
+- `FINAL_ALLOWED` -> `RETURN_FINAL`;
+- `FINAL_ALLOWED_WITH_BLOCKER` -> `RETURN_STRONGEST_RESULT_AND_EXPLICIT_PARENT_BLOCKER`;
+- `FINAL_ALLOWED_WITH_LIMIT` -> `RETURN_STRONGEST_RESULT_AND_EXPLICIT_PLATFORM_OR_TOOL_LIMIT`;
+- `EXECUTE_NEXT_ACTION` -> `EXECUTE_SELECTED_NEXT_ACTION_NOW`;
+- `SWITCH_STRATEGY` -> `TAKE_DIFFERENT_SUPPORTED_ROUTE_NOW`;
+- `RECOMPUTE_PARENT_STATE` -> `RECOMPUTE_PARENT_ROUTING_ONCE`;
+- `CONTROL_STATE_INCONSISTENT` -> `REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE`.
+
+`CONTROL_STATE_INCONSISTENT` is a control fault, not permission to final. The caller must rebuild derived control state from the authoritative parent objective/conversation/task state. If the runtime truly cannot perform that repair, the inability itself must be classified under the platform/tool-limit terminal path rather than silently stopping.
 
 The PRE_FINAL decision order is:
 
