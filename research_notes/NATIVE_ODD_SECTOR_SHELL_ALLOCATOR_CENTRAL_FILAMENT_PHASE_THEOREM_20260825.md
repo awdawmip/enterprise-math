@@ -1,165 +1,137 @@
 # Odd-sector shell allocator: central-filament arithmetic phase theorem
 
-Status: `FREE_RESEARCH_EXACT_COMBINATORIAL_GENERALIZATION / NOT_CANONICAL_ENTERPRISE_GEOMETRY / EXTERNAL_NOVELTY_UNRESOLVED`
+Status: `FREE_RESEARCH_EXACT_COMBINATORIAL_GENERALIZATION / POST_AUDIT_V2_NARROWED / NOT_CANONICAL_ENTERPRISE_GEOMETRY / EXTERNAL_NOVELTY_UNRESOLVED`
 
 Date: `2026-08-25`
 
 Researcher-ID: `EM-FREE-NEPS-239A6D`
 
-This note gives a combinatorial sector-count provenance for the odd-curvature coefficient `B`. Only the specialization `s=3` is the current Enterprise tri-sector model. Other odd `s` are an experimental shell-allocation generalization, not a claim about canonical Enterprise spatial geometry.
+Post-audit authority: `NATIVE_FILAMENT_COUPLED_SELECTION_POST_AUDIT_V2_STATEMENT_FREEZE_20260825.md`.
+
+Only the specialization `s=3` is the current Enterprise tri-sector model. Other odd `s` are controlled shell-allocation deformations, not canonical Enterprise geometry.
 
 ## 1. Abstract odd-sector shell allocator
 
 Fix an odd positive integer `s`.
 
-At shell `r>=1`, take `s` cyclic half-open sector blocks, each containing exactly `r` side positions
+At shell `r>=1`, take `s` cyclic half-open blocks, each with `r` positions `t=0,...,r-1`, and allocate consecutive integers shell-by-shell and block-by-block.
 
-`t=0,...,r-1`.
+The first label on shell `r` is
 
-Allocate consecutive positive integers shell by shell and block by block.
+`B_r^(s)=1+s*r*(r-1)/2`,
 
-The first integer on shell `r` is forced to be
-
-`B_r^(s)=1+s*r*(r-1)/2`.
-
-The label at block `sigma in {0,...,s-1}` and side position `t` is
+and
 
 `N_s(r,t,sigma)=B_r^(s)+sigma*r+t`.
 
-For `s=3` this is exactly the tri-sector allocation used in the native research lane.
-
-## 2. Unique central block for odd s
-
-Because `s` is odd, there is a unique central block
+For odd `s`, the unique central block is
 
 `sigma_*=(s-1)/2`.
 
-Take the same zigzag side coordinate used by the native long filament:
+Take
 
-`t=h+ceil(r/2)`.
+`t=h+ceil(r/2)`
 
-For sufficiently large `r` relative to fixed `h`, this lies inside the block. Algebraically the label is defined for every integer `r`.
-
-Substitute the formulas:
-
-`N_s(r,h+ceil(r/2),sigma_*)`
-
-`=1+s*r*(r-1)/2 +(s-1)*r/2 + h + ceil(r/2)`.
-
-The linear terms cancel:
-
-`-s*r/2 +(s-1)*r/2 + ceil(r/2)`
-
-is `0` for even `r` and `1/2` for odd `r`.
-
-Therefore
+on the inherited admissible side-position domain. Then
 
 `N_s(r)=h+1+(s*r^2+eps(r))/2`.
 
-Freeze:
-
-`ODD SECTOR COUNT s = ODD-CURVATURE COEFFICIENT B`.
-
-Thus the entire odd-curvature master theorem applies with
+Therefore the odd-curvature coefficient is exactly
 
 `B=s`.
 
-## 3. Sector-count breaker classification
+## 2. Even-sector control
 
-For the central filament of the abstract odd-sector allocator:
+For even sector count, central symmetry lands on a seam. The reflected central-seam labels are
 
-`2 is a universal breaker iff s=1 mod4`;
+`s*r^2/2-h`
 
-`3 is a universal breaker iff 3 does not divide s`;
+and
 
-`5 is a universal breaker iff Legendre(s/5)=-1`;
+`s*r^2/2+1+h`,
 
-`no prime q>=7 is a universal breaker`.
+so their difference is
 
-Hence the complete first-breaker phase is determined by `s mod60`.
+`2h+1`.
 
-## 4. First-breaker sectors modulo60
+Hence two nonexceptional odd primes cannot occupy the reflected seam pair simultaneously. The central parity-curvature filament mechanism therefore intrinsically selects odd sector count.
 
-Among the 30 odd classes modulo60:
+## 3. First-breaker classification
 
-### first breaker 2
+For the odd-sector central filament, with `B=s`:
 
-`{1,5,9,13,17,21,25,29,33,37,41,45,49,53,57}`;
+- `2` is a universal breaker iff `s=1 mod4`;
+- `3` is a universal breaker iff `3∤s`;
+- `5` is a universal breaker iff `Legendre(s/5)=-1`;
+- no prime `q>=7` is a universal breaker.
 
-### first breaker 3
+Thus the first-breaker phase is determined by `s mod60`.
 
-`{7,11,19,23,31,35,43,47,55,59}`;
+Among odd residue classes modulo60:
 
-### first breaker 5
+- first breaker `2`:
+  `{1,5,9,13,17,21,25,29,33,37,41,45,49,53,57}`;
+- first breaker `3`:
+  `{7,11,19,23,31,35,43,47,55,59}`;
+- first breaker `5`:
+  `{3,27}`;
+- no finite universal breaker:
+  `{15,39,51}`.
 
-`{3,27}`;
+## 4. Exact breaker-coprime run capacities
 
-### no finite universal-breaker channel
+For the three breaking phases, the exact maximal consecutive runs avoiding divisibility by the first breaker are
 
-`{15,39,51}`.
+- breaker `2` -> `1`;
+- breaker `3` -> `5`;
+- breaker `5` -> `9`.
 
-If there is no universal breaker, CRT gives one central filament surviving any prescribed finite set of prime channels.
+These are **breaker-coprime / divisibility capacities**, not unrestricted prime-run caps for the abstract integer family.
 
-## 5. Sharp connectivity capacities in the three breaking phases
+The blind independent audit explicitly verified this scope and warned against promoting E4 to an unrestricted prime-run theorem.
 
-The first-breaker phases have exact local nonzero-run capacities:
-
-- breaker2 -> sharp cap `1`;
-- breaker3 -> sharp cap `5=2*3-1`;
-- breaker5 -> sharp cap `9=2*5-1`.
-
-Thus the arithmetic connectivity capacity of the central filament is selected directly by the sector count.
-
-## 6. Why the tri-sector value s=3 is extremal
+## 5. Why `s=3` is extremal
 
 For the current Enterprise model,
 
 `s=3`.
 
-It obeys
+It avoids breaker `2` because `3=3 mod4`, avoids breaker `3` because `3|s`, and breaks at `5` because `(3/5)=-1`.
 
-`s=3 mod4`, so channel2 is not a breaker;
+No finite universal breaker can occur after `5`, since every `q>=7` has a transparent transverse class.
 
-`3|s`, so channel3 is not a breaker;
+Therefore among positive odd sector counts with a finite universal breaker,
 
-`Legendre(3/5)=-1`, so channel5 is a breaker.
+`3`
 
-Therefore
+is the smallest sector count attaining the latest possible finite first breaker `5`.
 
-`FIRST UNIVERSAL BREAKER(s=3)=5`,
-
-and the sharp central-filament cap is
-
-`9`.
-
-Among positive odd sector counts, `s=3` is the smallest value with first breaker5.
-
-Moreover, no odd-sector allocator with any `s` can postpone a finite universal breaker past5: every `q>=7` has a transparent transverse class.
-
-Hence, among odd-sector central filaments that do possess a finite breaker, the tri-sector allocator realizes the latest possible first-break channel at the smallest possible sector count.
-
-Freeze the selection principle:
+This gives the exact selection chain
 
 `THREE SECTORS`
 
-`-> QUADRATIC COEFFICIENT 3`
+`-> CURVATURE COEFFICIENT 3`
 
-`-> ESCAPE CHANNELS 2 AND3`
+`-> ESCAPE 2 AND 3`
 
-`-> BREAK AT CHANNEL5`
+`-> BREAK AT 5`
 
-`-> SHARP CENTRAL FILAMENT CAP9`.
+`-> BREAKER-COPRIME CAPACITY 9`.
 
-## 7. Relation to the actual Enterprise plane
+## 6. Relation to the actual native plane
 
-Only `s=3` inherits the already-frozen native three-axis / three-sector incidence interpretation and the global typed-Cell seam analysis.
+Only `s=3` inherits the native three-axis/three-sector incidence complex and seam analysis.
 
-For `s!=3`, this note claims only an abstract cyclic shell allocator and its one-dimensional central filament. It does not assert the existence of an `s`-sector Enterprise metric, Cell incidence complex, or canonical higher-sector geometry.
+For `s!=3`, no `s`-sector Enterprise metric or canonical higher-sector geometry is claimed.
 
-This boundary is essential: the odd-sector calculation is a controlled combinatorial generalization used to explain why the actual `s=3` coefficient is arithmetically special.
+For `s=3`, the parent native research branch separately proves
 
-## 8. Prior-art boundary
+`MAX GLOBAL TYPED-CELL PRIME-INCIDENCE ISLAND SIZE = 9`.
 
-Counting shell blocks, quadratic residues, Legendre symbols and CRT are classical. The research-specific candidate is the exact sector-count-to-breaker coupling generated by this shell allocation and the extremal position of `s=3` inside the odd-sector family.
+That actual-prime theorem is compatible with the breaker-coprime capacity `9`, but it uses additional native incidence/seam/domain structure and is not deduced solely from the one-dimensional breaker theorem.
 
-External novelty remains unresolved and requires independent theorem-statement review.
+## 7. Prior-art boundary
+
+Shell counting, quadratic residues, Legendre symbols, CRT and periodic residue-run calculations are classical.
+
+The external novelty candidate is only the exact geometry-selected coupling from sector count to curvature coefficient and then to the breaker phase. External novelty remains unresolved pending independent literature review.
