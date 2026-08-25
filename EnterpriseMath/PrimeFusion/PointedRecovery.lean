@@ -202,4 +202,16 @@ theorem pointed_rootIdempotent_isIdempotent (a b : ℤ) (hab : IsCoprime a b) :
       rootIdempotent (pointedResidue a b hab) :=
   rootIdempotent_isIdempotent (pointedResidue_fusion_root a b hab)
 
+#print axioms channel_gcd_exact
+#print axioms fusionCRT
+#print axioms pointedCRT
+#print axioms pointedResidue_fusion_root
+#print axioms pointed_channel_recovery
+#print axioms pointed_idempotent_channel_recovery
+#print axioms mixed_locus_order_twelve
+#print axioms mixed_locus_four_orbit
+#print axioms mixed_orbit_inverse_only_eleven
+#print axioms dualPrime_sixth_gcd_readout
+#print axioms mixed_sixth_eq_two_rootIdempotent_sub_one
+
 end EnterpriseMath.PrimeFusion
