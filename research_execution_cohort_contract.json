@@ -1,0 +1,69 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_EXECUTION_COHORT_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL_CANDIDATE",
+  "effective": "2026-08-26",
+  "purpose": "Allow explicitly parallel research, replication, or audit executions for one task without weakening per-execution ownership. Ordinary tasks keep one default execution lane; parallelism is opt-in through an immutable cohort whose lanes write to disjoint output namespaces and later feed the parallel-evidence two-pass synthesis layer.",
+  "record_store": "research_execution_cohorts/<task-id>/<cohort-id>.json",
+  "checker": "research_execution_cohorts.py",
+  "parallel_evidence_contract": "research_parallel_evidence_contract.json",
+  "core_invariants": [
+    "PARALLEL_RESEARCH_IS_ALLOWED_BUT_OPT_IN",
+    "NO_COHORT_MEANS_EXISTING_SINGLE_EXECUTION_FLOW",
+    "COHORT_HAS_AT_LEAST_TWO_EXECUTION_LANES",
+    "EACH_LANE_HAS_ITS_OWN_WINNING_CLAIM",
+    "FIRST_VALID_CLAIM_WINS_PER_LANE_NOT_PER_TASK",
+    "MULTIPLE_LANES_MAY_REFERENCE_THE_SAME_PUBLICATION_FOR_REPLICATION",
+    "MULTIPLE_LANES_MAY_REFERENCE_DIFFERENT_RETAINED_PUBLICATIONS",
+    "EACH_LANE_PINS_EXACT_PUBLICATION_ID",
+    "EACH_LANE_WRITES_TO_A_DISJOINT_REPOSITORY_RELATIVE_OUTPUT_PREFIX",
+    "ONE_LANE_CANNOT_OVERWRITE_ANOTHER_LANES_AUTHORIZED_OUTPUT_NAMESPACE",
+    "LANE_RESULTS_REMAIN_SEPARATE_IMMUTABLE_RESULTS",
+    "COHORT_COMPLETION_DOES_NOT_DELETE_OR_REJECT_ANY_LANE_RESULT",
+    "COHORT_RESULTS_FEED_PARALLEL_INTAKE_REFERENCE_PASS_1_REFERENCE_PASS_2_SYNTHESIS",
+    "COHORT_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_CANONICAL_PROMOTION",
+    "PARALLEL_EXECUTION_DOES_NOT_REQUIRE_PERIODIC_HEARTBEATS_OR_CI_POLLING"
+  ],
+  "cohort_required_fields": [
+    "schema",
+    "cohort_id",
+    "task_id",
+    "record_state",
+    "opened_by",
+    "opened_at",
+    "lanes",
+    "two_reference_passes_required",
+    "synthesis_required",
+    "working_truth_granted",
+    "canonical_promotion_granted"
+  ],
+  "record_states": ["ACTIVE", "COMPLETE", "CLOSED"],
+  "lane_required_fields": [
+    "lane_id",
+    "publication_id",
+    "lane_role",
+    "purpose",
+    "output_prefix"
+  ],
+  "lane_roles": ["RESEARCH", "REPLICATION", "AUDIT"],
+  "claim_extension": {
+    "required_for_cohort_claim": ["execution_cohort_id", "execution_lane_id"],
+    "publication_id": "must equal the publication pinned by the lane",
+    "allowed_outputs": "must remain within the lane output_prefix",
+    "winner_scope": "task_id + execution_cohort_id + execution_lane_id",
+    "noncohort_claim_compatibility": "unchanged"
+  },
+  "result_extension": {
+    "fields": ["execution_cohort_id", "execution_lane_id"],
+    "rule": "cohort/lane identity is copied from the accepted claim into durable execution provenance and result records; it is never inferred from timestamps"
+  },
+  "output_namespace_rule": "Active lanes in the same task may not use equal, ancestor, or descendant output prefixes. Create a new lane-specific directory instead of sharing a mutable output location.",
+  "completion_rule": "A cohort may close execution lanes, but task-level terminalization remains a separate synthesis/control decision over the complete parallel evidence set.",
+  "interaction_budget": {
+    "ordinary_task_extra_writes": 0,
+    "cohort_open": "one immutable cohort record only when parallel execution is intentionally requested",
+    "per_lane_claim": "one ordinary Issue #240 CLAIM per lane",
+    "periodic_heartbeat": false,
+    "routine_ci_polling": false,
+    "moving_main_chase": false
+  }
+}
