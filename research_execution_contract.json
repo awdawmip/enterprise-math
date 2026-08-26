@@ -5,18 +5,22 @@
   "record_store": "research_execution_records/<task-id>/<execution-record-id>.json",
   "tool": "tools/research_execution_records.py",
   "dispatch": "tools/research_dispatch.py",
+  "runtime_guard": "tools/research_runtime_guard.py",
   "result_contract": "research_result_contract.json",
-  "purpose": "Bind one immutable task publication generation to a concrete claim identity, Researcher-ID, theorem-owner classification, execution branch/base, output scope and owner lease without turning GitHub persistence into the research hot path.",
+  "purpose": "Bind one immutable task publication generation to the currently winning authorized Issue #240 claim identity, Researcher-ID, theorem-owner classification, execution branch/base, output scope and owner lease without turning GitHub persistence into the research hot path.",
   "core_invariants": [
+    "TASK_REGISTRATION_IS_NOT_EXECUTION_AUTHORIZATION",
     "THEOREM_OWNER_AND_EXECUTION_BRANCH_ARE_DISTINCT_TYPED_FIELDS",
     "REGISTERED_CLAIM_IS_THE_EXECUTION_AUTHORIZATION_ENVELOPE",
+    "REGISTERED_EXECUTION_REQUIRES_CURRENT_WINNING_AUTHORIZED_LIVE_CLAIM",
     "REGISTERED_CLAIM_PINS_CURRENT_PUBLICATION_ID",
     "REGISTERED_CLAIM_PINS_CLAIM_ID_AND_RESEARCHER_ID",
     "REGISTERED_CLAIM_PINS_EXECUTION_BRANCH_AND_BASE",
     "REGISTERED_CLAIM_PINS_ALLOWED_OUTPUT_SCOPE",
+    "CALLER_OWNER_CLAIM_CANNOT_OVERRIDE_CANONICAL_WINNER",
     "NO_SEPARATE_REMOTE_EXECUTION_RECORD_WRITE_IS_REQUIRED_BEFORE_CLAIM",
-    "FIRST_VALID_ISSUE_CLAIM_COMMITS_THE_DISTRIBUTED_CLAIM_RACE",
-    "INCOMPLETE_OR_STALE_REGISTERED_CLAIM_ENVELOPE_IS_IGNORED",
+    "FIRST_VALID_AUTHORIZED_ISSUE_CLAIM_COMMITS_THE_DISTRIBUTED_CLAIM_RACE",
+    "INCOMPLETE_STALE_UNAUTHORIZED_OR_EXPIRED_REGISTERED_CLAIM_CANNOT_AUTHORIZE_EXECUTION",
     "IMMUTABLE_EXECUTION_RECORD_MAY_BE_FROZEN_AT_A_DURABLE_CHECKPOINT",
     "RESULT_FREEZE_REQUIRES_MATCHING_EXECUTION_RECORD"
   ],
@@ -38,6 +42,25 @@
     "taskbook_blob_sha1": "Resolved from the current immutable publication record; callers do not need to duplicate it.",
     "lease_minutes": "If absent, inherit the task claim lease."
   },
+  "runtime_authorization_gate": {
+    "tool": "tools/research_runtime_guard.py authorize",
+    "registered_task_requires_event_evidence": true,
+    "event_evidence": "One local export of the existing Issue #240 comments at the execution/adoption semantic boundary; canonical dispatch replays authentication, actor authorization, claim-envelope validation and lease reduction locally.",
+    "required_runtime_state": "LEASED",
+    "required_binding": [
+      "current publication_id",
+      "winning claim_id",
+      "winning researcher_id",
+      "theorem_owner",
+      "execution_branch",
+      "execution_branch_base",
+      "allowed_outputs",
+      "live owner lease",
+      "authorized server comment provenance"
+    ],
+    "caller_owner_claim_is_authority": false,
+    "routine_polling_required": false
+  },
   "record_required_fields": [
     "execution_record_id",
     "task_id",
@@ -53,10 +76,11 @@
     "prepared_at"
   ],
   "persistence_boundary": {
-    "claim": "One Issue #240 CLAIM is sufficient to begin a registered execution after local/canonical validation; do not require a prior commit, PR, merge, CI wait, heartbeat, or second GitHub write.",
+    "claim": "One Issue #240 CLAIM is sufficient to begin a registered execution after canonical validation; do not require a prior commit, PR, merge, CI wait, heartbeat, or second GitHub write.",
+    "execution_authorization_read": "At execution start or stale adoption, consume one current Issue #240 comment export and reduce it locally; do not turn this into periodic polling between semantic checkpoints.",
     "execution_record": "The immutable execution record is durable provenance for result freezing. It may be created locally after CLAIM and batched with the first genuine durable checkpoint or final return; it is not a pre-math remote publication gate.",
-    "between_checkpoints": "Zero routine repository writes, zero CI polling, and zero scheduler heartbeat are required solely by this contract."
+    "between_checkpoints": "Zero routine repository writes, zero CI polling, zero review polling and zero scheduler heartbeat are required solely by this contract."
   },
-  "distributed_transaction": "Validate current task publication -> create/verify execution branch -> append one self-contained CLAIM envelope on Issue #240 -> first valid live CLAIM wins -> freeze the matching execution record only when a genuine durable checkpoint/result requires provenance.",
-  "compatibility": "A previously frozen immutable execution intent may still authorize its matching CLAIM, but new executions should prefer the single-write CLAIM-envelope path."
+  "distributed_transaction": "Validate current task publication -> create/verify execution branch -> append one self-contained authorized CLAIM envelope on Issue #240 -> first valid live CLAIM wins -> runtime guard reconstructs that same live winner at execution/adoption boundary -> research -> freeze the matching execution record only when a genuine durable checkpoint/result requires provenance.",
+  "compatibility": "A previously frozen immutable execution intent may still supply the binding for its matching current-publication CLAIM, but it does not replace the requirement that the live Issue #240 claim itself currently wins the owner race."
 }
