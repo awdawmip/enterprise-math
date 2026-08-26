@@ -82,6 +82,28 @@ def _blob(path: Path) -> str:
     return research_task_records.git_blob_sha1_bytes(path.read_bytes())
 
 
+def _normalize_git_blob_identity(value: Any) -> str | None:
+    """Normalize historical bare and current ``sha1:`` Git blob identities.
+
+    Stored result/review records are immutable evidence. Early V1 records used a
+    bare 40-hex Git blob SHA-1 while current writers prefix the same identity with
+    ``sha1:``. Audit compatibility therefore normalizes only for comparison and
+    never rewrites historical record bytes.
+    """
+    if not isinstance(value, str):
+        return None
+    text = value.strip().lower()
+    if text.startswith("sha1:"):
+        text = text[5:]
+    return text if re.fullmatch(r"[0-9a-f]{40}", text) else None
+
+
+def _same_git_blob_identity(left: Any, right: Any) -> bool:
+    lhs = _normalize_git_blob_identity(left)
+    rhs = _normalize_git_blob_identity(right)
+    return lhs is not None and rhs is not None and lhs == rhs
+
+
 def _sha256(path: Path) -> str:
     return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -362,7 +384,7 @@ def audit(root: Path = ROOT) -> list[str]:
         if not isinstance(path_value, str) or not (root / path_value).exists():
             errors.append(f"{prefix}: return artifact missing")
         else:
-            if _blob(root / path_value) != item.get("return_blob_sha1"):
+            if not _same_git_blob_identity(_blob(root / path_value), item.get("return_blob_sha1")):
                 errors.append(f"{prefix}: return artifact blob drift")
             if _sha256(root / path_value) != item.get("return_sha256"):
                 errors.append(f"{prefix}: return artifact SHA-256 drift")
@@ -392,7 +414,10 @@ def audit(root: Path = ROOT) -> list[str]:
                 if not path.exists():
                     errors.append(f"{prefix}: output missing: {output['path']}")
                 else:
-                    if _blob(path) != output.get("git_blob_sha1") or _sha256(path) != output.get("sha256"):
+                    if (
+                        not _same_git_blob_identity(_blob(path), output.get("git_blob_sha1"))
+                        or _sha256(path) != output.get("sha256")
+                    ):
                         errors.append(f"{prefix}: output digest drift: {output['path']}")
     for item in iter_reviews(root):
         prefix = item.get("_review_path", "<review>")
@@ -421,7 +446,10 @@ def audit(root: Path = ROOT) -> list[str]:
         if not isinstance(review_path, str) or not (root / review_path).exists():
             errors.append(f"{prefix}: review artifact missing")
         else:
-            if _blob(root / review_path) != item.get("review_blob_sha1") or _sha256(root / review_path) != item.get("review_sha256"):
+            if (
+                not _same_git_blob_identity(_blob(root / review_path), item.get("review_blob_sha1"))
+                or _sha256(root / review_path) != item.get("review_sha256")
+            ):
                 errors.append(f"{prefix}: review artifact digest drift")
         if item.get("disposition") not in ALL_DISPOSITIONS:
             errors.append(f"{prefix}: invalid disposition")

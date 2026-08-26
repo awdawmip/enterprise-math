@@ -15,8 +15,10 @@ from pathlib import Path
 from typing import Any
 
 try:
+    from tools import research_task_records
     from tools import research_taskbook
 except ModuleNotFoundError:
+    import research_task_records  # type: ignore
     import research_taskbook  # type: ignore
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -52,6 +54,35 @@ def publication_id(task_id: str, taskbook_blob: str, publisher_id: str, parent_o
 
 def relative(path: Path, root: Path = ROOT) -> str:
     return path.relative_to(root).as_posix() if path.is_relative_to(root) else path.as_posix()
+
+
+def has_exact_v2_publication_authority(
+    path: Path,
+    meta: dict[str, Any],
+    current_v2: dict[str, dict[str, Any]],
+    *,
+    root: Path = ROOT,
+) -> bool:
+    """Recognize only an exact current immutable V2 publication generation.
+
+    This is a compatibility read bridge, not a second publication path. A V2
+    record exempts a post-cutover taskbook from the frozen V1 mirror only when
+    task identity, path, blob, transaction, and active generation all match.
+    """
+    task_id = meta.get("task_id")
+    if not isinstance(task_id, str) or not task_id:
+        return False
+    record = current_v2.get(task_id)
+    if not isinstance(record, dict):
+        return False
+    return (
+        record.get("record_schema") == research_task_records.RECORD_SCHEMA
+        and record.get("record_state", "ACTIVE") == "ACTIVE"
+        and record.get("publication_transaction") == research_task_records.PUBLICATION_TRANSACTION_V2
+        and record.get("task_id") == task_id
+        and record.get("taskbook_path") == relative(path, root)
+        and record.get("taskbook_blob_sha1") == blob_sha1(path)
+    )
 
 
 def effective_rank(meta: dict[str, Any], publisher_role: str) -> tuple[str, str, str]:
@@ -164,6 +195,10 @@ def audit_registry(*, root: Path = ROOT, strict: bool = True) -> list[str]:
         by_id = registry_task_map(registry)
     except RegistryError as exc:
         return [str(exc)]
+    try:
+        current_v2 = research_task_records.current_records(root)
+    except Exception as exc:
+        return errors + [f"cannot resolve immutable V2 task authority: {exc}"]
     required = set(load_json(root / "research_task_publication_contract.json")["publication_record_required_fields"])
     for task_id, item in by_id.items():
         missing = sorted(field for field in required if field not in item or item[field] in (None, ""))
@@ -215,7 +250,8 @@ def audit_registry(*, root: Path = ROOT, strict: bool = True) -> list[str]:
         if blob_sha1(path) != item.get("taskbook_blob_sha1"):
             errors.append(f"{task_id}: taskbook blob drift")
 
-    # Never let policy-digest churn hide a task that already claims V1 published authority.
+    # A post-cutover V2 publication does not need a frozen V1 mirror, but the
+    # compatibility audit must still reject taskbooks with no exact authority.
     task_dir = root / "research_tasks"
     if task_dir.exists():
         for path in sorted(task_dir.glob("*.md")):
@@ -227,10 +263,11 @@ def audit_registry(*, root: Path = ROOT, strict: bool = True) -> list[str]:
                 meta.get("task_authority") == "PUBLISHED_REGISTERED"
                 and meta.get("base_state") not in {"DRAFT", "BACKLOG"}
                 and meta.get("task_id") not in by_id
+                and not has_exact_v2_publication_authority(path, meta, current_v2, root=root)
             ):
                 errors.append(
-                    f"{relative(path, root)}: orphaned V1 published taskbook missing compatibility mirror; "
-                    "post-cutover authority must also exist in immutable task records"
+                    f"{relative(path, root)}: orphaned published taskbook has neither a V1 compatibility mirror "
+                    "nor exact current V2 immutable publication authority"
                 )
     if strict:
         template = root / "templates" / "RESEARCH_TASK_PUBLICATION_TEMPLATE.json"
