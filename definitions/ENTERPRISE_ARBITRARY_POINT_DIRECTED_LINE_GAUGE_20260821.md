@@ -43,7 +43,29 @@ Freeze:
 
 `DIRECTED_NATIVE_DISPLACEMENT = UNIQUE_NONNEGATIVE_MIN_ZERO_DECODE`.
 
-This decoding is not a native common-diagonal quotient. It is a carrier-to-native chart decode.
+This decoding is not a **primitive native-point** common-diagonal quotient. It is the frozen carrier-to-native chart decode.
+
+At the separately typed derived G1 displacement layer frozen in `ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md`, the same decoder is exactly the canonical min-zero section of
+
+`G_D=Z^3/Z(1,1,1)`.
+
+Writing
+
+`can(z)=z-min(z)(1,1,1)`, 
+
+one has the already accepted compatibility identity
+
+`D_E(P->Q)=can(r,s,0)`.
+
+When this triple is used as a derived displacement section value, its semantic type is `A_D`, not the primitive/current point or sector-address type `A_E`. The two types may share the same underlying tuple set but are not identified.
+
+Freeze compatibility only:
+
+`R061_STAGE2_DECODE_COMPATIBLE_WITH_DERIVED_G_D = true`.
+
+`A_D != A_E AS_SEMANTIC_TYPES`.
+
+No decoder formula is changed by this interpretation.
 
 ## 3. Translated sector typing
 
@@ -91,6 +113,8 @@ Freeze:
 
 `ARBITRARY_POINT_ENTERPRISE_LINE_IDENTITY = TRANSLATED_NATIVE_COMPONENT_TRACE`.
 
+A bare derived displacement element `g in G_D` is therefore not a global native line classifier. When used globally, derived displacement must retain start/target typing such as `(P,g):P->P·g`.
+
 ## 5. Translated incidence and path fiber
 
 At every start vertex `P`, translation of the frozen circle-cell incidence gives exactly one sector-local incident anchor cell for each translated open sector.
@@ -117,6 +141,12 @@ Cardinality:
 
 `|Realize_E(T_{P;a,b}^{(ij)})|=binom(a+b,a)`.
 
+The derived displacement interpretation does not create a total bare `PF_PATH -> G_D` map. The map is typed only when the path realization carries the R061 coordinate-vertex endpoint anchors, or when a separate endpoint decoration/bridge has been explicitly frozen.
+
+Freeze:
+
+`BARE_GLOBAL_PF_PATH_DISPLACEMENT = NOT_DEFINED`.
+
 ## 6. Same endpoint versus same line remains distinct
 
 Translated third-family carrier shortcuts may reach the same carrier endpoint.
@@ -130,6 +160,12 @@ Freeze:
 `TRANSLATED_REVERSE_THIRD_SHORTCUT = CARRIER_ONLY_SHORTCUT_NOT_NATIVE_LINE`.
 
 No jump-count rule is used to make this distinction.
+
+Likewise, equality in the derived displacement quotient does not imply same native line identity or same Path-formal witness.
+
+Freeze:
+
+`SAME_DERIVED_DISPLACEMENT != SAME_NATIVE_LINE_IDENTITY`.
 
 ## 7. Directed native line gauge
 
@@ -157,6 +193,8 @@ The gauge satisfies:
 - triangle inequality.
 
 It is not graph jump count and not carrier Euclidean distance.
+
+The separately typed derived quotient does not replace this gauge and does not restore the historical diagonal-invariant quadratic as native Enterprise length.
 
 ## 8. Triangle inequality
 
@@ -186,6 +224,12 @@ Freeze:
 
 `DIRECTED_NATIVE_LINE_GAUGE_TRIANGLE_INEQUALITY = true`.
 
+At the derived displacement layer, the same canonicalization step is compatible with transported quotient addition
+
+`x (+)_D y = can(x+y)`.
+
+This is an interpretation of the existing composition formula, not a change to it.
+
 ## 9. Reversal map without negative native axes
 
 Let
@@ -205,6 +249,8 @@ Freeze:
 `REVERSAL_TRACE_REDECOMPOSITION_WITHOUT_NATIVE_NEGATIVE_AXES = true`.
 
 This reverse positive-axis trace is generally not the same object as the path-groupoid inverse of the forward trace representative.
+
+At the separately typed derived displacement layer, the same triple is compatible with the group inverse `can(-x)`. This downstream compatibility does not identify trace inversion with canonical reverse trace upstream.
 
 ## 10. Reversal-length asymmetry
 
@@ -242,9 +288,22 @@ Freeze:
 
 Do not call `ell_E` a metric.
 
+The derived quotient does not alter this asymmetry.
+
 ## 11. Interpretation boundary
 
 The accepted object is an asymmetric/directed native line gauge attached to an oriented native component trace.
+
+The separately typed G1 displacement quotient records endpoint displacement algebra only. It does not:
+
+- quotient primitive native point/address ontology;
+- identify `A_D` with `A_E`;
+- identify same displacement with same trace or path witness;
+- define a total bare `PF_PATH -> G_D` map;
+- make ordinary untyped multiplication in `N[G_D]` into native path composition;
+- restore the historical diagonal-invariant quadratic as the native Enterprise metric.
+
+Current R062 Path-formal/N/Boolean BRC semantics remain unchanged.
 
 This definition does not decide whether Enterprise geometry should ultimately have:
 
