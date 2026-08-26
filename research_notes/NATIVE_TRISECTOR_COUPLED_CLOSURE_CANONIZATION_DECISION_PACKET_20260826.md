@@ -9,6 +9,9 @@ Researcher-ID: `EM-FREE-NEPS-239A6D`
 Primary theorem package:
 `research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_FORMAL_THEOREM_PACKAGE_20260826.md`.
 
+Driver review brief:
+`research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_CANONIZATION_REVIEW_BRIEF_20260826.md`.
+
 Purpose: give a future Driver/reviewer a minimal promotion surface without requiring reconstruction from the full PR #627 history.
 
 ---
@@ -142,7 +145,7 @@ Forbidden without a later upgraded publication-priority review:
 The node should carry exact provenance pointers:
 
 - PR `#631`: original V2 blind mathematical audit, `PACKAGE_VERIFIED_WITH_NARROWING`;
-- PR `#637`: post-audit blind mathematical replication, `POSTAUDIT_HYPERBOLA_JOUKOWSKI_CLOSURE_STATEMENT_STRENGTH_INDEPENDENTLY_NARROWED`;
+- PR `#637`: post-audit blind mathematical replication, `POSTAUDIT_HYPERBOLA_JOUKOWSKI_CLOSURE_STATEMENT_STRENGTH_INDEPENDLY_NARROWED`;
 - PR `#642`: final narrow independent external-literature audit, package `KNOWN_COMPONENTS_ONLY`;
 - authoritative statement freeze:
   `research_notes/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_V2_STATEMENT_FREEZE_20260825.md`;
