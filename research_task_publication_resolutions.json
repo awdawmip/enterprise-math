@@ -1,0 +1,23 @@
+{
+  "schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RESOLUTION_REGISTRY_V1",
+  "status": "ACTIVE",
+  "purpose": "Resolve exceptional immutable-publication forks without mutating historical publication records. This overlay selects one canonical head and quarantines competing heads; it never grants Working Truth, canonical promotion, or a new claim.",
+  "resolutions": [
+    {
+      "task_id": "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
+      "canonical_publication_id": "TP2-A63015C2EB99D00F2500",
+      "quarantined_publication_ids": [
+        "TP2-9D0A43C4F217B6E8C531"
+      ],
+      "resolution_kind": "CONCURRENT_IMMUTABLE_PUBLICATION_FORK",
+      "reason": "Two generation-1 ACTIVE records were independently materialized for the same task. The canonical head is the publication already pinned by the valid Issue #240 CLAIM chatgpt-r043c4-20260826-1435. The competing record remains immutable historical evidence but is excluded from current-head reduction.",
+      "authority_role": "RESEARCH_DRIVER",
+      "authority_id": "EM-DVR-R63A21",
+      "resolved_at": "2026-08-26T14:55:00+08:00",
+      "preserve_existing_claim": "chatgpt-r043c4-20260826-1435",
+      "working_truth_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}

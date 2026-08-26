@@ -1,0 +1,23 @@
+{
+  "schema": "ENTERPRISE_MATH_TASK_HEAD_SERIALIZATION_CONTRACT_V1",
+  "status": "ACTIVE",
+  "scope": "PER_TASK_PUBLICATION_AUTHORITY",
+  "immutable_history": "research_task_records/<task_id>/<publication_id>.json",
+  "current_head_pointer": "research_task_heads/<task_id>.json",
+  "same_task_parallel_publication_allowed": false,
+  "cross_task_parallel_publication_allowed": true,
+  "serialization_mechanism": "DETERMINISTIC_SAME_PATH_GIT_CAS",
+  "required_audits": [
+    "python tools/research_task_records.py audit",
+    "python tools/research_task_head_serialization.py audit"
+  ],
+  "required_ci_job": "reference-integrity/check",
+  "main_branch_protection_required": true,
+  "main_branch_protection_observed_at_base": false,
+  "observed_base_sha": "eb5fa0191b01c7f1f76af3717ae5d4d53c656517",
+  "hard_enforcement_state": "PARTIAL_UNTIL_MAIN_PROTECTED",
+  "rule": "Every current immutable publication authority must have exactly one deterministic per-task head pointer. Any publication changing current authority must update the same pointer path in the same PR. Concurrent same-task publications therefore contend on one Git path instead of silently adding disjoint immutable files.",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "successor_triggered": false
+}
