@@ -5,8 +5,9 @@ Post-cutover task definitions come from immutable task publication records.
 The frozen research_scheduler.json remains a compatibility baseline only.
 Issue #240 events are reduced by tools/research_scheduler.py only after the
 canonical layer has authenticated current live events from GitHub server comment
-metadata. For registered tasks, the CLAIM comment itself is the execution
-envelope; no separate pre-claim repository write is required.
+metadata and authorized the server actor. For registered tasks, the CLAIM comment
+itself is the execution envelope; no separate pre-claim repository write is
+required.
 """
 from __future__ import annotations
 
@@ -35,7 +36,9 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY = ROOT / "research_scheduler.json"
 OWNERS = ROOT / "branch_governance_overrides.json"
+CONTROL_AUTHORIZATION = ROOT / "research_control_event_authorization.json"
 EVENT_SCHEMA = "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
+CONTROL_AUTH_SCHEMA = "ENTERPRISE_MATH_CONTROL_EVENT_AUTHORIZATION_V1"
 GITHUB_META_KEY = "_github"
 GITHUB_ISSUE_URL = "https://api.github.com/repos/awdawmip/enterprise-math/issues/240"
 
@@ -46,6 +49,63 @@ class DispatchError(ValueError):
 
 def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def control_authorization_policy(root: Path = ROOT) -> dict[str, Any]:
+    path = root / "research_control_event_authorization.json"
+    try:
+        policy = load_json(path)
+    except Exception as exc:
+        raise DispatchError(f"cannot load control-event authorization policy: {exc}") from exc
+    if policy.get("schema") != CONTROL_AUTH_SCHEMA:
+        raise DispatchError("unexpected control-event authorization schema")
+    if policy.get("status") != "ACTIVE_CANONICAL":
+        raise DispatchError("control-event authorization policy must be ACTIVE_CANONICAL")
+    if policy.get("repository") != "awdawmip/enterprise-math" or policy.get("issue") != 240:
+        raise DispatchError("control-event authorization policy repository/issue boundary drifted")
+    if policy.get("mode") != "EXACT_SERVER_AUTHOR_ALLOWLIST":
+        raise DispatchError("unsupported control-event authorization mode")
+    authors = policy.get("authorized_server_authors")
+    if not isinstance(authors, list) or not authors:
+        raise DispatchError("control-event authorization allowlist must be nonempty")
+    for index, item in enumerate(authors):
+        if not isinstance(item, dict):
+            raise DispatchError(f"authorized_server_authors[{index}] must be an object")
+        if not isinstance(item.get("login"), str) or not item["login"].strip():
+            raise DispatchError(f"authorized_server_authors[{index}].login is required")
+        if type(item.get("user_id")) is not int or item["user_id"] <= 0:
+            raise DispatchError(f"authorized_server_authors[{index}].user_id must be positive integer")
+        associations = item.get("author_association")
+        if (
+            not isinstance(associations, list)
+            or not associations
+            or any(not isinstance(value, str) or not value.strip() for value in associations)
+        ):
+            raise DispatchError(
+                f"authorized_server_authors[{index}].author_association must be a nonempty string list"
+            )
+    return policy
+
+
+def control_event_authorized(comment: dict[str, Any], *, root: Path = ROOT) -> bool:
+    """Authorize the GitHub server actor without trusting event-body identity."""
+    policy = control_authorization_policy(root)
+    user = comment.get("user")
+    if not isinstance(user, dict):
+        return False
+    login = user.get("login")
+    user_id = user.get("id")
+    association = comment.get("author_association")
+    if not isinstance(login, str) or type(user_id) is not int or not isinstance(association, str):
+        return False
+    for entry in policy["authorized_server_authors"]:
+        if (
+            login == entry["login"]
+            and user_id == entry["user_id"]
+            and association in entry["author_association"]
+        ):
+            return True
+    return False
 
 
 def _parse_taskbook(record: dict[str, Any], root: Path) -> dict[str, Any]:
@@ -122,12 +182,15 @@ def _server_time(value: Any, field: str) -> datetime:
         raise DispatchError(f"GitHub comment {field} is invalid") from exc
 
 
-def github_comment_event(comment: dict[str, Any]) -> dict[str, Any] | None:
+def github_comment_event(
+    comment: dict[str, Any], *, root: Path = ROOT
+) -> dict[str, Any] | None:
     """Convert one raw GitHub Issue #240 comment into an authenticated event.
 
-    Non-event human comments return None. Event JSON receives an immutable server
-    envelope. The body-provided actor/at remain descriptive provenance only;
-    comment id orders the stream and GitHub created_at is the reducer clock.
+    Non-event human comments return None. Event JSON receives a server envelope.
+    The body-provided actor/at remain descriptive provenance only; comment id
+    orders the stream, GitHub created_at is the reducer clock, and control authority
+    is independently derived from the exact server actor allowlist.
     """
     body = comment.get("body")
     if not isinstance(body, str):
@@ -147,6 +210,7 @@ def github_comment_event(comment: dict[str, Any]) -> dict[str, Any] | None:
         raise DispatchError("scheduler event comment must come from Enterprise Math Issue #240")
     user = comment.get("user")
     author_login = user.get("login") if isinstance(user, dict) else None
+    author_user_id = user.get("id") if isinstance(user, dict) else None
     if not isinstance(author_login, str) or not author_login.strip():
         raise DispatchError("scheduler event comment requires GitHub author login")
     created = _server_time(comment.get("created_at"), "created_at")
@@ -165,6 +229,9 @@ def github_comment_event(comment: dict[str, Any]) -> dict[str, Any] | None:
         "issue_number": 240,
         "comment_id": comment_id,
         "author_login": author_login,
+        "author_user_id": author_user_id,
+        "author_association": comment.get("author_association"),
+        "control_authorized": control_event_authorized(comment, root=root),
         "created_at": created.isoformat(),
         "updated_at": updated.isoformat(),
         "body_sha256": "sha256:" + hashlib.sha256(body.encode("utf-8")).hexdigest(),
@@ -174,7 +241,9 @@ def github_comment_event(comment: dict[str, Any]) -> dict[str, Any] | None:
     return normalized
 
 
-def events_from_github_comments(comments: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def events_from_github_comments(
+    comments: list[dict[str, Any]], *, root: Path = ROOT
+) -> list[dict[str, Any]]:
     """Extract Issue #240 events in authoritative GitHub comment-id order."""
     ids: set[int] = set()
     ordered: list[dict[str, Any]] = []
@@ -191,7 +260,7 @@ def events_from_github_comments(comments: list[dict[str, Any]]) -> list[dict[str
     ordered.sort(key=lambda item: item["id"])
     events: list[dict[str, Any]] = []
     for comment in ordered:
-        event = github_comment_event(comment)
+        event = github_comment_event(comment, root=root)
         if event is not None:
             events.append(event)
     return events
@@ -200,11 +269,12 @@ def events_from_github_comments(comments: list[dict[str, Any]]) -> list[dict[str
 def _event_authentication_filter(
     task: dict[str, Any], events: list[dict[str, Any]]
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """Fail closed for edited or unauthenticated live registered events.
+    """Fail closed for edited, unauthenticated, or unauthorized live events.
 
     Bare V1 events remain accepted only for the frozen legacy reducer/replay path.
-    This preserves historical deterministic tests while preventing a local JSON
-    object from impersonating a live registered Issue #240 comment.
+    Live server events must independently satisfy authentication and actor
+    authorization; an unauthorized event-shaped comment is ignored rather than
+    allowed to mutate runtime state or abort the entire stream.
     """
     accepted: list[dict[str, Any]] = []
     rejected: list[dict[str, Any]] = []
@@ -227,6 +297,12 @@ def _event_authentication_filter(
             continue
         if meta.get("issue_number") != 240 or type(meta.get("comment_id")) is not int:
             rejected.append({"index": index, "reason": "GitHub event envelope issue/comment identity is invalid"})
+            continue
+        if meta.get("control_authorized") is not True:
+            rejected.append({
+                "index": index,
+                "reason": "GitHub event author is authenticated but not authorized for control-plane mutation",
+            })
             continue
         if meta.get("edited") is True:
             rejected.append({
@@ -511,6 +587,10 @@ def validate(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     legacy = load_json(root / "research_scheduler.json")
     owners = load_json(root / "branch_governance_overrides.json")
+    try:
+        control_authorization_policy(root)
+    except Exception as exc:
+        errors.append(f"control-event authorization policy failure: {exc}")
     errors.extend(research_scheduler.validate_scheduler(legacy, owners))
     errors.extend(research_task_records.audit(root))
     errors.extend(research_execution_records.audit(root))
