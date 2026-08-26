@@ -1,0 +1,80 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_SOURCE_FIREWALL_V1",
+  "status": "ACTIVE_CANONICAL_OPTIONAL_EXECUTION_GATE",
+  "effective": "2026-08-26",
+  "runtime_guard": "tools/research_runtime_guard.py",
+  "purpose": "Make blind/independent source exposure auditable before substantive mathematics without turning GitHub into the research hot path.",
+  "taskbook_field": "source_firewall",
+  "modes": [
+    "NONE",
+    "BLIND_INDEPENDENT"
+  ],
+  "blind_required_fields": [
+    "mode",
+    "pre_math_stamp_required",
+    "remote_stamp_before_math_required",
+    "allowed_source_pins",
+    "withheld_until_raw_freeze",
+    "raw_freeze_path"
+  ],
+  "source_pin_required_fields": [
+    "path",
+    "commit",
+    "blob_sha1"
+  ],
+  "source_pin_rule": "Every allowed same-repository mathematical source must be pinned by exact path + 40-hex commit + 40-hex Git blob SHA-1. A path-only, branch-only, current-main-only, or unverified caller-supplied blob is not a blind input pin.",
+  "pre_math_stamp": {
+    "schema": "ENTERPRISE_MATH_BLIND_EXECUTION_STAMP_V1",
+    "phase": "STARTED_BEFORE_MATH",
+    "required_fields": [
+      "schema",
+      "phase",
+      "task_id",
+      "publication_id",
+      "taskbook_path",
+      "taskbook_blob_sha1",
+      "researcher_id",
+      "created_at",
+      "math_source_read_before_stamp",
+      "source_validation",
+      "allowed_source_pins",
+      "withheld_until_raw_freeze",
+      "raw_freeze_path",
+      "remote_stamp_before_math_required"
+    ],
+    "math_source_read_before_stamp": false,
+    "source_validation": "ALL_ALLOWED_SOURCE_PINS_MATCH_LOCAL_GIT_OBJECT_DATABASE",
+    "default_path": "evidence/<task-id>/execution_stamp.json"
+  },
+  "local_validation": {
+    "network_required": false,
+    "git_object_database_only": true,
+    "commit_must_exist_locally": true,
+    "path_at_commit_must_exist": true,
+    "actual_blob_must_equal_declared_blob": true,
+    "missing_commit_or_blob": "FAIL_CLOSED_BEFORE_MATH"
+  },
+  "remote_publication_policy": {
+    "default": "NOT_REQUIRED_BEFORE_MATH",
+    "reason": "The stamp is a local evidence boundary and may be batched with the first genuine durable checkpoint; generic blind execution must not acquire a pre-math GitHub push tax.",
+    "task_specific_override": "If source_firewall.remote_stamp_before_math_required=true, the task intentionally requires the stricter remote-publication gate. The executor must satisfy that exact task-local requirement before source exposure."
+  },
+  "raw_freeze_transition": {
+    "before_raw_freeze": "ONLY_ALLOWED_SOURCE_PINS_MAY_BE_READ_FOR_ROUTE_SPECIFIC_MATHEMATICS",
+    "raw_freeze_artifact_immutable": true,
+    "after_raw_freeze": "WITHHELD_SOURCES_MAY_OPEN_ONLY_IF_TASKBOOK_AUTHORIZES_COMPARISON",
+    "later_correction": "RECORD_IN_FINAL_RETURN; DO_NOT_REWRITE_RAW_FREEZE"
+  },
+  "interaction_budget": {
+    "ordinary_pre_math_remote_writes": 0,
+    "ordinary_pre_math_ci_polls": 0,
+    "ordinary_pre_math_review_polls": 0,
+    "stamp_local_file_write": 1,
+    "remote_write_only_when_task_explicitly_requires_it": true
+  },
+  "nonclaims": [
+    "This contract cannot prove that a human or model did not read a forbidden source outside the recorded execution environment.",
+    "The stamp is provenance evidence, not mathematical proof.",
+    "A matching source pin does not validate the theorem statement contained in the source."
+  ]
+}
