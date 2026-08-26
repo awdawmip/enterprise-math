@@ -42,3 +42,5 @@ jobs:
         run: python tools/research_result_records.py audit
       - name: Check parallel evidence two-pass reference chains
         run: python research_parallel_evidence.py audit
+      - name: Check opt-in parallel execution cohorts
+        run: python research_execution_cohorts.py audit
