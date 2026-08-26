@@ -35,12 +35,45 @@ def _publication_for_state(task_id: str, root: Path, publication_id: str | None)
     if publication_id is not None:
         return publication_id
     try:
-        current = _impl.research_task_records.current_records(root).get(task_id)
+        current = research_task_records.current_records(root).get(task_id)
     except Exception:
         current = None
     if isinstance(current, dict) and isinstance(current.get("publication_id"), str):
         return current["publication_id"]
     return None
+
+
+def _single_result_state(
+    task_id: str,
+    root: Path,
+    publication_id: str | None,
+) -> dict[str, Any] | None:
+    """Reduce one publication generation through the public result-registry API.
+
+    Keeping the reduction on this module boundary preserves compatibility with
+    callers/tests that intentionally replace ``iter_results`` or ``latest_review``
+    while retaining the exact generation-aware semantics of the implementation.
+    """
+    values = [
+        item
+        for item in iter_results(root)
+        if item.get("task_id") == task_id
+        and (publication_id is None or item.get("publication_id") == publication_id)
+    ]
+    if not values:
+        return None
+    values.sort(key=lambda item: (item.get("frozen_at", ""), item.get("result_id", "")))
+    result = values[-1]
+    review = latest_review(result["result_id"], root)
+    if review is None:
+        return {"state": "AWAITING_DRIVER_REVIEW", "result": result, "review": None, "terminal": False}
+    disposition = review.get("disposition")
+    return {
+        "state": "TERMINAL" if disposition in TERMINAL_DISPOSITIONS else "RETURN_TO_EXECUTION",
+        "result": result,
+        "review": review,
+        "terminal": disposition in TERMINAL_DISPOSITIONS,
+    }
 
 
 def _parallel_synthesis(intake_id: str, evidence_set_sha256: str, root: Path) -> dict[str, Any] | None:
@@ -57,20 +90,16 @@ def task_result_state(
 ) -> dict[str, Any] | None:
     """Return one control state without discarding parallel research evidence.
 
-    Single-result tasks delegate unchanged to the generation-aware implementation.
-    Two or more results for the same selected publication never use timestamp
-    precedence. They remain non-dispatchable until intake -> reference pass 1 ->
-    reference pass 2 -> synthesis is complete.
+    Single-result tasks retain the generation-aware historical behavior. Two or
+    more results for the same selected publication never use timestamp precedence;
+    they remain non-dispatchable until intake -> reference pass 1 -> reference
+    pass 2 -> synthesis completes.
     """
     resolved_publication = _publication_for_state(task_id, root, publication_id)
     parallel = _parallel.state(task_id, resolved_publication, root)
     phase = parallel.get("parallel_state")
     if phase == "SINGLE_RESULT_FLOW":
-        return _impl.task_result_state(
-            task_id,
-            root,
-            publication_id=resolved_publication,
-        )
+        return _single_result_state(task_id, root, resolved_publication)
 
     result_ids = list(parallel.get("result_ids") or [])
     intake_id = parallel.get("intake_id")
@@ -139,9 +168,7 @@ def task_result_state(
 
     if phase == "PARALLEL_SYNTHESIS_TERMINAL":
         disposition = synthesis.get("terminal_control_disposition")
-        if disposition not in _impl.TERMINAL_DISPOSITIONS:
-            # Fail closed: a synthesis may classify evidence without silently
-            # inventing a terminal Driver disposition.
+        if disposition not in TERMINAL_DISPOSITIONS:
             return {
                 "state": "AWAITING_DRIVER_REVIEW",
                 "result": synth_result,
@@ -166,12 +193,12 @@ def task_result_state(
             "evidence_set_sha256": evidence_hash,
         }
 
-    raise _impl.ResultRecordError(f"unknown parallel result state: {phase}")
+    raise ResultRecordError(f"unknown parallel result state: {phase}")
 
 
 if __name__ == "__main__":
     try:
         raise SystemExit(_impl.main())
-    except _impl.ResultRecordError as exc:
+    except ResultRecordError as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
