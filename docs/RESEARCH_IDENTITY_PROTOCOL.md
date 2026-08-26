@@ -1,20 +1,21 @@
 # Enterprise Math Role Identity Protocol
 
 Status: `ACTIVE / CANONICAL ROLE IDENTITY + FINAL-FOOTER + DISPATCH PREALLOCATION CONTRACT`  
-Effective: 2026-08-23
+Effective: 2026-08-26
 
 ## 1. Purpose
 
-Enterprise Math may run many parallel research and Driver conversations. Task IDs identify work; they do not identify which conversation produced a statement, artifact, commit, PR, or handoff.
+Enterprise Math may run many parallel Researcher, Driver, and Foundation Steward conversations. Task IDs identify work; they do not identify which conversation produced a statement, artifact, commit, PR, review, publication, or handoff.
 
 The project therefore uses one stable execution handle per conversation/session, with a **role-specific visible label**:
 
 - `RESEARCHER` → `Researcher-ID`;
-- `RESEARCH_DRIVER` → `Driver-ID`.
+- `RESEARCH_DRIVER` → `Driver-ID`;
+- `FOUNDATION_STEWARD` → `Steward-ID`.
 
-The underlying handle grammar remains compatible with existing `EM-<LANE>-...` identities.
+The underlying handle grammar remains compatible with existing `EM-<LANE>-...` identities. Adding the Steward role does not create another identity database or another task-control workflow.
 
-A role identity identifies a conversation/session instance. It does not grant theorem ownership, Driver authority, canonical status, or legal identity.
+A role identity identifies a conversation/session instance. It does not grant theorem ownership, Driver authority, Foundation authority, canonical status, or legal identity.
 
 Machine authority:
 
@@ -27,7 +28,7 @@ Helper:
 
 ## 2. Bootstrap invariant
 
-Before substantive Enterprise Math work begins, any conversation entering either role must execute:
+Before substantive Enterprise Math work begins, any conversation entering any active Enterprise Math role must execute:
 
 `RESOLVE_OR_ALLOCATE_ROLE_IDENTITY`
 
@@ -37,12 +38,14 @@ This applies to:
 2. official taskbook execution;
 3. scheduler `CLAIM`;
 4. Driver-mediated manual relay;
-5. role conversion into `RESEARCHER`;
-6. role conversion into `RESEARCH_DRIVER`;
-7. handoff into a new conversation;
-8. resumption of an existing Enterprise Math conversation.
+5. Foundation Steward maintenance/review work;
+6. role conversion into `RESEARCHER`;
+7. role conversion into `RESEARCH_DRIVER`;
+8. role conversion into `FOUNDATION_STEWARD`;
+9. handoff into a new conversation;
+10. resumption of an existing Enterprise Math conversation.
 
-Identity registration is provenance infrastructure, not a mathematical hard block.
+Identity registration is provenance infrastructure, not a mathematical hard block. If the registration write path is unavailable, preserve the locally resolved ID and continue as `REGISTER_PENDING`; retry only at a semantic checkpoint.
 
 Identity resolution and identity display are separate obligations. A correctly allocated ID that is omitted from a final response does **not** satisfy the visible-identity contract.
 
@@ -56,7 +59,9 @@ Resolve in this order:
 4. for a scheduler `CLAIM`, use/derive the claim Researcher-ID;
 5. otherwise self-allocate a role-appropriate identity locally.
 
-A conversation must not begin substantive research and only invent an ID at return time.
+A conversation must not begin substantive role work and only invent an ID at return time.
+
+Role transition in the same conversation may preserve the underlying execution handle while changing the visible role label/scope. Authority never leaks across a role transition merely because the handle is preserved.
 
 ## 4. ID grammar
 
@@ -77,26 +82,28 @@ Examples:
 - `EM-P017-8C21F4`
 - `EM-FREE-7A2C`
 - `EM-DVR-Q4N7`
+- `EM-STW-6B2E91`
 
 `EM-DRIVER-01` is reserved for the explicitly designated primary Driver continuity conversation.
 
-A non-primary Driver uses an `EM-DVR-*` handle but displays it as a **Driver-ID**, not a Researcher-ID.
+Default non-task role lanes are:
 
-## 5. Taskbook versus dispatch identity
+- non-primary Driver: `DVR`;
+- Foundation Steward: `STW`.
 
-A reusable taskbook defines work, not a particular runtime conversation. Therefore a taskbook must not contain a fixed `researcher_id`.
+## 5. Taskbook versus runtime identity
 
-New Driver-approved taskbooks continue to declare:
+A reusable taskbook defines work, not a particular runtime conversation. Therefore a taskbook must not contain a fixed `researcher_id`, `driver_id`, or `steward_id`.
+
+Published taskbooks declare:
 
 `identity_policy: AUTO_RESOLVE_OR_ALLOCATE`
 
-and may declare:
+and may declare an `identity_lane`.
 
-`identity_lane: R020`
+Publisher provenance belongs to the immutable publication record. A Researcher, Driver, or Foundation Steward publishing a task uses the execution ID of the current role session as `publisher_id`; this does not bind that ID to later task execution.
 
-For a **Driver-mediated manual relay**, the runtime binding happens in a separate dispatch envelope.
-
-The Driver preallocates one Researcher-ID with:
+For a **Driver-mediated manual relay**, runtime binding happens in a separate dispatch envelope. The Driver preallocates one Researcher-ID with:
 
 ```bash
 python tools/research_identity.py allocate \
@@ -106,26 +113,21 @@ python tools/research_identity.py allocate \
   --dispatch-id <unique-dispatch-id>
 ```
 
-The relay queue and the user-visible handoff carry that Researcher-ID. The receiving conversation preserves it for the execution session and emits it on every final response while the role remains active.
-
-This solves two different needs without mixing them:
-
-- taskbook remains reusable and instance-free;
-- each actual manual execution starts with a concrete Researcher-ID.
+This keeps taskbook identity reusable while each actual manual execution has concrete provenance.
 
 ## 6. Scheduler integration
 
-Scheduler `CLAIM` remains deterministic.
-
-If `researcher_id` is missing, derive:
+Scheduler `CLAIM` remains Researcher execution identity. If `researcher_id` is missing, derive:
 
 `EM-<LANE>-SHA256(task_id + NUL + claim_id)[0:6].upper()`
 
 Live claim events must match the live Researcher-ID when one is supplied.
 
+Foundation Steward identity is not a scheduler-claim identity by default. Steward verification/maintenance is a separate role operation; if a Steward publishes a follow-up task, the resulting task is later claimed by a Researcher through the normal CLAIM path unless its governing task explicitly says otherwise.
+
 ## 7. Direct/self-started work
 
-Research that starts outside a Driver relay still self-allocates:
+Researcher:
 
 ```bash
 python tools/research_identity.py allocate \
@@ -133,7 +135,7 @@ python tools/research_identity.py allocate \
   --role RESEARCHER
 ```
 
-A free researcher without a task may make the visible mode explicit:
+Free Researcher:
 
 ```bash
 python tools/research_identity.py allocate \
@@ -142,19 +144,27 @@ python tools/research_identity.py allocate \
   --research-mode FREE_AXIOM_DISCOVERY
 ```
 
-A non-primary Driver conversation self-allocates:
+Non-primary Driver:
 
 ```bash
 python tools/research_identity.py allocate --role RESEARCH_DRIVER
 ```
 
-The primary Driver uses:
+Primary Driver:
 
 ```bash
 python tools/research_identity.py allocate \
   --role RESEARCH_DRIVER \
   --primary-driver
 ```
+
+Foundation Steward:
+
+```bash
+python tools/research_identity.py allocate --role FOUNDATION_STEWARD
+```
+
+The Steward helper defaults to the `STW` lane and renders `Steward-ID`.
 
 ## 8. Mandatory visible marker on every final response
 
@@ -166,19 +176,21 @@ Freeze:
 
 `ACTIVE_ENTERPRISE_MATH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER`.
 
-This applies to every assistant message on the `final` channel while `RESEARCHER` or `RESEARCH_DRIVER` is active. It includes short status replies, readiness/completion receipts, handoffs, blocked/no-go conclusions, refusals, and ordinary research answers. Commentary/progress/tool messages are not final responses and do not require the footer.
+This applies to every assistant message on the `final` channel while `RESEARCHER`, `RESEARCH_DRIVER`, or `FOUNDATION_STEWARD` is active. It includes short status replies, readiness/completion receipts, handoffs, blocked/no-go conclusions, refusals, and ordinary role answers. Commentary/progress/tool messages are not final responses and do not require the footer.
 
-Researcher marker resolution is deterministic:
+Researcher marker resolution:
 
 1. active explicit task → `Researcher-ID: <ID> / <TASK_ID>`;
 2. no task + free mode → `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`;
 3. other direct task research → `Researcher-ID: <ID> / TASK_RESEARCH`.
 
-`DIRECT` is an internal identity-source/lane concept and must not appear as the visible researcher scope.
+Driver marker:
 
-Driver marker is always:
+`Driver-ID: <ID> / CONTROL_PLANE`
 
-`Driver-ID: <ID> / CONTROL_PLANE`.
+Foundation Steward marker:
+
+`Steward-ID: <ID> / FOUNDATION_STEWARD`
 
 The marker appears **exactly once**. Registration state such as `REGISTER_PENDING` never suppresses it.
 
@@ -190,11 +202,9 @@ Compatibility registration root:
 
 `awdawmip/chatgpt-global-knowledge/projects/enterprise-math/researchers/`
 
-The folder name is historical; it may contain Driver records as well as Researcher records.
+The folder name is historical; it may contain Researcher, Driver, and Foundation Steward records.
 
-Registration is a routing/observability view, not the uniqueness source for automatic IDs.
-
-For manual relay, a Driver may create a preallocated identity record before first use. If the write path is unavailable, the relay still carries the ID and registration may follow later.
+Registration is a routing/observability view, not the uniqueness source for automatic IDs. It must never become a required remote write before substantive work.
 
 ## 10. Commit, PR, report, and handoff metadata
 
@@ -202,9 +212,7 @@ Commit/PR subjects continue to use the underlying handle:
 
 `[EM-R020-ABC123] ...`
 
-Human metadata is role-aware:
-
-For researcher work:
+Researcher metadata:
 
 ```text
 Researcher-ID: EM-R020-ABC123
@@ -212,7 +220,7 @@ Research-Task: RS-R020-...
 Research-Role: RESEARCHER
 ```
 
-For Driver work:
+Driver metadata:
 
 ```text
 Driver-ID: EM-DVR-Q4N7
@@ -220,23 +228,31 @@ Research-Task: CONTROL_PLANE
 Research-Role: RESEARCH_DRIVER
 ```
 
-Machine payloads should expose `execution_id` plus the role-specific `researcher_id` or `driver_id`. Legacy records using `researcher_id` generically are not rewritten solely for naming cleanup.
+Foundation Steward metadata:
+
+```text
+Steward-ID: EM-STW-6B2E91
+Research-Task: FOUNDATION_STEWARD
+Research-Role: FOUNDATION_STEWARD
+```
+
+Machine payloads expose `execution_id` plus the role-specific `researcher_id`, `driver_id`, or `steward_id`. Legacy records are not rewritten solely for naming cleanup.
 
 ## 11. Handoff semantics
 
-Same conversation continuation preserves the same role identity.
+Same-conversation continuation preserves the same underlying role identity unless the user or governing role transition explicitly establishes a new execution session.
 
 A genuinely new manual dispatch receives a new preallocated Researcher-ID unless the Driver is explicitly routing back to the same conversation.
 
-The preallocated ID belongs to the execution session, not to the taskbook forever.
+The execution ID belongs to the role session, not to a taskbook forever.
 
-## 12. Driver responsibility
+## 12. Driver and Steward responsibility
 
-The Driver maintains the human directory, but is not the only source of identity creation.
+The Driver maintains the portfolio/human directory but is not the only source of identity creation. When the Driver creates a manual user relay, the Driver must preallocate the Researcher-ID.
 
-However, when the Driver is already creating a manual user relay, the Driver **must preallocate the runtime Researcher-ID**. It is an error to hand the user an official relay and rely on the receiving researcher to remember an unstated bootstrap action.
+Foundation Steward authority is defined by `foundation_steward.json` and the Foundation/backflow contracts. `Steward-ID` only makes that role execution traceable; it does not broaden or self-create Steward authority.
 
-If a historical return arrives with a malformed or missing ID, preserve provenance honestly. Normalize only when the mapping is unambiguous; otherwise allocate a fresh handle at the next execution boundary.
+If a historical return/review arrives with a malformed or missing ID, preserve provenance honestly. Normalize only when the mapping is unambiguous; otherwise allocate a fresh handle at the next execution boundary.
 
 ## 13. Identity does not replace isolation or authority
 
@@ -244,12 +260,13 @@ Role identity is observability/provenance only. It does not weaken or replace:
 
 - task isolation;
 - theorem-owner isolation;
-- Driver/taskbook authority;
-- proposal review;
-- Foundation stewardship;
+- Driver authority;
+- Foundation Steward authority;
+- task publication contracts;
+- proposal/candidate review;
 - canonical promotion gates;
 - theorem status discipline.
 
-The intended invariant is now:
+The intended invariant is:
 
-> Every Enterprise Math conversation resolves its role identity before substantive work begins and emits exactly one role-appropriate identity marker on every final response while that role remains active.
+> Every active Enterprise Math role resolves its execution identity before substantive work begins and emits exactly one role-appropriate identity marker on every final response, without turning identity persistence into a research-time GitHub dependency.
