@@ -56,33 +56,78 @@ def relative(path: Path, root: Path = ROOT) -> str:
     return path.relative_to(root).as_posix() if path.is_relative_to(root) else path.as_posix()
 
 
+def retained_parallel_publication_ids(root: Path = ROOT) -> set[str]:
+    """Return publications explicitly retained by the parallel-resolution overlay.
+
+    This compatibility bridge exists so the V1 orphan audit can recognize an
+    exact immutable publication that is intentionally non-operational. It does
+    not grant dispatch/current authority to that publication.
+    """
+    resolver = getattr(research_task_records, "publication_resolutions", None)
+    if resolver is None:
+        return set()
+    try:
+        resolutions = resolver(root)
+    except Exception as exc:
+        raise RegistryError(f"cannot resolve publication retention overlay: {exc}") from exc
+    out: set[str] = set()
+    for row in resolutions.values():
+        retained = row.get("retained_parallel_publication_ids", [])
+        if isinstance(retained, list):
+            out.update(item for item in retained if isinstance(item, str) and item)
+        # Backward-compatible field consumed by the current reducer. Semantically
+        # these are retained parallel publications, not rejected data.
+        compat = row.get("quarantined_publication_ids", [])
+        if isinstance(compat, list):
+            out.update(item for item in compat if isinstance(item, str) and item)
+    return out
+
+
 def has_exact_v2_publication_authority(
     path: Path,
     meta: dict[str, Any],
-    current_v2: dict[str, dict[str, Any]],
+    all_v2_records: list[dict[str, Any]],
+    retained_parallel_ids: set[str],
     *,
     root: Path = ROOT,
 ) -> bool:
-    """Recognize only an exact current immutable V2 publication generation.
+    """Recognize exact immutable publication provenance, not only current dispatch.
 
-    This is a compatibility read bridge, not a second publication path. A V2
-    record exempts a post-cutover taskbook from the frozen V1 mirror only when
-    task identity, path, blob, transaction, and active generation all match.
+    Orphan detection answers whether this taskbook has an exact immutable
+    publication object. Current operational selection is a separate dispatch
+    question. Normal ACTIVE V2 publications are valid provenance even when a
+    different parallel head is operational. A nonstandard migration transaction
+    is accepted only when the parallel-resolution overlay explicitly retains its
+    publication id.
     """
     task_id = meta.get("task_id")
     if not isinstance(task_id, str) or not task_id:
         return False
-    record = current_v2.get(task_id)
-    if not isinstance(record, dict):
-        return False
-    return (
-        record.get("record_schema") == research_task_records.RECORD_SCHEMA
-        and record.get("record_state", "ACTIVE") == "ACTIVE"
-        and record.get("publication_transaction") == research_task_records.PUBLICATION_TRANSACTION_V2
-        and record.get("task_id") == task_id
-        and record.get("taskbook_path") == relative(path, root)
-        and record.get("taskbook_blob_sha1") == blob_sha1(path)
-    )
+    expected_path = relative(path, root)
+    expected_blob = blob_sha1(path)
+    for record in all_v2_records:
+        if not isinstance(record, dict):
+            continue
+        pub_id = record.get("publication_id")
+        retained = isinstance(pub_id, str) and pub_id in retained_parallel_ids
+        if record.get("record_schema") != research_task_records.RECORD_SCHEMA:
+            continue
+        if record.get("task_id") != task_id:
+            continue
+        if record.get("taskbook_path") != expected_path:
+            continue
+        if record.get("taskbook_blob_sha1") != expected_blob:
+            continue
+        if record.get("record_state", "ACTIVE") != "ACTIVE" and not retained:
+            continue
+        if (
+            record.get("publication_transaction")
+            != research_task_records.PUBLICATION_TRANSACTION_V2
+            and not retained
+        ):
+            continue
+        return True
+    return False
 
 
 def effective_rank(meta: dict[str, Any], publisher_role: str) -> tuple[str, str, str]:
@@ -196,7 +241,11 @@ def audit_registry(*, root: Path = ROOT, strict: bool = True) -> list[str]:
     except RegistryError as exc:
         return [str(exc)]
     try:
-        current_v2 = research_task_records.current_records(root)
+        # Resolve current heads to ensure the operational overlay itself is valid,
+        # but use every immutable record for historical/orphan provenance checks.
+        research_task_records.current_records(root)
+        all_v2_records = research_task_records.iter_records(root)
+        retained_parallel_ids = retained_parallel_publication_ids(root)
     except Exception as exc:
         return errors + [f"cannot resolve immutable V2 task authority: {exc}"]
     required = set(load_json(root / "research_task_publication_contract.json")["publication_record_required_fields"])
@@ -250,8 +299,9 @@ def audit_registry(*, root: Path = ROOT, strict: bool = True) -> list[str]:
         if blob_sha1(path) != item.get("taskbook_blob_sha1"):
             errors.append(f"{task_id}: taskbook blob drift")
 
-    # A post-cutover V2 publication does not need a frozen V1 mirror, but the
-    # compatibility audit must still reject taskbooks with no exact authority.
+    # V1 compatibility orphan detection is about provenance existence, not
+    # current operational selection. Exact retained parallel publications are
+    # therefore valid authority even when another head is selected for runtime.
     task_dir = root / "research_tasks"
     if task_dir.exists():
         for path in sorted(task_dir.glob("*.md")):
@@ -263,11 +313,17 @@ def audit_registry(*, root: Path = ROOT, strict: bool = True) -> list[str]:
                 meta.get("task_authority") == "PUBLISHED_REGISTERED"
                 and meta.get("base_state") not in {"DRAFT", "BACKLOG"}
                 and meta.get("task_id") not in by_id
-                and not has_exact_v2_publication_authority(path, meta, current_v2, root=root)
+                and not has_exact_v2_publication_authority(
+                    path,
+                    meta,
+                    all_v2_records,
+                    retained_parallel_ids,
+                    root=root,
+                )
             ):
                 errors.append(
                     f"{relative(path, root)}: orphaned published taskbook has neither a V1 compatibility mirror "
-                    "nor exact current V2 immutable publication authority"
+                    "nor exact immutable V2/retained-parallel publication provenance"
                 )
     if strict:
         template = root / "templates" / "RESEARCH_TASK_PUBLICATION_TEMPLATE.json"
