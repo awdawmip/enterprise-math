@@ -16,6 +16,10 @@ Canonization decision packet:
 
 `research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_CANONIZATION_DECISION_PACKET_20260826.md`.
 
+Driver canonization review brief:
+
+`research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_CANONIZATION_REVIEW_BRIEF_20260826.md`.
+
 Authoritative statement freeze:
 
 `research_notes/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_V2_STATEMENT_FREEZE_20260825.md`.
@@ -24,7 +28,7 @@ Final independent literature intake:
 
 `research_notes/NATIVE_FILAMENT_FINAL_NARROW_NOVELTY_INDEPENDENT_AUDIT_INTAKE_20260826.md`.
 
-These four files are now the hot-path entry surface. Older notes remain provenance/support.
+These five files are now the hot-path entry surface. Older notes remain provenance/support.
 
 ## 2. Final theorem hierarchy
 
@@ -90,7 +94,7 @@ Roles must remain distinct:
 Mathematical audit:
 
 - PR `#631`: `PACKAGE_VERIFIED_WITH_NARROWING`;
-- PR `#637`: `POSTAUDIT_HYPERBOLA_JOUKOWSKI_CLOSURE_STATEMENT_STRENGTH_INDEPENDENTLY_NARROWED`.
+- PR `#637`: `POSTAUDIT_HYPERBOLA_JOUKOWSKI_CLOSURE_STATEMENT_STRENGTH_INDEPENDLY_NARROWED`.
 
 Independent literature audit:
 
@@ -106,6 +110,10 @@ All mandatory narrowings are integrated in the formal theorem package.
 Recommended admitted class if approved:
 
 `AUDITED_RESEARCH_THEOREM / MODEL_SPECIFIC_SELECTION_THEOREM`.
+
+Recommended Driver disposition:
+
+`ADMIT_RESEARCH_THEOREM`.
 
 Not recommended:
 
