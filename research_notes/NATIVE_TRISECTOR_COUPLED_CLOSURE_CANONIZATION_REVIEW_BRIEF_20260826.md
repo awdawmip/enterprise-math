@@ -12,6 +12,9 @@ Primary package:
 Decision packet:
 `research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_CANONIZATION_DECISION_PACKET_20260826.md`.
 
+Current promotion frontier:
+`research_notes/NATIVE_FILAMENT_GENERALIZATION_CURRENT_PROMOTION_FRONTIER_20260825.md`.
+
 ## Review objective
 
 Decide whether the independently audited result should be admitted as an Enterprise Math research-theorem node, without re-running already closed mathematics or component-level novelty searches.
