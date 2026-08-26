@@ -23,6 +23,8 @@ RECORD_SCHEMA = "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2"
 TASKBOOK_PUBLICATION_CONTRACT = "RESEARCH_TASK_PUBLICATION_V1"
 TASKBOOK_TEMPLATE = "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1"
 PUBLICATION_TRANSACTION_V2 = "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2"
+RESOLUTION_SCHEMA = "ENTERPRISE_MATH_TASK_PUBLICATION_RESOLUTION_REGISTRY_V1"
+RESOLUTION_FILE = "research_task_publication_resolutions.json"
 PUBLISHER_ROLES = {"RESEARCHER", "RESEARCH_DRIVER", "FOUNDATION_STEWARD"}
 MANDATORY_BODY_SECTIONS = (
     "Mother question",
@@ -102,12 +104,57 @@ def iter_records(root: Path = ROOT) -> list[dict[str, Any]]:
     return out
 
 
+def publication_resolutions(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    path = root / RESOLUTION_FILE
+    if not path.exists():
+        return {}
+    payload = _load_json(path)
+    if payload.get("schema") != RESOLUTION_SCHEMA:
+        raise TaskRecordError(f"{RESOLUTION_FILE}: wrong schema")
+    if payload.get("status") != "ACTIVE":
+        raise TaskRecordError(f"{RESOLUTION_FILE}: status must be ACTIVE")
+    rows = payload.get("resolutions")
+    if not isinstance(rows, list):
+        raise TaskRecordError(f"{RESOLUTION_FILE}: resolutions must be a list")
+    out: dict[str, dict[str, Any]] = {}
+    for index, row in enumerate(rows):
+        if not isinstance(row, dict):
+            raise TaskRecordError(f"{RESOLUTION_FILE}: resolution {index} must be an object")
+        task_id = row.get("task_id")
+        canonical = row.get("canonical_publication_id")
+        quarantined = row.get("quarantined_publication_ids")
+        if not isinstance(task_id, str) or not task_id:
+            raise TaskRecordError(f"{RESOLUTION_FILE}: resolution {index} missing task_id")
+        if task_id in out:
+            raise TaskRecordError(f"{RESOLUTION_FILE}: duplicate resolution for {task_id}")
+        if not isinstance(canonical, str) or not canonical:
+            raise TaskRecordError(f"{RESOLUTION_FILE}: {task_id} missing canonical_publication_id")
+        if not isinstance(quarantined, list) or not all(isinstance(item, str) and item for item in quarantined):
+            raise TaskRecordError(f"{RESOLUTION_FILE}: {task_id} quarantined_publication_ids invalid")
+        if canonical in quarantined:
+            raise TaskRecordError(f"{RESOLUTION_FILE}: {task_id} canonical head cannot be quarantined")
+        if row.get("working_truth_granted") is not False:
+            raise TaskRecordError(f"{RESOLUTION_FILE}: {task_id} resolution cannot grant Working Truth")
+        if row.get("canonical_promotion_granted") is not False:
+            raise TaskRecordError(f"{RESOLUTION_FILE}: {task_id} resolution cannot grant canonical promotion")
+        if row.get("successor_triggered") is not False:
+            raise TaskRecordError(f"{RESOLUTION_FILE}: {task_id} resolution cannot trigger successor research")
+        out[task_id] = row
+    return out
+
+
 def current_records(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for record in iter_records(root):
         task_id = record.get("task_id")
         if isinstance(task_id, str):
             grouped[task_id].append(record)
+    resolutions = publication_resolutions(root)
+    unknown_resolutions = sorted(set(resolutions) - set(grouped))
+    if unknown_resolutions:
+        raise TaskRecordError(
+            f"publication resolution references unknown task(s): {unknown_resolutions}"
+        )
     current: dict[str, dict[str, Any]] = {}
     for task_id, values in grouped.items():
         superseded = {
@@ -121,12 +168,37 @@ def current_records(root: Path = ROOT) -> dict[str, dict[str, Any]]:
             if item.get("publication_id") not in superseded
             and item.get("record_state", "ACTIVE") not in TERMINAL_RECORD_STATES
         ]
+        resolution = resolutions.get(task_id)
         if len(heads) > 1:
-            raise TaskRecordError(
-                f"publication fork for {task_id}: "
-                f"{[item.get('publication_id') for item in heads]}"
-            )
+            if resolution is None:
+                raise TaskRecordError(
+                    f"publication fork for {task_id}: "
+                    f"{[item.get('publication_id') for item in heads]}"
+                )
+            head_by_id = {str(item.get("publication_id")): item for item in heads}
+            canonical = str(resolution["canonical_publication_id"])
+            quarantined = set(resolution["quarantined_publication_ids"])
+            if canonical not in head_by_id:
+                raise TaskRecordError(
+                    f"publication resolution for {task_id} selects non-head {canonical}"
+                )
+            unresolved = set(head_by_id) - {canonical} - quarantined
+            missing_quarantine = quarantined - set(head_by_id)
+            if unresolved:
+                raise TaskRecordError(
+                    f"publication resolution for {task_id} leaves unresolved heads: {sorted(unresolved)}"
+                )
+            if missing_quarantine:
+                raise TaskRecordError(
+                    f"publication resolution for {task_id} quarantines non-heads: {sorted(missing_quarantine)}"
+                )
+            current[task_id] = head_by_id[canonical]
+            continue
         if heads:
+            if resolution is not None and resolution.get("canonical_publication_id") != heads[0].get("publication_id"):
+                raise TaskRecordError(
+                    f"stale publication resolution for {task_id}: canonical head no longer matches"
+                )
             current[task_id] = heads[0]
     return current
 
