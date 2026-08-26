@@ -4,6 +4,9 @@
 The historical tools/research_runtime.py remains the pure liveness/terminal
 primitive. This wrapper is canonical because it authenticates TASK_REGISTRATION
 against immutable task records or the frozen legacy baseline before delegating.
+For post-cutover registered execution it also reconstructs the winning live CLAIM
+from the canonical server-authenticated and actor-authorized Issue #240 event
+stream; task registration alone is never execution authorization.
 """
 from __future__ import annotations
 
@@ -14,12 +17,18 @@ from pathlib import Path
 from typing import Any, Mapping
 
 try:
+    from tools import research_dispatch
+    from tools import research_execution_records
     from tools import research_result_records
     from tools import research_runtime
+    from tools import research_scheduler
     from tools import research_task_records
 except ModuleNotFoundError:
+    import research_dispatch  # type: ignore
+    import research_execution_records  # type: ignore
     import research_result_records  # type: ignore
     import research_runtime  # type: ignore
+    import research_scheduler  # type: ignore
     import research_task_records  # type: ignore
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -109,6 +118,155 @@ def canonicalize_registration(
     )
 
 
+def _registered_definition(task_id: str, root: Path) -> dict[str, Any]:
+    try:
+        record = research_task_records.current_records(root).get(task_id)
+    except Exception as exc:
+        raise RuntimeAuthorizationError(f"cannot resolve current task publication: {exc}") from exc
+    if record is None:
+        raise RuntimeAuthorizationError("registered execution has no current immutable publication")
+    try:
+        return research_dispatch.registered_definition(record, root)
+    except Exception as exc:
+        raise RuntimeAuthorizationError(f"cannot construct canonical registered task definition: {exc}") from exc
+
+
+def canonical_live_claim_binding(
+    task_id: str,
+    events: list[dict[str, Any]],
+    *,
+    now,
+    root: Path = ROOT,
+) -> dict[str, Any]:
+    """Return the exact currently winning registered CLAIM or fail closed.
+
+    Events must pass the same GitHub server-envelope, control-actor authorization,
+    publication, and execution-envelope filters used by canonical dispatch. The
+    reducer then decides the live owner race and lease state. No caller-supplied
+    owner_claim object can substitute for this reconstruction.
+    """
+    task = _registered_definition(task_id, root)
+    authenticated, _ = research_dispatch._event_authentication_filter(task, events)
+    filtered, _ = research_dispatch._filter_registered_events(task, authenticated, root)
+    lease = int(task.get("claim_lease_minutes") or 120)
+    reduced = research_scheduler.reduce_task(
+        task,
+        filtered,
+        default_lease_minutes=lease,
+        now=now,
+    )
+    if reduced.get("dispatch_state") != "LEASED" or not isinstance(reduced.get("claim_id"), str):
+        raise RuntimeAuthorizationError(
+            "registered execution requires a current winning live Issue #240 CLAIM"
+        )
+
+    matching = [event for event in filtered if event.get("task_id") == task_id]
+    ignored = {
+        item.get("index")
+        for item in reduced.get("ignored_events", [])
+        if isinstance(item, dict) and type(item.get("index")) is int
+    }
+    accepted_claims = [
+        event
+        for index, event in enumerate(matching)
+        if index not in ignored
+        and event.get("event") == "CLAIM"
+        and event.get("claim_id") == reduced.get("claim_id")
+    ]
+    if not accepted_claims:
+        raise RuntimeAuthorizationError("live owner state has no accepted CLAIM provenance")
+    claim = accepted_claims[-1]
+    claim_id = str(reduced["claim_id"])
+
+    try:
+        intent = research_execution_records.intent_for_claim(task_id, claim_id, root)
+    except Exception as exc:
+        raise RuntimeAuthorizationError(f"execution intent lookup failed: {exc}") from exc
+
+    if intent is not None:
+        if intent.get("publication_id") != task.get("publication_id"):
+            raise RuntimeAuthorizationError("historical execution intent is not bound to current publication")
+        if intent.get("taskbook_blob_sha1") != task.get("taskbook_blob_sha1"):
+            raise RuntimeAuthorizationError("historical execution intent taskbook pin is stale")
+        binding = {
+            "publication_id": intent.get("publication_id"),
+            "claim_id": claim_id,
+            "researcher_id": intent.get("researcher_id"),
+            "theorem_owner": intent.get("theorem_owner"),
+            "execution_branch": intent.get("execution_branch"),
+            "execution_branch_base": intent.get("execution_branch_base"),
+            "allowed_outputs": copy.deepcopy(intent.get("allowed_outputs")),
+            "taskbook_blob_sha1": intent.get("taskbook_blob_sha1"),
+            "binding_source": "IMMUTABLE_EXECUTION_RECORD_COMPATIBILITY",
+        }
+    else:
+        binding = {
+            "publication_id": claim.get("publication_id"),
+            "claim_id": claim_id,
+            "researcher_id": claim.get("researcher_id"),
+            "theorem_owner": claim.get("theorem_owner"),
+            "execution_branch": claim.get("execution_branch"),
+            "execution_branch_base": claim.get("execution_branch_base"),
+            "allowed_outputs": copy.deepcopy(claim.get("allowed_outputs")),
+            "taskbook_blob_sha1": claim.get("taskbook_blob_sha1"),
+            "binding_source": "LIVE_SELF_CONTAINED_CLAIM",
+        }
+
+    if binding["publication_id"] != task.get("publication_id"):
+        raise RuntimeAuthorizationError("winning CLAIM publication_id is not current")
+    if binding["taskbook_blob_sha1"] != task.get("taskbook_blob_sha1"):
+        raise RuntimeAuthorizationError("winning CLAIM taskbook pin is not current")
+    if binding["researcher_id"] != reduced.get("researcher_id"):
+        raise RuntimeAuthorizationError("winning CLAIM researcher identity differs from reduced owner state")
+    if not isinstance(binding.get("execution_branch"), str) or not binding["execution_branch"].strip():
+        raise RuntimeAuthorizationError("winning CLAIM has no execution_branch")
+    if not isinstance(binding.get("execution_branch_base"), str) or len(binding["execution_branch_base"]) != 40:
+        raise RuntimeAuthorizationError("winning CLAIM has invalid execution_branch_base")
+    outputs = binding.get("allowed_outputs")
+    if not isinstance(outputs, list) or not outputs:
+        raise RuntimeAuthorizationError("winning CLAIM has no allowed_outputs scope")
+
+    meta = claim.get(research_dispatch.GITHUB_META_KEY)
+    if not isinstance(meta, Mapping) or meta.get("control_authorized") is not True:
+        raise RuntimeAuthorizationError("winning CLAIM lacks authorized GitHub control provenance")
+    binding.update(
+        {
+            "owner_lease_until": reduced.get("lease_until"),
+            "server_comment_id": meta.get("comment_id"),
+            "server_author_login": meta.get("author_login"),
+            "server_author_user_id": meta.get("author_user_id"),
+        }
+    )
+    return binding
+
+
+def _reconcile_caller_owner_claim(
+    state: Mapping[str, Any], binding: Mapping[str, Any]
+) -> None:
+    supplied = state.get("owner_claim")
+    if not isinstance(supplied, Mapping):
+        return
+    for caller_field, binding_field in (
+        ("claim_id", "claim_id"),
+        ("researcher_id", "researcher_id"),
+    ):
+        value = supplied.get(caller_field)
+        if value not in (None, "") and value != binding.get(binding_field):
+            raise RuntimeAuthorizationError(
+                f"caller owner_claim.{caller_field} does not match canonical winning CLAIM"
+            )
+
+
+def _canonical_owner_claim(binding: Mapping[str, Any]) -> dict[str, Any]:
+    return {
+        "claim_id": binding.get("claim_id"),
+        "researcher_id": binding.get("researcher_id"),
+        "owner_lease_until": binding.get("owner_lease_until"),
+        "server_comment_id": binding.get("server_comment_id"),
+        "server_author_login": binding.get("server_author_login"),
+    }
+
+
 def _delegate_safe_state(
     state: Mapping[str, Any], *, purpose: str, root: Path = ROOT
 ) -> dict[str, Any]:
@@ -145,10 +303,22 @@ def adopt_stale_session(
     *,
     replacement_session_id: str,
     now,
+    events: list[dict[str, Any]] | None = None,
     session_liveness_minutes: int = research_runtime.DEFAULT_SESSION_LIVENESS_MINUTES,
     root: Path = ROOT,
 ) -> dict[str, Any]:
-    safe = _delegate_safe_state(state, purpose="adopt", root=root)
+    safe = canonicalize_registration(state, purpose="adopt", root=root)
+    if safe["task_registration"]["state"] == "IMMUTABLE_REGISTERED":
+        if events is None:
+            raise RuntimeAuthorizationError(
+                "registered stale adoption requires canonical Issue #240 event evidence"
+            )
+        binding = canonical_live_claim_binding(
+            safe["task"]["task_id"], events, now=now, root=root
+        )
+        _reconcile_caller_owner_claim(state, binding)
+        safe["owner_claim"] = _canonical_owner_claim(binding)
+        safe["task_registration"]["state"] = "CLAIMABLE"
     return research_runtime.adopt_stale_session(
         safe,
         evidence,
@@ -159,13 +329,35 @@ def adopt_stale_session(
 
 
 def authorize_execution(
-    state: Mapping[str, Any], *, root: Path = ROOT
+    state: Mapping[str, Any],
+    *,
+    events: list[dict[str, Any]] | None = None,
+    now=None,
+    root: Path = ROOT,
 ) -> dict[str, Any]:
     safe = canonicalize_registration(state, purpose="execution", root=root)
+    task_id = safe["task"]["task_id"]
+    if safe["task_registration"]["state"] == "IMMUTABLE_REGISTERED":
+        if events is None:
+            raise RuntimeAuthorizationError(
+                "registered execution requires canonical Issue #240 event evidence"
+            )
+        resolved_now = now if now is not None else research_scheduler.now_utc(None)
+        binding = canonical_live_claim_binding(task_id, events, now=resolved_now, root=root)
+        _reconcile_caller_owner_claim(state, binding)
+        return {
+            "authorized": True,
+            "task_id": task_id,
+            "task_registration": safe["task_registration"],
+            "owner_claim": _canonical_owner_claim(binding),
+            "execution_binding": binding,
+            "authorization_authority": "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM",
+        }
     return {
         "authorized": True,
-        "task_id": safe["task"]["task_id"],
+        "task_id": task_id,
         "task_registration": safe["task_registration"],
+        "authorization_authority": "ALREADY_OWNED_FROZEN_LEGACY_BASELINE",
     }
 
 
@@ -193,6 +385,8 @@ def main() -> int:
 
     authorize = sub.add_parser("authorize")
     _add_state(authorize)
+    authorize.add_argument("--events", type=Path)
+    authorize.add_argument("--now")
 
     pre = sub.add_parser("pre-final")
     _add_state(pre)
@@ -213,6 +407,7 @@ def main() -> int:
 
     adopt = sub.add_parser("adopt")
     _add_state(adopt)
+    adopt.add_argument("--events", type=Path)
     adopt.add_argument("--evidence-json", required=True)
     adopt.add_argument("--replacement-session-id", required=True)
     adopt.add_argument("--now", required=True)
@@ -224,8 +419,13 @@ def main() -> int:
 
     args = parser.parse_args()
     state = _load_state(args)
+    events = research_dispatch.load_events(args.events) if hasattr(args, "events") else None
     if args.command == "authorize":
-        result = authorize_execution(state)
+        result = authorize_execution(
+            state,
+            events=events,
+            now=research_scheduler.now_utc(args.now),
+        )
     elif args.command == "pre-final":
         result = pre_final_gate(state)
     elif args.command == "terminal":
@@ -239,6 +439,7 @@ def main() -> int:
             evidence,
             replacement_session_id=args.replacement_session_id,
             now=research_runtime.parse_time(args.now),
+            events=events,
             session_liveness_minutes=args.session_liveness_minutes,
         )
     else:
