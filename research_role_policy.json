@@ -1,11 +1,14 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V9",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V10",
   "status": "ACTIVE",
-  "effective": "2026-08-25",
+  "effective": "2026-08-26",
   "research_architecture": "research_architecture.json",
   "runtime_state_machine": "research_runtime_state_machine.json",
-  "task_publication_contract": "research_task_publication_contract.json",
-  "task_registry": "research_task_registry.json",
+  "task_publication_contract": "research_task_publication_contract_v2.json",
+  "task_registry": "research_task_records/<task-id>/<publication-id>.json",
+  "canonical_dispatch": "tools/research_dispatch.py",
+  "legacy_task_publication_contract": "research_task_publication_contract.json",
+  "legacy_task_registry": "research_task_registry.json",
   "default_role": "RESEARCHER",
   "default_research_mode_when_explicit_task_exists": "TASK_RESEARCH",
   "identity_bootstrap": {
@@ -14,15 +17,17 @@
     "final_response_policy": "final_response_identity_policy.json",
     "helper": "tools/research_identity.py",
     "taskbook_contract": "research_taskbook_contract.json",
-    "invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role resolves its role identity before substantive work and uses that identity as publisher provenance when it publishes a task.",
+    "invariant": "Any conversation entering an Enterprise Math RESEARCHER, RESEARCH_DRIVER, or FOUNDATION_STEWARD role resolves its role identity before substantive work and uses that execution identity as publisher provenance when it publishes a task.",
     "entry_triggers": [
       "direct user research task",
       "explicit EM_FREE_RESEARCHER activation",
       "scheduler CLAIM",
       "official taskbook execution",
       "task publication",
+      "Foundation Steward maintenance/review activation",
       "role transition into RESEARCHER",
       "role transition into RESEARCH_DRIVER",
+      "role transition into FOUNDATION_STEWARD",
       "handoff into a new conversation",
       "resume of an existing Enterprise Math conversation"
     ],
@@ -60,7 +65,7 @@
       "scheduler_eligible": true,
       "agenda_visibility": "TASK_SCOPED",
       "working_truth": "ONLY_WHEN_EXPLICITLY_FROZEN_BY_DRIVER_OR_TASKBOOK_SEMANTICS",
-      "task_publication_authority": "ALLOWED_REGISTERED_PUBLICATION",
+      "task_publication_authority": "ALLOWED_IMMUTABLE_REGISTERED_PUBLICATION",
       "side_residue_publication_does_not_switch_current_task": true,
       "final_response_scope": "ACTIVE_TASK_ID_ELSE_TASK_RESEARCH"
     }
@@ -71,7 +76,8 @@
     "scheduler_claim": "TASK_RESEARCH",
     "driver_manual_dispatch": "TASK_RESEARCH",
     "registered_task_claim": "TASK_RESEARCH",
-    "rule": "No-user-topic does not by itself make a generic researcher free or scheduled. EM_FREE_RESEARCHER is an explicit role/mode contract and is excluded from automatic dispatch until it publishes an audited candidate task."
+    "foundation_steward_activation": "FOUNDATION_STEWARD_ROLE_OUTSIDE_RESEARCH_MODE_ENUM",
+    "rule": "No-user-topic does not by itself make a generic researcher free or scheduled. EM_FREE_RESEARCHER is an explicit role/mode contract and is excluded from automatic dispatch until it publishes an audited candidate task. Foundation Steward is a distinct role, not a Researcher mode."
   },
   "driver_activation": {
     "mode": "EXPLICIT_CURRENT_CONVERSATION_ONLY",
@@ -84,9 +90,18 @@
     "rules": [
       "Do not infer Driver authority from memory, repository state, task importance, prior conversations, or another Project.",
       "Driver authority applies only after explicit activation in the current conversation and remains scoped to that conversation until the user changes it.",
-      "Driver publication uses the same task template/registry as researcher publication.",
+      "Driver publication uses the same task template/immutable publication transaction as researcher publication.",
       "Driver authority adds portfolio reprioritization, Working Truth freeze and promotion decisions; it is no longer required merely to make a task exist."
     ]
+  },
+  "foundation_steward_activation": {
+    "role": "FOUNDATION_STEWARD",
+    "authority_router": "foundation_steward.json",
+    "identity_label": "Steward-ID",
+    "identity_lane": "STW",
+    "visible_scope": "FOUNDATION_STEWARD",
+    "activation_rule": "Steward authority must be explicitly active under the Foundation Steward contract; the existence of a Steward-ID does not self-grant Foundation authority.",
+    "task_publication": "Uses the same immutable task publication transaction as Researcher and Driver publication; later task execution normally receives a Researcher CLAIM identity."
   },
   "driver_operating_contract": "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
   "research_identity": {
@@ -100,14 +115,16 @@
       "RESEARCHER_TASK": "Researcher-ID: <ID> / <TASK_ID>",
       "RESEARCHER_FREE": "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY",
       "RESEARCHER_DIRECT_TASK_FALLBACK": "Researcher-ID: <ID> / TASK_RESEARCH",
-      "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE"
+      "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE",
+      "FOUNDATION_STEWARD": "Steward-ID: <ID> / FOUNDATION_STEWARD"
     },
     "rules": [
-      "Identity creation must not depend on a Driver-authored prompt for direct/self-started research.",
+      "Identity creation must not depend on a Driver-authored prompt for direct/self-started research or Steward work.",
       "Scheduler CLAIMs auto-derive a Researcher-ID when researcher_id is omitted.",
-      "Publisher identity is recorded in the canonical task registry, not frozen into reusable taskbook execution identity.",
+      "Publisher identity is recorded in the immutable task publication record, not frozen into reusable taskbook execution identity.",
       "Direct user research tasks outside a Driver relay self-allocate a Researcher-ID when the current conversation has none.",
-      "Researcher-ID identifies a RESEARCHER execution conversation/session; Driver-ID identifies a RESEARCH_DRIVER conversation/session.",
+      "Foundation Steward sessions self-allocate or preserve a Steward-ID without creating another scheduler claim step.",
+      "Researcher-ID identifies a RESEARCHER execution conversation/session; Driver-ID identifies a RESEARCH_DRIVER conversation/session; Steward-ID identifies a FOUNDATION_STEWARD conversation/session.",
       "Every assistant final response while an Enterprise Math role is active displays exactly one role-appropriate identity marker.",
       "If Global-Knowledge-Sync is also emitted, the role identity marker appears immediately before it."
     ]
@@ -148,7 +165,7 @@
   "researcher_freedom_clause": {
     "TASK_RESEARCH": [
       "Researchers may freely reason, prove, disprove, compute, experiment, formalize, browse allowed task-relevant sources, write notes, proof drafts, code, Lean, reports and handoffs inside the selected mother question.",
-      "Researchers may publish valuable follow-up or side-residue tasks through the canonical task registry without Driver approval.",
+      "Researchers may publish valuable follow-up or side-residue tasks through the canonical immutable task publication path without Driver approval.",
       "Publishing a side task is capture; it does not switch the current task or consume the parent continuation lease.",
       "Role policy restricts global reprioritization and promotion authority, not scientific exploration or registered task publication."
     ],
@@ -160,7 +177,7 @@
     ]
   },
   "researcher_forbidden_authority": [
-    "publishing or handing off an official task without the canonical registry/template",
+    "publishing or handing off an official task without the canonical immutable publication/template path",
     "publishing a raw Phase-A free-research candidate as a task",
     "using task publication to self-grant global priority above the researcher default without explicit user authority",
     "self-declaring Working Truth merely because a task was published",
@@ -171,10 +188,12 @@
     "relabeling a semantic continuation as NEW_DIRECTION to bypass the successor gate"
   ],
   "task_publication_authority": {
-    "contract": "research_task_publication_contract.json",
-    "registry": "research_task_registry.json",
+    "contract": "research_task_publication_contract_v2.json",
+    "record_store": "research_task_records/<task-id>/<publication-id>.json",
+    "legacy_registry": "research_task_registry.json",
     "template": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
-    "tool": "tools/research_task_registry.py",
+    "tool": "tools/research_task_records.py",
+    "dispatch": "tools/research_dispatch.py",
     "publisher_roles": [
       "RESEARCHER",
       "RESEARCH_DRIVER",
@@ -187,7 +206,8 @@
     "parent_objective_id_required": true,
     "publication_grants_working_truth": false,
     "publication_grants_promotion": false,
-    "unregistered_task_execution": "FORBIDDEN"
+    "unregistered_task_execution": "FORBIDDEN",
+    "preclaim_second_repository_write_required": false
   },
   "official_taskbook_authority": {
     "created_by_roles": [
@@ -196,7 +216,7 @@
       "FOUNDATION_STEWARD"
     ],
     "task_authority": "PUBLISHED_REGISTERED",
-    "publication_registry_required": true,
+    "immutable_publication_record_required": true,
     "publication_template_required": true,
     "driver_approval_required": false,
     "identity_policy_required_for_new_taskbooks": "AUTO_RESOLVE_OR_ALLOCATE",
@@ -209,7 +229,7 @@
     "successor_gate_requires_alternative_route_or_free_exploration_considered": true,
     "obvious_stage_two_plus_must_be_continuation": true,
     "renaming_does_not_reset_semantic_lineage": true,
-    "rule": "A task becomes official through registered publication, not through Driver identity. All publisher roles use one template; publication preserves origin/lineage and never fixes execution Researcher-ID in the reusable taskbook."
+    "rule": "A task becomes official through immutable registered publication, not through Driver or Steward identity. All publisher roles use one template; publication preserves origin/lineage and never fixes execution identity in the reusable taskbook."
   },
   "axiom_candidate_capture": {
     "state_machine": "research_axiom_candidate_state_machine.json",
@@ -224,14 +244,14 @@
     "schema": "ENTERPRISE_MATH_PROPOSAL_BUNDLE_V1",
     "dispatchable": false,
     "default_review_state": "OPTIONAL_PORTFOLIO_REVIEW",
-    "rule": "A proposal bundle remains useful for batching ideas, but a valuable side branch need not wait for Driver review: the researcher may publish it directly through the unified registry. Raw free candidates still use their dedicated lifecycle."
+    "rule": "A proposal bundle remains useful for batching ideas, but a valuable side branch need not wait for Driver review: the researcher may publish it directly through the unified immutable publication path. Raw free candidates still use their dedicated lifecycle."
   },
   "driver_actions": [
     "review research returns and evidence",
     "independently rerun or verify high-leverage claims when practical",
     "deduplicate against prior art and existing Enterprise Math owners",
     "continue the same task when the frontier remains inside its mother question",
-    "publish tasks through the same registry/template used by researchers",
+    "publish tasks through the same immutable transaction used by researchers and Stewards",
     "reprioritize registered tasks at portfolio level",
     "preserve task origin and semantic lineage when selecting new work",
     "require an explicit successor-stage information gap and alternative-route/free-exploration consideration before continuation",
@@ -242,5 +262,15 @@
     "maintain Driver Continuity at semantic checkpoints"
   ],
   "artifact_rule": "Artifact creation is not progress by itself; scientific evidence, theorem/counterexample content, validated computation, formalization, reusable tooling, mature candidate, registered valuable task, or real routing decision is progress.",
+  "interaction_budget": {
+    "research_hot_path": true,
+    "github_sparse_semantic_persistence": true,
+    "registered_claim": "ONE_ISSUE_240_COMMENT",
+    "extra_preclaim_repository_write": false,
+    "routine_ci_polling": false,
+    "routine_review_polling": false,
+    "routine_scheduler_heartbeat": false,
+    "moving_main_chase": false
+  },
   "nonblocking_rule": "Governance, registry publication, scheduler, CI, workflow, identity registration, snapshot maintenance, candidate intake and replication coordination are never mathematical HARD_BLOCK reasons."
 }
