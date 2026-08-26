@@ -1,10 +1,11 @@
 {
-  "schema": "ENTERPRISE_MATH_FINAL_RESPONSE_IDENTITY_POLICY_V1",
+  "schema": "ENTERPRISE_MATH_FINAL_RESPONSE_IDENTITY_POLICY_V2",
   "status": "ACTIVE",
-  "effective": "2026-08-25",
+  "effective": "2026-08-26",
   "scope": [
     "RESEARCHER",
-    "RESEARCH_DRIVER"
+    "RESEARCH_DRIVER",
+    "FOUNDATION_STEWARD"
   ],
   "core_invariant": "ACTIVE_ENTERPRISE_MATH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER",
   "final_permission_authority": "research_runtime_state_machine.json",
@@ -18,12 +19,13 @@
     "rule": "AUTHENTICATED_RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN",
     "nonterminal_required_behavior": "Execute the runtime-required next action, stale-adoption recovery, strategy switch or parent-state recomputation instead of rendering a final response."
   },
-  "final_response_definition": "Every assistant message emitted on the final channel while an Enterprise Math RESEARCHER or RESEARCH_DRIVER role is active, after the canonical authenticated runtime has permitted final output.",
+  "final_response_definition": "Every assistant message emitted on the final channel while an Enterprise Math RESEARCHER, RESEARCH_DRIVER, or FOUNDATION_STEWARD role is active, after the canonical authenticated runtime has permitted final output.",
   "non_final_exemption": "commentary/progress/tool-call messages do not require the footer because they are not final responses",
   "identity_resolution_before_final": true,
   "registration_pending_does_not_suppress_marker": true,
   "templates": {
     "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE",
+    "FOUNDATION_STEWARD": "Steward-ID: <ID> / FOUNDATION_STEWARD",
     "RESEARCHER_TASK": "Researcher-ID: <ID> / <TASK_ID>",
     "RESEARCHER_FREE": "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY",
     "RESEARCHER_DIRECT_TASK_FALLBACK": "Researcher-ID: <ID> / TASK_RESEARCH"
@@ -33,6 +35,7 @@
     "else if research_mode=FREE_AXIOM_DISCOVERY, use FREE_AXIOM_DISCOVERY",
     "else use TASK_RESEARCH"
   ],
+  "steward_scope": "FOUNDATION_STEWARD",
   "ordering": {
     "identity_marker_count": 1,
     "identity_marker_is_last_line_unless_global_sync_present": true,
@@ -41,14 +44,15 @@
       "Global-Knowledge-Sync"
     ]
   },
-  "role_transition": "The footer template changes immediately with the active role while preserving the current execution identity according to research_identity_state_machine.json.",
+  "role_transition": "The footer template changes immediately with the active role while preserving the current execution identity according to research_identity_state_machine.json. Role identity does not itself grant Researcher, Driver, or Foundation Steward authority.",
   "forbidden": [
     "rendering the final channel while authenticated research_runtime_state_machine final_allowed is false",
     "treating a caller-supplied fake task_registration object as final permission",
     "omitting the marker because the final response is short",
     "showing the marker only on the first or last research return",
-    "using Researcher-ID for an active RESEARCH_DRIVER role",
-    "using Driver-ID for an active RESEARCHER role",
+    "using Researcher-ID for an active RESEARCH_DRIVER or FOUNDATION_STEWARD role",
+    "using Driver-ID for an active RESEARCHER or FOUNDATION_STEWARD role",
+    "using Steward-ID for an active RESEARCHER or RESEARCH_DRIVER role",
     "using DIRECT as the visible researcher scope",
     "duplicating the marker in one final response",
     "suppressing the marker because identity registration is pending"
