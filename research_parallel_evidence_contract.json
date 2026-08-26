@@ -1,0 +1,81 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_EVIDENCE_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL_CANDIDATE",
+  "effective": "2026-08-26",
+  "purpose": "Preserve parallel task publications, executions, research results and audits as first-class immutable evidence while keeping operational dispatch/terminal decisions explicit and single-valued only at the control layer.",
+  "stores": {
+    "intakes": "research_parallel_intakes/<task-id>/<intake-id>.json",
+    "reference_passes": "research_parallel_reference_passes/<intake-id>/<pass-id>.json",
+    "syntheses": "research_parallel_syntheses/<task-id>/<synthesis-id>.json"
+  },
+  "core_invariants": [
+    "MULTIPLE_RESEARCH_RESULTS_ARE_NOT_A_CONTROL_ERROR",
+    "PARALLEL_PUBLICATIONS_RESULTS_AND_AUDITS_ARE_APPEND_ONLY_EVIDENCE",
+    "NO_PARALLEL_EVIDENCE_OBJECT_IS_DELETED_OR_OVERWRITTEN_TO_OBTAIN_SINGLE_VALUE_CONTROL",
+    "OPERATIONAL_DISPATCH_AUTHORITY_IS_DISTINCT_FROM_RESEARCH_EVIDENCE_MULTIPLICITY",
+    "LATEST_TIMESTAMP_DOES_NOT_SYNTHESIZE_COMPETING_RESULTS",
+    "PARALLEL_EVIDENCE_SET_REQUIRES_TWO_LOGICALLY_DISTINCT_REFERENCE_PASSES_BEFORE_SYNTHESIS",
+    "REFERENCE_PASS_1_IS_SEMANTIC_AND_EVIDENCE_CROSSCHECK",
+    "REFERENCE_PASS_2_IS_ADVERSARIAL_AND_CONTROL_CROSSCHECK",
+    "REFERENCE_PASSES_MAY_SHARE_A_REVIEWER_ONLY_WHEN_SHARED_CONTEXT_IS_DISCLOSED",
+    "STRICT_INDEPENDENCE_MUST_BE_TASK_DECLARED_AND_CANNOT_BE_INFERRED_FROM_TWO_PASSES",
+    "SYNTHESIS_MAY_KEEP_PARALLEL_MERGE_TO_NEW_GENERATION_SPLIT_TO_TYPED_TASKS_OR_RESELECT_OPERATIONAL_WITHOUT_REJECTING_EVIDENCE",
+    "SYNTHESIS_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_STATUS_OR_CANONICAL_PROMOTION",
+    "A_NEW_PARALLEL_RESULT_AFTER_SYNTHESIS_REOPENS_THE_EVIDENCE_SET_FOR_REFERENCE",
+    "SINGLE_RESULT_TASKS_RETAIN_THE_EXISTING_LOW_BURDEN_FLOW"
+  ],
+  "trigger_policy": {
+    "single_result": "NO_EXTRA_REFERENCE_PASS_REQUIRED_BY_THIS_CONTRACT",
+    "multiple_results_same_publication": "OPEN_OR_REFRESH_PARALLEL_INTAKE; DO_NOT_USE_LATEST_RESULT_WINS",
+    "multiple_publication_heads_same_task": "RETAIN_ALL_PUBLICATIONS; SELECT_OPERATIONAL_PUBLICATION_SEPARATELY; REFERENCE_ALL_RETAINED_HEADS",
+    "contradictory_results": "KEEP_ALL; CLASSIFY_CONTRADICTION; DO_NOT ERASE OR SILENTLY SUPERSEDE EVIDENCE"
+  },
+  "intake_required_fields": [
+    "schema",
+    "intake_id",
+    "task_id",
+    "mode",
+    "publication_ids",
+    "result_ids",
+    "evidence_set_sha256",
+    "opened_by",
+    "opened_at",
+    "dispatch_authority_unchanged"
+  ],
+  "intake_modes": [
+    "PARALLEL_PUBLICATIONS",
+    "PARALLEL_RESULTS",
+    "MIXED_PARALLEL_EVIDENCE"
+  ],
+  "reference_passes": {
+    "required_count": 2,
+    "pass_1_kind": "SEMANTIC_EVIDENCE_CROSSCHECK",
+    "pass_2_kind": "ADVERSARIAL_CONTROL_CROSSCHECK",
+    "allowed_independence_status": [
+      "CLEAN_INDEPENDENT_CONTEXT",
+      "SHARED_CONTROL_CONTEXT_DISCLOSED",
+      "NOT_INDEPENDENT",
+      "NOT_APPLICABLE"
+    ],
+    "rule": "Both passes reference the exact same evidence_set_sha256. A changed evidence set invalidates the old synthesis for current-state purposes without rewriting the historical passes."
+  },
+  "synthesis_dispositions": [
+    "KEEP_PARALLEL",
+    "MERGE_TO_NEW_GENERATION",
+    "SPLIT_TO_TYPED_TASKS",
+    "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS",
+    "CLASSIFY_CONTRADICTION_AND_KEEP_ALL",
+    "RETURN_FOR_MORE_RESEARCH"
+  ],
+  "terminal_rule": "For a declared multi-result intake, task-terminal control requires a synthesis referencing both completed passes and the exact full result set. Individual results remain independently citable regardless of synthesis disposition.",
+  "interaction_budget": {
+    "ordinary_single_result_extra_writes": 0,
+    "parallel_trigger": "ONLY_WHEN_MULTIPLICITY_ACTUALLY_EXISTS",
+    "intake": "ONE_APPEND_ONLY_SEMANTIC_CHECKPOINT_RECORD",
+    "reference_passes": "TWO_APPEND_ONLY_REVIEW_RECORDS",
+    "synthesis": "ONE_APPEND_ONLY_CONTROL_RECORD",
+    "routine_ci_polling": false,
+    "routine_scheduler_heartbeat": false
+  },
+  "compatibility": "research_task_publication_resolutions.json may continue to expose a single operational_publication_id for runtime continuity. Fields named quarantined_publication_ids are legacy compatibility spelling only and must not mean rejection or deletion when the same IDs appear in retained_parallel_publication_ids."
+}
