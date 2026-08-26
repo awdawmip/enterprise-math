@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-"""Check that the shared theorem/tool routers and Foundation backflow cannot drift.
+"""Check shared theorem/tool routing and Foundation backflow integrity.
 
-This checker is intentionally mechanical. It does not decide whether a theorem
-is true or whether a Python module is mathematically reusable. It enforces
-objective synchronization of the Common Research Surface, the mathematical
-Toolbox Registry, the control-plane Runtime surface, and the static
-research-to-Foundation control-plane links. Live FQ and lease state remain on
-GitHub Issues #164 and #240.
+This checker is mechanical. Mathematical truth is not decided here. It enforces
+objective synchronization of the Common Research Surface, mathematical Toolbox,
+control-plane Runtime surface, and static research-to-Foundation links. New task
+definitions are resolved through the canonical registered-plus-frozen-legacy
+dispatch view; the frozen scheduler remains only a legacy metadata/event source.
 """
-
 from __future__ import annotations
 
 import json
@@ -17,6 +15,10 @@ import re
 import sys
 from typing import Any, Iterable
 
+try:
+    from tools import research_dispatch
+except ModuleNotFoundError:
+    import research_dispatch  # type: ignore
 
 ROOT = Path(__file__).resolve().parents[1]
 COMMON_JSON = ROOT / "research_common_surface.json"
@@ -137,8 +139,43 @@ def _require_human_visibility(label: str, entries: Iterable[str], text: str) -> 
         raise AssertionError(f"{label} missing shared-surface entries: {missing}")
 
 
-def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> list[str]:
-    """Validate the static #82/#164/#240 backflow-to-scheduler routing contract."""
+def _validation_dispatch_tasks(scheduler: dict[str, Any]) -> list[dict[str, Any]]:
+    """Build the canonical task-definition view without breaking legacy callers.
+
+    Historical tests and callers pass an in-memory scheduler object so they can
+    pressure-test legacy metadata. Preserve that injected legacy baseline, then
+    overlay immutable post-cutover task definitions from repository-local state.
+    This is deterministic local computation: it performs no GitHub/API reads and
+    adds no runtime heartbeat or polling obligation.
+    """
+    by_id: dict[str, dict[str, Any]] = {}
+    for task in scheduler.get("tasks", []):
+        if isinstance(task, dict) and isinstance(task.get("task_id"), str):
+            by_id[task["task_id"]] = task
+    for task in research_dispatch.merged_definitions(ROOT):
+        if (
+            isinstance(task, dict)
+            and isinstance(task.get("task_id"), str)
+            and task.get("registration_source") == "IMMUTABLE_TASK_RECORD"
+        ):
+            by_id[task["task_id"]] = task
+    return [by_id[key] for key in sorted(by_id)]
+
+
+def validate_backflow(
+    backflow: dict[str, Any],
+    scheduler: dict[str, Any],
+    dispatch_tasks: list[dict[str, Any]] | None = None,
+) -> list[str]:
+    """Validate static #82/#164/#240 links against canonical task existence.
+
+    ``dispatch_tasks`` remains injectable for focused tests/new callers. When it
+    is omitted, the historical two-argument API is preserved and transparently
+    derives the registered-plus-supplied-legacy view locally.
+    """
+    if dispatch_tasks is None:
+        dispatch_tasks = _validation_dispatch_tasks(scheduler)
+
     errors: list[str] = []
 
     if backflow.get("schema") != "ENTERPRISE_MATH_FOUNDATION_BACKFLOW_V1":
@@ -156,12 +193,20 @@ def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> li
         if surfaces.get(backflow_key) != authority.get(scheduler_key):
             errors.append(
                 f"surface mismatch: backflow {backflow_key}={surfaces.get(backflow_key)!r} "
-                f"!= scheduler {scheduler_key}={authority.get(scheduler_key)!r}"
+                f"!= legacy scheduler metadata {scheduler_key}={authority.get(scheduler_key)!r}"
             )
     if surfaces.get("research_dispatch_issue") != scheduler.get("scheduler_issue"):
-        errors.append("research dispatch issue does not match scheduler_issue")
-    if surfaces.get("scheduler_config") != "research_scheduler.json":
-        errors.append("backflow scheduler_config must be research_scheduler.json")
+        errors.append("research dispatch issue does not match legacy scheduler metadata")
+    if surfaces.get("canonical_dispatch") != "tools/research_dispatch.py":
+        errors.append("Foundation backflow must use tools/research_dispatch.py")
+    if surfaces.get("dispatch_contract") != "research_dispatch_contract.json":
+        errors.append("Foundation backflow must expose research_dispatch_contract.json")
+    if surfaces.get("task_record_store") != "research_task_records/<task-id>/<publication-id>.json":
+        errors.append("Foundation backflow task_record_store drifted")
+    if surfaces.get("legacy_scheduler_config") != "research_scheduler.json":
+        errors.append("legacy scheduler must be explicitly typed as frozen baseline")
+    if surfaces.get("legacy_scheduler_reducer") != "tools/research_scheduler.py":
+        errors.append("legacy scheduler reducer path drifted")
 
     required_packet = {
         "candidate_object_or_tool",
@@ -192,8 +237,21 @@ def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> li
     question_field = link_contract.get("research_task_question_field")
     if question_field != "foundation_questions":
         errors.append("research_task_question_field must be 'foundation_questions'")
+    if link_contract.get("task_definition_authority") != "CANONICAL_REGISTERED_PLUS_FROZEN_LEGACY_DISPATCH_VIEW":
+        errors.append("Foundation task-definition authority must be canonical merged dispatch")
+    if link_contract.get("task_definition_tool") != "tools/research_dispatch.py":
+        errors.append("Foundation task-definition tool must be tools/research_dispatch.py")
+    if link_contract.get("new_foundation_task_requires_immutable_registration") is not True:
+        errors.append("new Foundation research tasks must require immutable registration")
 
-    task_by_id = {task.get("task_id"): task for task in scheduler.get("tasks", [])}
+    task_by_id = {
+        task.get("task_id"): task
+        for task in dispatch_tasks
+        if isinstance(task, dict) and isinstance(task.get("task_id"), str)
+    }
+    if len(task_by_id) != len(dispatch_tasks):
+        errors.append("canonical dispatch task view contains duplicate/invalid task IDs")
+
     seen_questions: set[str] = set()
     active_links = backflow.get("question_scheduler_links", [])
     for index, link in enumerate(active_links):
@@ -209,7 +267,7 @@ def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> li
         task_id = link.get("scheduler_task_id")
         task = task_by_id.get(task_id)
         if task is None:
-            errors.append(f"{prefix}: unknown scheduler task {task_id!r}")
+            errors.append(f"{prefix}: unknown canonical dispatch task {task_id!r}")
             continue
 
         role = link.get("scheduler_role")
@@ -260,7 +318,6 @@ def validate_backflow(backflow: dict[str, Any], scheduler: dict[str, Any]) -> li
 
     if backflow.get("authority_boundaries", {}).get("canonical_truth") != "gated source-repository main":
         errors.append("canonical truth boundary must remain gated source-repository main")
-
     return errors
 
 
@@ -299,9 +356,6 @@ def check() -> None:
     _require_human_visibility("Chinese Lean root index", actual_lean, zh_text)
 
     # 3. Every repository Python tool has exactly one shared owner surface.
-    # Common Surface owns universal operational infrastructure; Toolbox owns
-    # mathematical/research-tool routing; Runtime owns control-loop liveness and
-    # final/adoption orchestration. The disjoint union must equal tools/*.py.
     actual_tools = _repo_python_tools()
     common_tools = sorted(common.get("tool_roots", {}).get("repo_tools", []))
     toolbox_tools = _toolbox_repo_tools(toolbox)
@@ -321,13 +375,9 @@ def check() -> None:
     _require_human_visibility("Toolbox-owned repository tool index", toolbox_tools, toolbox_text)
     _require_human_visibility("Runtime-owned repository tool index", runtime_tools, runtime_text)
 
-    # 4. The steward and common router must expose the same active FQ set.
-    foundation_active = sorted(
-        foundation.get("problem_set", {}).get("active_questions", [])
-    )
-    common_active = sorted(
-        common.get("foundation_steward", {}).get("active_foundation_questions", [])
-    )
+    # 4. Steward and Common Surface must expose the same active FQ set.
+    foundation_active = sorted(foundation.get("problem_set", {}).get("active_questions", []))
+    common_active = sorted(common.get("foundation_steward", {}).get("active_foundation_questions", []))
     _require_equal("active foundation-question index", common_active, foundation_active)
     _require_human_visibility("English active FQ index", foundation_active, en_text)
     _require_human_visibility("Chinese active FQ index", foundation_active, zh_text)
@@ -340,10 +390,16 @@ def check() -> None:
             f"{sorted(alerts - active)}"
         )
 
-    # 5. Foundation backflow links are static control-plane contracts.
-    backflow_errors = validate_backflow(backflow, scheduler)
+    # 5. Foundation task links resolve through canonical merged dispatch.
+    dispatch_tasks = research_dispatch.merged_definitions(ROOT)
+    backflow_errors = validate_backflow(backflow, scheduler, dispatch_tasks)
     if backflow_errors:
         raise AssertionError("foundation backflow drift: " + "; ".join(backflow_errors))
+
+    if foundation.get("canonical_dispatch") != "tools/research_dispatch.py":
+        raise AssertionError("Foundation Steward must use canonical research dispatch")
+    if foundation.get("legacy_scheduler_config") != "research_scheduler.json":
+        raise AssertionError("Foundation Steward must type scheduler config as legacy baseline")
 
     common_backflow = common.get("foundation_steward", {})
     if common_backflow.get("backflow_router") != "foundation_backflow.json":
@@ -356,7 +412,7 @@ def check() -> None:
         f"({len(actual_lean)} Lean root imports, {len(actual_tools)} repo tools "
         f"[{len(common_tools)} common + {len(toolbox_tools)} toolbox + {len(runtime_tools)} runtime], "
         f"{len(common_active)} active foundation questions, "
-        f"{len(backflow.get('question_scheduler_links', []))} active FQ scheduler links)"
+        f"{len(backflow.get('question_scheduler_links', []))} active FQ canonical-dispatch links)"
     )
 
 

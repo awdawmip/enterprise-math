@@ -1,0 +1,74 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_TASK_PUBLICATION_CONTRACT_V2",
+  "status": "ACTIVE_CANONICAL_POST_CUTOVER",
+  "effective": "2026-08-26",
+  "legacy_compatibility": {
+    "v1_contract": "research_task_publication_contract.json",
+    "v1_shared_registry": "research_task_registry.json",
+    "v1_publication_tool": "tools/research_task_registry.py",
+    "new_publications_via_v1_forbidden_after_v2_cutover": true
+  },
+  "canonical_record_store": "research_task_records/<task-id>/<publication-id>.json",
+  "publication_tool": "tools/research_task_records.py",
+  "dispatch_tool": "tools/research_dispatch.py",
+  "runtime_guard": "tools/research_runtime_guard.py",
+  "result_contract": "research_result_contract.json",
+  "purpose": "Make publication a single immutable record creation after taskbook preparation/validation, remove the shared-registry write hotspot, and make dispatch consume the same canonical task definitions without adding research-step GitHub traffic.",
+  "publication_phases": [
+    "DRAFT_TASKBOOK",
+    "PREPARE_AND_MACHINE_POLICY_REVIEW",
+    "IMMUTABLE_RECORD_CREATE",
+    "DISPATCH_DISCOVERY"
+  ],
+  "core_invariants": [
+    "TASKBOOK_PREPARATION_IS_NOT_PUBLICATION",
+    "OFFICIAL_TASK_EXISTS_ONLY_AFTER_IMMUTABLE_PUBLICATION_RECORD",
+    "PUBLICATION_RECORD_IS_APPEND_ONLY_AND_NEVER_REPLACED",
+    "REPUBLICATION_REQUIRES_EXPLICIT_SUPERSEDES_PUBLICATION_ID",
+    "ALL_POST_CUTOVER_DISPATCH_READS_IMMUTABLE_TASK_RECORDS",
+    "LEGACY_SCHEDULER_DEFINITION_FILE_IS_COMPATIBILITY_BASELINE_ONLY",
+    "PUBLISH_MUST_NOT_SELF_ASSERT_POLICY_PASS_BEFORE_VALIDATION",
+    "V2_PUBLICATION_REQUIRES_NONEMPTY_FRONTIER_AND_NEXT_ACTION",
+    "V2_PUBLICATION_REQUIRES_FILLED_MANDATORY_BODY_SECTIONS",
+    "RESEARCHER_PUBLICATION_DOES_NOT_GRANT_GLOBAL_PRIORITY_OR_TRUTH",
+    "PUBLICATION_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_CANONICAL_PROMOTION",
+    "TASK_PUBLICATION_IS_A_SEMANTIC_CHECKPOINT_NOT_A_ROUTINE_HEARTBEAT",
+    "PUBLICATION_COMPLETE_IMPLIES_RESUME_PARENT_RESEARCH_WITHOUT_CI_OR_REVIEW_POLLING"
+  ],
+  "mandatory_body_sections": [
+    "Mother question",
+    "Frozen inputs and scope",
+    "Hard target and required outputs",
+    "Research value to preserve",
+    "Success, kill, and return criteria"
+  ],
+  "publisher_roles": [
+    "RESEARCHER",
+    "RESEARCH_DRIVER",
+    "FOUNDATION_STEWARD"
+  ],
+  "researcher_default_effective_priority": "P2",
+  "researcher_default_effective_leverage": "MEDIUM",
+  "publication_transaction": {
+    "version": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+    "prepare": "May rewrite the draft taskbook only after in-memory normalization and successful machine lint; preparation has no task-existence authority.",
+    "publish": "Requires an already prepared current-policy-PASS V1 taskbook and creates exactly one immutable publication record with exclusive file creation.",
+    "failure_semantics": "If publication record creation fails, no task was published. Existing immutable records are never overwritten or silently rolled back.",
+    "republication": "A corrected generation must name the exact prior publication_id it supersedes."
+  },
+  "interaction_budget": {
+    "publication_boundary": "One bounded taskbook + publication-record persistence batch when the task is actually published.",
+    "post_publication": "Resume the parent task immediately; no CI polling, review polling, scheduler heartbeat, or moving-main chase is required merely because publication occurred.",
+    "side_residue": "Capture once at the semantic checkpoint; do not interrupt ongoing research for repeated registry synchronization."
+  },
+  "orphan_definition": "A post-cutover executable taskbook/handoff/claim target without an immutable current publication record.",
+  "legacy_boundary": {
+    "frozen_scheduler": "research_scheduler.json",
+    "new_or_modified_task_definitions_forbidden_in_legacy_scheduler": true,
+    "existing_claimed_legacy_execution_may_continue": true,
+    "fresh_legacy_redispatch_requires_migration": true
+  },
+  "taskbook_contract": "research_taskbook_contract.json",
+  "mandatory_taskbook_template": "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
+  "taskbook_publication_contract": "RESEARCH_TASK_PUBLICATION_V1"
+}
