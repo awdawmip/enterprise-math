@@ -1,0 +1,40 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "DRIVER_ACCEPTED_POST_MERGE_HARVEST",
+  "date": "2026-08-26",
+  "driver_review": "driver_reviews/DIAGONAL_GAUGE_THEORY_TOOL_HARVEST_DRIVER_REVIEW_20260826.md",
+  "methods": [
+    {
+      "method_id": "domain.diagonal_translation_quotient_normalization",
+      "name": "Diagonal-translation quotient / min-zero canonicalization",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "status": "DRIVER_ACCEPTED_TYPED_SPECIALIZATION",
+      "source_refs": [
+        "src/enterprise_math/diagonal_quotient.py",
+        "scripts/diagonal_quotient_normalization_check.py",
+        "definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md",
+        "research_notes/DIAGONAL_GAUGE_DERIVED_DISPLACEMENT_THEOREM_PACKAGE_20260826.md"
+      ],
+      "triggers": [
+        "diagonal shift",
+        "common translation",
+        "Z^3 / Z(1,1,1)",
+        "canonical representative",
+        "min-zero normalization",
+        "quotient section",
+        "gauge normalization",
+        "derived displacement"
+      ],
+      "capabilities": [
+        "exact common-translation class test",
+        "canonical nonnegative min-zero representative",
+        "Z^2 quotient chart",
+        "transported quotient addition",
+        "transported quotient inverse",
+        "finite regression certificate"
+      ],
+      "note": "This operator canonicalizes a declared diagonal Z-action; it does not decide whether the quotient is semantically admissible. In current Enterprise geometry it is admitted for the separately typed derived G1 displacement layer A_D/G_D and is forbidden as an automatic primitive native-point A_E quotient. No new T-family is created."
+    }
+  ]
+}
