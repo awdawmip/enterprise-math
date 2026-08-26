@@ -38,7 +38,7 @@
     "G0"
   ],
   "claim_lease_minutes": 1440,
-  "created_by_role": "DRIVER",
+  "created_by_role": "RESEARCH_DRIVER",
   "task_authority": "PUBLISHED_REGISTERED",
   "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
   "publication_template": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
@@ -78,19 +78,7 @@
 
 Status: `PUBLISHED_REGISTERED / DRIVER SUCCESSOR / CONTINUATION`
 
-## Frozen predecessor result
-
-R043-C4 is accepted at exactly:
-
-`LOCAL_SEPARATOR_FOUND_GLOBAL_REALIZABILITY_OPEN`.
-
-The local classification is frozen: tetrahedra have no bad nonconstant two-colouring; octahedra have exactly six bad nonconstant two-colourings, precisely the three opposite-vertex pairs and their complements. In each bad case the eight occupied–unoccupied cut incidences split `4+4`.
-
-The unique local obstruction is therefore the **octahedral opposite-pair point pinch**. This kills the proposed automatic pointwise C3 local interface-to-frontier lift, but it does **not** refute the global R043-C3 theorem.
-
-The minimal equator-4 realization repairs externally in both FCC and HCP. The C4 pressure result `0 / 12,951` in each lattice is frozen only as targeted regression evidence: it enumerates all subsets of size `0..4` from the fixed 24-site initial one-shell frontier pool. It is not a general animal census and may not be cited as evidence of global impossibility.
-
-## Exact mother question
+## Mother question
 
 Work in each frozen FCC/HCP native 12-contact graph separately. Does there exist a finite connected occupied set `C` and an octahedral cell `Q` with opposite unoccupied vertices `u,v` and the other four vertices of `Q` occupied such that:
 
@@ -101,22 +89,38 @@ Work in each frozen FCC/HCP native 12-contact graph separately. Does there exist
 
 A certified example is a genuine global counterexample to the R043-C3 frontier-connectivity statement. A proof that such an example is impossible shows that the unique local pinch is always globally repairable and therefore closes R043-C3 positively.
 
-## Hard target
+## Frozen inputs and scope
+
+R043-C4 is accepted at exactly `LOCAL_SEPARATOR_FOUND_GLOBAL_REALIZABILITY_OPEN`.
+
+The local classification is frozen: tetrahedra have no bad nonconstant two-colouring; octahedra have exactly six bad nonconstant two-colourings, precisely the three opposite-vertex pairs and their complements. In each bad case the eight occupied–unoccupied cut incidences split `4+4`. The unique local obstruction is the **octahedral opposite-pair point pinch**.
+
+This kills the proposed automatic pointwise C3 local interface-to-frontier lift, but it does **not** refute the global R043-C3 theorem. The minimal equator-4 realization repairs externally in both FCC and HCP.
+
+The C4 pressure result `0 / 12,951` in each lattice is frozen only as targeted regression evidence: it enumerates all subsets of size `0..4` from the fixed 24-site initial one-shell frontier pool. It is not a general animal census and may not be cited as evidence of global impossibility.
+
+FCC and HCP are separate obligations. Use only exact frozen native contact/link/incidence; do not replace adjacency by Euclidean-distance thresholds.
+
+## Hard target and required outputs
+
+Hard target:
 
 `R043C5_OCTAHEDRAL_OPPOSITE_PAIR_GLOBAL_REALIZABILITY_DECIDED`.
 
-FCC and HCP are separate obligations. Mixed outcomes are allowed and must be stated explicitly.
-
-## Required outputs
+Required outputs:
 
 1. exact formal definition of the pinch, frontier-side separation, and same-component condition in each frozen native graph;
 2. either a finite occupied-set counterexample certificate with exact adjacency/component verification, or a proof that every attempted pinch with same-component connectivity forces a native frontier repair;
-3. FCC disposition and HCP disposition separately;
+3. FCC disposition and HCP disposition separately, allowing a mixed outcome;
 4. exact consequence for R043-C3 and for the R043-C2/G0 component-grouping ambiguity;
 5. a small independent checker for every finite certificate used in the argument;
 6. explicit regression against the C4 minimal pinch and the frozen `12,951` one-shell pressure result;
 7. weakest remaining obstruction only if the hard target cannot be fully decided;
 8. durable return `research_returns/R043C5_OCTAHEDRAL_OPPOSITE_PAIR_GLOBAL_REALIZABILITY_RETURN_20260826.md` plus task-local certificates/checkers.
+
+## Research value to preserve
+
+R043-C2 already factors G0 futures over distinct unoccupied components. R043-C3 isolated the remaining component-grouping ambiguity to whether one connected unoccupied component can expose disconnected native frontier pieces. R043-C4 then proved that every local obstruction reduces to one octahedral opposite-pair point pinch while showing the smallest realizations repair externally. Therefore global realizability of this one pinch is now the unique theorem-critical gate: a witness refutes C3, while an impossibility theorem removes the remaining hidden grouping mechanism. No broader census has comparable discriminating value.
 
 ## Preferred proof routes
 
@@ -126,7 +130,7 @@ The preferred impossibility route is a native separator theorem: prove that any 
 
 Targeted computation is permitted when it certifies one of those structures. It must parameterize a theorem-relevant barrier/separator family or output a finite exact witness; it may not become generic animal census by incremental radius growth.
 
-## Terminal classifications
+## Success, kill, and return criteria
 
 Use the strongest exact classification supported by the evidence, including mixed FCC/HCP cases:
 
@@ -141,9 +145,7 @@ Use the strongest exact classification supported by the evidence, including mixe
 
 Any counterexample claim requires a finite exact certificate verifying connectedness of `C`, same-component membership of the two sides in `Omega`, and disconnection of `F(C) intersect Omega`. Any impossibility claim requires a global argument and cannot be inferred from bounded search.
 
-## Kill conditions and strength boundary
-
-Do not reopen the closed tetrahedral/octahedral local-colouring classification. Do not enlarge generic FCC/HCP animal census. Do not replace native contact by Euclidean threshold adjacency. Do not infer a theorem from absence of examples in a bounded search.
+Kill any route whose main progress is generic radius expansion, broad connected-animal enumeration, a continuum-only surface argument, Euclidean-distance surrogate adjacency, or reclassification of local Delaunay cells already closed by C4. A computation is admissible only when targeted to the opposite-pair pinch and returning an exact certificate or theorem-discriminating structural reduction.
 
 Until a finite global witness is certified, R043-C3 remains **OPEN, not refuted**. Until a global impossibility theorem is proved in a lattice, C3 is **not positively closed** there. R043-C2 component factorization remains frozen and unchanged.
 
