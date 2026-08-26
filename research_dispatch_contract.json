@@ -9,12 +9,25 @@
   ],
   "registered_claim_authority": "One self-contained GitHub Issue #240 CLAIM envelope validated against the current immutable task publication",
   "execution_record_compatibility": "research_execution_records/<task-id>/<execution-record-id>.json may preserve/freeze execution provenance but is not a mandatory pre-claim remote write",
-  "runtime_event_authority": "GitHub Issue #240 issue comments authenticated by server comment metadata; the JSON event body is payload, not its own authentication envelope",
+  "runtime_event_authority": "GitHub Issue #240 issue comments authenticated by server comment metadata and separately authorized by research_control_event_authorization.json; the JSON event body is payload, not its own authentication or authorization envelope",
+  "control_event_authorization": {
+    "contract": "research_control_event_authorization.json",
+    "mode": "EXACT_SERVER_AUTHOR_ALLOWLIST",
+    "required_actor_fields": ["author_login", "author_user_id", "author_association"],
+    "server_authentication_is_authorization": false,
+    "body_actor_is_authorization": false,
+    "body_researcher_id_is_github_authorization": false,
+    "github_app_is_authority": false,
+    "unauthorized_event": "IGNORE_AS_CONTROL_AUTHORITY_WITH_AUDIT_REASON",
+    "additional_event_required": false
+  },
   "server_event_envelope": {
     "issue": 240,
     "required_server_fields": [
       "comment_id",
       "author_login",
+      "author_user_id",
+      "author_association",
       "created_at",
       "updated_at",
       "body_sha256"
@@ -40,11 +53,14 @@
     "REGISTERED_CLAIM_RESEARCHER_ID_MAY_BE_DETERMINISTICALLY_DERIVED",
     "NO_SEPARATE_REMOTE_EXECUTION_INTENT_WRITE_IS_REQUIRED_BEFORE_CLAIM",
     "LIVE_REGISTERED_EVENT_REQUIRES_SERVER_AUTHENTICATED_GITHUB_COMMENT_ENVELOPE",
+    "SERVER_AUTHENTICATION_IS_NOT_CONTROL_AUTHORIZATION",
+    "LIVE_CONTROL_EVENT_REQUIRES_EXACT_AUTHORIZED_SERVER_ACTOR",
+    "UNAUTHORIZED_EVENT_SHAPED_COMMENT_MUST_NOT_MUTATE_RUNTIME_STATE_OR_DOS_THE_STREAM",
     "SERVER_COMMENT_ID_DETERMINES_EVENT_ORDER",
     "SERVER_CREATED_AT_DETERMINES_LEASE_TIME",
     "SELF_DECLARED_ACTOR_AND_AT_ARE_NOT_AUTHENTICATION_OR_CLOCK_AUTHORITY",
     "EDITED_EVENT_COMMENTS_DO_NOT_MUTATE_HISTORY",
-    "FIRST_VALID_ISSUE_CLAIM_COMMITS_THE_OWNER_RACE",
+    "FIRST_VALID_AUTHORIZED_ISSUE_CLAIM_COMMITS_THE_OWNER_RACE",
     "RESULT_PENDING_REVIEW_IS_NOT_RESEARCHER_DISPATCHABLE",
     "TERMINAL_DRIVER_REVIEW_CLOSES_DISPATCH",
     "REGISTERED_DONE_EVENT_REQUIRES_MATCHING_REVIEWED_RESULT",
@@ -59,6 +75,6 @@
     "COMPLETE",
     "DORMANT"
   ],
-  "selection_rule": "Use the historical state/priority/leverage/staleness ordering over the merged canonical view; AWAITING_REVIEW and COMPLETE are never selected. A registered live event must come from a server-authenticated Issue #240 comment. A registered CLAIM is accepted when its self-contained envelope matches the current immutable publication and branch/output typing, or when a compatible historical execution record already supplies the same binding.",
-  "interaction_budget": "Event authentication reuses the same Issue #240 comment already needed for CLAIM/PROGRESS/HANDOFF/DONE. It introduces no second comment, pre-claim commit, periodic status query, CI poll, review poll, heartbeat, or moving-main chase."
+  "selection_rule": "Use the historical state/priority/leverage/staleness ordering over the merged canonical view; AWAITING_REVIEW and COMPLETE are never selected. A live control event must come from a server-authenticated Issue #240 comment whose exact server actor is authorized by the control-event allowlist. A registered CLAIM is accepted when its self-contained envelope matches the current immutable publication and branch/output typing, or when a compatible historical execution record already supplies the same binding.",
+  "interaction_budget": "Authentication and actor authorization reuse the same Issue #240 comment already needed for CLAIM/PROGRESS/HANDOFF/DONE. They introduce no second comment, pre-claim commit, periodic status query, CI poll, review poll, heartbeat, or moving-main chase."
 }
