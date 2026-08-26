@@ -24,10 +24,15 @@ Do not preload the registry. Load only the object required by the current task.
 - cells = overlapping circle cells identified by discrete centers;
 - nearest center spacing = `1`;
 - cell radius = `1/sqrt(3)`;
-- native axes = exactly three positive rays;
-- `ENTERPRISE_RIGHT_ANGLE=120_DEGREES`;
-- canonical addresses: `(a,b,c) in N_0^3`, `min(a,b,c)=0`;
-- sector-local length law: `L_E^2=a^2+b^2` on the two active components;
+- the three origin-incident cell centers canonically form one unordered elementary carrier triangle `T`;
+- one primitive orientation-torsor element `o in Or(T) ~= S3/A3 ~= C2` selects the cyclic orientation sheet;
+- the three positive direction families/native rays are derived from `(T,o)` plus carrier translation; absolute axis names are cyclic gauge and `Aut(T,o)=A3 ~= C3` remains as residual symmetry;
+- `ENTERPRISE_RIGHT_ANGLE=120_DEGREES` remains a separate native declaration, not a consequence of the orientation-torsor theorem;
+- canonical addresses remain the declared native sector atlas `(a,b,c) in N_0^3`, `min(a,b,c)=0`;
+- the carrier kernel `Z(1,1,1)` and subtract-min rule give only a carrier displacement normal form; they do not derive absolute native addresses and do not install a native diagonal-shift quotient;
+- sector scalar primitives are one-dimensional axis calibration `Q(n,0)=Q(0,n)=n^2` plus local transverse independence `Delta_a Delta_b Q=0` on the preserved two-channel sector product;
+- the sector-local sum-of-squares law `L_E^2=a^2+b^2` is derived from those scalar primitives;
+- transverse independence is not invariant under arbitrary channel-mixing changes of chart;
 - carrier relations are implementation/classical carrier structure unless an exact current native definition states otherwise;
 - native line identity = component trace;
 - one line trace may have many discrete path representatives;
@@ -54,7 +59,7 @@ Project mission/routing is defined by `PROJECT_DEFINITION.md`, `PROJECT_DEFINITI
 
 ## Worldview alignment
 
-The protected account worldview uses the same current three-positive-axis / `O_E=0` / `120°` spatial foundation.
+The protected account worldview uses the same current three-positive-axis / `O_E=0` / `120°` spatial outcomes. The source-level primitive/derived refactor here does not silently rewrite the protected worldview text.
 
 ## History rule
 
