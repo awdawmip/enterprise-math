@@ -1,178 +1,117 @@
-# Native filament generalization: current promotion frontier after independent blind audit
+# Native filament generalization: current promotion frontier
 
-Status: `FREE_RESEARCH_FRONTIER_VERDICT / STATEMENT_STRENGTH_INDEPENDENTLY_VERIFIED_WITH_NARROWING / NO_EXTERNAL_NOVELTY_CLAIM`
+Status: `AUDITED_RESEARCH_THEOREM_PACKAGE_READY_FOR_CANONIZATION_REVIEW / NO_PUBLICATION_PRIORITY_CLAIM`
 
-Date: `2026-08-25`
+Date: `2026-08-26`
 
 Researcher-ID: `EM-FREE-NEPS-239A6D`
 
-Independent audit: PR `#631`.
+## 1. Current entrypoints
 
-Frozen verdict:
+Formal theorem package:
 
-`PACKAGE_VERIFIED_WITH_NARROWING`.
+`research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_FORMAL_THEOREM_PACKAGE_20260826.md`.
 
-Authoritative corrected statement layer:
+Canonization decision packet:
 
-`research_notes/NATIVE_FILAMENT_COUPLED_SELECTION_POST_AUDIT_V2_STATEMENT_FREEZE_20260825.md`.
+`research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_CANONIZATION_DECISION_PACKET_20260826.md`.
 
-## 1. Re-ranked theorem families
+Authoritative statement freeze:
 
-### A. Arithmetic arrangement lift
+`research_notes/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_V2_STATEMENT_FREEZE_20260825.md`.
 
-Verdict: `KNOWN GENERAL FRAMEWORK + EXPLICIT SPECIALIZATION`.
+Final independent literature intake:
 
-Characteristic quasi-polynomials, finite-field arrangement counting and coefficient monotonicity are established literature. Determinant-valuation depth remains useful support, not the promotion lead.
+`research_notes/NATIVE_FILAMENT_FINAL_NARROW_NOVELTY_INDEPENDENT_AUDIT_INTAKE_20260826.md`.
 
-### B. Locked finite-quotient / MDS code
+These four files are now the hot-path entry surface. Older notes remain provenance/support.
 
-Verdict: `EXACT SPECIAL FAMILY / CLASSICAL CODE CLASSIFICATION / SUPPORTING BRIDGE`.
+## 2. Final theorem hierarchy
 
-Post-audit correction:
+### Classical/support layer
 
-- for `M>2`, exact effective shell period is `lcm(2,M/gcd(B,M))`;
-- for `M=2`, exact/minimal effective period after fixing the intercept is `1`.
+Do not promote as novelty:
 
-The total code still has exactly two words. Reed--Solomon/MDS remains classical.
+- punctured split-hyperbola tangent bridge;
+- sign-orbit `q<=5` bound;
+- Joukowski/Dickson quotient and image-size formula;
+- conic duality, Burnside, split tori, quadratic characters, CRT, RS/MDS, arrangement machinery.
 
-### C. Transparency / breaker count
+Independent literature classification for F1--F3:
 
-Verdict: `CLASSICAL CHARACTER SUM + STRONG MODEL-SPECIFIC CONNECTIVITY CONSEQUENCE`.
+`KNOWN_IMMEDIATE_COROLLARY`.
 
-The local quadratic-character/cyclotomic counts are classical; the finite-wheel breaker classification remains exact for the model.
+### Research-facing exact layer
 
-### D. Odd-curvature / sector-count deformation family
+Primary theorem candidates:
 
-Verdict: `PRIMARY GENERALIZATION CANDIDATE / STATEMENT STRENGTH VERIFIED WITH NARROWING`.
+1. `ODD_SECTOR_EXTREMAL_CENTERED_LANE_SATURATION_UNIQUENESS`:
+   lower/upper prime extremal saturation uniquely gives `(s,q)=(3,5)` and `(3,7)`.
+2. `NATIVE_TRISECTOR_LONGITUDINAL_TRANSVERSE_BOUNDARY_CLOSURE`:
+   simultaneous boundary matching uniquely gives `(s,q_b,k_*)=(3,5,9)`.
+3. `NATIVE_TRISECTOR_COUPLED_CLOSURE_THEOREM`:
+   the native `s=B=3` allocation selects the longitudinal and transverse classical carriers and uniquely closes them on the same tri-sector parameter.
 
-D couples
+Independent literature classification for this layer:
 
-`odd sector count s`
+`NO_DIRECT_MATCH_FOUND`.
 
-`-> curvature coefficient B=s`
+Maximum allowed wording:
 
-`-> quadratic + C2 value dynamics`
+`NO DIRECT THEOREM-STATEMENT MATCH FOUND IN THE AUDITED LITERATURE SET`.
 
-`-> exact finite quotient code`
+This is not proof of novelty or priority.
 
-`-> chirality-dependent dual-parabola tangent geometry`
+## 3. Exact native closure chain
 
-`-> sampled tangent discriminant / p-adic depth`
+`native tri-sector -> s=B=3`
 
-`-> dual-value overlap / universal breaker`
+`-> lower/upper transverse boundaries 5,7`
 
-`-> first-breaker phase modulo60`
+`-> longitudinal breaker q_b=5`
 
-`-> extinction vs no-break high-dimensional basin phase`.
+`-> breaker-coprime capacity k_*=9`
 
-## 2. Mandatory post-audit statement repairs
+`-> M_9=(9-4)(9-2)=35`
 
-### N1 — `M=2`
+`-> 3*M_9=105`
 
-Do not use the unqualified period formula at `M=2`.
+`-> 3*M_9+1=106=2*53`.
 
-- `M>2`: `lcm(2,M/gcd(B,M))`;
-- `M=2`: exact/minimal effective period `1`.
+Roles must remain distinct:
 
-### N2 — dual parabola
+- `5`: native odd universal breaker;
+- `7`: upper transverse saturation boundary, not a breaker;
+- `9`: breaker-coprime capacity here, distinct from the separate actual prime-incidence island cap theorem;
+- `53`: terminal local finite-window exception, not a global breaker.
 
-Use
+## 4. Audit completion
 
-`Q_e^(chi)(x)=x^2/(2B)-chi e/2`.
+Mathematical audit:
 
-The chirality-independent pair is valid without modification only for `chi=+1`.
+- PR `#631`: `PACKAGE_VERIFIED_WITH_NARROWING`;
+- PR `#637`: `POSTAUDIT_HYPERBOLA_JOUKOWSKI_CLOSURE_STATEMENT_STRENGTH_INDEPENDENTLY_NARROWED`.
 
-### N3 — concurrence iff
+Independent literature audit:
 
-For the mixed triple with same-parity pair `u,v`, require `q∤(u-v)`. The finite-window assumption `q>k-1` is sufficient. Without a distinct-slope/unit condition, the obstruction alone is not an iff criterion.
+- PR `#642`: package `KNOWN_COMPONENTS_ONLY`;
+- F4--F6 `NO_DIRECT_MATCH_FOUND`.
 
-## 3. Correct meaning of the capacities `1,5,9`
+All mandatory narrowings are integrated in the formal theorem package.
 
-The first-breaker phases have exact **breaker-coprime/divisibility run capacities**
+## 5. Current promotion recommendation
 
-`1,5,9`
+`READY_FOR_DRIVER_CANONIZATION_REVIEW`.
 
-for breakers `2,3,5`.
+Recommended admitted class if approved:
 
-These are not unrestricted prime-run caps for arbitrary `(H,R)` in the deformation family.
+`AUDITED_RESEARCH_THEOREM / MODEL_SPECIFIC_SELECTION_THEOREM`.
 
-The actual native theorem
+Not recommended:
 
-`MAX GLOBAL TYPED-CELL PRIME-INCIDENCE ISLAND SIZE = 9`
+- foundational axiom;
+- new general number theory;
+- new conic theory;
+- new Joukowski/Dickson theory.
 
-is a separate stronger result from the parent native branch, using native incidence/seam/domain structure in addition to the breaker calculation.
-
-## 4. Strongest exact D statements after audit
-
-For positive odd `B`:
-
-1. `F_B(H,r)=H+(B*r^2+eps(r))/2`.
-2. local curvature alternates `B-1,B+1`.
-3. every trajectory satisfies `(E-1)^3(E+1)=0`.
-4. finite-quotient cardinality is exact, with the `M=2` period exception above.
-5. fixed-chirality good-prime packets flatten to affine `RS(k,2)`.
-6. zero lines are sampled tangents to `Q_e^(chi)`.
-7. mixed tangent concurrence is controlled by `B(w-u)(w-v)+chi(1-2e)` in the distinct-slope regime.
-8. fixed-chirality q-adic depth equals the maximum valuation of the corresponding fixed-chirality obstruction.
-9. breaker primes are only `2,3,5`.
-10. first-breaker phase is classified by `B mod60`.
-11. `B=3` is the smallest positive odd coefficient whose first breaker is `5`.
-12. breaker phases have exact breaker-coprime capacities `1,5,9`.
-13. no-break phases have nonempty transparent basins in every finite collapse dimension.
-14. the audited CRT/profinite/asymptotic statements survive at their explicit metric/scope.
-
-## 5. Native-specific selection chain
-
-The actual Enterprise tri-sector allocation supplies the scalar before prime testing:
-
-- sector count `3`;
-- mean filament curvature `(2+4)/2=3`;
-- normalized seven-Cell Poisson source `18/6=3`.
-
-Then arithmetic acts on the frozen scalar:
-
-`3` is nonbreaking at `2`,
-
-`3` is nonbreaking at `3`,
-
-`Legendre(3/5)=-1`,
-
-so the first universal breaker is `5`, with breaker-coprime capacity `9`.
-
-Separately, the full native incidence theorem proves actual prime-incidence capacity `9`.
-
-## 6. Control evidence
-
-The no-break deformation `B=15` has a deterministically verified run of twelve consecutive actual prime values below `2^64`.
-
-Therefore
-
-`9 IS NOT A UNIVERSAL PRIME-RUN CAP OF QUADRATIC+PARITY FILAMENTS`.
-
-## 7. Promotion priority
-
-1. D coupled sector/curvature/dual-parabola/breaker phase theorem;
-2. native `B=3` local-to-global corollaries and control witnesses;
-3. B finite-quotient closed forms as supporting structure;
-4. C breaker lemma as supporting arithmetic;
-5. A only as known-framework specialization.
-
-## 8. External novelty state
-
-The blind audit verified mathematics, not novelty.
-
-Treat as classical / do not claim:
-
-- characteristic quasi-polynomials / arithmetic-G-Tutte theory;
-- coefficient monotonicity;
-- Reed--Solomon/MDS;
-- CRT;
-- quadratic character sums / order-2 cyclotomy;
-- Legendre transform / conic duality;
-- standard profinite / Hausdorff arguments.
-
-Current external-novelty candidate is only the exact coupled pipeline
-
-`sector allocation -> curvature scalar -> integer quotient code -> dual-parabola tangent/value geometry -> breaker/exception phase -> high-dimensional extinction-vs-survival`.
-
-Novelty remains `UNRESOLVED` and is the next independent-audit target.
+No further mathematical proof pass or component-level novelty search is required unless the statement changes or stronger prior art appears.
