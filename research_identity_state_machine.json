@@ -1,7 +1,7 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V4",
+  "schema": "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V5",
   "status": "ACTIVE",
-  "effective": "2026-08-23",
+  "effective": "2026-08-26",
   "protocol": "docs/RESEARCH_IDENTITY_PROTOCOL.md",
   "helper": "tools/research_identity.py",
   "final_response_policy": "final_response_identity_policy.json",
@@ -13,16 +13,18 @@
     "REGISTER_PENDING",
     "REGISTERED"
   ],
-  "entry_invariant": "Any conversation entering an Enterprise Math RESEARCHER or RESEARCH_DRIVER role must resolve or allocate its role identity before substantive work begins. Researchers expose Researcher-ID; Drivers expose Driver-ID. Research mode is a separate typed state and does not alter identity uniqueness.",
-  "final_response_invariant": "While an Enterprise Math RESEARCHER or RESEARCH_DRIVER role is active, every assistant final response ends with exactly one role-appropriate identity marker. Identity registration state never suppresses this obligation.",
+  "entry_invariant": "Any conversation entering an Enterprise Math RESEARCHER, RESEARCH_DRIVER, or FOUNDATION_STEWARD role must resolve or allocate its role identity before substantive work begins. Researchers expose Researcher-ID; Drivers expose Driver-ID; Foundation Stewards expose Steward-ID. Research mode is a separate typed state and does not alter identity uniqueness.",
+  "final_response_invariant": "While an Enterprise Math RESEARCHER, RESEARCH_DRIVER, or FOUNDATION_STEWARD role is active, every assistant final response ends with exactly one role-appropriate identity marker. Identity registration state never suppresses this obligation.",
   "entry_events": [
     "direct user research task",
     "explicit EM_FREE_RESEARCHER activation",
     "scheduler/CLAIM dispatch",
     "Driver-mediated manual relay",
     "taskbook execution",
+    "Foundation Steward maintenance/review activation",
     "role transition into RESEARCHER",
     "role transition into RESEARCH_DRIVER",
+    "role transition into FOUNDATION_STEWARD",
     "handoff into a new conversation",
     "resume of an existing Enterprise Math conversation"
   ],
@@ -42,13 +44,15 @@
       "EM-R012-K7M4",
       "EM-P017-8C21F4",
       "EM-FREE-7A2C",
-      "EM-DVR-Q4N7"
+      "EM-DVR-Q4N7",
+      "EM-STW-6B2E91"
     ],
     "primary_driver_reserved_id": "EM-DRIVER-01"
   },
   "role_labels": {
     "RESEARCHER": "Researcher-ID",
-    "RESEARCH_DRIVER": "Driver-ID"
+    "RESEARCH_DRIVER": "Driver-ID",
+    "FOUNDATION_STEWARD": "Steward-ID"
   },
   "research_mode": {
     "allowed_for_researcher": [
@@ -56,6 +60,7 @@
       "TASK_RESEARCH"
     ],
     "driver_mode": "CONTROL_PLANE",
+    "steward_mode": "FOUNDATION_STEWARD",
     "resolution_source": "research_role_policy.json",
     "persist_when_possible": true,
     "mode_change_does_not_require_new_identity_in_same_conversation": true,
@@ -65,6 +70,7 @@
     "policy": "final_response_identity_policy.json",
     "marker_count": 1,
     "driver_scope": "CONTROL_PLANE",
+    "steward_scope": "FOUNDATION_STEWARD",
     "researcher_scope_precedence": [
       "ACTIVE_TASK_ID",
       "FREE_AXIOM_DISCOVERY",
@@ -87,7 +93,8 @@
     "taskbook_field": "identity_lane",
     "fallback": "derive the compact Rxxx/Pxxx lane from task_id; otherwise use DIRECT",
     "free_researcher": "FREE",
-    "driver_without_primary_designation": "DVR"
+    "driver_without_primary_designation": "DVR",
+    "foundation_steward": "STW"
   },
   "manual_dispatch": {
     "scope": "Driver-mediated user relay into a new task-researcher conversation",
@@ -113,6 +120,15 @@
     ],
     "legacy_event_compatibility": true
   },
+  "foundation_steward": {
+    "role": "FOUNDATION_STEWARD",
+    "visible_label": "Steward-ID",
+    "default_lane": "STW",
+    "visible_scope": "FOUNDATION_STEWARD",
+    "scheduler_claim_identity": "NOT_USED_BY_DEFAULT",
+    "task_publication_identity": "USE_CURRENT_STEWARD_EXECUTION_ID_AS_PUBLISHER_ID",
+    "authority_note": "Steward-ID is provenance only; Foundation authority comes from foundation_steward.json and the governing backflow/promotion contracts, not from the identifier."
+  },
   "direct_task_or_role_transition": {
     "existing_id": "PRESERVE",
     "missing_id": "AUTO_GENERATE_LOCAL",
@@ -120,20 +136,22 @@
     "registration": "CREATE_OWN_REGISTRATION_RECORD_IF_WRITE_PATH_AVAILABLE_ELSE_REGISTER_PENDING"
   },
   "role_transition": {
-    "same_conversation": "preserve the underlying execution handle and switch the visible role label/mode; update Research-Role / Research-Mode / Research-Task metadata and immediately use the new role footer template",
+    "same_conversation": "preserve the underlying execution handle and switch the visible role label/mode; update Research-Role / Research-Mode metadata as applicable and immediately use the new role footer template",
     "new_conversation": "allocate a new role identity",
     "task_to_free_same_conversation": "identity may be preserved but the free run is ANCHOR_EXPOSED unless the context was independently clean before discovery began",
     "free_to_task_same_conversation": "identity may be preserved; once an explicit task is accepted, switch to TASK_RESEARCH and normal task context may be loaded",
+    "to_foundation_steward_same_conversation": "identity may be preserved as the underlying execution handle while visible label/scope switch to Steward-ID / FOUNDATION_STEWARD; stewardship authority must be separately active",
+    "from_foundation_steward_same_conversation": "identity may be preserved while the new active role label/scope takes effect; prior Steward authority does not leak across the role transition",
     "primary_driver": "EM-DRIVER-01 only when the conversation is explicitly the primary Driver continuity conversation",
     "non_primary_driver_visible_label": "Driver-ID"
   },
   "taskbook_contract": {
-    "required_for_new_driver_approved_taskbooks": {
+    "required_for_new_published_taskbooks": {
       "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE"
     },
     "optional_field": "identity_lane",
     "research_mode": "TASK_RESEARCH",
-    "rule": "Taskbooks declare the identity policy/lane, never a fixed runtime Researcher-ID. Manual relay binds a Researcher-ID in a separate dispatch envelope; scheduler/direct entry paths resolve identity independently. The active role footer is governed globally by final_response_identity_policy.json and does not need to be restated in each taskbook."
+    "rule": "Taskbooks declare the identity policy/lane, never a fixed runtime Researcher-ID, Driver-ID, or Steward-ID. Manual relay binds a Researcher-ID in a separate dispatch envelope; scheduler/direct/steward entry paths resolve identity independently. The active role footer is governed globally by final_response_identity_policy.json and does not need to be restated in each taskbook."
   },
   "registration": {
     "repository": "awdawmip/chatgpt-global-knowledge",
@@ -144,18 +162,19 @@
     "registration_is_uniqueness_source": false,
     "registration_failure": "REGISTER_PENDING; continue work and persist the role identity visibly; retry only at a semantic checkpoint",
     "not_a_hard_block": true,
-    "legacy_path_name_note": "the historical folder name researchers/ is retained for compatibility and may contain Driver identity records"
+    "legacy_path_name_note": "the historical folder name researchers/ is retained for compatibility and may contain Researcher, Driver, and Foundation Steward identity records"
   },
   "visibility": {
     "RESEARCHER_TASK": "Researcher-ID: <ID> / <TASK_ID>",
     "RESEARCHER_FREE": "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY",
     "RESEARCHER_DIRECT_TASK_FALLBACK": "Researcher-ID: <ID> / TASK_RESEARCH",
     "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE",
+    "FOUNDATION_STEWARD": "Steward-ID: <ID> / FOUNDATION_STEWARD",
     "commit_subject_prefix": "[<EXECUTION-ID>]",
     "pr_title_prefix": "[<EXECUTION-ID>]",
     "metadata_fields": [
       "execution_id",
-      "researcher_id or driver_id",
+      "researcher_id or driver_id or steward_id",
       "research_task",
       "research_role",
       "research_mode when applicable"
