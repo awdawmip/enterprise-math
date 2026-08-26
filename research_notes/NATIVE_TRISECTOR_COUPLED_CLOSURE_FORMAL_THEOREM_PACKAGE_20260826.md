@@ -8,6 +8,12 @@ Researcher-ID: `EM-FREE-NEPS-239A6D`
 
 Parent research PR: `#627`
 
+Canonization review brief:
+`research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_CANONIZATION_REVIEW_BRIEF_20260826.md`.
+
+Canonization decision packet:
+`research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_CANONIZATION_DECISION_PACKET_20260826.md`.
+
 Mathematical audit authorities:
 
 - original coupled-selection blind audit: PR `#631`, verdict `PACKAGE_VERIFIED_WITH_NARROWING`;
@@ -142,7 +148,7 @@ If
 
 then simultaneous translation of `(u,v,w)` is free and
 
-`X_i / G_a ~= H_(B,C_i) \ Delta_i`,
+`X_i / G_a ~= H_(B,C_i) \\ Delta_i`,
 
 where
 
