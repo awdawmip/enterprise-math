@@ -103,6 +103,17 @@ class ExecutionIntentTests(unittest.TestCase):
 
 
 class UnifiedDispatchTests(unittest.TestCase):
+    def setUp(self):
+        # These tests exercise event/dispatch semantics, not the mutable live
+        # repository result overlay. The real QPHJA task is now terminal, so pin
+        # a no-result fixture here instead of allowing production progress to
+        # change the meaning of the control-plane unit tests.
+        self._result_state_patch = mock.patch.object(
+            dispatch.research_result_records, "task_result_state", return_value=None
+        )
+        self._result_state_patch.start()
+        self.addCleanup(self._result_state_patch.stop)
+
     def registered_definition(self):
         return next(item for item in dispatch.merged_definitions(ROOT) if item["task_id"] == REGISTERED_TASK)
 

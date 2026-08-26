@@ -17,22 +17,23 @@ class ExactV2AuthorityCompatibilityTests(unittest.TestCase):
         return {
             "record_schema": records.RECORD_SCHEMA,
             "record_state": "ACTIVE",
+            "publication_id": "TP2-TEST",
             "publication_transaction": records.PUBLICATION_TRANSACTION_V2,
             "task_id": "RS-T",
             "taskbook_path": "research_tasks/T.md",
             "taskbook_blob_sha1": registry.blob_sha1(path),
         }
 
-    def test_exact_current_v2_publication_is_valid_compatibility_authority(self):
+    def test_exact_v2_publication_is_valid_compatibility_authority_even_if_nonoperational(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             path = self.make_taskbook(root)
-            current = {"RS-T": self.exact_record(path)}
             self.assertTrue(
                 registry.has_exact_v2_publication_authority(
                     path,
                     {"task_id": "RS-T"},
-                    current,
+                    [self.exact_record(path)],
+                    set(),
                     root=root,
                 )
             )
@@ -54,11 +55,38 @@ class ExactV2AuthorityCompatibilityTests(unittest.TestCase):
                     registry.has_exact_v2_publication_authority(
                         path,
                         {"task_id": "RS-T"},
-                        {"RS-T": broken},
+                        [broken],
+                        set(),
                         root=root,
                     ),
                     field,
                 )
+
+    def test_nonstandard_migration_transaction_requires_explicit_parallel_retention(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            path = self.make_taskbook(root)
+            record = self.exact_record(path)
+            record["publication_id"] = "TP2-MIGRATION"
+            record["publication_transaction"] = "LEGACY_READY_CURRENT_POLICY_REREVIEW_AND_IMMUTABLE_MIGRATION"
+            self.assertFalse(
+                registry.has_exact_v2_publication_authority(
+                    path,
+                    {"task_id": "RS-T"},
+                    [record],
+                    set(),
+                    root=root,
+                )
+            )
+            self.assertTrue(
+                registry.has_exact_v2_publication_authority(
+                    path,
+                    {"task_id": "RS-T"},
+                    [record],
+                    {"TP2-MIGRATION"},
+                    root=root,
+                )
+            )
 
     def test_missing_v1_and_missing_v2_remains_unrecognized(self):
         with tempfile.TemporaryDirectory() as td:
@@ -68,7 +96,8 @@ class ExactV2AuthorityCompatibilityTests(unittest.TestCase):
                 registry.has_exact_v2_publication_authority(
                     path,
                     {"task_id": "RS-T"},
-                    {},
+                    [],
+                    set(),
                     root=root,
                 )
             )

@@ -1,0 +1,53 @@
+{
+  "record_schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_REVIEW_V1",
+  "parallel_intake_id": "PI-R043C4-20260826-01",
+  "reference_pass": 1,
+  "reference_pass_id": "RP1-R043C4-20260826-01",
+  "review_type": "INDEPENDENT_REFERENCE_AUDIT",
+  "reviewer_role": "RESEARCH_DRIVER",
+  "reviewer_id": "EM-DVR-K7Q4N8",
+  "reviewed_at": "2026-08-26T19:10:00+08:00",
+  "blind_independence_claimed": false,
+  "rule": "Each route is judged on its own taskbook, publication record, source pins, scope and available provenance. Existence of another route is not a defect and is not used as a rejection reason.",
+  "route_reviews": [
+    {
+      "publication_id": "TP2-9D0A43C4F217B6E8C531",
+      "taskbook_path": "research_tasks/R043C4_NATIVE_INTERFACE_LINK_SEPARATOR_CLOSURE_20260824.md",
+      "taskbook_git_blob_sha1": "7d809db3139c734f520dd14bab8fb17e54945b90",
+      "publication_record_git_blob_sha1": "e1c473b135910a0fe13520b44101558ed961101c",
+      "verdict": "PASS_WITH_PROVENANCE_NOTE",
+      "scope": "R043-C4 exact FCC/HCP native interface-link separator closure under the component-grouping parent objective",
+      "strength": "P1/HIGH Driver-routed continuation task",
+      "provenance_notes": [
+        "Publication uses the explicit legacy-ready current-policy rereview/migration transaction rather than the normal V2 writer transaction.",
+        "Owner is the dedicated research/r043c4-native-interface-link-separator-closure branch.",
+        "No defect in the mathematical mother question or success/kill criteria was found in this pass.",
+        "This publication has no need to be deleted merely because another current-policy reissue exists."
+      ],
+      "survives_to_pass_2": true
+    },
+    {
+      "publication_id": "TP2-A63015C2EB99D00F2500",
+      "taskbook_path": "research_tasks/R043C4_NATIVE_INTERFACE_LINK_SEPARATOR_CLOSURE_REISSUE_20260826.md",
+      "taskbook_git_blob_sha1": "4d0e5c5853b4d39a53fec714027e434d29cc59c1",
+      "publication_record_git_blob_sha1": "94703a523a6cc39521753e32c65c47ebd8e10be1",
+      "verdict": "PASS",
+      "scope": "R043-C4 exact FCC/HCP native interface-link separator closure under the stationary-G0 future-sufficiency parent objective",
+      "strength": "Researcher-published current-policy reissue with P2/MEDIUM effective queue rank but P1/HIGH requested rank",
+      "provenance_notes": [
+        "Publication uses the normal RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2 transaction.",
+        "Taskbook makes the shortest-unoccupied-path/local-link route and durable return path more explicit.",
+        "The valid Issue #240 CLAIM, completed result RR-402C8F4C1B5DFDCB3BCF and Driver review DR-32985388D8EA8EFC60FE are pinned to this publication.",
+        "No defect in the mathematical mother question or success/kill criteria was found in this pass."
+      ],
+      "survives_to_pass_2": true
+    }
+  ],
+  "survivor_publication_ids": [
+    "TP2-9D0A43C4F217B6E8C531",
+    "TP2-A63015C2EB99D00F2500"
+  ],
+  "pass_1_disposition": "BOTH_SURVIVE_TO_CROSS_REFERENCE",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}

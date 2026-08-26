@@ -1,0 +1,84 @@
+{
+  "record_schema": "ENTERPRISE_MATH_PARALLEL_RESEARCH_INTAKE_V1",
+  "record_state": "REFERENCE_COMPLETE_KEEP_PARALLEL",
+  "parallel_intake_id": "PI-R043C4-20260826-01",
+  "scope_kind": "TASK_PUBLICATION_SET",
+  "scope_key": "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
+  "created_at": "2026-08-26T18:45:00+08:00",
+  "created_by_role": "RESEARCH_DRIVER",
+  "created_by_id": "EM-DVR-K7Q4N8",
+  "trigger": "MULTIPLE_ACTIVE_IMMUTABLE_PUBLICATIONS",
+  "operational_binding": {
+    "publication_id": "TP2-A63015C2EB99D00F2500",
+    "reason": "The already-valid Issue #240 execution CLAIM and completed result chain are pinned to this publication. This is execution continuity only and carries no truth or quality preference.",
+    "claim_id": "chatgpt-r043c4-20260826-1435",
+    "epistemic_preference": false
+  },
+  "parallel_objects": [
+    {
+      "object_kind": "TASK_PUBLICATION",
+      "publication_id": "TP2-9D0A43C4F217B6E8C531",
+      "record_path": "research_task_records/RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE/TP2-9D0A43C4F217B6E8C531.json",
+      "record_git_blob_sha1": "e1c473b135910a0fe13520b44101558ed961101c",
+      "publisher_role": "RESEARCH_DRIVER",
+      "publisher_id": "EM-FREE-C19420",
+      "parent_objective_id": "OBJ-R043-STATIONARY-G0-COMPONENT-GROUPING-CLOSURE",
+      "owner": "research/r043c4-native-interface-link-separator-closure",
+      "status": "RETAINED_PARALLEL"
+    },
+    {
+      "object_kind": "TASK_PUBLICATION",
+      "publication_id": "TP2-A63015C2EB99D00F2500",
+      "record_path": "research_task_records/RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE/TP2-A63015C2EB99D00F2500.json",
+      "record_git_blob_sha1": "94703a523a6cc39521753e32c65c47ebd8e10be1",
+      "publisher_role": "RESEARCHER",
+      "publisher_id": "EM-DGRINT-23160D",
+      "parent_objective_id": "OBJ-R043-G0-STATIONARY-FUTURE-SUFFICIENCY-CLOSURE",
+      "owner": "program/p022-geometry-v2",
+      "status": "OPERATIONAL_AND_RETAINED_PARALLEL"
+    },
+    {
+      "object_kind": "RESULT",
+      "result_id": "RR-402C8F4C1B5DFDCB3BCF",
+      "publication_id": "TP2-A63015C2EB99D00F2500",
+      "status": "EXISTING_RESULT_RETAINED_FOR_REFERENCE"
+    },
+    {
+      "object_kind": "DRIVER_REVIEW",
+      "review_id": "DR-32985388D8EA8EFC60FE",
+      "result_id": "RR-402C8F4C1B5DFDCB3BCF",
+      "status": "EXISTING_REVIEW_RETAINED_FOR_REFERENCE"
+    }
+  ],
+  "reference_passes": {
+    "pass_1": {
+      "required": true,
+      "state": "COMPLETE_BOTH_SURVIVE",
+      "reference_pass_id": "RP1-R043C4-20260826-01",
+      "record_path": "research_parallel_reference_reviews/PI-R043C4-20260826-01/PASS1-INDEPENDENT-REFERENCE.json",
+      "type": "INDEPENDENT_REFERENCE_AUDIT"
+    },
+    "pass_2": {
+      "required": true,
+      "state": "COMPLETE_KEEP_PARALLEL",
+      "reference_pass_id": "RP2-R043C4-20260826-01",
+      "record_path": "research_parallel_reference_reviews/PI-R043C4-20260826-01/PASS2-CROSS-REFERENCE.json",
+      "type": "CROSS_REFERENCE_RECONCILIATION"
+    }
+  },
+  "relationship": [
+    "COMPATIBLE_COMPLEMENTARY",
+    "DIFFERENT_SCOPE_ROUTING_METADATA"
+  ],
+  "allowed_final_dispositions": [
+    "KEEP_PARALLEL",
+    "MERGE_TO_NEW_GENERATION",
+    "SPLIT_TO_TYPED_TASKS",
+    "SELECT_OPERATIONAL_AND_RETAIN_ALTERNATES",
+    "RETURN_FOR_ADDITIONAL_EVIDENCE"
+  ],
+  "current_disposition": "KEEP_PARALLEL_AND_SELECT_OPERATIONAL",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "delete_or_rewrite_parallel_objects": false
+}
