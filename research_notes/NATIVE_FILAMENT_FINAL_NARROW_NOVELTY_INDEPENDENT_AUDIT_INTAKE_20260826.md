@@ -62,3 +62,21 @@ External literature status is independently classified.
 Do not reopen component-level novelty questions unless a new exact theorem statement or a materially stronger prior-art source appears.
 
 The remaining promotion work is packaging/canonization policy, not another mathematical or novelty proof pass.
+
+## Canonization-ready entrypoints
+
+Formal theorem package:
+
+`research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_FORMAL_THEOREM_PACKAGE_20260826.md`.
+
+Canonization decision packet:
+
+`research_notes/NATIVE_TRISECTOR_COUPLED_CLOSURE_CANONIZATION_DECISION_PACKET_20260826.md`.
+
+Current promotion frontier:
+
+`research_notes/NATIVE_FILAMENT_GENERALIZATION_CURRENT_PROMOTION_FRONTIER_20260825.md`.
+
+Recommended next state:
+
+`READY_FOR_DRIVER_CANONIZATION_REVIEW`.
