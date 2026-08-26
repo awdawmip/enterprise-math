@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Extend the frozen V1 orphan audit for exact retained-parallel V2 taskbooks.
+"""Extend the frozen V1 orphan audit for exact retained-parallel immutable taskbooks.
 
 The V1 registry remains read-only. This control-plane bridge exempts only a
-published taskbook that is still backed by an exact immutable V2 publication
-record explicitly listed in the task's active parallel-intake resolution.
-It grants no runtime/claim authority to that retained publication.
+published taskbook that is still backed by an exact immutable V2-schema
+publication record explicitly listed in the task's active parallel-intake
+resolution. The record may have entered through the normal V2 writer or an
+accepted legacy-to-immutable migration transaction. No retained publication
+receives runtime/claim authority from this bridge.
 """
 from __future__ import annotations
 
@@ -48,7 +50,6 @@ def exact_retained_parallel_authority(path: Path) -> bool:
         if (
             record.get("record_schema") == research_task_records.RECORD_SCHEMA
             and record.get("record_state", "ACTIVE") == "ACTIVE"
-            and record.get("publication_transaction") == research_task_records.PUBLICATION_TRANSACTION_V2
             and record.get("task_id") == task_id
             and record.get("taskbook_path") == rel
             and record.get("taskbook_blob_sha1") == blob
@@ -70,8 +71,8 @@ def audit() -> list[str]:
             remaining.append(error)
             continue
         print(
-            "PASS retained-parallel V2 compatibility: "
-            f"{rel} remains immutable research evidence but is not current runtime authority."
+            "PASS retained-parallel immutable compatibility: "
+            f"{rel} remains research evidence but is not current runtime authority."
         )
     return remaining
 
@@ -82,4 +83,4 @@ if __name__ == "__main__":
         for failure in failures:
             print("ERROR:", failure)
         raise SystemExit(1)
-    print("PASS: V1 compatibility plus exact retained-parallel V2 taskbooks are non-orphaned.")
+    print("PASS: V1 compatibility plus exact retained-parallel immutable taskbooks are non-orphaned.")
