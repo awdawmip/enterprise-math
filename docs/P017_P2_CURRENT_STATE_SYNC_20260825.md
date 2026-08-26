@@ -1,10 +1,12 @@
 # P017 — P2 Current-State Synchronization
 
-Status: `OWNER CHECKPOINT / PROVED_WIP + SOURCE-FORMULA CORRECTION + ROOT-EDGE CANDIDATE + EXTERNAL-COMPUTATION CONDITIONAL FINITE SPLICE / NOT CANONICAL / NO ALL-K P2 CLAIM`
+Status: `OWNER CHECKPOINT / PROVED_WIP + SOURCE-FORMULA CORRECTION + ROOT-EDGE CANDIDATE + RESIDUAL-ENERGY FIXED-POWER COMPRESSION + EXTERNAL-COMPUTATION CONDITIONAL FINITE SPLICE / NOT CANONICAL / NO ALL-K P2 CLAIM`
 
 Originally captured: `2026-08-25T21:34:00+08:00`
 
 Last source-audit/root-edge update: `2026-08-26`
+
+Last residual-energy update: `2026-08-26`
 
 Owner branch: `research/p017-p2-chen-carry-bridge-20260823`
 
@@ -16,10 +18,15 @@ Preferred current parameter candidate:
 
 `docs/P017_P2_A6_FIVE_NINTH_ROOT_EDGE_PACKAGE_20260826.md`
 
-Exact rational verifiers:
+Residual-energy note:
+
+`docs/P017_P2_RESIDUAL_ENERGY_COMPRESSION_20260826.md`
+
+Exact rational / integer verifiers:
 
 - `experiments/p017_p2_w1_source_formula_audit_20260826.py`;
-- `experiments/p017_p2_a6_five_ninth_root_edge_certificate_20260826.py`.
+- `experiments/p017_p2_a6_five_ninth_root_edge_certificate_20260826.py`;
+- `experiments/p017_p2_residual_energy_compression_20260826.py`.
 
 ## Frozen mathematical state
 
@@ -53,9 +60,60 @@ Exact rational verifiers:
 
 3. Above the root, odd `O_m` is a Boolean incidence in pairwise-disjoint reciprocal complement windows. Distinct-prime prime-lift collisions factor through one shared small-prime core and one Boolean packet hit. Exact-Mobius top-third and `t=1` collision sectors collapse further; arbitrary Rosser/well-factorable coefficients remain an analytic interface.
 
-4. The additive `O(sqrt(K))` super-root halo has coefficient-uniform bounded L1/L2 discrepancy by the quadratic-excess layer law. A fixed multiplicative super-root strip still requires analytic input.
+4. The additive `O(sqrt(K))` super-root halo has coefficient-uniform bounded L1/L2 discrepancy by the quadratic-excess layer law.
 
-5. The finite side remains conditionally spliced, under the declared conservative public exhaustive-gap premise, through
+5. On the full live five-ninth super-root strip, the parity-projected centered remainder now has the coefficient-free quadratic-energy compression
+
+   \[
+   E_{\rm sharp}(K,D)
+   =
+   \sum_{\substack{K<m\le D\\m\text{ odd}}}
+   \left|O_m(K)-\frac Km\right|^2
+   \le
+   \frac DK+\frac K2\log\frac DK+K+2.
+   \]
+
+   At
+
+   \[
+   D=K^{10/9}
+   \]
+
+   this gives
+
+   \[
+   \boxed{E_{\rm sharp}=K^{1+o(1)}}
+   \]
+
+   against the generic level-size envelope `K^(10/9)`, i.e. a definite raw energy saving
+
+   \[
+   \boxed{K^{-1/9+o(1)}=X^{-1/18+o(1)}.}
+   \]
+
+   The same exponent survives any fixed-height nonnegative smooth parity projection supported in a subinterval of length at most `K`, including the existing fixed-order B-spline baseline. This does **not** yet authorize adding `1/36` to the Lemma-4 amplitude exponent.
+
+6. In the current a6 terminal-prime band
+
+   \[
+   p\ge K^{22/27},
+   \]
+
+   every distinct-prime collision has
+
+   \[
+   P=p_1p_2>K,
+   \]
+
+   so the generic collision branch `P<=K` disappears. The surviving small-core packet satisfies
+
+   \[
+   \boxed{Q<z^2+1,\qquad z=K^{5/27},}
+   \]
+
+   and its shared collision depth satisfies `t^2<Q`. Thus the whole distinct-prime terminal collision carrier is confined to the same `z^2` scale that caps the legal Selberg auxiliary level.
+
+7. The finite side remains conditionally spliced, under the declared conservative public exhaustive-gap premise, through
 
    \[
    K\le116{,}009{,}280{,}740{,}973{,}308,
@@ -195,23 +253,52 @@ Thus the refined `(1/14,11/14)` exponent pair is unnecessary here as well. This 
 
 Because the `a=6` `G_*` and the corrected `a=4` coefficient arise through two different presentations of the source main term, their numerical reserves should be placed on one final-count normalization before claiming a strict main-term dominance. The bilinear exponent comparison is direct.
 
+## 2026-08-26 residual-energy compression
+
+The former hard frontier asked whether exact square geometry removes a definite power from the residual support/energy before generic Chen-Iwaniec constants are paid. At the raw quadratic-energy level the answer is now positive.
+
+For the sharp parity-projected remainder,
+
+\[
+E_{\rm sharp}(K,\lfloor K^{10/9}\rfloor)
+\le
+K^{1/9}+\frac1{18}K\log K+K+2,
+\]
+
+so
+
+\[
+\boxed{
+E_{\rm sharp}=K^{1+o(1)}
+}
+\]
+
+instead of the generic level-size `K^(10/9)` envelope. The fixed energy gap is `1/9` in `K`, equivalently `1/18` in `X`.
+
+The same exponent persists after a fixed-height nonnegative smoothing supported on length `<=K`: super-root odd multiples are spaced by `2m>2K`, so every modulus still has at most one odd-quotient hit. For the existing order-`p` compact B-spline, the elementary bound `||f||_infty<=p` is enough to retain `K^(1+o(1))` energy.
+
+Separately, the a6 terminal lower-prime exponent `22/27` forces every distinct-prime collision into the `P>K` packet branch and hence into a small core `Q<z^2+1`. This is exactly aligned with the Selberg auxiliary cap `z^2`.
+
+These are square-specific structural reductions. They do not by themselves prove signed cancellation for the factorable bilinear form.
+
 ## Effectivity pressure test
 
 Mechanical explicit B-spline/Poisson constant tracking of the generic 1981 proof at the current finite splice is still too expensive: even idealized single-block estimates remain order one before the `O((log MN)^2)` bilinear-form multiplicity is charged.
 
-Therefore the priority is not microscopic improvement of generic Fourier constants. The preferred path is:
+Therefore the priority remains to exploit the new square-specific compression before paying generic Fourier constants. The preferred path is now:
 
-1. use the `a=6,d=5/9` root-edge package as the current finite-oriented baseline;
-2. exploit the P017 square-specific super-root complement/collision kernel before paying generic analytic constants;
-3. use adaptive interval-length anchors to strip chosen small-prime factors with zero floor error;
-4. remove the coefficient-uniform additive `O(sqrt(K))` near-root halo exactly;
-5. apply the generic trivial-pair bilinear bound only to the irreducible residual sector;
-6. recover the Laborde constants directly and unify all main-term normalizations.
+1. use the `a=6,d=5/9` root-edge package as the finite-oriented baseline;
+2. keep the proved `K^{-1/9+o(1)}` raw residual-energy ratio as an independent invariant;
+3. isolate a valid Cauchy/duality insertion point for that parity-projected energy, without confusing physical same-radius collisions with the Fourier off-diagonal in Lemma 4;
+4. exploit the exact a6 confinement `Q<z^2+1` to remove or finitely control the distinct-prime collision carrier;
+5. use adaptive interval-length anchors to strip chosen small-prime factors with zero floor error;
+6. invoke the generic trivial-pair bilinear estimate only on the signed residual sector that survives these reductions;
+7. recover the Laborde constants directly and unify all main-term normalizations.
 
 ## Current hard frontier
 
-The live problem is now sharply typed:
+The support/energy question itself is no longer open. The live problem is now:
 
-> quantify the support/energy reduction supplied by P017 exact square geometry for the `a=6,d=5/9` root-edge packet, then determine whether the residual trivial-pair constant can be made to overlap the finite splice.
+> prove a carry-energy insertion theorem for the factorable signed prime-lift remainder, or identify an exact obstruction showing that the `K^{-1/9}` physical residual-energy saving cannot survive the Lemma-4/Fourier interface; in parallel consume the a6 fact that every distinct-prime terminal collision has small core `Q<z^2+1`.
 
 No all-k consecutive-square P2 theorem is claimed here.
