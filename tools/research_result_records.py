@@ -12,10 +12,12 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from control_plane import research_result_records_impl as _impl
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
-# Preserve the complete historical public/module surface, including compatibility
-# helpers used by tests and downstream control-plane code.
+from control_plane import research_result_records_impl as _impl  # noqa: E402
+
 for _name in dir(_impl):
     if not _name.startswith("__"):
         globals()[_name] = getattr(_impl, _name)
@@ -46,27 +48,12 @@ def _parallel_synthesis(intake_id: str, evidence_set_sha256: str, root: Path) ->
     return None
 
 
-def task_result_state(
-    task_id: str,
-    root: Path = ROOT,
-    publication_id: str | None = None,
-) -> dict[str, Any] | None:
-    """Return one control state without discarding parallel research evidence.
-
-    Single-result tasks delegate unchanged to the generation-aware implementation.
-    Two or more results for the same selected publication never use timestamp
-    precedence. They remain non-dispatchable until intake -> reference pass 1 ->
-    reference pass 2 -> synthesis is complete.
-    """
+def task_result_state(task_id: str, root: Path = ROOT, publication_id: str | None = None) -> dict[str, Any] | None:
     resolved_publication = _publication_for_state(task_id, root, publication_id)
     parallel = _parallel.state(task_id, resolved_publication, root)
     phase = parallel.get("parallel_state")
     if phase == "SINGLE_RESULT_FLOW":
-        return _impl.task_result_state(
-            task_id,
-            root,
-            publication_id=resolved_publication,
-        )
+        return _impl.task_result_state(task_id, root, publication_id=resolved_publication)
 
     result_ids = list(parallel.get("result_ids") or [])
     intake_id = parallel.get("intake_id")
@@ -78,13 +65,7 @@ def task_result_state(
         "parallel_result_ids": result_ids,
         "_record_path": None,
     }
-
-    if phase in {
-        "AWAITING_PARALLEL_INTAKE",
-        "AWAITING_REFERENCE_PASS_1",
-        "AWAITING_REFERENCE_PASS_2",
-        "AWAITING_SYNTHESIS",
-    }:
+    if phase in {"AWAITING_PARALLEL_INTAKE", "AWAITING_REFERENCE_PASS_1", "AWAITING_REFERENCE_PASS_2", "AWAITING_SYNTHESIS"}:
         return {
             "state": "AWAITING_DRIVER_REVIEW",
             "result": synthetic_result,
@@ -95,12 +76,7 @@ def task_result_state(
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
         }
-
-    synthesis = (
-        _parallel_synthesis(str(intake_id), str(evidence_hash), root)
-        if intake_id and evidence_hash
-        else None
-    )
+    synthesis = _parallel_synthesis(str(intake_id), str(evidence_hash), root) if intake_id and evidence_hash else None
     if synthesis is None:
         return {
             "state": "AWAITING_DRIVER_REVIEW",
@@ -112,32 +88,21 @@ def task_result_state(
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
         }
-
-    synth_result = {
-        **synthetic_result,
-        "result_id": synthesis.get("synthesis_id"),
-        "_record_path": synthesis.get("_path"),
-    }
+    synth_result = {**synthetic_result, "result_id": synthesis.get("synthesis_id"), "_record_path": synthesis.get("_path")}
     if phase == "PARALLEL_SYNTHESIS_NONTERMINAL":
         return {
             "state": "RETURN_TO_EXECUTION",
             "result": synth_result,
-            "review": {
-                "review_id": synthesis.get("synthesis_id"),
-                "disposition": synthesis.get("disposition"),
-            },
+            "review": {"review_id": synthesis.get("synthesis_id"), "disposition": synthesis.get("disposition")},
             "terminal": False,
             "parallel_state": phase,
             "parallel_result_ids": result_ids,
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
         }
-
     if phase == "PARALLEL_SYNTHESIS_TERMINAL":
         disposition = synthesis.get("terminal_control_disposition")
         if disposition not in _impl.TERMINAL_DISPOSITIONS:
-            # Fail closed: a synthesis may classify evidence without silently
-            # inventing a terminal Driver disposition.
             return {
                 "state": "AWAITING_DRIVER_REVIEW",
                 "result": synth_result,
@@ -151,17 +116,13 @@ def task_result_state(
         return {
             "state": "TERMINAL",
             "result": synth_result,
-            "review": {
-                "review_id": synthesis.get("synthesis_id"),
-                "disposition": disposition,
-            },
+            "review": {"review_id": synthesis.get("synthesis_id"), "disposition": disposition},
             "terminal": True,
             "parallel_state": phase,
             "parallel_result_ids": result_ids,
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
         }
-
     raise _impl.ResultRecordError(f"unknown parallel result state: {phase}")
 
 
