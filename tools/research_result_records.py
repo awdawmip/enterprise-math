@@ -12,7 +12,11 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from control_plane import research_result_records_impl as _impl
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from control_plane import research_result_records_impl as _impl  # noqa: E402
 
 # Preserve the complete historical public/module surface, including compatibility
 # helpers used by tests and downstream control-plane code.
