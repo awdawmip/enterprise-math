@@ -34,6 +34,8 @@ jobs:
         run: python tools/research_task_records.py audit
       - name: Check per-task publication head serialization
         run: python control_plane/research_task_head_serialization.py audit
+      - name: Check parallel research intake vs runtime single-head authority
+        run: python control_plane/check_parallel_research_intake.py
       - name: Check immutable execution intents
         run: python tools/research_execution_records.py audit
       - name: Check legacy scheduler cutover is frozen

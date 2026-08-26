@@ -50,7 +50,9 @@
   "known_reconciliation": {
     "replacement_control_plane_pr": 660,
     "stale_migration_pr_to_retire": 657,
+    "parallel_intake_semantics_source_pr": 661,
+    "parallel_intake_semantics_adopted_into_replacement_pr": true,
     "orthogonal_live_control_plane_prs": [654, 655],
-    "note": "Current explicit records and later merged main state supersede historical PR metadata as runtime authority. PR #657 is not part of this ledger's authority after #660 lands and should be closed as superseded rather than merged."
+    "note": "Current explicit records and later merged main state supersede historical PR metadata as runtime authority. PR #657 is superseded by #660. PR #661's non-destructive parallel-intake semantics and R043-C4 reference records are adopted into #660, while #660 adds the future per-task runtime-head CAS, historical inventory, DGR replay, and legacy/main hardening layers."
   }
 }
