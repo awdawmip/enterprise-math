@@ -1,0 +1,44 @@
+{
+  "record_schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_REVIEW_V1",
+  "parallel_intake_id": "PI-DGRINT-RESULTS-20260826-01",
+  "reference_pass": 1,
+  "reference_pass_id": "RP1-DGRINT-RESULTS-20260826-01",
+  "review_type": "INDEPENDENT_REFERENCE_AUDIT",
+  "reviewer_role": "RESEARCH_DRIVER",
+  "reviewer_id": "EM-DVR-K7Q4N8",
+  "reviewed_at": "2026-08-26T19:32:00+08:00",
+  "rule": "Judge each immutable result on its own publication/execution/return pins and manifest completeness before comparing it with the other result.",
+  "route_reviews": [
+    {
+      "result_id": "RR-BFB7190B3C8D391C6E9D",
+      "verdict": "PASS_AS_HISTORICAL_FREEZE_WITH_MANIFEST_DEFECT",
+      "publication_id": "TP2-90D492F7054EDEE0F3CD",
+      "execution_record_id": "ER-34BC8258754EF4E023DA",
+      "return_blob_identity": "e4a8cc81ec567a45c8afbbd469284b5ae8ddcfb8",
+      "terminal_verdict": "INTEGRATED",
+      "findings": [
+        "The result pins the accepted DGR typed-integration return artifact and exact execution chain.",
+        "Its output_manifest contains only the return artifact and therefore does not enumerate the three accepted definition outputs.",
+        "The manifest defect is provenance incompleteness, not a mathematical contradiction and not grounds to delete or rewrite the immutable result."
+      ],
+      "survives_to_pass_2": true
+    },
+    {
+      "result_id": "RR-AE11E20304C60C349CBD",
+      "verdict": "PASS_CONTROL_ONLY_REGENERATION",
+      "publication_id": "TP2-90D492F7054EDEE0F3CD",
+      "execution_record_id": "ER-34BC8258754EF4E023DA",
+      "return_blob_identity": "sha1:e4a8cc81ec567a45c8afbbd469284b5ae8ddcfb8",
+      "terminal_verdict": "INTEGRATED",
+      "findings": [
+        "The result freezes the same task publication, claim, execution, researcher, execution branch and mathematical return artifact.",
+        "Its output_manifest pins all three accepted definition outputs plus the frozen return, each with Git blob identity and SHA-256.",
+        "The distinct owner_head is an explicit control-only checkpoint used to produce a distinct immutable result id; the Driver review states no mathematical source statement changed."
+      ],
+      "survives_to_pass_2": true
+    }
+  ],
+  "pass_1_disposition": "BOTH_RETAINED_FOR_CROSS_REFERENCE",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}
