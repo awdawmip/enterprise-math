@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.8`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.9`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -197,6 +197,16 @@ Soft routine source-read budget before substantive work: `<= 3`.
 The Common Surface is a lookup, not a default preload.
 
 Do not preload the entire dispatch board. One canonical task selection/claim boundary is sufficient until a real coordination event requires another lookup.
+
+### Optional BLIND_INDEPENDENT PRE_MATH gate
+
+Only when the selected taskbook declares `source_firewall.mode=BLIND_INDEPENDENT`, load `research_source_firewall_contract.json` and use the existing `tools/research_runtime_guard.py` PRE_MATH gate.
+
+Before route-specific mathematical source exposure, every allowed source must match an exact repository-relative `path + 40-hex commit + Git blob SHA-1` pin and the exclusive local stamp must record `phase=STARTED_BEFORE_MATH` plus `math_source_read_before_stamp=false`.
+
+Default generic blind behavior adds **no remote write before math**. A remote stamp/push gate exists only when that exact taskbook explicitly sets `remote_stamp_before_math_required=true`; then satisfy that task-local stronger rule before source exposure.
+
+Do not apply this optional firewall to ordinary task research that does not declare it.
 
 ## 6. Universal tool reuse gate
 
