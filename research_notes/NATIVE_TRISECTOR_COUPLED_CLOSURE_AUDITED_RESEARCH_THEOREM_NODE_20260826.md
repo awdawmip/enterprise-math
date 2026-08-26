@@ -18,7 +18,11 @@ Source research generation:
 
 Foundation status:
 
-`NOT_CANONICAL_FOUNDATION / NO_FOUNDATION_MUTATION`
+`FOUNDATION_REVIEW_COMPLETED / NOT_FOUNDATION_ADMITTED / CANONICAL_FOUNDATION_UNCHANGED`
+
+Foundation review authority:
+
+`driver_reviews/NATIVE_TRISECTOR_COUPLED_CLOSURE_FOUNDATION_CANONICALIZATION_DRIVER_DISPOSITION_20260826.md`
 
 ## Theorem node
 
@@ -130,8 +134,14 @@ Freeze:
 
 `THEOREM_CLASS = MODEL_SPECIFIC_SELECTION_THEOREM`.
 
-`FOUNDATION_STATUS = NOT_ADMITTED`.
+`FOUNDATION_STATUS = REVIEW_COMPLETED_NOT_ADMITTED`.
+
+`FOUNDATION_COMPATIBLE = true`.
+
+`FOUNDATION_GENERATIVE = false`.
+
+`CANONICAL_FOUNDATION_UNCHANGED = true`.
 
 `CANONIZATION_SOURCE = DRIVER_DISPOSITION`.
 
-Any statement stronger than this node requires a new evidence and admission cycle.
+The Foundation review does not weaken this research theorem. Any statement stronger than this node, or any renewed Foundation claim, requires a new evidence and admission cycle.
