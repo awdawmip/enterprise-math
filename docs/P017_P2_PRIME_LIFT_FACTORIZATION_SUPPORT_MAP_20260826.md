@@ -1,6 +1,6 @@
 # P017 — Prime-Lift Factorization Support Map
 
-Status: `PROVED_WIP SOURCE-MAPPING CORRECTION + EXACT EXPONENT BOUNDARIES / NOT FULL W1 ERROR / NOT CANONICAL`
+Status: `PROVED_WIP SOURCE-MAPPING + SCOPE CORRECTION / DIRECT-A_p ROUTE ONLY / NOT FULL W1 ERROR / NOT CANONICAL`
 
 Date: `2026-08-26`
 
@@ -8,22 +8,20 @@ Owner branch: `research/p017-p2-chen-carry-bridge-20260823`
 
 Sources:
 
-- Iwaniec–Laborde, *P2 in short intervals* (1981), Lemma 2 and the p.53 W1 formula;
-- the general Iwaniec linear-sieve formulation for `S(A_q,u)` in later applications.
+- Iwaniec–Laborde, *P2 in short intervals* (1981), Lemma 2, Section 6 and the p.53 W1 formula;
+- Iwaniec, *A new form of the error term in the linear sieve* (1980).
 
-Purpose: determine whether the external prime in a W1 prime-lift remainder destroys the newly exploited smooth support of the factorable variables, and locate exactly where the factorable Lemma-2 representation is legal.
+Purpose: record the exact algebra of applying the factorable linear-sieve remainder **directly to a prime-lift sequence `A_p`**, while preventing that direct application from being mistaken for an exhaustive description of the original Chen/Iwaniec W1 bilinear routing.
 
 ---
 
-## 1. External prime remains external
+## 1. External prime in a direct sieve of A_p
 
-Let `A_q` denote the subsequence supported on multiples of squarefree `q`. For a sieve modulus `d`, the natural remainder is
+Let `A_q` denote the subsequence supported on multiples of squarefree `q`. For a sieve modulus `d`, write the natural dimension-one remainder as
 
 \[
-r(A_q;d)=|A_{[q,d]}|-\frac{X}{[q,d]}
+r(A_q;d)=|A_{[q,d]}|-\frac{X}{[q,d]}.
 \]
-
-in the dimension-one interval case.
 
 If `(q,d)=1`, then
 
@@ -32,24 +30,24 @@ If `(q,d)=1`, then
 \tag{PL1}
 \]
 
-In particular, for a prime `p` at or above the sifting cutoff and for
+In particular, for an odd prime `p` at or above the direct sifting cutoff and
 
 \[
 d=mn,\qquad mn\mid P(u),
 \]
 
-we have `(p,mn)=1` and hence
+one has `(p,mn)=1` and hence
 
 \[
 \boxed{r(A_p;mn)=r(A;pmn).}
 \tag{PL2}
 \]
 
-The source Iwaniec factorable remainder therefore has the form
+If Iwaniec's factorable linear-sieve theorem is applied **to `A_p` as the sequence being sifted**, its remainder has the form
 
 \[
 \boxed{
-R(A_p;M,N)
+R_{\rm direct}(A_p;M,N)
 =
 \sum_{m<M,\,m\mid P(u)}
 \sum_{n<N,\,n\mid P(u)}
@@ -60,13 +58,13 @@ R(A_p;M,N)
 
 with `|a_m|,|b_n|<=1` and squarefree `m,n`.
 
-Thus the external prime does **not** get absorbed into either factorable variable. The smooth/squarefree support used in the support-sensitive Cauchy compression survives prime lift.
+Thus, in this direct-`A_p` representation, the external prime does not get absorbed into either smooth factorable variable. The smooth/squarefree support used in the support-sensitive Cauchy theorem survives.
 
 ---
 
-## 2. The physical level and the sieve level are different objects
+## 2. Direct-A_p sieve level
 
-If the desired total physical modulus level is `D`, choose
+If the direct `A_p` application is assigned total physical modulus level `D`, choose
 
 \[
 MN=\frac Dp.
@@ -78,7 +76,7 @@ Then
 pMN=D,
 \]
 
-so the physical modulus `pmn` remains on the same total level, while the linear-sieve parameter is
+and the direct linear-sieve parameter is
 
 \[
 s=\frac{\log(MN)}{\log u}
@@ -87,17 +85,15 @@ s=\frac{\log(MN)}{\log u}
 \tag{PL4}
 \]
 
-This exactly explains the two sieve-function arguments displayed in the source W1 formula.
-
-Write
+Writing
 
 \[
-p=D^t.
+p=D^t,
 \]
 
-### Fixed cutoff `u=z=D^(1/a)`
+gives the familiar source expressions:
 
-Then
+### Fixed cutoff `u=z=D^(1/a)`
 
 \[
 \boxed{s_z=a(1-t)=a-at.}
@@ -106,20 +102,18 @@ Then
 
 ### Moving cutoff `u=p`
 
-Then
-
 \[
 \boxed{s_p=\frac{1-t}{t}.}
 \tag{PL6}
 \]
 
-These are exactly the source arguments `F(a-at)` and `F((1-t)/t)` on p.53.
+These identities explain the sieve-function arguments `F(a-at)` and `F((1-t)/t)` that occur in the source W1 main-term calculation. They do not, by themselves, determine how every W1 remainder is grouped analytically.
 
 ---
 
-## 3. Exact factorable-Lemma-2 legality boundaries
+## 3. Legality boundaries for the direct-A_p factorable theorem
 
-The source factorable Lemma 2 assumes
+The 1980/1981 factorable theorem in the form used here assumes
 
 \[
 u\le\sqrt{MN},
@@ -131,17 +125,17 @@ i.e.
 s\ge2.
 \]
 
-For the live a6 packet `a=6`:
+For the live a6 packet `a=6` this gives, **for this direct-A_p application**:
 
 ### Fixed cutoff z
 
-From `6(1-t)>=2`,
-
 \[
-\boxed{t\le\frac23.}
+6(1-t)\ge2
+\Longrightarrow
+\boxed{t\le\frac23},
 \]
 
-Equivalently,
+or
 
 \[
 \boxed{p\le D^{2/3}=X^{10/27}.}
@@ -150,58 +144,60 @@ Equivalently,
 
 ### Moving cutoff p
 
-From `(1-t)/t>=2`,
-
 \[
-\boxed{t\le\frac13.}
+\frac{1-t}{t}\ge2
+\Longrightarrow
+\boxed{t\le\frac13},
 \]
 
-Equivalently,
+or
 
 \[
 \boxed{p\le D^{1/3}=X^{5/27}=z^2.}
 \tag{PL8}
 \]
 
-The second boundary is exactly the same `z^2` scale already forced by the a6 distinct-prime collision-core compression.
+The appearance of `z^2` is genuinely aligned with the separate a6 collision-core scale, but the two facts have different proofs and roles.
 
 ---
 
-## 4. Consequence for the support-sensitive Cauchy theorem
+## 4. Critical scope correction
 
-The theorem
+Equations (PL7) and (PL8) are **not** an exhaustive partition of the source W1 remainder.
 
-`docs/P017_P2_SUPPORT_SENSITIVE_CAUCHY_COMPRESSION_20260826.md`
+The original Chen/Iwaniec–Laborde treatment is free to group the external prime together with another summation variable before invoking the bilinear remainder estimate. In that representation `p` itself participates in a physical bilinear block rather than merely remaining a fixed external parameter of an independently sifted `A_p`.
 
-remains a valid theorem for a factorable block whose two sieve variables are supported on `P(u)`. The prime-lift map (PL3) shows that this support persists with an external prime.
+Source Section 6 explicitly distinguishes the ranges in which Lemma 3/Lemma 4 can be consumed after such regrouping; this is stronger than the direct-`A_p` legality test above.
 
-However, its frozen **numerical top-scale values** `M=X^mu`, `N=X^nu`, `MN=D` describe the unlifted top level. A prime-lift block instead has
-
-\[
-MN=D/p.
-\]
-
-Therefore the numerical constant `0.058 y` may not be copied unchanged into the full W1 prime-lift sum. Each p-regime requires a p-dependent factor split and frequency replay.
-
-Likewise, the source factorable Lemma-2 representation cannot be invoked beyond (PL7) or (PL8). The complementary high-p sectors require a different finite treatment, most naturally an absolute bound on the original bounded sieve remainder before factorable decomposition.
-
----
-
-## 5. New W1 error partition
-
-The W1 remainder problem should now be partitioned by the **sieve parameter** rather than by one global modulus level:
+Therefore freeze:
 
 \[
 \boxed{
-\begin{array}{lll}
- u=z, & p\le D^{2/3}: & \text{factorable smooth-support Cauchy sector},\\
- u=z, & p>D^{2/3}: & \text{high-p finite absolute sector},\\
- u=p, & p\le D^{1/3}=z^2: & \text{factorable moving-cutoff sector},\\
- u=p, & p>D^{1/3}: & \text{high-p finite absolute sector}.
-\end{array}
+\text{DIRECT-}A_p\text{ LEGALITY BOUNDARY}
+\ne
+\text{FULL SOURCE W1 ANALYTIC BOUNDARY}.
 }
+\tag{PL9}
 \]
 
-This corrects the earlier temptation to charge the same full-level block constant uniformly to every W1 prime lift.
+The earlier wording that treated `p>D^(2/3)` or `p>D^(1/3)` as necessarily belonging to a separate high-p absolute sector is superseded.
+
+---
+
+## 5. Consequence for the support-sensitive Cauchy theorem
+
+`docs/P017_P2_SUPPORT_SENSITIVE_CAUCHY_COMPRESSION_20260826.md`
+
+remains a valid theorem for any factorable block in which the two factorable variables are explicitly supported on `P(u)`. Equation (PL3) shows one legitimate prime-lift situation where this occurs.
+
+However, its frozen numerical top-scale values `MN=D` describe an unlifted top block. A direct prime-lift application has
+
+\[
+MN=D/p,
+\]
+
+and the original source W1 regrouping can have yet another factor split. Hence the numerical constant `0.058 y` must never be copied unchanged to the aggregate W1 remainder.
+
+The currently preferred finite route is now the sharp-odd conventional-error route, which attempts to consume `|e(q)|<1` before any factorable decomposition. The factorable support-sensitive theorem remains a fallback for whatever residual W1 sector survives that direct treatment.
 
 No full W1 finite error bound, finite P2 threshold, P2-in-every-square theorem or Legendre theorem is claimed here.
