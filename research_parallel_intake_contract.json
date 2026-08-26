@@ -1,0 +1,83 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_RESEARCH_INTAKE_CONTRACT_V1",
+  "status": "ACTIVE_PROPOSED_CONTROL_PLANE",
+  "effective": "2026-08-26",
+  "purpose": "Preserve multiple independently produced task publications, executions, results, reviews, or audit paths without treating multiplicity itself as corruption. Operational single-valued execution may be selected when required, but epistemic reconciliation happens only after two explicit reference passes and may validly end in KEEP_PARALLEL.",
+  "intake_store": "research_parallel_intake_records/<scope-key>/<parallel-intake-id>.json",
+  "reference_review_store": "research_parallel_reference_reviews/<parallel-intake-id>/<reference-pass-id>.json",
+  "core_invariants": [
+    "MULTIPLE_RESEARCH_OBJECTS_ARE_NOT_A_FAILURE_BY_THEMSELVES",
+    "ALL_PARALLEL_OBJECTS_REMAIN_IMMUTABLE_AND_REFERENCEABLE",
+    "OPERATIONAL_SELECTION_IS_NOT_TRUTH_SELECTION",
+    "OPERATIONAL_SELECTION_IS_NOT_QUALITY_RANKING",
+    "NO_PARALLEL_OBJECT_IS_DELETED_OR_REWRITTEN_TO_RESTORE_SINGLE_VALUEDNESS",
+    "UNRESOLVED_PARALLELISM_MAY_BLOCK_ONLY_THE_AMBIGUOUS_SINGLE_VALUED_TRANSITION_NOT_GLOBAL_REPOSITORY_INTEGRITY",
+    "REFERENCE_PASS_1_REVIEWS_EACH_ROUTE_INDEPENDENTLY",
+    "REFERENCE_PASS_2_CROSS_REFERENCES_THE_SURVIVING_ROUTES",
+    "KEEP_PARALLEL_IS_A_VALID_FINAL_DISPOSITION",
+    "MERGE_REQUIRES_A_NEW_IMMUTABLE_SYNTHESIS_GENERATION",
+    "SPLIT_REQUIRES_NEW_TYPED_TASK_OR_RESULT_IDENTITIES",
+    "RESELECTION_OF_OPERATIONAL_ROUTE_DOES_NOT_REJECT_NONSELECTED_RESEARCH"
+  ],
+  "eligible_parallel_objects": [
+    "TASK_PUBLICATION",
+    "EXECUTION",
+    "RESULT",
+    "DRIVER_REVIEW",
+    "INDEPENDENT_AUDIT",
+    "REPLICATION",
+    "FOUNDATION_REVIEW"
+  ],
+  "reference_pass_1": {
+    "name": "INDEPENDENT_REFERENCE_AUDIT",
+    "rule": "Review every route on its own source pins, scope, provenance, assumptions, evidence class, and internal validity before using another route as a comparator.",
+    "must_not": [
+      "eliminate a route merely because another route exists",
+      "declare canonical superiority",
+      "silently merge scopes",
+      "rewrite immutable source objects"
+    ],
+    "outputs": [
+      "per-route provenance verdict",
+      "per-route scope statement",
+      "per-route evidence-strength statement",
+      "typed defects or missing evidence",
+      "survivor set for pass 2"
+    ]
+  },
+  "reference_pass_2": {
+    "name": "CROSS_REFERENCE_RECONCILIATION",
+    "rule": "Compare pass-1-surviving routes explicitly and classify their relationship without assuming that one must replace the others.",
+    "relationship_classes": [
+      "EQUIVALENT",
+      "COMPATIBLE_COMPLEMENTARY",
+      "STRICT_NARROWING",
+      "STRICT_STRENGTHENING",
+      "DIFFERENT_SCOPE",
+      "CONFLICTING",
+      "INCOMPARABLE_BUT_USEFUL"
+    ],
+    "allowed_dispositions": [
+      "KEEP_PARALLEL",
+      "MERGE_TO_NEW_GENERATION",
+      "SPLIT_TO_TYPED_OBJECTS",
+      "SELECT_OPERATIONAL_AND_RETAIN_ALTERNATES",
+      "RETURN_FOR_ADDITIONAL_EVIDENCE"
+    ]
+  },
+  "runtime_boundary": {
+    "single_live_claim_may_require_one_operational_publication": true,
+    "operational_publication_must_be_explicitly_pinned": true,
+    "operational_publication_implies_canonical_truth": false,
+    "parallel_nonoperational_publications_remain_research_assets": true,
+    "parallel_result_set_pending_reconciliation_is_global_ci_failure": false,
+    "ambiguous_transition_must_fail_closed_locally": true
+  },
+  "interaction_budget": {
+    "parallel_intake_created_at_semantic_collision_boundary": true,
+    "routine_heartbeat_required": false,
+    "routine_ci_polling_required": false,
+    "extra_scheduler_claim_required": false,
+    "two_reference_passes_are_semantic_reviews_not_polling"
+  }
+}
