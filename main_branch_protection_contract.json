@@ -1,0 +1,23 @@
+{
+  "schema": "ENTERPRISE_MATH_MAIN_BRANCH_PROTECTION_CONTRACT_V1",
+  "status": "REQUIRED_NOT_YET_ENFORCED",
+  "branch": "main",
+  "observed_source_sha": "eb5fa0191b01c7f1f76af3717ae5d4d53c656517",
+  "observed_protected": false,
+  "observed_repository_rulesets": [],
+  "blocking_issue": 662,
+  "required_controls": {
+    "pull_request_required": true,
+    "strict_up_to_date_before_merge": true,
+    "required_workflows": ["quality", "bilingual-sync", "reference-integrity"],
+    "force_push_blocked": true,
+    "branch_deletion_blocked": true,
+    "ordinary_driver_bypass_allowed": false,
+    "ordinary_researcher_bypass_allowed": false
+  },
+  "relation_to_task_head_serialization": "Per-task Git CAS prevents silent same-task double publication only when writes are forced through the PR/check path. Until this contract is enforced in GitHub settings, repository-level hard enforcement remains partial.",
+  "hard_enforcement_state": "PARTIAL_UNTIL_GITHUB_SETTING_ENFORCED",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "successor_triggered": false
+}

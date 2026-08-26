@@ -6,15 +6,16 @@ import argparse
 import json
 import os
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
-try:
-    from tools import research_task_records
-except ModuleNotFoundError:
-    import research_task_records  # type: ignore
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools import research_task_records
+
 HEAD_DIR = "research_task_heads"
 HEAD_SCHEMA = "ENTERPRISE_MATH_TASK_PUBLICATION_HEAD_V1"
 SERIALIZATION_ROLE = "PER_TASK_GIT_CAS"
@@ -123,7 +124,7 @@ def sync_all(root: Path = ROOT) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Enterprise Math per-task publication head serialization")
     sub = parser.add_subparsers(dest="command", required=True)
-    audit_parser = sub.add_parser("audit")
+    sub.add_parser("audit")
     sync_parser = sub.add_parser("sync")
     sync_parser.add_argument("--task-id", required=True)
     sub.add_parser("sync-all")

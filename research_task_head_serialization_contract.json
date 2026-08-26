@@ -9,10 +9,12 @@
   "serialization_mechanism": "DETERMINISTIC_SAME_PATH_GIT_CAS",
   "required_audits": [
     "python tools/research_task_records.py audit",
-    "python tools/research_task_head_serialization.py audit"
+    "python control_plane/research_task_head_serialization.py audit"
   ],
+  "publication_write_rule": "Any PR that changes current publication authority for a task MUST update research_task_heads/<task_id>.json in the same PR. Use `python control_plane/research_task_head_serialization.py sync --task-id <TASK_ID>` after creating the immutable publication record.",
   "required_ci_job": "reference-integrity/check",
   "main_branch_protection_required": true,
+  "main_branch_protection_blocking_issue": 662,
   "main_branch_protection_observed_at_base": false,
   "observed_base_sha": "eb5fa0191b01c7f1f76af3717ae5d4d53c656517",
   "hard_enforcement_state": "PARTIAL_UNTIL_MAIN_PROTECTED",
