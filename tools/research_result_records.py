@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Immutable execution-linked research-result and Driver-review records."""
+"""Immutable execution-linked research-result and Driver-review records.
+
+Result provenance is append-only. Runtime state is publication-generation aware,
+and multiple results/reviews are preserved as parallel evidence rather than
+silently collapsed by timestamp order. An explicit resolution may name one
+operational result/review for runtime continuity without rejecting the others.
+"""
 from __future__ import annotations
 
 import argparse
@@ -25,6 +31,8 @@ RESULT_ROOT = ROOT / "research_result_records"
 REVIEW_ROOT = ROOT / "research_result_reviews"
 RESULT_SCHEMA = "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1"
 REVIEW_SCHEMA = "ENTERPRISE_MATH_RESEARCH_RESULT_REVIEW_V1"
+RESULT_SET_RESOLUTION_SCHEMA = "ENTERPRISE_MATH_RESULT_SET_RESOLUTION_REGISTRY_V1"
+RESULT_SET_RESOLUTION_FILE = "research_result_set_resolutions.json"
 TERMINAL_DISPOSITIONS = {"ACCEPTED", "REJECTED", "PARKED", "CLOSED", "SUPERSEDED"}
 NONTERMINAL_DISPOSITIONS = {"RETURN_TO_OWNER", "REQUEST_REPLICATION", "REQUEST_REVISION"}
 ALL_DISPOSITIONS = TERMINAL_DISPOSITIONS | NONTERMINAL_DISPOSITIONS
@@ -83,13 +91,7 @@ def _blob(path: Path) -> str:
 
 
 def _normalize_git_blob_identity(value: Any) -> str | None:
-    """Normalize historical bare and current ``sha1:`` Git blob identities.
-
-    Stored result/review records are immutable evidence. Early V1 records used a
-    bare 40-hex Git blob SHA-1 while current writers prefix the same identity with
-    ``sha1:``. Audit compatibility therefore normalizes only for comparison and
-    never rewrites historical record bytes.
-    """
+    """Normalize historical bare and current ``sha1:`` Git blob identities."""
     if not isinstance(value, str):
         return None
     text = value.strip().lower()
@@ -190,7 +192,14 @@ def result_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     return out
 
 
+def reviews_for_result(result_id_value: str, root: Path = ROOT) -> list[dict[str, Any]]:
+    """Return all immutable reviews; ordering is presentation-only, not authority."""
+    values = [item for item in iter_reviews(root) if item.get("result_id") == result_id_value]
+    return sorted(values, key=lambda item: str(item.get("review_id", "")))
+
+
 def latest_review(result_id_value: str, root: Path = ROOT) -> dict[str, Any] | None:
+    """Historical compatibility helper; runtime state does not use latest-wins."""
     values = [item for item in iter_reviews(root) if item.get("result_id") == result_id_value]
     if not values:
         return None
@@ -198,22 +207,207 @@ def latest_review(result_id_value: str, root: Path = ROOT) -> dict[str, Any] | N
     return values[-1]
 
 
-def task_result_state(task_id: str, root: Path = ROOT) -> dict[str, Any] | None:
-    values = [item for item in iter_results(root) if item.get("task_id") == task_id]
-    if not values:
-        return None
-    values.sort(key=lambda item: (item.get("frozen_at", ""), item.get("result_id", "")))
-    result = values[-1]
-    review = latest_review(result["result_id"], root)
-    if review is None:
-        return {"state": "AWAITING_DRIVER_REVIEW", "result": result, "review": None, "terminal": False}
+def result_set_resolutions(root: Path = ROOT) -> dict[tuple[str, str], dict[str, Any]]:
+    path = root / RESULT_SET_RESOLUTION_FILE
+    if not path.exists():
+        return {}
+    payload = _load_json(path)
+    if payload.get("schema") != RESULT_SET_RESOLUTION_SCHEMA:
+        raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: wrong schema")
+    if payload.get("status") != "ACTIVE":
+        raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: status must be ACTIVE")
+    rows = payload.get("resolutions")
+    if not isinstance(rows, list):
+        raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: resolutions must be a list")
+    out: dict[tuple[str, str], dict[str, Any]] = {}
+    for index, row in enumerate(rows):
+        if not isinstance(row, dict):
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: resolution {index} must be an object")
+        task_id = row.get("task_id")
+        publication_id = row.get("publication_id")
+        operational = row.get("operational_result_id")
+        retained = row.get("retained_parallel_result_ids")
+        if not isinstance(task_id, str) or not task_id:
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: resolution {index} missing task_id")
+        if not isinstance(publication_id, str) or not publication_id:
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: {task_id} missing publication_id")
+        if not isinstance(operational, str) or not operational:
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: {task_id} missing operational_result_id")
+        if (
+            not isinstance(retained, list)
+            or not retained
+            or any(not isinstance(item, str) or not item for item in retained)
+            or len(set(retained)) != len(retained)
+        ):
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: {task_id} retained_parallel_result_ids invalid")
+        if operational not in retained:
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: {task_id} operational result must be retained")
+        key = (task_id, publication_id)
+        if key in out:
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: duplicate resolution for {task_id}@{publication_id}")
+        if row.get("epistemic_preference") is not False:
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: {task_id} resolution cannot grant epistemic preference")
+        if row.get("working_truth_granted") is not False:
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: {task_id} resolution cannot grant Working Truth")
+        if row.get("canonical_promotion_granted") is not False:
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: {task_id} resolution cannot grant canonical promotion")
+        if row.get("delete_or_rewrite_nonoperational_results") is not False:
+            raise ResultRecordError(f"{RESULT_SET_RESOLUTION_FILE}: {task_id} resolution cannot delete/rewrite parallel results")
+        out[key] = row
+    return out
+
+
+def _pending_parallel_result_state(
+    values: list[dict[str, Any]],
+    *,
+    publication_id: str | None,
+    reason: str,
+) -> dict[str, Any]:
+    ordered = sorted(values, key=lambda item: str(item.get("result_id", "")))
+    result_ids = [str(item.get("result_id")) for item in ordered]
+    summary = {
+        "result_id": None,
+        "_record_path": None,
+        "publication_id": publication_id,
+        "parallel_result_ids": result_ids,
+    }
+    return {
+        "state": "AWAITING_DRIVER_REVIEW",
+        "parallel_state": "PARALLEL_RESULTS_AWAITING_RECONCILIATION",
+        "result": summary,
+        "results": ordered,
+        "review": None,
+        "terminal": False,
+        "operational_result_id": None,
+        "retained_parallel_result_ids": result_ids,
+        "reconciliation_reason": reason,
+    }
+
+
+def _state_for_one_result(
+    result: dict[str, Any],
+    *,
+    resolution: dict[str, Any] | None,
+    root: Path,
+) -> dict[str, Any]:
+    reviews = reviews_for_result(str(result["result_id"]), root)
+    if not reviews:
+        return {
+            "state": "AWAITING_DRIVER_REVIEW",
+            "result": result,
+            "review": None,
+            "reviews": [],
+            "terminal": False,
+        }
+    operational_review_id = resolution.get("operational_review_id") if resolution else None
+    if len(reviews) > 1:
+        review_by_id = {str(item.get("review_id")): item for item in reviews}
+        if not isinstance(operational_review_id, str) or operational_review_id not in review_by_id:
+            return {
+                "state": "AWAITING_DRIVER_REVIEW",
+                "parallel_review_state": "PARALLEL_REVIEWS_AWAITING_RECONCILIATION",
+                "result": result,
+                "review": None,
+                "reviews": reviews,
+                "terminal": False,
+                "operational_review_id": None,
+                "reconciliation_reason": "multiple immutable Driver reviews require explicit operational review binding",
+            }
+        review = review_by_id[operational_review_id]
+    else:
+        review = reviews[0]
+        if isinstance(operational_review_id, str) and operational_review_id != review.get("review_id"):
+            return {
+                "state": "AWAITING_DRIVER_REVIEW",
+                "parallel_review_state": "STALE_OPERATIONAL_REVIEW_BINDING",
+                "result": result,
+                "review": None,
+                "reviews": reviews,
+                "terminal": False,
+                "operational_review_id": None,
+                "reconciliation_reason": "operational_review_id does not match the available review",
+            }
     disposition = review.get("disposition")
     return {
         "state": "TERMINAL" if disposition in TERMINAL_DISPOSITIONS else "RETURN_TO_EXECUTION",
         "result": result,
         "review": review,
+        "reviews": reviews,
         "terminal": disposition in TERMINAL_DISPOSITIONS,
+        "operational_review_id": review.get("review_id"),
     }
+
+
+def task_result_state(
+    task_id: str,
+    root: Path = ROOT,
+    publication_id: str | None = None,
+) -> dict[str, Any] | None:
+    """Return generation-aware result state without timestamp-based result collapse.
+
+    Registered tasks default to their current operational publication generation.
+    Historical callers may pass ``publication_id`` explicitly. Multiple results
+    are retained as a parallel set. Without an explicit, exhaustive resolution,
+    the task is locally blocked in ``PARALLEL_RESULTS_AWAITING_RECONCILIATION``;
+    this is not a global repository-integrity failure.
+    """
+    if publication_id is None:
+        try:
+            current = research_task_records.current_records(root).get(task_id)
+        except Exception:
+            current = None
+        if isinstance(current, dict) and isinstance(current.get("publication_id"), str):
+            publication_id = current["publication_id"]
+    values = [
+        item
+        for item in iter_results(root)
+        if item.get("task_id") == task_id
+        and (publication_id is None or item.get("publication_id") == publication_id)
+    ]
+    if not values:
+        return None
+    resolutions = result_set_resolutions(root)
+    resolution = resolutions.get((task_id, publication_id)) if publication_id is not None else None
+    if len(values) == 1:
+        state = _state_for_one_result(values[0], resolution=resolution, root=root)
+        if resolution is not None:
+            retained = set(resolution["retained_parallel_result_ids"])
+            only = str(values[0].get("result_id"))
+            if retained != {only} or resolution.get("operational_result_id") != only:
+                return _pending_parallel_result_state(
+                    values,
+                    publication_id=publication_id,
+                    reason="result-set resolution is stale for the current single-result set",
+                )
+        return state
+
+    result_by_id = {str(item.get("result_id")): item for item in values}
+    if resolution is None:
+        return _pending_parallel_result_state(
+            values,
+            publication_id=publication_id,
+            reason="multiple immutable results exist and no explicit result-set resolution is present",
+        )
+    retained = set(resolution["retained_parallel_result_ids"])
+    actual = set(result_by_id)
+    operational = str(resolution["operational_result_id"])
+    if retained != actual or operational not in result_by_id:
+        return _pending_parallel_result_state(
+            values,
+            publication_id=publication_id,
+            reason="result-set resolution is stale or incomplete for the current parallel result set",
+        )
+    state = _state_for_one_result(result_by_id[operational], resolution=resolution, root=root)
+    state.update({
+        "parallel_state": "PARALLEL_RESULTS_OPERATIONALLY_BOUND",
+        "results": sorted(values, key=lambda item: str(item.get("result_id", ""))),
+        "operational_result_id": operational,
+        "retained_parallel_result_ids": sorted(retained),
+        "parallel_intake_id": resolution.get("parallel_intake_id"),
+        "parallel_relationship": resolution.get("relationship"),
+        "parallel_final_disposition": resolution.get("final_disposition"),
+    })
+    return state
 
 
 def build_output_manifest(paths: list[Path], execution: dict[str, Any], root: Path) -> list[dict[str, str]]:
@@ -310,7 +504,7 @@ def freeze_result(
         "independence_status": independence_status,
         "source_exposure_status": source_exposure_status,
         "next_control_plane_recommendation": next_control_plane_recommendation,
-        "driver_review_required": True
+        "driver_review_required": True,
     }
 
 
@@ -357,7 +551,7 @@ def review_result(
         "disposition": disposition,
         "destination_class": destination_class,
         "destination_ref_or_none": destination_ref_or_none,
-        "terminal": disposition in TERMINAL_DISPOSITIONS
+        "terminal": disposition in TERMINAL_DISPOSITIONS,
     }
 
 
@@ -366,9 +560,11 @@ def audit(root: Path = ROOT) -> list[str]:
     try:
         executions = execution_map(root)
         results = result_map(root)
+        resolutions = result_set_resolutions(root)
     except Exception as exc:
         return [str(exc)]
     seen_reviews: set[str] = set()
+    review_items = iter_reviews(root)
     for rid, item in results.items():
         prefix = item.get("_record_path", rid)
         if item.get("record_schema") != RESULT_SCHEMA:
@@ -419,7 +615,7 @@ def audit(root: Path = ROOT) -> list[str]:
                         or _sha256(path) != output.get("sha256")
                     ):
                         errors.append(f"{prefix}: output digest drift: {output['path']}")
-    for item in iter_reviews(root):
+    for item in review_items:
         prefix = item.get("_review_path", "<review>")
         rev_id = item.get("review_id")
         if not isinstance(rev_id, str) or not rev_id:
@@ -457,6 +653,37 @@ def audit(root: Path = ROOT) -> list[str]:
             errors.append(f"{prefix}: invalid destination_class")
         if item.get("terminal") is not (item.get("disposition") in TERMINAL_DISPOSITIONS):
             errors.append(f"{prefix}: terminal flag mismatch")
+
+    # Resolution validation is referential only. It deliberately does not require
+    # that retained ids exhaust every future result: a newly added result makes
+    # runtime state locally AWAITING_RECONCILIATION rather than making global CI
+    # fail merely because another research result exists.
+    reviews_by_id = {
+        str(item.get("review_id")): item
+        for item in review_items
+        if isinstance(item.get("review_id"), str)
+    }
+    for (task_id, publication_id), row in resolutions.items():
+        retained = set(row["retained_parallel_result_ids"])
+        operational = row["operational_result_id"]
+        for rid in retained:
+            result = results.get(rid)
+            if result is None:
+                errors.append(f"{RESULT_SET_RESOLUTION_FILE}: {task_id}@{publication_id} retains unknown result {rid}")
+            elif result.get("task_id") != task_id or result.get("publication_id") != publication_id:
+                errors.append(f"{RESULT_SET_RESOLUTION_FILE}: {rid} belongs to another task/publication")
+        op_result = results.get(operational)
+        expected_execution = row.get("execution_record_id")
+        if op_result is not None and isinstance(expected_execution, str) and expected_execution:
+            if op_result.get("execution_record_id") != expected_execution:
+                errors.append(f"{RESULT_SET_RESOLUTION_FILE}: operational result execution_record_id mismatch")
+        op_review_id = row.get("operational_review_id")
+        if isinstance(op_review_id, str) and op_review_id:
+            review = reviews_by_id.get(op_review_id)
+            if review is None:
+                errors.append(f"{RESULT_SET_RESOLUTION_FILE}: unknown operational_review_id {op_review_id}")
+            elif review.get("result_id") != operational:
+                errors.append(f"{RESULT_SET_RESOLUTION_FILE}: operational review does not review operational result")
     return errors
 
 

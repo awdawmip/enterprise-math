@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_RESULT_SET_CONTRACT_V1",
+  "status": "ACTIVE_PROPOSED_CONTROL_PLANE",
+  "effective": "2026-08-26",
+  "parallel_intake_contract": "research_parallel_intake_contract.json",
+  "resolution_registry": "research_result_set_resolutions.json",
+  "purpose": "Preserve multiple immutable results and reviews for the same task publication without letting timestamp order silently collapse the evidence set. Runtime may bind one operational result after explicit resolution, while every result remains auditable and two-pass reference reconciliation may validly end in KEEP_PARALLEL.",
+  "core_invariants": [
+    "MULTIPLE_RESULTS_FOR_ONE_PUBLICATION_ARE_NOT_A_GLOBAL_INTEGRITY_FAILURE",
+    "RESULT_TIMESTAMP_ORDER_IS_NOT_EPISTEMIC_AUTHORITY",
+    "RESULT_ID_ORDER_IS_NOT_EPISTEMIC_AUTHORITY",
+    "EVERY_RESULT_REMAINS_IMMUTABLE_AND_REFERENCEABLE",
+    "MULTIPLE_RESULTS_WITHOUT_OPERATIONAL_BINDING -> PARALLEL_RESULTS_AWAITING_RECONCILIATION",
+    "AMBIGUOUS_PARALLEL_RESULT_SET_BLOCKS_ONLY_SINGLE_VALUED_TERMINAL_DISPOSITION",
+    "REFERENCE_PASS_1_REVIEWS_EACH_RESULT_INDEPENDENTLY",
+    "REFERENCE_PASS_2_CLASSIFIES_RELATIONSHIP_BETWEEN_SURVIVING_RESULTS",
+    "KEEP_PARALLEL_IS_VALID",
+    "OPERATIONAL_RESULT_SELECTION_IS_NOT_REJECTION_OF_NONSELECTED_RESULTS",
+    "PROVENANCE_COMPLETION_PRESERVES_THE_EARLIER_FREEZE",
+    "SYNTHESIS_OR_MERGE_CREATES_A_NEW_IMMUTABLE_RESULT_OR_TYPED_OBJECT"
+  ],
+  "relationship_classes": [
+    "EQUIVALENT_DUPLICATE_EVIDENCE",
+    "STRICT_PROVENANCE_COMPLETION",
+    "STRICT_MATHEMATICAL_NARROWING",
+    "STRICT_MATHEMATICAL_STRENGTHENING",
+    "COMPATIBLE_COMPLEMENTARY",
+    "DIFFERENT_SCOPE",
+    "CONFLICTING",
+    "INCOMPARABLE_BUT_USEFUL"
+  ],
+  "runtime_states": [
+    "NO_RESULT",
+    "SINGLE_RESULT_AWAITING_REVIEW",
+    "SINGLE_RESULT_RETURN_TO_EXECUTION",
+    "SINGLE_RESULT_TERMINAL",
+    "PARALLEL_RESULTS_AWAITING_RECONCILIATION",
+    "PARALLEL_RESULTS_OPERATIONALLY_BOUND"
+  ],
+  "resolution_rule": "For one task publication, if more than one immutable result exists, do not choose by frozen_at/result_id. Require an explicit result-set resolution or expose PARALLEL_RESULTS_AWAITING_RECONCILIATION. A resolution may name one operational_result_id and must list all retained_parallel_result_ids.",
+  "done_rule": "A registered DONE transition may use an operational result only after the result-set resolution is explicit and that operational result has the required terminal Driver review. Other retained results remain available for audit/reference.",
+  "interaction_budget": {
+    "no_extra_claim": true,
+    "no_periodic_polling": true,
+    "parallel_intake_written_only_when_multiple_result_objects_exist": true,
+    "reference_passes_are_semantic_reviews": true
+  }
+}
