@@ -198,8 +198,31 @@ def latest_review(result_id_value: str, root: Path = ROOT) -> dict[str, Any] | N
     return values[-1]
 
 
-def task_result_state(task_id: str, root: Path = ROOT) -> dict[str, Any] | None:
-    values = [item for item in iter_results(root) if item.get("task_id") == task_id]
+def task_result_state(
+    task_id: str,
+    root: Path = ROOT,
+    publication_id: str | None = None,
+) -> dict[str, Any] | None:
+    """Return result state for one publication generation.
+
+    By default registered tasks resolve their current immutable publication and
+    ignore historical-generation results. Callers may pass an explicit historical
+    ``publication_id`` for provenance queries. Legacy/test tasks without an
+    immutable current publication retain the historical task-id-only behavior.
+    """
+    if publication_id is None:
+        try:
+            current = research_task_records.current_records(root).get(task_id)
+        except Exception:
+            current = None
+        if isinstance(current, dict) and isinstance(current.get("publication_id"), str):
+            publication_id = current["publication_id"]
+    values = [
+        item
+        for item in iter_results(root)
+        if item.get("task_id") == task_id
+        and (publication_id is None or item.get("publication_id") == publication_id)
+    ]
     if not values:
         return None
     values.sort(key=lambda item: (item.get("frozen_at", ""), item.get("result_id", "")))
