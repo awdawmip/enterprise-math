@@ -1,20 +1,24 @@
 # P017 — P2 Current-State Synchronization
 
-Status: `OWNER CHECKPOINT / PROVED_WIP + EXTERNAL-COMPUTATION CONDITIONAL FINITE SPLICE / NOT CANONICAL / NO ALL-K P2 CLAIM`
+Status: `OWNER CHECKPOINT / PROVED_WIP + SOURCE-FORMULA CORRECTION + EXTERNAL-COMPUTATION CONDITIONAL FINITE SPLICE / NOT CANONICAL / NO ALL-K P2 CLAIM`
 
-At: `2026-08-25T21:34:00+08:00`
+Originally captured: `2026-08-25T21:34:00+08:00`
+
+Last source-audit correction: `2026-08-26`
 
 Owner branch: `research/p017-p2-chen-carry-bridge-20260823`
 
-Project main observed: `b8e66057cb5102f004d3718a4149636b1891ea7c`
+Authoritative correction note:
 
-Owner head before this checkpoint: `3af80119a0cde47eeaf9991307aebf84441655b1`
+`docs/P017_P2_W1_SOURCE_FORMULA_AUDIT_20260826.md`
 
-Owner-isolation note: the branch is intentionally not rebased or merged with moving `main`; current-main movement is unrelated control-plane work.
+Exact rational verifier:
+
+`experiments/p017_p2_w1_source_formula_audit_20260826.py`
 
 ## Frozen mathematical state
 
-1. The earlier constant-penalty high-prime detector was corrected. The exact root-normalized weight
+1. The exact root-normalized detector
 
    \[
    \omega_K(n)=1-\sum_{p<K+1,\,p\mid n}\nu_p(n)\left(1-\frac{\log p}{\log(K+1)}\right)
@@ -40,49 +44,99 @@ Owner-isolation note: the branch is intentionally not rebased or merged with mov
    O_m(K)-\frac Km=r_K(m)-r_K(2m)
    \]
 
-   reduces the prime-lift carry remainder to the standard Chen short-interval floor remainder. The unresolved analytic object is therefore not a new sieve family.
+   reduces the prime-lift carry remainder to the standard Chen short-interval floor remainder.
 
-3. Sub-root modulus support can be controlled absolutely but cannot cross the parity/square-root barrier. A genuine P2 proof requires a super-root bilinear remainder estimate.
+3. Above the root, odd `O_m` is a Boolean incidence in pairwise-disjoint reciprocal complement windows. Distinct-prime prime-lift collisions factor through one shared small-prime core and one Boolean packet hit. Exact-Mobius top-third and `t=1` collision sectors collapse further; arbitrary Rosser/well-factorable coefficients remain an analytic interface.
 
-4. The finite side has advanced independently. Under the conservative public exhaustive-gap premise
+4. The additive `O(sqrt(K))` super-root halo has coefficient-uniform bounded L1/L2 discrepancy by the quadratic-excess layer law. A fixed multiplicative super-root strip still requires analytic input.
 
-   \[
-   0<x<10^{20}\Longrightarrow\exists\text{ prime }q\in(x,x+1724],
-   \]
-
-   the exact two-stage prime-gap bootstrap supplies a P2 for the continuous range
+5. The finite side remains conditionally spliced, under the declared conservative public exhaustive-gap premise, through
 
    \[
-   1\le K\le116{,}009{,}280{,}740{,}973{,}308,
+   K\le116{,}009{,}280{,}740{,}973{,}308,
    \]
 
-   after splicing with the declared finite prime verification. The corresponding analytic variable reaches
+   corresponding to
 
    \[
    X=K^2\approx1.3458153218\times10^{34}.
    \]
 
-   The stronger confirmed-maximal-record interpretation is retained separately as Tier B and is not used by default.
+## 2026-08-26 source-formula correction
 
-## Current bottleneck
+A direct audit of the unsimplified Iwaniec–Laborde p. 53 `W_1` lower bound found two normalization/transcription errors in the 2026-08-25 `a=4` effectivity packages:
 
-The route is no longer blocked on inventing a weight, identifying the carry, or extending the finite computation. The remaining question is effectivity:
+1. after normalizing `F((1-t)/t)=2e^gamma*t/(1-t)`, the source `dt/t` cancels the `t`; the earlier `J_3` formulas retained an extra `1/t`;
+2. the source fourth negative integral has a literal leading factor `2`, omitted in the earlier packages.
 
-> Can a Chen/Iwaniec–Laborde-type bilinear remainder theorem, specialized to interval length \(X^{1/2}\), be replayed with explicit constants and a threshold below the conservative finite splice \(X\approx1.3458\times10^{34}\)?
+Consequences:
 
-The published-weight reconstruction suggests only a shallow super-root level, near
+### Four-sevenths remains valid but with a smaller reserve
+
+For
 
 \[
-D=X^{0.52854\ldots}=K^{1.05708\ldots},
+\theta=\frac{4999}{10000},\qquad D=X^{4/7},\qquad a=4,\quad b=\frac52,\quad c=\frac72,
 \]
 
-but this remains diagnostic until the exact source constants and all admissibility inequalities are replayed.
+the corrected source-normalized coefficient satisfies the exact rational certificate
 
-## Next executable action
+\[
+\boxed{C_1^{(4/7)}>\frac{533}{5000}=0.1066.}
+\]
 
-1. Recover the exact Iwaniec–Laborde parameter inequalities and source constants rather than extrapolating from rounded optimizer values.
-2. Re-optimize at \(\theta=1/2\) under the full theorem hypotheses.
-3. Convert every implicit asymptotic remainder into an explicit threshold ledger and compare it with the Tier-A splice.
-4. In parallel, test whether the square-specialized numerator and shallow strip reduce the high-prime two-dimensional tail or the bilinear constant.
+The Lemma-6 coefficient remains
 
-Hard block: `NONE`.
+\[
+C_2^{(4/7)}=\frac{128}{174790063},
+\]
+
+so the corrected certified net reserve is
+
+\[
+\boxed{
+C_1^{(4/7)}-C_2^{(4/7)}
+>
+\frac{93162463579}{873950315000}
+\approx0.1065992677.
+}
+\]
+
+The former `>0.145713553` reserve is superseded.
+
+### The existing five-ninth `a=4` specialization is not positive
+
+For
+
+\[
+D=X^{5/9},\qquad a=4,\quad b=\frac{13}{5},\quad c=\frac{18}{5},
+\]
+
+the corrected verifier proves
+
+\[
+\boxed{C_1^{(5/9)}<-\frac{3}{2500}.}
+\]
+
+Therefore `docs/P017_P2_EFFECTIVE_FIVE_NINTH_PACKAGE_20260825.md` must not be used as a positive main-term certificate. This invalidates that parameter specialization, not the level exponent `5/9` under every possible choice of weights.
+
+Any older owner artifact that independently integrated the same p. 53 unsimplified formula must be treated as needing source-normalization re-audit before its numerical positivity margin is consumed downstream. In particular, the former `a=4` closed-form positivity number is not authoritative after this correction.
+
+## Effectivity pressure test
+
+The four-sevenths package still admits the trivial `(1/2,1/2)` terminal pair estimate without invoking the refined `(1/14,11/14)` exponent pair. However, explicit B-spline/Poisson bookkeeping at the current finite splice shows that mechanical constant tracking of the generic 1981 proof is numerically far too expensive: even idealized single-block estimates remain order one before the `O((log MN)^2)` bilinear-form multiplicity is charged.
+
+This is a route diagnostic rather than an impossibility theorem. It shifts the priority away from microscopic improvement of generic Fourier constants and toward:
+
+1. re-optimizing the level exponent against the **corrected** `W_1` reserve;
+2. exploiting the P017 square-specific super-root complement/collision kernel;
+3. using adaptive interval-length anchors to strip chosen small-prime factors with zero floor error;
+4. applying generic bilinear machinery only to the irreducible residual sector.
+
+## Current hard frontier
+
+The old comparison `4/7 versus positive 5/9` is retired. The live problem is now:
+
+> choose a corrected positive root-edge parameter package that optimizes finite-scale reserve versus bilinear saving, and combine it with square-specific exact reductions before paying any generic Chen/Iwaniec bilinear constant.
+
+No all-k consecutive-square P2 theorem is claimed here.
