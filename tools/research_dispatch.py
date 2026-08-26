@@ -3,15 +3,16 @@
 
 Post-cutover task definitions come from immutable task publication records.
 The frozen research_scheduler.json remains a compatibility baseline only.
-Issue #240 events are still reduced by tools/research_scheduler.py, but the
-canonical selector consumes the merged definition view and result/review state.
-For registered tasks, the CLAIM event itself is the execution envelope; no
-separate pre-claim repository write is required.
+Issue #240 events are reduced by tools/research_scheduler.py only after the
+canonical layer has authenticated current live events from GitHub server comment
+metadata. For registered tasks, the CLAIM comment itself is the execution
+envelope; no separate pre-claim repository write is required.
 """
 from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import re
 from datetime import datetime, timezone
@@ -34,6 +35,9 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 LEGACY = ROOT / "research_scheduler.json"
 OWNERS = ROOT / "branch_governance_overrides.json"
+EVENT_SCHEMA = "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"
+GITHUB_META_KEY = "_github"
+GITHUB_ISSUE_URL = "https://api.github.com/repos/awdawmip/enterprise-math/issues/240"
 
 
 class DispatchError(ValueError):
@@ -107,6 +111,131 @@ def merged_definitions(root: Path = ROOT) -> list[dict[str, Any]]:
 
 def _is_registered(task: dict[str, Any]) -> bool:
     return task.get("registration_source") == "IMMUTABLE_TASK_RECORD"
+
+
+def _server_time(value: Any, field: str) -> datetime:
+    if not isinstance(value, str) or not value.strip():
+        raise DispatchError(f"GitHub comment {field} is required")
+    try:
+        return research_scheduler.parse_time(value)
+    except Exception as exc:
+        raise DispatchError(f"GitHub comment {field} is invalid") from exc
+
+
+def github_comment_event(comment: dict[str, Any]) -> dict[str, Any] | None:
+    """Convert one raw GitHub Issue #240 comment into an authenticated event.
+
+    Non-event human comments return None. Event JSON receives an immutable server
+    envelope. The body-provided actor/at remain descriptive provenance only;
+    comment id orders the stream and GitHub created_at is the reducer clock.
+    """
+    body = comment.get("body")
+    if not isinstance(body, str):
+        return None
+    try:
+        payload = json.loads(body)
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(payload, dict) or payload.get("schema") != EVENT_SCHEMA:
+        return None
+
+    comment_id = comment.get("id")
+    if type(comment_id) is not int or comment_id <= 0:
+        raise DispatchError("scheduler event comment requires positive GitHub comment id")
+    issue_url = comment.get("issue_url")
+    if issue_url != GITHUB_ISSUE_URL:
+        raise DispatchError("scheduler event comment must come from Enterprise Math Issue #240")
+    user = comment.get("user")
+    author_login = user.get("login") if isinstance(user, dict) else None
+    if not isinstance(author_login, str) or not author_login.strip():
+        raise DispatchError("scheduler event comment requires GitHub author login")
+    created = _server_time(comment.get("created_at"), "created_at")
+    updated = _server_time(comment.get("updated_at"), "updated_at")
+    app = comment.get("performed_via_github_app")
+    app_slug = app.get("slug") if isinstance(app, dict) and isinstance(app.get("slug"), str) else None
+
+    normalized = copy.deepcopy(payload)
+    if "at" in normalized:
+        normalized["_declared_at"] = normalized.get("at")
+    if "actor" in normalized:
+        normalized["_declared_actor"] = normalized.get("actor")
+    normalized["at"] = created.isoformat()
+    normalized[GITHUB_META_KEY] = {
+        "server_authenticated": True,
+        "issue_number": 240,
+        "comment_id": comment_id,
+        "author_login": author_login,
+        "created_at": created.isoformat(),
+        "updated_at": updated.isoformat(),
+        "body_sha256": "sha256:" + hashlib.sha256(body.encode("utf-8")).hexdigest(),
+        "edited": updated != created,
+        "performed_via_github_app": app_slug,
+    }
+    return normalized
+
+
+def events_from_github_comments(comments: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Extract Issue #240 events in authoritative GitHub comment-id order."""
+    ids: set[int] = set()
+    ordered: list[dict[str, Any]] = []
+    for comment in comments:
+        if not isinstance(comment, dict):
+            raise DispatchError("GitHub comment export must contain objects")
+        comment_id = comment.get("id")
+        if type(comment_id) is not int or comment_id <= 0:
+            raise DispatchError("GitHub comment export contains invalid comment id")
+        if comment_id in ids:
+            raise DispatchError(f"duplicate GitHub comment id: {comment_id}")
+        ids.add(comment_id)
+        ordered.append(comment)
+    ordered.sort(key=lambda item: item["id"])
+    events: list[dict[str, Any]] = []
+    for comment in ordered:
+        event = github_comment_event(comment)
+        if event is not None:
+            events.append(event)
+    return events
+
+
+def _event_authentication_filter(
+    task: dict[str, Any], events: list[dict[str, Any]]
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Fail closed for edited or unauthenticated live registered events.
+
+    Bare V1 events remain accepted only for the frozen legacy reducer/replay path.
+    This preserves historical deterministic tests while preventing a local JSON
+    object from impersonating a live registered Issue #240 comment.
+    """
+    accepted: list[dict[str, Any]] = []
+    rejected: list[dict[str, Any]] = []
+    for index, event in enumerate(events):
+        if event.get("task_id") != task.get("task_id"):
+            accepted.append(event)
+            continue
+        meta = event.get(GITHUB_META_KEY)
+        if meta is None:
+            if _is_registered(task):
+                rejected.append({
+                    "index": index,
+                    "reason": "live registered event requires server-authenticated GitHub Issue #240 comment envelope",
+                })
+                continue
+            accepted.append(event)
+            continue
+        if not isinstance(meta, dict) or meta.get("server_authenticated") is not True:
+            rejected.append({"index": index, "reason": "invalid GitHub event authentication envelope"})
+            continue
+        if meta.get("issue_number") != 240 or type(meta.get("comment_id")) is not int:
+            rejected.append({"index": index, "reason": "GitHub event envelope issue/comment identity is invalid"})
+            continue
+        if meta.get("edited") is True:
+            rejected.append({
+                "index": index,
+                "reason": "edited scheduler event comment is not runtime authority; append a correction event instead",
+            })
+            continue
+        accepted.append(event)
+    return accepted, rejected
 
 
 def _inline_claim_envelope(
@@ -270,6 +399,30 @@ def _overlay_result_state(
     return value
 
 
+def _authentication_summary(task: dict[str, Any], events: list[dict[str, Any]]) -> dict[str, Any]:
+    matching = [event for event in events if event.get("task_id") == task.get("task_id")]
+    server = [event for event in matching if isinstance(event.get(GITHUB_META_KEY), dict)]
+    if server:
+        latest = max(server, key=lambda event: event[GITHUB_META_KEY].get("comment_id", -1))
+        meta = latest[GITHUB_META_KEY]
+        return {
+            "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+            "last_server_comment_id": meta.get("comment_id"),
+            "last_server_author_login": meta.get("author_login"),
+        }
+    if matching:
+        return {
+            "event_authentication": "LEGACY_BARE_EVENT_REPLAY",
+            "last_server_comment_id": None,
+            "last_server_author_login": None,
+        }
+    return {
+        "event_authentication": "NO_RUNTIME_EVENT",
+        "last_server_comment_id": None,
+        "last_server_author_login": None,
+    }
+
+
 def reduce_definition(
     task: dict[str, Any],
     events: list[dict[str, Any]],
@@ -278,7 +431,8 @@ def reduce_definition(
     default_lease_minutes: int = 120,
     root: Path = ROOT,
 ) -> dict[str, Any]:
-    filtered, rejected = _filter_registered_events(task, events, root)
+    authenticated, auth_rejected = _event_authentication_filter(task, events)
+    filtered, registered_rejected = _filter_registered_events(task, authenticated, root)
     lease = int(task.get("claim_lease_minutes") or default_lease_minutes)
     state = research_scheduler.reduce_task(
         task,
@@ -286,7 +440,8 @@ def reduce_definition(
         default_lease_minutes=lease,
         now=now,
     )
-    state["ignored_events"].extend(rejected)
+    state["ignored_events"].extend(auth_rejected)
+    state["ignored_events"].extend(registered_rejected)
     state.update({
         "title": task.get("title"),
         "kind": task.get("kind"),
@@ -298,6 +453,7 @@ def reduce_definition(
         "registration_source": task.get("registration_source"),
         "publication_id": task.get("publication_id"),
     })
+    state.update(_authentication_summary(task, events))
     try:
         state["identity_lane"] = research_scheduler.identity_lane(task)
     except Exception:
@@ -375,7 +531,35 @@ def validate(root: Path = ROOT) -> list[str]:
     return errors
 
 
+def _decode_event_input(path: Path) -> list[dict[str, Any]]:
+    text = path.read_text(encoding="utf-8").strip()
+    if not text:
+        return []
+    if text.startswith("["):
+        data = json.loads(text)
+        if not isinstance(data, list) or not all(isinstance(item, dict) for item in data):
+            raise DispatchError("event input array must contain objects")
+        return data
+    values = [json.loads(line) for line in text.splitlines() if line.strip()]
+    if not all(isinstance(item, dict) for item in values):
+        raise DispatchError("event JSONL must contain objects")
+    return values
+
+
 def load_events(path: Path | None) -> list[dict[str, Any]]:
+    if path is None:
+        return []
+    values = _decode_event_input(path)
+    if not values:
+        return []
+    looks_like_comments = any(
+        "body" in item and "id" in item and "user" in item for item in values
+    )
+    if looks_like_comments:
+        if not all("body" in item and "id" in item and "user" in item for item in values):
+            raise DispatchError("do not mix GitHub comment objects with bare scheduler events")
+        return events_from_github_comments(values)
+    # Explicit compatibility path for frozen historical replay and pure unit tests.
     return research_scheduler.load_events(path)
 
 
