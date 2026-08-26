@@ -74,6 +74,19 @@ def iter_records(root: Path = ROOT) -> list[dict[str, Any]]:
     return out
 
 
+def publication_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    """Index every immutable task publication generation, not only the current head."""
+    out: dict[str, dict[str, Any]] = {}
+    for item in research_task_records.iter_records(root):
+        publication_id = item.get("publication_id")
+        if not isinstance(publication_id, str) or not publication_id:
+            continue
+        if publication_id in out:
+            raise ExecutionRecordError(f"duplicate task publication_id: {publication_id}")
+        out[publication_id] = item
+    return out
+
+
 def intent_for_claim(task_id: str, claim_id: str, root: Path = ROOT) -> dict[str, Any] | None:
     matches = [
         item for item in iter_records(root)
@@ -155,7 +168,10 @@ def audit(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     seen_ids: set[str] = set()
     seen_claims: set[tuple[str, str]] = set()
-    current = research_task_records.current_records(root)
+    try:
+        publications = publication_map(root)
+    except Exception as exc:
+        return [str(exc)]
     for item in iter_records(root):
         prefix = item.get("_record_path", "<execution-record>")
         if item.get("record_schema") != SCHEMA:
@@ -172,14 +188,17 @@ def audit(root: Path = ROOT) -> list[str]:
         if pair in seen_claims:
             errors.append(f"{prefix}: duplicate task/claim execution intent")
         seen_claims.add(pair)
-        record = current.get(str(task_id))
+        publication_id = item.get("publication_id")
+        record = publications.get(str(publication_id))
         if record is None:
-            errors.append(f"{prefix}: execution intent points to non-current registered task")
+            errors.append(f"{prefix}: unknown publication generation: {publication_id}")
             continue
-        if item.get("publication_id") != record.get("publication_id"):
-            errors.append(f"{prefix}: publication_id is not the current publication generation")
+        if record.get("task_id") != task_id:
+            errors.append(f"{prefix}: publication generation belongs to a different task")
+        if item.get("taskbook_path") != record.get("taskbook_path"):
+            errors.append(f"{prefix}: taskbook path differs from referenced publication generation")
         if item.get("taskbook_blob_sha1") != record.get("taskbook_blob_sha1"):
-            errors.append(f"{prefix}: taskbook blob differs from publication record")
+            errors.append(f"{prefix}: taskbook blob differs from referenced publication generation")
         if not research_identity.valid_execution_id(str(item.get("researcher_id", ""))):
             errors.append(f"{prefix}: invalid researcher_id")
         if not isinstance(item.get("theorem_owner"), str) or not item["theorem_owner"].strip():
