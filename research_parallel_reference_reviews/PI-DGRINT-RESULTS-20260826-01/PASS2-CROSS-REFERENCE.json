@@ -1,0 +1,45 @@
+{
+  "record_schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_REVIEW_V1",
+  "parallel_intake_id": "PI-DGRINT-RESULTS-20260826-01",
+  "reference_pass": 2,
+  "reference_pass_id": "RP2-DGRINT-RESULTS-20260826-01",
+  "review_type": "CROSS_REFERENCE_RECONCILIATION",
+  "reviewer_role": "RESEARCH_DRIVER",
+  "reviewer_id": "EM-DVR-K7Q4N8",
+  "reviewed_at": "2026-08-26T19:35:00+08:00",
+  "inputs": [
+    "RR-BFB7190B3C8D391C6E9D",
+    "RR-AE11E20304C60C349CBD",
+    "RP1-DGRINT-RESULTS-20260826-01"
+  ],
+  "relationship": "STRICT_PROVENANCE_COMPLETION",
+  "comparison": {
+    "task_publication": "SAME",
+    "execution_record": "SAME",
+    "claim": "SAME",
+    "researcher": "SAME",
+    "execution_branch": "SAME",
+    "return_artifact": "SAME_GIT_OBJECT_IDENTITY",
+    "terminal_mathematical_verdict": "SAME",
+    "output_manifest": "RR-AE11E20304C60C349CBD STRICTLY COMPLETES THE AUTHORIZED OUTPUT SET",
+    "mathematical_conflict": false,
+    "epistemic_conflict": false,
+    "historical_value_of_earlier_result": "PRESERVE ORIGINAL FREEZE AND MANIFEST DEFECT",
+    "requires_rewrite_or_deletion": false
+  },
+  "operational_binding": {
+    "result_id": "RR-AE11E20304C60C349CBD",
+    "reason": "The completed manifest plus terminal control-only Driver review makes this the appropriate runtime terminal binding. This does not invalidate the historical earlier freeze.",
+    "epistemic_preference": false,
+    "rejects_other_results": false
+  },
+  "final_disposition": "KEEP_PARALLEL_AND_SELECT_OPERATIONAL_RESULT",
+  "retained_result_ids": [
+    "RR-BFB7190B3C8D391C6E9D",
+    "RR-AE11E20304C60C349CBD"
+  ],
+  "future_rule": "When one result is a strict provenance/control completion of another, retain both immutable records. Runtime may bind the completed result, while historical audit continues to expose the earlier freeze and the reason regeneration occurred.",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "successor_triggered": false
+}
