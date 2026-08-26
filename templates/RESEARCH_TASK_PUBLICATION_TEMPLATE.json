@@ -26,9 +26,13 @@
     "successor_gate": "<required for continuation>",
     "policy_review": "<current policy digest and PASS at publication>"
   },
+  "taskbook_frontmatter_optional": {
+    "identity_lane": "<task-local execution identity lane>",
+    "source_firewall": "<omit for ordinary tasks; for blind/independent work use research_source_firewall_contract.json with exact path+commit+blob pins>"
+  },
   "registry_record_required": {
     "publisher_role": "<role>",
-    "publisher_id": "<Researcher-ID/Driver-ID/Steward identity>",
+    "publisher_id": "<Researcher-ID/Driver-ID/Steward-ID execution handle>",
     "published_at": "<ISO-8601>",
     "research_value": "<why this task must not be lost>",
     "effective_priority": "<runtime priority>",
@@ -45,5 +49,5 @@
     "Research value to preserve",
     "Success, kill, and return criteria"
   ],
-  "rule": "No alternative free-form task publication format is official. A task may have richer task-local sections, but these publication fields/sections cannot be omitted."
+  "rule": "No alternative free-form task publication format is official. A task may have richer task-local sections. source_firewall is optional and must not burden ordinary tasks; if declared, it must follow the canonical source-firewall contract before execution."
 }
