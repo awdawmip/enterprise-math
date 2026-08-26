@@ -1,6 +1,6 @@
 {
   "record_schema": "ENTERPRISE_MATH_PARALLEL_RESEARCH_INTAKE_V1",
-  "record_state": "AWAITING_REFERENCE_PASS_1",
+  "record_state": "REFERENCE_COMPLETE_KEEP_PARALLEL",
   "parallel_intake_id": "PI-R043C4-20260826-01",
   "scope_kind": "TASK_PUBLICATION_SET",
   "scope_key": "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
@@ -53,17 +53,23 @@
   "reference_passes": {
     "pass_1": {
       "required": true,
-      "state": "PENDING",
-      "type": "INDEPENDENT_REFERENCE_AUDIT",
-      "rule": "Assess each publication/result route independently on provenance, task scope, owner/parent-objective semantics, evidence class and internal validity. Do not eliminate a route merely because another route exists."
+      "state": "COMPLETE_BOTH_SURVIVE",
+      "reference_pass_id": "RP1-R043C4-20260826-01",
+      "record_path": "research_parallel_reference_reviews/PI-R043C4-20260826-01/PASS1-INDEPENDENT-REFERENCE.json",
+      "type": "INDEPENDENT_REFERENCE_AUDIT"
     },
     "pass_2": {
       "required": true,
-      "state": "PENDING",
-      "type": "CROSS_REFERENCE_RECONCILIATION",
-      "rule": "After pass 1, compare surviving routes and classify them as equivalent, complementary, narrowing/strengthening, different-scope, conflicting, or incomparable-but-useful. KEEP_PARALLEL is permitted."
+      "state": "COMPLETE_KEEP_PARALLEL",
+      "reference_pass_id": "RP2-R043C4-20260826-01",
+      "record_path": "research_parallel_reference_reviews/PI-R043C4-20260826-01/PASS2-CROSS-REFERENCE.json",
+      "type": "CROSS_REFERENCE_RECONCILIATION"
     }
   },
+  "relationship": [
+    "COMPATIBLE_COMPLEMENTARY",
+    "DIFFERENT_SCOPE_ROUTING_METADATA"
+  ],
   "allowed_final_dispositions": [
     "KEEP_PARALLEL",
     "MERGE_TO_NEW_GENERATION",
@@ -71,7 +77,7 @@
     "SELECT_OPERATIONAL_AND_RETAIN_ALTERNATES",
     "RETURN_FOR_ADDITIONAL_EVIDENCE"
   ],
-  "current_disposition": "PENDING_TWO_REFERENCE_PASSES",
+  "current_disposition": "KEEP_PARALLEL_AND_SELECT_OPERATIONAL",
   "working_truth_granted": false,
   "canonical_promotion_granted": false,
   "delete_or_rewrite_parallel_objects": false
