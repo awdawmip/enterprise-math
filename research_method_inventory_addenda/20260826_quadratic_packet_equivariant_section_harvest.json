@@ -1,0 +1,86 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "DRIVER_ACCEPTED_HARVEST",
+  "date": "2026-08-26",
+  "driver_review": "research_notes/QUADRATIC_PACKET_LOGIC_TOOL_HARVEST_20260826.md",
+  "methods": [
+    {
+      "method_id": "symmetry.fibered_equivariant_section",
+      "name": "Fibered equivariant-section / stabilizer fixed-lift calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "status": "DRIVER_ACCEPTED_EXISTING_FAMILY_EXTENSION",
+      "source_refs": [
+        "src/enterprise_math/equivariant_section.py",
+        "tests/test_equivariant_section.py",
+        "research_notes/QUADRATIC_PACKET_LOGIC_TOOL_HARVEST_20260826.md",
+        "driver_reviews/QUADRATIC_PACKET_HIGHER_JET_AUTOMORPHISM_NO_SECTION_INDEPENDENT_AUDIT_DRIVER_REVIEW_20260826.md"
+      ],
+      "triggers": [
+        "equivariant section",
+        "section obstruction",
+        "stabilizer fixed lift",
+        "fiber fixed point",
+        "natural lift",
+        "canonical lift",
+        "automorphism-equivariant reconstruction"
+      ],
+      "capabilities": [
+        "validate finite equivariant projection",
+        "compute one stabilizer-fixed lift set per base orbit",
+        "exact equivariant-section count",
+        "local no-section certificate",
+        "enumerate equivariant sections by orbit propagation"
+      ],
+      "core_law": "EQUIVARIANT_SECTION_EXISTS iff every base-orbit representative has a stabilizer-fixed point in its projection fiber; SECTION_COUNT is the product of those fixed-lift counts.",
+      "hard_boundary": "The projection, symmetry action and semantic naturality requirement must already be declared or derived. Infinite abstract groups must first be reduced to a proven finite permutation image on the relevant finite sets. The tool does not make the realization or naturality premise native."
+    },
+    {
+      "method_id": "logic.triangular_gauge_normalization",
+      "name": "Triangular gauge normalization proof schema",
+      "classification": "CANDIDATE_NOT_TOOL",
+      "family_id": "T5_PRECISION_REFINEMENT",
+      "status": "PROOF_SCHEMA_REUSE_ONLY",
+      "source_refs": [
+        "research_notes/QUADRATIC_PACKET_LOGIC_TOOL_HARVEST_20260826.md",
+        "research_returns/QUADRATIC_PACKET_HIGHER_JET_AUTOMORPHISM_NO_SECTION_AUDIT_RAW_20260825.md"
+      ],
+      "triggers": [
+        "triangular normalization",
+        "unit gauge",
+        "recursive modular normal form",
+        "coefficient-by-coefficient reduction"
+      ],
+      "capabilities": [
+        "recognize triangular gauge action",
+        "derive recursive mod-q normal form",
+        "derive uniqueness by degree induction",
+        "derive orbit count when independent residue ranges are proved"
+      ],
+      "note": "Do not create a new tool family yet. Current evidence is one strong application plus overlap with ordinary integer precision/modular normalization. Promote only after a second independent application family supports a stable reusable API."
+    },
+    {
+      "method_id": "logic.predictive_minimality_not_height_bound",
+      "name": "Predictive minimality versus capacity-bound guard",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "status": "BOUNDARY_REFINEMENT",
+      "source_refs": [
+        "driver_reviews/QUADRATIC_PACKET_NATIVE_ONE_CLOCK_SELF_COMPOSITION_INDEPENDENT_AUDIT_DRIVER_REVIEW_20260825.md",
+        "research_notes/QUADRATIC_PACKET_LOGIC_TOOL_HARVEST_20260826.md"
+      ],
+      "triggers": [
+        "predictive minimality",
+        "future complete",
+        "state capacity",
+        "transient height",
+        "residual depth"
+      ],
+      "capabilities": [
+        "distinguish redundant-state minimization from height bounds",
+        "use J_m chain family as exact negative control for hidden capacity assumptions"
+      ],
+      "hard_boundary": "A coarsest future-predictive quotient can still have arbitrarily large finite transient depth. Minimality/completeness alone never supplies a fixed state-count or height bound."
+    }
+  ]
+}
