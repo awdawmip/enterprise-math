@@ -1,0 +1,72 @@
+{
+  "schema": "ENTERPRISE_MATH_R043C4_NATIVE_LINK_SEPARATOR_V1",
+  "task_id": "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
+  "publication_id": "TP2-A63015C2EB99D00F2500",
+  "researcher_id": "EM-R043C4-375FC7",
+  "primary_classification": "LOCAL_SEPARATOR_FOUND_GLOBAL_REALIZABILITY_OPEN",
+  "local_polyhedra": {
+    "tetrahedron": {
+      "nontrivial_two_colorings": 14,
+      "bad_interface_colorings": 0,
+      "disposition": "ALL_CUT_FACE_SETS_TRIANGLE_CONNECTED"
+    },
+    "octahedron": {
+      "nontrivial_two_colorings": 62,
+      "bad_interface_colorings": 6,
+      "bad_component_sizes": [4, 4],
+      "exact_bad_type": "one color class is exactly one of the three opposite vertex pairs, or equivalently the other color class is its four-vertex complement",
+      "disposition": "UNIQUE_OPPOSITE_PAIR_POINT_PINCH_SEPARATOR"
+    }
+  },
+  "fcc": {
+    "native_contact_model": "parity-even Z^3 with the 12 (+/-1,+/-1,0) permutations",
+    "tetrahedra_through_origin": 8,
+    "octahedra_through_origin": 6,
+    "local_separator_witness": {
+      "unoccupied_opposite_pair": [[0,0,0],[-2,0,0]],
+      "occupied_equator": [[-1,-1,0],[-1,0,-1],[-1,0,1],[-1,1,0]],
+      "equator_induced_degrees": [2,2,2,2],
+      "opposite_pair_native_contact": false
+    },
+    "minimal_global_control": {
+      "frontier_repair_path": [[0,0,0],[0,-1,-1],[-1,-2,-1],[-2,-1,-1],[-2,0,0]],
+      "repair_length": 4,
+      "occupied_neighbor_counts_along_path": [4,2,1,2,4]
+    },
+    "targeted_one_shell_pressure": {
+      "initial_outer_frontier_pool": 24,
+      "max_added_sites": 4,
+      "extensions_tested": 12951,
+      "frontier_disconnects": 0
+    }
+  },
+  "hcp": {
+    "native_contact_model": "exact ABAB integer coordinates with 6 same-layer plus 3 upper plus 3 lower contacts",
+    "tetrahedra_through_origin": 8,
+    "octahedra_through_origin": 6,
+    "local_separator_witness": {
+      "unoccupied_opposite_pair": [[0,0,0],[-1,-1,-1]],
+      "occupied_equator": [[-1,0,-1],[-1,0,0],[0,-1,-1],[0,-1,0]],
+      "equator_induced_degrees": [2,2,2,2],
+      "opposite_pair_native_contact": false
+    },
+    "minimal_global_control": {
+      "frontier_repair_path": [[0,0,0],[1,-1,0],[1,-2,0],[0,-2,-1],[-1,-1,-1]],
+      "repair_length": 4,
+      "occupied_neighbor_counts_along_path": [4,2,1,2,4]
+    },
+    "targeted_one_shell_pressure": {
+      "initial_outer_frontier_pool": 24,
+      "max_added_sites": 4,
+      "extensions_tested": 12951,
+      "frontier_disconnects": 0
+    }
+  },
+  "global_disposition": {
+    "c3_frontier_connectivity": "OPEN",
+    "local_interface_lift_as_stated": "REFUTED_BY_OCTAHEDRAL_OPPOSITE_PAIR_POINT_PINCH",
+    "finite_global_counterexample": "NOT_ESTABLISHED",
+    "weakest_remaining_obstruction": "decide whether a finite connected occupied set can suppress every external frontier repair around one or more octahedral opposite-pair pinches while the two local sheets remain in the same connected unoccupied component",
+    "c2_component_factorization": "UNCHANGED"
+  }
+}
