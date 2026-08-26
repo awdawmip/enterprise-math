@@ -96,11 +96,13 @@ Freeze:
 
 `TASKBOOK_FILE != PUBLISHED_TASK`.
 
-`OFFICIAL_NEW_TASK -> IMMUTABLE_TASK_PUBLICATION_RECORD`.
+`OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD -> IMMUTABLE_TASK_PUBLICATION_RECORD`.
 
 `UNREGISTERED_NEW_TASK -> NO READY / NO CLAIM / NO EXECUTION`.
 
 `RESEARCHER_MAY_PUBLISH_TASK_WITHOUT_DRIVER_APPROVAL`.
+
+Here `CANONICAL_TASK_REGISTRY_RECORD` is the compatibility name for the current immutable task-publication generation; it does not restore the V1 shared registry as write authority.
 
 A researcher-published task defaults to effective `P2 / MEDIUM`; publication may record a requested rank, but Driver portfolio reprioritization remains separate authority.
 
