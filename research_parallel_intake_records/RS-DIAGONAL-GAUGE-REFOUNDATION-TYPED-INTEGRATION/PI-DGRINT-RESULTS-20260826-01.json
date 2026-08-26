@@ -1,0 +1,65 @@
+{
+  "record_schema": "ENTERPRISE_MATH_PARALLEL_RESEARCH_INTAKE_V1",
+  "record_state": "REFERENCE_COMPLETE_KEEP_PARALLEL",
+  "parallel_intake_id": "PI-DGRINT-RESULTS-20260826-01",
+  "scope_kind": "RESULT_SET",
+  "scope_key": "RS-DIAGONAL-GAUGE-REFOUNDATION-TYPED-INTEGRATION@TP2-90D492F7054EDEE0F3CD",
+  "task_id": "RS-DIAGONAL-GAUGE-REFOUNDATION-TYPED-INTEGRATION",
+  "publication_id": "TP2-90D492F7054EDEE0F3CD",
+  "execution_record_id": "ER-34BC8258754EF4E023DA",
+  "created_at": "2026-08-26T19:30:00+08:00",
+  "created_by_role": "RESEARCH_DRIVER",
+  "created_by_id": "EM-DVR-K7Q4N8",
+  "trigger": "MULTIPLE_IMMUTABLE_RESULTS_FOR_SAME_PUBLICATION_EXECUTION",
+  "operational_binding": {
+    "result_id": "RR-AE11E20304C60C349CBD",
+    "reason": "This result completes the authorized four-output manifest and has a terminal Driver review. Selection is operational only; the earlier result remains historical evidence.",
+    "epistemic_preference": false
+  },
+  "parallel_objects": [
+    {
+      "object_kind": "RESULT",
+      "result_id": "RR-BFB7190B3C8D391C6E9D",
+      "record_path": "research_result_records/RS-DIAGONAL-GAUGE-REFOUNDATION-TYPED-INTEGRATION/RR-BFB7190B3C8D391C6E9D.json",
+      "record_git_blob_sha1": "a9009e5d6d7fcd3e23c03c3f19ba475a0a820ea3",
+      "return_blob_identity": "e4a8cc81ec567a45c8afbbd469284b5ae8ddcfb8",
+      "output_manifest_count": 1,
+      "status": "RETAINED_PARALLEL_HISTORICAL_FREEZE"
+    },
+    {
+      "object_kind": "RESULT",
+      "result_id": "RR-AE11E20304C60C349CBD",
+      "record_path": "research_result_records/RS-DIAGONAL-GAUGE-REFOUNDATION-TYPED-INTEGRATION/RR-AE11E20304C60C349CBD.json",
+      "record_git_blob_sha1": "064819b6c2ac1864d8fdb6709a702261463afb59",
+      "return_blob_identity": "sha1:e4a8cc81ec567a45c8afbbd469284b5ae8ddcfb8",
+      "output_manifest_count": 4,
+      "status": "OPERATIONAL_AND_RETAINED_PARALLEL"
+    },
+    {
+      "object_kind": "DRIVER_REVIEW",
+      "review_id": "DR-6EA6AB850BF85EC56BE7",
+      "result_id": "RR-AE11E20304C60C349CBD",
+      "record_path": "research_result_reviews/RR-AE11E20304C60C349CBD/DR-6EA6AB850BF85EC56BE7.json",
+      "status": "TERMINAL_CONTROL_REGENERATION_REVIEW"
+    }
+  ],
+  "reference_passes": {
+    "pass_1": {
+      "required": true,
+      "state": "COMPLETE_BOTH_RETAINED",
+      "reference_pass_id": "RP1-DGRINT-RESULTS-20260826-01",
+      "record_path": "research_parallel_reference_reviews/PI-DGRINT-RESULTS-20260826-01/PASS1-INDEPENDENT-REFERENCE.json"
+    },
+    "pass_2": {
+      "required": true,
+      "state": "COMPLETE_STRICT_PROVENANCE_COMPLETION",
+      "reference_pass_id": "RP2-DGRINT-RESULTS-20260826-01",
+      "record_path": "research_parallel_reference_reviews/PI-DGRINT-RESULTS-20260826-01/PASS2-CROSS-REFERENCE.json"
+    }
+  },
+  "relationship": "STRICT_PROVENANCE_COMPLETION",
+  "current_disposition": "KEEP_PARALLEL_AND_SELECT_OPERATIONAL_RESULT",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "delete_or_rewrite_parallel_objects": false
+}
