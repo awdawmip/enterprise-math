@@ -1,0 +1,32 @@
+{
+  "schema": "ENTERPRISE_MATH_CONTROL_EVENT_AUTHORIZATION_V1",
+  "status": "ACTIVE_CANONICAL",
+  "effective": "2026-08-26",
+  "repository": "awdawmip/enterprise-math",
+  "issue": 240,
+  "mode": "EXACT_SERVER_AUTHOR_ALLOWLIST",
+  "authorized_server_authors": [
+    {
+      "login": "awdawmip",
+      "user_id": 30957095,
+      "author_association": ["OWNER"]
+    }
+  ],
+  "github_app_is_authority": false,
+  "github_app_metadata_is_provenance_only": true,
+  "unauthorized_event_behavior": "IGNORE_AS_CONTROL_AUTHORITY_WITH_AUDIT_REASON",
+  "core_invariants": [
+    "SERVER_AUTHENTICATION_IS_NOT_CONTROL_AUTHORIZATION",
+    "CONTROL_EVENT_REQUIRES_EXACT_AUTHORIZED_GITHUB_ACTOR",
+    "BODY_ACTOR_AND_RESEARCHER_ID_DO_NOT_SELF_GRANT_GITHUB_CONTROL_AUTHORITY",
+    "UNAUTHORIZED_EVENT_SHAPED_COMMENT_MUST_NOT_MUTATE_RUNTIME_STATE",
+    "UNAUTHORIZED_EVENT_SHAPED_COMMENT_MUST_NOT_DOS_THE_EVENT_STREAM",
+    "AUTHORIZATION_REUSES_THE_EXISTING_ISSUE_COMMENT_AND_ADDS_NO_SECOND_SIGNATURE_EVENT"
+  ],
+  "interaction_budget": {
+    "additional_issue_comments": 0,
+    "additional_repository_writes_per_claim": 0,
+    "additional_heartbeats": 0,
+    "authorization_source": "same GitHub Issue #240 server comment metadata"
+  }
+}
