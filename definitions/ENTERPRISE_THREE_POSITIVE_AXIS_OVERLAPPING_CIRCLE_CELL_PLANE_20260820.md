@@ -54,13 +54,15 @@ The earlier statement
 
 `e_1+e_2+e_3=0`
 
-was a relation of a classical planar vector presentation of the three carrier directions. It is **not** a native Enterprise vector identity and must not be used to define native length, opposite directions, or coordinate equivalence.
+was a relation of a classical planar vector presentation of the three carrier directions. It is **not** a native Enterprise vector identity and must not be used to define native length, opposite directions, or primitive native-point coordinate equivalence.
 
 Freeze:
 
 `CARRIER_DIRECTION_RELATION != NATIVE_VECTOR_RELATION`.
 
-`NO_NATIVE_DIAGONAL_SHIFT_QUOTIENT`.
+`NO_PRIMITIVE_NATIVE_POINT_DIAGONAL_SHIFT_QUOTIENT`.
+
+This prohibition is typed at the primitive native point/address layer. It does not prohibit the separately typed derived G1 endpoint/displacement quotient frozen in `ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md`.
 
 No native negative axes are required. The three positive rays themselves partition the plane into three native sectors.
 
@@ -80,7 +82,9 @@ with canonical condition
 
 `min(a,b,c)=0`.
 
-This is **not** a quotient by common diagonal shift. It is a sector typing rule.
+At the primitive native point/address layer, this is **not** a quotient by common diagonal shift. It is a sector typing rule.
+
+The separately typed derived displacement section `A_D` uses the same underlying min-zero tuple set as a representation, but this representation-level coincidence does not identify the semantic types `A_D` and `A_E`.
 
 Define the three native sectors:
 
@@ -100,7 +104,9 @@ Freeze:
 
 `THREE_POSITIVE_COORDINATES = THREE_GLUED_TWO_AXIS_SECTOR_CHARTS`.
 
-`(a,b,c) IS_NOT_EQUIVALENT_TO (a+k,b+k,c+k)`.
+`(a,b,c) IS_NOT_EQUIVALENT_TO (a+k,b+k,c+k) AS_PRIMITIVE_NATIVE_POINT_ADDRESS`.
+
+`A_E != A_D AS_SEMANTIC_TYPES`.
 
 Cell centers carry integer addresses in this sector atlas. Because the geometric origin is a triple-intersection vertex rather than a center, the center lattice is an affine carrier relative to the origin; integer address does not mean that a center lies on a number axis.
 
@@ -232,13 +238,17 @@ Freeze:
 
 The origin-based native norm in each sector is now fixed by the Pythagorean law above.
 
-For arbitrary point-to-point displacement across different sectors, do not reintroduce the deleted diagonal-shift quotient and do not automatically subtract global three-component coordinates as though the three sectors formed one linear Euclidean basis.
+For arbitrary point-to-point displacement across different sectors, do not identify primitive native point addresses by common diagonal shift, and do not use the separately typed derived G1 displacement quotient to infer a global symmetric metric or to subtract primitive three-component point coordinates as though the three sectors formed one linear Euclidean basis.
+
+The current R061 Stage-2 chart transition/decoder may be interpreted through the separately typed derived displacement quotient, but its directed gauge remains the accepted native line gauge and the historical diagonal-invariant quadratic is not restored as native length.
 
 Freeze:
 
 `CROSS_SECTOR_POINT_TO_POINT_METRIC = REQUIRES_EXPLICIT_NATIVE_CHART_TRANSITION`.
 
-This is the next metric/gluing question; it does not alter the sector-local Pythagorean theorem.
+`DERIVED_G1_DISPLACEMENT_QUOTIENT != PRIMITIVE_POINT_COORDINATE_QUOTIENT`.
+
+This does not alter the sector-local Pythagorean theorem.
 
 ## 10. Discrete cell-state principle
 
@@ -264,10 +274,12 @@ Superseded as current native foundation:
 - three bisector-axis lines / six signed native axes;
 - `e_1+e_2+e_3=0` as a native vector identity;
 - `-e_1=e_2+e_3` and cyclic variants as native vector identities;
-- `(a,b,c)~(a+k,b+k,c+k)` as native coordinate equivalence;
+- `(a,b,c)~(a+k,b+k,c+k)` as primitive native coordinate equivalence;
 - the claim that the three native 120-degree axis pairs are not Enterprise-orthogonal;
 - native metric `a^2+b^2+c^2-ab-bc-ca`;
 - using classical carrier angle to decide native Pythagorean orthogonality.
+
+The separately typed derived G1 displacement quotient does not revive any item in this superseded primitive/native list.
 
 ## 12. Canonical summary
 
@@ -291,7 +303,13 @@ Freeze:
 
 `ENTERPRISE RIGHT ANGLE = 120 DEGREES`.
 
-`THREE-COORDINATE ADDRESS = GLUED TWO-AXIS SECTOR CHART, NOT DIAGONAL-SHIFT QUOTIENT`.
+`THREE-COORDINATE ADDRESS = GLUED TWO-AXIS SECTOR CHART, NOT PRIMITIVE DIAGONAL-SHIFT QUOTIENT`.
+
+`A_E = PRIMITIVE_CURRENT_NATIVE_POINT_OR_SECTOR_ADDRESS_TYPE`.
+
+`A_D = SEPARATELY_TYPED_DERIVED_G1_DISPLACEMENT_SECTION`.
+
+`A_E != A_D AS_SEMANTIC_TYPES`.
 
 `CELL CENTERS HAVE NONNEGATIVE INTEGER SECTOR ADDRESSES`.
 
