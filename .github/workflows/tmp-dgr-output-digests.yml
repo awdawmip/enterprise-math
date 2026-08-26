@@ -1,0 +1,19 @@
+name: tmp-dgr-output-digests
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print DGR output digests
+        run: |
+          set -euo pipefail
+          sha256sum \
+            definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md \
+            definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md \
+            definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md \
+            research_returns/DIAGONAL_GAUGE_REFOUNDATION_TYPED_INTEGRATION_RETURN_20260826.md
