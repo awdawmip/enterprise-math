@@ -32,6 +32,8 @@ jobs:
         run: python tools/research_task_registry.py audit
       - name: Check immutable post-cutover task publication records
         run: python tools/research_task_records.py audit
+      - name: Check operational publication selection and retained parallel heads
+        run: python research_operational_publications.py audit
       - name: Check immutable execution intents
         run: python tools/research_execution_records.py audit
       - name: Check legacy scheduler cutover is frozen
