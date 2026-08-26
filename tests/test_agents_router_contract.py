@@ -10,7 +10,7 @@ def read(path: str) -> str:
 def test_agents_is_small_execution_router_not_research_catalog():
     text = read("AGENTS.md")
     assert "STABLE EXECUTION ROUTER" in text
-    assert "V2.8" in text
+    assert "V2.9" in text
     assert "not** a theorem catalog" in text
     assert len(text.splitlines()) < 340
     assert len(text) < 18000
@@ -94,6 +94,16 @@ def test_agents_low_burden_dispatch_is_one_claim_and_no_poll_loop():
     assert "Between genuine semantic checkpoints, default added governance operations are zero" in text
     assert "comment ID orders events" in text
     assert "Edited event comments do not rewrite runtime history" in text
+
+
+def test_agents_blind_source_firewall_is_opt_in_and_local_by_default():
+    text = read("AGENTS.md")
+    assert "source_firewall.mode=BLIND_INDEPENDENT" in text
+    assert "research_source_firewall_contract.json" in text
+    assert "path + 40-hex commit + Git blob SHA-1" in text
+    assert "Default generic blind behavior adds **no remote write before math**" in text
+    assert "remote_stamp_before_math_required=true" in text
+    assert "Do not apply this optional firewall to ordinary task research" in text
 
 
 def test_tool_surface_matches_agents_role_routing_without_transition_guard():
