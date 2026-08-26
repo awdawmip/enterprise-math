@@ -28,8 +28,8 @@ jobs:
         run: python tools/check_references.py
       - name: Check shared theorem and tool routing
         run: python tools/check_research_common_surface.py
-      - name: Check V1 compatibility task registry and orphan prevention
-        run: python tools/research_task_registry.py audit
+      - name: Check V1 compatibility task registry and retained-parallel orphan prevention
+        run: python control_plane/check_task_registry_parallel_compatibility.py
       - name: Check immutable post-cutover task publication records
         run: python tools/research_task_records.py audit
       - name: Check per-task publication head serialization
