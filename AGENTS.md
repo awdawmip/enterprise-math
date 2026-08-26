@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.7`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.8`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -8,17 +8,19 @@ Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.7`
 
 Current explicit user instruction controls scope.
 
-Current research modes:
+Current research roles/modes:
 
 - `EM_FREE_RESEARCHER` -> `FREE_AXIOM_DISCOVERY`;
 - explicit user task / registered task / taskbook / scheduler dispatch -> `TASK_RESEARCH`;
-- explicit Driver activation -> `RESEARCH_DRIVER`.
+- explicit Driver activation -> `RESEARCH_DRIVER`;
+- explicit Foundation Steward activation/maintenance -> `FOUNDATION_STEWARD`.
 
 Exact role authority:
 
 - `research_architecture.json`;
 - `research_role_policy.json`;
-- `research_identity_state_machine.json`.
+- `research_identity_state_machine.json`;
+- `foundation_steward.json` when Steward authority is active.
 
 ## 2. Active-turn continuation liveness
 
@@ -48,6 +50,7 @@ When the user says continue/keep going/do not stop/until satisfied/until no furt
 Canonical runtime:
 
 - `research_runtime_state_machine.json`;
+- `tools/research_runtime_guard.py`;
 - `tools/research_runtime.py`;
 - `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`.
 
@@ -69,7 +72,7 @@ A stale replacement conversation verifies taskbook source, owner branch, live cl
 
 Scheduler `claim_lease_minutes` / `lease_until` is owner lease only. It does not prove conversation liveness.
 
-Immediately before final-channel output, evaluate PRE_FINAL through the runtime. `tools/active_turn_liveness.py` remains the primitive evaluator.
+Immediately before final-channel output, evaluate PRE_FINAL through `tools/research_runtime_guard.py`; `tools/active_turn_liveness.py` remains the primitive liveness evaluator.
 
 `PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FINAL_ALLOWED=false`.
 
@@ -77,46 +80,68 @@ Immediately before final-channel output, evaluate PRE_FINAL through the runtime.
 
 ### Unified task publication / orphan prevention
 
-Canonical task-publication surfaces:
+Canonical post-cutover task-publication surfaces:
 
-- `research_task_publication_contract.json`;
-- `research_task_registry.json`;
+- `research_task_publication_contract_v2.json`;
+- `research_task_records/<task-id>/<publication-id>.json`;
 - `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json`;
-- `tools/research_task_registry.py`;
-- `docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md`.
+- `tools/research_task_records.py`;
+- `tools/research_dispatch.py`.
 
-Every new official task—researcher, free researcher after audit, Driver, or Foundation Steward—uses the **same publication template and canonical registry**.
+`research_task_registry.json` and `tools/research_task_registry.py` are V1 compatibility surfaces, not new publication authority. `research_scheduler.json` is a frozen legacy task-definition baseline, not a new publication path.
+
+Every new official task—Researcher, free Researcher after audit, Driver, or Foundation Steward—uses the **same taskbook template and immutable publication transaction**.
 
 Freeze:
 
 `TASKBOOK_FILE != PUBLISHED_TASK`.
 
-`OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD`.
+`OFFICIAL_NEW_TASK -> CANONICAL_TASK_REGISTRY_RECORD -> IMMUTABLE_TASK_PUBLICATION_RECORD`.
 
 `UNREGISTERED_NEW_TASK -> NO READY / NO CLAIM / NO EXECUTION`.
 
 `RESEARCHER_MAY_PUBLISH_TASK_WITHOUT_DRIVER_APPROVAL`.
 
+Here `CANONICAL_TASK_REGISTRY_RECORD` is the compatibility name for the current immutable task-publication generation; it does not restore the V1 shared registry as write authority.
+
 A researcher-published task defaults to effective `P2 / MEDIUM`; publication may record a requested rank, but Driver portfolio reprioritization remains separate authority.
 
 Publication never grants Working Truth, Foundation status, theorem truth, canonical promotion, or Driver authority.
 
-Every published task must carry a nonempty `parent_objective_id` and registry `research_value` explaining why the work must not be lost.
+Every published task carries a nonempty `parent_objective_id` and `research_value` explaining why the work must not be lost.
 
-FREE Phase A cannot publish task agenda. After Phase-B audit, an eligible `AUDITED_AXIOM_CANDIDATE`, `AUDITED_REPLACEMENT_CANDIDATE`, or `EXACT_NEGATIVE_OBSTRUCTION` may be published directly by the free researcher while preserving `origin_kind=FREE_AXIOM_CANDIDATE`, candidate ID and audited state.
+FREE Phase A cannot publish task agenda. After Phase-B audit, an eligible `AUDITED_AXIOM_CANDIDATE`, `AUDITED_REPLACEMENT_CANDIDATE`, or `EXACT_NEGATIVE_OBSTRUCTION` may be published directly by the free researcher while preserving candidate provenance.
 
-A task researcher may publish a valuable side residue without switching the current task. Publication is a SUBFLOW: after registry audit PASS, return to the current parent objective.
+A task researcher may publish a valuable side residue without switching the current task. Publication is a SUBFLOW; after success return to the current parent objective.
 
-Legacy pre-registry tasks may continue existing executions, but fresh redispatch, modification, or current-policy re-review requires explicit registry migration.
+Legacy tasks may continue already-owned executions, but fresh redispatch/modification requires explicit immutable migration.
+
+### Canonical low-burden dispatch
+
+Canonical live dispatch is `tools/research_dispatch.py` over:
+
+- immutable registered task definitions;
+- frozen legacy scheduler baseline;
+- Issue #240 runtime events;
+- result/review state.
+
+For a new registered execution:
+
+`VALIDATE_CURRENT_PUBLICATION -> CREATE_OR_VERIFY_BRANCH -> ONE_CLAIM -> RESEARCH`.
+
+The single Issue #240 CLAIM is the execution envelope. Do not require a second pre-claim execution-record write, PR, merge, CI wait, or status poll.
+
+Live registered events are authenticated from the **same GitHub comment's server metadata**: comment ID orders events, server `created_at` supplies the event/lease clock, server author records provenance, and `updated_at` detects edits. Body `actor/at` are descriptive only. Edited event comments do not rewrite runtime history; append a new correction event instead.
 
 ## 3. Identity and mandatory final footer
 
 Resolve visible identity before substantive work:
 
-- researcher -> `Researcher-ID`;
-- Driver -> `Driver-ID`.
+- Researcher -> `Researcher-ID`;
+- Driver -> `Driver-ID`;
+- Foundation Steward -> `Steward-ID`.
 
-Identity registration is nonblocking. Publisher identity is persisted in the registry; reusable taskbooks do not freeze execution identity.
+Identity registration is nonblocking. Publisher identity is persisted in the publication record; reusable taskbooks do not freeze execution identity.
 
 Canonical final-response contract: `final_response_identity_policy.json`.
 
@@ -127,6 +152,7 @@ Freeze:
 Exact marker:
 
 - `RESEARCH_DRIVER` -> `Driver-ID: <ID> / CONTROL_PLANE`;
+- `FOUNDATION_STEWARD` -> `Steward-ID: <ID> / FOUNDATION_STEWARD`;
 - `RESEARCHER` with active task -> `Researcher-ID: <ID> / <TASK_ID>`;
 - free researcher -> `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`;
 - direct fallback -> `Researcher-ID: <ID> / TASK_RESEARCH`.
@@ -156,7 +182,7 @@ Freeze:
 
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`.
 
-After candidate/no-go freeze, Phase B may open current/prior work and must run tool-coverage/dedup before method-novelty claims. Eligible audited candidates may then be registered as tasks without Driver intake merely to preserve the work.
+After candidate/no-go freeze, Phase B may open current/prior work and must run tool-coverage/dedup before method-novelty claims. Eligible audited candidates may then be published as tasks without Driver intake merely to preserve the work.
 
 ## 5. TASK_RESEARCH hot start
 
@@ -164,13 +190,15 @@ For a selected task:
 
 1. this router if not already loaded;
 2. the **exact task entry**;
-3. verify it is registered or covered by legacy-baseline continuation before new claim/execution;
+3. verify it is immutably registered or covered by an already-owned legacy continuation;
 4. load the first exact dependency required to begin;
 5. work and expand only when a concrete dependency triggers.
 
 Soft routine source-read budget before substantive work: `<= 3`.
 
 The Common Surface is a lookup, not a default preload.
+
+Do not preload the entire dispatch board. One canonical task selection/claim boundary is sufficient until a real coordination event requires another lookup.
 
 ## 6. Universal tool reuse gate
 
@@ -206,7 +234,7 @@ Tool lookup is delayed for FREE Phase A and explicit task-local blind-forward/so
 
 Use connected GitHub capability for remote repository files, commits, branches, PRs, issues and workflow/status operations. Do not use container networking to duplicate GitHub access when the connector supports the action.
 
-Detailed rules: `docs/GITHUB_INTERACTION_BUDGET.md`.
+Detailed rules: `docs/GITHUB_INTERACTION_BUDGET.md` and `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`.
 
 ## 8. Working Truth
 
@@ -240,8 +268,8 @@ Exact task/publication contracts:
 
 - `research_taskbook_contract.json`;
 - `research_taskbook_policy.json`;
-- `research_task_publication_contract.json`;
-- `research_task_registry.json`;
+- `research_task_publication_contract_v2.json`;
+- `research_task_records/`;
 - `docs/RESEARCH_TASKBOOK_AUTHORING_AND_REVIEW.md`;
 - `docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md`.
 
@@ -249,7 +277,9 @@ Exact task/publication contracts:
 
 `RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
-Do not run universal scheduler/Issue/PR/CI/tree preflight, poll CI merely to wait, or chase moving main without a concrete action.
+Do not run universal scheduler/Issue/PR/CI/tree preflight, poll CI merely to wait, chase moving main, or emit periodic scheduler heartbeats without a concrete coordination need.
+
+Between genuine semantic checkpoints, default added governance operations are zero.
 
 Tool/scheduler/registry/CI availability is not a mathematical `HARD_BLOCK`.
 
@@ -259,7 +289,7 @@ Tool/scheduler/registry/CI availability is not a mathematical `HARD_BLOCK`.
 
 Load only when relevant:
 
-- task registry/scheduler/Relay/Foundation for actual coordination;
+- task records/canonical dispatch/Relay/Foundation for actual coordination;
 - Driver contract + continuity for portfolio decisions;
 - Common Surface for exact cross-owner theorem/tool/conflict lookup;
 - toolbox/method inventory for method selection/harvest;
@@ -273,7 +303,7 @@ L1/L2/L3 research is remote-silent between semantic checkpoints by default.
 
 `REMOTE_SILENT` describes repository traffic, **not conversational inactivity**.
 
-Task registry records task existence; taskbooks carry task content; Driver Continuity carries routing summary; source main carries gated canonical truth. These roles must not be conflated.
+Immutable task records carry task existence; taskbooks carry task content; Issue #240 carries sparse ownership/coordination events; result/review records carry terminal provenance; Driver Continuity carries routing summary; source main carries gated canonical truth. These roles must not be conflated.
 
 ## 14. Promotion liveness
 

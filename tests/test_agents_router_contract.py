@@ -10,12 +10,11 @@ def read(path: str) -> str:
 def test_agents_is_small_execution_router_not_research_catalog():
     text = read("AGENTS.md")
     assert "STABLE EXECUTION ROUTER" in text
-    assert "V2.7" in text
+    assert "V2.8" in text
     assert "not** a theorem catalog" in text
     assert len(text.splitlines()) < 340
     assert len(text) < 18000
     for stale_or_agenda_token in (
-        "Issue #240",
         "Issue #164",
         "Research Relay #82",
         "classical pi",
@@ -40,8 +39,8 @@ def test_agents_routes_free_to_primitive_substrate_without_menu():
 
 def test_agents_task_start_is_exact_task_first_not_common_surface_first():
     text = read("AGENTS.md")
-    assert "**the exact task entry**" in text
-    assert "the first exact dependency required to begin" in text
+    assert "**exact task entry**" in text
+    assert "first exact dependency required to begin" in text
     assert "Soft routine source-read budget before substantive work: `<= 3`" in text
     assert "Common Surface is a lookup" in text
 
@@ -81,10 +80,20 @@ def test_agents_makes_final_role_identity_footer_unconditional():
         in text
     )
     assert "Driver-ID: <ID> / CONTROL_PLANE" in text
+    assert "Steward-ID: <ID> / FOUNDATION_STEWARD" in text
     assert "Researcher-ID: <ID> / <TASK_ID>" in text
     assert "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY" in text
     assert "Researcher-ID: <ID> / TASK_RESEARCH" in text
     assert "Do not use `DIRECT` as a visible researcher scope" in text
+
+
+def test_agents_low_burden_dispatch_is_one_claim_and_no_poll_loop():
+    text = read("AGENTS.md")
+    assert "VALIDATE_CURRENT_PUBLICATION -> CREATE_OR_VERIFY_BRANCH -> ONE_CLAIM -> RESEARCH" in text
+    assert "Do not require a second pre-claim execution-record write" in text
+    assert "Between genuine semantic checkpoints, default added governance operations are zero" in text
+    assert "comment ID orders events" in text
+    assert "Edited event comments do not rewrite runtime history" in text
 
 
 def test_tool_surface_matches_agents_role_routing_without_transition_guard():

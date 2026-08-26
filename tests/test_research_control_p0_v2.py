@@ -39,6 +39,20 @@ def runtime_state(task_id, registration=None):
     }
 
 
+def auth(comment_id, *, edited=False):
+    return {
+        "server_authenticated": True,
+        "issue_number": 240,
+        "comment_id": comment_id,
+        "author_login": "awdawmip",
+        "created_at": "2026-08-25T14:00:00+00:00",
+        "updated_at": "2026-08-25T14:00:00+00:00",
+        "body_sha256": "sha256:" + "a" * 64,
+        "edited": edited,
+        "performed_via_github_app": "chatgpt-codex-connector",
+    }
+
+
 class RuntimeAuthorizationTests(unittest.TestCase):
     def test_forged_registration_cannot_authorize_unknown_task(self):
         with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "neither immutably registered"):
@@ -107,6 +121,7 @@ class UnifiedDispatchTests(unittest.TestCase):
             "execution_branch_base": "a" * 40,
             "allowed_outputs": ["research_returns/", "research_output/evidence/"],
             "lease_minutes": 120,
+            "_github": auth(1001),
         }
         value.update(overrides)
         return value
@@ -128,6 +143,18 @@ class UnifiedDispatchTests(unittest.TestCase):
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertEqual("IMMUTABLE_TASK_RECORD", state["registration_source"])
 
+    def test_bare_registered_live_event_is_not_runtime_authority(self):
+        event = self.inline_claim()
+        event.pop("_github")
+        state = dispatch.reduce_definition(
+            self.registered_definition(),
+            [event],
+            now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+            root=ROOT,
+        )
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertTrue(any("server-authenticated" in item["reason"] for item in state["ignored_events"]))
+
     def test_incomplete_registered_claim_envelope_is_ignored(self):
         events = [{
             "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
@@ -137,6 +164,7 @@ class UnifiedDispatchTests(unittest.TestCase):
             "at": "2026-08-25T22:00:00+08:00",
             "claim_id": "missing-envelope",
             "lease_minutes": 120,
+            "_github": auth(1002),
         }]
         state = dispatch.reduce_definition(
             self.registered_definition(),
@@ -160,6 +188,7 @@ class UnifiedDispatchTests(unittest.TestCase):
         self.assertEqual("inline-claim-1", state["claim_id"])
         self.assertTrue(state["researcher_id"].startswith("EM-QPHJA-"))
         self.assertFalse(state["ignored_events"])
+        self.assertEqual("GITHUB_SERVER_COMMENT_ENVELOPE", state["event_authentication"])
 
     def test_inline_claim_rejects_stale_publication_without_extra_remote_write(self):
         event = self.inline_claim(publication_id="TP-STALE")
@@ -173,6 +202,17 @@ class UnifiedDispatchTests(unittest.TestCase):
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         self.assertTrue(any("publication_id" in item["reason"] for item in state["ignored_events"]))
 
+    def test_edited_registered_event_does_not_mutate_runtime_history(self):
+        event = self.inline_claim(_github=auth(1003, edited=True))
+        state = dispatch.reduce_definition(
+            self.registered_definition(),
+            [event],
+            now=dispatch.research_scheduler.parse_time("2026-08-25T22:02:00+08:00"),
+            root=ROOT,
+        )
+        self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
+        self.assertTrue(any("edited scheduler event" in item["reason"] for item in state["ignored_events"]))
+
     def test_registered_done_without_reviewed_result_is_ignored_after_valid_intent(self):
         intent = {
             "task_id": REGISTERED_TASK,
@@ -181,8 +221,8 @@ class UnifiedDispatchTests(unittest.TestCase):
             "owner_lease_minutes": 120,
         }
         events = [
-            {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1", "event": "CLAIM", "task_id": REGISTERED_TASK, "actor": "test", "at": "2026-08-25T22:00:00+08:00", "claim_id": "c1"},
-            {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1", "event": "DONE", "task_id": REGISTERED_TASK, "actor": "test", "at": "2026-08-25T22:01:00+08:00", "claim_id": "c1", "result_id": "RR-NOT-REVIEWED"},
+            {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1", "event": "CLAIM", "task_id": REGISTERED_TASK, "actor": "test", "at": "2026-08-25T22:00:00+08:00", "claim_id": "c1", "_github": auth(1010)},
+            {"schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1", "event": "DONE", "task_id": REGISTERED_TASK, "actor": "test", "at": "2026-08-25T22:01:00+08:00", "claim_id": "c1", "result_id": "RR-NOT-REVIEWED", "_github": auth(1011)},
         ]
         with mock.patch.object(dispatch.research_execution_records, "intent_for_claim", return_value=intent):
             state = dispatch.reduce_definition(

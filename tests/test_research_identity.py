@@ -58,6 +58,7 @@ class ResearchIdentityTests(unittest.TestCase):
         self.assertEqual(payload["registration_state"], "REGISTER_PENDING")
         self.assertEqual(payload["researcher_id"], rid)
         self.assertNotIn("driver_id", payload)
+        self.assertNotIn("steward_id", payload)
         self.assertEqual(payload["identity_label"], "Researcher-ID")
         self.assertEqual(
             payload["registration_path"],
@@ -87,8 +88,41 @@ class ResearchIdentityTests(unittest.TestCase):
         self.assertTrue(did.startswith("EM-DVR-"))
         self.assertEqual(payload["driver_id"], did)
         self.assertNotIn("researcher_id", payload)
+        self.assertNotIn("steward_id", payload)
         self.assertEqual(payload["identity_label"], "Driver-ID")
         self.assertEqual(payload["visible_marker"], f"Driver-ID: {did} / CONTROL_PLANE")
+
+    def test_foundation_steward_is_first_class_identity_without_new_registration_gate(self):
+        sid = identity.allocate_direct(
+            task_id=None,
+            role="FOUNDATION_STEWARD",
+        )
+        payload = identity.identity_payload(
+            execution_id=sid,
+            task_id=None,
+            role="FOUNDATION_STEWARD",
+            source="DIRECT_AUTO_GENERATED",
+        )
+        self.assertTrue(sid.startswith("EM-STW-"))
+        self.assertEqual(payload["steward_id"], sid)
+        self.assertNotIn("researcher_id", payload)
+        self.assertNotIn("driver_id", payload)
+        self.assertEqual(payload["identity_label"], "Steward-ID")
+        self.assertEqual(payload["visible_marker"], f"Steward-ID: {sid} / FOUNDATION_STEWARD")
+        self.assertEqual(payload["registration_state"], "REGISTER_PENDING")
+        self.assertEqual(
+            payload["registration_path"],
+            f"projects/enterprise-math/researchers/{sid}.json",
+        )
+
+    def test_foundation_steward_cannot_take_researcher_claim_identity_path(self):
+        with self.assertRaisesRegex(ValueError, "scheduler CLAIM identity is a Researcher-ID"):
+            identity.main([
+                "allocate",
+                "--role", "FOUNDATION_STEWARD",
+                "--task", "RS-T",
+                "--claim-id", "c1",
+            ])
 
     def test_manual_dispatch_preallocates_researcher_identity(self):
         task = "RS-R020-P021-WITNESS-CARDINALITY-DYNAMIC-COMPLETENESS-REAUDIT"

@@ -1,8 +1,13 @@
 {
-  "schema": "ENTERPRISE_MATH_FOUNDATION_STEWARD_V1",
+  "schema": "ENTERPRISE_MATH_FOUNDATION_STEWARD_V2",
   "status": "ACTIVE",
-  "effective": "2026-08-25",
+  "effective": "2026-08-26",
   "role": "FOUNDATION_STEWARD",
+  "identity_state_machine": "research_identity_state_machine.json",
+  "identity_helper": "tools/research_identity.py",
+  "visible_identity_label": "Steward-ID",
+  "visible_identity_scope": "FOUNDATION_STEWARD",
+  "identity_rule": "Resolve or allocate one EM-STW-* execution handle before substantive Steward work; registration is nonblocking provenance and the identifier does not itself grant Steward authority.",
   "research_architecture": "research_architecture.json",
   "runtime_state_machine": "research_runtime_state_machine.json",
   "canonical_dispatch": "tools/research_dispatch.py",
@@ -171,7 +176,8 @@
     "canonical_discovery_routing": true,
     "research_to_foundation_backflow": true,
     "fq_scheduler_link_integrity": true,
-    "post_merge_propagation": true
+    "post_merge_propagation": true,
+    "role_identity_traceability": true
   },
   "research_return_requires": [
     "proof_counterexample_or_exact_tool_evidence",
