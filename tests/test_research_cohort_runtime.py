@@ -2,6 +2,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from tools import research_cohort_runtime as cohort_runtime
 import research_parallel_evidence as parallel
@@ -132,6 +133,67 @@ class CohortRuntimeTests(unittest.TestCase):
         self.add_result("RR-BAD", "route-a", "TP2-P2")
         with self.assertRaisesRegex(cohort_runtime.CohortRuntimeError, "publication differs"):
             cohort_runtime.cohort_state(self.task_id, self.cohort_id, self.root)
+
+    def test_task_state_is_terminal_when_every_active_cohort_has_terminal_synthesis(self):
+        cohorts = [
+            {"cohort_id": "EC-1", "task_id": self.task_id, "record_state": "ACTIVE"},
+            {"cohort_id": "EC-2", "task_id": self.task_id, "record_state": "ACTIVE"},
+        ]
+        terminal_states = {
+            "EC-1": {
+                "execution_cohort_id": "EC-1",
+                "state": "PARALLEL_SYNTHESIS_TERMINAL",
+                "terminal": True,
+                "terminal_control_disposition": "ACCEPTED",
+            },
+            "EC-2": {
+                "execution_cohort_id": "EC-2",
+                "state": "PARALLEL_SYNTHESIS_TERMINAL",
+                "terminal": True,
+                "terminal_control_disposition": "CLOSED",
+            },
+        }
+        with mock.patch.object(cohort_runtime, "active_cohorts", return_value=cohorts), mock.patch.object(
+            cohort_runtime,
+            "cohort_state",
+            side_effect=lambda task, cohort, root: terminal_states[cohort],
+        ):
+            state = cohort_runtime.task_active_cohort_state(self.task_id, self.root)
+        self.assertEqual("TERMINAL_PARALLEL_COHORTS", state["state"])
+        self.assertTrue(state["terminal"])
+        self.assertEqual(["EC-1", "EC-2"], state["terminal_cohort_ids"])
+        self.assertEqual(["ACCEPTED", "CLOSED"], state["terminal_control_dispositions"])
+        self.assertEqual("REEVALUATE_PARENT", state["next_control_action"])
+
+    def test_new_incomplete_cohort_reopens_derived_task_state_without_rewriting_old_terminal_cohort(self):
+        cohorts = [
+            {"cohort_id": "EC-OLD", "task_id": self.task_id, "record_state": "ACTIVE"},
+            {"cohort_id": "EC-NEW", "task_id": self.task_id, "record_state": "ACTIVE"},
+        ]
+        states = {
+            "EC-OLD": {
+                "execution_cohort_id": "EC-OLD",
+                "state": "PARALLEL_SYNTHESIS_TERMINAL",
+                "terminal": True,
+                "terminal_control_disposition": "ACCEPTED",
+            },
+            "EC-NEW": {
+                "execution_cohort_id": "EC-NEW",
+                "state": "COHORT_EXECUTION_ACTIVE",
+                "terminal": False,
+                "missing_lane_ids": ["replication-2"],
+            },
+        }
+        with mock.patch.object(cohort_runtime, "active_cohorts", return_value=cohorts), mock.patch.object(
+            cohort_runtime,
+            "cohort_state",
+            side_effect=lambda task, cohort, root: states[cohort],
+        ):
+            state = cohort_runtime.task_active_cohort_state(self.task_id, self.root)
+        self.assertEqual("ACTIVE_PARALLEL_COHORTS", state["state"])
+        self.assertFalse(state["terminal"])
+        self.assertEqual(["EC-OLD"], state["terminal_cohort_ids"])
+        self.assertEqual("RESOLVE_ACTIVE_COHORT_LANES_AND_SYNTHESIS", state["next_control_action"])
 
 
 if __name__ == "__main__":
