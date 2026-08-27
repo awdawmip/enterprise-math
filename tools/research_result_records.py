@@ -27,7 +27,7 @@ for _name in dir(_impl):
 if str(_impl.ROOT) not in sys.path:
     sys.path.insert(0, str(_impl.ROOT))
 import research_parallel_evidence as _parallel  # noqa: E402
-import research_review_evidence as _review_evidence  # noqa: E402
+import research_review_control as _review_evidence  # noqa: E402
 
 ROOT = _impl.ROOT
 
