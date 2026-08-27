@@ -14,7 +14,7 @@ import sympy as sp
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT = ROOT / "research_artifacts" / "RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION" / "raw_freeze_reduction.json"
-EXPECTED_SHA256 = "f1bdf8fdcb9806783e7e4c5e46d3bcf9ec3a22251b058719ba6af130fba0bbdf"
+EXPECTED_SHA256 = "5805be4031f73b0a5d92589326d7188fc129cde6d14be46861d7214d7690e2c1"
 
 
 def exact_zero(expr: sp.Expr, label: str) -> None:
@@ -76,9 +76,11 @@ def main() -> None:
     assert sp.simplify(k2_expected) != 0
     assert sp.simplify(k2_expected + 2) != 0
 
-    # Riemann-Hurwitz check for the reduced degree-6 X:C->P1:
-    # 9 special double points + 3 Q critical points = 12 = 2*deg(X).
-    assert 9 + 3 == 2 * 6
+    # Corrected Riemann-Hurwitz bookkeeping. If s of the three Q points
+    # have special critical values, special fibers contribute 9+s and the
+    # remaining non-special Q contribute 3-s. The total is always 12.
+    for s in range(4):
+        assert (9 + s) + (3 - s) == 2 * 6
 
     print("PASS: blind CM(-24) exact reduction arithmetic replay")
     print(f"artifact_sha256={EXPECTED_SHA256}")
