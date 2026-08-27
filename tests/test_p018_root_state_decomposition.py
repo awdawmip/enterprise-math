@@ -1,6 +1,7 @@
 import unittest
 
 from enterprise_math.p018_root_state_decomposition import (
+    exact_distinct_root_state_count,
     naive_positive_quotient_root_states,
     quotient_root_state_decomposition,
     state_coalescence_horizon,
@@ -79,14 +80,18 @@ class P018RootStateDecompositionTests(unittest.TestCase):
                     exact = exact_root_fiber_capacity(n, root_exp, target)
                     self.assertLessEqual(exact, cap)
 
-    def test_large_n_uses_small_exact_frontier(self):
-        # The implementation enumerates only D high labels plus H low roots;
-        # both live on the n^(1/(r+1)) scale.
+    def test_large_n_closed_count_uses_small_exact_frontier(self):
+        # Large-n scaling belongs to the closed-count API, whose contract is
+        # explicitly denominator-scan-free. Full decomposition intentionally
+        # materializes O(D+H) output states and is covered by the bounded tests.
         for root_exp in (1, 2, 3, 5):
-            data = quotient_root_state_decomposition(10**18, root_exp)
+            data = exact_distinct_root_state_count(10**18, root_exp)
             frontier = data["horizon"] + data["high_denominator_max"]
-            self.assertEqual(frontier, data["state_count_upper_bound"])
             self.assertLess(frontier, 10**10)
+            self.assertLessEqual(data["distinct_root_count"], frontier)
+            self.assertGreaterEqual(
+                data["distinct_root_count"], max(0, frontier - 1)
+            )
 
     def test_validation(self):
         with self.assertRaises(ValueError):
