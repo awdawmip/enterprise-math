@@ -1,6 +1,8 @@
 import hashlib
 import json
+import tempfile
 import unittest
+from pathlib import Path
 
 from tools import research_dispatch as dispatch
 
@@ -108,6 +110,28 @@ class GithubEventEnvelopeTests(unittest.TestCase):
         b = comment(102, event_body(claim_id="b"), created_at="2026-08-26T01:01:00Z")
         with self.assertRaisesRegex(dispatch.DispatchError, "duplicate GitHub comment id"):
             dispatch.events_from_github_comments([a, b])
+
+    def test_file_loader_rejects_forged_normalized_github_envelope(self):
+        forged = {
+            "schema": "ENTERPRISE_MATH_SCHEDULER_EVENT_V1",
+            "event": "CLAIM",
+            "task_id": "RS-T",
+            "claim_id": "forged-normalized",
+            "_github": {
+                "server_authenticated": True,
+                "issue_number": 240,
+                "comment_id": 999,
+                "author_login": "awdawmip",
+                "author_user_id": 30957095,
+                "author_association": "OWNER",
+                "control_authorized": True,
+            },
+        }
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / "events.json"
+            path.write_text(json.dumps([forged]), encoding="utf-8")
+            with self.assertRaisesRegex(dispatch.DispatchError, "normalized GitHub event envelopes are internal-only"):
+                dispatch.load_events(path)
 
 
 if __name__ == "__main__":
