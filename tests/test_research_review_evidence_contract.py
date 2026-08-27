@@ -14,8 +14,12 @@ class ReviewEvidenceContractTests(unittest.TestCase):
             "research_review_evidence.py", contract["authority_reducer"]
         )
         self.assertEqual(
-            "control_plane/research_review_evidence_store.py",
+            "research_review_evidence_store.py",
             contract["append_only_store_implementation"],
+        )
+        self.assertEqual(
+            "control_plane/research_review_evidence_store.py",
+            contract["store_compatibility_shim"],
         )
         self.assertEqual(
             "tools/research_result_records.py", contract["runtime_consumer"]
@@ -24,6 +28,10 @@ class ReviewEvidenceContractTests(unittest.TestCase):
         self.assertTrue(contract["all_reviews_retained"])
         self.assertIn(
             "MULTIPLE_DRIVER_REVIEWS_ARE_NOT_RESOLVED_BY_LATEST_TIMESTAMP_WINS",
+            contract["core_invariants"],
+        )
+        self.assertIn(
+            "REPOSITORY_ROOT_STORAGE_SEMANTICS_SURVIVE_INTERNAL_COMPATIBILITY_SHIMS",
             contract["core_invariants"],
         )
         self.assertIn(
