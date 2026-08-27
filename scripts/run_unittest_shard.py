@@ -15,6 +15,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEST_ROOT = ROOT / "tests"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 
 def test_files() -> list[Path]:
@@ -33,7 +35,7 @@ def build_suite(index: int, count: int) -> unittest.TestSuite:
     loader = unittest.TestLoader()
     suite = unittest.TestSuite()
     for path in shard_files(index, count):
-        suite.addTests(loader.discover(str(TEST_ROOT), pattern=path.name, top_level_dir=str(ROOT)))
+        suite.addTests(loader.discover(str(TEST_ROOT), pattern=path.name))
     return suite
 
 
