@@ -10,6 +10,7 @@
   },
   "canonical_record_store": "research_task_records/<task-id>/<publication-id>.json",
   "publication_tool": "tools/research_task_records.py",
+  "integrity_audit": "research_task_record_audit.py",
   "dispatch_tool": "tools/research_dispatch.py",
   "runtime_guard": "tools/research_runtime_guard.py",
   "result_contract": "research_result_contract.json",
@@ -29,7 +30,9 @@
     "LEGACY_SCHEDULER_DEFINITION_FILE_IS_COMPATIBILITY_BASELINE_ONLY",
     "PUBLISH_MUST_NOT_SELF_ASSERT_POLICY_PASS_BEFORE_VALIDATION",
     "V2_PUBLICATION_REQUIRES_NONEMPTY_FRONTIER_AND_NEXT_ACTION",
-    "V2_PUBLICATION_REQUIRES_FILLED_MANDATORY_BODY_SECTIONS",
+    "V2_PUBLICATION_REQUIRES_FILLED_MANDATORY_BODY_SECTIONS_AT_PUBLICATION_AND_FOR_CURRENT_OPERATIONAL_HEADS",
+    "EXPLICITLY_RESOLVED_RETAINED_NONOPERATIONAL_PUBLICATION_MAY_PRESERVE_HISTORICAL_BODY_SECTION_NAMING_WITHOUT_REWRITING_IMMUTABLE_BYTES",
+    "RETAINED_HISTORY_COMPATIBILITY_NEVER_EXEMPTS_BLOB_SCHEMA_TASK_PARENT_OR_RESOLUTION_INTEGRITY",
     "RESEARCHER_PUBLICATION_DOES_NOT_GRANT_GLOBAL_PRIORITY_OR_TRUTH",
     "PUBLICATION_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_CANONICAL_PROMOTION",
     "TASK_PUBLICATION_IS_A_SEMANTIC_CHECKPOINT_NOT_A_ROUTINE_HEARTBEAT",
@@ -42,6 +45,20 @@
     "Research value to preserve",
     "Success, kill, and return criteria"
   ],
+  "retained_history_compatibility": {
+    "authority": "valid research_task_publication_resolutions.json entry",
+    "eligible_records": "only publication IDs explicitly listed as quarantined_publication_ids, whose compatibility meaning is retained non-operational publication history",
+    "exempt_current_check": "mandatory executable body-section naming only",
+    "still_fatal": [
+      "record schema drift",
+      "taskbook blob drift",
+      "task_id or registry_key mismatch",
+      "parent objective mismatch",
+      "invalid or incomplete publication resolution",
+      "truth or promotion authority drift"
+    ],
+    "immutable_bytes_rewritten": false
+  },
   "publisher_roles": [
     "RESEARCHER",
     "RESEARCH_DRIVER",
