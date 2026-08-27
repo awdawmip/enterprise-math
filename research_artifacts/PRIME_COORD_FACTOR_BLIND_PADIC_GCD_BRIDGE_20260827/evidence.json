@@ -1,0 +1,43 @@
+{
+  "schema": "PCF4_BLIND_PADIC_GCD_BRIDGE_EVIDENCE_V1",
+  "task_id": "RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE",
+  "publication_id": "TP2-7B0534E09E4286CB5B6E",
+  "claim_id": "chatgpt-pcf4-20260827-1714",
+  "researcher_id": "EM-PCF4-AED70E",
+  "primary_verdict": "BRIDGE_NOT_CLOSED",
+  "exact_obstruction": "PUBLIC_PREFIX_FIXED_INTEGER_SUPPORT_NO_GO",
+  "definition": {
+    "A_n": "binom(2n,n)^2*binom(3n,n)",
+    "F_L": "sum_{n=0}^{L-1}(6n+1) A_n 216^(L-1-n)",
+    "G_N_L": "sum_{n=0}^{L-1}(6n+1) A_n 216^(-n) mod N, gcd(N,6)=1"
+  },
+  "proved": [
+    "216^(L-1) G_N(L) == F_L (mod N)",
+    "gcd(G_N(L),N) == gcd(F_L,N)",
+    "for N=pq distinct primes >3, split iff exactly one of p,q divides F_L",
+    "any fixed finite public prefix-seed set S fails on infinitely many semiprimes whose two prime factors avoid the finite prime support of product_{L in S} F_L",
+    "A_n <= 128^n <= 216^n and F_L < 6 L^2 216^(L-1), hence omega(F_L) < log2(6 L^2)+(L-1)log2(216)",
+    "Lucas block law A_(ap+b) == A_a A_b (mod p) for prime p>3, a>=0, 0<=b<p",
+    "conditional composite synchronization: if the weak prime shadows S_p==0 (mod p) and S_q==0 (mod q) hold, then G_(pq)(pq)==0 (mod pq)"
+  ],
+  "finite_regression_not_proof": {
+    "checker_A": "PCF4_CHECK_A_PASS gcd_cases=204 weak_primes=93 composite_sync=66 d_pattern=100",
+    "checker_B": "PCF4_CHECK_B_PASS gcd_cases=112 weak_primes=53 composite_sync=36",
+    "weak_prime_shadow_A": "all primes 5..499",
+    "weak_prime_shadow_B": "all primes 5..257",
+    "composite_sync_A": "all unordered distinct prime pairs from primes 5..43",
+    "composite_sync_B": "all unordered distinct prime pairs from primes 5..31",
+    "empirical_d_pattern": "for L=1..100, d_L | F_L with d_L=3L-2 for odd L and 3L-1 for even L; not promoted"
+  },
+  "checker_sha256": {
+    "recurrence": "2f287d5e9ab5ca929b95f9a96a5447818f6de25d9951f269d07812d92839e390",
+    "direct_comb": "b216d073c5e61eb55f08cfbe9c4c000cdd77507c4938a89455e230983e710b8f"
+  },
+  "smallest_unresolved_unit": "Construct an N-dependent second observable whose integer value depends on N before final reduction and whose CRT projections provably desynchronize on an infinite nontrivial semiprime family; public-prefix reductions alone are fixed-integer gcd probes.",
+  "secondary_unresolved_for_full_N_lift": "Prove or refute the weak shadow S_p == 0 (mod p) for every p>3; this is sufficient to turn the observed L=N synchronization into an all-semiprime theorem but would be a synchronization theorem, not an extractor.",
+  "claim_boundary": [
+    "No generic factorization speedup is proved.",
+    "The exact no-go covers the canonical public-prefix lift and fixed finite public prefix-seed families, not every conceivable N-dependent recurrence.",
+    "The all-prime mod-p^3 Sun A14(ii) target remains unproved in current repository state."
+  ]
+}
