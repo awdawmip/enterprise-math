@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -31,7 +31,7 @@ jobs:
       - name: Unit tests shard ${{ matrix.shard }}
         env:
           PYTHONPATH: src
-        run: python scripts/run_unittest_shard.py --index ${{ matrix.shard }} --count 8
+        run: python scripts/run_unittest_shard.py --index ${{ matrix.shard }} --count 16
 
   test:
     if: always() && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
