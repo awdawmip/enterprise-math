@@ -25,6 +25,12 @@ from .legendre import (
     mobius_square_interval_prime_count,
     primes_up_to,
 )
+from .native_trisector_coupled_closure import (
+    coupled_closure_certificate as _coupled_closure_certificate,
+    native_trisector_coupled_certificate as _native_trisector_coupled_certificate,
+    odd_sector_lane_certificate as _odd_sector_lane_certificate,
+    split_hyperbola_orbit_certificate as _split_hyperbola_orbit_certificate,
+)
 from .p017_precision_horizon import least_witness_state, survivor_prime_horizon_data
 from .p018_p023_power_free_action_basis import minimal_root_quotient_action_basis
 from .r005a_sieve_quotients import (
@@ -35,7 +41,10 @@ from .r005a_sieve_quotients import (
 
 
 _INVENTORY_RESOURCE = "prime_method_inventory.json"
-_INVENTORY_SUPPLEMENTS = ("prime_method_inventory_r005a_ingest.json",)
+_INVENTORY_SUPPLEMENTS = (
+    "prime_method_inventory_r005a_ingest.json",
+    "prime_method_inventory_native_trisector_coupled_closure.json",
+)
 
 
 @dataclass(frozen=True)
@@ -337,6 +346,46 @@ def finite_horizon_sieve_quotient(
     )
 
 
+def split_hyperbola_orbit_certificate(B: int, C: int, q: int) -> PrimeToolResult:
+    """Prime Toolkit wrapper for the exact split-hyperbola sign-orbit certificate."""
+
+    return _result(
+        "native_filament.split_hyperbola_orbit_certificate",
+        _split_hyperbola_orbit_certificate(B, C, q),
+        "Support-level classical certificate; it does not invent universal-breaker semantics.",
+    )
+
+
+def odd_sector_lane_certificate(s: int, q: int) -> PrimeToolResult:
+    """Prime Toolkit wrapper for controlled odd-sector lane/Joukowski certificates."""
+
+    return _result(
+        "native_filament.odd_sector_lane_certificate",
+        _odd_sector_lane_certificate(s, q),
+        "Only s=3 is native Enterprise geometry; other odd s are controlled comparators.",
+    )
+
+
+def coupled_closure_certificate(s: int, q_b: int) -> PrimeToolResult:
+    """Prime Toolkit wrapper for the admitted longitudinal/transverse closure check."""
+
+    return _result(
+        "native_filament.coupled_closure_certificate",
+        _coupled_closure_certificate(s, q_b),
+        "q_b must already carry universal-breaker semantics; theorem-9 is breaker-coprime capacity only.",
+    )
+
+
+def native_trisector_coupled_certificate() -> PrimeToolResult:
+    """One-call status-preserving certificate for the admitted native theorem node."""
+
+    return _result(
+        "native_filament.native_trisector_coupled_certificate",
+        _native_trisector_coupled_certificate(),
+        "AUDITED_RESEARCH_THEOREM only; Foundation review completed without Foundation admission and no novelty claim is implied.",
+    )
+
+
 __all__ = [
     "PrimeToolResult",
     "bounded_primality",
@@ -350,6 +399,10 @@ __all__ = [
     "power_free_action_basis",
     "actual_sieve_transient_quotient",
     "finite_horizon_sieve_quotient",
+    "split_hyperbola_orbit_certificate",
+    "odd_sector_lane_certificate",
+    "coupled_closure_certificate",
+    "native_trisector_coupled_certificate",
     "list_methods",
     "method_record",
 ]
