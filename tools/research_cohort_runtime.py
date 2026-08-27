@@ -9,6 +9,8 @@ exact current cohort result set must traverse parallel intake -> reference pass 
 """
 from __future__ import annotations
 
+import argparse
+import json
 import sys
 from pathlib import Path
 from typing import Any
@@ -258,3 +260,38 @@ def audit(root: Path = ROOT) -> list[str]:
         except Exception as exc:
             errors.append(f"{cohort_id}: {exc}")
     return errors
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Enterprise Math execution-cohort completeness/runtime audit"
+    )
+    sub = parser.add_subparsers(dest="command", required=True)
+    audit_parser = sub.add_parser("audit")
+    audit_parser.set_defaults(command="audit")
+    status = sub.add_parser("status")
+    status.add_argument("--task-id", required=True)
+    status.add_argument("--cohort-id", required=True)
+    args = parser.parse_args()
+    if args.command == "audit":
+        errors = audit()
+        if errors:
+            for error in errors:
+                print("ERROR:", error)
+            return 1
+        print(
+            f"PASS: cohort runtime completeness valid "
+            f"({len(research_execution_cohorts.cohort_map(ROOT))} cohort record(s))."
+        )
+        return 0
+    value = cohort_state(args.task_id, args.cohort_id)
+    print(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except CohortRuntimeError as exc:
+        print("ERROR:", exc)
+        raise SystemExit(1)
