@@ -142,7 +142,13 @@ Required outputs:
 7. **Prior-art dedup.** Identify whether the fast evaluator is a new composition, a direct specialization of classical factorial/product-tree factoring, or a known equivalent in different notation. No novelty claim without evidence.
 8. **Durable return.** Freeze the complete result at `research_returns/PRIME_COORD_FACTOR_VALUATION_WALL_COMPLEXITY_COMPRESSION_RETURN_20260827.md`, with task-owned checker/certificates fully pinned in the immutable result manifest.
 
-## Success, narrowing, and kill criteria
+## Research value to preserve
+
+The accepted theorem has already crossed the key admissibility barrier: it creates an exact hidden-factor asymmetry from N alone. The value of this stage is to decide whether that asymmetry can be reached faster than sequential square-root-scale streaming, and to distinguish a genuinely new complexity mechanism from a repackaging of classical factorial/product-tree factorization.
+
+Preserve both outcomes as useful: a faster exact evaluator is a new algorithmic asset, while a proof of classical equivalence/dominance prevents a correct structural theorem from being misread as a complexity breakthrough.
+
+## Success, kill, and return criteria
 
 Freeze exactly one strongest verdict:
 
