@@ -1,0 +1,33 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-D693BD1103CCAE5F354E",
+  "task_id": "RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE",
+  "publication_id": "TP2-7B0534E09E4286CB5B6E",
+  "execution_record_id": "ER-35E187B7C5FE5046F8F1",
+  "claim_id": "chatgpt-pcf4-20260827-1718",
+  "taskbook_path": "research_tasks/PRIME_COORD_FACTOR_BLIND_PADIC_GCD_BRIDGE_READY_AFTER_PCF1_20260827.md",
+  "taskbook_blob_sha1": "sha1:1b7c1988d59492f709e4afc0755a3c1300289cf1",
+  "execution_branch": "research/prime-coord-factor-blind-padic-gcd-bridge-em-pcf4-f9ad88",
+  "execution_branch_base": "00c3c8143ca38410df7ed0de64158a3d33e3c67b",
+  "return_path": "research_returns/PRIME_COORD_FACTOR_BLIND_PADIC_GCD_BRIDGE_RETURN_20260827.md",
+  "return_blob_sha1": "e6dd3b2397258b24a416c095c1da95ef29412e28",
+  "return_sha256": "sha256:a7ba25c06e916039eadb6047203b8d68643f32af7387d1e05fe911e576d21b6c",
+  "owner_head": "dab647de8891a64d25658374a2baeb609025875c",
+  "researcher_id": "EM-PCF4-F9AD88",
+  "frozen_at": "2026-08-27T09:35:57+00:00",
+  "terminal_verdict": "GCD_EXTRACTOR_PROVED",
+  "hard_target_disposition": "GCD_EXTRACTOR_PROVED / BLIND_PADIC_GCD_BRIDGE_PROVED_REFUTED_OR_EXACTLY_OBSTRUCTED / MET_AT_RESEARCH_RETURN_STRENGTH / NO_SPEEDUP_CLAIM",
+  "unresolved_residue": "COMPLEXITY_COMPRESSION: detect the same N-only valuation wall in polynomial(log N) time or beat the strongest relevant classical baseline without materializing A_s at index Theta(p)",
+  "output_manifest": [
+    {
+      "path": "research_returns/PRIME_COORD_FACTOR_BLIND_PADIC_GCD_BRIDGE_RETURN_20260827.md",
+      "git_blob_sha1": "e6dd3b2397258b24a416c095c1da95ef29412e28",
+      "sha256": "sha256:a7ba25c06e916039eadb6047203b8d68643f32af7387d1e05fe911e576d21b6c"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "TWO_EXACT_INTEGER_IMPLEMENTATIONS / DIRECT_BINOMIAL_AND_EXACT_RECURRENCE / AUTHORING_REGRESSION_1830_SEMIPRIMES_ZERO_FAILURE_ZERO_CROSS_MISMATCH",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "DRIVER_REVIEW; IF ACCEPTED route the sealed extractor to PCF2 adversarial benchmarking and PCF3 hidden-factor separation spectrum; do not promote a factorization-speedup theorem from this result alone",
+  "driver_review_required": true
+}
