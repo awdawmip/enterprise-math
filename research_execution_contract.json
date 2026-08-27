@@ -1,27 +1,38 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_CONTRACT_V1",
   "status": "ACTIVE_CANONICAL",
-  "effective": "2026-08-26",
+  "effective": "2026-08-27",
   "record_store": "research_execution_records/<task-id>/<execution-record-id>.json",
   "tool": "tools/research_execution_records.py",
   "dispatch": "tools/research_dispatch.py",
+  "lane_dispatch": "tools/research_lane_dispatch.py",
+  "lane_claim_authority": "tools/research_lane_claims.py",
+  "cohort_runtime": "tools/research_cohort_runtime.py",
   "runtime_guard": "tools/research_runtime_guard.py",
   "result_contract": "research_result_contract.json",
-  "purpose": "Bind one immutable task publication generation to the currently winning authorized Issue #240 claim identity, Researcher-ID, theorem-owner classification, execution branch/base, output scope and owner lease without turning GitHub persistence into the research hot path.",
+  "purpose": "Bind an immutable task publication generation to the currently winning authorized Issue #240 owner claim. Ordinary work binds the operational publication at task scope; an opt-in execution cohort binds one retained publication at exact task+cohort+lane scope. Both paths preserve Researcher-ID, theorem-owner classification, execution branch/base, output scope and owner lease without turning GitHub persistence into the research hot path.",
   "core_invariants": [
     "TASK_REGISTRATION_IS_NOT_EXECUTION_AUTHORIZATION",
     "THEOREM_OWNER_AND_EXECUTION_BRANCH_ARE_DISTINCT_TYPED_FIELDS",
     "REGISTERED_CLAIM_IS_THE_EXECUTION_AUTHORIZATION_ENVELOPE",
     "REGISTERED_EXECUTION_REQUIRES_CURRENT_WINNING_AUTHORIZED_LIVE_CLAIM",
-    "REGISTERED_CLAIM_PINS_CURRENT_PUBLICATION_ID",
+    "NONCOHORT_REGISTERED_CLAIM_PINS_OPERATIONAL_PUBLICATION_ID",
+    "ACTIVE_COHORT_REGISTERED_CLAIM_PINS_EXACT_LANE_RETAINED_PUBLICATION_ID",
+    "ACTIVE_COHORT_DISALLOWS_TASK_GLOBAL_REGISTERED_EXECUTION_OWNER",
+    "COHORT_WINNER_SCOPE_IS_TASK_ID_PLUS_EXECUTION_COHORT_ID_PLUS_EXECUTION_LANE_ID",
+    "SIBLING_COHORT_LANES_MAY_HOLD_CONCURRENT_WINNING_CLAIMS",
+    "EXECUTION_COHORT_ID_AND_EXECUTION_LANE_ID_ARE_PAIRED_FIELDS",
     "REGISTERED_CLAIM_PINS_CLAIM_ID_AND_RESEARCHER_ID",
     "REGISTERED_CLAIM_PINS_EXECUTION_BRANCH_AND_BASE",
     "REGISTERED_CLAIM_PINS_ALLOWED_OUTPUT_SCOPE",
+    "LANE_ALLOWED_OUTPUTS_MUST_STAY_INSIDE_DISJOINT_LANE_OUTPUT_PREFIX",
     "CALLER_OWNER_CLAIM_CANNOT_OVERRIDE_CANONICAL_WINNER",
     "NO_SEPARATE_REMOTE_EXECUTION_RECORD_WRITE_IS_REQUIRED_BEFORE_CLAIM",
-    "FIRST_VALID_AUTHORIZED_ISSUE_CLAIM_COMMITS_THE_DISTRIBUTED_CLAIM_RACE",
+    "FIRST_VALID_AUTHORIZED_ISSUE_CLAIM_COMMITS_THE_OWNER_RACE_WITHIN_ITS_OWNER_SCOPE",
     "INCOMPLETE_STALE_UNAUTHORIZED_OR_EXPIRED_REGISTERED_CLAIM_CANNOT_AUTHORIZE_EXECUTION",
     "IMMUTABLE_EXECUTION_RECORD_MAY_BE_FROZEN_AT_A_DURABLE_CHECKPOINT",
+    "NONCOHORT_EXECUTION_RECORD_ID_COMPATIBILITY_IS_PRESERVED",
+    "LANE_EXECUTION_ID_INCLUDES_COHORT_AND_LANE_IDENTITY",
     "RESULT_FREEZE_REQUIRES_MATCHING_EXECUTION_RECORD"
   ],
   "claim_envelope_required_fields": [
@@ -35,20 +46,24 @@
   ],
   "claim_envelope_optional_fields": [
     "researcher_id",
-    "lease_minutes"
+    "lease_minutes",
+    "execution_cohort_id",
+    "execution_lane_id"
   ],
   "claim_envelope_normalization": {
     "researcher_id": "If absent, derive deterministically from task_id plus claim_id using the existing identity lane.",
-    "taskbook_blob_sha1": "Resolved from the current immutable publication record; callers do not need to duplicate it.",
-    "lease_minutes": "If absent, inherit the task claim lease."
+    "taskbook_blob_sha1": "Resolved from the exact immutable publication record selected by the ordinary operational route or execution lane; callers do not need to duplicate it.",
+    "lease_minutes": "If absent, inherit the task claim lease.",
+    "execution_scope": "execution_cohort_id and execution_lane_id are both present or both absent; active cohorts require both."
   },
   "runtime_authorization_gate": {
     "tool": "tools/research_runtime_guard.py authorize",
     "registered_task_requires_event_evidence": true,
-    "event_evidence": "One local export of the existing Issue #240 comments at the execution/adoption semantic boundary; canonical dispatch replays authentication, actor authorization, claim-envelope validation and lease reduction locally.",
-    "required_runtime_state": "LEASED",
-    "required_binding": [
-      "current publication_id",
+    "event_evidence": "One local export of the existing raw Issue #240 comments at the execution/adoption semantic boundary; canonical dispatch normalizes server metadata, actor authorization, claim-envelope validation and lease reduction locally.",
+    "noncohort_required_runtime_state": "LEASED",
+    "cohort_required_runtime_state": "LEASED_WITHIN_EXACT_LANE",
+    "noncohort_required_binding": [
+      "operational publication_id",
       "winning claim_id",
       "winning researcher_id",
       "theorem_owner",
@@ -57,6 +72,13 @@
       "allowed_outputs",
       "live owner lease",
       "authorized server comment provenance"
+    ],
+    "cohort_additional_binding": [
+      "execution_cohort_id",
+      "execution_lane_id",
+      "lane_role",
+      "lane_output_prefix",
+      "lane-pinned retained publication_id"
     ],
     "caller_owner_claim_is_authority": false,
     "routine_polling_required": false
@@ -75,12 +97,31 @@
     "owner_lease_minutes",
     "prepared_at"
   ],
+  "record_optional_paired_lane_fields": [
+    "execution_cohort_id",
+    "execution_lane_id",
+    "lane_output_prefix"
+  ],
+  "parallel_execution": {
+    "contract": "research_execution_cohort_contract.json",
+    "cohort_store": "research_execution_cohorts/<task-id>/<cohort-id>.json",
+    "winner_scope": "task_id + execution_cohort_id + execution_lane_id",
+    "lane_publication": "exact publication_id pinned by the lane; it may be retained and non-operational",
+    "lane_output_scope": "every allowed output path/prefix must stay under lane.output_prefix",
+    "same_claim_id_across_sibling_lanes": "ALLOWED_AND_DISTINGUISHED_BY_COHORT_LANE_IDENTITY",
+    "task_global_execution_while_active_cohort_exists": "FORBIDDEN",
+    "terminal_cohort_synthesis_blocks_further_lane_execution": true
+  },
   "persistence_boundary": {
-    "claim": "One Issue #240 CLAIM is sufficient to begin a registered execution after canonical validation; do not require a prior commit, PR, merge, CI wait, heartbeat, or second GitHub write.",
-    "execution_authorization_read": "At execution start or stale adoption, consume one current Issue #240 comment export and reduce it locally; do not turn this into periodic polling between semantic checkpoints.",
+    "claim": "One Issue #240 CLAIM per owner scope is sufficient to begin registered execution after canonical validation; do not require a prior commit, PR, merge, CI wait, heartbeat, or second GitHub write.",
+    "execution_authorization_read": "At execution start or stale adoption, consume one current Issue #240 raw comment export and reduce it locally; do not turn this into periodic polling between semantic checkpoints.",
     "execution_record": "The immutable execution record is durable provenance for result freezing. It may be created locally after CLAIM and batched with the first genuine durable checkpoint or final return; it is not a pre-math remote publication gate.",
+    "parallel_cohort": "One immutable cohort record defines the lanes. Each lane then uses the same ordinary one-CLAIM boundary; there is no extra heartbeat or synchronization write between semantic checkpoints.",
     "between_checkpoints": "Zero routine repository writes, zero CI polling, zero review polling and zero scheduler heartbeat are required solely by this contract."
   },
-  "distributed_transaction": "Validate current task publication -> create/verify execution branch -> append one self-contained authorized CLAIM envelope on Issue #240 -> first valid live CLAIM wins -> runtime guard reconstructs that same live winner at execution/adoption boundary -> research -> freeze the matching execution record only when a genuine durable checkpoint/result requires provenance.",
-  "compatibility": "A previously frozen immutable execution intent may still supply the binding for its matching current-publication CLAIM, but it does not replace the requirement that the live Issue #240 claim itself currently wins the owner race."
+  "distributed_transaction": {
+    "noncohort": "Validate operational task publication -> create/verify execution branch -> append one self-contained authorized CLAIM envelope on Issue #240 -> first valid live task-scope CLAIM wins -> runtime guard reconstructs that same winner -> research -> freeze execution provenance only when a genuine durable checkpoint/result requires it.",
+    "cohort": "Freeze cohort with disjoint lanes -> each lane validates its pinned retained publication and branch/output namespace -> append one authorized lane CLAIM -> first valid live CLAIM wins that exact lane -> sibling lanes may proceed concurrently -> each lane freezes its own durable provenance/result -> exact cohort evidence proceeds to two reference passes and synthesis."
+  },
+  "compatibility": "Previously frozen non-cohort execution records and their IDs remain readable with unchanged semantics. A historical execution intent may still supply the binding for its matching live CLAIM, but it does not replace the requirement that the current Issue #240 claim wins the relevant task/lane owner race."
 }
