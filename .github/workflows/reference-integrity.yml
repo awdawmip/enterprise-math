@@ -48,3 +48,7 @@ jobs:
         run: python research_execution_cohorts.py audit
       - name: Check cohort completeness and two-pass terminalization
         run: python tools/research_cohort_runtime.py audit
+      - name: Check exhaustive historical PR control-plane migration ledger
+        run: python control_plane/check_historical_pr_migration_ledger.py
+      - name: Check legacy coordinate semantic quarantine
+        run: python control_plane/check_legacy_coordinate_quarantine.py
