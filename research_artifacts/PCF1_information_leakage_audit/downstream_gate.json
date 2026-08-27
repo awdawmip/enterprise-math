@@ -1,0 +1,105 @@
+{
+  "schema": "PCF1_DOWNSTREAM_GATE_V1",
+  "source_task": "RS-PRIME-COORD-FACTOR-INFORMATION-LEAKAGE-AUDIT",
+  "source_verdict": "AUDIT_COMPLETE_WITH_ADMISSIBLE_SET",
+  "global_algorithmic_rule": "Algorithm constructors receive only target integer N, an independent seed/public parameter s, and fixed public constants. Hidden factors p,q and any value derived by first resolving p,q are proof/verifier data only.",
+  "proof_side_rule": "CRT decompositions, p-adic valuations and local prime-labelled projections may be used in proofs after the N-native object is defined, but may not be used to choose, initialize, truncate, phase-select, coordinate-select or tune that object.",
+  "tasks": {
+    "RS-PRIME-COORD-FACTOR-BLIND-BENCHMARK-SUITE": {
+      "status_after_PCF1": "UNBLOCKABLE_BY_THIS_AUDIT",
+      "allowed_inputs": [
+        "N",
+        "independent seed/public parameter s",
+        "fixed public polynomial probes",
+        "packet/path counts on an N-native public carrier",
+        "frame-invariant shell/relational-axis observables",
+        "prime-wall/filament predicates only when their full construction cost is charged"
+      ],
+      "explicitly_allowed_baselines": [
+        "x=s mod N -> gcd(N,x^2+1)",
+        "x=s mod N -> gcd(N,x^2+x+1)",
+        "x=s mod N -> gcd(N,x^6-1), gcd(N,x^6+1)"
+      ],
+      "forbidden": [
+        "p or q",
+        "factor-derived residue classes",
+        "cell witness (a,b) satisfying H=N(a,b)C(a,b) for target H",
+        "pointed Prime-Fusion r derived from (a,b)",
+        "nontrivial idempotent e supplied or selected after factor knowledge",
+        "membership in M_{p,q}",
+        "BRC truncation length p when p is a hidden factor",
+        "answer-dependent seed/filter tuning"
+      ],
+      "required_cost_accounting": "Separate poly(n) per-seed arithmetic from number of seeds/support size; value-polynomial scans are ENUMERATIVE."
+    },
+    "RS-PRIME-COORD-FACTOR-HIDDEN-FACTOR-SEPARATION-SPECTRUM": {
+      "status_after_PCF1": "UNBLOCKABLE_BY_THIS_AUDIT",
+      "allowed_components": [
+        "packet/path counts when N-native",
+        "relational-axis invariant data",
+        "native shell invariant counts/orbits",
+        "prime-wall/filter counts from factor-blind construction",
+        "filament local public predicates",
+        "public-seed Prime-Fusion polynomial values/gcd probes"
+      ],
+      "proof_only_components": [
+        "local p/q projections",
+        "prime-indexed p-adic fingerprints",
+        "factor-labelled Prime-Fusion channels"
+      ],
+      "forbidden_components": [
+        "(a,b) target witness",
+        "p,q-labelled phase",
+        "nontrivial e as input",
+        "postselected mixed root"
+      ],
+      "priority_attack": "Measure whether any admitted N-native component biases public seeds toward different local behavior beyond the fixed-degree O(1/p+1/q) baseline."
+    },
+    "RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE": {
+      "status_after_PCF1": "UNBLOCKABLE_BY_THIS_AUDIT",
+      "allowed_reuse": [
+        "public kernel A_n and exact integer recurrences independent of hidden factors",
+        "fixed constants m=2/3/4 if precommitted",
+        "proof-side local p/q analysis after an N-native residue is defined"
+      ],
+      "not_admitted_as_constructor": [
+        "R_p(m)",
+        "S_p",
+        "inert-prime finite Clausen object indexed by hidden p"
+      ],
+      "required_first_step": "Define G_N(s) or a finite list of residues using only N,s with no p-sized hidden-factor truncation. Prove denominator validity over Z/NZ before local analysis.",
+      "success_gate": "integer residue/determinant whose gcd with N is nontrivial on an explicit family or with quantified factor-blind seed success."
+    },
+    "RS-PRIME-COORD-FACTOR-CRITICAL-COFACTOR-SUPPORT-COMPRESSION": {
+      "status_after_PCF1": "REMAINS_DEPENDENT_ON_PARENT_ALL_M_TASK_AS_PUBLISHED",
+      "allowed_reuse": [
+        "exact M_m/table formulas with public m",
+        "proved transfer/minor structure once available"
+      ],
+      "required_first_step": "Define m=m(N,s) or another N-native coordinate map and a support set F_N without reading divisors.",
+      "success_gate": "divisor coverage plus explicit support cardinality/construction bit-cost; merely re-expressing divisor enumeration is ENUMERATIVE."
+    },
+    "RS-PRIME-COORD-FACTOR-PRIME-FUSION-NBLIND-REALIZATION": {
+      "status_after_PCF1": "UNBLOCKABLE_BY_THIS_AUDIT",
+      "allowed_reuse": [
+        "F(X)=(X^2+1)(X^2+X+1) over Z/NZ",
+        "public seed x in Z/NZ",
+        "universal quotient/module definitions functorial in base ring",
+        "T5/T6/T11 only as proof-side decoder targets",
+        "H=91 regression guard as verification only"
+      ],
+      "forbidden_as_algorithmic_input": [
+        "cell coordinates (a,b) tied to target H",
+        "channel values N(a,b),C(a,b)",
+        "p,q",
+        "pointed r=-a*b^{-1} mod H",
+        "nontrivial idempotent e",
+        "oriented mixed-locus membership M_{p,q}",
+        "factor-labelled CRT component selectors"
+      ],
+      "exact_boundary": "A nontrivial idempotent is polynomial-time equivalent to a coprime factor split, so an N-native task must GENERATE it (or an equivalent asymmetry), not assume it.",
+      "priority_attack": "Construct M_N,T_N from N only and seek rank/orbit/determinant/annihilator asymmetry. Arbitrary-seed polynomial gcd probes are baseline and square-root-scale unless the dynamics provably biases them."
+    }
+  },
+  "program_level_missing_object": "N_ONLY_ASYMMETRY_GENERATOR"
+}
