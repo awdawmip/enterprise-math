@@ -12,7 +12,14 @@ def gate_rows(**overrides):
     rows = []
     for gate in impl.GATES:
         decision = overrides.get(gate, "NOT_REQUIRED")
-        evidence = [f"evidence:{gate}"] if decision == "SATISFIED_BY_REVIEWED_RESULT" else []
+        evidence = (
+            [f"evidence:{gate}"]
+            if decision in {
+                "SATISFIED_BY_REVIEWED_RESULT",
+                followup.EXISTING_ASSET_DECISION,
+            }
+            else []
+        )
         rows.append(
             {
                 "gate": gate,
@@ -55,12 +62,28 @@ class DriverFollowupContractTests(unittest.TestCase):
         with self.assertRaisesRegex(impl.DriverFollowupError, "exactly"):
             impl._gate_map(rows)
 
-    def test_satisfied_gate_requires_evidence(self):
+    def test_reviewed_result_satisfaction_requires_evidence(self):
         rows = gate_rows()
         rows[0]["decision"] = "SATISFIED_BY_REVIEWED_RESULT"
         rows[0]["evidence_refs"] = []
         with self.assertRaisesRegex(impl.DriverFollowupError, "requires evidence_refs"):
             impl._gate_map(rows)
+
+    def test_existing_control_asset_satisfaction_requires_evidence(self):
+        rows = gate_rows()
+        rows[0]["decision"] = followup.EXISTING_ASSET_DECISION
+        rows[0]["evidence_refs"] = []
+        with self.assertRaisesRegex(impl.DriverFollowupError, "requires evidence_refs"):
+            impl._gate_map(rows)
+
+    def test_existing_control_asset_does_not_require_duplicate_task_role(self):
+        gates = impl._gate_map(
+            gate_rows(MATHEMATICAL_CONTINUATION=followup.EXISTING_ASSET_DECISION)
+        )
+        required_roles = {
+            gate for gate, row in gates.items() if row["decision"] == "REQUIRED"
+        }
+        self.assertNotIn("MATHEMATICAL_CONTINUATION", required_roles)
 
     def test_accepted_review_cannot_skip_external_prior_art(self):
         gates = impl._gate_map(gate_rows())
@@ -68,6 +91,14 @@ class DriverFollowupContractTests(unittest.TestCase):
         result = {"method_harvest": "RESULT_ONLY"}
         with self.assertRaisesRegex(impl.DriverFollowupError, "EXTERNAL_PRIOR_ART"):
             impl._forced_gate_rules(review, result, gates)
+
+    def test_accepted_review_may_pin_existing_external_prior_art_task(self):
+        gates = impl._gate_map(
+            gate_rows(EXTERNAL_PRIOR_ART_DUPLICATION=followup.EXISTING_ASSET_DECISION)
+        )
+        review = {"disposition": "ACCEPTED", "destination_class": "NONE"}
+        result = {"method_harvest": "RESULT_ONLY"}
+        impl._forced_gate_rules(review, result, gates)
 
     def test_l4_acceptance_cannot_skip_lean(self):
         gates = impl._gate_map(
@@ -78,9 +109,23 @@ class DriverFollowupContractTests(unittest.TestCase):
         with self.assertRaisesRegex(impl.DriverFollowupError, "LEAN_FORMALIZATION"):
             impl._forced_gate_rules(review, result, gates)
 
-    def test_request_replication_requires_replication_task_gate(self):
+    def test_request_replication_accepts_already_materialized_replication(self):
+        gates = impl._gate_map(
+            gate_rows(INDEPENDENT_REPLICATION=followup.EXISTING_ASSET_DECISION)
+        )
+        review = {
+            "disposition": "REQUEST_REPLICATION",
+            "destination_class": "REPLICATION",
+        }
+        result = {"method_harvest": "RESULT_ONLY"}
+        impl._forced_gate_rules(review, result, gates)
+
+    def test_request_replication_rejects_missing_replication_asset(self):
         gates = impl._gate_map(gate_rows())
-        review = {"disposition": "REQUEST_REPLICATION", "destination_class": "REPLICATION"}
+        review = {
+            "disposition": "REQUEST_REPLICATION",
+            "destination_class": "REPLICATION",
+        }
         result = {"method_harvest": "RESULT_ONLY"}
         with self.assertRaisesRegex(impl.DriverFollowupError, "INDEPENDENT_REPLICATION"):
             impl._forced_gate_rules(review, result, gates)
