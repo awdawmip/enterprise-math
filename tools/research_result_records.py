@@ -4,7 +4,9 @@
 The durable record writer/auditor lives in ``control_plane.research_result_records_impl``.
 This shim preserves its API while replacing task-level control reduction:
 multiple results and multiple Driver reviews are retained and never resolved by
-timestamp/latest-wins. Each multiplicity layer uses exact-set two-pass synthesis.
+timestamp/latest-wins. Each multiplicity layer uses exact-set two-pass synthesis,
+and parallel-result control is valid only while every source result's current
+review authority is itself resolved.
 """
 from __future__ import annotations
 
@@ -91,12 +93,7 @@ def _single_result_state(
     root: Path,
     publication_id: str | None,
 ) -> dict[str, Any] | None:
-    """Reduce one result generation without allowing multiple reviews to latest-win.
-
-    Zero/one review preserves the historical public ``latest_review`` compatibility
-    surface. Once two immutable review records actually exist, ordering is no
-    longer control authority and exact-set review synthesis becomes mandatory.
-    """
+    """Reduce one result generation without allowing multiple reviews to latest-win."""
     values = [
         item
         for item in iter_results(root)
@@ -130,6 +127,31 @@ def _parallel_synthesis(intake_id: str, evidence_set_sha256: str, root: Path) ->
     return None
 
 
+def _parallel_review_authority(
+    result_ids: list[str], root: Path
+) -> tuple[dict[str, dict[str, Any]], list[str]]:
+    """Resolve every source result's current review set before task synthesis acts.
+
+    This closes the cross-layer stale-synthesis hole: a new Driver review changes
+    that result's current review authority even though the task-level result-id set
+    has not changed. Until the new review set is synthesized, old parallel-result
+    synthesis is retained as history but cannot control task state.
+    """
+    states: dict[str, dict[str, Any]] = {}
+    pending: list[str] = []
+    for result_id in sorted(result_ids):
+        review_state = _review_evidence.state(result_id, root)
+        states[result_id] = review_state
+        phase = review_state.get("review_state")
+        if phase not in {
+            "SINGLE_REVIEW_FLOW",
+            "REVIEW_SYNTHESIS_TERMINAL",
+            "REVIEW_SYNTHESIS_NONTERMINAL",
+        }:
+            pending.append(result_id)
+    return states, pending
+
+
 def task_result_state(
     task_id: str,
     root: Path = ROOT,
@@ -141,7 +163,8 @@ def task_result_state(
     multiplicity also becomes exact-set evidence. Two or more results for the
     selected publication never use timestamp precedence and remain
     non-dispatchable until result intake -> reference pass 1 -> reference pass 2
-    -> synthesis completes.
+    -> synthesis completes. A synthesized multi-result control state is usable
+    only while every source result's current review authority is resolved.
     """
     resolved_publication = _publication_for_state(task_id, root, publication_id)
     parallel = _parallel.state(task_id, resolved_publication, root)
@@ -194,6 +217,21 @@ def task_result_state(
             "evidence_set_sha256": evidence_hash,
         }
 
+    review_states, pending_review_ids = _parallel_review_authority(result_ids, root)
+    if pending_review_ids:
+        return {
+            "state": "AWAITING_DRIVER_REVIEW",
+            "result": synthetic_result,
+            "review": None,
+            "terminal": False,
+            "parallel_state": "AWAITING_RESULT_REVIEW_AUTHORITY",
+            "parallel_result_ids": result_ids,
+            "parallel_intake_id": intake_id,
+            "evidence_set_sha256": evidence_hash,
+            "pending_result_review_ids": pending_review_ids,
+            "result_review_authority": review_states,
+        }
+
     synth_result = {
         **synthetic_result,
         "result_id": synthesis.get("synthesis_id"),
@@ -212,6 +250,7 @@ def task_result_state(
             "parallel_result_ids": result_ids,
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
+            "result_review_authority": review_states,
         }
 
     if phase == "PARALLEL_SYNTHESIS_TERMINAL":
@@ -226,6 +265,7 @@ def task_result_state(
                 "parallel_result_ids": result_ids,
                 "parallel_intake_id": intake_id,
                 "evidence_set_sha256": evidence_hash,
+                "result_review_authority": review_states,
             }
         return {
             "state": "TERMINAL",
@@ -239,6 +279,7 @@ def task_result_state(
             "parallel_result_ids": result_ids,
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
+            "result_review_authority": review_states,
         }
 
     raise ResultRecordError(f"unknown parallel result state: {phase}")
