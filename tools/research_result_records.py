@@ -5,6 +5,10 @@ The durable record writer/auditor lives in ``control_plane.research_result_recor
 This shim preserves its API while replacing only task-level result-state reduction:
 multiple results are retained and routed through the two-pass parallel-evidence
 synthesis layer instead of timestamp/latest-result semantics.
+
+A historical review used the pre-enum destination label ``RETURN_ONLY``. Audit
+accepts that exact immutable legacy alias as equivalent to today's ``NONE``;
+new review writes continue to reject it so the current schema does not regress.
 """
 from __future__ import annotations
 
@@ -23,6 +27,27 @@ from control_plane import research_result_records_impl as _impl  # noqa: E402
 for _name in dir(_impl):
     if not _name.startswith("__"):
         globals()[_name] = getattr(_impl, _name)
+
+# Historical immutable evidence may contain RETURN_ONLY, which meant that an
+# accepted return had no downstream destination. Let the implementation audit
+# read that old byte value, but keep every new writer on the current enum.
+_HISTORICAL_DESTINATION_ALIAS = "RETURN_ONLY"
+_legacy_review_result = _impl.review_result
+_impl.DESTINATION_CLASSES = set(_impl.DESTINATION_CLASSES) | {_HISTORICAL_DESTINATION_ALIAS}
+DESTINATION_CLASSES = _impl.DESTINATION_CLASSES
+
+
+def review_result(*args, **kwargs):
+    if kwargs.get("destination_class") == _HISTORICAL_DESTINATION_ALIAS:
+        raise ResultRecordError(
+            "RETURN_ONLY is a historical immutable-review alias; new reviews must use NONE"
+        )
+    return _legacy_review_result(*args, **kwargs)
+
+
+# CLI review writes in the implementation resolve review_result from the
+# implementation module globals, so enforce the current writer boundary there.
+_impl.review_result = review_result
 
 if str(_impl.ROOT) not in sys.path:
     sys.path.insert(0, str(_impl.ROOT))
