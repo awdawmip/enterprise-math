@@ -6,7 +6,8 @@
   "lane_dispatch_tool": "tools/research_lane_dispatch.py",
   "lane_claim_tool": "tools/research_lane_claims.py",
   "cohort_runtime_tool": "tools/research_cohort_runtime.py",
-  "driver_followup_tool": "research_driver_followup.py",
+  "driver_followup_tool": "research_driver_followup_guard.py",
+  "driver_followup_legacy_baseline": "research_driver_followup_legacy_reviews.json",
   "task_definition_authority": [
     "research_task_records/<task-id>/<publication-id>.json",
     "frozen research_scheduler.json legacy baseline only"
@@ -78,7 +79,10 @@
     "EDITED_EVENT_COMMENTS_DO_NOT_MUTATE_HISTORY",
     "FIRST_VALID_AUTHORIZED_ISSUE_CLAIM_COMMITS_THE_OWNER_RACE_WITHIN_ITS_OWNER_SCOPE",
     "RESULT_PENDING_REVIEW_IS_NOT_RESEARCHER_DISPATCHABLE_ON_ORDINARY_PATH",
-    "POST_CUTOVER_DRIVER_REVIEW_WITHOUT_VALID_FOLLOWUP_PACKET_REMAINS_AWAITING_REVIEW_AND_CANNOT_CLOSE_DISPATCH",
+    "LEGACY_DRIVER_REVIEW_EXEMPTION_IS_EXACT_FROZEN_REVIEW_ID_MEMBERSHIP_NOT_REVIEWED_AT",
+    "NEW_DRIVER_REVIEW_CANNOT_BACKDATE_ITSELF_INTO_LEGACY_COMPATIBILITY",
+    "NONLEGACY_DRIVER_REVIEW_WITHOUT_VALID_FOLLOWUP_PACKET_REMAINS_AWAITING_REVIEW_AND_CANNOT_CLOSE_DISPATCH",
+    "CANONICAL_REVIEW_COMMAND_REQUIRES_FOLLOWUP_SPEC_AND_AUTOMATICALLY_PUBLISHES_TASKSET_OR_PARENT_CLOSURE_PACKET",
     "FOLLOWUP_PACKET_MUST_PIN_POST_REVIEW_IMMUTABLE_TASKSET_OR_CANONICAL_CLOSED_PARENT_OBJECTIVE",
     "FIRST_COHORT_LANE_RESULT_DOES_NOT_CLOSE_SIBLING_LANES",
     "COMPLETE_COHORT_EVIDENCE_REQUIRES_TWO_REFERENCE_PASSES_AND_SYNTHESIS",
@@ -121,13 +125,18 @@
   },
   "driver_review_followup": {
     "contract": "research_driver_followup_contract.json",
-    "cutover_reviewed_at": "2026-08-27T09:19:00+00:00",
+    "canonical_guard": "research_driver_followup_guard.py",
+    "legacy_baseline": "research_driver_followup_legacy_reviews.json",
+    "legacy_baseline_review_count": 12,
+    "legacy_selection_rule": "review_id membership in exact frozen baseline",
+    "reviewed_at_is_cutover_authority": false,
     "review_without_packet": "AWAITING_REVIEW / AWAITING_FOLLOWUP_TASKSET_PUBLICATION",
     "zero_task_exception": "canonical current parent Objective head already CLOSED",
-    "task_publication": "automatic materializer publishes one or more immutable V2 task records in the same Driver-review subflow",
+    "canonical_review_transaction": "tools/research_result_records.py review requires --followup-spec and automatically publishes one or more immutable V2 task records plus the follow-up packet",
+    "recovery_materializer": "research_driver_followup_guard.py materialize",
     "ordinary_terminality": "terminal Driver disposition AND follow-up barrier ready",
     "parallel_terminality": "terminal exact-set synthesis AND every governed reviewed result follow-up barrier ready"
   },
-  "selection_rule": "For tasks without an active execution cohort, use the historical state/priority/leverage/staleness ordering over the merged canonical view. AWAITING_REVIEW and COMPLETE are never selected. A post-cutover Driver review whose automatic follow-up packet is missing or invalid stays inside AWAITING_REVIEW even when the review disposition itself is terminal. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global owner authority is suppressed; lane dispatch handles evidence-incomplete lanes. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized.",
-  "interaction_budget": "Authentication and actor authorization reuse the same Issue #240 event stream. The review follow-up rule adds one bounded semantic transaction only at the actual Driver review: preflight a gate/taskset spec, publish the next immutable taskbook/taskset, and freeze one follow-up packet. It does not introduce heartbeat, CI polling, review polling, or moving-main chase."
+  "selection_rule": "For tasks without an active execution cohort, use the historical state/priority/leverage/staleness ordering over the merged canonical view. AWAITING_REVIEW and COMPLETE are never selected. Any Driver review ID outside the frozen legacy baseline whose automatic follow-up packet is missing or invalid stays inside AWAITING_REVIEW even when the review disposition itself is terminal; reviewed_at cannot create a legacy exemption. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global owner authority is suppressed; lane dispatch handles evidence-incomplete lanes. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized.",
+  "interaction_budget": "Authentication and actor authorization reuse the same Issue #240 event stream. The review follow-up rule adds one bounded semantic transaction only at the actual Driver review: preflight a gate/taskset spec, create the review, publish the next immutable taskbook/taskset, and freeze one follow-up packet. It does not introduce heartbeat, CI polling, review polling, or moving-main chase."
 }
