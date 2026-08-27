@@ -62,6 +62,18 @@
         "research_artifacts/PRIME_COORD_FACTOR_NONLY_VALUATION_WALL_GCD_EXTRACTOR_INDEPENDENT_REPLAY/PHASE_A_FREEZE.md"
       ],
       "reason": "The PHASE_A_FREEZE Git blob still equals the result's frozen Git-blob pin; only the stored secondary SHA-256 value is stale."
+    },
+    {
+      "normalization_id": "RRC-PCF4-CORRECTED-CHECKER-SHA",
+      "result_id": "RR-78BAD07DCE4EA3FC1F40",
+      "record_path": "research_result_records/RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE/RR-78BAD07DCE4EA3FC1F40.json",
+      "record_blob_sha1": "sha1:146001ea7144bb999787498165dd5d103e8239f3",
+      "field_aliases": [],
+      "artifact_sha256_repairs": [
+        "scripts/check_prime_coord_factor_blind_padic_gcd_bridge.py",
+        "scripts/check_prime_coord_factor_blind_padic_gcd_bridge_independent.py"
+      ],
+      "reason": "The provenance-correct replacement reused the original checker Git-blob pins exactly, but its two stored secondary SHA-256 values were stale. Both current checker blobs still equal those primary pins, so only the secondary digests are normalized in memory."
     }
   ],
   "review_normalizations": [
