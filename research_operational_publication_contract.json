@@ -1,0 +1,42 @@
+{
+  "schema": "ENTERPRISE_MATH_OPERATIONAL_PUBLICATION_SELECTION_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL_CANDIDATE",
+  "effective": "2026-08-26",
+  "purpose": "Separate multi-valued immutable research-publication evidence from the one publication currently selected for non-cohort dispatch/execution. Retaining an alternate publication is not quarantine, rejection, truth downgrade or deletion.",
+  "selector": "research_operational_publications.py",
+  "publication_store": "research_task_records/<task-id>/<publication-id>.json",
+  "compatibility_resolution_store": "research_task_publication_resolutions.json",
+  "parallel_evidence_contract": "research_parallel_evidence_contract.json",
+  "core_invariants": [
+    "IMMUTABLE_PUBLICATION_EVIDENCE_MAY_BE_MULTI_VALUED",
+    "NONCOHORT_OPERATIONAL_PUBLICATION_IS_SINGLE_VALUED",
+    "OPERATIONAL_SELECTION_IS_NOT_CANONICAL_MATHEMATICAL_TRUTH",
+    "NONSELECTED_PUBLICATION_IS_RETAINED_PARALLEL_EVIDENCE_NOT_REJECTED_EVIDENCE",
+    "ALL_ACTIVE_UNSUPERSEDED_HEADS_MUST_REMAIN_IN_RETAINED_PARALLEL_PUBLICATION_IDS",
+    "MULTIPLE_ACTIVE_HEADS_REQUIRE_EXPLICIT_OPERATIONAL_SELECTION",
+    "MULTIPLE_ACTIVE_HEADS_REQUIRE_TWO_PASS_PARALLEL_SYNTHESIS_BEFORE_OPERATIONAL_SELECTION_IS_ACCEPTED",
+    "LEGACY_CANONICAL_PUBLICATION_ID_IS_READ_COMPATIBILITY_ALIAS_FOR_OPERATIONAL_PUBLICATION_ID",
+    "LEGACY_QUARANTINED_PUBLICATION_IDS_IS_READ_COMPATIBILITY_ALIAS_ONLY_AND_DOES_NOT_DEFINE_EVIDENCE_REJECTION",
+    "OPERATIONAL_SELECTION_DOES_NOT_DELETE_REWRITE_OR_TERMINATE_OTHER_PUBLICATIONS",
+    "COHORT_LANES_MAY_EXPLICITLY_BIND_OTHER_RETAINED_PUBLICATIONS",
+    "SINGLE_HEAD_TASKS_REQUIRE_NO_EXTRA_RESOLUTION_OBJECT"
+  ],
+  "selection_output": [
+    "task_id",
+    "operational_publication_id",
+    "retained_parallel_publication_ids",
+    "operational_record",
+    "selection_source",
+    "parallel_synthesis_id"
+  ],
+  "selection_sources": ["SINGLE_ACTIVE_HEAD", "EXPLICIT_PARALLEL_SYNTHESIS_RESOLUTION"],
+  "legacy_aliases": {
+    "canonical_publication_id": "operational_publication_id",
+    "quarantined_publication_ids": "compatibility subset of retained non-operational heads; never interpreted as rejected research evidence"
+  },
+  "interaction_budget": {
+    "single_head_extra_writes": 0,
+    "parallel_selection": "reuse the already-required parallel intake + two reference passes + synthesis; no extra research-time heartbeat or poll",
+    "routine_ci_polling": false
+  }
+}
