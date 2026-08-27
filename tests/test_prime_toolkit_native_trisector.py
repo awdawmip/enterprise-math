@@ -20,8 +20,9 @@ class PrimeToolkitNativeTrisectorTests(unittest.TestCase):
         for method_id in ids:
             record = method_record(method_id)
             self.assertEqual(record["toolization_status"], "VALIDATED_WIP_ADAPTER_ONLY")
-            self.assertIn("CANONICAL_MAIN", record["source_status"])
+            self.assertIn("PROVED_WIP", record["source_status"])
             self.assertIn("EXECUTABLE_CHECKED", record["source_status"])
+            self.assertNotIn("CANONICAL_MAIN", record["source_status"])
 
     def test_wrappers_preserve_status_and_owner_values(self):
         orbit = split_hyperbola_orbit_certificate(3, 1, 5)
