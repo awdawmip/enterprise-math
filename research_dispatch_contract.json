@@ -1,11 +1,12 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_DISPATCH_CONTRACT_V3",
-  "status": "ACTIVE_CANONICAL_POST_CUTOVER",
+  "status": "ACTIVE_CANONICAL_POST_CUTOVER_V1_3_CANDIDATE",
   "effective": "2026-08-27",
   "canonical_tool": "tools/research_dispatch.py",
   "lane_dispatch_tool": "tools/research_lane_dispatch.py",
   "lane_claim_tool": "tools/research_lane_claims.py",
   "cohort_runtime_tool": "tools/research_cohort_runtime.py",
+  "driver_followup_tool": "research_driver_followup.py",
   "task_definition_authority": [
     "research_task_records/<task-id>/<publication-id>.json",
     "frozen research_scheduler.json legacy baseline only"
@@ -16,7 +17,11 @@
   "control_event_authorization": {
     "contract": "research_control_event_authorization.json",
     "mode": "EXACT_SERVER_AUTHOR_ALLOWLIST",
-    "required_actor_fields": ["author_login", "author_user_id", "author_association"],
+    "required_actor_fields": [
+      "author_login",
+      "author_user_id",
+      "author_association"
+    ],
     "server_authentication_is_authorization": false,
     "body_actor_is_authorization": false,
     "body_researcher_id_is_github_authorization": false,
@@ -46,7 +51,8 @@
   },
   "result_authority": [
     "research_result_records/<task-id>/<result-id>.json",
-    "research_result_reviews/<result-id>/<review-id>.json"
+    "research_result_reviews/<result-id>/<review-id>.json",
+    "research_driver_followups/<review-id>/<packet-id>.json"
   ],
   "core_invariants": [
     "REGISTERED_TASKS_AND_LEGACY_TASKS_SHARE_ONE_DERIVED_DISPATCH_VIEW",
@@ -72,10 +78,13 @@
     "EDITED_EVENT_COMMENTS_DO_NOT_MUTATE_HISTORY",
     "FIRST_VALID_AUTHORIZED_ISSUE_CLAIM_COMMITS_THE_OWNER_RACE_WITHIN_ITS_OWNER_SCOPE",
     "RESULT_PENDING_REVIEW_IS_NOT_RESEARCHER_DISPATCHABLE_ON_ORDINARY_PATH",
+    "POST_CUTOVER_DRIVER_REVIEW_WITHOUT_VALID_FOLLOWUP_PACKET_REMAINS_AWAITING_REVIEW_AND_CANNOT_CLOSE_DISPATCH",
+    "FOLLOWUP_PACKET_MUST_PIN_POST_REVIEW_IMMUTABLE_TASKSET_OR_CANONICAL_CLOSED_PARENT_OBJECTIVE",
     "FIRST_COHORT_LANE_RESULT_DOES_NOT_CLOSE_SIBLING_LANES",
     "COMPLETE_COHORT_EVIDENCE_REQUIRES_TWO_REFERENCE_PASSES_AND_SYNTHESIS",
     "MULTIPLE_RESULTS_ARE_RETAINED_AND_NEVER_LATEST_WINS",
-    "TERMINAL_DRIVER_REVIEW_CLOSES_ORDINARY_DISPATCH_ONLY_WHEN_NO_ACTIVE_COHORT_REMAINS",
+    "TERMINAL_DRIVER_REVIEW_CLOSES_ORDINARY_DISPATCH_ONLY_WHEN_NO_ACTIVE_COHORT_REMAINS_AND_DRIVER_FOLLOWUP_BARRIER_IS_READY",
+    "TERMINAL_PARALLEL_SYNTHESIS_CANNOT_BYPASS_PENDING_GOVERNED_DRIVER_FOLLOWUP",
     "REGISTERED_DONE_EVENT_REQUIRES_MATCHING_REVIEWED_RESULT_OR_VALID_TERMINAL_COHORT_SYNTHESIS_AS_APPLICABLE",
     "LEGACY_EVENT_REDUCER_REMAINS_COMPATIBILITY_PRIMITIVE_NOT_TASK_DEFINITION_AUTHORITY",
     "CANONICAL_DISPATCH_REQUIRES_NO_ROUTINE_GITHUB_POLLING_BETWEEN_SEMANTIC_CHECKPOINTS"
@@ -88,6 +97,12 @@
     "BLOCKED",
     "COMPLETE",
     "DORMANT"
+  ],
+  "awaiting_review_substates": [
+    "RESULT_REVIEW_REQUIRED",
+    "AWAITING_FOLLOWUP_TASKSET_PUBLICATION",
+    "FOLLOWUP_PACKET_INVALID",
+    "PARALLEL_REFERENCE_OR_SYNTHESIS_REQUIRED"
   ],
   "parallel_execution_dispatch": {
     "contract": "research_execution_cohort_contract.json",
@@ -102,8 +117,17 @@
     "lane_with_one_or_more_frozen_results": "AWAITING_COHORT_REFERENCE; NOT_AUTOMATICALLY_REDISPATCHED",
     "additional_deliberate_replication": "CREATE_ANOTHER_EXPLICIT_LANE",
     "multiple_existing_lane_results": "RETAIN_ALL",
-    "cohort_task_terminalization": "ONLY_AFTER_ALL_LANES_HAVE_EVIDENCE_PLUS_REFERENCE_PASS_1_PLUS_REFERENCE_PASS_2_PLUS_TERMINAL_SYNTHESIS_CONTROL"
+    "cohort_task_terminalization": "ONLY_AFTER_ALL_LANES_HAVE_EVIDENCE_PLUS_REFERENCE_PASS_1_PLUS_REFERENCE_PASS_2_PLUS_TERMINAL_SYNTHESIS_CONTROL_PLUS_ALL_GOVERNED_DRIVER_FOLLOWUPS_READY"
   },
-  "selection_rule": "For tasks without an active execution cohort, use the historical state/priority/leverage/staleness ordering over the merged canonical view; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE, task-global claim identity is suppressed from current owner authority, and tools/research_dispatch.py::select_task cannot select it because only NEEDS_DISPATCH is eligible. Operator/runtime routing then uses tools/research_lane_dispatch.py to select an evidence-incomplete lane. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. An ordinary registered CLAIM is accepted when its envelope matches the operational immutable publication; a lane CLAIM is accepted when it matches the exact lane-pinned retained publication and disjoint output prefix. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement.",
-  "interaction_budget": "Authentication and actor authorization reuse the same Issue #240 comment already needed for CLAIM/PROGRESS/HANDOFF/DONE. Ordinary tasks add no new step. Parallel cohorts add one ordinary CLAIM per explicit lane and only semantic-checkpoint intake/pass1/pass2/synthesis records; no second per-lane signature, pre-claim commit, periodic status query, CI poll, review poll, heartbeat, or moving-main chase is introduced."
+  "driver_review_followup": {
+    "contract": "research_driver_followup_contract.json",
+    "cutover_reviewed_at": "2026-08-27T09:19:00+00:00",
+    "review_without_packet": "AWAITING_REVIEW / AWAITING_FOLLOWUP_TASKSET_PUBLICATION",
+    "zero_task_exception": "canonical current parent Objective head already CLOSED",
+    "task_publication": "automatic materializer publishes one or more immutable V2 task records in the same Driver-review subflow",
+    "ordinary_terminality": "terminal Driver disposition AND follow-up barrier ready",
+    "parallel_terminality": "terminal exact-set synthesis AND every governed reviewed result follow-up barrier ready"
+  },
+  "selection_rule": "For tasks without an active execution cohort, use the historical state/priority/leverage/staleness ordering over the merged canonical view. AWAITING_REVIEW and COMPLETE are never selected. A post-cutover Driver review whose automatic follow-up packet is missing or invalid stays inside AWAITING_REVIEW even when the review disposition itself is terminal. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global owner authority is suppressed; lane dispatch handles evidence-incomplete lanes. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized.",
+  "interaction_budget": "Authentication and actor authorization reuse the same Issue #240 event stream. The review follow-up rule adds one bounded semantic transaction only at the actual Driver review: preflight a gate/taskset spec, publish the next immutable taskbook/taskset, and freeze one follow-up packet. It does not introduce heartbeat, CI polling, review polling, or moving-main chase."
 }
