@@ -14,6 +14,7 @@ import EnterpriseMath.Precision.RootStateCountCarryUpper
 import EnterpriseMath.Precision.TernaryBandCarry
 import EnterpriseMath.Precision.RootStateCountCarryThreshold
 import EnterpriseMath.Precision.TernaryBandCarryCount
+-- P018 replay: keep the completed quotient-root atlas on the root import surface.
 import EnterpriseMath.Precision.RootStateAtlasCardinality
 import EnterpriseMath.Quotient.OperationCongruence
 import EnterpriseMath.Scale.Compatibility
