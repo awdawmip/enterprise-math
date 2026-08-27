@@ -11,11 +11,7 @@ namespace EnterpriseMath.Precision
 open EnterpriseMath.IntegerRoot
 
 /-- A quantitative gap between two positive denominator scales forces their
-floor quotients to be strictly separated.
-
-This is the exact natural-number form needed for the low-root atlas.  It avoids
-passing through real division: if `a<b` and the continuous gap numerator
-`n*(b-a)` exceeds `a*b`, then the two integer quotients cannot coincide. -/
+floor quotients to be strictly separated. -/
 theorem strict_floor_quotient_of_gap
     {n a b : ℕ}
     (ha : 0 < a)
@@ -108,9 +104,7 @@ theorem root_state_low_denominator_at_most_horizon
     (Nat.nthRoot_lt_iff (n := s + 1) (by omega)).2 hQuotLt
   omega
 
-/-- The high-denominator branch is injective.  Any collision there would, by
-the state-specific graded coalescence inequality, have to occur at or below the
-same horizon that the branch is already proved to exceed. -/
+/-- The high-denominator branch is injective. -/
 theorem root_state_high_denominator_injective
     {s n d e : ℕ}
     (hn : 0 < n)
@@ -152,6 +146,67 @@ theorem root_state_high_denominator_injective
     Nat.pow_le_pow_left (by omega) (s + 2)
   omega
 
+/-- Pure natural-number floor-gap kernel harvested from the independent P018
+binary-atlas route. -/
+theorem floor_quotient_strict_gap_of_tangent
+    {n A B t r u : ℕ}
+    (ht : 0 < t)
+    (hr : 0 < r)
+    (hu : 0 < u)
+    (hA : A = t * u)
+    (hTangent : A + r * u ≤ B)
+    (hHorizon : t * B < r * n) :
+    n / B < n / A := by
+  have hApos : 0 < A := by
+    rw [hA]
+    exact Nat.mul_pos ht hu
+  have hAB : A ≤ B := by omega
+  have hMon : n / B ≤ n / A := Nat.div_le_div_left hAB hApos
+  by_contra hnot
+  have hEq : n / B = n / A := by omega
+  let q := n / B
+  have hQB : q * B ≤ n := by
+    dsimp [q]
+    exact Nat.div_mul_le_self n B
+  have hDivSucc : n / A < n / A + 1 := Nat.lt_succ_self _
+  have hNltA0 : n < (n / A + 1) * A :=
+    (Nat.div_lt_iff_lt_mul hApos).1 hDivSucc
+  have hNltA : n < (q + 1) * A := by
+    dsimp [q]
+    rw [hEq]
+    exact hNltA0
+  have hQBern : q * (A + r * u) ≤ q * B :=
+    Nat.mul_le_mul_left q hTangent
+  have hQStrict : q * (A + r * u) < (q + 1) * A :=
+    hQBern.trans_lt (hQB.trans_lt hNltA)
+  have hQRU : q * r * u < A := by
+    nlinarith [hQStrict]
+  have hQRUFactored : (q * r) * u < t * u := by
+    simpa [hA, Nat.mul_assoc] using hQRU
+  have hQRLt : q * r < t :=
+    (Nat.mul_lt_mul_right hu).mp hQRUFactored
+  have hTBern : t * (A + r * u) ≤ t * B :=
+    Nat.mul_le_mul_left t hTangent
+  have hCoeffLower : (t + r) * A ≤ t * B := by
+    calc
+      (t + r) * A = t * (A + r * u) := by
+        rw [hA]
+        ring
+      _ ≤ t * B := hTBern
+  have hRNUpper : r * n < r * ((q + 1) * A) :=
+    Nat.mul_lt_mul_of_pos_left hNltA hr
+  have hCoeffMul : (t + r) * A < (r * (q + 1)) * A := by
+    calc
+      (t + r) * A ≤ t * B := hCoeffLower
+      _ < r * n := hHorizon
+      _ < r * ((q + 1) * A) := hRNUpper
+      _ = (r * (q + 1)) * A := by ring
+  have hCoeff : t + r < r * (q + 1) :=
+    (Nat.mul_lt_mul_right hApos).mp hCoeffMul
+  have hTLtRQ : t < r * q := by
+    nlinarith [hCoeff]
+  nlinarith [hQRLt, hTLtRQ]
+
 /-- Every positive root strictly below the horizon is realized by a positive
 denominator `d≤n`. -/
 theorem root_state_low_root_realized
@@ -164,7 +219,6 @@ theorem root_state_low_root_realized
   let H := root (s + 2) ((s + 1) * n - 1)
   change t < H → ∃ d : ℕ, 1 ≤ d ∧ d ≤ n ∧ root (s + 1) (n / d) = t
   intro htH
-
   let A := t ^ (s + 1)
   let B := (t + 1) ^ (s + 1)
   let u := t ^ s
@@ -179,7 +233,6 @@ theorem root_state_low_root_realized
       (by omega) (by omega) (s + 1)
   have hTangent : A + (s + 1) * u ≤ B := by
     simpa [A, B, u] using hBernRaw
-
   have hHPos : 0 < H := by omega
   have hBLe : B ≤ H ^ (s + 1) := by
     dsimp [B]
@@ -202,12 +255,10 @@ theorem root_state_low_root_realized
       _ < (s + 1) * n := by
         have hProdPos : 0 < (s + 1) * n := Nat.mul_pos (by omega) hn
         omega
-
   have hDivGap : n / B < n / A :=
     floor_quotient_strict_gap_of_tangent
       (n := n) (A := A) (B := B) (t := t) (r := s + 1) (u := u)
       htPos (by omega) hu hA hTangent hHorizon
-
   let d := n / B + 1
   have hdPos : 1 ≤ d := by
     dsimp [d]
@@ -227,9 +278,7 @@ theorem root_state_low_root_realized
     simpa [A, B] using And.intro hLower hUpper
   exact ⟨d, hdPos, hdLeN, hRoot⟩
 
-/-- The horizon root itself is the unique optional low state.  It is realized by
-some positive denominator `d≤n` exactly when the horizon is positive and the
-single carry threshold `(D+1)H^r≤n` holds. -/
+/-- The horizon root is the unique optional low state. -/
 theorem root_state_horizon_realized_iff
     {s n : ℕ}
     (hn : 0 < n) :
@@ -285,8 +334,7 @@ theorem root_state_horizon_realized_iff
       · exact hdUpper
     exact ⟨d, hdPos, hdLeN, hRoot⟩
 
-/-- Positive quotient-root states seen by the physical denominators `1,...,n`.
-The zero-based index `i` represents denominator `i+1`. -/
+/-- Positive quotient-root states seen by denominators `1,...,n`. -/
 def quotientRootStates (s n : ℕ) : Finset ℕ :=
   (Finset.range n).image (fun i : ℕ => root (s + 1) (n / (i + 1)))
 
@@ -399,7 +447,7 @@ theorem root_state_high_states_card
       Finset.card_image_of_injOn hInj
     _ = D := Finset.card_range D
 
-/-- Any witness already known to satisfy `d≤n` lies in the finite atlas. -/
+/-- Any positive witness with `d≤n` lies in the finite atlas. -/
 theorem mem_quotientRootStates_of_witness
     {s n t d : ℕ}
     (hd : 1 ≤ d)
@@ -417,8 +465,7 @@ theorem mem_quotientRootStates_of_witness
   apply Finset.mem_image.mpr
   exact ⟨i, Finset.mem_range.mpr hiN, by simpa [hid] using hRoot⟩
 
-/-- For positive horizon the atlas is exactly the disjoint high image plus the
-forced low interval and the optional horizon state. -/
+/-- For positive horizon the atlas is exactly the high image plus the low chart. -/
 theorem quotientRootStates_eq_high_union_low_of_horizon_pos
     {s n : ℕ}
     (hn : 0 < n) :
