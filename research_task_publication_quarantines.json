@@ -1,0 +1,24 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_TASK_PUBLICATION_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "entries": [
+    {
+      "resolution_id": "TQ-D78DBA0243911E0363FA",
+      "publication_id": "TP2-D78DBA0243911E0363FA",
+      "task_id": "RS-P022-OBSERVATION-HISTORY",
+      "record_path": "research_task_records/RS-P022-OBSERVATION-HISTORY/TP2-D78DBA0243911E0363FA.json",
+      "replacement_operational_publication_id": "TP2-DE338F269CA11E9BC01B",
+      "resolution": "LEGACY_BODY_TEMPLATE_QUARANTINE",
+      "operational": false,
+      "history_preserved": true,
+      "recorded_by": "EM-DVR-499907",
+      "recorded_at": "2026-08-27T11:36:00+00:00",
+      "reason": [
+        "The immutable D78 forced-midpoint replay predates the current mandatory V2 taskbook body-section gate and is missing four current section headings while its taskbook blob, publication identity, lineage metadata, and bounded theorem/review history remain intact.",
+        "Rewriting the historical taskbook or publication record would violate immutable-publication provenance, so only the current body-template check is waived for this exact publication.",
+        "TP2-DE338F269CA11E9BC01B is a format-complete publication for the same task and now carries the current pending boundary-reduction result RR-8323CFDCB99F7832F51F; it is explicitly selected as the operational publication.",
+        "All non-body publication checks remain mandatory for D78, and this quarantine grants no mathematical rejection, Working Truth, canonical promotion, or successor authority."
+      ]
+    }
+  ]
+}
