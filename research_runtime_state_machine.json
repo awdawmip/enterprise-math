@@ -1,9 +1,9 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_RUNTIME_STATE_MACHINE_V1",
-  "status": "ACTIVE_CANONICAL_RUNTIME_V1_2",
-  "effective": "2026-08-26",
+  "status": "ACTIVE_CANONICAL_RUNTIME_V1_3_CANDIDATE",
+  "effective": "2026-08-27",
   "classification": "NO_NEW_MATHEMATICS_GOVERNANCE_MAINTENANCE",
-  "purpose": "Unify authenticated task existence, low-burden execution claim envelopes, merged dispatch, owner/session liveness, durable frontier recovery, immutable result/review capture, optional lane-scoped parallel execution, terminal scope and final-response permission without changing mathematical truth.",
+  "purpose": "Unify authenticated task existence, low-burden execution claim envelopes, merged dispatch, owner/session liveness, durable frontier recovery, immutable result/review capture, optional lane-scoped parallel execution, Driver-review automatic follow-up taskset publication, terminal scope and final-response permission without changing mathematical truth.",
   "composes": {
     "active_turn_liveness": "active_turn_liveness.json",
     "pre_final_primitive": "tools/active_turn_liveness.py",
@@ -34,6 +34,9 @@
     "legacy_scheduler_reducer": "tools/research_scheduler.py",
     "result_contract": "research_result_contract.json",
     "result_tool": "tools/research_result_records.py",
+    "driver_review_followup_contract": "research_driver_followup_contract.json",
+    "driver_review_followup_tool": "research_driver_followup.py",
+    "driver_review_followup_store": "research_driver_followups/<review-id>/<packet-id>.json",
     "taskbook_contract": "research_taskbook_contract.json",
     "identity_state_machine": "research_identity_state_machine.json",
     "final_response_policy": "final_response_identity_policy.json"
@@ -54,7 +57,7 @@
     "tools/research_task_registry.py"
   ],
   "human_index": "docs/RESEARCH_RUNTIME_STATE_MACHINE.md",
-  "tool_ownership_boundary": "These are control-plane runtime tools, not mathematical/research-tool families. The pure V1 reducer/runtime remain compatibility primitives; canonical post-cutover entrypoints are research_task_records.py, research_dispatch.py, research_result_records.py and research_runtime_guard.py. research_execution_records.py preserves durable execution provenance. research_lane_claims.py, research_lane_dispatch.py and research_cohort_runtime.py are opt-in parallel-execution runtime subtools; they add no cost to tasks without an active cohort.",
+  "tool_ownership_boundary": "These are control-plane runtime tools, not mathematical/research-tool families. The pure V1 reducer/runtime remain compatibility primitives; canonical post-cutover entrypoints are research_task_records.py, research_dispatch.py, research_result_records.py and research_runtime_guard.py. research_execution_records.py preserves durable execution provenance. research_lane_claims.py, research_lane_dispatch.py and research_cohort_runtime.py are opt-in parallel-execution runtime subtools. research_driver_followup.py is a root-level semantic-boundary control tool composed by the result lifecycle; it is not a research-tool family and adds no per-step telemetry.",
   "canonical_state_fields": [
     "PARENT_OBJECTIVE",
     "TASK_REGISTRATION",
@@ -68,7 +71,11 @@
     "TERMINAL_SCOPE",
     "FINAL_ALLOWED"
   ],
-  "terminal_scopes": ["SUBFLOW", "TASK", "PARENT_OBJECTIVE"],
+  "terminal_scopes": [
+    "SUBFLOW",
+    "TASK",
+    "PARENT_OBJECTIVE"
+  ],
   "core_invariants": [
     "OFFICIAL_POST_CUTOVER_TASK_REQUIRES_IMMUTABLE_PUBLICATION_RECORD",
     "UNREGISTERED_TASK_CANNOT_ENTER_READY_CLAIM_OR_EXECUTION",
@@ -100,7 +107,9 @@
     "STALE_RECOVERY_ADOPTS_EXISTING_OWNER_CLAIM_INSTEAD_OF_RECLAIMING",
     "STALE_RECOVERY_RESUMES_FROM_DURABLE_FRONTIER_AND_FIRST_UNFINISHED_UNIT",
     "FROZEN_RETURN_WITHOUT_DRIVER_REVIEW_IMPLIES_AWAITING_DRIVER_REVIEW",
-    "REGISTERED_TASK_DONE_REQUIRES_MATCHING_REVIEWED_RESULT",
+    "POST_CUTOVER_DRIVER_REVIEW_WITHOUT_FOLLOWUP_TASKSET_OR_CLOSED_PARENT_REMAINS_NONTERMINAL",
+    "DRIVER_REVIEW_SUBFLOW_COMPLETE_REQUIRES_FOLLOWUP_TASKSET_READY_OR_CANONICAL_PARENT_OBJECTIVE_CLOSED",
+    "REGISTERED_TASK_DONE_REQUIRES_MATCHING_REVIEWED_RESULT_AND_APPLICABLE_DRIVER_FOLLOWUP_BARRIER",
     "RESULT_FREEZE_REQUIRES_MATCHING_EXECUTION_RECORD",
     "SUBFLOW_COMPLETE_IMPLIES_REEVALUATE_PARENT",
     "TASK_FROZEN_IMPLIES_REEVALUATE_PARENT",
@@ -138,8 +147,21 @@
   "execution_transaction": {
     "contract": "research_execution_contract.json",
     "claim_authority": "one self-contained Issue #240 CLAIM envelope validated against the exact operational publication for non-cohort work or exact lane-pinned retained publication for cohort work",
-    "claim_required_fields": ["task_id", "claim_id", "publication_id", "theorem_owner", "execution_branch", "execution_branch_base", "allowed_outputs"],
-    "claim_optional_fields": ["researcher_id", "lease_minutes", "execution_cohort_id", "execution_lane_id"],
+    "claim_required_fields": [
+      "task_id",
+      "claim_id",
+      "publication_id",
+      "theorem_owner",
+      "execution_branch",
+      "execution_branch_base",
+      "allowed_outputs"
+    ],
+    "claim_optional_fields": [
+      "researcher_id",
+      "lease_minutes",
+      "execution_cohort_id",
+      "execution_lane_id"
+    ],
     "cohort_lane_fields_rule": "execution_cohort_id and execution_lane_id are both present or both absent",
     "noncohort_winner_scope": "task_id",
     "cohort_winner_scope": "task_id + execution_cohort_id + execution_lane_id",
@@ -171,8 +193,13 @@
     "lane_output_rule": "all allowed outputs stay inside the lane output_prefix",
     "lane_result_rule": "one or more immutable results complete evidence for that lane without deleting duplicates",
     "cohort_completeness_rule": "every declared lane has at least one immutable result before parallel reference flow",
-    "reference_flow": ["PARALLEL_INTAKE", "SEMANTIC_EVIDENCE_CROSSCHECK", "ADVERSARIAL_CONTROL_CROSSCHECK", "SYNTHESIS"],
-    "terminal_rule": "only exact-set terminal synthesis plus terminal control disposition may close the cohort",
+    "reference_flow": [
+      "PARALLEL_INTAKE",
+      "SEMANTIC_EVIDENCE_CROSSCHECK",
+      "ADVERSARIAL_CONTROL_CROSSCHECK",
+      "SYNTHESIS"
+    ],
+    "terminal_rule": "only exact-set terminal synthesis plus terminal control disposition plus governed Driver follow-up readiness may close the cohort",
     "latest_result_wins": false,
     "single_lane_autoredispatch_after_result": false
   },
@@ -180,14 +207,18 @@
     "contract": "research_dispatch_contract.json",
     "tool": "tools/research_dispatch.py",
     "lane_tool": "tools/research_lane_dispatch.py",
-    "definition_sources": ["immutable task publication records", "frozen legacy scheduler baseline"],
+    "definition_sources": [
+      "immutable task publication records",
+      "frozen legacy scheduler baseline"
+    ],
     "runtime_events": "GitHub Issue #240",
     "registered_claim_mode": "self-contained execution envelope",
     "execution_record_overlay": "compatible optional durable provenance",
-    "result_review_overlay": "research_result_records + research_result_reviews",
+    "result_review_overlay": "research_result_records + research_result_reviews + research_driver_followups",
     "registered_claimable_visible_to_selection": true,
     "active_cohort_routes_to_lane_selection": true,
     "awaiting_driver_review_dispatchable_to_researcher": false,
+    "reviewed_but_followup_pending_dispatch_state": "AWAITING_REVIEW",
     "routine_remote_polling_required": false
   },
   "result_lifecycle": {
@@ -195,18 +226,24 @@
     "tool": "tools/research_result_records.py",
     "frozen_result_store": "research_result_records/<task-id>/<result-id>.json",
     "driver_review_store": "research_result_reviews/<result-id>/<review-id>.json",
+    "driver_followup_contract": "research_driver_followup_contract.json",
+    "driver_followup_store": "research_driver_followups/<review-id>/<packet-id>.json",
+    "driver_followup_tool": "research_driver_followup.py",
     "result_record_immutable": true,
     "driver_review_record_immutable": true,
+    "driver_followup_record_immutable": true,
     "task_return_and_driver_disposition_are_separate": true,
     "pending_review_state": "AWAITING_DRIVER_REVIEW",
+    "post_cutover_review_without_followup_state": "AWAITING_DRIVER_REVIEW / AWAITING_FOLLOWUP_TASKSET_PUBLICATION",
     "result_must_pin_execution_record": true,
     "lane_result_copies_cohort_and_lane_identity": true,
     "retained_nonoperational_publication_may_freeze_lane_result_when_lane_pins_it": true,
     "first_lane_result_may_terminalize_task": false,
     "complete_cohort_requires_all_lanes_before_reference_flow": true,
-    "parallel_result_resolution": "EXACT_EVIDENCE_SET_TWO_REFERENCE_PASSES_THEN_SYNTHESIS",
+    "parallel_result_resolution": "EXACT_EVIDENCE_SET_TWO_REFERENCE_PASSES_THEN_SYNTHESIS_PLUS_GOVERNED_DRIVER_FOLLOWUP_READINESS",
     "execution_record_may_be_batched_with_return_checkpoint": true,
-    "done_gate": "MATCHING_FROZEN_RESULT_PLUS_TERMINAL_DRIVER_REVIEW_OR_TERMINAL_COHORT_SYNTHESIS_AS_APPLICABLE"
+    "driver_review_followup_transaction": "same review subflow automatically publishes next immutable taskbook/taskset and then follow-up packet, unless canonical parent Objective is already CLOSED",
+    "done_gate": "MATCHING_FROZEN_RESULT_PLUS_TERMINAL_DRIVER_REVIEW_PLUS_APPLICABLE_DRIVER_FOLLOWUP_READY_OR_TERMINAL_COHORT_SYNTHESIS_WITH_ALL_APPLICABLE_DRIVER_FOLLOWUPS_READY"
   },
   "interaction_budget": {
     "research_hot_path": true,
@@ -215,12 +252,13 @@
     "separate_preclaim_execution_record_remote_write": false,
     "parallel_cohort_extra_control_objects": "ONE_IMMUTABLE_COHORT_RECORD_PLUS_ONE_ORDINARY_CLAIM_PER_LANE",
     "parallel_reference_objects": "ONLY_WHEN_REAL_MULTIPLICITY_OR_COHORT_COMPLETENESS_REQUIRES_INTAKE_PASS1_PASS2_SYNTHESIS",
+    "driver_review_followup_boundary": "ONE_BOUNDED_TASKSET_PUBLICATION_PLUS_ONE_IMMUTABLE_FOLLOWUP_PACKET_AT_ACTUAL_DRIVER_REVIEW",
     "between_semantic_checkpoints_routine_repo_writes": 0,
     "between_semantic_checkpoints_ci_polls": 0,
     "between_semantic_checkpoints_review_polls": 0,
     "between_semantic_checkpoints_scheduler_heartbeats_required_by_this_runtime": 0,
     "execution_result_records": "BATCH_WITH_GENUINE_DURABLE_CHECKPOINT_OR_RETURN_WHEN_POSSIBLE",
-    "driver_review_record": "BATCH_WITH_ACTUAL_DRIVER_REVIEW_ARTIFACT_WHEN_POSSIBLE"
+    "driver_review_record": "BATCH_WITH_ACTUAL_DRIVER_REVIEW_ARTIFACT_AND_FOLLOWUP_TASKSET_WHEN_POSSIBLE"
   },
   "lease_model": {
     "owner_lease": {
@@ -236,15 +274,31 @@
       "authority": "research_runtime_state_machine.json",
       "default_minutes": 10,
       "semantic_scope": "CURRENT_CONVERSATION_INSTANCE",
-      "renewed_by": ["VISIBLE_OR_DURABLE_SESSION_PROGRESS", "EXPLICIT_SESSION_HEARTBEAT"],
+      "renewed_by": [
+        "VISIBLE_OR_DURABLE_SESSION_PROGRESS",
+        "EXPLICIT_SESSION_HEARTBEAT"
+      ],
       "must_not_inherit_owner_lease_minutes": true
     }
   },
-  "session_states": ["ACTIVE", "STALE_RECOVERABLE", "STALE_UNOWNED", "TERMINATED"],
+  "session_states": [
+    "ACTIVE",
+    "STALE_RECOVERABLE",
+    "STALE_UNOWNED",
+    "TERMINATED"
+  ],
   "stale_recovery": {
     "trigger": "SESSION_STALE_AND_OWNER_LEASE_ACTIVE",
     "state": "STALE_RECOVERABLE",
-    "required_verification": ["taskbook_source", "owner_branch", "claim_id", "remote_head", "execution_stamp", "durable_outputs", "durable_frontier_verified"],
+    "required_verification": [
+      "taskbook_source",
+      "owner_branch",
+      "claim_id",
+      "remote_head",
+      "execution_stamp",
+      "durable_outputs",
+      "durable_frontier_verified"
+    ],
     "transition": "ADOPT_EXISTING_OWNER_CLAIM_WITH_SAME_OWNER_SCOPE",
     "claim_reissued": false,
     "researcher_identity_preserved": true,
@@ -253,11 +307,42 @@
     "if_no_current_unfinished_unit": "REEVALUATE_PARENT"
   },
   "terminal_transitions": {
-    "SUBFLOW_COMPLETE": {"terminal_scope": "SUBFLOW", "clear_local_execution_frontier": true, "next_state": "REEVALUATE_PARENT", "direct_final_allowed": false},
-    "TASK_PUBLISHED": {"terminal_scope": "SUBFLOW", "clear_local_execution_frontier": false, "next_state": "REEVALUATE_PARENT", "direct_final_allowed": false},
-    "TASK_FROZEN": {"terminal_scope": "TASK", "clear_local_execution_frontier": true, "next_state": "REEVALUATE_PARENT", "direct_final_allowed": false},
-    "TASK_COMPLETE": {"terminal_scope": "TASK", "clear_local_execution_frontier": true, "next_state": "REEVALUATE_PARENT", "direct_final_allowed": false},
-    "PARENT_OBJECTIVE_COMPLETE": {"terminal_scope": "PARENT_OBJECTIVE", "next_state": "PRE_FINAL", "consistency_guard": "CURRENT_UNFINISHED_UNIT=null AND NEXT_ACTION=null OR CONTROL_STATE_INCONSISTENT", "direct_final_allowed": "ONLY_IF_AUTHENTICATED_PRE_FINAL_GATE_RETURNS_FINAL_ALLOWED"}
+    "SUBFLOW_COMPLETE": {
+      "terminal_scope": "SUBFLOW",
+      "clear_local_execution_frontier": true,
+      "next_state": "REEVALUATE_PARENT",
+      "direct_final_allowed": false
+    },
+    "TASK_PUBLISHED": {
+      "terminal_scope": "SUBFLOW",
+      "clear_local_execution_frontier": false,
+      "next_state": "REEVALUATE_PARENT",
+      "direct_final_allowed": false
+    },
+    "DRIVER_REVIEW_FOLLOWUP_READY": {
+      "terminal_scope": "SUBFLOW",
+      "clear_local_execution_frontier": false,
+      "next_state": "REEVALUATE_TASK_TERMINALITY",
+      "direct_final_allowed": false
+    },
+    "TASK_FROZEN": {
+      "terminal_scope": "TASK",
+      "clear_local_execution_frontier": true,
+      "next_state": "REEVALUATE_PARENT",
+      "direct_final_allowed": false
+    },
+    "TASK_COMPLETE": {
+      "terminal_scope": "TASK",
+      "clear_local_execution_frontier": true,
+      "next_state": "REEVALUATE_PARENT",
+      "direct_final_allowed": false
+    },
+    "PARENT_OBJECTIVE_COMPLETE": {
+      "terminal_scope": "PARENT_OBJECTIVE",
+      "next_state": "PRE_FINAL",
+      "consistency_guard": "CURRENT_UNFINISHED_UNIT=null AND NEXT_ACTION=null OR CONTROL_STATE_INCONSISTENT",
+      "direct_final_allowed": "ONLY_IF_AUTHENTICATED_PRE_FINAL_GATE_RETURNS_FINAL_ALLOWED"
+    }
   },
   "pre_final_gate": {
     "canonical_orchestrator": "tools/research_runtime_guard.py",
@@ -281,10 +366,11 @@
     "LEGACY_ALREADY_OWNED_EXECUTION": "CONTINUATION_ALLOWED",
     "LEGACY_FRESH_REDISPATCH": "MIGRATION_REQUIRED",
     "FROZEN_RESULT_PENDING_REVIEW": "AWAITING_DRIVER_REVIEW",
+    "POST_CUTOVER_REVIEW_WITHOUT_FOLLOWUP_TASKSET": "AWAITING_DRIVER_REVIEW / AWAITING_FOLLOWUP_TASKSET_PUBLICATION",
     "COHORT_WITH_MISSING_LANE_RESULT": "COHORT_EXECUTION_ACTIVE",
     "COHORT_WITH_ALL_LANES_COMPLETE": "PARALLEL_INTAKE_THEN_REFERENCE_PASS_1_THEN_REFERENCE_PASS_2_THEN_SYNTHESIS",
-    "REVIEW_RETURN_TO_OWNER": "NEEDS_DISPATCH",
-    "TERMINAL_REVIEWED_RESULT": "COMPLETE_WHEN_NO_ACTIVE_COHORT_REQUIRES_FURTHER_LANE_OR_SYNTHESIS_WORK"
+    "REVIEW_RETURN_TO_OWNER": "NEEDS_DISPATCH_ONLY_AFTER_REVIEW_FOLLOWUP_TRANSACTION_IS_READY",
+    "TERMINAL_REVIEWED_RESULT": "COMPLETE_ONLY_WHEN_DRIVER_FOLLOWUP_BARRIER_READY_AND_NO_ACTIVE_COHORT_REQUIRES_FURTHER_LANE_OR_SYNTHESIS_WORK"
   },
   "required_end_to_end_regressions": [
     "FORGED_REGISTRATION_OBJECT_CANNOT_AUTHORIZE_UNKNOWN_TASK",
@@ -308,7 +394,12 @@
     "PLACEHOLDER_MANDATORY_SECTION_REJECTS_PUBLICATION",
     "FROZEN_RESULT_WITHOUT_REVIEW_IS_AWAITING_REVIEW",
     "REGISTERED_DONE_WITHOUT_MATCHING_REVIEWED_RESULT_IS_IGNORED",
-    "TERMINAL_DRIVER_REVIEW_CLOSES_REGISTERED_DISPATCH",
+    "POST_CUTOVER_TERMINAL_DRIVER_REVIEW_WITHOUT_FOLLOWUP_TASKSET_REMAINS_NONTERMINAL",
+    "VALID_DRIVER_FOLLOWUP_TASKSET_ALLOWS_TERMINAL_REVIEW_TO_TERMINALIZE",
+    "PARENT_OBJECTIVE_CLOSURE_IS_ONLY_ZERO_TASK_DRIVER_FOLLOWUP_EXCEPTION",
+    "ACCEPTED_REVIEW_CANNOT_SKIP_EXTERNAL_PRIOR_ART_DUPLICATION_GATE",
+    "ACCEPTED_L4_REVIEW_CANNOT_SKIP_LEAN_FORMALIZATION_GATE",
+    "TERMINAL_PARALLEL_SYNTHESIS_CANNOT_BYPASS_PENDING_DRIVER_FOLLOWUP",
     "RESULT_OR_REVIEW_BLOB_DRIFT_FAILS_AUDIT",
     "CONTROL_RUNTIME_REQUIRES_ZERO_GOVERNANCE_ONLY_HEARTBEAT_OR_CI_POLL_BETWEEN_CHECKPOINTS",
     "TOOL_SUCCESS_AND_PARENT_OPEN_AND_NEXT_ACTION_EXISTS_REJECTS_FINAL",
@@ -326,6 +417,7 @@
     "research_task_registry_v1_is_compatibility_mirror_not_post_cutover_authority": true,
     "historical_preclaim_execution_intent_records_remain_readable": true,
     "noncohort_execution_record_ids_remain_unchanged": true,
-    "tasks_without_execution_cohort_keep_existing_flow": true
+    "tasks_without_execution_cohort_keep_existing_flow": true,
+    "driver_reviews_before_2026_08_27T09_19Z_keep_legacy_terminal_reduction": true
   }
 }
