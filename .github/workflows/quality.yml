@@ -21,9 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      max-parallel: 16
+      max-parallel: 8
       matrix:
-        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -32,7 +32,7 @@ jobs:
       - name: Unit tests shard ${{ matrix.shard }}
         env:
           PYTHONPATH: src
-        run: python scripts/run_unittest_shard.py --index ${{ matrix.shard }} --count 32
+        run: python scripts/run_unittest_shard.py --index ${{ matrix.shard }} --count 16
 
   test:
     if: always() && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
