@@ -6,6 +6,13 @@ least one immutable result. Until then, a result from one lane must not close th
 whole task or suppress sibling-lane execution. Once all lanes have evidence, the
 exact current cohort result set must traverse parallel intake -> reference pass 1
 -> reference pass 2 -> synthesis before the cohort can be terminal.
+
+Cohort records remain immutable historical control objects even after terminal
+synthesis. Runtime terminality is therefore *derived*: when every ACTIVE cohort
+record for a task has terminal exact-set synthesis, the task-level cohort overlay
+becomes TERMINAL_PARALLEL_COHORTS and returns control to the parent. Opening a
+new explicit replication/audit cohort later makes the derived state active again
+without rewriting any prior cohort or result.
 """
 from __future__ import annotations
 
@@ -224,11 +231,31 @@ def task_active_cohort_state(task_id: str, root: Path = ROOT) -> dict[str, Any] 
     if not cohorts:
         return None
     states = [cohort_state(task_id, str(item["cohort_id"]), root) for item in cohorts]
+    cohort_ids = [str(item["cohort_id"]) for item in cohorts]
+    terminal_ids = [
+        str(state["execution_cohort_id"])
+        for state in states
+        if state.get("terminal") is True
+    ]
+    if states and len(terminal_ids) == len(states):
+        return {
+            "task_id": task_id,
+            "state": "TERMINAL_PARALLEL_COHORTS",
+            "terminal": True,
+            "active_cohort_ids": cohort_ids,
+            "terminal_cohort_ids": terminal_ids,
+            "cohorts": states,
+            "terminal_control_dispositions": [
+                state.get("terminal_control_disposition") for state in states
+            ],
+            "next_control_action": "REEVALUATE_PARENT",
+        }
     return {
         "task_id": task_id,
         "state": "ACTIVE_PARALLEL_COHORTS",
         "terminal": False,
-        "active_cohort_ids": [str(item["cohort_id"]) for item in cohorts],
+        "active_cohort_ids": cohort_ids,
+        "terminal_cohort_ids": terminal_ids,
         "cohorts": states,
         "next_control_action": "RESOLVE_ACTIVE_COHORT_LANES_AND_SYNTHESIS",
     }
