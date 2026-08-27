@@ -1,0 +1,115 @@
+{
+  "schema": "ENTERPRISE_BRC_INERT_PLUS_PARAMETER_DEFORMATION_REDUCTION_V1",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-REFLECTED-DERIVATIVE-PRODUCT-BRIDGE",
+  "publication_id": "TP2-17FC09F805797C961013",
+  "claim_id": "chatgpt-ebp4p-20260827-1953-6d8a31",
+  "researcher_id": "EM-EBP4P-6D8A31",
+  "primary_verdict": "PROOF_NOT_CLOSED_WITH_SMALLER_IDENTITY",
+  "hard_target_disposition": "ACHIEVED_BY_EXACT_SECOND_ORDER_PARAMETER_DEFORMATION_REDUCTION",
+  "domain": "primes p congruent to 13 or 19 modulo 24; write p=6m+1",
+  "parent_frozen_inputs": [
+    "B_k=((1/6)_k(1/3)_k/(k!)^2)2^{-k}",
+    "G_p=sum_{k=0}^{p-1} B_k",
+    "H_p=sum_{k=0}^{p-1}(12k+1)B_k",
+    "T_p congruent p^2 R_p modulo p^3 with explicit reflected R_p",
+    "target reduced by parent to G_p H_p congruent p+p^2 R_p modulo p^3"
+  ],
+  "parameter_deformation": {
+    "exact_parameter_equalities": [
+      "1/6=-m+p/6",
+      "1/3=-2m+p/3"
+    ],
+    "definition": "b_{m,k}(epsilon)=(-m+epsilon/6)_k(-2m+epsilon/3)_k/((k!)^2 2^k)",
+    "specialization": "B_k=b_{m,k}(p)",
+    "block_orders": {
+      "0<=k<=m": 0,
+      "m<k<=2m": 1,
+      "2m<k<=6m": 2
+    },
+    "interpretation": "the parent 0/1/2 valuation blocks are exactly the epsilon-Taylor vanishing orders"
+  },
+  "coefficient_formulas": {
+    "low_block": {
+      "w_k": "binom(m,k)binom(2m,k)2^{-k}",
+      "L_k": "-(H_m-H_{m-k})/6-(H_{2m}-H_{2m-k})/3",
+      "Q_k": "(L_k^2-(H_m^(2)-H_{m-k}^(2))/36-(H_{2m}^(2)-H_{2m-k}^(2))/9)/2",
+      "expansion": "b_{m,k}(epsilon)=w_k(1+L_k epsilon+Q_k epsilon^2)+O(epsilon^3)"
+    },
+    "middle_block": {
+      "d_k": "(-1)^(m+k)m!(k-m-1)!(2m)!/[6(2m-k)!(k!)^2 2^k]",
+      "M_k": "(H_{k-m-1}-H_m)/6-(H_{2m}-H_{2m-k})/3",
+      "expansion": "b_{m,k}(epsilon)=d_k epsilon+d_k M_k epsilon^2+O(epsilon^3)"
+    },
+    "high_block": {
+      "v_k": "(-1)^m m!(2m)!(k-m-1)!(k-2m-1)!/[18(k!)^2 2^k]",
+      "expansion": "b_{m,k}(epsilon)=v_k epsilon^2+O(epsilon^3)"
+    }
+  },
+  "finite_coefficients": {
+    "F0": "sum_{k=0}^m w_k",
+    "F1": "sum_low w_k L_k + sum_middle d_k",
+    "F2": "sum_low w_k Q_k + sum_middle d_k M_k + sum_high v_k",
+    "J0": "sum_{k=0}^m (12k+1)w_k",
+    "J1": "sum_low (12k+1)w_k L_k + sum_middle (12k+1)d_k"
+  },
+  "exact_p_adic_reconstruction": [
+    "G_p congruent F0+pF1+p^2F2 modulo p^3",
+    "H_p congruent J0+pJ1 modulo p^2"
+  ],
+  "leading_divisibility_dependency": {
+    "imported_theorem": "Zhi-Hong Sun, Congruences involving binom(2k,k)^2 binom(3k,k), J. Number Theory 133 (2013), 1572-1595, DOI 10.1016/j.jnt.2012.10.001",
+    "used_statement": "for inert p congruent to 13,17,19,23 modulo 24, U_p=sum_{n=0}^{p-1}(2n)!(3n)!/(n!)^5/216^n is 0 modulo p^2",
+    "bridge": "finite unweighted Clausen gives G_p^2=U_p+tail; for p=6m+1 the same frozen valuation support makes the unweighted tail divisible by p^2; hence p divides G_p",
+    "anti_leak_guard": "the imported theorem is unweighted modulo p^2 and does not state or imply the derivative-weighted target modulo p^3 without the new reduction"
+  },
+  "exact_reduced_interface": {
+    "A_m": "F0/p+F1, well-defined p-adically because p divides G_p and G_p congruent F0 modulo p",
+    "single_mod_p2_identity": "(A_m+pF2)(J0+pJ1) congruent 1+pR_p modulo p^2",
+    "equivalent_scalar_identity_1": "A_m J0 congruent 1 modulo p",
+    "equivalent_scalar_identity_2": "(A_m J0-1)/p + A_m J1 + F2 J0 congruent R_p modulo p",
+    "status": "UNPROVED_ALL_PRIME / EXACTLY_EQUIVALENT_TO_PARENT_PLUS_TARGET"
+  },
+  "residue_class_audit": {
+    "13_mod_24": "covered uniformly; m congruent 2 modulo 4",
+    "19_mod_24": "covered uniformly; m congruent 3 modulo 4",
+    "class_specific_extra_assumption": "NONE"
+  },
+  "second_route_audit": {
+    "route": "PADIC_GAMMA_DWORK_OR_PARAMETER_TRANSFORMATION_LITERATURE",
+    "status": "PRECISION_GAP_FOR_WEIGHTED_TARGET",
+    "details": "The parent Mao-Pan audit supplies mod-p^2 truncated transformation technology but not the derivative-weighted mod-p^3 identity. The unweighted Zhi-Hong Sun theorem is imported only for p|G_p. No audited source in this execution supplies the two reduced Jacobi-harmonic identities."
+  },
+  "tool_reuse_gate": {
+    "outcome": "NOT_APPLICABLE_TASK_LOCAL_CHECKER",
+    "repository_search": "no existing parameter-deformation/hypergeometric Taylor checker located by current repository search",
+    "new_general_tool_family": false
+  },
+  "finite_regression": {
+    "status": "FINITE_REGRESSION_ONLY_NOT_A_PROOF",
+    "environment": "independent exact-rational current-session checker",
+    "prime_limit_exclusive": 2000,
+    "plus_inert_primes_checked": 77,
+    "class_13_count": 40,
+    "class_19_count": 37,
+    "sum_of_m_over_cases": 11487,
+    "checks_per_prime": [
+      "Taylor reconstruction of G modulo p^3",
+      "Taylor reconstruction of H modulo p^2",
+      "unweighted inert congruence regression modulo p^2",
+      "p divides G_p",
+      "parent reduced product target modulo p^3",
+      "scalar leading identity modulo p",
+      "scalar correction identity modulo p"
+    ],
+    "failures": 0
+  },
+  "smallest_unresolved_unit": "prove the two exact finite Jacobi-harmonic scalar identities uniformly for m congruent to 2 or 3 modulo 4, equivalently the single mod-p^2 reduced identity",
+  "no_claims": [
+    "no all-prime proof of the plus target",
+    "no counterexample",
+    "no finite regression promoted to theorem",
+    "no Foundation mutation",
+    "no Working Truth",
+    "no novelty or priority claim"
+  ]
+}
