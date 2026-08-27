@@ -12,19 +12,15 @@ Publication: `TP2-DF186CDB4959BEA10875`
 
 Execution: `ER-85F5DF86C52A676ADAD0`
 
-Researcher-ID: `EM-PCF4R-D74517`
-
 Result: `RR-F24971D684C868A325E2`
 
 Source integration: `cc0106285c579998747c3e777c11c35a3304a274`
 
-## 1. Driver disposition
+## 1. Disposition
 
 `DRIVER_DISPOSITION = ACCEPTED`.
 
 `HARD_TARGET = CLOSED_POSITIVE`.
-
-`PRIMARY_TASK_VERDICT = N_ONLY_GCD_EXTRACTOR_VERIFIED`.
 
 `RESULT_CLASS = EXACT_N_ONLY_GCD_EXTRACTOR / NO_SPEEDUP_CLAIM / RESULT_ONLY`.
 
@@ -34,130 +30,66 @@ Source integration: `cc0106285c579998747c3e777c11c35a3304a274`
 
 `TOOLBOX_MUTATION = NONE`.
 
-The canonical writer-conformant result proves the task's exact promised-domain target. I accept it as a terminal theorem-level research result for distinct odd semiprimes
+The promised-domain theorem is accepted for every distinct odd semiprime `N=pq` with `3<p<q`. The acceptance is not a factoring-speedup claim.
 
-\[
-N=pq,\qquad 3<p<q.
-\]
+## 2. Independent audit
 
-The acceptance is deliberately narrower than a factoring-speedup claim. The current constructor still uses a worst-case \(\Theta(p)\) streaming recurrence, which is exponential in input bit length on balanced semiprimes.
+For `A_s=(2s)!(3s)!/(s!)^5` and prime `r>3`, `0<=s<r`,
 
-## 2. Independent mathematical audit
+`v_r(A_s)=floor(2s/r)+floor(3s/r)`,
 
-The load-bearing argument was reconstructed independently from the frozen return rather than accepted from finite regression.
+so the first local divisibility wall is `ceil(r/3)`.
 
-For
+Let `d` be the first dyadic seed at or above `ceil(p/3)`. The cases `p=6k-1` and `p=6k+1` give `d<p`; hence the first nonunit dyadic gcd is exactly `p` or `N`.
 
-\[
-A_s=\frac{(2s)!(3s)!}{(s!)^5},
-\]
+If that gcd is `N`, with previous dyadic seed `u=s/2`, exact wall inequalities give
 
-and prime \(r>3\) with \(0\le s<r\), Legendre valuation gives
+`3u<p<q<6u`,
 
-\[
-v_r(A_s)=\left\lfloor\frac{2s}{r}\right\rfloor+\left\lfloor\frac{3s}{r}\right\rfloor.
-\]
+hence `q<2p`.
 
-Because \(r\not\equiv0\pmod3\), the first local divisibility wall is exactly \(s=\lceil r/3\rceil\).
+Set `t=floor(sqrt(N)/3)`. Under `q<2p`, `t+1<p`. If `gcd(A_t,N)` is not `p`, then `3t<p`; two distinct odd primes greater than `3` cannot both lie in `3t+1,3t+2,3t+3`, because one of the first two is even and the third is divisible by `3`. Therefore `q>3(t+1)>p` and `gcd(A_(t+1),N)=p`.
 
-Let \(d\) be the least dyadic seed at or above \(\lceil p/3\rceil\). For every prime \(p>3\), the two residue classes \(p=6k\pm1\) give \(d<p\). Hence the first nonunit dyadic seed lies below both hidden factors and its gcd is exactly either \(p\) or \(N\).
+The recurrence ratio
 
-If the first nonunit is \(N\), writing the previous dyadic seed as \(u=s/2\) gives
+`A_s/A_(s-1)=6(2s-1)(3s-2)(3s-1)/s^3`
 
-\[
-3u<p<q<6u,
-\]
+is exact. Every denominator actually inverted before termination has index `<p`, so it is a unit modulo `N`; the implementation also checks `gcd(s,N)` before inversion. Constructor-side `factor_nonly` receives only `N`.
 
-so \(q<2p\). This synchronization inequality is exact.
+The merged checker is consistent with the result record. As supplemental Driver evidence, I independently recomputed all `13,695` distinct prime pairs with `5<=p<q<=1000`; zero failures. This supplemental run is not a new durable theorem artifact.
 
-Set
+## 3. Scope and provenance boundary
 
-\[
-t=\left\lfloor\frac{\sqrt N}{3}\right\rfloor.
-\]
+The accepted current result is `RR-F24971D684C868A325E2`, bound to `ER-85F5DF86C52A676ADAD0` and `TP2-DF186CDB4959BEA10875`. Earlier duplicate executions are corroborative only and are not authority for this decision.
 
-Under \(q<2p\), one has \(t+1<p\). The larger factor does not divide \(A_t\). If \(p\) also does not divide \(A_t\), then \(3t<p\); placing both \(p<q\) inside the three integers immediately above \(3t\) is impossible because one of the first two is even and the third is divisible by \(3\). Therefore \(q>3(t+1)\) while \(p<3(t+1)\), and
+The positive theorem is compatible with the accepted fixed-public-prefix no-go: fixed finite public probes have finite prime support, whereas PCF4R uses public `N`-dependent support and indices.
 
-\[
-\gcd(A_{t+1},N)=p.
-\]
+The present worst-case implementation still requires `Theta(p)` recurrence work and is exponential in input bit length on balanced semiprimes. No speedup, Foundation, Working Truth, or tool-family promotion is granted.
 
-This closes the synchronized fallback without hidden-factor constructor input.
+## 4. Successor evaluation
 
-## 3. Constructor and modular-division audit
+Terminal acceptance alone is not a successor trigger. The sealed benchmark already exists as a separate active task, larger finite scans add little, and Lean formalization does not answer the primary algorithmic residue.
 
-The exact ratio
+The genuine new information gap is whether the needed public residues can be accessed in asymptotically less than `Theta(p)` work, or whether the best valid acceleration is classically equivalent or blocked in a precisely scoped evaluator model.
 
-\[
-\frac{A_s}{A_{s-1}}=\frac{6(2s-1)(3s-2)(3s-1)}{s^3}
-\]
-
-is correct. Every recurrence index actually reached before theorem termination is \(<p\); in the synchronized branch \(t+1<p\) as well. Thus every denominator inverted on the theorem path is a unit modulo \(N=pq\).
-
-The implementation also tests `gcd(s,N)` before inversion, so a nonunit denominator cannot be silently inverted. Constructor-side `factor_nonly` receives only `N`; prime generation appears only in the regression oracle.
-
-The frozen checker digest and counts in the result record match the merged artifact. As supplemental Driver evidence, I independently recomputed the constructor on all `13,695` distinct prime pairs with `5<=p<q<=1000`; there were zero failures. This additional run is review evidence only and is not promoted to a new durable theorem artifact.
-
-## 4. Provenance and duplicate-execution boundary
-
-The accepted result is the current owner result `RR-F24971D684C868A325E2`, bound to execution `ER-85F5DF86C52A676ADAD0` and publication `TP2-DF186CDB4959BEA10875`.
-
-Earlier supplemental executions are not used as authority for this terminal decision. Their agreement is corroborative only. The clean replay froze its Phase-A derivation and checker before source comparison, then disclosed Phase-B agreement.
-
-No second result record for the non-authoritative duplicate is present in the current task generation on `main`, so the immutable result reducer remains a single-result Driver-review flow rather than a parallel-evidence synthesis case.
-
-## 5. Compatibility with the parent no-go
-
-This positive result does not contradict the accepted fixed-public-prefix obstruction.
-
-The parent no-go says a fixed finite public prefix collapses to gcds against fixed integers and therefore has finite prime support. PCF4R escapes that theorem by allowing the queried observable support and seed schedule to grow with public input `N`.
-
-Both statements are retained:
-
-\[
-\boxed{\text{fixed public prefix: no universal splitter}}
-\]
-
-and
-
-\[
-\boxed{\text{N-dependent valuation wall: exact universal splitter on the promised domain}}.
-\]
-
-## 6. Successor evaluation
-
-Terminal acceptance does not by itself justify more research. I evaluated the remaining portfolio options separately.
-
-The sealed factor-blind benchmark is already a distinct published program task and has an active owner, so opening another benchmark would duplicate work. Larger finite scans would add little after the universal proof. Lean formalization is useful but does not answer the main algorithmic question.
-
-The genuine new information gap is complexity: can the public residues needed by the exact valuation-wall splitter be evaluated in asymptotically less than \(\Theta(p)\) sequential work, or does the best valid acceleration collapse to a known deterministic factorial-factorization method or a rigorously scoped barrier?
-
-This gap is explicitly outside the parent hard target, has discriminating positive and negative outcomes, and can be killed by classical-equivalence or lower-bound evidence. It therefore passes continuation review.
-
-I publish the separate successor:
+This is outside the parent hard target, has discriminating positive and negative outcomes, and has explicit kill conditions. A separate successor is therefore justified:
 
 `RS-PRIME-COORD-FACTOR-VALUATION-WALL-COMPLEXITY-COMPRESSION-BOUNDARY`
 
-under immutable publication
+Publication:
 
-`TP2-25876E1168D68965C9E4`.
+`TP2-25876E1168D68965C9E4`
 
-The new task must not call a memory reduction or constant-factor improvement a factoring speedup. Any positive compression verdict must prove an asymptotic improvement and fully account for arithmetic over the composite modulus.
-
-## 7. Final control state
+## 5. Final control state
 
 `RR-F24971D684C868A325E2 = ACCEPTED / TERMINAL`.
 
 `TP2-DF186CDB4959BEA10875 = TASK HARD TARGET CLOSED`.
 
-`METHOD_HARVEST = RESULT_ONLY`.
-
 `EXACT_N_ONLY_GCD_EXTRACTOR = ACCEPTED`.
 
 `FACTORIZATION_SPEEDUP = NOT PROVED`.
 
-`SUCCESSOR_TASK = RS-PRIME-COORD-FACTOR-VALUATION-WALL-COMPLEXITY-COMPRESSION-BOUNDARY`.
-
 `SUCCESSOR_PUBLICATION = TP2-25876E1168D68965C9E4`.
 
-`NEXT_CONTROL_PLANE_ACTION = RETURN TO NORMAL REVIEW QUEUE AFTER IMMUTABLE REVIEW AND PUBLICATION RECORDS ARE MATERIALIZED`.
+`NEXT_CONTROL_PLANE_ACTION = RETURN TO NORMAL REVIEW QUEUE`.
