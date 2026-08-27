@@ -151,7 +151,7 @@ def factor_small(n: int) -> tuple[int, ...]:
 
 def band_name(bits: int) -> str:
     if bits <= 12:
-        return "B08_12"
+        return "B05_12"
     if bits <= 16:
         return "B13_16"
     if bits <= 20:
@@ -393,7 +393,7 @@ def baseline_pollard_rho(n: int) -> AlgoResult:
     if n % 2 == 0:
         return AlgoResult("pollard_rho", True, 2, 1, 0, 1, 8*bits, None, {})
     ops = gcd_calls = 0
-    for seed in pars["seeds"]:
+    for attempt, seed in enumerate(pars["seeds"], start=1):
         x = seed % n
         y = x
         c = (seed * seed + 1) % n
@@ -405,7 +405,7 @@ def baseline_pollard_rho(n: int) -> AlgoResult:
             d = math.gcd(abs(x-y), n)
             gcd_calls += 1
             if 1 < d < n:
-                return AlgoResult("pollard_rho", True, d, ops, gcd_calls, seed, 8*bits, None, {"seed": seed, "steps": step+1})
+                return AlgoResult("pollard_rho", True, d, ops, gcd_calls, attempt, 8*bits, None, {"seed": seed, "steps": step+1})
             if d == n:
                 break
     return AlgoResult("pollard_rho", False, None, ops, gcd_calls, len(pars["seeds"]), 8*bits, "SEED_BUDGET_EXHAUSTED", {})
@@ -415,7 +415,7 @@ def baseline_pollard_pm1(n: int) -> AlgoResult:
     bits = n.bit_length()
     pars = PARAMETER_MANIFEST["baseline_parameters"]["pollard_p_minus_1"]
     ops = gcd_calls = 0
-    for base in pars["bases"]:
+    for attempt, base in enumerate(pars["bases"], start=1):
         a = base % n
         for j in range(2, pars["B1"] + 1):
             a = pow(a, j, n)
@@ -423,7 +423,7 @@ def baseline_pollard_pm1(n: int) -> AlgoResult:
         d = math.gcd(a - 1, n)
         gcd_calls += 1
         if verify_nontrivial_divisor(n, d):
-            return AlgoResult("pollard_p_minus_1", True, d, ops, gcd_calls, base, 5*bits, None, {"base": base, "B1": pars["B1"]})
+            return AlgoResult("pollard_p_minus_1", True, d, ops, gcd_calls, attempt, 5*bits, None, {"base": base, "B1": pars["B1"]})
     return AlgoResult("pollard_p_minus_1", False, None, ops, gcd_calls, len(pars["bases"]), 5*bits, "B1_BASE_BUDGET_EXHAUSTED", {"B1": pars["B1"]})
 
 
