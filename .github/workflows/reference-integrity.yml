@@ -39,9 +39,9 @@ jobs:
       - name: Check legacy scheduler cutover is frozen
         run: python tools/check_task_registry_cutover.py
       - name: Check canonical registered-plus-legacy dispatch view
-        run: python tools/research_dispatch.py validate
+        run: python research_dispatch_integrity.py audit
       - name: Check immutable research result and Driver-review records
-        run: python tools/research_result_records.py audit
+        run: python research_result_record_audit.py audit
       - name: Check parallel evidence two-pass reference chains
         run: python research_parallel_evidence.py audit
       - name: Check opt-in parallel execution cohorts
