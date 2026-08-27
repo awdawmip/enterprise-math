@@ -14,7 +14,7 @@ import sympy as sp
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT = ROOT / "research_artifacts" / "RB_ENTERPRISE_DEGREE6_CM24_BLIND_REPLICATION" / "raw_freeze_reduction.json"
-EXPECTED_SHA256 = "5805be4031f73b0a5d92589326d7188fc129cde6d14be46861d7214d7690e2c1"
+EXPECTED_SHA256 = "1fcab70414b4e873a961474124ca18c46a5f74dcd27914dcfb2147a8de792924"
 
 
 def exact_zero(expr: sp.Expr, label: str) -> None:
@@ -52,6 +52,16 @@ def main() -> None:
 
     H24 = j_expected**2 - 4834944 * j_expected + 14670139392
     exact_zero(H24, "H_-24(j)")
+
+    # The anharmonic exceptional values {-1, 1/2, 2} all have j=1728,
+    # while the frozen CM(-24) lambda does not.
+    def legendre_j(x: sp.Expr) -> sp.Expr:
+        return sp.simplify(256 * (1 - x + x**2) ** 3 / (x**2 * (1 - x) ** 2))
+
+    for exceptional in (-sp.Integer(1), sp.Rational(1, 2), sp.Integer(2)):
+        exact_zero(legendre_j(exceptional) - 1728, f"exceptional j at {exceptional}")
+    assert 1728**2 - 4834944 * 1728 + 14670139392 == 6318342144
+    assert 6318342144 != 0
 
     cubic = R**3 - 3 * R - k2_expected
     disc = sp.discriminant(cubic, R)
