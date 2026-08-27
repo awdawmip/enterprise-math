@@ -1,0 +1,29 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_RESULT_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "purpose": "Preserve structurally invalid immutable historical result bytes while removing only exact named records from operational reduction after a writer-conformant same-task/same-publication replacement is present.",
+  "entries": [
+    {
+      "resolution_id": "RQ-PCF4-A33-20260827",
+      "result_id": "RR-A33E88150B0DAD0B13B8",
+      "record_path": "research_result_records/RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE/RR-A33E88150B0DAD0B13B8.json",
+      "record_blob_sha1": "sha1:81e61d330035ddfe2e35a1081f206e554415ee55",
+      "corrected_result_id": "RR-78BAD07DCE4EA3FC1F40",
+      "task_id": "RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE",
+      "publication_id": "TP2-7B0534E09E4286CB5B6E",
+      "resolution": "QUARANTINE_INVALID_RECORD",
+      "operational": false,
+      "history_preserved": true,
+      "reason": [
+        "The historical result references nonexistent execution record ER-CB5BCA1809671D892B42 and therefore cannot be made operational by an enum alias or digest normalization.",
+        "The scheduler-valid CLAIM chatgpt-pcf4-20260827-1714 deterministically materializes writer-conformant execution ER-BB2F7D1AFE3EF5B04433.",
+        "The same frozen task/publication outputs are re-frozen as RR-78BAD07DCE4EA3FC1F40 under the valid execution, preserving the restricted fixed-public-prefix NO_GO result.",
+        "Historical bytes remain referenceable provenance and are not deleted or rewritten."
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_RESULT_COMPATIBILITY_V1",
+  "status": "ACTIVE",
+  "purpose": "Exact immutable-history normalization for result/review metadata only. Every entry is pinned to the immutable record Git blob. Enum aliases are explicit and artifact SHA-256 repair is permitted only when the current artifact Git blob still equals the immutable record's pinned Git blob. Historical bytes are never rewritten and no authority is granted.",
+  "result_normalizations": [
+    {
+      "normalization_id": "RRC-ABC3-EXACT-OBSTRUCTION",
+      "result_id": "RR-8992ACCB57F4A22CB843",
+      "record_path": "research_result_records/RS-ABC-ENTERPRISE-BOUNDARY-ESCAPE/RR-8992ACCB57F4A22CB843.json",
+      "record_blob_sha1": "sha1:e48ae29d334cd2d1efe68522c446b79eba18e786",
+      "field_aliases": [
+        {"field": "terminal_verdict", "from": "EXACT_OBSTRUCTION", "to": "NO_GO"}
+      ],
+      "artifact_sha256_repairs": [
+        "research_returns/ABC_ENTERPRISE_BOUNDARY_ESCAPE_RETURN_20260827.md"
+      ],
+      "reason": "EXACT_OBSTRUCTION predates the current terminal enum; NO_GO is its control-layer equivalent. The return Git blob remains exactly the frozen blob, so only the stale secondary SHA-256 metadata is recomputed in memory."
+    },
+    {
+      "normalization_id": "RRC-ABC1-EXACT-OBSTRUCTION",
+      "result_id": "RR-CBCAF6EF07B1C8493C17",
+      "record_path": "research_result_records/RS-ABC-ENTERPRISE-CAPPED-CORE-ENERGY/RR-CBCAF6EF07B1C8493C17.json",
+      "record_blob_sha1": "sha1:a2c2662432e8cfdeb06aed7c30889d1425d4531e",
+      "field_aliases": [
+        {"field": "terminal_verdict", "from": "EXACT_OBSTRUCTION", "to": "NO_GO"},
+        {"field": "independence_status", "from": "INDEPENDENT_RECONSTRUCTION_WITH_PARENT_PROVENANCE_GAP", "to": "SHARED_AMBIENT_CONTEXT_DISCLOSED"}
+      ],
+      "artifact_sha256_repairs": [],
+      "reason": "The historical free-form verdict and provenance-qualified independence label predate the current V1 enums; the normalized values preserve the same restricted obstruction and disclosed shared parent context."
+    },
+    {
+      "normalization_id": "RRC-ABC2-EXACT-OBSTRUCTION",
+      "result_id": "RR-E623A0364F580D6D1C0F",
+      "record_path": "research_result_records/RS-ABC-ENTERPRISE-CARRY-ACTIVATION-SPECTRUM/RR-E623A0364F580D6D1C0F.json",
+      "record_blob_sha1": "sha1:8184753cb582ccc180301cb1a2ab6b2dcf16e04e",
+      "field_aliases": [
+        {"field": "terminal_verdict", "from": "EXACT_OBSTRUCTION", "to": "NO_GO"},
+        {"field": "independence_status", "from": "EXACT_TASK_LOCAL_OBSTRUCTION", "to": "NOT_APPLICABLE"}
+      ],
+      "artifact_sha256_repairs": [],
+      "reason": "The exact obstruction is a task-local theorem rather than an independence claim. The current V1 control equivalents are NO_GO and NOT_APPLICABLE."
+    },
+    {
+      "normalization_id": "RRC-P022-D78-ENUMS",
+      "result_id": "RR-4D51F40A41E59F28BA98",
+      "record_path": "research_result_records/RS-P022-OBSERVATION-HISTORY/RR-4D51F40A41E59F28BA98.json",
+      "record_blob_sha1": "sha1:2ef4a2357318edcc9a0593d1b968f0e62ae95b50",
+      "field_aliases": [
+        {"field": "method_harvest", "from": "RECOVERED_SAME_TASK_OWNER_THEOREM_PLUS_INDEPENDENT_REPLAY", "to": "RESULT_ONLY"},
+        {"field": "independence_status", "from": "INDEPENDENT_EXACT_RECURRENCE_AND_SUPPORT_REGRESSION_COMPLETED", "to": "SHARED_AMBIENT_CONTEXT_DISCLOSED"}
+      ],
+      "artifact_sha256_repairs": [],
+      "reason": "The theorem remains a result-only bounded P022 closure. The replay reused the same task/owner theorem context, so the current V1 disclosure-equivalent independence class is SHARED_AMBIENT_CONTEXT_DISCLOSED."
+    },
+    {
+      "normalization_id": "RRC-PCF4R-PHASEA-SHA",
+      "result_id": "RR-F24971D684C868A325E2",
+      "record_path": "research_result_records/RS-PRIME-COORD-FACTOR-NONLY-VALUATION-WALL-GCD-EXTRACTOR-INDEPENDENT-REPLAY/RR-F24971D684C868A325E2.json",
+      "record_blob_sha1": "sha1:5c02d777315b7a6f6cb6ed8e8341e513c3a9065b",
+      "field_aliases": [],
+      "artifact_sha256_repairs": [
+        "research_artifacts/PRIME_COORD_FACTOR_NONLY_VALUATION_WALL_GCD_EXTRACTOR_INDEPENDENT_REPLAY/PHASE_A_FREEZE.md"
+      ],
+      "reason": "The PHASE_A_FREEZE Git blob still equals the result's frozen Git-blob pin; only the stored secondary SHA-256 value is stale."
+    },
+    {
+      "normalization_id": "RRC-PCF4-CORRECTED-CHECKER-SHA",
+      "result_id": "RR-78BAD07DCE4EA3FC1F40",
+      "record_path": "research_result_records/RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE/RR-78BAD07DCE4EA3FC1F40.json",
+      "record_blob_sha1": "sha1:146001ea7144bb999787498165dd5d103e8239f3",
+      "field_aliases": [],
+      "artifact_sha256_repairs": [
+        "scripts/check_prime_coord_factor_blind_padic_gcd_bridge.py",
+        "scripts/check_prime_coord_factor_blind_padic_gcd_bridge_independent.py"
+      ],
+      "reason": "The provenance-correct replacement reused the original checker Git-blob pins exactly, but its two stored secondary SHA-256 values were stale. Both current checker blobs still equal those primary pins, so only the secondary digests are normalized in memory."
+    }
+  ],
+  "review_normalizations": [
+    {
+      "normalization_id": "RVC-PCF1-RETURN-ONLY",
+      "review_id": "DR-78A3B92E2016DF7AB1D3",
+      "record_path": "research_result_reviews/RR-B8D8679EB033E990E825/DR-78A3B92E2016DF7AB1D3.json",
+      "record_blob_sha1": "sha1:264bb17f7d346c9506d134dfbbd19162e00b9eaf",
+      "field_aliases": [
+        {"field": "destination_class", "from": "RETURN_ONLY", "to": "NONE"}
+      ],
+      "artifact_sha256_repairs": [],
+      "reason": "RETURN_ONLY was a pre-enum spelling for an accepted result with no destination object; current V1 represents that state as destination_class NONE."
+    },
+    {
+      "normalization_id": "RVC-NTIRF-REVIEW-SHA",
+      "review_id": "DR-E3B831C16E7BA03B153C",
+      "record_path": "research_result_reviews/RR-DDF27FE0D58FF6F9B8E4/DR-E3B831C16E7BA03B153C.json",
+      "record_blob_sha1": "sha1:8ae951e976507f3cfcfea8d7256629a3d0b75f66",
+      "field_aliases": [],
+      "artifact_sha256_repairs": [
+        "driver_reviews/NATIVE_TRISECTOR_INVARIANT_READOUT_FOUNDATION_DERIVATION_DRIVER_REVIEW_20260827.md"
+      ],
+      "reason": "The Driver-review Git blob still equals the immutable review record's pin; only the stored secondary SHA-256 value is stale."
+    }
+  ],
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false,
+  "successor_triggered": false
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "ENTERPRISE_MATH_TASK_RECORD_COMPATIBILITY_WAIVERS_V1",
+  "status": "ACTIVE",
+  "purpose": "Exact immutable-history compatibility for V2 taskbooks whose semantic body sections predate current heading names. Waivers are nonoperational evidence adapters only and cannot suppress metadata, lineage, taskbook-path, Git-blob, parse, publication-authority, placeholder, or any non-heading integrity failure.",
+  "waivers": [
+    {
+      "waiver_id": "TRCW-P022-D78-LEGACY-HEADINGS-20260827",
+      "task_id": "RS-P022-OBSERVATION-HISTORY",
+      "publication_id": "TP2-D78DBA0243911E0363FA",
+      "taskbook_path": "research_tasks/P022_OBSERVATION_HISTORY_FORCED_MIDPOINT_FALLBACK_REPLAY_20260827.md",
+      "taskbook_blob_sha1": "sha1:15b495b7a21af748260363a6969097abe1f79611",
+      "scope": "MANDATORY_BODY_SECTION_HEADING_ALIAS_ONLY",
+      "legacy_section_aliases": {
+        "Frozen inputs and scope": "Frozen inputs",
+        "Hard target and required outputs": "Hard target",
+        "Research value to preserve": "Research value",
+        "Success, kill, and return criteria": "Success and kill criteria"
+      },
+      "reason": "The immutable generation-1 taskbook contains all four required semantic sections under earlier exact headings. Its Git blob is frozen; compatibility therefore recognizes only these aliases for this exact publication/blob while keeping the publication nonoperational and all other integrity rules fail-closed.",
+      "operational": false,
+      "history_preserved": true,
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}
