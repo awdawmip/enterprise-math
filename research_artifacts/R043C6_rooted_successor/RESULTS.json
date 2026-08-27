@@ -1,0 +1,39 @@
+{
+  "schema": "ENTERPRISE_MATH_R043C6_ROOTED_SUCCESSOR_RESULTS_V1",
+  "task_id": "RS-R043C6-SINGLE-COMPONENT-ROOTED-SUCCESSOR-EXTENSION-RIGIDITY",
+  "researcher_id": "EM-R043C6-71DFD3",
+  "primary_classification": "REDUCED_TO_STRICTLY_SMALLER_HIDDEN_EXTENSION_INVARIANT",
+  "structural_reduction": {
+    "new_zero_weight_set": "Z_x = N(x) \\ (C union F(C))",
+    "cardinality": "|Z_x| = 12 - w_G0(x) - deg_G0(x)",
+    "extra_profile": "J_x = induced adjacency on Z_x plus incidence from Z_x to F_Omega minus {x}, modulo rooted weighted-G0 automorphisms",
+    "successor_rule": "old frontier survives; old weight increments exactly on G0-neighbors of x; every z in Z_x enters with weight 1; all old-old edges are G0 minus x; the only missing successor edges are exactly J_x",
+    "scope": "one-step only; FCC and HCP; one current unoccupied component Omega"
+  },
+  "exact_root_star_pressure": {
+    "fcc": {
+      "states": 2432,
+      "rooted_exact_pair_tests": 2351,
+      "duplicate_exact_classes_in_candidate_buckets": 81,
+      "harmful_successor_splits": 0,
+      "update_identity_mismatches": 0
+    },
+    "hcp": {
+      "states": 2453,
+      "rooted_exact_pair_tests": 2193,
+      "duplicate_exact_classes_in_candidate_buckets": 259,
+      "harmful_successor_splits": 0,
+      "update_identity_mismatches": 0
+    },
+    "note": "The all-12 occupied root cage is excluded because the root is then a shielded singleton unoccupied component. WL is used only for candidate bucketing; all matched-current and successor comparisons are exact VF2++ weighted graph isomorphism tests. This bounded classification is regression/evidence, not a global rigidity proof."
+  },
+  "global_disposition": {
+    "fcc": "REDUCED_TO_ROOT_LOCAL_J_X_ORBIT_UNIQUENESS_PROBLEM",
+    "hcp": "REDUCED_TO_ROOT_LOCAL_J_X_ORBIT_UNIQUENESS_PROBLEM",
+    "global_rooted_g0_rigidity": "OPEN",
+    "harmful_collision": "NOT_FOUND_AND_NOT_CLAIMED",
+    "next_exact_gate": "Determine whether globally realizable completions J_x of a fixed rooted weighted G0 form one successor-equivalence orbit; two completions yielding nonisomorphic successors are a decisive counterexample."
+  },
+  "checker": "scripts/check_r043c6_rooted_successor.py",
+  "pass": true
+}
