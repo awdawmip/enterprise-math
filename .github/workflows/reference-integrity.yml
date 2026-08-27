@@ -42,6 +42,8 @@ jobs:
         run: python research_dispatch_integrity.py audit
       - name: Check immutable research result and Driver-review records
         run: python research_result_record_audit.py audit
+      - name: Check multiple Driver review exact-set authority
+        run: python research_review_evidence.py audit
       - name: Check parallel evidence two-pass reference chains
         run: python research_parallel_evidence.py audit
       - name: Check opt-in parallel execution cohorts

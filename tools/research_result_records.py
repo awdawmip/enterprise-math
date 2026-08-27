@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Canonical result-registry shim with publication-generation and parallel-evidence state reduction.
+"""Canonical result-registry shim with generation, result and review evidence reduction.
 
 The durable record writer/auditor lives in ``control_plane.research_result_records_impl``.
-This shim preserves its API while replacing only task-level result-state reduction:
-multiple results are retained and routed through the two-pass parallel-evidence
-synthesis layer instead of timestamp/latest-result semantics.
+This shim preserves its API while replacing task-level control reduction:
+multiple results and multiple Driver reviews are retained and never resolved by
+timestamp/latest-wins. Each multiplicity layer uses exact-set two-pass synthesis,
+and parallel-result control is valid only while every source result's current
+review authority is itself resolved.
 """
 from __future__ import annotations
 
@@ -27,6 +29,7 @@ for _name in dir(_impl):
 if str(_impl.ROOT) not in sys.path:
     sys.path.insert(0, str(_impl.ROOT))
 import research_parallel_evidence as _parallel  # noqa: E402
+import research_review_evidence as _review_evidence  # noqa: E402
 
 ROOT = _impl.ROOT
 
@@ -43,17 +46,54 @@ def _publication_for_state(task_id: str, root: Path, publication_id: str | None)
     return None
 
 
+def _multiple_review_state(result: dict[str, Any], root: Path) -> dict[str, Any]:
+    review_state = _review_evidence.state(str(result["result_id"]), root)
+    phase = review_state.get("review_state")
+    if phase in {
+        "AWAITING_REVIEW_INTAKE",
+        "AWAITING_REVIEW_REFERENCE_PASS_1",
+        "AWAITING_REVIEW_REFERENCE_PASS_2",
+        "AWAITING_REVIEW_SYNTHESIS",
+    }:
+        return {
+            "state": "AWAITING_DRIVER_REVIEW",
+            "result": result,
+            "review": None,
+            "terminal": False,
+            "review_parallel_state": phase,
+            "parallel_review_ids": list(review_state.get("review_ids") or []),
+            "review_intake_id": review_state.get("intake_id"),
+            "review_set_sha256": review_state.get("review_set_sha256"),
+        }
+    synthesis = review_state.get("synthesis")
+    disposition = review_state.get("operational_disposition")
+    if phase not in {"REVIEW_SYNTHESIS_TERMINAL", "REVIEW_SYNTHESIS_NONTERMINAL"}:
+        raise ResultRecordError(f"unexpected multiple-review state: {phase}")
+    synthetic_review = {
+        "review_id": synthesis.get("synthesis_id") if isinstance(synthesis, dict) else None,
+        "disposition": disposition,
+        "review_synthesis": synthesis,
+        "parallel_review_ids": list(review_state.get("review_ids") or []),
+    }
+    terminal = disposition in TERMINAL_DISPOSITIONS
+    return {
+        "state": "TERMINAL" if terminal else "RETURN_TO_EXECUTION",
+        "result": result,
+        "review": synthetic_review,
+        "terminal": terminal,
+        "review_parallel_state": phase,
+        "parallel_review_ids": list(review_state.get("review_ids") or []),
+        "review_intake_id": review_state.get("intake_id"),
+        "review_set_sha256": review_state.get("review_set_sha256"),
+    }
+
+
 def _single_result_state(
     task_id: str,
     root: Path,
     publication_id: str | None,
 ) -> dict[str, Any] | None:
-    """Reduce one publication generation through the public result-registry API.
-
-    Keeping the reduction on this module boundary preserves compatibility with
-    callers/tests that intentionally replace ``iter_results`` or ``latest_review``
-    while retaining the exact generation-aware semantics of the implementation.
-    """
+    """Reduce one result generation without allowing multiple reviews to latest-win."""
     values = [
         item
         for item in iter_results(root)
@@ -64,6 +104,10 @@ def _single_result_state(
         return None
     values.sort(key=lambda item: (item.get("frozen_at", ""), item.get("result_id", "")))
     result = values[-1]
+    immutable_reviews = _review_evidence.reviews_for_result(str(result["result_id"]), root)
+    if len(immutable_reviews) >= 2:
+        return _multiple_review_state(result, root)
+
     review = latest_review(result["result_id"], root)
     if review is None:
         return {"state": "AWAITING_DRIVER_REVIEW", "result": result, "review": None, "terminal": False}
@@ -83,6 +127,31 @@ def _parallel_synthesis(intake_id: str, evidence_set_sha256: str, root: Path) ->
     return None
 
 
+def _parallel_review_authority(
+    result_ids: list[str], root: Path
+) -> tuple[dict[str, dict[str, Any]], list[str]]:
+    """Resolve every source result's current review set before task synthesis acts.
+
+    This closes the cross-layer stale-synthesis hole: a new Driver review changes
+    that result's current review authority even though the task-level result-id set
+    has not changed. Until the new review set is synthesized, old parallel-result
+    synthesis is retained as history but cannot control task state.
+    """
+    states: dict[str, dict[str, Any]] = {}
+    pending: list[str] = []
+    for result_id in sorted(result_ids):
+        review_state = _review_evidence.state(result_id, root)
+        states[result_id] = review_state
+        phase = review_state.get("review_state")
+        if phase not in {
+            "SINGLE_REVIEW_FLOW",
+            "REVIEW_SYNTHESIS_TERMINAL",
+            "REVIEW_SYNTHESIS_NONTERMINAL",
+        }:
+            pending.append(result_id)
+    return states, pending
+
+
 def task_result_state(
     task_id: str,
     root: Path = ROOT,
@@ -90,10 +159,12 @@ def task_result_state(
 ) -> dict[str, Any] | None:
     """Return one control state without discarding parallel research evidence.
 
-    Single-result tasks retain the generation-aware historical behavior. Two or
-    more results for the same selected publication never use timestamp precedence;
-    they remain non-dispatchable until intake -> reference pass 1 -> reference
-    pass 2 -> synthesis completes.
+    Single-result tasks retain generation-aware behavior, except actual review
+    multiplicity also becomes exact-set evidence. Two or more results for the
+    selected publication never use timestamp precedence and remain
+    non-dispatchable until result intake -> reference pass 1 -> reference pass 2
+    -> synthesis completes. A synthesized multi-result control state is usable
+    only while every source result's current review authority is resolved.
     """
     resolved_publication = _publication_for_state(task_id, root, publication_id)
     parallel = _parallel.state(task_id, resolved_publication, root)
@@ -146,6 +217,21 @@ def task_result_state(
             "evidence_set_sha256": evidence_hash,
         }
 
+    review_states, pending_review_ids = _parallel_review_authority(result_ids, root)
+    if pending_review_ids:
+        return {
+            "state": "AWAITING_DRIVER_REVIEW",
+            "result": synthetic_result,
+            "review": None,
+            "terminal": False,
+            "parallel_state": "AWAITING_RESULT_REVIEW_AUTHORITY",
+            "parallel_result_ids": result_ids,
+            "parallel_intake_id": intake_id,
+            "evidence_set_sha256": evidence_hash,
+            "pending_result_review_ids": pending_review_ids,
+            "result_review_authority": review_states,
+        }
+
     synth_result = {
         **synthetic_result,
         "result_id": synthesis.get("synthesis_id"),
@@ -164,6 +250,7 @@ def task_result_state(
             "parallel_result_ids": result_ids,
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
+            "result_review_authority": review_states,
         }
 
     if phase == "PARALLEL_SYNTHESIS_TERMINAL":
@@ -178,6 +265,7 @@ def task_result_state(
                 "parallel_result_ids": result_ids,
                 "parallel_intake_id": intake_id,
                 "evidence_set_sha256": evidence_hash,
+                "result_review_authority": review_states,
             }
         return {
             "state": "TERMINAL",
@@ -191,6 +279,7 @@ def task_result_state(
             "parallel_result_ids": result_ids,
             "parallel_intake_id": intake_id,
             "evidence_set_sha256": evidence_hash,
+            "result_review_authority": review_states,
         }
 
     raise ResultRecordError(f"unknown parallel result state: {phase}")
