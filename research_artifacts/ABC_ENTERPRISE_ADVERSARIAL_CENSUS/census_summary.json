@@ -1,0 +1,69 @@
+{
+  "schema": "ABC_ENTERPRISE_ADVERSARIAL_CENSUS_CERTIFICATE_V1",
+  "task_id": "RS-ABC-ENTERPRISE-ADVERSARIAL-CENSUS",
+  "publication_id": "TP2-3132361FDFD8E30AD1F9",
+  "researcher_id": "EM-ABC4-B9841C",
+  "range": {"max_c": 4000, "primitive_triples_scanned": 2431800},
+  "definitions": {
+    "rho": "rad(a) rad(b) rad(c) = rad(abc)",
+    "R": "log(rho)",
+    "u_x": "x/rad(x)",
+    "H": "log(u_a u_b u_c)",
+    "m": "min(a,b)",
+    "K_cap": "prod_x min(u_x,m)",
+    "I_cap": "log(K_cap)",
+    "D_sup": "H-I_cap",
+    "beta": "log(c^2/(4ab))",
+    "q": "log(c)/R",
+    "h_p(n)": "v_p(binomial(nc,na))-v_p(c)",
+    "tau_p": "min n>=1 with h_p(n)>0"
+  },
+  "exact_identities": [
+    "R+H = 3 log(c) - beta - log(4)",
+    "3(q-1)R = H+beta+log(4)-2R",
+    "H = I_cap + D_sup"
+  ],
+  "boundary": {
+    "global_strong_theorem": "D_sup <= 2 log(c/m)",
+    "parent_form_corollary": "D_sup <= 2 beta + log(16)",
+    "strong_failures_in_range": 0,
+    "parent_failures_in_range": 0
+  },
+  "coefficient_2_test": {
+    "statement": "I_cap <= 2R, equivalently K_cap <= rho^2",
+    "verdict": "FALSE",
+    "counterexample_count_in_range": 7,
+    "minimal_by_c": [32, 49, 81]
+  },
+  "coefficient_2_counterexamples": [
+    {"triple":[32,49,81],"rho":42,"u":[16,7,27],"K_cap":3024,"rho_squared":1764,"K_over_rho2":"12/7","beta_arg":"6561/6272","q":1.1757189916348774,"beta":0.045047747314633714,"Icap_over_R":2.1442065660635454,"Dsup_over_R":0.0},
+    {"triple":[169,343,512],"rho":182,"u":[13,49,256],"K_cap":107653,"rho_squared":33124,"K_over_rho2":"13/4","q":1.198754152359422,"beta":0.12272572687011159,"Icap_over_R":2.2264899081065024,"Dsup_over_R":0.0797998070578499},
+    {"triple":[81,1250,1331],"rho":330,"u":[27,125,121],"K_cap":177147,"rho_squared":108900,"K_over_rho2":"19683/12100","q":1.2404847183915741,"beta":1.4757292907015471,"Icap_over_R":2.0839010333890617,"Dsup_over_R":0.14402356080855924},
+    {"triple":[243,1805,2048],"rho":570,"u":[81,19,1024],"K_cap":373977,"rho_squared":324900,"K_over_rho2":"2187/1900","q":1.2015530913851162,"beta":0.8715662970913763,"Icap_over_R":2.0221690698179033,"Dsup_over_R":0.2266770864996558},
+    {"triple":[1024,1377,2401],"rho":714,"u":[512,27,343],"K_cap":4741632,"rho_squared":509796,"K_over_rho2":"2688/289","beta_arg":"5764801/5640192","q":1.1845653987192404,"beta":0.021852526994507935,"Icap_over_R":2.3393951811822506,"Dsup_over_R":0.0},
+    {"triple":[625,2048,2673],"rho":330,"u":[125,1024,81],"K_cap":6328125,"rho_squared":108900,"K_over_rho2":"28125/484","q":1.3607226485800983,"beta":0.3332484352621474,"Icap_over_R":2.7005111790489225,"Dsup_over_R":0.08513748361707822},
+    {"triple":[1024,2187,3211],"rho":1482,"u":[512,729,13],"K_cap":4852224,"rho_squared":2196324,"K_over_rho2":"10368/4693","q":1.10589977203493,"beta":0.14062320078291632,"Icap_over_R":2.1085654096965243,"Dsup_over_R":0.0}
+  ],
+  "rankings_descriptive": {
+    "q_top5": [[1,2400,2401],[3,125,128],[625,2048,2673],[1,512,513],[1,242,243]],
+    "interior_stress_top5": [[1024,1377,2401],[32,49,81],[169,343,512],[640,729,1369],[625,2048,2673]]
+  },
+  "carry_window_64": [
+    {"triple":[32,49,81],"profile":[{"p":2,"tau":1,"energy":171,"max_h":7},{"p":3,"tau":4,"energy":70,"max_h":3},{"p":7,"tau":5,"energy":51,"max_h":2}]},
+    {"triple":[1024,1377,2401],"profile":[{"p":2,"tau":1,"energy":156,"max_h":7},{"p":3,"tau":1,"energy":169,"max_h":6},{"p":7,"tau":8,"energy":42,"max_h":2},{"p":17,"tau":1,"energy":86,"max_h":3}]},
+    {"triple":[625,2048,2673],"profile":[{"p":2,"tau":5,"energy":124,"max_h":6},{"p":3,"tau":1,"energy":125,"max_h":4},{"p":5,"tau":3,"energy":68,"max_h":3},{"p":11,"tau":1,"energy":114,"max_h":3}]},
+    {"triple":[1,80,81],"profile":[{"p":2,"tau":17,"energy":66,"max_h":8},{"p":3,"tau":null,"energy":0,"max_h":0},{"p":5,"tau":9,"energy":42,"max_h":4}]},
+    {"triple":[1,2400,2401],"profile":[{"p":2,"tau":33,"energy":31,"max_h":5},{"p":3,"tau":4,"energy":82,"max_h":6},{"p":5,"tau":29,"energy":13,"max_h":2},{"p":7,"tau":null,"energy":0,"max_h":0}]}
+  ],
+  "carry_infinite_family": {
+    "family": "(a,b,c)=(1,p^k-1,p^k)",
+    "theorem": "tau_p=p^k+1 and sum_{n<=W} h_p(n)=0 for W<=p^k",
+    "proof_in_return": true,
+    "regression": "p in {2,3,5,7,11}, 1<=k<=4, 20/20 pass"
+  },
+  "evidence_typing": {
+    "integer_and_rational_decisions": "THEOREM/NO_GO",
+    "decimal_rankings": "FINITE_DESCRIPTIVE_ONLY",
+    "parent_formula_provenance": "TASK_LOCAL_EXPLICIT_NORMALIZATION; parent conversation formulas were referenced but not repository-addressable"
+  }
+}
