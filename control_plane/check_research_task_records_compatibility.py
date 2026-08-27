@@ -12,12 +12,16 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
-from tools import research_task_records, research_taskbook
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools import research_task_records, research_taskbook  # noqa: E402
+
 WAIVER_FILE = "research_task_record_compatibility_waivers.json"
 WAIVER_SCHEMA = "ENTERPRISE_MATH_TASK_RECORD_COMPATIBILITY_WAIVERS_V1"
 WAIVER_SCOPE = "MANDATORY_BODY_SECTION_HEADING_ALIAS_ONLY"
