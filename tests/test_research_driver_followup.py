@@ -3,13 +3,14 @@ from __future__ import annotations
 import unittest
 from unittest import mock
 
-import research_driver_followup as followup
+import research_driver_followup as impl
+import research_driver_followup_guard as followup
 from tools import research_result_records as results
 
 
 def gate_rows(**overrides):
     rows = []
-    for gate in followup.GATES:
+    for gate in impl.GATES:
         decision = overrides.get(gate, "NOT_REQUIRED")
         evidence = [f"evidence:{gate}"] if decision == "SATISFIED_BY_REVIEWED_RESULT" else []
         rows.append(
@@ -24,47 +25,65 @@ def gate_rows(**overrides):
 
 
 class DriverFollowupContractTests(unittest.TestCase):
-    def test_cutover_is_fail_closed_for_new_reviews(self):
-        legacy = {"reviewed_at": "2026-08-27T09:18:59+00:00"}
-        current = {"reviewed_at": "2026-08-27T09:19:00+00:00"}
+    def test_frozen_review_id_not_timestamp_controls_compatibility(self):
+        legacy_id = "DR-674A8EC67ED785D968FA"
+        legacy = {
+            "review_id": legacy_id,
+            "reviewed_at": "2099-01-01T00:00:00+00:00",
+        }
+        backdated_new = {
+            "review_id": "DR-NEW-BACKDATED",
+            "reviewed_at": "2000-01-01T00:00:00+00:00",
+        }
         self.assertFalse(followup.review_requires_followup(legacy))
-        self.assertTrue(followup.review_requires_followup(current))
+        self.assertTrue(followup.review_requires_followup(backdated_new))
+
+    def test_baseline_is_pinned_and_current_ids_remain_present(self):
+        self.assertEqual([], followup.baseline_audit())
+        self.assertEqual(12, len(followup.legacy_review_ids()))
+
+    def test_missing_review_id_never_gains_legacy_exemption(self):
+        self.assertTrue(
+            followup.review_requires_followup(
+                {"reviewed_at": "2000-01-01T00:00:00+00:00"}
+            )
+        )
 
     def test_exact_gate_set_is_required(self):
         rows = gate_rows()
         rows.pop()
-        with self.assertRaisesRegex(followup.DriverFollowupError, "exactly"):
-            followup._gate_map(rows)
+        with self.assertRaisesRegex(impl.DriverFollowupError, "exactly"):
+            impl._gate_map(rows)
 
     def test_satisfied_gate_requires_evidence(self):
         rows = gate_rows()
         rows[0]["decision"] = "SATISFIED_BY_REVIEWED_RESULT"
         rows[0]["evidence_refs"] = []
-        with self.assertRaisesRegex(followup.DriverFollowupError, "requires evidence_refs"):
-            followup._gate_map(rows)
+        with self.assertRaisesRegex(impl.DriverFollowupError, "requires evidence_refs"):
+            impl._gate_map(rows)
 
     def test_accepted_review_cannot_skip_external_prior_art(self):
-        gates = followup._gate_map(gate_rows())
+        gates = impl._gate_map(gate_rows())
         review = {"disposition": "ACCEPTED", "destination_class": "NONE"}
         result = {"method_harvest": "RESULT_ONLY"}
-        with self.assertRaisesRegex(followup.DriverFollowupError, "EXTERNAL_PRIOR_ART"):
-            followup._forced_gate_rules(review, result, gates)
+        with self.assertRaisesRegex(impl.DriverFollowupError, "EXTERNAL_PRIOR_ART"):
+            impl._forced_gate_rules(review, result, gates)
 
     def test_l4_acceptance_cannot_skip_lean(self):
-        gates = followup._gate_map(
+        gates = impl._gate_map(
             gate_rows(EXTERNAL_PRIOR_ART_DUPLICATION="SATISFIED_BY_REVIEWED_RESULT")
         )
         review = {"disposition": "ACCEPTED", "destination_class": "L4"}
         result = {"method_harvest": "RESULT_ONLY"}
-        with self.assertRaisesRegex(followup.DriverFollowupError, "LEAN_FORMALIZATION"):
-            followup._forced_gate_rules(review, result, gates)
+        with self.assertRaisesRegex(impl.DriverFollowupError, "LEAN_FORMALIZATION"):
+            impl._forced_gate_rules(review, result, gates)
 
     def test_request_replication_requires_replication_task_gate(self):
-        gates = followup._gate_map(gate_rows())
+        gates = impl._gate_map(gate_rows())
         review = {"disposition": "REQUEST_REPLICATION", "destination_class": "REPLICATION"}
         result = {"method_harvest": "RESULT_ONLY"}
-        with self.assertRaisesRegex(followup.DriverFollowupError, "INDEPENDENT_REPLICATION"):
-            followup._forced_gate_rules(review, result, gates)
+        with self.assertRaisesRegex(impl.DriverFollowupError, "INDEPENDENT_REPLICATION"):
+            impl._forced_gate_rules(review, result, gates)
 
 
 class ResultReductionFollowupBarrierTests(unittest.TestCase):
@@ -79,10 +98,10 @@ class ResultReductionFollowupBarrierTests(unittest.TestCase):
             "review_id": "DR-TEST",
             "result_id": "RR-TEST",
             "disposition": "ACCEPTED",
-            "reviewed_at": "2026-08-27T09:20:00+00:00",
+            "reviewed_at": "2000-01-01T00:00:00+00:00",
         }
 
-    def test_post_cutover_review_without_followup_is_nonterminal(self):
+    def test_governed_review_without_followup_is_nonterminal(self):
         with (
             mock.patch.object(results, "iter_results", return_value=[self.result]),
             mock.patch.object(results, "latest_review", return_value=self.review),
