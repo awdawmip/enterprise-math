@@ -1,0 +1,181 @@
+<!-- ENTERPRISE_MATH_TASK_V1
+{
+  "task_id": "RS-RSA-EXPONENT-COLLISION-CRT-COLLAPSE",
+  "title": "RSA Exponent-Collision CRT Collapse",
+  "kind": "RESEARCH",
+  "owner": "taskbook/unassigned",
+  "base_state": "READY",
+  "priority": "P2",
+  "leverage": "MEDIUM",
+  "frontier": "Given only an RSA semiprime n=pq and an observed local exponent collision x^e ≡ x^e' (mod n) for a unit x, determine exactly when the collision difference Δ=|e-e'| can be collapsed 2-adically into a nontrivial CRT square root and hence a factor of n, without giving the extractor p, q, λ(n), or ord_n(x); then determine whether independent collision certificates amplify extraction.",
+  "next_action": "Prove or refute the single-collision descent criterion by writing Δ=2^s u with u odd, tracking z_j=x^(u·2^j) modulo p and q, and identifying the first j with z_j=1; derive the exact success criterion and random-unit success probability before any broader aggregation.",
+  "dependencies": [],
+  "source_refs": [],
+  "evidence_status": "DIRECT_USER_DIRECTION / UNPROVED_RSA_COLLISION_COLLAPSE",
+  "last_progress_ref": "main@55a4034702fe88a9b89073cb61b5fc00cffa7413",
+  "last_progress_at": "2026-08-27T14:34:00+00:00",
+  "hard_block": null,
+  "tags": [
+    "RSA",
+    "exponent-collision",
+    "CRT",
+    "Carmichael",
+    "2-adic-collapse",
+    "factor-extraction",
+    "order-structure"
+  ],
+  "claim_lease_minutes": 1440,
+  "created_by_role": "RESEARCHER",
+  "task_authority": "PUBLISHED_REGISTERED",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "publication_template": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "registry_key": "RS-RSA-EXPONENT-COLLISION-CRT-COLLAPSE",
+  "parent_objective_id": "RSA_COLLISION_COLLAPSE_PRACTICE_20260827",
+  "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+  "final_response_identity_policy": "INHERIT_GLOBAL",
+  "identity_lane": "RSA",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "task_lineage": "NEW_DIRECTION",
+  "parent_task_id": null,
+  "successor_gate": null,
+  "policy_review": {
+    "policy_set": "research_taskbook_policy.json",
+    "policy_digest": "sha256:497a0467870c4d495d4dbf161cf492e9d3d4a51d0a7b34e685086f25daa395f4",
+    "review_state": "PASS",
+    "temporary_overrides": []
+  }
+}
+-->
+
+# RSA Exponent-Collision CRT Collapse
+
+Status: `PUBLISHED_REGISTERED / NEW_DIRECTION / RSA_COLLISION_COLLAPSE`
+
+## Mother question
+
+Let
+\[
+n=pq
+\]
+with distinct odd primes \(p,q\), and let \(x\in(\mathbb Z/n\mathbb Z)^\times\). Suppose an observer is given two distinct exponents \(e,e'\) satisfying
+\[
+x^e\equiv x^{e'}\pmod n.
+\]
+Writing
+\[
+\Delta=|e-e'|>0,
+\]
+the observer has a collision certificate
+\[
+x^\Delta\equiv1\pmod n
+\]
+but is not given \(p,q,\lambda(n)\), or \(\operatorname{ord}_n(x)\).
+
+Can the collision difference itself be collapsed, using only modular arithmetic and gcd, into a nontrivial CRT square root of \(1\) and hence a factor of \(n\)? Characterize the exact success/failure locus. Then determine what changes when collisions are global in the exponent map or when independent local collision certificates are available.
+
+## Frozen inputs and scope
+
+The task may use elementary finite-group, CRT, cyclic-group, gcd, and \(2\)-adic valuation facts in proofs.
+
+For a local certificate \(C=(n,x,e,e')\), the extraction algorithm receives only \(n,x,e,e'\). The hidden values \(p,q,\lambda(n)\), \(\operatorname{ord}_p(x)\), \(\operatorname{ord}_q(x)\), and \(\operatorname{ord}_n(x)\) may be used only in proof-side characterization or finite-test ground truth; they may not be supplied to the extractor.
+
+Keep three exposure models separate:
+
+1. **Local collision:** equality is known only for the displayed unit \(x\).
+2. **Finite-sample collision:** one exponent difference annihilates a specified finite set \(S\subseteq(\mathbb Z/n\mathbb Z)^\times\).
+3. **Global fake-exponent collision:** two distinct exponents induce the same power map on every unit modulo \(n\).
+
+Collision **exposure** is not collision **generation**. This task conditions on a valid collision certificate or collision oracle and does not claim to have found such a collision efficiently from \((n,e)\) alone.
+
+The primary collapse is the \(2\)-adic chain. If
+\[
+\Delta=2^s u,\qquad u\ \text{odd},
+\]
+study
+\[
+z_j=x^{u2^j}\pmod n,\qquad 0\le j\le s,
+\]
+or the equivalent repeated-halving view of \(\Delta\). The extractor may compute modular powers and
+\[
+\gcd(z_j-1,n),\qquad \gcd(z_j+1,n).
+\]
+
+Finite enumeration is allowed for falsification and regression only.
+
+## Hard target and required outputs
+
+Hard target:
+
+`RSA_EXPONENT_COLLISION_2ADIC_COLLAPSE_FACTOR_EXTRACTION_OR_EXACT_BARRIER_FROZEN`
+
+Required outputs:
+
+1. **Collision-kernel structure.** Prove the exact local and finite-sample exponent-collision kernels. In particular, identify the local period with \(\operatorname{ord}_n(x)\) and the finite-sample period with the exponent of the subgroup generated by the sample; express the latter as the appropriate lcm of local orders.
+
+2. **Single-collision collapse theorem.** From a valid local certificate, derive a factor-extraction procedure that does not know the hidden orders. Prove or refute the candidate exact criterion that the first pre-\(1\) state in the \(2\)-adic chain is a nontrivial CRT square root precisely when
+\[
+v_2(\operatorname{ord}_p(x))
+\ne
+v_2(\operatorname{ord}_q(x)).
+\]
+If the criterion needs correction, freeze the minimal corrected statement.
+
+3. **Exact success probability.** For uniformly random \(x\in(\mathbb Z/n\mathbb Z)^\times\), derive the exact split probability in terms of
+\[
+A=v_2(p-1),\qquad B=v_2(q-1),
+\]
+and prove the best uniform lower bound. Do not replace this with empirical frequency.
+
+4. **Global fake-\(e\)/fake-\(d\) corollary.** Prove the exact relation between global exponent-map equality and multiples of \(\lambda(n)\), and determine whether one exposed nonzero global collision difference is sufficient to turn random-unit \(2\)-adic collapse into a classical factor-extraction routine.
+
+5. **Independent-collision amplification.** If valid local collision certificates are supplied for independently sampled units, determine the exact or sharp failure probability after \(k\) samples and whether any gcd/lcm aggregation of collision differences gives information strictly beyond running the single-certificate collapse on each sample.
+
+6. **Barrier classification.** Characterize the failure locus in which the \(2\)-primary local orders align and the chain yields only trivial square roots. State the smallest additional information or additional independent collision needed to escape that locus. If no strictly stronger collapse exists from the stated transcript, freeze that as an exact negative obstruction.
+
+7. **Regression package.** Test the theorem statements on a broad exact-integer census of small and medium semiprimes, including Blum-prime pairs, unequal \(v_2(p-1),v_2(q-1)\), equal high \(2\)-adic depths, local collisions, and synthetic global collisions. The factors may generate ground truth but must be withheld from the extractor.
+
+## Research value to preserve
+
+This is a deliberately narrow collapse exercise. RSA already contains an exact hidden-period quotient: many integer exponents induce the same modular action. A collision certificate converts that quotient into a concrete integer difference \(\Delta\). The task asks whether repeated exponent collapse can expose the CRT split before the full hidden period is reconstructed.
+
+A positive result gives a clean bridge
+\[
+\text{exponent collision}
+\;\longrightarrow\;
+\text{annihilating exponent}
+\;\longrightarrow\;
+\text{\(2\)-adic collapse}
+\;\longrightarrow\;
+\text{nontrivial CRT square root}
+\;\longrightarrow\;
+\text{factor},
+\]
+with an exact success locus rather than a heuristic.
+
+A negative result is also useful: it would identify precisely which information a local collision lacks, separating genuine collision leakage from the harder problem of generating collisions or recovering the full order.
+
+## Success, kill, and return criteria
+
+Success is one of:
+
+- a proof of the exact single-collision extraction criterion together with an exact random-unit probability and global-collision corollary;
+- a counterexample that falsifies the proposed criterion, followed by the minimal corrected theorem;
+- an exact barrier theorem showing that the stated collision transcript cannot support a stronger collapse than the classified CRT-square-root mechanism.
+
+Kill any proposed route if it:
+
+- supplies \(p,q,\lambda(n)\), or an exact order to the extractor;
+- silently replaces collision exposure with an efficient collision-generation assumption;
+- merely brute-forces the order and renames that computation a collapse;
+- conflates equality on one message or a finite sample with equality of the full RSA exponent map;
+- treats a finite census as proof of the general theorem.
+
+The frozen return must state separately:
+
+1. what a **single local collision** leaks;
+2. what a **global fake exponent** leaks;
+3. the exact \(2\)-adic success/failure criterion;
+4. whether multiple collision certificates amplify the split;
+5. whether the result is genuinely stronger than standard order-to-factor reduction or is an exact reformulation/barrier.
+
+Stop this task once those five points are proved/refuted at theorem level and the finite regression agrees with the frozen statement. Any successor about efficiently generating the collisions is a separate research question and must not be smuggled into this task.
