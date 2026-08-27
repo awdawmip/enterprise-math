@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-78BAD07DCE4EA3FC1F40",
+  "task_id": "RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE",
+  "publication_id": "TP2-7B0534E09E4286CB5B6E",
+  "execution_record_id": "ER-BB2F7D1AFE3EF5B04433",
+  "claim_id": "chatgpt-pcf4-20260827-1714",
+  "taskbook_path": "research_tasks/PRIME_COORD_FACTOR_BLIND_PADIC_GCD_BRIDGE_READY_AFTER_PCF1_20260827.md",
+  "taskbook_blob_sha1": "sha1:1b7c1988d59492f709e4afc0755a3c1300289cf1",
+  "execution_branch": "research/prime-coord-factor-blind-padic-gcd-bridge-em-pcf4-aed70e",
+  "execution_branch_base": "00c3c8143ca38410df7ed0de64158a3d33e3c67b",
+  "return_path": "research_returns/PRIME_COORD_FACTOR_BLIND_PADIC_GCD_BRIDGE_RETURN_20260827.md",
+  "return_blob_sha1": "sha1:604458a434668e2c25f0eec77642c08af9cf3f87",
+  "return_sha256": "sha256:4dfd2f5aa03e01d758f8ea1dd8cdf67a777babdebeb8bdd075be7428ed5cd7d4",
+  "owner_head": "39de027b4bc0544819f76a5729b7340249277247",
+  "researcher_id": "EM-PCF4-AED70E",
+  "frozen_at": "2026-08-27T11:26:00+00:00",
+  "terminal_verdict": "NO_GO",
+  "hard_target_disposition": "PUBLIC_PREFIX_FIXED_INTEGER_SUPPORT_NO_GO / EXACT_RESTRICTED_NO_GO / N_DEPENDENT_ROUTE_SPLIT_TO_TP2-DF186CDB4959BEA10875",
+  "unresolved_residue": "N-dependent valuation-wall extractor routed to RS-PRIME-COORD-FACTOR-NONLY-VALUATION-WALL-GCD-EXTRACTOR-INDEPENDENT-REPLAY; weak-prime-shadow synchronization remains unproved and is not needed for the restricted no-go.",
+  "output_manifest": [
+    {
+      "path": "research_artifacts/PRIME_COORD_FACTOR_BLIND_PADIC_GCD_BRIDGE_20260827/evidence.json",
+      "git_blob_sha1": "sha1:aad6cbd02ab759087545cf1ba5c4a306849c388c",
+      "sha256": "sha256:e09ce5e9272ca2628728b8ec5278dd4447c402b47968d8ee3980ca2ba08d2c16"
+    },
+    {
+      "path": "scripts/check_prime_coord_factor_blind_padic_gcd_bridge.py",
+      "git_blob_sha1": "sha1:9dd80df4e4f5a43938a085fdbbb45094187a5da9",
+      "sha256": "sha256:2f287d5e9ab5ca929b95f9a96a5447818f6de25d9951f269d07812d92839e390"
+    },
+    {
+      "path": "scripts/check_prime_coord_factor_blind_padic_gcd_bridge_independent.py",
+      "git_blob_sha1": "sha1:d0845c2c45b066e46c87dd15ff68c28971dc07e5",
+      "sha256": "sha256:b216d073c5e61eb55f08cfbe9c4c000cdd77507c4938a89455e230983e710b8f"
+    },
+    {
+      "path": "research_returns/PRIME_COORD_FACTOR_BLIND_PADIC_GCD_BRIDGE_RETURN_20260827.md",
+      "git_blob_sha1": "sha1:604458a434668e2c25f0eec77642c08af9cf3f87",
+      "sha256": "sha256:4dfd2f5aa03e01d758f8ea1dd8cdf67a777babdebeb8bdd075be7428ed5cd7d4"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "KEEP PCF4 TERMINAL AT FIXED-PUBLIC-PREFIX SCOPE; CONTINUE ONLY THROUGH TP2-DF186CDB4959BEA10875; PRESERVE GCD_EXTRACTOR_PROVED != FACTORIZATION_SPEEDUP_PROVED.",
+  "driver_review_required": true
+}
