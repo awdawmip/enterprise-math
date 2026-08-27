@@ -199,8 +199,11 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         self.assertIn("research_task_publication_contract.json", policy["policy_inputs"])
         self.assertNotIn("research_task_registry.json", policy["policy_inputs"])
         self.assertEqual(final["final_permission_authority"], "research_runtime_state_machine.json")
-        self.assertEqual(final["pre_final_permission_gate"]["evaluator"], "tools/research_runtime_guard.py")
+        self.assertEqual(final["pre_final_permission_gate"]["evaluator"], "research_pre_final_authority.py")
+        self.assertEqual(final["pre_final_permission_gate"]["registration_guard"], "tools/research_runtime_guard.py")
+        self.assertEqual(final["pre_final_permission_gate"]["parent_closure_authority"], "research_parent_closure.py")
         self.assertFalse(final["pre_final_permission_gate"]["caller_supplied_registration_is_authority"])
+        self.assertFalse(final["pre_final_permission_gate"]["caller_supplied_parent_status_is_authority"])
 
     def test_runtime_owns_control_tools_in_exact_owner_surface(self):
         runtime = json.loads((ROOT / "research_runtime_state_machine.json").read_text(encoding="utf-8"))

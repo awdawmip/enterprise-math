@@ -1,0 +1,381 @@
+{
+  "schema": "PCF1_INFORMATION_LEAKAGE_AUDIT_V1",
+  "task_id": "RS-PRIME-COORD-FACTOR-INFORMATION-LEAKAGE-AUDIT",
+  "program_id": "PRIME_COORD_FACTOR_EXTRACTION_PROGRAM_20260827",
+  "publication_id": "TP2-FFE7E8757053C4F4030A",
+  "execution": {
+    "researcher_id": "EM-PCF1-FC7357",
+    "claim_id": "chatgpt-pcf1-20260827-1605",
+    "branch": "research/prime-coord-factor-information-leakage-audit-em-pcf1-fc7357",
+    "base": "c7a5a1c148f48f3c9d57cafe79536030541ed2d5"
+  },
+  "primary_verdict": "AUDIT_COMPLETE_WITH_ADMISSIBLE_SET",
+  "hard_target": "PRIME_COORD_FACTOR_INFORMATION_LEAKAGE_AUDIT_COMPLETE",
+  "scope_statement": "All 15 whitelisted route entries are classified. Factor-blind structural observables and two audit-derived public-seed Prime Fusion gcd probe families survive; no existing source supplies a nontrivial N-only asymmetry generator with better-than-square-root-scale guarantee.",
+  "matrix": [
+    {
+      "route_id": "BRC_HALF_COUPLING_BLIND_PADIC_FINGERPRINT",
+      "source_ref": "research_tasks/ENTERPRISE_BRC_HALF_COUPLING_BLIND_PADIC_FINGERPRINT_20260826.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "prime p>=5; m in {2,3,4}; p-term truncation R_p(m)",
+      "hidden_factor_use": "YES for factorization of an unfactored composite N: p would already be a hidden prime label if p|N",
+      "postselection": "NO inside original clean-room experiment; factorization reinterpretation remains factor-labelled at input",
+      "coordinate_gauge": "none load-bearing",
+      "search_support": "n=0..p-1 exact sum",
+      "bit_complexity_in_target_bits": "not admissible from N-only input; with p supplied direct work is O(p*poly(log p)), exponential in log p",
+      "output_type": "residue modulo p^3 / character fingerprint",
+      "crt_behavior": "prime-local only; no N-native constructor",
+      "gcd_readiness": "NONE under N-only input",
+      "classification": ["FACTOR-CONDITIONAL", "ENUMERATIVE", "DESCRIPTIVE"],
+      "smallest_repair": "define an N-native recurrence/truncation from (N,s); CRT local data proof-side only"
+    },
+    {
+      "route_id": "BRC_HALF_COUPLING_PADIC_ALL_PRIME_PROOF",
+      "source_ref": "research_tasks/ENTERPRISE_BRC_HALF_COUPLING_PADIC_ALL_PRIME_PROOF_20260827.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "prime p>3; weighted p-term hypergeometric truncation S_p",
+      "hidden_factor_use": "YES for composite-factorization use: p is the prime being resolved",
+      "postselection": "NO in theorem statement",
+      "coordinate_gauge": "none",
+      "search_support": "n=0..p-1 with p-adic precision",
+      "bit_complexity_in_target_bits": "not admissible from unfactored N; p-term evaluation is exponential in log p",
+      "output_type": "prime-local congruence S_p mod p^3",
+      "crt_behavior": "no composite-N constructor",
+      "gcd_readiness": "NONE under N-only input",
+      "classification": ["FACTOR-CONDITIONAL", "ENUMERATIVE", "DESCRIPTIVE"],
+      "smallest_repair": "produce a composite-N residue with asymmetric proof-side p/q projections without using p,q to construct it"
+    },
+    {
+      "route_id": "BRC_INERT_FINITE_CLAUSEN_DERIVATIVE_BRIDGE",
+      "source_ref": "research_tasks/ENTERPRISE_BRC_HALF_COUPLING_INERT_FINITE_CLAUSEN_DERIVATIVE_BRIDGE_20260827.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "inert prime p in specified residue classes; finite p-truncation and valuation blocks",
+      "hidden_factor_use": "YES for composite-factorization use: p and its residue class are hidden-factor data",
+      "postselection": "NO in proof task",
+      "coordinate_gauge": "none",
+      "search_support": "p-term finite correction and valuation-block analysis",
+      "bit_complexity_in_target_bits": "not admissible from N-only input; value-scale in p",
+      "output_type": "prime-local finite correction/congruence",
+      "crt_behavior": "local prime theorem only",
+      "gcd_readiness": "NONE under N-only input",
+      "classification": ["FACTOR-CONDITIONAL", "ENUMERATIVE", "DESCRIPTIVE"],
+      "smallest_repair": "same N-native asymmetry requirement as p-adic-to-GCD successor"
+    },
+    {
+      "route_id": "PERFECT_PRIME_TABLE_CRITICAL_COFACTOR",
+      "source_ref": "research_tasks/PERFECT_PRIME_TABLE_CRITICAL_COFACTOR_ALL_M_PROOF_20260826.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "public integer parameter m; exact matrix M_m built from A_ij",
+      "hidden_factor_use": "NO in structural determinant problem",
+      "postselection": "NO",
+      "coordinate_gauge": "fixed table coordinates i,j",
+      "search_support": "matrix dimension (m-1)^2; explicit matrix has O(m^4) entries before reduction",
+      "bit_complexity_in_target_bits": "UNBOUND_TO_N because no m=m(N,s) or divisor-support map is defined",
+      "output_type": "rank/determinant/nonvanishing certificate",
+      "crt_behavior": "none in current statement",
+      "gcd_readiness": "NONE; no target-N divisor coverage map",
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "smallest_repair": "define N-native support F_N, prove divisor coverage and support/construction cost below square-root scale"
+    },
+    {
+      "route_id": "HIGHDIM_PRIME_WALL_FILTER_ALGEBRA",
+      "source_ref": "research_tasks/HIGHDIM_PRIME_WALL_FILTER_ALGEBRA_EQUIVALENCE_AUDIT_20260823.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "integer shell/representation counts, fixed filter algebra, exact arithmetic-function identities",
+      "hidden_factor_use": "NO when computed from definitions; factorized divisor formulas are proof/equivalence data only",
+      "postselection": "NO for fixed filters",
+      "coordinate_gauge": "lattice presentation is not native negative-axis semantics",
+      "search_support": "direct shell/divisor enumeration can be polynomial in integer value",
+      "bit_complexity_in_target_bits": "N-blind but potentially exponential in n=ceil(log2 N)",
+      "output_type": "representation/filter counts and primality-wall predicates",
+      "crt_behavior": "classical multiplicative/divisor-sum structure; no factor-asymmetric residue",
+      "gcd_readiness": "NONE demonstrated",
+      "classification": ["N-BLIND", "ENUMERATIVE", "DESCRIPTIVE"],
+      "smallest_repair": "admit only components with sealed cost and integerizable CRT asymmetry"
+    },
+    {
+      "route_id": "PRIME_NATIVE_FILAMENT",
+      "source_ref": "research_tasks/PRIME_NATIVE_FILAMENT_SHARP_BOUND_INDEPENDENT_REPLICATION_20260823.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "public native carrier labels/neighbor formulas plus primality tests",
+      "hidden_factor_use": "NO for local predicates once allocation is public",
+      "postselection": "global extremal witness search is evidence, not an extractor parameter",
+      "coordinate_gauge": "sector/orientation labels are presentation data",
+      "search_support": "local predicate finite; global filament discovery may scan growing label ranges",
+      "bit_complexity_in_target_bits": "local primality can be bit-polynomial; global discovery has no factor-search bound",
+      "output_type": "local prime pattern / filament state / obstruction length",
+      "crt_behavior": "none supplied",
+      "gcd_readiness": "NONE",
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "smallest_repair": "define an N-native response without factor-sensitive postselection"
+    },
+    {
+      "route_id": "NATIVE_SHELL_GRADE_INTEGER_ALLOCATION",
+      "source_ref": "research_tasks/NATIVE_SHELL_GRADE_MONOTONE_INTEGER_ALLOCATION_FOUNDATION_AUDIT_20260827.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "native shell A_n, |A_n|=3n, cumulative shell count; candidate pointwise allocation",
+      "hidden_factor_use": "NO",
+      "postselection": "NO",
+      "coordinate_gauge": "pointwise serialization is noncanonical up to native frame and under Foundation audit",
+      "search_support": "closed shell-count formulas; allocation semantic status is separate",
+      "bit_complexity_in_target_bits": "invariant count formulas are bit-polynomial",
+      "output_type": "shell grade/count/orbit data",
+      "crt_behavior": "factor-neutral",
+      "gcd_readiness": "NONE",
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "smallest_repair": "consume only frame-invariant/torsor-safe outputs unless allocation law is separately admitted"
+    },
+    {
+      "route_id": "NATIVE_TRISECTOR_P0P1_ARITHMETIC_BRIDGE",
+      "source_ref": "research_tasks/NATIVE_TRISECTOR_P0P1_ARITHMETIC_BRIDGE_FOUNDATION_GENERATIVITY_20260826.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "native P0/P1 objects and invariant bridge candidates",
+      "hidden_factor_use": "NO",
+      "postselection": "target-side arithmetic formulas explicitly forbidden as premises",
+      "coordinate_gauge": "must survive positive-axis relabeling and presentation changes",
+      "search_support": "structural/definability analysis",
+      "bit_complexity_in_target_bits": "no factorization algorithm defined; base observables finite combinatorial operations",
+      "output_type": "semantic bridge/no-go classification",
+      "crt_behavior": "none",
+      "gcd_readiness": "NONE",
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "smallest_repair": "only a separately defined N-response map may enter factor separation"
+    },
+    {
+      "route_id": "PRIME_FUSION_T4_T7_T8",
+      "source_ref": "research_tasks/PRIME_FUSION_T4_T7_T8_FINAL_EXACT_CLOSURE_20260823.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "primitive cell/channel data; quotient, idempotent and dual-prime channel statements",
+      "hidden_factor_use": "YES for factorization of H: source cell/channel witness determines two factors before gcd recovery",
+      "postselection": "oriented/channel-labelled structures are selected from factor-resolved data",
+      "coordinate_gauge": "cell coordinates and labelled channel projections load-bearing",
+      "search_support": "once witness supplied arithmetic is polynomial-time",
+      "bit_complexity_in_target_bits": "conditional decode poly(n); construction of witness from H alone absent",
+      "output_type": "factor-labelled quotient/channel reconstruction",
+      "crt_behavior": "CRT/product decomposition after channels are known",
+      "gcd_readiness": "CONDITIONAL",
+      "classification": ["FACTOR-CONDITIONAL", "DESCRIPTIVE"],
+      "smallest_repair": "construct canonical H-native carrier/operator before CRT decomposition"
+    },
+    {
+      "route_id": "PRIME_FUSION_PHASE_EXTENSION",
+      "source_ref": "research_tasks/PRIME_FUSION_PHASE_EXTENSION_TARGETED_INDEPENDENT_VERIFICATION_20260823.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "dual-channel/local-root data; mixed phases, product algebra, idempotent and sixth-power readout",
+      "hidden_factor_use": "YES: local equations/phase orbit are typed by separated channel factors",
+      "postselection": "mixed root/phase is factor-sensitive if used as H-only constructor",
+      "coordinate_gauge": "swap/sign conventions do not remove hidden channel labels",
+      "search_support": "conditional finite algebra polynomial after local labels supplied",
+      "bit_complexity_in_target_bits": "poly(n) decoder; no N-only generator",
+      "output_type": "phase/orbit/idempotent/channel readout",
+      "crt_behavior": "local components supplied by channel decomposition",
+      "gcd_readiness": "CONDITIONAL only",
+      "classification": ["FACTOR-CONDITIONAL", "DESCRIPTIVE"],
+      "smallest_repair": "N-native realization with proof-side CRT only"
+    },
+    {
+      "route_id": "PRIME_FUSION_FINAL_PACKAGE_T1_T15",
+      "source_ref": "research_tasks/PRIME_FUSION_FINAL_SOURCE_REPAIR_AND_PACKAGE_FREEZE_20260824.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "interior cell (a,b); N(a,b), C(a,b), H=N*C; pointed r; mixed locus M_pq",
+      "hidden_factor_use": "YES for T4-T11 as factoring route: (a,b) directly yields N(a,b),C(a,b); M_pq also names factors",
+      "postselection": "pointed/mixed root is not supplied by an N-only constructor",
+      "coordinate_gauge": "sector cell and canonical channel projections are source inputs",
+      "search_support": "decode/evaluate polynomial once (a,b),r,e,x known",
+      "bit_complexity_in_target_bits": "conditional gcd recovery poly(n); N-only generation of nontrivial r/e/x is missing",
+      "output_type": "exact factor certificates, roots, idempotents, gcd readouts, finite-sieve data",
+      "crt_behavior": "strong proof-side CRT structure; not N-native discovery mechanism",
+      "gcd_readiness": "CONDITIONAL_STRONG",
+      "classification": ["FACTOR-CONDITIONAL", "DESCRIPTIVE"],
+      "smallest_repair": "generate mixed root/idempotent/asymmetric invariant from (H,s) alone"
+    },
+    {
+      "route_id": "PRIME_FUSION_F1_LEAN",
+      "source_ref": "research_tasks/PRIME_FUSION_F1_LEAN_FINITE_ALGEBRA_FORMALIZATION_20260824.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "formalized finite-algebra kernel including channels, pointed residue, idempotent split and mixed locus",
+      "hidden_factor_use": "same as formalized source; proof verification does not change input model",
+      "postselection": "same as source package",
+      "coordinate_gauge": "same as source package",
+      "search_support": "proof-kernel formalization, not a constructor",
+      "bit_complexity_in_target_bits": "not an N-only runtime claim",
+      "output_type": "Lean theorems/interfaces",
+      "crt_behavior": "formalized CRT is theorem-side structure",
+      "gcd_readiness": "CONDITIONAL only",
+      "classification": ["FACTOR-CONDITIONAL", "DESCRIPTIVE"],
+      "smallest_repair": "formalize an N-blind generator separately; decoder proof is not generator proof"
+    },
+    {
+      "route_id": "PACKET_PATH_FOUNDATION",
+      "source_ref": "PACKET_PATH_FOUNDATION.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "packet sets, adjacency, transition histories, counts",
+      "hidden_factor_use": "NO",
+      "postselection": "NO",
+      "coordinate_gauge": "implementation coordinates explicitly non-native",
+      "search_support": "finite object/event counting",
+      "bit_complexity_in_target_bits": "depends on explicit carrier/path size; no factor-sensitive scan implied",
+      "output_type": "factor-neutral integer counts",
+      "crt_behavior": "none",
+      "gcd_readiness": "NONE",
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "smallest_repair": "N-dependent carrier must itself be built from N without factor labels"
+    },
+    {
+      "route_id": "RELATIONAL_AXIS_CONVENTION",
+      "source_ref": "RELATIONAL_AXIS_CONVENTION.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "coordinate carriers, affine sum constraint, pair-transfer states, A2/A1xA1 planes",
+      "hidden_factor_use": "NO",
+      "postselection": "NO",
+      "coordinate_gauge": "axis names and +/- signs explicitly chart/serialization conventions",
+      "search_support": "constant/rank-small algebra for fixed dimension",
+      "bit_complexity_in_target_bits": "bit-polynomial for encoded integer coordinates",
+      "output_type": "relational coordinate/transfer data",
+      "crt_behavior": "none",
+      "gcd_readiness": "NONE",
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "smallest_repair": "factorization observable must be gauge invariant or carry gauge as public input"
+    },
+    {
+      "route_id": "THREE_DIMENSIONAL_RELATIONAL_AXIS_CONVENTION",
+      "source_ref": "THREE_DIMENSIONAL_RELATIONAL_AXIS_CONVENTION.md@8e8ec2fde8adeb4c75580075d63ac76adc562536",
+      "input_surface": "four carriers, rank-3 displacement module, six transfer axes/twelve directed states",
+      "hidden_factor_use": "NO",
+      "postselection": "NO",
+      "coordinate_gauge": "names/orientations serialization only; permutations transport them",
+      "search_support": "constant relational algebra in frozen dimension",
+      "bit_complexity_in_target_bits": "bit-polynomial coordinate arithmetic",
+      "output_type": "3D relational presentation data",
+      "crt_behavior": "none",
+      "gcd_readiness": "NONE",
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "smallest_repair": "same invariance requirement as unified axis convention"
+    }
+  ],
+  "ADMISSIBLE_N_BLIND_OBSERVABLES": [
+    {
+      "observable_id": "PACKET_PATH_COUNTS",
+      "constructor": "finite packet/adjacency/path input -> packet count and transition count",
+      "source_routes": ["PACKET_PATH_FOUNDATION"],
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "factor_response": "none by itself",
+      "cost": "linear in explicit carrier/path size"
+    },
+    {
+      "observable_id": "RELATIONAL_TRANSFER_DATA",
+      "constructor": "public relational coordinates -> displacement/transfer-state relations",
+      "source_routes": ["RELATIONAL_AXIS_CONVENTION", "THREE_DIMENSIONAL_RELATIONAL_AXIS_CONVENTION"],
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "factor_response": "none by itself",
+      "cost": "poly(n) for n-bit coordinates"
+    },
+    {
+      "observable_id": "NATIVE_SHELL_INVARIANTS",
+      "constructor": "public shell grade k -> invariant shell type, |A_k|=3k, cumulative count 1+3k(k-1)/2",
+      "source_routes": ["NATIVE_SHELL_GRADE_INTEGER_ALLOCATION", "NATIVE_TRISECTOR_P0P1_ARITHMETIC_BRIDGE"],
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "factor_response": "not established",
+      "cost": "poly(log k) for closed count formulas",
+      "restriction": "pointwise serialization excluded unless separately justified"
+    },
+    {
+      "observable_id": "PRIME_WALL_FILTER_COUNTS_FROM_DEFINITIONS",
+      "constructor": "integer input and fixed public filter -> exact representation/filter count without factor oracle",
+      "source_routes": ["HIGHDIM_PRIME_WALL_FILTER_ALGEBRA"],
+      "classification": ["N-BLIND", "ENUMERATIVE", "DESCRIPTIVE"],
+      "factor_response": "classical primality/divisor structure; no gcd-ready asymmetry shown",
+      "cost": "may be polynomial in integer value and hence exponential in bit length"
+    },
+    {
+      "observable_id": "FILAMENT_LOCAL_PUBLIC_PREDICATE",
+      "constructor": "publicly allocated local labels + factor-blind primality tests -> local prime-flower/neighbor predicate",
+      "source_routes": ["PRIME_NATIVE_FILAMENT"],
+      "classification": ["N-BLIND", "DESCRIPTIVE"],
+      "factor_response": "none shown",
+      "cost": "local bit-polynomial primality work; global support charged separately",
+      "restriction": "requires public/non-postselected allocation and neighborhood"
+    },
+    {
+      "observable_id": "PRIME_FUSION_PUBLIC_POLYNOMIAL_GCD_PROBE",
+      "constructor": "x=s mod N; return gcd(N,x^2+1) and gcd(N,x^2+x+1)",
+      "source_routes": ["PRIME_FUSION_FINAL_PACKAGE_T1_T15"],
+      "classification": ["N-BLIND", "EXTRACTIVE", "ENUMERATIVE"],
+      "factor_response": "nontrivial gcd is a valid factor when seed lands on a root modulo a proper subset of hidden prime factors",
+      "cost": "poly(n) per seed; balanced-semiprime uniform-seed success O(N^-1/2), so naive amplification square-root-scale",
+      "provenance_note": "audit-derived factor-blind use of fixed T5 polynomials; not the source pointed-residue guarantee"
+    },
+    {
+      "observable_id": "PRIME_FUSION_PUBLIC_SIXTH_POWER_GCD_PROBE",
+      "constructor": "x=s mod N; return gcd(N,x^6-1) and gcd(N,x^6+1)",
+      "source_routes": ["PRIME_FUSION_FINAL_PACKAGE_T1_T15"],
+      "classification": ["N-BLIND", "EXTRACTIVE", "ENUMERATIVE"],
+      "factor_response": "nontrivial gcd when seed has different sixth-power local behavior across factors",
+      "cost": "poly(n) per seed; degree bound gives square-root-scale naive amplification on balanced semiprimes",
+      "provenance_note": "audit-derived unconditioned version of T11; source guarantee applies only on factor-labelled mixed locus"
+    }
+  ],
+  "CONDITIONAL_OR_REJECTED_OBSERVABLES": [
+    {
+      "observable_id": "BRC_R_p_m_AND_S_p",
+      "reason": "algorithmic index p is a prime label and unavailable as a hidden divisor of target N",
+      "labels": ["FACTOR-CONDITIONAL", "ENUMERATIVE", "DESCRIPTIVE"],
+      "repair": "construct N-native recurrence/defect from (N,s); p/q proof-side only"
+    },
+    {
+      "observable_id": "PPT_CRITICAL_COFACTOR_AS_FACTOR_SUPPORT",
+      "reason": "current theorem parameter m has no N->support map or divisor-coverage theorem",
+      "labels": ["DESCRIPTIVE"],
+      "repair": "define F_N from N/public parameters, prove coverage and sub-square-root support/cost"
+    },
+    {
+      "observable_id": "POINTWISE_NATIVE_SHELL_SERIALIZATION",
+      "reason": "current native shell data do not freeze a distinguished pointwise serialization",
+      "labels": ["DESCRIPTIVE"],
+      "repair": "use invariant/torsor-safe readouts or separately prove/admit allocation law"
+    },
+    {
+      "observable_id": "PRIME_FUSION_CELL_WITNESS_a_b",
+      "reason": "for H=(a^2+b^2)(a^2-ab+b^2), supplied coordinates immediately reveal both factors",
+      "labels": ["FACTOR-CONDITIONAL", "DESCRIPTIVE"],
+      "repair": "do not accept (a,b); construct H-native object from H/public seed"
+    },
+    {
+      "observable_id": "PRIME_FUSION_POINTED_RESIDUE_r",
+      "reason": "source r=-a*b^{-1} mod H is built from factor-revealing cell witness; arbitrary public r lacks T5 guarantee",
+      "labels": ["FACTOR-CONDITIONAL", "DESCRIPTIVE"],
+      "repair": "generate useful mixed root/residue from (H,s) alone or prove nonnegligible factor-blind seed family"
+    },
+    {
+      "observable_id": "PRIME_FUSION_NONTRIVIAL_IDEMPOTENT_e",
+      "reason": "nontrivial idempotent generation is polynomial-time equivalent to a nontrivial coprime factor split",
+      "labels": ["FACTOR-CONDITIONAL", "DESCRIPTIVE"],
+      "repair": "e must be output of H-native dynamics, never input/postselected state"
+    },
+    {
+      "observable_id": "PRIME_FUSION_ORIENTED_MIXED_LOCUS_M_pq",
+      "reason": "membership is defined by different local equations modulo already named p and q",
+      "labels": ["FACTOR-CONDITIONAL", "POSTSELECTED", "DESCRIPTIVE"],
+      "repair": "define N-native carrier first and prove CRT decomposition after construction"
+    },
+    {
+      "observable_id": "PRIME_FUSION_T11_GUARANTEED_x",
+      "reason": "T11 one-gcd split is guaranteed only for x in factor-labelled oriented mixed locus",
+      "labels": ["FACTOR-CONDITIONAL", "DESCRIPTIVE"],
+      "repair": "public-seed x remains square-root-scale baseline unless N-native mechanism biases toward asymmetry"
+    }
+  ],
+  "cross_route_dependency_map": {
+    "equivalent_rewritings": [
+      ["PRIME_FUSION_POINTED_RESIDUE_r", "PRIME_FUSION_NONTRIVIAL_IDEMPOTENT_e", "conditional factor-split certificate once r/e exists"],
+      ["BRC_HALF_COUPLING_BLIND_PADIC_FINGERPRINT", "BRC_HALF_COUPLING_PADIC_ALL_PRIME_PROOF", "same prime-indexed half-coupling observable at finite-evidence vs proof layers"],
+      ["RELATIONAL_AXIS_CONVENTION", "THREE_DIMENSIONAL_RELATIONAL_AXIS_CONVENTION", "unified convention and 3D compatibility entrypoint"]
+    ],
+    "adds_information": [
+      ["PRIME_FUSION_FINAL_PACKAGE_T1_T15", "T5/T6/T11 give exact gcd decoders but no N-only generator"],
+      ["PRIME_WALL_FILTER_COUNTS_FROM_DEFINITIONS", "exact arithmetic/primality response but no factor-asymmetric residue"],
+      ["NATIVE_SHELL_INVARIANTS", "frame-invariant count/grade features, factor-neutral until an N-response map is defined"]
+    ],
+    "requires_unavailable_factor_labels": [
+      "BRC_R_p_m_AND_S_p",
+      "PRIME_FUSION_CELL_WITNESS_a_b",
+      "PRIME_FUSION_POINTED_RESIDUE_r as source-guaranteed pointed residue",
+      "PRIME_FUSION_NONTRIVIAL_IDEMPOTENT_e when supplied rather than generated",
+      "PRIME_FUSION_ORIENTED_MIXED_LOCUS_M_pq",
+      "PRIME_FUSION_T11_GUARANTEED_x"
+    ],
+    "key_missing_interface": "N_ONLY_ASYMMETRY_GENERATOR: from (N,s) produce a residue/state whose CRT projections provably desynchronize without using hidden p,q, factor-derived coordinates, or postselection."
+  },
+  "exact_audit_lemmas": {
+    "coordinate_witness_leakage": "If H=(a^2+b^2)(a^2-ab+b^2) and both factors are nontrivial, input (a,b) already factors H by two polynomial-time evaluations.",
+    "idempotent_factor_split_equivalence": "If e^2=e mod H then A=gcd(e,H), B=gcd(e-1,H) are coprime and AB=H. Conversely every coprime split H=AB defines by CRT e=0 mod A, e=1 mod B.",
+    "uniform_polynomial_probe_support": "For H=pq and polynomial P with r_p,r_q roots modulo p,q, uniform x mod H yields nontrivial gcd on exactly r_p(q-r_q)+r_q(p-r_p) residues, probability r_p/p+r_q/q-2*r_p*r_q/(pq). If deg P=d and P is nonzero modulo both primes, this is <=d/p+d/q.",
+    "balanced_semiprime_cost": "For p,q>=alpha*sqrt(H), a fixed-degree polynomial gcd probe has success O(H^-1/2) and independent-seed expected count Omega(sqrt(H))=2^Omega(n)."
+  }
+}
