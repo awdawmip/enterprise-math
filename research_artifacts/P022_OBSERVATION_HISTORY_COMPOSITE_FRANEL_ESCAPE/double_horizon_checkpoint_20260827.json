@@ -1,0 +1,22 @@
+{
+  "schema": "P022_BOUNDARY_DOUBLE_HORIZON_CHECKPOINT_V1",
+  "status": "EXACT_REDUCTION_FROZEN",
+  "publication_id": "TP2-2346F5D3E731ED56DB0A",
+  "claim_id": "chatgpt-p022obs-20260827-1645",
+  "researcher_id": "EM-P022OBS-D5D438",
+  "identity": "T_M = E_M*K_M",
+  "prefactor": "E_M=(2/3) M!(2M)!(2M-1)!(3M-1)!/(4M-1)!^2",
+  "integer_kernel": "K_M=sum_{j=0}^{2M}(-1)^j*C(2M,j)*C(M+j,j)*C(4M+j-1,j)",
+  "mod_prime_companion": "for prime p=6M-1, K_M == W_M mod p, W_M=sum_{j=0}^{2M-1}C(2M,j)*C(M+j,j)*C(2M-1,j)",
+  "old_integer_conversion": "K_M=[C(4M-1,M)/(2*C(2M-1,M))]*U_M",
+  "boundary_specialization": "M=3m, q=18m-1: q|F_(6m) iff q|K_(3m) iff q|W_(3m)",
+  "exact_small_M_K_values": [15, 1351, 154374, 19594887, 2639533390],
+  "known_zero_control": {"p": 149, "M": 25, "M_mod_3": 1, "K_mod_p": 0, "note": "not admissible q=3r-1 twin boundary"},
+  "boundary_regression": [
+    {"m": 1, "q": 17, "r": 6, "F_r_mod_q": 3, "K_3m_mod_q": 14},
+    {"m": 5, "q": 89, "r": 30, "F_r_mod_q": 54, "K_3m_mod_q": 74},
+    {"m": 6, "q": 107, "r": 36, "F_r_mod_q": 77, "K_3m_mod_q": 51}
+  ],
+  "proof_boundary": "Finite samples are regression only. All-m nonvanishing on admissible twin boundaries remains open.",
+  "next_exact_target": "three-section W_(3m) by j mod 3 and match its F_(q^2) cyclotomic Frobenius pair"
+}
