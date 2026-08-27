@@ -1,0 +1,26 @@
+{
+  "schema": "ENTERPRISE_MATH_TASK_RECORD_COMPATIBILITY_WAIVERS_V1",
+  "status": "ACTIVE",
+  "purpose": "Permit exact, immutable, blob-pinned compatibility for historical V2 publication taskbooks whose semantic body sections predate current exact heading names. A waiver can suppress only enumerated mandatory-section-name errors; it cannot suppress metadata, publication-fork, taskbook-path, blob-drift, parse, placeholder, authority, or any other integrity failure.",
+  "waivers": [
+    {
+      "waiver_id": "TRCW-P022-D78-LEGACY-HEADINGS-20260827",
+      "task_id": "RS-P022-OBSERVATION-HISTORY",
+      "publication_id": "TP2-D78DBA0243911E0363FA",
+      "taskbook_path": "research_tasks/P022_OBSERVATION_HISTORY_FORCED_MIDPOINT_FALLBACK_REPLAY_20260827.md",
+      "taskbook_blob_sha1": "sha1:15b495b7a21af748260363a6969097abe1f79611",
+      "scope": "MANDATORY_BODY_SECTION_HEADING_ALIAS_ONLY",
+      "legacy_section_aliases": {
+        "Frozen inputs and scope": "Frozen inputs",
+        "Hard target and required outputs": "Hard target",
+        "Research value to preserve": "Research value",
+        "Success, kill, and return criteria": "Success and kill criteria"
+      },
+      "reason": "This immutable generation-1 replay was published with the complete required semantic sections under earlier heading aliases. Editing the taskbook in place would violate its pinned Git blob. The waiver therefore recognizes only these four exact non-empty legacy headings for this exact publication/blob and leaves every other current integrity rule fail-closed.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}

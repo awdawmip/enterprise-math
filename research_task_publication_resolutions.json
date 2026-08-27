@@ -2,7 +2,7 @@
   "schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RESOLUTION_REGISTRY_V1",
   "status": "ACTIVE",
   "purpose": "Provide a bounded operational binding when one task has multiple simultaneously valid immutable publication heads. This overlay preserves every publication as research evidence. It may select one publication for current runtime continuity, but that selection is not a truth, quality, priority, or canonical-mathematics judgment.",
-  "compatibility_note": "The field name quarantined_publication_ids is retained only because the current compatibility reducer expects it. Semantically these IDs are RETAINED_PARALLEL_PUBLICATIONS: they remain immutable, reviewable, referenceable, and eligible for later KEEP_PARALLEL / MERGE / SPLIT / operational-reselection. For R043-C4 the required two-pass reference process has completed and both publications are retained.",
+  "compatibility_note": "The field name quarantined_publication_ids is retained only because the current compatibility reducer expects it. Semantically these IDs are RETAINED_PARALLEL_PUBLICATIONS: they remain immutable, reviewable, referenceable, and eligible for later KEEP_PARALLEL / MERGE / SPLIT / operational-reselection. Every multi-head entry below is backed by an exact-set intake and two reference passes.",
   "resolutions": [
     {
       "task_id": "RS-R043C4-NATIVE-INTERFACE-LINK-SEPARATOR-CLOSURE",
@@ -32,6 +32,50 @@
         "relationship": [
           "COMPATIBLE_COMPLEMENTARY",
           "DIFFERENT_SCOPE_ROUTING_METADATA"
+        ],
+        "final_disposition": "KEEP_PARALLEL_AND_SELECT_OPERATIONAL",
+        "allowed_final_dispositions": [
+          "KEEP_PARALLEL",
+          "MERGE_TO_NEW_GENERATION",
+          "SPLIT_TO_TYPED_TASKS",
+          "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS"
+        ]
+      },
+      "working_truth_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "task_id": "RS-P022-OBSERVATION-HISTORY",
+      "canonical_publication_id": "TP2-DE338F269CA11E9BC01B",
+      "operational_publication_id": "TP2-DE338F269CA11E9BC01B",
+      "quarantined_publication_ids": [
+        "TP2-2346F5D3E731ED56DB0A",
+        "TP2-D78DBA0243911E0363FA"
+      ],
+      "retained_parallel_publication_ids": [
+        "TP2-2346F5D3E731ED56DB0A",
+        "TP2-D78DBA0243911E0363FA",
+        "TP2-DE338F269CA11E9BC01B"
+      ],
+      "parallel_intake_id": "PI-P022-OH-20260827-02",
+      "parallel_synthesis_id": "PS-P022-OH-20260827-02",
+      "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING",
+      "reason": "Three independently materialized generation-1 P022 observation-history replay publications target distinct surviving subfrontiers and parent-objective routes under one legacy task id. All three remain immutable research evidence. TP2-DE338F269CA11E9BC01B is selected only as the compatibility operational head because it is the earliest publication in the exact set (08:35:30Z) and its authorized Issue #240 CLAIM is the earliest current-generation claim. This ordering choice grants no mathematical truth, quality, priority, Working Truth, Foundation authority, canonical promotion, or successor authority.",
+      "authority_role": "RESEARCH_DRIVER",
+      "authority_id": "EM-DVR-R63A21",
+      "resolved_at": "2026-08-27T17:04:00+08:00",
+      "preserve_existing_claim": "chatgpt-p022oh-20260827-1639",
+      "reference_process": {
+        "passes_required": 2,
+        "pass_1": "COMPLETE_ALL_THREE_SURVIVE_AS_DISTINCT_SUBFRONTIERS",
+        "pass_1_id": "RP1-P022-OH-20260827-02",
+        "pass_2": "COMPLETE_SINGLE_OPERATIONAL_HEAD_WITH_PARALLEL_EVIDENCE_RETAINED",
+        "pass_2_id": "RP2-P022-OH-20260827-02",
+        "relationship": [
+          "RETAINED_PARALLEL_REPLAYS",
+          "DISTINCT_SUBFRONTIERS",
+          "DIFFERENT_PARENT_OBJECTIVE_ROUTING"
         ],
         "final_disposition": "KEEP_PARALLEL_AND_SELECT_OPERATIONAL",
         "allowed_final_dispositions": [
