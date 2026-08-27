@@ -1,8 +1,9 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_RESULT_CONTRACT_V1",
-  "status": "ACTIVE_CANONICAL_CANDIDATE_V1_1",
-  "effective": "2026-08-26",
+  "status": "ACTIVE_CANONICAL_CANDIDATE_V1_2",
+  "effective": "2026-08-27",
   "execution_contract": "research_execution_contract.json",
+  "execution_cohort_contract": "research_execution_cohort_contract.json",
   "parallel_evidence_contract": "research_parallel_evidence_contract.json",
   "result_store": "research_result_records/<task-id>/<result-id>.json",
   "review_store": "research_result_reviews/<result-id>/<review-id>.json",
@@ -10,9 +11,11 @@
   "parallel_reference_pass_store": "research_parallel_reference_passes/<intake-id>/<pass-id>.json",
   "parallel_synthesis_store": "research_parallel_syntheses/<task-id>/<synthesis-id>.json",
   "tool": "tools/research_result_records.py",
+  "cohort_runtime": "tools/research_cohort_runtime.py",
   "parallel_checker": "research_parallel_evidence.py",
   "dispatch": "tools/research_dispatch.py",
-  "purpose": "Prevent orphan results while preserving parallel research. Every return pins one exact task publication and execution record. Multiple results are retained as separate immutable evidence and are never synthesized by timestamp; when multiplicity exists, two reference passes plus an explicit synthesis single-value only the control decision, not the research record set.",
+  "lane_dispatch": "tools/research_lane_dispatch.py",
+  "purpose": "Prevent orphan results while preserving parallel research. Every return pins one exact publication generation and execution record. Ordinary results pin the operational publication; cohort-lane results may pin retained non-operational publications explicitly selected by their lanes. Multiple results remain separate immutable evidence and are never synthesized by timestamp. Cohort terminality additionally requires every lane to contribute evidence followed by two reference passes and exact-set synthesis.",
   "result_required_fields": [
     "result_id",
     "task_id",
@@ -39,6 +42,11 @@
     "next_control_plane_recommendation",
     "driver_review_required"
   ],
+  "result_optional_paired_lane_fields": [
+    "execution_cohort_id",
+    "execution_lane_id",
+    "lane_output_prefix"
+  ],
   "output_manifest_row": ["path", "git_blob_sha1", "sha256"],
   "review_required_fields": [
     "review_id",
@@ -58,23 +66,34 @@
     "destination_ref_or_none",
     "terminal"
   ],
+  "review_optional_paired_lane_fields": [
+    "execution_cohort_id",
+    "execution_lane_id"
+  ],
   "core_invariants": [
     "TASK_GENERATION_TO_CLAIM_ENVELOPE_TO_DURABLE_EXECUTION_RECORD_TO_RETURN_TO_DRIVER_REVIEW_IS_AN_IMMUTABLE_DIGEST_CHAIN",
     "TASK_RESULT_AND_DRIVER_REVIEW_ARE_SEPARATE_IMMUTABLE_RECORDS",
-    "MULTIPLE_RESULTS_FOR_ONE_TASK_OR_PUBLICATION_ARE_ALLOWED_AND_RETAINED",
+    "MULTIPLE_RESULTS_FOR_ONE_TASK_PUBLICATION_OR_LANE_ARE_ALLOWED_AND_RETAINED",
     "MULTIPLE_RESULTS_ARE_NOT_RESOLVED_BY_LATEST_TIMESTAMP_WINS",
+    "NONCOHORT_RESULT_FREEZE_REQUIRES_OPERATIONAL_PUBLICATION_AND_MATCHING_EXECUTION_RECORD",
+    "COHORT_LANE_RESULT_FREEZE_REQUIRES_EXACT_LANE_PINNED_PUBLICATION_AND_MATCHING_LANE_EXECUTION_RECORD",
+    "RETAINED_NONOPERATIONAL_PUBLICATION_MAY_PRODUCE_RESULT_WHEN_EXPLICIT_ACTIVE_LANE_PINS_IT",
+    "RESULT_AND_REVIEW_COPY_EXECUTION_COHORT_AND_LANE_IDENTITY_WHEN_PRESENT",
+    "FIRST_LANE_RESULT_DOES_NOT_TERMINALIZE_WHOLE_TASK_OR_COHORT",
+    "EVERY_DECLARED_LANE_REQUIRES_AT_LEAST_ONE_IMMUTABLE_RESULT_BEFORE_COHORT_REFERENCE_FLOW",
     "PARALLEL_RESULTS_REQUIRE_EXPLICIT_PARALLEL_INTAKE_BEFORE_SYNTHESIS",
     "PARALLEL_SYNTHESIS_REQUIRES_TWO_REFERENCE_PASSES_OVER_THE_EXACT_SAME_EVIDENCE_SET",
     "A_SYNTHESIS_DECISION_DOES_NOT_DELETE_REJECT_OR_OVERWRITE_ANY_REFERENCED_RESULT",
     "A_NEW_RESULT_AFTER_SYNTHESIS_REOPENS_THE_PARALLEL_EVIDENCE_SET_FOR_REFERENCE",
-    "SINGLE_RESULT_TASKS_RETAIN_EXISTING_LOW_BURDEN_FLOW",
-    "RESULT_FREEZE_REQUIRES_CURRENT_PUBLICATION_AND_MATCHING_EXECUTION_RECORD",
+    "SINGLE_RESULT_NONCOHORT_TASKS_RETAIN_EXISTING_LOW_BURDEN_FLOW",
     "EXECUTION_RECORD_MAY_BE_MATERIALIZED_AFTER_CLAIM_AND_BATCHED_WITH_RETURN_CHECKPOINT",
     "RESULT_OUTPUTS_MUST_BE_WITHIN_EXECUTION_AUTHORIZATION_SCOPE",
+    "LANE_RESULT_OUTPUTS_MUST_REMAIN_INSIDE_LANE_OUTPUT_PREFIX",
     "EVERY_OUTPUT_PINS_GIT_BLOB_AND_SHA256",
-    "FROZEN_RETURN_WITHOUT_DRIVER_REVIEW_IMPLIES_AWAITING_DRIVER_REVIEW",
-    "AWAITING_DRIVER_REVIEW_IS_NOT_RESEARCHER_DISPATCHABLE",
-    "REGISTERED_TASK_DONE_REQUIRES_REVIEWED_MATCHING_RESULT_OR_VALID_PARALLEL_SYNTHESIS_WHEN_MULTIPLE_RESULTS_EXIST",
+    "FROZEN_RETURN_WITHOUT_DRIVER_REVIEW_IMPLIES_AWAITING_DRIVER_REVIEW_ON_ORDINARY_RESULT_PATH",
+    "AWAITING_DRIVER_REVIEW_IS_NOT_RESEARCHER_DISPATCHABLE_ON_ORDINARY_RESULT_PATH",
+    "ACTIVE_COHORT_SUPPRESSES_TASK_GLOBAL_TERMINALIZATION_UNTIL_COHORT_SYNTHESIS",
+    "REGISTERED_TASK_DONE_REQUIRES_REVIEWED_MATCHING_RESULT_OR_VALID_TERMINAL_PARALLEL_SYNTHESIS_AS_APPLICABLE",
     "RETURN_TO_OWNER_OR_REVISION_REOPENS_EXECUTION",
     "METHOD_HARVEST_CLASSIFICATION_IS_REQUIRED_AT_RESULT_FREEZE",
     "INDEPENDENCE_AND_SOURCE_EXPOSURE_STATUS_ARE_TYPED_RESULT_FIELDS",
@@ -83,13 +102,13 @@
     "RESULT_CAPTURE_IS_A_SEMANTIC_CHECKPOINT_NOT_A_CI_OR_USER_WAKEUP_BARRIER"
   ],
   "parallel_result_policy": {
-    "trigger": "two_or_more_result_records_in_same_parallel_evidence_scope",
+    "trigger": "two_or_more_result_records_in_same_parallel_evidence_scope_or_complete_execution_cohort",
     "acceptance": "ALWAYS_RETAIN_NEW_IMMUTABLE_RESULT; DO_NOT_REJECT_MULTIPLICITY",
     "state_before_intake": "AWAITING_PARALLEL_INTAKE",
     "state_after_intake": "AWAITING_REFERENCE_PASS_1",
     "state_after_pass_1": "AWAITING_REFERENCE_PASS_2",
     "state_after_pass_2": "AWAITING_SYNTHESIS",
-    "terminalization": "ONLY_BY_SYNTHESIS_OVER_EXACT_CURRENT_EVIDENCE_SET",
+    "terminalization": "ONLY_BY_SYNTHESIS_OVER_EXACT_CURRENT_EVIDENCE_SET_WITH_TERMINAL_CONTROL_DISPOSITION",
     "allowed_synthesis_dispositions": [
       "KEEP_PARALLEL",
       "MERGE_TO_NEW_GENERATION",
@@ -99,10 +118,23 @@
       "RETURN_FOR_MORE_RESEARCH"
     ]
   },
+  "cohort_result_policy": {
+    "cohort_store": "research_execution_cohorts/<task-id>/<cohort-id>.json",
+    "lane_completion": "one_or_more_immutable_results_for_lane",
+    "multiple_results_in_one_lane": "RETAIN_ALL; LANE_REMAINS_EVIDENCE_COMPLETE",
+    "automatic_same_lane_redispatch_after_result": false,
+    "missing_sibling_lane_state": "COHORT_EXECUTION_ACTIVE",
+    "all_lanes_complete_state": "AWAITING_PARALLEL_INTAKE",
+    "reference_pass_1": "SEMANTIC_EVIDENCE_CROSSCHECK",
+    "reference_pass_2": "ADVERSARIAL_CONTROL_CROSSCHECK",
+    "synthesis_scope": "EXACT_CURRENT_COHORT_RESULT_SET",
+    "new_result_effect": "EVIDENCE_HASH_CHANGES_AND_NEW_REFERENCE_COVERAGE_IS_REQUIRED",
+    "task_terminal_before_terminal_synthesis": false
+  },
   "persistence_boundary": {
-    "execution_and_result": "Create the execution provenance record and result record in the same bounded publication batch as the durable return/checkpoint whenever possible.",
+    "execution_and_result": "Create execution provenance and result record in the same bounded publication batch as the durable return/checkpoint whenever possible.",
     "driver_review": "Create the review record in the same bounded batch as the actual Driver review artifact whenever possible.",
-    "parallel_intake": "Created only when actual evidence multiplicity exists; ordinary single-result tasks incur no extra write.",
+    "parallel_intake": "Created only when actual evidence multiplicity or cohort completeness requires it; ordinary single-result noncohort tasks incur no extra write.",
     "reference_passes": "Two append-only semantic review records only for declared parallel evidence.",
     "synthesis": "One append-only control record after both passes; it never rewrites source evidence.",
     "between_checkpoints": "No routine repository writes, CI polling, review polling or scheduler heartbeat are required by result lifecycle."

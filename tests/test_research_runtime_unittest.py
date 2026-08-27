@@ -209,8 +209,11 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
             {
                 "tools/active_turn_liveness.py",
                 "tools/check_task_registry_cutover.py",
+                "tools/research_cohort_runtime.py",
                 "tools/research_dispatch.py",
                 "tools/research_execution_records.py",
+                "tools/research_lane_claims.py",
+                "tools/research_lane_dispatch.py",
                 "tools/research_result_records.py",
                 "tools/research_runtime.py",
                 "tools/research_runtime_guard.py",

@@ -8,6 +8,10 @@ canonical layer has authenticated current live events from GitHub server comment
 metadata and authorized the server actor. For registered tasks, the CLAIM comment
 itself is the execution envelope; no separate pre-claim repository write is
 required.
+
+When an optional parallel execution cohort is ACTIVE, task-global registered
+selection is suppressed and ownership moves to tools/research_lane_dispatch.py.
+The ordinary non-cohort path is unchanged when no cohort is active.
 """
 from __future__ import annotations
 
@@ -21,12 +25,14 @@ from pathlib import Path
 from typing import Any
 
 try:
+    from tools import research_cohort_runtime
     from tools import research_execution_records
     from tools import research_result_records
     from tools import research_scheduler
     from tools import research_task_records
     from tools import research_taskbook
 except ModuleNotFoundError:
+    import research_cohort_runtime  # type: ignore
     import research_execution_records  # type: ignore
     import research_result_records  # type: ignore
     import research_scheduler  # type: ignore
@@ -385,7 +391,6 @@ def _filter_registered_events(
                 accepted.append(event)
                 continue
 
-            # Compatibility: an already-frozen intent may still authorize a CLAIM.
             try:
                 intent = research_execution_records.intent_for_claim(task["task_id"], claim_id, root)
             except Exception as exc:
@@ -405,7 +410,6 @@ def _filter_registered_events(
                 accepted.append(normalized)
                 continue
 
-            # Preferred low-burden path: CLAIM itself carries the execution envelope.
             normalized, reason = _inline_claim_envelope(task, event)
             if normalized is None:
                 rejected.append({
@@ -475,6 +479,40 @@ def _overlay_result_state(
     return value
 
 
+def _overlay_active_cohort(
+    task: dict[str, Any], state: dict[str, Any], root: Path
+) -> dict[str, Any]:
+    if not _is_registered(task):
+        return state
+    try:
+        cohort_state = research_cohort_runtime.task_active_cohort_state(task["task_id"], root)
+    except Exception as exc:
+        raise DispatchError(f"{task['task_id']}: active cohort state invalid: {exc}") from exc
+    if cohort_state is None:
+        return state
+    value = copy.deepcopy(state)
+    prior_claim = value.get("claim_id")
+    if prior_claim:
+        value["suppressed_task_global_claim"] = {
+            "claim_id": prior_claim,
+            "actor": value.get("actor"),
+            "researcher_id": value.get("researcher_id"),
+            "lease_until": value.get("lease_until"),
+        }
+    value["state"] = "PARALLEL_COHORT"
+    value["dispatch_state"] = "COHORT_ACTIVE"
+    value["claim_id"] = None
+    value["actor"] = None
+    value["researcher_id"] = None
+    value["identity_source"] = None
+    value["lease_until"] = None
+    value["active_cohort_state"] = cohort_state
+    value["next_action"] = (
+        "Route ownership through tools/research_lane_dispatch.py; task-global registered CLAIM is disabled while cohort remains ACTIVE"
+    )
+    return value
+
+
 def _authentication_summary(task: dict[str, Any], events: list[dict[str, Any]]) -> dict[str, Any]:
     matching = [event for event in events if event.get("task_id") == task.get("task_id")]
     server = [event for event in matching if isinstance(event.get(GITHUB_META_KEY), dict)]
@@ -534,7 +572,8 @@ def reduce_definition(
         state["identity_lane"] = research_scheduler.identity_lane(task)
     except Exception:
         state["identity_lane"] = task.get("identity_lane")
-    return _overlay_result_state(task, state, root)
+    state = _overlay_result_state(task, state, root)
+    return _overlay_active_cohort(task, state, root)
 
 
 def effective_states(
@@ -595,6 +634,7 @@ def validate(root: Path = ROOT) -> list[str]:
     errors.extend(research_task_records.audit(root))
     errors.extend(research_execution_records.audit(root))
     errors.extend(research_result_records.audit(root))
+    errors.extend(research_cohort_runtime.audit(root))
     try:
         definitions = merged_definitions(root)
     except Exception as exc:
@@ -643,7 +683,6 @@ def load_events(path: Path | None) -> list[dict[str, Any]]:
         raise DispatchError(
             "normalized GitHub event envelopes are internal-only; provide raw Issue #240 comment objects"
         )
-    # Explicit compatibility path for frozen historical replay and pure unit tests.
     return research_scheduler.load_events(path)
 
 
