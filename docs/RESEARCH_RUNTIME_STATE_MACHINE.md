@@ -16,14 +16,20 @@ Canonical machine:
 - `tools/research_result_records.py`
 - `tools/research_task_registry.py`
 - `tools/check_task_registry_cutover.py`
+- `tools/research_lane_claims.py`
+- `tools/research_lane_dispatch.py`
+- `tools/research_cohort_runtime.py`
 
 Contracts and compatibility:
 
 - `research_task_publication_contract.json` — V1 taskbook/shared-registry compatibility
 - `research_task_publication_contract_v2.json` — immutable post-cutover publication
 - `research_execution_contract.json` — task-generation to concrete execution binding
+- `research_execution_cohort_contract.json` — optional parallel execution cohorts and disjoint lanes
 - `research_dispatch_contract.json` — merged registered/legacy dispatch
 - `research_result_contract.json` — return/review/disposition chain
+- `research_parallel_evidence_contract.json` — exact evidence intake, two reference passes and synthesis
+- `research_operational_publication_contract.json` — retained publication evidence versus operational selection
 - `research_task_registry.json` — V1 compatibility mirror plus frozen scheduler cutover metadata
 - `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json` — the single taskbook template
 
@@ -32,6 +38,8 @@ Contracts and compatibility:
 The runtime answers:
 
 `PARENT_OBJECTIVE -> TASK_REGISTRATION -> TASK -> OWNER_CLAIM -> SESSION -> DURABLE_FRONTIER -> CURRENT_UNFINISHED_UNIT -> NEXT_ACTION -> TERMINAL_SCOPE -> FINAL_ALLOWED`.
+
+For an opt-in execution cohort it also carries an exact `EXECUTION_SCOPE = (execution_cohort_id, execution_lane_id)` between task identity and owner claim.
 
 Task existence, execution identity, live owner claim, session liveness and result disposition are different facts. The runtime is a projection of their authoritative sources; it is not a fourth independent persistent database.
 
@@ -85,13 +93,15 @@ The V1 shared `research_task_registry.json` remains a compatibility mirror durin
 
 Task publication is a semantic checkpoint. It may be batched with the taskbook publication commit; it does not create a requirement for routine research-time writes afterwards.
 
+Multiple retained publications are not automatically rejected. `research_operational_publications.py` separates retained evidence from the publication selected for ordinary non-cohort runtime control.
+
 ## 4. Task -> execution binding without a second pre-claim write
 
 Publication does not decide who executes the task or which branch is used.
 
 For new registered executions, the **Issue #240 CLAIM itself is the execution authorization envelope**. One CLAIM carries or resolves:
 
-- exact `task_id` and current `publication_id`;
+- exact `task_id` and publication identity;
 - `claim_id`;
 - `Researcher-ID` or the information needed to derive it deterministically;
 - `theorem_owner`;
@@ -112,17 +122,17 @@ Freeze:
 
 The preferred distributed claim transaction is:
 
-`VALIDATE CURRENT PUBLICATION -> CREATE/VERIFY BRANCH -> APPEND ONE CLAIM ENVELOPE TO ISSUE #240 -> FIRST VALID CLAIM WINS`.
+`VALIDATE PUBLICATION -> CREATE/VERIFY BRANCH -> APPEND ONE CLAIM ENVELOPE TO ISSUE #240 -> FIRST VALID CLAIM WINS WITHIN ITS OWNER SCOPE`.
 
 A registered CLAIM with a stale publication ID or incomplete owner/branch/output envelope is ignored. No PR, merge, CI wait, heartbeat, or second GitHub write is required merely to make the CLAIM valid.
 
 `research_execution_records/<task-id>/<execution-record-id>.json` remains the immutable durable-provenance form used by result freezing. It may be materialized locally after CLAIM and batched with the first genuine durable checkpoint or final return. Historical pre-claim execution-intent records remain compatible but are not the preferred path.
 
-## 5. One canonical dispatch view
+## 5. One canonical ordinary dispatch view
 
 `research_scheduler.json` is a frozen legacy task-definition baseline. `tools/research_scheduler.py` remains the legacy event-reduction primitive.
 
-Canonical scheduling is:
+Canonical ordinary scheduling is:
 
 `tools/research_dispatch.py`.
 
@@ -138,17 +148,73 @@ If the same task ID exists in both the frozen legacy baseline and immutable publ
 
 Freeze:
 
-`REGISTERED_TASK + CLAIMABLE -> VISIBLE_TO_CANONICAL_SELECTION`.
+`REGISTERED_TASK + CLAIMABLE -> VISIBLE_TO_CANONICAL_SELECTION` when no active execution cohort has taken over owner scope.
 
 `REGISTERED_CLAIM_WITH_STALE_OR_INCOMPLETE_EXECUTION_ENVELOPE -> IGNORE_EVENT`.
 
 This eliminates both prior splits: registry tasks can no longer be invisible to the real scheduler, and claim validity no longer depends on a second pre-claim repository publication.
+
+## 5A. Opt-in parallel execution: one owner per lane, many lanes per task
+
+Parallel research is an explicit control mode, not an error condition.
+
+The cohort definition lives in:
+
+`research_execution_cohorts/<task-id>/<cohort-id>.json`.
+
+The cohort machine is `research_execution_cohorts.py`; runtime-owned lane tools are:
+
+- `tools/research_lane_claims.py` — exact lane event projection and winning-CLAIM binding;
+- `tools/research_lane_dispatch.py` — lane status and selection;
+- `tools/research_cohort_runtime.py` — lane completeness and exact-set reference/synthesis state.
+
+When a task has an ACTIVE cohort, task-global registered execution is forbidden. The execution caller must identify:
+
+`execution_scope = (execution_cohort_id, execution_lane_id)`.
+
+The winner scope is:
+
+`task_id + execution_cohort_id + execution_lane_id`.
+
+Therefore sibling lanes may hold concurrent live claims. A lane CLAIM must use the publication pinned by that lane and every output must remain inside the lane's disjoint `output_prefix`.
+
+A retained non-operational publication remains valid research evidence and may be executed/frozen when a lane explicitly pins it. Operational publication selection is not truth selection.
+
+Freeze:
+
+`MULTIPLE_RESEARCH_ROUTES_ALLOWED`.
+
+`ONE_WINNING_OWNER_PER_LANE`.
+
+`SIBLING_LANES_MAY_RUN_CONCURRENTLY`.
+
+`LANE_OUTPUT_NAMESPACE_ESCAPE -> REJECT`.
+
+A lane with one or more frozen results is evidence-complete for that lane and is not automatically redispatched. Additional already-existing results are retained. A deliberate new independent replication should normally use a new lane so provenance stays explicit.
+
+## 5B. Cohort completeness and two reference passes
+
+The first completed lane never terminalizes the whole task.
+
+`ONE_LANE_RESULT + MISSING_SIBLING -> COHORT_EXECUTION_ACTIVE`.
+
+Only after every declared lane has at least one immutable result does the exact cohort evidence set enter:
+
+`PARALLEL_INTAKE -> SEMANTIC_EVIDENCE_CROSSCHECK -> ADVERSARIAL_CONTROL_CROSSCHECK -> SYNTHESIS`.
+
+These are the required two reference passes before synthesis. Any newly added result changes the evidence-set hash and invalidates old reference/synthesis coverage for the new set; it does not overwrite or delete the earlier result.
+
+`MULTIPLE_RESULTS != LATEST_RESULT_WINS`.
+
+Task-level cohort terminality requires exact-set terminal synthesis plus a terminal control disposition. Until then sibling lane work or reference/synthesis work remains live.
 
 ## 6. Result-side loss prevention
 
 Task preservation alone is insufficient. The durable result chain is:
 
 `TASK_GENERATION -> CLAIM_ENVELOPE -> EXECUTION_RECORD_AT_DURABLE_CHECKPOINT -> FROZEN_RESULT -> DRIVER_REVIEW -> DISPOSITION`.
+
+For cohort work the execution/result/review records additionally preserve `execution_cohort_id` and `execution_lane_id`.
 
 Frozen returns are stored at:
 
@@ -160,7 +226,7 @@ Driver reviews are independently stored at:
 
 The executor cannot self-promote the result merely by freezing it.
 
-Required state semantics:
+Required state semantics for the ordinary single-result path remain:
 
 `FROZEN_RETURN + NO_DRIVER_REVIEW -> AWAITING_DRIVER_REVIEW`.
 
@@ -168,15 +234,15 @@ Required state semantics:
 
 `RETURN_TO_OWNER / REQUEST_REVISION -> HANDOFF_READY`.
 
-`TERMINAL_DRIVER_REVIEW -> COMPLETE`.
+`TERMINAL_DRIVER_REVIEW -> COMPLETE` when no active cohort requires further lane or synthesis work.
 
-For immutable registered tasks, a `DONE` event is accepted only when it references the matching frozen result and that result has a terminal Driver disposition.
+For immutable registered tasks, a `DONE` event is accepted only when it references the matching frozen result and that result has a terminal Driver disposition. Cohort terminality additionally obeys the completeness/two-pass synthesis rule above.
 
 The execution/result record files are intended to be created in the same publication batch as the durable return/checkpoint whenever possible; they are not separate conversational stop points.
 
 ## 7. Owner lease is not session liveness
 
-The valid Issue CLAIM establishes task ownership. A compatible execution record preserves durable provenance. Neither establishes that the current conversation remains alive.
+The valid Issue CLAIM establishes ownership within its owner scope. A compatible execution record preserves durable provenance. Neither establishes that the current conversation remains alive.
 
 Freeze:
 
@@ -186,7 +252,7 @@ Default session stale window remains 10 minutes.
 
 `SESSION_STALE + OWNER_LEASE_ACTIVE -> STALE_RECOVERABLE`.
 
-A replacement session verifies the taskbook source, branch, claim, remote HEAD, execution stamp and durable outputs, adopts the existing claim and Researcher-ID, and resumes the first unfinished unit. It does not replay completed work or issue a second claim.
+A replacement session verifies the taskbook source, branch, claim, remote HEAD, execution stamp and durable outputs, adopts the existing claim and Researcher-ID in the same task/lane scope, and resumes the first unfinished unit. It does not replay completed work or issue a second claim.
 
 No routine heartbeat is required merely to keep an actively progressing research conversation legitimate; visible/durable progress and stale-recovery semantics remain distinct from owner-lease duration.
 
@@ -232,7 +298,7 @@ A parent marked complete while runtime work remains is `CONTROL_STATE_INCONSISTE
 
 ## 10. Operator procedure
 
-For a new registered task:
+For a new ordinary registered task:
 
 1. publish one immutable task generation at the task-publication checkpoint;
 2. create/verify the execution branch from an exact base;
@@ -245,6 +311,19 @@ For a new registered task:
 9. create an immutable Driver review/disposition together with the actual Driver review artifact;
 10. return TASK terminality to the parent objective;
 11. invoke authenticated PRE_FINAL only at the parent boundary.
+
+For an opt-in parallel cohort:
+
+1. freeze one cohort record with at least two disjoint lanes;
+2. each lane issues its ordinary single Issue #240 CLAIM with exact cohort/lane scope;
+3. each lane writes only inside its own output prefix;
+4. each lane freezes its own execution/result provenance;
+5. do not terminalize the task when only some lanes have results;
+6. once every lane has evidence, create exact-set parallel intake;
+7. run reference pass 1;
+8. run reference pass 2;
+9. synthesize the exact evidence set;
+10. only terminal synthesis/control disposition may close the cohort.
 
 For legacy tasks, already-owned execution may continue; fresh redispatch requires immutable migration first.
 
@@ -259,11 +338,20 @@ Repository tests must prove behavior, not merely policy wording. Required cases 
 - a complete registered CLAIM becomes live **without** a pre-claim execution-record repository write;
 - a compatible historical execution intent may still authorize its matching CLAIM;
 - execution provenance pins publication, Researcher-ID, branch/base, output scope and lease before result freeze;
+- active cohort rejects task-global registered execution;
+- sibling lanes can hold independent winning claims;
+- lane claim must match lane publication and output prefix;
+- retained non-operational publication can produce a lane result;
+- lane result and review preserve cohort/lane provenance;
+- first lane result does not terminalize the cohort;
+- all lanes complete routes to parallel intake, not latest-result-wins;
+- both reference passes precede synthesis;
+- terminal cohort synthesis blocks further lane execution;
 - immutable task publication cannot overwrite an earlier generation;
 - placeholder/empty mandatory task sections cannot publish;
 - frozen result without Driver review becomes `AWAITING_DRIVER_REVIEW`;
 - registered DONE without a matching terminal reviewed result is ignored;
-- terminal Driver review closes dispatch;
+- terminal Driver review closes ordinary dispatch;
 - return/review blob drift fails audit;
 - stale adoption preserves claim identity;
 - open parent plus executable action forbids final;
