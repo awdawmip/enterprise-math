@@ -6,11 +6,16 @@ The durable result/review writer/auditor lives in
 API while replacing task-level result-state reduction:
 
 * multiple results are retained and routed through two-pass parallel evidence;
-* post-cutover Driver reviews cannot terminalize runtime state until the
-  automatic follow-up taskset (or canonical parent-closure exception) exists.
+* new Driver reviews cannot terminalize runtime state until the automatic
+  follow-up taskset (or canonical parent-closure exception) exists;
+* the canonical CLI `review` command requires one follow-up specification and
+  automatically materializes the next taskbook/taskset in the same review
+  command.  The standalone follow-up guard remains a crash-recovery path.
 """
 from __future__ import annotations
 
+import argparse
+import json
 import sys
 from pathlib import Path
 from typing import Any
@@ -28,6 +33,7 @@ for _name in dir(_impl):
 if str(_impl.ROOT) not in sys.path:
     sys.path.insert(0, str(_impl.ROOT))
 import research_parallel_evidence as _parallel  # noqa: E402
+import research_driver_followup as _followup_impl  # noqa: E402
 import research_driver_followup_guard as _driver_followup  # noqa: E402
 
 ROOT = _impl.ROOT
@@ -302,9 +308,158 @@ def task_result_state(
     raise ResultRecordError(f"unknown parallel result state: {phase}")
 
 
+def _load_followup_spec(path_value: str) -> tuple[dict[str, Any], Path]:
+    path = Path(path_value)
+    if not path.is_absolute():
+        path = ROOT / path
+    if not path.exists():
+        raise ResultRecordError(f"follow-up spec not found: {path}")
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(value, dict):
+        raise ResultRecordError("follow-up spec root must be an object")
+    return value, path
+
+
+def _preflight_review_followup(
+    *,
+    result: dict[str, Any],
+    driver_id: str,
+    disposition: str,
+    destination_class: str,
+    spec: dict[str, Any],
+) -> None:
+    """Reject a bad gate/taskset specification before the immutable review write."""
+    probe_review = {
+        "review_id": "DR-PREFLIGHT",
+        "result_id": result["result_id"],
+        "task_id": result["task_id"],
+        "publication_id": result["publication_id"],
+        "driver_id": driver_id.strip().upper(),
+        "disposition": disposition,
+        "destination_class": destination_class,
+        "reviewed_at": "2000-01-01T00:00:00+00:00",
+    }
+    gates = _followup_impl._gate_map(spec.get("gate_decisions"))
+    _followup_impl._forced_gate_rules(probe_review, result, gates)
+    decision = spec.get("decision")
+    tasks = spec.get("tasks", [])
+    if decision not in _followup_impl.DECISIONS:
+        raise ResultRecordError("follow-up spec decision is invalid")
+    if not isinstance(tasks, list):
+        raise ResultRecordError("follow-up spec tasks must be a list")
+    if decision == "TASK_SET_PUBLISHED":
+        if not tasks:
+            raise ResultRecordError("TASK_SET_PUBLISHED follow-up requires at least one task")
+        required_roles = {
+            gate
+            for gate, row in gates.items()
+            if row["decision"] == "REQUIRED"
+        }
+        actual_roles: set[str] = set()
+        for task_spec in tasks:
+            if not isinstance(task_spec, dict):
+                raise ResultRecordError("each follow-up task spec must be an object")
+            role = task_spec.get("task_role")
+            if role not in _followup_impl.TASK_ROLES:
+                raise ResultRecordError(f"follow-up task has invalid task_role: {role}")
+            actual_roles.add(str(role))
+            text = _followup_impl._taskbook_text(
+                task_spec,
+                _followup_impl._source_parent_objective(probe_review, result, ROOT),
+            )
+            _followup_impl._preflight_taskbook(text, ROOT)
+        missing = sorted(required_roles - actual_roles)
+        if missing:
+            raise ResultRecordError(
+                f"required follow-up gates have no matching task role: {missing}"
+            )
+    elif tasks:
+        raise ResultRecordError("PARENT_OBJECTIVE_CLOSURE follow-up cannot include tasks")
+
+
+def command_review_with_followup(args: argparse.Namespace) -> int:
+    result = result_map().get(args.result_id)
+    if result is None:
+        raise ResultRecordError(f"unknown result_id: {args.result_id}")
+    spec, spec_path = _load_followup_spec(args.followup_spec)
+    _preflight_review_followup(
+        result=result,
+        driver_id=args.driver_id,
+        disposition=args.disposition,
+        destination_class=args.destination_class,
+        spec=spec,
+    )
+
+    path = Path(args.review_path)
+    if not path.is_absolute():
+        path = ROOT / path
+    record = review_result(
+        result=result,
+        driver_id=args.driver_id,
+        disposition=args.disposition,
+        review_path=path,
+        destination_class=args.destination_class,
+        destination_ref_or_none=args.destination_ref_or_none,
+        reviewed_at=_now(args.reviewed_at),
+    )
+    out = REVIEW_ROOT / _safe_id(args.result_id, "result_id") / f"{record['review_id']}.json"
+    _save_exclusive(out, record)
+
+    followup = _driver_followup.materialize(
+        review_id=record["review_id"],
+        spec=spec,
+        created_at=args.followup_created_at,
+        root=ROOT,
+    )
+
+    errors = audit()
+    errors.extend(_driver_followup.audit(ROOT))
+    if errors:
+        raise ResultRecordError(
+            "review and follow-up were materialized but repository audit failed: "
+            + "; ".join(errors)
+        )
+    print(
+        json.dumps(
+            {
+                "review": {**record, "record_path": out.relative_to(ROOT).as_posix()},
+                "followup": followup,
+                "followup_spec_path": spec_path.relative_to(ROOT).as_posix()
+                if spec_path.is_relative_to(ROOT)
+                else str(spec_path),
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0
+
+
+def canonical_main() -> int:
+    """Own only the new review transaction; delegate other legacy-compatible commands."""
+    if len(sys.argv) < 2 or sys.argv[1] != "review":
+        return _impl.main()
+
+    parser = argparse.ArgumentParser(
+        description="Enterprise Math canonical Driver review + automatic follow-up taskset transaction"
+    )
+    parser.add_argument("review")
+    parser.add_argument("--result-id", required=True)
+    parser.add_argument("--driver-id", required=True)
+    parser.add_argument("--disposition", choices=sorted(ALL_DISPOSITIONS), required=True)
+    parser.add_argument("--review-path", required=True)
+    parser.add_argument("--destination-class", choices=sorted(DESTINATION_CLASSES), required=True)
+    parser.add_argument("--destination-ref-or-none", default="")
+    parser.add_argument("--reviewed-at")
+    parser.add_argument("--followup-spec", required=True)
+    parser.add_argument("--followup-created-at")
+    args = parser.parse_args()
+    return command_review_with_followup(args)
+
+
 if __name__ == "__main__":
     try:
-        raise SystemExit(_impl.main())
-    except ResultRecordError as exc:
+        raise SystemExit(canonical_main())
+    except (ResultRecordError, _followup_impl.DriverFollowupError) as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
