@@ -3,8 +3,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import research_objective_authority as authority
 import research_objective_records as core
-from tools import research_objective_authority as authority
 
 
 def write_json(path: Path, value: dict):
