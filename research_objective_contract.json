@@ -4,9 +4,11 @@
   "effective": "2026-08-27",
   "generation_store": "research_objective_records/<objective-id>/<objective-generation-id>.json",
   "operational_head_store": "research_objective_heads/<objective-id>.json",
+  "operational_selection_receipt_store": "research_objective_head_events/<objective-id>/<objective-generation-id>.json",
   "legacy_task_binding_store": "research_task_objective_bindings/<task-id>/<publication-id>.json",
-  "tool": "research_objective_records.py",
-  "purpose": "Replace caller-supplied parent-objective strings/status with immutable objective generations plus one explicit operational control head, while preserving alternate generations/proposals and allowing historical task publications to bind through immutable sidecars without rewriting their task records.",
+  "primitive_tool": "research_objective_records.py",
+  "authority_tool": "tools/research_objective_authority.py",
+  "purpose": "Replace caller-supplied parent-objective strings/status with immutable objective generations plus one explicit operational control head and immutable selection receipts, while preserving alternate generations/proposals and allowing historical task publications to bind only to generations proven operational during the task publication's exact tenure.",
   "objective_statuses": ["OPEN", "PARKED", "CLOSED"],
   "publisher_roles": ["RESEARCH_DRIVER"],
   "core_invariants": [
@@ -17,12 +19,18 @@
     "OPERATIONAL_HEAD_SELECTION_IS_NOT_EVIDENCE_DELETION_OR_TRUTH_RANKING",
     "OBJECTIVE_HEAD_UPDATE_REQUIRES_EXPECTED_PREVIOUS_GENERATION",
     "OBJECTIVE_HEAD_PATH_IS_THE_PER_OBJECTIVE_GIT_CAS_POINT",
+    "EVERY_CANONICAL_HEAD_SELECTION_REQUIRES_IMMUTABLE_SELECTION_RECEIPT",
+    "CURRENT_HEAD_WITHOUT_MATCHING_SELECTION_RECEIPT_FAILS_CANONICAL_AUTHORITY_AUDIT",
     "INITIAL_OBJECTIVE_GENERATION_MUST_BE_OPEN",
     "CLOSED_TO_OPEN_REQUIRES_EXPLICIT_REOPEN_REASON",
     "TASK_PUBLICATION_PARENT_BINDING_MUST_PIN_EXACT_OBJECTIVE_GENERATION_AFTER_CUTOVER",
     "HISTORICAL_TASK_PUBLICATION_MAY_BIND_BY_IMMUTABLE_SIDECAR_WITHOUT_REWRITING_TASK_RECORD",
     "TASK_OBJECTIVE_BINDING_PINS_TASK_PUBLICATION_AND_TASKBOOK_BLOB",
     "TASK_OBJECTIVE_BINDING_PINS_IMMUTABLE_OBJECTIVE_GENERATION_DIGEST",
+    "TASK_OBJECTIVE_BINDING_REQUIRES_PROOF_TARGET_GENERATION_WAS_OPERATIONAL_WHEN_TASK_WAS_PUBLISHED",
+    "RETAINED_OPEN_PROPOSAL_WITHOUT_SELECTION_RECEIPT_CANNOT_AUTHORIZE_TASK_BINDING",
+    "FORMER_OPERATIONAL_OPEN_GENERATION_REMAINS_BINDABLE_ONLY_FOR_TASK_PUBLISHED_DURING_ITS_PROVEN_TENURE",
+    "LEGACY_PRIMITIVE_BINDING_WITHOUT_SELECTION_PROVENANCE_IS_RETAINED_BUT_NOT_CANONICAL_OBJECTIVE_AUTHORITY",
     "TASK_OBJECTIVE_BINDING_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_FINAL_PERMISSION",
     "OBJECTIVE_CLOSED_DECLARATION_ALONE_DOES_NOT_AUTHORIZE_PRE_FINAL",
     "PRE_FINAL_MUST_DERIVE_CHILD_TASK_RESULT_AND_COHORT_CLOSURE_FROM_REPOSITORY_STATE",
@@ -73,6 +81,29 @@
     "initial_selection_requires_no_existing_head": true,
     "rollback_to_old_generation": "FORBIDDEN; CREATE_A_NEW_GENERATION_INSTEAD"
   },
+  "selection_receipt_required_fields": [
+    "objective_id",
+    "objective_generation_id",
+    "generation",
+    "objective_status",
+    "previous_objective_generation_id",
+    "objective_record_sha256",
+    "selected_by",
+    "selected_at",
+    "head_authority",
+    "selection_authority",
+    "working_truth_granted",
+    "foundation_authority_granted",
+    "canonical_promotion_granted",
+    "final_permission_granted"
+  ],
+  "selection_receipt_semantics": {
+    "immutable": true,
+    "one_receipt_per_selected_generation": true,
+    "proves_generation_was_operational": true,
+    "does_not_grant_truth_or_final_permission": true,
+    "missing_receipt_after_head_update": "FAIL_CLOSED_UNTIL_CONTROL_RECORD_REPAIRED"
+  },
   "legacy_binding_required_fields": [
     "task_id",
     "publication_id",
@@ -81,6 +112,11 @@
     "objective_id",
     "objective_generation_id",
     "objective_record_sha256",
+    "operational_selection_provenance",
+    "operational_selection_receipt_path",
+    "operational_selection_receipt_sha256",
+    "operational_from",
+    "operational_until",
     "bound_by",
     "bound_at"
   ],
@@ -88,18 +124,23 @@
     "task_publication_must_exist": true,
     "taskbook_blob_must_match_publication": true,
     "objective_generation_must_exist": true,
-    "objective_generation_status": "OPEN",
+    "objective_generation_status_at_selection": "OPEN",
     "binding_record_immutable": true,
     "one_binding_per_task_publication": true,
-    "binding_may_target_noncurrent_historical_open_generation": true,
-    "reason": "Historical tasks preserve the exact objective generation under which they were scoped; migration must not rewrite their task publication bytes."
+    "operational_selection_receipt_required": true,
+    "task_published_at_must_be_on_or_after_operational_from": true,
+    "task_published_at_must_be_before_operational_until_when_successor_exists": true,
+    "binding_may_target_former_operational_open_generation": true,
+    "retained_nonhead_open_proposal_is_bindable": false,
+    "reason": "Historical tasks may preserve the exact older objective generation under which they were scoped, but only immutable head-selection provenance plus the task publication timestamp may establish that the generation was operational at that time."
   },
   "future_task_publication_rule": {
     "new_metadata_field": "parent_objective_generation_id",
     "direct_binding_required_after_cutover": true,
     "required_parent_status_at_publication": "OPEN",
     "required_parent_generation": "exact operational objective head at publication preparation",
-    "historical_task_without_direct_generation": "EXECUTION_CONTINUATION_ALLOWED; PARENT_FINAL_AUTHORITY_REQUIRES_IMMUTABLE_BINDING_OR_EXPLICIT_MIGRATION"
+    "direct_generation_pin_must_pass_same_operational_tenure_proof": true,
+    "historical_task_without_direct_generation": "EXECUTION_CONTINUATION_ALLOWED; PARENT_FINAL_AUTHORITY_REQUIRES_IMMUTABLE_PROVEN_BINDING_OR_EXPLICIT_MIGRATION"
   },
   "derived_closure_rule": {
     "objective_head_status_closed_is_necessary": true,
@@ -113,8 +154,8 @@
     "new_child_after_closed_generation": "FINAL_ALLOWED_FALSE_UNTIL_DERIVED_CLOSURE_REESTABLISHED"
   },
   "interaction_budget": {
-    "ordinary_objective_creation": "one immutable generation plus one per-objective head update at a semantic checkpoint",
-    "objective_revision": "one new immutable generation plus one expected-head update",
+    "ordinary_objective_creation": "one semantic checkpoint containing one immutable generation, one per-objective head CAS update, and one immutable selection receipt",
+    "objective_revision": "one semantic checkpoint containing one new immutable generation, one expected-head update, and one immutable selection receipt",
     "historical_task_binding": "one immutable sidecar only when that historical task needs objective-authority participation; no bulk migration required",
     "between_checkpoints": "zero heartbeat, zero CI polling, zero review polling, zero moving-main chase required by this contract"
   }
