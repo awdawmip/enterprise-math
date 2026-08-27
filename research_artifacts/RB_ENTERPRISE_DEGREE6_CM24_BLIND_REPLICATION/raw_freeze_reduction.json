@@ -1,0 +1,68 @@
+{
+  "payload": {
+    "blindness": {
+      "note": "Account-level operational bootstrap/manual were read before task selection under higher-priority account instructions; no task-specific global-knowledge record, originating formula, coefficients, replay, or period-scaling answer was inspected.",
+      "operational_global_bootstrap_only": true,
+      "originating_explicit_map_seen": false,
+      "originating_load_bearing_coefficients_seen": false,
+      "phase_b_unblinding_performed": false,
+      "targeted_external_formula_search_used": false,
+      "task_specific_global_knowledge_used": false
+    },
+    "claim_id": "chatgpt-rbv2rep-20260827-2129",
+    "exact_reduction": {
+      "anti_invariant_y": "Target Y has the form Y=w*H with H in K(C).",
+      "cover_branch_points": [
+        "O (point at infinity)",
+        "(0,0)",
+        "(sqrt(3),0)",
+        "(-sqrt(3),0)",
+        "(-2,i*sqrt(2))",
+        "(-2,-i*sqrt(2))"
+      ],
+      "critical_profile": "Across the four special fibers there are exactly nine simple critical points from double multiplicities; the remaining three simple critical points are exactly Q1,Q2,Q3 over non-special critical values. Total critical multiplicity is 12, matching Riemann-Hurwitz for degree 6 from genus 1 to P1.",
+      "delta": "delta=t*d/dR on K(C).",
+      "descended_x": "X=x∘f lies in K(C), and deg(X:C->P1)=6.",
+      "differential_identity": "delta(X)=c*H*(t+k).",
+      "double_cover": "pi:D->C is w^2=(R+2)t with involution iota(w)=-w.",
+      "fiber_product_identity": "A*X*(X-1)*(X-lambda)=(R+2)*t*H^2 for a nonzero target twist constant A.",
+      "hilbert_class_relation": "j(lambda)^2-4834944*j(lambda)+14670139392=0 (discriminant -24 class polynomial).",
+      "k_square": "k^2=12*sqrt(2)-10*sqrt(3).",
+      "lambda_square": "lambda=((2-sqrt(3))*(sqrt(3)-sqrt(2)))^2.",
+      "legendre_j": "j(lambda)=2417472+1707264*sqrt(2).",
+      "normalized_equivariance": "For any candidate f with f^*omega_E=c*phi, after target translation one may normalize f∘iota=[-1]∘f.",
+      "ode_certificate": "(R+2)*t*(delta(X))^2=K*(t+k)^2*X*(X-1)*(X-lambda), K=A*c^2 != 0.",
+      "phi_zero_divisor": "phi has six simple zeros: the two lifts to D of each of the three distinct points Q on C satisfying t=-k.",
+      "q_cubic": "The R-coordinates of the Q points satisfy R^3-3R-k^2=0.",
+      "q_cubic_discriminant": "disc=216*(30*sqrt(6)-73)>0, hence the three Q are distinct.",
+      "special_fiber_even_partitions": [
+        "6+0+0+0",
+        "4+2+0+0",
+        "2+2+2+0"
+      ],
+      "special_fiber_profile": "For each a in {0,1,lambda,infinity}, multiplicities in X^{-1}(a) are 1 at branch points of pi and 2 at non-branch points; the six simple branch points partition among the four special fibers with even block sizes."
+    },
+    "frozen_inputs": {
+      "C": "t=w^2/(R+2), t^2=R^3-3R",
+      "D": "w^4=(R+2)^2*R*(R^2-3)",
+      "k": "-i*3^(1/4)*(sqrt(6)-2)",
+      "lambda": "35+24*sqrt(2)-20*sqrt(3)-14*sqrt(6)",
+      "phi": "dR/w*(1+k/t)",
+      "required_degree": 6
+    },
+    "not_claimed": [
+      "No explicit degree-6 X or Y has been reconstructed.",
+      "No exact nonexistence/refutation theorem has been proved.",
+      "No independent value of (B1/Omega_P)^2 has been derived.",
+      "No Phase-B comparison against the withheld originating formula has been performed."
+    ],
+    "phase": "BLIND_RECONSTRUCTION_FROZEN",
+    "primary_verdict": "BLIND_INCOMPLETE_EXACT_REDUCTION",
+    "publication_id": "TP2-9F1A3C0DEFAED8B6E247",
+    "remaining_exact_problem": "Construct a degree-6 X in K(C) satisfying the ODE certificate and the stated special-fiber/critical profile, then recover H, target twist, exact pullback coefficient and period scaling; or prove no such X exists.",
+    "researcher_id": "EM-RBV2REP-7C42A1",
+    "schema": "RB_ENTERPRISE_DEGREE6_CM24_BLIND_REDUCTION_CERT_V1",
+    "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION"
+  },
+  "payload_sha256": "sha256:f1bdf8fdcb9806783e7e4c5e46d3bcf9ec3a22251b058719ba6af130fba0bbdf"
+}
