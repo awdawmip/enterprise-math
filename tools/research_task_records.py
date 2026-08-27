@@ -25,6 +25,8 @@ TASKBOOK_TEMPLATE = "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1"
 PUBLICATION_TRANSACTION_V2 = "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2"
 RESOLUTION_SCHEMA = "ENTERPRISE_MATH_TASK_PUBLICATION_RESOLUTION_REGISTRY_V1"
 RESOLUTION_FILE = "research_task_publication_resolutions.json"
+PUBLICATION_QUARANTINE_SCHEMA = "ENTERPRISE_MATH_RESEARCH_TASK_PUBLICATION_QUARANTINE_V1"
+PUBLICATION_QUARANTINE_FILE = "research_task_publication_quarantines.json"
 PUBLISHER_ROLES = {"RESEARCHER", "RESEARCH_DRIVER", "FOUNDATION_STEWARD"}
 MANDATORY_BODY_SECTIONS = (
     "Mother question",
@@ -140,6 +142,57 @@ def publication_resolutions(root: Path = ROOT) -> dict[str, dict[str, Any]]:
         if row.get("successor_triggered") is not False:
             raise TaskRecordError(f"{RESOLUTION_FILE}: {task_id} resolution cannot trigger successor research")
         out[task_id] = row
+    return out
+
+
+def publication_format_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    """Load explicit compatibility exceptions for immutable legacy taskbook bodies.
+
+    A legacy-format quarantine never changes publication identity or suppresses
+    schema/path/blob/lineage checks. It waives only the current mandatory-body
+    section check, and only when a format-complete operational replacement for
+    the same task is explicitly named.
+    """
+    path = root / PUBLICATION_QUARANTINE_FILE
+    if not path.exists():
+        return {}
+    payload = _load_json(path)
+    if payload.get("schema") != PUBLICATION_QUARANTINE_SCHEMA:
+        raise TaskRecordError(f"{PUBLICATION_QUARANTINE_FILE}: wrong schema")
+    if payload.get("status") != "ACTIVE":
+        raise TaskRecordError(f"{PUBLICATION_QUARANTINE_FILE}: status must be ACTIVE")
+    rows = payload.get("entries")
+    if not isinstance(rows, list):
+        raise TaskRecordError(f"{PUBLICATION_QUARANTINE_FILE}: entries must be a list")
+    out: dict[str, dict[str, Any]] = {}
+    for index, row in enumerate(rows):
+        if not isinstance(row, dict):
+            raise TaskRecordError(f"{PUBLICATION_QUARANTINE_FILE}: entry {index} must be an object")
+        pub_id = row.get("publication_id")
+        task_id = row.get("task_id")
+        replacement = row.get("replacement_operational_publication_id")
+        if not isinstance(pub_id, str) or not pub_id:
+            raise TaskRecordError(f"{PUBLICATION_QUARANTINE_FILE}: entry {index} missing publication_id")
+        if pub_id in out:
+            raise TaskRecordError(f"{PUBLICATION_QUARANTINE_FILE}: duplicate publication_id {pub_id}")
+        if not isinstance(task_id, str) or not task_id:
+            raise TaskRecordError(f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} missing task_id")
+        if not isinstance(replacement, str) or not replacement:
+            raise TaskRecordError(f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} missing replacement publication")
+        if row.get("resolution") != "LEGACY_BODY_TEMPLATE_QUARANTINE":
+            raise TaskRecordError(f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} unsupported resolution")
+        if row.get("operational") is not False or row.get("history_preserved") is not True:
+            raise TaskRecordError(
+                f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} must preserve history and be nonoperational"
+            )
+        reason = row.get("reason")
+        if not isinstance(reason, list) or not reason or any(
+            not isinstance(item, str) or not item.strip() for item in reason
+        ):
+            raise TaskRecordError(
+                f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} reason must be a nonempty string list"
+            )
+        out[pub_id] = row
     return out
 
 
@@ -418,9 +471,39 @@ def audit(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     try:
         all_records = iter_records(root)
-        current_records(root)
+        current = current_records(root)
+        format_quarantines = publication_format_quarantines(root)
     except Exception as exc:
         return [str(exc)]
+    record_by_publication = {
+        str(item.get("publication_id")): item
+        for item in all_records
+        if isinstance(item.get("publication_id"), str)
+    }
+    for pub_id, row in format_quarantines.items():
+        historical = record_by_publication.get(pub_id)
+        replacement_id = str(row.get("replacement_operational_publication_id"))
+        replacement = record_by_publication.get(replacement_id)
+        if historical is None:
+            errors.append(f"{PUBLICATION_QUARANTINE_FILE}: unknown historical publication {pub_id}")
+            continue
+        if row.get("task_id") != historical.get("task_id"):
+            errors.append(f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} task_id mismatch")
+        if row.get("record_path") != historical.get("_record_path"):
+            errors.append(f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} record_path mismatch")
+        if replacement is None:
+            errors.append(f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} replacement publication is unavailable")
+            continue
+        if replacement.get("task_id") != historical.get("task_id"):
+            errors.append(f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} replacement belongs to another task")
+        if replacement_id in format_quarantines:
+            errors.append(f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} replacement cannot itself be quarantined")
+        current_item = current.get(str(historical.get("task_id")))
+        if current_item is None or current_item.get("publication_id") != replacement_id:
+            errors.append(
+                f"{PUBLICATION_QUARANTINE_FILE}: {pub_id} replacement is not the current operational publication"
+            )
+
     task_ids: set[str] = set()
     publications: set[str] = set()
     for item in all_records:
@@ -463,7 +546,7 @@ def audit(root: Path = ROOT) -> list[str]:
             errors.append(f"{prefix}: taskbook task_id mismatch")
         if meta.get("parent_objective_id") != item.get("parent_objective_id"):
             errors.append(f"{prefix}: parent objective mismatch")
-        if item.get("publication_transaction") == PUBLICATION_TRANSACTION_V2:
+        if item.get("publication_transaction") == PUBLICATION_TRANSACTION_V2 and pub_id not in format_quarantines:
             errors.extend(f"{prefix}: {msg}" for msg in validate_body(body))
 
     task_dir = root / "research_tasks"
