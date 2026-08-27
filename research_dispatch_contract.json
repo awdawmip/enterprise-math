@@ -1,13 +1,16 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_DISPATCH_CONTRACT_V3",
   "status": "ACTIVE_CANONICAL_POST_CUTOVER",
-  "effective": "2026-08-26",
+  "effective": "2026-08-27",
   "canonical_tool": "tools/research_dispatch.py",
+  "lane_dispatch_tool": "tools/research_lane_dispatch.py",
+  "lane_claim_tool": "tools/research_lane_claims.py",
+  "cohort_runtime_tool": "tools/research_cohort_runtime.py",
   "task_definition_authority": [
     "research_task_records/<task-id>/<publication-id>.json",
     "frozen research_scheduler.json legacy baseline only"
   ],
-  "registered_claim_authority": "One self-contained GitHub Issue #240 CLAIM envelope validated against the current immutable task publication",
+  "registered_claim_authority": "One self-contained GitHub Issue #240 CLAIM envelope validated against the operational immutable task publication for ordinary work or the exact lane-pinned retained publication for an active execution cohort.",
   "execution_record_compatibility": "research_execution_records/<task-id>/<execution-record-id>.json may preserve/freeze execution provenance but is not a mandatory pre-claim remote write",
   "runtime_event_authority": "GitHub Issue #240 issue comments authenticated by server comment metadata and separately authorized by research_control_event_authorization.json; the JSON event body is payload, not its own authentication or authorization envelope",
   "control_event_authorization": {
@@ -38,6 +41,7 @@
     "body_at_authority": false,
     "edited_event_comment": "IGNORE_AS_RUNTIME_EVENT; CORRECTION_MUST_BE_A_NEW_COMMENT",
     "foreign_issue_comment": "REJECT",
+    "normalized_github_envelope_from_external_file": "REJECT; LIVE AUTHORITY MUST ENTER AS RAW ISSUE #240 COMMENT OBJECTS",
     "bare_event_compatibility": "Allowed only for explicit legacy replay/test primitives; not live authority for immutably registered tasks"
   },
   "result_authority": [
@@ -49,7 +53,11 @@
     "IMMUTABLE_REGISTERED_DEFINITION_OVERRIDES_SAME_ID_LEGACY_DEFINITION",
     "REGISTRY_CLAIMABLE_IS_VISIBLE_TO_SCHEDULER_SELECTION",
     "REGISTERED_CLAIM_IS_THE_EXECUTION_AUTHORIZATION_ENVELOPE",
-    "REGISTERED_CLAIM_MUST_REFERENCE_CURRENT_PUBLICATION_AND_EXACT_BRANCH_BASE_OUTPUT_SCOPE",
+    "NONCOHORT_REGISTERED_CLAIM_MUST_REFERENCE_OPERATIONAL_PUBLICATION_AND_EXACT_BRANCH_BASE_OUTPUT_SCOPE",
+    "ACTIVE_COHORT_CLAIM_MUST_REFERENCE_EXACT_COHORT_LANE_RETAINED_PUBLICATION_AND_LANE_OUTPUT_SCOPE",
+    "ACTIVE_COHORT_DISALLOWS_TASK_GLOBAL_REGISTERED_EXECUTION_OWNER",
+    "COHORT_OWNER_RACE_IS_SCOPED_BY_TASK_PLUS_COHORT_PLUS_LANE",
+    "SIBLING_LANES_MAY_HOLD_CONCURRENT_WINNING_CLAIMS",
     "REGISTERED_CLAIM_RESEARCHER_ID_MAY_BE_DETERMINISTICALLY_DERIVED",
     "NO_SEPARATE_REMOTE_EXECUTION_INTENT_WRITE_IS_REQUIRED_BEFORE_CLAIM",
     "LIVE_REGISTERED_EVENT_REQUIRES_SERVER_AUTHENTICATED_GITHUB_COMMENT_ENVELOPE",
@@ -60,10 +68,13 @@
     "SERVER_CREATED_AT_DETERMINES_LEASE_TIME",
     "SELF_DECLARED_ACTOR_AND_AT_ARE_NOT_AUTHENTICATION_OR_CLOCK_AUTHORITY",
     "EDITED_EVENT_COMMENTS_DO_NOT_MUTATE_HISTORY",
-    "FIRST_VALID_AUTHORIZED_ISSUE_CLAIM_COMMITS_THE_OWNER_RACE",
-    "RESULT_PENDING_REVIEW_IS_NOT_RESEARCHER_DISPATCHABLE",
-    "TERMINAL_DRIVER_REVIEW_CLOSES_DISPATCH",
-    "REGISTERED_DONE_EVENT_REQUIRES_MATCHING_REVIEWED_RESULT",
+    "FIRST_VALID_AUTHORIZED_ISSUE_CLAIM_COMMITS_THE_OWNER_RACE_WITHIN_ITS_OWNER_SCOPE",
+    "RESULT_PENDING_REVIEW_IS_NOT_RESEARCHER_DISPATCHABLE_ON_ORDINARY_PATH",
+    "FIRST_COHORT_LANE_RESULT_DOES_NOT_CLOSE_SIBLING_LANES",
+    "COMPLETE_COHORT_EVIDENCE_REQUIRES_TWO_REFERENCE_PASSES_AND_SYNTHESIS",
+    "MULTIPLE_RESULTS_ARE_RETAINED_AND_NEVER_LATEST_WINS",
+    "TERMINAL_DRIVER_REVIEW_CLOSES_ORDINARY_DISPATCH_ONLY_WHEN_NO_ACTIVE_COHORT_REMAINS",
+    "REGISTERED_DONE_EVENT_REQUIRES_MATCHING_REVIEWED_RESULT_OR_VALID_TERMINAL_COHORT_SYNTHESIS_AS_APPLICABLE",
     "LEGACY_EVENT_REDUCER_REMAINS_COMPATIBILITY_PRIMITIVE_NOT_TASK_DEFINITION_AUTHORITY",
     "CANONICAL_DISPATCH_REQUIRES_NO_ROUTINE_GITHUB_POLLING_BETWEEN_SEMANTIC_CHECKPOINTS"
   ],
@@ -75,6 +86,19 @@
     "COMPLETE",
     "DORMANT"
   ],
-  "selection_rule": "Use the historical state/priority/leverage/staleness ordering over the merged canonical view; AWAITING_REVIEW and COMPLETE are never selected. A live control event must come from a server-authenticated Issue #240 comment whose exact server actor is authorized by the control-event allowlist. A registered CLAIM is accepted when its self-contained envelope matches the current immutable publication and branch/output typing, or when a compatible historical execution record already supplies the same binding.",
-  "interaction_budget": "Authentication and actor authorization reuse the same Issue #240 comment already needed for CLAIM/PROGRESS/HANDOFF/DONE. They introduce no second comment, pre-claim commit, periodic status query, CI poll, review poll, heartbeat, or moving-main chase."
+  "parallel_execution_dispatch": {
+    "contract": "research_execution_cohort_contract.json",
+    "activation": "ACTIVE cohort record exists for task",
+    "task_global_execution_after_activation": "FORBIDDEN_BY_RUNTIME_GUARD",
+    "status_and_selection_tool": "tools/research_lane_dispatch.py",
+    "claim_reduction_tool": "tools/research_lane_claims.py",
+    "winner_scope": "task_id + execution_cohort_id + execution_lane_id",
+    "lane_with_no_frozen_result": "ELIGIBLE_FOR_LANE_SELECTION",
+    "lane_with_one_or_more_frozen_results": "AWAITING_COHORT_REFERENCE; NOT_AUTOMATICALLY_REDISPATCHED",
+    "additional_deliberate_replication": "CREATE_ANOTHER_EXPLICIT_LANE",
+    "multiple_existing_lane_results": "RETAIN_ALL",
+    "cohort_task_terminalization": "ONLY_AFTER_ALL_LANES_HAVE_EVIDENCE_PLUS_REFERENCE_PASS_1_PLUS_REFERENCE_PASS_2_PLUS_TERMINAL_SYNTHESIS_CONTROL"
+  },
+  "selection_rule": "For tasks without an active execution cohort, use the historical state/priority/leverage/staleness ordering over the merged canonical view; AWAITING_REVIEW and COMPLETE are never selected. For an active cohort, task-global execution is rejected and operator/runtime routing uses tools/research_lane_dispatch.py to select an evidence-incomplete lane. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. An ordinary registered CLAIM is accepted when its envelope matches the operational immutable publication; a lane CLAIM is accepted when it matches the exact lane-pinned retained publication and disjoint output prefix. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement.",
+  "interaction_budget": "Authentication and actor authorization reuse the same Issue #240 comment already needed for CLAIM/PROGRESS/HANDOFF/DONE. Ordinary tasks add no new step. Parallel cohorts add one ordinary CLAIM per explicit lane and only semantic-checkpoint intake/pass1/pass2/synthesis records; no second per-lane signature, pre-claim commit, periodic status query, CI poll, review poll, heartbeat, or moving-main chase is introduced."
 }
