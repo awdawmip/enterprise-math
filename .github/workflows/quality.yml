@@ -31,7 +31,7 @@ jobs:
       - name: Unit tests shard ${{ matrix.shard }}
         env:
           PYTHONPATH: src
-        run: python tools/run_unittest_shard.py --index ${{ matrix.shard }} --count 4
+        run: python scripts/run_unittest_shard.py --index ${{ matrix.shard }} --count 4
 
   test:
     if: always() && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
