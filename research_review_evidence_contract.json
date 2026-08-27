@@ -1,0 +1,35 @@
+{
+  "schema": "ENTERPRISE_MATH_REVIEW_EVIDENCE_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL_CANDIDATE",
+  "effective": "2026-08-27",
+  "tool": "research_review_evidence.py",
+  "review_store": "research_result_reviews/<result-id>/<review-id>.json",
+  "intake_store": "research_review_intakes/<result-id>/<intake-id>.json",
+  "reference_pass_store": "research_review_reference_passes/<intake-id>/<pass-id>.json",
+  "synthesis_store": "research_review_syntheses/<result-id>/<synthesis-id>.json",
+  "purpose": "Preserve multiple independent Driver reviews as evidence and forbid reviewed_at/latest-review ordering from becoming task-control authority.",
+  "core_invariants": [
+    "MULTIPLE_DRIVER_REVIEWS_ARE_RETAINED_EVIDENCE_NOT_AN_ERROR",
+    "MULTIPLE_DRIVER_REVIEWS_ARE_NOT_RESOLVED_BY_LATEST_TIMESTAMP_WINS",
+    "ONE_REVIEW_RETAINS_THE_LOW_BURDEN_HISTORICAL_FLOW",
+    "TWO_OR_MORE_REVIEWS_REQUIRE_EXACT_REVIEW_SET_INTAKE",
+    "REVIEW_SYNTHESIS_REQUIRES_SEMANTIC_EVIDENCE_CROSSCHECK_THEN_ADVERSARIAL_CONTROL_CROSSCHECK",
+    "REVIEW_SYNTHESIS_SINGLE_VALUES_OPERATIONAL_DISPOSITION_WITHOUT_DELETING_OR_DOWNRANKING_SOURCE_REVIEWS",
+    "A_NEW_REVIEW_CHANGES_THE_REVIEW_SET_HASH_AND_REQUIRES_FRESH_REFERENCE_COVERAGE",
+    "REVIEW_MULTIPLICITY_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_CANONICAL_PROMOTION"
+  ],
+  "single_review_extra_control_objects": 0,
+  "multiple_review_flow": [
+    "REVIEW_INTAKE",
+    "SEMANTIC_EVIDENCE_CROSSCHECK",
+    "ADVERSARIAL_CONTROL_CROSSCHECK",
+    "REVIEW_SYNTHESIS"
+  ],
+  "terminal_dispositions": ["ACCEPTED", "REJECTED", "PARKED", "CLOSED", "SUPERSEDED"],
+  "nonterminal_dispositions": ["RETURN_TO_OWNER", "REQUEST_REPLICATION", "REQUEST_REVISION"],
+  "latest_review_wins": false,
+  "all_reviews_retained": true,
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
