@@ -1,0 +1,86 @@
+{
+  "schema": "ENTERPRISE_BRC_INERT_PLUS_FINITE_JACOBI_JET_CERTIFICATE_V1",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-FINITE-JACOBI-HARMONIC-IDENTITIES",
+  "publication_id": "TP2-AFF3DA9E8BBF2F6C886B",
+  "claim_id": "chatgpt-ebp5jh-20260827-2137",
+  "researcher_id": "EM-EBP5JH-1097F5",
+  "primary_verdict": "PROOF_NOT_CLOSED_WITH_STRICTER_SINGLE_JACOBI_JET_CERTIFICATE",
+  "hard_target_disposition": "ACHIEVED_BY_EXACT_OBSTRUCTION_AND_STRICT_REDUCTION",
+  "domain": "primes p congruent to 13 or 19 modulo 24; p=6m+1; m congruent to 2 or 3 modulo 4",
+  "frozen_parent_interface": {
+    "A_m": "F0/p + F1",
+    "R0": "A_m*J0 congruent 1 modulo p",
+    "R1": "(A_m*J0-1)/p + A_m*J1 + F2*J0 congruent R_p modulo p"
+  },
+  "single_jet_object": {
+    "Phi_m(x,z)": "sum_{k=0}^{6m} (-x)_k(-2x)_k z^k/(k!)^2",
+    "Psi_m(x,z)": "(1+12 z d/dz) Phi_m(x,z)",
+    "specialization": "b_{m,k}(epsilon) is exactly the k-th summand of Phi_m(m-epsilon/6,1/2)",
+    "chain_rule_identities": [
+      "F0 = Phi_m(m,1/2)",
+      "F1 = -(1/6) partial_x Phi_m(m,1/2)",
+      "F2 = (1/72) partial_x^2 Phi_m(m,1/2)",
+      "J0 = Psi_m(m,1/2)",
+      "J1 = -(1/6) partial_x Psi_m(m,1/2)"
+    ],
+    "proof_note": "The identities are exact termwise. The recurrence f_{k+1}(x)=f_k(x)(k-x)(k-2x)/(2(k+1)^2) propagates the value and first two x-derivatives. At x=m, k>2m has double Taylor vanishing, explaining why the first jet truncates automatically while the second jet must retain the task's cutoff k<=6m."
+  },
+  "jacobi_base_value": {
+    "Phi_m(m,1/2)": "2^{-m} P_m^{(0,m)}(3)",
+    "Psi_m(m,1/2)": "2^{-m}[(1-12m)P_m^{(0,m)}(3)+24(2m+1)P_{m-1}^{(1,m+1)}(3)]",
+    "derivation": "Pfaff transformation gives _2F1(-m,-2m;1;z)=(1-z)^m P_m^{(0,m)}((1+z)/(1-z)); differentiate in z and set z=1/2."
+  },
+  "reduced_certificates": {
+    "a_m_jet": "a = Phi/p - Phi_x/6, all derivatives evaluated at (x,z)=(m,1/2)",
+    "R0_jacobi_transversality": "a*Psi congruent 1 modulo p",
+    "R1_jet_correction": "(a*Psi-1)/p - a*Psi_x/6 + Phi_xx*Psi/72 congruent R_p modulo p",
+    "single_mod_p2_certificate": "(a + p*Phi_xx/72)(Psi - p*Psi_x/6) congruent 1+p*R_p modulo p^2",
+    "equivalence": "The single mod-p^2 certificate is exactly equivalent to the frozen parent pair R0+R1."
+  },
+  "prior_art_boundary": {
+    "clausen_interface": "If F(z)={}_2F1(1/6,1/3;1;z), Clausen gives F(z)^2={}_3F2(1/3,2/3,1/2;1,1;z), and F(z)(F(z)+12zF'(z))=(1+6z d/dz)F(z)^2. At z=1/2 the coefficients are (6n+1) binom(2n,n)^2 binom(3n,n)/216^n.",
+    "identified_conjecture": "Zhi-Wei Sun, Open Conjectures on Congruences, arXiv:0911.5665, Conjecture A14(ii): (1/p^a) times the weighted 216-series is congruent to (p^a/3) modulo p^2.",
+    "plus_class_specialization": "For p congruent to 13 or 19 modulo 24, (p/3)=1; the a=1 specialization predicts the weighted truncation is p modulo p^3.",
+    "R0_boundary": "R0 is the first mod-p^2 digit of that weighted supercongruence after the frozen Clausen-tail identification.",
+    "R0_R1_boundary": "R0+R1 recover the full mod-p^3 plus-class specialization after the already-frozen reflected tail correction.",
+    "audit_status": "NO_PROOF_OF_THE_EXACT_A14_II_WEIGHTED_216_SUPERCONGRUENCE_LOCATED_IN_THE_AUDITED_2026_SEARCH_SET; DO_NOT_IMPORT_THE_CONJECTURE_AS_A_THEOREM",
+    "contrast_sources": [
+      "Guo-Shuai Mao, arXiv:1910.00779 proves a different 256 central-binomial-cube supercongruence",
+      "Zhi-Hong Sun and Dongxi Ye, arXiv:2408.09776 treats other Beukers-method supercongruence families; no exact weighted 216 theorem was located in the audited material",
+      "Qing-Hu Hou and Zhi-Wei Sun, arXiv:2604.15172 develops WZ derivative evaluations for other series; it does not supply the required all-prime weighted 216 congruence in the audited abstract/material"
+    ]
+  },
+  "finite_regression": {
+    "status": "FINITE_REGRESSION_ONLY_NOT_A_PROOF",
+    "checker": "scripts/check_enterprise_brc_half_coupling_inert_plus_finite_jacobi_harmonic_identities.py",
+    "command": "python scripts/check_enterprise_brc_half_coupling_inert_plus_finite_jacobi_harmonic_identities.py --limit 2000",
+    "prime_limit_exclusive": 2000,
+    "plus_inert_primes_checked": 77,
+    "class_13_count": 40,
+    "class_19_count": 37,
+    "exact_jet_identification_failures": 0,
+    "R0_failures": 0,
+    "R1_failures": 0
+  },
+  "closed_exactly": [
+    "All five frozen harmonic/block coefficients are the x-jet of one terminating hypergeometric polynomial.",
+    "The parent pair R0+R1 is equivalent to one mod-p^2 Jacobi-jet certificate.",
+    "The zero-order objects F0,J0 are explicit Jacobi polynomial values at x=3.",
+    "The inherited weighted target is identified precisely with the plus-class a=1 specialization of Sun A14(ii), preventing accidental use of a conjecture as a proved theorem."
+  ],
+  "unresolved": [
+    "No all-prime proof or counterexample of the single Jacobi-jet certificate was obtained.",
+    "In particular, R0 is not promoted to theorem merely from finite regression.",
+    "R1 remains coupled to the frozen reflected scalar R_p through the second x-jet."
+  ],
+  "smallest_successor": "Prove the single terminating Jacobi-jet mod-p^2 certificate, preferably by a finite WZ/creative-microscoping certificate or a Frobenius/Jacobi-sum transversality theorem at the supersingular point z=1/2; do not reopen Clausen-tail bookkeeping.",
+  "no_claims": [
+    "no all-prime proof of Sun A14(ii)",
+    "no all-prime proof of R0 or R1",
+    "no counterexample",
+    "no finite regression promoted to theorem",
+    "no Foundation mutation",
+    "no Working Truth promotion",
+    "no novelty or priority claim"
+  ]
+}
