@@ -1,0 +1,99 @@
+{
+  "schema": "ENTERPRISE_MATH_NATIVE_TRISECTOR_FOUNDATION_DEPENDENCY_LEDGER_V1",
+  "status": "FINAL_FROZEN",
+  "task_id": "RS-NATIVE-TRISECTOR-INVARIANT-READOUT-FOUNDATION-DERIVATION-INTEGRATION-AUDIT",
+  "publication_id": "TP2-40E602603558313A7D41",
+  "claim_id": "chatgpt-ntirf-20260827-1940",
+  "researcher_id": "EM-NTIRF-4E5B74",
+  "primary_verdict": "FOUNDATION_DERIVED_WITH_EXACT_SCOPE_NARROWING",
+  "promotion_boundary": {
+    "whole_admitted_research_theorem_foundation_reclassified": false,
+    "foundation_mutation": false,
+    "narrow_native_invariant_readout_consequence_available": true,
+    "semantic_strength": "N2_READOUT_SCALAR_QUOTIENT",
+    "forbidden_overclaim": "No distinguished physical axis/lane/rail, no arbitrary-odd-s comparator family, and no N0 breaker primitive is promoted."
+  },
+  "new_bridge": {
+    "name": "BALANCED_ORBIT_BARYCENTER_READOUT",
+    "domain": "native shell r>=2",
+    "orbit": "O_r = Sym_3 · (ceil(r/2), floor(r/2), 0), as a set of distinct states",
+    "frame_invariant_input": "L_r = multiset {lambda_f(x): x in O_r}; independence of f follows from accepted torsor orbit-readout descent",
+    "readout": "Z(r) = ceil(mean(L_r))",
+    "exact_mean": "mean(L_r)=C_r+3r/2, C_r=1+3r(r-1)/2",
+    "exact_formula": "Z(r)=1+(3r^2+epsilon(r))/2, epsilon(r)=r mod 2",
+    "boundary_note": "r=1 is a degenerate three-state shell boundary; the theorem is stated for r>=2. Every residue/parity class used by the periodic breaker argument occurs infinitely often for r>=2."
+  },
+  "derived_predicates": {
+    "breaker": {
+      "definition": "For odd prime q with q∤6, I0(q)={-3x^2/2:x∈F_q}, I1(q)={-3x^2/2-1/2:x∈F_q}; Break(q) iff I0(q)∪I1(q)=F_q.",
+      "equivalence": "This is the scalar branch-covering predicate of the reconstructed parity quadratic readout; the existing split-hyperbola/K4 theorem is support mathematics for the same predicate.",
+      "result": "q_b=5 is the unique nonsingular odd breaker characteristic for B=3.",
+      "proof_summary": "One-orbit support gives q<=5; q odd and q∤6 leaves q=5, and I0(5)={0,1,4}, I1(5)={1,2,3} cover F_5."
+    },
+    "capacity": {
+      "definition": "For the translated scalar readout Z_H(r)=H+(3r^2+epsilon(r))/2, k_*(q) is the sharp maximum consecutive q-coprime run in the breaker phase.",
+      "result": "k_*=2q_b-1=9.",
+      "proof_summary": "Existing quadratic-ramification theorem gives one zero in a 2q period at an extremal critical class, hence sharp 2q-1; substitute q_b=5.",
+      "guard": "This is breaker-coprime/divisibility capacity, not the separate actual native prime-incidence island cap."
+    },
+    "transverse_saturation": {
+      "input": "Even-shell invariant balance packet P_m={6m^2-2m+1,6m^2+1,6m^2+2m+1}.",
+      "definition": "Sat(q) iff the union of the root sets of the unordered packet modulo q equals F_q^*; q must be an odd nonsingular prime q∤6.",
+      "result": "{q:Sat(q)}={5,7}.",
+      "proof_summary": "Three quadratics contribute at most six roots, so q-1<=6 and q<=7. The nonsingular odd candidates are 5,7; exact root partitions are q=5: {1}|{2,3}|{4}, q=7: {2,3}|{1,6}|{4,5}."
+    },
+    "longitudinal_boundary": {
+      "definition": "For odd k>=5 on grade window W_k={0,...,k-1}, take distinct u,v,w with u≡v (mod2), w≢u (mod2). Maximize |w-u||w-v| and read the unordered distance pair at a maximizer.",
+      "theorem": "max |w-u||w-v|=(k-2)(k-4), and every maximizing distance multiset is {k-4,k-2}.",
+      "result": "At k_*=9 the invariant longitudinal boundary pair is {5,7}.",
+      "proof_summary": "For w outside [u,v], parity forces the two nearest same-parity endpoints at one side and the furthest opposite-parity index at the other, giving distances k-4,k-2; interior w or any inward shift strictly decreases one factor. Reflection gives the only symmetric alternatives."
+    }
+  },
+  "edge_ledger": [
+    {"edge_id":"E01","from":"current P0/P1 shell/address structure + native sector count 3","to":"native shell A_r and S3 relabeling action","classification":"DERIVED_NATIVE_INVARIANT","semantic_layer":"N0","status":"PASS"},
+    {"edge_id":"E02","from":"native shell A_r","to":"six-frame grade-monotone allocation torsor","classification":"DERIVED_NATIVE_INVARIANT","semantic_layer":"N0_DEFINABLE_DERIVED","status":"PASS","authority":"accepted shell-grade allocation audit RR-BA8268CF4D4929501A4D"},
+    {"edge_id":"E03","from":"allocation torsor + G-invariant balanced orbit O_r","to":"frame-independent label multiset L_r","classification":"PRESENTATION_ONLY_BUT_DESCENDS","semantic_layer":"N2_READOUT","status":"PASS"},
+    {"edge_id":"E04","from":"L_r","to":"Z(r)=ceil(mean L_r)=1+(3r^2+epsilon(r))/2","classification":"DERIVED_NATIVE_INVARIANT","semantic_layer":"N2_READOUT_SCALAR","status":"PASS"},
+    {"edge_id":"E05","from":"Z(r) parity quadratic law","to":"branch-covering breaker predicate Break(q)","classification":"DERIVED_NATIVE_INVARIANT","semantic_layer":"N2_READOUT_PREDICATE","status":"PASS"},
+    {"edge_id":"E06","from":"Break(q) at B=3","to":"q_b=5","classification":"DERIVED_NATIVE_INVARIANT","semantic_layer":"N2_READOUT_SCALAR","status":"PASS"},
+    {"edge_id":"E07","from":"q_b=5 + translated readout family","to":"breaker-coprime capacity k_*=9","classification":"DERIVED_NATIVE_INVARIANT","semantic_layer":"N2_READOUT_SCALAR","status":"PASS"},
+    {"edge_id":"E08","from":"even-shell invariant balance packet","to":"nonsingular transverse saturation characteristic set {5,7}","classification":"DERIVED_NATIVE_INVARIANT","semantic_layer":"N2_READOUT_SET","status":"PASS"},
+    {"edge_id":"E09","from":"native grade/parity + k_*=9","to":"mixed-parity extremal distance pair {5,7}","classification":"DERIVED_NATIVE_INVARIANT","semantic_layer":"N2_READOUT_SET","status":"PASS"},
+    {"edge_id":"E10","from":"longitudinal boundary pair {5,7} and transverse saturation set {5,7}","to":"native T-B boundary closure instance","classification":"DERIVED_NATIVE_INVARIANT","semantic_layer":"N2_READOUT_RELATION","status":"PASS","equivalence":"At s=3,k_*=9 this is exactly k_*-4=2s-1=5 and k_*-2=2s+1=7, without naming physical rails."},
+    {"edge_id":"E11","from":"native closure (3,5,7,9)","to":"M_9=35, 3M_9=105, 3M_9+1=106=2*53","classification":"DERIVED_NATIVE_INVARIANT","semantic_layer":"N2_READOUT_SCALAR","status":"PASS"},
+    {"edge_id":"E12","from":"current P0/P1","to":"general controlled odd-s comparator family s>=3 and its uniqueness theorem","classification":"EXTRA_SEMANTIC_PREMISE","semantic_layer":"RESEARCH_MODEL","status":"NOT_FOUNDATION_GENERATED"},
+    {"edge_id":"E13","from":"current P0/P1","to":"named physical longitudinal/transverse/rail ontology","classification":"EXTRA_SEMANTIC_PREMISE","semantic_layer":"RESEARCH_INTERPRETATION","status":"NOT_NEEDED_FOR_NARROW_READOUT_THEOREM"},
+    {"edge_id":"E14","from":"desired 3/5/7/9 closure","to":"justification of native s=3 or upstream predicates","classification":"CIRCULAR_OR_TARGET_LEAK","semantic_layer":"FORBIDDEN","status":"REJECTED"}
+  ],
+  "theorem_classification": {
+    "T-A": {
+      "whole_statement": "FOUNDATION_DERIVED_WITH_EXACT_SCOPE_NARROWING",
+      "foundation_derived_part": "For native s=3, the unordered invariant balance packet has exactly the two nonsingular complete-saturation characteristics {5,7}.",
+      "research_only_residue": "Uniqueness among arbitrary odd comparator parameters s>=3 remains a controlled research-model theorem, because s!=3 comparators are not generated by current P0/P1."
+    },
+    "T-B": {
+      "whole_statement": "FOUNDATION_DERIVED_WITH_EXACT_SCOPE_NARROWING",
+      "foundation_derived_part": "The scalar breaker characteristic q_b=5, sharp breaker-coprime capacity k_*=9, and native boundary-pair equality {k_*-4,k_*-2}={5,7}=transverse saturation set are reconstructed at N2 invariant-readout strength.",
+      "research_only_residue": "The general uniqueness theorem over arbitrary odd s remains comparator-family mathematics; named physical rail semantics are not promoted."
+    },
+    "T-C": {
+      "whole_statement": "FOUNDATION_DERIVED_AT_INVARIANT_READOUT_STRENGTH",
+      "foundation_derived_part": "Using native s=3 as an input (not a conclusion), the full scalar chain 3 -> (5,7) -> 9 -> 35 -> 105 -> 53 follows from invariant readouts and exact arithmetic.",
+      "guard": "This is not a derivation of native three-ness and does not mutate P0/P1."
+    }
+  },
+  "regression": {
+    "role": "REGRESSION_ONLY_NOT_GENERAL_PROOF",
+    "balanced_shells": "r=2..128",
+    "frames_per_shell": 6,
+    "frame_multiset_checks": 762,
+    "label_evaluations": 3420,
+    "transverse_prime_scan": "odd q<=199 with gcd(q,6)=1 -> saturation [5,7]",
+    "breaker_prime_scan": "odd q<=199 with gcd(q,6)=1 -> breakers [5]",
+    "mixed_parity_window_scan": "odd k=5..101 -> 49 checks, all max product=(k-2)(k-4), maximizing distance pair={k-4,k-2}"
+  },
+  "method_harvest": "COMPOSE_EXISTING_TOOLS / NO_NEW_GENERAL_PURPOSE_TOOL",
+  "hard_target_disposition": "ACHIEVED_WITH_EXACT_SCOPE_NARROWING",
+  "unresolved_residue": "GENERAL_ODD_S_COMPARATOR_UNIQUENESS_AND_NAMED_PHYSICAL_RAIL_ONTOLOGY_REMAIN_RESEARCH_LAYER; NO RESIDUE FOR THE NATIVE N2 SCALAR CLOSURE CHAIN",
+  "recommended_driver_action": "Admit the narrowed native invariant-readout closure as a Foundation consequence/readout theorem if policy permits, while keeping the existing full comparator theorem node at AUDITED_RESEARCH_THEOREM and leaving Foundation primitives unchanged."
+}
