@@ -20,7 +20,7 @@
         "(-2,i*sqrt(2))",
         "(-2,-i*sqrt(2))"
       ],
-      "critical_profile": "Across the four special fibers there are exactly nine simple critical points from double multiplicities; the remaining three simple critical points are exactly Q1,Q2,Q3 over non-special critical values. Total critical multiplicity is 12, matching Riemann-Hurwitz for degree 6 from genus 1 to P1.",
+      "critical_profile": "The three Q points are exactly the C-points whose two lifts ramify f with index 2. For X:C->P1, a Q has local degree 2 if its critical value is non-special and local degree 4 if its critical value is one of {0,1,lambda,infinity}. All other critical points of X are ordinary double points in special fibers. If s of the three Q have special critical values, the special fibers contribute 9+s to the X ramification divisor and the remaining Q contribute 3-s, totaling 12 as required by Riemann-Hurwitz.",
       "delta": "delta=t*d/dR on K(C).",
       "descended_x": "X=x∘f lies in K(C), and deg(X:C->P1)=6.",
       "differential_identity": "delta(X)=c*H*(t+k).",
@@ -36,11 +36,11 @@
       "q_cubic": "The R-coordinates of the Q points satisfy R^3-3R-k^2=0.",
       "q_cubic_discriminant": "disc=216*(30*sqrt(6)-73)>0, hence the three Q are distinct.",
       "special_fiber_even_partitions": [
-        "6+0+0+0",
-        "4+2+0+0",
-        "2+2+2+0"
+        "The six D/C branch points map to the four special x-values in even block sizes.",
+        "Ignoring zero blocks, the branch-point block-size patterns are 6; 4+2; or 2+2+2.",
+        "A special fiber containing a Q point can contain at most two D/C branch points."
       ],
-      "special_fiber_profile": "For each a in {0,1,lambda,infinity}, multiplicities in X^{-1}(a) are 1 at branch points of pi and 2 at non-branch points; the six simple branch points partition among the four special fibers with even block sizes."
+      "special_fiber_profile": "For a in {0,1,lambda,infinity}, let m=ord_p(X-a) (or pole order at infinity). At p in branch(D/C), m=1 because f is unramified there. At ordinary non-branch p not among Q, m=2 if X(p)=a. If a Q point lies over a special value, then m=4 because f has ramification index 2 and x:E->P1 has ramification index 2 there. Thus parity(m) is odd exactly on branch(D/C)."
     },
     "frozen_inputs": {
       "C": "t=w^2/(R+2), t^2=R^3-3R",
@@ -59,10 +59,10 @@
     "phase": "BLIND_RECONSTRUCTION_FROZEN",
     "primary_verdict": "BLIND_INCOMPLETE_EXACT_REDUCTION",
     "publication_id": "TP2-9F1A3C0DEFAED8B6E247",
-    "remaining_exact_problem": "Construct a degree-6 X in K(C) satisfying the ODE certificate and the stated special-fiber/critical profile, then recover H, target twist, exact pullback coefficient and period scaling; or prove no such X exists.",
+    "remaining_exact_problem": "Construct a degree-6 X in K(C) satisfying the ODE certificate and the corrected local-degree rules over the four special values and Q={t=-k}, then recover H, target twist, exact pullback coefficient and period scaling; or prove no such X exists.",
     "researcher_id": "EM-RBV2REP-7C42A1",
     "schema": "RB_ENTERPRISE_DEGREE6_CM24_BLIND_REDUCTION_CERT_V1",
     "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION"
   },
-  "payload_sha256": "sha256:f1bdf8fdcb9806783e7e4c5e46d3bcf9ec3a22251b058719ba6af130fba0bbdf"
+  "payload_sha256": "sha256:5805be4031f73b0a5d92589326d7188fc129cde6d14be46861d7214d7690e2c1"
 }
