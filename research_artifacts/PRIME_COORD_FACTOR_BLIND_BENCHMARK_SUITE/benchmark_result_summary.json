@@ -1,0 +1,163 @@
+{
+  "authoring_full_report_bytes": 271967,
+  "authoring_full_report_sha256": "sha256:d6d3a5df674831cf8e75d3309f386cc79f0e600de1633a1b7a196f065849cd96",
+  "claim_id": "chatgpt-pcf2-20260827-1954",
+  "corpus": {
+    "bands": ["B08_12", "B13_16", "B17_20"],
+    "cases": 89,
+    "families": ["balanced_semiprime", "carmichael", "coordinate_collision", "multi_prime", "near_twin_semiprime", "prime_power", "strong_pseudoprime_base2", "unbalanced_semiprime"],
+    "private_factors_serialized_to_worker": false,
+    "private_verifier_sha256": "f1a0096305101fafb1269b861470220dac40cd502ef4c4987b640b9efa1bd54a",
+    "public_sha256": "1840c84854746dadebd4b6ffe0c07783d127e0f26095b4a221344ef4a2b5457e"
+  },
+  "finite_evidence_boundary": "This finite corpus is regression/falsification evidence and does not prove an infinite factorization theorem.",
+  "independent_verify_command": "python scripts/check_prime_coord_factor_blind_benchmark_suite_independent.py --verify-report /tmp/pcf2_report.json",
+  "leakage_tests": {"deliberate_attacks": 6, "deterministic_replay": true, "rejected": 6},
+  "publication_id": "TP2-FDEB9BE4503CD9C60E59",
+  "replay_command": "python scripts/check_prime_coord_factor_blind_benchmark_suite.py --out /tmp/pcf2_report.json",
+  "researcher_id": "EM-PCF2-4B7C91",
+  "schema": "PCF2_BENCHMARK_RESULT_SUMMARY_V1",
+  "summary": {
+    "fermat": {
+      "amortized_ops_per_success": {"denominator": 83, "numerator": 30659},
+      "by_family": {
+        "balanced_semiprime": {"cases": 23, "failures": 0, "successes": 23},
+        "carmichael": {"cases": 10, "failures": 0, "successes": 10},
+        "coordinate_collision": {"cases": 12, "failures": 0, "successes": 12},
+        "multi_prime": {"cases": 6, "failures": 0, "successes": 6},
+        "near_twin_semiprime": {"cases": 7, "failures": 0, "successes": 7},
+        "prime_power": {"cases": 5, "failures": 0, "successes": 5},
+        "strong_pseudoprime_base2": {"cases": 8, "failures": 0, "successes": 8},
+        "unbalanced_semiprime": {"cases": 18, "failures": 6, "successes": 12}
+      },
+      "cases": 89,
+      "failure_classes": {"STEP_BUDGET_EXHAUSTED": 6},
+      "max_memory_bits": 100,
+      "success_rate_den": 89,
+      "success_rate_num": 83,
+      "successes": 83,
+      "successful_seed_amplification": {"denominator": 83, "numerator": 0},
+      "total_gcd_calls": 83,
+      "total_ops": 30659,
+      "total_preprocessing_ops": 0
+    },
+    "pollard_p_minus_1": {
+      "amortized_ops_per_success": {"denominator": 39, "numerator": 77520},
+      "by_family": {
+        "balanced_semiprime": {"cases": 23, "failures": 23, "successes": 0},
+        "carmichael": {"cases": 10, "failures": 1, "successes": 9},
+        "coordinate_collision": {"cases": 12, "failures": 2, "successes": 10},
+        "multi_prime": {"cases": 6, "failures": 1, "successes": 5},
+        "near_twin_semiprime": {"cases": 7, "failures": 7, "successes": 0},
+        "prime_power": {"cases": 5, "failures": 5, "successes": 0},
+        "strong_pseudoprime_base2": {"cases": 8, "failures": 7, "successes": 1},
+        "unbalanced_semiprime": {"cases": 18, "failures": 4, "successes": 14}
+      },
+      "cases": 89,
+      "failure_classes": {"B1_BASE_BUDGET_EXHAUSTED": 50},
+      "max_memory_bits": 100,
+      "success_rate_den": 89,
+      "success_rate_num": 39,
+      "successes": 39,
+      "successful_seed_amplification": {"denominator": 39, "numerator": 177},
+      "total_gcd_calls": 304,
+      "total_ops": 77520,
+      "total_preprocessing_ops": 0
+    },
+    "pollard_rho": {
+      "amortized_ops_per_success": {"denominator": 89, "numerator": 1584},
+      "by_family": {
+        "balanced_semiprime": {"cases": 23, "failures": 0, "successes": 23},
+        "carmichael": {"cases": 10, "failures": 0, "successes": 10},
+        "coordinate_collision": {"cases": 12, "failures": 0, "successes": 12},
+        "multi_prime": {"cases": 6, "failures": 0, "successes": 6},
+        "near_twin_semiprime": {"cases": 7, "failures": 0, "successes": 7},
+        "prime_power": {"cases": 5, "failures": 0, "successes": 5},
+        "strong_pseudoprime_base2": {"cases": 8, "failures": 0, "successes": 8},
+        "unbalanced_semiprime": {"cases": 18, "failures": 0, "successes": 18}
+      },
+      "cases": 89,
+      "failure_classes": {},
+      "max_memory_bits": 160,
+      "success_rate_den": 89,
+      "success_rate_num": 89,
+      "successes": 89,
+      "successful_seed_amplification": {"denominator": 89, "numerator": 185},
+      "total_gcd_calls": 528,
+      "total_ops": 1584,
+      "total_preprocessing_ops": 0
+    },
+    "prime_fusion_public_polynomial_gcd_probe": {
+      "amortized_ops_per_success": {"denominator": 74, "numerator": 17088},
+      "by_family": {
+        "balanced_semiprime": {"cases": 23, "failures": 2, "successes": 21},
+        "carmichael": {"cases": 10, "failures": 0, "successes": 10},
+        "coordinate_collision": {"cases": 12, "failures": 0, "successes": 12},
+        "multi_prime": {"cases": 6, "failures": 0, "successes": 6},
+        "near_twin_semiprime": {"cases": 7, "failures": 3, "successes": 4},
+        "prime_power": {"cases": 5, "failures": 2, "successes": 3},
+        "strong_pseudoprime_base2": {"cases": 8, "failures": 0, "successes": 8},
+        "unbalanced_semiprime": {"cases": 18, "failures": 8, "successes": 10}
+      },
+      "cases": 89,
+      "failure_classes": {"NO_NONTRIVIAL_GCD_IN_PUBLIC_SEED_BUDGET": 15},
+      "max_memory_bits": 100,
+      "success_rate_den": 89,
+      "success_rate_num": 74,
+      "successes": 74,
+      "successful_seed_amplification": {"denominator": 74, "numerator": 861},
+      "total_gcd_calls": 11392,
+      "total_ops": 17088,
+      "total_preprocessing_ops": 0
+    },
+    "prime_fusion_public_sixth_power_gcd_probe": {
+      "amortized_ops_per_success": {"denominator": 84, "numerator": 17088},
+      "by_family": {
+        "balanced_semiprime": {"cases": 23, "failures": 2, "successes": 21},
+        "carmichael": {"cases": 10, "failures": 0, "successes": 10},
+        "coordinate_collision": {"cases": 12, "failures": 0, "successes": 12},
+        "multi_prime": {"cases": 6, "failures": 0, "successes": 6},
+        "near_twin_semiprime": {"cases": 7, "failures": 3, "successes": 4},
+        "prime_power": {"cases": 5, "failures": 0, "successes": 5},
+        "strong_pseudoprime_base2": {"cases": 8, "failures": 0, "successes": 8},
+        "unbalanced_semiprime": {"cases": 18, "failures": 0, "successes": 18}
+      },
+      "cases": 89,
+      "failure_classes": {"SYNCHRONIZED_OR_TRIVIAL_ONLY": 5},
+      "max_memory_bits": 120,
+      "success_rate_den": 89,
+      "success_rate_num": 84,
+      "successes": 84,
+      "successful_seed_amplification": {"denominator": 84, "numerator": 927},
+      "total_gcd_calls": 11392,
+      "total_ops": 17088,
+      "total_preprocessing_ops": 0
+    },
+    "trial_division": {
+      "amortized_ops_per_success": {"denominator": 89, "numerator": 4445},
+      "by_family": {
+        "balanced_semiprime": {"cases": 23, "failures": 0, "successes": 23},
+        "carmichael": {"cases": 10, "failures": 0, "successes": 10},
+        "coordinate_collision": {"cases": 12, "failures": 0, "successes": 12},
+        "multi_prime": {"cases": 6, "failures": 0, "successes": 6},
+        "near_twin_semiprime": {"cases": 7, "failures": 0, "successes": 7},
+        "prime_power": {"cases": 5, "failures": 0, "successes": 5},
+        "strong_pseudoprime_base2": {"cases": 8, "failures": 0, "successes": 8},
+        "unbalanced_semiprime": {"cases": 18, "failures": 0, "successes": 18}
+      },
+      "cases": 89,
+      "failure_classes": {},
+      "max_memory_bits": 60,
+      "success_rate_den": 89,
+      "success_rate_num": 89,
+      "successes": 89,
+      "successful_seed_amplification": {"denominator": 89, "numerator": 0},
+      "total_gcd_calls": 0,
+      "total_ops": 4445,
+      "total_preprocessing_ops": 0
+    }
+  },
+  "task_id": "RS-PRIME-COORD-FACTOR-BLIND-BENCHMARK-SUITE",
+  "verdict": "BENCHMARK_FROZEN_AND_SEALED",
+  "verification": {"all_successes_exactly_divide_n": true, "rows": 534, "successful_splits": 458, "worker_top_level_schema_exact": true}
+}
