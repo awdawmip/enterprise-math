@@ -44,6 +44,35 @@
       "working_truth_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "task_id": "RS-P022-OBSERVATION-HISTORY",
+      "canonical_publication_id": "TP2-D78DBA0243911E0363FA",
+      "operational_publication_id": "TP2-D78DBA0243911E0363FA",
+      "quarantined_publication_ids": [
+        "TP2-2346F5D3E731ED56DB0A",
+        "TP2-DE338F269CA11E9BC01B"
+      ],
+      "retained_parallel_publication_ids": [
+        "TP2-2346F5D3E731ED56DB0A",
+        "TP2-D78DBA0243911E0363FA",
+        "TP2-DE338F269CA11E9BC01B"
+      ],
+      "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING_PENDING_SPLIT",
+      "reason": "Three generation-1 P022 replay publications were created under the same task_id but carry different parent-objective/frontier metadata. The only completed result plus terminal Driver-review chain is pinned to TP2-D78DBA0243911E0363FA, so that publication is selected solely for current runtime continuity. TP2-2346F5D3E731ED56DB0A and TP2-DE338F269CA11E9BC01B remain retained parallel publications and are not mathematically rejected; any future continuation should split or explicitly synthesize those distinct scopes instead of treating this compatibility binding as theorem authority.",
+      "authority_role": "RESEARCH_DRIVER",
+      "authority_id": "EM-DVR-499907",
+      "resolved_at": "2026-08-27T19:21:00+08:00",
+      "preserve_existing_claim": "chatgpt-p022-replay-20260827-1639",
+      "reference_process": {
+        "passes_required": 2,
+        "state": "NOT_RUN_FOR_RETAINED_PARALLEL_HEADS",
+        "current_binding_basis": "EXISTING_TERMINAL_REVIEW_CHAIN_ONLY",
+        "future_requirement": "SPLIT_TO_TYPED_TASKS_OR_RUN_EXPLICIT_PARALLEL_REFERENCE_PROCESS_BEFORE_ANY MATHEMATICAL_MERGE"
+      },
+      "working_truth_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }
