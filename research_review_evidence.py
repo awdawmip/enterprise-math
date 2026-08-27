@@ -1,216 +1,222 @@
 #!/usr/bin/env python3
-"""Retain multiple Driver reviews and single-value only synthesized control.
+"""Authoritative exact-set reducer for multiple immutable Driver reviews.
 
-One review keeps the historical low-burden flow. Two or more immutable reviews
-for the same result are evidence multiplicity, not an ordering problem: no
-reviewed_at/latest-wins rule may decide task control. The exact current review set
-must traverse intake -> semantic reference -> adversarial reference -> synthesis.
+Storage/writer compatibility lives in ``control_plane.research_review_evidence_store``.
+This module re-exports that append-only surface, but runtime control is reduced here
+with fail-closed validation. A timestamp never selects an operational review.
 """
 from __future__ import annotations
 
-import hashlib
+import argparse
 import json
-import os
+import re
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parent
-INTAKE_SCHEMA = "ENTERPRISE_MATH_REVIEW_EVIDENCE_INTAKE_V1"
-PASS_SCHEMA = "ENTERPRISE_MATH_REVIEW_REFERENCE_PASS_V1"
-SYNTH_SCHEMA = "ENTERPRISE_MATH_REVIEW_SYNTHESIS_V1"
-PASS_KINDS = {1: "SEMANTIC_EVIDENCE_CROSSCHECK", 2: "ADVERSARIAL_CONTROL_CROSSCHECK"}
-TERMINAL_DISPOSITIONS = {"ACCEPTED", "REJECTED", "PARKED", "CLOSED", "SUPERSEDED"}
-NONTERMINAL_DISPOSITIONS = {"RETURN_TO_OWNER", "REQUEST_REPLICATION", "REQUEST_REVISION"}
-ALL_DISPOSITIONS = TERMINAL_DISPOSITIONS | NONTERMINAL_DISPOSITIONS
-INDEPENDENCE = {"CLEAN_INDEPENDENT_CONTEXT", "SHARED_CONTROL_CONTEXT_DISCLOSED", "NOT_INDEPENDENT", "NOT_APPLICABLE"}
+from control_plane import research_review_evidence_store as _store
+
+for _name in dir(_store):
+    if not _name.startswith("__"):
+        globals()[_name] = getattr(_store, _name)
+
+ROOT = _store.ROOT
+REVIEW_SCHEMA = "ENTERPRISE_MATH_RESEARCH_RESULT_REVIEW_V1"
+EM_ID_RE = re.compile(r"^EM-[A-Z0-9]+-(?:[0-9]{2}|[A-Z0-9]{4,8})$")
 
 
-class ReviewEvidenceError(ValueError):
-    pass
-
-
-def _load(path: Path) -> dict[str, Any]:
-    value = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(value, dict):
-        raise ReviewEvidenceError(f"{path}: JSON object required")
-    return value
-
-
-def _exclusive(path: Path, value: dict[str, Any]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    payload = json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
-    try:
-        with path.open("x", encoding="utf-8") as handle:
-            handle.write(payload)
-            handle.flush()
-            os.fsync(handle.fileno())
-    except FileExistsError as exc:
-        raise ReviewEvidenceError(f"immutable record already exists: {path}") from exc
-
-
-def _id(value: Any, label: str) -> str:
-    if not isinstance(value, str) or not value.strip():
-        raise ReviewEvidenceError(f"{label} is required")
-    text = value.strip()
-    if any(ch not in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._-" for ch in text):
-        raise ReviewEvidenceError(f"{label} contains unsupported characters")
-    return text
-
-
-def result_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
-    out: dict[str, dict[str, Any]] = {}
-    directory = root / "research_result_records"
-    if not directory.exists():
-        return out
-    for path in sorted(directory.glob("*/*.json")):
-        item = _load(path)
-        rid = item.get("result_id")
-        if isinstance(rid, str) and rid:
-            if rid in out:
-                raise ReviewEvidenceError(f"duplicate result_id: {rid}")
-            out[rid] = item
+def _review_ids(value: Any, label: str) -> list[str]:
+    if not isinstance(value, list) or len(value) < 2:
+        raise ReviewEvidenceError(f"{label} must contain at least two review ids")
+    out: list[str] = []
+    for raw in value:
+        out.append(_id(raw, label))
+    if len(out) != len(set(out)):
+        raise ReviewEvidenceError(f"{label} contains duplicates")
     return out
 
 
-def reviews_for_result(result_id: str, root: Path = ROOT) -> list[dict[str, Any]]:
-    directory = root / "research_result_reviews" / _id(result_id, "result_id")
-    out: list[dict[str, Any]] = []
-    seen: set[str] = set()
-    if not directory.exists():
-        return out
-    for path in sorted(directory.glob("*.json")):
-        item = _load(path)
-        review_id = _id(item.get("review_id"), "review_id")
-        if item.get("result_id") != result_id:
-            raise ReviewEvidenceError(f"{path}: result_id mismatch")
-        if review_id in seen:
-            raise ReviewEvidenceError(f"duplicate review_id: {review_id}")
-        seen.add(review_id)
-        item["_path"] = path.relative_to(root).as_posix()
-        out.append(item)
-    return sorted(out, key=lambda item: str(item["review_id"]))
+def _validate_review(row: dict[str, Any], result_id: str) -> None:
+    if row.get("record_schema") != REVIEW_SCHEMA:
+        raise ReviewEvidenceError("wrong Driver review schema")
+    if row.get("result_id") != result_id:
+        raise ReviewEvidenceError("Driver review result_id mismatch")
+    _id(row.get("review_id"), "review_id")
+    driver = row.get("driver_id")
+    if not isinstance(driver, str) or not EM_ID_RE.fullmatch(driver.strip().upper()):
+        raise ReviewEvidenceError("Driver review driver_id is not a valid EM execution identity")
+    disposition = row.get("disposition")
+    if disposition not in ALL_DISPOSITIONS:
+        raise ReviewEvidenceError("invalid Driver review disposition")
+    if row.get("terminal") is not (disposition in TERMINAL_DISPOSITIONS):
+        raise ReviewEvidenceError("Driver review terminal flag mismatch")
 
 
-def review_set_hash(review_ids: list[str]) -> str:
-    raw = json.dumps(sorted(review_ids), separators=(",", ":")).encode("utf-8")
-    return "sha256:" + hashlib.sha256(raw).hexdigest()
+def _validate_intake(
+    intake: dict[str, Any], result_id: str, root: Path
+) -> list[str]:
+    if intake.get("schema") != INTAKE_SCHEMA:
+        raise ReviewEvidenceError("wrong review intake schema")
+    if intake.get("result_id") != result_id:
+        raise ReviewEvidenceError("review intake result_id mismatch")
+    review_ids = _review_ids(intake.get("review_ids"), "review_ids")
+    if intake.get("review_set_sha256") != review_set_hash(review_ids):
+        raise ReviewEvidenceError("review intake evidence hash mismatch")
+    current_known = {
+        str(item["review_id"]) for item in _store.reviews_for_result(result_id, root)
+    }
+    if any(review_id not in current_known for review_id in review_ids):
+        raise ReviewEvidenceError("review intake references unknown immutable review")
+    if intake.get("latest_review_wins") is not False:
+        raise ReviewEvidenceError("review intake may not enable latest-review-wins")
+    if intake.get("all_reviews_retained") is not True:
+        raise ReviewEvidenceError("review intake must retain every source review")
+    if intake.get("working_truth_granted") is not False:
+        raise ReviewEvidenceError("review intake cannot grant Working Truth")
+    if intake.get("canonical_promotion_granted") is not False:
+        raise ReviewEvidenceError("review intake cannot grant canonical promotion")
+    _id(intake.get("opened_by"), "opened_by")
+    return review_ids
 
 
-def intake_id(result_id: str, evidence_hash: str) -> str:
-    raw = f"{result_id}\0{evidence_hash}".encode("utf-8")
-    return "RVI-" + hashlib.sha256(raw).hexdigest()[:20].upper()
+def _validate_pass(row: dict[str, Any], intake: dict[str, Any]) -> int:
+    if row.get("schema") != PASS_SCHEMA:
+        raise ReviewEvidenceError("wrong review reference-pass schema")
+    if row.get("intake_id") != intake.get("intake_id"):
+        raise ReviewEvidenceError("review reference pass intake_id mismatch")
+    if row.get("result_id") != intake.get("result_id"):
+        raise ReviewEvidenceError("review reference pass result_id mismatch")
+    number = row.get("pass_number")
+    if type(number) is not int or number not in PASS_KINDS:
+        raise ReviewEvidenceError("review reference pass number must be 1 or 2")
+    if row.get("pass_kind") != PASS_KINDS[number]:
+        raise ReviewEvidenceError("review reference pass kind mismatch")
+    review_ids = _review_ids(row.get("review_ids"), "review_ids")
+    if sorted(review_ids) != sorted(_review_ids(intake.get("review_ids"), "review_ids")):
+        raise ReviewEvidenceError("review reference pass does not cover exact intake reviews")
+    if row.get("review_set_sha256") != intake.get("review_set_sha256"):
+        raise ReviewEvidenceError("review reference pass evidence hash drift")
+    reviewer = row.get("reviewer_id")
+    if not isinstance(reviewer, str) or not EM_ID_RE.fullmatch(reviewer.strip().upper()):
+        raise ReviewEvidenceError("review reference-pass reviewer_id is invalid")
+    if row.get("independence_status") not in INDEPENDENCE:
+        raise ReviewEvidenceError("invalid review reference-pass independence_status")
+    if not isinstance(row.get("finding"), str) or not row["finding"].strip():
+        raise ReviewEvidenceError("review reference-pass finding is required")
+    if row.get("working_truth_granted") is not False:
+        raise ReviewEvidenceError("review reference pass cannot grant Working Truth")
+    if row.get("canonical_promotion_granted") is not False:
+        raise ReviewEvidenceError("review reference pass cannot grant canonical promotion")
+    _id(row.get("pass_id"), "pass_id")
+    return number
 
 
-def pass_id(intake_id_value: str, pass_number: int, reviewer_id: str, finding: str) -> str:
-    raw = f"{intake_id_value}\0{pass_number}\0{reviewer_id}\0{finding}".encode("utf-8")
-    return "RVP-" + hashlib.sha256(raw).hexdigest()[:20].upper()
-
-
-def synthesis_id(intake_id_value: str, disposition: str, synthesized_by: str) -> str:
-    raw = f"{intake_id_value}\0{disposition}\0{synthesized_by}".encode("utf-8")
-    return "RVS-" + hashlib.sha256(raw).hexdigest()[:20].upper()
-
-
-def intakes(root: Path = ROOT) -> dict[str, dict[str, Any]]:
-    out: dict[str, dict[str, Any]] = {}
-    directory = root / "research_review_intakes"
-    if not directory.exists():
-        return out
-    for path in sorted(directory.glob("*/*.json")):
-        item = _load(path)
-        iid = _id(item.get("intake_id"), "intake_id")
-        if iid in out:
-            raise ReviewEvidenceError(f"duplicate intake_id: {iid}")
-        item["_path"] = path.relative_to(root).as_posix()
-        out[iid] = item
+def _validated_pass_map(intake: dict[str, Any], root: Path) -> dict[int, dict[str, Any]]:
+    rows = _store.reference_passes(root).get(str(intake["intake_id"]), [])
+    out: dict[int, dict[str, Any]] = {}
+    for row in rows:
+        number = _validate_pass(row, intake)
+        if number in out:
+            raise ReviewEvidenceError(f"duplicate review reference pass {number}")
+        out[number] = row
     return out
 
 
-def reference_passes(root: Path = ROOT) -> dict[str, list[dict[str, Any]]]:
-    out: dict[str, list[dict[str, Any]]] = {}
-    directory = root / "research_review_reference_passes"
-    if not directory.exists():
-        return out
-    for path in sorted(directory.glob("*/*.json")):
-        item = _load(path)
-        iid = _id(item.get("intake_id"), "intake_id")
-        item["_path"] = path.relative_to(root).as_posix()
-        out.setdefault(iid, []).append(item)
-    return out
-
-
-def syntheses(root: Path = ROOT) -> dict[str, dict[str, Any]]:
-    out: dict[str, dict[str, Any]] = {}
-    directory = root / "research_review_syntheses"
-    if not directory.exists():
-        return out
-    for path in sorted(directory.glob("*/*.json")):
-        item = _load(path)
-        sid = _id(item.get("synthesis_id"), "synthesis_id")
-        if sid in out:
-            raise ReviewEvidenceError(f"duplicate synthesis_id: {sid}")
-        item["_path"] = path.relative_to(root).as_posix()
-        out[sid] = item
-    return out
-
-
-def _current_intake(result_id: str, review_ids: list[str], root: Path) -> dict[str, Any] | None:
-    digest = review_set_hash(review_ids)
-    matches = [
-        item for item in intakes(root).values()
-        if item.get("result_id") == result_id
-        and item.get("review_set_sha256") == digest
-        and sorted(item.get("review_ids") or []) == sorted(review_ids)
-    ]
-    if len(matches) > 1:
-        raise ReviewEvidenceError("multiple exact review intakes for one evidence set")
-    return matches[0] if matches else None
+def _validate_synthesis(
+    row: dict[str, Any], intake: dict[str, Any], passes: dict[int, dict[str, Any]]
+) -> str:
+    if row.get("schema") != SYNTH_SCHEMA:
+        raise ReviewEvidenceError("wrong review synthesis schema")
+    if row.get("intake_id") != intake.get("intake_id"):
+        raise ReviewEvidenceError("review synthesis intake_id mismatch")
+    if row.get("result_id") != intake.get("result_id"):
+        raise ReviewEvidenceError("review synthesis result_id mismatch")
+    review_ids = _review_ids(row.get("review_ids"), "review_ids")
+    if sorted(review_ids) != sorted(_review_ids(intake.get("review_ids"), "review_ids")):
+        raise ReviewEvidenceError("review synthesis does not cover exact intake reviews")
+    if row.get("review_set_sha256") != intake.get("review_set_sha256"):
+        raise ReviewEvidenceError("review synthesis evidence hash drift")
+    if set(passes) != {1, 2}:
+        raise ReviewEvidenceError("review synthesis requires both exact-set reference passes")
+    disposition = row.get("operational_disposition")
+    if disposition not in ALL_DISPOSITIONS:
+        raise ReviewEvidenceError("invalid synthesized operational disposition")
+    author = row.get("synthesized_by")
+    if not isinstance(author, str) or not EM_ID_RE.fullmatch(author.strip().upper()):
+        raise ReviewEvidenceError("review synthesis synthesized_by is invalid")
+    if not isinstance(row.get("rationale"), str) or not row["rationale"].strip():
+        raise ReviewEvidenceError("review synthesis rationale is required")
+    if row.get("latest_review_wins") is not False:
+        raise ReviewEvidenceError("review synthesis may not enable latest-review-wins")
+    if row.get("all_reviews_retained") is not True:
+        raise ReviewEvidenceError("review synthesis must retain every source review")
+    if row.get("terminal") is not (disposition in TERMINAL_DISPOSITIONS):
+        raise ReviewEvidenceError("review synthesis terminal flag mismatch")
+    if row.get("working_truth_granted") is not False:
+        raise ReviewEvidenceError("review synthesis cannot grant Working Truth")
+    if row.get("canonical_promotion_granted") is not False:
+        raise ReviewEvidenceError("review synthesis cannot grant canonical promotion")
+    _id(row.get("synthesis_id"), "synthesis_id")
+    return str(disposition)
 
 
 def state(result_id: str, root: Path = ROOT) -> dict[str, Any]:
+    """Reduce current review evidence without trusting ordering or offline CI."""
     rid = _id(result_id, "result_id")
-    reviews = reviews_for_result(rid, root)
-    review_ids = [str(item["review_id"]) for item in reviews]
+    reviews = _store.reviews_for_result(rid, root)
+    for review in reviews:
+        _validate_review(review, rid)
+    ids = [str(item["review_id"]) for item in reviews]
     if not reviews:
         return {"result_id": rid, "review_state": "NO_REVIEW", "review_ids": [], "terminal": False}
     if len(reviews) == 1:
-        disposition = reviews[0].get("disposition")
+        disposition = reviews[0]["disposition"]
         return {
             "result_id": rid,
             "review_state": "SINGLE_REVIEW_FLOW",
-            "review_ids": review_ids,
+            "review_ids": ids,
             "review": reviews[0],
             "operational_disposition": disposition,
             "terminal": disposition in TERMINAL_DISPOSITIONS,
         }
 
-    digest = review_set_hash(review_ids)
-    intake = _current_intake(rid, review_ids, root)
+    digest = review_set_hash(ids)
+    exact: list[dict[str, Any]] = []
+    for intake in _store.intakes(root).values():
+        if intake.get("result_id") != rid:
+            continue
+        intake_ids = _validate_intake(intake, rid, root)
+        if sorted(intake_ids) == sorted(ids) and intake.get("review_set_sha256") == digest:
+            exact.append(intake)
     base = {
         "result_id": rid,
-        "review_ids": review_ids,
+        "review_ids": ids,
         "review_set_sha256": digest,
         "terminal": False,
     }
-    if intake is None:
+    if not exact:
         return {**base, "review_state": "AWAITING_REVIEW_INTAKE", "intake_id": None}
+    if len(exact) != 1:
+        raise ReviewEvidenceError("multiple exact review intakes for current evidence set")
+    intake = exact[0]
     iid = str(intake["intake_id"])
-    rows = reference_passes(root).get(iid, [])
-    by_number = {row.get("pass_number"): row for row in rows}
-    if 1 not in by_number:
+    passes = _validated_pass_map(intake, root)
+    if 1 not in passes:
         return {**base, "review_state": "AWAITING_REVIEW_REFERENCE_PASS_1", "intake_id": iid}
-    if 2 not in by_number:
+    if 2 not in passes:
         return {**base, "review_state": "AWAITING_REVIEW_REFERENCE_PASS_2", "intake_id": iid}
-    matches = [
-        item for item in syntheses(root).values()
-        if item.get("intake_id") == iid and item.get("review_set_sha256") == digest
-    ]
+
+    matches: list[dict[str, Any]] = []
+    for synthesis in _store.syntheses(root).values():
+        if synthesis.get("intake_id") != iid or synthesis.get("review_set_sha256") != digest:
+            continue
+        _validate_synthesis(synthesis, intake, passes)
+        matches.append(synthesis)
     if not matches:
         return {**base, "review_state": "AWAITING_REVIEW_SYNTHESIS", "intake_id": iid}
-    if len(matches) > 1:
-        raise ReviewEvidenceError("multiple review syntheses for exact evidence set")
+    if len(matches) != 1:
+        raise ReviewEvidenceError("multiple review syntheses for current exact evidence set")
     synthesis = matches[0]
-    disposition = synthesis.get("operational_disposition")
+    disposition = str(synthesis["operational_disposition"])
     terminal = disposition in TERMINAL_DISPOSITIONS
     return {
         **base,
@@ -222,183 +228,56 @@ def state(result_id: str, root: Path = ROOT) -> dict[str, Any]:
     }
 
 
-def create_intake(result_id: str, opened_by: str, root: Path = ROOT) -> dict[str, Any]:
-    rid = _id(result_id, "result_id")
-    if rid not in result_map(root):
-        raise ReviewEvidenceError("unknown result_id")
-    reviews = reviews_for_result(rid, root)
-    if len(reviews) < 2:
-        raise ReviewEvidenceError("review intake requires at least two immutable reviews")
-    review_ids = [str(item["review_id"]) for item in reviews]
-    digest = review_set_hash(review_ids)
-    iid = intake_id(rid, digest)
-    value = {
-        "schema": INTAKE_SCHEMA,
-        "intake_id": iid,
-        "result_id": rid,
-        "review_ids": review_ids,
-        "review_set_sha256": digest,
-        "opened_by": _id(opened_by, "opened_by"),
-        "latest_review_wins": False,
-        "all_reviews_retained": True,
-        "working_truth_granted": False,
-        "canonical_promotion_granted": False,
-    }
-    _exclusive(root / "research_review_intakes" / rid / f"{iid}.json", value)
-    return value
-
-
-def create_reference_pass(
-    intake_id_value: str,
-    pass_number: int,
-    reviewer_id: str,
-    finding: str,
-    independence_status: str,
-    root: Path = ROOT,
-) -> dict[str, Any]:
-    iid = _id(intake_id_value, "intake_id")
-    intake = intakes(root).get(iid)
-    if intake is None:
-        raise ReviewEvidenceError("unknown intake_id")
-    if pass_number not in PASS_KINDS:
-        raise ReviewEvidenceError("pass_number must be 1 or 2")
-    if independence_status not in INDEPENDENCE:
-        raise ReviewEvidenceError("invalid independence_status")
-    if not isinstance(finding, str) or not finding.strip():
-        raise ReviewEvidenceError("finding is required")
-    existing = reference_passes(root).get(iid, [])
-    if any(row.get("pass_number") == pass_number for row in existing):
-        raise ReviewEvidenceError(f"reference pass {pass_number} already exists")
-    if pass_number == 2 and not any(row.get("pass_number") == 1 for row in existing):
-        raise ReviewEvidenceError("reference pass 1 must precede pass 2")
-    reviewer = _id(reviewer_id, "reviewer_id")
-    pid = pass_id(iid, pass_number, reviewer, finding.strip())
-    value = {
-        "schema": PASS_SCHEMA,
-        "pass_id": pid,
-        "intake_id": iid,
-        "result_id": intake["result_id"],
-        "review_ids": list(intake["review_ids"]),
-        "review_set_sha256": intake["review_set_sha256"],
-        "pass_number": pass_number,
-        "pass_kind": PASS_KINDS[pass_number],
-        "reviewer_id": reviewer,
-        "finding": finding.strip(),
-        "independence_status": independence_status,
-        "working_truth_granted": False,
-        "canonical_promotion_granted": False,
-    }
-    _exclusive(root / "research_review_reference_passes" / iid / f"{pid}.json", value)
-    return value
-
-
-def create_synthesis(
-    intake_id_value: str,
-    operational_disposition: str,
-    synthesized_by: str,
-    rationale: str,
-    root: Path = ROOT,
-) -> dict[str, Any]:
-    iid = _id(intake_id_value, "intake_id")
-    intake = intakes(root).get(iid)
-    if intake is None:
-        raise ReviewEvidenceError("unknown intake_id")
-    if operational_disposition not in ALL_DISPOSITIONS:
-        raise ReviewEvidenceError("invalid operational_disposition")
-    if not isinstance(rationale, str) or not rationale.strip():
-        raise ReviewEvidenceError("rationale is required")
-    passes = reference_passes(root).get(iid, [])
-    if {row.get("pass_number") for row in passes} != {1, 2}:
-        raise ReviewEvidenceError("both reference passes are required before synthesis")
-    for row in passes:
-        if row.get("review_set_sha256") != intake.get("review_set_sha256"):
-            raise ReviewEvidenceError("reference pass evidence set drift")
-    author = _id(synthesized_by, "synthesized_by")
-    sid = synthesis_id(iid, operational_disposition, author)
-    value = {
-        "schema": SYNTH_SCHEMA,
-        "synthesis_id": sid,
-        "intake_id": iid,
-        "result_id": intake["result_id"],
-        "review_ids": list(intake["review_ids"]),
-        "review_set_sha256": intake["review_set_sha256"],
-        "operational_disposition": operational_disposition,
-        "synthesized_by": author,
-        "rationale": rationale.strip(),
-        "all_reviews_retained": True,
-        "latest_review_wins": False,
-        "terminal": operational_disposition in TERMINAL_DISPOSITIONS,
-        "working_truth_granted": False,
-        "canonical_promotion_granted": False,
-    }
-    _exclusive(root / "research_review_syntheses" / str(intake["result_id"]) / f"{sid}.json", value)
-    return value
-
-
 def audit(root: Path = ROOT) -> list[str]:
-    errors: list[str] = []
+    """Audit stored history and every exact-set authority edge."""
+    errors = list(_store.audit(root))
     try:
-        results = result_map(root)
-        intake_map = intakes(root)
-        passes = reference_passes(root)
-        synth_map = syntheses(root)
-    except Exception as exc:
-        return [str(exc)]
-    for iid, intake in intake_map.items():
-        try:
+        for rid in _store.result_map(root):
+            for review in _store.reviews_for_result(rid, root):
+                _validate_review(review, rid)
+        intake_map = _store.intakes(root)
+        for iid, intake in intake_map.items():
             rid = _id(intake.get("result_id"), "result_id")
-            if intake.get("schema") != INTAKE_SCHEMA:
-                raise ReviewEvidenceError("wrong intake schema")
-            if rid not in results:
-                raise ReviewEvidenceError("intake references unknown result")
-            review_ids = intake.get("review_ids")
-            if not isinstance(review_ids, list) or len(review_ids) < 2 or len(set(review_ids)) != len(review_ids):
-                raise ReviewEvidenceError("intake review_ids invalid")
-            current_ids = [str(item["review_id"]) for item in reviews_for_result(rid, root)]
-            if any(review_id not in current_ids for review_id in review_ids):
-                raise ReviewEvidenceError("intake references unknown review")
-            if intake.get("review_set_sha256") != review_set_hash(list(review_ids)):
-                raise ReviewEvidenceError("intake review_set_sha256 mismatch")
-            if intake.get("latest_review_wins") is not False or intake.get("all_reviews_retained") is not True:
-                raise ReviewEvidenceError("intake multiplicity semantics invalid")
-        except Exception as exc:
-            errors.append(f"{iid}: {exc}")
-    for iid, rows in passes.items():
-        intake = intake_map.get(iid)
-        if intake is None:
-            errors.append(f"reference passes for unknown intake {iid}")
-            continue
-        numbers = [row.get("pass_number") for row in rows]
-        if len(numbers) != len(set(numbers)):
-            errors.append(f"{iid}: duplicate reference pass number")
-        for row in rows:
-            try:
-                number = row.get("pass_number")
-                if row.get("schema") != PASS_SCHEMA or number not in PASS_KINDS:
-                    raise ReviewEvidenceError("invalid reference pass")
-                if row.get("pass_kind") != PASS_KINDS[number]:
-                    raise ReviewEvidenceError("reference pass kind mismatch")
-                if row.get("review_set_sha256") != intake.get("review_set_sha256"):
-                    raise ReviewEvidenceError("reference pass evidence set drift")
-            except Exception as exc:
-                errors.append(f"{row.get('_path', iid)}: {exc}")
-    for sid, synthesis in synth_map.items():
-        try:
-            if synthesis.get("schema") != SYNTH_SCHEMA:
-                raise ReviewEvidenceError("wrong synthesis schema")
+            _validate_intake(intake, rid, root)
+            _validated_pass_map(intake, root)
+        for sid, synthesis in _store.syntheses(root).items():
             iid = _id(synthesis.get("intake_id"), "intake_id")
             intake = intake_map.get(iid)
             if intake is None:
-                raise ReviewEvidenceError("synthesis references unknown intake")
-            rows = passes.get(iid, [])
-            if {row.get("pass_number") for row in rows} != {1, 2}:
-                raise ReviewEvidenceError("synthesis lacks both reference passes")
-            if synthesis.get("review_set_sha256") != intake.get("review_set_sha256"):
-                raise ReviewEvidenceError("synthesis evidence set drift")
-            if synthesis.get("operational_disposition") not in ALL_DISPOSITIONS:
-                raise ReviewEvidenceError("invalid synthesis disposition")
-            if synthesis.get("latest_review_wins") is not False or synthesis.get("all_reviews_retained") is not True:
-                raise ReviewEvidenceError("synthesis multiplicity semantics invalid")
-        except Exception as exc:
-            errors.append(f"{sid}: {exc}")
+                raise ReviewEvidenceError(f"{sid}: synthesis references unknown intake")
+            passes = _validated_pass_map(intake, root)
+            _validate_synthesis(synthesis, intake, passes)
+    except Exception as exc:
+        errors.append(str(exc))
     return errors
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Enterprise Math multiple Driver-review exact-set authority")
+    sub = parser.add_subparsers(dest="command", required=True)
+    sub.add_parser("audit")
+    status = sub.add_parser("state")
+    status.add_argument("--result-id", required=True)
+    args = parser.parse_args()
+    if args.command == "audit":
+        errors = audit()
+        if errors:
+            for error in errors:
+                print("ERROR:", error)
+            return 1
+        print(
+            f"PASS: review evidence valid ({len(_store.intakes())} intake(s), "
+            f"{sum(len(v) for v in _store.reference_passes().values())} reference pass(es), "
+            f"{len(_store.syntheses())} synthesis record(s))."
+        )
+        return 0
+    print(json.dumps(state(args.result_id), ensure_ascii=False, indent=2, sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except ReviewEvidenceError as exc:
+        print("ERROR:", exc)
+        raise SystemExit(1)
