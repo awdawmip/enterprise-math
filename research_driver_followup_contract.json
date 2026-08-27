@@ -11,11 +11,8 @@
   "packet_store": "research_driver_followups/<review-id>/<packet-id>.json",
   "task_publication_authority": "research_task_records/<task-id>/<publication-id>.json",
   "result_review_authority": "research_result_reviews/<result-id>/<review-id>.json",
-  "purpose": "Prevent Driver-review stalls by making the review-to-next-work transition repository-derived and fail-closed. Any review ID not frozen in the exact legacy baseline cannot terminalize ordinary or parallel runtime authority until a valid automatic follow-up taskset is immutably published, or the current parent Objective is already canonically CLOSED.",
-  "decisions": [
-    "TASK_SET_PUBLISHED",
-    "PARENT_OBJECTIVE_CLOSURE"
-  ],
+  "purpose": "Prevent Driver-review stalls by making the review-to-next-work transition repository-derived and fail-closed. Any review ID not frozen in the exact legacy baseline cannot terminalize ordinary or parallel runtime authority until a valid automatic follow-up taskset is immutably published, or the current parent Objective is already canonically CLOSED. Existing concurrent control assets may satisfy a gate only by explicit pinned evidence so the rule never creates duplicate work merely to satisfy itself.",
+  "decisions": ["TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE"],
   "canonical_gates": [
     "MATHEMATICAL_CONTINUATION",
     "LEAN_FORMALIZATION",
@@ -27,6 +24,7 @@
   "gate_decisions": [
     "REQUIRED",
     "SATISFIED_BY_REVIEWED_RESULT",
+    "SATISFIED_BY_EXISTING_CONTROL_ASSET",
     "NOT_REQUIRED"
   ],
   "task_roles": [
@@ -51,10 +49,11 @@
     "EVERY_REVIEW_EVALUATES_THE_EXACT_CANONICAL_GATE_SET",
     "REQUIRED_GATE_REQUIRES_AT_LEAST_ONE_PUBLISHED_TASK_WITH_MATCHING_ROLE",
     "SATISFIED_BY_REVIEWED_RESULT_REQUIRES_EXPLICIT_EVIDENCE_REFS",
+    "SATISFIED_BY_EXISTING_CONTROL_ASSET_REQUIRES_EXPLICIT_EVIDENCE_REFS_AND_CREATES_NO_DUPLICATE_TASK",
     "ACCEPTED_REVIEW_CANNOT_SKIP_EXTERNAL_PRIOR_ART_DUPLICATION",
     "ACCEPTED_L4_REVIEW_CANNOT_SKIP_LEAN_FORMALIZATION",
     "TOOL_BEARING_RESULT_CANNOT_SKIP_INTEGRATION_OR_TOOL_HARVEST",
-    "REQUEST_REPLICATION_REQUIRES_INDEPENDENT_REPLICATION_TASK",
+    "REQUEST_REPLICATION_REQUIRES_NEW_OR_ALREADY_MATERIALIZED_INDEPENDENT_REPLICATION_CONTROL_ASSET",
     "FOLLOWUP_PACKET_CONSUMES_EXACT_RESULT_NEXT_CONTROL_PLANE_RECOMMENDATION",
     "FOLLOWUP_TASKS_REMAIN_INSIDE_THE_SAME_PARENT_OBJECTIVE",
     "AUTOMATIC_FOLLOWUP_TASKS_ARE_PUBLISHED_BY_THE_REVIEWING_DRIVER",
@@ -67,27 +66,16 @@
   ],
   "forced_gate_policy": {
     "ACCEPTED": {
-      "EXTERNAL_PRIOR_ART_DUPLICATION": [
-        "REQUIRED",
-        "SATISFIED_BY_REVIEWED_RESULT"
-      ]
+      "EXTERNAL_PRIOR_ART_DUPLICATION": ["REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
     },
     "ACCEPTED_L4": {
-      "LEAN_FORMALIZATION": [
-        "REQUIRED",
-        "SATISFIED_BY_REVIEWED_RESULT"
-      ]
+      "LEAN_FORMALIZATION": ["REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
     },
     "ACCEPTED_TOOL": {
-      "INTEGRATION_OR_TOOL_HARVEST": [
-        "REQUIRED",
-        "SATISFIED_BY_REVIEWED_RESULT"
-      ]
+      "INTEGRATION_OR_TOOL_HARVEST": ["REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
     },
     "REQUEST_REPLICATION": {
-      "INDEPENDENT_REPLICATION": [
-        "REQUIRED"
-      ]
+      "INDEPENDENT_REPLICATION": ["REQUIRED", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
     }
   },
   "external_prior_art_minimum_scope": [
@@ -112,16 +100,17 @@
     "legacy_baseline_review": "UNCHANGED_COMPATIBILITY_REDUCTION"
   },
   "automatic_materialization": {
-    "command": "python research_driver_followup_guard.py materialize --review-id <DR-or-RV-id> --spec <json>",
-    "transaction": "guard legacy identity; preflight all gate/task specifications; publish the follow-up taskbook(s) and immutable publication record(s); then create one immutable review follow-up packet",
+    "command": "python tools/research_result_records.py review ... --followup-spec <json>",
+    "recovery_command": "python research_driver_followup_guard.py materialize --review-id <DR-or-RV-id> --spec <json>",
+    "transaction": "preflight gate/task specifications; create the immutable review; automatically publish missing follow-up taskbook(s) and immutable publication record(s); then create one immutable review follow-up packet. Gates already represented by exact concurrent control assets are pinned rather than duplicated.",
     "failure_semantics": "fail closed; the review remains nonterminal until a valid packet exists. Any already-created partial publication remains immutable evidence and is never silently rolled back.",
     "publisher_role": "RESEARCH_DRIVER",
-    "parent_objective_rule": "all follow-up task publications keep the reviewed source task parent_objective_id",
+    "parent_objective_rule": "all newly published follow-up task publications keep the reviewed source task parent_objective_id",
     "revision_rule": "a revision may publish a new generation of the same task only through explicit supersedes_publication_id and a new immutable taskbook path"
   },
   "anti_spam_and_successor_compatibility": {
     "existing_rule_preserved": "PASS_OR_DONE_IS_NOT_ITSELF_A_SUCCESSOR_TRIGGER",
-    "interpretation": "the review checkpoint must choose and materialize the next control action, but each CONTINUATION task must independently satisfy the existing successor_gate with a genuine information gap, discriminating outcomes, kill condition and alternative-route analysis",
+    "interpretation": "the review checkpoint must choose and materialize the next control action, but each CONTINUATION task must independently satisfy the existing successor_gate with a genuine information gap, discriminating outcomes, kill condition and alternative-route analysis; a concurrent already-materialized route should be pinned with SATISFIED_BY_EXISTING_CONTROL_ASSET instead of duplicated",
     "parent_closed_behavior": "do not manufacture meaningless successors; use PARENT_OBJECTIVE_CLOSURE after canonical Objective closure"
   },
   "historical_compatibility": {
