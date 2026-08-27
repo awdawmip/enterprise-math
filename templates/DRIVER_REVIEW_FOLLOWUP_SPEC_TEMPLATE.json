@@ -1,0 +1,75 @@
+{
+  "decision": "TASK_SET_PUBLISHED",
+  "gate_decisions": [
+    {
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "<replace with task-specific reason>",
+      "evidence_refs": []
+    },
+    {
+      "gate": "LEAN_FORMALIZATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "<replace with task-specific reason>",
+      "evidence_refs": []
+    },
+    {
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "<replace with task-specific reason>",
+      "evidence_refs": []
+    },
+    {
+      "gate": "INDEPENDENT_REPLICATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "<replace with task-specific reason>",
+      "evidence_refs": []
+    },
+    {
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "decision": "NOT_REQUIRED",
+      "reason": "<replace with task-specific reason>",
+      "evidence_refs": []
+    },
+    {
+      "gate": "ADVERSARIAL_AUDIT",
+      "decision": "NOT_REQUIRED",
+      "reason": "<replace with task-specific reason>",
+      "evidence_refs": []
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "<RS-NEXT-TASK>",
+      "title": "<Next task title>",
+      "task_role": "MATHEMATICAL_CONTINUATION",
+      "task_lineage": "CONTINUATION",
+      "parent_task_id": "<reviewed task id>",
+      "successor_gate": {
+        "new_information_gap": "<exact new information gap>",
+        "why_parent_result_does_not_close_it": "<why reviewed result does not close this gap>",
+        "discriminating_outcomes": [
+          "<outcome A>",
+          "<outcome B>"
+        ],
+        "kill_condition": "<exact kill/no-go condition>",
+        "alternative_route_or_free_exploration_considered": "<alternative considered>",
+        "why_new_stage_or_task_is_better_than_same_task_or_closure": "<why this task is justified>"
+      },
+      "frontier": "<current precise frontier>",
+      "next_action": "<first executable action>",
+      "research_value": "<why the task remains worth preserving>",
+      "mother_question": "<exact mother question>",
+      "frozen_inputs_and_scope": "<pins, allowed reads, exclusions>",
+      "hard_target_and_required_outputs": "<hard target and exact outputs>",
+      "research_value_to_preserve": "<value even if route is killed>",
+      "success_kill_and_return_criteria": "<success / kill / return criteria>",
+      "dependencies": [],
+      "source_refs": [],
+      "priority": "P1",
+      "leverage": "HIGH",
+      "claim_lease_minutes": 120,
+      "tags": []
+    }
+  ]
+}
