@@ -1,0 +1,28 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_EXECUTION_COHORT_V1",
+  "cohort_id": "EC-P022-OH-20260827-01",
+  "task_id": "RS-P022-OBSERVATION-HISTORY",
+  "record_state": "ACTIVE",
+  "opened_by": "EM-DVR-R63A21",
+  "opened_at": "2026-08-27T16:45:00+08:00",
+  "lanes": [
+    {
+      "lane_id": "arithmetic-core",
+      "publication_id": "TP2-DE338F269CA11E9BC01B",
+      "lane_role": "RESEARCH",
+      "purpose": "Continue the P022 q=3r-1 Franel arithmetic-core replay without competing for task-global authority.",
+      "output_prefix": "research_returns/parallel/EC-P022-OH-20260827-01/arithmetic-core/"
+    },
+    {
+      "lane_id": "forced-midpoint",
+      "publication_id": "TP2-D78DBA0243911E0363FA",
+      "lane_role": "RESEARCH",
+      "purpose": "Independently replay the P022 forced-midpoint fallback q<6r-1 while retaining its distinct publication and branch lineage.",
+      "output_prefix": "research_returns/parallel/EC-P022-OH-20260827-01/forced-midpoint/"
+    }
+  ],
+  "two_reference_passes_required": true,
+  "synthesis_required": true,
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}

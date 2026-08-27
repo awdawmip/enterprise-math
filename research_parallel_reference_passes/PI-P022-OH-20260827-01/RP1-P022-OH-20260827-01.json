@@ -1,0 +1,26 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "pass_id": "RP1-P022-OH-20260827-01",
+  "intake_id": "PI-P022-OH-20260827-01",
+  "task_id": "RS-P022-OBSERVATION-HISTORY",
+  "pass_number": 1,
+  "pass_kind": "SEMANTIC_EVIDENCE_CROSSCHECK",
+  "publication_ids": [
+    "TP2-D78DBA0243911E0363FA",
+    "TP2-DE338F269CA11E9BC01B"
+  ],
+  "result_ids": [],
+  "evidence_set_sha256": "sha256:5655459cf7d2b8fbd62a7c614aef34a34b3986c1d68eaf3d30b5e66560e59c06",
+  "reviewer_id": "EM-DVR-R63A21",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "reviewed_at": "2026-08-27T16:43:00+08:00",
+  "findings_summary": "Both publications are legitimate P022 observation-history replay evidence, but they are not byte-level or semantic duplicates. TP2-DE338F269CA11E9BC01B isolates the q=3r-1 Franel arithmetic-core boundary under P022_OBSERVATION_HISTORY_COMPLETION; TP2-D78DBA0243911E0363FA independently replays the forced-midpoint fallback q<6r-1 under P022_OBSERVATION_HISTORY_AND_COLLISION_GEOMETRY. The scopes are complementary surviving subfrontiers of the same legacy task id and neither should be erased.",
+  "relationship": [
+    "RETAINED_PARALLEL_REPLAYS",
+    "DISTINCT_SUBFRONTIERS",
+    "DIFFERENT_PARENT_OBJECTIVE_ROUTING"
+  ],
+  "recommendation": "KEEP_BOTH_FOR_ADVERSARIAL_CONTROL_PASS",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}
