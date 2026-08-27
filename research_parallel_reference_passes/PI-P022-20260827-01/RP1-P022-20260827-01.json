@@ -1,0 +1,27 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "pass_id": "RP1-P022-20260827-01",
+  "intake_id": "PI-P022-20260827-01",
+  "task_id": "RS-P022-OBSERVATION-HISTORY",
+  "pass_number": 1,
+  "pass_kind": "SEMANTIC_EVIDENCE_CROSSCHECK",
+  "publication_ids": [
+    "TP2-2346F5D3E731ED56DB0A",
+    "TP2-D78DBA0243911E0363FA",
+    "TP2-DE338F269CA11E9BC01B"
+  ],
+  "result_ids": [],
+  "evidence_set_sha256": "sha256:4602a86921274783fdcaa7a538a557992c2a30728cb2a03bfeb0c3deeae867fe",
+  "reviewer_id": "EM-DVR-K7Q4N8",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "reviewed_at": "2026-08-27T17:21:00+08:00",
+  "findings_summary": "All three publications belong to the P022 observation-history mother program but encode genuinely different hard targets: TP2-DE338F269CA11E9BC01B attacks the q=3r-1 first-reentry arithmetic/Franel core; TP2-D78DBA0243911E0363FA freezes the forced-midpoint fallback and isolates the high q>=6r-1 range; TP2-2346F5D3E731ED56DB0A attacks the surviving composite Franel equal-depth p-adic escape. Their distinct parent_objective_id values confirm distinct subfrontiers. None is a duplicate to delete or a lower-ranked truth claim.",
+  "relationship": [
+    "SAME_P022_MOTHER_PROGRAM",
+    "COMPLEMENTARY_SUBFRONTIERS",
+    "DIFFERENT_PARENT_OBJECTIVES"
+  ],
+  "recommendation": "KEEP_ALL_FOR_ADVERSARIAL_SECOND_PASS",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}
