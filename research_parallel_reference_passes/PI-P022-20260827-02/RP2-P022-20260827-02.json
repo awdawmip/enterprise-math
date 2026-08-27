@@ -1,0 +1,28 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "pass_id": "RP2-P022-20260827-02",
+  "intake_id": "PI-P022-20260827-02",
+  "task_id": "RS-P022-OBSERVATION-HISTORY",
+  "pass_number": 2,
+  "pass_kind": "ADVERSARIAL_CONTROL_CROSSCHECK",
+  "publication_ids": [
+    "TP2-2346F5D3E731ED56DB0A",
+    "TP2-DE338F269CA11E9BC01B",
+    "TP2-EA87349A61D0732CDC30"
+  ],
+  "result_ids": [],
+  "evidence_set_sha256": "sha256:cf111a30410fb1eea32271b56934452b65cdba49067df0cd30243d118c03cb0c",
+  "reviewer_id": "EM-DVR-K7Q4N8",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "reviewed_at": "2026-08-27T17:30:00+08:00",
+  "findings_summary": "The generation-2 schema correction removes the taskbook-contract defect without changing the control conclusion: three distinct P022 subfrontiers still share one legacy task_id and therefore should be split into typed tasks. TP2-DE338F269CA11E9BC01B remains the temporary operational runtime binding solely for continuity of the highest-priority expired legacy arithmetic handoff. TP2-EA87349A61D0732CDC30 and TP2-2346F5D3E731ED56DB0A remain retained active evidence and are not mathematically downgraded.",
+  "relationship": [
+    "KEEP_PARALLEL",
+    "TEMPORARY_OPERATIONAL_BINDING",
+    "SHOULD_SPLIT_TYPED_TASKS",
+    "SUPERSEDED_SCHEMA_DEFECT_REMOVED_WITH_HISTORY_RETAINED"
+  ],
+  "recommendation": "SPLIT_TO_TYPED_TASKS",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}
