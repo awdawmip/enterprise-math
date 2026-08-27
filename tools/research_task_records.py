@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Public immutable task-publication facade with exact historical compatibility.
 
-The strict V2 implementation lives in ``tools._research_task_records_strict``.
+The strict V2 implementation lives in ``control_plane.research_task_records_impl``.
 This facade preserves that implementation unchanged for current publication and
 runtime semantics, and adds one fail-closed compatibility boundary for immutable
 historical taskbooks whose semantic sections predate today's exact heading names.
@@ -20,10 +20,10 @@ from pathlib import Path
 from typing import Any
 
 try:
-    from tools import _research_task_records_strict as _core
+    from control_plane import research_task_records_impl as _core
     from tools import research_taskbook
 except ModuleNotFoundError:
-    import _research_task_records_strict as _core  # type: ignore
+    import research_task_records_impl as _core  # type: ignore
     import research_taskbook  # type: ignore
 
 # Preserve the historical public API, including helper names used by tests and
