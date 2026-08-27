@@ -97,8 +97,10 @@ theorem root_state_low_denominator_at_most_horizon
   have hXPos : 0 < (H + 1) ^ (s + 1) := pow_pos (by omega) (s + 1)
   have hDivLt : n / (H + 1) ^ (s + 1) < d := by
     simpa [D] using hDd
-  have hnLt : n < (H + 1) ^ (s + 1) * d :=
+  have hnLt0 : n < d * (H + 1) ^ (s + 1) :=
     (Nat.div_lt_iff_lt_mul hXPos).1 hDivLt
+  have hnLt : n < (H + 1) ^ (s + 1) * d := by
+    simpa [Nat.mul_comm] using hnLt0
   have hQuotLt : n / d < (H + 1) ^ (s + 1) := by
     apply (Nat.div_lt_iff_lt_mul (by omega)).2
     simpa [Nat.mul_comm] using hnLt
@@ -151,11 +153,7 @@ theorem root_state_high_denominator_injective
   omega
 
 /-- Every positive root strictly below the horizon is realized by a positive
-denominator `d≤n`.
-
-The proof is exact.  Bernoulli gives enough separation between `t^r` and
-`(t+1)^r`; the horizon inequality upgrades that separation to a strict floor
-quotient gap; the exact quotient-root fiber theorem then supplies a witness. -/
+denominator `d≤n`. -/
 theorem root_state_low_root_realized
     {s n t : ℕ}
     (hn : 0 < n)
@@ -166,68 +164,67 @@ theorem root_state_low_root_realized
   let H := root (s + 2) ((s + 1) * n - 1)
   change t < H → ∃ d : ℕ, 1 ≤ d ∧ d ≤ n ∧ root (s + 1) (n / d) = t
   intro htH
-  have hParentOrder : s + 2 ≠ 0 := by omega
+
+  let A := t ^ (s + 1)
+  let B := (t + 1) ^ (s + 1)
+  let u := t ^ s
+  have hu : 0 < u := by
+    dsimp [u]
+    exact pow_pos htPos s
+  have hA : A = t * u := by
+    dsimp [A, u]
+    rw [pow_succ']
+  have hBernRaw :=
+    pow_add_mul_le_add_pow (R := ℕ) (a := t) (b := 1)
+      (by omega) (by omega) (s + 1)
+  have hTangent : A + (s + 1) * u ≤ B := by
+    simpa [A, B, u] using hBernRaw
+
+  have hHPos : 0 < H := by omega
+  have hBLe : B ≤ H ^ (s + 1) := by
+    dsimp [B]
+    exact Nat.pow_le_pow_left (by omega) (s + 1)
+  have hTBltHPow : t * B < H ^ (s + 2) := by
+    calc
+      t * B ≤ t * H ^ (s + 1) := Nat.mul_le_mul_left t hBLe
+      _ < H * H ^ (s + 1) :=
+        Nat.mul_lt_mul_of_pos_right htH (pow_pos hHPos (s + 1))
+      _ = H ^ (s + 2) := by
+        conv_rhs =>
+          rw [show s + 2 = (s + 1) + 1 by omega, pow_succ']
   have hHLower : H ^ (s + 2) ≤ (s + 1) * n - 1 := by
     dsimp [H]
-    exact Nat.pow_nthRoot_le (Or.inl hParentOrder)
-  have hParentLt : H ^ (s + 2) < (s + 1) * n := by
-    omega
-  have htSuccLe : t + 1 ≤ H := by omega
-  have hNextPos : 0 < (t + 1) ^ (s + 1) := pow_pos (by omega) (s + 1)
-  have hScale : t * (t + 1) ^ (s + 1) < (s + 1) * n := by
+    exact Nat.pow_nthRoot_le (Or.inl (by omega))
+  have hHorizon : t * B < (s + 1) * n := by
     calc
-      t * (t + 1) ^ (s + 1) <
-          (t + 1) * (t + 1) ^ (s + 1) :=
-        Nat.mul_lt_mul_of_pos_right (by omega) hNextPos
-      _ = (t + 1) ^ (s + 2) := by
-        rw [show s + 2 = (s + 1) + 1 by omega, pow_succ']
-      _ ≤ H ^ (s + 2) := Nat.pow_le_pow_left htSuccLe (s + 2)
-      _ < (s + 1) * n := hParentLt
+      t * B < H ^ (s + 2) := hTBltHPow
+      _ ≤ (s + 1) * n - 1 := hHLower
+      _ < (s + 1) * n := by
+        have hProdPos : 0 < (s + 1) * n := Nat.mul_pos (by omega) hn
+        omega
 
-  have hBern := pow_add_tangent_le_succ_pow t (s + 1)
-  have htSPowPos : 0 < t ^ s := pow_pos htPos s
-  have hTangentPos : 0 < (s + 1) * t ^ s := Nat.mul_pos (by omega) htSPowPos
-  have hPowLt : t ^ (s + 1) < (t + 1) ^ (s + 1) := by
-    omega
-  have hDelta :
-      (s + 1) * t ^ s ≤ (t + 1) ^ (s + 1) - t ^ (s + 1) := by
-    omega
-  have hScaled := Nat.mul_lt_mul_of_pos_right hScale htSPowPos
-  have hGap :
-      t ^ (s + 1) * (t + 1) ^ (s + 1) <
-        n * ((t + 1) ^ (s + 1) - t ^ (s + 1)) := by
-    calc
-      t ^ (s + 1) * (t + 1) ^ (s + 1)
-          = (t * (t + 1) ^ (s + 1)) * t ^ s := by
-            rw [pow_succ']
-            ring
-      _ < ((s + 1) * n) * t ^ s := hScaled
-      _ = n * ((s + 1) * t ^ s) := by ring
-      _ ≤ n * ((t + 1) ^ (s + 1) - t ^ (s + 1)) :=
-        Nat.mul_le_mul_left n hDelta
+  have hDivGap : n / B < n / A :=
+    floor_quotient_strict_gap_of_tangent
+      (n := n) (A := A) (B := B) (t := t) (r := s + 1) (u := u)
+      htPos (by omega) hu hA hTangent hHorizon
 
-  have hDivGap :
-      n / (t + 1) ^ (s + 1) < n / t ^ (s + 1) :=
-    strict_floor_quotient_of_gap
-      (a := t ^ (s + 1)) (b := (t + 1) ^ (s + 1))
-      (pow_pos htPos (s + 1)) hPowLt hGap
-  let d := n / (t + 1) ^ (s + 1) + 1
+  let d := n / B + 1
   have hdPos : 1 ≤ d := by
     dsimp [d]
-    omega
-  have hdUpper : d ≤ n / t ^ (s + 1) := by
+    exact Nat.succ_pos _
+  have hLower : n / B < d := by
     dsimp [d]
-    omega
-  have hdLeN : d ≤ n := by
-    exact le_trans hdUpper (Nat.div_le_self n (t ^ (s + 1)))
+    exact Nat.lt_succ_self _
+  have hUpper : d ≤ n / A := by
+    dsimp [d]
+    exact Nat.succ_le_of_lt hDivGap
+  have hdLeN : d ≤ n :=
+    le_trans hUpper (Nat.div_le_self n A)
   have hRoot : root (s + 1) (n / d) = t := by
     apply (quotient_root_fiber_iff
       (r := s + 1) (n := n) (d := d) (t := t)
       (by omega) (by omega) htPos).2
-    constructor
-    · dsimp [d]
-      omega
-    · exact hdUpper
+    simpa [A, B] using And.intro hLower hUpper
   exact ⟨d, hdPos, hdLeN, hRoot⟩
 
 /-- The horizon root itself is the unique optional low state.  It is realized by
@@ -274,7 +271,7 @@ theorem root_state_horizon_realized_iff
       simpa [d] using hCarry
     have hdPos : 1 ≤ d := by
       dsimp [d]
-      omega
+      exact Nat.succ_pos _
     have hdLeN : d ≤ n :=
       le_trans hdUpper (Nat.div_le_self n (H ^ (s + 1)))
     have hRoot : root (s + 1) (n / d) = H := by
@@ -282,8 +279,9 @@ theorem root_state_horizon_realized_iff
         (r := s + 1) (n := n) (d := d) (t := H)
         (by omega) (by omega) hHPos).2
       constructor
-      · dsimp [d, D]
-        omega
+      · dsimp [d]
+        change D < D + 1
+        exact Nat.lt_succ_self D
       · exact hdUpper
     exact ⟨d, hdPos, hdLeN, hRoot⟩
 
@@ -478,12 +476,12 @@ theorem quotientRootStates_eq_high_union_low_of_horizon_pos
       by_cases hyH : y = H
       · have hRootH : root (s + 1) (n / d) = H := by
           simpa [f, d, hyH] using hiy
-        have hIff := root_state_horizon_realized_iff (s := s) (n := n) hn
-        have hThreshold : (D + 1) * H ^ (s + 1) ≤ n := by
-          have hPair := (by
-            simpa [H, D] using hIff) .mp ⟨d, hd, hdN, hRootH⟩
-          exact hPair.2
-        exact (mem_lowRootStatesAt_iff hH).2 (Or.inr ⟨hThreshold, hyH⟩)
+        have hIff :
+            (∃ e : ℕ, 1 ≤ e ∧ e ≤ n ∧ root (s + 1) (n / e) = H) ↔
+              0 < H ∧ (D + 1) * H ^ (s + 1) ≤ n := by
+          simpa [H, D] using root_state_horizon_realized_iff (s := s) (n := n) hn
+        have hPair := hIff.mp ⟨d, hd, hdN, hRootH⟩
+        exact (mem_lowRootStatesAt_iff hH).2 (Or.inr ⟨hPair.2, hyH⟩)
       · have hyLt : y < H := by omega
         have hBase : y ∈ guaranteedLowRootStates H :=
           mem_guaranteedLowRootStates_iff.mpr ⟨hyPos, hyLt⟩
@@ -504,10 +502,11 @@ theorem quotientRootStates_eq_high_union_low_of_horizon_pos
           simpa [H] using hReal0 hyHlt
         exact mem_quotientRootStates_of_witness hd hdN hRoot
       · subst y
-        have hIff := root_state_horizon_realized_iff (s := s) (n := n) hn
-        obtain ⟨d, hd, hdN, hRoot⟩ := by
-          have hExists := (by simpa [H, D] using hIff).2 ⟨hH, hThreshold⟩
-          exact hExists
+        have hIff :
+            (∃ e : ℕ, 1 ≤ e ∧ e ≤ n ∧ root (s + 1) (n / e) = H) ↔
+              0 < H ∧ (D + 1) * H ^ (s + 1) ≤ n := by
+          simpa [H, D] using root_state_horizon_realized_iff (s := s) (n := n) hn
+        obtain ⟨d, hd, hdN, hRoot⟩ := hIff.mpr ⟨hH, hThreshold⟩
         exact mem_quotientRootStates_of_witness hd hdN hRoot
 
 /-- The high and low charts are disjoint for positive horizon. -/
@@ -595,7 +594,6 @@ theorem quotientRootStates_ternary_cardinality
     {s n : ℕ}
     (hn : 0 < n) :
     let H := root (s + 2) ((s + 1) * n - 1)
-    let D := n / (H + 1) ^ (s + 1)
     let q := H / (s + 1)
     let X := (H + 1) ^ (s + 1)
     let Y := H ^ (s + 1)
