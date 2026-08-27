@@ -15,10 +15,12 @@ try:
     from tools import research_execution_records
     from tools import research_identity
     from tools import research_task_records
+    import research_execution_cohorts
 except ModuleNotFoundError:
     import research_execution_records  # type: ignore
     import research_identity  # type: ignore
     import research_task_records  # type: ignore
+    import research_execution_cohorts  # type: ignore
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULT_ROOT = ROOT / "research_result_records"
@@ -45,6 +47,7 @@ SOURCE_EXPOSURE_STATUS = {
     "NONBLIND_DISCLOSED", "NOT_APPLICABLE",
 }
 DESTINATION_CLASSES = {"NONE", "FOUNDATION", "TOOL", "L4", "REPLICATION", "FOLLOWUP_TASK", "ARCHIVE"}
+LANE_FIELDS = ("execution_cohort_id", "execution_lane_id")
 
 
 class ResultRecordError(ValueError):
@@ -260,6 +263,36 @@ def build_output_manifest(paths: list[Path], execution: dict[str, Any], root: Pa
     return manifest
 
 
+def _validate_execution_publication_for_freeze(execution: dict[str, Any], root: Path) -> None:
+    task_id = execution["task_id"]
+    cohort_id = execution.get("execution_cohort_id")
+    lane_id = execution.get("execution_lane_id")
+    if (cohort_id is None) != (lane_id is None):
+        raise ResultRecordError("execution cohort/lane identity is incomplete")
+    if cohort_id is None:
+        current = research_task_records.current_records(root).get(task_id)
+        if current is None or current.get("publication_id") != execution.get("publication_id"):
+            raise ResultRecordError("execution record is not bound to the current operational task publication")
+        return
+    cohort = research_execution_cohorts.cohort_map(root).get(str(cohort_id))
+    if cohort is None or cohort.get("task_id") != task_id:
+        raise ResultRecordError("execution record references unknown cohort for task")
+    if cohort.get("record_state") != "ACTIVE":
+        raise ResultRecordError("lane result cannot freeze after its execution cohort is no longer ACTIVE")
+    lanes = [
+        row for row in cohort.get("lanes", [])
+        if isinstance(row, dict) and row.get("lane_id") == lane_id
+    ]
+    if len(lanes) != 1:
+        raise ResultRecordError("execution record references unknown or ambiguous lane")
+    if lanes[0].get("publication_id") != execution.get("publication_id"):
+        raise ResultRecordError("execution publication differs from cohort lane publication pin")
+    publications = research_execution_records.publication_map(root)
+    record = publications.get(str(execution.get("publication_id")))
+    if record is None or record.get("task_id") != task_id:
+        raise ResultRecordError("lane execution publication generation is unavailable")
+
+
 def freeze_result(
     *,
     execution_record_id: str,
@@ -280,9 +313,7 @@ def freeze_result(
     if execution is None:
         raise ResultRecordError("unknown execution_record_id")
     task_id = execution["task_id"]
-    current = research_task_records.current_records(root).get(task_id)
-    if current is None or current.get("publication_id") != execution.get("publication_id"):
-        raise ResultRecordError("execution record is not bound to the current task publication")
+    _validate_execution_publication_for_freeze(execution, root)
     if not re.fullmatch(r"[0-9a-fA-F]{40}", owner_head.strip()):
         raise ResultRecordError("owner_head must be a 40-hex frozen commit SHA")
     if terminal_verdict not in TERMINAL_VERDICTS:
@@ -308,7 +339,7 @@ def freeze_result(
     manifest = build_output_manifest(all_paths, execution, root)
     return_blob = _blob(return_path)
     rid = result_id(task_id, execution_record_id, return_blob, owner_head.lower())
-    return {
+    value: dict[str, Any] = {
         "record_schema": RESULT_SCHEMA,
         "result_id": rid,
         "task_id": task_id,
@@ -333,8 +364,17 @@ def freeze_result(
         "independence_status": independence_status,
         "source_exposure_status": source_exposure_status,
         "next_control_plane_recommendation": next_control_plane_recommendation,
-        "driver_review_required": True
+        "driver_review_required": True,
     }
+    if execution.get("execution_cohort_id") is not None:
+        value.update(
+            {
+                "execution_cohort_id": execution.get("execution_cohort_id"),
+                "execution_lane_id": execution.get("execution_lane_id"),
+                "lane_output_prefix": execution.get("lane_output_prefix"),
+            }
+        )
+    return value
 
 
 def review_result(
@@ -363,7 +403,7 @@ def review_result(
         raise ResultRecordError("result record path is unavailable for review pinning")
     review_blob = _blob(review_path)
     rid = review_id(result["result_id"], driver_id, review_blob, disposition)
-    return {
+    value: dict[str, Any] = {
         "record_schema": REVIEW_SCHEMA,
         "review_id": rid,
         "result_id": result["result_id"],
@@ -380,8 +420,16 @@ def review_result(
         "disposition": disposition,
         "destination_class": destination_class,
         "destination_ref_or_none": destination_ref_or_none,
-        "terminal": disposition in TERMINAL_DISPOSITIONS
+        "terminal": disposition in TERMINAL_DISPOSITIONS,
     }
+    if result.get("execution_cohort_id") is not None:
+        value.update(
+            {
+                "execution_cohort_id": result.get("execution_cohort_id"),
+                "execution_lane_id": result.get("execution_lane_id"),
+            }
+        )
+    return value
 
 
 def audit(root: Path = ROOT) -> list[str]:
@@ -403,6 +451,14 @@ def audit(root: Path = ROOT) -> list[str]:
         for field in ("task_id", "publication_id", "claim_id", "researcher_id", "taskbook_blob_sha1", "execution_branch"):
             if item.get(field) != execution.get(field):
                 errors.append(f"{prefix}: execution-linked field mismatch: {field}")
+        execution_has_lane = execution.get("execution_cohort_id") is not None or execution.get("execution_lane_id") is not None
+        result_has_lane = item.get("execution_cohort_id") is not None or item.get("execution_lane_id") is not None
+        if execution_has_lane != result_has_lane:
+            errors.append(f"{prefix}: lane identity presence differs from execution record")
+        if execution_has_lane:
+            for field in ("execution_cohort_id", "execution_lane_id", "lane_output_prefix"):
+                if item.get(field) != execution.get(field):
+                    errors.append(f"{prefix}: execution-linked lane field mismatch: {field}")
         path_value = item.get("return_path")
         if not isinstance(path_value, str) or not (root / path_value).exists():
             errors.append(f"{prefix}: return artifact missing")
@@ -460,6 +516,14 @@ def audit(root: Path = ROOT) -> list[str]:
         for field in ("task_id", "publication_id", "execution_record_id"):
             if item.get(field) != result.get(field):
                 errors.append(f"{prefix}: result-linked field mismatch: {field}")
+        result_has_lane = result.get("execution_cohort_id") is not None or result.get("execution_lane_id") is not None
+        review_has_lane = item.get("execution_cohort_id") is not None or item.get("execution_lane_id") is not None
+        if result_has_lane != review_has_lane:
+            errors.append(f"{prefix}: lane identity presence differs from result record")
+        if result_has_lane:
+            for field in LANE_FIELDS:
+                if item.get(field) != result.get(field):
+                    errors.append(f"{prefix}: result-linked lane field mismatch: {field}")
         result_record_path = item.get("result_record_path")
         if not isinstance(result_record_path, str) or not (root / result_record_path).exists():
             errors.append(f"{prefix}: result record pin missing")
