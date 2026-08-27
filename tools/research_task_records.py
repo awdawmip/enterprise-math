@@ -11,9 +11,14 @@ fail-closed.
 """
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
-from control_plane import research_task_records_impl as _impl
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from control_plane import research_task_records_impl as _impl  # noqa: E402
 
 # Preserve the historical public/module surface for every existing consumer.
 for _name in dir(_impl):
