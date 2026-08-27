@@ -47,11 +47,11 @@
     },
     {
       "task_id": "RS-P022-OBSERVATION-HISTORY",
-      "canonical_publication_id": "TP2-D78DBA0243911E0363FA",
-      "operational_publication_id": "TP2-D78DBA0243911E0363FA",
+      "canonical_publication_id": "TP2-DE338F269CA11E9BC01B",
+      "operational_publication_id": "TP2-DE338F269CA11E9BC01B",
       "quarantined_publication_ids": [
         "TP2-2346F5D3E731ED56DB0A",
-        "TP2-DE338F269CA11E9BC01B"
+        "TP2-D78DBA0243911E0363FA"
       ],
       "retained_parallel_publication_ids": [
         "TP2-2346F5D3E731ED56DB0A",
@@ -59,16 +59,16 @@
         "TP2-DE338F269CA11E9BC01B"
       ],
       "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING_PENDING_SPLIT",
-      "reason": "Three generation-1 P022 replay publications were created under the same task_id with different parent-objective/frontier metadata. The only completed bounded theorem plus terminal Driver-review chain is pinned to TP2-D78DBA0243911E0363FA, so D78 is selected solely for current runtime continuity. TP2-2346F5D3E731ED56DB0A and TP2-DE338F269CA11E9BC01B remain retained parallel publications and are not mathematically rejected; any future continuation must split or explicitly synthesize those scopes rather than infer theorem priority from this binding.",
+      "reason": "Three generation-1 P022 replay publications were created under the same task_id with distinct scopes. TP2-D78DBA0243911E0363FA already has a completed bounded q<6r-1 theorem/review chain and is historical closure for that replay. TP2-DE338F269CA11E9BC01B now carries the current exact boundary-reduction result RR-8323CFDCB99F7832F51F and is selected solely as the operational review head so its pending Driver decision is not hidden. TP2-2346F5D3E731ED56DB0A remains retained parallel history. This binding grants no theorem priority across the three scopes.",
       "authority_role": "RESEARCH_DRIVER",
       "authority_id": "EM-DVR-499907",
-      "resolved_at": "2026-08-27T19:28:00+08:00",
-      "preserve_existing_claim": "chatgpt-p022-replay-20260827-1639",
+      "resolved_at": "2026-08-27T19:34:00+08:00",
+      "preserve_existing_claim": "chatgpt-p022oh-20260827-1639",
       "reference_process": {
         "passes_required": 2,
         "state": "NOT_RUN_FOR_RETAINED_PARALLEL_HEADS",
-        "current_binding_basis": "EXISTING_TERMINAL_REVIEW_CHAIN_ONLY",
-        "future_requirement": "SPLIT_TO_TYPED_TASKS_OR_RUN_EXPLICIT_PARALLEL_REFERENCE_PROCESS_BEFORE_ANY_MATHEMATICAL_MERGE"
+        "current_binding_basis": "LATEST_FORMAT_COMPLETE_PENDING_RESULT_WITH_PRIOR_BOUNDED_REPLAY_RETAINED",
+        "future_requirement": "SPLIT_TO_TYPED_TASKS_OR_RUN_EXPLICIT_PARALLEL_REFERENCE_PROCESS_BEFORE_ANY_CROSS_SCOPE_MATHEMATICAL_MERGE"
       },
       "working_truth_granted": false,
       "canonical_promotion_granted": false,
