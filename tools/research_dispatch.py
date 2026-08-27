@@ -639,6 +639,10 @@ def load_events(path: Path | None) -> list[dict[str, Any]]:
         if not all("body" in item and "id" in item and "user" in item for item in values):
             raise DispatchError("do not mix GitHub comment objects with bare scheduler events")
         return events_from_github_comments(values)
+    if any(GITHUB_META_KEY in item for item in values):
+        raise DispatchError(
+            "normalized GitHub event envelopes are internal-only; provide raw Issue #240 comment objects"
+        )
     # Explicit compatibility path for frozen historical replay and pure unit tests.
     return research_scheduler.load_events(path)
 
