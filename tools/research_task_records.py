@@ -16,15 +16,16 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
-try:
-    from control_plane import research_task_records_impl as _core
-    from tools import research_taskbook
-except ModuleNotFoundError:
-    import research_task_records_impl as _core  # type: ignore
-    import research_taskbook  # type: ignore
+_BOOT_ROOT = Path(__file__).resolve().parents[1]
+if str(_BOOT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_BOOT_ROOT))
+
+from control_plane import research_task_records_impl as _core  # noqa: E402
+from tools import research_taskbook  # noqa: E402
 
 # Preserve the historical public API, including helper names used by tests and
 # downstream runtime modules. Only audit semantics are wrapped below.
