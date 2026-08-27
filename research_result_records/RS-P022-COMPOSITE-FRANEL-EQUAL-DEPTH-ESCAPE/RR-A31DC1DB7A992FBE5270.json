@@ -1,0 +1,43 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-A31DC1DB7A992FBE5270",
+  "task_id": "RS-P022-COMPOSITE-FRANEL-EQUAL-DEPTH-ESCAPE",
+  "publication_id": "TP2-E4537008BB8B0CCFF88F",
+  "researcher_id": "EM-P022CE-84B7D1",
+  "claim_id": "chatgpt-p022ce-20260827-2237",
+  "execution_record": "research_execution_records/RS-P022-COMPOSITE-FRANEL-EQUAL-DEPTH-ESCAPE/ER-AC93F8CD6C21F4FCE22D.json",
+  "execution_record_blob_sha": "fb8b1ddb38f2b48c93071d034348d78bbc6668ab",
+  "return_path": "research_returns/P022_COMPOSITE_FRANEL_EQUAL_DEPTH_ESCAPE_RETURN_20260827.md",
+  "return_blob_sha": "ebe7d55cbd15e251d121ce5ea397142363b48e49",
+  "artifact_path": "research_artifacts/P022_COMPOSITE_FRANEL_EQUAL_DEPTH_ESCAPE/equal_depth_reduction.json",
+  "artifact_blob_sha": "f7a64bae644646db27c47813aa11693335137fce",
+  "proof_family": "P022_COMPOSITE_FRANEL_EQUAL_DEPTH_ESCAPE",
+  "hard_target": "P022_COMPOSITE_FRANEL_EQUAL_DEPTH_ESCAPE_CLOSED_OR_MINIMAL_EXCEPTION_FROZEN",
+  "disposition": "MINIMAL_EXACT_EXCEPTION_FROZEN",
+  "closed": true,
+  "terminal_class": "MINIMAL_EXACT_EXCEPTION_FROZEN",
+  "minimal_exception": {
+    "sector": "q prime, q=6k-1, q mod 24 in {5,23}",
+    "congruence": "q divides K_k with k=(q+1)/6",
+    "recurrence": "K_0=0, K_1=1, K_(d+1)=(28*d^2+1)K_d+8(2*d-1)^4K_(d-1)",
+    "bridge": "q divides F_(2k-1) iff q divides K_k",
+    "owner_status": "No universal nonvanishing theorem or admissible counterexample is known in the frozen owner lineage."
+  },
+  "first_jet": {
+    "midpoint": "alpha_q=F_m/q == C_q-(3/2)U_q (mod q)",
+    "third_index": "J_q=E_k*alpha_q+(g_q+H_k)u_q (mod q)",
+    "depth_one_equal": "alpha_q != 0 and J_q != 0",
+    "first_jet_separates": "exactly one of alpha_q,J_q is zero",
+    "second_jet_required": "alpha_q=J_q=0"
+  },
+  "regression_check": {
+    "checker_path": "scripts/check_p022_composite_franel_equal_depth_escape.py",
+    "checker_blob_sha": "fa7d0cd6e571f9c6310cbfd79baabc92f3aa72de",
+    "exact_algebra": "PASS",
+    "midpoint_q2_packets": "PASS (16 target-sector primes < 300)",
+    "finite_diagnostic": "PASS (564 target-sector primes < 20000; q|K_k witnesses=0)",
+    "finite_diagnostic_is_proof": false
+  },
+  "owner_integration_note": "Universal composite-defect row visibility is proved outside the exact exceptional set E_K={q prime: q mod 24 in {5,23}, q | K_((q+1)/6)}. The owner should either discharge this integer-recurrence congruence or carry E_K explicitly. If an admissible member exists, the frozen first-jet packet decides the depth-one layer and only alpha_q=J_q=0 needs a second jet.",
+  "result_note": "The research task is terminal under its published hard target because the formerly vague equality-of-positive-valuations escape has been reduced to a named minimal exact congruence and its first p-adic correction has been computed without a cutoff-only argument or an independence assumption."
+}
