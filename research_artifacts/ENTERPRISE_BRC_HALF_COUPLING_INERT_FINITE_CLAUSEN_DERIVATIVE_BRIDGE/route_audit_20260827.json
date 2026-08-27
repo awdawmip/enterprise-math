@@ -1,0 +1,36 @@
+{
+  "schema": "ENTERPRISE_BRC_HALF_COUPLING_INERT_FINITE_CLAUSEN_ROUTE_AUDIT_V1",
+  "primary_verdict": "PROOF_NOT_CLOSED",
+  "exact_advances": [
+    "S_p = G_p H_p - T_p exact finite identity",
+    "p=6m+1 exact B valuation blocks 0/1/2 and tail support collapses to low×top",
+    "p=6m+1 exact reflected B_{p-r}/p^2 formula and T_p=p^2 R_p mod p^3",
+    "p=6m+5 exact B valuation blocks 0/1/2 and surviving tail blocks 00,01,02,11",
+    "p=6m+5 valuation-only finite-tail disposal exactly obstructed"
+  ],
+  "routes": [
+    {
+      "route": "FINITE_CLAUSEN_REFLECTION",
+      "status": "STRICTLY_NARROWED_NOT_CLOSED",
+      "smallest_plus_lemma": "G_p H_p = p + p^2 R_p mod p^3 for p≡13,19 mod24",
+      "smallest_minus_lemma": "prove cancellation and first two p-adic digits of 00/01/02/11 blocks for p≡17,23 mod24"
+    },
+    {
+      "route": "PADIC_TRANSFORMATION_GAMMA",
+      "status": "PRECISION_GAP",
+      "source": "Mao–Pan arXiv:1703.01215",
+      "audited_precision": "mod p^2 truncated transformations",
+      "required_precision": "derivative-weighted mod p^3 with finite tail"
+    },
+    {
+      "route": "DIRECT_GOSPER_WZ",
+      "status": "NAIVE_ONE_DIMENSIONAL_SUBROUTE_NO_CERTIFICATE",
+      "scope_note": "does not exclude auxiliary-parameter or higher-dimensional WZ deformation"
+    }
+  ],
+  "related_2026_literature": {
+    "source": "Alex Shvets, arXiv:2605.19773",
+    "classification": "same mixed (1/6,1/3;1) backbone, different cubic coefficient target; split theorem plus inert Cartier obstruction; not used to prove S_p"
+  },
+  "target_status": "UNPROVED_UNREFUTED"
+}
