@@ -2,11 +2,13 @@
 """Repository-backed authorization guard for the Enterprise Math runtime.
 
 The historical tools/research_runtime.py remains the pure liveness/terminal
-primitive. This wrapper is canonical because it authenticates TASK_REGISTRATION
-against immutable task records or the frozen legacy baseline before delegating.
-For post-cutover registered execution it also reconstructs the winning live CLAIM
-from the canonical server-authenticated and actor-authorized Issue #240 event
-stream; task registration alone is never execution authorization.
+primitive. This wrapper authenticates TASK_REGISTRATION against repository
+state and reconstructs execution authority from GitHub Issue #240.
+
+Ordinary registered tasks use one authorized winning task-level CLAIM. Optional
+parallel execution cohorts switch owner authority to exact
+``task + execution_cohort_id + execution_lane_id`` fibers: sibling lanes may run
+concurrently, while a task-global owner cannot bypass an active cohort.
 """
 from __future__ import annotations
 
@@ -17,15 +19,19 @@ from pathlib import Path
 from typing import Any, Mapping
 
 try:
+    from tools import research_cohort_runtime
     from tools import research_dispatch
     from tools import research_execution_records
+    from tools import research_lane_claims
     from tools import research_result_records
     from tools import research_runtime
     from tools import research_scheduler
     from tools import research_task_records
 except ModuleNotFoundError:
+    import research_cohort_runtime  # type: ignore
     import research_dispatch  # type: ignore
     import research_execution_records  # type: ignore
+    import research_lane_claims  # type: ignore
     import research_result_records  # type: ignore
     import research_runtime  # type: ignore
     import research_scheduler  # type: ignore
@@ -51,6 +57,60 @@ def legacy_task_ids(root: Path = ROOT) -> set[str]:
     }
 
 
+def _execution_scope(state: Mapping[str, Any]) -> dict[str, str] | None:
+    raw = state.get("execution_scope")
+    if raw is None:
+        return None
+    if not isinstance(raw, Mapping):
+        raise RuntimeAuthorizationError("execution_scope must be an object")
+    cohort_id = raw.get("execution_cohort_id")
+    lane_id = raw.get("execution_lane_id")
+    cohort = cohort_id.strip() if isinstance(cohort_id, str) and cohort_id.strip() else None
+    lane = lane_id.strip() if isinstance(lane_id, str) and lane_id.strip() else None
+    if cohort is None and lane is None and not raw:
+        return None
+    if cohort is None or lane is None:
+        raise RuntimeAuthorizationError(
+            "execution_scope requires both execution_cohort_id and execution_lane_id"
+        )
+    return {"execution_cohort_id": cohort, "execution_lane_id": lane}
+
+
+def _active_cohort_ids(task_id: str, root: Path) -> list[str]:
+    try:
+        return [
+            str(item["cohort_id"])
+            for item in research_cohort_runtime.active_cohorts(task_id, root)
+        ]
+    except Exception as exc:
+        raise RuntimeAuthorizationError(f"cannot resolve active execution cohorts: {exc}") from exc
+
+
+def _lane_registration(
+    task_id: str, scope: Mapping[str, str], root: Path
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    try:
+        lane = research_lane_claims.lane_scope(
+            task_id,
+            scope["execution_cohort_id"],
+            scope["execution_lane_id"],
+            root,
+        )
+        cohort_state = research_cohort_runtime.cohort_state(
+            task_id, scope["execution_cohort_id"], root
+        )
+    except Exception as exc:
+        raise RuntimeAuthorizationError(f"invalid execution lane scope: {exc}") from exc
+    if cohort_state.get("terminal") is True:
+        raise RuntimeAuthorizationError(
+            "execution cohort is terminal after exact two-pass synthesis"
+        )
+    record = lane.get("publication_record")
+    if not isinstance(record, dict):
+        raise RuntimeAuthorizationError("execution lane has no immutable publication record")
+    return record, cohort_state
+
+
 def canonicalize_registration(
     state: Mapping[str, Any], *, purpose: str, root: Path = ROOT
 ) -> dict[str, Any]:
@@ -60,6 +120,7 @@ def canonicalize_registration(
     task_id = task.get("task_id")
     if not isinstance(task_id, str) or not task_id:
         raise RuntimeAuthorizationError("task.task_id is required")
+    scope = _execution_scope(state)
 
     try:
         current = research_task_records.current_records(root)
@@ -71,19 +132,42 @@ def canonicalize_registration(
     updated = copy.deepcopy(dict(state))
     if task_id in current:
         record = current[task_id]
+        cohort_state = None
+        if purpose in {"execution", "adopt"}:
+            active_ids = _active_cohort_ids(task_id, root)
+            if active_ids:
+                if scope is None:
+                    raise RuntimeAuthorizationError(
+                        "active execution cohort requires exact lane execution_scope"
+                    )
+                if scope["execution_cohort_id"] not in active_ids:
+                    raise RuntimeAuthorizationError(
+                        "execution_scope does not reference an ACTIVE cohort for task"
+                    )
+                record, cohort_state = _lane_registration(task_id, scope, root)
+            elif scope is not None:
+                raise RuntimeAuthorizationError(
+                    "execution_scope supplied but task has no ACTIVE execution cohort"
+                )
+
         if record.get("claimable") is not True and purpose in {"execution", "adopt"}:
-            raise RuntimeAuthorizationError("registered task is not execution-eligible")
+            raise RuntimeAuthorizationError("registered task publication is not execution-eligible")
         if record.get("record_state", "ACTIVE") != "ACTIVE" and purpose in {"execution", "adopt"}:
             raise RuntimeAuthorizationError("registered task publication generation is not ACTIVE")
-        result_state = research_result_records.task_result_state(task_id, root)
-        if (
-            purpose in {"execution", "adopt"}
-            and result_state is not None
-            and result_state.get("state") in {"AWAITING_DRIVER_REVIEW", "TERMINAL"}
-        ):
-            raise RuntimeAuthorizationError(
-                f"task execution is closed by result state {result_state.get('state')}"
-            )
+
+        # A deliberate ACTIVE cohort is its own execution-control lifecycle.
+        # Do not let an older task-global result close sibling replication/audit
+        # lanes; cohort terminalization is controlled only by cohort synthesis.
+        if purpose in {"execution", "adopt"} and scope is None:
+            result_state = research_result_records.task_result_state(task_id, root)
+            if (
+                result_state is not None
+                and result_state.get("state") in {"AWAITING_DRIVER_REVIEW", "TERMINAL"}
+            ):
+                raise RuntimeAuthorizationError(
+                    f"task execution is closed by result state {result_state.get('state')}"
+                )
+
         updated["task_registration"] = {
             "state": "IMMUTABLE_REGISTERED",
             "registry_key": task_id,
@@ -91,8 +175,15 @@ def canonicalize_registration(
             "record_path": record.get("_record_path"),
             "claimable": record.get("claimable"),
         }
+        if scope is not None and purpose in {"execution", "adopt"}:
+            updated["task_registration"]["execution_scope"] = dict(scope)
+            updated["task_registration"]["cohort_state"] = cohort_state
         return updated
 
+    if scope is not None:
+        raise RuntimeAuthorizationError(
+            "execution cohorts require an immutable registered task"
+        )
     if task_id in legacy_task_ids(root):
         supplied = state.get("task_registration")
         fresh = isinstance(supplied, Mapping) and supplied.get("fresh_redispatch") is True
@@ -138,13 +229,7 @@ def canonical_live_claim_binding(
     now,
     root: Path = ROOT,
 ) -> dict[str, Any]:
-    """Return the exact currently winning registered CLAIM or fail closed.
-
-    Events must pass the same GitHub server-envelope, control-actor authorization,
-    publication, and execution-envelope filters used by canonical dispatch. The
-    reducer then decides the live owner race and lease state. No caller-supplied
-    owner_claim object can substitute for this reconstruction.
-    """
+    """Return the exact currently winning non-cohort CLAIM or fail closed."""
     task = _registered_definition(task_id, root)
     authenticated, _ = research_dispatch._event_authentication_filter(task, events)
     filtered, _ = research_dispatch._filter_registered_events(task, authenticated, root)
@@ -160,7 +245,6 @@ def canonical_live_claim_binding(
             "registered execution requires a current winning live Issue #240 CLAIM"
         )
 
-    matching = [event for event in filtered if event.get("task_id") == task_id]
     ignored = {
         item.get("index")
         for item in reduced.get("ignored_events", [])
@@ -168,14 +252,17 @@ def canonical_live_claim_binding(
     }
     accepted_claims = [
         event
-        for index, event in enumerate(matching)
+        for index, event in enumerate(filtered)
         if index not in ignored
+        and event.get("task_id") == task_id
         and event.get("event") == "CLAIM"
         and event.get("claim_id") == reduced.get("claim_id")
     ]
-    if not accepted_claims:
-        raise RuntimeAuthorizationError("live owner state has no accepted CLAIM provenance")
-    claim = accepted_claims[-1]
+    if len(accepted_claims) != 1:
+        raise RuntimeAuthorizationError(
+            "live owner state has no unique accepted CLAIM provenance"
+        )
+    claim = accepted_claims[0]
     claim_id = str(reduced["claim_id"])
 
     try:
@@ -240,6 +327,29 @@ def canonical_live_claim_binding(
     return binding
 
 
+def _binding_for_scope(
+    task_id: str,
+    scope: dict[str, str] | None,
+    events: list[dict[str, Any]],
+    *,
+    now,
+    root: Path,
+) -> dict[str, Any]:
+    if scope is None:
+        return canonical_live_claim_binding(task_id, events, now=now, root=root)
+    try:
+        return research_lane_claims.winning_lane_claim_binding(
+            task_id,
+            scope["execution_cohort_id"],
+            scope["execution_lane_id"],
+            events,
+            now=now,
+            root=root,
+        )
+    except Exception as exc:
+        raise RuntimeAuthorizationError(f"lane execution authorization failed: {exc}") from exc
+
+
 def _reconcile_caller_owner_claim(
     state: Mapping[str, Any], binding: Mapping[str, Any]
 ) -> None:
@@ -249,6 +359,8 @@ def _reconcile_caller_owner_claim(
     for caller_field, binding_field in (
         ("claim_id", "claim_id"),
         ("researcher_id", "researcher_id"),
+        ("execution_cohort_id", "execution_cohort_id"),
+        ("execution_lane_id", "execution_lane_id"),
     ):
         value = supplied.get(caller_field)
         if value not in (None, "") and value != binding.get(binding_field):
@@ -258,13 +370,17 @@ def _reconcile_caller_owner_claim(
 
 
 def _canonical_owner_claim(binding: Mapping[str, Any]) -> dict[str, Any]:
-    return {
+    value = {
         "claim_id": binding.get("claim_id"),
         "researcher_id": binding.get("researcher_id"),
         "owner_lease_until": binding.get("owner_lease_until"),
         "server_comment_id": binding.get("server_comment_id"),
         "server_author_login": binding.get("server_author_login"),
     }
+    if binding.get("execution_cohort_id") is not None:
+        value["execution_cohort_id"] = binding.get("execution_cohort_id")
+        value["execution_lane_id"] = binding.get("execution_lane_id")
+    return value
 
 
 def _delegate_safe_state(
@@ -313,8 +429,9 @@ def adopt_stale_session(
             raise RuntimeAuthorizationError(
                 "registered stale adoption requires canonical Issue #240 event evidence"
             )
-        binding = canonical_live_claim_binding(
-            safe["task"]["task_id"], events, now=now, root=root
+        scope = _execution_scope(state)
+        binding = _binding_for_scope(
+            safe["task"]["task_id"], scope, events, now=now, root=root
         )
         _reconcile_caller_owner_claim(state, binding)
         safe["owner_claim"] = _canonical_owner_claim(binding)
@@ -343,7 +460,10 @@ def authorize_execution(
                 "registered execution requires canonical Issue #240 event evidence"
             )
         resolved_now = now if now is not None else research_scheduler.now_utc(None)
-        binding = canonical_live_claim_binding(task_id, events, now=resolved_now, root=root)
+        scope = _execution_scope(state)
+        binding = _binding_for_scope(
+            task_id, scope, events, now=resolved_now, root=root
+        )
         _reconcile_caller_owner_claim(state, binding)
         return {
             "authorized": True,
@@ -351,7 +471,11 @@ def authorize_execution(
             "task_registration": safe["task_registration"],
             "owner_claim": _canonical_owner_claim(binding),
             "execution_binding": binding,
-            "authorization_authority": "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM",
+            "authorization_authority": (
+                "CURRENT_AUTHORIZED_WINNING_ISSUE_240_LANE_CLAIM"
+                if scope is not None
+                else "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM"
+            ),
         }
     return {
         "authorized": True,
