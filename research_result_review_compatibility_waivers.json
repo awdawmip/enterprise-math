@@ -1,0 +1,25 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_REVIEW_COMPATIBILITY_WAIVERS_V1",
+  "status": "ACTIVE",
+  "purpose": "Permit exact immutable-record compatibility for a frozen Driver-review record whose destination_class used a noncanonical legacy alias. A waiver may suppress only the enumerated invalid-destination-class error for one exact review record/blob and may not suppress result linkage, digests, review artifact drift, disposition, terminality, lane identity, or any other result/review audit error.",
+  "waivers": [
+    {
+      "waiver_id": "RRCW-PCF1-RETURN-ONLY-20260827",
+      "review_id": "DR-78A3B92E2016DF7AB1D3",
+      "result_id": "RR-B8D8679EB033E990E825",
+      "task_id": "RS-PRIME-COORD-FACTOR-INFORMATION-LEAKAGE-AUDIT",
+      "publication_id": "TP2-FFE7E8757053C4F4030A",
+      "review_record_path": "research_result_reviews/RR-B8D8679EB033E990E825/DR-78A3B92E2016DF7AB1D3.json",
+      "review_record_blob_sha1": "sha1:264bb17f7d346c9506d134dfbbd19162e00b9eaf",
+      "stored_destination_class": "RETURN_ONLY",
+      "compatibility_destination_class": "NONE",
+      "required_destination_ref_or_none": null,
+      "scope": "DESTINATION_CLASS_ALIAS_ONLY",
+      "reason": "The frozen review used RETURN_ONLY to mean that the accepted result itself is terminal and has no destination artifact. Current canonical review schema calls that state NONE. The immutable record must not be rewritten, so this waiver recognizes only this exact review/blob and only this exact field alias; it creates no new destination class and grants no downstream authority.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}
