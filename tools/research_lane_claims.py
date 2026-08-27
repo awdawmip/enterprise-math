@@ -227,7 +227,6 @@ def winning_lane_claim_binding(
         lane_id=lane_id,
     )
     authenticated, _ = research_dispatch._event_authentication_filter(task, projected)
-    valid_claims: list[dict[str, Any]] = []
     reducer_events: list[dict[str, Any]] = []
     for event in authenticated:
         if event.get("event") == "CLAIM":
@@ -240,7 +239,6 @@ def winning_lane_claim_binding(
                 continue
             normalized["execution_cohort_id"] = cohort_id
             normalized["execution_lane_id"] = lane_id
-            valid_claims.append(normalized)
             reducer_events.append(normalized)
         else:
             reducer_events.append(event)
@@ -253,10 +251,21 @@ def winning_lane_claim_binding(
     claim_id = reduced.get("claim_id")
     if reduced.get("dispatch_state") != "LEASED" or not isinstance(claim_id, str):
         raise LaneClaimError("execution lane requires a current winning live CLAIM")
-    matches = [event for event in valid_claims if event.get("claim_id") == claim_id]
-    if not matches:
-        raise LaneClaimError("lane owner state has no accepted CLAIM provenance")
-    claim = matches[-1]
+    ignored = {
+        row.get("index")
+        for row in reduced.get("ignored_events", [])
+        if isinstance(row, dict) and type(row.get("index")) is int
+    }
+    matches = [
+        event
+        for index, event in enumerate(reducer_events)
+        if index not in ignored
+        and event.get("event") == "CLAIM"
+        and event.get("claim_id") == claim_id
+    ]
+    if len(matches) != 1:
+        raise LaneClaimError("lane owner state has no unique accepted CLAIM provenance")
+    claim = matches[0]
     meta = claim.get(research_dispatch.GITHUB_META_KEY)
     if not isinstance(meta, Mapping) or meta.get("control_authorized") is not True:
         raise LaneClaimError("winning lane CLAIM lacks authorized GitHub control provenance")
