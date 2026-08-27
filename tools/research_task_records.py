@@ -33,7 +33,13 @@ for _name in dir(_core):
     if not _name.startswith("__"):
         globals()[_name] = getattr(_core, _name)
 
-_STRICT_AUDIT = _core.audit
+# Pin the byte-identical implementation audit once. The facade can be imported
+# both as tools.research_task_records and as bare research_task_records by
+# historical CLI entrypoints; neither path may wrap an already-wrapped audit.
+if "_immutable_history_original_audit" not in _core.__dict__:
+    _core.__dict__["_immutable_history_original_audit"] = _core.audit
+_STRICT_AUDIT = _core.__dict__["_immutable_history_original_audit"]
+
 ROOT = _core.ROOT
 COMPATIBILITY_FILE = "research_task_record_compatibility_waivers.json"
 COMPATIBILITY_SCHEMA = "ENTERPRISE_MATH_TASK_RECORD_COMPATIBILITY_WAIVERS_V1"
@@ -263,13 +269,15 @@ def audit(root: Path = ROOT) -> list[str]:
     return errors
 
 
-# Core commands resolve their global ``audit`` at call time, so publication and
-# CLI paths automatically consume the same compatibility boundary as imports.
-_core.audit = audit
-
-
 def main() -> int:
-    return _core.main()
+    # The strict CLI resolves its global audit function dynamically. Patch only
+    # for the duration of this call so duplicate facade imports never stack.
+    previous = _core.audit
+    _core.audit = audit
+    try:
+        return _core.main()
+    finally:
+        _core.audit = previous
 
 
 if __name__ == "__main__":
