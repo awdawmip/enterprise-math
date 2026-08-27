@@ -12,7 +12,7 @@ Researcher-ID: `EM-PCF4R-D74517`
 
 Claim-ID: `chatgpt-pcf4r-20260827-1927`
 
-Execution record: `ER-6D2FA59F8E8D388A5F8D`
+Execution record: `ER-85F5DF86C52A676ADAD0`
 
 ## 1. Frozen verdict
 
@@ -525,7 +525,7 @@ Durable return:
 
 Execution provenance:
 
-`research_execution_records/RS-PRIME-COORD-FACTOR-NONLY-VALUATION-WALL-GCD-EXTRACTOR-INDEPENDENT-REPLAY/ER-6D2FA59F8E8D388A5F8D.json`
+`research_execution_records/RS-PRIME-COORD-FACTOR-NONLY-VALUATION-WALL-GCD-EXTRACTOR-INDEPENDENT-REPLAY/ER-85F5DF86C52A676ADAD0.json`
 
 ## 13. Residue and Driver recommendation
 
