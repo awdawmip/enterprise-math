@@ -2,13 +2,16 @@
   "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_CONTRACT_V1",
   "status": "ACTIVE_CANONICAL_CANDIDATE_V1_3",
   "effective": "2026-08-27",
-  "cutover_reviewed_at": "2026-08-27T09:19:00+00:00",
-  "user_direction": "EVERY_POST_CUTOVER_DRIVER_REVIEW_MUST_MATERIALIZE_NEXT_TASKBOOK_OR_TASKSET_UNLESS_CANONICAL_PARENT_OBJECTIVE_IS_ALREADY_CLOSED",
-  "tool": "research_driver_followup.py",
+  "user_direction": "EVERY_NEW_DRIVER_REVIEW_MUST_MATERIALIZE_NEXT_TASKBOOK_OR_TASKSET_UNLESS_CANONICAL_PARENT_OBJECTIVE_IS_ALREADY_CLOSED",
+  "canonical_guard": "research_driver_followup_guard.py",
+  "storage_materialization_primitive": "research_driver_followup.py",
+  "legacy_review_baseline": "research_driver_followup_legacy_reviews.json",
+  "legacy_baseline_frozen_base": "00c3c8143ca38410df7ed0de64158a3d33e3c67b",
+  "legacy_baseline_review_tree": "41a57a0c838d944ac61908fcdb200d425ef89b18",
   "packet_store": "research_driver_followups/<review-id>/<packet-id>.json",
   "task_publication_authority": "research_task_records/<task-id>/<publication-id>.json",
   "result_review_authority": "research_result_reviews/<result-id>/<review-id>.json",
-  "purpose": "Prevent Driver-review stalls by making the review-to-next-work transition repository-derived and fail-closed. A governed review cannot terminalize ordinary or parallel runtime authority until a valid automatic follow-up taskset is immutably published, or the current parent Objective is already canonically CLOSED.",
+  "purpose": "Prevent Driver-review stalls by making the review-to-next-work transition repository-derived and fail-closed. Any review ID not frozen in the exact legacy baseline cannot terminalize ordinary or parallel runtime authority until a valid automatic follow-up taskset is immutably published, or the current parent Objective is already canonically CLOSED.",
   "decisions": [
     "TASK_SET_PUBLISHED",
     "PARENT_OBJECTIVE_CLOSURE"
@@ -39,7 +42,9 @@
   ],
   "core_invariants": [
     "DRIVER_REVIEW_IS_A_SEMANTIC_CHECKPOINT_NOT_A_CONTROL_LOOP_STOP",
-    "POST_CUTOVER_DRIVER_REVIEW_REQUIRES_EXACTLY_ONE_FOLLOWUP_PACKET",
+    "LEGACY_EXEMPTION_IS_EXACT_FROZEN_REVIEW_ID_MEMBERSHIP_NOT_REVIEWED_AT",
+    "NEW_REVIEW_CANNOT_BACKDATE_ITSELF_INTO_LEGACY_COMPATIBILITY",
+    "EVERY_NONLEGACY_DRIVER_REVIEW_REQUIRES_EXACTLY_ONE_FOLLOWUP_PACKET",
     "TASK_SET_PUBLISHED_REQUIRES_ONE_OR_MORE_IMMUTABLE_POST_REVIEW_TASK_PUBLICATIONS",
     "PARENT_OBJECTIVE_CLOSURE_IS_THE_ONLY_ZERO_TASK_EXCEPTION",
     "ZERO_TASK_EXCEPTION_REQUIRES_CURRENT_CANONICAL_PARENT_OBJECTIVE_HEAD_CLOSED",
@@ -104,11 +109,11 @@
     "governed_review_without_valid_followup": "AWAITING_DRIVER_REVIEW / AWAITING_FOLLOWUP_TASKSET_PUBLICATION",
     "governed_terminal_review_with_valid_followup": "TERMINAL_AT_TASK_SCOPE_THEN_REEVALUATE_PARENT",
     "governed_nonterminal_review_with_valid_followup": "RETURN_TO_EXECUTION_OR_NEW_GENERATION_AS_PUBLISHED",
-    "legacy_pre_cutover_review": "UNCHANGED_COMPATIBILITY_REDUCTION"
+    "legacy_baseline_review": "UNCHANGED_COMPATIBILITY_REDUCTION"
   },
   "automatic_materialization": {
-    "command": "python research_driver_followup.py materialize --review-id <DR-...> --spec <json>",
-    "transaction": "preflight all gate/task specifications; publish the follow-up taskbook(s) and immutable publication record(s); then create one immutable review follow-up packet",
+    "command": "python research_driver_followup_guard.py materialize --review-id <DR-or-RV-id> --spec <json>",
+    "transaction": "guard legacy identity; preflight all gate/task specifications; publish the follow-up taskbook(s) and immutable publication record(s); then create one immutable review follow-up packet",
     "failure_semantics": "fail closed; the review remains nonterminal until a valid packet exists. Any already-created partial publication remains immutable evidence and is never silently rolled back.",
     "publisher_role": "RESEARCH_DRIVER",
     "parent_objective_rule": "all follow-up task publications keep the reviewed source task parent_objective_id",
@@ -120,8 +125,11 @@
     "parent_closed_behavior": "do not manufacture meaningless successors; use PARENT_OBJECTIVE_CLOSURE after canonical Objective closure"
   },
   "historical_compatibility": {
-    "pre_cutover_reviews": "retained unchanged and do not require retroactive packets",
-    "cutover_basis": "reviewed_at >= 2026-08-27T09:19:00+00:00",
-    "future_hardening": "source-backed active Driver authorization should replace timestamp-only compatibility classification when that control slice becomes canonical"
+    "baseline": "research_driver_followup_legacy_reviews.json",
+    "frozen_legacy_review_count": 12,
+    "cutover_basis": "review_id NOT IN exact frozen legacy baseline",
+    "reviewed_at_is_cutover_authority": false,
+    "backdating_can_create_legacy_exemption": false,
+    "future_hardening": "source-backed active Driver authorization remains a separate independent hardening layer; it must not weaken this frozen-ID cutover"
   }
 }
