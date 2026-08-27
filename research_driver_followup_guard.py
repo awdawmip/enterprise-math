@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Canonical guard for Driver-review automatic follow-up.
 
-`research_driver_followup.py` contains the storage/materialization primitive.  This
-guard owns the cutover authority.  Legacy compatibility is an exact immutable
-review-ID baseline pinned to the pre-policy repository tree; `reviewed_at` is
-never allowed to self-declare legacy status.
+`research_driver_followup.py` contains the storage/materialization primitive. This
+guard owns cutover authority and compatibility extensions. Legacy compatibility
+is an exact immutable review-ID baseline pinned to the pre-policy repository
+tree; `reviewed_at` is never allowed to self-declare legacy status.
+
+The guard also recognizes `SATISFIED_BY_EXISTING_CONTROL_ASSET`: a required
+follow-up dimension may already have been materialized by a concurrent Driver or
+parallel research route. Exact evidence refs are mandatory, so automatic
+continuation does not create duplicate tasks merely to satisfy the barrier.
 """
 from __future__ import annotations
 
@@ -20,6 +25,7 @@ BASELINE_PATH = ROOT / "research_driver_followup_legacy_reviews.json"
 BASELINE_SCHEMA = "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_LEGACY_BASELINE_V1"
 FROZEN_BASE = "00c3c8143ca38410df7ed0de64158a3d33e3c67b"
 FROZEN_REVIEW_TREE = "41a57a0c838d944ac61908fcdb200d425ef89b18"
+EXISTING_ASSET_DECISION = "SATISFIED_BY_EXISTING_CONTROL_ASSET"
 
 DriverFollowupError = _impl.DriverFollowupError
 GATES = _impl.GATES
@@ -45,7 +51,9 @@ def _load_baseline(root: Path = ROOT) -> dict[str, Any]:
         or any(not isinstance(item, str) or not item.strip() for item in ids)
         or len(ids) != len(set(ids))
     ):
-        raise DriverFollowupError("Driver follow-up legacy review_ids must be a nonempty unique string list")
+        raise DriverFollowupError(
+            "Driver follow-up legacy review_ids must be a nonempty unique string list"
+        )
     return value
 
 
@@ -56,18 +64,56 @@ def legacy_review_ids(root: Path = ROOT) -> frozenset[str]:
 def review_requires_followup(review: dict[str, Any], root: Path = ROOT) -> bool:
     review_id = review.get("review_id")
     if not isinstance(review_id, str) or not review_id.strip():
-        # Missing identity can never gain a compatibility exemption.
         return True
     return review_id.strip() not in legacy_review_ids(root)
 
 
 def _bind_guard(root: Path = ROOT) -> None:
-    """Replace the implementation primitive's time-based classifier in-process."""
+    """Install canonical cutover and no-duplicate gate semantics in-process."""
 
     def _guarded(review: dict[str, Any]) -> bool:
         return review_requires_followup(review, root)
 
+    original_gate_map = getattr(_impl, "_guard_original_gate_map", _impl._gate_map)
+    original_forced = getattr(_impl, "_guard_original_forced_rules", _impl._forced_gate_rules)
+    _impl._guard_original_gate_map = original_gate_map
+    _impl._guard_original_forced_rules = original_forced
+    _impl.GATE_DECISIONS.add(EXISTING_ASSET_DECISION)
+
+    def _guarded_gate_map(value: Any) -> dict[str, dict[str, Any]]:
+        out = original_gate_map(value)
+        for gate, row in out.items():
+            if row.get("decision") == EXISTING_ASSET_DECISION and not row.get("evidence_refs"):
+                raise DriverFollowupError(
+                    f"{gate}: {EXISTING_ASSET_DECISION} requires evidence_refs"
+                )
+        return out
+
+    def _guarded_forced_rules(
+        review: dict[str, Any], result: dict[str, Any], gates: dict[str, dict[str, Any]]
+    ) -> None:
+        # Preserve every original rule except the replication branch, where an
+        # already-published independent replication task/route is a valid
+        # no-duplicate satisfaction state.
+        if review.get("disposition") == "REQUEST_REPLICATION":
+            shadow = dict(review)
+            if gates["INDEPENDENT_REPLICATION"]["decision"] == EXISTING_ASSET_DECISION:
+                shadow["disposition"] = "RETURN_TO_OWNER"
+            original_forced(shadow, result, gates)
+            if gates["INDEPENDENT_REPLICATION"]["decision"] not in {
+                "REQUIRED",
+                EXISTING_ASSET_DECISION,
+            }:
+                raise DriverFollowupError(
+                    "REQUEST_REPLICATION requires a new or already-materialized "
+                    "INDEPENDENT_REPLICATION control asset"
+                )
+            return
+        original_forced(review, result, gates)
+
     _impl.review_requires_followup = _guarded
+    _impl._gate_map = _guarded_gate_map
+    _impl._forced_gate_rules = _guarded_forced_rules
 
 
 def baseline_audit(root: Path = ROOT) -> list[str]:
@@ -82,7 +128,9 @@ def baseline_audit(root: Path = ROOT) -> list[str]:
         return [f"cannot enumerate current Driver reviews: {exc}"]
     missing = sorted(baseline - set(current))
     if missing:
-        errors.append(f"legacy review baseline IDs missing from current immutable store: {missing}")
+        errors.append(
+            f"legacy review baseline IDs missing from current immutable store: {missing}"
+        )
     return errors
 
 
@@ -116,6 +164,12 @@ def materialize(
         created_at=created_at,
         root=root,
     )
+
+
+# Bind at import time so the canonical review CLI, which imports both the
+# primitive and this guard, sees exactly the same gate/cutover semantics during
+# preflight and during post-review materialization.
+_bind_guard(ROOT)
 
 
 def main() -> int:
@@ -153,7 +207,14 @@ def main() -> int:
         return 0
 
     if args.command == "state":
-        print(json.dumps(state_for_review(args.review_id, ROOT), ensure_ascii=False, indent=2, sort_keys=True))
+        print(
+            json.dumps(
+                state_for_review(args.review_id, ROOT),
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+        )
         return 0
 
     spec_path = Path(args.spec)
