@@ -1,0 +1,39 @@
+{
+  "schema": "ABC_ENTERPRISE_CARRY_ACTIVATION_SPECTRUM_CERTIFICATE_V1",
+  "task_id": "RS-ABC-ENTERPRISE-CARRY-ACTIVATION-SPECTRUM",
+  "publication_id": "TP2-216D433F311CA5D7AFAC",
+  "researcher_id": "EM-ABC2-1C96B2",
+  "definitions": {
+    "h_p(n)": "v_p(binomial(nc,na))-v_p(c)",
+    "tau_p": "min {n>=1 : h_p(n)>0}",
+    "E_p(W)": "sum_{1<=n<=W} h_p(n)"
+  },
+  "exact_obstruction_family": {
+    "parameters": "prime p, integer k>=1, P=p^k",
+    "triple": "(a,b,c)=(1,P-1,P)",
+    "identity": "h_p(n)=v_p(binomial(nP-1,n-1))",
+    "zero_prefix": "h_p(n)=0 for every 1<=n<=P",
+    "first_positive_value": "h_p(P+1)=k",
+    "first_activation": "tau_p=P+1=p^k+1",
+    "controlled_window_energy": "E_p(W)=0 for every W<=p^k"
+  },
+  "no_go_scope": {
+    "killed": "Any universal per-support-prime positive carry-payment assertion in a window W<=F(p) independent of v_p(c); in particular any fixed W<=p^A rule.",
+    "not_killed": [
+      "Windows permitted to scale at least like p^{v_p(c)}",
+      "Aggregate energy over other prime channels",
+      "Quantitative interior hypotheses that explicitly exclude the family"
+    ]
+  },
+  "regression": {
+    "method": "Legendre valuations only; finite computation is regression, not proof",
+    "family_cases": 20,
+    "parameters": "p in {2,3,5,7,11}, 1<=k<=4",
+    "all_pass": true,
+    "nonfamily_window64": [
+      {"triple":[32,49,81],"channels":[{"p":2,"tau":1,"energy":171,"max_h":7},{"p":3,"tau":4,"energy":70,"max_h":3},{"p":7,"tau":5,"energy":51,"max_h":2}]},
+      {"triple":[1024,1377,2401],"channels":[{"p":2,"tau":1,"energy":156,"max_h":7},{"p":3,"tau":1,"energy":169,"max_h":6},{"p":7,"tau":8,"energy":42,"max_h":2},{"p":17,"tau":1,"energy":86,"max_h":3}]},
+      {"triple":[625,2048,2673],"channels":[{"p":2,"tau":5,"energy":124,"max_h":6},{"p":3,"tau":1,"energy":125,"max_h":4},{"p":5,"tau":3,"energy":68,"max_h":3},{"p":11,"tau":1,"energy":114,"max_h":3}]}
+    ]
+  }
+}
