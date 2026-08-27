@@ -145,7 +145,7 @@ where equality of valuations is a second-order question. This is strictly smalle
 
 Task-local checker: `scripts/check_p022_composite_franel_equal_depth_escape.py`.
 
-It verifies the exact midpoint mod-`p^2` expansion, the quotient formula, and the paired form for all target-sector primes below `20,000`, then separately reports scalar-Hasse zero candidates. The finite run is regression/falsification evidence only and is not used as proof of absence.
+It verifies the exact midpoint mod-`p^2` expansion, the quotient formula, and the paired form for every target-sector prime below `5,000`. Exact local execution covered 168 such primes with zero first-jet failures and found zero scalar-Hasse zero candidates in that finite range. This is regression/falsification evidence only and is not used as proof of absence.
 
 ## 5. Hard-target disposition
 
