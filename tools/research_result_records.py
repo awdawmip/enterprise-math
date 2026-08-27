@@ -2,12 +2,16 @@
 """Canonical result-registry shim with publication-generation and parallel-evidence state reduction.
 
 The durable record writer/auditor lives in ``control_plane.research_result_records_impl``.
-This shim preserves its API while replacing only task-level result-state reduction:
-multiple results are retained and routed through the two-pass parallel-evidence
-synthesis layer instead of timestamp/latest-result semantics.
+This shim preserves its API while replacing task-level result-state reduction:
+multiple valid results are routed through the two-pass parallel-evidence synthesis
+layer instead of timestamp/latest-result semantics. A small explicit quarantine
+overlay can retain a structurally invalid immutable result in history while
+removing it from operational truth and returning the task to Driver-directed
+execution.
 """
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 from typing import Any
@@ -29,6 +33,8 @@ if str(_impl.ROOT) not in sys.path:
 import research_parallel_evidence as _parallel  # noqa: E402
 
 ROOT = _impl.ROOT
+QUARANTINE = "research_result_record_quarantines.json"
+_ORIGINAL_IMPL_AUDIT = _impl.audit
 
 
 def _publication_for_state(task_id: str, root: Path, publication_id: str | None) -> str | None:
@@ -83,6 +89,83 @@ def _parallel_synthesis(intake_id: str, evidence_set_sha256: str, root: Path) ->
     return None
 
 
+def _quarantine_map(root: Path) -> dict[str, dict[str, Any]]:
+    path = root / QUARANTINE
+    if not path.exists():
+        return {}
+    value = json.loads(path.read_text(encoding="utf-8"))
+    if value.get("schema") != "ENTERPRISE_MATH_RESEARCH_RESULT_QUARANTINE_V1":
+        raise ResultRecordError("unexpected research-result quarantine schema")
+    if value.get("status") != "ACTIVE":
+        raise ResultRecordError("research-result quarantine registry must be ACTIVE")
+    entries = value.get("entries")
+    if not isinstance(entries, list):
+        raise ResultRecordError("research-result quarantine entries must be a list")
+    out: dict[str, dict[str, Any]] = {}
+    for index, entry in enumerate(entries):
+        if not isinstance(entry, dict):
+            raise ResultRecordError(f"quarantine entries[{index}] must be an object")
+        rid = entry.get("result_id")
+        if not isinstance(rid, str) or not rid:
+            raise ResultRecordError(f"quarantine entries[{index}] missing result_id")
+        if rid in out:
+            raise ResultRecordError(f"duplicate quarantined result_id: {rid}")
+        out[rid] = entry
+    return out
+
+
+def _quarantine_state(
+    task_id: str,
+    root: Path,
+    publication_id: str | None,
+) -> dict[str, Any] | None:
+    qmap = _quarantine_map(root)
+    if not qmap:
+        return None
+    values = [
+        item
+        for item in iter_results(root)
+        if item.get("task_id") == task_id
+        and (publication_id is None or item.get("publication_id") == publication_id)
+    ]
+    quarantined = [item for item in values if item.get("result_id") in qmap]
+    if not quarantined:
+        return None
+    active = [item for item in values if item.get("result_id") not in qmap]
+    if len(active) == 1:
+        result = active[0]
+        review = latest_review(result["result_id"], root)
+        if review is None:
+            return {"state": "AWAITING_DRIVER_REVIEW", "result": result, "review": None, "terminal": False}
+        disposition = review.get("disposition")
+        return {
+            "state": "TERMINAL" if disposition in TERMINAL_DISPOSITIONS else "RETURN_TO_EXECUTION",
+            "result": result,
+            "review": review,
+            "terminal": disposition in TERMINAL_DISPOSITIONS,
+        }
+    if len(active) > 1:
+        raise ResultRecordError(
+            f"{task_id}: multiple active results coexist with quarantined history; explicit parallel migration required"
+        )
+    quarantined.sort(key=lambda item: (item.get("frozen_at", ""), item.get("result_id", "")))
+    result = quarantined[-1]
+    entry = qmap[result["result_id"]]
+    return {
+        "state": "RETURN_TO_EXECUTION",
+        "result": result,
+        "review": {
+            "review_id": entry.get("resolution_id"),
+            "disposition": entry.get("driver_disposition"),
+            "review_path": entry.get("review_path"),
+            "quarantine_resolution": True,
+        },
+        "terminal": False,
+        "quarantined_result": True,
+        "quarantine_resolution_id": entry.get("resolution_id"),
+    }
+
+
 def task_result_state(
     task_id: str,
     root: Path = ROOT,
@@ -90,12 +173,17 @@ def task_result_state(
 ) -> dict[str, Any] | None:
     """Return one control state without discarding parallel research evidence.
 
-    Single-result tasks retain the generation-aware historical behavior. Two or
-    more results for the same selected publication never use timestamp precedence;
-    they remain non-dispatchable until intake -> reference pass 1 -> reference
-    pass 2 -> synthesis completes.
+    Single-result tasks retain the generation-aware historical behavior. Explicitly
+    quarantined invalid result records remain immutable evidence but are excluded
+    from operational truth; their resolution returns the task to execution. Two or
+    more valid results for the same selected publication never use timestamp
+    precedence and remain non-dispatchable until two-pass synthesis completes.
     """
     resolved_publication = _publication_for_state(task_id, root, publication_id)
+    quarantined = _quarantine_state(task_id, root, resolved_publication)
+    if quarantined is not None:
+        return quarantined
+
     parallel = _parallel.state(task_id, resolved_publication, root)
     phase = parallel.get("parallel_state")
     if phase == "SINGLE_RESULT_FLOW":
@@ -194,6 +282,78 @@ def task_result_state(
         }
 
     raise ResultRecordError(f"unknown parallel result state: {phase}")
+
+
+def audit(root: Path = ROOT) -> list[str]:
+    """Audit ordinary records strictly while preserving explicit quarantined history.
+
+    A quarantine is an append-only control resolution, not a rewrite. Structural
+    errors emitted by the durable V1 auditor are suppressed only for the exact
+    immutable record path named by a validated quarantine entry. Everything else
+    remains strict.
+    """
+    try:
+        qmap = _quarantine_map(root)
+    except Exception as exc:
+        return [str(exc)]
+    raw_errors = _ORIGINAL_IMPL_AUDIT(root)
+    if not qmap:
+        return raw_errors
+
+    results = {str(item.get("result_id")): item for item in _impl.iter_results(root)}
+    quarantine_paths: set[str] = set()
+    errors: list[str] = []
+    seen_resolution_ids: set[str] = set()
+    for rid, entry in qmap.items():
+        result = results.get(rid)
+        if result is None:
+            errors.append(f"{QUARANTINE}: unknown quarantined result {rid}")
+            continue
+        path = result.get("_record_path")
+        if not isinstance(path, str) or not path:
+            errors.append(f"{QUARANTINE}: quarantined result {rid} has no record path")
+            continue
+        quarantine_paths.add(path)
+        if entry.get("record_path") != path:
+            errors.append(f"{QUARANTINE}: {rid} record_path mismatch")
+        for field in ("task_id", "publication_id"):
+            if entry.get(field) != result.get(field):
+                errors.append(f"{QUARANTINE}: {rid} {field} mismatch")
+        resolution_id = entry.get("resolution_id")
+        if not isinstance(resolution_id, str) or not resolution_id:
+            errors.append(f"{QUARANTINE}: {rid} missing resolution_id")
+        elif resolution_id in seen_resolution_ids:
+            errors.append(f"{QUARANTINE}: duplicate resolution_id {resolution_id}")
+        seen_resolution_ids.add(str(resolution_id))
+        if entry.get("resolution") != "QUARANTINE_INVALID_RECORD":
+            errors.append(f"{QUARANTINE}: {rid} has unsupported resolution")
+        if entry.get("operational") is not False or entry.get("history_preserved") is not True:
+            errors.append(f"{QUARANTINE}: {rid} must be nonoperational with history preserved")
+        disposition = entry.get("driver_disposition")
+        if disposition not in NONTERMINAL_DISPOSITIONS:
+            errors.append(f"{QUARANTINE}: {rid} requires nonterminal Driver disposition")
+        driver_id = entry.get("driver_id")
+        if not research_identity.valid_execution_id(str(driver_id or "")):
+            errors.append(f"{QUARANTINE}: {rid} has invalid driver_id")
+        reason = entry.get("reason")
+        if not isinstance(reason, list) or not reason or any(not isinstance(x, str) or not x.strip() for x in reason):
+            errors.append(f"{QUARANTINE}: {rid} reason must be a nonempty string list")
+        review_path = entry.get("review_path")
+        if not isinstance(review_path, str) or not review_path or not (root / review_path).exists():
+            errors.append(f"{QUARANTINE}: {rid} Driver review artifact missing")
+
+    filtered = [
+        error
+        for error in raw_errors
+        if not any(error.startswith(path + ":") for path in quarantine_paths)
+    ]
+    return filtered + errors
+
+
+# Freeze/review commands in the durable implementation invoke its module-global
+# ``audit``. Patch that reference so future valid successor results can be frozen
+# without forcing deletion or mutation of quarantined historical records.
+_impl.audit = audit
 
 
 if __name__ == "__main__":
