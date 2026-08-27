@@ -1,0 +1,28 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "pass_id": "RP1-P022-20260827-01",
+  "intake_id": "PI-P022-20260827-01",
+  "task_id": "RS-P022-OBSERVATION-HISTORY",
+  "pass_number": 1,
+  "pass_kind": "SEMANTIC_EVIDENCE_CROSSCHECK",
+  "publication_ids": [
+    "TP2-2346F5D3E731ED56DB0A",
+    "TP2-D78DBA0243911E0363FA",
+    "TP2-DE338F269CA11E9BC01B"
+  ],
+  "result_ids": [],
+  "evidence_set_sha256": "sha256:4602a86921274783fdcaa7a538a557992c2a30728cb2a03bfeb0c3deeae867fe",
+  "reviewer_id": "EM-DVR-K7Q4N8",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "reviewed_at": "2026-08-27T17:41:00+08:00",
+  "findings_summary": "All three publications are genuine P022 replay evidence, but they are not semantic duplicates. TP2-DE338F269CA11E9BC01B isolates the q=3r-1 primitive Franel arithmetic core; TP2-D78DBA0243911E0363FA isolates the forced-midpoint bounded fallback theorem; TP2-2346F5D3E731ED56DB0A resumes the later composite-Franel escape frontier. Their distinct parent objectives and hard targets must remain referenceable rather than being erased by publication ordering.",
+  "relationship": [
+    "DISTINCT_PARENT_OBJECTIVES",
+    "DISTINCT_REPLAY_SCOPES",
+    "SHARED_LEGACY_TASK_ID_COLLISION",
+    "ALL_EVIDENCE_RETAINED"
+  ],
+  "recommendation": "KEEP_ALL_FOR_ADVERSARIAL_SPLIT_PASS",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}

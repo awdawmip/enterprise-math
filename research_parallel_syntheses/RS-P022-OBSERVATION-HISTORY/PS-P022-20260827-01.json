@@ -1,0 +1,34 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_SYNTHESIS_V1",
+  "synthesis_id": "PS-P022-20260827-01",
+  "intake_id": "PI-P022-20260827-01",
+  "task_id": "RS-P022-OBSERVATION-HISTORY",
+  "publication_ids": [
+    "TP2-2346F5D3E731ED56DB0A",
+    "TP2-D78DBA0243911E0363FA",
+    "TP2-DE338F269CA11E9BC01B"
+  ],
+  "result_ids": [],
+  "evidence_set_sha256": "sha256:4602a86921274783fdcaa7a538a557992c2a30728cb2a03bfeb0c3deeae867fe",
+  "reference_pass_ids": [
+    "RP1-P022-20260827-01",
+    "RP2-P022-20260827-01"
+  ],
+  "disposition": "SPLIT_TO_TYPED_TASKS",
+  "operational_publication_id": "TP2-2346F5D3E731ED56DB0A",
+  "retained_parallel_publication_ids": [
+    "TP2-2346F5D3E731ED56DB0A",
+    "TP2-D78DBA0243911E0363FA",
+    "TP2-DE338F269CA11E9BC01B"
+  ],
+  "split_task_ids": [
+    "RS-P022-OBS-HIST-ARITHMETIC-CORE",
+    "RS-P022-OBS-HIST-FORCED-MIDPOINT"
+  ],
+  "synthesis_summary": "All three original P022 publications remain immutable evidence. The original RS-P022-OBSERVATION-HISTORY operational binding selects TP2-2346F5D3E731ED56DB0A only for continuity of the latest composite-Franel frontier. The arithmetic-core and forced-midpoint scopes are split into distinct typed task IDs so their different parent objectives and hard targets remain independently executable without reusing the collided historical task ID.",
+  "task_terminal": false,
+  "synthesized_by": "EM-DVR-K7Q4N8",
+  "synthesized_at": "2026-08-27T17:43:00+08:00",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}
