@@ -1,0 +1,121 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_OBJECTIVE_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL_CANDIDATE",
+  "effective": "2026-08-27",
+  "generation_store": "research_objective_records/<objective-id>/<objective-generation-id>.json",
+  "operational_head_store": "research_objective_heads/<objective-id>.json",
+  "legacy_task_binding_store": "research_task_objective_bindings/<task-id>/<publication-id>.json",
+  "tool": "research_objective_records.py",
+  "purpose": "Replace caller-supplied parent-objective strings/status with immutable objective generations plus one explicit operational control head, while preserving alternate generations/proposals and allowing historical task publications to bind through immutable sidecars without rewriting their task records.",
+  "objective_statuses": ["OPEN", "PARKED", "CLOSED"],
+  "publisher_roles": ["RESEARCH_DRIVER"],
+  "core_invariants": [
+    "OBJECTIVE_GENERATION_RECORD_IS_IMMUTABLE",
+    "OBJECTIVE_GENERATION_RECORD_IS_NOT_OPERATIONAL_CONTROL_UNTIL_SELECTED_BY_HEAD",
+    "MULTIPLE_OBJECTIVE_GENERATION_PROPOSALS_MAY_BE_RETAINED",
+    "ONE_OPERATIONAL_OBJECTIVE_HEAD_PER_OBJECTIVE_ID",
+    "OPERATIONAL_HEAD_SELECTION_IS_NOT_EVIDENCE_DELETION_OR_TRUTH_RANKING",
+    "OBJECTIVE_HEAD_UPDATE_REQUIRES_EXPECTED_PREVIOUS_GENERATION",
+    "OBJECTIVE_HEAD_PATH_IS_THE_PER_OBJECTIVE_GIT_CAS_POINT",
+    "INITIAL_OBJECTIVE_GENERATION_MUST_BE_OPEN",
+    "CLOSED_TO_OPEN_REQUIRES_EXPLICIT_REOPEN_REASON",
+    "TASK_PUBLICATION_PARENT_BINDING_MUST_PIN_EXACT_OBJECTIVE_GENERATION_AFTER_CUTOVER",
+    "HISTORICAL_TASK_PUBLICATION_MAY_BIND_BY_IMMUTABLE_SIDECAR_WITHOUT_REWRITING_TASK_RECORD",
+    "TASK_OBJECTIVE_BINDING_PINS_TASK_PUBLICATION_AND_TASKBOOK_BLOB",
+    "TASK_OBJECTIVE_BINDING_PINS_IMMUTABLE_OBJECTIVE_GENERATION_DIGEST",
+    "TASK_OBJECTIVE_BINDING_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_FINAL_PERMISSION",
+    "OBJECTIVE_CLOSED_DECLARATION_ALONE_DOES_NOT_AUTHORIZE_PRE_FINAL",
+    "PRE_FINAL_MUST_DERIVE_CHILD_TASK_RESULT_AND_COHORT_CLOSURE_FROM_REPOSITORY_STATE",
+    "ANY_UNFINISHED_OR_NEW_PARALLEL_CHILD_WORK_IMPLIES_PARENT_NOT_DERIVED_CLOSED",
+    "LEGACY_UNBOUND_PARENT_OBJECTIVE_CANNOT_SELF_DECLARE_COMPLETE",
+    "NO_BULK_HISTORICAL_TASK_REWRITE_IS_REQUIRED"
+  ],
+  "generation_required_fields": [
+    "objective_id",
+    "objective_generation_id",
+    "generation",
+    "previous_objective_generation_id",
+    "objective_status",
+    "title",
+    "scope",
+    "success_criteria",
+    "closure_criteria",
+    "research_value",
+    "publisher_role",
+    "publisher_id",
+    "created_at",
+    "working_truth_granted",
+    "foundation_authority_granted",
+    "canonical_promotion_granted"
+  ],
+  "closed_generation_additional_fields": [
+    "disposition_reason",
+    "closure_evidence_refs"
+  ],
+  "reopen_rule": {
+    "trigger": "previous operational generation objective_status == CLOSED and next objective_status == OPEN",
+    "required_field": "reopen_reason"
+  },
+  "operational_head_required_fields": [
+    "objective_id",
+    "objective_generation_id",
+    "generation",
+    "objective_status",
+    "previous_objective_generation_id",
+    "objective_record_sha256",
+    "updated_by",
+    "updated_at"
+  ],
+  "operational_head_semantics": {
+    "authority": "OPERATIONAL_OBJECTIVE_CONTROL_ONLY",
+    "retained_non_head_generation": "RETAINED_PROPOSAL_OR_HISTORY_NOT_DELETED",
+    "selection_requires_candidate_previous_equals_expected_current": true,
+    "initial_selection_requires_no_existing_head": true,
+    "rollback_to_old_generation": "FORBIDDEN; CREATE_A_NEW_GENERATION_INSTEAD"
+  },
+  "legacy_binding_required_fields": [
+    "task_id",
+    "publication_id",
+    "taskbook_path",
+    "taskbook_blob_sha1",
+    "objective_id",
+    "objective_generation_id",
+    "objective_record_sha256",
+    "bound_by",
+    "bound_at"
+  ],
+  "legacy_binding_rules": {
+    "task_publication_must_exist": true,
+    "taskbook_blob_must_match_publication": true,
+    "objective_generation_must_exist": true,
+    "objective_generation_status": "OPEN",
+    "binding_record_immutable": true,
+    "one_binding_per_task_publication": true,
+    "binding_may_target_noncurrent_historical_open_generation": true,
+    "reason": "Historical tasks preserve the exact objective generation under which they were scoped; migration must not rewrite their task publication bytes."
+  },
+  "future_task_publication_rule": {
+    "new_metadata_field": "parent_objective_generation_id",
+    "direct_binding_required_after_cutover": true,
+    "required_parent_status_at_publication": "OPEN",
+    "required_parent_generation": "exact operational objective head at publication preparation",
+    "historical_task_without_direct_generation": "EXECUTION_CONTINUATION_ALLOWED; PARENT_FINAL_AUTHORITY_REQUIRES_IMMUTABLE_BINDING_OR_EXPLICIT_MIGRATION"
+  },
+  "derived_closure_rule": {
+    "objective_head_status_closed_is_necessary": true,
+    "objective_head_status_closed_is_sufficient": false,
+    "required_rechecks": [
+      "all task publications bound to the closed objective lineage are terminal or explicitly detached by later typed control",
+      "no active execution cohort retains unfinished lane work",
+      "complete cohorts have exact-set intake + reference pass 1 + reference pass 2 + terminal synthesis/control disposition",
+      "current runtime unfinished unit and next executable action are absent at the parent boundary"
+    ],
+    "new_child_after_closed_generation": "FINAL_ALLOWED_FALSE_UNTIL_DERIVED_CLOSURE_REESTABLISHED"
+  },
+  "interaction_budget": {
+    "ordinary_objective_creation": "one immutable generation plus one per-objective head update at a semantic checkpoint",
+    "objective_revision": "one new immutable generation plus one expected-head update",
+    "historical_task_binding": "one immutable sidecar only when that historical task needs objective-authority participation; no bulk migration required",
+    "between_checkpoints": "zero heartbeat, zero CI polling, zero review polling, zero moving-main chase required by this contract"
+  }
+}
