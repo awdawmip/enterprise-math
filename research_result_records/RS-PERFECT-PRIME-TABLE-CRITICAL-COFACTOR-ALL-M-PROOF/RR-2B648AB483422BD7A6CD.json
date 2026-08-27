@@ -1,0 +1,38 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-2B648AB483422BD7A6CD",
+  "task_id": "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
+  "publication_id": "TP2-5547117E54D7A556279B",
+  "execution_record_id": "ER-F37E7D2B1430DA3E41FE",
+  "claim_id": "chatgpt-pptcc-20260826-2036",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_TABLE_CRITICAL_COFACTOR_ALL_M_PROOF_20260826.md",
+  "taskbook_blob_sha1": "sha1:d8c242ea1744056b2130ac989cf18866e08db4d5",
+  "execution_branch": "research/perfect-prime-table-critical-cofactor-all-m-proof-em-free-5k7n2q",
+  "execution_branch_base": "5b7a1f4e1826f32d0ff1708350bc613e58710848",
+  "return_path": "research_returns/PERFECT_PRIME_TABLE_CRITICAL_COFACTOR_ALL_M_PROOF_RETURN_20260826.md",
+  "return_blob_sha1": "sha1:efa1a754549f9503b30793028f662e2a620f068e",
+  "return_sha256": "sha256:9ac946e66c17429b424bb6af64e5aa3297a618245d366160319a4ec2b3f3d1db",
+  "owner_head": "8686d4dcb4a42fdc1a3cc92b25da7cc202443e74",
+  "researcher_id": "EM-FREE-5K7N2Q",
+  "frozen_at": "2026-08-27T10:04:39+00:00",
+  "terminal_verdict": "BLOCKED",
+  "hard_target_disposition": "OPEN / FROBENIUS_NONDEGENERACY_LEMMA_UNPROVED / NO_EXACT_COUNTEREXAMPLE",
+  "unresolved_residue": "Prove for every m >= 2 that G_m(c,d)=tau(c P_m(x+m y) d) is nondegenerate on U tensor U, equivalently det(T[J,I]) != 0 and det(M_m) != 0; current exact reductions do not supply the required all-m inertia/sign theorem.",
+  "output_manifest": [
+    {
+      "path": "research_artifacts/PERFECT_PRIME_TABLE_CRITICAL_COFACTOR_ALL_M_PROOF/HOOK_NEWTON_FROBENIUS_CHECKPOINT_20260827.md",
+      "git_blob_sha1": "sha1:759562a84c5e24b923144e33bb1bd54cf659af5e",
+      "sha256": "sha256:23a748b9efe4cb80ed010c2a43b190a798d29f7e6c1d4784beac8e05fc401583"
+    },
+    {
+      "path": "research_returns/PERFECT_PRIME_TABLE_CRITICAL_COFACTOR_ALL_M_PROOF_RETURN_20260826.md",
+      "git_blob_sha1": "sha1:efa1a754549f9503b30793028f662e2a620f068e",
+      "sha256": "sha256:9ac946e66c17429b424bb6af64e5aa3297a618245d366160319a4ec2b3f3d1db"
+    }
+  ],
+  "method_harvest": "NO_TOOL_PAYLOAD",
+  "independence_status": "NOT_APPLICABLE",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review this exact partial checkpoint. Do not mark the task DONE. If continuing the same publication, return to execution with FROBENIUS_NONDEGENERACY_LEMMA as the sole current unfinished unit and prioritize a Hodge–Riemann / mixed-Lefschetz or sign-controlled factorial-Schur/LGV proof over generic total positivity.",
+  "driver_review_required": true
+}
