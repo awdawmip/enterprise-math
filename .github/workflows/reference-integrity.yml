@@ -46,3 +46,5 @@ jobs:
         run: python research_parallel_evidence.py audit
       - name: Check opt-in parallel execution cohorts
         run: python research_execution_cohorts.py audit
+      - name: Check cohort completeness and two-pass terminalization
+        run: python tools/research_cohort_runtime.py audit
