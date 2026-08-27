@@ -281,7 +281,7 @@ theorem root_state_low_root_realized
 /-- The horizon root is the unique optional low state. -/
 theorem root_state_horizon_realized_iff
     {s n : ℕ}
-    (hn : 0 < n) :
+    (_hn : 0 < n) :
     let H := root (s + 2) ((s + 1) * n - 1)
     let D := n / (H + 1) ^ (s + 1)
     (∃ d : ℕ, 1 ≤ d ∧ d ≤ n ∧ root (s + 1) (n / d) = H) ↔
