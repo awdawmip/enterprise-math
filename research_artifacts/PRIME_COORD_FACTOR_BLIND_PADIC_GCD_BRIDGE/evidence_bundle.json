@@ -1,0 +1,29 @@
+{
+  "excluded_claims": [
+    "no polynomial-time factorization claim",
+    "no asymptotic speedup over classical factoring baselines",
+    "no use of Sun A14(ii) as theorem",
+    "no factor-labelled constructor input"
+  ],
+  "kernel": "A_s=binom(2s,s)^2*binom(3s,s)",
+  "primary_verdict": "GCD_EXTRACTOR_PROVED",
+  "proof_dependencies": [
+    "elementary Legendre factorial valuation for s<r",
+    "exact integer recurrence A_{k+1}/A_k=6(2k+1)(3k+1)(3k+2)/(k+1)^3",
+    "integer square root and gcd"
+  ],
+  "publication_id": "TP2-7B0534E09E4286CB5B6E",
+  "regression": {
+    "cross_implementation_mismatches": 0,
+    "direct_failures": 0,
+    "max_trace_entries": 10,
+    "prime_bound_exclusive": 300,
+    "recurrence_failures": 0,
+    "semiprime_cases": 1830,
+    "synchronization_fallback_cases": 400
+  },
+  "researcher_id": "EM-PCF4-F9AD88",
+  "schema": "PCF4_BLIND_PADIC_GCD_BRIDGE_EVIDENCE_V1",
+  "task_id": "RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE",
+  "theorem_domain": "N=pq with distinct odd primes p<q; gcd(N,6) precheck handles p=3"
+}
