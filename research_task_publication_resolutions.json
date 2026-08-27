@@ -44,6 +44,52 @@
       "working_truth_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "task_id": "RS-P022-OBSERVATION-HISTORY",
+      "canonical_publication_id": "TP2-2346F5D3E731ED56DB0A",
+      "operational_publication_id": "TP2-2346F5D3E731ED56DB0A",
+      "quarantined_publication_ids": [
+        "TP2-DE338F269CA11E9BC01B",
+        "TP2-D78DBA0243911E0363FA"
+      ],
+      "retained_parallel_publication_ids": [
+        "TP2-DE338F269CA11E9BC01B",
+        "TP2-D78DBA0243911E0363FA",
+        "TP2-2346F5D3E731ED56DB0A"
+      ],
+      "parallel_intake_id": "PI-P022PUB-20260827-01",
+      "parallel_synthesis_id": "PS-P022PUB-20260827-01",
+      "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING",
+      "reason": "Three generation-1 immutable P022 replay publications were independently materialized under the same task id. TP2-DE338F269CA11E9BC01B has a terminal accepted exact-reduction result RR-8323CFDCB99F7832F51F and therefore remains frozen evidence rather than the next operational head. TP2-D78DBA0243911E0363FA is an earlier, narrower forced-midpoint fallback replay. TP2-2346F5D3E731ED56DB0A is the later composite Franel escape replay and is explicitly named by the accepted P022 Driver review as the live continuation. Selecting TP2-2346F5D3E731ED56DB0A restores one-valued dispatch while preserving both other publications without mathematical rejection or canonical promotion.",
+      "authority_role": "RESEARCH_DRIVER",
+      "authority_id": "EM-NTIRF-6C5A1E",
+      "resolved_at": "2026-08-27T19:55:00+08:00",
+      "preserve_existing_result": "RR-8323CFDCB99F7832F51F",
+      "reference_process": {
+        "passes_required": 2,
+        "pass_1": "COMPLETE_ALL_THREE_SURVIVE",
+        "pass_1_id": "RP1-P022PUB-20260827-01",
+        "pass_2": "COMPLETE_KEEP_PARALLEL_SELECT_LIVE_CONTINUATION",
+        "pass_2_id": "RP2-P022PUB-20260827-01",
+        "relationship": [
+          "COMMON_P022_PARENT_FAMILY",
+          "DISTINCT_REPLAY_FRONTIERS",
+          "DE338_TERMINAL_EXACT_REDUCTION",
+          "D78_EARLIER_NARROW_FALLBACK",
+          "TP2_2346_LATER_COMPOSITE_CONTINUATION"
+        ],
+        "final_disposition": "KEEP_PARALLEL_AND_SELECT_OPERATIONAL",
+        "allowed_final_dispositions": [
+          "KEEP_PARALLEL",
+          "MERGE_TO_NEW_GENERATION",
+          "SPLIT_TO_TYPED_TASKS",
+          "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS"
+        ]
+      },
+      "working_truth_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }
