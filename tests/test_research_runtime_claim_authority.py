@@ -1,5 +1,6 @@
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from tools import research_runtime_guard as guard
 from tools import research_scheduler as scheduler
@@ -63,6 +64,17 @@ def claim(*, authorized=True):
 
 
 class RegisteredRuntimeClaimAuthorityTests(unittest.TestCase):
+    def setUp(self):
+        # These tests isolate winning-CLAIM authorization semantics from the
+        # mutable production lifecycle of the repository task used as a stable
+        # publication fixture. The real task is terminal on main; that must not
+        # preempt the authority layer these unit tests are intended to exercise.
+        self._result_state_patch = mock.patch.object(
+            guard.research_result_records, "task_result_state", return_value=None
+        )
+        self._result_state_patch.start()
+        self.addCleanup(self._result_state_patch.stop)
+
     def test_registered_execution_without_issue_event_evidence_is_forbidden(self):
         with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "requires canonical Issue #240 event evidence"):
             guard.authorize_execution(state(), events=None, root=ROOT)
