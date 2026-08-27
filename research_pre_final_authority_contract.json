@@ -1,0 +1,29 @@
+{
+  "schema": "ENTERPRISE_MATH_PRE_FINAL_AUTHORITY_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL_CANDIDATE",
+  "effective": "2026-08-27",
+  "tool": "research_pre_final_authority.py",
+  "registration_authority": "tools/research_runtime_guard.py",
+  "parent_closure_authority": "research_parent_closure.py",
+  "liveness_primitive": "tools/research_runtime.py",
+  "purpose": "Make parent-objective completion for PRE_FINAL repository-derived rather than caller-declared while preserving explicit user stop/pause/review and genuine hard-limit interaction boundaries.",
+  "core_invariants": [
+    "CALLER_SUPPLIED_PARENT_OBJECTIVE_STATUS_IS_NOT_AUTHORITY",
+    "IMMUTABLE_TASK_PUBLICATION_DETERMINES_PARENT_OBJECTIVE_ID",
+    "REPOSITORY_DERIVED_PARENT_CLOSURE_DETERMINES_PARENT_COMPLETE_BIT",
+    "LEGACY_UNBOUND_PARENT_OBJECTIVE_CANNOT_SELF_DECLARE_COMPLETE",
+    "PARENT_OBJECTIVE_COMPLETE_EVENT_CANNOT_SELF_AUTHORIZE_PARENT_TERMINALITY",
+    "DERIVED_PARENT_COMPLETE_WITH_UNFINISHED_RUNTIME_WORK_FAILS_CLOSED",
+    "NEW_OR_INCOMPLETE_ACTIVE_CHILD_OR_COHORT_FORCES_PARENT_COMPLETE_FALSE",
+    "ACTIVE_COHORT_TWO_PASS_SYNTHESIS_AUTHORITY_IS_REUSED_NOT_REIMPLEMENTED",
+    "USER_REQUESTED_STOP_PAUSE_REVIEW_OR_WAIT_REMAINS_A_VALID_INTERACTION_BOUNDARY",
+    "PLATFORM_OR_TOOL_HARD_LIMIT_AND_PARENT_HARD_BLOCKER_SEMANTICS_REMAIN_OWNED_BY_ACTIVE_TURN_LIVENESS",
+    "PRE_FINAL_AUTHORITY_GRANTS_NO_WORKING_TRUTH_FOUNDATION_OR_CANONICAL_PROMOTION"
+  ],
+  "parent_status_authority": "REPOSITORY_DERIVED_PARENT_CLOSURE",
+  "parent_terminal_event_rule": "PARENT_OBJECTIVE_COMPLETE is accepted only when repository-derived parent closure is true; otherwise the event is rejected and control returns to parent reevaluation.",
+  "final_permission_rule": "Derived parent closure is one input to the existing liveness primitive; it is not itself sufficient for final permission when unfinished runtime work remains.",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
