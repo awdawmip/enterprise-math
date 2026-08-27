@@ -1,8 +1,8 @@
 # Enterprise Math Toolbox Registry
 
 Status: `ACTIVE / CURRENT TOOL ROUTER / NOT FOUNDATION AUTHORITY / V3`
-Date: `2026-08-23`
-Driver: `EM-DVR-ZX1UEJ`
+Date: `2026-08-27`
+Driver: `EM-DVR-K7Q4N8`
 Machine registry: `enterprise_toolbox_registry.json`
 Executable router: `tools/enterprise_toolbox.py`
 Base method inventory: `research_method_inventory.json`
@@ -27,6 +27,7 @@ The Common Research Surface and Toolbox divide ownership of repository `tools/*.
 
 - **T0 BRC** — support/result/provenance composition, branching, multipath, recoalescence.
 - **T1 Scale Enumeration / Valuation** — scale/shell counting, finite differences, generating functions, valuation and inclusion-exclusion. No universal native Ehrhart polynomiality.
+  - **T1 triaxial directional-defect subtool** — `GLOBAL_SUBTOOL / DRIVER_ACCEPTED_NARROWED_EXECUTABLE`; executable owner `src/enterprise_math/triaxial_directional_defect.py` with private exact core `src/enterprise_math/_triaxial_directional_defect_core.py`. It provides primitive/canonical frame declaration, directional differences through third defect, native-hex X-ray kernel and frame-width uniqueness certificates, exposed-vertex unimodular augmentation, and a typed split between full/chirality adjoints and compressed Gram diagnostics. Hard boundary: `FULL_ADJOINT != COMPRESSED_GRAM`; `s`/frame/domain assumptions are not widened; endpoint coalescence is not trace identity; Y–Delta, binary/nonlinear tomography, Foundation mutation and a new top-level family are excluded.
 - **T2 Block Finite-Certificate** — finite local-to-global compatibility and bounded obstruction extraction under supported block hypotheses.
 - **T3 Typed Incidence Circuit** — typed cycles/cocircuits, cuts, path differences and provenance-defect certificates.
 - **T4 Finite Fiber Capacity / Collision-Minima** — capacity/collision/compression after an observation or fiber map is already semantically justified.
@@ -156,10 +157,15 @@ Current harvest shard:
 
 `research_method_inventory_addenda/20260823_tool_discovery_six_return.json`.
 
+Additional accepted T1 subtool shard:
+
+`research_method_inventory_addenda/20260825_triaxial_directional_defect_t1.json`.
+
 ## Selection guide
 
 - provenance/support -> T0
 - scale/count -> T1
+- triaxial directional defects / native-hex tomography / rhombus third differences -> T1 triaxial subtool
 - finite compatibility certificate -> T2
 - incidence cycle/cut -> T3
 - declared fiber/collision compression -> T4
