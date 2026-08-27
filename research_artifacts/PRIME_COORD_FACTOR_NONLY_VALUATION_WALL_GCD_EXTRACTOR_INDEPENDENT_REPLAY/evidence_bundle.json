@@ -1,0 +1,41 @@
+{
+  "schema": "PCF4R_NONLY_VALUATION_WALL_EVIDENCE_V1",
+  "task_id": "RS-PRIME-COORD-FACTOR-NONLY-VALUATION-WALL-GCD-EXTRACTOR-INDEPENDENT-REPLAY",
+  "publication_id": "TP2-DF186CDB4959BEA10875",
+  "researcher_id": "EM-PCF4R-6D96F8",
+  "claim_id": "chatgpt-pcf4r-20260827-1932",
+  "execution_branch_base": "839224dfac59072ecc7c6c027b30b906f5ee24f4",
+  "phase_a_freeze_head": "f6f12c64d6d251631fa098f260e96d6d7127f253",
+  "phase_a": {
+    "derivation_path": "research_artifacts/PRIME_COORD_FACTOR_NONLY_VALUATION_WALL_GCD_EXTRACTOR_INDEPENDENT_REPLAY/PHASE_A_BLIND_RECONSTRUCTION.md",
+    "git_blob_sha1": "25c4a8c5ebf95fb896a61bf17c367e3e632a9cac",
+    "sha256": "sha256:0c9ecb8b9911a82458362198ef698d99c52ccca842e9b935f5dba1f90a0fb7bc",
+    "checker_path": "scripts/check_prime_coord_factor_nonly_valuation_wall_gcd_extractor_replay.py",
+    "checker_git_blob_sha1": "6d8c4d73c52c5ae27c0ce974d845dc16fe8e4701",
+    "checker_sha256": "sha256:5d61d0236b7f891151a83f9b216ad7e28547695dd9671c3fb33302b4686a30cf"
+  },
+  "regression": {
+    "command": "python scripts/check_prime_coord_factor_nonly_valuation_wall_gcd_extractor_replay.py --prime-limit 2000",
+    "prime_count": 301,
+    "semiprimes": 45150,
+    "dyadic_splits": 35181,
+    "synchronized_cases": 9969,
+    "fallback_splits": 9969,
+    "local_wall_checks": 277045,
+    "recurrence_crosschecks": 166,
+    "max_return_seed": 666,
+    "failures": 0
+  },
+  "phase_b": {
+    "comparison_path": "research_artifacts/PRIME_COORD_FACTOR_NONLY_VALUATION_WALL_GCD_EXTRACTOR_INDEPENDENT_REPLAY/PHASE_B_COMPARISON_AND_DEDUP.md",
+    "git_blob_sha1": "20a6a60731ee0aac7b35a227fb4bbdaa52aa5bcc",
+    "sha256": "sha256:6088d11ff2421aa9e138f8bca2804119da24b20893903f860cfeacf88215e2d1",
+    "supplemental_source": "Draft PR #715 / invalid duplicate parent execution",
+    "comparison": "CONSISTENT",
+    "canonical_duplicate": "NONE_AT_CLAIM_BASE"
+  },
+  "verdict": "N_ONLY_GCD_EXTRACTOR_VERIFIED",
+  "speedup_claim": false,
+  "foundation_mutation": false,
+  "tool_promotion": false
+}
