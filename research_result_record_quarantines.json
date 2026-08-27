@@ -1,0 +1,29 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_RESULT_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "entries": [
+    {
+      "resolution_id": "RQ-464D1F87581CCB73B55D",
+      "result_id": "RR-A33E88150B0DAD0B13B8",
+      "task_id": "RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE",
+      "publication_id": "TP2-7B0534E09E4286CB5B6E",
+      "record_path": "research_result_records/RS-PRIME-COORD-FACTOR-BLIND-PADIC-GCD-BRIDGE/RR-A33E88150B0DAD0B13B8.json",
+      "resolution": "QUARANTINE_INVALID_RECORD",
+      "driver_disposition": "REQUEST_REVISION",
+      "driver_id": "EM-DVR-499907",
+      "recorded_at": "2026-08-27T11:13:00+00:00",
+      "review_path": "driver_reviews/PRIME_COORD_FACTOR_BLIND_PADIC_GCD_BRIDGE_DRIVER_REVIEW_20260827.md",
+      "operational": false,
+      "history_preserved": true,
+      "reason": [
+        "The result references execution record ER-CB5BCA1809671D892B42, which is absent from both the scheduler-valid owner PR and current main.",
+        "Re-deriving the execution identity from the valid CLAIM fields under the active execution-record rule yields ER-BB2F7D1AFE3EF5B04433, not ER-CB5BCA1809671D892B42.",
+        "The stored terminal_verdict BRIDGE_NOT_CLOSED is outside the active ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1 terminal-verdict enum.",
+        "The stored independence_status TWO_INDEPENDENT_EXACT_INTEGER_CHECKERS is outside the active result-record independence enum.",
+        "Using the stored execution ID, return blob, and owner head under the active result-ID rule yields RR-B09D2288AF316A9364D3 rather than RR-A33E88150B0DAD0B13B8; using the re-derived execution ID yields RR-598C8B95A60BC9176F2B.",
+        "The mathematical fixed-public-prefix obstruction remains usable as disclosed method evidence, but this immutable record is not operational result authority."
+      ],
+      "required_action": "Redispatch the current publication under a fresh valid CLAIM, materialize its execution intent through the active writer, preserve the fixed-public-prefix no-go as a restricted theorem, incorporate or independently reconstruct the N-dependent A_s valuation-wall splitter, and freeze a new immutable result through tools/research_result_records.py."
+    }
+  ]
+}
