@@ -1,0 +1,18 @@
+{
+  "schema": "P018_TERNARY_CARRY_FINITE_REGRESSION_V1",
+  "status": "PASS",
+  "scope": {
+    "s_min": 0,
+    "s_max": 7,
+    "n_min": 1,
+    "n_max": 2499,
+    "cases": 19992
+  },
+  "checked_equalities": [
+    "|quotientRootStates(s,n)| + 1 = D + H + kappa",
+    "D + H + kappa = H + q + tau"
+  ],
+  "failures": 0,
+  "role": "FINITE_REGRESSION_ONLY_NOT_A_PROOF",
+  "general_proof_target": "EnterpriseMath.Precision.quotientRootStates_ternary_cardinality"
+}
