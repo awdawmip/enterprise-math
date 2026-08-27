@@ -1,0 +1,22 @@
+{
+  "schema": "A3_STAR_SMITH_EXACT_MINOR_REGRESSION_V1",
+  "task_id": "RS-A3-RELATION-LATTICE",
+  "publication_id": "TP2-946818AF02EE15E31BF1",
+  "researcher_id": "EM-A3RL-5A6CC5",
+  "checker_path": "scripts/check_a3_relation_lattice_star_smith.py",
+  "checker_git_blob_sha1": "sha1:fbe7cb42f615ac4925f39c432bf86a0f02889522",
+  "checker_sha256": "e00fe671926bd4b5cd87f7a1c41baae6f5114559654421bbffccd98c486bc91b",
+  "method": "For each integer coordinate matrix, compute every k x k minor with Bareiss exact determinants, take the gcd to obtain determinantal divisors, then recover invariant factors by successive quotients. No Smith-normal-form library/oracle is used.",
+  "domains": [
+    {"N": 1, "capacity_entries": "1..6", "centers": "all", "coordinate_normalizations": ["unnormalized", "primitive"]},
+    {"N": 2, "capacity_entries": "1..6", "centers": "all", "coordinate_normalizations": ["unnormalized", "primitive"]},
+    {"N": 3, "capacity_entries": "1..6", "centers": "all", "coordinate_normalizations": ["unnormalized", "primitive"]},
+    {"N": 4, "capacity_entries": "1..6", "centers": "all", "coordinate_normalizations": ["unnormalized", "primitive"]},
+    {"N": 5, "capacity_entries": "1..4", "centers": "all", "coordinate_normalizations": ["unnormalized", "primitive"]}
+  ],
+  "capacity_vectors": 2578,
+  "coordinate_matrices": 22060,
+  "failures": 0,
+  "observed_output": "A3_STAR_SMITH_REGRESSION_PASS capacity_vectors=2578 coordinate_matrices=22060 failures=0",
+  "proof_role": "REGRESSION_FALSIFICATION_ONLY; general theorem rests on exact determinantal-divisor argument."
+}
