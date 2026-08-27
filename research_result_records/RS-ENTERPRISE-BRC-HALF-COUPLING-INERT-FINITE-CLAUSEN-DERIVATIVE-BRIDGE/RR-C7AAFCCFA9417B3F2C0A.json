@@ -1,0 +1,53 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-C7AAFCCFA9417B3F2C0A",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-FINITE-CLAUSEN-DERIVATIVE-BRIDGE",
+  "publication_id": "TP2-E0FCCE50CD7EE0FF0759",
+  "execution_record_id": "ER-FBE23DC9E1C9D93DAD49",
+  "claim_id": "chatgpt-ebp3-20260827-1104",
+  "taskbook_path": "research_tasks/ENTERPRISE_BRC_HALF_COUPLING_INERT_FINITE_CLAUSEN_DERIVATIVE_BRIDGE_20260827.md",
+  "taskbook_blob_sha1": "sha1:24657d670285b652e44fc2486efa0aaafb454fd1",
+  "execution_branch": "research/enterprise-brc-half-inert-finite-clausen-derivative-bridge-em-ebp3-f870c3",
+  "execution_branch_base": "ef22e3704783a0c051a5de5fee269935d3eadab9",
+  "return_path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_FINITE_CLAUSEN_DERIVATIVE_BRIDGE_RETURN_20260827.md",
+  "return_blob_sha1": "sha1:c8c2423e8569a3da27b41bb7f602b4b781bb2a79",
+  "return_sha256": "sha256:64e097cda5caf710aba34505fe30276c89ec48f021ba4e085867856b59315f8a",
+  "owner_head": "2defa76b9b25f146854525a3b36313d1edcc6715",
+  "researcher_id": "EM-EBP3-F870C3",
+  "frozen_at": "2026-08-27T03:32:00+00:00",
+  "terminal_verdict": "BLOCKED",
+  "hard_target_disposition": "PROOF_NOT_CLOSED / INERT_ALL-CLASS MOD-P3 TARGET UNPROVED AND UNREFUTED; FINITE-CLAUSEN TAIL EXACTLY SPLIT INTO p=6m+1 REFLECTED-p^2 AND p=6m+5 UNIT-TAIL CANCELLATION REGIMES",
+  "unresolved_residue": "Two class-dependent lemmas: (i) for p≡13,19 mod24 prove G_p H_p ≡ p+p^2 R_p mod p^3 with explicit reflected R_p; (ii) for p≡17,23 mod24 prove cancellation and first two p-adic digits of surviving T00/T01/T02/T11 finite-Clausen tail blocks.",
+  "output_manifest": [
+    {
+      "path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_FINITE_CLAUSEN_DERIVATIVE_BRIDGE_RETURN_20260827.md",
+      "git_blob_sha1": "sha1:c8c2423e8569a3da27b41bb7f602b4b781bb2a79",
+      "sha256": "sha256:64e097cda5caf710aba34505fe30276c89ec48f021ba4e085867856b59315f8a"
+    },
+    {
+      "path": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_FINITE_CLAUSEN_DERIVATIVE_BRIDGE/regression_10000.json",
+      "git_blob_sha1": "sha1:726ffa66631130cfe6527d3aca561dc4da1b40e4",
+      "sha256": "sha256:c6f4b29049965b062bac7dc17db668d9dcf483c6239282ff73f514e3085a2198"
+    },
+    {
+      "path": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_FINITE_CLAUSEN_DERIVATIVE_BRIDGE/route_audit_20260827.json",
+      "git_blob_sha1": "sha1:974e3fb2f8019498d13fbade61ccc347b3fc0df9",
+      "sha256": "sha256:f0396f66879c7c7bdc65ad1adc41c36c45f7473c5443437dd3605ca4fa465d46"
+    },
+    {
+      "path": "scripts/check_enterprise_brc_half_coupling_inert_finite_clausen_derivative_bridge.py",
+      "git_blob_sha1": "sha1:8bf32092a321efab49fa829d36a8978bba07d74a",
+      "sha256": "sha256:e5f7e2666678601a5f90c4e9245dcf89f884b5661f596754c5d4315bfa583f32"
+    },
+    {
+      "path": "research_execution_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-FINITE-CLAUSEN-DERIVATIVE-BRIDGE/ER-FBE23DC9E1C9D93DAD49.json",
+      "git_blob_sha1": "sha1:ff2909e0d444b894409d3e2e13d4a499699a0221",
+      "sha256": "sha256:384bb0c2b9378d76096aa79f6876e9807b4c6449418b486603efd35b70fc1b3b"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_APPLICABLE",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "SPLIT_TO_TYPED_TASKS: INERT_PLUS_REFLECTED_DERIVATIVE_PRODUCT_BRIDGE (13,19 mod24) and INERT_MINUS_UNIT_TAIL_BLOCK_CANCELLATION_BRIDGE (17,23 mod24).",
+  "driver_review_required": true
+}
