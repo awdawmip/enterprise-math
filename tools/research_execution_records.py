@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -21,6 +22,10 @@ except ModuleNotFoundError:
     import research_taskbook  # type: ignore
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+import research_execution_cohorts  # noqa: E402
+
 SCHEMA = "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1"
 
 
@@ -57,8 +62,21 @@ def _save_exclusive(path: Path, value: dict[str, Any]) -> None:
         raise ExecutionRecordError(f"immutable execution record already exists: {path}") from exc
 
 
-def execution_record_id(task_id: str, publication_id: str, claim_id: str, researcher_id: str, execution_branch: str) -> str:
-    raw = "\0".join((task_id, publication_id, claim_id, researcher_id, execution_branch)).encode("utf-8")
+def execution_record_id(
+    task_id: str,
+    publication_id: str,
+    claim_id: str,
+    researcher_id: str,
+    execution_branch: str,
+    execution_cohort_id: str | None = None,
+    execution_lane_id: str | None = None,
+) -> str:
+    fields = [task_id, publication_id, claim_id, researcher_id, execution_branch]
+    if execution_cohort_id is not None or execution_lane_id is not None:
+        if not execution_cohort_id or not execution_lane_id:
+            raise ExecutionRecordError("execution cohort and lane must be supplied together")
+        fields.extend((execution_cohort_id, execution_lane_id))
+    raw = "\0".join(fields).encode("utf-8")
     return "ER-" + hashlib.sha256(raw).hexdigest()[:20].upper()
 
 
@@ -87,13 +105,39 @@ def publication_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     return out
 
 
-def intent_for_claim(task_id: str, claim_id: str, root: Path = ROOT) -> dict[str, Any] | None:
-    matches = [
-        item for item in iter_records(root)
-        if item.get("task_id") == task_id and item.get("claim_id") == claim_id
-    ]
+def _scope_pair(
+    execution_cohort_id: str | None, execution_lane_id: str | None
+) -> tuple[str | None, str | None]:
+    cohort = execution_cohort_id.strip() if isinstance(execution_cohort_id, str) and execution_cohort_id.strip() else None
+    lane = execution_lane_id.strip() if isinstance(execution_lane_id, str) and execution_lane_id.strip() else None
+    if (cohort is None) != (lane is None):
+        raise ExecutionRecordError("execution_cohort_id and execution_lane_id must be supplied together")
+    return cohort, lane
+
+
+def intent_for_claim(
+    task_id: str,
+    claim_id: str,
+    root: Path = ROOT,
+    *,
+    execution_cohort_id: str | None = None,
+    execution_lane_id: str | None = None,
+) -> dict[str, Any] | None:
+    cohort, lane = _scope_pair(execution_cohort_id, execution_lane_id)
+    matches = []
+    for item in iter_records(root):
+        if item.get("task_id") != task_id or item.get("claim_id") != claim_id:
+            continue
+        item_cohort = item.get("execution_cohort_id")
+        item_lane = item.get("execution_lane_id")
+        if cohort is None:
+            if item_cohort is None and item_lane is None:
+                matches.append(item)
+        elif item_cohort == cohort and item_lane == lane:
+            matches.append(item)
     if len(matches) > 1:
-        raise ExecutionRecordError(f"multiple execution intents for {task_id}/{claim_id}")
+        scope = f"/{cohort}/{lane}" if cohort is not None else ""
+        raise ExecutionRecordError(f"multiple execution intents for {task_id}{scope}/{claim_id}")
     return matches[0] if matches else None
 
 
@@ -104,6 +148,50 @@ def current_task_record(task_id: str, root: Path = ROOT) -> dict[str, Any]:
     if record.get("claimable") is not True:
         raise ExecutionRecordError("task is not claimable")
     return record
+
+
+def _safe_output(value: str) -> str | None:
+    text = value.strip().replace("\\", "/")
+    path = Path(text)
+    if not text or path.is_absolute() or ".." in path.parts:
+        return None
+    return text
+
+
+def _lane_publication(
+    task_id: str,
+    cohort_id: str,
+    lane_id: str,
+    allowed_outputs: list[str],
+    root: Path,
+) -> tuple[dict[str, Any], str]:
+    cohort = research_execution_cohorts.cohort_map(root).get(cohort_id)
+    if cohort is None or cohort.get("task_id") != task_id:
+        raise ExecutionRecordError("unknown execution cohort for task")
+    if cohort.get("record_state") != "ACTIVE":
+        raise ExecutionRecordError("execution cohort must be ACTIVE when execution provenance is prepared")
+    lanes = [
+        item for item in cohort.get("lanes", [])
+        if isinstance(item, dict) and item.get("lane_id") == lane_id
+    ]
+    if len(lanes) != 1:
+        raise ExecutionRecordError("unknown or ambiguous execution lane")
+    lane = lanes[0]
+    publication_id = lane.get("publication_id")
+    record = publication_map(root).get(str(publication_id))
+    if record is None or record.get("task_id") != task_id:
+        raise ExecutionRecordError("lane publication is unknown for task")
+    if record.get("claimable") is not True:
+        raise ExecutionRecordError("lane publication is not claimable")
+    try:
+        prefix = research_execution_cohorts._safe_prefix(lane.get("output_prefix"))
+    except Exception as exc:
+        raise ExecutionRecordError(f"lane output_prefix invalid: {exc}") from exc
+    for output in allowed_outputs:
+        text = _safe_output(output)
+        if text is None or not text.startswith(prefix):
+            raise ExecutionRecordError("allowed_outputs escape execution lane output_prefix")
+    return record, prefix
 
 
 def prepare_intent(
@@ -117,18 +205,29 @@ def prepare_intent(
     allowed_outputs: list[str],
     owner_lease_minutes: int,
     prepared_at: str,
+    execution_cohort_id: str | None = None,
+    execution_lane_id: str | None = None,
     root: Path = ROOT,
 ) -> dict[str, Any]:
-    record = current_task_record(task_id, root)
+    cohort, lane_id = _scope_pair(execution_cohort_id, execution_lane_id)
     if not claim_id.strip():
         raise ExecutionRecordError("claim_id is required")
+    if not allowed_outputs or any(not isinstance(item, str) or not item.strip() for item in allowed_outputs):
+        raise ExecutionRecordError("allowed_outputs must be a nonempty string list")
+    if len(set(allowed_outputs)) != len(allowed_outputs):
+        raise ExecutionRecordError("allowed_outputs contains duplicates")
+    if cohort is None:
+        record = current_task_record(task_id, root)
+        lane_output_prefix = None
+    else:
+        record, lane_output_prefix = _lane_publication(task_id, cohort, str(lane_id), allowed_outputs, root)
     taskbook_path = root / record["taskbook_path"]
     meta, _ = research_taskbook.split_taskbook(taskbook_path.read_text(encoding="utf-8"))
-    lane = meta.get("identity_lane") if isinstance(meta.get("identity_lane"), str) else None
+    identity_lane = meta.get("identity_lane") if isinstance(meta.get("identity_lane"), str) else None
     resolved_id = (
         researcher_id.strip().upper()
         if isinstance(researcher_id, str) and researcher_id.strip()
-        else research_identity.deterministic_claim_id(task_id, claim_id, lane=lane)
+        else research_identity.deterministic_claim_id(task_id, claim_id, lane=identity_lane)
     )
     if not research_identity.valid_execution_id(resolved_id):
         raise ExecutionRecordError("invalid researcher_id")
@@ -140,12 +239,16 @@ def prepare_intent(
         raise ExecutionRecordError("execution_branch_base must be a 40-hex commit SHA")
     if type(owner_lease_minutes) is not int or owner_lease_minutes <= 0:
         raise ExecutionRecordError("owner_lease_minutes must be a positive integer")
-    if not allowed_outputs or any(not isinstance(item, str) or not item.strip() for item in allowed_outputs):
-        raise ExecutionRecordError("allowed_outputs must be a nonempty string list")
-    if len(set(allowed_outputs)) != len(allowed_outputs):
-        raise ExecutionRecordError("allowed_outputs contains duplicates")
-    erid = execution_record_id(task_id, record["publication_id"], claim_id, resolved_id, execution_branch)
-    return {
+    erid = execution_record_id(
+        task_id,
+        record["publication_id"],
+        claim_id,
+        resolved_id,
+        execution_branch,
+        cohort,
+        lane_id,
+    )
+    value: dict[str, Any] = {
         "record_schema": SCHEMA,
         "record_state": "CLAIM_INTENT",
         "execution_record_id": erid,
@@ -162,14 +265,24 @@ def prepare_intent(
         "owner_lease_minutes": owner_lease_minutes,
         "prepared_at": prepared_at,
     }
+    if cohort is not None:
+        value.update(
+            {
+                "execution_cohort_id": cohort,
+                "execution_lane_id": lane_id,
+                "lane_output_prefix": lane_output_prefix,
+            }
+        )
+    return value
 
 
 def audit(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     seen_ids: set[str] = set()
-    seen_claims: set[tuple[str, str]] = set()
+    seen_claims: set[tuple[str, str, str, str]] = set()
     try:
         publications = publication_map(root)
+        cohort_map = research_execution_cohorts.cohort_map(root)
     except Exception as exc:
         return [str(exc)]
     for item in iter_records(root):
@@ -184,10 +297,19 @@ def audit(root: Path = ROOT) -> list[str]:
         seen_ids.add(str(erid))
         task_id = item.get("task_id")
         claim_id = item.get("claim_id")
-        pair = (str(task_id), str(claim_id))
-        if pair in seen_claims:
-            errors.append(f"{prefix}: duplicate task/claim execution intent")
-        seen_claims.add(pair)
+        cohort_id = item.get("execution_cohort_id")
+        lane_id = item.get("execution_lane_id")
+        if (cohort_id is None) != (lane_id is None):
+            errors.append(f"{prefix}: cohort/lane identity must be both present or both absent")
+        scope_key = (
+            str(task_id),
+            str(cohort_id or "NONCOHORT"),
+            str(lane_id or "NONCOHORT"),
+            str(claim_id),
+        )
+        if scope_key in seen_claims:
+            errors.append(f"{prefix}: duplicate execution claim within owner scope")
+        seen_claims.add(scope_key)
         publication_id = item.get("publication_id")
         record = publications.get(str(publication_id))
         if record is None:
@@ -199,6 +321,36 @@ def audit(root: Path = ROOT) -> list[str]:
             errors.append(f"{prefix}: taskbook path differs from referenced publication generation")
         if item.get("taskbook_blob_sha1") != record.get("taskbook_blob_sha1"):
             errors.append(f"{prefix}: taskbook blob differs from referenced publication generation")
+        outputs = item.get("allowed_outputs")
+        if not isinstance(outputs, list) or not outputs or not all(isinstance(x, str) and x.strip() for x in outputs):
+            errors.append(f"{prefix}: allowed_outputs invalid")
+            outputs = []
+        if cohort_id is not None and lane_id is not None:
+            cohort = cohort_map.get(str(cohort_id))
+            if cohort is None or cohort.get("task_id") != task_id:
+                errors.append(f"{prefix}: unknown execution cohort for task")
+            else:
+                lanes = [
+                    row for row in cohort.get("lanes", [])
+                    if isinstance(row, dict) and row.get("lane_id") == lane_id
+                ]
+                if len(lanes) != 1:
+                    errors.append(f"{prefix}: unknown or ambiguous execution lane")
+                else:
+                    lane = lanes[0]
+                    if lane.get("publication_id") != publication_id:
+                        errors.append(f"{prefix}: execution publication differs from lane publication pin")
+                    try:
+                        lane_prefix = research_execution_cohorts._safe_prefix(lane.get("output_prefix"))
+                    except Exception as exc:
+                        errors.append(f"{prefix}: invalid lane output_prefix: {exc}")
+                    else:
+                        if item.get("lane_output_prefix") != lane_prefix:
+                            errors.append(f"{prefix}: lane_output_prefix differs from cohort lane")
+                        for output in outputs:
+                            text = _safe_output(output)
+                            if text is None or not text.startswith(lane_prefix):
+                                errors.append(f"{prefix}: allowed output escapes cohort lane: {output}")
         if not research_identity.valid_execution_id(str(item.get("researcher_id", ""))):
             errors.append(f"{prefix}: invalid researcher_id")
         if not isinstance(item.get("theorem_owner"), str) or not item["theorem_owner"].strip():
@@ -207,9 +359,6 @@ def audit(root: Path = ROOT) -> list[str]:
             errors.append(f"{prefix}: execution_branch missing")
         if not re.fullmatch(r"[0-9a-f]{40}", str(item.get("execution_branch_base", ""))):
             errors.append(f"{prefix}: execution_branch_base invalid")
-        outputs = item.get("allowed_outputs")
-        if not isinstance(outputs, list) or not outputs or not all(isinstance(x, str) and x.strip() for x in outputs):
-            errors.append(f"{prefix}: allowed_outputs invalid")
     return errors
 
 
@@ -227,6 +376,8 @@ def command_prepare(args: argparse.Namespace) -> int:
         allowed_outputs=outputs,
         owner_lease_minutes=args.owner_lease_minutes,
         prepared_at=_now(args.prepared_at),
+        execution_cohort_id=args.execution_cohort_id,
+        execution_lane_id=args.execution_lane_id,
     )
     path = ROOT / "research_execution_records" / _safe(args.task_id, "task_id") / f"{record['execution_record_id']}.json"
     _save_exclusive(path, record)
@@ -258,6 +409,8 @@ def main() -> int:
     prepare.add_argument("--execution-branch", required=True)
     prepare.add_argument("--execution-branch-base", required=True)
     prepare.add_argument("--allowed-outputs-json", required=True)
+    prepare.add_argument("--execution-cohort-id")
+    prepare.add_argument("--execution-lane-id")
     prepare.add_argument("--owner-lease-minutes", type=int, default=120)
     prepare.add_argument("--prepared-at")
     prepare.set_defaults(func=command_prepare)
