@@ -1,21 +1,24 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_RESULT_CONTRACT_V1",
-  "status": "ACTIVE_CANONICAL_CANDIDATE_V1_2",
+  "status": "ACTIVE_CANONICAL_CANDIDATE_V1_3",
   "effective": "2026-08-27",
   "execution_contract": "research_execution_contract.json",
   "execution_cohort_contract": "research_execution_cohort_contract.json",
   "parallel_evidence_contract": "research_parallel_evidence_contract.json",
+  "driver_followup_contract": "research_driver_followup_contract.json",
   "result_store": "research_result_records/<task-id>/<result-id>.json",
   "review_store": "research_result_reviews/<result-id>/<review-id>.json",
+  "driver_followup_store": "research_driver_followups/<review-id>/<packet-id>.json",
   "parallel_intake_store": "research_parallel_intakes/<task-id>/<intake-id>.json",
   "parallel_reference_pass_store": "research_parallel_reference_passes/<intake-id>/<pass-id>.json",
   "parallel_synthesis_store": "research_parallel_syntheses/<task-id>/<synthesis-id>.json",
   "tool": "tools/research_result_records.py",
+  "driver_followup_tool": "research_driver_followup.py",
   "cohort_runtime": "tools/research_cohort_runtime.py",
   "parallel_checker": "research_parallel_evidence.py",
   "dispatch": "tools/research_dispatch.py",
   "lane_dispatch": "tools/research_lane_dispatch.py",
-  "purpose": "Prevent orphan results while preserving parallel research. Every return pins one exact publication generation and execution record. Ordinary results pin the operational publication; cohort-lane results may pin retained non-operational publications explicitly selected by their lanes. Multiple results remain separate immutable evidence and are never synthesized by timestamp. Cohort terminality additionally requires every lane to contribute evidence followed by two reference passes and exact-set synthesis.",
+  "purpose": "Prevent orphan results while preserving parallel research and automatic Driver continuation. Every return pins one exact publication generation and execution record. Multiple results remain separate immutable evidence and are never synthesized by timestamp. Post-cutover Driver reviews cannot terminalize runtime control until a valid automatic follow-up taskset (or canonical closed-parent exception) exists.",
   "result_required_fields": [
     "result_id",
     "task_id",
@@ -47,7 +50,11 @@
     "execution_lane_id",
     "lane_output_prefix"
   ],
-  "output_manifest_row": ["path", "git_blob_sha1", "sha256"],
+  "output_manifest_row": [
+    "path",
+    "git_blob_sha1",
+    "sha256"
+  ],
   "review_required_fields": [
     "review_id",
     "result_id",
@@ -98,6 +105,10 @@
     "METHOD_HARVEST_CLASSIFICATION_IS_REQUIRED_AT_RESULT_FREEZE",
     "INDEPENDENCE_AND_SOURCE_EXPOSURE_STATUS_ARE_TYPED_RESULT_FIELDS",
     "DRIVER_REVIEW_PINS_RESULT_RECORD_DIGEST_AND_DESTINATION",
+    "POST_CUTOVER_DRIVER_REVIEW_REQUIRES_VALID_AUTOMATIC_FOLLOWUP_PACKET_BEFORE_TERMINAL_RUNTIME_AUTHORITY",
+    "FOLLOWUP_PACKET_REQUIRES_IMMUTABLE_POST_REVIEW_TASKSET_OR_CANONICAL_PARENT_OBJECTIVE_CLOSED",
+    "FOLLOWUP_TASKSET_MUST_CONSUME_RESULT_NEXT_CONTROL_PLANE_RECOMMENDATION_AND_EVALUATE_LEAN_EXTERNAL_PRIOR_ART_REPLICATION_INTEGRATION_ADVERSARIAL_AND_MATHEMATICAL_GATES",
+    "TERMINAL_PARALLEL_SYNTHESIS_CANNOT_BYPASS_PENDING_GOVERNED_DRIVER_FOLLOWUP",
     "RESULT_OR_REVIEW_ARTIFACT_DIGEST_DRIFT_IS_CI_FAILURE",
     "RESULT_CAPTURE_IS_A_SEMANTIC_CHECKPOINT_NOT_A_CI_OR_USER_WAKEUP_BARRIER"
   ],
@@ -108,7 +119,7 @@
     "state_after_intake": "AWAITING_REFERENCE_PASS_1",
     "state_after_pass_1": "AWAITING_REFERENCE_PASS_2",
     "state_after_pass_2": "AWAITING_SYNTHESIS",
-    "terminalization": "ONLY_BY_SYNTHESIS_OVER_EXACT_CURRENT_EVIDENCE_SET_WITH_TERMINAL_CONTROL_DISPOSITION",
+    "terminalization": "ONLY_BY_SYNTHESIS_OVER_EXACT_CURRENT_EVIDENCE_SET_WITH_TERMINAL_CONTROL_DISPOSITION_AND_ALL_GOVERNED_DRIVER_FOLLOWUPS_READY",
     "allowed_synthesis_dispositions": [
       "KEEP_PARALLEL",
       "MERGE_TO_NEW_GENERATION",
@@ -131,15 +142,43 @@
     "new_result_effect": "EVIDENCE_HASH_CHANGES_AND_NEW_REFERENCE_COVERAGE_IS_REQUIRED",
     "task_terminal_before_terminal_synthesis": false
   },
+  "driver_review_followup_policy": {
+    "contract": "research_driver_followup_contract.json",
+    "cutover_reviewed_at": "2026-08-27T09:19:00+00:00",
+    "missing_or_invalid_packet_state": "AWAITING_DRIVER_REVIEW / AWAITING_FOLLOWUP_TASKSET_PUBLICATION",
+    "normal_completion": "TASK_SET_PUBLISHED",
+    "zero_task_exception": "PARENT_OBJECTIVE_CLOSURE only after canonical current Objective head is CLOSED",
+    "automatic_materializer": "python research_driver_followup.py materialize --review-id <DR-...> --spec <json>",
+    "post_review_terminal_rule": "terminal disposition is necessary but not sufficient; governed follow-up must also be ready"
+  },
   "persistence_boundary": {
     "execution_and_result": "Create execution provenance and result record in the same bounded publication batch as the durable return/checkpoint whenever possible.",
-    "driver_review": "Create the review record in the same bounded batch as the actual Driver review artifact whenever possible.",
+    "driver_review": "Create the review record and then materialize its follow-up taskset in the same Driver-review subflow; do not wait for a user wake-up.",
+    "driver_followup": "One immutable packet after its taskbook/taskset publications, or one closure packet after canonical parent Objective closure.",
     "parallel_intake": "Created only when actual evidence multiplicity or cohort completeness requires it; ordinary single-result noncohort tasks incur no extra write.",
     "reference_passes": "Two append-only semantic review records only for declared parallel evidence.",
     "synthesis": "One append-only control record after both passes; it never rewrites source evidence.",
     "between_checkpoints": "No routine repository writes, CI polling, review polling or scheduler heartbeat are required by result lifecycle."
   },
-  "terminal_driver_dispositions": ["ACCEPTED", "REJECTED", "PARKED", "CLOSED", "SUPERSEDED"],
-  "nonterminal_driver_dispositions": ["RETURN_TO_OWNER", "REQUEST_REPLICATION", "REQUEST_REVISION"],
-  "destination_classes": ["NONE", "FOUNDATION", "TOOL", "L4", "REPLICATION", "FOLLOWUP_TASK", "ARCHIVE"]
+  "terminal_driver_dispositions": [
+    "ACCEPTED",
+    "REJECTED",
+    "PARKED",
+    "CLOSED",
+    "SUPERSEDED"
+  ],
+  "nonterminal_driver_dispositions": [
+    "RETURN_TO_OWNER",
+    "REQUEST_REPLICATION",
+    "REQUEST_REVISION"
+  ],
+  "destination_classes": [
+    "NONE",
+    "FOUNDATION",
+    "TOOL",
+    "L4",
+    "REPLICATION",
+    "FOLLOWUP_TASK",
+    "ARCHIVE"
+  ]
 }
