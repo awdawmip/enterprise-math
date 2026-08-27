@@ -16,15 +16,28 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  unit-shard:
     if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Unit tests
+      - name: Unit tests shard ${{ matrix.shard }}
         env:
           PYTHONPATH: src
-        run: python -m unittest discover -s tests -v
+        run: python scripts/run_unittest_shard.py --index ${{ matrix.shard }} --count 16
+
+  test:
+    if: always() && (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
+    needs: unit-shard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every unit-test shard
+        run: test "${{ needs.unit-shard.result }}" = "success"
