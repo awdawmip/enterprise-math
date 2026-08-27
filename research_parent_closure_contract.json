@@ -1,0 +1,47 @@
+{
+  "schema": "ENTERPRISE_MATH_PARENT_CLOSURE_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL_CANDIDATE",
+  "effective": "2026-08-27",
+  "tool": "research_parent_closure.py",
+  "objective_authority": "research_objective_authority.py",
+  "task_publication_authority": "tools/research_task_records.py",
+  "task_result_authority": "tools/research_result_records.py",
+  "cohort_authority": "tools/research_cohort_runtime.py",
+  "purpose": "Derive whether an operational parent Objective is repository-complete without trusting caller-supplied parent status and without duplicating task-result or parallel-cohort terminal semantics.",
+  "core_invariants": [
+    "OBJECTIVE_HEAD_CLOSED_IS_NECESSARY_BUT_NOT_SUFFICIENT_FOR_DERIVED_PARENT_COMPLETE",
+    "CURRENT_OBJECTIVE_HEAD_REQUIRES_IMMUTABLE_SELECTION_RECEIPT",
+    "ACTIVE_CHILD_TASK_REQUIRES_CANONICAL_OBJECTIVE_GENERATION_AUTHORITY",
+    "LEGACY_UNBOUND_OR_UNPROVEN_CHILD_FORCES_DERIVED_PARENT_COMPLETE_FALSE",
+    "ACTIVE_EXECUTION_COHORT_OVERLAY_PRECEDES_TASK_GLOBAL_RESULT_STATE",
+    "ACTIVE_COHORT_IS_TERMINAL_ONLY_THROUGH_EXISTING_COHORT_RUNTIME_REDUCER",
+    "NO_ACTIVE_COHORT_USES_GENERATION_AWARE_TASK_RESULT_REVIEW_STATE",
+    "ANY_NONTERMINAL_ACTIVE_CHILD_FORCES_DERIVED_PARENT_COMPLETE_FALSE",
+    "INACTIVE_PUBLICATION_FAMILY_IS_RETAINED_HISTORY_NOT_LIVE_CHILD_EXECUTION",
+    "DERIVED_PARENT_COMPLETE_DOES_NOT_ITSELF_GRANT_PRE_FINAL_PERMISSION",
+    "DERIVED_PARENT_COMPLETE_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_CANONICAL_PROMOTION"
+  ],
+  "terminal_precedence": [
+    "ACTIVE_EXECUTION_COHORT_OVERLAY",
+    "TASK_RESULT_REVIEW_STATE"
+  ],
+  "derived_complete_requires": [
+    "current operational Objective head status == CLOSED",
+    "current Objective head selection receipt is exact and digest-valid",
+    "every active child publication has verified Objective-generation authority",
+    "every active child control reducer reports terminal"
+  ],
+  "not_in_scope": [
+    "final interaction permission",
+    "user stop/pause/review/wait boundary",
+    "platform/tool hard-limit handling",
+    "Working Truth promotion",
+    "Foundation authority",
+    "canonical theorem promotion"
+  ],
+  "output_authority": "REPOSITORY_DERIVED_PARENT_CLOSURE_ONLY",
+  "final_permission_granted": false,
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
