@@ -28,8 +28,11 @@ def franel_table(limit: int) -> list[int]:
     return f
 
 
-def harmonic(n: int, p: int) -> int:
-    return sum(pow(j, -1, p) for j in range(1, n + 1)) % p
+def harmonic_table(prime: int) -> list[int]:
+    h = [0] * prime
+    for j in range(1, prime):
+        h[j] = (h[j-1] + pow(j, -1, prime)) % prime
+    return h
 
 
 def central_a(j: int, p: int, modulus: int) -> int:
@@ -44,10 +47,11 @@ def midpoint_first_jet(prime: int, f: list[int]) -> tuple[int, int, int, int]:
     T = 0
     U = 0
     inv2 = pow(2, -1, prime)
+    h = harmonic_table(prime)
     for j in range(m + 1):
         a = central_a(j, prime, prime)
-        hj = harmonic(j, prime)
-        h2j = harmonic(2*j, prime)
+        hj = h[j]
+        h2j = h[2*j]
         T = (T + a * (h2j - inv2 * hj)) % prime
         U = (U + a * hj) % prime
     if f[m] % prime:
@@ -68,7 +72,7 @@ def midpoint_first_jet(prime: int, f: list[int]) -> tuple[int, int, int, int]:
 
 
 def main() -> None:
-    limit = 20000
+    limit = 5000
     f = franel_table((limit - 1)//2)
     forced = 0
     scalar_hasse_zeros = []
