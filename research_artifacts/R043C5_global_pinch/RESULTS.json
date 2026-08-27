@@ -1,0 +1,56 @@
+{
+  "schema": "ENTERPRISE_MATH_R043C5_GLOBAL_PINCH_V1",
+  "task_id": "RS-R043C5-OCTAHEDRAL-OPPOSITE-PAIR-GLOBAL-REALIZABILITY",
+  "researcher_id": "EM-R043C5-8F341F",
+  "status": "GLOBAL_OPPOSITE_PAIR_PINCH_IMPOSSIBILITY_PROVED_FCC_AND_HCP",
+  "theorem": "For every finite connected occupied set C in either frozen FCC or HCP native 12-contact world and every connected component Omega of the unoccupied graph, F(C) intersect Omega is connected under native 12-contact.",
+  "c5_disposition": {
+    "fcc": "GLOBAL_OPPOSITE_PAIR_PINCH_IMPOSSIBILITY_PROVED",
+    "hcp": "GLOBAL_OPPOSITE_PAIR_PINCH_IMPOSSIBILITY_PROVED"
+  },
+  "proof_core": {
+    "interface_complex": "K_Omega is the finite native cell interface between the Omega-side cell union and the union of all other native cells in the one-point compactified close-packed cellulation.",
+    "complement_components": 2,
+    "alexander_duality_over_F2": "dim H^2(K_Omega;F2)=dim reduced_H_0(S^3\\K_Omega;F2)=1",
+    "frontier_component_cycle": "For every native frontier component Gamma, sum mod 2 all interface 2-faces whose Omega-side site lies in Gamma. Every native dual edge is dual to a Delaunay triangle, so binary cut incidence is 0 or 2. When two distinct Omega endpoints occur they are joined by a triangle edge and hence are native 12-contact neighbors in the same Gamma. Therefore the face sum is a nonzero 2-cycle.",
+    "independence": "Distinct frontier components have disjoint interface-face support. Since K_Omega is 2-dimensional, there are no 3-cell boundaries, so these nonzero 2-cycles are linearly independent in H_2(K_Omega;F2).",
+    "rank_bound": "number_of_frontier_components <= dim H_2(K_Omega;F2)=dim H^2(K_Omega;F2)=1",
+    "nonempty_boundary": "Every complement component of a nonempty finite occupied set touches C in the connected native world, so the frontier slice is nonempty. Hence its number of components is exactly 1."
+  },
+  "exact_local_certificate": {
+    "fcc": {
+      "tetrahedra_through_origin": 8,
+      "octahedra_through_origin": 6,
+      "native_triangles_through_origin": 24,
+      "three_cells_per_native_triangle": 2
+    },
+    "hcp": {
+      "tetrahedra_through_origin": 8,
+      "octahedra_through_origin": 6,
+      "native_triangles_through_origin": 24,
+      "three_cells_per_native_triangle": 2,
+      "odd_even_layer_orbits_related_by": "(i,j,k)->(-i,-j,k+1)"
+    },
+    "codimension_two_binary_cut_faces": "0_OR_2",
+    "two_distinct_Omega_endpoints_on_cut_triangle": "NATIVE_12_CONTACT_ADJACENT"
+  },
+  "c4_regression": {
+    "tetra_nonconstant_colorings": 14,
+    "tetra_bad": 0,
+    "octa_nonconstant_colorings": 62,
+    "octa_bad": 6,
+    "octa_bad_type": "opposite-pair point pinch or color complement",
+    "minimal_repair_profile": [4, 2, 1, 2, 4],
+    "one_shell_extensions_per_world": 12951,
+    "one_shell_disconnects_fcc": 0,
+    "one_shell_disconnects_hcp": 0,
+    "scope": "REGRESSION_ONLY_NOT_USED_AS_GLOBAL_IMPOSSIBILITY_EVIDENCE"
+  },
+  "consequences": {
+    "r043c3": "POSITIVELY_CLOSED_FOR_FCC_AND_HCP",
+    "r043c2": "UNCHANGED",
+    "g0_component_grouping_ambiguity": "REMOVED_FOR_FCC_AND_HCP",
+    "next_stationary_g0_obstruction_from_c3_hierarchy": "SINGLE_COMPONENT_ROOTED_SUCCESSOR_EXTENSION_RIGIDITY"
+  },
+  "foundation_promotion": "NOT_AUTHORIZED_BY_THIS_TASK"
+}
