@@ -1,0 +1,49 @@
+{
+  "schema": "P022_COMPOSITE_FRANEL_EQUAL_DEPTH_REDUCTION_V1",
+  "task_id": "RS-P022-COMPOSITE-FRANEL-EQUAL-DEPTH-ESCAPE",
+  "publication_id": "TP2-E4537008BB8B0CCFF88F",
+  "researcher_id": "EM-P022CE-84B7D1",
+  "frozen_owner_source": "program/p022-geometry-v2@603ef1c72245612359f8b59cab7a492de21a9166",
+  "hard_target": "P022_COMPOSITE_FRANEL_EQUAL_DEPTH_ESCAPE_CLOSED_OR_MINIMAL_EXCEPTION_FROZEN",
+  "disposition": "MINIMAL_EXACT_EXCEPTION_FROZEN",
+  "admissible_sector": "q prime, q=6k-1, q mod 24 in {5,23}, m=3k-1=(q-1)/2, with the frozen composite-escape hypotheses",
+  "minimal_exceptional_congruence": "K_k == 0 (mod q), k=(q+1)/6",
+  "integer_companion": {
+    "K_0": 0,
+    "K_1": 1,
+    "recurrence": "K_(d+1)=(28*d^2+1)K_d+8(2*d-1)^4 K_(d-1)",
+    "bridge": "q divides F_(2k-1) iff q divides K_k",
+    "normalization": "K_d=((2d-1)!!)^2*(-8)^(d-1)*G_d"
+  },
+  "midpoint_first_jet": {
+    "base_sum": "Aq=sum_{j=0}^m a_j in Z_q, a_j=(-1)^j*binom(2j,j)^3/64^j",
+    "Tq": "sum a_j*(H_(2j)-H_j/2)",
+    "Uq": "sum a_j*H_j",
+    "q2_expansion": "F_m == Aq-3*q*Tq (mod q^2)",
+    "harmonic_pairing": "Uq == 2*Tq (mod q)",
+    "normalized_midpoint": "alpha_q=F_m/q == C_q-3*Tq == C_q-(3/2)Uq (mod q), C_q=Aq/q (mod q)"
+  },
+  "transport_first_jet": {
+    "transport": "F_(m-d)=A_d(q)F_m+B_d(q)F_(m-1)",
+    "E_d": "A_d(0)",
+    "G_d": "B_d(0)",
+    "H_d": "B_d'(0)",
+    "g_q": "G_k/q == (K_k/q)*s_k^(-1) (mod q), s_k=((2k-1)!!)^2*(-8)^(k-1)",
+    "u_q": "F_(m-1) (mod q), a q-adic unit under the frozen consecutive-zero exclusion",
+    "normalized_third": "beta_q=F_(2k-1)/q == J_q=E_k*alpha_q+(g_q+H_k)*u_q (mod q)"
+  },
+  "valuation_strata": {
+    "depth_1_equal": "alpha_q != 0 and J_q != 0",
+    "first_jet_separates": "exactly one of alpha_q,J_q is 0",
+    "higher_depth_residue": "alpha_q == 0 and J_q == 0; a second jet is required"
+  },
+  "casoratian_guard": "For X_d=(-8)^d E_d and Y_d=(-8)^d G_d, X_d Y_(d+1)-X_(d+1)Y_d=(-8)^(d+1)/(2d+1)^2. Hence q|G_k forces E_k to be a q-adic unit (using the k-1 Casoratian).",
+  "finite_diagnostic": {
+    "bound": 20000,
+    "target_sector_primes_checked": 564,
+    "K_k_zero_witnesses": 0,
+    "proof_status": "DIAGNOSTIC_ONLY_NOT_ALL_PRIME"
+  },
+  "unresolved_residue": "No proof was found that q never divides K_((q+1)/6) for all admissible primes. No admissible witness was found by the finite diagnostic. Universal row-visibility closure therefore remains conditional on excluding this exact companion congruence.",
+  "next_exact_frontier": "Prove or refute q | K_((q+1)/6) for admissible q=5,23 (mod 24). Only if such a prime exists is the first-jet valuation stratification activated; the alpha_q=J_q=0 sub-stratum then requires a second jet."
+}
