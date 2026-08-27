@@ -1,0 +1,112 @@
+{
+  "schema": "ENTERPRISE_MATH_INTEGRATION_EVIDENCE_MANIFEST_V1",
+  "task_id": "GS-TRIAXIAL-DIRECTIONAL-DEFECT-T1-NARROWED-INTEGRATION",
+  "researcher_id": "EM-TDINT-AD7201",
+  "date": "2026-08-25",
+  "primary_disposition": "T1_TRIAXIAL_DIRECTIONAL_DEFECT_SUBTOOL_INTEGRATED",
+  "no_new_mathematics": true,
+  "frozen_authority": {
+    "taskbook_source": "research_tasks/TRIAXIAL_DIRECTIONAL_DEFECT_T1_NARROWED_INTEGRATION_20260825.md@9c9358159111e7f29c9fe6e5860a330589654c0e",
+    "publication_migrated_taskbook_blob_sha1": "d50567fbb7f6d9bd3249e1eba911a18d7949a7f1",
+    "driver_review": "driver_reviews/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_DRIVER_REVIEW_20260825.md@f364c75d55e8018bcea80bdf00fc025f2ad7dd02",
+    "independent_verification_head": "b1f79d2314de2d1ae1511a693cdf37e7c7812cf8",
+    "frozen_integration_head": "11d8b33ff0e9fbe13256ec0f51ac7ef984723cc7",
+    "tested_pr_merge_head": "7c5e70f756cb95ba43d901a5b15cd000f422f2a3",
+    "tested_main_base": "bca280964a67853ed272b56ab255e00186d59aab",
+    "pull_request": 645
+  },
+  "artifacts": [
+    {
+      "path": "src/enterprise_math/_triaxial_directional_defect_core.py",
+      "git_blob_sha1": "5261da8b9e7848ac5cce935f81d7e7e0381b210b",
+      "role": "independently verified operator core transplanted unchanged"
+    },
+    {
+      "path": "src/enterprise_math/triaxial_directional_defect.py",
+      "git_blob_sha1": "570088fb2a8dc1a19ada303d55ea1cb93718a0c7",
+      "role": "narrowed typed T1 public adapter"
+    },
+    {
+      "path": "tests/test_triaxial_directional_defect_integration.py",
+      "git_blob_sha1": "c92da7c8d87a7c0efae477151323435d2ff0f8ec",
+      "role": "thirteen integration regressions"
+    },
+    {
+      "path": "research_method_inventory_addenda/20260825_triaxial_directional_defect_t1.json",
+      "git_blob_sha1": "422562255c3c6a64e8fc1d263f4ccbbf0d253959",
+      "role": "GLOBAL_SUBTOOL method inventory addendum"
+    },
+    {
+      "path": "enterprise_toolbox_registry.json",
+      "git_blob_sha1": "41d4ee9c5f2124be9905dce8ff5f1ca55f11fe94",
+      "role": "T1 subtool machine registration"
+    },
+    {
+      "path": "docs/ENTERPRISE_TOOLBOX_REGISTRY.md",
+      "git_blob_sha1": "3a3f7daf968e41472dc1bb3a0ac1e83d84c6bd73",
+      "role": "human toolbox mirror"
+    },
+    {
+      "path": "research_task_registry.json",
+      "git_blob_sha1": "92bc305a29f484f30ee2a993f3bf736f7e0c3640",
+      "role": "terminal DONE task registry state"
+    }
+  ],
+  "interface_contract": {
+    "full_adjoint_surface": ["FULL_ADJOINT", "CHIRALITY_ADJOINT"],
+    "compressed_gram_surface": ["COMPRESSED_GRAM", "GRAM_FACTOR"],
+    "separation_preserved": true,
+    "primitive_canonical_frame_required": true,
+    "unoriented_frame_dedup_explicit": true,
+    "native_hex_width_scope_explicit": true,
+    "verified_coefficient_characteristics": [0, 2, 3, 5, 7],
+    "endpoint_coalescence_is_trace_identity": false,
+    "shared_operator_core_for_tomography_and_hive": true,
+    "small_characteristic_failure_guards_retained": true,
+    "exposed_vertex_unimodular_augmentation_retained": true
+  },
+  "forbidden_scope_guards": {
+    "width_theorem_expanded": false,
+    "y_delta_exposed": false,
+    "binary_or_nonlinear_tomography_new_result": false,
+    "foundation_modified": false,
+    "new_top_level_tool_family_created": false
+  },
+  "regression_evidence": {
+    "workflow": "quality",
+    "workflow_run_id": 32861520263,
+    "workflow_job_id": 97846697091,
+    "command": "PYTHONPATH=src python -m unittest discover -s tests -v",
+    "result": "OK",
+    "test_count": 1431,
+    "elapsed_seconds": 476.150,
+    "new_integration_regressions": 13,
+    "new_integration_regressions_passed": 13,
+    "coverage": [
+      "cyclic covariance and reversal sign",
+      "primitive/canonical declaration and unoriented key",
+      "second-to-third defect bridge on shared core",
+      "endpoint six-point stencil versus eight-state trace cube",
+      "native-hex single-frame uniqueness boundary",
+      "native-hex multi-frame uniqueness and unoriented dedup",
+      "constructive X-ray kernel certificate",
+      "Euler-phi primitive frame census",
+      "exposed-vertex unimodular augmentation in characteristics 0,2,3,5,7",
+      "typed full adjoint versus compressed Gram separation",
+      "Gram factorization and small-characteristic failure guards",
+      "Hive/rhombus reuse of the same operator core",
+      "Y-Delta API absence and finite-support left-inverse negative guard"
+    ]
+  },
+  "governance_evidence": {
+    "reference_integrity_run_id": 32861520285,
+    "citation_lineage": "PASS",
+    "shared_tool_routing": "PASS",
+    "canonical_task_registry_orphan_prevention": "PASS",
+    "legacy_scheduler_cutover": "PASS",
+    "bilingual_sync": "PASS",
+    "taskbook_publication_migration_only": true,
+    "original_math_body_changed_by_migration": false
+  },
+  "evidence_commit_semantics": "The manifest/return/DONE-registry successor is metadata-only; executable and registry-interface regression evidence is frozen at frozen_integration_head and the tested PR merge head against tested_main_base."
+}

@@ -1,0 +1,42 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "DRIVER_ACCEPTED_NARROWED_INTEGRATION",
+  "date": "2026-08-25",
+  "driver_review": "driver_reviews/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_DRIVER_REVIEW_20260825.md@f364c75d55e8018bcea80bdf00fc025f2ad7dd02",
+  "methods": [
+    {
+      "method_id": "t1.triaxial_directional_defect",
+      "name": "Triaxial directional-defect tomography / rhombus subtool",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T1_SCALE_ENUMERATION_VALUATION",
+      "status": "DRIVER_ACCEPTED_NARROWED_EXECUTABLE",
+      "source_refs": [
+        "src/enterprise_math/triaxial_directional_defect.py",
+        "src/enterprise_math/_triaxial_directional_defect_core.py",
+        "tests/test_triaxial_directional_defect_integration.py",
+        "driver_reviews/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_DRIVER_REVIEW_20260825.md@f364c75d55e8018bcea80bdf00fc025f2ad7dd02",
+        "research/triaxial-directional-defect-independent-tool-verification@b1f79d2314de2d1ae1511a693cdf37e7c7812cf8"
+      ],
+      "triggers": [
+        "triaxial directional difference",
+        "120-degree frame",
+        "rhombus defect",
+        "discrete Hessian transport",
+        "triple defect",
+        "ghost kernel",
+        "native-hex tomography",
+        "frame-width uniqueness",
+        "exposed-vertex augmentation"
+      ],
+      "capabilities": [
+        "primitive canonical frame declaration with explicit unoriented deduplication",
+        "shared first/second/third directional-difference operators",
+        "native-hex X-ray kernel and multi-frame uniqueness certificates",
+        "exposed-vertex unimodular augmentation",
+        "full-field adjoint separated from compressed Gram diagnostics",
+        "Hive/rhombus reuse through the same operator core"
+      ],
+      "hard_boundary": "Native-hex/support-compatible domains only for width/uniqueness; coefficient characteristics restricted to independently verified 0,2,3,5,7 on the chirality/Gram integration path; endpoint coalescence is not trace identity; Y-Delta, binary/nonlinear tomography, Foundation mutation and a new top-level tool family are out of scope."
+    }
+  ]
+}
