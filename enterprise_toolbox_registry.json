@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_TOOLBOX_REGISTRY_V2",
   "status": "ACTIVE_CURRENT_TOOL_ROUTER",
-  "date": "2026-08-23",
+  "date": "2026-08-25",
   "authority": "ROUTING_ONLY_EXACT_SOURCES_CONTROL",
   "invocation_policy": "tool_invocation_policy.json",
   "method_inventory": "research_method_inventory.json",
@@ -36,7 +36,21 @@
       "capabilities": ["scale enumeration", "shell extraction", "finite-difference certificates", "rational-series/recurrence compression", "valuation and local-to-global overlap correction"],
       "hard_boundary": "NO_UNIVERSAL_NATIVE_EHRHART_POLYNOMIALITY",
       "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_DRIVER_REVIEW_20260822.md",
-      "result": "research_notes/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_CALCULUS_REPORT_20260822.md"
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_CALCULUS_REPORT_20260822.md",
+      "subtools": [
+        {
+          "id": "T1_TRIAXIAL_DIRECTIONAL_DEFECT",
+          "classification": "GLOBAL_SUBTOOL",
+          "status": "DRIVER_ACCEPTED_NARROWED_EXECUTABLE",
+          "api": ["DECLARE_FRAME", "DIFF1", "RHOMBUS2", "TRIPLE_DEFECT", "XRAY_KERNEL_CERT", "FRAME_WIDTH", "MULTIFRAME_UNIQUENESS", "EXPOSED_AUGMENT", "FULL_ADJOINT", "CHIRALITY_ADJOINT", "COMPRESSED_GRAM", "GRAM_FACTOR"],
+          "triggers": ["triaxial directional difference", "rhombus defect", "triple defect", "ghost kernel", "native-hex tomography", "frame-width uniqueness", "exposed-vertex augmentation"],
+          "capabilities": ["primitive/canonical frame declaration with explicit unoriented deduplication", "shared tomography and Hive/rhombus directional-defect core", "native-hex kernel/uniqueness certificates", "exposed-vertex unimodular augmentation", "typed full adjoint", "characteristic-sensitive compressed Gram diagnostic"],
+          "hard_boundary": "FULL_ADJOINT != COMPRESSED_GRAM; native-hex/support-compatible width scope only; endpoint coalescence != trace identity; verified coefficient characteristics 0,2,3,5,7 on the adjoint/Gram integration path; Y-Delta, binary/nonlinear tomography, Foundation mutation, width-theorem extension and new top-level family promotion are forbidden.",
+          "source_methods": ["src/enterprise_math/triaxial_directional_defect.py", "src/enterprise_math/_triaxial_directional_defect_core.py"],
+          "tests": ["tests/test_triaxial_directional_defect_integration.py"],
+          "driver_review": "driver_reviews/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_DRIVER_REVIEW_20260825.md@f364c75d55e8018bcea80bdf00fc025f2ad7dd02"
+        }
+      ]
     },
     {
       "id": "T2_BLOCK_FINITE_CERTIFICATE",
@@ -159,10 +173,11 @@
   "domain_facades": [
     {
       "id": "D1_PRIME_TOOLKIT",
-      "name": "Prime Toolkit",
-      "status": "PREEXISTING_DOMAIN_TOOL_LIBRARY",
-      "sources": ["src/enterprise_math/prime_toolkit.py", "src/enterprise_math/prime_method_inventory.json"],
-      "rule": "Use its status-preserving facade for prime-specific methods; do not duplicate generic T1/T5/T6 machinery inside prime routes."
+      "name": "Enterprise Prime Toolkit",
+      "status": "ACCEPTED_DOMAIN_FACADE",
+      "inventory": "src/enterprise_math/prime_method_inventory.json",
+      "dispatcher": "src/enterprise_math/prime_toolkit.py",
+      "routing_rule": "Prime-specific surfaces live here; generic mechanisms route back into T0-T12 rather than being reimplemented per domain."
     }
   ],
   "foundation_mutation": false
