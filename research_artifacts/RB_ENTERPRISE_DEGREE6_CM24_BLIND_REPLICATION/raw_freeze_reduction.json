@@ -12,6 +12,7 @@
     "claim_id": "chatgpt-rbv2rep-20260827-2129",
     "exact_reduction": {
       "anti_invariant_y": "Target Y has the form Y=w*H with H in K(C).",
+      "canonical_model": "With canonical differential basis proportional to {dR/w, dR/t, dR/(w*t), R*dR/(w*t)}, the canonical affine coordinates are [t:w:1:R]. The canonical curve is the intersection w^2=t(R+2) and t^2=R^3-3R; the quadric is rank 3 (a cone), exposing the trigonal structure.",
       "cover_branch_points": [
         "O (point at infinity)",
         "(0,0)",
@@ -35,6 +36,11 @@
       "phi_zero_divisor": "phi has six simple zeros: the two lifts to D of each of the three distinct points Q on C satisfying t=-k.",
       "q_cubic": "The R-coordinates of the Q points satisfy R^3-3R-k^2=0.",
       "q_cubic_discriminant": "disc=216*(30*sqrt(6)-73)>0, hence the three Q are distinct.",
+      "remaining_branch_block_patterns": [
+        "4+2+0+0",
+        "2+2+2+0"
+      ],
+      "six_block_obstruction": "The branch-block pattern 6+0+0+0 is impossible for the frozen lambda. After a target 2-torsion translation put the size-6 block over infinity. Let F=(R+2)t, so div(F)=B_total-6O, and write G=F*X in L(6O). Then G, G-F, and G-lambda*F all have even divisors. Every even-divisor element of L(6O) is either a square of an element of L(3O), or (R-r) times a square of an element of L(2O) for r in {0,sqrt(3),-sqrt(3)}. Two non-square 2-torsion types cannot differ by a nonzero multiple of F because they contain no t term. Factoring the difference of two square types forces the L(3O) factors to split F as (R+2)*t. The only possible cross-ratios are the anharmonic exceptional values lambda in {-1,1/2,2} (or the degenerate 0,1 cases). The frozen lambda has j=2417472+1707264*sqrt(2), whereas all {-1,1/2,2} give j=1728, so this pattern is excluded.",
       "special_fiber_even_partitions": [
         "The six D/C branch points map to the four special x-values in even block sizes.",
         "Ignoring zero blocks, the branch-point block-size patterns are 6; 4+2; or 2+2+2.",
@@ -59,10 +65,10 @@
     "phase": "BLIND_RECONSTRUCTION_FROZEN",
     "primary_verdict": "BLIND_INCOMPLETE_EXACT_REDUCTION",
     "publication_id": "TP2-9F1A3C0DEFAED8B6E247",
-    "remaining_exact_problem": "Construct a degree-6 X in K(C) satisfying the ODE certificate and the corrected local-degree rules over the four special values and Q={t=-k}, then recover H, target twist, exact pullback coefficient and period scaling; or prove no such X exists.",
+    "remaining_exact_problem": "The 6+0+0+0 branch-block pattern is excluded. Construct a degree-6 X in K(C) satisfying the ODE certificate and the corrected local-degree rules for one of the remaining patterns 4+2+0+0 or 2+2+2+0, then recover H, target twist, exact pullback coefficient and period scaling; or prove both remaining patterns impossible.",
     "researcher_id": "EM-RBV2REP-7C42A1",
     "schema": "RB_ENTERPRISE_DEGREE6_CM24_BLIND_REDUCTION_CERT_V1",
     "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-REPLICATION"
   },
-  "payload_sha256": "sha256:5805be4031f73b0a5d92589326d7188fc129cde6d14be46861d7214d7690e2c1"
+  "payload_sha256": "sha256:1fcab70414b4e873a961474124ca18c46a5f74dcd27914dcfb2147a8de792924"
 }
