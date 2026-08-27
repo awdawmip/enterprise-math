@@ -1,0 +1,24 @@
+{
+  "schema": "P022_FORCED_MIDPOINT_FALLBACK_INDEPENDENT_REPLAY_V1",
+  "status": "PASS",
+  "limit_exclusive": 50000,
+  "target_prime_classes_mod_24": [5, 23],
+  "target_primes_tested": 1294,
+  "signed_support_failures": 0,
+  "prime_midpoint_special_support_cases": 193,
+  "primitive_twin_first_zero_cases": 12,
+  "bounded_q_lt_6r_minus_1_cases": 6,
+  "bounded_captures_verified": 6,
+  "bounded_capture_failures": 0,
+  "bounded_cases": [
+    {"q": 2351, "r": 726, "m": 1175, "B": 392, "capture_no_later_than": 1175, "dangerous_branch_used": false},
+    {"q": 3701, "r": 1014, "m": 1850, "B": 617, "capture_no_later_than": 1850, "dangerous_branch_used": false},
+    {"q": 11279, "r": 3744, "m": 5639, "B": 1880, "capture_no_later_than": 5639, "dangerous_branch_used": false},
+    {"q": 23831, "r": 10506, "m": 11915, "B": 3972, "capture_no_later_than": 11915, "dangerous_branch_used": false},
+    {"q": 33773, "r": 8031, "m": 16886, "B": 5629, "capture_no_later_than": 16886, "dangerous_branch_used": false},
+    {"q": 45263, "r": 16071, "m": 22631, "B": 7544, "capture_no_later_than": 22631, "dangerous_branch_used": false}
+  ],
+  "independence": "Franel recurrence and central-binomial exponent basis rebuilt without importing P022 implementation modules",
+  "role": "FINITE_REGRESSION_ONLY_NOT_A_PROOF",
+  "general_proof_basis": "exact signed support localization + primitive first-zero units + adjacent-zero exclusion + twin-blackout direct capture for the sole dangerous positive support"
+}
