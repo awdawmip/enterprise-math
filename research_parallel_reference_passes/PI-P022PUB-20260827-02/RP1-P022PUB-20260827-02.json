@@ -1,0 +1,28 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "pass_id": "RP1-P022PUB-20260827-02",
+  "intake_id": "PI-P022PUB-20260827-02",
+  "task_id": "RS-P022-OBSERVATION-HISTORY",
+  "pass_number": 1,
+  "pass_kind": "SEMANTIC_EVIDENCE_CROSSCHECK",
+  "publication_ids": [
+    "TP2-2346F5D3E731ED56DB0A",
+    "TP2-D78DBA0243911E0363FA",
+    "TP2-DE338F269CA11E9BC01B"
+  ],
+  "result_ids": [],
+  "evidence_set_sha256": "sha256:4602a86921274783fdcaa7a538a557992c2a30728cb2a03bfeb0c3deeae867fe",
+  "reviewer_id": "EM-DRIVER-01",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "reviewed_at": "2026-08-27T21:23:00+08:00",
+  "findings_summary": "All three legacy publication heads remain valid research evidence, but they do not encode one successor target. TP2-DE338F269CA11E9BC01B terminates the q=3r-1 arithmetic-core task by exact reduction to fixed kernel R_m(q); TP2-D78DBA0243911E0363FA is the bounded forced-midpoint fallback route; TP2-2346F5D3E731ED56DB0A targets a separate composite equal-depth p-adic mechanism. The fixed-kernel residue is not the hard target of TP2-2346F5D3E731ED56DB0A.",
+  "relationship": [
+    "SAME_P022_MOTHER_PROGRAM",
+    "COMPLEMENTARY_SUBFRONTIERS",
+    "FIXED_KERNEL_AND_EQUAL_DEPTH_ARE_DISTINCT_HARD_TARGETS",
+    "MIDPOINT_ROUTE_IS_SEPARATELY_BOUNDED"
+  ],
+  "recommendation": "KEEP_ALL_FOR_ADVERSARIAL_SECOND_PASS",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}

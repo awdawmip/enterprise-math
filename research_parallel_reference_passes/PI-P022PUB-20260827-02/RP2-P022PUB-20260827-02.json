@@ -1,0 +1,28 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "pass_id": "RP2-P022PUB-20260827-02",
+  "intake_id": "PI-P022PUB-20260827-02",
+  "task_id": "RS-P022-OBSERVATION-HISTORY",
+  "pass_number": 2,
+  "pass_kind": "ADVERSARIAL_CONTROL_CROSSCHECK",
+  "publication_ids": [
+    "TP2-2346F5D3E731ED56DB0A",
+    "TP2-D78DBA0243911E0363FA",
+    "TP2-DE338F269CA11E9BC01B"
+  ],
+  "result_ids": [],
+  "evidence_set_sha256": "sha256:4602a86921274783fdcaa7a538a557992c2a30728cb2a03bfeb0c3deeae867fe",
+  "reviewer_id": "EM-DRIVER-01",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "reviewed_at": "2026-08-27T21:24:00+08:00",
+  "findings_summary": "The earlier operational selection of TP2-2346F5D3E731ED56DB0A is rejected as a routing conclusion, not as mathematical evidence: it was justified by DR-710AC1A4CB63750F94CB, whose destination conflates fixed-kernel nonvanishing with a different taskbook and describes a later shared-task claim as live. The exact correction is to keep TP2-DE338F269CA11E9BC01B as the legacy operational terminal head while publishing typed continuations for fixed-kernel nonvanishing and composite equal-depth escape. TP2-D78DBA0243911E0363FA remains retained bounded evidence with no new successor.",
+  "relationship": [
+    "KEEP_PARALLEL_EVIDENCE",
+    "ROUTING_CORRECTION_ONLY",
+    "SPLIT_OPEN_FRONTIERS_TO_TYPED_TASKS",
+    "LEGACY_OPERATIONAL_HEAD_REVERTS_TO_ACCEPTED_DE338_RESULT"
+  ],
+  "recommendation": "SPLIT_TO_TYPED_TASKS",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}
