@@ -31,7 +31,7 @@ jobs:
       - name: Check V1 compatibility task registry and orphan prevention
         run: python tools/research_task_registry.py audit
       - name: Check immutable post-cutover task publication records
-        run: python tools/research_task_records.py audit
+        run: python control_plane/check_research_task_records_compatibility.py
       - name: Check operational publication selection and retained parallel heads
         run: python research_operational_publications.py audit
       - name: Check immutable execution intents
