@@ -1,0 +1,77 @@
+{
+  "schema": "ENTERPRISE_BRC_HALF_COUPLING_PADIC_PROOF_LANE_AUDIT_V1",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-PADIC-ALL-PRIME-PROOF",
+  "publication_id": "TP2-7A652D67B412693680E0",
+  "claim_id": "chatgpt-ebp2-20260827-0822",
+  "researcher_id": "EM-EBP2-7D2C2F",
+  "target": "For every prime p>3, S_p = sum_{n=0}^{p-1}(6n+1) C(2n,n)^2 C(3n,n)/216^n ≡ p*(-3/p) (mod p^3).",
+  "taskbook_verdict": "PROOF_NOT_CLOSED",
+  "hard_target_disposition": "ALL_PRIME_MOD_P3_UNPROVED_AND_UNREFUTED",
+  "prior_art": {
+    "sun_a14_ii": {
+      "reference": "Zhi-Wei Sun, Open Conjectures on Congruences, arXiv:0911.5665, Conjecture A14(ii)",
+      "classification": "EXACT_PRIOR_CONJECTURE",
+      "specialization": "a=1 is exactly the present target after multiplying the displayed normalized congruence by p."
+    },
+    "beukers": {
+      "reference": "Frits Beukers, Supercongruences using modular forms, arXiv:2403.03301 (current revised version audited 2026-08-27)",
+      "classification": "PROVED_GENERAL_FRAMEWORK_WITH_SPLIT_PRIME_HYPOTHESIS",
+      "specialization_status": "Coefficient family and CM value t=sqrt(-6)/3 -> 1/216 match exactly; Theorem 1.22 has the required F_p-delta^{-1} theta F_p shape but assumes p splits in Q(sqrt(-6)). Numerical q-expansion gives delta=-1/6, but this audit does not promote the numerical identification or the theorem character sign to an exact standalone specialization."
+    },
+    "shvets_2026": {
+      "reference": "Alex Shvets, Split-prime supercongruence at the mixed CM point (1/6,1/3;1), arXiv:2605.19773",
+      "classification": "RELATED_PROVED_SPLIT_PRIME_RESULT_DIFFERENT_SEQUENCE",
+      "specialization_status": "Uses the same mixed (1/6,1/3) hypergeometric CM backbone after Clausen, but proves a symmetric-cube coefficient congruence rather than the derivative-weighted p-term truncation here; not a closure."
+    }
+  },
+  "exact_identities": {
+    "kernel": "A_n=C(2n,n)^2*C(3n,n)=108^n*(1/2)_n(1/3)_n(2/3)_n/(n!)^3",
+    "hypergeometric": "S_p = [(1+6 theta) sum_{n=0}^{p-1} (1/2)_n(1/3)_n(2/3)_n/(n!)^3 z^n] at z=1/2",
+    "clausen": "_3F_2(1/3,2/3,1/2;1,1;z) = _2F_1(1/6,1/3;1;z)^2",
+    "recurrence": "a_{k+1}/a_k = (2k+1)(3k+1)(3k+2)/(36(k+1)^3), for a_k=A_k/216^k"
+  },
+  "lane_a_modular_cm": {
+    "status": "ALL_PRIME_ROUTE_BLOCKED_BY_SPLIT_HYPOTHESIS",
+    "exact_matches": [
+      "Beukers order-3 example has coefficients (3n)!(2n)!/(n!)^5.",
+      "Its level-3 CM point alpha=sqrt(-6)/3 has t(alpha)=1/216.",
+      "The weighted operator would match F_p+6 theta F_p if delta(alpha)=-1/6."
+    ],
+    "scope_obstruction": "Theorem 1.22 requires p split in Q(sqrt(-6)); for p>3 this excludes p ≡ 13,17,19,23 (mod 24).",
+    "nonproof_check": "Independent high-precision q-expansion audit gave delta(alpha)=-1/6, but an exact symbolic derivation and exact character identification were not completed, so no restricted-class theorem is claimed by this return."
+  },
+  "lane_b_direct_padic": {
+    "status": "VALUATION_STRATIFICATION_PROVED_NAIVE_TAIL_COLLAPSE_REFUTED",
+    "lemma": "For 0<=n<p, v_p(C(2n,n)^2 C(3n,n)) = floor(2n/p)+floor(3n/p).",
+    "layers": [
+      "0 <= n < p/3: valuation 0",
+      "p/3 < n < p/2: valuation 1",
+      "p/2 < n < 2p/3: valuation 2",
+      "2p/3 < n < p: valuation 3"
+    ],
+    "consequence": "Only the last third vanishes termwise modulo p^3. The two middle layers survive at p and p^2 precision and must be controlled.",
+    "exact_route_counterexamples": {
+      "p=5": {"block_residues_mod_125": [50, 45, 25, 0]},
+      "p=7": {"block_residues_mod_343": [231, 217, 245, 0]},
+      "p=13": {"block_residues_mod_2197": [780, 1937, 1690, 0]}
+    }
+  },
+  "finite_regression": {
+    "status": "PASS_FINITE_ONLY",
+    "max_bound": 10000,
+    "primes_tested": 1227,
+    "largest_prime": 9973,
+    "target_failures": 0,
+    "independent_direct_crosschecks": 44,
+    "direct_crosscheck_max_prime": 199,
+    "valuation_formula_checks": 4222,
+    "valuation_failures": 0,
+    "artifact": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_PADIC_ALL_PRIME_PROOF/regression_10000.json"
+  },
+  "smallest_unresolved_frontier": {
+    "name": "INERT_FINITE_CLAUSEN_DERIVATIVE_BRIDGE",
+    "statement": "For primes p inert in Q(sqrt(-6)), control modulo p^3 the difference between the degree-(p-1) truncation of (1+6 theta) _3F_2 at z=1/2 and the p-adic Frobenius/Clausen expression built from _2F_1(1/6,1/3;1;z), including the valuation-1 and valuation-2 middle blocks.",
+    "why_it_is_smallest": "The exact formal Clausen identity handles coefficients below degree p, while evaluation of the truncated square introduces degree >=p convolution tails; these are precisely where the surviving middle p-adic layers must be accounted for."
+  },
+  "recommended_next_action": "Attack the inert finite-Clausen derivative bridge directly using a p-deformed terminating hypergeometric/WZ identity or p-adic Gamma expansion. Do not spend another stage merely extending finite prime bounds or re-citing split-prime modular theorems."
+}
