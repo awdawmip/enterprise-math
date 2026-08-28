@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
 """Audit gradual control-pointer migration without adjudicating mathematics.
 
-This checker is intentionally conservative.  A registered field may contain only
-its frozen legacy value or the declared already-canonical target value.  Anything
-else is a control-state inconsistency and fails closed.  Baseline blob drift is
-reported but is not itself an error because the containing file may legitimately
-change mathematical or research semantics outside the registered JSON pointer.
+This checker is intentionally conservative. A registered migration field may
+contain only its frozen legacy value or the declared already-canonical target
+value. Anything else is a control-state inconsistency and fails closed.
+Baseline blob drift is reported but is not itself an error because the
+containing file may legitimately change mathematical or research semantics
+outside the registered JSON pointer.
+
+Some dispatch-looking fields are intentionally subordinate task-definition or
+fresh selectors rather than top-level live routes. Those fields are registered
+under ``protected_selector_fields`` and must remain at their exact required
+value. This prevents a blind string-replacement migration from changing their
+meaning.
 
 The checker does not decide whether a MIXED_* entry is safe to migrate; it only
-keeps the unresolved debt explicit and prevents silent third-state drift.
+keeps the unresolved debt explicit and prevents silent semantic drift.
 """
 from __future__ import annotations
 
@@ -74,6 +81,58 @@ def _field_rows(entry: dict[str, Any]) -> list[tuple[str, Any, Any]]:
     return [(str(pointer), old, target) for pointer, old, target in zip(pointers, legacy, targets, strict=True)]
 
 
+def _check_protected_selectors(
+    registry: dict[str, Any], root: Path
+) -> list[str]:
+    rows = registry.get("protected_selector_fields")
+    if not isinstance(rows, list) or not rows:
+        raise MigrationRegistryError("semantic migration registry has no protected selector fields")
+
+    seen: set[str] = set()
+    reports: list[str] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            raise MigrationRegistryError("protected selector entry must be an object")
+        protection_id = row.get("protection_id")
+        if not isinstance(protection_id, str) or not protection_id or protection_id in seen:
+            raise MigrationRegistryError(f"invalid/duplicate protection_id: {protection_id!r}")
+        seen.add(protection_id)
+
+        path_value = row.get("path")
+        pointer = row.get("json_pointer")
+        required = row.get("required_value")
+        semantic_role = row.get("semantic_role")
+        reason = row.get("reason")
+        if not isinstance(path_value, str) or not path_value:
+            raise MigrationRegistryError(f"{protection_id}: path missing")
+        if not isinstance(pointer, str) or not pointer:
+            raise MigrationRegistryError(f"{protection_id}: json_pointer missing")
+        if not isinstance(required, str) or not required:
+            raise MigrationRegistryError(f"{protection_id}: required_value missing")
+        if not isinstance(semantic_role, str) or not semantic_role:
+            raise MigrationRegistryError(f"{protection_id}: semantic_role missing")
+        if not isinstance(reason, str) or not reason:
+            raise MigrationRegistryError(f"{protection_id}: reason missing")
+
+        path = root / path_value
+        if not path.exists():
+            raise MigrationRegistryError(
+                f"{protection_id}: protected target file missing: {path_value}"
+            )
+        document = _load(path)
+        actual = _pointer(document, pointer)
+        if actual != required:
+            raise MigrationRegistryError(
+                f"{protection_id}: protected selector {path_value}{pointer} drifted to "
+                f"{actual!r}; required={required!r} ({semantic_role})"
+            )
+        reports.append(
+            f"{protection_id}: PROTECTED_SELECTOR / {semantic_role} / "
+            f"{path_value}{pointer}={required}"
+        )
+    return reports
+
+
 def check(root: Path = ROOT) -> list[str]:
     registry = _load(root / "control_plane" / "control_semantic_migration_registry.json")
     authority = _load(root / "control_plane" / "current_control_authority.json")
@@ -84,11 +143,12 @@ def check(root: Path = ROOT) -> list[str]:
     if authority.get("status") != "ACTIVE_CANONICAL_CONTROL_PRECEDENCE":
         raise MigrationRegistryError("current control authority is not active")
 
+    reports = _check_protected_selectors(registry, root)
+
     entries = registry.get("entries")
     if not isinstance(entries, list) or not entries:
         raise MigrationRegistryError("semantic migration registry has no entries")
     seen: set[str] = set()
-    reports: list[str] = []
     for entry in entries:
         if not isinstance(entry, dict):
             raise MigrationRegistryError("migration entry must be an object")
@@ -137,7 +197,10 @@ def main() -> int:
     except (MigrationRegistryError, OSError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}")
         return 1
-    print("PASS: semantic migration debt is explicit; no registered control field has third-state drift.")
+    print(
+        "PASS: semantic migration debt is explicit; protected selectors retain their "
+        "meaning and no registered control field has third-state drift."
+    )
     for row in reports:
         print(" -", row)
     return 0
