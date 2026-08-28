@@ -57,7 +57,8 @@ jobs:
       - name: Check Driver review automatic follow-up authority
         run: python research_driver_followup_guard.py audit
       - name: Check parallel evidence two-pass reference chains over operational results
-        run: python tools/research_parallel_evidence_operational.py audit
+        run: >-
+          python -c "from tools import research_result_records as _result_view; import research_parallel_evidence as _parallel; raise SystemExit(_parallel.main())" audit
       - name: Check opt-in parallel execution cohorts
         run: python research_execution_cohorts.py audit
       - name: Check cohort completeness and two-pass terminalization
