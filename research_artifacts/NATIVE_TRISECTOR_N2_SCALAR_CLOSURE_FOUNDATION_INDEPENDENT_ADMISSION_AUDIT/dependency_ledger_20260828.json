@@ -5,55 +5,38 @@
   "publication_id": "TP2-4BE981A08B9A260B8E28",
   "claim_id": "chatgpt-ntn2a-20260828-1335-56a913",
   "researcher_id": "EM-NTN2A-56A913",
-  "primary_recommendation": "FOUNDATION_N2_CONSEQUENCE_ADMIT",
-  "hard_target_disposition": "INDEPENDENTLY_VERIFIED_AT_EXACT_NATIVE_S3_N2_SCALAR_SET_RELATION_STRENGTH",
-  "foundation_mutation": false,
-  "independence_boundary": {
-    "mode": "SOURCE_EXPOSED_INDEPENDENT_GOVERNANCE_AUDIT",
-    "parent_result_treated_as": "AUDIT_TARGET_AND_DISCLOSED_EVIDENCE_NOT_PROOF_AUTHORITY",
-    "new_independent_routes": [
-      "breaker q_b=5 proved by an exact quadratic-character intersection count for Q0 and Q0+1/3, without the parent's split-hyperbola/Klein-four bound",
-      "capacity k_*=9 proved directly from the exact 10-term mod-5 period of the reconstructed scalar law, without the parent's general quadratic-ramification k_*(q)=2q-1 theorem",
-      "mixed-parity boundary proved by an elementary two-largest-odd-distances extremal argument"
+  "recommendation": "FOUNDATION_N2_CONSEQUENCE_ADMIT",
+  "foundation_primitive_mutation": "NONE",
+  "independence": {
+    "status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+    "source_exposure": "NONBLIND_DISCLOSED",
+    "new_routes": [
+      "q_b=5 via quadratic-character intersection count",
+      "k_*=9 via direct mod-5 period-10 proof",
+      "mixed-parity boundary via elementary odd-distance extremal proof"
     ]
   },
-  "native_input": {
-    "sector_count": 3,
-    "shell": "A_r={(a,b,c) in N_0^3:min(a,b,c)=0,a+b+c=r}",
-    "shell_size": "3r",
-    "relabeling_group": "S_3",
-    "accepted_allocation_torsor": "lambda_f(x)=C_r+p_f(x), C_r=1+3r(r-1)/2; six native frames; invariant-orbit label multisets descend at N2 readout strength"
-  },
-  "barycenter_readout": {
-    "orbit": "O_r=S_3·(ceil(r/2),floor(r/2),0), distinct states",
+  "barycenter": {
     "domain": "r>=2",
-    "even_positions": "r=2m -> {m,3m,5m}",
-    "odd_positions": "r=2m+1>=3 -> {m,m+1,3m+1,3m+2,5m+2,5m+3}",
+    "orbit": "S3*(ceil(r/2),floor(r/2),0) as distinct-state set",
+    "even_positions": "{m,3m,5m}",
+    "odd_positions": "{m,m+1,3m+1,3m+2,5m+2,5m+3}",
     "mean_position": "3r/2",
-    "readout": "Z(r)=ceil(mean{lambda_f(x):x in O_r})",
-    "formula": "Z(r)=1+(3r^2+epsilon(r))/2, epsilon(r)=r mod 2",
-    "r1_guard": "At r=1 the allocation label multiset is {1,2,3}, so the barycenter ceiling is 2 while the r>=2 formula gives 3. The theorem is therefore exactly r>=2."
+    "Z": "1+(3r^2+epsilon(r))/2",
+    "r1": "label multiset {1,2,3} has ceiling-mean 2, while formula gives 3"
   },
   "breaker": {
-    "domain": "odd prime q with q not dividing 6",
-    "branch_images": "I0={-3x^2/2}; I1={-3x^2/2-1/2}",
-    "scaled_form": "Break(q) iff Q0 union (Q0+delta)=F_q, delta=1/3, Q0={squares including 0}",
-    "intersection_count": "|Q0 intersect (Q0+delta)|=(q+1+chi(delta)+chi(-delta))/4",
-    "cover_condition": "Both sets have (q+1)/2 elements, hence cover iff the intersection count is 1.",
-    "case_split": [
-      "q=3 mod 4 -> intersection=(q+1)/4; equality 1 forces q=3, excluded",
-      "q=1 mod 4 and delta square -> intersection=(q+3)/4 >1 for q>=5",
-      "q=1 mod 4 and delta nonsquare -> intersection=(q-1)/4; equality 1 forces q=5"
-    ],
-    "q5_check": "delta=2 is nonsquare mod 5; I0={0,1,4}, I1={1,2,3}; union=F_5",
-    "result": "q_b=5",
-    "semantic_strength": "N2_READOUT_PREDICATE_TO_SCALAR; NO_BREAKER_PRIMITIVE_PROMOTED"
+    "predicate": "I0 union I1 = F_q",
+    "I0": "{-3x^2/2}",
+    "I1": "{-3x^2/2-1/2}",
+    "scaled": "Q0 union (Q0+1/3)=F_q",
+    "intersection": "(q+1+chi(delta)+chi(-delta))/4",
+    "result": "unique nonsingular odd q is 5",
+    "strength": "N2_READOUT_CHARACTERISTIC"
   },
   "capacity": {
-    "family": "Z_H(r)=H+(3r^2+epsilon(r))/2",
-    "meaning": "maximum, over mod-5 phases H, of the longest consecutive r-run with Z_H(r) not congruent 0 mod 5",
-    "period": 10,
-    "base_values_mod_5_for_r_0_to_9": [
+    "family": "Z_H(r)=H+(3r^2+epsilon(r))/2 mod 5",
+    "period": [
       0,
       2,
       1,
@@ -65,113 +48,203 @@
       1,
       2
     ],
-    "phase_zero_sets_mod_10": {
-      "H=0": [0],
-      "H=1": [3,4,6,7],
-      "H=2": [5],
-      "H=3": [1,9],
-      "H=4": [2,8]
+    "zeros": {
+      "0": [
+        0
+      ],
+      "1": [
+        3,
+        4,
+        6,
+        7
+      ],
+      "2": [
+        5
+      ],
+      "3": [
+        1,
+        9
+      ],
+      "4": [
+        2,
+        8
+      ]
     },
     "result": "k_*=9",
-    "sharpness": "Every phase has at least one zero per period; H=0 and H=2 have exactly one zero, giving a 9-term nonzero run.",
-    "r1_guard": "Deleting the finite native prefix r=0,1 does not change eventual 10-periodic zero sets or their sharp max-gap: each residue class recurs infinitely often for r>=2."
+    "strength": "N2_DIVISIBILITY_RUN_CAPACITY",
+    "r1_guard": "finite prefix removal does not change eventual period or sharp max gap"
   },
-  "transverse_saturation": {
+  "saturation": {
     "packet": [
       "6m^2-2m+1",
       "6m^2+1",
       "6m^2+2m+1"
     ],
-    "definition": "Sat(q) iff the union of the three root sets modulo q is F_q^* for odd prime q not dividing 6.",
-    "bound": "Three quadratics contribute at most six roots, so q-1<=6 and q<=7.",
-    "q5_roots": [[1],[2,3],[4]],
-    "q7_roots": [[2,3],[1,6],[4,5]],
+    "root_bound": "q-1<=6",
+    "q5": [
+      [
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4
+      ]
+    ],
+    "q7": [
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        5
+      ]
+    ],
     "result": "{5,7}",
-    "semantic_strength": "N2_READOUT_SET"
+    "strength": "N2_SET"
   },
-  "mixed_parity_boundary": {
-    "window": "W_k={0,...,k-1}, odd k>=5",
-    "constraint": "u,v distinct and same parity; w opposite parity",
-    "readout": "unordered pair {|w-u|,|w-v|} at a maximizer of |w-u||w-v|",
-    "proof": "All admissible distances are odd and <=k-2. If the largest is <=k-4 the product is <=(k-4)^2. If it is k-2, the opposite-parity point is one step from an endpoint and the second distinct same-parity point is at distance at most k-4. The endpoint construction realizes (k-2)(k-4).",
-    "theorem": "max product=(k-2)(k-4), unique maximizing distance multiset={k-4,k-2}",
-    "at_k9": "{5,7}",
-    "semantic_strength": "N2_INTEGER_GRADE_GAP_SET; NO_PHYSICAL_RAIL_OR_METRIC_PROMOTED"
+  "mixed_parity": {
+    "domain": "odd k>=5, W_k={0,...,k-1}",
+    "constraint": "u,v distinct same parity; w opposite",
+    "max_product": "(k-2)(k-4)",
+    "max_pair": "{k-4,k-2}",
+    "at_9": "{5,7}",
+    "strength": "N2_INTEGER_GRADE_GAP_SET"
   },
-  "scalar_closure": {
-    "input_three": "current native sector count 3, consumed upstream",
+  "closure": {
     "chain": "3 -> (5,7) -> 9 -> 35 -> 105 -> 53",
     "arithmetic": [
-      "M_9=(9-4)(9-2)=35",
-      "3M_9=105",
-      "(3M_9+1)/2=53"
+      "(9-4)(9-2)=35",
+      "3*35=105",
+      "(105+1)/2=53"
+    ],
+    "three_is_input": true
+  },
+  "nine_separation": {
+    "breaker_capacity_9": "periodic divisibility/readout run length",
+    "prime_incidence_9": "separate typed-Cell theorem object",
+    "dependency": "NONE",
+    "identity": false
+  },
+  "theorems": {
+    "T-A": "FOUNDATION_ADMISSIBLE_ONLY_AT_NATIVE_S3_N2_SET_INSTANCE",
+    "T-B": "FOUNDATION_ADMISSIBLE_AT_NATIVE_S3_N2_SCALAR_SET_RELATION_INSTANCE",
+    "T-C": "FOUNDATION_ADMISSIBLE_AT_N2_SCALAR_CONSEQUENCE_STRENGTH"
+  },
+  "NSA": {
+    "01": "PASS_NO_HIDDEN_PRIMITIVE",
+    "02": "PASS_INVARIANT_ORBIT_DESCENT_ONLY",
+    "13": "PASS_STRENGTH_STOPS_AT_N2_SCALAR_SET_RELATION",
+    "14": "PASS_TRANSITIVE_DEPENDENCY_CLOSED",
+    "18": "PASS_NO_TARGET_LEAKAGE"
+  },
+  "edges": [
+    [
+      "E01",
+      "current native s=3 shell",
+      "accepted allocation torsor",
+      "PASS"
+    ],
+    [
+      "E02",
+      "allocation torsor + S3-invariant balanced orbit",
+      "frame-independent label multiset",
+      "PASS"
+    ],
+    [
+      "E03",
+      "label multiset",
+      "Z(r)",
+      "PASS"
+    ],
+    [
+      "E04",
+      "Z(r)",
+      "Break(q)",
+      "PASS_N2_PREDICATE"
+    ],
+    [
+      "E05",
+      "Break(q)",
+      "q_b=5",
+      "PASS_SELF_CONTAINED_CHARACTER_COUNT"
+    ],
+    [
+      "E06",
+      "Z_H + q_b=5",
+      "k_*=9",
+      "PASS_SELF_CONTAINED_PERIOD_10"
+    ],
+    [
+      "E07",
+      "even invariant packet",
+      "saturation {5,7}",
+      "PASS_N2_SET"
+    ],
+    [
+      "E08",
+      "grade/parity window + k=9",
+      "gap set {5,7}",
+      "PASS_N2_SET"
+    ],
+    [
+      "E09",
+      "two invariant sets {5,7}",
+      "native-instance equality relation",
+      "PASS_N2_RELATION"
+    ],
+    [
+      "E10",
+      "3,{5,7},9",
+      "35,105,53",
+      "PASS_N2_SCALAR"
+    ],
+    [
+      "E11",
+      "target values",
+      "native three-ness",
+      "FORBIDDEN_NOT_USED"
+    ],
+    [
+      "E12",
+      "current P0/P1",
+      "arbitrary odd-s comparator family",
+      "NOT_FOUNDATION_GENERATED"
+    ],
+    [
+      "E13",
+      "current P0/P1",
+      "named physical rails",
+      "NOT_FOUNDATION_GENERATED_NOT_NEEDED"
+    ],
+    [
+      "E14",
+      "breaker-capacity 9",
+      "prime-incidence 9",
+      "NO_DEPENDENCY_NO_IDENTITY"
     ]
-  },
-  "nine_separation_certificate": {
-    "breaker_coprime_capacity_9": "periodic divisibility/readout run length for Z_H(r) modulo q_b=5",
-    "prime_incidence_island_cap_9": "separate typed-Cell prime-incidence theorem object from another research line",
-    "dependency_between_them": "NONE",
-    "same_integer_implies_identity": false
-  },
-  "theorem_classification": {
-    "T-A": {
-      "foundation_status": "ADMISSIBLE_ONLY_AT_NATIVE_S3_N2_SET_INSTANCE",
-      "admitted_content": "The native even-shell invariant packet has exactly nonsingular complete-saturation characteristic set {5,7}.",
-      "withheld_content": "Uniqueness over arbitrary odd-s comparator family and centered-lane physical interpretation."
-    },
-    "T-B": {
-      "foundation_status": "ADMISSIBLE_AT_NATIVE_S3_N2_SCALAR_SET_RELATION_INSTANCE",
-      "admitted_content": "q_b=5 as a readout characteristic, k_*=9 as a readout capacity, mixed-parity grade-gap set {5,7}, and equality with the saturation set.",
-      "withheld_content": "Named longitudinal/transverse/rail ontology and general odd-s comparator theorem."
-    },
-    "T-C": {
-      "foundation_status": "ADMISSIBLE_AT_N2_SCALAR_CONSEQUENCE_STRENGTH",
-      "admitted_content": "With native s=3 supplied as input, 35,105,53 follow exactly.",
-      "guard": "Does not derive or justify native three-ness."
-    }
-  },
-  "semantic_edges": [
-    {"id":"E01","from":"current native sector-address structure","to":"sector count 3 and shell A_r with S3 relabeling","status":"PASS","strength":"N0/N0_DEFINABLE","NSA":["01","02","14"]},
-    {"id":"E02","from":"accepted allocation torsor","to":"invariant-orbit label multiset","status":"PASS","strength":"N2_SET/MULTISET","NSA":["02","13","14"]},
-    {"id":"E03","from":"balanced orbit label multiset","to":"Z(r)","status":"PASS","strength":"N2_SCALAR","NSA":["13"]},
-    {"id":"E04","from":"Z(r) parity law","to":"Break(q) predicate","status":"PASS","strength":"N2_PREDICATE","NSA":["01","13","18"]},
-    {"id":"E05","from":"Break(q)","to":"q_b=5","status":"PASS_SELF_CONTAINED_CHARACTER_COUNT","strength":"N2_SCALAR","NSA":["13","14"]},
-    {"id":"E06","from":"Z_H and q_b=5","to":"k_*=9","status":"PASS_SELF_CONTAINED_PERIOD_10","strength":"N2_SCALAR","NSA":["13","14","18"]},
-    {"id":"E07","from":"even invariant packet","to":"saturation set {5,7}","status":"PASS","strength":"N2_SET","NSA":["13","14"]},
-    {"id":"E08","from":"integer grade/parity window and k=9","to":"mixed-parity gap set {5,7}","status":"PASS","strength":"N2_SET","NSA":["01","13","14"]},
-    {"id":"E09","from":"two N2 sets {5,7}","to":"native-instance equality relation","status":"PASS","strength":"N2_RELATION","NSA":["13"]},
-    {"id":"E10","from":"3,{5,7},9","to":"35,105,53","status":"PASS","strength":"N2_SCALAR","NSA":["14","18"]},
-    {"id":"E11","from":"desired 5/7/9/35/105/53 outputs","to":"native sector count 3","status":"FORBIDDEN_AND_NOT_USED","strength":"CIRCULAR","NSA":["18"]},
-    {"id":"E12","from":"current P0/P1","to":"arbitrary odd-s comparator family","status":"NOT_FOUNDATION_GENERATED","strength":"RESEARCH_MODEL","NSA":["01","14"]},
-    {"id":"E13","from":"current P0/P1","to":"named physical rails","status":"NOT_FOUNDATION_GENERATED_AND_NOT_NEEDED","strength":"RESEARCH_INTERPRETATION","NSA":["01","13"]},
-    {"id":"E14","from":"breaker capacity 9","to":"prime-incidence island cap 9","status":"NO_DEPENDENCY_NO_IDENTITY","strength":"SEPARATED_TYPES","NSA":["01","14","18"]}
   ],
-  "NSA_audit": {
-    "NSA_01": "PASS: every admitted theorem-facing object is current native input, accepted torsor-derived data, or explicitly typed N2 arithmetic/readout; breaker primitive and physical rails are withheld.",
-    "NSA_02": "PASS: only the accepted S3-equivariant allocation torsor and its invariant-orbit descent are consumed; no pointwise frame selector is promoted.",
-    "NSA_13": "PASS: admission stops at scalar/set/relation N2 strength; no object/primitive ontology is inferred from scalar invariance.",
-    "NSA_14": "PASS: transitive dependency chain is explicit from native s=3 and accepted torsor through every readout to final scalars.",
-    "NSA_18": "PASS: native s=3 is an upstream Foundation datum. No desired 5/7/9/35/105/53 output is used to select or justify s=3, the orbit, q_b, or k_*."
-  },
   "regression": {
     "checker": "scripts/check_native_trisector_n2_scalar_closure_foundation_admission_audit.py",
-    "barycenter": "r=2..128, all six frames, 3420 label evaluations",
-    "breaker": "44 nonsingular odd primes q<200 plus exact character-intersection identity",
-    "capacity": "all five H mod 5 phases and repeated native tail",
-    "transverse": "all nonsingular odd primes q<200 -> exactly [5,7]",
-    "mixed_parity": "49 odd windows k=5..101 -> exact extremal multiset"
+    "barycenter": "r=2..128 all 6 frames, 3420 labels",
+    "breaker": "44 nonsingular odd primes q<200",
+    "capacity": "all 5 mod-5 phases",
+    "saturation": "q<200 -> [5,7]",
+    "mixed_parity": "49 odd k windows 5..101"
   },
-  "final_boundary": {
-    "recommendation": "FOUNDATION_N2_CONSEQUENCE_ADMIT",
-    "admit": "exact native s=3 N2 scalar/set/relation consequence/readout chain only",
-    "do_not_admit": [
-      "pointwise intrinsic allocation labels",
-      "breaker as an N0 primitive",
-      "named physical longitudinal/transverse/rail ontology",
-      "arbitrary odd-s comparator family or its uniqueness theorem",
-      "reverse derivation of native sector count 3",
-      "identification of the two distinct 9-valued theorem objects"
-    ],
-    "foundation_primitive_change": "NONE"
-  }
+  "do_not_admit": [
+    "pointwise intrinsic allocation",
+    "N0 breaker primitive",
+    "physical rail ontology",
+    "arbitrary odd-s comparator theorem",
+    "reverse derivation of s=3",
+    "identity of the two 9-valued theorem objects"
+  ]
 }
