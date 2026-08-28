@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 
 import pytest
 
-from tools import research_control_dispatch
+import research_control_dispatch
 from tools import research_runtime
 
 
