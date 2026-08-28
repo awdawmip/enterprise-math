@@ -4,36 +4,62 @@ Status: `CONTROL-PLANE HARDENING / V1.3 CANDIDATE / NO NEW MATHEMATICS`
 
 ## Problem closed by this policy
 
-The old ordinary result path allowed
+The old ordinary result path could legally stop at:
 
 ```text
 FROZEN RESULT -> TERMINAL DRIVER REVIEW -> TASK TERMINAL
 ```
 
-without proving that the Driver had materialized the next executable work under
-the still-open parent Objective. That made a Driver stall machine-legal: the
-review could be correct, the task could be terminal, and yet no next taskbook
-existed.
+while the parent Objective remained open and no next executable work had been
+materialized.  The review could be mathematically correct while the control loop
+silently stalled.
 
-The new path is:
+After exact-set Driver-review authority, the governing path is:
 
 ```text
 FROZEN RESULT
-    -> DRIVER REVIEW
+    -> 0 / 1 / MANY IMMUTABLE SOURCE REVIEWS
+    -> OPERATIONAL REVIEW AUTHORITY
+       0 reviews : none
+       1 review  : that immutable review
+       2+ reviews: exact set -> intake -> RP1 -> RP2 -> review synthesis
     -> FOLLOW-UP GATE MATRIX
     -> IMMUTABLE NEXT TASKBOOK / TASKSET PUBLICATION
        OR CANONICAL PARENT OBJECTIVE CLOSED
-    -> TASK TERMINAL
+    -> TASK TERMINAL OR RETURN TO EXECUTION
     -> REEVALUATE PARENT
 ```
 
-A missing or invalid follow-up packet keeps the reviewed result nonterminal. The
-ordinary dispatch projection therefore remains in `AWAITING_REVIEW`; it cannot
-disappear into `DONE`.
+A missing or invalid follow-up packet keeps the operational review authority
+nonterminal.  Ordinary dispatch therefore remains review-visible rather than
+disappearing into `DONE`.
 
-## What "automatic" means
+## Review authority comes before follow-up
 
-The canonical Driver review command itself carries the follow-up specification:
+Follow-up never consumes `reviewed_at`, `latest_review`, or the last source
+review written.
+
+For one source review, that review is immediately the operational authority and
+may perform the follow-up transaction.
+
+For a second or later source review, the canonical review command **does not**
+publish a source-review-specific successor.  The new review changes the exact
+review set and reopens review authority.  Only after both reference passes and a
+review synthesis may the synthesis authority materialize follow-up.
+
+This prevents an additional reviewer from winning merely by writing later.
+
+A review synthesis must also have a single operational destination class because
+Lean/Foundation/Tool/Replication routing depends on it.  An explicit synthesized
+destination is accepted.  Otherwise every source review must agree on one
+destination.  Mixed unresolved destinations fail closed.
+
+## What “automatic” means
+
+### First review
+
+The first immutable review is immediately authoritative, so the canonical
+command requires a follow-up specification:
 
 ```text
 python tools/research_result_records.py review \
@@ -46,29 +72,40 @@ python tools/research_result_records.py review \
 ```
 
 Before writing the immutable review, the command preflights the six gate
-decisions and every proposed taskbook. After the review record is created it
-immediately publishes the follow-up taskbook(s) through the immutable V2 task
-publication mechanism and freezes one follow-up packet pinning the exact
-publication IDs.
+decisions and every proposed taskbook.  After the review record is created it
+publishes the required taskbook(s) through immutable V2 publication and freezes
+one authority follow-up packet.
 
-If a process dies after the immutable review write but before the follow-up
-transaction finishes, recovery uses:
+### Second or later review
+
+A second or later immutable review is written without `--followup-spec`:
+
+```text
+python tools/research_result_records.py review ...
+```
+
+The command records the new evidence and returns the control state
+`DEFERRED_UNTIL_EXACT_REVIEW_SYNTHESIS`.  The review exact-set flow must then
+complete before follow-up can be materialized.
+
+### Synthesis authority / crash recovery
+
+Once an operational review authority exists, recovery or post-synthesis
+materialization uses:
 
 ```text
 python research_driver_followup_guard.py materialize \
-  --review-id <review-id> \
+  --review-authority-id <review-or-synthesis-authority-id> \
   --spec <followup-spec.json>
 ```
 
-That recovery path does not make an incomplete review terminal; the result stays
-in `AWAITING_DRIVER_REVIEW` until the packet is valid.
-
-If the parent Objective is genuinely complete, the zero-task exception is
-allowed only after the canonical Objective head is already `CLOSED`.
+An incomplete transaction does not make the authority terminal.  If the parent
+Objective is genuinely complete, the zero-task exception is allowed only after
+the canonical Objective head is already `CLOSED`.
 
 ## Mandatory gate matrix
 
-Every governed Driver review explicitly decides all of:
+Every governed operational review authority explicitly decides all of:
 
 1. `MATHEMATICAL_CONTINUATION`
 2. `LEAN_FORMALIZATION`
@@ -82,42 +119,44 @@ Each gate is exactly one of:
 - `REQUIRED` — publish at least one task with the matching role;
 - `SATISFIED_BY_REVIEWED_RESULT` — pin exact evidence refs showing the reviewed
   package already closed the gate;
+- `SATISFIED_BY_EXISTING_CONTROL_ASSET` — pin an already-materialized current
+  task/control asset instead of duplicating it;
 - `NOT_REQUIRED` — give a nonempty task-specific reason.
 
 Additional hard rules:
 
-- every `ACCEPTED` result must run or publish external prior-art/duplication work;
-- an accepted `L4` destination must run or publish the Lean/formalization gate;
-- a tool-bearing result must run or publish integration/tool-harvest work;
-- `REQUEST_REPLICATION` must publish an independent-replication task.
+- an `ACCEPTED` authority must satisfy or publish external prior-art/duplication
+  work;
+- an accepted `L4` destination must satisfy or publish Lean/formalization work;
+- a tool-bearing result must satisfy or publish integration/tool-harvest work;
+- `REQUEST_REPLICATION` must publish or pin an existing independent replication
+  control asset.
 
-The gate list may evolve only through a later contract generation; a review may
-not silently omit a current gate.
+The gate list may evolve only through a later contract generation.
 
 ## Lean tasks
 
-A Lean follow-up pins the accepted theorem/result and states the exact formal
-target. When full formal closure is required, the taskbook retains the normal
-no-`sorry` / no-`admit` / no-custom-axiom boundary, warning-fatal build/check
-command, theorem-source blob provenance and regression guards.
+A Lean follow-up pins the accepted theorem/result and the exact formal target.
+When full formal closure is required, normal no-`sorry`, no-`admit`,
+no-custom-axiom, warning-fatal build, theorem-source blob and regression guards
+remain binding.
 
-If the reviewed result is already fully Lean-checked, the Driver does **not**
-publish a pointless second Lean task. It marks `LEAN_FORMALIZATION` as
-`SATISFIED_BY_REVIEWED_RESULT` and pins the existing theorem/build evidence.
+If the reviewed package is already fully Lean-checked, the authority does not
+publish a pointless duplicate task; it marks the gate satisfied and pins the
+existing theorem/build evidence.
 
 ## External prior-art / duplication tasks
 
-An accepted result may not turn "we did not search" into an implicit novelty
-claim. The external task should at minimum record:
+An accepted result may not turn “we did not search” into an implicit novelty
+claim.  External work should record at least:
 
-- search date and search surfaces;
+- search date and surfaces;
 - task-specific queries;
 - candidate papers/repos/results;
 - exact duplicate vs partial antecedent vs adjacent method vs no material match;
-- source links/identifiers sufficient for audit.
+- source identifiers sufficient for audit.
 
-"No material match found" is evidence about the search, not a theorem of
-novelty.
+“No material match found” is evidence about a search, not a theorem of novelty.
 
 ## Relation to the successor gate
 
@@ -127,69 +166,92 @@ This policy does **not** repeal:
 PASS_OR_DONE_IS_NOT_ITSELF_A_SUCCESSOR_TRIGGER
 ```
 
-A Driver review now has a duty to materialize the next control action, but every
-new task whose semantics are `CONTINUATION` still must pass the existing
-`successor_gate`:
+The operational review authority must materialize the next control action, but
+every `CONTINUATION` task still needs a genuine information gap, discriminating
+outcomes, kill condition, alternative-route analysis, and justification for a
+new task rather than closure or same-task continuation.
 
-- genuine new information gap;
-- why the parent result does not close it;
-- discriminating outcomes;
-- kill condition;
-- alternative route/free exploration considered;
-- why a new stage/task is better than closure or continuing the same task.
-
-This prevents the anti-stall rule from becoming an infinite "PASS -> invent
-another stage" generator.
+A concurrent already-materialized route should be pinned with
+`SATISFIED_BY_EXISTING_CONTROL_ASSET`, not duplicated.
 
 ## Revision and negative-result behavior
 
-A nonterminal review still needs an explicit next control action. A revision can
-be published as a new immutable generation of the same task using an explicit
-`supersedes_publication_id` and a new taskbook path. A rejected/no-go result under
-an open parent Objective normally publishes the alternative route, adversarial
-audit, replication, or other concrete next task selected by the Driver.
+A nonterminal authority still needs an explicit next control action.  Revision
+may publish a new immutable generation of the same task using an explicit
+`supersedes_publication_id` and a new taskbook path.  A rejected/no-go result
+under an open parent Objective normally routes to an alternative, adversarial
+audit, replication, or another concrete action selected by the authority.
 
 ## Parallel results
 
-Terminal parallel synthesis does not bypass governed result reviews. Existing
-parallel-evidence validation already requires at least one review per result
-before a multi-result terminal synthesis; if any governed latest review inside
-the terminal evidence set lacks its follow-up packet, task terminality is
-revoked until the packet is materialized.
+Parallel-result control is downstream of per-result review and follow-up
+authority:
 
-A future synthesis-specific checkpoint can harden the separate case where an
-entirely new synthesis is performed only over legacy-reviewed evidence. That is
-not allowed to weaken the present per-review barrier.
+```text
+Result A -> review exact-set authority A -> follow-up A ready
+Result B -> review exact-set authority B -> follow-up B ready
+...
+             |
+             v
+parallel-result intake -> RP1 -> RP2 -> result synthesis
+```
+
+If any source result lacks resolved review authority, the task is
+`AWAITING_RESULT_REVIEW_AUTHORITY`.
+
+If review authority is resolved but its governed follow-up is not ready, the task
+is `AWAITING_RESULT_REVIEW_FOLLOWUP`.
+
+Only after both layers are ready may the existing exact-set parallel-result
+synthesis become operational.  Thus neither a result synthesis nor a later
+source review can bypass the continuation barrier.
 
 ## Frozen compatibility boundary
 
 Legacy exemption is **not** determined by `reviewed_at`.
 
-The exact pre-policy review-ID set is frozen in:
+The exact cutover is frozen in:
 
 ```text
 research_driver_followup_legacy_reviews.json
 ```
 
-It is pinned to:
+with:
 
 ```text
-main = 00c3c8143ca38410df7ed0de64158a3d33e3c67b
-review tree = 41a57a0c838d944ac61908fcdb200d425ef89b18
+main = d1514b1ea2f3f6f91c3b793c8d0bcb618ce093c6
+physical review tree = a37d1b9c1fdc550ea8652fa81bc6497b6082724a
 ```
 
-Only the 12 review IDs present in that baseline use historical reduction. Every
-other review is governed, even if a caller writes an old `reviewed_at`. Thus a
-new Driver review cannot backdate itself around the follow-up barrier.
+The physical review tree contains 28 immutable historical review records.  The
+canonical active compatibility view at cutover contains 27.  The excluded record
+is:
+
+```text
+DR-E3CE51B969E032E59500
+```
+
+It belongs to the quarantined structurally invalid historical PCF4 chain.  Its
+bytes remain immutable history, but the auto-followup cutover must not re-admit
+it as operational review authority.
+
+Exactly the 27 review IDs visible through the canonical active review view at
+cutover use historical compatibility.  New source reviews cannot backdate
+around the barrier, and no review-synthesis authority existed at cutover; every
+future synthesis authority is governed.
 
 ## Core invariant
 
 ```text
-DRIVER_REVIEW_COMPLETE
+SOURCE_REVIEW_WRITTEN
+!=
+OPERATIONAL_REVIEW_AUTHORITY_RESOLVED
+
+DRIVER_REVIEW_AUTHORITY_COMPLETE
 !=
 CONTROL_LOOP_CONTINUATION_COMPLETE
 
-NEW_DRIVER_REVIEW
+OPERATIONAL_REVIEW_AUTHORITY
 -> FOLLOWUP_TASKSET_READY_OR_PARENT_OBJECTIVE_CLOSED
--> TASK_TERMINAL
+-> TASK_TERMINAL_OR_RETURN_TO_EXECUTION
 ```
