@@ -390,14 +390,21 @@ def check() -> None:
             f"{sorted(alerts - active)}"
         )
 
-    # 5. Foundation task links resolve through canonical merged dispatch.
+    # 5. Foundation task links resolve through the merged task-definition selector,
+    # while the Steward's top-level live route remains recovery-aware.
     dispatch_tasks = research_dispatch.merged_definitions(ROOT)
     backflow_errors = validate_backflow(backflow, scheduler, dispatch_tasks)
     if backflow_errors:
         raise AssertionError("foundation backflow drift: " + "; ".join(backflow_errors))
 
-    if foundation.get("canonical_dispatch") != "tools/research_dispatch.py":
-        raise AssertionError("Foundation Steward must use canonical research dispatch")
+    if foundation.get("canonical_dispatch") != "research_control_dispatch.py":
+        raise AssertionError(
+            "Foundation Steward top-level live dispatch must use research_control_dispatch.py"
+        )
+    if foundation.get("backflow", {}).get("task_definition_authority") != "tools/research_dispatch.py":
+        raise AssertionError(
+            "Foundation Steward backflow task-definition authority must remain tools/research_dispatch.py"
+        )
     if foundation.get("legacy_scheduler_config") != "research_scheduler.json":
         raise AssertionError("Foundation Steward must type scheduler config as legacy baseline")
 
