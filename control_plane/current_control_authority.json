@@ -3,7 +3,7 @@
   "status": "ACTIVE_CANONICAL_CONTROL_PRECEDENCE",
   "effective": "2026-08-28",
   "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
-  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, exact owner-scope liveness, tool reuse resolution, typed role transitions, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
+  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, exact owner-scope liveness, tool reuse resolution, typed role transitions, semantic-safe control migration, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
   "scope": [
     "TASK_PUBLICATION_AUTHORITY",
     "LIVE_DISPATCH_ENTRYPOINT",
@@ -11,6 +11,7 @@
     "RUNTIME_BOOTSTRAP",
     "TOOL_REUSE_RESOLUTION",
     "ROLE_TRANSITION_MERGE",
+    "SEMANTIC_SAFE_CONTROL_MIGRATION",
     "CONTROL_PLANE_MAINTENANCE_LIVENESS"
   ],
   "task_publication": {
@@ -58,6 +59,16 @@
     "destination_role_messages_refresh_suspended_task_liveness": false,
     "invariant": "PRESERVE_PROVENANCE_AND_DURABLE_FRONTIER_WHILE_RECOMPUTING_DESTINATION_AUTHORITY"
   },
+  "semantic_migration": {
+    "registry": "control_plane/control_semantic_migration_registry.json",
+    "checker": "control_plane/check_control_semantic_migration_registry.py",
+    "mode": "GRADUAL_TYPED_FIELD_MIGRATION",
+    "baseline_blob_drift_is_automatic_failure": false,
+    "registered_field_third_state_is_failure": true,
+    "mixed_semantics_requires_verification_before_edit": true,
+    "migration_registry_overrides_mathematical_semantics": false,
+    "rule": "Control pointers embedded in mathematical/research governance files are migrated one field at a time. Low-risk pointers may move only to an already-canonical target; mixed mathematical/governance files require explicit verification that Working Truth, Foundation, discovery, candidate, successor, portfolio, independence, theorem, and task-local semantics are unchanged."
+  },
   "control_liveness": {
     "contract": "active_turn_liveness.json",
     "mode": "CONTROL_PLANE_MAINTENANCE",
@@ -78,7 +89,8 @@
     ],
     "stale_v1_pointer_semantics": "COMPATIBILITY_METADATA_ONLY_UNLESS_EXPLICITLY_LABELED_LEGACY_EXISTING_EXECUTION",
     "fresh_selector_named_canonical_in_older_doc": "INTERPRET_AS_SUBORDINATE_SELECTOR_NOT_TOP_LEVEL_LIVE_ENTRYPOINT",
-    "role_transition_rule": "ROLE-SPECIFIC AUTHORITY IS CLEARED/REACTIVATED BY DESTINATION CONTRACT; CONTEXT AND PROVENANCE ARE NOT PRETENDED TO RESET"
+    "role_transition_rule": "ROLE-SPECIFIC AUTHORITY IS CLEARED/REACTIVATED BY DESTINATION CONTRACT; CONTEXT AND PROVENANCE ARE NOT PRETENDED TO RESET",
+    "mixed_semantic_file_edit_rule": "CONSULT_CONTROL_SEMANTIC_MIGRATION_REGISTRY_AND_VERIFY_BEFORE_EDIT"
   },
   "role_expectations": {
     "TASK_RESEARCH": [
@@ -113,7 +125,8 @@
       "NO_RESEARCH_ROLE_IDENTITY",
       "NO_THEOREM_OR_REVIEW_AUTHORITY",
       "BOUNDED_DIAGNOSTIC_EXPANSION",
-      "WRITE_AUTHORITY_REFRESH_BEFORE_MUTATION"
+      "WRITE_AUTHORITY_REFRESH_BEFORE_MUTATION",
+      "MIGRATION_REGISTRY_BEFORE_MIXED_SEMANTIC_FILE_EDIT"
     ]
   }
 }
