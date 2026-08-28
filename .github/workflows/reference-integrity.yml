@@ -55,8 +55,7 @@ jobs:
         run: >-
           python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_review_evidence.py','audit']; import research_review_evidence as m; raise SystemExit(m.main())"
       - name: Check Driver review automatic follow-up authority
-        run: >-
-          python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_driver_followup_guard.py','audit']; import research_driver_followup_guard as m; raise SystemExit(m.main())"
+        run: python control_plane/check_driver_followup_fault_isolated.py
       - name: Check parallel evidence two-pass reference chains over operational results
         run: >-
           python -c "from control_plane import research_control_bootstrap as b; b.install(); from tools import research_result_records as _result_view; import sys; sys.argv=['research_parallel_evidence.py','audit']; import research_parallel_evidence as _parallel; raise SystemExit(_parallel.main())"
