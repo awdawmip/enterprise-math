@@ -1,0 +1,67 @@
+{
+  "schema": "PFSS2R_POSITIVE_SUPPORT_RESULT_SUMMARY_V1",
+  "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-POSITIVE-SUPPORT-SECOND-ORDER-NULL",
+  "publication_id": "TP2-D8A51502065004783B7B",
+  "researcher_id": "EM-PFSS2R-C60E73",
+  "claim_id": "chatgpt-pfss2r-20260828-1340-c60e73",
+  "classification": "SECOND_ORDER_DENSITY_ARTIFACT",
+  "terminal_at_discovery": true,
+  "new_holdouts": [300000000, 1000000000],
+  "new_holdouts_accessed": false,
+  "support": {
+    "null_A_feature_counts_by_scale": [78, 96, 96, 96, 96],
+    "null_B_feature_counts_by_scale": [60, 81, 96, 96, 96],
+    "eligible_count": 60,
+    "eligible_bins_each_width": [1,2,3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20,21],
+    "eligible_widths": ["1/100", "3/1000", "1/1000"],
+    "empirical_zero_sigma_in_eligible_set_A": false,
+    "empirical_zero_sigma_in_eligible_set_B": false
+  },
+  "discovery_pair_totals": [
+    {"X": 1000000, "eta_totals": {"1/100": 683, "3/1000": 203, "1/1000": 69}},
+    {"X": 3000000, "eta_totals": {"1/100": 2125, "3/1000": 628, "1/1000": 209}},
+    {"X": 10000000, "eta_totals": {"1/100": 6519, "3/1000": 1948, "1/1000": 659}},
+    {"X": 30000000, "eta_totals": {"1/100": 18133, "3/1000": 5409, "1/1000": 1804}},
+    {"X": 100000000, "eta_totals": {"1/100": 58530, "3/1000": 17462, "1/1000": 5818}}
+  ],
+  "replay_4096": {
+    "null_A_array_sha256": "c1c67979aa5d5c23dfaecafa92e788579513f244301cc0a02c9b159dc1cae610",
+    "null_B_array_sha256": "df42c9a95f360f539b51f6fc6e176b950c4270332d295cee0d913edb348aed73",
+    "deterministic_second_replay_bit_identical": true,
+    "null_A_familywise_99": 3.6953790238805664,
+    "null_B_familywise_99": 3.6931766083545967,
+    "observed_max_T_A": 1.8196292851063531,
+    "observed_max_T_B": 2.1614452449762354,
+    "empirical_tail_rank_A": 0.9768123016841591,
+    "empirical_tail_rank_B": 0.805711496216744
+  },
+  "candidate_gate": {
+    "candidate_frozen": false,
+    "cells_clearing_both_familywise_gates": 0,
+    "strongest_joint_margin_cell": {
+      "eta": "1/1000",
+      "bin_zero_based": 6,
+      "C_A": -1.8097545287839125,
+      "C_B": -1.8574064828287018,
+      "same_negative_sign_all_five_scales_under_A": true,
+      "same_negative_sign_all_five_scales_under_B": true,
+      "minimum_familywise_margin": -1.8357700790966542,
+      "disposition": "FAR_BELOW_BOTH_99_PERCENT_THRESHOLDS"
+    },
+    "max_abs_A_cell": {
+      "eta": "1/1000",
+      "bin_zero_based": 19,
+      "C_A": -1.8196292851063531,
+      "C_B": -1.701758862578514
+    },
+    "max_abs_B_cell": {
+      "eta": "1/100",
+      "bin_zero_based": 14,
+      "C_A": 0.9831398449122576,
+      "C_B": 2.1614452449762354
+    }
+  },
+  "hard_target_disposition": "SECOND_ORDER_DENSITY_ARTIFACT / after exact positive-support repair, no pre-eligible discovery cell clears the 99% family-wise threshold under both corrected null families, so the registered rule terminates before holdout access.",
+  "interpretation": "The previously interesting semiprime-shell occupancy phase does not survive the corrected second-order nuisance model at discovery strength. This is a negative result for the global occupancy observable, not a theorem that all possible prime/semiprime coordinate observables are structure-free.",
+  "next_control_plane_recommendation": "Close the naive global semiprime factor-shell occupancy route at corrected second-order density/covariance strength. Do not spend the untouched holdouts on this failed global candidate. A different observable, such as a predeclared local arithmetic stratum or an independently motivated third-variable coloring, requires a genuinely new task and fresh success gate."
+}
