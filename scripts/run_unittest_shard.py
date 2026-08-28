@@ -5,6 +5,12 @@ This preserves the exact ``tests/test*.py`` discovery universe while splitting
 wall-clock work across multiple GitHub-hosted runners. Files are sorted and
 assigned round-robin by index, so every discovered test file belongs to exactly
 one shard and no test semantics are weakened.
+
+Control-plane tests must exercise the same fault-isolated operational view used
+by live dispatch. The strict/raw validators remain separately callable from the
+reference-integrity workflow; forgetting an import-side bootstrap in an
+individual test module must not resurrect a task-local fault into a global test
+process denial of service.
 """
 from __future__ import annotations
 
@@ -17,6 +23,8 @@ ROOT = Path(__file__).resolve().parents[1]
 TEST_ROOT = ROOT / "tests"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+
+from control_plane import research_control_bootstrap  # noqa: E402
 
 
 def test_files() -> list[Path]:
@@ -32,6 +40,10 @@ def shard_files(index: int, count: int) -> list[Path]:
 
 
 def build_suite(index: int, count: int) -> unittest.TestSuite:
+    # Install once before importing any test module.  This is deliberately the
+    # operational view, not an audit waiver: exact quarantines are validated by
+    # the bootstrap and strict/raw integrity checks run in their own CI gates.
+    research_control_bootstrap.install(ROOT)
     loader = unittest.TestLoader()
     suite = unittest.TestSuite()
     for path in shard_files(index, count):
