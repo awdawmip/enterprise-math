@@ -39,13 +39,10 @@ def authorize_execution(
     if not isinstance(binding, Mapping):
         return result
 
-    # The core obtains record_path only from canonical repository state.  Real
-    # immutable records therefore exist at this path.  Several focused unit
-    # tests deliberately mock current_records() with in-memory publication
-    # dictionaries and fake _record_path values to isolate lane/CLAIM logic.
-    # An optional taskbook firewall must stay transparent to those synthetic
-    # registrations instead of converting a test fixture into a filesystem
-    # authority source.
+    # The core obtains record_path only from canonical repository state. Real
+    # immutable records therefore exist at this path. Focused unit tests may
+    # mock current_records() with in-memory publications and fake record paths;
+    # the optional firewall must stay transparent to those synthetic fixtures.
     registration = result.get("task_registration")
     record_ref = registration.get("record_path") if isinstance(registration, Mapping) else None
     if isinstance(record_ref, str):
@@ -53,6 +50,21 @@ def authorize_execution(
         if not record_path.is_absolute():
             record_path = root / record_path
         if not record_path.is_file():
+            return result
+
+        # Strict opt-in boundary: ordinary and historical taskbooks retain the
+        # exact pre-firewall authorization path. Only a frontmatter declaration
+        # enters the new parser/validator. This prevents an optional blind mode
+        # from making legacy taskbook syntax a new execution dependency.
+        try:
+            record_payload = json.loads(record_path.read_text(encoding="utf-8"))
+            taskbook_ref = record_payload.get("taskbook_path")
+            taskbook_path = root / str(taskbook_ref or "")
+            taskbook_text = taskbook_path.read_text(encoding="utf-8")
+        except (OSError, ValueError, TypeError):
+            return result
+        frontmatter_text = taskbook_text.split("-->", 1)[0]
+        if "source_firewall" not in frontmatter_text:
             return result
 
     try:
