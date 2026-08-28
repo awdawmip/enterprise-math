@@ -1,7 +1,8 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_TASK_PUBLICATION_CONTRACT_V2",
   "status": "ACTIVE_CANONICAL_POST_CUTOVER",
-  "effective": "2026-08-26",
+  "effective": "2026-08-28",
+  "control_authority_precedence": "control_plane/current_control_authority.json",
   "legacy_compatibility": {
     "v1_contract": "research_task_publication_contract.json",
     "v1_shared_registry": "research_task_registry.json",
@@ -10,10 +11,13 @@
   },
   "canonical_record_store": "research_task_records/<task-id>/<publication-id>.json",
   "publication_tool": "tools/research_task_records.py",
+  "control_dispatch_tool": "research_control_dispatch.py",
+  "fresh_dispatch_selector": "tools/research_dispatch.py",
   "dispatch_tool": "tools/research_dispatch.py",
+  "dispatch_tool_semantics": "LEGACY_FIELD_NAME_FOR_ORDINARY_FRESH_SELECTOR_NOT_TOP_LEVEL_LIVE_ROUTER",
   "runtime_guard": "tools/research_runtime_guard.py",
   "result_contract": "research_result_contract.json",
-  "purpose": "Make publication a single immutable record creation after taskbook preparation/validation, remove the shared-registry write hotspot, and make dispatch consume the same canonical task definitions without adding research-step GitHub traffic.",
+  "purpose": "Make publication a single immutable record creation after taskbook preparation/validation, remove the shared-registry write hotspot, make fresh dispatch consume the same canonical task definitions, and route live execution through recovery-aware research_control_dispatch.py without adding research-step GitHub traffic.",
   "publication_phases": [
     "DRAFT_TASKBOOK",
     "PREPARE_AND_MACHINE_POLICY_REVIEW",
@@ -26,6 +30,8 @@
     "PUBLICATION_RECORD_IS_APPEND_ONLY_AND_NEVER_REPLACED",
     "REPUBLICATION_REQUIRES_EXPLICIT_SUPERSEDES_PUBLICATION_ID",
     "ALL_POST_CUTOVER_DISPATCH_READS_IMMUTABLE_TASK_RECORDS",
+    "LIVE_CONTROL_ROUTING_USES_RECOVERY_AWARE_CONTROL_DISPATCH",
+    "ORDINARY_RESEARCH_DISPATCH_IS_A_FRESH_SELECTOR_NOT_THE_COMPLETE_LIVE_ROUTER",
     "LEGACY_SCHEDULER_DEFINITION_FILE_IS_COMPATIBILITY_BASELINE_ONLY",
     "PUBLISH_MUST_NOT_SELF_ASSERT_POLICY_PASS_BEFORE_VALIDATION",
     "V2_PUBLICATION_REQUIRES_NONEMPTY_FRONTIER_AND_NEXT_ACTION",
@@ -52,7 +58,7 @@
   "publication_transaction": {
     "version": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
     "prepare": "May rewrite the draft taskbook only after in-memory normalization and successful machine lint; preparation has no task-existence authority.",
-    "publish": "Requires an already prepared current-policy-PASS V1 taskbook and creates exactly one immutable publication record with exclusive file creation.",
+    "publish": "Requires an already prepared current-policy-PASS taskbook in the shared taskbook format and creates exactly one immutable publication record with exclusive file creation.",
     "failure_semantics": "If publication record creation fails, no task was published. Existing immutable records are never overwritten or silently rolled back.",
     "republication": "A corrected generation must name the exact prior publication_id it supersedes."
   },
