@@ -50,7 +50,6 @@ When the user says continue/keep going/do not stop/until satisfied/until no furt
 Canonical runtime:
 
 - `research_runtime_state_machine.json`;
-- `tools/research_control_dispatch.py`;
 - `tools/research_runtime_guard.py`;
 - `tools/research_runtime.py`;
 - `docs/RESEARCH_RUNTIME_STATE_MACHINE.md`.
@@ -125,7 +124,7 @@ Legacy tasks may continue already-owned executions, but fresh redispatch/modific
 
 ### Canonical low-burden dispatch
 
-Canonical live control routing is `tools/research_control_dispatch.py` over the existing fresh selectors and runtime guard:
+Canonical live control routing is `research_control_dispatch.py` over the existing fresh selectors and runtime guard:
 
 - ordinary fresh task selection: `tools/research_dispatch.py`;
 - active-cohort fresh lane selection: `tools/research_lane_dispatch.py`;
