@@ -6,9 +6,9 @@ This module composes the existing fresh task/lane selectors with the independent
 changes owner-lease semantics. A valid owner lease and a stale conversation are
 routed to stale-session adoption with the existing winning CLAIM preserved.
 
-Unresolved immutable-publication forks are isolated task-locally before the
-fresh selectors run. The affected task is BLOCKED with no operational
-publication selected; unrelated tasks remain dispatchable.
+Known task-local publication faults are isolated before the fresh selectors run:
+unresolved forks select no head, exact pinned integrity faults select no invalid
+publication, affected tasks are BLOCKED, and unrelated tasks remain dispatchable.
 """
 from __future__ import annotations
 
@@ -17,14 +17,16 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
+from control_plane import research_control_bootstrap
 from control_plane import research_publication_fault_isolation
+from control_plane import research_task_integrity_fault_isolation
 from tools import research_dispatch
 from tools import research_lane_dispatch
 from tools import research_runtime
 from tools import research_scheduler
 
 ROOT = Path(__file__).resolve().parent
-research_publication_fault_isolation.install(ROOT)
+research_control_bootstrap.install(ROOT)
 
 SESSION_OBSERVATION_SCHEMA = "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V1"
 ORDINARY_TASK = "ORDINARY_TASK"
@@ -284,9 +286,12 @@ def route_control(
         fresh_task=fresh_task,
         fresh_lane=fresh_lane,
     )
-    quarantined = sorted(research_publication_fault_isolation.validated_quarantines(root))
-    if quarantined:
-        result["quarantined_tasks"] = quarantined
+    fork_quarantines = sorted(research_publication_fault_isolation.validated_quarantines(root))
+    integrity_quarantines = sorted(research_task_integrity_fault_isolation.validated_quarantines(root))
+    if fork_quarantines or integrity_quarantines:
+        result["quarantined_tasks"] = sorted(set(fork_quarantines) | set(integrity_quarantines))
+        result["publication_fork_quarantines"] = fork_quarantines
+        result["task_integrity_quarantines"] = integrity_quarantines
     return result
 
 
@@ -331,6 +336,7 @@ if __name__ == "__main__":
         ControlDispatchError,
         research_runtime.RuntimeStateError,
         research_publication_fault_isolation.PublicationFaultIsolationError,
+        research_task_integrity_fault_isolation.TaskIntegrityIsolationError,
     ) as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
