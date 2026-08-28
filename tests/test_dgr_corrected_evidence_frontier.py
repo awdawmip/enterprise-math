@@ -11,6 +11,7 @@ PUBLICATION_ID = "TP2-90D492F7054EDEE0F3CD"
 OBJECTIVE_ID = "OBJ-DIAGONAL-GAUGE-REFOUNDATION-TYPED-CORRECTION-EVIDENCE-CLOSURE"
 CORRECTED_RESULT_ID = "RR-AE11E20304C60C349CBD"
 HISTORICAL_RESULT_ID = "RR-BFB7190B3C8D391C6E9D"
+CURRENT_REVIEW_ID = "DR-B8DA78742C80B152F956"
 
 
 class DgrCorrectedEvidenceFrontierTests(unittest.TestCase):
@@ -29,13 +30,17 @@ class DgrCorrectedEvidenceFrontierTests(unittest.TestCase):
         self.assertEqual({CORRECTED_RESULT_ID}, active_ids)
         self.assertNotIn(HISTORICAL_RESULT_ID, active_ids)
 
-    def test_frontier_requires_new_driver_review(self):
+    def test_review_presence_does_not_bypass_nonterminal_control_frontier(self):
         state = results.task_result_state(TASK_ID, ROOT, PUBLICATION_ID)
         self.assertIsNotNone(state)
+        # A stored review and runtime terminal authority are deliberately separate.
+        # The current repository frontier remains nonterminal until the canonical
+        # follow-up/authority chain makes that review terminally operable.
         self.assertEqual("AWAITING_DRIVER_REVIEW", state["state"])
         self.assertFalse(state["terminal"])
         self.assertEqual(CORRECTED_RESULT_ID, state["result"]["result_id"])
-        self.assertIsNone(state["review"])
+        self.assertIsInstance(state["review"], dict)
+        self.assertEqual(CURRENT_REVIEW_ID, state["review"]["review_id"])
 
 
 if __name__ == "__main__":
