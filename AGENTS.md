@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.9`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.8`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -234,9 +234,8 @@ Tool lookup is delayed for FREE Phase A and explicit task-local blind-forward/so
 
 Use connected GitHub capability for remote repository files, commits, branches, PRs, issues and workflow/status operations. Do not use container networking to duplicate GitHub access when the connector supports the action.
 
-Canonical context fanout policy: `research_context_budget.json`.
-
-Freeze:
+<!-- TASKBOOK_POLICY_DIGEST_EXCLUDE_BEGIN: CONTEXT_READ_BUDGET -->
+Canonical conversational read budget: `research_context_budget.json`.
 
 `UNBOUNDED_COLLECTION_READ_FOR_DISCOVERY = FORBIDDEN`.
 
@@ -247,7 +246,7 @@ Do not enumerate high-fanout directories such as `tests/`, `research_tasks/`, `r
 `CONTEXT_COMPACTION -> RESTORE_DURABLE_STATE -> NARROW_READS -> CONTINUE`.
 
 Context compaction is not a task-stop boundary and does not justify abandoning a mutation whose next executable action is already known.
-
+<!-- TASKBOOK_POLICY_DIGEST_EXCLUDE_END: CONTEXT_READ_BUDGET -->
 Detailed rules: `docs/GITHUB_INTERACTION_BUDGET.md` and `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`.
 
 ## 8. Working Truth
