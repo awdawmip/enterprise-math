@@ -1,0 +1,186 @@
+{
+  "payload": {
+    "schema": "RB_ENTERPRISE_DEGREE6_CM24_BLIND_BRANCH_PATTERN_REDUCTION_V1",
+    "task_id": "RS-RB-ENTERPRISE-DEGREE6-CM24-BLIND-BRANCH-PATTERN-COMPLETION",
+    "publication_id": "TP2-032D4712B5CB0E5D2376",
+    "claim_id": "chatgpt-rbv2bpc-20260828-1413",
+    "researcher_id": "EM-RBV2BPC-64B324",
+    "phase": "BLIND_BRANCH_PATTERN_FREEZE",
+    "primary_verdict": "BLIND_BRANCH_PATTERN_INCOMPLETE",
+    "blindness": {
+      "originating_explicit_map_seen": false,
+      "originating_load_bearing_coefficients_seen": false,
+      "originating_period_scaling_seen": false,
+      "phase_b_unblinding_performed": false,
+      "targeted_external_formula_search_used": false,
+      "allowed_parent_freeze_only": true,
+      "note": "Only the taskbook, the allowed parent raw freeze at c73816d3552b4247861e12e476101e94a4a2ce5a, its exact checker, and generic control-plane files were used before this freeze."
+    },
+    "coefficient_field": {
+      "Kb": "Q(sqrt(2),sqrt(3))",
+      "K0": "Kb(i,alpha), alpha^2=sqrt(3) (equivalently alpha=3^(1/4))",
+      "extension_degree_K0_over_Kb": "divides 4 (two successive quadratic adjunctions)"
+    },
+    "q_irreducibility": {
+      "q": "R^3 - 3*R - (12*sqrt(2)-10*sqrt(3))",
+      "prime_reduction": {
+        "p": 23,
+        "sqrt2_mod_p": 5,
+        "sqrt3_mod_p": 16,
+        "constant_k2_mod_p": 15,
+        "reduced_q": "R^3 - 3*R - 15 mod 23",
+        "roots_mod_p": []
+      },
+      "theorem": "q is irreducible over Kb and remains irreducible over K0 because adjoining i and 3^(1/4) is a 2-power extension.",
+      "special_Q_consequence": "No Q point with t=-k can lie over a special value in {0,1,lambda,infinity}. If one did, irreducibility would force all three Q points into that K0-rational special fiber, giving fiber multiplicity at least 3*4=12>6.",
+      "ramification_consequence": "All three Q points are non-special simple critical points of X (local degree 2). All special-fiber critical points are ordinary local-degree-2 points."
+    },
+    "branch_points": {
+      "O": "point at infinity",
+      "T0": "(0,0)",
+      "Tp": "(sqrt(3),0)",
+      "Tm": "(-sqrt(3),0)",
+      "Ap": "(-2,i*sqrt(2))",
+      "Am": "(-2,-i*sqrt(2))"
+    },
+    "pair_block_two_divisibility": {
+      "theorem": "For every one of the 15 two-point subsets S of the six D/C branch points, the elliptic group sum sigma(S) is in 2*C(K0). Hence no 2-point block is excluded by the first square-class existence test over K0.",
+      "criterion": "For C:t^2=R(R-sqrt(3))(R+sqrt(3)), the recorded roots square to R, R-sqrt(3), R+sqrt(3) and have product -t; the standard halving formula gives the recorded half witness.",
+      "pairs": [
+        {
+          "pair": ["O", "T0"],
+          "sum": {"R": "0", "t": "0"},
+          "descent_roots": {"sqrt_R": "0", "sqrt_R_minus_sqrt3": "3**(1/4)*I", "sqrt_R_plus_sqrt3": "3**(1/4)", "product": "0"},
+          "half_witness": {"R": "sqrt(3)*I", "t": "3**(3/4)*(1 - I)"}
+        },
+        {
+          "pair": ["O", "Tp"],
+          "sum": {"R": "sqrt(3)", "t": "0"},
+          "descent_roots": {"sqrt_R": "3**(1/4)", "sqrt_R_minus_sqrt3": "0", "sqrt_R_plus_sqrt3": "sqrt(2)*3**(1/4)", "product": "0"},
+          "half_witness": {"R": "sqrt(3) + sqrt(6)", "t": "3**(3/4)*(-2 - sqrt(2))"}
+        },
+        {
+          "pair": ["O", "Tm"],
+          "sum": {"R": "-sqrt(3)", "t": "0"},
+          "descent_roots": {"sqrt_R": "3**(1/4)*I", "sqrt_R_minus_sqrt3": "sqrt(2)*3**(1/4)*I", "sqrt_R_plus_sqrt3": "0", "product": "0"},
+          "half_witness": {"R": "-sqrt(6) - sqrt(3)", "t": "3**(3/4)*I*(sqrt(2) + 2)"}
+        },
+        {
+          "pair": ["O", "Ap"],
+          "sum": {"R": "-2", "t": "sqrt(2)*I"},
+          "descent_roots": {"sqrt_R": "sqrt(2)*I", "sqrt_R_minus_sqrt3": "I*(sqrt(2) + sqrt(6))/2", "sqrt_R_plus_sqrt3": "I*(-sqrt(2) + sqrt(6))/2", "product": "-sqrt(2)*I"},
+          "half_witness": {"R": "-2*sqrt(3) - 3", "t": "3*I*(sqrt(6) + 2*sqrt(2))"}
+        },
+        {
+          "pair": ["O", "Am"],
+          "sum": {"R": "-2", "t": "-sqrt(2)*I"},
+          "descent_roots": {"sqrt_R": "-sqrt(2)*I", "sqrt_R_minus_sqrt3": "I*(sqrt(2) + sqrt(6))/2", "sqrt_R_plus_sqrt3": "I*(-sqrt(2) + sqrt(6))/2", "product": "sqrt(2)*I"},
+          "half_witness": {"R": "-3 + 2*sqrt(3)", "t": "3*I*(-2*sqrt(2) + sqrt(6))"}
+        },
+        {
+          "pair": ["T0", "Tp"],
+          "sum": {"R": "-sqrt(3)", "t": "0"},
+          "descent_roots": {"sqrt_R": "3**(1/4)*I", "sqrt_R_minus_sqrt3": "sqrt(2)*3**(1/4)*I", "sqrt_R_plus_sqrt3": "0", "product": "0"},
+          "half_witness": {"R": "-sqrt(6) - sqrt(3)", "t": "3**(3/4)*I*(sqrt(2) + 2)"}
+        },
+        {
+          "pair": ["T0", "Tm"],
+          "sum": {"R": "sqrt(3)", "t": "0"},
+          "descent_roots": {"sqrt_R": "3**(1/4)", "sqrt_R_minus_sqrt3": "0", "sqrt_R_plus_sqrt3": "sqrt(2)*3**(1/4)", "product": "0"},
+          "half_witness": {"R": "sqrt(3) + sqrt(6)", "t": "3**(3/4)*(-2 - sqrt(2))"}
+        },
+        {
+          "pair": ["T0", "Ap"],
+          "sum": {"R": "3/2", "t": "3*sqrt(2)*I/4"},
+          "descent_roots": {"sqrt_R": "sqrt(6)/2", "sqrt_R_minus_sqrt3": "I*(3**(1/4) - 3**(3/4))/2", "sqrt_R_plus_sqrt3": "3**(1/4)*(1 + sqrt(3))/2", "product": "-3*sqrt(2)*I/4"},
+          "half_witness": {"R": "3/2 + (1 - I)*(3*sqrt(2)*3**(1/4) + sqrt(3)*(1 - I) + sqrt(2)*3**(3/4)*I)/4", "t": "(-3*sqrt(6) + 3*sqrt(2)*I + 2*3**(3/4)*(-1 + I))/2"}
+        },
+        {
+          "pair": ["T0", "Am"],
+          "sum": {"R": "3/2", "t": "-3*sqrt(2)*I/4"},
+          "descent_roots": {"sqrt_R": "-sqrt(6)/2", "sqrt_R_minus_sqrt3": "I*(3**(1/4) - 3**(3/4))/2", "sqrt_R_plus_sqrt3": "3**(1/4)*(1 + sqrt(3))/2", "product": "3*sqrt(2)*I/4"},
+          "half_witness": {"R": "3/2 - (1 - I)*(3*sqrt(2)*3**(1/4) + sqrt(3)*(-1 + I) + sqrt(2)*3**(3/4)*I)/4", "t": "(3*sqrt(6) - 3*sqrt(2)*I + 2*3**(3/4)*(-1 + I))/2"}
+        },
+        {
+          "pair": ["Tp", "Tm"],
+          "sum": {"R": "0", "t": "0"},
+          "descent_roots": {"sqrt_R": "0", "sqrt_R_minus_sqrt3": "3**(1/4)*I", "sqrt_R_plus_sqrt3": "3**(1/4)", "product": "0"},
+          "half_witness": {"R": "sqrt(3)*I", "t": "3**(3/4)*(1 - I)"}
+        },
+        {
+          "pair": ["Tp", "Ap"],
+          "sum": {"R": "-12 + 7*sqrt(3)", "t": "I*(-42*sqrt(2) + 24*sqrt(6))"},
+          "descent_roots": {"sqrt_R": "-2*3**(1/4) + 3**(3/4)", "sqrt_R_minus_sqrt3": "I*(3 - sqrt(3))", "sqrt_R_plus_sqrt3": "sqrt(2)*(3**(1/4) - 3**(3/4))", "product": "I*(-24*sqrt(6) + 42*sqrt(2))"},
+          "half_witness": {"R": "-5*sqrt(6) - 12 + 7*sqrt(3) + 9*sqrt(2) - 4*sqrt(2)*3**(3/4)*I - 9*3**(1/4)*I + 6*sqrt(2)*3**(1/4)*I + 5*3**(3/4)*I", "t": "-37*sqrt(2)*3**(3/4) - 90*3**(1/4) + 63*sqrt(2)*3**(1/4) + 52*3**(3/4) - 69*sqrt(3)*I - 84*sqrt(2)*I + 117*I + 48*sqrt(6)*I"}
+        },
+        {
+          "pair": ["Tp", "Am"],
+          "sum": {"R": "-12 + 7*sqrt(3)", "t": "I*(-24*sqrt(6) + 42*sqrt(2))"},
+          "descent_roots": {"sqrt_R": "2*3**(1/4) - 3**(3/4)", "sqrt_R_minus_sqrt3": "I*(3 - sqrt(3))", "sqrt_R_plus_sqrt3": "sqrt(2)*(3**(1/4) - 3**(3/4))", "product": "I*(-42*sqrt(2) + 24*sqrt(6))"},
+          "half_witness": {"R": "-9*sqrt(2) - 12 + 7*sqrt(3) + 5*sqrt(6) - 4*sqrt(2)*3**(3/4)*I - 5*3**(3/4)*I + 6*sqrt(2)*3**(1/4)*I + 9*3**(1/4)*I", "t": "-37*sqrt(2)*3**(3/4) - 52*3**(3/4) + 63*sqrt(2)*3**(1/4) + 90*3**(1/4) - 69*sqrt(3)*I - 48*sqrt(6)*I + 117*I + 84*sqrt(2)*I"}
+        },
+        {
+          "pair": ["Tm", "Ap"],
+          "sum": {"R": "-7*sqrt(3) - 12", "t": "I*(-42*sqrt(2) - 24*sqrt(6))"},
+          "descent_roots": {"sqrt_R": "I*(2*3**(1/4) + 3**(3/4))", "sqrt_R_minus_sqrt3": "sqrt(2)*I*(3**(1/4) + 3**(3/4))", "sqrt_R_plus_sqrt3": "I*(sqrt(3) + 3)", "product": "I*(24*sqrt(6) + 42*sqrt(2))"},
+          "half_witness": {"R": "-4*sqrt(2)*3**(3/4) - 7*sqrt(3) - 12 - 6*sqrt(2)*3**(1/4) + 5*3**(3/4) + 9*3**(1/4) + 5*sqrt(6) + 9*sqrt(2)", "t": "I*(-84*sqrt(2) - 52*3**(3/4) - 90*3**(1/4) - 48*sqrt(6) + 117 + 63*sqrt(2)*3**(1/4) + 37*sqrt(2)*3**(3/4) + 69*sqrt(3))"}
+        },
+        {
+          "pair": ["Tm", "Am"],
+          "sum": {"R": "-7*sqrt(3) - 12", "t": "I*(24*sqrt(6) + 42*sqrt(2))"},
+          "descent_roots": {"sqrt_R": "-I*(2*3**(1/4) + 3**(3/4))", "sqrt_R_minus_sqrt3": "sqrt(2)*I*(3**(1/4) + 3**(3/4))", "sqrt_R_plus_sqrt3": "I*(sqrt(3) + 3)", "product": "I*(-42*sqrt(2) - 24*sqrt(6))"},
+          "half_witness": {"R": "-4*sqrt(2)*3**(3/4) - 9*sqrt(2) - 5*sqrt(6) - 7*sqrt(3) - 12 - 9*3**(1/4) - 5*3**(3/4) - 6*sqrt(2)*3**(1/4)", "t": "I*(117 + 63*sqrt(2)*3**(1/4) + 48*sqrt(6) + 90*3**(1/4) + 52*3**(3/4) + 84*sqrt(2) + 37*sqrt(2)*3**(3/4) + 69*sqrt(3))"}
+        },
+        {
+          "pair": ["Ap", "Am"],
+          "sum": "O",
+          "half_witness": "O"
+        }
+      ]
+    },
+    "automorphism_and_enumeration": {
+      "branch_support_automorphisms": "Aut(C,B) preserving the six-point branch set is {id,[-1]}, where [-1] swaps Ap and Am and fixes O,T0,Tp,Tm.",
+      "ode_decorated_automorphisms": "After decorating by the frozen Q divisor t=-k (equivalently the factor (t+k)^2), [-1] sends t=-k to t=k and is not a K0-automorphism of the frozen ODE data; the fixed-data source automorphism group is therefore trivial.",
+      "pattern_4_2_pre_ode_pair_choices": 15,
+      "pattern_4_2_branch_support_orbits_under_minus1": 11,
+      "pattern_2_2_2_perfect_matchings": 15,
+      "pattern_2_2_2_branch_support_orbits_under_minus1": 9,
+      "note": "The 11 and 9 orbit counts are valid only before applying the k-pinned ODE. Exact ODE work must retain/unfold all 15+15 support assignments."
+    },
+    "riemann_roch_reduction": {
+      "normalized_empty_infinity": "Using target anharmonic relabeling, take one zero branch block as the infinity fiber.",
+      "fiber_formula": "D_a = B_a + 2 E_a, deg(E_a)=(6-|B_a|)/2.",
+      "pattern_4_2_0_0_half_divisor_degrees": [1, 2, 3, 3],
+      "pattern_2_2_2_0_half_divisor_degrees": [2, 2, 2, 3],
+      "special_Q_removed": true,
+      "special_ramification_points": 9,
+      "nonspecial_Q_ramification_points": 3,
+      "total_ramification": 12,
+      "pic2_twist_group_size_after_scalar_factor": 4,
+      "pic2_twist_triples_after_product_constraint_per_support_assignment": 16,
+      "pattern_4_2_divisor_type_lanes_before_rr": 240,
+      "pattern_2_2_2_divisor_type_lanes_before_rr": 240,
+      "total_divisor_type_lanes_before_rr": 480,
+      "lane_count_note": "The 16 count is for Pic(C)[2] divisor-twist types after factoring nonzero scalar coefficients; constants in K0*/K0*^2 are not being falsely counted as a four-element group."
+    },
+    "ode_filter": {
+      "derived_divisibility": "Since all three Q are non-special simple critical points, t+k divides delta(X) in K0(C).",
+      "reduced_certificate": "With J=delta(X)/(t+k), require (R+2)*t*J^2 = K*X*(X-1)*(X-lambda), K != 0.",
+      "exact_filter": "For each Riemann-Roch survivor, verify J lies in K0(C) and the quotient (R+2)*t*J^2/[X*(X-1)*(X-lambda)] is a nonzero constant."
+    },
+    "diagnostic_search": {
+      "status": "NON_LOAD_BEARING",
+      "note": "Exploratory L(6O)/L(7O) numerical coefficient fits were attempted only as discovery aids. The best fits collapsed toward K=0/common-zero degenerations and are not evidence of impossibility or existence."
+    },
+    "current_unfinished_unit": "COUPLED_RIEMANN_ROCH_SOLVE_ON_480_DIVISOR_TYPE_LANES_WITH_Q_SPECIAL_CASES_REMOVED",
+    "next_action": "Instantiate minimal pair/quad square-class representatives from the explicit halving witnesses, enumerate the 16 Pic[2] twist types per support assignment, solve the degree tuples (1,2,3,3) and (2,2,2,3) exactly, and apply the reduced J=delta(X)/(t+k) constant-quotient ODE filter. Freeze an exact map or exact obstruction before any Phase-B unblinding.",
+    "not_claimed": [
+      "No exact degree-6 X or Y has yet been reconstructed.",
+      "No exact obstruction excluding both 4+2+0+0 and 2+2+2+0 has yet been proved.",
+      "The 480 divisor-type lane count is a finite exact reduction, not a claim that 480 full square classes survive.",
+      "No period-scaling value has been derived.",
+      "No Phase-B comparison with the originating theorem-package formula has been performed."
+    ]
+  },
+  "payload_sha256": "sha256:86e462dcebad843aeab27354a2f4ce5fc17ef15bce4e6db30ef23e6ca1a62b29"
+}
