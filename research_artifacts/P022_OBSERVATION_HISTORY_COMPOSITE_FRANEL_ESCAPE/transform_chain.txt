@@ -1,0 +1,31 @@
+T_M = 3F2(-M,-M,-M; -3M,3M; 1)
+
+Terminating transform used repeatedly:
+3F2(a,b,-N; d,e; 1)
+= (d-a)_N/(d)_N * 3F2(a,e-b,-N; 1+a-d-N,e; 1).
+
+Step 1:
+(-M,-M,-M; -3M,3M)
+-> (-M,-M,4M; M+1,3M)
+factor (-2M)_M/(-3M)_M.
+
+Step 2:
+(-M,-M,4M; M+1,3M)
+-> (-M,4M,4M; 2M,3M)
+factor (1-3M)_M/(M+1)_M.
+
+Step 3:
+(-M,4M,4M; 2M,3M)
+-> (-2M,-M,4M; 1,2M)
+factor (-M)_M/(3M)_M.
+
+Step 4:
+(-2M,-M,4M; 1,2M)
+-> (-2M,M+1,4M; 1,1)
+factor (-2M)_(2M)/(2M)_(2M).
+
+Product factor:
+E_M=(2/3)*M!*(2M)!*(2M-1)!*(3M-1)!/(4M-1)!^2.
+
+Final integer kernel:
+K_M=sum_{j=0}^{2M}(-1)^j C(2M,j) C(M+j,j) C(4M+j-1,j).
