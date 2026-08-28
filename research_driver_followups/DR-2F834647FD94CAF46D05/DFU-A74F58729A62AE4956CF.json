@@ -1,0 +1,71 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "packet_id": "DFU-A74F58729A62AE4956CF",
+  "review_id": "DR-2F834647FD94CAF46D05",
+  "result_id": "RR-2D43CCB30B906AFB6E20",
+  "task_id": "RS-RSA-EXPONENT-COLLISION-CRT-COLLAPSE",
+  "source_publication_id": "TP2-301CA54924787090237D",
+  "driver_id": "EM-RSA-45F14F",
+  "review_disposition": "ACCEPTED",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "parent_objective_id": "RSA_COLLISION_COLLAPSE_PRACTICE_20260827",
+  "source_next_control_plane_recommendation": "Driver-review RR-2D43CCB30B906AFB6E20 and close the current task generation if accepted. Do not infer an efficient collision-generation algorithm; any such successor must be separately justified and immutably published.",
+  "decision": "TASK_SET_PUBLISHED",
+  "gate_decisions": [
+    {
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "The hard target is satisfied with unresolved mathematical residue NONE; collision generation and complexity improvement are explicitly outside the accepted task scope.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "LEAN_FORMALIZATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "This acceptance is not an L4 or Foundation promotion, and the accepted theorem is an elementary finite-group/CRT characterization; formalization is not required for this task-scope closure.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "decision": "REQUIRED",
+      "reason": "The global annihilating-exponent route is classical, but the exact prior-art status of the local iff depth criterion, closed probability law, and multi-certificate diagonal-graph barrier requires a reproducible bounded literature audit before provenance claims are closed.",
+      "evidence_refs": [
+        "driver_reviews/RSA_EXPONENT_COLLISION_CRT_COLLAPSE_DRIVER_REVIEW_20260828.md"
+      ]
+    },
+    {
+      "gate": "INDEPENDENT_REPLICATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "The proof is elementary and was independently reconstructed by the reviewing Driver, including separate finite checks of the single-collision and multi-certificate formulas; a separate replication task would duplicate low-risk work.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "decision": "NOT_REQUIRED",
+      "reason": "The frozen result is classified RESULT_ONLY and does not establish a reusable general-purpose tool family requiring integration.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "ADVERSARIAL_AUDIT",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "The return separates collision exposure from collision generation, states exact failure loci, distinguishes finite regression from proof, and provides a strict multi-certificate witness and barrier theorem that the Driver independently cross-checked.",
+      "evidence_refs": [
+        "research_returns/RSA_EXPONENT_COLLISION_CRT_COLLAPSE_RETURN_20260827.md",
+        "research_artifacts/RSA_EXPONENT_COLLISION_CRT_COLLAPSE/theorem_packet.json",
+        "scripts/check_rsa_exponent_collision_crt_collapse.py",
+        "driver_reviews/RSA_EXPONENT_COLLISION_CRT_COLLAPSE_DRIVER_REVIEW_20260828.md"
+      ]
+    }
+  ],
+  "task_publications": [
+    {
+      "task_id": "RS-RSA-EXPONENT-COLLISION-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+      "publication_id": "TP2-DCBF9A9ACA18BF64FFCF",
+      "task_role": "EXTERNAL_PRIOR_ART_DUPLICATION"
+    }
+  ],
+  "created_at": "2026-08-28T08:02:32+00:00",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
