@@ -2,14 +2,13 @@
 """Enterprise Math recover-before-fresh canonical control-plane router.
 
 This module composes the existing fresh task/lane selectors with the independent
-10-minute conversation-liveness watchdog.  It never creates a CLAIM and never
-changes owner-lease semantics.  A valid owner lease and a stale conversation are
+10-minute conversation-liveness watchdog. It never creates a CLAIM and never
+changes owner-lease semantics. A valid owner lease and a stale conversation are
 routed to stale-session adoption with the existing winning CLAIM preserved.
 
-The important fail-closed rule is that ``NO_DISPATCH`` is not emitted merely
-because the fresh selectors return ``None``.  If a valid leased owner exists but
-its conversation liveness has not been verified, the router returns
-``VERIFY_SESSION_LIVENESS`` instead.
+Unresolved immutable-publication forks are isolated task-locally before the
+fresh selectors run. The affected task is BLOCKED with no operational
+publication selected; unrelated tasks remain dispatchable.
 """
 from __future__ import annotations
 
@@ -18,12 +17,15 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
+from control_plane import research_publication_fault_isolation
 from tools import research_dispatch
 from tools import research_lane_dispatch
 from tools import research_runtime
 from tools import research_scheduler
 
 ROOT = Path(__file__).resolve().parent
+research_publication_fault_isolation.install(ROOT)
+
 SESSION_OBSERVATION_SCHEMA = "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V1"
 ORDINARY_TASK = "ORDINARY_TASK"
 COHORT_LANE = "COHORT_LANE"
@@ -64,7 +66,7 @@ def parse_session_observations(value: Mapping[str, Any] | None) -> dict[str, str
     """Validate ephemeral liveness observations keyed by exact owner scope.
 
     ``last_verified_activity_at`` means the latest independently verified
-    conversation response or durable execution progress.  A CLAIM timestamp by
+    conversation response or durable execution progress. A CLAIM timestamp by
     itself is not session-liveness evidence.
     """
     if value is None:
@@ -275,13 +277,17 @@ def route_control(
     leased = _leased_targets(events, now=now, kind=kind, root=root)
     fresh_task = research_dispatch.select_task(events, now=now, kind=kind, root=root)
     fresh_lane = _fresh_lane(events, now=now, kind=kind, root=root)
-    return route_from_candidates(
+    result = route_from_candidates(
         leased,
         observations=observations,
         now=now,
         fresh_task=fresh_task,
         fresh_lane=fresh_lane,
     )
+    quarantined = sorted(research_publication_fault_isolation.validated_quarantines(root))
+    if quarantined:
+        result["quarantined_tasks"] = quarantined
+    return result
 
 
 def _load_observation_payload(args: argparse.Namespace) -> dict[str, str]:
@@ -298,7 +304,7 @@ def _load_observation_payload(args: argparse.Namespace) -> dict[str, str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Enterprise Math recover-before-fresh canonical control dispatch"
+        description="Enterprise Math fault-isolated recover-before-fresh canonical control dispatch"
     )
     parser.add_argument("--events", type=Path)
     parser.add_argument("--now")
@@ -321,6 +327,10 @@ def main() -> int:
 if __name__ == "__main__":
     try:
         raise SystemExit(main())
-    except (ControlDispatchError, research_runtime.RuntimeStateError) as exc:
+    except (
+        ControlDispatchError,
+        research_runtime.RuntimeStateError,
+        research_publication_fault_isolation.PublicationFaultIsolationError,
+    ) as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
