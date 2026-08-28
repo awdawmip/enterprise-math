@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""Find executable Python consumers of control-pointer JSON keys.
+"""Find production Python consumers of migratable control-pointer keys.
 
-This is a semantic-safety helper for gradual control migration.  It does not
-search prose/string mentions.  It looks for AST operations that actually read a
+This is a semantic-safety helper for gradual control migration. It does not
+search prose/string mentions. It looks for AST operations that actually read a
 mapping key, such as ``value['canonical_dispatch']`` or
-``value.get('canonical_dispatch')``.  A pointer may be mechanically renamed only
-when this executable-consumer census is empty or every consumer is deliberately
-updated in the same bounded change.
+``value.get('canonical_dispatch')``.
 
-Tests are excluded from the production-consumer census.  They may assert a
-control field without becoming runtime authority for that field.
+The question answered here is deliberately narrow: can a runtime/production
+Python path depend on the old key value? Tests and checker/validator programs are
+excluded because they may assert or compare the field without using it as
+runtime routing authority. Those validators remain independently active in CI.
+A pointer may be mechanically migrated only when this production-consumer census
+is empty or every production consumer is deliberately updated in the same
+bounded change.
 """
 from __future__ import annotations
 
@@ -32,10 +35,17 @@ class PointerConsumerError(ValueError):
     pass
 
 
+def _is_validator(path: Path) -> bool:
+    """Return True for repository validators, not runtime/production tools."""
+    return path.name.startswith("check_")
+
+
 def python_files(root: Path = ROOT) -> Iterable[Path]:
     for path in root.rglob("*.py"):
         rel = path.relative_to(root)
         if any(part in EXCLUDED_ROOTS for part in rel.parts):
+            continue
+        if _is_validator(path):
             continue
         yield path
 
@@ -80,11 +90,14 @@ def main() -> int:
         print(f"ERROR: {exc}")
         return 1
     if hits:
-        print(f"BLOCKED: executable Python consumers read mapping key {key!r}:")
+        print(f"BLOCKED: production Python consumers read mapping key {key!r}:")
         for path, lines in sorted(hits.items()):
             print(f" - {path}: lines {lines}")
         return 2
-    print(f"PASS: no executable Python consumer reads mapping key {key!r}.")
+    print(
+        f"PASS: no production Python consumer reads mapping key {key!r}; "
+        "tests/checkers are validated separately."
+    )
     return 0
 
 
