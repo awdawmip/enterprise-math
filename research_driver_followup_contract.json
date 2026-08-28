@@ -74,7 +74,7 @@
     "FOLLOWUP_TASK_PUBLICATION_TIME_MUST_NOT_PREDATE_OPERATIONAL_REVIEW_AUTHORITY",
     "CONTINUATION_TASKS_STILL_REQUIRE_THE_EXISTING_SUCCESSOR_GATE",
     "PASS_OR_DONE_ALONE_STILL_DOES_NOT_JUSTIFY_A_SUCCESSOR",
-    "MISSING_OR_INVALID_FOLLOWUP_PACKET_KEeps_OPERATIONAL_AUTHORITY_NONTERMINAL",
+    "MISSING_OR_INVALID_FOLLOWUP_PACKET_KEEPS_OPERATIONAL_AUTHORITY_NONTERMINAL",
     "PARALLEL_RESULT_SYNTHESIS_CANNOT_BYPASS_SOURCE_RESULT_REVIEW_OR_FOLLOWUP_AUTHORITY",
     "FOLLOWUP_PACKET_GRANTS_NO_WORKING_TRUTH_FOUNDATION_AUTHORITY_OR_CANONICAL_PROMOTION"
   ],
@@ -133,10 +133,12 @@
   },
   "historical_compatibility": {
     "baseline": "research_driver_followup_legacy_reviews.json",
-    "frozen_legacy_review_count": 28,
+    "frozen_legacy_review_count": 27,
+    "physical_review_tree_record_count": 28,
+    "excluded_physical_history": ["DR-E3CE51B969E032E59500"],
     "frozen_base": "d1514b1ea2f3f6f91c3b793c8d0bcb618ce093c6",
     "frozen_review_tree": "a37d1b9c1fdc550ea8652fa81bc6497b6082724a",
-    "cutover_basis": "source review_id exact membership for immutable reviews present at cutover; no review synthesis authority existed at cutover",
+    "cutover_basis": "exact source review_id membership in canonical active compatibility review view at cutover; quarantined structurally invalid physical review history is preserved but not re-admitted as authority; no review synthesis authority existed at cutover",
     "reviewed_at_is_cutover_authority": false,
     "backdating_can_create_legacy_exemption": false,
     "post_cutover_review_synthesis_is_governed": true,
