@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 """Enterprise Math recover-before-fresh canonical control-plane router.
 
-This module composes the existing fresh task/lane selectors with the independent
-10-minute conversation-liveness watchdog. It never creates a CLAIM and never
-changes owner-lease semantics. A valid owner lease and a stale conversation are
-routed to stale-session adoption with the existing winning CLAIM preserved.
+This module composes the existing fresh task/lane selectors with exact-owner-scope
+conversation liveness. It never creates a CLAIM and never changes owner-lease
+semantics. A valid owner lease and a stale owner execution session are routed to
+stale-session adoption with the existing winning CLAIM preserved.
+
+Owner-scope liveness is narrower than generic conversation activity. Only a
+verified TASK_RESEARCH response or durable execution progress bound to the exact
+task/lane and exact winning claim_id may refresh that owner scope. Control-plane,
+Driver, Steward, FREE, unrelated-task, or generic chat activity does not keep a
+research owner artificially alive.
 
 Known task-local publication faults are isolated before the fresh selectors run:
 unresolved forks select no head, exact pinned integrity faults select no invalid
@@ -28,7 +34,13 @@ from tools import research_scheduler
 ROOT = Path(__file__).resolve().parent
 research_control_bootstrap.install(ROOT)
 
-SESSION_OBSERVATION_SCHEMA = "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V1"
+SESSION_OBSERVATION_SCHEMA = "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2"
+SESSION_ACTIVITY_KINDS = frozenset(
+    {
+        "TASK_RESEARCH_RESPONSE",
+        "DURABLE_EXECUTION_PROGRESS",
+    }
+)
 ORDINARY_TASK = "ORDINARY_TASK"
 COHORT_LANE = "COHORT_LANE"
 
@@ -64,12 +76,18 @@ def _state_target_key(state: Mapping[str, Any]) -> str:
     return _target_key(task_id, cohort_id, lane_id)
 
 
-def parse_session_observations(value: Mapping[str, Any] | None) -> dict[str, str]:
+def parse_session_observations(
+    value: Mapping[str, Any] | None,
+) -> dict[str, dict[str, str]]:
     """Validate ephemeral liveness observations keyed by exact owner scope.
 
-    ``last_verified_activity_at`` means the latest independently verified
-    conversation response or durable execution progress. A CLAIM timestamp by
-    itself is not session-liveness evidence.
+    Every observation must pin the exact ``claim_id`` and identify its evidence
+    kind. ``TASK_RESEARCH_RESPONSE`` means a verified response continuing work
+    under that exact owner scope. ``DURABLE_EXECUTION_PROGRESS`` means a verified
+    durable frontier/output change under that exact owner scope.
+
+    CLAIM time, generic chat activity, CONTROL_PLANE_MAINTENANCE, Driver, Steward,
+    FREE, or unrelated-task messages are not accepted liveness evidence.
     """
     if value is None:
         return {}
@@ -78,7 +96,7 @@ def parse_session_observations(value: Mapping[str, Any] | None) -> dict[str, str
     rows = value.get("observations")
     if not isinstance(rows, list):
         raise ControlDispatchError("session-liveness observations must be a list")
-    result: dict[str, str] = {}
+    result: dict[str, dict[str, str]] = {}
     for index, row in enumerate(rows):
         if not isinstance(row, Mapping):
             raise ControlDispatchError(f"observations[{index}] must be an object")
@@ -94,14 +112,55 @@ def parse_session_observations(value: Mapping[str, Any] | None) -> dict[str, str
         key = _target_key(task_id.strip(), cohort_id, lane_id)
         if key in result:
             raise ControlDispatchError(f"duplicate session-liveness observation for {key}")
+
+        claim_id = row.get("claim_id")
+        if not isinstance(claim_id, str) or not claim_id.strip():
+            raise ControlDispatchError(f"observations[{index}].claim_id is required")
+
+        evidence_kind = row.get("activity_evidence_kind")
+        if evidence_kind not in SESSION_ACTIVITY_KINDS:
+            raise ControlDispatchError(
+                f"observations[{index}].activity_evidence_kind must be one of {sorted(SESSION_ACTIVITY_KINDS)}"
+            )
+
         activity = row.get("last_verified_activity_at")
         if not isinstance(activity, str) or not activity.strip():
             raise ControlDispatchError(
                 f"observations[{index}].last_verified_activity_at is required"
             )
         research_runtime.parse_time(activity)
-        result[key] = activity
+        result[key] = {
+            "claim_id": claim_id.strip(),
+            "activity_evidence_kind": str(evidence_kind),
+            "last_verified_activity_at": activity.strip(),
+        }
     return result
+
+
+def _owner_scope_activity(
+    state: Mapping[str, Any], observation: Mapping[str, str] | None
+) -> str | None:
+    """Return liveness time only when observation matches exact current owner scope.
+
+    A stale/foreign claim observation is ignored rather than allowed to keep the
+    current owner active.  Direct library callers receive the same rule as the
+    CLI parser, so bypassing JSON parsing cannot turn generic chat activity into
+    owner-scope liveness.
+    """
+    if observation is None:
+        return None
+    claim_id = state.get("claim_id")
+    if not isinstance(claim_id, str) or not claim_id:
+        return None
+    if observation.get("claim_id") != claim_id:
+        return None
+    if observation.get("activity_evidence_kind") not in SESSION_ACTIVITY_KINDS:
+        return None
+    activity = observation.get("last_verified_activity_at")
+    if not isinstance(activity, str) or not activity:
+        return None
+    research_runtime.parse_time(activity)
+    return activity
 
 
 def _leased_targets(
@@ -170,14 +229,14 @@ def _adoption_result(target: Mapping[str, Any], decision: Mapping[str, Any]) -> 
         "session_state": decision.get("session_state"),
         "stale_at": decision.get("stale_at"),
         "required_guard": "tools/research_runtime_guard.py adopt",
-        "reason": "valid owner lease remains authoritative but the owning conversation is stale",
+        "reason": "valid owner lease remains authoritative but the exact owner execution session is stale",
     }
 
 
 def route_from_candidates(
     leased_targets: list[dict[str, Any]],
     *,
-    observations: Mapping[str, str],
+    observations: Mapping[str, Mapping[str, str]],
     now,
     fresh_task: Mapping[str, Any] | None,
     fresh_lane: Mapping[str, Any] | None,
@@ -192,7 +251,7 @@ def route_from_candidates(
         if not isinstance(state, Mapping):
             raise ControlDispatchError("leased target missing state object")
         key = _state_target_key(state)
-        activity = observations.get(key)
+        activity = _owner_scope_activity(state, observations.get(key))
         decision = research_runtime.dispatch_decision(
             state,
             session_last_activity_at=activity,
@@ -253,8 +312,8 @@ def route_from_candidates(
             "new_claim_required": False,
             "targets": sorted(unknown, key=lambda item: item["target_key"]),
             "reason": (
-                "fresh dispatch is empty, but at least one valid owner lease has unknown "
-                "conversation liveness; NO_DISPATCH is not yet justified"
+                "fresh dispatch is empty, but at least one valid owner lease has unknown exact "
+                "owner-scope execution liveness; generic conversation activity cannot justify NO_DISPATCH"
             ),
         }
 
@@ -271,7 +330,7 @@ def route_control(
     events: list[dict[str, Any]],
     *,
     now,
-    observations: Mapping[str, str] | None = None,
+    observations: Mapping[str, Mapping[str, str]] | None = None,
     kind: str = "RESEARCH",
     root: Path = ROOT,
 ) -> dict[str, Any]:
@@ -295,7 +354,7 @@ def route_control(
     return result
 
 
-def _load_observation_payload(args: argparse.Namespace) -> dict[str, str]:
+def _load_observation_payload(args: argparse.Namespace) -> dict[str, dict[str, str]]:
     if args.session_observations_json:
         raw = json.loads(args.session_observations_json)
     elif args.session_observations:
@@ -309,7 +368,7 @@ def _load_observation_payload(args: argparse.Namespace) -> dict[str, str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Enterprise Math fault-isolated recover-before-fresh canonical control dispatch"
+        description="Enterprise Math fault-isolated exact-owner-scope recover-before-fresh control dispatch"
     )
     parser.add_argument("--events", type=Path)
     parser.add_argument("--now")
