@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "DRIVER_ADMITTED_DOMAIN_OPERATOR",
+  "date": "2026-08-28",
+  "driver_review": {
+    "disposition": "ADMIT_DOMAIN_OPERATOR",
+    "driver_id": "EM-FREE-C19420",
+    "review_ref": "driver_reviews/P018_QUOTIENT_ROOT_ATLAS_CARRY_DOMAIN_OPERATOR_ADMISSION_20260828.md",
+    "reviewed_head": "1d43d1e7dd009f7e6c02f2431302fa827475a98a",
+    "foundation_mutation": false,
+    "new_global_tool_family": false
+  },
+  "methods": [
+    {
+      "method_id": "domain.precision.quotient_root_atlas_carry",
+      "name": "Exact quotient-root atlas and ternary state-count carry operator",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T1_SCALE_ENUMERATION_VALUATION",
+      "supporting_family_ids": [
+        "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+        "T5_PRECISION_REFINEMENT"
+      ],
+      "status": "DRIVER_ADMITTED_DOMAIN_OPERATOR",
+      "source_refs": [
+        "research_notes/P018_QUOTIENT_ROOT_ATLAS_TERNARY_CARRY_DRIVER_ACCEPTED_THEOREM_NODE_20260828.md",
+        "research_notes/P018_QUOTIENT_ROOT_ATLAS_TERNARY_CARRY_THEOREM_TOOL_HARVEST_20260828.md",
+        "driver_reviews/P018_TERNARY_CARRY_THRESHOLD_TO_CARDINALITY_DRIVER_REVIEW_20260827.md",
+        "driver_reviews/P018_QUOTIENT_ROOT_ATLAS_CARRY_DOMAIN_OPERATOR_ADMISSION_20260828.md",
+        "EnterpriseMath/Precision/RootStateAtlasCardinality.lean",
+        "src/enterprise_math/p018_root_state_decomposition.py",
+        "src/enterprise_math/p018_root_state_carry.py",
+        "tests/test_p018_root_state_decomposition.py",
+        "tests/test_p018_root_state_carry.py",
+        "tests/test_p018_root_state_exact_count.py"
+      ],
+      "api": [
+        "state_coalescence_horizon",
+        "exact_distinct_root_state_count",
+        "quotient_root_state_decomposition",
+        "horizon_state_carry",
+        "ternary_state_count_carry",
+        "ternary_state_count_band"
+      ],
+      "triggers": [
+        "quotient root atlas",
+        "floor quotient root",
+        "distinct quotient-root states",
+        "coalescence horizon",
+        "denominator atlas",
+        "root-state cardinality",
+        "horizon carry",
+        "ternary count carry",
+        "compressed denominator scan"
+      ],
+      "capabilities": [
+        "compute the exact state-specific coalescence horizon and high-denominator cutoff",
+        "certify the high injective chart and contiguous forced low-root chart",
+        "compute exact distinct quotient-root state cardinality without a full denominator scan",
+        "certify the unique optional horizon state by a binary boundary carry",
+        "compress the exact count to a three-valued threshold carry",
+        "materialize the compressed root-state atlas for regression or downstream finite reasoning"
+      ],
+      "core_law": "For n>=1 and r>=1, with H=R_(r+1)(r*n-1) and D=floor(n/(H+1)^r), the quotient-root atlas R_r(floor(n/d)), 1<=d<=n, is the disjoint union of an injective D-state high chart and the forced low interval 1..H-1 plus at most the horizon H. Hence |S|+1=D+H+kappa; with q=floor(H/r) the three-point D-band compresses this to |S|+1=H+q+tau with tau in {0,1,2} selected by two exact thresholds.",
+      "hard_boundary": "DOMAIN_OPERATOR only. The carrier is the finite positive-denominator quotient-root atlas. Do not generalize to arbitrary floor maps or quotient semigroups, do not infer prime/factoring/Legendre or continuum claims, do not erase the H=0 branch, and do not treat the ternary state-count carry as a universal T5 carry law. No Foundation mutation follows."
+    }
+  ]
+}
