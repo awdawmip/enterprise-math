@@ -24,6 +24,9 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
         self.assertFalse(data["tool_reuse"]["coverage_lookup_is_tool_use"])
         self.assertTrue(data["tool_reuse"]["relevant_match_requires_reuse_resolution"])
         self.assertFalse(data["tool_reuse"]["execution_unavailability_is_capability_gap"])
+        self.assertEqual("TYPED_SELECTIVE_MERGE", data["role_transitions"]["mode"])
+        self.assertFalse(data["role_transitions"]["source_role_authority_persists_implicitly"])
+        self.assertFalse(data["role_transitions"]["role_switch_releases_or_duplicates_claim"])
 
     def test_task_publication_human_protocol_is_v2_only_for_new_work(self):
         text = self.read("docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md")
@@ -86,6 +89,63 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
         self.assertIn(
             "CONTROL_PLANE_MAINTENANCE_DOES_NOT_TRIGGER_MATHEMATICAL_TOOLBOX_BY_DEFAULT",
             policy["invariants"],
+        )
+
+    def test_dispatch_liveness_is_exact_owner_scope_not_generic_chat(self):
+        dispatch = self.load("research_dispatch_contract.json")
+        self.assertEqual("ENTERPRISE_MATH_RESEARCH_DISPATCH_CONTRACT_V5", dispatch["schema"])
+        liveness = dispatch["session_liveness_routing"]
+        self.assertFalse(liveness["conversation_activity_is_owner_scope_liveness"])
+        self.assertEqual(
+            "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",
+            liveness["observation_schema"],
+        )
+        self.assertEqual(
+            {"TASK_RESEARCH_RESPONSE", "DURABLE_EXECUTION_PROGRESS"},
+            set(liveness["allowed_activity_evidence_kinds"]),
+        )
+        self.assertIn("CONTROL_PLANE_MAINTENANCE response", liveness["does_not_count_as_owner_scope_activity"])
+        self.assertIn("FREE_AXIOM_DISCOVERY response", liveness["does_not_count_as_owner_scope_activity"])
+        self.assertTrue(liveness["claim_mismatch_observation"].startswith("IGNORE_AS_LIVENESS_EVIDENCE"))
+
+    def test_typed_role_switch_stops_cross_role_task_heartbeats(self):
+        matrix = self.load("control_plane/role_transition_matrix.json")
+        self.assertIn("OWNER_SCOPE_LIVENESS", matrix["state_dimensions"])
+        self.assertIn(
+            "ONLY_EXACT_CLAIM_BOUND_TASK_RESPONSE_OR_DURABLE_PROGRESS_REFRESHES_OWNER_SCOPE_LIVENESS",
+            matrix["core_invariants"],
+        )
+        for transition in (
+            "TASK_RESEARCH->CONTROL_PLANE_MAINTENANCE",
+            "TASK_RESEARCH->RESEARCH_DRIVER",
+            "TASK_RESEARCH->FOUNDATION_STEWARD",
+            "TASK_RESEARCH->FREE_AXIOM_DISCOVERY",
+        ):
+            self.assertTrue(
+                matrix["transitions"][transition]["owner_scope_liveness"].startswith(
+                    "DO_NOT_REFRESH_OWNER_LIVENESS"
+                )
+            )
+        self.assertTrue(
+            matrix["transitions"]["CONTROL_PLANE_MAINTENANCE->FREE_AXIOM_DISCOVERY"]["blindness"].startswith(
+                "ANCHOR_EXPOSED"
+            )
+        )
+
+    def test_control_mode_renders_no_research_identity_footer(self):
+        policy = self.load("final_response_identity_policy.json")
+        self.assertEqual("ENTERPRISE_MATH_FINAL_RESPONSE_IDENTITY_POLICY_V3", policy["schema"])
+        self.assertIn("CONTROL_PLANE_MAINTENANCE", policy["non_research_modes"])
+        self.assertEqual("control_plane/role_transition_matrix.json", policy["role_transition_contract"])
+        self.assertFalse(policy["control_plane_finalization"]["research_role_footer_required"])
+        self.assertFalse(
+            policy["control_plane_finalization"][
+                "research_runtime_identity_gate_applies_merely_because_control_mode_is_active"
+            ]
+        )
+        self.assertIn(
+            "rendering any Researcher-ID/Driver-ID/Steward-ID merely because CONTROL_PLANE_MAINTENANCE is active",
+            policy["forbidden"],
         )
 
     def test_v1_registry_surface_fails_closed_for_write_commands(self):
