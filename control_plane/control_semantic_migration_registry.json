@@ -4,14 +4,41 @@
   "effective": "2026-08-29",
   "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
   "authority": "control_plane/current_control_authority.json",
-  "purpose": "Retire stale control pointers gradually without rewriting files that also carry mathematical, discovery, Working Truth, Foundation, or successor semantics. Each entry records the exact legacy field, its current non-authoritative interpretation, and whether a mechanical edit is safe or semantic verification is required first.",
+  "purpose": "Retire stale control pointers gradually without rewriting files that also carry mathematical, discovery, Working Truth, Foundation, or successor semantics. Each entry records the exact legacy field, its current non-authoritative interpretation, and whether a mechanical edit is safe or semantic verification is required first. Fields that intentionally remain subordinate task-definition/fresh selectors are protected separately so live-route migration cannot rewrite them by pattern matching.",
   "invariants": [
     "MIGRATION_REGISTRY_DOES_NOT_OVERRIDE_MATHEMATICAL_SEMANTICS",
     "CURRENT_CONTROL_AUTHORITY_CONTINUES_TO_CONTROL_RUNTIME_WHILE_DEBT_IS_OPEN",
     "LOW_CONTROL_POINTER_MAY_CHANGE_ONLY_TO_AN_ALREADY_CANONICAL_CONTROL_TARGET",
     "MIXED_SEMANTICS_REQUIRES_VERIFICATION_BEFORE_EDIT",
+    "INTENTIONAL_SELECTOR_FIELDS_MUST_NOT_BE_REWRITTEN_AS_LIVE_ROUTE",
     "LEGACY_POINTER_REMOVAL_MUST_NOT_CHANGE_WORKING_TRUTH_FOUNDATION_DISCOVERY_OR_SUCCESSOR_SEMANTICS",
     "UNEXPECTED_THIRD_VALUE_FAILS_CLOSED"
+  ],
+  "protected_selector_fields": [
+    {
+      "protection_id": "CSP-FOUNDATION-BACKFLOW-SURFACE-001",
+      "path": "foundation_backflow.json",
+      "json_pointer": "/surfaces/canonical_dispatch",
+      "required_value": "tools/research_dispatch.py",
+      "semantic_role": "BACKFLOW_TASK_DEFINITION_SELECTOR",
+      "reason": "This surface resolves the registered-plus-frozen-legacy task-definition view. It does not own owner/session recovery."
+    },
+    {
+      "protection_id": "CSP-FOUNDATION-BACKFLOW-LINK-002",
+      "path": "foundation_backflow.json",
+      "json_pointer": "/scheduler_link_contract/task_definition_tool",
+      "required_value": "tools/research_dispatch.py",
+      "semantic_role": "FQ_TO_TASK_DEFINITION_SELECTOR",
+      "reason": "FQ links require canonical task-definition lookup, while live execution is separately routed through research_control_dispatch.py."
+    },
+    {
+      "protection_id": "CSP-STEWARD-BACKFLOW-AUTHORITY-003",
+      "path": "foundation_steward.json",
+      "json_pointer": "/backflow/task_definition_authority",
+      "required_value": "tools/research_dispatch.py",
+      "semantic_role": "STEWARD_BACKFLOW_TASK_DEFINITION_AUTHORITY",
+      "reason": "The Steward backflow subflow names the task-definition selector, not the top-level live dispatch entrypoint."
+    }
   ],
   "entries": [
     {
