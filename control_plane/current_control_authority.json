@@ -1,0 +1,99 @@
+{
+  "schema": "ENTERPRISE_MATH_CURRENT_CONTROL_AUTHORITY_V1",
+  "status": "ACTIVE_CANONICAL_CONTROL_PRECEDENCE",
+  "effective": "2026-08-28",
+  "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
+  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, tool reuse resolution, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
+  "scope": [
+    "TASK_PUBLICATION_AUTHORITY",
+    "LIVE_DISPATCH_ENTRYPOINT",
+    "RUNTIME_BOOTSTRAP",
+    "TOOL_REUSE_RESOLUTION",
+    "CONTROL_PLANE_MAINTENANCE_LIVENESS"
+  ],
+  "task_publication": {
+    "contract": "research_task_publication_contract_v2.json",
+    "record_store": "research_task_records/<task-id>/<publication-id>.json",
+    "tool": "tools/research_task_records.py",
+    "human_protocol": "docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md",
+    "legacy_contract": "research_task_publication_contract.json",
+    "legacy_registry": "research_task_registry.json",
+    "legacy_tool": "tools/research_task_registry.py",
+    "legacy_role": "READ_ONLY_COMPATIBILITY_AND_AUDIT_ONLY",
+    "invariant": "POST_CUTOVER_NEW_OR_MODIFIED_TASK_REQUIRES_IMMUTABLE_V2_PUBLICATION"
+  },
+  "live_dispatch": {
+    "contract": "research_dispatch_contract.json",
+    "canonical_entrypoint": "research_control_dispatch.py",
+    "ordinary_fresh_selector": "tools/research_dispatch.py",
+    "cohort_lane_fresh_selector": "tools/research_lane_dispatch.py",
+    "stale_adoption_guard": "tools/research_runtime_guard.py",
+    "runtime_bootstrap": "control_plane/research_control_bootstrap.py",
+    "invariant": "STALE_RECOVERY_AND_FAULT_ISOLATION_PRECEDE_FALSE_NO_DISPATCH"
+  },
+  "tool_reuse": {
+    "policy": "tool_invocation_policy.json",
+    "human_protocol": "docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md",
+    "coverage_router": "tools/enterprise_toolbox.py",
+    "coverage_lookup_is_tool_use": false,
+    "relevant_match_requires_reuse_resolution": true,
+    "execution_unavailability_is_capability_gap": false
+  },
+  "control_liveness": {
+    "contract": "active_turn_liveness.json",
+    "mode": "CONTROL_PLANE_MAINTENANCE",
+    "watchdog": "COOPERATIVE_SOFT_WATCHDOG",
+    "user_interrupt_preempts_nonessential_diagnostics": true,
+    "long_research_compute_is_not_control_plane_no_progress": true
+  },
+  "precedence": {
+    "rule": "For fields inside this file's scope only, this control precedence plus the named exact machine contract controls over stale V1 compatibility wording in older architecture, role, runtime, or human documents. Those older documents retain authority for their non-control mathematical/role semantics.",
+    "does_not_override": [
+      "MATHEMATICAL_TRUTH",
+      "THEOREM_STATUS",
+      "WORKING_TRUTH_AUTHORITY",
+      "DRIVER_PORTFOLIO_AUTHORITY",
+      "FOUNDATION_STEWARD_AUTHORITY",
+      "RESEARCH_DISCOVERY_FIREWALL",
+      "TASK_LOCAL_MATHEMATICAL_SCOPE"
+    ],
+    "stale_v1_pointer_semantics": "COMPATIBILITY_METADATA_ONLY_UNLESS_EXPLICITLY_LABELED_LEGACY_EXISTING_EXECUTION",
+    "fresh_selector_named_canonical_in_older_doc": "INTERPRET_AS_SUBORDINATE_SELECTOR_NOT_TOP_LEVEL_LIVE_ENTRYPOINT"
+  },
+  "role_expectations": {
+    "TASK_RESEARCH": [
+      "GLOBAL_KNOWLEDGE_TASK_BOOTSTRAP_WHEN_AVAILABLE",
+      "EXACT_TASK_FIRST",
+      "TOOL_COVERAGE_BEFORE_NEW_GENERAL_MECHANISM",
+      "REUSE_RESOLUTION_AFTER_RELEVANT_MATCH",
+      "IMMUTABLE_V2_TASK_PUBLICATION"
+    ],
+    "FREE_AXIOM_DISCOVERY_PHASE_A": [
+      "GLOBAL_KNOWLEDGE_FREE_BOOTSTRAP_WHEN_AVAILABLE",
+      "PRIMITIVE_SUBSTRATE_ONLY",
+      "PROJECT_TOOL_CATALOG_HIDDEN_AS_DISCOVERY_PRIOR"
+    ],
+    "FREE_AXIOM_DISCOVERY_PHASE_B": [
+      "TOOL_COVERAGE_AND_REUSE_RESOLUTION_MANDATORY_BEFORE_METHOD_NOVELTY",
+      "ELIGIBLE_CANDIDATE_MAY_PUBLISH_IMMUTABLE_V2_TASK"
+    ],
+    "RESEARCH_DRIVER": [
+      "DRIVER_CONTINUITY_IS_ROUTING_ONLY",
+      "IMMUTABLE_V2_TASK_AUTHORITY",
+      "RESEARCH_CONTROL_DISPATCH_IS_LIVE_ENTRYPOINT",
+      "TOOL_REUSE_RESOLUTION_BEFORE_NEW_TOOL_DIRECTION"
+    ],
+    "FOUNDATION_STEWARD": [
+      "STEWARD_AUTHORITY_SEPARATE_FROM_IDENTITY",
+      "IMMUTABLE_V2_GOVERNANCE_TASK_PUBLICATION",
+      "RESEARCH_CONTROL_DISPATCH_FOR_EXECUTION_HANDOFFS",
+      "TOOL_REUSE_RESOLUTION_BEFORE_ACCEPTING_SHARED_MACHINERY"
+    ],
+    "CONTROL_PLANE_MAINTENANCE": [
+      "NO_RESEARCH_ROLE_IDENTITY",
+      "NO_THEOREM_OR_REVIEW_AUTHORITY",
+      "BOUNDED_DIAGNOSTIC_EXPANSION",
+      "WRITE_AUTHORITY_REFRESH_BEFORE_MUTATION"
+    ]
+  }
+}
