@@ -1,0 +1,61 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "DRIVER_ADMITTED_DOMAIN_OPERATOR",
+  "date": "2026-08-28",
+  "driver_review": {
+    "disposition": "EXTEND_EXISTING_TOOL",
+    "driver_id": "EM-NTIRF-6C5A1E",
+    "review_ref": "driver_reviews/PRIME_COORD_FACTOR_NONLY_VALUATION_WALL_GCD_EXTRACTOR_THEORY_TOOL_HARVEST_20260828.md@343f008ae3ecf25898fa10321ca26e13a65d4405",
+    "source_result": "RR-F24971D684C868A325E2",
+    "source_result_review": "DR-37DE6540A87C2FC33A4D",
+    "foundation_mutation": false,
+    "working_truth_promotion": false,
+    "new_global_tool_family": false
+  },
+  "methods": [
+    {
+      "method_id": "t1.nonly_valuation_wall_gcd_extractor",
+      "name": "N-only valuation-wall synchronization / GCD extractor",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T1_SCALE_ENUMERATION_VALUATION",
+      "status": "DRIVER_ADMITTED_DOMAIN_OPERATOR",
+      "source_refs": [
+        "research_result_records/RS-PRIME-COORD-FACTOR-NONLY-VALUATION-WALL-GCD-EXTRACTOR-INDEPENDENT-REPLAY/RR-F24971D684C868A325E2.json",
+        "research_result_reviews/RR-F24971D684C868A325E2/DR-37DE6540A87C2FC33A4D.json",
+        "research_notes/PRIME_COORD_FACTOR_NONLY_VALUATION_WALL_GCD_EXTRACTOR_THEOREM_PACKAGE_20260828.md",
+        "driver_reviews/PRIME_COORD_FACTOR_NONLY_VALUATION_WALL_GCD_EXTRACTOR_THEORY_TOOL_HARVEST_20260828.md",
+        "src/enterprise_math/nonly_valuation_wall_gcd.py",
+        "tests/test_nonly_valuation_wall_gcd.py"
+      ],
+      "api": [
+        "valuation_wall_threshold",
+        "local_valuation_wall_certificate",
+        "activation_wall_synchronization_certificate",
+        "valuation_wall_step_mod",
+        "factor_nonly_valuation_wall",
+        "verify_nonly_valuation_wall_certificate",
+        "NOnlyValuationWallFactorCertificate"
+      ],
+      "triggers": [
+        "valuation wall",
+        "activation wall",
+        "N-only factor",
+        "factor-blind gcd",
+        "first dyadic nonunit",
+        "synchronization certificate",
+        "q<2p",
+        "sqrt fallback",
+        "semiprime extractor"
+      ],
+      "capabilities": [
+        "exact local factorial valuation-wall certificate for prime r>3 and s<r",
+        "generic activation-wall synchronization-ratio certificate once the activation law is proved",
+        "exact factor-blind modular streaming of the PCF4R factorial observable",
+        "deterministic nontrivial-factor certificate on the promised distinct odd semiprime domain",
+        "typed extraction modes and replay-verifiable public arithmetic certificate"
+      ],
+      "core_law": "For A_s=(2s)!(3s)!/(s!)^5 and prime r>3 with s<r, r divides A_s iff 3s>=r. At the first dyadic nonunit for N=pq, gcd is p or N; the N branch implies q<2p, after which t=floor(sqrt(N)/3) and t+1 guarantee a proper gcd. More generally, an activation law r|X_s iff c*s>=r plus consecutive probes u<s with s<=lambda*u turns unit->total-gcd synchronization into q<lambda*p.",
+      "hard_boundary": "Universal extraction is only for promised N=pq with distinct odd primes 3<p<q. The generic synchronization operator requires a separately proved exact activation law. Current extraction uses Theta(p) recurrence work in the worst case and is not a factoring-speedup theorem. No Foundation, Working Truth, external-novelty, or new top-level tool-family claim follows."
+    }
+  ]
+}
