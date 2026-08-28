@@ -2,6 +2,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 import research_parallel_evidence as parallel
 from tools import research_result_records as results
@@ -108,6 +109,14 @@ class ParallelResultRuntimeTests(unittest.TestCase):
         self.review(root, "RR-EARLY")
         self.review(root, "RR-LATE")
 
+    def followup_ready(self):
+        return {
+            "required": False,
+            "ready": True,
+            "state": "LEGACY_PRE_CUTOVER",
+            "packet": None,
+        }
+
     def test_multiple_results_never_latest_win(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
@@ -144,7 +153,12 @@ class ParallelResultRuntimeTests(unittest.TestCase):
                     "canonical_promotion_granted": False,
                 },
             )
-            state = results.task_result_state("RS-T", root, publication_id="TP2-P1")
+            with mock.patch.object(
+                results._driver_followup,
+                "state_for_review",
+                return_value=self.followup_ready(),
+            ):
+                state = results.task_result_state("RS-T", root, publication_id="TP2-P1")
             self.assertEqual("RETURN_TO_EXECUTION", state["state"])
             self.assertEqual("PARALLEL_SYNTHESIS_NONTERMINAL", state["parallel_state"])
             self.assertEqual("PS-1", state["result"]["result_id"])
@@ -175,7 +189,12 @@ class ParallelResultRuntimeTests(unittest.TestCase):
                     "canonical_promotion_granted": False,
                 },
             )
-            state = results.task_result_state("RS-T", root, publication_id="TP2-P1")
+            with mock.patch.object(
+                results._driver_followup,
+                "state_for_review",
+                return_value=self.followup_ready(),
+            ):
+                state = results.task_result_state("RS-T", root, publication_id="TP2-P1")
             self.assertEqual("AWAITING_DRIVER_REVIEW", state["state"])
             self.assertFalse(state["terminal"])
             self.assertEqual("TERMINAL_SYNTHESIS_MISSING_CONTROL_DISPOSITION", state["parallel_state"])
@@ -207,7 +226,12 @@ class ParallelResultRuntimeTests(unittest.TestCase):
                     "canonical_promotion_granted": False,
                 },
             )
-            state = results.task_result_state("RS-T", root, publication_id="TP2-P1")
+            with mock.patch.object(
+                results._driver_followup,
+                "state_for_review",
+                return_value=self.followup_ready(),
+            ):
+                state = results.task_result_state("RS-T", root, publication_id="TP2-P1")
             self.assertEqual("TERMINAL", state["state"])
             self.assertTrue(state["terminal"])
             self.assertEqual("PS-1", state["result"]["result_id"])
