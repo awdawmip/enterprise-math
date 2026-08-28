@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """Canonical automatic follow-up guard over exact-set Driver-review authority.
 
-Follow-up never consumes ``latest_review``.  One immutable review is operational
-review authority directly.  Two or more immutable reviews first require the
+Follow-up never consumes ``latest_review``. One immutable review is operational
+review authority directly. Two or more immutable reviews first require the
 exact-set review intake / two reference passes / review synthesis introduced by
 #758; only that synthesis may drive follow-up work.
 
 The cutover is compatibility-safe: every immutable review already present when
 #758 became canonical is frozen by exact review-id membership plus the exact
-main and review-store tree.  ``reviewed_at`` is never a legacy-authority field.
+main and review-store tree. ``reviewed_at`` is never a legacy-authority field.
+
+Immutable-history baseline integrity and operational review authority are distinct
+views: control-only result replacement may remove an old review from the
+operational reducer without deleting its immutable historical record.
 """
 from __future__ import annotations
 
@@ -19,6 +23,7 @@ from pathlib import Path
 from typing import Any
 
 import research_driver_followup as _impl
+from control_plane import research_result_records_impl as _raw_result_store
 
 ROOT = Path(__file__).resolve().parent
 BASELINE_PATH = ROOT / "research_driver_followup_legacy_reviews.json"
@@ -72,9 +77,10 @@ def legacy_review_ids(root: Path = ROOT) -> frozenset[str]:
     return frozenset(_load_baseline(root)["review_ids"])
 
 
-def _raw_review_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+def _immutable_review_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    """Raw immutable review store used only for historical-baseline integrity."""
     out: dict[str, dict[str, Any]] = {}
-    for row in _canonical_results().iter_reviews(root):
+    for row in _raw_result_store.iter_reviews(root):
         review_id = row.get("review_id")
         if not isinstance(review_id, str) or not review_id:
             continue
@@ -84,13 +90,26 @@ def _raw_review_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     return out
 
 
+def _raw_review_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    """Operational review view used by synthesis and follow-up authority."""
+    out: dict[str, dict[str, Any]] = {}
+    for row in _canonical_results().iter_reviews(root):
+        review_id = row.get("review_id")
+        if not isinstance(review_id, str) or not review_id:
+            continue
+        if review_id in out:
+            raise DriverFollowupError(f"duplicate operational review_id: {review_id}")
+        out[review_id] = row
+    return out
+
+
 def _source_reviews(
     result_id: str, review_ids: list[str], root: Path
 ) -> list[dict[str, Any]]:
-    raw = _raw_review_map(root)
+    operational = _raw_review_map(root)
     rows: list[dict[str, Any]] = []
     for review_id in review_ids:
-        row = raw.get(review_id)
+        row = operational.get(review_id)
         if row is None or row.get("result_id") != result_id:
             raise DriverFollowupError(
                 f"review synthesis source review is unavailable for {result_id}: {review_id}"
@@ -163,8 +182,6 @@ def authority_for_result(
     ).isoformat()
     authority_id = synthesis.get("synthesis_id")
     return {
-        # The storage primitive calls this field review_id.  Semantically it is
-        # now an operational review-authority id and may be a synthesis id.
         "review_id": authority_id,
         "review_authority_kind": "REVIEW_SYNTHESIS",
         "review_authority_id": authority_id,
@@ -203,8 +220,6 @@ def review_requires_followup(review: dict[str, Any], root: Path = ROOT) -> bool:
     authority_id = review.get("review_authority_id") or review.get("review_id")
     kind = review.get("review_authority_kind", "IMMUTABLE_REVIEW")
     if kind == "REVIEW_SYNTHESIS":
-        # No synthesis authority existed at the exact cutover tree.  Any future
-        # synthesis is therefore governed even if all source reviews are legacy.
         return True
     if not isinstance(authority_id, str) or not authority_id.strip():
         return True
@@ -255,10 +270,7 @@ def _bind_guard(root: Path = ROOT) -> None:
             )
         if review.get("disposition") == "REQUEST_REPLICATION":
             shadow = dict(review)
-            if (
-                gates["INDEPENDENT_REPLICATION"]["decision"]
-                == EXISTING_ASSET_DECISION
-            ):
+            if gates["INDEPENDENT_REPLICATION"]["decision"] == EXISTING_ASSET_DECISION:
                 shadow["disposition"] = "RETURN_TO_OWNER"
             original_forced(shadow, result, gates)
             if gates["INDEPENDENT_REPLICATION"]["decision"] not in {
@@ -279,13 +291,13 @@ def _bind_guard(root: Path = ROOT) -> None:
 def baseline_audit(root: Path = ROOT) -> list[str]:
     try:
         baseline = legacy_review_ids(root)
-        current = _raw_review_map(root)
+        immutable = _immutable_review_map(root)
     except Exception as exc:
         return [str(exc)]
-    missing = sorted(baseline - set(current))
+    missing = sorted(baseline - set(immutable))
     if missing:
         return [
-            f"legacy review baseline IDs missing from current immutable store: {missing}"
+            f"legacy review baseline IDs missing from immutable historical store: {missing}"
         ]
     return []
 
@@ -315,8 +327,7 @@ def state_for_review(review_id: str, root: Path = ROOT) -> dict[str, Any]:
     authority = authority_map(root).get(review_id)
     if (
         authority is not None
-        and authority.get("destination_class")
-        not in _canonical_results().DESTINATION_CLASSES
+        and authority.get("destination_class") not in _canonical_results().DESTINATION_CLASSES
     ):
         return {
             "review_id": review_id,
@@ -359,7 +370,6 @@ def materialize(
     )
 
 
-# Install lazy authority views for standalone guard use and the canonical result CLI.
 _bind_guard(ROOT)
 
 
