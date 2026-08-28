@@ -1,0 +1,22 @@
+{
+  "schema": "ENTERPRISE_MATH_TASK_PUBLICATION_FORK_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "purpose": "Fail closed on an unresolved immutable-publication fork without allowing one task-local metadata conflict to deny service to the global dispatch view. This is control-plane isolation only and selects no publication as operational.",
+  "quarantines": [
+    {
+      "task_id": "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
+      "state": "UNRESOLVED_PUBLICATION_FORK",
+      "publication_ids": [
+        "TP2-4EE2618ABEBB6D097023",
+        "TP2-5547117E54D7A556279B"
+      ],
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "Two simultaneously active generation-1 immutable heads exist and both have appeared in the Issue #240 runtime stream. No semantic or quality selection is made here; the task is locally blocked until the ordinary parallel-publication resolution contract is satisfied.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}

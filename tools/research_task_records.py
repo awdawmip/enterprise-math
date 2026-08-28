@@ -8,8 +8,10 @@ historical taskbooks whose semantic sections predate today's exact heading names
 
 Compatibility is keyed by exact publication + taskbook path + Git blob. It may
 suppress only the enumerated missing-current-heading errors after proving that
-all declared legacy aliases exist with non-empty, non-placeholder payloads. No
-metadata, lineage, path, blob, publication-authority, or other integrity error
+all declared legacy aliases exist with non-empty, non-placeholder payloads. The
+target must already be nonoperational either as an explicitly retained parallel
+head or as a publication directly superseded by a later same-task generation.
+No metadata, lineage, path, blob, publication-authority, or other integrity error
 can be waived.
 """
 from __future__ import annotations
@@ -138,6 +140,19 @@ def _heading_payloads(body: str) -> dict[str, str]:
     return out
 
 
+def _direct_same_task_successors(
+    records: list[dict[str, Any]], task_id: str, publication_id: str
+) -> list[dict[str, Any]]:
+    return [
+        item
+        for item in records
+        if item.get("task_id") == task_id
+        and item.get("supersedes_publication_id") == publication_id
+        and isinstance(item.get("publication_id"), str)
+        and item.get("publication_id")
+    ]
+
+
 def _compatibility_suppressions(root: Path = ROOT) -> tuple[set[str], list[str]]:
     suppressions: set[str] = set()
     errors: list[str] = []
@@ -180,18 +195,31 @@ def _compatibility_suppressions(root: Path = ROOT) -> tuple[set[str], list[str]]
             errors.append(f"{COMPATIBILITY_FILE}: {waiver_id}: invalid taskbook pin")
             continue
 
-        resolution = resolutions.get(str(task_id))
-        current_record = current.get(str(task_id))
-        if resolution is None:
+        task_id_text = str(task_id)
+        resolution = resolutions.get(task_id_text)
+        current_record = current.get(task_id_text)
+        direct_successors = _direct_same_task_successors(records, task_id_text, publication_id)
+        retained_parallel = (
+            resolution is not None
+            and publication_id in set(resolution.get("quarantined_publication_ids", []))
+        )
+        directly_superseded = bool(direct_successors)
+        if not retained_parallel and not directly_superseded:
             errors.append(
-                f"{COMPATIBILITY_FILE}: {waiver_id}: historical waiver requires explicit publication resolution"
+                f"{COMPATIBILITY_FILE}: {waiver_id}: publication is neither a retained nonoperational head nor directly superseded same-task history"
             )
             continue
-        if publication_id not in set(resolution.get("quarantined_publication_ids", [])):
-            errors.append(
-                f"{COMPATIBILITY_FILE}: {waiver_id}: publication is not a retained nonoperational head"
-            )
-            continue
+        if directly_superseded:
+            old_generation = record.get("publication_generation")
+            if not isinstance(old_generation, int) or any(
+                not isinstance(item.get("publication_generation"), int)
+                or item["publication_generation"] <= old_generation
+                for item in direct_successors
+            ):
+                errors.append(
+                    f"{COMPATIBILITY_FILE}: {waiver_id}: direct successor generation is not strictly newer"
+                )
+                continue
         if current_record is None or current_record.get("publication_id") == publication_id:
             errors.append(
                 f"{COMPATIBILITY_FILE}: {waiver_id}: waiver cannot target the operational publication"

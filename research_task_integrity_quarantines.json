@@ -1,0 +1,68 @@
+{
+  "schema": "ENTERPRISE_MATH_TASK_INTEGRITY_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "purpose": "Fail closed on exact known current task-publication integrity faults without allowing one task-local defect to deny service to the global dispatch view. Every quarantine is pinned to the exact publication record blob, taskbook blob, and exact strict-audit error set. No semantic publication selection or research authority is granted.",
+  "quarantines": [
+    {
+      "task_id": "RS-NOLLM-EISENSTEIN-ROTATION-ATLAS",
+      "publication_id": "TP2-983B1B8DB12B245368D9",
+      "record_path": "research_task_records/RS-NOLLM-EISENSTEIN-ROTATION-ATLAS/TP2-983B1B8DB12B245368D9.json",
+      "record_blob_sha1": "sha1:174143691314278b9c4617c6c47758cab1277fe5",
+      "taskbook_path": "research_tasks/NOLLM_EISENSTEIN_ROTATION_ATLAS_INTEGRATION_20260828.md",
+      "taskbook_blob_sha1": "sha1:afe40fd2687e264717aa1f24636ca4cc2b52091a",
+      "state": "INVALID_CURRENT_TASK_PUBLICATION",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "This exact publication predates the current immutable V2 record/taskbook shape and is not valid under the current strict schema. It is retained as immutable evidence but is not operationally selectable until repaired through ordinary publication authority.",
+      "allowed_task_record_audit_errors": [
+        "wrong record_schema",
+        "publication cannot grant Working Truth",
+        "publication cannot grant canonical promotion",
+        "taskbook blob drift",
+        "taskbook parse failed: missing ENTERPRISE_MATH_TASK_V1 frontmatter"
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "task_id": "RS-SHOR-FAST-ROUGH-INTERVAL-GCD",
+      "publication_id": "TP2-C193F8CB279ADF29D4ED",
+      "record_path": "research_task_records/RS-SHOR-FAST-ROUGH-INTERVAL-GCD/TP2-C193F8CB279ADF29D4ED.json",
+      "record_blob_sha1": "sha1:c756e8d01156f0c83f19c8360ea5a05e7c713124",
+      "taskbook_path": "research_tasks/SHOR_FAST_ROUGH_INTERVAL_GCD_20260828.md",
+      "taskbook_blob_sha1": "sha1:9e7e4aaa14f96cfb67f4729c1018e5db122b0f0c",
+      "state": "INVALID_CURRENT_TASK_PUBLICATION",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "The immutable record is present but its pinned taskbook is not encoded with the current ENTERPRISE_MATH_TASK_V1 frontmatter contract. The exact publication is locally blocked rather than allowed to abort the global task view.",
+      "allowed_task_record_audit_errors": [
+        "taskbook parse failed: missing ENTERPRISE_MATH_TASK_V1 frontmatter"
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "task_id": "RS-SIMPLE-LOOP-R4-MACRO-DEPTH-CLASSIFICATION",
+      "publication_id": "TP2-9AB05574C3CA5534CB39",
+      "record_path": "research_task_records/RS-SIMPLE-LOOP-R4-MACRO-DEPTH-CLASSIFICATION/TP2-9AB05574C3CA5534CB39.json",
+      "record_blob_sha1": "sha1:4f1d2bc0b64f7bf84e4b0fcd9169182f7573e5eb",
+      "taskbook_path": "research_tasks/SIMPLE_LOOP_R4_MACRO_DEPTH_CLASSIFICATION_20260828.md",
+      "taskbook_blob_sha1": "sha1:9ebad646d0d40543378255db78b53da99f590a1c",
+      "state": "INVALID_CURRENT_TASK_PUBLICATION",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "The immutable record is present but its pinned taskbook is not encoded with the current ENTERPRISE_MATH_TASK_V1 frontmatter contract. The exact publication is locally blocked rather than allowed to abort the global task view.",
+      "allowed_task_record_audit_errors": [
+        "taskbook parse failed: missing ENTERPRISE_MATH_TASK_V1 frontmatter"
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}

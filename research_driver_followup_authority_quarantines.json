@@ -1,0 +1,33 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_FOLLOWUP_AUTHORITY_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "purpose": "Preserve exact immutable automatic-follow-up history derived from a nonoperational Driver review while removing both the packet and its solely derived task publication from operational control authority. This registry does not alter the review disposition or assess the derived task's research content.",
+  "entries": [
+    {
+      "packet_id": "DFU-A74F58729A62AE4956CF",
+      "review_id": "DR-2F834647FD94CAF46D05",
+      "result_id": "RR-2D43CCB30B906AFB6E20",
+      "packet_path": "research_driver_followups/DR-2F834647FD94CAF46D05/DFU-A74F58729A62AE4956CF.json",
+      "packet_blob_sha1": "sha1:9260651bf0caffcbae5767c18031438bf725d63f",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [
+        {
+          "task_id": "RS-RSA-EXPONENT-COLLISION-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+          "publication_id": "TP2-DCBF9A9ACA18BF64FFCF",
+          "publication_record_path": "research_task_records/RS-RSA-EXPONENT-COLLISION-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT/TP2-DCBF9A9ACA18BF64FFCF.json",
+          "publication_record_blob_sha1": "sha1:a5c6ea46b675488efe63854a1fdc4bff97a64949",
+          "taskbook_path": "research_tasks/RSA_EXPONENT_COLLISION_EXTERNAL_PRIOR_ART_DUPLICATION_AUDIT_20260828.md",
+          "taskbook_blob_sha1": "sha1:f88b338f4136ce1ee7825c8f55a73d39c2651521"
+        }
+      ],
+      "reason": "The packet and listed follow-up publication were materialized solely from DR-2F834647FD94CAF46D05. That immutable review is now exact-pinned as nonoperational because it lacks valid source-backed Driver identity under the post-cutover contract. Control-plane maintenance therefore preserves these bytes but cannot keep their derived control authority alive independently of the source review.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}

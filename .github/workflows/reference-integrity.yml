@@ -27,39 +27,41 @@ jobs:
       - name: Check citation and lineage integrity
         run: python tools/check_references.py
       - name: Check shared theorem and tool routing
-        run: python tools/check_research_common_surface.py
+        run: >-
+          python -c "from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; c.check(); print('research common surface: PASS')"
       - name: Check exhaustive historical PR migration ledger
         run: python control_plane/check_historical_pr_migration_ledger.py
       - name: Check legacy coordinate quarantine registry
         run: python control_plane/check_legacy_coordinate_quarantine.py
       - name: Check V1 compatibility task registry and orphan prevention
-        run: python tools/research_task_registry.py audit
-      - name: Check immutable post-cutover task publication records
-        run: python tools/research_task_records.py audit
-      - name: Check operational publication selection and retained parallel heads
-        run: python research_operational_publications.py audit
+        run: python control_plane/check_v1_task_registry_fault_isolated.py
+      - name: Check immutable publications, operational selection, and fault-isolated dispatch view
+        run: python control_plane/check_publication_fault_isolation.py
       - name: Check immutable execution intents
         run: python tools/research_execution_records.py audit
       - name: Check legacy scheduler cutover is frozen
         run: python tools/check_task_registry_cutover.py
-      - name: Check canonical registered-plus-legacy dispatch view
-        run: python tools/research_dispatch.py validate
       - name: Check immutable research result and Driver-review records
         run: python tools/research_result_records.py audit
       - name: Check source-backed Driver authority provenance
-        run: python research_driver_authority.py audit
+        run: python control_plane/check_driver_review_authority_fault_isolated.py
       - name: Check Objective generations and source-backed Driver authority
-        run: python research_objective_records.py audit
+        run: >-
+          python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_objective_records.py','audit']; import research_objective_records as m; raise SystemExit(m.main())"
       - name: Check same-execution control-result replacement chains
-        run: python research_result_control_replacements.py audit
+        run: >-
+          python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_result_control_replacements.py','audit']; import research_result_control_replacements as m; raise SystemExit(m.main())"
       - name: Check multiple Driver review exact-set authority
-        run: python research_review_evidence.py audit
+        run: >-
+          python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_review_evidence.py','audit']; import research_review_evidence as m; raise SystemExit(m.main())"
       - name: Check Driver review automatic follow-up authority
-        run: python research_driver_followup_guard.py audit
+        run: python control_plane/check_driver_followup_fault_isolated.py
       - name: Check parallel evidence two-pass reference chains over operational results
         run: >-
-          python -c "from tools import research_result_records as _result_view; import research_parallel_evidence as _parallel; raise SystemExit(_parallel.main())" audit
+          python -c "from control_plane import research_control_bootstrap as b; b.install(); from tools import research_result_records as _result_view; import sys; sys.argv=['research_parallel_evidence.py','audit']; import research_parallel_evidence as _parallel; raise SystemExit(_parallel.main())"
       - name: Check opt-in parallel execution cohorts
-        run: python research_execution_cohorts.py audit
+        run: >-
+          python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_execution_cohorts.py','audit']; import research_execution_cohorts as m; raise SystemExit(m.main())"
       - name: Check cohort completeness and two-pass terminalization
-        run: python tools/research_cohort_runtime.py audit
+        run: >-
+          python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_cohort_runtime.py','audit']; from tools import research_cohort_runtime as m; raise SystemExit(m.main())"

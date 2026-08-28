@@ -1,11 +1,14 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_DISPATCH_CONTRACT_V3",
+  "schema": "ENTERPRISE_MATH_RESEARCH_DISPATCH_CONTRACT_V4",
   "status": "ACTIVE_CANONICAL_POST_CUTOVER",
-  "effective": "2026-08-27",
-  "canonical_tool": "tools/research_dispatch.py",
+  "effective": "2026-08-28",
+  "canonical_tool": "research_control_dispatch.py",
+  "runtime_bootstrap": "control_plane/research_control_bootstrap.py",
+  "fresh_task_dispatch_tool": "tools/research_dispatch.py",
   "lane_dispatch_tool": "tools/research_lane_dispatch.py",
   "lane_claim_tool": "tools/research_lane_claims.py",
   "cohort_runtime_tool": "tools/research_cohort_runtime.py",
+  "session_adoption_tool": "tools/research_runtime_guard.py",
   "task_definition_authority": [
     "research_task_records/<task-id>/<publication-id>.json",
     "frozen research_scheduler.json legacy baseline only"
@@ -44,6 +47,31 @@
     "normalized_github_envelope_from_external_file": "REJECT; LIVE AUTHORITY MUST ENTER AS RAW ISSUE #240 COMMENT OBJECTS",
     "bare_event_compatibility": "Allowed only for explicit legacy replay/test primitives; not live authority for immutably registered tasks"
   },
+  "session_liveness_routing": {
+    "owner_lease_is_session_liveness": false,
+    "default_session_liveness_minutes": 10,
+    "activity_evidence": "latest independently verified conversation response or durable execution progress; CLAIM creation time alone is not session-liveness evidence",
+    "valid_owner_plus_active_session": "PRESERVE_OWNER; DO_NOT_DUPLICATE_CLAIM",
+    "valid_owner_plus_stale_session": "ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM",
+    "valid_owner_plus_unknown_session_and_no_fresh_target": "VERIFY_SESSION_LIVENESS; DO_NOT_RETURN_NO_DISPATCH",
+    "owner_expired_or_absent": "FRESH_DISPATCH_MAY_CREATE_ONE_NEW_CLAIM",
+    "adoption_guard": "tools/research_runtime_guard.py adopt"
+  },
+  "runtime_fault_isolation": {
+    "bootstrap": "control_plane/research_control_bootstrap.py",
+    "unresolved_publication_fork_registry": "research_task_publication_quarantines.json",
+    "current_task_integrity_registry": "research_task_integrity_quarantines.json",
+    "driver_review_authority_registry": "research_driver_review_authority_quarantines.json",
+    "driver_followup_authority_registry": "research_driver_followup_authority_quarantines.json",
+    "unresolved_publication_fork": "SELECT_NO_OPERATIONAL_HEAD; PROJECT_ONLY_AFFECTED_TASK_TO_BLOCKED",
+    "invalid_current_task_publication": "REMOVE_ONLY_EXACT_PINNED_HEAD_FROM_CURRENT_VIEW; PROJECT_ONLY_AFFECTED_TASK_TO_BLOCKED",
+    "nonoperational_driver_review": "PRESERVE_IMMUTABLE_REVIEW_BYTES; REMOVE_EXACT_PINNED_REVIEW_FROM_OPERATIONAL_REVIEW_VIEW; RESULT_RETURNS_TO_AWAITING_DRIVER_REVIEW",
+    "followup_from_nonoperational_review": "PRESERVE_PACKET_AND_PUBLICATION_BYTES; REMOVE_EXACT_PACKET_FROM_OPERATIONAL_FOLLOWUP_VIEW; REMOVE_EXACT_DERIVED_PUBLICATION_FROM_CURRENT_VIEW; PROJECT_DERIVED_TASK_TO_BLOCKED",
+    "semantic_selection_by_quarantine": false,
+    "authority_granted_by_quarantine": false,
+    "runtime_availability_rule": "ONE_TASK_OR_REVIEW_LOCAL_FAULT_MUST_NOT_ABORT_UNRELATED_CANONICAL_DISPATCH",
+    "governance_strictness_rule": "QUARANTINE_MUST_BE_EXACTLY_PINNED; NEW_ERRORS_OR_BLOB_HEAD_DRIFT_FAIL_CLOSED; REPAIRED_STALE_QUARANTINES_MUST_BE_RETIRED"
+  },
   "result_authority": [
     "research_result_records/<task-id>/<result-id>.json",
     "research_result_reviews/<result-id>/<review-id>.json"
@@ -53,6 +81,17 @@
     "IMMUTABLE_REGISTERED_DEFINITION_OVERRIDES_SAME_ID_LEGACY_DEFINITION",
     "REGISTRY_CLAIMABLE_IS_VISIBLE_TO_SCHEDULER_SELECTION",
     "REGISTERED_CLAIM_IS_THE_EXECUTION_AUTHORIZATION_ENVELOPE",
+    "OWNER_LEASE_DOES_NOT_IMPLY_SESSION_LIVENESS",
+    "STALE_SESSION_WITH_VALID_OWNER_LEASE_REUSES_EXISTING_CLAIM",
+    "RECOVERY_ROUTE_PRECEDES_FALSE_NO_TASK",
+    "NO_DISPATCH_REQUIRES_NO_STALE_RECOVERABLE_OWNER_AND_NO_FRESH_TARGET",
+    "CANONICAL_RUNTIME_INSTALLS_ONE_SHARED_FAULT_ISOLATION_BOOTSTRAP_BEFORE_SELECTION",
+    "ONE_TASK_LOCAL_PUBLICATION_OR_DEFINITION_FAULT_CANNOT_DOS_GLOBAL_DISPATCH",
+    "FAULT_ISOLATION_NEVER_SELECTS_A_REPLACEMENT_PUBLICATION_OR_REVIEW_AUTHORITY",
+    "FAULT_ISOLATION_IS_EXACT_RECORD_BLOB_HEAD_SET_AND_ERROR_SET_PINNED_AS_APPLICABLE",
+    "STALE_OR_DRIFTED_FAULT_QUARANTINE_FAILS_CLOSED_AND_MUST_BE_RETIRED_OR_REISSUED",
+    "NONOPERATIONAL_DRIVER_REVIEW_CANNOT_RETAIN_AUTOMATIC_FOLLOWUP_AUTHORITY",
+    "TASK_DERIVED_SOLELY_FROM_NONOPERATIONAL_REVIEW_FOLLOWUP_IS_BLOCKED_UNTIL_VALID_REPLACEMENT_AUTHORITY_EXISTS",
     "NONCOHORT_REGISTERED_CLAIM_MUST_REFERENCE_OPERATIONAL_PUBLICATION_AND_EXACT_BRANCH_BASE_OUTPUT_SCOPE",
     "ACTIVE_COHORT_CLAIM_MUST_REFERENCE_EXACT_COHORT_LANE_RETAINED_PUBLICATION_AND_LANE_OUTPUT_SCOPE",
     "ACTIVE_COHORT_DISALLOWS_TASK_GLOBAL_REGISTERED_EXECUTION_OWNER",
@@ -104,6 +143,6 @@
     "multiple_existing_lane_results": "RETAIN_ALL",
     "cohort_task_terminalization": "ONLY_AFTER_ALL_LANES_HAVE_EVIDENCE_PLUS_REFERENCE_PASS_1_PLUS_REFERENCE_PASS_2_PLUS_TERMINAL_SYNTHESIS_CONTROL"
   },
-  "selection_rule": "For tasks without an active execution cohort, use the historical state/priority/leverage/staleness ordering over the merged canonical view; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE, task-global claim identity is suppressed from current owner authority, and tools/research_dispatch.py::select_task cannot select it because only NEEDS_DISPATCH is eligible. Operator/runtime routing then uses tools/research_lane_dispatch.py to select an evidence-incomplete lane. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. An ordinary registered CLAIM is accepted when its envelope matches the operational immutable publication; a lane CLAIM is accepted when it matches the exact lane-pinned retained publication and disjoint output prefix. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement.",
-  "interaction_budget": "Authentication and actor authorization reuse the same Issue #240 comment already needed for CLAIM/PROGRESS/HANDOFF/DONE. Ordinary tasks add no new step. Parallel cohorts add one ordinary CLAIM per explicit lane and only semantic-checkpoint intake/pass1/pass2/synthesis records; no second per-lane signature, pre-claim commit, periodic status query, CI poll, review poll, heartbeat, or moving-main chase is introduced."
+  "selection_rule": "Run control_plane/research_control_bootstrap.py before any canonical runtime view, then run research_control_dispatch.py as the canonical control-plane route. The bootstrap locally isolates only exact-pinned publication forks, invalid current task publications, nonoperational Driver-review provenance, and follow-up authority derived solely from those reviews; it selects no replacement authority and leaves unrelated tasks untouched. The router then first preserves/adopts any owner scope whose valid CLAIM is independently observed stale, without creating a second CLAIM. If no stale-recoverable owner is observed, it delegates ordinary fresh task selection to tools/research_dispatch.py and active-cohort lane selection to tools/research_lane_dispatch.py. If both fresh selectors are empty but any valid owner lease has unknown conversation liveness, the result is VERIFY_SESSION_LIVENESS rather than NO_DISPATCH. For ordinary fresh tasks, historical state/priority/leverage/staleness ordering remains unchanged; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global ownership is disabled. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement.",
+  "interaction_budget": "Recovery routing reuses existing owner state and ephemeral liveness evidence. Fault isolation is local deterministic repository-state reduction with no periodic polling and no extra CLAIM. Authentication and actor authorization reuse the same Issue #240 comments already needed for semantic control events. Ordinary tasks add no new periodic poll; a liveness verification is required only when fresh dispatch is empty and a valid owner lease would otherwise cause a false NO_DISPATCH, or when stale adoption is being considered."
 }

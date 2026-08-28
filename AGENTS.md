@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.8`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.9`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -72,6 +72,12 @@ A stale replacement conversation verifies taskbook source, owner branch, live cl
 
 Scheduler `claim_lease_minutes` / `lease_until` is owner lease only. It does not prove conversation liveness.
 
+Canonical control dispatch is recovery-aware:
+
+`STALE_SESSION + VALID_OWNER_CLAIM -> ADOPT_EXISTING_CLAIM -> OTHERWISE_FRESH_DISPATCH`.
+
+Do not infer `NO_TASK` / `NO_DISPATCH` merely because the fresh selector returns no `NEEDS_DISPATCH` task. If fresh task/lane selection is empty while a valid owner lease remains and session liveness is unknown, first verify the latest independently observable conversation response or durable execution progress. Stale means adopt the existing winning CLAIM through `tools/research_runtime_guard.py adopt`; active means preserve that owner. Never manufacture a second CLAIM merely to recover a stale conversation.
+
 Immediately before final-channel output, evaluate PRE_FINAL through `tools/research_runtime_guard.py`; `tools/active_turn_liveness.py` remains the primitive liveness evaluator.
 
 `PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FINAL_ALLOWED=false`.
@@ -118,16 +124,25 @@ Legacy tasks may continue already-owned executions, but fresh redispatch/modific
 
 ### Canonical low-burden dispatch
 
-Canonical live dispatch is `tools/research_dispatch.py` over:
+Canonical live control routing is `research_control_dispatch.py` over the existing fresh selectors and runtime guard:
 
+- ordinary fresh task selection: `tools/research_dispatch.py`;
+- active-cohort fresh lane selection: `tools/research_lane_dispatch.py`;
+- stale valid-owner adoption: `tools/research_runtime_guard.py adopt`;
 - immutable registered task definitions;
 - frozen legacy scheduler baseline;
 - Issue #240 runtime events;
 - result/review state.
 
+The control router must distinguish `OWNER_LEASE` from `SESSION_LIVENESS`. A fresh-selector miss is not a terminal dispatch verdict until stale-owner recovery has been excluded. Unknown liveness with a valid owner lease routes to `VERIFY_SESSION_LIVENESS`, not `NO_DISPATCH`.
+
 For a new registered execution:
 
 `VALIDATE_CURRENT_PUBLICATION -> CREATE_OR_VERIFY_BRANCH -> ONE_CLAIM -> RESEARCH`.
+
+For stale-session recovery:
+
+`VERIFY_STALE_SESSION -> VERIFY_WINNING_CLAIM_AND_DURABLE_FRONTIER -> ADOPT_SAME_CLAIM -> RESUME`.
 
 The single Issue #240 CLAIM is the execution envelope. Do not require a second pre-claim execution-record write, PR, merge, CI wait, or status poll.
 
@@ -278,6 +293,8 @@ Exact task/publication contracts:
 `RESEARCH_HOT_PATH > REMOTE_PREFLIGHT`.
 
 Do not run universal scheduler/Issue/PR/CI/tree preflight, poll CI merely to wait, chase moving main, or emit periodic scheduler heartbeats without a concrete coordination need.
+
+Session-liveness verification is targeted control recovery, not a periodic heartbeat: perform it when a stale adoption is being considered or when fresh dispatch is empty and a live owner lease would otherwise be mistaken for terminal `NO_DISPATCH`.
 
 Between genuine semantic checkpoints, default added governance operations are zero.
 
