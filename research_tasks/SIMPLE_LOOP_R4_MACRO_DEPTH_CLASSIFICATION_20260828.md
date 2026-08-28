@@ -1,43 +1,47 @@
----
-task_id: "RS-SIMPLE-LOOP-R4-MACRO-DEPTH-CLASSIFICATION"
-title: "Simple-loop blocking-graph rank-4 and strict depth-9 macro family classification"
-kind: "RESEARCH"
-owner: "taskbook/unassigned"
-base_state: "READY"
-priority: "P1"
-leverage: "HIGH"
-frontier: "No exact invariant classification yet determines whether a rank-4 simple-loop blocking motif forces an 11-run locked skeleton or supports a strict simple-to-simple macro depth 9 family; both targets remain to be proved or refuted from the geometry."
-next_action: "Freeze an invariant blocking digraph and blocker-rank from repeated-vertex obstruction equations, then derive the complete rank-4 candidate motif list before any bounded verification."
-created_by_role: "RESEARCHER"
-task_authority: "PUBLISHED_REGISTERED"
-publication_contract: "RESEARCH_TASK_PUBLICATION_V1"
-publication_template: "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1"
-registry_key: "RS-SIMPLE-LOOP-R4-MACRO-DEPTH-CLASSIFICATION"
-parent_objective_id: "OBJ-SIMPLE-LOOP-MACRO-DEPTH-INDEPENDENT-CLASSIFICATION"
-identity_policy: "AUTO_RESOLVE_OR_ALLOCATE"
-final_response_identity_policy: "INHERIT_GLOBAL"
-origin_kind: "DIRECT_USER_DIRECTION"
-task_lineage: "NEW_DIRECTION"
-parent_task_id: null
-successor_gate: null
-identity_lane: "SLR4"
-claim_lease_minutes: 240
-evidence_status: "USER_DIRECTED_INDEPENDENT_CLASSIFICATION_R4_DEPTH9_UNPROVED_H6_REGRESSION_AVAILABLE"
-last_progress_ref: "INDEPENDENT_TASK_PUBLICATION_20260828"
-last_progress_at: "2026-08-28T14:28:11+08:00"
-tags:
-  - "Enterprise Math"
-  - "simple loops"
-  - "blocking graph"
-  - "macro depth"
-  - "positive-axis holonomy"
-  - "discrete Stokes"
-policy_review:
-  policy_set: "research_taskbook_policy.json"
-  policy_digest: "sha256:b78ae73bf9790b5afb87d2cfe01f8ca4549bf4a658547e1a9030374221a7ec74"
-  review_state: "PASS"
-  temporary_overrides: []
----
+<!-- ENTERPRISE_MATH_TASK_V1
+{
+  "task_id": "RS-SIMPLE-LOOP-R4-MACRO-DEPTH-CLASSIFICATION",
+  "title": "Simple-loop blocking-graph rank-4 and strict depth-9 macro family classification",
+  "kind": "RESEARCH",
+  "owner": "taskbook/unassigned",
+  "base_state": "READY",
+  "priority": "P1",
+  "leverage": "HIGH",
+  "frontier": "No exact invariant classification yet determines whether a rank-4 simple-loop blocking motif forces an 11-run locked skeleton or supports a strict simple-to-simple macro depth 9 family; both targets remain to be proved or refuted from the geometry.",
+  "next_action": "Freeze an invariant blocking digraph and blocker-rank from repeated-vertex obstruction equations, then derive the complete rank-4 candidate motif list before any bounded verification.",
+  "created_by_role": "RESEARCHER",
+  "task_authority": "PUBLISHED_REGISTERED",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "publication_template": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "registry_key": "RS-SIMPLE-LOOP-R4-MACRO-DEPTH-CLASSIFICATION",
+  "parent_objective_id": "OBJ-SIMPLE-LOOP-MACRO-DEPTH-INDEPENDENT-CLASSIFICATION",
+  "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+  "final_response_identity_policy": "INHERIT_GLOBAL",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "task_lineage": "NEW_DIRECTION",
+  "parent_task_id": null,
+  "successor_gate": null,
+  "identity_lane": "SLR4",
+  "claim_lease_minutes": 240,
+  "evidence_status": "USER_DIRECTED_INDEPENDENT_CLASSIFICATION_R4_DEPTH9_UNPROVED_H6_REGRESSION_AVAILABLE",
+  "last_progress_ref": "INDEPENDENT_TASK_PUBLICATION_20260828",
+  "last_progress_at": "2026-08-28T14:28:11+08:00",
+  "tags": [
+    "Enterprise Math",
+    "simple loops",
+    "blocking graph",
+    "macro depth",
+    "positive-axis holonomy",
+    "discrete Stokes"
+  ],
+  "policy_review": {
+    "policy_set": "research_taskbook_policy.json",
+    "policy_digest": "sha256:b78f85af4629ddb714870c44535ad0393418dbc3bebe06da142a90c0c6b9075e",
+    "review_state": "PASS",
+    "temporary_overrides": []
+  }
+}
+-->
 
 # Research Task — Simple-loop blocking-graph rank-4 and strict depth-9 macro family classification
 
