@@ -1,0 +1,42 @@
+{
+  "schema": "ENTERPRISE_MATH_A3_SHELL_TOMOGRAPHY_CERTIFICATE_V1",
+  "task_id": "RS-A3-RECURSIVE-SHELL-ALIGNMENT-TOMOGRAPHY",
+  "researcher_id": "EM-A3SHELL-19C7D4",
+  "carrier": "Lambda3=sum-zero Z^4",
+  "radius": "max_abs",
+  "ball_formula": "(16*n^3+24*n^2+14*n+3)/3",
+  "shell_formula": "16*n^2+2",
+  "ball_counts": {"0": 1, "1": 19, "2": 85, "3": 231},
+  "shell_counts": {"1": 18, "2": 66, "3": 146},
+  "frame_action": {"group": "S4", "size": 24, "faithful": true, "determinant_on_Lambda3": 1},
+  "pointer_target": {"anchor": "a_n=(n,-n,0,0)", "orbit_size": 12, "stabilizer": ["e", "(1 2)"], "stabilizer_size": 2},
+  "rigid_two_pointer_target": {"anchors": ["(n,-n,0,0)", "(n,0,-n,0)"], "stabilizer": ["e"]},
+  "unreachable_witness": {"point": "(n,n,-n,-n)", "orbit_size": 6, "separation_certificate": "zero-coordinate count: target orbit has 2, witness orbit has 0"},
+  "shielding": {"depth1": "fixes B_(n-1) pointwise", "minimal_nontrivial_prefix_depth": 2, "depth2": "may move S_(n-1) while fixing B_(n-2)", "payload_witness": {"p": "(1,0,-1,0)", "h_p": "(0,-1,1,0)", "h": "(1 2) signed-twist"}},
+  "radial_double_cosets": {
+    "H": "{e,(1 2)}",
+    "count": 7,
+    "classes": [
+      {"label": "C0", "representative": "e", "size": 2},
+      {"label": "C1", "representative": "(3 4)", "size": 2},
+      {"label": "C2", "representative": "(2 3)", "size": 4},
+      {"label": "C3", "representative": "(2 3 4)", "size": 4},
+      {"label": "C4", "representative": "(2 4 3)", "size": 4},
+      {"label": "C5", "representative": "(2 4)", "size": 4},
+      {"label": "C6", "representative": "(1 3)(2 4)", "size": 4}
+    ],
+    "product_table": [
+      [["C0"],["C1"],["C2"],["C3"],["C4"],["C5"],["C6"]],
+      [["C1"],["C0"],["C4"],["C5"],["C2"],["C3"],["C6"]],
+      [["C2"],["C3"],["C0","C2"],["C1","C3"],["C5","C6"],["C4","C6"],["C4","C5"]],
+      [["C3"],["C2"],["C5","C6"],["C4","C6"],["C0","C2"],["C1","C3"],["C4","C5"]],
+      [["C4"],["C5"],["C1","C4"],["C0","C5"],["C3","C6"],["C2","C6"],["C2","C3"]],
+      [["C5"],["C4"],["C3","C6"],["C2","C6"],["C1","C4"],["C0","C5"],["C2","C3"]],
+      [["C6"],["C6"],["C3","C5"],["C2","C4"],["C3","C5"],["C2","C4"],["C0","C1"]]
+    ]
+  },
+  "prototype": {"radii": [1,2,3], "aligner_representatives": ["e","(2 3)","e"], "shell_markers": ["(1,-1,0,0)","(-2,0,2,0)","(3,-3,0,0)"], "adjacent_defects": ["C2","C2"], "endpoint_defect": "C0", "compressed_product": "C2*C2={C0,C2}", "interpretation": "double-coset compression loses intermediate representative data; composition is relation-valued"},
+  "a2_slice": {"slice": "L4={x4=0}", "ball_formula": "1+3*n*(n+1)", "ball_counts": {"1": 7, "2": 19, "3": 37}, "shell_formula": "6*n", "residual_h": "(1 2) signed-twist", "orientation_determinant": -1, "typing_consequence": "orientation-sensitive planar observables require an orientation tag or a two-sheet stabilizer orbit"},
+  "tool_verdict": "COMPOSE_EXISTING_TOOLS",
+  "new_shared_tool_family": "NO"
+}
