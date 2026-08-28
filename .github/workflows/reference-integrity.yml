@@ -36,6 +36,8 @@ jobs:
         run: python tools/research_task_registry.py audit
       - name: Check immutable post-cutover task publication records
         run: python tools/research_task_records.py audit
+      - name: Check opt-in blind source-firewall declarations
+        run: python scripts/check_research_source_firewall.py
       - name: Check operational publication selection and retained parallel heads
         run: python research_operational_publications.py audit
       - name: Check immutable execution intents
