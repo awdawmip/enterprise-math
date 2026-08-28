@@ -8,12 +8,15 @@ commits merely to validate a taskbook declaration.
 """
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
-from control_plane import research_source_firewall as firewall
-from tools import research_task_records, research_taskbook
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from control_plane import research_source_firewall as firewall  # noqa: E402
+from tools import research_task_records, research_taskbook  # noqa: E402
 
 
 def main() -> int:
