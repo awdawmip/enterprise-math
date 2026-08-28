@@ -7,6 +7,9 @@ mapping key, such as ``value['canonical_dispatch']`` or
 ``value.get('canonical_dispatch')``.  A pointer may be mechanically renamed only
 when this executable-consumer census is empty or every consumer is deliberately
 updated in the same bounded change.
+
+Tests are excluded from the production-consumer census.  They may assert a
+control field without becoming runtime authority for that field.
 """
 from __future__ import annotations
 
@@ -21,6 +24,7 @@ EXCLUDED_ROOTS = {
     ".venv",
     "venv",
     "node_modules",
+    "tests",
 }
 
 
