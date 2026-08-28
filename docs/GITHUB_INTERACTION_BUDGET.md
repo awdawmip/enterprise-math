@@ -77,6 +77,51 @@ In particular:
 
 Context compaction is not a task-completion boundary, a reason to abandon an already-determined mutation, or a reason to ask the user to repeat durable state.
 
+### 3.2 Why `tests/` and Issue #240 are sometimes read
+
+High-fanout sources are **not categorically forbidden**. They have narrow legitimate purposes. The rule is to read them for a concrete question, not to pour the collection into conversational context.
+
+#### `tests/`: regression placement and local test conventions
+
+A test read is legitimate when the implementation target is already known and the remaining question is one of:
+
+- which existing test file is the correct regression home;
+- what fixture/helper/style the neighboring tests use;
+- whether a focused new test file is preferable to extending an existing one.
+
+The safe sequence is:
+
+1. search by the target component, function, symbol, or failure text;
+2. inspect at most the small set of matching test files needed to identify the regression surface (soft default: `1-3` files);
+3. expand only if the regression home is still genuinely unresolved.
+
+Do **not** enumerate the whole `tests/` directory to find one test. Do **not** load the full test suite into context merely to learn naming conventions. The test suite is execution evidence, not a discovery catalog.
+
+#### Issue #240: scheduler runtime evidence
+
+Issue #240 is the append-only scheduler runtime surface. A read is legitimate when a specific control-plane question requires runtime evidence, for example:
+
+- reconstructing the `CLAIM -> PROGRESS -> HANDOFF` lineage for one task/claim;
+- checking whether a correction/supersession event exists;
+- reading GitHub server `created_at` to establish authoritative event time;
+- reading GitHub server author metadata to establish control-plane authority;
+- diagnosing why canonical reducer state diverged from a visible event sequence.
+
+The safe sequence is:
+
+1. use the canonical reducer when it can answer the question directly;
+2. otherwise filter by known `task_id`, `claim_id`, `result_id`, or comment id;
+3. inspect one bounded page or a small local event window around the target;
+4. expand only if the target event chain remains unresolved.
+
+The event body field `at` is descriptive only for lifecycle ordering. GitHub server `created_at` is the authoritative event clock.
+
+Do **not** load all Issue #240 comments to “understand the scheduler.” Do **not** use Issue #240 as a substitute for repository discovery or as a bulk reconstruction of project history. Long HANDOFF comments make all-pages reads especially expensive and can evict the exact source state needed for the mutation being performed.
+
+Freeze:
+
+`READ_PURPOSE_FIRST -> NARROW_LOCATOR -> BOUNDED_READ -> EXPAND_ONLY_IF_UNRESOLVED`.
+
 ## 4. CI/status circuit breaker
 
 Ordinary L1/L2/L3 research has **0 routine workflow-status queries**.
@@ -161,6 +206,8 @@ GLOBAL_KNOWLEDGE append-only journaling is a separate loss-prevention channel.
 
 - explicit TASK startup: `<= 3` routine source reads before work;
 - discovery: `UNBOUNDED_COLLECTION_READ_FOR_DISCOVERY = FORBIDDEN`;
+- `tests/` purpose: locate the smallest relevant regression surface and match local conventions, normally by bounded search + `1-3` matching files;
+- Issue #240 purpose: verify a specific scheduler event lineage, server time, or actor authority, normally by reducer/filter + a bounded local event window;
 - bounded search: `topn <= 20`;
 - ranged file read: soft `<= 200` lines, expand only on a concrete trigger;
 - Issue #240 conversational reads: bounded API pages `<= 20` comments, never the all-pages helper;
