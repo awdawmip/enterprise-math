@@ -34,7 +34,7 @@ jobs:
       - name: Check legacy coordinate quarantine registry
         run: python control_plane/check_legacy_coordinate_quarantine.py
       - name: Check V1 compatibility task registry and orphan prevention
-        run: python tools/research_task_registry.py audit
+        run: python control_plane/check_v1_task_registry_fault_isolated.py
       - name: Check immutable publications, operational selection, and fault-isolated dispatch view
         run: python control_plane/check_publication_fault_isolation.py
       - name: Check immutable execution intents
