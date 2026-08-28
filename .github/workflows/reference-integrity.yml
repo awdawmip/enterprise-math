@@ -34,16 +34,12 @@ jobs:
         run: python control_plane/check_legacy_coordinate_quarantine.py
       - name: Check V1 compatibility task registry and orphan prevention
         run: python tools/research_task_registry.py audit
-      - name: Check immutable post-cutover task publication records
-        run: python tools/research_task_records.py audit
-      - name: Check operational publication selection and retained parallel heads
-        run: python research_operational_publications.py audit
+      - name: Check immutable publications, operational selection, and fault-isolated dispatch view
+        run: python control_plane/check_publication_fault_isolation.py
       - name: Check immutable execution intents
         run: python tools/research_execution_records.py audit
       - name: Check legacy scheduler cutover is frozen
         run: python tools/check_task_registry_cutover.py
-      - name: Check canonical registered-plus-legacy dispatch view
-        run: python tools/research_dispatch.py validate
       - name: Check immutable research result and Driver-review records
         run: python tools/research_result_records.py audit
       - name: Check source-backed Driver authority provenance
