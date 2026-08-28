@@ -19,7 +19,8 @@
     "startup_source_reads_soft_max": 3,
     "search_results_max": 20,
     "file_line_range_soft_max": 200,
-    "issue_comment_page_size_max": 20
+    "issue_comment_page_size_max": 20,
+    "matching_test_files_soft_max": 3
   },
   "high_fanout_paths": [
     "tests/",
@@ -38,6 +39,46 @@
     "BOUNDED_PAGINATED_COLLECTION_PAGE",
     "EXPAND_ONLY_AFTER_A_CONCRETE_MATCH"
   ],
+  "collection_read_guidance": {
+    "tests": {
+      "purpose": [
+        "LOCATE_EXISTING_REGRESSION_TEST_HOME",
+        "MATCH_EXISTING_TEST_STYLE_AND_FIXTURE_CONVENTIONS",
+        "IDENTIFY_THE_SMALLEST_RELEVANT_REGRESSION_SURFACE"
+      ],
+      "not_for": [
+        "GENERAL_REPOSITORY_DISCOVERY",
+        "FULL_TEST_SUITE_CONTEXT_LOADING",
+        "DIRECTORY_ENUMERATION_TO_FIND_ONE_TEST"
+      ],
+      "safe_sequence": [
+        "SEARCH_BY_TARGET_COMPONENT_SYMBOL_OR_ERROR_TEXT",
+        "OPEN_ONE_TO_THREE_MATCHING_TEST_FILES",
+        "EXPAND_ONLY_IF_THE_REGRESSION_HOME_REMAINS_UNRESOLVED"
+      ]
+    },
+    "issue_240": {
+      "purpose": [
+        "VERIFY_RUNTIME_EVENT_LINEAGE_FOR_A_SPECIFIC_TASK_OR_CLAIM",
+        "VERIFY_CLAIM_PROGRESS_HANDOFF_OR_CORRECTION_EVENTS",
+        "READ_GITHUB_SERVER_CREATED_AT_FOR_AUTHORITATIVE_EVENT_TIME",
+        "READ_GITHUB_SERVER_AUTHOR_METADATA_FOR_CONTROL_AUTHORITY"
+      ],
+      "not_for": [
+        "GENERAL_REPOSITORY_DISCOVERY",
+        "BULK_CONVERSATION_RECONSTRUCTION",
+        "LOADING_THE_FULL_SCHEDULER_HISTORY_INTO_CONTEXT"
+      ],
+      "safe_sequence": [
+        "USE_CANONICAL_REDUCER_WHEN_EXECUTABLE",
+        "FILTER_BY_TASK_ID_CLAIM_ID_RESULT_ID_OR_COMMENT_ID",
+        "READ_A_BOUNDED_PAGE_OR_LOCAL_EVENT_WINDOW",
+        "EXPAND_ONLY_IF_THE_TARGET_EVENT_CHAIN_REMAINS_UNRESOLVED"
+      ],
+      "authoritative_clock": "GITHUB_SERVER_CREATED_AT",
+      "body_declared_clock": "DESCRIPTIVE_ONLY"
+    }
+  },
   "issue_240_policy": {
     "direct_all_pages_helper": "FORBIDDEN_IN_CONVERSATIONAL_CONTEXT",
     "preferred": "CANONICAL_REDUCER_OR_BOUNDED_API_PAGE",
