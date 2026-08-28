@@ -1,0 +1,85 @@
+{
+  "schema": "SIMPLE_LOOP_R4_MACRO_DEPTH_ATLAS_V1",
+  "task_id": "RS-SIMPLE-LOOP-R4-MACRO-DEPTH-CLASSIFICATION",
+  "publication_id": "TP2-9AB05574C3CA5534CB39",
+  "researcher_id": "EM-SLR4-CCE75F",
+  "carrier_chart": {
+    "e1": [1, 0],
+    "e2": [0, 1],
+    "e3": [-1, -1],
+    "semantic_note": "derived displacement/carrier incidence only; not native metric or primitive point quotient"
+  },
+  "structural_theorem": "locked => runs = 2*blocker_rank + 3",
+  "h6_regression": {
+    "word": "111112222233133233",
+    "H": 6,
+    "A2": 22,
+    "F": 22,
+    "I": 3,
+    "Theta": 3,
+    "R": 2,
+    "runs": 7,
+    "blockers": [
+      {"corner": 12, "pair": "13", "base": [3, 3], "alternate": [2, 2], "blocker": 16, "level": 1, "arc_counts": [1, 1, 2]},
+      {"corner": 14, "pair": "32", "base": [3, 2], "alternate": [3, 3], "blocker": 12, "level": 5, "arc_counts": [5, 6, 5]}
+    ],
+    "unlock": {
+      "packet": "1332->2331",
+      "support": 4,
+      "adjacent_swap_distance": 5,
+      "target": "111112222233233133",
+      "delta_A2": 6,
+      "delta_F": 6,
+      "delta_I": 3,
+      "delta_Theta": 0
+    }
+  },
+  "r4_minimal": {
+    "first_H": 8,
+    "first_letter_1_based_survivors": 72,
+    "cyclic_C3_classes": 3,
+    "classes": [
+      {
+        "word": "111111222322122333133233",
+        "H": 8, "A2": 30, "F": 30, "I": 4, "Theta": 3, "R": 4, "runs": 11,
+        "blocker_levels": [1, 7, 1, 7],
+        "blockers": [
+          {"corner": 9, "pair": "32", "blocker": 13, "base": [6, 3], "alternate": [6, 4], "level": 1, "arc_counts": [1, 2, 1]},
+          {"corner": 11, "pair": "21", "blocker": 9, "base": [5, 3], "alternate": [6, 3], "level": 7, "arc_counts": [8, 7, 7]},
+          {"corner": 18, "pair": "13", "blocker": 22, "base": [3, 3], "alternate": [2, 2], "level": 1, "arc_counts": [1, 1, 2]},
+          {"corner": 20, "pair": "32", "blocker": 18, "base": [3, 2], "alternate": [3, 3], "level": 7, "arc_counts": [7, 8, 7]}
+        ],
+        "unlock": {"packet_position_zero_based": 18, "packet": "1332->2331", "support": 4, "adjacent_swap_distance": 5, "target": "111111222322122333233133", "delta_A2": 6, "delta_F": 6, "delta_I": 3, "delta_Theta": 0}
+      },
+      {
+        "word": "111111223221222331332333",
+        "H": 8, "A2": 30, "F": 30, "I": 4, "Theta": 3, "R": 4, "runs": 11,
+        "blocker_levels": [1, 7, 1, 7],
+        "blockers": [
+          {"corner": 8, "pair": "32", "blocker": 12, "base": [6, 2], "alternate": [6, 3], "level": 1, "arc_counts": [1, 2, 1]},
+          {"corner": 10, "pair": "21", "blocker": 8, "base": [5, 2], "alternate": [6, 2], "level": 7, "arc_counts": [8, 7, 7]},
+          {"corner": 17, "pair": "13", "blocker": 21, "base": [4, 4], "alternate": [3, 3], "level": 1, "arc_counts": [1, 1, 2]},
+          {"corner": 19, "pair": "32", "blocker": 17, "base": [4, 3], "alternate": [4, 4], "level": 7, "arc_counts": [7, 8, 7]}
+        ],
+        "unlock": {"packet_position_zero_based": 17, "packet": "1332->2331", "support": 4, "adjacent_swap_distance": 5, "target": "111111223221222332331333", "delta_A2": 6, "delta_F": 6, "delta_I": 3, "delta_Theta": 0}
+      },
+      {
+        "word": "111111223221222333133233",
+        "H": 8, "A2": 30, "F": 30, "I": 4, "Theta": 3, "R": 4, "runs": 11,
+        "blocker_levels": [1, 7, 1, 7],
+        "blockers": [
+          {"corner": 8, "pair": "32", "blocker": 12, "base": [6, 2], "alternate": [6, 3], "level": 1, "arc_counts": [1, 2, 1]},
+          {"corner": 10, "pair": "21", "blocker": 8, "base": [5, 2], "alternate": [6, 2], "level": 7, "arc_counts": [8, 7, 7]},
+          {"corner": 18, "pair": "13", "blocker": 22, "base": [3, 3], "alternate": [2, 2], "level": 1, "arc_counts": [1, 1, 2]},
+          {"corner": 20, "pair": "32", "blocker": 18, "base": [3, 2], "alternate": [3, 3], "level": 7, "arc_counts": [7, 8, 7]}
+        ],
+        "unlock": {"packet_position_zero_based": 18, "packet": "1332->2331", "support": 4, "adjacent_swap_distance": 5, "target": "111111223221222333233133", "delta_A2": 6, "delta_F": 6, "delta_I": 3, "delta_Theta": 0}
+      }
+    ]
+  },
+  "macro_bfs": {
+    "new_states_by_distance": {"1": 253, "2": 1430, "3": 5754, "4": 18671, "5": 52262},
+    "higher_simple_by_distance": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 274}
+  },
+  "verdict": "R4_11_RUN_PROVED_DEPTH9_REFUTED_MINIMAL_R4_DEPTH5"
+}
