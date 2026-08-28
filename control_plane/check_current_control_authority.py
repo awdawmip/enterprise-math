@@ -6,6 +6,7 @@ post-cutover control facts owned by ``current_control_authority.json``:
 
 * immutable V2 task publication;
 * recovery-aware live dispatch versus subordinate fresh selectors;
+* exact owner-scope liveness rather than generic chat activity;
 * toolbox coverage versus actual reuse resolution;
 * typed role transitions that preserve provenance without leaking authority;
 * Foundation Steward V2 execution handoff;
@@ -94,6 +95,11 @@ def check() -> None:
         publication.get("fresh_dispatch_selector") == live_auth.get("ordinary_fresh_selector"),
         "publication and precedence disagree on ordinary fresh selector",
     )
+
+    require(
+        dispatch.get("schema") == "ENTERPRISE_MATH_RESEARCH_DISPATCH_CONTRACT_V5",
+        "dispatch contract must be exact-owner-scope V5",
+    )
     require(
         dispatch.get("canonical_tool") == live_auth.get("canonical_entrypoint"),
         "dispatch contract and precedence disagree on canonical live entrypoint",
@@ -106,10 +112,29 @@ def check() -> None:
         dispatch.get("session_adoption_tool") == live_auth.get("stale_adoption_guard"),
         "dispatch contract and precedence disagree on stale-adoption guard",
     )
+    session = dispatch.get("session_liveness_routing", {})
+    require(session.get("owner_lease_is_session_liveness") is False, "owner lease must not imply session liveness")
+    require(session.get("conversation_activity_is_owner_scope_liveness") is False, "generic conversation activity must not imply owner-scope liveness")
     require(
-        dispatch.get("session_liveness_routing", {}).get("valid_owner_plus_stale_session")
+        session.get("observation_schema") == "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",
+        "session observation schema must be owner-scope V2",
+    )
+    require(
+        set(session.get("allowed_activity_evidence_kinds", []))
+        == {"TASK_RESEARCH_RESPONSE", "DURABLE_EXECUTION_PROGRESS"},
+        "owner-scope liveness evidence kinds must be exact and closed",
+    )
+    excluded = set(session.get("does_not_count_as_owner_scope_activity", []))
+    require("CONTROL_PLANE_MAINTENANCE response" in excluded, "control responses must not refresh task owner liveness")
+    require("FREE_AXIOM_DISCOVERY response" in excluded, "FREE responses must not refresh task owner liveness")
+    require(
+        session.get("valid_owner_plus_stale_session")
         == "ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM",
         "stale valid owner must adopt same winning CLAIM",
+    )
+    require(
+        session.get("claim_mismatch_observation", "").startswith("IGNORE_AS_LIVENESS_EVIDENCE"),
+        "foreign/stale claim activity must not keep current owner active",
     )
 
     require(
@@ -150,6 +175,12 @@ def check() -> None:
     require(role_auth.get("role_switch_releases_or_duplicates_claim") is False, "role switch must not release/duplicate CLAIM by itself")
     require(role_auth.get("free_clean_blindness_recoverable_after_agenda_exposure") is False, "FREE CLEAN blindness must be monotone after exposure")
     require(role_auth.get("working_truth_follows_role_label") is False, "Working Truth must not follow role label")
+    require("OWNER_SCOPE_LIVENESS" in transitions.get("state_dimensions", []), "role transition matrix missing owner-scope liveness dimension")
+    require(
+        "ONLY_EXACT_CLAIM_BOUND_TASK_RESPONSE_OR_DURABLE_PROGRESS_REFRESHES_OWNER_SCOPE_LIVENESS"
+        in transitions.get("core_invariants", []),
+        "role transition matrix missing exact owner-scope liveness invariant",
+    )
 
     transition_rows = transitions.get("transitions", {})
     required_transition_rows = {
@@ -176,6 +207,18 @@ def check() -> None:
     require(
         transition_rows["TASK_RESEARCH->CONTROL_PLANE_MAINTENANCE"].get("research_authority") == "SUSPEND",
         "TASK to control transition must suspend research authority",
+    )
+    require(
+        transition_rows["TASK_RESEARCH->CONTROL_PLANE_MAINTENANCE"].get("owner_scope_liveness", "").startswith("DO_NOT_REFRESH_OWNER_LIVENESS"),
+        "TASK to control transition must stop refreshing task owner liveness",
+    )
+    require(
+        transition_rows["TASK_RESEARCH->RESEARCH_DRIVER"].get("owner_scope_liveness", "").startswith("DO_NOT_REFRESH_OWNER_LIVENESS"),
+        "TASK to Driver transition must stop refreshing task owner liveness",
+    )
+    require(
+        transition_rows["TASK_RESEARCH->FOUNDATION_STEWARD"].get("owner_scope_liveness", "").startswith("DO_NOT_REFRESH_OWNER_LIVENESS"),
+        "TASK to Steward transition must stop refreshing task owner liveness",
     )
     require(
         transition_rows["RESEARCH_DRIVER->CONTROL_PLANE_MAINTENANCE"].get("driver_authority") == "CLEAR_AUTHORITY",
@@ -225,6 +268,9 @@ def check() -> None:
     require("_forbid(command)" in legacy_tool, "V1 registry commands do not route through fail-closed guard")
 
     router = read("research_control_dispatch.py")
+    require("ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2" in router, "live control router missing owner-scope observation V2")
+    require("TASK_RESEARCH_RESPONSE" in router, "live control router missing task-response liveness kind")
+    require("DURABLE_EXECUTION_PROGRESS" in router, "live control router missing durable-progress liveness kind")
     require("research_control_bootstrap.install(ROOT)" in router, "live control router must install canonical bootstrap")
     require("research_dispatch.select_task" in router, "live control router must subordinate ordinary fresh selector")
     require("research_runtime.ADOPT_OWNER_CLAIM" in router, "live control router missing same-CLAIM adoption path")
@@ -237,7 +283,7 @@ def main() -> int:
     except (ControlAuthorityError, OSError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}")
         return 1
-    print("PASS: current control authority, role transitions, publication, dispatch, and tool-reuse surfaces are consistent.")
+    print("PASS: current control authority, owner-scope liveness, role transitions, publication, dispatch, and tool-reuse surfaces are consistent.")
     return 0
 
 
