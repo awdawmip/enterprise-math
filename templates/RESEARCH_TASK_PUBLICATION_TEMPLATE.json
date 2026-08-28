@@ -26,6 +26,10 @@
     "successor_gate": "<required for continuation>",
     "policy_review": "<current policy digest and PASS at publication>"
   },
+  "taskbook_frontmatter_optional": {
+    "identity_lane": "<task-local execution identity lane>",
+    "source_firewall": "<omit for ordinary tasks; BLIND_INDEPENDENT must follow research_source_firewall_contract.json with exact pre-freeze and withheld path+commit+blob pins>"
+  },
   "registry_record_required": {
     "publisher_role": "<role>",
     "publisher_id": "<Researcher-ID/Driver-ID/Steward identity>",
@@ -45,5 +49,5 @@
     "Research value to preserve",
     "Success, kill, and return criteria"
   ],
-  "rule": "No alternative free-form task publication format is official. A task may have richer task-local sections, but these publication fields/sections cannot be omitted."
+  "rule": "No alternative free-form task publication format is official. A task may have richer task-local sections. source_firewall is opt-in and must not burden ordinary tasks; if declared, it must satisfy the canonical claim-scoped PRE_MATH -> RAW_FREEZE -> SOURCE_EXPOSED contract before blind source exposure."
 }
