@@ -28,6 +28,10 @@ jobs:
         run: python tools/check_references.py
       - name: Check shared theorem and tool routing
         run: python tools/check_research_common_surface.py
+      - name: Check exhaustive historical PR migration ledger
+        run: python control_plane/check_historical_pr_migration_ledger.py
+      - name: Check legacy coordinate quarantine registry
+        run: python control_plane/check_legacy_coordinate_quarantine.py
       - name: Check V1 compatibility task registry and orphan prevention
         run: python tools/research_task_registry.py audit
       - name: Check immutable post-cutover task publication records

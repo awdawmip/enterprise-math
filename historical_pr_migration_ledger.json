@@ -1,0 +1,57 @@
+{
+  "schema": "ENTERPRISE_MATH_HISTORICAL_PR_MIGRATION_LEDGER_V1",
+  "status": "ACTIVE",
+  "scope": "CONTROL_PLANE_PR_AUTHORITY",
+  "inventory_snapshot": {
+    "cutoff_pr_number": 659,
+    "number_space_start": 1,
+    "number_space_end": 659,
+    "encoding": "NUMBER_RANGE_MINUS_NON_PR_ISSUES",
+    "non_pr_issue_numbers": [
+      2, 3, 4, 5, 6, 7, 8, 11, 13, 34, 43, 46, 75, 82, 102, 103, 104, 105,
+      106, 107, 109, 110, 111, 112, 164, 171, 172, 173, 174, 175, 176, 211, 240,
+      304, 305, 306, 307, 500, 508, 513, 514, 515, 516, 529, 618
+    ],
+    "non_pr_issue_count": 45,
+    "historical_pr_count": 614,
+    "inventory_complete": true,
+    "derivation_evidence": {
+      "github_search_pr_count_through_current_pr_660": 615,
+      "github_search_issue_count_through_number_660": 45,
+      "max_observed_number_for_derivation": 660,
+      "current_migration_pr_number_excluded_from_history": 660,
+      "equation": "615 PR + 45 issue = 660 numbered objects; excluding PR #660 leaves 614 historical PRs in 1..659"
+    }
+  },
+  "cutover": {
+    "registry_effective_date": "2026-08-25",
+    "unified_task_registry_merge_commit": "b8e66057cb5102f004d3718a4149636b1891ea7c",
+    "legacy_scheduler_mode": "FROZEN_SCHEDULER_DEFINITION_FILE",
+    "fresh_redispatch_requires_explicit_record": true
+  },
+  "migration": {
+    "control_plane_authority_migration_complete": true,
+    "historical_pr_metadata_runtime_effect": "NONE",
+    "merged_pr_payload_authority": "ONLY_THROUGH_CURRENT_MAIN_FILES_AND_EXPLICIT_CURRENT_CONTROL_RECORDS",
+    "unmerged_or_closed_unmerged_pr_payload_authority": "NONE",
+    "fresh_task_or_redispatch_authority": "EXPLICIT_CURRENT_TASK_PUBLICATION_REQUIRED",
+    "legacy_existing_execution_authority": "ONLY_WHEN_COVERED_BY_FROZEN_LEGACY_BASELINE_OR_EXPLICIT_CURRENT_RECORD",
+    "github_pr_state_is_not_runtime_state": true,
+    "historical_pr_semantic_reclassification_required_for_control_plane": false,
+    "reason": "The migration target is control-plane authority, not retrospective relabeling of every theorem. Merged mathematical content keeps whatever authority current main files and lineage/status registries grant; the historical PR object itself grants none."
+  },
+  "authority_guards": {
+    "working_truth_granted": false,
+    "task_authority_granted_by_history_only": false,
+    "foundation_authority_granted_by_history_only": false,
+    "canonical_promotion_granted_by_history_only": false,
+    "successor_triggered_by_history_only": false
+  },
+  "migration_lineage": {
+    "source_governance_pr": 660,
+    "superseded_governance_pr": 657,
+    "parallel_intake_source_pr": 661,
+    "current_main_replay_branch": "governance/historical-migration-quarantine-dgr-current-main-v1",
+    "note": "The exhaustive inventory is intentionally frozen at the pre-#660 number space 1..659. PR #660 is retained as the source governance lineage, not as current runtime authority. This current-main replay imports only durable unsuperseded assets; all post-cutover PRs are governed by current immutable task/publication/result/objective/cohort records rather than by extending this historical snapshot."
+  }
+}
