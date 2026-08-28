@@ -140,6 +140,19 @@ def _validate_synthesis(
     disposition = row.get("operational_disposition")
     if disposition not in ALL_DISPOSITIONS:
         raise ReviewEvidenceError("invalid synthesized operational disposition")
+    destination = row.get("operational_destination_class")
+    destination_ref = row.get("operational_destination_ref_or_none")
+    if destination is not None:
+        if destination not in DESTINATION_CLASSES:
+            raise ReviewEvidenceError("invalid synthesized operational destination")
+        if not isinstance(destination_ref, str):
+            raise ReviewEvidenceError(
+                "synthesized operational destination ref must be a string"
+            )
+    elif destination_ref is not None:
+        raise ReviewEvidenceError(
+            "synthesized destination ref cannot exist without destination class"
+        )
     author = row.get("synthesized_by")
     if not isinstance(author, str) or not EM_ID_RE.fullmatch(author.strip().upper()):
         raise ReviewEvidenceError("review synthesis synthesized_by is invalid")
@@ -258,6 +271,13 @@ def main() -> int:
     sub.add_parser("audit")
     status = sub.add_parser("state")
     status.add_argument("--result-id", required=True)
+    synth = sub.add_parser("synthesize")
+    synth.add_argument("--intake-id", required=True)
+    synth.add_argument("--disposition", choices=sorted(ALL_DISPOSITIONS), required=True)
+    synth.add_argument("--synthesized-by", required=True)
+    synth.add_argument("--rationale", required=True)
+    synth.add_argument("--destination-class", choices=sorted(DESTINATION_CLASSES))
+    synth.add_argument("--destination-ref-or-none", default="")
     args = parser.parse_args()
     if args.command == "audit":
         errors = audit()
@@ -271,7 +291,19 @@ def main() -> int:
             f"{len(_store.syntheses())} synthesis record(s))."
         )
         return 0
-    print(json.dumps(state(args.result_id), ensure_ascii=False, indent=2, sort_keys=True))
+    if args.command == "state":
+        print(json.dumps(state(args.result_id), ensure_ascii=False, indent=2, sort_keys=True))
+        return 0
+    value = create_synthesis(
+        args.intake_id,
+        args.disposition,
+        args.synthesized_by,
+        args.rationale,
+        ROOT,
+        operational_destination_class=args.destination_class,
+        operational_destination_ref_or_none=args.destination_ref_or_none,
+    )
+    print(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True))
     return 0
 
 
