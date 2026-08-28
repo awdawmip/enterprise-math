@@ -1,0 +1,49 @@
+{
+  "schema": "RSA_EXPONENT_COLLISION_CRT_COLLAPSE_PACKET_V1",
+  "task_id": "RS-RSA-EXPONENT-COLLISION-CRT-COLLAPSE",
+  "publication_id": "TP2-301CA54924787090237D",
+  "researcher_id": "EM-RSACOL-C76042",
+  "hard_target": "RSA_EXPONENT_COLLISION_2ADIC_COLLAPSE_FACTOR_EXTRACTION_OR_EXACT_BARRIER_FROZEN",
+  "verdict": "PASS_EXACT_EXTRACTION_AND_BARRIER",
+  "local_kernel": "For fixed unit x, x^e=x^e' mod n iff ord_n(x) divides e-e'; kernel=ord_n(x)Z.",
+  "finite_sample_kernel": "For S={x_i}, simultaneous equality iff lcm_i ord_n(x_i) divides e-e'; this lcm is exp(<S>).",
+  "single_collision": {
+    "setup": "Delta=2^s u, u odd, r_p=ord_p(x)=2^a m_p, r_q=ord_q(x)=2^b m_q",
+    "chain": "z_j=x^(u*2^j); z_j=1 mod p iff j>=a, and mod q iff j>=b",
+    "success_criterion": "factor extraction by first pre-1 state succeeds iff a != b",
+    "failure_locus": "a=b; if a=b>0 the first pre-1 state is -1 modulo both primes, while a=b=0 starts at 1",
+    "extractor_hidden_inputs": "NONE: only n,x,Delta; proof-side p,q/orders are ground truth only"
+  },
+  "random_unit_probability": {
+    "A": "v2(p-1)",
+    "B": "v2(q-1)",
+    "depth_distribution": "Pr[a=0]=2^-A; Pr[a=t]=2^(t-1-A) for 1<=t<=A, independently at q",
+    "failure": "(4^min(A,B)+2)/(3*2^(A+B))",
+    "success": "1-(4^min(A,B)+2)/(3*2^(A+B))",
+    "uniform_success_lower_bound": "1/2, sharp when A=B=1"
+  },
+  "global_collision": {
+    "criterion": "Two exponent maps agree on every unit iff e-e' is a multiple of lambda(n)=lcm(p-1,q-1).",
+    "consequence": "One exposed nonzero global difference is an annihilating exponent; random-unit collapse factors with the exact single-unit probability and at least 1/2 per independent base.",
+    "classification": "This is the classical multiple-of-group-exponent/order-to-factor reduction, not a collision-generation algorithm."
+  },
+  "multiple_certificates": {
+    "independent_single_attempt_failure_after_k": "F_1^k where F_1=(4^m+2)/(3*2^(A+B)), m=min(A,B)",
+    "safe_aggregation": "L=lcm_i Delta_i annihilates H=<x_i>; gcd_i Delta_i has no universal annihilator guarantee.",
+    "full_subgroup_barrier": "All H-combinations fail iff the 2-primary H_2 is the graph of an isomorphism between cyclic local projection subgroups of equal order.",
+    "aggregate_failure_probability": "[1+sum_{t=1}^m phi(2^t)*(2^(tk)-2^((t-1)k))]/2^((A+B)k)",
+    "uniform_aggregate_success_lower_bound": "1-2^-k",
+    "strict_gain_condition": "For k>=2 and min(A,B)>=2 aggregation can be strictly stronger than running each certificate separately.",
+    "strict_witness": "n=65, x1=57, x2=47, Delta1=Delta2=4: both singles fail; x1*x2=14 and L=4 yields gcd(14-1,65)=13."
+  },
+  "barrier_scope": "The equal-depth/diagonal-graph statements are exact barriers for the collision-driven 2-adic CRT-square-root mechanism. They are not an information-theoretic claim that n cannot be factored by some unrelated method.",
+  "regression": {
+    "checker": "scripts/check_rsa_exponent_collision_crt_collapse.py",
+    "exhaustive_semiprimes": 210,
+    "exhaustive_units": 274904,
+    "global_multipliers_tested": [1,2,3,6],
+    "aggregate_formula_small_parameter_cases": 18,
+    "status": "PASS",
+    "finite_is_proof": false
+  }
+}
