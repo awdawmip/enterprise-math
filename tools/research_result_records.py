@@ -37,6 +37,7 @@ if str(_base.ROOT) not in sys.path:
 import research_review_evidence as _review_evidence  # noqa: E402
 import research_driver_followup as _followup_impl  # noqa: E402
 import research_driver_followup_guard as _driver_followup  # noqa: E402
+import research_driver_authority as _driver_authority  # noqa: E402
 
 ROOT = _base.ROOT
 _BASE_TASK_RESULT_STATE = _base.task_result_state
@@ -314,6 +315,14 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
             "materialize follow-up only after review synthesis"
         )
 
+    reviewed_at = _now(args.reviewed_at)
+    try:
+        driver_authority = _driver_authority.require_active_driver(
+            args.driver_id, reviewed_at, ROOT
+        )
+    except _driver_authority.DriverAuthorityError as exc:
+        raise ResultRecordError(str(exc)) from exc
+
     path = Path(args.review_path)
     if not path.is_absolute():
         path = ROOT / path
@@ -324,8 +333,15 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
         review_path=path,
         destination_class=args.destination_class,
         destination_ref_or_none=args.destination_ref_or_none,
-        reviewed_at=_now(args.reviewed_at),
+        reviewed_at=reviewed_at,
     )
+    if driver_authority is not None:
+        record["driver_authority_record_id"] = driver_authority["authority_record_id"]
+        record["driver_authority_source_comment_id"] = driver_authority["source_comment_id"]
+        authority_errors = _driver_authority.review_authority_errors(record, ROOT)
+        if authority_errors:
+            raise ResultRecordError("; ".join(authority_errors))
+
     out = REVIEW_ROOT / _safe_id(args.result_id, "result_id") / f"{record['review_id']}.json"
     _save_exclusive(out, record)
 
@@ -399,6 +415,10 @@ _base.task_result_state = task_result_state
 if __name__ == "__main__":
     try:
         raise SystemExit(canonical_main())
-    except (ResultRecordError, _followup_impl.DriverFollowupError) as exc:
+    except (
+        ResultRecordError,
+        _followup_impl.DriverFollowupError,
+        _driver_authority.DriverAuthorityError,
+    ) as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
