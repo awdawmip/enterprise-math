@@ -1,293 +1,205 @@
 # Perfect Prime Table Route-A Critical Cofactor All-m Proof — Research Return
 
-Task: `RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF`  
-Publication: `TP2-4EE2618ABEBB6D097023`  
-Researcher-ID: `EM-PPTA-6D8F31`  
-Claim: `chatgpt-ppta-20260828-2132-6d8f31`  
+Task: `RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF`
+Publication: `TP2-4EE2618ABEBB6D097023`
+Researcher-ID: `EM-PPTA-6D8F31`
+Claim: `chatgpt-ppta-20260828-2132-6d8f31`
 Execution record: `ER-B05E70EFD72590BCB0BF`
 
 ## Terminal verdict
 
 `UNRESOLVED_EXACT_FRONTIER`
 
-No all-\(m\) proof and no exact counterexample was obtained in this execution.  The execution does, however, prove two new all-\(m\) structural theorems for the actual AP kernel and reduces the remaining question to a single explicit \((m-1)\times(m-1)\) Beta–Bernstein/Möbius fixed-point determinant.  It also exactly kills the most immediate Perron/ordinary-norm shortcut for that determinant.
+No all-\(m\) proof and no exact counterexample was obtained. This execution proves two new all-\(m\) structural theorems for the actual AP kernel, converts the remaining fixed-point problem to an explicit Beta–Bernstein/Mobius quotient determinant of order \(m-1\), and exactly kills the most immediate Perron/ordinary-norm shortcut.
 
-## Mother statement and frozen equivalence chain
+## Exact equivalence chain back to the original cofactor system
 
-For \(m\ge2\), put \(n=m-1\) and
-
+Let \(n=m-1\) and
 \[
 A_{ij}=\prod_{\ell=0}^{m-1}(1+i+mj+\ell m^2),\qquad 0\le i,j<m.
 \]
-
-The mother question asks whether every bidegree-\((m-2,m-2)\) cofactor \(c(i,j)\) satisfying
-
+The original critical bidegree-\((m-2,m-2)\) cofactor problem asks whether
 \[
 D_{ij}=c(i,j)A_{ij}=s_i-t_j
 \]
+has a nonzero polynomial cofactor \(c\). Equivalently all adjacent mixed differences of \(D\) vanish.
 
-is zero.  Equivalently the adjacent mixed differences of \(D\) vanish.  The frozen taskbook reduction gives, with
-
+The frozen taskbook transfer in the bivariate falling-factorial basis gives
 \[
-P_m(z)=\prod_{\ell=0}^{m-1}(z+a_\ell),\qquad a_\ell=1+\ell m^2,
+\text{nonzero critical cofactor}
+\iff
+\det P_m(L)[T,S]=0,
 \]
-
-and the falling-factorial transfer operator \(L=X\otimes I+mI\otimes X\),
-
+where
 \[
-\text{critical cofactor kernel is trivial}
-\iff \det P_m(L)[T,S]\ne0.
+P_m(z)=\prod_{\ell=0}^{m-1}(z+1+\ell m^2),
+\qquad
+L=X\otimes I+mI\otimes X.
 \]
+All triangular/falling-factorial basis factors in this frozen transfer are explicit and nonzero; this execution does not change them.
 
-The same frozen reduction then gives the factorial-Cauchy boundary kernel
-
+Define
 \[
-H_{ij}=h(i+mj),\qquad
-h(q)=\frac1{\prod_{\ell=0}^{m-1}(1+q+\ell m^2)},
+h(q)=\frac1{\prod_{\ell=0}^{m-1}(1+q+\ell m^2)},\qquad
+H_{ij}=h(i+mj),
 \]
-
-with
-
 \[
-w_i=(-1)^i\binom ni,\quad W=\operatorname{diag}(w_i),
+w_i=(-1)^i\binom ni,\qquad W=\operatorname{diag}(w_i),
 \]
-
 \[
 e_i=\sum_j w_jH_{ij}>0,\qquad d_j=\sum_i w_iH_{ij}>0,
+\quad E=\operatorname{diag}(e_i),\quad D=\operatorname{diag}(d_j).
 \]
-
-and
-
+The frozen factorial-Cauchy boundary reduction is, up to the explicit nonzero scalar \((-1)^n/n!\),
 \[
-E=\operatorname{diag}(e_i),\qquad D=\operatorname{diag}(d_j).
+Q_{\rm bdry}=
+\begin{pmatrix}
+E&HW\\
+H^TW&D
+\end{pmatrix}.
 \]
-
-Up to the already-frozen nonzero scalar \((-1)^n/n!\), the duplicated boundary matrix is
-
+After the fixed checkerboard gauge this is the signed \(K_{m,m}\) Laplacian with edge matrix
 \[
-Q_{\rm bdry}=\begin{pmatrix}E&HW\\ H^TW&D\end{pmatrix}.
+C=WHW.
 \]
-
-After the fixed checkerboard gauge it is the signed \(K_{m,m}\) Laplacian with edge matrix
-
+Its spanning-tree cofactor \(\tau_c\) satisfies
 \[
-C=WHW,
+\det P_m(L)[T,S]\ne0\iff \tau_c\ne0.
 \]
 
-row sums \(r=C\mathbf1=W e\), column sums \(s=C^T\mathbf1=W d\), and tree cofactor \(\tau_c\).  The frozen Jacobi-complement/matrix-tree reduction is
-
+Schur-complementing the left vertex class gives
 \[
-\det P_m(L)[T,S]\ne0
-\iff \tau_c\ne0.
+A=E^{-1}HW,\qquad B=D^{-1}H^TW,\qquad
+K=BA=D^{-1}H^TWE^{-1}HW.
 \]
-
-Schur-complementing the left vertex class gives the normalized two-step operator
-
+Because \(A\mathbf1=B\mathbf1=\mathbf1\),
 \[
-A=E^{-1}HW,\qquad B=D^{-1}H^TW,
+K\mathbf1=\mathbf1,
 \]
-
-\[
-K=BA=D^{-1}H^TWE^{-1}HW,\qquad K\mathbf1=\mathbf1,
-\]
-
-and
-
+and the frozen matrix-tree/Jacobi complement argument gives
 \[
 \tau_c\ne0
-\iff \ker(I-K)=\operatorname{span}\{\mathbf1\}.
+\iff
+\ker(I-K)=\operatorname{span}\{\mathbf1\}.
 \]
+Therefore proving simplicity of the fixed point \(1\) for this exact \(K\) proves the original AP critical nonvanishing theorem, and a repeated fixed point is equivalent to an exact critical cofactor kernel.
 
-All transformations introduced below are invertible, and all diagonal normalizers used below are strictly positive; therefore they preserve this nonvanishing question exactly.  This execution does not use the sign of the earlier falling-factorial triangular change-of-basis scalar, only its frozen nonzeroness.
+## New theorem 1: \((WHW)^{-1}\) is strictly totally positive
 
-## New all-m theorem 1: the inverse signed kernel is itself STP
-
-### Statement
-
-For the actual AP kernel and every \(m\ge2\),
-
-\[
-\boxed{\;P:=(WHW)^{-1}\text{ is strictly totally positive.}\;}
-\]
-
-This strengthens the previous checkpoint, which recorded entrywise positivity of \((WHW)^{-1}\).
-
-### Proof
-
-The previous exact Beta/Andreief argument proves that \(H\) is STP.  Let \(I,J\subset\{0,\ldots,n\}\) with \(|I|=|J|=k\).  Jacobi complementarity gives
-
+The prior AP Beta/Andreief checkpoint proves that \(H\) is strictly totally positive (STP). For any equally sized index sets \(I,J\), Jacobi complementarity gives
 \[
 \det H^{-1}[I,J]
 =
 (-1)^{\sum I+\sum J}
 \frac{\det H[J^c,I^c]}{\det H}.
 \]
+The quotient is strictly positive because \(H\) is STP.
 
-Because \(H\) is STP, the quotient on the right is strictly positive.  Write
-
+Write
 \[
 W^{-1}=J\Lambda^{-1},\qquad
-J=\operatorname{diag}((-1)^i),\quad
+J=\operatorname{diag}((-1)^i),\qquad
 \Lambda=\operatorname{diag}\binom ni>0.
 \]
-
-Since
-
+Then
 \[
-P=W^{-1}H^{-1}W^{-1},
+(WHW)^{-1}=W^{-1}H^{-1}W^{-1}.
+\]
+For the minor indexed by \(I,J\), the two checkerboard factors contribute exactly
+\[
+(-1)^{\sum I+\sum J},
+\]
+which cancels the Jacobi sign; all remaining diagonal factors are positive. Hence every minor is strictly positive:
+\[
+\boxed{(WHW)^{-1}\ \text{is STP for every }m\ge2.}
 \]
 
-the row and column checkerboard factors contributed by the two copies of \(W^{-1}\) are again
-\((-1)^{\sum I+\sum J}\), exactly cancelling the Jacobi sign.  The remaining row/column factors are positive.  Hence every minor \(\det P[I,J]\) is strictly positive.  \(\square\)
+## New theorem 2: Beta–Bernstein STP factorization of both half maps
 
-## New all-m theorem 2: exact Beta–Bernstein STP factorization of both half maps
-
-### Binomial Möbius involution
-
-Define the lower-triangular matrix \(R\) by
-
+Define the lower-triangular binomial Mobius matrix
 \[
-R_{jk}=(-1)^k\binom jk\quad(0\le k\le j\le n),
-\qquad R_{jk}=0\quad(k>j).
+R_{jk}=(-1)^k\binom jk\quad(k\le j),\qquad R_{jk}=0\quad(k>j).
 \]
-
 Binomial inversion gives
-
 \[
 R^2=I.
 \]
-
 Set
-
 \[
-\widehat A:=AR,\qquad \widehat B:=BR.
+\widehat A=AR,\qquad \widehat B=BR.
 \]
-
 Then
-
 \[
 A=\widehat A R,\qquad B=\widehat B R.
 \]
 
-### Exact integral entries
-
-Let
-
+For the actual AP shifts, the exact Beta representation is
 \[
-\kappa_m=\frac{m^{2-2m}}{(m-1)!}>0,
+H_{ij}=\kappa_m\int_0^1u^{i+mj}(1-u^{m^2})^n\,du,
 \qquad
-\rho_m(u)=(1-u^{m^2})^n.
+\kappa_m=\frac{m^{2-2m}}{(m-1)!}>0.
 \]
-
-The frozen AP Beta identity is
-
-\[
-H_{ij}=\kappa_m\int_0^1 u^{i+mj}\rho_m(u)\,du.
-\]
-
 Using
-
 \[
 w_jR_{jk}
 =(-1)^{j+k}\binom nj\binom jk
-=(-1)^{j+k}\binom nk\binom{n-k}{j-k},
+=(-1)^{j+k}\binom nk\binom{n-k}{j-k}
 \]
-
-and summing the binomial expansion exactly gives
-
-\[
-\boxed{
-\widehat A_{ik}
-=
-\frac{\kappa_m\binom nk}{e_i}
-\int_0^1
-u^{i+mk}(1-u^m)^{n-k}\rho_m(u)\,du
-}
-\]
-
-where the displayed `nu` is the same integration variable \(u\), i.e.
-
+and the binomial theorem gives the exact entries
 \[
 \widehat A_{ik}
 =
 \frac{\kappa_m\binom nk}{e_i}
 \int_0^1
-u^{i+mk}(1-\nu^m)^{n-k}(1-\nu^{m^2})^n\,d\nu.
+u^{i+mk}(1-u^m)^{n-k}(1-u^{m^2})^n\,du,
 \]
-
-Likewise
-
 \[
-\boxed{
 \widehat B_{jk}
 =
 \frac{\kappa_m\binom nk}{d_j}
 \int_0^1
-u^{mj+k}(1-\nu)^{n-k}(1-\nu^{m^2})^n\,d\nu.
-}
+u^{mj+k}(1-u)^{n-k}(1-u^{m^2})^n\,du.
 \]
+Thus every entry is strictly positive.
 
-In particular every entry of \(\widehat A\) and \(\widehat B\) is strictly positive.
-
-### Strict total positivity
-
-Take increasing row indices \(i_1<\cdots<i_q\), increasing column indices \(k_1<\cdots<k_q\), and ordered integration variables \(0<u_1<\cdots<u_q<1\).  Andreief's identity expresses a minor of the unnormalized \(\widehat A\) as an integral of the product of
-
+For a minor of \(\widehat A\), Andreief reduces its sign on
+\(0<u_1<\cdots<u_q<1\) to the product of two determinants:
 \[
-\det(u_r^{i_a})_{a,r}
+\det(u_r^{i_a})
 \]
-
 and
-
 \[
 \det\!\left[
 \binom n{k_b}(u_r^m)^{k_b}(1-u_r^m)^{n-k_b}
-\right]_{r,b}.
+\right].
 \]
-
-The first determinant is a generalized Vandermonde and is positive on the ordered chamber.  For the second, put
-
+The first is a generalized Vandermonde and is positive. In the second, factor the positive row terms \((1-u_r^m)^n\) and positive column binomial coefficients, then put
 \[
-t_r=\frac{u_r^m}{1-u_r^m},
+t_r=\frac{u_r^m}{1-u_r^m}.
 \]
-
-which is strictly increasing.  Factoring the positive row terms \((1-u_r^m)^n\) and positive column binomial coefficients leaves
-
+The determinant becomes the generalized Vandermonde \(\det(t_r^{k_b})>0\). Positive row scaling by \(E^{-1}\) does not change minor signs. Hence \(\widehat A\) is STP. The same proof for \(\widehat B\), using \(u_r\) in the Bernstein factor and \(u_r^{m j_a}\) in the monomial factor, gives
 \[
-\det(t_r^{k_b})_{r,b}>0,
+\boxed{\widehat A,\widehat B\ \text{are STP for every }m\ge2.}
 \]
 
-again a generalized Vandermonde.  Therefore every minor is positive.  Positive row scaling by \(E^{-1}\) preserves all minor signs, so \(\widehat A\) is STP.
+This is more specific than generic STP: both positive factors arise from the same one-dimensional AP Beta measure \((1-u^{m^2})^{m-1}du\), with Bernstein coordinates linked by \(u\mapsto u^m\).
 
-The proof for \(\widehat B\) is identical, using \(u_r\) instead of \(u_r^m\) in the Bernstein factor and monomials \(u_r^{m j_a}\) in the other determinant.  Thus
+## Smallest remaining lemma and why it is sufficient
 
-\[
-\boxed{\widehat A\text{ and }\widehat B\text{ are STP for every }m\ge2.}
-\]
-
-This theorem uses the common AP Beta measure and is stronger/more structured than generic STP of \(H\).
-
-## Exact smallest remaining lemma after the new factorization
-
-Because
-
+Since
 \[
 K=BA=\widehat B R\widehat A R,
 \]
-conjugating by the involution \(R\) gives
-
+conjugate by the involution \(R\):
 \[
 \mathcal T_m:=RKR=R\widehat B R\widehat A.
 \]
-
-Since \(R\mathbf1=e_0\) and \(K\mathbf1=\mathbf1\),
-
+Because \(R\mathbf1=e_0\) and \(K\mathbf1=\mathbf1\),
 \[
-\mathcal T_m e_0=e_0.
+\mathcal T_me_0=e_0.
 \]
-
-Hence, in the splitting \(\mathbb R^m=\langle e_0\rangle\oplus\mathbb R^{m-1}\),
-
+Therefore, in the splitting
+\(\mathbb R^m=\langle e_0\rangle\oplus\mathbb R^{m-1}\),
 \[
 \mathcal T_m=
 \begin{pmatrix}
@@ -296,33 +208,32 @@ Hence, in the splitting \(\mathbb R^m=\langle e_0\rangle\oplus\mathbb R^{m-1}\),
 \end{pmatrix}.
 \]
 
-Therefore the following explicit lemma is sufficient and necessary for the actual AP mother question:
+The smallest explicit unproved lemma left by this execution is:
 
-> **Beta–Bernstein Möbius quotient lemma.** For every \(m\ge2\), with \(\widehat A,\widehat B,R\) exactly as above,
+> **Beta–Bernstein Mobius quotient lemma.** For every \(m\ge2\),
 > \[
 > \boxed{\det(I_{m-1}-Q_m)\ne0.}
 > \]
 
-Indeed
-
+It is necessary and sufficient because
 \[
 \det(I_{m-1}-Q_m)\ne0
-\iff \ker(I-\mathcal T_m)=\langle e_0\rangle
-\iff \ker(I-K)=\langle\mathbf1\rangle
-\iff \tau_c\ne0
-\iff \det P_m(L)[T,S]\ne0,
+\iff
+\ker(I-\mathcal T_m)=\langle e_0\rangle
+\iff
+\ker(I-K)=\langle\mathbf1\rangle
+\iff
+\tau_c\ne0
+\iff
+\det P_m(L)[T,S]\ne0,
 \]
+and the frozen transfer then returns to the original mixed-difference system \(D_{ij}=c_{ij}A_{ij}=s_i-t_j\).
 
-and the frozen transfer equivalence then returns to the original mixed-difference system.
+## Exact falsification certificate for the naive PF/norm shortcut
 
-This quotient lemma is the smallest explicit unproved lemma left by this execution.  Unlike the previous abstract STP fixed-point statement, both positive factors in it are now given by explicit Bernstein moment kernels over the *same* one-dimensional AP Beta measure.
+A direct Perron-Frobenius proof on \(Q_m\) would require an entrywise-positive quotient, or a simple norm-contraction proof would require a strict operator-norm bound. Both fail exactly already at \(m=4\).
 
-## Exact kill certificate: ordinary PF / standard norm contraction does not close the quotient
-
-A tempting next step is to hope that \(Q_m\) is entrywise positive (so Perron-Frobenius applies directly), or at least that \(\|Q_m\|_\infty<1\).  Both are already false exactly at \(m=4\).
-
-With the definitions above, exact rational arithmetic gives
-
+Exact rational arithmetic gives
 \[
 (Q_4)_{2,0}
 =
@@ -330,9 +241,7 @@ With the definitions above, exact rational arithmetic gives
 {4804527841226553046809847732873233935782957698977851165}
 <0.
 \]
-
-Moreover the absolute row sum of row \(0\) is
-
+Also
 \[
 \sum_j |(Q_4)_{0j}|
 =
@@ -340,51 +249,22 @@ Moreover the absolute row sum of row \(0\) is
 {79519723295283910628602867362432728239040}
 >1,
 \]
-
 with exact excess
-
 \[
 \frac{6633640575315185586200057430629948659779}
 {79519723295283910628602867362432728239040}>0.
 \]
+Therefore neither entrywise PF on \(Q_m\) nor ordinary \(\ell_\infty\) contraction can close the all-\(m\) theorem.
 
-Thus neither entrywise PF on \(Q_m\) nor the ordinary \(\ell_\infty\) contraction is a valid all-\(m\) shortcut.  This is separate from, and consistent with, the previously frozen failure of full sign-regularity for the congruent core \(M\) at \(m=6\).
+The exact regression script is:
+`./scripts/check_perfect_prime_table_critical_cofactor_all_m_proof.py --max-m 5`.
 
-## Exact computational artifact
-
-`./scripts/check_perfect_prime_table_critical_cofactor_all_m_proof.py --max-m 5`
-
-performs exact rational regression checks for:
-
-- \(R^2=I\);
-- STP of \(H\), \((WHW)^{-1}\), \(\widehat A\), and \(\widehat B\) for the bounded regression range;
-- finite nonvanishing of \(\det(I-Q_m)\) in that range (evidence only);
-- the exact \(m=4\) negative quotient entry and \(\ell_\infty\)-norm kill certificate above.
-
-The bounded checks are not used as proof of either all-\(m\) STP theorem; those follow from Jacobi complementarity and Andreief/generalized-Vandermonde arguments above.
+Its bounded-\(m\) checks are evidence/regression only. The all-\(m\) STP theorems above are proved analytically by Jacobi complementarity and Andreief/generalized-Vandermonde arguments.
 
 ## Previously closed shortcuts respected
 
-This execution does **not** use any of the taskbook's closed shortcuts:
-
-- no finite-\(m\) verification is promoted to an all-\(m\) theorem;
-- no claim that raw Cauchy-Binet/tree summands have one sign;
-- no signed-barycentric-as-convex-average argument;
-- no ordinary Schur positivity assumption for the final determinant;
-- no claim that generic STP alone proves the mother theorem;
-- no all-principal-minors-positive shortcut;
-- no right-half-plane spectral assumption;
-- no multivariate multiplier-sequence shortcut;
-- no support-parity/same-sign tree argument;
-- no reuse of the falsified full sign-regularity conjecture for the congruent core \(M\).
+This execution does not promote finite-\(m\) verification to proof; does not assume one-sign Cauchy-Binet or spanning-tree summands; does not interpret signed barycentric weights as convex averaging; does not invoke ordinary Schur positivity of the full determinant; does not claim generic STP alone closes the problem; does not assume all principal minors are positive; does not assume right-half-plane spectrum; does not use a separable multivariate multiplier-sequence shortcut; does not use support-parity/same-sign tree arguments; and does not reuse the previously falsified full sign-regularity conjecture for the congruent core \(M\).
 
 ## Frontier and next exact action
 
-The hard target remains unresolved.  The next proof should attack the Beta–Bernstein Möbius quotient lemma, exploiting *both* facts simultaneously:
-
-1. \(\widehat A\) and \(\widehat B\) are STP Bernstein moment matrices;
-2. they arise from the same measure \((1-u^{m^2})^{m-1}du\), with the two Bernstein coordinates linked by the strict order map \(u\mapsto u^m\).
-
-A generic theorem about arbitrary pairs of STP matrices is insufficient: even normalized STP pairs can have a repeated eigenvalue \(1\).  Any successful oscillation/principal-angle theorem must therefore use this common-measure linkage (or an equally specific AP identity).
-
-Recommended next action: derive an exterior-power or principal-angle representation of the quotient operator \(Q_m\) from the two common-measure Bernstein systems, strong enough to exclude eigenvalue \(1\), without requiring entrywise positivity or an ordinary operator-norm contraction.
+The hard target remains open. The next execution should attack the Beta–Bernstein Mobius quotient lemma using the common-measure linkage between \(\widehat A\) and \(\widehat B\). A generic theorem for arbitrary STP pairs is not enough. The most promising exact interface is an exterior-power/principal-angle or oscillation argument that uses the shared Beta measure and the order map \(u\mapsto u^m\), while avoiding entrywise positivity and ordinary norm contraction.
