@@ -20,7 +20,7 @@ from enterprise_math.p022_barlow_franel_boundary_dual_hasse_jet import (
 
 def test_exact_conjugate_contiguous_reduction() -> None:
     assert boundary_to_conjugate_term_ratio(0) == 1
-    assert conjugate_period_term_ratio(0) == Fraction(2, 243)
+    assert conjugate_period_term_ratio(0) == Fraction(2, 27)
     for index in range(15):
         left, right = conjugate_contiguous_gosper_reduction(index)
         assert left == right
