@@ -1,0 +1,43 @@
+{
+  "schema": "ENTERPRISE_BRC_INERT_MINUS_UNIT_TAIL_REDUCTION_CERTIFICATE_V1",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-MINUS-UNIT-TAIL-BLOCK-CANCELLATION-BRIDGE",
+  "publication_id": "TP2-1D36A3FD357DED15E27B",
+  "researcher_id": "EM-EBP4M-7C31D2",
+  "primary_verdict": "PROOF_NOT_CLOSED_WITH_SMALLER_CANCELLATION_IDENTITY",
+  "exact_advances": [
+    "For p=6m+5 the parent 0/1/2 valuation blocks are exactly the Taylor-order blocks of b_{m,k}(epsilon)=(-5m-4+5epsilon/6)_k(-4m-3+2epsilon/3)_k/((k!)^2 2^k) at epsilon=0, evaluated at epsilon=p.",
+    "T01 is termwise divisible by p, while T02 and T11 are termwise divisible by p^2; only T00 requires genuine aggregate cancellation.",
+    "With B=4m+3, C=binom(2m+1,m), P_m(x)=2F1(-m,-m;m+2;x), the unit tail factors modulo p as T00 = 3*2^(-2B)*C^2*P_m(2)*(5P_m(2)+8P_m'(2)).",
+    "A_m=C*P_m(2)=sum_{k=0}^m 2^(m-k) binom(m,k) binom(2m+1,k) and A_m is congruent modulo p to 2^m P_{2m+1}(sqrt(2)/2)/(sqrt(2)/2).",
+    "Zhi-Hong Sun Theorem 4.5 gives P_{2m+1}(sqrt(2)/2)=0 mod p for p congruent 17 or 23 mod24, hence p divides A_m, P_m(2), G_p, and T00 for both requested classes.",
+    "Therefore every surviving finite-Clausen tail block is now proved to have at least one p factor in the minus classes, and the original mod-p^3 target is exactly normalized to one mod-p^2 certificate.",
+    "The normalized certificate is expanded into two finite scalar conditions R0 and R1 using explicit low/middle/high Taylor coefficients; these remain unproved all-prime and are the smallest residual unit of this execution."
+  ],
+  "imported_theorem": {
+    "source": "Zhi-Hong Sun, Congruences involving binom(2k,k)^2 binom(3k,k) m^{-k}, arXiv:1104.2789v3, Theorem 4.5",
+    "statement_used": "For primes p congruent 17 or 23 mod24, P_floor(p/3)(sqrt(2)/2) is congruent to 0 modulo p.",
+    "scope_check": "Here p=6m+5, so floor(p/3)=2m+1; also p is congruent 1 or 7 mod8, so sqrt(2) exists modulo p."
+  },
+  "normalized_certificate": {
+    "definitions": [
+      "G_p=p*g_p",
+      "T00=p*t00, T01=p*t01, T02=p^2*t02, T11=p^2*t11",
+      "T_p/p = t00+t01+p(t02+t11) mod p^2"
+    ],
+    "equivalent_target": "g_p H_p - t00 - t01 - p(t02+t11) = -1 mod p^2",
+    "deformation_form": "With G_p=F0+pF1+p^2F2 and H_p=J0+pJ1, set g0=F0/p+F1, g1=F2, tau0=T000/p+T001+U010, tau1=T002+U011+U020+U110. Then R0: g0*J0-tau0=-1 mod p; R1: (g0*J0-tau0+1)/p + g0*J1+g1*J0-tau1=0 mod p."
+  },
+  "regression": {
+    "bound": 300,
+    "all_primes_p_eq_5_mod_6": 32,
+    "target_prime_count": 15,
+    "class_17_count": 8,
+    "class_23_count": 7,
+    "target_primes": [17, 23, 41, 47, 71, 89, 113, 137, 167, 191, 233, 239, 257, 263, 281],
+    "failures": 0,
+    "status": "PASS",
+    "proof_status": "FINITE_REGRESSION_ONLY_NOT_A_PROOF"
+  },
+  "smallest_unresolved_identity": "Prove R0 and R1 uniformly for p congruent 17 or 23 mod24, equivalently obtain the p^2 lift of the CM/reverse-tail factorization together with the first p-adic digits of the middle/high deformation blocks.",
+  "target_status": "UNPROVED_UNREFUTED_AFTER_EXACT_SECOND_ORDER_REDUCTION"
+}
