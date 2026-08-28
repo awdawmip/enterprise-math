@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-C2F87E1A9435B60D7E11",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+  "publication_id": "TP2-A19C97A703AF47D1CBEC",
+  "execution_record_id": "ER-7A4C21F02D8E6B1953AC",
+  "claim_id": "chatgpt-ebp6jt-20260828-1426-7a4c21",
+  "taskbook_path": "research_tasks/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_20260828.md",
+  "taskbook_blob_sha1": "sha1:425c65757974783e4268f37b8ee903fd46642dd4",
+  "execution_branch": "research/enterprise-brc-half-inert-plus-terminating-jacobi-jet-certificate-em-ebp6jt-7a4c21",
+  "execution_branch_base": "0844f2d167e1665c52731125727e6423cd856dae",
+  "return_path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md",
+  "return_blob_sha1": "sha1:be05f3af691c22c15913e10153a7d2c3ebfbf1ac",
+  "return_sha256": "sha256:bafa21c9da3a46603b60664c4a41aa632106ef140eeeed5d4e8bf3178f8b0060",
+  "owner_head": "5daf7ffac489dbda017dd8254b4a48c3eec1049d",
+  "researcher_id": "EM-EBP6JT-7A4C21",
+  "frozen_at": "2026-08-28T07:07:43+00:00",
+  "terminal_verdict": "EXACT_OBSTRUCTION",
+  "hard_target_disposition": "ACHIEVED_BY_PARTIAL_STRICT_REDUCTION / CM-HASSE ZERO PROVED UNIFORMLY FOR BOTH TARGET CLASSES / SIMPLE-ROOT TRANSVERSALITY PROVED / JT0 REDUCED TO ONE NONZERO UNIT-RECIPROCITY CERTIFICATE UR / JT2 REDUCED TO UR PLUS ONE CUTOFF-SAFE SECOND-DIGIT LIFT / FULL JT2 REMAINS OPEN",
+  "unresolved_residue": "Prove UR: (g/p)(-6 Q'_m(1/2)) congruent 1 mod p for every p congruent 13 or 19 mod 24, then prove LIFT: (((g/p)h-1)/p) congruent R_p mod p. The ordinary Coster-van Hamme CM ASD theorem does not directly apply because it assumes split primes (-d/p)=+1, while this discriminant -24 lane has (-6/p)=-1. Preferred next route is a supersingular CM/crystalline Hasse-derivative formula or an equivalent finite WZ certificate. Do not reopen CM0, SIMPLE, or parent Clausen-tail bookkeeping.",
+  "output_manifest": [
+    {
+      "path": "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_RETURN_20260828.md",
+      "git_blob_sha1": "sha1:be05f3af691c22c15913e10153a7d2c3ebfbf1ac",
+      "sha256": "sha256:bafa21c9da3a46603b60664c4a41aa632106ef140eeeed5d4e8bf3178f8b0060"
+    },
+    {
+      "path": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/jacobi_cm_hasse_reduction_20260828.json",
+      "git_blob_sha1": "sha1:3aa1476009ee0f2a8c939f261ddaa8d80b9e0afa",
+      "sha256": "sha256:1c97e1d3d72242edcfe220c7da459ce5e59fd5d667609a0c286de808e0326b21"
+    },
+    {
+      "path": "scripts/check_enterprise_brc_half_coupling_inert_plus_terminating_jacobi_jet_certificate.py",
+      "git_blob_sha1": "sha1:8623dafb15d2865793506bcf73d556d712eb0a9d",
+      "sha256": "sha256:caac1e5d3960243c50f0bc12b43840e9dc143ad9e2a198d7a9679adafdf19335"
+    },
+    {
+      "path": "research_execution_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE/ER-7A4C21F02D8E6B1953AC.json",
+      "git_blob_sha1": "sha1:da33330a2f95ac76f8015b2c4a1c13e8218a43e3",
+      "sha256": "sha256:e2377d2b95eb70f1f8078cac80f3f8772624f5e2bc63e1223fa34204488553de"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_APPLICABLE",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "DRIVER_REVIEW; ACCEPT THE CM0+SIMPLE THEOREMS AND STRICT REDUCTION IF VALIDATED. IF CONTINUING, PUBLISH ONLY A NARROW DISCRIMINANT--24 SUPERSINGULAR UNIT-RECIPROCITY SUCCESSOR FOR UR; RETAIN LIFT AS THE NEXT SECOND-DIGIT GATE. DO NOT REOPEN FINITE TAIL BOOKKEEPING.",
+  "driver_review_required": true
+}
