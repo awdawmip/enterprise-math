@@ -58,7 +58,7 @@ class DriverFollowupContractTests(unittest.TestCase):
 
     def test_baseline_is_pinned_and_current_ids_remain_present(self):
         self.assertEqual([], followup.baseline_audit())
-        self.assertEqual(28, len(followup.legacy_review_ids()))
+        self.assertEqual(27, len(followup.legacy_review_ids()))
         self.assertEqual(
             "d1514b1ea2f3f6f91c3b793c8d0bcb618ce093c6",
             followup.FROZEN_BASE,
