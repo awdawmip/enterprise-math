@@ -1,0 +1,73 @@
+{
+  "canonical_promotion_granted": false,
+  "created_at": "2026-08-28T04:36:00+00:00",
+  "decision": "TASK_SET_PUBLISHED",
+  "driver_id": "EM-DVR-K7Q4N8",
+  "foundation_authority_granted": false,
+  "gate_decisions": [
+    {
+      "decision": "REQUIRED",
+      "evidence_refs": [
+        "driver_reviews/ENTERPRISE_BRC_HALF_COUPLING_INERT_MINUS_UNIT_TAIL_BLOCK_CANCELLATION_BRIDGE_DRIVER_REVIEW_20260828.md",
+        "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_MINUS_UNIT_TAIL_BLOCK_CANCELLATION_BRIDGE_RETURN_20260827.md#final-boundary"
+      ],
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "reason": "The reviewed result closes the mod-p cancellation layer but leaves the exact second-order R0-minus/R1-minus lift unproved and unrefuted; one bounded continuation is the sole live mathematical gate."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "LEAN_FORMALIZATION",
+      "reason": "The all-prime second-order theorem is still open and the proof interface may narrow further; formalization is lower leverage before the remaining certificate is settled."
+    },
+    {
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "evidence_refs": [
+        "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_MINUS_UNIT_TAIL_BLOCK_CANCELLATION_BRIDGE_RETURN_20260827.md#3-legendrecm-vanishing-proves-pmid-t_00-and-pmid-g_p",
+        "Zhi-Hong Sun, Congruences involving binom(2k,k)^2 binom(3k,k), arXiv:1104.2789v3, Theorem 4.5"
+      ],
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "reason": "The reviewed proof identifies and uses the exact existing CM/Legendre theorem only at its proved mod-p scope; no existing p-squared lift is treated as available."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "INDEPENDENT_REPLICATION",
+      "reason": "The accepted output is an explicit reduction with an exact checker, while the all-prime lift remains open. Independent replication becomes the next control priority after a proof or counterexample is frozen."
+    },
+    {
+      "decision": "NOT_REQUIRED",
+      "evidence_refs": [],
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "reason": "The result is RESULT_ONLY and does not yet expose a stable cross-family executable interface warranting toolbox integration."
+    },
+    {
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "evidence_refs": [
+        "driver_reviews/ENTERPRISE_BRC_HALF_COUPLING_INERT_MINUS_UNIT_TAIL_BLOCK_CANCELLATION_BRIDGE_DRIVER_REVIEW_20260828.md",
+        "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_MINUS_UNIT_TAIL_BLOCK_CANCELLATION_BRIDGE/reduction_certificate_20260827.json"
+      ],
+      "gate": "ADVERSARIAL_AUDIT",
+      "reason": "The result separates theorem-backed CM vanishing from bounded regression, proves the only aggregate unit-tail cancellation, and preserves the unproved second-order obligations without promoting them."
+    }
+  ],
+  "packet_id": "DFU-AABDCBF864AE19752AB1",
+  "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "review_disposition": "ACCEPTED",
+  "review_id": "DR-1EAA7AB946D35B04AB89",
+  "result_id": "RR-ED9623B2B5753F6E6464",
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "source_next_control_plane_recommendation": "DRIVER_REVIEW; IF ACCEPTED AND CONTINUATION VALUE REMAINS HIGH, PUBLISH ONE NARROW SUCCESSOR FOR THE SECOND-ORDER CM/JACOBI LIFT (R0-)+(R1-); DO NOT REOPEN THE PROVED UNIT-TAIL MOD-P CANCELLATION OR SUBSTITUTE A LARGER PRIME SCAN FOR PROOF.",
+  "source_publication_id": "TP2-1D36A3FD357DED15E27B",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-MINUS-UNIT-TAIL-BLOCK-CANCELLATION-BRIDGE",
+  "task_publications": [
+    {
+      "publication_id": "TP2-05DB03EAF4E1DDCDBDF2",
+      "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-MINUS-SECOND-ORDER-CM-JACOBI-LIFT",
+      "task_role": "MATHEMATICAL_CONTINUATION"
+    }
+  ],
+  "working_truth_granted": false
+}

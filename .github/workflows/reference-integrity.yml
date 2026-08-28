@@ -26,6 +26,8 @@ jobs:
           python-version: '3.12'
       - name: Check citation and lineage integrity
         run: python tools/check_references.py
+      - name: Fail fast on post-cutover publication writer bypass
+        run: python control_plane/check_post_cutover_publication_envelope.py
       - name: Check shared theorem and tool routing
         run: python tools/check_research_common_surface.py
       - name: Check exhaustive historical PR migration ledger
