@@ -58,7 +58,15 @@ class DriverFollowupContractTests(unittest.TestCase):
 
     def test_baseline_is_pinned_and_current_ids_remain_present(self):
         self.assertEqual([], followup.baseline_audit())
-        self.assertEqual(12, len(followup.legacy_review_ids()))
+        self.assertEqual(28, len(followup.legacy_review_ids()))
+        self.assertEqual(
+            "d1514b1ea2f3f6f91c3b793c8d0bcb618ce093c6",
+            followup.FROZEN_BASE,
+        )
+        self.assertEqual(
+            "a37d1b9c1fdc550ea8652fa81bc6497b6082724a",
+            followup.FROZEN_REVIEW_TREE,
+        )
 
     def test_missing_authority_id_never_gains_legacy_exemption(self):
         self.assertTrue(followup.review_requires_followup({}))
@@ -286,7 +294,9 @@ class ResultReductionFollowupBarrierTests(unittest.TestCase):
             state = results._apply_followup_gate(self.reduced(), self.result, results.ROOT)
         self.assertFalse(state["terminal"])
         self.assertEqual("AWAITING_DRIVER_REVIEW", state["state"])
-        self.assertEqual("AWAITING_FOLLOWUP_TASKSET_PUBLICATION", state["driver_followup_state"])
+        self.assertEqual(
+            "AWAITING_FOLLOWUP_TASKSET_PUBLICATION", state["driver_followup_state"]
+        )
 
     def test_valid_followup_allows_terminal_authority_to_terminalize(self):
         packet = {"packet_id": "DFU-TEST", "decision": "TASK_SET_PUBLISHED"}
