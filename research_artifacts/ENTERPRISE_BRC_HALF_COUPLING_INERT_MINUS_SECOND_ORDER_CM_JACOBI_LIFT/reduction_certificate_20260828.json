@@ -1,0 +1,59 @@
+{
+  "schema": "ENTERPRISE_BRC_INERT_MINUS_SECOND_ORDER_CLAUSEN_REDUCTION_CERTIFICATE_V1",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-MINUS-SECOND-ORDER-CM-JACOBI-LIFT",
+  "publication_id": "TP2-05DB03EAF4E1DDCDBDF2",
+  "researcher_id": "EM-EBP5M2-D74849",
+  "status": "STRICT_EXACT_REDUCTION / FULL_UNIFORM_PROOF_NOT_CLOSED",
+  "frozen_parent_interface": {
+    "target_classes": "p congruent 17 or 23 modulo 24",
+    "R0_minus": "g0*J0-tau0 == -1 (mod p)",
+    "R1_minus": "(g0*J0-tau0+1)/p + g0*J1 + g1*J0 - tau1 == 0 (mod p)",
+    "equivalent_parent_target": "S_p = G_p*H_p-T_p == -p (mod p^3)"
+  },
+  "exact_collapse": {
+    "B_k": "(1/6)_k(1/3)_k/(k!)^2 * 2^(-k)",
+    "symmetrization": "G_p H_p = sum_{0<=i,j<p} (1+6(i+j)) B_i B_j",
+    "triangle": "S_p = sum_{i+j<p} (1+6(i+j)) B_i B_j",
+    "finite_clausen_coefficient": "sum_{i=0}^n B_i B_{n-i} = binom(2n,n)^2 binom(3n,n) / 216^n",
+    "collapsed_sum": "W_p = sum_{n=0}^{p-1} (6n+1) binom(2n,n)^2 binom(3n,n) / 216^n",
+    "exact_identity": "S_p = W_p",
+    "task_equivalence": "(R0-minus and R1-minus) iff W_p == -p (mod p^3) for p congruent 17 or 23 modulo 24"
+  },
+  "valuation_control": {
+    "formula": "v_p(binom(2n,n)^2 binom(3n,n)) = floor(2n/p)+floor(3n/p) for 0<=n<p",
+    "target_class_truncation": "for p congruent 2 modulo 3, terms n>(2p-1)/3 are 0 modulo p^3"
+  },
+  "classical_identification": {
+    "source": "Zhi-Wei Sun, Open Conjectures on Congruences, arXiv:0911.5665v41, Conjecture A14(ii)",
+    "statement_at_a_1": "W_p == p*(p/3) (mod p^3)",
+    "specialization": "p congruent 17 or 23 modulo 24 implies (p/3)=-1, hence exactly W_p == -p (mod p^3)",
+    "proof_status_in_this_execution": "NO_VERIFIABLE_ALL_PRIME_PROOF LOCATED; DO NOT TREAT THE CONJECTURE AS AN IMPORTED THEOREM"
+  },
+  "swisher_bridge": {
+    "M": "(2p-1)/3",
+    "E_p": "sum_{k=0}^M (-1)^k(6k+1)(1/3)_k^3/(k!)^3",
+    "imported_theorem": "Swisher (2015): E_p == -2p (mod p^3) for p congruent 2 modulo 3",
+    "smallest_candidate_certificate": "C_p := 2*sum_{k=0}^M (6k+1)(1/2)_k(1/3)_k(2/3)_k/(k!)^3*2^(-k) - E_p == 0 (mod p^3)",
+    "equivalence_under_swisher": "C_p == 0 (mod p^3) iff W_p == -p (mod p^3)",
+    "proof_status": "OPEN_IN_THIS_EXECUTION",
+    "bounded_regression": "PASS for every prime p congruent 2 modulo 3, 5<=p<=1000 (86 primes)"
+  },
+  "independent_domb_route": {
+    "D_n": "sum_{k=0}^n binom(n,k)^2 binom(2k,k) binom(2n-2k,n-k)",
+    "diagnostic": "sum_{n=0}^{p-1}(2n+1)D_n/(-8)^n == -p (mod p^3) for p congruent 2 modulo 3",
+    "bounded_regression": "PASS for 12 primes 5<=p<=100",
+    "boundary": "Rogers' analytic pullback has a non-negligible finite truncation boundary; it is not a proof of the diagnostic or of W_p"
+  },
+  "route_specific_no_go": "The analytic infinite-series identity cannot be truncated term-for-term without a boundary correction: the infinite Ramanujan values satisfy W_infinity=2*E_infinity, whereas the finite p-adic bridge required by the target is E_p=2*W_p modulo p^3. Therefore any valid transformation proof must explicitly account for the finite tail/boundary.",
+  "regression": {
+    "checker": "scripts/check_enterprise_brc_half_coupling_inert_minus_second_order_cm_jacobi_lift.py",
+    "clausen_exact_coefficients": "0..10 PASS",
+    "all_prime_W_formula": "166 primes 5<=p<=1000 PASS against W_p == p*(p/3) mod p^3",
+    "target_class": "45 primes p congruent 17 or 23 modulo 24, p<=1000 PASS",
+    "proof_semantics": "FINITE_REGRESSION_ONLY"
+  },
+  "smallest_unresolved_identity": "Prove the finite cubic/Clausen-to-Swisher bridge C_p == 0 (mod p^3) uniformly for primes p congruent 17 or 23 modulo 24 (or all p congruent 2 modulo 3).",
+  "foundation_mutation": "NONE",
+  "working_truth_granted": false,
+  "novelty_or_priority_claim": "NONE"
+}
