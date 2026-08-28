@@ -28,6 +28,8 @@ jobs:
         run: python tools/check_references.py
       - name: Check post-cutover publication writer envelope
         run: python control_plane/check_post_cutover_publication_envelope.py
+      - name: Check opt-in source firewall declarations
+        run: python scripts/check_research_source_firewall.py
       - name: Check shared theorem and tool routing
         run: >-
           python -c "from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; c.check(); print('research common surface: PASS')"
