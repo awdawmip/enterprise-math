@@ -30,6 +30,10 @@ jobs:
         run: python control_plane/check_post_cutover_publication_envelope.py
       - name: Check current control authority and role routing consistency
         run: python control_plane/check_current_control_authority.py
+      - name: Check semantic-safe control migration and protected selectors
+        run: python control_plane/check_control_semantic_migration_registry.py
+      - name: Check executable consumers before canonical-dispatch pointer migration
+        run: python control_plane/check_control_pointer_python_consumers.py
       - name: Check opt-in source firewall declarations
         run: python scripts/check_research_source_firewall.py
       - name: Check shared theorem and tool routing
