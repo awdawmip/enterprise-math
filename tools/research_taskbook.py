@@ -22,6 +22,18 @@ VALID_ORIGINS = {
     "REPLAY_OR_INTEGRATION",
     "MAINTENANCE",
 }
+DIGEST_EXCLUDE_BEGIN_RE = re.compile(
+    r"^<!-- TASKBOOK_POLICY_DIGEST_EXCLUDE_BEGIN: ([A-Z0-9_.-]+) -->$"
+)
+DIGEST_EXCLUDE_END_RE = re.compile(
+    r"^<!-- TASKBOOK_POLICY_DIGEST_EXCLUDE_END: ([A-Z0-9_.-]+) -->$"
+)
+DIGEST_EXCLUDED_OPERATIONAL_BLOCKS = {
+    "CONTEXT_READ_BUDGET": {
+        "AGENTS.md",
+        "docs/GITHUB_INTERACTION_BUDGET.md",
+    },
+}
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -38,13 +50,59 @@ def git_blob_identity(data: bytes) -> bytes:
     return hashlib.sha1(header + data).digest()
 
 
+def taskbook_policy_digest_payload(rel: str, data: bytes) -> bytes:
+    """Remove explicitly allowed runtime-only addenda from taskbook policy coupling.
+
+    Taskbook policy digests freeze mathematical/task-authoring semantics. Pure
+    conversational read-budget changes must be visible to every agent without
+    invalidating every already-published taskbook. Only named addenda on an exact
+    path allowlist are excluded; malformed, nested, unknown, or mismatched markers
+    fail closed.
+    """
+    try:
+        text = data.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise ValueError(f"{rel}: taskbook policy input must be UTF-8") from exc
+    lines = text.splitlines(keepends=True)
+    out: list[str] = []
+    active: str | None = None
+    for line in lines:
+        marker = line.rstrip("\r\n")
+        begin = DIGEST_EXCLUDE_BEGIN_RE.fullmatch(marker)
+        end = DIGEST_EXCLUDE_END_RE.fullmatch(marker)
+        if begin:
+            label = begin.group(1)
+            allowed_paths = DIGEST_EXCLUDED_OPERATIONAL_BLOCKS.get(label)
+            if allowed_paths is None or rel not in allowed_paths:
+                raise ValueError(f"{rel}: unauthorized taskbook policy digest exclusion {label}")
+            if active is not None:
+                raise ValueError(f"{rel}: nested taskbook policy digest exclusions are forbidden")
+            active = label
+            continue
+        if end:
+            label = end.group(1)
+            if active is None:
+                raise ValueError(f"{rel}: unmatched taskbook policy digest exclusion end {label}")
+            if label != active:
+                raise ValueError(
+                    f"{rel}: taskbook policy digest exclusion end {label} does not match {active}"
+                )
+            active = None
+            continue
+        if active is None:
+            out.append(line)
+    if active is not None:
+        raise ValueError(f"{rel}: unterminated taskbook policy digest exclusion {active}")
+    return "".join(out).encode("utf-8")
+
+
 def policy_digest(root: Path = ROOT) -> str:
     policy = policy_manifest(root)
     h = hashlib.sha256()
     paths = ["research_taskbook_policy.json", *policy["policy_inputs"]]
     for rel in paths:
         path = root / rel
-        data = path.read_bytes()
+        data = taskbook_policy_digest_payload(rel, path.read_bytes())
         h.update(rel.encode("utf-8"))
         h.update(b"\0")
         h.update(git_blob_identity(data))
