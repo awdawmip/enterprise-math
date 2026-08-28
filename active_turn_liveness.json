@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_ACTIVE_TURN_LIVENESS_V2",
   "status": "ACTIVE_CANONICAL",
-  "effective": "2026-08-25",
+  "effective": "2026-08-28",
   "runtime_orchestrator": "research_runtime_state_machine.json",
   "runtime_evaluator": "tools/research_runtime.py",
   "scope": [
@@ -9,6 +9,7 @@
     "TASK_RESEARCH",
     "RESEARCH_DRIVER",
     "FOUNDATION_STEWARD",
+    "CONTROL_PLANE_MAINTENANCE",
     "REMOTE_AND_PUBLICATION_SUBFLOWS"
   ],
   "execution_stack": [
@@ -28,7 +29,12 @@
     "LOCAL_ROUTE_CLOSURE_DOES_NOT_CLOSE_PARENT_GOAL",
     "BLOCKED_SUBFLOW_IS_NOT_PARENT_BLOCK_WHEN_INDEPENDENT_SAFE_WORK_EXISTS",
     "USER_WAKEUP_MESSAGE_MUST_NOT_BE_REQUIRED_WHEN_IT_ADDS_NO_INFORMATION",
-    "NO_PROGRESS_ACTION_MUST_NOT_REPEAT_WITHOUT_STATE_CHANGE"
+    "NO_PROGRESS_ACTION_MUST_NOT_REPEAT_WITHOUT_STATE_CHANGE",
+    "USER_INTERRUPT_PREEMPTS_NONESSENTIAL_DIAGNOSTIC_EXPANSION",
+    "CONTROL_PLANE_INSPECTION_STOPS_AT_SUFFICIENT_EVIDENCE",
+    "SAME_ERROR_SIGNATURE_COLLAPSES_TO_ONE_ROOT_CAUSE",
+    "READ_SNAPSHOT_IS_NOT_WRITE_AUTHORITY",
+    "LONG_RESEARCH_COMPUTE_IS_NOT_CONTROL_PLANE_NO_PROGRESS"
   ],
   "pre_final_guard": {
     "evaluator": "tools/active_turn_liveness.py",
@@ -96,6 +102,69 @@
       "PUBLICATION_SUBFLOW"
     ]
   },
+  "control_plane_efficiency": {
+    "model": "COOPERATIVE_SOFT_WATCHDOG",
+    "hard_wall_clock_limit": false,
+    "research_compute_may_be_long_if_semantic_frontier_advances": true,
+    "control_plane_work_is_overhead_not_parent_objective": true,
+    "default_control_cycle_tool_calls": {
+      "min": 2,
+      "max": 3
+    },
+    "after_each_control_cycle_recompute": [
+      "WHAT_NEW_VERIFIED_INFORMATION_WAS_GAINED",
+      "DID_DECISION_OR_NEXT_ACTION_CHANGE",
+      "IS_MORE_CONTROL_INSPECTION_REQUIRED_FOR_CURRENT_USER_REQUEST"
+    ],
+    "material_progress": {
+      "counts": [
+        "NEW_VERIFIED_FACT",
+        "NEW_COUNTEREXAMPLE_OR_PROOF_STEP",
+        "NEW_DURABLE_FRONTIER",
+        "NEW_FAILURE_ROOT_CAUSE",
+        "NEW_COMMIT_OR_REMOTE_STATE_CHANGE",
+        "CURRENT_UNFINISHED_UNIT_ADVANCED"
+      ],
+      "does_not_count": [
+        "REPEATED_READ_OF_SAME_STATE",
+        "REPEATED_CI_OR_STATUS_POLL_WITHOUT_STATE_CHANGE",
+        "SAME_ERROR_SIGNATURE_FROM_ANOTHER_SHARD_OR_LOG",
+        "TOOL_STARTED_WITHOUT_RESULT",
+        "GENERIC_STILL_WORKING_UPDATE",
+        "RECONFIRMATION_THAT_DOES_NOT_CHANGE_DECISION"
+      ]
+    },
+    "max_consecutive_tool_results_without_material_state_change": 2,
+    "after_two_no_progress_results": "STOP_SAME_INSPECTION_PATH_AND_RETURN_CURRENT_RESULT_OR_SWITCH_STRATEGY",
+    "user_interrupt": {
+      "status_report_or_direction_change_preempts_nonessential_diagnostics": true,
+      "required_action": "STOP_EXPANDING_CURRENT_SUBFLOW_AND_ANSWER_FROM_HIGHEST_VERIFIED_FRONTIER"
+    },
+    "sufficient_evidence": {
+      "rule": "STOP_DIAGNOSTIC_EXPANSION",
+      "exhaustive_inspection_default": false,
+      "exhaustive_inspection_allowed_only_when_required_by_integrity_decision": true
+    },
+    "same_error_signature": {
+      "rule": "COLLAPSE_TO_ONE_ROOT_CAUSE",
+      "continue_opening_equivalent_logs": false,
+      "expand_only_if_new_signature_or_decision_relevant_detail_appears": true
+    },
+    "status_report_minimum_snapshot": [
+      "CURRENT_MAIN",
+      "ACTIVE_CONTROL_PR_OR_CHANGE_IF_ANY",
+      "CI_OR_GATE_SUMMARY",
+      "CURRENT_P0_OR_P1_BLOCKER",
+      "LAST_MATERIAL_PROGRESS",
+      "NEXT_CONTROL_ACTION"
+    ],
+    "mutation_authority": {
+      "read_snapshot_is_write_authority": false,
+      "refresh_continuously_during_read_phase": false,
+      "refresh_target_authority_immediately_before_remote_mutation": true,
+      "use_compare_and_swap_or_exact_expected_sha_when_supported": true
+    }
+  },
   "blocked_subflow_semantics": {
     "blocked_subflow_is_parent_blocker": false,
     "parent_block_requires": "NO_EXECUTABLE_INDEPENDENT_OR_DOWNSTREAM_SAFE_WORK_REMAINS",
@@ -146,8 +215,12 @@
   "forbidden_states": [
     "WAITING_FOR_CONTINUE_WHEN_CONTINUE_ADDS_NO_INFORMATION",
     "PREMATURE_FINAL_WHILE_PARENT_INCOMPLETE_AND_EXECUTABLE_ACTION_EXISTS",
-    "REPEATING_IDENTICAL_NO_PROGRESS_ACTION_WITHOUT_STATE_CHANGE"
+    "REPEATING_IDENTICAL_NO_PROGRESS_ACTION_WITHOUT_STATE_CHANGE",
+    "CONTROL_PLANE_DIAGNOSTIC_EXPANSION_AFTER_SUFFICIENT_EVIDENCE",
+    "THIRD_SAME_PATH_CONTROL_CALL_AFTER_TWO_NO_PROGRESS_RESULTS",
+    "USER_STATUS_INTERRUPT_IGNORED_DURING_NONESSENTIAL_DIAGNOSTICS",
+    "REMOTE_MUTATION_FROM_STALE_READ_SNAPSHOT_WITHOUT_AUTHORITY_REFRESH"
   ],
   "forbidden_state": "WAITING_FOR_CONTINUE_WHEN_CONTINUE_ADDS_NO_INFORMATION",
-  "enforcement_boundary": "REPOSITORY_CANONICAL_RUNTIME_ORCHESTRATOR_PLUS_PRIMITIVE_EVALUATOR_AND_REGRESSION_GUARD; PRODUCT_RUNTIME_MUST_INVOKE_OR_REIMPLEMENT_THIS DECISION TO PHYSICALLY BLOCK A FINAL RESPONSE"
+  "enforcement_boundary": "COOPERATIVE_PROMPT_AND_REPOSITORY_RUNTIME_ENFORCE_CONTROL_FLOW_WHERE_INVOKED; PRODUCT_RUNTIME_IS_REQUIRED_FOR_PHYSICAL_PREEMPTION_OR_CANCELLATION"
 }
