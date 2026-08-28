@@ -2,9 +2,15 @@
 """Reference-integrity checker for task-local publication-fork isolation."""
 from __future__ import annotations
 
+import sys
 from datetime import datetime, timezone
+from pathlib import Path
 
-from control_plane import research_publication_fault_isolation as isolation
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from control_plane import research_publication_fault_isolation as isolation  # noqa: E402
 
 
 def audit() -> list[str]:
