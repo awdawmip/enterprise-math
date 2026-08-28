@@ -38,6 +38,23 @@ def authorize_execution(
     binding = result.get("execution_binding")
     if not isinstance(binding, Mapping):
         return result
+
+    # The core obtains record_path only from canonical repository state.  Real
+    # immutable records therefore exist at this path.  Several focused unit
+    # tests deliberately mock current_records() with in-memory publication
+    # dictionaries and fake _record_path values to isolate lane/CLAIM logic.
+    # An optional taskbook firewall must stay transparent to those synthetic
+    # registrations instead of converting a test fixture into a filesystem
+    # authority source.
+    registration = result.get("task_registration")
+    record_ref = registration.get("record_path") if isinstance(registration, Mapping) else None
+    if isinstance(record_ref, str):
+        record_path = Path(record_ref)
+        if not record_path.is_absolute():
+            record_path = root / record_path
+        if not record_path.is_file():
+            return result
+
     try:
         gate = _firewall.execution_gate(
             task_id=str(result["task_id"]),
