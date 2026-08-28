@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.9`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V3.0`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -8,14 +8,17 @@ Status: `ACTIVE / STABLE EXECUTION ROUTER / V2.9`
 
 Current explicit user instruction controls scope.
 
-Current research roles/modes:
+Current operating modes:
 
 - `EM_FREE_RESEARCHER` -> `FREE_AXIOM_DISCOVERY`;
 - explicit user task / registered task / taskbook / scheduler dispatch -> `TASK_RESEARCH`;
 - explicit Driver activation -> `RESEARCH_DRIVER`;
-- explicit Foundation Steward activation/maintenance -> `FOUNDATION_STEWARD`.
+- explicit Foundation Steward activation/maintenance -> `FOUNDATION_STEWARD`;
+- explicit dispatch/liveness/CI/authority/control maintenance, especially when the user excludes research/review -> `CONTROL_PLANE_MAINTENANCE`.
 
-Exact role authority:
+`CONTROL_PLANE_MAINTENANCE` is not a research identity and grants no Researcher, Driver, Steward, theorem, review, or promotion authority.
+
+Exact research-role authority:
 
 - `research_architecture.json`;
 - `research_role_policy.json`;
@@ -44,6 +47,40 @@ A semantic checkpoint, journal write, tool return, recoverable tool error, PR/br
 When the user says continue/keep going/do not stop/until satisfied/until no further progress/solve blocker and continue, the parent continuation lease remains active until that criterion is met or revoked.
 
 `PASS_IS_NOT_A_SUCCESSOR_TRIGGER` remains binding, but every Stage terminal verdict receives same-turn successor-gate/closure/portfolio evaluation.
+
+### Control-plane efficiency soft watchdog
+
+Control-plane work is **overhead**, not the parent research objective. Long mathematical reasoning, proof construction, exact computation, enumeration, or formalization may legitimately run for a long time when the semantic frontier is advancing; control-plane inspection must remain bounded and convergent.
+
+Freeze:
+
+`LONG_RESEARCH_COMPUTE != CONTROL_PLANE_NO_PROGRESS`.
+
+`USER_INTERRUPT -> PREEMPT_NONESSENTIAL_DIAGNOSTIC_EXPANSION -> ANSWER_FROM_HIGHEST_VERIFIED_FRONTIER`.
+
+`SUFFICIENT_EVIDENCE -> STOP_DIAGNOSTIC_EXPANSION`.
+
+`SAME_ERROR_SIGNATURE -> COLLAPSE_TO_ONE_ROOT_CAUSE`.
+
+`READ_SNAPSHOT != WRITE_AUTHORITY`.
+
+For control-plane inspection, use one bounded cycle of normally **2–3 tool calls**, then recompute:
+
+1. what new verified information was gained;
+2. whether the decision or next action changed;
+3. whether more inspection is actually required by the current user request.
+
+If two consecutive tool results produce no material state change, do not make a third call down the same inspection path. Return the current result or switch strategy. A repeated read, unchanged CI/status poll, equivalent error from another shard/log, generic “still working” update, or reconfirmation that changes no decision is not material progress.
+
+When several jobs/logs expose the same error signature, inspect one representative instance and stop opening equivalent logs unless a new signature or decision-relevant detail appears. Exhaustive inspection is opt-in only when an integrity decision genuinely requires it.
+
+A user status/report/direction-change message immediately preempts nonessential diagnostic expansion. Do not turn “汇报/怎么样了/什么情况” into an exhaustive audit before answering.
+
+For a status report, the default minimum sufficient snapshot is: current main, active control PR/change if any, CI/gate summary, current P0/P1 blocker, last material progress, and next control action.
+
+During a read-only subflow, reuse one coherent snapshot instead of continuously refreshing moving state. Immediately before any remote mutation, refresh the **target authority** and use exact expected SHA / compare-and-swap semantics when supported. Do not treat a snapshot obtained earlier in a long turn as current write authority.
+
+This is a cooperative soft watchdog for chat-only execution. It deliberately does not impose a wall-clock limit on mathematical work and does not pretend repository prompts can physically preempt an in-flight product turn.
 
 ### Unified runtime gate
 
@@ -150,11 +187,13 @@ Live registered events are authenticated from the **same GitHub comment's server
 
 ## 3. Identity and mandatory final footer
 
-Resolve visible identity before substantive work:
+Resolve visible identity before substantive research-role work:
 
 - Researcher -> `Researcher-ID`;
 - Driver -> `Driver-ID`;
 - Foundation Steward -> `Steward-ID`.
+
+`CONTROL_PLANE_MAINTENANCE` alone does not activate a research-role identity marker.
 
 Identity registration is nonblocking. Publisher identity is persisted in the publication record; reusable taskbooks do not freeze execution identity.
 
