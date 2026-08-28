@@ -1,0 +1,52 @@
+{
+  "schema": "ENTERPRISE_MATH_CONTEXT_READ_BUDGET_V1",
+  "status": "ACTIVE_CANONICAL",
+  "effective_at": "2026-08-28T00:00:00+08:00",
+  "scope": [
+    "EM_FREE_RESEARCHER",
+    "TASK_RESEARCH",
+    "RESEARCH_DRIVER",
+    "FOUNDATION_STEWARD"
+  ],
+  "invariants": {
+    "UNBOUNDED_COLLECTION_READ_FOR_DISCOVERY": "FORBIDDEN",
+    "RECURSIVE_REPOSITORY_TREE_IN_CONVERSATIONAL_CONTEXT": "FORBIDDEN",
+    "HIGH_FANOUT_DIRECTORY_ENUMERATION_FOR_DISCOVERY": "FORBIDDEN",
+    "ISSUE_240_ALL_COMMENTS_IN_CONVERSATIONAL_CONTEXT": "FORBIDDEN",
+    "TRUNCATION_OR_COMPACTION_IS_A_STOP_BOUNDARY": false
+  },
+  "bounded_defaults": {
+    "startup_source_reads_soft_max": 3,
+    "search_results_max": 20,
+    "file_line_range_soft_max": 200,
+    "issue_comment_page_size_max": 20
+  },
+  "high_fanout_paths": [
+    "tests/",
+    "research_tasks/",
+    "research_returns/",
+    "research_task_records/",
+    "research_execution_records/",
+    "research_result_records/",
+    "research_result_reviews/",
+    "driver_reviews/"
+  ],
+  "preferred_read_order": [
+    "EXACT_PATH_IF_ALREADY_KNOWN",
+    "BOUNDED_CODE_OR_FILE_SEARCH",
+    "EXACT_FILE_LINE_RANGE",
+    "BOUNDED_PAGINATED_COLLECTION_PAGE",
+    "EXPAND_ONLY_AFTER_A_CONCRETE_MATCH"
+  ],
+  "issue_240_policy": {
+    "direct_all_pages_helper": "FORBIDDEN_IN_CONVERSATIONAL_CONTEXT",
+    "preferred": "CANONICAL_REDUCER_OR_BOUNDED_API_PAGE",
+    "page_size_max": 20,
+    "event_body_clock_authority": "GITHUB_SERVER_CREATED_AT"
+  },
+  "recovery": {
+    "tool_output_truncated": "ABORT_BULK_EXPANSION_NARROW_QUERY_AND_CONTINUE",
+    "context_compaction": "RESTORE_DURABLE_TASK_STATE_NARROW_READS_AND_CONTINUE",
+    "known_exact_file_larger_than_soft_range": "READ_ONLY_TRIGGERED_RANGES_AND_EXPAND_INCREMENTALLY"
+  }
+}
