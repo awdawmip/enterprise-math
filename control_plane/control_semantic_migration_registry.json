@@ -1,0 +1,116 @@
+{
+  "schema": "ENTERPRISE_MATH_CONTROL_SEMANTIC_MIGRATION_REGISTRY_V1",
+  "status": "ACTIVE",
+  "effective": "2026-08-29",
+  "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
+  "authority": "control_plane/current_control_authority.json",
+  "purpose": "Retire stale control pointers gradually without rewriting files that also carry mathematical, discovery, Working Truth, Foundation, or successor semantics. Each entry records the exact legacy field, its current non-authoritative interpretation, and whether a mechanical edit is safe or semantic verification is required first.",
+  "invariants": [
+    "MIGRATION_REGISTRY_DOES_NOT_OVERRIDE_MATHEMATICAL_SEMANTICS",
+    "CURRENT_CONTROL_AUTHORITY_CONTINUES_TO_CONTROL_RUNTIME_WHILE_DEBT_IS_OPEN",
+    "LOW_CONTROL_POINTER_MAY_CHANGE_ONLY_TO_AN_ALREADY_CANONICAL_CONTROL_TARGET",
+    "MIXED_SEMANTICS_REQUIRES_VERIFICATION_BEFORE_EDIT",
+    "LEGACY_POINTER_REMOVAL_MUST_NOT_CHANGE_WORKING_TRUTH_FOUNDATION_DISCOVERY_OR_SUCCESSOR_SEMANTICS",
+    "UNEXPECTED_THIRD_VALUE_FAILS_CLOSED"
+  ],
+  "entries": [
+    {
+      "migration_id": "CSM-ROLEPOLICY-CANONICAL-DISPATCH-001",
+      "path": "research_role_policy.json",
+      "baseline_blob_sha1": "ce2c208ab9fc63cc0baddb51e704e805bb868510",
+      "json_pointer": "/canonical_dispatch",
+      "observed_legacy_value": "tools/research_dispatch.py",
+      "current_interpretation": "ORDINARY_FRESH_SELECTOR_COMPATIBILITY_POINTER",
+      "canonical_target_value": "research_control_dispatch.py",
+      "risk_class": "LOW_CONTROL_POINTER",
+      "state": "READY_FOR_MECHANICAL_PATCH",
+      "execution_authority_while_open": false,
+      "semantic_surfaces_forbidden_to_change": [
+        "research mode resolution",
+        "Driver activation",
+        "Foundation Steward activation",
+        "Working Truth",
+        "FREE discovery firewall",
+        "task origin and lineage"
+      ]
+    },
+    {
+      "migration_id": "CSM-ROLEPOLICY-PUBLICATION-DISPATCH-002",
+      "path": "research_role_policy.json",
+      "baseline_blob_sha1": "ce2c208ab9fc63cc0baddb51e704e805bb868510",
+      "json_pointer": "/task_publication_authority/dispatch",
+      "observed_legacy_value": "tools/research_dispatch.py",
+      "current_interpretation": "AMBIGUOUS_PUBLICATION_DISCOVERY_OR_LIVE_DISPATCH_POINTER",
+      "canonical_target_value": "research_control_dispatch.py",
+      "risk_class": "MIXED_CONTROL_SEMANTICS",
+      "state": "REQUIRES_GOVERNANCE_VERIFICATION",
+      "execution_authority_while_open": false,
+      "verification_question": "Does this field mean top-level live routing or only post-publication ordinary fresh discovery? Preserve the latter meaning if it is intentionally selector-scoped."
+    },
+    {
+      "migration_id": "CSM-ARCHITECTURE-TASK-PUBLICATION-003",
+      "path": "research_architecture.json",
+      "baseline_blob_sha1": "7b2c7da8f0b360cf6bd4e62493f12cda1c286aa0",
+      "json_pointers": [
+        "/runtime_control_plane/task_publication_contract",
+        "/runtime_control_plane/task_registry",
+        "/runtime_control_plane/task_publication_tool",
+        "/task_publication/contract",
+        "/task_publication/registry",
+        "/task_publication/tool"
+      ],
+      "observed_legacy_values": [
+        "research_task_publication_contract.json",
+        "research_task_registry.json",
+        "tools/research_task_registry.py",
+        "research_task_publication_contract.json",
+        "research_task_registry.json",
+        "tools/research_task_registry.py"
+      ],
+      "canonical_target_values": [
+        "research_task_publication_contract_v2.json",
+        "research_task_records/<task-id>/<publication-id>.json",
+        "tools/research_task_records.py",
+        "research_task_publication_contract_v2.json",
+        "research_task_records/<task-id>/<publication-id>.json",
+        "tools/research_task_records.py"
+      ],
+      "risk_class": "MIXED_MATHEMATICAL_GOVERNANCE_FILE",
+      "state": "REQUIRES_GOVERNANCE_VERIFICATION",
+      "execution_authority_while_open": false,
+      "verification_question": "Prove that replacing only these publication pointers leaves FREE discovery, Working Truth, candidate lifecycle, successor semantics, portfolio balance, Foundation backflow, independence, and promotion semantics byte-for-byte or semantically unchanged."
+    },
+    {
+      "migration_id": "CSM-RUNTIME-CANONICAL-DISPATCH-004",
+      "path": "research_runtime_state_machine.json",
+      "baseline_blob_sha1": "998976698bcef1bcf8681aad4647ed16b4f4d5fe",
+      "json_pointer": "/composes/canonical_dispatch",
+      "observed_legacy_value": "tools/research_dispatch.py",
+      "current_interpretation": "SUBORDINATE_FRESH_SELECTOR_UNDER_RECOVERY_AWARE_CONTROL_ROUTER",
+      "canonical_target_value": "research_control_dispatch.py",
+      "risk_class": "CONTROL_POINTER_WITH_INTERNAL_NEW_RULE",
+      "state": "REQUIRES_REFERENCE_CHECK_BEFORE_PATCH",
+      "execution_authority_while_open": false,
+      "verification_question": "Confirm no executable consumer treats composes.canonical_dispatch as the fresh-selector API rather than the top-level live route."
+    },
+    {
+      "migration_id": "CSM-STEWARD-CANONICAL-DISPATCH-005",
+      "path": "foundation_steward.json",
+      "baseline_blob_sha1": "9bd46df192665616dd1d786b8acf82186ec2f6fd",
+      "json_pointer": "/canonical_dispatch",
+      "observed_legacy_value": "tools/research_dispatch.py",
+      "current_interpretation": "ORDINARY_FRESH_SELECTOR_COMPATIBILITY_POINTER",
+      "canonical_target_value": "research_control_dispatch.py",
+      "risk_class": "LOW_CONTROL_POINTER",
+      "state": "READY_FOR_MECHANICAL_PATCH",
+      "execution_authority_while_open": false,
+      "semantic_surfaces_forbidden_to_change": [
+        "Steward mission",
+        "Foundation conventions",
+        "backflow classification",
+        "escalation thresholds",
+        "canonicalization authority"
+      ]
+    }
+  ]
+}
