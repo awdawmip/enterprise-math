@@ -26,6 +26,9 @@ except ModuleNotFoundError:
     from tools import research_identity  # type: ignore
     from tools import research_task_records  # type: ignore
 
+import research_driver_authority
+import research_objective_driver_authority
+
 ROOT = Path(__file__).resolve().parent
 OBJECTIVE_SCHEMA = "ENTERPRISE_MATH_RESEARCH_OBJECTIVE_RECORD_V1"
 HEAD_SCHEMA = "ENTERPRISE_MATH_RESEARCH_OBJECTIVE_HEAD_V1"
@@ -102,6 +105,13 @@ def _driver_identity(value: str, label: str) -> str:
     if not research_identity.valid_execution_id(text) or not text.startswith("EM-DVR-"):
         raise ObjectiveRecordError(f"{label} must use Driver-ID syntax")
     return text
+
+
+def _driver_authority_fields(driver_id: str, at: str, root: Path) -> dict[str, Any]:
+    try:
+        return research_objective_driver_authority.authority_fields(driver_id, at, root)
+    except research_driver_authority.DriverAuthorityError as exc:
+        raise ObjectiveRecordError(str(exc)) from exc
 
 
 def objective_generation_path(
@@ -227,6 +237,7 @@ def build_generation(
         raise ObjectiveRecordError("research_value is required")
     driver_id = _driver_identity(publisher_id, "publisher_id")
     created = _parse_time(created_at).isoformat()
+    authority_fields = _driver_authority_fields(driver_id, created, root)
     success = _string_list(success_criteria, "success_criteria")
     closure = _string_list(closure_criteria, "closure_criteria")
 
@@ -266,6 +277,7 @@ def build_generation(
         "publisher_role": PUBLISHER_ROLE,
         "publisher_id": driver_id,
         "created_at": created,
+        **authority_fields,
         "working_truth_granted": False,
         "foundation_authority_granted": False,
         "canonical_promotion_granted": False,
@@ -299,6 +311,8 @@ def select_head(
     oid = _safe_id(objective_id, "objective_id")
     gid = _safe_id(objective_generation_id, "objective_generation_id")
     driver_id = _driver_identity(updated_by, "updated_by")
+    updated = _parse_time(updated_at).isoformat()
+    authority_fields = _driver_authority_fields(driver_id, updated, root)
     records = objective_record_map(root)
     candidate = records.get(gid)
     if candidate is None or candidate.get("objective_id") != oid:
@@ -324,7 +338,8 @@ def select_head(
         "previous_objective_generation_id": expected_previous_generation_id,
         "objective_record_sha256": _sha256(record_path),
         "updated_by": driver_id,
-        "updated_at": _parse_time(updated_at).isoformat(),
+        "updated_at": updated,
+        **authority_fields,
         "authority": "OPERATIONAL_OBJECTIVE_CONTROL_ONLY",
         "retained_non_head_generations_rejected": False,
         "working_truth_granted": False,
@@ -384,6 +399,9 @@ def bind_historical_task(
         raise ObjectiveRecordError("objective generation is unknown for objective_id")
     if objective.get("objective_status") != "OPEN":
         raise ObjectiveRecordError("historical task binding requires an OPEN objective generation")
+    driver_id = _driver_identity(bound_by, "bound_by")
+    bound = _parse_time(bound_at).isoformat()
+    authority_fields = _driver_authority_fields(driver_id, bound, root)
     objective_path = objective_generation_path(oid, objective_generation_id, root)
     value = {
         "record_schema": BINDING_SCHEMA,
@@ -394,8 +412,9 @@ def bind_historical_task(
         "objective_id": oid,
         "objective_generation_id": objective_generation_id,
         "objective_record_sha256": _sha256(objective_path),
-        "bound_by": _driver_identity(bound_by, "bound_by"),
-        "bound_at": _parse_time(bound_at).isoformat(),
+        "bound_by": driver_id,
+        "bound_at": bound,
+        **authority_fields,
         "binding_authority": "EXACT_TASK_PUBLICATION_TO_IMMUTABLE_OBJECTIVE_GENERATION",
         "working_truth_granted": False,
         "foundation_authority_granted": False,
@@ -583,6 +602,11 @@ def audit(root: Path = ROOT) -> list[str]:
         for field in ("working_truth_granted", "foundation_authority_granted", "final_permission_granted"):
             if binding.get(field) is not False:
                 errors.append(f"{prefix}: {field} must be false")
+
+    try:
+        errors.extend(research_objective_driver_authority.audit(root))
+    except Exception as exc:
+        errors.append(f"Objective Driver authority audit failed: {exc}")
     return errors
 
 
