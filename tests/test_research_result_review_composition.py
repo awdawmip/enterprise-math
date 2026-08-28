@@ -20,6 +20,32 @@ class ParallelResultReviewCompositionTests(unittest.TestCase):
             "terminal_control_disposition": "ACCEPTED",
         }
 
+    def authority(self, result_id: str, *, synthesis: bool = False):
+        authority_id = f"RVS-{result_id}" if synthesis else f"DR-{result_id}"
+        return {
+            "review_id": authority_id,
+            "review_authority_id": authority_id,
+            "review_authority_kind": "REVIEW_SYNTHESIS" if synthesis else "IMMUTABLE_REVIEW",
+            "source_review_ids": [authority_id],
+            "result_id": result_id,
+            "task_id": "RS-T",
+            "publication_id": "TP2-T",
+            "driver_id": "EM-DVR-ABC123",
+            "reviewed_at": "2026-08-28T00:00:00+00:00",
+            "disposition": "ACCEPTED",
+            "destination_class": "NONE",
+            "destination_ref_or_none": "",
+            "terminal": True,
+        }
+
+    def followup_ready(self):
+        return {
+            "required": False,
+            "ready": True,
+            "state": "LEGACY_PRE_CUTOVER",
+            "packet": None,
+        }
+
     def test_new_unresolved_second_review_reopens_old_parallel_terminal_synthesis(self):
         def review_state(result_id, root):
             if result_id == "RR-A":
@@ -37,9 +63,16 @@ class ParallelResultReviewCompositionTests(unittest.TestCase):
                 "terminal": True,
             }
 
+        def authority_for(result_id, root):
+            return None if result_id == "RR-A" else self.authority("RR-B")
+
         with patch.object(records._parallel, "state", return_value=self.terminal_parallel_state()), patch.object(
             records, "_parallel_synthesis", return_value=self.terminal_synthesis()
-        ), patch.object(records._review_evidence, "state", side_effect=review_state):
+        ), patch.object(records._review_evidence, "state", side_effect=review_state), patch.object(
+            records._driver_followup, "authority_for_result", side_effect=authority_for
+        ), patch.object(
+            records._driver_followup, "state_for_review", return_value=self.followup_ready()
+        ):
             out = records.task_result_state("RS-T", publication_id="TP2-T")
 
         self.assertEqual("AWAITING_DRIVER_REVIEW", out["state"])
@@ -59,15 +92,25 @@ class ParallelResultReviewCompositionTests(unittest.TestCase):
                 "terminal": True,
             }
 
+        def authority_for(result_id, root):
+            return self.authority(result_id, synthesis=result_id == "RR-A")
+
         with patch.object(records._parallel, "state", return_value=self.terminal_parallel_state()), patch.object(
             records, "_parallel_synthesis", return_value=self.terminal_synthesis()
-        ), patch.object(records._review_evidence, "state", side_effect=review_state):
+        ), patch.object(records._review_evidence, "state", side_effect=review_state), patch.object(
+            records._driver_followup, "authority_for_result", side_effect=authority_for
+        ), patch.object(
+            records._driver_followup, "state_for_review", return_value=self.followup_ready()
+        ):
             out = records.task_result_state("RS-T", publication_id="TP2-T")
 
         self.assertEqual("TERMINAL", out["state"])
         self.assertTrue(out["terminal"])
         self.assertEqual("ACCEPTED", out["review"]["disposition"])
         self.assertEqual({"RR-A", "RR-B"}, set(out["result_review_authority"]))
+        self.assertEqual(
+            {"RR-A", "RR-B"}, set(out["result_operational_review_authority"])
+        )
 
     def test_zero_review_result_blocks_parallel_nonterminal_control_too(self):
         parallel = dict(self.terminal_parallel_state())
