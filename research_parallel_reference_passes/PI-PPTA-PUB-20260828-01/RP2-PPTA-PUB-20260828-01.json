@@ -1,0 +1,26 @@
+{
+  "schema": "ENTERPRISE_MATH_PARALLEL_REFERENCE_PASS_V1",
+  "pass_id": "RP2-PPTA-PUB-20260828-01",
+  "intake_id": "PI-PPTA-PUB-20260828-01",
+  "task_id": "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
+  "pass_number": 2,
+  "pass_kind": "ADVERSARIAL_CONTROL_CROSSCHECK",
+  "publication_ids": [
+    "TP2-5547117E54D7A556279B",
+    "TP2-4EE2618ABEBB6D097023"
+  ],
+  "result_ids": [],
+  "evidence_set_sha256": "sha256:33c5f3e1bae68911dd74aefb7f34660f8b5d13ec0b496e1924849b39f8203fbb",
+  "reviewer_id": "EM-DRIVER-01",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "reviewed_at": "2026-08-28T16:36:00+08:00",
+  "findings_summary": "Adversarial control review finds no basis to delete or mathematically reject either publication. Selecting the older publication would sever the authenticated live execution envelope, because Issue #240 comment 5449182008 claims TP2-4EE2618ABEBB6D097023 exactly. Selecting the newer Driver publication as operational head preserves that live claim and the more advanced frozen frontier while leaving TP2-5547117E54D7A556279B immutable and referenceable. This is a dispatch binding only and grants no theorem truth or canonical promotion.",
+  "relationship": [
+    "KEEP_PARALLEL",
+    "LIVE_CLAIM_PINS_OPERATIONAL_HEAD",
+    "NO_MATHEMATICAL_REJECTION"
+  ],
+  "recommendation": "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}
