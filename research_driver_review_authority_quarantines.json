@@ -1,0 +1,43 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_AUTHORITY_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "purpose": "Preserve exact immutable Driver-review bytes that fail source-backed Driver authority while removing them from operational review authority. Quarantine is control-plane only: it does not change disposition content, create a replacement review, grant Driver authority, or make any research judgment. Each entry is pinned to exact review record bytes and the exact current authority error set.",
+  "entries": [
+    {
+      "review_id": "DR-2F834647FD94CAF46D05",
+      "result_id": "RR-2D43CCB30B906AFB6E20",
+      "task_id": "RS-RSA-EXPONENT-COLLISION-CRT-COLLAPSE",
+      "review_record_path": "research_result_reviews/RR-2D43CCB30B906AFB6E20/DR-2F834647FD94CAF46D05.json",
+      "review_record_blob_sha1": "sha1:19a1cc171dc65981c4375a1398bc7e2da3b8de79",
+      "state": "INVALID_DRIVER_AUTHORITY",
+      "operational": false,
+      "history_preserved": true,
+      "allowed_authority_errors": [
+        "post-cutover review driver_id must use EM-DVR-* syntax"
+      ],
+      "reason": "The immutable review uses EM-RSA-45F14F, which is not a source-backed EM-DVR-* Driver identity under the active post-cutover authority contract. Control-plane maintenance cannot invent or backdate a Driver authorization, so the review remains history but is nonoperational until an independently authorized replacement review is created through the ordinary review path.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "review_id": "DR-B8DA78742C80B152F956",
+      "result_id": "RR-AE11E20304C60C349CBD",
+      "task_id": "RS-DIAGONAL-GAUGE-REFOUNDATION-TYPED-INTEGRATION",
+      "review_record_path": "research_result_reviews/RR-AE11E20304C60C349CBD/DR-B8DA78742C80B152F956.json",
+      "review_record_blob_sha1": "sha1:21ca8b3eb062cca9229517cb94d4a436e5622699",
+      "state": "INVALID_DRIVER_AUTHORITY",
+      "operational": false,
+      "history_preserved": true,
+      "allowed_authority_errors": [
+        "driver_authority_record_id does not pin active authority"
+      ],
+      "reason": "The immutable review names EM-DVR-K7Q4N8 but does not pin the active source-backed authority record required by the post-cutover contract. The historical review bytes are preserved, while operational review authority is withheld until a valid replacement review is produced through the ordinary authority-bound review path.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}
