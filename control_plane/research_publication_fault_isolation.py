@@ -1,19 +1,13 @@
 #!/usr/bin/env python3
-"""Task-local fault isolation for unresolved immutable publication forks.
+"""Task-local fault isolation for immutable publication/runtime-definition faults.
 
-An unresolved publication fork must remain fail-closed for the affected task, but
-it must not turn one malformed/ambiguous task definition into a denial of service
-for the entire canonical dispatch view.  This module provides a narrow overlay:
+Unresolved publication forks and malformed current task definitions must fail
+closed for the affected task, but one task-local fault must not deny service to
+the entire canonical dispatch view.
 
-* the exact head set must be declared in ``research_task_publication_quarantines.json``;
-* no operational publication is selected;
-* no Working Truth, promotion, successor, or Foundation authority is granted;
-* the quarantined task projects to BLOCKED in dispatch;
-* every non-quarantined task keeps the existing strict publication semantics.
-
-This is not a semantic resolution.  A real operational selection still goes
-through the existing parallel-publication resolution + two-reference-pass
-synthesis contract.
+A real operational publication selection still goes through the existing
+parallel-publication resolution + two-reference-pass synthesis contract. This
+module never makes a semantic selection and never grants research authority.
 """
 from __future__ import annotations
 
@@ -21,7 +15,7 @@ import copy
 import json
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 QUARANTINE_FILE = "research_task_publication_quarantines.json"
@@ -174,9 +168,6 @@ def isolated_current_records(root: Path = ROOT) -> dict[str, dict[str, Any]]:
         quarantine = quarantines.get(task_id)
         if len(heads) > 1:
             if quarantine is not None:
-                # Exact-set validation already proved that every active head is
-                # retained and none is selected.  This task is projected to
-                # BLOCKED later; all other tasks remain reducible.
                 continue
             if resolution is None:
                 raise core.TaskRecordError(
@@ -248,8 +239,43 @@ def blocked_definition(task_id: str, row: dict[str, Any], prior: dict[str, Any] 
     return value
 
 
+def definition_fault(task_id: str, record: dict[str, Any], error: Exception, prior: dict[str, Any] | None = None) -> dict[str, Any]:
+    value = copy.deepcopy(prior or {})
+    publication_id = record.get("publication_id")
+    value.update(
+        {
+            "task_id": task_id,
+            "title": value.get("title", task_id),
+            "kind": value.get("kind", record.get("kind", "RESEARCH")),
+            "owner": value.get("owner", record.get("owner", "control-plane/definition-fault")),
+            "base_state": "BLOCKED",
+            "priority": value.get("priority", record.get("effective_priority", "P2")),
+            "leverage": value.get("leverage", record.get("effective_leverage", "MEDIUM")),
+            "frontier": "INVALID_CURRENT_TASK_DEFINITION",
+            "next_action": "REPAIR_OR_QUARANTINE_CURRENT_TASK_DEFINITION",
+            "dependencies": copy.deepcopy(value.get("dependencies", [])),
+            "source_refs": [str(record.get("taskbook_path") or publication_id or task_id)],
+            "evidence_status": "CONTROL_PLANE_TASK_DEFINITION_FAULT",
+            "last_progress_ref": str(publication_id or record.get("_record_path") or task_id),
+            "last_progress_at": value.get("last_progress_at", str(record.get("published_at") or "1970-01-01T00:00:00+00:00")),
+            "hard_block": {
+                "code": "INVALID_CURRENT_TASK_DEFINITION",
+                "publication_id": publication_id,
+                "record_path": record.get("_record_path"),
+                "error_type": type(error).__name__,
+                "error": str(error),
+            },
+            "tags": sorted(set(value.get("tags", [])) | {"CONTROL_PLANE_DEFINITION_FAULT"}),
+            "claim_lease_minutes": int(value.get("claim_lease_minutes") or 120),
+            "publication_id": publication_id,
+            "registration_source": "TASK_DEFINITION_FAULT_QUARANTINE",
+        }
+    )
+    return value
+
+
 def install(root: Path = ROOT) -> None:
-    """Install the narrow reducer overlay into already-established public modules."""
+    """Install task-local isolation into the established task/dispatch modules."""
     from control_plane import research_task_records_impl as core
     from tools import research_task_records
 
@@ -261,15 +287,21 @@ def install(root: Path = ROOT) -> None:
 
     from tools import research_dispatch
     if not getattr(research_dispatch, "_publication_fault_isolation_installed", False):
-        original_merged: Callable[..., list[dict[str, Any]]] = research_dispatch.merged_definitions
-
         def merged_definitions(local_root: Path = research_dispatch.ROOT) -> list[dict[str, Any]]:
-            values = original_merged(local_root)
-            by_id = {
-                item["task_id"]: item
-                for item in values
-                if isinstance(item, dict) and isinstance(item.get("task_id"), str)
-            }
+            legacy = research_dispatch.load_json(local_root / "research_scheduler.json")
+            by_id: dict[str, dict[str, Any]] = {}
+            for task in legacy.get("tasks", []):
+                if isinstance(task, dict) and isinstance(task.get("task_id"), str):
+                    value = copy.deepcopy(task)
+                    value["registration_source"] = "FROZEN_LEGACY_BASELINE"
+                    by_id[task["task_id"]] = value
+
+            for task_id, record in isolated_current_records(local_root).items():
+                try:
+                    by_id[task_id] = research_dispatch.registered_definition(record, local_root)
+                except Exception as exc:
+                    by_id[task_id] = definition_fault(task_id, record, exc, by_id.get(task_id))
+
             for task_id, row in validated_quarantines(local_root).items():
                 by_id[task_id] = blocked_definition(task_id, row, by_id.get(task_id))
             return [by_id[key] for key in sorted(by_id)]
@@ -279,14 +311,13 @@ def install(root: Path = ROOT) -> None:
 
 
 def audit(root: Path = ROOT) -> list[str]:
-    """Validate the overlay and prove that quarantined tasks are locally BLOCKED."""
+    """Validate strict record integrity plus the explicit unresolved-fork overlay."""
     errors: list[str] = []
     try:
         rows = validated_quarantines(root)
         install(root)
         from tools import research_dispatch, research_task_records
-        task_errors = research_task_records.audit(root)
-        errors.extend(task_errors)
+        errors.extend(research_task_records.audit(root))
         definitions = {item["task_id"]: item for item in research_dispatch.merged_definitions(root)}
         for task_id, row in rows.items():
             item = definitions.get(task_id)
@@ -310,7 +341,7 @@ def main() -> int:
         for error in errors:
             print("ERROR:", error)
         return 1
-    print(f"PASS: publication-fork fault isolation valid ({len(quarantine_rows())} quarantined task(s)).")
+    print(f"PASS: task-local publication fault isolation valid ({len(quarantine_rows())} unresolved fork(s)).")
     return 0
 
 
