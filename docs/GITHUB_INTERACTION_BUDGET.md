@@ -50,33 +50,28 @@ FREE Phase A follows its primitive-substrate route.
 
 Reuse immutable fetched blobs/SHAs within one execution phase.
 
-### 3.1 Context fanout circuit breaker
+<!-- TASKBOOK_POLICY_DIGEST_EXCLUDE_BEGIN: CONTEXT_READ_BUDGET -->
+### Context fanout circuit breaker
 
-Canonical machine-readable policy:
-
-`research_context_budget.json`.
-
-Freeze:
+Canonical machine-readable policy: `research_context_budget.json`.
 
 `UNBOUNDED_COLLECTION_READ_FOR_DISCOVERY = FORBIDDEN`.
 
 Conversational tool context is a bounded execution resource. Repository discovery must narrow before expanding; a connector call that can return an unknown or very large collection is not a harmless preflight.
 
-In particular:
-
-- do **not** enumerate high-fanout directories such as `tests/`, `research_tasks/`, `research_returns/`, task/result/review record directories, or `driver_reviews/` merely to discover one file;
-- do **not** request a recursive repository tree in conversational context merely to discover paths;
-- do **not** load all Issue #240 comments into conversational context. Prefer the canonical reducer when executable; otherwise use bounded GitHub API pages with at most 20 comments and expand only when the target event is not yet resolved;
-- use an exact path when already known; otherwise use bounded code/file search (`topn <= 20`), then exact-file line ranges (soft `<= 200` lines per read);
-- a known large file is read by triggered ranges, not by repeatedly asking for the entire file;
-- if a response is truncated, stop widening the same collection and narrow the query/range instead.
+- Do not enumerate high-fanout directories such as `tests/`, `research_tasks/`, `research_returns/`, task/result/review record directories, or `driver_reviews/` merely to discover one file.
+- Do not request a recursive repository tree in conversational context merely to discover paths.
+- Do not load all Issue #240 comments into conversational context. Prefer the canonical reducer when executable; otherwise use bounded GitHub API pages with at most 20 comments and expand only when the target event is not yet resolved.
+- Use an exact path when already known; otherwise use bounded code/file search (`topn <= 20`), then exact-file line ranges (soft `<= 200` lines per read).
+- A known large file is read by triggered ranges, not by repeatedly asking for the entire file.
+- If a response is truncated, stop widening the same collection and narrow the query/range instead.
 
 `TOOL_OUTPUT_TRUNCATED -> NARROW_AND_CONTINUE`.
 
 `CONTEXT_COMPACTION -> RESTORE_DURABLE_TASK_STATE -> NARROW_READS -> CONTINUE`.
 
 Context compaction is not a task-completion boundary, a reason to abandon an already-determined mutation, or a reason to ask the user to repeat durable state.
-
+<!-- TASKBOOK_POLICY_DIGEST_EXCLUDE_END: CONTEXT_READ_BUDGET -->
 ## 4. CI/status circuit breaker
 
 Ordinary L1/L2/L3 research has **0 routine workflow-status queries**.
@@ -160,10 +155,6 @@ GLOBAL_KNOWLEDGE append-only journaling is a separate loss-prevention channel.
 ## 10. Remote operation defaults
 
 - explicit TASK startup: `<= 3` routine source reads before work;
-- discovery: `UNBOUNDED_COLLECTION_READ_FOR_DISCOVERY = FORBIDDEN`;
-- bounded search: `topn <= 20`;
-- ranged file read: soft `<= 200` lines, expand only on a concrete trigger;
-- Issue #240 conversational reads: bounded API pages `<= 20` comments, never the all-pages helper;
 - ordinary L1/L2/L3: `0` routine source writes, `0` CI/status reads;
 - checkpoint: one bounded publication batch, then resume parent task;
 - allowed CI/validation: one snapshot per unchanged validation object;
