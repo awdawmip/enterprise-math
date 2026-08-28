@@ -11,6 +11,7 @@ PUBLICATION_ID = "TP2-90D492F7054EDEE0F3CD"
 OBJECTIVE_ID = "OBJ-DIAGONAL-GAUGE-REFOUNDATION-TYPED-CORRECTION-EVIDENCE-CLOSURE"
 CORRECTED_RESULT_ID = "RR-AE11E20304C60C349CBD"
 HISTORICAL_RESULT_ID = "RR-BFB7190B3C8D391C6E9D"
+CURRENT_REVIEW_ID = "DR-B83414A4FCA60228B74C"
 
 
 class DgrCorrectedEvidenceFrontierTests(unittest.TestCase):
@@ -29,13 +30,15 @@ class DgrCorrectedEvidenceFrontierTests(unittest.TestCase):
         self.assertEqual({CORRECTED_RESULT_ID}, active_ids)
         self.assertNotIn(HISTORICAL_RESULT_ID, active_ids)
 
-    def test_frontier_requires_new_driver_review(self):
+    def test_frontier_advances_through_new_driver_review(self):
         state = results.task_result_state(TASK_ID, ROOT, PUBLICATION_ID)
         self.assertIsNotNone(state)
-        self.assertEqual("AWAITING_DRIVER_REVIEW", state["state"])
-        self.assertFalse(state["terminal"])
+        self.assertEqual("TERMINAL", state["state"])
+        self.assertTrue(state["terminal"])
         self.assertEqual(CORRECTED_RESULT_ID, state["result"]["result_id"])
-        self.assertIsNone(state["review"])
+        self.assertIsNotNone(state["review"])
+        self.assertEqual(CURRENT_REVIEW_ID, state["review"]["review_id"])
+        self.assertEqual("FOLLOWUP_TASKSET_READY", state["driver_followup_state"])
 
 
 if __name__ == "__main__":
