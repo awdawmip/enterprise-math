@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Audit current Enterprise Math control-authority routing across active surfaces.
 
-This checker is deliberately narrow and non-mathematical.  It verifies only the
+This checker is deliberately narrow and non-mathematical. It verifies only the
 post-cutover control facts owned by ``current_control_authority.json``:
 
 * immutable V2 task publication;
 * recovery-aware live dispatch versus subordinate fresh selectors;
 * toolbox coverage versus actual reuse resolution;
+* typed role transitions that preserve provenance without leaking authority;
 * Foundation Steward V2 execution handoff;
 * chat-only control-plane maintenance boundaries;
 * V1 task-registry write commands remain fail-closed compatibility only.
@@ -47,6 +48,7 @@ def check() -> None:
     publication = load_json("research_task_publication_contract_v2.json")
     dispatch = load_json("research_dispatch_contract.json")
     tools = load_json("tool_invocation_policy.json")
+    transitions = load_json("control_plane/role_transition_matrix.json")
 
     require(
         authority.get("schema") == "ENTERPRISE_MATH_CURRENT_CONTROL_AUTHORITY_V1",
@@ -60,6 +62,7 @@ def check() -> None:
     task_auth = authority.get("task_publication", {})
     live_auth = authority.get("live_dispatch", {})
     tool_auth = authority.get("tool_reuse", {})
+    role_auth = authority.get("role_transitions", {})
     control_auth = authority.get("control_liveness", {})
 
     require(
@@ -129,6 +132,60 @@ def check() -> None:
     require(control_auth.get("mode") == "CONTROL_PLANE_MAINTENANCE", "control liveness precedence missing maintenance mode")
     require(control_auth.get("watchdog") == "COOPERATIVE_SOFT_WATCHDOG", "control maintenance must use cooperative soft watchdog")
 
+    require(
+        transitions.get("schema") == "ENTERPRISE_MATH_ROLE_TRANSITION_MATRIX_V1",
+        "role transition matrix: wrong schema",
+    )
+    require(
+        transitions.get("status") == "ACTIVE_CANONICAL_CONTROL_TRANSITIONS",
+        "role transition matrix: not active canonical transitions",
+    )
+    require(
+        role_auth.get("matrix") == "control_plane/role_transition_matrix.json",
+        "control precedence does not point to role transition matrix",
+    )
+    require(role_auth.get("mode") == "TYPED_SELECTIVE_MERGE", "role transitions must use typed selective merge")
+    require(role_auth.get("role_switch_is_context_reset") is False, "role switch must not pretend context reset")
+    require(role_auth.get("source_role_authority_persists_implicitly") is False, "source role authority must not leak across role switch")
+    require(role_auth.get("role_switch_releases_or_duplicates_claim") is False, "role switch must not release/duplicate CLAIM by itself")
+    require(role_auth.get("free_clean_blindness_recoverable_after_agenda_exposure") is False, "FREE CLEAN blindness must be monotone after exposure")
+    require(role_auth.get("working_truth_follows_role_label") is False, "Working Truth must not follow role label")
+
+    transition_rows = transitions.get("transitions", {})
+    required_transition_rows = {
+        "CONTROL_PLANE_MAINTENANCE->TASK_RESEARCH",
+        "CONTROL_PLANE_MAINTENANCE->RESEARCH_DRIVER",
+        "CONTROL_PLANE_MAINTENANCE->FOUNDATION_STEWARD",
+        "CONTROL_PLANE_MAINTENANCE->FREE_AXIOM_DISCOVERY",
+        "TASK_RESEARCH->CONTROL_PLANE_MAINTENANCE",
+        "RESEARCH_DRIVER->CONTROL_PLANE_MAINTENANCE",
+        "FOUNDATION_STEWARD->CONTROL_PLANE_MAINTENANCE",
+        "FREE_AXIOM_DISCOVERY->CONTROL_PLANE_MAINTENANCE",
+        "TASK_RESEARCH->FREE_AXIOM_DISCOVERY",
+        "FREE_AXIOM_DISCOVERY->TASK_RESEARCH",
+        "TASK_RESEARCH->RESEARCH_DRIVER",
+        "RESEARCH_DRIVER->TASK_RESEARCH",
+        "FOUNDATION_STEWARD->TASK_RESEARCH",
+        "TASK_RESEARCH->FOUNDATION_STEWARD",
+    }
+    require(required_transition_rows <= set(transition_rows), "role transition matrix missing required cross-role transitions")
+    require(
+        transition_rows["CONTROL_PLANE_MAINTENANCE->FREE_AXIOM_DISCOVERY"].get("blindness", "").startswith("ANCHOR_EXPOSED"),
+        "control-maintenance to FREE must disclose anchor exposure when current context was inspected",
+    )
+    require(
+        transition_rows["TASK_RESEARCH->CONTROL_PLANE_MAINTENANCE"].get("research_authority") == "SUSPEND",
+        "TASK to control transition must suspend research authority",
+    )
+    require(
+        transition_rows["RESEARCH_DRIVER->CONTROL_PLANE_MAINTENANCE"].get("driver_authority") == "CLEAR_AUTHORITY",
+        "Driver to control transition must clear Driver authority",
+    )
+    require(
+        transition_rows["FOUNDATION_STEWARD->CONTROL_PLANE_MAINTENANCE"].get("steward_authority") == "CLEAR_AUTHORITY",
+        "Steward to control transition must clear Steward authority",
+    )
+
     publication_protocol = read("docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md")
     require("CANONICAL TASK PUBLICATION / V2" in publication_protocol, "human task publication protocol must be V2")
     require("python tools/research_task_records.py publish" in publication_protocol, "human publication protocol missing V2 publish command")
@@ -180,7 +237,7 @@ def main() -> int:
     except (ControlAuthorityError, OSError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}")
         return 1
-    print("PASS: current control authority, role routing, publication, dispatch, and tool-reuse surfaces are consistent.")
+    print("PASS: current control authority, role transitions, publication, dispatch, and tool-reuse surfaces are consistent.")
     return 0
 
 
