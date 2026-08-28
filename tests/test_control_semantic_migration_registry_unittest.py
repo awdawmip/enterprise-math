@@ -9,12 +9,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ControlSemanticMigrationRegistryTests(unittest.TestCase):
-    def test_registered_control_debt_has_no_third_state_drift(self):
+    def test_registered_control_debt_and_protected_selectors_have_no_drift(self):
         reports = migration.check(ROOT)
-        self.assertGreaterEqual(len(reports), 5)
+        self.assertGreaterEqual(len(reports), 8)
         self.assertTrue(any("CSM-ARCHITECTURE-TASK-PUBLICATION-003" in row for row in reports))
         self.assertTrue(any("CSM-ROLEPOLICY-CANONICAL-DISPATCH-001" in row for row in reports))
         self.assertTrue(any("CSM-STEWARD-CANONICAL-DISPATCH-005" in row for row in reports))
+        self.assertTrue(any("CSP-FOUNDATION-BACKFLOW-SURFACE-001" in row for row in reports))
+        self.assertTrue(any("CSP-FOUNDATION-BACKFLOW-LINK-002" in row for row in reports))
+        self.assertTrue(any("CSP-STEWARD-BACKFLOW-AUTHORITY-003" in row for row in reports))
 
     def test_mixed_semantics_are_not_marked_mechanically_safe(self):
         data = json.loads(
@@ -62,6 +65,22 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
             "backflow.task_definition_authority",
             by_id["CSM-STEWARD-CANONICAL-DISPATCH-005"]["migration_scope"],
         )
+
+    def test_intentional_task_definition_selectors_are_protected(self):
+        data = json.loads(
+            (ROOT / "control_plane" / "control_semantic_migration_registry.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        protected = {row["protection_id"]: row for row in data["protected_selector_fields"]}
+        for protection_id in (
+            "CSP-FOUNDATION-BACKFLOW-SURFACE-001",
+            "CSP-FOUNDATION-BACKFLOW-LINK-002",
+            "CSP-STEWARD-BACKFLOW-AUTHORITY-003",
+        ):
+            self.assertEqual("tools/research_dispatch.py", protected[protection_id]["required_value"])
+            self.assertTrue(protected[protection_id]["semantic_role"])
+            self.assertTrue(protected[protection_id]["reason"])
 
 
 if __name__ == "__main__":
