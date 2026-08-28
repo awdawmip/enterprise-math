@@ -1,0 +1,33 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_AUTHORITY_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL_CANDIDATE",
+  "effective": "2026-08-28",
+  "repository": "awdawmip/enterprise-math",
+  "control_issue": 240,
+  "source_event_schema": "ENTERPRISE_MATH_DRIVER_AUTH_EVENT_V1",
+  "record_schema": "ENTERPRISE_MATH_DRIVER_AUTHORITY_RECORD_V1",
+  "record_store": "research_driver_authority_records/<driver-id>/<authority-record-id>.json",
+  "control_event_authorization": "research_control_event_authorization.json",
+  "legacy_review_baseline": "research_driver_followup_legacy_reviews.json",
+  "new_driver_id_pattern": "^EM-DVR-[A-Z0-9]{4,8}$",
+  "events": ["AUTHORIZE", "REVOKE"],
+  "scope": "CONTROL_PLANE",
+  "authority": "RESEARCH_DRIVER",
+  "source_of_truth": "GITHUB_ISSUE_240_SERVER_COMMENT_METADATA",
+  "global_knowledge_runtime_authority": false,
+  "github_app_runtime_authority": false,
+  "core_invariants": [
+    "DRIVER_ID_SYNTAX_IS_NOT_DRIVER_AUTHORITY",
+    "GLOBAL_KNOWLEDGE_IS_NOT_PROJECT_RUNTIME_AUTHORITY",
+    "BODY_DECLARED_ACTOR_AND_TIME_ARE_NOT_AUTHORITY",
+    "DRIVER_AUTHORITY_REQUIRES_SERVER_AUTHENTICATED_ISSUE_240_OWNER_METADATA",
+    "AUTHORIZED_SERVER_LOGIN_USER_ID_AND_ASSOCIATION_MUST_MATCH_CONTROL_EVENT_POLICY",
+    "EDITED_AUTHORITY_EVENT_IS_NOT_VALID_AUTHORITY",
+    "AUTHORIZE_AND_REVOKE_ARE_REDUCED_IN_SERVER_COMMENT_ID_ORDER",
+    "A_REVIEW_REQUIRES_AUTHORITY_ACTIVE_AT_REVIEW_TIME",
+    "LATER_REVOCATION_DOES_NOT_RETROACTIVELY_INVALIDATE_PRIOR_AUTHORIZED_REVIEW",
+    "POST_CUTOVER_REVIEW_MUST_PIN_AUTHORITY_RECORD_AND_SOURCE_COMMENT_ID",
+    "LEGACY_REVIEW_EXEMPTION_IS_EXACT_FROZEN_REVIEW_ID_MEMBERSHIP_NOT_REVIEWED_AT",
+    "PHYSICAL_MAIN_PROTECTION_REMAINS_REQUIRED_FOR_FULL_REPOSITORY_FAIL_CLOSED"
+  ]
+}
