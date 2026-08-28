@@ -16,9 +16,23 @@ class ResultGenerationStateTests(unittest.TestCase):
 
     def review(self, rid, disposition="ACCEPTED"):
         return {
+            "record_schema": results.REVIEW_SCHEMA,
             "review_id": "RV-" + rid,
             "result_id": rid,
+            "driver_id": "EM-DVR-ABC123",
             "disposition": disposition,
+            "terminal": disposition in results.TERMINAL_DISPOSITIONS,
+        }
+
+    def review_state(self, rid, disposition="ACCEPTED"):
+        review = self.review(rid, disposition)
+        return {
+            "result_id": rid,
+            "review_state": "SINGLE_REVIEW_FLOW",
+            "review_ids": [review["review_id"]],
+            "review": review,
+            "operational_disposition": disposition,
+            "terminal": disposition in results.TERMINAL_DISPOSITIONS,
         }
 
     def test_old_terminal_result_does_not_close_new_current_generation(self):
@@ -27,17 +41,23 @@ class ResultGenerationStateTests(unittest.TestCase):
             results.research_task_records,
             "current_records",
             return_value={"RS-T": {"publication_id": "TP-NEW"}},
-        ), mock.patch.object(results, "latest_review", return_value=self.review("RR-OLD")):
+        ):
             self.assertIsNone(results.task_result_state("RS-T"))
 
     def test_current_generation_result_controls_current_state(self):
         old = self.result("RR-OLD", "TP-OLD", "2026-08-26T01:00:00+00:00")
         new = self.result("RR-NEW", "TP-NEW", "2026-08-26T02:00:00+00:00")
+
+        def review_state(rid, root=results.ROOT):
+            if rid == "RR-NEW":
+                return {"result_id": rid, "review_state": "NO_REVIEW", "review_ids": [], "terminal": False}
+            return self.review_state(rid)
+
         with mock.patch.object(results, "iter_results", return_value=[old, new]), mock.patch.object(
             results.research_task_records,
             "current_records",
             return_value={"RS-T": {"publication_id": "TP-NEW"}},
-        ), mock.patch.object(results, "latest_review", side_effect=lambda rid, root=results.ROOT: None if rid == "RR-NEW" else self.review(rid)):
+        ), mock.patch.object(results._review_evidence, "state", side_effect=review_state):
             state = results.task_result_state("RS-T")
         self.assertEqual("AWAITING_DRIVER_REVIEW", state["state"])
         self.assertEqual("RR-NEW", state["result"]["result_id"])
@@ -46,7 +66,7 @@ class ResultGenerationStateTests(unittest.TestCase):
         old = self.result("RR-OLD", "TP-OLD", "2026-08-26T01:00:00+00:00")
         new = self.result("RR-NEW", "TP-NEW", "2026-08-26T02:00:00+00:00")
         with mock.patch.object(results, "iter_results", return_value=[old, new]), mock.patch.object(
-            results, "latest_review", return_value=self.review("RR-OLD")
+            results._review_evidence, "state", return_value=self.review_state("RR-OLD")
         ):
             state = results.task_result_state("RS-T", publication_id="TP-OLD")
         self.assertEqual("TERMINAL", state["state"])
