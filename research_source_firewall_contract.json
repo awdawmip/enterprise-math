@@ -1,0 +1,90 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_SOURCE_FIREWALL_V2",
+  "status": "ACTIVE_CANONICAL_OPTIONAL_EXECUTION_GATE",
+  "effective": "2026-08-28",
+  "runtime_guard": "tools/research_runtime_guard.py",
+  "implementation": "control_plane/research_source_firewall.py",
+  "purpose": "Make blind/independent source exposure auditable at the exact winning-claim or lane scope without adding a routine GitHub write or weakening ordinary research execution.",
+  "taskbook_field": "source_firewall",
+  "modes": [
+    "NONE",
+    "BLIND_INDEPENDENT"
+  ],
+  "blind_required_fields": [
+    "mode",
+    "pre_math_stamp_required",
+    "remote_stamp_before_math_required",
+    "allowed_source_pins",
+    "withheld_source_pins",
+    "raw_freeze_path"
+  ],
+  "source_pin_required_fields": [
+    "path",
+    "commit",
+    "blob_sha1"
+  ],
+  "source_pin_rule": "Every same-repository mathematical source named by the blind lifecycle is pinned by exact repository-relative path + 40-hex commit + Git blob SHA-1. Branch names, moving main, path-only references, and caller-asserted blob identities are not source authority.",
+  "execution_scope_rule": "Every firewall record binds the current immutable publication and the current authorized winning CLAIM. For cohort work it also binds execution_cohort_id + execution_lane_id. Sibling lanes therefore have independent blind provenance.",
+  "phases": [
+    "PRE_MATH",
+    "RAW_FREEZE",
+    "SOURCE_EXPOSED"
+  ],
+  "pre_math_stamp": {
+    "schema": "ENTERPRISE_MATH_BLIND_EXECUTION_STAMP_V2",
+    "phase": "PRE_MATH",
+    "math_source_read_before_stamp": false,
+    "allowed_before_raw_freeze": "allowed_source_pins only",
+    "default_path": "evidence/<task-id>/source_firewall/<claim-id>/pre_math_stamp.json",
+    "overwrite_allowed": false,
+    "validation_source": "LOCAL_GIT_OBJECT_DATABASE_ONLY"
+  },
+  "raw_freeze": {
+    "schema": "ENTERPRISE_MATH_BLIND_RAW_FREEZE_V1",
+    "phase": "RAW_FREEZE",
+    "artifact_path": "taskbook source_firewall.raw_freeze_path",
+    "record_default_path": "evidence/<task-id>/source_firewall/<claim-id>/raw_freeze_record.json",
+    "artifact_identity": [
+      "Git blob SHA-1 computed from exact bytes",
+      "SHA-256 computed from exact bytes",
+      "byte length"
+    ],
+    "overwrite_allowed": false,
+    "later_correction": "append/freeze a later result; never rewrite the frozen raw artifact or raw-freeze record"
+  },
+  "source_exposure": {
+    "schema": "ENTERPRISE_MATH_BLIND_SOURCE_EXPOSURE_V1",
+    "phase": "SOURCE_EXPOSED",
+    "precondition": "PRE_MATH valid and RAW_FREEZE exact bytes still match their frozen identities",
+    "newly_allowed": "withheld_source_pins",
+    "record_default_path": "evidence/<task-id>/source_firewall/<claim-id>/source_exposure.json",
+    "validation_source": "LOCAL_GIT_OBJECT_DATABASE_ONLY",
+    "overwrite_allowed": false
+  },
+  "remote_publication_policy": {
+    "default": "NOT_REQUIRED_BEFORE_MATH",
+    "ordinary_pre_math_remote_writes": 0,
+    "ordinary_pre_math_ci_polls": 0,
+    "ordinary_pre_math_review_polls": 0,
+    "reason": "The firewall is a local evidence boundary and can be batched with the first genuine durable checkpoint. Blind execution must not acquire a generic pre-math GitHub push tax.",
+    "task_specific_override": "source_firewall.remote_stamp_before_math_required=true remains fail-closed until an external orchestrator supplies independently verified remote publication evidence. A caller boolean cannot satisfy this override."
+  },
+  "downstream_composition": {
+    "after_source_exposure": "reference/audit work may consume the now-exposed source set",
+    "reference_pass_1": "existing exact-set semantic/evidence crosscheck machinery or a task-specific reference packet",
+    "reference_pass_2": "existing adversarial/control crosscheck machinery or a task-specific reference packet",
+    "synthesis": "existing result/review exact-set synthesis authority; firewall records never choose a mathematical winner"
+  },
+  "interaction_budget": {
+    "ordinary_pre_math_local_writes": 1,
+    "ordinary_raw_freeze_local_writes": 1,
+    "ordinary_source_exposure_local_writes": 1,
+    "ordinary_remote_writes_before_first_genuine_checkpoint": 0,
+    "remote_write_only_when_task_explicitly_requires_it": true
+  },
+  "nonclaims": [
+    "A repository record cannot prove that a human or model did not inspect forbidden material outside the governed execution environment.",
+    "A valid source pin proves byte identity, not truth of the source.",
+    "The source firewall grants no Working Truth, Foundation authority, theorem acceptance, canonical promotion, review authority, or successor authority."
+  ]
+}
