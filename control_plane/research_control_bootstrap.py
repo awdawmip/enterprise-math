@@ -11,6 +11,18 @@ Order is intentional:
    explicit strict/raw audit handles;
 7. leave every unrelated task/review under the original strict rules.
 
+IMPORTANT LIVENESS BOUNDARY
+---------------------------
+This bootstrap repairs repository control views only. It is NOT a turn-level
+watchdog and cannot preempt a model turn or an in-flight external tool call.
+Repository PRE_FINAL liveness is therefore insufficient to guarantee that the
+current conversation will return control to the user. A product/harness-level
+PRE_TOOL/IN_TOOL/POST_TOOL deadman is required for physical enforcement.
+
+Until such an external watchdog is installed, the control plane must be
+reported as P0 OPEN for conversation-stall prevention even when repository
+runtime, dispatch, recovery, and integrity gates are green.
+
 This bootstrap grants no research, review, publication, Working Truth, Foundation,
 or successor authority.  Quarantine is exact and fail-closed: it may withhold
 operational authority, never manufacture replacement authority.
