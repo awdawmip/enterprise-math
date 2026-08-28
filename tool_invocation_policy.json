@@ -15,6 +15,7 @@
     "NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP",
     "TOOL_USE_PRESERVES_SEMANTIC_TYPING_AND_HARD_BOUNDARIES",
     "EXPLICIT_DISCOVERY_FIREWALL_CONTROLS_TOOL_VISIBILITY_UNTIL_ITS_FREEZE_POINT",
+    "CONTROL_PLANE_MAINTENANCE_DOES_NOT_TRIGGER_MATHEMATICAL_TOOLBOX_BY_DEFAULT",
     "TOOL_ACCEPTANCE_DOES_NOT_MUTATE_FOUNDATION",
     "EVERY_ACCEPTED_RESEARCH_RETURN_GETS_METHOD_HARVEST_CLASSIFICATION"
   ],
@@ -89,6 +90,13 @@
       "mandatory": true,
       "when": "immediately after the candidate/no-go packet is frozen and before claiming method novelty, uniqueness or a new reusable mechanism",
       "action": "open the toolbox/method surfaces for falsification, deduplication, reuse and integration, then resolve every relevant match through reuse_resolution"
+    },
+    "CONTROL_PLANE_MAINTENANCE": {
+      "mandatory": false,
+      "mathematical_toolbox_default": "DO_NOT_OPEN",
+      "when_allowed": "only when the user's control-plane request explicitly audits tool routing, registry integrity, method-harvest plumbing, or another control property whose evidence lives on the toolbox surfaces",
+      "action": "inspect only the minimum control metadata needed; do not apply mathematical tools, perform research, or allocate research-role identity merely because toolbox infrastructure is being audited",
+      "scope_rule": "CONTROL_PLANE_MAINTENANCE is overhead/governance and is not a research mode; ordinary control maintenance does not inherit TASK/DRIVER/STEWARD toolbox obligations"
     }
   },
   "lookup_layers": [
