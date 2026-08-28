@@ -3,7 +3,7 @@
   "status": "ACTIVE_CANONICAL_CONTROL_TRANSITIONS",
   "effective": "2026-08-28",
   "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
-  "purpose": "Make role/mode transitions explicit so conversation context, identity provenance, task ownership, discovery blindness, tool visibility, and role authority are merged selectively rather than inherited implicitly.",
+  "purpose": "Make role/mode transitions explicit so conversation context, identity provenance, task ownership, owner-scope liveness, discovery blindness, tool visibility, and role authority are merged selectively rather than inherited implicitly.",
   "composes": {
     "role_policy": "research_role_policy.json",
     "identity_state_machine": "research_identity_state_machine.json",
@@ -18,6 +18,7 @@
     "EXECUTION_IDENTITY_HANDLE",
     "ROLE_AUTHORITY",
     "TASK_OWNER_CLAIM",
+    "OWNER_SCOPE_LIVENESS",
     "ACTIVE_TASK_SCOPE",
     "WORKING_TRUTH_SCOPE",
     "DISCOVERY_BLINDNESS_STATUS",
@@ -29,6 +30,8 @@
     "ROLE_SWITCH_IS_TYPED_STATE_TRANSITION_NOT_CONTEXT_RESET",
     "IDENTITY_PROVENANCE_MAY_PERSIST_WHILE_ROLE_AUTHORITY_DOES_NOT",
     "OWNER_CLAIM_PERSISTENCE_DOES_NOT_GRANT_CURRENT_ROLE_RESEARCH_AUTHORITY",
+    "GENERIC_CONVERSATION_ACTIVITY_DOES_NOT_REFRESH_SUSPENDED_TASK_OWNER_LIVENESS",
+    "ONLY_EXACT_CLAIM_BOUND_TASK_RESPONSE_OR_DURABLE_PROGRESS_REFRESHES_OWNER_SCOPE_LIVENESS",
     "CONTROL_PLANE_MAINTENANCE_NEVER_SELF_GRANTS_RESEARCH_DRIVER_OR_STEWARD_AUTHORITY",
     "DRIVER_AUTHORITY_REQUIRES_EXPLICIT_CURRENT_CONVERSATION_ACTIVATION",
     "STEWARD_AUTHORITY_REQUIRES_EXPLICIT_STEWARD_ACTIVATION",
@@ -46,12 +49,14 @@
     "CLEAR_AUTHORITY": "destination role receives none of the source role's permission even if context/identity remains",
     "DOWNGRADE_BLINDNESS": "CLEAN becomes ANCHOR_EXPOSED and cannot be upgraded back in the same exposed context",
     "RECOMPUTE": "destination role must resolve the state again from its canonical authority",
-    "ALLOCATE_OR_RESOLVE": "destination research role resolves/preserves an appropriate visible role identity under research_identity_state_machine.json"
+    "ALLOCATE_OR_RESOLVE": "destination research role resolves/preserves an appropriate visible role identity under research_identity_state_machine.json",
+    "DO_NOT_REFRESH_OWNER_LIVENESS": "destination-role conversation messages are not exact task-owner liveness evidence; the last task/claim-scoped activity clock continues to age"
   },
   "universal_transition_rules": {
     "execution_identity_handle": "PRESERVE_AS_PROVENANCE_ONLY unless the destination role identity rules explicitly permit same-conversation reuse; visible label/scope must always match the active destination role",
     "role_authority": "CLEAR_AUTHORITY then independently activate destination authority",
     "task_owner_claim": "PRESERVE_AS_PROVENANCE_ONLY; role switch alone never releases, renews, transfers, or duplicates the winning CLAIM",
+    "owner_scope_liveness": "Only exact claim-bound TASK_RESEARCH_RESPONSE or DURABLE_EXECUTION_PROGRESS may refresh it; messages under another role/mode do not",
     "durable_frontier": "PRESERVE",
     "working_truth": "PRESERVE_AS_TASK_PROVENANCE_ONLY; usable only when destination is authorized TASK_RESEARCH under the exact task scope",
     "tool_visibility": "RECOMPUTE from destination mode/firewall",
@@ -63,6 +68,7 @@
       "identity": "ALLOCATE_OR_RESOLVE Researcher-ID",
       "source_control_authority": "CLEAR_AUTHORITY as research authority; control maintenance grants none",
       "task_claim": "RECOMPUTE canonical owner scope; adopt same valid CLAIM only when runtime rules authorize adoption",
+      "owner_scope_liveness": "RECOMPUTE from exact current claim; prior control-plane messages are not task liveness evidence",
       "tool_visibility": "TASK_RESEARCH policy after task semantics are understood",
       "blindness": "not applicable unless later transitioning to FREE",
       "forbidden": ["treating prior control inspection as research evidence", "using control-mode access as Driver/Steward authority"]
@@ -72,6 +78,7 @@
       "identity": "ALLOCATE_OR_RESOLVE Driver-ID",
       "source_control_authority": "CLEAR_AUTHORITY",
       "task_claim": "PRESERVE_AS_PROVENANCE_ONLY",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS for any suspended Researcher CLAIM",
       "tool_visibility": "RESEARCH_DRIVER policy",
       "forbidden": ["inferring Driver authority from having maintained the control plane"]
     },
@@ -80,12 +87,14 @@
       "identity": "ALLOCATE_OR_RESOLVE Steward-ID",
       "source_control_authority": "CLEAR_AUTHORITY",
       "task_claim": "PRESERVE_AS_PROVENANCE_ONLY",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS for any suspended Researcher CLAIM",
       "tool_visibility": "FOUNDATION_STEWARD policy",
       "forbidden": ["inferring Steward authority from control-plane maintenance"]
     },
     "CONTROL_PLANE_MAINTENANCE->FREE_AXIOM_DISCOVERY": {
       "activation": "explicit FREE role/mode activation",
       "identity": "ALLOCATE_OR_RESOLVE Researcher-ID",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS for unrelated/suspended TASK CLAIMs",
       "blindness": "ANCHOR_EXPOSED if the control session has inspected current agenda/results/tool vocabulary; use a fresh clean conversation for CLEAN",
       "tool_visibility": "FREE Phase A hidden project-tool catalog",
       "forbidden": ["claiming CLEAN blindness after current-project control/agenda exposure"]
@@ -94,15 +103,17 @@
       "identity": "PRESERVE_AS_PROVENANCE_ONLY; no research-role footer while only control mode is active",
       "research_authority": "SUSPEND",
       "task_claim": "PRESERVE_AS_PROVENANCE_ONLY; do not release or renew merely because role changed",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS; control-plane replies do not keep the task active; stale adoption is measured from last exact task/claim activity",
       "durable_frontier": "PRESERVE",
       "working_truth": "SUSPEND",
       "tool_visibility": "CONTROL_PLANE_MAINTENANCE default DO_NOT_OPEN mathematical toolbox",
-      "forbidden": ["continuing theorem work while claiming to be control-only", "using task CLAIM as control-mode theorem authority"]
+      "forbidden": ["continuing theorem work while claiming to be control-only", "using task CLAIM as control-mode theorem authority", "counting control-plane replies as TASK_RESEARCH heartbeat"]
     },
     "RESEARCH_DRIVER->CONTROL_PLANE_MAINTENANCE": {
       "identity": "PRESERVE_AS_PROVENANCE_ONLY; Driver-ID no longer grants active Driver role",
       "driver_authority": "CLEAR_AUTHORITY",
       "task_claim": "PRESERVE_AS_PROVENANCE_ONLY",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS for any suspended Researcher CLAIM",
       "tool_visibility": "CONTROL_PLANE_MAINTENANCE default",
       "forbidden": ["continuing portfolio verdict/review authority under control-only mode"]
     },
@@ -110,6 +121,7 @@
       "identity": "PRESERVE_AS_PROVENANCE_ONLY; Steward-ID no longer grants active Steward role",
       "steward_authority": "CLEAR_AUTHORITY",
       "task_claim": "PRESERVE_AS_PROVENANCE_ONLY",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS for any suspended Researcher CLAIM",
       "tool_visibility": "CONTROL_PLANE_MAINTENANCE default",
       "forbidden": ["continuing Foundation canonicalization under control-only mode"]
     },
@@ -117,6 +129,7 @@
       "identity": "PRESERVE_AS_PROVENANCE_ONLY",
       "free_research": "SUSPEND",
       "candidate_packet": "PRESERVE if already frozen",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS for any unrelated/suspended TASK CLAIM",
       "blindness": "if control inspection opens withheld current context before candidate freeze, downgrade to ANCHOR_EXPOSED",
       "tool_visibility": "CONTROL_PLANE_MAINTENANCE default",
       "forbidden": ["returning to same-context FREE and claiming CLEAN after withheld context was exposed"]
@@ -124,6 +137,7 @@
     "TASK_RESEARCH->FREE_AXIOM_DISCOVERY": {
       "identity": "same-conversation handle may persist under identity state machine, visible scope becomes FREE",
       "task_claim": "PRESERVE_AS_PROVENANCE_ONLY",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS; FREE responses do not keep suspended task claim active",
       "working_truth": "SUSPEND",
       "blindness": "DOWNGRADE_BLINDNESS to ANCHOR_EXPOSED in same conversation",
       "tool_visibility": "FREE Phase A hides further project-tool/current-result reads, but prior exposure cannot be unread",
@@ -132,12 +146,14 @@
     "RESEARCH_DRIVER->FREE_AXIOM_DISCOVERY": {
       "driver_authority": "CLEAR_AUTHORITY",
       "identity": "resolve Researcher-ID/free scope under identity rules",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS for suspended TASK claims",
       "blindness": "DOWNGRADE_BLINDNESS to ANCHOR_EXPOSED in same conversation",
       "preferred": "fresh conversation for CLEAN free discovery"
     },
     "FOUNDATION_STEWARD->FREE_AXIOM_DISCOVERY": {
       "steward_authority": "CLEAR_AUTHORITY",
       "identity": "resolve Researcher-ID/free scope under identity rules",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS for suspended TASK claims",
       "blindness": "DOWNGRADE_BLINDNESS to ANCHOR_EXPOSED in same conversation",
       "preferred": "fresh conversation for CLEAN free discovery"
     },
@@ -146,6 +162,7 @@
       "candidate_packet": "PRESERVE",
       "blindness": "record prior FREE blindness provenance; TASK may now load task/current context",
       "task_claim": "RECOMPUTE canonical owner scope",
+      "owner_scope_liveness": "RECOMPUTE from exact active claim; FREE messages are not inherited as task liveness evidence",
       "tool_visibility": "TASK policy; if candidate/no-go was frozen, run required post-freeze coverage/reuse resolution",
       "forbidden": ["treating task publication as Working Truth activation"]
     },
@@ -154,18 +171,21 @@
       "driver_authority": "explicit activation required",
       "identity": "visible role switches to Driver-ID under identity rules",
       "task_claim": "PRESERVE_AS_PROVENANCE_ONLY; Driver role does not execute research merely because the same conversation owns a Researcher CLAIM",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS; Driver replies do not keep suspended TASK claim active",
       "working_truth": "task provenance preserved; Driver may separately freeze/supersede only under Driver authority"
     },
     "RESEARCH_DRIVER->TASK_RESEARCH": {
       "driver_authority": "CLEAR_AUTHORITY once Driver role is left",
       "identity": "resolve/preserve Researcher-ID under identity rules",
       "task_claim": "RECOMPUTE; reuse/adopt existing claim only through runtime rules",
+      "owner_scope_liveness": "RECOMPUTE from exact active claim; prior Driver replies are not task liveness evidence",
       "working_truth": "usable only if exact task scope currently grants it"
     },
     "FOUNDATION_STEWARD->TASK_RESEARCH": {
       "steward_authority": "CLEAR_AUTHORITY once Steward role is left",
       "identity": "resolve Researcher-ID under identity rules",
       "task_claim": "RECOMPUTE canonical Researcher owner scope",
+      "owner_scope_liveness": "RECOMPUTE from exact active claim; prior Steward replies are not task liveness evidence",
       "forbidden": ["treating Steward publisher provenance as Researcher execution ownership"]
     },
     "TASK_RESEARCH->FOUNDATION_STEWARD": {
@@ -173,6 +193,7 @@
       "steward_authority": "explicit activation required",
       "identity": "visible role switches to Steward-ID under identity rules",
       "task_claim": "PRESERVE_AS_PROVENANCE_ONLY",
+      "owner_scope_liveness": "DO_NOT_REFRESH_OWNER_LIVENESS; Steward replies do not keep suspended TASK claim active",
       "forbidden": ["using a Researcher CLAIM as Foundation canonicalization authority"]
     }
   }
