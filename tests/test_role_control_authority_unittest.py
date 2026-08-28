@@ -76,6 +76,18 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
         self.assertIn("TOOL_COVERAGE_LOOKUP != TOOL_USE", protocol)
         self.assertIn("The third layer discovers executable source but does not execute it", protocol)
 
+    def test_control_plane_maintenance_does_not_inherit_mathematical_toolbox_gate(self):
+        policy = self.load("tool_invocation_policy.json")
+        control = policy["role_timing"]["CONTROL_PLANE_MAINTENANCE"]
+        self.assertFalse(control["mandatory"])
+        self.assertEqual("DO_NOT_OPEN", control["mathematical_toolbox_default"])
+        self.assertIn("tool routing", control["when_allowed"])
+        self.assertIn("not a research mode", control["scope_rule"])
+        self.assertIn(
+            "CONTROL_PLANE_MAINTENANCE_DOES_NOT_TRIGGER_MATHEMATICAL_TOOLBOX_BY_DEFAULT",
+            policy["invariants"],
+        )
+
     def test_v1_registry_surface_fails_closed_for_write_commands(self):
         text = self.read("tools/research_task_registry.py")
         self.assertIn("Read-only V1 task-registry compatibility surface", text)
@@ -92,6 +104,24 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
             "ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM",
             dispatch["session_liveness_routing"]["valid_owner_plus_stale_session"],
         )
+
+    def test_human_architecture_routes_all_roles_through_current_control_authority(self):
+        text = self.read("docs/RESEARCH_ARCHITECTURE.md")
+        self.assertIn("ACTIVE / CANONICAL GOVERNANCE / V2.6", text)
+        self.assertIn("control_plane/current_control_authority.json", text)
+        self.assertIn("research_task_publication_contract_v2.json", text)
+        self.assertIn("research_control_dispatch.py", text)
+        self.assertIn("TOOL_COVERAGE_LOOKUP != TOOL_USE", text)
+        self.assertIn("CONTROL_PLANE_MAINTENANCE", text)
+        self.assertNotIn("`research_task_registry.json` = canonical task existence/orphan prevention", text)
+
+    def test_steward_addendum_uses_v2_handoff_and_reuse_resolution(self):
+        text = self.read("docs/FOUNDATION_STEWARD_CONTROL_PLANE_ADDENDUM.md")
+        self.assertIn("tools/research_task_records.py prepare", text)
+        self.assertIn("research_control_dispatch.py", text)
+        self.assertIn("COVERAGE_LOOKUP != TOOL_USE", text)
+        self.assertIn("REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE", text)
+        self.assertNotIn("edit `research_scheduler.json`", text)
 
     def test_control_plane_role_does_not_gain_research_authority(self):
         text = self.read("AGENTS.md")
