@@ -1,15 +1,21 @@
 {
-  "schema": "ENTERPRISE_MATH_FINAL_RESPONSE_IDENTITY_POLICY_V2",
+  "schema": "ENTERPRISE_MATH_FINAL_RESPONSE_IDENTITY_POLICY_V3",
   "status": "ACTIVE",
-  "effective": "2026-08-26",
+  "effective": "2026-08-28",
   "scope": [
     "RESEARCHER",
     "RESEARCH_DRIVER",
     "FOUNDATION_STEWARD"
   ],
-  "core_invariant": "ACTIVE_ENTERPRISE_MATH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER",
+  "non_research_modes": [
+    "CONTROL_PLANE_MAINTENANCE"
+  ],
+  "role_transition_contract": "control_plane/role_transition_matrix.json",
+  "core_invariant": "ACTIVE_ENTERPRISE_MATH_RESEARCH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER",
+  "control_plane_identity_rule": "CONTROL_PLANE_MAINTENANCE alone is not a research role, does not allocate or render Researcher-ID/Driver-ID/Steward-ID, and may preserve any prior role identity only as non-authorizing provenance until a destination research role is explicitly reactivated.",
   "final_permission_authority": "research_runtime_state_machine.json",
   "pre_final_permission_gate": {
+    "applies_to": "active RESEARCHER / RESEARCH_DRIVER / FOUNDATION_STEWARD runtime finalization",
     "evaluator": "research_pre_final_authority.py",
     "registration_guard": "tools/research_runtime_guard.py",
     "parent_closure_authority": "research_parent_closure.py",
@@ -22,6 +28,12 @@
     "identity_render_only_after_final_allowed": true,
     "rule": "REPOSITORY_DERIVED_PRE_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN",
     "nonterminal_required_behavior": "Execute the runtime-required next action, resolve unfinished child/cohort/reference/synthesis control, stale-adoption recovery, strategy switch or parent-state recomputation instead of rendering a final response."
+  },
+  "control_plane_finalization": {
+    "research_role_footer_required": false,
+    "research_runtime_identity_gate_applies_merely_because_control_mode_is_active": false,
+    "liveness_contract": "active_turn_liveness.json",
+    "rule": "Control-only finalization follows the cooperative control-plane liveness/efficiency contract and the current user objective; it must not fabricate research registration or identity merely to render a control report. If a research role is reactivated, transition through role_transition_matrix.json before using a research footer or research runtime authority."
   },
   "final_response_definition": "Every assistant message emitted on the final channel while an Enterprise Math RESEARCHER, RESEARCH_DRIVER, or FOUNDATION_STEWARD role is active, after the canonical authenticated and repository-derived PRE_FINAL authority has permitted final output.",
   "non_final_exemption": "commentary/progress/tool-call messages do not require the footer because they are not final responses",
@@ -48,17 +60,19 @@
       "Global-Knowledge-Sync"
     ]
   },
-  "role_transition": "The footer template changes immediately with the active role while preserving the current execution identity according to research_identity_state_machine.json. Role identity does not itself grant Researcher, Driver, or Foundation Steward authority.",
+  "role_transition": "The footer template changes only after the destination research role is active. Identity provenance may persist according to research_identity_state_machine.json, but source-role authority never persists implicitly; CONTROL_PLANE_MAINTENANCE renders no research-role footer, and same-context FREE blindness follows role_transition_matrix.json exposure rules.",
   "forbidden": [
-    "rendering the final channel while repository-derived PRE_FINAL final_allowed is false",
+    "rendering the final channel while repository-derived PRE_FINAL final_allowed is false for an active research role",
     "treating a caller-supplied fake task_registration object as final permission",
     "treating caller-supplied parent_objective.status=COMPLETE as parent completion authority",
     "treating PARENT_OBJECTIVE_COMPLETE event text as self-authorizing parent terminality",
-    "omitting the marker because the final response is short",
+    "omitting the marker because the final response is short while a research role is active",
     "showing the marker only on the first or last research return",
     "using Researcher-ID for an active RESEARCH_DRIVER or FOUNDATION_STEWARD role",
     "using Driver-ID for an active RESEARCHER or FOUNDATION_STEWARD role",
     "using Steward-ID for an active RESEARCHER or RESEARCH_DRIVER role",
+    "rendering any Researcher-ID/Driver-ID/Steward-ID merely because CONTROL_PLANE_MAINTENANCE is active",
+    "carrying a stale source-role footer across a role transition before destination authority is active",
     "using DIRECT as the visible researcher scope",
     "duplicating the marker in one final response",
     "suppressing the marker because identity registration is pending"
