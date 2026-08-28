@@ -14,7 +14,8 @@ This redispatch closes the precise coherence residue exposed by the first A3 she
 
 ## Main theorem package
 
-Let \(G\) be any group and \(H\le G\). On the double-coset set \(\mathcal D=H\backslash G/H\), define
+Let \(G\) be any group and \(H\le G\).  On the double-coset set
+\(\mathcal D=H\backslash G/H\), define
 
 \[
 A\star B=\{C\in\mathcal D:C\subseteq AB\}.
@@ -25,14 +26,17 @@ Then:
 1. \(AB\) is exactly an \(H\)-bi-invariant union of double cosets.
 2. \(\star\) is associative as a set-valued operation.
 3. \(H\) is a two-sided identity.
-4. inversion \(HgH\mapsto Hg^{-1}H\) is an involution with \((A\star B)^*=B^*\star A^*\).
+4. inversion \(HgH\mapsto Hg^{-1}H\) is an involution with
+   \((A\star B)^*=B^*\star A^*\).
 5. Every double-coset product is single-valued iff \(H\trianglelefteq G\).
 
-Thus the earlier witness \(C_2C_2=\{C_0,C_2\}\) reflects nonnormality/loss of determinism, not an associativity defect.
+Thus the earlier witness \(C_2C_2=\{C_0,C_2\}\) reflects nonnormality/loss of
+determinism, not an associativity defect.
 
 ## Exact deterministic lift
 
-Let \(\Omega=H\backslash G\). The pair groupoid on \(\Omega\) has deterministic composition
+Let \(\Omega=H\backslash G\).  The pair groupoid on \(\Omega\) has deterministic
+composition
 
 \[
 (x,y)\circ(y,z)=(x,z).
@@ -50,7 +54,10 @@ is well-defined and satisfies
 \delta(x,z)\in\delta(x,y)\star\delta(y,z).
 \]
 
-The converse is exact: every \(C\in A\star B\) is realized by some composable triple \(x,y,z\) with adjacent defects \(A,B\) and endpoint defect \(C\). Therefore the double-coset law is exactly the relation image of the pair groupoid; it has neither missing nor spurious outputs.
+The converse is exact: every \(C\in A\star B\) is realized by some composable
+triple \(x,y,z\) with adjacent defects \(A,B\) and endpoint defect \(C\).
+Therefore the double-coset law is exactly the relation image of the pair
+groupoid; it has neither missing nor spurious outputs.
 
 ## Frozen A3 \(S_4/H\) instance
 
@@ -74,11 +81,13 @@ the checker certifies:
 - exactly 24 composable `C2,C2` triples end in `C0` and 24 end in `C2`;
 - nonnormality witness `(23)(12)(23)=(13) notin H`.
 
-The 48-triple split proves that no deterministic function of the two adjacent defect labels alone can recover every exact endpoint.
+The 48-triple split proves that no deterministic function of the two adjacent
+defect labels alone can recover every exact endpoint.
 
 ## Integer orbital refinement
 
-Writing \(R_i\) for the orbital relation of class \(C_i\) on the 12 alignment cosets and \(M_i\) for its adjacency matrix,
+Writing \(R_i\) for the orbital relation of class \(C_i\) on the 12 alignment
+cosets and \(M_i\) for its adjacency matrix,
 
 \[
 M_iM_j=\sum_k p_{ij}^kM_k
@@ -103,12 +112,19 @@ The positive supports are exactly the relation-valued defect products.
 The correct fixed-stabilizer radial state hierarchy is
 
 \[
-g_n\to Hg_n\to(Hg_n,Hg_{n+1})\to Hg_ng_{n+1}^{-1}H.
+g_n
+\to Hg_n
+\to (Hg_n,Hg_{n+1})
+\to Hg_ng_{n+1}^{-1}H.
 \]
 
-The pair \((Hg_n,Hg_{n+1})\) is the minimal deterministic transport arrow. Compressing it to a double coset erases the middle interface information and forces relation-valued composition unless \(H\) is normal.
+The pair \((Hg_n,Hg_{n+1})\) is the minimal deterministic transport arrow.
+Compressing it to a double coset erases the middle interface information and
+forces relation-valued composition unless \(H\) is normal.
 
-Therefore H7 is realized by composition of existing relation/BRC, quotient, finite-symmetry and holonomy tools. No new shared tool family or Foundation primitive is justified.
+Therefore H7 is realized by composition of existing relation/BRC, quotient,
+finite-symmetry and holonomy tools.  No new shared tool family or Foundation
+primitive is justified.
 
 ## Exact files
 
@@ -138,7 +154,10 @@ Still open only beyond the fixed-subgroup hypothesis:
 
 `SCALE_VARYING_STABILIZER_OR_PARTIAL_MOVE_GROUPOID_COHERENCE_OPEN`
 
-A justified successor must therefore involve scale-dependent \(H_n\), partial move domains/groupoids, non-conjugate target stabilizers, or restriction maps that fail to transport interface symmetries coherently. Enlarging the same finite \(S_4/H\) census is not a successor.
+A justified successor must therefore involve scale-dependent \(H_n\), partial
+move domains/groupoids, non-conjugate target stabilizers, or restriction maps
+that fail to transport interface symmetries coherently.  Enlarging the same
+finite \(S_4/H\) census is not a successor.
 
 ## Tool verdict
 
