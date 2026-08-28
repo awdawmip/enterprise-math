@@ -1,0 +1,60 @@
+{
+  "schema": "ENTERPRISE_MATH_R043C7_TWO_SHELL_TRACE_CARRIER_RESULTS_V1",
+  "task_id": "RS-R043C7-ROOT-LOCAL-JX-REALIZABLE-COMPLETION-ORBIT-CLASSIFICATION",
+  "researcher_id": "EM-R043C7-3726F5",
+  "primary_classification": "UNRESOLVED_EXACT_FRONTIER / FIXED_TWO_SHELL_SUPPORT_REDUCTION / SMALL_ABSTRACT_G0_RADIUS_SHORTCUT_REFUTED",
+  "structural_reduction": {
+    "root_shell": "S_x = N(x)",
+    "second_shell": "Q_x = (union_{z in S_x} N(z)) minus (S_x union {x})",
+    "support_theorem": "Every vertex and edge of J_x is supported on S_x union Q_x. For y in Q_x, the hidden new-neighbor set is (N(y) intersect S_x) intersect Z_x.",
+    "participating_support_bound": {
+      "fcc": 53,
+      "hcp": 55,
+      "reason": "S_x partitions into nonempty I_x plus A_x plus Z_x, so |A_x|+|Z_x|<=11; add at most all second-shell slots."
+    },
+    "old_vertex_hidden_degree_bound": 4
+  },
+  "worlds": {
+    "fcc": {
+      "root_shell_slots": 12,
+      "root_link_edges": 24,
+      "root_link_degree_hist": {"4": 12},
+      "second_shell_slots": 42,
+      "two_shell_carrier_slots_excluding_root": 54,
+      "second_shell_trace_size_hist": {"1": 12, "2": 24, "4": 6},
+      "max_second_shell_trace_size": 4
+    },
+    "hcp": {
+      "root_shell_slots": 12,
+      "root_link_edges": 24,
+      "root_link_degree_hist": {"4": 12},
+      "second_shell_slots": 44,
+      "two_shell_carrier_slots_excluding_root": 56,
+      "second_shell_trace_size_hist": {"1": 18, "2": 18, "3": 2, "4": 6},
+      "max_second_shell_trace_size": 4
+    }
+  },
+  "graph_radius_shortcut_counterexamples": {
+    "fcc": {
+      "occupied": [[0,-3,-1],[0,-1,1],[1,-3,0],[1,-2,1]],
+      "z": [0,-1,-1],
+      "old_endpoint_y": [0,-2,-2],
+      "g0_distance_root_to_y": 3,
+      "refutes": "J_x is determined by the radius-2 rooted G0 neighborhood"
+    },
+    "hcp": {
+      "occupied": [[-1,1,0],[-1,1,1],[0,1,2],[1,0,2],[1,0,3],[1,1,3],[2,-2,1],[2,-1,2]],
+      "z": [1,-1,0],
+      "old_endpoint_y": [2,-2,0],
+      "g0_distance_root_to_y": 4,
+      "refutes": "J_x is determined by the radius-3 rooted G0 neighborhood"
+    }
+  },
+  "hard_target_disposition": {
+    "fcc": "OPEN: no harmful completion pair found and no global successor-equivalence theorem proved",
+    "hcp": "OPEN: no harmful completion pair found and no global successor-equivalence theorem proved",
+    "global": "The remaining gate is the orbit classification of finite native two-shell slot assignments compatible with the same full abstract rooted weighted G0."
+  },
+  "checker": "scripts/check_r043c7_root_local_jx_realizable_completion_orbit_classification.py",
+  "pass": true
+}
