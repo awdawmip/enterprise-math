@@ -294,7 +294,8 @@ def audit_task_records(root: Path = ROOT) -> list[str]:
         install(root)
         from tools import research_task_records
 
-        raw_errors = list(research_task_records.audit(root))
+        strict_audit = getattr(research_task_records, "strict_audit", research_task_records.audit)
+        raw_errors = list(strict_audit(root))
         suppressions = suppression_strings(root)
     except Exception as exc:
         return [str(exc)]
