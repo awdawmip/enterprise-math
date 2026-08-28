@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Canonical control-plane bootstrap for resilient task-view construction.
+"""Canonical control-plane bootstrap for resilient runtime views.
 
 Order is intentional:
 1. isolate unresolved immutable publication forks without selecting a head;
 2. isolate exact pinned current task-integrity faults;
-3. normalize every isolated task to a state-machine-complete hard block;
-4. leave every unrelated task under the original strict publication/dispatch rules.
+3. isolate exact nonconforming Driver-review provenance from the operational view;
+4. normalize every isolated task to a state-machine-complete hard block;
+5. leave every unrelated task/review under the original strict rules.
 
-This bootstrap grants no research or publication authority.
+This bootstrap grants no research, review, publication, Working Truth, Foundation,
+or successor authority.
 """
 from __future__ import annotations
 
@@ -15,6 +17,7 @@ import copy
 from pathlib import Path
 from typing import Any
 
+from control_plane import research_driver_review_authority_fault_isolation
 from control_plane import research_publication_fault_isolation
 from control_plane import research_task_integrity_fault_isolation
 
@@ -60,6 +63,7 @@ def _complete_quarantine_block(
 def install(root: Path = ROOT) -> None:
     research_publication_fault_isolation.install(root)
     research_task_integrity_fault_isolation.install(root)
+    research_driver_review_authority_fault_isolation.install(root)
 
     from tools import research_dispatch
 
@@ -88,4 +92,4 @@ def install(root: Path = ROOT) -> None:
 
 if __name__ == "__main__":
     install()
-    print("PASS: canonical control-plane task-view bootstrap installed.")
+    print("PASS: canonical control-plane runtime bootstrap installed.")
