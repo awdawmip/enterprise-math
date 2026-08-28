@@ -9,7 +9,11 @@
       "record_path": "research_result_records/RS-ABC-ENTERPRISE-BOUNDARY-ESCAPE/RR-8992ACCB57F4A22CB843.json",
       "record_blob_sha1": "sha1:e48ae29d334cd2d1efe68522c446b79eba18e786",
       "field_aliases": [
-        {"field": "terminal_verdict", "from": "EXACT_OBSTRUCTION", "to": "NO_GO"}
+        {
+          "field": "terminal_verdict",
+          "from": "EXACT_OBSTRUCTION",
+          "to": "NO_GO"
+        }
       ],
       "artifact_sha256_repairs": [
         "research_returns/ABC_ENTERPRISE_BOUNDARY_ESCAPE_RETURN_20260827.md"
@@ -22,8 +26,16 @@
       "record_path": "research_result_records/RS-ABC-ENTERPRISE-CAPPED-CORE-ENERGY/RR-CBCAF6EF07B1C8493C17.json",
       "record_blob_sha1": "sha1:a2c2662432e8cfdeb06aed7c30889d1425d4531e",
       "field_aliases": [
-        {"field": "terminal_verdict", "from": "EXACT_OBSTRUCTION", "to": "NO_GO"},
-        {"field": "independence_status", "from": "INDEPENDENT_RECONSTRUCTION_WITH_PARENT_PROVENANCE_GAP", "to": "SHARED_AMBIENT_CONTEXT_DISCLOSED"}
+        {
+          "field": "terminal_verdict",
+          "from": "EXACT_OBSTRUCTION",
+          "to": "NO_GO"
+        },
+        {
+          "field": "independence_status",
+          "from": "INDEPENDENT_RECONSTRUCTION_WITH_PARENT_PROVENANCE_GAP",
+          "to": "SHARED_AMBIENT_CONTEXT_DISCLOSED"
+        }
       ],
       "artifact_sha256_repairs": [],
       "reason": "The historical free-form verdict and provenance-qualified independence label predate the current V1 enums; the normalized values preserve the same restricted obstruction and disclosed shared parent context."
@@ -34,8 +46,16 @@
       "record_path": "research_result_records/RS-ABC-ENTERPRISE-CARRY-ACTIVATION-SPECTRUM/RR-E623A0364F580D6D1C0F.json",
       "record_blob_sha1": "sha1:8184753cb582ccc180301cb1a2ab6b2dcf16e04e",
       "field_aliases": [
-        {"field": "terminal_verdict", "from": "EXACT_OBSTRUCTION", "to": "NO_GO"},
-        {"field": "independence_status", "from": "EXACT_TASK_LOCAL_OBSTRUCTION", "to": "NOT_APPLICABLE"}
+        {
+          "field": "terminal_verdict",
+          "from": "EXACT_OBSTRUCTION",
+          "to": "NO_GO"
+        },
+        {
+          "field": "independence_status",
+          "from": "EXACT_TASK_LOCAL_OBSTRUCTION",
+          "to": "NOT_APPLICABLE"
+        }
       ],
       "artifact_sha256_repairs": [],
       "reason": "The exact obstruction is a task-local theorem rather than an independence claim. The current V1 control equivalents are NO_GO and NOT_APPLICABLE."
@@ -46,8 +66,16 @@
       "record_path": "research_result_records/RS-P022-OBSERVATION-HISTORY/RR-4D51F40A41E59F28BA98.json",
       "record_blob_sha1": "sha1:2ef4a2357318edcc9a0593d1b968f0e62ae95b50",
       "field_aliases": [
-        {"field": "method_harvest", "from": "RECOVERED_SAME_TASK_OWNER_THEOREM_PLUS_INDEPENDENT_REPLAY", "to": "RESULT_ONLY"},
-        {"field": "independence_status", "from": "INDEPENDENT_EXACT_RECURRENCE_AND_SUPPORT_REGRESSION_COMPLETED", "to": "SHARED_AMBIENT_CONTEXT_DISCLOSED"}
+        {
+          "field": "method_harvest",
+          "from": "RECOVERED_SAME_TASK_OWNER_THEOREM_PLUS_INDEPENDENT_REPLAY",
+          "to": "RESULT_ONLY"
+        },
+        {
+          "field": "independence_status",
+          "from": "INDEPENDENT_EXACT_RECURRENCE_AND_SUPPORT_REGRESSION_COMPLETED",
+          "to": "SHARED_AMBIENT_CONTEXT_DISCLOSED"
+        }
       ],
       "artifact_sha256_repairs": [],
       "reason": "The theorem remains a result-only bounded P022 closure. The replay reused the same task/owner theorem context, so the current V1 disclosure-equivalent independence class is SHARED_AMBIENT_CONTEXT_DISCLOSED."
@@ -74,6 +102,26 @@
         "scripts/check_prime_coord_factor_blind_padic_gcd_bridge_independent.py"
       ],
       "reason": "The provenance-correct replacement reused the original checker Git-blob pins exactly, but its two stored secondary SHA-256 values were stale. Both current checker blobs still equal those primary pins, so only the secondary digests are normalized in memory."
+    },
+    {
+      "normalization_id": "RRC-EBP5JH-EXACT-OBSTRUCTION-SHA",
+      "result_id": "RR-2498834D6D9E2A3D6787",
+      "record_path": "research_result_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-FINITE-JACOBI-HARMONIC-IDENTITIES/RR-2498834D6D9E2A3D6787.json",
+      "record_blob_sha1": "sha1:06b5cead0bd86aaba4fdc601fc88e8d373baacf3",
+      "field_aliases": [
+        {
+          "field": "terminal_verdict",
+          "from": "EXACT_OBSTRUCTION",
+          "to": "NO_GO"
+        }
+      ],
+      "artifact_sha256_repairs": [
+        "research_returns/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_FINITE_JACOBI_HARMONIC_IDENTITIES_RETURN_20260827.md",
+        "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_FINITE_JACOBI_HARMONIC_IDENTITIES/jacobi_jet_certificate_20260827.json",
+        "scripts/check_enterprise_brc_half_coupling_inert_plus_finite_jacobi_harmonic_identities.py",
+        "research_execution_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-FINITE-JACOBI-HARMONIC-IDENTITIES/ER-20F444E74939EB5B2839.json"
+      ],
+      "reason": "The frozen result predates the current terminal enum and secondary SHA-256 requirement. Its exact record and artifact Git blobs are preserved; EXACT_OBSTRUCTION is normalized to NO_GO and only secondary digests are recomputed in memory."
     }
   ],
   "review_normalizations": [
@@ -83,7 +131,11 @@
       "record_path": "research_result_reviews/RR-B8D8679EB033E990E825/DR-78A3B92E2016DF7AB1D3.json",
       "record_blob_sha1": "sha1:264bb17f7d346c9506d134dfbbd19162e00b9eaf",
       "field_aliases": [
-        {"field": "destination_class", "from": "RETURN_ONLY", "to": "NONE"}
+        {
+          "field": "destination_class",
+          "from": "RETURN_ONLY",
+          "to": "NONE"
+        }
       ],
       "artifact_sha256_repairs": [],
       "reason": "RETURN_ONLY was a pre-enum spelling for an accepted result with no destination object; current V1 represents that state as destination_class NONE."
