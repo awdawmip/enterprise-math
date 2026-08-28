@@ -369,6 +369,108 @@ def _inline_claim_envelope(
     return normalized, None
 
 
+def _lifecycle_time(value: Any, field: str) -> datetime:
+    if not isinstance(value, str) or not value.strip():
+        raise DispatchError(f"result lifecycle {field} is required")
+    try:
+        return research_scheduler.parse_time(value)
+    except Exception as exc:
+        raise DispatchError(f"result lifecycle {field} is invalid") from exc
+
+
+def _result_freeze_time(
+    result_state: dict[str, Any] | None, root: Path
+) -> datetime | None:
+    """Return the newest trusted freeze boundary for the current result generation."""
+    if result_state is None:
+        return None
+    values: list[datetime] = []
+    result = result_state.get("result")
+    result_ids: set[str] = set()
+    if isinstance(result, dict):
+        frozen_at = result.get("frozen_at")
+        if isinstance(frozen_at, str) and frozen_at.strip():
+            values.append(_lifecycle_time(frozen_at, "frozen_at"))
+        result_id = result.get("result_id")
+        if isinstance(result_id, str) and result_id:
+            result_ids.add(result_id)
+        parallel_ids = result.get("parallel_result_ids")
+        if isinstance(parallel_ids, list):
+            result_ids.update(item for item in parallel_ids if isinstance(item, str) and item)
+    parallel_ids = result_state.get("parallel_result_ids")
+    if isinstance(parallel_ids, list):
+        result_ids.update(item for item in parallel_ids if isinstance(item, str) and item)
+
+    # Parallel/synthetic control states may not copy frozen_at onto the synthetic
+    # result. Recover the boundary from the immutable component result records.
+    if result_ids:
+        try:
+            records = research_result_records.iter_results(root)
+        except Exception as exc:
+            raise DispatchError(f"result lifecycle record lookup failed: {exc}") from exc
+        for item in records:
+            if item.get("result_id") not in result_ids:
+                continue
+            frozen_at = item.get("frozen_at")
+            if isinstance(frozen_at, str) and frozen_at.strip():
+                values.append(_lifecycle_time(frozen_at, "frozen_at"))
+    return max(values) if values else None
+
+
+def _claim_result_gate_reason(
+    event: dict[str, Any],
+    result_state: dict[str, Any] | None,
+    root: Path,
+) -> str | None:
+    """Reject only CLAIMs inside the current frozen-result lifecycle interval.
+
+    Historical CLAIMs before the newest result freeze remain canonical. A normal
+    nonterminal Driver review reopens admission at its authoritative reviewed_at.
+    Terminal review never reopens the task. The server-created comment timestamp,
+    never body-declared `at`, is the claim clock.
+    """
+    frozen_at = _result_freeze_time(result_state, root)
+    if frozen_at is None or result_state is None:
+        return None
+    meta = event.get(GITHUB_META_KEY)
+    if not isinstance(meta, dict):
+        return "registered CLAIM under result lifecycle control requires authenticated GitHub metadata"
+    created_at = meta.get("created_at")
+    try:
+        claim_at = _lifecycle_time(created_at, "GitHub created_at")
+    except DispatchError as exc:
+        return str(exc)
+    if claim_at < frozen_at:
+        return None
+
+    state = result_state.get("state")
+    if state == "RETURN_TO_EXECUTION":
+        review = result_state.get("review")
+        reviewed_at = review.get("reviewed_at") if isinstance(review, dict) else None
+        if isinstance(reviewed_at, str) and reviewed_at.strip():
+            try:
+                reopened_at = _lifecycle_time(reviewed_at, "reviewed_at")
+            except DispatchError as exc:
+                return str(exc)
+            if claim_at >= reopened_at:
+                return None
+            return (
+                "registered CLAIM falls inside the frozen-result interval before the authoritative "
+                "nonterminal Driver review reopened execution"
+            )
+        if result_state.get("parallel_state") == "PARALLEL_SYNTHESIS_NONTERMINAL":
+            # Parallel task-global ownership is separately isolated by the cohort
+            # reducer; its synthesis compatibility view has no reviewed_at field.
+            return None
+        return "registered CLAIM cannot reopen frozen execution without an authoritative Driver review time"
+
+    if state == "TERMINAL":
+        return "registered CLAIM was created after the current result freeze and the task is terminal"
+    if state == "AWAITING_DRIVER_REVIEW":
+        return "registered CLAIM was created after the current result freeze while Driver review is pending"
+    return "registered CLAIM was created after the current result freeze without an explicit reopen state"
+
+
 def _filter_registered_events(
     task: dict[str, Any], events: list[dict[str, Any]], root: Path
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -389,6 +491,11 @@ def _filter_registered_events(
             claim_id = event.get("claim_id")
             if not isinstance(claim_id, str) or not claim_id:
                 accepted.append(event)
+                continue
+
+            lifecycle_reason = _claim_result_gate_reason(event, result_state, root)
+            if lifecycle_reason is not None:
+                rejected.append({"index": index, "reason": lifecycle_reason})
                 continue
 
             try:
@@ -717,7 +824,6 @@ def main() -> int:
     chosen = select_task(events, now=now, kind=args.kind)
     print(json.dumps(chosen, ensure_ascii=False, indent=2, sort_keys=True))
     return 0 if chosen is not None else 2
-
 
 if __name__ == "__main__":
     try:
