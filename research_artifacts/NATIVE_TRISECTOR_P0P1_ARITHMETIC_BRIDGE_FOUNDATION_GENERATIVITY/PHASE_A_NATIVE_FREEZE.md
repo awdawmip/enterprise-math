@@ -1,126 +1,47 @@
-# Phase A Native Freeze — P0/P1 → arithmetic bridge
+# Auxiliary Phase-A selector-obstruction replication
 
 Researcher-ID: `EM-NTP1B-911AF5`
 Task: `RS-NATIVE-TRISECTOR-P0P1-ARITHMETIC-BRIDGE`
 Publication: `TP2-BD39D919E5642BECBE87`
-Branch base: `a5aebf8537ab59585f2e370482ed729109727e84`
 
-Status: `PHASE_A_FROZEN / THEOREM_SIDE_NOT_READ`
+Status: `AUXILIARY_REPLICATION / NOT_PRIMARY_PHASE_A_FREEZE`
 
-## Frozen authorities used
+## Provenance correction
 
-Only current native/Foundation authorities were used before this freeze:
+After this auxiliary symmetry check was written, the execution branch was found to inherit an earlier, stronger Phase-A freeze already present on `main`:
 
-- `definitions/00_CURRENT_NATIVE_FOUNDATION.md@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`;
-- `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`;
-- `native_semantics_admissibility.json@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`;
-- `FOUNDATIONAL_LOGIC.md@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`.
+`research_returns/NATIVE_TRISECTOR_P0P1_ARITHMETIC_BRIDGE_FOUNDATION_GENERATIVITY_RETURN_20260826.md`
 
-No theorem-side shell/lane/breaker/capacity/hyperbola/Joukowski/extremal-saturation formula was opened before this freeze.
+blob:
 
-## A1. Exact typed native inventory
+`87d5d961e5f87f882bee86337e366f4c89979658`.
 
-The load-bearing current native objects are:
+That predecessor Phase-A return, by `EM-NTP1B-7C4A2F`, is the authoritative raw freeze for this continuation. It derives a genuine `WEAKER_FOUNDATION_BRIDGE` from P0/P1 native line-trace semantics: transition-grade shells, the exact global count `3r`, balance-lane orbits, even-shell fixed traces, odd-shell unordered central pairs, realization multiplicities, and parity defect.
 
-1. native origin `O_E=0`;
-2. exactly three positive native axis rays `A={E_1,E_2,E_3}`;
-3. the three glued sector charts `S_12,S_23,S_31`;
-4. canonical addresses `A_E={(a,b,c)∈N_0^3:min(a,b,c)=0}`;
-5. the native sector-local origin norm `L_E(a,b,c)^2=a^2+b^2+c^2` on canonical addresses;
-6. circle cells, center identity, nearest-center incidence/carrier structure, and the triple-intersection origin as declared by the current plane definition.
+This file must therefore **not** be read as replacing or narrowing that stronger predecessor freeze.
 
-Implementation labels `1,2,3` are not themselves a theorem-strength selector. NSA-02 requires any promoted intrinsic construction to survive the relevant native relabelings/automorphisms.
+## What this auxiliary replication independently confirms
 
-## A2. Native cyclic automorphism
+Using only the current native three-axis/three-sector presentation and admissibility rule before theorem-side comparison, the cyclic relabeling
 
-Let `rho` cyclically relabel the three positive axes:
+`E_1 -> E_2 -> E_3 -> E_1`
 
-`E_1→E_2→E_3→E_1`.
+is a native presentation automorphism. Consequently no parameter-free native construction can choose one distinguished member of the three-sector torsor while remaining invariant/equivariant at singleton-selector strength.
 
-On canonical addresses take, for example,
+Likewise the full unpointed three-sector orbit is invariant.
 
-`rho(a,b,c)=(c,a,b)`.
+This agrees with the predecessor Phase-A result:
 
-Then exactly:
+`DISTINGUISHED_SINGLE_GLOBAL_CENTRAL_LANE = EXACT_DEFINABILITY_OBSTRUCTION`
 
-- `min(a,b,c)=0` iff `min(rho(a,b,c))=0`;
-- `rho` permutes `S_12,S_23,S_31` cyclically;
-- `a^2+b^2+c^2` is invariant;
-- the origin `(0,0,0)` is fixed;
-- the equal three-axis / equal-sector carrier declarations and cell/incidence presentation are transported to themselves.
+while leaving its weaker invariant shell/balance bridge intact.
 
-Hence the current native plane has at least the cyclic relabeling group `C_3=<rho>` as a native presentation automorphism. Full `S_3` symmetry is not needed for the no-go below.
+## Phase-B authority
 
-## A3. Exact no-go theorem for a distinguished native lane
+The task-level continuation and final comparison are recorded in:
 
-### Theorem (no invariant pointed-axis selector)
+`research_artifacts/NATIVE_TRISECTOR_P0P1_ARITHMETIC_BRIDGE_FOUNDATION_GENERATIVITY/PHASE_B_THEOREM_COMPARISON.md`.
 
-There is no presentation-invariant native construction from the frozen unpointed P0/P1 substrate that selects one distinguished element of `A={E_1,E_2,E_3}`.
+Primary task-level verdict after that comparison:
 
-### Proof
-
-Assume a native construction `s` selects one axis and satisfies the NSA-02 relabeling requirement. Apply it to the current unpointed native structure `M`. The cyclic relabeling `rho` is an automorphism of `M`, so intrinsic definability/equivariance requires
-
-`s(M)=rho(s(M))`.
-
-But `rho` acts on `A` as a 3-cycle and therefore has no fixed element. Contradiction. ∎
-
-The same proof kills any purported globally distinguished sector, axis pair, or lane-like pointed object on which this `C_3` acts without a fixed point.
-
-This is an exact definability obstruction, not a finite-census claim.
-
-## A4. Paired-presentation certificate
-
-Take one native presentation `P=(E_1,E_2,E_3)` and its cyclic relabeling `P'=rho(P)=(E_2,E_3,E_1)`.
-
-All frozen native observables above agree after the canonical transport/isomorphism. A proposed readout `central_lane(P)=E_1` transports to `central_lane(P')=E_2`. If the readout is required to descend to the unlabelled native object, the two values must represent the same distinguished native lane; they do not. Thus `P,P'` are the requested native-equivalent paired presentations with incompatible pointed-lane readout.
-
-## A5. What *is* native at current strength
-
-Two weaker invariant objects survive:
-
-1. the unpointed three-axis orbit/torsor `A` itself (cardinality `|A|=3`);
-2. the origin-shell scalar/relation generated by the already-declared native origin norm, e.g. level sets of `Q(a,b,c)=a^2+b^2+c^2` on `A_E`.
-
-Both are invariant under `rho`. Neither contains a canonical choice of one axis/lane.
-
-Therefore current strength can support an **unpointed cyclic shell/orbit bridge**, but not a global pointed central-lane selector.
-
-## A6. Breaker/capacity underdetermination before theorem comparison
-
-No `breaker`, `breaker-capacity`, or equivalent relation/function appears in the frozen native inventory used above. By NSA-01/NSA-13, an invariant scalar such as `|A|=3` or even a numerically invariant expression such as `3^2=9` cannot promote an unproved relation/object/capacity semantics: scalar invariance is weaker than relation/object definability.
-
-Model-theoretically, the same native reduct can be expanded by different external breaker/capacity readouts without changing any frozen P0/P1 observable. Until an independent construction from the native reduct is supplied, the target readout is underdetermined. Choosing a value merely because it matches a successful arithmetic model would violate NSA-18 / FL-04.
-
-## A7. Anti-circularity audit for the scalar 3
-
-`3` has one legitimate native occurrence in Phase A: it is the cardinality of the declared positive-axis set and the number of native sectors.
-
-It is **not** used to infer:
-
-- a preferred element of the three-axis torsor;
-- a theorem-side shell allocator;
-- a breaker predicate;
-- a breaker capacity;
-- any arithmetic formula whose output contains `3` or `9`.
-
-Thus native three-ness is preserved as input data without being upgraded into stronger semantics by numerology.
-
-## A8. Minimal extra structure
-
-The weakest known structure that removes the pointed-selector obstruction is a **section of the native three-axis torsor**: equivalently, a declared/derived pointed axis `lambda∈A`, or a native predicate on `A` proved to have exactly one element. This is strictly stronger than the current unpointed substrate because it breaks the `C_3` stabilizer.
-
-A breaker/capacity bridge would additionally require an independently typed relation or functional built from native objects (possibly after the pointed choice) and proved invariant under the remaining stabilizer. Importing the whole theorem-side machinery is not necessary merely to state the missing ontology.
-
-## Phase-A verdict
-
-`EXACT_POINTED_SELECTOR_DEFINABILITY_OBSTRUCTION_WITH_WEAKER_UNPOINTED_ORBIT_SHELL_BRIDGE`
-
-Consequences frozen before theorem-side comparison:
-
-- `DERIVED`: unpointed three-axis/three-sector orbit and native origin-norm shell relation;
-- `REFUTED AT CURRENT STRENGTH`: globally distinguished native central lane / pointed axis selector;
-- `UNRESOLVED/UNDERDETERMINED`: breaker/capacity semantics beyond scalar three-ness;
-- `NO FOUNDATION MUTATION`.
-
-Phase B may now compare this frozen result with the admitted tri-sector research theorem. It may not revise Phase A by importing target-side definitions into its premises.
+`WEAKER_FOUNDATION_BRIDGE`.
