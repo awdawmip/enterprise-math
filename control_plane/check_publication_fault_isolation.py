@@ -87,11 +87,18 @@ def audit() -> list[str]:
         errors.extend(_audit_operational_publications(operational, isolated_tasks))
 
         definitions = research_dispatch.merged_definitions(ROOT)
-        states = research_dispatch.effective_states(
-            [], now=datetime(2026, 8, 28, 8, 0, tzinfo=timezone.utc), root=ROOT
-        )
         by_id = {item["task_id"]: item for item in definitions}
-        state_by_id = {item["task_id"]: item for item in states}
+        now = datetime(2026, 8, 28, 8, 0, tzinfo=timezone.utc)
+        state_by_id = {}
+        for task_id in sorted(isolated_tasks):
+            definition = by_id.get(task_id)
+            if definition is None:
+                errors.append(f"{task_id}: isolated task missing from dispatch definition view")
+                continue
+            state_by_id[task_id] = research_dispatch.reduce_definition(
+                definition, [], now=now, root=ROOT
+            )
+
         for task_id in isolated_tasks:
             if by_id.get(task_id, {}).get("base_state") != "BLOCKED":
                 errors.append(f"{task_id}: dispatch definition is not locally BLOCKED")
