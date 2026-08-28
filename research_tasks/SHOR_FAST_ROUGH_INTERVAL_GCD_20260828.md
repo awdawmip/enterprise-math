@@ -1,54 +1,60 @@
----
-task_id: "RS-SHOR-FAST-ROUGH-INTERVAL-GCD"
-title: "Shor bridge prime-sensitive FAST_ROUGH_INTERVAL_GCD"
-kind: "RESEARCH"
-owner: "taskbook/unassigned"
-base_state: "READY"
-priority: "P1"
-leverage: "HIGH"
-frontier: "After B^2 small-factor clearing and the exact prime-sensitive LCM-jump/Mobius-factorial reduction, the only unresolved high-prime primitive is to compute gcd(d, product_{x<p<=y} p) for B^2-rough d and B^2<=x<y<=B^3 in B^(1+o(1)) time; independent harmonic-block evaluation costs B^(3/2+o(1))."
-next_action: "Exploit cross-block cancellation before generic consecutive-product evaluation, starting from the B-rough survivor product and factor-revealing rational Mobius-factorial representations; either obtain an exact deterministic B^(1+o(1)) interval-GCD algorithm or prove a rigorous obstruction for the frozen candidate models and isolate the smallest surviving primitive."
-created_by_role: "RESEARCHER"
-task_authority: "PUBLISHED_REGISTERED"
-publication_contract: "RESEARCH_TASK_PUBLICATION_V1"
-publication_template: "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1"
-registry_key: "RS-SHOR-FAST-ROUGH-INTERVAL-GCD"
-parent_objective_id: "OBJ-SHOR-DETERMINISTIC-N16-CLASSICAL-BRIDGE"
-identity_policy: "AUTO_RESOLVE_OR_ALLOCATE"
-final_response_identity_policy: "INHERIT_GLOBAL"
-origin_kind: "DIRECT_USER_DIRECTION"
-task_lineage: "NEW_DIRECTION"
-parent_task_id: null
-successor_gate: null
-identity_lane: "SHOR"
-claim_lease_minutes: 240
-evidence_status: "EXACT_PRIME_SENSITIVE_REDUCTION / EXACT_MOBIUS_PROJECTOR / EXACT_MOBIUS_UNIQUENESS / INDEPENDENT_BLOCK_N14_BARRIER / B1_INTERVAL_GCD_OPEN"
-last_progress_ref: "GLOBAL_KNOWLEDGE:7f7de8361475d989dcbbf2cf3816f0cef6c70e5e"
-last_progress_at: "2026-08-28T10:27:55+08:00"
-dependencies:
-  - "research_runtime_state_machine.json@main"
-  - "research_task_publication_contract_v2.json@main"
-  - "research_taskbook_policy.json@main"
-source_refs:
-  - "GLOBAL_KNOWLEDGE:c302ce7b329d1251cd7325da7489c8a555361f47"
-  - "GLOBAL_KNOWLEDGE:2a9ee13e5a5372f82bc901b62f235dc4e46d2666"
-  - "GLOBAL_KNOWLEDGE:7f7de8361475d989dcbbf2cf3816f0cef6c70e5e"
-tags:
-  - "Shor bridge"
-  - "deterministic factoring"
-  - "N^(1/6)"
-  - "prime-sensitive packets"
-  - "LCM jump"
-  - "Mobius factorial projector"
-  - "rough interval gcd"
-  - "cross-block cancellation"
-  - "Strassen"
-policy_review:
-  policy_set: "research_taskbook_policy.json"
-  policy_digest: "sha256:b78ae73bf9790b5afb87d2cfe01f8ca4549bf4a658547e1a9030374221a7ec74"
-  review_state: "PASS"
-  temporary_overrides: []
----
+<!-- ENTERPRISE_MATH_TASK_V1
+{
+  "task_id": "RS-SHOR-FAST-ROUGH-INTERVAL-GCD",
+  "title": "Shor bridge prime-sensitive FAST_ROUGH_INTERVAL_GCD",
+  "kind": "RESEARCH",
+  "owner": "taskbook/unassigned",
+  "base_state": "READY",
+  "priority": "P1",
+  "leverage": "HIGH",
+  "frontier": "After B^2 small-factor clearing and the exact prime-sensitive LCM-jump/Mobius-factorial reduction, the only unresolved high-prime primitive is to compute gcd(d, product_{x<p<=y} p) for B^2-rough d and B^2<=x<y<=B^3 in B^(1+o(1)) time; independent harmonic-block evaluation costs B^(3/2+o(1)).",
+  "next_action": "Exploit cross-block cancellation before generic consecutive-product evaluation, starting from the B-rough survivor product and factor-revealing rational Mobius-factorial representations; either obtain an exact deterministic B^(1+o(1)) interval-GCD algorithm or prove a rigorous obstruction for the frozen candidate models and isolate the smallest surviving primitive.",
+  "created_by_role": "RESEARCHER",
+  "task_authority": "PUBLISHED_REGISTERED",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "publication_template": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "registry_key": "RS-SHOR-FAST-ROUGH-INTERVAL-GCD",
+  "parent_objective_id": "OBJ-SHOR-DETERMINISTIC-N16-CLASSICAL-BRIDGE",
+  "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+  "final_response_identity_policy": "INHERIT_GLOBAL",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "task_lineage": "NEW_DIRECTION",
+  "parent_task_id": null,
+  "successor_gate": null,
+  "identity_lane": "SHOR",
+  "claim_lease_minutes": 240,
+  "evidence_status": "EXACT_PRIME_SENSITIVE_REDUCTION / EXACT_MOBIUS_PROJECTOR / EXACT_MOBIUS_UNIQUENESS / INDEPENDENT_BLOCK_N14_BARRIER / B1_INTERVAL_GCD_OPEN",
+  "last_progress_ref": "GLOBAL_KNOWLEDGE:7f7de8361475d989dcbbf2cf3816f0cef6c70e5e",
+  "last_progress_at": "2026-08-28T10:27:55+08:00",
+  "dependencies": [
+    "research_runtime_state_machine.json@main",
+    "research_task_publication_contract_v2.json@main",
+    "research_taskbook_policy.json@main"
+  ],
+  "source_refs": [
+    "GLOBAL_KNOWLEDGE:c302ce7b329d1251cd7325da7489c8a555361f47",
+    "GLOBAL_KNOWLEDGE:2a9ee13e5a5372f82bc901b62f235dc4e46d2666",
+    "GLOBAL_KNOWLEDGE:7f7de8361475d989dcbbf2cf3816f0cef6c70e5e"
+  ],
+  "tags": [
+    "Shor bridge",
+    "deterministic factoring",
+    "N^(1/6)",
+    "prime-sensitive packets",
+    "LCM jump",
+    "Mobius factorial projector",
+    "rough interval gcd",
+    "cross-block cancellation",
+    "Strassen"
+  ],
+  "policy_review": {
+    "policy_set": "research_taskbook_policy.json",
+    "policy_digest": "sha256:b78f85af4629ddb714870c44535ad0393418dbc3bebe06da142a90c0c6b9075e",
+    "review_state": "PASS",
+    "temporary_overrides": []
+  }
+}
+-->
 
 # Research Task — Shor bridge prime-sensitive FAST_ROUGH_INTERVAL_GCD
 
