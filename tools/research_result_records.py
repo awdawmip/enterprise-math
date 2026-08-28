@@ -4,10 +4,11 @@
 Layers are intentionally ordered:
 
 1. immutable-history compatibility + publication-generation result reduction;
-2. exact-set Driver-review authority (never reviewed_at/latest-review wins);
-3. Driver-review follow-up barrier consuming the *operational* review authority;
-4. parallel-result synthesis only after every source result has resolved review and
-   follow-up authority.
+2. same-execution control-only result replacement (history retained, final sink operational);
+3. exact-set Driver-review authority (never reviewed_at/latest-review wins);
+4. Driver-review follow-up barrier consuming the *operational* review authority;
+5. parallel-result synthesis only after every genuinely parallel source result has
+   resolved review and follow-up authority.
 
 A second immutable review therefore does not publish follow-up work on its own.
 It first reopens review exact-set control; follow-up is materialized only after the
@@ -38,9 +39,13 @@ import research_review_evidence as _review_evidence  # noqa: E402
 import research_driver_followup as _followup_impl  # noqa: E402
 import research_driver_followup_guard as _driver_followup  # noqa: E402
 import research_driver_authority as _driver_authority  # noqa: E402
+import research_result_control_replacements as _result_replacements  # noqa: E402
 
 ROOT = _base.ROOT
 _BASE_TASK_RESULT_STATE = _base.task_result_state
+_BASE_ITER_RESULTS = _base.iter_results
+_BASE_ITER_REVIEWS = _base.iter_reviews
+_BASE_AUDIT = _base.audit
 _PENDING_REVIEW_STATES = {
     "AWAITING_REVIEW_INTAKE",
     "AWAITING_REVIEW_REFERENCE_PASS_1",
@@ -52,6 +57,102 @@ _RESOLVED_REVIEW_STATES = {
     "REVIEW_SYNTHESIS_TERMINAL",
     "REVIEW_SYNTHESIS_NONTERMINAL",
 }
+
+
+def _replacement_edges(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    raw = _base._RAW_ITER_RESULTS(root)
+    raw_map = {
+        str(item.get("result_id")): item
+        for item in raw
+        if isinstance(item.get("result_id"), str) and item.get("result_id")
+    }
+    edges = _result_replacements.replacement_edges(raw_map, root)
+    if not edges:
+        return {}
+    base_ids = {
+        str(item.get("result_id"))
+        for item in _BASE_ITER_RESULTS(root)
+        if isinstance(item.get("result_id"), str) and item.get("result_id")
+    }
+    sources = set(edges)
+    targets = {
+        str(row.get("corrected_result_id"))
+        for row in edges.values()
+        if isinstance(row.get("corrected_result_id"), str)
+    }
+    missing_sources = sources - base_ids
+    missing_targets = targets - base_ids
+    if missing_sources:
+        raise ResultRecordError(
+            "control-result replacement source is already absent from the canonical compatibility view: "
+            + repr(sorted(missing_sources))
+        )
+    if missing_targets:
+        raise ResultRecordError(
+            "control-result replacement target is absent from the canonical compatibility view: "
+            + repr(sorted(missing_targets))
+        )
+    return edges
+
+
+def iter_results(root: Path = ROOT) -> list[dict[str, Any]]:
+    edges = _replacement_edges(root)
+    replaced = set(edges)
+    return [
+        item for item in _BASE_ITER_RESULTS(root)
+        if item.get("result_id") not in replaced
+    ]
+
+
+def iter_reviews(root: Path = ROOT) -> list[dict[str, Any]]:
+    replaced = set(_replacement_edges(root))
+    return [
+        item for item in _BASE_ITER_REVIEWS(root)
+        if item.get("result_id") not in replaced
+    ]
+
+
+def result_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    out: dict[str, dict[str, Any]] = {}
+    for item in iter_results(root):
+        rid = item.get("result_id")
+        if not isinstance(rid, str) or not rid:
+            raise ResultRecordError("result record missing result_id")
+        if rid in out:
+            raise ResultRecordError(f"duplicate result_id: {rid}")
+        out[rid] = item
+    return out
+
+
+def audit(root: Path = ROOT) -> list[str]:
+    errors = list(_BASE_AUDIT(root))
+    errors.extend(_result_replacements.audit(root))
+    try:
+        iter_results(root)
+        iter_reviews(root)
+    except Exception as exc:
+        errors.append(str(exc))
+    return errors
+
+
+def _parallel_results(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    return result_map(root)
+
+
+def _parallel_reviews(root: Path = ROOT) -> dict[str, list[dict[str, Any]]]:
+    out: dict[str, list[dict[str, Any]]] = {}
+    for item in iter_reviews(root):
+        rid = item.get("result_id")
+        if isinstance(rid, str) and rid:
+            out.setdefault(rid, []).append(item)
+    return out
+
+
+# Any parallel reducer reached through the canonical public result tool consumes
+# the post-replacement operational view. The raw compatibility audit remains
+# unchanged and still validates historical source bytes.
+_base._parallel.results = _parallel_results
+_base._parallel.result_reviews = _parallel_reviews
 
 
 @contextmanager
@@ -177,7 +278,7 @@ def task_result_state(
     root: Path = ROOT,
     publication_id: str | None = None,
 ) -> dict[str, Any] | None:
-    """Compose generation, review, follow-up, and parallel-result authority."""
+    """Compose generation, replacement, review, follow-up, and parallel-result authority."""
     with _base_runtime_view():
         base = _BASE_TASK_RESULT_STATE(task_id, root, publication_id)
     if base is None:
@@ -419,6 +520,7 @@ if __name__ == "__main__":
         ResultRecordError,
         _followup_impl.DriverFollowupError,
         _driver_authority.DriverAuthorityError,
+        _result_replacements.ResultControlReplacementError,
     ) as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
