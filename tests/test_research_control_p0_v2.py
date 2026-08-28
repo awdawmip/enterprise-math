@@ -329,7 +329,7 @@ class ResultLifecycleTests(unittest.TestCase):
             review_dir = root / "research_result_reviews" / "RR-ONE"
             review_dir.mkdir(parents=True)
             result = {"record_schema": results.RESULT_SCHEMA, "result_id": "RR-ONE", "task_id": "RS-T", "frozen_at": "2026-08-25T22:00:00+08:00"}
-            review = {"record_schema": results.REVIEW_SCHEMA, "review_id": "DR-ONE", "result_id": "RR-ONE", "task_id": "RS-T", "reviewed_at": "2026-08-25T22:01:00+08:00", "disposition": "ACCEPTED", "terminal": True}
+            review = {"record_schema": results.REVIEW_SCHEMA, "review_id": "DR-ONE", "result_id": "RR-ONE", "task_id": "RS-T", "driver_id": "EM-DVR-ABC123", "reviewed_at": "2026-08-25T22:01:00+08:00", "disposition": "ACCEPTED", "terminal": True}
             (result_dir / "RR-ONE.json").write_text(json.dumps(result), encoding="utf-8")
             (review_dir / "DR-ONE.json").write_text(json.dumps(review), encoding="utf-8")
             state = results.task_result_state("RS-T", root)

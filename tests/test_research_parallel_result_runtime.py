@@ -25,6 +25,22 @@ class ParallelResultRuntimeTests(unittest.TestCase):
             },
         )
 
+    def review(self, root: Path, rid: str):
+        suffix = rid.removeprefix("RR-")
+        write_json(
+            root / "research_result_reviews" / rid / f"DR-{suffix}.json",
+            {
+                "record_schema": results.REVIEW_SCHEMA,
+                "review_id": f"DR-{suffix}",
+                "result_id": rid,
+                "task_id": "RS-T",
+                "driver_id": "EM-DVR-ABC123",
+                "reviewed_at": "2026-08-26T19:30:00+08:00",
+                "disposition": "ACCEPTED",
+                "terminal": True,
+            },
+        )
+
     def publication(self, root: Path):
         write_json(
             root / "research_task_records" / "RS-T" / "TP2-P1.json",
@@ -88,20 +104,26 @@ class ParallelResultRuntimeTests(unittest.TestCase):
         self.result(root, "RR-EARLY", "2026-08-26T10:00:00+00:00")
         self.result(root, "RR-LATE", "2026-08-26T20:00:00+00:00")
 
+    def resolve_source_reviews(self, root: Path):
+        self.review(root, "RR-EARLY")
+        self.review(root, "RR-LATE")
+
     def test_multiple_results_never_latest_win(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             self.setup_parallel(root)
             state = results.task_result_state("RS-T", root, publication_id="TP2-P1")
             self.assertEqual("AWAITING_DRIVER_REVIEW", state["state"])
-            self.assertEqual("AWAITING_PARALLEL_INTAKE", state["parallel_state"])
+            self.assertEqual("AWAITING_RESULT_REVIEW_AUTHORITY", state["parallel_state"])
             self.assertEqual(["RR-EARLY", "RR-LATE"], state["parallel_result_ids"])
+            self.assertEqual(["RR-EARLY", "RR-LATE"], state["pending_result_review_ids"])
             self.assertNotEqual("RR-LATE", state["result"]["result_id"])
 
     def test_two_passes_then_nonterminal_synthesis_returns_to_execution(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             self.setup_parallel(root)
+            self.resolve_source_reviews(root)
             evidence = self.intake(root)
             self.passes(root, evidence)
             write_json(
@@ -126,11 +148,13 @@ class ParallelResultRuntimeTests(unittest.TestCase):
             self.assertEqual("RETURN_TO_EXECUTION", state["state"])
             self.assertEqual("PARALLEL_SYNTHESIS_NONTERMINAL", state["parallel_state"])
             self.assertEqual("PS-1", state["result"]["result_id"])
+            self.assertEqual({"RR-EARLY", "RR-LATE"}, set(state["result_review_authority"]))
 
     def test_terminal_synthesis_without_control_disposition_fails_closed(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             self.setup_parallel(root)
+            self.resolve_source_reviews(root)
             evidence = self.intake(root)
             self.passes(root, evidence)
             write_json(
@@ -155,11 +179,13 @@ class ParallelResultRuntimeTests(unittest.TestCase):
             self.assertEqual("AWAITING_DRIVER_REVIEW", state["state"])
             self.assertFalse(state["terminal"])
             self.assertEqual("TERMINAL_SYNTHESIS_MISSING_CONTROL_DISPOSITION", state["parallel_state"])
+            self.assertEqual({"RR-EARLY", "RR-LATE"}, set(state["result_review_authority"]))
 
     def test_terminal_synthesis_with_explicit_control_disposition_can_close(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             self.setup_parallel(root)
+            self.resolve_source_reviews(root)
             evidence = self.intake(root)
             self.passes(root, evidence)
             write_json(
@@ -186,6 +212,7 @@ class ParallelResultRuntimeTests(unittest.TestCase):
             self.assertTrue(state["terminal"])
             self.assertEqual("PS-1", state["result"]["result_id"])
             self.assertEqual("ACCEPTED", state["review"]["disposition"])
+            self.assertEqual({"RR-EARLY", "RR-LATE"}, set(state["result_review_authority"]))
 
 
 if __name__ == "__main__":
