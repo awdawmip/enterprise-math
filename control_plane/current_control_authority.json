@@ -3,12 +3,13 @@
   "status": "ACTIVE_CANONICAL_CONTROL_PRECEDENCE",
   "effective": "2026-08-28",
   "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
-  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, tool reuse resolution, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
+  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, tool reuse resolution, typed role transitions, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
   "scope": [
     "TASK_PUBLICATION_AUTHORITY",
     "LIVE_DISPATCH_ENTRYPOINT",
     "RUNTIME_BOOTSTRAP",
     "TOOL_REUSE_RESOLUTION",
+    "ROLE_TRANSITION_MERGE",
     "CONTROL_PLANE_MAINTENANCE_LIVENESS"
   ],
   "task_publication": {
@@ -39,6 +40,18 @@
     "relevant_match_requires_reuse_resolution": true,
     "execution_unavailability_is_capability_gap": false
   },
+  "role_transitions": {
+    "matrix": "control_plane/role_transition_matrix.json",
+    "mode": "TYPED_SELECTIVE_MERGE",
+    "role_switch_is_context_reset": false,
+    "identity_provenance_may_persist": true,
+    "source_role_authority_persists_implicitly": false,
+    "role_switch_releases_or_duplicates_claim": false,
+    "free_clean_blindness_recoverable_after_agenda_exposure": false,
+    "working_truth_follows_role_label": false,
+    "tool_visibility_recomputed_from_destination_mode": true,
+    "invariant": "PRESERVE_PROVENANCE_AND_DURABLE_FRONTIER_WHILE_RECOMPUTING_DESTINATION_AUTHORITY"
+  },
   "control_liveness": {
     "contract": "active_turn_liveness.json",
     "mode": "CONTROL_PLANE_MAINTENANCE",
@@ -58,7 +71,8 @@
       "TASK_LOCAL_MATHEMATICAL_SCOPE"
     ],
     "stale_v1_pointer_semantics": "COMPATIBILITY_METADATA_ONLY_UNLESS_EXPLICITLY_LABELED_LEGACY_EXISTING_EXECUTION",
-    "fresh_selector_named_canonical_in_older_doc": "INTERPRET_AS_SUBORDINATE_SELECTOR_NOT_TOP_LEVEL_LIVE_ENTRYPOINT"
+    "fresh_selector_named_canonical_in_older_doc": "INTERPRET_AS_SUBORDINATE_SELECTOR_NOT_TOP_LEVEL_LIVE_ENTRYPOINT",
+    "role_transition_rule": "ROLE-SPECIFIC AUTHORITY IS CLEARED/REACTIVATED BY DESTINATION CONTRACT; CONTEXT AND PROVENANCE ARE NOT PRETENDED TO RESET"
   },
   "role_expectations": {
     "TASK_RESEARCH": [
