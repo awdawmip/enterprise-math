@@ -15,6 +15,56 @@ from control_plane import research_publication_fault_isolation as fork_isolation
 from control_plane import research_task_integrity_fault_isolation as integrity_isolation  # noqa: E402
 
 
+def _audit_operational_publications(operational, isolated_tasks: set[str]) -> list[str]:
+    """Validate operational selection from one cached publication snapshot.
+
+    The historical selector's public ``selection()`` helper reloads all publication
+    records for every task. That is appropriate for one interactive lookup but is
+    quadratic when used as a repository-wide audit. This checker preserves its
+    exact normalization rules while loading heads/resolutions/syntheses once.
+    """
+    errors: list[str] = []
+    heads = operational.publication_heads(ROOT)
+    resolutions = operational.resolution_map(ROOT)
+    syntheses = operational.synthesis_map(ROOT)
+
+    unknown_resolutions = sorted(set(resolutions) - set(heads))
+    if unknown_resolutions:
+        errors.append(
+            f"publication resolution references task without active head: {unknown_resolutions}"
+        )
+
+    for task_id in sorted(heads):
+        task_heads = heads[task_id]
+        head_by_id = {str(item.get("publication_id")): item for item in task_heads}
+        if len(head_by_id) != len(task_heads) or any(not key for key in head_by_id):
+            errors.append(f"{task_id}: active head missing/duplicating publication_id")
+            continue
+        head_ids = set(head_by_id)
+        row = resolutions.get(task_id)
+
+        if task_id in isolated_tasks:
+            if row is not None:
+                errors.append(
+                    f"{task_id}: locally isolated task cannot coexist with operational resolution"
+                )
+            continue
+
+        if len(head_ids) == 1 and row is None:
+            continue
+        if row is None:
+            errors.append(
+                f"{task_id}: multiple active publication heads require explicit operational "
+                f"selection; retained={sorted(head_ids)}"
+            )
+            continue
+        try:
+            operational._normalized_resolution(task_id, row, head_ids, syntheses)
+        except Exception as exc:
+            errors.append(str(exc))
+    return errors
+
+
 def audit() -> list[str]:
     errors: list[str] = []
 
@@ -33,22 +83,8 @@ def audit() -> list[str]:
         fork_quarantines = fork_isolation.validated_quarantines(ROOT)
         integrity_quarantines = integrity_isolation.validated_quarantines(ROOT)
         isolated_tasks = set(fork_quarantines) | set(integrity_quarantines)
-        heads = operational.publication_heads(ROOT)
-        resolutions = operational.resolution_map(ROOT)
 
-        # Preserve the existing operational-publication contract everywhere
-        # except exact locally isolated tasks that explicitly select no head.
-        for task_id in sorted(heads):
-            if task_id in isolated_tasks:
-                if task_id in resolutions:
-                    errors.append(
-                        f"{task_id}: locally isolated task cannot coexist with operational resolution"
-                    )
-                continue
-            try:
-                operational.selection(task_id, ROOT)
-            except Exception as exc:
-                errors.append(str(exc))
+        errors.extend(_audit_operational_publications(operational, isolated_tasks))
 
         definitions = research_dispatch.merged_definitions(ROOT)
         states = research_dispatch.effective_states(
