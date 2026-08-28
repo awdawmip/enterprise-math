@@ -38,6 +38,14 @@
       "required_value": "tools/research_dispatch.py",
       "semantic_role": "STEWARD_BACKFLOW_TASK_DEFINITION_AUTHORITY",
       "reason": "The Steward backflow subflow names the task-definition selector, not the top-level live dispatch entrypoint."
+    },
+    {
+      "protection_id": "CSP-RUNTIME-FRESH-SELECTOR-004",
+      "path": "research_runtime_state_machine.json",
+      "json_pointer": "/dispatch/tool",
+      "required_value": "tools/research_dispatch.py",
+      "semantic_role": "ORDINARY_FRESH_TASK_SELECTOR",
+      "reason": "The runtime dispatch block describes the ordinary fresh task-definition/selection primitive. Recovery-aware top-level live routing is separately named by composes.canonical_dispatch and research_dispatch_contract.json."
     }
   ],
   "entries": [
@@ -118,7 +126,12 @@
       "current_interpretation": "SUBORDINATE_FRESH_SELECTOR_UNDER_RECOVERY_AWARE_CONTROL_ROUTER",
       "canonical_target_value": "research_control_dispatch.py",
       "risk_class": "CONTROL_POINTER_WITH_INTERNAL_NEW_RULE",
-      "state": "REQUIRES_REFERENCE_CHECK_BEFORE_PATCH",
+      "state": "REFERENCE_CHECK_PASSED_READY_FOR_MECHANICAL_PATCH",
+      "reference_evidence": {
+        "reference_integrity_run_id": 33221974090,
+        "production_consumer_census": "PASS_NO_PRODUCTION_PYTHON_CONSUMER_OF_CANONICAL_DISPATCH_KEY",
+        "protected_runtime_selector": "CSP-RUNTIME-FRESH-SELECTOR-004"
+      },
       "execution_authority_while_open": false,
       "verification_question": "Confirm no executable consumer treats composes.canonical_dispatch as the fresh-selector API rather than the top-level live route."
     },
@@ -141,6 +154,49 @@
         "backflow classification",
         "escalation thresholds",
         "canonicalization authority"
+      ]
+    },
+    {
+      "migration_id": "CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006",
+      "path": "research_runtime_state_machine.json",
+      "baseline_blob_sha1": "998976698bcef1bcf8681aad4647ed16b4f4d5fe",
+      "json_pointers": [
+        "/lease_model/session_liveness/semantic_scope",
+        "/lease_model/session_liveness/renewed_by"
+      ],
+      "observed_legacy_values": [
+        "CURRENT_CONVERSATION_INSTANCE",
+        [
+          "VISIBLE_OR_DURABLE_SESSION_PROGRESS",
+          "EXPLICIT_SESSION_HEARTBEAT"
+        ]
+      ],
+      "canonical_target_values": [
+        "EXACT_OWNER_SCOPE_CURRENT_WINNING_CLAIM",
+        [
+          "TASK_RESEARCH_RESPONSE_BOUND_TO_EXACT_CLAIM_ID",
+          "DURABLE_EXECUTION_PROGRESS_BOUND_TO_EXACT_CLAIM_ID"
+        ]
+      ],
+      "risk_class": "CONTROL_LIVENESS_ALREADY_CANONICAL_IN_DISPATCH_V5",
+      "state": "READY_FOR_MECHANICAL_PATCH_WITH_RUNTIME_POINTER_BUNDLE",
+      "canonical_evidence": {
+        "dispatch_contract": "research_dispatch_contract.json /session_liveness_routing",
+        "observation_schema": "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",
+        "allowed_evidence_kinds": [
+          "TASK_RESEARCH_RESPONSE",
+          "DURABLE_EXECUTION_PROGRESS"
+        ],
+        "generic_conversation_activity_is_owner_scope_liveness": false
+      },
+      "execution_authority_while_open": false,
+      "semantic_surfaces_forbidden_to_change": [
+        "owner lease duration",
+        "claim ownership",
+        "stale adoption same-CLAIM semantics",
+        "mathematical task state",
+        "Working Truth",
+        "result/review semantics"
       ]
     }
   ]
