@@ -1,0 +1,124 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_CONTRACT_V1",
+  "status": "ACTIVE_CANONICAL_CANDIDATE_V1_3",
+  "effective": "2026-08-27",
+  "user_direction": "EVERY_NEW_DRIVER_REVIEW_MUST_MATERIALIZE_NEXT_TASKBOOK_OR_TASKSET_UNLESS_CANONICAL_PARENT_OBJECTIVE_IS_ALREADY_CLOSED",
+  "canonical_guard": "research_driver_followup_guard.py",
+  "storage_materialization_primitive": "research_driver_followup.py",
+  "legacy_review_baseline": "research_driver_followup_legacy_reviews.json",
+  "legacy_baseline_frozen_base": "00c3c8143ca38410df7ed0de64158a3d33e3c67b",
+  "legacy_baseline_review_tree": "41a57a0c838d944ac61908fcdb200d425ef89b18",
+  "packet_store": "research_driver_followups/<review-id>/<packet-id>.json",
+  "task_publication_authority": "research_task_records/<task-id>/<publication-id>.json",
+  "result_review_authority": "research_result_reviews/<result-id>/<review-id>.json",
+  "purpose": "Prevent Driver-review stalls by making the review-to-next-work transition repository-derived and fail-closed. Any review ID not frozen in the exact legacy baseline cannot terminalize ordinary or parallel runtime authority until a valid automatic follow-up taskset is immutably published, or the current parent Objective is already canonically CLOSED. Existing concurrent control assets may satisfy a gate only by explicit pinned evidence so the rule never creates duplicate work merely to satisfy itself.",
+  "decisions": ["TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE"],
+  "canonical_gates": [
+    "MATHEMATICAL_CONTINUATION",
+    "LEAN_FORMALIZATION",
+    "EXTERNAL_PRIOR_ART_DUPLICATION",
+    "INDEPENDENT_REPLICATION",
+    "INTEGRATION_OR_TOOL_HARVEST",
+    "ADVERSARIAL_AUDIT"
+  ],
+  "gate_decisions": [
+    "REQUIRED",
+    "SATISFIED_BY_REVIEWED_RESULT",
+    "SATISFIED_BY_EXISTING_CONTROL_ASSET",
+    "NOT_REQUIRED"
+  ],
+  "task_roles": [
+    "MATHEMATICAL_CONTINUATION",
+    "LEAN_FORMALIZATION",
+    "EXTERNAL_PRIOR_ART_DUPLICATION",
+    "INDEPENDENT_REPLICATION",
+    "INTEGRATION_OR_TOOL_HARVEST",
+    "ADVERSARIAL_AUDIT",
+    "REVISION",
+    "PARALLEL_REFERENCE_OR_SYNTHESIS",
+    "OTHER"
+  ],
+  "core_invariants": [
+    "DRIVER_REVIEW_IS_A_SEMANTIC_CHECKPOINT_NOT_A_CONTROL_LOOP_STOP",
+    "LEGACY_EXEMPTION_IS_EXACT_FROZEN_REVIEW_ID_MEMBERSHIP_NOT_REVIEWED_AT",
+    "NEW_REVIEW_CANNOT_BACKDATE_ITSELF_INTO_LEGACY_COMPATIBILITY",
+    "EVERY_NONLEGACY_DRIVER_REVIEW_REQUIRES_EXACTLY_ONE_FOLLOWUP_PACKET",
+    "TASK_SET_PUBLISHED_REQUIRES_ONE_OR_MORE_IMMUTABLE_POST_REVIEW_TASK_PUBLICATIONS",
+    "PARENT_OBJECTIVE_CLOSURE_IS_THE_ONLY_ZERO_TASK_EXCEPTION",
+    "ZERO_TASK_EXCEPTION_REQUIRES_CURRENT_CANONICAL_PARENT_OBJECTIVE_HEAD_CLOSED",
+    "EVERY_REVIEW_EVALUATES_THE_EXACT_CANONICAL_GATE_SET",
+    "REQUIRED_GATE_REQUIRES_AT_LEAST_ONE_PUBLISHED_TASK_WITH_MATCHING_ROLE",
+    "SATISFIED_BY_REVIEWED_RESULT_REQUIRES_EXPLICIT_EVIDENCE_REFS",
+    "SATISFIED_BY_EXISTING_CONTROL_ASSET_REQUIRES_EXPLICIT_EVIDENCE_REFS_AND_CREATES_NO_DUPLICATE_TASK",
+    "ACCEPTED_REVIEW_CANNOT_SKIP_EXTERNAL_PRIOR_ART_DUPLICATION",
+    "ACCEPTED_L4_REVIEW_CANNOT_SKIP_LEAN_FORMALIZATION",
+    "TOOL_BEARING_RESULT_CANNOT_SKIP_INTEGRATION_OR_TOOL_HARVEST",
+    "REQUEST_REPLICATION_REQUIRES_NEW_OR_ALREADY_MATERIALIZED_INDEPENDENT_REPLICATION_CONTROL_ASSET",
+    "FOLLOWUP_PACKET_CONSUMES_EXACT_RESULT_NEXT_CONTROL_PLANE_RECOMMENDATION",
+    "FOLLOWUP_TASKS_REMAIN_INSIDE_THE_SAME_PARENT_OBJECTIVE",
+    "AUTOMATIC_FOLLOWUP_TASKS_ARE_PUBLISHED_BY_THE_REVIEWING_DRIVER",
+    "FOLLOWUP_TASK_PUBLICATION_TIME_MUST_NOT_PREDATE_REVIEW",
+    "CONTINUATION_TASKS_STILL_REQUIRE_THE_EXISTING_SUCCESSOR_GATE",
+    "PASS_OR_DONE_ALONE_STILL_DOES_NOT_JUSTIFY_A_SUCCESSOR",
+    "MISSING_OR_INVALID_FOLLOWUP_PACKET_KEEPS_REVIEWED_RESULT_NONTERMINAL",
+    "PARALLEL_TERMINAL_SYNTHESIS_CANNOT_BYPASS_GOVERNED_REVIEW_FOLLOWUP_BARRIERS",
+    "FOLLOWUP_PACKET_GRANTS_NO_WORKING_TRUTH_FOUNDATION_AUTHORITY_OR_CANONICAL_PROMOTION"
+  ],
+  "forced_gate_policy": {
+    "ACCEPTED": {
+      "EXTERNAL_PRIOR_ART_DUPLICATION": ["REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
+    },
+    "ACCEPTED_L4": {
+      "LEAN_FORMALIZATION": ["REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
+    },
+    "ACCEPTED_TOOL": {
+      "INTEGRATION_OR_TOOL_HARVEST": ["REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
+    },
+    "REQUEST_REPLICATION": {
+      "INDEPENDENT_REPLICATION": ["REQUIRED", "SATISFIED_BY_EXISTING_CONTROL_ASSET"]
+    }
+  },
+  "external_prior_art_minimum_scope": [
+    "search independent external literature/repository sources using task-specific queries",
+    "record search date, search surfaces, queries and candidate matches",
+    "separate exact duplicate, partial antecedent, adjacent method and no material match",
+    "do not infer novelty merely from no match",
+    "return evidence refs sufficient for a Driver to audit the search"
+  ],
+  "lean_task_minimum_scope": [
+    "pin the exact theorem statement and source result",
+    "preserve theorem strength unless Driver explicitly issues a new weaker task",
+    "forbid sorry/admit/custom axiom when the task requires full formal closure",
+    "run the taskbook-specified warning-fatal build/check gate",
+    "freeze theorem-source blob and build provenance"
+  ],
+  "review_to_runtime": {
+    "no_review": "AWAITING_DRIVER_REVIEW",
+    "governed_review_without_valid_followup": "AWAITING_DRIVER_REVIEW / AWAITING_FOLLOWUP_TASKSET_PUBLICATION",
+    "governed_terminal_review_with_valid_followup": "TERMINAL_AT_TASK_SCOPE_THEN_REEVALUATE_PARENT",
+    "governed_nonterminal_review_with_valid_followup": "RETURN_TO_EXECUTION_OR_NEW_GENERATION_AS_PUBLISHED",
+    "legacy_baseline_review": "UNCHANGED_COMPATIBILITY_REDUCTION"
+  },
+  "automatic_materialization": {
+    "command": "python tools/research_result_records.py review ... --followup-spec <json>",
+    "recovery_command": "python research_driver_followup_guard.py materialize --review-id <DR-or-RV-id> --spec <json>",
+    "transaction": "preflight gate/task specifications; create the immutable review; automatically publish missing follow-up taskbook(s) and immutable publication record(s); then create one immutable review follow-up packet. Gates already represented by exact concurrent control assets are pinned rather than duplicated.",
+    "failure_semantics": "fail closed; the review remains nonterminal until a valid packet exists. Any already-created partial publication remains immutable evidence and is never silently rolled back.",
+    "publisher_role": "RESEARCH_DRIVER",
+    "parent_objective_rule": "all newly published follow-up task publications keep the reviewed source task parent_objective_id",
+    "revision_rule": "a revision may publish a new generation of the same task only through explicit supersedes_publication_id and a new immutable taskbook path"
+  },
+  "anti_spam_and_successor_compatibility": {
+    "existing_rule_preserved": "PASS_OR_DONE_IS_NOT_ITSELF_A_SUCCESSOR_TRIGGER",
+    "interpretation": "the review checkpoint must choose and materialize the next control action, but each CONTINUATION task must independently satisfy the existing successor_gate with a genuine information gap, discriminating outcomes, kill condition and alternative-route analysis; a concurrent already-materialized route should be pinned with SATISFIED_BY_EXISTING_CONTROL_ASSET instead of duplicated",
+    "parent_closed_behavior": "do not manufacture meaningless successors; use PARENT_OBJECTIVE_CLOSURE after canonical Objective closure"
+  },
+  "historical_compatibility": {
+    "baseline": "research_driver_followup_legacy_reviews.json",
+    "frozen_legacy_review_count": 12,
+    "cutover_basis": "review_id NOT IN exact frozen legacy baseline",
+    "reviewed_at_is_cutover_authority": false,
+    "backdating_can_create_legacy_exemption": false,
+    "future_hardening": "source-backed active Driver authorization remains a separate independent hardening layer; it must not weaken this frozen-ID cutover"
+  }
+}
