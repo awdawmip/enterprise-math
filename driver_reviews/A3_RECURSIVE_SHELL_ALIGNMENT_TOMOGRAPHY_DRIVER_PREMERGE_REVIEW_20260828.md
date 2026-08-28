@@ -1,6 +1,6 @@
-# Driver Pre-Merge Review — A3 Recursive Shell Alignment Tomography
+# Driver Review — A3 Recursive Shell Alignment Tomography
 
-Status: `DRIVER_PREMERGE / REQUEST_CHANGES / PARTIAL_EXACT_RESULTS_PRESERVED / H4_REFUTED_AS_STATED`
+Status: `DRIVER_FINAL / REJECTED_FULL_PACKAGE / PARTIAL_EXACT_RESULTS_PRESERVED / H4_REFUTED_AS_STATED / REVISION_PUBLISHED`
 
 Date: `2026-08-28`
 
@@ -10,27 +10,29 @@ Task: `RS-A3-RECURSIVE-SHELL-ALIGNMENT-TOMOGRAPHY`
 
 Publication: `TP2-78C59019AE494DF41F65`
 
-Primary result under review: `RR-FFB5FBD20103CC20A2A6 / Draft PR #779`
+Primary result: `RR-FFB5FBD20103CC20A2A6`
 
-Redispatch result inspected: `RR-D1C4B1E36D02053560EA / Draft PR #800`
+Source evidence: merged PR #779 and exact current result artifacts.
+
+Redispatch side evidence inspected: `RR-D1C4B1E36D02053560EA / PR #800`.
+
+Revision task: `RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION / TP2-E6E8A3DC37930B4CF4AA`.
 
 ## Disposition
 
-`PREMERGE_DISPOSITION = REQUEST_CHANGES`.
-
-`TASK_TERMINAL = FALSE`.
+`DRIVER_DISPOSITION = REJECTED`.
 
 `RESULT_CLASS = PARTIAL_EXACT_PACKAGE_WITH_DECISIVE_H4_COUNTEREXAMPLE`.
+
+`DESTINATION = FOLLOWUP_TASK`.
 
 `FOUNDATION_MUTATION = NONE`.
 
 `METHOD_HARVEST = DOMAIN_OPERATOR / COMPOSE_EXISTING_TOOLS`.
 
-The finite shell package contains several exact reusable results, but the submitted H4 scale-coherence theorem is false for the task's own depth-2 prefix move semantics. The task cannot be accepted or closed until the actual cross-scale action/restriction square is repaired and checked on states rather than only on frame/double-coset labels.
+The result is rejected **as a complete task-level PASS** because its H4 scale-coherence criterion is false for the task's own depth-2 prefix move semantics. Exact subresults below remain usable at their stated carrier/operational strength and are frozen as inputs to the revision task.
 
 ## Exact subresults preserved
-
-The following parts are accepted as mathematically usable at their stated carrier/operational strength, subject to ordinary source typing:
 
 1. For
    \[
@@ -51,13 +53,11 @@ The following parts are accepted as mathematically usable at their stated carrie
    \[
    H=\{e,(12)\}.
    \]
-   The alignment-set / stabilizer-orbit distinction is valid and remains required for choice-safe interior observation.
+   The alignment-set / stabilizer-orbit distinction remains valid and required for choice-safe interior observation.
 
 4. Under the selected prefix-support semantics, depth-1 shell moves shield the next inner ball, while depth 2 is the first support depth capable of changing the immediately observed interior shell.
 
-5. The redispatch theorem in PR #800 is accepted as a **fixed-subgroup algebraic subtheorem**: for fixed \(G,H\), double-coset support multiplication on \(H\backslash G/H\) is associative as a relation-valued law; its deterministic lift by the pair groupoid on \(H\backslash G\) is exact; and universal single-valuedness is equivalent to normality of \(H\). The `S4/H` seven-class table and `C2*C2={C0,C2}` witness may be retained as compressed frame-phase algebra.
-
-None of these points proves the task's full cross-scale commutation claim.
+5. The redispatch theorem in PR #800 is accepted only as a **fixed-subgroup algebraic side result**: for fixed \(G,H\), double-coset support multiplication on \(H\backslash G/H\) is associative as a relation-valued law; its deterministic lift by the pair groupoid on \(H\backslash G\) is exact; and universal single-valuedness is equivalent to normality of \(H\). The `S4/H` seven-class table and `C2*C2={C0,C2}` witness may be retained as compressed frame-phase algebra. This side result does not satisfy the parent H4 state-level scale square.
 
 ## Decisive H4 counterexample
 
@@ -70,7 +70,7 @@ g=(23)
 at both scales. Therefore the submitted double-coset defect is the identity class:
 
 \[
-\Delta_2=H g g^{-1}H=H=C_0.
+\Delta_2=Hgg^{-1}H=H=C_0.
 \]
 
 Use outer pointer targets
@@ -85,11 +85,9 @@ and choose shell markers \(p_k=R_g^{-1}a_k\) on \(S_k\), so the same \(g\) is a 
 p=(1,-1,0,0)\in S_1.
 \]
 
-Now compare the two paths from the scale-3 state to aligned scale-2 interior data.
-
 ### Path A — align at scale 3, then restrict
 
-The depth-2 scale-3 action has support on \(S_3\cup S_2\). It aligns the outer data, but fixes \(p\in S_1\). After restriction to \(B_2\), the inner marker remains
+The depth-2 scale-3 action has support on \(S_3\cup S_2\). It fixes \(p\in S_1\). After restriction to \(B_2\), the inner marker remains
 
 \[
 p=(1,-1,0,0).
@@ -97,10 +95,10 @@ p=(1,-1,0,0).
 
 ### Path B — restrict to scale 2, then align
 
-After restriction, the depth-2 scale-2 action has support on \(S_2\cup S_1\), so it acts on the same interior marker. With the sign-twisted action for \(g=(23)\),
+The depth-2 scale-2 action has support on \(S_2\cup S_1\), so it acts on \(p\). With the sign-twisted action for \(g=(23)\),
 
 \[
-R_g p=(-1,0,1,0).
+R_gp=(-1,0,1,0).
 \]
 
 The residual target stabilizer is \(H=\{e,(12)\}\). Under the same sign-twisted action, \((12)\) fixes \(p\), hence
@@ -112,7 +110,7 @@ H\cdot p=\{p\}.
 Therefore
 
 \[
-R_g p\notin H\cdot p.
+R_gp\notin H\cdot p.
 \]
 
 So the two paths are not equal even after the declared residual-\(H\) quotient, despite
@@ -135,45 +133,39 @@ for the stated scale-dependent prefix move model.
 The compressed label
 
 \[
-H g_n g_{n+1}^{-1}H
+Hg_ng_{n+1}^{-1}H
 \]
 
-records only relative **frame phase**. It does not record the fact that the support of the nominally same depth-2 operation shifts inward when the radius decreases:
+records only relative frame phase. It does not record that the support of the nominally same depth-2 operation shifts inward when the radius decreases:
 
 \[
-D_{n+1,2}(g)|_{B_n}
-\neq
-D_{n,2}(g).
+D_{n+1,2}(g)|_{B_n}\neq D_{n,2}(g).
 \]
 
-The checker in PR #779 verifies shell counts, the 24-frame group, stabilizers, double cosets and compressed class algebra, but it does not evaluate both sides of the H4 square as actual maps on nested states. The three-radius class sequence therefore cannot certify H4.
+The parent checker verifies shell counts, the 24-frame group, stabilizers, double cosets and compressed class algebra, but it does not evaluate both sides of H4 as actual maps on nested states. The three-radius class sequence therefore cannot certify H4.
 
-The PR #800 fixed-stabilizer pair-groupoid lift repairs the **composition law of the compressed frame-phase labels**, but it does not repair this scale-dependent support mismatch. PR #800 itself correctly leaves `SCALE_VARYING_STABILIZER_OR_PARTIAL_MOVE_GROUPOID_COHERENCE_OPEN`; that open residue includes the counterexample above.
+The PR #800 fixed-stabilizer pair-groupoid lift repairs the composition law of compressed frame-phase labels only. It explicitly leaves scale-varying stabilizer / partial-move groupoid coherence open, which contains this counterexample.
 
-## Required revision — smallest unfinished unit
+## Required revision
 
-Do not restart H1-H3 and do not enlarge the finite census. Resume at H4 only.
+Do not restart H1-H3 and do not enlarge the finite census. The revision task begins at the smallest failed unit:
 
-1. Freeze the actual partial/action maps \(D_{n,d}\), restrictions \(\rho_{n+1,n}\), alignment relations \(C_n\), and observed state language on the same finite prototype.
-2. Test
-   \[
-   \widehat\rho_{n+1,n}\circ C_{n+1}
-   \quad\text{versus}\quad
-   C_n\circ\rho_{n+1,n}
-   \]
-   as relations/maps on states, not merely on \(S_4/H\) labels.
-3. Add the explicit \(n=2\), \(g=(23)\), \(p=(1,-1,0,0)\) counterexample above as a mandatory regression.
-4. Derive the strongest correct radial defect object. It must retain enough support/domain/interface data to distinguish the two paths. A scale-dependent action groupoid, typed support-transition profile, or another operation-safe relation is admissible; no particular repair is preselected by this review.
-5. Reinterpret the fixed-\(H\) pair-groupoid/double-coset algebra as a quotient or special case of the corrected cross-scale object, not as the full H4 invariant.
-6. Re-evaluate every H5/H6 statement whose correctness depended on the false H4 iff criterion, and update the deterministic checker to cover the actual commuting square.
-7. Return a corrected result only after the revised H4 is proved, exactly falsified with the strongest replacement classification, or reduced to a strictly smaller explicit obstruction.
+1. freeze actual partial/action maps \(D_{n,d}\), restrictions \(\rho_{n+1,n}\), alignment relations \(C_n\), and observed state language;
+2. test the two H4 paths as relations/maps on states, not merely on \(S_4/H\) labels;
+3. include the \(n=2,\ g=(23),\ p=(1,-1,0,0)\) counterexample as a mandatory regression;
+4. derive the strongest correct support/domain-aware radial defect or exact no-go;
+5. place the fixed-\(H\) pair-groupoid/double-coset algebra only as a quotient/special case of the corrected object;
+6. re-evaluate H5/H6 statements depending on the false H4 iff criterion;
+7. return a corrected theorem, exact impossibility theorem, or strictly smaller typed obstruction with a complete checker.
 
 ## Routing consequence
 
-`RS-A3-RECURSIVE-SHELL-ALIGNMENT-TOMOGRAPHY` remains open.
+The original result `RR-FFB5FBD20103CC20A2A6` is rejected at task-PASS strength.
 
-The current redispatch owner may continue on the same task; no additional task publication is needed for this repair. The correct next frontier is
+The original task generation is terminal at `REJECTED_WITH_PARTIAL_EXACT_RESULTS`; its verified subresults are preserved.
 
-`PARTIAL_MOVE_SCALE_COMMUTATION_AND_RADIAL_DEFECT_REPAIR`.
+Continuation is routed to the already published registered revision:
+
+`RS-A3-SHELL-PARTIAL-MOVE-SCALE-COHERENCE-REVISION / TP2-E6E8A3DC37930B4CF4AA`.
 
 No Foundation promotion, larger finite census, or new shared tool family is authorized from the current evidence.
