@@ -1,5 +1,5 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_DISPATCH_CONTRACT_V4",
+  "schema": "ENTERPRISE_MATH_RESEARCH_DISPATCH_CONTRACT_V5",
   "status": "ACTIVE_CANONICAL_POST_CUTOVER",
   "effective": "2026-08-28",
   "canonical_tool": "research_control_dispatch.py",
@@ -49,8 +49,38 @@
   },
   "session_liveness_routing": {
     "owner_lease_is_session_liveness": false,
+    "conversation_activity_is_owner_scope_liveness": false,
     "default_session_liveness_minutes": 10,
-    "activity_evidence": "latest independently verified conversation response or durable execution progress; CLAIM creation time alone is not session-liveness evidence",
+    "observation_schema": "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",
+    "owner_scope_key": "task_id plus optional execution_cohort_id plus execution_lane_id plus exact claim_id",
+    "allowed_activity_evidence_kinds": [
+      "TASK_RESEARCH_RESPONSE",
+      "DURABLE_EXECUTION_PROGRESS"
+    ],
+    "activity_evidence": "latest independently verified activity that is bound to the exact winning owner scope and exact claim_id: either a TASK_RESEARCH response explicitly continuing that owner scope, or durable execution progress produced under that owner scope",
+    "activity_evidence_required_fields": [
+      "task_id",
+      "claim_id",
+      "activity_evidence_kind",
+      "last_verified_activity_at"
+    ],
+    "activity_evidence_optional_scope_fields": [
+      "execution_cohort_id",
+      "execution_lane_id"
+    ],
+    "does_not_count_as_owner_scope_activity": [
+      "CLAIM creation time by itself",
+      "CONTROL_PLANE_MAINTENANCE response",
+      "RESEARCH_DRIVER response while not executing the exact task under TASK_RESEARCH",
+      "FOUNDATION_STEWARD response while not executing the exact task under TASK_RESEARCH",
+      "FREE_AXIOM_DISCOVERY response",
+      "response about a different task or lane",
+      "generic chat activity that does not identify continued work under the exact claim",
+      "CI/status polling without durable task progress"
+    ],
+    "role_switch_away_from_task": "PRESERVE CLAIM AUTHORITY BUT DO NOT REFRESH OWNER-SCOPE SESSION LIVENESS FROM DESTINATION-ROLE MESSAGES; stale adoption becomes eligible from the last exact owner-scope activity timestamp",
+    "role_switch_back_to_task": "RECOMPUTE CANONICAL OWNER SCOPE; resume/adopt the same valid CLAIM only through runtime rules and never create a second CLAIM merely because the role changed",
+    "claim_mismatch_observation": "IGNORE_AS_LIVENESS_EVIDENCE; DO_NOT LET STALE OR FOREIGN CLAIM ACTIVITY KEEP THE CURRENT OWNER ACTIVE",
     "valid_owner_plus_active_session": "PRESERVE_OWNER; DO_NOT_DUPLICATE_CLAIM",
     "valid_owner_plus_stale_session": "ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM",
     "valid_owner_plus_unknown_session_and_no_fresh_target": "VERIFY_SESSION_LIVENESS; DO_NOT_RETURN_NO_DISPATCH",
@@ -82,6 +112,10 @@
     "REGISTRY_CLAIMABLE_IS_VISIBLE_TO_SCHEDULER_SELECTION",
     "REGISTERED_CLAIM_IS_THE_EXECUTION_AUTHORIZATION_ENVELOPE",
     "OWNER_LEASE_DOES_NOT_IMPLY_SESSION_LIVENESS",
+    "GENERAL_CONVERSATION_ACTIVITY_DOES_NOT_IMPLY_OWNER_SCOPE_SESSION_LIVENESS",
+    "OWNER_SCOPE_LIVENESS_EVIDENCE_MUST_MATCH_EXACT_CLAIM_AND_EXECUTION_SCOPE",
+    "ROLE_SWITCH_AWAY_FROM_TASK_DOES_NOT_REFRESH_TASK_OWNER_SESSION_LIVENESS",
+    "STALE_OR_FOREIGN_CLAIM_ACTIVITY_CANNOT_KEEP_CURRENT_OWNER_ACTIVE",
     "STALE_SESSION_WITH_VALID_OWNER_LEASE_REUSES_EXISTING_CLAIM",
     "RECOVERY_ROUTE_PRECEDES_FALSE_NO_TASK",
     "NO_DISPATCH_REQUIRES_NO_STALE_RECOVERABLE_OWNER_AND_NO_FRESH_TARGET",
@@ -143,6 +177,6 @@
     "multiple_existing_lane_results": "RETAIN_ALL",
     "cohort_task_terminalization": "ONLY_AFTER_ALL_LANES_HAVE_EVIDENCE_PLUS_REFERENCE_PASS_1_PLUS_REFERENCE_PASS_2_PLUS_TERMINAL_SYNTHESIS_CONTROL"
   },
-  "selection_rule": "Run control_plane/research_control_bootstrap.py before any canonical runtime view, then run research_control_dispatch.py as the canonical control-plane route. The bootstrap locally isolates only exact-pinned publication forks, invalid current task publications, nonoperational Driver-review provenance, and follow-up authority derived solely from those reviews; it selects no replacement authority and leaves unrelated tasks untouched. The router then first preserves/adopts any owner scope whose valid CLAIM is independently observed stale, without creating a second CLAIM. If no stale-recoverable owner is observed, it delegates ordinary fresh task selection to tools/research_dispatch.py and active-cohort lane selection to tools/research_lane_dispatch.py. If both fresh selectors are empty but any valid owner lease has unknown conversation liveness, the result is VERIFY_SESSION_LIVENESS rather than NO_DISPATCH. For ordinary fresh tasks, historical state/priority/leverage/staleness ordering remains unchanged; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global ownership is disabled. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement.",
-  "interaction_budget": "Recovery routing reuses existing owner state and ephemeral liveness evidence. Fault isolation is local deterministic repository-state reduction with no periodic polling and no extra CLAIM. Authentication and actor authorization reuse the same Issue #240 comments already needed for semantic control events. Ordinary tasks add no new periodic poll; a liveness verification is required only when fresh dispatch is empty and a valid owner lease would otherwise cause a false NO_DISPATCH, or when stale adoption is being considered."
+  "selection_rule": "Run control_plane/research_control_bootstrap.py before any canonical runtime view, then run research_control_dispatch.py as the canonical control-plane route. The bootstrap locally isolates only exact-pinned publication forks, invalid current task publications, nonoperational Driver-review provenance, and follow-up authority derived solely from those reviews; it selects no replacement authority and leaves unrelated tasks untouched. The router then first preserves/adopts any owner scope whose valid CLAIM has exact owner-scope liveness evidence and is independently observed stale, without creating a second CLAIM. General conversation activity outside that task/claim/lane is ignored for owner liveness. If no stale-recoverable owner is observed, it delegates ordinary fresh task selection to tools/research_dispatch.py and active-cohort lane selection to tools/research_lane_dispatch.py. If both fresh selectors are empty but any valid owner lease has unknown exact owner-scope liveness, the result is VERIFY_SESSION_LIVENESS rather than NO_DISPATCH. For ordinary fresh tasks, historical state/priority/leverage/staleness ordering remains unchanged; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global ownership is disabled. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement.",
+  "interaction_budget": "Recovery routing reuses existing owner state and ephemeral exact-owner-scope liveness evidence. Fault isolation is local deterministic repository-state reduction with no periodic polling and no extra CLAIM. Authentication and actor authorization reuse the same Issue #240 comments already needed for semantic control events. Ordinary tasks add no new periodic poll; liveness verification is required only when fresh dispatch is empty and a valid owner lease would otherwise cause a false NO_DISPATCH, or when stale adoption is being considered. Role-switch messages outside TASK_RESEARCH do not create extra heartbeats and do not refresh the suspended task owner scope."
 }
