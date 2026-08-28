@@ -1,19 +1,17 @@
 # Enterprise Math Tool Invocation Protocol
 
-Status: `ACTIVE / UNIVERSAL REUSE-BEFORE-INVENTION PROTOCOL / V1`
-Date: `2026-08-22`
+Status: `ACTIVE / UNIVERSAL REUSE-BEFORE-INVENTION PROTOCOL / V2`
+Date: `2026-08-28`
 Machine policy: `tool_invocation_policy.json`
 Tool registry: `enterprise_toolbox_registry.json`
 Method inventory: `research_method_inventory.json`
-Executable router: `tools/enterprise_toolbox.py`
+Executable discovery router: `tools/enterprise_toolbox.py`
 
 ## 1. Purpose
 
-Enterprise Math has accumulated many reusable mathematical mechanisms under route names, theorem names and source-module names. A researcher who does not know that history can accidentally rederive a quotient compiler, precision calculus, collision spectrum, Helly certificate or holonomy diagnostic and call it a new tool.
+Enterprise Math has many reusable mathematical mechanisms under route names, theorem names and source-module names. A researcher who does not know that history can accidentally rederive an existing quotient compiler, precision calculus, collision spectrum, certificate system or holonomy diagnostic and call it new machinery.
 
-This protocol closes that loop.
-
-The default research flow is now:
+The default flow is:
 
 `QUESTION/TASK`
 
@@ -21,13 +19,13 @@ The default research flow is now:
 
 `-> TOOL COVERAGE LOOKUP`
 
-`-> REUSE / COMPOSE / EXTEND / CONFIRM GAP`
+`-> REUSE RESOLUTION`
+
+`-> APPLY / EXECUTE / COMPOSE / EXTEND / CONFIRM GAP`
 
 `-> RESEARCH`
 
-`-> METHOD HARVEST AT ACCEPTED RETURN`
-
-`-> REGISTRY / INVENTORY UPDATE WHEN ROUTING VALUE CHANGES`.
+`-> METHOD HARVEST AT ACCEPTED RETURN`.
 
 Freeze:
 
@@ -35,146 +33,124 @@ Freeze:
 
 `NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP`.
 
-This is a reuse discipline, not a theorem premise and not a Foundation change.
+`TOOL_COVERAGE_LOOKUP != TOOL_USE`.
 
-## 2. The timing rule: understand first, lookup second
+This is reuse discipline, not a theorem premise and not a Foundation change.
 
-Do not preload the whole toolbox before understanding a task. Tool names can anchor the formulation of the problem.
+## 2. Understand first, lookup second
 
-For ordinary `TASK_RESEARCH`, first read the exact task and the first necessary dependency. Once the information structure of the problem is clear, perform the tool lookup **before constructing a new general-purpose method, helper calculus, quotient, certificate, invariant or search engine**.
+Do not preload the toolbox before understanding a task. Tool names can anchor problem formulation.
 
-This preserves the hot-start rule while preventing duplicate invention.
+For ordinary `TASK_RESEARCH`, first read the exact task and first necessary dependency. Once the information structure is clear, perform coverage lookup **before constructing a new general-purpose method, helper calculus, quotient, certificate, invariant or search engine**.
 
-Recommended query:
+Recommended lookup:
 
 `python tools/enterprise_toolbox.py coverage <plain-language need>`
 
-Examples:
-
-- `coverage "coarsest quotient preserving all future observations"`;
-- `coverage "bounded local certificate for global compatibility"`;
-- `coverage "path difference cycle provenance"`;
-- `coverage "integer precision carry under refinement"`.
-
-The lookup has three layers:
+The router searches:
 
 1. curated global tool families;
-2. curated harvested methods/domain facades;
-3. AST/docstring/public-API search over every current `src/enterprise_math/*.py` module.
+2. harvested methods/domain facades;
+3. AST/docstring/public-API metadata from current `src/enterprise_math/*.py`.
 
-The third layer means that a mature executable helper can be discovered even before a Driver has manually classified it.
+The third layer discovers executable source but does not execute it.
 
-## 3. Coverage verdicts
+## 3. Coverage verdict is only the first decision
 
-Every serious method choice resolves to one of five states.
+Coverage resolves to:
 
-### `REUSE_EXISTING_TOOL`
+- `REUSE_EXISTING_TOOL`;
+- `COMPOSE_EXISTING_TOOLS`;
+- `EXTEND_EXISTING_TOOL`;
+- `CAPABILITY_GAP_CONFIRMED`;
+- `NOT_APPLICABLE`.
 
-The existing tool already has the needed semantic input/output contract. Use it and cite the owner/source.
+A positive match is **not** proof that the tool was actually reused.
 
-### `COMPOSE_EXISTING_TOOLS`
+Every relevant match must then resolve to one of the machine-policy reuse states:
 
-No one family solves the problem, but a typed composition does. Record the composition boundary rather than inventing a new family name.
+- `REUSE_APPLIED` — exact mathematical/tool interface was applied to the current task; no software execution was necessary;
+- `REUSE_EXECUTED` — an existing executable implementation was actually run for the claimed computation/certificate;
+- `COMPOSE_APPLIED` — concrete existing tools/methods were composed with their hard boundaries preserved;
+- `EXTEND_EXISTING_TOOL` — the existing owner is correct but a genuinely missing capability must be added;
+- `REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE` — an adequate executable exists but cannot be executed in the current environment; do not claim it ran and do not relabel environment unavailability as a mathematical capability gap;
+- `CAPABILITY_GAP_CONFIRMED` — exact required input/output capability is absent;
+- `NOT_APPLICABLE`.
 
-Example pattern:
+Minimum record:
 
-`T6 operation-safe quotient -> T4 fiber capacity -> T1 scale enumerator`.
+- coverage verdict;
+- matched tool/method IDs;
+- reuse-resolution state;
+- how the tool was applied/executed, or why not;
+- hard boundary checked.
 
-### `EXTEND_EXISTING_TOOL`
+## 4. What counts as reuse
 
-The old tool is the correct owner but lacks one genuinely new operation/certificate. Extend that owner and preserve backward compatibility and hard boundaries.
+For a **mathematical calculus/theorem interface**, exact application of its declared law, hypotheses and hard boundary can be `REUSE_APPLIED`; code execution is not required merely to say the method was reused.
 
-### `CAPABILITY_GAP_CONFIRMED`
+For a claim that depends on a **software computation/certificate**, finding the source module is not enough. If the environment can execute the existing implementation, run it and record `REUSE_EXECUTED` rather than silently rewriting a duplicate.
 
-A new family is justified only when the exact missing input/output capability cannot be represented as reuse, composition, specialization, alias or extension of an existing owner.
+If the current chat/runtime cannot execute the repository implementation, record `REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE`. The researcher may still use the exact mathematical interface as reasoning input when appropriate, but must not claim executable validation occurred.
 
-The gap record must state:
-
-- tool families checked;
-- concrete methods/modules checked;
-- exact semantic mismatch;
-- missing input/output contract;
-- why composition or extension is insufficient.
-
-### `NOT_APPLICABLE`
-
-The task is theorem/object-specific and does not require reusable machinery.
-
-## 4. Anti-duplication taxonomy
+## 5. Anti-duplication taxonomy
 
 Do not create a new family when the difference is only:
 
-- a historical name;
-- a new application domain;
-- a different filename;
-- a specialized parameter regime;
-- a wrapper around the same operator;
-- a theorem that instantiates an existing generic calculus.
+- historical naming;
+- application domain;
+- filename/package;
+- specialized parameter regime;
+- wrapper/facade;
+- inability of the current chat environment to execute an otherwise adequate existing implementation;
+- a theorem instantiating an existing generic calculus.
 
-Route these respectively as an alias, domain facade, specialization or subtool.
+Route these as alias, domain facade, specialization/subtool, source reuse, or execution-unavailable state as appropriate.
 
-A strict superset with one new operation normally extends the existing family.
+A strict superset with one genuinely new operation normally extends the existing family.
 
 A new family is reserved for a genuinely different semantic input/output contract or structural law.
 
-## 5. Discovery-firewall timing
+## 6. Discovery-firewall timing
 
-The universal lookup rule has one principled timing exception: **a controlling research protocol may explicitly delay current-tool visibility to protect an independent discovery phase**.
+The lookup rule has one principled timing exception: a controlling research protocol may explicitly delay current-tool visibility to protect independent discovery.
 
-This covers both:
+This covers:
 
 1. FREE Phase A; and
-2. a TASK research taskbook that explicitly declares a blind-forward/source-whitelist information firewall and names the raw candidate/no-go freeze point.
+2. a TASK taskbook that explicitly declares a blind-forward/source-whitelist information firewall and freeze point.
 
-Before the declared freeze:
+Before freeze, do not expose toolbox/current method vocabulary merely to enforce reuse.
 
-- do not expose the toolbox registry;
-- do not expose the method inventory;
-- do not run the coverage router as a discovery prior;
-- do not name current tool families merely to forbid them;
-- obey the exact task-local source whitelist/firewall.
-
-For FREE research, generic computation/formalization may still test a primitive question that arose independently:
+For FREE research:
 
 `QUESTION_FIRST -> TOOL_SECOND`.
 
-For a blind-forward TASK, only the tools/ordinary mathematics permitted by the controlling taskbook may be used before freeze.
+Immediately **after** the candidate/no-go packet is frozen, normal coverage + reuse-resolution becomes mandatory before method novelty or new-tool claims.
 
-Immediately **after** the declared candidate/no-go packet is frozen, the normal reuse gate becomes mandatory before claiming method novelty or opening a tool continuation. Existing-tool collision is a dedup/integration result; it must not rewrite the frozen discovery packet after the fact.
+An ordinary TASK may not self-declare blindness merely to skip reuse.
 
-An ordinary TASK may not self-declare a discovery firewall merely to skip the reuse gate. The exception must be explicit in the controlling role/task contract.
+## 7. Driver gate
 
-## 6. Driver gate
+For every meaningful return:
 
-For every meaningful research return, Driver routing now includes:
+`EVIDENCE AUDIT -> METHOD HARVEST -> TOOL COVERAGE -> REUSE RESOLUTION -> VERDICT + ROUTE`.
 
-`EVIDENCE AUDIT`
+Before opening a new tool/method task, Driver must show why existing matches were applied, composed, rejected on exact semantic grounds, or genuinely insufficient.
 
-`-> METHOD HARVEST`
+A task whose only novelty is rediscovering existing machinery under another name should be redirected/closed rather than promoted as a new family.
 
-`-> TOOL COVERAGE / DEDUP`
+## 8. Steward gate
 
-`-> VERDICT + ROUTE`.
+Before a Steward accepts shared reusable machinery, check the current registry/inventory and require explicit reuse resolution.
 
-Before opening a new method/tool task, the Driver must resolve:
-
-`REUSE / COMPOSE / EXTEND / GAP_CONFIRMED / NOT_APPLICABLE`.
-
-A task whose only novelty is rediscovering an existing tool under a new route name should be closed or redirected immediately.
-
-For an explicitly blind-forward successor, the Driver may authorize delayed lookup only by writing the information firewall and freeze point into the controlling taskbook. Post-freeze dedup remains mandatory.
-
-## 7. Steward gate
-
-Before a Steward accepts shared reusable machinery, check the current registry/inventory and preserve exact ownership.
-
-A classical/general tool packaged for Enterprise semantics may be valuable without being novel. Tool acceptance and novelty are separate fields.
+A classical/general mechanism packaged for Enterprise semantics may be useful without being novel. Tool acceptance, reuse and novelty are separate facts.
 
 Do not move theorem ownership into the toolbox. The toolbox routes to the exact owner.
 
-## 8. Post-return method harvest
+## 9. Post-return method harvest
 
-Every Driver-accepted or Steward-accepted return receives one method classification:
+Every Driver-accepted or Steward-accepted return receives one classification:
 
 - `GLOBAL_TOOL_FAMILY`;
 - `GLOBAL_SUBTOOL`;
@@ -185,52 +161,27 @@ Every Driver-accepted or Steward-accepted return receives one method classificat
 - `DUPLICATE_ALIAS`;
 - `NO_TOOL_PAYLOAD`.
 
-If the classification changes future routing, update `research_method_inventory.json` and, when a family-level capability changes, `enterprise_toolbox_registry.json`.
-
-If a result has no reusable method, record that fact in the Driver/Steward review and do not manufacture a tool entry merely for completeness.
-
-## 9. Tool-family versus method inventory
-
-The two layers serve different purposes.
-
-**Tool family** answers:
-
-> What mathematical mechanism should own this kind of problem?
-
-**Method inventory** answers:
-
-> Which exact callable implementation, theorem interface, specialization or recent research operator already exists?
-
-The current router searches both, then scans current executable source.
-
-This prevents both kinds of duplication:
-
-- reinventing a whole calculus;
-- rewriting a concrete helper that already exists under an unrelated route filename.
+Update registry/inventory only when future reuse/routing changes. Do not manufacture tool entries for completeness.
 
 ## 10. Semantic safety
 
-A tool can only be invoked at the semantic strength of its input.
+A tool can only be used at the strength of its declared inputs and hard boundaries.
 
 Examples:
 
-- T4 cannot invent an observation `pi` simply to obtain a capacity theorem;
-- T6 cannot decide which distinctions are semantically disposable; the observation/operation language is input;
-- T7 cannot create a canonical choice when the declared symmetry has no fixed datum;
-- T9 nonzero holonomy proves failure of strict trivialization, not a unique repair;
-- T3 cannot import carrier vector dependencies into native incidence;
-- T1 growth degree is not native geometric dimension without another theorem.
+- T4 cannot invent an observation merely to obtain a capacity theorem;
+- T6 cannot choose which distinctions are semantically disposable;
+- T7 cannot create a canonical choice when declared symmetry has no fixed datum;
+- T9 nonzero holonomy diagnoses failure of strict trivialization, not a unique repair.
 
 `TOOL_USE != PREMISE_PROMOTION`.
 
 ## 11. Closed-loop invariant
 
-The control-plane invariant is now:
-
 `CURRENT RESEARCH -> HARVEST REUSABLE METHODS -> TOOLBOX`
 
 and
 
-`NEW RESEARCH -> TOOLBOX LOOKUP -> REUSE/COMPOSE/EXTEND OR EXPLICIT GAP`.
+`NEW RESEARCH -> TOOLBOX LOOKUP -> REUSE RESOLUTION -> APPLY/EXECUTE/COMPOSE/EXTEND OR EXPLICIT GAP`.
 
-Therefore a useful method discovered once should become harder, not easier, to rediscover wastefully under a new name.
+A method discovered once should become harder, not easier, to rediscover wastefully under another name.
