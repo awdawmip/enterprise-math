@@ -249,6 +249,20 @@ Tool lookup is delayed for FREE Phase A and explicit task-local blind-forward/so
 
 Use connected GitHub capability for remote repository files, commits, branches, PRs, issues and workflow/status operations. Do not use container networking to duplicate GitHub access when the connector supports the action.
 
+Canonical context fanout policy: `research_context_budget.json`.
+
+Freeze:
+
+`UNBOUNDED_COLLECTION_READ_FOR_DISCOVERY = FORBIDDEN`.
+
+Do not enumerate high-fanout directories such as `tests/`, `research_tasks/`, `research_returns/`, task/result/review record directories, or the whole repository tree merely to discover one item. Do not load all Issue #240 comments into conversational context. Use exact paths when known; otherwise bounded search (`topn <= 20`), exact-file line ranges (soft `<= 200` lines), or bounded API pages (`<= 20` comments), then expand only from a concrete match.
+
+`TOOL_OUTPUT_TRUNCATED -> NARROW_AND_CONTINUE`.
+
+`CONTEXT_COMPACTION -> RESTORE_DURABLE_STATE -> NARROW_READS -> CONTINUE`.
+
+Context compaction is not a task-stop boundary and does not justify abandoning a mutation whose next executable action is already known.
+
 Detailed rules: `docs/GITHUB_INTERACTION_BUDGET.md` and `docs/RESEARCH_SCHEDULING_PROTOCOL.en.md`.
 
 ## 8. Working Truth
