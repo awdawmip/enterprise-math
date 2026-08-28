@@ -11,400 +11,449 @@ Hard target:
 
 `RSA_EXPONENT_COLLISION_2ADIC_COLLAPSE_FACTOR_EXTRACTION_OR_EXACT_BARRIER_FROZEN`
 
+## Executive result
+
+The task closes positively at its stated scope.
+
+For a valid local collision
+\[
+x^\Delta\equiv 1\pmod n,\qquad n=pq,\qquad \Delta>0,
+\]
+write
+\[
+\Delta=2^s u,\quad u\text{ odd},
+\]
+and
+\[
+\operatorname{ord}_p(x)=2^a m_p,\qquad
+\operatorname{ord}_q(x)=2^b m_q,
+\]
+with \(m_p,m_q\) odd. The extractor-visible chain
+\[
+z_j=x^{u2^j}\pmod n
+\]
+produces a nontrivial CRT square root of \(1\), and hence a factor of \(n\), **if and only if**
+\[
+\boxed{a\ne b.}
+\]
+
+For a uniformly random unit, with
+\[
+A=v_2(p-1),\qquad B=v_2(q-1),\qquad m=\min(A,B),
+\]
+the exact single-certificate failure and success probabilities are
+\[
+\boxed{
+F_1=\frac{4^m+2}{3\cdot 2^{A+B}}
+}
+\]
+and
+\[
+\boxed{
+P_1=1-\frac{4^m+2}{3\cdot 2^{A+B}}\ge \frac12.
+}
+\]
+The lower bound is sharp at \(A=B=1\), including Blum-prime pairs.
+
+A global exponent-map collision exposes a nonzero multiple of
+\[
+\lambda(n)=\operatorname{lcm}(p-1,q-1),
+\]
+so random-base collapse becomes the classical known-annihilating-exponent/order-to-factor reduction.
+
+Multiple local certificates can do strictly more than separate attempts: their lcm safely annihilates the generated subgroup, and combinations of individually failing units can split \(n\). The exact multi-certificate obstruction is that the generated 2-primary subgroup is the graph of an isomorphism between its two local cyclic projections.
+
 ## 1. Collision kernels
 
-Let \(n=pq\) with distinct odd primes and let \(G=(\mathbb Z/n\mathbb Z)^\times\).
-For a fixed unit \(x\in G\), the exponent map
-
+Let
 \[
-\phi_x:\mathbb Z\to\langle x\rangle,\qquad e\mapsto x^e
+G=(\mathbb Z/n\mathbb Z)^\times.
 \]
 
+For one fixed unit \(x\), the map
+\[
+\phi_x:\mathbb Z\to \langle x\rangle,\qquad e\mapsto x^e
+\]
 has kernel
-
 \[
-\boxed{\ker\phi_x=\operatorname{ord}_n(x)\mathbb Z.}
+\boxed{
+\ker\phi_x=\operatorname{ord}_n(x)\mathbb Z.
+}
 \]
-
-Thus a local equality \(x^e=x^{e'}\pmod n\) is exactly the statement
-
+Therefore
 \[
+x^e\equiv x^{e'}\pmod n
+\iff
 \operatorname{ord}_n(x)\mid(e-e').
 \]
 
-For a finite sample \(S=\{x_1,\ldots,x_r\}\), the simultaneous map
-
+For a finite sample \(S=\{x_1,\ldots,x_r\}\), the simultaneous exponent map
 \[
-e\mapsto(x_1^e,\ldots,x_r^e)
+e\mapsto (x_1^e,\ldots,x_r^e)
 \]
-
 has kernel
-
 \[
 \boxed{
 \operatorname{lcm}_i\operatorname{ord}_n(x_i)\,\mathbb Z.
 }
 \]
-
-The lcm is exactly the exponent of the subgroup \(H=\langle S\rangle\): every word in the generators is killed by the lcm, while the exponent of \(H\) must be divisible by every generator order.
-
-Under CRT,
-
+This lcm is exactly the exponent of the subgroup
 \[
-\operatorname{ord}_n(x)=
-\operatorname{lcm}(\operatorname{ord}_p(x),\operatorname{ord}_q(x)).
+H=\langle x_1,\ldots,x_r\rangle.
 \]
 
-No hidden factor or order is supplied to the extractor below; those quantities appear only in the proof-side characterization.
+Under CRT,
+\[
+\operatorname{ord}_n(x)
+=
+\operatorname{lcm}\!\left(
+\operatorname{ord}_p(x),
+\operatorname{ord}_q(x)
+\right).
+\]
 
 ## 2. Exact single-collision collapse theorem
 
-Suppose the exposed local collision gives
-
+Assume the transcript supplies only
 \[
-\Delta=|e-e'|>0,\qquad x^\Delta\equiv1\pmod n.
+(n,x,\Delta)
 \]
+with
+\[
+\gcd(x,n)=1,\qquad x^\Delta\equiv1\pmod n.
+\]
+The extractor is not given \(p,q,\lambda(n)\), or any hidden order.
 
 Write
-
 \[
 \Delta=2^s u,\qquad u\text{ odd},
 \]
-
-and on the hidden CRT components write
-
+and proof-side local orders as
 \[
-\operatorname{ord}_p(x)=2^a m_p,
-\qquad
-\operatorname{ord}_q(x)=2^b m_q,
+r_p=\operatorname{ord}_p(x)=2^a m_p,\qquad
+r_q=\operatorname{ord}_q(x)=2^b m_q,
 \]
+where \(m_p,m_q\) are odd.
 
-with \(m_p,m_q\) odd. Since both local orders divide \(\Delta\),
-
+Since \(r_p,r_q\mid\Delta\),
 \[
-m_p\mid u,\qquad m_q\mid u,
-\qquad a,b\le s.
+m_p\mid u,\qquad m_q\mid u,\qquad a,b\le s.
 \]
+Hence \(x^u\) has exact order \(2^a\) modulo \(p\) and exact order \(2^b\) modulo \(q\).
 
-Define the extractor-visible chain
-
+Define
 \[
 z_j=x^{u2^j}\pmod n,\qquad 0\le j\le s.
 \]
-
-Modulo \(p\), the element \(x^u\) has exact order \(2^a\). Hence
-
+Then
 \[
 z_j\equiv1\pmod p\iff j\ge a,
+\qquad
+z_j\equiv1\pmod q\iff j\ge b.
 \]
-
-and, if \(a>0\),
-
+If \(a>0\),
 \[
-z_{a-1}\equiv-1\pmod p.
+z_{a-1}\equiv-1\pmod p,
 \]
+and similarly at \(q\).
 
-The same statements hold modulo \(q\) with \(b\).
-Therefore the first index at which the chain is globally \(1\) is
-
+Thus the first global index with \(z_t=1\pmod n\) is
 \[
 t=\max(a,b).
 \]
 
-If \(a<b\), then at the first pre-\(1\) state
-
+If \(a<b\), then
 \[
-z_{t-1}\equiv(1,-1)\quad\text{in }\mathbb F_p^\times\times\mathbb F_q^\times,
+z_{t-1}\equiv(1,-1)
 \]
-
-so \(z_{t-1}^2=1\pmod n\) but \(z_{t-1}\ne\pm1\pmod n\), and
-
+under CRT, so
 \[
-\gcd(z_{t-1}-1,n)=p,
-\qquad
+z_{t-1}^2\equiv1\pmod n,\qquad z_{t-1}\not\equiv\pm1\pmod n,
+\]
+and
+\[
+\gcd(z_{t-1}-1,n)=p,\qquad
 \gcd(z_{t-1}+1,n)=q.
 \]
-
 The case \(b<a\) is symmetric.
 
 If \(a=b=t>0\), then
-
 \[
 z_{t-1}\equiv(-1,-1)\equiv-1\pmod n,
 \]
+so the first pre-\(1\) root is trivial. If \(a=b=0\), already \(z_0=1\).
 
-so the square root is trivial. If \(a=b=0\), then already \(z_0=1\pmod n\), so there is no pre-\(1\) square root.
-
-Hence the proposed criterion is exactly correct:
-
+Therefore:
 \[
 \boxed{
-\text{single-collision 2-adic CRT split succeeds}
+\text{2-adic collapse splits }n
 \iff
-v_2(\operatorname{ord}_p(x))\ne
+v_2(\operatorname{ord}_p(x))
+\ne
 v_2(\operatorname{ord}_q(x)).
 }
 \]
 
-An extractor needs only \((n,x,\Delta)\): strip the powers of two from \(\Delta\), compute the chain until the first global \(1\), and gcd the preceding state with \(n\). It never receives \(p,q,\lambda(n)\), or an order.
+A valid extractor is:
+
+1. verify \(\gcd(x,n)=1\) and \(x^\Delta\equiv1\pmod n\);
+2. strip all powers of \(2\) from \(\Delta\), obtaining \(u\);
+3. set \(z=x^u\bmod n\);
+4. square until the next square is \(1\);
+5. at the preceding state test \(\gcd(z-1,n)\) and \(\gcd(z+1,n)\).
+
+No hidden factor or order is consumed.
 
 ## 3. Exact random-unit success probability
 
-Put
-
+Let
 \[
 A=v_2(p-1),\qquad B=v_2(q-1).
 \]
 
-For uniformly random \(x\pmod p\), its 2-primary component is uniform in the cyclic group \(C_{2^A}\). Therefore, for
-
+For a uniform element of the cyclic group \(\mathbb F_p^\times\), its 2-primary component is uniform in \(C_{2^A}\). Therefore, for
 \[
 a=v_2(\operatorname{ord}_p(x)),
 \]
-
 \[
 \Pr(a=0)=2^{-A},
-\qquad
-\Pr(a=t)=2^{t-1-A}\quad(1\le t\le A).
 \]
-
-The \(p\)- and \(q\)-components are independent under CRT. Let
-
+and for \(1\le t\le A\),
 \[
-m=\min(A,B).
+\Pr(a=t)=2^{t-1-A}.
 \]
+The \(p\)- and \(q\)-components are independent.
 
-The collapse fails exactly when \(a=b\), so
-
+The collapse fails exactly when \(a=b\). With
+\[
+m=\min(A,B),
+\]
 \[
 \begin{aligned}
 \Pr(\mathrm{fail})
-&=2^{-A-B}
-+\sum_{t=1}^{m}2^{t-1-A}2^{t-1-B}\\
-&=\boxed{\frac{4^m+2}{3\cdot2^{A+B}}}.
+&=
+2^{-A-B}
++
+\sum_{t=1}^m
+2^{t-1-A}2^{t-1-B}\\
+&=
+\boxed{
+\frac{4^m+2}{3\cdot2^{A+B}}
+}.
 \end{aligned}
 \]
 
-Thus
-
+Hence
 \[
 \boxed{
 \Pr(\mathrm{split})
-=1-\frac{4^m+2}{3\cdot2^{A+B}}.
+=
+1-\frac{4^m+2}{3\cdot2^{A+B}}.
 }
 \]
 
-The best uniform bound over all distinct odd primes is
-
+The largest failure probability over \(A,B\ge1\) is \(1/2\), attained at \(A=B=1\). Thus
 \[
-\boxed{\Pr(\mathrm{split})\ge\frac12.}
+\boxed{\Pr(\mathrm{split})\ge\frac12}
 \]
+is the best uniform lower bound.
 
-It is sharp at \(A=B=1\), in particular for a Blum-prime pair \(p\equiv q\equiv3\pmod4\).
+## 4. Global fake-exponent collision
 
-## 4. Global fake-\(e\) / fake-\(d\) collision
-
-Two integer exponents induce the same power map on every unit iff their difference annihilates the whole unit group. For a finite abelian group this is equivalent to divisibility by its exponent. For \(n=pq\),
-
+Two exponents induce the same power map on every unit exactly when their difference annihilates \(G\). Since the exponent of \(G\) is Carmichael's value
 \[
-\exp(G)=\lambda(n)=\operatorname{lcm}(p-1,q-1).
+\lambda(n)=\operatorname{lcm}(p-1,q-1),
 \]
-
-Therefore
-
+we have
 \[
 \boxed{
 x^e=x^{e'}\ \forall x\in G
 \iff
-\lambda(n)\mid(e-e').}
-\]
-
-So RSA exponents are naturally collision classes modulo \(\lambda(n)\) on the unit group. Distinct integer representatives separated by a multiple of \(\lambda(n)\) are not prevented from colliding; they are the same exponent action.
-
-Consequently, one exposed nonzero **global** collision difference \(\Delta\) is already a known multiple of \(\lambda(n)\). For any independently chosen random unit \(x\), \(x^\Delta=1\), so the single-collision collapse above becomes the standard random-base factor extraction from a known group-exponent multiple, with exact success probability from Section 3 and at least \(1/2\) per base.
-
-This does **not** solve collision generation. It is an exact reformulation of the classical multiple-of-order / multiple-of-group-exponent reduction to factoring.
-
-The same statement applies to a purported global fake decryption exponent \(d'\): if \(x^{d'}=x^d\) for every unit, then \(d'-d\) is a multiple of \(\lambda(n)\). In the usual RSA key relation, different integer representatives of the inverse exponent likewise differ by multiples of \(\lambda(n)\).
-
-## 5. Independent collision certificates: simple amplification
-
-Suppose \(x_1,\ldots,x_k\) are independent uniform units and for each \(x_i\) a valid local collision difference \(\Delta_i\) is supplied. The validity of a certificate is enough; \(\Delta_i\) need not be the exact order.
-
-Running the single-certificate collapse separately gives independent failures, hence
-
-\[
-\boxed{
-\Pr(\text{all }k\text{ single collapses fail})=F_1^k,
-\qquad
-F_1=\frac{4^m+2}{3\cdot2^{A+B}}.
+\lambda(n)\mid(e-e').
 }
 \]
 
-In particular the uniform success guarantee is at least
+Therefore one exposed nonzero global collision difference is already a known multiple of \(\lambda(n)\). For every subsequently chosen unit \(x\),
+\[
+x^\Delta=1\pmod n,
+\]
+so the same 2-adic descent gives a factor with the exact probability in Section 3, at least \(1/2\) per independent random base.
 
+This does not generate a collision and does not beat the classical reduction from a known multiple of the group exponent/order to factoring. It identifies precisely what a global fake exponent leaks.
+
+## 5. Independent certificates and safe aggregation
+
+For independent random units \(x_1,\ldots,x_k\) with valid local collision differences \(\Delta_i\), separate single-certificate attempts fail independently with probability
+\[
+\boxed{
+F_1^k
+=
+\left(
+\frac{4^m+2}{3\cdot2^{A+B}}
+\right)^k.
+}
+\]
+Therefore separate attempts alone succeed with probability at least
 \[
 1-2^{-k}.
 \]
 
-## 6. LCM aggregation is strictly stronger in some transcripts
-
-There is a safe aggregate that uses no factors:
-
+There is also a safe transcript-level aggregate:
 \[
 L=\operatorname{lcm}(\Delta_1,\ldots,\Delta_k).
 \]
-
-Because \(\operatorname{ord}_n(x_i)\mid\Delta_i\mid L\), \(L\) annihilates every generator and therefore the whole subgroup
-
+Because
+\[
+\operatorname{ord}_n(x_i)\mid\Delta_i\mid L,
+\]
+\(L\) annihilates every \(x_i\), hence the whole subgroup
 \[
 H=\langle x_1,\ldots,x_k\rangle.
 \]
-
-Thus every product
-
+Every combination
 \[
 y=x_1^{c_1}\cdots x_k^{c_k}
 \]
-
-comes with a valid collision certificate \(y^L=1\), and the same 2-adic collapse can be run on \(y\).
-
-A gcd of the \(\Delta_i\) has no analogous universal guarantee: each local order divides its own \(\Delta_i\), but need not divide their gcd. A proposed smaller aggregate is usable only after its annihilation property is explicitly verified by modular exponentiation.
-
-LCM aggregation can reveal a split even when every supplied unit fails individually. The smallest concrete witness is
-
+therefore satisfies
 \[
-n=65=5\cdot13,
-\qquad x_1=57,\quad x_2=47,\quad \Delta_1=\Delta_2=4.
+y^L=1\pmod n
 \]
+and can be fed to the same collapse.
 
-Both \(x_1\) and \(x_2\) have local 2-depth pair \((2,2)\), so both single collapses stop at the trivial root \(-1\). But
+By contrast, \(\gcd(\Delta_1,\ldots,\Delta_k)\) need not annihilate any individual \(x_i\); it has no universal safe-aggregation property.
 
+### Strict amplification witness
+
+Take
+\[
+n=65=5\cdot13,\qquad
+x_1=57,\qquad x_2=47,\qquad
+\Delta_1=\Delta_2=4.
+\]
+Each unit has local 2-depth pair \((2,2)\), so each single collapse fails at the trivial root \(-1\).
+
+But
 \[
 y=x_1x_2\equiv14\pmod{65},
-\qquad y^2\equiv1\pmod{65},
+\qquad
+y^2\equiv1\pmod{65},
 \]
-
-with CRT signs \((-1,1)\), and
-
+with nontrivial CRT signs, and
 \[
-\boxed{\gcd(14-1,65)=13.}
+\boxed{
+\gcd(14-1,65)=13.
+}
 \]
 
-So aggregation is not merely the probability \(F_1^k\) rewritten.
+Thus lcm-plus-subgroup combination can expose leakage that is absent from every supplied unit when treated separately.
 
-## 7. Exact multi-sample barrier and its probability
+## 6. Exact multi-certificate barrier
 
-Let \(P_2\cong C_{2^A}\) and \(Q_2\cong C_{2^B}\) be the local Sylow-2 factors, and let \(H_2\) be the 2-primary component of the subgroup generated by the \(k\) sampled units.
+Let
+\[
+P_2\cong C_{2^A},\qquad
+Q_2\cong C_{2^B}
+\]
+be the local Sylow-2 factors, and let \(H_2\) be the 2-primary component of \(H\).
 
-Every \(H\)-combination fails the CRT-depth test exactly when
-
+Every combination in \(H\) fails the depth test exactly when
 \[
 v_2(\operatorname{ord}(\pi_p h))
 =
 v_2(\operatorname{ord}(\pi_q h))
-\qquad\text{for every }h\in H_2.
+\quad
+\text{for every }h\in H_2.
 \]
 
-This has an exact structural form.
+If that equality holds for every \(h\), both coordinate projections on \(H_2\) are injective: a nonidentity element in one projection kernel would have local depth \(0\) on one side and positive depth on the other. Since \(H_2\) injects into a cyclic 2-group, \(H_2\) is cyclic. Its two images have the same order, and
+\[
+H_2
+\]
+is the graph of an isomorphism between those two cyclic image subgroups.
 
-If the equality holds for every \(h\), then either projection kernel must be trivial: if \(1\ne h\in\ker\pi_p\), the two local depths would be \(0\) and \(>0\). Hence both projections are injective. Since \(H_2\) injects into a cyclic 2-group, \(H_2\) is cyclic, the two images have the same order, and \(H_2\) is the graph of an isomorphism between those two cyclic image subgroups.
+Conversely, any graph of an isomorphism preserves element orders, so every element has equal local 2-depth.
 
-Conversely, the graph of an isomorphism preserves element orders, so every element has equal local 2-depth. Thus
-
+Hence:
 \[
 \boxed{
-\text{no combination in }H\text{ can split by 2-adic collapse}
+\text{no }H\text{-combination can split by this 2-adic mechanism}
 \iff
-H_2\text{ is a graph of an isomorphism between its local projections}.}
+H_2\text{ is a graph of an isomorphism between its local projections}.
+}
 \]
 
 This is the exact multi-certificate diagonal barrier.
 
-It also gives an exact probability for \(k\) independent random units. For \(0\le t\le m=\min(A,B)\), each local cyclic group has a unique subgroup of order \(2^t\). For \(t\ge1\), there are
+## 7. Exact aggregate-barrier probability
 
+For \(0\le t\le m=\min(A,B)\), each local cyclic 2-group has a unique subgroup of order \(2^t\). For \(t\ge1\), there are
 \[
 \varphi(2^t)=2^{t-1}
 \]
+isomorphisms between the two order-\(2^t\) subgroups.
 
-isomorphisms between the two order-\(2^t\) subgroups. A fixed graph is cyclic of order \(2^t\), and the number of ordered \(k\)-tuples generating it is
-
+A fixed graph has order \(2^t\). The number of ordered \(k\)-tuples generating that graph is
 \[
-2^{tk}-2^{(t-1)k}.
+2^{tk}-2^{(t-1)k},
 \]
+because a tuple fails to generate it exactly when all entries lie in its unique maximal subgroup.
 
-The \(t=0\) graph contributes one all-identity tuple. Therefore the probability that the **entire generated subgroup** remains trapped in the diagonal barrier is
-
+The \(t=0\) graph contributes one all-identity tuple. Therefore the probability that the generated 2-primary subgroup remains wholly trapped is
 \[
 \boxed{
-F_k^{\rm agg}
+F_k^{\mathrm{agg}}
 =
 \frac{
-1+\displaystyle\sum_{t=1}^{m}
-\varphi(2^t)\left(2^{tk}-2^{(t-1)k}\right)
-}{2^{(A+B)k}}.
+1+\displaystyle\sum_{t=1}^m
+\varphi(2^t)
+\left(2^{tk}-2^{(t-1)k}\right)
+}{
+2^{(A+B)k}
+}.
 }
 \]
 
-For \(k=1\) this reduces exactly to
-
+At \(k=1\), this reduces to \(F_1\). Also
 \[
-\frac{4^m+2}{3\cdot2^{A+B}}.
+F_k^{\mathrm{agg}}\le F_1^k\le2^{-k}.
 \]
+For \(k\ge2\) and \(m\ge2\), the first inclusion can be strict; the \(n=65\) witness exhibits the mechanism.
 
-The aggregate-barrier event is contained in the event that every individual certificate fails, hence
+Because \(L\) annihilates \(H\), choosing coefficient vectors uniformly modulo \(L\) maps uniformly onto \(H\). Thus an extractor can search combinations without knowing the CRT factors.
 
-\[
-F_k^{\rm agg}\le F_1^k\le2^{-k},
-\]
+## 8. Barrier scope
 
-and the full-subgroup split probability is at least \(1-2^{-k}\). For \(k\ge2\) and \(m\ge2\), the inclusion is strict; the \(n=65\) example exhibits the mechanism explicitly.
-
-An extractor does not need the hidden CRT description to exploit a non-barrier transcript. It knows \(L\), can form combinations of the exposed \(x_i\), and each such combination is automatically certified by \(L\). Random coefficients modulo \(L\) map uniformly onto \(H\), so repeated combination-and-collapse searches the splitter population of \(H\) without knowing \(p\) or \(q\).
-
-## 8. Exact barrier classification and scope
-
-For one local collision the barrier is
-
+For one local certificate, the exact barrier is
 \[
 \boxed{a=b.}
 \]
 
-For several local collisions plus safe lcm aggregation the barrier sharpens to
-
+For several certificates with lcm aggregation, the exact barrier is
 \[
-\boxed{H_2\text{ is a diagonal graph of a local cyclic-subgroup isomorphism}.}
+\boxed{
+H_2\text{ is a diagonal graph of a local cyclic-subgroup isomorphism}.
+}
 \]
 
-The smallest additional collision that escapes the barrier is one whose 2-primary CRT component enlarges the generated subgroup away from that graph; it may succeed directly, or it may only make a product/combination succeed.
+The smallest useful additional collision is one whose 2-primary component enlarges the generated subgroup away from this graph. It may split directly, or only after a combination.
 
-These are exact barriers for the **collision-driven 2-adic CRT-square-root mechanism**. They are not an information-theoretic statement that the public integer \(n\) cannot be factored by some unrelated algorithm. The task intentionally separates the leakage contained in an exposed collision from the harder problem of producing such a collision.
+These are barriers for the collision-driven 2-adic CRT-square-root mechanism, not information-theoretic lower bounds against factoring the public integer \(n\) by unrelated algorithms.
 
-## 9. What the three exposure models leak
+## 9. Exposure-model separation
 
-1. **Single local collision:** exposes one known multiple of \(\operatorname{ord}_n(x)\). It factors exactly when the local order 2-depths differ; otherwise that one 2-adic chain is trapped at a trivial root.
-2. **Finite sample:** the common collision kernel is the exponent of the generated subgroup. Separate local certificates can be safely lcm-aggregated to obtain such a subgroup annihilator; combinations can strictly amplify leakage.
-3. **Global fake exponent:** exposes a nonzero multiple of \(\lambda(n)\). That is sufficient to run the classical random-base order-multiple factor extraction with probability at least \(1/2\) per base.
+1. **Single local collision:** exposes a known multiple of \(\operatorname{ord}_n(x)\). It splits exactly when the local 2-depths differ.
+2. **Finite sample:** a common collision period is the exponent of the generated subgroup; separate periods may be lcm-aggregated safely.
+3. **Global fake exponent:** exposes a known nonzero multiple of \(\lambda(n)\), enough for the classical random-base factor reduction.
 
-Thus the positive bridge is real,
+Collision exposure and collision generation remain separate. This task proves no efficient way to produce the collision transcript from \(n\) alone.
 
-\[
-\text{exposed exponent collision}
-\to\text{annihilating exponent}
-\to\text{2-adic chain}
-\to\text{CRT square root}
-\to\text{factor},
-\]
-
-but it is not a new method for generating RSA collisions and is not stronger than the classical order-to-factor reduction once a global annihilating exponent is already known.
-
-## 10. Regression
+## 10. Regression and recovery audit
 
 Task-local checker:
 
 `python scripts/check_rsa_exponent_collision_crt_collapse.py`
 
-Exact local run:
+Re-executed during state-machine recovery on 2026-08-28 with exact-integer arithmetic:
 
 ```text
 SINGLE_COLLISION_THEOREM=PASS
@@ -416,10 +465,22 @@ AGGREGATE_FORMULA_CASES=18
 FINITE_REGRESSION_IS_NOT_A_GENERAL_PROOF=TRUE
 ```
 
-The exhaustive unit census uses the factors only as hidden regression ground truth. The extractor itself receives only \(n,x,\Delta\). The aggregate formula is independently checked for every \(A,B\in\{1,2,3\}\) and \(k\in\{1,2\}\). Finite checks are falsification/regression only; the general statements above are proved algebraically.
+An additional recovery audit exhaustively checked the aggregate-barrier formula for
+\[
+A,B\in\{1,2\},\qquad k\in\{1,2,3\},
+\]
+covering 12 exact parameter triples, with zero failures.
+
+The factors are used only by the regression harness as hidden ground truth. The extractor itself consumes only public transcript data \((n,x,\Delta)\) or safe lcm-generated subgroup certificates.
+
+Finite checks are regression/falsification evidence only; the general statements above are proved algebraically.
 
 ## Terminal disposition
 
 `PASS / HARD_TARGET_MET / EXACT_SINGLE_COLLISION_CRITERION / EXACT_RANDOM_PROBABILITY / GLOBAL_KERNEL / STRICT_MULTI_CERTIFICATE_AMPLIFICATION / DIAGONAL_GRAPH_BARRIER`
 
-No successor about efficient collision generation is authorized by this result; that is a separate research question.
+Unresolved residue inside task scope: `NONE`.
+
+Out-of-scope residue: efficient collision generation is a separate research question and is not implied by this result.
+
+Control-plane recommendation: Driver-review this frozen result and close the current task generation if accepted. Open no collision-generation successor unless separately justified and immutably published.
