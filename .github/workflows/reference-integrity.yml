@@ -48,6 +48,8 @@ jobs:
         run: python tools/research_result_records.py audit
       - name: Check source-backed Driver authority provenance
         run: python research_driver_authority.py audit
+      - name: Check Objective generations and source-backed Driver authority
+        run: python research_objective_records.py audit
       - name: Check multiple Driver review exact-set authority
         run: python research_review_evidence.py audit
       - name: Check Driver review automatic follow-up authority
