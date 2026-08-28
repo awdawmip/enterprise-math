@@ -35,6 +35,17 @@ class ResultGenerationStateTests(unittest.TestCase):
             "terminal": disposition in results.TERMINAL_DISPOSITIONS,
         }
 
+    def review_authority(self, rid, disposition="ACCEPTED"):
+        review = self.review(rid, disposition)
+        return {
+            **review,
+            "review_authority_kind": "IMMUTABLE_REVIEW",
+            "review_authority_id": review["review_id"],
+            "source_review_ids": [review["review_id"]],
+            "destination_class": "NONE",
+            "destination_ref_or_none": "",
+        }
+
     def test_old_terminal_result_does_not_close_new_current_generation(self):
         old = self.result("RR-OLD", "TP-OLD", "2026-08-26T01:00:00+00:00")
         with mock.patch.object(results, "iter_results", return_value=[old]), mock.patch.object(
@@ -67,6 +78,19 @@ class ResultGenerationStateTests(unittest.TestCase):
         new = self.result("RR-NEW", "TP-NEW", "2026-08-26T02:00:00+00:00")
         with mock.patch.object(results, "iter_results", return_value=[old, new]), mock.patch.object(
             results._review_evidence, "state", return_value=self.review_state("RR-OLD")
+        ), mock.patch.object(
+            results._driver_followup,
+            "authority_for_result",
+            return_value=self.review_authority("RR-OLD"),
+        ), mock.patch.object(
+            results._driver_followup,
+            "state_for_review",
+            return_value={
+                "required": False,
+                "ready": True,
+                "state": "LEGACY_PRE_CUTOVER",
+                "packet": None,
+            },
         ):
             state = results.task_result_state("RS-T", publication_id="TP-OLD")
         self.assertEqual("TERMINAL", state["state"])
