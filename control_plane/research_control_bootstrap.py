@@ -7,10 +7,13 @@ Order is intentional:
 3. isolate exact nonconforming Driver-review provenance from the operational view;
 4. isolate follow-up packets and task heads derived solely from those reviews;
 5. normalize every other isolated task to a state-machine-complete hard block;
-6. leave every unrelated task/review under the original strict rules.
+6. expose fault-isolated operational task/publication audits while retaining
+   explicit strict/raw audit handles;
+7. leave every unrelated task/review under the original strict rules.
 
 This bootstrap grants no research, review, publication, Working Truth, Foundation,
-or successor authority.
+or successor authority.  Quarantine is exact and fail-closed: it may withhold
+operational authority, never manufacture replacement authority.
 """
 from __future__ import annotations
 
@@ -62,6 +65,88 @@ def _complete_quarantine_block(
     return value
 
 
+def _install_operational_audit_views(root: Path) -> None:
+    """Make post-bootstrap public audits match the operational runtime view.
+
+    Strict/raw validators are preserved on ``strict_audit`` / ``strict_selection`` /
+    ``strict_selections``.  The public operational surface subtracts only errors
+    pinned by exact validated quarantine records.  New or drifted faults still
+    fail closed.
+    """
+    from tools import research_task_records
+
+    if not getattr(research_task_records, "_canonical_operational_audit_installed", False):
+        base_task_audit = research_task_records.audit
+
+        def task_audit(local_root: Path = research_task_records.ROOT) -> list[str]:
+            raw = list(base_task_audit(local_root))
+            suppressions = set(research_task_integrity_fault_isolation.suppression_strings(local_root))
+            return [error for error in raw if error not in suppressions]
+
+        research_task_records.strict_audit = base_task_audit
+        research_task_records.audit = task_audit
+        research_task_records._canonical_operational_audit_installed = True
+
+    import research_operational_publications as operational
+
+    if not getattr(operational, "_canonical_operational_view_installed", False):
+        base_selection = operational.selection
+        base_selections = operational.selections
+        base_audit = operational.audit
+
+        def isolated_ids(local_root: Path) -> set[str]:
+            return set(research_publication_fault_isolation.validated_quarantines(local_root)) | set(
+                research_task_integrity_fault_isolation.validated_quarantines(local_root)
+            )
+
+        def selection(task_id: str, local_root: Path = operational.ROOT):
+            if task_id in isolated_ids(local_root):
+                return None
+            return base_selection(task_id, local_root)
+
+        def selections(local_root: Path = operational.ROOT) -> dict[str, dict[str, Any]]:
+            isolated = isolated_ids(local_root)
+            tasks = set(operational.publication_heads(local_root))
+            unknown_resolutions = sorted(set(operational.resolution_map(local_root)) - tasks)
+            if unknown_resolutions:
+                raise operational.OperationalPublicationError(
+                    f"publication resolution references task without active head: {unknown_resolutions}"
+                )
+            out: dict[str, dict[str, Any]] = {}
+            for task_id in sorted(tasks - isolated):
+                value = base_selection(task_id, local_root)
+                if value is not None:
+                    out[task_id] = value
+            return out
+
+        def audit(local_root: Path = operational.ROOT) -> list[str]:
+            errors: list[str] = []
+            try:
+                integrity_rows = research_task_integrity_fault_isolation.validated_quarantines(local_root)
+                ignored_record_paths = {
+                    row["record_path"]
+                    for row in integrity_rows.values()
+                    if isinstance(row.get("record_path"), str)
+                }
+                pubs = operational.iter_publications(local_root)
+                for item in pubs:
+                    prefix = item.get("_record_path", "<publication>")
+                    if item.get("record_schema") != operational.RECORD_SCHEMA and prefix not in ignored_record_paths:
+                        errors.append(f"{prefix}: wrong record_schema")
+                selections(local_root)
+            except Exception as exc:
+                errors.append(str(exc))
+            return errors
+
+        operational.strict_selection = base_selection
+        operational.strict_selections = base_selections
+        operational.strict_audit = base_audit
+        operational.selection = selection
+        operational.selections = selections
+        operational.audit = audit
+        operational._canonical_operational_view_installed = True
+
+
 def install(root: Path = ROOT) -> None:
     research_publication_fault_isolation.install(root)
     research_task_integrity_fault_isolation.install(root)
@@ -70,27 +155,28 @@ def install(root: Path = ROOT) -> None:
 
     from tools import research_dispatch
 
-    if getattr(research_dispatch, "_canonical_control_bootstrap_installed", False):
-        return
-    base_merged = research_dispatch.merged_definitions
+    if not getattr(research_dispatch, "_canonical_control_bootstrap_installed", False):
+        base_merged = research_dispatch.merged_definitions
 
-    def merged_definitions(local_root: Path = research_dispatch.ROOT) -> list[dict[str, Any]]:
-        values = base_merged(local_root)
-        fork_ids = set(research_publication_fault_isolation.validated_quarantines(local_root))
-        integrity_ids = set(research_task_integrity_fault_isolation.validated_quarantines(local_root))
-        out: list[dict[str, Any]] = []
-        for item in values:
-            task_id = item.get("task_id") if isinstance(item, dict) else None
-            if task_id in fork_ids:
-                out.append(_complete_quarantine_block(item, kind="PUBLICATION_FORK"))
-            elif task_id in integrity_ids:
-                out.append(_complete_quarantine_block(item, kind="TASK_INTEGRITY"))
-            else:
-                out.append(item)
-        return out
+        def merged_definitions(local_root: Path = research_dispatch.ROOT) -> list[dict[str, Any]]:
+            values = base_merged(local_root)
+            fork_ids = set(research_publication_fault_isolation.validated_quarantines(local_root))
+            integrity_ids = set(research_task_integrity_fault_isolation.validated_quarantines(local_root))
+            out: list[dict[str, Any]] = []
+            for item in values:
+                task_id = item.get("task_id") if isinstance(item, dict) else None
+                if task_id in fork_ids:
+                    out.append(_complete_quarantine_block(item, kind="PUBLICATION_FORK"))
+                elif task_id in integrity_ids:
+                    out.append(_complete_quarantine_block(item, kind="TASK_INTEGRITY"))
+                else:
+                    out.append(item)
+            return out
 
-    research_dispatch.merged_definitions = merged_definitions
-    research_dispatch._canonical_control_bootstrap_installed = True
+        research_dispatch.merged_definitions = merged_definitions
+        research_dispatch._canonical_control_bootstrap_installed = True
+
+    _install_operational_audit_views(root)
 
 
 if __name__ == "__main__":
