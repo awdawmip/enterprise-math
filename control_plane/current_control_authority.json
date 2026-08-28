@@ -3,10 +3,11 @@
   "status": "ACTIVE_CANONICAL_CONTROL_PRECEDENCE",
   "effective": "2026-08-28",
   "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
-  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, tool reuse resolution, typed role transitions, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
+  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, exact owner-scope liveness, tool reuse resolution, typed role transitions, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
   "scope": [
     "TASK_PUBLICATION_AUTHORITY",
     "LIVE_DISPATCH_ENTRYPOINT",
+    "OWNER_SCOPE_SESSION_LIVENESS",
     "RUNTIME_BOOTSTRAP",
     "TOOL_REUSE_RESOLUTION",
     "ROLE_TRANSITION_MERGE",
@@ -30,6 +31,9 @@
     "cohort_lane_fresh_selector": "tools/research_lane_dispatch.py",
     "stale_adoption_guard": "tools/research_runtime_guard.py",
     "runtime_bootstrap": "control_plane/research_control_bootstrap.py",
+    "owner_scope_liveness_protocol": "docs/OWNER_SCOPE_SESSION_LIVENESS_PROTOCOL.md",
+    "session_observation_schema": "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",
+    "generic_conversation_activity_is_owner_scope_liveness": false,
     "invariant": "STALE_RECOVERY_AND_FAULT_ISOLATION_PRECEDE_FALSE_NO_DISPATCH"
   },
   "tool_reuse": {
@@ -50,6 +54,8 @@
     "free_clean_blindness_recoverable_after_agenda_exposure": false,
     "working_truth_follows_role_label": false,
     "tool_visibility_recomputed_from_destination_mode": true,
+    "owner_scope_liveness_recomputed_from_destination_task_claim": true,
+    "destination_role_messages_refresh_suspended_task_liveness": false,
     "invariant": "PRESERVE_PROVENANCE_AND_DURABLE_FRONTIER_WHILE_RECOMPUTING_DESTINATION_AUTHORITY"
   },
   "control_liveness": {
