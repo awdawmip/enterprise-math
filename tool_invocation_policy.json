@@ -1,7 +1,7 @@
 {
-  "schema": "ENTERPRISE_MATH_TOOL_INVOCATION_POLICY_V1",
+  "schema": "ENTERPRISE_MATH_TOOL_INVOCATION_POLICY_V2",
   "status": "ACTIVE",
-  "effective": "2026-08-22T22:39:00+08:00",
+  "effective": "2026-08-28T23:23:00+08:00",
   "registry": "enterprise_toolbox_registry.json",
   "method_inventory": "research_method_inventory.json",
   "executable_router": "tools/enterprise_toolbox.py",
@@ -9,6 +9,8 @@
   "invariants": [
     "QUESTION_OR_TASK_SEMANTICS_FIRST",
     "EXISTING_TOOL_COVERAGE_CHECK_BEFORE_NEW_MECHANISM_INVENTION",
+    "COVERAGE_LOOKUP_IS_NOT_TOOL_REUSE",
+    "TOOL_MATCH_REQUIRES_EXPLICIT_REUSE_RESOLUTION",
     "EXISTING_TOOL_COVERAGE -> REUSE_OR_COMPOSE_UNLESS_EXACT_SCOPE_GAP_IS_RECORDED",
     "NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP",
     "TOOL_USE_PRESERVES_SEMANTIC_TYPING_AND_HARD_BOUNDARIES",
@@ -23,29 +25,59 @@
     "CAPABILITY_GAP_CONFIRMED",
     "NOT_APPLICABLE"
   ],
+  "reuse_resolution": {
+    "coverage_hit_is_tool_use": false,
+    "required_after_any_relevant_match": true,
+    "states": [
+      "REUSE_APPLIED",
+      "REUSE_EXECUTED",
+      "COMPOSE_APPLIED",
+      "EXTEND_EXISTING_TOOL",
+      "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE",
+      "CAPABILITY_GAP_CONFIRMED",
+      "NOT_APPLICABLE"
+    ],
+    "rules": [
+      "A registry or lexical match alone does not satisfy the reuse gate.",
+      "For a mathematical calculus or theorem interface, applying its exact declared input/output law and hard boundary to the current task counts as REUSE_APPLIED even when no software execution is required.",
+      "When a matching executable source method is required for the claimed computation/certificate and the current environment can execute it, use the existing implementation rather than silently reimplementing it and record REUSE_EXECUTED.",
+      "When executable reuse is materially required but unavailable in the current environment, record REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE; do not claim that the executable tool was run and do not treat unavailability as a capability gap in the mathematics/tool family.",
+      "COMPOSE_APPLIED requires identifying the concrete existing tools/methods being composed and preserving each hard boundary.",
+      "EXTEND_EXISTING_TOOL requires a capability absent from the existing interface while preserving ownership of the existing family.",
+      "CAPABILITY_GAP_CONFIRMED requires an exact missing input/output capability, not merely a naming/package/domain difference.",
+      "Before constructing a new general-purpose mechanism, every relevant coverage match must have one explicit reuse-resolution state."
+    ],
+    "minimum_record": [
+      "coverage_verdict",
+      "matched_tool_or_method_ids",
+      "reuse_resolution_state",
+      "how_applied_or_why_not",
+      "hard_boundary_checked"
+    ]
+  },
   "role_timing": {
     "TASK_RESEARCH": {
       "mandatory": true,
       "when": "after the exact task semantics and first necessary dependency are understood, before constructing a new general-purpose mechanism or helper calculus, unless the exact taskbook declares an active discovery-information firewall that postpones current-tool visibility until a named freeze point",
-      "action": "query the current toolbox registry, method inventory and executable-source search surface; reuse the narrowest adequate tool or record the exact missing capability"
+      "action": "query the current toolbox registry, method inventory and executable-source search surface; resolve every relevant match through reuse_resolution; apply or execute the narrowest adequate existing tool when available, or record the exact missing capability"
     },
     "TASK_RESEARCH_DISCOVERY_FIREWALL": {
       "mandatory_before_declared_freeze": false,
       "tool_catalog_visibility_before_declared_freeze": "HIDDEN_IF_TASKBOOK_EXPLICITLY_REQUIRES_BLIND_FORWARD_OR_OTHER_DISCOVERY_ISOLATION",
       "mandatory_after_declared_freeze": true,
       "action_before_freeze": "obey the exact task-local source whitelist/information firewall; do not expose current tool names or catalogs merely to enforce reuse",
-      "action_after_freeze": "run the same toolbox/method dedup lookup before claiming method novelty or opening a tool continuation; preserve the frozen result even when it collides with an existing tool",
+      "action_after_freeze": "run the same toolbox/method dedup lookup and reuse-resolution gate before claiming method novelty or opening a tool continuation; preserve the frozen result even when it collides with an existing tool",
       "scope_rule": "this exception exists only when the controlling taskbook explicitly declares a discovery firewall and freeze point; ordinary TASK_RESEARCH cannot self-declare blindness to skip reuse"
     },
     "RESEARCH_DRIVER": {
       "mandatory": true,
       "when": "during intake/routing of a research return and before opening any task whose novelty is a new method/tool/mechanism",
-      "action": "deduplicate against existing tool families, subtools, domain facades and executable methods; route to reuse/composition/extension unless a capability gap is explicit"
+      "action": "deduplicate against existing tool families, subtools, domain facades and executable methods; require an explicit reuse-resolution state and route to reuse/composition/extension unless a capability gap is explicit"
     },
     "FOUNDATION_STEWARD": {
       "mandatory": true,
       "when": "before accepting a shared method/tool surface or a Foundation-facing decomposition that appears to introduce reusable machinery",
-      "action": "check whether the mechanism already exists and preserve theorem/tool ownership and semantic layer"
+      "action": "check whether the mechanism already exists, require an explicit reuse-resolution state, and preserve theorem/tool ownership and semantic layer"
     },
     "FREE_AXIOM_DISCOVERY_PHASE_A": {
       "mandatory": false,
@@ -56,7 +88,7 @@
     "FREE_AXIOM_DISCOVERY_PHASE_B": {
       "mandatory": true,
       "when": "immediately after the candidate/no-go packet is frozen and before claiming method novelty, uniqueness or a new reusable mechanism",
-      "action": "open the toolbox/method surfaces for falsification, deduplication, reuse and integration"
+      "action": "open the toolbox/method surfaces for falsification, deduplication, reuse and integration, then resolve every relevant match through reuse_resolution"
     }
   },
   "lookup_layers": [
@@ -81,11 +113,13 @@
     "required_questions": [
       "Which current tool families were checked?",
       "Which concrete callable methods or recent harvested methods were checked?",
+      "What reuse-resolution state was assigned to each relevant match?",
+      "How was the existing tool applied/executed, or why was execution unavailable?",
       "Why is reuse or composition insufficient at the required semantic strength?",
       "Is the residue an extension of an existing tool or a genuinely new family?",
       "What exact input/output capability is missing?"
     ],
-    "rule": "If the gap is only naming, packaging, a special case, or a different application domain, do not create a new tool family. Register an alias, specialization, domain facade or subtool instead."
+    "rule": "If the gap is only naming, packaging, a special case, a different application domain, or inability to execute an otherwise adequate existing implementation in the current chat environment, do not create a new tool family. Register an alias/specialization/domain facade, reuse the mathematical interface, or record execution unavailability as appropriate."
   },
   "post_return_harvest": {
     "required_for": [
