@@ -1,3 +1,4 @@
+import json
 import unittest
 from pathlib import Path
 
@@ -30,17 +31,29 @@ class DgrCorrectedEvidenceFrontierTests(unittest.TestCase):
         self.assertEqual({CORRECTED_RESULT_ID}, active_ids)
         self.assertNotIn(HISTORICAL_RESULT_ID, active_ids)
 
-    def test_review_presence_does_not_bypass_nonterminal_control_frontier(self):
+    def test_stored_review_bytes_do_not_bypass_operational_quarantine(self):
         state = results.task_result_state(TASK_ID, ROOT, PUBLICATION_ID)
         self.assertIsNotNone(state)
-        # A stored review and runtime terminal authority are deliberately separate.
-        # The current repository frontier remains nonterminal until the canonical
-        # follow-up/authority chain makes that review terminally operable.
+        # Storage and operational authority are separate.  The immutable review
+        # record is retained for provenance, while canonical fault isolation may
+        # withhold that review from the operational result state.  Withholding
+        # authority must leave the task nonterminal rather than silently accept
+        # or discard the stored review.
         self.assertEqual("AWAITING_DRIVER_REVIEW", state["state"])
         self.assertFalse(state["terminal"])
         self.assertEqual(CORRECTED_RESULT_ID, state["result"]["result_id"])
-        self.assertIsInstance(state["review"], dict)
-        self.assertEqual(CURRENT_REVIEW_ID, state["review"]["review_id"])
+        self.assertIsNone(state["review"])
+
+        review_path = (
+            ROOT
+            / "research_result_reviews"
+            / CORRECTED_RESULT_ID
+            / f"{CURRENT_REVIEW_ID}.json"
+        )
+        self.assertTrue(review_path.is_file())
+        stored = json.loads(review_path.read_text(encoding="utf-8"))
+        self.assertEqual(CURRENT_REVIEW_ID, stored["review_id"])
+        self.assertEqual(CORRECTED_RESULT_ID, stored["result_id"])
 
 
 if __name__ == "__main__":
