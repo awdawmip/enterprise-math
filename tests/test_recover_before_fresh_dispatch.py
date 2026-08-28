@@ -1,8 +1,7 @@
 from __future__ import annotations
 
+import unittest
 from datetime import datetime, timezone
-
-import pytest
 
 import research_control_dispatch
 from tools import research_runtime
@@ -38,115 +37,114 @@ def target(state: dict, surface: str = research_control_dispatch.ORDINARY_TASK) 
     return {"surface": surface, "state": state}
 
 
-def test_stale_valid_owner_is_adopted_before_fresh_dispatch() -> None:
-    owned = leased_task()
-    fresh = {
-        "task_id": "RS-FRESH",
-        "dispatch_state": "NEEDS_DISPATCH",
-        "kind": "RESEARCH",
-    }
-    result = research_control_dispatch.route_from_candidates(
-        [target(owned)],
-        observations={"RS-TEST": "2026-08-28T07:40:00+00:00"},
-        now=NOW,
-        fresh_task=fresh,
-        fresh_lane=None,
-    )
-    assert result["action"] == research_runtime.ADOPT_OWNER_CLAIM
-    assert result["claim_id"] == owned["claim_id"]
-    assert result["owner_claim_preserved"] is True
-    assert result["new_claim_required"] is False
+class RecoverBeforeFreshDispatchTests(unittest.TestCase):
+    def test_stale_valid_owner_is_adopted_before_fresh_dispatch(self) -> None:
+        owned = leased_task()
+        fresh = {
+            "task_id": "RS-FRESH",
+            "dispatch_state": "NEEDS_DISPATCH",
+            "kind": "RESEARCH",
+        }
+        result = research_control_dispatch.route_from_candidates(
+            [target(owned)],
+            observations={"RS-TEST": "2026-08-28T07:40:00+00:00"},
+            now=NOW,
+            fresh_task=fresh,
+            fresh_lane=None,
+        )
+        self.assertEqual(result["action"], research_runtime.ADOPT_OWNER_CLAIM)
+        self.assertEqual(result["claim_id"], owned["claim_id"])
+        self.assertTrue(result["owner_claim_preserved"])
+        self.assertFalse(result["new_claim_required"])
+
+    def test_active_owner_does_not_block_independent_fresh_dispatch(self) -> None:
+        fresh = {
+            "task_id": "RS-FRESH",
+            "dispatch_state": "NEEDS_DISPATCH",
+            "kind": "RESEARCH",
+        }
+        result = research_control_dispatch.route_from_candidates(
+            [target(leased_task())],
+            observations={"RS-TEST": "2026-08-28T07:55:00+00:00"},
+            now=NOW,
+            fresh_task=fresh,
+            fresh_lane=None,
+        )
+        self.assertEqual(result["action"], research_runtime.CLAIM_NEW_OWNER)
+        self.assertEqual(result["target"]["task_id"], "RS-FRESH")
+        self.assertTrue(result["new_claim_required"])
+
+    def test_unknown_session_liveness_is_not_false_no_dispatch(self) -> None:
+        result = research_control_dispatch.route_from_candidates(
+            [target(leased_task())],
+            observations={},
+            now=NOW,
+            fresh_task=None,
+            fresh_lane=None,
+        )
+        self.assertEqual(result["action"], "VERIFY_SESSION_LIVENESS")
+        self.assertFalse(result["new_claim_required"])
+        self.assertEqual(result["targets"][0]["claim_id"], "CLM-RS-TEST")
+
+    def test_stale_cohort_lane_preserves_exact_lane_owner_scope(self) -> None:
+        lane = leased_lane()
+        key = "RS-COHORT::COH-1::LANE-A"
+        result = research_control_dispatch.route_from_candidates(
+            [target(lane, research_control_dispatch.COHORT_LANE)],
+            observations={key: "2026-08-28T07:30:00+00:00"},
+            now=NOW,
+            fresh_task=None,
+            fresh_lane=None,
+        )
+        self.assertEqual(result["action"], research_runtime.ADOPT_OWNER_CLAIM)
+        self.assertEqual(result["surface"], research_control_dispatch.COHORT_LANE)
+        self.assertEqual(result["target_key"], key)
+        self.assertEqual(result["claim_id"], lane["claim_id"])
+        self.assertFalse(result["new_claim_required"])
+
+    def test_fresh_cohort_lane_is_used_when_no_task_global_target_exists(self) -> None:
+        lane = {
+            "task_id": "RS-COHORT",
+            "execution_cohort_id": "COH-1",
+            "execution_lane_id": "LANE-B",
+            "dispatch_state": "NEEDS_DISPATCH",
+        }
+        result = research_control_dispatch.route_from_candidates(
+            [],
+            observations={},
+            now=NOW,
+            fresh_task=None,
+            fresh_lane=lane,
+        )
+        self.assertEqual(result["action"], research_runtime.CLAIM_NEW_OWNER)
+        self.assertEqual(result["surface"], research_control_dispatch.COHORT_LANE)
+        self.assertEqual(result["target_key"], "RS-COHORT::COH-1::LANE-B")
+
+    def test_no_dispatch_requires_no_recovery_and_no_fresh_target(self) -> None:
+        result = research_control_dispatch.route_from_candidates(
+            [],
+            observations={},
+            now=NOW,
+            fresh_task=None,
+            fresh_lane=None,
+        )
+        self.assertEqual(result["action"], research_runtime.NO_DISPATCH)
+        self.assertFalse(result["new_claim_required"])
+
+    def test_session_observation_schema_rejects_partial_lane_identity(self) -> None:
+        payload = {
+            "schema": research_control_dispatch.SESSION_OBSERVATION_SCHEMA,
+            "observations": [
+                {
+                    "task_id": "RS-COHORT",
+                    "execution_cohort_id": "COH-1",
+                    "last_verified_activity_at": "2026-08-28T07:30:00+00:00",
+                }
+            ],
+        }
+        with self.assertRaises(research_control_dispatch.ControlDispatchError):
+            research_control_dispatch.parse_session_observations(payload)
 
 
-def test_active_owner_does_not_block_independent_fresh_dispatch() -> None:
-    fresh = {
-        "task_id": "RS-FRESH",
-        "dispatch_state": "NEEDS_DISPATCH",
-        "kind": "RESEARCH",
-    }
-    result = research_control_dispatch.route_from_candidates(
-        [target(leased_task())],
-        observations={"RS-TEST": "2026-08-28T07:55:00+00:00"},
-        now=NOW,
-        fresh_task=fresh,
-        fresh_lane=None,
-    )
-    assert result["action"] == research_runtime.CLAIM_NEW_OWNER
-    assert result["target"]["task_id"] == "RS-FRESH"
-    assert result["new_claim_required"] is True
-
-
-def test_unknown_session_liveness_is_not_false_no_dispatch() -> None:
-    result = research_control_dispatch.route_from_candidates(
-        [target(leased_task())],
-        observations={},
-        now=NOW,
-        fresh_task=None,
-        fresh_lane=None,
-    )
-    assert result["action"] == "VERIFY_SESSION_LIVENESS"
-    assert result["new_claim_required"] is False
-    assert result["targets"][0]["claim_id"] == "CLM-RS-TEST"
-
-
-def test_stale_cohort_lane_preserves_exact_lane_owner_scope() -> None:
-    lane = leased_lane()
-    key = "RS-COHORT::COH-1::LANE-A"
-    result = research_control_dispatch.route_from_candidates(
-        [target(lane, research_control_dispatch.COHORT_LANE)],
-        observations={key: "2026-08-28T07:30:00+00:00"},
-        now=NOW,
-        fresh_task=None,
-        fresh_lane=None,
-    )
-    assert result["action"] == research_runtime.ADOPT_OWNER_CLAIM
-    assert result["surface"] == research_control_dispatch.COHORT_LANE
-    assert result["target_key"] == key
-    assert result["claim_id"] == lane["claim_id"]
-    assert result["new_claim_required"] is False
-
-
-def test_fresh_cohort_lane_is_used_when_no_task_global_target_exists() -> None:
-    lane = {
-        "task_id": "RS-COHORT",
-        "execution_cohort_id": "COH-1",
-        "execution_lane_id": "LANE-B",
-        "dispatch_state": "NEEDS_DISPATCH",
-    }
-    result = research_control_dispatch.route_from_candidates(
-        [],
-        observations={},
-        now=NOW,
-        fresh_task=None,
-        fresh_lane=lane,
-    )
-    assert result["action"] == research_runtime.CLAIM_NEW_OWNER
-    assert result["surface"] == research_control_dispatch.COHORT_LANE
-    assert result["target_key"] == "RS-COHORT::COH-1::LANE-B"
-
-
-def test_no_dispatch_requires_no_recovery_and_no_fresh_target() -> None:
-    result = research_control_dispatch.route_from_candidates(
-        [],
-        observations={},
-        now=NOW,
-        fresh_task=None,
-        fresh_lane=None,
-    )
-    assert result["action"] == research_runtime.NO_DISPATCH
-    assert result["new_claim_required"] is False
-
-
-def test_session_observation_schema_rejects_partial_lane_identity() -> None:
-    payload = {
-        "schema": research_control_dispatch.SESSION_OBSERVATION_SCHEMA,
-        "observations": [
-            {
-                "task_id": "RS-COHORT",
-                "execution_cohort_id": "COH-1",
-                "last_verified_activity_at": "2026-08-28T07:30:00+00:00",
-            }
-        ],
-    }
-    with pytest.raises(research_control_dispatch.ControlDispatchError):
-        research_control_dispatch.parse_session_observations(payload)
+if __name__ == "__main__":
+    unittest.main()
