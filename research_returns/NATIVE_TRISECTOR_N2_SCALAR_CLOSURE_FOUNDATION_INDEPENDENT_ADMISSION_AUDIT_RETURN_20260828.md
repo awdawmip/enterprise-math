@@ -168,13 +168,13 @@ For nonzero `delta`, an exact character calculation gives
 `N_delta=(q+1+chi(delta)+chi(-delta))/4`.
 
 For completeness, split off the two possible endpoints `y=0,delta`. On the remaining `q-2` points use the indicator
-`(1+chi(y))(1+chi(y-delta))/4`. The required sums on the punctured domain are
+`(1+chi(y))(1+chi(y-delta))/4`. The standard sums are
 
 `sum chi(y) = -chi(delta)`,
 `sum chi(y-delta) = -chi(-delta)`,
-`sum chi(y(y-delta)) = -1`.
+`sum chi(y(y-delta)) = -1`
 
-Restoring the endpoint contributions gives the displayed formula.
+after removing the endpoints. Restoring the endpoint contributions gives the displayed formula.
 
 Now solve `N_delta=1`.
 
