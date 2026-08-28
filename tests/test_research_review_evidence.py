@@ -145,6 +145,15 @@ class ReviewEvidenceTests(unittest.TestCase):
             result_records._parallel,
             "state",
             return_value={"parallel_state": "SINGLE_RESULT_FLOW"},
+        ), patch.object(
+            result_records._driver_followup,
+            "state_for_review",
+            return_value={
+                "required": False,
+                "ready": True,
+                "state": "LEGACY_PRE_CUTOVER",
+                "packet": None,
+            },
         ):
             terminal = result_records.task_result_state(
                 "RS-T1", self.root, publication_id="TP2-T1"

@@ -14,6 +14,8 @@ import os
 from pathlib import Path
 from typing import Any
 
+from control_plane import research_result_records_impl as _result_contract
+
 ROOT = Path(__file__).resolve().parent
 INTAKE_SCHEMA = "ENTERPRISE_MATH_REVIEW_EVIDENCE_INTAKE_V1"
 PASS_SCHEMA = "ENTERPRISE_MATH_REVIEW_REFERENCE_PASS_V1"
@@ -23,6 +25,8 @@ TERMINAL_DISPOSITIONS = {"ACCEPTED", "REJECTED", "PARKED", "CLOSED", "SUPERSEDED
 NONTERMINAL_DISPOSITIONS = {"RETURN_TO_OWNER", "REQUEST_REPLICATION", "REQUEST_REVISION"}
 ALL_DISPOSITIONS = TERMINAL_DISPOSITIONS | NONTERMINAL_DISPOSITIONS
 INDEPENDENCE = {"CLEAN_INDEPENDENT_CONTEXT", "SHARED_CONTROL_CONTEXT_DISCLOSED", "NOT_INDEPENDENT", "NOT_APPLICABLE"}
+# Single-source the destination enum from the canonical result/review contract.
+DESTINATION_CLASSES = _result_contract.DESTINATION_CLASSES
 
 
 class ReviewEvidenceError(ValueError):
@@ -298,6 +302,9 @@ def create_synthesis(
     synthesized_by: str,
     rationale: str,
     root: Path = ROOT,
+    *,
+    operational_destination_class: str | None = None,
+    operational_destination_ref_or_none: str = "",
 ) -> dict[str, Any]:
     iid = _id(intake_id_value, "intake_id")
     intake = intakes(root).get(iid)
@@ -307,6 +314,15 @@ def create_synthesis(
         raise ReviewEvidenceError("invalid operational_disposition")
     if not isinstance(rationale, str) or not rationale.strip():
         raise ReviewEvidenceError("rationale is required")
+    if operational_destination_class is not None:
+        if operational_destination_class not in DESTINATION_CLASSES:
+            raise ReviewEvidenceError("invalid operational_destination_class")
+        if not isinstance(operational_destination_ref_or_none, str):
+            raise ReviewEvidenceError("operational_destination_ref_or_none must be a string")
+    elif operational_destination_ref_or_none:
+        raise ReviewEvidenceError(
+            "operational_destination_ref_or_none requires operational_destination_class"
+        )
     passes = reference_passes(root).get(iid, [])
     if {row.get("pass_number") for row in passes} != {1, 2}:
         raise ReviewEvidenceError("both reference passes are required before synthesis")
@@ -331,6 +347,9 @@ def create_synthesis(
         "working_truth_granted": False,
         "canonical_promotion_granted": False,
     }
+    if operational_destination_class is not None:
+        value["operational_destination_class"] = operational_destination_class
+        value["operational_destination_ref_or_none"] = operational_destination_ref_or_none
     _exclusive(root / "research_review_syntheses" / str(intake["result_id"]) / f"{sid}.json", value)
     return value
 
@@ -397,6 +416,17 @@ def audit(root: Path = ROOT) -> list[str]:
                 raise ReviewEvidenceError("synthesis evidence set drift")
             if synthesis.get("operational_disposition") not in ALL_DISPOSITIONS:
                 raise ReviewEvidenceError("invalid synthesis disposition")
+            destination = synthesis.get("operational_destination_class")
+            destination_ref = synthesis.get("operational_destination_ref_or_none")
+            if destination is not None:
+                if destination not in DESTINATION_CLASSES:
+                    raise ReviewEvidenceError("invalid synthesis operational destination")
+                if not isinstance(destination_ref, str):
+                    raise ReviewEvidenceError("synthesis operational destination ref must be a string")
+            elif destination_ref is not None:
+                raise ReviewEvidenceError(
+                    "synthesis destination ref cannot exist without operational destination"
+                )
             if synthesis.get("latest_review_wins") is not False or synthesis.get("all_reviews_retained") is not True:
                 raise ReviewEvidenceError("synthesis multiplicity semantics invalid")
         except Exception as exc:

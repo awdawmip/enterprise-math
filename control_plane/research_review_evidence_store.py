@@ -93,7 +93,17 @@ def create_synthesis(
     synthesized_by: str,
     rationale: str,
     root: Path = ROOT,
+    *,
+    operational_destination_class: str | None = None,
+    operational_destination_ref_or_none: str = "",
 ) -> dict[str, Any]:
+    """Write synthesis through the active compatibility view.
+
+    Keep ``root`` positional compatibility with the historical writer while
+    forwarding the optional operational destination fields introduced by the
+    exact-set auto-followup composition.  This prevents the public reducer and
+    the storage primitive from drifting on synthesis schema.
+    """
     with _active_store_view():
         return _impl.create_synthesis(
             intake_id_value,
@@ -101,6 +111,8 @@ def create_synthesis(
             synthesized_by,
             rationale,
             root,
+            operational_destination_class=operational_destination_class,
+            operational_destination_ref_or_none=operational_destination_ref_or_none,
         )
 
 

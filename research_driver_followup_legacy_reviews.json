@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_LEGACY_BASELINE_V1",
+  "status": "FROZEN_COMPATIBILITY_BASELINE",
+  "frozen_base": "d1514b1ea2f3f6f91c3b793c8d0bcb618ce093c6",
+  "frozen_review_tree": "a37d1b9c1fdc550ea8652fa81bc6497b6082724a",
+  "purpose": "Exact review-ID compatibility baseline for the Driver review automatic-follow-up cutover after exact-set Driver-review authority became canonical. The review tree physically contains all immutable history; review_ids contains exactly the 27 records visible through the canonical active compatibility view at cutover. Structurally invalid/quarantined historical review bytes remain preserved but are not re-admitted as operational review authority. Membership, not caller-controlled reviewed_at, determines compatibility.",
+  "review_ids": [
+    "DR-674A8EC67ED785D968FA",
+    "RV-A5FE74BFFE2BBE3D21C3",
+    "DR-21343D0E664D317264EF",
+    "DR-BE84D7EE722DE80A9527",
+    "DR-32985388D8EA8EFC60FE",
+    "DR-DDE3AE33E5A2DF9FE303",
+    "DR-6517F97FC9445C267AB8",
+    "DR-9AD827639ABB9098070D",
+    "DR-4BB8913C8173C7868242",
+    "DR-C096BE1FA0791D4E8F97",
+    "DR-519221EF18BC96857127",
+    "DR-537770DF45C84031D6CE",
+    "DR-710AC1A4CB63750F94CB",
+    "DR-9965FC746253E7468CD6",
+    "RV-00BD838F76D25EEA4A11",
+    "DR-9C519B3BD3BD21FD0165",
+    "DR-78A3B92E2016DF7AB1D3",
+    "DR-6D005A92EE7D16664599",
+    "DR-24024547005EE2025671",
+    "DR-9291E2191AE9A09D116E",
+    "DR-61716428A7A2807D28A2",
+    "DR-19F816CFB666F1FF7C00",
+    "DR-AE00467471BF85159F57",
+    "DR-E3B831C16E7BA03B153C",
+    "DR-FAAE32A350C040D76143",
+    "DR-EED6731C6E9409154FF5",
+    "DR-37DE6540A87C2FC33A4D"
+  ],
+  "excluded_physical_history": [
+    {
+      "review_id": "DR-E3CE51B969E032E59500",
+      "reason": "Preserved immutable review attached to quarantined structurally invalid historical PCF4 result; absent from canonical active compatibility review view and therefore never eligible for operational review authority."
+    }
+  ],
+  "invariants": [
+    "LEGACY_EXEMPTION_IS_EXACT_REVIEW_ID_MEMBERSHIP_NOT_REVIEWED_AT",
+    "NEW_REVIEW_CANNOT_BACKDATE_ITSELF_INTO_LEGACY_COMPATIBILITY",
+    "BASELINE_IS_PINNED_TO_EXACT_FROZEN_MAIN_AND_PHYSICAL_REVIEW_TREE",
+    "BASELINE_IDS_EQUAL_CANONICAL_ACTIVE_REVIEW_VIEW_AT_CUTOVER",
+    "QUARANTINED_STRUCTURALLY_INVALID_HISTORY_IS_NOT_REINTRODUCED_AS_AUTHORITY",
+    "BASELINE_IDS_MUST_REMAIN_PRESENT_AND_UNIQUE",
+    "BASELINE_EXPANSION_REQUIRES_EXPLICIT_NEW_CONTROL_GENERATION"
+  ]
+}

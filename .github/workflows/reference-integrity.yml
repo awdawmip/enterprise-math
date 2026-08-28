@@ -44,6 +44,8 @@ jobs:
         run: python tools/research_result_records.py audit
       - name: Check multiple Driver review exact-set authority
         run: python research_review_evidence.py audit
+      - name: Check Driver review automatic follow-up authority
+        run: python research_driver_followup_guard.py audit
       - name: Check parallel evidence two-pass reference chains
         run: python research_parallel_evidence.py audit
       - name: Check opt-in parallel execution cohorts
