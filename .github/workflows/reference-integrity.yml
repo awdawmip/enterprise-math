@@ -34,6 +34,8 @@ jobs:
         run: python control_plane/check_control_semantic_migration_registry.py
       - name: Check executable consumers before canonical-dispatch pointer migration
         run: python control_plane/check_control_pointer_python_consumers.py
+      - name: Prove runtime control migration changes only registered pointers
+        run: python control_plane/check_runtime_control_migration_equivalence.py
       - name: Check opt-in source firewall declarations
         run: python scripts/check_research_source_firewall.py
       - name: Check shared theorem and tool routing
