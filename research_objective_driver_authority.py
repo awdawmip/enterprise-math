@@ -4,18 +4,21 @@
 This layer is intentionally separate from objective semantics. It proves that a
 post-cutover Objective generation, operational head selection, or historical task
 binding was performed by a Driver whose Issue #240 authority was active at the
-control-action time. Legacy exemptions are exact frozen IDs, never timestamps.
+control-action time. Legacy exemptions are exact frozen bytes, never timestamps.
 """
 from __future__ import annotations
 
-import json
-import sys
+import hashlib
 from pathlib import Path
 from typing import Any
 
 import research_driver_authority as driver_authority
 
 ROOT = Path(__file__).resolve().parent
+
+
+def _file_sha256(path: Path) -> str:
+    return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def _contract(root: Path) -> dict[str, Any] | None:
@@ -73,17 +76,24 @@ def audit(root: Path = ROOT) -> list[str]:
         return [str(exc)]
 
     errors: list[str] = []
-    legacy_generations = set(contract.get("legacy_objective_generation_ids") or [])
+    legacy_generations = contract.get("legacy_objective_generations") or {}
     legacy_heads = contract.get("legacy_objective_heads") or {}
     legacy_bindings = set(contract.get("legacy_task_objective_bindings") or [])
+    if not isinstance(legacy_generations, dict):
+        return ["legacy_objective_generations must be an object"]
     if not isinstance(legacy_heads, dict):
         return ["legacy_objective_heads must be an object"]
 
     for item in records:
         gid = item.get("objective_generation_id")
-        if gid in legacy_generations:
+        path_value = item.get("_record_path")
+        legacy_digest = legacy_generations.get(gid) if isinstance(gid, str) else None
+        if isinstance(legacy_digest, str) and isinstance(path_value, str):
+            if _file_sha256(root / path_value) == legacy_digest:
+                continue
+            errors.append(f"{path_value}: legacy Objective generation byte drift")
             continue
-        prefix = str(item.get("_record_path") or gid or "<objective-generation>")
+        prefix = str(path_value or gid or "<objective-generation>")
         errors.extend(
             _errors_for_action(
                 actor=item.get("publisher_id"),
@@ -98,9 +108,17 @@ def audit(root: Path = ROOT) -> list[str]:
     for item in heads:
         oid = item.get("objective_id")
         gid = item.get("objective_generation_id")
-        if isinstance(oid, str) and legacy_heads.get(oid) == gid:
+        path_value = item.get("_head_path")
+        legacy = legacy_heads.get(oid) if isinstance(oid, str) else None
+        if isinstance(legacy, dict) and isinstance(path_value, str):
+            if (
+                legacy.get("objective_generation_id") == gid
+                and legacy.get("head_sha256") == _file_sha256(root / path_value)
+            ):
+                continue
+            errors.append(f"{path_value}: legacy Objective head byte drift")
             continue
-        prefix = str(item.get("_head_path") or oid or "<objective-head>")
+        prefix = str(path_value or oid or "<objective-head>")
         errors.extend(
             _errors_for_action(
                 actor=item.get("updated_by"),
