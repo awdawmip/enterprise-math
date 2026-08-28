@@ -2,9 +2,8 @@
 """Run the frozen V1 compatibility registry audit on the fault-isolated task view.
 
 The V1 registry remains read-only compatibility state. This wrapper only makes
-its audit consume the same task-local publication/definition fault boundary as
-the canonical dispatch control plane, so one unresolved immutable task fault
-cannot deny service to the whole repository audit.
+its audit consume the same canonical task-local fault boundary as live dispatch,
+so one known immutable task fault cannot deny service to the whole audit.
 """
 from __future__ import annotations
 
@@ -15,13 +14,13 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from control_plane import research_publication_fault_isolation as isolation  # noqa: E402
+from control_plane import research_control_bootstrap  # noqa: E402
 from tools import research_task_registry  # noqa: E402
 
 
 def audit() -> list[str]:
     try:
-        isolation.install()
+        research_control_bootstrap.install(ROOT)
     except Exception as exc:
         return [f"cannot install canonical task-view fault isolation: {exc}"]
     return research_task_registry.audit_registry(strict=True)
