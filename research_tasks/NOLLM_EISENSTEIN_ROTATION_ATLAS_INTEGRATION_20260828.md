@@ -1,32 +1,47 @@
----
-task_id: RS-NOLLM-EISENSTEIN-ROTATION-ATLAS
-title: "NollM–进取数论 Eisenstein 旋转图册与路径矩桥接"
-kind: research
-owner: taskbook/unassigned
-base_state: READY
-priority: P1
-leverage: HIGH
-frontier: "No theorem package yet unifies circle–hex core/halo duality, exact Eisenstein center/intersection refinement, finite rotation-phase classification, and path-jet oriented moments while preserving native semantics."
-next_action: "Freeze the exact (1-omega)^-1 Lambda three-coset decomposition and axial mod-3 classifier, then prove the normalized path-jet/oriented-triangle moment identity with explicit native/carrier typing."
-created_by_role: Researcher
-task_authority: PUBLISHED_REGISTERED
-publication_contract: RESEARCH_TASK_PUBLICATION_V1
-publication_template: RESEARCH_TASK_PUBLICATION_TEMPLATE_V1
-registry_key: RS-NOLLM-EISENSTEIN-ROTATION-ATLAS
-parent_objective_id: NOLLM_ENTERPRISE_ROTATION_GEOMETRY_INTEGRATION_20260828
-identity_policy: AUTO_RESOLVE_OR_ALLOCATE
-final_response_identity_policy: INHERIT_GLOBAL
-origin_kind: DIRECT_USER_DIRECTION
-task_lineage: INTEGRATION
-parent_task_id: ""
-successor_gate: ""
-policy_review:
-  policy_set: ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V4
-  policy_digest: "sha256:497a6594fe3b058831204c09554e9b494474706a8a4c31529d5a0d14451400b6"
-  status: PASS
----
+<!-- ENTERPRISE_MATH_TASK_V1
+{
+  "task_id": "RS-NOLLM-EISENSTEIN-ROTATION-ATLAS",
+  "title": "NollM–进取数论 Eisenstein 旋转图册与路径矩桥接",
+  "kind": "RESEARCH",
+  "owner": "research/nollm-eisenstein-rotation-atlas",
+  "base_state": "READY",
+  "priority": "P2",
+  "leverage": "MEDIUM",
+  "frontier": "No theorem package yet unifies circle–hex core/halo duality, exact Eisenstein center/intersection refinement, finite rotation-phase classification, and path-jet oriented moments while preserving native semantics.",
+  "next_action": "Freeze the exact (1-omega)^-1 Lambda three-coset decomposition and axial mod-3 classifier, then prove the normalized path-jet/oriented-triangle moment identity with explicit native/carrier typing.",
+  "dependencies": [],
+  "source_refs": [],
+  "evidence_status": "DIRECT_USER_INTEGRATION_DIRECTION / NOLLM_BRIDGE / NO_WORKING_TRUTH_GRANT",
+  "last_progress_ref": "main@29b915e115c403017b8b1aedddd60fc14edd3e3a",
+  "last_progress_at": "2026-08-28T04:20:00+00:00",
+  "hard_block": null,
+  "tags": ["INTEGRATION", "NOLLM", "EISENSTEIN", "ROTATION", "PATH_JET", "THREE_DIMENSIONAL_PRECURSOR"],
+  "claim_lease_minutes": 240,
+  "created_by_role": "RESEARCHER",
+  "task_authority": "PUBLISHED_REGISTERED",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "publication_template": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "registry_key": "RS-NOLLM-EISENSTEIN-ROTATION-ATLAS",
+  "parent_objective_id": "NOLLM_ENTERPRISE_ROTATION_GEOMETRY_INTEGRATION_20260828",
+  "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
+  "final_response_identity_policy": "INHERIT_GLOBAL",
+  "identity_lane": "R3D",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "task_lineage": "INTEGRATION",
+  "parent_task_id": "",
+  "successor_gate": {},
+  "policy_review": {
+    "policy_set": "research_taskbook_policy.json",
+    "policy_digest": "sha256:b78f85af4629ddb714870c44535ad0393418dbc3bebe06da142a90c0c6b9075e",
+    "review_state": "PASS",
+    "temporary_overrides": []
+  }
+}
+-->
 
 # NollM–进取数论 Eisenstein 旋转图册与路径矩桥接
+
+Status: `PUBLISHED_REGISTERED / INTEGRATION / NOLLM-BRIDGE`
 
 ## Mother question
 
