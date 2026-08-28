@@ -28,7 +28,7 @@ jobs:
         run: python tools/check_references.py
       - name: Check shared theorem and tool routing
         run: >-
-          python -c "from control_plane import research_publication_fault_isolation as q; q.install(); from tools import check_research_common_surface as c; c.check(); print('research common surface: PASS')"
+          python -c "from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; c.check(); print('research common surface: PASS')"
       - name: Check exhaustive historical PR migration ledger
         run: python control_plane/check_historical_pr_migration_ledger.py
       - name: Check legacy coordinate quarantine registry
