@@ -2,7 +2,7 @@
   "schema": "ENTERPRISE_MATH_RESEARCH_DISPATCH_CONTRACT_V4",
   "status": "ACTIVE_CANONICAL_POST_CUTOVER",
   "effective": "2026-08-28",
-  "canonical_tool": "tools/research_control_dispatch.py",
+  "canonical_tool": "research_control_dispatch.py",
   "fresh_task_dispatch_tool": "tools/research_dispatch.py",
   "lane_dispatch_tool": "tools/research_lane_dispatch.py",
   "lane_claim_tool": "tools/research_lane_claims.py",
@@ -120,6 +120,6 @@
     "multiple_existing_lane_results": "RETAIN_ALL",
     "cohort_task_terminalization": "ONLY_AFTER_ALL_LANES_HAVE_EVIDENCE_PLUS_REFERENCE_PASS_1_PLUS_REFERENCE_PASS_2_PLUS_TERMINAL_SYNTHESIS_CONTROL"
   },
-  "selection_rule": "Run tools/research_control_dispatch.py as the canonical control-plane route. It first preserves/adopts any owner scope whose valid CLAIM is independently observed stale, without creating a second CLAIM. If no stale-recoverable owner is observed, it delegates ordinary fresh task selection to tools/research_dispatch.py and active-cohort lane selection to tools/research_lane_dispatch.py. If both fresh selectors are empty but any valid owner lease has unknown conversation liveness, the result is VERIFY_SESSION_LIVENESS rather than NO_DISPATCH. For ordinary fresh tasks, historical state/priority/leverage/staleness ordering remains unchanged; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global ownership is disabled. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement.",
+  "selection_rule": "Run research_control_dispatch.py as the canonical control-plane route. It first preserves/adopts any owner scope whose valid CLAIM is independently observed stale, without creating a second CLAIM. If no stale-recoverable owner is observed, it delegates ordinary fresh task selection to tools/research_dispatch.py and active-cohort lane selection to tools/research_lane_dispatch.py. If both fresh selectors are empty but any valid owner lease has unknown conversation liveness, the result is VERIFY_SESSION_LIVENESS rather than NO_DISPATCH. For ordinary fresh tasks, historical state/priority/leverage/staleness ordering remains unchanged; AWAITING_REVIEW and COMPLETE are never selected. When an ACTIVE cohort exists, canonical task status is projected to COHORT_ACTIVE and task-global ownership is disabled. Live events must come from raw server-authenticated Issue #240 comments whose exact server actor is authorized. Compatible historical execution records may supply the same durable binding but cannot replace the live winning claim requirement.",
   "interaction_budget": "Recovery routing reuses existing owner state and ephemeral liveness evidence. It never adds a CLAIM for stale-session adoption. Authentication and actor authorization reuse the same Issue #240 comments already needed for semantic control events. Ordinary tasks add no new periodic poll; a liveness verification is required only when fresh dispatch is empty and a valid owner lease would otherwise cause a false NO_DISPATCH, or when stale adoption is being considered."
 }
