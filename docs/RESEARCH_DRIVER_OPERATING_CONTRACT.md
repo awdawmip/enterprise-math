@@ -1,7 +1,7 @@
 # Enterprise Math Research Driver Operating Contract
 
-Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.3`
-Effective: `2026-08-28`
+Status: `ACTIVE / CANONICAL DRIVER BEHAVIOR CONTRACT / V5.4`
+Effective: `2026-08-29`
 Role source: `research_role_policy.json`
 Architecture: `research_architecture.json`
 Runtime: `research_runtime_state_machine.json`
@@ -12,6 +12,7 @@ Fresh selectors: `tools/research_dispatch.py` / `tools/research_lane_dispatch.py
 Active-turn liveness: `active_turn_liveness.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
 Tool invocation: `tool_invocation_policy.json`
+Review write authority: `research_review_write_authority.json`
 Promotion liveness: `docs/GOVERNANCE_MAINTENANCE_LIVENESS.md`
 
 ## 1. Purpose
@@ -188,11 +189,34 @@ For each meaningful return:
 4. **Method harvest / tool dedup** — include reuse resolution, not coverage lookup alone.
 5. **Verdict** — separate mathematical status from workflow/tool status.
 6. **Route** — continue/close/reprioritize/replicate/Foundation/toolkit/promotion.
-7. **Persist** — update only changed semantic surfaces.
+7. **Persist** — update only changed semantic surfaces; if materializing an immutable review record, obey the write-boundary transaction in §11.1 before the remote mutation.
 8. **Resume parent** — if open, execute the next routed action in the same turn.
 9. **User completion** — final only when the parent is terminal or no executable action remains under active-turn rules.
 
 Progress updates are not synchronization barriers.
+
+### 11.1 Immutable review-record write boundary
+
+Driver authority to make a review decision is not authority to write a review record against stale result bytes.
+
+Immediately before any remote mutation that materializes an immutable review record:
+
+1. refresh the remote authority head;
+2. reload the exact current `research_result_records/<task-id>/<result-id>.json` from that write parent;
+3. recompute `result_record_sha256` from those refreshed bytes rather than from cached conversation/tool state;
+4. ensure the candidate review record pins that exact path and SHA-256, and that the same transaction does **not** modify the result record;
+5. use expected-blob compare-and-swap or a non-force fast-forward mutation;
+6. if the remote head or result blob changes before write, abort/rebase and recompute the binding before trying again.
+
+Freeze:
+
+`READ_SNAPSHOT != REVIEW_WRITE_AUTHORITY`.
+
+`REVIEW_ARTIFACT_COMPLETE != REVIEW_RECORD_WRITE_AUTHORIZED`.
+
+`DRIVER_AUTHORITY_VALID + STALE_RESULT_BINDING -> FAIL_CLOSED`.
+
+A binding mismatch does not change the Driver disposition. Preserve the immutable review bytes as history, remove that exact review from operational review authority, and remove any follow-up authority derived solely from it. Only an authorized Driver may create an ordinary replacement review bound to the exact current result.
 
 ## 12. Driver Continuity
 
@@ -232,6 +256,9 @@ The Driver must not:
 - open a new tool route after coverage lookup without resolving whether the matched tool was actually applied/executed;
 - treat environment execution unavailability as a new mathematical tool capability gap;
 - accept a return without method-harvest classification when reusable payload exists;
+- materialize an immutable review record from a cached/earlier result snapshot without refreshing the exact write-parent result bytes;
+- force-update a review record transaction after the remote head moved instead of recomputing the result binding;
+- treat a stale result-binding failure as permission to rewrite the existing Driver disposition;
 - mislabel continuation as `NEW_DIRECTION`;
 - strip free-candidate provenance;
 - call raw candidates or merely published tasks Working Truth;
