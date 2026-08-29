@@ -1,0 +1,51 @@
+{
+  "schema": "SEED6_LOCAL_BRIDGE_CENSUS_V1",
+  "task_id": "RS-SEED6-BRIDGE-TRIANGLE-LOCAL-GROWTH",
+  "publication_id": "TP2-262052627FA7DD9E5FF7",
+  "researcher_id": "EM-S6T-A65497",
+  "hard_target": "SEED6_LOCAL_BRIDGE_TRIANGLE_GEOMETRY_CLASSIFIED",
+  "census": {
+    "prime_count": 500,
+    "first_prime": 5,
+    "last_prime": 3583,
+    "all_exact_checks_pass": true,
+    "distinct_exact_numeric_triangles": 500,
+    "normalized_rooted_typed_signatures": 1
+  },
+  "canonical_cell": {
+    "top": "L=6r",
+    "carrier_atoms": ["2", "3", "r"],
+    "coatoms": ["6=L/r", "2r=L/3", "3r=L/2"],
+    "pairwise_gcd_edge_labels": ["2", "3", "r"],
+    "pairwise_lcm": "6r",
+    "incidence_matrix_rows_2_3_r_columns_6_2r_3r": [[1,1,0],[1,0,1],[0,1,1]],
+    "determinant": -2,
+    "smith_normal_form": [1,1,2],
+    "coatom_exponent_lattice": "{(x,y,z) in Z^3 : x+y+z is even}",
+    "levi_graph": "C6 with remembered carrier/object bipartition"
+  },
+  "automorphism_counts": {
+    "object_triangle_unlabeled": 6,
+    "object_triangle_exact_gcd_edge_labels": 1,
+    "object_triangle_fixed_vs_new_edge_types": 2,
+    "levi_C6_unranked": 12,
+    "levi_C6_rank_preserving": 6,
+    "levi_C6_rank_preserving_seed_rooted": 2,
+    "levi_C6_exact_carriers_fixed": 1
+  },
+  "candidate_classification": [
+    {"candidate": "Boolean-B3 coatom / meet-join signature", "status": "EXACT_STRUCTURAL"},
+    {"candidate": "gcd carrier-incidence reconstruction", "status": "EXACT_STRUCTURAL"},
+    {"candidate": "valuation-support matrix and SNF (1,1,2)", "status": "EXACT_STRUCTURAL"},
+    {"candidate": "fixed/fixed/new edge-type interface", "status": "EXACT_STRUCTURAL"},
+    {"candidate": "6*(2r)*(3r)=(6r)^2 as an independent invariant", "status": "TAUTOLOGICAL"},
+    {"candidate": "canonical orientation without ordering the two seed carriers", "status": "MODEL_DEPENDENT"},
+    {"candidate": "recover numerical r from normalized rooted typed combinatorics alone", "status": "COUNTEREXAMPLE_FOUND", "witness": "T_5={6,10,15} and T_7={6,14,21} are typed-isomorphic after r->fresh-atom normalization"}
+  ],
+  "outside_scope_regression_guards": {
+    "r=2": "fails distinct/B3 atom signature",
+    "r=3": "fails distinct/B3 atom signature",
+    "r=25": "fails squarefree prime-atom signature",
+    "r=35": "has four prime atoms, so the three vertices are not the full B3 coatom layer"
+  }
+}
