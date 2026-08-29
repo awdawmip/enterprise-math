@@ -1,0 +1,76 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "packet_id": "DFU-93E40D26C03FE09E1EDA",
+  "review_id": "DR-8F7328B65924F20CE3DA",
+  "result_id": "RR-73C4AC1CB16F08C64FC4",
+  "task_id": "RS-P000-FIRST-SHELL-POLYHEDRON-CLASSIFICATION",
+  "source_publication_id": "TP2-8BAE9A40F7D298D7AD01",
+  "driver_id": "EM-DVR-P8H4Q2",
+  "review_disposition": "ACCEPTED",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "parent_objective_id": "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY",
+  "source_next_control_plane_recommendation": "Define or constrain an explicit L1_NATIVE <-> carrier-contact bridge in one declared six-dimensional P000 model; retain FCC/HCP shell and Voronoi cases plus HCP non-central-symmetry as mandatory regressions.",
+  "decision": "TASK_SET_PUBLISHED",
+  "gate_decisions": [
+    {
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "decision": "REQUIRED",
+      "reason": "The accepted classification closes the polyhedral census but leaves a precise model-interface gap: no theorem yet relates native adjacency to carrier contacts or carrier directions in a six-dimensional P000 model.",
+      "evidence_refs": [
+        "research_returns/P000_FIRST_SHELL_POLYHEDRON_CLASSIFICATION_RETURN_20260829.md",
+        "driver_reviews/P000_FIRST_SHELL_POLYHEDRON_CLASSIFICATION_DRIVER_REVIEW_20260829.md"
+      ]
+    },
+    {
+      "gate": "LEAN_FORMALIZATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "The accepted finite carrier classification is exact but is not being promoted to an L4 or formalization boundary in this review.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "This review makes no novelty claim for the classical cuboctahedral, anticuboctahedral, or Dirichlet-domain facts; the return already source-checks those standard carrier structures. Any later novelty claim for a native-carrier bridge must be gated separately.",
+      "evidence_refs": [
+        "research_returns/P000_FIRST_SHELL_POLYHEDRON_CLASSIFICATION_RETURN_20260829.md"
+      ]
+    },
+    {
+      "gate": "INDEPENDENT_REPLICATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "The finite result has an exact deterministic certificate and checker, and the Driver independently recomputed the decisive hull, incidence, central-symmetry, Barlow-local-type, and polar/Voronoi data before acceptance.",
+      "evidence_refs": [
+        "scripts/check_p000_first_shell_polyhedron_classification.py",
+        "research_artifacts/P000_FIRST_SHELL_POLYHEDRON_CLASSIFICATION/exact_certificate_20260829.json",
+        "driver_reviews/P000_FIRST_SHELL_POLYHEDRON_CLASSIFICATION_DRIVER_REVIEW_20260829.md"
+      ]
+    },
+    {
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "decision": "NOT_REQUIRED",
+      "reason": "The result is classified RESULT_ONLY and the checker is task-local certification machinery rather than a new shared Enterprise tool family.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "ADVERSARIAL_AUDIT",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "The result actively rejects the tempting 12/2 axis inference using the HCP non-central-symmetry counterexample and separates HULL1 from VOR and L1_NATIVE; the Driver independently rechecked those boundaries.",
+      "evidence_refs": [
+        "research_returns/P000_FIRST_SHELL_POLYHEDRON_CLASSIFICATION_RETURN_20260829.md",
+        "driver_reviews/P000_FIRST_SHELL_POLYHEDRON_CLASSIFICATION_DRIVER_REVIEW_20260829.md"
+      ]
+    }
+  ],
+  "task_publications": [
+    {
+      "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "publication_id": "TP2-CBEA85CA9AE711825875",
+      "task_role": "MATHEMATICAL_CONTINUATION"
+    }
+  ],
+  "created_at": "2026-08-29T03:21:00+00:00",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
