@@ -1,0 +1,30 @@
+{
+  "schema": "P000_CROSS_BLOCK_NATIVE_PRODUCT_FINITE_CERTIFICATE_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-E4143818BDA70C70113B",
+  "researcher_id": "EM-P0006DPA6-E61B42",
+  "axis_labels": ["E1", "E2", "E3", "E4", "E5", "E6"],
+  "blocks": {
+    "A": ["E1", "E2", "E3"],
+    "B": ["E4", "E5", "E6"]
+  },
+  "target_b_cycle_notation": "(E2 E4)(E3 E5)",
+  "target_b_zero_based_image": [0, 3, 4, 1, 2, 5],
+  "facts": {
+    "block_stabilizer_order": 72,
+    "target_b_in_block_stabilizer": false,
+    "group_generated_by_W_and_b_order": 720,
+    "S6_order": 720,
+    "global_extension_collapse": "<W,b> = S6",
+    "Hamming_H_2_3_vertices": 9,
+    "Hamming_H_2_3_edges": 18,
+    "Hamming_H_2_3_automorphism_count_exact_bruteforce": 72
+  },
+  "interpretation": [
+    "The 72-element W envelope is exactly the 3+3 partition stabilizer S3 wr S2.",
+    "The requested b is a partial block mixer and lies outside W.",
+    "Adjoining b as a GLOBAL total six-axis permutation to W generates all of S6.",
+    "Therefore a safe minimal extension cannot be merely the global permutation group <W,b>; it must alter typing/domain/relation structure if arbitrary S6 native rotations are forbidden."
+  ],
+  "proof_status": "CHECKER_BACKED_EXACT_FINITE_ENUMERATION"
+}
