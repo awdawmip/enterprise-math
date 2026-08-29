@@ -141,7 +141,12 @@
       "current_interpretation": "SUBORDINATE_FRESH_SELECTOR_UNDER_RECOVERY_AWARE_CONTROL_ROUTER",
       "canonical_target_value": "research_control_dispatch.py",
       "risk_class": "CONTROL_POINTER_WITH_INTERNAL_NEW_RULE",
-      "state": "FIELD_LOCALITY_PROOF_PASSED_AWAITING_SAFE_WRITE_MECHANISM",
+      "state": "TARGET_MIGRATED",
+      "migrated_commit": "a3611b583acc7bd75f22d2c2f76548d9c79b7e76",
+      "migrated_blob_sha1": "a312e8c13086467fee7824f1457685e1f4fa096f",
+      "safe_write_mechanism": "DETACHED_GIT_BLOB_TREE_COMMIT_THEN_NONFORCE_FAST_FORWARD_MAIN",
+      "migration_scope": "ONLY /composes/canonical_dispatch CHANGED; /dispatch/tool REMAINED PROTECTED tools/research_dispatch.py",
+      "exact_diff_verified": true,
       "reference_evidence": {
         "production_consumer_reference_integrity_run_id": 33221974090,
         "field_locality_reference_integrity_run_id": 33222148731,
@@ -149,8 +154,7 @@
         "field_locality_proof": "PASS_IDENTICAL_OUTSIDE_REGISTERED_RUNTIME_POINTERS",
         "protected_runtime_selector": "CSP-RUNTIME-FRESH-SELECTOR-004"
       },
-      "execution_authority_while_open": false,
-      "verification_question": "Confirm no executable consumer treats composes.canonical_dispatch as the fresh-selector API rather than the top-level live route."
+      "execution_authority_while_open": false
     },
     {
       "migration_id": "CSM-STEWARD-CANONICAL-DISPATCH-005",
@@ -196,7 +200,12 @@
         ]
       ],
       "risk_class": "CONTROL_LIVENESS_ALREADY_CANONICAL_IN_DISPATCH_V5",
-      "state": "FIELD_LOCALITY_PROOF_PASSED_AWAITING_SAFE_WRITE_MECHANISM",
+      "state": "TARGET_MIGRATED",
+      "migrated_commit": "a3611b583acc7bd75f22d2c2f76548d9c79b7e76",
+      "migrated_blob_sha1": "a312e8c13086467fee7824f1457685e1f4fa096f",
+      "safe_write_mechanism": "DETACHED_GIT_BLOB_TREE_COMMIT_THEN_NONFORCE_FAST_FORWARD_MAIN",
+      "migration_scope": "ONLY /lease_model/session_liveness/semantic_scope AND /renewed_by CHANGED",
+      "exact_diff_verified": true,
       "reference_evidence": {
         "field_locality_reference_integrity_run_id": 33222148731,
         "field_locality_proof": "PASS_IDENTICAL_OUTSIDE_REGISTERED_RUNTIME_POINTERS"
