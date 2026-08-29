@@ -1,0 +1,28 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_REVIEW_BINDING_QUARANTINE_V1",
+  "status": "ACTIVE",
+  "purpose": "Preserve exact immutable Driver-review history whose result digest pin does not bind the current exact result record, while removing only that review from operational review authority. This is a control-integrity quarantine: it does not reinterpret disposition, create a replacement review, grant Driver or Foundation authority, or judge the reviewed mathematics.",
+  "entries": [
+    {
+      "review_id": "DR-9F0EF13296934CCAD8BD",
+      "result_id": "RR-20AF98E870D82802D679",
+      "task_id": "RS-NATIVE-TRISECTOR-N2-SCALAR-CLOSURE-FOUNDATION-INDEPENDENT-ADMISSION-AUDIT",
+      "review_record_path": "research_result_reviews/RR-20AF98E870D82802D679/DR-9F0EF13296934CCAD8BD.json",
+      "review_record_blob_sha1": "sha1:8cebace21e69632297a3251d768d9117c4968ecb",
+      "result_record_path": "research_result_records/RS-NATIVE-TRISECTOR-N2-SCALAR-CLOSURE-FOUNDATION-INDEPENDENT-ADMISSION-AUDIT/RR-20AF98E870D82802D679.json",
+      "result_record_blob_sha1": "sha1:31a799d2712bc78b7456da564de1943237285063",
+      "stale_declared_result_record_sha256": "sha256:dc769889d28bf63f2ffb85d40cbee4c50a1c4093b059dc94c66677ec564ccde7",
+      "state": "STALE_RESULT_BINDING",
+      "operational": false,
+      "history_preserved": true,
+      "allowed_binding_errors": [
+        "result record digest drift"
+      ],
+      "reason": "The review record was materialized after the exact result blob had already been restored on its ancestor line, but it still pins a stale result_record_sha256. CONTROL_PLANE_MAINTENANCE cannot re-sign the Driver disposition or rewrite immutable review bytes. The review therefore remains preserved history but is nonoperational until an authorized replacement review is created against the exact current result record.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    }
+  ]
+}
