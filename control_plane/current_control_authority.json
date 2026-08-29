@@ -65,6 +65,9 @@
     "checker": "control_plane/check_control_semantic_migration_registry.py",
     "verification_requests": "control_plane/control_semantic_verification_requests.json",
     "verification_request_checker": "control_plane/check_control_semantic_verification_requests.py",
+    "safe_exact_span_applier": "control_plane/apply_registered_json_migration.py",
+    "structural_equivalence_checker": "control_plane/check_runtime_control_migration_equivalence.py",
+    "production_consumer_checker": "control_plane/check_control_pointer_python_consumers.py",
     "mode": "GRADUAL_TYPED_FIELD_MIGRATION",
     "baseline_blob_drift_is_automatic_failure": false,
     "registered_field_third_state_is_failure": true,
@@ -74,7 +77,14 @@
     "verification_request_is_claimable": false,
     "verification_request_grants_authority": false,
     "future_real_verification_task_requires_immutable_v2_publication_by_authorized_role": true,
-    "rule": "Control pointers embedded in mathematical/research governance files are migrated one field at a time. Low-risk pointers may move only to an already-canonical target; mixed mathematical/governance files require explicit verification that Working Truth, Foundation, discovery, candidate, successor, portfolio, independence, theorem, and task-local semantics are unchanged. CONTROL_PLANE_MAINTENANCE may capture a non-executable verification request but may not relabel that request as a task or self-grant a publishing role."
+    "large_or_mixed_json_whole_file_reserialization_for_pointer_cleanup": "FORBIDDEN_BY_DEFAULT",
+    "exact_expected_git_blob_required_before_pending_patch": true,
+    "dry_run_required_before_write": true,
+    "non_target_json_structure_must_remain_equal": true,
+    "non_target_text_segments_must_remain_byte_identical": true,
+    "protected_selector_must_remain_exact": true,
+    "write_mode_may_change_only_registered_approved_pointers": true,
+    "rule": "Control pointers embedded in mathematical/research governance files are migrated one field at a time. Low-risk pointers may move only to an already-canonical target; mixed mathematical/governance files require explicit verification that Working Truth, Foundation, discovery, candidate, successor, portfolio, independence, theorem, and task-local semantics are unchanged. CONTROL_PLANE_MAINTENANCE may capture a non-executable verification request but may not relabel that request as a task or self-grant a publishing role. For large or mixed JSON, do not reserialize the whole file merely to clean a control pointer: use the registered exact-span applier with exact baseline blob, dry-run proof, protected selectors, structural equality outside target pointers, and byte-identical non-target text segments."
   },
   "control_liveness": {
     "contract": "active_turn_liveness.json",
@@ -98,7 +108,8 @@
     "fresh_selector_named_canonical_in_older_doc": "INTERPRET_AS_SUBORDINATE_SELECTOR_NOT_TOP_LEVEL_LIVE_ENTRYPOINT",
     "role_transition_rule": "ROLE-SPECIFIC AUTHORITY IS CLEARED/REACTIVATED BY DESTINATION CONTRACT; CONTEXT AND PROVENANCE ARE NOT PRETENDED TO RESET",
     "mixed_semantic_file_edit_rule": "CONSULT_CONTROL_SEMANTIC_MIGRATION_REGISTRY_AND_VERIFY_BEFORE_EDIT",
-    "uncertain_semantics_rule": "CAPTURE_NONEXECUTABLE_VERIFICATION_REQUEST_OR_ROUTE_TO_AUTHORIZED_GOVERNANCE_ROLE; DO_NOT_SELF_PUBLISH_FROM_CONTROL_MODE"
+    "uncertain_semantics_rule": "CAPTURE_NONEXECUTABLE_VERIFICATION_REQUEST_OR_ROUTE_TO_AUTHORIZED_GOVERNANCE_ROLE; DO_NOT_SELF_PUBLISH_FROM_CONTROL_MODE",
+    "large_json_pointer_cleanup_rule": "USE_EXACT_SPAN_REGISTERED_MIGRATION; DO_NOT_WHOLE_FILE_RESERIALIZE_BY_DEFAULT"
   },
   "role_expectations": {
     "TASK_RESEARCH": [
@@ -135,7 +146,8 @@
       "BOUNDED_DIAGNOSTIC_EXPANSION",
       "WRITE_AUTHORITY_REFRESH_BEFORE_MUTATION",
       "MIGRATION_REGISTRY_BEFORE_MIXED_SEMANTIC_FILE_EDIT",
-      "UNCERTAIN_SEMANTICS_TO_NONEXECUTABLE_VERIFICATION_REQUEST_NOT_SELF_PUBLISHED_TASK"
+      "UNCERTAIN_SEMANTICS_TO_NONEXECUTABLE_VERIFICATION_REQUEST_NOT_SELF_PUBLISHED_TASK",
+      "LARGE_JSON_POINTER_CHANGE_USES_EXACT_SPAN_APPLIER_NOT_WHOLE_FILE_RESERIALIZATION"
     ]
   }
 }
