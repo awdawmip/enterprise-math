@@ -1,0 +1,218 @@
+{
+  "schema": "MULTIPLICATIVE_BRIDGE_PRIOR_ART_MECHANISM_LEDGER_V1",
+  "task_id": "RS-MULTIPLICATIVE-BRIDGE-PRIOR-ART-TAXONOMY",
+  "researcher_id": "EM-MBGP0-8C4F12",
+  "frozen_date": "2026-08-29",
+  "scope_note": "Mechanism-level prior-art taxonomy. Subtraction is used only as an algebraic residue/collision detector, never as additive number-line locality.",
+  "normalized_bridge_tuple": [
+    "ambient_carrier",
+    "hidden_channel_invariant",
+    "public_factor_blind_action",
+    "one_sided_collapse_or_collision",
+    "endpoint_extraction",
+    "success_and_cost_regime"
+  ],
+  "equivalence_classes": [
+    "EXACT_EQUIVALENT",
+    "MECHANISM_SUBSUMED",
+    "PARTIAL_OVERLAP",
+    "NOVELTY_GAP_NOT_REDUCED"
+  ],
+  "mechanisms": [
+    {
+      "id": "pollard_p_minus_1",
+      "family": "order_annihilation",
+      "ambient_carrier": "unit group (Z/NZ)^* with hidden projections to F_p^* and F_q^* for squarefree N=pq",
+      "hidden_channel_invariant": "channel exponent/order dividing p-1 or q-1; stage-1 success is controlled by smoothness/divisibility of a prime factor minus one",
+      "public_factor_blind_action": "choose public base a and exponent M, compute a^M mod N",
+      "collapse": "a^M = 1 mod p while a^M != 1 mod q (or vice versa)",
+      "endpoint_extraction": "gcd(a^M-1,N)",
+      "crt_restatement": "Exact: if p divides a^M-1 and q does not, then gcd(a^M-1,N)=p. The public exponentiation is identical before hidden CRT projection; only the channel orders differ.",
+      "success_regime": "Classical stage-1 target: p-1 sufficiently smooth/divides the chosen exponent M, with the other channel not simultaneously annihilated.",
+      "cost_regime": "Conditional on the smoothness bound/exponent construction; this ledger makes no unconditional polynomial-time claim.",
+      "bridge_class": "one-sided order annihilation -> nonunit witness -> gcd endpoint",
+      "novelty_guard_effect": "Any candidate reducible to hidden-channel order annihilation followed by gcd is at most a reformulation/instance of classical bridge prior art.",
+      "sources": ["pollard_1974"]
+    },
+    {
+      "id": "williams_p_plus_1",
+      "family": "quadratic_torus_lucas_order_annihilation",
+      "ambient_carrier": "Lucas/quadratic-algebra carrier whose suitable prime-channel group order divides p+1 when the discriminant is a nonsquare modulo p",
+      "hidden_channel_invariant": "Lucas rank/order controlled by p-(D/p), specializing to p+1 in the nonsquare channel",
+      "public_factor_blind_action": "evaluate a Lucas-sequence multiple/index M modulo N using public parameters",
+      "collapse": "standard Lucas identity value (schematically V_M=2) in one prime channel but not the other",
+      "endpoint_extraction": "a gcd of the corresponding Lucas identity defect with N, schematically gcd(V_M-2,N)",
+      "crt_restatement": "Exact under the standard Lucas nondegeneracy/discriminant hypotheses: if p divides the public Lucas identity defect and q does not, gcd(defect,N)=p. The p+1 smoothness route is therefore another one-sided hidden-channel order annihilation.",
+      "success_regime": "A prime divisor p for which the relevant p+1/Lucas order is smooth enough for M, with no simultaneous collapse in the other channel; implementations have parameter and exceptional-case conditions.",
+      "cost_regime": "Conditional on p+1/Lucas-order smoothness; no unconditional complexity theorem asserted here.",
+      "bridge_class": "one-sided quadratic/Lucas order annihilation -> gcd endpoint",
+      "novelty_guard_effect": "Changing from F_p^* to a quadratic/Lucas carrier is not by itself a new bridge family when annihilation and extraction remain equivalent.",
+      "sources": ["williams_1982", "bach_shallit_1989"]
+    },
+    {
+      "id": "lenstra_ecm",
+      "family": "randomized_group_order_annihilation_with_inversion_failure",
+      "ambient_carrier": "random elliptic curve over Z/NZ, projecting to elliptic-curve groups E(F_p), E(F_q) when reductions are nonsingular",
+      "hidden_channel_invariant": "random prime-channel group/order of the chosen point; #E(F_p) varies with the curve rather than being fixed at p-1",
+      "public_factor_blind_action": "choose public/random curve and point, perform the same scalar multiplication [M]P modulo N",
+      "collapse": "[M]P reaches the identity modulo p while the q-channel does not, manifested during composite-modulus arithmetic by a projective coordinate or denominator that is noninvertible modulo N",
+      "endpoint_extraction": "gcd(noninvertible denominator/projective Z-coordinate,N)",
+      "crt_restatement": "Exact at the endpoint: a coordinate divisible by p but not q is a nonunit/zero-divisor witness and its gcd with N is p. The hidden asymmetry comes from different elliptic-curve group orders in the prime channels.",
+      "success_regime": "A selected curve/point has sufficiently smooth order in a hidden prime channel; randomizing the curve randomizes the relevant group order.",
+      "cost_regime": "Lenstra's original paper states a conjectural expected-time bound; this ledger does not promote that heuristic/conjectural complexity to an unconditional theorem.",
+      "bridge_class": "one-sided random-group annihilation -> inversion failure/nonunit -> gcd endpoint",
+      "novelty_guard_effect": "A new carrier with randomized hidden order but the same annihilation/nonunit/gcd endpoint pattern must clear ECM/cyclotomic equivalence before novelty is claimed.",
+      "sources": ["lenstra_1987"]
+    },
+    {
+      "id": "pollard_rho",
+      "family": "collision_split",
+      "ambient_carrier": "iterated map on Z/NZ with hidden CRT projections to finite state spaces modulo p and q",
+      "hidden_channel_invariant": "channel-specific orbit/cycle structure and collision time",
+      "public_factor_blind_action": "iterate the same public polynomial/map modulo N",
+      "collapse": "x_i=x_j mod p while x_i!=x_j mod q (or vice versa)",
+      "endpoint_extraction": "gcd(x_i-x_j,N), often batched by a product of differences",
+      "crt_restatement": "Exact: one-channel equality makes p divide x_i-x_j; failure of equality in the other channel keeps q from dividing it, so gcd recovers p.",
+      "success_regime": "A useful collision occurs in one hidden channel before simultaneous collision destroys the distinguishing witness.",
+      "cost_regime": "Pollard's original paper describes the method as apparently finding a prime factor p in O(sqrt(p)) arithmetic operations; this is recorded as the source's probabilistic/heuristic performance statement, not an unconditional deterministic bound.",
+      "bridge_class": "one-sided collision -> difference nonunit -> gcd endpoint",
+      "novelty_guard_effect": "Factor-blind dynamics plus hidden CRT collision asymmetry plus gcd extraction is classical and cannot support a new bridge-family claim by itself.",
+      "sources": ["pollard_1975_rho"]
+    },
+    {
+      "id": "congruence_of_squares_qs_dixon_family",
+      "family": "crt_sign_split_collision",
+      "ambient_carrier": "square classes/residue relations modulo N; practical algorithms construct relations in integer/factor-base spaces then project to Z/NZ",
+      "hidden_channel_invariant": "CRT sign pattern of square roots: x=+/-y independently modulo each prime factor",
+      "public_factor_blind_action": "construct a congruence x^2=y^2 mod N without knowing the factors",
+      "collapse": "x=y in one prime channel and x=-y in another, rather than the globally trivial same-sign cases",
+      "endpoint_extraction": "gcd(x-y,N) and/or gcd(x+y,N)",
+      "crt_restatement": "Exact for odd squarefree semiprime N=pq: a nontrivial congruence of squares with opposite hidden sign choices yields one prime from gcd(x-y,N) and the other from gcd(x+y,N). The subtraction is an equality detector in the residue ring, not an additive distance.",
+      "success_regime": "Once a nontrivial congruence of squares is obtained, extraction is deterministic; relation-finding cost depends on the specific factoring algorithm (Dixon/QS/NFS-type variants).",
+      "cost_regime": "No single asymptotic claim is attached to the whole family in this ledger; Pomerance's quadratic-sieve source is used as the representative classical mechanism reference.",
+      "bridge_class": "hidden CRT sign split -> nontrivial square-root collision -> gcd endpoint",
+      "novelty_guard_effect": "A candidate whose endpoint is merely a nontrivial congruence of squares followed by gcd belongs to a mature collision/sign-split bridge family.",
+      "sources": ["pomerance_1984_qs"]
+    },
+    {
+      "id": "cyclotomic_extension_methods",
+      "family": "higher_algebraic_order_annihilation",
+      "ambient_carrier": "cyclotomic/algebraic extension carriers constructed so an annihilating exponent is controlled by Phi_k(p)",
+      "hidden_channel_invariant": "divisibility/order information attached to the kth cyclotomic polynomial Phi_k(p)",
+      "public_factor_blind_action": "universal algebraic-number-theory construction driven by a supplied multiple of Phi_k(p)",
+      "collapse": "one hidden prime channel is annihilated/singularized under the cyclotomic action before the other",
+      "endpoint_extraction": "factor split through the construction's nonunit/gcd-type endpoint",
+      "crt_restatement": "Mechanism-level: Bach-Shallit explicitly give a universal construction for Phi_k that subsumes prior p-1, p+1 and other low-degree cyclotomic methods. Therefore a higher-order carrier plus known order annihilation is not automatically a new bridge family.",
+      "success_regime": "A suitable multiple E of Phi_k(p) is available; the paper's general expected-time statement is conditional on generalized Riemann hypotheses.",
+      "cost_regime": "Record only the source's conditional/GRH expected-time scope; no unconditional inference is made here.",
+      "bridge_class": "higher algebraic order annihilation -> factor split",
+      "novelty_guard_effect": "Higher-rank or extension-carrier terminology must be tested against cyclotomic universal constructions before being called new.",
+      "sources": ["bach_shallit_1989"]
+    },
+    {
+      "id": "zero_divisor_nonunit_extraction_meta_family",
+      "family": "endpoint_meta_family",
+      "ambient_carrier": "Z/NZ or a finite algebra over it",
+      "hidden_channel_invariant": "a public witness z is zero/nonunit in one prime channel but a unit/nonzero in another",
+      "public_factor_blind_action": "any process that manufactures a public residue/coordinate/norm/resultant z without factor labels",
+      "collapse": "z becomes a nontrivial zero-divisor/nonunit modulo N",
+      "endpoint_extraction": "gcd(z,N) (or an equivalent norm/resultant followed by gcd)",
+      "crt_restatement": "Exact for N=pq: z=0 mod p and z!=0 mod q implies gcd(z,N)=p, up to the symmetric case.",
+      "success_regime": "Extraction is immediate once such a witness is publicly available; the hard part is producing it factor-blindly.",
+      "cost_regime": "Endpoint gcd is efficient; witness-generation cost belongs to the upstream mechanism and is not erased by calling the endpoint a bridge.",
+      "bridge_class": "generic nonunit/zero-divisor endpoint",
+      "novelty_guard_effect": "Producing a new-looking witness but ending with the same nonunit/gcd extraction does not make the extraction law novel; novelty, if any, must live upstream in carrier dynamics or collapse generation.",
+      "sources": ["pollard_1974", "lenstra_1987", "pollard_1975_rho", "pomerance_1984_qs"]
+    }
+  ],
+  "brc_novelty_guard": {
+    "name": "BRC_NOVELTY_GUARD_V1",
+    "rule": "A BRC-derived factorization-bridge claim is not a new bridge family if, after an efficiently computable representation change or action semiconjugacy preserving hidden prime projections, its collapse predicate and endpoint factor set reduce to a known order-annihilation, collision/sign-split, cyclotomic-annihilation, or nonunit/zero-divisor-gcd mechanism.",
+    "automatic_rejectors": [
+      "factor-blind public action alone",
+      "hidden CRT channels behave differently alone",
+      "one channel reaches identity/order collapse while another does not",
+      "one channel collides while another does not",
+      "manufacture a nonunit/zero-divisor and apply gcd",
+      "use a higher algebraic/cyclotomic carrier with otherwise classical annihilation",
+      "rename a congruence-of-squares sign split as a bridge"
+    ],
+    "required_novelty_survivors": [
+      "an irreducible cross-channel/rank-two coupling not computably reducible to independent hidden-channel dynamics",
+      "a collapse invariant not reducible to smooth group order, Lucas/cyclotomic annihilation, ordinary collision/sign split, or generic nonunit formation",
+      "or an endpoint recovery law not equivalent to gcd/nonunit/norm/resultant extraction",
+      "and in an algorithmic claim, factor-blind observability plus a quantified success and total-cost analysis"
+    ],
+    "classification_rule": {
+      "EXACT_EQUIVALENT": "efficient carrier isomorphism/conjugacy preserves hidden projections, public action, collapse event and endpoint factor set",
+      "MECHANISM_SUBSUMED": "not literally conjugate but instantiates a known annihilation/collision/nonunit template with the same endpoint law",
+      "PARTIAL_OVERLAP": "shares support/collapse structure but no endpoint reduction or factorization semantics has been shown",
+      "NOVELTY_GAP_NOT_REDUCED": "at least one essential carrier/coupling, collapse invariant, or endpoint law survives all listed reductions; this label is a research gap, not a novelty theorem"
+    }
+  },
+  "current_cbrc_mapping": {
+    "source": "driver_reviews/CBRC_F3R2_SURVIVOR_MEMBERSHIP_PREDICATE_DRIVER_REVIEW_20260823.md@main",
+    "accepted_predicate_summary": "For the accepted two-slot automorphism carrier, survivor membership is exactly det(A)=+/-1, D invertible mod 3, gcd(|a|,|d|)>1 and gcd(|b|,|c|)>1; support-splitting strata cover the survivor set.",
+    "mapping": "PARTIAL_OVERLAP",
+    "reason": "This is an exact operator-survivor/support classifier. It does not, at its accepted scope, take a composite N=pq as public input, expose hidden p/q CRT channel dynamics, produce a one-sided nonunit/collision witness modulo N, or define a factor endpoint/cost law.",
+    "novelty_ceiling": "It may support a project-specific bridge-existence/survivor-classification theory. It cannot by itself support a claim of a new factor-blind factorization bridge, a new CRT-channel collapse algorithm, or a new endpoint extraction mechanism."
+  },
+  "literature_ledger": [
+    {
+      "id": "pollard_1974",
+      "citation": "J. M. Pollard, Theorems on factorization and primality testing, Mathematical Proceedings of the Cambridge Philosophical Society 76 (1974), 521-528.",
+      "doi": "10.1017/S0305004100049252",
+      "authority": "primary paper",
+      "used_for": ["Pollard p-1 family provenance", "order/smoothness factorization boundary"],
+      "not_inferred": ["No unconditional fast-factoring theorem is inferred from stage-1 p-1 success conditions."]
+    },
+    {
+      "id": "williams_1982",
+      "citation": "H. C. Williams, A p+1 method of factoring, Mathematics of Computation 39 (1982), 225-234.",
+      "doi": "10.1090/S0025-5718-1982-0658227-7",
+      "authority": "primary paper",
+      "used_for": ["Lucas p+1 carrier", "p+1 smoothness analogue of p-1"],
+      "not_inferred": ["Schematic Lucas endpoint in this ledger is not a substitute for every implementation's exceptional-case conditions."]
+    },
+    {
+      "id": "lenstra_1987",
+      "citation": "H. W. Lenstra Jr., Factoring integers with elliptic curves, Annals of Mathematics 126 (1987), 649-673.",
+      "doi": "10.2307/1971363",
+      "authority": "primary paper",
+      "used_for": ["ECM as replacement of Pollard p-1 multiplicative group by random elliptic-curve groups", "conjectural expected-time scope"],
+      "not_inferred": ["The original paper's conjectural expected-time statement is not promoted to an unconditional theorem."]
+    },
+    {
+      "id": "pollard_1975_rho",
+      "citation": "J. M. Pollard, A Monte Carlo method for factorization, BIT 15 (1975), 331-334.",
+      "doi": "10.1007/BF01933667",
+      "authority": "primary paper",
+      "used_for": ["iterated hidden-channel collision", "difference-product/gcd extraction", "source's apparent O(sqrt(p)) arithmetic-operation statement"],
+      "not_inferred": ["The source's probabilistic/apparent cost statement is not treated as a deterministic worst-case theorem."]
+    },
+    {
+      "id": "pomerance_1984_qs",
+      "citation": "Carl Pomerance, The Quadratic Sieve Factoring Algorithm, EUROCRYPT 1984, Lecture Notes in Computer Science, pp. 169-182.",
+      "doi": "10.1007/3-540-39757-4_17",
+      "authority": "primary algorithm paper / proceedings",
+      "used_for": ["classical congruence-of-squares factoring family provenance", "relation-to-gcd endpoint"],
+      "not_inferred": ["No single cost formula is assigned here to all congruence-of-squares algorithms."]
+    },
+    {
+      "id": "bach_shallit_1989",
+      "citation": "Eric Bach and Jeffrey Shallit, Factoring with Cyclotomic Polynomials, Mathematics of Computation 52 (1989), 201-219.",
+      "doi": "10.1090/S0025-5718-1989-0947467-1",
+      "authority": "primary paper",
+      "used_for": ["universal Phi_k cyclotomic construction", "explicit subsumption of p-1, p+1 and related low-degree methods", "GRH-conditional expected-time boundary"],
+      "not_inferred": ["Higher algebraic carrier language is not automatically new; the paper's complexity statement is retained with its GRH condition."]
+    }
+  ],
+  "tool_reuse_resolution": {
+    "status": "COMPOSE_APPLIED_WITH_SCOPE_GAP",
+    "existing_reuse": [
+      "domain.prime_toolkit for bounded exact factor-witness checks if later examples require them",
+      "collision.common_collapse_inversion as a generic internal collision vocabulary where applicable"
+    ],
+    "gap": "No current reusable project tool or method inventory entry provides source-backed factorization-mechanism equivalence classification or a BRC prior-art novelty guard. This output is therefore a taxonomy/guard artifact, not a new factorization engine."
+  }
+}
