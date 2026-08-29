@@ -1,0 +1,50 @@
+{
+  "schema": "P000_NATIVE_FCC_SIGNED_K4_FINITE_CERTIFICATE_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "vertices": ["A", "B", "C", "D"],
+  "q": {"AB": -1, "AC": -1, "AD": 1, "BC": -1, "BD": 1, "CD": 1},
+  "triangle_products": {"ABC": -1, "ABD": -1, "ACD": -1, "BCD": -1},
+  "four_cycle_products": {"ABCDA": 1, "ABDCA": 1, "ACBDA": 1},
+  "switching_h": {"A": 1, "B": 1, "C": 1, "D": -1},
+  "switched_normal_form": {"AB": -1, "AC": -1, "AD": -1, "BC": -1, "BD": -1, "CD": -1},
+  "graph_H1_F2_fundamental_cycle_coordinates": [1, 1, 1],
+  "carrier_S4": {
+    "size": 24,
+    "strictly_fixes_all_negative_representative": true,
+    "original_gauge_correction_formula": "g_sigma(i)=h_i*h_{sigma^{-1}(i)}",
+    "correction_is_1_coboundary": true,
+    "gamma": "0"
+  },
+  "canonical_signed_double_cover": {
+    "vertices": 8,
+    "edges": 12,
+    "degree": 3,
+    "description": "K4,4 minus the same-label perfect matching",
+    "graph_isomorphism": "Q3 cube graph",
+    "explicit_cube_map": {
+      "A+": "000", "B+": "011", "C+": "101", "D+": "110",
+      "A-": "111", "B-": "100", "C-": "010", "D-": "001"
+    },
+    "deck": "(i,s)->(i,-s)",
+    "S4_lift": "sigma(i,s)=(sigma(i),s)",
+    "deck_commutes_with_S4": true,
+    "extension": "S4 x C2",
+    "split": true,
+    "beta": "0"
+  },
+  "carrier_generators": {
+    "a": "(BCD)",
+    "b": "(AB)",
+    "relations": ["a^3=e", "b^2=e", "(ab)^4=e"],
+    "lift_residues": {"alpha": 0, "beta": 0, "gamma": 0}
+  },
+  "J42_boundary": {
+    "edge_action_size": 24,
+    "full_automorphism_group": "S4 x C2",
+    "extra_C2": "2-subset complement",
+    "extra_C2_commutes_with_S4": true,
+    "extra_C2_maps_star_to_complementary_triangle": true,
+    "extra_C2_is_not_physical_vertex_permutation_S4": true
+  },
+  "guard": "All statements above are carrier/switching finite facts. They do not construct a P000-native mixed slice, native state automorphism, native negative axis, or native-state quotient."
+}

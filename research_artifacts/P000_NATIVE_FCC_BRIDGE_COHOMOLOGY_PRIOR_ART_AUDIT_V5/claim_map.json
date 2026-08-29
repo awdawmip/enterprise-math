@@ -1,0 +1,160 @@
+{
+  "schema": "P000_NATIVE_FCC_COHOMOLOGY_PRIOR_ART_CLAIM_MAP_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-63DEB843280700CC0701",
+  "researcher_id": "EM-P0006DPA5-842510",
+  "classification_vocabulary": [
+    "EXACT_DUPLICATE",
+    "PARTIAL_ANTECEDENT",
+    "ADJACENT_METHOD",
+    "NO_MATERIAL_MATCH"
+  ],
+  "novelty_guard": "NO_MATERIAL_MATCH != NOVELTY",
+  "rows": [
+    {
+      "claim_id": "C01_O_FCC_S4",
+      "internal_claim": "O_FCC ~= S4 for orientation-preserving octahedral/cuboctahedral carrier rotations.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Classical octahedral rotation group of order 24 is S4.",
+      "sources": ["S08"]
+    },
+    {
+      "claim_id": "C02_SIX_EDGE_ACTION",
+      "internal_claim": "The physical carrier S4 acts faithfully on the six K4 edges / 2-subsets.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Standard induced 2-subset permutation action of S4; faithfulness is immediate.",
+      "sources": ["S08", "S09"]
+    },
+    {
+      "claim_id": "C03_STAR_COMPLEMENT",
+      "internal_claim": "A K4 star cannot be sent to its complementary triangle by the physical S4 carrier action.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "J(4,2) has full automorphism group S4 x C2; the extra complement involution is outside the vertex-permutation S4 and exchanges stars with complementary triangles.",
+      "sources": ["S09"]
+    },
+    {
+      "claim_id": "C04_SPECIFIC_Q_TABLE",
+      "internal_claim": "q_AB=-1,q_AC=-1,q_AD=+1,q_BC=-1,q_BD=+1,q_CD=+1 arises from the frozen P000/FCC chart sections.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "Signed-graph theory supplies the language and invariants, but the six concrete signs are internal carrier-atlas data.",
+      "sources": ["S04", "S05", "S06"]
+    },
+    {
+      "claim_id": "C05_ANTIBALANCE",
+      "internal_claim": "The accepted q is the antibalanced switching class on K4.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Antibalance is classical: switch-equivalent to all-negative, equivalently odd cycles negative and even cycles positive. The checker supplies the project-instance reduction h=(+,+,+,-).",
+      "sources": ["S04", "S05", "S06"]
+    },
+    {
+      "claim_id": "C06_CYCLE_HOLONOMY",
+      "internal_claim": "Every q triangle has product -1 and all cycle products are switching/gauge invariant.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Cycle-sign invariance under switching and graph-signature holonomy are standard.",
+      "sources": ["S04", "S06", "S07"]
+    },
+    {
+      "claim_id": "C07_NO_POSITIVE_TRIVIALIZATION",
+      "internal_claim": "No vertex switching makes q all-positive; equivalently no global signed trivialization exists at carrier-sign level.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Classical balance theorem: switch-to-all-positive iff all cycle signs are positive. Here triangle signs are negative.",
+      "sources": ["S04", "S06"]
+    },
+    {
+      "claim_id": "C08_SWITCHING_CODE",
+      "internal_claim": "The q switching class is a coset modulo the K4 cut/cocycle code; graph H1 cycle coordinates are (1,1,1) for a standard fundamental-cycle basis.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Solé-Zaslavsky identify switching classes with cosets of the cocycle/cut code; the coordinate (1,1,1) is the finite specialization.",
+      "sources": ["S05"]
+    },
+    {
+      "claim_id": "C09_S4_CLASS_STABILITY",
+      "internal_claim": "The full carrier S4 stabilizes [q].",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "Cameron supplies the automorphism-of-switching-class framework. The specific stability follows because q switches to the all-negative K4 representative, which S4 fixes strictly.",
+      "sources": ["S01", "S02", "S12"]
+    },
+    {
+      "claim_id": "C10_INVARIANT_REPRESENTATIVE_GAMMA",
+      "internal_claim": "There exists one representative fixed by all carrier S4; Cameron's first obstruction gamma vanishes.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "Cameron's criterion gamma=0 iff the automorphism group fixes a graph/signature in the switching class is exact prior art; gamma=0 here is the task-specific all-negative normal-form computation.",
+      "sources": ["S01", "S02", "S12"]
+    },
+    {
+      "claim_id": "C11_ORIGINAL_GAUGE_CORRECTIONS",
+      "internal_claim": "In the original q gauge, g_sigma(i)=h_i h_{sigma^{-1}(i)} supplies the S4 gauge correction and obeys the exact 1-cocycle law.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "Cohomological automorphism corrections are classical; the displayed coboundary is the exact finite specialization for this q.",
+      "sources": ["S01", "S02", "S12"]
+    },
+    {
+      "claim_id": "C12_DOUBLE_COVER_CRITERION",
+      "internal_claim": "A second group-cohomology class beta controls lift of the switching-class automorphism group to the canonical double cover.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Cameron 1977, as summarized in Zaslavsky's annotated bibliography, states beta=0 iff G can be realized as an automorphism group of the canonical double covering graph.",
+      "sources": ["S02", "S12"]
+    },
+    {
+      "claim_id": "C13_THIS_COVER_SPLITS",
+      "internal_claim": "For this q, the canonical signed double cover is K4,4 minus a perfect matching ~= Q3, and the carrier lift is split S4 x C2; hence beta=0.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "Canonical-cover lifting is classical and cube/octahedral symmetry is classical; the explicit identification and split lift for the frozen q are finite project-instance calculations.",
+      "sources": ["S02", "S08", "S12"]
+    },
+    {
+      "claim_id": "C14_GENERATOR_RESIDUES",
+      "internal_claim": "For a=(BCD), b=(AB), split lifts satisfy A~^3=B~^2=(A~B~)^4=e, so (alpha,beta,gamma)=(0,0,0).",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "Group extension/projective-lift machinery is standard; these exact residues are the finite specialization of the split lift.",
+      "sources": ["S02", "S10"]
+    },
+    {
+      "claim_id": "C15_NON_SPLIT_S4_C2_COMPARISONS",
+      "internal_claim": "Binary octahedral / GL(2,3) and other nonsplit C2 central extensions are known comparison objects, but q does not force any of them.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Known order-48 central extensions include A4⋊C4, binary octahedral CSU(2,3), and GL(2,3), each with central C2 and S4 quotient. The carrier computation instead selects the split class.",
+      "sources": ["S10"]
+    },
+    {
+      "claim_id": "C16_DISCRETE_CONNECTION_LANGUAGE",
+      "internal_claim": "q may be treated as a discrete Z2 connection/signature and loop products as holonomy.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Discrete signature/magnetic and principal-bundle literature already supplies switching/gauge, cochain, curvature and loop-holonomy language.",
+      "sources": ["S06", "S07"]
+    },
+    {
+      "claim_id": "C17_RUBIK_COMMUTATOR_METHOD",
+      "internal_claim": "Conjugation, commutators and setup moves can be used as a manipulation template for rotation words.",
+      "classification": "ADJACENT_METHOD",
+      "external_boundary": "This is standard Rubik-group technique, not a P000 theorem and not evidence for a native lift.",
+      "sources": ["S11"]
+    },
+    {
+      "claim_id": "C18_MIXED_NATIVE_SLICES",
+      "internal_claim": "J_B={1,4,5}, J_C={2,4,6}, J_D={3,5,6} admit P000-native geometric Cell slice structures of the required strength.",
+      "classification": "NO_MATERIAL_MATCH",
+      "external_boundary": "No external source supplies the project-specific native Cell realization; carrier/signed-graph theory stops before this condition.",
+      "sources": []
+    },
+    {
+      "claim_id": "C19_NATIVE_STATE_AUTOMORPHISM",
+      "internal_claim": "Carrier S4 lifts to legal transformations of full P000 native/extended Cell state preserving native adjacency and Cell relations.",
+      "classification": "NO_MATERIAL_MATCH",
+      "external_boundary": "Cameron lifts automorphisms of switching data/covers, not P000 Cell states. A native legality theorem remains separate.",
+      "sources": ["S02", "S12"]
+    },
+    {
+      "claim_id": "C20_NO_QUOTIENT_BOUNDARY",
+      "internal_claim": "Equal carrier readout and carrier switching equivalence must not identify/quotient distinct native states.",
+      "classification": "NO_MATERIAL_MATCH",
+      "external_boundary": "This is an internal operation-safety/type boundary. No material exact external theorem was identified in the bounded audit.",
+      "sources": []
+    }
+  ],
+  "terminal_boundary": {
+    "carrier_level": "CLASSICAL_OR_FINITE_SPECIALIZATION; NO NONTRIVIAL C2 OBSTRUCTION REMAINS FROM q",
+    "native_level": "P000 MIXED SLICE + LEGAL STATE AUTOMORPHISM + NO-QUOTIENT COMPATIBILITY REMAIN OPEN",
+    "novelty_status": "UNDECIDED; THIS TASK AUTHORIZES NO ORIGINALITY CLAIM"
+  }
+}
