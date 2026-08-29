@@ -1,12 +1,13 @@
 # Enterprise Math Unified Research Runtime
 
-Status: `ACTIVE / CANONICAL CONTROL-PLANE RUNTIME / V1.2`  
-Effective: `2026-08-26`  
+Status: `ACTIVE / CANONICAL CONTROL-PLANE RUNTIME / V1.3`  
+Effective: `2026-08-29`  
 Classification: `NO_NEW_MATHEMATICS`
 
 Canonical machine:
 
 - `research_runtime_state_machine.json`
+- `research_control_dispatch.py`
 - `tools/research_runtime_guard.py`
 - `tools/research_runtime.py`
 - `tools/active_turn_liveness.py`
@@ -26,12 +27,13 @@ Contracts and compatibility:
 - `research_task_publication_contract_v2.json` — immutable post-cutover publication
 - `research_execution_contract.json` — task-generation to concrete execution binding
 - `research_execution_cohort_contract.json` — optional parallel execution cohorts and disjoint lanes
-- `research_dispatch_contract.json` — merged registered/legacy dispatch
+- `research_dispatch_contract.json` — recovery-aware live routing over subordinate fresh selectors
 - `research_result_contract.json` — return/review/disposition chain
 - `research_parallel_evidence_contract.json` — exact evidence intake, two reference passes and synthesis
 - `research_operational_publication_contract.json` — retained publication evidence versus operational selection
 - `research_task_registry.json` — V1 compatibility mirror plus frozen scheduler cutover metadata
 - `templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json` — the single taskbook template
+- `docs/OWNER_SCOPE_SESSION_LIVENESS_PROTOCOL.md` — exact-CLAIM session liveness observation and recovery procedure
 
 ## 1. Canonical control stack
 
@@ -41,7 +43,7 @@ The runtime answers:
 
 For an opt-in execution cohort it also carries an exact `EXECUTION_SCOPE = (execution_cohort_id, execution_lane_id)` between task identity and owner claim.
 
-Task existence, execution identity, live owner claim, session liveness and result disposition are different facts. The runtime is a projection of their authoritative sources; it is not a fourth independent persistent database.
+Task existence, execution identity, live owner claim, owner-scope session liveness and result disposition are different facts. The runtime is a projection of their authoritative sources; it is not a fourth independent persistent database.
 
 The runtime also inherits the GitHub interaction budget:
 
@@ -128,15 +130,19 @@ A registered CLAIM with a stale publication ID or incomplete owner/branch/output
 
 `research_execution_records/<task-id>/<execution-record-id>.json` remains the immutable durable-provenance form used by result freezing. It may be materialized locally after CLAIM and batched with the first genuine durable checkpoint or final return. Historical pre-claim execution-intent records remain compatible but are not the preferred path.
 
-## 5. One canonical ordinary dispatch view
+## 5. Recovery-aware live routing over the ordinary fresh selector
 
 `research_scheduler.json` is a frozen legacy task-definition baseline. `tools/research_scheduler.py` remains the legacy event-reduction primitive.
 
-Canonical ordinary scheduling is:
+Canonical live control routing is:
+
+`research_control_dispatch.py`.
+
+It first applies the canonical control bootstrap and resolves stale-owner adoption or unknown owner-scope liveness before it is allowed to conclude that no work is dispatchable. Only after recovery has been excluded does it delegate ordinary fresh task selection to:
 
 `tools/research_dispatch.py`.
 
-It merges:
+`tools/research_dispatch.py` remains the ordinary fresh selector and merged task-definition view. It merges:
 
 - current immutable task publication records;
 - the frozen legacy task baseline;
@@ -148,11 +154,17 @@ If the same task ID exists in both the frozen legacy baseline and immutable publ
 
 Freeze:
 
-`REGISTERED_TASK + CLAIMABLE -> VISIBLE_TO_CANONICAL_SELECTION` when no active execution cohort has taken over owner scope.
+`REGISTERED_TASK + CLAIMABLE -> VISIBLE_TO_FRESH_SELECTION` when no active execution cohort has taken over owner scope.
 
 `REGISTERED_CLAIM_WITH_STALE_OR_INCOMPLETE_EXECUTION_ENVELOPE -> IGNORE_EVENT`.
 
-This eliminates both prior splits: registry tasks can no longer be invisible to the real scheduler, and claim validity no longer depends on a second pre-claim repository publication.
+`STALE_SESSION + VALID_OWNER_CLAIM -> ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM`.
+
+`FRESH_SELECTOR_EMPTY + VALID_OWNER_UNKNOWN_LIVENESS -> VERIFY_SESSION_LIVENESS`.
+
+`NO_DISPATCH` is valid only after stale-recoverable ownership and fresh task/lane selection have both been excluded.
+
+This eliminates both prior splits: registry tasks can no longer be invisible to the fresh selector, and a fresh-selector miss can no longer masquerade as a global no-task verdict while a recoverable owner scope exists.
 
 ## 5A. Opt-in parallel execution: one owner per lane, many lanes per task
 
@@ -240,21 +252,30 @@ For immutable registered tasks, a `DONE` event is accepted only when it referenc
 
 The execution/result record files are intended to be created in the same publication batch as the durable return/checkpoint whenever possible; they are not separate conversational stop points.
 
-## 7. Owner lease is not session liveness
+## 7. Owner lease is not owner-scope session liveness
 
-The valid Issue CLAIM establishes ownership within its owner scope. A compatible execution record preserves durable provenance. Neither establishes that the current conversation remains alive.
+The valid Issue CLAIM establishes ownership within its owner scope. A compatible execution record preserves durable provenance. Neither establishes that the exact winning owner scope is still being actively advanced.
 
 Freeze:
 
-`OWNER_LEASE != SESSION_LIVENESS`.
+`OWNER_LEASE != OWNER_SCOPE_SESSION_LIVENESS`.
+
+`CONVERSATION_ACTIVITY != OWNER_SCOPE_SESSION_LIVENESS`.
 
 Default session stale window remains 10 minutes.
+
+Only independently verified activity bound to the exact current winning `claim_id` refreshes that owner scope:
+
+- a `TASK_RESEARCH_RESPONSE` explicitly continuing that exact task/lane claim; or
+- `DURABLE_EXECUTION_PROGRESS` produced under that exact task/lane claim.
+
+Control-plane maintenance, Driver, Foundation Steward, FREE-discovery, unrelated-task/lane responses, generic chat activity, and CI/status polling without durable task progress do **not** refresh a suspended Researcher CLAIM.
 
 `SESSION_STALE + OWNER_LEASE_ACTIVE -> STALE_RECOVERABLE`.
 
 A replacement session verifies the taskbook source, branch, claim, remote HEAD, execution stamp and durable outputs, adopts the existing claim and Researcher-ID in the same task/lane scope, and resumes the first unfinished unit. It does not replay completed work or issue a second claim.
 
-No routine heartbeat is required merely to keep an actively progressing research conversation legitimate; visible/durable progress and stale-recovery semantics remain distinct from owner-lease duration.
+No synthetic heartbeat is required merely to keep an actively progressing research owner scope legitimate. Exact claim-bound task responses or durable execution progress are the liveness evidence; owner-lease duration remains separate.
 
 ## 8. Terminal scope
 
