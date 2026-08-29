@@ -10,604 +10,253 @@ Status: `FROZEN RESEARCH RETURN / DRIVER REVIEW REQUIRED`
 - Execution branch: `research/seed6-decorated-carrier-pair-stratified-growth-em-s6dcg-105931`
 - Execution base: `018aceb60cdf3fab64f15631ab7a9aeb94c15d47`
 - Hard target: `DECORATED_CARRIER_PAIR_STRATIFIED_GROWTH_ATLAS_CLASSIFIED`
-- Terminal verdict: `SUCCESS / EXACT_STRATIFIED_ATLAS_WITH_PROFILE_COMPLETENESS`
-- Method harvest: `RESULT_ONLY`; no new general-purpose tool family introduced.
+- Terminal verdict: `SUCCESS`
 
-## 1. Executive result
+## 1. Main theorem: the state is the carrier valuation profile
 
-The scalar seed is not the state. The exact fresh-growth state is the carrier valuation profile of the decorated pair
+Let `Sigma=(a,b)`, `a,b>1`. For every prime `l|ab`, put
 
-\[
-\Sigma=(a,b),\qquad a,b>1.
-\]
+`alpha_l=v_l(a)`, `beta_l=v_l(b)`, `z_l=(alpha_l,beta_l)`.
 
-For every prime \(\ell\mid ab\), write
+For a fresh prime `r` (`gcd(r,ab)=1`), order the triangle rows as `(ab,ar,br)`.
+The valuation column at `l` is
 
-\[
-\alpha_\ell=v_\ell(a),\qquad \beta_\ell=v_\ell(b),
-\qquad z_\ell=(\alpha_\ell,\beta_\ell).
-\]
+`u_l=(alpha_l+beta_l, alpha_l, beta_l)^T`
 
-The central classification result is:
+and the fresh column is `w=(0,1,1)^T`.
 
-> **The fresh local triangle is an injective linear encoding of the complete carrier valuation profile.**
+Therefore the map
 
-For a fresh prime \(r\nmid ab\), with row roles ordered as \((ab,ar,br)\), the \(\ell\)-column of the valuation matrix is
+`phi(alpha,beta)=(alpha+beta,alpha,beta)`
 
-\[
-u_\ell=(\alpha_\ell+\beta_\ell,\alpha_\ell,\beta_\ell)^T,
-\]
+is injective, with inverse given by the second and third coordinates. Hence the
+role-labelled fresh triangle recovers the complete primewise carrier valuation
+profile exactly.
 
-and the fresh column is
+This proves that the operation-safe local state is not the scalar `ab`. A raw
+`DECORATED_CARRIER_CELL_V1` retains the named prime support and the two valuation
+maps `p -> (v_p(a),v_p(b))`. For normalized typed isomorphism, prime names may be
+relabelled and the two carrier slots may be swapped only when downstream
+operations are S2-equivariant. If later inputs may reuse named, non-fresh
+primes, the prime labels must remain.
 
-\[
-w=(0,1,1)^T.
-\]
-
-Thus \(z_\ell\) is recovered exactly from the second and third coordinates of \(u_\ell\). Consequently:
-
-- \(\Delta_T=\gcd(a,b)^2\) is an exact overlap detector but is **not** a complete overlap type;
-- support-only incidence is not complete once valuation thickness is allowed;
-- the scalar product \(ab\) is not an operation-safe identity;
-- up to prime relabeling and the optional carrier swap, the multiset of valuation pairs \(\{(\alpha_\ell,\beta_\ell)\}\) is the minimal complete typed interface for the task's fresh gcd/lcm/valuation growth;
-- if later operations may use non-fresh named primes, the prime labels must be retained as well.
-
-The five required seed strata are all exact, but the overlap stratum has a forced integral refinement: **rank-one common-base overlap** versus **rank-two overlap**. This refinement is visible in the Smith normal form of the local triangle valuation lattice.
-
-The hard target is satisfied.
-
-## 2. `DECORATED_CARRIER_CELL_V1`
-
-### 2.1 Raw operation-safe cell
-
-Define
-
-\[
-\mathcal C(\Sigma)=\left(S,\nu_A,\nu_B;\mathsf{slots}\right),
-\]
-
-where
-
-- \(S=\operatorname{Supp}(ab)\) is the finite set of named prime carriers;
-- \(\nu_A,\nu_B:S\to\mathbb Z_{\ge0}\) are \(\nu_A(\ell)=v_\ell(a)\), \(\nu_B(\ell)=v_\ell(b)\);
-- for every \(\ell\in S\), not both values are zero;
-- `slots` records the two carrier roles \(A,B\), but no canonical orientation is asserted.
-
-The numerical presentation is derived:
-
-\[
-a=\prod_{\ell\in S}\ell^{\nu_A(\ell)},\qquad b=\prod_{\ell\in S}\ell^{\nu_B(\ell)}.
-\]
-
-Thus the integers `(a,b)` are a presentation of the cell rather than a replacement for its carrier decomposition.
-
-### 2.2 Typed normalized cell
-
-For role-normalized classification one may quotient by a bijection of the prime set \(S\). If the downstream construction is invariant under swapping the two carrier rows, one may additionally quotient by
-
-\[
-(\nu_A,\nu_B)\longleftrightarrow(\nu_B,\nu_A).
-\]
-
-This gives the unordered multiset of valuation pairs
-
-\[
-\mathcal P(\Sigma)=\left\{\!\left\{(\alpha_\ell,\beta_\ell):\ell\in S\right\}\!\right\}.
-\]
-
-This quotient is safe only for normalized typed isomorphism. It is not safe for interaction with a later non-fresh named prime unless the prime labels are restored.
-
-### 2.3 Canonical common-core/excess coordinates
+## 2. Canonical overlap coordinates
 
 Let
 
-\[
-d=\gcd(a,b),\qquad A=a/d,\qquad B=b/d.
-\]
+`d=gcd(a,b)`, `A=a/d`, `B=b/d`.
 
-Then \(\gcd(A,B)=1\) and
+Then `gcd(A,B)=1` and
 
-\[
-\boxed{\Sigma\longleftrightarrow(d;A,B)}
-\]
+`(a,b) <-> (d;A,B)`
 
-is lossless. Primewise this is
+is lossless. Primewise, write
 
-\[
-c_\ell=\min(\alpha_\ell,\beta_\ell),\quad x_\ell=\alpha_\ell-c_\ell,\quad y_\ell=\beta_\ell-c_\ell,
-\]
+`c_l=min(alpha_l,beta_l)`,
+`x_l=alpha_l-c_l`,
+`y_l=beta_l-c_l`.
 
-with \(x_\ell y_\ell=0\). Hence the state splits canonically into a common core plus two disjoint excess carriers.
+Then `x_l*y_l=0`. Thus every decorated carrier pair splits canonically into a
+common core and two disjoint excess carriers.
 
-This is the most useful operation-safe coordinate system for the overlap strata.
+For `T_r^{a,b}={ab,ar,br}`:
 
-## 3. Exact local triangle theorem
+`gcd(ab,ar)=a`,
+`gcd(ab,br)=b`,
+`gcd(ar,br)=r*d`;
 
-Let \(r\) be prime with \(\gcd(r,ab)=1\), and
+`lcm(ab,ar)=abr`,
+`lcm(ab,br)=abr`,
+`lcm(ar,br)=abr/d`.
 
-\[
-T_r^{a,b}=\{ab,ar,br\}.
-\]
+So the common-lcm-top and edge-gcd reconstruction properties hold iff `d=1`.
 
-Put \(d=\gcd(a,b)\). Then exactly
+The accepted predecessor defect satisfies exactly
 
-\[
-\gcd(ab,ar)=a,\qquad \gcd(ab,br)=b,\qquad \gcd(ar,br)=rd,
-\]
+`Delta_T=d^2`.
 
-and
+It detects whether overlap exists and the exact common gcd, but it is not a
+complete overlap type.
 
-\[
-\operatorname{lcm}(ab,ar)=abr,\qquad \operatorname{lcm}(ab,br)=abr,
-\]
+## 3. General integral/SNF classification
 
-\[
-\operatorname{lcm}(ar,br)=\frac{abr}{d}.
-\]
+Let `C_Sigma` be the 2-by-|S| matrix whose columns are
+`z_l=(alpha_l,beta_l)^T`, and let `rho=rank_Q(C_Sigma)`.
 
-Therefore the common-lcm-top property and the old edge-gcd reconstruction property hold iff \(d=1\).
+For support primes `l,m`, define
 
-The overlap defect from the accepted predecessor is
+`D_lm=alpha_l*beta_m-beta_l*alpha_m`.
 
-\[
-\Delta_T=\frac{\left(\gcd(ab,ar)\gcd(ab,br)\gcd(ar,br)\right)^2}{(ab)(ar)(br)}=d^2.
-\]
+Define
 
-The product identity
+`H=gcd({alpha_l+beta_l, alpha_l-beta_l}_l union {D_lm}_{l<m})`.
 
-\[
-(ab)(ar)(br)=(abr)^2
-\]
+The first determinantal divisor of the triangle valuation matrix is `1` because
+the fresh column has unit entries.
 
-remains a tautological checksum.
+If `rho=1`, every `D_lm=0`, the triangle valuation lattice has rank 2, and
 
-## 4. Valuation-profile completeness theorem
+`SNF(M_Sigma(r)) = diag(1,H,0)`.
 
-Let \(S=\operatorname{Supp}(ab)\). Define the \(3\times(|S|+1)\) valuation matrix \(M_\Sigma(r)\) with row roles \((ab,ar,br)\) and columns indexed by \(S\cup\{r\}\). Then
+If `rho=2`, put `D=gcd_{l<m}|D_lm|`. The only nonzero 3-by-3 minors are generated
+by columns `u_l,u_m,w`, and
 
-\[
-M_\Sigma(r)=\left[u_\ell\right]_{\ell\in S}\ \big|\ w,
-\]
+`det[u_l,u_m,w] = -2*D_lm`.
 
-where
+Therefore the third determinantal divisor is `2D` and
 
-\[
-u_\ell=\begin{pmatrix}\alpha_\ell+\beta_\ell\\\alpha_\ell\\\beta_\ell\end{pmatrix},\qquad w=\begin{pmatrix}0\\1\\1\end{pmatrix}.
-\]
+`SNF(M_Sigma(r)) = diag(1,H,2D/H)`.
 
-The map
+This is independent of the numerical fresh prime `r`.
 
-\[
-\phi:\mathbb Z^2\to\mathbb Z^3,\qquad (\alpha,\beta)\mapsto(\alpha+\beta,\alpha,\beta)
-\]
+For coprime carriers, put
 
-is injective. In fact, its inverse on the image is simply
+`g_A=gcd{v_p(a):p|a}`, `g_B=gcd{v_p(b):p|b}`, `g=gcd(g_A,g_B)`.
 
-\[
-(\alpha,\beta)=(u_2,u_3).
-\]
+Then `D=g_A*g_B`, `H=g`, so
 
-Hence the role-labeled local triangle valuation data recovers \(\mathcal P(\Sigma)\) exactly, prime by prime.
-
-### Completeness consequence
-
-Any quotient that identifies two different valuation-pair profiles cannot be faithful for all fresh local valuation/gcd/lcm observables, because the triangle itself separates those profiles.
-
-Therefore the profile is a complete and fieldwise irreducible interface for the task's local fresh-growth category, modulo only explicitly authorized prime relabeling and carrier-row swap.
-
-## 5. General Smith normal form theorem
-
-Let the carrier profile matrix have columns
-
-\[
-z_\ell=\begin{pmatrix}\alpha_\ell\\\beta_\ell\end{pmatrix},\qquad C_\Sigma=[z_\ell]_{\ell\in S},
-\]
-
-and let
-
-\[
-\rho=\operatorname{rank}_{\mathbb Q} C_\Sigma\in\{1,2\}.
-\]
-
-For \(\ell,m\in S\), define
-
-\[
-D_{\ell m}=\alpha_\ell\beta_m-\beta_\ell\alpha_m.
-\]
-
-Define the second determinantal divisor
-
-\[
-H=\gcd\left(\{\alpha_\ell+\beta_\ell,\alpha_\ell-\beta_\ell:\ell\in S\}\cup\{D_{\ell m}:\ell<m\}\right).
-\]
-
-Because the fresh column \(w\) contains unit entries, the first determinantal divisor is \(1\).
-
-### Rank-one profile
-
-If \(\rho=1\), all \(D_{\ell m}=0\), the triangle valuation lattice has rank \(2\), and
-
-\[
-\boxed{\operatorname{SNF}M_\Sigma(r)=\operatorname{diag}(1,H,0).}
-\]
-
-### Rank-two profile
-
-If \(\rho=2\), put
-
-\[
-D=\gcd_{\ell<m}|D_{\ell m}|>0.
-\]
-
-The \(3\times3\) minors using \(u_\ell,u_m,w\) satisfy
-
-\[
-\det[u_\ell,u_m,w]=-2D_{\ell m},
-\]
-
-while triples containing only \(u\)-columns vanish. Hence the third determinantal divisor is \(2D\), and
-
-\[
-\boxed{\operatorname{SNF}M_\Sigma(r)=\operatorname{diag}\left(1,H,\frac{2D}{H}\right).}
-\]
-
-This formula is independent of the numerical value of the fresh prime \(r\).
-
-### Coprime specialization
-
-If \(\gcd(a,b)=1\), every profile vector lies on one coordinate axis. Put
-
-\[
-g_A=\gcd\{v_\ell(a):\ell\mid a\},\qquad g_B=\gcd\{v_\ell(b):\ell\mid b\},
-\]
-
-and \(g=\gcd(g_A,g_B)\). Then
-
-\[
-D=g_Ag_B,\qquad H=g,
-\]
-
-so
-
-\[
-\boxed{\operatorname{SNF}M_\Sigma(r)=\operatorname{diag}\left(1,g,\frac{2g_Ag_B}{g}\right).}
-\]
+`SNF = diag(1,g,2*g_A*g_B/g)`.
 
 Consequences:
+- distinct prime pair -> `(1,1,2)`;
+- `a=p^alpha`, `b=q^beta` -> `(1,gcd(alpha,beta),2*alpha*beta/gcd(alpha,beta))`;
+- coprime squarefree multisupport can also have `(1,1,2)`, so SNF alone does not
+  remember support cardinality.
 
-- distinct prime pair: `(1,1,2)`;
-- \(a=p^\alpha,b=q^\beta\): \((1,\gcd(\alpha,\beta),2\alpha\beta/\gcd(\alpha,\beta))\);
-- coprime squarefree multisupport pairs can still have `(1,1,2)`, so SNF alone does **not** record support cardinality.
+## 4. Exact strata atlas
 
-## 6. Exact strata atlas
-
-| Stratum | Exact condition | Profile/integral behavior | Representative |
+| Stratum | Exact condition | Structural effect | Example |
 |---|---|---|---|
-| `C0_DISTINCT_PRIME_PAIR` | \(d=1\); each side one distinct prime, exponent 1 | Boolean three-atom coatom cell; rank 3; SNF `(1,1,2)` | `(2,3)` |
-| `C1_COPRIME_PRIME_POWER_THICK` | \(d=1\); \(a=p^\alpha,b=q^\beta\), \(p\ne q\), at least one exponent \(>1\) | same two-axis support shape, changed thickness; SNF formula above | `(3,4)` |
-| `C2_COPRIME_MULTISUPPORT` | \(d=1\); at least one side has >1 prime support | rank 3; support partition is larger; SNF may coincide with C0 | `(2,15)` |
-| `O1_OVERLAP_COMMON_BASE_RANK1` | \(d>1,a\ne b,\rho=1\) | triangle valuation lattice rank 2; all valuation pairs lie on one primitive ray | `(4,8)` |
-| `O2_OVERLAP_RANK2` | \(d>1,a\ne b,\rho=2\) | triangle valuation lattice rank 3; general `(1,H,2D/H)` signature | `(2,6)` |
-| `E_EQUALITY` | \(a=b\) | \(\rho=1\); carrier rows and pairing states coalesce | `(6,6)` |
+| `C0_DISTINCT_PRIME_PAIR` | `d=1`; one prime on each side, exponent 1 | Boolean 3-atom coatom case; rank 3; SNF `(1,1,2)` | `(2,3)` |
+| `C1_COPRIME_PRIME_POWER_THICK` | `d=1`; `p^alpha,q^beta`, at least one exponent >1 | same support skeleton, nontrivial valuation thickness | `(3,4)` |
+| `C2_COPRIME_MULTISUPPORT` | `d=1`; at least one side has >1 prime support | larger support partition; SNF may equal C0 | `(2,15)` |
+| `O1_OVERLAP_COMMON_BASE_RANK1` | `d>1`, `a!=b`, `rho=1` | triangle valuation lattice rank 2 | `(4,8)` |
+| `O2_OVERLAP_RANK2` | `d>1`, `a!=b`, `rho=2` | rank 3 with general `(1,H,2D/H)` | `(2,6)` |
+| `E_EQUALITY` | `a=b` | carrier rows and two cross pairing states collapse | `(6,6)` |
 
-The required five broad strata are therefore exact, with `OVERLAP` naturally splitting into `O1` and `O2`.
+Thus the five required broad strata are exact, but `OVERLAP` has a forced
+integral refinement into rank 1 and rank 2.
 
-### Characterization of `O1`
+Moreover `rho=1` iff all valuation pairs lie on one primitive ray. Equivalently
+there is an integer `c>1` and positive integers `m,n` such that
+`a=c^m`, `b=c^n`. Equality is the special `m=n=1` case; distinct common-base
+powers form `O1`.
 
-If \(\rho=1\), there is a primitive pair \((m,n)\) and integers \(k_\ell\ge1\) such that
+## 5. Why `Delta_T` is incomplete
 
-\[
-(\alpha_\ell,\beta_\ell)=k_\ell(m,n)
-\]
+Same defect, different support geometry:
 
-for every support prime. Thus for
+`(2,6)` and `(6,10)` both have `d=2`, hence `Delta_T=4`, but their valuation
+profiles have respectively two and three support primes and different
+exclusive-support partitions.
 
-\[
-c=\prod_\ell \ell^{k_\ell}
-\]
+Even defect plus the same support-incidence shape is insufficient:
 
-one has
+`(2,6)` and `(4,6)` both have `d=2`; both have shared prime `2` and a
+B-exclusive prime `3`. But the shared valuation pairs are `(1,1)` and `(2,1)`,
+and their SNFs are `(1,1,2)` and `(1,1,4)`.
 
-\[
-a=c^m,\qquad b=c^n.
-\]
+The minimal exact supplement to `d` is therefore the coprime excess pair
+`(A,B)=(a/d,b/d)`, equivalently the complete valuation-pair profile. This
+supplement is not ad hoc: the fresh local triangle itself recovers it.
 
-Conversely every such common-base pair has \(\rho=1\). Equality is the special case \(m=n=1\); the distinct common-base cases are the new `O1` sub-stratum.
+## 6. Scalar decomposition ambiguity
 
-## 7. `Delta_T=d^2` is not a complete overlap type
-
-`Delta_T` is exact but one-dimensional.
-
-### Counterexample 1: same defect, different support partition
-
-\[
-(2,6)\quad\text{and}\quad(6,10)
-\]
-
-both have \(d=2\) and therefore \(\Delta_T=4\).
-
-But their carrier profiles are:
-
-\[
-(2,6):\quad 2\mapsto(1,1),\ 3\mapsto(0,1),
-\]
-
-while
-
-\[
-(6,10):\quad 2\mapsto(1,1),\ 3\mapsto(1,0),\ 5\mapsto(0,1).
-\]
-
-The first has no \(A\)-exclusive support prime; the second has one exclusive prime on each side.
-
-### Counterexample 2: even defect + support-shape is insufficient
-
-\[
-(2,6)\quad\text{and}\quad(4,6)
-\]
-
-again have \(d=2\), the same shared-prime / \(B\)-exclusive support shape, but
-
-\[
-v_2(2,6)=(1,1),\qquad v_2(4,6)=(2,1).
-\]
-
-Their predicted SNFs are respectively
-
-\[
-(1,1,2),\qquad (1,1,4).
-\]
-
-Thus valuation excess is essential.
-
-### Minimal exact supplement
-
-The canonical lossless supplement to \(d\) is the coprime excess pair
-
-\[
-(A,B)=(a/d,b/d),
-\]
-
-or, equivalently at the primewise typed level, the full valuation-pair profile. This is not an arbitrary enlargement: the profile is recoverable from the local triangle itself by the injectivity theorem.
-
-## 8. Scalar decomposition ambiguity
-
-The projection
-
-\[
-\pi_\times:(a,b)\mapsto ab
-\]
-
-is not operation-safe.
+The projection `(a,b) -> ab` is unsafe.
 
 Already
 
-\[
-12=3\cdot4=2\cdot6
-\]
+`12=3*4=2*6`
 
-gives
+places `(3,4)` in the coprime-thick stratum and `(2,6)` in overlap.
 
-- `(3,4)`: `C1_COPRIME_PRIME_POWER_THICK`;
-- `(2,6)`: `O2_OVERLAP_RANK2`.
+At scalar 36 there is a three-way collapse:
 
-A stronger three-way collision occurs at
+`36=4*9=2*18=6*6`,
 
-\[
-36=4\cdot9=2\cdot18=6\cdot6:
-\]
+giving respectively coprime-thick, overlap-distinct, and equality states.
 
-- `(4,9)`: coprime thick;
-- `(2,18)`: overlap distinct;
-- `(6,6)`: equality.
+Thus scalar identity loses stratum, gcd/lcm law, valuation-lattice rank, and
+pairing-collapse status. An operation-safe representation is a scalar plus a
+chosen carrier partition, or directly `DECORATED_CARRIER_CELL_V1`.
 
-Therefore scalar identity erases actual stratum, gcd/lcm law, pairing collapse status, and valuation-lattice rank.
+## 7. Decorated three-pairing cell
 
-The operation-safe representation is a scalar plus a chosen carrier partition, or directly `DECORATED_CARRIER_CELL_V1`.
+For fresh distinct primes `p,q`, define
 
-## 9. Decorated three-pairing cell
+`P0={ab,pq}`, `P1={ap,bq}`, `P2={aq,bp}`.
 
-Let \(p,q\) be distinct fresh primes with \(\gcd(pq,ab)=1\). Define
+The abstract three perfect matchings remain standard. The arithmetic decoration
+is
 
-\[
-P_0=\{ab,pq\},\qquad P_1=\{ap,bq\},\qquad P_2=\{aq,bp\}.
-\]
+`gcd(ab,pq)=1`,
+`gcd(ap,bq)=gcd(aq,bp)=d`.
 
-The abstract four-slot perfect-matching object remains standard. The arithmetic decoration is:
+For the bridge rectangle `[[ap,aq],[bp,bq]]`:
 
-\[
-\gcd(ab,pq)=1,
-\]
+`gcd(ap,aq)=a`,
+`gcd(bp,bq)=b`,
+`gcd(ap,bp)=p*d`,
+`gcd(aq,bq)=q*d`,
+`gcd(ap,bq)=gcd(aq,bp)=d`.
 
-\[
-\gcd(ap,bq)=\gcd(aq,bp)=d.
-\]
+The rank-one identity `(ap)(bq)=(aq)(bp)` remains tautological.
 
-For the bridge rectangle
+For `a!=b`, freshness keeps all three numerical pairing states distinct.
+For `a=b`, `P1=P2` and rectangle rows collapse pairwise. Overlap and valuation
+thickness do not alter the standard matching combinatorics; they alter the
+arithmetic decoration that must be retained.
 
-\[
-R=\begin{pmatrix}ap&aq\\bp&bq\end{pmatrix},
-\]
+## 8. Forgetful/degeneration maps
 
-one has
+1. `CORE_EXCESS: (a,b)->(d;A,B)` is lossless and safe.
+2. Carrier swap is safe only for S2-equivariant, unoriented downstream work.
+3. Replacing positive valuations by 1 is safe only for support incidence; it
+   loses thickness and SNF. Example: `(2,3)` vs `(4,9)`.
+4. `(d;A,B)->d` is the `Delta_T` quotient and is unsafe as a full state.
+5. `(d;A,B)->d^2*A*B=ab` is scalarization and is unsafe.
+6. Forgetting the six typed product/support objects to the three-state matching
+   triangle is safe for standard switch combinatorics only; it loses gcd,
+   valuation, support, and lift data.
 
-\[
-\gcd(ap,aq)=a,\qquad \gcd(bp,bq)=b,
-\]
-
-\[
-\gcd(ap,bp)=pd,\qquad \gcd(aq,bq)=qd,
-\]
-
-\[
-\gcd(ap,bq)=\gcd(aq,bp)=d.
-\]
-
-The rank-one product identity
-
-\[
-(ap)(bq)=(aq)(bp)
-\]
-
-remains tautological.
-
-### Effect of the strata
-
-- `C0/C1/C2`: the three numerical pairing states are distinct; overlap gcd decoration is trivial because \(d=1\).
-- `O1/O2`: the three states are still distinct for \(a\ne b\) under freshness, but the two cross states carry nontrivial gcd \(d\), and row/column valuations retain the entire carrier profile.
-- `E_EQUALITY`: \(P_1=P_2\); the four rectangle vertices collapse pairwise \(ap=bp\) and \(aq=bq\). Only two numerical states remain.
-
-Freshness is crucial: it prevents accidental cross-row product collisions for distinct carriers.
-
-## 10. Degeneration and forgetful maps
-
-### 10.1 `CORE_EXCESS` — safe and lossless
-
-\[
-(a,b)\mapsto(d;A,B)
-\]
-
-with \(d=\gcd(a,b)\), \(A=a/d\), \(B=b/d\). This is an isomorphism of data, not a quotient.
-
-### 10.2 Carrier swap — conditionally safe
-
-\[
-(a,b)\leftrightarrow(b,a)
-\]
-
-is safe for the present unoriented local/set-valued constructions because all laws are \(S_2\)-equivariant. It is unsafe if a future task assigns an oriented operator, port, or boundary role to the two rows. Such orientation must be carried as explicit presentation data.
-
-### 10.3 Squarefree/support projection — support-safe only
-
-Replace each positive valuation by `1`. This preserves support incidence, but not valuation thickness, exact gcd/lcm multiplicities, or SNF.
-
-Example:
-
-\[
-(2,3)\quad\text{versus}\quad(4,9)
-\]
-
-have the same two-axis support skeleton but SNFs `(1,1,2)` and `(1,2,4)`.
-
-### 10.4 Common-core projection — unsafe as a full state
-
-\[
-(d;A,B)\mapsto d
-\]
-
-is exactly what `Delta_T` retains. The counterexamples in §7 show that it forgets essential excess support and thickness.
-
-### 10.5 Scalar projection — unsafe
-
-\[
-(d;A,B)\mapsto d^2AB=ab.
-\]
-
-The examples at scalar `12` and `36` show stratum collapse.
-
-### 10.6 Pairing-state quotient — combinatorially safe, arithmetically unsafe
-
-Forgetting the six product/support objects and retaining only the three-state switch triangle preserves standard perfect-matching combinatorics. It loses gcd decoration, valuation thickness, support typing, and atom/operator-lift information. It must not be used as the operation-safe arithmetic state.
-
-## 11. Exact checker
-
-The standard-library checker:
+## 9. Exact checker
 
 `research_checks/SEED6_DECORATED_CARRIER_PAIR_STRATIFIED_GROWTH_CHECK_20260830.py`
 
-exhaustively verifies all ordered pairs
+uses only the Python standard library and checks all 6241 ordered pairs
+`2<=a,b<=80`, choosing fresh primes for each pair. It verifies the symbolic
+gcd/lcm formulas, `Delta_T=d^2`, lossless common/excess coordinates, direct
+valuation encoding, the general SNF formula from determinantal divisors, all
+pairing gcd laws, and equality collapse.
 
-\[
-2\le a,b\le80,
-\]
+Observed regression counts:
+- 6241 ordered pairs;
+- 121 rank-2 triangle valuation lattices;
+- 6120 rank-3 lattices;
+- broad strata: 462 distinct-prime, 428 coprime-thick, 2882 coprime
+  multisupport, 2390 overlap-distinct, 79 equality.
 
-a total of `6241` decorated pairs. For each pair it chooses fresh primes and checks:
+Required counterexamples and representative SNFs all pass. The finite census is
+a regression certificate only; the core result is symbolic.
 
-- exact gcd/lcm triangle formulas;
-- `Delta_T=d^2`;
-- lossless common-core/excess coordinates;
-- direct valuation matrix versus profile encoding;
-- rank and general SNF formula from determinantal divisors;
-- all pairing rectangle gcd laws;
-- equality iff collapse from three numerical pairing states to two.
+## 10. Boundaries and disposition
 
-Regression summary:
+No additive distance, factor-recovery objective, factorization-performance
+claim, new perfect-matching theorem, new rank-one identity, Seed-6 uniqueness,
+or global topology/holonomy claim is made.
 
-- `6241` ordered pairs checked;
-- `121` rank-two triangle valuation lattices;
-- `6120` rank-three lattices;
-- strata counts:
-  - `DISTINCT_PRIME_PAIR`: `462`;
-  - `COPRIME_PRIME_POWER_THICK`: `428`;
-  - `COPRIME_MULTISUPPORT`: `2882`;
-  - `OVERLAP_DISTINCT`: `2390`;
-  - `EQUALITY`: `79`;
-- both `Delta_T` incompleteness controls pass;
-- scalar decomposition ambiguity controls pass;
-- representative SNFs pass:
-  - `(2,3) -> (1,1,2)`;
-  - `(3,4) -> (1,1,4)`;
-  - `(4,9) -> (1,2,4)`;
-  - `(2,6) -> (1,1,2)`;
-  - `(4,6) -> (1,1,4)`;
-  - `(4,8) -> (1,1,0)` with valuation-lattice rank `2`;
-  - `(6,6) -> (1,2,0)` with rank `2`.
+The positive arithmetic residue is the valuation profile, its common/excess
+decomposition, the exact strata, the forced rank-1/rank-2 overlap refinement,
+and the general SNF signature.
 
-The census is only regression. The core statements are symbolic consequences of the displayed valuation maps and determinantal-divisor calculations.
+Hard target:
+`DECORATED_CARRIER_PAIR_STRATIFIED_GROWTH_ATLAS_CLASSIFIED` = `SATISFIED`.
 
-## 12. Boundary and novelty discipline
+Recommended next step: consume this exact decoration in the already-published
+`RS-SEED6-DEGENERATE-STRATA-GLOBAL-GLUING` task and test whether mixed
+`O1/O2/E` gluing creates any intrinsic non-product link, path dependence, or
+operator-lift holonomy after support-erasure and gauge artifacts are excluded.
 
-This return does **not** claim:
-
-- an additive distance;
-- a factor-recovery method or factorization speedup;
-- a new perfect-matching theorem;
-- a new rank-one determinant identity;
-- a Seed-6 uniqueness theorem;
-- nontrivial global topology or holonomy.
-
-The standard substrate remains standard: Boolean/coatom incidence in the prime-pair case, perfect matchings of four slots, `J(4,2)`, and rank-one bridge rectangles.
-
-The positive arithmetic residue is precisely:
-
-1. the primewise carrier valuation profile;
-2. its common-core/excess decomposition;
-3. the exact overlap/equality strata;
-4. the forced rank-one/rank-two overlap refinement;
-5. the general integral SNF signature `(1,H,2D/H)` or `(1,H,0)`;
-6. the proof that profile data are exactly recoverable from the fresh local triangle and therefore cannot be erased by an operation-safe quotient.
-
-## 13. Hard-target disposition
-
-`DECORATED_CARRIER_PAIR_STRATIFIED_GROWTH_ATLAS_CLASSIFIED`:
-
-- minimal legal state interface: `PASS`;
-- five required strata: `PASS`;
-- forced overlap refinement: `PASS`;
-- gcd/lcm/support/valuation/SNF classification: `PASS`;
-- `Delta_T` completeness audit: `PASS / NOT COMPLETE`;
-- minimal supplement and counterexamples: `PASS`;
-- scalar decomposition ambiguity: `PASS`;
-- decorated pairing cell: `PASS`;
-- degeneration/forgetful maps: `PASS`;
-- exact finite checker: `PASS`.
-
-Terminal disposition:
-
-`SUCCESS / EXACT_STRATIFIED_ATLAS_WITH_PROFILE_COMPLETENESS`
-
-## 14. Recommended next question
-
-The accepted first-wave global complex is flat when only generic support-faithful columns are glued. This return now supplies the exact arithmetic decoration that was missing.
-
-The highest-value next test is therefore not a larger integer census. It is:
-
-> Glue `DECORATED_CARRIER_CELL_V1` across mixed `O1/O2/E` singular strata while retaining the primewise valuation profile, and determine whether any non-product link, path dependence, or operator-lift holonomy survives after all support-erasure and gauge artifacts are removed.
-
-That question is already aligned with the separately published task `RS-SEED6-DEGENERATE-STRATA-GLOBAL-GLUING`; no duplicate successor is proposed here.
-
-## Reproducibility
-
-- taskbook: `research_tasks/SEED6_DECORATED_CARRIER_PAIR_STRATIFIED_GROWTH_20260830.md`
+Reproducibility:
 - checker: `research_checks/SEED6_DECORATED_CARRIER_PAIR_STRATIFIED_GROWTH_CHECK_20260830.py`
-- summary artifact: `research_artifacts/SEED6_DECORATED_CARRIER_PAIR_STRATIFIED_GROWTH/atlas_summary.json`
+- summary: `research_artifacts/SEED6_DECORATED_CARRIER_PAIR_STRATIFIED_GROWTH/atlas_summary.json`
