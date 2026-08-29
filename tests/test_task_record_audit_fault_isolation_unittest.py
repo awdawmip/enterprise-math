@@ -1,0 +1,65 @@
+import unittest
+from pathlib import Path
+
+from control_plane import research_task_integrity_fault_isolation as current_isolation
+from control_plane import research_task_record_audit_fault_isolation as audit_isolation
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
+    def test_real_audit_only_rows_are_exactly_nonoperational(self):
+        rows = audit_isolation.validated_rows(ROOT)
+        self.assertEqual(5, len(rows))
+        bases = {row["nonoperational_basis"] for row in rows}
+        self.assertEqual(
+            {
+                audit_isolation.BASIS_SUPERSEDED,
+                audit_isolation.BASIS_FORK_BLOCKED,
+            },
+            bases,
+        )
+        for row in rows:
+            self.assertFalse(row["operational"])
+            self.assertTrue(row["history_preserved"])
+            self.assertFalse(row["working_truth_granted"])
+            self.assertFalse(row["foundation_authority_granted"])
+            self.assertFalse(row["canonical_promotion_granted"])
+            self.assertFalse(row["successor_triggered"])
+            self.assertFalse(row["operational_publication_selected"])
+
+    def test_audit_only_and_current_task_quarantines_do_not_overlap(self):
+        audit_publications = {
+            row["publication_id"] for row in audit_isolation.validated_rows(ROOT)
+        }
+        current_publications = {
+            row["publication_id"]
+            for row in current_isolation.validated_quarantines(ROOT).values()
+        }
+        self.assertTrue(audit_publications)
+        self.assertTrue(current_publications)
+        self.assertEqual(set(), audit_publications & current_publications)
+
+    def test_fork_blocked_row_is_current_effective_blocked_head(self):
+        rows = {
+            row["publication_id"]: row for row in audit_isolation.validated_rows(ROOT)
+        }
+        row = rows["TP2-33C39F540E894E7602AC"]
+        self.assertEqual(
+            audit_isolation.BASIS_FORK_BLOCKED,
+            row["nonoperational_basis"],
+        )
+
+    def test_every_declared_suppression_is_exact_record_prefixed(self):
+        rows = audit_isolation.validated_rows(ROOT)
+        expected = sum(len(row["allowed_task_record_audit_errors"]) for row in rows)
+        suppressions = audit_isolation.suppression_strings(ROOT)
+        self.assertEqual(expected, len(suppressions))
+        for row in rows:
+            prefix = row["record_path"] + ": "
+            self.assertTrue(any(value.startswith(prefix) for value in suppressions))
+
+
+if __name__ == "__main__":
+    unittest.main()
