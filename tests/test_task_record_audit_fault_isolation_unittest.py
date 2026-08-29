@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
     def test_real_audit_only_rows_are_exactly_nonoperational(self):
         rows = audit_isolation.validated_rows(ROOT)
-        self.assertEqual(6, len(rows))
+        self.assertEqual(7, len(rows))
         bases = {row["nonoperational_basis"] for row in rows}
         self.assertEqual(
             {
@@ -40,6 +40,19 @@ class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
         self.assertTrue(audit_publications)
         self.assertTrue(current_publications)
         self.assertEqual(set(), audit_publications & current_publications)
+
+    def test_prior_art_g4_is_history_and_g5_is_current_quarantine(self):
+        rows = {
+            row["publication_id"]: row for row in audit_isolation.validated_rows(ROOT)
+        }
+        self.assertEqual(
+            audit_isolation.BASIS_SUPERSEDED,
+            rows["TP2-487CC790F9F7AA01CAAF"]["nonoperational_basis"],
+        )
+        current = current_isolation.validated_quarantines(ROOT)[
+            "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT"
+        ]
+        self.assertEqual("TP2-63DEB843280700CC0701", current["publication_id"])
 
     def test_only_latest_bridge_head_uses_fork_blocked_basis(self):
         rows = {
