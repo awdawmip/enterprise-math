@@ -49,6 +49,12 @@ jobs:
           python control_plane/apply_registered_json_migration.py
           --migration-id CSM-RUNTIME-CANONICAL-DISPATCH-004
           --migration-id CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006
+      - name: Prove native bridge fork advances only along two anchored linear lineages
+        run: >-
+          python control_plane/check_publication_quarantine_lineage_forward_safety.py
+          --task-id RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE
+          --anchor TP2-3F6A92D8C1E740B5A2C9
+          --anchor TP2-69B06B421888B311914E
       - name: Check opt-in source firewall declarations
         run: python scripts/check_research_source_firewall.py
       - name: Check shared theorem and tool routing
