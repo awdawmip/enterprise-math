@@ -28,7 +28,7 @@ class AgentsRouterContractTests(unittest.TestCase):
         text = read("AGENTS.md")
         self.assertIn("STABLE EXECUTION ROUTER", text)
         assert_status_version_at_least(self, text, 3, 0)
-        self.assertIn("not** a theorem catalog", text)
+        self.assertIn("is not a theorem catalog", text)
         self.assertLess(len(text.splitlines()), 460)
         self.assertLess(len(text), 28500)
         for stale_or_agenda_token in (
@@ -98,11 +98,15 @@ class AgentsRouterContractTests(unittest.TestCase):
         ):
             self.assertIn(marker, text)
 
-    def test_agents_makes_final_role_identity_footer_unconditional(self):
+    def test_agents_makes_final_role_identity_footer_unconditional_for_research_roles(self):
         text = read("AGENTS.md")
         self.assertIn("final_response_identity_policy.json", text)
         self.assertIn(
-            "ACTIVE_ENTERPRISE_MATH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER",
+            "ACTIVE_ENTERPRISE_MATH_RESEARCH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER",
+            text,
+        )
+        self.assertIn(
+            "`CONTROL_PLANE_MAINTENANCE` alone does not activate a research-role identity marker.",
             text,
         )
         self.assertIn("Driver-ID: <ID> / CONTROL_PLANE", text)
@@ -134,13 +138,13 @@ class AgentsRouterContractTests(unittest.TestCase):
 
     def test_tool_surface_matches_agents_role_routing_without_transition_guard(self):
         text = read("docs/EM_RESEARCH_TOOL_SURFACE.md")
-        self.assertIn("HOT-PATH V4", text)
+        self.assertIn("HOT-PATH V5", text)
         self.assertIn("definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md", text)
         self.assertIn("definitions/00_CURRENT_NATIVE_FOUNDATION.md", text)
-        self.assertIn("the exact task entry", text)
-        self.assertIn("Do **not** make Common Surface an automatic second read", text)
+        self.assertIn("exact task entry", text)
+        self.assertIn("Common Surface is a lookup, not a default context dump", text)
         self.assertNotIn("Until that source governance is promoted", text)
-        self.assertIn("suggested question/discovery-lens menu", text)
+        self.assertIn("suggested question/lens menu", text)
 
     def test_free_role_preserves_blind_tool_timing_and_has_footer(self):
         text = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
