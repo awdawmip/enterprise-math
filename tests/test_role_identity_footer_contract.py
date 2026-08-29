@@ -19,13 +19,15 @@ def load_identity():
     return module
 
 
-def test_machine_policy_requires_every_final_exactly_once():
+def test_machine_policy_requires_every_research_role_final_exactly_once():
     policy = json.loads(read("final_response_identity_policy.json"))
     assert policy["status"] == "ACTIVE"
     assert policy["core_invariant"] == (
-        "ACTIVE_ENTERPRISE_MATH_ROLE -> "
+        "ACTIVE_ENTERPRISE_MATH_RESEARCH_ROLE -> "
         "EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER"
     )
+    assert "CONTROL_PLANE_MAINTENANCE" in policy["non_research_modes"]
+    assert policy["control_plane_finalization"]["research_role_footer_required"] is False
     assert policy["ordering"]["identity_marker_count"] == 1
     assert policy["registration_pending_does_not_suppress_marker"] is True
     assert policy["templates"]["RESEARCH_DRIVER"] == "Driver-ID: <ID> / CONTROL_PLANE"
@@ -38,14 +40,15 @@ def test_machine_policy_requires_every_final_exactly_once():
     )
 
 
-def test_hot_router_contains_unconditional_footer_invariant():
+def test_hot_router_matches_research_role_footer_scope_and_control_exclusion():
     text = read("AGENTS.md")
     assert "final_response_identity_policy.json" in text
     assert (
-        "ACTIVE_ENTERPRISE_MATH_ROLE -> "
+        "ACTIVE_ENTERPRISE_MATH_RESEARCH_ROLE -> "
         "EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER"
         in text
     )
+    assert "`CONTROL_PLANE_MAINTENANCE` alone does not activate a research-role identity marker." in text
     assert "Driver-ID: <ID> / CONTROL_PLANE" in text
     assert "Researcher-ID: <ID> / <TASK_ID>" in text
     assert "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY" in text
@@ -56,7 +59,7 @@ def test_hot_router_contains_unconditional_footer_invariant():
 def test_role_policy_has_no_substantive_final_escape_hatch():
     policy = json.loads(read("research_role_policy.json"))
     identity = policy["research_identity"]
-    assert policy["schema"] == "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V8.1"
+    assert policy["schema"] == "ENTERPRISE_MATH_RESEARCH_ROLE_POLICY_V10"
     assert identity["final_response_policy"] == "final_response_identity_policy.json"
     combined = "\n".join(identity["rules"])
     assert "Every assistant final response" in combined
@@ -71,7 +74,7 @@ def test_role_policy_has_no_substantive_final_escape_hatch():
 
 def test_identity_state_machine_binds_resolution_to_final_visibility():
     machine = json.loads(read("research_identity_state_machine.json"))
-    assert machine["schema"] == "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V4"
+    assert machine["schema"] == "ENTERPRISE_MATH_RESEARCH_IDENTITY_STATE_MACHINE_V5"
     assert machine["final_response_policy"] == "final_response_identity_policy.json"
     assert "every assistant final response" in machine["final_response_invariant"]
     assert machine["final_response"]["marker_count"] == 1
@@ -81,6 +84,7 @@ def test_identity_state_machine_binds_resolution_to_final_visibility():
         "TASK_RESEARCH",
     ]
     assert machine["final_response"]["direct_is_not_visible_scope"] is True
+    assert machine["final_response"]["commentary_progress_exempt"] is True
 
 
 def test_helper_emits_canonical_driver_task_free_and_direct_markers():
@@ -121,10 +125,11 @@ def test_explicit_task_scope_beats_mode_and_direct_never_leaks_to_marker():
     assert "/ DIRECT" not in payload["visible_marker"]
 
 
-def test_free_and_driver_role_specific_contracts_are_symmetric():
+def test_free_and_driver_role_specific_contracts_share_current_footer_policy():
     free = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
     driver = read("docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md")
+    assert "final_response_identity_policy.json" in free
+    assert "ACTIVE_EM_FREE_RESEARCHER -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_RESEARCHER_ID_MARKER" in free
     assert "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY" in free
-    assert "every assistant final response ends with exactly one" in free
     assert "End with:" in driver
     assert "Driver-ID: <ID> / CONTROL_PLANE" in driver
