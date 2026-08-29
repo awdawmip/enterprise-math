@@ -1,0 +1,99 @@
+{
+  "schema": "MULTIPLICATIVE_ADJACENCY_CENSUS_V1",
+  "task_id": "RS-MULTIPLICATIVE-ADJACENCY-NUMBER-AXIS",
+  "researcher_id": "EM-MNA1-6B92D4",
+  "limit": 10000000,
+  "definitions": {
+    "Omega": "prime-factor count with multiplicity",
+    "omega": "distinct-prime-factor count",
+    "d_times": "Omega(a/gcd(a,b))+Omega(b/gcd(a,b))",
+    "semiprime": "Omega(n)=2",
+    "adjacent_in_subset": "consecutive after sorting the subset inside [1,limit]"
+  },
+  "semiprime_adjacent": {
+    "semiprime_count": 1904324,
+    "pair_count": 1904323,
+    "distance_counts": {"2": 41533, "4": 1862790},
+    "d2_fraction": 0.021809850534809484,
+    "max_additive_gap": {
+      "gap": 74,
+      "a": 5835191,
+      "b": 5835265,
+      "d_times": 4,
+      "a_factorization": [[47, 1], [124153, 1]],
+      "b_factorization": [[5, 1], [1167053, 1]]
+    },
+    "omega_pair_distance_counts": {
+      "omega_1_2_d2": 1,
+      "omega_1_2_d4": 445,
+      "omega_2_1_d2": 1,
+      "omega_2_1_d4": 444,
+      "omega_2_2_d2": 41531,
+      "omega_2_2_d4": 1861901
+    },
+    "shared_gcd_prime_counts_for_d2": {
+      "2": 28623,
+      "3": 10338,
+      "5": 1973,
+      "7": 514,
+      "11": 70,
+      "13": 15
+    },
+    "max_additive_gap_among_d2": {
+      "gap": 48,
+      "a": 6950631,
+      "b": 6950679,
+      "shared_prime": 3,
+      "cofactor_a": 2316877,
+      "cofactor_b": 2316893
+    },
+    "prefix_d2_rates": [
+      {"limit": 100, "semiprimes": 34, "adjacent_pairs": 33, "d2": 5, "d4": 28, "d2_fraction": 0.15151515151515152},
+      {"limit": 1000, "semiprimes": 299, "adjacent_pairs": 298, "d2": 16, "d4": 282, "d2_fraction": 0.053691275167785234},
+      {"limit": 10000, "semiprimes": 2625, "adjacent_pairs": 2624, "d2": 89, "d4": 2535, "d2_fraction": 0.03391768292682927},
+      {"limit": 100000, "semiprimes": 23378, "adjacent_pairs": 23377, "d2": 602, "d4": 22775, "d2_fraction": 0.025751807331992983},
+      {"limit": 1000000, "semiprimes": 210035, "adjacent_pairs": 210034, "d2": 4855, "d4": 205179, "d2_fraction": 0.0231153051410724},
+      {"limit": 10000000, "semiprimes": 1904324, "adjacent_pairs": 1904323, "d2": 41533, "d4": 1862790, "d2_fraction": 0.021809850534809484}
+    ]
+  },
+  "composite_adjacent": {
+    "composite_count": 9335420,
+    "pair_count": 9335419,
+    "gap_counts": {"1": 8670842, "2": 664577},
+    "distance_counts": {"2": 1, "3": 3, "4": 182345, "5": 784404, "6": 1566393, "7": 1972225, "8": 1798865, "9": 1308632, "10": 808375, "11": 450593, "12": 235450, "13": 118120, "14": 57501, "15": 27749, "16": 13099, "17": 6328, "18": 2818, "19": 1381, "20": 640, "21": 278, "22": 124, "23": 57, "24": 21, "25": 10, "26": 7},
+    "distance_counts_gap1": {"4": 175220, "5": 745697, "6": 1473613, "7": 1837308, "8": 1662003, "9": 1201969, "10": 739913, "11": 411794, "12": 214958, "13": 107905, "14": 52450, "15": 25367, "16": 11961, "17": 5788, "18": 2586, "19": 1264, "20": 581, "21": 258, "22": 116, "23": 55, "24": 19, "25": 10, "26": 7},
+    "distance_counts_gap2": {"2": 1, "3": 3, "4": 7125, "5": 38707, "6": 92780, "7": 134917, "8": 136862, "9": 106663, "10": 68462, "11": 38799, "12": 20492, "13": 10215, "14": 5051, "15": 2382, "16": 1138, "17": 540, "18": 232, "19": 117, "20": 59, "21": 20, "22": 8, "23": 2, "24": 2},
+    "minimum_distance": {"d_times": 2, "a": 4, "b": 6},
+    "maximum_distance": {
+      "d_times": 26,
+      "a": 1048575,
+      "b": 1048576,
+      "gap": 1,
+      "a_factorization": [[3, 1], [5, 2], [11, 1], [31, 1], [41, 1]],
+      "b_factorization": [[2, 20]]
+    },
+    "maximum_gap2_distance": {
+      "d_times": 24,
+      "a": 524286,
+      "b": 524288,
+      "middle_prime": 524287,
+      "a_factorization": [[2, 1], [3, 3], [7, 1], [19, 1], [73, 1]],
+      "b_factorization": [[2, 19]]
+    }
+  },
+  "finite_extreme_multiplicative_near_additive_far": {
+    "m1_pair": {"a": 5000000, "b": 10000000, "d_times": 1, "additive_gap": 5000000},
+    "semiprime_m2_pair": {
+      "a": 4,
+      "b": 9999998,
+      "d_times": 2,
+      "additive_gap": 9999994,
+      "factorizations": [[[2, 2]], [[2, 1], [4999999, 1]]]
+    }
+  },
+  "notes": [
+    "Finite census is discovery/calibration evidence only; universal claims are proved separately.",
+    "Semiprime d_times is exactly 2 iff gcd has Omega 1, otherwise 4 for distinct semiprimes.",
+    "Composite adjacent gaps are universally only 1 or 2; gap-1 pairs have gcd 1 and d_times>=4."
+  ]
+}
