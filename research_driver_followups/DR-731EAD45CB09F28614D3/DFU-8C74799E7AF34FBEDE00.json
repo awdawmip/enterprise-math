@@ -1,0 +1,69 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "packet_id": "DFU-8C74799E7AF34FBEDE00",
+  "review_id": "DR-731EAD45CB09F28614D3",
+  "result_id": "RR-2A424E3B8EC11DC1278C",
+  "task_id": "RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION",
+  "source_publication_id": "TP2-12778A2D48A1D5A57BA9",
+  "driver_id": "EM-DVR-P8H4Q2",
+  "review_disposition": "ACCEPTED",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "parent_objective_id": "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION",
+  "source_next_control_plane_recommendation": "Driver review this negative-boundary result. If accepted, close further static single-shell/midpoint-correlation expansion and retain only RESIDUAL_PRIORITY_HART_STREAMING_COST_AUDIT as a narrowly costed follow-up candidate; do not grant Working Truth or canonical promotion from this return.",
+  "decision": "TASK_SET_PUBLISHED",
+  "gate_decisions": [
+    {
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "decision": "REQUIRED",
+      "reason": "Static shell/midpoint correlation is closed negatively, but the surviving residual-priority ordering has not yet been subjected to matched factor-blind total-cost accounting against Hart/Fermat baselines.",
+      "evidence_refs": ["driver_reviews/SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_DRIVER_REVIEW_20260829.md", "research_returns/SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_FACTORIZATION_RETURN_20260829.md"]
+    },
+    {
+      "gate": "LEAN_FORMALIZATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "The accepted checkpoint is a structural/no-go boundary rather than an L4 theorem package; formalization would be premature before the surviving cost question is resolved.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "decision": "REQUIRED",
+      "reason": "The exact residual-priority formulation must be classified against Fermat, Lehman, Hart/OLF and modular near-square ordering before any novelty interpretation.",
+      "evidence_refs": ["driver_reviews/SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_DRIVER_REVIEW_20260829.md"]
+    },
+    {
+      "gate": "INDEPENDENT_REPLICATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "This negative-boundary acceptance is supported by an exhaustive deterministic checker, holdout tests and explicit counterexamples; the second same-task return has an incomplete Result envelope and does not create valid replication authority yet.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "decision": "NOT_REQUIRED",
+      "reason": "The result is RESULT_ONLY and its checker/census machinery is task-local.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "ADVERSARIAL_AUDIT",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "The reviewed evidence includes stratified holdout tests, factor-ratio controls, exhaustive census, deterministic checking, and a concrete productive-multiplier counterexample that defeats the strong residual-ordering claim.",
+      "evidence_refs": ["research_artifacts/SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY/experiment_summary_20260829.json", "research_checks/SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_CHECK_20260829.py"]
+    }
+  ],
+  "task_publications": [
+    {
+      "task_id": "RS-SEMIPRIME-RESIDUAL-PRIORITY-HART-STREAMING-COST-AUDIT",
+      "publication_id": "TP2-8E5A7D21C30F694B2D11",
+      "task_role": "MATHEMATICAL_CONTINUATION"
+    },
+    {
+      "task_id": "RS-SEMIPRIME-SQUARE-SHELL-RESIDUAL-PRIORITY-PRIOR-ART-AUDIT",
+      "publication_id": "TP2-6F3C9418A72D0E5B31C4",
+      "task_role": "EXTERNAL_PRIOR_ART_DUPLICATION"
+    }
+  ],
+  "created_at": "2026-08-29T06:21:00+00:00",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
