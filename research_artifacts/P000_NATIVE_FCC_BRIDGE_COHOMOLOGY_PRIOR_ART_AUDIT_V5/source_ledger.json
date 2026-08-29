@@ -1,0 +1,114 @@
+{
+  "schema": "P000_NATIVE_FCC_COHOMOLOGY_SOURCE_LEDGER_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "searched_at": "2026-08-29",
+  "policy": "Seeded sources were checked first; targeted expansion was used only to identify exact theorem strength and comparison objects. Absence of a hit is not treated as novelty.",
+  "sources": [
+    {
+      "source_id": "S01",
+      "citation": "Peter J. Cameron, Automorphisms and cohomology of switching classes, J. Combin. Theory Ser. B 22(3) (1977), 297-298.",
+      "doi": "10.1016/0095-8956(77)90079-X",
+      "url": "https://www.sciencedirect.com/science/article/pii/009589567790079X",
+      "verified": "Metadata and abstract verified on ScienceDirect.",
+      "load_bearing": "Yes: cohomological sufficient condition / invariant-representative problem for switching classes."
+    },
+    {
+      "source_id": "S02",
+      "citation": "Peter J. Cameron, Cohomological aspects of two-graphs, Math. Z. 157(2) (1977), 101-119.",
+      "doi": "10.1007/BF01215145",
+      "url": "https://doi.org/10.1007/BF01215145",
+      "verified": "Metadata verified via University of St Andrews research portal; theorem-strength crosschecked through Zaslavsky's annotated bibliography (S12).",
+      "load_bearing": "Yes: gamma/beta cohomological obstructions, fixed representative and canonical double-cover lift."
+    },
+    {
+      "source_id": "S03",
+      "citation": "Peter J. Cameron and Albert L. Wells Jr., Signatures and signed switching classes, J. Combin. Theory Ser. B 40(3) (1986), 344-361.",
+      "doi": "10.1016/0095-8956(86)90088-2",
+      "url": "https://doi.org/10.1016/0095-8956(86)90088-2",
+      "verified": "Bibliographic metadata verified via University of St Andrews research portal.",
+      "load_bearing": "Contextual/generalization source; not used as sole support for a theorem not visible in accessible metadata."
+    },
+    {
+      "source_id": "S04",
+      "citation": "Frank Harary, On the notion of balance of a signed graph, Michigan Math. J. 2 (1953-54), 143-146.",
+      "doi": "10.1307/mmj/1028989917",
+      "url": "https://doi.org/10.1307/mmj/1028989917",
+      "verified": "Bibliographic metadata verified; theorem use crosschecked against modern signed-graph restatements.",
+      "load_bearing": "Yes: classical balance/switching boundary. Antibalance uses the standard sign-negated counterpart."
+    },
+    {
+      "source_id": "S05",
+      "citation": "Patrick Solé and Thomas Zaslavsky, A Coding Approach to Signed Graphs, SIAM J. Discrete Math. 7(4) (1994), 544-553.",
+      "doi": "10.1137/S0895480189174374",
+      "url": "https://epubs.siam.org/doi/10.1137/S0895480189174374",
+      "verified": "SIAM abstract and bibliographic metadata verified.",
+      "load_bearing": "Yes: switching classes are cosets of the cocycle/cut code."
+    },
+    {
+      "source_id": "S06",
+      "citation": "Carsten Lange, Shiping Liu, Norbert Peyerimhoff, Olaf Post, Frustration index and Cheeger inequalities for discrete and continuous magnetic Laplacians, Calc. Var. 54 (2015), 4165-4196.",
+      "doi": "10.1007/s00526-015-0935-x",
+      "url": "https://link.springer.com/article/10.1007/s00526-015-0935-x",
+      "verified": "Open-access Springer article verified; switching and cycle-signature statements inspected.",
+      "load_bearing": "Yes: switching/gauge equivalence and cycle signature/holonomy invariance are standard."
+    },
+    {
+      "source_id": "S07",
+      "citation": "Javier Fernández, Mariana Juchani, Marcela Zuccalli, Discrete connections on principal bundles: abelian group case (2021).",
+      "doi": "10.48550/arXiv.2109.08928",
+      "url": "https://arxiv.org/abs/2109.08928",
+      "verified": "arXiv metadata/abstract verified.",
+      "load_bearing": "Contextual: discrete connection form as 1-cochain, curvature as coboundary, loop holonomy."
+    },
+    {
+      "source_id": "S08",
+      "citation": "Encyclopedia of Mathematics, Octahedron (citing Coxeter, Regular Polytopes).",
+      "doi": null,
+      "url": "https://encyclopediaofmath.org/wiki/Octahedron",
+      "verified": "Entry inspected: octahedral rotation group freely permutes four opposite-face pairs / cube diagonals and is S4 of order 24.",
+      "load_bearing": "Yes: carrier O_FCC ~= S4 is classical."
+    },
+    {
+      "source_id": "S09",
+      "citation": "Maps, simple groups, and arc-transitive graphs, Advances in Mathematics (2024), article 110086.",
+      "doi": "10.1016/j.aim.2024.110086",
+      "url": "https://doi.org/10.1016/j.aim.2024.110086",
+      "verified": "Article text inspected: Aut(J(n,2))=S_n for n!=4 and Aut(J(4,2))=S4 x S2.",
+      "load_bearing": "Yes: exact physical-S4 versus complement-C2 carrier boundary."
+    },
+    {
+      "source_id": "S10",
+      "citation": "GroupNames database entries for the three nonsplit central C2 extensions C2._1S4, C2._2S4, C2._3S4 represented by A4⋊C4, CSU(2,3)/binary octahedral, and GL(2,3), together with split C2×S4 as the comparison baseline.",
+      "doi": null,
+      "url": [
+        "https://people.maths.bris.ac.uk/~matyd/GroupNames/1/A4sC4.html",
+        "https://people.maths.bris.ac.uk/~matyd/GroupNames/1/CSU%282%2C3%29.html",
+        "https://people.maths.bris.ac.uk/~matyd/GroupNames/1/GL%282%2C3%29.html"
+      ],
+      "verified": "Entries inspected: SmallGroup(48,30), (48,28), (48,29) each has center C2 and quotient S4; the task's explicit cover instead has the split group C2×S4 (SmallGroup(48,48) comparison).",
+      "load_bearing": "Comparison only: establishes known nonsplit C2-cover objects; does not identify the P000 carrier lift."
+    },
+    {
+      "source_id": "S11",
+      "citation": "Timothy Sun, Commutators in the Rubik's Cube Group, Amer. Math. Monthly 131(1) (2024), 3-19.",
+      "doi": "10.1080/00029890.2023.2263158",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/00029890.2023.2263158",
+      "verified": "Article inspected: commutators, conjugation and setup-move localization are explicit standard techniques.",
+      "load_bearing": "Adjacent method only."
+    },
+    {
+      "source_id": "S12",
+      "citation": "Thomas Zaslavsky, A Mathematical Bibliography of Signed and Gain Graphs and Allied Areas, Electronic J. Combinatorics Dynamic Survey DS8.",
+      "doi": "10.37236/29",
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/DS8",
+      "verified": "Annotated Cameron entry inspected. It states gamma in H^1 and beta in H^2; Theorem 3.1 gamma=0 iff G fixes a graph in the switching class; Theorem 5.1 beta=0 iff G acts on the canonical double cover.",
+      "load_bearing": "Yes: theorem-strength crosscheck for Cameron 1977."
+    }
+  ],
+  "negative_search_boundary": [
+    "No source in this bounded audit supplied the P000-specific mixed native Cell slice realization.",
+    "No source supplied a legal automorphism theorem for the full P000 native Cell state preserving the project's native relations.",
+    "No source supplied the project's operation-safe rule that carrier readout collisions/switching equivalence must not quotient native state.",
+    "These NO_MATERIAL_MATCH findings are explicitly not novelty determinations."
+  ]
+}
