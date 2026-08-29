@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-27B610AD92E0704374B0",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-7D3A9E1C5B8F2046AA10",
+  "execution_record_id": "ER-C98622728D0AB4702882",
+  "claim_id": "chatgpt-p000fcc10-20260830-0721-018ace",
+  "taskbook_path": "research_tasks/P000_AXIS_CHANNEL_FRAME_CONNECTION_V10_20260830.md",
+  "taskbook_blob_sha1": "sha1:ff5d844c4489c726b500aebbbc4baf9bdc253485",
+  "execution_branch": "research/p000-l1-native-carrier-contact-bridge-em-p000fcc10-7d4df7",
+  "execution_branch_base": "018aceb60cdf3fab64f15631ab7a9aeb94c15d47",
+  "return_path": "research_returns/P000_AXIS_CHANNEL_FRAME_CONNECTION_V10_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:a6c4d24e2a2b191c9bced965be93d977d11f7218",
+  "return_sha256": "sha256:f447d4a9b83a332c2f1fae0b3a8a1ea6424917f1dadbf0c9ffbdd9c02e383204",
+  "owner_head": "929568625131dbe87af1061233c186bf36230ba6",
+  "researcher_id": "EM-P000FCC10-7D4DF7",
+  "frozen_at": "2026-08-29T23:30:41+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "FRAME_CONNECTION_CONSTRUCTED_BUT_FRAMED_BMix_DOMAIN_STRICTLY_CONDITIONAL: typed per-Cell frame and its exact flat connection are constructed; seed-frame plus connection is equivalent iff loop holonomy is trivial; PASS is gauge invariant; Omega_b is permitted but not forced by PF-10; Omega_b nonempty does not imply base-Cell R_b.",
+  "unresolved_residue": "CLASSIFY ADDITIONAL CELL-LEVEL EQUIVARIANCE/ADJACENCY CONDITIONS NEEDED FOR A GENUINE BASE-CELL R_b, IF ANY; DO NOT PROMOTE LOCAL PRESENTATION S6 OR MODIFY P000.",
+  "output_manifest": [
+    {
+      "path": "research_returns/P000_AXIS_CHANNEL_FRAME_CONNECTION_V10_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:a6c4d24e2a2b191c9bced965be93d977d11f7218",
+      "sha256": "sha256:f447d4a9b83a332c2f1fae0b3a8a1ea6424917f1dadbf0c9ffbdd9c02e383204"
+    },
+    {
+      "path": "research_checks/P000_AXIS_CHANNEL_FRAME_CONNECTION_V10_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:f5b9ffaca75b42321b3238b056ea0d0457e0652d",
+      "sha256": "sha256:4ecc6e034be61a41283309d26c3ea10920298f44324c2cf8431b6916095f8a66"
+    },
+    {
+      "path": "research_artifacts/P000_AXIS_CHANNEL_FRAME_CONNECTION_V10/MODEL_CERTIFICATE.json",
+      "git_blob_sha1": "sha1:7b8a5c095c8ef70cdbb45ab70be990c8501419ab",
+      "sha256": "sha256:68fa765e383a12156c8a05e801f8794ce750ba7dccc57397749439d88f9acbf9"
+    },
+    {
+      "path": "research_execution_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/ER-C98622728D0AB4702882.json",
+      "git_blob_sha1": "sha1:a2f7cf42eb62ecb4b3d0870cbabe8d6af1c146e2",
+      "sha256": "sha256:71eb7b192f91865937e4f38a033b75c03b6ba734776ef906c75450cb1e978da5"
+    }
+  ],
+  "method_harvest": "T7_FINITE_SYMMETRY_EQUIVARIANCE=REUSE_APPLIED; T9_HOLONOMY_COCOYCLE_GLUING=REUSE_APPLIED; TASK_LOCAL_CHECKER_ONLY; NO_NEW_GENERAL_TOOL_CLAIM.",
+  "independence_status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review Gen10 at the exact conditional terminal class. If accepted and the parent P000 rotation objective remains open, any successor must target the extra full-Cell equivariance/adjacency conditions for a genuine base-Cell R_b; do not infer a native rotation merely from Omega_b or local PF-10 symmetry.",
+  "driver_review_required": true
+}
