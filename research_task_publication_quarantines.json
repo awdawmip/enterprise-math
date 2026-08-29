@@ -17,6 +17,21 @@
       "foundation_authority_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "state": "UNRESOLVED_PUBLICATION_FORK",
+      "publication_ids": [
+        "TP2-3F6A92D8C1E740B5A2C9",
+        "TP2-69B06B421888B311914E"
+      ],
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "Two simultaneously active immutable publication heads are present for this task. The quarantine records the exact current head set only, selects neither head, and locally blocks the task until ordinary publication-resolution authority resolves the fork.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }
