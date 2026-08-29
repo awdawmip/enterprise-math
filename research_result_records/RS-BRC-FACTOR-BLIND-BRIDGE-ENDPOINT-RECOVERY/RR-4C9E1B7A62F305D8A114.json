@@ -1,0 +1,58 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-4C9E1B7A62F305D8A114",
+  "task_id": "RS-BRC-FACTOR-BLIND-BRIDGE-ENDPOINT-RECOVERY",
+  "publication_id": "TP2-963527C2A010BDF9E72F",
+  "execution_record_id": "ER-7A8F0D1C4B6E92A3D551",
+  "claim_id": "chatgpt-brcfbbe0-20260829-1851-a7c931",
+  "taskbook_path": "research_tasks/BRC_FACTOR_BLIND_BRIDGE_ENDPOINT_RECOVERY_20260829.md",
+  "taskbook_blob_sha1": "sha1:b8333721bc4ed6c3f10b579d70b20e4953f207a0",
+  "execution_branch": "research/brc-factor-blind-endpoint-recovery-em-brcfbbe0-a7c931",
+  "execution_branch_base": "1b134d8c55ccd941e4b338752825443589726be2",
+  "return_path": "research_returns/BRC_FACTOR_BLIND_BRIDGE_ENDPOINT_RECOVERY_RETURN_20260829.md",
+  "return_blob_sha1": "sha1:c61cfa10f0c358819e4c267bd550300b2826efae",
+  "return_sha256": "sha256:405fe37e5599cf07964e2d7d996c9a3cbe6570511e8a41fa203cec4dd36824a2",
+  "owner_head": "4ac594ca11242668ad5479424407e8c38ab43369",
+  "researcher_id": "EM-BRCFBBE0-A7C931",
+  "frozen_at": "2026-08-29T11:06:00+00:00",
+  "terminal_verdict": "ENDPOINT_BRIDGE_PRIOR_ART_EQUIVALENT",
+  "hard_target_disposition": "The accepted F3R2 support-witness endpoint is exactly computably equivalent to trial division along the same public support-prime schedule: for A_r=[[r,2],[(r^2-1)/2,r]], q_{r,2}(N)=1/2 iff r divides odd N, and gcd(2r,N)=gcd(r,N). The 75-case sealed checker gives 0 response/gcd mismatches, only 1/75 support endpoint hit, and one constant response signature across all 74 no-hit cases. A stronger one-sided order-collapse control recovers 37/75 toy endpoints but is exactly fixed-base Pollard p-1 Stage 1, so it is prior-art equivalent rather than a new BRC factorization bridge.",
+  "unresolved_residue": "A genuinely N-coupled asymmetric singularization primitive remains open: it must create a zero divisor modulo exactly one hidden CRT channel without preselecting the hidden factor as a declared support prime and without reducing to known order, smoothness, cyclotomic, or collision factorization machinery.",
+  "output_manifest": [
+    {
+      "path": "research_returns/BRC_FACTOR_BLIND_BRIDGE_ENDPOINT_RECOVERY_RETURN_20260829.md",
+      "git_blob_sha1": "sha1:c61cfa10f0c358819e4c267bd550300b2826efae",
+      "sha256": "sha256:405fe37e5599cf07964e2d7d996c9a3cbe6570511e8a41fa203cec4dd36824a2"
+    },
+    {
+      "path": "research_checks/BRC_FACTOR_BLIND_BRIDGE_ENDPOINT_RECOVERY_CHECK_20260829.py",
+      "git_blob_sha1": "sha1:cd2c56e034a2435d17d1173d21251d1224e39ee7",
+      "sha256": "sha256:0ed578d355f99cddbc4a10fe3bdd274a905ba1239dfce805a5f29855dac0f144"
+    },
+    {
+      "path": "research_artifacts/BRC_FACTOR_BLIND_BRIDGE_ENDPOINT_RECOVERY/public_corpus.json",
+      "git_blob_sha1": "sha1:f422fbbb3bbaf670fb8d8482fb084063a83114ae",
+      "sha256": "sha256:8ea0570220fa970ac278f010af4744f7aa6cee10d915bb5174a06ae9799d33bd"
+    },
+    {
+      "path": "research_artifacts/BRC_FACTOR_BLIND_BRIDGE_ENDPOINT_RECOVERY/private_verifier_manifest_summary.json",
+      "git_blob_sha1": "sha1:96e733ffea8561f70c5d09f069375f7ecf906c56",
+      "sha256": "sha256:0815aeaeeaa1defa342896455a9dd20948f13a0758bb2e9c8a25aa314c732ca0"
+    },
+    {
+      "path": "research_artifacts/BRC_FACTOR_BLIND_BRIDGE_ENDPOINT_RECOVERY/result_summary.json",
+      "git_blob_sha1": "sha1:0fe6732625b2e03b7836d8f7a723244f5f509c12",
+      "sha256": "sha256:9eaa3bc20042ff1050c75a98ef83ccc28749ef73146070e8a3c9330ae27851ce"
+    },
+    {
+      "path": "research_execution_records/RS-BRC-FACTOR-BLIND-BRIDGE-ENDPOINT-RECOVERY/ER-7A8F0D1C4B6E92A3D551.json",
+      "git_blob_sha1": "sha1:92bc9302e07afbffac73382f9742dfca113e8188",
+      "sha256": "sha256:9e6a3620cf3cdf5a202fcf81264b5ef9460c5288f80d6839d9d477a9a4db6bd3"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY / REUSE_APPLIED_T0_BRC / EXACT_SUPPORT_TRIAL_DIVISION_EQUIVALENCE",
+  "independence_status": "FACTOR_BLIND_PUBLIC_CORPUS / SEALED_PRIVATE_LABEL_DIGEST / INDEPENDENT_STDLIB_CHECKER",
+  "source_exposure_status": "NONBLIND_DEPENDENCIES_DISCLOSED / FACTOR_BLIND_WORKER_CONTRACT",
+  "next_control_plane_recommendation": "Driver-review this narrow exact endpoint boundary. If accepted, do not benchmark the support family competitively and do not reopen it by expanding the public prime schedule; preserve N-COUPLED ASYMMETRIC SINGULARIZATION WITHOUT SUPPORT-NAMING OR ORDER-COLLISION as the unresolved mathematical residue for any separately authorized successor.",
+  "driver_review_required": true
+}

@@ -1,0 +1,129 @@
+{
+  "schema": "BRC_FACTOR_BLIND_BRIDGE_RESULT_SUMMARY_V1",
+  "public_corpus_sha256": "8ea0570220fa970ac278f010af4744f7aa6cee10d915bb5174a06ae9799d33bd",
+  "private_label_manifest_sha256": "5ef671ebe559dcd81af2edbb7b87fd2a6a31288dd7ff183250d8caf3dcab5edc",
+  "num_records": 75,
+  "fixed_support_primes": [
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61,
+    67,
+    71,
+    73,
+    79,
+    83,
+    89,
+    97
+  ],
+  "adaptive_pool": "all odd primes in [101,5000)",
+  "adaptive_slots_per_N": 16,
+  "total_support_candidates_per_N": 40,
+  "support_response_gcd_equivalence_mismatches": 0,
+  "support_endpoint_successes": 1,
+  "support_endpoint_success_rate": 0.013333333333333334,
+  "failure_response_unique_signatures": 1,
+  "median_first_hit_probe_1_based": 21,
+  "order_collision_control_stages": [
+    16,
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024
+  ],
+  "order_collision_control_successes": 37,
+  "order_collision_control_success_rate": 0.49333333333333335,
+  "groups": {
+    "32:balanced": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 3
+    },
+    "32:moderate": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 4
+    },
+    "32:strong": {
+      "n": 5,
+      "support_success": 1,
+      "order_control_success": 5
+    },
+    "32:near_twin": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 3
+    },
+    "32:square": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 3
+    },
+    "48:balanced": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 2
+    },
+    "48:moderate": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 1
+    },
+    "48:strong": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 5
+    },
+    "48:near_twin": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 3
+    },
+    "48:square": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 1
+    },
+    "64:balanced": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 0
+    },
+    "64:moderate": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 0
+    },
+    "64:strong": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 5
+    },
+    "64:near_twin": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 1
+    },
+    "64:square": {
+      "n": 5,
+      "support_success": 0,
+      "order_control_success": 1
+    }
+  },
+  "terminal_candidate": "ENDPOINT_BRIDGE_PRIOR_ART_EQUIVALENT"
+}
