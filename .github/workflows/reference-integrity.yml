@@ -34,6 +34,8 @@ jobs:
         run: python control_plane/check_semantic_migration_authority.py
       - name: Check semantic-safe control migration and protected selectors
         run: python control_plane/check_control_semantic_migration_registry.py
+      - name: Prove Architecture V2 publication cutover field locality without granting approval
+        run: python control_plane/check_architecture_publication_cutover_evidence.py
       - name: Check semantic verification requests stay non-executable
         run: python control_plane/check_control_semantic_verification_requests.py
       - name: Check executable consumers before canonical-dispatch pointer migration
