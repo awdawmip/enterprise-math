@@ -1,6 +1,6 @@
 # Enterprise Math agent operating router
 
-Status: `ACTIVE / STABLE EXECUTION ROUTER / V3.0`
+Status: `ACTIVE / STABLE EXECUTION ROUTER / V3.1`
 
 `AGENTS.md` is a **current execution router**. It is not a theorem catalog, project history, old-route index, or archive.
 
@@ -24,6 +24,28 @@ Exact research-role authority:
 - `research_role_policy.json`;
 - `research_identity_state_machine.json`;
 - `foundation_steward.json` when Steward authority is active.
+
+### Narrow control-authority precedence
+
+Before interpreting or mutating any of these control fields, read:
+
+`control_plane/current_control_authority.json`.
+
+Its scope is deliberately narrow: task-publication authority, recovery-aware live dispatch versus fresh selectors, exact owner-scope session liveness, immutable review-record write binding, tool-reuse resolution, typed role transitions, and semantic-safe control migration. For those fields, the exact machine contract named by `current_control_authority.json` controls over stale compatibility wording in older architecture/role/runtime documents.
+
+It does **not** override mathematical truth, theorem status, Working Truth authority, Driver portfolio authority, Foundation Steward authority, discovery firewalls, or task-local mathematical scope.
+
+Freeze:
+
+`CONTROL_PRECEDENCE != MATHEMATICAL_PRECEDENCE`.
+
+`READ_SNAPSHOT != WRITE_AUTHORITY`.
+
+For Driver review-record persistence specifically:
+
+`READ_SNAPSHOT != REVIEW_WRITE_AUTHORITY`.
+
+Use `research_review_write_authority.json`: refresh the remote head and exact current result bytes immediately before the review-record mutation, recompute the result digest from those bytes, and use CAS/non-force write semantics. Control maintenance may isolate an invalid binding but may not rewrite the Driver disposition or create a replacement Driver review.
 
 ## 2. Active-turn continuation liveness
 
@@ -270,11 +292,15 @@ Freeze:
 
 `UNDERSTAND_TASK_FIRST -> TOOL_LOOKUP_SECOND`.
 
+`COVERAGE_LOOKUP != TOOL_USE`.
+
 `EXISTING_TOOL_COVERAGE -> REUSE_OR_COMPOSE_UNLESS_EXACT_SCOPE_GAP_IS_RECORDED`.
 
 `NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP`.
 
-Outcomes: `REUSE_EXISTING_TOOL`, `COMPOSE_EXISTING_TOOLS`, `EXTEND_EXISTING_TOOL`, `CAPABILITY_GAP_CONFIRMED`, `NOT_APPLICABLE`.
+Reuse-resolution outcomes: `REUSE_APPLIED`, `REUSE_EXECUTED`, `COMPOSE_APPLIED`, `REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE`, `EXTEND_EXISTING_TOOL`, `CAPABILITY_GAP_CONFIRMED`, `NOT_APPLICABLE`.
+
+A relevant coverage match must be resolved to one of those states. Do not treat a catalog/lexical match as actual use, and do not treat inability to execute an otherwise adequate existing implementation in the current chat environment as a mathematical capability gap.
 
 Do not create a new tool family merely because the mechanism appears under another route/domain/name. Every Driver/Steward-accepted return receives method-harvest classification.
 
