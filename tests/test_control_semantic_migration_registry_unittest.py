@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class ControlSemanticMigrationRegistryTests(unittest.TestCase):
     def test_registered_control_debt_and_protected_selectors_have_no_drift(self):
         reports = migration.check(ROOT)
-        self.assertGreaterEqual(len(reports), 12)
+        self.assertGreaterEqual(len(reports), 13)
         self.assertTrue(any("CSM-ARCHITECTURE-TASK-PUBLICATION-003" in row for row in reports))
         self.assertTrue(any("CSM-ROLEPOLICY-CANONICAL-DISPATCH-001" in row for row in reports))
         self.assertTrue(any("CSM-STEWARD-CANONICAL-DISPATCH-005" in row for row in reports))
@@ -22,8 +22,9 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
         self.assertTrue(any("CSP-STEWARD-BACKFLOW-AUTHORITY-003" in row for row in reports))
         self.assertTrue(any("CSP-RUNTIME-FRESH-SELECTOR-004" in row for row in reports))
         self.assertTrue(any("CSP-ROLEPOLICY-PUBLICATION-DISPATCH-005" in row for row in reports))
+        self.assertTrue(any("CSP-STEWARD-SCHEDULING-TOOL-006" in row for row in reports))
 
-    def test_mixed_semantics_are_not_marked_mechanically_safe(self):
+    def test_only_architecture_migration_remains_mixed_semantic_debt(self):
         data = json.loads(
             (ROOT / "control_plane" / "control_semantic_migration_registry.json").read_text(
                 encoding="utf-8"
@@ -42,42 +43,34 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
             by_id["CSM-ARCHITECTURE-TASK-PUBLICATION-003"]["execution_authority_while_open"]
         )
         self.assertEqual(
-            "REQUIRES_GOVERNANCE_VERIFICATION",
+            "RESOLVED_AS_PROTECTED_SELECTOR_NO_MIGRATION",
             by_id["CSM-STEWARD-CANONICAL-DISPATCH-TOOL-007"]["state"],
         )
 
-    def test_low_risk_pointers_migrated_and_publication_dispatch_is_resolved_selector(self):
+    def test_low_risk_pointers_migrated_and_selector_fields_resolved(self):
         data = json.loads(
             (ROOT / "control_plane" / "control_semantic_migration_registry.json").read_text(
                 encoding="utf-8"
             )
         )
         by_id = {row["migration_id"]: row for row in data["entries"]}
-        self.assertEqual(
-            "TARGET_MIGRATED",
-            by_id["CSM-ROLEPOLICY-CANONICAL-DISPATCH-001"]["state"],
-        )
-        self.assertEqual(
-            "TARGET_MIGRATED",
-            by_id["CSM-STEWARD-CANONICAL-DISPATCH-005"]["state"],
-        )
-        resolved = by_id["CSM-ROLEPOLICY-PUBLICATION-DISPATCH-002"]
-        self.assertEqual(
-            "RESOLVED_AS_PROTECTED_SELECTOR_NO_MIGRATION",
-            resolved["state"],
-        )
-        self.assertEqual("tools/research_dispatch.py", resolved["canonical_target_value"])
+        self.assertEqual("TARGET_MIGRATED", by_id["CSM-ROLEPOLICY-CANONICAL-DISPATCH-001"]["state"])
+        self.assertEqual("TARGET_MIGRATED", by_id["CSM-STEWARD-CANONICAL-DISPATCH-005"]["state"])
+
+        role_selector = by_id["CSM-ROLEPOLICY-PUBLICATION-DISPATCH-002"]
+        self.assertEqual("RESOLVED_AS_PROTECTED_SELECTOR_NO_MIGRATION", role_selector["state"])
+        self.assertEqual("tools/research_dispatch.py", role_selector["canonical_target_value"])
         self.assertEqual(
             "CSP-ROLEPOLICY-PUBLICATION-DISPATCH-005",
-            resolved["resolution_evidence"]["protected_selector_id"],
+            role_selector["resolution_evidence"]["protected_selector_id"],
         )
-        self.assertIn(
-            "ONLY /canonical_dispatch CHANGED",
-            by_id["CSM-ROLEPOLICY-CANONICAL-DISPATCH-001"]["migration_scope"],
-        )
-        self.assertIn(
-            "backflow.task_definition_authority",
-            by_id["CSM-STEWARD-CANONICAL-DISPATCH-005"]["migration_scope"],
+
+        steward_selector = by_id["CSM-STEWARD-CANONICAL-DISPATCH-TOOL-007"]
+        self.assertEqual("RESOLVED_AS_PROTECTED_SELECTOR_NO_MIGRATION", steward_selector["state"])
+        self.assertEqual("tools/research_dispatch.py", steward_selector["canonical_target_value"])
+        self.assertEqual(
+            "CSP-STEWARD-SCHEDULING-TOOL-006",
+            steward_selector["resolution_evidence"]["protected_selector_id"],
         )
 
     def test_runtime_bundle_is_migrated_by_verified_nonforce_git_object_transaction(self):
@@ -133,6 +126,7 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
             "CSP-STEWARD-BACKFLOW-AUTHORITY-003",
             "CSP-RUNTIME-FRESH-SELECTOR-004",
             "CSP-ROLEPOLICY-PUBLICATION-DISPATCH-005",
+            "CSP-STEWARD-SCHEDULING-TOOL-006",
         ):
             self.assertEqual("tools/research_dispatch.py", protected[protection_id]["required_value"])
             self.assertTrue(protected[protection_id]["semantic_role"])
