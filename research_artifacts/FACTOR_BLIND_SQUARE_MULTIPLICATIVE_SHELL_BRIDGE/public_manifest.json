@@ -1,0 +1,210 @@
+{
+  "claim_id": "chatgpt-smsb1-20260829-1645-4a7e2c",
+  "corpus": {
+    "audit_probe_N": {
+      "B24": [
+        14880443,
+        9356057,
+        10566137,
+        11964677,
+        10243921,
+        16040021,
+        8715911,
+        15747367,
+        12496189,
+        12515641,
+        13366231,
+        16016003
+      ],
+      "B32": [
+        3398010691,
+        3169197257,
+        2396446391,
+        2412262109,
+        2174917673,
+        2692601413,
+        4198522261,
+        2208830353,
+        4094939363,
+        4284171971,
+        2709298309,
+        4221167791
+      ],
+      "B40": [
+        552864781811,
+        635378350591,
+        863136104429,
+        892184502961,
+        803095414337,
+        897464731081,
+        685990079633,
+        593967608917,
+        736296550337,
+        798318469789,
+        871003750957,
+        745347709517
+      ]
+    },
+    "bands": {
+      "B24": [
+        8388608,
+        16777216
+      ],
+      "B32": [
+        2147483648,
+        4294967296
+      ],
+      "B40": [
+        549755813888,
+        1099511627776
+      ]
+    },
+    "cases": 4775,
+    "heldout": 957,
+    "odd_distinct_semiprimes": true,
+    "prime_catalog_ceiling": 5000000,
+    "private_factors_serialized_to_worker": false,
+    "private_verifier_state_sha256": "sha256:b4550b90bd2f2781a822e04614e076bd180169e3af8b3dacf5756b7091681e28",
+    "public_N_state_sha256": "sha256:1c02964c1297ef8d498669688e5dd99ef206504602b482bd4a54e8dd2fd79a90",
+    "ratio_strata_definition": {
+      "balanced": [
+        1.05,
+        1.5
+      ],
+      "moderate": [
+        1.5,
+        5.0
+      ],
+      "near_twin": [
+        1.0,
+        1.05
+      ],
+      "strong": [
+        5.0,
+        20.0
+      ]
+    },
+    "split_rule": "Within each (bit-band, verifier-only ratio stratum), sort by SHA256('SMSB1_PUBLIC_SPLIT_V1:'+decimal(N)); first 60% train, next 20% tune, final 20% heldout.",
+    "train": 2864,
+    "tune": 954
+  },
+  "evaluation": {
+    "compression_denominator": "training-support bucket count; fixed-32 compression also reported",
+    "heldout_labels_not_used_for_model_or_top_k_calibration": true,
+    "recall_levels": [
+      0.99,
+      0.999
+    ]
+  },
+  "feature_contracts": {
+    "BCT": {
+      "K": "2..64",
+      "cost_proxy": {
+        "integer_sqrt_calls_max": 127,
+        "notes": "s plus two exact isqrt calls per k; some transported roots are reusable."
+      },
+      "definition": "s=isqrt(N); c_k=isqrt(k*N)-isqrt(k*s*s); use c_k, first differences, and six fixed summaries.",
+      "factor_blind": true,
+      "name": "Beatty carry topology",
+      "new_conditional_mechanism": "Uses cross-scale floor/carry event topology rather than raw near-square residual magnitude or residual-priority ordering.",
+      "old_no_go_family": false,
+      "role": "new_test_family"
+    },
+    "BCT_TPGR": {
+      "components": [
+        "SIZE",
+        "shell_phase_control",
+        "BCT",
+        "TPGR"
+      ],
+      "factor_blind": true,
+      "model": {
+        "family": "ExtraTreesClassifier",
+        "max_features": "sqrt",
+        "min_samples_leaf": 5,
+        "n_estimators": 160,
+        "random_seed_base": "0x4A7E2C",
+        "sklearn_version": "1.8.0"
+      },
+      "prediction": "ranked hidden-label buckets; top-k calibrated only on tuning split",
+      "role": "primary_candidate"
+    },
+    "SIZE": {
+      "factor_blind": true,
+      "features": [
+        "log2(N)",
+        "frac(log2(N))"
+      ],
+      "incremental_mechanism": "none",
+      "role": "baseline"
+    },
+    "TPGR": {
+      "K": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23
+      ],
+      "cost_proxy": {
+        "prime_neighbor_lookups": 20,
+        "transported_roots": 10
+      },
+      "definition": "x_k=isqrt(k*N); feature prevprime distance, nextprime distance, and two-sided local gap at x_k.",
+      "factor_blind": true,
+      "name": "Transported prime-gap resonance",
+      "new_conditional_mechanism": "Conditions on prime-density environment at transported roots sqrt(kN), not only the local prime neighborhood at sqrt(N).",
+      "old_no_go_family": false,
+      "role": "new_test_family"
+    }
+  },
+  "hidden_targets": {
+    "fermat_T_bucket": {
+      "definition": "class 0 iff T=0; otherwise 1+floor(32*log2(T+1)/log2(N)) capped.",
+      "kind": "Fermat midpoint-offset interval"
+    },
+    "gray_rank_bucket": {
+      "buckets": 32,
+      "definition": "Use frozen H_infinity rank from prime indices (i,j), then logarithmic 32-bin bucket against the public prime-window cap.",
+      "kind": "semiprime Hamilton-Gray rank block"
+    },
+    "m2_q_block": {
+      "buckets": 32,
+      "definition": "floor(32*log(pi(q))/log(pi(5,000,000))) capped to [0,31]",
+      "kind": "true multiplicative-shell max-prime-token block"
+    },
+    "p_rank_bucket": {
+      "buckets": 32,
+      "definition": "floor(32*(pi(p)-1)/pi(isqrt(N))) capped to [0,31]",
+      "kind": "prime-index interval"
+    }
+  },
+  "information_boundary": "All worker features are deterministic functions of N and public constants. They cannot be interpreted as new Shannon information about factors.",
+  "publication_id": "TP2-A712090E5314373E5447",
+  "researcher_id": "EM-SMSB1-4A7E2C",
+  "schema": "SMSB1_PUBLIC_FACTOR_BLIND_MANIFEST_V1",
+  "task_id": "RS-FACTOR-BLIND-SQUARE-MULTIPLICATIVE-SHELL-BRIDGE",
+  "worker_request_schema": {
+    "allowed": [
+      "N",
+      "public_seed",
+      "candidate_id",
+      "precommitted_parameters"
+    ],
+    "forbidden": [
+      "p",
+      "q",
+      "T",
+      "factor_ratio",
+      "prime_indices",
+      "M2_truth",
+      "Gray_truth",
+      "successful_factor_certificate"
+    ]
+  }
+}
