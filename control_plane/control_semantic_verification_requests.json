@@ -1,0 +1,93 @@
+{
+  "schema": "ENTERPRISE_MATH_CONTROL_SEMANTIC_VERIFICATION_REQUESTS_V1",
+  "status": "ACTIVE_NONEXECUTABLE",
+  "effective": "2026-08-29",
+  "classification": "CONTROL_PLANE_REQUESTS_NOT_RESEARCH_TASKS",
+  "migration_registry": "control_plane/control_semantic_migration_registry.json",
+  "purpose": "Preserve control-migration questions whose resolution may depend on research/governance semantics without allowing CONTROL_PLANE_MAINTENANCE to self-grant task-publication, Driver, Steward, theorem-review, or Foundation authority. These requests are not scheduler/runtime tasks. An authorized Researcher/Driver/Steward may later publish a real immutable GOVERNANCE task if the request still requires investigation.",
+  "core_invariants": [
+    "VERIFICATION_REQUEST_IS_NOT_A_TASK",
+    "VERIFICATION_REQUEST_IS_NOT_CLAIMABLE",
+    "VERIFICATION_REQUEST_GRANTS_NO_ROLE_AUTHORITY",
+    "CONTROL_PLANE_MAINTENANCE_CANNOT_PUBLISH_RESEARCH_TASK_BY_RELABELLING_A_REQUEST",
+    "AUTHORIZED_FUTURE_TASK_MUST_USE_IMMUTABLE_V2_PUBLICATION",
+    "MATHEMATICAL_AND_GOVERNANCE_SEMANTICS_MUST_BE_VERIFIED_BEFORE_MIXED_FIELD_MIGRATION"
+  ],
+  "requests": [
+    {
+      "request_id": "CSV-ARCHITECTURE-V2-PUBLICATION-CUTOVER-001",
+      "state": "AWAITING_AUTHORIZED_GOVERNANCE_TASK_PUBLICATION_OR_DIRECT_STEWARD_VERIFICATION",
+      "is_research_task": false,
+      "claimable": false,
+      "runtime_dispatchable": false,
+      "authority_granted": false,
+      "related_migration_ids": [
+        "CSM-ARCHITECTURE-TASK-PUBLICATION-003"
+      ],
+      "target_file": "research_architecture.json",
+      "question": "Can the six V1 task-publication control pointers be migrated to immutable V2 authority without changing any mathematical/research governance semantics carried by research_architecture.json?",
+      "required_verification": [
+        "Enumerate the exact six JSON pointers and their V2 replacements.",
+        "Prove or explicitly justify that FREE discovery substrate/anti-anchoring semantics are unchanged.",
+        "Prove or explicitly justify that Working Truth activation/falsifier semantics are unchanged.",
+        "Prove or explicitly justify that axiom-candidate lifecycle and origin provenance are unchanged.",
+        "Prove or explicitly justify that successor-stage, portfolio-balance, and route-closure semantics are unchanged.",
+        "Prove or explicitly justify that Foundation backflow, independence/replication, promotion, and theorem-status semantics are unchanged.",
+        "Produce an exact field-local proposed diff; no unrelated JSON pointer may change."
+      ],
+      "forbidden_shortcuts": [
+        "blind global string replacement",
+        "treating newer control precedence as proof that older mathematical/governance text is semantically irrelevant",
+        "changing wording or values outside the six registered pointers while performing the cutover"
+      ],
+      "future_authorized_publication": {
+        "kind": "GOVERNANCE",
+        "publisher_role_must_be_one_of": [
+          "RESEARCH_DRIVER",
+          "FOUNDATION_STEWARD"
+        ],
+        "publication_contract": "research_task_publication_contract_v2.json",
+        "publication_tool": "tools/research_task_records.py",
+        "must_preserve_parent_objective": true
+      }
+    },
+    {
+      "request_id": "CSV-AMBIGUOUS-DISPATCH-FIELD-MEANING-002",
+      "state": "AWAITING_AUTHORIZED_GOVERNANCE_SEMANTIC_CLASSIFICATION",
+      "is_research_task": false,
+      "claimable": false,
+      "runtime_dispatchable": false,
+      "authority_granted": false,
+      "related_migration_ids": [
+        "CSM-ROLEPOLICY-PUBLICATION-DISPATCH-002",
+        "CSM-STEWARD-CANONICAL-DISPATCH-TOOL-007"
+      ],
+      "target_files": [
+        "research_role_policy.json",
+        "foundation_steward.json"
+      ],
+      "question": "Do the ambiguous dispatch fields denote the subordinate registered/fresh task selector or the top-level recovery-aware live control route?",
+      "required_verification": [
+        "Classify research_role_policy.json /task_publication_authority/dispatch as publication discovery/fresh selector versus live owner/session router.",
+        "Classify foundation_steward.json /canonical_dispatch_tool in the context of adjacent scheduling_protocol and legacy_scheduler_config fields.",
+        "Cross-check against research_task_publication_contract_v2.json, research_dispatch_contract.json, Foundation backflow selector semantics, and active human protocols.",
+        "If a field is selector-scoped, protect tools/research_dispatch.py rather than migrating it.",
+        "If a field is live-route scoped, migrate only that exact pointer to research_control_dispatch.py."
+      ],
+      "forbidden_shortcuts": [
+        "inferring meaning from the substring canonical_dispatch alone",
+        "assuming every tools/research_dispatch.py reference is stale",
+        "changing Foundation mathematical conventions or task publication semantics during classification"
+      ],
+      "future_authorized_publication": {
+        "kind": "GOVERNANCE",
+        "publisher_role_must_be_one_of": [
+          "RESEARCH_DRIVER",
+          "FOUNDATION_STEWARD"
+        ],
+        "publication_contract": "research_task_publication_contract_v2.json",
+        "publication_tool": "tools/research_task_records.py"
+      }
+    }
+  ]
+}
