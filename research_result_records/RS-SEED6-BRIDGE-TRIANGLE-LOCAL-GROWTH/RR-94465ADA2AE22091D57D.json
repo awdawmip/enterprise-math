@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-94465ADA2AE22091D57D",
+  "task_id": "RS-SEED6-BRIDGE-TRIANGLE-LOCAL-GROWTH",
+  "publication_id": "TP2-262052627FA7DD9E5FF7",
+  "execution_record_id": "ER-4C84BFAF80DD68EA2839",
+  "claim_id": "chatgpt-s6t-20260829-2042-a65497",
+  "taskbook_path": "research_tasks/SEED6_BRIDGE_TRIANGLE_LOCAL_GROWTH_20260829.md",
+  "taskbook_blob_sha1": "sha1:724aca0c28a247a29bdb098aed12b9f399afdfce",
+  "execution_branch": "research/seed6-bridge-triangle-local-growth-em-s6t-a65497",
+  "execution_branch_base": "65d1cae115e648f5154a898cd3ba83a2a2b27223",
+  "return_path": "research_returns/SEED6_BRIDGE_TRIANGLE_LOCAL_GROWTH_RETURN_20260829.md",
+  "return_blob_sha1": "sha1:d41651734134a27eb5c0bd7b00f0826f02b619ee",
+  "return_sha256": "sha256:b007dddb42de9a1e19dbfccaabddb1ee6fb146a5d1120952735f0429141ed5ed",
+  "owner_head": "3f30c0ccd620972ba97ce2131205441b9be77016",
+  "researcher_id": "EM-S6T-A65497",
+  "frozen_at": "2026-08-29T12:51:45+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "SEED6_LOCAL_BRIDGE_TRIANGLE_GEOMETRY_CLASSIFIED. For every prime r>3, T_r={6,2r,3r} is exactly the coatom layer of the Boolean divisor lattice B3 for L=6r. Pairwise gcds are the carrier atoms 2,3,r; pairwise lcms are the common top 6r; the rank-aware Levi graph is C6. The valuation-support matrix has determinant -2 and SNF (1,1,2), giving the even-sum index-2 coatom exponent lattice. All normalized rooted typed prime cells are mutually isomorphic, so isolated local combinatorics does not distinguish numerical r. The product-square identity is only a derived checksum.",
+  "unresolved_residue": "Determine whether gluing multiple universal rooted B3 cells into bridge rectangles/surfaces creates any loop, path-dependence, holonomy-like, or integral invariant beyond repeated local incidence and the index-2 parity signature. Orientation remains noncanonical unless the two seed carriers are explicitly ordered. Degenerate r values belong to the separate stratification task.",
+  "output_manifest": [
+    {
+      "path": "research_returns/SEED6_BRIDGE_TRIANGLE_LOCAL_GROWTH_RETURN_20260829.md",
+      "git_blob_sha1": "sha1:d41651734134a27eb5c0bd7b00f0826f02b619ee",
+      "sha256": "sha256:b007dddb42de9a1e19dbfccaabddb1ee6fb146a5d1120952735f0429141ed5ed"
+    },
+    {
+      "path": "research_checks/SEED6_BRIDGE_TRIANGLE_LOCAL_GROWTH_CHECK_20260829.py",
+      "git_blob_sha1": "sha1:8db46a1aa6160b2f8c7218311a7084c475ad8b3d",
+      "sha256": "sha256:0487cb9777a5d17914c54288b16b3db72a6cda102d9bfd5122e369b302c80e62"
+    },
+    {
+      "path": "research_artifacts/SEED6_BRIDGE_TRIANGLE_LOCAL_GROWTH/census_summary.json",
+      "git_blob_sha1": "sha1:ca9a418a0ea8453b2fe6131cbb2d42e0e08f5a94",
+      "sha256": "sha256:76d32de00451b40317c0ab63b62623a15f79c4ff60fe4a2bb8aefc50a5230981"
+    },
+    {
+      "path": "research_execution_records/RS-SEED6-BRIDGE-TRIANGLE-LOCAL-GROWTH/ER-4C84BFAF80DD68EA2839.json",
+      "git_blob_sha1": "sha1:6e9a1870ca6f814608d8905321dd2e88acfaaf5f",
+      "sha256": "sha256:6bf6433137032dc15b7448bf9890495c480648044d47380eb04d32a26e5cab0d"
+    }
+  ],
+  "method_harvest": "TASK_LOCAL_EXACT_INTEGER_CHECKER_PLUS_BOOLEAN_DIVISOR_LATTICE_AND_SMITH_NORMAL_FORM_INTERFACE",
+  "independence_status": "DIRECT_USER_DIRECTION_TASK_WITH_TASKBOOK_ONLY_START_AND_INDEPENDENT_EXACT_INTEGER_CENSUS",
+  "source_exposure_status": "NO_EXTERNAL_SOURCE_DEPENDENCY; CURRENT_TASKBOOK_AND_PROJECT_CONTROL_SURFACES_ONLY",
+  "next_control_plane_recommendation": "Driver-review this result. If accepted, downstream bridge-rectangle/global-gluing work should consume the local block as a rooted rank-aware Boolean B3 coatom-incidence cell and explicitly test whether any global invariant survives beyond repeated local incidence and the SNF (1,1,2) parity signature.",
+  "driver_review_required": true
+}
