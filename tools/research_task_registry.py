@@ -95,9 +95,9 @@ def has_exact_v2_publication_authority(
 
     Orphan detection answers whether this taskbook has an exact immutable
     publication object. Current operational selection is a separate dispatch
-    question. Normal ACTIVE V2 publications are valid provenance even when a
-    different parallel head is operational. A nonstandard migration transaction
-    is accepted only when the parallel-resolution overlay explicitly retains its
+    question. Normal ACTIVE or terminal V2 publications are valid provenance even
+    when they are not current/claimable. A nonstandard migration transaction is
+    accepted only when the parallel-resolution overlay explicitly retains its
     publication id.
     """
     task_id = meta.get("task_id")
@@ -105,6 +105,9 @@ def has_exact_v2_publication_authority(
         return False
     expected_path = relative(path, root)
     expected_blob = blob_sha1(path)
+    valid_standard_states = {"ACTIVE"} | set(
+        getattr(research_task_records, "TERMINAL_RECORD_STATES", set())
+    )
     for record in all_v2_records:
         if not isinstance(record, dict):
             continue
@@ -118,7 +121,7 @@ def has_exact_v2_publication_authority(
             continue
         if record.get("taskbook_blob_sha1") != expected_blob:
             continue
-        if record.get("record_state", "ACTIVE") != "ACTIVE" and not retained:
+        if record.get("record_state", "ACTIVE") not in valid_standard_states and not retained:
             continue
         if (
             record.get("publication_transaction")
