@@ -1,0 +1,160 @@
+{
+  "schema": "SEED6_THREE_PAIRING_ORBIT_BRIDGE_RECTANGLE_CERTIFICATE_V1",
+  "task_id": "RS-SEED6-THREE-PAIRING-ORBIT-BRIDGE-RECTANGLE",
+  "publication_id": "TP2-B4F08D2179896F7AA30E",
+  "researcher_id": "EM-S6P-5E4CFA",
+  "hard_target": "SEED6_THREE_PAIRING_ORBIT_EXACTLY_CLASSIFIED",
+  "terminal_class": "STANDARD_OBJECT_REIDENTIFIED",
+  "abstract_cell": {
+    "atoms": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "perfect_matchings": [
+      [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "c",
+          "d"
+        ]
+      ],
+      [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ]
+      ],
+      [
+        [
+          "a",
+          "d"
+        ],
+        [
+          "b",
+          "c"
+        ]
+      ]
+    ],
+    "pairing_state_count": 3,
+    "state_switch_graph": "K3",
+    "atom_permutation_group": "S4",
+    "state_action_image": "S3",
+    "state_action_kernel": "V4",
+    "kernel_order": 4,
+    "single_state_stabilizer_order": 8,
+    "single_state_stabilizer_isomorphism": "S2 wr S2 ~= D8",
+    "each_state_transposition_single_atom_swap_lifts": 2
+  },
+  "support_cell": {
+    "vertices": "2-subsets of four atoms",
+    "graph": "J(4,2) = octahedral graph = line graph L(K4)",
+    "vertex_count": 6,
+    "edge_count": 12,
+    "degree": 4,
+    "complement_involution": "S -> A\\S",
+    "antipodal_pairs": 3,
+    "antipodal_pairs_equal_pairing_states": true,
+    "automorphism_group_order": 48,
+    "atom_induced_automorphism_subgroup_order": 24,
+    "extra_complement_symmetry_not_atom_induced": true
+  },
+  "bridge_rectangle": {
+    "for_carrier_matching": "M={{a,b},{c,d}}",
+    "matrix": [
+      [
+        "ac",
+        "ad"
+      ],
+      [
+        "bc",
+        "bd"
+      ]
+    ],
+    "identity": "(ac)(bd)=(ad)(bc)=abcd",
+    "identity_classification": "STANDARD_RANK_ONE_COMMUTATIVITY_IDENTITY",
+    "combinatorial_core": "K4 minus carrier matching is C4=K2,2",
+    "diagonal_pairing_states": "the two non-carrier perfect matchings",
+    "state_to_opposite_switch_edge_bijection": true,
+    "unoriented_rectangle_corresponds_to_one_unordered_state_switch": true,
+    "orientation_intrinsic_in_unordered_cell": false
+  },
+  "exact_invariants": {
+    "within_state_gcd_for_distinct_prime_atoms": 1,
+    "cross_state_2x2_gcd_multiset": "{a,b,c,d}, each once",
+    "valuation_support_weight": 2,
+    "support_intersection_detected_by_gcd_gt_1": true,
+    "static_matching_state_has_intrinsic_parity": false,
+    "atom_permutation_sign_factors_through_S3_action": true,
+    "edge_decorated_three_switch_loop_holonomy": "nontrivial transposition fixing the start state; order 2"
+  },
+  "regression": {
+    "prime_pool": "first 25 primes >3",
+    "primes": [
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43,
+      47,
+      53,
+      59,
+      61,
+      67,
+      71,
+      73,
+      79,
+      83,
+      89,
+      97,
+      101,
+      103
+    ],
+    "unordered_pq_pairs": 300,
+    "all_structural_checks_pass": true,
+    "all_six_pair_products_distinct": true,
+    "all_three_state_products_equal_6pq": true,
+    "all_within_state_gcds_one": true,
+    "all_cross_state_gcd_multisets_equal_atom_set": true,
+    "numeric_order_label_strata": {
+      "2q<3p": 85,
+      "3p<2q": 215
+    },
+    "interpretation": "numeric magnitude labels break the unlabeled cell into two presentation strata but are not part of pairing geometry"
+  },
+  "pairing_cell_v1": {
+    "carrier_atom_set": "A of four distinct multiplicative atoms",
+    "support_vertices": "Q=binom(A,2)",
+    "incidence": "I(S,T) iff |S intersection T|=1",
+    "complement": "kappa(S)=A\\S",
+    "states": "P=Q/<kappa>, three antipodal pairs",
+    "switch_graph": "K3 on P",
+    "rectangle_map": "state M -> C4 induced by Q minus M, whose alternating perfect matchings are the other two states",
+    "required_to_preserve_atom_origin": "retain atom-support map or equivalent incidence labels; bare octahedral graph has extra complement automorphism",
+    "numeric_metric": null,
+    "factorization_semantics": null
+  },
+  "seed6_boundary": {
+    "seed6_specialization": "a=2,b=3,c=p,d=q",
+    "distinguished_state": "{{2,3},{p,q}}",
+    "distinguished_product_vertex": 6,
+    "changes_unlabeled_cell_isomorphism_class": false,
+    "new_seed6_specific_unlabeled_invariant_found": false,
+    "positive_value": "Seed-6 supplies a marked realization of the generic four-atom pairing cell; global gluing and degeneracy may still create nontrivial structure."
+  }
+}
