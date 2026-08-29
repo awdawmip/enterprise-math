@@ -1,0 +1,59 @@
+{
+  "schema": "P000_AXIS_CHANNEL_FRAME_CONNECTION_V10_MODEL_CERTIFICATE_V1",
+  "status": "FROZEN_RESEARCH_CERTIFICATE",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-7D3A9E1C5B8F2046AA10",
+  "claim_id": "chatgpt-p000fcc10-20260830-0721-018ace",
+  "researcher_id": "EM-P000FCC10-7D4DF7",
+  "terminal_class": "FRAME_CONNECTION_CONSTRUCTED_BUT_FRAMED_BMix_DOMAIN_STRICTLY_CONDITIONAL",
+  "frame": {
+    "axis_sort_cardinality": 6,
+    "local_channel_cardinality": 6,
+    "per_cell_relation": "TOTAL_BIJECTION",
+    "five_anchor_states": 720,
+    "worst_case_stabilizers": [720, 120, 24, 6, 2, 1, 1],
+    "time_is_frame_slot": false,
+    "native_cell_identity_quotiented": false
+  },
+  "connection": {
+    "frame_induced_transport": "T_xy=f_y o f_x^{-1}",
+    "inverse_law": true,
+    "path_composition": true,
+    "frame_induced_loop_holonomy": "IDENTITY",
+    "gauge_law": "T'_xy=g_y o T_xy o g_x^{-1}",
+    "loop_gauge_law": "Hol'_x=g_x o Hol_x o g_x^{-1}",
+    "seed_plus_connection_equivalent_to_frame_field_iff_flat": true,
+    "nonflat_witness_holonomy": "b=(E2 E4)(E3 E5)"
+  },
+  "passage": {
+    "observable": "PASS_x(E_i,E_j)=M_x[f_x(E_i),f_x(E_j)]",
+    "gauge_invariant": true,
+    "omega_b_definition": "p24=p42>0 and p35=p53>0",
+    "omega_b_forced": false,
+    "omega_b_possible": true,
+    "empty_witness": "M=I6",
+    "nonempty_witness_payload": {
+      "m24": 2,
+      "m35": 3
+    },
+    "contact_match_b_read_from_pass_on_omega_b": true
+  },
+  "base_b_gate": {
+    "omega_b_implies_local_pf10_b_symmetry": false,
+    "omega_b_implies_native_base_rotation": false,
+    "explicit_failure": "OMEGA_b_NONEMPTY_BUT_BASE_R_b_FAILS"
+  },
+  "regressions": {
+    "gen8_aut_sigma_b_order": 2,
+    "gen7_W_order": 72,
+    "gen7_b_in_W": false,
+    "total_global_W_plus_b_order": 720,
+    "native_s6_promoted": false,
+    "p000_mutated": false
+  },
+  "tool_reuse": {
+    "T7_FINITE_SYMMETRY_EQUIVARIANCE": "REUSE_APPLIED",
+    "T9_HOLONOMY_COCOYCLE_GLUING": "REUSE_APPLIED",
+    "new_general_purpose_tool_claimed": false
+  }
+}
