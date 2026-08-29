@@ -1,0 +1,290 @@
+{
+  "schema": "SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_EXPERIMENT_V1",
+  "task_id": "RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION",
+  "researcher_id": "EM-SSMF1-5A7C2E",
+  "claim_id": "chatgpt-ssmf1-20260829-1240-5a7c2e",
+  "exact_census": {
+    "N_max": 10000000,
+    "population": "all odd nonsquare semiprimes p*q with 3<=p<q and p,q prime",
+    "count": 1555366,
+    "bridge_identity_failures": 0,
+    "correlations": {
+      "u_logT": 0.007396541311027859,
+      "u_TA0": -0.00021884091597129568,
+      "u_logratio": 0.0026841966118056936,
+      "u_logJp": 0.01759633089976119,
+      "gap_logT": 0.052660459997740335,
+      "gap_TA0": 0.041608227429015855,
+      "gap_logratio": 0.026642424632977862,
+      "gap_logJp": 0.1139426530102694
+    },
+    "T_quantiles": {
+      "0": 0.0,
+      "0.25": 6132.0,
+      "0.5": 54141.5,
+      "0.75": 293169.0,
+      "0.9": 762402.0,
+      "0.99": 1547607.75,
+      "1": 1663504.0
+    }
+  },
+  "holdout_prediction": {
+    "train_N_range": "[1000000,8000000)",
+    "holdout_N_range": "[8000000,10000000]",
+    "train_rows": 300000,
+    "holdout_rows": 120000,
+    "target": "log1p(T)",
+    "model": "HistGradientBoostingRegressor; fixed random_state=20260829",
+    "baseline_features": [
+      "log(N)"
+    ],
+    "shell_rich_features": [
+      "log(N)",
+      "b/(2s+1)",
+      "s-PrevPrime(s)",
+      "NextPrime(s)-s",
+      "local_prime_gap",
+      "u_k for k=2..16"
+    ],
+    "baseline_R2": -0.0007864106020216699,
+    "baseline_MAE": 2.218776345432314,
+    "shell_rich_R2": -0.0015425946632554588,
+    "shell_rich_MAE": 2.2274852190636554
+  },
+  "multi_k": {
+    "k_range": [
+      1,
+      32
+    ],
+    "small_census_random_sample": 300000,
+    "max_abs_corr_u_k_logT": 0.00951,
+    "max_abs_corr_u_k_log1p_Jp": 0.01876,
+    "large_bit_stratified_sample": {
+      "bits": [
+        24,
+        32,
+        40,
+        48,
+        64
+      ],
+      "rows": 5000,
+      "rows_per_bit": 1000,
+      "rows_per_factor_split": 250
+    },
+    "max_abs_within_stratum_corr_over_k_1_32": 0.19544562613619287,
+    "note": "argmax k and sign vary across 20 bit/factor-ratio strata; no stable cross-scale direction"
+  },
+  "modular_fermat_sieve": {
+    "modulus": 6720,
+    "factorization": "64*3*5*7",
+    "sample_rows": 3000,
+    "median_survivor_fraction": 0.02857142857142857,
+    "mean_survivor_fraction": 0.030844047619047618,
+    "median_rejection_fraction": 0.9714285714285714,
+    "classification": "standard quadratic-residue filtering of the Fermat residual F_N(t), not a new shell rule"
+  },
+  "neighbor_prime_cost": {
+    "large_bit_sample_rows": 5000,
+    "median_two_sided_prime_gap_by_bit": {
+      "24": 12.0,
+      "32": 14.0,
+      "40": 20.0,
+      "48": 24.0,
+      "64": 32.0
+    },
+    "p95_two_sided_prime_gap_by_bit": {
+      "24": 28.0,
+      "32": 36.0,
+      "40": 50.0,
+      "48": 66.0,
+      "64": 90.0
+    },
+    "deployment_warning": "J_p itself is oracle-labeled because it uses p; nearest-prime preprocessing does not reveal J_p"
+  },
+  "candidate_count_baseline_N_ge_1e6": [
+    {
+      "ratio": "[1,1.01)",
+      "n": 635,
+      "median_prime_candidates": 1.0,
+      "median_fermat_candidates": 1.0,
+      "prime_scan_faster_rate": 0.0
+    },
+    {
+      "ratio": "[1.01,1.05)",
+      "n": 2827,
+      "median_prime_candidates": 4.0,
+      "median_fermat_candidates": 1.0,
+      "prime_scan_faster_rate": 0.0
+    },
+    {
+      "ratio": "[1.05,1.1)",
+      "n": 3403,
+      "median_prime_candidates": 10.0,
+      "median_fermat_candidates": 2.0,
+      "prime_scan_faster_rate": 0.0
+    },
+    {
+      "ratio": "[1.1,1.25)",
+      "n": 9522,
+      "median_prime_candidates": 22.0,
+      "median_fermat_candidates": 7.0,
+      "prime_scan_faster_rate": 0.0
+    },
+    {
+      "ratio": "[1.25,1.5)",
+      "n": 13601,
+      "median_prime_candidates": 42.0,
+      "median_fermat_candidates": 27.0,
+      "prime_scan_faster_rate": 0.0
+    },
+    {
+      "ratio": "[1.5,2)",
+      "n": 21518,
+      "median_prime_candidates": 70.0,
+      "median_fermat_candidates": 81.0,
+      "prime_scan_faster_rate": 0.7817641044706757
+    },
+    {
+      "ratio": "[2,4)",
+      "n": 51856,
+      "median_prime_candidates": 117.0,
+      "median_fermat_candidates": 290.0,
+      "prime_scan_faster_rate": 1.0
+    },
+    {
+      "ratio": "[4,10)",
+      "n": 69233,
+      "median_prime_candidates": 181.0,
+      "median_fermat_candidates": 970.0,
+      "prime_scan_faster_rate": 1.0
+    },
+    {
+      "ratio": "[10,100)",
+      "n": 178019,
+      "median_prime_candidates": 255.0,
+      "median_fermat_candidates": 4038.0,
+      "prime_scan_faster_rate": 1.0
+    },
+    {
+      "ratio": "[100,inf)",
+      "n": 1036422,
+      "median_prime_candidates": 336.0,
+      "median_fermat_candidates": 173883.0,
+      "prime_scan_faster_rate": 1.0
+    }
+  ],
+  "multiplier_residual_priority": {
+    "score": "e_k/(2*ceil(sqrt(4*k*N))-1), where e_k=ceil(sqrt(4*k*N))^2-4*k*N",
+    "N_le_1e6": {
+      "population_rows": 168330,
+      "hit_rate_k_le_64": 0.295657339749302,
+      "conditional_median_k_order_rank": 18.0,
+      "conditional_median_score_rank": 5.0
+    },
+    "discovery_1e6_to_8e6": {
+      "n": 50000,
+      "hits": 9907,
+      "hit_rate": 0.19814,
+      "med_k": 27.0,
+      "med_rank": 12.0,
+      "mean_k": 28.4004239426668,
+      "mean_rank": 17.30110023215908,
+      "better": 0.6722519430705561,
+      "rank1": 0.14060765115574847,
+      "rank8": 0.4213182598162915
+    },
+    "holdout_8e6_to_1e7": {
+      "n": 50000,
+      "hits": 8166,
+      "hit_rate": 0.16332,
+      "med_k": 30.0,
+      "med_rank": 14.0,
+      "mean_k": 30.055596375214304,
+      "mean_rank": 19.65931912809209,
+      "better": 0.6571148665197158,
+      "rank1": 0.12894930198383542,
+      "rank8": 0.37827577761449915
+    },
+    "large_bit_hit_rate_k_le_64": {
+      "24": 0.433,
+      "32": 0.088,
+      "40": 0.022,
+      "48": 0.006,
+      "64": 0.0
+    },
+    "classification": "finite-window empirical ordering residue only; coverage collapses with bit size and no cost/asymptotic advantage is proved"
+  },
+  "counterexamples": [
+    {
+      "kind": "same shell index and identical local prime neighborhood, boundary residual differs by 2",
+      "left": {
+        "N": 9917459,
+        "factorization": "3079*3221",
+        "s": 3149,
+        "b": 5041,
+        "prev_prime_s": 3137,
+        "next_prime_s": 3163,
+        "T": 0,
+        "q_over_p": 1.04611886976291
+      },
+      "right": {
+        "N": 9917461,
+        "factorization": "1009*9829",
+        "s": 3149,
+        "b": 5039,
+        "prev_prime_s": 3137,
+        "next_prime_s": 3163,
+        "T": 2269,
+        "q_over_p": 9.741328047571853
+      }
+    },
+    {
+      "kind": "same shell index and identical local prime neighborhood, boundary residual differs by 2; extreme factor-ratio separation",
+      "left": {
+        "N": 9990157,
+        "factorization": "3119*3203",
+        "s": 3160,
+        "b": 1764,
+        "prev_prime_s": 3137,
+        "next_prime_s": 3163,
+        "T": 0,
+        "q_over_p": 1.0269317088810517
+      },
+      "right": {
+        "N": 9990159,
+        "factorization": "3*3330053",
+        "s": 3160,
+        "b": 1762,
+        "prev_prime_s": 3137,
+        "next_prime_s": 3163,
+        "T": 1661867,
+        "q_over_p": 1110017.6666666667
+      }
+    },
+    {
+      "kind": "exact same upper-square residual b at separated scales",
+      "left": {
+        "N": 5157223,
+        "factorization": "2203*2341",
+        "s": 2270,
+        "b": 218,
+        "T": 1,
+        "q_over_p": 1.0626418520199727
+      },
+      "right": {
+        "N": 9979063,
+        "factorization": "1013*9851",
+        "s": 3158,
+        "b": 218,
+        "T": 2273,
+        "q_over_p": 9.724580454096742
+      }
+    }
+  ],
+  "exact_classification": {
+    "single_shell": "F_N(t)=b+2*A0*t+t^2=(A0+t)^2-N; the least t>=0 making F_N(t) a square is exactly the Fermat midpoint offset T",
+    "factor_ratio": "T=sqrt(N)*(cosh(0.5*log(q/p))-1) - (ceil(sqrt(N))-sqrt(N)); the shell term is a subunit rounding correction, while the macroscopic term is the hidden factor ratio",
+    "neighbor_prime": "testing prime candidates downward from floor(sqrt(N)) until p is reached is trial division in a different order; J_p is a factor-labeled diagnostic, not a deployable N-only feature",
+    "multi_k": "upper square residuals of kN or 4kN are multiplier-Fermat coordinates; Lehman and Hart already systematize this family"
+  }
+}
