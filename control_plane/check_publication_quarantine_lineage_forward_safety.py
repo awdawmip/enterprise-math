@@ -22,11 +22,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 
 class LineageForwardSafetyError(ValueError):
@@ -93,7 +96,7 @@ def prove(task_id: str, anchors: list[str], root: Path = ROOT) -> dict[str, Any]
             )
         children[parent].append(publication_id)
 
-    # Once a fork branch is anchored, it must remain a single chain.  Historical
+    # Once a fork branch is anchored, it must remain a single chain. Historical
     # sibling creation below the anchor is enough to reject lineage-forward mode.
     for anchor in anchors:
         stack = [anchor]
