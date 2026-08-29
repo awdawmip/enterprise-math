@@ -59,20 +59,25 @@
       "runtime_dispatchable": false,
       "authority_granted": false,
       "related_migration_ids": [
-        "CSM-ROLEPOLICY-PUBLICATION-DISPATCH-002",
         "CSM-STEWARD-CANONICAL-DISPATCH-TOOL-007"
       ],
+      "resolved_classifications": [
+        {
+          "migration_id": "CSM-ROLEPOLICY-PUBLICATION-DISPATCH-002",
+          "resolution": "POST_PUBLICATION_ORDINARY_FRESH_SELECTOR",
+          "protected_selector_id": "CSP-ROLEPOLICY-PUBLICATION-DISPATCH-005",
+          "evidence": "research_task_publication_contract_v2.json explicitly separates control_dispatch_tool from fresh_dispatch_selector/dispatch_tool and labels the legacy dispatch field as the ordinary fresh selector"
+        }
+      ],
       "target_files": [
-        "research_role_policy.json",
         "foundation_steward.json"
       ],
-      "question": "Do the ambiguous dispatch fields denote the subordinate registered/fresh task selector or the top-level recovery-aware live control route?",
+      "question": "Does foundation_steward.json /canonical_dispatch_tool denote the subordinate scheduling/task-definition selector or the top-level recovery-aware live control route?",
       "required_verification": [
-        "Classify research_role_policy.json /task_publication_authority/dispatch as publication discovery/fresh selector versus live owner/session router.",
         "Classify foundation_steward.json /canonical_dispatch_tool in the context of adjacent scheduling_protocol and legacy_scheduler_config fields.",
-        "Cross-check against research_task_publication_contract_v2.json, research_dispatch_contract.json, Foundation backflow selector semantics, and active human protocols.",
-        "If a field is selector-scoped, protect tools/research_dispatch.py rather than migrating it.",
-        "If a field is live-route scoped, migrate only that exact pointer to research_control_dispatch.py."
+        "Cross-check against research_dispatch_contract.json, Foundation backflow selector semantics, Steward control-plane addendum, and active human protocols.",
+        "If the field is selector-scoped, protect tools/research_dispatch.py rather than migrating it.",
+        "If the field is live-route scoped, migrate only that exact pointer to research_control_dispatch.py."
       ],
       "forbidden_shortcuts": [
         "inferring meaning from the substring canonical_dispatch alone",
