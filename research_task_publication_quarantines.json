@@ -20,14 +20,19 @@
     },
     {
       "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
-      "state": "UNRESOLVED_PUBLICATION_FORK",
+      "state": "UNRESOLVED_PUBLICATION_FORK_LINEAGE_FORWARD",
       "publication_ids": [
+        "TP2-3F6A92D8C1E740B5A2C9",
+        "TP2-69B06B421888B311914E"
+      ],
+      "tracking_mode": "PINNED_FORK_ANCHORS_UNIQUE_LINEAR_DESCENDANTS",
+      "lineage_anchor_publication_ids": [
         "TP2-3F6A92D8C1E740B5A2C9",
         "TP2-69B06B421888B311914E"
       ],
       "operational_publication_id": null,
       "isolation_scope": "CONTROL_PLANE_ONLY",
-      "reason": "Two simultaneously active immutable publication heads are present for this task. The quarantine records the exact current head set only, selects neither head, and locally blocks the task until ordinary publication-resolution authority resolves the fork.",
+      "reason": "The exact post-fork Generation-3 publications are pinned as lineage anchors. Each anchor may advance only through a unique non-branching supersedes chain; any new sibling, third unanchored active head, broken ancestry, cycle, or ambiguous head partition fails closed. The quarantine selects no operational publication and exists only to keep this unresolved fork task-local while legitimate descendants evolve pending ordinary publication-resolution authority.",
       "working_truth_granted": false,
       "foundation_authority_granted": false,
       "canonical_promotion_granted": false,
