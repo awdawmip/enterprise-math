@@ -19,6 +19,7 @@ research-task mathematics, or discovery candidate content.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,6 +43,18 @@ def read(path: str) -> str:
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise ControlAuthorityError(message)
+
+
+def require_version_at_least(text: str, label: str, major: int, minor: int) -> None:
+    match = re.search(r"Status: `[^`]* / V(\d+)\.(\d+)`", text)
+    if match is None:
+        raise ControlAuthorityError(f"{label}: cannot parse status version")
+    current = (int(match.group(1)), int(match.group(2)))
+    required = (major, minor)
+    if current < required:
+        raise ControlAuthorityError(
+            f"{label}: version V{current[0]}.{current[1]} is below required V{major}.{minor}"
+        )
 
 
 def check() -> None:
@@ -236,10 +249,12 @@ def check() -> None:
     require("python tools/research_task_registry.py new" not in publication_protocol, "human publication protocol still instructs V1 new")
 
     driver = read("docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md")
-    require("V5.3" in driver, "Driver contract must be V5.3 or newer current control version")
+    require_version_at_least(driver, "Driver contract", 5, 3)
     require("Task publication: `research_task_publication_contract_v2.json`" in driver, "Driver contract must use V2 publication")
     require("Canonical live dispatch: `research_control_dispatch.py`" in driver, "Driver contract must use recovery-aware live dispatch")
     require("COVERAGE_LOOKUP != TOOL_USE" in driver, "Driver contract must distinguish coverage from use")
+    require("Review write authority: `research_review_write_authority.json`" in driver, "Driver contract missing review write authority")
+    require("READ_SNAPSHOT != REVIEW_WRITE_AUTHORITY" in driver, "Driver contract missing review write-boundary invariant")
 
     free_role = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
     require("ROLE-SPECIFIC CONTRACT V6.4" in free_role, "FREE role must be current V6.4 control version")
