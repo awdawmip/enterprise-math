@@ -158,6 +158,32 @@ python tools/research_task_records.py audit
 python tools/check_task_registry_cutover.py
 ```
 
+### 5A. Chat / remote-manual fallback
+
+A chat environment may have GitHub write access while lacking a local checkout or the ability to execute `tools/research_task_records.py`. That limitation does **not** create a second publication path and does not permit hand-authoring a V2 record from incomplete metadata.
+
+Freeze:
+
+`LOCAL_PUBLICATION_TOOL_UNAVAILABLE != PREFLIGHT_OPTIONAL`.
+
+`REMOTE_MANUAL_RECORD_WRITE != CANONICAL_PUBLISH_UNLESS_EQUIVALENT_PREFLIGHT_PASSES`.
+
+`REFERENCE_INTEGRITY_IS_BACKSTOP_NOT_PUBLICATION_AUTHORIZATION`.
+
+Before any direct GitHub/manual creation of a V2 publication record, the publisher must reproduce the canonical transaction boundary over the exact current source snapshot:
+
+1. refresh the target `main`/branch immediately before the mutation; an earlier read snapshot is not write authority;
+2. verify the taskbook uses canonical `ENTERPRISE_MATH_TASK_V1` frontmatter and its `task_id` matches the intended immutable record;
+3. verify all five canonical body sections above are present, nonempty, and contain no unresolved placeholders;
+4. verify nonempty `parent_objective_id`, `research_value`, `frontier`, `next_action`, origin/lineage fields, and current machine-policy review binding required by the canonical publication tool;
+5. compute and pin the exact current taskbook Git blob; never publish against an assumed or stale taskbook body;
+6. resolve the exact current publication generation immediately before a revision. If a revision is intended, `supersedes_publication_id` must name the exact prior generation. An unresolved publication fork is fail-closed and cannot be bypassed by manually choosing a head;
+7. construct only the same immutable record shape and authority flags that the canonical V2 tool would permit. If equivalent preflight/build semantics cannot be reproduced, stop at a non-executable draft/handoff; do not create task authority;
+8. use CAS/non-force write semantics where supported and refresh the target blob/head again if concurrent state changed;
+9. after creation, verify the record/taskbook binding and allow the ordinary strict publication/reference gates to check the result. Passing a later CI gate cannot retroactively authorize a write whose preflight was skipped.
+
+Direct GitHub publication is therefore a **transport fallback**, not a semantic or validation fallback.
+
 ## 6. Orphan prevention
 
 An orphan task is any post-cutover task-like object that can be mistaken for executable work but lacks exact immutable V2 publication authority.
