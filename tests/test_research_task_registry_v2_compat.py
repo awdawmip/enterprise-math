@@ -38,7 +38,7 @@ class ExactV2AuthorityCompatibilityTests(unittest.TestCase):
                 )
             )
 
-    def test_wrong_path_blob_transaction_or_state_does_not_bypass(self):
+    def test_wrong_path_blob_transaction_or_unsupported_state_does_not_bypass(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             path = self.make_taskbook(root)
@@ -47,7 +47,7 @@ class ExactV2AuthorityCompatibilityTests(unittest.TestCase):
                 ("taskbook_path", "research_tasks/OTHER.md"),
                 ("taskbook_blob_sha1", "sha1:" + "0" * 40),
                 ("publication_transaction", "NOT_V2"),
-                ("record_state", "CLOSED"),
+                ("record_state", "DRAFT"),
             ):
                 broken = dict(record)
                 broken[field] = bad
@@ -60,6 +60,24 @@ class ExactV2AuthorityCompatibilityTests(unittest.TestCase):
                         root=root,
                     ),
                     field,
+                )
+
+    def test_terminal_v2_publication_remains_exact_immutable_provenance(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            path = self.make_taskbook(root)
+            for state in sorted(records.TERMINAL_RECORD_STATES):
+                record = self.exact_record(path)
+                record["record_state"] = state
+                self.assertTrue(
+                    registry.has_exact_v2_publication_authority(
+                        path,
+                        {"task_id": "RS-T"},
+                        [record],
+                        set(),
+                        root=root,
+                    ),
+                    state,
                 )
 
     def test_nonstandard_migration_transaction_requires_explicit_parallel_retention(self):
