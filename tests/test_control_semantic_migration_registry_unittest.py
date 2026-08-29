@@ -80,7 +80,7 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
             by_id["CSM-STEWARD-CANONICAL-DISPATCH-005"]["migration_scope"],
         )
 
-    def test_runtime_bundle_is_proven_but_waits_for_safe_write_mechanism(self):
+    def test_runtime_bundle_is_migrated_by_verified_nonforce_git_object_transaction(self):
         data = json.loads(
             (ROOT / "control_plane" / "control_semantic_migration_registry.json").read_text(
                 encoding="utf-8"
@@ -89,10 +89,21 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
         by_id = {row["migration_id"]: row for row in data["entries"]}
         dispatch = by_id["CSM-RUNTIME-CANONICAL-DISPATCH-004"]
         liveness = by_id["CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006"]
-        self.assertEqual(
-            "FIELD_LOCALITY_PROOF_PASSED_AWAITING_SAFE_WRITE_MECHANISM",
-            dispatch["state"],
-        )
+        for row in (dispatch, liveness):
+            self.assertEqual("TARGET_MIGRATED", row["state"])
+            self.assertEqual(
+                "a3611b583acc7bd75f22d2c2f76548d9c79b7e76",
+                row["migrated_commit"],
+            )
+            self.assertEqual(
+                "a312e8c13086467fee7824f1457685e1f4fa096f",
+                row["migrated_blob_sha1"],
+            )
+            self.assertEqual(
+                "DETACHED_GIT_BLOB_TREE_COMMIT_THEN_NONFORCE_FAST_FORWARD_MAIN",
+                row["safe_write_mechanism"],
+            )
+            self.assertTrue(row["exact_diff_verified"])
         self.assertEqual(
             33221974090,
             dispatch["reference_evidence"]["production_consumer_reference_integrity_run_id"],
@@ -100,10 +111,6 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
         self.assertEqual(
             33222148731,
             dispatch["reference_evidence"]["field_locality_reference_integrity_run_id"],
-        )
-        self.assertEqual(
-            "FIELD_LOCALITY_PROOF_PASSED_AWAITING_SAFE_WRITE_MECHANISM",
-            liveness["state"],
         )
         self.assertEqual(
             33222148731,
