@@ -17,10 +17,14 @@ Foundation, canonical-promotion or successor authority.
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 QUARANTINE_FILE = "research_task_record_audit_quarantines.json"
 SCHEMA = "ENTERPRISE_MATH_TASK_RECORD_AUDIT_QUARANTINE_V1"
 STATE = "NONOPERATIONAL_IMMUTABLE_RECORD_INTEGRITY_FAULT"
