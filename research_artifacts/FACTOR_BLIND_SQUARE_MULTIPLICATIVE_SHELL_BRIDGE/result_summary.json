@@ -1,0 +1,304 @@
+{
+  "schema": "SMSB1_FACTOR_BLIND_BRIDGE_RESULT_SUMMARY_V1",
+  "task_id": "RS-FACTOR-BLIND-SQUARE-MULTIPLICATIVE-SHELL-BRIDGE",
+  "publication_id": "TP2-A712090E5314373E5447",
+  "researcher_id": "EM-SMSB1-73D4C2",
+  "terminal_verdict": "NEGATIVE_BOUNDARY",
+  "classification": {
+    "S1_PREDICTIVE_BRIDGE_ONLY": false,
+    "S2_SEARCH_BRIDGE": false,
+    "S3_COMPETITIVE_FACTORIZATION_GAIN": false,
+    "closed_exact_family": "FIXED_FINITE_PERIODIC_RESIDUE_FILTERS_ON_FERMAT_OFFSET",
+    "closed_empirical_family": "SHELL_RESIDUE_QR_CONDITIONAL_V1",
+    "universal_N_derived_no_go_claimed": false
+  },
+  "corpus": {
+    "primary_cases": 800,
+    "primary_train": 510,
+    "primary_tune": 137,
+    "primary_heldout": 153,
+    "challenge_cases": 600,
+    "bands": [
+      24,
+      32,
+      40,
+      48,
+      64
+    ],
+    "challenge_eval_strata_counts": {
+      "moderate": 157,
+      "near_twin": 150,
+      "balanced": 150,
+      "strong": 143
+    },
+    "challenge_factor_mantissa_constraint": "N/2^(bit_length-1) in [1.25,1.75] by generator construction; challenge is never used for model selection.",
+    "private_factors_serialized_to_worker": false
+  },
+  "exact_results": {
+    "fermat_bridge_identity": "For N=pq, c=ceil(sqrt(N)), b=c^2-N, A=(p+q)/2=c+T, B=(q-p)/2: B^2=b+T(2c+T); at t=T, z_N(t)=(c+t)^2-N is a square and p=c+T-B, q=c+T+B.",
+    "information_boundary": "(L,D)<->N is an exact reparameterization and every fixed finite multi-k signature is a deterministic function of N.",
+    "periodic_no_go": "Any fixed finite residue filter whose decision in t is periodic with period M and retains the true Fermat offset T must retain every nonnegative T-l*M. Therefore it keeps at least floor(T/M)+1 candidates through T and cannot yield o(T) candidate count for fixed M.",
+    "qr_period_audit": {
+      "moduli": [
+        8,
+        9,
+        5,
+        7,
+        11
+      ],
+      "period": 27720,
+      "representatives": 20,
+      "min_survivor_count_per_period": 120,
+      "max_survivor_count_per_period": 576,
+      "min_density": 0.004329004329004329,
+      "max_density": 0.02077922077922078,
+      "max_observed_constant_factor_compression": 230.99986271279516,
+      "min_observed_nontrivial_compression": 48.12500000000013,
+      "representative_64_moderate": {
+        "T": 2585365521648,
+        "survivors_through_T": 22384117071,
+        "compression": 115.49999999769926
+      },
+      "representative_64_strong": {
+        "T": 13586347362351934,
+        "survivors_through_T": 282313711425494,
+        "compression": 48.12500000000013
+      }
+    }
+  },
+  "authoring_random_forest": {
+    "iid_heldout": {
+      "p_bucket": {
+        "n": 153,
+        "top1": 0.5686274509803921,
+        "top3": 0.8496732026143791,
+        "top5": 0.9281045751633987,
+        "k_at_99": 7,
+        "k_at_999": 7
+      },
+      "q_bucket": {
+        "n": 153,
+        "top1": 0.5816993464052288,
+        "top3": 0.8300653594771242,
+        "top5": 0.9411764705882353,
+        "k_at_99": 7,
+        "k_at_999": 8
+      },
+      "t_bucket": {
+        "n": 153,
+        "top1": 0.5816993464052288,
+        "top3": 0.8496732026143791,
+        "top5": 0.9411764705882353,
+        "k_at_99": 7,
+        "k_at_999": 7
+      }
+    },
+    "adversarial_challenge": {
+      "p_bucket": {
+        "n": 600,
+        "top1": 0.44,
+        "top3": 0.6233333333333333,
+        "top5": 0.7483333333333333,
+        "k_at_99": 10,
+        "k_at_999": 10
+      },
+      "q_bucket": {
+        "n": 600,
+        "top1": 0.435,
+        "top3": 0.6383333333333333,
+        "top5": 0.74,
+        "k_at_99": 9,
+        "k_at_999": 9
+      },
+      "t_bucket": {
+        "n": 600,
+        "top1": 0.5066666666666667,
+        "top3": 0.7,
+        "top5": 0.7683333333333333,
+        "k_at_99": 10,
+        "k_at_999": 10
+      }
+    },
+    "challenge_p_bucket_by_stratum": {
+      "near_twin": {
+        "n": 150,
+        "top1": 1.0,
+        "top2": 1.0,
+        "top3": 1.0,
+        "top5": 1.0,
+        "k_at_99": 1,
+        "k_at_999": 1
+      },
+      "balanced": {
+        "n": 150,
+        "top1": 0.006666666666666667,
+        "top2": 0.02,
+        "top3": 0.06,
+        "top5": 0.22666666666666666,
+        "k_at_99": 10,
+        "k_at_999": 10
+      },
+      "moderate": {
+        "n": 157,
+        "top1": 0.3503184713375796,
+        "top2": 0.4585987261146497,
+        "top3": 0.5859872611464968,
+        "top5": 0.8089171974522293,
+        "k_at_99": 8,
+        "k_at_999": 8
+      },
+      "strong": {
+        "n": 143,
+        "top1": 0.40559440559440557,
+        "top2": 0.7482517482517482,
+        "top3": 0.8601398601398601,
+        "top5": 0.965034965034965,
+        "k_at_99": 7,
+        "k_at_999": 7
+      }
+    },
+    "cross_band_64_train_24_32_40": {
+      "p_bucket": {
+        "top1": 0.43333333333333335,
+        "top3": 0.7166666666666667,
+        "top5": 0.7666666666666667,
+        "k_at_99": 10
+      },
+      "q_bucket": {
+        "top1": 0.44166666666666665,
+        "top3": 0.7083333333333334,
+        "top5": 0.775,
+        "k_at_99": 9
+      },
+      "t_bucket": {
+        "top1": 0.6916666666666667,
+        "top3": 0.7666666666666667,
+        "top5": 0.8333333333333334,
+        "k_at_99": 10
+      }
+    }
+  },
+  "independent_stdlib_knn15": {
+    "p_bucket": {
+      "n": 600,
+      "top1": 0.43166666666666664,
+      "top2": 0.54,
+      "top3": 0.6,
+      "top5": 0.7116666666666667,
+      "k_at_99": 10,
+      "k_at_999": 10
+    },
+    "q_bucket": {
+      "n": 600,
+      "top1": 0.4266666666666667,
+      "top2": 0.535,
+      "top3": 0.605,
+      "top5": 0.715,
+      "k_at_99": 10,
+      "k_at_999": 10
+    },
+    "t_bucket": {
+      "n": 600,
+      "top1": 0.5816666666666667,
+      "top2": 0.665,
+      "top3": 0.7116666666666667,
+      "top5": 0.7616666666666667,
+      "k_at_99": 10,
+      "k_at_999": 10
+    }
+  },
+  "search_wrapper_knn15_p_bucket_64bit": {
+    "n": 120,
+    "by_stratum": {
+      "near_twin": {
+        "n": 30,
+        "median_ratio_vs_ascending_prime_scan": 0.0047613031427675,
+        "mean_ratio_vs_ascending_prime_scan": 0.005115566849360114,
+        "total_cost_ratio_vs_ascending_prime_scan": 0.0051435764050168885,
+        "min_ratio": 0.004758354850482634,
+        "max_ratio": 0.010074539258816496
+      },
+      "balanced": {
+        "n": 30,
+        "median_ratio_vs_ascending_prime_scan": 1.2714212790067765,
+        "mean_ratio_vs_ascending_prime_scan": 1.0889017056645292,
+        "total_cost_ratio_vs_ascending_prime_scan": 1.0566370445110982,
+        "min_ratio": 0.0639960745043328,
+        "max_ratio": 1.3988769421246712
+      },
+      "moderate": {
+        "n": 32,
+        "median_ratio_vs_ascending_prime_scan": 1.0,
+        "mean_ratio_vs_ascending_prime_scan": 14.040098419281085,
+        "total_cost_ratio_vs_ascending_prime_scan": 4.82698560057481,
+        "min_ratio": 0.20019592078790208,
+        "max_ratio": 213.97981157469718
+      },
+      "strong": {
+        "n": 28,
+        "median_ratio_vs_ascending_prime_scan": 1.0,
+        "mean_ratio_vs_ascending_prime_scan": 1565.5389774848302,
+        "total_cost_ratio_vs_ascending_prime_scan": 801.4585362817261,
+        "min_ratio": 1.0,
+        "max_ratio": 29555.204991087343
+      }
+    },
+    "overall": {
+      "median_ratio": 1.0,
+      "mean_ratio": 369.3099586430638,
+      "total_cost_ratio": 0.48621093017718797
+    }
+  },
+  "adversarial_coarse_fingerprint_collisions": [
+    {
+      "fingerprint": [
+        32,
+        31,
+        76,
+        1
+      ],
+      "N1": 3596999671,
+      "N2": 3208542511,
+      "p_bucket_1": 3,
+      "p_bucket_2": 9,
+      "gap": 6,
+      "band": 32,
+      "eval_stratum_1": "moderate",
+      "eval_stratum_2": "near_twin"
+    },
+    {
+      "fingerprint": [
+        40,
+        28,
+        58,
+        0
+      ],
+      "N1": 811633206883,
+      "N2": 713031446353,
+      "p_bucket_1": 0,
+      "p_bucket_2": 6,
+      "gap": 6,
+      "band": 40,
+      "eval_stratum_1": "strong",
+      "eval_stratum_2": "balanced"
+    },
+    {
+      "fingerprint": [
+        40,
+        18,
+        17,
+        0
+      ],
+      "N1": 742770913727,
+      "N2": 763443573707,
+      "p_bucket_1": 1,
+      "p_bucket_2": 6,
+      "gap": 5,
+      "band": 40,
+      "eval_stratum_1": "moderate",
+      "eval_stratum_2": "balanced"
+    }
+  ],
+  "decision_note": "IID improvements do not survive the precommitted challenge at high recall. Near-twin cases dominate the strongest positive signal; matched Fermat is already essentially optimal there. Moderate/strong cases can be severely mis-prioritized by bucket-first search. Hence no S1/S2/S3 is granted.",
+  "tool_reuse": "REUSE_APPLIED: T1 scale/shell extraction, T4 collision/fiber reasoning, T5 carry/refinement concepts; no new general-purpose tool family introduced."
+}
