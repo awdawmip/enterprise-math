@@ -38,6 +38,11 @@ jobs:
         run: python control_plane/check_control_pointer_python_consumers.py
       - name: Prove runtime control migration changes only registered pointers
         run: python control_plane/check_runtime_control_migration_equivalence.py
+      - name: Dry-run exact-span runtime control migration
+        run: >-
+          python control_plane/apply_registered_json_migration.py
+          --migration-id CSM-RUNTIME-CANONICAL-DISPATCH-004
+          --migration-id CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006
       - name: Check opt-in source firewall declarations
         run: python scripts/check_research_source_firewall.py
       - name: Check shared theorem and tool routing
