@@ -1,3 +1,4 @@
+import re
 import unittest
 from pathlib import Path
 
@@ -9,14 +10,27 @@ def read(path: str) -> str:
     return (ROOT / path).read_text(encoding="utf-8")
 
 
+def assert_status_version_at_least(
+    testcase: unittest.TestCase,
+    text: str,
+    major: int,
+    minor: int,
+) -> None:
+    match = re.search(r"Status: `[^`]* / V(\d+)\.(\d+)`", text)
+    testcase.assertIsNotNone(match, "router status version must be parseable")
+    assert match is not None
+    current = (int(match.group(1)), int(match.group(2)))
+    testcase.assertGreaterEqual(current, (major, minor))
+
+
 class AgentsRouterContractTests(unittest.TestCase):
     def test_agents_is_small_execution_router_not_research_catalog(self):
         text = read("AGENTS.md")
         self.assertIn("STABLE EXECUTION ROUTER", text)
-        self.assertIn("V3.0", text)
+        assert_status_version_at_least(self, text, 3, 0)
         self.assertIn("not** a theorem catalog", text)
-        self.assertLess(len(text.splitlines()), 430)
-        self.assertLess(len(text), 26000)
+        self.assertLess(len(text.splitlines()), 460)
+        self.assertLess(len(text), 28500)
         for stale_or_agenda_token in (
             "Issue #164",
             "Research Relay #82",
@@ -28,6 +42,18 @@ class AgentsRouterContractTests(unittest.TestCase):
             "A4 correspondence",
         ):
             self.assertNotIn(stale_or_agenda_token, text)
+
+    def test_agents_routes_source_only_control_fields_through_narrow_precedence(self):
+        text = read("AGENTS.md")
+        for marker in (
+            "Narrow control-authority precedence",
+            "control_plane/current_control_authority.json",
+            "CONTROL_PRECEDENCE != MATHEMATICAL_PRECEDENCE",
+            "READ_SNAPSHOT != REVIEW_WRITE_AUTHORITY",
+            "research_review_write_authority.json",
+        ):
+            self.assertIn(marker, text)
+        self.assertIn("does **not** override mathematical truth", text)
 
     def test_agents_routes_free_to_primitive_substrate_without_menu(self):
         text = read("AGENTS.md")
@@ -64,6 +90,9 @@ class AgentsRouterContractTests(unittest.TestCase):
             "research_method_inventory.json",
             "tools/enterprise_toolbox.py",
             "UNDERSTAND_TASK_FIRST -> TOOL_LOOKUP_SECOND",
+            "COVERAGE_LOOKUP != TOOL_USE",
+            "REUSE_EXECUTED",
+            "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE",
             "NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP",
             "Discovery-firewall timing exception",
         ):
