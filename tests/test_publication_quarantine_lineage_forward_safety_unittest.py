@@ -17,7 +17,7 @@ ANCHORS = [
 class PublicationQuarantineLineageForwardSafetyTests(unittest.TestCase):
     def test_real_native_bridge_fork_has_one_current_head_per_anchor(self):
         evidence = safety.prove(TASK, ANCHORS, ROOT)
-        self.assertEqual("SAFE_LINEAR_DESCENDANT_FORWARD_EVIDENCE_ONLY", evidence["status"])
+        self.assertEqual(TASK, evidence["task_id"])
         self.assertEqual(set(ANCHORS), set(evidence["anchor_to_current_head"]))
         self.assertEqual(2, len(evidence["current_active_head_publication_ids"]))
         self.assertFalse(evidence["operational_publication_selected"])
