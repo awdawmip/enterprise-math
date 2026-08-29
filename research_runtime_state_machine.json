@@ -29,7 +29,7 @@
     "parallel_evidence_tool": "research_parallel_evidence.py",
     "registry_cutover_checker": "tools/check_task_registry_cutover.py",
     "canonical_dispatch_contract": "research_dispatch_contract.json",
-    "canonical_dispatch": "tools/research_dispatch.py",
+    "canonical_dispatch": "research_control_dispatch.py",
     "legacy_scheduler": "research_scheduler.json",
     "legacy_scheduler_reducer": "tools/research_scheduler.py",
     "result_contract": "research_result_contract.json",
@@ -235,8 +235,8 @@
     "session_liveness": {
       "authority": "research_runtime_state_machine.json",
       "default_minutes": 10,
-      "semantic_scope": "CURRENT_CONVERSATION_INSTANCE",
-      "renewed_by": ["VISIBLE_OR_DURABLE_SESSION_PROGRESS", "EXPLICIT_SESSION_HEARTBEAT"],
+      "semantic_scope": "EXACT_OWNER_SCOPE_CURRENT_WINNING_CLAIM",
+      "renewed_by": ["TASK_RESEARCH_RESPONSE_BOUND_TO_EXACT_CLAIM_ID", "DURABLE_EXECUTION_PROGRESS_BOUND_TO_EXACT_CLAIM_ID"],
       "must_not_inherit_owner_lease_minutes": true
     }
   },
