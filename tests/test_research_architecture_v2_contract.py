@@ -16,7 +16,7 @@ def test_role_modes_separate_free_discovery_from_task_research():
     free = arch["research_modes"]["FREE_AXIOM_DISCOVERY"]
     task = arch["research_modes"]["TASK_RESEARCH"]
     assert free["scheduler_eligible"] is False
-    assert free["agenda_visibility_before_candidate_freeze"] == "FOUNDATION_ONLY"
+    assert free["agenda_visibility_before_candidate_freeze"] == "PRIMITIVE_SUBSTRATE_ONLY"
     assert free["inherits_other_branch_working_truth"] is False
     assert task["scheduler_eligible"] is True
     assert role["research_modes"]["FREE_AXIOM_DISCOVERY"]["generic_no_user_task_scheduler_rule_applies"] is False
@@ -98,11 +98,12 @@ def test_driver_contract_forbids_automatic_successor_stage_and_raw_working_truth
     text = (ROOT / "docs" / "RESEARCH_DRIVER_OPERATING_CONTRACT.md").read_text(encoding="utf-8")
     assert "PASS_IS_NOT_A_SUCCESSOR_TRIGGER" in text
     assert "AXIOM_CANDIDATE != WORKING_TRUTH" in text
-    assert "Working Truth activation boundary" in text
+    assert "## 9. Working Truth activation" in text
+    assert "MERE_TASK_PUBLICATION != WORKING_TRUTH_ACTIVATION" in text
     assert "NO_IMPLICIT_DEFAULT_NEXT_ROUTE" in text
     assert "alternative_route_or_free_exploration_considered" in text
     assert "origin_kind=FREE_AXIOM_CANDIDATE" in text
-    assert "may not be labeled `NEW_DIRECTION`" in text
+    assert "may not reset lineage" in text
 
 
 def test_role_policy_mirrors_task_origin_and_successor_guards():
@@ -254,6 +255,6 @@ def test_governance_liveness_protocol_forbids_permanent_lane_ownership_and_math_
 def test_driver_contract_uses_attempt_semantics_for_promotion():
     text = (ROOT / "docs" / "RESEARCH_DRIVER_OPERATING_CONTRACT.md").read_text(encoding="utf-8")
     assert "READY_PR != PROMOTION_LANE_LEASE" in text
-    assert "one bounded promotion attempt" in text
-    assert "separate bounded governance-maintenance attempt" in text
+    assert "Mathematical promotion and strict `NO_NEW_MATHEMATICS` governance maintenance use bounded attempts." in text
+    assert "release the remote subflow and resume the open parent" in text
     assert "use the governance-maintenance lane to smuggle mathematical claim changes" in text
