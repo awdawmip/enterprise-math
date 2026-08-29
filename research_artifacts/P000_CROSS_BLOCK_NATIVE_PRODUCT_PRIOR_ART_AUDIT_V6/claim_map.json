@@ -1,0 +1,91 @@
+{
+  "schema": "P000_CROSS_BLOCK_NATIVE_PRODUCT_PRIOR_ART_CLAIM_MAP_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-E4143818BDA70C70113B",
+  "researcher_id": "EM-P0006DPA6-E61B42",
+  "classification_vocabulary": [
+    "EXACT_DUPLICATE",
+    "PARTIAL_ANTECEDENT",
+    "ADJACENT_METHOD",
+    "NO_MATERIAL_MATCH"
+  ],
+  "novelty_guard": "NO_MATERIAL_MATCH != NOVELTY",
+  "rows": [
+    {
+      "claim_id": "C01_CARTESIAN_FACTOR_RIGIDITY",
+      "internal_claim": "Connected Cartesian product structure has a factor decomposition, and product automorphisms are controlled by prime-factor automorphisms together with permutations of isomorphic factors.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Sabidussi–Vizing unique factorization and the classical Cartesian-product automorphism theory already provide the product-level rigidity. The exact P000 Cell typing is not part of the classical theorem.",
+      "sources": ["S01"]
+    },
+    {
+      "claim_id": "C02_WREATH_3_PLUS_3_ENVELOPE",
+      "internal_claim": "W=(S3 x S3) semidirect C2 ≅ S3 wr S2 is the full whole-block-preserving motion envelope for two interchangeable 3-axis blocks; |W|=72.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "This is the standard equal-block partition stabilizer in S6. It also appears exactly as Aut(H(2,3))=S3 wr S2.",
+      "sources": ["S02", "S03", "S04"]
+    },
+    {
+      "claim_id": "C03_PARTIAL_MIXER_OUTSIDE_W",
+      "internal_claim": "b=(E2 E4)(E3 E5), fixing E1,E6, is outside W because it maps the A-block to a mixed 3-set rather than a whole block.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Membership in a partition stabilizer is classical. The finite checker verifies b∉W for the task labels.",
+      "sources": ["S03", "S04"]
+    },
+    {
+      "claim_id": "C04_CARTESIAN_ADJACENCY_AND_PARTIAL_CROSS_FACTOR_MIXING",
+      "internal_claim": "The current product adjacency, in which one factor changes while the other is fixed, is not preserved by the target partial cross-factor coordinate mixer.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "Classical Cartesian-product theory says automorphisms respect prime-factor/layer structure up to whole permutations of isomorphic factors. This supports the product-level obstruction. The exact P000 adjacency/relation typing and the particular six-axis relabel are project-instance data.",
+      "sources": ["S01", "S02"]
+    },
+    {
+      "claim_id": "C05_BLOCK_PURE_CLOSURE_INVARIANT",
+      "internal_claim": "Closure under composition, inverse and legal restriction of the currently supplied block-preserving relations cannot manufacture a genuinely mixed-support relation.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "Closure of total block-preserving permutations stays inside the partition stabilizer, and restriction of supplied partial bijections stays a partial symmetry of supplied maps. The P000 support type and Cell-valued relation grammar are project-specific.",
+      "sources": ["S03", "S04", "S05"]
+    },
+    {
+      "claim_id": "C06_PARTIAL_ACTION_OR_GROUPOID_ESCAPE",
+      "internal_claim": "Renaming the current laws as partial/groupoid arrows does not by itself create a missing mixed-domain relation object.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "In standard partial-action/inverse-semigroup formalisms the domains and partial bijections/isomorphisms are explicit data. Partiality can represent a new cross-block arrow if one is supplied, but does not canonically infer that arrow from block-pure generators.",
+      "sources": ["S05", "S06"]
+    },
+    {
+      "claim_id": "C07_GRAPH_BUNDLE_ADJACENT_METHOD",
+      "internal_claim": "A richer local/fibered relation structure could support mixed-coordinate transport without treating the state as a direct product.",
+      "classification": "ADJACENT_METHOD",
+      "external_boundary": "Cartesian graph bundles are a standard generalization of graph products/coverings and can carry transition data between fibers. This is a design analogy only, not an identification with P000 BMix_b.",
+      "sources": ["S07"]
+    },
+    {
+      "claim_id": "C08_NAIVE_GLOBAL_B_EXTENSION",
+      "internal_claim": "Adding the target b as a new global total axis permutation on top of the full W envelope is not a safe minimal extension.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Because W=S3 wr S2 is a maximal imprimitive subgroup of S6 and b∉W, group theory forces <W,b>=S6. The checker independently enumerates all 720 elements. Thus a global-permutation extension automatically admits arbitrary S6 axis permutations.",
+      "sources": ["S03", "S04"]
+    },
+    {
+      "claim_id": "C09_MINIMAL_TYPED_BMIX_INTERFACE",
+      "internal_claim": "A non-S6-collapsing BMix_b must be typed/partial/domain-sensitive or otherwise relation-level, with explicit source/target/support/payload semantics.",
+      "classification": "ADJACENT_METHOD",
+      "external_boundary": "Partial actions, inverse semigroups and graph bundles are standard tool families for typed/local transformations. None of the audited sources determines the P000-minimal relation or proves Cell/stack/handle consistency.",
+      "sources": ["S05", "S06", "S07"]
+    },
+    {
+      "claim_id": "C10_P000_NO_QUOTIENT_NATIVE_IDENTITY",
+      "internal_claim": "Carrier/readout equivalence, product representation or external quotient equivalence must not identify distinct P000 native states.",
+      "classification": "NO_MATERIAL_MATCH",
+      "external_boundary": "This is an internal ontology/operation-safety guard. Classical product decomposition and partial-symmetry theories do not prescribe the P000 native identity relation.",
+      "sources": []
+    }
+  ],
+  "terminal_boundary": {
+    "classical_product_group_level": "CARTESIAN FACTORIZATION + 3+3 WREATH ENVELOPE + b OUTSIDE W + GLOBAL W+b=>S6 ARE CLASSICAL/FINITE SPECIALIZATIONS",
+    "partial_local_level": "PARTIAL ACTION / INVERSE SEMIGROUP / GRAPH BUNDLE ARE STANDARD ADJACENT FRAMEWORKS, NOT AN AUTOMATIC BMix_b",
+    "p000_native_level": "EXACT MINIMAL BMix_b SEMANTICS AND NO-QUOTIENT IDENTITY GUARD REMAIN PROJECT-SPECIFIC",
+    "novelty_status": "UNDECIDED; NO ORIGINALITY CLAIM AUTHORIZED"
+  }
+}
