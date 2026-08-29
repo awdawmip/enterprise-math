@@ -13,6 +13,7 @@ if str(ROOT) not in sys.path:
 from control_plane import research_control_bootstrap  # noqa: E402
 from control_plane import research_publication_fault_isolation as fork_isolation  # noqa: E402
 from control_plane import research_task_integrity_fault_isolation as integrity_isolation  # noqa: E402
+from control_plane import research_task_record_audit_fault_isolation as record_audit_isolation  # noqa: E402
 
 
 def _audit_operational_publications(operational, isolated_tasks: set[str]) -> list[str]:
@@ -68,10 +69,14 @@ def _audit_operational_publications(operational, isolated_tasks: set[str]) -> li
 def audit() -> list[str]:
     errors: list[str] = []
 
-    # The strict immutable-record audit remains authoritative. Only exact errors
-    # pinned to exact current blobs in the integrity-quarantine registry may be
-    # subtracted; every stale/unused suppression is itself an error.
+    # Current-task integrity isolation runs first and may suppress only exact
+    # defects on one pinned sole current head, projecting that task to BLOCKED.
+    # A second, audit-only layer may then suppress exact remaining defects only
+    # on independently nonoperational immutable records (directly superseded
+    # history or a current head already blocked by unresolved fork quarantine).
+    # The second layer never participates in runtime projection.
     task_record_errors = integrity_isolation.audit_task_records(ROOT)
+    task_record_errors = record_audit_isolation.audit_against(task_record_errors, ROOT)
     if task_record_errors:
         return task_record_errors
 
@@ -121,7 +126,8 @@ def main() -> int:
         return 1
     print(
         "PASS: strict publication integrity preserved with exact task-local "
-        "fork/integrity isolation and no operational selection for isolated tasks."
+        "fork/current-integrity isolation plus audit-only nonoperational record "
+        "containment; no operational selection for isolated tasks."
     )
     return 0
 
