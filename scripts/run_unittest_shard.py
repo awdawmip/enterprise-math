@@ -1,36 +1,45 @@
 #!/usr/bin/env python3
-"""Run one deterministic shard of the repository unittest suite.
+"""Run one deterministic shard of the repository Python test suite.
 
-This preserves the exact ``tests/test*.py`` discovery universe while splitting
-wall-clock work across multiple GitHub-hosted runners. Files are sorted and
-assigned round-robin by index, so every discovered test file belongs to exactly
-one shard and no test semantics are weakened.
+The repository historically contains both ``unittest.TestCase`` tests and
+pytest-style top-level ``def test_*`` functions.  The old shard runner used only
+``unittest`` discovery, which meant top-level functions could appear in shard
+listings while never executing.  Silent skips are forbidden.
 
-A file named ``tests/test*.py`` is a test contract. Silently discovering zero
-``unittest`` cases from such a file is forbidden: it previously allowed
-pytest-style top-level functions to appear in shard listings while never running.
-The runner therefore fails closed when any assigned test file contributes zero
-cases.
+This runner therefore loads each assigned test module exactly once, executes all
+ordinary unittest cases, and adapts top-level synchronous ``test_*`` functions
+with no required fixture arguments into ``unittest.FunctionTestCase``.  A
+pytest-style test that requires fixture/parameter injection or is async fails
+closed with an explicit discovery-contract error rather than being skipped or
+called incorrectly.
 
 Control-plane tests exercise the same fault-isolated operational view used by
 live dispatch. Strict/raw validators remain separately callable from the
-reference-integrity workflow; forgetting an import-side bootstrap in an
-individual test module must not resurrect a task-local fault into a global test
-process denial of service.
+reference-integrity workflow.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
+import importlib.util
+import inspect
 import sys
 import unittest
 from pathlib import Path
+from types import ModuleType
 
 ROOT = Path(__file__).resolve().parents[1]
 TEST_ROOT = ROOT / "tests"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+if str(TEST_ROOT) not in sys.path:
+    sys.path.insert(0, str(TEST_ROOT))
 
 from control_plane import research_control_bootstrap  # noqa: E402
+
+
+class TestDiscoveryContractError(RuntimeError):
+    pass
 
 
 def test_files() -> list[Path]:
@@ -45,6 +54,79 @@ def shard_files(index: int, count: int) -> list[Path]:
     return [path for offset, path in enumerate(test_files()) if offset % count == index]
 
 
+def _module_name(path: Path) -> str:
+    digest = hashlib.sha256(path.resolve().as_posix().encode("utf-8")).hexdigest()[:12]
+    return f"_enterprise_math_test_{path.stem}_{digest}"
+
+
+def load_test_module(path: Path) -> ModuleType:
+    name = _module_name(path)
+    spec = importlib.util.spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        raise TestDiscoveryContractError(f"cannot create import spec for {path}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    try:
+        spec.loader.exec_module(module)
+    except Exception as exc:
+        sys.modules.pop(name, None)
+        raise TestDiscoveryContractError(
+            f"test module import failed for {path}: {type(exc).__name__}: {exc}"
+        ) from exc
+    return module
+
+
+def top_level_function_tests(module: ModuleType, rel: str) -> list[unittest.FunctionTestCase]:
+    out: list[unittest.FunctionTestCase] = []
+    unsupported: list[str] = []
+    for name, value in sorted(vars(module).items()):
+        if not name.startswith("test_") or not inspect.isfunction(value):
+            continue
+        if value.__module__ != module.__name__:
+            continue
+        if inspect.iscoroutinefunction(value):
+            unsupported.append(f"{name}(async)")
+            continue
+        signature = inspect.signature(value)
+        required = [
+            parameter.name
+            for parameter in signature.parameters.values()
+            if parameter.default is inspect.Parameter.empty
+            and parameter.kind
+            in {
+                inspect.Parameter.POSITIONAL_ONLY,
+                inspect.Parameter.POSITIONAL_OR_KEYWORD,
+                inspect.Parameter.KEYWORD_ONLY,
+            }
+        ]
+        if required:
+            unsupported.append(f"{name}(requires={required})")
+            continue
+        out.append(
+            unittest.FunctionTestCase(
+                value,
+                description=f"{rel}::{name}",
+            )
+        )
+    if unsupported:
+        raise TestDiscoveryContractError(
+            f"{rel}: pytest-style test(s) require unsupported fixture/async semantics: "
+            + ", ".join(unsupported)
+            + "; convert those tests to unittest.TestCase or provide an explicit supported adapter"
+        )
+    return out
+
+
+def load_file_suite(path: Path, loader: unittest.TestLoader | None = None) -> unittest.TestSuite:
+    loader = loader or unittest.TestLoader()
+    module = load_test_module(path)
+    rel = path.relative_to(ROOT).as_posix() if path.is_relative_to(ROOT) else str(path)
+    suite = unittest.TestSuite()
+    suite.addTests(loader.loadTestsFromModule(module))
+    suite.addTests(top_level_function_tests(module, rel))
+    return suite
+
+
 def build_suite(index: int, count: int) -> tuple[unittest.TestSuite, dict[str, int]]:
     # Install once before importing any test module. This is deliberately the
     # operational view, not an audit waiver: exact quarantines are validated by
@@ -56,9 +138,9 @@ def build_suite(index: int, count: int) -> tuple[unittest.TestSuite, dict[str, i
     zero_case_files: list[str] = []
 
     for path in shard_files(index, count):
-        discovered = loader.discover(str(TEST_ROOT), pattern=path.name)
-        case_count = discovered.countTestCases()
         rel = path.relative_to(ROOT).as_posix()
+        discovered = load_file_suite(path, loader)
+        case_count = discovered.countTestCases()
         counts[rel] = case_count
         if case_count == 0:
             zero_case_files.append(rel)
@@ -67,17 +149,18 @@ def build_suite(index: int, count: int) -> tuple[unittest.TestSuite, dict[str, i
 
     if zero_case_files:
         joined = ", ".join(zero_case_files)
-        raise RuntimeError(
-            "test discovery contract violation: tests/test*.py file(s) produced zero unittest cases: "
+        raise TestDiscoveryContractError(
+            "test discovery contract violation: tests/test*.py file(s) produced zero executable "
+            "unittest or zero-argument top-level test cases: "
             + joined
-            + "; convert them to unittest.TestCase or remove/rename them if they are not tests"
+            + "; add executable tests or remove/rename the file if it is not a test contract"
         )
 
     return suite, counts
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Run one deterministic unittest file shard")
+    parser = argparse.ArgumentParser(description="Run one deterministic Python test file shard")
     parser.add_argument("--index", type=int, required=True)
     parser.add_argument("--count", type=int, required=True)
     args = parser.parse_args()
@@ -96,7 +179,7 @@ def main() -> int:
 
     try:
         suite, counts = build_suite(args.index, args.count)
-    except RuntimeError as exc:
+    except TestDiscoveryContractError as exc:
         print(f"ERROR: {exc}", file=sys.stderr, flush=True)
         return 2
 
