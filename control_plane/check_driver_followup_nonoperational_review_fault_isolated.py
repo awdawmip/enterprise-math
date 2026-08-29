@@ -2,11 +2,14 @@
 """Audit follow-up isolation across all exact nonoperational review causes."""
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
-from control_plane import research_nonoperational_review_source_adapter as adapter
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from control_plane import research_nonoperational_review_source_adapter as adapter
 
 
 def audit() -> list[str]:
