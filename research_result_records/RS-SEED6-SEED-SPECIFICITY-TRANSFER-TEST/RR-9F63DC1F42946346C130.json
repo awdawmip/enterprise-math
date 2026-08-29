@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-9F63DC1F42946346C130",
+  "task_id": "RS-SEED6-SEED-SPECIFICITY-TRANSFER-TEST",
+  "publication_id": "TP2-45170A2BBF5D87471FCD",
+  "execution_record_id": "ER-5573D4422F2608C1B00B",
+  "claim_id": "chatgpt-s6x-20260829-16509c",
+  "taskbook_path": "research_tasks/SEED6_SEED_SPECIFICITY_TRANSFER_TEST_20260829.md",
+  "taskbook_blob_sha1": "sha1:dbc8988ea7d14732ec2022e7610a0a0b85ca654c",
+  "execution_branch": "research/seed6-seed-specificity-transfer-test-em-s6x-6acb29",
+  "execution_branch_base": "65d1cae115e648f5154a898cd3ba83a2a2b27223",
+  "return_path": "research_returns/SEED6_SEED_SPECIFICITY_TRANSFER_TEST_RETURN_20260829.md",
+  "return_blob_sha1": "sha1:a52d3cae9a872f3ce917051f29b9e4f05f48ae83",
+  "return_sha256": "sha256:8b54c3a8cec856fc2437f6b439041ffed7394ce39b602f1271d44c55faba4d2d",
+  "owner_head": "189e3c4cecd338cd6992dacae968a7635dc93011",
+  "researcher_id": "EM-S6X-6ACB29",
+  "frozen_at": "2026-08-29T13:07:24Z",
+  "terminal_verdict": "MIXED_SPECIFICITY",
+  "hard_target_disposition": "SATISFIED: SEED6_SPECIAL_VS_GENERIC_STRUCTURE_CLASSIFIED",
+  "unresolved_residue": "No unresolved residue within task scope. Future attempts to isolate a genuinely Seed-6-specific intrinsic invariant require a new task using arithmetic structure beyond carrier-role relabeling.",
+  "output_manifest": [
+    {
+      "path": "research_returns/SEED6_SEED_SPECIFICITY_TRANSFER_TEST_RETURN_20260829.md",
+      "git_blob_sha1": "sha1:a52d3cae9a872f3ce917051f29b9e4f05f48ae83",
+      "sha256": "sha256:8b54c3a8cec856fc2437f6b439041ffed7394ce39b602f1271d44c55faba4d2d"
+    },
+    {
+      "path": "research_checks/SEED6_SEED_SPECIFICITY_TRANSFER_TEST_CHECK_20260829.py",
+      "git_blob_sha1": "sha1:cc28f3d600149f870063cd21b380b381841889e1",
+      "sha256": "sha256:90a76695c027cb44170938fdae7aa6869a6034a43d01e9f8bd243aaf35e12452"
+    },
+    {
+      "path": "research_artifacts/SEED6_SEED_SPECIFICITY_TRANSFER_TEST/transfer_census_120.json",
+      "git_blob_sha1": "sha1:4f094039f76aa01531e7cc5521be63b47be9625f",
+      "sha256": "sha256:224aa1aa2454d52998f2959bce8440a84a72d8c72f739ae3ca03cb5211a05043"
+    },
+    {
+      "path": "research_execution_records/RS-SEED6-SEED-SPECIFICITY-TRANSFER-TEST/ER-5573D4422F2608C1B00B.json",
+      "git_blob_sha1": "sha1:321a65829f321bceb6a5e7fd4da8cf56af362ffb",
+      "sha256": "sha256:55ee87c73422e1e0331b7e5113eb3460037abd1f0cbf8ec582a2a62fc24b00c6"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_APPLICABLE",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Keep 6 as canonical reference only; generalize future bridge work to decorated carrier pairs with explicit seed strata (prime-pair, coprime thick, coprime multi-support, overlap, equality) and use Delta_T=gcd(a,b)^2 as the exact overlap detector.",
+  "driver_review_required": true
+}
