@@ -1,6 +1,6 @@
 # Enterprise Math — Current Native Foundation Router
 
-Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / LAZY LOAD`
+Status: `ACTIVE / STABLE CURRENT ROUTER / P000-BOUND / FCC-CARRIER-SELECTED / LAZY LOAD`
 Date: `2026-08-29`
 Purpose: route current native mathematics without loading unrelated results.
 
@@ -35,14 +35,69 @@ Do not infer world dimension from classical carrier rank, affine redundancy, Euc
 ## Current canonical registry
 
 1. P000 world/dimension typing — `../p000_reality_foundation.json`;
-2. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
-3. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
-4. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
-5. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
-6. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
-7. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
+2. **primary six-axis rotational coordinate carrier** — `P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md`;
+3. established three-axis research slice / coordinates — `ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md`;
+4. native line trace — `ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md`;
+5. arbitrary-point directed gauge — `ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md`;
+6. unoriented bidirectional segment — `ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md`;
+7. BRC × native multipath — `ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md`;
+8. path-valued square root — `ENTERPRISE_PATH_VALUED_SQUARE_ROOT_OPERATOR_20260821.md` when a selected task actually uses it.
 
-Do not preload the registry. Load only the object required by the current task, except P000 when dimensional/spatial semantics are material.
+Do not preload the registry. Load only the object required by the current task, except P000 when dimensional/spatial semantics are material and the FCC carrier definition when global coordinate/rotation semantics are material.
+
+## Primary coordinate carrier — FCC rotational atlas
+
+By direct user criterion `COORDINATE_CONTINUITY + ROTATION`, current P000 geometry selects FCC/cubic Barlow as the **primary classical coordinate carrier**.
+
+Freeze:
+
+`P000_PRIMARY_COORDINATE_CARRIER=FCC_CUBIC_BARLOW`.
+
+`P000_PRIMARY_FIRST_SHELL_CARRIER_HULL=CUBOCTAHEDRON`.
+
+`P000_PRIMARY_CARRIER_VORONOI=RHOMBIC_DODECAHEDRON`.
+
+`HCP_HEXAGONAL_BARLOW=SECONDARY_REGRESSION_CARRIER`.
+
+The selection is downstream of P000 and must not be read as a return to a classical three-dimensional world ontology.
+
+The selected FCC carrier supplies six stable unoriented nearest-neighbor line families and four overlapping close-packed triangular three-line slice types. At the carrier line-family level:
+
+`S_A={L1,L3,L6}`;
+
+`S_B={L1,L4,L5}`;
+
+`S_C={L2,L3,L5}`;
+
+`S_D={L2,L4,L6}`.
+
+Each slice admits chart-local orientations realizing pairwise Euclidean `120 degree`; each carrier line family occurs in exactly two slices, so the incidence count is
+
+`4*3/2=6`.
+
+This six-family count is a **carrier compatibility structure**, not a derivation of P000 six-dimensionality.
+
+Coordinate-continuity guard:
+
+`CELL_TRANSLATION -> PRESERVE_GLOBAL_FCC_LINE_FAMILY_LABELS`.
+
+`CARRIER_ROTATION -> PERMUTE_LINE_FAMILIES_AND_SLICE_CHARTS`.
+
+`NO_STACKING_PHASE_REQUIRED_FOR_PRIMARY_FCC_FRAME`.
+
+`HCP_NONCENTRAL_FIRST_SHELL -> MANDATORY_NO_12_DIV_2_AXIS_REGRESSION`.
+
+Native/carrier guard:
+
+`NATIVE_6D_STATE -> FCC_CARRIER_READOUT`.
+
+`FCC_CARRIER_READOUT_IS_NOT_NATIVE_IDENTITY`.
+
+`CARRIER_DIRECTION_RELATION != NATIVE_VECTOR_RELATION`.
+
+`CARRIER_KERNEL != NATIVE_COORDINATE_EQUIVALENCE`.
+
+The exact bridge from native positive axes `E_1,...,E_6` to FCC line-family/chart-orientation data remains a current research target. Do not silently identify carrier opposite rays with primitive native negative axes.
 
 ## Established three-axis slice — exact local mathematics
 
@@ -77,15 +132,36 @@ Retyping guard:
 
 `OMITTED_CELL_COORDINATE!=ABSENT_DIMENSION`.
 
-The exact six-axis incidence table, global metric, admissible slice family and native six-dimensional rotation structure remain research targets. Do not invent them by extending the three-axis formulas pairwise.
+The exact native six-axis address equivalence, global metric and native six-dimensional rotation group remain research targets. The FCC carrier is the selected coordinate realization for attacking those targets; its classical linear relations are not native identities.
+
+## First native layer versus carrier polyhedra
+
+The default meaning of one layer is
+
+`L1_NATIVE(c)=NATIVE_ADJACENCY_DISTANCE_1`.
+
+Under an ideal Barlow carrier readout, distinguish:
+
+- `KISS1` — 12 carrier kissing centers;
+- `HULL1` — neighbor-center convex hull;
+- `VOR` — center Voronoi/Dirichlet region.
+
+Accepted carrier classification:
+
+- FCC `HULL1`: cuboctahedron, `(V,E,F)=(12,24,14)`;
+- HCP `HULL1`: triangular orthobicupola / anticuboctahedron, `(12,24,14)` but different incidence;
+- FCC `VOR`: rhombic dodecahedron, `(14,24,12)`;
+- HCP `VOR`: trapezo-rhombic dodecahedron, `(14,24,12)`.
+
+The 14-face hull count and 12-face Voronoi count are carrier readouts, not the native definition of `L1_NATIVE`.
 
 ## Rotation and time
 
 Rotation is the characteristic spatial transformation under P000. A lower-dimensional slice observation does not equal the full Cell state.
 
-Minimal typed pattern:
+Current preferred typed pattern:
 
-`FULL_6D_CELL_STATE -> ROTATE -> SELECT_SLICE -> OBSERVE`.
+`FULL_6D_NATIVE_CELL_STATE -> FCC_SIX_LINE_ROTATIONAL_ATLAS -> ROTATE/TRANSPORT_SLICE_INCIDENCE -> SELECT_3_AXIS_120_DEGREE_SLICE -> OBSERVE`.
 
 The seventh dimension is time and is separately typed from the six spatial axes. Its first role is to order/trace relational changes such as rotation, adjacency, alignment, slice selection and path state.
 
@@ -103,7 +179,7 @@ This router is for TASK research, Driver/current-state review, and FREE Phase B 
 
 For current mathematics:
 
-`P000_ROOT_AXIOM -> EXACT CURRENT CANONICAL DEFINITION -> THIS ROUTER SUMMARY`.
+`P000_ROOT_AXIOM -> USER-DIRECTED_COORDINATE_CARRIER_CONVENTION -> EXACT_CURRENT_CANONICAL_DEFINITION -> THIS_ROUTER_SUMMARY`.
 
 Project mission/routing is defined by `PROJECT_DEFINITION.md`, `PROJECT_DEFINITION.zh-CN.md`, and current machine governance.
 
