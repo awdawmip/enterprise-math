@@ -27,6 +27,12 @@ RUNTIME_MIGRATION_IDS = (
     "CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006",
 )
 RUNTIME_PROTECTION_IDS = ("CSP-RUNTIME-FRESH-SELECTOR-004",)
+APPROVED_STATES = {
+    "REFERENCE_CHECK_PASSED_READY_FOR_MECHANICAL_PATCH",
+    "READY_FOR_MECHANICAL_PATCH_WITH_RUNTIME_POINTER_BUNDLE",
+    "FIELD_LOCALITY_PROOF_PASSED_AWAITING_SAFE_WRITE_MECHANISM",
+    "TARGET_MIGRATED",
+}
 
 
 class RuntimeMigrationEquivalenceError(ValueError):
@@ -133,9 +139,9 @@ def prove(root: Path = ROOT) -> dict[str, Any]:
         if entry.get("path") != "research_runtime_state_machine.json":
             raise RuntimeMigrationEquivalenceError(f"{migration_id}: wrong target path")
         state = str(entry.get("state") or "")
-        if "READY_FOR_MECHANICAL_PATCH" not in state and state != "TARGET_MIGRATED":
+        if state not in APPROVED_STATES:
             raise RuntimeMigrationEquivalenceError(
-                f"{migration_id}: migration is not approved for mechanical patch: {state}"
+                f"{migration_id}: migration is not approved for field-local proof/patch: {state}"
             )
         for pointer, old, target in _field_rows(entry):
             actual = _get(source, pointer)
@@ -181,6 +187,9 @@ def prove(root: Path = ROOT) -> dict[str, Any]:
     return {
         "target_file": "research_runtime_state_machine.json",
         "migration_ids": list(RUNTIME_MIGRATION_IDS),
+        "migration_states": {
+            migration_id: entries[migration_id]["state"] for migration_id in RUNTIME_MIGRATION_IDS
+        },
         "changed_pointers": sorted(set(changed_pointers)),
         "before_values": before_values,
         "after_values": after_values,
