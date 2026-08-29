@@ -126,10 +126,12 @@
       "current_interpretation": "SUBORDINATE_FRESH_SELECTOR_UNDER_RECOVERY_AWARE_CONTROL_ROUTER",
       "canonical_target_value": "research_control_dispatch.py",
       "risk_class": "CONTROL_POINTER_WITH_INTERNAL_NEW_RULE",
-      "state": "REFERENCE_CHECK_PASSED_READY_FOR_MECHANICAL_PATCH",
+      "state": "FIELD_LOCALITY_PROOF_PASSED_AWAITING_SAFE_WRITE_MECHANISM",
       "reference_evidence": {
-        "reference_integrity_run_id": 33221974090,
+        "production_consumer_reference_integrity_run_id": 33221974090,
+        "field_locality_reference_integrity_run_id": 33222148731,
         "production_consumer_census": "PASS_NO_PRODUCTION_PYTHON_CONSUMER_OF_CANONICAL_DISPATCH_KEY",
+        "field_locality_proof": "PASS_IDENTICAL_OUTSIDE_REGISTERED_RUNTIME_POINTERS",
         "protected_runtime_selector": "CSP-RUNTIME-FRESH-SELECTOR-004"
       },
       "execution_authority_while_open": false,
@@ -179,7 +181,11 @@
         ]
       ],
       "risk_class": "CONTROL_LIVENESS_ALREADY_CANONICAL_IN_DISPATCH_V5",
-      "state": "READY_FOR_MECHANICAL_PATCH_WITH_RUNTIME_POINTER_BUNDLE",
+      "state": "FIELD_LOCALITY_PROOF_PASSED_AWAITING_SAFE_WRITE_MECHANISM",
+      "reference_evidence": {
+        "field_locality_reference_integrity_run_id": 33222148731,
+        "field_locality_proof": "PASS_IDENTICAL_OUTSIDE_REGISTERED_RUNTIME_POINTERS"
+      },
       "canonical_evidence": {
         "dispatch_contract": "research_dispatch_contract.json /session_liveness_routing",
         "observation_schema": "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",
@@ -198,6 +204,19 @@
         "Working Truth",
         "result/review semantics"
       ]
+    },
+    {
+      "migration_id": "CSM-STEWARD-CANONICAL-DISPATCH-TOOL-007",
+      "path": "foundation_steward.json",
+      "baseline_blob_sha1": "302d173ea13e02c1a38265f86f4e56e2b6f8b98e",
+      "json_pointer": "/canonical_dispatch_tool",
+      "observed_legacy_value": "tools/research_dispatch.py",
+      "current_interpretation": "AMBIGUOUS_SCHEDULING_TOOL_OR_TOP_LEVEL_LIVE_ROUTE",
+      "canonical_target_value": "research_control_dispatch.py",
+      "risk_class": "MIXED_CONTROL_SEMANTICS",
+      "state": "REQUIRES_GOVERNANCE_VERIFICATION",
+      "execution_authority_while_open": false,
+      "verification_question": "The field sits beside scheduling_protocol and legacy_scheduler_config. Determine whether it denotes the ordinary scheduling selector or the top-level live recovery-aware route before editing."
     }
   ]
 }
