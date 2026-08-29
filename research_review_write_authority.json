@@ -1,0 +1,65 @@
+{
+  "schema": "ENTERPRISE_MATH_REVIEW_WRITE_AUTHORITY_V1",
+  "status": "ACTIVE_CANONICAL_CONTROL",
+  "effective": "2026-08-29",
+  "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
+  "result_contract": "research_result_contract.json",
+  "review_store": "research_result_reviews/<result-id>/<review-id>.json",
+  "result_store": "research_result_records/<task-id>/<result-id>.json",
+  "binding_quarantine_registry": "research_result_review_binding_quarantines.json",
+  "binding_isolation": "control_plane/research_result_review_binding_fault_isolation.py",
+  "followup_source_adapter": "control_plane/research_nonoperational_review_source_adapter.py",
+  "purpose": "Prevent an otherwise authorized Driver review from materializing an immutable review record against stale result-record bytes. This contract governs write authority and immutable digest binding only; it does not decide review disposition, theorem truth, Foundation admission, Working Truth, novelty, or research content.",
+  "core_invariants": [
+    "REVIEW_ARTIFACT_OR_DRIVER_AUTHORITY_DOES_NOT_BY_ITSELF_AUTHORIZE_STALE_REVIEW_RECORD_BYTES",
+    "READ_SNAPSHOT_IS_NOT_REVIEW_WRITE_AUTHORITY",
+    "REVIEW_RECORD_RESULT_BINDING_MUST_BE_RECOMPUTED_FROM_MUTATION_PARENT_RESULT_BYTES",
+    "REVIEW_RECORD_MUTATION_PARENT_MUST_MATCH_THE_REFRESHED_REMOTE_AUTHORITY_HEAD",
+    "RESULT_RECORD_PATH_AND_BYTES_MUST_REMAIN_UNCHANGED_BETWEEN_BINDING_REFRESH_AND_REVIEW_RECORD_COMMIT",
+    "RESULT_RECORD_SHA256_MUST_NOT_BE_REUSED_FROM_STALE_MEMORY_OR_PREVIOUS_TOOL_OUTPUT",
+    "REMOTE_REVIEW_RECORD_WRITE_USES_COMPARE_AND_SWAP_OR_NONFORCE_FAST_FORWARD",
+    "REVIEW_BINDING_MISMATCH_IS_FAIL_CLOSED_NOT_AUTO_REPAIRED",
+    "CONTROL_PLANE_MAINTENANCE_CANNOT_REWRITE_DISPOSITION_OR_CREATE_REPLACEMENT_DRIVER_REVIEW",
+    "NONOPERATIONAL_REVIEW_CANNOT_RETAIN_AUTOMATIC_FOLLOWUP_AUTHORITY"
+  ],
+  "pre_mutation_refresh": {
+    "required": true,
+    "refresh_remote_head": true,
+    "refresh_exact_result_record_path": true,
+    "record_result_git_blob_sha1_for_control_check": true,
+    "recompute_result_record_sha256_from_refreshed_bytes": true,
+    "caller_cached_result_object_is_authority": false,
+    "earlier_conversation_read_is_authority": false
+  },
+  "candidate_commit_gate": {
+    "required_when_constructing_remote_commit": true,
+    "candidate_parent_equals_refreshed_head": true,
+    "candidate_parent_contains_exact_refreshed_result_blob": true,
+    "review_record_result_record_path_matches_parent_tree": true,
+    "review_record_result_record_sha256_matches_parent_tree_bytes": true,
+    "candidate_may_modify_result_record_in_same_transaction": false,
+    "candidate_diff_may_reinterpret_review_disposition": false
+  },
+  "remote_write": {
+    "force_update_allowed": false,
+    "nonforce_fast_forward_allowed": true,
+    "contents_api_expected_blob_compare_and_swap_allowed": true,
+    "if_remote_head_moves_after_refresh": "ABORT_OR_REBASE_AND_RECOMPUTE_RESULT_BINDING",
+    "if_result_blob_changes_after_refresh": "ABORT_AND_RECOMPUTE_REVIEW_BINDING"
+  },
+  "post_write_integrity": {
+    "canonical_audit": "control_plane/check_result_review_binding_fault_isolated.py",
+    "raw_binding_error": "result record digest drift",
+    "mismatch_effect": "PRESERVE_EXACT_REVIEW_BYTES_AS_HISTORY_BUT_REMOVE_REVIEW_FROM_OPERATIONAL_AUTHORITY",
+    "derived_followup_effect": "REMOVE_EXACT_PACKET_AND_SOLELY_DERIVED_TASK_PUBLICATIONS_FROM_OPERATIONAL_AUTHORITY",
+    "replacement_path": "AUTHORIZED_DRIVER_CREATES_AN_ORDINARY_NEW_REVIEW_BOUND_TO_CURRENT_EXACT_RESULT"
+  },
+  "authority_boundaries": {
+    "grants_driver_authority": false,
+    "grants_working_truth": false,
+    "grants_foundation_authority": false,
+    "grants_canonical_promotion": false,
+    "changes_review_disposition": false,
+    "changes_result_content": false
+  }
+}
