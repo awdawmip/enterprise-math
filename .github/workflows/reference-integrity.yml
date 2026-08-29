@@ -64,8 +64,8 @@ jobs:
         run: python tools/research_execution_records.py audit
       - name: Check legacy scheduler cutover is frozen
         run: python tools/check_task_registry_cutover.py
-      - name: Check immutable research result and Driver-review records
-        run: python tools/research_result_records.py audit
+      - name: Check immutable result records and exact stale review bindings
+        run: python control_plane/check_result_review_binding_fault_isolated.py
       - name: Check source-backed Driver authority provenance
         run: python control_plane/check_driver_review_authority_fault_isolated.py
       - name: Check Objective generations and source-backed Driver authority
@@ -77,8 +77,8 @@ jobs:
       - name: Check multiple Driver review exact-set authority
         run: >-
           python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_review_evidence.py','audit']; import research_review_evidence as m; raise SystemExit(m.main())"
-      - name: Check Driver review automatic follow-up authority
-        run: python control_plane/check_driver_followup_fault_isolated.py
+      - name: Check Driver review automatic follow-up authority across all nonoperational review causes
+        run: python control_plane/check_driver_followup_nonoperational_review_fault_isolated.py
       - name: Check parallel evidence two-pass reference chains over operational results
         run: >-
           python -c "from control_plane import research_control_bootstrap as b; b.install(); from tools import research_result_records as _result_view; import sys; sys.argv=['research_parallel_evidence.py','audit']; import research_parallel_evidence as _parallel; raise SystemExit(_parallel.main())"
