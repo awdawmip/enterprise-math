@@ -2,11 +2,14 @@
 """Audit exact stale result-review binding isolation."""
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
-from control_plane import research_result_review_binding_fault_isolation as isolation
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from control_plane import research_result_review_binding_fault_isolation as isolation
 
 
 def audit() -> list[str]:
