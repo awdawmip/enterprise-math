@@ -50,49 +50,6 @@
         "publication_tool": "tools/research_task_records.py",
         "must_preserve_parent_objective": true
       }
-    },
-    {
-      "request_id": "CSV-AMBIGUOUS-DISPATCH-FIELD-MEANING-002",
-      "state": "AWAITING_AUTHORIZED_GOVERNANCE_SEMANTIC_CLASSIFICATION",
-      "is_research_task": false,
-      "claimable": false,
-      "runtime_dispatchable": false,
-      "authority_granted": false,
-      "related_migration_ids": [
-        "CSM-STEWARD-CANONICAL-DISPATCH-TOOL-007"
-      ],
-      "resolved_classifications": [
-        {
-          "migration_id": "CSM-ROLEPOLICY-PUBLICATION-DISPATCH-002",
-          "resolution": "POST_PUBLICATION_ORDINARY_FRESH_SELECTOR",
-          "protected_selector_id": "CSP-ROLEPOLICY-PUBLICATION-DISPATCH-005",
-          "evidence": "research_task_publication_contract_v2.json explicitly separates control_dispatch_tool from fresh_dispatch_selector/dispatch_tool and labels the legacy dispatch field as the ordinary fresh selector"
-        }
-      ],
-      "target_files": [
-        "foundation_steward.json"
-      ],
-      "question": "Does foundation_steward.json /canonical_dispatch_tool denote the subordinate scheduling/task-definition selector or the top-level recovery-aware live control route?",
-      "required_verification": [
-        "Classify foundation_steward.json /canonical_dispatch_tool in the context of adjacent scheduling_protocol and legacy_scheduler_config fields.",
-        "Cross-check against research_dispatch_contract.json, Foundation backflow selector semantics, Steward control-plane addendum, and active human protocols.",
-        "If the field is selector-scoped, protect tools/research_dispatch.py rather than migrating it.",
-        "If the field is live-route scoped, migrate only that exact pointer to research_control_dispatch.py."
-      ],
-      "forbidden_shortcuts": [
-        "inferring meaning from the substring canonical_dispatch alone",
-        "assuming every tools/research_dispatch.py reference is stale",
-        "changing Foundation mathematical conventions or task publication semantics during classification"
-      ],
-      "future_authorized_publication": {
-        "kind": "GOVERNANCE",
-        "publisher_role_must_be_one_of": [
-          "RESEARCH_DRIVER",
-          "FOUNDATION_STEWARD"
-        ],
-        "publication_contract": "research_task_publication_contract_v2.json",
-        "publication_tool": "tools/research_task_records.py"
-      }
     }
   ]
 }
