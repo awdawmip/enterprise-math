@@ -1,0 +1,41 @@
+{
+  "schema": "BRC_FACTOR_BLIND_BRIDGE_PRIVATE_VERIFIER_MANIFEST_SUMMARY_V1",
+  "status": "SEALED_LABELS_NOT_SERIALIZED",
+  "generator_seed": "202608291851",
+  "public_corpus_sha256": "8ea0570220fa970ac278f010af4744f7aa6cee10d915bb5174a06ae9799d33bd",
+  "private_label_manifest_sha256": "5ef671ebe559dcd81af2edbb7b87fd2a6a31288dd7ff183250d8caf3dcab5edc",
+  "record_count": 75,
+  "bands": {
+    "32": 25,
+    "48": 25,
+    "64": 25
+  },
+  "classes": {
+    "balanced": 15,
+    "moderate": 15,
+    "strong": 15,
+    "near_twin": 15,
+    "square": 15
+  },
+  "hidden_fields": [
+    "p",
+    "q",
+    "factor_gap",
+    "factor_midpoint",
+    "factor_rank"
+  ],
+  "operator_precommit": {
+    "family": "BRC_SUPPORT_SCAN_V1",
+    "frozen_before_label_inspection": true,
+    "fixed_support_primes": "all odd primes <= 97",
+    "adaptive_support_rule": "16 distinct primes selected from primes in [101,5000) by SHA256('BRC-SUPPORT-V1|N|slot')",
+    "matrix": "A_r=[[r,2],[(r^2-1)/2,r]], B=0, D=I_2 over F3",
+    "response": "q_{r,2}(N)=1/2*(1_{r does not divide N}+1_{2 does not divide N})",
+    "endpoint": "gcd(2r,N)"
+  },
+  "notes": [
+    "The public corpus contains no factor labels or factor-derived ordering features.",
+    "The private labels were used only by the verifier after the operator family and extraction rule were frozen.",
+    "Square controls are intentionally retained as repeated-factor adversarial controls and do not alter the factor-blind worker contract."
+  ]
+}
