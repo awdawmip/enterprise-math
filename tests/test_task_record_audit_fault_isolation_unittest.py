@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
     def test_real_audit_only_rows_are_exactly_nonoperational(self):
         rows = audit_isolation.validated_rows(ROOT)
-        self.assertEqual(5, len(rows))
+        self.assertEqual(6, len(rows))
         bases = {row["nonoperational_basis"] for row in rows}
         self.assertEqual(
             {
@@ -41,14 +41,17 @@ class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
         self.assertTrue(current_publications)
         self.assertEqual(set(), audit_publications & current_publications)
 
-    def test_fork_blocked_row_is_current_effective_blocked_head(self):
+    def test_only_latest_bridge_head_uses_fork_blocked_basis(self):
         rows = {
             row["publication_id"]: row for row in audit_isolation.validated_rows(ROOT)
         }
-        row = rows["TP2-33C39F540E894E7602AC"]
+        self.assertEqual(
+            audit_isolation.BASIS_SUPERSEDED,
+            rows["TP2-33C39F540E894E7602AC"]["nonoperational_basis"],
+        )
         self.assertEqual(
             audit_isolation.BASIS_FORK_BLOCKED,
-            row["nonoperational_basis"],
+            rows["TP2-CFE6E9F14623E929911E"]["nonoperational_basis"],
         )
 
     def test_every_declared_suppression_is_exact_record_prefixed(self):
