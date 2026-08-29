@@ -1,0 +1,32 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "packet_id": "DFU-9A4C2E7B1D6053F8C217",
+  "review_id": "DR-8C2F4B1D6A9E3057F0B4",
+  "result_id": "RR-742A5139AD81F0E41917",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "source_publication_id": "TP2-E4143818BDA70C70113B",
+  "driver_id": "EM-DVR-7C31A8",
+  "review_disposition": "ACCEPTED",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "parent_objective_id": "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY",
+  "decision": "TASK_SET_PUBLISHED",
+  "gate_decisions": [
+    {
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "decision": "CONTINUE_NEW_BOUNDARY",
+      "reason": "V6 closes the Cartesian-product/wreath-product/partial-action boundary. Gen9 exposes a new frame/torsor/connection/definability boundary that requires a new audit rather than repetition."
+    }
+  ],
+  "task_publications": [
+    {
+      "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+      "publication_id": "TP2-5A7C1D9E3B6042F8D117",
+      "task_role": "EXTERNAL_PRIOR_ART_DUPLICATION"
+    }
+  ],
+  "created_at": "2026-08-29T18:42:15+00:00",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
