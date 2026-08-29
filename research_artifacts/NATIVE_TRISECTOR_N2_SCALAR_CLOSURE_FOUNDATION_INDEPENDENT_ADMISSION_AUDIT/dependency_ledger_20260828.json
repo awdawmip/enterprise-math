@@ -1,1 +1,250 @@
-PLACEHOLDER
+{
+  "schema": "ENTERPRISE_MATH_NATIVE_TRISECTOR_N2_INDEPENDENT_ADMISSION_AUDIT_V1",
+  "status": "FINAL_FROZEN",
+  "task_id": "RS-NATIVE-TRISECTOR-N2-SCALAR-CLOSURE-FOUNDATION-INDEPENDENT-ADMISSION-AUDIT",
+  "publication_id": "TP2-4BE981A08B9A260B8E28",
+  "claim_id": "chatgpt-ntn2a-20260828-1335-56a913",
+  "researcher_id": "EM-NTN2A-56A913",
+  "recommendation": "FOUNDATION_N2_CONSEQUENCE_ADMIT",
+  "foundation_primitive_mutation": "NONE",
+  "independence": {
+    "status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+    "source_exposure": "NONBLIND_DISCLOSED",
+    "new_routes": [
+      "q_b=5 via quadratic-character intersection count",
+      "k_*=9 via direct mod-5 period-10 proof",
+      "mixed-parity boundary via elementary odd-distance extremal proof"
+    ]
+  },
+  "barycenter": {
+    "domain": "r>=2",
+    "orbit": "S3*(ceil(r/2),floor(r/2),0) as distinct-state set",
+    "even_positions": "{m,3m,5m}",
+    "odd_positions": "{m,m+1,3m+1,3m+2,5m+2,5m+3}",
+    "mean_position": "3r/2",
+    "Z": "1+(3r^2+epsilon(r))/2",
+    "r1": "label multiset {1,2,3} has ceiling-mean 2, while formula gives 3"
+  },
+  "breaker": {
+    "predicate": "I0 union I1 = F_q",
+    "I0": "{-3x^2/2}",
+    "I1": "{-3x^2/2-1/2}",
+    "scaled": "Q0 union (Q0+1/3)=F_q",
+    "intersection": "(q+1+chi(delta)+chi(-delta))/4",
+    "result": "unique nonsingular odd q is 5",
+    "strength": "N2_READOUT_CHARACTERISTIC"
+  },
+  "capacity": {
+    "family": "Z_H(r)=H+(3r^2+epsilon(r))/2 mod 5",
+    "period": [
+      0,
+      2,
+      1,
+      4,
+      4,
+      3,
+      4,
+      4,
+      1,
+      2
+    ],
+    "zeros": {
+      "0": [
+        0
+      ],
+      "1": [
+        3,
+        4,
+        6,
+        7
+      ],
+      "2": [
+        5
+      ],
+      "3": [
+        1,
+        9
+      ],
+      "4": [
+        2,
+        8
+      ]
+    },
+    "result": "k_*=9",
+    "strength": "N2_DIVISIBILITY_RUN_CAPACITY",
+    "r1_guard": "finite prefix removal does not change eventual period or sharp max gap"
+  },
+  "saturation": {
+    "packet": [
+      "6m^2-2m+1",
+      "6m^2+1",
+      "6m^2+2m+1"
+    ],
+    "root_bound": "q-1<=6",
+    "q5": [
+      [
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4
+      ]
+    ],
+    "q7": [
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "result": "{5,7}",
+    "strength": "N2_SET"
+  },
+  "mixed_parity": {
+    "domain": "odd k>=5, W_k={0,...,k-1}",
+    "constraint": "u,v distinct same parity; w opposite",
+    "max_product": "(k-2)(k-4)",
+    "max_pair": "{k-4,k-2}",
+    "at_9": "{5,7}",
+    "strength": "N2_INTEGER_GRADE_GAP_SET"
+  },
+  "closure": {
+    "chain": "3 -> (5,7) -> 9 -> 35 -> 105 -> 53",
+    "arithmetic": [
+      "(9-4)(9-2)=35",
+      "3*35=105",
+      "(105+1)/2=53"
+    ],
+    "three_is_input": true
+  },
+  "nine_separation": {
+    "breaker_capacity_9": "periodic divisibility/readout run length",
+    "prime_incidence_9": "separate typed-Cell theorem object",
+    "dependency": "NONE",
+    "identity": false
+  },
+  "theorems": {
+    "T-A": "FOUNDATION_ADMISSIBLE_ONLY_AT_NATIVE_S3_N2_SET_INSTANCE",
+    "T-B": "FOUNDATION_ADMISSIBLE_AT_NATIVE_S3_N2_SCALAR_SET_RELATION_INSTANCE",
+    "T-C": "FOUNDATION_ADMISSIBLE_AT_N2_SCALAR_CONSEQUENCE_STRENGTH"
+  },
+  "NSA": {
+    "01": "PASS_NO_HIDDEN_PRIMITIVE",
+    "02": "PASS_INVARIANT_ORBIT_DESCENT_ONLY",
+    "13": "PASS_STRENGTH_STOPS_AT_N2_SCALAR_SET_RELATION",
+    "14": "PASS_TRANSITIVE_DEPENDENCY_CLOSED",
+    "18": "PASS_NO_TARGET_LEAKAGE"
+  },
+  "edges": [
+    [
+      "E01",
+      "current native s=3 shell",
+      "accepted allocation torsor",
+      "PASS"
+    ],
+    [
+      "E02",
+      "allocation torsor + S3-invariant balanced orbit",
+      "frame-independent label multiset",
+      "PASS"
+    ],
+    [
+      "E03",
+      "label multiset",
+      "Z(r)",
+      "PASS"
+    ],
+    [
+      "E04",
+      "Z(r)",
+      "Break(q)",
+      "PASS_N2_PREDICATE"
+    ],
+    [
+      "E05",
+      "Break(q)",
+      "q_b=5",
+      "PASS_SELF_CONTAINED_CHARACTER_COUNT"
+    ],
+    [
+      "E06",
+      "Z_H + q_b=5",
+      "k_*=9",
+      "PASS_SELF_CONTAINED_PERIOD_10"
+    ],
+    [
+      "E07",
+      "even invariant packet",
+      "saturation {5,7}",
+      "PASS_N2_SET"
+    ],
+    [
+      "E08",
+      "grade/parity window + k=9",
+      "gap set {5,7}",
+      "PASS_N2_SET"
+    ],
+    [
+      "E09",
+      "two invariant sets {5,7}",
+      "native-instance equality relation",
+      "PASS_N2_RELATION"
+    ],
+    [
+      "E10",
+      "3,{5,7},9",
+      "35,105,53",
+      "PASS_N2_SCALAR"
+    ],
+    [
+      "E11",
+      "target values",
+      "native three-ness",
+      "FORBIDDEN_NOT_USED"
+    ],
+    [
+      "E12",
+      "current P0/P1",
+      "arbitrary odd-s comparator family",
+      "NOT_FOUNDATION_GENERATED"
+    ],
+    [
+      "E13",
+      "current P0/P1",
+      "named physical rails",
+      "NOT_FOUNDATION_GENERATED_NOT_NEEDED"
+    ],
+    [
+      "E14",
+      "breaker-capacity 9",
+      "prime-incidence 9",
+      "NO_DEPENDENCY_NO_IDENTITY"
+    ]
+  ],
+  "regression": {
+    "checker": "scripts/check_native_trisector_n2_scalar_closure_foundation_admission_audit.py",
+    "barycenter": "r=2..128 all 6 frames, 3420 labels",
+    "breaker": "44 nonsingular odd primes q<200",
+    "capacity": "all 5 mod-5 phases",
+    "saturation": "q<200 -> [5,7]",
+    "mixed_parity": "49 odd k windows 5..101"
+  },
+  "do_not_admit": [
+    "pointwise intrinsic allocation",
+    "N0 breaker primitive",
+    "physical rail ontology",
+    "arbitrary odd-s comparator theorem",
+    "reverse derivation of s=3",
+    "identity of the two 9-valued theorem objects"
+  ]
+}
