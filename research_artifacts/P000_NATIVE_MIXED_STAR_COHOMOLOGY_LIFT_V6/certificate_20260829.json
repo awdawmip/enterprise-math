@@ -1,0 +1,147 @@
+{
+  "schema": "P000_NATIVE_MIXED_STAR_COHOMOLOGY_LIFT_V6_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-CFE6E9F14623E929911E",
+  "researcher_id": "EM-P000NATFCC6-E200EE",
+  "claim_id": "chatgpt-p000natfcc6-20260829-1450-a1c3e7",
+  "terminal_class": "EXACT_NATIVE_LIFT_OBSTRUCTION_AND_MINIMAL_MISSING_STATE_PROVED",
+  "signed_k4": {
+    "edge_order": [
+      "AB",
+      "AC",
+      "AD",
+      "BC",
+      "BD",
+      "CD"
+    ],
+    "q_bits_negative_is_1": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "triangle_products": {
+      "ABC": -1,
+      "ABD": -1,
+      "ACD": -1,
+      "BCD": -1
+    },
+    "four_cycle_products": {
+      "ABCD": 1,
+      "ABDC": 1,
+      "ACBD": 1
+    },
+    "classification": "ANTIBALANCED",
+    "H1_dimension": 3,
+    "switching_orbit_size": 8,
+    "symmetric_normal_form": "ALL_NEGATIVE",
+    "hamming_min_negative_edge_count": 2,
+    "hamming_min_representatives": [
+      [
+        "AB",
+        "CD"
+      ],
+      [
+        "AC",
+        "BD"
+      ],
+      [
+        "AD",
+        "BC"
+      ]
+    ],
+    "strict_stabilizer_q_order": 6,
+    "strict_stabilizer_all_negative_order": 24
+  },
+  "equivariant_lift": {
+    "gauge_seed_t_support": [
+      "D"
+    ],
+    "formula": "h_sigma = t + sigma.t over F2",
+    "cocycle_pairs_checked": 576,
+    "h_a_bits_A_B_C_D": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "h_b_bits_A_B_C_D": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "full_lift_group_order": 48,
+    "full_lift_group_classification": "S4 x C2 (split)",
+    "central_kernel": "constant vertex cochains C2",
+    "generator_relations": {
+      "A_tilde^3": "1",
+      "B_tilde^2": "1",
+      "(A_tilde B_tilde)^4": "1"
+    },
+    "central_residue_bits": {
+      "alpha": 0,
+      "beta": 0,
+      "gamma": 0
+    },
+    "binary_octahedral_forced": false
+  },
+  "orientation_state": {
+    "valid_signed_presentations_per_chart": 2,
+    "global_compatible_signed_six_line_sections": 0,
+    "unoriented_carrier_extra_bits": 0,
+    "active_oriented_chart_extra_bits": 1,
+    "whole_atlas_switching_gauge_dimension_bits": 3,
+    "typing": "CARRIER_PRESENTATION_STATE_NOT_NATIVE_SPATIAL_AXIS"
+  },
+  "native_obstruction": {
+    "current_native_rotation_group": "C2",
+    "current_native_rotation_group_order": 2,
+    "carrier_S4_edge_actions": 24,
+    "old_rho_is_carrier_S4_edge_action": false,
+    "mixed_windows_status": "OBSERVATION_ONLY_NOT_GEOMETRIC_SLICES",
+    "a_axis_action": [
+      1,
+      2,
+      0,
+      5,
+      3,
+      4
+    ],
+    "b_axis_action": [
+      0,
+      3,
+      4,
+      1,
+      2,
+      5
+    ],
+    "block_axis_group": "S3 wr C2",
+    "block_axis_group_order": 72,
+    "a_in_block_axis_group": true,
+    "b_in_block_axis_group": false,
+    "Q6_coordinate_permutation_positive_witness": true,
+    "passive_finite_fiber_suffices": false,
+    "first_discriminating_missing_operation": "b-type partial cross-block full-state mixer",
+    "minimal_missing_packet": [
+      "one genuine mixed-star seed geometry, at least J_B",
+      "legal full-state cross-block R~_b",
+      "legal full-state R~_a or equivalent orbit-completion transform",
+      "exact native generator relations and no-quotient regression"
+    ]
+  },
+  "regressions": {
+    "old_clone_product_rho_no_intertwiner": true,
+    "triangle_holonomy_minus_one": true,
+    "FCC_antipodal_pairs": 6,
+    "HCP_antipodal_pairs": 3,
+    "carrier_readout_collision_not_native_identity": true
+  },
+  "novelty": {
+    "signed_graph_components": "STANDARD_EXTERNAL_MATHEMATICS",
+    "S4_double_cover_components": "STANDARD_EXTERNAL_MATHEMATICS",
+    "P000_native_compatibility": "PROJECT_SPECIFIC_FRONTIER_NOVELTY_UNDECIDED"
+  }
+}
