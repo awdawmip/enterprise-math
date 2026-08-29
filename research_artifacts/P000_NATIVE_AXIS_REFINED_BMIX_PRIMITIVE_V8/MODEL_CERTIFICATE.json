@@ -1,0 +1,56 @@
+{
+  "schema": "P000_NATIVE_AXIS_REFINED_BMIX_PRIMITIVE_V8_MODEL_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "researcher_id": "EM-P000NATFCC8-5D31C7",
+  "terminal_class": "MINIMAL_DERIVED_BMix_b_CONSISTENT_PARTIAL_LIFT_CONSTRUCTED",
+  "root_p000_mutated": false,
+  "full_p000_native_rotation_promoted": false,
+  "derived_interface": {
+    "base_native_identity": "opaque FULL_6D_NATIVE_CELL_STATE token",
+    "axis_handle_support": ["E1", "E2", "E3", "E4", "E5", "E6"],
+    "source_slice": ["E1", "E2", "E3"],
+    "target_slice": ["E1", "E4", "E5"],
+    "shared_interface": "E1 coordinate/incidence interface; not a Cell-center quotient",
+    "omitted_semantics": "OMITTED/UNOBSERVED, never numeric zero",
+    "mixed_contact_relation": [["E2", "E4"], ["E3", "E5"]],
+    "passage_payload": [
+      ["E2", "E4", "m24"],
+      ["E4", "E2", "m24"],
+      ["E3", "E5", "m35"],
+      ["E5", "E3", "m35"]
+    ]
+  },
+  "derived_transport": {
+    "axis_action": {"E1":"E1", "E2":"E4", "E3":"E5", "E4":"E2", "E5":"E3", "E6":"E6"},
+    "source_right_cycle": [["E1","E2"],["E2","E3"],["E3","E1"]],
+    "target_right_cycle": [["E1","E4"],["E4","E5"],["E5","E1"]],
+    "involution": true,
+    "partial_domain_requires_mixed_payload": true,
+    "time_permuted": false
+  },
+  "finite_cell_patch": {
+    "source_cells": ["A0", "A1", "A2"],
+    "target_cells": ["B0", "B1", "B2"],
+    "source_adjacency": [["A0","A1"],["A1","A2"],["A2","A0"]],
+    "target_adjacency": [["B0","B1"],["B1","B2"],["B2","B0"]],
+    "cell_sets_disjoint": true,
+    "adjacency_transport_exact": true
+  },
+  "group_certificate": {
+    "derived_axis_relation_automorphism_order": 2,
+    "derived_axis_relation_automorphisms": [
+      ["E1","E2","E3","E4","E5","E6"],
+      ["E1","E4","E5","E2","E3","E6"]
+    ],
+    "arbitrary_S6_forced": false,
+    "gen7_block_pure_wreath_order_regression": 72,
+    "b_in_gen7_block_pure_wreath": false,
+    "carrier_split_S4xC2_promoted_to_native_group": false
+  },
+  "identity_certificate": {
+    "carrier_readout_collision_can_exist_between_distinct_native_ids": true,
+    "carrier_collision_quotient_used": false,
+    "native_cell_identity_preserved_by_typed_handle_transport": true
+  },
+  "scope_boundary": "This is an explicit derived axis-handle/contact model and a nonempty typed partial/groupoid lift. It does not prove that current P000 already contains the axis-handle attachment or the mixed-contact relation, and it does not promote the construction to the root ontology."
+}
