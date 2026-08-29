@@ -1,0 +1,81 @@
+{
+  "schema": "P000_L1_NATIVE_FCC_CARRIER_BRIDGE_FINITE_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-A9D4B718C2E65F3084D1",
+  "researcher_id": "EM-P000BR-3F7A9C",
+  "terminal_class": "BRIDGE_STRICTLY_TYPED",
+  "native_model": {
+    "source": "research_returns/P000_6D_ROTATION_SLICE_TOMOGRAPHY_RETURN_20260829.md",
+    "state": "X_6=C_A x C_B",
+    "adjacency": "Cartesian relational adjacency; exactly one factor takes one base Adj_A step",
+    "native_axes": ["E1", "E2", "E3", "E4", "E5", "E6"],
+    "admissible_factor_slices": {
+      "I_A": [1, 2, 3],
+      "I_B": [4, 5, 6]
+    },
+    "native_rotation": "rho exchanges the two factors and I_A<->I_B"
+  },
+  "axis_to_fcc_line": {
+    "E1": "L1=AB",
+    "E2": "L3=AC",
+    "E3": "L6=AD",
+    "E4": "L5=BC",
+    "E5": "L4=BD",
+    "E6": "L2=CD"
+  },
+  "native_k4_star_observation_atlas": {
+    "J_A": [1, 2, 3],
+    "J_B": [1, 4, 5],
+    "J_C": [2, 4, 6],
+    "J_D": [3, 5, 6]
+  },
+  "carrier_star_atlas": {
+    "S_A": ["AB", "AC", "AD"],
+    "S_B": ["AB", "BC", "BD"],
+    "S_C": ["AC", "BC", "CD"],
+    "S_D": ["AD", "BD", "CD"]
+  },
+  "incidence_facts": {
+    "pairwise_star_intersection": 1,
+    "line_occurrence_count": 2,
+    "k4_star_design_count_on_six_labeled_axes": 30,
+    "design_count_containing_visible_I_A_as_a_star": 6,
+    "I_B_image": ["BC", "BD", "CD"],
+    "I_B_image_is_carrier_star": false,
+    "carrier_S4_maps_star_to_complement": false
+  },
+  "local_orientation_sections": {
+    "A": {"AB": -1, "AC": 1, "AD": 1},
+    "B": {"AB": 1, "BC": -1, "BD": -1},
+    "C": {"AC": -1, "BC": 1, "CD": 1},
+    "D": {"AD": 1, "BD": -1, "CD": 1}
+  },
+  "overlap_transition_signs": {
+    "AB": -1,
+    "AC": -1,
+    "AD": 1,
+    "BC": -1,
+    "BD": 1,
+    "CD": 1
+  },
+  "triangle_loop_holonomy": {
+    "ABC": -1,
+    "ABD": -1,
+    "ACD": -1,
+    "BCD": -1
+  },
+  "global_120_orientation_sections": 0,
+  "hcp_regression": {
+    "fcc_shell_antipodal_pairs": 6,
+    "hcp_shell_antipodal_pairs": 3,
+    "conclusion": "intrinsic six-unoriented-line carrier quotient is FCC-selected, not Barlow-universal"
+  },
+  "bridge_classification": {
+    "axis_label_level": "BIJECTIVE_EQUIVARIANT_AFTER_DECLARED_K4_INCIDENCE",
+    "native_state_level": "NO_POINT_IDENTITY_OR_QUOTIENT",
+    "slice_level": "OBSERVATION_ONLY / ONLY J_A GEOMETRICALLY ESTABLISHED IN MINIMAL CLONE-PRODUCT",
+    "rotation_level": "FULL_CARRIER_S4_TO_NATIVE_STATE_LIFT_NOT_AVAILABLE IN MINIMAL CLONE-PRODUCT",
+    "orientation_level": "CHART_LOCAL_Z2_TORSOR_WITH_NONTRIVIAL_LOOP_HOLONOMY"
+  },
+  "checker": "research_checks/P000_L1_NATIVE_FCC_CARRIER_BRIDGE_CHECK_20260829.py"
+}
