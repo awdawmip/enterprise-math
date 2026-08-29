@@ -11,11 +11,12 @@ ROOT = Path(__file__).resolve().parents[1]
 class ControlSemanticMigrationRegistryTests(unittest.TestCase):
     def test_registered_control_debt_and_protected_selectors_have_no_drift(self):
         reports = migration.check(ROOT)
-        self.assertGreaterEqual(len(reports), 10)
+        self.assertGreaterEqual(len(reports), 11)
         self.assertTrue(any("CSM-ARCHITECTURE-TASK-PUBLICATION-003" in row for row in reports))
         self.assertTrue(any("CSM-ROLEPOLICY-CANONICAL-DISPATCH-001" in row for row in reports))
         self.assertTrue(any("CSM-STEWARD-CANONICAL-DISPATCH-005" in row for row in reports))
         self.assertTrue(any("CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006" in row for row in reports))
+        self.assertTrue(any("CSM-STEWARD-CANONICAL-DISPATCH-TOOL-007" in row for row in reports))
         self.assertTrue(any("CSP-FOUNDATION-BACKFLOW-SURFACE-001" in row for row in reports))
         self.assertTrue(any("CSP-FOUNDATION-BACKFLOW-LINK-002" in row for row in reports))
         self.assertTrue(any("CSP-STEWARD-BACKFLOW-AUTHORITY-003" in row for row in reports))
@@ -38,6 +39,10 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
         )
         self.assertFalse(
             by_id["CSM-ARCHITECTURE-TASK-PUBLICATION-003"]["execution_authority_while_open"]
+        )
+        self.assertEqual(
+            "REQUIRES_GOVERNANCE_VERIFICATION",
+            by_id["CSM-STEWARD-CANONICAL-DISPATCH-TOOL-007"]["state"],
         )
 
     def test_low_risk_pointers_migrated_but_ambiguous_nested_dispatch_remains_blocked(self):
@@ -68,7 +73,7 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
             by_id["CSM-STEWARD-CANONICAL-DISPATCH-005"]["migration_scope"],
         )
 
-    def test_runtime_bundle_is_ready_only_after_reference_check(self):
+    def test_runtime_bundle_is_proven_but_waits_for_safe_write_mechanism(self):
         data = json.loads(
             (ROOT / "control_plane" / "control_semantic_migration_registry.json").read_text(
                 encoding="utf-8"
@@ -78,13 +83,24 @@ class ControlSemanticMigrationRegistryTests(unittest.TestCase):
         dispatch = by_id["CSM-RUNTIME-CANONICAL-DISPATCH-004"]
         liveness = by_id["CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006"]
         self.assertEqual(
-            "REFERENCE_CHECK_PASSED_READY_FOR_MECHANICAL_PATCH",
+            "FIELD_LOCALITY_PROOF_PASSED_AWAITING_SAFE_WRITE_MECHANISM",
             dispatch["state"],
         )
-        self.assertEqual(33221974090, dispatch["reference_evidence"]["reference_integrity_run_id"])
         self.assertEqual(
-            "READY_FOR_MECHANICAL_PATCH_WITH_RUNTIME_POINTER_BUNDLE",
+            33221974090,
+            dispatch["reference_evidence"]["production_consumer_reference_integrity_run_id"],
+        )
+        self.assertEqual(
+            33222148731,
+            dispatch["reference_evidence"]["field_locality_reference_integrity_run_id"],
+        )
+        self.assertEqual(
+            "FIELD_LOCALITY_PROOF_PASSED_AWAITING_SAFE_WRITE_MECHANISM",
             liveness["state"],
+        )
+        self.assertEqual(
+            33222148731,
+            liveness["reference_evidence"]["field_locality_reference_integrity_run_id"],
         )
         self.assertFalse(
             liveness["canonical_evidence"]["generic_conversation_activity_is_owner_scope_liveness"]
