@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact/reproducible checks for RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION.
 
-Standard-library only. The exhaustive census covers every odd nonsquare
+Standard-library only.  The exhaustive census covers every odd nonsquare
 semiprime p*q <= 10^7 with distinct odd primes p<q.
 """
 from __future__ import annotations
@@ -78,7 +78,6 @@ def main() -> int:
     shell_failures = 0
     multik_failures = 0
     observed_examples: dict[int, tuple[int, int, int, int, int]] = {}
-    wanted_examples = {x[0] for x in COUNTEREXAMPLES}
 
     for i, p in enumerate(primes):
         if p < 3:
@@ -103,6 +102,7 @@ def main() -> int:
             if B * B != b + 2 * A0 * T + T * T:
                 bridge_failures += 1
 
+            # pi(s)-pi(p), using the precomputed prime list only as an oracle label.
             pi_s = bisect.bisect_right(small_primes, s)
             pi_p = bisect.bisect_right(small_primes, p)
             Jp = pi_s - pi_p
@@ -127,18 +127,20 @@ def main() -> int:
             cs["gap_logratio"].add(gap, logr)
             cs["gap_logJp"].add(gap, logJ)
 
+            # Deterministic sparse audit of the task's exact multi-k transport law.
             if count % 4093 == 0:
+                D1 = D
                 for k in (2, 3, 5, 7, 11, 16, 31):
                     sk = math.isqrt(k * N)
                     Lk = 2 * sk + 1
                     ak = k * N - sk * sk
                     bk = (sk + 1) * (sk + 1) - k * N
                     Dk = bk - ak
-                    rhs = k * D + (Lk * Lk - k * L * L + 1 - k) // 2
+                    rhs = k * D1 + (Lk * Lk - k * L * L + 1 - k) // 2
                     if Dk != rhs:
                         multik_failures += 1
 
-            if N in wanted_examples:
+            if N in {x[0] for x in COUNTEREXAMPLES}:
                 observed_examples[N] = (p, q, s, b, T)
 
             count += 1
