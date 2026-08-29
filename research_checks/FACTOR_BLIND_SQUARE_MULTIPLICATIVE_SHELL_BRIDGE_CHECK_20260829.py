@@ -90,6 +90,8 @@ def hidden_labels_for_adversary():
     labels = []
     for n, p, q in ADV:
         s = math.isqrt(n)
+        pi_s = 0
+        # bisect without importing another module
         lo, hi = 0, len(primes)
         while lo < hi:
             mid = (lo + hi) // 2
@@ -124,6 +126,7 @@ def main():
     assert manifest["corpus"]["private_factors_serialized_to_worker"] is False
     assert summary["private_factors_in_summary"] is False
 
+    # Information-preserving square-shell identity on public audit probes.
     for vals in manifest["corpus"]["audit_probe_N"].values():
         for n in vals:
             s = math.isqrt(n)
@@ -135,6 +138,8 @@ def main():
             assert 4 * n - 1 == L * L - 2 * D
             assert n == (L * L + 1 - 2 * D) // 4
 
+    # Exact BCT theorem: each coordinate is a monotone step function of shell r.
+    # For k=2..64 the total possible jumps are <= sum ceil(sqrt(k)) = 371.
     assert sum(math.ceil(math.sqrt(k)) for k in K_CARRY) == 371
     s = 3160
     previous = None
@@ -149,6 +154,8 @@ def main():
         previous = w
     assert len(words) <= 372
 
+    # Strong exact collision: the new BCT+TPGR signature cannot point-identify
+    # the hidden multiplicative layout.
     n0, p0, q0 = ADV[0]
     n1, p1, q1 = ADV[1]
     assert p0 * q0 == n0 and p1 * q1 == n1
@@ -167,6 +174,7 @@ def main():
     assert labels[1][2] - labels[0][2] >= 15
     assert labels[0][4] == 0 and labels[1][4] > 1_000_000
 
+    # Published terminal boundary must not overclaim factorization gain.
     assert summary["terminal_verdict"] == "NEGATIVE_BOUNDARY"
     assert summary["success_levels"] == {"S1": False, "S2": False, "S3": False}
     assert summary["deployment_metrics"]["BCT_TPGR"]["p_rank_bucket"]["0.99"]["support_compression"] == 1.0
