@@ -28,6 +28,32 @@
       "foundation_authority_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-BB5EE5323E6AB5CA4587",
+      "review_id": "DR-9F0EF13296934CCAD8BD",
+      "result_id": "RR-20AF98E870D82802D679",
+      "packet_path": "research_driver_followups/DR-9F0EF13296934CCAD8BD/DFU-BB5EE5323E6AB5CA4587.json",
+      "packet_blob_sha1": "sha1:6640d9beefea48b73dd4d24083840f8728fbf284",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [
+        {
+          "task_id": "RS-NATIVE-TRISECTOR-N2-SCALAR-CLOSURE-FOUNDATION-STEWARD-ADMISSION-PRIOR-ART",
+          "publication_id": "TP2-CB300EE2F5761F32C048",
+          "publication_record_path": "research_task_records/RS-NATIVE-TRISECTOR-N2-SCALAR-CLOSURE-FOUNDATION-STEWARD-ADMISSION-PRIOR-ART/TP2-CB300EE2F5761F32C048.json",
+          "publication_record_blob_sha1": "sha1:534a6d29de7ff0759a6dbd0b6a036fcb7af95d06",
+          "taskbook_path": "research_tasks/NATIVE_TRISECTOR_N2_SCALAR_CLOSURE_FOUNDATION_STEWARD_ADMISSION_PRIOR_ART_20260829.md",
+          "taskbook_blob_sha1": "sha1:9c66e41195819063aff3eb0a407d27cde6acd3dd"
+        }
+      ],
+      "reason": "The packet and listed follow-up publication were materialized solely from DR-9F0EF13296934CCAD8BD. That immutable review is now exact-pinned as nonoperational because its result_record_sha256 does not bind the exact current result record. Control-plane maintenance preserves all review/follow-up/task bytes but cannot keep derived control authority alive independently of a valid source review. An authorized replacement Driver review must bind the exact current result before a new follow-up chain can become operational.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }
