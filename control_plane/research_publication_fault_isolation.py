@@ -21,6 +21,8 @@ ROOT = Path(__file__).resolve().parents[1]
 QUARANTINE_FILE = "research_task_publication_quarantines.json"
 QUARANTINE_SCHEMA = "ENTERPRISE_MATH_TASK_PUBLICATION_FORK_QUARANTINE_V1"
 QUARANTINE_STATE = "UNRESOLVED_PUBLICATION_FORK"
+LINEAGE_FORWARD_QUARANTINE_STATE = "UNRESOLVED_PUBLICATION_FORK_LINEAGE_FORWARD"
+LINEAGE_FORWARD_TRACKING_MODE = "PINNED_FORK_ANCHORS_UNIQUE_LINEAR_DESCENDANTS"
 
 
 class PublicationFaultIsolationError(ValueError):
@@ -32,6 +34,15 @@ def _load(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise PublicationFaultIsolationError(f"{path}: JSON root must be object")
     return value
+
+
+def _valid_publication_ids(value: Any) -> bool:
+    return (
+        isinstance(value, list)
+        and len(value) >= 2
+        and all(isinstance(item, str) and item for item in value)
+        and len(set(value)) == len(value)
+    )
 
 
 def quarantine_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
@@ -56,15 +67,32 @@ def quarantine_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
             raise PublicationFaultIsolationError(f"{QUARANTINE_FILE}: row {index} missing task_id")
         if task_id in out:
             raise PublicationFaultIsolationError(f"{QUARANTINE_FILE}: duplicate task {task_id}")
-        if row.get("state") != QUARANTINE_STATE:
+        state = row.get("state")
+        if state not in {QUARANTINE_STATE, LINEAGE_FORWARD_QUARANTINE_STATE}:
             raise PublicationFaultIsolationError(f"{QUARANTINE_FILE}: {task_id} wrong state")
-        if (
-            not isinstance(pubs, list)
-            or len(pubs) < 2
-            or any(not isinstance(item, str) or not item for item in pubs)
-            or len(set(pubs)) != len(pubs)
-        ):
+        if not _valid_publication_ids(pubs):
             raise PublicationFaultIsolationError(f"{QUARANTINE_FILE}: {task_id} publication_ids invalid")
+
+        if state == QUARANTINE_STATE:
+            if row.get("tracking_mode") is not None or row.get("lineage_anchor_publication_ids") is not None:
+                raise PublicationFaultIsolationError(
+                    f"{QUARANTINE_FILE}: {task_id} exact quarantine cannot declare lineage tracking"
+                )
+        else:
+            anchors = row.get("lineage_anchor_publication_ids")
+            if row.get("tracking_mode") != LINEAGE_FORWARD_TRACKING_MODE:
+                raise PublicationFaultIsolationError(
+                    f"{QUARANTINE_FILE}: {task_id} lineage-forward quarantine has wrong tracking_mode"
+                )
+            if not _valid_publication_ids(anchors):
+                raise PublicationFaultIsolationError(
+                    f"{QUARANTINE_FILE}: {task_id} lineage_anchor_publication_ids invalid"
+                )
+            if set(anchors) != set(pubs):
+                raise PublicationFaultIsolationError(
+                    f"{QUARANTINE_FILE}: {task_id} publication_ids must equal pinned lineage anchors"
+                )
+
         if row.get("operational_publication_id") is not None:
             raise PublicationFaultIsolationError(
                 f"{QUARANTINE_FILE}: {task_id} quarantine cannot select an operational publication"
@@ -110,27 +138,53 @@ def _heads(records: list[dict[str, Any]], terminal_states: set[str]) -> dict[str
 
 
 def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    from control_plane import research_publication_quarantine_lineage as lineage
     from control_plane import research_task_records_impl as core
 
     rows = quarantine_rows(root)
     heads = _heads(core.iter_records(root), core.TERMINAL_RECORD_STATES)
     resolutions = core.publication_resolutions(root)
+    validated: dict[str, dict[str, Any]] = {}
     for task_id, row in rows.items():
         if task_id in resolutions:
             raise PublicationFaultIsolationError(
                 f"{task_id}: unresolved quarantine cannot coexist with operational resolution"
             )
         actual = {str(item.get("publication_id")) for item in heads.get(task_id, [])}
-        declared = set(row["publication_ids"])
-        if actual != declared:
-            raise PublicationFaultIsolationError(
-                f"{task_id}: quarantine head set drift; declared={sorted(declared)} actual={sorted(actual)}"
+        state = row["state"]
+        value = copy.deepcopy(row)
+        if state == QUARANTINE_STATE:
+            declared = set(row["publication_ids"])
+            if actual != declared:
+                raise PublicationFaultIsolationError(
+                    f"{task_id}: quarantine head set drift; "
+                    f"declared={sorted(declared)} actual={sorted(actual)}"
+                )
+            value["_effective_publication_ids"] = sorted(actual)
+        else:
+            anchors = list(row["lineage_anchor_publication_ids"])
+            try:
+                evidence = lineage.prove(task_id, anchors, root)
+            except lineage.LineageForwardSafetyError as exc:
+                raise PublicationFaultIsolationError(
+                    f"{task_id}: lineage-forward quarantine invalid: {exc}"
+                ) from exc
+            effective = set(evidence["current_active_head_publication_ids"])
+            if effective != actual:
+                raise PublicationFaultIsolationError(
+                    f"{task_id}: lineage-forward effective head mismatch; "
+                    f"derived={sorted(effective)} actual={sorted(actual)}"
+                )
+            value["_effective_publication_ids"] = sorted(effective)
+            value["_anchor_to_current_head"] = copy.deepcopy(
+                evidence["anchor_to_current_head"]
             )
-    return rows
+        validated[task_id] = value
+    return validated
 
 
 def isolated_current_records(root: Path = ROOT) -> dict[str, dict[str, Any]]:
-    """Strict current-record reducer with exact quarantined forks omitted locally."""
+    """Strict current-record reducer with validated quarantined forks omitted locally."""
     from control_plane import research_task_records_impl as core
 
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -206,8 +260,28 @@ def isolated_current_records(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     return current
 
 
+def _effective_publication_ids(row: dict[str, Any]) -> list[str]:
+    values = row.get("_effective_publication_ids", row["publication_ids"])
+    return sorted(str(item) for item in values)
+
+
 def blocked_definition(task_id: str, row: dict[str, Any], prior: dict[str, Any] | None = None) -> dict[str, Any]:
     value = copy.deepcopy(prior or {})
+    publication_ids = _effective_publication_ids(row)
+    anchors = sorted(str(item) for item in row.get("lineage_anchor_publication_ids", []))
+    hard_block = {
+        "code": "UNRESOLVED_PUBLICATION_FORK",
+        "publication_ids": publication_ids,
+        "operational_publication_id": None,
+    }
+    if row.get("state") == LINEAGE_FORWARD_QUARANTINE_STATE:
+        hard_block.update(
+            {
+                "tracking_mode": LINEAGE_FORWARD_TRACKING_MODE,
+                "lineage_anchor_publication_ids": anchors,
+                "anchor_to_current_head": copy.deepcopy(row.get("_anchor_to_current_head", {})),
+            }
+        )
     value.update(
         {
             "task_id": task_id,
@@ -220,19 +294,15 @@ def blocked_definition(task_id: str, row: dict[str, Any], prior: dict[str, Any] 
             "frontier": "UNRESOLVED_PUBLICATION_FORK",
             "next_action": "RESOLVE_PUBLICATION_FORK_UNDER_EXISTING_PARALLEL_PUBLICATION_CONTRACT",
             "dependencies": copy.deepcopy(value.get("dependencies", [])),
-            "source_refs": sorted(row["publication_ids"]),
+            "source_refs": publication_ids,
             "evidence_status": "CONTROL_PLANE_QUARANTINED_UNRESOLVED_PUBLICATION_FORK",
             "last_progress_ref": QUARANTINE_FILE,
             "last_progress_at": value.get("last_progress_at", "1970-01-01T00:00:00+00:00"),
-            "hard_block": {
-                "code": "UNRESOLVED_PUBLICATION_FORK",
-                "publication_ids": sorted(row["publication_ids"]),
-                "operational_publication_id": None,
-            },
+            "hard_block": hard_block,
             "tags": sorted(set(value.get("tags", [])) | {"CONTROL_PLANE_QUARANTINE"}),
             "claim_lease_minutes": int(value.get("claim_lease_minutes") or 120),
             "publication_id": None,
-            "publication_ids": sorted(row["publication_ids"]),
+            "publication_ids": publication_ids,
             "registration_source": "PUBLICATION_FORK_QUARANTINE",
         }
     )
@@ -328,8 +398,16 @@ def audit(root: Path = ROOT) -> list[str]:
                 errors.append(f"{task_id}: quarantine is not BLOCKED in dispatch view")
             if item.get("publication_id") is not None:
                 errors.append(f"{task_id}: quarantine unexpectedly selected publication_id")
-            if set(item.get("publication_ids", [])) != set(row["publication_ids"]):
-                errors.append(f"{task_id}: dispatch quarantine head set mismatch")
+            if set(item.get("publication_ids", [])) != set(_effective_publication_ids(row)):
+                errors.append(f"{task_id}: dispatch quarantine effective head set mismatch")
+            if row.get("state") == LINEAGE_FORWARD_QUARANTINE_STATE:
+                hard_block = item.get("hard_block", {})
+                if hard_block.get("tracking_mode") != LINEAGE_FORWARD_TRACKING_MODE:
+                    errors.append(f"{task_id}: lineage-forward tracking mode missing from dispatch view")
+                if set(hard_block.get("lineage_anchor_publication_ids", [])) != set(
+                    row["lineage_anchor_publication_ids"]
+                ):
+                    errors.append(f"{task_id}: dispatch lineage anchor set mismatch")
     except Exception as exc:
         errors.append(str(exc))
     return errors
