@@ -1,7 +1,7 @@
 # Enterprise Math / 进取数论研究调度协议
 
 状态：`ACTIVE / CANONICAL SCHEDULING CONTRACT`  
-生效：2026-08-26  
+生效：2026-08-29  
 范围：全部 L1 core owner、L2 program owner、L3 bridge/probe 与 L4 integration replay。
 
 本协议用于消除调度歧义，同时冻结一个操作优先级：**研究是热路径；GitHub 只做稀疏协调和耐久溯源，不做逐步研究遥测。**
@@ -111,17 +111,33 @@ shared_surface_seen: <确有需要时读取的 canonical snapshot>
 
 `PENDING_CI_OR_REVIEW -> CONTINUE_INDEPENDENT_SAFE_WORK; DO_NOT_POLL_AS_PROGRESS`。
 
-`HEARTBEAT` 事件只保留为 legacy compatibility：在确实需要续 task owner lease、又没有更好的语义 progress event 时才使用。它**不是**周期研究义务，也不得替代 conversation liveness。
+`HEARTBEAT` 事件只保留为 legacy compatibility：在确实需要续 owner lease、又没有更好的语义 progress event 时才使用。它**不是**周期研究义务，也不得作为 owner-scope session liveness 证据。
 
-## 8. Canonical dispatch 状态机与对话接力
+## 8. 恢复优先的 live dispatch 状态机与对话接力
 
-规范调度由以下对象组合：
+规范 live scheduling/control route 是：
+
+`research_control_dispatch.py`。
+
+它在 fresh selection 之前先处理 stale-owner recovery，并组合：
 
 - post-cutover immutable task publications：`research_task_records/<task-id>/<publication-id>.json`；
 - 仅作冻结 legacy task baseline 的 `research_scheduler.json`；
-- canonical merged selector/reducer：`tools/research_dispatch.py`；
+- recovery-aware live router：`research_control_dispatch.py`；
+- ordinary merged fresh selector/reducer：`tools/research_dispatch.py`；
+- active-cohort fresh lane selector：`tools/research_lane_dispatch.py`；
 - live runtime coordination：Research Dispatch Board Issue #240；
 - result/review overlays：`research_result_records/` 与 `research_result_reviews/`。
+
+`tools/research_dispatch.py` 继续作为规范的**任务定义 / 普通 fresh selection** reducer；它不负责 stale-session adoption，也不能单独给出全局 `NO_DISPATCH` 结论。
+
+冻结：
+
+`STALE_SESSION + VALID_OWNER_CLAIM -> ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM`。
+
+`FRESH_SELECTOR_EMPTY + VALID_OWNER_UNKNOWN_LIVENESS -> VERIFY_SESSION_LIVENESS`。
+
+`FRESH_SELECTOR_MISS != NO_DISPATCH`。
 
 `tools/research_scheduler.py` 继续作为 **legacy event reducer/config validator primitive**，但不再是 post-cutover task-definition authority。
 
@@ -135,7 +151,7 @@ scheduler 负责的是**谁来继续哪一个研究前沿**，不负责判定定
 
 `IMMUTABLE_PUBLICATION_RECORD_CREATED -> OFFICIAL_TASK_EXISTS`。
 
-canonical dispatch view 派生的运行状态包括：
+ordinary merged dispatch view 派生的运行状态包括：
 
 `NEEDS_DISPATCH`、`LEASED`、`AWAITING_REVIEW`、`BLOCKED`、`COMPLETE`、`DORMANT`。
 
@@ -189,34 +205,37 @@ JSON body 中的 `actor` 与 `at` 只保留为描述性 provenance，不再具�
 
 裸 V1 event object 只保留给明确的 historical replay/unit-test compatibility，不能作为 immutably registered task 的 live authority。
 
-### 8.4 CLAIM 与 lease
+### 8.4 CLAIM、owner lease 与 owner-scope session liveness
 
-`CLAIM` 是临时 task-ownership lease，不是永久占有，也不是当前 conversation 仍活跃的证明。
+`CLAIM` 是临时 task-ownership lease，不是永久占有，也不是 exact winning owner scope 仍活跃的证明。
 
-`OWNER_LEASE != SESSION_LIVENESS`。
+`OWNER_LEASE != OWNER_SCOPE_SESSION_LIVENESS`。
+
+`CONVERSATION_ACTIVITY != OWNER_SCOPE_SESSION_LIVENESS`。
 
 - `PROGRESS` 可续 owner lease 并记录真实 checkpoint；
-- `HEARTBEAT` 只有确有需要时才续 lease，默认不周期发送；
+- `HEARTBEAT` 只有确有需要时才续 owner lease，默认不周期发送，而且不构成 session liveness 证据；
+- owner-scope session liveness 只能由独立核验、且绑定 exact current winning `claim_id` 与 task/lane scope 的 `TASK_RESEARCH_RESPONSE` 或 `DURABLE_EXECUTION_PROGRESS` 刷新；
+- Control-plane、Driver、Steward、FREE、其他 task/lane、generic chat，以及没有 durable task progress 的 CI/status 活动，都不能刷新一个已暂停的 Researcher claim；
 - `HANDOFF` 主动释放 claim，并给出具体 `next_action`；
 - legacy reducer 下 owner claim 过期后回到可恢复/可调度状态；
 - 第二个合法 claim 不能抢占 live lease；
-- conversation stale 时，如果 owner claim 仍有效，可在验证 durable frontier 后 adopt 同一 claim，而不是强等 owner lease 到期。
+- owner-scope session stale 时，如果 winning owner claim 仍有效，可在验证 durable frontier 后 adopt 同一 claim，而不是强等 owner lease 到期。
 
-### 8.5 新对话自动选取任务
+### 8.5 新对话自动路由
 
 用户当前显式指定的任务始终覆盖自动调度。
 
 如果新的 Enterprise Math task-research conversation 没有用户指定任务，且适用 automatic dispatch，则应：
 
 1. 读取 current Common Surface 与本协议；
-2. 用 `tools/research_dispatch.py` 获取 current task records、frozen legacy baseline 与 Issue #240 event input 组合出的 canonical merged dispatch view；
-3. 排除 leased、complete、blocked、awaiting-review 与 dormant 工作；
-4. 按 selection policy 优先恢复 handoff/recoverable 工作，再考虑新 frontier；
-5. 在剩余候选中按 canonical priority/leverage/staleness rule 排序；
-6. 开始实质 task-specific research 前，只发布一条合法的 server-backed `CLAIM`；
-7. 在证明新内容前，只刷新所选任务真正相关的 source/taskbook/branch dependencies。
+2. 把 `research_control_dispatch.py` 作为 top-level route；存在独立可核验信息时提供 exact owner-scope liveness observations；
+3. 如果 action 是 `ADOPT_OWNER_CLAIM`，验证 durable frontier 后采用**同一个** winning claim，不创建第二个 claim；
+4. 如果 action 是 `VERIFY_SESSION_LIVENESS`，先解析 exact owner-scope activity，不能据此推断没有任务；
+5. 只有 action 是 `CLAIM_NEW_OWNER` 时，才接受 subordinate fresh selector 选出的 task/lane，并在实质 task-specific research 前发布一条合法 server-backed `CLAIM`；
+6. 在证明新内容前，只刷新所选任务真正相关的 source/taskbook/branch dependencies。
 
-不得预加载整个仓库，不得为了开始研究而轮询 CI，不得追逐 moving `main`，也不得在 claim 后反复重读 Issue #240，除非出现真正 coordination boundary。
+不得仅因为直接调用 `tools/research_dispatch.py` 得不到 fresh candidate 就推断 `NO_TASK` / `NO_DISPATCH`。不得预加载整个仓库，不得为了开始研究而轮询 CI，不得追逐 moving `main`，也不得在 claim 后反复重读 Issue #240，除非出现真正 coordination boundary。
 
 并发领取由 GitHub server comment-ID 顺序中的第一条合法 CLAIM 决胜。
 

@@ -1,7 +1,7 @@
 # Enterprise Math Research Scheduling Protocol
 
 Status: `ACTIVE / CANONICAL SCHEDULING CONTRACT`  
-Effective: 2026-08-26  
+Effective: 2026-08-29  
 Scope: all L1 core owners, L2 program owners, L3 bridges/probes, and L4 integration replays.
 
 This protocol resolves scheduling ambiguity while preserving one operational priority: **research is the hot path; GitHub is sparse coordination and durable provenance, not per-step telemetry.**
@@ -111,17 +111,33 @@ Freeze:
 
 `PENDING_CI_OR_REVIEW -> CONTINUE_INDEPENDENT_SAFE_WORK; DO_NOT_POLL_AS_PROGRESS`.
 
-A `HEARTBEAT` event remains a legacy compatibility mechanism for a genuinely needed lease renewal when no semantic progress event exists. It is **not** a periodic research obligation and must never be used as a conversation-liveness substitute.
+A `HEARTBEAT` event remains a legacy compatibility mechanism for a genuinely needed owner-lease renewal when no semantic progress event exists. It is **not** a periodic research obligation and must never be used as owner-scope session-liveness evidence.
 
-## 8. Canonical dispatch state machine and conversation handoff
+## 8. Recovery-aware live dispatch and conversation handoff
 
-Canonical scheduling is composed by:
+Canonical live scheduling/control routing is:
+
+`research_control_dispatch.py`.
+
+It composes stale-owner recovery before fresh selection over:
 
 - immutable post-cutover task publications: `research_task_records/<task-id>/<publication-id>.json`;
 - frozen legacy task definitions only: `research_scheduler.json`;
-- canonical merged selector/reducer: `tools/research_dispatch.py`;
+- recovery-aware live router: `research_control_dispatch.py`;
+- ordinary merged fresh selector/reducer: `tools/research_dispatch.py`;
+- active-cohort fresh lane selector: `tools/research_lane_dispatch.py`;
 - live runtime coordination: Research Dispatch Board Issue #240;
 - result/review overlays: `research_result_records/` and `research_result_reviews/`.
+
+`tools/research_dispatch.py` remains the canonical **task-definition / ordinary fresh-selection** reducer. It does not own stale-session adoption and cannot by itself produce a global `NO_DISPATCH` verdict.
+
+Freeze:
+
+`STALE_SESSION + VALID_OWNER_CLAIM -> ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM`.
+
+`FRESH_SELECTOR_EMPTY + VALID_OWNER_UNKNOWN_LIVENESS -> VERIFY_SESSION_LIVENESS`.
+
+`FRESH_SELECTOR_MISS != NO_DISPATCH`.
 
 `tools/research_scheduler.py` remains a **legacy event-reduction/config-validation primitive**. It is not post-cutover task-definition authority.
 
@@ -135,7 +151,7 @@ For post-cutover work:
 
 `IMMUTABLE_PUBLICATION_RECORD_CREATED -> OFFICIAL_TASK_EXISTS`.
 
-The canonical dispatch view derives runtime states including:
+The ordinary merged dispatch view derives runtime states including:
 
 `NEEDS_DISPATCH`, `LEASED`, `AWAITING_REVIEW`, `BLOCKED`, `COMPLETE`, and `DORMANT`.
 
@@ -189,34 +205,37 @@ If an event needs correction, append a new correction/superseding event. Do not 
 
 Bare V1 event objects remain available only for explicit historical replay/unit-test compatibility. They are not live authority for an immutably registered task.
 
-### 8.4 Claims and leases
+### 8.4 Claims, owner lease, and owner-scope session liveness
 
-A `CLAIM` is a temporary task-ownership lease, not permanent ownership and not proof that the current conversation remains alive.
+A `CLAIM` is a temporary task-ownership lease, not permanent ownership and not proof that the exact winning owner scope remains active.
 
-`OWNER_LEASE != SESSION_LIVENESS`.
+`OWNER_LEASE != OWNER_SCOPE_SESSION_LIVENESS`.
+
+`CONVERSATION_ACTIVITY != OWNER_SCOPE_SESSION_LIVENESS`.
 
 - `PROGRESS` may renew the owner lease and record a real checkpoint;
-- `HEARTBEAT` may renew the owner lease only when actually needed, but is not periodic by default;
+- `HEARTBEAT` may renew the owner lease only when actually needed, but is not periodic by default and is not session-liveness evidence;
+- owner-scope session liveness is refreshed only by an independently verified `TASK_RESEARCH_RESPONSE` or `DURABLE_EXECUTION_PROGRESS` bound to the exact current winning `claim_id` and task/lane scope;
+- Control-plane, Driver, Steward, FREE, unrelated-task/lane, generic chat, and CI/status activity do not refresh a suspended Researcher claim;
 - `HANDOFF` releases the claim deliberately and states one concrete `next_action`;
 - an expired owner claim returns to a dispatchable recovery state under the compatibility reducer;
 - a second valid claim cannot preempt a live lease;
-- stale conversation recovery may adopt a still-valid owner claim after durable-frontier verification rather than waiting for the owner lease to expire.
+- stale owner-scope session recovery adopts a still-valid winning claim after durable-frontier verification rather than waiting for the owner lease to expire.
 
-### 8.5 New-conversation automatic selection
+### 8.5 New-conversation automatic routing
 
 A current explicit user task always overrides automatic selection.
 
 If a new Enterprise Math task-research conversation has no user-selected task and automatic dispatch is applicable, it must:
 
 1. read the current Common Surface and this protocol;
-2. obtain the canonical merged dispatch view from `tools/research_dispatch.py` using current task records, frozen legacy baseline, and Issue #240 event input;
-3. exclude leased, complete, blocked, awaiting-review, and dormant work;
-4. prefer recoverable/handoff-ready work before opening a fresh frontier when the selection policy says so;
-5. rank remaining candidates by the canonical priority/leverage/staleness rule;
-6. post one valid server-backed `CLAIM` before substantive task-specific research begins;
-7. refresh only the selected task's materially relevant source/taskbook/branch dependencies before proving anything new.
+2. invoke `research_control_dispatch.py` as the top-level route, supplying exact owner-scope liveness observations when independently available;
+3. if the action is `ADOPT_OWNER_CLAIM`, verify the durable frontier and adopt the **same** winning claim without creating a second claim;
+4. if the action is `VERIFY_SESSION_LIVENESS`, resolve exact owner-scope activity before inferring that no task exists;
+5. only when the action is `CLAIM_NEW_OWNER`, accept the task/lane selected through the subordinate fresh selector and post one valid server-backed `CLAIM` before substantive task-specific research begins;
+6. refresh only the selected task's materially relevant source/taskbook/branch dependencies before proving anything new.
 
-Do **not** preload the whole repository, poll CI, chase moving `main`, or repeatedly re-read Issue #240 after the claim unless a real coordination boundary requires it.
+Do **not** infer `NO_TASK` / `NO_DISPATCH` merely because a direct `tools/research_dispatch.py` fresh-selection call returns no candidate. Do not preload the whole repository, poll CI, chase moving `main`, or repeatedly re-read Issue #240 after the claim unless a real coordination boundary requires it.
 
 The live-claim race is resolved by the first valid GitHub comment in server comment-ID order.
 
