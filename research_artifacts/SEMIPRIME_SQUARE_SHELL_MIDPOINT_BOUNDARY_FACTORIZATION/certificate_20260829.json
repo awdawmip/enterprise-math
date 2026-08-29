@@ -1,0 +1,85 @@
+{
+  "schema": "SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_CERTIFICATE_V1",
+  "task_id": "RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION",
+  "classification": "STRUCTURAL_ONLY",
+  "replay": {
+    "main_checker": "python scripts/check_semiprime_square_shell_midpoint_boundary_factorization.py --limit 10000000 --reservoir 1000 --kmax 64 --holdout-per-cell 40",
+    "negative_controls": "python research_artifacts/SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_FACTORIZATION/negative_controls_20260829.py",
+    "main_terminal": "SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_CHECK=PASS",
+    "negative_terminal": "SEMIPRIME_SHELL_NEGATIVE_CONTROLS=PASS"
+  },
+  "exact_results": {
+    "shell_to_fermat": "B^2=b+2*A0*T+T^2",
+    "hyperbolic_midpoint": "A/sqrt(N)=cosh(log(q/p)/2), B/sqrt(N)=sinh(log(q/p)/2)",
+    "neighbor_center": "For c=(PrevPrime(sqrt(N))+NextPrime(sqrt(N)))/2 and local gap g, A-c=(A-sqrt(N))+(sqrt(N)-c) and |sqrt(N)-c|<g/2.",
+    "consecutive_prime_boundary": "If p<q are consecutive primes and N=pq then PrevPrime(sqrt(N))=p and NextPrime(sqrt(N))=q; in this family q<2p and continuous Fermat displacement / (sqrt(N)-p) < (sqrt(2)-1)/2.",
+    "multiplier_split": "For k=ab, (ap+bq)^2-(ap-bq)^2=4kN and ap+bq-2sqrt(kN)=(sqrt(ap)-sqrt(bq))^2.",
+    "modular_count": "For odd prime ell not dividing N, the number of A mod ell with A^2-N a quadratic residue (zero included) is (ell+1)/2 if N is a QR and (ell-1)/2 otherwise; if ell divides N all ell residues pass.",
+    "information_boundary": "(L,D) reversibly determine N, and every fixed D(kN) is deterministic from N and k; any advantage must therefore be computational/search-order advantage rather than extra information."
+  },
+  "exhaustive": {
+    "limit": 10000000,
+    "odd_distinct_semiprimes": 1555366,
+    "adjacent_factor_pairs": 445,
+    "p_is_local_predecessor": 795,
+    "q_is_local_successor": 754,
+    "both_local_neighbors": 445,
+    "local_center_improve_count": 572472,
+    "local_center_worse_count": 781497,
+    "local_center_equal_count": 201397,
+    "max_abs_local_center_shift_from_A0": 17,
+    "max_local_prime_gap": 34,
+    "max_Fermat_T": 1663504,
+    "max_downprime_rank_J": 444,
+    "mean_modular_wheel_retention_64_3_5_7_11_13": 0.0082359415221505,
+    "bands": {
+      "<=1.01": {"n":699,"T_median":0,"T_p90":0,"J_median":0,"J_p90":1,"fermat_le_downprime_fraction":1.0,"adjacent_factor_count":322},
+      "1.01-1.1": {"n":7202,"T_median":0,"T_p90":2,"J_median":6,"J_p90":12,"fermat_le_downprime_fraction":1.0,"adjacent_factor_count":110},
+      "1.1-2": {"n":51701,"T_median":33,"T_p90":111,"J_median":42,"J_p90":84,"fermat_le_downprime_fraction":0.6583625074950195,"adjacent_factor_count":13},
+      "2-10": {"n":140169,"T_median":524,"T_p90":1425,"J_median":136,"J_p90":221,"fermat_le_downprime_fraction":0.0007348272442551492,"adjacent_factor_count":0},
+      ">10": {"n":1355595,"T_median":86288,"T_p90":833952,"J_median":306,"J_p90":415,"fermat_le_downprime_fraction":0.0,"adjacent_factor_count":0}
+    }
+  },
+  "multik_reservoir_p_gt_64": {
+    "<=1.01": {"n":699,"raw_best_k_median_rank":1,"raw_best_k_top10_fraction":1.0,"raw_best_k_max_rank":5,"normalized_best_k_median_rank":1,"normalized_best_k_top10_fraction":1.0},
+    "1.01-1.1": {"n":1000,"raw_best_k_median_rank":6.0,"raw_best_k_top10_fraction":0.792,"raw_best_k_max_rank":19,"normalized_best_k_median_rank":25.0,"normalized_best_k_top10_fraction":0.215},
+    "1.1-2": {"n":1000,"raw_best_k_median_rank":14.0,"raw_best_k_top10_fraction":0.424,"raw_best_k_max_rank":63,"normalized_best_k_median_rank":17.0,"normalized_best_k_top10_fraction":0.391},
+    "2-10": {"n":1000,"raw_best_k_median_rank":14.0,"raw_best_k_top10_fraction":0.418,"raw_best_k_max_rank":64,"normalized_best_k_median_rank":18.0,"normalized_best_k_top10_fraction":0.376},
+    ">10": {"n":1000,"raw_best_k_median_rank":36.0,"raw_best_k_top10_fraction":0.181,"raw_best_k_max_rank":64,"normalized_best_k_median_rank":26.0,"normalized_best_k_top10_fraction":0.256}
+  },
+  "holdout": {
+    "total": 1000,
+    "per_bit_ratio_cell": 40,
+    "bits": [24,32,40,48,64],
+    "by_bit_shell_phase_vs_log_factor_ratio_spearman": {"24":0.516352565895909,"32":0.32373908628147174,"40":0.1971859296482412,"48":0.29764344108602714,"64":0.22888022200555014},
+    "by_ratio_raw_best_k_median_rank": {"<=1.01":1.0,"1.01-1.1":7.0,"1.1-2":15.0,"2-10":13.0,">10":39.0},
+    "by_ratio_raw_best_k_top10_fraction": {"<=1.01":0.885,"1.01-1.1":0.705,"1.1-2":0.39,"2-10":0.46,">10":0.2},
+    "max_local_center_shift_over_holdout": 52
+  },
+  "counterexample": {
+    "N": 9171667,
+    "p": 2851,
+    "q": 3217,
+    "best_k": 56,
+    "factor_split": [7,8],
+    "best_Tk": 0,
+    "raw_residual": 83521,
+    "raw_residual_rank_ascending_among_k_1_64": 64,
+    "normalized_residual_rank_ascending_among_k_1_64": 62,
+    "identity": "ceil(sqrt(4*56*N))=7q+8p and b_56=(7q-8p)^2=83521"
+  },
+  "negative_controls": {
+    "prime_controls": 2000,
+    "prime_nontrivial_immediate_hits": 0,
+    "three_prime_composite_controls": 2000,
+    "three_prime_nontrivial_immediate_hits": 1885,
+    "random_odd_controls": 2000,
+    "random_odd_nontrivial_immediate_hits": 1619,
+    "interpretation": "Immediate multi-k difference-of-squares hits are not a semiprime-specific signature; negative controls are not assigned semiprime T/J labels."
+  },
+  "prior_art_boundary": {
+    "Fermat_modular_wheel": "quadratic-residue filtering of A^2-N; shell form is a coordinate rewrite",
+    "Lehman": "systematic x^2-y^2=4kN multiplier near-square search; shell b_k is its starting residual",
+    "Hart_OLF": "sequential multiplier near-square test; raw shell-residual magnitude is not a new multiplier-selection principle"
+  }
+}
