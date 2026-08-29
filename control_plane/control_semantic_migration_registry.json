@@ -46,6 +46,14 @@
       "required_value": "tools/research_dispatch.py",
       "semantic_role": "ORDINARY_FRESH_TASK_SELECTOR",
       "reason": "The runtime dispatch block describes the ordinary fresh task-definition/selection primitive. Recovery-aware top-level live routing is separately named by composes.canonical_dispatch and research_dispatch_contract.json."
+    },
+    {
+      "protection_id": "CSP-ROLEPOLICY-PUBLICATION-DISPATCH-005",
+      "path": "research_role_policy.json",
+      "json_pointer": "/task_publication_authority/dispatch",
+      "required_value": "tools/research_dispatch.py",
+      "semantic_role": "POST_PUBLICATION_ORDINARY_FRESH_SELECTOR",
+      "reason": "The field belongs to task_publication_authority. research_task_publication_contract_v2.json explicitly separates control_dispatch_tool=research_control_dispatch.py from fresh_dispatch_selector/dispatch_tool=tools/research_dispatch.py and labels the legacy dispatch field as an ordinary fresh selector."
     }
   ],
   "entries": [
@@ -77,12 +85,19 @@
       "baseline_blob_sha1": "ce2c208ab9fc63cc0baddb51e704e805bb868510",
       "json_pointer": "/task_publication_authority/dispatch",
       "observed_legacy_value": "tools/research_dispatch.py",
-      "current_interpretation": "AMBIGUOUS_PUBLICATION_DISCOVERY_OR_LIVE_DISPATCH_POINTER",
-      "canonical_target_value": "research_control_dispatch.py",
-      "risk_class": "MIXED_CONTROL_SEMANTICS",
-      "state": "REQUIRES_GOVERNANCE_VERIFICATION",
-      "execution_authority_while_open": false,
-      "verification_question": "Does this field mean top-level live routing or only post-publication ordinary fresh discovery? Preserve the latter meaning if it is intentionally selector-scoped."
+      "current_interpretation": "POST_PUBLICATION_ORDINARY_FRESH_SELECTOR",
+      "canonical_target_value": "tools/research_dispatch.py",
+      "risk_class": "CONTROL_SEMANTICS_CLASSIFIED_BY_V2_PUBLICATION_CONTRACT",
+      "state": "RESOLVED_AS_PROTECTED_SELECTOR_NO_MIGRATION",
+      "resolution_evidence": {
+        "contract": "research_task_publication_contract_v2.json",
+        "control_dispatch_tool": "research_control_dispatch.py",
+        "fresh_dispatch_selector": "tools/research_dispatch.py",
+        "dispatch_tool": "tools/research_dispatch.py",
+        "dispatch_tool_semantics": "LEGACY_FIELD_NAME_FOR_ORDINARY_FRESH_SELECTOR_NOT_TOP_LEVEL_LIVE_ROUTER",
+        "protected_selector_id": "CSP-ROLEPOLICY-PUBLICATION-DISPATCH-005"
+      },
+      "execution_authority_while_open": false
     },
     {
       "migration_id": "CSM-ARCHITECTURE-TASK-PUBLICATION-003",
