@@ -1,0 +1,66 @@
+{
+  "schema": "P000_FULL_CELL_AXIS_HANDLE_REALIZATION_V9_MODEL_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-6B4E31DCA8F9A0257C44",
+  "researcher_id": "EM-P000FCC9-7A29C4",
+  "terminal_class": "EXACT_FULL_CELL_AXIS_HANDLE_BRIDGE_OBSTRUCTION_PROVED",
+  "model": {
+    "native_axes": ["E1", "E2", "E3", "E4", "E5", "E6"],
+    "cells": ["x0", "x1"],
+    "native_adjacency": [["x0", "x1"]],
+    "local_channels_each_cell": [0, 1, 2, 3, 4, 5],
+    "ingress_counts": [1, 1, 1, 1, 1, 1],
+    "egress_counts": [1, 1, 1, 1, 1, 1],
+    "passage_matrix_rule": "M_x[a,b]=1 iff a=b; otherwise 0",
+    "channel_to_axis_relation": null,
+    "cross_cell_channel_transport_relation": null,
+    "time_axis_in_channel_permutations": false
+  },
+  "finite_results": {
+    "pf10_channel_relabel_automorphism_order": 720,
+    "cross_cell_channel_gluing_choices_without_extra_relation": 720,
+    "anchor_stabilizer_orders": {
+      "0": 720,
+      "1": 120,
+      "2": 24,
+      "3": 6,
+      "4": 2,
+      "5": 1,
+      "6": 1
+    },
+    "minimum_independent_axis_channel_anchors_for_unique_bijection_in_symmetric_case": 5,
+    "off_diagonal_mixed_passages_present": false,
+    "contact_match_b_realized_in_countermodel": false,
+    "gen8_axis_relation_skeleton_automorphism_order": 2,
+    "gen7_block_pure_wreath_order": 72,
+    "gen7_contains_b": false
+  },
+  "obstruction": {
+    "primary": "PF10_CHANNEL_TO_AXIS_BRIDGE_UNDERDETERMINED",
+    "secondary": [
+      "FULL_CELL_RELATION_TOO_COARSE_FOR_AXIS_HANDLES",
+      "AXIS_HANDLE_TRANSPORT_NOT_CANONICAL",
+      "MIXED_CONTACT_NOT_REALIZABLE_FROM_CURRENT_ADJACENCY"
+    ],
+    "statement": "The current primitive language admits a full S6 relabeling symmetry on an allowed symmetric PF-10 local channel state while fixing Cell identities and named P000 axes. Therefore no representation-invariant unique AXIS_HANDLE(x,E_i,h_i) attachment can be derived from the current primitives. Two adjacent symmetric Cells also admit 6! observationally equivalent channel gluings in the absence of a cross-Cell channel transport relation."
+  },
+  "minimal_extension": {
+    "relation_type": "AXIS_CHANNEL_FRAME(x,E,c)",
+    "typing": "Cell x NativeSpatialAxis x LocalPF10Channel",
+    "per_cell_law": "total bijection E->{local channels}",
+    "transport_law": "same-axis frame incidences induce adjacency/path channel transport; any future native rotation must act equivariantly on both the axis and channel legs",
+    "worst_case_information_lower_bound": "five independent axis-channel anchor incidences plus bijectivity; the sixth incidence is forced",
+    "p000_root_axiom_modified": false,
+    "carrier_readout_quotient_used": false,
+    "guarantees_mixed_contact": false,
+    "mixed_contact_after_extension": "CONTACT_MATCH_b may be read from PF-10 only on Cells where the framed off-diagonal passage pairs E2<->E4 and E3<->E5 actually exist; current PF-10 does not force those passages."
+  },
+  "promotion_guards": {
+    "full_P000_native_b_promoted": false,
+    "arbitrary_S6_native_rotation_promoted": false,
+    "carrier_S4xC2_promoted": false,
+    "fcc_line_family_equals_native_axis": false,
+    "readout_collision_quotient_used": false,
+    "omitted_coordinate_equals_zero": false
+  }
+}
