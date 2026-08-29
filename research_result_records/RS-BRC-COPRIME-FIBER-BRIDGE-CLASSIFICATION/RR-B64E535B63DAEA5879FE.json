@@ -1,0 +1,38 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-B64E535B63DAEA5879FE",
+  "task_id": "RS-BRC-COPRIME-FIBER-BRIDGE-CLASSIFICATION",
+  "publication_id": "TP2-E2C0B1C2A3334B54BAAD",
+  "execution_record_id": "ER-1C513E812F0EB1E54145",
+  "claim_id": "chatgpt-mbgb0-20260829-1853-4d9a72",
+  "taskbook_path": "research_tasks/BRC_COPRIME_FIBER_BRIDGE_CLASSIFICATION_20260829.md",
+  "taskbook_blob_sha1": "sha1:cca523e8f1898c797ff3e4e7f644fbefdbed8295",
+  "execution_branch": "research/brc-coprime-fiber-bridge-em-mbgb0-4d9a72",
+  "execution_branch_base": "1b134d8c55ccd941e4b338752825443589726be2",
+  "return_path": "research_returns/BRC_COPRIME_FIBER_BRIDGE_CLASSIFICATION_RETURN_20260829.md",
+  "return_blob_sha1": "sha1:6f5186eac12ebb0796ee73fa9c37e637fa15a7c6",
+  "return_sha256": "sha256:129c0a0d7c1f65bf3b8f1f2970f6df0915b71ebba2f021979b2ff9c3b22dc408",
+  "owner_head": "846aee1fd6dbb4c80cee3380c769f23dcba6437d",
+  "researcher_id": "EM-MBGB0-4D9A72",
+  "frozen_at": "2026-08-29T19:02:15+08:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "B0-B5 classified. Current accepted F3R2 gives exact factor-blind decidable coefficient-support bridge existence and factor-aware explicit support witnesses, but the unimodular balanced operator cannot create one-sided CRT linear collapse. Coupling its canonical gcd invariants to N either misses hidden factors, places both on one side, or directly extracts endpoints by ordinary gcd; no genuinely new factor-blind channel discriminator is supplied.",
+  "unresolved_residue": "Construct or rule out a genuinely BRC-derived noninvertible or nonlinear factor-blind channel discriminator C_lambda(A,N) whose one-sided CRT vanishing is not algebraically equivalent to gcd(N,g(A)), gcd(N,h(A)), or another direct coefficient-gcd exposure. Competitive factorization performance remains unopened.",
+  "output_manifest": [
+    {
+      "path": "research_returns/BRC_COPRIME_FIBER_BRIDGE_CLASSIFICATION_RETURN_20260829.md",
+      "git_blob_sha1": "sha1:6f5186eac12ebb0796ee73fa9c37e637fa15a7c6",
+      "sha256": "sha256:129c0a0d7c1f65bf3b8f1f2970f6df0915b71ebba2f021979b2ff9c3b22dc408"
+    },
+    {
+      "path": "research_checks/BRC_COPRIME_FIBER_BRIDGE_CLASSIFICATION_CHECK_20260829.py",
+      "git_blob_sha1": "sha1:81c41c4a4227b65528099f60aaa838b110e3456c",
+      "sha256": "sha256:9c976929633b19b1abcb9f9ca907b6014fcf1ee6b20da0dae6334dfe468ecdd5"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review RR-B64E535B63DAEA5879FE. Preserve the distinction between coefficient-support bridge existence and hidden-target CRT collapse. If continuation is warranted, focus only on a new factor-blind channel-discriminator primitive and require a direct-gcd/prior-art equivalence audit before any endpoint or factorization claim.",
+  "driver_review_required": true
+}
