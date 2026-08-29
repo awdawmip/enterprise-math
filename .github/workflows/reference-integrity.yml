@@ -30,6 +30,8 @@ jobs:
         run: python control_plane/check_post_cutover_publication_envelope.py
       - name: Check current control authority and role routing consistency
         run: python control_plane/check_current_control_authority.py
+      - name: Check remote manual publication preflight
+        run: python control_plane/check_remote_manual_publication_preflight.py
       - name: Check review-record write authority and current-result binding
         run: python control_plane/check_review_write_authority.py
       - name: Check semantic migration authority contract
