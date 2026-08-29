@@ -1,0 +1,85 @@
+{
+  "schema": "P000_NATIVE_AXIS_REFINED_BMIX_PRIMITIVE_V8_MODEL_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "researcher_id": "EM-P000NATFCC8-5D31C7",
+  "terminal_class": "MINIMAL_DERIVED_BMix_b_CONSISTENT_PARTIAL_LIFT_CONSTRUCTED",
+  "root_p000_mutated": false,
+  "full_p000_native_rotation_promoted": false,
+  "source_slice": [
+    "E1",
+    "E2",
+    "E3"
+  ],
+  "target_slice": [
+    "E1",
+    "E4",
+    "E5"
+  ],
+  "shared_interface": "E1 coordinate/incidence interface; no Cell-center quotient",
+  "omitted_semantics": "OMITTED/UNOBSERVED; never numeric zero",
+  "mixed_contact_relation": [
+    [
+      "E2",
+      "E4"
+    ],
+    [
+      "E3",
+      "E5"
+    ]
+  ],
+  "axis_action": {
+    "E1": "E1",
+    "E2": "E4",
+    "E3": "E5",
+    "E4": "E2",
+    "E5": "E3",
+    "E6": "E6"
+  },
+  "partial_domain_requires_payload": [
+    [
+      "E2",
+      "E4",
+      "m24"
+    ],
+    [
+      "E4",
+      "E2",
+      "m24"
+    ],
+    [
+      "E3",
+      "E5",
+      "m35"
+    ],
+    [
+      "E5",
+      "E3",
+      "m35"
+    ]
+  ],
+  "derived_axis_relation_automorphism_order": 2,
+  "derived_axis_relation_automorphisms": [
+    [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6"
+    ],
+    [
+      "E1",
+      "E4",
+      "E5",
+      "E2",
+      "E3",
+      "E6"
+    ]
+  ],
+  "arbitrary_S6_forced": false,
+  "gen7_block_pure_wreath_order": 72,
+  "b_in_gen7_block_pure_wreath": false,
+  "carrier_split_S4xC2_promoted_to_native_group": false,
+  "carrier_collision_quotient_used": false,
+  "scope_boundary": "Derived axis-handle/contact model only. It proves a nonempty typed partial/groupoid lift, not an already-existing P000 root primitive or full base-Cell rotation."
+}
