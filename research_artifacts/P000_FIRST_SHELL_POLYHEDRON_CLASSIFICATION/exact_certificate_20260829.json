@@ -1,0 +1,208 @@
+{
+  "barlow_local_layer_triples": [
+    {
+      "triple": "BAB",
+      "type": "HCP_H"
+    },
+    {
+      "triple": "BAC",
+      "type": "FCC_C"
+    },
+    {
+      "triple": "CAB",
+      "type": "FCC_C"
+    },
+    {
+      "triple": "CAC",
+      "type": "HCP_H"
+    },
+    {
+      "triple": "ABA",
+      "type": "HCP_H"
+    },
+    {
+      "triple": "ABC",
+      "type": "FCC_C"
+    },
+    {
+      "triple": "CBA",
+      "type": "FCC_C"
+    },
+    {
+      "triple": "CBC",
+      "type": "HCP_H"
+    },
+    {
+      "triple": "ACA",
+      "type": "HCP_H"
+    },
+    {
+      "triple": "ACB",
+      "type": "FCC_C"
+    },
+    {
+      "triple": "BCA",
+      "type": "FCC_C"
+    },
+    {
+      "triple": "BCB",
+      "type": "HCP_H"
+    }
+  ],
+  "conclusions": {
+    "barlow_shell_exact_types": [
+      "FCC_C:cuboctahedron",
+      "HCP_H:triangular_orthobicupola"
+    ],
+    "barlow_shell_universal": "V=12,E=24,F=14 with 8 triangles + 6 squares",
+    "barlow_voronoi_exact_types": [
+      "FCC_C:rhombic_dodecahedron",
+      "HCP_H:trapezo_rhombic_dodecahedron"
+    ],
+    "barlow_voronoi_universal": "V=14,E=24,F=12, all quadrilateral faces",
+    "twelve_to_six_antipodal_pairing": {
+      "FCC_C": "exists as six Euclidean antipodal pairs, but is carrier-only unless bridged to native axes",
+      "HCP_H": "does not exist: the 12-point kissing shell is not centrally symmetric"
+    }
+  },
+  "coordinate_map": "Phi(X,Y,Z)=(X/2, Y/(2*sqrt(3)), Z*sqrt(6)/3)",
+  "models": {
+    "FCC_C": {
+      "model": "FCC_C",
+      "shell": {
+        "E": 24,
+        "F": 14,
+        "V": 12,
+        "centrally_symmetric": true,
+        "edge_face_type_counts": {
+          "S-T": 24
+        },
+        "face_edge_incidence": 48,
+        "face_types": {
+          "equilateral_triangle": 8,
+          "square": 6
+        },
+        "facets_by_vertex_index": [
+          [0,1,6],
+          [0,5,11],
+          [1,2,9],
+          [2,3,7],
+          [3,4,10],
+          [4,5,8],
+          [6,7,8],
+          [9,10,11],
+          [0,1,9,11],
+          [0,5,6,8],
+          [1,2,6,7],
+          [2,3,9,10],
+          [3,4,7,8],
+          [4,5,10,11]
+        ]
+      },
+      "voronoi": {
+        "E": 24,
+        "F": 12,
+        "V": 14,
+        "face_types": {
+          "rhombus": 12
+        },
+        "face_edge_incidence": 48,
+        "metric_signature": {
+          "all_face_side_squared": ["3/8","3/8","3/8","3/8"],
+          "all_face_diagonal_squared": ["1/2","1"],
+          "all_faces_parallel_opposite_edge_pairs": 2
+        },
+        "vertices_u": [
+          ["1/4","1/12","1/6"],
+          ["1/4","-1/12","-1/6"],
+          ["0","1/6","-1/6"],
+          ["-1/4","1/12","1/6"],
+          ["-1/4","-1/12","-1/6"],
+          ["0","-1/6","1/6"],
+          ["0","0","1/2"],
+          ["0","0","-1/2"],
+          ["1/4","1/12","-1/3"],
+          ["1/4","-1/12","1/3"],
+          ["0","1/6","1/3"],
+          ["-1/4","1/12","-1/3"],
+          ["-1/4","-1/12","1/3"],
+          ["0","-1/6","-1/3"]
+        ]
+      }
+    },
+    "HCP_H": {
+      "model": "HCP_H",
+      "shell": {
+        "E": 24,
+        "F": 14,
+        "V": 12,
+        "centrally_symmetric": false,
+        "edge_face_type_counts": {
+          "S-S": 3,
+          "S-T": 18,
+          "T-T": 3
+        },
+        "face_edge_incidence": 48,
+        "face_types": {
+          "equilateral_triangle": 8,
+          "square": 6
+        },
+        "facets_by_vertex_index": [
+          [0,1,6],
+          [0,1,9],
+          [2,3,7],
+          [2,3,10],
+          [4,5,8],
+          [4,5,11],
+          [6,7,8],
+          [9,10,11],
+          [0,5,6,8],
+          [0,5,9,11],
+          [1,2,6,7],
+          [1,2,9,10],
+          [3,4,7,8],
+          [3,4,10,11]
+        ]
+      },
+      "voronoi": {
+        "E": 24,
+        "F": 12,
+        "V": 14,
+        "face_types": {
+          "isosceles_trapezoid": 6,
+          "rhombus": 6
+        },
+        "face_edge_incidence": 48,
+        "metric_signatures": {
+          "rhombus": {
+            "side_squared": ["3/8","3/8","3/8","3/8"],
+            "diagonal_squared": ["1/2","1"],
+            "parallel_opposite_edge_pairs": 2
+          },
+          "isosceles_trapezoid": {
+            "side_squared": ["1/6","3/8","3/8","2/3"],
+            "diagonal_squared": ["17/24","17/24"],
+            "parallel_opposite_edge_pairs": 1
+          }
+        },
+        "vertices_u": [
+          ["1/4","1/12","1/6"],
+          ["1/4","1/12","-1/6"],
+          ["-1/4","1/12","1/6"],
+          ["-1/4","1/12","-1/6"],
+          ["0","-1/6","1/6"],
+          ["0","-1/6","-1/6"],
+          ["0","0","1/2"],
+          ["0","0","-1/2"],
+          ["1/4","-1/12","1/3"],
+          ["1/4","-1/12","-1/3"],
+          ["0","1/6","1/3"],
+          ["0","1/6","-1/3"],
+          ["-1/4","-1/12","1/3"],
+          ["-1/4","-1/12","-1/3"]
+        ]
+      }
+    }
+  },
+  "schema": "P000_FIRST_SHELL_POLYHEDRON_EXACT_CERTIFICATE_V1"
+}
