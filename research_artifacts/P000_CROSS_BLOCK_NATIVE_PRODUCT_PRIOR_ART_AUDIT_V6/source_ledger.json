@@ -1,0 +1,95 @@
+{
+  "schema": "P000_CROSS_BLOCK_NATIVE_PRODUCT_PRIOR_ART_SOURCE_LEDGER_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-E4143818BDA70C70113B",
+  "researcher_id": "EM-P0006DPA6-E61B42",
+  "searched_at": "2026-08-29",
+  "search_surfaces": [
+    "Web search over publisher/book/journal landing pages and accessible scholarly mirrors",
+    "Taylor & Francis / CRC Handbook of Product Graphs",
+    "Springer Nature",
+    "ScienceDirect / Elsevier",
+    "De Gruyter Journal of Group Theory",
+    "American Mathematical Society",
+    "World Scientific / author primer",
+    "Discrete Mathematics"
+  ],
+  "exact_queries": [
+    "Sabidussi Vizing unique prime factorization Cartesian product graphs automorphism group isomorphic factors handbook product graphs",
+    "Hamming graph H(d,q) automorphism group S_q wreath S_d",
+    "Dixon Mortimer imprimitive maximal subgroup S_n wreath product partition equal parts",
+    "inverse semigroups theory of partial symmetries Lawson partial bijections",
+    "Exel partial action domains isomorphisms partial dynamical systems Fell bundles applications",
+    "Recognizing Cartesian graph bundles Imrich Pisanski Zerovnik 1997",
+    "Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs automorphism group H(d,q) wreath product",
+    "Permutation Groups Dixon Mortimer Springer wreath product imprimitive maximal subgroups",
+    "Inverse Semigroups: The Theory of Partial Symmetries Lawson World Scientific 1998",
+    "imprimitive maximal subgroups partition stabilizer wreath product S_n",
+    "partial action domains isomorphisms Exel definition group partial action"
+  ],
+  "policy": "Classify only externally comparable Gen7/Gen8 derived claims. NO_MATERIAL_MATCH is not a novelty determination, and classical representation/equivalence does not imply P000 native-state identity.",
+  "sources": [
+    {
+      "source_id": "S01",
+      "citation": "Richard Hammack, Wilfried Imrich, Sandi Klavžar, Handbook of Product Graphs, 2nd ed., CRC Press, 2011; Chapter 6, Cartesian Product / Factoring the Cartesian Product.",
+      "doi": "10.1201/b10959",
+      "url": "https://www.taylorfrancis.com/books/mono/10.1201/b10959/handbook-product-graphs-richard-hammack-wilfried-imrich-sandi-klav%C5%BEar",
+      "verified": "Publisher chapter abstract explicitly identifies the Sabidussi–Vizing unique prime factorization theorem for connected Cartesian products; book preview identifies the Cartesian-product automorphism-group section and states automorphism groups are described from prime factors.",
+      "load_bearing": "Unique Cartesian prime factorization and the factorwise/isomorphic-factor-permutation boundary for product automorphisms."
+    },
+    {
+      "source_id": "S02",
+      "citation": "Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs, Discrete Applied Mathematics 312 (2022), 29–44.",
+      "doi": "10.1016/j.dam.2021.09.017",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0166218X21003929",
+      "verified": "ScienceDirect abstract inspected; it states that the full automorphism group of H(d,q) is S_q wr S_d.",
+      "load_bearing": "Exact classical model: Aut(H(2,3)) = S3 wr S2, order 72."
+    },
+    {
+      "source_id": "S03",
+      "citation": "John D. Dixon and Brian Mortimer, Permutation Groups, Graduate Texts in Mathematics 163, Springer, 1996.",
+      "doi": "10.1007/978-1-4612-0731-3",
+      "url": "https://link.springer.com/book/10.1007/978-1-4612-0731-3",
+      "verified": "Springer bibliographic record inspected; Chapter 8 is The Structure of the Symmetric Groups. The standard classification statement used here is that an imprimitive maximal subgroup stabilizing a partition into m equal k-blocks is S_k wr S_m.",
+      "load_bearing": "Partition stabilizers/wreath products in S_n and maximality of the imprimitive equal-block stabilizer."
+    },
+    {
+      "source_id": "S04",
+      "citation": "Francesco Fumagalli and Martino Garonzi, On the primary coverings of finite solvable and symmetric groups, Journal of Group Theory 24(6) (2021), 1189–1211.",
+      "doi": "10.1515/jgth-2020-0056",
+      "url": "https://www.degruyter.com/document/doi/10.1515/jgth-2020-0056/html",
+      "verified": "Peer-reviewed article text/metadata inspected. It states that imprimitive maximal subgroups of S_n are stabilizers of equal-sized partitions W_d ≅ S_d wr S_{n/d}.",
+      "load_bearing": "Independent modern exact statement that the 3+3 partition stabilizer in S6 is the maximal imprimitive subgroup S3 wr S2."
+    },
+    {
+      "source_id": "S05",
+      "citation": "Mark V. Lawson, Inverse Semigroups: The Theory of Partial Symmetries, World Scientific, 1998.",
+      "doi": "10.1142/3645",
+      "url": "https://www.worldscientific.com/worldscibooks/10.1142/3645",
+      "verified": "Bibliographic metadata and Lawson's primer inspected. The primer states that inverse semigroup theory is based on structure-preserving partial bijections and that all partial bijections of X form the symmetric inverse monoid I(X).",
+      "load_bearing": "Partial/inverse-semigroup formalisms represent supplied partial symmetries; partiality is typed by domains and does not itself select a new mixed-support arrow."
+    },
+    {
+      "source_id": "S06",
+      "citation": "Ruy Exel, Partial Dynamical Systems, Fell Bundles and Applications, Mathematical Surveys and Monographs 224, AMS, 2017.",
+      "doi": null,
+      "url": "https://bookstore.ams.org/SURV/224",
+      "verified": "AMS book page inspected. An accessible article following Exel Definition 11.4 was crosschecked: a partial action explicitly contains domains A_g and isomorphisms alpha_g:A_{g^{-1}}->A_g, with composition on the compatible domain.",
+      "load_bearing": "Exact domain-and-map semantics for partial actions; a missing mixed domain/map is additional data, not generated by the word 'partial'."
+    },
+    {
+      "source_id": "S07",
+      "citation": "Wilfried Imrich, Tomaž Pisanski, Janez Žerovnik, Recognizing Cartesian graph bundles, Discrete Mathematics 167–168 (1997), 393–403.",
+      "doi": "10.1016/S0012-365X(96)00242-7",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0012365X96002427",
+      "verified": "ScienceDirect abstract inspected: graph bundles generalize covering graphs and graph products.",
+      "load_bearing": "Adjacent standard framework for twisted/fiberwise transport beyond a direct Cartesian product."
+    }
+  ],
+  "negative_search_boundary": [
+    "No audited source supplied the project-specific P000 native state identity/no-quotient rule.",
+    "No audited source selected a canonical smallest BMix_b relation satisfying the P000 Cell/stack/handle typing and payload semantics.",
+    "Classical partial actions, inverse semigroups and graph bundles provide adjacent formalisms, not a proof that a P000 BMix_b exists.",
+    "These negative findings are NO_MATERIAL_MATCH only and do not establish novelty."
+  ]
+}
