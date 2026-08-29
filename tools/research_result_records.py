@@ -13,6 +13,11 @@ Layers are intentionally ordered:
 A second immutable review therefore does not publish follow-up work on its own.
 It first reopens review exact-set control; follow-up is materialized only after the
 review synthesis becomes the operational authority.
+
+Canonical ``freeze`` and ``review`` writes are candidate-first: the record is
+validated before it exists on disk, then created through an exclusive rollback-
+safe local transaction.  A failed post-write audit removes only unchanged bytes
+created by that transaction; existing immutable history is never rewritten.
 """
 from __future__ import annotations
 
@@ -27,6 +32,8 @@ _REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
+from control_plane import immutable_write_transaction as _write_tx  # noqa: E402
+from control_plane import research_immutable_candidate_validation as _candidate_validation  # noqa: E402
 from control_plane import research_result_records_compat_runtime as _base  # noqa: E402
 
 for _name in dir(_base):
@@ -57,6 +64,14 @@ _RESOLVED_REVIEW_STATES = {
     "REVIEW_SYNTHESIS_TERMINAL",
     "REVIEW_SYNTHESIS_NONTERMINAL",
 }
+
+
+def _install_canonical_write_view() -> None:
+    """Bind writers to the same fault-isolated operational view used by dispatch."""
+
+    from control_plane import research_control_bootstrap
+
+    research_control_bootstrap.install(ROOT)
 
 
 def _replacement_edges(root: Path = ROOT) -> dict[str, dict[str, Any]]:
@@ -387,7 +402,58 @@ def _preflight_first_review_followup(
         raise ResultRecordError("PARENT_OBJECTIVE_CLOSURE follow-up cannot include tasks")
 
 
+def command_freeze_transactional(args: argparse.Namespace) -> int:
+    _install_canonical_write_view()
+    return_path = Path(args.return_path)
+    if not return_path.is_absolute():
+        return_path = ROOT / return_path
+    values = json.loads(args.output_paths_json)
+    if not isinstance(values, list):
+        raise ResultRecordError("--output-paths-json must decode to an array")
+    output_paths: list[Path] = []
+    for value in values:
+        if not isinstance(value, str):
+            raise ResultRecordError("output paths must be strings")
+        path = Path(value)
+        output_paths.append(path if path.is_absolute() else ROOT / path)
+    record = freeze_result(
+        execution_record_id=args.execution_record_id,
+        return_path=return_path,
+        output_paths=output_paths,
+        owner_head=args.owner_head,
+        terminal_verdict=args.terminal_verdict,
+        hard_target_disposition=args.hard_target_disposition,
+        unresolved_residue=args.unresolved_residue,
+        method_harvest=args.method_harvest,
+        independence_status=args.independence_status,
+        source_exposure_status=args.source_exposure_status,
+        next_control_plane_recommendation=args.next_control_plane_recommendation,
+        frozen_at=_now(args.frozen_at),
+    )
+    try:
+        _candidate_validation.require_valid_result_candidate(record, root=ROOT)
+    except _candidate_validation.ImmutableCandidateValidationError as exc:
+        raise ResultRecordError(f"result candidate preflight failed: {exc}") from exc
+    out = RESULT_ROOT / _safe_id(record["task_id"], "task_id") / f"{record['result_id']}.json"
+    try:
+        _write_tx.commit(
+            [_write_tx.PlannedFile(out, _write_tx.json_bytes(record))],
+            postcheck=lambda: audit(ROOT),
+        )
+    except _write_tx.ImmutableWriteTransactionError as exc:
+        raise ResultRecordError(f"result transaction failed with no committed candidate: {exc}") from exc
+    print(
+        json.dumps(
+            {**record, "record_path": out.relative_to(ROOT).as_posix()},
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0
+
+
 def command_review_with_authority(args: argparse.Namespace) -> int:
+    _install_canonical_write_view()
     result = result_map().get(args.result_id)
     if result is None:
         raise ResultRecordError(f"unknown result_id: {args.result_id}")
@@ -443,12 +509,19 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
         if authority_errors:
             raise ResultRecordError("; ".join(authority_errors))
 
-    out = REVIEW_ROOT / _safe_id(args.result_id, "result_id") / f"{record['review_id']}.json"
-    _save_exclusive(out, record)
+    try:
+        _candidate_validation.require_valid_review_candidate(record, root=ROOT)
+    except _candidate_validation.ImmutableCandidateValidationError as exc:
+        raise ResultRecordError(f"review candidate preflight failed: {exc}") from exc
 
-    errors = audit()
-    if errors:
-        raise ResultRecordError("review record created but audit failed: " + "; ".join(errors))
+    out = REVIEW_ROOT / _safe_id(args.result_id, "result_id") / f"{record['review_id']}.json"
+    try:
+        _write_tx.commit(
+            [_write_tx.PlannedFile(out, _write_tx.json_bytes(record))],
+            postcheck=lambda: audit(ROOT),
+        )
+    except _write_tx.ImmutableWriteTransactionError as exc:
+        raise ResultRecordError(f"review transaction failed with no committed candidate: {exc}") from exc
 
     followup: dict[str, Any]
     if not existing:
@@ -487,6 +560,10 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
     return 0
 
 
+# Keep the compatibility parser/CLI surface, but make canonical freeze candidate-first.
+_base._impl.command_freeze = command_freeze_transactional
+
+
 def canonical_main() -> int:
     if len(sys.argv) < 2 or sys.argv[1] != "review":
         return _base._impl.main()
@@ -521,6 +598,8 @@ if __name__ == "__main__":
         _followup_impl.DriverFollowupError,
         _driver_authority.DriverAuthorityError,
         _result_replacements.ResultControlReplacementError,
+        _candidate_validation.ImmutableCandidateValidationError,
+        _write_tx.ImmutableWriteTransactionError,
     ) as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
