@@ -4,12 +4,14 @@
 Order is intentional:
 1. isolate unresolved immutable publication forks without selecting a head;
 2. isolate exact pinned current task-integrity faults;
-3. isolate exact nonconforming Driver-review provenance from the operational view;
-4. isolate follow-up packets and task heads derived solely from those reviews;
-5. normalize every other isolated task to a state-machine-complete hard block;
-6. expose fault-isolated operational task/publication audits while retaining
+3. isolate exact stale result-review bindings from the operational review view;
+4. isolate exact nonconforming Driver-review provenance from the operational view;
+5. compose all nonoperational-review causes for follow-up isolation;
+6. isolate follow-up packets and task heads derived solely from those reviews;
+7. normalize every other isolated task to a state-machine-complete hard block;
+8. expose fault-isolated operational task/publication audits while retaining
    explicit strict/raw audit handles;
-7. leave every unrelated task/review under the original strict rules.
+9. leave every unrelated task/review under the original strict rules.
 
 IMPORTANT LIVENESS BOUNDARY
 ---------------------------
@@ -35,7 +37,9 @@ from typing import Any
 
 from control_plane import research_driver_followup_fault_isolation
 from control_plane import research_driver_review_authority_fault_isolation
+from control_plane import research_nonoperational_review_source_adapter
 from control_plane import research_publication_fault_isolation
+from control_plane import research_result_review_binding_fault_isolation
 from control_plane import research_task_integrity_fault_isolation
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -162,7 +166,9 @@ def _install_operational_audit_views(root: Path) -> None:
 def install(root: Path = ROOT) -> None:
     research_publication_fault_isolation.install(root)
     research_task_integrity_fault_isolation.install(root)
+    research_result_review_binding_fault_isolation.install(root)
     research_driver_review_authority_fault_isolation.install(root)
+    research_nonoperational_review_source_adapter.install(root)
     research_driver_followup_fault_isolation.install(root)
 
     from tools import research_dispatch
