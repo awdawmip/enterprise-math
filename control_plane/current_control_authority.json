@@ -1,14 +1,15 @@
 {
   "schema": "ENTERPRISE_MATH_CURRENT_CONTROL_AUTHORITY_V1",
   "status": "ACTIVE_CANONICAL_CONTROL_PRECEDENCE",
-  "effective": "2026-08-28",
+  "effective": "2026-08-29",
   "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
-  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, exact owner-scope liveness, tool reuse resolution, typed role transitions, semantic-safe control migration, non-executable semantic verification request capture, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
+  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, exact owner-scope liveness, review-write/result-binding integrity, tool reuse resolution, typed role transitions, semantic-safe control migration, non-executable semantic verification request capture, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
   "scope": [
     "TASK_PUBLICATION_AUTHORITY",
     "LIVE_DISPATCH_ENTRYPOINT",
     "OWNER_SCOPE_SESSION_LIVENESS",
     "RUNTIME_BOOTSTRAP",
+    "REVIEW_WRITE_AUTHORITY",
     "TOOL_REUSE_RESOLUTION",
     "ROLE_TRANSITION_MERGE",
     "SEMANTIC_SAFE_CONTROL_MIGRATION",
@@ -37,6 +38,28 @@
     "session_observation_schema": "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",
     "generic_conversation_activity_is_owner_scope_liveness": false,
     "invariant": "STALE_RECOVERY_AND_FAULT_ISOLATION_PRECEDE_FALSE_NO_DISPATCH"
+  },
+  "review_write_authority": {
+    "contract": "research_review_write_authority.json",
+    "result_store": "research_result_records/<task-id>/<result-id>.json",
+    "review_store": "research_result_reviews/<result-id>/<review-id>.json",
+    "binding_quarantine_registry": "research_result_review_binding_quarantines.json",
+    "binding_isolation": "control_plane/research_result_review_binding_fault_isolation.py",
+    "binding_checker": "control_plane/check_result_review_binding_fault_isolated.py",
+    "nonoperational_review_source_adapter": "control_plane/research_nonoperational_review_source_adapter.py",
+    "followup_isolation": "control_plane/research_driver_followup_fault_isolation.py",
+    "refresh_result_binding_immediately_before_remote_mutation": true,
+    "caller_cached_result_is_write_authority": false,
+    "earlier_read_snapshot_is_write_authority": false,
+    "review_record_result_digest_must_match_mutation_parent_bytes": true,
+    "result_record_may_change_in_same_review_record_transaction": false,
+    "remote_write_force_allowed": false,
+    "remote_head_move_requires_abort_or_recompute": true,
+    "binding_mismatch_is_auto_repaired": false,
+    "binding_mismatch_removes_review_operational_authority": true,
+    "nonoperational_review_retains_followup_authority": false,
+    "control_plane_may_rewrite_review_disposition": false,
+    "invariant": "REFRESH_CURRENT_RESULT_BYTES_AT_WRITE_BOUNDARY -> RECOMPUTE_RESULT_SHA256 -> CAS_OR_NONFORCE_REVIEW_RECORD_WRITE"
   },
   "tool_reuse": {
     "policy": "tool_invocation_policy.json",
@@ -106,7 +129,8 @@
     ],
     "stale_v1_pointer_semantics": "COMPATIBILITY_METADATA_ONLY_UNLESS_EXPLICITLY_LABELED_LEGACY_EXISTING_EXECUTION",
     "fresh_selector_named_canonical_in_older_doc": "INTERPRET_AS_SUBORDINATE_SELECTOR_NOT_TOP_LEVEL_LIVE_ENTRYPOINT",
-    "role_transition_rule": "ROLE-SPECIFIC AUTHORITY IS CLEARED/REACTIVATED BY DESTINATION CONTRACT; CONTEXT AND PROVENANCE ARE NOT PRETENDED TO RESET",
+    "role_transition_rule": "ROLE-SPECIFIC AUTHORITY_IS_CLEARED_OR_REACTIVATED_BY_DESTINATION_CONTRACT; CONTEXT_AND_PROVENANCE_ARE_NOT_PRETENDED_TO_RESET",
+    "review_write_rule": "READ_SNAPSHOT_IS_NOT_REVIEW_WRITE_AUTHORITY; REFRESH_EXACT_RESULT_AND_REMOTE_HEAD_BEFORE_REVIEW_RECORD_MUTATION",
     "mixed_semantic_file_edit_rule": "CONSULT_CONTROL_SEMANTIC_MIGRATION_REGISTRY_AND_VERIFY_BEFORE_EDIT",
     "uncertain_semantics_rule": "CAPTURE_NONEXECUTABLE_VERIFICATION_REQUEST_OR_ROUTE_TO_AUTHORIZED_GOVERNANCE_ROLE; DO_NOT_SELF_PUBLISH_FROM_CONTROL_MODE",
     "large_json_pointer_cleanup_rule": "USE_EXACT_SPAN_REGISTERED_MIGRATION; DO_NOT_WHOLE_FILE_RESERIALIZE_BY_DEFAULT"
@@ -132,7 +156,8 @@
       "DRIVER_CONTINUITY_IS_ROUTING_ONLY",
       "IMMUTABLE_V2_TASK_AUTHORITY",
       "RESEARCH_CONTROL_DISPATCH_IS_LIVE_ENTRYPOINT",
-      "TOOL_REUSE_RESOLUTION_BEFORE_NEW_TOOL_DIRECTION"
+      "TOOL_REUSE_RESOLUTION_BEFORE_NEW_TOOL_DIRECTION",
+      "REVIEW_RECORD_WRITE_REFRESHES_REMOTE_HEAD_AND_EXACT_RESULT_BYTES_BEFORE_RECOMPUTING_BINDING"
     ],
     "FOUNDATION_STEWARD": [
       "STEWARD_AUTHORITY_SEPARATE_FROM_IDENTITY",
@@ -143,6 +168,8 @@
     "CONTROL_PLANE_MAINTENANCE": [
       "NO_RESEARCH_ROLE_IDENTITY",
       "NO_THEOREM_OR_REVIEW_AUTHORITY",
+      "NO_REVIEW_DISPOSITION_REWRITE_OR_REPLACEMENT_REVIEW_CREATION",
+      "BINDING_MISMATCH_ONLY_WITHHOLDS_EXACT_REVIEW_AND_DERIVED_FOLLOWUP_AUTHORITY",
       "BOUNDED_DIAGNOSTIC_EXPANSION",
       "WRITE_AUTHORITY_REFRESH_BEFORE_MUTATION",
       "MIGRATION_REGISTRY_BEFORE_MIXED_SEMANTIC_FILE_EDIT",
