@@ -41,6 +41,7 @@ from control_plane import research_nonoperational_review_source_adapter
 from control_plane import research_publication_fault_isolation
 from control_plane import research_result_review_binding_fault_isolation
 from control_plane import research_task_integrity_fault_isolation
+from control_plane import research_task_record_audit_fault_isolation
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -96,8 +97,13 @@ def _install_operational_audit_views(root: Path) -> None:
 
         def task_audit(local_root: Path = research_task_records.ROOT) -> list[str]:
             raw = list(base_task_audit(local_root))
-            suppressions = set(research_task_integrity_fault_isolation.suppression_strings(local_root))
-            return [error for error in raw if error not in suppressions]
+            current_suppressions = set(
+                research_task_integrity_fault_isolation.suppression_strings(local_root)
+            )
+            after_current = [error for error in raw if error not in current_suppressions]
+            return research_task_record_audit_fault_isolation.audit_against(
+                after_current, local_root
+            )
 
         research_task_records.strict_audit = base_task_audit
         research_task_records.audit = task_audit
