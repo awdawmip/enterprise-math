@@ -1,0 +1,18 @@
+{
+  "schema": "ENTERPRISE_MATH_REVIEW_REFERENCE_PASS_V1",
+  "pass_id": "RVP-BCBDE6B5822C4B51CF65",
+  "intake_id": "RVI-AD4EA50B8835638866A9",
+  "result_id": "RR-73C4AC1CB16F08C64FC4",
+  "review_ids": [
+    "DR-6E76AE9902202D6EB9DE",
+    "DR-8F7328B65924F20CE3DA"
+  ],
+  "review_set_sha256": "sha256:05ea8570147a2d42c8a003a35308227da704172460fb59b9fb32f1759cd5b7fa",
+  "pass_number": 2,
+  "pass_kind": "ADVERSARIAL_CONTROL_CROSSCHECK",
+  "reviewer_id": "EM-DVR-P8H4Q2",
+  "finding": "Adversarial control cross-check confirms both reviews are source-backed, pin the identical Result SHA-256, and are terminal ACCEPTED, so neither timestamp nor commit arrival may win. Because two source reviews now exist, both source-specific follow-up packets are non-operational until synthesis. Their successor tasks materially overlap, and no Issue #240 CLAIM was observed on the duplicate FCC bridge before detection. Operational control must single-value to one post-synthesis FCC bridge publication while preserving native/carrier identity separation, HCP non-central-symmetry regression, and the prohibition on deriving six native axes from twelve carrier contacts.",
+  "independence_status": "SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false
+}
