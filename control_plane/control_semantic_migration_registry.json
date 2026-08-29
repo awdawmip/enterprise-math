@@ -54,6 +54,14 @@
       "required_value": "tools/research_dispatch.py",
       "semantic_role": "POST_PUBLICATION_ORDINARY_FRESH_SELECTOR",
       "reason": "The field belongs to task_publication_authority. research_task_publication_contract_v2.json explicitly separates control_dispatch_tool=research_control_dispatch.py from fresh_dispatch_selector/dispatch_tool=tools/research_dispatch.py and labels the legacy dispatch field as an ordinary fresh selector."
+    },
+    {
+      "protection_id": "CSP-STEWARD-SCHEDULING-TOOL-006",
+      "path": "foundation_steward.json",
+      "json_pointer": "/canonical_dispatch_tool",
+      "required_value": "tools/research_dispatch.py",
+      "semantic_role": "STEWARD_SCHEDULING_SELECTOR",
+      "reason": "The field is adjacent to scheduling_protocol and legacy_scheduler_config. The scheduling protocol defines tools/research_dispatch.py as the merged selector/reducer, while the Steward control-plane addendum separately names research_control_dispatch.py as the recovery-aware live route."
     }
   ],
   "entries": [
@@ -235,12 +243,20 @@
       "baseline_blob_sha1": "302d173ea13e02c1a38265f86f4e56e2b6f8b98e",
       "json_pointer": "/canonical_dispatch_tool",
       "observed_legacy_value": "tools/research_dispatch.py",
-      "current_interpretation": "AMBIGUOUS_SCHEDULING_TOOL_OR_TOP_LEVEL_LIVE_ROUTE",
-      "canonical_target_value": "research_control_dispatch.py",
-      "risk_class": "MIXED_CONTROL_SEMANTICS",
-      "state": "REQUIRES_GOVERNANCE_VERIFICATION",
-      "execution_authority_while_open": false,
-      "verification_question": "The field sits beside scheduling_protocol and legacy_scheduler_config. Determine whether it denotes the ordinary scheduling selector or the top-level live recovery-aware route before editing."
+      "current_interpretation": "STEWARD_SCHEDULING_SELECTOR_ADJACENT_TO_SCHEDULING_PROTOCOL",
+      "canonical_target_value": "tools/research_dispatch.py",
+      "risk_class": "CONTROL_SEMANTICS_CLASSIFIED_BY_STEWARD_ADDENDUM_AND_SCHEDULING_PROTOCOL",
+      "state": "RESOLVED_AS_PROTECTED_SELECTOR_NO_MIGRATION",
+      "resolution_evidence": {
+        "scheduling_protocol": "docs/RESEARCH_SCHEDULING_PROTOCOL.en.md section 8 names tools/research_dispatch.py as the canonical merged selector/reducer",
+        "steward_addendum": "docs/FOUNDATION_STEWARD_CONTROL_PLANE_ADDENDUM.md section 4 separately names research_control_dispatch.py as canonical live dispatch",
+        "adjacent_fields": [
+          "scheduling_protocol",
+          "legacy_scheduler_config"
+        ],
+        "protected_selector_id": "CSP-STEWARD-SCHEDULING-TOOL-006"
+      },
+      "execution_authority_while_open": false
     }
   ]
 }
