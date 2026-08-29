@@ -9,11 +9,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ControlSemanticVerificationRequestTests(unittest.TestCase):
-    def test_requests_are_nonexecutive_and_bound_to_open_migrations(self):
+    def test_only_architecture_request_remains_open_and_nonexecutive(self):
         reports = requests.check(ROOT)
-        self.assertEqual(2, len(reports))
-        self.assertTrue(any("CSV-ARCHITECTURE-V2-PUBLICATION-CUTOVER-001" in row for row in reports))
-        self.assertTrue(any("CSV-AMBIGUOUS-DISPATCH-FIELD-MEANING-002" in row for row in reports))
+        self.assertEqual(1, len(reports))
+        self.assertIn("CSV-ARCHITECTURE-V2-PUBLICATION-CUTOVER-001", reports[0])
+        self.assertNotIn("CSV-AMBIGUOUS-DISPATCH-FIELD-MEANING-002", reports[0])
 
     def test_control_requests_cannot_masquerade_as_tasks(self):
         data = json.loads(
@@ -21,6 +21,7 @@ class ControlSemanticVerificationRequestTests(unittest.TestCase):
                 encoding="utf-8"
             )
         )
+        self.assertEqual(1, len(data["requests"]))
         for row in data["requests"]:
             self.assertFalse(row["is_research_task"])
             self.assertFalse(row["claimable"])
