@@ -1,0 +1,46 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-BCD1FA15FA40C628701F",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-NONLOCAL-PROBE-JOINT-SEPARATION",
+  "publication_id": "TP2-35D8011A9CE8FF9207EC",
+  "execution_record_id": "ER-D3865EA8B33644E97A75",
+  "claim_id": "chatgpt-phq9-20260830-1328-6908e6",
+  "taskbook_path": "research_tasks/P000_PHILOSOPHY_FIRST_NONLOCAL_PROBE_JOINT_SEPARATION_20260830.md",
+  "taskbook_blob_sha1": "sha1:8c4dd13e41a6ffe8d134e4e22520afcc9f68ba20",
+  "execution_branch": "research/p000-phil-q9-nonlocal-probe-joint-separation-em-phq9-91c85b",
+  "execution_branch_base": "3dd2656958fb8fdde4b83ac615f0624dd2514bc7",
+  "return_path": "research_returns/P000_PHILOSOPHY_FIRST_NONLOCAL_PROBE_JOINT_SEPARATION_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:31246145411de9a2396db06592aeb352096ef8f6",
+  "checker_path": "research_checks/P000_PHILOSOPHY_FIRST_NONLOCAL_PROBE_JOINT_SEPARATION_CHECK_20260830.py",
+  "checker_blob_sha1": "sha1:f52741b1b4af11cd0d0e0ee09fdf24aef765798e",
+  "artifact_paths": [
+    "research_artifacts/P000_PHILOSOPHY_FIRST_NONLOCAL_PROBE_JOINT_SEPARATION/P000_NONLOCAL_PROBE_JOINT_SEPARATION_V1.json"
+  ],
+  "owner_head": "e88d9ea14f0279d0af4d34efed7f8e995ab37365",
+  "researcher_id": "EM-PHQ9-91C85B",
+  "frozen_at": "2026-08-30T13:42:00+08:00",
+  "terminal_verdict": "SUCCESS",
+  "terminal_state": "TESTED_PARETO_MINIMAL_NATIVE_JOINT_PROBE_FOUND_AND_PERIOD_COMPLETION_CLASSIFIED",
+  "hard_target_disposition": "P000_NONLOCAL_PROBE_JOINT_SEPARATION_OR_NO_GO_CLASSIFIED at the accepted Q2/Q6 U_2REG scope. MIN_NATIVE_RETURN, defined natively as the shortest simple nonbacktracking native-adjacency loop length before applying the classical name girth, separates every accepted Q2 family member C_2m versus C_m disjoint_union C_m and eliminates the accepted minimal Q6 virtual profile (t,p)=(0,3). Its exact image is: if t>0, g=3, t divisible by 3, and p=0 or p>=4; if t=0, g>=4 and p=g or p>=2g. The first remaining (t,p,g) collision is C3+C8 versus C3+C4+C4 at n=11. The stronger ROOT_RETURN_PERIOD_HIST has exact representability criterion q_k divisible by k for all k and reconstructs the entire U_2REG cycle partition up to Cell isomorphism. CONN_BIT is separation-only and Q4-style HOLONOMY_EXACTNESS is a negative control that fails Q2 under trivial transports.",
+  "unresolved_residue": "No universal weakest-probe theorem is claimed because the complete admissible P000 probe universe and a global information preorder are not frozen. On richer finite Cell classes with branching, multiple cycle bases, higher-dimensional incidence, or independent transport data, identical first-return spectra may again have nontrivial isomorphism kernel and formal return packets may again be nonrepresentable. Those are the next lower-language failure tests before any groupoid/descent escalation.",
+  "output_manifest": [
+    {
+      "path": "research_returns/P000_PHILOSOPHY_FIRST_NONLOCAL_PROBE_JOINT_SEPARATION_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:31246145411de9a2396db06592aeb352096ef8f6"
+    },
+    {
+      "path": "research_checks/P000_PHILOSOPHY_FIRST_NONLOCAL_PROBE_JOINT_SEPARATION_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:f52741b1b4af11cd0d0e0ee09fdf24aef765798e"
+    },
+    {
+      "path": "research_artifacts/P000_PHILOSOPHY_FIRST_NONLOCAL_PROBE_JOINT_SEPARATION/P000_NONLOCAL_PROBE_JOINT_SEPARATION_V1.json",
+      "git_blob_sha1": "sha1:0aa07fcdc14e9553d21b1a0d45336585a6ee7444"
+    }
+  ],
+  "checker_summary": "PASS P000_NONLOCAL_PROBE_JOINT_SEPARATION; checks=1645086; q2_family=SEPARATED_BY_CONN_GIRTH_PERIOD; holonomy_exactness=NEGATIVE_CONTROL; q6_minimal_virtual=(0,3)_REJECTED_BY_GIRTH_AND_PERIOD; girth_image=EXACT_THROUGH_N79; period_reconstruction=EXACT_THROUGH_N60_AND_PROVED_BY_INVERSE; conn_first_collision_n=10; girth_first_collision_n=11; period_collision_none_through_n60; carrier_S4_regression=PASS.",
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NONBLIND_TASK; exact Q9 taskbook plus the Driver-accepted Q2/Q3/Q4/Q6 scopes were loaded after dispatch selection. The MIN_NATIVE_RETURN image theorem, period-integrality completion, negative controls, exact collision witnesses and deterministic checker were constructed in this execution.",
+  "source_exposure_status": "PROJECT_INTERNAL_P000_Q2_Q3_Q4_Q6_ONLY; classical graph terminology used only after native path semantics was fixed; NO_NOVELTY_CLAIM",
+  "next_control_plane_recommendation": "Driver review RR-BCD1FA15FA40C628701F. If accepted, use NATIVE_PATH_RETURN_GATE_V1: MIN_RETURN for the weakest tested joint Q2/Q6 repair, PERIOD_INTEGRALITY q_k mod k = 0 for exact U_2REG formal existence. The next research step should test whether this path-return interface survives branching/higher-incidence Cell classes before introducing Q3/Q4 groupoid or descent structure.",
+  "driver_review_required": true
+}
