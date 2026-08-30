@@ -1,0 +1,125 @@
+{
+  "axis_permutation_invariance": {
+    "axis_permutations": 720,
+    "pair_checks": 2160
+  },
+  "dimension": 6,
+  "hamming_counterfamily": [
+    {
+      "cardinality": 64,
+      "projection_richness_product": 64,
+      "q": 2,
+      "spectrum": [1, 2, 3, 4, 5, 6],
+      "spectrum_size": 6
+    },
+    {
+      "cardinality": 729,
+      "projection_richness_product": 729,
+      "q": 3,
+      "spectrum": [1, 2, 3, 4, 5, 6],
+      "spectrum_size": 6
+    },
+    {
+      "cardinality": 4096,
+      "projection_richness_product": 4096,
+      "q": 4,
+      "spectrum": [1, 2, 3, 4, 5, 6],
+      "spectrum_size": 6
+    },
+    {
+      "cardinality": 15625,
+      "projection_richness_product": 15625,
+      "q": 5,
+      "spectrum": [1, 2, 3, 4, 5, 6],
+      "spectrum_size": 6
+    }
+  ],
+  "l1_ball_volume_0_to_12": [
+    {"radius": 0, "volume": 1},
+    {"radius": 1, "volume": 13},
+    {"radius": 2, "volume": 85},
+    {"radius": 3, "volume": 377},
+    {"radius": 4, "volume": 1289},
+    {"radius": 5, "volume": 3653},
+    {"radius": 6, "volume": 8989},
+    {"radius": 7, "volume": 19825},
+    {"radius": 8, "volume": 40081},
+    {"radius": 9, "volume": 75517},
+    {"radius": 10, "volume": 134245},
+    {"radius": 11, "volume": 227305},
+    {"radius": 12, "volume": 369305}
+  ],
+  "local_box_census": [
+    {
+      "balanced_equality": true,
+      "cardinality": 64,
+      "diameter": 6,
+      "forcing_lhs": 2985984,
+      "forcing_rhs": 2985984,
+      "side_lengths": [2, 2, 2, 2, 2, 2],
+      "spectrum_size": 6
+    },
+    {
+      "balanced_equality": false,
+      "cardinality": 96,
+      "diameter": 7,
+      "forcing_lhs": 4826809,
+      "forcing_rhs": 4478976,
+      "side_lengths": [2, 2, 2, 2, 2, 3],
+      "spectrum_size": 7
+    },
+    {
+      "balanced_equality": false,
+      "cardinality": 144,
+      "diameter": 8,
+      "forcing_lhs": 7529536,
+      "forcing_rhs": 6718464,
+      "side_lengths": [2, 2, 2, 2, 3, 3],
+      "spectrum_size": 8
+    },
+    {
+      "balanced_equality": false,
+      "cardinality": 216,
+      "diameter": 9,
+      "forcing_lhs": 11390625,
+      "forcing_rhs": 10077696,
+      "side_lengths": [2, 2, 2, 3, 3, 3],
+      "spectrum_size": 9
+    },
+    {
+      "balanced_equality": true,
+      "cardinality": 729,
+      "diameter": 12,
+      "forcing_lhs": 34012224,
+      "forcing_rhs": 34012224,
+      "side_lengths": [3, 3, 3, 3, 3, 3],
+      "spectrum_size": 12
+    }
+  ],
+  "radius1_connected_subset_census": {
+    "all_connected_spectra_gap_free": true,
+    "carrier_size": 13,
+    "connected_subsets": 4108,
+    "diameter_histogram": {
+      "0": 13,
+      "1": 12,
+      "2": 4083
+    },
+    "nonempty_subsets": 8191
+  },
+  "refinement": {
+    "embedded_local_spectrum": [2, 4, 6, 8, 10, 12],
+    "hamming_q2_spectrum_size": 6,
+    "hamming_q3_spectrum_size": 6,
+    "hamming_spectrum": [1, 2, 3, 4, 5, 6],
+    "local_q2_cardinality": 64,
+    "local_q2_spectrum_size": 6,
+    "local_q3_cardinality": 729,
+    "local_q3_spectrum_size": 12
+  },
+  "schema": "GEO6_FALCONER_RELATION_DISTANCE_SPECTRUM_CERTIFICATE_V1",
+  "tool_reuse": {
+    "graph_distance": "enterprise_math.geometry.graph_distance",
+    "l1_distance": "enterprise_math.geometry.l1_distance"
+  }
+}
