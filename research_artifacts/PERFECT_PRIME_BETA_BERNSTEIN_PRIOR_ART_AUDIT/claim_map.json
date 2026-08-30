@@ -1,0 +1,87 @@
+{
+  "schema": "PERFECT_PRIME_BETA_BERNSTEIN_PRIOR_ART_CLAIM_MAP_V1",
+  "task_id": "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-63813372F40BFF2A57BB",
+  "researcher_id": "EM-PPTBBPAUD-54C7E1",
+  "classification_vocabulary": [
+    "EXACT_DUPLICATE",
+    "PARTIAL_ANTECEDENT",
+    "ADJACENT_METHOD",
+    "NO_MATERIAL_MATCH"
+  ],
+  "target": "det(I_(m-1)-Q_m) != 0 for T_m=R Bhat R Ahat with T_m e_0=e_0",
+  "rows": [
+    {
+      "claim_id": "C01_GSTP_EXTERIOR_CONE_SIMPLICITY",
+      "classification": "PARTIAL_ANTECEDENT",
+      "sources": ["S01"],
+      "external_theorem": "GSTP implies a positive simple spectrum.",
+      "exact_implication_if_gap_closed": "If T_m is GSTP with respect to a proper cone in every exterior power, then eigenvalue 1 of T_m is simple; hence det(I-Q_m) != 0.",
+      "missing_hypothesis": "Construct and verify a task-specific invariant proper-cone family for all wedge powers of the signed product R Bhat R Ahat.",
+      "research_value": "This is the cleanest existing theorem that turns an exterior-power positivity statement directly into the required fixed-point simplicity without demanding entrywise positivity of Q_m."
+    },
+    {
+      "claim_id": "C02_PRINCIPAL_ANGLE_TRANSVERSALITY",
+      "classification": "PARTIAL_ANTECEDENT",
+      "sources": ["S02"],
+      "external_theorem": "Principal-angle cosines are singular values of a cross-Gram matrix; products of orthogonal projections encode squared principal cosines, with eigenvalue 1 exactly on the common subspace.",
+      "exact_implication_if_gap_closed": "If T_m is similar to a product/compression of two orthogonal projections whose intersection is exactly span(e_0), then no quotient eigenvalue equals 1 and det(I-Q_m) != 0.",
+      "missing_hypothesis": "Produce a common-Hilbert-space Gram/projection realization of the normalized Beta-Bernstein half maps and absorb the non-orthogonal R without changing spectrum; then prove the intersection is one-dimensional.",
+      "research_value": "This precisely formalizes the parent Driver's principal-angle intuition as a strict-transversality lemma."
+    },
+    {
+      "claim_id": "C03_JACOBI_BERNSTEIN_DURRMEYER_MODEL",
+      "classification": "PARTIAL_ANTECEDENT",
+      "sources": ["S03", "S04"],
+      "external_theorem": "In the Jacobi Bernstein-Durrmeyer setting the Jacobi polynomials diagonalize the operator and lambda_(n,0)=1 while the remaining lambda_(n,r) lie below 1; arbitrary weights lose the same spectral structure in general.",
+      "exact_implication_if_gap_closed": "An exact conjugacy of T_m to a Jacobi-type Bernstein-Durrmeyer operator would settle the target by the explicit eigenvalues.",
+      "missing_hypothesis": "The AP measure is not the operative single Jacobi weight, the two halves use u and u^m, and R is inserted between them. No such conjugacy is known.",
+      "research_value": "Provides a concrete spectral model but also pinpoints why the standard Durrmeyer theorem cannot simply be quoted."
+    },
+    {
+      "claim_id": "C04_GENERIC_BERNSTEIN_OR_TP_SIMPLICITY",
+      "classification": "ADJACENT_METHOD",
+      "sources": ["S05", "S09"],
+      "external_theorem": "Classical Bernstein structure and total positivity do not force a unique fixed point; the classical Bernstein operator already fixes all linear polynomials.",
+      "exact_implication_if_gap_closed": "NONE",
+      "missing_hypothesis": "A genuinely AP-specific mechanism beyond generic Bernstein/TP structure is mandatory.",
+      "research_value": "Adversarial kill certificate for any proof that tries to infer simplicity solely from Bernstein positivity, TP basis structure, or a basic composition formula."
+    },
+    {
+      "claim_id": "C05_PASCAL_MOBIUS_FACTOR",
+      "classification": "ADJACENT_METHOD",
+      "sources": ["S06"],
+      "external_theorem": "The lower Pascal/binomial transform and its inverse are classical structured matrices.",
+      "exact_implication_if_gap_closed": "NONE",
+      "missing_hypothesis": "No classical Pascal theorem located here couples R to the shared Beta measure strongly enough to control the spectrum of R Bhat R Ahat.",
+      "research_value": "Prevents treating R itself as a novel ingredient and redirects effort toward the interaction R + common measure + order map."
+    },
+    {
+      "claim_id": "C06_SIGN_REGULAR_OSCILLATION_INTERFACE",
+      "classification": "PARTIAL_ANTECEDENT",
+      "sources": ["S07", "S08"],
+      "external_theorem": "The signature (-1)^(k(k-1)/2) is equivalent to a TN matrix with reversed columns; oscillatory matrices have distinct positive eigenvalues.",
+      "exact_implication_if_gap_closed": "If a natural eigenvalue-preserving transform of the full T_m can be shown oscillatory, then its eigenvalues are simple and the fixed eigenvalue 1 cannot repeat.",
+      "missing_hypothesis": "The frozen parent theorem proves STP of Ahat and Bhat separately, not oscillation of the signed normalized product. Q_4 itself is not TN because it has a negative entry.",
+      "research_value": "A valid oscillation route must prove a full-product sign/ordering theorem; factorwise sign regularity by itself is not enough."
+    },
+    {
+      "claim_id": "C07_EXACT_COMPOUND_OPERATOR_DUPLICATION",
+      "classification": "NO_MATERIAL_MATCH",
+      "sources": ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09"],
+      "external_theorem": "No audited source simultaneously contains the AP measure, the u/u^m paired Bernstein coordinates, the normalized two-half-map product, the Pascal-Mobius involution insertions, and the quotient eigenvalue-1 exclusion.",
+      "exact_implication_if_gap_closed": "NONE",
+      "missing_hypothesis": "This is a search boundary, not a theorem.",
+      "research_value": "No exact duplicate was found in the audited surfaces; this does not authorize any novelty claim."
+    }
+  ],
+  "terminal_boundary": {
+    "terminal_class": "PARTIAL_ANTECEDENT_WITH_ACTIONABLE_THEOREM_FOUND",
+    "exact_duplicate": false,
+    "strongest_actionable_route_1": "GSTP exterior-cone route: construct invariant proper cones for every wedge^j T_m; simple spectrum then closes the target immediately.",
+    "strongest_actionable_route_2": "Principal-angle route: realize T_m as a projection/Gram product and prove the only zero principal angle is the fixed e_0 direction.",
+    "standard_model_boundary": "Jacobi Bernstein-Durrmeyer spectral formulas prove the desired type of simplicity only in a structurally narrower self-adjoint setting and do not survive arbitrary weight / cross-coordinate replacement automatically.",
+    "negative_controls": "Generic Bernstein positivity and generic TP do not imply fixed-point simplicity; direct Q_m oscillation/TN is blocked at m=4 by the frozen negative entry.",
+    "novelty_guard": "NO_MATERIAL_MATCH != NOVELTY"
+  }
+}

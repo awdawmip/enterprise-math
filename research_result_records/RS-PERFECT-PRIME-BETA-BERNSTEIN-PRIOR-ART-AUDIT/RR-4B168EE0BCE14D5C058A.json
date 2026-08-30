@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-4B168EE0BCE14D5C058A",
+  "task_id": "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-63813372F40BFF2A57BB",
+  "execution_record_id": "ER-00800CC53E9EF8CC25E8",
+  "claim_id": "chatgpt-pptbbpaud-20260830-1117-54c7e1",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_BETA_BERNSTEIN_PRIOR_ART_AUDIT_20260830.md",
+  "taskbook_blob_sha1": "sha1:dadfa979f00e38f5a3550f5c37656780ad08327e",
+  "execution_branch": "research/perfect-prime-beta-bernstein-prior-art-audit-em-pptbbpaud-54c7e1",
+  "execution_branch_base": "c8fd304565c858ae43b482bceaf5b47436624acf",
+  "return_path": "research_returns/PERFECT_PRIME_BETA_BERNSTEIN_PRIOR_ART_AUDIT_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:eb1e8f31158986a82c5893f8cfb3316133c6092a",
+  "return_sha256": "sha256:321b1fd4676cc18a392293d678e0d30c0cde31f422a487310786c18c7693fbc5",
+  "owner_head": "6b68cfece4125b5c5958ea9d54678ecfe34abb3c",
+  "researcher_id": "EM-PPTBBPAUD-54C7E1",
+  "frozen_at": "2026-08-30T03:27:30+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "PARTIAL_ANTECEDENT_WITH_ACTIONABLE_THEOREM_FOUND. No exact external duplicate of the joint AP common-measure Beta-Bernstein/u-to-u^m/binomial-Mobius/quotient-eigenvalue-1 statement was found in the audited surfaces. Two existing theorem engines are actionable: (1) Kushel GSTP in exterior-power proper cones would make the full T_m spectrum simple and therefore make its known eigenvalue 1 simple; (2) principal-angle/product-of-orthogonal-projections theory would close the target if T_m admits an eigenvalue-preserving Gram/projection realization whose only common direction is e_0. Standard Jacobi Bernstein-Durrmeyer spectral formulas are only a narrower model and do not directly apply to the AP cross-coordinate signed product.",
+  "unresolved_residue": "The parent all-m theorem det(I_(m-1)-Q_m) != 0 remains unproved. For the GSTP route the missing theorem is an explicit invariant proper-cone family for every exterior power of T_m=R Bhat R Ahat. For the principal-angle route the missing theorem is a same-Hilbert-space Gram/projection realization absorbing row normalizers and the non-orthogonal R, followed by proof that the intersection dimension is exactly one. No novelty conclusion is licensed by the negative exact-match search.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_BETA_BERNSTEIN_PRIOR_ART_AUDIT_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:eb1e8f31158986a82c5893f8cfb3316133c6092a",
+      "sha256": "sha256:321b1fd4676cc18a392293d678e0d30c0cde31f422a487310786c18c7693fbc5"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_BETA_BERNSTEIN_PRIOR_ART_AUDIT/source_ledger.json",
+      "git_blob_sha1": "sha1:99483d4166cd02e65b6e0a2d246d1e070b174d85",
+      "sha256": "sha256:fd7b78f9af65a9f8cf173672aab8147715d2e6fa3976a4ad7655d0b038d3c3d3"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_BETA_BERNSTEIN_PRIOR_ART_AUDIT/claim_map.json",
+      "git_blob_sha1": "sha1:e28066fb15438f6e94b1ffeadc22fd68f6c5c79c",
+      "sha256": "sha256:aaa384709a68ea486cdbd5d171f42ee8a5cc77c1090c80baa10369e0a042efcf"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-BETA-BERNSTEIN-PRIOR-ART-AUDIT/ER-00800CC53E9EF8CC25E8.json",
+      "git_blob_sha1": "sha1:593366306b64263ae6f430afd6d83886a49a7406",
+      "sha256": "sha256:dba199c2bbea8de0bbbd1a4b7393fb47c59466c3ce8194564cfac74a5761de64"
+    }
+  ],
+  "method_harvest": "HYPOTHESIS_BY_HYPOTHESIS_EXTERNAL_THEOREM_MAPPING_WITH_EXACT_OPERATOR_DUPLICATION_TEST",
+  "independence_status": "SEEDED_BY_FROZEN_PARENT_OPERATOR_FRONTIER_WITH_INDEPENDENT_EXTERNAL_PRIOR_ART_SEARCH",
+  "source_exposure_status": "NONBLIND_EXTERNAL_LITERATURE_AUDIT",
+  "next_control_plane_recommendation": "Driver-review and freeze the audit boundary. Route exterior-power successor work specifically to GSTP of the full T_m in transported proper cones; route principal-angle successor work specifically to an exact Gram/projection similarity plus one-dimensional intersection. Do not reopen generic Bernstein total positivity, Pascal inversion, ordinary Karlin composition, direct entrywise PF on Q_m, or direct TN/oscillation of Q_m. Treat Jacobi Bernstein-Durrmeyer theory as a model/check only.",
+  "driver_review_required": true
+}

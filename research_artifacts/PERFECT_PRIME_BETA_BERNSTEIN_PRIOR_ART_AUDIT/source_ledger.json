@@ -1,0 +1,154 @@
+{
+  "schema": "PERFECT_PRIME_BETA_BERNSTEIN_PRIOR_ART_SOURCE_LEDGER_V1",
+  "task_id": "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-63813372F40BFF2A57BB",
+  "researcher_id": "EM-PPTBBPAUD-54C7E1",
+  "searched_at": "2026-08-30",
+  "audit_target": "det(I_(m-1)-Q_m) != 0 for T_m = R Bhat R Ahat, where Ahat and Bhat are strictly totally positive Beta-Bernstein moment matrices from the same measure (1-u^(m^2))^(m-1) du, their Bernstein coordinates are linked by u -> u^m, R is the lower binomial Mobius involution, and Q_m is the quotient block after the fixed e_0 direction.",
+  "policy": "Every source is mapped hypothesis-by-hypothesis. Generic total positivity, Bernstein positivity, finite-m computation, or a no-match search does not count as theorem closure or novelty evidence.",
+  "search_surfaces": [
+    "Elsevier / ScienceDirect journal records",
+    "Springer Nature journal records",
+    "SIAM journal records",
+    "Encyclopedia of Mathematics",
+    "arXiv author copies where publisher metadata or theorem summaries were also available",
+    "Google Books record for Karlin's Total Positivity"
+  ],
+  "exact_queries": [
+    "Bernstein-Durrmeyer eigenvalues Jacobi polynomials explicit eigenvalues journal",
+    "product of orthogonal projections principal angles eigenvalues cos^2 theorem",
+    "generalized strictly totally positive exterior powers cones simple eigenvalues Kushel",
+    "total positivity composition formula integral kernels Karlin",
+    "Bernstein basis normalized totally positive basis Carnicer Pena",
+    "Pascal matrix inverse binomial matrix total positivity Brawer Pirovino",
+    "principal angles singular values cross Gram matrix orthonormal bases theorem",
+    "strict sign regular reverse columns totally positive matrix",
+    "oscillatory matrix distinct positive eigenvalues Gantmacher Krein theorem",
+    "Beta-Bernstein Möbius quotient eigenvalue",
+    "Bernstein Pascal Möbius involution eigenvalue",
+    "u^m Bernstein total positivity composition",
+    "(1-u^(m^2)) Bernstein",
+    "Beta measure Bernstein principal angles",
+    "Bernstein-Durrmeyer Pascal matrix Mobius"
+  ],
+  "sources": [
+    {
+      "source_id": "S01",
+      "citation": "O. Y. Kushel, Cone-theoretic generalization of total positivity, Linear Algebra and its Applications 436(3) (2012), 537-560.",
+      "doi": "10.1016/j.laa.2011.07.003",
+      "url": "https://doi.org/10.1016/j.laa.2011.07.003",
+      "theorem_or_result": "GSTP spectral theorem stated in the paper abstract: if every exterior power preserves an appropriate proper cone strictly, the spectrum is positive and simple.",
+      "hypotheses": "A single linear operator is generalized strictly totally positive with respect to proper cones K_j in every exterior power wedge^j R^n.",
+      "mapping": "If the full T_m = R Bhat R Ahat can be proved GSTP in a task-specific exterior-cone system, then all eigenvalues of T_m are simple. Since T_m e_0 = e_0, eigenvalue 1 would be simple, which is exactly det(I-Q_m) != 0.",
+      "gap": "No invariant proper-cone family for the signed Mobius product T_m is currently established. STP of Ahat and Bhat separately does not imply GSTP of R Bhat R Ahat, and the known negative Q_4 entry blocks a direct ordinary-positive-cone argument on Q_m.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "actionable": true
+    },
+    {
+      "source_id": "S02",
+      "citation": "Z. Drmac, On Principal Angles between Subspaces of Euclidean Space, SIAM Journal on Matrix Analysis and Applications 22(1), 173-194; and H. Klaja, The numerical range and the spectrum of a product of two orthogonal projections, Journal of Mathematical Analysis and Applications 411(1) (2014), 177-195.",
+      "doi": "10.1137/S0895479897320824 ; 10.1016/j.jmaa.2013.09.024",
+      "url": "https://doi.org/10.1137/S0895479897320824",
+      "theorem_or_result": "Principal-angle cosines are the singular values of the cross-Gram matrix Q_X^T Q_Y for orthonormal bases; Klaja Lemma 2.8 gives the spectral interpretation for products of orthogonal projections through the Friedrichs angle.",
+      "hypotheses": "Two subspaces of one Hilbert space, represented by orthonormal bases / orthogonal projections.",
+      "mapping": "If T_m (or an eigenvalue-preserving similarity of it) can be realized as a product/compression of two orthogonal projections with the fixed e_0 direction corresponding to their one-dimensional intersection, then eigenvalue 1 has multiplicity exactly the intersection dimension; strict transversality on the quotient would give det(I-Q_m) != 0.",
+      "gap": "Ahat and Bhat are row-normalized moment transforms, not orthogonal projections; R is a non-orthogonal signed binomial transform. No same-Hilbert-space Gram/projection factorization with one-dimensional intersection has yet been proved.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "actionable": true
+    },
+    {
+      "source_id": "S03",
+      "citation": "Bernstein-Jacobi-type operators preserving derivatives, Computational and Applied Mathematics (2024), Section 5 / Corollary 5.1, recovering the classical Durrmeyer-Derriennic and Sablonniere Bernstein-Jacobi spectral theory.",
+      "doi": "10.1007/s40314-024-02796-2",
+      "url": "https://doi.org/10.1007/s40314-024-02796-2",
+      "theorem_or_result": "Corollary 5.1: Jacobi polynomials are eigenfunctions of the Bernstein-Jacobi operator. Equation (2.5) gives lambda_(n,r) = (n-r+1)_r/(n+alpha+beta+2)_r, with lambda_(n,0)=1 and 0<lambda_(n,r)<1 for 1<=r<=n when alpha,beta>-1.",
+      "hypotheses": "One Bernstein-Jacobi/Durrmeyer operator built from the same Bernstein basis in input/output with a Jacobi weight x^alpha(1-x)^beta and its associated inner-product normalization.",
+      "mapping": "This supplies an exact model in which a Beta/Bernstein integral operator has a simple constant fixed point and an explicit spectral gap below 1.",
+      "gap": "The AP measure rho_m=(1-u^(m^2))^(m-1)du is not a single Jacobi weight in the operative coordinate, the two half maps use Bernstein coordinates u and u^m, and the signed non-orthogonal R is inserted between them. Hence T_m is not identified with this self-adjoint Bernstein-Jacobi operator.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "actionable": true
+    },
+    {
+      "source_id": "S04",
+      "citation": "E. E. Berdysheva and K. Jetter, Multivariate Bernstein-Durrmeyer operators with arbitrary weight functions, Journal of Approximation Theory 162(3) (2010), 576-598.",
+      "doi": "10.1016/j.jat.2009.11.005",
+      "url": "https://doi.org/10.1016/j.jat.2009.11.005",
+      "theorem_or_result": "The paper develops arbitrary-measure Bernstein-Durrmeyer operators and explicitly notes that, outside the Jacobi setting, degree preservation and orthogonal-polynomial eigenspaces can fail.",
+      "hypotheses": "Positive regular Borel measure satisfying the paper's positivity assumption; general Bernstein-Durrmeyer kernel.",
+      "mapping": "The AP weight is naturally compared with this arbitrary-measure extension rather than the Jacobi-special case.",
+      "gap": "The general-weight theory does not provide the Jacobi spectral diagonalization needed to exclude eigenvalue 1, and the AP operator additionally has the u -> u^m cross-coordinate and R insertions.",
+      "classification": "ADJACENT_METHOD",
+      "actionable": false
+    },
+    {
+      "source_id": "S05",
+      "citation": "S. Cooper and S. Waldron, The Eigenstructure of the Bernstein Operator, Journal of Approximation Theory 105(1) (2000), 133-165.",
+      "doi": "10.1006/jath.2000.3464",
+      "url": "https://doi.org/10.1006/jath.2000.3464",
+      "theorem_or_result": "The classical Bernstein operator reproduces all linear polynomials, so eigenvalue 1 is not simple.",
+      "hypotheses": "Classical Bernstein approximation operator.",
+      "mapping": "Negative-control analogue for any attempt to infer fixed-point simplicity from Bernstein structure or total positivity alone.",
+      "gap": "It is not the AP operator; its value is adversarial: it proves that the words 'Bernstein' and 'totally positive' do not by themselves imply a unique fixed vector.",
+      "classification": "ADJACENT_METHOD",
+      "actionable": true
+    },
+    {
+      "source_id": "S06",
+      "citation": "R. Brawer and M. Pirovino, The linear algebra of the Pascal matrix, Linear Algebra and its Applications 174 (1992), 13-23.",
+      "doi": "10.1016/0024-3795(92)90038-C",
+      "url": "https://doi.org/10.1016/0024-3795(92)90038-C",
+      "theorem_or_result": "Classical lower Pascal matrix structure, its factorizations, and inverse/elimination relations.",
+      "hypotheses": "Finite lower triangular Pascal matrices.",
+      "mapping": "For the lower Pascal matrix L_(j,k)=C(j,k), the AP involution R_(j,k)=(-1)^k C(j,k) is a checkerboard/sign variant of binomial inversion (equivalently J L^{-1} under the natural diagonal sign convention). Thus the Mobius factor itself is classical.",
+      "gap": "The source supplies no theorem about the spectrum of R Bhat R Ahat or its quotient fixed point.",
+      "classification": "ADJACENT_METHOD",
+      "actionable": false
+    },
+    {
+      "source_id": "S07",
+      "citation": "P. Koev and F. Dopico, Accurate eigenvalues of certain sign regular matrices, Linear Algebra and its Applications 424(2-3) (2007), 435-447.",
+      "doi": "10.1016/j.laa.2007.02.012",
+      "url": "https://doi.org/10.1016/j.laa.2007.02.012",
+      "theorem_or_result": "Matrices whose kth-order nonzero minors have sign (-1)^(k(k-1)/2) are characterized as nonsingular totally nonnegative matrices with columns in reverse order.",
+      "hypotheses": "Nonsingular sign-regular matrix with the specified order-dependent minor signature.",
+      "mapping": "If a signed Mobius-transformed AP half-map acquires this exact minor signature, the result converts it to an ordinary TN structure after column reversal and opens classical oscillation machinery.",
+      "gap": "This characterization alone gives no eigenvalue-1 exclusion for the normalized product T_m, and no such sign-regularity theorem for the full T_m is frozen in the parent result.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "actionable": true
+    },
+    {
+      "source_id": "S08",
+      "citation": "F. R. Gantmacher and M. G. Krein, oscillation-matrix theorem as summarized in Encyclopedia of Mathematics, 'Oscillating matrix'.",
+      "url": "https://encyclopediaofmath.org/wiki/Oscillating_matrix",
+      "theorem_or_result": "An oscillatory matrix has n distinct positive eigenvalues and eigenvectors with the classical sign-change pattern.",
+      "hypotheses": "Totally nonnegative nonsingular matrix with a positive power that is totally positive; equivalent adjacent-entry criteria are available in the classical theorem.",
+      "mapping": "If an eigenvalue-preserving natural transform of T_m were shown oscillatory, simplicity of its spectrum would immediately exclude a second eigenvalue 1.",
+      "gap": "Q_4 itself has a proven negative entry, so Q_m is not directly TN in the standard cone. No oscillatory representative of the full Mobius product has been established.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "actionable": true
+    },
+    {
+      "source_id": "S09",
+      "citation": "S. Karlin, Total Positivity, Vol. I, Stanford University Press, 1968; basic composition formula and integral-kernel total-positivity framework.",
+      "url": "https://books.google.com/books/about/Total_Positivity.html?id=z-EpAQAAMAAJ",
+      "theorem_or_result": "Classical basic composition formula: suitable compositions/integrals of totally positive kernels preserve total positivity.",
+      "hypotheses": "Compatible totally positive kernels and positive measure/integration composition.",
+      "mapping": "This is a classical antecedent to the Andreief/generalized-Vandermonde mechanism proving Ahat and Bhat STP.",
+      "gap": "It does not propagate through the signed Mobius involution twice so as to prove fixed-point simplicity of T_m.",
+      "classification": "ADJACENT_METHOD",
+      "actionable": false
+    }
+  ],
+  "exact_match_test": {
+    "required_joint_features": [
+      "same AP measure rho_m(u)=(1-u^(m^2))^(m-1)du",
+      "two Bernstein coordinate systems linked by u -> u^m",
+      "the row normalizations producing Ahat and Bhat",
+      "two insertions of the lower binomial Mobius involution R",
+      "the quotient/fixed-point claim det(I_(m-1)-Q_m) != 0"
+    ],
+    "result": "NO_EXACT_DUPLICATE_FOUND_IN_AUDITED_SURFACES",
+    "novelty_guard": "This is an audit boundary only. No novelty, priority, patentability, or originality conclusion is authorized from a negative search."
+  },
+  "terminal_class": "PARTIAL_ANTECEDENT_WITH_ACTIONABLE_THEOREM_FOUND"
+}
