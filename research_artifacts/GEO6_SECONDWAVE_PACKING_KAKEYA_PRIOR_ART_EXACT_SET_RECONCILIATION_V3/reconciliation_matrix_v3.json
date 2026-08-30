@@ -1,0 +1,1094 @@
+{
+  "schema": "GEO6_SECONDWAVE_PRIOR_ART_EXACT_SET_RECONCILIATION_V3",
+  "task_id": "RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS",
+  "publication_id": "TP2-B531F3BB4A597B7D3EAF",
+  "researcher_id": "EM-G6PA2R3-3C8F21",
+  "claim_id": "chatgpt-g6pa2r3-20260831-0007-3c8f21",
+  "exact_historical_result_set": [
+    "RR-830A587B1588DFB21AB1",
+    "RR-4DC6467AD05A1E3CA824"
+  ],
+  "historical_result_provenance": [
+    {
+      "result_id": "RR-830A587B1588DFB21AB1",
+      "origin_pr": 937,
+      "origin_branch": "research/geo6-secondwave-packing-kakeya-prior-art-em-g6pa2-4a7d2c",
+      "result_record_blob_sha1": "sha1:dd61c2deb6d69fecc035ed99f88197cc40f51bba",
+      "matrix_path": "research_artifacts/GEO6_SECONDWAVE_PACKING_KAKEYA_PRIOR_ART_SYNTHESIS/claim_source_matrix.json",
+      "matrix_blob_sha1": "sha1:80a1c75fb73639447b930ea9eced492cf8188fa6",
+      "origin_row_count": 18,
+      "origin_source_count": 13
+    },
+    {
+      "result_id": "RR-4DC6467AD05A1E3CA824",
+      "origin_pr": 950,
+      "origin_branch": "research/geo6-secondwave-packing-kakeya-prior-art-synthesis-em-g6pa2-7a84c2",
+      "result_record_blob_sha1": "sha1:379c5f04b2b05dd3be5fcc813647c8f06f19920a",
+      "matrix_path": "research_artifacts/GEO6_SECONDWAVE_PACKING_KAKEYA_PRIOR_ART_SYNTHESIS/claim_matrix_v1.json",
+      "matrix_blob_sha1": "sha1:f056804430e7bed833294a439fa2be5baa2afd70",
+      "source_manifest_path": "research_artifacts/GEO6_SECONDWAVE_PACKING_KAKEYA_PRIOR_ART_SYNTHESIS/source_manifest_v1.json",
+      "source_manifest_blob_sha1": "sha1:be7229322bff7ddf98678f1df39019062e25a810",
+      "origin_row_count": 14,
+      "origin_source_count": 12
+    }
+  ],
+  "classification_rule": {
+    "EXACT_DUPLICATE": "same mathematical statement after declared-model renaming, with no strictly broader hypothesis advantage needed",
+    "STRICT_ANTECEDENT": "external theorem/method proves the accepted claim under strictly weaker or more general hypotheses",
+    "ADJACENT_METHOD": "external theory gives relevant context/method or general cardinality logic but does not certify the typed/model-specific witness",
+    "NO_MATERIAL_MATCH": "no located external source decides the P000-specific semantic selector under equivalent hypotheses; never a novelty certificate"
+  },
+  "comparison_rows": [
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-01",
+      "canonical_atoms": [
+        "U-P01"
+      ],
+      "accepted_claim": "Declared finite Cell packing equals independent-set optimization on the conflict graph; optimum occupancy is alpha(G)/|V|.",
+      "source_refs": [
+        "A:EXT-GRAPH-INDEPENDENCE"
+      ],
+      "hypothesis_comparison": "After Cells become vertices and the declared symmetric irreflexive conflict relation becomes edges, the graph-theoretic hypotheses coincide with the accepted optimization statement.",
+      "classification": "EXACT_DUPLICATE",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-02",
+      "canonical_atoms": [
+        "U-P02"
+      ],
+      "accepted_claim": "Packing optimum is invariant under declared Cell bijections preserving conflict.",
+      "source_refs": [
+        "A:EXT-GRAPH-INDEPENDENCE"
+      ],
+      "hypothesis_comparison": "Graph isomorphism/automorphism invariance is strictly more general than the Cell-specialized statement.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-03",
+      "canonical_atoms": [
+        "U-P03"
+      ],
+      "accepted_claim": "A periodic lift from a finite quotient of Z^6 has density equal to the occupied quotient fraction along every Følner sequence.",
+      "source_refs": [
+        "A:EXT-FOLNER-COSSETS"
+      ],
+      "hypothesis_comparison": "Finite-index coset equidistribution along every Følner sequence in Z^d is stronger; summing occupied cosets gives the accepted theorem.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-04",
+      "canonical_atoms": [
+        "U-P04"
+      ],
+      "accepted_claim": "Finite-window density error for a fixed periodic fundamental-domain tiling lies only in incomplete boundary tiles.",
+      "source_refs": [
+        "A:EXT-FOLNER-COSSETS"
+      ],
+      "hypothesis_comparison": "This is elementary periodic counting inside the broader Følner boundary/volume mechanism.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-05",
+      "canonical_atoms": [
+        "U-P05"
+      ],
+      "accepted_claim": "The declared torus conflict graph T_n on (Z/nZ)^6 with ±e_i neighbors is C_n^□6 / a finite abelian Cayley graph and is bipartite by parity for even n.",
+      "source_refs": [
+        "A:EXT-CARTESIAN-BIPARTITE",
+        "A:EXT-CAYLEY-CHARACTERS"
+      ],
+      "hypothesis_comparison": "The statement is exactly standard Cartesian-product/Cayley structure after notation is identified.",
+      "classification": "EXACT_DUPLICATE",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-06",
+      "canonical_atoms": [
+        "U-P06"
+      ],
+      "accepted_claim": "For even n, alpha(T_n)=n^6/2, witnessed by a parity class and certified by a perfect matching.",
+      "source_refs": [
+        "A:EXT-CARTESIAN-BIPARTITE",
+        "A:EXT-KONIG"
+      ],
+      "hypothesis_comparison": "Regular bipartite matching/vertex-cover theory is more general than the six-axis torus specialization.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-07",
+      "canonical_atoms": [
+        "U-P07"
+      ],
+      "accepted_claim": "The spectral upper certificate alpha(T_n)/n^6<=1/2 follows from d=12, tau=-12 and Hoffman's ratio bound.",
+      "source_refs": [
+        "A:EXT-HOFFMAN",
+        "A:EXT-CAYLEY-CHARACTERS"
+      ],
+      "hypothesis_comparison": "Hoffman's bound is applied in its standard form, with standard character diagonalization supplying the torus eigenvalues.",
+      "classification": "EXACT_DUPLICATE",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-08",
+      "canonical_atoms": [
+        "U-P08"
+      ],
+      "accepted_claim": "Translations and realized carrier-S4 coordinate permutations preserve declared conflict and density.",
+      "source_refs": [
+        "A:EXT-GRAPH-INDEPENDENCE"
+      ],
+      "hypothesis_comparison": "Ordinary graph-automorphism invariance applies to arbitrary graphs; the accepted statement is a typed specialization once the maps are realized.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-09",
+      "canonical_atoms": [
+        "U-P09"
+      ],
+      "accepted_claim": "For q:T_kn->T_n by coordinate reduction, inverse images of independent sets stay independent and equal k^6 fibers preserve occupancy.",
+      "source_refs": [
+        "A:EXT-GRAPH-INDEPENDENCE"
+      ],
+      "hypothesis_comparison": "This is generic edge-preserving pullback plus uniform-fiber counting, specialized to the torus quotient.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-10",
+      "canonical_atoms": [
+        "U-P10"
+      ],
+      "accepted_claim": "The finite quotient/refinement law does not identify n->kn with the physical P000 scale refinement.",
+      "source_refs": [
+        "A:INT-PACK-GEN2"
+      ],
+      "hypothesis_comparison": "External graph-cover theory analyzes a supplied map but cannot choose the native physical refinement semantics.",
+      "classification": "NO_MATERIAL_MATCH",
+      "kill_decision": "NO_KILL_SELECTOR_SURVIVES"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "PCK-11",
+      "canonical_atoms": [
+        "U-P11"
+      ],
+      "accepted_claim": "Bare current P000 does not canonically supply the non-overlap relation or translation/Følner structure needed for global packing density.",
+      "source_refs": [
+        "A:INT-PACK-GEN2"
+      ],
+      "hypothesis_comparison": "Classical graph/packing/amenable-group theories start after exclusion and ambient action/measure structure are fixed; they do not derive those P000 semantics.",
+      "classification": "NO_MATERIAL_MATCH",
+      "kill_decision": "NO_KILL_SELECTOR_SURVIVES"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "KAK-01",
+      "canonical_atoms": [
+        "U-K02"
+      ],
+      "accepted_claim": "Six affine Cell paths with linearly independent direction vectors have an acyclic bipartite incidence graph with multiply-covered Cells.",
+      "source_refs": [
+        "A:EXT-MATROID-CIRCUIT",
+        "A:EXT-BERGE-ACYCLIC"
+      ],
+      "hypothesis_comparison": "An incidence cycle yields a nontrivial signed linear dependence; vector independence forbids it, and Berge-acyclicity is exactly incidence-graph acyclicity.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "KAK-02",
+      "canonical_atoms": [
+        "U-K03"
+      ],
+      "accepted_claim": "For six independent paths, overlap defect D=sum_x(m_x-1) is at most 5.",
+      "source_refs": [
+        "A:EXT-CYCLOMATIC",
+        "A:EXT-BERGE-ACYCLIC"
+      ],
+      "hypothesis_comparison": "For a forest with six path nodes and c components, E=V-c gives D=6-c<=5; this is a direct forest identity specialization.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "KAK-03",
+      "canonical_atoms": [
+        "U-K04"
+      ],
+      "accepted_claim": "For r>=2 in a sufficiently large declared window, K_6(r)=6r-5.",
+      "source_refs": [
+        "A:EXT-CYCLOMATIC",
+        "A:EXT-BERGE-ACYCLIC"
+      ],
+      "hypothesis_comparison": "The forest defect identity gives |union|=6r-D>=6r-5, with equality for a connected incidence tree.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "KAK-04",
+      "canonical_atoms": [
+        "U-K05",
+        "U-K06"
+      ],
+      "accepted_claim": "Equality K_6(r)=6r-5 is equivalent to connected overlap incidence; six-way concurrency is unnecessary, and a nonconcurrent r=2 chain is a valid equality witness.",
+      "source_refs": [
+        "A:EXT-CYCLOMATIC",
+        "A:EXT-BERGE-ACYCLIC"
+      ],
+      "hypothesis_comparison": "Forest Euler counting settles connectedness/equality generally; it does not by itself certify the exact typed coordinate witness.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION_PRESERVE_WITNESS"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "KAK-05",
+      "canonical_atoms": [
+        "U-K07",
+        "U-K08"
+      ],
+      "accepted_claim": "The dependent family {e1,e2,e1+e2} admits an overlap cycle and an r=2 support-3 countermodel, below the independent-direction value 4.",
+      "source_refs": [
+        "A:EXT-MATROID-CIRCUIT"
+      ],
+      "hypothesis_comparison": "The vectors form a standard vector-matroid circuit; dependence permits a cycle, while the exact support-3 typed realization is model-specific.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION_PRESERVE_WITNESS"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "KAK-06",
+      "canonical_atoms": [
+        "U-K09"
+      ],
+      "accepted_claim": "Classical finite/discrete Kakeya is an adjacent comparison rather than an antecedent of K_6(r)=6r-5.",
+      "source_refs": [
+        "A:EXT-DVIR-KAKEYA",
+        "A:EXT-BALL-BLOKHUIS-DOMENZAIN"
+      ],
+      "hypothesis_comparison": "Classical finite Kakeya quantifies over a much larger direction universe and different ambient algebra/objective; it is context, not an exact antecedent.",
+      "classification": "ADJACENT_METHOD",
+      "kill_decision": "NO_SELECTOR_KILL_ADJACENT_CONTEXT_ONLY"
+    },
+    {
+      "origin_result": "RR-830A587B1588DFB21AB1",
+      "origin_row": "KAK-07",
+      "canonical_atoms": [
+        "U-K10"
+      ],
+      "accepted_claim": "The full native P000 direction family beyond carrier S4, including mixed/refining circuits across refinement levels, remains unresolved.",
+      "source_refs": [
+        "A:INT-KAK-GEN2"
+      ],
+      "hypothesis_comparison": "External matroid/Kakeya theory can analyze a supplied direction family but cannot decide native P000 direction legality or refinement transport.",
+      "classification": "NO_MATERIAL_MATCH",
+      "kill_decision": "NO_KILL_SELECTOR_SURVIVES"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "P01",
+      "canonical_atoms": [
+        "U-P01"
+      ],
+      "accepted_claim": "For a finite declared Cell model (X,C), non-overlap is exactly conflict-graph independence and optimum occupancy is alpha(G)/|X|.",
+      "source_refs": [
+        "B:S01"
+      ],
+      "hypothesis_comparison": "Conflict-graph encoding needs only a finite object set and pairwise incompatibility; Cell typing adds no stronger mathematics once C is declared.",
+      "classification": "EXACT_DUPLICATE",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "P02",
+      "canonical_atoms": [
+        "U-P05"
+      ],
+      "accepted_claim": "T_n=(Z/nZ)^6 with ±e_i conflict, even n>=4, is a 12-regular bipartite coordinate torus with parity classes.",
+      "source_refs": [
+        "B:S02",
+        "B:S12"
+      ],
+      "hypothesis_comparison": "This is exactly the standard even k-ary n-cube / Cartesian product of even cycles after notation is aligned.",
+      "classification": "EXACT_DUPLICATE",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "P03",
+      "canonical_atoms": [
+        "U-P06"
+      ],
+      "accepted_claim": "alpha(T_n)=n^6/2 and hence declared occupancy is 1/2.",
+      "source_refs": [
+        "B:S03",
+        "B:S02"
+      ],
+      "hypothesis_comparison": "Every finite regular bipartite graph has equal sides and a perfect matching; the external theorem is more general.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "P04",
+      "canonical_atoms": [
+        "U-P07"
+      ],
+      "accepted_claim": "The spectral certificate d=12, tau=-12 yields alpha/N<=1/2.",
+      "source_refs": [
+        "B:S04"
+      ],
+      "hypothesis_comparison": "The calculation is a direct substitution into Hoffman's standard ratio bound.",
+      "classification": "EXACT_DUPLICATE",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "P05",
+      "canonical_atoms": [
+        "U-P03"
+      ],
+      "accepted_claim": "A periodic lift from a finite-index quotient of Z^6 has density |I|/|Q| along every Følner sequence.",
+      "source_refs": [
+        "B:S05"
+      ],
+      "hypothesis_comparison": "Johnson–McClendon gives the stronger coset-level theorem for every finite-index subgroup in Z^d.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "P06",
+      "canonical_atoms": [
+        "U-P04"
+      ],
+      "accepted_claim": "Periodic finite-window discrepancy is confined to incomplete fundamental tiles; parity packing satisfies the corresponding boundary bound.",
+      "source_refs": [
+        "B:S03",
+        "B:S05"
+      ],
+      "hypothesis_comparison": "Complete blocks contribute a fixed quota and only boundary-crossing blocks contribute error; this is standard periodic/Følner bookkeeping.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "P07",
+      "canonical_atoms": [
+        "U-P09"
+      ],
+      "accepted_claim": "For q_{k,n}:T_{kn}->T_n, inverse images of independent sets are independent and equal k^6 fibers preserve occupancy.",
+      "source_refs": [
+        "B:S06"
+      ],
+      "hypothesis_comparison": "Generic graph-homomorphism pullback plus constant-fiber counting has weaker/more general hypotheses.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "P08",
+      "canonical_atoms": [
+        "U-P08"
+      ],
+      "accepted_claim": "Translations and realized carrier-S4 coordinate permutations preserve conflict and optimum occupancy; parity may be fixed or swapped.",
+      "source_refs": [
+        "B:S06",
+        "B:S10"
+      ],
+      "hypothesis_comparison": "Graph automorphism invariance and finite group-action bookkeeping apply once these transformations are declared/realized.",
+      "classification": "EXACT_DUPLICATE",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "K01",
+      "canonical_atoms": [
+        "U-K01"
+      ],
+      "accepted_claim": "The accepted carrier S4 has 24 elements; the orbit of AB has size 6 and stabilizer size 4.",
+      "source_refs": [
+        "B:S10"
+      ],
+      "hypothesis_comparison": "Orbit-stabilizer gives 24/4=6 exactly once the action is declared.",
+      "classification": "EXACT_DUPLICATE",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "K02",
+      "canonical_atoms": [
+        "U-K02"
+      ],
+      "accepted_claim": "For finitely many paths with linearly independent directions, path/shared-Cell incidence is a forest.",
+      "source_refs": [
+        "B:S07",
+        "B:S08",
+        "B:S11"
+      ],
+      "hypothesis_comparison": "Any incidence cycle gives a nontrivial linear dependence; the argument works for arbitrary p independent directions and is therefore more general than six.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "K03",
+      "canonical_atoms": [
+        "U-K03",
+        "U-K04",
+        "U-K05"
+      ],
+      "accepted_claim": "For six independent equal-length-r paths, D<=5, K_6(r)=6r-5, and equality holds iff overlap incidence is connected.",
+      "source_refs": [
+        "B:S11",
+        "B:S07"
+      ],
+      "hypothesis_comparison": "The finite-forest identity gives D=p-c and |union|=pr-p+c for arbitrary p; the accepted theorem is the p=6 specialization.",
+      "classification": "STRICT_ANTECEDENT",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "K04",
+      "canonical_atoms": [
+        "U-K06"
+      ],
+      "accepted_claim": "A nonconcurrent r=2 equality chain attains support 7, so equality need not be six-way concurrent.",
+      "source_refs": [
+        "B:S11"
+      ],
+      "hypothesis_comparison": "Forest counting predicts the cardinality for any connected incidence tree but does not certify the project-specific typed coordinate realization.",
+      "classification": "ADJACENT_METHOD",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION_PRESERVE_WITNESS"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "K05",
+      "canonical_atoms": [
+        "U-K07",
+        "U-K08"
+      ],
+      "accepted_claim": "The dependent family {e1,e2,e1+e2} admits an incidence cycle and an r=2 support-3 packet.",
+      "source_refs": [
+        "B:S08",
+        "B:S07"
+      ],
+      "hypothesis_comparison": "Vector-matroid circuit/Berge theory identifies dependence as the cycle threshold but does not determine the exact support-3 typed witness.",
+      "classification": "ADJACENT_METHOD",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION_PRESERVE_WITNESS"
+    },
+    {
+      "origin_result": "RR-4DC6467AD05A1E3CA824",
+      "origin_row": "K06",
+      "canonical_atoms": [
+        "U-K09"
+      ],
+      "accepted_claim": "The fixed-six-axis support problem is only a Kakeya comparison target, not a finite-field Kakeya antecedent.",
+      "source_refs": [
+        "B:S09"
+      ],
+      "hypothesis_comparison": "Finite-field Kakeya requires full lines in every direction; six selected finite paths differ in direction quantifier, ambient algebra and objective.",
+      "classification": "NO_MATERIAL_MATCH",
+      "kill_decision": "NO_SELECTOR_KILL_KILL_BROAD_KAKEYA_NOVELTY_LANGUAGE"
+    }
+  ],
+  "origin_row_counts": {
+    "RR-830A587B1588DFB21AB1": 18,
+    "RR-4DC6467AD05A1E3CA824": 14
+  },
+  "canonical_atoms": [
+    {
+      "atom_id": "U-P01",
+      "lane": "PACKING",
+      "statement": "Declared finite Cell non-overlap optimization is exactly conflict-graph independent-set optimization, with optimum alpha(G)/|V|.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-01"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "P01"
+        ]
+      },
+      "classification": "EXACT_DUPLICATE",
+      "source_refs": [
+        "A:EXT-GRAPH-INDEPENDENCE",
+        "B:S01"
+      ],
+      "hypothesis_comparison": "Same finite incompatibility problem after renaming Cells as vertices and conflicts as edges.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "NONOVERLAP_SELECTOR only: native derivation/selection of C is not supplied by graph theory."
+    },
+    {
+      "atom_id": "U-P02",
+      "lane": "PACKING",
+      "statement": "Any conflict-preserving Cell bijection preserves independent sets, alpha, and finite occupancy.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-02"
+        ],
+        "RR-4DC6467AD05A1E3CA824": []
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-GRAPH-INDEPENDENCE",
+        "B:S06"
+      ],
+      "hypothesis_comparison": "General graph-isomorphism invariance has strictly broader hypotheses; Branch B uses the same theorem implicitly in P08.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "Only native recognition of a P000/carrier map as a conflict automorphism survives."
+    },
+    {
+      "atom_id": "U-P03",
+      "lane": "PACKING",
+      "statement": "For a declared finite-index periodic lift in Z^6, every Følner sequence sees occupied quotient density.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-03"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "P05"
+        ]
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-FOLNER-COSSETS",
+        "B:S05"
+      ],
+      "hypothesis_comparison": "Finite-index coset equidistribution is dimension-general and stronger than the occupied-coset sum.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "TRANSLATION_FOLNER_SELECTOR: P000 must first supply an admissible action/period/window notion."
+    },
+    {
+      "atom_id": "U-P04",
+      "lane": "PACKING",
+      "statement": "Finite-window error for a periodic packing is a boundary-only effect from incomplete fundamental blocks.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-04"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "P06"
+        ]
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-FOLNER-COSSETS",
+        "B:S03",
+        "B:S05"
+      ],
+      "hypothesis_comparison": "Elementary block counting/Følner boundary control is more general than the specific parity/fundamental-domain statement.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "Window semantics remain part of TRANSLATION_FOLNER_SELECTOR."
+    },
+    {
+      "atom_id": "U-P05",
+      "lane": "PACKING",
+      "statement": "T_n=(Z/nZ)^6 with ±e_i adjacency is the sixfold Cartesian cycle product / finite abelian Cayley graph and is parity-bipartite for even n.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-05"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "P02"
+        ]
+      },
+      "classification": "EXACT_DUPLICATE",
+      "source_refs": [
+        "A:EXT-CARTESIAN-BIPARTITE",
+        "A:EXT-CAYLEY-CHARACTERS",
+        "B:S02",
+        "B:S12"
+      ],
+      "hypothesis_comparison": "The declared model is a standard even coordinate torus after notation identification.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "No bare-P000 identification is implied."
+    },
+    {
+      "atom_id": "U-P06",
+      "lane": "PACKING",
+      "statement": "For even n, alpha(T_n)=n^6/2 and declared occupancy is 1/2.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-06"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "P03"
+        ]
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-CARTESIAN-BIPARTITE",
+        "A:EXT-KONIG",
+        "B:S02",
+        "B:S03"
+      ],
+      "hypothesis_comparison": "Regular bipartite matching theory proves the same optimum for a much broader class.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "No numerical Packing novelty remains under the declared torus hypotheses."
+    },
+    {
+      "atom_id": "U-P07",
+      "lane": "PACKING",
+      "statement": "The d=12, tau=-12 Hoffman certificate gives alpha(T_n)/n^6<=1/2.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-07"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "P04"
+        ]
+      },
+      "classification": "EXACT_DUPLICATE",
+      "source_refs": [
+        "A:EXT-HOFFMAN",
+        "A:EXT-CAYLEY-CHARACTERS",
+        "B:S04"
+      ],
+      "hypothesis_comparison": "Standard Hoffman ratio bound with the standard torus eigenvalue substitution.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "Certificate reuse is allowed after a native conflict graph is declared."
+    },
+    {
+      "atom_id": "U-P08",
+      "lane": "PACKING",
+      "statement": "Translations and realized carrier-S4 coordinate permutations preserve the declared conflict graph and occupancy.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-08"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "P08"
+        ]
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-GRAPH-INDEPENDENCE",
+        "B:S06",
+        "B:S10"
+      ],
+      "hypothesis_comparison": "The accepted model action is a specialization of general graph-automorphism invariance; Branch B's EXACT_DUPLICATE label records exact application rather than theorem-scope relation.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "Do not promote carrier S4 to the full native P000 rotation group."
+    },
+    {
+      "atom_id": "U-P09",
+      "lane": "PACKING",
+      "statement": "For q:T_kn->T_n, inverse images of independent sets are independent and equal k^6 fibers preserve occupancy.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-09"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "P07"
+        ]
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-GRAPH-INDEPENDENCE",
+        "B:S06"
+      ],
+      "hypothesis_comparison": "General graph-homomorphism pullback and uniform-fiber counting have broader hypotheses.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "PHYSICAL_REFINEMENT_SELECTOR: combinatorial cover is not yet the physical scale map."
+    },
+    {
+      "atom_id": "U-P10",
+      "lane": "PACKING",
+      "statement": "The finite quotient/refinement law does not canonically identify n->kn with physical P000 scale refinement.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-10"
+        ],
+        "RR-4DC6467AD05A1E3CA824": []
+      },
+      "classification": "NO_MATERIAL_MATCH",
+      "source_refs": [
+        "A:INT-PACK-GEN2",
+        "B:RESULT:RR-4DC6467AD05A1E3CA824"
+      ],
+      "hypothesis_comparison": "Classical cover theory assumes the map; neither branch identifies an accepted P000 datum selecting it as physical refinement.",
+      "kill_decision": "NO_KILL_SELECTOR_SURVIVES",
+      "residue": "PHYSICAL_REFINEMENT_SELECTOR survives."
+    },
+    {
+      "atom_id": "U-P11",
+      "lane": "PACKING",
+      "statement": "Current bare P000 supplies neither a canonical Cell exclusion relation nor a canonical translation/Følner structure for global Packing density.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "PCK-11"
+        ],
+        "RR-4DC6467AD05A1E3CA824": []
+      },
+      "classification": "NO_MATERIAL_MATCH",
+      "source_refs": [
+        "A:INT-PACK-GEN2",
+        "B:RESULT:RR-4DC6467AD05A1E3CA824"
+      ],
+      "hypothesis_comparison": "External theories start after these semantics are supplied; Branch B freezes the same unresolved residue at Result level.",
+      "kill_decision": "NO_KILL_SELECTOR_SURVIVES",
+      "residue": "NONOVERLAP_SELECTOR and TRANSLATION_FOLNER_SELECTOR survive."
+    },
+    {
+      "atom_id": "U-K01",
+      "lane": "KAKEYA",
+      "statement": "The declared carrier S4 has 24 elements and the direction-label orbit AB has size 6 with stabilizer size 4.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [],
+        "RR-4DC6467AD05A1E3CA824": [
+          "K01"
+        ]
+      },
+      "classification": "EXACT_DUPLICATE",
+      "source_refs": [
+        "B:S10",
+        "A:INT-KAK-GEN2"
+      ],
+      "hypothesis_comparison": "Orbit-stabilizer is exact once the carrier action is declared; Branch A did not isolate this bookkeeping as an atomic row.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "No native direction theorem follows from the carrier orbit count."
+    },
+    {
+      "atom_id": "U-K02",
+      "lane": "KAKEYA",
+      "statement": "Linearly independent path directions force the path/shared-Cell incidence graph to be a forest.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "KAK-01"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "K02"
+        ]
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-MATROID-CIRCUIT",
+        "A:EXT-BERGE-ACYCLIC",
+        "B:S07",
+        "B:S08",
+        "B:S11"
+      ],
+      "hypothesis_comparison": "An incidence cycle produces a signed vector dependence; the argument works for arbitrary p, not only six.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "Native mixed/refining direction legality is outside the fixed independent family."
+    },
+    {
+      "atom_id": "U-K03",
+      "lane": "KAKEYA",
+      "statement": "For six independent paths, the overlap defect is D=6-c<=5, where c is the incidence-forest component count.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "KAK-02"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "K03"
+        ]
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-CYCLOMATIC",
+        "A:EXT-BERGE-ACYCLIC",
+        "B:S11",
+        "B:S07"
+      ],
+      "hypothesis_comparison": "This is E=V-c for a finite forest, specialized to six path nodes.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "No six-dimensional combinatorial novelty remains once forest incidence is granted."
+    },
+    {
+      "atom_id": "U-K04",
+      "lane": "KAKEYA",
+      "statement": "For six independent equal-length-r paths, K_6(r)=6r-5 in the declared sufficiently large window.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "KAK-03"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "K03"
+        ]
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-CYCLOMATIC",
+        "A:EXT-BERGE-ACYCLIC",
+        "B:S11",
+        "B:S07"
+      ],
+      "hypothesis_comparison": "The general forest formula |union|=pr-p+c gives the p=6 statement immediately.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "Do not spend continuation budget generalizing p under the same forest hypothesis."
+    },
+    {
+      "atom_id": "U-K05",
+      "lane": "KAKEYA",
+      "statement": "Equality K_6(r)=6r-5 is equivalent to connected overlap incidence; six-way concurrency is not required.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "KAK-04"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "K03"
+        ]
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-CYCLOMATIC",
+        "A:EXT-BERGE-ACYCLIC",
+        "B:S11",
+        "B:S07"
+      ],
+      "hypothesis_comparison": "For a forest, equality means c=1; tree shape is arbitrary.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "Exact typed realizability of a chosen tree shape is a separate witness question."
+    },
+    {
+      "atom_id": "U-K06",
+      "lane": "KAKEYA",
+      "statement": "The specific nonconcurrent r=2 typed equality chain realizing support 7 is a valid regression witness.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "KAK-04"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "K04"
+        ]
+      },
+      "classification": "ADJACENT_METHOD",
+      "source_refs": [
+        "A:EXT-CYCLOMATIC",
+        "A:EXT-BERGE-ACYCLIC",
+        "B:S11"
+      ],
+      "hypothesis_comparison": "Forest counting predicts the support of any connected incidence tree but does not certify this exact carrier-coordinate realization.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION_PRESERVE_WITNESS",
+      "residue": "Preserve only as a regression witness against overstrong concurrency characterizations."
+    },
+    {
+      "atom_id": "U-K07",
+      "lane": "KAKEYA",
+      "statement": "Dependence of {e1,e2,e1+e2} is a standard vector-matroid circuit and is precisely where an incidence cycle may occur.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "KAK-05"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "K05"
+        ]
+      },
+      "classification": "STRICT_ANTECEDENT",
+      "source_refs": [
+        "A:EXT-MATROID-CIRCUIT",
+        "B:S08",
+        "B:S07"
+      ],
+      "hypothesis_comparison": "Circuit/dependence theory is more general than the three-direction model and explains the cycle threshold.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION",
+      "residue": "Native legality of mixed/refining direction families remains unresolved."
+    },
+    {
+      "atom_id": "U-K08",
+      "lane": "KAKEYA",
+      "statement": "The exact r=2 typed support-3 realization for {e1,e2,e1+e2} is a model-specific boundary witness.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "KAK-05"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "K05"
+        ]
+      },
+      "classification": "ADJACENT_METHOD",
+      "source_refs": [
+        "A:EXT-MATROID-CIRCUIT",
+        "B:S08",
+        "B:S07"
+      ],
+      "hypothesis_comparison": "Matroid/Berge theory predicts that a cycle can occur but does not determine this exact support-3 coordinate packet.",
+      "kill_decision": "KILL_STANDALONE_CONTINUATION_PRESERVE_WITNESS",
+      "residue": "Preserve as a boundary detector only."
+    },
+    {
+      "atom_id": "U-K09",
+      "lane": "KAKEYA",
+      "statement": "Classical finite-field/discrete Kakeya is contextual/adjacent prior art, not an antecedent of the fixed-six finite-path formula.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "KAK-06"
+        ],
+        "RR-4DC6467AD05A1E3CA824": [
+          "K06"
+        ]
+      },
+      "classification": "ADJACENT_METHOD",
+      "source_refs": [
+        "A:EXT-DVIR-KAKEYA",
+        "A:EXT-BALL-BLOKHUIS-DOMENZAIN",
+        "B:S09"
+      ],
+      "hypothesis_comparison": "Direction quantifier, ambient algebra, path length and objective differ materially. Branch B's NO_MATERIAL_MATCH label is retained as the no-exact-antecedent guard; Branch A's ADJACENT_METHOD label better captures the actual contextual source relation.",
+      "kill_decision": "NO_SELECTOR_KILL_KILL_BROAD_KAKEYA_NOVELTY_LANGUAGE",
+      "residue": "MIXED_DIRECTION_SELECTOR is not resolved; NO_MATERIAL_MATCH is not a novelty certificate."
+    },
+    {
+      "atom_id": "U-K10",
+      "lane": "KAKEYA",
+      "statement": "The native P000 direction family beyond carrier S4, including mixed/refining direction circuits and refinement transport, remains unresolved.",
+      "origin_rows": {
+        "RR-830A587B1588DFB21AB1": [
+          "KAK-07"
+        ],
+        "RR-4DC6467AD05A1E3CA824": []
+      },
+      "classification": "NO_MATERIAL_MATCH",
+      "source_refs": [
+        "A:INT-KAK-GEN2",
+        "B:RESULT:RR-4DC6467AD05A1E3CA824"
+      ],
+      "hypothesis_comparison": "External theory can analyze a supplied family but cannot decide native P000 direction legality; Branch B freezes the same selector residue at Result level.",
+      "kill_decision": "NO_KILL_SELECTOR_SURVIVES",
+      "residue": "MIXED_DIRECTION_SELECTOR survives."
+    }
+  ],
+  "canonical_classification_counts": {
+    "EXACT_DUPLICATE": 4,
+    "STRICT_ANTECEDENT": 11,
+    "NO_MATERIAL_MATCH": 3,
+    "ADJACENT_METHOD": 3
+  },
+  "label_and_granularity_resolutions": [
+    {
+      "issue": "PCK-08 vs P08",
+      "branch_a": "STRICT_ANTECEDENT",
+      "branch_b": "EXACT_DUPLICATE",
+      "resolution": "U-P08 = STRICT_ANTECEDENT",
+      "reason": "The accepted carrier action is an exact application, but the external graph-automorphism theorem has strictly broader hypotheses; the two labels encode application-level versus theorem-scope granularity."
+    },
+    {
+      "issue": "KAK-04 vs K03/K04",
+      "branch_a": "one STRICT_ANTECEDENT row combining equality characterization and typed witness",
+      "branch_b": "STRICT_ANTECEDENT for general equality + ADJACENT_METHOD for exact nonconcurrent witness",
+      "resolution": "split U-K05 (STRICT_ANTECEDENT) and U-K06 (ADJACENT_METHOD)",
+      "reason": "Forest counting decides the equality characterization but not exact carrier-coordinate realizability."
+    },
+    {
+      "issue": "KAK-05 vs K05",
+      "branch_a": "STRICT_ANTECEDENT",
+      "branch_b": "ADJACENT_METHOD",
+      "resolution": "split U-K07 (STRICT_ANTECEDENT circuit threshold) and U-K08 (ADJACENT_METHOD exact support-3 witness)",
+      "reason": "Matroid theory decides dependence/cycle possibility, not the exact typed support-3 packet."
+    },
+    {
+      "issue": "KAK-06 vs K06",
+      "branch_a": "ADJACENT_METHOD",
+      "branch_b": "NO_MATERIAL_MATCH",
+      "resolution": "U-K09 = ADJACENT_METHOD with no_exact_antecedent_guard=true",
+      "reason": "Dvir/Ball-style Kakeya is genuine contextual prior art but does not match the six-fixed-path hypotheses; Branch B's label is retained as a no-exact-match guard rather than discarded."
+    },
+    {
+      "issue": "row-set asymmetry",
+      "branch_a": "18 rows including three explicit semantic-selector rows",
+      "branch_b": "14 rows plus Result-level four-selector residue and a separate S4 orbit row",
+      "resolution": "union and atomic refinement to 21 canonical atoms",
+      "reason": "No row is discarded. Branch-A selector rows are preserved using Branch-B Result residue as corroboration; Branch-B K01 is preserved as U-K01."
+    }
+  ],
+  "substantive_conflicts": [],
+  "selectors": [
+    {
+      "selector": "NONOVERLAP_SELECTOR",
+      "status": "SURVIVES",
+      "accepted_resolver_present": false,
+      "branch_a_evidence": [
+        "PCK-01",
+        "PCK-11"
+      ],
+      "branch_b_evidence": [
+        "P01",
+        "RESULT:RR-4DC6467AD05A1E3CA824"
+      ],
+      "external_boundary": "Graph/set-packing theory solves optimization only after a conflict/exclusion relation is supplied.",
+      "missing_native_datum": "A canonical native Cell non-overlap/exclusion relation with equivariance/refinement compatibility."
+    },
+    {
+      "selector": "TRANSLATION_FOLNER_SELECTOR",
+      "status": "SURVIVES",
+      "accepted_resolver_present": false,
+      "branch_a_evidence": [
+        "PCK-03",
+        "PCK-04",
+        "PCK-11"
+      ],
+      "branch_b_evidence": [
+        "P05",
+        "P06",
+        "RESULT:RR-4DC6467AD05A1E3CA824"
+      ],
+      "external_boundary": "Følner density and periodic boundary control are classical once an amenable/translation action and periods are declared.",
+      "missing_native_datum": "A native translation/amenable action and admissible period/window semantics."
+    },
+    {
+      "selector": "PHYSICAL_REFINEMENT_SELECTOR",
+      "status": "SURVIVES",
+      "accepted_resolver_present": false,
+      "branch_a_evidence": [
+        "PCK-09",
+        "PCK-10"
+      ],
+      "branch_b_evidence": [
+        "P07",
+        "RESULT:RR-4DC6467AD05A1E3CA824"
+      ],
+      "external_boundary": "Graph-cover pullback and equal-fiber density preservation are classical for a supplied map.",
+      "missing_native_datum": "An accepted theorem identifying a combinatorial finite cover with physical P000 scale refinement."
+    },
+    {
+      "selector": "MIXED_DIRECTION_SELECTOR",
+      "status": "SURVIVES",
+      "accepted_resolver_present": false,
+      "branch_a_evidence": [
+        "KAK-05",
+        "KAK-06",
+        "KAK-07"
+      ],
+      "branch_b_evidence": [
+        "K05",
+        "K06",
+        "RESULT:RR-4DC6467AD05A1E3CA824"
+      ],
+      "external_boundary": "Matroid/Berge theory handles supplied direction circuits and classical Kakeya gives only adjacent global-direction context.",
+      "missing_native_datum": "A native-legal mixed/refining direction family and transport law across refinement."
+    }
+  ],
+  "surviving_selector_set": [
+    "NONOVERLAP_SELECTOR",
+    "TRANSLATION_FOLNER_SELECTOR",
+    "PHYSICAL_REFINEMENT_SELECTOR",
+    "MIXED_DIRECTION_SELECTOR"
+  ],
+  "no_successor_guard": {
+    "accepted_resolver_present": false,
+    "successor_authorized": false,
+    "highest_leverage_future_selector": "NONOVERLAP_SELECTOR",
+    "rule": "Do not publish a mathematical successor from this audit. A successor requires an already accepted P000/Full-Cell datum that resolves at least one surviving selector.",
+    "novelty_guard": "NO_MATERIAL_MATCH is not a novelty certificate."
+  },
+  "reconciliation_disposition": "EXACT_SET_RECONCILED_WITHOUT_TIMESTAMP_SELECTION_OR_BRANCH_DISCARD",
+  "hard_target": "GEO6_SECONDWAVE_PACKING_KAKEYA_PRIOR_ART_EXACT_SET_RECONCILED_AND_WRITER_CONFORMANT"
+}
