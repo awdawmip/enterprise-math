@@ -1,0 +1,166 @@
+{
+  "certificate_scope": "FINITE_EXACT_Q15_HIDDENBALANCE3_PLUS_Q10_CARRIER_STAR_WITNESS",
+  "claim_id": "chatgpt-p000q18c1-20260831-0002-5e7a92",
+  "candidate_definition": {
+    "cross_sort_relation": "Pair the two orderings of P bijectively with the two carrier orientations. There are 3*2=6 such relation states.",
+    "does_not_determine_full_bridge": true,
+    "does_not_name_fibre_star_pairs": true,
+    "full_bridge_choices_remain_one_orbit_under_candidate_stabilizer": 24,
+    "hidden_derived_object": "Choose one unordered 2+2 partition P={B0,B1} of the four HiddenBalance3 codegree-zero fibres; use its two block-orderings (B0,B1) and (B1,B0).",
+    "name": "BlockOrientationBridge",
+    "carrier_derived_object": "Use the two orientation classes of the four Q10 carrier stars (orderings modulo even permutations)."
+  },
+  "deletion_audit": {
+    "delete_one_of_two_paired_tuples": {
+      "aut_order": 96,
+      "full_carrier_surjectivity": false,
+      "image_order": 12
+    },
+    "delete_relation": {
+      "aut_order": 1152,
+      "image_order": 24,
+      "split": true
+    },
+    "keep_partition_forget_orientation_pairing": {
+      "aut_order": 384,
+      "image_order": 24,
+      "split": true
+    }
+  },
+  "exact_obstruction": {
+    "block_swapping_hidden_coset_orders": {
+      "4": 4,
+      "8": 4
+    },
+    "carrier_image_order": 24,
+    "carrier_kernel_order": 8,
+    "joint_aut_order": 192,
+    "reason": "Any homomorphic section must lift an odd carrier transposition of order 2. Candidate compatibility forces its hidden component into the block-swapping coset, where every element has order 4 or 8.",
+    "section_exists": false
+  },
+  "hard_target": "P000_HIDDEN_CARRIER_BRIDGE_CANONICALITY_AND_INFORMATION_COST_CLASSIFIED",
+  "information_cost": {
+    "BlockOrientationBridge_choice_states": 6,
+    "BlockOrientationBridge_hartley_bits": 2.584962500721156,
+    "full_HiddenAxisInc_choice_states": 24,
+    "full_HiddenAxisInc_hartley_bits": 4.584962500721156,
+    "minimum_full_carrier_nonsplit_choice_orbit_in_exact_witness": 6,
+    "orientation_forgetting_choice_states": 2,
+    "orientation_forgetting_split": true,
+    "pair_partition_forgetting_choice_states": 6,
+    "pair_partition_forgetting_split": true
+  },
+  "ontology_boundary": {
+    "certificate_group_names_are_presentations_only": true,
+    "full_bridge_canonical": false,
+    "no_Foundation_or_Working_Truth_promotion": true,
+    "no_bare_P000_group_identification": true,
+    "weaker_bridge_canonical": false
+  },
+  "publication_id": "TP2-50935B60B03C7F3C3C29",
+  "researcher_id": "EM-P000Q18C1-5E7A92",
+  "results": {
+    "block_orientation_bridge": {
+      "aut_order": 192,
+      "block_swap_hidden_orders": {
+        "4": 4,
+        "8": 4
+      },
+      "carrier_image_order": 24,
+      "choice_states": 6,
+      "encodes_full_bijection": false,
+      "fixed_length_binary_bits": 3,
+      "full_bridge_orbit_under_stabilizer": 24,
+      "hartley_bits": 2.584962500721156,
+      "kernel_order": 8,
+      "section_exists": false
+    },
+    "block_orientation_deletions": {
+      "delete_one_of_two_paired_tuples": {
+        "aut_order": 96,
+        "carrier_image_order": 12,
+        "section_exists": false
+      },
+      "delete_relation": {
+        "aut_order": 1152,
+        "carrier_image_order": 24,
+        "section_exists": true
+      },
+      "forget_orientation_pairing_keep_hidden_partition": {
+        "aut_order": 384,
+        "carrier_image_order": 24,
+        "section_exists": true
+      }
+    },
+    "derived_bridge_free": {
+      "balance_triples": 8,
+      "carrier_aut_order": 24,
+      "carrier_axis_types": 6,
+      "carrier_stars": 4,
+      "decoupled_aut_order": 1152,
+      "hidden_aut_order": 48,
+      "hidden_fibre_image_order": 24,
+      "hidden_fibre_kernel_order": 2,
+      "hidden_fibres": 4,
+      "hidden_points": 8
+    },
+    "forgetful_candidates": {
+      "orientation_bridge": {
+        "aut_order": 576,
+        "carrier_image_order": 24,
+        "choice_states": 2,
+        "kernel_order": 24,
+        "section_exists": true
+      },
+      "pair_partition_bridge": {
+        "aut_order": 192,
+        "carrier_image_order": 24,
+        "choice_states": 6,
+        "kernel_order": 8,
+        "section_exists": true
+      }
+    },
+    "full_hidden_axis_bridge": {
+      "bijection_choices": 24,
+      "carrier_image_order": 24,
+      "fixed_choice_exists": false,
+      "fixed_length_binary_bits": 5,
+      "hartley_bits": 4.584962500721156,
+      "kernel_order": 2,
+      "residue_census": "(AB)^4=z on all 96 lifted (3,2,4) pairs",
+      "section_exists": false,
+      "single_orbit": true,
+      "stabilizer_order": 48
+    },
+    "hard_target": "P000_HIDDEN_CARRIER_BRIDGE_CANONICALITY_AND_INFORMATION_COST_CLASSIFIED",
+    "information_lower_bound": {
+      "attained_by_block_orientation_bridge": true,
+      "hidden_subgroup_count": 55,
+      "minimum_choice_orbit_for_full_carrier_nonsplit": 6,
+      "no_nonsplit_with_choice_orbit_below_6": true,
+      "nonsplit_C2_extension_pairs_by_(L,K)": {
+        "16/8": 3,
+        "4/2": 3,
+        "8/4": 6
+      }
+    },
+    "interpretation": {
+      "q15_exact_C2_extension_survives_pair_partition_forgetting": false,
+      "q15_full_bridge_canonical": false,
+      "raw_choice_cardinality_alone_determines_splitness": false,
+      "weaker_alternative_is_canonical": false,
+      "weaker_alternative_is_new_cross_sort_choice": true
+    },
+    "method_reuse": [
+      "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "T2_BLOCK_FINITE_CERTIFICATE",
+      "Q15 exact HiddenBalance3 automorphism census"
+    ],
+    "schema": "P000_Q18_HIDDEN_CARRIER_BRIDGE_CANONICALITY_CHECK_V1",
+    "status": "PASS",
+    "terminal_class": "WEAKER_CROSS_SORT_RELATION_SUFFICES_FOR_NONSPLIT_INTERNALIZATION"
+  },
+  "schema": "P000_Q18_HIDDEN_CARRIER_BRIDGE_CANONICALITY_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-HIDDEN-CARRIER-BRIDGE-CANONICALITY",
+  "terminal_class": "WEAKER_CROSS_SORT_RELATION_SUFFICES_FOR_NONSPLIT_INTERNALIZATION"
+}
