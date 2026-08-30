@@ -1,0 +1,43 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-F66018EC383D1F0B49E6",
+  "task_id": "RS-PERFECT-PRIME-AP-CHRISTOFFEL-J-TRANSVERSALITY-DEFORMATION",
+  "publication_id": "TP2-7A1C9E54B2306D8F41AA",
+  "execution_record_id": "ER-0A657A17DB33F4511E63",
+  "claim_id": "chatgpt-pptapchr1-20260830-1609-7c8d5b",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_20260830.md",
+  "taskbook_blob_sha1": "sha1:0be42e7a2694f54976ed63cb5b43572326156924",
+  "execution_branch": "research/perfect-prime-ap-christoffel-j-transversality-deformation-em-pptapchr1-7c8d5b",
+  "execution_branch_base": "7d6ed510aae872f12a754e97f1799717e3f19476",
+  "return_path": "research_returns/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:ad985887d28c3e82a2b70ad8d9a9b4566cc0566b",
+  "return_sha256": "sha256:0acbdb098c3bc7e4dd27541db180e345da22ee22a3d97c08214bef9bd0339cfb",
+  "owner_head": "268b6968420b720eacba2d07843c6a454649dc65",
+  "researcher_id": "EM-PPTAPCHR1-7C8D5B",
+  "frozen_at": "2026-08-30T08:34:00+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "FIRST_ORDER_GLOBAL_NO_RECROSSING_ROUTE_EXACTLY_OBSTRUCTED: the genuine Christoffel flow is signed-metric self-adjoint, but the endpoint crossing form is already indefinite at m=3; the normalized genuine m=2 quotient determinant D_2(t)/t is exactly nonmonotone; and the first-order tangent Christoffel model has an exact non-pole secondary fixed-space recrossing at m=4, t=49/51. Thus local/first-order crossing data and normalized scalar monotonicity cannot prove the global no-zero flow.",
+  "unresolved_residue": "The actual AP parent target det(I_(m-1)-Q_m(1)) != 0 remains open for general m. A valid continuation must use nonlinear higher Christoffel coefficients essentially, for example by proving an exact higher-order compound/tree-cofactor sign, Krein-collision exclusion, or comparison theorem that distinguishes the full positive flow from its recrossing tangent model.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:ad985887d28c3e82a2b70ad8d9a9b4566cc0566b",
+      "sha256": "sha256:0acbdb098c3bc7e4dd27541db180e345da22ee22a3d97c08214bef9bd0339cfb"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:3205b440704f539029abbd8322e749237a7bb0cd",
+      "sha256": "sha256:fb1d207bde6ff8163ec449315821d7276247080031510e02109747d4d54152bf"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-CHRISTOFFEL-J-TRANSVERSALITY-DEFORMATION/ER-0A657A17DB33F4511E63.json",
+      "git_blob_sha1": "sha1:368ab1b668c688ac9a4a6edd3a5f744ca1d7fc35",
+      "sha256": "sha256:9f8963115929f62f8f94345ee80e43d5e35fb3c996efe53f3a3075f9229dab87"
+    }
+  ],
+  "method_harvest": "SIGNED_KREIN_SELF_ADJOINTNESS_PLUS_EXACT_M2_NORMALIZED_DETERMINANT_OBSTRUCTION_PLUS_TANGENT_CAUCHY_LAPLACIAN_RECROSSING",
+  "independence_status": "TASK-LOCAL CONTINUATION FROM ACCEPTED CAUCHY ENDPOINT; uses the parent exact definitions and negative boundary, then derives new Christoffel-flow identities and exact obstruction certificates without claiming novelty or parent-theorem closure.",
+  "source_exposure_status": "NONBLIND_FROZEN_INTERNAL_FRONTIER; NO NEW EXTERNAL SOURCE REQUIRED FOR THE TERMINAL EXACT OBSTRUCTION",
+  "next_control_plane_recommendation": "Driver-review and accept the exact-obstruction terminal class. Freeze ordinary definite crossing-form inertia, normalized determinant monotonicity, and first-order tangent no-recrossing as closed routes. If a successor is opened, require essential use of nonlinear higher Christoffel coefficients and target a full-flow higher-order compound/tree-cofactor or Krein-collision exclusion theorem.",
+  "driver_review_required": true
+}
