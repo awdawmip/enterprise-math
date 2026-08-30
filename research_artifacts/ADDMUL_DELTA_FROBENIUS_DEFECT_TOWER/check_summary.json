@@ -1,0 +1,87 @@
+{
+  "checker": {
+    "counts": {
+      "T9_signed_transport_reuse": 2704,
+      "coboundary_cocycle": 9126,
+      "eisenstein_norm_exact_multiplicity": 9,
+      "equal_valuation_finite_log_residue": 380,
+      "finite_log_extra_root_and_norm_witnesses": 2,
+      "integrality_and_unit_coefficients": 341,
+      "odd_product_reconstruction": 6660,
+      "odd_symmetric_polynomial_identity": 1734,
+      "p2_p3_p5_p7_exact_formulas": 2500,
+      "singular_hyperplane_witnesses": 3,
+      "strict_semantic_domain_monotonicity": 7070,
+      "unequal_p_valuation_exact_law": 1752
+    },
+    "status": "PASS",
+    "total_assertion_families_instantiated": 32281
+  },
+  "core": {
+    "odd": "C_p=-D_p=(x+y) T_p(x+y,xy)",
+    "odd_reconstruction": "for s=x+y != 0, q=xy is the unique semantic-domain root of T_p(s,q)=-D_p/s",
+    "odd_singular": "s=0 gives D_p=0 for every (a,-a), producing an infinite product-loss fiber",
+    "p2": "D_2=-xy; global product recovery",
+    "raw_cocycle": "exact 2-coboundary; zero raw associator holonomy"
+  },
+  "eisenstein_norm": {
+    "form": "N=x^2+x*y+y^2",
+    "p_mod_6_1_multiplicity": 2,
+    "p_mod_6_5_multiplicity": 1,
+    "scope": "prime p>3"
+  },
+  "foundation_promotion": false,
+  "low_prime_formulas": {
+    "p3": "D=-s*q",
+    "p5": "D=-s*q*(s^2-q)",
+    "p7": "D=-s*q*(s^2-q)^2"
+  },
+  "method_harvest": "RESULT_ONLY",
+  "publication_id": "TP2-67960F557231FE3B1910",
+  "researcher_id": "EM-AMDELTA-3B2016",
+  "schema": "ENTERPRISE_MATH_ADDMUL_DELTA_FROBENIUS_DEFECT_TOWER_ARTIFACT_V1",
+  "task_id": "RS-ADDMUL-DELTA-FROBENIUS-DEFECT-TOWER",
+  "terminal_classification": "PRIME_INDEXED_DEFECT_TOWER_CLASSIFIED",
+  "tool_reuse": {
+    "T1_SCALE_ENUMERATION_VALUATION": "REUSE_APPLIED",
+    "T5_PRECISION_REFINEMENT": "NOT_APPLICABLE_FULL_SIGNED_DOMAIN",
+    "T9_HOLONOMY_COCOYCLE_GLUING": "REUSE_EXECUTED"
+  },
+  "valuation": {
+    "equal_residue": "D_p(u,v)/v^p = L_p(-u/v) mod p",
+    "extra_root_witness": {
+      "norm_mod_p": 13,
+      "p": 59,
+      "sum_mod_p": 4,
+      "vp_defect": 1,
+      "x": 3,
+      "y": 1,
+      "z": 56
+    },
+    "norm_witness": {
+      "defect": -294,
+      "norm": 7,
+      "p": 7,
+      "vp_defect": 2,
+      "x": 2,
+      "y": 1
+    },
+    "p59_roots": [
+      0,
+      1,
+      4,
+      5,
+      12,
+      15,
+      16,
+      21,
+      39,
+      44,
+      45,
+      48,
+      55,
+      56
+    ],
+    "unequal": "v_p(D)=(p-1)min(v_p(x),v_p(y))+max(v_p(x),v_p(y))"
+  }
+}
