@@ -1,0 +1,111 @@
+{
+  "schema": "P000_JOHNSON_PLUCKER_REVISION_V2_REGRESSION_V1",
+  "task_id": "RS-P000-SIX-AXIS-JOHNSON-PLUCKER-DECOMPOSITION",
+  "publication_id": "TP2-FDC95F823029B5829F3B",
+  "orientation": "A<B<C<D",
+  "basis": [
+    "AB",
+    "AC",
+    "AD",
+    "BC",
+    "BD",
+    "CD"
+  ],
+  "rows": [
+    {
+      "operator": "a_xi",
+      "vertex_permutation": "(B C D)",
+      "parity": 1,
+      "unsigned_edge_image_0based": [
+        1,
+        2,
+        0,
+        5,
+        3,
+        4
+      ],
+      "johnson_projectors": "COMMUTES_P4_P0_PM2",
+      "complement": "COMMUTES_C",
+      "pfaffian_law": "Q(W_a x)=+Q(x)",
+      "hodge_law": "H W_a=+W_a H; preserves H+ and H-",
+      "rho_law": "(r1,r2,r3;s)->(r3,r1,r2;s)",
+      "q_orb": "INVARIANT"
+    },
+    {
+      "operator": "b_xi",
+      "vertex_permutation": "(A B)",
+      "parity": -1,
+      "unsigned_edge_image_0based": [
+        0,
+        3,
+        4,
+        1,
+        2,
+        5
+      ],
+      "johnson_projectors": "COMMUTES_P4_P0_PM2",
+      "complement": "COMMUTES_C",
+      "pfaffian_law": "Q(W_b x)=-Q(x)",
+      "hodge_law": "H W_b=-W_b H; swaps H+ and H-",
+      "rho_law": "(r1,r2,r3;s)->(r1,r3,r2;s)",
+      "q_orb": "INVARIANT"
+    },
+    {
+      "operator": "C",
+      "vertex_permutation": "NOT_A_VERTEX_PERMUTATION",
+      "parity": null,
+      "unsigned_edge_image_0based": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "johnson_projectors": "COMMUTES_P4_P0_PM2",
+      "complement": "C^2=I",
+      "pfaffian_law": "Q(Cx)=Q(x)",
+      "hodge_law": "CH=HC; C!=H in characteristic 0",
+      "rho_law": "IDENTITY",
+      "q_orb": "INVARIANT"
+    }
+  ],
+  "coefficient_ring_boundary": {
+    "integral_polar_form": "b_Q(x,y)=Q(x+y)-Q(x)-Q(y)=x^T H y",
+    "integral_polar_form_det": -1,
+    "half_polar_form": "B_Q=b_Q/2 when 2 is invertible; Q(x)=B_Q(x,x)",
+    "half_polar_det": "-1/64",
+    "characteristic_zero_rank": 6,
+    "real_signature": [
+      3,
+      3
+    ],
+    "hodge_plus_basis": [
+      "AB+CD",
+      "AC-BD",
+      "AD+BC"
+    ],
+    "hodge_minus_basis": [
+      "AB-CD",
+      "AC+BD",
+      "AD-BC"
+    ],
+    "hodge_eigenlattice_index_over_Z": 8,
+    "orientation_reversal": "H_rev=-H; H+ and H- swap",
+    "characteristic_2": "polar form perfect alternating; H=C mod 2; +/- sectors coalesce; q not determined by polar form"
+  },
+  "preserved_arithmetic": {
+    "Q_orb": "sort(S-2*t1,S-2*t2,S-2*t3)",
+    "split_index": 24,
+    "smith_factors": [
+      1,
+      1,
+      1,
+      2,
+      2,
+      6
+    ],
+    "quotient": "(Z/2)^3 x Z/3",
+    "rho": "((x1-x6) mod2,(x2-x5) mod2,(x3-x4) mod2,sum(x) mod3)"
+  }
+}
