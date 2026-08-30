@@ -1,0 +1,154 @@
+{
+  "schema": "P000_Q10_NATIVE_MODEL_GROUPOID_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-NATIVE-MODEL-GROUPOID-UNIVERSALITY",
+  "researcher_id": "EM-PHQ10-A61F3C",
+  "terminal_class": "P000_NATIVE_MODEL_GROUPOID_AND_UNIVERSAL_LIFT_QUANTIFIERS_CLASSIFIED",
+  "signature": {
+    "core_sorts": [
+      "NativeCell",
+      "AxisType"
+    ],
+    "core_relations": [
+      {
+        "name": "CarrierStar3",
+        "type": "symmetric 3-uniform relation on AxisType",
+        "role": "accepted carrier atlas; four K4 stars; Aut=carrier S4"
+      },
+      {
+        "name": "CellAxisInc",
+        "type": "NativeCell x AxisType",
+        "role": "typed star anchor; does not identify Cell with carrier vertex"
+      },
+      {
+        "name": "NativeAdj",
+        "type": "symmetric irreflexive NativeCell x NativeCell",
+        "role": "native adjacency"
+      }
+    ],
+    "semantic_shell": [
+      {
+        "name": "Channel",
+        "role": "local channel sort"
+      },
+      {
+        "name": "frame",
+        "type": "NativeCell x AxisType -> Channel",
+        "law": "bijection onto each Cell channel fiber"
+      },
+      {
+        "name": "I",
+        "type": "PF10 ingress tensor on each framed channel fiber"
+      },
+      {
+        "name": "O",
+        "type": "PF10 egress tensor on each framed channel fiber"
+      },
+      {
+        "name": "M",
+        "type": "PF10 passage tensor on each framed channel fiber"
+      },
+      {
+        "name": "optional T_xy",
+        "type": "channel bijection on oriented NativeAdj edges when retained",
+        "role": "accepted connection/transport expansion; excluded from the discriminating Q10 core"
+      }
+    ],
+    "omitted_from_minimal_signature": [
+      "independent connection/transport",
+      "Hidden sort",
+      "distinguished Cell constants",
+      "desired R_a/R_b or section"
+    ]
+  },
+  "groupoid": {
+    "objects": "finite Q10 reducts of accepted framed/PF10 Full-Cell models: six AxisType elements carry the four-star carrier hypergraph; every CellAxisInc neighborhood is exactly one carrier star and every carrier star has at least one opaque NativeCell above it; NativeAdj is primitive; frame and PF10 I/O/M are retained exactly. Independent connection/transport is an optional expansion and is not used to define rho_M.",
+    "morphisms": "primitive-preserving isomorphisms only; they preserve CarrierStar3, CellAxisInc, NativeAdj, frame and all PF10 I/O/M data",
+    "target_carrier_group": "C_M = Aut(AxisType_M,CarrierStar3_M), structurally isomorphic to S4 without choosing new distinguished constants",
+    "rho_M": "derived restriction homomorphism Aut_prim(M) -> C_M on the AxisType sort",
+    "kernel": "primitive automorphisms acting trivially on the carrier AxisType structure; kernel state is retained, never quotiented",
+    "presentation_rule": "a beta/K4 labeling may identify C_M with the frozen abstract S4 for calculation, but theorem statements are conjugacy-invariant and do not depend on that presentation"
+  },
+  "predicates": {
+    "EXISTS_LIFT(M)": "there exists a group homomorphism s_M:C_M->Aut_prim(M) with rho_M∘s_M=id",
+    "FOR_ALL_MODELS_EXISTS_LIFT": false,
+    "NATURAL_LIFT_FAMILY": false,
+    "naturality_law": "for every primitive isomorphism phi:M->N, c_phi∘s_M = s_N∘c_{phi_A}"
+  },
+  "membership": {
+    "GEN12_K4": {
+      "status": "INSIDE",
+      "source_result": "RR-8E63B078AE7DB4C7EFFD",
+      "certificate": "four opaque Cells, K4 native adjacency, four derived star objects, common framed/PF10 data; accepted enriched/Cell/axis action orders are 24 with trivial forgetful kernels",
+      "rho_regime": "ISOMORPHIC_SPLIT_CANONICAL_AT_OBJECT_LEVEL"
+    },
+    "P4_NO_LIFT": {
+      "status": "INSIDE",
+      "source_result": "RR-E1438E73B8EDBA797602",
+      "certificate": "four opaque Cells with P4 native adjacency; uniform PF10 and frames can be supplied; star anchors are typed by the declared labels; primitive automorphism/image order 2",
+      "rho_regime": "NO_LIFT"
+    },
+    "K2222_SPLIT_NONCANONICAL": {
+      "status": "INSIDE",
+      "source_result": "RR-E1438E73B8EDBA797602 / Gen14 regression",
+      "certificate": "eight Cells in four opaque two-Cell fibers over four carrier stars with K_{2,2,2,2} adjacency; Aut=C2^4⋊S4, kernel C2^4",
+      "rho_regime": "SPLIT_NONCANONICAL"
+    },
+    "GL23_NONSPLIT": {
+      "status": "OUTSIDE_MINIMAL_Q10_SIGNATURE",
+      "source_result": "RR-E1438E73B8EDBA797602",
+      "reason": "its nonsplit obstruction is carried by an explicit hidden-relation/projective structure; forgetting that hidden sort changes the primitive automorphism object and loses the certified GL(2,3)->PGL(2,3) residue. Add a Hidden sort/incidence expansion only when the nonsplit regime itself must be internalized."
+    }
+  },
+  "minimality_audit": {
+    "CarrierStar3": "NECESSARY: deleting it expands the six-axis permutation universe and makes the target carrier S4 presentation-selected rather than structural.",
+    "CellAxisInc": "NECESSARY: deleting it decouples native Cell motion from carrier-axis motion; the P4 model becomes Aut(P4)×S4 and acquires a spurious pure-axis section.",
+    "NativeAdj": "NECESSARY FOR CURRENT UNIVERSAL COUNTERMODEL: deleting it from the one-Cell-per-star P4 witness enlarges the core automorphism group to S4 and destroys the no-lift obstruction.",
+    "frame_PF10_shell": "SEMANTICALLY NECESSARY FOR FULL-CELL TYPING, BUT NONDISCRIMINATING IN CURRENT FINITE WITNESSES because uniform PF10 data can be chosen.",
+    "connection": "NOT DISCRIMINATING for Q10: Gen12 uses frame-induced identity transport and P4 admits frame-induced transport; the Q10 reduct forgets independent connection data. Any theorem about holonomy remains outside this result.",
+    "Hidden": "NOT NECESSARY for Q10 hard target; omitting it intentionally leaves the GL(2,3) nonsplit witness outside the minimal groupoid.",
+    "distinguished_constants": "FORBIDDEN: they can kill automorphisms by naming points and manufacture canonicality.",
+    "morphism_rule": "NECESSARY: primitive-preserving isomorphisms are the weakest noncircular morphisms. Requiring lift-preservation is circular; ignoring primitive relations makes naturality presentation-dependent."
+  },
+  "exact_regression": {
+    "carrier_star_hypergraph_aut_order": 24,
+    "carrier_generators_generate_order": 24,
+    "axis_image_generated_order": 24,
+    "gen12_core_aut_order": 24,
+    "gen12_image_order": 24,
+    "gen12_kernel_order": 1,
+    "gen12_exists_lift": true,
+    "p4_aut_order": 2,
+    "p4_image_order": 2,
+    "p4_exists_lift": false,
+    "p4_without_inc_aut_order": 48,
+    "p4_without_inc_image_order": 24,
+    "p4_without_inc_has_pure_axis_section": true,
+    "p4_without_adj_aut_order": 24,
+    "k2222_aut_order": 384,
+    "k2222_image_order": 24,
+    "k2222_kernel_order": 16,
+    "k2222_section_count": 16,
+    "k2222_kernel_conjugacy_orbit_sizes": [
+      8,
+      8
+    ],
+    "k2222_kernel_fixed_section_count": 0,
+    "for_all_models_exists_lift": false,
+    "natural_lift_family_on_full_groupoid": false
+  },
+  "guards": {
+    "P000_REALITY_DIMENSION_7": true,
+    "P000_SPACE_DIMENSION_6": true,
+    "CARRIER_S4_IS_NOT_COMPLETE_NATIVE_P000_ROTATION_GROUP": true,
+    "CARRIER_VERTEX_TAG_IS_NOT_NATIVE_CELL_ID": true,
+    "NO_KERNEL_QUOTIENT": true,
+    "TIME_AXIS_IS_NOT_SPATIAL_AXIS": true,
+    "NO_P000_REOPEN": true
+  },
+  "conclusion": {
+    "existential": "TRUE in Gen12 and K2222",
+    "universal": "FALSE because P4 is an admitted Full-Cell object with rho image order 2",
+    "natural": "FALSE on the full groupoid because K2222 has 16 sections in two kernel-conjugacy orbits of size 8 and no kernel-fixed section",
+    "boundary": "Q10 classifies existential/universal/natural lift quantifiers on this explicit finite reduct groupoid only. It does not supersede Gen15, does not quantify over all conceivable P000 models, and does not internalize the hidden GL(2,3) nonsplit regime. A Hidden-sort expansion is separate."
+  }
+}
