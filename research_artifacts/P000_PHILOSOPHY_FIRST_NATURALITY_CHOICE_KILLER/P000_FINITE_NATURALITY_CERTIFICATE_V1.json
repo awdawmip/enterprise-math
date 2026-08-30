@@ -1,0 +1,107 @@
+{
+  "schema": "P000_FINITE_NATURALITY_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-NATURALITY-CHOICE-KILLER",
+  "researcher_id": "EM-P000Q7-7C4A2E",
+  "theorem": {
+    "name": "FINITE_GROUPOID_COMPONENT_FIXED_POINT_CRITERION",
+    "statement": "For a finite groupoid Gamma and a finite candidate functor C:Gamma->FinSet, natural selections 1=>C are in canonical bijection with the product over connected-component representatives M_i of C(M_i)^{Aut(M_i)}.",
+    "count": "|Nat(1,C)| = product_i |C(M_i)^{Aut(M_i)}|",
+    "consequence": "Pointwise nonempty candidate fibers do not imply a natural selection; a component with no automorphism-fixed candidate kills every global natural selection."
+  },
+  "strength_separation": {
+    "unique_object": "candidate fiber has exactly one element",
+    "unique_isomorphism_class": "candidate action groupoid has exactly one orbit; this does not imply an automorphism-fixed representative",
+    "fixed_point": "candidate is fixed by every primitive-preserving automorphism of the model",
+    "natural_section": "a coherent candidate family on the model groupoid; on each connected component this is equivalent to an automorphism-fixed candidate at one representative"
+  },
+  "finite_models": [
+    {
+      "id": "SIX_CHANNEL_COORDINATE_SELECTOR",
+      "source_scope": "Gen9 symmetric PF10 channel presentation envelope",
+      "automorphism_image": "S6",
+      "automorphism_order": 720,
+      "candidate_count": 6,
+      "orbit_sizes": [6],
+      "representative_stabilizer_order": 120,
+      "global_fixed_point_count": 0,
+      "verdict": "EXISTS_POINTWISE_BUT_NO_EQUIVARIANT_SELECTION"
+    },
+    {
+      "id": "AXIS_CHANNEL_FRAME_TORSOR",
+      "source_scope": "Gen9/Gen10 axis-channel frame f:A->C",
+      "automorphism_image": "S6",
+      "automorphism_order": 720,
+      "candidate_count": 720,
+      "orbit_sizes": [720],
+      "representative_stabilizer_order": 1,
+      "global_fixed_point_count": 0,
+      "verdict": "ONE_ISOMORPHISM_CLASS_BUT_NO_CANONICAL_FRAME"
+    },
+    {
+      "id": "K4_STAR_ORDERED_PROBE_ATLAS",
+      "source_scope": "accepted K4 star observation atlas; only ordering is audited",
+      "automorphism_image": "S4",
+      "automorphism_order": 24,
+      "candidate_count": 24,
+      "orbit_sizes": [24],
+      "representative_stabilizer_order": 1,
+      "global_fixed_point_count": 0,
+      "verdict": "UNORDERED_ATLAS_INVARIANT_BUT_NO_NATURAL_ORDERED_PROBE_BASIS"
+    },
+    {
+      "id": "SPLIT_C2_X_S4_LIFT_SECTION",
+      "source_scope": "accepted split S4 x C2 carrier-lift envelope / Gen13 canonicality test",
+      "quotient": "q:C2 x S4 -> S4",
+      "homomorphic_section_count": 2,
+      "sections": ["trivial_character_section", "sign_character_section"],
+      "q_preserving_automorphism_count": 2,
+      "section_orbit_sizes": [2],
+      "section_stabilizer_order": 1,
+      "global_fixed_point_count": 0,
+      "verdict": "SPLIT_AND_POINTWISE_SECTION_EXISTS_BUT_NO_NATURAL_SECTION"
+    }
+  ],
+  "positive_regressions": [
+    {
+      "id": "PRIMITIVE_ROOTED_CHANNEL",
+      "automorphism_image": "S5 fixing c0",
+      "automorphism_order": 120,
+      "candidate_count": 6,
+      "global_fixed_points": ["c0"],
+      "verdict": "UNIQUE_NATURAL_COORDINATE_AFTER_GENUINE_PRIMITIVE_SYMMETRY_BREAKING"
+    },
+    {
+      "id": "GEN12_K1_GENERATED_LIFT_GROUP",
+      "source_scope": "frozen Gen12 generated enriched action with axis-readout kernel K=1",
+      "candidate_section_count": 1,
+      "global_fixed_point_count": 1,
+      "verdict": "UNIQUE_SECTION_RELATIVE_TO_THE_FIXED_FRAMED_MODEL_ONLY"
+    }
+  ],
+  "checker_spec": {
+    "name": "FINITE_NATURALITY_CHECKER_V1",
+    "inputs": [
+      "finite model-groupoid connected-component representatives",
+      "finite candidate sets",
+      "primitive-preserving automorphism permutation images",
+      "verified candidate transport functor on model isomorphisms"
+    ],
+    "validation": [
+      "validate each automorphism image as a finite group action",
+      "compute candidate orbit partitions and stabilizers",
+      "compute global fixed candidates",
+      "for explicit multi-object groupoids validate transport identity/composition/inverse laws",
+      "report natural-selection count as product of fixed-point counts over component representatives"
+    ],
+    "tool_reuse": "T7_FINITE_SYMMETRY_EQUIVARIANCE / REUSE_APPLIED",
+    "hard_boundary": "The checker cannot invent the primitive-preserving automorphism group, candidate transport, or symmetry-breaking datum; those must be declared or derived from the model."
+  },
+  "scope_guards": [
+    "NO_BARE_P000_CANONICAL_FRAME_CLAIM",
+    "NO_CARRIER_S4_EQUALS_FULL_NATIVE_ROTATION_GROUP",
+    "NO_HIDDEN_KERNEL_QUOTIENT_TO_FORCE_CANONICALITY",
+    "NO_ORDERING_OF_K4_STAR_ATLAS_PROMOTED_TO_NATIVE_DATA",
+    "EXTRA_ROOT_OR_FRAME_DATA_MUST_BE_PRIMITIVE_OR_DERIVED_NOT_ARBITRARILY_CHOSEN",
+    "STANDARD_GROUP_ACTION_NATURALITY_THEORY_IS_NOT_CLAIMED_AS NOVEL"
+  ]
+}
