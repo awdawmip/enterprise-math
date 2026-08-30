@@ -1,0 +1,86 @@
+{
+  "schema": "P000_S4_LIFT_GROUPOID_ATLAS_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-LIFT-GROUPOID",
+  "publication_id": "TP2-416543D426C413DE3C3B",
+  "scope": "declared finite framed Full-Cell relation-phase extension reducts downstream of accepted Gen12 carrier S4 witness",
+  "native_guards": [
+    "P000 remains 6D discrete Cell space plus 1D time",
+    "carrier S4 is a downstream readout, not the full native P000 rotation group",
+    "carrier vertices are not native Cell identities",
+    "hidden relation phase is declared model structure, not a P000 root primitive",
+    "kernel and relation residue are retained and never quotiented away"
+  ],
+  "definition": {
+    "objects": "admissible homomorphic sections s:S4->Gtilde with q∘s=id",
+    "morphisms": "actual primitive-preserving gauge/model self-equivalences gamma over fixed S4 readout satisfying gamma_*∘s=t",
+    "groupoid_form": "Gauge(M) action_groupoid Sec_adm(M)",
+    "kernel": "K=ker(q)",
+    "residues": [
+      "A^3",
+      "B^2",
+      "(AB)^4"
+    ]
+  },
+  "fingerprints": {
+    "GEN12_TRIVIAL_KERNEL": {
+      "objects": 1,
+      "pi0": 1,
+      "isotropy": [1],
+      "strict_unique_aut_free": true
+    },
+    "SPLIT_C2_FULL_GAUGE": {
+      "objects": 2,
+      "pi0": 1,
+      "isotropy": [1, 1],
+      "interpretation": "two sections form a free transitive torsor; no fixed/canonical section"
+    },
+    "SPLIT_C2_FROZEN_GAUGE": {
+      "objects": 2,
+      "pi0": 2,
+      "isotropy": [1, 1],
+      "interpretation": "same extension and same section set, different actual morphism semantics"
+    },
+    "SPLIT_C3_KERNEL_AUT": {
+      "objects": 1,
+      "pi0": 1,
+      "isotropy": [2],
+      "interpretation": "unique section but nontrivial automorphism"
+    },
+    "SPLIT_V4_AFFINE_GAUGE": {
+      "objects": 4,
+      "pi0": 1,
+      "isotropy": [6, 6, 6, 6],
+      "interpretation": "one isomorphism class with S3 isotropy"
+    },
+    "NONSPLIT_C4_PARITY_PULLBACK": {
+      "objects": 0,
+      "pi0": 0,
+      "isotropy": [],
+      "unavoidable_residue": "B^2=(2,e) in central C2 kernel"
+    }
+  },
+  "minimal_difference_certificate": {
+    "split": "C2 x S4 -> S4",
+    "nonsplit": "{(z,g) in C4 x S4 : z mod 2 = parity(g)} -> S4",
+    "same_total_order": 48,
+    "same_kernel_order": 2,
+    "same_quotient_order": 24,
+    "same_fiber_size": 2,
+    "distinguishing_relation": "for frozen odd transposition b, split lifts square to identity; every nonsplit lift squares to central kernel element 2"
+  },
+  "strength_logic": {
+    "E": "Obj nonempty",
+    "A": "for all objects x,y, x isomorphic to y (vacuously true when empty)",
+    "U": "|pi0|=1",
+    "R": "|Obj|=1 and Aut(object)=1",
+    "theorem": "U iff E and A; hence nonempty pairwise-isomorphic iff unique isomorphism class; R => U => E"
+  },
+  "gen13_relation": {
+    "object_layer": "exactly the admissible homomorphic-section layer of Gen13",
+    "pi0": "gauge-equivalence classes of sections",
+    "isotropy": "model-preserving symmetries fixing a section",
+    "strict_boundary": "q, K, relation residues, and even the bare section set do not determine arrows without actual primitive-preserving gauge semantics",
+    "witness": "SPLIT_C2_FULL_GAUGE and SPLIT_C2_FROZEN_GAUGE have identical q/K/sections but pi0=1 versus pi0=2"
+  },
+  "checker_expected": "PASS P000_PHILOSOPHY_FIRST_LIFT_GROUPOID_CHECK"
+}
