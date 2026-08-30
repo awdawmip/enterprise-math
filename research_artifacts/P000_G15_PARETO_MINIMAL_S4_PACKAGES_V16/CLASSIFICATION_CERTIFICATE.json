@@ -1,0 +1,215 @@
+{
+  "schema": "P000_G15_PARETO_MINIMAL_S4_PACKAGES_V16_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-6C18F4A93D705BE21642",
+  "researcher_id": "EM-P000FCC16-09AD0A",
+  "claim_id": "chatgpt-p000fcc16-20260830-1945-09ad0a",
+  "status": "FROZEN_RESEARCH_RETURN",
+  "hard_target_disposition": "P000_G15_PARETO_MINIMAL_FAITHFUL_AND_CANONICAL_S4_RELATIONAL_PACKAGES_EXACTLY_CLASSIFIED",
+  "terminal_class": "G15_PARETO_MINIMAL_FAITHFUL_AND_CANONICAL_S4_PACKAGES_CLASSIFIED",
+  "g15_immutability": {
+    "grammar_certificate_path": "research_artifacts/P000_S4_RELATIONAL_MINIMALITY_GRAMMAR_V15/GRAMMAR_CERTIFICATE.json",
+    "grammar_certificate_sha256": "50ef864f0713d1f19ddf918dae2486a05a7e1d52bf538f1603b2d1c6c655281e",
+    "relations": ["I_CA", "I_HC", "I_HA", "ADD_H"],
+    "constraints": ["K4_ADJ", "TETRA_CA", "H_C3X3", "PROJECTIVE_HC", "PAIR_AXIS_HA"],
+    "modified": false
+  },
+  "enumeration": {
+    "raw_packages": 90,
+    "definitional_classes": 75,
+    "positive_raw_packages": 12,
+    "positive_classes": 9
+  },
+  "definitional_quotient": {
+    "policy": "fixed-sort parameter-free mutual definability",
+    "collapse": "TETRA_CA parameter-free defines K4_ADJ; explicit K4_ADJ is redundant in 15 TETRA_CA package pairs",
+    "tetra_raw_specs": 30,
+    "tetra_specs_with_explicit_k4": 15,
+    "other_collapses": 0,
+    "classes": 75
+  },
+  "universal_classification_theorem": {
+    "universally_split_and_aut_fixed_iff": [
+      "K4_ADJ or TETRA_CA supplies a full four-Cell S4 base",
+      "I_HC is absent",
+      "if I_CA is selected then TETRA_CA is selected",
+      "if TETRA_CA is selected then I_HA is absent"
+    ],
+    "positive_factorization": [
+      "K4 branch: the K4 NativeCell S4 component is independent of any selected Cell-disconnected Axis/Hidden relations; q is projection and the identity-on-complement section is Aut_prim-fixed",
+      "TETRA branch: tetrahedral Cell-Axis incidence has sort-preserving automorphism group S4; the only positive Hidden additions are disconnected ADD_H/H_C3X3 data, so q again splits by the typed direct-factor section"
+    ],
+    "canonicality": "fixed-point canonicality only; uniqueness is not inferred"
+  },
+  "classification_spec_counts": {
+    "NO_LIFT_P4": 30,
+    "UNIVERSAL_SPLIT_CANONICAL_FIXED_POINT": 12,
+    "NO_LIFT_UNCONSTRAINED_I_CA": 6,
+    "NO_LIFT_UNCONSTRAINED_I_HC": 24,
+    "NO_LIFT_UNCONSTRAINED_I_HA_ON_TETRA_AXIS": 6,
+    "SURJECTIVE_NONSPLIT_GL23": 12
+  },
+  "classification_class_counts": {
+    "NO_LIFT_P4": 30,
+    "UNIVERSAL_SPLIT_CANONICAL_FIXED_POINT": 9,
+    "NO_LIFT_UNCONSTRAINED_I_CA": 6,
+    "NO_LIFT_UNCONSTRAINED_I_HC": 18,
+    "NO_LIFT_UNCONSTRAINED_I_HA_ON_TETRA_AXIS": 3,
+    "SURJECTIVE_NONSPLIT_GL23": 9
+  },
+  "negative_certificates": [
+    {
+      "class": "NO_LIFT_P4",
+      "witness": "Set background NativeAdj=P4 whenever neither K4_ADJ nor TETRA_CA is selected; Aut(P4)=2, so the frozen S4 readout cannot be surjective."
+    },
+    {
+      "class": "NO_LIFT_UNCONSTRAINED_I_CA",
+      "witness": "With K4 but no TETRA_CA, set I_CA={(c0,e0)}; preservation fixes c0, so the Cell image lies in S3."
+    },
+    {
+      "class": "NO_LIFT_UNCONSTRAINED_I_HC",
+      "witness": "Without PROJECTIVE_HC, set I_HC={(h0,c0)}; when H_C3X3 is selected take h0=0, which is parameter-free definable. Preservation fixes c0, so the Cell image lies in S3."
+    },
+    {
+      "class": "NO_LIFT_UNCONSTRAINED_I_HA_ON_TETRA_AXIS",
+      "witness": "Under TETRA_CA set I_HA={(h0,e0)}. The chosen tetra axis is one unordered Cell pair, whose S4 stabilizer has order 4; surjectivity fails."
+    },
+    {
+      "class": "SURJECTIVE_NONSPLIT_GL23",
+      "witness": "Use Hidden=F3^2 with ADD_H and PROJECTIVE_HC. The exact readout GL(2,3)->PGL(2,3)~=S4 has kernel {+I,-I}; all four frozen lift pairs satisfy (AB)^4=-I, hence Sec(q)=empty. TETRA_CA/PAIR_AXIS_HA are compatible with the projective line/pair action and do not remove the central residue."
+    }
+  ],
+  "positive_classes": [
+    {
+      "class_id": "G15C002",
+      "relations": [],
+      "constraints": ["K4_ADJ"],
+      "minimal_cost": [0, 0, 0, 0, 0, 0, 1, 0],
+      "raw_presentations": 1,
+      "universal_split": true,
+      "universal_aut_fixed_section": true
+    },
+    {
+      "class_id": "G15C005",
+      "relations": ["ADD_H"],
+      "constraints": ["K4_ADJ"],
+      "minimal_cost": [1, 1, 0, 0, 1, 1, 1, 0],
+      "raw_presentations": 1,
+      "universal_split": true,
+      "universal_aut_fixed_section": true
+    },
+    {
+      "class_id": "G15C006",
+      "relations": ["ADD_H"],
+      "constraints": ["K4_ADJ", "H_C3X3"],
+      "minimal_cost": [1, 1, 0, 0, 1, 1, 2, 0],
+      "raw_presentations": 1,
+      "universal_split": true,
+      "universal_aut_fixed_section": true
+    },
+    {
+      "class_id": "G15C009",
+      "relations": ["I_CA"],
+      "constraints": ["TETRA_CA"],
+      "minimal_cost": [0, 1, 0, 1, 0, 0, 1, 0],
+      "raw_presentations": 2,
+      "universal_split": true,
+      "universal_aut_fixed_section": true
+    },
+    {
+      "class_id": "G15C014",
+      "relations": ["I_CA", "ADD_H"],
+      "constraints": ["TETRA_CA"],
+      "minimal_cost": [1, 2, 0, 1, 1, 1, 1, 0],
+      "raw_presentations": 2,
+      "universal_split": true,
+      "universal_aut_fixed_section": true
+    },
+    {
+      "class_id": "G15C015",
+      "relations": ["I_CA", "ADD_H"],
+      "constraints": ["TETRA_CA", "H_C3X3"],
+      "minimal_cost": [1, 2, 0, 1, 1, 1, 2, 0],
+      "raw_presentations": 2,
+      "universal_split": true,
+      "universal_aut_fixed_section": true
+    },
+    {
+      "class_id": "G15C053",
+      "relations": ["I_HA"],
+      "constraints": ["K4_ADJ"],
+      "minimal_cost": [1, 1, 0, 1, 0, 1, 1, 0],
+      "raw_presentations": 1,
+      "universal_split": true,
+      "universal_aut_fixed_section": true
+    },
+    {
+      "class_id": "G15C056",
+      "relations": ["I_HA", "ADD_H"],
+      "constraints": ["K4_ADJ"],
+      "minimal_cost": [1, 2, 0, 1, 1, 1, 1, 0],
+      "raw_presentations": 1,
+      "universal_split": true,
+      "universal_aut_fixed_section": true
+    },
+    {
+      "class_id": "G15C057",
+      "relations": ["I_HA", "ADD_H"],
+      "constraints": ["K4_ADJ", "H_C3X3"],
+      "minimal_cost": [1, 2, 0, 1, 1, 1, 2, 0],
+      "raw_presentations": 1,
+      "universal_split": true,
+      "universal_aut_fixed_section": true
+    }
+  ],
+  "faithful_pareto_frontier": [
+    {
+      "class_id": "G15C002",
+      "relations": [],
+      "constraints": ["K4_ADJ"],
+      "cost": [0, 0, 0, 0, 0, 0, 1, 0]
+    }
+  ],
+  "canonical_fixed_point_pareto_frontier": [
+    {
+      "class_id": "G15C002",
+      "relations": [],
+      "constraints": ["K4_ADJ"],
+      "cost": [0, 0, 0, 0, 0, 0, 1, 0]
+    }
+  ],
+  "frontier_sufficiency_certificate": {
+    "class_id": "G15C002",
+    "theorem": "K4_ADJ fixes exactly four opaque Cells with complete background NativeAdj. The admitted K4 reduct has all 24 Cell permutations, yielding q:S4->S4. With no selected new relation or Hidden sort, the typed identity section is a homomorphic section. Under a primitive-preserving symmetry, conjugation on the section is canceled by the induced S4 conjugation, so the section is Aut_prim-fixed.",
+    "deletion": "Deleting the sole global constraint yields the empty package. The P4 admitted valuation has Aut(P4)=2 and therefore no S4 lift. Thus K4_ADJ is one-condition necessary at its Pareto-minimal presentation."
+  },
+  "unique_section_pareto_frontier": {
+    "status": "NOT_ASSERTED_OPTIONAL_TARGET",
+    "reason": "Gen14 freezes fixed-point canonicality and uniqueness as distinct strengths; V16 classifies the required fixed-point frontier only."
+  },
+  "mandatory_regressions": {
+    "P4": {"aut_order": 2, "role": "no-lift deletion/countermodel"},
+    "K4": {"aut_order": 24, "role": "frontier positive"},
+    "TETRA_CA": {"sort_preserving_aut_order": 24, "defines_K4": true, "role": "stronger positive definitional class"},
+    "GL23": {"group_order": 48, "projective_image_order": 24, "kernel_order": 2, "AB4_residue": "-I", "role": "surjective nonsplit"},
+    "C2_WR_S4": {"aut_order": 384, "sections": 16, "kernel_orbits": [8, 8], "kernel_fixed_sections": 0, "role": "split noncanonical regression"}
+  },
+  "scope_guards": {
+    "bare_p000_universal_s4_lift_derivable": false,
+    "bare_p000_canonical_s4_section_derivable": false,
+    "p000_mutated": false,
+    "kernel_quotient": false,
+    "carrier_native_identity_collapse": false,
+    "time_fixed": true
+  },
+  "tool_reuse": {
+    "state": "REUSE_APPLIED",
+    "tool": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+    "new_general_tool_claim": false
+  },
+  "checker": {
+    "path": "research_checks/P000_G15_PARETO_MINIMAL_S4_PACKAGES_V16_CHECK_20260830.py",
+    "expected": "PASS",
+    "selftest_checks": 170
+  }
+}
