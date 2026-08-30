@@ -1,0 +1,101 @@
+{
+  "canonicality_obstruction": {
+    "boundary": "this proves nonuniqueness at the declared rotation-reduct level; it does not assert that every full P000/PF-10 expansion realizes both contacts",
+    "capacities": [
+      0,
+      3
+    ],
+    "four_cell_witness": "the natural S4 action is transitive on the six unordered Cell pairs, so the only S4-invariant simple contact graphs are empty and K4",
+    "statement": "rotation compatibility alone does not select a unique contact relation"
+  },
+  "external_e6": {
+    "contact_degree": 20,
+    "contact_edge_count": 720,
+    "contact_rule": "alpha != beta and <alpha,beta> = 1 after standard kissing rescaling",
+    "external_kissing_bounds_current": [
+      72,
+      77
+    ],
+    "generation": "Weyl orbit of e1 under s_i(v)=v-(Gv)_i e_i",
+    "gram_matrix": [
+      [2, 0, -1, 0, 0, 0],
+      [0, 2, 0, -1, 0, 0],
+      [-1, 0, 2, -1, 0, 0],
+      [0, -1, -1, 2, -1, 0],
+      [0, 0, 0, -1, 2, -1],
+      [0, 0, 0, 0, -1, 2]
+    ],
+    "pairing_distribution_per_root": {
+      "-1": 20,
+      "-2": 1,
+      "0": 30,
+      "1": 20,
+      "2": 1
+    },
+    "root_count": 72,
+    "root_norm": 2,
+    "sources": [
+      "https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/E6.html",
+      "https://arxiv.org/abs/2404.18794",
+      "https://cohn.mit.edu/kissing-numbers/"
+    ]
+  },
+  "native_definition": {
+    "cell_set": "one opaque center c plus six opaque neighbors n_e indexed by native axis types e in {E1,...,E6}",
+    "center_capacity": 6,
+    "contact_orbit_size": 6,
+    "contact_rule": "C*(c,n_e)=C*(n_e,c)=true; no other contacts",
+    "contact_stabilizer_order": 4,
+    "local_admissibility": [
+      "all seven Cell identities are opaque and distinct",
+      "contact is symmetric and irreflexive",
+      "exactly one neighboring Cell is declared per native axis type",
+      "no Euclidean distance, angle, norm or sphere primitive is used"
+    ],
+    "name": "P000 six-axis Cell-star contact model",
+    "neighbor_capacity": 1,
+    "rotation_rule": "chosen carrier-compatible S4 action fixes c and permutes the six axis labels through the K4-edge action"
+  },
+  "novelty_claim": false,
+  "publication_id": "TP2-3CB258C85A117CBD20A5",
+  "rotation_orbit_atlas": {
+    "four_cell_invariant_contact_capacities": [0, 3],
+    "four_cell_natural_s4_pair_orbits": [6],
+    "six_axis_invariant_contact_capacities": [0, 1, 4, 5],
+    "six_axis_pair_orbits": [
+      {
+        "degree_if_selected": 1,
+        "kind": "DISJOINT_AXIS_PAIRS",
+        "orbit_size": 3,
+        "stabilizer_order": 8
+      },
+      {
+        "degree_if_selected": 4,
+        "kind": "INCIDENT_AXIS_PAIRS",
+        "orbit_size": 12,
+        "stabilizer_order": 2
+      }
+    ]
+  },
+  "schema": "ENTERPRISE_MATH_GEO6_CONTACT_ATLAS_V1",
+  "status": "FROZEN_TASK_LOCAL_CERTIFICATE",
+  "task_id": "RS-GEO6-KISSING-CONTACT-CAPACITY-BRIDGE",
+  "terminal_class": "P000_NATIVE_CONTACT_ATLAS_CONSTRUCTED_AND_EUCLIDEAN_TRANSFER_OBSTRUCTED_AT_CURRENT_READOUT_STRENGTH",
+  "transfer": {
+    "current_axis_star_embedding": "OBSTRUCTED",
+    "faithful_contact_embedding_definition": "injective f with E6-contact(alpha,beta) iff native-contact(f(alpha),f(beta))",
+    "interpretation": "at least a 12-state residual label per axis is needed for cardinality alone if transfer factors through the six-axis readout; P000 currently supplies no canonical such residual contact datum",
+    "minimum_residual_states_per_axis_for_injective_72_labeling": 12,
+    "obstruction_certificates": [
+      "72 external vertices > 7 axis-star Cell identities",
+      "external contact degree 20 > declared axis-star maximum degree 6",
+      "72 external vertices > 6 current axis readout labels"
+    ]
+  },
+  "typing": {
+    "carrier_s4": "ACCEPTED_CARRIER_COMPATIBLE_ACTION_NOT_FULL_NATIVE_ROTATION_GROUP",
+    "external_euclidean": "EXTERNAL_MODEL_ONLY",
+    "native_axis_star": "DECLARED_P000_COMPATIBLE_FINITE_MODEL_NOT_CANONICALLY_FORCED",
+    "six_axis_atlas": "CARRIER_READOUT_NOT_NATIVE_CELL_IDENTITY"
+  }
+}
