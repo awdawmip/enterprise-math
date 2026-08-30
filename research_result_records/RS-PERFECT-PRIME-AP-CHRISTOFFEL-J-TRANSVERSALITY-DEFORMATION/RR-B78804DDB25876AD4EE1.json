@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-B78804DDB25876AD4EE1",
+  "task_id": "RS-PERFECT-PRIME-AP-CHRISTOFFEL-J-TRANSVERSALITY-DEFORMATION",
+  "publication_id": "TP2-7A1C9E54B2306D8F41AA",
+  "execution_record_id": "ER-39853B84DC87918FA440",
+  "claim_id": "chatgpt-pptapchr1-20260830-1614-72c3d3",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_20260830.md",
+  "taskbook_blob_sha1": "sha1:0be42e7a2694f54976ed63cb5b43572326156924",
+  "execution_branch": "research/perfect-prime-ap-christoffel-j-transversality-deformation-em-pptapchr1-72c3d3",
+  "execution_branch_base": "7a19f39d0096d8028019d915c8345d6c5ebc5093",
+  "return_path": "research_returns/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:956aa75bf6d2f0faed0958da73bf849838a8c95e",
+  "return_sha256": "sha256:d01168fd1604582b22ddc5eeffc5b0ba25ce91521eb9e29251396e150236c689",
+  "owner_head": "f186e4ed25b3b83f770799c02a8102ef401d4335",
+  "researcher_id": "EM-PPTAPCHR1-72C3D3",
+  "frozen_at": "2026-08-30T08:31:00+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "AP_CHRISTOFFEL_ALL_M_LOCAL_J_TRANSVERSALITY_PROVED_AND_POINTWISE_CROSSING_FORM_GLOBALIZATION_EXACTLY_OBSTRUCTED_AT_M3: for every m>=2 the quotient crossing form at t=0 is nondegenerate, so ord_{t=0} det(I-Q_(m,t))=m-1 and strict splitting holds for sufficiently small t>0; however for m=3 the quotient cofactor of Gamma'_(3,t) has a unique algebraic zero t* in (4991/5000,9983/10000), blocking a global proof based on pointwise nondegeneracy of the instantaneous crossing form.",
+  "unresolved_residue": "The actual all-m global no-recrossing statement det(I-Q_(m,t)) != 0 for every 0<t<=1 remains open. The m=3 derivative singularity is not an actual quotient zero: its obstruction polynomial is coprime to the m=3 quotient numerator, whose nontrivial factors have no roots in (0,1).",
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:956aa75bf6d2f0faed0958da73bf849838a8c95e",
+      "sha256": "sha256:d01168fd1604582b22ddc5eeffc5b0ba25ce91521eb9e29251396e150236c689"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:7d64a18aaa4ebada2bc3563f724d00b1107ec470",
+      "sha256": "sha256:e2678e0bdf2104056326ee091fa32cb968140c461db908045c265e3054d76f9e"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION/exact_local_crossing_and_m3_obstruction_certificate.json",
+      "git_blob_sha1": "sha1:ce99cff3cbd9d6a84104edd2a84211e501eacec9",
+      "sha256": "sha256:677258621fcd0c16b98fe45bb2c2a307a557d54693cdc8d37d1b1cf5aeb264a9"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-CHRISTOFFEL-J-TRANSVERSALITY-DEFORMATION/ER-39853B84DC87918FA440.json",
+      "git_blob_sha1": "sha1:06d9d851b5330a3881269796462dd4d1a67e384c",
+      "sha256": "sha256:1df2b1d87c8a10419e8acb8cb0679f668df3d8de3a0a1469ab377be25f0249d5"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY: signed bipartite-Laplacian Schur complement + Cauchy finite-difference crossing reduction + barycentric hyperplane nondegeneracy; not promoted as a new general-purpose tool.",
+  "independence_status": "NONBLIND_REGISTERED_CONTINUATION; used only the task's accepted parent reductions and classical external Cauchy/Christoffel prior art boundary, then derived the crossing theorem and m=3 obstruction independently in this execution.",
+  "source_exposure_status": "TASK_SOURCE_REFS_PLUS_TARGETED_CLASSICAL_PRIOR_ART_SCAN; no located external source supplied the task-specific J-normalized crossing theorem or m=3 obstruction.",
+  "next_control_plane_recommendation": "Driver-review this exact-obstruction terminal class. A successor should control Gamma_(m,t) itself or its (m-1)-compound through derivative singularities, for example via a signed matrix-tree/bipartite-Laplacian certificate, higher-order spectral flow at isolated derivative degeneracies, or the separately published GSTP exterior-cone representation route. Do not reopen generic positivity, ordinary Hilbert contraction, or pointwise Gamma'_t nondegeneracy as sufficient global arguments.",
+  "driver_review_required": true
+}

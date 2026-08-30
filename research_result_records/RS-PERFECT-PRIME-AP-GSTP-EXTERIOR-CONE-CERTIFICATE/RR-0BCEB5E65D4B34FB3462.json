@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-0BCEB5E65D4B34FB3462",
+  "task_id": "RS-PERFECT-PRIME-AP-GSTP-EXTERIOR-CONE-CERTIFICATE",
+  "publication_id": "TP2-C5D08271E39A4B6F215C",
+  "execution_record_id": "ER-44B0E2D6541E2097ABF3",
+  "claim_id": "chatgpt-pptapgstp1-20260830-618349",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_AP_GSTP_EXTERIOR_CONE_CERTIFICATE_20260830.md",
+  "taskbook_blob_sha1": "sha1:5e26dfa26a5f28ab51eceab22782b14e0dc6a408",
+  "execution_branch": "research/perfect-prime-ap-gstp-exterior-cone-certificate-em-pptapgstp1-f3a097",
+  "execution_branch_base": "7d6ed510aae872f12a754e97f1799717e3f19476",
+  "return_path": "research_returns/PERFECT_PRIME_AP_GSTP_EXTERIOR_CONE_CERTIFICATE_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:2b91b6c798aff744740061bd1900bd3c22eebc01",
+  "return_sha256": "sha256:4a9bef15393fab90f5a7ea8040d2f3cfda71a300c0c03b2289dc57f698e4a847",
+  "owner_head": "c3f50c2d885968980aee4722042e5eb7239f22fe",
+  "researcher_id": "EM-PPTAPGSTP1-F3A097",
+  "frozen_at": "2026-08-30T08:36:07+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "EXACT_ACTUAL_AP_M10_GSTP_OBSTRUCTION_PARENT_SURVIVES: exact rational Sturm analysis of the actual AP T_10 shows that after removing the known eigenvalue 1, the degree-9 quotient characteristic polynomial has exactly seven real roots, all in (0,1), and one simple non-real conjugate pair. Kushel GSTP therefore fails for the actual T_10. Simultaneously q_10(1)=det(I_9-Q_10)>0 exactly, so the parent fixed-point theorem survives at the obstruction.",
+  "unresolved_residue": "The universal GSTP/exterior-cone route is closed for the actual AP family. The parent all-m target det(I_(m-1)-Q_m)!=0 remains open for general m; the AP Christoffel J-transversality/no-1-crossing route remains viable because it does not require the remaining quotient spectrum to stay real and positive.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_GSTP_EXTERIOR_CONE_CERTIFICATE_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:2b91b6c798aff744740061bd1900bd3c22eebc01",
+      "sha256": "sha256:4a9bef15393fab90f5a7ea8040d2f3cfda71a300c0c03b2289dc57f698e4a847"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_GSTP_EXTERIOR_CONE_CERTIFICATE_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:037cd170d39283bedacf28b8c616cce9c0137998",
+      "sha256": "sha256:46bdefac01cf23b5362d504b0eadbc948d093b5ab1d5401e508ba7e22fea0384"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_AP_GSTP_EXTERIOR_CONE_CERTIFICATE/exact_m10_sturm_certificate.json",
+      "git_blob_sha1": "sha1:2715aa7172b622153ac28edd276a81b9406e0eef",
+      "sha256": "sha256:6d2a8f862d9a13462b80d17f86131d5bde01ee9984f385b5cd7a08477ee61965"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-GSTP-EXTERIOR-CONE-CERTIFICATE/ER-44B0E2D6541E2097ABF3.json",
+      "git_blob_sha1": "sha1:c0d1014d9cec19c6625d1dc1dd42b0bb930f2548",
+      "sha256": "sha256:ab2c155b2ef422a8ed4150c1b3380ff4a1d3dfc6f34867eded8afbe3f266943d"
+    }
+  ],
+  "method_harvest": "EXACT_RATIONAL_STURM_SPECTRAL_OBSTRUCTION_PLUS_EXPLICIT_EIGENBASIS_EXTERIOR_CONES",
+  "independence_status": "Task-local actual-AP obstruction derived directly from the frozen operator. The accepted predecessor supplied the Cauchy negative control and the sibling principal-angle lane supplied compatible J-geometric conventions, but neither supplied the m=10 non-real spectral obstruction. No novelty is claimed for Kushel cone theory, Sturm theory, or Faddeev-LeVerrier.",
+  "source_exposure_status": "NONBLIND_FROZEN_INTERNAL_FRONTIER_PLUS_PINNED_EXTERNAL_KUSHEL_THEOREM_INTERFACE; exact terminal obstruction itself is verified by pure rational arithmetic.",
+  "next_control_plane_recommendation": "Driver-review and accept the exact obstruction. Close universal GSTP as an all-m proof route for the actual AP operator. Retain the exact m=2..9 GSTP-positive cases only as finite diagnostics. Continue the AP-specific Christoffel J-transversality/no-eigenvalue-1 route and do not infer a counterexample to the Perfect-Prime parent theorem from the m=10 non-real pair.",
+  "driver_review_required": true
+}

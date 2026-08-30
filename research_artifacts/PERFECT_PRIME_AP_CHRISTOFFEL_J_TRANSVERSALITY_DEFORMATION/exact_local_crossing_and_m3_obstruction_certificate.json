@@ -1,0 +1,94 @@
+{
+  "schema": "PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_CERTIFICATE_V1",
+  "task_id": "RS-PERFECT-PRIME-AP-CHRISTOFFEL-J-TRANSVERSALITY-DEFORMATION",
+  "researcher_id": "EM-PPTAPCHR1-72C3D3",
+  "claim_id": "chatgpt-pptapchr1-20260830-1614-72c3d3",
+  "all_m_theorem": {
+    "statement": "The t=0 quotient crossing form has rank m-1 for every m>=2; equivalently the exact quotient determinant has vanishing order m-1 and splits strictly for sufficiently small t>0.",
+    "crossing_inertia": {
+      "positive_index": "floor((m-1)/2)",
+      "negative_index": "ceil((m-1)/2)",
+      "quotient_nullity": 0
+    },
+    "reduction": "C_m(f,g)=-n*sum_j w_j*s_j*(f(y_j+a)-f(y_j))*(g(y_j+a)-g(y_j)), a=m^2, s_j=n!/prod_{r=1}^m(y_j+a+r)."
+  },
+  "finite_exact_regression": {
+    "m_range": [
+      2,
+      7
+    ],
+    "crossing_determinants": {
+      "2": "-26/105",
+      "3": "-19683/60775",
+      "4": "927712935936/596906220625",
+      "5": "122070312500000000000000/3333443725630743255531",
+      "6": "-273198169637618815011456414646272000000000/47485336822834658576813279642217281411",
+      "7": "-14919992881163245431645331580433181891547296462824652800/1871792035269895228121305880362291378578615644221"
+    }
+  },
+  "m3_globalization_obstruction": {
+    "invariant": "det of the top-left 2x2 principal cofactor of Gamma'_(3,t)",
+    "formula": "-27*P12(t)/(50*A(t)^2*B(t)^2*C(t)^2)",
+    "A_low_to_high": [
+      420,
+      -42,
+      5
+    ],
+    "B_low_to_high": [
+      271700,
+      -7315,
+      728
+    ],
+    "C_low_to_high": [
+      391391,
+      -23920,
+      2618
+    ],
+    "P12_low_to_high": [
+      410283992369849598000000,
+      -1076281742427279287900000,
+      1082281784621932214320000,
+      -538717964929345743542000,
+      141707915785000444930050,
+      -21386627649978696405300,
+      2128778523707885528100,
+      -114789507726989038041,
+      2666960532445357740,
+      -38119126605257040,
+      266836318177520,
+      -1030450862560,
+      18677859200
+    ],
+    "root_count_open_0_1": 1,
+    "unique_root_bracket": [
+      "4991/5000",
+      "9983/10000"
+    ],
+    "decimal_bracket": [
+      0.9982,
+      0.9983
+    ],
+    "interpretation": "Gamma'_(3,t) loses quotient nondegeneracy once before t=1; this obstructs regular-crossing globalization but is not a zero of the actual quotient determinant."
+  },
+  "m3_quotient_guard": {
+    "A2_low_to_high": [
+      12206367030,
+      -36819435,
+      1413754
+    ],
+    "B6_low_to_high": [
+      55117062000,
+      -72293202550,
+      40314445885,
+      -10512282495,
+      976346833,
+      -15974170,
+      11760
+    ],
+    "roots_of_A2_in_open_0_1": 0,
+    "roots_of_B6_in_open_0_1": 0,
+    "gcd_P12_with_A2_times_B6": "1"
+  },
+  "checker": "research_checks/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_CHECK_20260830.py",
+  "status": "EXACT_LOCAL_THEOREM_PLUS_EXACT_M3_DERIVATIVE_OBSTRUCTION"
+}
