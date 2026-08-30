@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-7D4B2E9C1A6F3058C4D1",
+  "task_id": "RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING",
+  "publication_id": "TP2-91C7E4A25D0B638F4E1A",
+  "execution_record_id": "ER-9A61F2C308DE475B1C77",
+  "claim_id": "chatgpt-pptapfpc1-20260830-2248-9c4e71",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING_20260830.md",
+  "taskbook_blob_sha1": "sha1:4d6d1a24fe957470a8697b44107f33b302e8b083",
+  "execution_branch": "research/perfect-prime-ap-fixed-point-compound-no-recrossing-em-pptapfpc1-9c4e71",
+  "execution_branch_base": "7a6b80db39529874edc913253cff151948d91607",
+  "return_path": "research_returns/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:1194a80aa79346b1982def363ba7bfc9a0224dba",
+  "return_sha256": "sha256:c387c3de6d3cbbac9d9882f135fa3e031e12f742c1f58789ed7274e38cf6fa5a",
+  "owner_head": "7a6b80db39529874edc913253cff151948d91607",
+  "researcher_id": "EM-PPTAPFPC1-9C4E71",
+  "frozen_at": "2026-08-30T15:42:00+00:00",
+  "terminal_verdict": "PARTIAL_EXACT_PROGRESS",
+  "hard_target_disposition": "ADJACENT_CAUCHY_LAYER_NO_RECROSSING_PROVED_ALL_M_FULL_BINOMIAL_CAUCHY_LAYER_COFACTOR_NONVANISHING_REMAINS_OPEN",
+  "unresolved_residue": "For the full AP deformation L_t=sum_s(-1)^s binom(m-1,s)t^s M_s, prove the canonical gauge cofactor tau_m(t) is nonzero for every m>=2 and 0<t<=1. The new adjacent-layer theorem places every two-layer nongauge singular parameter strictly above 1, but does not control interference among three or more binomial Cauchy layers. Exact m=2..5 Mobius/Bernstein coefficient positivity is finite discovery only.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:1194a80aa79346b1982def363ba7bfc9a0224dba",
+      "sha256": "sha256:c387c3de6d3cbbac9d9882f135fa3e031e12f742c1f58789ed7274e38cf6fa5a"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:09d92cef51679ed8a67049e5d54c9bbbe8c3842c",
+      "sha256": "sha256:9e981c5f543036422fa573a4f0aa6dc29551bc825bb56108144e6dffa9829c41"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING/exact_certificate_20260830.json",
+      "git_blob_sha1": "sha1:c835466fdbef540f019924b40ca57292598aad14",
+      "sha256": "sha256:8f77cbd21f24966ff2dc5814def004bd1a1fc5f3a3f46cb19ee4db12246abdde"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING/ER-9A61F2C308DE475B1C77.json",
+      "git_blob_sha1": "sha1:208814ea79ff05d925a48cce512a0adaff7296fa",
+      "sha256": "sha256:f46cab24dc370251effb6ac8c2b094daafbc9a7a9832c5672439f4da7ca2fe4b"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_INDEPENDENT",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review this Result as partial exact progress. If accepted, freeze the all-m adjacent-Cauchy-layer no-recrossing theorem and explicit t_s^*>1 formula, preserve the parent hard target as open, and route the unique mathematical residue to BINOMIAL_CAUCHY_LAYER_COFACTOR_POSITIVITY_LEMMA. Do not infer all-m closure from finite m=2..5 transformed-coefficient positivity.",
+  "driver_review_required": true
+}
