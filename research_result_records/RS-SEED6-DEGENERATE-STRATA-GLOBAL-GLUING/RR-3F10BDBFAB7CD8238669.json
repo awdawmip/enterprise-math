@@ -1,0 +1,58 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-3F10BDBFAB7CD8238669",
+  "task_id": "RS-SEED6-DEGENERATE-STRATA-GLOBAL-GLUING",
+  "publication_id": "TP2-756A2BED8749CBC27396",
+  "execution_record_id": "ER-91C5A7BFF2E323318CCD",
+  "claim_id": "chatgpt-s6dggv2-20260830-1018-3b2be6",
+  "taskbook_path": "research_tasks/SEED6_DEGENERATE_STRATA_GLOBAL_GLUING_RESULT_MANIFEST_REFREEZE_V2_20260830.md",
+  "taskbook_blob_sha1": "sha1:6e8a9cae26908db7a475fb62d6a11979413e3d52",
+  "execution_branch": "research/seed6-degenerate-strata-gluing-refreeze-v2-em-s6dggv2-7aba1b",
+  "execution_branch_base": "6a4c6ff9e0b2e916af659d2681f9b666d59db682",
+  "return_path": "research_returns/SEED6_DEGENERATE_STRATA_GLOBAL_GLUING_MANIFEST_REFREEZE_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:e97bb71849c83c1b7d6605b87c791a5293f5c234",
+  "return_sha256": "sha256:7453ef6b661e9774c96a64a3a66f9a09ee4591077d111395303509077607b297",
+  "owner_head": "c5600b7a7379d7feabad901cc73481ea76532289",
+  "researcher_id": "EM-S6DGGV2-7ABA1B",
+  "frozen_at": "2026-08-30T02:23:00+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "RESULT_MANIFEST_INTEGRITY_REPAIRED_WITHOUT_MATHEMATICAL_DRIFT",
+  "unresolved_residue": "No integrity residue remains in the revision output manifest. MATHEMATICAL_DELTA=NONE; the prior restricted mathematical scope and its noncanonical S3/S4 lift boundary remain unchanged and are not new residue introduced by this re-freeze.",
+  "output_manifest": [
+    {
+      "path": "research_returns/SEED6_DEGENERATE_STRATA_GLOBAL_GLUING_MANIFEST_REFREEZE_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:e97bb71849c83c1b7d6605b87c791a5293f5c234",
+      "sha256": "sha256:7453ef6b661e9774c96a64a3a66f9a09ee4591077d111395303509077607b297"
+    },
+    {
+      "path": "research_execution_records/RS-SEED6-DEGENERATE-STRATA-GLOBAL-GLUING/ER-91C5A7BFF2E323318CCD.json",
+      "git_blob_sha1": "sha1:89daf315440a28ce1c6ea9481de97e3e31756c7d",
+      "sha256": "sha256:226bac782d5b4bd5efb11045f7c03cba2121313a234fcbc185a068ff2d8a5ca2"
+    }
+  ],
+  "supporting_integrity_artifact": {
+    "path": "research_artifacts/SEED6_DEGENERATE_STRATA_GLOBAL_GLUING_REFREEZE/manifest_audit.json",
+    "git_blob_sha1": "sha1:b87fb14eef096b498927830ca4afb7d3cecb0418",
+    "sha256": "sha256:fe16ec71057bbc1e639a81acecba68b6803734fb0bba7be4b3ca261adcfd0a25"
+  },
+  "reused_frozen_evidence": [
+    {
+      "path": "research_checks/SEED6_DEGENERATE_STRATA_GLOBAL_GLUING_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:8dbcfe34dd42859da648c9a3f81452083d41e393",
+      "sha256": "sha256:9e57071fcccb7622d8ab812c03b8aa22c9b1dd331d3e5381d5e7f624466ee31d",
+      "replay": "PASS"
+    },
+    {
+      "path": "research_artifacts/SEED6_DEGENERATE_STRATA_GLOBAL_GLUING/census.json",
+      "git_blob_sha1": "sha1:b0f18c5f1263e1ec4ecf3dca9c1879f0d19f67e9",
+      "sha256": "sha256:4aa93842db74c5e8fa850633d5456c63044fa090b554ba939a5fe5068cfc15a9"
+    }
+  ],
+  "mathematical_delta": "NONE",
+  "method_harvest": "RESULT_ONLY",
+  "tool_reuse_resolution": "REUSE_APPLIED",
+  "independence_status": "NOT_APPLICABLE",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review this revision for digest-chain completeness and MATHEMATICAL_DELTA=NONE. If the manifest and replay bindings pass, terminally accept the already-reviewed restricted Seed-6 gluing mathematics; do not infer new decorated-resonance or canonical S3/S4 lift claims.",
+  "driver_review_required": true
+}
