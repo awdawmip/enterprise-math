@@ -1,0 +1,67 @@
+{
+  "schema": "P000_BARE_SLICE_DESCENT_SEMANTICS_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-BARE-SLICE-DESCENT-SEMANTICS",
+  "publication_id": "TP2-D13A6727AD0662777180",
+  "researcher_id": "EM-PHQ11-3E7B42",
+  "scope": {
+    "overlap_carrier": "C3_SIMPLE_TRIANGLE",
+    "local_frame_fiber": "C2",
+    "edge_transport": "x -> x XOR a_ij",
+    "gauge_group": "C2^3",
+    "effectivity_contract": "E_C subseteq C2"
+  },
+  "theorem": {
+    "holonomy": "H=a01 XOR a12 XOR a20",
+    "gauge_complete_invariant": true,
+    "strict_frame_criterion": "H=0",
+    "strict_globalization": "H=0 and 0 in E_C",
+    "twisted_globalization": "H=1 and 1 in E_C",
+    "no_global_object": "H not in E_C"
+  },
+  "census": {
+    "tree_path_edge_gauge_orbits": 1,
+    "triangle_edge_raw": 8,
+    "triangle_edge_gauge_orbits": 2,
+    "triangle_orbit_size": 4,
+    "triangle_stabilizer": "C2_DIAGONAL",
+    "effectivity_contracts": 4,
+    "raw_semantic_packets": 32,
+    "gauge_classes": 8,
+    "strict_globalization_raw": 8,
+    "twisted_globalization_raw": 8,
+    "no_global_object_raw": 16
+  },
+  "minimality_witnesses": {
+    "pairwise_only_unsafe": {
+      "edge_packet": [1, 0, 0],
+      "holonomy": 1,
+      "contract_A": [0],
+      "status_A": "NO_GLOBAL_OBJECT",
+      "contract_B": [0, 1],
+      "status_B": "TWISTED_GLOBALIZATION"
+    },
+    "trivial_holonomy_not_full_existence": {
+      "edge_packet": [0, 0, 0],
+      "holonomy": 0,
+      "contract": [1],
+      "strict_frame_possible": true,
+      "global_status": "NO_GLOBAL_OBJECT"
+    }
+  },
+  "abstraction_gate": {
+    "status_only_minimum": "SET_OF_(E_C,H)",
+    "object_level_minimum": "FINITE_ACTION_GROUPOID",
+    "stack_like_upgrade": "NOT_JUSTIFIED_AT_FIXED_TRIANGLE",
+    "reason": "No varying-cover or higher-coherence lower-language failure witness survives the finite groupoid model."
+  },
+  "tool_reuse": [
+    "T2_BLOCK_FINITE_CERTIFICATE",
+    "T6_OPERATION_SAFE_QUOTIENT",
+    "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+    "T9_HOLONOMY_COCOYCLE_GLUING"
+  ],
+  "hard_target_disposition": "P000_BARE_SLICE_DESCENT_SEMANTICS_AND_TWISTING_BOUNDARY_CLASSIFIED_WITH_MINIMAL_EFFECTIVITY_CONTRACT_ISOLATED",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
