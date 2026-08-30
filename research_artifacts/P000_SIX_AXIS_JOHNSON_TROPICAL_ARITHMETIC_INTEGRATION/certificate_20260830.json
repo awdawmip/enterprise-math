@@ -1,0 +1,129 @@
+{
+  "schema": "P000_JOHNSON_TROPICAL_ARITHMETIC_INTEGRATION_CERTIFICATE_V1",
+  "task_id": "RS-P000-SIX-AXIS-JOHNSON-TROPICAL-ARITHMETIC-INTEGRATION",
+  "publication_id": "TP2-156A531524A87ED60C04",
+  "researcher_id": "EM-P000JTAI1-6D4A91",
+  "claim_id": "chatgpt-p000jtai1-20260830-2018-6d4a91",
+  "hard_target_disposition": "P000_JOHNSON_TROPICAL_JOINT_ARITHMETIC_INFORMATION_EXACTLY_CLASSIFIED",
+  "domains": {
+    "raw_integer": "Z^6",
+    "valuation": "D_p=(Z\\{0})^6 for a fixed prime p"
+  },
+  "complementary_pairs": [
+    ["AB", "CD"],
+    ["AC", "BD"],
+    ["AD", "BC"]
+  ],
+  "accepted_packets": {
+    "johnson": {
+      "Q_orb": "sort(S_t-2*t1,S_t-2*t2,S_t-2*t3), t=(x_AB*x_CD,x_AC*x_BD,x_AD*x_BC), S_t=sum(t)",
+      "rho": "((x_AB-x_CD) mod2,(x_AC-x_BD) mod2,(x_AD-x_BC) mod2,sum(x) mod3)",
+      "sector_reference": "Johnson 1+3+2 projectors retained as a lossless typed representation reference, not counted as a compressed arithmetic invariant."
+    },
+    "tropical_raw": {
+      "H": "(x_AB+x_CD,x_AC+x_BD,x_AD+x_BC)",
+      "delta_coord": "second_min(H)-min(H)",
+      "tie_type": "UNIQUE_MIN/TWO_MIN/TRIPLE_MIN of H"
+    },
+    "tropical_valuation": {
+      "alpha_p": "(v_p(x_AB*x_CD),v_p(x_AC*x_BD),v_p(x_AD*x_BC))",
+      "delta_p": "second_min(alpha_p)-min(alpha_p)",
+      "tie_type": "UNIQUE_MIN/TWO_MIN/TRIPLE_MIN of alpha_p"
+    }
+  },
+  "exact_classification": {
+    "qorb_inversion": {
+      "theorem": "If q=(q1,q2,q3)=Q_orb and S_q=q1+q2+q3, then the unordered product multiset is T={ (S_q-qj)/2 : j=1,2,3 }.",
+      "consequence": "On D_p, Q_orb already determines the unordered alpha_p triple, delta_p, its minimum, and its tie type for every prime p.",
+      "classification": "W_VP_DELTA_AND_TIE_REDUNDANT_WITH_Q_ORB"
+    },
+    "rho_vs_raw_H": {
+      "theorem": "For each complementary pair, (a-b) mod2=(a+b) mod2, and sum(x)=sum(H).",
+      "consequence": "rho is determined by labeled H; modulo the carrier S3 action, rho_orbit is determined by the H orbit.",
+      "classification": "RHO_REDUNDANT_ON_FULL_RAW_PAIR_SUM_PACKET"
+    },
+    "pair_completion": {
+      "aligned_packet": "K(x)=multiset{(h_i,t_i): i=1,2,3}",
+      "representability": "For each (h,t), D=h^2-4t must be a nonnegative square d^2 with h≡d (mod2); then the unordered pair is {(h-d)/2,(h+d)/2}.",
+      "symmetry": "Gamma=<unsigned carrier S4, complement C>=C2 wr S3 has order 48.",
+      "theorem": "K is a complete invariant of Z^6 modulo Gamma.",
+      "classification": "PAIR_SYMMETRIC_COMPLETION_EXACT_MOD_CARRIER_COMPLEMENT"
+    },
+    "alignment_cost": {
+      "coarse_packet": "separate H multiset plus T multiset (equivalently Q_orb), with rho/delta derived where applicable",
+      "upper_bound": "At most 3!=6 Gamma-orbits remain, obtained by testing the six relative H-to-T matchings through the discriminant gate.",
+      "sharp": true,
+      "sharp_witness": {
+        "H": [-3, 3, 9],
+        "T": [-70, -10, 0],
+        "compatible_gamma_orbits": 6
+      },
+      "classification": "RELATIVE_ALIGNMENT_IS_THE_ONLY_FINITE_EXTRA_STATE_AT_FULL_H_AND_Q_ORB_LEVEL"
+    }
+  },
+  "counterexamples": {
+    "raw_tropical_nonredundancy": {
+      "x": [-2, -2, 0, 2, 1, 1],
+      "y": [-2, -1, -1, 2, 2, 0],
+      "same_Q_orb": [-4, 0, 0],
+      "same_rho_orbit": [0, 1, 1, 0],
+      "delta_coord": [0, 3],
+      "meaning": "Raw W_COORD pair-sum information is not reconstructible from Q_orb/rho."
+    },
+    "alignment_collision": {
+      "x": [-2, -2, 1, 0, 1, -2],
+      "y": [-2, -1, -1, 0, 2, -2],
+      "same_H_multiset": [-4, -1, 1],
+      "same_T_multiset": [-2, 0, 4],
+      "same_Q_orb": [-6, 2, 6],
+      "same_rho_orbit": [0, 1, 1, 2],
+      "same_delta_coord": 3,
+      "K_x": [[-4, 4], [-1, -2], [1, 0]],
+      "K_y": [[-4, 4], [-1, 0], [1, -2]],
+      "meaning": "Separate orbit packets miss relative H-to-T alignment."
+    }
+  },
+  "padic_cancellation": {
+    "unique_min": {
+      "all_primes": "v_p(Q)=min(alpha_p); no cancellation ambiguity."
+    },
+    "two_min": {
+      "all_primes": "Ambiguous even after K, Q_orb, rho and alpha tie data; exact same invariant orbit can contain Q=0 and Q!=0 states.",
+      "family": "Choose even a divisible by p, b=1, c=1-a; x=(a,a,a,a,b,c), y=(a,a,a,a,c,b). Then K(x)=K(y), Q(x)=0, Q(y)=2a^2."
+    },
+    "triple_min": {
+      "p_equals_2": "Always v_2(Q)=min(alpha_2), because after factoring 2^m the three signed summands are odd and odd-odd+odd is odd.",
+      "odd_p": "Ambiguous. For a=2,b=1,c=-1, x=(a,a,a,a,b,c), y=(a,a,a,a,c,b) have identical K and triple-min alpha_p but Q=0 versus 8."
+    },
+    "classification": "TIE_TYPE_REFINES_DELTA_ZERO; P2_TRIPLE_TIE_IS_SAFE_BUT_TWO_MIN_AND_ODD_TRIPLE_MIN_ARE_NOT"
+  },
+  "primary_residue_interaction": {
+    "p_equals_2": {
+      "exact_pair_compatibility": "For alpha=v2(ab), r=(a-b) mod2: alpha=0 => r=0; alpha=1 => r=1; alpha>=2 => r in {0,1}, and every listed case occurs.",
+      "sum_mod3": "For each allowed (alpha,r), pair sum mod3 can be 0,1,2; the Z/3 residue does not add a 2-adic tie restriction."
+    },
+    "p_equals_3": {
+      "classification": "The mod-2 rho bits are CRT-independent of 3-adic valuations. The total Z/3 residue does not select UNIQUE/TWO/TRIPLE valuation tie type; deterministic regressions realize all three total residues inside each regime."
+    }
+  },
+  "information_cost": {
+    "Q_orb": "unordered exact product triple; loses product-pair labels/orientation",
+    "rho": "finite (Z/2)^3 x Z/3 residue; redundant once full raw H is retained",
+    "delta_coord": "one scalar gap; strongly lossy relative to H",
+    "delta_p": "redundant once Q_orb is retained on D_p",
+    "relative_alignment": "0..log2(6) bits in a generic six-way fiber; exact discrete state is an admissible matching, not a new continuous coordinate",
+    "orientation_selection": "not recoverable from Gamma-invariant data and required to select one scalar Q value from Q_orb"
+  },
+  "tool_reuse_resolution": "NOT_APPLICABLE_NO_NEW_GENERAL_MECHANISM / TASK_LOCAL_EXACT_CERTIFICATE_ONLY",
+  "checker": {
+    "expected": "LOCAL_DETERMINISTIC_PASS checks=155667"
+  },
+  "scope_guards": [
+    "No native P000 tropical geometry.",
+    "No native dimension reduction.",
+    "No factorization mechanism or Full-Cell lift.",
+    "No Working Truth or Foundation promotion.",
+    "No zero-coordinate v_p=+infinity extension.",
+    "Gamma-completeness is only for the declared derived six-coordinate carrier+complement action."
+  ]
+}
