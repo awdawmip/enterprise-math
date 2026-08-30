@@ -1,0 +1,70 @@
+{
+  "schema": "ENTERPRISE_MATH_FINITE_INTERPOLATING_LAW_INTERFACE_V1",
+  "task_id": "RS-ADDMUL-FORMAL-GROUP-INTERPOLATION",
+  "researcher_id": "EM-AMFGRP-A3-6C4E91",
+  "status": "TASK_LOCAL_CLASSIFIED_INTERFACE",
+  "scalar_cell": {
+    "name": "INTERPOLATING_SCALAR_CELL_V1",
+    "parameters": ["N>=2", "c in Z/NZ"],
+    "state_space": "Z/NZ",
+    "operation": "x star_c y = x + y + c*x*y mod N",
+    "identity": 0,
+    "shifted_readout": "T_c(x)=1+c*x mod N",
+    "transport": "T_c(x star_c y)=T_c(x)*T_c(y)",
+    "information_kernel": "T_c(x)=T_c(y) iff c*(x-y)=0 mod N",
+    "fiber_size": "gcd(c,N)",
+    "image_size": "N/gcd(c,N)",
+    "full_multiplication_coordinate_rewrite_criterion": "gcd(c,N)=1",
+    "group_locus": "gcd(1+c*x,N)=1",
+    "inverse_on_group_locus": "-x*(1+c*x)^(-1) mod N"
+  },
+  "nilpotent_jet_cell": {
+    "name": "FORMAL_GROUP_JET_CELL_V1",
+    "parameters": ["M>=2", "d>=1", "a true one-dimensional formal group law F over Z/MZ"],
+    "ambient_ring": "A=(Z/MZ)[epsilon]/(epsilon^(d+1))",
+    "state_space": "I=(epsilon) subset A",
+    "finite_cardinality": "M^d",
+    "operation": "x star y = J_d(F)(x,y) in I",
+    "exactness": "All monomials of total degree > d vanish on I, so the d-jet determines the exact finite operation; associativity/unit/formal inverse descend exactly from F.",
+    "warning": "Naively treating J_d(F) as an ordinary polynomial on an untruncated ring is a different interface and generally creates an associativity defect beginning no earlier than degree d+1."
+  },
+  "integer_linearization_boundary": {
+    "formal_log": "log_c(x)=sum_{n>=1} (-1)^(n+1)*c^(n-1)*x^n/n",
+    "formal_exp": "exp_c(t)=sum_{n>=1} c^(n-1)*t^n/n!",
+    "finite_depth_integrality_criterion": "For d>=1, both jets through degree d have integer coefficients iff primorial(d)=product_{p prime, p<=d} p divides c.",
+    "max_integer_safe_depth": "D(c)=min{prime p: p does not divide c}-1, with D(0)=infinity.",
+    "semantic_boundary": "Coefficient-integral finite jets are finite linearization data, not a global integer formal logarithm unless all required denominators are legal."
+  },
+  "truncation_defect_certificate": {
+    "strict_coordinate": "h(t)=t+t^2",
+    "exact_formal_law_origin": "F=h^(-1)(h(x)+h(y))",
+    "degree_3_truncation": "G3=x+y-2xy+4x^2y+4xy^2",
+    "first_associativity_defect_degree": 4,
+    "degree_4_associator": "-16*x*y*z*(x-z)",
+    "general_rule": "If H_{d+1} is the first omitted homogeneous layer, then the degree-(d+1) ordinary-polynomial associator of J_d(F) is the negative additive 2-coboundary of H_{d+1}; it may vanish, in which case the first defect occurs later."
+  },
+  "tool_reuse_resolution": [
+    {
+      "method": "T5_PRECISION_REFINEMENT / precision.integer_projection_calculus",
+      "coverage_verdict": "REUSE_EXISTING_TOOL",
+      "reuse_resolution_state": "REUSE_APPLIED",
+      "application": "Reused the exact finite-resolution/fiber-detail boundary: all project-facing finite interfaces are discrete and every discarded high-order component is represented as an explicit truncation defect rather than a continuum limit.",
+      "hard_boundary_checked": "finite integer precision only"
+    },
+    {
+      "method": "T6_OPERATION_SAFE_QUOTIENT / quotient.operation_family_closure",
+      "coverage_verdict": "REUSE_EXISTING_TOOL",
+      "reuse_resolution_state": "REUSE_APPLIED",
+      "application": "Used the operation-safe quotient viewpoint on T_c fibers. The congruence is declared by equality of shifted readout; the exact loss is Ann(c), or gcd(c,N)-sized fibers over Z/NZ.",
+      "hard_boundary_checked": "the preserved observation T_c is explicitly declared"
+    },
+    {
+      "method": "T9_HOLONOMY_COCOYCLE_GLUING / holonomy.precision_defect_transport",
+      "coverage_verdict": "NOT_APPLICABLE",
+      "reuse_resolution_state": "NOT_APPLICABLE",
+      "application": "The task-local associator is a polynomial coherence defect with no declared transport graph or loop. It is recorded directly and not repackaged as a new holonomy mechanism.",
+      "hard_boundary_checked": "nonzero defect does not identify a unique repaired global object"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY"
+}

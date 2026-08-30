@@ -1,0 +1,43 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-8AD9BCE1EB29FFFCB145",
+  "task_id": "RS-ADDMUL-BINOMIAL-CROSS-EFFECT-CALCULUS",
+  "publication_id": "TP2-FFA35294B92DF03EDC0D",
+  "execution_record_id": "ER-72DC5FB53F1D1D2C29B6",
+  "claim_id": "chatgpt-ambin-a1-20260830-1047-4c7f2d",
+  "taskbook_path": "research_tasks/ADDMUL_BINOMIAL_CROSS_EFFECT_CALCULUS_20260830.md",
+  "taskbook_blob_sha1": "sha1:a7c9129a9cf9a2117b1da9396a9cd1841763c13c",
+  "execution_branch": "research/addmul-binomial-cross-effect-calculus-em-ambin-a1-4c7f2d",
+  "execution_branch_base": "f3092adfa232654c2949b747e5087bd044c62666",
+  "return_path": "research_returns/ADDMUL_BINOMIAL_CROSS_EFFECT_CALCULUS_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:d00685da252f803d99d049fe71f1875e340f1fc3",
+  "return_sha256": "sha256:7198b35fae58562b30c2b2d1a883afc8894f4034bd64001249e2983a8542e462",
+  "owner_head": "e37afa7ce460b7c6d5e1c0699fa456d67a1fd77a",
+  "researcher_id": "EM-AMBIN-A1-4C7F2D",
+  "frozen_at": "2026-08-30T10:58:00+08:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "EXACT_CROSS_EFFECT_CALCULUS_CONSTRUCTED: cr_r Q_k is the positive-composition sum over a_1+...+a_r=k; it vanishes exactly above arity k, its top cross-effect is x_1...x_k, Q_2 polarizes exactly to xy, and natural finite-precision projection admits an exact filtered carry/detail decomposition that reuses the existing graded monomial carry at r=k.",
+  "unresolved_residue": "The lower-arity r<k precision bridge is filtered rather than homogeneous. A downstream task may test staged/direct precision-chain coherence and holonomy of the triangular dilation correction; multiplication recovery from (+,Q_2) remains a definability theorem and does not by itself eliminate multiplication as a primitive in presentations where Q_2 is not independently granted.",
+  "output_manifest": [
+    {
+      "path": "research_returns/ADDMUL_BINOMIAL_CROSS_EFFECT_CALCULUS_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:d00685da252f803d99d049fe71f1875e340f1fc3",
+      "sha256": "sha256:7198b35fae58562b30c2b2d1a883afc8894f4034bd64001249e2983a8542e462"
+    },
+    {
+      "path": "research_checks/ADDMUL_BINOMIAL_CROSS_EFFECT_CALCULUS_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:c4bcdaec50efe8e898303c6c6386d814ee482111",
+      "sha256": "sha256:48a03748c971c9655760c8faafdaa118d138c2d8cdcbc5a561ea944093cab951"
+    },
+    {
+      "path": "research_artifacts/ADDMUL_BINOMIAL_CROSS_EFFECT_CALCULUS/exact_regression_certificate.json",
+      "git_blob_sha1": "sha1:3273514869db7d332091b9b7f54c5e172e562c4e",
+      "sha256": "sha256:2b167316145340f47d8c9df0d0ed23e0c61867552499d1bb7091548c78937654"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review this result at task scope. If accepted, freeze A1 as the exact integer binomial cross-effect bridge, explicitly retain the primitive-elimination firewall, and open a precision-chain successor only if the objective needs coherent staged/direct transport of the r<k filtered correction; reuse existing precision_holonomy rather than creating a parallel transport formalism.",
+  "driver_review_required": true
+}
