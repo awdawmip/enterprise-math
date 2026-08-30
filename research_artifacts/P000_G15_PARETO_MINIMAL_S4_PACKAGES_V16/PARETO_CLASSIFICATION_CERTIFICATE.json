@@ -1,0 +1,99 @@
+{
+  "schema": "P000_G15_PARETO_MINIMAL_S4_PACKAGES_V16_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-6C18F4A93D705BE21642",
+  "researcher_id": "EM-P000FCC16-8B4D21",
+  "claim_id": "chatgpt-p000fcc16-20260830-8b4d21",
+  "status": "FROZEN_RESEARCH_RETURN",
+  "terminal_class": "G15_NO_UNIVERSALLY_SUFFICIENT_POSITIVE_PACKAGE_IN_FROZEN_ENVELOPE_PROVED",
+  "hard_target_disposition": "P000_G15_PARETO_MINIMAL_FAITHFUL_AND_CANONICAL_S4_RELATIONAL_PACKAGES_EXACTLY_CLASSIFIED_AS_EMPTY_UNDER_DECLARED_MODEL_SEMANTICS",
+  "frozen_inputs": {
+    "g15_certificate_path": "research_artifacts/P000_S4_RELATIONAL_MINIMALITY_GRAMMAR_V15/GRAMMAR_CERTIFICATE.json",
+    "g15_certificate_git_blob_sha1": "741e4b57d2675af4d1dbc3827b7dd6fc4f003bd9",
+    "g15_certificate_sha256": "50ef864f0713d1f19ddf918dae2486a05a7e1d52bf538f1603b2d1c6c655281e",
+    "v16_taskbook_path": "research_tasks/P000_G15_PARETO_MINIMAL_S4_PACKAGES_V16_20260830.md",
+    "v16_taskbook_git_blob_sha1": "175fcb7f77942cb682c17357f36c4e3734aec1bf",
+    "candidate_relations": ["I_CA", "I_HC", "I_HA", "ADD_H"],
+    "global_constraints": ["K4_ADJ", "TETRA_CA", "H_C3X3", "PROJECTIVE_HC", "PAIR_AXIS_HA"],
+    "dependency_closed_package_count": 90
+  },
+  "semantic_obstruction": {
+    "name": "ZERO_COST_PF10_AXIS_SYMMETRY_LEAK",
+    "accepted_semantics": "Gtilde consists of actual enriched automorphisms preserving retained native relations, PF10 data, retained connection data and hidden relational state.",
+    "g15_gap": "PF10_IOM_tensor is accepted zero-cost background when PF10 is declared, but no G15 candidate relation or constraint constrains PF10 axis symmetry.",
+    "countermodel_profile": {
+      "PF10_ingress": [1, 0, 0, 0, 0, 0],
+      "PF10_egress": [1, 0, 0, 0, 0, 0],
+      "PF10_M": "I6",
+      "frozen_carrier_edge_group_order": 24,
+      "profile_stabilizer_order": 4,
+      "conclusion": "im(q) is contained in a proper stabilizer and therefore is not S4"
+    }
+  },
+  "master_model_certificate": {
+    "NativeCell": 4,
+    "AxisType": 6,
+    "Hidden": 9,
+    "NativeAdj": "K4",
+    "I_CA": "tetrahedral pair incidence",
+    "ADD_H": "F3^2 addition graph",
+    "I_HC": "four projective-line incidences",
+    "I_HA": "six unordered projective-line-pair incidences",
+    "all_five_g15_constraints_simultaneously_satisfied": true,
+    "consequence": "every dependency-closed package is a reduct of this structural model and accepts the same zero-cost PF10 symmetry-breaking expansion"
+  },
+  "classification_rule": {
+    "for_each_of_90_packages": {
+      "universally_forces_surjective_s4": false,
+      "universally_forces_split": false,
+      "universally_forces_aut_fixed_section": false,
+      "same_package_countermodel": "PF10_I_EQ_O_EQ_E1_M_EQ_I6_AXIS_STABILIZER"
+    },
+    "targeted_split_positive_witness": "true exactly when NOT(PROJECTIVE_HC AND (TETRA_CA OR PAIR_AXIS_HA)) under the task-local symmetric witness construction",
+    "targeted_split_positive_witness_package_count": 80,
+    "projective_axis_bridge_nonsplit_package_count": 10,
+    "projective_axis_bridge_regression": "GL(2,3)->PGL(2,3) with kernel {I,-I} and frozen (AB)^4=-I"
+  },
+  "definitional_quotient": {
+    "policy": "FIXED_SORT_PARAMETER_FREE_MUTUAL_DEFINABILITY",
+    "resolution": "ALL_NEGATIVE_QUOTIENT_LEMMA",
+    "statement": "All 90 syntactic package specifications are universally negative before quotienting, so every quotient class is negative and quotienting cannot create a positive class. No new quotient-cardinality claim is needed."
+  },
+  "frontiers": {
+    "FAITHFUL_PARETO_FRONTIER": [],
+    "CANONICAL_FIXED_POINT_PARETO_FRONTIER": [],
+    "UNIQUE_SECTION_PARETO_FRONTIER": []
+  },
+  "deletion_certificates": {
+    "status": "VACUOUS_EMPTY_POSITIVE_FRONTIERS",
+    "stronger_replacement": "90 same-package no-surjectivity countermodels"
+  },
+  "regressions": {
+    "K4_aut_order": 24,
+    "tetra_aut_order": 24,
+    "P4_aut_order": 2,
+    "K2222_aut_order": 384,
+    "K2222_sections": 16,
+    "K2222_kernel_orbits": [8, 8],
+    "K2222_kernel_fixed_sections": 0,
+    "GL23_order": 48,
+    "PGL23_image_order": 24,
+    "GL23_kernel_order": 2,
+    "GL23_AB4_residue": "-I",
+    "Gen14_section_criterion": "Sec(q) iff the frozen-generator zero-residue lift locus is nonempty",
+    "Gen14_canonicality_criterion": "Sec(q) has an Aut_prim(M)-fixed point"
+  },
+  "tool_reuse": {
+    "resolution": "REUSE_APPLIED:T7_FINITE_SYMMETRY_EQUIVARIANCE",
+    "new_general_tool_claim": false
+  },
+  "scope_boundary": {
+    "p000_mutated": false,
+    "bare_p000_universal_s4_lift_derivable": false,
+    "bare_p000_canonical_s4_section_derivable": false,
+    "carrier_s4_equals_complete_native_rotation_group": false,
+    "kernel_quotient_used": false,
+    "carrier_native_identity_collapse": false,
+    "time_fixed": true
+  }
+}
