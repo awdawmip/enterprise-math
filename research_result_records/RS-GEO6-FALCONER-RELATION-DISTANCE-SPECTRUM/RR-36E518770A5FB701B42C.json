@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-36E518770A5FB701B42C",
+  "task_id": "RS-GEO6-FALCONER-RELATION-DISTANCE-SPECTRUM",
+  "publication_id": "TP2-A3D500F85B6757C2857A",
+  "execution_record_id": "ER-7A5DD1915A54D51CC628",
+  "claim_id": "chatgpt-g6fal-20260830-1113-dadf51",
+  "taskbook_path": "research_tasks/GEO6_FALCONER_RELATION_DISTANCE_SPECTRUM_20260830.md",
+  "taskbook_blob_sha1": "sha1:08d8cddc430f43712a4a568c282199028d4f9843",
+  "execution_branch": "research/geo6-falconer-relation-distance-spectrum-em-g6fal-dadf51",
+  "execution_branch_base": "c8fd304565c858ae43b482bceaf5b47436624acf",
+  "return_path": "research_returns/GEO6_FALCONER_RELATION_DISTANCE_SPECTRUM_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:ffc9fd95b4027cbf220a7f367d5846508f58561b",
+  "return_sha256": "sha256:e9bf6018ccce87ef7e4b8e9b0a3169ed1da69d38b4265bf3695c582b8658ff3e",
+  "owner_head": "5bde762982991f4bfcf012abcc0e88bdd51fc72d",
+  "researcher_id": "EM-G6FAL-DADF51",
+  "frozen_at": "2026-08-30T11:24:15+08:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "DECLARED_UNIT_STEP_6D_RELATION_FORCING_PROVED_AND_BARE_P000_CARDINALITY_FORCING_OBSTRUCTED: connected relation spectra are exactly {1,...,diam}; in the declared local six-axis model N<=V6(s)=sum_{j=0}^6 2^j C(6,j) C(s,j), while the same carrier with complete-fiber/Hamming adjacency has |A_q|=q^6 and spectrum size 6 for all q>=2.",
+  "unresolved_residue": "P000 does not yet canonically select a local/refinable adjacency or bounded-growth relation. The unit-step Z^6/L1 chart and S6 axis action remain declared model data only; a stronger native theorem requires an accepted locality/refinement/ball-growth datum.",
+  "output_manifest": [
+    {
+      "path": "research_returns/GEO6_FALCONER_RELATION_DISTANCE_SPECTRUM_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:ffc9fd95b4027cbf220a7f367d5846508f58561b",
+      "sha256": "sha256:e9bf6018ccce87ef7e4b8e9b0a3169ed1da69d38b4265bf3695c582b8658ff3e"
+    },
+    {
+      "path": "research_checks/GEO6_FALCONER_RELATION_DISTANCE_SPECTRUM_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:7835beef64377a816577813427479b84edd781c1",
+      "sha256": "sha256:678b85c1a29d24189adbf719d811f5120b68e31a1c9918350c294f38c922de40"
+    },
+    {
+      "path": "research_artifacts/GEO6_FALCONER_RELATION_DISTANCE_SPECTRUM/exact_census_certificate.json",
+      "git_blob_sha1": "sha1:10960975ea2c6f03bcb8edf5aa92bae5f2e958eb",
+      "sha256": "sha256:90f0573611504fda790d71c7e5492ced0552f953ba6f68b0e5c96507f8aaf2fc"
+    },
+    {
+      "path": "research_execution_records/RS-GEO6-FALCONER-RELATION-DISTANCE-SPECTRUM/ER-7A5DD1915A54D51CC628.json",
+      "git_blob_sha1": "sha1:eaddc3b58f39e0a075496649fbf01c4c5e0a8359",
+      "sha256": "sha256:bd2fd7f81f1322812cb016c6689fa0e065541055168e43dbcb69d2064399f972"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review RR-36E518770A5FB701B42C at task scope. Preserve the relation-native gap-free-spectrum theorem, the declared unit-step V6 forcing theorem, and the same-carrier Hamming no-go as separately typed evidence. Do not promote Z^6, L1, S6, or sixth-order ball growth to P000. Open any successor only after identifying an accepted P000-compatible locality/refinement/ball-growth datum.",
+  "driver_review_required": true
+}
