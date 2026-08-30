@@ -1,0 +1,43 @@
+{
+  "schema": "P000_Q15_HIDDEN_KERNEL_MODEL_SIGNATURE_CERTIFICATE_V1",
+  "status": "PASS",
+  "hard_target": "P000_HIDDEN_KERNEL_NONSPLIT_MODEL_SIGNATURE_MINIMALITY_CLASSIFIED",
+  "terminal_class": "MINIMAL_NONSPLIT_HIDDEN_KERNEL_SIGNATURE_FOUND",
+  "primitive_extension": {
+    "sorts_added": ["HiddenPhase"],
+    "relations_added": ["HiddenBalance3", "HiddenAxisInc"],
+    "not_primitive": ["opposite", "C2 kernel", "GL(2,3)", "S4 quotient map", "section obstruction", "relation residue"]
+  },
+  "nonsplit_witness": {
+    "hidden_points": 8,
+    "balance_triples": 8,
+    "pair_codegrees": {"one": 24, "zero": 4},
+    "derived_opposite_pairs": 4,
+    "aut_primitive_order": 48,
+    "certificate_identification": "GL(2,3)",
+    "carrier_image_order": 24,
+    "kernel_order": 2,
+    "quotient_generator_pairs": 24,
+    "lifted_pairs_checked": 96,
+    "relation_residue": "(AB)^4=z for all 96 lifted pairs",
+    "section_exists": false
+  },
+  "same_signature_regressions": {
+    "split": {"aut_order": 384, "kernel_order": 16, "image_order": 24, "section_exists": true},
+    "no_lift": {"aut_order": 4, "image_order": 2, "section_exists": false}
+  },
+  "deletion_audit": {
+    "delete_HiddenBalance3": {"aut_order": 384, "kernel_order": 16, "outcome": "split"},
+    "delete_HiddenAxisInc": {"aut_order": 1152, "outcome": "pure carrier section appears"},
+    "delete_HiddenPhase": {"aut_order": 24, "outcome": "Q10 Gen12 split base"},
+    "delete_one_balance_tuple": {"aut_order": 6, "image_order": 6}
+  },
+  "q12": {
+    "derived_kernel": "z",
+    "relation_residue": "R=(AB)^4=z",
+    "untwisted_induced_holonomy": "H_ind=R=z",
+    "independent_twist_rule": "reuse Q12 law H=R*D"
+  },
+  "minimality_scope": "deletion-minimal and two-role minimal under typed semantic discipline; no artificial arity-fusion claim",
+  "method_reuse": ["T7_FINITE_SYMMETRY_EQUIVARIANCE", "T9_HOLONOMY_COCOYCLE_GLUING", "T2_BLOCK_FINITE_CERTIFICATE"]
+}
