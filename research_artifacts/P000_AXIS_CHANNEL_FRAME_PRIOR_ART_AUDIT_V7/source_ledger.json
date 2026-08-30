@@ -1,0 +1,133 @@
+{
+  "schema": "P000_AXIS_CHANNEL_FRAME_PRIOR_ART_SOURCE_LEDGER_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-5A7C1D9E3B6042F8D117",
+  "researcher_id": "EM-P0006DPA7-91C0E7",
+  "searched_at": "2026-08-30",
+  "search_surfaces": [
+    "Web search over publisher/book/journal landing pages and university-hosted notes",
+    "Cambridge University Press",
+    "The Stacks Project",
+    "Stanford University mathematics notes",
+    "University of California, Berkeley mathematics notes",
+    "Discrete & Computational Geometry / University of Southampton ePrints",
+    "Proceedings of the American Mathematical Society / arXiv author copy",
+    "MIT mathematics lecture notes"
+  ],
+  "exact_queries": [
+    "model theory definable elements fixed by automorphisms definable closure textbook pdf",
+    "permutation group base size S_n natural action n-1 orbit stabilizer textbook pdf",
+    "principal bundle trivialization section torsor frame bundle textbook notes",
+    "local system parallel transport fundamental group representation flat bundle textbook notes",
+    "principal G bundle section trivialization iff global section lecture notes pdf",
+    "torsor principal homogeneous space bijections set of frames symmetric group torsor",
+    "graph connection gauge transformation edge labels holonomy conjugation discrete connection paper",
+    "The Geometry of Synchronization Problems Gao Brodzki Mukherjee published",
+    "partial group actions inverse semigroups groupoids Exel paper partial bijections theorem",
+    "change of basis matrix conjugation linear operator basis theorem lecture notes",
+    "principal bundle gauge transformation automorphism covering identity base definition lecture notes",
+    "many sorted first order structures sorts typed relations model theory textbook notes",
+    "AXIS_CHANNEL_FRAME -enterprise-math",
+    "opaque Cell identity carrier readout",
+    "native axis typing carrier readout",
+    "no-quotient Cell identity axis channel"
+  ],
+  "policy": "Classify the abstract mathematical content separately from P000 interpretation. NO_MATERIAL_MATCH is not novelty; absence from exact-phrase searches is never enough by itself. Published monographs/papers and standard project references are preferred over recent secondary discussions.",
+  "sources": [
+    {
+      "source_id": "S01",
+      "citation": "Wilfrid Hodges, Model Theory, Cambridge University Press, 1993, Chapter 4: Automorphisms.",
+      "doi": "10.1017/CBO9780511551574.006",
+      "url": "https://www.cambridge.org/core/books/model-theory/automorphisms/134D9A52CAD503398438300D72A219F4",
+      "verified": "Publisher chapter record inspected. Used only for the standard automorphism/definability framework.",
+      "load_bearing": "Definable/canonical structure must respect automorphisms of the underlying structure."
+    },
+    {
+      "source_id": "S02",
+      "citation": "Leonard Tomczak, Model Theory – Lecture Notes, University of California, Berkeley, 2023, Proposition 7.5.",
+      "doi": null,
+      "url": "https://math.berkeley.edu/~ltomczak/notes/Lent2023/ModelTheory_Notes.pdf",
+      "verified": "Accessible university-hosted notes state that a is in dcl(A) iff its orbit under Aut(U/A) is a singleton (in the stated monster-model setting), and explicitly prove definability implies automorphism invariance.",
+      "load_bearing": "Exact necessary implication used by Gen9: a moved candidate cannot be definable/canonical over the fixed parameters."
+    },
+    {
+      "source_id": "S03",
+      "citation": "Christopher Godsil and Karen Meagher, Erdős–Ko–Rado Theorems: Algebraic Approaches, Cambridge University Press, 2015, Chapter 14: Permutations.",
+      "doi": "10.1017/CBO9781316414958.015",
+      "url": "https://www.cambridge.org/core/books/erdoskorado-theorems-algebraic-approaches/permutations/AF1A197DF643EB2AA3B4DF2BE3581281",
+      "verified": "Publisher text inspected; it states that the pointwise stabilizer of t distinct elements in Sym(n) has size (n-t)!.",
+      "load_bearing": "The exact S6 residual-stabilizer sequence after k anchors."
+    },
+    {
+      "source_id": "S04",
+      "citation": "Robert F. Bailey and Peter J. Cameron, Base sizes, metric dimension and other invariants of groups and graphs, survey/preprint.",
+      "doi": null,
+      "url": "https://maths.qmul.ac.uk/~pjc/preprints/bsod.pdf",
+      "verified": "University-hosted preprint inspected; Definition 2.1 defines a base as a subset with trivial pointwise stabilizer.",
+      "load_bearing": "Classical permutation-group base terminology; for natural S6 the preceding stabilizer formula gives base size 5."
+    },
+    {
+      "source_id": "S05",
+      "citation": "The Stacks Project, Section 39.11: Principal homogeneous spaces, Lemma 39.11.2 and Definition 39.11.3.",
+      "doi": null,
+      "url": "https://stacks.math.columbia.edu/tag/0499",
+      "verified": "Current Stacks text inspected; pseudo G-torsor is characterized by a simply transitive G-action on T-points, and triviality is equivalent to a section.",
+      "load_bearing": "Standard torsor/principal-homogeneous-space semantics used to identify the set of frames as an S6-torsor."
+    },
+    {
+      "source_id": "S06",
+      "citation": "Ralph L. Cohen, The Topology of Fiber Bundles / Math 215B notes, Stanford University.",
+      "doi": null,
+      "url": "https://math.stanford.edu/~ralph/math215b/book.pdf",
+      "verified": "University-hosted notes inspected. Theorem 2.4 states a principal G-bundle is trivial iff it has a section; Definition 4.5 defines the gauge group as bundle automorphisms lying over the identity of the base.",
+      "load_bearing": "A frame/section as trivialization and the fact that gauge changes are vertical presentation changes fixing base points."
+    },
+    {
+      "source_id": "S07",
+      "citation": "Tingran Gao, Jacek Brodzki, Sayan Mukherjee, The Geometry of Synchronization Problems and Learning Group Actions, Discrete & Computational Geometry 65(1) (2021), 150–211.",
+      "doi": "10.1007/s00454-019-00100-2",
+      "url": "https://eprints.soton.ac.uk/id/eprint/430926",
+      "verified": "Published article metadata and accepted-manuscript abstract inspected. It identifies synchronization on a connected graph with flat principal G-bundles and states that triviality of holonomy dictates synchronizability.",
+      "load_bearing": "Graph edge transports, synchronization, principal-bundle interpretation, holonomy obstruction, and the crucial distinction between flat-bundle language and trivial holonomy needed for a global synchronized frame."
+    },
+    {
+      "source_id": "S08",
+      "citation": "Ruy Exel, Partial actions of groups and actions of inverse semigroups, Proceedings of the American Mathematical Society 126(12) (1998), 3481–3494.",
+      "doi": "10.1090/S0002-9939-98-04575-4",
+      "url": "https://arxiv.org/abs/funct-an/9511003",
+      "verified": "Author/arXiv abstract and bibliographic metadata inspected; it states a one-to-one correspondence between partial actions of a group and actions of the canonical inverse semigroup S(G).",
+      "load_bearing": "Standard abstract mechanism for domain-sensitive partial actions; partiality is existing mathematics, not a P000-specific invention."
+    },
+    {
+      "source_id": "S09",
+      "citation": "W. D. Munn, The characters of the symmetric inverse semigroup, Mathematical Proceedings of the Cambridge Philosophical Society 53(1) (1957), 13–18.",
+      "doi": "10.1017/S0305004100031947",
+      "url": "https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/characters-of-the-symmetric-inverse-semigroup/004A5317D4C3E41B52B760AC1D4AAD97",
+      "verified": "Publisher extract inspected; it describes the symmetric inverse semigroup as the partial transformations/partial one-to-one maps analogue of the symmetric group.",
+      "load_bearing": "Partial bijections as a classical algebraic object."
+    },
+    {
+      "source_id": "S10",
+      "citation": "MIT 18.700 Linear Algebra, Day 10 lecture plan, Proposition 19 (Change of basis formula).",
+      "doi": null,
+      "url": "https://math.mit.edu/~sschiavo/18-700/Lectures/LessonPlan10.pdf",
+      "verified": "MIT-hosted notes inspected; Proposition 19 gives the standard conjugation/similarity change-of-basis formula.",
+      "load_bearing": "PASS as ordinary frame reindexing; conjugation is appropriate only if M is an operator matrix."
+    },
+    {
+      "source_id": "S11",
+      "citation": "Katrin Tent and Martin Ziegler, A Course in Model Theory, Cambridge University Press, 2012, §1.2 Many-sorted structures.",
+      "doi": "10.1017/CBO9781139015417",
+      "url": "https://assets.cambridge.org/97805217/63240/excerpt/9780521763240_excerpt.pdf",
+      "verified": "Publisher excerpt inspected; many-sorted languages carry typed function and relation symbols with specified domain/range sorts.",
+      "load_bearing": "The mere use of Cell/axis/channel sorts and typed cross-sort relations is standard; what remains project-specific is the exact P000 ontology and no-quotient rule."
+    }
+  ],
+  "negative_search_boundary": [
+    "Exact-phrase and concept searches did not locate an external mathematical source defining the exact compound P000 rule: opaque native Cell identity + native-axis sort + local PF-10 channel presentation + carrier/readout nonidentity + explicit no-quotient semantics.",
+    "Searches for AXIS_CHANNEL_FRAME outside the project did not produce a material mathematical duplicate; hits for 'cell identity' were dominated by unrelated telecommunications/biology uses and were excluded.",
+    "Standard gauge theory already fixes base points under vertical gauge transformations, and many-sorted logic already supplies typed relations; these partial overlaps prevent any claim that the ingredients themselves are novel.",
+    "The negative result is NO_MATERIAL_MATCH for the exact compound package only. It does not establish novelty, inventive step, patentability, or publication originality."
+  ],
+  "terminology_finding": "The strongest correction from the audit is terminological: standard flatness permits nontrivial global holonomy/monodromy. The condition equivalent to a globally parallel frame field is trivial holonomy (synchronizability/pure gauge), not flatness alone."
+}

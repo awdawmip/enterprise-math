@@ -1,0 +1,186 @@
+{
+  "carrier": {
+    "a": "(BCD)",
+    "a_axis": "(E1 E2 E3)(E4 E6 E5)",
+    "b": "(AB)",
+    "b_axis": "(E2 E4)(E3 E5)",
+    "edges_to_axes": {
+      "AB": "E1",
+      "AC": "E2",
+      "AD": "E3",
+      "BC": "E4",
+      "BD": "E5",
+      "CD": "E6"
+    },
+    "generated_axis_image_order": 24,
+    "relations": [
+      "a_axis^3=id",
+      "b_axis^2=id",
+      "(a_axis b_axis)^4=id"
+    ],
+    "vertices": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "checker": "research_checks/P000_BASE_CELL_RA_STAR_ORBIT_V12_CHECK_20260830.py",
+  "claim_id": "chatgpt-p000fcc12-20260830-0915-a4c9e1",
+  "composition_convention": "p∘q means apply q first, then p",
+  "full_cell_model": {
+    "cell_identity_note": "Labels xA..xD are witness presentation labels for four distinct opaque Cell identities; they are not carrier/native identity equations.",
+    "connection": {
+      "a_naturality": true,
+      "b_naturality": true,
+      "edge_transport": "identity on all oriented K4 adjacency edges",
+      "holonomy": "identity on every loop",
+      "kind": "FRAME_INDUCED"
+    },
+    "frames": "identity A_axes -> local PF10 channels at each Cell (presentation choice only)",
+    "native_adjacency": [
+      [
+        "xA",
+        "xB"
+      ],
+      [
+        "xA",
+        "xC"
+      ],
+      [
+        "xA",
+        "xD"
+      ],
+      [
+        "xB",
+        "xC"
+      ],
+      [
+        "xB",
+        "xD"
+      ],
+      [
+        "xC",
+        "xD"
+      ]
+    ],
+    "opaque_cells": [
+      "xA",
+      "xB",
+      "xC",
+      "xD"
+    ],
+    "pf10": {
+      "Omega_b": false,
+      "egress": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ingress": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "passage": "6x6 identity matrix at each Cell"
+    },
+    "r_a": {
+      "xA": "xA",
+      "xB": "xC",
+      "xC": "xD",
+      "xD": "xB"
+    },
+    "r_b": {
+      "xA": "xB",
+      "xB": "xA",
+      "xC": "xC",
+      "xD": "xD"
+    }
+  },
+  "group_closure": {
+    "RaRb_order": 4,
+    "Ra_order": 3,
+    "Rb_order": 2,
+    "axis_readout_kernel_order": 1,
+    "axis_type_image_order": 24,
+    "bare_cell_image_order": 24,
+    "carrier_S4_faithful_at_axis_type_level": true,
+    "carrier_S4_faithful_at_bare_cell_level": true,
+    "carrier_S4_faithful_at_enriched_level": true,
+    "enriched_action_order": 24,
+    "forgetful_to_cell_kernel_order": 1,
+    "minimal_cell_cardinality_for_faithful_24_element_bare_cell_image": 4,
+    "relation_residue": "TRIVIAL_IN_DECLARED_MODEL"
+  },
+  "guards": {
+    "P000_mutated": false,
+    "carrier_identity_identified_with_cell_identity": false,
+    "claim_strength": "existence and exact classification in this declared downstream witness; not canonical existence in bare P000",
+    "full_P000_native_rotation_group_promoted": false,
+    "local_S6_promoted_to_native_rotation": false,
+    "native_quotient_used": false,
+    "time_moved": false
+  },
+  "publication_id": "TP2-B4D8C2F71A6E9053C118",
+  "researcher_id": "EM-P000FCC12-A4C9E1",
+  "schema": "P000_GEN12_COMMON_MODEL_CERTIFICATE_V1",
+  "scope": "DECLARED_DOWNSTREAM_FRAMED_PF10_FULL_CELL_MODEL_ONLY",
+  "star_objects": {
+    "J_A": [
+      "E1",
+      "E2",
+      "E3"
+    ],
+    "J_B": [
+      "E1",
+      "E4",
+      "E5"
+    ],
+    "J_C": [
+      "E2",
+      "E4",
+      "E6"
+    ],
+    "J_D": [
+      "E3",
+      "E5",
+      "E6"
+    ],
+    "a_transport": {
+      "J_A": "J_A",
+      "J_B": "J_C",
+      "J_C": "J_D",
+      "J_D": "J_B"
+    },
+    "b_transport": {
+      "J_A": "J_B",
+      "J_B": "J_A",
+      "J_C": "J_C",
+      "J_D": "J_D"
+    },
+    "geometric_object_payload": [
+      "opaque Cell anchor",
+      "three-axis set",
+      "restricted PF10 ingress/egress/diagonal passage data",
+      "complete local three-axis incidence relation",
+      "singleton pairwise overlap/gluing axis",
+      "native K4 Cell adjacency"
+    ],
+    "overlap_rule": "J_U ∩ J_V is exactly the axis E_UV; a and b transport overlaps and the corresponding Cell adjacency equivariantly"
+  },
+  "status": "EXACT_FINITE_POSITIVE_WITNESS",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "terminal_class": "FRAMED_COMMON_MODEL_S4_LIFT_AND_FOUR_STAR_ORBIT_EXACTLY_REALIZED",
+  "gauge_regression": {
+    "all_24_typed_channel_transports_compose": true,
+    "nonuniform_local_reindexing_checked": true,
+    "strict_Ra_survives": true,
+    "strict_Rb_survives": true
+  }
+}

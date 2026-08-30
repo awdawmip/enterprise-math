@@ -1,0 +1,119 @@
+{
+  "schema": "P000_AXIS_CHANNEL_FRAME_PRIOR_ART_CLAIM_MAP_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-5A7C1D9E3B6042F8D117",
+  "researcher_id": "EM-P0006DPA7-91C0E7",
+  "classification_vocabulary": [
+    "EXACT_DUPLICATE",
+    "PARTIAL_ANTECEDENT",
+    "ADJACENT_METHOD",
+    "NO_MATERIAL_MATCH"
+  ],
+  "novelty_guard": "NO_MATERIAL_MATCH != NOVELTY",
+  "terminology_guard": "In standard bundle/connection language, flatness does not by itself mean trivial global holonomy. A globally parallel frame field corresponds to trivial holonomy/synchronizability (pure-gauge transport), not merely zero local curvature.",
+  "rows": [
+    {
+      "claim_id": "C01_AUTOMORPHISM_DEFINABILITY_OBSTRUCTION",
+      "internal_claim": "If current primitive-preserving automorphisms move every candidate local channel while fixing the named native axis and Cell data, those primitives cannot canonically define a unique axis-to-channel choice.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "The only implication used by Gen9 is the standard one: parameter-definable data are invariant under automorphisms fixing the parameters. In model-theoretic dcl language, a definable element has singleton automorphism orbit. The converse needs hypotheses and is not required by the Gen9 obstruction.",
+      "sources": [
+        "S01",
+        "S02"
+      ]
+    },
+    {
+      "claim_id": "C02_S6_BASE_SIZE_FIVE_ANCHOR_LOWER_BOUND",
+      "internal_claim": "For the natural S6 action on six channels, fixing k distinct channel anchors leaves pointwise stabilizer S_{6-k} of order (6-k)!; five anchors kill the residual symmetry, and the sixth pairing is forced by bijectivity.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "This is ordinary pointwise-stabilizer/base-size bookkeeping for the natural symmetric-group action. The sequence 720,120,24,6,2,1,1 is a direct S6 specialization; base size is 5.",
+      "sources": [
+        "S03",
+        "S04"
+      ]
+    },
+    {
+      "claim_id": "C03_FRAME_AS_S6_TORSOR_TRIVIALIZATION",
+      "internal_claim": "For a fixed named six-axis set A and an unlabeled six-channel set C_x, Frames_x=Bij(A,C_x) is an S6-torsor; choosing f_x is choosing a torsor point/trivialization.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "A torsor is a simply transitive group action. Sym(C_x) acts simply transitively on Bij(A,C_x) by postcomposition (and Sym(A) acts on the other side). Choosing one frame identifies the torsor with S6; a frame field is a section of this frame torsor family.",
+      "sources": [
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "claim_id": "C04_FRAME_FIELD_VS_SEED_PLUS_EDGE_TRANSPORT",
+      "internal_claim": "On a connected Cell adjacency graph, a global per-Cell frame field induces edge transports T_xy=f_y∘f_x^{-1}; conversely one seed frame plus invertible edge transports reconstructs a single-valued parallel frame field exactly when all loop holonomies are trivial.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "This is the classical graph synchronization/local-system/principal-bundle pattern. Gao–Brodzki–Mukherjee identify group synchronization on a connected graph with flat principal G-bundles and state that triviality of holonomy dictates synchronizability. The P000 use G=S6 and its Cell/channel interpretation are specializations.",
+      "sources": [
+        "S06",
+        "S07"
+      ]
+    },
+    {
+      "claim_id": "C05_GRAPH_CONNECTION_PARALLEL_TRANSPORT_HOLONOMY",
+      "internal_claim": "Invertible edge transports compose along paths, invert on reversed edges, and multiply around loops to give based holonomy.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "These are standard connection/local-system and graph synchronization constructions. No P000-specific theorem is needed for path composition or loop holonomy.",
+      "sources": [
+        "S07"
+      ]
+    },
+    {
+      "claim_id": "C06_GAUGE_CHANGE_AND_HOLONOMY_CONJUGACY",
+      "internal_claim": "Local presentation changes g_x act by f_x'=g_x∘f_x and T_xy'=g_y∘T_xy∘g_x^{-1}; based loop holonomy changes by conjugation, so identity/nonidentity and conjugacy class are gauge-invariant.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "Gauge transformations are bundle automorphisms over the identity on the base, and graph synchronization uses vertex-wise frame changes with the same endpoint-conjugation law up to orientation convention. The P000 statement that Cell identity and named axes remain fixed is consistent with this standard vertical-gauge semantics.",
+      "sources": [
+        "S06",
+        "S07"
+      ]
+    },
+    {
+      "claim_id": "C07_FLATNESS_VS_GLOBAL_FRAME_TERMINOLOGY",
+      "internal_claim": "A frame-induced connection has trivial loop holonomy; an independently supplied edge connection supports a globally parallel frame extending one seed iff its loop holonomy is trivial.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "The trivial-holonomy equivalence is classical. Terminology must be guarded: standard 'flat' can still have nontrivial global monodromy/holonomy. Therefore future P000 text should say TRIVIAL_HOLONOMY / SYNCHRONIZABLE / PURE_GAUGE when it means path-independent global framing, unless 'flat' is explicitly defined in that stronger project-local sense.",
+      "sources": [
+        "S07"
+      ]
+    },
+    {
+      "claim_id": "C08_PARTIAL_ACTION_GROUPOID_INVERSE_SEMIGROUP_RELATION",
+      "internal_claim": "Typed partial/domain-sensitive transports can be modeled by partial actions, inverse semigroups or groupoids, but those formalisms do not by themselves derive the missing P000 mixed-support arrow or frame relation.",
+      "classification": "PARTIAL_ANTECEDENT",
+      "external_boundary": "Exel gives the classical correspondence between partial group actions and inverse-semigroup actions; symmetric inverse semigroups encode partial bijections, and groupoids encode source/target-aware composable arrows. These are genuine antecedents for the abstract partial-transport mechanism, not an exact derivation of P000 Cell/axis/channel semantics.",
+      "sources": [
+        "S08",
+        "S09"
+      ]
+    },
+    {
+      "claim_id": "C09_PASS_CHANGE_OF_FRAME",
+      "internal_claim": "PASS_x(E_i,E_j)=M_x[f_x(E_i),f_x(E_j)] is the channel-indexed matrix/relation M_x rewritten in the axis frame; simultaneous frame and channel-data relabeling leaves PASS unchanged.",
+      "classification": "EXACT_DUPLICATE",
+      "external_boundary": "This is standard pullback/reindexing under a bijection. If M_x is interpreted as an endomorphism matrix, the familiar matrix statement is similarity/conjugation by the permutation change-of-basis matrix. If M_x is only a two-index relation/count table, 'pullback/reindexing' is the precise wording and does not require linear structure.",
+      "sources": [
+        "S10"
+      ]
+    },
+    {
+      "claim_id": "C10_P000_COMPOUND_NO_QUOTIENT_NATIVE_IDENTITY",
+      "internal_claim": "The exact compound package keeps opaque native Cell identity distinct from carrier/readout equality, keeps native-axis typing distinct from local presentation channels, forbids carrier quotienting of native state, and treats local channel permutations as presentation gauge rather than native spatial rotations.",
+      "classification": "NO_MATERIAL_MATCH",
+      "external_boundary": "Several ingredients are standard separately: many-sorted typed relations, principal-bundle gauge transformations over the identity base, and separation of abstract objects from chosen coordinates/frames. The audited literature did not supply an exact external duplicate of this P000-specific compound ontology/operation-safety package. This is a negative search boundary only, not a novelty or patentability conclusion.",
+      "sources": [
+        "S06",
+        "S11"
+      ]
+    }
+  ],
+  "terminal_boundary": {
+    "classical_exact_core": "C01-C07 and C09 are classical at the abstract mathematical level: automorphism invariance, S6 base size, torsors/frames, graph connections, parallel transport, holonomy, gauge change, trivial-holonomy synchronization, and change of frame.",
+    "partial_standard_core": "C08 has strong standard antecedents in partial actions, inverse semigroups and groupoids, but these do not select the P000-specific relation data.",
+    "p000_residue": "C10's exact compound no-quotient/native-identity/carrier-readout separation remains NO_MATERIAL_MATCH in this audit; the P000 interpretation of the standard structures is project-specific.",
+    "novelty_ceiling": "No future statement may present torsor/frame/connection/gauge/holonomy/base-size/change-of-frame mathematics itself as P000 novelty. At most: 'a P000-specific typed integration/semantic constraint for which this audit found no material exact match', pending broader novelty/prior-art work."
+  }
+}
