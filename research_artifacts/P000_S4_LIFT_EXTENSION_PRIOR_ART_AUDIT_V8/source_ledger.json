@@ -1,0 +1,158 @@
+{
+  "schema": "P000_S4_LIFT_EXTENSION_PRIOR_ART_AUDIT_V8_SOURCE_LEDGER_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-2F8C6A1D9E7043B5C812",
+  "researcher_id": "EM-P0006DPA8-71C4E2",
+  "audit_date": "2026-08-30",
+  "external_sources": [
+    {
+      "source_id": "SRC-WILKES-2020",
+      "citation": "Gareth Wilkes, Part III Profinite Groups, Chapter 5: Cohomology of Groups, Cambridge lecture notes (2020).",
+      "url": "https://www.dpmms.cam.ac.uk/~grw46/LectureNotes.pdf",
+      "authority": "UNIVERSITY_LECTURE_NOTES",
+      "supports": [1, 2, 4],
+      "exact_points": ["split extension = homomorphic splitting / semidirect product", "H^2(G,M) classifies extensions for a G-module M", "trivial G-action corresponds to central extension"],
+      "guard": "The H^2 theorem is formulated for abelian G-modules."
+    },
+    {
+      "source_id": "SRC-WEIBEL-CH6",
+      "citation": "Charles A. Weibel, An Introduction to Homological Algebra, §6.6 Factor Sets and H^2 (Cambridge University Press; MIT-hosted chapter scan).",
+      "url": "https://math.mit.edu/~hrm/palestine/weibel/06-group_homology_and_cohomology.pdf",
+      "authority": "GRADUATE_TEXTBOOK_CHAPTER",
+      "supports": [1, 2, 3, 4, 6],
+      "exact_points": ["extension splits iff semidirect product", "equivalence classes with fixed G-module kernel correspond to H^2", "set sections produce factor sets/cocycles", "changing representatives is controlled by coboundaries"],
+      "guard": "Abelian module setting; not a blanket classifier for nonabelian kernels."
+    },
+    {
+      "source_id": "SRC-CONRAD-H2",
+      "citation": "Brian Conrad, Extensions and H^2(G,A), Stanford Math 210B handout.",
+      "url": "https://math.stanford.edu/~conrad/210BPage/handouts/Cohomology%26Extensions.pdf",
+      "authority": "UNIVERSITY_GRADUATE_HANDOUT",
+      "supports": [2, 4, 6],
+      "exact_points": ["extensions inducing a fixed G-module structure on abelian A correspond to H^2(G,A)", "a set-theoretic section is homomorphic exactly when the factor set is trivial"],
+      "guard": "Fixed module action is part of the classification data."
+    },
+    {
+      "source_id": "SRC-EML-1947",
+      "citation": "Samuel Eilenberg and Saunders Mac Lane, Cohomology Theory in Abstract Groups. II: Group Extensions with a non-Abelian Kernel, Annals of Mathematics 48 (1947), 326–341.",
+      "url": "https://www.jstor.org/stable/1969174",
+      "doi": "10.2307/1969174",
+      "authority": "PRIMARY_PEER_REVIEWED_CLASSIC",
+      "supports": [5],
+      "exact_points": ["classical nonabelian extension theory exists", "outer-action/center cohomology is the correct setting, not ordinary H^2(G,K)"],
+      "guard": "Use the nonabelian obstruction formalism; do not erase the H^3 realizability obstruction."
+    },
+    {
+      "source_id": "SRC-BROWN-1982",
+      "citation": "Kenneth S. Brown, Cohomology of Groups, Graduate Texts in Mathematics 87, Springer (1982), Chapter IV.",
+      "url": "https://link.springer.com/book/10.1007/978-1-4684-9327-6",
+      "doi": "10.1007/978-1-4684-9327-6",
+      "authority": "STANDARD_GRADUATE_TEXTBOOK",
+      "supports": [5],
+      "exact_points": ["low-dimensional cohomology and group extensions", "crossed modules/H^3", "extensions with nonabelian kernel"],
+      "guard": "Nonabelian extension classes are relative to an outer action and a realizability condition."
+    },
+    {
+      "source_id": "SRC-MACLANE-NONABELIAN-SUMMARY",
+      "citation": "Schreier/Eilenberg–Mac Lane nonabelian extension summary: fixed outer action has H^3(G,Z(K)) obstruction; if nonempty, the extension-class set is an H^2(G,Z(K))-torsor.",
+      "url": "https://mathoverflow.net/questions/368093/non-abelian-ext-functor-and-non-abelian-h2",
+      "authority": "EXPERT_SECONDARY_POINTER_TO_MAC_LANE_HOMOLOGY_IV.8",
+      "supports": [5],
+      "exact_points": ["H^3 obstruction to nonemptiness", "H^2 of the center acts simply transitively once nonempty", "no distinguished zero element in the nonabelian extension-class set"],
+      "guard": "Secondary explanatory source; primary authority is Eilenberg–Mac Lane/Brown."
+    },
+    {
+      "source_id": "SRC-SCHUR-ZASSENHAUS-SECONDARY",
+      "citation": "Special-case Schur–Zassenhaus statement in MIT SPUR notes, citing standard finite-group texts.",
+      "url": "https://math.mit.edu/research/undergraduate/spur/documents/2016Kim.pdf",
+      "authority": "SECONDARY_UNIVERSITY_NOTE",
+      "supports": [6],
+      "exact_points": ["in a Hall/coprime setting, complements may exist and be conjugate under stated hypotheses"],
+      "guard": "This is an additional-hypothesis theorem, not a universal uniqueness/canonicity result."
+    },
+    {
+      "source_id": "SRC-EOM-SYMMETRIC",
+      "citation": "Encyclopedia of Mathematics, Symmetric group.",
+      "url": "https://encyclopediaofmath.org/wiki/Symmetric_group",
+      "authority": "REFERENCE_ENCYCLOPEDIA",
+      "supports": [7, 8],
+      "exact_points": ["S_n is the group of all permutations of an n-element set"],
+      "guard": "The P000 typed realization of this standard action is separate from the abstract representation."
+    },
+    {
+      "source_id": "SRC-EOM-PERMUTATION",
+      "citation": "Encyclopedia of Mathematics, Permutation group.",
+      "url": "https://encyclopediaofmath.org/wiki/Permutation_group",
+      "authority": "REFERENCE_ENCYCLOPEDIA",
+      "supports": [7, 8],
+      "exact_points": ["faithful permutation action identifies G with a subgroup of S(X)", "kernel records failure of faithfulness"],
+      "guard": "The minimum-degree argument is then elementary by orders |S_1|,|S_2|,|S_3|<24."
+    },
+    {
+      "source_id": "SRC-EOM-PRESENTATION",
+      "citation": "Encyclopedia of Mathematics, Presentation (of a group).",
+      "url": "https://encyclopediaofmath.org/wiki/Presentation",
+      "authority": "REFERENCE_ENCYCLOPEDIA",
+      "supports": [3],
+      "exact_points": ["a presented group is a free group modulo the normal subgroup generated by relators"],
+      "guard": "For any quotient lift, a quotient relator evaluates into the kernel; the residue depends on chosen lifts."
+    },
+    {
+      "source_id": "SRC-EOM-PROJECTIVE-SYMMETRIC",
+      "citation": "Encyclopedia of Mathematics, Projective representations of symmetric and alternating groups.",
+      "url": "https://encyclopediaofmath.org/wiki/Projective_representations_of_symmetric_and_alternating_groups",
+      "authority": "REFERENCE_ENCYCLOPEDIA",
+      "supports": [9],
+      "exact_points": ["Schur projective-representation theory uses representation/stem extensions", "M(S_n) is C2 for n>=4, including S4"],
+      "guard": "A P000 hidden residue is not automatically a projective representation cocycle or Schur cover."
+    },
+    {
+      "source_id": "SRC-SPRINGER-DOUBLE-COVERS",
+      "citation": "Representations of symmetric and alternating groups and their double covers that remain irreducible modulo every prime, Mathematische Zeitschrift (2024), §4.",
+      "url": "https://link.springer.com/article/10.1007/s00209-024-03646-x",
+      "authority": "PEER_REVIEWED_JOURNAL",
+      "supports": [9],
+      "exact_points": ["classical double covers of S_n and explicit Schur-cover presentations are standard"],
+      "guard": "Projective/double-cover antecedence is conditional; it does not establish the P000 extension type."
+    },
+    {
+      "source_id": "SRC-BERKELEY-MT-2023",
+      "citation": "Model Theory Lecture Notes, University of Cambridge course notes hosted by Berkeley (2023), §7 definable closure and automorphisms.",
+      "url": "https://math.berkeley.edu/~ltomczak/notes/Lent2023/ModelTheory_Notes.pdf",
+      "authority": "UNIVERSITY_LECTURE_NOTES",
+      "supports": [10],
+      "exact_points": ["an A-definable singleton is fixed by Aut(U/A)", "automorphism movement obstructs definability over fixed parameters"],
+      "guard": "The audit uses only definable => automorphism-fixed, not an unrestricted converse in arbitrary structures."
+    },
+    {
+      "source_id": "SRC-BERKELEY-TARSKI",
+      "citation": "Tarski Lectures: Compact spaces, definability, and measures in model theory, Berkeley.",
+      "url": "https://math.berkeley.edu/sites/default/files/bulk/2009_tarski_lectures.pdf",
+      "authority": "UNIVERSITY_LECTURE_NOTES",
+      "supports": [11],
+      "exact_points": ["definable sets are interpreted model-by-model as formula solution sets"],
+      "guard": "The existential-vs-universal distinction is logical strength; it does not settle which P000 models satisfy a section formula."
+    }
+  ],
+  "internal_dependencies": [
+    {
+      "source_id": "INTERNAL-GEN12-RETURN",
+      "path": "research_returns/P000_BASE_CELL_RA_STAR_ORBIT_V12_RETURN_20260830.md@main",
+      "status": "FROZEN_RESEARCH_RETURN",
+      "use": "Exact one-common-model S4 positive witness; order 24 at enriched/Cell/axis levels; no universal/canonical claim."
+    },
+    {
+      "source_id": "INTERNAL-GEN12-DRIVER",
+      "path": "driver_reviews/P000_BASE_CELL_RA_STAR_ORBIT_V12_DRIVER_REVIEW_20260830.md@main",
+      "status": "DRIVER_ACCEPTED_EXISTENTIAL_ONLY",
+      "use": "Freezes existential strength and explicitly leaves universal/canonical classification open."
+    },
+    {
+      "source_id": "INTERNAL-V7-PRIOR-ART",
+      "path": "research_returns/P000_AXIS_CHANNEL_FRAME_PRIOR_ART_AUDIT_V7_RETURN_20260830.md@main",
+      "status": "FROZEN_RESEARCH_RETURN",
+      "use": "Carries forward standard torsor/connection antecedents, compound P000 no-quotient semantic residue, and flatness != trivial-holonomy terminology guard."
+    }
+  ],
+  "search_boundary_statement": "The source ledger is an authoritative-source audit sufficient to classify the declared 12 claims. NO_MATERIAL_MATCH records only the audited search boundary and is not a novelty, priority, originality, patentability, or Foundation conclusion."
+}
