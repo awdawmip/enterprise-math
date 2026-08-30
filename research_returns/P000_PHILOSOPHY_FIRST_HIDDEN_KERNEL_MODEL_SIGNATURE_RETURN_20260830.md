@@ -1,356 +1,173 @@
-# P000 Philosophy-First Q15 — Nonsplit Hidden-Kernel Minimal Native Signature Return
+# P000 Philosophy-First Q15 - Hidden-Kernel Native Signature Return
 
 Status: `FROZEN RESEARCH RETURN / DRIVER REVIEW REQUIRED`
 
-Researcher-ID: `EM-P000-F9683F`  
-Task-ID: `RS-P000-PHILOSOPHY-FIRST-HIDDEN-KERNEL-MODEL-SIGNATURE`  
-Publication-ID: `TP2-712F3EA72A8A0CBA7446`  
-Claim-ID: `chatgpt-phq15-20260830-1947-132355`  
-Execution-Record-ID: `ER-238DA8040F3D84D6D280`  
-Execution branch: `research/p000-phil-q15-hidden-kernel-model-signature-em-p000-f9683f`  
+Researcher-ID: `EM-P000-F9683F`
+Task-ID: `RS-P000-PHILOSOPHY-FIRST-HIDDEN-KERNEL-MODEL-SIGNATURE`
+Publication-ID: `TP2-712F3EA72A8A0CBA7446`
+Claim-ID: `chatgpt-phq15-20260830-1947-132355`
+Execution-Record-ID: `ER-238DA8040F3D84D6D280`
+Execution branch: `research/p000-phil-q15-hidden-kernel-model-signature-em-p000-f9683f`
 Execution base: `6c346f37f2a6a61e984bfd7b249a29c6e22598df`
 
-Hard target:
+Hard target: `P000_HIDDEN_KERNEL_NONSPLIT_MODEL_SIGNATURE_MINIMALITY_CLASSIFIED`
 
-`P000_HIDDEN_KERNEL_NONSPLIT_MODEL_SIGNATURE_MINIMALITY_CLASSIFIED`
+Terminal class: `MINIMAL_NONSPLIT_HIDDEN_KERNEL_SIGNATURE_FOUND`
 
-Terminal class:
+## 1. Result
 
-`MINIMAL_NONSPLIT_HIDDEN_KERNEL_SIGNATURE_FOUND`
+Q15 has a positive exact finite answer. Extend the Driver-accepted Q10 signature by only:
 
-## 1. Executive result
+- one opaque sort `HiddenPhase`;
+- one internal ternary relation `HiddenBalance3`;
+- one typed bridge `HiddenAxisInc` from `HiddenPhase` to the existing Q10 `AxisType`.
 
-Q15 closes positively at an explicit finite-model, typed-relational strength.
+For the nonsplit witness, `HiddenPhase` has 8 opaque points. A certificate labels them by the nonzero vectors of `F_3^2`, and `HiddenBalance3` contains the 8 unordered triples of distinct certificate vectors whose sum is zero. The coordinates are only a checker presentation. They are not primitive fields.
 
-Starting from the Driver-accepted Q10 signature, it is enough to add one opaque Hidden sort and exactly two semantic relation roles:
-
-1. `HiddenBalance3 ⊂ binom(HiddenPhase,3)`, an internal ternary compatibility relation;
-2. `HiddenAxisInc ⊂ HiddenPhase × AxisType`, a typed bridge from Hidden state to the already-derived Q10 carrier stars.
-
-For one 8-point witness, `HiddenBalance3` is the eight-triple 3-uniform hypergraph that admits the certificate presentation
-
-`HiddenPhase = F_3^2 \ {0}`
-
-and
-
-`{x,y,z} ∈ HiddenBalance3  <=>  x+y+z=0`
-
-for three distinct certificate labels. Those coordinates are **not primitives**: the primitive object is only the opaque 8-point hypergraph plus the typed bridge.
-
-The resulting primitive automorphism group is derived exactly:
-
-`Aut_prim(M_NS) ≅ GL(2,3)`,  `|Aut_prim|=48`.
-
-The four carrier fibres are also derived. For distinct Hidden states `x,y`, define their pair codegree as the number of `HiddenBalance3` triples containing both. Exactly four pairs have codegree zero; every other pair has codegree one. These four zero-codegree pairs are the antipodal/projective fibres. `HiddenAxisInc` identifies each such two-point fibre with one of the four Q10 `CarrierStar3` stars.
-
-Hence restriction to the Q10 carrier gives
-
-`rho_M : Aut_prim(M_NS) -> C_M ≅ S4`
-
-with
-
-`|im rho_M|=24`,  `ker rho_M={1,z} ≅ C2`.
-
-The nonidentity `z` is the **derived** global antipode; no sign involution, `C2`, quotient map or group extension is primitive.
-
-The extension is nonsplit. Across all 24 carrier `(3,2,4)` generator pairs and all 96 Hidden lifts, the exact relation residue is
-
-`(AB)^4 = z != 1`.
-
-A homomorphic section would send the quotient relation `(ab)^4=1` to identity, contradiction. Therefore `rho_M` is surjective with nontrivial kernel and has no homomorphic section.
-
-This internalizes the previously external Q10/Q12 `GL(2,3)->PGL(2,3)≅S4` benchmark as the automorphism/readout of a primitive finite relational model, without naming that extension in the signature.
-
-## 2. Primitive signature extension
-
-Retain all Q10 primitive fields:
-
-- `NativeCell`;
-- `AxisType`;
-- `CarrierStar3`;
-- `CellAxisInc`;
-- `NativeAdj`;
-- the retained framed/PF-10 shell.
-
-Add only:
-
-### 2.1 Hidden sort
-
-`HiddenPhase`
-
-A finite opaque latent-state sort. No element is a native Cell identity and no distinguished Hidden constants are permitted.
-
-### 2.2 Internal Hidden relation
-
-`HiddenBalance3 ⊂ binom(HiddenPhase,3)`.
-
-Semantic reading: three distinct hidden phase/residue states may form one balanced latent relation packet. The relation is unordered and does not expose addition, coordinates, sign, a group law, a quotient or an action.
-
-### 2.3 Carrier bridge
-
-`HiddenAxisInc ⊂ HiddenPhase × AxisType`.
-
-For a Hidden state `h`, its axis neighbourhood must be a Q10 carrier-star triple. In the nonsplit witness every carrier star has exactly two Hidden preimages.
-
-The witness satisfies the coherence law:
-
-two distinct Hidden states have the same carrier-star neighbourhood **iff** their `HiddenBalance3` pair codegree is zero.
-
-This law aligns a relation-derived Hidden fibre with the existing Q10 carrier; it does not identify Hidden state with carrier state.
-
-## 3. Exact 8-point witness
-
-For certificate computation only, label the eight opaque states by the nonzero vectors of `F_3^2`:
-
-`±u, ±v, ±p, ±q`
-
-with certificate coordinates
-
-`u=(1,0)`, `v=(0,1)`, `p=(1,1)`, `q=(1,2)`.
-
-The eight primitive balance triples are:
-
-- `{v+,u+,p-}`;
-- `{v+,p+,q-}`;
-- `{v+,q+,u-}`;
-- `{v-,u+,q-}`;
-- `{v-,p+,u-}`;
-- `{v-,q+,p-}`;
-- `{u+,p+,q+}`;
-- `{u-,q-,p-}`.
-
-Every Hidden state lies in three balance triples. Among the 28 unordered pairs, 24 occur in exactly one balance triple and exactly four occur in none. The four zero-codegree pairs are
-
-`{u+,u-}`, `{v+,v-}`, `{p+,p-}`, `{q+,q-}`.
-
-Thus the antipodal pairing is definable from `HiddenBalance3`; it is not primitive.
-
-### Theorem A — primitive automorphism group
-
-`Aut(HiddenPhase,HiddenBalance3) ≅ GL(2,3)` and has order 48.
-
-There are two exact proofs.
-
-First, every invertible linear transformation of the certificate presentation preserves zero-sum triples, giving 48 primitive automorphisms.
-
-Conversely, `HiddenBalance3` defines the unique antipode of every point as its unique codegree-zero partner. Any ordered pair that is neither equal nor antipodal determines the remaining six states through the balance relation. There are
-
-`8 * 6 = 48`
-
-such ordered basis pairs, so an automorphism is determined by the image of one ordered basis pair. Hence there are at most 48 automorphisms.
-
-The checker independently enumerates all `8! = 40320` permutations and obtains exactly 48; their permutation set equals the 48 certificate `GL(2,3)` actions.
-
-### Theorem B — derived carrier quotient
-
-The four zero-codegree pairs form four Hidden fibres. `HiddenAxisInc` ties these bijectively to the four Q10 carrier stars.
-
-The induced action on the four stars contains all 24 permutations. Its kernel has exactly two elements:
-
-`ker rho_M = {1,z}`,
-
-where `z` swaps the two members of every derived fibre simultaneously.
-
-Therefore
-
-`1 -> C2 -> Aut_prim(M_NS) -> S4 -> 1`
-
-is derived from primitive relational automorphisms.
-
-No `C2`, `S4`, `GL(2,3)`, projective-line sort, quotient map or extension law occurs in the primitive signature.
-
-## 4. Nonsplitting certificate
-
-Use the same quotient generator type accepted in Q5/Q12:
-
-`a^3=b^2=(ab)^4=1`,
-
-with `a,b` generating the carrier `S4`.
-
-There are exactly 24 quotient `(3,2,4)` generating pairs. Each carrier element has exactly two Hidden lifts, so there are 96 lifted `(A,B)` pairs across those quotient pairs.
+For distinct hidden points, pair codegree in `HiddenBalance3` is either 1 or 0. Exactly 4 pairs have codegree 0 and the other 24 pairs have codegree 1. The 4 zero-codegree pairs are therefore definable inside the primitive ternary relation. `HiddenAxisInc` maps the two members of each such pair to the same Q10 carrier-star triple, giving a typed bridge to the existing carrier.
 
 Exact enumeration gives
 
-`(AB)^4=z`
+`Aut_prim(M_NS) = Aut(HiddenBalance3) ~= GL(2,3)`
 
-for all 96.
+with order 48. Its action on the 4 derived carrier fibres has image of order 24 and kernel of order 2:
 
-If a section `s:S4->Aut_prim(M_NS)` existed, then for any quotient generating pair
+`rho_M : Aut_prim(M_NS) -> C_M ~= S4`,
+`ker(rho_M) = {1,z} ~= C2`.
 
-`A=s(a)`, `B=s(b)`
+The nonidentity `z` swaps the two members of every derived fibre simultaneously. The sign involution, `C2`, `GL(2,3)`, the quotient map and the extension are not primitive.
 
-would satisfy
+Across all 24 carrier `(3,2,4)` generating pairs and all 96 lifted pairs, the checker finds
 
-`(AB)^4=s((ab)^4)=1`,
+`(AB)^4 = z != 1`.
 
-contradicting the census. Thus:
+A homomorphic section would send `(ab)^4=1` to identity, which contradicts this census. Thus `rho_M` is surjective, has nontrivial kernel, and is nonsplit.
 
-`SURJECTIVE = TRUE`,  
-`KERNEL_NONTRIVIAL = TRUE`,  
-`SECTION_EXISTS = FALSE`.
+## 2. Primitive witness and derivation
 
-This is the required internal nonsplit witness.
+The Q10 core stays unchanged: `NativeCell`, `AxisType`, `CarrierStar3`, `CellAxisInc`, `NativeAdj`, and the retained framed/PF-10 shell.
 
-## 5. Same-signature Q10 regressions
+The only new relation roles are:
 
-The extension does not change the problem category: the same **signature** still contains split and no-lift objects.
+1. `HiddenBalance3 subset binom(HiddenPhase,3)`: an internal latent compatibility relation.
+2. `HiddenAxisInc subset HiddenPhase x AxisType`: a cross-sort bridge whose neighbourhood at each hidden point is one Q10 carrier-star triple.
 
-### 5.1 Split object
+For the 8-point witness, the certificate labels are
 
-Keep eight Hidden states, two over each carrier star, but interpret `HiddenBalance3` coarsely as every triple whose three points lie over three distinct carrier stars. This relation is sign-blind.
+`u=(1,0)`, `v=(0,1)`, `p=(1,1)`, `q=(1,2)` and their negatives.
 
-Then
+The 8 balance triples are:
 
-`Aut_prim ≅ C2^4 semidirect S4`,  
-`|Aut_prim|=384`,  
-`|ker rho|=16`,  
+- `{v+,u+,p-}`
+- `{v+,p+,q-}`
+- `{v+,q+,u-}`
+- `{v-,u+,q-}`
+- `{v-,p+,u-}`
+- `{v-,q+,p-}`
+- `{u+,p+,q+}`
+- `{u-,q-,p-}`
+
+The opposite pairing is not supplied. It is derived as the unique pair-codegree-zero relation.
+
+Every invertible linear map in the certificate preserves the 8 triples, yielding 48 automorphisms. Conversely, an automorphism is fixed by the image of any ordered non-antipodal pair; there are exactly `8*6=48` such ordered pairs. Hence there are at most 48 automorphisms. The exhaustive `8!` census independently confirms exactly 48 and verifies that its permutation set equals the 48 certificate `GL(2,3)` actions.
+
+The four codegree-zero pairs are mapped by `HiddenAxisInc` to the four Q10 carrier stars. The induced star action contains all 24 permutations and its kernel is exactly `{1,z}`.
+
+## 3. Same-signature regressions
+
+The extended signature still contains all three logical regimes.
+
+### Split
+
+Use the same 8 hidden points and two-over-one carrier bridge, but interpret `HiddenBalance3` coarsely as all triples lying over three distinct carrier fibres. Then
+
+`|Aut_prim|=384`,
+`|ker rho|=16`,
 `|im rho|=24`.
 
-A section exists: after a certificate-only two-point enumeration in each fibre, move the carrier star and preserve the local bit.
+The group is the split wreath-type `C2^4 semidirect S4`, and an explicit homomorphic section exists.
 
-So `SPLIT` remains realizable in the extended signature.
+### No lift
 
-### 5.2 No-lift object
+Keep the exact 8-triple hidden witness and bridge, but use the Q10 `P4` NativeAdj on the four one-per-star Cells. Then
 
-Keep the exact eight-triple nonsplit Hidden relation and the same Hidden bridge, but replace the four one-per-star Cell adjacency from `K4` by the Q10 `P4` witness.
-
-The carrier action is then restricted to `Aut(P4)≅C2`. Exact enumeration gives
-
-`|Aut_prim|=4`,  
+`|Aut_prim|=4`,
 `|im rho|=2<24`.
 
-Therefore there is no lift. So `NO_LIFT` also remains realizable in the same signature.
+So no lift exists.
 
-The three regimes are now all internal:
+### Surjective nonsplit
 
-- split;
-- no lift;
-- surjective nonsplit.
+Use the exact 8-triple hidden witness, bridge, and the Q10 K4 base. Then
 
-## 6. Deletion audit and minimality
+`|Aut_prim|=48`,
+`|ker rho|=2`,
+`|im rho|=24`,
+`SECTION_EXISTS=FALSE`.
 
-The positive result is not based on adding a disguised extension label.
+Thus split, no-lift and surjective-nonsplit all occur inside the same signature.
 
-### 6.1 Delete `HiddenBalance3`
+## 4. Deletion audit
 
-Retain the 8-point Hidden sort and the two-over-one carrier bridge.
+Delete `HiddenBalance3` but keep the two-over-one bridge. The hidden states above each carrier star flip independently:
 
-Then the two Hidden states above each carrier star may flip independently:
+`Aut = C2^4 semidirect S4`, order 384, kernel order 16.
 
-`Aut = C2^4 semidirect S4`,  
-`|Aut|=384`,  
-`|ker rho|=16`.
+A section returns. Therefore an intra-Hidden coupling relation is necessary.
 
-A section exists. The nonsplit obstruction disappears.
+Delete `HiddenAxisInc` but keep the exact hidden ternary structure over the Q10 K4 base. Hidden automorphisms and carrier automorphisms decouple:
 
-Therefore an **intra-Hidden coupling relation** is necessary.
+`Aut = GL(2,3) x S4`, order 1152.
 
-### 6.2 Delete `HiddenAxisInc`
+The pure carrier factor gives a section. Therefore a cross-sort bridge is necessary.
 
-Retain the eight-triple Hidden hypergraph and the Q10 Gen12/K4 base.
+Delete `HiddenPhase`. The model returns to the Q10 Gen12 split base, whose carrier readout is an isomorphism.
 
-The Hidden automorphisms and carrier automorphisms decouple:
+The 8 balance triples form one orbit under the 48-element primitive automorphism group. Deleting one balance tuple drops the automorphism group and carrier image to order 6, so the full 8-tuple packet is irredundant for this full-surjectivity witness.
 
-`Aut = GL(2,3) × S4`,  
-`|Aut|=48*24=1152`.
+This proves deletion minimality and relation-role minimality under typed semantic discipline: one internal Hidden coupling role and one Hidden-to-carrier bridge role are both necessary, and the construction uses exactly one relation of each role. No absolute one-symbol minimality is claimed against artificial arity fusion.
 
-The pure-carrier `S4` factor gives a section of the Q10 readout. The projective quotient naturally visible inside Hidden state cannot be silently identified with the Q10 carrier because no primitive relation connects them.
+## 5. Circularity test
 
-Therefore a **cross-sort carrier bridge** is necessary.
+The primitive signature does not contain:
 
-### 6.3 Delete `HiddenPhase`
-
-This returns exactly to the Q10 Gen12 split base, whose readout is an isomorphism `S4->S4`.
-
-So the Hidden sort is necessary for any nontrivial hidden kernel.
-
-### 6.4 Tuple-packet irreducibility
-
-The eight balance triples form one orbit under the 48-element primitive automorphism group. Deleting any one representative triple drops the automorphism group to order 6 and the carrier image to order 6.
-
-Thus the full eight-triple packet is not carrying redundant tuple data relative to this witness and its full carrier surjectivity.
-
-### 6.5 Exact scope of “minimal”
-
-The result establishes two kinds of minimality:
-
-1. **deletion minimality** of every added primitive field in the witness;
-2. **relation-role minimality under typed semantic discipline**: at least one internal Hidden coupling is needed, and at least one Hidden-to-carrier bridge is needed; the construction uses exactly one relation of each role.
-
-No absolute syntax-symbol minimality is claimed against artificial arity fusion that packs several semantic roles into one giant relation. Such coding would fail the Q8 lowest-sufficient-abstraction discipline even if it reduced the raw symbol count.
-
-## 7. Circularity audit
-
-The following are explicitly absent as primitives:
-
-- the opposite/sign involution;
+- an opposite/sign involution;
 - a four-element projective quotient sort;
-- the central `C2`;
-- `GL(2,3)` or any multiplication table;
-- the map `GL(2,3)->S4`;
-- a section or “no section” predicate;
-- a cocycle / obstruction bit;
-- the relation residue `(AB)^4`;
-- Q12 holonomy.
+- `C2`;
+- `GL(2,3)` or a group multiplication table;
+- a quotient homomorphism;
+- a section/nonsection bit;
+- a cocycle or obstruction label;
+- `(AB)^4`;
+- Q12 residue or holonomy.
 
-All are derived after primitive automorphism enumeration.
+All of these are derived after primitive automorphism enumeration. The `F_3^2` coordinates occur only in the deterministic certificate, so relabelling the 8-point relation by any isomorphism changes no primitive model data.
 
-The only classical coordinates appear in the checker/certificate as a compact presentation proving what the opaque relational structure is isomorphic to. Replacing the labels by any isomorphic 8-point relation table leaves the primitive model unchanged.
+Therefore the nonsplit extension is not inserted by hand.
 
-Therefore the construction does not obtain nonsplitting by inserting the desired extension, quotient or residue as data.
+## 6. Q12 derived observable
 
-## 8. Q12 residue / holonomy becomes a genuine derived observable
+Q12 accepted the untwisted induced-connection law `H_ind=R`.
 
-Q12 accepted the rule that for the untwisted connection induced from the same extension lifts,
+Here the extension itself is now derived from `Aut_prim(M_NS)` and `rho_M`, and the unique nonidentity kernel element `z` is derived. The exact lift census gives
 
-`H_ind = R`.
+`R=(AB)^4=z`
 
-In the Q15 nonsplit model, the extension itself is now derived from `Aut_prim(M_NS)` and `rho_M`. The unique nonidentity kernel element `z` is derived from primitive automorphisms.
-
-For every `(3,2,4)` lifted pair,
-
-`R=(AB)^4=z`.
-
-Applying the already-accepted Q12 induced-connection construction to the actual eight-edge `(ab)^4` relation loop therefore gives
+for every `(3,2,4)` lifted pair. Applying the already-accepted Q12 construction to the actual eight-edge `(ab)^4` loop gives
 
 `H_ind=R=z`.
 
-Nothing called residue or holonomy was added to the Q15 primitive signature.
+Neither residue nor holonomy is primitive in Q15. If an independent kernel-valued twist is later added, Q12/T9 remains controlling with `H=R*D`; Q15 does not pre-fix `D`.
 
-If a later model adds an independent kernel-valued connection twist, Q12/T9 remains the controlling law
+## 7. Tool reuse and exact checker
 
-`H=R*D`;
+Reused methods:
 
-Q15 neither erases nor pre-fixes `D`.
+- `T7_FINITE_SYMMETRY_EQUIVARIANCE`
+- `T9_HOLONOMY_COCOYCLE_GLUING`
+- `T2_BLOCK_FINITE_CERTIFICATE`
 
-## 9. Why this is not merely the old external GL(2,3) benchmark
-
-The old Q10 boundary started with an external group extension and observed its quotient/kernel behavior.
-
-Q15 reverses the direction:
-
-`primitive relational model`  
-`-> primitive-preserving automorphisms`  
-`-> derived 48-element group`  
-`-> derived four-fibre action`  
-`-> derived kernel`  
-`-> derived nonsplitting residue`.
-
-The certificate later identifies those derived objects with the classical names `GL(2,3)`, `PGL(2,3)≅S4` and central `C2`. The classical identification is a theorem about the model, not model membership data.
-
-This is exactly the semantic internalization Q10 left open.
-
-## 10. Tool reuse
-
-Existing Enterprise tools cover the reusable method layer:
-
-- `T7_FINITE_SYMMETRY_EQUIVARIANCE`: automorphism, orbit, kernel and section/canonicality audit;
-- `T9_HOLONOMY_COCOYCLE_GLUING`: reuse of the Q12 residue/induced-holonomy semantics;
-- `T2_BLOCK_FINITE_CERTIFICATE`: exact finite counter/deletion certificates.
-
-No new global tool family is proposed. The 8-point `HiddenBalance3` witness is a task-local result.
-
-## 11. Deterministic checker
+No new global tool family is proposed.
 
 Checker:
 
@@ -360,43 +177,40 @@ Finite certificate:
 
 `research_artifacts/P000_PHILOSOPHY_FIRST_HIDDEN_KERNEL_MODEL_SIGNATURE/P000_Q15_HIDDEN_KERNEL_MODEL_SIGNATURE_CERTIFICATE_V1.json`
 
-The checker verifies, using only the Python standard library:
+The checker uses only the Python standard library and verifies:
 
-- 8 Hidden states and exactly 8 balance triples;
-- pair codegrees `24×1 + 4×0`;
-- four derived antipodal fibres;
-- exact `8!` automorphism census `|Aut|=48`;
-- equality of that automorphism permutation set with the 48 `GL(2,3)` certificate actions;
-- full carrier image of order 24 and kernel order 2;
+- 8 hidden points, 8 balance triples;
+- pair codegrees `24x1 + 4x0`;
+- 4 derived opposite fibres;
+- exact `8!` automorphism census, order 48;
+- equality with the 48 `GL(2,3)` certificate actions;
+- carrier image 24 and kernel 2;
 - 24 quotient `(3,2,4)` generator pairs;
-- all 96 lifted pairs having `(AB)^4=z`;
-- same-signature split model `|Aut|=384`, kernel 16, section exists;
-- same-signature P4 no-lift model `|Aut|=4`, carrier image 2;
-- all three field-deletion audits;
-- one-balance-tuple deletion drops `|Aut|` and carrier image to 6;
-- Q12 untwisted induced-holonomy readout `H_ind=R=z`.
+- all 96 lifted pairs satisfy `(AB)^4=z`;
+- split regression: order 384, kernel 16, section exists;
+- no-lift regression: order 4, carrier image 2;
+- all field deletions above;
+- one tuple deletion gives automorphism/image order 6;
+- Q12 untwisted readout `H_ind=R=z`.
 
 Local execution in this research turn:
 
 `PASS / MINIMAL_NONSPLIT_HIDDEN_KERNEL_SIGNATURE_FOUND`.
 
-## 12. Driver recommendation
+## 8. Driver recommendation and boundary
 
-Accept at the exact declared finite relational strength:
+Recommended exact finite conclusion:
 
 `P000_MINIMAL_TYPED_HIDDEN_BALANCE_PLUS_CARRIER_BRIDGE_INTERNALIZES_A_NONSPLIT_HIDDEN_KERNEL_MODEL`.
 
-The useful doctrine is:
+No Foundation, Working Truth or bare-P000 group identification is requested.
 
-`A NONSPLIT HIDDEN KERNEL MAY BE CALLED NATIVE ONLY AFTER BOTH THE HIDDEN COUPLING AND ITS CARRIER BRIDGE ARE PRIMITIVE-SEMANTIC, WHILE THE KERNEL, QUOTIENT, GROUP EXTENSION AND RESIDUE ARE DERIVED FROM AUTOMORPHISMS.`
+Non-claims:
 
-No Foundation, Working Truth or bare-P000 group identification should be promoted from this single finite witness.
+- no universal claim that `F_3^2`, `GL(2,3)`, `S4` or central `C2` is P000 ontology;
+- no absolute minimum-arity or one-symbol definability claim;
+- no claim that every nonsplit extension admits this ternary construction;
+- no noncentral/nonabelian Q12 law;
+- no classical group/cohomology novelty claim.
 
-## Boundary / non-claims
-
-- No claim that `F3^2`, `GL(2,3)`, `S4` or central `C2` is a universal P000 ontology.
-- No claim of absolute one-symbol/minimum-arity definability.
-- No claim that every nonsplit extension can be internalized by a ternary Hidden relation.
-- No noncentral/nonabelian Q12 holonomy law is inferred.
-- No classical group/cohomology novelty claim is made.
-- No canonical promotion authority is requested; Driver review is required.
+Driver review is required.
