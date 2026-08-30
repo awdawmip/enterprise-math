@@ -1,0 +1,33 @@
+{
+  "schema": "ENTERPRISE_MATH_N_COUPLED_ASYMMETRIC_SINGULARIZATION_CERTIFICATE_V1",
+  "researcher_id": "EM-NCAS1-5F7A3C",
+  "task_id": "RS-N-COUPLED-ASYMMETRIC-SINGULARIZATION-PRIMITIVE",
+  "checker": "research_checks/N_COUPLED_ASYMMETRIC_SINGULARIZATION_PRIMITIVE_CHECK_20260830.py",
+  "checker_execution": "PASS",
+  "matrix_base_A0_count": 2401,
+  "matrix_templates": 19208,
+  "channel_checks": 537824,
+  "rank_distribution_base_A0": {
+    "0": 1,
+    "1": 288,
+    "2": 2112
+  },
+  "asymmetric_support_cases": 72960,
+  "support_mismatches": 0,
+  "selector_checks": 5628,
+  "nontrivial_selector_cases": 170,
+  "selector_endpoint_mismatches": 0,
+  "symbolic_laws_guarded": [
+    "A0 + N*A1 == A0 (mod N)",
+    "rank_F_r(A0) < rank_Q(A0) iff r divides the top determinantal divisor of A0",
+    "one-sided rank drop iff gcd(N, determinantal_divisor) is a proper factor",
+    "f(N) == f(0) (mod N) for fixed integer polynomial f",
+    "nontrivial polynomial-generated CRT idempotent exposes the two factors through gcd(N,c) and gcd(N,c-1)"
+  ],
+  "explicit_controls": {
+    "diag(N+3,1) at N=15": "one-sided singularity, but exact static support gcd(15,3)=3",
+    "diag(N+1,1)": "bilaterally invertible in the tested odd-semiprime family",
+    "N*I": "bilaterally singular in the tested odd-semiprime family"
+  },
+  "proof_role": "FINITE_REGRESSION_ONLY_NOT_ALL_GRAMMAR_PROOF"
+}
