@@ -1,0 +1,81 @@
+{
+  "schema": "P000_EXISTING_THREE_AXIS_COMMON_MODE_FORGETFUL_SEMANTICS_CLASSIFICATION_V1",
+  "task_id": "RS-P000-THREE-AXIS-COMMON-MODE-FORGETFUL-SEMANTICS",
+  "publication_id": "TP2-0A8F9C3170B9CBABDBC9",
+  "claim_id": "chatgpt-p000cmf1-20260830-1742-sol",
+  "researcher_id": "EM-P000CMF1-3C9565",
+  "source_firewall": [
+    "research_returns/P000_THREE_AXIS_A2_HEXAGONAL_CUBIC_THETA_BRIDGE_REVISION_V2_RETURN_20260830.md",
+    "research_artifacts/P000_THREE_AXIS_A2_HEXAGONAL_CUBIC_THETA_BRIDGE_REVISION_V2/gate0_typing_certificate.json",
+    "driver_reviews/P000_THREE_AXIS_A2_CUBIC_THETA_GATE0_REVISION_V2_DRIVER_REVIEW_20260830.md"
+  ],
+  "inventory_scope": {
+    "native_world": "6D discrete Cell space + 1D time",
+    "declared_three_axis_slice": "J_A={E1,E2,E3}",
+    "finite_current_candidates": [
+      "J_A_DECLARED_FRAMED_PF10_SLICE",
+      "Q_DIFFERENCE_READOUT"
+    ],
+    "excluded_nonobjects": [
+      {
+        "name": "(1,1,1)/(2,2,2) collision",
+        "reason": "REPRESENTATION_LEVEL_ONLY witness pair; evidence for raw-q non-injectivity, not a declared observable object"
+      }
+    ],
+    "additional_declared_weaker_three_axis_observable_families_found": false
+  },
+  "algebraic_quotient": {
+    "domain": "Z^3 ambient scalar representation",
+    "common_mode_subgroup": "H=Z*(1,1,1)",
+    "map": "q(x,y,z)=(x-y,y-z,z-x)",
+    "codomain": "D={(u,v,w) in Z^3: u+v+w=0}",
+    "kernel": "H",
+    "surjective_to_D": true,
+    "induced_isomorphism": "Z^3/H ~= D",
+    "common_integer_shift_invariant": true,
+    "fiber_statement": "q(p)=q(p') iff p'-p=(t,t,t) for an integer t",
+    "cycle_action_on_domain": "a_xi(x,y,z)=(z,x,y)",
+    "cycle_action_on_codomain": "rho(u,v,w)=(w,u,v)",
+    "cycle_transport": "q(a_xi(p))=rho(q(p))",
+    "semantic_strength": "EXACT_ALGEBRA / REPRESENTATION_LEVEL_ONLY"
+  },
+  "classification": [
+    {
+      "candidate": "J_A_DECLARED_FRAMED_PF10_SLICE",
+      "source_type": "derived three-axis research slice with retained framed/PF-10 semantics",
+      "evidence_class": "THEOREM_BACKED_NEGATIVE_BOUNDARY",
+      "native_common_mode_descent": "NO",
+      "g0_typed_equivalence": "NOT_DERIVED",
+      "g0_admissible_closure": "NOT_DERIVED",
+      "g0_retained_factorisation": "NOT_DERIVED",
+      "ambient_representation_common_shift_identity": "NOT_SUFFICIENT",
+      "narrowest_legal_survivor": "J_A remains only a derived three-axis slice inside the 6D+time P000 world, with full retained framed/PF-10 data",
+      "first_exact_blocker": "No native diagonal common-mode action/equivalence or explicit forgetful declaration exists on the declared state object",
+      "passes_all_three_g0_obligations": false
+    },
+    {
+      "candidate": "Q_DIFFERENCE_READOUT",
+      "source_type": "raw cyclic difference readout in an additive cancellative scalar representation",
+      "evidence_class": "THEOREM_BACKED_EXACT_ALGEBRA",
+      "native_common_mode_descent": "YES_AT_AMBIENT_REPRESENTATION_LEVEL_ONLY",
+      "g0_typed_equivalence": "NO_AT_P000_SEMANTIC_STRENGTH",
+      "g0_admissible_closure": "NO_AT_P000_SEMANTIC_STRENGTH; YES_ONLY_FOR_THE_AMBIENT_Z3_REPRESENTATION",
+      "g0_retained_factorisation": "NOT_DERIVED_AT_P000_SEMANTIC_STRENGTH",
+      "ambient_representation_common_shift_identity": "q(x+t,y+t,z+t)=q(x,y,z)",
+      "narrowest_legal_survivor": "The algebraic quotient/readout Z^3/H ~= D with cyclic transport; a representation-level fingerprint only, not a declared P000 observable quotient",
+      "first_exact_blocker": "The source does not authorize q as a forgetful P000 observable semantics, and retained framed/PF-10 data are neither proved to factor through q nor explicitly removed",
+      "passes_all_three_g0_obligations": false
+    }
+  ],
+  "normalization_backed_candidates": [],
+  "heuristic_or_by_inspection_candidates": [],
+  "terminal_classification": {
+    "hard_target": "P000_EXISTING_THREE_AXIS_COMMON_MODE_FORGETFUL_SEMANTICS_FOUND_OR_EXACT_CURRENT_NO_MATCH_CLASSIFIED",
+    "verdict": "EXACT_CURRENT_NO_MATCH",
+    "observable_level_survivor_found": false,
+    "algebraic_only_survivor_found": true,
+    "closure_no_go": "NO_ALREADY_DECLARED_WEAKER_THREE_AXIS_P000_OBSERVABLE_PASSES_TYPED_EQUIVALENCE_PLUS_ADMISSIBLE_CLOSURE_PLUS_RETAINED_FACTORISATION",
+    "route_action": "CLOSE_CURRENT_COMMON_MODE_ROUTE_AT_THIS_SOURCE_LAYER",
+    "forbidden_promotion": "Do not reopen A2/theta/AGM/PF-10 fitting from the representation-level quotient"
+  }
+}
