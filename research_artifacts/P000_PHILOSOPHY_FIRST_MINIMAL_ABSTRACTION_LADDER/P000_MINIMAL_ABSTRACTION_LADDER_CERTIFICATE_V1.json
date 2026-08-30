@@ -1,0 +1,163 @@
+{
+  "schema": "P000_MINIMAL_ABSTRACTION_LADDER_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-MINIMAL-ABSTRACTION-LADDER",
+  "publication_id": "TP2-28E97B509F00603F4053",
+  "researcher_id": "EM-PHQ8-FFA922",
+  "terminal_state": "MINIMAL_ABSTRACTION_GATES_EXACTLY_WITNESSED",
+  "hard_target": "P000_MINIMAL_SUFFICIENT_ABSTRACTION_LADDER_WITH_EXACT_UPGRADE_GATES",
+  "operational_ladder": [
+    {
+      "level": "SET",
+      "retains": [
+        "objects",
+        "literal_equality",
+        "set_maps",
+        "fibers",
+        "images",
+        "predicates"
+      ],
+      "upgrade_trigger": "required answer is not constant on the object-set/coarse encoding fibers"
+    },
+    {
+      "level": "GROUPOID",
+      "retains": [
+        "accepted_invertible_morphisms",
+        "orbits_pi0",
+        "isotropy",
+        "automorphism_fixed_points"
+      ],
+      "upgrade_trigger": "unindexed local groupoids lose base/restriction/overlap information required by the answer"
+    },
+    {
+      "level": "PRESHEAF_DESCENT",
+      "retains": [
+        "base_incidence",
+        "restrictions",
+        "overlap_transitions",
+        "cocycle_or_holonomy"
+      ],
+      "upgrade_trigger": "isomorphism-valued descent data are intended as legitimate global objects but are not effective at the lower prestack"
+    },
+    {
+      "level": "STACK",
+      "retains": [
+        "effective_descent_up_to_isomorphism",
+        "gauge_isomorphism_classes_of_global_objects"
+      ],
+      "upgrade_trigger": "future higher-coherence witness only; absent in current Q1-Q7 packet"
+    }
+  ],
+  "question_relative_sufficiency": {
+    "definition": "Level L is Q-sufficient iff every required task answer factors through the information retained by L; in finite set-valued scope this is equivalent to answer constancy on every L-encoding fiber.",
+    "failure_certificate": "finite x,y with same lower encoding but different required answer, or a descent datum whose global status is lost after forgetting restrictions",
+    "repair_certificate": "higher encoding makes the required answer factor without erasing a P000-declared observable distinction"
+  },
+  "finite_witnesses": {
+    "set_to_groupoid": {
+      "object_set": [
+        0,
+        1
+      ],
+      "discrete_groupoid_pi0": 2,
+      "swap_action_groupoid_pi0": 1,
+      "swap_action_global_fixed_points": 0,
+      "verdict": "JUSTIFIED"
+    },
+    "groupoid_to_presheaf_descent": {
+      "cover_nerve": "C3",
+      "transition_group": "C2",
+      "total_edge_assignments": 8,
+      "strict_effective_trivial_holonomy": 4,
+      "strict_obstructed_nontrivial_holonomy": 4,
+      "criterion": "strict global synchronized frame iff e01 xor e12 xor e20 = 0",
+      "verdict": "JUSTIFIED"
+    },
+    "presheaf_to_stack": {
+      "cover_nerve": "C3",
+      "transition_group": "C2",
+      "gauge_orbits": 2,
+      "representatives_per_orbit": [
+        4,
+        4
+      ],
+      "strict_frame_semantics": "REJECT_STACKIFICATION",
+      "twisted_torsor_semantics": "ACCEPT_STACKIFICATION",
+      "criterion": "stackification is permitted only when nontrivial twisting is an intended global object up to accepted gauge"
+    },
+    "higher_infinity": {
+      "current_higher_coherence_witness_count": 0,
+      "verdict": "REJECT_CURRENT_ESCALATION"
+    }
+  },
+  "q1_q7_minimum": {
+    "Q1": "GROUPOID",
+    "Q2": "SET",
+    "Q3": "GROUPOID",
+    "Q4": "PRESHEAF_DESCENT",
+    "Q5": "GROUPOID",
+    "Q6": "SET",
+    "Q7": "GROUPOID"
+  },
+  "current_result_refs": {
+    "Q1": "RR-8C52E13D6C3202A25967 / PR#883",
+    "Q2": "RR-5C9238DB872A93F13D37 / PR#892",
+    "Q3": "RR-49FC19221CA5D69B00E6 / PR#893",
+    "Q4": "RR-1C8E7A4F2B9D6053E126 / PR#894",
+    "Q5": "RR-3B032EC1AFB283195BE9 / Draft PR#896",
+    "Q6": "RR-4B0C6E0CAEE305D5B844 / PR#895",
+    "Q7": "RR-1ECF8B93CCAF6463224F / PR#897"
+  },
+  "abstraction_upgrade_gate": {
+    "required_gates": [
+      "FAIL",
+      "REPAIR",
+      "MINIMAL",
+      "INVARIANT",
+      "SEMANTIC",
+      "AUDITABLE"
+    ],
+    "decision": "UPGRADE iff all required gates pass; otherwise STOP_AT_LOWER_LEVEL",
+    "stack_additional_gate": "missing isomorphism-valued descent datum must be intended as a legitimate global object, not a task-relevant obstruction",
+    "higher_additional_gate": "same 1-truncation but different task-relevant higher-coherence observable"
+  },
+  "tool_reuse": [
+    {
+      "tool_id": "T6",
+      "source": "src/enterprise_math/composition_safe_collapse.py",
+      "source_blob_sha1": "384d166f642fb65c53fc7f2431f43dc99880693a",
+      "resolution": "REUSE_APPLIED",
+      "use": "fiber-constancy sufficiency/failure criterion"
+    },
+    {
+      "tool_id": "T7",
+      "source": "src/enterprise_math/finite_symmetry.py",
+      "source_blob_sha1": "ae96a32cb6b6fdd974bd9f44fb28a1b643c9b8a2",
+      "resolution": "REUSE_APPLIED",
+      "use": "orbit/isotropy/fixed-point naturality witness"
+    },
+    {
+      "tool_id": "T9",
+      "source": "src/enterprise_math/precision_holonomy.py",
+      "source_blob_sha1": "b07b66e60cb887633691b8a3f7c2b2543dae41bb",
+      "resolution": "INSPECTED_NO_GLOBAL_EXTENSION",
+      "use": "project holonomy discipline; Q4 graph holonomy remains task-local"
+    }
+  ],
+  "checker_expected": {
+    "checks": 33,
+    "triangle_total": 8,
+    "triangle_strict_effective": 4,
+    "triangle_obstructed": 4,
+    "torsor_gauge_classes": 2,
+    "strict_frame_stack": false,
+    "twisted_torsor_stack": true,
+    "infinity_upgrade": false
+  },
+  "scope_guards": [
+    "P000 remains locked",
+    "no carrier finite group or cover nerve is promoted to bare P000 ontology",
+    "Q1-Q7 finite returns may still await Driver review",
+    "no novelty claim for standard groupoid/descent/stack mathematics",
+    "no abstraction may erase a P000-declared observable obstruction"
+  ]
+}
