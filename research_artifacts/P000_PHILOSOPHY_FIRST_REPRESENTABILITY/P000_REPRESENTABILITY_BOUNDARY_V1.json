@@ -1,0 +1,43 @@
+{
+  "schema": "P000_REPRESENTABILITY_BOUNDARY_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-REPRESENTABILITY",
+  "publication_id": "TP2-99EFD9FD80BE4C6457AD",
+  "researcher_id": "EM-P000Q6-C31A72",
+  "declared_scope": "Q2 U_2REG finite simple 2-regular native-Cell graphs with uniform six-axis SLICE/ROT/PF10 decoration and radius-1 native-neighborhood probe",
+  "formal_profile": {
+    "coordinates": ["t_triangle_roots", "p_path_roots"],
+    "support_size": "n=t+p>=3",
+    "compatibility_strength": "pointwise Q2-legal local outputs plus common radius-0/uniform-decoration restrictions; no overlap-identity/descent data is retained"
+  },
+  "actual_to_profile_map": "Obs_1(X)=(t(X),p(X))",
+  "representability_theorem": "Obs_1(X)=(t,p) for some X in U_2REG iff t mod 3 = 0 and (p = 0 or p >= 4)",
+  "representable_monoid": {
+    "set": "{(3a,p): a>=0 and (p=0 or p>=4)}",
+    "finite_generators": [[3,0],[0,4],[0,5],[0,6],[0,7]]
+  },
+  "obstruction_certificate": {
+    "formula": "chi(t,p)=(t mod 3, p if 1<=p<=3 else 0)",
+    "criterion": "representable iff chi(t,p)=(0,0)",
+    "meaning": ["triangle-component integrality", "nontriangle-cycle mass shortage"]
+  },
+  "bounded_profile_count": {
+    "formal_profiles_at_fixed_n": "n+1",
+    "representable_profiles_at_fixed_n_for_n>=3": "floor(n/3)",
+    "virtual_profiles_at_fixed_n_for_n>=3": "n+1-floor(n/3)"
+  },
+  "minimal_pure_virtual_profile": {
+    "n": 3,
+    "profile": [0,3],
+    "local_description": "three roots each reporting the Q2-legal rooted 3-vertex path N1 type",
+    "nonrepresentability_reason": "the unique simple 2-regular graph on three vertices is C3, whose three N1 responses are rooted triangles"
+  },
+  "q2_noninjective_regression": {
+    "profile": [0,8],
+    "distinct_realizations": [[8],[4,4]],
+    "meaning": "C8 and C4 disjoint_union C4 remain distinct actual states with the same restricted profile"
+  },
+  "two_sided_diagnosis": "the restricted Obs_1 map is neither injective on actual states nor surjective onto the declared formal profile completion",
+  "virtual_object_policy": "Virtual profiles may be retained as analysis-only formal completion objects with an explicit REPRESENTABLE predicate and obstruction certificate; they must not be promoted to native Cell or Full-Cell existence witnesses.",
+  "terminal_state": "NONREPRESENTABLE_PROFILE_EXACTLY_WITNESSED_AND_IMAGE_CLASSIFIED",
+  "checker_summary": "PASS P000_REPRESENTABILITY_BOUNDARY; checks=2403; scope=U_2REG_P1; minimal_pure_virtual=(t=0,p=3); representable_iff=t_mod_3_zero_and_p_zero_or_ge_4; image_size=floor(n/3)_for_n_ge_3; Q2_noninjective_fiber=(0,8):C8_vs_C4_plus_C4; carrier_S4_regression=PASS"
+}
