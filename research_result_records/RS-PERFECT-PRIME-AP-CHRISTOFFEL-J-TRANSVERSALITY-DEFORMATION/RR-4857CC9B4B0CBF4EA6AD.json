@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-4857CC9B4B0CBF4EA6AD",
+  "task_id": "RS-PERFECT-PRIME-AP-CHRISTOFFEL-J-TRANSVERSALITY-DEFORMATION",
+  "publication_id": "TP2-7A1C9E54B2306D8F41AA",
+  "execution_record_id": "ER-4A59F13A39780D3D2FF5",
+  "claim_id": "chatgpt-pptapchr1-20260830-0ff8b7",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_20260830.md",
+  "taskbook_blob_sha1": "sha1:0be42e7a2694f54976ed63cb5b43572326156924",
+  "execution_branch": "research/perfect-prime-ap-christoffel-j-transversality-em-pptapchr1-0ff8b7",
+  "execution_branch_base": "9dac612533d1dc93ce2839df3e1dbdd29a39b6aa",
+  "return_path": "research_returns/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:04b7fffd86b79b94803199b2f53f5a5707b43c02",
+  "return_sha256": "sha256:eb4e9b5343b51a48aa5001b2c3e78326ef62f517f8bd60c0b39e18135c152c28",
+  "owner_head": "9d14c2ffd5624fbc56ca91c06aeac8bc6701a30d",
+  "researcher_id": "EM-PPTAPCHR1-0FF8B7",
+  "frozen_at": "2026-08-30T09:48:36+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "EXACT_DEFORMATION_INVARIANT_OBSTRUCTION_PARENT_SURVIVES: the natural symmetric Schur crossing is indefinite already at m=3, and the first quotient derivative Q'_10(0) is invertible/squarefree with exactly seven negative real eigenvalues plus one non-real conjugate pair, so a universal real-spectral/inertia no-recrossing engine is impossible. Nevertheless det(-Q'_10(0))>0 gives local splitting and the actual AP endpoint det(I_9-Q_10)>0 exactly, so no parent counterexample is produced.",
+  "unresolved_residue": "The all-m no-zero theorem det(I-Q_m(t))!=0 for every 0<t<=1 remains open. A spectrum-free half-Pascal pencil D_*(t)=C_*(t)-A_*(t) is the surviving frontier: one nonzero maximal proper minor would force rank m-1 and close fixed-point simplicity. Exact finite evidence m=2..6 shows every proper minor positive at t=0 derivative and t=1/4,1/2,3/4,1, but this is not promoted to an all-m theorem.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:04b7fffd86b79b94803199b2f53f5a5707b43c02",
+      "sha256": "sha256:eb4e9b5343b51a48aa5001b2c3e78326ef62f517f8bd60c0b39e18135c152c28"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:e8cbe05218d5f549562b1089bc0152243a3d6353",
+      "sha256": "sha256:2c7095769cabcfda3364d00ebb7acb04f64f9270edfbfc91218e3a0fae101e00"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION/exact_certificate_20260830.json",
+      "git_blob_sha1": "sha1:e06357f8d3a9dc9ff6b8a58ddf8bc083d4b0ca4f",
+      "sha256": "sha256:90c81140b949f4ab0fa7068e8c4e7049b3ae7d7ec68afa2722adb810e5e89349"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-CHRISTOFFEL-J-TRANSVERSALITY-DEFORMATION/ER-4A59F13A39780D3D2FF5.json",
+      "git_blob_sha1": "sha1:9a421d276bb58e1dd3bfb209e7d918e744c87889",
+      "sha256": "sha256:cc72e073744562e7eef46b743481e928a70b009719bbcd6d084d54f93c4ff8db"
+    }
+  ],
+  "method_harvest": "EXACT_CHRISTOFFEL_FIRST_VARIATION_PLUS_RATIONAL_STURM_OBSTRUCTION_AND_HALF_PASCAL_RANK_FRONTIER",
+  "independence_status": "NONBLIND. The accepted parent and claim-authorized sibling result were read. A later duplicate PR #932 was also inspected after CLAIM; overlapping midpoint-Pascal algebra is not claimed as independent or novel. The terminal first-order m=3/m=10 deformation obstructions and all exact checks were derived/replayed in this execution.",
+  "source_exposure_status": "NONBLIND_FROZEN_INTERNAL_FRONTIER; exact terminal certificates use pure rational arithmetic and do not rely on decimal spectral claims.",
+  "next_control_plane_recommendation": "Driver-review and accept the exact-obstruction terminal. Freeze definite symmetric crossing and real-simple first-order inertia as universal proof routes. Do not infer a parent counterexample. If opening a successor, target a direct AP-Christoffel/Andreief formula proving one canonical maximal proper minor of D_*(t)=C_*(t)-A_*(t) is nonzero (preferably positive) for all m and 0<t<=1.",
+  "driver_review_required": true
+}
