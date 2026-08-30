@@ -1,6 +1,6 @@
 {
   "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
-  "record_state": "CLAIM_INTENT",
+  "record_state": "DUPLICATE_REISSUE_CLOSED",
   "execution_record_id": "ER-91A7C4E2D8F50B63A119",
   "task_id": "RS-ADDMUL-WITT-GHOST-MULTISCALE-BRIDGE",
   "publication_id": "TP2-F876CFF74AF60A88D173",
@@ -19,5 +19,10 @@
     "research_result_records/RS-ADDMUL-WITT-GHOST-MULTISCALE-BRIDGE/*"
   ],
   "owner_lease_minutes": 240,
-  "prepared_at": "2026-08-30T17:40:31+08:00"
+  "prepared_at": "2026-08-30T17:40:31+08:00",
+  "closed_reason": "A prior completed execution/result for the same immutable publication was discovered after the claim. The duplicate claim arose from an incomplete paginated scheduler read and carries no authority to overwrite the prior work.",
+  "existing_authorized_result_id": "RR-2D4C28F07DE2B14AB18D",
+  "existing_authorized_pr": 881,
+  "new_research_output_frozen": false,
+  "scheduler_handoff_comment_id": 5468001740
 }
