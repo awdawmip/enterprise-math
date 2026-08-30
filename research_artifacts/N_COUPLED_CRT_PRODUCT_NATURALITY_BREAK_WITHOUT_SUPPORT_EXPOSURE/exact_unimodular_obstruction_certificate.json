@@ -1,0 +1,68 @@
+{
+  "admitted_clean_traces": 875,
+  "checker_execution": "PASS",
+  "delta_invariance_checks": 8895,
+  "equal_rank_preservation_checks": 875,
+  "expected_counts": {
+    "admitted_clean_traces": 875,
+    "delta_invariance_checks": 8895,
+    "equal_rank_preservation_checks": 875,
+    "longest_realized_trace": 7,
+    "prior_support_rejected": 480,
+    "rank_channel_checks": 17790,
+    "scalar_transcript_rejected": 8020,
+    "total_seed_cases": 9375
+  },
+  "longest_realized_trace": 7,
+  "max_steps": 7,
+  "prime_set": [
+    3,
+    5,
+    7,
+    11,
+    13,
+    17
+  ],
+  "prior_support_rejected": 480,
+  "product_naturality_break_witness": {
+    "N": 15,
+    "a": 1,
+    "b": 2,
+    "carry_N": 0,
+    "carry_p": 1,
+    "carry_q": 0,
+    "component_branches": [
+      1,
+      0
+    ],
+    "crt_product_naturality_broken": true,
+    "det_U0": 1,
+    "det_U1": 1,
+    "global_branch": 0,
+    "hidden_rank_asymmetry_created": false,
+    "p": 3,
+    "q": 5,
+    "scalar_clean": true
+  },
+  "proof_role": "FINITE_REGRESSION_ONLY_NOT_GENERAL_PROOF",
+  "rank_channel_checks": 17790,
+  "scalar_transcript_rejected": 8020,
+  "schema": "N_COUPLED_CRT_PRODUCT_NATURALITY_BREAK_UNIMODULAR_OBSTRUCTION_CERTIFICATE_V1",
+  "seed_entry_values": [
+    -2,
+    -1,
+    0,
+    1,
+    2
+  ],
+  "semiprimes": 15,
+  "symbolic_laws_guarded": [
+    "B_T = U B_0 V with U,V integer-unimodular for every realized history/carry/quotient trace",
+    "I_k(U B V) = I_k(B) for every determinantal ideal I_k",
+    "top determinantal divisor is invariant under integer-unimodular equivalence",
+    "rank_F_r(B_T mod r) = rank_F_r(B_0 mod r) for every prime r dividing N",
+    "non-ring CRT-product naturality failure of the control transcript does not imply hidden-channel rank asymmetry",
+    "any one-sided full-carrier rank defect after this grammar was already present in the seed support"
+  ],
+  "total_seed_cases": 9375
+}
