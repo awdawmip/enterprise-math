@@ -1,0 +1,154 @@
+{
+  "schema": "P000_S4_LIFT_UNIVERSALITY_EXTENSION_V13_MODEL_CLASS_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-6E1A9C3B7D5048F2A611",
+  "researcher_id": "EM-P000FCC13-8D2C41",
+  "terminal_class": [
+    "NONTRIVIAL_FULL_CELL_RELATION_EXTENSION_OF_S4_EXACTLY_CLASSIFIED",
+    "BARE_P000_UNIVERSAL_OR_CANONICAL_S4_LIFT_EXACTLY_OBSTRUCTED_WITH_MODEL_CLASS_BOUNDARY"
+  ],
+  "frozen_generators": {
+    "base_a": "(B C D)",
+    "base_b": "(A B)",
+    "axis_a": "(E1 E2 E3)(E4 E6 E5)",
+    "axis_b": "(E2 E4)(E3 E5)",
+    "relations": [
+      "a^3=1",
+      "b^2=1",
+      "(ab)^4=1"
+    ],
+    "axis_image_order": 24
+  },
+  "structural_classification": [
+    {
+      "regime": "SPLIT",
+      "criterion": "q admits a homomorphic section s:S4->Gtilde with q∘s=id; then s is injective and the enriched S4 lift is faithful."
+    },
+    {
+      "regime": "SURJECTIVE_NONSPLIT",
+      "criterion": "q is onto but has no homomorphic section; individual generator lifts may exist, while relation residues in K obstruct exact S4 closure."
+    },
+    {
+      "regime": "NO_LIFT",
+      "criterion": "the actual enriched automorphism readout image does not contain the frozen S4 generator image (in particular q is not onto)."
+    },
+    {
+      "regime": "CANONICALITY",
+      "criterion": "splitting does not imply canonicality; a canonical section must survive every primitive-preserving automorphism of the declared model/extension data."
+    }
+  ],
+  "models": {
+    "gen12_regression": {
+      "group": "S4",
+      "kernel_order": 1,
+      "image_order": 24,
+      "split": true,
+      "faithful": true,
+      "residue_trivial": true
+    },
+    "wreath_split_hidden_cell_fibers": {
+      "native_cell_semantics": "eight opaque Cells partitioned into four unlabeled 2-Cell fibers; adjacency is complete across distinct fibers; within-fiber swaps are actual native Cell automorphisms",
+      "group": "C2^4 ⋊ S4 = C2 wr S4",
+      "group_order": 384,
+      "kernel": "C2^4",
+      "kernel_order": 16,
+      "image_order": 24,
+      "split": true,
+      "generator_lift_pairs_checked": 256,
+      "distinct_residue_triples": 16,
+      "exact_homomorphic_sections": 16,
+      "kernel_conjugacy_orbits_of_sections": [
+        8,
+        8
+      ],
+      "centralizer_of_kernel_order": 16,
+      "centralizer_of_kernel_equals_kernel": true,
+      "canonical_section_fixed_by_all_kernel_conjugations": false
+    },
+    "gl23_projective_hidden_relation": {
+      "hidden_semantics": "V=F3^2 with addition and incidence to four 1-dimensional-subspace Cell anchors; -I negates nonzero hidden vectors while fixing all projective Cell anchors",
+      "group": "GL(2,3)",
+      "group_order": 48,
+      "readout": "projective action on P1(F3)",
+      "image_order": 24,
+      "kernel": "{I,-I}",
+      "kernel_order": 2,
+      "central_kernel": true,
+      "generator_lift_pairs_checked": 4,
+      "lift_A_matrices": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            2
+          ]
+        ]
+      ],
+      "lift_B_matrices": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      ],
+      "A3_residue_values": [
+        "I",
+        "-I"
+      ],
+      "B2_residue_values": [
+        "I"
+      ],
+      "AB4_residue_values": [
+        "-I"
+      ],
+      "AB4_residue_lift_choice_invariant": true,
+      "split": false,
+      "generated_group_order_for_every_generator_lift_pair": 48
+    },
+    "p4_no_lift": {
+      "native_cell_semantics": "four opaque Cells with path P4 adjacency; uniform PF-10 and frame-induced identity connection",
+      "native_adjacency_automorphism_order": 2,
+      "contains_frozen_a": false,
+      "contains_frozen_b_under_declared_labels": false,
+      "simultaneous_s4_lift": false,
+      "obstruction": "native Cell adjacency automorphism image too small"
+    }
+  },
+  "guards": {
+    "carrier_and_native_cell_sorts_disjoint": true,
+    "kernel_never_quotiented_to_claim_native_s4": true,
+    "native_s4_not_promoted": true,
+    "time_fixed": true,
+    "standard_group_extension_machinery_claimed_novel": false,
+    "bare_p000_forces_k4": false,
+    "bare_p000_universal_s4_lift_derivable": false
+  }
+}
