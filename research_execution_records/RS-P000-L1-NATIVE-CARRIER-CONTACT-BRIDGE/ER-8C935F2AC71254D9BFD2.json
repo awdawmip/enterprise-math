@@ -1,0 +1,66 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "record_state": "TERMINAL_EXECUTION",
+  "execution_record_id": "ER-8C935F2AC71254D9BFD2",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-A7D3C18E5B904F621476",
+  "taskbook_path": "research_tasks/P000_BACKGROUND_S4_EQUIVARIANCE_GATE_V17_20260830.md",
+  "taskbook_blob_sha1": "sha1:87703ec6cf4b2b74c5479ffc27336fcece7bdc7f",
+  "claim_id": "chatgpt-p000fcc17-20260830-2248-da447a",
+  "researcher_id": "EM-P000FCC17-9419D1",
+  "theorem_owner": "research/p000-l1-native-carrier-contact-bridge",
+  "execution_branch": "research/p000-l1-native-carrier-contact-bridge-em-p000fcc17-9419d1",
+  "execution_branch_base": "7a6b80db39529874edc913253cff151948d91607",
+  "allowed_outputs": [
+    "research_returns/P000_BACKGROUND_S4_EQUIVARIANCE_GATE_V17_RETURN_20260830.md",
+    "research_artifacts/P000_BACKGROUND_S4_EQUIVARIANCE_GATE_V17/",
+    "research_checks/P000_BACKGROUND_S4_EQUIVARIANCE_GATE_V17_CHECK_20260830.py",
+    "research_execution_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/",
+    "research_result_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/"
+  ],
+  "owner_lease_minutes": 240,
+  "prepared_at": "2026-08-30T14:49:00+00:00",
+  "terminal_at": "2026-08-30T15:18:53+00:00",
+  "terminal_class": "MULTIPLE_INDEPENDENT_BACKGROUND_LEAK_SOURCES_AND_PARETO_GATES_CLASSIFIED",
+  "hard_target_disposition": "P000_ZERO_COST_BACKGROUND_S4_COMPATIBILITY_GATE_AND_MINIMAL_CHARGED_EQUIVARIANCE_EXTENSION_EXACTLY_CLASSIFIED",
+  "checker_status": "PASS_TASK_LOCAL_SELFTEST_REPOSITORY_REGRESSION_PINS_EMBEDDED",
+  "checker_summary": {
+    "carrier_s4_order": 24,
+    "pf10_e1_compatibility_order": 4,
+    "pf10_symmetric_compatibility_order": 24,
+    "full_s4_vector_orbits": 1,
+    "full_s4_ordered_matrix_pair_orbits": 3,
+    "tetra_cell_stabilizer_vector_orbits": 2,
+    "tetra_cell_stabilizer_ordered_matrix_pair_orbits": 8,
+    "independent_connection_marked_edge_compatibility_order": 4,
+    "frame_induced_connection_naturality": "AUTOMATIC",
+    "componentwise_projection_strict_witness": "24_AND_24_PROJECT_TO_12_JOINTLY",
+    "partial_fiber_subgroup_caution": true,
+    "g15_certificate_sha256_pin": "sha256:50ef864f0713d1f19ddf918dae2486a05a7e1d52bf538f1603b2d1c6c655281e",
+    "repository_checkout_execution_claimed": false
+  },
+  "background_gate_resolution": {
+    "native_adj": "CONTENTFUL_SYMMETRY_LEAK_SOURCE_STRUCTURAL_NO_NEW_G17_CHARGE",
+    "frames": "PURE_GAUGE_PRESENTATION_NO_CHARGE",
+    "frame_induced_transport": "DERIVED_AUTOMATICALLY_EQUIVARIANT_NO_CHARGE",
+    "pf10": "CONTENTFUL_SYMMETRY_LEAK_SOURCE_CHARGE_PF10_STRUCTURAL_AUT_EQ",
+    "independent_connection": "CONTENTFUL_SYMMETRY_LEAK_SOURCE_OPTIONAL_CHARGE_CONNECTION_STRUCTURAL_AUT_EQ",
+    "star_overlap_gluing": "DERIVED_AUTOMATICALLY_EQUIVARIANT_AT_ACCEPTED_SCOPE"
+  },
+  "conditional_frontiers": {
+    "frame_induced_or_no_independent_connection": {
+      "package": ["K4_ADJ", "PF10_STRUCTURAL_AUT_EQ"],
+      "cost": [0, 0, 0, 0, 0, 0, 2, 0]
+    },
+    "independent_connection_declared": {
+      "package": ["K4_ADJ", "PF10_STRUCTURAL_AUT_EQ", "CONNECTION_STRUCTURAL_AUT_EQ"],
+      "cost": [0, 0, 0, 0, 0, 0, 3, 0]
+    }
+  },
+  "tool_reuse_resolution": "REUSE_APPLIED:T7_FINITE_SYMMETRY_EQUIVARIANCE;REUSE_APPLIED:T9_HOLONOMY_COCOYCLE_GLUING",
+  "new_general_tool_claim": false,
+  "scope_audit_note": "The original scheduler CLAIM serialization omitted the taskbook-required checker path. The CLAIM manifest was corrected and a separate SCOPE_NOTE was posted. Ownership, lease, publication, hard target, branch and mathematical scope were unchanged.",
+  "canonical_promotion_granted": false,
+  "working_truth_granted": false,
+  "driver_review_required": true
+}
