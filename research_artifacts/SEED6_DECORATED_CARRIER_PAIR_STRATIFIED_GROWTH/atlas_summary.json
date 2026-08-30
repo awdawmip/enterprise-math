@@ -1,0 +1,69 @@
+{
+  "core_interface": {
+    "lossless_overlap_coordinates": "d=gcd(a,b), A=a/d, B=b/d, gcd(A,B)=1",
+    "raw": "prime-labelled valuation profile p -> (v_p(a), v_p(b)) with carrier-slot S2 action",
+    "typed": "valuation-pair multiset modulo prime relabeling and optional carrier swap"
+  },
+  "counterexamples": {
+    "delta_incomplete_support": [
+      "(2,6)",
+      "(6,10)",
+      "Delta_T=4"
+    ],
+    "delta_plus_support_shape_incomplete_thickness": [
+      "(2,6)",
+      "(4,6)",
+      "Delta_T=4",
+      "SNF differs"
+    ],
+    "scalar_12": [
+      "(3,4) coprime thick",
+      "(2,6) overlap"
+    ],
+    "scalar_36": [
+      "(4,9) coprime thick",
+      "(2,18) overlap",
+      "(6,6) equality"
+    ]
+  },
+  "hard_target": "DECORATED_CARRIER_PAIR_STRATIFIED_GROWTH_ATLAS_CLASSIFIED",
+  "regression": {
+    "ordered_pairs_checked": 6241,
+    "range": "ordered 2 <= a,b <= 80",
+    "rank2_triangle_lattices": 121,
+    "rank3_triangle_lattices": 6120,
+    "status": "PASS",
+    "stratum_counts": {
+      "COPRIME_MULTISUPPORT": 2882,
+      "COPRIME_PRIME_POWER_THICK": 428,
+      "DISTINCT_PRIME_PAIR": 462,
+      "EQUALITY": 79,
+      "OVERLAP_DISTINCT": 2390
+    }
+  },
+  "required_strata": [
+    "C0_DISTINCT_PRIME_PAIR",
+    "C1_COPRIME_PRIME_POWER_THICK",
+    "C2_COPRIME_MULTISUPPORT",
+    "O1_OVERLAP_COMMON_BASE_RANK1",
+    "O2_OVERLAP_RANK2",
+    "E_EQUALITY"
+  ],
+  "researcher_id": "EM-S6DCG-105931",
+  "schema": "SEED6_DECORATED_CARRIER_PAIR_STRATIFIED_GROWTH_ATLAS_SUMMARY_V1",
+  "scope_guards": [
+    "NO_ADDITIVE_DISTANCE",
+    "NO_FACTORIZATION_OBJECTIVE",
+    "NO_PERFORMANCE_CLAIM",
+    "NO_STANDARD_MATCHING_NOVELTY",
+    "NO_GLOBAL_TOPOLOGY_CLAIM"
+  ],
+  "snf_theorem": {
+    "D": "gcd absolute 2x2 carrier-profile determinants",
+    "H": "gcd(alpha_p+beta_p, alpha_p-beta_p, all 2x2 carrier-profile determinants)",
+    "profile_rank_1": "diag(1,H,0)",
+    "profile_rank_2": "diag(1,H,2D/H)"
+  },
+  "task_id": "RS-SEED6-DECORATED-CARRIER-PAIR-STRATIFIED-GROWTH",
+  "terminal_verdict": "SUCCESS / EXACT_STRATIFIED_ATLAS_WITH_PROFILE_COMPLETENESS"
+}
