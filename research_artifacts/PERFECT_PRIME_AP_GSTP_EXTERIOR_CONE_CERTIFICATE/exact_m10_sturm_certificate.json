@@ -1,0 +1,174 @@
+{
+  "certificate_schema": "ENTERPRISE_MATH_EXACT_STURM_CERTIFICATE_V1",
+  "exact_root_counts": [
+    {
+      "degree": 1,
+      "m": 2,
+      "nonreal_roots": 0,
+      "roots_0_1": 1,
+      "roots_gt_1": 0,
+      "roots_negative": 0,
+      "squarefree": true,
+      "sturm_variations_neg_inf_0_1_pos_inf": [
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "degree": 2,
+      "m": 3,
+      "nonreal_roots": 0,
+      "roots_0_1": 2,
+      "roots_gt_1": 0,
+      "roots_negative": 0,
+      "squarefree": true,
+      "sturm_variations_neg_inf_0_1_pos_inf": [
+        2,
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "degree": 3,
+      "m": 4,
+      "nonreal_roots": 0,
+      "roots_0_1": 3,
+      "roots_gt_1": 0,
+      "roots_negative": 0,
+      "squarefree": true,
+      "sturm_variations_neg_inf_0_1_pos_inf": [
+        3,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "degree": 4,
+      "m": 5,
+      "nonreal_roots": 0,
+      "roots_0_1": 4,
+      "roots_gt_1": 0,
+      "roots_negative": 0,
+      "squarefree": true,
+      "sturm_variations_neg_inf_0_1_pos_inf": [
+        4,
+        4,
+        0,
+        0
+      ]
+    },
+    {
+      "degree": 5,
+      "m": 6,
+      "nonreal_roots": 0,
+      "roots_0_1": 5,
+      "roots_gt_1": 0,
+      "roots_negative": 0,
+      "squarefree": true,
+      "sturm_variations_neg_inf_0_1_pos_inf": [
+        5,
+        5,
+        0,
+        0
+      ]
+    },
+    {
+      "degree": 6,
+      "m": 7,
+      "nonreal_roots": 0,
+      "roots_0_1": 6,
+      "roots_gt_1": 0,
+      "roots_negative": 0,
+      "squarefree": true,
+      "sturm_variations_neg_inf_0_1_pos_inf": [
+        6,
+        6,
+        0,
+        0
+      ]
+    },
+    {
+      "degree": 7,
+      "m": 8,
+      "nonreal_roots": 0,
+      "roots_0_1": 7,
+      "roots_gt_1": 0,
+      "roots_negative": 0,
+      "squarefree": true,
+      "sturm_variations_neg_inf_0_1_pos_inf": [
+        7,
+        7,
+        0,
+        0
+      ]
+    },
+    {
+      "degree": 8,
+      "m": 9,
+      "nonreal_roots": 0,
+      "roots_0_1": 8,
+      "roots_gt_1": 0,
+      "roots_negative": 0,
+      "squarefree": true,
+      "sturm_variations_neg_inf_0_1_pos_inf": [
+        8,
+        8,
+        0,
+        0
+      ]
+    },
+    {
+      "degree": 9,
+      "m": 10,
+      "nonreal_roots": 2,
+      "roots_0_1": 7,
+      "roots_gt_1": 0,
+      "roots_negative": 0,
+      "squarefree": true,
+      "sturm_variations_neg_inf_0_1_pos_inf": [
+        8,
+        8,
+        1,
+        1
+      ]
+    }
+  ],
+  "logical_consequences": [
+    "The degree-9 quotient has exactly 7 real roots and is squarefree; with real coefficients the remaining two roots form one simple non-real conjugate pair.",
+    "Kushel Theorem 22 says GSTP implies a positive simple real spectrum, so the actual AP T_10 is not GSTP with respect to any full proper-cone family.",
+    "q_10(1)=det(I_9-Q_10)>0 exactly, so the parent fixed-point exclusion survives at m=10."
+  ],
+  "m10_exact_digests": {
+    "canonical_T10_fraction_matrix_sha256": "sha256:80110c201bd8d08de474484f4caa4fe2207e523aca3dfd5c664896287634f617",
+    "canonical_quotient_charpoly_desc_fraction_coefficients_sha256": "sha256:2c1e58b54a999a84bc9a89b0fadf090dd2e836eaa42c4a803415370382350fae",
+    "q10_at_one_decimal_orientation_only": "1.8443064439628331e-24",
+    "q10_at_one_denominator_decimal_digits": 1888,
+    "q10_at_one_exact_fraction_sha256": "sha256:a8dd130f9c473546c667b5215d6ef291d35dde20b1ec8912e20d3ea8b3ea6f5b",
+    "q10_at_one_numerator_decimal_digits": 1865,
+    "q10_at_one_sign": "POSITIVE"
+  },
+  "m10_nonreal_pair_decimal_orientation_only": [
+    "1.00000000174040718911332539254 - 0.0000000169931097042744825701546510525 i",
+    "1.00000000174040718911332539254 + 0.0000000169931097042744825701546510525 i"
+  ],
+  "operator_convention": {
+    "A": "E^{-1} H W",
+    "B": "D^{-1} H^T W",
+    "H_ij": "h_m(i+m*j)",
+    "R_ri": "(-1)^i*binom(r,i) for i<=r",
+    "T_m": "R B A R = R Bhat R Ahat",
+    "h_m(q)": "1/prod_{ell=0}^{m-1}(1+q+ell*m^2)",
+    "n": "m-1",
+    "w_i": "(-1)^i*binom(m-1,i)"
+  },
+  "proof_status": "EXACT_RATIONAL_STURM; decimal roots are orientation only",
+  "publication_id": "TP2-C5D08271E39A4B6F215C",
+  "researcher_id": "EM-PPTAPGSTP1-F3A097",
+  "task_id": "RS-PERFECT-PRIME-AP-GSTP-EXTERIOR-CONE-CERTIFICATE",
+  "terminal_certificate": "ACTUAL_AP_M10_HAS_ONE_NONREAL_CONJUGATE_EIGENPAIR_SO_GSTP_FAILS",
+  "checker": "research_checks/PERFECT_PRIME_AP_GSTP_EXTERIOR_CONE_CERTIFICATE_CHECK_20260830.py"
+}
