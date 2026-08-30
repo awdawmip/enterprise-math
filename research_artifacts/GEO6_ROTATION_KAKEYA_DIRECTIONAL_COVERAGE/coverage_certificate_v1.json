@@ -1,0 +1,39 @@
+{
+  "schema": "GEO6_ROTATION_KAKEYA_COVERAGE_CERTIFICATE_V1",
+  "task_id": "RS-GEO6-ROTATION-KAKEYA-DIRECTIONAL-COVERAGE",
+  "researcher_id": "EM-G6KAK-7B31E4",
+  "model_scope": "DECLARED_DOWNSTREAM_6D_INTEGER_CELL_AXIS_RELATION_BENCHMARK",
+  "native_authority_guard": "CARRIER_S4_READOUT_ONLY_NOT_FULL_NATIVE_P000_ROTATION_GROUP",
+  "direction_labels": ["AB", "AC", "AD", "BC", "BD", "CD"],
+  "direction_readout": "six FCC carrier edge labels identified with the six P000 axis-type slots through the accepted beta bridge",
+  "rotation_action": "S4 permutes K4 edge labels and hence the six coordinate relations",
+  "path_definition": "P_d(a,r)={a+t e_d:0<=t<r} inside a finite integer Cell window; relation is coordinate-d adjacency, not Euclidean metric",
+  "support_cost": "cardinality of the union of one declared path in each of the six direction classes",
+  "theorems": {
+    "overlap_incidence": "For six linearly independent axis directions, the bipartite graph between direction paths and multiply-covered Cells is a forest.",
+    "overlap_defect_bound": "sum_x(m_x-1)<=5",
+    "exact_capacity": "K_6(r)=6r-5 for every integer r>=2 whenever the finite window contains the centered construction",
+    "equality_condition": "The overlap-incidence forest is connected; full concurrency is sufficient but not necessary.",
+    "refinement": "K_6(r+1)-K_6(r)=6",
+    "renormalization": "K_6(2r-1)=2K_6(r)-1"
+  },
+  "finite_levels": [
+    {"r": 2, "exact_min_support": 7},
+    {"r": 3, "exact_min_support": 13},
+    {"r": 4, "exact_min_support": 19}
+  ],
+  "upper_certificate": "all six paths share one Cell; the remaining r-1 Cells on each axis are pairwise disjoint",
+  "lower_certificate": "any overlap-incidence cycle telescopes to a nonzero integer linear relation among distinct basis directions, contradicting independence",
+  "adversarial_countermodel": {
+    "directions": ["e1", "e2", "e1+e2"],
+    "r": 2,
+    "support": 3,
+    "independent_axis_formula_would_predict": 4,
+    "meaning": "a direction circuit permits a genuine overlap cycle; independence is an essential hypothesis"
+  },
+  "interpretation": "The fixed six-axis carrier orbit is exactly classifiable but Kakeya-degenerate: support grows linearly with path length because the direction family does not refine and cannot sustain overlap circuits. Nondegenerate future models need scale-dependent and/or mixed rotation directions with separately justified native semantics.",
+  "external_boundary": "Classical Euclidean Kakeya theorems, Hausdorff dimension and Lebesgue measure are comparison context only and are not used in the proof.",
+  "tool_reuse": [
+    "T7_FINITE_SYMMETRY_EQUIVARIANCE for S4 orbit/stabilizer validation"
+  ]
+}
