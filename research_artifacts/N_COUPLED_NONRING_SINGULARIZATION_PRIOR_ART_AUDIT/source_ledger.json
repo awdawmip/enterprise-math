@@ -1,0 +1,297 @@
+{
+  "schema": "N_COUPLED_NONRING_SINGULARIZATION_PRIOR_ART_SOURCE_LEDGER_V1",
+  "task_id": "RS-N-COUPLED-NONRING-SINGULARIZATION-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-B3E71C5A80D49F26A164",
+  "researcher_id": "EM-NCASPA1-4B7D92",
+  "searched_at": "2026-08-30",
+  "audit_target": "Public N-only, factor-blind state/process semantics not representable by a fixed finite ring term, capable of creating one-sided hidden-CRT behavior while every declared scalar projection before the selective-collapse layer remains gcd-clean (gcd 1 or N).",
+  "parent_firewall": {
+    "frozen_result": "RR-13ED25CE1AA8899BCFEC",
+    "accepted_boundary": "Fixed finite-step polynomial/localized-ring semantics are N-erased modulo N; one-sided rank loss is fixed determinantal support and exposes its factor by gcd.",
+    "audit_question": "Do established non-ring/stateful factoring mechanisms exactly duplicate the surviving guarded class, or only antecede it through excluded order, collision, congruence-of-squares, known-prime p-adic, or direct-nonunit mechanisms?"
+  },
+  "policy": [
+    "Classification is hypothesis-by-hypothesis, not name similarity.",
+    "NO_MATERIAL_MATCH and NO_EXACT_DUPLICATE_FOUND are search boundaries, never novelty evidence.",
+    "A method is not an exact duplicate if its selective event is already an excluded order/smoothness, collision, congruence-of-squares/relation, known-prime p-adic, or direct scalar nonunit/gcd mechanism.",
+    "Distinguish per-step CRT product naturality from process-level stopping/history asymmetry."
+  ],
+  "minimum_search_classes": [
+    "EUCLIDEAN_CONTINUED_FRACTION_STATE",
+    "CANONICAL_REPRESENTATIVE_QUOTIENT_REMAINDER_CARRY",
+    "PADIC_HENSEL_VALUATION_STATE",
+    "POLLARD_WILLIAMS_ORDER_SMOOTHNESS",
+    "RHO_COLLISION_CYCLE",
+    "CONGRUENCE_OF_SQUARES_FERMAT_LEHMAN_HART",
+    "LATTICE_RELATION_MODULAR_LINEAR_ALGEBRA",
+    "CRT_IDEMPOTENT_ZERO_DIVISOR_NONUNIT_DISCOVERY"
+  ],
+  "search_surfaces": [
+    "Cambridge Core journal records",
+    "Annals of Mathematics",
+    "American Mathematical Society / Mathematics of Computation bibliographic records",
+    "MathWorld mechanism summaries with primary citations",
+    "Boston University academic NFS exposition",
+    "EPFL concept/course surface for Hensel lifting",
+    "Carnegie Mellon University Rabin-function exposition",
+    "Targeted DOI/title searches over factoring, modular dynamics, CRT idempotents and zero divisors"
+  ],
+  "exact_queries": [
+    "Pollard p-1 factorization smooth p-1 gcd",
+    "Williams p+1 method factoring smooth p+1",
+    "Lenstra factoring integers elliptic curves Pollard p-1 random elliptic curve",
+    "Pollard rho factorization CRT cycle gcd collision",
+    "continued fraction factorization congruence squares Morrison Brillhart",
+    "quadratic sieve Pomerance smooth relations Gaussian elimination perfect square",
+    "Dixon asymptotically fast factorization congruence of squares",
+    "number field sieve relation matrix modulo 2 square root gcd",
+    "Fermat Lehman Hart factoring floor sqrt difference squares",
+    "Hensel lifting prime p p-adic factorization",
+    "Rabin square roots equivalent to factoring nontrivial square root unity gcd",
+    "nontrivial idempotent Z/nZ CRT factorization gcd",
+    "zero divisor Z/nZ factoring composite gcd"
+  ],
+  "sources": [
+    {
+      "source_id": "S01",
+      "class": "POLLARD_P_MINUS_1",
+      "citation": "J. M. Pollard, Theorems on factorization and primality testing, Mathematical Proceedings of the Cambridge Philosophical Society 76(3) (1974), 521-528.",
+      "doi": "10.1017/S0305004100049252",
+      "urls": [
+        "https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/theorems-on-factorization-and-primality-testing/6762E84DBD34AEF13E6B1D1A8334A989",
+        "https://mathworld.wolfram.com/Pollardp-1FactorizationMethod.html"
+      ],
+      "public_inputs": "Composite N, public base c coprime to N, and a public smoothness/exponent schedule M.",
+      "hidden_information_assumptions": "No factor is supplied, but success depends on one hidden p having p-1 dividing/sufficiently dividing the public exponent schedule.",
+      "evolving_state": "Repeated modular exponentiation / accumulation of a large smooth exponent.",
+      "stopping_predicate": "Compute gcd(c^M-1,N) at scheduled checkpoints.",
+      "selective_collapse_event": "c^M becomes 1 modulo one hidden factor before it becomes 1 modulo all hidden factors.",
+      "final_factor_extraction": "A proper gcd(c^M-1,N).",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "guard_relation": "Excluded by the task's Pollard/order-annihilation/smoothness guard. It demonstrates process-level hidden-channel asymmetry, not a surviving new primitive.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S02",
+      "class": "WILLIAMS_P_PLUS_1",
+      "citation": "H. C. Williams, A p+1 method of factoring, Mathematics of Computation 39(159) (1982), 225-234.",
+      "doi": "10.1090/S0025-5718-1982-0658227-7",
+      "urls": [
+        "https://cir.nii.ac.jp/crid/1360011143837781120"
+      ],
+      "public_inputs": "Composite N plus public Lucas-sequence parameters and a smoothness schedule.",
+      "hidden_information_assumptions": "No factor is supplied; success is tied to one hidden p for which p+1 (or the relevant Lucas-group order) is smooth.",
+      "evolving_state": "Lucas-sequence / algebraic-group state modulo N under a large smooth index.",
+      "stopping_predicate": "A scheduled nonunit/gcd test on the Lucas-state expression.",
+      "selective_collapse_event": "The relevant group state reaches its distinguished identity/trace condition modulo one hidden factor only.",
+      "final_factor_extraction": "A proper gcd with N.",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "guard_relation": "Excluded by the Williams/order-annihilation/smoothness guard.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S03",
+      "class": "LENSTRA_ECM",
+      "citation": "H. W. Lenstra Jr., Factoring integers with elliptic curves, Annals of Mathematics 126(3) (1987), 649-673.",
+      "doi": "10.2307/1971363",
+      "urls": [
+        "https://annals.math.princeton.edu/1987/126-3/p09",
+        "https://eecm.cr.yp.to/"
+      ],
+      "public_inputs": "Composite N, a public/random elliptic curve and point, and public scalar-multiplication smoothness bounds.",
+      "hidden_information_assumptions": "No factor is supplied; success depends on the order of the reduction of the chosen curve/point modulo one hidden prime factor.",
+      "evolving_state": "Elliptic-curve scalar-multiplication state over Z/NZ (typically projective coordinates).",
+      "stopping_predicate": "A noninvertible coordinate/denominator or projective coordinate whose gcd with N is proper.",
+      "selective_collapse_event": "A smooth scalar kills the point modulo one hidden curve group but not the other.",
+      "final_factor_extraction": "A gcd of the nonunit coordinate/denominator with N.",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "guard_relation": "A particularly close geometric antecedent, but still an algebraic-group order/smoothness mechanism explicitly guarded out by the task.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S04",
+      "class": "POLLARD_RHO",
+      "citation": "J. M. Pollard, A Monte Carlo method for factorization, BIT 15(3) (1975), 331-334.",
+      "doi": "10.1007/BF01933667",
+      "urls": [
+        "https://portal.mardi4nfdi.de/wiki/A_monte_carlo_method_for_factorization",
+        "https://mathworld.wolfram.com/PollardRhoFactorizationMethod.html"
+      ],
+      "public_inputs": "Composite N, a public polynomial map and seed.",
+      "hidden_information_assumptions": "No factor is supplied; the same recurrence modulo hidden p and q has different cycle/collision times.",
+      "evolving_state": "History of iterates x_i modulo N plus a collision-detection schedule.",
+      "stopping_predicate": "gcd(x_i-x_j,N) (or batched product differences) becomes proper.",
+      "selective_collapse_event": "A pair of iterates collides modulo one hidden factor before the other.",
+      "final_factor_extraction": "The collision gcd.",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "guard_relation": "Excluded by the rho/collision guard. Important distinction: every fixed update is CRT-natural; the escape from the parent fixed-grammar theorem is the unbounded/history-dependent event search.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S05",
+      "class": "CFRAC_CONTINUED_FRACTION",
+      "citation": "M. A. Morrison and J. Brillhart, A method of factoring and the factorization of F_7, Mathematics of Computation 29 (1975), 183-205.",
+      "doi": "10.1090/S0025-5718-1975-0371800-5",
+      "urls": [
+        "https://mathworld.wolfram.com/ContinuedFractionFactorizationAlgorithm.html"
+      ],
+      "public_inputs": "Composite N and the continued-fraction expansion data of sqrt(kN) or a related public quadratic irrational.",
+      "hidden_information_assumptions": "No hidden factor is supplied.",
+      "evolving_state": "Continued-fraction convergents, canonical quotient/floor state, and accumulated smooth relations.",
+      "stopping_predicate": "Enough relations exist to form a square relation / congruence of squares modulo N.",
+      "selective_collapse_event": "A global relation produces X^2 congruent Y^2 mod N with X not congruent +/-Y on all hidden channels.",
+      "final_factor_extraction": "gcd(X-Y,N) or gcd(X+Y,N).",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "guard_relation": "Covers the Euclidean/continued-fraction and canonical quotient/floor classes, but is excluded by the congruence-of-squares guard.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S06",
+      "class": "QUADRATIC_SIEVE_DIXON",
+      "citation": "C. Pomerance, The Quadratic Sieve Factoring Algorithm, EUROCRYPT 1984; J. D. Dixon, Asymptotically fast factorization of integers, Mathematics of Computation 36 (1981), 255-260.",
+      "dois": [
+        "10.1007/3-540-39757-4_17",
+        "10.1090/S0025-5718-1981-0595059-1"
+      ],
+      "urls": [
+        "https://mathworld.wolfram.com/QuadraticSieve.html",
+        "https://mathworld.wolfram.com/DixonsFactorizationMethod.html"
+      ],
+      "public_inputs": "Composite N, public factor base / sieve interval / random residues.",
+      "hidden_information_assumptions": "No hidden factor is supplied.",
+      "evolving_state": "Collection of smooth residues and parity vectors followed by linear algebra modulo 2.",
+      "stopping_predicate": "A nontrivial parity dependency yields a congruence of squares.",
+      "selective_collapse_event": "The two square roots agree up to sign differently on hidden CRT channels.",
+      "final_factor_extraction": "gcd(X-Y,N) or gcd(X+Y,N).",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "guard_relation": "History/relation and modular-linear-algebra antecedent, but the final mechanism is exactly the excluded congruence-of-squares family.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S07",
+      "class": "NUMBER_FIELD_SIEVE",
+      "citation": "Ordinary Number Field Sieve background exposition following the standard NFS relation-collection, F_2 linear-algebra and square-root stages.",
+      "urls": [
+        "https://cs-people.bu.edu/tromer/papers/meshc/node2.html"
+      ],
+      "public_inputs": "Composite N plus public polynomial selection, smoothness bounds and relation search.",
+      "hidden_information_assumptions": "No hidden factor is supplied.",
+      "evolving_state": "Large relation history; sparse exponent-parity matrix; kernel vectors; square-root reconstruction.",
+      "stopping_predicate": "A matrix dependency survives the square-root stage and gives a nontrivial congruence of squares.",
+      "selective_collapse_event": "The reconstructed square roots have different sign pairing on hidden CRT channels.",
+      "final_factor_extraction": "A gcd of the square-root difference/sum with N.",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "guard_relation": "Strong lattice/relation/modular-linear-algebra antecedent; excluded because it terminates in congruence-of-squares factor extraction.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S08",
+      "class": "FERMAT_LEHMAN_HART",
+      "citation": "R. S. Lehman, Factoring Large Integers, Mathematics of Computation 28 (1974), 637-646; W. B. Hart, A One Line Factoring Algorithm, Journal of the Australian Mathematical Society 92(1) (2012), 61-69.",
+      "dois": [
+        "10.1090/S0025-5718-1974-0340163-2",
+        "10.1017/S1446788712000146"
+      ],
+      "urls": [
+        "https://www.cambridge.org/core/journals/journal-of-the-australian-mathematical-society/article/one-line-factoring-algorithm/848A333234F5ECE503E5014BEE40D82E"
+      ],
+      "public_inputs": "Composite N plus public search multipliers/intervals.",
+      "hidden_information_assumptions": "No hidden factor is supplied.",
+      "evolving_state": "Canonical floor/ceiling square-root and difference-of-squares search state.",
+      "stopping_predicate": "A tested difference becomes an exact square.",
+      "selective_collapse_event": "A representation a^2-b^2=kN is found.",
+      "final_factor_extraction": "gcd(a-b,N), or direct division from a±b when k=1.",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "guard_relation": "Covers canonical representative/floor state but remains Fermat/difference-of-squares and is excluded by the congruence-of-squares guard.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S09",
+      "class": "HENSEL_PADIC",
+      "citation": "Hensel lifting: simple roots/factorizations modulo a prime p lift to higher powers p^k; standard p-adic lifting interface.",
+      "urls": [
+        "https://graphsearch.epfl.ch/en/concept/1633368"
+      ],
+      "public_inputs": "A prime p (or an explicitly supplied maximal ideal) and a root/factorization modulo p.",
+      "hidden_information_assumptions": "The p-adic place is already named; in the N=pq factoring target this would supply precisely the hidden channel that the task forbids naming.",
+      "evolving_state": "Successive p-adic lifts modulo p^k.",
+      "stopping_predicate": "Precision/lift target achieved or a p-adic condition fails.",
+      "selective_collapse_event": "Valuation behavior occurs in a specified p-adic channel.",
+      "final_factor_extraction": "Not an N-only hidden-factor discovery in the standard Hensel interface.",
+      "classification": "ADJACENT_METHOD",
+      "guard_relation": "Useful non-ring/valuation state, but not factor-blind N-only because the relevant prime/maximal ideal is an input.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S10",
+      "class": "RABIN_NONTRIVIAL_SQUARE_ROOT",
+      "citation": "M. O. Rabin, Digitalized Signatures and Public-Key Functions as Intractable as Factorization, MIT/LCS/TR-212 (1979); standard reduction from nontrivial modular square roots to factoring.",
+      "urls": [
+        "https://www.cs.cmu.edu/afs/cs/usr/bsy/www/rabin_func.html"
+      ],
+      "public_inputs": "Composite N=pq and an oracle/process producing a square root not tied to the originally chosen sign pair.",
+      "hidden_information_assumptions": "No factor need be supplied to the root oracle, but a nontrivial square root of unity already encodes opposite signs on the hidden CRT channels.",
+      "evolving_state": "Root extraction / CRT sign state.",
+      "stopping_predicate": "Obtain a nontrivial square root of unity gamma != +/-1.",
+      "selective_collapse_event": "gamma is +1 on one hidden factor and -1 on the other.",
+      "final_factor_extraction": "gcd(gamma-1,N) or gcd(gamma+1,N).",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "guard_relation": "Exact endpoint equivalence: once the scalar witness is present, the hidden factor is already exposed by gcd. It therefore cannot satisfy the pre-collapse scalar-clean firewall unless this witness itself is declared to be the collapse layer.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S11",
+      "class": "CRT_IDEMPOTENTS_ZERO_DIVISORS",
+      "citation": "Elementary CRT classification of idempotents in Z/nZ; for n with multiple prime-power components, idempotents correspond to 0/1 choices on each CRT component.",
+      "urls": [
+        "https://ysharifi.wordpress.com/2010/12/15/idempotent-elements-of-znz/"
+      ],
+      "public_inputs": "A scalar residue e or z modulo composite N.",
+      "hidden_information_assumptions": "No factor is needed to verify idempotence/nonunit status, but constructing a nontrivial CRT idempotent generally encodes a decomposition.",
+      "evolving_state": "Not a distinct algorithmic process; algebraic witness class.",
+      "stopping_predicate": "e^2=e with e not in {0,1}, or a scalar z becomes a proper zero divisor/nonunit.",
+      "selective_collapse_event": "The scalar is 0 on at least one but not all hidden CRT components (or e is 0/1 with different choices).",
+      "final_factor_extraction": "For N=pq, proper scalar nonunit z gives gcd(z,N)=p or q; nontrivial idempotent e gives complementary gcd(e,N) and gcd(e-1,N).",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "guard_relation": "This is the algebraic endpoint boundary itself, not a surviving pre-collapse mechanism.",
+      "exact_duplicate": false
+    },
+    {
+      "source_id": "S12",
+      "class": "CANONICAL_CARRY_QUOTIENT_ONLY",
+      "citation": "Targeted searches for factorization methods whose decisive mechanism is only canonical representative / quotient-remainder / carry state, without order, collision, square-relation, named p-adic place, or direct nonunit exposure.",
+      "urls": [],
+      "public_inputs": "Public composite N only.",
+      "hidden_information_assumptions": "Required to remain factor-blind.",
+      "evolving_state": "Would be canonical representative, quotient/remainder or carry history not reducible to fixed ring terms.",
+      "stopping_predicate": "Would need a support-faithful one-sided hidden-channel event with all earlier scalar projections gcd-clean.",
+      "selective_collapse_event": "No established exact match located under the simultaneous guards.",
+      "final_factor_extraction": "No material match located.",
+      "classification": "NO_MATERIAL_MATCH",
+      "guard_relation": "Search boundary only. Existing quotient/floor examples located in CFRAC/QS/Fermat/Lehman/Hart collapse into the excluded congruence-of-squares family.",
+      "exact_duplicate": false
+    }
+  ],
+  "mechanism_level_synthesis": {
+    "per_step_crt_naturality": "Pollard rho and modular exponentiation examples show that the arithmetic update can remain exactly CRT-natural at every fixed step.",
+    "process_level_escape": "Classical algorithms escape the parent's fixed finite grammar through variable-time/event searches, changing support schedules, random curves, collision history, relation accumulation, or a supplied p-adic place.",
+    "scalar_firewall": "For N=pq, any scalar s that is zero modulo exactly one hidden factor immediately exposes that factor as gcd(s,N). Likewise nontrivial CRT idempotents and square roots of unity expose factors by gcd.",
+    "surviving_guarded_residue": "Any materially distinct successor must keep the asymmetric information typed/non-scalar until the declared collapse layer and must not reduce to order/smoothness, collision, congruence-of-squares/relation, named-prime p-adic, or direct scalar nonunit extraction."
+  },
+  "exact_match_test": {
+    "required_joint_features": [
+      "public N-only and factor-blind",
+      "state/process not representable by one fixed finite polynomial/localized-ring term",
+      "one-sided hidden CRT behavior",
+      "every declared scalar projection before the collapse layer has gcd 1 or N with N",
+      "not Pollard/Williams/ECM group-order or smoothness annihilation",
+      "not rho/cycle/collision",
+      "not congruence-of-squares / Fermat / CFRAC / QS / Dixon / NFS relation factoring",
+      "not a p-adic/Hensel process with the hidden prime/maximal ideal already supplied",
+      "not merely construction/discovery of a scalar zero divisor, nonunit, idempotent or nontrivial square root whose gcd already factors N"
+    ],
+    "result": "NO_EXACT_DUPLICATE_FOUND_IN_AUDITED_SURFACES",
+    "novelty_guard": "NO_EXACT_DUPLICATE_FOUND_IN_AUDITED_SURFACES != NOVELTY"
+  },
+  "terminal_class": "NO_EXACT_DUPLICATE_FOUND_WITH_MULTIPLE_STRICT_OR_PARTIAL_ANTECEDENTS"
+}

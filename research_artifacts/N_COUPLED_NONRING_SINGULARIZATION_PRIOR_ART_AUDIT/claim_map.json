@@ -1,0 +1,122 @@
+{
+  "schema": "N_COUPLED_NONRING_SINGULARIZATION_PRIOR_ART_CLAIM_MAP_V1",
+  "task_id": "RS-N-COUPLED-NONRING-SINGULARIZATION-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-B3E71C5A80D49F26A164",
+  "researcher_id": "EM-NCASPA1-4B7D92",
+  "classification_vocabulary": [
+    "EXACT_DUPLICATE",
+    "STRICT_OR_PARTIAL_ANTECEDENT",
+    "ADJACENT_METHOD",
+    "NO_MATERIAL_MATCH"
+  ],
+  "target": "NONRING_CRT_BREAK_PRIOR_ART_CLASSIFIED",
+  "rows": [
+    {
+      "claim_id": "C01_FIXED_STEP_VS_PROCESS_LEVEL_CRT_NATURALITY",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "sources": ["S01", "S02", "S03", "S04"],
+      "external_mechanism": "Order/smoothness and rho families compute public modular states that reduce channelwise under CRT, yet succeed because a hidden channel reaches an identity/collision at a different event time.",
+      "exact_mapping": "This matches the desired one-sided hidden-channel phenomenon but not the claimed need to literally break CRT naturality of every update map.",
+      "missing_or_excluded_feature": "All listed mechanisms use an excluded order/smoothness or collision event. The genuinely surviving question is process semantics after these are removed.",
+      "research_value": "Sharpens the sibling mathematical task: distinguish update-map CRT naturality from process/stopping CRT asymmetry."
+    },
+    {
+      "claim_id": "C02_GROUP_ORDER_SMOOTHNESS_ANTECEDENT",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "sources": ["S01", "S02", "S03"],
+      "external_mechanism": "Pollard p-1, Williams p+1 and ECM use differing hidden group orders so a public smooth scalar reaches the distinguished identity on one hidden reduction first.",
+      "exact_mapping": "One-sided hidden channel singularization occurs without pre-naming p or q.",
+      "missing_or_excluded_feature": "The decisive state predicate is order/smoothness annihilation, explicitly excluded by the task.",
+      "research_value": "ECM is the closest geometric negative control: a non-ring/projective state is insufficient for novelty if its selective event is still hidden group-order smoothness."
+    },
+    {
+      "claim_id": "C03_COLLISION_HISTORY_ANTECEDENT",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "sources": ["S04"],
+      "external_mechanism": "Pollard rho follows the same polynomial recurrence modulo p and q but detects a collision modulo one hidden factor earlier through history and cycle detection.",
+      "exact_mapping": "Provides a public N-only stateful process whose useful information exists only after comparing separated times.",
+      "missing_or_excluded_feature": "It is exactly the excluded generic rho/collision mechanism.",
+      "research_value": "Shows why a fixed finite prefix remains within static support while a variable-time search escapes that finite-support obstruction."
+    },
+    {
+      "claim_id": "C04_QUOTIENT_FLOOR_RELATION_ANTECEDENT",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "sources": ["S05", "S06", "S07", "S08"],
+      "external_mechanism": "CFRAC, QS/Dixon, NFS and Fermat/Lehman/Hart use quotient/floor/canonical representative and/or accumulated relation state.",
+      "exact_mapping": "They demonstrate that non-ring integer-representative/history semantics are standard factoring resources.",
+      "missing_or_excluded_feature": "Their decisive extraction is difference/congruence of squares or relation factoring, explicitly excluded by the task.",
+      "research_value": "Prevents treating floor, carry or relation memory by themselves as a new primitive."
+    },
+    {
+      "claim_id": "C05_LATTICE_MOD2_RELATION_BOUNDARY",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "sources": ["S06", "S07"],
+      "external_mechanism": "QS/Dixon/NFS accumulate smooth relations and solve sparse linear systems modulo 2 before a square-root stage.",
+      "exact_mapping": "This is a strong antecedent for high-dimensional typed state whose scalar projections need not reveal a factor at each earlier step.",
+      "missing_or_excluded_feature": "The terminal selective event is a congruence of squares, so it lies behind an explicit firewall.",
+      "research_value": "Any successor using matrices/lattices must prove it is not merely a re-encoding of relation parity leading to X^2=Y^2 mod N."
+    },
+    {
+      "claim_id": "C06_PADIC_HENSEL_NOT_N_ONLY",
+      "classification": "ADJACENT_METHOD",
+      "sources": ["S09"],
+      "external_mechanism": "Hensel lifting evolves genuinely non-ring p-adic precision state.",
+      "exact_mapping": "It is structurally relevant to valuation-triggered state.",
+      "missing_or_excluded_feature": "The standard interface starts from a specified prime p/maximal ideal and a root/factorization modulo p, so the hidden CRT channel is already named.",
+      "research_value": "A factor-blind N-only p-adic successor would need a new way to select a place without already factoring N."
+    },
+    {
+      "claim_id": "C07_SCALAR_NONUNIT_ENDPOINT_EQUIVALENCE",
+      "classification": "STRICT_OR_PARTIAL_ANTECEDENT",
+      "sources": ["S10", "S11"],
+      "external_mechanism": "Nontrivial square roots of unity, nontrivial CRT idempotents and scalar zero divisors encode different hidden-channel values.",
+      "exact_mapping": "They realize perfect one-sided/complementary hidden CRT separation.",
+      "missing_or_excluded_feature": "The scalar witness itself is already a factor certificate: gcd with N splits N.",
+      "research_value": "Makes the support firewall exact: a surviving pre-collapse asymmetric state must remain typed/non-scalar until the declared collapse readout."
+    },
+    {
+      "claim_id": "C08_PURE_CANONICAL_CARRY_RESIDUE",
+      "classification": "NO_MATERIAL_MATCH",
+      "sources": ["S05", "S06", "S08", "S12"],
+      "external_mechanism": "Searches for canonical representative / quotient-remainder / carry semantics after removing order, collision, square-relation, named p-adic and direct nonunit mechanisms.",
+      "exact_mapping": "No established source in the audited surfaces matched all guards jointly.",
+      "missing_or_excluded_feature": "This is not a theorem or novelty claim; it is the exact negative search boundary.",
+      "research_value": "Leaves a narrower, auditable mathematical residue instead of the vague label 'non-ring'."
+    },
+    {
+      "claim_id": "C09_EXACT_DUPLICATION_TEST",
+      "classification": "NO_MATERIAL_MATCH",
+      "sources": ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12"],
+      "external_mechanism": "No audited candidate jointly satisfies every required guarded feature.",
+      "exact_mapping": "NONE",
+      "missing_or_excluded_feature": "A no-match audit does not establish nonexistence outside the searched surfaces and does not establish novelty.",
+      "research_value": "Terminal duplication boundary for Driver review."
+    }
+  ],
+  "exact_scalar_firewall_lemmas": [
+    {
+      "lemma": "SCALAR_ONE_SIDED_ZERO_IS_FACTOR",
+      "statement": "For N=pq with distinct primes, if s=0 mod p and s!=0 mod q, then gcd(s,N)=p; symmetrically for q.",
+      "status": "ELEMENTARY_EXACT"
+    },
+    {
+      "lemma": "IDEMPOTENT_IS_COMPLEMENTARY_FACTOR_CERTIFICATE",
+      "statement": "For a nontrivial idempotent e mod pq, its CRT value is (0,1) or (1,0); hence gcd(e,N) and gcd(e-1,N) are the complementary prime factors.",
+      "status": "ELEMENTARY_EXACT"
+    },
+    {
+      "lemma": "NONTRIVIAL_SQRT_UNITY_IS_FACTOR_CERTIFICATE",
+      "statement": "For gamma^2=1 mod pq with gamma!=+/-1 mod pq, the hidden signs are opposite and gcd(gamma-1,N), gcd(gamma+1,N) give the complementary factors.",
+      "status": "ELEMENTARY_EXACT"
+    }
+  ],
+  "terminal_boundary": {
+    "hard_target_disposition": "NONRING_CRT_BREAK_PRIOR_ART_CLASSIFIED",
+    "terminal_class": "NO_EXACT_DUPLICATE_FOUND_WITH_MULTIPLE_STRICT_OR_PARTIAL_ANTECEDENTS",
+    "exact_duplicate": false,
+    "strongest_antecedent": "Algebraic-group order/smoothness methods, especially ECM, already realize public N-only one-sided hidden-channel collapse through stateful nonunit emergence, but are explicitly excluded.",
+    "important_refinement": "Classical stateful factoring often keeps each update map CRT-natural. What breaks the parent fixed finite grammar is process-level stopping/history/support growth, not necessarily ring-product naturality of an individual update.",
+    "surviving_residue": "A candidate must be public-N-only and factor-blind; non-fixed-term/stateful; pre-collapse scalar-gcd clean; and not reducible to group-order smoothness, collision, congruence-of-squares/relation, named-prime p-adic, or direct nonunit/idempotent/root extraction.",
+    "novelty_guard": "NO_EXACT_DUPLICATE_FOUND != NOVELTY"
+  }
+}
