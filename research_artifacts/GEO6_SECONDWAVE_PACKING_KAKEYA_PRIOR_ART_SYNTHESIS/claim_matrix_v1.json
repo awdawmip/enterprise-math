@@ -1,0 +1,134 @@
+{
+  "schema": "GEO6_SECONDWAVE_PRIOR_ART_CLAIM_MATRIX_V1",
+  "task_id": "RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS",
+  "publication_id": "TP2-3B14908767F248123B62",
+  "researcher_id": "EM-G6PA2-7A84C2",
+  "generated_at": "2026-08-30T11:15:37+00:00",
+  "class_labels": [
+    "EXACT_DUPLICATE",
+    "STRICT_ANTECEDENT",
+    "ADJACENT_METHOD",
+    "NO_MATERIAL_MATCH"
+  ],
+  "rows": [
+    {
+      "id": "P01",
+      "accepted_claim": "For a finite declared Cell model (X,C), non-overlapping occupied sets are exactly independent sets of the conflict graph; optimum occupancy is alpha(G)/|X|.",
+      "classification": "EXACT_DUPLICATE",
+      "sources": ["S01"],
+      "hypothesis_comparison": "External conflict-graph encoding assumes only a finite object set plus pairwise incompatibility. The P000 pressure-test adds Cell typing but no stronger mathematics once C is declared.",
+      "consequence": "Do not continue this as a new Packing theorem; novelty can only enter through the choice/derivation of the native conflict relation C."
+    },
+    {
+      "id": "P02",
+      "accepted_claim": "T_n=(Z/nZ)^6 with ±e_i conflict, even n>=4, is a 12-regular bipartite torus with parity classes.",
+      "classification": "EXACT_DUPLICATE",
+      "sources": ["S02", "S12"],
+      "hypothesis_comparison": "This graph is exactly the even k-ary n-cube Q_6^n (notation swapped: alphabet size n, dimension 6), i.e. Cartesian product of six even cycles. Even-k bipartiteness and parity coloring are standard.",
+      "consequence": "The declared torus is a standard network/Cayley graph, not a new native geometric object."
+    },
+    {
+      "id": "P03",
+      "accepted_claim": "alpha(T_n)=n^6/2, hence declared occupancy delta(T_n)=1/2.",
+      "classification": "STRICT_ANTECEDENT",
+      "sources": ["S03", "S02"],
+      "hypothesis_comparison": "A finite regular bipartite graph has equal color classes and, by Hall, a perfect matching. One color class gives N/2 independent vertices and the perfect matching gives alpha<=N/2. This applies to every regular bipartite graph, strictly more general than the six-axis torus.",
+      "consequence": "The exact 1/2 optimum is a special case of classical matching/bipartite theory."
+    },
+    {
+      "id": "P04",
+      "accepted_claim": "The spectral certificate with degree d=12 and least adjacency eigenvalue tau=-12 yields alpha/N<=1/2.",
+      "classification": "EXACT_DUPLICATE",
+      "sources": ["S04"],
+      "hypothesis_comparison": "The return uses Hoffman's ratio bound in its standard form alpha/N <= -tau/(d-tau), with the torus eigenvalues substituted.",
+      "consequence": "The spectral proof is a textbook/existing bound application, useful as independent certification but not new."
+    },
+    {
+      "id": "P05",
+      "accepted_claim": "For a periodic lift from a finite-index quotient of Z^6, every Følner sequence sees density |I|/|Q|.",
+      "classification": "STRICT_ANTECEDENT",
+      "sources": ["S05"],
+      "hypothesis_comparison": "Johnson–McClendon Lemma 2.7 proves the stronger coset statement for any Følner sequence in Z^d and any finite-index subgroup: each coset has limiting proportion 1/[Z^d:G]. Summing the occupied cosets gives the P000 declared-model theorem immediately.",
+      "consequence": "The density theorem is classical amenable-group/coset equidistribution once a translation action is supplied."
+    },
+    {
+      "id": "P06",
+      "accepted_claim": "Finite-window discrepancy from a periodic packing is confined to incomplete fundamental tiles; parity packing has |2|P∩W|-|W||<=b_M(W).",
+      "classification": "STRICT_ANTECEDENT",
+      "sources": ["S03", "S05"],
+      "hypothesis_comparison": "Both are finite boundary decompositions of a periodic/fundamental-domain or perfect-matching partition. Complete blocks contribute exactly their fixed quota; only boundary-crossing blocks contribute error. The external framework is more general than the specific parity packing.",
+      "consequence": "Boundary-error bookkeeping is standard; no successor should be opened by varying the window shape."
+    },
+    {
+      "id": "P07",
+      "accepted_claim": "For q_{k,n}:T_{kn}->T_n, full inverse images of independent sets are independent and equal k^6 fibers preserve occupancy exactly.",
+      "classification": "STRICT_ANTECEDENT",
+      "sources": ["S06"],
+      "hypothesis_comparison": "For any graph homomorphism, the inverse image of an independent set is independent. The extra density equality is immediate from the declared constant fiber size k^6. The general homomorphism statement has weaker hypotheses than this torus quotient.",
+      "consequence": "Finite refinement pullback is standard graph-homomorphism plus counting; only a physical/native interpretation of q can be new."
+    },
+    {
+      "id": "P08",
+      "accepted_claim": "Translations and the realized carrier-S4 coordinate permutations preserve conflict and optimum occupancy; parity may be fixed or swapped.",
+      "classification": "EXACT_DUPLICATE",
+      "sources": ["S06", "S10"],
+      "hypothesis_comparison": "Graph automorphisms preserve adjacency and therefore independent sets/alpha. The S4 calculation is a standard finite group action on coordinate labels.",
+      "consequence": "No native rotation theorem follows merely from automorphism invariance of the declared carrier model."
+    },
+    {
+      "id": "K01",
+      "accepted_claim": "The accepted carrier S4 has 24 elements; the orbit of direction label AB has size 6 and stabilizer size 4.",
+      "classification": "EXACT_DUPLICATE",
+      "sources": ["S10"],
+      "hypothesis_comparison": "Orbit-stabilizer gives |Orb(AB)|=|S4|/|Stab(AB)|=24/4=6 once the action is declared.",
+      "consequence": "This is standard group-action bookkeeping, not a new direction theorem."
+    },
+    {
+      "id": "K02",
+      "accepted_claim": "For finitely many paths with linearly independent direction vectors, the bipartite incidence graph between paths and multiply-covered Cells is a forest.",
+      "classification": "STRICT_ANTECEDENT",
+      "sources": ["S07", "S08", "S11"],
+      "hypothesis_comparison": "A simple incidence cycle supplies nonzero displacements along its participating paths whose signed sum is zero; hence it produces a nontrivial linear dependence among the distinct direction vectors. Therefore linear independence forbids every Berge/incidence cycle. This argument works for any number p of independent directions, not specifically six.",
+      "consequence": "The forest lemma is an elementary linear-algebra/Berge-acyclic consequence and generalizes immediately to p directions."
+    },
+    {
+      "id": "K03",
+      "accepted_claim": "For six independent equal-length-r paths, overlap defect D=sum_x(m_x-1)<=5; K_6(r)=6r-5; equality iff overlap incidence is connected.",
+      "classification": "STRICT_ANTECEDENT",
+      "sources": ["S11", "S07"],
+      "hypothesis_comparison": "For p path-nodes, q shared-cell nodes and c components in an incidence forest, E=(p+q)-c and D=E-q=p-c. Hence |union|=pr-D=pr-p+c>=pr-p+1. A connected realization has c=1 and equality. The accepted formula is the p=6 specialization, so the antecedent is strictly more general.",
+      "consequence": "Any successor proving K_p(r)=pr-p+1 under the same forest hypothesis, changing 6 to d, or restating equality-connectedness is killed as classical/elementary duplication."
+    },
+    {
+      "id": "K04",
+      "accepted_claim": "A non-concurrent r=2 equality chain attains support 7, showing equality does not require six-way concurrency.",
+      "classification": "ADJACENT_METHOD",
+      "sources": ["S11"],
+      "hypothesis_comparison": "Forest Euler counting predicts that every connected incidence tree has the same defect p-1, but external graph theory does not by itself certify that a particular typed coordinate chain is realizable in the project carrier. The exact coordinate witness is model-specific, while its cardinality consequence is standard.",
+      "consequence": "Retain only as a regression witness against an overstrong equality characterization, not as a standalone theorem frontier."
+    },
+    {
+      "id": "K05",
+      "accepted_claim": "The dependent direction family {e1,e2,e1+e2} admits an incidence cycle and an r=2 packet with support 3, below the independent-axis forest value 4.",
+      "classification": "ADJACENT_METHOD",
+      "sources": ["S08", "S07"],
+      "hypothesis_comparison": "In the vector matroid the three directions form a circuit because e1+e2-(e1+e2)=0 and every proper pair is independent. Matroid/Berge theory predicts that dependence is exactly where a cycle obstruction can appear, but it does not determine the project-specific support-3 coordinate witness.",
+      "consequence": "The exact witness is useful only as a boundary detector; progress requires a native mixed/refining direction family, not more fixed-carrier circuit examples."
+    },
+    {
+      "id": "K06",
+      "accepted_claim": "The fixed-six-axis support problem is a 'Kakeya' comparison target.",
+      "classification": "NO_MATERIAL_MATCH",
+      "sources": ["S09"],
+      "hypothesis_comparison": "Finite-field Kakeya requires a line in every direction of F_q^d and studies global lower bounds of order q^d. The accepted project theorem uses six selected independent finite paths of length r in a declared carrier window. Neither the direction quantifier, ambient algebra, nor objective matches.",
+      "consequence": "Classical Kakeya literature is context/analogy only; it is not an antecedent for K_6(r)=6r-5. Conversely, the name 'Kakeya' does not create novelty."
+    }
+  ],
+  "class_counts": {
+    "EXACT_DUPLICATE": 5,
+    "STRICT_ANTECEDENT": 7,
+    "ADJACENT_METHOD": 2,
+    "NO_MATERIAL_MATCH": 1
+  },
+  "novelty_guard": "NO novelty inference is permitted from NO_MATERIAL_MATCH or ADJACENT_METHOD; these labels only classify located antecedents under this audit."
+}
