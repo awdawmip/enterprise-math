@@ -1,0 +1,63 @@
+{
+  "schema": "P000_MINIMAL_RELATIONAL_STRENGTHENING_V14_RECOVERY_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-84D7C1E95B306AF21463",
+  "researcher_id": "EM-P000FCC14-77C054",
+  "recovery": {
+    "original_claim": "chatgpt-p000fcc14-20260830-1324-77c054",
+    "branch_before_recovery": "05ead924d4d75c841e1464209c5d0cb9b3ee4e6b",
+    "durable_completed_unit": "SECTION_CRITERION_AND_AUT_PRIM_FIXED_POINT_REDUCTION",
+    "first_unfinished_unit": "MINIMAL_NONTAUTOLOGICAL_NATIVE_RELATIONAL_PACKAGE"
+  },
+  "closed_exact_criteria": {
+    "section_criterion": "Sec(q) bijects with lifts A,B of frozen a,b satisfying A^3=B^2=(AB)^4=1",
+    "canonicality_criterion": "Aut_prim(M)-canonical section iff Sec(q) has a fixed point under h.s=Phi_h o s o alpha_h^-1",
+    "uniqueness_stronger_than_fixed_point": true
+  },
+  "finite_witnesses": {
+    "K4_adjacency": {
+      "primitive_relation_count": 1,
+      "aut_order": 24,
+      "axis_readout_order": 24,
+      "kernel_order": 1,
+      "canonical": true
+    },
+    "tetrahedral_incidence": {
+      "primitive_relation_count": 1,
+      "aut_order": 24,
+      "axis_readout_order": 24,
+      "kernel_order": 1,
+      "canonical": true
+    },
+    "K2222_adjacency": {
+      "primitive_relation_count": 1,
+      "aut_order": 384,
+      "readout_order": 24,
+      "kernel_order": 16,
+      "faithful_split": true,
+      "canonical_under_kernel_conjugation": false
+    },
+    "P4_adjacency": {
+      "aut_order": 2,
+      "simultaneous_frozen_S4_lift": false
+    },
+    "GL23": {
+      "group_order": 48,
+      "projective_image_order": 24,
+      "kernel_order": 2,
+      "AB4_residue_all_lifts": "-I",
+      "split": false
+    }
+  },
+  "specification_obstruction": {
+    "admissible_relation_grammar_frozen": false,
+    "definitional_equivalence_rule_frozen": false,
+    "package_cost_preorder_frozen": false,
+    "independently_meaningful_formal_test_frozen": false,
+    "finite_model_envelope_frozen": false,
+    "global_minimal_native_package_well_defined": false
+  },
+  "hard_target_closed": false,
+  "recommended_driver_disposition": "REVISION_REQUIRED",
+  "recommended_successor": "Freeze admissible downstream relation grammar/equivalence/cost/model envelope, then perform Pareto-minimal positive package classification; do not redo section/residue algebra."
+}
