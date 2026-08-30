@@ -1,0 +1,80 @@
+{
+  "authority_guards": {
+    "bare_P000_universe_exhausted": false,
+    "canonical_promotion_granted": false,
+    "carrier_S4_promoted_to_native_rotation_group": false,
+    "foundation_authority_granted": false,
+    "working_truth_granted": false
+  },
+  "benchmark_skeleton": {
+    "M12_K4": {
+      "Gtilde_order": 24,
+      "cell_rho_count": 1,
+      "cell_rho_image_order": 24,
+      "cell_rho_kernel_order": 1,
+      "exists_lift": true,
+      "primitive_relation": "K4 adjacency on four opaque Cells within this model only",
+      "q_image_order": 24,
+      "q_kernel_order": 1,
+      "section_count": 1
+    },
+    "MP4": {
+      "Gtilde_order": 2,
+      "cell_rho_count": 0,
+      "exists_lift": false,
+      "primitive_relation": "P4 adjacency on four opaque Cells",
+      "q_image_order": 2,
+      "q_kernel_order": 1,
+      "section_count": 0
+    },
+    "MSPLIT_C2xS4": {
+      "Gtilde_order": 48,
+      "cell_rho_count": 1,
+      "cell_rho_image_order": 24,
+      "cell_rho_kernel_order": 1,
+      "enriched_structure": "hidden C2 relation phase plus S4 carrier readout",
+      "exists_lift": true,
+      "gauge_fixed_section_count": 0,
+      "q_image_order": 24,
+      "q_kernel_order": 2,
+      "q_preserving_gauge": "u_sign(z,g)=(z+sgn(g),g)",
+      "section_count": 2
+    }
+  },
+  "checker_summary": "PASS P000_NATIVE_MODEL_GROUPOID_UNIVERSALITY; checks=47; models=M12_K4:lift1,MP4:lift0,MSPLIT:lift2; exists_some=TRUE; universal_benchmark=FALSE; natural_lift_on_lift_admitting_subgroupoid=FALSE; split_qGauge_fixed_sections=0; split_distinct_enriched_lifts=2; split_distinct_Cell_rho=1; minimality=relation+q+kernel+morphisms+sorts",
+  "minimality_deletions": {
+    "collapse_carrier_cell_sorts": "presentation-to-native aliasing reintroduced",
+    "forget_actual_morphisms": "two swapped split sections appear as two fixed isolated choices",
+    "forget_primitive_relation": "P4 collapses to bare four-point S4 symmetry; universal countermodel lost",
+    "forget_q": "lift predicate ill-typed",
+    "make_section_primitive": "existence/universality becomes tautological",
+    "quotient_hidden_kernel": "split section count collapses 2->1 and naturality obstruction disappears"
+  },
+  "predicates": {
+    "EXISTS_LIFT(M)": "exists homomorphic section s:Sym(A_M)->Gtilde_M with q_M o s=id",
+    "FOR_ALL_MODELS_EXISTS_LIFT(Gamma)": "for every object M of Gamma, EXISTS_LIFT(M)",
+    "NATURAL_LIFT_FAMILY(Gamma)": "sections s_M transported by every primitive-preserving isomorphism"
+  },
+  "result_id": "RR-8C8E58026CE0EC6415DC",
+  "schema": "P000_NATIVE_MODEL_GROUPOID_CERTIFICATE_V1",
+  "signature": {
+    "forbidden_circular_field": "chosen_section_as_membership_primitive",
+    "morphism": "(f,sigma,theta) with alpha_N theta = f alpha_M f^-1 and q_N theta = c_sigma q_M",
+    "object_fields": [
+      {"field": "native_enriched_packet", "type": "PRIMITIVE_TYPED"},
+      {"field": "carrier_axis_sort_A", "type": "OPTIONAL_BRIDGE_TYPED_DISJOINT_FROM_CELL"},
+      {"field": "Gtilde", "type": "DERIVED_VERIFIED_ENRICHED_SYMMETRY_GROUP"},
+      {"field": "alpha", "type": "DERIVED_ACTION_ON_NATIVE_ENRICHED_PACKET"},
+      {"field": "q", "type": "OPTIONAL_BRIDGE_HOMOMORPHISM_TO_Sym(A)"}
+    ]
+  },
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-NATIVE-MODEL-GROUPOID-UNIVERSALITY",
+  "verdicts": {
+    "exists_some_model": true,
+    "forall_benchmark_models_exists_lift": false,
+    "forall_lift_admitting_subgroupoid_pointwise_exists": true,
+    "natural_enriched_lift_on_lift_admitting_subgroupoid": false,
+    "split_distinct_cell_rho_count": 1,
+    "split_enriched_section_count": 2
+  }
+}
