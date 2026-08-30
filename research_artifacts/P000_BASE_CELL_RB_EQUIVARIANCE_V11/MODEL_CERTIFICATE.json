@@ -1,0 +1,74 @@
+{
+  "schema": "P000_BASE_CELL_RB_EQUIVARIANCE_V11_MODEL_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-91C6E4A8F32D705B1C77",
+  "researcher_id": "EM-P000FCC11-1834B2",
+  "terminal_class": "FRAMED_FULL_CELL_b_AUTOMORPHISM_IFF_CLASSIFIED_AND_WITNESSED",
+  "strict_b_axis_action": {
+    "cycle_notation": "(E2 E4)(E3 E5)",
+    "fixed": ["E1", "E6"],
+    "order": 2
+  },
+  "minimal_total_enriched_conditions": [
+    "r_b is a bijection on opaque native Cell identities and r_b^2=id for an honest C2 lift of b",
+    "every current native Cell-sorted relation is preserved; at current full-P000 strength this reduces to native adjacency, with PF path preservation following from adjacency preservation",
+    "Pi_x=f_{r_b(x)} o b o f_x^{-1} transports the full PF-10 I/O/M data equivariantly",
+    "if channel connection T is independent data, T_{r_b(x),r_b(y)} o Pi_x = Pi_y o T_{x,y}; if T is frame-induced, this law is automatic",
+    "time is fixed and no carrier/native quotient, Cell-identity replacement, or local-S6-to-native-rotation promotion is used"
+  ],
+  "derived_automatic_laws": [
+    "Pi_x has exact type C_x -> C_{r_b(x)}",
+    "under f_x'=g_x o f_x, Pi_x'=g_{r_b(x)} o Pi_x o g_x^{-1}",
+    "Pi_{r_b(x)} o Pi_x=id when r_b^2=id and b^2=id",
+    "frame-induced connection naturality",
+    "current PF path preservation from native adjacency preservation"
+  ],
+  "omega_b_relation": {
+    "logic_vs_base_R_b": "INDEPENDENT",
+    "semantic_role": "CONTACT_ROUTE_SPECIFIC",
+    "four_grid": {
+      "omega_true_R_true": "two adjacent Cells swapped by r_b; identity frames; b-invariant I/O; diagonal M plus symmetric positive E2<->E4 and E3<->E5 passages",
+      "omega_true_R_false": "same mixed passages but b-asymmetric ingress on E2/E4; Omega_b holds while every candidate strict b lift fails PF-10 equivariance",
+      "omega_false_R_true": "two adjacent Cells swapped by r_b; identity frames; I=O=1 and M=I_6; Omega_b is empty but strict b automorphism exists",
+      "omega_false_R_false": "M=I_6 with b-asymmetric ingress on E2/E4"
+    }
+  },
+  "connection_holonomy": {
+    "frame_induced": "flat and naturality automatic by direct cancellation",
+    "independent_nonflat": "allowed when holonomy is equivariant under the b lift",
+    "path_law": "T_{r_b(gamma)} o Pi_{x0}=Pi_{xn} o T_gamma",
+    "loop_law": "Hol_{r_b(x)}(r_b gamma)=Pi_x o Hol_x(gamma) o Pi_x^{-1}",
+    "fixed_cell_special_case": "nontrivial holonomy may survive if it centralizes Pi_x",
+    "obstruction": "nonflatness alone is not an obstruction; failure of the holonomy conjugacy/equivariance law is"
+  },
+  "finite_positive_witness": {
+    "cells": ["x0", "x1"],
+    "native_adjacency": [["x0", "x1"]],
+    "cell_map": "r_b swaps x0 and x1",
+    "frames": "identity A->C at both Cells",
+    "connection": "frame-induced identity transport on the unique edge",
+    "Pi": "b at both Cells",
+    "PF10": "I=O=(1,1,1,1,1,1); M has diagonal 1 and symmetric positive E2<->E4=2, E3<->E5=3",
+    "properties": [
+      "r_b is nonidentity and involutive",
+      "native adjacency is preserved",
+      "full PF-10 tensors are b-equivariant",
+      "connection naturality holds",
+      "Omega_b is nonempty",
+      "no carrier/readout equality is used to define Cell identity"
+    ]
+  },
+  "condition_independence_witnesses": {
+    "PF10_without_adjacency": "three-Cell path 0-1-2 with involution 0<->1 and uniform PF-10 data: PF-10 equivariance holds but adjacency is not preserved",
+    "adjacency_without_PF10": "two-Cell edge with swap r_b and b-asymmetric ingress: adjacency is preserved but PF-10 equivariance fails",
+    "independent_connection_failure": "triangle with fixed Cells and Pi=b; holonomy h=(E1 E2) does not commute with b and violates connection naturality"
+  },
+  "strength_boundary": [
+    "This classifies the declared downstream framed Full-Cell relational model, not bare P000 existence of such a rotation in every model",
+    "No native S4 or S6 rotation group is promoted",
+    "Local channel S6 remains presentation/gauge symmetry",
+    "FCC/carrier readout is never native Cell or axis identity",
+    "No P000 root mutation is made"
+  ],
+  "checker": "research_checks/P000_BASE_CELL_RB_EQUIVARIANCE_V11_CHECK_20260830.py"
+}
