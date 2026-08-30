@@ -1,0 +1,259 @@
+{
+  "schema": "GEO6_FIRSTWAVE_PRIOR_ART_MATRIX_V1",
+  "task_id": "RS-GEO6-FIRSTWAVE-ACCEPTED-PRIOR-ART-SYNTHESIS",
+  "researcher_id": "EM-G6PA-9C72F1",
+  "date": "2026-08-30",
+  "classification_vocabulary": [
+    "EXACT_DUPLICATE",
+    "STRICT_ANTECEDENT",
+    "ADJACENT_METHOD",
+    "NO_MATERIAL_MATCH"
+  ],
+  "sources": {
+    "E6_CATALOG": {
+      "title": "Nebe–Sloane Catalogue of Lattices: E6",
+      "url": "https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/E6.html",
+      "use": "dimension 6, minimal norm 2, kissing number 72"
+    },
+    "E6_122": {
+      "title": "1_22 polytope reference",
+      "url": "https://www.handwiki.org/wiki/1_22_polytope",
+      "use": "standard E6 root-polytope f-vector: 72 vertices, 720 edges; secondary reference, independently rechecked exactly"
+    },
+    "JOHNSON_SCHEME": {
+      "title": "Seidel, Introduction to Association Schemes (Johnson scheme example)",
+      "url": "https://www.maths.tcd.ie/EMIS/journals/SLC/opapers/s26seidel.pdf",
+      "use": "J(v,k): k-subsets; relation i iff intersection size k-i; valency C(k,i)C(v-k,i)"
+    },
+    "JOHNSON_GRAPH": {
+      "title": "Johnson Graph",
+      "url": "https://mathworld.wolfram.com/JohnsonGraph.html",
+      "use": "J(n,k) vertices are k-subsets, adjacency at intersection k-1; J(4,2) is octahedral"
+    },
+    "LEE_ORIGINAL": {
+      "title": "Golomb–Welch, Perfect Codes in the Lee Metric and the Packing of Polyominoes",
+      "url": "https://epubs.siam.org/doi/10.1137/0118025",
+      "use": "classical Lee-metric framework"
+    },
+    "LEE_VOLUME": {
+      "title": "Information-theoretic Bounds on the Size of Spheres in the Lee Metric",
+      "url": "https://user.math.uzh.ch/bariffi/2025_07_SIAM.pdf",
+      "use": "Lee-ball cardinality formula sum_i 2^i C(n,i) C(t,i) in the unsaturated/integer lattice setting"
+    },
+    "HAMMING": {
+      "title": "Hamming graphs",
+      "url": "https://aeb.win.tue.nl/drg/graphs/Hamming.html",
+      "use": "Hamming scheme on length-d words, distance = differing coordinates; H(d,q) has diameter d"
+    },
+    "EDGE_COVER": {
+      "title": "Minimum Edge Cover",
+      "url": "https://mathworld.wolfram.com/MinimumEdgeCover.html",
+      "use": "Gallai identity nu(G)+rho(G)=|V(G)| for graphs without isolated vertices"
+    },
+    "SPC": {
+      "title": "[n,n-1,2] Single parity-check code",
+      "url": "https://errorcorrectionzoo.org/c/parity_check",
+      "use": "binary SPC code is exactly all even-weight binary strings; automorphism group S_n"
+    },
+    "COVERING_ARRAY": {
+      "title": "A greedy-metaheuristic 3-stage approach to construct covering arrays",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0020025518304171",
+      "use": "covering-array definition; at strength 1 every selected column must contain every alphabet symbol"
+    },
+    "HADWIGER": {
+      "title": "The complex Illumination problem",
+      "url": "https://doi.org/10.1007/s00493-025-00195-7",
+      "use": "classical Levi–Hadwiger illumination/covering problem is for convex bodies in R^n, translations/interiors or equivalent illumination; conjectural 2^n bound"
+    }
+  },
+  "claims": [
+    {
+      "id": "K1",
+      "enterprise_claim": "External E6 comparison witness has 72 roots; pairing-1 contact graph is 20-regular with 720 edges.",
+      "classification": "EXACT_DUPLICATE",
+      "source_ids": ["E6_CATALOG", "E6_122"],
+      "formal_comparison": "The accepted witness is the standard E6 root system/root polytope. The catalogue fixes 72 minimal vectors; the standard 1_22 f-vector fixes 720 edges. Regularity then gives degree 2*720/72=20, matching the Enterprise reconstruction.",
+      "enterprise_residue": "None for the external E6 count itself. The P000 question is whether any such external contact structure has a native typed realization."
+    },
+    {
+      "id": "K2",
+      "enterprise_claim": "Declared center-plus-six-axis-neighbor Cell star has center capacity 6 and leaf capacity 1.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": [],
+      "formal_comparison": "This is exactly the elementary star graph K_{1,6}; the general star K_{1,n} has center degree n and leaf degree 1.",
+      "enterprise_residue": "The only project-specific content is admissibility of this declared star as a P000-compatible finite probe, not the degree theorem."
+    },
+    {
+      "id": "K3",
+      "enterprise_claim": "Natural S4 action on four Cells admits only invariant simple contact graphs empty or K4, with degrees 0 or 3.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": ["JOHNSON_SCHEME"],
+      "formal_comparison": "S4 is transitive on unordered 2-subsets of a 4-set. Any invariant simple edge set is a union of pair-orbits, and there is one non-diagonal unordered-pair orbit; hence only empty/all pairs.",
+      "enterprise_residue": "The external group-action fact does not select which invariant relation is the native P000 contact relation."
+    },
+    {
+      "id": "K4",
+      "enterprise_claim": "On six axis labels induced from K4 edges, unordered pairs split into orbitals of sizes 12 and 3, with invariant graph degrees 4 and 1; invariant capacities are 0,1,4,5.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": ["JOHNSON_SCHEME", "JOHNSON_GRAPH"],
+      "formal_comparison": "The six axis labels are the 2-subsets of a 4-set, i.e. J(4,2). The two non-diagonal Johnson relations are intersection size 1 and 0. Their valencies are C(2,1)C(2,1)=4 and C(2,2)C(2,2)=1. Unions give degrees 0,1,4,5; total unordered edge counts are 6*4/2=12 and 6*1/2=3.",
+      "enterprise_residue": "Whether P000 contact is any one of these orbitals, their union, or a richer hidden-state relation remains undefined."
+    },
+    {
+      "id": "K5",
+      "enterprise_claim": "No faithful E6 contact embedding exists into current 7/6/4 finite readouts; a 6-by-r residual labeling needs r>=12 by injectivity.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": ["E6_CATALOG"],
+      "formal_comparison": "The obstruction uses only generic injectivity/cardinality and degree preservation: 72 exceeds 7,6,4 and external degree 20 exceeds the declared readout maxima. If 72 distinct states factor through 6 labels times r residual states, pigeonhole/injectivity gives 6r>=72.",
+      "enterprise_residue": "The fact that these are the currently admissible P000 readouts, and the demand for a native faithful contact interpretation, are project-specific semantics."
+    },
+    {
+      "id": "K6",
+      "enterprise_claim": "Rotation compatibility alone does not canonically determine native contact.",
+      "classification": "NO_MATERIAL_MATCH",
+      "source_ids": ["JOHNSON_SCHEME"],
+      "formal_comparison": "Classical orbit theory explains multiplicity of invariant relations, but does not contain the P000 semantic rule that would designate a relation as native contact. The Enterprise countermodels instantiate that underdetermination.",
+      "enterprise_residue": "CONTACT_SELECTOR: a canonical native contact/readout law or a richer residual contact state."
+    },
+    {
+      "id": "F1",
+      "enterprise_claim": "For every finite connected undirected relation graph, the positive shortest-path distance spectrum is exactly {1,...,diam}.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": ["HAMMING"],
+      "formal_comparison": "This is a direct general graph-metric consequence: along a geodesic from a vertex to one at eccentricity D, vertices occur at every integer distance 0,...,D. It is broader and older than the six-axis specialization.",
+      "enterprise_residue": "None at the graph-theoretic level; P000-specificity begins with which relation is canonically chosen."
+    },
+    {
+      "id": "F2",
+      "enterprise_claim": "For unit-step Z^6/L1 relation, V6(r)=sum_{j=0}^6 2^j C(6,j) C(r,j).",
+      "classification": "EXACT_DUPLICATE",
+      "source_ids": ["LEE_ORIGINAL", "LEE_VOLUME"],
+      "formal_comparison": "This is precisely the n=6 specialization of the classical Lee-ball cardinality formula in the unsaturated/integer lattice setting.",
+      "enterprise_residue": "Only the declaration that this Lee/unit-step chart is an admissible P000 test model."
+    },
+    {
+      "id": "F3",
+      "enterprise_claim": "Finite connected A in the unit-step six-axis model satisfies |A|<=V6(s), where s is positive distance-spectrum size.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": ["LEE_VOLUME"],
+      "formal_comparison": "Since s=diam(A), fixing a in A gives A inside the Lee ball B_6(a,s); the inequality is the generic diameter-ball containment bound plus the classical Lee volume formula.",
+      "enterprise_residue": "A native theorem would need P000 itself to select this local bounded-growth relation."
+    },
+    {
+      "id": "F4",
+      "enterprise_claim": "For six-axis interval boxes, (s+6)^6 >= 6^6 N with equality for balanced boxes.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": ["LEE_ORIGINAL"],
+      "formal_comparison": "In the L1 box, s=sum_i(n_i-1), so s+6=sum_i n_i and N=prod_i n_i; the statement is exactly AM-GM, with equality iff all n_i agree.",
+      "enterprise_residue": "No novelty in the inequality; only its role as a diagnostic inside the declared P000-compatible chart."
+    },
+    {
+      "id": "F5",
+      "enterprise_claim": "Same carrier with complete-fiber/Hamming adjacency has q^6 states but positive distance spectrum {1,...,6} for every q>=2.",
+      "classification": "EXACT_DUPLICATE",
+      "source_ids": ["HAMMING"],
+      "formal_comparison": "This is exactly the Hamming graph H(6,q): vertices are length-6 q-ary words, adjacency means differing in one coordinate, graph distance is Hamming distance, and diameter is 6.",
+      "enterprise_residue": "The semantic use of H(6,q) as an admissible alternative P000 relation is project-specific."
+    },
+    {
+      "id": "F6",
+      "enterprise_claim": "Six axes plus axis-permutation symmetry alone do not force an unbounded cardinality-to-distance-spectrum law.",
+      "classification": "NO_MATERIAL_MATCH",
+      "source_ids": ["HAMMING"],
+      "formal_comparison": "Classical Hamming theory supplies the exact countermodel, but the quantified no-go concerns the current P000 axiom package and its failure to select locality/refinement.",
+      "enterprise_residue": "LOCALITY_REFINEMENT_SELECTOR: a canonical native adjacency, step granularity, refinement law, or bounded-growth condition."
+    },
+    {
+      "id": "H1",
+      "enterprise_claim": "Signed-shell cover and illumination both equal the coordinate-polarity separation number s(Sigma), independent of block multiplicity m.",
+      "classification": "ADJACENT_METHOD",
+      "source_ids": ["COVERING_ARRAY"],
+      "formal_comparison": "After encoding allowed sign patterns as rows of a binary array, the requirement that every coordinate see both signs is exactly a strength-1 binary covering condition, but Enterprise additionally restricts rows to Sigma and identifies two task-specific predicates with that condition.",
+      "enterprise_residue": "The reduction is project-specific to the signed-shell action; the incidence template is standard."
+    },
+    {
+      "id": "H2",
+      "enterprise_claim": "Identity plus one-step weight-2 half-turns on six axes have exact cover/illumination number 3.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": ["EDGE_COVER"],
+      "formal_comparison": "A weight-2 negative pattern is an edge of K6; selecting such patterns so every coordinate is negative at least once is an edge cover. Gallai gives rho(K6)=6-nu(K6)=6-3=3. A perfect matching of three disjoint edges also leaves every coordinate positive in the other selected rows, so it satisfies the full two-polarity separation condition.",
+      "enterprise_residue": "The interpretation of those edges as allowed native half-turn operations remains task-specific."
+    },
+    {
+      "id": "H3",
+      "enterprise_claim": "Composition closure of weight-2 flips is the even-sign family and has exact cover/illumination number 2 in six axes because global inversion is generated.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": ["SPC"],
+      "formal_comparison": "Even sign patterns are the binary single parity-check/even-weight code. For length 6 the all-one binary word (all-minus sign pattern) has even weight and lies in the code. Together with the zero word/identity it is an antipodal two-row strength-1 cover; one row cannot show both symbols in any column.",
+      "enterprise_residue": "ROTATION_CLOSURE_SELECTOR: whether Full-Cell/P000 rotation semantics really include the required composition closure/global inversion."
+    },
+    {
+      "id": "H4",
+      "enterprise_claim": "Sign-preserving axis actions cannot cover/illuminate the negative shell.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": [],
+      "formal_comparison": "This is the elementary invariant-subset obstruction: an action preserving the positive half-shell set cannot move any selected template point into its negative complement.",
+      "enterprise_residue": "Which action family is native remains unfrozen."
+    },
+    {
+      "id": "H5",
+      "enterprise_claim": "The 2/3/infinity values are invariant under passive block refinement multiplicity m.",
+      "classification": "ADJACENT_METHOD",
+      "source_ids": ["COVERING_ARRAY"],
+      "formal_comparison": "Duplicating each column-symbol incidence into m indistinguishable passive copies leaves the same row-selection feasibility condition. The exact refinement semantics and its admissibility in P000 are not standard covering-array hypotheses.",
+      "enterprise_residue": "A native refinement law must specify when replicated subcells remain equivariant and introduce no new moves."
+    },
+    {
+      "id": "H6",
+      "enterprise_claim": "Classical 2^6=64 Hadwiger/illumination heuristic does not transfer to the signed-axis Cell probe.",
+      "classification": "ADJACENT_METHOD",
+      "source_ids": ["HADWIGER"],
+      "formal_comparison": "The classical problem assumes convex bodies in R^n and covers by translates of interiors/smaller homothetic copies or equivalent Euclidean illumination. The Enterprise signed-shell probe lacks those hypotheses and changes its answer merely by changing allowed sign operations; therefore the classical 64 is not an antecedent numerical theorem for the probe.",
+      "enterprise_residue": "TRANSLATION_ACTION_SELECTOR and ROTATION_CLOSURE_SELECTOR."
+    },
+    {
+      "id": "H7",
+      "enterprise_claim": "Bare P000 does not determine a translation-cover number because ambient translation, homothety and translation-compatible boundary transport are unfrozen.",
+      "classification": "NO_MATERIAL_MATCH",
+      "source_ids": ["HADWIGER"],
+      "formal_comparison": "Classical sources presuppose precisely the ambient affine/translation/homothety structure that is missing. They therefore diagnose the missing hypotheses rather than solve the P000 semantic problem.",
+      "enterprise_residue": "TRANSLATION_ACTION_SELECTOR: freeze an ambient action and boundary transport before any native Hadwiger translation number is meaningful."
+    }
+  ],
+  "residue_map": {
+    "standard_finite_mathematics": [
+      "E6 root-system and root-polytope counts",
+      "star-graph degrees",
+      "S4 orbitals / Johnson scheme J(4,2)",
+      "connected graph shortest-path layers",
+      "Lee metric balls in Z^6",
+      "Hamming scheme H(6,q)",
+      "K6 minimum edge cover",
+      "binary even-weight single parity-check code",
+      "strength-1 covering/incidence formulations"
+    ],
+    "enterprise_specific_interfaces": {
+      "CONTACT_SELECTOR": "canonically choose/derive native Cell contact and any hidden residual contact state",
+      "LOCALITY_REFINEMENT_SELECTOR": "canonically choose local adjacency/step granularity/refinement/bounded-growth data",
+      "ROTATION_CLOSURE_SELECTOR": "determine the actual native operation family, composition closure, and existence of global inversion/antipode",
+      "TRANSLATION_ACTION_SELECTOR": "freeze ambient translations/homotheties and translation-compatible boundary transport"
+    }
+  },
+  "continuation_policy": {
+    "kill_as_duplicate_or_strictly_anteceded": [
+      "re-deriving E6 72/20/720 as novelty",
+      "re-deriving star capacity 6",
+      "re-deriving S4/J(4,2) capacities 0,1,4,5",
+      "re-deriving Lee V6(r)",
+      "re-deriving the H(6,q) bounded-spectrum countermodel",
+      "re-deriving signed-shell 3/2/infinity from the same frozen operation families"
+    ],
+    "eligible_only_if_native_semantics_advance": [
+      "CONTACT_SELECTOR",
+      "LOCALITY_REFINEMENT_SELECTOR",
+      "ROTATION_CLOSURE_SELECTOR",
+      "TRANSLATION_ACTION_SELECTOR"
+    ],
+    "novelty_rule": "NO_MATERIAL_MATCH is not a historical novelty certificate."
+  }
+}
