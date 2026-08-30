@@ -1,0 +1,50 @@
+{
+  "schema": "P000_Q12_RESIDUE_HOLONOMY_COUPLING_V1",
+  "status": "PASS",
+  "hard_target_disposition": "P000_RESIDUE_HOLONOMY_COUPLING_OR_INDEPENDENCE_CLASSIFIED",
+  "exact_law": "H = R * D; in C2 bits h = r XOR d",
+  "observables": {
+    "R": "relation residue (AB)^4 in the central C2 kernel",
+    "H": "actual holonomy of the eight-edge (ab)^4 relation loop",
+    "D": "gauge-invariant independent edge-twist holonomy H*R^{-1}"
+  },
+  "untwisted_induced_subclass": "D=identity => H=R",
+  "extension_benchmarks": {
+    "split_S4xC2": {
+      "order": 48,
+      "residue_bit": 0,
+      "section_exists": true,
+      "lifted_pair_count": 96
+    },
+    "GL2F3": {
+      "order": 48,
+      "residue_bit": 1,
+      "section_exists": false,
+      "lifted_pair_count": 96
+    }
+  },
+  "connection_census": {
+    "relation_loop_edges": 8,
+    "edge_twist_assignments": 256,
+    "vertex_gauge_assignments": 256,
+    "gauge_orbits": 2,
+    "gauge_orbit_sizes": [128, 128],
+    "orbit_invariant": "edge-twist parity D"
+  },
+  "independence": {
+    "same_residue_different_holonomy": "fix extension and toggle one edge twist",
+    "same_holonomy_different_residue": "compensate GL2F3 residue with the nontrivial D class",
+    "section_vs_strict_globalization": "all four truth-value combinations realized"
+  },
+  "minimality": {
+    "generic_q4_obstruction": "triangle / fiber C2 at accepted Q4 scope",
+    "native_relation_loop": "8 edges because the frozen word is (ab)^4",
+    "edge_decoupling": "one nontrivial edge twist is Hamming-minimal",
+    "extension_pair": "order 48 is minimal for a nontrivial C2 kernel over S4"
+  },
+  "method_reuse": [
+    "T9_HOLONOMY_COCOYCLE_GLUING: REUSE_APPLIED",
+    "T7_FINITE_SYMMETRY_EQUIVARIANCE: COMPOSE_APPLIED",
+    "T2_BLOCK_FINITE_CERTIFICATE: COMPOSE_APPLIED"
+  ]
+}
