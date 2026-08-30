@@ -1,0 +1,118 @@
+{
+  "candidate_laws": {
+    "FUSION_BACKWARD": "E1(a xor b) => E2(a,b)",
+    "FUSION_FORWARD": "E2(a,b) => E1(a xor b)",
+    "GLUE": "E1(a) and E1(b) => E2(a,b)",
+    "NEUTRAL_REFINEMENT": "E2(h,0) iff E1(h) iff E2(0,h)",
+    "RESTRICTION": "E2(a,b) => E1(a) and E1(b)",
+    "ROT_SWAP": "E2(a,b) iff E2(b,a)",
+    "UNIT_NATURALITY": "EU(*) iff E1(0)",
+    "UNIT_TRUE": "EU(*) = true"
+  },
+  "claim_id": "chatgpt-p000q17c1-20260830-2359-a4d8c2",
+  "enumeration": {
+    "distinct_local_selector_families": 5,
+    "effectivity_assignment_count": 128,
+    "law_subset_count": 256,
+    "named_bundles": {
+      "FULL_TWO_SIDED_PLUS_EFFECTIVE_UNIT": {
+        "assignments": 1,
+        "local_selectors": ["11"]
+      },
+      "FULL_TWO_SIDED_REFINEMENT": {
+        "assignments": 4,
+        "local_selectors": ["00", "11"]
+      },
+      "INDEPENDENT_PRODUCT": {
+        "assignments": 8,
+        "local_selectors": ["00", "01", "10", "11"]
+      },
+      "LOWER_NATURALITY_PLUS_EFFECTIVE_UNIT": {
+        "assignments": 2,
+        "local_selectors": ["10", "11"]
+      },
+      "MIN_UNIQUE_CORE": {
+        "assignments": 1,
+        "local_selectors": ["11"]
+      },
+      "NO_LAWS": {
+        "assignments": 128,
+        "local_selectors": ["00", "01", "10", "11"]
+      },
+      "PRODUCT_NEUTRAL_PLUS_FUSION_FORWARD": {
+        "assignments": 6,
+        "local_selectors": ["00", "10", "11"]
+      },
+      "PRODUCT_PLUS_NEUTRAL_REFINEMENT": {
+        "assignments": 6,
+        "local_selectors": ["00", "10", "11"]
+      },
+      "ROTATION_ONLY": {
+        "assignments": 64,
+        "local_selectors": ["00", "01", "10", "11"]
+      }
+    },
+    "selector_family_spectrum": [
+      {"law_subset_count": 16, "selectors": ["11"]},
+      {"law_subset_count": 48, "selectors": ["00", "11"]},
+      {"law_subset_count": 48, "selectors": ["10", "11"]},
+      {"law_subset_count": 54, "selectors": ["00", "10", "11"]},
+      {"law_subset_count": 90, "selectors": ["00", "01", "10", "11"]}
+    ]
+  },
+  "frozen_language": {
+    "category_generators": [
+      "id_U", "id_L", "id_P", "swap_P",
+      "left_neutral_refinement_L_to_P", "right_neutral_refinement_L_to_P",
+      "left_restriction_P_to_L", "right_restriction_P_to_L",
+      "fusion_xor_P_to_L", "unit_insertion_U_to_L", "forget_L_to_U", "forget_P_to_U"
+    ],
+    "generated_category_morphism_count": 23,
+    "holonomy_composition": "xor",
+    "hom_counts": {
+      "L->L": 2, "L->P": 3, "L->U": 1,
+      "P->L": 4, "P->P": 9, "P->U": 1,
+      "U->L": 1, "U->P": 1, "U->U": 1
+    },
+    "one_loop_states": [0, 1],
+    "two_loop_states": [[0,0], [0,1], [1,0], [1,1]],
+    "unit_states": ["*"]
+  },
+  "matched_lower_systems": {
+    "ALL_EFFECTIVE": {
+      "E1": "11", "E2": "1111", "EU": 1,
+      "fails": [],
+      "satisfies": ["ROT_SWAP", "RESTRICTION", "GLUE", "NEUTRAL_REFINEMENT", "FUSION_FORWARD", "FUSION_BACKWARD", "UNIT_NATURALITY", "UNIT_TRUE"]
+    },
+    "TRIVIAL_ONLY": {
+      "E1": "10", "E2": "1000", "EU": 1,
+      "fails": ["FUSION_BACKWARD"],
+      "satisfies": ["ROT_SWAP", "RESTRICTION", "GLUE", "NEUTRAL_REFINEMENT", "FUSION_FORWARD", "UNIT_NATURALITY", "UNIT_TRUE"]
+    }
+  },
+  "publication_id": "TP2-91F5CA8A9711BCD64BFA",
+  "researcher_id": "EM-P000Q17C1-A4D8C2",
+  "schema": "P000_Q17_EFFECTIVITY_COMPOSITION_CONSTRAINT_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-EFFECTIVITY-COMPOSITION-CONSTRAINT",
+  "terminal_classification": {
+    "disposition": "COMPOSITION_LAWS_REDUCE_EFFECTIVITY_FREEDOM_EXACTLY_WITH_LAW_STRENGTH_BOUNDARY",
+    "hard_target": "P000_EFFECTIVITY_COMPOSITION_CONSTRAINT_SPACE_EXACTLY_CLASSIFIED",
+    "interpretive_boundary": "Backward fusion is a genuinely new strong effectivity-reflection axiom. It is not derived from the existing Q10/H/R/D reduct and is not promoted to P000 ontology by this result.",
+    "lower_law_result": "With swap/relabeling, restriction+independent gluing, neutral refinement, forward fusion and effective-unit normalization, Q14's local selector freedom is reduced to exactly 10 versus 11; underdetermination survives.",
+    "strong_law_result": "Adding backward fusion/arbitrary-splitting reflection forces 11 uniquely."
+  },
+  "unique_rule": {
+    "conceptual_core": [
+      "restriction of an effective two-loop object to each component",
+      "backward fusion / arbitrary-splitting reflection",
+      "effective unit normalization"
+    ],
+    "forced_selector": "11",
+    "necessity_witnesses": {
+      "drop_EFFECTIVE_UNIT": {"E1": "00", "E2": "0000", "EU": 0},
+      "drop_FUSION_BACKWARD": {"E1": "10", "E2": "1000", "EU": 1},
+      "drop_RESTRICTION": {"E1": "10", "E2": "1001", "EU": 1}
+    },
+    "unique_inclusion_minimal_law_core": ["RESTRICTION", "FUSION_BACKWARD", "UNIT_NATURALITY", "UNIT_TRUE"]
+  }
+}
