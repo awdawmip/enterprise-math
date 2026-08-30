@@ -1,0 +1,530 @@
+{
+  "schema": "GEO6_SECONDWAVE_PRIOR_ART_CLAIM_MATRIX_V1",
+  "task_id": "RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS",
+  "publication_id": "TP2-3B14908767F248123B62",
+  "researcher_id": "EM-G6PA2-4A7D2C",
+  "hard_target": "GEO6_SECONDWAVE_PACKING_KAKEYA_PRIOR_ART_EXACTLY_CLASSIFIED",
+  "classification_vocabulary": [
+    "EXACT_DUPLICATE",
+    "STRICT_ANTECEDENT",
+    "ADJACENT_METHOD",
+    "NO_MATERIAL_MATCH"
+  ],
+  "classification_counts": {
+    "EXACT_DUPLICATE": 3,
+    "STRICT_ANTECEDENT": 11,
+    "ADJACENT_METHOD": 1,
+    "NO_MATERIAL_MATCH": 3
+  },
+  "sources": [
+    {
+      "source_id": "EXT-GRAPH-INDEPENDENCE",
+      "kind": "external",
+      "citation": "Douglas B. West, Introduction to Graph Theory, 2nd ed.; standard independent-set/independence-number definitions.",
+      "url": "https://faculty.math.illinois.edu/~west/igt/",
+      "supports": [
+        "PCK-01",
+        "PCK-02",
+        "PCK-08",
+        "PCK-09"
+      ]
+    },
+    {
+      "source_id": "EXT-KONIG",
+      "kind": "external",
+      "citation": "Romeo Rizzi, “A short proof of König's matching theorem,” Journal of Graph Theory 33 (2000), 138–139.",
+      "url": "https://doi.org/10.1002/(SICI)1097-0118(200003)33:3%3C138::AID-JGT2%3E3.0.CO;2-K",
+      "supports": [
+        "PCK-06"
+      ]
+    },
+    {
+      "source_id": "EXT-HOFFMAN",
+      "kind": "external",
+      "citation": "Willem H. Haemers, “Hoffman's ratio bound,” Linear Algebra and its Applications 617 (2021), 215–219.",
+      "url": "https://arxiv.org/abs/2102.05529",
+      "supports": [
+        "PCK-07"
+      ]
+    },
+    {
+      "source_id": "EXT-FOLNER-COSSETS",
+      "kind": "external",
+      "citation": "Aimee S. A. Johnson and David M. McClendon, “Finite odometer factors of rank one Z^d-actions,” arXiv:2306.09477; Lemma 2.7 equidistributes every finite-index coset along every Følner sequence in Z^d.",
+      "url": "https://arxiv.org/abs/2306.09477",
+      "supports": [
+        "PCK-03",
+        "PCK-04"
+      ]
+    },
+    {
+      "source_id": "EXT-CARTESIAN-BIPARTITE",
+      "kind": "external",
+      "citation": "Sabidussi's classical Cartesian-product bipartiteness theorem, quoted as Lemma 1 in Kurauskas et al., Journal of Combinatorial Optimization 49 (2025), Article 31.",
+      "url": "https://doi.org/10.1007/s10878-025-01266-7",
+      "supports": [
+        "PCK-05",
+        "PCK-06"
+      ]
+    },
+    {
+      "source_id": "EXT-CAYLEY-CHARACTERS",
+      "kind": "external",
+      "citation": "Classical character diagonalization of finite abelian Cayley graphs; a modern statement appears as Lemma 2.5 in “Intersective sets over abelian groups,” Designs, Codes and Cryptography (2025/2026).",
+      "url": "https://link.springer.com/article/10.1007/s10623-025-01760-3",
+      "supports": [
+        "PCK-05",
+        "PCK-07"
+      ]
+    },
+    {
+      "source_id": "EXT-BERGE-ACYCLIC",
+      "kind": "external",
+      "citation": "I. van Heuven van Staereling, B. de Keijzer, G. Schäfer, “The Ground-Set-Cost Budgeted Maximum Coverage Problem,” MFCS 2016; incidence graph a forest is identified with Berge-acyclicity.",
+      "url": "https://doi.org/10.4230/LIPIcs.MFCS.2016.50",
+      "supports": [
+        "KAK-01",
+        "KAK-02",
+        "KAK-03",
+        "KAK-04"
+      ]
+    },
+    {
+      "source_id": "EXT-CYCLOMATIC",
+      "kind": "external",
+      "citation": "Standard cycle-rank identity ν(G)=|E|-|V|+c(G), explicitly stated for finite graphs in Si Kaddour–Tahhan Bittar, Contributions to Discrete Mathematics 5(1) (2010).",
+      "url": "https://cdm.ucalgary.ca/article/download/61965/46670/176851",
+      "supports": [
+        "KAK-02",
+        "KAK-03",
+        "KAK-04"
+      ]
+    },
+    {
+      "source_id": "EXT-MATROID-CIRCUIT",
+      "kind": "external",
+      "citation": "Encyclopedia of Mathematics, “Matroid”: vector configurations give matroids; minimal dependent sets are circuits; graph forests/circuits give the graphic matroid.",
+      "url": "https://encyclopediaofmath.org/wiki/Matroid",
+      "supports": [
+        "KAK-01",
+        "KAK-05"
+      ]
+    },
+    {
+      "source_id": "EXT-DVIR-KAKEYA",
+      "kind": "external",
+      "citation": "Zeev Dvir, “On the size of Kakeya sets in finite fields,” JAMS 22 (2009), arXiv:0803.2336.",
+      "url": "https://arxiv.org/abs/0803.2336",
+      "supports": [
+        "KAK-06"
+      ]
+    },
+    {
+      "source_id": "EXT-BALL-BLOKHUIS-DOMENZAIN",
+      "kind": "external",
+      "citation": "Simeon Ball, Aart Blokhuis, Diego Domenzain, “A finite version of the Kakeya problem,” arXiv:1503.06639.",
+      "url": "https://arxiv.org/abs/1503.06639",
+      "supports": [
+        "KAK-06"
+      ]
+    },
+    {
+      "source_id": "INT-PACK-GEN2",
+      "kind": "internal",
+      "citation": "Accepted Gen2 Packing Result RR-71FABB059247512DF390 and Driver review.",
+      "path": "research_result_records/RS-GEO6-SPHERE-PACKING-DENSITY-BRIDGE/RR-71FABB059247512DF390.json",
+      "supports": [
+        "PCK-01",
+        "PCK-02",
+        "PCK-03",
+        "PCK-04",
+        "PCK-05",
+        "PCK-06",
+        "PCK-07",
+        "PCK-08",
+        "PCK-09",
+        "PCK-10",
+        "PCK-11"
+      ]
+    },
+    {
+      "source_id": "INT-KAK-GEN2",
+      "kind": "internal",
+      "citation": "Accepted Gen2 Kakeya Result RR-9D6C3A7E42B1F805C264 and Driver review.",
+      "path": "research_result_records/RS-GEO6-ROTATION-KAKEYA-DIRECTIONAL-COVERAGE/RR-9D6C3A7E42B1F805C264.json",
+      "supports": [
+        "KAK-01",
+        "KAK-02",
+        "KAK-03",
+        "KAK-04",
+        "KAK-05",
+        "KAK-06",
+        "KAK-07"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "PCK-01",
+      "lane": "PACKING",
+      "accepted_claim": "Once a finite Cell conflict relation C is declared, admissible packings are exactly independent sets and the optimum occupancy is alpha(G)/|V|.",
+      "classification": "EXACT_DUPLICATE",
+      "strongest_antecedent": [
+        "EXT-GRAPH-INDEPENDENCE"
+      ],
+      "hypothesis_comparison": "Hypotheses coincide after the Cell states are made graph vertices and the declared symmetric irreflexive conflict relation is made the edge set. No P000-specific mathematics remains in the optimization statement.",
+      "kill_continuation": true,
+      "residue": "Choosing/deriving C natively is not supplied by graph theory; route that only to NONOVERLAP_SELECTOR."
+    },
+    {
+      "claim_id": "PCK-02",
+      "lane": "PACKING",
+      "accepted_claim": "Finite packing optimum and occupancy are invariant under every declared Cell bijection preserving the conflict relation.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-GRAPH-INDEPENDENCE"
+      ],
+      "hypothesis_comparison": "This is the specialization of the general fact that graph isomorphisms preserve independent sets and alpha(G). The external statement applies to arbitrary graphs, not just Cell models.",
+      "kill_continuation": true,
+      "residue": "Only the question whether a carrier/P000 transformation is genuinely a native conflict-graph automorphism survives."
+    },
+    {
+      "claim_id": "PCK-03",
+      "lane": "PACKING",
+      "accepted_claim": "For a periodic lift from a finite quotient of Z^6, every Følner sequence yields density equal to the occupied quotient fraction.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-FOLNER-COSSETS"
+      ],
+      "hypothesis_comparison": "Johnson–McClendon Lemma 2.7 already states the stronger coset-level fact: every Følner sequence in Z^d asymptotically puts 1/[Z^d:H] mass in every coset of every finite-index subgroup H. Summing the occupied cosets gives the accepted theorem verbatim.",
+      "kill_continuation": true,
+      "residue": "Bare P000 does not currently supply the translation action, finite-index period subgroup, or Følner notion; route only to TRANSLATION_FOLNER_SELECTOR."
+    },
+    {
+      "claim_id": "PCK-04",
+      "lane": "PACKING",
+      "accepted_claim": "For a fixed periodic fundamental-domain tiling, finite-window density error is confined to incomplete boundary tiles.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-FOLNER-COSSETS"
+      ],
+      "hypothesis_comparison": "The exact inequality is elementary periodic counting, and the vanishing boundary/volume principle is the defining mechanism behind Følner sequences. The accepted result is a finite specialized estimate, not a new density principle.",
+      "kill_continuation": true,
+      "residue": "Native meaning of admissible windows still depends on a declared translation/periodic structure."
+    },
+    {
+      "claim_id": "PCK-05",
+      "lane": "PACKING",
+      "accepted_claim": "The declared torus conflict graph T_n on (Z/nZ)^6 with neighbors differing by ±e_i is the sixfold Cartesian product of C_n and a finite abelian Cayley graph; for even n it is bipartite by parity.",
+      "classification": "EXACT_DUPLICATE",
+      "strongest_antecedent": [
+        "EXT-CARTESIAN-BIPARTITE",
+        "EXT-CAYLEY-CHARACTERS"
+      ],
+      "hypothesis_comparison": "This is exactly standard graph-product/Cayley structure. Even C_n is bipartite and repeated Cartesian products preserve bipartiteness; the parity map is the explicit two-coloring.",
+      "kill_continuation": true,
+      "residue": "The graph remains a declared pressure-test model; no classical source identifies it canonically with bare P000."
+    },
+    {
+      "claim_id": "PCK-06",
+      "lane": "PACKING",
+      "accepted_claim": "For even n, alpha(T_n)=n^6/2, witnessed by one parity class and certified above by the E1 perfect matching.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-CARTESIAN-BIPARTITE",
+        "EXT-KONIG"
+      ],
+      "hypothesis_comparison": "The lower set is one side of the standard bipartition. The explicit E1 pairing is a perfect matching, so an independent set contains at most one endpoint of each matched edge. More generally König's theorem places matching/vertex-cover duality in standard bipartite matching theory.",
+      "kill_continuation": true,
+      "residue": "No numerical Packing novelty remains under the declared torus hypotheses."
+    },
+    {
+      "claim_id": "PCK-07",
+      "lane": "PACKING",
+      "accepted_claim": "The spectral upper certificate alpha(T_n)/n^6<=1/2 follows from degree 12, least eigenvalue -12, and Hoffman's ratio bound.",
+      "classification": "EXACT_DUPLICATE",
+      "strongest_antecedent": [
+        "EXT-HOFFMAN",
+        "EXT-CAYLEY-CHARACTERS"
+      ],
+      "hypothesis_comparison": "Hoffman's ratio bound is exactly alpha<=N(-tau)/(d-tau) for a d-regular graph. Character diagonalization of the abelian Cayley graph gives lambda(k)=2 sum_j cos(2pi k_j/n), so tau=-12 for even n; substitution gives 1/2 exactly.",
+      "kill_continuation": true,
+      "residue": "This is a reusable certificate only after a native conflict graph/translation quotient has been declared."
+    },
+    {
+      "claim_id": "PCK-08",
+      "lane": "PACKING",
+      "accepted_claim": "Translations and the realized carrier-S4 coordinate permutations preserve the declared conflict relation and therefore preserve density.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-GRAPH-INDEPENDENCE"
+      ],
+      "hypothesis_comparison": "This is again ordinary graph-automorphism invariance. The only nonclassical content is the typing guard that carrier permutations must first be realized as native automorphisms.",
+      "kill_continuation": true,
+      "residue": "Do not promote carrier S4 to the full native P000 rotation group."
+    },
+    {
+      "claim_id": "PCK-09",
+      "lane": "PACKING",
+      "accepted_claim": "For q:T_kn->T_n given by coordinate reduction mod n, the full inverse image of an independent set is independent and constant fiber size k^6 preserves occupancy exactly.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-GRAPH-INDEPENDENCE"
+      ],
+      "hypothesis_comparison": "This is the generic pullback fact for an edge-preserving map together with uniform-fiber counting. The accepted theorem specializes it to the declared torus quotient.",
+      "kill_continuation": true,
+      "residue": "Whether q is a physical P000 scale refinement is not decided by the combinatorial cover."
+    },
+    {
+      "claim_id": "PCK-10",
+      "lane": "PACKING",
+      "accepted_claim": "The finite quotient/refinement law does not by itself make n->kn the physical P000 scale refinement.",
+      "classification": "NO_MATERIAL_MATCH",
+      "strongest_antecedent": [
+        "INT-PACK-GEN2"
+      ],
+      "hypothesis_comparison": "External graph-cover theory can analyze a declared refinement map but cannot choose which carrier quotient is the native physical scale map. This is a project semantic selector, not an external graph theorem.",
+      "kill_continuation": false,
+      "residue": "PHYSICAL_REFINEMENT_SELECTOR survives. NO_MATERIAL_MATCH is not a novelty certificate."
+    },
+    {
+      "claim_id": "PCK-11",
+      "lane": "PACKING",
+      "accepted_claim": "Bare current P000 does not canonically provide the non-overlap/conflict relation or the translation/Følner structure required for a global packing density.",
+      "classification": "NO_MATERIAL_MATCH",
+      "strongest_antecedent": [
+        "INT-PACK-GEN2"
+      ],
+      "hypothesis_comparison": "Classical packing/graph/amenable-group theories start after an exclusion predicate and an ambient action/measure notion have been fixed. They do not derive those P000-specific semantics from the current Cell ontology.",
+      "kill_continuation": false,
+      "residue": "NONOVERLAP_SELECTOR and TRANSLATION_FOLNER_SELECTOR survive. NO_MATERIAL_MATCH is not a novelty certificate."
+    },
+    {
+      "claim_id": "KAK-01",
+      "lane": "KAKEYA",
+      "accepted_claim": "For six affine Cell paths with linearly independent direction vectors, the bipartite incidence graph between paths and multiply-covered Cells is a forest.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-MATROID-CIRCUIT",
+        "EXT-BERGE-ACYCLIC"
+      ],
+      "hypothesis_comparison": "A cycle of alternating paths and shared Cells gives nonzero scalar increments along the participating direction vectors whose telescoping sum is zero, hence a vector dependence/circuit. Independent directions forbid this. In hypergraph language the resulting path hypergraph is Berge-acyclic exactly when its incidence graph is acyclic.",
+      "kill_continuation": true,
+      "residue": "The statement is carrier/readout-relative; mixed/refining native direction families are not covered."
+    },
+    {
+      "claim_id": "KAK-02",
+      "lane": "KAKEYA",
+      "accepted_claim": "For six independent paths the overlap defect D=sum_x(m_x-1) is at most 5.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-CYCLOMATIC",
+        "EXT-BERGE-ACYCLIC"
+      ],
+      "hypothesis_comparison": "Let s be the number of shared-Cell nodes and E=sum_x m_x the incidence-edge count. For a forest with c components, E=(6+s)-c, so D=E-s=6-c<=5. This is exactly the standard forest/cycle-rank identity specialized to six path nodes.",
+      "kill_continuation": true,
+      "residue": "No new six-dimensional combinatorial inequality remains once forest incidence is granted."
+    },
+    {
+      "claim_id": "KAK-03",
+      "lane": "KAKEYA",
+      "accepted_claim": "For r>=2 in the declared sufficiently large finite window, the exact six-axis support optimum is K_6(r)=6r-5.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-CYCLOMATIC",
+        "EXT-BERGE-ACYCLIC"
+      ],
+      "hypothesis_comparison": "The lower bound is the forest defect identity: |union_i L_i|=6r-D>=6r-5. Equality is realized whenever the six path nodes are connected by a tree of five singleton overlaps. Thus the number is a direct specialization of ordinary forest incidence counting, not a classical Kakeya breakthrough.",
+      "kill_continuation": true,
+      "residue": "Only the native legality of direction families and refinement survives."
+    },
+    {
+      "claim_id": "KAK-04",
+      "lane": "KAKEYA",
+      "accepted_claim": "Equality K_6(r)=6r-5 requires connected overlap incidence; six-way concurrency is not required, and the nonconcurrent r=2 chain is a valid equality witness.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-CYCLOMATIC",
+        "EXT-BERGE-ACYCLIC"
+      ],
+      "hypothesis_comparison": "Within a forest, D=6-c. Equality D=5 is equivalent to c=1 after all six path nodes participate, i.e. connected incidence. A tree may have arbitrary shape, so concurrency is not part of the equality condition.",
+      "kill_continuation": true,
+      "residue": "Do not spend continuation budget classifying tree shapes under the same six independent directions."
+    },
+    {
+      "claim_id": "KAK-05",
+      "lane": "KAKEYA",
+      "accepted_claim": "Linear independence is essential: the dependent direction set {e1,e2,e1+e2} admits an overlap cycle and an r=2 support-3 countermodel, beating the independent-direction forest value 4.",
+      "classification": "STRICT_ANTECEDENT",
+      "strongest_antecedent": [
+        "EXT-MATROID-CIRCUIT"
+      ],
+      "hypothesis_comparison": "The three direction vectors contain the elementary vector-matroid circuit e1+e2-(e1+e2)=0. A circuit is precisely the standard minimal dependence that permits a closed incidence cycle; the support-3 realization is a small explicit specialization.",
+      "kill_continuation": true,
+      "residue": "What remains is whether P000 natively admits such mixed/refining directions under its actual rotation/refinement semantics."
+    },
+    {
+      "claim_id": "KAK-06",
+      "lane": "KAKEYA",
+      "accepted_claim": "Classical finite/discrete Kakeya theory is relevant only as an adjacent comparison, not as the antecedent of K_6(r)=6r-5.",
+      "classification": "ADJACENT_METHOD",
+      "strongest_antecedent": [
+        "EXT-DVIR-KAKEYA",
+        "EXT-BALL-BLOKHUIS-DOMENZAIN"
+      ],
+      "hypothesis_comparison": "Dvir's finite-field Kakeya set contains a line in every direction of F_q^n and is bounded at q^n scale; Ball–Blokhuis–Domenzain likewise study large direction grids. The accepted GEO6 theorem uses exactly six typed lattice directions, finite length-r Cell paths, and incidence-forest structure. Direction universe, ambient algebra, objective and asymptotic regime differ materially.",
+      "kill_continuation": false,
+      "residue": "These papers block any broad 'new Kakeya theorem' language but do not resolve MIXED_DIRECTION_SELECTOR."
+    },
+    {
+      "claim_id": "KAK-07",
+      "lane": "KAKEYA",
+      "accepted_claim": "The full native P000 direction family beyond carrier S4, including mixed/refining direction circuits across refinement levels, remains unresolved.",
+      "classification": "NO_MATERIAL_MATCH",
+      "strongest_antecedent": [
+        "INT-KAK-GEN2"
+      ],
+      "hypothesis_comparison": "External matroid/Kakeya theory can analyze a supplied direction family but cannot decide which carrier combinations count as native P000 directions or how they transport across Cell refinement.",
+      "kill_continuation": false,
+      "residue": "MIXED_DIRECTION_SELECTOR survives. NO_MATERIAL_MATCH is not a novelty certificate."
+    }
+  ],
+  "continuation_kill_claim_ids": [
+    "PCK-01",
+    "PCK-02",
+    "PCK-03",
+    "PCK-04",
+    "PCK-05",
+    "PCK-06",
+    "PCK-07",
+    "PCK-08",
+    "PCK-09",
+    "KAK-01",
+    "KAK-02",
+    "KAK-03",
+    "KAK-04",
+    "KAK-05"
+  ],
+  "continuation_kill_list": [
+    {
+      "claim_id": "PCK-01",
+      "statement": "Once a finite Cell conflict relation C is declared, admissible packings are exactly independent sets and the optimum occupancy is alpha(G)/|V|.",
+      "reason": "EXACT_DUPLICATE"
+    },
+    {
+      "claim_id": "PCK-02",
+      "statement": "Finite packing optimum and occupancy are invariant under every declared Cell bijection preserving the conflict relation.",
+      "reason": "STRICT_ANTECEDENT"
+    },
+    {
+      "claim_id": "PCK-03",
+      "statement": "For a periodic lift from a finite quotient of Z^6, every Følner sequence yields density equal to the occupied quotient fraction.",
+      "reason": "STRICT_ANTECEDENT"
+    },
+    {
+      "claim_id": "PCK-04",
+      "statement": "For a fixed periodic fundamental-domain tiling, finite-window density error is confined to incomplete boundary tiles.",
+      "reason": "STRICT_ANTECEDENT"
+    },
+    {
+      "claim_id": "PCK-05",
+      "statement": "The declared torus conflict graph T_n on (Z/nZ)^6 with neighbors differing by ±e_i is the sixfold Cartesian product of C_n and a finite abelian Cayley graph; for even n it is bipartite by parity.",
+      "reason": "EXACT_DUPLICATE"
+    },
+    {
+      "claim_id": "PCK-06",
+      "statement": "For even n, alpha(T_n)=n^6/2, witnessed by one parity class and certified above by the E1 perfect matching.",
+      "reason": "STRICT_ANTECEDENT"
+    },
+    {
+      "claim_id": "PCK-07",
+      "statement": "The spectral upper certificate alpha(T_n)/n^6<=1/2 follows from degree 12, least eigenvalue -12, and Hoffman's ratio bound.",
+      "reason": "EXACT_DUPLICATE"
+    },
+    {
+      "claim_id": "PCK-08",
+      "statement": "Translations and the realized carrier-S4 coordinate permutations preserve the declared conflict relation and therefore preserve density.",
+      "reason": "STRICT_ANTECEDENT"
+    },
+    {
+      "claim_id": "PCK-09",
+      "statement": "For q:T_kn->T_n given by coordinate reduction mod n, the full inverse image of an independent set is independent and constant fiber size k^6 preserves occupancy exactly.",
+      "reason": "STRICT_ANTECEDENT"
+    },
+    {
+      "claim_id": "KAK-01",
+      "statement": "For six affine Cell paths with linearly independent direction vectors, the bipartite incidence graph between paths and multiply-covered Cells is a forest.",
+      "reason": "STRICT_ANTECEDENT"
+    },
+    {
+      "claim_id": "KAK-02",
+      "statement": "For six independent paths the overlap defect D=sum_x(m_x-1) is at most 5.",
+      "reason": "STRICT_ANTECEDENT"
+    },
+    {
+      "claim_id": "KAK-03",
+      "statement": "For r>=2 in the declared sufficiently large finite window, the exact six-axis support optimum is K_6(r)=6r-5.",
+      "reason": "STRICT_ANTECEDENT"
+    },
+    {
+      "claim_id": "KAK-04",
+      "statement": "Equality K_6(r)=6r-5 requires connected overlap incidence; six-way concurrency is not required, and the nonconcurrent r=2 chain is a valid equality witness.",
+      "reason": "STRICT_ANTECEDENT"
+    },
+    {
+      "claim_id": "KAK-05",
+      "statement": "Linear independence is essential: the dependent direction set {e1,e2,e1+e2} admits an overlap cycle and an r=2 support-3 countermodel, beating the independent-direction forest value 4.",
+      "reason": "STRICT_ANTECEDENT"
+    }
+  ],
+  "selector_map": [
+    {
+      "selector": "NONOVERLAP_SELECTOR",
+      "status": "SURVIVES",
+      "what_external_math_does": "Once C is declared, graph theory completely handles finite occupancy, automorphism invariance, matching and Hoffman certificates.",
+      "missing_native_datum": "A canonically selected/derived native Cell non-overlap or exclusion relation, with equivariance and compatibility with any refinement.",
+      "accepted_datum_capable_now": false,
+      "current_evidence": "Gen2 Packing explicitly freezes NO_CANONICAL_BARE_P000_NONOVERLAP_RELATION. First-wave CONTACT_SELECTOR is also still unresolved.",
+      "driver_action": "Highest leverage, but do not publish a successor until an accepted P000/Full-Cell contact/exclusion datum is named."
+    },
+    {
+      "selector": "TRANSLATION_FOLNER_SELECTOR",
+      "status": "SURVIVES",
+      "what_external_math_does": "For a declared Z^6/amenable translation action and finite period quotient, periodic density along every Følner sequence is classical.",
+      "missing_native_datum": "A native translation action (or substitute amenable action/invariant-mean structure), plus admissible finite periods/windows.",
+      "accepted_datum_capable_now": false,
+      "current_evidence": "Gen2 Packing explicitly freezes NO_CANONICAL_BARE_P000_TRANSLATION_OR_INVARIANT_MEAN.",
+      "driver_action": "Do not reprove density limits; first obtain a native action datum."
+    },
+    {
+      "selector": "PHYSICAL_REFINEMENT_SELECTOR",
+      "status": "SURVIVES",
+      "what_external_math_does": "Constant-fiber graph-cover pullback preserves the declared density exactly.",
+      "missing_native_datum": "A theorem identifying the combinatorial q_{kn,n} (or another cover) with the physical P000 scale-refinement map.",
+      "accepted_datum_capable_now": false,
+      "current_evidence": "T5 precision-refinement machinery is reusable for finite covers, but the accepted Packing return explicitly denies that this alone supplies physical scale semantics.",
+      "driver_action": "Treat T5 as method reuse, not as the missing physical datum."
+    },
+    {
+      "selector": "MIXED_DIRECTION_SELECTOR",
+      "status": "SURVIVES",
+      "what_external_math_does": "Given direction vectors, matroid circuit/forest theory predicts exactly when overlap cycles may occur; finite Kakeya literature supplies adjacent global-direction techniques.",
+      "missing_native_datum": "A native-legal mixed/refining direction family/orbit under the actually granted P000/Full-Cell action, including transport across refinement.",
+      "accepted_datum_capable_now": false,
+      "current_evidence": "Gen2 Kakeya freezes CARRIER_S4 != FULL_NATIVE_P000_ROTATION_GROUP and leaves the first native mixed/refining direction circuit unresolved.",
+      "driver_action": "Do not extend K_6 formula beyond six independent typed axes until such a direction datum is accepted."
+    }
+  ],
+  "driver_recommendation": {
+    "accepted_p000_or_full_cell_datum_resolving_any_selector_now": "NONE_CURRENTLY_IDENTIFIED",
+    "highest_leverage_future_selector": "NONOVERLAP_SELECTOR",
+    "why_highest_leverage": "It is the common prerequisite for every native Packing optimization statement and couples directly to the still-unresolved first-wave CONTACT_SELECTOR. Classical graph/matching/spectral theory becomes available immediately once a canonical Cell exclusion relation is accepted.",
+    "authorization_guard": "Do not publish a successor task merely from this audit. A successor must first name an already accepted P000/Full-Cell datum capable of resolving at least one surviving selector; none is identified in the currently accepted inputs."
+  },
+  "tool_reuse": {
+    "status": "REUSE_APPLIED",
+    "reused_method": "GEO6 first-wave claim/source classification matrix and task-local exact regression pattern; ordinary graph/matroid/Følner antecedents are cited rather than rebuilt as a new global toolbox.",
+    "new_global_tool_family": false
+  },
+  "novelty_guard": "NO_MATERIAL_MATCH is not a novelty certificate. It means only that the searched external theories do not decide the P000-specific semantic selector under equivalent hypotheses."
+}
