@@ -1,0 +1,113 @@
+{
+  "schema": "ENTERPRISE_MATH_P000_PROBE_RECONSTRUCTION_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-PROBE-RECONSTRUCTION",
+  "publication_id": "TP2-9AAC33ED2AF86C204E49",
+  "hard_target": "P000_NATIVE_CELL_PROBE_RECONSTRUCTION_OR_INDISTINGUISHABILITY_CLASSIFIED",
+  "terminal_class": [
+    "EXACT_OBSERVATIONAL_INDISTINGUISHABILITY_COUNTERMODEL",
+    "MINIMAL_MISSING_PROBE_CLASS_IDENTIFIED"
+  ],
+  "scope": {
+    "model_class": "UNIFORM_DECORATED_FINITE_SIMPLE_2_REGULAR_NATIVE_CELL_GRAPHS",
+    "native_cells": "opaque tagged Cell identities; graph vertices are not carrier vertices",
+    "native_adjacency": "finite simple 2-regular graph on opaque Cells",
+    "six_axis_fiber": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6"
+    ],
+    "carrier_star_readouts": {
+      "J_A": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "J_B": [
+        "E1",
+        "E4",
+        "E5"
+      ],
+      "J_C": [
+        "E2",
+        "E4",
+        "E6"
+      ],
+      "J_D": [
+        "E3",
+        "E5",
+        "E6"
+      ]
+    },
+    "carrier_rotation_generators": {
+      "a_xi": "(E1 E2 E3)(E4 E6 E5)",
+      "b_xi": "(E2 E4)(E3 E5); E1,E6 fixed"
+    },
+    "pf10": "one identical opaque local PF-10 token at every Cell",
+    "guard": "carrier S4 and local presentation data are observations, not native Cell identity"
+  },
+  "typed_probe_family_P_r": {
+    "SLICE": "four accepted carrier star readouts on the tagged six-axis fiber",
+    "ROT": "all words in the accepted carrier S4 action on the local axis fiber",
+    "PF10": "local PF-10 readout token",
+    "N_r": "rooted induced native-adjacency ball of radius r with transported local decorations",
+    "observation_profile": "multiset over opaque Cells of typed probe-output isomorphism classes"
+  },
+  "equivalence_separation": {
+    "cell_isomorphism": "bijection of opaque Cells preserving native adjacency and all tagged local structures",
+    "probe_isomorphism": "root-preserving typed isomorphism of probe outputs; opaque root identity is forgotten",
+    "presentation_relabeling": "local label reindexing transported through readouts; it is not native Cell equality"
+  },
+  "theorems": [
+    {
+      "name": "LOCAL_FACTORIZATION",
+      "statement": "For uniform local six-axis/slice/rotation/PF-10 decorations, every P_r observation factors through the multiset of rooted radius-r native adjacency balls."
+    },
+    {
+      "name": "MINIMAL_RADIUS1_COLLISION",
+      "statement": "Within the declared 2-regular class, the smallest nonisomorphic P_1-indistinguishable pair has eight Cells: X=C8 and Y=C4 disjoint_union C4. It is the unique collision through n<=8 at cycle-partition level."
+    },
+    {
+      "name": "RADIUS2_SEPARATION_OF_MINIMAL_PAIR",
+      "statement": "N_2 separates the minimal pair: a root in C8 sees a five-vertex rooted path, while a root in C4 sees the whole four-cycle."
+    },
+    {
+      "name": "FIXED_RADIUS_GLOBAL_NO_GO",
+      "statement": "For every fixed r>=1 and every m>=2r+2, X_r=C_(2m) and Y_r=C_m disjoint_union C_m are nonisomorphic but have identical P_r profiles. Therefore no fixed-radius local probe family is globally reconstruction-complete on the unbounded declared class."
+    }
+  ],
+  "minimal_countermodel": {
+    "X": "C8",
+    "Y": "C4 disjoint_union C4",
+    "cell_count_each": 8,
+    "P1_profile_equal": true,
+    "cell_isomorphic": false,
+    "witness_of_nonisomorphism": "connected_component_count: X=1, Y=2",
+    "N2_profile_equal": false,
+    "minimality_scope": "all finite simple 2-regular graphs with the frozen uniform local decoration and <=8 Cells"
+  },
+  "missing_probe_class": {
+    "for_minimal_pair": "radius-2 native neighborhood / four-cycle closure probe",
+    "for_unbounded_class": "radius that scales with native component diameter, or a genuinely nonlocal path/connectivity/gluing probe",
+    "negative_classification": "adding any single fixed finite radius cannot give global completeness on the unbounded 2-regular class"
+  },
+  "philosophical_interpretation": {
+    "yoneda_guard": "The full Yoneda principle concerns all maps from a sufficiently rich test category. A restricted finite/local probe family need not be jointly conservative.",
+    "project_consequence": "Do not infer native six-dimensional identity from equality of carrier/local observations. First prove the chosen probe family jointly separates the declared model class, or record its exact kernel of indistinguishability.",
+    "abstraction_guard": "No topos/stack upgrade is needed to state this obstruction; the first missing object is a stronger probe/gluing semantics."
+  },
+  "nonclaims": [
+    "Does not refute P000.",
+    "Does not reduce six native spatial dimensions.",
+    "Does not identify carrier vertices with native Cells.",
+    "Does not claim all currently imaginable P000 probes are local.",
+    "Does not prove mathematical novelty of the graph-locality phenomenon.",
+    "Does not promote carrier S4 to the full native P000 rotation group."
+  ],
+  "checker": {
+    "path": "research_checks/P000_PHILOSOPHY_FIRST_PROBE_RECONSTRUCTION_CHECK_20260830.py",
+    "expected": "PASS P000_PROBE_RECONSTRUCTION; checks=117; minimal_radius1_collision_n=8; countermodel=C8_vs_C4_plus_C4; radius2_separates=TRUE; fixed_radius_family_obstruction_verified_r=1..32; carrier_S4_regression=PASS"
+  }
+}
