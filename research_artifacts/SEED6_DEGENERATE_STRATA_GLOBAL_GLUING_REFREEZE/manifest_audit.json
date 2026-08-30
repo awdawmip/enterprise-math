@@ -1,0 +1,46 @@
+{
+  "schema": "SEED6_DEGENERATE_STRATA_GLOBAL_GLUING_MANIFEST_AUDIT_V1",
+  "task_id": "RS-SEED6-DEGENERATE-STRATA-GLOBAL-GLUING",
+  "publication_id": "TP2-756A2BED8749CBC27396",
+  "execution_record_id": "ER-91C5A7BFF2E323318CCD",
+  "claim_id": "chatgpt-s6dggv2-20260830-1018-3b2be6",
+  "researcher_id": "EM-S6DGGV2-7ABA1B",
+  "mathematical_delta": "NONE",
+  "checker_replay": "PASS",
+  "result_output_manifest": [
+    {
+      "path": "research_returns/SEED6_DEGENERATE_STRATA_GLOBAL_GLUING_MANIFEST_REFREEZE_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:e97bb71849c83c1b7d6605b87c791a5293f5c234",
+      "sha256": "sha256:7453ef6b661e9774c96a64a3a66f9a09ee4591077d111395303509077607b297"
+    },
+    {
+      "path": "research_execution_records/RS-SEED6-DEGENERATE-STRATA-GLOBAL-GLUING/ER-91C5A7BFF2E323318CCD.json",
+      "git_blob_sha1": "sha1:89daf315440a28ce1c6ea9481de97e3e31756c7d",
+      "sha256": "sha256:226bac782d5b4bd5efb11045f7c03cba2121313a234fcbc185a068ff2d8a5ca2"
+    }
+  ],
+  "reused_frozen_evidence": [
+    {
+      "path": "research_returns/SEED6_DEGENERATE_STRATA_GLOBAL_GLUING_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:51fa53affb4ce9cb71024922822fe7851b7c3525",
+      "sha256": "sha256:927a93285cd0d309dd7372fb93f67ba918079333a929f8f55195745b4fb0bfa9"
+    },
+    {
+      "path": "research_checks/SEED6_DEGENERATE_STRATA_GLOBAL_GLUING_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:8dbcfe34dd42859da648c9a3f81452083d41e393",
+      "sha256": "sha256:9e57071fcccb7622d8ab812c03b8aa22c9b1dd331d3e5381d5e7f624466ee31d"
+    },
+    {
+      "path": "research_artifacts/SEED6_DEGENERATE_STRATA_GLOBAL_GLUING/census.json",
+      "git_blob_sha1": "sha1:b0f18c5f1263e1ec4ecf3dca9c1879f0d19f67e9",
+      "sha256": "sha256:4aa93842db74c5e8fa850633d5456c63044fa090b554ba939a5fe5068cfc15a9"
+    }
+  ],
+  "audit_rules": {
+    "every_result_output_row_has_path_git_blob_sha1_sha256": true,
+    "historical_result_rewritten": false,
+    "checker_reused_byte_for_byte": true,
+    "new_mathematical_claims_added": false,
+    "self_hash_recursion_avoided": "audit artifact is digest-bound by the result as supporting_integrity_artifact, not listed inside result output_manifest"
+  }
+}
