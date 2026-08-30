@@ -20,7 +20,15 @@
   "last_progress_ref": null,
   "last_progress_at": null,
   "hard_block": null,
-  "tags": ["addmul","binomial","cross-effect","finite-difference","integer-valued-polynomial","defect","precision"],
+  "tags": [
+    "addmul",
+    "binomial",
+    "cross-effect",
+    "finite-difference",
+    "integer-valued-polynomial",
+    "defect",
+    "precision"
+  ],
   "claim_lease_minutes": 240,
   "created_by_role": "RESEARCH_DRIVER",
   "task_authority": "PUBLISHED_REGISTERED",
