@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-43B397CD1E8953F613B3",
+  "task_id": "RS-P000-SIX-AXIS-TROPICAL-PLUCKER-VALUATED-MATROID",
+  "publication_id": "TP2-5D981DF6C1ECF8AA26A0",
+  "execution_record_id": "ER-409BE12B860C2E242C2D",
+  "claim_id": "chatgpt-p000tp3-20260830-1742-3c8e71",
+  "taskbook_path": "research_tasks/P000_SIX_AXIS_TROPICAL_PLUCKER_VALUATED_MATROID_RESULT_SCHEMA_REPAIR_V3_20260830.md",
+  "taskbook_blob_sha1": "sha1:59dc9bd16460549013b302c4913741fe9a86cff5",
+  "execution_branch": "research/p000-six-axis-tropical-plucker-result-schema-repair-v3-em-p000tp3-cf9afb",
+  "execution_branch_base": "6b3c4f96b09e79f9f0c14ac8190640717d13ee58",
+  "return_path": "research_returns/P000_SIX_AXIS_TROPICAL_PLUCKER_VALUATED_MATROID_RESULT_SCHEMA_REPAIR_V3_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:695018b748e0e7b39507b3bffbbb64b896ecfea3",
+  "return_sha256": "sha256:927158823c67cece9ad0e4bcd1f79681d6ac5c73be389c13e1a5ab4e31d0324f",
+  "owner_head": "36626c57e00f46c4eca0687659696f5979d5e174",
+  "researcher_id": "EM-P000TP3-CF9AFB",
+  "frozen_at": "2026-08-30T09:47:34+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "P000_TROPICAL_PLUCKER_REVISION_V3_WRITER_CONFORMANT_RESULT_WITH_ZERO_MATH_DRIFT",
+  "unresolved_residue": "The derived six-weight classifier remains nonnative. W_VP remains restricted to the finite nonzero-coordinate domain; no zero-coordinate/+infinity extension is claimed. Any native-collapse relation requires separately authorized research.",
+  "output_manifest": [
+    {
+      "path": "research_returns/P000_SIX_AXIS_TROPICAL_PLUCKER_VALUATED_MATROID_RESULT_SCHEMA_REPAIR_V3_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:695018b748e0e7b39507b3bffbbb64b896ecfea3",
+      "sha256": "sha256:927158823c67cece9ad0e4bcd1f79681d6ac5c73be389c13e1a5ab4e31d0324f"
+    },
+    {
+      "path": "research_checks/P000_SIX_AXIS_TROPICAL_PLUCKER_VALUATED_MATROID_RESULT_SCHEMA_REPAIR_V3_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:a51d65fb405a7080f8e85afc4de5c028e4762731",
+      "sha256": "sha256:b5af1949f6ed4ccc180f6322db0e90fb1c26c11d23f27b0ab4bdc2094b6b58b2"
+    },
+    {
+      "path": "research_artifacts/P000_SIX_AXIS_TROPICAL_PLUCKER_VALUATED_MATROID_RESULT_SCHEMA_REPAIR_V3/P000_TROPICAL_PLUCKER_REVISION_V2_CERTIFICATE_REPLAY.json",
+      "git_blob_sha1": "sha1:1559a53056170e16f9121d61a899761e4a4a4997",
+      "sha256": "sha256:cef13ec131b23c62a4a1231f20c560cd25ee7b4e1659db2244a40d0d71d10434"
+    },
+    {
+      "path": "research_execution_records/RS-P000-SIX-AXIS-TROPICAL-PLUCKER-VALUATED-MATROID/ER-409BE12B860C2E242C2D.json",
+      "git_blob_sha1": "sha1:604b8a343b5e000584353d156529f9e2f51b4456",
+      "sha256": "sha256:4ef45d54e7d74e1cc6a093081342a231aff761f5a4a0ad41fcc84822cbcf38e9"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_INDEPENDENT",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review RR-43B397CD1E8953F613B3 as the generation-3 writer-conformant zero-math-drift replacement. Verify the exact checker replay LOCAL_DETERMINISTIC_PASS checks=184315, byte-identical V2 checker/certificate blobs, finite nonzero W_VP theorem boundary, and complete dual-digest manifest. Do not promote delta_T to native P000 tropical geometry and do not infer any downstream successor from this researcher result.",
+  "driver_review_required": true
+}
