@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from fractions import Fraction
-from math import gcd
+from math import gcd, isqrt
 from itertools import combinations
 
 CHECKS = 0
@@ -70,19 +70,22 @@ def carrier_stratum(a, b):
     return "O1_OVERLAP_COMMON_BASE_RANK1" if rank1 else "O2_OVERLAP_RANK2"
 
 def iff_eq1(a, b, r, s):
+    # br = as iff (r,s)=(A t, B t), except equality A=B=1 where this is r=s.
     d, A, B = reduced(a, b)
     lhs = b * r == a * s
     rhs = (r % A == 0 and s % B == 0 and r // A == s // B)
     return lhs, rhs
 
 def iff_eq2(a, b, r, s):
+    # ar = bs iff (r,s)=(B t, A t).
     d, A, B = reduced(a, b)
     lhs = a * r == b * s
     rhs = (r % B == 0 and s % A == 0 and r // B == s // A)
     return lhs, rhs
 
 def oriented_typed_resonance(a, b, r, s):
-    # row 0 = a, row 1 = b; row/support labels are part of the port identity.
+    # Returns normalized typed-port edge(s) for the two cross-column equalities.
+    # row 0 = a, row 1 = b. Each port is (row,bundle).
     out = set()
     if b * r == a * s and r != s:
         out.add(frozenset(((1, r), (0, s))))
@@ -122,8 +125,10 @@ def chain_matrices(a, b, R):
     vid = {v:rid[dsu.find(v)] for v in typed}
 
     edges = []
+    # vertical row 0 -> row 1
     for r in R:
         edges.append(("v", r, None, (0,r), (1,r)))
+    # horizontal per row, lower bundle -> higher bundle
     for row in (0,1):
         for r,s in combinations(R,2):
             edges.append(("h", row, (r,s), (row,r), (row,s)))
@@ -136,6 +141,7 @@ def chain_matrices(a, b, R):
     faces=list(combinations(R,2))
     B2=[[0]*len(faces) for _ in edges]
     for j,(r,s) in enumerate(faces):
+        # h(row0,r->s) + v_s - h(row1,r->s) - v_r
         B2[eid[("h",0,(r,s))]][j] += 1
         B2[eid[("v",s,None)]][j] += 1
         B2[eid[("h",1,(r,s))]][j] -= 1
@@ -146,6 +152,7 @@ def transpose(M):
     return [list(x) for x in zip(*M)] if M else []
 
 def is_coboundary(B1, alpha):
+    # Solve B1^T h = alpha by rank comparison.
     A = transpose(B1)
     if not A:
         return not any(alpha)
@@ -165,9 +172,10 @@ for a in range(2,31):
                 both=l1 and l2
                 check(both == (A==B==1 and r==s),
                       f"simultaneous theorem failed {(a,b,r,s,A,B)}")
+                # same-column cross-row collision is exactly equality stratum
                 check((a*r==b*r) == (a==b), "same-column row collision failed")
 
-# 2) The two oriented equations give one unordered resonance family for A != B.
+# 2) The two oriented equations give the same unordered resonance family for A != B.
 for a in range(2,31):
     for b in range(2,31):
         d,A,B=reduced(a,b)
@@ -175,12 +183,20 @@ for a in range(2,31):
             continue
         for t in range(1,16):
             p=frozenset((A*t,B*t))
+            # sorted pair must yield exactly one typed edge.
             r,s=sorted(p)
             es=oriented_typed_resonance(a,b,r,s)
             check(len(es)==1, f"expected one normalized typed edge {(a,b,t,r,s,es)}")
 
 # 3) Multiple decorated strata; safe resonance graph is a typed-port matching.
-examples = [(2,3),(4,9),(6,35),(4,8),(2,6),(6,6)]
+examples = [
+    (2,3),      # C0
+    (4,9),      # C1
+    (6,35),     # C2
+    (4,8),      # O1
+    (2,6),      # O2
+    (6,6),      # equality
+]
 expected = [
     "C0_DISTINCT_PRIME_PAIR",
     "C1_COPRIME_PRIME_POWER_THICK",
@@ -202,9 +218,11 @@ for a,b in examples[:-1]:
         for v in e:
             deg[v]=deg.get(v,0)+1
     check(max(deg.values(), default=0)<=1, f"typed matching failed {(a,b)}")
+    # exact number is count of distinct t for which both At and Bt are in R
     ts={r//A for r in R if r%A==0 and (B*(r//A)) in R}
     check(len(es)==len(ts), f"resonance count mismatch {(a,b,len(es),len(ts))}")
 
+# Equality: distinct normalized bundle objects have no cross-column resonance.
 check(len(safe_edges(6,6,{1,2,3,4,5}))==0, "equality generated false cross-column pinch")
 
 # 4) Mixed scalar chains are real only after unsafe row erasure.
@@ -242,20 +260,23 @@ for a,b,R in families:
     check(beta2==0, f"beta2 failed {(a,b,beta2)}")
     check(V==2*k-m, f"vertex count failed {(a,b,V,k,m)}")
     alpha=[1 if e[0]=="v" else 0 for e in edges]
+    # cocycle: alpha * B2 = 0
     for j in range(F):
         check(sum(alpha[i]*B2[i][j] for i in range(E))==0, "height not closed")
     check(is_coboundary(B1,alpha)==(m==0), f"height exactness failed {(a,b,m)}")
+    # Each safe resonance gives an explicit row-height loop with period +/-1.
     for e in res:
         u,v=tuple(e)
         check(u[0]!=v[0], "resonance did not cross rows")
         check(abs(u[0]-v[0])==1, "row jump wrong")
         check(1 % 2 == 1, "mod2 period wrong")
 
+# Clean exactness control.
 roots,edges,faces,B1,B2,res=chain_matrices(2,3,{1,5,7,11})
 alpha=[1 if e[0]=="v" else 0 for e in edges]
 check(len(res)==0 and is_coboundary(B1,alpha), "clean height should be exact")
 
-# 6) Exhaustive safe-matching falsification across a broad finite range.
+# 6) Exhaustive safe matching falsification across a broad finite range.
 for a in range(2,25):
     for b in range(2,25):
         if a==b:
