@@ -1,0 +1,120 @@
+{
+  "schema": "P000_NONLOCAL_PROBE_JOINT_SEPARATION_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-NONLOCAL-PROBE-JOINT-SEPARATION",
+  "publication_id": "TP2-35D8011A9CE8FF9207EC",
+  "researcher_id": "EM-PHQ9-91C85B",
+  "declared_scope": "accepted Q2/Q6 U_2REG: uniformly decorated finite simple 2-regular native-Cell adjacency graphs",
+  "base_profile": {
+    "coordinates": [
+      "t_triangle_roots",
+      "p_path_roots"
+    ],
+    "formula": "t=3*h_3; p=sum_{k>=4} k*h_k",
+    "accepted_representability": "t mod 3 = 0 and (p = 0 or p >= 4)",
+    "minimal_virtual": [
+      0,
+      3
+    ]
+  },
+  "candidates": {
+    "CONN_BIT": {
+      "semantics": "1 iff every two declared native Cells are connected by a native-adjacency path",
+      "native_status": "DERIVED_FROM_DECLARED_Q2_NATIVE_ADJACENCY",
+      "q2_family": "SEPARATES: C_2m=1, C_m+C_m=0",
+      "q6_minimal_virtual": "PERSISTS: formal (0,3,1) remains unrealizable",
+      "global_reconstruction": false,
+      "negative_collision": {
+        "n": 10,
+        "left": [
+          4,
+          6
+        ],
+        "right": [
+          5,
+          5
+        ],
+        "profile": [
+          0,
+          10,
+          0
+        ]
+      }
+    },
+    "MIN_NATIVE_RETURN": {
+      "semantics": "minimum length >=3 of a simple nonbacktracking loop in declared native adjacency",
+      "classical_name_after_semantics": "girth",
+      "native_status": "DERIVED_FROM_DECLARED_Q2_NATIVE_ADJACENCY",
+      "q2_family": "SEPARATES: C_2m -> 2m, C_m+C_m -> m",
+      "q6_minimal_virtual": "ELIMINATED: t=0 forces g>=4 but support n=3 cannot contain such a loop",
+      "exact_image": {
+        "t_positive": "g=3 and t mod 3=0 and (p=0 or p>=4)",
+        "t_zero": "g>=4 and (p=g or p>=2g)"
+      },
+      "global_reconstruction": false,
+      "first_collision": {
+        "n": 11,
+        "left": [
+          3,
+          8
+        ],
+        "right": [
+          3,
+          4,
+          4
+        ],
+        "profile": [
+          3,
+          8,
+          3
+        ]
+      },
+      "tested_pareto_minimal_joint_success": true
+    },
+    "ROOT_RETURN_PERIOD_HIST": {
+      "semantics": "q_k=#roots whose deterministic degree-2 nonbacktracking path first returns after k steps",
+      "native_status": "DERIVED_FROM_DECLARED_Q2_NATIVE_ADJACENCY",
+      "q2_family": "SEPARATES: C_2m has q_2m=2m; C_m+C_m has q_m=2m",
+      "representability": "iff q_k mod k = 0 for every k>=3",
+      "inverse": "h_k=q_k/k copies of C_k",
+      "q6_minimal_virtual": "ELIMINATED",
+      "global_reconstruction": true,
+      "isomorphism_kernel": "ZERO_ON_U_2REG"
+    },
+    "HOLONOMY_EXACTNESS": {
+      "semantics": "after explicit Q4-style C2 edge-transport enrichment, 1 iff every fundamental-cycle holonomy is identity",
+      "native_status": "EXPLICIT_ENRICHMENT_ONLY_NOT_BARE_P000",
+      "q2_family": "FAILS under identity transports: both outputs 1",
+      "q6_minimal_virtual": "PERSISTS under formal trivial-holonomy completion",
+      "global_reconstruction": false,
+      "role": "NEGATIVE_CONTROL"
+    }
+  },
+  "information_relations": {
+    "period_refines_min_return": "R_min=min{k:q_k>0}",
+    "strictness_witness": {
+      "left": [
+        3,
+        8
+      ],
+      "right": [
+        3,
+        4,
+        4
+      ],
+      "same_min_return": 3,
+      "different_period_hist": true
+    },
+    "universal_minimality_claimed": false
+  },
+  "hard_target_disposition": "SUCCESS / TESTED_PARETO_MINIMAL_NATIVE_JOINT_PROBE_FOUND / FULL_U_2REG_PERIOD_COMPLETION_CLASSIFIED",
+  "checker_expected": "PASS P000_NONLOCAL_PROBE_JOINT_SEPARATION; checks=1645086; q2_family=SEPARATED_BY_CONN_GIRTH_PERIOD; holonomy_exactness=NEGATIVE_CONTROL; q6_minimal_virtual=(0,3)_REJECTED_BY_GIRTH_AND_PERIOD; girth_image=EXACT_THROUGH_N79; period_reconstruction=EXACT_THROUGH_N60_AND_PROVED_BY_INVERSE; conn_first_collision_n=10; girth_first_collision_n=11; period_collision_none_through_n60; carrier_S4_regression=PASS",
+  "scope_guards": [
+    "P000 remains unchanged",
+    "U_2REG is a finite witness class only",
+    "carrier S4 is not promoted to native rotation",
+    "no opaque Cell identity is returned",
+    "holonomy requires explicit enrichment",
+    "no novelty claim for classical graph/path facts",
+    "no universal weakest-probe theorem is claimed"
+  ]
+}
