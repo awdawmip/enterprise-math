@@ -1,0 +1,43 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-2D4C28F07DE2B14AB18D",
+  "task_id": "RS-ADDMUL-WITT-GHOST-MULTISCALE-BRIDGE",
+  "publication_id": "TP2-F876CFF74AF60A88D173",
+  "execution_record_id": "ER-817EAAE9F87AE5B0933D",
+  "claim_id": "chatgpt-amwitt-20260830-1230-6d3a91",
+  "taskbook_path": "research_tasks/ADDMUL_WITT_GHOST_MULTISCALE_BRIDGE_20260830.md",
+  "taskbook_blob_sha1": "sha1:4849e15731adea6688ff38dc3beb92504609dce1",
+  "execution_branch": "research/addmul-witt-ghost-multiscale-bridge-em-amwitt-6d3a91",
+  "execution_branch_base": "c8fd304565c858ae43b482bceaf5b47436624acf",
+  "return_path": "research_returns/ADDMUL_WITT_GHOST_MULTISCALE_BRIDGE_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:231d3d5ceef4604a34a7ee2c874db70d0a4431c5",
+  "return_sha256": "sha256:3a27acde1420c5bd541cc42f546537e1df67ceb70219e643e2b1c53558d94f1c",
+  "owner_head": "430aa87ab64136d8bf9cb425c437cf9fb8273860",
+  "researcher_id": "EM-AMWITT-6D3A91",
+  "frozen_at": "2026-08-30T12:42:00+08:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "FINITE_WITT_GHOST_BRIDGE_CLASSIFIED: finite divisor-closed big-Witt ghost packets have a triangular exact forward map and sharp integral-image gate; ordinary coordinate restriction is ghost-local iff the retained index set is divisor-closed; p-typical packets are exact prime-power subinterfaces; prime-power skeletons lose mixed-composite coordinates; existing Enterprise precision and holonomy tooling is reused, while only a thin WITT_LITE integrality-gated adapter is justified.",
+  "unresolved_residue": "The finite packet/interface is classified. A downstream successor is justified only if a concrete Enterprise consumer requires mixed-composite divisor information, the integral ghost-image predicate as a state invariant, or divisor-closed restriction coupled to an existing operation. Do not open a successor merely to derive additional classical Witt identities or create a parallel scale/holonomy calculus.",
+  "output_manifest": [
+    {
+      "path": "research_returns/ADDMUL_WITT_GHOST_MULTISCALE_BRIDGE_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:231d3d5ceef4604a34a7ee2c874db70d0a4431c5",
+      "sha256": "sha256:3a27acde1420c5bd541cc42f546537e1df67ceb70219e643e2b1c53558d94f1c"
+    },
+    {
+      "path": "research_checks/ADDMUL_WITT_GHOST_MULTISCALE_BRIDGE_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:3a82dea483aaa5ee88739940a20a633c80766e02",
+      "sha256": "sha256:0845a9d40cc161874caf90c78e8ab383e0602cfa8370903cb1d267afd765505c"
+    },
+    {
+      "path": "research_artifacts/ADDMUL_WITT_GHOST_MULTISCALE_BRIDGE/witt_lite_exact_regression_certificate.json",
+      "git_blob_sha1": "sha1:acd7a52f2dcfb1050035811f4a4a96b133bc6ffe",
+      "sha256": "sha256:f2edaecfe6b84c2d2e076fae158d39593096188cde57e9982bf1ec3d53ffea41"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review this result at task scope. If accepted, freeze A4 at FINITE_WITT_GHOST_BRIDGE_CLASSIFIED. Reuse precision.integer_projection_calculus and holonomy.precision_defect_transport; allow WITT_LITE_BRIDGE only as a thin finite adapter with INTEGRAL_GHOST_IMAGE and divisor-closed restriction guards; preserve mixed-composite residual information when material; do not create generic Witt precision or Witt holonomy successors.",
+  "driver_review_required": true
+}
