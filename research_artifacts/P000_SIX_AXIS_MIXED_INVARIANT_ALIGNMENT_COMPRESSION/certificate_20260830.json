@@ -1,0 +1,42 @@
+{
+  "schema": "P000_SIX_AXIS_MIXED_INVARIANT_ALIGNMENT_COMPRESSION_CERTIFICATE_V1",
+  "task_id": "RS-P000-SIX-AXIS-MIXED-INVARIANT-ALIGNMENT-COMPRESSION",
+  "publication_id": "TP2-DD63F0FB296D3DBBE311",
+  "researcher_id": "EM-P000MIAC1-3DBBE1",
+  "claim_id": "chatgpt-p000miac1-20260830-2324-3dbbe1",
+  "result_id": "RR-B96585874709743F94BC",
+  "frozen_grammar": {"P11":"sum_i h_i*t_i","P21":"sum_i h_i^2*t_i","P12":"sum_i h_i*t_i^2"},
+  "terminal_class": "MINIMAL_MIXED_PACKET_FOUND",
+  "classification": {
+    "minimal_cardinality": 2,
+    "minimal_sufficient_subpackets": [["P11","P21"],["P11","P12"]],
+    "necessary_in_every_sufficient_subpacket": ["P11"],
+    "insufficient_subpackets": [[],["P11"],["P21"],["P12"],["P21","P12"]],
+    "redundant_sufficient_subpacket": [["P11","P21","P12"]]
+  },
+  "global_residual_fiber_maxima": {"EMPTY":6,"P11":2,"P21":3,"P12":3,"P11_P21":1,"P11_P12":1,"P21_P12":2,"ALL":1},
+  "reconstruction": {
+    "distinct_H": "t_i = [P21-(h_j+h_k)P11+h_j*h_k*S_T]/[(h_i-h_j)(h_i-h_k)]",
+    "H_2_plus_1": "for H={h,h,k}, t_at_k=(P11-h*S_T)/(k-h)",
+    "distinct_T": "h_i = [P12-(t_j+t_k)P11+t_j*t_k*S_H]/[(t_i-t_j)(t_i-t_k)]",
+    "T_2_plus_1": "for T={t,t,u}, h_at_u=(P11-t*S_H)/(u-t)"
+  },
+  "sharp_witnesses": {
+    "EMPTY_6": {"H":[-3,3,9],"T":[-70,-10,0],"statement":"all six relative matchings are pairable and give distinct K/Gamma orbits"},
+    "P11_2": {"H":[-4,-1,1],"T":[-30,-12,0],"K_A":[[-4,-12],[-1,0],[1,-30]],"K_B":[[-4,0],[-1,-30],[1,-12]],"common":{"P11":18},"separating":{"K_A":{"P21":-222,"P12":324},"K_B":{"P21":-42,"P12":-756}}},
+    "P21_3": {"H":[-5,-5,5],"T":[-6,0,6],"statement":"h_i^2=25 for all i, so P21=25*sum(T)=0 for all three choices of the product paired to the minority sign"},
+    "P12_3": {"H":[-29,29,37],"T":[-210,210,210],"statement":"t_i^2=44100 for all i, so P12=44100*sum(H)=1631700 for all three choices of H paired to -210"},
+    "P21_P12_2": {"H":[-5,0,5],"T":[-6,-1,6],"K_A":[[-5,-6],[0,-1],[5,6]],"K_B":[[-5,6],[0,-1],[5,-6]],"common":{"P21":0,"P12":0},"separating":{"P11":[60,-60]}}
+  },
+  "pairability_gate": "(h,t) is an unordered integer pair iff Delta=h^2-4t is a nonnegative square and sqrt(Delta) is congruent to h mod 2",
+  "orientation_firewall": {"Q":"t1-t2+t3 = S_T - 2*t_negative_slot","candidate_set":"{S_T-2*t : t in distinct(T)}","candidate_counts":{"T_triple":1,"T_2_plus_1":2,"T_distinct":3},"conclusion":"Gamma-invariant alignment recovery reconstructs K/Gamma, not the oriented Pfaffian slot."},
+  "bounded_census": {"protocol_declared_before_outcomes":true,"local_root_box":"-6 <= a <= b <= 6","relation_states":91,"K_orbits":129766,"adaptive_enlargement":false,"observed_maxima":{"EMPTY":4,"P11":2,"P21":3,"P12":2,"P11_P21":1,"P11_P12":1,"P21_P12":2,"ALL":1},"interpretation":"Regression/falsification only. Global EMPTY=6 and P12=3 sharp witnesses are direct exact certificates outside the frozen B=6 box."},
+  "checker": {"path":"research_checks/P000_SIX_AXIS_MIXED_INVARIANT_ALIGNMENT_COMPRESSION_CHECK_20260830.py","expected":"PASS task=RS-P000-SIX-AXIS-MIXED-INVARIANT-ALIGNMENT-COMPRESSION checks=1386781 B=6 relation_states=91 K_orbits=129766 census_max=EMPTY:4,P11:2,P21:3,P12:2,P11_P21:1,P11_P12:1,P21_P12:2,ALL:1 global_max=EMPTY:6,P11:2,P21:3,P12:3,P11_P21:1,P11_P12:1,P21_P12:2,ALL:1 minimal=P11+P21|P11+P12"},
+  "prior_art_boundary": {
+    "classical": ["diagonal S_n / multisymmetric invariant rings and polarized mixed power sums","Vandermonde/Lagrange interpolation","finite permutation-group invariant theory"],
+    "references": ["Francesco Vaccarino, The ring of multisymmetric functions, Ann. Inst. Fourier 55(3) (2005), 717-731, DOI 10.5802/aif.2111.","David Rydh, A minimal set of generators for the ring of multisymmetric functions, Ann. Inst. Fourier 57(6) (2007), 1741-1769, DOI 10.5802/aif.2312."],
+    "novelty_claim": "NONE",
+    "task_specific": "exact separator/fiber classification after fixing H and T marginals, the integer-pairability gate, and the frozen three-moment grammar"
+  },
+  "scope_guards": ["Derived six-axis arithmetic facade only.","No native P000 orientation or signed carrier.","No native dimension reduction.","No factorization mechanism.","No Full-Cell lift/dynamics.","No Working Truth, Foundation, L4, or canonical promotion."]
+}
