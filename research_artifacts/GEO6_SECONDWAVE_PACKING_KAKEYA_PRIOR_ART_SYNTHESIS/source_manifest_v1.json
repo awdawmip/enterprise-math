@@ -1,0 +1,90 @@
+{
+  "schema": "GEO6_SECONDWAVE_PRIOR_ART_SOURCE_MANIFEST_V1",
+  "task_id": "RS-GEO6-SECONDWAVE-PACKING-KAKEYA-PRIOR-ART-SYNTHESIS",
+  "generated_at": "2026-08-30T11:15:37+00:00",
+  "sources": [
+    {
+      "id": "S01",
+      "citation": "Li et al., Solving the Set Packing Problem via a Maximum Weighted Independent Set Heuristic, Mathematical Problems in Engineering (2020), Article 3050714.",
+      "locator": "https://doi.org/10.1155/2020/3050714",
+      "use": "Explicit conflict-graph encoding: mutually exclusive objects become adjacent and feasible packings are independent sets."
+    },
+    {
+      "id": "S02",
+      "citation": "M.-C. Yang, J.J.M. Tan, L.-H. Hsu, Hamiltonian circuit and linear array embeddings in faulty k-ary n-cubes, Journal of Parallel and Distributed Computing 67 (2007), 362–368.",
+      "locator": "https://doi.org/10.1016/j.jpdc.2005.10.004",
+      "use": "The k-ary n-cube is bipartite iff k is even; standard coordinate-neighbor torus framework."
+    },
+    {
+      "id": "S03",
+      "citation": "P. Hall, On Representatives of Subsets, Journal of the London Mathematical Society 10 (1935), 26–30.",
+      "locator": "https://doi.org/10.1112/jlms/s1-10.37.26",
+      "use": "Hall's marriage theorem; every finite regular bipartite graph has a perfect matching."
+    },
+    {
+      "id": "S04",
+      "citation": "W.H. Haemers, Hoffman's ratio bound, Linear Algebra and its Applications 617 (2021), 215–219.",
+      "locator": "https://doi.org/10.1016/j.laa.2021.02.010",
+      "use": "The exact regular-graph eigenvalue upper bound for the independence number used in the Packing return."
+    },
+    {
+      "id": "S05",
+      "citation": "A.S.A. Johnson, D.M. McClendon, Finite odometer factors of rank one Z^d-actions (2023), Lemma 2.7.",
+      "locator": "https://arxiv.org/abs/2306.09477",
+      "use": "For every Følner sequence in Z^d and every finite-index subgroup, each coset has asymptotic proportion 1/[Z^d:G]."
+    },
+    {
+      "id": "S06",
+      "citation": "C. Godsil, G. Royle, Algebraic Graph Theory, Springer (2001), §7.4.",
+      "locator": "https://doi.org/10.1007/978-1-4613-0163-9",
+      "use": "Graph-homomorphism inverse images of independent sets are independent; standard automorphism invariance."
+    },
+    {
+      "id": "S07",
+      "citation": "I. van Heuven van Staereling, B. de Keijzer, G. Schäfer, The Ground-Set-Cost Budgeted Maximum Coverage Problem, MFCS 2016, LIPIcs 58, 50:1–50:13.",
+      "locator": "https://doi.org/10.4230/LIPIcs.MFCS.2016.50",
+      "use": "Uses the standard equivalence 'incidence graph is a forest' = Berge-acyclic; supplies external hypergraph terminology for the Kakeya incidence object."
+    },
+    {
+      "id": "S08",
+      "citation": "J. Oxley, Matroid Theory, 2nd ed., Oxford University Press (2011), circuits chapter.",
+      "locator": "https://global.oup.com/academic/product/matroid-theory-9780198566946",
+      "use": "A circuit is a minimal dependent set; vector-matroid circuits formalize {e1,e2,e1+e2}."
+    },
+    {
+      "id": "S09",
+      "citation": "Z. Dvir, On the size of Kakeya sets in finite fields, Journal of the American Mathematical Society 22(4) (2009), 1093–1097.",
+      "locator": "https://doi.org/10.1090/S0894-0347-08-00607-3",
+      "use": "Classical finite-field Kakeya requires a full line in every direction; its hypotheses are materially different from six fixed independent finite paths."
+    },
+    {
+      "id": "S10",
+      "citation": "D.S. Dummit, R.M. Foote, Abstract Algebra, 3rd ed., Wiley (2004), group actions/orbit-stabilizer theorem.",
+      "locator": "BOOK",
+      "use": "Orbit size equals group order divided by stabilizer size; makes the S4 24/6/4 count classical."
+    },
+    {
+      "id": "S11",
+      "citation": "Standard finite-forest identity: for a finite forest with V vertices, E edges and c connected components, E=V-c; see any graph-theory text (e.g. Diestel, Graph Theory, 5th ed., Trees chapter).",
+      "locator": "BOOK",
+      "use": "This identity converts Berge-acyclic incidence into the exact overlap defect and union-size formula."
+    },
+    {
+      "id": "S12",
+      "citation": "One-to-one disjoint path covers on k-ary n-cubes, Theoretical Computer Science 412 (2011), 4513–4530.",
+      "locator": "https://doi.org/10.1016/j.tcs.2011.04.035",
+      "use": "Standard k-ary n-cube coordinate model; explicitly records even-k bipartiteness and vertex/edge symmetry."
+    }
+  ],
+  "search_scope": [
+    "conflict graph / set packing / independent set",
+    "even k-ary n-cube / Cartesian torus / parity / perfect matching",
+    "Hoffman ratio bound",
+    "finite-index coset equidistribution along Følner sequences",
+    "graph homomorphism pullback of independent sets",
+    "Berge-acyclic hypergraphs / incidence forests",
+    "vector-matroid circuits",
+    "finite-field Kakeya definitions and lower bounds"
+  ],
+  "negative_search_note": "No external source located that matches the project-specific six-fixed-path statement K_6(r)=6r-5 as a Kakeya theorem; however the exact formula follows immediately from the standard forest identity after the independent-direction incidence-forest lemma, so this absence is not evidence of novelty."
+}
