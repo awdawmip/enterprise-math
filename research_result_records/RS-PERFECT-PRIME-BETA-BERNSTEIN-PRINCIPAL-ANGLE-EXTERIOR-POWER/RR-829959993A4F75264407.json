@@ -1,0 +1,43 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-829959993A4F75264407",
+  "task_id": "RS-PERFECT-PRIME-BETA-BERNSTEIN-PRINCIPAL-ANGLE-EXTERIOR-POWER",
+  "publication_id": "TP2-10717029BFD72A8E1F76",
+  "execution_record_id": "ER-4E41ADAD5023F187ED93",
+  "claim_id": "chatgpt-pptbbpa-20260830-1057-6e863b",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_BETA_BERNSTEIN_PRINCIPAL_ANGLE_EXTERIOR_POWER_20260830.md",
+  "taskbook_blob_sha1": "sha1:5799528487ea4af29232147e33fe65545ef2cefe",
+  "execution_branch": "research/perfect-prime-beta-bernstein-principal-angle-exterior-power-em-pptbbpa-6e863b",
+  "execution_branch_base": "85500bc9ba15189ba7179d49fa9d4639e8d4f476",
+  "return_path": "research_returns/PERFECT_PRIME_BETA_BERNSTEIN_PRINCIPAL_ANGLE_EXTERIOR_POWER_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:5d746cb8b7bc23d9b7046cf08ef2f0728961759e",
+  "return_sha256": "sha256:2ab0f082d26c77433cd5f29a0b70f1dc54dfee84b1c05853bba049b3c01037b7",
+  "owner_head": "be4b2658483ad320646aea769b99dfe28c932881",
+  "researcher_id": "EM-PPTBBPA-6E863B",
+  "frozen_at": "2026-08-30T11:25:17+08:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "STRICT_TRANSVERSALITY_REDUCTION_PROVED: the common Beta-Bernstein Hilbert structure reduces exactly to a signature-twisted cross-Gram operator Z^T J Z J; ordinary principal angles are exactly mismatched already at m=2; and the all-m unweighted Cauchy control gives K=I, isolating the AP factor (1-u^(m^2))^(m-1) as the indispensable source of rank creation.",
+  "unresolved_residue": "The parent all-m statement det(I-Q_m)!=0 remains open. It is now equivalent to the AP Christoffel J-transversality lemma rank(J-Z^T J Z)=m-1, with the known positive-type kernel direction removed. A natural next path is the exact deformation rho_{m,t}(u)=(1-t*u^(m^2))^(m-1) from the solved J-isometric endpoint t=0 to the AP target t=1.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_BETA_BERNSTEIN_PRINCIPAL_ANGLE_EXTERIOR_POWER_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:5d746cb8b7bc23d9b7046cf08ef2f0728961759e",
+      "sha256": "sha256:2ab0f082d26c77433cd5f29a0b70f1dc54dfee84b1c05853bba049b3c01037b7"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_BETA_BERNSTEIN_PRINCIPAL_ANGLE_EXTERIOR_POWER_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:c289004a3a8557c87eedcfd2ef9a5d2018c5133e",
+      "sha256": "sha256:9d017c5d31d082177077c4b0c4cd7df00503271445870072d5224f28fc7e1a0d"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_BETA_BERNSTEIN_PRINCIPAL_ANGLE_EXTERIOR_POWER/exact_regression_certificate.json",
+      "git_blob_sha1": "sha1:d4c9d96f128d44d6a083883a73b9d271a0680ce7",
+      "sha256": "sha256:e3f136002322abf866c9f8f5780a8de0089d1a60e98d1278bb3011444d67d4f0"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "SHARED_ACCEPTED_PARENT_CONTEXT_DISCLOSED",
+  "source_exposure_status": "NONBLIND_PARENT_AND_CLASSICAL_PRIOR_ART_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review RR-829959993A4F75264407. If accepted, open only the narrowed successor AP_CHRISTOFFEL_J_TRANSVERSALITY_DEFORMATION_FLOW, explicitly pinning the solved Cauchy endpoint K=I as an adversarial guard and rejecting any proof that uses the AP weight only through positivity/STP/common-measure structure.",
+  "driver_review_required": true
+}
