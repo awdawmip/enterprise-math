@@ -1,0 +1,242 @@
+{
+  "schema": "ENTERPRISE_MATH_PRIOR_ART_CLAIM_MATRIX_V1",
+  "task_id": "RS-GEO6-MAHLER-PRIOR-ART-SYNTHESIS",
+  "publication_id": "TP2-EFB8751B437EF5B5A5BA",
+  "researcher_id": "EM-G6MAHPA-B65BDB",
+  "accepted_enterprise_source": "RR-596D76AA2D95C837AB26",
+  "audit_rule": {
+    "labels": [
+      "EXACT_DUPLICATE",
+      "STRICT_ANTECEDENT",
+      "ADJACENT_METHOD",
+      "NO_MATERIAL_MATCH"
+    ],
+    "no_material_match_is_novelty_certificate": false,
+    "classical_mahler_type_mapping_granted": false
+  },
+  "sources": [
+    {
+      "source_id": "S1",
+      "citation": "Bernhard Ganter and Rudolf Wille, Formal Concept Analysis: Mathematical Foundations, Springer, 1999.",
+      "doi": "10.1007/978-3-642-59830-2",
+      "url": "https://doi.org/10.1007/978-3-642-59830-2",
+      "scope": "Formal contexts, object/attribute derivation operators, Galois connection, closure, formal concepts, concept lattices."
+    },
+    {
+      "source_id": "S2",
+      "citation": "Alexandre Bazin and Giacomo Kahn, Distances Between Formal Concept Analysis Structures, Transactions on Graph Data and Knowledge 3(2), 2025.",
+      "doi": "10.4230/TGDK.3.2.2",
+      "url": "https://doi.org/10.4230/TGDK.3.2.2",
+      "scope": "Modern explicit statement that a formal context yields two derivation operators between powersets; they form a Galois connection and double derivation is a closure operator."
+    },
+    {
+      "source_id": "S3",
+      "citation": "Paul Halmos and Steven Givant, Introduction to Boolean Algebras, Springer, 2009.",
+      "doi": "10.1007/978-0-387-68436-9",
+      "url": "https://doi.org/10.1007/978-0-387-68436-9",
+      "scope": "Finite Boolean algebras, atoms, fields of sets, homomorphisms and representation; standard background for the finite powerset lattice reduction."
+    },
+    {
+      "source_id": "S4",
+      "citation": "Matthieu Fradelizi, Mathieu Meyer and Artem Zvavitch, Volume product, in Harmonic Analysis and Convexity, De Gruyter, 2023, pp. 163-222.",
+      "doi": "10.1515/9783110775389-005",
+      "url": "https://doi.org/10.1515/9783110775389-005",
+      "scope": "Classical volume product for convex bodies in R^n, using volume and polarity; contextual comparator only."
+    },
+    {
+      "source_id": "S5",
+      "citation": "Richard P. Stanley, Some Aspects of Groups Acting on Finite Posets, Journal of Combinatorial Theory, Series A 32 (1982), 132-161.",
+      "url": "https://math.mit.edu/~rstan/pubs/pubfiles/50.pdf",
+      "scope": "Standard symmetric-group action on a Boolean algebra/finite poset context; supporting symmetry background, not a P000 type identification."
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "MAH-01",
+      "enterprise_claim": "For a declared finite support context K=(C,S,I), common-support derivations P(C)<->P(S) are antitone, satisfy A⊆A'' and A'''=A', and double derivation is a closure operator.",
+      "classification": "EXACT_DUPLICATE",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "hypothesis_comparison": {
+        "enterprise": "Finite object set C, support set S, incidence relation I.",
+        "external": "Finite formal context with objects, attributes and a binary incidence relation.",
+        "mapping": "C=objects, S=attributes, I=formal-context relation; Enterprise perpendicular is FCA prime derivation."
+      },
+      "consequence": "Delete generic Galois/closure mathematics from the GEO6 novelty surface."
+    },
+    {
+      "claim_id": "MAH-02",
+      "enterprise_claim": "Raw common-support duality is a typed two-sort closure duality; restricting to double-derivation-closed objects yields the lossless concept-level correspondence.",
+      "classification": "EXACT_DUPLICATE",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "hypothesis_comparison": {
+        "enterprise": "Two sorts C and S with relation I; closed means A=A''.",
+        "external": "FCA extents/intents are double-prime closed and paired by derivation.",
+        "mapping": "Enterprise closed Cell/support objects are FCA extents/intents."
+      },
+      "consequence": "Do not claim concept closure or closed-object duality as new."
+    },
+    {
+      "claim_id": "MAH-03",
+      "enterprise_claim": "If a common-support endomap D on every subset of a finite self-dual carrier is antitone and D^2=id, then D(A)=C\\pi(A) for a unique permutation pi, with D^2=id iff pi^2=id.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": [
+        "S3",
+        "S5"
+      ],
+      "hypothesis_comparison": {
+        "enterprise": "D is a common-support antitone involution on the entire powerset P(C).",
+        "external": "Finite Boolean algebra is a powerset of its atoms; order automorphisms are determined by the induced atom permutation, while complement reverses order.",
+        "derivation": "Let c be Boolean complement. c∘D is an order automorphism, hence induced by a unique atom permutation pi. Therefore D=c∘pi. Complement commutes with pi, so D^2=pi^2."
+      },
+      "consequence": "The all-subset involution theorem is a routine specialization of finite Boolean-lattice structure, not a new geometry."
+    },
+    {
+      "claim_id": "MAH-04",
+      "enterprise_claim": "Within that all-subset involutive class, |D(A)|=n-|A| and M(A)=|A||D(A)|=k(n-k), with nonempty proper minimum n-1 and maximum floor(n^2/4).",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": [
+        "S3"
+      ],
+      "hypothesis_comparison": {
+        "enterprise": "Same MAH-03 hypotheses plus cardinality complexity.",
+        "external": "Powerset/complement arithmetic on a finite n-element carrier.",
+        "derivation": "Permutation preserves cardinality and complement has size n-k; extrema follow from elementary quadratic arithmetic."
+      },
+      "consequence": "Kill any continuation whose only content is the k(n-k) law or its extremizers."
+    },
+    {
+      "claim_id": "MAH-05",
+      "enterprise_claim": "The exact six-point complement, diagonal and C6 closed-neighborhood contexts have incompatible closed-object cardinality-product spectra {5,8,9}, {1}, and {3,4}.",
+      "classification": "NO_MATERIAL_MATCH",
+      "source_ids": [
+        "S1"
+      ],
+      "hypothesis_comparison": {
+        "enterprise": "Three explicit six-point incidence contexts and the particular functional |A||A'|.",
+        "external": "FCA supplies the context/closure language but does not canonically single out these three benchmark spectra.",
+        "novelty_inference": false
+      },
+      "consequence": "Retain only as an exact finite countermodel package; absence of a matched table is not a novelty certificate."
+    },
+    {
+      "claim_id": "MAH-06",
+      "enterprise_claim": "Finite incidence plus symmetry alone does not force a nontrivial relation-independent lower bound for the chosen closed-object cardinality product.",
+      "classification": "NO_MATERIAL_MATCH",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "hypothesis_comparison": {
+        "enterprise": "Universal assertion ranges over finite incidence contexts; diagonal contexts give product 1 at arbitrary carrier size.",
+        "external": "FCA deliberately allows arbitrary formal contexts and provides no universal Mahler-style cardinality product invariant.",
+        "novelty_inference": false
+      },
+      "consequence": "The exact no-go is supported internally by elementary countermodels; it should not be advertised as a new general FCA theorem."
+    },
+    {
+      "claim_id": "MAH-07",
+      "enterprise_claim": "For direct inclusion i:C_n→C_m under complement duality, D_m(i(A))=i(D_n(A))∪(C_m\\i(C_n)); the refinement defect is exactly the newly introduced labels and has size m-n.",
+      "classification": "STRICT_ANTECEDENT",
+      "source_ids": [
+        "S3"
+      ],
+      "hypothesis_comparison": {
+        "enterprise": "Complement duality is reused at two finite resolutions connected by an inclusion.",
+        "external": "Finite Boolean/powerset complement and set image operations are standard.",
+        "derivation": "Split C_m\\i(A) into i(C_n\\A) and C_m\\i(C_n)."
+      },
+      "consequence": "The formula is elementary bookkeeping; the P000-specific question is which refinement transport, if any, should be native."
+    },
+    {
+      "claim_id": "MAH-08",
+      "enterprise_claim": "Bare P000 does not canonically choose which native relation should serve as support I(c,s).",
+      "classification": "NO_MATERIAL_MATCH",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "hypothesis_comparison": {
+        "enterprise": "Support relation is sought as derived/native data.",
+        "external": "FCA takes the formal context relation as input data and does not provide a selector from unrelated P000 primitives.",
+        "novelty_inference": false
+      },
+      "consequence": "SUPPORT_RELATION_SELECTOR survives."
+    },
+    {
+      "claim_id": "MAH-09",
+      "enterprise_claim": "Bare P000 does not canonically identify Cell objects with support objects so as to turn the typed Galois pair into a same-sort endoduality.",
+      "classification": "NO_MATERIAL_MATCH",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "hypothesis_comparison": {
+        "enterprise": "A canonical equivariant identification C≈S would be extra structure.",
+        "external": "FCA is intrinsically object/attribute two-sorted; derivations switch sorts and concept pairs encode the relation without providing a canonical object=attribute identity.",
+        "novelty_inference": false
+      },
+      "consequence": "SELF_DUAL_IDENTIFICATION_SELECTOR survives."
+    },
+    {
+      "claim_id": "MAH-10",
+      "enterprise_claim": "The finite relational cardinality product is only an analogy to classical Mahler volume product, not an identified instance of it.",
+      "classification": "ADJACENT_METHOD",
+      "source_ids": [
+        "S4"
+      ],
+      "hypothesis_comparison": {
+        "enterprise": "Finite Cell/support relation, no Euclidean metric, no convex body, no polar body, no volume.",
+        "external": "Classical volume product is defined for convex bodies K in R^n using volume and polarity (with translation/centering in the nonsymmetric case).",
+        "missing_type_map": [
+          "convex body",
+          "Euclidean/affine polarity",
+          "volume functional"
+        ]
+      },
+      "consequence": "No classical Mahler inequality or extremizer transfers into P000 at current typing strength."
+    }
+  ],
+  "classification_counts": {
+    "EXACT_DUPLICATE": 2,
+    "STRICT_ANTECEDENT": 3,
+    "ADJACENT_METHOD": 1,
+    "NO_MATERIAL_MATCH": 4
+  },
+  "residue_map": [
+    {
+      "selector": "SUPPORT_RELATION_SELECTOR",
+      "state": "SURVIVES",
+      "reason": "External FCA assumes a context relation; accepted P000 data still do not canonically select one."
+    },
+    {
+      "selector": "SELF_DUAL_IDENTIFICATION_SELECTOR",
+      "state": "SURVIVES",
+      "reason": "Standard derivation is two-sorted; no accepted P000 datum canonically identifies Cell and support sorts."
+    },
+    {
+      "selector": "COMPLEXITY_FUNCTIONAL_SELECTOR",
+      "state": "SURVIVES",
+      "reason": "Cardinality gives definition-driven/context-dependent products, while classical volume product requires convex-polar-volume structure not mapped to P000."
+    },
+    {
+      "selector": "REFINEMENT_TRANSPORT_SELECTOR",
+      "state": "SURVIVES",
+      "reason": "Naive direct inclusion has an exact complement defect; no accepted native support-transport rule removes it."
+    }
+  ],
+  "kill_decisions": [
+    "KILL_GENERIC_GALOIS_CLOSURE_CONTINUATION",
+    "KILL_BOOLEAN_ANTIINVOLUTION_AS_NOVEL_GEOMETRY",
+    "KILL_K_N_MINUS_K_PRODUCT_AS_MAHLER_THEOREM",
+    "KILL_CLASSICAL_MAHLER_IMPORT_WITHOUT_EXPLICIT_TYPE_MAP"
+  ],
+  "terminal_verdict": "AUDIT_COMPLETE",
+  "hard_target_disposition": "GEO6_MAHLER_ACCEPTED_CLAIMS_PRIOR_ART_EXACTLY_CLASSIFIED",
+  "novelty_claimed": false
+}
