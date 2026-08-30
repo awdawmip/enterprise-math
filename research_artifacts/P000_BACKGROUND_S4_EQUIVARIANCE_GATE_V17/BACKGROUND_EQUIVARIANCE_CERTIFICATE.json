@@ -1,0 +1,265 @@
+{
+  "schema": "P000_BACKGROUND_S4_EQUIVARIANCE_GATE_V17_CERTIFICATE_V1",
+  "status": "RESEARCHER_FROZEN_DRIVER_REVIEW_REQUIRED",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-A7D3C18E5B904F621476",
+  "claim_id": "chatgpt-p000fcc17-20260830-2248-da447a",
+  "researcher_id": "EM-P000FCC17-9419D1",
+  "execution_id": "ER-8C935F2AC71254D9BFD2",
+  "result_id": "RR-985AEE277DE45AFCC9D8",
+  "terminal_class": "MULTIPLE_INDEPENDENT_BACKGROUND_LEAK_SOURCES_AND_PARETO_GATES_CLASSIFIED",
+  "hard_target_disposition": "P000_ZERO_COST_BACKGROUND_S4_COMPATIBILITY_GATE_AND_MINIMAL_CHARGED_EQUIVARIANCE_EXTENSION_EXACTLY_CLASSIFIED",
+  "g15_frozen": {
+    "grammar_certificate_path": "research_artifacts/P000_S4_RELATIONAL_MINIMALITY_GRAMMAR_V15/GRAMMAR_CERTIFICATE.json",
+    "grammar_certificate_sha256": "50ef864f0713d1f19ddf918dae2486a05a7e1d52bf538f1603b2d1c6c655281e",
+    "relation_forms": [
+      "I_CA",
+      "I_HC",
+      "I_HA",
+      "ADD_H"
+    ],
+    "constraint_templates": [
+      "K4_ADJ",
+      "TETRA_CA",
+      "H_C3X3",
+      "PROJECTIVE_HC",
+      "PAIR_AXIS_HA"
+    ],
+    "cost_vector": [
+      "s",
+      "r",
+      "a1",
+      "a2",
+      "a3",
+      "h",
+      "g",
+      "p"
+    ],
+    "package_count": 90
+  },
+  "background_inventory": [
+    {
+      "component": "NativeAdj valuation",
+      "classification": "CONTENTFUL_SYMMETRY_LEAK_SOURCE",
+      "role": "STRUCTURAL_REDUCT_COMPONENT_ALREADY_EXPOSED_BY_G15",
+      "charge": "NO_NEW_G17_CHARGE",
+      "certificate": "Aut(K4)=24; Aut(P4)=2"
+    },
+    {
+      "component": "per-Cell frame f_x",
+      "classification": "PURE_GAUGE_PRESENTATION",
+      "charge": "NONE",
+      "certificate": "Pi_x=f_{u(x)} rho(q0(u)) f_x^-1; gauge conjugation preserves strict-lift laws"
+    },
+    {
+      "component": "frame-induced transport T_xy=f_y f_x^-1",
+      "classification": "DERIVED_AUTOMATICALLY_EQUIVARIANT",
+      "charge": "NONE",
+      "certificate": "T_{u(x),u(y)} Pi_x = Pi_y T_xy identically"
+    },
+    {
+      "component": "PF10 local profile P_x=(I_x,O_x,M_x)",
+      "classification": "CONTENTFUL_SYMMETRY_LEAK_SOURCE",
+      "charge": "PF10_STRUCTURAL_AUT_EQ",
+      "certificate": "I=O=e1,M=I6 has carrier compatibility order 4; uniform symmetric profile has order 24"
+    },
+    {
+      "component": "independent retained connection",
+      "classification": "CONTENTFUL_SYMMETRY_LEAK_SOURCE + OPTIONAL_IF_MODEL_DECLARED",
+      "charge": "CONNECTION_STRUCTURAL_AUT_EQ when declared",
+      "certificate": "K4 marked-edge connection with T_AB=(E1 E6) has compatibility order 4 while PF10 remains S4-symmetric"
+    },
+    {
+      "component": "retained star/overlap/gluing family at accepted scope",
+      "classification": "DERIVED_AUTOMATICALLY_EQUIVARIANT",
+      "charge": "NONE",
+      "certificate": "accepted only as transported/derived family; a distinguished named star would violate G15 p=0 and would define extra cross-sort structure"
+    }
+  ],
+  "compatibility_theorem": {
+    "structural_group": "G0 = carrier-compatible typed automorphisms of the frozen G15 structural reduct before contentful PF10/independent-connection restriction",
+    "component_group": "G_B = {u in G0 : u preserves B}",
+    "actual_group": "G = intersection_B G_B",
+    "compatibility": "Compat_B = q0(G_B)",
+    "theorem": "im(q)=q0(intersection_B G_B) <= intersection_B Compat_B",
+    "subgroup_rule": "For global B, G_B is a subgroup of G0 and Compat_B is a subgroup of S4.",
+    "partial_fiber_rule": "Sets with a fixed source/target Cell are coset/groupoid fibers and need not be subgroups.",
+    "strict_projection_witness": "In C2 x S4, graph(0) and graph(sign) each project onto S4 but their intersection projects only to A4 (order 12). Therefore componentwise Compat_B=S4 is not sufficient for joint surjectivity."
+  },
+  "pf10_classification": {
+    "exact_transparency_gate": "PF10_STRUCTURAL_AUT_EQ: every u in G0 preserves the full P_x=(I,O,M) family under the induced typed transport",
+    "meaning": "G_PF10 = G0",
+    "orbitwise_equivariance": "On each G0 Cell orbit, an equivariant PF10 profile is determined by one representative profile fixed by the Cell stabilizer.",
+    "full_local_s4_invariance": {
+      "vector_orbits": 1,
+      "ordered_matrix_pair_orbits": 3,
+      "matrix_orbit_types": [
+        "diagonal",
+        "adjacent carrier edges",
+        "disjoint carrier edges"
+      ]
+    },
+    "tetra_cell_stabilizer_s3": {
+      "vector_orbits": 2,
+      "ordered_matrix_pair_orbits": 8,
+      "meaning": "orbitwise Cell-equivariance is strictly weaker than pointwise full-S4 local invariance"
+    },
+    "generator_conditions": {
+      "a_and_b": "sufficient and equivalent to full equivariance when they act coherently and generate the declared G0 action",
+      "a_only": "insufficient; vector (1,1,1,0,0,0) is a-invariant but not b-invariant",
+      "b_only": "insufficient; e1 is b-invariant but not a-invariant"
+    },
+    "gen16_countermodel": {
+      "profile": "I=O=e1=(1,0,0,0,0,0), M=I6",
+      "compatibility_order": 4,
+      "carrier_order": 24
+    }
+  },
+  "connection_classification": {
+    "frame_induced": "automatic; no charged constraint",
+    "independent": "requires CONNECTION_STRUCTURAL_AUT_EQ",
+    "gate_equation": "T_{u(x),u(y)} Pi_x^u = Pi_y^u T_xy for every u in G0",
+    "holonomy_equation": "Hol_{u(x)}(u gamma)=Pi_x^u Hol_x(gamma) (Pi_x^u)^-1",
+    "nonflatness_rule": "NONFLAT_CONNECTION != AUTOMATIC_ROTATION_OBSTRUCTION",
+    "independent_leak_witness": {
+      "cell_graph": "K4",
+      "pf10": "I=O=1_6, M=I6",
+      "frames": "identity presentation",
+      "connection": "T_AB=(E1 E6), all other undirected edge transports identity; reverse transport inverse",
+      "compatibility_order": 4,
+      "compatible_subgroup": "Stab_S4({A,B})"
+    }
+  },
+  "charged_grammar": {
+    "schema": "G17_ATOMIC_BACKGROUND_EQUIVARIANCE_GRAMMAR_V1",
+    "atomic_templates": [
+      {
+        "name": "PF10_STRUCTURAL_AUT_EQ",
+        "applies_to": "PF10 profile family P_x=(I,O,M)",
+        "cost_delta": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "name": "CONNECTION_STRUCTURAL_AUT_EQ",
+        "applies_to": "independent retained connection only",
+        "cost_delta": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      }
+    ],
+    "atomicity_rule": "A conjunction macro is normalized to its independently stored background components before cost; PF10 and independent connection cannot be bundled into one synthetic g=1 constraint.",
+    "forbidden": [
+      "section predicate",
+      "R_a/R_b residues as primitives",
+      "kernel quotient",
+      "carrier/native identity collapse",
+      "distinguished named Cell/star parameter"
+    ]
+  },
+  "minimality_and_frontier": {
+    "frame_induced_connection_subclass": {
+      "required_extended_frontier": [
+        "K4_ADJ",
+        "PF10_STRUCTURAL_AUT_EQ"
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ]
+    },
+    "independent_connection_subclass": {
+      "required_extended_frontier": [
+        "K4_ADJ",
+        "PF10_STRUCTURAL_AUT_EQ",
+        "CONNECTION_STRUCTURAL_AUT_EQ"
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0
+      ]
+    },
+    "tetra_frame_induced_cost": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      2,
+      0
+    ],
+    "tetra_independent_connection_cost": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      3,
+      0
+    ],
+    "pareto_fact": "K4 extended package strictly dominates the corresponding TETRA_CA extended package in frozen G15 cost coordinates.",
+    "deletion_certificates": {
+      "delete_K4_ADJ": "P4 NativeAdj, Aut order 2",
+      "delete_PF10_STRUCTURAL_AUT_EQ": "PF10 e1 profile, compatibility order 4",
+      "delete_CONNECTION_STRUCTURAL_AUT_EQ": "marked-edge independent connection, compatibility order 4 with PF10 fully symmetric"
+    },
+    "canonicality": "Under all required transparency gates actual enriched group equals the structural group G0; the K4 typed direct-factor section survives and is Aut_prim-fixed. UNIQUE_SECTION is not asserted."
+  },
+  "tool_reuse": {
+    "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+    "matches": [
+      {
+        "id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+        "resolution": "REUSE_APPLIED",
+        "use": "orbit/stabilizer/equivariant-profile and fixed-point reasoning"
+      },
+      {
+        "id": "T9_HOLONOMY_COCOYCLE_GLUING",
+        "resolution": "REUSE_APPLIED",
+        "use": "holonomy/naturality semantic boundary; nonzero holonomy is not itself a symmetry obstruction"
+      }
+    ],
+    "execution_note": "Repository executables were not claimed as executed in-chat; exact task-local finite checks were independently self-tested. No new general tool family is claimed.",
+    "hard_boundaries_checked": [
+      "no canonical choice from symmetry without invariant datum",
+      "nonzero holonomy does not by itself choose or forbid a unique repaired global object"
+    ]
+  },
+  "guards": {
+    "P000_REALITY_DIMENSION_7": true,
+    "P000_SPACE_DIMENSION_6": true,
+    "TIME_FIXED": true,
+    "NO_KERNEL_QUOTIENT": true,
+    "CARRIER_S4_IS_NOT_COMPLETE_NATIVE_P000_ROTATION_GROUP": true,
+    "G15_IMMUTABLE": true,
+    "GEN16_OFFICIAL_K4_FRONTIER_NOT_REINSTATED_UNCONDITIONALLY": true
+  }
+}
