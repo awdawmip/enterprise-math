@@ -57,7 +57,7 @@ def global_excess(xs: tuple[int, ...], p: int):
 
 
 def tree_evaluations(xs: tuple[int, ...], p: int):
-    """All ordered binary bracketings; each row=(sum, mu, global excess, local kappa ledger)."""
+    """All ordered binary bracketings; each row=(sum, global excess, local kappa ledger)."""
     @lru_cache(None)
     def rec(lo: int, hi: int):
         if hi - lo == 1:
@@ -90,6 +90,7 @@ def crt(congruences: list[tuple[int, int]]) -> int:
     for residue, m in congruences:
         if m <= 0:
             raise ValueError
+        # m is coprime to the accumulated modulus in all task uses.
         inv = pow(modulus, -1, m)
         t = ((residue - x) * inv) % m
         x += modulus * t
@@ -108,7 +109,7 @@ def prescribed_unit_input(depths: dict[int, int]) -> int:
             residue, modulus = 1, p
         else:
             modulus = p ** (k + 1)
-            residue = p**k - 1
+            residue = p**k - 1  # 1+y == p^k mod p^(k+1)
         congruences.append((residue, modulus))
     return crt(congruences)
 
