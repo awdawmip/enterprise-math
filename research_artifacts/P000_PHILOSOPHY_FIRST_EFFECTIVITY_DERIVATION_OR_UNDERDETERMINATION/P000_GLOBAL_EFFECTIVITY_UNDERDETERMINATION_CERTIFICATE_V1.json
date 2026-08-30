@@ -1,0 +1,92 @@
+{
+  "checker": {
+    "checks": 494,
+    "path": "research_checks/P000_PHILOSOPHY_FIRST_EFFECTIVITY_DERIVATION_OR_UNDERDETERMINATION_CHECK_20260830.py",
+    "summary": "PASS P000_GLOBAL_EFFECTIVITY_DERIVATION_OR_UNDERDETERMINATION; checks=494; same_reduct_nondefinability=TRUE; q11_exact_reduct_collisions=8; q12_RHD_exact_reduct_collisions=4; H0_effectivity_underdetermined=TRUE; H1_effectivity_underdetermined=TRUE; R_H_D_add_no_deciding_power=TRUE; strict_frame_adds_no_effectivity_deciding_power=TRUE; one_global_new_bit_sufficient_for_all_C2_loop_states=FALSE; minimum_unrestricted_C3_C2_effectivity_information_bits=2; minimal_completion=gauge_invariant_selection_on_H_quotient; current_P000_primitives_derive_effectivity=FALSE_AT_DECLARED_BENCHMARK_SCOPE"
+  },
+  "claim_id": "chatgpt-phq14-20260830-1947-f21f4e",
+  "definability": {
+    "same_reduct_nondefinability": true
+  },
+  "frozen_q10_example": {
+    "AxisType": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6"
+    ],
+    "CarrierStar3": [
+      ["E1", "E2", "E3"],
+      ["E1", "E4", "E5"],
+      ["E2", "E4", "E6"],
+      ["E3", "E5", "E6"]
+    ],
+    "CellAxisInc": {
+      "xA": ["E1", "E2", "E3"],
+      "xB": ["E1", "E4", "E5"],
+      "xC": ["E2", "E4", "E6"],
+      "xD": ["E3", "E5", "E6"]
+    },
+    "NativeAdj": [
+      ["xA", "xB"],
+      ["xA", "xC"],
+      ["xA", "xD"],
+      ["xB", "xC"],
+      ["xB", "xD"],
+      ["xC", "xD"]
+    ],
+    "NativeCell": ["xA", "xB", "xC", "xD"],
+    "P000_reality": {"space_dimension": 6, "time_dimension": 1},
+    "framed_PF10_shell": {"I": [1,1,1,1,1,1], "M": "I6", "O": [1,1,1,1,1,1], "uniform": true}
+  },
+  "minimal_information": {
+    "admissible_contracts": 4,
+    "gauge_quotient_states": 2,
+    "minimum_unrestricted_bits": 2,
+    "one_bit_encodings_exhausted": 16,
+    "one_bit_encodings_that_work": 0,
+    "sufficient_form": "epsilon:H_quotient->{0,1}, equivalently (epsilon_0,epsilon_1)"
+  },
+  "publication_id": "TP2-C1A40E77FCDA6F663E44",
+  "q12_RHD_collision_table": [
+    {"D":0,"H":0,"R":0,"effectivity_values":[false,true]},
+    {"D":1,"H":1,"R":0,"effectivity_values":[false,true]},
+    {"D":0,"H":1,"R":1,"effectivity_values":[false,true]},
+    {"D":1,"H":0,"R":1,"effectivity_values":[false,true]}
+  ],
+  "researcher_id": "EM-PHQ14-8066BC",
+  "same_reduct_witnesses": [
+    {
+      "edge_packet": [0,0,0],
+      "minus": {"contract_mask":0,"effective":false},
+      "plus": {"contract_mask":1,"effective":true},
+      "same_observables": {"H":0,"strict_frame_possible":true},
+      "sector": "H0"
+    },
+    {
+      "edge_packet": [1,0,0],
+      "minus": {"contract_mask":1,"effective":false},
+      "plus": {"contract_mask":3,"effective":true},
+      "same_observables": {"H":1,"strict_frame_possible":false},
+      "sector": "H1"
+    }
+  ],
+  "schema": "P000_GLOBAL_EFFECTIVITY_UNDERDETERMINATION_CERTIFICATE_V1",
+  "scope": {
+    "effectivity_input_excluded": true,
+    "q10_primitive_reduct": ["NativeCell","AxisType","CarrierStar3","CellAxisInc","NativeAdj","framed_PF10_shell"],
+    "q11_benchmark": "C3/C2 pairwise transport",
+    "q12_benchmark": "central-C2 H=R*D",
+    "root_axiom": "P000 6 spatial dimensions + 1 time dimension"
+  },
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-EFFECTIVITY-DERIVATION-OR-UNDERDETERMINATION",
+  "terminal": {
+    "current_primitives_derive_effectivity": false,
+    "driver_review_required": true,
+    "q12_RHD_decides_effectivity": false,
+    "state": "EFFECTIVITY_UNDERDETERMINED_BY_CURRENT_PRIMITIVES_WITH_MINIMAL_QUOTIENT_SELECTION_ISOLATED",
+    "verdict": "SUCCESS"
+  }
+}
