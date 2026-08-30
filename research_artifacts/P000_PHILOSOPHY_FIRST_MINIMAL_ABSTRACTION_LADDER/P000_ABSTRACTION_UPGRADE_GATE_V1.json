@@ -1,0 +1,97 @@
+{
+  "schema": "P000_ABSTRACTION_UPGRADE_GATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-MINIMAL-ABSTRACTION-LADDER",
+  "publication_id": "TP2-28E97B509F00603F4053",
+  "researcher_id": "EM-P000Q8-A6F913",
+  "terminal_state": "PROPOSED_LADDER_COLLAPSES_WITH_REDUNDANT_LEVELS",
+  "principle": "upgrade only when a lower-language collision changes the declared target truth value or invariant, and keep only abstraction bits whose deletion breaks an audited result",
+  "axes": {
+    "M": "retain invertible equivalences, automorphisms, orbit/stabilizer/isotropy/naturality data",
+    "L": "retain cover/incidence/restriction/composition/gluing data"
+  },
+  "nodes": {
+    "M0L0": "GLOBAL_SET",
+    "M1L0": "GLOBAL_GROUPOID",
+    "M0L1": "SET_DESCENT",
+    "M1L1": "GROUPOID_DESCENT"
+  },
+  "witnesses": {
+    "W0_DOWNGRADE": {
+      "lower": "GLOBAL_SET",
+      "higher": "GLOBAL_GROUPOID",
+      "claim": "finite observation-map injectivity/surjectivity/fiber size is unchanged by discrete-groupoid promotion",
+      "verdict": "NO_UPGRADE"
+    },
+    "W1_MORPHISM_LOSS": {
+      "lower_collision": "same candidate set {0,1}",
+      "higher_difference": "trivial C2 action has 2 fixed candidates; swap C2 action has 0",
+      "repair": "retain automorphism action/groupoid; natural selections are Aut-fixed candidates",
+      "forces": "M=1"
+    },
+    "W2_LOCALITY_LOSS": {
+      "lower_collision": "all eight triangle transition triples have the same independent-local domains and each edge constraint is satisfiable",
+      "higher_difference": "cycle parity 0 gives 2 global assignments; cycle parity 1 gives 0",
+      "counts": {
+        "transition_triples": 8,
+        "globalizable": 4,
+        "obstructed": 4
+      },
+      "repair": "retain incidence/composition and cycle compatibility",
+      "forces": "L=1"
+    },
+    "W3_AUTOMORPHISM_GLUING_LOSS": {
+      "lower_collision": "set-truncated local isomorphism classes and overlaps are singletons",
+      "higher_difference": "C2-valued triangle gluing has two gauge classes classified by cycle holonomy",
+      "counts": {
+        "edge_label_triples": 8,
+        "gauge_group_size": 8,
+        "gauge_orbits": 2,
+        "orbit_sizes": [4, 4],
+        "representative_stabilizer_size": 2
+      },
+      "repair": "retain groupoid-valued descent",
+      "forces": "M=1,L=1"
+    }
+  },
+  "upgrade_algorithm": [
+    "declare OBJECT/EQUIVALENCE/OBSERVABLE/TARGET_INVARIANT/QUANTIFIER",
+    "require REPRESENTABLE guard for formal completion objects",
+    "start at GLOBAL_SET",
+    "add M only after an explicit morphism-loss collision",
+    "add L only after an explicit locality-loss collision",
+    "permit GROUPOID_DESCENT only after both axes are forced and set-truncation changes a global class/invariant",
+    "prove a higher-language repair theorem on the declared scope",
+    "delete each abstraction bit and rerun the checker; remove any redundant bit"
+  ],
+  "q1_q8_minimum": {
+    "Q1": "ROUTER",
+    "Q2": "GLOBAL_SET",
+    "Q3": "GLOBAL_GROUPOID",
+    "Q4": "SET_DESCENT_AT_STRICT_FRAME_EXISTENCE_SCOPE",
+    "Q5": "GLOBAL_GROUPOID_FOR_GAUGE_ORBIT_ONTOLOGY",
+    "Q6": "GLOBAL_SET_PLUS_REPRESENTABLE_GUARD",
+    "Q7": "GLOBAL_GROUPOID",
+    "Q8": "TWO_AXIS_LATTICE"
+  },
+  "gen13_current": {
+    "1_q_and_kernel": "GLOBAL_SET",
+    "2_relation_residue_under_gauge": "GLOBAL_GROUPOID",
+    "3_gen12_regression": "GLOBAL_SET",
+    "4_nontrivial_kernel_or_nogo": "GLOBAL_SET",
+    "5_no_simultaneous_lift": "GLOBAL_SET",
+    "6_universality_countermodels": "GLOBAL_SET",
+    "7_canonicality": "GLOBAL_GROUPOID",
+    "8_no_hidden_kernel_quotient": "GLOBAL_SET",
+    "9_disjoint_tagged_sorts": "GLOBAL_SET",
+    "maximum_forced_node": "GLOBAL_GROUPOID",
+    "descent_forced": false,
+    "stack_like_forced": false
+  },
+  "guards": [
+    "NO_ABSTRACTION_UPGRADE_WITHOUT_LOWER_LANGUAGE_COLLISION",
+    "REPRESENTABILITY_IS_ORTHOGONAL_TO_ABSTRACTION_HEIGHT",
+    "JOINT_SEPARATION_IS_ORTHOGONAL_TO_ABSTRACTION_HEIGHT",
+    "CATEGORY_GROUPOID_SHEAF_STACK_TOPOS_NAMES_ARE_NOT_NECESSITY_CERTIFICATES",
+    "CURRENT_GEN13_STACK_LIKE_UPGRADE_REJECTED_AS_UNWITNESSED"
+  ]
+}
