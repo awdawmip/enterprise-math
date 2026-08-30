@@ -1,0 +1,80 @@
+{
+  "schema": "ENTERPRISE_MATH_BRIDGE_AUDIT_PACKET_V1",
+  "status": "TASK_LOCAL_INTERFACE",
+  "task_id": "RS-ADDMUL-SUM-PRODUCT-OBSTRUCTION-STRESS-TEST",
+  "purpose": "Force every addition–multiplication bridge claim to expose scope, information loss, operation laws, exceptional sets, hidden coordinates, and growth assumptions before promotion.",
+  "strength_levels": {
+    "L5_EXACT_INJECTIVE_CONJUGACY": "T is injective on the declared domain and both transported operations are exact and reconstructible on the image.",
+    "L4_EXACT_HOMOMORPHIC_IMAGE": "Both laws descend exactly but T is noninjective; kernel/fibers are part of the result.",
+    "L3_FINITE_TYPED_EMBEDDING": "Exact only on a declared finite/cell/partial-operation scope; closure and undefined cases are explicit.",
+    "L2_LOSSY_INVARIANT": "Only selected identities/invariants transport; collisions and missing coordinates are expected and measured.",
+    "L1_APPROXIMATE_PROBE": "Only approximate/statistical transport is asserted; an error metric and tested regime are mandatory."
+  },
+  "required_fields": [
+    "candidate_id",
+    "bridge_strength",
+    "domain",
+    "codomain",
+    "map_definition",
+    "injectivity_status",
+    "fiber_or_kernel_certificate",
+    "add_transport_law",
+    "mul_transport_law",
+    "law_scope",
+    "identity_and_absorber_images",
+    "closure_or_partiality",
+    "exceptional_set",
+    "hidden_coordinates",
+    "reconstruction_rule",
+    "elementary_obstruction_checks",
+    "finite_table_metrics",
+    "sum_product_theorem_gate",
+    "approximation_error",
+    "verdict"
+  ],
+  "elementary_obstruction_checks": [
+    "SAME_LAW_ZERO_WITNESS",
+    "ABSORBING_ZERO_TO_GROUP_CANCELLATION",
+    "IDENTITY_AND_IDEMPOTENT_TRANSPORT",
+    "ADDITIVE_CANCELLATION_INHERITANCE",
+    "DISTRIBUTIVITY_ON_IMAGE",
+    "CHARACTERISTIC_OR_ADDITIVE_ORDER",
+    "QUOTIENT_CONGRUENCE_FOR_BOTH_OPERATIONS"
+  ],
+  "sum_product_theorem_gate": {
+    "rule": "No asymptotic growth theorem is applied until ambient ring/field, set size, characteristic/subfield restrictions, injectivity/fiber budget, and theorem status (proved vs conjectural) are recorded.",
+    "real_current_note": "Near-quadratic real sum-product is not a valid axiom after the 2026 Bloom–Sawin–Schildkraut–Zhelezov counterexample. Use proved lower bounds only.",
+    "finite_field_note": "Prime-field lower bounds require explicit size hypotheses; dense/full-field or subfield-like regimes are separate."
+  },
+  "checker_examples": {
+    "Z8_IDENTITY": {
+      "expected_level": "L5_EXACT_INJECTIVE_CONJUGACY",
+      "operation_quotient_descends": true
+    },
+    "Z8_TO_Z2_PARITY": {
+      "expected_level": "L4_EXACT_HOMOMORPHIC_IMAGE",
+      "operation_quotient_descends": true,
+      "fiber_size": 4
+    },
+    "Z8_TO_Z3_RESIDUE": {
+      "expected_level": "REJECTED",
+      "operation_quotient_descends": false,
+      "add_failures": 28,
+      "mul_failures": 25
+    },
+    "V2_POSITIVE_INTEGERS": {
+      "expected_level": "L2_LOSSY_INVARIANT",
+      "mul_transport_exact": true,
+      "addition_min_skeleton_has_cancellation_defects": true
+    },
+    "EXP2_NONNEGATIVE_INTEGERS": {
+      "expected_level": "L3_ONE_OPERATION_ONLY_NOT_A_TWO_OPERATION_BRIDGE",
+      "addition_to_target_multiplication_exact": true
+    },
+    "F7_DISCRETE_LOG": {
+      "expected_level": "L3_MULTIPLICATIVE_GROUP_ONLY",
+      "addition_not_closed_pairs": 6,
+      "same_law_addition_failures_where_defined": 25
+    }
+  }
+}
