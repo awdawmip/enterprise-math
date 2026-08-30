@@ -1,0 +1,44 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "packet_id": "DFU-5A8C2D1E7F9043B6C211",
+  "review_id": "DR-5C2A8F17D4E9306B1A72",
+  "result_id": "RR-9570D1EE6E40186564FB",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "source_publication_id": "TP2-5A7C1D9E3B6042F8D117",
+  "driver_id": "EM-DVR-7C31A8",
+  "review_disposition": "ACCEPTED",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "parent_objective_id": "OBJ-P000-ENTERPRISE-6D-ROTATION-TOMOGRAPHY",
+  "decision": "TASK_SET_PUBLISHED_OR_CONTINUED",
+  "gate_decisions": [
+    {
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "decision": "REQUIRED",
+      "reason": "The frame/torsor/connection boundary is closed; the active mathematical frontier now requires a new audit of S4 group extensions, splitting, kernels, relation residues, cohomological applicability and canonical sections.",
+      "destination": "TP2-2F8C6A1D9E7043B5C812"
+    },
+    {
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "decision": "CONTINUE_EXISTING_DRIVER_ROUTE",
+      "reason": "The corresponding structural mathematics is already materialized as Gen13.",
+      "destination": "TP2-6E1A9C3B7D5048F2A611"
+    }
+  ],
+  "task_publications": [
+    {
+      "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+      "publication_id": "TP2-2F8C6A1D9E7043B5C812",
+      "task_role": "EXTERNAL_PRIOR_ART_DUPLICATION"
+    },
+    {
+      "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "publication_id": "TP2-6E1A9C3B7D5048F2A611",
+      "task_role": "MATHEMATICAL_CONTINUATION_REFERENCE"
+    }
+  ],
+  "created_at": "2026-08-30T02:15:30+00:00",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
