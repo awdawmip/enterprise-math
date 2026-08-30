@@ -1,0 +1,90 @@
+{
+  "schema": "P000_A2_CUBIC_THETA_GATE0_REVISION_V2_TYPING_CERTIFICATE_V1",
+  "task_id": "RS-P000-THREE-AXIS-A2-HEXAGONAL-CUBIC-THETA-BRIDGE",
+  "publication_id": "TP2-DABE69B97819A011CC8A",
+  "researcher_id": "EM-P000A2T2-CA5B09",
+  "claim_id": "chatgpt-p000a2t2-20260830-1712-ca5b09",
+  "frozen_inputs": {
+    "prior_publication_id": "TP2-F1EFAD3B22739534C6A6",
+    "prior_result_id": "RR-D1C5C994A138E65790CA",
+    "driver_review": "PR#909#issuecomment-5467169864",
+    "p000_world": "6D discrete Cell space + 1D time",
+    "declared_slice": "J_A={E1,E2,E3}"
+  },
+  "declared_semantics": {
+    "slice_role": "derived three-axis research slice inside P000; not the full world",
+    "retained_data": [
+      "opaque Cell identity and current native Cell-sorted relations",
+      "full PF-10 per-channel I/O/M data under typed channel transport",
+      "independent connection data when retained",
+      "time"
+    ],
+    "common_mode_status": [
+      "no native diagonal-translation equivalence is declared by the bare J_A slice",
+      "no admissible-state closure under arbitrary common shifts is frozen",
+      "no theorem freezes all retained observables as functions of the difference readout"
+    ]
+  },
+  "valid_concrete_countermodel_pair_requirements": [
+    "both states belong to the same declared framed/PF-10 model class",
+    "Cell identity and native Cell-sorted relations are held fixed",
+    "frame/typed channel structure is held fixed",
+    "all retained O/M data are held fixed unless a frozen rule forces a compatible change",
+    "independent connection data are held fixed when retained",
+    "time is held fixed",
+    "both ingress assignments satisfy every frozen PF-10 compatibility/admissibility condition",
+    "difference readouts agree while at least one retained observable differs"
+  ],
+  "admissibility_audit": {
+    "explicit_admissible_pf10_pair_constructed": false,
+    "arbitrary_ingress_reassignment_axiom_found": false,
+    "diagonal_shift_closure_theorem_found": false,
+    "reason": "The frozen inputs establish retained full channel data but do not establish that arbitrary changes of I|_{J_A} with O/M/connection/time fixed are admissible models. Therefore the old numerical pair cannot be promoted to a model-class counterexample."
+  },
+  "representation_level_witness": {
+    "left": [1, 1, 1],
+    "right": [2, 2, 2],
+    "difference_readout_left": [0, 0, 0],
+    "difference_readout_right": [0, 0, 0],
+    "status": "REPRESENTATION_LEVEL_ONLY",
+    "permitted_use": "demonstrates non-injectivity of the raw difference map on the ambient scalar representation",
+    "forbidden_use": "must not be cited as two proved admissible framed/PF-10 states"
+  },
+  "gate0_obligations": [
+    {
+      "id": "G0-TYPED-EQUIVALENCE",
+      "requirement": "a native common-mode action/equivalence or an explicit forgetful quotient declaration",
+      "status": "NOT_DERIVED"
+    },
+    {
+      "id": "G0-ADMISSIBLE-CLOSURE",
+      "requirement": "proof that the intended common-mode relation is meaningful on the admissible declared state class",
+      "status": "NOT_DERIVED"
+    },
+    {
+      "id": "G0-RETAINED-FACTORISATION",
+      "requirement": "proof that every task-relevant retained observable factors through the quotient, or an explicit declaration that discarded observables are outside the successor semantics",
+      "status": "NOT_DERIVED"
+    },
+    {
+      "id": "G0-DIFFERENCE-ALGEBRA",
+      "requirement": "q(x,y,z)=(x-y,y-z,z-x) is diagonal-invariant with diagonal fibers and is equivariant for the frozen three-cycle",
+      "status": "PROVED"
+    }
+  ],
+  "exact_algebra": {
+    "difference_map": "q(x,y,z)=(x-y,y-z,z-x)",
+    "image_constraint": "u+v+w=0",
+    "diagonal_invariance": "q(x+t,y+t,z+t)=q(x,y,z)",
+    "fiber_theorem": "over an additive cancellative scalar representation, q(p)=q(p') iff p'-p=(t,t,t)",
+    "cycle_equivariance": "for a_xi pushforward (x,y,z)->(z,x,y), q maps to (w,u,v)"
+  },
+  "terminal_conclusion": {
+    "gate0": "COMMON_MODE_QUOTIENT_NOT_DERIVED",
+    "proof_strength": "MODEL_INDEPENDENT_TYPING_AND_AUTHORITY_BOUNDARY",
+    "material_reversal_of_prior_math": false,
+    "concrete_countermodel_claim": false,
+    "gate1_open": false,
+    "a2_theta_work_performed": false
+  }
+}
