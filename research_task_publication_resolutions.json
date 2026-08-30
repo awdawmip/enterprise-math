@@ -89,6 +89,52 @@
       "working_truth_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "task_id": "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
+      "canonical_publication_id": "TP2-3EAC29B49F71ABB92BEA",
+      "operational_publication_id": "TP2-3EAC29B49F71ABB92BEA",
+      "quarantined_publication_ids": [
+        "TP2-5547117E54D7A556279B"
+      ],
+      "retained_parallel_publication_ids": [
+        "TP2-5547117E54D7A556279B",
+        "TP2-4EE2618ABEBB6D097023",
+        "TP2-3EAC29B49F71ABB92BEA"
+      ],
+      "parallel_intake_id": "PI-PPTA-PUB-20260830-01",
+      "parallel_synthesis_id": "PS-PPTA-PUB-20260830-01",
+      "resolution_kind": "PARALLEL_PUBLICATION_OPERATIONAL_BINDING",
+      "reason": "Two generation-1 publications expressed the same all-m critical-cofactor mother target but belonged to different routing eras. TP2-5547117E54D7A556279B is the original researcher publication under the older PERFECT_PRIME_TABLE_CRITICAL_COFACTOR_CLOSURE parent. TP2-4EE2618ABEBB6D097023 is the later Driver-published Route-A objective-linked publication and is the exact publication pinned by the subsequent EM-PPTA-6D8F31 execution and RR-C9D440656391BA3B9763 handoff. Two reference passes therefore retain the old publication as parallel history, select the objective-linked lineage for runtime continuity without rejecting the old result, and then carry that lineage forward through the integrity-only generation-2 publication TP2-3EAC29B49F71ABB92BEA. The selection is control routing only, not a theorem-quality or truth ranking.",
+      "authority_role": "RESEARCH_DRIVER",
+      "authority_id": "EM-DVR-P8H4Q2",
+      "resolved_at": "2026-08-30T02:26:30+00:00",
+      "preserve_existing_result": "RR-2B648AB483422BD7A6CD",
+      "preserve_nonoperational_handoff_result": "RR-C9D440656391BA3B9763",
+      "reference_process": {
+        "passes_required": 2,
+        "pass_1": "COMPLETE_SAME_MOTHER_TARGET_LATER_ROUTE_REFINES_FRONTIER",
+        "pass_1_id": "RP1-PPTA-PUB-20260830-01",
+        "pass_2": "COMPLETE_OBJECTIVE_LINKED_EXECUTION_LINEAGE_SELECTED",
+        "pass_2_id": "RP2-PPTA-PUB-20260830-01",
+        "relationship": [
+          "SAME_ALL_M_CRITICAL_COFACTOR_MOTHER_TARGET",
+          "OLDER_PUBLICATION_HAS_REVIEWED_RETURN_TO_OWNER_HISTORY",
+          "LATER_PUBLICATION_IS_CURRENT_OBJECTIVE_LINKED",
+          "LATER_PUBLICATION_HAS_DEEPER_BETA_BERNSTEIN_EXECUTION_FRONTIER",
+          "GENERATION_2_IS_INTEGRITY_ONLY_NO_MATH_DELTA"
+        ],
+        "final_disposition": "KEEP_PARALLEL_HISTORY_AND_SELECT_OBJECTIVE_LINKED_LINEAGE",
+        "allowed_final_dispositions": [
+          "KEEP_PARALLEL",
+          "MERGE_TO_NEW_GENERATION",
+          "SPLIT_TO_TYPED_TASKS",
+          "RESELECT_OPERATIONAL_WITHOUT_REJECTING_OTHERS"
+        ]
+      },
+      "working_truth_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }
