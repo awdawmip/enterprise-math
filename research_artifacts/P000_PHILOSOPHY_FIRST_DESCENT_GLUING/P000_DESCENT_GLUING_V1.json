@@ -1,0 +1,93 @@
+{
+  "schema": "ENTERPRISE_MATH_P000_DESCENT_GLUING_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-DESCENT-GLUING",
+  "publication_id": "TP2-4D25EFB9133375734950",
+  "hard_target": "P000_LOCAL_SLICE_TO_FULL_CELL_DESCENT_EXACTLY_CLASSIFIED",
+  "terminal_class": "EXACT_DESCENT_OBSTRUCTION_FOUND",
+  "declared_probe_class": {
+    "probe_carrier": "FINITE_CONNECTED_OVERLAP_GRAPH",
+    "vertex_data": "one local P000 frame-readable slice/probe with a finite channel fiber C_v",
+    "edge_data": "typed bijection T_uv:C_u->C_v with T_vu=T_uv^-1",
+    "global_realization_test": "there exists one common abstract axis fiber A and frames f_v:A->C_v such that T_uv=f_v o f_u^-1 on every overlap edge",
+    "important_scope_guard": "this tests strict synchronized-frame reconstruction, not existence of every possible bare Full-Cell carrying an independent nontrivial connection"
+  },
+  "finite_descent_theorem": {
+    "name": "FINITE_GRAPH_STRICT_FRAME_DESCENT",
+    "equivalent_conditions": [
+      "a global parallel frame family f_v exists",
+      "every closed-walk transport holonomy is identity",
+      "for one spanning tree, every fundamental-cycle holonomy is identity"
+    ],
+    "construction_if_condition_holds": "choose one seed frame at a root and transport it along the spanning tree; fundamental-cycle exactness makes all non-tree overlaps agree",
+    "necessity": "edge transports telescope around every closed walk when T_uv=f_v o f_u^-1"
+  },
+  "minimal_counterexample": {
+    "probe_count": 3,
+    "overlap_graph": "C3 triangle",
+    "fiber": "{0,1}",
+    "automorphism_group": "S2=C2={id,swap}",
+    "oriented_edge_transports": {
+      "T_01": "id",
+      "T_12": "id",
+      "T_20": "swap"
+    },
+    "pairwise_overlap_valid": true,
+    "pairwise_two_probe_gluable": true,
+    "loop_holonomy": "swap",
+    "global_parallel_frame_exists": false,
+    "obstruction_type": "LOOP_HOLONOMY / NONTRIVIAL_C2_1-COCYCLE_CLASS"
+  },
+  "enumeration": {
+    "normalized_local_frame_families": 8,
+    "edge_transport_assignments_on_triangle": 8,
+    "pairwise_compatible_edge_assignments": 8,
+    "globally_realizable_edge_assignments": 4,
+    "obstructed_edge_assignments": 4,
+    "criterion_in_C2": "even swap parity iff globally realizable",
+    "global_frame_families_per_realizable_edge_assignment": 2,
+    "gauge_note": "the two realizations differ by one global diagonal C2 relabeling"
+  },
+  "minimality": [
+    "with at most two probes there is no overlap cycle, so every inverse-consistent transport assignment integrates",
+    "on any tree, arbitrary edge bijections integrate from a seed frame",
+    "with one-state fibers the local automorphism group is trivial, so no twisting obstruction exists",
+    "therefore 3 probes + 3 overlaps + fiber cardinality 2 is minimal for this strict framed obstruction"
+  ],
+  "p000_alignment": {
+    "accepted_gen10_frame_relation": "f_x:A->C_x total bijection",
+    "accepted_gen10_connection": "T_xy=f_y o f_x^-1",
+    "derived_consequence": "frame-induced loop holonomy is identity",
+    "independent_connection_guard": "independent nontrivial holonomy may exist; that obstructs synchronization into one parallel frame but not bare existence of a global object with connection",
+    "minimal_new_axiom_if_strict_reconstruction_is_desired": "CYCLE_EXACTNESS: every fundamental-cycle transport is identity",
+    "not_required": "no topological cover, sheaf, stack, or higher object is required to state the first obstruction"
+  },
+  "classical_lens_after_obstruction": {
+    "graph_language": "edge transports are a group-valued 1-cochain; global frames are vertex potentials/coboundaries",
+    "C2_triangle": "the obstruction is the nonzero class in H^1(C3;C2), equivalently odd swap parity",
+    "scope": "comparison vocabulary only; the P000 axiom is derived as route-independence/cycle exactness rather than imported from classical topology"
+  },
+  "tool_reuse": {
+    "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+    "matched_tool_or_method_ids": [
+      "T2_BLOCK_FINITE_CERTIFICATE",
+      "T9_HOLONOMY_COCOYCLE_GLUING"
+    ],
+    "reuse_resolution_state": "COMPOSE_APPLIED",
+    "how_applied": "T2 supplies bounded bad-block/minimal-certificate discipline; T9 supplies loop-holonomy/cocycle strict-gluing diagnosis. The checker is task-specific exhaustive certification, not a new general tool.",
+    "hard_boundaries_checked": [
+      "nonzero holonomy does not identify a unique repaired global object",
+      "a finite local certificate theorem is not promoted to a universal bounded-certificate law under arbitrary propagating coupling"
+    ]
+  },
+  "checker": {
+    "path": "research_checks/P000_PHILOSOPHY_FIRST_DESCENT_GLUING_CHECK_20260830.py",
+    "expected": "PASS P000_DESCENT_GLUING; triangle_total=8; triangle_global=4; triangle_obstructed=4; graph_label_checks=647; minimal_obstruction=3_probes_3_overlaps_fiber2_odd_swap; criterion=trivial_fundamental_cycle_holonomy_iff_global_parallel_frame"
+  },
+  "nonclaims": [
+    "does not prove that bare P000 Full-Cells cannot exist with nontrivial connection holonomy",
+    "does not promote carrier S4 to the full native rotation group",
+    "does not identify carrier vertices with native Cell identities",
+    "does not claim novelty over classical graph cocycle/holonomy theory",
+    "does not require a sheaf/topos/stack foundation change"
+  ]
+}
