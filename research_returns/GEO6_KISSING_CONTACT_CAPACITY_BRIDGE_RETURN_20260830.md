@@ -7,129 +7,105 @@ Claim: `chatgpt-g6kiss-20260830-1114-d45c79`
 Execution branch: `research/geo6-kissing-contact-capacity-bridge-em-g6kiss-aac55f`  
 Date: `2026-08-30`  
 Terminal verdict: `SUCCESS`  
-Hard-target disposition: `P000_NATIVE_6D_CONTACT_CAPACITY_ATLAS_CONSTRUCTED_AND_EUCLIDEAN_TRANSFER_OBSTRUCTED_AT_CURRENT_READOUT_STRENGTH`
+Terminal class: `P000_NATIVE_CONTACT_ATLAS_CONSTRUCTED_AND_EUCLIDEAN_TRANSFER_OBSTRUCTED_AT_CURRENT_READOUT_STRENGTH`
 
-## 1. Result in one paragraph
+## 1. Frozen result
 
-A metric-free finite native contact model can be defined without identifying P000 with Euclidean `R^6`: take one opaque central Cell, one opaque neighboring Cell for each of the six native axis types, and declare center-to-axis-neighbor contact only. The accepted carrier-compatible `S4` action permutes the six axis labels and preserves the six contact edges, giving an exact center capacity `6`, one contact orbit of size `6`, and edge stabilizer order `4`. Independently, the external `E6` kissing witness is regenerated from an integral `6 x 6` Gram matrix by Weyl reflections, producing exactly `72` roots of norm `2`; the resulting external contact graph (`<alpha,beta>=1`) is `20`-regular with `720` edges. A faithful contact embedding into the current seven-Cell axis star or into the six-axis readout is therefore impossible. More importantly, rotation compatibility alone does not canonically select contact: on the natural four-Cell `S4` orbit, the only invariant simple contact graphs are the empty graph and `K4`, with capacities `0` and `3`. Thus the present P000 rotation/carrier data support exact finite contact atlases, but do **not** yet canonically determine a native kissing number. Transferring the 72-point `E6` witness requires additional native state/contact data rather than an untyped import of Euclidean metric structure.
+A metric-free finite native contact model was constructed without identifying P000 with Euclidean `R^6`. The declared model has one opaque central Cell and one opaque neighboring Cell for each of the six native axis types. Contact means exactly center-to-axis-neighbor incidence. The accepted carrier-compatible `S4` action fixes the center and permutes the six axis labels through the `K4`-edge action. Hence the center has exact contact capacity `6`; the six contact edges form one orbit and have stabilizer order `4`.
 
-## 2. Evidence typing
+Independently, the external `E6` kissing witness was regenerated from an integral `6 x 6` Gram matrix by Weyl reflections, not by hard-coding 72 coordinates. Exact arithmetic gives `72` roots of norm `2`; for every root the pairing distribution is
 
-The following types are deliberately kept separate.
+`2:1, 1:20, 0:30, -1:20, -2:1`.
+
+Under the external kissing rescaling, distinct roots contact exactly when their pairing is `1`. Thus the external contact graph is `20`-regular with `720` edges.
+
+A faithful contact embedding into the current seven-Cell axis star, six-axis readout, or four-Cell natural `S4` orbit is impossible. Moreover rotation compatibility alone is non-canonical for contact: on four Cells, the natural `S4` action has one unordered-pair orbit, so the only invariant simple contact graphs are the empty graph and `K4`, with capacities `0` and `3`.
+
+Therefore the task closes at the exact finite-atlas/current-readout-obstruction strength. It does **not** assign a universal P000 kissing number.
+
+## 2. Evidence boundary
 
 ### `EXTERNAL_THEOREM`
 
-As of the research date, the maintained classical six-dimensional kissing bounds are
+Current classical comparison data remain `72 <= tau_6 <= 77`.
 
-`72 <= tau_6 <= 77`.
+Sources checked on `2026-08-30`:
 
-The lower witness is supplied by the `E6` root configuration. The exact upper bound `77` is proved by de Laat, Leijenhorst and de Muinck Keizer in the work whose primary purpose is the exact `D4` result but which also improves the dimension-six upper bound.
-
-External references used only as comparison data:
-
-- Nebe–Sloane lattice catalogue, `E6`: https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/E6.html
+- Nebe–Sloane `E6` lattice catalogue: https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/E6.html
 - de Laat–Leijenhorst–de Muinck Keizer, *Optimality and uniqueness of the D4 root system*: https://arxiv.org/abs/2404.18794
-- Henry Cohn, maintained kissing-number table: https://cohn.mit.edu/kissing-numbers/
+- Henry Cohn maintained kissing-number table: https://cohn.mit.edu/kissing-numbers/
 
-No classical bound is promoted to a P000 theorem.
+These are external-model facts only. `E6 != P000 carrier`, and the classical bound is not imported as a native theorem.
 
 ### `NATIVE_DEFINITION`
 
-Define the task-local **six-axis Cell-star model**
+Let `A={E1,...,E6}` be the native axis-type set and define
 
-`M_* = (X_*, A, G, C_*)`
+`X_*={c} union {n_e : e in A}`.
 
-by:
+All seven Cell identities are opaque and distinct. Define
 
-- `A={E1,...,E6}` is the six native axis-type set fixed by P000;
-- `X_*={c} union {n_e : e in A}` consists of seven opaque and pairwise distinct Cell identities;
-- `G=S4` is used only at the accepted carrier-compatible/downstream action strength;
-- `G` fixes `c` and permutes the six `n_e` through the accepted `K4`-edge action on axis types;
-- `C_*(c,n_e)=C_*(n_e,c)=true` for each `e`;
-- there are no other `C_*` contacts.
+`C_*(c,n_e)=C_*(n_e,c)=true`
 
-Local admissibility is therefore entirely relational:
+and no other contacts. The model is admissible when:
 
-1. contact is symmetric;
-2. contact is irreflexive;
-3. each of the six native axis types labels exactly one declared neighboring Cell in this model;
-4. no Euclidean norm, distance, angle, sphere or inner product occurs in the native definition.
+1. `C_*` is symmetric and irreflexive;
+2. exactly one neighboring Cell is declared per native axis type;
+3. the chosen carrier-compatible `S4` action fixes `c` and permutes the six `n_e`;
+4. no Euclidean distance, angle, norm, sphere or inner product is used in the native definition.
 
-This is a **declared finite model**, not a claim that bare P000 canonically forces one-neighbor-per-axis contact.
-
-Its exact capacity data are:
+Exact capacity:
 
 - `cap(c)=6`;
 - `cap(n_e)=1`;
-- all six contact edges form one `S4` orbit;
-- the contact-edge stabilizer has order `24/6=4`.
+- contact orbit size `6`;
+- contact stabilizer order `24/6=4`.
+
+This is a declared P000-compatible finite model, not a claim that bare P000 canonically forces it.
 
 ### `TRANSFER_THEOREM`
 
-For an external finite contact graph `(V,E_ext)` and a native finite contact model `(X,C)`, call
+A faithful contact embedding `f:(V,E_ext)->(X,C)` is injective and satisfies, for distinct `u,v`,
 
-`f:V -> X`
+`{u,v} in E_ext <=> C(f(u),f(v))`.
 
-a **faithful contact embedding** when `f` is injective and, for distinct `u,v`,
+For the regenerated `E6` graph:
 
-`{u,v} in E_ext  <=>  C(f(u),f(v))`.
+- `72>7`, so no faithful embedding into the seven-Cell star;
+- `72>6`, so no faithful embedding into the six-axis readout;
+- `72>4`, so no faithful embedding into the four-Cell orbit;
+- external degree `20` also exceeds the corresponding finite-atlas maxima `6`, `5`, and `3`.
 
-This definition does not presuppose Euclidean semantics on the native side.
+If a future transfer factors through six axis labels plus a uniform residual label set of size `r`, injectivity alone forces
 
-For the regenerated `E6` graph, no faithful contact embedding exists into:
+`6r >= 72`, hence `r >= 12`.
 
-- the declared seven-Cell axis-star model;
-- the six-element current axis readout;
-- the four-Cell natural `S4` orbit.
-
-The first obstruction is already cardinality (`72>7`, `72>6`, `72>4`). There is also a local-degree mismatch: every external `E6` vertex has contact degree `20`, while the declared star has maximum degree `6`, the six-axis orbital atlas has maximum degree `5`, and the four-Cell invariant atlas has maximum degree `3`.
-
-If a future transfer is required to factor through the current six-axis readout plus a finite residual label of uniform size `r`, injectivity alone forces
-
-`6 r >= 72`, hence `r >= 12`.
-
-This `12` is only a **resource lower bound for labels**. It does not assert that twelve residual states per axis are sufficient to reproduce the `E6` contact graph.
+The number `12` is only a cardinality lower bound. It is not a sufficiency theorem.
 
 ### `OBSTRUCTION`
 
-There are two exact obstructions.
+**O1 — rotation does not canonically determine contact.**  
+On the natural four-Cell `S4` action, all six unordered Cell pairs lie in one orbit. Therefore an invariant simple contact relation is either empty or all six pairs (`K4`). The capacities are exactly `{0,3}`. Thus rotation invariance alone cannot select contact.
 
-#### O1. Rotation compatibility does not determine contact
+This is a rotation-reduct theorem. It does not assert that every full PF-10 expansion realizes both contact relations. It is consistent with the accepted foundation boundary that the Gen12 common-model witness is existential and its particular native `K4` witness is not canonically forced by bare P000.
 
-Take a four-element opaque Cell set `X={A,B,C,D}` with the natural `S4` action. The action is transitive on the six unordered Cell pairs. Therefore every `S4`-invariant simple undirected contact relation is a union of pair orbits, and there is only one pair orbit. Consequently the invariant contact relations are exactly
+**O2 — six-axis readout is too small and too coarse.**  
+On the six axis labels, unordered pairs split into two `S4` orbitals:
 
-`C_0 = empty`
+- disjoint pairs: orbit size `3`, stabilizer order `8`;
+- incident pairs: orbit size `12`, stabilizer order `2`.
 
-and
-
-`C_1 = K4`.
-
-Their local capacities are respectively `0` and `3`.
-
-Thus **rotation invariance by itself cannot select a unique native contact predicate or capacity**.
-
-This statement is intentionally at the rotation-reduct level. It does not claim every complete PF-10/Full-Cell expansion realizes both contact relations. Its relevance to the current P000 frontier is supplied by the accepted foundation boundary: the existing Gen12 common-model `S4` witness is existential, its particular `K4` witness is not canonically forced by bare P000, and the contact route is not required (`Omega_b=false` in the accepted positive witness).
-
-#### O2. The six-axis carrier readout is too small for faithful `E6` transfer
-
-Under the accepted `S4` action on the six axis types (the six edges of `K4`), unordered axis pairs split into exactly two orbitals:
-
-- disjoint axis pairs: orbit size `3`, stabilizer order `8`;
-- incident axis pairs: orbit size `12`, stabilizer order `2`.
-
-Therefore the only `S4`-invariant simple graphs on the six axis labels are unions of these two orbitals, with regular degrees/capacities
+Hence the invariant readout graphs have regular degrees/capacities exactly
 
 `0, 1, 4, 5`.
 
-This is an exact carrier-readout atlas, not a native Cell-identity theorem. It confirms that the existing six-label readout alone cannot encode the `20`-regular 72-vertex `E6` contact graph faithfully.
+This is a carrier-readout atlas, not native Cell identity.
 
 ### `COMPUTATIONAL_REGRESSION`
 
-The deterministic checker does not hard-code a list of 72 roots.
+The deterministic checker begins from
 
-It starts from the integral Gram matrix
-
-```
+```text
 [ 2  0 -1  0  0  0]
 [ 0  2  0 -1  0  0]
 [-1  0  2 -1  0  0]
@@ -138,135 +114,87 @@ It starts from the integral Gram matrix
 [ 0  0  0  0 -1  2]
 ```
 
-and generates the Weyl orbit of the first simple root using
+and closes the first simple root under
 
-`s_i(v) = v - (Gv)_i e_i`.
+`s_i(v)=v-(Gv)_i e_i`.
 
-The checker establishes exactly:
+It certifies:
 
 - `|Phi(E6)|=72`;
-- every generated root has norm `2`;
-- each simple reflection preserves the root set and Gram pairing;
-- relative to every root the pairing distribution is
-  `2:1, 1:20, 0:30, -1:20, -2:1`;
-- external contact rule `<alpha,beta>=1` gives degree `20`;
-- the external contact graph has `720` edges;
-- the four-Cell natural `S4` action has one unordered-pair orbit and exactly two invariant graphs;
-- the six-axis action has pair-orbit sizes `3` and `12` and exactly four invariant orbital graphs;
-- the declared native axis star is rotation-invariant and has capacity `6`;
-- the current-readout transfer lower bound is `r>=12`;
-- the adversarial empty/complete four-Cell contact models have capacities `0` and `3`.
+- norm `2` for every root;
+- reflection closure and exact Gram-pairing invariance;
+- pairing distribution `2:1, 1:20, 0:30, -1:20, -2:1`;
+- `E6` external contact degree `20` and `720` edges;
+- four-Cell invariant capacities `{0,3}`;
+- six-axis pair-orbit sizes `{3,12}` and capacities `{0,1,4,5}`;
+- declared native axis-star capacity `6`;
+- residual-label lower bound `r>=12`;
+- adversarial empty/complete rotation-compatible contact countermodels.
 
-The checker is finite regression/certification for the declared finite models. It is not an upper bound on a universal native P000 kissing number.
+Finite census is used only as a certificate for the declared finite models, not as a universal packing theorem.
 
-## 3. Exact reconstruction of the external 72-point witness
+## 3. Independent reconstruction of the 72-point external witness
 
-Let `G` be the integral Gram matrix printed above and let `alpha_i` be its simple-root basis. Because this is simply laced, the simple reflection in `alpha_i` acts on an integer coefficient vector `v` by
+Let `G` be the Gram matrix above in a simple-root basis. Because `E6` is simply laced, the simple reflection acts on an integer coefficient vector `v` by
 
-`s_i(v)=v-<v,alpha_i> alpha_i = v-(Gv)_i e_i`.
+`s_i(v)=v-<v,alpha_i>alpha_i=v-(Gv)_i e_i`.
 
-Starting with `e_1` and closing under the six reflections gives a finite orbit `Phi` of size `72`. Direct exact arithmetic shows `v^T G v=2` for every `v in Phi`.
+Starting from `e_1`, closure under the six reflections yields exactly 72 vectors. All have `v^T G v=2`.
 
-For every fixed `alpha in Phi`, the multiset of pairings with all roots is:
+For each root there are exactly twenty other roots with inner product `1`. After the standard external kissing rescaling, those are precisely the touching outer spheres. The handshake lemma gives
 
-- one `+2` (itself);
-- twenty `+1`;
-- thirty `0`;
-- twenty `-1`;
-- one `-2` (its antipode).
+`72*20/2=720`
 
-After the standard external kissing rescaling, two distinct outer spheres touch exactly when the corresponding roots have inner product `1`. Hence the external contact graph is 20-regular. By the handshake lemma it has
+external contact edges.
 
-`72*20/2 = 720`
+The `72`, `20`, and `720` values are therefore regenerated from the integer reflection system rather than accepted as unexplained constants.
 
-edges.
+## 4. What the obstruction actually isolates
 
-This is the independent finite certificate required by the task. The checker derives the `72`, `20` and `720` from the Gram/reflection rules.
+The result does **not** say that P000 can never support a 72-contact local configuration. It says current typed information is insufficient for a faithful transfer:
 
-## 4. Native contact-orbit atlas
+`CURRENT SIX-AXIS/CARRIER READOUT + ROTATION COMPATIBILITY`
+`!=`
+`CANONICAL NATIVE CONTACT GEOMETRY`.
 
-The task uses the accepted six native axis types together with the **carrier-compatible** `S4` permutation pattern. The typing firewall is:
+A justified successor must derive or explicitly declare at least one of:
 
-`CARRIER_S4 != FULL_NATIVE_P000_ROTATION_GROUP`.
+1. a richer native local-neighborhood state space beyond six axis labels;
+2. a canonical native contact/metric readout;
+3. an equivariant residual state coordinate that survives carrier projection;
+4. an existing PF-10/Full-Cell relation that already determines contact.
 
-### 4.1 Four opaque Cells
+The `r>=12` calculation is the first exact pressure test for such a residual state layer.
 
-On the natural four-Cell orbit:
+## 5. Tool reuse
 
-- vertex orbit size: `4`, stabilizer order: `6`;
-- unordered-pair orbit size: `6`, stabilizer order: `4`;
-- invariant simple contact capacities: `{0,3}`.
+No new general-purpose tool is claimed.
 
-If one adds the extra axiom "there exists at least one contact edge", then symmetry forces `K4` and capacity `3` **inside that declared four-Cell model**. The extra axiom is not supplied by rotation invariance itself.
+- `T7_FINITE_SYMMETRY_EQUIVARIANCE` supplies the orbit/stabilizer and invariant-choice viewpoint.
+- `T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA` supplies the declared-readout capacity/fiber pressure viewpoint.
+- The checker is task-local exact finite graph/root arithmetic.
 
-### 4.2 Six axis labels
+## 6. Nonclaims
 
-Identify the six axis types only as a readout with the six two-subsets of `{A,B,C,D}`. Two unordered axis labels are either incident or disjoint. These are the two pair orbitals.
+This result does not claim:
 
-The corresponding invariant readout graphs are:
+- `tau_native=72` or `tau_native<=77`;
+- `E6` replaces FCC;
+- `E6` is a P000 carrier;
+- carrier `S4` is the full native rotation group;
+- the four-Cell `K4` contact is canonically forced;
+- twelve residual states per axis suffice;
+- finite census proves a universal native packing theorem;
+- novelty from the external mathematics.
 
-1. empty: degree `0`;
-2. disjoint-only matching: degree `1`;
-3. incident-only line graph `L(K4)`: degree `4`;
-4. complete: degree `5`.
+## 7. Frozen artifacts
 
-Again, this is a readout classification, not an identity of axis labels with native Cells.
+- `research_returns/GEO6_KISSING_CONTACT_CAPACITY_BRIDGE_RETURN_20260830.md`
+- `research_checks/GEO6_KISSING_CONTACT_CAPACITY_BRIDGE_CHECK_20260830.py`
+- `research_artifacts/GEO6_KISSING_CONTACT_CAPACITY_BRIDGE/CONTACT_ATLAS_V1.json`
+- `research_execution_records/RS-GEO6-KISSING-CONTACT-CAPACITY-BRIDGE/ER-7B1E833DA5F6F1598275.json`
+- result record is frozen separately under `research_result_records/RS-GEO6-KISSING-CONTACT-CAPACITY-BRIDGE/` after deterministic result-ID derivation from this return blob and the frozen owner head.
 
-### 4.3 Seven-Cell six-axis star
+## 8. Driver recommendation
 
-The declared model `M_*` promotes only the minimal information needed for an actual Cell-contact example: one center plus six separately tagged axis-neighbor Cells. Its contact capacity at the center is exactly `6`. This is a genuine finite native relational construction, while its non-canonicity is explicit.
-
-## 5. What this says about the Enterprise Math bottleneck
-
-The useful obstruction is not "P000 cannot contain 72 contacts." No such theorem has been proved.
-
-The proved statement is narrower and more actionable:
-
-> Current six-axis/carrier-rotation information does not contain enough typed state to make the external 72-vertex contact code a faithful native object, and rotation compatibility does not by itself select a unique contact relation.
-
-Therefore a meaningful successor would have to add or derive one of the following, with operation-safe semantics:
-
-1. a native local-neighborhood state space carrying more than the six axis labels;
-2. a canonical relation/metric readout that decides when two neighboring Cell states are in contact;
-3. an equivariant residual state coordinate whose role is not erased by the carrier projection;
-4. a proof that existing PF-10/Full-Cell relations already define such a contact predicate.
-
-The minimum `12` residual labels per axis is a first cardinality pressure test, not a proposed axiom.
-
-## 6. Tool reuse / no-new-tool boundary
-
-Existing Enterprise tool families were reused conceptually rather than duplicated:
-
-- `T7_FINITE_SYMMETRY_EQUIVARIANCE`: orbit/stabilizer and invariant-choice obstruction;
-- `T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA`: capacity/fiber pressure at a declared readout;
-- ordinary exact finite graph counting for the task-local checker.
-
-No new general-purpose Enterprise tool is proposed by this result.
-
-## 7. Adversarial checks and nonclaims
-
-The following stronger statements are **not** made:
-
-- `tau_native=72`;
-- `tau_native<=77`;
-- `E6` is the P000 carrier;
-- the accepted FCC carrier is replaced by `E6`;
-- the carrier `S4` is the complete native P000 rotation group;
-- the four-Cell `K4` contact model is canonically forced;
-- twelve residual states per axis suffice for an `E6` embedding;
-- the finite checker proves a universal packing theorem;
-- no novelty claim follows from this construction.
-
-The declared axis-star model and the empty/complete adversarial pair are deliberately small. Their role is to expose exactly what is and is not determined by current primitives.
-
-## 8. Frozen artifacts
-
-- Return: `research_returns/GEO6_KISSING_CONTACT_CAPACITY_BRIDGE_RETURN_20260830.md`
-- Checker: `research_checks/GEO6_KISSING_CONTACT_CAPACITY_BRIDGE_CHECK_20260830.py`
-- Atlas: `research_artifacts/GEO6_KISSING_CONTACT_CAPACITY_BRIDGE/CONTACT_ATLAS_V1.json`
-- Execution record: `research_execution_records/RS-GEO6-KISSING-CONTACT-CAPACITY-BRIDGE/ER-7B1E833DA5F6F1598275.json`
-- Result record: `research_result_records/RS-GEO6-KISSING-CONTACT-CAPACITY-BRIDGE/RR-953997C3D28C7E318C12.json`
-
-## 9. Next control-plane recommendation
-
-Driver review should accept this task at the finite-contact-atlas / current-readout-obstruction strength if the evidence chain is intact. A successor is justified only if it targets the newly isolated missing datum: a canonical or explicitly declared residual native contact-state layer beyond the six-axis readout. Do not reopen FCC-vs-E6 carrier selection and do not translate the classical `72..77` interval into a native theorem.
+Accept at task scope if the exact checker and artifact pins agree. If a successor is opened, target the missing residual native contact-state layer. Do not reopen FCC-vs-`E6` carrier selection and do not translate the external `72..77` interval into native truth.
