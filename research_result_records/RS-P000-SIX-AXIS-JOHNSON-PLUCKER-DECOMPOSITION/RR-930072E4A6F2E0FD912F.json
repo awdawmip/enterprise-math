@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-930072E4A6F2E0FD912F",
+  "task_id": "RS-P000-SIX-AXIS-JOHNSON-PLUCKER-DECOMPOSITION",
+  "publication_id": "TP2-3E6C899C13CD43D8B7C7",
+  "execution_record_id": "ER-4AED4CDBAE8D25FFEF55",
+  "claim_id": "chatgpt-p000jp3-20260830-1739-b7e4c2",
+  "taskbook_path": "research_tasks/P000_SIX_AXIS_JOHNSON_PLUCKER_DECOMPOSITION_RESULT_SCHEMA_REPAIR_V3_20260830.md",
+  "taskbook_blob_sha1": "sha1:815deed2d2f9cf8719ea01ca26b3ad1b322d5a78",
+  "execution_branch": "research/p000-six-axis-johnson-plucker-result-schema-repair-v3-em-p000jp3-b7e4c2",
+  "execution_branch_base": "6b3c4f96b09e79f9f0c14ac8190640717d13ee58",
+  "return_path": "research_returns/P000_SIX_AXIS_JOHNSON_PLUCKER_DECOMPOSITION_RESULT_SCHEMA_REPAIR_V3_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:d2ef47ad7b4ea77345d9a628fc139ee927c35737",
+  "return_sha256": "sha256:3cc2edc67cbec4f61d79fb66420a8b6e7e0cc939ad9e8b2b64ecb04fd6283a25",
+  "owner_head": "74e56d52e3c3a9a50e08bd15c77a1c7a873b2ea8",
+  "researcher_id": "EM-P000JP3-B7E4C2",
+  "frozen_at": "2026-08-30T09:43:00+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "P000_JOHNSON_PLUCKER_REVISION_V3_WRITER_CONFORMANT_RESULT_WITH_ZERO_MATH_DRIFT",
+  "unresolved_residue": "No bare-P000 dimension reduction, native-rotation promotion, Full-Cell lift, or characteristic-zero identification C=H is claimed. In characteristic 2 only, sign collapse gives H=C inside the representation facade; the polar form remains perfect alternating while Q is a non-unique quadratic refinement. Q_orb and the index-24 Johnson residue rho remain the safe downstream arithmetic data.",
+  "output_manifest": [
+    {
+      "path": "research_returns/P000_SIX_AXIS_JOHNSON_PLUCKER_DECOMPOSITION_RESULT_SCHEMA_REPAIR_V3_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:d2ef47ad7b4ea77345d9a628fc139ee927c35737",
+      "sha256": "sha256:3cc2edc67cbec4f61d79fb66420a8b6e7e0cc939ad9e8b2b64ecb04fd6283a25"
+    },
+    {
+      "path": "research_checks/P000_SIX_AXIS_JOHNSON_PLUCKER_DECOMPOSITION_REVISION_V2_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:7c1401e016177029949637bdcc56680e8ac1e09a",
+      "sha256": "sha256:e36eb97d3d852b02325dbd6b84a33fb2f59519a5234ab6d3dfbca7ce13c947e8"
+    },
+    {
+      "path": "research_artifacts/P000_SIX_AXIS_JOHNSON_PLUCKER_DECOMPOSITION_REVISION_V2/regression_table_20260830.json",
+      "git_blob_sha1": "sha1:56353c109b1206407f149bbe9da055b6fd03ec65",
+      "sha256": "sha256:2b12eb306d7e97efc72c298e20628cd7ef5613f7fccf4a03a21fbc73c2f36642"
+    },
+    {
+      "path": "research_execution_records/RS-P000-SIX-AXIS-JOHNSON-PLUCKER-DECOMPOSITION/ER-4AED4CDBAE8D25FFEF55.json",
+      "git_blob_sha1": "sha1:1ec01841530d19d366cc6af874969c4814ac8194",
+      "sha256": "sha256:5fce3dfe693413f771df736b564800e7aa2c47a0542d18b5f0b331d4b4b522c3"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_APPLICABLE",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "DRIVER_REVIEW_INTEGRITY_ONLY; verify the V3 typed enums and complete dual-digest manifest, then accept only the already-frozen generation-2 Johnson/Pfaffian/Hodge mathematics at its exact representation-level boundary. MATHEMATICAL_DELTA=NONE. Do not publish a mathematical successor from this maintenance execution.",
+  "driver_review_required": true
+}
