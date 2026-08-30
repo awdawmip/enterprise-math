@@ -1,0 +1,58 @@
+{
+  "certificate_schema": "P000_EFFECTIVITY_COMPOSITION_CONSTRAINT_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-EFFECTIVITY-COMPOSITION-CONSTRAINT",
+  "ordering": {
+    "E1": [
+      "0",
+      "1"
+    ],
+    "E2": [
+      "00",
+      "01",
+      "10",
+      "11"
+    ]
+  },
+  "state_maps": {
+    "swap": "(x,y)->(y,x)",
+    "res1": "(x,y)->x",
+    "res2": "(x,y)->y",
+    "ins1": "h->(h,0)",
+    "ins2": "h->(0,h)",
+    "compose": "(x,y)->x XOR y"
+  },
+  "laws": {
+    "SYM": "E2(x,y)=E2(y,x)",
+    "DOWN": "E2(x,y)=1 => E1(x)=E1(y)=1",
+    "UP": "E1(x)=E1(y)=1 => E2(x,y)=1",
+    "UNIT": "E2(h,0)=E1(h)=E2(0,h)",
+    "XOR_REF": "E2(x,y)=E1(x XOR y)"
+  },
+  "key_classification": [
+    {"laws": [], "families": 64, "E1_contracts": [[0,0],[0,1],[1,0],[1,1]]},
+    {"laws": ["SYM"], "families": 32, "E1_contracts": [[0,0],[0,1],[1,0],[1,1]]},
+    {"laws": ["DOWN"], "families": 21, "E1_contracts": [[0,0],[0,1],[1,0],[1,1]]},
+    {"laws": ["UP"], "families": 33, "E1_contracts": [[0,0],[0,1],[1,0],[1,1]]},
+    {"laws": ["UNIT"], "families": 8, "E1_contracts": [[0,0],[0,1],[1,0],[1,1]]},
+    {"laws": ["XOR_REF"], "families": 4, "E1_contracts": [[0,0],[0,1],[1,0],[1,1]]},
+    {"laws": ["DOWN","UP"], "families": 4, "E1_contracts": [[0,0],[0,1],[1,0],[1,1]]},
+    {"laws": ["DOWN","UNIT"], "families": 4, "E1_contracts": [[0,0],[1,0],[1,1]]},
+    {"laws": ["UP","XOR_REF"], "families": 3, "E1_contracts": [[0,0],[1,0],[1,1]]},
+    {"laws": ["DOWN","XOR_REF"], "families": 2, "E1_contracts": [[0,0],[1,1]]},
+    {"laws": ["SYM","DOWN","UP","UNIT","XOR_REF"], "families": 2, "E1_contracts": [[0,0],[1,1]]}
+  ],
+  "residual_matched_models": [
+    {"label": "ALL_FALSE", "E1": [0,0], "E2": [0,0,0,0]},
+    {"label": "ALL_TRUE", "E1": [1,1], "E2": [1,1,1,1]}
+  ],
+  "exact_conclusions": {
+    "all_32_law_packages_enumerated_by_checker": true,
+    "single_candidate_law_reduces_Q14_two_bit_local_freedom": false,
+    "first_three_contract_reduction_examples": ["DOWN+UNIT", "UP+XOR_REF"],
+    "minimal_constant_local_reduction": ["DOWN", "XOR_REF"],
+    "residual_information_bits_under_full_structural_package": 1,
+    "unique_rule_forced_without_normalization": false,
+    "diagnostic_normalization_E1_0_equals_1": "selects ALL_TRUE uniquely but is new semantic content"
+  },
+  "boundary": "Candidate laws are added cross-object structure, not consequences of Q10/H/R/D. The certificate makes no Foundation or bare-P000 promotion."
+}
