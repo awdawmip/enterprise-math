@@ -1,0 +1,259 @@
+{
+  "actual_ap_m10_guard": {
+    "consequence": "The exact deformation-invariant obstruction is not a parent counterexample.",
+    "denominator_decimal_digits": 1888,
+    "det_I_minus_Q_sha256": "sha256:a8dd130f9c473546c667b5215d6ef291d35dde20b1ec8912e20d3ea8b3ea6f5b",
+    "det_I_minus_Q_sign": "POSITIVE",
+    "numerator_decimal_digits": 1865
+  },
+  "certificate_schema": "ENTERPRISE_MATH_AP_CHRISTOFFEL_J_TRANSVERSALITY_EXACT_CERTIFICATE_V1",
+  "claim_id": "chatgpt-pptapchr1-20260830-0ff8b7",
+  "first_order_quotient_census": [
+    {
+      "degree": 1,
+      "det_minus_Q1_sign": "POSITIVE",
+      "m": 2,
+      "negative_real_roots": 1,
+      "nonreal_roots": 0,
+      "positive_real_roots": 0,
+      "squarefree": true
+    },
+    {
+      "degree": 2,
+      "det_minus_Q1_sign": "POSITIVE",
+      "m": 3,
+      "negative_real_roots": 2,
+      "nonreal_roots": 0,
+      "positive_real_roots": 0,
+      "squarefree": true
+    },
+    {
+      "degree": 3,
+      "det_minus_Q1_sign": "POSITIVE",
+      "m": 4,
+      "negative_real_roots": 3,
+      "nonreal_roots": 0,
+      "positive_real_roots": 0,
+      "squarefree": true
+    },
+    {
+      "degree": 4,
+      "det_minus_Q1_sign": "POSITIVE",
+      "m": 5,
+      "negative_real_roots": 4,
+      "nonreal_roots": 0,
+      "positive_real_roots": 0,
+      "squarefree": true
+    },
+    {
+      "degree": 5,
+      "det_minus_Q1_sign": "POSITIVE",
+      "m": 6,
+      "negative_real_roots": 5,
+      "nonreal_roots": 0,
+      "positive_real_roots": 0,
+      "squarefree": true
+    },
+    {
+      "degree": 6,
+      "det_minus_Q1_sign": "POSITIVE",
+      "m": 7,
+      "negative_real_roots": 6,
+      "nonreal_roots": 0,
+      "positive_real_roots": 0,
+      "squarefree": true
+    },
+    {
+      "degree": 7,
+      "det_minus_Q1_sign": "POSITIVE",
+      "m": 8,
+      "negative_real_roots": 7,
+      "nonreal_roots": 0,
+      "positive_real_roots": 0,
+      "squarefree": true
+    },
+    {
+      "degree": 8,
+      "det_minus_Q1_sign": "POSITIVE",
+      "m": 9,
+      "negative_real_roots": 8,
+      "nonreal_roots": 0,
+      "positive_real_roots": 0,
+      "squarefree": true
+    },
+    {
+      "degree": 9,
+      "det_minus_Q1_sign": "POSITIVE",
+      "m": 10,
+      "negative_real_roots": 7,
+      "nonreal_roots": 2,
+      "positive_real_roots": 0,
+      "squarefree": true
+    }
+  ],
+  "half_pascal_frontier": {
+    "definitions": [
+      "P(s)_ij=binom(i,j)s^(i-j)",
+      "S=P(1/2)",
+      "J=diag((-1)^i)",
+      "A_*=S^-1 Ahat S",
+      "B_*=S^-1 Bhat S",
+      "C_*=J B_*^-1 J",
+      "D_*=C_*-A_*"
+    ],
+    "finite_exact_rows": [
+      {
+        "derivative_all_proper_minors_positive": true,
+        "derivative_proper_minor_count": 4,
+        "det_Dstar_zero": true,
+        "grid_all_proper_minors_positive": true,
+        "grid_t": [
+          "1/4",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "m": 2
+      },
+      {
+        "derivative_all_proper_minors_positive": true,
+        "derivative_proper_minor_count": 18,
+        "det_Dstar_zero": true,
+        "grid_all_proper_minors_positive": true,
+        "grid_t": [
+          "1/4",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "m": 3
+      },
+      {
+        "derivative_all_proper_minors_positive": true,
+        "derivative_proper_minor_count": 68,
+        "det_Dstar_zero": true,
+        "grid_all_proper_minors_positive": true,
+        "grid_t": [
+          "1/4",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "m": 4
+      },
+      {
+        "derivative_all_proper_minors_positive": true,
+        "derivative_proper_minor_count": 250,
+        "det_Dstar_zero": true,
+        "grid_all_proper_minors_positive": true,
+        "grid_t": [
+          "1/4",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "m": 5
+      },
+      {
+        "derivative_all_proper_minors_positive": true,
+        "derivative_proper_minor_count": 922,
+        "det_Dstar_zero": true,
+        "grid_all_proper_minors_positive": true,
+        "grid_t": [
+          "1/4",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "m": 6
+      }
+    ],
+    "fixed_kernel": "z=S^-1 e0=((-1/2)^i)_{i=0}^{m-1}; D_*(t) z=0 exactly",
+    "parent_bridge": "Any nonzero (m-1)x(m-1) minor of D_*(t) forces rank(D_*)=m-1, hence the known fixed direction is simple and det(I-Q)!=0.",
+    "scope_guard": "finite exact discovery/regression only; no all-m positivity theorem is claimed"
+  },
+  "logical_consequences": [
+    "The uniform real-eigenvalue / real-inertia first-order splitting invariant is exactly false, with smallest obstruction m=10 after exact m=2..9 negative-real simple first-order spectra.",
+    "The natural symmetric Schur crossing is not definite uniformly in m; m=3 is an exact counterexample.",
+    "The no-zero determinant flow itself is not refuted by these obstructions: m=10 splits locally because det(-Q'(0))>0, and the actual AP endpoint has det(I-Q_10)>0 exactly.",
+    "A spectrum-free rank route through the half-Pascal difference D_*(t) remains viable and is the recommended successor frontier."
+  ],
+  "m10_first_order": {
+    "consequence": "Q'(0) is invertible and squarefree with exactly 7 negative real eigenvalues and one non-real conjugate pair; det(I-Q(t)) has positive t^9 leading coefficient.",
+    "det_minus_Q1_exact": "8597734096516157311064924037801994131870670312500000000000000000000/13352633520989266022942994590924134927743000288908965291282138125853573914280323033879713",
+    "det_minus_Q1_sha256": "sha256:0ecb55da55153338b3d6f05c0ca31df73bca3f267b7f5dc57a0dfcedeca79ad0",
+    "q1_charpoly_canonical_fraction_sha256": "sha256:0cf9c194b264d2e22123f3faeaf86ab4f63e1c08026201a1bdd159ffd61f1377"
+  },
+  "m2_exact_flow": {
+    "det_I_minus_Q": "6*t*(5*t-13)*(13*t-350)/((t-15)*(t-6)*(3*t-35)*(3*t-14))",
+    "sign_on_0_1": "POSITIVE for 0<t<=1"
+  },
+  "m3_symmetric_crossing": {
+    "Sigma1": [
+      [
+        "-47/15470",
+        "173/61880",
+        "267/30940"
+      ],
+      [
+        "173/61880",
+        "17879/2722720",
+        "14073/1361360"
+      ],
+      [
+        "267/30940",
+        "14073/1361360",
+        "8199/680680"
+      ]
+    ],
+    "consequence": "The natural symmetric Schur crossing is indefinite on the quotient; a uniform definite crossing-form law is false already at m=3.",
+    "gram": [
+      [
+        "2177/388960",
+        "1201/38896"
+      ],
+      [
+        "1201/38896",
+        "-5617/680680"
+      ]
+    ],
+    "gram_det": "-243/243100",
+    "kernel_w": [
+      "1",
+      "-2",
+      "1"
+    ],
+    "quotient_basis": [
+      [
+        "2",
+        "1",
+        "0"
+      ],
+      [
+        "-1",
+        "0",
+        "1"
+      ]
+    ]
+  },
+  "operator_convention": {
+    "A": "E^-1 H W",
+    "B": "D^-1 H^T W",
+    "H_ij": "h_t(i+m*j)",
+    "R_ri": "(-1)^i*binom(r,i) for i<=r",
+    "h_t(q)": "sum_{r=0}^{m-1} (-1)^r binom(m-1,r) t^r/(q+1+r*m^2)",
+    "n": "m-1",
+    "quotient_Q": "lower-right (m-1)x(m-1) block in the frozen e0 splitting",
+    "rho_mt": "(1-t*u^(m^2))^(m-1)",
+    "w_i": "(-1)^i*binom(m-1,i)"
+  },
+  "publication_id": "TP2-7A1C9E54B2306D8F41AA",
+  "researcher_id": "EM-PPTAPCHR1-0FF8B7",
+  "source_exposure": {
+    "accepted_parent": "RR-33B5E1F81BCD9EEF1BD1",
+    "authorized_sibling": "RR-0BCEB5E65D4B34FB3462 / PR #931",
+    "supplemental_duplicate_seen": "PR #932 after CLAIM; midpoint-Pascal algebra was independently rederived and exactly rechecked here; no blind/novelty claim"
+  },
+  "task_id": "RS-PERFECT-PRIME-AP-CHRISTOFFEL-J-TRANSVERSALITY-DEFORMATION",
+  "terminal_certificate": "M10_FIRST_ORDER_REAL_SPECTRAL_INERTIA_OBSTRUCTED_PARENT_SURVIVES"
+}
