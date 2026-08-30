@@ -1,0 +1,295 @@
+{
+  "schema": "P000_S4_RELATIONAL_MINIMALITY_GRAMMAR_V15_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-3E7A91C5B2406DF814A2",
+  "researcher_id": "EM-P000FCC15-7556C9",
+  "status": "FROZEN",
+  "terminal_class": "RELATIONAL_MINIMALITY_GRAMMAR_EQUIVALENCE_COST_AND_ENVELOPE_FROZEN",
+  "scope_boundary": {
+    "p000_mutated": false,
+    "bare_p000_universal_s4_lift_derivable": false,
+    "bare_p000_canonical_s4_section_derivable": false,
+    "carrier_s4_equals_complete_native_rotation_group": false,
+    "kernel_quotient_allowed": false,
+    "time_fixed": true
+  },
+  "background": {
+    "sorts": [
+      {
+        "name": "NativeCell",
+        "status": "OPAQUE_BACKGROUND_SORT"
+      },
+      {
+        "name": "AxisType",
+        "cardinality": 6,
+        "elements": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6"
+        ],
+        "status": "BACKGROUND_SORT"
+      }
+    ],
+    "relations_and_derived_structure": [
+      {
+        "name": "NativeAdj",
+        "status": "BACKGROUND_RELATION_SYMBOL_IN_DECLARED_FRAMED_FULL_CELL_MODEL_CLASS",
+        "note": "valuation varies across P4/K4/K_{2,2,2,2} regressions"
+      },
+      {
+        "name": "f_x:A->C_x",
+        "status": "ZERO_COST_ACCEPTED_WHEN_FRAMED_MODEL_DECLARED"
+      },
+      {
+        "name": "PF10_IOM_tensor",
+        "status": "ZERO_COST_ACCEPTED_WHEN_PF10_MODEL_DECLARED"
+      },
+      {
+        "name": "T_xy=f_y o f_x^-1",
+        "status": "ZERO_COST_DERIVED_FRAME_TRANSPORT"
+      },
+      {
+        "name": "independent_connection",
+        "status": "ZERO_COST_IF_MODEL_DECLARES_IT"
+      },
+      {
+        "name": "J_A",
+        "status": "INDEPENDENTLY_ESTABLISHED_DERIVED_STAR"
+      },
+      {
+        "name": "J_B,J_C,J_D",
+        "status": "DERIVED_ONLY_AT_ACCEPTED_DOWNSTREAM_STRENGTH"
+      },
+      {
+        "name": "star_overlap_gluing",
+        "status": "DERIVED_BACKGROUND_IN_GEN12_COMMON_MODEL; NOT_REINTRODUCED_AS_DUPLICATE_CANDIDATE_PRIMITIVE"
+      }
+    ]
+  },
+  "candidate_relation_catalog": [
+    {
+      "id": "I_CA",
+      "signature": [
+        "NativeCell",
+        "AxisType"
+      ],
+      "arity": 2,
+      "typing": "bipartite incidence",
+      "parameters": "FORBIDDEN",
+      "automorphism_law": "preserved setwise by enriched automorphisms",
+      "independent_meaning": "does not mention q, lifts, section, residues, R_a/R_b or K=1"
+    },
+    {
+      "id": "I_HC",
+      "signature": [
+        "Hidden",
+        "NativeCell"
+      ],
+      "arity": 2,
+      "typing": "hidden-to-cell incidence",
+      "parameters": "FORBIDDEN",
+      "automorphism_law": "preserved setwise",
+      "independent_meaning": "ties hidden relation state to opaque Cells without quotienting it"
+    },
+    {
+      "id": "I_HA",
+      "signature": [
+        "Hidden",
+        "AxisType"
+      ],
+      "arity": 2,
+      "typing": "hidden-to-axis incidence",
+      "parameters": "FORBIDDEN",
+      "automorphism_law": "preserved setwise",
+      "independent_meaning": "ties hidden relation state to accepted axis sort without choosing a section"
+    },
+    {
+      "id": "ADD_H",
+      "signature": [
+        "Hidden",
+        "Hidden",
+        "Hidden"
+      ],
+      "arity": 3,
+      "typing": "graph of hidden composition when H_C3X3 enabled",
+      "parameters": "FORBIDDEN",
+      "automorphism_law": "preserved setwise",
+      "independent_meaning": "parameter-free hidden relational rigidity; identity is internally definable, never named"
+    }
+  ],
+  "global_constraint_catalog": [
+    {
+      "id": "K4_ADJ",
+      "requires_relations": [],
+      "meaning": "|NativeCell|=4 and background NativeAdj is complete",
+      "references_target_section": false
+    },
+    {
+      "id": "TETRA_CA",
+      "requires_relations": [
+        "I_CA"
+      ],
+      "meaning": "|NativeCell|=4, |AxisType|=6; each axis incident to two distinct Cells and each unordered Cell pair has exactly one axis",
+      "references_target_section": false
+    },
+    {
+      "id": "H_C3X3",
+      "requires_relations": [
+        "ADD_H"
+      ],
+      "meaning": "Hidden with ADD_H is the elementary abelian group C3 x C3 of order 9; zero is formula-definable",
+      "references_target_section": false
+    },
+    {
+      "id": "PROJECTIVE_HC",
+      "requires_relations": [
+        "ADD_H",
+        "I_HC"
+      ],
+      "requires_constraints": [
+        "H_C3X3"
+      ],
+      "meaning": "four Cells are incident with the four order-3 one-dimensional subgroups through their two nonzero hidden vectors",
+      "references_target_section": false
+    },
+    {
+      "id": "PAIR_AXIS_HA",
+      "requires_relations": [
+        "ADD_H",
+        "I_HC",
+        "I_HA"
+      ],
+      "requires_constraints": [
+        "H_C3X3",
+        "PROJECTIVE_HC"
+      ],
+      "meaning": "six AxisType objects are incident with the six unordered pairs of projective Cell lines, intrinsically through hidden incidence",
+      "references_target_section": false
+    }
+  ],
+  "parameter_policy": {
+    "new_distinguished_constants": false,
+    "point_naming": false,
+    "direct_section_or_generator_primitive": false,
+    "intrinsic_feature_rule": "Any singled-out feature must be uniquely parameter-free definable from the selected relations in every admitted model."
+  },
+  "independent_meaning_test": [
+    "candidate vocabulary must avoid q, Sec(q), frozen generator lifts, relation residues, desired R_a/R_b, K=1 and carrier/native identity equations",
+    "candidate relation must have an intrinsic sort/arity and enriched-automorphism preservation law",
+    "candidate relation must not already be parameter-free definable from the zero-cost background reduct; otherwise it is removed as redundant",
+    "no named constants; any distinguished object such as the hidden additive identity must be internally definable"
+  ],
+  "definitional_equivalence": {
+    "universe": "fixed background sorts; no new parameters; no new quotient or derived sorts",
+    "equivalent_if": "mutual parameter-free first-order definability over the same background reduct and admitted finite envelope",
+    "derived_sort_policy": "bi-interpretability after adding/replacing a sort is recorded separately and does NOT collapse fixed-sort definitional classes",
+    "gen14_regression": {
+      "tetra_incidence_defines_k4_adjacency": true,
+      "k4_adjacency_defines_tetra_incidence_on_preexisting_AxisType_sort": false,
+      "classification": "STRICTLY_DIFFERENT_FIXED_SORT_CLASSES",
+      "derived_sort_relation": "BIINTERPRETABLE_AFTER_DERIVED_AxisPair_EQUALS_UNORDERED_2_SUBSETS_OF_Cell",
+      "obstruction": "K4 Cell automorphisms, even extended by identity on all six preexisting axis objects, move every 2-cell incidence fiber; a parameter-free definable Cell-Axis incidence would have to be invariant."
+    }
+  },
+  "package_cost": {
+    "vector": [
+      "new_sort_count",
+      "new_relation_symbol_count",
+      "unary_relation_count",
+      "binary_relation_count",
+      "ternary_relation_count",
+      "hidden_sort_flag",
+      "extra_global_constraint_count",
+      "distinguished_parameter_count"
+    ],
+    "comparison": "strict componentwise Pareto dominance plus exact equality; distinct equal-cost packages are incomparable",
+    "parameter_coordinate_frozen": 0,
+    "definitional_quotient": "apply fixed-sort mutual-definability quotient before frontier computation"
+  },
+  "finite_envelope": {
+    "NativeCell_max": 8,
+    "AxisType_exact": 6,
+    "Hidden_max": 9,
+    "relation_subset_count": 16,
+    "constraint_subset_count": 32,
+    "valid_dependency_closed_packages": 90,
+    "classification_strength": "EXHAUSTIVE_PACKAGE_FEATURE_SUBSETS_ONLY; STRUCTURAL/TARGETED_WITNESS_REGRESSION_WITHIN_EACH_PACKAGE; NOT_ALL_FINITE_MODEL_VALUATIONS"
+  },
+  "mandatory_witnesses": {
+    "GEN12_K1_CANONICAL": {
+      "NativeCell": 4,
+      "AxisType": 6,
+      "Hidden": 0,
+      "fits": true
+    },
+    "GEN13_P4_NO_LIFT": {
+      "NativeCell": 4,
+      "AxisType": 6,
+      "Hidden": 0,
+      "aut_order": 2,
+      "fits": true
+    },
+    "GEN13_K2222_SPLIT_NONCANONICAL": {
+      "NativeCell": 8,
+      "AxisType": 6,
+      "Hidden": 0,
+      "aut_order": 384,
+      "sections": 16,
+      "kernel_conjugacy_orbits": [
+        8,
+        8
+      ],
+      "kernel_fixed_sections": 0,
+      "fits": true
+    },
+    "GEN13_GL23_SURJECTIVE_NONSPLIT": {
+      "NativeCell": 4,
+      "AxisType": 6,
+      "Hidden": 9,
+      "GL23_order": 48,
+      "projective_image_order": 24,
+      "kernel_order": 2,
+      "all_AB4_residue": "-I",
+      "fits": true
+    },
+    "GEN14_K4_CANONICAL": {
+      "NativeCell": 4,
+      "AxisType": 6,
+      "Hidden": 0,
+      "aut_order": 24,
+      "fits": true
+    },
+    "GEN14_TETRA_INCIDENCE_CANONICAL": {
+      "NativeCell": 4,
+      "AxisType": 6,
+      "Hidden": 0,
+      "aut_order": 24,
+      "fits": true
+    }
+  },
+  "expressivity_gate": {
+    "NO_LIFT": "PASS via P4",
+    "SURJECTIVE_NONSPLIT": "PASS via GL(2,3)->PGL(2,3)~S4",
+    "SPLIT_NONCANONICAL": "PASS via C2 wr S4",
+    "CANONICAL_FAITHFUL": "PASS via K4 / tetrahedral incidence",
+    "all_pass": true
+  },
+  "tool_reuse": {
+    "state": "REUSE_APPLIED",
+    "tool": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+    "use": "finite automorphism/orbit/fixed-point certificates",
+    "new_general_tool_claim": false
+  },
+  "pareto_classification": {
+    "attempted": false,
+    "reason": "Gen15 hard target is grammar/equivalence/cost/envelope freeze; H is explicitly downstream of A-G and optional in the same task. The present result closes the required target without inventing a premature positive package theorem."
+  },
+  "checker": {
+    "expected": "PASS",
+    "checks": 45,
+    "valid_packages": 90
+  }
+}
