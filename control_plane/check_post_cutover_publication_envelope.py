@@ -52,8 +52,10 @@ def safe_path(value: str) -> Path:
     return resolved
 
 
-def _validated_exception_paths(root: Path) -> tuple[set[str], set[str], list[str]]:
-    """Return exact known-defect paths and exact validated legacy-heading paths."""
+def _validated_exception_paths(
+    root: Path,
+) -> tuple[set[str], set[str], set[str], list[str]]:
+    """Return exact known-defect paths, exact strict suppressions, and legacy-heading paths."""
     errors: list[str] = []
     try:
         # Compatibility-waiver validation resolves operational/current state, so
@@ -61,11 +63,15 @@ def _validated_exception_paths(root: Path) -> tuple[set[str], set[str], list[str
         research_control_bootstrap.install(root)
         current_rows = integrity_isolation.validated_quarantines(root)
         audit_only_rows = record_audit_isolation.validated_rows(root)
+        exact_suppressions = (
+            integrity_isolation.suppression_strings(root)
+            | record_audit_isolation.suppression_strings(root)
+        )
         compatibility_suppressions, compatibility_errors = (
             task_records_facade._compatibility_suppressions(root)
         )
     except Exception as exc:
-        return set(), set(), [f"publication exception validation failed: {exc}"]
+        return set(), set(), set(), [f"publication exception validation failed: {exc}"]
 
     errors.extend(
         f"task-record compatibility waiver invalid: {item}"
@@ -85,14 +91,17 @@ def _validated_exception_paths(root: Path) -> tuple[set[str], set[str], list[str
         for item in compatibility_suppressions
         if ": " in item
     }
-    return known_defect_paths, legacy_heading_paths, errors
+    return known_defect_paths, legacy_heading_paths, exact_suppressions, errors
 
 
 def audit(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
-    known_defect_paths, legacy_heading_paths, exception_errors = (
-        _validated_exception_paths(root)
-    )
+    (
+        known_defect_paths,
+        legacy_heading_paths,
+        exact_suppressions,
+        exception_errors,
+    ) = _validated_exception_paths(root)
     if exception_errors:
         return exception_errors
 
@@ -123,7 +132,14 @@ def audit(root: Path = ROOT) -> list[str]:
             continue
         declared_blob = record.get("taskbook_blob_sha1")
         if not isinstance(declared_blob, str) or not SHA1.fullmatch(declared_blob):
-            errors.append(f"{rel}: missing/invalid taskbook_blob_sha1")
+            exact_error = f"{rel}: missing/invalid taskbook_blob_sha1"
+            if exact_error in exact_suppressions:
+                # The quarantine validator has already pinned this immutable
+                # record, independently pinned the actual taskbook Git blob, and
+                # proved the record nonoperational. Only this exact error suffix
+                # is suppressed; a different defect remains fail-closed.
+                continue
+            errors.append(exact_error)
             continue
         try:
             taskbook = safe_path(path_value)
