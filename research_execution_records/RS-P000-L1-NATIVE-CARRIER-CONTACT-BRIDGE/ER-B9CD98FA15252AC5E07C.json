@@ -1,0 +1,105 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+  "record_state": "TERMINAL_EXECUTION",
+  "execution_record_id": "ER-B9CD98FA15252AC5E07C",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-D6A41E9C3B705F821847",
+  "taskbook_path": "research_tasks/P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18_20260831.md",
+  "taskbook_blob_sha1": "sha1:182f80c28f8a1394b629b56f59c5fb88b33b4217",
+  "claim_id": "chatgpt-p000fcc18-20260831-1038-ed9b7e",
+  "researcher_id": "EM-P000FCC18-ED9B7E",
+  "theorem_owner": "research/p000-l1-native-carrier-contact-bridge",
+  "execution_branch": "research/p000-local-to-global-background-equivariance-v18-em-p000fcc18-ed9b7e",
+  "execution_branch_base": "5a627358e1a9f3ed7456e8e1b240ff46a1aac4b5",
+  "allowed_outputs": [
+    "research_returns/P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18_RETURN_20260831.md",
+    "research_checks/P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18_CHECK_20260831.py",
+    "research_artifacts/P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18/",
+    "research_execution_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/",
+    "research_result_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/"
+  ],
+  "owner_lease_minutes": 240,
+  "prepared_at": "2026-08-31T02:38:01+00:00",
+  "terminal_at": "2026-08-31T02:48:01+00:00",
+  "terminal_class": "LOCAL_GENERATOR_EQUIVARIANCE_EXACTLY_EQUIVALENT_TO_GLOBAL_BACKGROUND_TRANSPARENCY",
+  "hard_target_disposition": "P000_LOCAL_TO_GLOBAL_PF10_AND_CONNECTION_S4_EQUIVARIANCE_CRITERIA_EXACTLY_DERIVED_OR_INFORMATION_THEORETICALLY_OBSTRUCTED",
+  "checker_status": "PASS_TASK_LOCAL_SELFTEST_REPOSITORY_REGRESSION_PINS_EMBEDDED",
+  "checker_summary": {
+    "checker_path": "research_checks/P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18_CHECK_20260831.py",
+    "checker_sha256": "sha256:3c9c6c84462bbc28126882d13b7af54d2d2bdcd789463e5e25a60994c6a81ab2",
+    "carrier_s4_order": 24,
+    "visible_generators_ab_generate_s4": true,
+    "hidden_extension_G0_order": 48,
+    "chosen_section_H_order": 24,
+    "hidden_kernel_order": 2,
+    "full_lift_fibers_ab_generate_G0": true,
+    "pf10_a_only_countermodel": true,
+    "pf10_b_only_countermodel": true,
+    "connection_a_only_countermodel": true,
+    "connection_b_only_countermodel": true,
+    "flat_holonomy_but_nonequivariant_countermodel": true,
+    "equivariant_nonflat_connection": true,
+    "pf10_visible_marker_stabilizer": 4,
+    "connection_visible_marker_stabilizer": 4,
+    "visible_orbit_index_each": 6,
+    "joint_raw_mark_choices": 36,
+    "hidden_kernel_orbit_index": 2
+  },
+  "theorem_resolution": {
+    "global_gate": "G_B=G0",
+    "exact_local_equivalent": "Every structural lift in q0^{-1}(a) and q0^{-1}(b) preserves B",
+    "chosen_lift_boundary": "One chosen a,b lift pair proves only invariance under H=<ahat,bhat>; full transparency additionally requires H=G0 or kernel transparency K<=G_B.",
+    "hidden_kernel_countermodel": "G0=C2 x S4, G_B={0}xS4, |G0|=48, |G_B|=24, |K|=2",
+    "no_kernel_quotient": true
+  },
+  "pf10_resolution": {
+    "full_lift_fiber_ab": "EQUIVALENT_TO_PF10_STRUCTURAL_AUT_EQ",
+    "a_only": "INSUFFICIENT",
+    "b_only": "INSUFFICIENT",
+    "one_cell_stabilizer_regularity": "NECESSARY_LOCAL_CONSISTENCY_NOT_SUFFICIENT",
+    "same_local_orbit_type": "STRICTLY_WEAKER_THAN_COHERENT_EQUIVARIANCE"
+  },
+  "connection_resolution": {
+    "full_lift_fiber_ab": "EQUIVALENT_TO_CONNECTION_STRUCTURAL_AUT_EQ",
+    "a_only": "INSUFFICIENT",
+    "b_only": "INSUFFICIENT",
+    "holonomy_cycle_basis": "CONSEQUENCE_NOT_EQUIVALENT_REPLACEMENT",
+    "flatness": "NOT_SYMMETRY",
+    "nontrivial_holonomy_allowed": true
+  },
+  "coupling_resolution": {
+    "common_intrinsic_principle": "FULL_LIFT_FIBER_GENERATOR_EQUIVARIANCE_FOR_G0_ACTION_GROUPOID",
+    "single_atomic_gate": false,
+    "pf10_and_connection_independently_falsifiable": true,
+    "gen17_atomicity_preserved": true,
+    "gen17_costs_preserved": true
+  },
+  "information_resolution": {
+    "finite_kernel_orbit_index_formula": "log2([K:K_B]) bits for exhibited finite background orbit family",
+    "hidden_C2_bits": 1.0,
+    "pf10_visible_marker_bits_log2": 2.584962500721156,
+    "connection_visible_marker_bits_log2": 2.584962500721156,
+    "joint_raw_marker_bits_log2": 5.169925001442312,
+    "universal_information_minimum_claimed": false,
+    "logical_axiom_count_collapsed": false
+  },
+  "positive_regression": {
+    "frame_induced_or_absent_connection_cost": [0,0,0,0,0,0,2,0],
+    "independent_connection_cost": [0,0,0,0,0,0,3,0],
+    "faithful_split_reconstructed": true,
+    "aut_prim_fixed_canonical_section_reconstructed": true,
+    "unique_section_asserted": false
+  },
+  "mandatory_negative_regressions": [
+    "PF10_E1_PROFILE",
+    "MARKED_EDGE_INDEPENDENT_CONNECTION",
+    "P4_STRUCTURAL_NO_LIFT",
+    "GEN13_NONSPLIT",
+    "GEN13_SPLIT_NONCANONICAL"
+  ],
+  "tool_reuse_resolution": "REUSE_APPLIED:T7_FINITE_SYMMETRY_EQUIVARIANCE;REUSE_APPLIED:T9_HOLONOMY_COCOYCLE_GLUING;FINITE_GROUP_GENERATOR_AND_KERNEL_EXTENSION_AUDIT",
+  "new_general_tool_claim": false,
+  "canonical_promotion_granted": false,
+  "working_truth_granted": false,
+  "driver_review_required": true
+}
