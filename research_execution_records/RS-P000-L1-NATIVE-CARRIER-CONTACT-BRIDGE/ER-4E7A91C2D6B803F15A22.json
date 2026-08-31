@@ -1,6 +1,6 @@
 {
   "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
-  "record_state": "CLAIM_INTENT",
+  "record_state": "TERMINAL_EXECUTION",
   "execution_record_id": "ER-4E7A91C2D6B803F15A22",
   "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
   "publication_id": "TP2-E5B7C19A3D604F821583",
@@ -19,5 +19,69 @@
     "research_result_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/*"
   ],
   "owner_lease_minutes": 240,
-  "prepared_at": "2026-08-31T05:31:00+00:00"
+  "prepared_at": "2026-08-31T05:31:00+00:00",
+  "terminal_at": "2026-08-31T05:42:34+00:00",
+  "terminal_class": "NONTRIVIAL_PF10_AND_NONFLAT_CONNECTION_MODULI_COMMON_MODEL_CLASSIFIED",
+  "hard_target_disposition": "P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_AND_COMMON_NONDEGENERATE_MODEL_EXACTLY_CLASSIFIED",
+  "checker_status": "PASS_TASK_LOCAL_EXHAUSTIVE_FINITE_ENUMERATION_WITH_GEN17_GEN18_REGRESSION_GUARDS",
+  "checker_summary": {
+    "checker_path": "research_checks/P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V19_CHECK_20260831.py",
+    "checker_git_blob_sha1": "sha1:dbe7d8754d18ba1149f5f1766fb686345f5e4269",
+    "carrier_s4_order": 24,
+    "pf10_base_vector_orbits": 2,
+    "pf10_base_ordered_pair_orbits": 8,
+    "pf10_raw_base_parameter_count": 12,
+    "connection_raw_equivariant_solutions": 12,
+    "connection_raw_identity": 1,
+    "connection_raw_nonidentity": 11,
+    "connection_gauge_classes": 8,
+    "connection_flat_gauge_classes": 1,
+    "connection_nonflat_gauge_classes": 7,
+    "gen18_nonflat_witness_retained": true,
+    "common_nonconstant_pf10_nonflat_connection_model": true,
+    "hidden_kernel_chosen_ab_order": 24,
+    "hidden_kernel_full_fiber_ab_order": 48,
+    "enriched_generator_relations": true
+  },
+  "pf10_resolution": {
+    "base_stabilizer": "Stab_S4(A) ~= S3",
+    "vector_orbits": 2,
+    "ordered_pair_orbits": 8,
+    "complete_parameterization": "I:2 + O:2 + M:8 = 12",
+    "pointwise_constant_forced": false,
+    "nonconstant_global_equivariant_family_constructed": true
+  },
+  "connection_resolution": {
+    "transport_universe": "S6 channel bijections",
+    "representative_edge": "A->B",
+    "raw_constraint": "centralize rho((CD)) and satisfy rho((AB)) T rho((AB))^-1=T^-1",
+    "raw_solution_count": 12,
+    "gauge_law": "T_xy'=g_y T_xy g_x^-1",
+    "gauge_class_count": 8,
+    "flat_gauge_class_count": 1,
+    "nonflat_gauge_class_count": 7,
+    "gauge_equivalent_to_identity_forced": false
+  },
+  "common_model_resolution": {
+    "nonconstant_pf10": true,
+    "nonidentity_connection": true,
+    "nonflat_connection": true,
+    "PF10_STRUCTURAL_AUT_EQ": true,
+    "CONNECTION_STRUCTURAL_AUT_EQ": true,
+    "Ra3": true,
+    "Rb2": true,
+    "Rab4": true
+  },
+  "guards": {
+    "NO_KERNEL_QUOTIENT": true,
+    "TIME_FIXED": true,
+    "P000_MUTATED": false,
+    "G15_MUTATED": false,
+    "GEN17_GATE_COSTS_CHANGED": false,
+    "CARRIER_NATIVE_COLLAPSE": false,
+    "UNIQUE_SECTION_ASSERTED": false
+  },
+  "canonical_promotion_granted": false,
+  "working_truth_granted": false,
+  "driver_review_required": true
 }
