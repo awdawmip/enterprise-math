@@ -13,7 +13,7 @@ class TaskRegistryCliSurfaceTests(unittest.TestCase):
 
     def test_publication_protocol_requires_both_registry_and_cutover_audits(self):
         text = (ROOT / "docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md").read_text(encoding="utf-8")
-        self.assertIn("python tools/research_task_registry.py audit", text)
+        self.assertIn("python tools/research_task_records.py audit", text)
         self.assertIn("python tools/check_task_registry_cutover.py", text)
         self.assertIn("LEGACY_SCHEDULER_DEFINITION_FILE_MAY_NOT_PUBLISH_NEW_TASKS", text)
 

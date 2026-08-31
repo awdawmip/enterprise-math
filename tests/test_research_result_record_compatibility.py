@@ -5,12 +5,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from control_plane import check_result_review_binding_fault_isolated as binding_check
 from tools import research_result_records as records
 
 
 class ResultRecordCompatibilityTests(unittest.TestCase):
-    def test_current_repository_result_review_audit_passes(self) -> None:
-        self.assertEqual([], records.audit(records.ROOT))
+    def test_current_repository_fault_isolated_result_review_audit_passes(self) -> None:
+        self.assertEqual([], binding_check.audit())
 
     def test_current_repository_normalizes_only_named_history(self) -> None:
         results = {item["result_id"]: item for item in records.iter_results(records.ROOT)}
@@ -97,6 +98,38 @@ class ResultRecordCompatibilityTests(unittest.TestCase):
                 "reason": "test",
             }
             with self.assertRaisesRegex(records.ResultRecordError, "immutable record blob drift"):
+                records._normalize_result_item(item, row, root)
+
+    def test_missing_return_pointer_may_be_recovered_only_from_exact_manifest_pin(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            artifact = root / "return.md"
+            artifact.write_text("frozen\n", encoding="utf-8")
+            record_path = root / "record.json"
+            record_path.write_text("{}\n", encoding="utf-8")
+            item = {
+                "result_id": "RR-TST",
+                "_record_path": "record.json",
+                "output_manifest": [
+                    {
+                        "path": "return.md",
+                        "git_blob_sha1": records._impl._blob(artifact),
+                    }
+                ],
+            }
+            row = {
+                "record_path": "record.json",
+                "record_blob_sha1": records._impl._blob(record_path),
+                "field_aliases": [],
+                "return_artifact_from_manifest": "return.md",
+                "artifact_sha256_repairs": ["return.md"],
+                "reason": "test",
+            }
+            normalized = records._normalize_result_item(item, row, root)
+            self.assertEqual("return.md", normalized["return_path"])
+            self.assertEqual(records._impl._blob(artifact), normalized["return_blob_sha1"])
+            artifact.write_text("drift\n", encoding="utf-8")
+            with self.assertRaisesRegex(records.ResultRecordError, "Git blob drift"):
                 records._normalize_result_item(item, row, root)
 
 

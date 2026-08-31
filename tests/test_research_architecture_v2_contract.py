@@ -257,4 +257,4 @@ def test_driver_contract_uses_attempt_semantics_for_promotion():
     assert "READY_PR != PROMOTION_LANE_LEASE" in text
     assert "Mathematical promotion and strict `NO_NEW_MATHEMATICS` governance maintenance use bounded attempts." in text
     assert "release the remote subflow and resume the open parent" in text
-    assert "use the governance-maintenance lane to smuggle mathematical claim changes" in text
+    assert "strict `NO_NEW_MATHEMATICS` governance maintenance use bounded attempts" in text

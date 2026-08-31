@@ -192,6 +192,47 @@ def _apply_aliases(
         seen.add(field)
 
 
+def _repair_result_return_artifact(
+    item: dict[str, Any], rel: Any, *, id_label: str, root: Path
+) -> None:
+    if rel is None:
+        return
+    if not isinstance(rel, str) or not rel:
+        raise ResultRecordError(
+            f"{COMPATIBILITY_FILE}: {id_label}: return_artifact_from_manifest must be a path"
+        )
+    if item.get("return_path") is not None or item.get("return_blob_sha1") is not None:
+        raise ResultRecordError(
+            f"{COMPATIBILITY_FILE}: {id_label}: return artifact repair is stale"
+        )
+    candidate = Path(rel)
+    if candidate.is_absolute() or ".." in candidate.parts:
+        raise ResultRecordError(
+            f"{COMPATIBILITY_FILE}: {id_label}: unsafe return artifact path"
+        )
+    rows = item.get("output_manifest")
+    matches = [
+        row
+        for row in rows if isinstance(row, dict) and row.get("path") == rel
+    ] if isinstance(rows, list) else []
+    if len(matches) != 1:
+        raise ResultRecordError(
+            f"{COMPATIBILITY_FILE}: {id_label}: return artifact is not uniquely pinned by manifest"
+        )
+    path = root / candidate
+    if not path.is_file():
+        raise ResultRecordError(
+            f"{COMPATIBILITY_FILE}: {id_label}: return artifact missing"
+        )
+    pin = matches[0].get("git_blob_sha1")
+    if not _impl._same_git_blob_identity(_impl._blob(path), pin):
+        raise ResultRecordError(
+            f"{COMPATIBILITY_FILE}: {id_label}: return artifact Git blob drift"
+        )
+    item["return_path"] = rel
+    item["return_blob_sha1"] = pin
+
+
 def _repair_result_sha256(item: dict[str, Any], paths: Any, *, id_label: str, root: Path) -> None:
     if not isinstance(paths, list) or any(not isinstance(x, str) or not x for x in paths):
         raise ResultRecordError(
@@ -260,6 +301,12 @@ def _normalize_result_item(item: dict[str, Any], row: dict[str, Any], root: Path
         row.get("field_aliases"),
         allowed=_RESULT_ALIAS_TARGETS,
         id_label=rid,
+    )
+    _repair_result_return_artifact(
+        value,
+        row.get("return_artifact_from_manifest"),
+        id_label=rid,
+        root=root,
     )
     _repair_result_sha256(
         value,

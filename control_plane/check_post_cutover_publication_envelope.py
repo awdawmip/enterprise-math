@@ -8,10 +8,12 @@ sections required by the publication transaction.
 
 Exact current-task integrity quarantine and exact audit-only nonoperational-record
 quarantine remain explicit exceptions because their bytes/error sets are already
-pinned and independently nonoperational.  Exact historical heading-alias waivers
-remain valid only through their existing nonoperational compatibility validator.
-No generic grandfathering is allowed: a new malformed remote/manual publication
-must fail this earliest writer-envelope gate.
+pinned and independently nonoperational. Full record-audit errors and earliest
+envelope errors remain separate vocabularies so no stale suppression leaks across
+checkers. Exact historical heading-alias waivers remain valid only through their
+existing nonoperational compatibility validator. No generic grandfathering is
+allowed: a new malformed remote/manual publication must fail this earliest
+writer-envelope gate.
 """
 from __future__ import annotations
 
@@ -52,8 +54,10 @@ def safe_path(value: str) -> Path:
     return resolved
 
 
-def _validated_exception_paths(root: Path) -> tuple[set[str], set[str], list[str]]:
-    """Return exact known-defect paths and exact validated legacy-heading paths."""
+def _validated_exception_paths(
+    root: Path,
+) -> tuple[set[str], set[str], set[str], list[str]]:
+    """Return exact known-defect paths, envelope suppressions, and legacy-heading paths."""
     errors: list[str] = []
     try:
         # Compatibility-waiver validation resolves operational/current state, so
@@ -61,11 +65,15 @@ def _validated_exception_paths(root: Path) -> tuple[set[str], set[str], list[str
         research_control_bootstrap.install(root)
         current_rows = integrity_isolation.validated_quarantines(root)
         audit_only_rows = record_audit_isolation.validated_rows(root)
+        exact_suppressions = (
+            integrity_isolation.suppression_strings(root)
+            | record_audit_isolation.envelope_suppression_strings(root)
+        )
         compatibility_suppressions, compatibility_errors = (
             task_records_facade._compatibility_suppressions(root)
         )
     except Exception as exc:
-        return set(), set(), [f"publication exception validation failed: {exc}"]
+        return set(), set(), set(), [f"publication exception validation failed: {exc}"]
 
     errors.extend(
         f"task-record compatibility waiver invalid: {item}"
@@ -85,14 +93,17 @@ def _validated_exception_paths(root: Path) -> tuple[set[str], set[str], list[str
         for item in compatibility_suppressions
         if ": " in item
     }
-    return known_defect_paths, legacy_heading_paths, errors
+    return known_defect_paths, legacy_heading_paths, exact_suppressions, errors
 
 
 def audit(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
-    known_defect_paths, legacy_heading_paths, exception_errors = (
-        _validated_exception_paths(root)
-    )
+    (
+        known_defect_paths,
+        legacy_heading_paths,
+        exact_suppressions,
+        exception_errors,
+    ) = _validated_exception_paths(root)
     if exception_errors:
         return exception_errors
 
@@ -123,7 +134,14 @@ def audit(root: Path = ROOT) -> list[str]:
             continue
         declared_blob = record.get("taskbook_blob_sha1")
         if not isinstance(declared_blob, str) or not SHA1.fullmatch(declared_blob):
-            errors.append(f"{rel}: missing/invalid taskbook_blob_sha1")
+            exact_error = f"{rel}: missing/invalid taskbook_blob_sha1"
+            if exact_error in exact_suppressions:
+                # The quarantine validator has already pinned this immutable
+                # record, independently pinned the actual taskbook Git blob, and
+                # proved the record nonoperational. Only this exact envelope
+                # suffix is suppressed; a different defect remains fail-closed.
+                continue
+            errors.append(exact_error)
             continue
         try:
             taskbook = safe_path(path_value)
@@ -143,11 +161,15 @@ def audit(root: Path = ROOT) -> list[str]:
             continue
         actual_blob = git_blob_sha1(data)
         if actual_blob != declared_blob:
-            if rel in known_defect_paths:
+            exact_error = f"{rel}: taskbook Git blob drift: declared {declared_blob}, actual {actual_blob}"
+            if exact_error in exact_suppressions:
                 continue
-            errors.append(
-                f"{rel}: taskbook Git blob drift: declared {declared_blob}, actual {actual_blob}"
-            )
+            if rel in known_defect_paths:
+                # Any audit-only path reaching this branch must already have an
+                # independently exact taskbook pin. Current-task quarantines are
+                # separately exact-pinned and task-local BLOCKED.
+                continue
+            errors.append(exact_error)
             continue
 
         # Known exact malformed records are intentionally nonoperational and were

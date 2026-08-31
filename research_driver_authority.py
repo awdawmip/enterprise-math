@@ -22,6 +22,8 @@ CONTRACT = "research_driver_authority_contract.json"
 CONTROL_POLICY = "research_control_event_authorization.json"
 LEGACY_REVIEWS = "research_driver_followup_legacy_reviews.json"
 RECORD_ROOT = "research_driver_authority_records"
+COMPATIBILITY = "research_driver_authority_compatibility.json"
+COMPATIBILITY_SCHEMA = "ENTERPRISE_MATH_DRIVER_AUTHORITY_COMPATIBILITY_V1"
 CONTRACT_SCHEMA = "ENTERPRISE_MATH_DRIVER_AUTHORITY_CONTRACT_V1"
 RECORD_SCHEMA = "ENTERPRISE_MATH_DRIVER_AUTHORITY_RECORD_V1"
 EVENT_SCHEMA = "ENTERPRISE_MATH_DRIVER_AUTH_EVENT_V1"
@@ -110,15 +112,80 @@ def legacy_review_ids(root: Path = ROOT) -> set[str]:
     return set(ids)
 
 
+def _git_blob_sha1(path: Path) -> str:
+    data = path.read_bytes()
+    header = f"blob {len(data)}\0".encode("ascii")
+    return "sha1:" + hashlib.sha1(header + data).hexdigest()
+
+
+def _compatibility_aliases(root: Path = ROOT) -> dict[str, dict[str, Any]]:
+    path = root / COMPATIBILITY
+    if not path.exists():
+        return {}
+    value = _load(path)
+    if value.get("schema") != COMPATIBILITY_SCHEMA or value.get("status") != "ACTIVE":
+        raise DriverAuthorityError(f"{COMPATIBILITY}: wrong schema/status")
+    for flag in ("working_truth_granted", "foundation_authority_granted", "canonical_promotion_granted"):
+        if value.get(flag) is not False:
+            raise DriverAuthorityError(f"{COMPATIBILITY}: cannot grant {flag}")
+    rows = value.get("id_aliases")
+    if not isinstance(rows, list):
+        raise DriverAuthorityError(f"{COMPATIBILITY}: id_aliases must be a list")
+    out: dict[str, dict[str, Any]] = {}
+    raw_ids: set[str] = set()
+    normalized_ids: set[str] = set()
+    for index, row in enumerate(rows):
+        if not isinstance(row, dict):
+            raise DriverAuthorityError(f"{COMPATIBILITY}: alias {index} must be object")
+        rel = row.get("record_path")
+        raw_id = row.get("raw_authority_record_id")
+        normalized = row.get("normalized_authority_record_id")
+        blob = row.get("record_blob_sha1")
+        if not all(isinstance(x, str) and x for x in (rel, raw_id, normalized, blob)):
+            raise DriverAuthorityError(f"{COMPATIBILITY}: alias {index} missing exact pins")
+        if rel in out or raw_id in raw_ids or normalized in normalized_ids:
+            raise DriverAuthorityError(f"{COMPATIBILITY}: duplicate alias identity")
+        out[rel] = row
+        raw_ids.add(raw_id)
+        normalized_ids.add(normalized)
+    return out
+
+
 def iter_records(root: Path = ROOT) -> list[dict[str, Any]]:
     directory = root / RECORD_ROOT
     if not directory.exists():
         return []
+    aliases = _compatibility_aliases(root)
+    used: set[str] = set()
     out: list[dict[str, Any]] = []
     for path in sorted(directory.glob("*/*.json")):
         value = _load(path)
-        value["_record_path"] = path.relative_to(root).as_posix()
+        rel = path.relative_to(root).as_posix()
+        alias = aliases.get(rel)
+        if alias is not None:
+            raw_id = value.get("authority_record_id")
+            if raw_id != alias["raw_authority_record_id"]:
+                raise DriverAuthorityError(f"{COMPATIBILITY}: {rel} raw authority_record_id drift")
+            if _git_blob_sha1(path) != alias["record_blob_sha1"]:
+                raise DriverAuthorityError(f"{COMPATIBILITY}: {rel} immutable authority record blob drift")
+            driver_id = value.get("driver_id")
+            event = value.get("event")
+            comment_id = value.get("source_comment_id")
+            if not isinstance(driver_id, str) or not isinstance(event, str) or type(comment_id) is not int:
+                raise DriverAuthorityError(f"{COMPATIBILITY}: {rel} cannot recompute normalized authority id")
+            expected = _record_id(driver_id, event, comment_id)
+            if expected != alias["normalized_authority_record_id"]:
+                raise DriverAuthorityError(f"{COMPATIBILITY}: {rel} normalized authority id does not equal current formula")
+            if raw_id == expected:
+                raise DriverAuthorityError(f"{COMPATIBILITY}: {rel} alias is stale because raw id is already canonical")
+            value["_raw_authority_record_id"] = raw_id
+            value["authority_record_id"] = expected
+            used.add(rel)
+        value["_record_path"] = rel
         out.append(value)
+    unused = sorted(set(aliases) - used)
+    if unused:
+        raise DriverAuthorityError(f"{COMPATIBILITY}: stale alias path(s): {unused}")
     return out
 
 
