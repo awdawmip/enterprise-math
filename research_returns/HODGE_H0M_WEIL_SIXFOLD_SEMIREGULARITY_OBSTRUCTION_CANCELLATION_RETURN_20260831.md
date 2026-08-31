@@ -1,241 +1,114 @@
-# HODGE H0M — Weil Sixfold Open-Frontier Semiregularity / Obstruction-Cancellation Return
+# HODGE H0M — Weil Sixfold Open-Frontier Return
 
 Researcher-ID: `EM-DIRECT-7B2F9A`
-
 Task-ID: `RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION`
-
 Publication: `TP2-4D8C1A7E2B609F35C614`
-
-Execution branch: `research/hodge-h0m-weil-sixfold-obstruction-cancellation-em-direct-7b2f9a`
-
 Claim: `chatgpt-hodgeh0m-20260831-1317-7b2f9a`
-
+Execution branch: `research/hodge-h0m-weil-sixfold-obstruction-cancellation-em-direct-7b2f9a`
 Date: `2026-08-31`
 
-## 1. Frozen verdict
+## Verdict
 
 Primary classification:
 
 `EXACT_HARD_BLOCK_WITH_MISSING_OBJECT_AND_UNBLOCK_CONDITION`.
 
-Hard target disposition:
+Hard target:
 
 `OPEN_WEIL_SIXFOLD_ENTERPRISE_ALGEBRAICITY_MECHANISM_CLASSIFIED_WITHOUT_TARGET_LEAKAGE = SATISFIED_AT_NEGATIVE_HARD_BLOCK_STRENGTH`.
 
-Hard prerequisite A:
+Prerequisite A:
 
 `OPEN_WEIL_SIXFOLD_EXACT_RATIONAL_HODGE_CARRIER_AND_FRONTIER_MODEL_ESTABLISHED = PASS`.
 
-No algebraic codimension-three cycle representing a nonzero target Weil class is constructed in this return. No claim is made that the target Weil classes are non-algebraic. No Hodge-conjecture claim is made. The result is an exact frontier/type/transport classification and a precise missing-object boundary.
+No algebraic codimension-three representative of a nonzero target Weil class is constructed. No non-algebraicity claim and no Hodge-conjecture claim is made. H1 is not opened.
 
-## 2. Current literature frontier
+## Literature gate
 
-The primary-source routing gate was re-audited through 2026-08-31.
+Primary sources were rechecked through 2026-08-31.
 
-1. Markman, arXiv:2502.03415, proves algebraicity of Weil classes for polarized abelian sixfolds of Weil type of discriminant `-1` for every imaginary quadratic field.
-2. Markman, arXiv:2509.23403, develops the split-Weil/secant-sheaf mechanism and its deformation framework.
-3. Mostaed, arXiv:2603.20268, still isolates sixfold Weil-Hodge classes outside the available algebraicity mechanisms at the studied intersection points, with CM isolation, lack of `K`-secant structure and uncontrolled discriminant among the explicit obstructions/open steps.
-4. The later July 2026 item located in the freshness scan, arXiv:2607.18341, concerns abelian fourfolds of Weil type, not an all-discriminant sixfold theorem.
+- Markman, arXiv:2502.03415: sixfold Weil classes are algebraic on the discriminant `-1` / split locus.
+- Markman, arXiv:2509.23403: split-Weil/secant-sheaf source mechanism and deformation framework.
+- Mostaed, arXiv:2603.20268: sixfold Hodge-Weil classes remain outside existing algebraicity mechanisms at the studied frontier points, with CM isolation, missing `K`-secant structure and uncontrolled discriminant among the explicit obstacles.
+- arXiv:2607.18341 concerns abelian fourfolds, not an all-discriminant sixfold theorem.
 
 No later primary result was found closing all discriminant classes for polarized abelian sixfolds of Weil type.
 
-Therefore the exact routing classification is:
+Literature classification:
 
 `CURRENTLY_OPEN_FRONTIER_AT_DECLARED_SCOPE`.
 
-This is only a literature/frontier statement; it is not evidence of non-algebraicity.
+## Exact target model
 
-## 3. Exact non-split frontier model
+Take `K=Q(i)`, homology `U=K^6`, lattice `Lambda=Z[i]^6`, and Hermitian form
 
-Fix
+`h=diag(1,1,1,-1,-1,-3)`.
 
-`K = Q(i)`
+It has signature `(3,3)` and discriminant class `[-3]` in `Q^*/Nm(K^*)`.
 
-and the rank-six `K`-space
+The split sixfold class is `[-1]`; their ratio is `3`. If `3` were a norm from `Q(i)`, clearing denominators would give coprime integers
 
-`U = K^6`
+`x^2+y^2=3z^2`.
 
-with lattice
-
-`Lambda = Z[i]^6`.
-
-On homology use the Hermitian form
-
-`h = diag(1,1,1,-1,-1,-3)`.
-
-It has signature `(3,3)` and determinant `-3`.
-
-The discriminant is the class
-
-`[-3] in Q^*/Nm_{K/Q}(K^*)`.
-
-The split sixfold class is `[-1]`. Their ratio is `3`.
-
-### 3.1 Exact non-norm certificate
-
-Suppose `3` were a norm from `Q(i)`. Clearing denominators would give coprime integers `x,y,z`, not all zero, with
-
-`x^2 + y^2 = 3 z^2`.
-
-Modulo `3`, squares are `0` or `1`, so
-
-`x^2+y^2 == 0 (mod 3)`
-
-forces `x == y == 0 (mod 3)`. The original equation then forces `z == 0 (mod 3)`, contradicting coprimality.
-
-Hence `3` is not a Gaussian rational norm and
-
-`[-3] != [-1]`.
-
-Thus the chosen family is not the known split/discriminant-minus-one family under a relabeling.
-
-### 3.2 Polarized period family
-
-Define the alternating form
-
-`E(x,y) = (1/2) Tr_{K/Q}( i h(x,y) )`.
-
-It is integral on `Lambda`. Let `I` denote multiplication by `i` and define `J0=+I` on the first three coordinates and `J0=-I` on the last three. Then `J0` commutes with the `K`-action, preserves `E`, and
-
-`E(x,J0 x) > 0`
-
-for every nonzero `x`.
-
-Hence the compatible period domain is nonempty. Let `D_h` denote the connected `U(3,3)/(U(3)xU(3))` component containing `J0` and set
-
-`A_J = (U_R,J)/Lambda`.
-
-The target `A_gen` is a very general point of this fixed-discriminant component, chosen before cycle search and outside the countable union of proper additional rational Hodge loci and special solved/isogeny loci.
-
-The explicit `J0` is only a nonemptiness witness, not the frontier target.
-
-## 4. Exact Weil-Hodge carrier
-
-Let
-
-`V = H^1(A_gen,Q) = Hom_Q(U,Q)`
-
-with the contragredient `K`-action. Then `dim_K V=6` and `dim_Q V=12`.
+Modulo `3`, this forces `x,y` divisible by `3`, and then `z` divisible by `3`, contradiction. Thus `3` is not a norm and `[-3] != [-1]`.
 
 Define
 
-`W_K(A_gen) = wedge_K^6 V`.
+`E(x,y)=(1/2)Tr_{K/Q}(i h(x,y))`.
 
-Since `wedge_K^6 V` is one-dimensional over the quadratic field `K`,
+It is integral on `Z[i]^6`. Let `J0` be multiplication by `i` on the first three coordinates and by `-i` on the last three. Then `E(x,J0 x)>0` for nonzero `x`, giving a nonempty `U(3,3)/(U(3)xU(3))` period component. The frontier target is a very-general member `A_gen` of this fixed `[-3]` component, chosen before cycle search and outside additional rational Hodge/special solved loci.
 
-`dim_Q W_K(A_gen) = 2`.
+Let `V=H^1(A_gen,Q)=Hom_Q(U,Q)`. Then `dim_K V=6`, and
 
-After complexifying the `K`-action,
+`W_K(A_gen)=wedge_K^6 V`
 
-`V_C = V_sigma direct-sum V_sigma_bar`,
+has `dim_Q W_K=2`. After complexification,
 
-and
+`W_K,C = wedge^6 V_sigma direct-sum wedge^6 V_sigma_bar`.
 
-`W_K(A_gen)_C = wedge^6 V_sigma direct-sum wedge^6 V_sigma_bar`.
+Weil signature `(3,3)` gives three `(1,0)` and three `(0,1)` directions in each embedding block, so both determinant lines are pure of type `(3,3)`.
 
-For Weil signature `(3,3)`, each embedding block contains exactly three `(1,0)` and three `(0,1)` directions. Therefore
-
-`wedge^6 V_sigma`
-
-and
-
-`wedge^6 V_sigma_bar`
-
-are both pure of Hodge type `(3,3)`. Thus every rational class in `W_K(A_gen)` is a rational `(3,3)` Hodge class.
-
-### 4.1 Separation from divisor products
-
-At the very-general target the rational Neron-Severi space is frozen to the polarization line
-
-`NS(A_gen)_Q = Q[E]`.
-
-Hence the degree-six subspace generated by divisors is
-
-`Q[E^3]`.
-
-In the `K`-eigenspace exterior decomposition, `E^3` lies in
-
-`wedge^3 V_sigma tensor wedge^3 V_sigma_bar`,
-
-whereas the exceptional Weil space lies in
-
-`wedge^6 V_sigma direct-sum wedge^6 V_sigma_bar`.
-
-These are different direct summands of `wedge^6(V_sigma direct-sum V_sigma_bar)`. Therefore
+For the very-general target `NS_Q=Q[E]`; hence divisor-generated degree-six classes form `Q[E^3]`, lying in the `(3,3)` exterior-count block `wedge^3 V_sigma tensor wedge^3 V_sigma_bar`, while `W_K` lies in the `(6,0)` and `(0,6)` embedding-count blocks. Therefore
 
 `W_K(A_gen) intersect Q[E^3] = 0`.
 
-The target is genuinely the exceptional two-dimensional Weil-Hodge space, not the divisor algebra under another name.
+The exceptional Weil target is not a divisor product under another name.
 
-## 5. Discriminant/Witt defect of the split source geometry
+## Split-source defect and transport no-go
 
-A split six-dimensional `K`-Hermitian space with a totally isotropic `K`-subspace of dimension three is a sum of three hyperbolic planes. Its determinant class is
+A split six-dimensional `K`-Hermitian space with a three-dimensional totally isotropic `K`-subspace is a sum of three hyperbolic planes and has determinant class `[-1]`. Since the target has class `[-3]`, the maximal split/isotropic source datum required by the known split `K`-secant presentation is absent.
 
-`(-1)^3 = [-1]`.
+For any six-dimensional `K`-Hermitian rational similitude
 
-Because the target class is `[-3] != [-1]`, the target Hermitian space is not split and has no half-dimensional totally isotropic `K`-subspace.
+`h' = c g^* h g`, with `c in Q^*`,
 
-This identifies an exact source defect rather than the vague statement that the known construction merely “does not apply”:
+one has
 
-- the maximal isotropic/split Hermitian source datum is absent;
-- the known `K`-secant source presentation cannot be instantiated on this component by the split construction;
-- consequently no known split secant-sheaf object with the required exceptional characteristic class is present on the target component.
+`det(h') = c^6 Nm(det g) det(h)`.
 
-Standard semiregularity theory remains available. It is not the missing object.
+Both extra factors are norms in `Q^*/Nm(K^*)`, since `c^6=Nm(c^3)`. Thus the discriminant class is invariant.
 
-## 6. Standard `K`-compatible transport no-go
+Consequently the standard `K`-compatible route cannot move the split source object from `[-1]` to `[-3]` by:
 
-Let `h` and `h'` be six-dimensional `K`-Hermitian forms related by a `K`-linear rational similitude
+- deformation inside the polarized Weil-type component structure;
+- `K`-linear polarized isogeny/similitude;
+- unitary Hecke transport;
+- duality from the self-inverse split class;
+- a Fourier-Mukai/Orlov transport only insofar as it is required to induce the relevant `K`-compatible Hermitian-similitude identification of the target Weil carrier.
 
-`h' = c g^* h g`,
+This does not rule out every algebraic correspondence. A genuinely new codimension-three correspondence not induced by those `K`-compatible transports remains open.
 
-with `c in Q^*`.
+## Exact obstruction-cancellation hard block
 
-Then
+Standard Ext/deformation/semiregularity theory is available source mathematics. It is not the missing innovation.
 
-`det(h') = c^6 Nm_{K/Q}(det g) det(h)`.
+The missing object is exactly:
 
-But
+`E on the target [-3] component with exceptional_projection(ch_3(E)) != 0 in W_K(A_gen)`,
 
-`c^6 = Nm_{K/Q}(c^3)`
+or an algebraic family/correspondence producing such a class.
 
-and `Nm(det g)` is a norm by definition. Hence the discriminant class in
-
-`Q^*/Nm(K^*)`
-
-is invariant under such a similitude.
-
-Therefore the split class `[-1]` cannot be transported to the target class `[-3]` by the standard `K`-compatible route.
-
-This yields the following exact scope classification:
-
-- deformation within polarized Weil-type moduli: **NO-GO** across the two discriminant components;
-- `K`-linear polarized isogeny/similitude: **NO-GO**;
-- unitary Hecke transport preserving the fixed Weil datum: **NO-GO**;
-- duality: does not turn the self-inverse split class `[-1]` into `[-3]`;
-- a Fourier-Mukai/Orlov transport that is required to identify the relevant `K`-action, Hermitian-similitude datum and target Weil carrier is blocked by the same invariant; an equivalence lacking that compatibility does not meet the H0M transport typing requirement.
-
-This does **not** prove that no algebraic correspondence can ever relate the two components. A genuinely new correspondence acting directly on codimension-three classes remains an open possibility and is outside this no-go theorem.
-
-## 7. Semiregularity / obstruction-cancellation classification
-
-The desired operational chain was
-
-`DEFORMATION_STATE`
-`-> EXT2_OBSTRUCTION`
-`-> SEMIREGULARITY_OR_TRACE_CHANNELS`
-`-> CANCELLED_OR_SURVIVING_OBSTRUCTION`
-`-> CLASS_TRANSPORT_STATUS`.
-
-It cannot yet be instantiated on the target component, for an exact reason.
-
-The missing object is:
-
-> a coherent sheaf/complex `E` (or algebraic family) on the target discriminant-`[-3]` component such that the exceptional projection of `ch_3(E)` to `W_K(A_gen)` is nonzero.
-
-Without such an `E`, `Ext^1(E,E)`, `Ext^2(E,E)`, its semiregularity/trace channels and any finite obstruction-cancellation process are not target-side data at all.
-
-Standard semiregularity can propagate a characteristic class attached to an existing algebraic/derived object under suitable deformation hypotheses. It does not manufacture the initial target object or cross a disconnected discriminant wall.
+Until such an `E` exists, `Ext^1(E,E)`, `Ext^2(E,E)`, semiregularity channels and any proposed finite obstruction-cancellation process are not instantiated target-side data. Standard semiregularity cannot manufacture the initial object or cross the discriminant wall.
 
 Therefore:
 
@@ -243,95 +116,47 @@ Therefore:
 
 `ENTERPRISE_OBSTRUCTION_CANCELLATION = NOT_INSTANTIATED`.
 
-No R2/R3 Enterprise attribution is claimed.
+No R2/R3 attribution is claimed.
 
-## 8. Class-first lift status
+## Class-first status
 
-No target cycle is constructed.
+- divisor products: rejected by the direct-summand separation above;
+- known split secant-sheaf characteristic classes: rejected as frontier generators;
+- new target-side sheaf/complex: open but not constructed;
+- genuinely new algebraic correspondence: open but not constructed.
 
-The tested source classes separate as follows:
+Exact unresolved frontier:
 
-1. divisor products: rejected because their degree-six span is `Q[E^3]` and misses `W_K`;
-2. known split secant-sheaf characteristic classes: rejected as frontier generators because they live on `[-1]` and the standard `K`-compatible transport route cannot cross to `[-3]`;
-3. a new target-side sheaf/complex: open but not constructed;
-4. a genuinely new algebraic correspondence acting on the target component: open but not constructed.
+`CONSTRUCT_A_TARGET_SIDE_ALGEBRAIC_OR_DERIVED_SOURCE_OBJECT_ON_THE_NON_SPLIT_COMPONENT_WITH_NONZERO_EXCEPTIONAL_WEIL_CH3_PROJECTION_OR_A_GENUINELY_NEW_CORRESPONDENCE_PRODUCING_SUCH_A_CLASS`.
 
-The exact class-first hard block is:
+Absolute-Hodge, Mumford-Tate and Hodge-type status are not treated as algebraicity.
 
-`MISSING_ONE_NONZERO_TARGET_SIDE_ALGEBRAIC_CODIMENSION3_CLASS_IN_W_K_OR_A_SOURCE_GENERATED_FAMILY_PRODUCING_ONE`.
-
-A future execution may test whether one nonzero algebraic Weil class plus the algebraic `K`-action generates the full rational `K`-line, but that implication must be proved in the actual source geometry rather than assumed.
-
-Absolute-Hodge, Mumford-Tate, and Hodge-type status are explicitly insufficient substitutes for algebraicity.
-
-## 9. Deterministic checker
+## Checker and frozen evidence
 
 Checker:
 
 `research_checks/HODGE_H0M_WEIL_SIXFOLD_SEMIREGULARITY_OBSTRUCTION_CANCELLATION_CHECK_20260831.py`
 
-Git blob SHA-1:
-
-`af17c502b23abc2ad35fadd2136993bf9282d6e4`
-
-SHA-256:
-
-`a750d5aaef6257d5352b6569587875449838496e6df56c9246df4451d37f5313`
+Git blob SHA-1: `af17c502b23abc2ad35fadd2136993bf9282d6e4`
+SHA-256: `a750d5aaef6257d5352b6569587875449838496e6df56c9246df4451d37f5313`
 
 Frozen run:
 
 `HODGE_H0M_CHECKS=13`
-
 `HODGE_H0M_FAILURES=0`
-
 `HODGE_H0M_WEIL_SIXFOLD_SEMIREGULARITY_OBSTRUCTION_CANCELLATION_CHECK: PASS`
 
-The checker verifies the exact finite/integral reductions used in the written proof: signature/determinant, dual discriminant typing, the modulo-3 Gaussian non-norm gate, split determinant representative, explicit Riemann positivity witness, Weil-space dimension/Hodge type, divisor/Weil eigensummand separation, similitude norm factors and a bounded rational Gaussian-norm regression. The theorem-level claims rest on the written proofs above, not the bounded search.
+Artifact digests:
 
-## 10. Frozen artifact manifest
+- literature ledger: blob `322485bcb41788eb4ba3c98a225b866e8ca82196`, sha256 `a452a2f4f4ccf81e684fc558f49c9b8b4d09782b5309ff7ca9b79f899f6b81ba`
+- model spec: blob `604ad638570d7fbbb90cade22b5d514af1d4673b`, sha256 `19e732fd2ba1c5419a1d255c71e9abfc189cf8e70ddadbd43b3856b772b0f1ad`
+- discriminant defect: blob `ce7a3679850101e11b8dc431a52431ecf21d5e9a`, sha256 `0e8ef0b31767b86b32c9ef8556a20fa0c3c5c742bb30cc954b2d53b528f85629`
+- transport registry: blob `6726445ac86c08a99d28cd702b3f5973fa17bc38`, sha256 `e1c14b4ddffae3bf4dd87ad6385f8d361465c4e9b7a4ef68bd0ce0e64cbf4246`
+- obstruction registry: blob `caf0a6aa9be3cc2b4c61e1cefbbf10c490d64726`, sha256 `2dd7fc9a1e5c040dc8dcb85dcee804c488b20da6e06e4d7dd60f6e0e6b8f51ae`
+- class-first registry: blob `414df0b8c11b9e64f468b40302d35cf29ccdca2f`, sha256 `c95121fd81020bf5f8609cb36a5814fc411ce05d4ecbb591c72ecc06596fd536`
 
-- `HODGE_H0M_LITERATURE_FRONTIER_LEDGER.json`
-  - Git blob SHA-1: `322485bcb41788eb4ba3c98a225b866e8ca82196`
-  - SHA-256: `a452a2f4f4ccf81e684fc558f49c9b8b4d09782b5309ff7ca9b79f899f6b81ba`
-- `HODGE_H0M_WEIL_SIXFOLD_MODEL_SPEC.json`
-  - Git blob SHA-1: `604ad638570d7fbbb90cade22b5d514af1d4673b`
-  - SHA-256: `19e732fd2ba1c5419a1d255c71e9abfc189cf8e70ddadbd43b3856b772b0f1ad`
-- `HODGE_H0M_DISCRIMINANT_DEFECT_REGISTRY.json`
-  - Git blob SHA-1: `ce7a3679850101e11b8dc431a52431ecf21d5e9a`
-  - SHA-256: `0e8ef0b31767b86b32c9ef8556a20fa0c3c5c742bb30cc954b2d53b528f85629`
-- `HODGE_H0M_DERIVED_TRANSPORT_REGISTRY.json`
-  - Git blob SHA-1: `6726445ac86c08a99d28cd702b3f5973fa17bc38`
-  - SHA-256: `e1c14b4ddffae3bf4dd87ad6385f8d361465c4e9b7a4ef68bd0ce0e64cbf4246`
-- `HODGE_H0M_OBSTRUCTION_CANCELLATION_REGISTRY.json`
-  - Git blob SHA-1: `caf0a6aa9be3cc2b4c61e1cefbbf10c490d64726`
-  - SHA-256: `2dd7fc9a1e5c040dc8dcb85dcee804c488b20da6e06e4d7dd60f6e0e6b8f51ae`
-- `HODGE_H0M_CLASS_FIRST_WEIL_LIFT_REGISTRY.json`
-  - Git blob SHA-1: `414df0b8c11b9e64f468b40302d35cf29ccdca2f`
-  - SHA-256: `c95121fd81020bf5f8609cb36a5814fc411ce05d4ecbb591c72ecc06596fd536`
+## Recommendation
 
-## 11. What is genuinely learned
-
-The important new boundary is not “semiregularity failed”. It is sharper:
-
-1. the open target can be frozen on an exact non-split discriminant component;
-2. its exceptional two-dimensional rational Weil-Hodge carrier is exactly typed and separated from divisor products;
-3. the split source construction fails at a Hermitian discriminant/Witt gate;
-4. the standard `K`-compatible deformation/isogeny/Hecke/typed-derived transport family preserves that gate and therefore cannot recycle the split source object onto the target component;
-5. semiregularity only becomes relevant after a new target-side algebraic/derived source object is constructed;
-6. the next mathematically honest frontier is consequently source-object generation on the non-split component, not another manipulation of the split secant object.
-
-## 12. Unresolved residue and recommendation
-
-Unresolved residue:
-
-`CONSTRUCT_A_TARGET_SIDE_ALGEBRAIC_OR_DERIVED_SOURCE_OBJECT_ON_THE_NON_SPLIT_DISCRIMINANT_COMPONENT_WITH_NONZERO_EXCEPTIONAL_WEIL_CH3_PROJECTION_OR_A_GENUINELY_NEW_CORRESPONDENCE_PRODUCING_SUCH_A_CLASS`.
-
-Recommended next control-plane action:
-
-- Driver-review this negative hard-block result;
-- do not reopen the standard split transport route without a theorem that changes the discriminant-compatibility analysis;
-- if continuing Hodge-special research, publish a smaller target-side **source-object existence/classification** task rather than an H1 promotion;
-- keep any new algebraic-correspondence route separately falsifiable;
-- do not claim H1 admissibility from this result.
+Driver-review this result as a negative hard-block classification. Do not reopen the split transport route without new mathematics that changes the discriminant compatibility. If the Hodge-special line continues, the next task should be narrower: direct target-side source-object existence/classification on the non-split component, or a separately falsifiable new algebraic-correspondence route. Do not promote to H1 from this result.
 
 Freeze boundary reached.
