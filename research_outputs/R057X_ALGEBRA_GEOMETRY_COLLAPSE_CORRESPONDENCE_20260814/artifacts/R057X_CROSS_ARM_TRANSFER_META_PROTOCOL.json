@@ -1,0 +1,81 @@
+{
+  "schema": "R057X_CROSS_ARM_TRANSFER_META_PROTOCOL_V1",
+  "task_id": "RS-R057X-ALGEBRA-GEOMETRY-COLLAPSE-CORRESPONDENCE",
+  "researcher_id": "EM-R057X-5E8C41",
+  "stage": "0",
+  "status": "FROZEN_STAGE0_META_PROTOCOL / NOT_CANONICAL",
+  "source_checkpoints": {
+    "A_sha256": "bc991398000dd1b18ef53967a15b5f2d07c99afee8bdb17cd0a411c73d5cd6bd",
+    "G_sha256": "e7b215e6ff5b51c647d804161327b117a50dfbb213481734895b66de3afd9459",
+    "rule": "IMMUTABLE_READ_ONLY"
+  },
+  "mandatory_future_provenance": "CROSS_ARM_INSPIRED_POST_SERIOUS_CHECKPOINT",
+  "future_change_rule": {
+    "R057X_role": "PROPOSE_ONLY",
+    "A_or_G_owner_role": "CONSTRUCT_VALIDATE_AND_RECORD_ANY_LATER_CHANGE_IN_ITS_OWN_GENEALOGY",
+    "automatic_change": false
+  },
+  "required_future_proposal_fields": [
+    "source_A_or_G",
+    "source_checkpoint_sha256",
+    "motif_or_feature",
+    "correspondence_status",
+    "fit_status",
+    "theorem_status",
+    "destination_A_or_G",
+    "proposed_operator_feature_or_context",
+    "teacher_dependency",
+    "expected_complexity_effect",
+    "target_leakage_audit",
+    "provenance"
+  ],
+  "status_rule": {
+    "correspondence_status": "SEPARATE",
+    "fit_status": "SEPARATE",
+    "theorem_status": "SEPARATE",
+    "inference_rule": "FIT_DOES_NOT_IMPLY_CORRESPONDENCE_AND_CORRESPONDENCE_DOES_NOT_IMPLY_THEOREM"
+  },
+  "quarantine": {
+    "teacher_center_arc": {
+      "label": "TEACHER_GEOMETRY_TELESCOPING_ANCHOR",
+      "lattice_only_correspondence_evidence": false
+    },
+    "direct_target_literal": {
+      "correspondence_evidence": false
+    },
+    "teacher_feature_operator": {
+      "default_status": "UNMATCHED_TRANSFER_CANDIDATE_UNTIL_RECONSTRUCTED_ON_DESTINATION_CARRIER"
+    }
+  },
+  "priority_questions": [
+    {
+      "name": "WHOLE_CHORD_DOMINANCE_CORRESPONDENCE",
+      "status": "UNANSWERED_STAGE0"
+    },
+    {
+      "name": "SPARSE_EXCEPTION_CORRESPONDENCE",
+      "status": "UNANSWERED_STAGE0"
+    },
+    {
+      "name": "TEACHER_FEATURE_CORRECTION_TRANSFER",
+      "question": "Does G tangent alignment minus (1/15) times radial signed deviation suggest an algebraic correction operator for A before merely expanding K?",
+      "status": "UNANSWERED_STAGE0",
+      "preassigned_answer": "NONE"
+    },
+    {
+      "name": "A_K7_EXCEPTION_TO_G_COMPACT_TURN_PREDICATE",
+      "status": "UNANSWERED_STAGE0"
+    }
+  ],
+  "matched_bridge_rule": {
+    "stage0": "PROHIBITED",
+    "stageA": "NO_NEW_MATCHED_CORPUS_OR_FIT",
+    "stageB": "OPTIONAL_ONLY_AFTER_STAGE_A_FREEZE"
+  },
+  "semantic_guard": {
+    "target_definition_copying": "PROHIBITED",
+    "native_promotion_from_cross_path_inspiration": "NONE",
+    "note": "Teacher-center, tangent, radial, Euclidean and continuum structures require separate admissibility on any destination carrier."
+  },
+  "stage0_stop": "RETURN_TO_DRIVER_AFTER_THE_THREE_STAGE0_HASHES"
+}

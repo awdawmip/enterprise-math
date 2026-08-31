@@ -1,0 +1,69 @@
+{
+  "schema": "R057X_INPUT_CHECKPOINT_REGISTRY_V1",
+  "task_id": "RS-R057X-ALGEBRA-GEOMETRY-COLLAPSE-CORRESPONDENCE",
+  "researcher_id": "EM-R057X-5E8C41",
+  "stage": "0",
+  "status": "FROZEN_INPUT_REGISTRY / READ_ONLY / NOT_CANONICAL",
+  "taskbook": {
+    "path": "research_tasks/R057X_ALGEBRA_GEOMETRY_COLLAPSE_CORRESPONDENCE_20260814.md",
+    "source_commit": "e8a8e24f4ad5a4781ae2cdca9c5d13082574b469",
+    "git_blob_sha": "d1091f1cae15211df0bf7aac4ad4c24e634f690b"
+  },
+  "frozen_packet": {
+    "path": "research_inputs/R057X_ALGEBRA_GEOMETRY_COLLAPSE_CORRESPONDENCE_PACKET_20260814.md",
+    "source_commit": "15f87245314260873e611e1df5ea5383b56c5008",
+    "git_blob_sha": "2fd5bc920cc6521774fc7828fd08acd352ce2144",
+    "status": "FROZEN_PROBLEM_PACKET"
+  },
+  "A": {
+    "arm": "R057-A",
+    "researcher_id": "EM-R057-6A31F2",
+    "stage_b_delivery_head": "5de5822275834dd9b078c8a82dc308220a5dbb9c",
+    "first_serious_checkpoint": {
+      "artifact": "R057_FIRST_SERIOUS_GRAMMAR_CHECKPOINT.json",
+      "sha256": "bc991398000dd1b18ef53967a15b5f2d07c99afee8bdb17cd0a411c73d5cd6bd",
+      "bytes": 59065,
+      "immutability": "IMMUTABLE_READ_ONLY"
+    },
+    "other_frozen_stage_b_hashes": {
+      "R057_G000_SEARCH_RESULTS_SHA256": "b7be23991e5d8345c1b8eb86726cb84f654971f73a0fd792a51438bf8e371934",
+      "R057_G000_FRONTIER_SHA256": "df23c5c45f9fc1fd129ee1345ec26cb202530e694be401e6ad514da93f210f4b",
+      "R057_GRAMMAR_GENEALOGY_SHA256": "83b85dbeee26f4289e662f84b3e57182d30f34410f1919dedd572c13bf532f07",
+      "R057_OPERATOR_LIBRARY_GENEALOGY_SHA256": "376d299de90abc933d0255d94e775e0acc382a6819951e05f4590e617aa41ccc",
+      "R057_STAGE_B_EXACT_CHECK_RESULTS_SHA256": "d3dbb2b6f5ad43e90172c85f9ba1b4d6779029b140fa48db9fea32bd81176f5b"
+    },
+    "carrier": "FROZEN_TD000_HEX_VORONOI_BOUNDARY",
+    "teacher_data": "TD000",
+    "checkpoint_fit_provenance": "PI_SUPERVISED_POST_SELECTED_UPSTREAM_CHECKPOINT",
+    "cross_arm_mutability": "FORBIDDEN_STAGE0"
+  },
+  "G": {
+    "arm": "R057-G",
+    "researcher_id": "EM-R057G-93D4A8",
+    "stage_b_head": "6fa16d1f6393cf82a72be2d878c8f2bce8301c21",
+    "first_serious_checkpoint": {
+      "artifact": "R057G_FIRST_SERIOUS_GRAMMAR_CHECKPOINT.json",
+      "sha256": "e7b215e6ff5b51c647d804161327b117a50dfbb213481734895b66de3afd9459",
+      "bytes": 57536,
+      "immutability": "IMMUTABLE_READ_ONLY"
+    },
+    "other_frozen_stage_b_hashes": {
+      "R057G_G0_SEARCH_RESULTS_SHA256": "2fb081a449bd91efd33afb5ba26961e245c3f5cd2a9b7133de5a9db8b7f0c44b",
+      "R057G_G0_FRONTIER_SHA256": "30d4d6d3159ce38006b4153b164a0adb628eae9ed2960abf28039c8b1f73dcb9",
+      "R057G_GRAMMAR_GENEALOGY_SHA256": "6cd3917e5c1b91163eebe25612fe657774a96db5ab413bb4a3e9fe3fd46fb70b",
+      "R057G_STAGE_B_CHECK_RESULTS_SHA256": "fba896dcb8eca8b14c71f97b32c21b2e169919284e9cbeedfb2f663c0755e26d"
+    },
+    "carrier": "TRIANGULAR_FACE_CENTROID_DISK_OUTER_EDGE_CONTOUR_V1",
+    "teacher_data": "T0_FROZEN_PHASES_ORIENTATIONS",
+    "teacher_center_arc_classification": "TEACHER_GEOMETRY_TELESCOPING_ANCHOR",
+    "direct_target_literal_classification": "TARGET_LITERAL_DEGENERATE / NOT_CORRESPONDENCE_EVIDENCE",
+    "cross_arm_mutability": "FORBIDDEN_STAGE0"
+  },
+  "registry_invariants": [
+    "A_FIRST_SERIOUS_CHECKPOINT_IMMUTABLE",
+    "G_FIRST_SERIOUS_CHECKPOINT_IMMUTABLE",
+    "A_AND_G_CARRIERS_ARE_DIFFERENT",
+    "NO_RAW_SCORE_COMPARABILITY_ASSERTED",
+    "NO_CROSS_ARM_WRITEBACK_STAGE0"
+  ]
+}

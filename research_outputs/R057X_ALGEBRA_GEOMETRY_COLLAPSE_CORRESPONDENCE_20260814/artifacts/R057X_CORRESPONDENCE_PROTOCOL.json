@@ -1,0 +1,166 @@
+{
+  "schema": "R057X_CORRESPONDENCE_PROTOCOL_V1",
+  "task_id": "RS-R057X-ALGEBRA-GEOMETRY-COLLAPSE-CORRESPONDENCE",
+  "researcher_id": "EM-R057X-5E8C41",
+  "stage": "0",
+  "status": "FROZEN_STAGE0_PROTOCOL / NOT_CANONICAL",
+  "purpose": "Freeze cross-arm comparison semantics before any detailed correspondence analysis.",
+  "firewall_transition": {
+    "prior_state": "A_AND_G_FIREWALLED_THROUGH_FIRST_SERIOUS_CHECKPOINT",
+    "current_permission": "CROSS_ARM_READ_ONLY_COMPARISON_ALLOWED_AFTER_BOTH_CHECKPOINTS_FROZEN",
+    "retroactive_contamination": "PROHIBITED"
+  },
+  "immutable_inputs": {
+    "R057_A_FIRST_SERIOUS_GRAMMAR_CHECKPOINT_SHA256": "bc991398000dd1b18ef53967a15b5f2d07c99afee8bdb17cd0a411c73d5cd6bd",
+    "R057_A_STAGE_B_DELIVERY_HEAD": "5de5822275834dd9b078c8a82dc308220a5dbb9c",
+    "R057_G_FIRST_SERIOUS_GRAMMAR_CHECKPOINT_SHA256": "e7b215e6ff5b51c647d804161327b117a50dfbb213481734895b66de3afd9459",
+    "R057_G_STAGE_B_HEAD": "6fa16d1f6393cf82a72be2d878c8f2bce8301c21"
+  },
+  "carrier_typing": {
+    "A": {
+      "carrier": "FROZEN_TD000_HEX_VORONOI_BOUNDARY",
+      "representation_note": "R057-A frozen TD000 digitized hex/Voronoi-cell boundary carrier."
+    },
+    "G": {
+      "carrier": "TRIANGULAR_FACE_CENTROID_DISK_OUTER_EDGE_CONTOUR_V1",
+      "representation_note": "R057-G triangular-face-centroid outer contour carrier with its frozen T0 phases/orientations."
+    },
+    "same_carrier": false,
+    "native_promotion": "NONE_STAGE0",
+    "typing_rule": "Carrier-specific Euclidean/geometric quantities remain implementation/readout/effective-side structures unless separately certified; Stage 0 makes no N0/native ontology claim."
+  },
+  "cross_carrier_numeric_rule": {
+    "direct_raw_error_comparison": "PROHIBITED",
+    "direct_mse_mae_rmse_ordering_across_arms": "PROHIBITED",
+    "reason": "A and G use different digitizations/carriers and teacher corpora.",
+    "future_numeric_comparison_gate": "EXPLICIT_MATCHED_BRIDGE_CORPUS_OR_MATCHED_PROBE_DESIGN_ONLY_AFTER_STAGE_A_FREEZE"
+  },
+  "allowed_semantic_operator_role_map": [
+    {
+      "A_role": "RAW",
+      "G_role": "RAW",
+      "status": "ROLE_MATCH_ALLOWED"
+    },
+    {
+      "A_role": "WHOLE_CHORD",
+      "G_role": "WHOLE_ENDPOINT_CHORD",
+      "status": "ROLE_MATCH_ALLOWED"
+    },
+    {
+      "A_role": "CONTIGUOUS_COMPOSITION",
+      "G_role": "CONTIGUOUS_CHORD_PARTITION",
+      "status": "ROLE_MATCH_ALLOWED"
+    },
+    {
+      "A_role": "PACKET_CLASS_OR_TURN_EXCEPTION",
+      "G_role": "PACKET_CLASS_OR_TURN_EXCEPTION",
+      "status": "ROLE_MATCH_ALLOWED"
+    },
+    {
+      "A_role": "HIGH_CAPACITY_LOOKUP",
+      "G_role": "HIGH_CAPACITY_LOOKUP",
+      "status": "ROLE_MATCH_ALLOWED"
+    }
+  ],
+  "quarantined_non_correspondence_evidence": [
+    {
+      "object": "R057-G_DIRECT_TEACHER_CENTER_ARC",
+      "required_label": "TEACHER_GEOMETRY_TELESCOPING_ANCHOR",
+      "lattice_only_correspondence_evidence": false,
+      "reason": "Its machine-zero behavior is a teacher-center winding/telescoping identity, not an independently discovered lattice collapse law."
+    },
+    {
+      "object": "DIRECT_TARGET_LITERAL",
+      "examples": [
+        "2*pi*r",
+        "direct target literal baseline"
+      ],
+      "lattice_only_correspondence_evidence": false,
+      "reason": "Target literals copy the effective target and therefore cannot support a collapse correspondence claim."
+    }
+  ],
+  "teacher_feature_rule": {
+    "status": "UNMATCHED_TRANSFER_CANDIDATE_ONLY_UNTIL_CONSTRUCTED_ON_TARGET_ARM",
+    "examples_from_G": [
+      "teacher-tangent projection",
+      "tangent alignment plus radial signed-deviation coefficient -1/15"
+    ],
+    "stage0_inference": "NONE",
+    "note": "The G tangent/radial rule may motivate a later transfer hypothesis but is not itself A/G correspondence evidence."
+  },
+  "status_separation": {
+    "correspondence_status_field": [
+      "UNTESTED",
+      "OBSERVED_CORRESPONDENCE",
+      "NO_CORRESPONDENCE",
+      "UNMATCHED_TRANSFER_CANDIDATE",
+      "CORRESPONDENCE_OPEN"
+    ],
+    "fit_status_field": [
+      "FROZEN_UPSTREAM_FIT_ONLY",
+      "NO_NEW_FIT_STAGE0",
+      "POST_SELECTED",
+      "TARGET_CONDITIONED_ORACLE",
+      "NOT_APPLICABLE"
+    ],
+    "theorem_status_field": [
+      "NOT_A_THEOREM",
+      "EMPIRICAL_PATTERN",
+      "CONJECTURE",
+      "PROVED",
+      "DISPROVED",
+      "OPEN"
+    ],
+    "rule": "Never infer theorem status from fit quality or correspondence status; never infer correspondence from a target literal or teacher-geometry telescoping identity."
+  },
+  "initial_hypothesis_register": [
+    {
+      "id": "H1",
+      "name": "WHOLE_CHORD_DOMINANCE_CORRESPONDENCE",
+      "correspondence_status": "UNTESTED",
+      "fit_status": "FROZEN_UPSTREAM_FIT_ONLY",
+      "theorem_status": "NOT_A_THEOREM"
+    },
+    {
+      "id": "H2",
+      "name": "SPARSE_EXCEPTION_CORRESPONDENCE",
+      "correspondence_status": "UNTESTED",
+      "fit_status": "FROZEN_UPSTREAM_FIT_ONLY",
+      "theorem_status": "NOT_A_THEOREM"
+    },
+    {
+      "id": "H3",
+      "name": "TEACHER_FEATURE_CORRECTION_TRANSFER",
+      "correspondence_status": "UNMATCHED_TRANSFER_CANDIDATE",
+      "fit_status": "FROZEN_UPSTREAM_FIT_ONLY",
+      "theorem_status": "NOT_A_THEOREM"
+    },
+    {
+      "id": "H4",
+      "name": "TELESCOPING_ANCHOR_QUARANTINE",
+      "correspondence_status": "UNTESTED",
+      "fit_status": "NOT_APPLICABLE",
+      "theorem_status": "NOT_A_THEOREM"
+    },
+    {
+      "id": "H5",
+      "name": "LOOKUP_COMPRESSION_TARGET",
+      "correspondence_status": "UNTESTED",
+      "fit_status": "FROZEN_UPSTREAM_FIT_ONLY",
+      "theorem_status": "NOT_A_THEOREM"
+    }
+  ],
+  "stage0_prohibitions": [
+    "NO_NEW_FITTING",
+    "NO_NEW_TEACHER_DATA",
+    "NO_NEW_K",
+    "NO_NEW_OPERATOR",
+    "NO_NEW_SURROGATE",
+    "NO_MATCHED_BRIDGE_CORPUS",
+    "NO_A_GRAMMAR_MODIFICATION",
+    "NO_G_GRAMMAR_MODIFICATION",
+    "NO_CORRESPONDENCE_MAP_YET",
+    "NO_H1_H5_TRUTH_JUDGMENT"
+  ],
+  "next_gate": "DRIVER_APPROVAL_REQUIRED_BEFORE_STAGE_A_FROZEN_CORRESPONDENCE_MAP"
+}
