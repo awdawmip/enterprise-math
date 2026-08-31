@@ -1,0 +1,63 @@
+{
+  "broad_search_permitted_only_after_k1_k4": true,
+  "calibration_run": false,
+  "candidate_blind": true,
+  "freeze_timestamp_utc": "2026-08-13T07:21:21Z",
+  "generation": 2,
+  "researcher_id": "EM-R051-8B4D70",
+  "schema": "ENTERPRISE_MATH_R051_G2_SOURCE_REGISTRY_V1",
+  "schema_split_protocol_sha256": "be4eaaac5e2425f6ff3c2b617603ab0bd9e8dc2dd0b243dbccc0e2e26c1912d8",
+  "sources": [
+    {
+      "authority": "NIST",
+      "expected_sha256": "486fbc54eac9e091e071ff1bed7170bcde41c20166a6070ec625baaa7bcac934",
+      "file": "AWG_LSNA_25KHz.csv",
+      "identifier": "10.18434/M32008",
+      "source_id": "K1_NIST_PDR_AWG_LSNA_25KHZ",
+      "status": "SOURCE_ACQUISITION_FAILED"
+    },
+    {
+      "authority": "BIPM KCDB / APMP",
+      "final_report_doi": "10.1088/0026-1394/54/1A/04006",
+      "identifier": "APMP.L-K5.2006.1",
+      "source_id": "K2_BIPM_APMP_L_K5_2006_1",
+      "status": "SOURCE_ACQUISITION_FAILED"
+    },
+    {
+      "authority": "NIST",
+      "identifier": "10.18434/M3C37Q",
+      "source_id": "K3_NIST_THERMOGRAPHY_M3C37Q",
+      "status": "REPLACEMENT_REJECTED"
+    },
+    {
+      "archive_sha256": "7bd942ca23ff2910a17414dd291c6a3288473661f35f62e91a753140d4ac11b7",
+      "authority": "NIST",
+      "identifier": "10.18434/mds2-3404",
+      "source_id": "K4_NIST_S2P_MDS2_3404",
+      "status": "REPLACEMENT_REJECTED"
+    },
+    {
+      "authority": "BIPM / EURAMET",
+      "quarantine": "PRE_FREEZE_NUMERIC_EXPOSURE_RISK",
+      "source_id": "BIPM_EURAMET_L_K5_2016",
+      "status": "REPLACEMENT_REJECTED"
+    },
+    {
+      "authority": "BIPM / APMP",
+      "quarantine": "PRE_FREEZE_NUMERIC_EXPOSURE_RISK",
+      "source_id": "BIPM_APMP_L_K5_N01",
+      "status": "REPLACEMENT_REJECTED"
+    },
+    {
+      "authority": "BIPM / EUROMET",
+      "source_id": "BIPM_EUROMET_L_K5_2004",
+      "status": "SOURCE_ACQUISITION_FAILED"
+    }
+  ],
+  "task_id": "RS-R051-CONTINUE-CANDIDATE-BLIND-KNOWN-SOURCE-NUMERIC-INGESTION",
+  "terminal_status_counts": {
+    "E4_ELIGIBLE_TARGET": 0,
+    "REPLACEMENT_REJECTED": 4,
+    "SOURCE_ACQUISITION_FAILED": 3
+  }
+}

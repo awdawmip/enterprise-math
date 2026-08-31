@@ -1,0 +1,129 @@
+{
+  "candidate_blind": true,
+  "candidate_calibration_run": false,
+  "candidate_scoring_run": false,
+  "e4_gate": {
+    "invented_tolerance": "FORBIDDEN",
+    "model_or_calculated_output_as_measurement": "FORBIDDEN",
+    "plot_digitization": "FORBIDDEN",
+    "requires": [
+      "condition-indexed source-native measured numerical values",
+      "disjoint construction and holdout observations",
+      "source-grounded uncertainty/covariance/tolerance sufficient for the allowed residual",
+      "exact source provenance plus exact source-file byte hash",
+      "deterministic extraction and deterministic split",
+      "no candidate/data-selection leakage"
+    ],
+    "same_observation_fit_and_holdout": "FORBIDDEN"
+  },
+  "forbidden_surfaces_accessed": {
+    "G1_G2_rankings": false,
+    "R048_G2_candidate_content": false,
+    "R050_candidate_specific_matrices_bridges_pareto": false,
+    "classical_pi_numeric_selection_signal": false
+  },
+  "freeze_basis_rule": "Only authoritative source metadata, file headers/schema if obtainable without exposing measurement values, and primary-report semantics may define a source schema or split. Measured value magnitude, residual magnitude, candidate prediction, candidate performance, candidate-specific bridges/rankings, and classical-pi numerical signals are excluded.",
+  "freeze_timestamp_utc": "2026-08-13T07:17:24Z",
+  "g3_generation_run": false,
+  "generation": 2,
+  "generation1_acquisition_protocol_sha256": "029d33ce71064dbcc584f10a757d237868dc921f5345646970b7357f1804e22f",
+  "generation1_head": "b6fbf431a3c76c4a437acf97cb7a784762e524ab",
+  "generation1_immutable": true,
+  "generation1_target_sha256": "58b5bcd03cf7070008b2f97a3457d376f566355e1848933317f57a5d2edcc498",
+  "global_split_priority": [
+    "SOURCE_DEFINED_INDEPENDENT_SPLIT",
+    "CROSS_REALIZATION_SPLIT",
+    "PREDECLARED_DISJOINT_CONDITION_RANGES",
+    "ALTERNATING_CONDITION_IDS_IN_STABLE_SOURCE_NATIVE_ORDER",
+    "SHA256_CONDITION_KEY_UTF8_PARITY"
+  ],
+  "post_freeze_mutation_rule": "This protocol is immutable. Any later source that requires new carrier fields, units, uncertainty semantics, row rules, split rules, residuals or PASS/FAIL semantics must enter a later holdout generation rather than mutate generation 2.",
+  "quarantined_broad_search_sources": [
+    {
+      "admitted_rows": 0,
+      "influence_on_schema_split_or_selection": "NONE_BY_DESIGN",
+      "source_id": "BIPM_EURAMET_L_K5_2016",
+      "status": "QUARANTINED_PRE_FREEZE_NUMERIC_EXPOSURE_RISK"
+    },
+    {
+      "admitted_rows": 0,
+      "influence_on_schema_split_or_selection": "NONE_BY_DESIGN",
+      "source_id": "BIPM_APMP_L_K5_N01",
+      "status": "QUARANTINED_PRE_FREEZE_NUMERIC_EXPOSURE_RISK"
+    },
+    {
+      "admitted_rows": 0,
+      "influence_on_schema_split_or_selection": "NONE_BY_DESIGN",
+      "source_id": "BIPM_EUROMET_L_K5_2004",
+      "status": "NOT_ADMITTED; OFFICIAL_FINAL_REPORT_BYTES_NOT_ACQUIRED"
+    }
+  ],
+  "r049_target_sha256": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+  "researcher_id": "EM-R051-8B4D70",
+  "schema": "ENTERPRISE_MATH_R051_G2_SOURCE_SCHEMA_AND_SPLIT_PROTOCOL_V1",
+  "source_protocols": [
+    {
+      "acquisition_before_freeze": "MAIN_CSV_NOT_ACQUIRED; OFFICIAL_SHA256_SIDECAR_ACQUIRED_AND_MATCHES_EXPECTED_TEXT",
+      "allowed_residual": "NONE",
+      "condition_key": "NOT_DEFINED_FOR_GENERATION2_DUE_MISSING_SOURCE_HEADER",
+      "construction_holdout_split": "NO_SPLIT; NO_ROWS_ADMITTED",
+      "measured_carrier_fields": "UNFROZEN_FOR_THIS_GENERATION_BECAUSE_SOURCE_HEADER_WAS_NOT_OBTAINED_WITHOUT_NUMERIC_CONTENT",
+      "official_record": "NIST PDR DOI 10.18434/M32008",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "primary_numeric_object": "AWG_LSNA_25KHz.csv",
+      "rejected_fields_semantics": [
+        "AWG-commanded/uploaded waveform quantities are controlled-input carriers, not measured output unless the source header explicitly labels a measured channel",
+        "paper-derived calibration corrections, figure-only quantities, and model/fit outputs are not raw measured carriers"
+      ],
+      "row_inclusion_rule": "NO_ROWS_ADMITTED",
+      "source_grounded_pass_fail": "NONE",
+      "source_hash_expected_sha256": "486fbc54eac9e091e071ff1bed7170bcde41c20166a6070ec625baaa7bcac934",
+      "source_id": "K1_NIST_PDR_AWG_LSNA_25KHZ",
+      "source_units": "NOT_DEFINED_FOR_GENERATION2_DUE_MISSING_SOURCE_HEADER",
+      "terminal_rule": "Cannot become E4 in this frozen generation without mutating this protocol; recovery requires a later new holdout generation.",
+      "uncertainty_or_covariance_fields": "NOT_DEFINED_FOR_GENERATION2_DUE_MISSING_SOURCE_HEADER"
+    },
+    {
+      "acquisition_before_freeze": "FINAL_REPORT_BYTES_NOT_ACQUIRED",
+      "allowed_residual": "NONE",
+      "condition_key": "participant laboratory × source-native gauge-surface/interval identifier, only if exact table fields are later obtained without protocol mutation",
+      "construction_holdout_split": "NO_SPLIT; NO_ROWS_ADMITTED",
+      "measured_carrier_fields": [
+        "x_i participant-reported measurement data only"
+      ],
+      "official_record": "BIPM KCDB APMP.L-K5.2006.1",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "primary_numeric_object": "Final report measurement-data tables x_i on pp. 9-15",
+      "rejected_fields_semantics": [
+        "comparison reference value x_R or x_Ri",
+        "degree of equivalence D_i",
+        "expanded uncertainty U_i of the degree of equivalence when it is a derived difference uncertainty rather than participant raw measurement uncertainty",
+        "En=D_i/U_i",
+        "plots and plot-digitized values"
+      ],
+      "row_inclusion_rule": "NO_ROWS_ADMITTED",
+      "source_grounded_pass_fail": "NONE",
+      "source_id": "K2_BIPM_APMP_L_K5_2006_1",
+      "source_units": "NOT_FROZEN_FOR_RAW_x_i_BECAUSE_FINAL_REPORT_TABLE_HEADER_NOT_ACQUIRED",
+      "terminal_rule": "Cannot become E4 in this frozen generation because exact table schema, source units, raw-measurement uncertainty fields and file hash are unavailable.",
+      "uncertainty_or_covariance_fields": "NOT_FROZEN_FOR_RAW_x_i_BECAUSE_FINAL_REPORT_TABLE_HEADER_NOT_ACQUIRED"
+    },
+    {
+      "acquisition_before_freeze": "OFFICIAL_METADATA_CONFIRMED",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "reason": "The source protocol is laser scan thermography/cooling, not the frozen periodic modulation-frequency delayed-response protocol. Admitting it would stretch the pressure family.",
+      "rejection": "REPLACEMENT_REJECTED",
+      "row_inclusion_rule": "NO_ROWS_ADMITTED",
+      "source_id": "K3_NIST_THERMOGRAPHY_M3C37Q"
+    },
+    {
+      "acquisition_before_freeze": "OFFICIAL_METADATA_AND_SOURCE_HASH_CONFIRMED",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "reason": "The source is on-wafer scattering-parameter calibration standards, not a bounded resonator measured-response protocol.",
+      "rejection": "REPLACEMENT_REJECTED",
+      "row_inclusion_rule": "NO_ROWS_ADMITTED",
+      "source_id": "K4_NIST_S2P_MDS2_3404"
+    }
+  ],
+  "task_id": "RS-R051-CONTINUE-CANDIDATE-BLIND-KNOWN-SOURCE-NUMERIC-INGESTION"
+}

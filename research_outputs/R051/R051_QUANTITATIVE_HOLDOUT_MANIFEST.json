@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_R051_QUANTITATIVE_HOLDOUT_MANIFEST_V1",
+  "task_id": "RS-R051-CANDIDATE-BLIND-QUANTITATIVE-HOLDOUT-DATA-ACQUISITION",
+  "researcher_id": "EM-R051-8B4D70",
+  "freeze_timestamp_utc": "2026-08-13T06:23:00Z",
+  "frozen": true,
+  "canonical": false,
+  "candidate_blind": true,
+  "calibration_run": false,
+  "r049_exact_head": "220aa5647389386d6c953e6aa04f32769f90f490",
+  "r049_target_sha256_verified": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+  "data_acquisition_protocol_sha256": "sha256:029d33ce71064dbcc584f10a757d237868dc921f5345646970b7357f1804e22f",
+  "authoritative_target_files": [
+    "R051_DATA_ACQUISITION_PROTOCOL.json",
+    "R051_R049_ROW_DATA_AVAILABILITY.json",
+    "R051_QUANTITATIVE_ENGINEERING_ATLAS.json",
+    "R051_CONSTRUCTION_HOLDOUT_SPLITS.json",
+    "R051_UNCERTAINTY_LEDGER.json",
+    "R051_METROLOGY_CONSTANT_LEDGER.json",
+    "R051_REPLACEMENT_ROW_LEDGER.json",
+    "R051_SOURCE_REGISTRY.json",
+    "R051_TARGET_LEAKAGE_AUDIT.json",
+    "R051_ADVERSARIAL_TEST_RESULTS.json"
+  ],
+  "artifact_hashes": {
+    "R051_DATA_ACQUISITION_PROTOCOL.json": "sha256:029d33ce71064dbcc584f10a757d237868dc921f5345646970b7357f1804e22f",
+    "R051_R049_ROW_DATA_AVAILABILITY.json": "sha256:b5b7dcdef009000cd9972ec635d91f08731d77bba4cee4f62b334344d0c635fa",
+    "R051_QUANTITATIVE_ENGINEERING_ATLAS.json": "sha256:4b56f86950d37f0b8b7bb7cd24a341e18621d7d9b8ba10175985066152c3bb68",
+    "R051_CONSTRUCTION_HOLDOUT_SPLITS.json": "sha256:fe25d4f281b2fca0fe53ef4951f9d3d3a90ad946475577a1d01b9a3c5de44804",
+    "R051_UNCERTAINTY_LEDGER.json": "sha256:cce70c2d3f8342c230b3daf6fd60d9bb7c944d1134bcee3db299f4fd0a710cda",
+    "R051_METROLOGY_CONSTANT_LEDGER.json": "sha256:adb0439276268ee49b7e11c9e6e38495cbfb4b399c476f27868132d2525ffea4",
+    "R051_REPLACEMENT_ROW_LEDGER.json": "sha256:b81ee06501b5a5c3d9bb27ed2a7427aad84b938e727fa03ea220675c17873fc8",
+    "R051_SOURCE_REGISTRY.json": "sha256:8859d7be194bf4d08fc678b4a4f760423cf4176056875f5bb7fbe63091e5dce2",
+    "R051_TARGET_LEAKAGE_AUDIT.json": "sha256:feb41a827e698e5955c67ff6745f65ee80696e42614434b4c10eafcea627f4f1",
+    "R051_ADVERSARIAL_TEST_RESULTS.json": "sha256:ac6ebf6d1dd63195c1e6d405d028f9df474c7a523924f8ff7b48dce566c9a9d2"
+  },
+  "target_hash_algorithm": "SHA-256 of UTF-8 canonical compact JSON of sorted mapping {basename:'sha256:<exact-file-byte-hash>'}; manifest excluded",
+  "R051_QUANTITATIVE_TARGET_SHA256": "58b5bcd03cf7070008b2f97a3457d376f566355e1848933317f57a5d2edcc498",
+  "eligibility_counts": {
+    "E4_ELIGIBLE_TARGET": 0,
+    "E3_ONLY_CONSTRUCTION_DATA_NO_INDEPENDENT_HOLDOUT": 0,
+    "STRUCTURAL_ONLY_NO_NUMERIC_OBSERVATIONS": 0,
+    "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT": 5,
+    "PLOT_ONLY_NOT_E4_ELIGIBLE": 3,
+    "REPLACED_BY_NEW_CANDIDATE_BLIND_ROW": 0
+  },
+  "replacement_selected_count": 0,
+  "status": "CANDIDATE_BLIND_QUANTITATIVE_HOLDOUT_PACKET_FROZEN / NO_SOURCE_GROUNDED_E4_ELIGIBLE_ROWS_FOUND / CALIBRATION_NOT_RUN / NOT_CANONICAL",
+  "post_freeze_rule": "No candidate information may modify target files, row status, source selection, split, residual, tolerance, or replacement. Any change requires a new holdout generation and new target hash."
+}

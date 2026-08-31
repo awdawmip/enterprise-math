@@ -1,0 +1,79 @@
+{
+  "schema": "ENTERPRISE_MATH_R051_CONSTRUCTION_HOLDOUT_SPLITS_V1",
+  "task_id": "RS-R051-CANDIDATE-BLIND-QUANTITATIVE-HOLDOUT-DATA-ACQUISITION",
+  "researcher_id": "EM-R051-8B4D70",
+  "freeze_timestamp_utc": "2026-08-13T06:23:00Z",
+  "protocol_sha256": "sha256:029d33ce71064dbcc584f10a757d237868dc921f5345646970b7357f1804e22f",
+  "default_deterministic_rule": "stable source-native order; zero-based even positions construction, odd positions holdout; used only after a source-grounded eligible array exists",
+  "candidate_access_before_split_freeze": false,
+  "rows": [
+    {
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "construction_indices": [],
+      "holdout_indices": [],
+      "status": "NOT_INSTANTIATED_NO_E4_ELIGIBLE_NUMERIC_ARRAY",
+      "same_observation_used_for_fit_and_holdout": false
+    },
+    {
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "construction_indices": [],
+      "holdout_indices": [],
+      "status": "NOT_INSTANTIATED_NO_E4_ELIGIBLE_NUMERIC_ARRAY",
+      "same_observation_used_for_fit_and_holdout": false
+    },
+    {
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "construction_indices": [],
+      "holdout_indices": [],
+      "status": "NOT_INSTANTIATED_NO_E4_ELIGIBLE_NUMERIC_ARRAY",
+      "same_observation_used_for_fit_and_holdout": false
+    },
+    {
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "construction_indices": [],
+      "holdout_indices": [],
+      "status": "NOT_INSTANTIATED_NO_E4_ELIGIBLE_NUMERIC_ARRAY",
+      "same_observation_used_for_fit_and_holdout": false
+    },
+    {
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "construction_indices": [],
+      "holdout_indices": [],
+      "status": "NOT_INSTANTIATED_NO_E4_ELIGIBLE_NUMERIC_ARRAY",
+      "same_observation_used_for_fit_and_holdout": false
+    },
+    {
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "construction_indices": [],
+      "holdout_indices": [],
+      "status": "NOT_INSTANTIATED_NO_E4_ELIGIBLE_NUMERIC_ARRAY",
+      "same_observation_used_for_fit_and_holdout": false
+    },
+    {
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "construction_indices": [],
+      "holdout_indices": [],
+      "status": "NOT_INSTANTIATED_NO_E4_ELIGIBLE_NUMERIC_ARRAY",
+      "same_observation_used_for_fit_and_holdout": false
+    },
+    {
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "construction_indices": [],
+      "holdout_indices": [],
+      "status": "NOT_INSTANTIATED_NO_E4_ELIGIBLE_NUMERIC_ARRAY",
+      "same_observation_used_for_fit_and_holdout": false
+    }
+  ],
+  "block_b_cross_realization_splits": {
+    "TRANSFER_INVENTORY_BALANCE_CLOSURE": {
+      "liquid_to_gas": "NOT_INSTANTIATED",
+      "gas_to_liquid": "NOT_INSTANTIATED",
+      "reason": "neither realization has acquired condition-indexed public observations"
+    },
+    "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY": {
+      "microphone_to_antenna": "NOT_INSTANTIATED",
+      "antenna_to_microphone": "NOT_INSTANTIATED",
+      "reason": "directed-pair arrays not acquired for either required realization"
+    }
+  }
+}
