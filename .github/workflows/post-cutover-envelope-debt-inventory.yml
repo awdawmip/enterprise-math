@@ -1,0 +1,254 @@
+name: post-cutover-envelope-debt-inventory
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - control/perfect-prime-publication-quarantine-resolution-20260831
+    paths:
+      - ".github/workflows/post-cutover-envelope-debt-inventory.yml"
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Classify exact unsuppressed post-cutover envelope debt
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import re
+          from collections import defaultdict
+          from pathlib import Path
+
+          from control_plane import check_post_cutover_publication_envelope as envelope
+          from control_plane import research_publication_fault_isolation as fork_isolation
+          from control_plane import research_task_integrity_fault_isolation as integrity
+          from control_plane import research_task_record_audit_fault_isolation as audit_isolation
+          from control_plane import research_task_records_impl as core
+
+          ROOT = Path.cwd()
+          OUT = ROOT / "_envelope_inventory"
+          OUT.mkdir(exist_ok=True)
+
+          raw_errors = envelope.audit(ROOT)
+          errors_by_path: dict[str, list[str]] = defaultdict(list)
+          global_errors: list[str] = []
+          for error in raw_errors:
+              if ": " not in error:
+                  global_errors.append(error)
+                  continue
+              path, suffix = error.split(": ", 1)
+              if not path.startswith("research_task_records/"):
+                  global_errors.append(error)
+                  continue
+              errors_by_path[path].append(suffix)
+
+          records = core.iter_records(ROOT)
+          by_path = {r.get("_record_path"): r for r in records}
+          by_pub = {
+              str(r.get("publication_id")): r
+              for r in records
+              if isinstance(r.get("publication_id"), str)
+          }
+          heads = integrity._active_heads(records, core.TERMINAL_RECORD_STATES)
+          fork_rows = fork_isolation.validated_quarantines(ROOT)
+
+          direct_successors: dict[str, list[dict]] = defaultdict(list)
+          for candidate in records:
+              parent = candidate.get("supersedes_publication_id")
+              if isinstance(parent, str) and parent:
+                  direct_successors[parent].append(candidate)
+
+          existing_current = json.loads((ROOT / "research_task_integrity_quarantines.json").read_text())
+          existing_audit = json.loads((ROOT / "research_task_record_audit_quarantines.json").read_text())
+          current_tasks = {row["task_id"] for row in existing_current.get("quarantines", [])}
+          audit_pubs = {row["publication_id"] for row in existing_audit.get("quarantines", [])}
+
+          current_rows: list[dict] = []
+          audit_rows: list[dict] = []
+          unclassified: list[dict] = []
+          classifications: list[dict] = []
+          missing_declared_pin_count = 0
+
+          def actual_taskbook_pin(record: dict):
+              path_value = record.get("taskbook_path")
+              if not isinstance(path_value, str) or not path_value:
+                  return None, "missing_taskbook_path"
+              path = ROOT / path_value
+              try:
+                  path.resolve().relative_to(ROOT.resolve())
+              except Exception:
+                  return None, "unsafe_taskbook_path"
+              if not path.is_file():
+                  return None, "taskbook_missing"
+              return core.git_blob_sha1_bytes(path.read_bytes()), None
+
+          for record_path in sorted(errors_by_path):
+              suffixes = sorted(set(errors_by_path[record_path]))
+              record = by_path.get(record_path)
+              if not isinstance(record, dict):
+                  unclassified.append({"record_path": record_path, "errors": suffixes, "reason": "record_not_loaded"})
+                  continue
+              task_id = record.get("task_id")
+              pub_id = record.get("publication_id")
+              if not isinstance(task_id, str) or not isinstance(pub_id, str):
+                  unclassified.append({"record_path": record_path, "errors": suffixes, "reason": "missing_task_or_publication_id"})
+                  continue
+              taskbook_pin, pin_error = actual_taskbook_pin(record)
+              if pin_error:
+                  unclassified.append({"task_id": task_id, "publication_id": pub_id, "record_path": record_path, "errors": suffixes, "reason": pin_error})
+                  continue
+              record_blob = core.git_blob_sha1_bytes((ROOT / record_path).read_bytes())
+              declared_pin = record.get("taskbook_blob_sha1")
+              if declared_pin != taskbook_pin:
+                  missing_declared_pin_count += 1
+
+              generation = record.get("publication_generation")
+              successors = [
+                  c for c in direct_successors.get(pub_id, [])
+                  if c.get("task_id") == task_id
+                  and isinstance(generation, int)
+                  and isinstance(c.get("publication_generation"), int)
+                  and c["publication_generation"] > generation
+              ]
+
+              active_ids = {
+                  str(item.get("publication_id"))
+                  for item in heads.get(task_id, [])
+                  if item.get("publication_id")
+              }
+              fork = fork_rows.get(task_id)
+              fork_effective = set()
+              if isinstance(fork, dict):
+                  fork_effective = set(fork.get("_effective_publication_ids", fork.get("publication_ids", [])))
+
+              common = {
+                  "task_id": task_id,
+                  "publication_id": pub_id,
+                  "record_path": record_path,
+                  "record_blob_sha1": record_blob,
+                  "taskbook_path": record.get("taskbook_path"),
+                  "taskbook_blob_sha1": taskbook_pin,
+                  "allowed_task_record_audit_errors": suffixes,
+                  "working_truth_granted": False,
+                  "foundation_authority_granted": False,
+                  "canonical_promotion_granted": False,
+                  "successor_triggered": False,
+              }
+
+              if successors:
+                  classification = "AUDIT_DIRECTLY_SUPERSEDED"
+                  if pub_id not in audit_pubs:
+                      audit_rows.append({
+                          "quarantine_id": f"TRAQ-ENVELOPE-{pub_id}",
+                          **common,
+                          "state": "NONOPERATIONAL_IMMUTABLE_RECORD_INTEGRITY_FAULT",
+                          "nonoperational_basis": "DIRECTLY_SUPERSEDED_SAME_TASK",
+                          "operational": False,
+                          "history_preserved": True,
+                          "operational_publication_selected": False,
+                      })
+              elif pub_id in fork_effective:
+                  classification = "AUDIT_FORK_BLOCKED_HEAD"
+                  if pub_id not in audit_pubs:
+                      audit_rows.append({
+                          "quarantine_id": f"TRAQ-ENVELOPE-{pub_id}",
+                          **common,
+                          "state": "NONOPERATIONAL_IMMUTABLE_RECORD_INTEGRITY_FAULT",
+                          "nonoperational_basis": "TASK_BLOCKED_BY_PUBLICATION_FORK_QUARANTINE",
+                          "operational": False,
+                          "history_preserved": True,
+                          "operational_publication_selected": False,
+                      })
+              elif active_ids == {pub_id}:
+                  classification = "CURRENT_SOLE_HEAD_BLOCK"
+                  if task_id not in current_tasks:
+                      current_rows.append({
+                          **common,
+                          "state": "INVALID_CURRENT_TASK_PUBLICATION",
+                          "operational_publication_id": None,
+                          "isolation_scope": "CONTROL_PLANE_ONLY",
+                          "reason": "Exact current sole publication fails the canonical post-cutover publication-envelope audit. Control maintenance pins the exact record/taskbook bytes and exact strict-audit error set and blocks only this task until ordinary authorized repair/republish; no research content is rewritten.",
+                      })
+              else:
+                  classification = "UNCLASSIFIED"
+                  unclassified.append({
+                      "task_id": task_id,
+                      "publication_id": pub_id,
+                      "record_path": record_path,
+                      "active_publication_ids": sorted(active_ids),
+                      "fork_effective_publication_ids": sorted(fork_effective),
+                      "direct_successor_ids": sorted(str(c.get("publication_id")) for c in successors),
+                      "errors": suffixes,
+                      "reason": "no_authorized_quarantine_basis",
+                  })
+
+              classifications.append({
+                  "task_id": task_id,
+                  "publication_id": pub_id,
+                  "record_path": record_path,
+                  "classification": classification,
+                  "error_count": len(suffixes),
+                  "declared_taskbook_blob_sha1": declared_pin,
+                  "actual_taskbook_blob_sha1": taskbook_pin,
+              })
+
+          current_rows.sort(key=lambda r: (r["task_id"], r["publication_id"]))
+          audit_rows.sort(key=lambda r: (r["task_id"], r["publication_id"]))
+          unclassified.sort(key=lambda r: (r.get("task_id", ""), r.get("publication_id", ""), r.get("record_path", "")))
+
+          proposed_current = dict(existing_current)
+          proposed_current["quarantines"] = sorted(
+              [*existing_current.get("quarantines", []), *current_rows],
+              key=lambda r: r["task_id"],
+          )
+          proposed_audit = dict(existing_audit)
+          proposed_audit["quarantines"] = sorted(
+              [*existing_audit.get("quarantines", []), *audit_rows],
+              key=lambda r: (r["task_id"], r["publication_id"]),
+          )
+
+          summary = {
+              "schema": "ENTERPRISE_MATH_POST_CUTOVER_ENVELOPE_DEBT_INVENTORY_V1",
+              "raw_error_count": len(raw_errors),
+              "record_count_with_errors": len(errors_by_path),
+              "global_error_count": len(global_errors),
+              "new_current_integrity_rows": len(current_rows),
+              "new_audit_only_rows": len(audit_rows),
+              "unclassified_count": len(unclassified),
+              "records_with_declared_taskbook_pin_mismatch_or_missing": missing_declared_pin_count,
+              "classification_counts": dict(sorted(__import__("collections").Counter(x["classification"] for x in classifications).items())),
+          }
+
+          files = {
+              "summary.json": summary,
+              "classifications.json": classifications,
+              "new_current_integrity_rows.json": current_rows,
+              "new_audit_only_rows.json": audit_rows,
+              "unclassified.json": unclassified,
+              "global_errors.json": global_errors,
+              "proposed_research_task_integrity_quarantines.json": proposed_current,
+              "proposed_research_task_record_audit_quarantines.json": proposed_audit,
+          }
+          for name, value in files.items():
+              (OUT / name).write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+          print(json.dumps(summary, ensure_ascii=False, sort_keys=True))
+          if unclassified:
+              print("UNCLASSIFIED_BEGIN")
+              print(json.dumps(unclassified, ensure_ascii=False, indent=2))
+              print("UNCLASSIFIED_END")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post-cutover-envelope-debt-inventory
+          path: _envelope_inventory/
+          if-no-files-found: error
+          retention-days: 3
