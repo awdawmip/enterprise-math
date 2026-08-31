@@ -1,0 +1,197 @@
+{
+  "schema_version": "R029_REASONING_KERNEL_MACHINE_SUMMARY_V1",
+  "researcher_id": "EM-R029-LP2A71",
+  "task_id": "RS-R029-RESEARCH-REASONING-KERNEL-LOGIC-PHILOSOPHY-TOOLS",
+  "taskbook_source_commit": "c59c2ad1e56fcae3bf858b874a5a636c242e62c5",
+  "base_main": "db9958cc006cacc32d5b30cd1a9a35594543a8d1",
+  "status": "NOT_CANONICAL",
+  "preferred_return": "SMALL_TRUSTED_REASONING_KERNEL_FOUND / MOST_PHILOSOPHY_TOOLS_INTERPRETIVE_ONLY / HIGH_VALUE_DIAGNOSTICS_FROZEN / CONTEXT_COMPILER_READY / NOT_CANONICAL",
+  "full_return": "RESEARCH_REASONING_KERNEL_FOUND / LOGIC_PHILOSOPHY_TOOLS_TYPED / HISTORICAL_RESTART_COST_CLASSIFIED / TOOL_COMPOSITION_BOUNDARIES_FROZEN / CONTEXT_COMPILER_READY / NOT_CANONICAL",
+  "core_findings": [
+    "The theorem-carrying trusted kernel is small: 1 proof-preserving tool and 3 exact-semantic transformations. Most reusable value lies in typed adversarial diagnostics that explicitly cannot become theorem evidence.",
+    "Repeated historical restart cost clusters around carrier typing, one-step-versus-composition, future-language relativity, evidence/root coverage, semantic-versus-resource separation, and prior-art reduction.",
+    "Philosophical distinctions are useful only when compiled into typed diagnostics. Pure lenses remain INTERPRETIVE_ONLY.",
+    "Keyword triggers are insufficient. Structural/task tags, typed inputs and semantic aliases are required; advisory selection is sparse and bounded.",
+    "Tool composition is not automatic. The composition matrix includes safe, conditional, diagnostic-only and known-invalid pairs with counterexamples.",
+    "All 10 universal reasoning claims demanded by the taskbook are killed with a counterexample and a narrower survival condition."
+  ],
+  "counts": {
+    "tools_total": 61,
+    "trust_classes": {
+      "ADVERSARIAL_DIAGNOSTIC": 53,
+      "PROOF_PRESERVING": 1,
+      "EXACT_SEMANTIC_TRANSFORMATION": 3,
+      "INTERPRETIVE_LENS": 4
+    },
+    "dispositions": {
+      "KEEP": 43,
+      "NARROW": 11,
+      "INTERPRETIVE_ONLY": 4,
+      "MERGE": 3
+    },
+    "seed_tools": 15,
+    "composition_rules": 15,
+    "composition_classes": {
+      "ALWAYS_SAFE": 3,
+      "SAFE_WITH_PRECONDITIONS": 5,
+      "DIAGNOSTIC_ONLY": 3,
+      "KNOWN_INVALID": 4
+    },
+    "universal_kill_fixtures": 10,
+    "historical_nodes_replayed": 15,
+    "prior_art_root_families": 13,
+    "focused_unit_tests": 15,
+    "trigger_mutations": 6
+  },
+  "trusted_kernel": {
+    "proof_preserving": [
+      "CONTRAPOSITIVE_CHECK"
+    ],
+    "exact_semantic_transformations": [
+      "FACTOR_THROUGH_COMPLETE_ENCODING",
+      "FUTURE_LANGUAGE_EXTENSION_REFINEMENT",
+      "RECOALESCENCE_SUFFIX_SAFETY_CHECK"
+    ],
+    "boundary": "Exact/proof trust class is necessary but not sufficient: the source proof/certificate and every precondition must be present."
+  },
+  "highest_restart_cost_diagnostics": [
+    "STATE_OBSERVATION_SPLIT",
+    "STATE_CARRIER_REPRESENTATION_RESOURCE_SPLIT",
+    "BOOLEAN_COUNT_PROVENANCE_CARRIER_SPLIT",
+    "STATIC_CORRECT_NOT_DYNAMIC_STATE",
+    "ONE_STEP_EXACT_NOT_COMPOSITION_SAFE",
+    "FUTURE_LANGUAGE_RELATIVITY",
+    "FACTOR_THROUGH_COMPLETE_ENCODING",
+    "NO_RESURRECTION_CHECK",
+    "ROOT_COVERAGE_EVIDENCE_CHECK",
+    "CLAIM_EVIDENCE_GRADE_CHECK",
+    "PRIOR_ART_REDUCTION"
+  ],
+  "selection_contract": {
+    "channel_1": "required exact/proof-preserving candidates selected only by typed/structural compatibility; still require certificates",
+    "channel_2": "advisory diagnostics/generators, top-k sparse default 6",
+    "keyword_policy": "weak evidence only",
+    "negative_trigger_fixtures": [
+      "'all tests passed' must not by itself trigger universal-quantifier theorem checking",
+      "'closed under arbitrary continuations' must trigger future-language reasoning even without the word 'future'"
+    ]
+  },
+  "seed_classification": [
+    {
+      "id": "QUANTIFIER_SCOPE_CHECK",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "NECESSARY_SUFFICIENT_SPLIT",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "STATE_OBSERVATION_SPLIT",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "CARRIER_TYPE_SPLIT",
+      "disposition": "MERGE",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": "STATE_CARRIER_REPRESENTATION_RESOURCE_SPLIT"
+    },
+    {
+      "id": "STATIC_CORRECT_NOT_DYNAMIC_STATE",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "ONE_STEP_EXACT_NOT_COMPOSITION_SAFE",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "DECLARED_VS_REALIZED_FUTURE",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "FACTOR_THROUGH_COMPLETE_ENCODING",
+      "disposition": "KEEP",
+      "trust_class": "EXACT_SEMANTIC_TRANSFORMATION",
+      "merge_target": null
+    },
+    {
+      "id": "SUPPORT_COUNT_PROVENANCE_SPLIT",
+      "disposition": "MERGE",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": "BOOLEAN_COUNT_PROVENANCE_CARRIER_SPLIT"
+    },
+    {
+      "id": "RESOURCE_EQUAL_SEMANTIC_FIBRE_CHECK",
+      "disposition": "NARROW",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "ROOT_COVERAGE_EVIDENCE_CHECK",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "CAUSAL_PREDICTIVE_RETROSPECTIVE_SPLIT",
+      "disposition": "MERGE",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": "CAUSAL_PREDICTIVE_RETROSPECTIVE_RELEVANCE_SPLIT"
+    },
+    {
+      "id": "PRIOR_ART_REDUCTION",
+      "disposition": "KEEP",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "COUNTEREXAMPLE_MINIMIZATION",
+      "disposition": "NARROW",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    },
+    {
+      "id": "REGIME_EXHAUSTION",
+      "disposition": "NARROW",
+      "trust_class": "ADVERSARIAL_DIAGNOSTIC",
+      "merge_target": null
+    }
+  ],
+  "validation": {
+    "py_compile": "PASS",
+    "focused_tests": "15/15 PASS",
+    "oracle": "PASS",
+    "registry_schema": "PASS",
+    "composition_consistency": "PASS",
+    "universal_kill_fixture_validation": "PASS",
+    "trigger_mutations": "6/6 PASS",
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH"
+  },
+  "deliverables": [
+    "docs/R029_RESEARCH_REASONING_KERNEL_REPORT.md",
+    "reasoning_tools.json",
+    "R029_REASONING_OPERATOR_LINEAGE_MATRIX.md",
+    "R029_TOOL_COMPOSITION_MATRIX.json",
+    "R029_TOOL_PRIOR_ART_MATRIX.md",
+    "experiments/r029_reasoning_tool_registry.py",
+    "experiments/r029_reasoning_tool_oracle.py",
+    "tests/test_r029_reasoning_tools.py",
+    "R029_REASONING_KERNEL_MACHINE_SUMMARY.json",
+    "R029_UNIVERSAL_REASONING_KILL_FIXTURES.json",
+    "R029_META_TOOL_DELTA_SCHEMA.json",
+    "R029_SEED_TOOL_CLASSIFICATION.json"
+  ],
+  "meta_tool_delta_policy": "Optional and evidence-gated. Empty arrays are allowed; diagnostic/lens outputs cannot self-promote.",
+  "driver_recommendation": "Feed reasoning_tools.json + composition matrix to R030 as a task-relative two-channel selector. Do not promote the registry itself to Foundation or common semantic surface."
+}
