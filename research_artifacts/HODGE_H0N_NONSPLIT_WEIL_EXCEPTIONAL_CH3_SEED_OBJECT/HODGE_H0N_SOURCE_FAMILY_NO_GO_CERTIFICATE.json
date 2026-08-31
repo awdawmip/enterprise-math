@@ -1,5 +1,5 @@
 {
-  "schema": "HODGE_H0N_SOURCE_FAMILY_NO_GO_CERTIFICATE_V1",
+  "schema": "HODGE_H0N_SOURCE_FAMILY_NO_GO_CERTIFICATE_V2",
   "task_id": "RS-HODGE-H0N-NONSPLIT-WEIL-EXCEPTIONAL-CH3-SEED-OBJECT",
   "publication_id": "TP2-9A71D4C6E2B5083F16CD",
   "claim_id": "chatgpt-hodgeh0n-20260831-1344",
@@ -7,16 +7,10 @@
   "target": {
     "K": "Q(i)",
     "dimension": 6,
-    "signature": [
-      3,
-      3
-    ],
+    "signature": [3, 3],
     "discriminant": "[-3]",
     "split_control": "[-1]",
-    "exceptional_complex_blocks": [
-      "B_6",
-      "B_0"
-    ],
+    "exceptional_complex_blocks": ["B_6", "B_0"],
     "divisor_cube_block": "B_3",
     "conclusion": "W_K(A) intersect Q*theta^3 = {0}"
   },
@@ -32,15 +26,15 @@
   "families": [
     {
       "id": "F1",
-      "name": "semihomogeneous extension/shift envelope",
-      "reason": "ch(E)=r exp(c1/r), so ch_3=c1^3/(6r^2); NS_Q=Q*theta; K_0 additivity preserves Q*theta^3",
+      "name": "semihomogeneous vector-bundle extension/shift envelope",
+      "reason": "For simple semihomogeneous positive-rank bundles ch(E)=r exp(c1/r), so ch_3=c1^3/(6r^2); NS_Q=Q*theta; K_0 additivity preserves Q*theta^3.",
       "exceptional_projection": "ZERO"
     },
     {
-      "id": "F2",
-      "name": "target-side Fourier-Mukai orbit of line/semihomogeneous sources",
-      "reason": "FM transports translation/twist stabilizers; full-support outputs reduce to F1 and point-type outputs have ch_3=0 on a sixfold",
-      "exceptional_projection": "ZERO"
+      "id": "F2_ENDPOINTS",
+      "name": "verified endpoints of the target-side Fourier-Mukai orbit of line/semihomogeneous sources",
+      "reason": "Full-support positive-rank semihomogeneous outputs reduce to F1; point-supported outputs on a sixfold have no codimension-three Chern-character term. Intermediate-dimensional supported Fourier-Mukai images are deliberately NOT classified by this Result.",
+      "exceptional_projection": "ZERO_ON_DECLARED_ENDPOINTS_ONLY"
     },
     {
       "id": "F3",
@@ -64,6 +58,7 @@
   "counterexample_boundaries": [
     "Markman discriminant -1 sixfold positive control forbids universalization",
     "Koike Gaussian Prym positive control keeps non-tautological geometry open",
+    "intermediate-dimensional supported Fourier-Mukai images are not eliminated by F2 and require a separate support/Chern-character analysis",
     "an input with primitive exceptional c3 is the desired seed and lies outside F4",
     "a genuinely non-tautological algebraic correspondence remains open"
   ],
@@ -80,9 +75,10 @@
   },
   "terminal": {
     "terminal_verdict": "NEGATIVE_BOUNDARY",
-    "hard_target_disposition": "SATISFIED_AT_NEGATIVE_FAMILY_NO_GO_STRENGTH",
+    "hard_target_disposition": "SATISFIED_AT_NEGATIVE_FAMILY_NO_GO_STRENGTH_WITH_F2_ENDPOINT_SCOPE",
     "surviving_frontier": [
       "target-side non-semihomogeneous E with proj_W(ch_3(E)) != 0",
+      "intermediate-support target-side Fourier-Mukai image with a directly computed nonzero exceptional degree-six component",
       "genuinely non-tautological algebraic correspondence with nonzero W_K image"
     ],
     "forbidden_inference": "No non-algebraicity or Hodge-conjecture conclusion follows."
