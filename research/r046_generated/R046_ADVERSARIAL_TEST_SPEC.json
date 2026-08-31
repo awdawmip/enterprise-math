@@ -1,0 +1,49 @@
+{
+  "schema": "ENTERPRISE_MATH_R046_ADVERSARIAL_TEST_SPEC_V1",
+  "status": "ACTIVE_LOCAL_CHECK_SPEC / NOT_CANONICAL",
+  "researcher_id": "EM-R046-5C8A21",
+  "tests": [
+    {
+      "test_id": "A_PI_FREQUENCY_IS_EVIDENCE",
+      "attack": "Count formula appearances of π as independent empirical evidence.",
+      "expected": "REJECT",
+      "criterion": "Independent evidence count is dependency-quotient count, not raw π token frequency."
+    },
+    {
+      "test_id": "B_SHARED_DEFINITION_DOUBLE_COUNT",
+      "attack": "Count circumference/diameter, area/diameter, cylinder volume, PI-tape diameter and flow diameter formulas as separate π evidence.",
+      "expected": "REJECT",
+      "criterion": "They share Q01/D01 classical geometric origin; empirical residuals are preserved but π-origin is counted once."
+    },
+    {
+      "test_id": "C_RADIANS_AS_PHYSICS",
+      "attack": "Treat 2π radians per cycle as a measured physical constant.",
+      "expected": "REJECT",
+      "criterion": "KENG-02 is stated in return-to-reference/time/cycle-fraction language; radian appears only in forbidden effective imports."
+    },
+    {
+      "test_id": "D_FOURIER_NORMALIZATION_AS_NATIVE_CONSTANT",
+      "attack": "Promote 2π or transform scaling from one Fourier convention into native input.",
+      "expected": "REJECT",
+      "criterion": "Q03 is excluded from π-specific K_eng; FFTW/NumPy/DLMF convention dependence is explicit."
+    },
+    {
+      "test_id": "E_GAUSSIAN_NORMALIZATION_AS_NATIVE_PI",
+      "attack": "Promote Gaussian/heat-kernel integral normalization into native constant.",
+      "expected": "REJECT",
+      "criterion": "KENG-03 retains relaxation/spread and strips Gaussian amplitude normalization."
+    },
+    {
+      "test_id": "F_OUTPUT_COPYING",
+      "attack": "Insert circle, center, radius, distance/equidistance or effective PDE geometry into native premises.",
+      "expected": "REJECT",
+      "criterion": "Every native interface entry has allowed_native_inputs=UNSPECIFIED and explicit forbidden imported definitions."
+    },
+    {
+      "test_id": "G_ONE_NUMBER_FIT",
+      "attack": "Accept a future candidate solely because one readout numerically approaches the classical decimal expansion of π.",
+      "expected": "REJECT",
+      "criterion": "Kernel pass requires all four operational members, scales/tolerances and no leakage; one scalar has zero standalone pass authority."
+    }
+  ]
+}
