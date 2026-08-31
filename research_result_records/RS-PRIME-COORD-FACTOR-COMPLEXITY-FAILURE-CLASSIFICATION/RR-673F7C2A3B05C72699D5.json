@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-673F7C2A3B05C72699D5",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+  "publication_id": "TP2-8F7443BCAF2BC5243574",
+  "execution_record_id": "ER-F3749CC3BB2FABCD2657",
+  "claim_id": "chatgpt-pcf7-20260831-1028-8595e3",
+  "taskbook_path": "research_tasks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_20260827.md",
+  "taskbook_blob_sha1": "sha1:1ed8c75ee232806229d0166a5f26c14be62b9dd8",
+  "execution_branch": "research/prime-coord-factor-complexity-failure-classification-em-pcf7r-8595e3",
+  "execution_branch_base": "d94620f2f6fc8799811c648e0cc1fbc7bb4908b7",
+  "return_path": "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_RETURN_20260827.md",
+  "return_blob_sha1": "sha1:525be31ac3e1cfac3b394f5c26730f7f41c0ffb7",
+  "return_sha256": "sha256:78c0daff13ec25e61ce6b5c1d90089079886ee487ef367938c66291666c57ceb",
+  "owner_head": "5c25ddcf9c485fe0216baa9a818ad4c5853e2810",
+  "researcher_id": "EM-PCF7R-8595E3",
+  "frozen_at": "2026-08-31T02:43:46+00:00",
+  "terminal_verdict": "PASS",
+  "hard_target_disposition": "ACHIEVED / FACTOR_ALGORITHM_COMPLEXITY_AND_FAILURE_CLASSIFIED / COMPLEXITY_FRONTIER_FROZEN",
+  "unresolved_residue": "N-dependent prefix rules are outside the fixed-support no-go; beyond-semiprime valuation-wall behavior is outside theorem scope; the separate valuation-wall complexity-compression envelope remains pending current-schema Driver review; PCF5/PCF6 remain excluded until accepted.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_RETURN_20260827.md",
+      "git_blob_sha1": "sha1:525be31ac3e1cfac3b394f5c26730f7f41c0ffb7",
+      "sha256": "sha256:78c0daff13ec25e61ce6b5c1d90089079886ee487ef367938c66291666c57ceb"
+    },
+    {
+      "path": "research_artifacts/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION/CLASSIFICATION_MATRIX_20260831.md",
+      "git_blob_sha1": "sha1:c0a2d6179d7907086b223081e17d8192d85ae68e",
+      "sha256": "sha256:29d5eca2c1c6e1817d60c3a22038743d8c90a84aed2695cab55e4334a537b473"
+    },
+    {
+      "path": "research_artifacts/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION/CHECKER_OUTPUT_20260831.txt",
+      "git_blob_sha1": "sha1:aeae53f0ebffbfe42d6e6fe1df9ca7252e86fbd2",
+      "sha256": "sha256:925b963cdccf267aa3528e135f08c239f86d48b52d620d8aeaa46d41ae18ed3c"
+    },
+    {
+      "path": "research_checks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_CHECK_20260831.py",
+      "git_blob_sha1": "sha1:6644edc321ee2ef4f355ec9ba874e9e7d568aa62",
+      "sha256": "sha256:4ee1ac40f4ae65a0290257e686276e0042bf8784826a3f9f95632702953b494e"
+    }
+  ],
+  "method_harvest": "NO_NEW_GLOBAL_TOOL / REUSE_T1_SCALE_ENUMERATION_VALUATION / TASK_LOCAL_CHECKER_ONLY",
+  "independence_status": "DEPENDENCY_SYNTHESIS / NOT_A_BLIND_REPLICATION",
+  "source_exposure_status": "ACCEPTED_INTERNAL_DEPENDENCIES_EXPOSED_BY_TASK / NO_EXTERNAL_LITERATURE_LOAD_BEARING",
+  "next_control_plane_recommendation": "Driver review PCF7 as FACTOR_ALGORITHM_COMPLEXITY_AND_FAILURE_CLASSIFIED. Preserve both verdicts simultaneously: fixed-prefix SUCCESS_PROBABILITY_NOT_LOWER_BOUNDED and accepted N-only streaming SQRT_SCALE_OR_WORSE_PROVED. Do not reopen PCF1-PCF6. Separately repair/review the valuation-wall complexity-compression result under the current schema; if accepted, revisit only the implementation-level complexity verdict and type any N^(1/4+o(1)) route as classical Pollard-Strassen equivalence unless a genuinely new exponent is proved.",
+  "driver_review_required": true
+}
