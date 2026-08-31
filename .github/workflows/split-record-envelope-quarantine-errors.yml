@@ -1,0 +1,93 @@
+name: split-record-envelope-quarantine-errors
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - control/perfect-prime-publication-quarantine-resolution-20260831
+    paths:
+      - ".github/workflows/split-record-envelope-quarantine-errors.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+      - name: Split exact A7D/D6 audit and envelope error vocabularies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("research_task_record_audit_quarantines.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+          rows = data.get("quarantines", [])
+
+          targets = {
+              "TP2-A7D3C18E5B904F621476": {
+                  "strict": [
+                      "taskbook blob drift",
+                      "mandatory body section is missing or empty: Mother question",
+                      "mandatory body section is missing or empty: Frozen inputs and scope",
+                      "mandatory body section is missing or empty: Hard target and required outputs",
+                      "mandatory body section is missing or empty: Research value to preserve",
+                      "mandatory body section is missing or empty: Success, kill, and return criteria",
+                  ],
+                  "envelope": ["missing/invalid taskbook_blob_sha1"],
+              },
+              "TP2-D6A41E9C3B705F821847": {
+                  "strict": [
+                      "taskbook blob drift",
+                      "taskbook parse failed: missing ENTERPRISE_MATH_TASK_V1 frontmatter",
+                  ],
+                  "envelope": ["missing/invalid taskbook_blob_sha1"],
+              },
+          }
+
+          seen = {key: 0 for key in targets}
+          for row in rows:
+              pub = row.get("publication_id")
+              if pub not in targets:
+                  continue
+              seen[pub] += 1
+              if row.get("task_id") != "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE":
+                  raise SystemExit(f"{pub}: unexpected task_id")
+              if row.get("allowed_task_record_audit_errors") != ["missing/invalid taskbook_blob_sha1"]:
+                  raise SystemExit(
+                      f"{pub}: precondition drift in old strict list: "
+                      f"{row.get('allowed_task_record_audit_errors')!r}"
+                  )
+              if "allowed_publication_envelope_errors" in row:
+                  raise SystemExit(f"{pub}: envelope field already exists; refusing ambiguous reapply")
+              row["allowed_task_record_audit_errors"] = targets[pub]["strict"]
+              row["allowed_publication_envelope_errors"] = targets[pub]["envelope"]
+
+          if seen != {key: 1 for key in targets}:
+              raise SystemExit(f"target cardinality mismatch: {seen!r}")
+
+          path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print("SPLIT_RECORD_ENVELOPE_ERROR_VOCABULARIES=PASS")
+          PY
+
+          changed="$(git diff --name-only)"
+          if [[ "$changed" != "research_task_record_audit_quarantines.json" ]]; then
+            echo "unexpected migration paths: $changed"
+            exit 1
+          fi
+          git diff --check
+      - name: Commit exact quarantine vocabulary split
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "enterprise-math-control-bot"
+          git config user.email "enterprise-math-control-bot@users.noreply.github.com"
+          git add research_task_record_audit_quarantines.json
+          git commit -m "[CONTROL] split record-audit and envelope error pins"
+          git push origin HEAD:control/perfect-prime-publication-quarantine-resolution-20260831
