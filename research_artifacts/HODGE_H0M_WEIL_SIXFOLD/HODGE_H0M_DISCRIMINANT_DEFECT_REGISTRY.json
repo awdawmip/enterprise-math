@@ -1,0 +1,65 @@
+{
+  "schema": "HODGE_H0M_DISCRIMINANT_DEFECT_REGISTRY_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "target_discriminant": "[-3] in Q^*/Nm_{Q(i)/Q}(Q(i)^*)",
+  "positive_control_discriminant": "[-1]",
+  "exact_split_obstruction": {
+    "statement": "A split six-dimensional K-Hermitian space with a totally isotropic K-subspace of dimension 3 is a sum of three hyperbolic planes, hence its determinant class is (-1)^3=[-1]. Since target class [-3] differs from [-1], the target Hermitian space is not split and has no half-dimensional totally isotropic K-subspace.",
+    "certificate": "[-3]/[-1]=[3] and 3 is not a norm from Q(i)."
+  },
+  "defects": [
+    {
+      "missing_object": "HALF_DIMENSIONAL_K_ISOTROPIC_SUBSPACE",
+      "owner": "target Hermitian/polarization data",
+      "status": "PROVABLY_ABSENT",
+      "necessity": "The split K-secant geometry starts from maximal isotropic/split Hermitian data; without it the known split source presentation cannot be instantiated on the target component.",
+      "unblock_condition": "A different source construction not requiring split Hermitian data, or a proof that the required secant geometry can be defined without a maximal isotropic K-subspace."
+    },
+    {
+      "missing_object": "K_SECANT_SOURCE_PRESENTATION_COMPATIBLE_WITH_TARGET_POLARIZATION",
+      "owner": "split X x Pic^0(X) / K-secant source geometry",
+      "status": "NOT_AVAILABLE_FROM_KNOWN_SPLIT_CONSTRUCTION",
+      "necessity": "The known sixfold secant-sheaf mechanism produces the source sheaf/characteristic class on the split component and then deforms it inside that component.",
+      "unblock_condition": "Construct an exact K-secant or replacement source presentation whose induced Hermitian discriminant is [-3], not [-1]."
+    },
+    {
+      "missing_object": "FRONTIER_DERIVED_OBJECT_WITH_EXCEPTIONAL_WEIL_CH3_COMPONENT",
+      "owner": "frontier model A_gen",
+      "status": "UNKNOWN_EXISTENCE / NOT_CONSTRUCTED",
+      "necessity": "Semiregularity and obstruction cancellation act on an actual sheaf/complex. To address W_K, its algebraic characteristic class must have a nonzero exceptional codimension-3 Weil component rather than lie only in the divisor algebra.",
+      "unblock_condition": "Construct E in D^b(A_gen) (or an algebraic family of such objects) and prove that the exceptional projection of ch_3(E) to W_K(A_gen) is nonzero; two independent classes or K-action then suffice to span W_K."
+    },
+    {
+      "missing_object": "SEMIREGULARITY_DATA_FOR_A_FRONTIER_SOURCE_OBJECT",
+      "owner": "Ext/deformation package of the as-yet-unconstructed E",
+      "status": "CONDITIONALLY_AVAILABLE_THEORY / UNINSTANTIATED",
+      "necessity": "Standard semiregularity maps can propagate characteristic classes only after a candidate object and its deformation theory are specified.",
+      "unblock_condition": "After constructing E, compute Ext^1(E,E), Ext^2(E,E), the relevant trace/semiregularity maps and prove the needed annihilation/cancellation statement."
+    },
+    {
+      "missing_object": "DEFORMATION_PATH_FROM_SPLIT_CONTROL_TO_TARGET_COMPONENT",
+      "owner": "polarized Weil-type moduli",
+      "status": "PROVABLY_ABSENT",
+      "necessity": "The known mechanism deforms algebraic characteristic classes within a connected component; the discriminant is a discrete component invariant.",
+      "unblock_condition": "Not unblockable by ordinary deformation. One needs a different algebraic correspondence/source object already living on the [-3] component."
+    }
+  ],
+  "non_defects": [
+    {
+      "object": "WEIL_HODGE_CARRIER",
+      "status": "AVAILABLE",
+      "note": "W_K(A_gen) is exactly typed, two-dimensional over Q and of Hodge type (3,3)."
+    },
+    {
+      "object": "STANDARD_SEMIREGULARITY_THEORY",
+      "status": "AVAILABLE_AS_SOURCE_THEORY",
+      "note": "The theory itself is not the missing innovation; the missing item is a frontier object with the correct exceptional characteristic class. Any use of standard semiregularity counts as source baseline, not Enterprise attribution."
+    },
+    {
+      "object": "MUMFORD_TATE / HODGE STATUS_OF_WK",
+      "status": "AVAILABLE_BUT_INSUFFICIENT",
+      "note": "Hodge or absolute-Hodge status does not imply algebraicity and cannot replace a cycle/sheaf construction."
+    }
+  ],
+  "classification": "SPLIT_SOURCE_GEOMETRY_FAILS_AT_DISCRIMINANT_WITT_GATE__FRONTIER_OBJECT_MISSING"
+}
