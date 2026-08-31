@@ -429,7 +429,12 @@
       "taskbook_path": "research_tasks/P000_BACKGROUND_S4_EQUIVARIANCE_GATE_V17_20260830.md",
       "taskbook_blob_sha1": "sha1:87703ec6cf4b2b74c5479ffc27336fcece7bdc7f",
       "allowed_task_record_audit_errors": [
-        "missing/invalid taskbook_blob_sha1"
+        "taskbook blob drift",
+        "mandatory body section is missing or empty: Mother question",
+        "mandatory body section is missing or empty: Frozen inputs and scope",
+        "mandatory body section is missing or empty: Hard target and required outputs",
+        "mandatory body section is missing or empty: Research value to preserve",
+        "mandatory body section is missing or empty: Success, kill, and return criteria"
       ],
       "working_truth_granted": false,
       "foundation_authority_granted": false,
@@ -439,7 +444,10 @@
       "nonoperational_basis": "DIRECTLY_SUPERSEDED_SAME_TASK",
       "operational": false,
       "history_preserved": true,
-      "operational_publication_selected": false
+      "operational_publication_selected": false,
+      "allowed_publication_envelope_errors": [
+        "missing/invalid taskbook_blob_sha1"
+      ]
     },
     {
       "quarantine_id": "TRAQ-ENVELOPE-TP2-AA2BF67633F3F44D0D87",
@@ -522,7 +530,8 @@
       "taskbook_path": "research_tasks/P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18_20260831.md",
       "taskbook_blob_sha1": "sha1:182f80c28f8a1394b629b56f59c5fb88b33b4217",
       "allowed_task_record_audit_errors": [
-        "missing/invalid taskbook_blob_sha1"
+        "taskbook blob drift",
+        "taskbook parse failed: missing ENTERPRISE_MATH_TASK_V1 frontmatter"
       ],
       "working_truth_granted": false,
       "foundation_authority_granted": false,
@@ -532,7 +541,10 @@
       "nonoperational_basis": "TASK_BLOCKED_BY_PUBLICATION_FORK_QUARANTINE",
       "operational": false,
       "history_preserved": true,
-      "operational_publication_selected": false
+      "operational_publication_selected": false,
+      "allowed_publication_envelope_errors": [
+        "missing/invalid taskbook_blob_sha1"
+      ]
     },
     {
       "quarantine_id": "TRAQ-ENVELOPE-TP2-91C7E4A25D0B638F4E1A",
