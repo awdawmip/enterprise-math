@@ -25,7 +25,7 @@
   "final_response_identity_policy": "INHERIT_GLOBAL",
   "identity_lane": "NCASOT1",
   "origin_kind": "DRIVER_REVIEW_FOLLOWUP",
-  "task_lineage": "MATHEMATICAL_CONTINUATION",
+  "task_lineage": "CONTINUATION",
   "parent_task_id": "RS-N-COUPLED-SCALAR-CLEAN-NONAUTOMORPHIC-FITTING-SUPPORT-CHANGE",
   "successor_gate": {
     "new_information_gap": "Leaving unimodular transport is necessary but insufficient: once one-sided support is materialized as an explicit finite integer presentation, determinantal divisors canonically expose a proper gcd. The unresolved capability is a typed support state that delays such scalarization by semantics until the declared readout boundary.",
@@ -46,42 +46,38 @@
 
 # N-coupled opaque/lazy typed support scalarization delay
 
-## Hard target
+## Mother question
+
+Can a public `N`-only, factor-blind process carry a genuinely one-sided hidden support distinction in a typed state while the interface itself prevents any canonical scalar support witness from becoming available until a declared readout boundary, or does every precise candidate still reduce to explicit presentation or a classical factor-revealing mechanism?
+
+## Frozen inputs and scope
+
+Use the accepted `G_hist-U` unimodular invariance theorem, the accepted `G_exp-Fit` explicit-presentation scalarization theorem, and the reviewed non-ring prior-art mechanism map as frozen controls. The new carrier must be genuinely outside the class of pre-readout states materialized as explicit finite integer presentation matrices. Opacity must be semantic/interface-level, not an implementation choice to skip available computations.
+
+No hidden `p,q`, factor-aware selector, candidate-prime schedule, manually supplied CRT idempotent, proper-gcd branch, or named hidden place is admissible before readout.
+
+## Hard target and required outputs
+
+Hard target:
 
 `OPAQUE_TYPED_SUPPORT_ASYMMETRY_WITH_DELAYED_SCALARIZATION_CONSTRUCTED_OR_EXACTLY_OBSTRUCTED`.
 
-Freeze one exact public `N`-only, factor-blind typed carrier and observation interface that is outside the accepted explicit finite-presentation class. The carrier must support a genuinely non-automorphic support-changing operation. A positive result must exhibit a one-sided hidden-channel support event while every scalar observation **allowed before the declared readout boundary** satisfies `gcd(N,s) in {1,N}`; scalarization may occur only at the declared readout.
+Freeze one exact typed carrier, its constructors/transformations, all pre-readout observations, and the readout/collapse map. A positive result must produce a one-sided hidden-channel support event while every scalar observation allowed before readout satisfies `gcd(N,s) in {1,N}`, with scalarization occurring only at the declared readout.
 
-A negative result must prove that the frozen typed grammar still admits an effective pre-readout presentation/support scalarization or reduces to an already-classified mechanism, and must identify the smallest surviving capability rather than generalize to all implicit computation.
+A negative result must prove that the frozen grammar admits an effective pre-readout finite presentation/support scalarization or reduces to an already-classified mechanism, and must name the smallest surviving capability rather than generalize to all implicit computation.
 
-## Mandatory representation audit
+The representation audit must explicitly test whether one can reconstruct before readout a finite presentation, basis, relation matrix, annihilator, determinant/minor family, Fitting generator, Smith data, resultant, norm, trace, order, or equivalent scalar support witness.
 
-The task must declare, not merely assume:
+## Research value to preserve
 
-- the concrete type of the support-bearing state;
-- which operations construct and transform it;
-- which observations are available before readout;
-- the exact readout/collapse map;
-- whether a finite presentation, basis, relation matrix, annihilator, determinant/minor family, Fitting ideal generator, Smith data, resultant, norm, trace, order or other scalar support witness can be effectively reconstructed before readout.
+The preceding result proved that **support change is not support hiding**: non-automorphic projection can create one-sided Fitting support, yet the moment the resulting finite presentation is explicit, a determinantal gcd reveals the factor. This task preserves the only justified residue beyond that theorem—the boundary between typed support semantics and public scalarization—without returning to generic non-ring syntax.
 
-If an effective canonical finite integer presentation is available before readout, immediately apply the accepted `G_exp-Fit` scalarization theorem and classify the route as obstructed. “The implementation chooses not to compute the minors” is not opacity.
+## Success, kill, and return criteria
 
-## Mandatory mechanism firewall
+Success: a precise typed interface with a symbolic proof that one-sided support exists while no allowed pre-readout scalar leaks a proper factor, plus an adversarial proof that the accepted explicit-presentation theorem cannot be invoked before readout.
 
-Compare exact input, state, stopping event and extraction step against:
+Kill: an effective canonical finite presentation or equivalent support scalar is recoverable before readout; then apply `G_exp-Fit`. Also kill any route equivalent to group-order/smoothness, collision/cycle, congruence-of-squares/relation, named-prime p-adic lifting, or a direct nonunit/idempotent/root endpoint.
 
-- Pollard p-1 / Williams p+1 / ECM group-order or smoothness mechanisms;
-- Pollard rho collision/cycle mechanisms;
-- Fermat/Lehman/Hart and CFRAC/Dixon/QS/NFS congruence-of-squares or relation mechanisms;
-- named-prime p-adic/Hensel lifting;
-- direct zero-divisor, nonunit, idempotent or nontrivial-root gcd endpoints.
+Reject as insufficient: black-box terminology, implementation secrecy, finite hit rates, or simply declining to compute available minors.
 
-No hidden `p,q`, factor-aware selector, candidate-prime schedule, manually supplied CRT idempotent, or proper-gcd branch is admissible before the declared readout.
-
-## Regression firewalls
-
-The accepted `G_hist-U` unimodular invariance theorem and `G_exp-Fit` explicit-presentation scalarization theorem are mandatory kill controls. Finite hit rates, inability of one implementation to materialize a presentation, or black-box nomenclature are not proof of semantic opacity.
-
-## Required evidence
-
-Freeze the exact typed grammar and observation contract, the symbolic construction/no-go at the declared scope, deterministic exact checks for finite claims, execution provenance, and a NEW Result-ID with complete Git-blob SHA-1 plus SHA-256 bindings. A positive result must include an adversarial effective-presentation attack showing why the accepted explicit-presentation theorem cannot be invoked before readout.
+Return a NEW Result-ID with the exact typed grammar/observation contract, symbolic construction or no-go, deterministic checks for finite claims, execution provenance, and complete Git-blob SHA-1 plus SHA-256 bindings for every frozen output.
