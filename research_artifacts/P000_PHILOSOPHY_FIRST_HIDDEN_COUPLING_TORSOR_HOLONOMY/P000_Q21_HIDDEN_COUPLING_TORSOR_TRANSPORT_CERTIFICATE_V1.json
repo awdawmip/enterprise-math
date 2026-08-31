@@ -1,0 +1,134 @@
+{
+  "schema": "P000_Q21_HIDDEN_COUPLING_TORSOR_TRANSPORT_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-HIDDEN-COUPLING-TORSOR-HOLONOMY",
+  "publication_id": "TP2-63EAE67028FD810C3748",
+  "claim_id": "chatgpt-phq21-20260831-1241-9c4e12",
+  "researcher_id": "EM-PHQ21-9C4E12",
+  "hard_target": "P000_HIDDEN_COUPLING_TORSOR_TRANSPORT_OR_NO_NEW_INVARIANT_CLASSIFIED",
+  "terminal_class": "TORSOR_TRANSPORT_REDUCES_TO_STATIC_Q18_DATA",
+  "controlling_input": {
+    "result_id": "RR-5137B2C5D070E4CEA95E",
+    "return_path": "research_returns/P000_PHILOSOPHY_FIRST_HIDDEN_CARRIER_BRIDGE_CANONICALITY_RETURN_20260831.md",
+    "checker_path": "research_checks/P000_PHILOSOPHY_FIRST_HIDDEN_CARRIER_BRIDGE_CANONICALITY_CHECK_20260831.py",
+    "primitive_change_group_order": 1152
+  },
+  "finite_transport": {
+    "schema": "P000_Q21_HIDDEN_COUPLING_TORSOR_TRANSPORT_CHECK_V1",
+    "status": "PASS",
+    "hard_target": "P000_HIDDEN_COUPLING_TORSOR_TRANSPORT_OR_NO_NEW_INVARIANT_CLASSIFIED",
+    "terminal_class": "TORSOR_TRANSPORT_REDUCES_TO_STATIC_Q18_DATA",
+    "primitive_change_group": {
+      "description": "Aut(HiddenBalance3) x induced carrier S4, using the exact Q18 bridge-free primitive automorphisms",
+      "order": 1152,
+      "hidden_order": 48,
+      "carrier_order": 24
+    },
+    "full_bridge_24_state_groupoid": {
+      "choice_states": 24,
+      "group_order": 1152,
+      "stabilizer_order": 48,
+      "kernel_order": 2,
+      "groupoid_arrow_count": 27648,
+      "loop_arrow_count": 1152,
+      "hom_count_between_each_ordered_pair": 48,
+      "all_static_isotropy_realizable_by_two_edge_excursion": true,
+      "closed_path_product_exactly_stabilizer": true,
+      "gauge_change_is_stabilizer_conjugacy": true,
+      "choice_object_loop_action": "IDENTITY_ON_BASE_CHOICE",
+      "reference_state_index": 0,
+      "excursion_state_index": 1,
+      "minimal_state_changing_loop_length": 2,
+      "example_excursion": {
+        "first_arrow": {
+          "hidden_perm8": [0,1,2,3,4,5,6,7],
+          "hidden_fibre_perm4": [0,1,2,3],
+          "carrier_perm4": [0,1,3,2],
+          "order": 2
+        },
+        "second_arrow": {
+          "hidden_perm8": [0,1,5,6,7,2,3,4],
+          "hidden_fibre_perm4": [0,1,3,2],
+          "carrier_perm4": [0,1,2,3],
+          "order": 2
+        },
+        "composite_isotropy": {
+          "hidden_perm8": [0,1,5,6,7,2,3,4],
+          "hidden_fibre_perm4": [0,1,3,2],
+          "carrier_perm4": [0,1,3,2],
+          "order": 2
+        }
+      }
+    },
+    "block_orientation_6_state_groupoid": {
+      "choice_states": 6,
+      "group_order": 1152,
+      "stabilizer_order": 192,
+      "kernel_order": 8,
+      "groupoid_arrow_count": 6912,
+      "loop_arrow_count": 1152,
+      "hom_count_between_each_ordered_pair": 192,
+      "all_static_isotropy_realizable_by_two_edge_excursion": true,
+      "closed_path_product_exactly_stabilizer": true,
+      "gauge_change_is_stabilizer_conjugacy": true,
+      "choice_object_loop_action": "IDENTITY_ON_BASE_CHOICE",
+      "reference_state_index": 0,
+      "excursion_state_index": 1,
+      "minimal_state_changing_loop_length": 2,
+      "example_excursion": {
+        "first_arrow": {
+          "hidden_perm8": [0,1,2,3,4,5,6,7],
+          "hidden_fibre_perm4": [0,1,2,3],
+          "carrier_perm4": [0,1,3,2],
+          "order": 2
+        },
+        "second_arrow": {
+          "hidden_perm8": [0,1,2,3,4,5,6,7],
+          "hidden_fibre_perm4": [0,1,2,3],
+          "carrier_perm4": [1,0,2,3],
+          "order": 2
+        },
+        "composite_isotropy": {
+          "hidden_perm8": [0,1,2,3,4,5,6,7],
+          "hidden_fibre_perm4": [0,1,2,3],
+          "carrier_perm4": [1,0,3,2],
+          "order": 2
+        }
+      }
+    },
+    "reduction_theorem": {
+      "path_composition": "Every legal path composes to one element g of the same primitive change group G.",
+      "closed_loop_criterion": "A path at object x is closed iff its composite lies in Stab_G(x).",
+      "two_edge_surjectivity": "For any a in Stab_G(x) and any state-changing g, the loop g then a*g^-1 has composite a.",
+      "gauge_rule": "Changing base object by k conjugates Stab_G(x) to k Stab_G(x) k^-1.",
+      "consequence": "The action groupoid is a transitive presentation of the already-known stabilizer; no proper holonomy subset, cocycle, or path residue is selected without adding extra non-primitive path/connection data."
+    },
+    "comparison": {
+      "same_transport_pattern": true,
+      "24_state_difference": "static stabilizer order 48, carrier kernel 2",
+      "6_state_difference": "static stabilizer order 192, carrier kernel 8",
+      "choice_cardinality_creates_new_path_invariant": false
+    },
+    "continuation_gate": {
+      "new_loop_invariant_found": false,
+      "extra_legal_model_change_generators_supplied_by_Q18": false,
+      "inventing_extra_arrows_allowed": false,
+      "kill_transport_upgrade": true
+    }
+  },
+  "interpretation": {
+    "nonidentity_closed_arrows_exist": true,
+    "new_path_dependent_invariant_exists": false,
+    "reason": "Every legal path is a word in the same Q18 primitive automorphism group and composes to one group element. Closed words are exactly the static isotropy/stabilizer, and every stabilizer element already occurs as a two-edge excursion. Gauge change only conjugates that stabilizer.",
+    "additional_connection_or_path_labels_required_for_nontrivial_new_holonomy": true,
+    "such_additional_data_present_in_q18": false,
+    "such_additional_data_may_be_invented_under_task_scope": false
+  },
+  "ontology_boundary": {
+    "P000_unchanged": true,
+    "q18_certificate_group_names_are_presentations_only": true,
+    "no_bundle_sheaf_stack_or_connection_promoted": true,
+    "no_q12_comparison_triggered_because_new_coupling_holonomy_not_found": true,
+    "working_truth_or_foundation_promotion": false
+  },
+  "method_reuse_resolution": "REUSE_APPLIED"
+}
