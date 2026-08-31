@@ -1,0 +1,56 @@
+{
+  "block_b_candidates": [
+    {
+      "candidate_id": "B1-TRANSFER-INVENTORY-BALANCE-CLOSURE",
+      "empirical_rows": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ],
+      "factored_dependencies": [
+        "mass/volume/time units and standard-volume reference conditions",
+        "liquid buoyancy and weighing calibration",
+        "gas tank-volume/pressure/temperature/density realization",
+        "meter-factor and unit-conversion formulas"
+      ],
+      "proposed_pressure_type": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "tests": {
+        "calculated_output_only": "NO: both rows contain independently sampled receiving-system state/mass change and transfer/meter observations; derived flow units are not counted.",
+        "convention_or_normalization_only": "NO: the residual survives arbitrary coherent unit rescaling.",
+        "independent_operational_residual": "YES: receiving inventory increment and through-boundary transfer agree over controlled intervals across liquid gravimetric and gas PVTt realizations.",
+        "renamed_inherited_pressure": "NO: none of the four inherited labels expresses inventory change versus through-boundary transfer; gas geometric calibration is not sufficient because the liquid realization survives without it."
+      },
+      "verdict": "RETAIN_NEW_INDEPENDENT_PRESSURE"
+    },
+    {
+      "candidate_id": "B2-SOURCE-RECEIVER-INTERCHANGE-RECIPROCITY",
+      "empirical_rows": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ],
+      "factored_dependencies": [
+        "decibel/logarithmic normalization",
+        "V/Pa sensitivity or antenna gain conventions",
+        "coupler/separation geometry corrections",
+        "frequency and distance units"
+      ],
+      "proposed_pressure_type": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "tests": {
+        "calculated_output_only": "NO: the inputs are pairwise received-signal/voltage-ratio measurements under physical role permutations; solved sensitivities/gains are downstream and not counted.",
+        "convention_or_normalization_only": "NO: converting dB to any monotone/linear amplitude representation leaves the interchange compatibility test intact.",
+        "independent_operational_residual": "YES: pairwise transfer remains compatible under role interchange in both acoustic couplers and RF antenna extrapolation.",
+        "renamed_inherited_pressure": "NO: the surviving relation is source/receiver role interchange symmetry across directed pair transfers; it does not require cycle/phase closure and is realized with amplitude/voltage/gain observations."
+      },
+      "verdict": "RETAIN_NEW_INDEPENDENT_PRESSURE"
+    }
+  ],
+  "freeze_timestamp_utc": "2026-08-13T02:40:42Z",
+  "quotient_summary": {
+    "killed_count": 0,
+    "negative_result_allowed_but_not_triggered": true,
+    "retained_count": 2,
+    "searched_candidate_count": 2
+  },
+  "researcher_id": "EM-R049-6D82B4",
+  "schema": "ENTERPRISE_MATH_R049_DEPENDENCY_QUOTIENT_V1",
+  "task_id": "RS-R049-CANDIDATE-BLIND-INDEPENDENT-ENGINEERING-HOLDOUT-CONSTRUCTION"
+}

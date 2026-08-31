@@ -1,0 +1,284 @@
+{
+  "cross_family_dependency_notes": [
+    {
+      "from": "A3-DR-FDTR-PUMP-PROBE",
+      "quotient_result": "FDTR uses phase as a readout carrier, but its surviving residual is the material- and frequency-dependent delayed-response curve; a single phase relation is insufficient to generate it.",
+      "relation": "output_carrier_only",
+      "to": "CYCLE_CLOSURE_AND_RELATIVE_PHASE"
+    },
+    {
+      "from": "B1B-TIBC-GAS-PVTT",
+      "quotient_result": "gas PVTt uses calibrated tank volume, but the liquid dynamic-gravimetric realization supplies the same inventory-transfer residual without tank-volume geometry; geometry therefore does not generate the shared B1 residual.",
+      "relation": "calibration_dependency_only",
+      "to": "GEOMETRIC_MEASURE_COHERENCE"
+    },
+    {
+      "from": "B2A/B2B",
+      "quotient_result": "the retained reciprocity residual can be expressed using amplitude/received-signal compatibility under source/receiver interchange; phase-loop closure is not required.",
+      "relation": "not_required",
+      "to": "CYCLE_CLOSURE_AND_RELATIVE_PHASE"
+    }
+  ],
+  "freeze_timestamp_utc": "2026-08-13T02:40:42Z",
+  "nodes": [
+    {
+      "id": "A1_MEASURED",
+      "row": "A1-GMC-M48-STEP-GAGE",
+      "type": "MEASURED_OUTPUT"
+    },
+    {
+      "depends_on": [
+        "A1_MEASURED",
+        "SI_METRE",
+        "CMM_FRAME",
+        "THERMAL_PROBE_CORRECTIONS"
+      ],
+      "id": "A1_EFFECTIVE_LENGTH",
+      "type": "EFFECTIVE_REPRESENTATION"
+    },
+    {
+      "depends_on": [
+        "A1_MEASURED"
+      ],
+      "id": "A1_RESIDUAL",
+      "quotients": [
+        "SI_METRE",
+        "CMM_FRAME"
+      ],
+      "type": "DEFINITION_STRIPPED_RESIDUAL"
+    },
+    {
+      "id": "A2_MEASURED",
+      "row": "A2-CCRP-PMU-PHASE",
+      "type": "MEASURED_OUTPUT"
+    },
+    {
+      "depends_on": [
+        "A2_MEASURED",
+        "ANGLE_UNIT",
+        "CYCLE_ORIGIN",
+        "UTC_TIMESTAMP",
+        "PHASOR_NORM"
+      ],
+      "id": "A2_EFFECTIVE_PHASE",
+      "type": "EFFECTIVE_REPRESENTATION"
+    },
+    {
+      "depends_on": [
+        "A2_MEASURED"
+      ],
+      "id": "A2_RESIDUAL",
+      "quotients": [
+        "ANGLE_UNIT",
+        "CYCLE_ORIGIN",
+        "PHASOR_NORM"
+      ],
+      "type": "DEFINITION_STRIPPED_RESIDUAL"
+    },
+    {
+      "id": "A3_MEASURED",
+      "row": "A3-DR-FDTR-PUMP-PROBE",
+      "type": "MEASURED_OUTPUT"
+    },
+    {
+      "depends_on": [
+        "A3_MEASURED",
+        "MULTILAYER_DIFFUSION_MODEL",
+        "TRANSDUCER_INPUTS"
+      ],
+      "id": "A3_FITTED_THERMAL",
+      "type": "CALCULATED_OUTPUT"
+    },
+    {
+      "depends_on": [
+        "A3_MEASURED"
+      ],
+      "id": "A3_RESIDUAL",
+      "quotients": [
+        "ANGLE_UNIT",
+        "REFERENCE_PHASE_CONVENTION"
+      ],
+      "type": "DEFINITION_STRIPPED_RESIDUAL"
+    },
+    {
+      "id": "A4_MEASURED",
+      "row": "A4-BMS-CAVITY-VNA",
+      "type": "MEASURED_OUTPUT"
+    },
+    {
+      "depends_on": [
+        "A4_MEASURED",
+        "RESONANCE_FIT_MODEL"
+      ],
+      "id": "A4_F0_Q",
+      "type": "CALCULATED_OUTPUT"
+    },
+    {
+      "depends_on": [
+        "A4_F0_Q",
+        "CAVITY_GEOMETRY_MODEL",
+        "MODE_LABELS"
+      ],
+      "id": "A4_PERMITTIVITY_LOSS",
+      "type": "CALCULATED_OUTPUT"
+    },
+    {
+      "depends_on": [
+        "A4_MEASURED"
+      ],
+      "id": "A4_RESIDUAL",
+      "quotients": [
+        "FREQUENCY_UNIT",
+        "MODE_LABELS",
+        "S_PARAMETER_NORMALIZATION"
+      ],
+      "type": "DEFINITION_STRIPPED_RESIDUAL"
+    },
+    {
+      "id": "B1A_MEASURED",
+      "row": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "type": "MEASURED_OUTPUT"
+    },
+    {
+      "id": "B1B_MEASURED",
+      "row": "B1B-TIBC-GAS-PVTT",
+      "type": "MEASURED_OUTPUT"
+    },
+    {
+      "depends_on": [
+        "TANK_VOLUME_CALIBRATION"
+      ],
+      "id": "B1_GAS_GEOMETRY_DEP",
+      "note": "present only in gas realization; not required by liquid realization",
+      "type": "DEPENDENCY"
+    },
+    {
+      "depends_on": [
+        "B1A_MEASURED",
+        "B1B_MEASURED"
+      ],
+      "id": "B1_RESIDUAL",
+      "quotients": [
+        "FLOW_UNITS",
+        "MASS_VOLUME_UNIT_CONVERSION",
+        "TANK_GEOMETRY_FOR_GAS_REALIZATION"
+      ],
+      "type": "DEFINITION_STRIPPED_RESIDUAL"
+    },
+    {
+      "id": "B2A_MEASURED",
+      "row": "B2A-SRIR-MIC-RECIP",
+      "type": "MEASURED_OUTPUT"
+    },
+    {
+      "id": "B2B_MEASURED",
+      "row": "B2B-SRIR-ANTENNA-3PAIR",
+      "type": "MEASURED_OUTPUT"
+    },
+    {
+      "depends_on": [
+        "B2A_MEASURED",
+        "B2B_MEASURED"
+      ],
+      "id": "B2_RESIDUAL",
+      "quotients": [
+        "DECIBEL_NORMALIZATION",
+        "SENSITIVITY_OR_GAIN_UNITS",
+        "COUPLER_OR_SEPARATION_MODEL"
+      ],
+      "type": "DEFINITION_STRIPPED_RESIDUAL"
+    },
+    {
+      "id": "SI_METRE",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "CMM_FRAME",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "THERMAL_PROBE_CORRECTIONS",
+      "type": "CALIBRATION_DEPENDENCY"
+    },
+    {
+      "id": "ANGLE_UNIT",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "CYCLE_ORIGIN",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "UTC_TIMESTAMP",
+      "type": "CALIBRATION_DEPENDENCY"
+    },
+    {
+      "id": "PHASOR_NORM",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "MULTILAYER_DIFFUSION_MODEL",
+      "type": "CLASSICAL_MODEL"
+    },
+    {
+      "id": "TRANSDUCER_INPUTS",
+      "type": "CALIBRATION_DEPENDENCY"
+    },
+    {
+      "id": "REFERENCE_PHASE_CONVENTION",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "RESONANCE_FIT_MODEL",
+      "type": "CLASSICAL_MODEL"
+    },
+    {
+      "id": "CAVITY_GEOMETRY_MODEL",
+      "type": "CLASSICAL_MODEL"
+    },
+    {
+      "id": "MODE_LABELS",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "FREQUENCY_UNIT",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "S_PARAMETER_NORMALIZATION",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "FLOW_UNITS",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "MASS_VOLUME_UNIT_CONVERSION",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "TANK_VOLUME_CALIBRATION",
+      "type": "CALIBRATION_DEPENDENCY"
+    },
+    {
+      "id": "TANK_GEOMETRY_FOR_GAS_REALIZATION",
+      "type": "CALIBRATION_DEPENDENCY"
+    },
+    {
+      "id": "DECIBEL_NORMALIZATION",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "SENSITIVITY_OR_GAIN_UNITS",
+      "type": "CONVENTION"
+    },
+    {
+      "id": "COUPLER_OR_SEPARATION_MODEL",
+      "type": "CLASSICAL_MODEL"
+    }
+  ],
+  "researcher_id": "EM-R049-6D82B4",
+  "schema": "ENTERPRISE_MATH_R049_DEPENDENCY_GRAPH_V1",
+  "stratum_rule": "All classical/effective representations below are target-side N2/N3/readout descriptions. None is promoted to N0.",
+  "task_id": "RS-R049-CANDIDATE-BLIND-INDEPENDENT-ENGINEERING-HOLDOUT-CONSTRUCTION"
+}
