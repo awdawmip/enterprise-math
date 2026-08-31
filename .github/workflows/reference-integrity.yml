@@ -72,8 +72,8 @@ jobs:
         run: python control_plane/research_task_record_audit_fault_isolation.py
       - name: Check immutable publications, operational selection, and fault-isolated dispatch view
         run: python control_plane/check_publication_fault_isolation.py
-      - name: Check immutable execution intents
-        run: python tools/research_execution_records.py audit
+      - name: Check immutable execution intents with exact nonlive audit isolation
+        run: python control_plane/research_execution_record_audit_fault_isolation.py
       - name: Check legacy scheduler cutover is frozen
         run: python tools/check_task_registry_cutover.py
       - name: Check immutable result records and exact stale review bindings
