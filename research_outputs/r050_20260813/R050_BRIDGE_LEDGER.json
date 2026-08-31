@@ -1,0 +1,630 @@
+{
+  "bridge_class_counts": {
+    "B1_UNIFORM_READOUT": 16,
+    "B3_TARGET_SPECIFIC_ADAPTER": 18,
+    "B4_ILLEGAL_LEAKAGE": 14
+  },
+  "candidate_summary": {
+    "G2-M1": {
+      "B3_pressure_adapter_schema_count": 1,
+      "B3_pressure_families": [
+        "GEOMETRIC_MEASURE_COHERENCE"
+      ],
+      "E4_cells": 0,
+      "E5_cells": 0,
+      "bridge_class_counts": {
+        "B1_UNIFORM_READOUT": 5,
+        "B3_TARGET_SPECIFIC_ADAPTER": 1,
+        "B4_ILLEGAL_LEAKAGE": 2
+      }
+    },
+    "G2-M2": {
+      "B3_pressure_adapter_schema_count": 3,
+      "B3_pressure_families": [
+        "GEOMETRIC_MEASURE_COHERENCE",
+        "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+        "TRANSFER_INVENTORY_BALANCE_CLOSURE"
+      ],
+      "E4_cells": 0,
+      "E5_cells": 0,
+      "bridge_class_counts": {
+        "B1_UNIFORM_READOUT": 1,
+        "B3_TARGET_SPECIFIC_ADAPTER": 5,
+        "B4_ILLEGAL_LEAKAGE": 2
+      }
+    },
+    "G2-M3": {
+      "B3_pressure_adapter_schema_count": 1,
+      "B3_pressure_families": [
+        "BOUNDED_MODE_SPECTRUM"
+      ],
+      "E4_cells": 0,
+      "E5_cells": 0,
+      "bridge_class_counts": {
+        "B1_UNIFORM_READOUT": 1,
+        "B3_TARGET_SPECIFIC_ADAPTER": 1,
+        "B4_ILLEGAL_LEAKAGE": 6
+      }
+    },
+    "G2-M4": {
+      "B3_pressure_adapter_schema_count": 1,
+      "B3_pressure_families": [
+        "TRANSFER_INVENTORY_BALANCE_CLOSURE"
+      ],
+      "E4_cells": 0,
+      "E5_cells": 0,
+      "bridge_class_counts": {
+        "B1_UNIFORM_READOUT": 3,
+        "B3_TARGET_SPECIFIC_ADAPTER": 2,
+        "B4_ILLEGAL_LEAKAGE": 3
+      }
+    },
+    "G2-M5": {
+      "B3_pressure_adapter_schema_count": 6,
+      "B3_pressure_families": [
+        "BOUNDED_MODE_SPECTRUM",
+        "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+        "DIFFUSIVE_RELAXATION",
+        "GEOMETRIC_MEASURE_COHERENCE",
+        "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+        "TRANSFER_INVENTORY_BALANCE_CLOSURE"
+      ],
+      "E4_cells": 0,
+      "E5_cells": 0,
+      "bridge_class_counts": {
+        "B3_TARGET_SPECIFIC_ADAPTER": 8
+      }
+    },
+    "G2-M6": {
+      "B3_pressure_adapter_schema_count": 1,
+      "B3_pressure_families": [
+        "BOUNDED_MODE_SPECTRUM"
+      ],
+      "E4_cells": 0,
+      "E5_cells": 0,
+      "bridge_class_counts": {
+        "B1_UNIFORM_READOUT": 6,
+        "B3_TARGET_SPECIFIC_ADAPTER": 1,
+        "B4_ILLEGAL_LEAKAGE": 1
+      }
+    }
+  },
+  "entries": [
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M1",
+      "cell_id": "G2-M1::A1-GMC-M48-STEP-GAGE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "realization_specific_metrology_constant_count": 2,
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M1",
+      "cell_id": "G2-M1::A2-CCRP-PMU-PHASE",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M1",
+      "cell_id": "G2-M1::A3-DR-FDTR-PUMP-PROBE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M1",
+      "cell_id": "G2-M1::A4-BMS-CAVITY-VNA",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M1",
+      "cell_id": "G2-M1::B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "evidence_level": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 4,
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "verdict": "STRUCTURAL_PASS"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M1",
+      "cell_id": "G2-M1::B1B-TIBC-GAS-PVTT",
+      "evidence_level": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 5,
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "verdict": "STRUCTURAL_PASS"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M1",
+      "cell_id": "G2-M1::B2A-SRIR-MIC-RECIP",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M1",
+      "cell_id": "G2-M1::B2B-SRIR-ANTENNA-3PAIR",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 4,
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M2",
+      "cell_id": "G2-M2::A1-GMC-M48-STEP-GAGE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "realization_specific_metrology_constant_count": 2,
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M2",
+      "cell_id": "G2-M2::A2-CCRP-PMU-PHASE",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M2",
+      "cell_id": "G2-M2::A3-DR-FDTR-PUMP-PROBE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M2",
+      "cell_id": "G2-M2::A4-BMS-CAVITY-VNA",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M2",
+      "cell_id": "G2-M2::B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 4,
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M2",
+      "cell_id": "G2-M2::B1B-TIBC-GAS-PVTT",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 5,
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M2",
+      "cell_id": "G2-M2::B2A-SRIR-MIC-RECIP",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M2",
+      "cell_id": "G2-M2::B2B-SRIR-ANTENNA-3PAIR",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 4,
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M3",
+      "cell_id": "G2-M3::A1-GMC-M48-STEP-GAGE",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M3",
+      "cell_id": "G2-M3::A2-CCRP-PMU-PHASE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "realization_specific_metrology_constant_count": 2,
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M3",
+      "cell_id": "G2-M3::A3-DR-FDTR-PUMP-PROBE",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M3",
+      "cell_id": "G2-M3::A4-BMS-CAVITY-VNA",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M3",
+      "cell_id": "G2-M3::B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M3",
+      "cell_id": "G2-M3::B1B-TIBC-GAS-PVTT",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M3",
+      "cell_id": "G2-M3::B2A-SRIR-MIC-RECIP",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M3",
+      "cell_id": "G2-M3::B2B-SRIR-ANTENNA-3PAIR",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M4",
+      "cell_id": "G2-M4::A1-GMC-M48-STEP-GAGE",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M4",
+      "cell_id": "G2-M4::A2-CCRP-PMU-PHASE",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M4",
+      "cell_id": "G2-M4::A3-DR-FDTR-PUMP-PROBE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M4",
+      "cell_id": "G2-M4::A4-BMS-CAVITY-VNA",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M4",
+      "cell_id": "G2-M4::B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 4,
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M4",
+      "cell_id": "G2-M4::B1B-TIBC-GAS-PVTT",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 5,
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M4",
+      "cell_id": "G2-M4::B2A-SRIR-MIC-RECIP",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M4",
+      "cell_id": "G2-M4::B2B-SRIR-ANTENNA-3PAIR",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 4,
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M5",
+      "cell_id": "G2-M5::A1-GMC-M48-STEP-GAGE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "realization_specific_metrology_constant_count": 2,
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M5",
+      "cell_id": "G2-M5::A2-CCRP-PMU-PHASE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "realization_specific_metrology_constant_count": 2,
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M5",
+      "cell_id": "G2-M5::A3-DR-FDTR-PUMP-PROBE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M5",
+      "cell_id": "G2-M5::A4-BMS-CAVITY-VNA",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M5",
+      "cell_id": "G2-M5::B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 4,
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M5",
+      "cell_id": "G2-M5::B1B-TIBC-GAS-PVTT",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 5,
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M5",
+      "cell_id": "G2-M5::B2A-SRIR-MIC-RECIP",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M5",
+      "cell_id": "G2-M5::B2B-SRIR-ANTENNA-3PAIR",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 4,
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M6",
+      "cell_id": "G2-M6::A1-GMC-M48-STEP-GAGE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "realization_specific_metrology_constant_count": 2,
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M6",
+      "cell_id": "G2-M6::A2-CCRP-PMU-PHASE",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "realization_specific_metrology_constant_count": 2,
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B4_ILLEGAL_LEAKAGE",
+      "candidate_id": "G2-M6",
+      "cell_id": "G2-M6::A3-DR-FDTR-PUMP-PROBE",
+      "evidence_level": "E0_UNMAPPED",
+      "fitted_parameter_count": 0,
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "realization_specific_metrology_constant_count": 0,
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "verdict": "REJECTED_ILLEGAL_OR_UNMAPPED"
+    },
+    {
+      "bridge_class": "B3_TARGET_SPECIFIC_ADAPTER",
+      "candidate_id": "G2-M6",
+      "cell_id": "G2-M6::A4-BMS-CAVITY-VNA",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "verdict": "QUALITATIVE_ONLY_B3_DEBT"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M6",
+      "cell_id": "G2-M6::B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "evidence_level": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 4,
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "verdict": "STRUCTURAL_PASS"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M6",
+      "cell_id": "G2-M6::B1B-TIBC-GAS-PVTT",
+      "evidence_level": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "fitted_parameter_count": 0,
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_metrology_constant_count": 5,
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "verdict": "STRUCTURAL_PASS"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M6",
+      "cell_id": "G2-M6::B2A-SRIR-MIC-RECIP",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 3,
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "verdict": "QUALITATIVE_ONLY"
+    },
+    {
+      "bridge_class": "B1_UNIFORM_READOUT",
+      "candidate_id": "G2-M6",
+      "cell_id": "G2-M6::B2B-SRIR-ANTENNA-3PAIR",
+      "evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "fitted_parameter_count": 0,
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_metrology_constant_count": 4,
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "verdict": "QUALITATIVE_ONLY"
+    }
+  ],
+  "researcher_id": "EM-R050-93B6E2",
+  "rules": {
+    "B3_never_E4_E5": true,
+    "B4_rejected": true,
+    "block_b_per_realization_refit_for_E4_forbidden": true
+  },
+  "schema": "ENTERPRISE_MATH_R050_BRIDGE_LEDGER_V1",
+  "task_id": "RS-R050-G2-OUT-OF-SAMPLE-ENGINEERING-CALIBRATION"
+}

@@ -1,0 +1,74 @@
+{
+  "attacks": [
+    {
+      "attack": "TARGET_MUTATION_AFTER_CANDIDATE_OPEN",
+      "evidence": "R049 aggregate target hash was recomputed after candidate opening and remained e41cc96e...64f0c.",
+      "status": "PASS"
+    },
+    {
+      "attack": "CANDIDATE_CORE_REPAIR",
+      "evidence": "All six canonical candidate hashes match R048 and CORE_EDIT_COUNT=0.",
+      "status": "PASS"
+    },
+    {
+      "attack": "CLASSICAL_PI_NUMERIC_SELECTION",
+      "evidence": "No classical pi numerical value was used in scoring, bridge selection, parameter selection, or candidate comparison.",
+      "status": "PASS"
+    },
+    {
+      "attack": "OUTPUT_DEFINITION_BACKFILL",
+      "evidence": "Mappings that would encode separation, phase, spectrum, transfer balance, or reciprocity outcome into native input/readout were classified B4 or held to E1/B3.",
+      "status": "PASS"
+    },
+    {
+      "attack": "B3_ADAPTER_PROMOTED_TO_SUCCESS",
+      "evidence": "Every B3 cell is E1; no B3 cell receives E2/E3/E4/E5.",
+      "status": "PASS"
+    },
+    {
+      "attack": "TRAINING_RELABELED_AS_HOLDOUT",
+      "evidence": "R049's frozen training-source reuse audit status is preserved; no R050 source is relabeled as independent data.",
+      "status": "PASS_WITH_TOOLING_LIMITATION"
+    },
+    {
+      "attack": "TOLERANCE_INVENTED_WITHOUT_SOURCE",
+      "evidence": "Only R049 source-stated envelopes are copied; no universal or new numerical tolerance is created.",
+      "status": "PASS"
+    },
+    {
+      "attack": "BLOCK_B_PER_REALIZATION_REFIT",
+      "evidence": "No parameter fit occurred. Liquid/gas and microphone/antenna pairs use common pressure-level bridge forms; realization-specific metrology constants are separately counted.",
+      "status": "PASS"
+    },
+    {
+      "attack": "METAPHOR_AS_QUANTITATIVE_EXPLANATION",
+      "evidence": "Mechanism analogies are explicitly E1 and engineering_validation=false.",
+      "status": "PASS"
+    },
+    {
+      "attack": "PARAMETER_EXPLOSION",
+      "evidence": "Fitted parameter count is zero; B3 adapter schemas are counted as debt rather than hidden parameters.",
+      "status": "PASS"
+    },
+    {
+      "attack": "FAILED_ROW_AVERAGED_AWAY",
+      "evidence": "Block-B pressure aggregation takes common support across both rows; no averaging or weighted score.",
+      "status": "PASS"
+    },
+    {
+      "attack": "CROSS_PRESSURE_SHARED_STATE_ASSERTED_WITHOUT_E4",
+      "evidence": "E5 count is zero; shared native-state observations are marked structural only.",
+      "status": "PASS"
+    }
+  ],
+  "candidate_set_sha256": "2e1f85a3faf37a0525364c220f9449caea45408bf6a954c09045bf78646cf959",
+  "classical_pi_numeric_signal_used": false,
+  "core_edit_count": 0,
+  "overall": "PASS_WITH_R049_TRAINING_SOURCE_TOOLING_LIMITATION_PRESERVED",
+  "r049_target_sha256_post_candidate": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+  "r049_target_sha256_pre_candidate": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+  "researcher_id": "EM-R050-93B6E2",
+  "schema": "ENTERPRISE_MATH_R050_TARGET_LEAKAGE_AUDIT_V1",
+  "stage0_protocol_sha256": "322f2e4ba66b4fbc8e47a513867399f9464a62a629af01f23cad6929d7c1d66b",
+  "task_id": "RS-R050-G2-OUT-OF-SAMPLE-ENGINEERING-CALIBRATION"
+}

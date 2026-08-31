@@ -1,0 +1,76 @@
+{
+  "candidate_vectors": {
+    "G2-M1": {
+      "B3_pressure_adapter_schema_count": 1,
+      "B4_rejected_row_count": 2,
+      "E2_pressure_count": 1,
+      "E4_pressure_count": 0,
+      "E5_cross_pressure_count": 0,
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0
+    },
+    "G2-M2": {
+      "B3_pressure_adapter_schema_count": 3,
+      "B4_rejected_row_count": 2,
+      "E2_pressure_count": 0,
+      "E4_pressure_count": 0,
+      "E5_cross_pressure_count": 0,
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0
+    },
+    "G2-M3": {
+      "B3_pressure_adapter_schema_count": 1,
+      "B4_rejected_row_count": 6,
+      "E2_pressure_count": 0,
+      "E4_pressure_count": 0,
+      "E5_cross_pressure_count": 0,
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0
+    },
+    "G2-M4": {
+      "B3_pressure_adapter_schema_count": 1,
+      "B4_rejected_row_count": 3,
+      "E2_pressure_count": 0,
+      "E4_pressure_count": 0,
+      "E5_cross_pressure_count": 0,
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0
+    },
+    "G2-M5": {
+      "B3_pressure_adapter_schema_count": 6,
+      "B4_rejected_row_count": 0,
+      "E2_pressure_count": 0,
+      "E4_pressure_count": 0,
+      "E5_cross_pressure_count": 0,
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0
+    },
+    "G2-M6": {
+      "B3_pressure_adapter_schema_count": 1,
+      "B4_rejected_row_count": 1,
+      "E2_pressure_count": 1,
+      "E4_pressure_count": 0,
+      "E5_cross_pressure_count": 0,
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0
+    }
+  },
+  "pareto_family": [
+    "G2-M1",
+    "G2-M2",
+    "G2-M3",
+    "G2-M4",
+    "G2-M5",
+    "G2-M6"
+  ],
+  "reason": "Every candidate has E4_pressure_count=0 and E5_cross_pressure_count=0. The frozen dominance rule requires a strict E4/E5 advantage before lower debt can establish dominance; therefore no strict dominance edge exists. E2 structural coverage is reported but not used to fabricate a winner.",
+  "researcher_id": "EM-R050-93B6E2",
+  "schema": "ENTERPRISE_MATH_R050_PARETO_FRONTIER_V1",
+  "strict_dominance_edges": [],
+  "strict_dominance_rule_ref": "R050_SCORING_PROTOCOL.json",
+  "strict_winner": null,
+  "structural_nonranking_observation": "G2-M1 and G2-M6 each derive E2 transfer-inventory closure across both Block-B realizations, but this cannot be promoted into engineering validation or a winner under the frozen protocol.",
+  "task_id": "RS-R050-G2-OUT-OF-SAMPLE-ENGINEERING-CALIBRATION",
+  "weighted_total_score_used": false,
+  "winner_status": "NO_STRICT_WINNER"
+}

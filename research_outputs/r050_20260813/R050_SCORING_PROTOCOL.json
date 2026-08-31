@@ -1,0 +1,295 @@
+{
+  "block_b_transfer_rule": {
+    "current_quantitative_transfer_eligibility": "NOT_ELIGIBLE_FOR_E4 because R049 artifacts do not include the realization-level numerical observations required to compute cross-realization residuals.",
+    "e4_requirement": "At least one realization must be genuinely held out from bridge identification; no core edit, bridge semantic redesign, or per-realization B3 refit.",
+    "families": {
+      "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ],
+      "TRANSFER_INVENTORY_BALANCE_CLOSURE": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ]
+    },
+    "preferred_test": "BIDIRECTIONAL_A_TO_B_AND_B_TO_A"
+  },
+  "bridge_classes": [
+    "B0_NATIVE_DIRECT",
+    "B1_UNIFORM_READOUT",
+    "B2_CALIBRATED_METROLOGY_BRIDGE",
+    "B3_TARGET_SPECIFIC_ADAPTER",
+    "B4_ILLEGAL_LEAKAGE"
+  ],
+  "dominance_rule": {
+    "otherwise": "RETURN_PARETO_FAMILY_NO_WINNER",
+    "requirements": [
+      "strictly greater E4 pressure coverage or E5 cross-pressure coverage",
+      "no greater B3/B4 debt",
+      "no greater fitted-parameter debt",
+      "no target leakage",
+      "CORE_EDIT_COUNT = 0"
+    ],
+    "strict_dominance_only": true
+  },
+  "evidence_levels": [
+    "E0_UNMAPPED",
+    "E1_QUALITATIVE_MECHANISM",
+    "E2_EXACT_STRUCTURAL_CONSTRAINT",
+    "E3_QUANTITATIVE_CONSTRUCTION",
+    "E4_QUANTITATIVE_OUT_OF_SAMPLE",
+    "E5_CROSS_PRESSURE_SHARED_EXPLANATION"
+  ],
+  "evidence_rules": {
+    "E0_UNMAPPED": "No legal predictive mapping.",
+    "E1_QUALITATIVE_MECHANISM": "Only mechanism/shape analogy; never engineering validation.",
+    "E2_EXACT_STRUCTURAL_CONSTRAINT": "Exact finite candidate theorem/readout implies the frozen definition-stripped structural target statement, but no engineering-unit quantitative residual is testable.",
+    "E3_QUANTITATIVE_CONSTRUCTION": "Requires numerical measured values and a declared construction subset sufficient to compute a residual under the source envelope. Not available in the frozen R049 artifacts for any row.",
+    "E4_QUANTITATIVE_OUT_OF_SAMPLE": "Requires parameters/bridge frozen on construction data then numerical evaluation on independent holdout conditions/realization against source-stated envelope. Not available in the frozen R049 artifacts for any row.",
+    "E5_CROSS_PRESSURE_SHARED_EXPLANATION": "Requires E4 on at least two independent pressure families under one target-independent bridge schema/shared native state and no per-pressure B3. Therefore ineligible in this R050 run because no row is E4-eligible."
+  },
+  "fitted_parameter_policy": {
+    "B2_allowed_parameter_condition": "Finite, explicitly named, bridge-only parameters estimated solely from a predeclared construction subset with a predeclared estimation rule.",
+    "candidate_core_parameters": "FROZEN_R048_ONLY; no estimation or retuning in R050",
+    "holdout_use_for_fit": "FORBIDDEN",
+    "parameter_explosion_rule": "Every fitted/calibration parameter and every distinct bridge schema is counted; unbounded or row-codebook parameterization is B3.",
+    "per_realization_bridge_semantic_refit_for_block_b": "FORBIDDEN_FOR_E4",
+    "realization_specific_metrology_constants": "Allowed downstream only when source-required; count individually as calibration debt and do not become native premises."
+  },
+  "freeze_timestamp_utc": "2026-08-13T04:59:30Z",
+  "generation_inference_boundary": "R050 scores only R048 G2 against R049. No claim that G2 outperforms G1 is permitted.",
+  "native_to_measured_output_readout_rules": {
+    "B0_NATIVE_DIRECT": "Target-relevant relation follows from frozen N0/N0-definable candidate structure; representation-only relabeling allowed; no fitted metrology parameter.",
+    "B1_UNIFORM_READOUT": "One target-independent N2 quotient/readout schema applies without fitted target-specific parameters.",
+    "B2_CALIBRATED_METROLOGY_BRIDGE": "Bridge form is fixed before holdout evaluation; only finite explicitly named calibration parameters may be estimated on a declared construction subset; all such parameters and source metrology constants count as debt.",
+    "B3_TARGET_SPECIFIC_ADAPTER": "Protocol-specific adapter/codebook or semantic redesign chosen after target access. May support at most E3 in principle and never E4/E5.",
+    "B4_ILLEGAL_LEAKAGE": "Effective target definition/output-equivalent structure is imported into native premises. Mapping rejected."
+  },
+  "physical_to_native_encoding_rules": {
+    "illegal": [
+      "center, distance/equidistance, radius/circle/sphere, or Euclidean geometry/measure inserted as native structure",
+      "angle/radian/degree, cycle origin, 2pi-per-cycle, or classical pi numerical selection inserted as native structure",
+      "continuum PDE, heat kernel, Gaussian normalization, Fourier normalization, or classical wave/eigenmode formula inserted before native readout",
+      "classical control-volume/inventory balance inserted as a native conservation axiom",
+      "acoustic/electromagnetic reciprocity theorem inserted as a native axiom",
+      "any target-output value or output-equivalent codebook used to choose or repair a candidate mapping"
+    ],
+    "illegal_verdict": "B4_ILLEGAL_LEAKAGE",
+    "legal": [
+      "Map only controlled physical interventions, ordering/role labels, and raw measured-carrier distinctions to structures already supplied by the frozen candidate.",
+      "Use implementation labels only as I0 carriers; labels, coordinates, units, device geometry, and classical models do not become N0 by encoding.",
+      "A row-independent encoding schema may specialize ordinary carrier labels to a protocol without selecting a mapping by observed target values.",
+      "Candidate-declared N1 operations may be invoked exactly as frozen; no new propagation, metric, conservation, reciprocity, spectral, or continuum law may be inserted."
+    ]
+  },
+  "pressure_aggregation": {
+    "E5": "Computed only after pressure-level E4 results exist; at least two independent pressures must share a target-independent bridge schema/shared native state.",
+    "block_a": "Pressure evidence equals its sole row evidence, subject to the row quantitative-evidence cap.",
+    "block_b": "Pressure evidence is the highest level supported by every constituent row under one common legal bridge schema; a failed/unmapped row is never averaged away. E4 additionally requires genuine cross-realization holdout transfer.",
+    "weighted_total_score": "FORBIDDEN"
+  },
+  "quantitative_error_policy": {
+    "allowed_metric": "Use only a residual defined between a candidate-predicted measured quantity and the frozen measured-output carrier, normalized/compared solely by the row's source-stated uncertainty/tolerance form.",
+    "calculated_outputs_as_extra_measurements": "FORBIDDEN",
+    "e3_e4_required_fields": [
+      "exact_source_row",
+      "construction_conditions",
+      "holdout_conditions",
+      "fitted_parameter_names",
+      "fitted_parameter_count",
+      "parameter_estimation_rule",
+      "predicted_quantity",
+      "measured_quantity",
+      "residual_or_error",
+      "source_uncertainty_envelope",
+      "pass_fail_rule",
+      "uncertainty_semantics",
+      "verdict"
+    ],
+    "missing_condition_separated_numeric_data": "NOT_ELIGIBLE_FOR_E4",
+    "raw_data_invention": "FORBIDDEN",
+    "universal_tolerance": "FORBIDDEN"
+  },
+  "required_attacks": [
+    "TARGET_MUTATION_AFTER_CANDIDATE_OPEN",
+    "CANDIDATE_CORE_REPAIR",
+    "CLASSICAL_PI_NUMERIC_SELECTION",
+    "OUTPUT_DEFINITION_BACKFILL",
+    "B3_ADAPTER_PROMOTED_TO_SUCCESS",
+    "TRAINING_RELABELED_AS_HOLDOUT",
+    "TOLERANCE_INVENTED_WITHOUT_SOURCE",
+    "BLOCK_B_PER_REALIZATION_REFIT",
+    "METAPHOR_AS_QUANTITATIVE_EXPLANATION",
+    "PARAMETER_EXPLOSION",
+    "FAILED_ROW_AVERAGED_AWAY",
+    "CROSS_PRESSURE_SHARED_STATE_ASSERTED_WITHOUT_E4"
+  ],
+  "researcher_id": "EM-R050-93B6E2",
+  "row_level_eligibility": {
+    "A1-GMC-M48-STEP-GAGE": {
+      "allowed_structural_evidence": true,
+      "block": "A",
+      "measured_output": "contact-derived coordinate observations and reported step-to-step separations",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "quantitative_evidence_cap": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "quantitative_split_status": "NOT_ELIGIBLE_FOR_E4",
+      "reason": "R049 frozen artifacts provide protocol/output definitions and source-stated uncertainty summaries but no condition-separated numerical measured-output array permitting an independently recomputable construction/holdout residual.",
+      "source_uncertainty_envelope": {
+        "coverage": "k=2",
+        "example_context": "about 300 nm at L=1 m",
+        "formula": "U_nm ≈ 100 + 200*L_m",
+        "kind": "expanded_uncertainty_formula",
+        "source_ref_ids": [
+          "SRC-A1-NIST-STEP-GAGE-SERVICE"
+        ]
+      }
+    },
+    "A2-CCRP-PMU-PHASE": {
+      "allowed_structural_evidence": true,
+      "block": "A",
+      "measured_output": "time-stamped PMU voltage/current reports and direct phase-error observations relative to the traceable source",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "quantitative_evidence_cap": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "quantitative_split_status": "NOT_ELIGIBLE_FOR_E4",
+      "reason": "R049 frozen artifacts provide protocol/output definitions and source-stated uncertainty summaries but no condition-separated numerical measured-output array permitting an independently recomputable construction/holdout residual.",
+      "source_uncertainty_envelope": {
+        "equal_amplitudes": "<0.01 degree",
+        "frequency_condition": "below 5 kHz, therefore includes 50/60 Hz",
+        "kind": "source_setting_expanded_uncertainty",
+        "source_ref_ids": [
+          "SRC-A2-NIST-PHASE-SERVICE"
+        ],
+        "unequal_amplitudes_ratio_below_10_to_1": "<0.015 degree"
+      }
+    },
+    "A3-DR-FDTR-PUMP-PROBE": {
+      "allowed_structural_evidence": true,
+      "block": "A",
+      "measured_output": "reference-corrected reflected-probe phase-lag samples as a function of modulation frequency",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "quantitative_evidence_cap": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "quantitative_split_status": "NOT_ELIGIBLE_FOR_E4",
+      "reason": "R049 frozen artifacts provide protocol/output definitions and source-stated uncertainty summaries but no condition-separated numerical measured-output array permitting an independently recomputable construction/holdout residual.",
+      "source_uncertainty_envelope": {
+        "kind": "raw_phase_standard_deviation",
+        "meaning": "LIA sweeper output standard deviation; includes LIA phase noise density, laser electronics, balanced photodetector electronics and thermoreflectance measurement contribution",
+        "phase_standard_deviation": "±0.1 degree",
+        "source_ref_ids": [
+          "SRC-A3-NIST-FDTR-2024"
+        ]
+      }
+    },
+    "A4-BMS-CAVITY-VNA": {
+      "allowed_structural_evidence": true,
+      "block": "A",
+      "measured_output": "frequency-indexed complex scattering-parameter observations / squared-magnitude resonance curve",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "quantitative_evidence_cap": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "quantitative_split_status": "NOT_ELIGIBLE_FOR_E4",
+      "reason": "R049 frozen artifacts provide protocol/output definitions and source-stated uncertainty summaries but no condition-separated numerical measured-output array permitting an independently recomputable construction/holdout residual.",
+      "source_uncertainty_envelope": {
+        "eligibility_rule": "row is eligible only when the source-defined curve-noise/WLS uncertainty is retained; no unsourced global frequency tolerance is introduced",
+        "kind": "source_defined_curve_noise_and_estimator_envelope",
+        "raw_environmental_control": "water-bath cavity temperature controlled within ±0.1 degree C",
+        "resonance_estimator_rule": "weighted nonlinear least squares with frequency-dependent additive-noise variance; source computes one-sigma uncertainty/covariance for fitted resonant frequency and Q from each observed curve",
+        "source_ref_ids": [
+          "SRC-A4-NIST-SP260-159",
+          "SRC-A4-NIST-Q-ESTIMATION-2003"
+        ],
+        "systematic_correction_context_not_tolerance": "skin-depth resonant-frequency correction under 100 kHz or 0.001% in the approximately 10 GHz, Q≈70000 TE0123 case"
+      }
+    },
+    "B1A-TIBC-LIQUID-GRAVIMETRIC": {
+      "allowed_structural_evidence": true,
+      "block": "B",
+      "measured_output": "time-dependent buoyancy-corrected accumulated water mass and meter-under-test output",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "quantitative_evidence_cap": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "quantitative_split_status": "NOT_ELIGIBLE_FOR_E4",
+      "reason": "R049 frozen artifacts provide protocol/output definitions and source-stated uncertainty summaries but no condition-separated numerical measured-output array permitting an independently recomputable construction/holdout residual.",
+      "source_uncertainty_envelope": {
+        "coverage": "about 95% confidence",
+        "kind": "expanded_uncertainty",
+        "mass_flow": "0.022%",
+        "source_ref_ids": [
+          "SRC-B1-NIST-SP250-98-2021"
+        ],
+        "volume_flow": "0.023%"
+      }
+    },
+    "B1B-TIBC-GAS-PVTT": {
+      "allowed_structural_evidence": true,
+      "block": "B",
+      "measured_output": "collection interval plus tank pressure/temperature state observations used to determine inventory change",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "quantitative_evidence_cap": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "quantitative_split_status": "NOT_ELIGIBLE_FOR_E4",
+      "reason": "R049 frozen artifacts provide protocol/output definitions and source-stated uncertainty summaries but no condition-separated numerical measured-output array permitting an independently recomputable construction/holdout residual.",
+      "source_uncertainty_envelope": {
+        "coverage": "k=2",
+        "kind": "expanded_uncertainty",
+        "range": "0.02% to 0.05%",
+        "source_ref_ids": [
+          "SRC-B1-NIST-PVTT-2003"
+        ]
+      }
+    },
+    "B2A-SRIR-MIC-RECIP": {
+      "allowed_structural_evidence": true,
+      "block": "B",
+      "measured_output": "receiver-to-capacitor voltage ratios for each transmitter/receiver pair, with pressure/temperature/humidity observations",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "quantitative_evidence_cap": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "quantitative_split_status": "NOT_ELIGIBLE_FOR_E4",
+      "reason": "R049 frozen artifacts provide protocol/output definitions and source-stated uncertainty summaries but no condition-separated numerical measured-output array permitting an independently recomputable construction/holdout residual.",
+      "source_uncertainty_envelope": {
+        "coverage": "k=2",
+        "kind": "frequency_dependent_expanded_uncertainty",
+        "source_ref_ids": [
+          "SRC-B2-NIST-MIC-RECIP-2011"
+        ],
+        "values_dB": {
+          "100_to_2000_Hz": 0.04,
+          "31.5_Hz": 0.07,
+          "50_Hz": 0.05
+        }
+      }
+    },
+    "B2B-SRIR-ANTENNA-3PAIR": {
+      "allowed_structural_evidence": true,
+      "block": "B",
+      "measured_output": "received signal for each antenna pair as a function of separation",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "quantitative_evidence_cap": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "quantitative_split_status": "NOT_ELIGIBLE_FOR_E4",
+      "reason": "R049 frozen artifacts provide protocol/output definitions and source-stated uncertainty summaries but no condition-separated numerical measured-output array permitting an independently recomputable construction/holdout residual.",
+      "source_uncertainty_envelope": {
+        "frequency_range": "2 GHz to 30 GHz",
+        "gain_uncertainty": "0.10 dB",
+        "kind": "typical_gain_measurement_uncertainty",
+        "source_ref_ids": [
+          "SRC-B2-NIST-CTL-ANTENNA"
+        ]
+      }
+    }
+  },
+  "schema": "ENTERPRISE_MATH_R050_SCORING_PROTOCOL_V1",
+  "source_holdout": {
+    "candidate_content_opened_before_protocol_freeze": false,
+    "r049_exact_head": "220aa5647389386d6c953e6aa04f32769f90f490",
+    "repository": "awdawmip/enterprise-math",
+    "target_hash_verified": true,
+    "target_sha256": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c"
+  },
+  "stage0_candidate_blind": true,
+  "stage0_conclusion": {
+    "E5_possible": false,
+    "all_eight_rows_present": true,
+    "interpretation": "Any absence of E4/E5 in R050 is evaluation-limited by the frozen R049 packet and cannot by itself establish a native-mechanism failure.",
+    "maximum_pressure_evidence_under_frozen_packet": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+    "maximum_row_evidence_under_frozen_packet": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+    "rows_e4_eligible": 0,
+    "rows_not_eligible_for_e4": 8
+  },
+  "task_id": "RS-R050-G2-OUT-OF-SAMPLE-ENGINEERING-CALIBRATION"
+}

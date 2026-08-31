@@ -1,0 +1,330 @@
+{
+  "block_b_independence": {
+    "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY": {
+      "per_realization_target_specific_bridge_refit": false,
+      "realization_specific_constants_kept_separate": true,
+      "realizations": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ],
+      "shared_bridge_form": "directed pair measurement under source/receiver role interchange and pair permutation"
+    },
+    "TRANSFER_INVENTORY_BALANCE_CLOSURE": {
+      "per_realization_target_specific_bridge_refit": false,
+      "realization_specific_constants_kept_separate": true,
+      "realizations": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ],
+      "shared_bridge_form": "inventory change versus signed through-boundary transfer"
+    }
+  },
+  "principle": "All listed constants/dependencies are strictly downstream metrology/readout debt. None is an N0/N1 premise; none was numerically fitted in R050.",
+  "researcher_id": "EM-R050-93B6E2",
+  "rows": {
+    "A1-GMC-M48-STEP-GAGE": {
+      "constant_count": 3,
+      "constants": [
+        {
+          "kind": "scale_traceability",
+          "name": "SI_METRE_REALIZATION",
+          "realization_specific": false
+        },
+        {
+          "kind": "source_required_correction",
+          "name": "THERMAL_EXPANSION_CORRECTION",
+          "realization_specific": true
+        },
+        {
+          "kind": "source_required_correction",
+          "name": "PROBE_CONTACT_CORRECTION",
+          "realization_specific": true
+        }
+      ],
+      "numerical_fit_status": "NOT_RUN_NOT_ELIGIBLE_FOR_E4",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "realization_specific_constant_count": 2,
+      "source_provenance": [
+        "SRC-A1-NIST-M48-2010",
+        "SRC-A1-NIST-STEP-GAGE-SERVICE"
+      ],
+      "source_uncertainty_envelope": {
+        "coverage": "k=2",
+        "example_context": "about 300 nm at L=1 m",
+        "formula": "U_nm ≈ 100 + 200*L_m",
+        "kind": "expanded_uncertainty_formula",
+        "source_ref_ids": [
+          "SRC-A1-NIST-STEP-GAGE-SERVICE"
+        ]
+      }
+    },
+    "A2-CCRP-PMU-PHASE": {
+      "constant_count": 2,
+      "constants": [
+        {
+          "kind": "timing_traceability",
+          "name": "TRACEABLE_TIMEBASE",
+          "realization_specific": true
+        },
+        {
+          "kind": "source_setting_calibration",
+          "name": "PHASE_SETTING_CALIBRATION",
+          "realization_specific": true
+        }
+      ],
+      "numerical_fit_status": "NOT_RUN_NOT_ELIGIBLE_FOR_E4",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "realization_specific_constant_count": 2,
+      "source_provenance": [
+        "SRC-A2-NIST-PMU-SERVICE",
+        "SRC-A2-NIST-PHASE-SERVICE",
+        "SRC-A2-NIST-PMU-2007"
+      ],
+      "source_uncertainty_envelope": {
+        "equal_amplitudes": "<0.01 degree",
+        "frequency_condition": "below 5 kHz, therefore includes 50/60 Hz",
+        "kind": "source_setting_expanded_uncertainty",
+        "source_ref_ids": [
+          "SRC-A2-NIST-PHASE-SERVICE"
+        ],
+        "unequal_amplitudes_ratio_below_10_to_1": "<0.015 degree"
+      }
+    },
+    "A3-DR-FDTR-PUMP-PROBE": {
+      "constant_count": 3,
+      "constants": [
+        {
+          "kind": "reference_path_calibration",
+          "name": "REFERENCE_PHASE_CORRECTION",
+          "realization_specific": true
+        },
+        {
+          "kind": "optical_metrology",
+          "name": "PUMP_PROBE_SPOT_SIZE_CALIBRATION",
+          "realization_specific": true
+        },
+        {
+          "kind": "sample_metrology",
+          "name": "AU_TRANSDUCER_THICKNESS_INPUT",
+          "realization_specific": true
+        }
+      ],
+      "numerical_fit_status": "NOT_RUN_NOT_ELIGIBLE_FOR_E4",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "realization_specific_constant_count": 3,
+      "source_provenance": [
+        "SRC-A3-NIST-FDTR-2024"
+      ],
+      "source_uncertainty_envelope": {
+        "kind": "raw_phase_standard_deviation",
+        "meaning": "LIA sweeper output standard deviation; includes LIA phase noise density, laser electronics, balanced photodetector electronics and thermoreflectance measurement contribution",
+        "phase_standard_deviation": "±0.1 degree",
+        "source_ref_ids": [
+          "SRC-A3-NIST-FDTR-2024"
+        ]
+      }
+    },
+    "A4-BMS-CAVITY-VNA": {
+      "constant_count": 3,
+      "constants": [
+        {
+          "kind": "frequency_traceability",
+          "name": "FREQUENCY_TIMEBASE",
+          "realization_specific": true
+        },
+        {
+          "kind": "instrument_metrology",
+          "name": "S_PARAMETER_CHAIN_CALIBRATION",
+          "realization_specific": true
+        },
+        {
+          "kind": "source_defined_estimator_uncertainty",
+          "name": "CURVE_NOISE_COVARIANCE",
+          "realization_specific": true
+        }
+      ],
+      "numerical_fit_status": "NOT_RUN_NOT_ELIGIBLE_FOR_E4",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "realization_specific_constant_count": 3,
+      "source_provenance": [
+        "SRC-A4-NIST-SP260-159",
+        "SRC-A4-NIST-Q-ESTIMATION-2003"
+      ],
+      "source_uncertainty_envelope": {
+        "eligibility_rule": "row is eligible only when the source-defined curve-noise/WLS uncertainty is retained; no unsourced global frequency tolerance is introduced",
+        "kind": "source_defined_curve_noise_and_estimator_envelope",
+        "raw_environmental_control": "water-bath cavity temperature controlled within ±0.1 degree C",
+        "resonance_estimator_rule": "weighted nonlinear least squares with frequency-dependent additive-noise variance; source computes one-sigma uncertainty/covariance for fitted resonant frequency and Q from each observed curve",
+        "source_ref_ids": [
+          "SRC-A4-NIST-SP260-159",
+          "SRC-A4-NIST-Q-ESTIMATION-2003"
+        ],
+        "systematic_correction_context_not_tolerance": "skin-depth resonant-frequency correction under 100 kHz or 0.001% in the approximately 10 GHz, Q≈70000 TE0123 case"
+      }
+    },
+    "B1A-TIBC-LIQUID-GRAVIMETRIC": {
+      "constant_count": 4,
+      "constants": [
+        {
+          "kind": "mass_traceability",
+          "name": "WEIGH_SCALE_CALIBRATION",
+          "realization_specific": true
+        },
+        {
+          "kind": "source_required_correction",
+          "name": "BUOYANCY_CORRECTION",
+          "realization_specific": true
+        },
+        {
+          "kind": "time_traceability",
+          "name": "LIQUID_TIMEBASE",
+          "realization_specific": true
+        },
+        {
+          "kind": "transfer_readout_scale",
+          "name": "METER_UNDER_TEST_CALIBRATION",
+          "realization_specific": true
+        }
+      ],
+      "numerical_fit_status": "NOT_RUN_NOT_ELIGIBLE_FOR_E4",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_constant_count": 4,
+      "source_provenance": [
+        "SRC-B1-NIST-SP250-98-2021"
+      ],
+      "source_uncertainty_envelope": {
+        "coverage": "about 95% confidence",
+        "kind": "expanded_uncertainty",
+        "mass_flow": "0.022%",
+        "source_ref_ids": [
+          "SRC-B1-NIST-SP250-98-2021"
+        ],
+        "volume_flow": "0.023%"
+      }
+    },
+    "B1B-TIBC-GAS-PVTT": {
+      "constant_count": 5,
+      "constants": [
+        {
+          "kind": "volume_traceability",
+          "name": "TANK_VOLUME_CALIBRATION",
+          "realization_specific": true
+        },
+        {
+          "kind": "pressure_traceability",
+          "name": "PRESSURE_SCALE",
+          "realization_specific": true
+        },
+        {
+          "kind": "temperature_traceability",
+          "name": "TEMPERATURE_SCALE",
+          "realization_specific": true
+        },
+        {
+          "kind": "time_traceability",
+          "name": "GAS_TIMEBASE",
+          "realization_specific": true
+        },
+        {
+          "kind": "effective_metrology_model",
+          "name": "GAS_DENSITY_STATE_REALIZATION",
+          "realization_specific": true
+        }
+      ],
+      "numerical_fit_status": "NOT_RUN_NOT_ELIGIBLE_FOR_E4",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "realization_specific_constant_count": 5,
+      "source_provenance": [
+        "SRC-B1-NIST-PVTT-2003"
+      ],
+      "source_uncertainty_envelope": {
+        "coverage": "k=2",
+        "kind": "expanded_uncertainty",
+        "range": "0.02% to 0.05%",
+        "source_ref_ids": [
+          "SRC-B1-NIST-PVTT-2003"
+        ]
+      }
+    },
+    "B2A-SRIR-MIC-RECIP": {
+      "constant_count": 3,
+      "constants": [
+        {
+          "kind": "electrical_traceability",
+          "name": "MICROPHONE_ELECTRICAL_RATIO_SCALE",
+          "realization_specific": true
+        },
+        {
+          "kind": "apparatus_metrology",
+          "name": "COUPLER_CORRECTION",
+          "realization_specific": true
+        },
+        {
+          "kind": "environmental_metrology",
+          "name": "PRESSURE_TEMPERATURE_HUMIDITY_CORRECTIONS",
+          "realization_specific": true
+        }
+      ],
+      "numerical_fit_status": "NOT_RUN_NOT_ELIGIBLE_FOR_E4",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_constant_count": 3,
+      "source_provenance": [
+        "SRC-B2-NIST-MIC-RECIP-2011"
+      ],
+      "source_uncertainty_envelope": {
+        "coverage": "k=2",
+        "kind": "frequency_dependent_expanded_uncertainty",
+        "source_ref_ids": [
+          "SRC-B2-NIST-MIC-RECIP-2011"
+        ],
+        "values_dB": {
+          "100_to_2000_Hz": 0.04,
+          "31.5_Hz": 0.07,
+          "50_Hz": 0.05
+        }
+      }
+    },
+    "B2B-SRIR-ANTENNA-3PAIR": {
+      "constant_count": 4,
+      "constants": [
+        {
+          "kind": "rf_traceability",
+          "name": "RF_RECEIVER_SCALE",
+          "realization_specific": true
+        },
+        {
+          "kind": "effective_geometry_metrology",
+          "name": "SEPARATION_CALIBRATION",
+          "realization_specific": true
+        },
+        {
+          "kind": "apparatus_metrology",
+          "name": "ORIENTATION_POLARIZATION_SETUP",
+          "realization_specific": true
+        },
+        {
+          "kind": "frequency_traceability",
+          "name": "RF_FREQUENCY_TIMEBASE",
+          "realization_specific": true
+        }
+      ],
+      "numerical_fit_status": "NOT_RUN_NOT_ELIGIBLE_FOR_E4",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "realization_specific_constant_count": 4,
+      "source_provenance": [
+        "SRC-B2-NIST-CTL-ANTENNA",
+        "SRC-B2-NIST-ANTENNA-2006"
+      ],
+      "source_uncertainty_envelope": {
+        "frequency_range": "2 GHz to 30 GHz",
+        "gain_uncertainty": "0.10 dB",
+        "kind": "typical_gain_measurement_uncertainty",
+        "source_ref_ids": [
+          "SRC-B2-NIST-CTL-ANTENNA"
+        ]
+      }
+    }
+  },
+  "schema": "ENTERPRISE_MATH_R050_METROLOGY_BRIDGE_LEDGER_V1",
+  "task_id": "RS-R050-G2-OUT-OF-SAMPLE-ENGINEERING-CALIBRATION"
+}
