@@ -1,0 +1,46 @@
+{
+  "schema": "ENTERPRISE_MATH_R043C2_G0_FUTURE_V1",
+  "task_id": "RS-R043C2-G0-FUTURE-SUFFICIENCY-MODULO-SHIELDED-COMPONENTS",
+  "researcher_id": "EM-R043C2-4B73D9",
+  "status": "REDUCED_TO_CONNECTED_INTERACTING_EXTENSION_LEMMA",
+  "theorems": {
+    "component_separation": "PROVED_GLOBAL_FCC_HCP",
+    "one_component_locality_of_addition": "PROVED_GLOBAL_FCC_HCP",
+    "all_horizon_asynchronous_factorization_over_unoccupied_components": "PROVED_GLOBAL_FCC_HCP",
+    "global_G0_stationary_boolean_carrier": "OPEN"
+  },
+  "remaining_obstructions": [
+    "component-grouping ambiguity for disconnected visible frontier pieces inside one unoccupied component",
+    "single-unoccupied-component rooted successor-extension ambiguity"
+  ],
+  "pressure": {
+    "fcc_random_induced_paths": {
+      "samples": 30000,
+      "size_range": [9, 26],
+      "exact_same_G0_encounters": 25,
+      "all_exact_encounters_native_congruent": true,
+      "non_native_same_G0": 0,
+      "harmful_rooted_successor_witness": 0,
+      "classification": "NONEXHAUSTIVE_DIAGNOSTIC"
+    },
+    "size15_closed_neighborhood_voids": {
+      "fcc": {
+        "states": 38,
+        "exact_boundary_G0_collisions": 6,
+        "collided_pairs_full_void_graph_isomorphic": true
+      },
+      "hcp": {
+        "states": 123,
+        "exact_boundary_G0_collisions": 54,
+        "collided_pairs_full_void_graph_isomorphic": true
+      },
+      "classification": "BOUNDED_PRESSURE_ONLY"
+    }
+  },
+  "negative_controls": {
+    "c1_shielded_cavity_raw_noninjectivity_is_future_failure": false,
+    "relative_placement_of_distinct_unoccupied_components_is_future_relevant": false,
+    "G0_connected_components_proved_equal_to_unoccupied_components": false
+  },
+  "next_exact_frontier": "R043C2-L1 interacting-component extension lemma: determine component grouping and rooted successor extension from abstract weighted G0, or freeze a globally realizable matched-root successor split / finite-horizon B_h split."
+}
