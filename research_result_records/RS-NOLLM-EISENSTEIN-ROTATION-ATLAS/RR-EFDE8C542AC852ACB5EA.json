@@ -1,0 +1,41 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-EFDE8C542AC852ACB5EA",
+  "task_id": "RS-NOLLM-EISENSTEIN-ROTATION-ATLAS",
+  "publication_id": "TP2-983B1B8DB12B245368D9",
+  "execution_record_id": "ER-05FA231B4D7E50C220AB",
+  "claim_id": "chatgpt-nollm-atlas-20260828-claim1",
+  "taskbook_path": "research_tasks/NOLLM_EISENSTEIN_ROTATION_ATLAS_INTEGRATION_20260828.md",
+  "taskbook_blob_sha1": "sha1:afe40fd2687e264717aa1f24636ca4cc2b52091a",
+  "execution_branch": "research/nollm-eisenstein-rotation-atlas-em-nollm-f697fd",
+  "execution_branch_base": "0ffa4e1cbce1f9f33479bc02ea847530af1b3204",
+  "return_path": "research_returns/NOLLM_EISENSTEIN_ROTATION_ATLAS_INTEGRATION_RETURN_20260828.md",
+  "return_blob_sha1": "42f33d6d3f2bea4ce62eaa8e317bf987f2201ec5",
+  "owner_head": "4b132895d0083ce9b5b8d909fac8441c0d3dba7c",
+  "researcher_id": "EM-NOLLM-F697FD",
+  "frozen_at": "2026-08-28T05:45:00+00:00",
+  "terminal_verdict": "THEOREM_PACKAGE_COMPLETE_WITH_BOUNDED_H6_RESIDUE",
+  "hard_target_disposition": "H1-H5_PROVED_AND_TYPED / H6_AFFINE_SIDE_THEOREM_PLUS_BOUNDED_RESIDUE / H7_REUSE_ONLY / EXACT_CHECKS_PASS",
+  "unresolved_residue": "NO_CANONICAL_AGL1P_TO_PATH_JET_FIRST_BAD_OBSTRUCTION_INTERTWINER_DERIVED; NONCOMMENSURABLE_PHASE_DENSITY_NOT_CLAIMED",
+  "output_manifest": [
+    {
+      "path": "research_returns/NOLLM_EISENSTEIN_ROTATION_ATLAS_INTEGRATION_RETURN_20260828.md",
+      "git_blob_sha1": "42f33d6d3f2bea4ce62eaa8e317bf987f2201ec5"
+    },
+    {
+      "path": "scripts/check_nollm_eisenstein_rotation_atlas.py",
+      "git_blob_sha1": "67a11ad6971d0b4ed69b673171fca8c251700813",
+      "sha256": "sha256:c6d423d31bac94ab0bc01c0b37e41c9c2a632fac38c6174bed32e8f42ecc0993"
+    },
+    {
+      "path": "research_artifacts/NOLLM_EISENSTEIN_ROTATION_ATLAS/exact_check_report.json",
+      "git_blob_sha1": "25ca618205d7e9d841ef3d69fb7163fd5a800f42",
+      "sha256": "sha256:7289b33d43199d0250edcb8b02e276aecdaeb56f6899a3259e7a884d2b74c1f2"
+    }
+  ],
+  "method_harvest": "REUSE_T3_T5_T7_T9_PLUS_TASK_LOCAL_EXACT_CHECKER",
+  "independence_status": "INTEGRATION_TASK_WITH_FROZEN_CROSS_PROJECT_INPUTS",
+  "source_exposure_status": "TASKBOOK_AND_CURRENT_TOOL_REGISTRY_EXPOSED",
+  "next_control_plane_recommendation": "DRIVER_REVIEW; ACCEPT H1-H5 AS TYPED THEOREM PACKAGE IF PROOF NORMALIZATIONS PASS; KEEP H6 AS BOUNDED RESIDUE; NEXT EXACT LEMMA IS AGL(1,p)-EQUIVARIANT HOM-SPACE FOR THE MOD-p PATH-JET FIRST-BAD OBSTRUCTION",
+  "driver_review_required": true
+}

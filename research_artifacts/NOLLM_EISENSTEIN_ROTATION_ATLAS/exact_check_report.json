@@ -1,0 +1,40 @@
+{
+  "all_passed": true,
+  "checks": {
+    "H1_exact_hex_circle": {
+      "circumradius_squared": "1/3",
+      "inradius_squared": "1/4",
+      "side_squared": "1/3",
+      "triple_intersection_checked": true
+    },
+    "H2_refinement": {
+      "alpha_squared": "-3*w",
+      "axial_classifier": "q-r mod 3",
+      "enumerated_axial_pairs": 625,
+      "index": 3
+    },
+    "H3_path_jet_coefficients": {
+      "coefficient_equalities": 861,
+      "degrees_checked": [0, 40]
+    },
+    "H3_translation_coefficients": {
+      "degrees_checked": [0, 20]
+    },
+    "H4_phase_examples": {
+      "nested_counts_k_0_to_8": [1, 3, 9, 27, 81, 243, 729, 2187, 6561],
+      "nonnested_a_2_over_3": 9
+    },
+    "H4_units": {
+      "count": 6,
+      "pairs": [[-1, -1], [-1, 0], [0, -1], [0, 1], [1, 0], [1, 1]]
+    },
+    "H6_affine_invariant": {
+      "degree_formula": "p(p-1)",
+      "group_order_formula": "p(p-1)",
+      "note": "identity verified; no path-jet obstruction is inferred from equal degree/order",
+      "primes_checked": [2, 3, 5, 7, 11, 13, 17, 19]
+    }
+  },
+  "schema": "NOLLM_EISENSTEIN_ROTATION_ATLAS_EXACT_CHECK_V1",
+  "task_id": "RS-NOLLM-EISENSTEIN-ROTATION-ATLAS"
+}
