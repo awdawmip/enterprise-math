@@ -1,0 +1,52 @@
+{
+  "schema": "ENTERPRISE_MATH_R045_R037_SEMANTIC_EVIDENCE_DELTA_V1",
+  "status": "NO_NUMERICAL_RERUN / SEMANTIC_GRADE_ADDED / NOT_CANONICAL",
+  "researcher_id": "EM-R045-812A",
+  "source": {
+    "R037_owner_head": "744fcf737d1037cc1c1a3ba810ce79817fd4f464",
+    "evidence_matrix": "research/r037_generated/R037_EVIDENCE_MATRIX.json",
+    "reported_formal_claim_rows": 36,
+    "reported_failed_or_mismatch": 0
+  },
+  "grades": [
+    {
+      "grade": "NUMERIC_OR_FORMULA_REPRODUCED",
+      "state": "PRESERVED",
+      "scope": "R037's independent exact/finite/asymptotic reproduction of R033/R034 mathematics remains evidence at the same conditional N1/N2/N3 strata."
+    },
+    {
+      "grade": "SEMANTIC_TYPING_REPRODUCED",
+      "state": "R045_ADDED",
+      "scope": "R033 metric/radius and R034 propagation/spectral/continuum dependencies are explicitly typed under Gate V2."
+    },
+    {
+      "grade": "ONTOLOGY_ADMISSIBILITY_NOT_IMPLIED_BY_REPLICATION",
+      "state": "PROVED_AS_EVIDENCE_BOUNDARY",
+      "scope": "Reproducing a theorem/formula does not promote its theorem-critical N1/N2/N3 objects into N0."
+    }
+  ],
+  "claim_deltas": [
+    {
+      "claim_id": "R037-C01",
+      "disposition": "KEEP_BUT_RETYPE_CONDITIONAL",
+      "semantic_grade": ["NUMERIC_OR_FORMULA_REPRODUCED", "SEMANTIC_TYPING_REPRODUCED", "ONTOLOGY_ADMISSIBILITY_NOT_IMPLIED_BY_REPLICATION"]
+    },
+    {
+      "claim_id": "R037-C02",
+      "disposition": "KEEP_AS_READOUT_ONLY",
+      "semantic_grade": ["NUMERIC_OR_FORMULA_REPRODUCED", "SEMANTIC_TYPING_REPRODUCED", "ONTOLOGY_ADMISSIBILITY_NOT_IMPLIED_BY_REPLICATION"]
+    },
+    {
+      "claim_id": "R037-C03",
+      "disposition": "KEEP_AS_READOUT_ONLY",
+      "semantic_grade": ["NUMERIC_OR_FORMULA_REPRODUCED", "SEMANTIC_TYPING_REPRODUCED", "ONTOLOGY_ADMISSIBILITY_NOT_IMPLIED_BY_REPLICATION"]
+    },
+    {
+      "claim_id": "R037-C04",
+      "disposition": "RETYPE_EVIDENCE_BOUNDARY",
+      "semantic_grade": ["SEMANTIC_TYPING_REPRODUCED", "ONTOLOGY_ADMISSIBILITY_NOT_IMPLIED_BY_REPLICATION"],
+      "note": "The original replication matrix is evidence of mathematics, not a native-ontology certificate."
+    }
+  ],
+  "rerun_status": "NOT_RERUN_BY_R045"
+}
