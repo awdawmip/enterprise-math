@@ -1,0 +1,82 @@
+{
+  "schema": "R025_MACHINE_SUMMARY_V2_COMPACT",
+  "status": "NOT_CANONICAL",
+  "researcher_id": "EM-R025-1B6E63",
+  "task_id": "RS-R025-MULTILAYER-COLLAPSE-POLICY-DYNAMICS-ATLAS",
+  "taskbook_commit": "e3cf4892b642d65f70f766eb517584cdd8a9a0eb",
+  "arithmetic_semantics": "theorem evidence uses Python int + fractions.Fraction; float only display/regression",
+  "experiment_counts": {
+    "exhaustive_reference_layer_prefix_checks": 240480,
+    "exhaustive_reference_raw_rows": 240480,
+    "broad_deterministic_trajectories": 56496,
+    "broad_deterministic_layer_equivalent": 1694880,
+    "exact_unbiased_multilayer_distribution_cases": 18180,
+    "one_step_random_formula_cases": 150015,
+    "microphase_cases": 98049,
+    "integer_midpoint_cases": 31031,
+    "nearest_half_threshold_cases": 310031,
+    "phase_threshold_antitone_layer_cases": 240480,
+    "brc_interval_funnel_interval_cases": 431361,
+    "brc_binary_attack_checks": 179140,
+    "up_divisibility_commutation_cases": 85017,
+    "root_index_exponent_monotonic_cases": 310031,
+    "random_terminal_raw_records": 10240,
+    "focused_unit_tests": 17
+  },
+  "H1_H13": {
+    "H1": "EXACT_PROVED_OR_DERIVED: DOWN/UP endpoint envelope; common monotone operations preserve envelope",
+    "H2": "EXACT_PROVED_OR_DERIVED: identity tower DOWN physical nonincrease / UP nondecrease; increasing operation layers break raw monotonicity",
+    "H3": "EXACT_PROVED_OR_DERIVED: one-step NEAREST/FARTHEST complementary endpoints; no integer midpoint ties",
+    "H4": "KILLED_WITH_COUNTEREXAMPLE: p-power covariance false for DOWN/UP/NEAREST/FARTHEST",
+    "H5": "EXACT_PROVED_OR_DERIVED: r=a^p alignment freezes after first endpoint collapse",
+    "H6": "KILLED_WITH_COUNTEREXAMPLE: p-power-free part alone does not determine dynamics",
+    "H7": "EXACT_PROVED_OR_DERIVED: finite 1/M plateau sawtooth; envelope M^(-1/p)",
+    "H8": "EXACT_PROVED_OR_DERIVED: root index nonincreasing in p; k=1 iff n<2^p; error metrics have jumps",
+    "H9": "EXACT_PROVED_OR_DERIVED: 50/50 local drift=G/2-d and never zero at nonexact natural state",
+    "H10": "EXACT_PROVED_OR_DERIVED: distance-weighted selector gives normalized martingale under identity lifts",
+    "H11": "EXACT_PROVED_OR_DERIVED: Var one-step=d*u; terminal variance=sum E[d_t*u_t/M_t^2]",
+    "H12": "EXHAUSTIVE_FINITE_CONFIRMED + exact sublaws: order defect classified by policy algebra x refinement x divisibility",
+    "H13": "EXACT_PROVED_OR_DERIVED: BRC trichotomy aligned freeze / r<2^p funnel / r>2^p nonaligned exact binary doubling"
+  },
+  "new_laws": {
+    "LAW-014": "consecutive p-power gap odd; no integer midpoint",
+    "LAW-015": "NEAREST equals PHASE_THRESHOLD(1/2) on natural states",
+    "LAW-016": "root_p(a^p n)=a root_p(n)+j with 0<=j<a",
+    "LAW-017": "PHASE_THRESHOLD terminal output antitone in alpha under common monotone dynamics",
+    "LAW-018": "UP p-power closure commutes/absorbs for p|q at r=1",
+    "LAW-019": "constant-(p,r) BRC precision-exponent trichotomy",
+    "LAW-020": "precision plateau-then-jump sawtooth",
+    "LAW-021": "sparse-phase stochastic observability barrier: relative-RMS sample requirement Theta(2^p) one-step at fixed n"
+  },
+  "minimal_counterexamples": {
+    "H4_DOWN": "p=2,a=2,n=3: 9 vs 4",
+    "H4_UP": "p=2,a=2,n=2: 9 vs 16",
+    "H4_NEAREST": "p=2,a=2,n=2: 9 vs 4",
+    "H4_FARTHEST": "p=2,a=2,n=2: 4 vs 16",
+    "H6": "p=2,r=8=2^2*2 gives policy-specific normalized mismatches",
+    "ORDER_DOWN_LIFT_COMPARABLE": "n=1,r=4,(2,4): 1/4 vs 1",
+    "ORDER_UP_LIFT_COMPARABLE": "n=1,r=2,(2,4): 8 vs 2",
+    "ORDER_NEAREST_R1_COMPARABLE": "n=7,(2,4): 16 vs 1",
+    "ORDER_FARTHEST_R1_COMPARABLE": "n=3,(2,4): 1 vs 16"
+  },
+  "stochastic_observability_n1000_r3_depth16": [
+    [2, 0.0366709455518355, 0.4986473175926831, 0.13447582476656836],
+    [4, 0.4796984449905999, 0.5862216498966091, 23.01105981263996],
+    [8, 7.7507009240744535, 0.9216613950902751, 6007.336481444859],
+    [12, 262.74517839926, 0.998475499966301, 6903502.877205897],
+    [16, 24230.04169725681, 0.9999803434817611, 58709492065.08037],
+    [20, 4049340.8753881925, 0.9999996251512064, 1639716152508961.2],
+    [24, 825527770.2511541, 0.9999998924806107, 6.814960994558421e19],
+    [32, 42370527104111.984, 0.9999999999836002, 1.795261567080288e29]
+  ],
+  "raw_dataset_manifest": {
+    "exhaustive_reference": {"rows": 240480, "sha256": "ee5ebd11680ac9774496578af5629eb02f01429ba2a004bab3aeee0291cd1cc5", "bytes": 5257764},
+    "random_terminals_1024": {"rows": 10240, "sha256": "e2f371d6ade38fda2236d14b5aae74f179cea01ba63e63c66a53b5dccd93feea", "bytes": 44665}
+  },
+  "validation": {
+    "focused_tests": "17/17 PASS",
+    "python_compile": "PASS",
+    "full_repository_suite": "FULL_SUITE_PENDING (task-scoped synthetic worktree)",
+    "ci": "CI_NOT_REQUIRED_FOR_RESEARCH"
+  }
+}
