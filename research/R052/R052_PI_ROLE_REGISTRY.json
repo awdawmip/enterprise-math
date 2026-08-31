@@ -1,0 +1,153 @@
+{
+  "forbidden_selection_audit": {
+    "classical_numeric_target_used": false,
+    "engineering_evidence_used": false,
+    "euclidean_comparison_used": false,
+    "post_identification_repair": false
+  },
+  "generation_rule": "Roles generated only after Stage-A signature freeze; no role definition uses a classical numerical target or Euclidean comparison.",
+  "independence_notes": [
+    "R2 and R3 are defined from different S3 structures (cover fibers versus group action) and are not assumed equal.",
+    "R4 is scalar-valued and depends on norm/valuation optimization; it is type-incomparable with the permutation roles before any extra readout.",
+    "R5 is a quotient of an algebraic kernel and explicitly preserves the generator-orientation ambiguity.",
+    "R1 is finite/refinement-native and does not require an affine or scalar carrier."
+  ],
+  "researcher_id": "EM-R052-7C4A19",
+  "role_count": 5,
+  "roles": [
+    {
+      "choice_dependence": "No basepoint choice. Existence and refinement compatibility depend on boundary parity/refinement class.",
+      "codomain_type": "Sym(B), specifically the cyclic subgroup <s_B>",
+      "degeneracies": [
+        "odd boundary cardinality",
+        "non-manifold boundary without a cyclic successor"
+      ],
+      "dependency_graph": {
+        "B and successor": "S1 N0-definable",
+        "h_B": "permutation-valued N2 role",
+        "m parity and exponent": "finite N2/readout arithmetic"
+      },
+      "exact_construction": "Let s_B be the orientation-induced successor permutation on a finite boundary component B and m=|B|. If m is even, define h_B = s_B^(m/2).",
+      "existence_theorem_or_failure": "Exists iff m is even. It fails on odd boundary cycles.",
+      "finite_computability": "EXACT_FINITE; computed by permutation exponentiation.",
+      "invariance_theorem_or_failure": "Invariant under orientation-preserving cellular isomorphism; replacing s_B by s_B^{-1} leaves h_B unchanged because m is even.",
+      "role_id": "R1_CELL_HALF_CYCLE",
+      "role_predicate": "h lies in <s_B>, h != id, and h^2=id. Equivalently, h is the unique nonidentity involution of <s_B>.",
+      "semantic_stratum": "N2_READOUT_COLLAPSE / finite permutation role",
+      "signature_dependency": [
+        "S1_OCELL2",
+        "finite boundary component B with even cardinality m"
+      ],
+      "uniqueness_theorem_or_counterexample": "Unique because a finite cyclic group of even order has exactly one element of order two.",
+      "why_not_classical_formula_renaming": "The construction uses only a finite cyclic successor and parity. It has no metric, circle, radius, circumference, area, angular scalar, or continuous parameter."
+    },
+    {
+      "choice_dependence": "NONE within S3.",
+      "codomain_type": "Sym(ODir)",
+      "degeneracies": [
+        "fiber cardinality not equal to two",
+        "q not total/surjective"
+      ],
+      "dependency_graph": {
+        "delta_q": "N0-definable permutation; used as role object without scalarization",
+        "other-element operation": "N0-definable from exact two-element fibers",
+        "q two-sheet cover": "S3 N0"
+      },
+      "exact_construction": "For d in ODir, define delta_q(d) to be the unique other element of the two-element fiber q^{-1}(q(d)).",
+      "existence_theorem_or_failure": "Always exists in S3 by exact two-sheeting.",
+      "finite_computability": "EXACT_FINITE whenever ODir is finite; symbolically definable otherwise.",
+      "invariance_theorem_or_failure": "For every S3 isomorphism f of ODir covers, f delta_q f^{-1}=delta_q'.",
+      "role_id": "R2_DIRECTION_DECK",
+      "role_predicate": "q∘delta=q, delta^2=id, and delta has no fixed points.",
+      "semantic_stratum": "N0_DEFINABLE_DERIVED object / group-valued role",
+      "signature_dependency": [
+        "S3_DIRACT2 or any refinement preserving its two-sheet direction cover"
+      ],
+      "uniqueness_theorem_or_counterexample": "Unique fixed-point-free vertical involution because each q-fiber has exactly two elements.",
+      "why_not_classical_formula_renaming": "It is the deck transformation of a typed finite fiber relation. No scalar angle or metric quantity occurs."
+    },
+    {
+      "choice_dependence": "NONE for gamma; its coupling to q is intentionally unspecified.",
+      "codomain_type": "Sym(ODir)",
+      "degeneracies": [
+        "nonfaithful actions can collapse gamma to identity if S3 faithfulness is removed",
+        "groups without a unique nonidentity involution fall outside S3"
+      ],
+      "dependency_graph": {
+        "G and unique involution z": "S3 N0 plus definability",
+        "gamma": "N0-definable action permutation",
+        "rho": "S3 N0"
+      },
+      "exact_construction": "Let z be the unique nonidentity element of G satisfying z^2=e. Define gamma = rho(z).",
+      "existence_theorem_or_failure": "Always exists in S3.",
+      "finite_computability": "EXACT_FINITE for finite G/ODir.",
+      "invariance_theorem_or_failure": "Invariant/equivariant under S3 isomorphisms because z is uniquely definable and rho is part of the signature.",
+      "role_id": "R3_GROUP_INVOLUTION_ACTION",
+      "role_predicate": "gamma is the action image under rho of the uniquely characterized nonidentity involution of G.",
+      "semantic_stratum": "N0_DEFINABLE_DERIVED object / group-action role",
+      "signature_dependency": [
+        "S3_DIRACT2"
+      ],
+      "uniqueness_theorem_or_counterexample": "The role gamma is unique, but S3 does not force gamma=delta_q.",
+      "why_not_classical_formula_renaming": "The role is selected by an internal group-theoretic property and an action, with no geometric scalar or numerical target."
+    },
+    {
+      "choice_dependence": "Rescaling mu by c>0 sends J to J/c; changing N can also change J. These are declared structure freedoms, not hidden choices.",
+      "codomain_type": "Cut(K)_nonnegative, the Dedekind order-completion/readout of K",
+      "degeneracies": [
+        "mu(C)=0 on nondegenerate C (excluded by S5)",
+        "seminorm degeneracy (excluded by S5)"
+      ],
+      "dependency_graph": {
+        "Per_N": "N0-definable from N and finite edge lists",
+        "infimum": "N2 order-completion readout",
+        "mu(C)": "S5 N0 valuation",
+        "ordered affine convex polygons": "S5 via S4 base",
+        "ratio Q": "N2 scalar readout"
+      },
+      "exact_construction": "For each nondegenerate convex polygon C, let Q(C)=Per_N(C)^2 / mu(C), where Per_N is the sum of edge norms. Define J_N,mu = inf_C Q(C) in Cut(K). No normalization factor is inserted.",
+      "existence_theorem_or_failure": "Exists uniquely in Cut(K): the ratio set is nonempty and bounded below by zero.",
+      "finite_computability": "Individual polygon ratios are exact finite expressions; the global infimum is generally not finite-computable without extra theorems.",
+      "invariance_theorem_or_failure": "Invariant under exact S5 automorphisms preserving N and mu.",
+      "role_id": "R4_RAW_ISOPERIMETRIC_CUT",
+      "role_predicate": "J is the greatest lower bound in Cut(K) of {Q(C): C a nondegenerate convex polygon}.",
+      "semantic_stratum": "N2_READOUT_COLLAPSE / scalar limit-infimum role",
+      "signature_dependency": [
+        "S5_NVAL2"
+      ],
+      "uniqueness_theorem_or_counterexample": "Unique for a fixed (N,mu), but not determined by the S4+N reduct.",
+      "why_not_classical_formula_renaming": "The frozen role is an unnormalized optimization invariant of arbitrary norm/valuation planes; it does not mention any privileged shape, center, radius, circumference, or target constant."
+    },
+    {
+      "choice_dependence": "The sign/orientation of a raw generator is intentionally unmarked and not promoted to an invariant.",
+      "codomain_type": "Gen(ker p)/(t~t^{-1}), an inversion-quotient set",
+      "degeneracies": [
+        "kernel not cyclic",
+        "kernel trivial/finite",
+        "a later scalar normalization would be extra structure"
+      ],
+      "dependency_graph": {
+        "TurnLift and p": "S6 N0",
+        "generator predicate": "group-theoretic definable/meta predicate",
+        "inversion quotient": "N2 quotient role",
+        "ker(p)": "N0-definable subgroup"
+      },
+      "exact_construction": "Let Gen(ker p) be the set of group generators of the infinite cyclic kernel. Take the orbit/class [t] under inversion t~t^{-1}.",
+      "existence_theorem_or_failure": "Exists because ker(p) is infinite cyclic.",
+      "finite_computability": "Symbolically exact from a cyclic-group presentation; the S6 model itself is infinite.",
+      "invariance_theorem_or_failure": "The quotient class is invariant under cover isomorphisms. A raw generator is not invariant under inversion.",
+      "role_id": "R5_TURN_KERNEL_GENERATOR_CLASS",
+      "role_predicate": "x is the unique inversion orbit containing every generator of ker(p).",
+      "semantic_stratum": "N2_READOUT_COLLAPSE / quotient-valued period role",
+      "signature_dependency": [
+        "S6_TURNCOV2"
+      ],
+      "uniqueness_theorem_or_counterexample": "The quotient class is unique; raw generators occur as an inverse pair and are nonunique.",
+      "why_not_classical_formula_renaming": "It records only the algebraic period-kernel generator class and deliberately withholds any scalar period length or angular unit."
+    }
+  ],
+  "schema": "ENTERPRISE_MATH_R052_PI_ROLE_REGISTRY_V1",
+  "signature_family_sha256": "946eb08652b7c505adb9b2e8c1263a7260147962b1b7056d5a890d623fbcd0e2",
+  "status": "FROZEN_STAGE_C_NOT_CANONICAL",
+  "task_id": "RS-R052-FORMAL-PLANE-PI-TYPABILITY-MULTIPLICITY-COHERENCE"
+}

@@ -1,0 +1,216 @@
+{
+  "exact_check_summary": {
+    "A_star_vertical_fiber_exhaustion": "all vertical involutions exhaustively enumerated for 1 through 6 two-element fibers; fixed-point-free case unique and equals deck",
+    "overall": "PASS",
+    "refinement_composition_cases": 27,
+    "uniform_refinement_cases": 25,
+    "unittest_count": 5
+  },
+  "freeze_statement": "All statements above are frozen before any classical Euclidean comparison. Any post-comparison repair is NEW_GENERATION_FOR_LATER_TASK.",
+  "researcher_id": "EM-R052-7C4A19",
+  "role_registry_sha256": "33cabef583b3847eedae152181de002806b800bd8cdb01c07b595d5a695dfe66",
+  "schema": "ENTERPRISE_MATH_R052_THEOREM_COUNTEREXAMPLE_LEDGER_V1",
+  "signature_family_sha256": "946eb08652b7c505adb9b2e8c1263a7260147962b1b7056d5a890d623fbcd0e2",
+  "status": "FROZEN_PRE_CLASSICAL_IDENTIFICATION",
+  "supporting_artifact_hashes": {
+    "R052_COHERENCE_AXIOM_LATTICE.json": "c148f4e410c886c97aed1e111e8c6fc3e6477e31743c70bcd88ff74d666f00fe",
+    "R052_EXACT_CHECK_RESULTS.json": "1bca24928ece50b80e7d459222ea77b5b7ba079f303e05e2fd883a888d9f7908",
+    "R052_FINITE_REFINEMENT_PROGRAM.json": "517346919a61c30ad07e8673bde50dc34a3a96179c2d9349441538efb35cd170",
+    "R052_MODEL_COUNTEREXAMPLES.json": "8d752c3c057899530ec1734f3435af652c71f176eb12536bebea58a95af862cd",
+    "R052_NO_GO_AND_UNDERDETERMINATION_LEDGER.json": "63322827a6cf87681b4a3ea43821fb3c0714fd916097328f7d3bbc36579f55fe",
+    "R052_ROLE_MULTIPLICITY_MATRIX.json": "b311b332827784f4eb808c9755ece5d730c0fd43a7bcf2b930773de5dd56f4f1",
+    "R052_TYPABILITY_LEDGER.json": "54906b4bffe87104c8ee66fd05f74761c2d84e4b7ae209b0aa56db5dac23cb81"
+  },
+  "task_id": "RS-R052-FORMAL-PLANE-PI-TYPABILITY-MULTIPLICITY-COHERENCE",
+  "theorems_and_counterexamples": [
+    {
+      "applies_to": [
+        "S0_INC2",
+        "S1_OCELL2 native layer"
+      ],
+      "dependencies": [
+        "formal many-sorted typing only"
+      ],
+      "id": "T-B1-SCALAR-TYPE-OBSTRUCTION",
+      "kind": "NO_GO_THEOREM",
+      "proof_core": "Terms are typed by the declared signature. An absent codomain cannot be the type of a native term; external encodings are additional readouts.",
+      "statement": "In a signature with no scalar/codomain sort and no scalarization operator, a scalar-valued pi-role is not well-typed.",
+      "status": "PROVED"
+    },
+    {
+      "applies_to": [
+        "S2_AFF2"
+      ],
+      "dependencies": [
+        "S2 frozen signature"
+      ],
+      "id": "T-B2-SCALAR-SORT-INSUFFICIENCY",
+      "kind": "UNDERDETERMINATION_THEOREM",
+      "proof_core": "S2 contains only field/vector/torsor laws. Any selection by length, angle, valuation, turning, spectrum, or refinement introduces symbols/dependencies absent from S2.",
+      "statement": "The existence of a scalar field sort in S2 does not by itself provide a role predicate selecting a distinguished pi-like scalar.",
+      "status": "PROVED_AS_DEPENDENCY_NO_GO"
+    },
+    {
+      "applies_to": [
+        "R1_CELL_HALF_CYCLE"
+      ],
+      "dependencies": [
+        "finite cyclic group arithmetic"
+      ],
+      "id": "T-C1-CYCLIC-HALF-EXISTENCE",
+      "kind": "EXACT_FINITE_THEOREM",
+      "proof_core": "s^k has order dividing two iff 2k=0 mod m. Besides k=0, the congruence has the unique solution k=m/2 exactly when m is even.",
+      "statement": "For a finite cyclic group <s> of order m, there is a unique nonidentity involution iff m is even, namely s^(m/2).",
+      "status": "PROVED_AND_BOUNDED_CHECKED"
+    },
+    {
+      "applies_to": [
+        "R2_DIRECTION_DECK"
+      ],
+      "dependencies": [
+        "S3 exact two-sheeting"
+      ],
+      "id": "T-C2-DECK-UNIQUENESS",
+      "kind": "DEFINABILITY_THEOREM",
+      "proof_core": "Each fiber has exactly two elements, so each d has exactly one other fiber mate. Swapping every pair defines an involution; any fixed-point-free vertical involution must make the same pointwise choice.",
+      "statement": "Every exact two-sheet map q:D->U has a unique fixed-point-free vertical involution delta_q.",
+      "status": "PROVED"
+    },
+    {
+      "applies_to": [
+        "S3_DIRACT2",
+        "R2",
+        "R3"
+      ],
+      "dependencies": [
+        "M1_S3_ACTION_MOVES_BASE"
+      ],
+      "id": "T-D1-S3-ROLE-SEPARATION",
+      "kind": "COUNTERMODEL_THEOREM",
+      "proof_core": "M1_S3_ACTION_MOVES_BASE is an explicit finite S3 model in which the deck map fixes UDir and flips the sheet bit, while rho(z) moves UDir and fixes the sheet bit.",
+      "statement": "S3 does not force R2_DIRECTION_DECK = R3_GROUP_INVOLUTION_ACTION.",
+      "status": "PROVED_BY_EXPLICIT_FINITE_COUNTERMODEL"
+    },
+    {
+      "applies_to": [
+        "S3_DIRACT2",
+        "R2",
+        "R3"
+      ],
+      "dependencies": [
+        "S3 two-sheeting",
+        "A*-VERTICALITY",
+        "A*-FIXED_POINT_FREE"
+      ],
+      "id": "T-D2-ASTAR-COHERENCE",
+      "kind": "COHERENCE_THEOREM",
+      "proof_core": "For each d, verticality places rho(z)(d) in the two-element fiber {d,delta_q(d)}; fixed-point-freeness excludes d, hence rho(z)(d)=delta_q(d).",
+      "statement": "S3 + A*-VERTICALITY + A*-FIXED_POINT_FREE forces R3_GROUP_INVOLUTION_ACTION = R2_DIRECTION_DECK exactly in Sym(ODir).",
+      "status": "PROVED_AND_BOUNDED_EXHAUSTIVELY_CHECKED_FOR_1_TO_6_FIBERS"
+    },
+    {
+      "applies_to": [
+        "A*_S3_DIRECTION_COHERENCE"
+      ],
+      "dependencies": [
+        "M1_S3_ACTION_MOVES_BASE",
+        "M2_S3_VERTICAL_WITH_FIXED_POINTS"
+      ],
+      "id": "T-D3-ASTAR-IRREDUNDANCY",
+      "kind": "DELETION_WITNESS_THEOREM",
+      "proof_core": "M1 satisfies fixed-point-freeness but not verticality and separates the roles. M2 satisfies verticality but not fixed-point-freeness and separates the roles.",
+      "statement": "Relative to S3, neither axiom in A*_S3_DIRECTION_COHERENCE can be deleted while retaining the equality theorem.",
+      "status": "PROVED_BY_TWO_EXPLICIT_FINITE_DELETION_WITNESSES"
+    },
+    {
+      "applies_to": [
+        "S5_NVAL2",
+        "R4_RAW_ISOPERIMETRIC_CUT"
+      ],
+      "dependencies": [
+        "S5 homogeneity/positivity",
+        "order-completion readout"
+      ],
+      "id": "T-D4-VALUATION-SCALE-AMBIGUITY",
+      "kind": "SCALING_THEOREM",
+      "proof_core": "Every polygon ratio Per_N(C)^2/mu(C) is divided by c, and positive scalar multiplication commutes with infimum in the order completion.",
+      "statement": "For R4, replacing mu by c*mu with c>0 sends J_N,mu to J_N,mu/c while leaving the S4+N reduct unchanged.",
+      "status": "PROVED"
+    },
+    {
+      "applies_to": [
+        "S6_TURNCOV2",
+        "R5_TURN_KERNEL_GENERATOR_CLASS"
+      ],
+      "dependencies": [
+        "ker(p) infinite cyclic",
+        "no generator orientation primitive"
+      ],
+      "id": "T-D5-COVER-GENERATOR-QUOTIENT",
+      "kind": "AUTOMORPHISM_OBSTRUCTION_AND_QUOTIENT_THEOREM",
+      "proof_core": "An infinite cyclic group has exactly two generators t and t^{-1}. Kernel inversion exchanges them; quotienting by inversion leaves one generator orbit.",
+      "statement": "In S6 a raw generator of ker(p) is noncanonical, while its inversion orbit is unique and invariant.",
+      "status": "PROVED"
+    },
+    {
+      "applies_to": [
+        "R1_CELL_HALF_CYCLE",
+        "E1_UNIFORM_CYCLIC_BOUNDARY_DIRECT_SYSTEM"
+      ],
+      "dependencies": [
+        "m even",
+        "uniform subdivision embedding"
+      ],
+      "id": "T-E1-UNIFORM-REFINEMENT-NATURALITY",
+      "kind": "EXACT_REFINEMENT_THEOREM",
+      "proof_core": "h_(km)(k j)=k j+km/2=k(j+m/2)=i(h_m(j)).",
+      "statement": "For even m and every integer refinement factor k>=1, the uniform embedding i(j)=k j from C_m into C_(km) commutes with half-cycle roles.",
+      "status": "PROVED_AND_EXACT_CHECKED"
+    },
+    {
+      "applies_to": [
+        "E1_UNIFORM_CYCLIC_BOUNDARY_DIRECT_SYSTEM"
+      ],
+      "dependencies": [
+        "T-E1",
+        "composition of refinement embeddings"
+      ],
+      "id": "T-E2-DIRECT-LIMIT-HALF-ROLE",
+      "kind": "LIMIT_THEOREM",
+      "proof_core": "Refinement embeddings compose and T-E1 gives a natural transformation by involutions. Therefore the universal property of the direct limit induces one well-defined involution.",
+      "statement": "Over the directed poset of uniform boundary subdivision factors, the compatible half-cycle roles induce a unique involution on the algebraic direct limit.",
+      "status": "PROVED_ALGEBRAICALLY"
+    },
+    {
+      "applies_to": [
+        "S1_OCELL2",
+        "R1"
+      ],
+      "dependencies": [
+        "M4_NONUNIFORM_REFINEMENT_PARITY_LOSS"
+      ],
+      "id": "T-E3-UNRESTRICTED-REFINEMENT-FAILURE",
+      "kind": "COUNTEREXAMPLE",
+      "proof_core": "M4 subdivides one edge of an even C4 boundary to obtain odd C5; R1 exists before and is absent after.",
+      "statement": "R1 is not invariant under arbitrary cellular refinement.",
+      "status": "PROVED_BY_EXPLICIT_FINITE_COUNTEREXAMPLE"
+    },
+    {
+      "applies_to": [
+        "S0 through S6",
+        "R1 through R5"
+      ],
+      "dependencies": [
+        "T-B1",
+        "T-D1",
+        "T-D4",
+        "role typing ledger"
+      ],
+      "id": "T-GLOBAL-WEAK-UNIVERSAL-NOGO",
+      "kind": "NO_GO_THEOREM",
+      "proof_core": "Scalar roles are ill-typed in the weakest signatures; S3 has distinct same-codomain roles; S5 scalar roles vary under valuation scaling of a common weaker reduct; other roles have distinct codomains without a frozen comparison map.",
+      "statement": "The frozen signature family does not force one universal scalar pi-role or equality of all frozen roles.",
+      "status": "PROVED"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "programs": [
+    {
+      "base_parameter": "Choose any even m0>=4 before any comparison model is opened.",
+      "choice_independence": "Any two finite chains of uniform subdivisions have a common uniform refinement indexed by a common multiple; naturality makes the transported half-role agree there.",
+      "classical_numeric_comparison_used": false,
+      "counterexample_to_unrestricted_independence": "M4_NONUNIFORM_REFINEMENT_PARITY_LOSS: C4 -> C5 by subdividing one edge destroys existence.",
+      "different_role_limit_equality": "No equality with R2/R3/R4/R5 is asserted at Stage E because no common carrier/readout is frozen.",
+      "exact_recursion_naturality": "h_s ∘ i_{r,s} = i_{r,s} ∘ h_r for every r|s.",
+      "existence": "Every m0*r is even, so h_r exists at every stage.",
+      "objects": "For each positive integer r, P_r is an oriented polygonal 2-cell with boundary B_r=Z/(m0*r)Z and successor s_r(j)=j+1.",
+      "program_id": "E1_UNIFORM_CYCLIC_BOUNDARY_DIRECT_SYSTEM",
+      "proof": "For s=k r: h_s(i(j))=k j + m0 k r/2 = k(j+m0 r/2)=i(h_r(j)).",
+      "refinement_map": "If s=k*r, i_{r,s}(j)=k*j mod (m0*s). This is the uniform k-fold subdivision embedding of old boundary vertices.",
+      "refinement_order": "r divides s.",
+      "refinement_path_dependence": "Absent inside the declared uniform-subdivision directed system; present for unrestricted cellular subdivision.",
+      "role": "R1_CELL_HALF_CYCLE",
+      "role_object": "h_r(j)=j+(m0*r)/2 mod (m0*r), equivalently s_r^((m0*r)/2).",
+      "signature": "S1_OCELL2",
+      "stabilization_convergence": "No numeric convergence is asserted. The compatible family {h_r} induces a unique involution h_infty on the algebraic direct limit colim_r B_r."
+    }
+  ],
+  "researcher_id": "EM-R052-7C4A19",
+  "role_registry_sha256": "33cabef583b3847eedae152181de002806b800bd8cdb01c07b595d5a695dfe66",
+  "schema": "ENTERPRISE_MATH_R052_FINITE_REFINEMENT_PROGRAM_V1",
+  "signature_family_sha256": "946eb08652b7c505adb9b2e8c1263a7260147962b1b7056d5a890d623fbcd0e2",
+  "status": "STAGE_E_PROGRAM_FROZEN",
+  "task_id": "RS-R052-FORMAL-PLANE-PI-TYPABILITY-MULTIPLICITY-COHERENCE",
+  "theorem_vs_computation": {
+    "bounded_exact_checks": "The companion checker enumerates multiple even base sizes and uniform refinement factors, verifies permutation involution/uniqueness/naturality, and verifies explicit S3 deletion witnesses.",
+    "numerical_exploration": "NONE",
+    "theorems": [
+      "R1 exists iff a finite boundary cycle has even cardinality.",
+      "Uniform subdivision embeddings commute exactly with R1.",
+      "The directed system therefore has an exact algebraic direct-limit involution.",
+      "Unrestricted subdivision does not preserve R1."
+    ]
+  }
+}

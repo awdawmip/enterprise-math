@@ -1,0 +1,79 @@
+{
+  "missing_structure_debts": [
+    {
+      "debt": "A scalar codomain plus a role-defining construction would be additional structure, not a repair allowed inside S0.",
+      "from_signature": "S0_INC2"
+    },
+    {
+      "debt": "Coupling the group involution to the direction cover requires explicit coherence axioms; equality is not free.",
+      "from_signature": "S3_DIRACT2"
+    },
+    {
+      "debt": "A scalar angular normalization is an additional readout and cannot be inferred from the unnormalized cover.",
+      "from_signature": "S6_TURNCOV2"
+    }
+  ],
+  "researcher_id": "EM-R052-7C4A19",
+  "results": [
+    {
+      "class": "TYPABILITY_NO_GO",
+      "id": "B-NOGO-01-MISSING-SCALAR",
+      "proof": "Typing is syntactic before semantics: a term cannot have a codomain sort absent from the signature. Encoding an incidence configuration by an external number would be an added N2 readout, not an S0 term.",
+      "signature": "S0_INC2",
+      "statement": "No scalar-valued pi-role formula is well-typed in S0 because its signature contains no scalar/codomain sort and no definable scalarization operator.",
+      "status": "PROVED_BY_TYPE_CHECK"
+    },
+    {
+      "class": "TYPABILITY_NO_GO",
+      "id": "B-NOGO-02-CELL-SCALAR",
+      "proof": "All primitives are incidence/cell/orientation data. Finite counts can be formed only in an external/meta or declared readout layer; no native scalar field or angular scalarization is present.",
+      "signature": "S1_OCELL2",
+      "statement": "S1 supports finite cyclic/permutation roles but not a native geometric scalar role.",
+      "status": "PROVED_BY_TYPE_CHECK"
+    },
+    {
+      "class": "MODEL_THEORETIC_UNDERDETERMINATION",
+      "id": "B-NOGO-03-SCALAR-SORT-NOT-SELECTION",
+      "proof": "The S2 axioms specify field/vector/torsor laws only and contain no role predicate distinguishing a scalar by metric, turning, valuation, spectral, or refinement behavior. Any claim of a distinguished extra scalar therefore has a dependency not present in S2; when K has nontrivial automorphisms, parameter-free candidates must additionally be fixed by them.",
+      "signature": "S2_AFF2",
+      "statement": "Adding a scalar field sort does not by itself select a pi-role scalar.",
+      "status": "PROVED_DEPENDENCY_NO_GO"
+    },
+    {
+      "class": "COHERENCE_UNDERDETERMINATION",
+      "id": "B-NOGO-04-INDEPENDENT-WELL-TYPED-ROLES",
+      "proof": "S3 contains no axiom relating rho(z) to q. A finite explicit countermodel is frozen in R052_MODEL_COUNTEREXAMPLES.json: rho(z) permutes UDir fibers while delta_q swaps the two elements inside each fixed fiber.",
+      "signature": "S3_DIRACT2",
+      "statement": "The unique deck involution delta_q and the action rho(z) of the unique group involution are both well-typed and unique but are not forced equal by S3.",
+      "status": "PROVED_BY_EXPLICIT_COUNTERMODEL"
+    },
+    {
+      "class": "SCALING_AMBIGUITY",
+      "id": "B-NOGO-05-VALUATION-SCALE",
+      "proof": "For every positive c, replacing mu by c*mu preserves all coarser S4+N data and sends every ratio Per_N(C)^2/mu(C) to its old value divided by c; the infimum cut scales by the same factor.",
+      "signature": "S5_NVAL2",
+      "statement": "The raw isoperimetric role is not determined by the normed-affine reduct when valuation normalization is forgotten.",
+      "status": "PROVED_ALGEBRAICALLY"
+    },
+    {
+      "class": "CHOICE_DEPENDENCE",
+      "id": "B-NOGO-06-RAW-COVER-GENERATOR",
+      "proof": "An infinite cyclic group has exactly two generators t and t^{-1}. Because the signature marks neither orientation nor one generator, inversion preserves the declared structure while exchanging them. Only their inversion orbit can be invariant.",
+      "signature": "S6_TURNCOV2",
+      "statement": "A raw generator of ker(p) is not a canonical role object.",
+      "status": "PROVED_BY_AUTOMORPHISM_OBSTRUCTION"
+    },
+    {
+      "class": "BROAD_CLASS_NO_GO",
+      "id": "B-NOGO-07-WEAK-UNIVERSAL-PI",
+      "proof": "The family contains S0 and S1 models in which a scalar role is not even well-typed, S3 models with two distinct well-typed permutation roles, and S5 expansions whose scalar role changes under valuation rescaling of a common weaker reduct.",
+      "signature": "S0_INC2_to_S6_TURNCOV2",
+      "statement": "No single scalar-valued universal pi-role follows from the entire frozen weak-plane family.",
+      "status": "PROVED_BY_TYPABILITY_AND_COUNTERMODEL_COMBINATION"
+    }
+  ],
+  "schema": "ENTERPRISE_MATH_R052_NO_GO_UNDERDETERMINATION_V1",
+  "signature_family_sha256": "946eb08652b7c505adb9b2e8c1263a7260147962b1b7056d5a890d623fbcd0e2",
+  "status": "STAGE_B_COMPLETE_PRE_ROLE_FREEZE",
+  "task_id": "RS-R052-FORMAL-PLANE-PI-TYPABILITY-MULTIPLICITY-COHERENCE"
+}
