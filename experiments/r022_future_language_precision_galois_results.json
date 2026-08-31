@@ -1,0 +1,41 @@
+{
+  "descent_monoid": {
+    "composition_pairs_checked": 248832,
+    "equivalences": 15,
+    "functions": 256,
+    "monoid": true,
+    "states": 4
+  },
+  "galois_exhaustive": {
+    "counterexample": false,
+    "equivalence_closures_checked": 15,
+    "equivalences": 15,
+    "functions": 256,
+    "galois_pairs_checked": 960,
+    "language_closures_checked": 64,
+    "language_pool": 6,
+    "language_union_pairs_checked": 4096,
+    "languages": 64,
+    "single_operation_extensions_checked": 384,
+    "states": 4
+  },
+  "incremental_refinement": {
+    "lesson": "adding one future splits only old classes distinguished by the new observable",
+    "local_split_law_holds": true,
+    "new_kernel": [[0], [1], [2, 3]],
+    "old_kernel": [[0, 1], [2, 3]]
+  },
+  "observation_safe_nonmonoid_kill": {
+    "composition": [0, 0, 2],
+    "composition_safe": false,
+    "equivalence": [[0, 2], [1]],
+    "f": [0, 2, 0],
+    "f_safe": true,
+    "g": [0, 0, 1],
+    "g_safe": true,
+    "lesson": "one-step observation safety is not compositionally closed; quotient descent is the monoid-strength condition",
+    "minimal_counterexample_states": 3,
+    "no_counterexample_states_2": true,
+    "observable": [0, 0, 1]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "context_scoped_ncc": {
+    "failure_depth": 4,
+    "certified_branches": 34,
+    "dependency_footprint": {
+      "connector_states_before": [
+        0
+      ],
+      "low_local": [
+        0,
+        1
+      ],
+      "upper_local": 1
+    },
+    "sound": true
+  },
+  "context_invalidation_kill": {
+    "branch": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "failure_depth": 3,
+    "base_upper": [
+      0,
+      1,
+      0,
+      1,
+      1
+    ],
+    "mutated_upper": [
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "context_omission_would_false_prune": true
+  },
+  "budget_truncation_kill": {
+    "exact_support": [
+      0,
+      1
+    ],
+    "truncated_support": [
+      0
+    ],
+    "lost_results": [
+      1
+    ],
+    "exact_without_prune_certificate": false
+  },
+  "exactness_strata": {
+    "exact_local_reduction": [
+      "connector exact-state duplicate elimination under fixed context",
+      "context-scoped no-completion prefix certificate reuse"
+    ],
+    "completeness_neutral_structure": [
+      "forward/backward decomposition before truncation",
+      "thread-level parallelism"
+    ],
+    "not_exact_without_extra_certificate": [
+      "width/condition autobalancing truncation",
+      "best-path/score pruning",
+      "timeout kill and fixed k->k-1 rollback"
+    ]
+  }
+}

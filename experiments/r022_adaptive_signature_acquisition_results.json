@@ -1,0 +1,45 @@
+{
+  "md5_adaptive_signature": {
+    "assignments": 512,
+    "optimal_adaptive_depth_distribution": {
+      "1": 256,
+      "2": 128,
+      "3": 64,
+      "5": 32,
+      "6": 16,
+      "8": 8,
+      "9": 8
+    },
+    "optimal_adaptive_expected_raw_reads_uniform": 2.140625,
+    "optimal_adaptive_worst_raw_reads": 9,
+    "optimal_first_feature": "iv1_b25",
+    "route_counts": {
+      "S00": 2,
+      "S01": 2,
+      "S10": 2,
+      "S11": 2,
+      "WANG": 504
+    },
+    "source_short_circuit_average_cached_raw_reads": 3.015625,
+    "source_short_circuit_depth_distribution": {
+      "2": 256,
+      "3": 128,
+      "4": 64,
+      "5": 32,
+      "6": 16,
+      "8": 8,
+      "9": 8
+    },
+    "source_short_circuit_worst_cached_raw_reads": 9,
+    "source_to_optimal_expected_read_ratio": 1.4087591240875912,
+    "static_materialized_reads_per_state": 9,
+    "static_raw_signature_bits": 9,
+    "static_to_adaptive_expected_read_ratio": 4.204379562043796,
+    "warning": "bounded source-shaped raw-bit query model; not a claim about measured C++ word-load/runtime cost or real IV distribution"
+  },
+  "proof_carrying_leaf_verifier": {
+    "all_leaves_route_pure": true,
+    "covered_assignments": 512,
+    "leaf_count": 13
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "boolean_macro_cover": {
+    "canonical_join_frontier_width": 6,
+    "existing_dictionary_optimum": [
+      [1, 2, 5],
+      [3, 4, 6]
+    ],
+    "existing_dictionary_optimum_width": 2,
+    "free_target_macro_width_if_admissible": 1,
+    "lesson": "semantic frontier is canonical; executable width is macro-dictionary relative",
+    "target_atom_count": 6
+  },
+  "distributive_join_frontier": {
+    "counterexample": false,
+    "natural_order_posets": 40,
+    "target_ideals_checked": 317
+  },
+  "nondistributive_kill": {
+    "canonical_frontier_fully_covered": false,
+    "chosen_atoms": ["a", "b"],
+    "join_is_target_top": true,
+    "kill": true,
+    "lattice": "M3",
+    "lesson": "frontier-cover equivalence needs join-prime frontier elements; distributivity supplies this"
+  },
+  "proof_carrying_verifier": {
+    "optimal_candidate_verified": true,
+    "semantic_safety_independent_of_optimality": true,
+    "suboptimal_candidate_verified": true,
+    "unsafe_truncation_rejected": true
+  }
+}

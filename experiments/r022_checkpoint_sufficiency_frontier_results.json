@@ -1,0 +1,39 @@
+{
+  "arbitrary_partition_debt": {
+    "counterexample": false,
+    "ordered_partition_pairs": 2704,
+    "partitions": 52,
+    "side_alphabet_distribution": {
+      "1": 358,
+      "2": 1825,
+      "3": 485,
+      "4": 35,
+      "5": 1
+    },
+    "states": 5,
+    "zero_debt_pairs": 358
+  },
+  "checkpoint_frontier": {
+    "checkpoint_rows": [
+      {"checkpoint": 0, "minimum_fixed_side_bits": 0, "minimum_side_alphabet": 1, "rewind_depth": 3, "sufficient_without_side_metadata": true},
+      {"checkpoint": 1, "minimum_fixed_side_bits": 0, "minimum_side_alphabet": 1, "rewind_depth": 2, "sufficient_without_side_metadata": true},
+      {"checkpoint": 2, "minimum_fixed_side_bits": 1, "minimum_side_alphabet": 2, "rewind_depth": 1, "sufficient_without_side_metadata": false},
+      {"checkpoint": 3, "minimum_fixed_side_bits": 2, "minimum_side_alphabet": 4, "rewind_depth": 0, "sufficient_without_side_metadata": false}
+    ],
+    "current_checkpoint": 3,
+    "latest_sufficient_checkpoint_without_extra_metadata": 1,
+    "minimal_rewind_depth_without_extra_metadata": 2,
+    "storage_rewind_pareto": [
+      {"checkpoint": 1, "minimum_fixed_side_bits": 0, "minimum_side_alphabet": 1, "rewind_depth": 2, "sufficient_without_side_metadata": true},
+      {"checkpoint": 2, "minimum_fixed_side_bits": 1, "minimum_side_alphabet": 2, "rewind_depth": 1, "sufficient_without_side_metadata": false},
+      {"checkpoint": 3, "minimum_fixed_side_bits": 2, "minimum_side_alphabet": 4, "rewind_depth": 0, "sufficient_without_side_metadata": false}
+    ],
+    "target_partition": [[0,1],[2,3],[4,5],[6,7]]
+  },
+  "storage_rewind_witness": {
+    "checkpoint_1_zero_bits_depth_2": true,
+    "checkpoint_2_one_bit_depth_1": true,
+    "checkpoint_3_two_bits_depth_0": true,
+    "lesson": "side metadata can move the latest information-sufficient recovery point forward, trading storage for rewind depth"
+  }
+}
