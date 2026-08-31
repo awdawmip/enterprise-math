@@ -25,7 +25,7 @@
   "final_response_identity_policy": "INHERIT_GLOBAL",
   "identity_lane": "PPTAPBCP1",
   "origin_kind": "DRIVER_REVIEW_FOLLOWUP",
-  "task_lineage": "MATHEMATICAL_CONTINUATION",
+  "task_lineage": "CONTINUATION",
   "parent_task_id": "RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING",
   "successor_gate": {
     "new_information_gap": "The repaired fixed-point compound result proves adjacent two-layer no-recrossing for every m but leaves cancellation among three or more alternating binomial Cauchy layers completely open.",
@@ -46,41 +46,44 @@
 
 # Perfect Prime AP binomial Cauchy-layer cofactor positivity
 
-## Hard target
+## Mother question
+
+Can the AP-specific alternating binomial superposition of Cauchy layers be proved to retain only the known gauge kernel for every `m>=2` throughout `0<t<=1`, even though pairwise no-recrossing alone does not control interference among three or more layers?
+
+## Frozen inputs and scope
+
+Use the accepted, repaired fixed-point compound evidence without mathematical modification. The full deformation is
+
+`L_t = sum_{s=0}^{m-1} (-1)^s binom(m-1,s) t^s M_s`,
+
+with canonical gauge cofactor `tau_m(t)`. The all-m adjacent Cauchy-layer no-recrossing theorem is frozen input. The Cauchy identity endpoint and all previously reviewed generic-positivity failures remain mandatory controls. Finite `m=2..5` Möbius/Bernstein positivity is discovery/regression evidence only.
+
+## Hard target and required outputs
+
+Hard target:
 
 `FULL_AP_BINOMIAL_CAUCHY_GAUGE_COFACTOR_NONVANISHING_ALL_M_PROVED_OR_EXACTLY_OBSTRUCTED`.
 
-For every `m>=2`, use the frozen full deformation
-
-`L_t = sum_{s=0}^{m-1} (-1)^s binom(m-1,s) t^s M_s`
-
-and the canonical gauge cofactor `tau_m(t)` from the accepted fixed-point compound reduction. Prove
+Prove
 
 `tau_m(t) != 0`
 
-for every `0<t<=1`, or freeze an exact counterexample/obstruction. A preferred stronger sufficient result is
+for every `m>=2` and `0<t<=1`, or freeze an exact counterexample/obstruction. A preferred stronger sufficient result is
 
 `tau_m(t)/t^(m-1) > 0`.
 
-## Mandatory mathematical obligations
+Required outputs must reproduce the forced `t^(m-1)` vanishing order and accepted adjacent-layer theorem exactly, then control three-or-more-layer interference. Any coefficientwise, Möbius, Andreief, compound, total-positivity or variation-diminishing argument must verify hypotheses for the **full alternating superposition**, not merely individual positive factors.
 
-- reproduce the forced `t^(m-1)` vanishing order and the accepted adjacent-layer theorem exactly;
-- control interference among **three or more** Cauchy layers rather than only pairwise crossings;
-- use the AP alternating binomial structure essentially;
-- if using coefficient positivity or a Möbius transform, prove it uniformly in `m` rather than extrapolating from finite rows;
-- if using Andreief, compounds, total positivity or variation-diminishing machinery, verify hypotheses for the full alternating superposition, not merely for individual positive factors;
-- state precisely whether the output proves nonvanishing, strict positivity, or only a narrower no-crossing invariant.
+## Research value to preserve
 
-## Regression firewalls
+This is the smallest remaining load-bearing residue in the current Perfect Prime fixed-point route. A positive all-m theorem would resolve the outstanding cofactor/fixed-point-simplicity bottleneck without reopening already-excluded generic routes. A negative result is equally valuable if it freezes the first exact multilayer obstruction and identifies the narrower AP-specific invariant still missing.
 
-Mandatory negative controls:
+## Success, kill, and return criteria
 
-- the Cauchy identity endpoint must remain consistent with the proof;
-- factorwise STP/GSTP alone is insufficient;
-- generic common-measure/order-map positivity alone is insufficient;
-- adjacent two-layer no-recrossing does not imply multilayer noncancellation;
-- exact `m=2..5` Möbius/Bernstein positivity and any larger finite census are regression evidence only.
+Success: an all-m symbolic proof of cofactor nonvanishing, preferably strict positivity after the forced factor, with exact theorem interface and finite regressions separated from proof.
 
-## Required evidence
+Kill: an exact counterexample `(m,t)` in the target range, or a proof that the declared positivity mechanism fails while preserving the parent theorem as open.
 
-Freeze the exact symbolic derivation or exact obstruction, deterministic checks for all finite claims, execution provenance, and a NEW Result-ID with complete Git-blob SHA-1 plus SHA-256 bindings for every frozen output. If a positive all-m theorem is obtained, explicitly identify the minimal theorem interface suitable for later independent replication, adversarial stress testing and possible formalization; do not perform those downstream stages inside this task.
+Reject as insufficient: factorwise STP/GSTP alone; generic common-measure/order-map positivity alone; adjacent two-layer no-recrossing alone; or any finite census promoted as an all-m proof.
+
+Return a NEW Result-ID with exact symbolic derivation or exact obstruction, deterministic checks for finite claims, execution provenance, and complete Git-blob SHA-1 plus SHA-256 bindings for every frozen output. If a positive all-m theorem is obtained, identify the minimal theorem interface suitable for later replication, stress testing and formal verification, but do not perform those downstream stages here.
