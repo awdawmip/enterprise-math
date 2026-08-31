@@ -1,0 +1,74 @@
+{
+  "block_orientation_6_state_action_groupoid": {
+    "basepoint_gauge_is_stabilizer_conjugacy": true,
+    "choice_states": 6,
+    "effective_action_order": 48,
+    "effective_loop_transport_order": 8,
+    "effective_loop_transport_order_histogram": {
+      "1": 1,
+      "2": 5,
+      "4": 2
+    },
+    "every_two_step_loop_residue_exhausts_static_stabilizer": true,
+    "global_action_kernel_order": 24,
+    "minimum_distinct_intermediate_state_loop_length": 2,
+    "minimum_nonidentity_automorphism_loop_length": 1,
+    "orbit_size": 6,
+    "stabilizer_order": 192
+  },
+  "carrier_relation_loop_residue": {
+    "block_orientation_lifts_per_carrier_element": 8,
+    "block_orientation_residue": {
+      "identity": 768,
+      "z": 768
+    },
+    "block_orientation_total_lift_pairs": 1536,
+    "full_bridge_lifts_per_carrier_element": 2,
+    "full_bridge_residue": {
+      "z": 96
+    },
+    "full_bridge_total_lift_pairs": 96,
+    "generating_pairs": 24,
+    "interpretation": "STATIC_EXTENSION_RESIDUE_ONLY_NOT_CHOICE_HOLONOMY",
+    "word": "(A B)^4 for carrier (3,2,4) generating pairs"
+  },
+  "full_bridge_24_state_action_groupoid": {
+    "basepoint_gauge_is_stabilizer_conjugacy": true,
+    "choice_states": 24,
+    "effective_action_order": 576,
+    "effective_loop_transport_order": 24,
+    "effective_loop_transport_order_histogram": {
+      "1": 1,
+      "2": 9,
+      "3": 8,
+      "4": 6
+    },
+    "every_two_step_loop_residue_exhausts_static_stabilizer": true,
+    "global_action_kernel_order": 2,
+    "minimum_distinct_intermediate_state_loop_length": 2,
+    "minimum_nonidentity_automorphism_loop_length": 1,
+    "orbit_size": 24,
+    "stabilizer_order": 48
+  },
+  "hard_target": "P000_HIDDEN_COUPLING_TORSOR_TRANSPORT_OR_NO_NEW_INVARIANT_CLASSIFIED",
+  "ontology_boundary": {
+    "certificate_groups_are_finite_presentations_only": true,
+    "no_bare_P000_group_name_promotion": true,
+    "no_bundle_sheaf_stack_connection_promotion": true
+  },
+  "primitive_change_group_order": 1152,
+  "q12_comparison_gate": {
+    "reason": "No new gauge-invariant coupling-choice holonomy survives reduction; the only nontrivial loop residues are already internal to Q18 stabilizer/kernel extension data.",
+    "triggered": false
+  },
+  "reduction_theorem": {
+    "basepoint_change_conjugates_stabilizer": true,
+    "continuation_killed_by_minimum_sufficient_abstraction_gate": true,
+    "new_gauge_invariant_loop_datum_beyond_Q18_static_action": false,
+    "path_difference_with_same_endpoints_is_stabilizer_element": true,
+    "transitive_action_groupoid_equivalent_to_static_isotropy": true
+  },
+  "schema": "P000_Q21_HIDDEN_COUPLING_TORSOR_TRANSPORT_CHECK_V1",
+  "status": "PASS",
+  "terminal_class": "TORSOR_TRANSPORT_REDUCES_TO_STATIC_Q18_DATA"
+}
