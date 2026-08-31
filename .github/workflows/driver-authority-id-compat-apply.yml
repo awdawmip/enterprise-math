@@ -1,0 +1,57 @@
+name: driver-authority-id-compat-apply
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches:
+      - control/perfect-prime-publication-quarantine-resolution-20260831
+    paths:
+      - ".github/workflows/driver-authority-id-compat-apply.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+      - name: Install exact immutable Driver authority ID aliases
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("research_driver_authority.py")
+          text=p.read_text(encoding="utf-8")
+
+          old='''LEGACY_REVIEWS = "research_driver_followup_legacy_reviews.json"\nRECORD_ROOT = "research_driver_authority_records"\nCONTRACT_SCHEMA = "ENTERPRISE_MATH_DRIVER_AUTHORITY_CONTRACT_V1"\n'''
+          new='''LEGACY_REVIEWS = "research_driver_followup_legacy_reviews.json"\nRECORD_ROOT = "research_driver_authority_records"\nCOMPATIBILITY = "research_driver_authority_compatibility.json"\nCOMPATIBILITY_SCHEMA = "ENTERPRISE_MATH_DRIVER_AUTHORITY_COMPATIBILITY_V1"\nCONTRACT_SCHEMA = "ENTERPRISE_MATH_DRIVER_AUTHORITY_CONTRACT_V1"\n'''
+          if text.count(old)!=1:
+              raise SystemExit("Driver authority constant insertion marker drift")
+          text=text.replace(old,new)
+
+          marker='''def iter_records(root: Path = ROOT) -> list[dict[str, Any]]:\n    directory = root / RECORD_ROOT\n    if not directory.exists():\n        return []\n    out: list[dict[str, Any]] = []\n    for path in sorted(directory.glob("*/*.json")):\n        value = _load(path)\n        value["_record_path"] = path.relative_to(root).as_posix()\n        out.append(value)\n    return out\n'''
+          replacement='''def _git_blob_sha1(path: Path) -> str:\n    data = path.read_bytes()\n    header = f"blob {len(data)}\\0".encode("ascii")\n    return "sha1:" + hashlib.sha1(header + data).hexdigest()\n\n\ndef _compatibility_aliases(root: Path = ROOT) -> dict[str, dict[str, Any]]:\n    path = root / COMPATIBILITY\n    if not path.exists():\n        return {}\n    value = _load(path)\n    if value.get("schema") != COMPATIBILITY_SCHEMA or value.get("status") != "ACTIVE":\n        raise DriverAuthorityError(f"{COMPATIBILITY}: wrong schema/status")\n    for flag in ("working_truth_granted", "foundation_authority_granted", "canonical_promotion_granted"):\n        if value.get(flag) is not False:\n            raise DriverAuthorityError(f"{COMPATIBILITY}: cannot grant {flag}")\n    rows = value.get("id_aliases")\n    if not isinstance(rows, list):\n        raise DriverAuthorityError(f"{COMPATIBILITY}: id_aliases must be a list")\n    out: dict[str, dict[str, Any]] = {}\n    raw_ids: set[str] = set()\n    normalized_ids: set[str] = set()\n    for index, row in enumerate(rows):\n        if not isinstance(row, dict):\n            raise DriverAuthorityError(f"{COMPATIBILITY}: alias {index} must be object")\n        rel = row.get("record_path")\n        raw_id = row.get("raw_authority_record_id")\n        normalized = row.get("normalized_authority_record_id")\n        blob = row.get("record_blob_sha1")\n        if not all(isinstance(x, str) and x for x in (rel, raw_id, normalized, blob)):\n            raise DriverAuthorityError(f"{COMPATIBILITY}: alias {index} missing exact pins")\n        if rel in out or raw_id in raw_ids or normalized in normalized_ids:\n            raise DriverAuthorityError(f"{COMPATIBILITY}: duplicate alias identity")\n        out[rel] = row\n        raw_ids.add(raw_id)\n        normalized_ids.add(normalized)\n    return out\n\n\ndef iter_records(root: Path = ROOT) -> list[dict[str, Any]]:\n    directory = root / RECORD_ROOT\n    if not directory.exists():\n        return []\n    aliases = _compatibility_aliases(root)\n    used: set[str] = set()\n    out: list[dict[str, Any]] = []\n    for path in sorted(directory.glob("*/*.json")):\n        value = _load(path)\n        rel = path.relative_to(root).as_posix()\n        alias = aliases.get(rel)\n        if alias is not None:\n            raw_id = value.get("authority_record_id")\n            if raw_id != alias["raw_authority_record_id"]:\n                raise DriverAuthorityError(f"{COMPATIBILITY}: {rel} raw authority_record_id drift")\n            if _git_blob_sha1(path) != alias["record_blob_sha1"]:\n                raise DriverAuthorityError(f"{COMPATIBILITY}: {rel} immutable authority record blob drift")\n            driver_id = value.get("driver_id")\n            event = value.get("event")\n            comment_id = value.get("source_comment_id")\n            if not isinstance(driver_id, str) or not isinstance(event, str) or type(comment_id) is not int:\n                raise DriverAuthorityError(f"{COMPATIBILITY}: {rel} cannot recompute normalized authority id")\n            expected = _record_id(driver_id, event, comment_id)\n            if expected != alias["normalized_authority_record_id"]:\n                raise DriverAuthorityError(f"{COMPATIBILITY}: {rel} normalized authority id does not equal current formula")\n            if raw_id == expected:\n                raise DriverAuthorityError(f"{COMPATIBILITY}: {rel} alias is stale because raw id is already canonical")\n            value["_raw_authority_record_id"] = raw_id\n            value["authority_record_id"] = expected\n            used.add(rel)\n        value["_record_path"] = rel\n        out.append(value)\n    unused = sorted(set(aliases) - used)\n    if unused:\n        raise DriverAuthorityError(f"{COMPATIBILITY}: stale alias path(s): {unused}")\n    return out\n'''
+          if text.count(marker)!=1:
+              raise SystemExit("Driver authority iter_records marker drift")
+          text=text.replace(marker,replacement)
+          p.write_text(text,encoding="utf-8")
+          PY
+          test "$(git diff --name-only)" = "research_driver_authority.py"
+          git diff --check
+          python research_driver_authority.py audit
+      - name: Commit exact authority ID compatibility
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "enterprise-math-control-bot"
+          git config user.email "enterprise-math-control-bot@users.noreply.github.com"
+          git add research_driver_authority.py
+          git commit -m "[CONTROL] normalize exact legacy Driver authority IDs"
+          git push origin HEAD:control/perfect-prime-publication-quarantine-resolution-20260831
