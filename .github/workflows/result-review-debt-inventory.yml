@@ -1,0 +1,192 @@
+name: result-review-debt-inventory
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - control/perfect-prime-publication-quarantine-resolution-20260831
+    paths:
+      - ".github/workflows/result-review-debt-inventory.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Classify exact result/review strict-audit debt
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json, hashlib, re
+          from collections import defaultdict, Counter
+          from pathlib import Path
+
+          ROOT = Path.cwd()
+          OUT = ROOT / "_result_review_inventory"
+          OUT.mkdir(exist_ok=True)
+
+          from control_plane import research_result_review_binding_fault_isolation as binding
+          from control_plane import research_result_records_impl as impl
+          from control_plane import research_result_records_compat_runtime as compat
+          from control_plane import research_control_bootstrap
+          from tools import research_task_records
+          import research_operational_publications
+          import research_result_control_replacements
+
+          # Match the step-26 fault-isolated view before collecting the remaining errors.
+          binding.install(ROOT)
+          from tools import research_result_records
+          errors = research_result_records.audit(ROOT)
+
+          by_path = defaultdict(list)
+          global_errors = []
+          for error in errors:
+              if ": " in error and (
+                  error.startswith("research_result_records/")
+                  or error.startswith("research_result_reviews/")
+                  or error.startswith("research_result_control_replacements/")
+              ):
+                  p, suffix = error.split(": ", 1)
+                  by_path[p].append(suffix)
+              else:
+                  global_errors.append(error)
+
+          raw_results = impl.iter_results(ROOT)
+          raw_reviews = impl.iter_reviews(ROOT)
+          result_by_path = {x.get("_record_path"): x for x in raw_results}
+          review_by_path = {x.get("_review_path"): x for x in raw_reviews}
+          result_by_id = {x.get("result_id"): x for x in raw_results if isinstance(x.get("result_id"), str)}
+
+          def git_blob(path: Path) -> str:
+              b = path.read_bytes()
+              return "sha1:" + hashlib.sha1(f"blob {len(b)}\0".encode() + b).hexdigest()
+
+          def same_blob(a, b):
+              def norm(v):
+                  if not isinstance(v, str): return None
+                  t=v.strip().lower(); t=t[5:] if t.startswith("sha1:") else t
+                  return t if re.fullmatch(r"[0-9a-f]{40}", t) else None
+              return norm(a) is not None and norm(a)==norm(b)
+
+          def artifact_checks(result):
+              out=[]
+              if not isinstance(result, dict): return out
+              items=[]
+              rp=result.get("return_path")
+              if isinstance(rp,str) and rp:
+                  items.append((rp,result.get("return_blob_sha1"),"RETURN"))
+              for row in result.get("output_manifest",[]) if isinstance(result.get("output_manifest"),list) else []:
+                  if isinstance(row,dict) and isinstance(row.get("path"),str):
+                      items.append((row["path"],row.get("git_blob_sha1"),"MANIFEST"))
+              seen=set()
+              for rel,pin,kind in items:
+                  key=(rel,kind)
+                  if key in seen: continue
+                  seen.add(key)
+                  p=ROOT/rel
+                  exists=p.is_file()
+                  actual=git_blob(p) if exists else None
+                  out.append({"path":rel,"kind":kind,"exists":exists,"declared_git_blob":pin,"actual_git_blob":actual,"primary_blob_matches":bool(exists and same_blob(actual,pin))})
+              return out
+
+          # Current operational publication IDs where resolvable.
+          current_pub = {}
+          try:
+              for task_id, sel in research_operational_publications.selections(ROOT).items():
+                  current_pub[task_id]=sel.get("operational_publication_id")
+          except Exception as exc:
+              global_errors.append(f"CURRENT_PUBLICATION_SELECTION:{exc}")
+
+          # Control replacement topology.
+          try:
+              raw_map={str(x.get("result_id")):x for x in raw_results if isinstance(x.get("result_id"),str)}
+              repl=research_result_control_replacements.replacement_edges(raw_map,ROOT)
+          except Exception as exc:
+              repl={}
+              global_errors.append(f"RESULT_REPLACEMENT_TOPOLOGY:{exc}")
+          repl_sources=set(repl)
+          repl_targets={str(x.get("corrected_result_id")) for x in repl.values() if isinstance(x,dict)}
+
+          # Same-task/publication alternatives sorted by frozen_at/result_id.
+          groups=defaultdict(list)
+          for r in raw_results:
+              groups[(r.get("task_id"),r.get("publication_id"))].append(r)
+          for vals in groups.values():
+              vals.sort(key=lambda x:(str(x.get("frozen_at") or ""),str(x.get("result_id") or "")))
+
+          records=[]
+          enum_values=defaultdict(Counter)
+          for path in sorted(by_path):
+              suffixes=sorted(set(by_path[path]))
+              if path.startswith("research_result_records/"):
+                  item=result_by_path.get(path)
+                  if not isinstance(item,dict):
+                      records.append({"kind":"RESULT","path":path,"errors":suffixes,"classification":"UNCLASSIFIED_MISSING_RECORD"}); continue
+                  rid=str(item.get("result_id")); task=str(item.get("task_id")); pub=str(item.get("publication_id"))
+                  for s in suffixes:
+                      m=re.fullmatch(r"invalid (terminal_verdict|method_harvest|independence_status|source_exposure_status)",s)
+                      if m: enum_values[m.group(1)][str(item.get(m.group(1)))] += 1
+                  alts=[str(x.get("result_id")) for x in groups[(item.get("task_id"),item.get("publication_id"))] if x.get("result_id")!=item.get("result_id")]
+                  records.append({
+                      "kind":"RESULT","path":path,"result_id":rid,"task_id":task,"publication_id":pub,"errors":suffixes,
+                      "record_blob_sha1":git_blob(ROOT/path),
+                      "record_state_current_publication": current_pub.get(task)==pub,
+                      "control_replacement_source": rid in repl_sources,
+                      "control_replacement_target": rid in repl_targets,
+                      "same_task_publication_other_result_ids":alts,
+                      "artifact_checks":artifact_checks(item),
+                      "raw_enum_values":{k:item.get(k) for k in ("terminal_verdict","method_harvest","independence_status","source_exposure_status")},
+                  })
+              elif path.startswith("research_result_reviews/"):
+                  item=review_by_path.get(path)
+                  if not isinstance(item,dict):
+                      records.append({"kind":"REVIEW","path":path,"errors":suffixes,"classification":"UNCLASSIFIED_MISSING_REVIEW"}); continue
+                  rid=str(item.get("result_id")); res=result_by_id.get(rid)
+                  for s in suffixes:
+                      m=re.fullmatch(r"invalid (disposition|destination_class)",s)
+                      if m: enum_values[m.group(1)][str(item.get(m.group(1))] += 1
+                  art=item.get("review_path")
+                  artinfo=None
+                  if isinstance(art,str) and art:
+                      p=ROOT/art; exists=p.is_file(); actual=git_blob(p) if exists else None
+                      artinfo={"path":art,"exists":exists,"declared_git_blob":item.get("review_blob_sha1"),"actual_git_blob":actual,"primary_blob_matches":bool(exists and same_blob(actual,item.get("review_blob_sha1")))}
+                  records.append({
+                      "kind":"REVIEW","path":path,"review_id":item.get("review_id"),"result_id":rid,"task_id":item.get("task_id"),"errors":suffixes,
+                      "record_blob_sha1":git_blob(ROOT/path),"result_exists":isinstance(res,dict),
+                      "result_control_replacement_source":rid in repl_sources,
+                      "result_control_replacement_target":rid in repl_targets,
+                      "review_artifact":artinfo,
+                      "raw_enum_values":{k:item.get(k) for k in ("disposition","destination_class")},
+                  })
+              else:
+                  records.append({"kind":"CONTROL_REPLACEMENT","path":path,"errors":suffixes,"record_blob_sha1":git_blob(ROOT/path) if (ROOT/path).is_file() else None})
+
+          summary={
+              "schema":"ENTERPRISE_MATH_RESULT_REVIEW_DEBT_INVENTORY_V1",
+              "error_count":len(errors),
+              "object_count":len(by_path),
+              "global_error_count":len(global_errors),
+              "kind_counts":dict(Counter(x["kind"] for x in records)),
+              "enum_values":{k:dict(v) for k,v in sorted(enum_values.items())},
+              "control_replacement_source_count":sum(1 for x in records if x.get("control_replacement_source") or x.get("result_control_replacement_source")),
+          }
+          (OUT/"summary.json").write_text(json.dumps(summary,indent=2,ensure_ascii=False)+"\n")
+          (OUT/"records.json").write_text(json.dumps(records,indent=2,ensure_ascii=False)+"\n")
+          (OUT/"global_errors.json").write_text(json.dumps(global_errors,indent=2,ensure_ascii=False)+"\n")
+          print(json.dumps(summary,sort_keys=True,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: result-review-debt-inventory
+          path: _result_review_inventory/
+          if-no-files-found: error
+          retention-days: 3
