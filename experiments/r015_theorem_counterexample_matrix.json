@@ -1,0 +1,219 @@
+{
+  "boolean_matrix_contract": {
+    "explicitly_not": "path counts",
+    "observable": "Boolean reachability",
+    "orientation": "row vectors; M_(S o R)=M_R*M_S over Boolean semiring"
+  },
+  "canonical_mutations": [],
+  "canonical_status": "NOT_CANONICAL",
+  "characterization_assumptions": {
+    "all_families_including_empty": "complete union preservation and T(empty)=empty",
+    "arbitrary_X": "complete union preservation iff singleton-generated iff unique relational direct image",
+    "finite_X": "binary union + bottom suffices",
+    "infinite_X_counterexample": "T(A)=A when finite, N when infinite",
+    "nonempty_families_only": "bottom preservation not forced"
+  },
+  "final_verdict": "RESULT_SUPPORT_BRANCH_DEFERRAL_PROVED / EXECUTABLE_EXHAUSTIVE_PASS / FOUNDATION_REWRITE_CANDIDATE / NOT_CANONICAL",
+  "impact_matrix": {
+    "P018": {
+      "routing": "functional vs support-valued projection"
+    },
+    "P021": {
+      "routing": "witness/multiplicity semantics remain richer"
+    },
+    "P023": {
+      "split": [
+        "FUNCTIONAL_SAFE",
+        "SUPPORT_SAFE",
+        "SUPPORT_UNSAFE"
+      ],
+      "unchanged": "deterministic theorems remain valid in functional scope"
+    },
+    "R009": {
+      "forbidden_assumption": "{a^p,(a+1)^p} not assumed",
+      "routing": "IMPACT_ONLY_DO_NOT_MODIFY"
+    },
+    "R013": {
+      "routing": "result-support is one declared semantic fibre"
+    },
+    "R014": {
+      "routing": "eager/lazy/matrix are resource alternatives only after semantic equality"
+    }
+  },
+  "negative_boundaries": {
+    "discarded_probability_weights": {
+      "classification": [
+        "OUT_OF_CONTRACT_OBSERVABLE",
+        "WRONG_CARRIER"
+      ],
+      "different_exact_weighted_result": true,
+      "distribution_a": [
+        "3/4",
+        "1/4"
+      ],
+      "distribution_b": [
+        "1/4",
+        "3/4"
+      ],
+      "repair": "probability distributions/stochastic kernels",
+      "same_boolean_support": true,
+      "support": [
+        "x0",
+        "x1"
+      ]
+    },
+    "hidden_history": {
+      "classification": [
+        "SEMANTIC_CONTRACT_VIOLATION",
+        "WRONG_STATE_TYPE",
+        "CURRENT_STATE_NOT_SUFFICIENT"
+      ],
+      "future": {
+        "h0": "y0",
+        "h1": "y1"
+      },
+      "hidden_states": [
+        "h0",
+        "h1"
+      ],
+      "repair": "include future-readable history discriminator in current state",
+      "visible_projection": {
+        "h0": "s",
+        "h1": "s"
+      },
+      "visible_states": [
+        "s"
+      ],
+      "witness": "same visible {s} would need different futures"
+    },
+    "multiplicity": {
+      "boolean_support_a": [
+        "x"
+      ],
+      "boolean_support_b": [
+        "x"
+      ],
+      "branch_multiset_a": [
+        "x"
+      ],
+      "branch_multiset_b": [
+        "x",
+        "x"
+      ],
+      "classification": [
+        "OUT_OF_CONTRACT_OBSERVABLE",
+        "WRONG_STATE_TYPE"
+      ],
+      "readout": {
+        "count=1": "y1",
+        "count=2": "y2"
+      },
+      "repair": "multiset/N-semimodule or explicit count"
+    },
+    "signed_amplitude_cancellation": {
+      "amplitudes": {
+        "x0->y": "+1",
+        "x1->y": "-1"
+      },
+      "boolean_reachable_support": [
+        "y"
+      ],
+      "classification": [
+        "OUT_OF_CONTRACT_OBSERVABLE",
+        "BOOLEAN_SUPPORT_NOT_FAITHFUL",
+        "RICHER_MODULE_REQUIRED"
+      ],
+      "combined_amplitude_at_y": "0",
+      "current_support": [
+        "x0",
+        "x1"
+      ],
+      "nonzero_amplitude_support": [],
+      "relation_edges": [
+        [
+          "x0",
+          "y"
+        ],
+        [
+          "x1",
+          "y"
+        ]
+      ],
+      "repair": "signed/complex module with additive cancellation"
+    },
+    "support_global_nonlinear": {
+      "X": [
+        "a",
+        "b"
+      ],
+      "Y": [
+        "y"
+      ],
+      "classification": [
+        "THEOREM_HYPOTHESIS_FAILURE",
+        "NON_UNION_PRESERVING_TRANSFORMER"
+      ],
+      "eager_on_singletons": [],
+      "lazy_on_union": [
+        "y"
+      ],
+      "repair": "encode simultaneous-presence state or leave relational direct-image semantics",
+      "rule": "T(A)={y} iff both a,b are present"
+    }
+  },
+  "positive_contract": {
+    "discarded_by_contract": [
+      "path identity",
+      "multiplicity",
+      "weights/probability",
+      "cost",
+      "amplitude"
+    ],
+    "future_step": "relational direct image",
+    "observable": "final Boolean reachable-result support only",
+    "state_requirement": "all future-readable facts are in current state"
+  },
+  "prior_art": {
+    "Boolean_reachability": "ROOTING_SUCCESS / PRIOR_ART",
+    "enterprise_residue": "collapse execution consequence and P023 safety split",
+    "join_preservation": "ROOTING_SUCCESS / PRIOR_ART",
+    "powerset_direct_image": "ROOTING_SUCCESS / PRIOR_ART",
+    "relations": "ROOTING_SUCCESS / PRIOR_ART"
+  },
+  "researcher_id": "EM-R015-R7A3",
+  "task": "RS-R015-RESULT-SUPPORT-BRANCH-DEFERRAL-INVARIANCE",
+  "theorems": {
+    "R015-T01": {
+      "class": "ROOTING_SUCCESS / PRIOR_ART",
+      "status": "PROVED"
+    },
+    "R015-T02": {
+      "class": "ROOTING_SUCCESS / PRIOR_ART",
+      "status": "PROVED"
+    },
+    "R015-T03": {
+      "class": "ENTERPRISE_SEMANTIC_SPECIALIZATION",
+      "status": "PROVED"
+    },
+    "R015-T04a": {
+      "class": "ROOTING_SUCCESS / PRIOR_ART",
+      "status": "PROVED"
+    },
+    "R015-T04b": {
+      "class": "ROOTING_SUCCESS / PRIOR_ART",
+      "status": "PROVED"
+    },
+    "R015-T04c": {
+      "class": "ROOTING_SUCCESS / PRIOR_ART",
+      "status": "PROVED"
+    },
+    "R015-T05": {
+      "class": "ROOTING_SUCCESS / PRIOR_ART",
+      "status": "PROVED"
+    },
+    "R015-T06": {
+      "class": "ENTERPRISE_SEMANTIC_SPECIALIZATION",
+      "status": "PROVED"
+    }
+  }
+}

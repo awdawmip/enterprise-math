@@ -1,0 +1,89 @@
+{
+  "integer_boolean_audit": {
+    "float_constants": 0,
+    "true_division_nodes": 0
+  },
+  "mutation_tests": {
+    "detected_eager_lazy_divergence": 3,
+    "detected_non_union_preserving": 3,
+    "minimal_any_union_failure": {
+      "table": [1],
+      "witness": {"eager": 0, "family_mask": 0, "lazy": 1, "members": [], "union": 0},
+      "x_size": 0,
+      "y_size": 1
+    },
+    "minimal_distinct_singleton_branch_failure": {
+      "components": [1, 2],
+      "eager": 0,
+      "lazy": 1,
+      "table": [0, 0, 0, 1],
+      "x_size": 2,
+      "y_size": 1
+    },
+    "minimal_nonempty_two_branch_failure": {
+      "table": [0, 0, 0, 1],
+      "witness": {"eager": 0, "family_mask": 6, "lazy": 1, "members": [1, 2], "union": 3},
+      "x_size": 2,
+      "y_size": 1
+    },
+    "mutations": {
+      "bottom_injection": {"table": [1, 0, 0, 0], "union_preserving": false, "witness": {"eager": 0, "family_mask": 0, "lazy": 1, "members": [], "union": 0}},
+      "exactly_one": {"table": [0, 1, 1, 0], "union_preserving": false, "witness": {"eager": 1, "family_mask": 6, "lazy": 0, "members": [1, 2], "union": 3}},
+      "pair_required": {"table": [0, 0, 0, 1], "union_preserving": false, "witness": {"eager": 0, "family_mask": 6, "lazy": 1, "members": [1, 2], "union": 3}}
+    }
+  },
+  "negative_boundaries": {
+    "discarded_probability_weights": {"classification": ["OUT_OF_CONTRACT_OBSERVABLE", "WRONG_CARRIER"], "different_exact_weighted_result": true, "distribution_a": ["3/4", "1/4"], "distribution_b": ["1/4", "3/4"], "repair": "probability distributions/stochastic kernels", "same_boolean_support": true, "support": ["x0", "x1"]},
+    "hidden_history": {"classification": ["SEMANTIC_CONTRACT_VIOLATION", "WRONG_STATE_TYPE", "CURRENT_STATE_NOT_SUFFICIENT"], "future": {"h0": "y0", "h1": "y1"}, "hidden_states": ["h0", "h1"], "repair": "include future-readable history discriminator in current state", "visible_projection": {"h0": "s", "h1": "s"}, "visible_states": ["s"], "witness": "same visible {s} would need different futures"},
+    "multiplicity": {"boolean_support_a": ["x"], "boolean_support_b": ["x"], "branch_multiset_a": ["x"], "branch_multiset_b": ["x", "x"], "classification": ["OUT_OF_CONTRACT_OBSERVABLE", "WRONG_STATE_TYPE"], "readout": {"count=1": "y1", "count=2": "y2"}, "repair": "multiset/N-semimodule or explicit count"},
+    "signed_amplitude_cancellation": {"amplitudes": {"x0->y": "+1", "x1->y": "-1"}, "boolean_reachable_support": ["y"], "classification": ["OUT_OF_CONTRACT_OBSERVABLE", "BOOLEAN_SUPPORT_NOT_FAITHFUL", "RICHER_MODULE_REQUIRED"], "combined_amplitude_at_y": "0", "current_support": ["x0", "x1"], "nonzero_amplitude_support": [], "relation_edges": [["x0", "y"], ["x1", "y"]], "repair": "signed/complex module with additive cancellation"},
+    "support_global_nonlinear": {"X": ["a", "b"], "Y": ["y"], "classification": ["THEOREM_HYPOTHESIS_FAILURE", "NON_UNION_PRESERVING_TRANSFORMER"], "eager_on_singletons": [], "lazy_on_union": ["y"], "repair": "encode simultaneous-presence state or leave relational direct-image semantics", "rule": "T(A)={y} iff both a,b are present"}
+  },
+  "pass": true,
+  "positive_contract": "result-only current-state-sufficient relational direct-image support semantics",
+  "randomized_properties": {"max_horizon_seen": 12, "max_states_seen": 8, "seed": 15015, "trials": 500},
+  "relation_exhaustive": {
+    "bounded_duplicate_multiplicity": 2,
+    "bounded_representations_by_union": {"0": 1, "1": 2, "2": 2, "3": 22},
+    "engine_cases": 279620,
+    "implicit_bounded_schedule_paths": 42881022881,
+    "initial_supports": 4,
+    "matrix_composition_cases": 279616,
+    "max_horizon": 4,
+    "one_step_schedule_transition_checks": 432,
+    "per_horizon": {
+      "0": {"engine_cases": 4, "implicit_bounded_schedule_paths": 27, "initial_supports": 4, "relation_words": 1, "schedule_representation_state_checks": 27},
+      "1": {"engine_cases": 64, "implicit_bounded_schedule_paths": 5090, "initial_supports": 4, "relation_words": 16, "schedule_representation_state_checks": 875},
+      "2": {"engine_cases": 1024, "implicit_bounded_schedule_paths": 1029676, "initial_supports": 4, "relation_words": 256, "schedule_representation_state_checks": 20363},
+      "3": {"engine_cases": 16384, "implicit_bounded_schedule_paths": 209559624, "initial_supports": 4, "relation_words": 4096, "schedule_representation_state_checks": 414763},
+      "4": {"engine_cases": 262144, "implicit_bounded_schedule_paths": 42670428464, "initial_supports": 4, "relation_words": 65536, "schedule_representation_state_checks": 7875787}
+    },
+    "relations": 16,
+    "schedule_representation_state_checks": 8311815,
+    "state_size": 2
+  },
+  "researcher_id": "EM-R015-R7A3",
+  "task": "RS-R015-RESULT-SUPPORT-BRANCH-DEFERRAL-INVARIANCE",
+  "transformer_characterization_exhaustive": {
+    "max_x": 3,
+    "max_y": 2,
+    "per_size": {
+      "X0_Y0": {"binary_union_plus_empty": 1, "expected_relations": 1, "relational_tables": 1, "singleton_generated": 1, "transformers": 1, "union_preserving": 1},
+      "X0_Y1": {"binary_union_plus_empty": 1, "expected_relations": 1, "relational_tables": 1, "singleton_generated": 1, "transformers": 2, "union_preserving": 1},
+      "X0_Y2": {"binary_union_plus_empty": 1, "expected_relations": 1, "relational_tables": 1, "singleton_generated": 1, "transformers": 4, "union_preserving": 1},
+      "X1_Y0": {"binary_union_plus_empty": 1, "expected_relations": 1, "relational_tables": 1, "singleton_generated": 1, "transformers": 1, "union_preserving": 1},
+      "X1_Y1": {"binary_union_plus_empty": 2, "expected_relations": 2, "relational_tables": 2, "singleton_generated": 2, "transformers": 4, "union_preserving": 2},
+      "X1_Y2": {"binary_union_plus_empty": 4, "expected_relations": 4, "relational_tables": 4, "singleton_generated": 4, "transformers": 16, "union_preserving": 4},
+      "X2_Y0": {"binary_union_plus_empty": 1, "expected_relations": 1, "relational_tables": 1, "singleton_generated": 1, "transformers": 1, "union_preserving": 1},
+      "X2_Y1": {"binary_union_plus_empty": 4, "expected_relations": 4, "relational_tables": 4, "singleton_generated": 4, "transformers": 16, "union_preserving": 4},
+      "X2_Y2": {"binary_union_plus_empty": 16, "expected_relations": 16, "relational_tables": 16, "singleton_generated": 16, "transformers": 256, "union_preserving": 16},
+      "X3_Y0": {"binary_union_plus_empty": 1, "expected_relations": 1, "relational_tables": 1, "singleton_generated": 1, "transformers": 1, "union_preserving": 1},
+      "X3_Y1": {"binary_union_plus_empty": 8, "expected_relations": 8, "relational_tables": 8, "singleton_generated": 8, "transformers": 256, "union_preserving": 8},
+      "X3_Y2": {"binary_union_plus_empty": 64, "expected_relations": 64, "relational_tables": 64, "singleton_generated": 64, "transformers": 65536, "union_preserving": 64}
+    },
+    "total_binary_union_plus_empty": 104,
+    "total_singleton_generated": 104,
+    "total_transformers": 66094,
+    "total_union_preserving": 104
+  }
+}
