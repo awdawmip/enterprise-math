@@ -8,13 +8,19 @@
     "ring_of_integers": "Z[i]",
     "embeddings": ["sigma(i)=i", "sigma_bar(i)=-i"]
   },
-  "rational_hodge_carrier": {
-    "V": "K^6 viewed as a 12-dimensional Q-vector space",
-    "lattice": "Lambda=Z[i]^6",
+  "homology_model": {
+    "H1_Q": "U=K^6 viewed as a 12-dimensional Q-vector space",
+    "lattice": "Lambda=Z[i]^6 subset U",
     "K_dimension": 6,
     "Q_dimension": 12
   },
-  "hermitian_form": {
+  "cohomology_carrier": {
+    "H1_cohomology_Q": "V=Hom_Q(U,Q), with the contragredient K-action; V is again 6-dimensional over K and 12-dimensional over Q",
+    "discriminant_note": "Passing to the dual Hermitian space inverts det(h); [-1/3]=[-3] in Q^*/Nm(K^*) because their ratio 1/9 is Nm(1/3). Thus the discriminant component is unchanged in the quotient.",
+    "K_dimension": 6,
+    "Q_dimension": 12
+  },
+  "hermitian_form_on_homology": {
     "convention": "K-linear in the first variable and conjugate-linear in the second",
     "matrix": [1, 1, 1, -1, -1, -3],
     "signature": [3, 3],
@@ -24,32 +30,32 @@
   "non_split_certificate": {
     "known_split_sixfold_class": "[-1]",
     "ratio_to_split_class": 3,
-    "proof_ratio_not_norm": "The rational prime 3 is inert in Q(i). For every z in Q(i)^*, v_3(Nm(z)) is even because the unique prime over 3 has residue degree 2. Since v_3(3)=1, 3 is not a norm. Hence [-3] != [-1].",
+    "proof_ratio_not_norm": "If 3=Nm(a+bi) with a,b in Q, clearing denominators gives coprime integers x,y,z with x^2+y^2=3z^2. Modulo 3, the only way x^2+y^2 is 0 is x=y=0 mod 3; then the equation forces z=0 mod 3, contradicting coprimality. Hence 3 is not a norm and [-3] != [-1].",
     "classification": "OUTSIDE_SPLIT_DISCRIMINANT_MINUS_ONE_COMPONENT"
   },
   "polarization_model": {
-    "alternating_form": "E(x,y)=(1/2) Tr_{K/Q}( i*h(x,y) )",
+    "alternating_form_on_U": "E(x,y)=(1/2) Tr_{K/Q}( i*h(x,y) )",
     "integrality": "For x,y in Z[i]^6, h(x,y) is in Z[i] and (1/2)Tr(i*h(x,y)) is an integer.",
     "nondegeneracy": "Follows from nondegeneracy of h.",
-    "explicit_nonempty_period_point": "Let I be multiplication by i on V_R. Define J0=+I on the first three K-coordinates and J0=-I on the last three. Then J0 commutes with K, preserves E, and E(x,J0 x)>0 for x!=0 because h is positive on the first three coordinates and negative on the last three.",
-    "period_domain": "D_h is the connected component containing J0 of complex structures J on V_R commuting with K, preserving E, and satisfying E(x,Jx)>0. It is the U(3,3)/(U(3)xU(3)) Weil-type Hermitian domain.",
-    "family": "A_J=(V_R,J)/Lambda for J in D_h; every member is a polarized complex abelian sixfold with the fixed K-action, Weil signature (3,3), and discriminant class [-3]."
+    "explicit_nonempty_period_point": "Let I be multiplication by i on U_R. Define J0=+I on the first three K-coordinates and J0=-I on the last three. Then J0 commutes with K, preserves E, and E(x,J0 x)>0 for x!=0 because h is positive on the first three coordinates and negative on the last three.",
+    "period_domain": "D_h is the connected component containing J0 of complex structures J on U_R commuting with K, preserving E, and satisfying E(x,Jx)>0. It is the U(3,3)/(U(3)xU(3)) Weil-type Hermitian domain.",
+    "family": "A_J=(U_R,J)/Lambda for J in D_h; every member is a polarized complex abelian sixfold with the fixed K-action, Weil signature (3,3), and discriminant class [-3]."
   },
   "frontier_member": {
     "choice": "A_gen=A_{J_gen} for a very general J_gen in D_h, chosen outside the countable union of proper rational Hodge loci and special solved/isogeny loci before any cycle search.",
     "generic_NS_condition": "NS(A_gen)_Q=Q*[E]",
-    "reason_for_genericity": "Additional rational (1,1)-classes define proper Hodge loci; the very-general point is chosen outside their countable union.",
+    "reason_for_genericity": "The polarization class is always rational (1,1); every additional rational degree-two Hodge class imposes a proper Hodge-locus condition. The very-general point is chosen outside the countable union of such proper loci.",
     "not_a_positive_control": "The explicit J0 only proves nonemptiness of D_h and is not used as the frontier target; the target is the very-general fixed-discriminant member."
   },
   "weil_hodge_space": {
-    "definition": "W_K(A_gen)=wedge_K^6 H^1(A_gen,Q), realized as the Q-descended subspace whose complexification is wedge^6 V_sigma direct-sum wedge^6 V_sigma_bar inside wedge_Q^6 V_C.",
+    "definition": "W_K(A_gen)=wedge_K^6 V, realized inside wedge_Q^6 V as the Q-descended subspace whose complexification is wedge^6 V_sigma direct-sum wedge^6 V_sigma_bar.",
     "Q_dimension": 2,
-    "dimension_proof": "wedge_K^6 V is one-dimensional over K because dim_K V=6; since [K:Q]=2, its underlying rational dimension is 2. Equivalently, after complexification the two determinant lines wedge^6 V_sigma and wedge^6 V_sigma_bar are one-dimensional and exchanged by conjugation.",
+    "dimension_proof": "wedge_K^6 V is one-dimensional over K because dim_K V=6; since [K:Q]=2, its underlying rational dimension is 2. Equivalently, after complexification the determinant lines wedge^6 V_sigma and wedge^6 V_sigma_bar are one-dimensional and exchanged by conjugation.",
     "hodge_type": "(3,3) only",
     "hodge_type_proof": "For Weil signature (3,3), V_sigma has Hodge dimensions 3 in (1,0) and 3 in (0,1), and the same holds for V_sigma_bar. Hence wedge^6 V_sigma = wedge^3 V_sigma^(1,0) tensor wedge^3 V_sigma^(0,1), of Hodge type (3,3); likewise for the conjugate determinant line. Thus every rational class in W_K is of type (3,3)."
   },
   "divisor_algebra_separation": {
-    "generic_divisor_space": "H^{1,1}(A_gen,Q)∩H^2(A_gen,Q)=Q*[E]",
+    "generic_divisor_space": "H^{1,1}(A_gen,Q) intersect H^2(A_gen,Q)=Q*[E]",
     "degree_six_divisor_generated_space": "Q*[E^3]",
     "K_isotypic_location_of_E3": "wedge^3 V_sigma tensor wedge^3 V_sigma_bar",
     "K_isotypic_location_of_WK": "wedge^6 V_sigma direct-sum wedge^6 V_sigma_bar",
@@ -57,5 +63,5 @@
   },
   "hard_prerequisite_A": "PASS",
   "hard_prerequisite_A_label": "OPEN_WEIL_SIXFOLD_EXACT_RATIONAL_HODGE_CARRIER_AND_FRONTIER_MODEL_ESTABLISHED",
-  "scope_caveat": "No algebraicity of W_K is asserted. This artifact fixes only an exact open-frontier polarized family and the rational Hodge carrier that any later cycle/obstruction mechanism must hit."
+  "scope_caveat": "No algebraicity of W_K is asserted. This artifact fixes only an exact open-frontier polarized family and the rational cohomological Hodge carrier that any later cycle/obstruction mechanism must hit."
 }
