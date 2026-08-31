@@ -5,12 +5,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from control_plane import check_result_review_binding_fault_isolated as binding_check
 from tools import research_result_records as records
 
 
 class ResultRecordCompatibilityTests(unittest.TestCase):
-    def test_current_repository_result_review_audit_passes(self) -> None:
-        self.assertEqual([], records.audit(records.ROOT))
+    def test_current_repository_fault_isolated_result_review_audit_passes(self) -> None:
+        self.assertEqual([], binding_check.audit())
 
     def test_current_repository_normalizes_only_named_history(self) -> None:
         results = {item["result_id"]: item for item in records.iter_results(records.ROOT)}

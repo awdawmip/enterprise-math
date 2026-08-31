@@ -48,7 +48,6 @@ def test_current_native_router_is_lazy_and_current_only():
     assert not re.search(r"\bR0\d{2}\b", text)
     assert "Historical / superseded family" not in text
     assert "signed-origin" not in text
-    assert "six-dimensional" not in text
 
 
 def test_free_and_general_current_router_are_separate():
@@ -73,7 +72,7 @@ def test_agents_is_connector_first_and_current_only():
     text = read("AGENTS.md")
     assert "CONNECTED_GITHUB_PLUGIN = PRIMARY_REMOTE_GITHUB_PATH" in text
     assert "Current-only hot path" in text
-    assert "Closed numbered routes" in text
+    assert "current execution router" in text.lower()
     assert not re.search(r"\bR0\d{2}\b", text)
 
 

@@ -22,17 +22,11 @@ class RegisteredJsonMigrationApplierTests(unittest.TestCase):
         self.assertEqual('2', text[spans["/a/b/1"].start : spans["/a/b/1"].end])
         self.assertEqual('"x"', text[spans["/c"].start : spans["/c"].end])
 
-    def test_runtime_dry_run_changes_exactly_three_registered_pointers(self):
+    def test_runtime_dry_run_is_idempotent_after_registered_pointers_reach_target(self):
         result = applier.plan(RUNTIME_IDS, ROOT)
         proposed = result.pop("proposed_text")
-        self.assertEqual(
-            {
-                "/composes/canonical_dispatch",
-                "/lease_model/session_liveness/semantic_scope",
-                "/lease_model/session_liveness/renewed_by",
-            },
-            set(result["changed_pointers"]),
-        )
+        self.assertTrue(result["already_target"])
+        self.assertEqual([], result["changed_pointers"])
         self.assertTrue(result["non_target_structure_equal"])
         self.assertTrue(result["non_target_text_segments_byte_identical"])
         self.assertEqual(

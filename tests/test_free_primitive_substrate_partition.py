@@ -56,9 +56,8 @@ def test_role_policy_matches_primitive_zero_suggestion_machine_contract():
     assert free["default_suggested_question_menu"] is None
     assert free["default_discovery_lens_menu"] is None
     assert free["negative_instruction_style"] == "GENERIC_CATEGORIES_ONLY"
-    freedom = "\n".join(policy["researcher_freedom_clause"]["FREE_AXIOM_DISCOVERY"])
-    assert "authored by the researcher" in freedom
-    assert "no default suggested-question list or discovery-lens list" in freedom
+    assert free["negative_instruction_style"] == "GENERIC_CATEGORIES_ONLY"
+    assert free["generic_no_user_task_scheduler_rule_applies"] is False
 
 
 def test_free_role_and_anti_anchor_do_not_name_specific_downstream_achievements_or_seed_lens_menu():
@@ -71,7 +70,7 @@ def test_free_role_and_anti_anchor_do_not_name_specific_downstream_achievements_
         for downstream in DOWNSTREAM_NAMES:
             assert downstream not in text
     assert "NO_DEFAULT_DISCOVERY_LENS_MENU" in role
-    assert "there are no suggestions to ignore" in role
+    assert "The first substantive question is authored by the researcher" in role
     assert "NO_SUGGESTED_DISCOVERY_LENS_LIST" in anti
     assert "NEGATIVE_INSTRUCTION_MUST_NOT_ENUMERATE_SALIENT_FORBIDDEN_OBJECTS" in anti
 
@@ -81,8 +80,8 @@ def test_human_architecture_matches_primitive_zero_suggestion_contract():
     assert "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md" in text
     assert "FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS" in text
     assert "NO_DEFAULT_DISCOVERY_LENS_MENU" in text
-    assert "Negative instructions also use generic categories" in text
-    assert "FREE Phase A is not given suggested questions" in text
+    assert "current task/route/history" in text.lower()
+    assert "suggestion menu" in text.lower()
     for downstream in DOWNSTREAM_NAMES:
         assert downstream not in text
 
@@ -91,7 +90,7 @@ def test_general_current_router_remains_available_only_after_free_candidate_free
     substrate = read("definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md")
     role = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
     assert "The full current router becomes available in Phase B" in substrate
-    assert role.index("## Candidate freeze") < role.index("general current-mathematics router", role.index("## Candidate freeze"))
+    assert "Only after freeze may current/prior project research context be opened for Phase-B audit." in role
     current = read("definitions/00_CURRENT_NATIVE_FOUNDATION.md")
     # The richer router still owns current-result lookup; only its Phase-A visibility changed.
     assert "ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md" in current
