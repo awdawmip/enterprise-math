@@ -1,0 +1,165 @@
+# R038 Addendum — FCC/HCP-Native L2 Transcendence Witness
+
+Researcher-ID: `EM-R038-6A7D21`
+
+Status: `EXACT_THEOREM_ADDENDUM / SEMANTIC_CHECKPOINT / NOT_CANONICAL`
+
+This addendum strengthens Section 8 and supersedes the final open question in Section 15 of `R038_MAIN_RESULT.md` asking whether an FCC/HCP-native infinite observable can have a provably transcendental exact value.
+
+## 1. Theorem
+
+Let `G` be either the NN contact graph of normalized FCC or ideal HCP. There exists a nearest-neighbor translation automorphism `T` and an integer-valued graph height `h:V(G)->Z` such that:
+
+1. `T^n o` and `T^(n+1) o` are adjacent for every integer `n`;
+2. `|h(x)-h(y)|<=1` for every graph edge `{x,y}`;
+3. `h(Tx)=h(x)+1`.
+
+Consequently
+
+`d_G(o,T^n o)=|n|`
+
+for every integer `n`.
+
+Therefore the purely graph-defined L2 observable
+
+\[
+S_G(o,T)=\sum_{n\in\mathbb Z\setminus\{0\}}
+\frac{1}{d_G(o,T^n o)^2}
+\]
+
+has the exact value
+
+\[
+\boxed{S_G(o,T)=2\zeta(2)=\frac{\pi^2}{3}}.
+\]
+
+Since classical `pi` is transcendental, `pi^2/3` is transcendental.
+
+Thus both FCC and ideal-HCP themselves admit a native infinite-discrete graph-distance observable with a provably transcendental exact value, without a continuum limit, Euclidean area/circle readout, Gaussian approximation, Fourier integral, or special-function primitive in the microscopic rule.
+
+Classification:
+
+`FCC_HCP_NATIVE_L2_PROVABLY_TRANSCENDENTAL_WITNESS`.
+
+## 2. FCC proof
+
+Use the standard D3 coordinatization
+
+`V_FCC={(x,y,z) in Z^3: x+y+z even}`
+
+with NN steps the 12 permutations/sign choices of `(1,1,0)`.
+
+Choose
+
+`T(x,y,z)=(x+1,y+1,z)`
+
+and the integer height
+
+`h(x,y,z)=floor((x+y)/2)`.
+
+For every FCC NN edge, `Delta(x+y)` is one of `-2,0,2`. Hence the floor-half height changes by exactly `-1,0,1`, so it is 1-Lipschitz on graph edges.
+
+Moreover
+
+`h(Tx)=floor((x+y+2)/2)=h(x)+1`.
+
+Along the chosen translation axis,
+
+`T^n(0,0,0)=(n,n,0)`
+
+and `h(T^n o)=n`.
+
+The repeated T-path has length `|n|`, so
+
+`d_G(o,T^n o)<=|n|`.
+
+For any path from `o` to `T^n o`, the 1-Lipschitz height can change by at most one per edge; since the net height change is `|n|`, every such path has at least `|n|` edges. Hence
+
+`d_G(o,T^n o)>=|n|`.
+
+Equality follows. This proof is graph-combinatorial and does not require a Euclidean displacement lower bound.
+
+## 3. Ideal-HCP proof
+
+Use the exact ABAB graph coordinates `(i,j,k)` from the frozen/independently replicated ideal-HCP model. In-layer triangular NN directions include `(1,0,0)` and `(-1,0,0)`.
+
+Choose
+
+`T(i,j,k)=(i+1,j,k)`
+
+and height
+
+`h(i,j,k)=i`.
+
+All HCP NN moves change `i` by `-1`, `0`, or `1`, including the parity-dependent interlayer moves. Hence `h` is integer-valued and 1-Lipschitz on graph edges, while `h(Tx)=h(x)+1`.
+
+Along the basal translation axis,
+
+`T^n(0,0,0)=(n,0,0)`.
+
+The repeated T-path has length `|n|`; the height lower bound gives the reverse inequality. Therefore
+
+`d_G(o,T^n o)=|n|`.
+
+Again, no continuum geometry is used.
+
+## 4. Finite-to-infinite layer transition
+
+For every finite `N`, define
+
+\[
+S_{G,N}(o,T)=\sum_{0<|n|\le N}\frac1{d_G(o,T^n o)^2}.
+\]
+
+Because `d_G(o,T^n o)=|n|`,
+
+\[
+S_{G,N}=2\sum_{n=1}^N\frac1{n^2}\in\mathbb Q.
+\]
+
+Thus every finite stage is an L1 rational observable. The transcendental appears only after the L2 completion
+
+`N->infinity`.
+
+This is an exact realization, inside the native FCC/HCP graph, of the separation:
+
+`FINITE_ALGEBRAIC_CLOSURE != INFINITE_DISCRETE_COMPLETION`.
+
+## 5. What this proves and what it does not
+
+It proves:
+
+- H7 is false even if “pure discrete” is strengthened to “FCC/HCP-native graph observable”;
+- H8 is not merely supported by external lattice examples: FCC and HCP themselves contain the gateway;
+- absence of `pi` from every finite microscopic stage does not prevent an exact L2 observable from equaling a transcendental expression involving `pi`.
+
+It does not prove:
+
+- that `pi` is a primitive microscopic state constant;
+- that every natural FCC/HCP thermodynamic observable contains `pi`;
+- that graph spheres become Euclidean spheres;
+- that `5/2` or `21/8` equals classical `pi`;
+- that continuum readout is irrelevant.
+
+The theorem instead sharpens the R038 ontology boundary to:
+
+\[
+\boxed{
+\text{finite algebraic microscopic stage}
+\to
+\text{infinite discrete completion (already transcendence-capable)}
+\to
+\text{optional continuum/Euclidean readout}
+}
+\]
+
+## 6. Updated frontier
+
+The prior open question “does any FCC/HCP-native infinite observable have a provably transcendental exact value?” is now answered `YES` by the graph-geodesic Basel observable above.
+
+The next stronger frontier is **naturalness/classification**:
+
+1. classify translation-axis observables and more symmetry-averaged L2 graph observables by arithmetic type;
+2. determine whether a point-group-invariant or fully automorphism-invariant FCC/HCP L2 observable has a provably transcendental exact value;
+3. separate constants generated by selected marked geodesics from constants forced by the unmarked bulk graph;
+4. absorb the independent R037 audit when published.
