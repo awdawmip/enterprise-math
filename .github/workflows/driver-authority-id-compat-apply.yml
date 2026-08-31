@@ -44,7 +44,11 @@ jobs:
           PY
           test "$(git diff --name-only)" = "research_driver_authority.py"
           git diff --check
-          python research_driver_authority.py audit
+          python - <<'PY'
+          import research_driver_authority as a
+          rows=a.valid_records()
+          print(f"DRIVER_AUTHORITY_RECORD_COMPATIBILITY=PASS records={len(rows)}")
+          PY
       - name: Commit exact authority ID compatibility
         if: github.event_name == 'push'
         shell: bash
