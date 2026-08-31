@@ -1,0 +1,57 @@
+{
+  "schema": "PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_RESULT_REFREEZE_V2_CERT_V1",
+  "task_id": "RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING",
+  "publication_id": "TP2-4F8A1D63B209E57C3A40",
+  "researcher_id": "EM-PPTAPFPC2-A91D6E",
+  "claim_id": "chatgpt-pptapfpc2-20260831-1247-a91d6e",
+  "source_result_id": "RR-7D4B2E9C1A6F3058C4D1",
+  "source_head": "eb90904dc7fa3abbb95fa58b32c656ec315a8c9a",
+  "source_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:af1c812eabe902c4d1d0d726ae5d34907e8d4ac3",
+      "sha256": "sha256:c387c3de6d3cbbac9d9882f135fa3e031e12f742c1f58789ed7274e38cf6fa5a"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:09d92cef51679ed8a67049e5d54c9bbbe8c3842c",
+      "sha256": "sha256:9e981c5f543036422fa573a4f0aa6dc29551bc825bb56108144e6dffa9829c41"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING/exact_certificate_20260830.json",
+      "git_blob_sha1": "sha1:c835466fdbef540f019924b40ca57292598aad14",
+      "sha256": "sha256:8f77cbd21f24966ff2dc5814def004bd1a1fc5f3a3f46cb19ee4db12246abdde"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING/ER-9A61F2C308DE475B1C77.json",
+      "git_blob_sha1": "sha1:208814ea79ff05d925a48cce512a0adaff7296fa",
+      "sha256": "sha256:f46cab24dc370251effb6ac8c2b094daafbc9a7a9832c5672439f4da7ca2fe4b"
+    }
+  ],
+  "replay": {
+    "checker": "PASS",
+    "mathematical_delta": "NONE",
+    "adjacent_layer_regression": {
+      "m_range": [2, 8],
+      "s_range": [0, 2],
+      "rows": 21,
+      "all_predicted_roots_gt_1": true,
+      "all_predicted_roots_exact_cofactor_zero": true,
+      "all_t_1_cofactors_nonzero": true
+    },
+    "actual_ap_finite_regression": {
+      "m_range": [2, 5],
+      "all_mobius_coefficients_strictly_positive": true,
+      "all_tau_at_1_positive": true
+    },
+    "authority_boundary": "Finite regression does not close the all-m binomial/multilayer Cauchy interference residue."
+  },
+  "corrected_binding": {
+    "path": "research_returns/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING_RETURN_20260830.md",
+    "historical_result_declared_git_blob_sha1": "sha1:1194a80aa79346b1982def363ba7bfc9a0224dba",
+    "actual_git_blob_sha1": "sha1:af1c812eabe902c4d1d0d726ae5d34907e8d4ac3",
+    "sha256_preserved": "sha256:c387c3de6d3cbbac9d9882f135fa3e031e12f742c1f58789ed7274e38cf6fa5a"
+  },
+  "terminal_verdict": "SUCCESS_ZERO_MATH_DRIFT_REFREEZE",
+  "hard_target": "PERFECT_PRIME_FIXED_POINT_COMPOUND_RESULT_REFROZEN_WITH_COMPLETE_DIGEST_CHAIN_AND_ZERO_MATH_DRIFT"
+}
