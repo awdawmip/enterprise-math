@@ -47,9 +47,8 @@ class ReviewEvidenceContractTests(unittest.TestCase):
         # task-local quarantines do not DoS unrelated authority checks.  Lock the
         # semantic command and bootstrap requirement rather than one YAML spelling.
         self.assertIn("Check multiple Driver review exact-set authority", workflow)
-        self.assertIn("research_control_bootstrap as b; b.install()", workflow)
-        self.assertIn("research_review_evidence.py", workflow)
-        self.assertIn("'audit'", workflow)
+        self.assertIn("control_plane/check_review_evidence_fault_isolated.py", workflow)
+        self.assertNotIn("sys.argv=['research_review_evidence.py','audit']", workflow)
 
 
 if __name__ == "__main__":

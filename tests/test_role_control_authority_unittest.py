@@ -39,7 +39,7 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
 
     def test_driver_simulation_uses_v2_and_recovery_aware_dispatch(self):
         text = self.read("docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md")
-        self.assertIn("V5.3", text)
+        self.assertIn("V5.4", text)
         self.assertIn("Task publication: `research_task_publication_contract_v2.json`", text)
         self.assertIn("Canonical live dispatch: `research_control_dispatch.py`", text)
         self.assertIn("tools/research_task_registry.py` are V1 compatibility/read-only", text)

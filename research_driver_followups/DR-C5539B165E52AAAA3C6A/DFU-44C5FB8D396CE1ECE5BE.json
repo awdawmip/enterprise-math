@@ -1,0 +1,73 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+  "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+  "packet_id": "DFU-44C5FB8D396CE1ECE5BE",
+  "review_id": "DR-C5539B165E52AAAA3C6A",
+  "result_id": "RR-C3E71A9D4B6052F88E21",
+  "task_id": "RS-P000-SIX-AXIS-P11-COLLISION-LOCUS-CONDITIONAL-SELECTOR",
+  "source_publication_id": "TP2-3DEA87F0F4ED366BEE03",
+  "driver_id": "EM-DVR-WLE3X6",
+  "review_disposition": "REQUEST_REVISION",
+  "review_destination_class": "FOLLOWUP_TASK",
+  "parent_objective_id": "OBJ-P000-SIX-AXIS-ARITHMETIC-TROPICAL-INTEGRATION",
+  "source_next_control_plane_recommendation": "Driver review RR-C3E71A9D4B6052F88E21 and the exact checker/certificate. If accepted, freeze the two gap-equation collision locus and the 0-or-1 conditional selector law at derived arithmetic strength only. Preserve the Pfaffian-orientation firewall and make any downstream task decision from the Driver lane, not this Researcher Result.",
+  "decision": "TASK_SET_PUBLISHED",
+  "gate_decisions": [
+    {
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "decision": "REQUIRED",
+      "reason": "Generation 1 closes the combinatorial equal-P11 assignment classification but does not close the taskbook's admissible fibre theorem. The exact Driver counterexample H={-2,0,2}, T={-1,0,1} has algebraic C1/C2 double levels with only one pairable packet, so the pairability-filtered locus and selector law require revision under the same Task-ID.",
+      "evidence_refs": [
+        "driver_reviews/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_DRIVER_REVIEW_20260831.md",
+        "research_tasks/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_PAIRABILITY_REVISION_V2_20260831.md"
+      ]
+    },
+    {
+      "gate": "LEAN_FORMALIZATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "The blocking issue is an exact arithmetic admissibility mismatch, not a Foundation-facing formalization gap.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "The algebraic ingredients are already correctly attributed to classical assignment, Vandermonde/Gram, symmetric and multisymmetric invariant theory. The revision adds no novelty claim; it only restores the frozen integer-pairability semantics.",
+      "evidence_refs": [
+        "research_returns/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_RETURN_20260831.md",
+        "driver_reviews/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_DRIVER_REVIEW_20260831.md"
+      ]
+    },
+    {
+      "gate": "INDEPENDENT_REPLICATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "The decisive defect is witnessed by a small exact arithmetic counterexample and the retained algebraic portions were independently rechecked. The discriminating next action is the pairability-filtered revision, not a second full replication of Generation 1.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "decision": "NOT_REQUIRED",
+      "reason": "The Result declares method_harvest=RESULT_ONLY and no reusable general-purpose tool family is being promoted. Existing algebraic machinery plus a corrected task-local checker is sufficient.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "ADVERSARIAL_AUDIT",
+      "decision": "REQUIRED_IN_REVISION",
+      "reason": "The Generation-1 checker never pairability-filters its main fibre census. Generation 2 must add the one-branch algebraic-collision falsifier and an exhaustive pairability-filtered admissible-fibre control before any terminal one-bit theorem is accepted.",
+      "evidence_refs": [
+        "research_checks/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_CHECK_20260831.py",
+        "driver_reviews/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_DRIVER_REVIEW_20260831.md"
+      ]
+    }
+  ],
+  "task_publications": [
+    {
+      "task_id": "RS-P000-SIX-AXIS-P11-COLLISION-LOCUS-CONDITIONAL-SELECTOR",
+      "publication_id": "TP2-E899F20BC1B62973D07C",
+      "task_role": "REVISION"
+    }
+  ],
+  "created_at": "2026-08-31T05:31:30+00:00",
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}

@@ -1,0 +1,81 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-C6E9B75F0A2D8143E6B1",
+  "task_id": "RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING",
+  "publication_id": "TP2-4F8A1D63B209E57C3A40",
+  "execution_record_id": "ER-A91D6E4F2C79B58103AD",
+  "claim_id": "chatgpt-pptapfpc2-20260831-1247-a91d6e",
+  "taskbook_path": "research_tasks/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_RESULT_REFREEZE_V2_20260831.md",
+  "taskbook_blob_sha1": "sha1:907ef53a9109d5e73a6fcbaf7afcc07d0d0e02c7",
+  "execution_branch": "research/perfect-prime-ap-fixed-point-compound-refreeze-v2-em-pptapfpc2-a91d6e",
+  "execution_branch_base": "5a627358e1a9f3ed7456e8e1b240ff46a1aac4b5",
+  "owner_head": "48c3aad1859f7d6435b259913cbee1851484539e",
+  "researcher_id": "EM-PPTAPFPC2-A91D6E",
+  "frozen_at": "2026-08-31T04:55:00+00:00",
+  "terminal_verdict": "SUCCESS_ZERO_MATH_DRIFT_REFREEZE",
+  "hard_target_disposition": "PERFECT_PRIME_FIXED_POINT_COMPOUND_RESULT_REFROZEN_WITH_COMPLETE_DIGEST_CHAIN_AND_ZERO_MATH_DRIFT",
+  "mathematical_delta": "NONE",
+  "source_result_id": "RR-7D4B2E9C1A6F3058C4D1",
+  "source_head": "eb90904dc7fa3abbb95fa58b32c656ec315a8c9a",
+  "corrected_source_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING_RETURN_20260830.md",
+      "historical_declared_git_blob_sha1": "sha1:1194a80aa79346b1982def363ba7bfc9a0224dba",
+      "git_blob_sha1": "sha1:af1c812eabe902c4d1d0d726ae5d34907e8d4ac3",
+      "sha256": "sha256:c387c3de6d3cbbac9d9882f135fa3e031e12f742c1f58789ed7274e38cf6fa5a"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:09d92cef51679ed8a67049e5d54c9bbbe8c3842c",
+      "sha256": "sha256:9e981c5f543036422fa573a4f0aa6dc29551bc825bb56108144e6dffa9829c41"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_NO_RECROSSING/exact_certificate_20260830.json",
+      "git_blob_sha1": "sha1:c835466fdbef540f019924b40ca57292598aad14",
+      "sha256": "sha256:8f77cbd21f24966ff2dc5814def004bd1a1fc5f3a3f46cb19ee4db12246abdde"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING/ER-9A61F2C308DE475B1C77.json",
+      "git_blob_sha1": "sha1:208814ea79ff05d925a48cce512a0adaff7296fa",
+      "sha256": "sha256:f46cab24dc370251effb6ac8c2b094daafbc9a7a9832c5672439f4da7ca2fe4b"
+    }
+  ],
+  "output_manifest": [
+    {
+      "path": "research_returns/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_RESULT_REFREEZE_V2_RETURN_20260831.md",
+      "git_blob_sha1": "sha1:45a173557b825d09b8058732ecec1620639e9fde",
+      "sha256": "sha256:b857005c735dd04b8e7d8dcd58198a9b926bc5f516642abd8b9c4b9ac454eec3"
+    },
+    {
+      "path": "research_checks/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_RESULT_REFREEZE_V2_CHECK_20260831.py",
+      "git_blob_sha1": "sha1:23a95301dd0020bbac9cc45cb13a7658b28d2d0b",
+      "sha256": "sha256:80bc376c1b7eb434f329c07b2278b21d01e0c27ca7d7b868a8aace717df3a97e"
+    },
+    {
+      "path": "research_artifacts/PERFECT_PRIME_AP_FIXED_POINT_COMPOUND_RESULT_REFREEZE_V2/REFREEZE_CERTIFICATE.json",
+      "git_blob_sha1": "sha1:2616ccf05eb3d274a79376977a795f98f2abdaf5",
+      "sha256": "sha256:33bace672151eb6f4739132e59f654a23b286b5d2ecae79dc571bd8ab1d1b158"
+    },
+    {
+      "path": "research_execution_records/RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING/ER-A91D6E4F2C79B58103AD.json",
+      "git_blob_sha1": "sha1:ee8d05f1b4e64240ddb980ac0b29102302883e15",
+      "sha256": "sha256:e7cb1a6e87c9489dacb7c26a2cc9ea3a77374959cd653e1fb9d937767f169292"
+    }
+  ],
+  "verification": {
+    "status": "PASS",
+    "arithmetic": "exact Python Fraction",
+    "adjacent_layer_rows": 21,
+    "adjacent_layer_m_range": [2, 8],
+    "adjacent_layer_s_range": [0, 2],
+    "actual_ap_m_range": [2, 5],
+    "all_frozen_regressions_reproduced": true,
+    "mathematical_delta": "NONE"
+  },
+  "unresolved_residue": "For the full AP deformation L_t=sum_s(-1)^s binom(m-1,s)t^s M_s, prove the canonical gauge cofactor tau_m(t) is nonzero for every m>=2 and 0<t<=1. Adjacent-layer no-recrossing remains proved, while interference among three or more binomial Cauchy layers remains open.",
+  "method_harvest": "RESULT_REFREEZE_ONLY",
+  "independence_status": "NOT_INDEPENDENT_MAINTENANCE_REPLAY",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review the corrected dual-digest chain. If accepted, use this Result generation as evidence authority for the already-frozen adjacent Cauchy-layer theorem; preserve the full binomial/multilayer cofactor positivity residue as open. Do not infer the all-m continuation from finite m=2..5 positivity and do not publish an automatic successor from this maintenance task.",
+  "driver_review_required": true
+}

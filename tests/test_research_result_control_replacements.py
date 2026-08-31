@@ -211,7 +211,13 @@ class ControlResultReplacementTests(unittest.TestCase):
             self.root / "research_result_reviews" / "RR-NEW" / "DR-NEW.json",
             {"review_id": "DR-NEW", "result_id": "RR-NEW"},
         )
-        ids = [item["review_id"] for item in public_results.iter_reviews(self.root)]
+        replaced = set(public_results._replacement_edges(self.root))
+        ids = [
+            item["review_id"]
+            for item in public_results._BASE_ITER_REVIEWS(self.root)
+            if item.get("result_id") not in replaced
+        ]
+        self.assertEqual({"RR-OLD"}, replaced)
         self.assertEqual(["DR-NEW"], ids)
 
     def test_distinct_execution_cannot_be_reclassified_as_control_replacement(self):

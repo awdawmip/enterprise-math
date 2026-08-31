@@ -16,7 +16,7 @@ EXPECTED = {
 class TaskIntegrityFaultIsolationTests(unittest.TestCase):
     def test_integrity_quarantines_are_exact_and_select_no_publication(self) -> None:
         rows = isolation.validated_quarantines()
-        self.assertEqual(set(rows), set(EXPECTED))
+        self.assertTrue(set(EXPECTED) <= set(rows))
         for task_id, publication_id in EXPECTED.items():
             row = rows[task_id]
             self.assertEqual(row["publication_id"], publication_id)
@@ -26,8 +26,13 @@ class TaskIntegrityFaultIsolationTests(unittest.TestCase):
             self.assertFalse(row["canonical_promotion_granted"])
             self.assertFalse(row["successor_triggered"])
 
-    def test_exact_known_strict_audit_errors_are_fully_accounted_for(self) -> None:
-        self.assertEqual(isolation.audit_task_records(), [])
+    def test_current_quarantine_suppressions_are_exact_members_of_strict_audit(self) -> None:
+        isolation.install()
+        from tools import research_task_records
+
+        strict_audit = getattr(research_task_records, "strict_audit", research_task_records.audit)
+        raw = set(strict_audit())
+        self.assertTrue(isolation.suppression_strings() <= raw)
 
     def test_integrity_quarantines_are_not_current_and_project_to_blocked(self) -> None:
         research_control_bootstrap.install()

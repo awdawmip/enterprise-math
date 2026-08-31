@@ -30,7 +30,7 @@ def test_agents_free_hot_path_uses_primitive_substrate_and_triggered_full_polici
     text = read("AGENTS.md")
     assert SUBSTRATE in text
     assert "FREE Phase A receives the **primitive substrate**" in text
-    assert "foundational/native-semantic typing only when required" in text
+    assert "FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS" in text
     assert "Load triggered semantic policies only when needed" in text
     assert "FOUNDATIONAL_LOGIC.md" in text
     assert "native_semantics_admissibility.json" in text

@@ -4,35 +4,22 @@
   "purpose": "Fail closed on an unresolved immutable-publication fork without allowing one task-local metadata conflict to deny service to the global dispatch view. This is control-plane isolation only and selects no publication as operational.",
   "quarantines": [
     {
-      "task_id": "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF",
-      "state": "UNRESOLVED_PUBLICATION_FORK",
-      "publication_ids": [
-        "TP2-4EE2618ABEBB6D097023",
-        "TP2-5547117E54D7A556279B"
-      ],
-      "operational_publication_id": null,
-      "isolation_scope": "CONTROL_PLANE_ONLY",
-      "reason": "Two simultaneously active generation-1 immutable heads exist and both have appeared in the Issue #240 runtime stream. No semantic or quality selection is made here; the task is locally blocked until the ordinary parallel-publication resolution contract is satisfied.",
-      "working_truth_granted": false,
-      "foundation_authority_granted": false,
-      "canonical_promotion_granted": false,
-      "successor_triggered": false
-    },
-    {
       "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
       "state": "UNRESOLVED_PUBLICATION_FORK_LINEAGE_FORWARD",
       "publication_ids": [
         "TP2-3F6A92D8C1E740B5A2C9",
-        "TP2-69B06B421888B311914E"
+        "TP2-D4A7C19E5B306F821472",
+        "TP2-E5B7C19A3D604F821583"
       ],
       "tracking_mode": "PINNED_FORK_ANCHORS_UNIQUE_LINEAR_DESCENDANTS",
       "lineage_anchor_publication_ids": [
         "TP2-3F6A92D8C1E740B5A2C9",
-        "TP2-69B06B421888B311914E"
+        "TP2-D4A7C19E5B306F821472",
+        "TP2-E5B7C19A3D604F821583"
       ],
       "operational_publication_id": null,
       "isolation_scope": "CONTROL_PLANE_ONLY",
-      "reason": "The exact post-fork Generation-3 publications are pinned as lineage anchors. Each anchor may advance only through a unique non-branching supersedes chain; any new sibling, third unanchored active head, broken ancestry, cycle, or ambiguous head partition fails closed. The quarantine selects no operational publication and exists only to keep this unresolved fork task-local while legitimate descendants evolve pending ordinary publication-resolution authority.",
+      "reason": "The unresolved task-local publication partition was re-anchored after the formerly unique descendant chain below TP2-A7D3C18E5B904F621476 branched into sibling Generation-18 records and the D6 branch later advanced to TP2-E5B7C19A3D604F821583. The three current machine heads are pinned as independent unresolved lineage anchors. No semantic or quality selection is made: each anchor may advance only through a unique non-branching supersedes chain, while any further sibling, unanchored active head, broken ancestry, cycle, or ambiguous head partition fails closed pending ordinary publication-resolution authority.",
       "working_truth_granted": false,
       "foundation_authority_granted": false,
       "canonical_promotion_granted": false,

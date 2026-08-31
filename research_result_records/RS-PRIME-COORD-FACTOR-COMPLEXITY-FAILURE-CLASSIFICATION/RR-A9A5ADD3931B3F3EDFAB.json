@@ -1,0 +1,40 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-A9A5ADD3931B3F3EDFAB",
+  "task_id": "RS-PRIME-COORD-FACTOR-COMPLEXITY-FAILURE-CLASSIFICATION",
+  "publication_id": "TP2-8F7443BCAF2BC5243574",
+  "execution_record_id": "ER-A156DB0F0B38FE774AFB",
+  "claim_id": "chatgpt-pcf7-20260831-1028-sol",
+  "taskbook_path": "research_tasks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_20260827.md",
+  "taskbook_blob_sha1": "sha1:98c3361b3c40eb1a9f25824d02939dcf75b430ac",
+  "execution_branch": "research/prime-coord-factor-complexity-failure-classification-em-pcf7-a156db",
+  "execution_branch_base": "d94620f2f6fc8799811c648e0cc1fbc7bb4908b7",
+  "return_path": "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_RETURN_20260827.md",
+  "return_blob_sha1": "8d77415f0b88581300ec9ec37308ba78a762c025",
+  "owner_head": "d8f02c024bebbd10a30c58401fda24e48bd407cc",
+  "researcher_id": "EM-PCF7-A156DB",
+  "frozen_at": "2026-08-31T02:38:51+00:00",
+  "terminal_verdict": "COMPLEXITY_FRONTIER_FROZEN",
+  "hard_target_disposition": "FACTOR_ALGORITHM_COMPLEXITY_AND_FAILURE_CLASSIFIED / PCF4_PUBLIC_PREFIX_SUCCESS_PROBABILITY_NOT_LOWER_BOUNDED / PCF4_L_EQ_N_SQRT_SCALE_OR_WORSE / FROZEN_FIXED_PROBES_BENCHMARK_ONLY",
+  "unresolved_residue": "NONE_IN_PCF7_TASK_SCOPE; external Driver reviews remain for PCF5 PR #816 and PCF6 PR #790; any numerical PCF4 benchmark score requires a new authorized benchmark generation",
+  "output_manifest": [
+    {
+      "path": "research_returns/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_RETURN_20260827.md",
+      "git_blob_sha1": "8d77415f0b88581300ec9ec37308ba78a762c025"
+    },
+    {
+      "path": "research_checks/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION_CHECK_20260831.py",
+      "git_blob_sha1": "b2a53c365f442fb2915cd869b77b62d9ce8a9ec8"
+    },
+    {
+      "path": "research_artifacts/PRIME_COORD_FACTOR_COMPLEXITY_FAILURE_CLASSIFICATION/PCF7_COMPLEXITY_FAILURE_CERTIFICATE_V1.json",
+      "git_blob_sha1": "5860f4e45744dfda24ea40b7fe5d46494dc606d1"
+    }
+  ],
+  "method_harvest": "TASK_LOCAL_COMPLEXITY_AND_FAILURE_CLASSIFICATION",
+  "independence_status": "THEOREM_PROOF_PLUS_TASK_LOCAL_EXACT_INTEGER_REGRESSION",
+  "source_exposure_status": "NONBLIND_DISCLOSED_TASK_RESEARCH",
+  "tool_reuse_resolution": "NOT_APPLICABLE_TASK_LOCAL_CERTIFICATE_CHECKER_NO_NEW_GENERAL_PURPOSE_MECHANISM",
+  "next_control_plane_recommendation": "DRIVER_REVIEW_THIS_RESULT; freeze PCF4 public-prefix generic-factor route closed; preserve only genuinely N-dependent successor interface; review PCF5 and PCF6 independently before operational consumption; do not mutate sealed PCF2 benchmark",
+  "driver_review_required": true
+}

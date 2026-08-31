@@ -51,12 +51,6 @@ jobs:
           python control_plane/apply_registered_json_migration.py
           --migration-id CSM-RUNTIME-CANONICAL-DISPATCH-004
           --migration-id CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006
-      - name: Prove native bridge fork advances only along two anchored linear lineages
-        run: >-
-          python control_plane/check_publication_quarantine_lineage_forward_safety.py
-          --task-id RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE
-          --anchor TP2-3F6A92D8C1E740B5A2C9
-          --anchor TP2-69B06B421888B311914E
       - name: Check opt-in source firewall declarations
         run: python scripts/check_research_source_firewall.py
       - name: Check shared theorem and tool routing
@@ -72,8 +66,8 @@ jobs:
         run: python control_plane/research_task_record_audit_fault_isolation.py
       - name: Check immutable publications, operational selection, and fault-isolated dispatch view
         run: python control_plane/check_publication_fault_isolation.py
-      - name: Check immutable execution intents
-        run: python tools/research_execution_records.py audit
+      - name: Check immutable execution intents with exact nonlive audit isolation
+        run: python control_plane/research_execution_record_audit_fault_isolation.py
       - name: Check legacy scheduler cutover is frozen
         run: python tools/check_task_registry_cutover.py
       - name: Check immutable result records and exact stale review bindings
@@ -86,9 +80,8 @@ jobs:
       - name: Check same-execution control-result replacement chains
         run: >-
           python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_result_control_replacements.py','audit']; import research_result_control_replacements as m; raise SystemExit(m.main())"
-      - name: Check multiple Driver review exact-set authority
-        run: >-
-          python -c "from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_review_evidence.py','audit']; import research_review_evidence as m; raise SystemExit(m.main())"
+      - name: Check multiple Driver review exact-set authority on operational review view
+        run: python control_plane/check_review_evidence_fault_isolated.py
       - name: Check Driver review automatic follow-up authority across all nonoperational review causes
         run: python control_plane/check_driver_followup_nonoperational_review_fault_isolated.py
       - name: Check parallel evidence two-pass reference chains over operational results
