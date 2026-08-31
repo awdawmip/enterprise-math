@@ -1,0 +1,132 @@
+name: result-compatibility-apply
+
+on:
+  push:
+    branches:
+      - control/perfect-prime-publication-quarantine-resolution-20260831
+    paths:
+      - ".github/workflows/result-compatibility-apply.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Generate guarded exact result normalizations
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+          import json, hashlib, re
+          from collections import defaultdict
+          from pathlib import Path
+
+          ROOT=Path.cwd()
+          from control_plane import research_result_review_binding_fault_isolation as binding
+          from control_plane import research_result_records_impl as impl
+          binding.install(ROOT)
+          from tools import research_result_records
+
+          errors=research_result_records.audit(ROOT)
+          by_path=defaultdict(list)
+          for e in errors:
+              if e.startswith("research_result_records/") and ": " in e:
+                  p,s=e.split(": ",1); by_path[p].append(s)
+
+          raw={x.get("_record_path"):x for x in impl.iter_results(ROOT)}
+          compat_path=ROOT/"research_result_record_compatibility.json"
+          compat=json.loads(compat_path.read_text(encoding="utf-8"))
+          existing={x["result_id"] for x in compat.get("result_normalizations",[]) if isinstance(x,dict) and isinstance(x.get("result_id"),str)}
+
+          terminal_map={
+            "ENDPOINT_BRIDGE_PRIOR_ART_EQUIVALENT":"AUDIT_COMPLETE",
+            "NEEDS_REVISION":"BLOCKED",
+            "MIXED_SPECIFICITY":"SUCCESS",
+          }
+          field_maps={
+            "terminal_verdict":terminal_map,
+          }
+
+          def git_blob(path:Path)->str:
+              b=path.read_bytes(); return "sha1:"+hashlib.sha1(f"blob {len(b)}\0".encode()+b).hexdigest()
+          def norm(v):
+              if not isinstance(v,str): return None
+              t=v.strip().lower(); t=t[5:] if t.startswith("sha1:") else t
+              return t if re.fullmatch(r"[0-9a-f]{40}",t) else None
+          def same(a,b): return norm(a) is not None and norm(a)==norm(b)
+
+          additions=[]; unknown=[]; unsafe=[]
+          for path in sorted(by_path):
+              item=raw[path]; rid=item["result_id"]; suffixes=sorted(set(by_path[path]))
+              aliases=[]; repairs=set()
+              for suffix in suffixes:
+                  m=re.fullmatch(r"invalid (terminal_verdict|method_harvest|independence_status|source_exposure_status)",suffix)
+                  if m:
+                      field=m.group(1); before=item.get(field)
+                      if field=="method_harvest": after="RESULT_ONLY"
+                      elif field=="independence_status": after="SHARED_AMBIENT_CONTEXT_DISCLOSED"
+                      elif field=="source_exposure_status": after="NONBLIND_DISCLOSED"
+                      else: after=field_maps[field].get(before)
+                      if not isinstance(before,str) or not isinstance(after,str):
+                          unknown.append({"result_id":rid,"field":field,"before":before,"error":suffix}); continue
+                      aliases.append({"field":field,"from":before,"to":after})
+                  elif suffix=="return artifact SHA-256 drift":
+                      rel=item.get("return_path"); pin=item.get("return_blob_sha1")
+                      p=ROOT/rel if isinstance(rel,str) else None
+                      if p is not None and p.is_file() and same(git_blob(p),pin): repairs.add(rel)
+                      else: unsafe.append({"result_id":rid,"path":rel,"kind":"RETURN"})
+                  elif suffix.startswith("output digest drift: "):
+                      rel=suffix.split(": ",1)[1]
+                      matches=[r for r in item.get("output_manifest",[]) if isinstance(r,dict) and r.get("path")==rel]
+                      p=ROOT/rel
+                      if len(matches)==1 and p.is_file() and same(git_blob(p),matches[0].get("git_blob_sha1")): repairs.add(rel)
+                      else: unsafe.append({"result_id":rid,"path":rel,"kind":"MANIFEST","matches":len(matches),"declared":matches[0].get("git_blob_sha1") if len(matches)==1 else None,"actual":git_blob(p) if p.is_file() else None})
+                  else:
+                      unknown.append({"result_id":rid,"error":suffix})
+              if rid in existing:
+                  unknown.append({"result_id":rid,"error":"already normalized but still has raw audit debt"}); continue
+              additions.append({
+                "normalization_id":f"RRC-POSTCUTOVER-{rid}",
+                "result_id":rid,
+                "record_path":path,
+                "record_blob_sha1":git_blob(ROOT/path),
+                "field_aliases":aliases,
+                "artifact_sha256_repairs":sorted(repairs),
+                "reason":"Post-cutover control compatibility only: exact immutable result bytes are retained; legacy metadata enums are conservatively normalized to current V1 control classes and secondary SHA-256 values are recomputed only where the frozen primary Git-blob identity still matches. No theorem, review, Working Truth, Foundation, promotion or successor authority is changed."
+              })
+
+          expected_unsafe=[{
+            "result_id":"RR-14CD1A7DE8CF7A30D49E",
+            "path":"research_execution_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/ER-31ABA36D051B97F39CB5.json",
+            "kind":"MANIFEST",
+          }]
+          if len(by_path)!=44: raise SystemExit(f"expected 44 result debt objects, got {len(by_path)}")
+          if unknown: raise SystemExit("UNKNOWN_RESULT_COMPATIBILITY="+json.dumps(unknown,ensure_ascii=False))
+          if len(unsafe)!=1 or any(unsafe[0].get(k)!=v for k,v in expected_unsafe[0].items()):
+              raise SystemExit("UNSAFE_RESULT_REPAIRS="+json.dumps(unsafe,ensure_ascii=False))
+          if len(additions)!=44: raise SystemExit(f"expected 44 additions, got {len(additions)}")
+
+          compat["result_normalizations"]=[*compat.get("result_normalizations",[]),*additions]
+          compat_path.write_text(json.dumps(compat,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
+          print(json.dumps({"result_objects":len(by_path),"normalizations_added":len(additions),"unsafe_left":unsafe},ensure_ascii=False))
+          PY
+          test "$(git diff --name-only)" = "research_result_record_compatibility.json"
+          git diff --check
+      - name: Commit exact result compatibility normalization
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "enterprise-math-control-bot"
+          git config user.email "enterprise-math-control-bot@users.noreply.github.com"
+          git add research_result_record_compatibility.json
+          git commit -m "[CONTROL] normalize exact historical result metadata"
+          git push origin HEAD:control/perfect-prime-publication-quarantine-resolution-20260831
