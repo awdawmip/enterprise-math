@@ -1,0 +1,213 @@
+{
+  "CI_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "R054_isolation": "NO_R054_FROZEN_SCORING_OR_HOLDOUT_CONSUMED",
+  "checker_command": "python tools/check_r055.py",
+  "counts": {
+    "accepted_moves": 433531,
+    "construction_N_count": 13,
+    "external_terminal_classes_compared": 205,
+    "frozen_initial_families_per_N": 8,
+    "holdout_N_count": 7,
+    "local_hole_regression_candidates": 259136,
+    "small_N_exhaustive_max_N": 12,
+    "trajectory_records": 528,
+    "unique_terminal_translation_D6_classes": 205,
+    "unit_tests": 10
+  },
+  "files": [
+    {
+      "path": "artifacts/R055_REPORT.md",
+      "sha256": "400bf88e5835b88fad14909d9c6a6206b8065caac60047d49c6a4e5259dceb35",
+      "size_bytes": 23471
+    },
+    {
+      "path": "artifacts/R055_RELAXATION_PROTOCOL.json",
+      "sha256": "aa69f2bc31cb9b5ec574a85de2879b9f8f765cfdfdb6dd0cbfc625cf8feed683",
+      "size_bytes": 5086
+    },
+    {
+      "path": "artifacts/R055_MOVE_ENERGY_REGISTRY.json",
+      "sha256": "83d546105a3fa721ba5cadea9a1bbf217a1661fdf0d1560fcdccc6d4c9d29ceb",
+      "size_bytes": 2483
+    },
+    {
+      "path": "artifacts/R055_INITIAL_STATE_REGISTRY.json",
+      "sha256": "5de0e7ae6ff89cf81342f6c18125eb1eebd78c4725c0324acee2893552acd7f2",
+      "size_bytes": 3615
+    },
+    {
+      "path": "artifacts/R055_SMALL_N_EXHAUSTIVE_ATLAS.json",
+      "sha256": "4dddc592686a2b1e5a3e246b1392d1f51a854d7c18f566ef57a054b0547118be",
+      "size_bytes": 209051
+    },
+    {
+      "path": "artifacts/R055_RELAXATION_TRAJECTORIES.json",
+      "sha256": "573a2d9dc7a7bd586bd35ba8f0c669d8f2ccb46752f96ce5160baa41db58cc82",
+      "size_bytes": 98104296
+    },
+    {
+      "path": "artifacts/R055_TERMINAL_SHAPE_ATLAS.json",
+      "sha256": "f06b7c893ed17d212dd36115de9c31a32217fc4fb1d3518f5091d18da01fe07e",
+      "size_bytes": 3637825
+    },
+    {
+      "path": "artifacts/R055_CENTROID_DYNAMICS_ATLAS.json",
+      "sha256": "7514b2f53ae3caa33871560d88b41df5958b1a34ddfde87968ec8c4bfe0d7a47",
+      "size_bytes": 22403264
+    },
+    {
+      "path": "artifacts/R055_OBJECTIVE_COMPARISON.json",
+      "sha256": "1b0dd3c1088edcc2a85c9ddaec771dac45a85f899fc409300e541ebe8fe619e0",
+      "size_bytes": 364113
+    },
+    {
+      "path": "artifacts/R055_HOLDOUT_RESULTS.json",
+      "sha256": "c72b4988e9b00d022b8524b919768319876c8d11ec313933b9398efa002301f8",
+      "size_bytes": 22640
+    },
+    {
+      "path": "artifacts/R055_EXTERNAL_SHAPE_COMPARISON.json",
+      "sha256": "10a043e10ca7ce27d3b72187c236b9b481de29e483db3a621417dd1e9ad8acc5",
+      "size_bytes": 1944615
+    },
+    {
+      "path": "artifacts/R055_THEOREM_COUNTEREXAMPLE_LEDGER.json",
+      "sha256": "159ba8ed8e664522fec5fa9771b8efc7630d0b0c78ca5a2f67e7c33c724ac660",
+      "size_bytes": 9186
+    },
+    {
+      "path": "artifacts/R055_ADVERSARIAL_TEST_RESULTS.json",
+      "sha256": "54262c64e4180cc4aed51783d714fc4feef5e728756935e075aa3d6c96ceaa76",
+      "size_bytes": 4805
+    },
+    {
+      "path": "artifacts/R055_EXACT_CHECK_RESULTS.json",
+      "sha256": "7bc9bf39dae54a7eeade8eb0840ebf2f697fa910c3d89be6979c497605376d2f",
+      "size_bytes": 4223
+    },
+    {
+      "path": "artifacts/R055_POSTFREEZE_THEOREM_ADDENDUM.json",
+      "sha256": "53d357043abf57fbb75694b9d6e7e314a25fd7ecb873cf383b0135b7984f5c0a",
+      "size_bytes": 6798
+    },
+    {
+      "path": "artifacts/R055_LOCAL_HOLE_CRITERION_EXHAUSTIVE_CHECK.json",
+      "sha256": "9d02b3081edf2972158fa87e39a071e95274f75cbca97efa73b2f5fcdc5cb21f",
+      "size_bytes": 1144
+    },
+    {
+      "path": "artifacts/R055_CONSTRUCTION_CLASSIFICATION.json",
+      "sha256": "edb85c91c09ec57229c7208d9203d95b9fae316ed472a198b9b8718f7707d2a7",
+      "size_bytes": 29666
+    },
+    {
+      "path": "tools/r055_core.py",
+      "sha256": "e83a63ee8213495086a3aa3ab095f7d782a5d1cc1e47791bc4ea6bea971fe71b",
+      "size_bytes": 18965
+    },
+    {
+      "path": "tools/r055_dynamics_exact.cpp",
+      "sha256": "550e077bec479ec65c9d9e1e894b2a466d2eea8ea3f10530741fc24cba47e889",
+      "size_bytes": 16687
+    },
+    {
+      "path": "tools/r055_dynamics_exact",
+      "sha256": "cccab54b6c859dc9efea0ded01e6f0ca269db45033204eda26d2079b394d76b4",
+      "size_bytes": 120296
+    },
+    {
+      "path": "tools/check_r055.py",
+      "sha256": "4671d64bb7588565f34ee0cb161a9718fb427b6958ecec1f27889707e2458807",
+      "size_bytes": 5549
+    },
+    {
+      "path": "tools/check_local_hole_criterion.py",
+      "sha256": "cb0e029ae1985b64b34ebaa5ba5bad5675b06f4f27833f305c77c506fc8bda9c",
+      "size_bytes": 1952
+    },
+    {
+      "path": "tools/build_small_atlas.py",
+      "sha256": "e085b2468e60bcba3cfef3ae01b06c213cc28026a97e354772faf7a3ba0bd793",
+      "size_bytes": 5319
+    },
+    {
+      "path": "tools/analyze_construction.py",
+      "sha256": "b1a76a19366845ad56ea3c4a169f7121628ceef4352faa838bb4a80733fdc2f1",
+      "size_bytes": 3639
+    },
+    {
+      "path": "tools/analyze_holdout.py",
+      "sha256": "77e2baf89fd2f1426958adb9e7040840fa1e24980183a41e2c412d1ee5a43cb4",
+      "size_bytes": 5959
+    },
+    {
+      "path": "tools/external_compare.py",
+      "sha256": "d7f8cf721f28a39c86762e2a992c01a64ecc397b4533a2f988dfa3175b73c9a4",
+      "size_bytes": 10717
+    },
+    {
+      "path": "tools/freeze_ledger.py",
+      "sha256": "3c0a28bbff2fcd886e1dd540483489c7fd91bc837449ceee46683f2298d3d088",
+      "size_bytes": 8511
+    },
+    {
+      "path": "tools/build_postfreeze_addendum.py",
+      "sha256": "a63b36983270355f35691da19e67079fedfb22836a0d17cee305468289b62a4b",
+      "size_bytes": 6641
+    },
+    {
+      "path": "tools/build_final_combined_artifacts.py",
+      "sha256": "6f7667157ff0e43c10cc8445128954ffc60a4b24de12746e138bf125d55f2798",
+      "size_bytes": 6643
+    },
+    {
+      "path": "tools/build_exact_adversarial.py",
+      "sha256": "04ec9788b6a622c326f43d3396f2eb0ce7640f9e34a9489016452dcb9d64a748",
+      "size_bytes": 8093
+    },
+    {
+      "path": "tools/build_manifest.py",
+      "sha256": "ab9eb8c6ab5a0346df924ea055b77799e94cf3211aff55b4ca8093ea4b28d203",
+      "size_bytes": 3715
+    },
+    {
+      "path": "tools/r055_exhaustive.cpp",
+      "sha256": "b54a043b407d4e884e85da8042b4fc827b1bfd688d66c1907bc0b0432e86da08",
+      "size_bytes": 3218
+    },
+    {
+      "path": "tools/r055_n12_basin.cpp",
+      "sha256": "7b48fbf3befe974bd28df97c6d59eda0b11c7404394f9b926394b6fa4e142c67",
+      "size_bytes": 9632
+    },
+    {
+      "path": "tools/r055_t2_oriented.cpp",
+      "sha256": "72ff2bf59fbd5091b289f7e11de996658c6a5792c49ed033d033299dbc085627",
+      "size_bytes": 7516
+    },
+    {
+      "path": "tests/test_r055.py",
+      "sha256": "4122e632ac45df9e87cde2238e3d3753334000dcb7f43931a97a59cae2c12753",
+      "size_bytes": 3763
+    }
+  ],
+  "frozen_hashes": {
+    "R055_INITIAL_STATE_REGISTRY_SHA256": "5de0e7ae6ff89cf81342f6c18125eb1eebd78c4725c0324acee2893552acd7f2",
+    "R055_MOVE_ENERGY_REGISTRY_SHA256": "83d546105a3fa721ba5cadea9a1bbf217a1661fdf0d1560fcdccc6d4c9d29ceb",
+    "R055_RELAXATION_PROTOCOL_SHA256": "aa69f2bc31cb9b5ec574a85de2879b9f8f765cfdfdb6dd0cbfc625cf8feed683",
+    "R055_THEOREM_COUNTEREXAMPLE_LEDGER_SHA256": "159ba8ed8e664522fec5fa9771b8efc7630d0b0c78ca5a2f67e7c33c724ac660"
+  },
+  "key_postfreeze_hashes": {
+    "R055_EXTERNAL_SHAPE_COMPARISON_SHA256": "10a043e10ca7ce27d3b72187c236b9b481de29e483db3a621417dd1e9ad8acc5",
+    "R055_HOLDOUT_RESULTS_SHA256": "c72b4988e9b00d022b8524b919768319876c8d11ec313933b9398efa002301f8",
+    "R055_POSTFREEZE_THEOREM_ADDENDUM_SHA256": "53d357043abf57fbb75694b9d6e7e314a25fd7ecb873cf383b0135b7984f5c0a"
+  },
+  "manifest_hash_convention": "R055_ARTIFACT_MANIFEST_SHA256 is SHA256 of this JSON file itself; the manifest intentionally does not list itself in files to avoid self-reference.",
+  "packet_source": "73e48ac77f403dc468cdea3458e14d10130386e0",
+  "researcher_id": "EM-R055-4C2A71",
+  "schema": "R055_ARTIFACT_MANIFEST_V1",
+  "status": "FINAL_RESEARCH_CHECKPOINT_NOT_CANONICAL",
+  "task_id": "RS-R055-FIXED-N-GRAVITY-RELAXATION-SELF-CENTERED-SHAPE",
+  "taskbook_source": "18072ad7a3ca50728b23e0fc21478b98ed027631",
+  "test_command": "PYTHONPATH=tools python -m unittest discover -s tests -v"
+}

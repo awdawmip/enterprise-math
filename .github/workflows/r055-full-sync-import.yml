@@ -1,0 +1,116 @@
+name: R055 full-sync import
+
+on:
+  push:
+    branches:
+      - agent/r055-fixed-n-gravity-relaxation
+    paths:
+      - .github/workflows/r055-full-sync-import.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import-r055-workspace:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout owner branch
+        uses: actions/checkout@v7
+        with:
+          ref: agent/r055-fixed-n-gravity-relaxation
+          fetch-depth: 0
+
+      - name: Download frozen Drive staging archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --quiet gdown==5.2.0
+          gdown --id 1-8i0vh2TVPlOLFF2mxJcXP22Xizy0XPB -O /tmp/R055_GITHUB_SYNC_STAGING_20260814.tar.xz
+          echo 'd7686f5b71d5df95e910ec41d081c06afb75e483263f3ae2ea5631b7009c3736  /tmp/R055_GITHUB_SYNC_STAGING_20260814.tar.xz' | sha256sum -c -
+
+      - name: Validate archive paths and extract
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import pathlib, tarfile
+          p='/tmp/R055_GITHUB_SYNC_STAGING_20260814.tar.xz'
+          with tarfile.open(p,'r:xz') as tf:
+              members=tf.getmembers()
+              for m in members:
+                  q=pathlib.PurePosixPath(m.name)
+                  allowed=(m.name=='R055_GITHUB_FULL_SYNC_MANIFEST.json' or m.name=='r055_work' or m.name.startswith('r055_work/'))
+                  if q.is_absolute() or '..' in q.parts or not allowed:
+                      raise SystemExit(f'unsafe archive member: {m.name}')
+                  if m.issym() or m.islnk():
+                      raise SystemExit(f'link member forbidden: {m.name}')
+              print(f'archive entries validated: {len(members)}')
+              tf.extractall('/tmp/r055_extract')
+          PY
+
+      - name: Verify every source-worktree file against full-sync manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path('/tmp/r055_extract/r055_work')
+          manifest=json.loads(Path('/tmp/r055_extract/R055_GITHUB_FULL_SYNC_MANIFEST.json').read_text())
+          rows=manifest['files']
+          if manifest['file_count'] != 381 or len(rows) != 381:
+              raise SystemExit(f"manifest file count drift: {manifest['file_count']} / {len(rows)}")
+          total=0
+          expected=set()
+          for row in rows:
+              rel=Path(row['path'])
+              p=root/rel
+              expected.add(rel.as_posix())
+              if not p.is_file():
+                  raise SystemExit(f'missing source file: {rel}')
+              b=p.read_bytes(); total += len(b)
+              h=hashlib.sha256(b).hexdigest()
+              if len(b) != row['size_bytes'] or h != row['sha256']:
+                  raise SystemExit(f'hash/size mismatch: {rel}')
+          actual={p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file()}
+          if actual != expected:
+              raise SystemExit(f'file-set mismatch: extra={sorted(actual-expected)[:10]} missing={sorted(expected-actual)[:10]}')
+          if total != manifest['total_source_bytes']:
+              raise SystemExit(f"total-byte mismatch: {total} != {manifest['total_source_bytes']}")
+          print(f'full-sync manifest PASS: {len(rows)} files / {total} bytes')
+          PY
+
+      - name: Install full workspace into repository tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEST='research_outputs/R055_FIXED_N_GRAVITY_RELAXATION_SELF_CENTERED_SHAPE_20260813/full_workspace'
+          rm -rf "$DEST"
+          mkdir -p "$DEST"
+          cp -a /tmp/r055_extract/r055_work "$DEST/r055_work"
+          cp /tmp/r055_extract/R055_GITHUB_FULL_SYNC_MANIFEST.json "$DEST/R055_GITHUB_FULL_SYNC_MANIFEST.json"
+          cat > "$DEST/R055_FULL_SYNC_SOURCE.json" <<'JSON'
+          {
+            "schema": "R055_GITHUB_FULL_SYNC_SOURCE_V1",
+            "researcher_id": "EM-R055-4C2A71",
+            "drive_file_id": "1-8i0vh2TVPlOLFF2mxJcXP22Xizy0XPB",
+            "staging_archive_sha256": "d7686f5b71d5df95e910ec41d081c06afb75e483263f3ae2ea5631b7009c3736",
+            "source_worktree_files": 381,
+            "source_worktree_bytes": 184183474,
+            "r054_isolation": "NO_R054_FROZEN_SCORING_OR_HOLDOUT_CONSUMED"
+          }
+          JSON
+
+      - name: Commit and push complete R055 workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'R055 Full Sync Bot'
+          git config user.email '30957095+awdawmip@users.noreply.github.com'
+          git add research_outputs/R055_FIXED_N_GRAVITY_RELAXATION_SELF_CENTERED_SHAPE_20260813/full_workspace
+          if git diff --cached --quiet; then
+            echo 'No full-sync delta to commit.'
+            exit 0
+          fi
+          git commit -m 'R055 sync all final and intermediate research artifacts'
+          git push origin HEAD:agent/r055-fixed-n-gravity-relaxation

@@ -1,0 +1,1011 @@
+{
+  "classical_pi_used_during_holdout": false,
+  "external_circle_hexagon_comparison_opened_during_holdout": false,
+  "freeze_gate": {
+    "R055_INITIAL_STATE_REGISTRY_SHA256": "5de0e7ae6ff89cf81342f6c18125eb1eebd78c4725c0324acee2893552acd7f2",
+    "R055_MOVE_ENERGY_REGISTRY_SHA256": "83d546105a3fa721ba5cadea9a1bbf217a1661fdf0d1560fcdccc6d4c9d29ceb",
+    "R055_RELAXATION_PROTOCOL_SHA256": "aa69f2bc31cb9b5ec574a85de2879b9f8f765cfdfdb6dd0cbfc625cf8feed683",
+    "R055_THEOREM_COUNTEREXAMPLE_LEDGER_SHA256": "159ba8ed8e664522fec5fa9771b8efc7630d0b0c78ca5a2f67e7c33c724ac660"
+  },
+  "holdout_N": [
+    43,
+    67,
+    103,
+    139,
+    181,
+    241,
+    301
+  ],
+  "holdout_claim_checks": {
+    "D1_local_traps_detected_by_D2_on_all_holdout_N": true,
+    "D1_unique_centroid_class_survives_holdout": false,
+    "D2_unique_attractor_survives_holdout": false,
+    "G_decrease_monotone_improves_all_other_diagnostics": false,
+    "construction_D1_multi_attractor_survives_all_holdout_N": true,
+    "construction_tie_break_dependence_survives_all_holdout_N": true
+  },
+  "holdout_objective_monotonicity_counterexamples": {
+    "A2": {
+      "G_after": 113376,
+      "N": 43,
+      "after": {
+        "den": 1071176448,
+        "float": 0.9835288154132381,
+        "num": 1053532903
+      },
+      "before": {
+        "den": 1081518507,
+        "float": 0.9830184912406682,
+        "num": 1063152691
+      },
+      "family": "ELONGATED_STRIP",
+      "move": [
+        8,
+        1,
+        9,
+        0
+      ],
+      "step": 167
+    },
+    "P_edge": {
+      "G_after": 11058,
+      "N": 43,
+      "after": 50,
+      "before": 48,
+      "family": "HEX_SHELL_GROWTH",
+      "move": [
+        -1,
+        4,
+        -2,
+        4
+      ],
+      "step": 2
+    },
+    "boundary_squared_radius_dispersion": {
+      "G_after": 11058,
+      "N": 43,
+      "after": {
+        "den": 32743988209,
+        "float": 0.04829283228746596,
+        "num": 1581299931
+      },
+      "before": {
+        "den": 122310373441,
+        "float": 0.047351428706034766,
+        "num": 5791570928
+      },
+      "family": "HEX_SHELL_GROWTH",
+      "move": [
+        -1,
+        4,
+        -2,
+        4
+      ],
+      "step": 2
+    },
+    "six_direction_boundary_imbalance": {
+      "G_after": 11058,
+      "N": 43,
+      "after": {
+        "den": 625,
+        "float": 0.0032,
+        "num": 2
+      },
+      "before": {
+        "den": 1,
+        "float": 0.0,
+        "num": 0
+      },
+      "family": "HEX_SHELL_GROWTH",
+      "move": [
+        -1,
+        4,
+        -2,
+        4
+      ],
+      "step": 2
+    }
+  },
+  "rows": [
+    {
+      "D1_primary_centroid_class_count": 7,
+      "D1_primary_centroid_classes": [
+        {
+          "canonical_residue": [
+            0,
+            13
+          ],
+          "d6_stabilizer_sizes": [
+            2
+          ]
+        },
+        {
+          "canonical_residue": [
+            3,
+            18
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            4,
+            11
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            6,
+            10
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            7,
+            12
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            8,
+            15
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            9,
+            10
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        }
+      ],
+      "D1_primary_terminal_G_values": [
+        10946,
+        11008,
+        11011,
+        11373,
+        11674,
+        11683,
+        11887,
+        13579
+      ],
+      "D1_primary_terminal_class_count": 8,
+      "D1_terminals_improved_by_D2_count": 8,
+      "D1_terminals_improved_by_D2_families": [
+        "HEX_SHELL_GROWTH",
+        "ELONGATED_STRIP",
+        "SIX_ARM_STAR",
+        "L_SHAPE_OR_WEDGE",
+        "EDEN_SEEDED_seed_550001",
+        "EDEN_SEEDED_seed_550021",
+        "EDEN_SEEDED_seed_550057",
+        "COMPACT_BFS_ALT_TIE"
+      ],
+      "D2_combined_terminal_G_values": [
+        10924,
+        10942
+      ],
+      "D2_combined_terminal_class_count": 2,
+      "D2_from_D1_terminal_G_values": [
+        10924,
+        10942
+      ],
+      "D2_from_D1_terminal_class_count": 2,
+      "D2_from_initial_terminal_G_values": [
+        10924,
+        10942
+      ],
+      "D2_from_initial_terminal_class_count": 2,
+      "N": 43,
+      "regime": "STRICT_HOLDOUT_OFF_SHELL",
+      "tie_break_dependence_witnessed": true,
+      "tie_break_witness": [
+        {
+          "terminal_G": 11674,
+          "terminal_state_id": "e583a2cc826dbfc9",
+          "tie_break": "T0_CANONICAL_MIN"
+        },
+        {
+          "terminal_G": 11219,
+          "terminal_state_id": "6903b8f2e088e28a",
+          "tie_break": "T1_CANONICAL_MAX"
+        },
+        {
+          "terminal_G": 11674,
+          "terminal_state_id": "e583a2cc826dbfc9",
+          "tie_break": "T2_ORIENTATION_MOVE_LEX"
+        }
+      ],
+      "tie_break_witness_family": "L_SHAPE_OR_WEDGE"
+    },
+    {
+      "D1_primary_centroid_class_count": 8,
+      "D1_primary_centroid_classes": [
+        {
+          "canonical_residue": [
+            1,
+            4
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            3,
+            11
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            5,
+            17
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            6,
+            17
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            6,
+            21
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            7,
+            20
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            11,
+            15
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            13,
+            13
+          ],
+          "d6_stabilizer_sizes": [
+            2
+          ]
+        }
+      ],
+      "D1_primary_terminal_G_values": [
+        41515,
+        41569,
+        41621,
+        42503,
+        42682,
+        44333,
+        44957,
+        48010
+      ],
+      "D1_primary_terminal_class_count": 8,
+      "D1_terminals_improved_by_D2_count": 8,
+      "D1_terminals_improved_by_D2_families": [
+        "HEX_SHELL_GROWTH",
+        "ELONGATED_STRIP",
+        "SIX_ARM_STAR",
+        "L_SHAPE_OR_WEDGE",
+        "EDEN_SEEDED_seed_550001",
+        "EDEN_SEEDED_seed_550021",
+        "EDEN_SEEDED_seed_550057",
+        "COMPACT_BFS_ALT_TIE"
+      ],
+      "D2_combined_terminal_G_values": [
+        41363
+      ],
+      "D2_combined_terminal_class_count": 1,
+      "D2_from_D1_terminal_G_values": [
+        41363
+      ],
+      "D2_from_D1_terminal_class_count": 1,
+      "D2_from_initial_terminal_G_values": [
+        41363
+      ],
+      "D2_from_initial_terminal_class_count": 1,
+      "N": 67,
+      "regime": "STRICT_HOLDOUT_OFF_SHELL",
+      "tie_break_dependence_witnessed": true,
+      "tie_break_witness": [
+        {
+          "terminal_G": 48010,
+          "terminal_state_id": "1ff9e230883d1ffe",
+          "tie_break": "T0_CANONICAL_MIN"
+        },
+        {
+          "terminal_G": 48010,
+          "terminal_state_id": "1ff9e230883d1ffe",
+          "tie_break": "T1_CANONICAL_MAX"
+        },
+        {
+          "terminal_G": 47612,
+          "terminal_state_id": "233100bd49daaf45",
+          "tie_break": "T2_ORIENTATION_MOVE_LEX"
+        }
+      ],
+      "tie_break_witness_family": "ELONGATED_STRIP"
+    },
+    {
+      "D1_primary_centroid_class_count": 7,
+      "D1_primary_centroid_classes": [
+        {
+          "canonical_residue": [
+            4,
+            21
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            6,
+            48
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            7,
+            9
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            11,
+            25
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            15,
+            26
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            25,
+            27
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            29,
+            34
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        }
+      ],
+      "D1_primary_terminal_G_values": [
+        151151,
+        151320,
+        155870,
+        157388,
+        179812,
+        180092,
+        186645
+      ],
+      "D1_primary_terminal_class_count": 7,
+      "D1_terminals_improved_by_D2_count": 8,
+      "D1_terminals_improved_by_D2_families": [
+        "HEX_SHELL_GROWTH",
+        "ELONGATED_STRIP",
+        "SIX_ARM_STAR",
+        "L_SHAPE_OR_WEDGE",
+        "EDEN_SEEDED_seed_550001",
+        "EDEN_SEEDED_seed_550021",
+        "EDEN_SEEDED_seed_550057",
+        "COMPACT_BFS_ALT_TIE"
+      ],
+      "D2_combined_terminal_G_values": [
+        150281
+      ],
+      "D2_combined_terminal_class_count": 2,
+      "D2_from_D1_terminal_G_values": [
+        150281
+      ],
+      "D2_from_D1_terminal_class_count": 2,
+      "D2_from_initial_terminal_G_values": [
+        150281
+      ],
+      "D2_from_initial_terminal_class_count": 2,
+      "N": 103,
+      "regime": "STRICT_HOLDOUT_OFF_SHELL",
+      "tie_break_dependence_witnessed": true,
+      "tie_break_witness": [
+        {
+          "terminal_G": 180092,
+          "terminal_state_id": "3a3531183cd48b63",
+          "tie_break": "T0_CANONICAL_MIN"
+        },
+        {
+          "terminal_G": 179276,
+          "terminal_state_id": "df5efbfaa5c041bc",
+          "tie_break": "T1_CANONICAL_MAX"
+        },
+        {
+          "terminal_G": 177449,
+          "terminal_state_id": "f39f1e3167ba3f8a",
+          "tie_break": "T2_ORIENTATION_MOVE_LEX"
+        }
+      ],
+      "tie_break_witness_family": "ELONGATED_STRIP"
+    },
+    {
+      "D1_primary_centroid_class_count": 8,
+      "D1_primary_centroid_classes": [
+        {
+          "canonical_residue": [
+            3,
+            23
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            4,
+            44
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            6,
+            29
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            6,
+            63
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            7,
+            49
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            9,
+            28
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            18,
+            36
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            18,
+            53
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        }
+      ],
+      "D1_primary_terminal_G_values": [
+        370847,
+        372029,
+        372047,
+        392909,
+        395404,
+        411705,
+        440830,
+        447676
+      ],
+      "D1_primary_terminal_class_count": 8,
+      "D1_terminals_improved_by_D2_count": 8,
+      "D1_terminals_improved_by_D2_families": [
+        "HEX_SHELL_GROWTH",
+        "ELONGATED_STRIP",
+        "SIX_ARM_STAR",
+        "L_SHAPE_OR_WEDGE",
+        "EDEN_SEEDED_seed_550001",
+        "EDEN_SEEDED_seed_550021",
+        "EDEN_SEEDED_seed_550057",
+        "COMPACT_BFS_ALT_TIE"
+      ],
+      "D2_combined_terminal_G_values": [
+        369653
+      ],
+      "D2_combined_terminal_class_count": 1,
+      "D2_from_D1_terminal_G_values": [
+        369653
+      ],
+      "D2_from_D1_terminal_class_count": 1,
+      "D2_from_initial_terminal_G_values": [
+        369653
+      ],
+      "D2_from_initial_terminal_class_count": 1,
+      "N": 139,
+      "regime": "STRICT_HOLDOUT_OFF_SHELL",
+      "tie_break_dependence_witnessed": true,
+      "tie_break_witness": [
+        {
+          "terminal_G": 440830,
+          "terminal_state_id": "65b6a9d72977e00b",
+          "tie_break": "T0_CANONICAL_MIN"
+        },
+        {
+          "terminal_G": 435938,
+          "terminal_state_id": "e2fe4c2dd1c5cf44",
+          "tie_break": "T1_CANONICAL_MAX"
+        },
+        {
+          "terminal_G": 440830,
+          "terminal_state_id": "65b6a9d72977e00b",
+          "tie_break": "T2_ORIENTATION_MOVE_LEX"
+        }
+      ],
+      "tie_break_witness_family": "ELONGATED_STRIP"
+    },
+    {
+      "D1_primary_centroid_class_count": 8,
+      "D1_primary_centroid_classes": [
+        {
+          "canonical_residue": [
+            1,
+            16
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            8,
+            15
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            8,
+            26
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            18,
+            68
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            23,
+            40
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            26,
+            56
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            30,
+            66
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            35,
+            50
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        }
+      ],
+      "D1_primary_terminal_G_values": [
+        820064,
+        821178,
+        823170,
+        848737,
+        877396,
+        911158,
+        1056995,
+        1273835
+      ],
+      "D1_primary_terminal_class_count": 8,
+      "D1_terminals_improved_by_D2_count": 8,
+      "D1_terminals_improved_by_D2_families": [
+        "HEX_SHELL_GROWTH",
+        "ELONGATED_STRIP",
+        "SIX_ARM_STAR",
+        "L_SHAPE_OR_WEDGE",
+        "EDEN_SEEDED_seed_550001",
+        "EDEN_SEEDED_seed_550021",
+        "EDEN_SEEDED_seed_550057",
+        "COMPACT_BFS_ALT_TIE"
+      ],
+      "D2_combined_terminal_G_values": [
+        816791
+      ],
+      "D2_combined_terminal_class_count": 2,
+      "D2_from_D1_terminal_G_values": [
+        816791
+      ],
+      "D2_from_D1_terminal_class_count": 2,
+      "D2_from_initial_terminal_G_values": [
+        816791
+      ],
+      "D2_from_initial_terminal_class_count": 2,
+      "N": 181,
+      "regime": "STRICT_HOLDOUT_OFF_SHELL",
+      "tie_break_dependence_witnessed": true,
+      "tie_break_witness": [
+        {
+          "terminal_G": 1273835,
+          "terminal_state_id": "4fecb6cc59800371",
+          "tie_break": "T0_CANONICAL_MIN"
+        },
+        {
+          "terminal_G": 2354179,
+          "terminal_state_id": "86f916734bdb7fcd",
+          "tie_break": "T1_CANONICAL_MAX"
+        },
+        {
+          "terminal_G": 1018842,
+          "terminal_state_id": "fdd0502a82e90cca",
+          "tie_break": "T2_ORIENTATION_MOVE_LEX"
+        }
+      ],
+      "tie_break_witness_family": "ELONGATED_STRIP"
+    },
+    {
+      "D1_primary_centroid_class_count": 8,
+      "D1_primary_centroid_classes": [
+        {
+          "canonical_residue": [
+            2,
+            63
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            6,
+            28
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            17,
+            62
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            45,
+            89
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            46,
+            91
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            55,
+            68
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            56,
+            83
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            63,
+            82
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        }
+      ],
+      "D1_primary_terminal_G_values": [
+        1938169,
+        1938631,
+        1941253,
+        1994695,
+        2083804,
+        2206624,
+        2347214,
+        9801687
+      ],
+      "D1_primary_terminal_class_count": 8,
+      "D1_terminals_improved_by_D2_count": 8,
+      "D1_terminals_improved_by_D2_families": [
+        "HEX_SHELL_GROWTH",
+        "ELONGATED_STRIP",
+        "SIX_ARM_STAR",
+        "L_SHAPE_OR_WEDGE",
+        "EDEN_SEEDED_seed_550001",
+        "EDEN_SEEDED_seed_550021",
+        "EDEN_SEEDED_seed_550057",
+        "COMPACT_BFS_ALT_TIE"
+      ],
+      "D2_combined_terminal_G_values": [
+        1928999
+      ],
+      "D2_combined_terminal_class_count": 1,
+      "D2_from_D1_terminal_G_values": [
+        1928999
+      ],
+      "D2_from_D1_terminal_class_count": 1,
+      "D2_from_initial_terminal_G_values": [
+        1928999
+      ],
+      "D2_from_initial_terminal_class_count": 1,
+      "N": 241,
+      "regime": "STRICT_HOLDOUT_OFF_SHELL",
+      "tie_break_dependence_witnessed": true,
+      "tie_break_witness": [
+        {
+          "terminal_G": 2347214,
+          "terminal_state_id": "f74226c8e4e962ff",
+          "tie_break": "T0_CANONICAL_MIN"
+        },
+        {
+          "terminal_G": 2380796,
+          "terminal_state_id": "89b4fc83fcf6635a",
+          "tie_break": "T1_CANONICAL_MAX"
+        },
+        {
+          "terminal_G": 2446633,
+          "terminal_state_id": "9c33cb490cf62278",
+          "tie_break": "T2_ORIENTATION_MOVE_LEX"
+        }
+      ],
+      "tie_break_witness_family": "L_SHAPE_OR_WEDGE"
+    },
+    {
+      "D1_primary_centroid_class_count": 7,
+      "D1_primary_centroid_classes": [
+        {
+          "canonical_residue": [
+            12,
+            39
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            35,
+            121
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            38,
+            105
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            39,
+            123
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            40,
+            90
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            51,
+            93
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        },
+        {
+          "canonical_residue": [
+            90,
+            105
+          ],
+          "d6_stabilizer_sizes": [
+            1
+          ]
+        }
+      ],
+      "D1_primary_terminal_G_values": [
+        3778678,
+        3779075,
+        3937146,
+        4132991,
+        4185200,
+        4601933,
+        26275769
+      ],
+      "D1_primary_terminal_class_count": 7,
+      "D1_terminals_improved_by_D2_count": 8,
+      "D1_terminals_improved_by_D2_families": [
+        "HEX_SHELL_GROWTH",
+        "ELONGATED_STRIP",
+        "SIX_ARM_STAR",
+        "L_SHAPE_OR_WEDGE",
+        "EDEN_SEEDED_seed_550001",
+        "EDEN_SEEDED_seed_550021",
+        "EDEN_SEEDED_seed_550057",
+        "COMPACT_BFS_ALT_TIE"
+      ],
+      "D2_combined_terminal_G_values": [
+        3757189
+      ],
+      "D2_combined_terminal_class_count": 1,
+      "D2_from_D1_terminal_G_values": [
+        3757189
+      ],
+      "D2_from_D1_terminal_class_count": 1,
+      "D2_from_initial_terminal_G_values": [
+        3757189
+      ],
+      "D2_from_initial_terminal_class_count": 1,
+      "N": 301,
+      "regime": "STRICT_HOLDOUT_OFF_SHELL",
+      "tie_break_dependence_witnessed": true,
+      "tie_break_witness": [
+        {
+          "terminal_G": 26275769,
+          "terminal_state_id": "c23522224c62b7c9",
+          "tie_break": "T0_CANONICAL_MIN"
+        },
+        {
+          "terminal_G": 4769543,
+          "terminal_state_id": "a6ecb9d102165971",
+          "tie_break": "T1_CANONICAL_MAX"
+        },
+        {
+          "terminal_G": 26275769,
+          "terminal_state_id": "c23522224c62b7c9",
+          "tie_break": "T2_ORIENTATION_MOVE_LEX"
+        }
+      ],
+      "tie_break_witness_family": "ELONGATED_STRIP"
+    }
+  ],
+  "schema": "R055_HOLDOUT_RESULTS_V1",
+  "status": "STRICT_HOLDOUT_COMPLETE_NO_RULE_CHANGES"
+}

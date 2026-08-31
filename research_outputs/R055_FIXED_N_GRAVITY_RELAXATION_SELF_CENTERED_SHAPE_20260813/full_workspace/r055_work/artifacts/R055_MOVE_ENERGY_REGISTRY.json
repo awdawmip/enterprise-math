@@ -1,0 +1,66 @@
+{
+  "diagnostics_not_optimization_targets": {
+    "A2": {
+      "definition": "((Mxx-Myy)^2+4*Mxy^2)/trace(M)^2; exact rational via scaled axial centered coordinates",
+      "zero_means": "second-moment isotropy"
+    },
+    "P_edge": {
+      "definition": "number of occupied-to-empty nearest-neighbor directed cut edges",
+      "exact_integer": true
+    },
+    "boundary_squared_radius_dispersion": {
+      "definition": "CV^2 of q_i=Q(N*b_i-S)/N^2 over occupied boundary sites; exact rational; 0 if all q_i=0"
+    },
+    "six_direction_boundary_imbalance": {
+      "definition": "6*sum_k c_k^2/(sum_k c_k)^2 - 1 for exposed-edge direction counts c_k; exact rational"
+    }
+  },
+  "forbidden_move_score_inputs": [
+    "external circle comparison",
+    "teacher center",
+    "radius/circumference target",
+    "classical pi",
+    "tangent target",
+    "P_edge",
+    "A2",
+    "boundary radial dispersion",
+    "directional imbalance"
+  ],
+  "generation": "R055-G0",
+  "objective_separation": {
+    "G_and_P_edge_kept_separate": true,
+    "diagnostics_do_not_select_moves": true,
+    "weighted_combination_allowed_in_generation": false
+  },
+  "primary_objective": {
+    "definition": "G(C)=N*I2(C)=sum_{unordered x<y} Q(x-y)",
+    "direction": "strict_decrease",
+    "equivalent_fast_form": "G(C)=N*sum_{x in C} Q(x)-Q(sum_{x in C} x)",
+    "id": "G",
+    "integer_exact": true,
+    "move_ranking": [
+      "minimum G(C_prime)",
+      "frozen tie-break only among equal best G"
+    ],
+    "replacement_delta": "For d=v-u and S=sum_C x: DeltaG=N*(Q(v)-Q(u))-[L(S,d)+Q(d)], where L((a,b),(c,d))=2ac+ad+bc+2bd=2<B(S,d)>."
+  },
+  "schema": "R055_MOVE_ENERGY_REGISTRY_V1",
+  "status": "FROZEN_BEFORE_MOVE_SCORING",
+  "tie_breaks": [
+    {
+      "id": "T0_CANONICAL_MIN",
+      "primary": true,
+      "rule": "Among equal-best-G candidate states choose lexicographically smallest translation+D6 canonical state encoding; then smallest canonicalized (u,v) move key."
+    },
+    {
+      "id": "T1_CANONICAL_MAX",
+      "primary": false,
+      "rule": "Among equal-best-G candidate states choose lexicographically largest translation+D6 canonical state encoding; then largest canonicalized (u,v) move key."
+    },
+    {
+      "id": "T2_ORIENTATION_MOVE_LEX",
+      "primary": false,
+      "rule": "Among equal-best-G moves choose lexicographically smallest (u,v) after translation-normalizing the current orientation only; candidate canonical shape is not used for the first tie."
+    }
+  ]
+}
