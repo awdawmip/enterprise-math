@@ -1,0 +1,98 @@
+{
+  "exact_collision_free_prefix": {
+    "combined_image_sha256": "16024b3075aca19423f8c920ba6aa911c74042af20d7e1ea9827280904ec5f0a",
+    "coverage_method": "For each even r, enumerate every simple labeled realization of degree sequence 3^r 2^(n-r) after normalizing the r degree-3 Cells to labels 0..r-1. Every isomorphism type admits such a labeling, so invariant-image and collision coverage is exact modulo relabeling.",
+    "family": "U_BR(n): connected simple n-Cell graphs, every degree in {2,3}, at least one degree-3 Cell, modulo relabeling",
+    "image_freeze_contract": "The deterministic checker canonically serializes every representable relation packet; each size image is frozen by its SHA256 and the union by combined_image_sha256. The exact image is mechanically reconstructible from the checker without sampling.",
+    "n_max": 8,
+    "n_min": 4,
+    "summaries": {
+      "4": {
+        "degree_normalized_connected_realizations": 2,
+        "image_sha256": "f120e82dd929f416b6e5c780dce8d78f005efacf5bd88935acfbbf7ca68367a8",
+        "isomorphism_types": 2,
+        "representable_packets": 2
+      },
+      "5": {
+        "degree_normalized_connected_realizations": 13,
+        "image_sha256": "ca8468ebdecfa51617b2d6b47546ec27ed3791ae0e587ac23867ff34e492ce5c",
+        "isomorphism_types": 3,
+        "representable_packets": 3
+      },
+      "6": {
+        "degree_normalized_connected_realizations": 178,
+        "image_sha256": "712f36ab512258c9dee46f7eacc58a844b0fe50173ae26e5f080978bb5097379",
+        "isomorphism_types": 10,
+        "representable_packets": 10
+      },
+      "7": {
+        "degree_normalized_connected_realizations": 1812,
+        "image_sha256": "85f69c4334c48b7ebfa778783dc5a9c91b814aaef58b8cb933794590196c70cf",
+        "isomorphism_types": 20,
+        "representable_packets": 20
+      },
+      "8": {
+        "degree_normalized_connected_realizations": 39492,
+        "image_sha256": "c71aa7149b6348d731872a23ca9d04c130980391b2dae2da7aad59c7a448579f",
+        "isomorphism_types": 59,
+        "representable_packets": 59
+      }
+    }
+  },
+  "first_collision": {
+    "G9_edges": [[0,1],[0,4],[0,5],[1,4],[1,6],[2,3],[2,5],[2,6],[3,7],[3,8],[7,8]],
+    "H9_edges": [[0,1],[0,2],[0,4],[1,3],[1,5],[2,4],[2,6],[3,7],[3,8],[5,6],[7,8]],
+    "common_edge_profile_counts": {
+      "AA": 2,
+      "AB": 1,
+      "AD": 2,
+      "BB": 3,
+      "CD": 2,
+      "DD": 1
+    },
+    "common_root_profiles": {
+      "A": {"multiplicity": 3, "profile": {"5": 1, "6": 1}},
+      "B": {"multiplicity": 3, "profile": {"3": 1}},
+      "C": {"multiplicity": 1, "profile": {"3": 1, "6": 1}},
+      "D": {"multiplicity": 2, "profile": {"3": 1, "5": 1, "6": 1}}
+    },
+    "degree_multiset": {"2": 5, "3": 4},
+    "equal_relation_packet": true,
+    "n": 9,
+    "next_missing_information": {
+      "G_A_root_with_AA_neighbors": 0,
+      "H_A_root_with_AA_neighbors": 1,
+      "description": "Global profile-edge counts forget which class-edge incidences co-occur at the same anonymous root. The first witness is separated by the count of A-profile roots whose two native neighbors are both A-profile."
+    },
+    "nonisomorphic": true,
+    "nonisomorphism_certificate": {
+      "kind": "profile-conditioned rootwise neighbor-profile incidence",
+      "statement": "An isomorphism preserves each root profile and the multiset of neighbor profiles at that root."
+    }
+  },
+  "observable": {
+    "definition": "C(X)=(M(X),E_X), where M is the multiset of primitive-return multiplicity profiles m_X(x), and E_X(P,Q) counts native edges with endpoint profiles P,Q, unordered in P,Q.",
+    "name": "anonymous root multiplicity + profile-edge correlation",
+    "relabeling_invariant": true
+  },
+  "publication_id": "TP2-A2D4A2D896ADC274FD72",
+  "q16_repair": {
+    "G8_edges": [[0,1],[0,2],[0,4],[1,4],[2,5],[2,7],[3,5],[3,6],[4,6],[5,7]],
+    "H8_edges": [[0,2],[0,4],[1,5],[1,6],[2,3],[2,4],[3,6],[4,7],[5,6],[5,7]],
+    "certificate": "The profile-C internal native-edge coordinate differs 0 versus 1.",
+    "edge_profile_packet_equal": false,
+    "multiplicity_packet_equal": true,
+    "reproduced": true
+  },
+  "researcher_id": "EM-P000-FAA806",
+  "schema": "P000_Q19_RETURN_EDGE_CORRELATION_COLLISION_FRONTIER_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-EDGE-CORRELATION-COLLISION-FRONTIER",
+  "terminal": {
+    "bounded_positive_scope": "Injective with exact representability image on U_BR(n) for 4<=n<=8.",
+    "first_collision_n": 9,
+    "hard_target": "P000_RETURN_EDGE_CORRELATION_COLLISION_FRONTIER_EXACTLY_CLASSIFIED",
+    "next_gap": "rootwise co-incidence of profile-class edge incidences; do not jump to full adjacency",
+    "state": "FIRST_EDGE_PROFILE_CORRELATION_COLLISION_CLASSIFIED",
+    "verdict": "SUCCESS"
+  }
+}

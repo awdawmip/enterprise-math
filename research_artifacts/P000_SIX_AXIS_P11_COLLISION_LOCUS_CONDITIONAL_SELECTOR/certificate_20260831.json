@@ -1,0 +1,104 @@
+{
+  "schema": "P000_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_CERTIFICATE_V1",
+  "task_id": "RS-P000-SIX-AXIS-P11-COLLISION-LOCUS-CONDITIONAL-SELECTOR",
+  "publication_id": "TP2-3DEA87F0F4ED366BEE03",
+  "researcher_id": "EM-P000P11C1-4A91D2",
+  "parent_result": "RR-B96585874709743F94BC",
+  "terminal_verdict": "EXACT_COLLISION_LOCUS_WITH_ONE_BIT_CONDITIONAL_SELECTOR",
+  "sorted_distinct_marginals": {
+    "H": ["h0", "h1", "h2"],
+    "T": ["t0", "t1", "t2"],
+    "positive_gaps": {"A": "h1-h0", "B": "h2-h1", "C": "t1-t0", "D": "t2-t1"},
+    "collision_classes": {
+      "C1": {
+        "pair": ["132", "213"],
+        "equation": "A*C=B*D",
+        "ratio_form": "A/B=D/C",
+        "P21_order": "132<213",
+        "P12_order": "132<213",
+        "branch_relation": "SAME"
+      },
+      "C2": {
+        "pair": ["231", "312"],
+        "equation": "A*D=B*C",
+        "ratio_form": "A/B=C/D",
+        "P21_order": "231<312",
+        "P12_order": "231>312",
+        "branch_relation": "OPPOSITE"
+      }
+    },
+    "simultaneous_collision": "C1_AND_C2 iff A=B and C=D; the two doubled P11 levels are distinct by 2*A*C"
+  },
+  "repeated_marginal_strata": {
+    "result": "P11_INJECTIVE_ON_DISTINCT_K/Gamma_ORBITS",
+    "H_2_plus_1": "P11=h*sum(T)+(k-h)*t_star",
+    "T_2_plus_1": "P11=t*sum(H)+(u-t)*h_star",
+    "triple_repeat": "UNIQUE_ALIGNMENT_ORBIT"
+  },
+  "resolvents": {
+    "P21": {
+      "nodes": "H",
+      "moment_vector": "[sum(T),P11,X]",
+      "gram": "G_H[r,s]=sum_i h_i^(r+s), r,s=0,1,2",
+      "delta": "det(G_H)=prod_{i<j}(h_i-h_j)^2",
+      "quadratic": "Q21(X)=m_X^T adj(G_H) m_X-delta_H*sum_i(t_i^2)",
+      "leading_coefficient": "3*sum(h_i^2)-sum(h_i)^2=sum_{i<j}(h_i-h_j)^2>0",
+      "two_fibre_root_claim": "on a two-orbit P11 fibre, roots(Q21) are exactly the two candidate P21 values"
+    },
+    "P12": {
+      "nodes": "T",
+      "moment_vector": "[sum(H),P11,Y]",
+      "gram": "G_T[r,s]=sum_i t_i^(r+s), r,s=0,1,2",
+      "delta": "det(G_T)=prod_{i<j}(t_i-t_j)^2",
+      "quadratic": "Q12(Y)=m_Y^T adj(G_T) m_Y-delta_T*sum_i(h_i^2)",
+      "leading_coefficient": "3*sum(t_i^2)-sum(t_i)^2=sum_{i<j}(t_i-t_j)^2>0",
+      "two_fibre_root_claim": "on a two-orbit P11 fibre, roots(Q12) are exactly the two candidate P12 values"
+    }
+  },
+  "conditional_selector": {
+    "candidate_order": "sort H,T; enumerate distinct T-permutations lexicographically; filter by P11; zero candidates impossible for valid input, one candidate uses no bit, two candidates use bit 0/1",
+    "minimum_side_information_bits": "log2(|fibre|)=0 off collision locus and 1 on collision locus",
+    "worst_case_bits": 1,
+    "collision_flag_cost": 0,
+    "reason_collision_flag_cost_zero": "receiver recomputes fibre size from already-known H,T,P11"
+  },
+  "minimal_pairable_witnesses": {
+    "metric": "minimum root sup-norm B for relation states (h,t)=(a+b,ab), a<=b, |a|,|b|<=B; nested B=1..6 exhaustive",
+    "counts": {"C1": [0,0,0,0,0,1], "C2": [0,0,0,0,0,1]},
+    "C1": {
+      "H": [-1,1,4],
+      "T": [-30,-12,0],
+      "matchings": {
+        "132": {"K": [[-1,-30],[1,0],[4,-12]], "roots": [[-6,5],[0,1],[-2,6]], "P11": -18, "P21": -222, "P12": -324},
+        "213": {"K": [[-1,-12],[1,-30],[4,0]], "roots": [[-4,3],[-5,6],[0,4]], "P11": -18, "P21": -42, "P12": 756}
+      }
+    },
+    "C2": {
+      "H": [-4,-1,1],
+      "T": [-30,-12,0],
+      "matchings": {
+        "231": {"K": [[-4,-12],[-1,0],[1,-30]], "roots": [[-6,2],[-1,0],[-5,6]], "P11": 18, "P21": -222, "P12": 324},
+        "312": {"K": [[-4,0],[-1,-30],[1,-12]], "roots": [[-4,0],[-6,5],[-3,4]], "P11": 18, "P21": -42, "P12": -756}
+      }
+    },
+    "infinite_families": "for every integer m>=1, H->mH and T->m^2 T preserves pairability and collision; P11,P21,P12 scale by m^3,m^4,m^5"
+  },
+  "three_state_control": {
+    "global_result": "IMPOSSIBLE",
+    "reason": "only C1 and C2 pairs can collide; if both equations hold then A=B,C=D and the two doubled levels differ by 2*A*C>0",
+    "bounded_exact_control": "all sorted 3-multisets H,T from [-3,3] checked; maximum P11 fibre=2"
+  },
+  "verification": {
+    "checker": "research_checks/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_CHECK_20260831.py",
+    "status": "PASS",
+    "checks": 23620,
+    "breakdown": {"collision": 7056, "resolvent": 16036, "branch": 320, "scale": 144, "double_controls": 64}
+  },
+  "firewalls": [
+    "DERIVED_SIX_COORDINATE_ARITHMETIC_FACADE_ONLY",
+    "NO_NATIVE_ORIENTATION",
+    "NO_PFAFFIAN_NEGATIVE_SLOT_SELECTION",
+    "NO_NATIVE_DIMENSION_REDUCTION",
+    "NO_FACTORIZATION_OR_FULL_CELL_PROMOTION"
+  ]
+}

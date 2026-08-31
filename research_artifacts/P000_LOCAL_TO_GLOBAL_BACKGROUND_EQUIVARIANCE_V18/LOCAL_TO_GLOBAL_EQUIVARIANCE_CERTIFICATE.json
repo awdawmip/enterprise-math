@@ -1,0 +1,188 @@
+{
+  "schema": "P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18_CERTIFICATE_V1",
+  "status": "RESEARCHER_FROZEN_DRIVER_REVIEW_REQUIRED",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-D6A41E9C3B705F821847",
+  "claim_id": "chatgpt-p000fcc18-20260831-1038-ed9b7e",
+  "researcher_id": "EM-P000FCC18-ED9B7E",
+  "execution_id": "ER-B9CD98FA15252AC5E07C",
+  "result_id": "RR-7FED4A83F3922D37319D",
+  "terminal_class": "LOCAL_GENERATOR_EQUIVARIANCE_EXACTLY_EQUIVALENT_TO_GLOBAL_BACKGROUND_TRANSPARENCY",
+  "hard_target_disposition": "P000_LOCAL_TO_GLOBAL_PF10_AND_CONNECTION_S4_EQUIVARIANCE_CRITERIA_EXACTLY_DERIVED_OR_INFORMATION_THEORETICALLY_OBSTRUCTED",
+  "frozen_inputs": {
+    "gen17_publication_id": "TP2-A7D3C18E5B904F621476",
+    "gen17_result_id": "RR-985AEE277DE45AFCC9D8",
+    "gen17_certificate_path": "research_artifacts/P000_BACKGROUND_S4_EQUIVARIANCE_GATE_V17/BACKGROUND_EQUIVARIANCE_CERTIFICATE.json",
+    "gen17_certificate_git_blob_sha1": "sha1:f25b5fd5d124905cb2f714380277e01ce864c548",
+    "gen17_global_gates": [
+      "PF10_STRUCTURAL_AUT_EQ",
+      "CONNECTION_STRUCTURAL_AUT_EQ"
+    ],
+    "g15_immutable": true,
+    "gen17_atomic_costs_immutable": true
+  },
+  "structural_group_setup": {
+    "structural_group": "G0",
+    "carrier_readout": "q0:G0->S4",
+    "kernel": "K=ker(q0)",
+    "carrier_generators": [
+      "a=(BCD)",
+      "b=(AB)"
+    ],
+    "background_stabilizer": "G_B={u in G0 : u preserves B}",
+    "global_transparency": "G_B=G0"
+  },
+  "local_to_global_theorem": {
+    "full_lift_fiber_criterion": {
+      "definition": "GENERATOR_FIBER_EQ(B): every structural lift u with q0(u)=a or q0(u)=b preserves B",
+      "theorem": "Assuming q0 is surjective and <a,b>=S4, GENERATOR_FIBER_EQ(B) iff G_B=G0.",
+      "proof_key": "All lifts of a include k*ahat for every k in K, so preservation of the full a-fiber forces K<=G_B; one preserved lift of a and b then generates the quotient and K fills every coset.",
+      "global_quantifier_reduction": "It is enough to check the two full structural lift-fibers q0^{-1}(a) and q0^{-1}(b), not all u in G0."
+    },
+    "chosen_lift_criterion": {
+      "definition": "CHOSEN_AB_EQ(B): one coherent frozen lift ahat of a and bhat of b preserves B",
+      "theorem": "CHOSEN_AB_EQ(B) implies H=<ahat,bhat><=G_B. It is equivalent to global transparency exactly when H=G0, or more generally after adding K<=G_B.",
+      "exact_obstruction": "Hidden-kernel transparency.",
+      "countermodel": "G0=C2 x S4, q(k,g)=g, ahat=(0,a), bhat=(0,b), G_B={0}xS4. Chosen a,b are preserved but the nontrivial C2 kernel element is not; |G0|=48, |G_B|=24."
+    }
+  },
+  "pf10_ladder": {
+    "one_cell_stabilizer_regularity": "Necessary for full equivariance on a transitive Cell orbit, but neither sufficient for same-orbit global assignment nor generator equivariance.",
+    "same_local_orbit_type_every_cell": "Strictly weaker than coherent transport; constant star_A gives same orbit type and a-equivariance but fails b.",
+    "a_only": "Insufficient; constant star_A profile is a-equivariant and not b-equivariant.",
+    "b_only": "Insufficient; constant e1 profile is b-equivariant and not a-equivariant.",
+    "a_and_b_chosen_lifts": "Equivalent to full PF10 transparency only when the chosen lifts generate G0 or kernel transparency is separately guaranteed.",
+    "a_and_b_full_lift_fibers": "Exactly equivalent to PF10_STRUCTURAL_AUT_EQ.",
+    "visible_countermodels": {
+      "a_only": "I_x=star_A for every Cell; a fixes A-star, b moves it.",
+      "b_only": "I_x=e_AB for every Cell; b fixes AB, a moves it.",
+      "same_orbit_not_stabilizer": "I_x=e_AB for every Cell has one common S4 orbit type but the A-cell profile is not Stab(A)-fixed.",
+      "a_equivariant_not_same_orbit": "I_A=star_A and I_B=I_C=I_D=0 is a-equivariant but local orbit types differ."
+    }
+  },
+  "connection_ladder": {
+    "edgewise_local_transport_type_regularity": "Does not imply inverse-edge consistency; all oriented edges may carry the same order-3 channel permutation.",
+    "inverse_edge_consistency": "Connection coherence, not symmetry; it does not imply generator naturality.",
+    "path_composition_consistency": "Under standard connection semantics where path transport is the ordered product of edge transports, associativity is definitional. If independent path data are stored it is an extra functoriality axiom, still not a symmetry axiom.",
+    "a_only": "Insufficient; an a-propagated marked-edge connection is a-natural but not b-natural.",
+    "b_only": "Insufficient; the Gen17 AB-marked connection is b-natural but not a-natural.",
+    "a_and_b_chosen_lifts": "Equivalent to full connection transparency only when chosen lifts generate G0 or kernel connection naturality is separately guaranteed.",
+    "a_and_b_full_lift_fibers": "Exactly equivalent to CONNECTION_STRUCTURAL_AUT_EQ.",
+    "holonomy_cycle_basis": "Full naturality implies holonomy conjugacy on every cycle, hence any generating cycle basis. The converse fails.",
+    "holonomy_countermodel": "A flat pure-gauge independent connection T_xy=h_y h_x^{-1} with asymmetric vertex gauges has identity holonomy on every cycle but is not structurally equivariant.",
+    "nonflat_positive": "The S4-equivariant K4 connection sending each Cell edge e to the channel transposition (e,opposite(e)) has nontrivial triangle holonomy and is fully structurally equivariant."
+  },
+  "coupling": {
+    "common_proof_schema": "Both PF10 and independent connection are equivariant objects for the same structural action groupoid, so the same full-lift-fiber generator theorem proves each global gate locally.",
+    "not_a_single_atomic_gate": true,
+    "reason": "PF10 and independent connection remain independently falsifiable; applying one generator-natural schema to both is two semantic instances, not one new constraint.",
+    "four_combinations_realizable": [
+      "PF10 transparent / connection transparent",
+      "PF10 transparent / connection leaky",
+      "PF10 leaky / connection transparent",
+      "PF10 leaky / connection leaky"
+    ],
+    "gen17_atomicity_preserved": true
+  },
+  "information_cost": {
+    "logical_axiom_count": "Gen17 still has two independently charged background gate instances when an independent connection is declared; local-to-global derivation changes verification form, not atomic semantic count.",
+    "general_finite_kernel_bound": "For finite K, if K_B=K intersect G_B, omitted kernel transparency permits a kernel orbit of size [K:K_B], carrying log2([K:K_B]) bits of symmetry-breaking orbit-index information.",
+    "hidden_C2_witness": {
+      "K_order": 2,
+      "K_B_order": 1,
+      "orbit_index": 2,
+      "bits": 1.0
+    },
+    "pf10_visible_edge_marker": {
+      "stabilizer_order": 4,
+      "S4_order": 24,
+      "orbit_index": 6,
+      "bits_log2": 2.584962500721156
+    },
+    "connection_visible_edge_marker": {
+      "stabilizer_order": 4,
+      "S4_order": 24,
+      "orbit_index": 6,
+      "bits_log2": 2.584962500721156
+    },
+    "independent_raw_mark_choices": {
+      "count": 36,
+      "bits_log2": 5.169925001442312
+    },
+    "scope_note": "These are exact finite orbit-index information measures for the exhibited witness families, not a universal Kolmogorov/Shannon minimum over all admissible backgrounds."
+  },
+  "positive_regression": {
+    "frame_induced_or_no_independent_connection": {
+      "criteria": [
+        "K4_ADJ",
+        "PF10 full-lift-fiber a,b generator equivariance"
+      ],
+      "derived_global_gate": "PF10_STRUCTURAL_AUT_EQ",
+      "gen17_result": "faithful split and Aut_prim-fixed canonical section",
+      "gen17_cost_unchanged": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ]
+    },
+    "independent_connection_declared": {
+      "criteria": [
+        "K4_ADJ",
+        "PF10 full-lift-fiber a,b generator equivariance",
+        "connection full-lift-fiber a,b naturality"
+      ],
+      "derived_global_gates": [
+        "PF10_STRUCTURAL_AUT_EQ",
+        "CONNECTION_STRUCTURAL_AUT_EQ"
+      ],
+      "gen17_result": "faithful split and Aut_prim-fixed canonical section",
+      "gen17_cost_unchanged": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0
+      ]
+    },
+    "mandatory_negatives_preserved": [
+      "PF10 e1 profile",
+      "marked-edge connection",
+      "P4 structural no-lift",
+      "Gen13 nonsplit",
+      "Gen13 split/noncanonical"
+    ]
+  },
+  "guards": {
+    "P000_UNCHANGED": true,
+    "NO_KERNEL_QUOTIENT": true,
+    "TIME_FIXED": true,
+    "CARRIER_S4_IS_NOT_COMPLETE_NATIVE_P000_ROTATION_GROUP": true,
+    "G15_IMMUTABLE": true,
+    "GEN17_ATOMIC_COSTS_IMMUTABLE": true,
+    "UNIQUE_SECTION_NOT_ASSERTED": true,
+    "NO_ROOT_PROMOTION": true
+  },
+  "checker": {
+    "path": "research_checks/P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18_CHECK_20260831.py",
+    "sha256": "sha256:3c9c6c84462bbc28126882d13b7af54d2d2bdcd789463e5e25a60994c6a81ab2",
+    "selftest": "PASS",
+    "exact_counts": {
+      "S4_order": 24,
+      "hidden_extension_G0_order": 48,
+      "chosen_section_H_order": 24,
+      "hidden_kernel_order": 2,
+      "pf10_visible_marker_stabilizer": 4,
+      "connection_visible_marker_stabilizer": 4,
+      "visible_orbit_index_each": 6,
+      "joint_raw_mark_choices": 36
+    }
+  }
+}
