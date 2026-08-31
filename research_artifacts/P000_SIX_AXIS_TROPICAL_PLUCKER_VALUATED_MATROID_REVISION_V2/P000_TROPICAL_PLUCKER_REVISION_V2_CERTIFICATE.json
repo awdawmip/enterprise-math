@@ -1,0 +1,136 @@
+{
+  "schema": "P000_TROPICAL_PLUCKER_REVISION_V2_CERTIFICATE_V1",
+  "task_id": "RS-P000-SIX-AXIS-TROPICAL-PLUCKER-VALUATED-MATROID",
+  "publication_id": "TP2-1BC640D8DA13DB3ABD24",
+  "researcher_id": "EM-P000TP2-61A7E4",
+  "claim_id": "chatgpt-p000tp2-20260830-61a7e4",
+  "predecessor_result_id": "RR-1D3266F488123BBE9369",
+  "driver_review_ref": "PR#901#issuecomment-5466915618",
+  "classification": "NONTRIVIAL_SURVIVOR / DERIVED_SIX_WEIGHT_CLASSIFIER_ONLY",
+  "hard_target_disposition": "P000_TROPICAL_PLUCKER_REVISION_V2_RESULT_CHAIN_AND_VALUATION_DOMAIN_EXACT",
+  "valuation_domain": {
+    "prime": "p is any prime",
+    "coordinate_domain": "(Z\\{0})^6",
+    "W_VP": "(x_ij) |-> (v_p(x_ij)) in N^6",
+    "zero_coordinate_policy": "OUTSIDE_DOMAIN_FAIL_CLOSED",
+    "extended_infinity_arithmetic_defined": false,
+    "delta_domain": "finite triples in N^3 only"
+  },
+  "pfaffian_bridge": {
+    "Q": "x_AB*x_CD - x_AC*x_BD + x_AD*x_BC",
+    "alpha": [
+      "v_p(x_AB*x_CD)",
+      "v_p(x_AC*x_BD)",
+      "v_p(x_AD*x_BC)"
+    ],
+    "delta_T": "second_min(alpha)-min(alpha)",
+    "theorems": [
+      "delta_T>0 => unique finite minimum alpha_i",
+      "delta_T>0 => v_p(Q)=min(alpha_i) and Q!=0",
+      "Q=0 => delta_T=0 on (Z\\{0})^6"
+    ],
+    "proof_certificate": "After factoring p^m with m the unique minimum, the unique minimal signed summand is a unit modulo p and every other normalized summand is divisible by p; the normalized sum is nonzero modulo p."
+  },
+  "carrier_and_complement": {
+    "carrier_action": "S4 on six edges induces full S3 on complementary pairs with V4 kernel",
+    "delta_T_S4_invariant": true,
+    "delta_T_complement_invariant": true,
+    "stabilizer_orders": {
+      "all_distinct": 4,
+      "two_equal": 8,
+      "triple_tie": 24
+    }
+  },
+  "raw_box_W_COORD": {
+    "q": "2B+1",
+    "triple_tie": "q^2(q^2+1)/2",
+    "exactly_two_minima": "q^2(q-1)(4q^2+q+3)/4",
+    "survivor": "q^2(4q^3-q^2+2q-1)/4",
+    "regressions": {
+      "B=1": {
+        "total": 729,
+        "survivor": 234,
+        "nonsurvivor": 495,
+        "triple": 45,
+        "two_min": 189
+      },
+      "B=2": {
+        "total": 15625,
+        "survivor": 3025,
+        "nonsurvivor": 12600,
+        "triple": 325,
+        "two_min": 2700
+      }
+    }
+  },
+  "matched_control": {
+    "scope": "TESTED_DERIVED_CLASSIFIER_ONLY",
+    "x": [
+      -2,
+      -2,
+      0,
+      2,
+      1,
+      1
+    ],
+    "y": [
+      -2,
+      -1,
+      -1,
+      2,
+      2,
+      0
+    ],
+    "same_johnson_coarse": [
+      0,
+      22,
+      18
+    ],
+    "same_Q_orb": [
+      -4,
+      0,
+      0
+    ],
+    "same_rho_carrier_orbit": [
+      [
+        0,
+        1,
+        1
+      ],
+      0
+    ],
+    "delta_x": 0,
+    "delta_y": 3
+  },
+  "deterministic_checker": {
+    "path": "research_checks/P000_SIX_AXIS_TROPICAL_PLUCKER_VALUATED_MATROID_REVISION_V2_CHECK_20260830.py",
+    "expected_stdout": "LOCAL_DETERMINISTIC_PASS checks=184315",
+    "integer_exact": true,
+    "p3_domain": [
+      "-4",
+      "-3",
+      "-2",
+      "-1",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "p2_domain": [
+      "-2",
+      "-1",
+      "1",
+      "2"
+    ],
+    "zero_boundary_tests": 9,
+    "status": "PASS"
+  },
+  "scope_guards": [
+    "DERIVED_CLASSIFIER_NOT_NATIVE_P000_TROPICAL_GEOMETRY",
+    "NOT_A_COLLAPSE_LAW",
+    "NOT_A_FACTORIZATION_MECHANISM",
+    "NOT_FOUNDATION",
+    "NOT_NATIVE_6D_REPLACEMENT",
+    "ZERO_COORDINATE_W_VP_EXTENSION_NOT_CLAIMED"
+  ]
+}
