@@ -11,11 +11,13 @@ This layer is deliberately separate from current-task integrity quarantine:
   that is itself locally BLOCKED by publication-fork quarantine.
 
 Every suppression pins exact record bytes, exact taskbook bytes and exact error
-suffixes. A malformed immutable record may itself omit or drift its taskbook blob
-pin only when that exact defect is one of the pinned strict-audit suffixes; the
-quarantine still pins the actual taskbook Git blob independently. It grants no
-dispatch, publication selection, Working Truth, Foundation, canonical-promotion
-or successor authority.
+suffixes. Full immutable-record audit errors and earliest publication-envelope
+errors are tracked separately so one checker's vocabulary cannot become a stale
+or overbroad waiver in another. A malformed immutable record may itself omit or
+drift its taskbook blob pin only when ``allowed_publication_envelope_errors`` is
+exactly that one record-side pin defect; the quarantine still pins the actual
+taskbook Git blob independently. It grants no dispatch, publication selection,
+Working Truth, Foundation, canonical-promotion or successor authority.
 """
 from __future__ import annotations
 
@@ -46,6 +48,20 @@ def _load(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
         raise TaskRecordAuditIsolationError(f"{path}: JSON root must be object")
+    return value
+
+
+def _validate_error_list(row: dict[str, Any], qid: str, field: str, *, required: bool) -> list[str]:
+    value = row.get(field)
+    if value is None and not required:
+        return []
+    if (
+        not isinstance(value, list)
+        or (required and not value)
+        or any(not isinstance(item, str) or not item for item in value)
+        or len(set(value)) != len(value)
+    ):
+        raise TaskRecordAuditIsolationError(f"{qid}: {field} invalid")
     return value
 
 
@@ -99,16 +115,8 @@ def quarantine_rows(root: Path = ROOT) -> list[dict[str, Any]]:
         ):
             if not isinstance(row.get(field), str) or not row[field]:
                 raise TaskRecordAuditIsolationError(f"{quarantine_id}: missing {field}")
-        allowed = row.get("allowed_task_record_audit_errors")
-        if (
-            not isinstance(allowed, list)
-            or not allowed
-            or any(not isinstance(item, str) or not item for item in allowed)
-            or len(set(allowed)) != len(allowed)
-        ):
-            raise TaskRecordAuditIsolationError(
-                f"{quarantine_id}: allowed_task_record_audit_errors invalid"
-            )
+        _validate_error_list(row, quarantine_id, "allowed_task_record_audit_errors", required=True)
+        _validate_error_list(row, quarantine_id, "allowed_publication_envelope_errors", required=False)
         for flag in (
             "working_truth_granted",
             "foundation_authority_granted",
@@ -125,7 +133,7 @@ def quarantine_rows(root: Path = ROOT) -> list[dict[str, Any]]:
 
 
 def _declared_taskbook_pin_defect(record: dict[str, Any], actual_pin: str) -> str | None:
-    """Return the exact strict-audit suffix represented by a bad record-side pin."""
+    """Return the exact envelope suffix represented by a bad record-side pin."""
     declared = record.get("taskbook_blob_sha1")
     if not isinstance(declared, str) or not SHA1.fullmatch(declared):
         return "missing/invalid taskbook_blob_sha1"
@@ -180,11 +188,20 @@ def validated_rows(root: Path = ROOT) -> list[dict[str, Any]]:
                 f"{qid}: taskbook blob drift; declared={row['taskbook_blob_sha1']} "
                 f"actual={actual_taskbook_blob}"
             )
+
         record_pin_defect = _declared_taskbook_pin_defect(record, actual_taskbook_blob)
-        if record_pin_defect is not None and record_pin_defect not in row["allowed_task_record_audit_errors"]:
+        envelope_allowed = _validate_error_list(
+            row,
+            qid,
+            "allowed_publication_envelope_errors",
+            required=False,
+        )
+        expected_envelope = [] if record_pin_defect is None else [record_pin_defect]
+        if envelope_allowed != expected_envelope:
             raise TaskRecordAuditIsolationError(
-                f"{qid}: record-side taskbook pin defect is not exactly quarantined: "
-                f"{record_pin_defect}"
+                f"{qid}: allowed_publication_envelope_errors must equal the exact "
+                f"record-side taskbook pin defect; expected={expected_envelope!r} "
+                f"actual={envelope_allowed!r}"
             )
 
         basis = row["nonoperational_basis"]
@@ -226,10 +243,20 @@ def validated_rows(root: Path = ROOT) -> list[dict[str, Any]]:
 
 
 def suppression_strings(root: Path = ROOT) -> set[str]:
+    """Exact suppressions for the full immutable task-record audit only."""
     return {
         f"{row['record_path']}: {suffix}"
         for row in validated_rows(root)
         for suffix in row["allowed_task_record_audit_errors"]
+    }
+
+
+def envelope_suppression_strings(root: Path = ROOT) -> set[str]:
+    """Exact suppressions for the earliest publication-envelope checker only."""
+    return {
+        f"{row['record_path']}: {suffix}"
+        for row in validated_rows(root)
+        for suffix in row.get("allowed_publication_envelope_errors", [])
     }
 
 
