@@ -1,0 +1,59 @@
+{
+  "schema": "ENTERPRISE_MATH_R021_ENUMERATION_SUMMARY_V2",
+  "task": "RS-R021-BRANCHING-COLLAPSE-TOOL-CALCULUS",
+  "researcher_id": "EM-R021-9832F2",
+  "taskbook_commit": "15e9dcb67ce1f78b320099f2078c733bcba39ebb",
+  "focused_tests": {"count": 16, "status": "PASS"},
+  "deterministic_one_generator_two_step_quotient_search": {
+    "search_class": "surjective q on n fine states; deterministic f:X->X; initial state is one full q-fibre; compare exact q-support after f^2 with existential quotient relation squared",
+    "by_n": [
+      {"n": 1, "surjective_coarse_maps": 1, "q_f_systems": 1, "start_fibre_trials": 1, "composition_failures": 0},
+      {"n": 2, "surjective_coarse_maps": 3, "q_f_systems": 12, "start_fibre_trials": 20, "composition_failures": 0},
+      {"n": 3, "surjective_coarse_maps": 13, "q_f_systems": 351, "start_fibre_trials": 837, "composition_failures": 84}
+    ],
+    "total_trials": 858,
+    "minimal_failure_states_within_search_class": 3,
+    "first_witness": {"q": [0,0,1], "f": [0,2,0], "start_label": 0, "exact_two_step_q_support": [0], "naive_two_step_q_support": [0,1]}
+  },
+  "two_relation_middle_incidence_counterexample": {
+    "fine_states_needed_in_witness": 2,
+    "R": [["a","b1"]],
+    "S": [["b2","c"]],
+    "exact_composition": [],
+    "coarse_marginals_predict_nonempty": true,
+    "note": "Different search class from the one-generator f^2 enumeration; retains the exact middle identity/correlation boundary."
+  },
+  "branch_dictionary_frontier_n3": [
+    {"K": 3, "W": 2, "dictionary_membership_bits": 9},
+    {"K": 6, "W": 1, "dictionary_membership_bits": 18}
+  ],
+  "floor_translation": {
+    "theorem": "class_count(h)=1+min(h,r/gcd(r,c)-1); eventual classes=r/gcd(r,c)",
+    "r10_c1": [{"h":1,"classes":2},{"h":2,"classes":3},{"h":5,"classes":6},{"h":9,"classes":10}],
+    "r12_c8_eventual_classes": 3,
+    "full_fibre_support_max_coarse_width": 2
+  },
+  "pth_power_gap": {
+    "cube_example": {"p":3,"k":3,"translation":5,"horizon":8,"gap":[28,63],"cell_size":36,"max_bracket_support_width":3,"pointwise_signature_classes":15},
+    "positive_translation_strict_bracket_support_bound": 3
+  },
+  "witness_cutoff": {
+    "numbers": [6,10,14,22,26],
+    "low_cutoff": 2,
+    "common_low_signature": [2],
+    "high_cutoff": 13,
+    "distinct_high_signature_count": 5
+  },
+  "explicit_table_pareto_n8": {
+    "deterministic_future_states": 256,
+    "deterministic_transition_entries": 2048,
+    "branch_atoms": 8,
+    "branch_transition_cells": 64,
+    "live_bits_deterministic": 8,
+    "live_bits_branching": 8,
+    "worst_online_work_deterministic": 1,
+    "worst_online_work_branching": 8
+  },
+  "pass": true,
+  "canonical_status": "NOT_CANONICAL"
+}
