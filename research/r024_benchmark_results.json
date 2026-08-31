@@ -1,0 +1,53 @@
+{
+  "schema": "R024_BENCHMARK_RESULTS_V1",
+  "researcher_id": "EM-R024-7C20D0",
+  "task_id": "RS-R024-COLLAPSE-ATLAS-RUNTIME-ACCELERATOR",
+  "source_commit": "0a0af206326a873f28620426371f894ccc92db51",
+  "environment": {"python":"3.13.5","os":"Linux x86_64 glibc 2.41","cpu":"AMD EPYC 9V74 80-Core","bit_width":64,"endianness":"little"},
+  "p2": {
+    "n_hot_1e12_q50000": {"exact_isqrt_median_ns":229.62434,"full_square_atlas_median_ns":1066.4291,"atlas_anchor_count":1000001,"atlas_packed_bytes":8000008,"atlas_resident_bytes":8183864,"atlas_build_ns":227818954},
+    "n_hot_1e9_q30000": {"exact_isqrt_median_ns":226.8950,"full_square_atlas_median_ns":690.5514,"atlas_packed_bytes":252984,"atlas_build_ns":6823265},
+    "analytic_square_atlas_bytes": {"1e18":8000000008,"uint64_full_domain":34359738368},
+    "decision":"REJECT_FULL_SQUARE_ATLAS_USE_EXACT_ISQRT"
+  },
+  "anchor_estimates_pmax16": {
+    "1e9":{"p2_bytes":252984,"p_ge3_bytes":10872},
+    "1e12":{"p2_bytes":8000008,"p_ge3_bytes":92248},
+    "1e15":{"p2_bytes":252982216,"p_ge3_bytes":858600},
+    "1e18":{"p2_bytes":8000000008,"p_ge3_bytes":8299792,"p3_bytes":8000008,"p4_to_16_bytes":299784},
+    "uint64_full_domain":{"p3_anchor_count":2642246,"p3_bytes":21137968,"p4_to_16_bytes":604232}
+  },
+  "p3_scaling": [
+    {"n_hot":1000000000,"atlas_packed_bytes":8008,"atlas_median_ns":512.2361,"exact_root_median_ns":834.51735,"speedup":1.629,"build_ns":422998,"build_crossover_queries":1312.5},
+    {"n_hot":1000000000000,"atlas_packed_bytes":80008,"atlas_median_ns":539.9227,"exact_root_median_ns":1041.58365,"speedup":1.929,"build_ns":2496144,"build_crossover_queries":4975.8},
+    {"n_hot":1000000000000000,"atlas_packed_bytes":800008,"atlas_median_ns":626.9143,"exact_root_median_ns":1229.20655,"speedup":1.961,"build_ns":27133714,"build_crossover_queries":45050.7},
+    {"n_hot":1000000000000000000,"atlas_packed_bytes":8000008,"atlas_median_ns":824.0874,"exact_root_median_ns":1150.2013,"speedup":1.396,"build_ns":262558986,"build_crossover_queries":805114.4}
+  ],
+  "p3_cache_sensitivity": {"interleaved_atlas_median_ns":1082.6766,"interleaved_root_median_ns":1154.2111,"speedup":1.066,"break_even_queries":4075435,"separate_random_atlas_median_ns":902.2292,"separate_random_root_median_ns":1211.2009,"sparse_stride64_median_ns":1867.6428,"sparse_stride64_packed_bytes":187512,"coarse_bucket_atlas_median_ns":1266.0336,"coarse_bucket_atlas_packed_bytes":8262156,"decision":"P3_ADAPTIVE_NOT_UNIVERSAL_RESIDENT_ATLAS"},
+  "p_ge4_at_1e18": [
+    {"p":4,"packed_bytes":252984,"atlas_ns":562.43875,"root_ns":1181.4615,"speedup":2.1006,"break_even_queries":16106},
+    {"p":5,"packed_bytes":31856,"atlas_ns":510.8831,"root_ns":1280.9441,"speedup":2.5073,"break_even_queries":1825},
+    {"p":6,"packed_bytes":8008,"atlas_ns":474.0902,"root_ns":1275.2808,"speedup":2.6900,"break_even_queries":533},
+    {"p":7,"packed_bytes":2984,"atlas_ns":437.2029,"root_ns":1620.8202,"speedup":3.7072,"break_even_queries":187},
+    {"p":8,"packed_bytes":1424,"atlas_ns":375.5982,"root_ns":1559.1637,"speedup":4.1511,"break_even_queries":108},
+    {"p":9,"packed_bytes":808,"atlas_ns":359.3428,"root_ns":1389.1481,"speedup":3.8658,"break_even_queries":90},
+    {"p":10,"packed_bytes":512,"atlas_ns":348.8711,"root_ns":1077.4788,"speedup":3.0885,"break_even_queries":102},
+    {"p":11,"packed_bytes":352,"atlas_ns":365.7619,"root_ns":1735.5563,"speedup":4.7450,"break_even_queries":65},
+    {"p":12,"packed_bytes":256,"atlas_ns":338.4348,"root_ns":1172.7361,"speedup":3.4652,"break_even_queries":68},
+    {"p":13,"packed_bytes":200,"atlas_ns":329.1835,"root_ns":1493.3202,"speedup":4.5364,"break_even_queries":46},
+    {"p":14,"packed_bytes":160,"atlas_ns":327.6453,"root_ns":1956.9435,"speedup":5.9727,"break_even_queries":97},
+    {"p":15,"packed_bytes":128,"atlas_ns":349.3238,"root_ns":1002.4309,"speedup":2.8696,"break_even_queries":74},
+    {"p":16,"packed_bytes":112,"atlas_ns":335.5304,"root_ns":1623.0168,"speedup":4.8372,"break_even_queries":38}
+  ],
+  "random_lookup_n1e18_p2_to8_q40000": {"exact_root_median_ns":2194.86935,"hybrid_isqrt_plus_higher_atlas_median_ns":766.070925,"hybrid_packed_bytes":8297264,"hybrid_resident_bytes":8486736,"hybrid_build_ns":414944208,"hybrid_break_even_queries":290415},
+  "dense_micro_hot_p3_n250000_q50000": {"exact_root_ns":692.39926,"boundary_atlas":{"median_ns":384.14624,"anchors":63,"packed_bytes":504,"build_ns":45107},"dense_collapse_u64":{"median_ns":256.7546,"packed_bytes":2000008,"build_ns":35297909,"crossover_vs_atlas_queries":276728},"dense_root_u32":{"median_ns":287.45878,"packed_bytes":1000004,"build_ns":29468889,"crossover_vs_atlas_queries":304318},"dense_root_u32_next_u64":{"median_ns":348.52216,"packed_bytes":3000012,"build_ns":36083676,"crossover_vs_atlas_queries":1011635},"decision":"DENSE_TINY_DOMAIN_HIGH_REUSE_ONLY"},
+  "local_trajectory_p3_q100000": {"exact_root_ns":716.18056,"cursor_ns":118.55602,"cursor_packed_bytes":40,"root_calls":1,"boundary_updates":94,"root_call_rate":0.00001},
+  "large_jump_cursor_p3_q20000": {"exact_root_ns":1423.0332,"smart_cursor_ns":1412.17205,"smart_root_calls":16870,"smart_boundary_updates":6338,"naive_cursor_ns":1944.5986,"naive_root_calls":16480,"naive_boundary_updates":73814,"decision":"PRECHECK_LARGE_JUMP_AND_FALLBACK"},
+  "finite_difference": {"p2":{"fd_ns_per_anchor":214.14,"pow_ns_per_anchor":66.10,"adds_per_anchor":2},"p3":{"fd_ns_per_anchor":262.69,"pow_ns_per_anchor":88.07,"adds_per_anchor":3},"p4":{"fd_ns_per_anchor":303.52,"pow_ns_per_anchor":79.16,"adds_per_anchor":4},"p5":{"fd_ns_per_anchor":344.65,"pow_ns_per_anchor":97.67,"adds_per_anchor":5},"p6":{"fd_ns_per_anchor":402.66,"pow_ns_per_anchor":91.90,"adds_per_anchor":6},"decision":"EXACT_ADDITION_ONLY_NATIVE_STREAM_CANDIDATE_BUT_NOT_CPYTHON_SPEED_WIN"},
+  "mixed_hot_reuse_q60000": {"exact_root_ns":1247.8529,"linear_lru":{"hit_rate":0.90881,"median_ns":3760.1199,"packed_bytes":3072,"resident_bytes":38243,"decision":"REJECT"},"verified_bucket_hot_cache":{"realized_entries":3505,"packed_bytes":140296,"resident_bytes":1002175,"warm_hit_rate":0.778425,"root_call_rate":0.221575,"warm_median_ns":707.1617,"cold_first_pass_hit_rate":0.73295,"cold_ns":744.8907,"decision":"P3_MEMORY_CONSTRAINED_HOT_SET_OPTION"}},
+  "symbolic_support": {"interval_token_bytes":16,"root_support_interval_bytes":16,"floor_fibre":{"states":10000,"fine_packed_bytes":80000,"compression_ratio":5000.0},"p3_gap_k1000":{"states":3003001,"fine_packed_bytes":24024008,"compression_ratio":1501500.5},"semantics":"EXACT_BOOLEAN_RESULT_SUPPORT_ONLY_NOT_EXACT_POINT_RECOVERY"},
+  "future_hazard": {"p":3,"future_version":1,"diagnostic_hash64":10255925056260665466,"states_checked":6181,"exact_equivalence_classes":18,"decision_vector":"(one_step_bits,suffix_bits)","identity":"STRUCTURAL_FUTURE_DESCRIPTOR_EQUALITY_PLUS_NONREUSED_RUNTIME_VERSION","hash_is_semantic_identity":false},
+  "brc_branch_heavy_p3_q4000_support512": {"fine_exact_ns":661245.90175,"raw_brc_ns":624572.528,"per_atom_atlas_ns":277972.781,"per_atom_cursor_ns":458058.894,"symbolic_exact_root_ns":3434.539,"symbolic_atlas_ns":1951.38575,"hazard_dict_ns":757.88975,"hazard_bisect_ns":871.44825,"chosen_hybrid_ns":757.88975,"fine_and_raw_root_calls":2048000,"atlas_root_calls":0,"cursor_root_calls":512,"symbolic_exact_root_calls":8000,"mean_live_branch_width":1.248,"fine_support_packed_bytes":4096,"interval_bytes":16,"root_interval_bytes":16,"hazard_signature_bytes":230,"hazard_registry_packed_bytes":13928,"hazard_registry_resident_bytes":63293,"hazard_dict_entries":1739,"hazard_dict_packed_bytes":20868,"hazard_dict_resident_bytes":164948,"hazard_build_ns":3428437,"hazard_break_even_vs_symbolic_atlas_queries":2872.6,"hazard_amortized_ns_at_q4000":1614.999},
+  "correctness": {"checks":330714,"full_local_tests":12,"full_local_status":"OK","publication_tests":9,"publication_status":"OK","all_selected_p3_to16_1e18_boundaries_and_lower_neighbors_checked":true,"mutations":{"lower_off_by_one":true,"upper_off_by_one":true,"fd_initialization":true,"stale_cursor":true,"root_seed_minus_plus_one_corrected":true,"cache_corruption":true,"wrong_exponent_entry":true,"interval_widening":true,"stale_future_language":true,"one_step_not_reused_for_suffix":true}},
+  "return_class": "COLLAPSE_ATLAS_ACCELERATOR_FOUND / HYBRID_PARETO_FROZEN / EXACT_RUNTIME_CHECKED / SHARED_TOOL_CANDIDATE / NOT_CANONICAL"
+}
