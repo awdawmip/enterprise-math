@@ -1,0 +1,43 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-2A4E099EAD6A017F1272",
+  "task_id": "RS-PRIME-COORD-FACTOR-CRITICAL-COFACTOR-SUPPORT-COMPRESSION",
+  "publication_id": "TP2-DBFC9A296E6085FF8B38",
+  "execution_record_id": "ER-791B4D13E66AA032EC30",
+  "claim_id": "chatgpt-pcf5-20260829-0036-3432b6",
+  "taskbook_path": "research_tasks/PRIME_COORD_FACTOR_CRITICAL_COFACTOR_SUPPORT_COMPRESSION_20260827.md",
+  "taskbook_blob_sha1": "sha1:029494c0a2bc2322ca20914b1ea6dadfc655c7f3",
+  "execution_branch": "research/prime-coord-factor-critical-cofactor-support-compression-em-pcf5-3432b6",
+  "execution_branch_base": "2510d9502475ad3b5ff448e17c50affc4d5d8d29",
+  "return_path": "research_returns/PRIME_COORD_FACTOR_CRITICAL_COFACTOR_SUPPORT_COMPRESSION_RETURN_20260827.md",
+  "return_blob_sha1": "sha1:9d43376d22099a96f1c79cf775c57a0eb971830b",
+  "return_sha256": "sha256:7aa10312869221e552f4ddb3fb1bb30f2097f261372b8a870a9247fef09c05dd",
+  "owner_head": "67d2146aae18e2f503477b824e9b5d92681bc41e",
+  "researcher_id": "EM-PCF5-3432B6",
+  "frozen_at": "2026-08-29T07:57:19+08:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "RESTRICTED_SUPPORT_COMPRESSION_PROVED: for every fixed public kappa>=1, the N-blind full layer m=max(2,ceil((kappa N)^(1/6))) has O_kappa(N^(1/3)) cells and contains a coordinate of every prime divisor whenever P^+(N)^2<=kappa N; this includes all prime powers and every fixed-balance semiprime family q/p<=kappa.",
+  "unresolved_residue": "Universal arbitrary-imbalance compression is not supplied by this full-layer construction. Exact visibility is p<=m^3+m+1; for N=2q with q asymptotic to N/2, forcing every prime factor visible in one full layer needs m=Omega(N^(1/3)) and m^2=Omega(N^(2/3)) cells. A genuinely N-native factor-independent adaptive selector using fewer cells remains open.",
+  "output_manifest": [
+    {
+      "path": "research_returns/PRIME_COORD_FACTOR_CRITICAL_COFACTOR_SUPPORT_COMPRESSION_RETURN_20260827.md",
+      "git_blob_sha1": "sha1:9d43376d22099a96f1c79cf775c57a0eb971830b",
+      "sha256": "sha256:7aa10312869221e552f4ddb3fb1bb30f2097f261372b8a870a9247fef09c05dd"
+    },
+    {
+      "path": "research_artifacts/PRIME_COORD_FACTOR_CRITICAL_COFACTOR_SUPPORT_COMPRESSION/support_theorem.json",
+      "git_blob_sha1": "sha1:115078b6221a32269dbae06efc636afe126e92e6",
+      "sha256": "sha256:96bea367d839866298191957e95e3add4eb144497986699c59aed1b58f4e8a50"
+    },
+    {
+      "path": "scripts/check_prime_coord_factor_critical_cofactor_support_compression.py",
+      "git_blob_sha1": "sha1:62e2a9e36ab37e673130322fbfb25f7b78a7843b",
+      "sha256": "sha256:34e5f1fefd24179c20ccdce33b7315b18e0f14fe1a5be4f68d751914162febac"
+    }
+  ],
+  "method_harvest": "DOMAIN_OPERATOR",
+  "independence_status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review RR-2A4E099EAD6A017F1272. If accepted, benchmark the O_kappa(N^(1/3)) fixed-balance/smooth-family support and gcd interface; preserve p>m^3+m+1 and N=2018,kappa=4 as no-overclaim guards. Any successor should seek an N-native adaptive selector or rigorously prove its impossibility.",
+  "driver_review_required": true
+}
