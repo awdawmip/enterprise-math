@@ -1,0 +1,18 @@
+{
+  "order_M": {"n":3,"E":"{012}","F":"{01,2}","A":"{01,2}","B":"{0,1,2}","marginal_at_empty":1,"marginal_after_other":0,"distinct_feature_kernels":true},
+  "submod_M": {"n":3,"E":"{012}","F":"{01,2}","A":"{02,1}","B":"{0,12}","marginal_at_empty":0,"marginal_after_other":1,"distinct_feature_kernels":true},
+  "supermod_M": {"n":3,"E":"{012}","F":"{01,2}","A":"{01,2}","B":"{0,1,2}","marginal_at_empty":1,"marginal_after_other":0,"distinct_feature_kernels":true},
+  "future_shrink_individual_M": {"n":4,"E":"{01,23}","F_before":"{02,1,3}","F_after":"{012,3}","phi":"{012,3}","credit_before":0,"credit_after":1},
+  "order_B": {"n":3,"E":"{012}","F":"{01,2}","A":"{01,2}","B":"{0,1,2}","marginal_at_empty":1,"marginal_after_other":0,"distinct_feature_kernels":true},
+  "submod_B": {"n":3,"E":"{012}","F":"{01,2}","A":"{02,1}","B":"{0,12}","marginal_at_empty":0,"marginal_after_other":1,"distinct_feature_kernels":true},
+  "supermod_B": {"n":3,"E":"{012}","F":"{01,2}","A":"{01,2}","B":"{0,1,2}","marginal_at_empty":1,"marginal_after_other":0,"distinct_feature_kernels":true},
+  "future_shrink_individual_B": {"n":4,"E":"{0123}","F_before":"{0,1,2,3}","F_after":"{012,3}","phi":"{012,3}","credit_before":0,"credit_after":1},
+  "pair_positive_debt_zero": {"n":3,"E":"{012}","F":"{01,2}","phi":"{02,1}","pair_coverage":1,"M_before":2,"M_after":2,"B_before":1,"B_after":1},
+  "same_pair_count_different_debt": {"n":5,"E":"{01234}","F":"{012,3,4}","A":"{0123,4}","B":"{01,234}","pair_count":4,"credit_A":{"M":1,"B":1},"credit_B":{"M":0,"B":0}},
+  "local_positive_global_zero": {"n":4,"E":"{01,23}","F":"{02,13}","phi":"{012,3}","local_before":[2,2],"local_after":[2,1],"local_credit":[0,1],"global_M_credit":0},
+  "declared_realized_strict": {"n":2,"E":"{01}","F_declared":"{0,1}","F_realized":"{01}","M_declared":2,"M_realized":1,"B_declared":1,"B_realized":0,"feature":"{0,1}","realized_pair_credit":0,"declared_pair_credit":1},
+  "submod_product_binary_target": {"n":4,"interpretation":"X={0,1}x{0,1}; target is first coordinate; A=parity; B=second coordinate","E":"{0123}","F":"{01,23}","A":"{03,12}","B":"{02,13}","B_marginal_at_empty":0,"B_marginal_after_A":1,"M_marginal_at_empty":0,"M_marginal_after_A":1},
+  "same_B_different_rewind": {"n":4,"checkpoints":["{0,1,2,3}","{01,2,3}","{0123}"],"F1":"{01,23}","F2":"{02,13}","current_B_F1":1,"current_B_F2":1,"rewind_F1":1,"rewind_F2":2},
+  "same_rewind_different_B": {"n":3,"checkpoints":["{0,1,2}","{012}"],"F1":"{01,2}","F2":"{0,1,2}","rewind_F1":1,"rewind_F2":1,"current_B_F1":1,"current_B_F2":2},
+  "eight_state_storage_rewind_pareto": {"n":8,"target":"four-pairs (R022 E1)","checkpoints":["eight singletons (E0)","four pairs (E1)","two quartets (E2)","one 8-state block (E3/current)"],"options":[{"checkpoint":"E1","metadata_bits":0,"rewind":2,"recompute_units":2},{"checkpoint":"E2","metadata_bits":1,"rewind":1,"recompute_units":1},{"checkpoint":"E3","metadata_bits":2,"rewind":0,"recompute_units":0}],"dominated_option":{"checkpoint":"E0","metadata_bits":0,"rewind":3,"recompute_units":3,"dominated_by":"E1"},"status":"exact R022 8-state witness; three nondominated points under componentwise minimization"}
+}
