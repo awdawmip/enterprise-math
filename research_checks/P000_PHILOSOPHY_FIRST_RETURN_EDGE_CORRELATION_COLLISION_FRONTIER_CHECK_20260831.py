@@ -303,7 +303,6 @@ def main() -> None:
             "isomorphism_types": image_size,
             "representable_packets": image_size,
             "image_sha256": digest,
-            "packets": packets,
         }
         combined_parts.append(f"{n}\n{encoded}")
 
