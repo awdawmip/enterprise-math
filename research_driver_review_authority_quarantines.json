@@ -290,6 +290,60 @@
       "foundation_authority_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "review_id": "DR-C5539B165E52AAAA3C6A",
+      "result_id": "RR-C3E71A9D4B6052F88E21",
+      "task_id": "RS-P000-SIX-AXIS-P11-COLLISION-LOCUS-CONDITIONAL-SELECTOR",
+      "review_record_path": "research_result_reviews/RR-C3E71A9D4B6052F88E21/DR-C5539B165E52AAAA3C6A.json",
+      "review_record_blob_sha1": "sha1:cf630523a9fee2f555c187ec2d2ffe7f9a9f42fb",
+      "state": "INVALID_DRIVER_AUTHORITY",
+      "operational": false,
+      "history_preserved": true,
+      "allowed_authority_errors": [
+        "driver_authority_record_id does not pin active authority"
+      ],
+      "reason": "The immutable review pins the raw legacy authority ID rather than the current deterministic authority identity. Preserve exact review bytes as nonoperational history and require an ordinary authority-bound replacement review; do not rewrite or backdate authority.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "review_id": "DR-6C9B75F0A2D8143E6B2",
+      "result_id": "RR-C6E9B75F0A2D8143E6B1",
+      "task_id": "RS-PERFECT-PRIME-AP-FIXED-POINT-COMPOUND-NO-RECROSSING",
+      "review_record_path": "research_result_reviews/RR-C6E9B75F0A2D8143E6B1/DR-6C9B75F0A2D8143E6B2.json",
+      "review_record_blob_sha1": "sha1:f3066141a53e04f78081cfab2cdb9616ed64bd27",
+      "state": "INVALID_DRIVER_AUTHORITY",
+      "operational": false,
+      "history_preserved": true,
+      "allowed_authority_errors": [
+        "driver_authority_record_id does not pin active authority"
+      ],
+      "reason": "The immutable review omits the active source-backed authority record pin. Preserve exact review bytes as nonoperational history and require an ordinary authority-bound replacement review; do not invent or backdate authority.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "review_id": "DR-E71A71AADBB2ACF55EFF",
+      "result_id": "RR-E71A71AADBB2ACF55EFE",
+      "task_id": "RS-N-COUPLED-SCALAR-CLEAN-NONAUTOMORPHIC-FITTING-SUPPORT-CHANGE",
+      "review_record_path": "research_result_reviews/RR-E71A71AADBB2ACF55EFE/DR-E71A71AADBB2ACF55EFF.json",
+      "review_record_blob_sha1": "sha1:1dc843a76758edb61b2a21d205d71a889f30e903",
+      "state": "INVALID_DRIVER_AUTHORITY",
+      "operational": false,
+      "history_preserved": true,
+      "allowed_authority_errors": [
+        "driver_authority_record_id does not pin active authority"
+      ],
+      "reason": "The immutable review omits the active source-backed authority record pin. Preserve exact review bytes as nonoperational history and require an ordinary authority-bound replacement review; do not invent or backdate authority.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }

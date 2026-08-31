@@ -4,15 +4,36 @@
   "purpose": "Fail closed on exact known current task-publication integrity faults without allowing one task-local defect to deny service to the global dispatch view. Every quarantine is pinned to the exact publication record blob, taskbook blob, and exact strict-audit error set. No semantic publication selection or research authority is granted.",
   "quarantines": [
     {
-      "task_id": "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS",
-      "publication_id": "TP2-6866CB3F890F6563C474",
-      "record_path": "research_task_records/RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS/TP2-6866CB3F890F6563C474.json",
-      "record_blob_sha1": "sha1:d31988106c3ad38e41bf84b779809826178ebf85",
-      "taskbook_path": "research_tasks/GEO6_OBJECTIVE_SEMANTIC_SELECTOR_SYNTHESIS_20260831.md",
-      "taskbook_blob_sha1": "sha1:3c09694c8884ed95dbbe2b5f6e39d5e1e7e8a93e",
+      "task_id": "RS-DECORATED-CARRIER-MINIMAL-AUGMENTATION-ATOM-TRANSPORT",
+      "publication_id": "TP2-DCE2A9D900EF145F0E77",
+      "record_path": "research_task_records/RS-DECORATED-CARRIER-MINIMAL-AUGMENTATION-ATOM-TRANSPORT/TP2-DCE2A9D900EF145F0E77.json",
+      "record_blob_sha1": "sha1:9466a32a9b0ee70209278fac1890ad0d18d537ee",
+      "taskbook_path": "research_tasks/DECORATED_CARRIER_MINIMAL_AUGMENTATION_ATOM_TRANSPORT_20260831.md",
+      "taskbook_blob_sha1": "sha1:3755ca131b4dc340daf89f7c3d47aa5ff8bff64f",
       "allowed_task_record_audit_errors": [
         "mandatory body section is missing or empty: Frozen inputs and scope",
         "mandatory body section is missing or empty: Hard target and required outputs",
+        "mandatory body section is missing or empty: Research value to preserve",
+        "mandatory body section is missing or empty: Success, kill, and return criteria"
+      ],
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false,
+      "state": "INVALID_CURRENT_TASK_PUBLICATION",
+      "operational_publication_id": null,
+      "isolation_scope": "CONTROL_PLANE_ONLY",
+      "reason": "Exact current sole publication fails the canonical post-cutover publication-envelope audit. Control maintenance pins the exact record/taskbook bytes and exact strict-audit error set and blocks only this task until ordinary authorized repair/republish; no research content is rewritten."
+    },
+    {
+      "task_id": "RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS",
+      "publication_id": "TP2-C9A47F3D1E805B62A4C7",
+      "record_path": "research_task_records/RS-GEO6-OBJECTIVE-SEMANTIC-SELECTOR-SYNTHESIS/TP2-C9A47F3D1E805B62A4C7.json",
+      "record_blob_sha1": "sha1:d4d4956cb14fa186fc801b4bd37989d1e8b55b0f",
+      "taskbook_path": "research_tasks/GEO6_OBJECTIVE_SEMANTIC_SELECTOR_SYNTHESIS_CURRENT_HEAD_REVALIDATION_V2_20260831.md",
+      "taskbook_blob_sha1": "sha1:d74bedaa9584c4f6b3756c49d93496342fcd5d72",
+      "allowed_task_record_audit_errors": [
+        "mandatory body section is missing or empty: Frozen inputs and scope",
         "mandatory body section is missing or empty: Research value to preserve",
         "mandatory body section is missing or empty: Success, kill, and return criteria"
       ],

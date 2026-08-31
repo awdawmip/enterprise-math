@@ -21,6 +21,28 @@
       "foundation_authority_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "result_id": "RR-7FED4A83F3922D37319D",
+      "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "publication_id": "TP2-D6A41E9C3B705F821847",
+      "superseding_publication_id": "TP2-E5B7C19A3D604F821583",
+      "record_path": "research_result_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/RR-7FED4A83F3922D37319D.json",
+      "record_blob_sha1": "sha1:f5079d473b742826173bfabe0d40dd2262d0b491",
+      "state": "NONOPERATIONAL_PUBLICATION_GENERATION_RESULT_AUDIT_DEFECT",
+      "audit_only": true,
+      "history_preserved": true,
+      "allowed_result_audit_errors": [
+        "return artifact SHA-256 drift",
+        "invalid method_harvest",
+        "invalid independence_status",
+        "output digest drift: research_execution_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/ER-B9CD98FA15252AC5E07C.json"
+      ],
+      "reason": "The immutable Gen18 result has current-audit defects that cannot be repaired without rewriting historical evidence. Gen19 TP2-E5B7C19A3D604F821583 directly supersedes Gen18 TP2-D6A41E9C3B705F821847. Preserve the historical bytes and suppress only these exact strict-audit defects; do not infer a review disposition or change current result authority.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }

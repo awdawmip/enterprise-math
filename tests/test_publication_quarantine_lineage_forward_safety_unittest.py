@@ -4,22 +4,22 @@ import unittest
 from pathlib import Path
 
 from control_plane import check_publication_quarantine_lineage_forward_safety as safety
+from control_plane import research_publication_fault_isolation as publication_isolation
 
 
 ROOT = Path(__file__).resolve().parents[1]
 TASK = "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE"
-ANCHORS = [
-    "TP2-3F6A92D8C1E740B5A2C9",
-    "TP2-69B06B421888B311914E",
-]
 
 
 class PublicationQuarantineLineageForwardSafetyTests(unittest.TestCase):
     def test_real_native_bridge_fork_has_one_current_head_per_anchor(self):
-        evidence = safety.prove(TASK, ANCHORS, ROOT)
+        anchors = publication_isolation.quarantine_rows(ROOT)[TASK][
+            "lineage_anchor_publication_ids"
+        ]
+        evidence = safety.prove(TASK, anchors, ROOT)
         self.assertEqual(TASK, evidence["task_id"])
-        self.assertEqual(set(ANCHORS), set(evidence["anchor_to_current_head"]))
-        self.assertEqual(2, len(evidence["current_active_head_publication_ids"]))
+        self.assertEqual(set(anchors), set(evidence["anchor_to_current_head"]))
+        self.assertEqual(len(anchors), len(evidence["current_active_head_publication_ids"]))
         self.assertFalse(evidence["operational_publication_selected"])
         self.assertFalse(evidence["working_truth_granted"])
         self.assertFalse(evidence["foundation_authority_granted"])

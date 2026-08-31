@@ -209,7 +209,7 @@
       "history_preserved": true,
       "allowed_review_audit_errors": [
         "result record digest drift",
-        "review artifact missing"
+        "review artifact digest drift"
       ],
       "reason": "Exact immutable review bytes fail the current V1 review-record audit. CONTROL_PLANE_MAINTENANCE preserves the review as nonoperational history and removes only this invalid review record from operational Driver-review authority; it does not infer or repair any disposition.",
       "working_truth_granted": false,
@@ -319,6 +319,48 @@
       "review_record_blob_sha1": "sha1:7b44ef65cea43a2398f577c312470ff582f31ab4",
       "result_record_path": "research_result_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/RR-E1438E73B8EDBA797602.json",
       "result_record_blob_sha1": "sha1:06753a22d5aba56b7e403debef3e127f83a6161a",
+      "state": "INVALID_IMMUTABLE_REVIEW_RECORD",
+      "operational": false,
+      "history_preserved": true,
+      "allowed_review_audit_errors": [
+        "result record digest drift",
+        "review artifact digest drift"
+      ],
+      "reason": "Exact immutable review bytes fail the current V1 review-record audit. CONTROL_PLANE_MAINTENANCE preserves the review as nonoperational history and removes only this invalid review record from operational Driver-review authority; it does not infer or repair any disposition.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "review_id": "DR-7F2A91C5D4B306E82194",
+      "result_id": "RR-7FED4A83F3922D37319D",
+      "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "review_record_path": "research_result_reviews/RR-7FED4A83F3922D37319D/DR-7F2A91C5D4B306E82194.json",
+      "review_record_blob_sha1": "sha1:c067acf18879801792470ecd69319e6da55b8968",
+      "result_record_path": "research_result_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/RR-7FED4A83F3922D37319D.json",
+      "result_record_blob_sha1": "sha1:f5079d473b742826173bfabe0d40dd2262d0b491",
+      "state": "INVALID_IMMUTABLE_REVIEW_RECORD",
+      "operational": false,
+      "history_preserved": true,
+      "allowed_review_audit_errors": [
+        "result record digest drift",
+        "review artifact digest drift"
+      ],
+      "reason": "Exact immutable review bytes fail the current V1 review-record audit. CONTROL_PLANE_MAINTENANCE preserves the review as nonoperational history and removes only this invalid review record from operational Driver-review authority; it does not infer or repair any disposition.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
+    },
+    {
+      "review_id": "DR-6B1E9A4C2D705F831472",
+      "result_id": "RR-985AEE277DE45AFCC9D8",
+      "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+      "review_record_path": "research_result_reviews/RR-985AEE277DE45AFCC9D8/DR-6B1E9A4C2D705F831472.json",
+      "review_record_blob_sha1": "sha1:4c35445a195c5574fb039837b60270384e85ab05",
+      "result_record_path": "research_result_records/RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE/RR-985AEE277DE45AFCC9D8.json",
+      "result_record_blob_sha1": "sha1:e3396b62b8f69133fb1abafab4975179fcd31c79",
       "state": "INVALID_IMMUTABLE_REVIEW_RECORD",
       "operational": false,
       "history_preserved": true,
