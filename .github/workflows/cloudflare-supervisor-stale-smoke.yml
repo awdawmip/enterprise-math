@@ -3,6 +3,9 @@ name: cloudflare-supervisor-stale-smoke
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   stale-alarm:
     runs-on: ubuntu-latest
@@ -19,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: npm install --ignore-scripts
+      - run: npm ci --ignore-scripts
       - name: Exercise real 10-minute Durable Object stale alarm
         shell: bash
         run: |

@@ -4,6 +4,14 @@ import type { Env, GithubLocator, GoogleDriveLocator, HandoffLocator } from "./t
 const encoder = new TextEncoder();
 const GOOGLE_SHORTCUT_MIME = "application/vnd.google-apps.shortcut";
 
+type GithubBranchResponse = {
+  protected?: boolean;
+  protection?: {
+    enabled?: boolean;
+    required_status_checks?: unknown;
+  };
+};
+
 async function githubHeaders(env: Env): Promise<HeadersInit> {
   const headers: Record<string, string> = {
     Accept: "application/vnd.github+json",
@@ -113,7 +121,9 @@ export async function verifyGithubLocator(env: Env, locator: GithubLocator) {
   if (!locator.path || locator.path.startsWith("/") || locator.path.includes("..")) {
     throw new Error("invalid GitHub path");
   }
-  if (!locator.ref) throw new Error("GitHub ref required");
+  if (!/^[0-9a-f]{40}$/i.test(locator.ref)) {
+    return { verified: false, reason: "github_ref_not_immutable_commit" };
+  }
 
   const url =
     `https://api.github.com/repos/${locator.repository}/contents/` +
@@ -132,6 +142,14 @@ export async function verifyGithubLocator(env: Env, locator: GithubLocator) {
     size?: number;
     html_url?: string;
   };
+  if (data.type !== "file") {
+    return {
+      verified: false,
+      status: 200,
+      reason: "github_locator_not_file",
+      observed_type: data.type,
+    };
+  }
   if (locator.expected_blob_sha && data.sha !== locator.expected_blob_sha) {
     return {
       verified: false,
@@ -277,7 +295,7 @@ export async function githubEnforcementStatus(env: Env) {
       rulesets_status: rulesetResponse.status,
     };
   }
-  const branch = (await branchResponse.json()) as Record<string, any>;
+  const branch = (await branchResponse.json()) as GithubBranchResponse;
   const rulesets = (await rulesetResponse.json()) as Array<Record<string, unknown>>;
   return {
     verified: true,

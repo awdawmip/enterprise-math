@@ -2,11 +2,8 @@ name: cloudflare-supervisor-access-probe
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - infrastructure/cloudflare-supervisor-v1-20260830
-    paths:
-      - ".github/workflows/cloudflare-supervisor-access-probe.yml"
+
+permissions: {}
 
 jobs:
   probe:

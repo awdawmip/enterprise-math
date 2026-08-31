@@ -9,10 +9,12 @@ on:
   push:
     branches:
       - main
-      - infrastructure/cloudflare-supervisor-v1-20260830
     paths:
       - "infrastructure/cloudflare-supervisor/**"
       - ".github/workflows/cloudflare-supervisor.yml"
+
+permissions:
+  contents: read
 
 concurrency:
   group: cloudflare-supervisor-${{ github.ref }}
@@ -29,11 +31,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: npm install --ignore-scripts
+      - run: npm ci --ignore-scripts
       - run: npm run check
 
   deploy:
-    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/infrastructure/cloudflare-supervisor-v1-20260830'
+    if: github.event_name == 'workflow_dispatch'
     needs: validate
     runs-on: ubuntu-latest
     environment: cloudflare-supervisor
@@ -64,7 +66,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: npm install --ignore-scripts
+      - run: npm ci --ignore-scripts
       - name: Check account-side deployment authorization
         id: auth
         shell: bash
@@ -271,4 +273,6 @@ jobs:
 
       - name: Record authorization blocker
         if: steps.auth.outputs.ready != 'true'
-        run: echo "DEPLOYMENT_BLOCKED_ACCOUNT_AUTHORIZATION_MISSING"
+        run: |
+          echo "DEPLOYMENT_BLOCKED_ACCOUNT_AUTHORIZATION_MISSING"
+          exit 1

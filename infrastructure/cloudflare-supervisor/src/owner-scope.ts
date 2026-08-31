@@ -12,6 +12,14 @@ import type {
 } from "./types";
 
 const STATE_KEY = "owner-scope-state";
+const RECOVERY_RETRY_MS = 60_000;
+
+type AuditRow = {
+  seq: number;
+  at: string;
+  event: string;
+  payload: string;
+};
 
 function nowIso() {
   return new Date().toISOString();
@@ -40,8 +48,21 @@ export class OwnerScope extends DurableObject<Env> {
     return (await this.ctx.storage.get<OwnerScopeState>(STATE_KEY)) ?? null;
   }
 
-  private async write(state: OwnerScopeState) {
-    await this.ctx.storage.put(STATE_KEY, state);
+  private async write(state: OwnerScopeState, alarmAt?: number | null) {
+    if (alarmAt === undefined) {
+      await this.ctx.storage.put(STATE_KEY, state);
+      return;
+    }
+    try {
+      const stateWrite = this.ctx.storage.put(STATE_KEY, state);
+      const alarmWrite = alarmAt === null
+        ? this.ctx.storage.deleteAlarm()
+        : this.ctx.storage.setAlarm(alarmAt);
+      await Promise.all([stateWrite, alarmWrite]);
+    } catch (error) {
+      console.error("OwnerScope state/alarm transaction failed", error);
+      throw error;
+    }
   }
 
   private audit(event: string, payload: unknown) {
@@ -54,14 +75,29 @@ export class OwnerScope extends DurableObject<Env> {
   }
 
   private async startRecoveryWorkflow(state: OwnerScopeState) {
+    const workflowId = `recovery-${this.ctx.id.toString()}-${state.generation}`;
     this.audit("RECOVERY_WORKFLOW_REQUESTED", {
       turn_id: state.turn_id,
       generation: state.generation,
+      workflow_id: workflowId,
     });
-    await this.env.RECOVERY_WORKFLOW.create({
-      id: `recovery-${crypto.randomUUID()}`,
-      params: { scope_key: state.scope_key },
-    });
+    await this.env.RECOVERY_WORKFLOW.createBatch([
+      { id: workflowId, params: { scope_key: state.scope_key } },
+    ]);
+  }
+
+  private async ensureRecoveryWorkflow(state: OwnerScopeState) {
+    try {
+      await this.startRecoveryWorkflow(state);
+    } catch (error) {
+      console.error("Recovery Workflow request failed; retry scheduled", error);
+      this.audit("RECOVERY_WORKFLOW_RETRY_SCHEDULED", {
+        turn_id: state.turn_id,
+        generation: state.generation,
+        retry_ms: RECOVERY_RETRY_MS,
+      });
+      await this.ctx.storage.setAlarm(Date.now() + RECOVERY_RETRY_MS);
+    }
   }
 
   async snapshot(): Promise<OwnerScopeState | null> {
@@ -71,11 +107,11 @@ export class OwnerScope extends DurableObject<Env> {
   async auditTail(limit = 20): Promise<Array<Record<string, unknown>>> {
     const bounded = Math.max(1, Math.min(100, Math.trunc(limit)));
     return [
-      ...this.ctx.storage.sql.exec(
+      ...this.ctx.storage.sql.exec<AuditRow>(
         "SELECT seq,at,event,payload FROM audit_log ORDER BY seq DESC LIMIT ?",
         bounded,
       ),
-    ].map((row: any) => ({
+    ].map((row) => ({
       seq: row.seq,
       at: row.at,
       event: row.event,
@@ -88,12 +124,15 @@ export class OwnerScope extends DurableObject<Env> {
 
     if (current?.status === "RUNNING") {
       if (current.turn_id === input.turn_id) {
+        const leaseUntil = parseTime(current.lease_until) ?? Date.now();
+        await this.ctx.storage.setAlarm(Math.max(Date.now(), leaseUntil));
         this.audit("TURN_ACQUIRE_IDEMPOTENT", { turn_id: input.turn_id });
         return current;
       }
       throw new Error(`scope already has running turn ${current.turn_id}`);
     }
     if (current?.status === "TURN_STALE") {
+      await this.ctx.storage.setAlarm(Date.now());
       throw new Error("scope recovery verification is still pending");
     }
     if (current?.status === "COMPLETED") {
@@ -128,8 +167,7 @@ export class OwnerScope extends DurableObject<Env> {
       },
       generation: (current?.generation ?? 0) + 1,
     };
-    await this.write(next);
-    await this.ctx.storage.setAlarm(now + leaseMs);
+    await this.write(next, now + leaseMs);
     this.audit("TURN_ACQUIRED", { turn_id: input.turn_id, lease_ms: leaseMs });
     return next;
   }
@@ -139,6 +177,14 @@ export class OwnerScope extends DurableObject<Env> {
     if (!current) throw new Error("scope not initialized");
     if (current.status !== "RUNNING") throw new Error(`scope is ${current.status}`);
     if (current.turn_id !== input.turn_id) throw new Error("turn_id does not own scope");
+
+    const actionChanged = input.current_action !== undefined &&
+      input.current_action !== current.current_action;
+    const frontierChanged = input.durable_frontier !== undefined &&
+      input.durable_frontier !== current.durable_frontier;
+    if (!actionChanged && !frontierChanged) {
+      throw new Error("turn_progress requires a changed action or durable frontier");
+    }
 
     const now = Date.now();
     const defaultLease = Number(this.env.DEFAULT_TURN_LEASE_MS || "300000");
@@ -150,8 +196,7 @@ export class OwnerScope extends DurableObject<Env> {
       current_action: input.current_action ?? current.current_action,
       durable_frontier: input.durable_frontier ?? current.durable_frontier,
     };
-    await this.write(next);
-    await this.ctx.storage.setAlarm(now + leaseMs);
+    await this.write(next, now + leaseMs);
     this.audit("TURN_PROGRESS", {
       turn_id: input.turn_id,
       durable_frontier: input.durable_frontier,
@@ -197,8 +242,7 @@ export class OwnerScope extends DurableObject<Env> {
       recovery_ready: incomplete,
       recovery_reason: incomplete ? "REQUIRED_DURABLE_HANDOFF_NOT_VERIFIED" : undefined,
     };
-    await this.write(next);
-    await this.ctx.storage.deleteAlarm();
+    await this.write(next, null);
     this.audit(incomplete ? "HANDOFF_INCOMPLETE" : "TURN_COMPLETED", {
       turn_id: input.turn_id,
       handoff,
@@ -222,8 +266,7 @@ export class OwnerScope extends DurableObject<Env> {
       recovery_reason: input.reason,
       stale_at: nowIso(),
     };
-    await this.write(next);
-    await this.ctx.storage.deleteAlarm();
+    await this.write(next, null);
     this.audit("TURN_ABANDONED", input);
     return next;
   }
@@ -251,7 +294,7 @@ export class OwnerScope extends DurableObject<Env> {
     if (!current) return;
 
     if (current.status === "TURN_STALE" && !current.recovery_verification) {
-      await this.startRecoveryWorkflow(current);
+      await this.ensureRecoveryWorkflow(current);
       return;
     }
     if (current.status !== "RUNNING") return;
@@ -286,6 +329,6 @@ export class OwnerScope extends DurableObject<Env> {
       lease_until: current.lease_until,
     });
 
-    await this.startRecoveryWorkflow(next);
+    await this.ensureRecoveryWorkflow(next);
   }
 }

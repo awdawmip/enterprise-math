@@ -2,7 +2,7 @@ import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/cli
 
 const baseUrl = process.env.SUPERVISOR_BASE_URL || "https://181131.xyz/em";
 const token = process.env.SUPERVISOR_API_TOKEN;
-const ref = process.env.SUPERVISOR_SMOKE_REF || "infrastructure/cloudflare-supervisor-v1-20260830";
+const ref = process.env.SUPERVISOR_SMOKE_REF;
 const driveSmokeFileId = process.env.SUPERVISOR_DRIVE_SMOKE_FILE_ID;
 const driveRootId = "1IJ8iAXY5laK1lj-Y4NGWKEOdLofieHLa";
 const accessServiceClientId = process.env.ACCESS_SERVICE_CLIENT_ID;
@@ -10,6 +10,9 @@ const accessServiceClientSecret = process.env.ACCESS_SERVICE_CLIENT_SECRET;
 const durableObjectResetMarker = "Durable Object reset because its code was updated.";
 
 if (!token) throw new Error("SUPERVISOR_API_TOKEN is required");
+if (!/^[0-9a-f]{40}$/i.test(ref ?? "")) {
+  throw new Error("SUPERVISOR_SMOKE_REF must be an immutable 40-character commit SHA");
+}
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -60,18 +63,16 @@ for (let attempt = 1; attempt <= 30; attempt += 1) {
   healthBody = await health.json();
   assert(healthBody?.ok === true, "health payload not ok");
   assert(healthBody?.base_path === "/em", "health base_path drift");
-  if (!/^[0-9a-f]{40}$/i.test(ref) || healthBody?.deployment_sha === ref) break;
+  if (healthBody?.deployment_sha === ref) break;
   console.log(
     `WAITING_FOR_DEPLOYED_SHA attempt=${attempt} observed=${healthBody?.deployment_sha ?? "null"} expected=${ref}`,
   );
   await sleep(2000);
 }
-if (/^[0-9a-f]{40}$/i.test(ref)) {
-  assert(
-    healthBody?.deployment_sha === ref,
-    `live Worker SHA mismatch observed=${healthBody?.deployment_sha ?? "null"} expected=${ref}`,
-  );
-}
+assert(
+  healthBody?.deployment_sha === ref,
+  `live Worker SHA mismatch observed=${healthBody?.deployment_sha ?? "null"} expected=${ref}`,
+);
 
 const authMode = healthBody?.mcp_auth_mode;
 assert(
@@ -159,6 +160,23 @@ const progressed = await callToolJson(client, {
 assert(progressed.status === "RUNNING", `turn_progress failed: ${JSON.stringify(progressed)}`);
 assert(progressed.durable_frontier === "SMOKE_PROGRESS_VERIFIED", "progress frontier not persisted");
 
+let noOpProgressRejected = false;
+try {
+  await callToolJson(client, {
+    name: "turn_progress",
+    arguments: {
+      ...scope,
+      turn_id: turnId,
+      lease_ms: 30000,
+      current_action: "LIVE_DEPLOYMENT_SMOKE_PROGRESS",
+      durable_frontier: "SMOKE_PROGRESS_VERIFIED",
+    },
+  });
+} catch {
+  noOpProgressRejected = true;
+}
+assert(noOpProgressRejected, "no-op turn_progress refreshed the lease");
+
 const locator = {
   surface: "GITHUB",
   repository: "awdawmip/enterprise-math",
@@ -171,6 +189,17 @@ const verified = await callToolJson(client, {
 });
 assert(verified.verified === true, `GitHub handoff verification failed: ${JSON.stringify(verified)}`);
 
+let mutableRefRejected = false;
+try {
+  await callToolJson(client, {
+    name: "handoff_verify",
+    arguments: { locator: { ...locator, ref: "main" } },
+  });
+} catch {
+  mutableRefRejected = true;
+}
+assert(mutableRefRejected, "mutable GitHub handoff ref was accepted");
+
 const forbiddenRepo = await callToolJson(client, {
   name: "handoff_verify",
   arguments: {
@@ -178,7 +207,7 @@ const forbiddenRepo = await callToolJson(client, {
       surface: "GITHUB",
       repository: "openai/openai",
       path: "README.md",
-      ref: "main",
+      ref,
     },
   },
 });
@@ -249,6 +278,8 @@ console.log(JSON.stringify({
   tool_count: names.size,
   turn_status: completed.status,
   handoff_verified: completed.handoff?.verified === true,
+  no_op_progress_rejected: noOpProgressRejected,
+  mutable_github_ref_rejected: mutableRefRejected,
   handoff_transport: verified.verification_transport,
   github_repo_allowlist_fail_closed: forbiddenRepo.reason === "github_repository_not_allowlisted",
   drive_root_fail_closed: driveRootAsArtifact.reason === "drive_handoff_root_itself_is_not_an_artifact",

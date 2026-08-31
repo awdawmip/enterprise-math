@@ -40,8 +40,13 @@ const required = [
   [index, '"github_enforcement_status"', "read-only GitHub enforcement tool"],
   [owner, "TURN_EXECUTION_LEASE_EXPIRED_WITHOUT_VERIFIED_PROGRESS", "stale-turn invariant"],
   [owner, "REQUIRED_DURABLE_HANDOFF_NOT_VERIFIED", "one-shot handoff gate"],
-  [owner, "RECOVERY_WORKFLOW.create", "out-of-band recovery workflow"],
+  [owner, "Promise.all([stateWrite, alarmWrite])", "atomic owner-state and alarm transition"],
+  [owner, "RECOVERY_WORKFLOW.createBatch", "idempotent out-of-band recovery workflow"],
+  [owner, "RECOVERY_WORKFLOW_RETRY_SCHEDULED", "durable recovery retry alarm"],
+  [owner, "turn_progress requires a changed action or durable frontier", "no-op lease refresh rejection"],
   [external, "github_repository_not_allowlisted", "GitHub repo fail-closed gate"],
+  [external, "github_ref_not_immutable_commit", "immutable GitHub handoff ref"],
+  [external, "github_locator_not_file", "GitHub handoff file-only gate"],
   [external, "drive_file_not_under_handoff_root", "Drive ancestry fail-closed gate"],
   [external, "drive_shortcut_not_accepted_for_handoff", "Drive shortcut escape prevention"],
   [externalAuth, "drive.metadata.readonly", "Drive metadata-only service account scope"],
@@ -58,6 +63,8 @@ const required = [
   [deployWorkflow, "enabled:false", "CI identity fail-closed revocation"],
   [deployWorkflow, ".result.enabled == false", "CI identity boolean-safe revocation verification"],
   [deployWorkflow, "ACCESS_EPHEMERAL_CI_IDENTITY=DISABLED", "revocation success marker"],
+  [deployWorkflow, "if: github.event_name == 'workflow_dispatch'", "manual-only production deployment"],
+  [deployWorkflow, "npm ci --ignore-scripts", "lockfile-only dependency install"],
   [deployWorkflow, "ACCESS_STALE_CI_TOKEN=DELETED", "prior CI token pruning"],
   [quarantineWorkflow, ".result.enabled == false", "quarantine boolean-safe revocation verification"],
   [quarantineWorkflow, "SUPERVISOR_CI_TOKEN_QUARANTINE=PASS", "quarantine success marker"],
@@ -82,6 +89,7 @@ for (const forbidden of [
   "resourceMatchOriginOnly",
   "allow_any_on_localhost:true",
   "allow_any_on_loopback:true",
+  "infrastructure/cloudflare-supervisor-v1-20260830",
 ]) {
   if (
     index.includes(forbidden) ||

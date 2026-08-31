@@ -80,7 +80,7 @@ The ordinary MCP surface deliberately excludes repository-admin mutation.
 
 ## Durable handoff allowlists
 
-GitHub handoffs are restricted to the configured repository allowlist, currently:
+GitHub handoffs are restricted to immutable commit SHAs in the configured repository allowlist, currently:
 
 ```text
 awdawmip/enterprise-math
@@ -127,7 +127,7 @@ Secret values are never committed or returned through MCP tools.
 ## Local validation
 
 ```bash
-npm install
+npm ci
 npm run check
 ```
 
@@ -146,7 +146,9 @@ SHA is visible before validating the production Worker.
 OWNER_LEASE != TURN_EXECUTION_LEASE != SESSION_LIVENESS
 TURN_STALE != CLAIM_RELEASE
 TURN_STALE -> PRESERVE CLAIM -> RECOVERY_READY
-MATERIAL_PROGRESS_ONLY -> REFRESH TURN LEASE
+CHANGED_ACTION_OR_DURABLE_FRONTIER_ONLY -> REFRESH TURN LEASE
+OWNER_STATE_AND_ALARM_UPDATE -> ONE STORAGE TRANSACTION
+RECOVERY_WORKFLOW_REQUEST -> IDEMPOTENT INSTANCE ID + DURABLE RETRY ALARM
 RESEARCHER_ID = PROVENANCE_IDENTITY != ADDRESSABLE_MAILBOX
 FUTURE_CONTINUITY + ONE_SHOT_RESEARCHER -> DURABLE_HANDOFF_REQUIRED
 HANDOFF_REQUIRED + NOT_VERIFIED -> HANDOFF_INCOMPLETE

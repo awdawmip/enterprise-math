@@ -46,7 +46,7 @@ Prefer GitHub for repository-native material:
 - task/result/review records;
 - manifests and reasonably sized research artifacts.
 
-Return the repository-relative path and commit/ref; include Git blob/SHA-256 identity when the governing task requires exact byte provenance.
+Return the repository-relative path and immutable commit SHA; include Git blob/SHA-256 identity when the governing task requires exact byte provenance.
 
 ### Google Drive
 
@@ -70,7 +70,7 @@ When durable handoff is required, the Researcher final response must identify at
 - `Researcher-ID`;
 - durable surface: `GITHUB` or `GOOGLE_DRIVE`;
 - exact path/file/folder locator;
-- commit/ref/version where applicable;
+- immutable commit SHA or durable version where applicable;
 - short inventory of persisted material;
 - the durable frontier or conclusion represented by the material;
 - the smallest recommended next action for the Driver or successor Researcher.

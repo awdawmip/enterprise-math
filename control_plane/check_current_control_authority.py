@@ -7,6 +7,8 @@ post-cutover control facts owned by ``current_control_authority.json``:
 * immutable V2 task publication;
 * recovery-aware live dispatch versus subordinate fresh selectors;
 * exact owner-scope liveness rather than generic chat activity;
+* deterministic external liveness/recovery bookkeeping without CLAIM authority;
+* one-shot Researcher durable handoff;
 * toolbox coverage versus actual reuse resolution;
 * typed role transitions that preserve provenance without leaking authority;
 * Foundation Steward V2 execution handoff;
@@ -75,6 +77,7 @@ def check() -> None:
 
     task_auth = authority.get("task_publication", {})
     live_auth = authority.get("live_dispatch", {})
+    handoff_auth = authority.get("researcher_durable_handoff", {})
     tool_auth = authority.get("tool_reuse", {})
     role_auth = authority.get("role_transitions", {})
     control_auth = authority.get("control_liveness", {})
@@ -149,6 +152,31 @@ def check() -> None:
         session.get("claim_mismatch_observation", "").startswith("IGNORE_AS_LIVENESS_EVIDENCE"),
         "foreign/stale claim activity must not keep current owner active",
     )
+    require(
+        live_auth.get("external_supervisor") == "infrastructure/cloudflare-supervisor/",
+        "live dispatch precedence must name the external Supervisor",
+    )
+    require(
+        live_auth.get("external_supervisor_creates_claims") is False,
+        "external Supervisor must not create CLAIM authority",
+    )
+
+    require(
+        handoff_auth.get("protocol") == "docs/RESEARCHER_DURABLE_HANDOFF_PROTOCOL.md",
+        "durable handoff precedence must name its protocol",
+    )
+    require(
+        set(handoff_auth.get("accepted_durable_surfaces", [])) == {"GITHUB", "GOOGLE_DRIVE"},
+        "durable handoff surfaces must be exact and closed",
+    )
+    require(
+        handoff_auth.get("researcher_id_is_addressable_mailbox") is False,
+        "Researcher-ID must remain provenance rather than an addressable mailbox",
+    )
+    require(
+        handoff_auth.get("github_ref_must_be_immutable_commit") is True,
+        "GitHub durable handoff must require an immutable commit",
+    )
 
     require(
         tools.get("schema") == "ENTERPRISE_MATH_TOOL_INVOCATION_POLICY_V2",
@@ -169,6 +197,14 @@ def check() -> None:
     require(control_tools.get("mathematical_toolbox_default") == "DO_NOT_OPEN", "control maintenance mathematical toolbox must default closed")
     require(control_auth.get("mode") == "CONTROL_PLANE_MAINTENANCE", "control liveness precedence missing maintenance mode")
     require(control_auth.get("watchdog") == "COOPERATIVE_SOFT_WATCHDOG", "control maintenance must use cooperative soft watchdog")
+    require(control_auth.get("owner_state_alarm_atomic") is True, "Supervisor state and alarm updates must be atomic")
+    require(control_auth.get("no_op_progress_refreshes_lease") is False, "no-op progress must not refresh a turn lease")
+    require(control_auth.get("recovery_workflow_start_idempotent") is True, "recovery Workflow start must be idempotent")
+    require(control_auth.get("recovery_retry_alarm_required") is True, "failed recovery Workflow start must re-arm recovery")
+    require(
+        control_auth.get("external_supervisor_has_mathematical_or_claim_authority") is False,
+        "external Supervisor must have no mathematical or CLAIM authority",
+    )
 
     require(
         transitions.get("schema") == "ENTERPRISE_MATH_ROLE_TRANSITION_MATRIX_V1",
@@ -255,6 +291,14 @@ def check() -> None:
     require("COVERAGE_LOOKUP != TOOL_USE" in driver, "Driver contract must distinguish coverage from use")
     require("Review write authority: `research_review_write_authority.json`" in driver, "Driver contract missing review write authority")
     require("READ_SNAPSHOT != REVIEW_WRITE_AUTHORITY" in driver, "Driver contract missing review write-boundary invariant")
+
+    handoff = read("docs/RESEARCHER_DURABLE_HANDOFF_PROTOCOL.md")
+    require("RESEARCHER_ID != ADDRESSABLE_MAILBOX" in handoff, "handoff protocol must freeze one-shot Researcher identity")
+    require("immutable commit SHA" in handoff, "handoff protocol must require immutable GitHub locators")
+
+    supervisor = read("infrastructure/cloudflare-supervisor/README.md")
+    require("no mathematical authority" in supervisor, "external Supervisor boundary must remain non-mathematical")
+    require("OWNER_STATE_AND_ALARM_UPDATE -> ONE STORAGE TRANSACTION" in supervisor, "Supervisor docs missing atomic alarm invariant")
 
     free_role = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
     require("ROLE-SPECIFIC CONTRACT V6.4" in free_role, "FREE role must be current V6.4 control version")

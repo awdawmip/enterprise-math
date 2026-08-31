@@ -75,8 +75,8 @@ function serverFactory(env: Env) {
         turn_id: z.string().min(1),
         researcher_id: z.string().min(1).optional(),
         lease_ms: z.number().int().min(30_000).max(3_600_000).optional(),
-        current_action: z.string().optional(),
-        durable_frontier: z.string().optional(),
+        current_action: z.string().min(1).optional(),
+        durable_frontier: z.string().min(1).optional(),
         handoff_required: z.boolean().optional(),
       },
     },
@@ -95,8 +95,8 @@ function serverFactory(env: Env) {
         ...scopeFields,
         turn_id: z.string().min(1),
         lease_ms: z.number().int().min(30_000).max(3_600_000).optional(),
-        current_action: z.string().optional(),
-        durable_frontier: z.string().optional(),
+        current_action: z.string().min(1).optional(),
+        durable_frontier: z.string().min(1).optional(),
       },
     },
     async (input) => {
@@ -109,7 +109,7 @@ function serverFactory(env: Env) {
     surface: z.literal("GITHUB"),
     repository: z.string().min(3),
     path: z.string().min(1),
-    ref: z.string().min(1),
+    ref: z.string().regex(/^[0-9a-f]{40}$/i),
     expected_blob_sha: z.string().regex(/^[0-9a-f]{40}$/i).optional(),
   });
   const driveLocatorSchema = z.object({
@@ -141,13 +141,13 @@ function serverFactory(env: Env) {
       inputSchema: {
         ...scopeFields,
         turn_id: z.string().min(1),
-        durable_frontier: z.string().optional(),
+        durable_frontier: z.string().min(1).optional(),
         handoff: z.object({
           required: z.boolean(),
           locator: locatorSchema.optional(),
-          inventory: z.array(z.string()).optional(),
-          durable_frontier: z.string().optional(),
-          next_action: z.string().optional(),
+          inventory: z.array(z.string().min(1)).optional(),
+          durable_frontier: z.string().min(1).optional(),
+          next_action: z.string().min(1).optional(),
         }).optional(),
       },
     },
@@ -155,7 +155,7 @@ function serverFactory(env: Env) {
       let handoff: HandoffState | undefined;
       if (input.handoff) {
         let verification: Record<string, unknown> | undefined;
-        let verified = !input.handoff.required;
+        let verified = false;
         if (input.handoff.locator) {
           verification = await verifyHandoffLocator(
             env,

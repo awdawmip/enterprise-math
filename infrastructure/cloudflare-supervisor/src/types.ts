@@ -1,3 +1,5 @@
+import type { OwnerScope } from "./owner-scope";
+
 export type ScopeStatus =
   | "IDLE"
   | "RUNNING"
@@ -98,12 +100,8 @@ export interface RecoveryVerification {
 }
 
 export interface Env {
-  OWNER_SCOPES: {
-    getByName(name: string): any;
-  };
-  RECOVERY_WORKFLOW: {
-    create(options: { id?: string; params: Record<string, unknown> }): Promise<unknown>;
-  };
+  OWNER_SCOPES: DurableObjectNamespace<OwnerScope>;
+  RECOVERY_WORKFLOW: Workflow<{ scope_key: string }>;
 
   // Bootstrap/operator auth. /em/api/* remains on this surface in V1.
   SUPERVISOR_API_TOKEN: string;

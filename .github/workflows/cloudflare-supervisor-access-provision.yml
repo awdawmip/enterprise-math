@@ -3,6 +3,9 @@ name: cloudflare-supervisor-access-provision
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 concurrency:
   group: cloudflare-supervisor-access-provision
   cancel-in-progress: false
@@ -32,7 +35,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: npm install --ignore-scripts
+      - run: npm ci --ignore-scripts
 
       - name: Provision and certify path-scoped Managed OAuth
         shell: bash
@@ -150,7 +153,7 @@ jobs:
             -H "CF-Access-Client-Id: $service_client_id" -H "CF-Access-Client-Secret: $service_client_secret" \
             -H "Authorization: Bearer $SUPERVISOR_API_TOKEN" -H "Content-Type: application/json" \
             --data '{"jsonrpc":"2.0","id":1,"method":"ping"}' "$SUPERVISOR_BASE_URL/mcp")"
-          [[ "$pre_status" != "302" && "$pre_status" != "401" && "$pre_status" != "403" ]]
+          [[ "$pre_status" == "200" ]]
           echo "ACCESS_SERVICE_POLICY_PRE_SWITCH=PASS http=$pre_status"
 
           printf '%s' "$(jq -nc --arg team "$team_domain" --arg aud "$app_aud" '{ACCESS_TEAM_DOMAIN:$team,ACCESS_AUD:$aud}')" \

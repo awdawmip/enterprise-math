@@ -1,13 +1,14 @@
 {
   "schema": "ENTERPRISE_MATH_CURRENT_CONTROL_AUTHORITY_V1",
   "status": "ACTIVE_CANONICAL_CONTROL_PRECEDENCE",
-  "effective": "2026-08-30",
+  "effective": "2026-09-01",
   "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
-  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, exact owner-scope liveness, review-write/result-binding integrity, one-shot researcher durable handoff, tool reuse resolution, typed role transitions, semantic-safe control migration, non-executable semantic verification request capture, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
+  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, exact owner-scope liveness, review-write/result-binding integrity, one-shot researcher durable handoff, tool reuse resolution, typed role transitions, semantic-safe control migration, non-executable semantic verification request capture, and deterministic control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
   "scope": [
     "TASK_PUBLICATION_AUTHORITY",
     "LIVE_DISPATCH_ENTRYPOINT",
     "OWNER_SCOPE_SESSION_LIVENESS",
+    "EXTERNAL_CONTROL_SUPERVISOR",
     "RUNTIME_BOOTSTRAP",
     "REVIEW_WRITE_AUTHORITY",
     "RESEARCHER_DURABLE_HANDOFF",
@@ -53,6 +54,9 @@
     "runtime_bootstrap": "control_plane/research_control_bootstrap.py",
     "owner_scope_liveness_protocol": "docs/OWNER_SCOPE_SESSION_LIVENESS_PROTOCOL.md",
     "session_observation_schema": "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",
+    "external_supervisor": "infrastructure/cloudflare-supervisor/",
+    "external_supervisor_role": "TURN_LIVENESS_AND_RECOVERY_BOOKKEEPING_ONLY",
+    "external_supervisor_creates_claims": false,
     "generic_conversation_activity_is_owner_scope_liveness": false,
     "invariant": "STALE_RECOVERY_AND_FAULT_ISOLATION_PRECEDE_FALSE_NO_DISPATCH"
   },
@@ -88,6 +92,8 @@
       "GITHUB",
       "GOOGLE_DRIVE"
     ],
+    "external_verifier": "infrastructure/cloudflare-supervisor/src/external.ts",
+    "github_ref_must_be_immutable_commit": true,
     "github_preferred_for": [
       "repository-native text",
       "proofs and reports",
@@ -162,6 +168,12 @@
     "contract": "active_turn_liveness.json",
     "mode": "CONTROL_PLANE_MAINTENANCE",
     "watchdog": "COOPERATIVE_SOFT_WATCHDOG",
+    "external_supervisor": "infrastructure/cloudflare-supervisor/",
+    "owner_state_alarm_atomic": true,
+    "no_op_progress_refreshes_lease": false,
+    "recovery_workflow_start_idempotent": true,
+    "recovery_retry_alarm_required": true,
+    "external_supervisor_has_mathematical_or_claim_authority": false,
     "user_interrupt_preempts_nonessential_diagnostics": true,
     "long_research_compute_is_not_control_plane_no_progress": true
   },
@@ -231,7 +243,8 @@
       "MIGRATION_REGISTRY_BEFORE_MIXED_SEMANTIC_FILE_EDIT",
       "UNCERTAIN_SEMANTICS_TO_NONEXECUTABLE_VERIFICATION_REQUEST_NOT_SELF_PUBLISHED_TASK",
       "LARGE_JSON_POINTER_CHANGE_USES_EXACT_SPAN_APPLIER_NOT_WHOLE_FILE_RESERIALIZATION",
-      "REMOTE_MANUAL_PUBLICATION_DOES_NOT_BYPASS_CANONICAL_PREFLIGHT"
+      "REMOTE_MANUAL_PUBLICATION_DOES_NOT_BYPASS_CANONICAL_PREFLIGHT",
+      "EXTERNAL_SUPERVISOR_CANNOT_GRANT_CLAIM_OR_MATHEMATICAL_AUTHORITY"
     ]
   }
 }
