@@ -1,0 +1,112 @@
+name: cloudflare-supervisor-stale-smoke
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  stale-alarm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: cloudflare-supervisor
+    defaults:
+      run:
+        working-directory: infrastructure/cloudflare-supervisor
+    env:
+      SUPERVISOR_API_TOKEN: ${{ secrets.SUPERVISOR_API_TOKEN }}
+      SUPERVISOR_BASE_URL: https://181131.xyz/em
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm ci --ignore-scripts
+      - name: Exercise real 10-minute Durable Object stale alarm
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/client";
+
+          const token = process.env.SUPERVISOR_API_TOKEN;
+          const baseUrl = process.env.SUPERVISOR_BASE_URL;
+          if (!token) throw new Error("SUPERVISOR_API_TOKEN missing");
+
+          const client = new Client(
+            { name: "enterprise-math-supervisor-stale-smoke", version: "0.1.0" },
+            { versionNegotiation: { mode: "auto" } },
+          );
+          const transport = new StreamableHTTPClientTransport(new URL(`${baseUrl}/mcp`), {
+            requestInit: { headers: { Authorization: `Bearer ${token}` } },
+          });
+          await client.connect(transport);
+
+          const parse = (result) => {
+            const text = result?.content?.find?.((item) => item?.type === "text")?.text;
+            if (!text) throw new Error(`missing tool text: ${JSON.stringify(result)}`);
+            return JSON.parse(text);
+          };
+          const suffix = `${process.env.GITHUB_RUN_ID || Date.now()}-${Math.random().toString(16).slice(2, 10)}`;
+          const scope = {
+            task_id: `RS-SUPERVISOR-STALE-SMOKE-${suffix}`,
+            claim_id: `CLM-SUPERVISOR-STALE-SMOKE-${suffix}`,
+          };
+          const turnId = `TURN-SUPERVISOR-STALE-SMOKE-${suffix}`;
+
+          const acquired = parse(await client.callTool({
+            name: "turn_acquire",
+            arguments: {
+              ...scope,
+              turn_id: turnId,
+              researcher_id: `EM-STALE-${suffix}`,
+              lease_ms: 30000,
+              current_action: "WAIT_FOR_REAL_ALARM",
+              durable_frontier: "STALE_SMOKE_ACQUIRED",
+              handoff_required: false,
+            },
+          }));
+          if (acquired.status !== "RUNNING") {
+            throw new Error(`acquire did not enter RUNNING: ${JSON.stringify(acquired)}`);
+          }
+
+          console.log(`STALE_SMOKE_SCOPE_CREATED lease_until=${acquired.lease_until}`);
+          console.log("WAITING_FOR_PRODUCTION_10_MINUTE_STALE_THRESHOLD");
+
+          await new Promise((resolve) => setTimeout(resolve, 570000));
+
+          let finalState = null;
+          for (let attempt = 1; attempt <= 24; attempt++) {
+            const state = parse(await client.callTool({
+              name: "recovery_status",
+              arguments: { ...scope, audit_limit: 20 },
+            }));
+            finalState = state;
+            const status = state?.snapshot?.status;
+            console.log(`STALE_SMOKE_CHECK attempt=${attempt} status=${status}`);
+            if (status === "RECOVERY_READY") break;
+            if (!["RUNNING", "TURN_STALE"].includes(status)) {
+              throw new Error(`unexpected stale-smoke status: ${JSON.stringify(state)}`);
+            }
+            await new Promise((resolve) => setTimeout(resolve, 15000));
+          }
+
+          if (finalState?.snapshot?.status !== "RECOVERY_READY") {
+            throw new Error(`real stale alarm did not reach RECOVERY_READY: ${JSON.stringify(finalState)}`);
+          }
+          if (finalState.snapshot.recovery_reason !== "TURN_EXECUTION_LEASE_EXPIRED_WITHOUT_VERIFIED_PROGRESS") {
+            throw new Error(`unexpected recovery reason: ${JSON.stringify(finalState.snapshot)}`);
+          }
+          const events = new Set((finalState.audit || []).map((entry) => entry.event));
+          if (!events.has("TURN_STALE") || !events.has("RECOVERY_VERIFIED")) {
+            throw new Error(`missing alarm/workflow audit events: ${JSON.stringify([...events])}`);
+          }
+
+          await client.close();
+          console.log(JSON.stringify({
+            status: "SUPERVISOR_REAL_STALE_ALARM_PASS",
+            final_status: finalState.snapshot.status,
+            recovery_reason: finalState.snapshot.recovery_reason,
+            audit_events: [...events],
+          }, null, 2));
+          NODE

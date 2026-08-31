@@ -1,15 +1,17 @@
 {
   "schema": "ENTERPRISE_MATH_CURRENT_CONTROL_AUTHORITY_V1",
   "status": "ACTIVE_CANONICAL_CONTROL_PRECEDENCE",
-  "effective": "2026-08-29",
+  "effective": "2026-09-01",
   "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_ONLY",
-  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, exact owner-scope liveness, review-write/result-binding integrity, tool reuse resolution, typed role transitions, semantic-safe control migration, non-executable semantic verification request capture, and chat-only control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
+  "purpose": "Provide one narrow precedence layer for task publication, live dispatch, runtime fault isolation, exact owner-scope liveness, review-write/result-binding integrity, one-shot researcher durable handoff, tool reuse resolution, typed role transitions, semantic-safe control migration, non-executable semantic verification request capture, and deterministic control liveness without replacing mathematical, theorem, Driver, Steward, or research-role semantics carried by their owning contracts.",
   "scope": [
     "TASK_PUBLICATION_AUTHORITY",
     "LIVE_DISPATCH_ENTRYPOINT",
     "OWNER_SCOPE_SESSION_LIVENESS",
+    "EXTERNAL_CONTROL_SUPERVISOR",
     "RUNTIME_BOOTSTRAP",
     "REVIEW_WRITE_AUTHORITY",
+    "RESEARCHER_DURABLE_HANDOFF",
     "TOOL_REUSE_RESOLUTION",
     "ROLE_TRANSITION_MERGE",
     "SEMANTIC_SAFE_CONTROL_MIGRATION",
@@ -52,6 +54,9 @@
     "runtime_bootstrap": "control_plane/research_control_bootstrap.py",
     "owner_scope_liveness_protocol": "docs/OWNER_SCOPE_SESSION_LIVENESS_PROTOCOL.md",
     "session_observation_schema": "ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2",
+    "external_supervisor": "infrastructure/cloudflare-supervisor/",
+    "external_supervisor_role": "TURN_LIVENESS_AND_RECOVERY_BOOKKEEPING_ONLY",
+    "external_supervisor_creates_claims": false,
     "generic_conversation_activity_is_owner_scope_liveness": false,
     "invariant": "STALE_RECOVERY_AND_FAULT_ISOLATION_PRECEDE_FALSE_NO_DISPATCH"
   },
@@ -76,6 +81,40 @@
     "nonoperational_review_retains_followup_authority": false,
     "control_plane_may_rewrite_review_disposition": false,
     "invariant": "REFRESH_CURRENT_RESULT_BYTES_AT_WRITE_BOUNDARY -> RECOMPUTE_RESULT_SHA256 -> CAS_OR_NONFORCE_REVIEW_RECORD_WRITE"
+  },
+  "researcher_durable_handoff": {
+    "protocol": "docs/RESEARCHER_DURABLE_HANDOFF_PROTOCOL.md",
+    "current_host_execution_model": "RESEARCHER_EXECUTION_EPHEMERAL_ONE_SHOT_UNLESS_CONTINUED_ACCESS_IS_POSITIVELY_AVAILABLE",
+    "researcher_id_is_addressable_mailbox": false,
+    "driver_may_assume_future_direct_contact_with_finished_researcher": false,
+    "future_needed_material_must_be_persisted_before_researcher_final": true,
+    "accepted_durable_surfaces": [
+      "GITHUB",
+      "GOOGLE_DRIVE"
+    ],
+    "external_verifier": "infrastructure/cloudflare-supervisor/src/external.ts",
+    "github_ref_must_be_immutable_commit": true,
+    "github_preferred_for": [
+      "repository-native text",
+      "proofs and reports",
+      "code and checkers",
+      "Lean/formalization files",
+      "task/result/review records",
+      "manifests and reasonably sized research artifacts"
+    ],
+    "google_drive_preferred_for": [
+      "large binary artifacts",
+      "audio or voice recordings",
+      "large datasets or bundles",
+      "external document formats",
+      "multi-file auxiliary handoff folders"
+    ],
+    "chat_only_material_required_later": "HANDOFF_INCOMPLETE",
+    "expected_future_voice_continuity_without_durable_audio_or_transcript": "HANDOFF_INCOMPLETE",
+    "driver_dispatch_preflight_question": "WILL_ANY_OUTPUT_OR_CONTEXT_BE_NEEDED_AFTER_THIS_RESEARCHER_ENDS?",
+    "if_yes": "REQUIRE_GITHUB_OR_GOOGLE_DRIVE_PERSISTENCE_AND_HANDOFF_MANIFEST_BEFORE_FINAL",
+    "successor_researcher_receives_hidden_predecessor_chat_state": false,
+    "invariant": "FUTURE_REUSE_REQUIRES_DURABLE_EXTERNAL_HANDOFF_BEFORE_ONE_SHOT_RESEARCHER_TERMINATES"
   },
   "tool_reuse": {
     "policy": "tool_invocation_policy.json",
@@ -129,6 +168,12 @@
     "contract": "active_turn_liveness.json",
     "mode": "CONTROL_PLANE_MAINTENANCE",
     "watchdog": "COOPERATIVE_SOFT_WATCHDOG",
+    "external_supervisor": "infrastructure/cloudflare-supervisor/",
+    "owner_state_alarm_atomic": true,
+    "no_op_progress_refreshes_lease": false,
+    "recovery_workflow_start_idempotent": true,
+    "recovery_retry_alarm_required": true,
+    "external_supervisor_has_mathematical_or_claim_authority": false,
     "user_interrupt_preempts_nonessential_diagnostics": true,
     "long_research_compute_is_not_control_plane_no_progress": true
   },
@@ -147,6 +192,7 @@
     "fresh_selector_named_canonical_in_older_doc": "INTERPRET_AS_SUBORDINATE_SELECTOR_NOT_TOP_LEVEL_LIVE_ENTRYPOINT",
     "role_transition_rule": "ROLE-SPECIFIC_AUTHORITY_IS_CLEARED_OR_REACTIVATED_BY_DESTINATION_CONTRACT; CONTEXT_AND_PROVENANCE_ARE_NOT_PRETENDED_TO_RESET",
     "review_write_rule": "READ_SNAPSHOT_IS_NOT_REVIEW_WRITE_AUTHORITY; REFRESH_EXACT_RESULT_AND_REMOTE_HEAD_BEFORE_REVIEW_RECORD_MUTATION",
+    "researcher_handoff_rule": "RESEARCHER_ID_IS_PROVENANCE_NOT_FUTURE_CONTACT; REQUIRE_GITHUB_OR_GOOGLE_DRIVE_DURABLE_HANDOFF_BEFORE_FINAL_WHEN_LATER_REUSE_IS_EXPECTED",
     "mixed_semantic_file_edit_rule": "CONSULT_CONTROL_SEMANTIC_MIGRATION_REGISTRY_AND_VERIFY_BEFORE_EDIT",
     "uncertain_semantics_rule": "CAPTURE_NONEXECUTABLE_VERIFICATION_REQUEST_OR_ROUTE_TO_AUTHORIZED_GOVERNANCE_ROLE; DO_NOT_SELF_PUBLISH_FROM_CONTROL_MODE",
     "large_json_pointer_cleanup_rule": "USE_EXACT_SPAN_REGISTERED_MIGRATION; DO_NOT_WHOLE_FILE_RESERIALIZE_BY_DEFAULT",
@@ -158,7 +204,8 @@
       "EXACT_TASK_FIRST",
       "TOOL_COVERAGE_BEFORE_NEW_GENERAL_MECHANISM",
       "REUSE_RESOLUTION_AFTER_RELEVANT_MATCH",
-      "IMMUTABLE_V2_TASK_PUBLICATION"
+      "IMMUTABLE_V2_TASK_PUBLICATION",
+      "PERSIST_ANY_MATERIAL_NEEDED_AFTER_FINAL_TO_GITHUB_OR_GOOGLE_DRIVE"
     ],
     "FREE_AXIOM_DISCOVERY_PHASE_A": [
       "GLOBAL_KNOWLEDGE_FREE_BOOTSTRAP_WHEN_AVAILABLE",
@@ -175,7 +222,9 @@
       "RESEARCH_CONTROL_DISPATCH_IS_LIVE_ENTRYPOINT",
       "TOOL_REUSE_RESOLUTION_BEFORE_NEW_TOOL_DIRECTION",
       "REVIEW_RECORD_WRITE_REFRESHES_REMOTE_HEAD_AND_EXACT_RESULT_BYTES_BEFORE_RECOMPUTING_BINDING",
-      "REMOTE_MANUAL_PUBLICATION_REQUIRES_CANONICAL_EQUIVALENT_PREFLIGHT"
+      "REMOTE_MANUAL_PUBLICATION_REQUIRES_CANONICAL_EQUIVALENT_PREFLIGHT",
+      "TREAT_RESEARCHER_EXECUTIONS_AS_ONE_SHOT_FOR_HANDOFF_PLANNING",
+      "IF_LATER_REVIEW_CONTINUATION_OR_VOICE_CONTEXT_IS_EXPECTED_REQUIRE_GITHUB_OR_GOOGLE_DRIVE_HANDOFF_BEFORE_RESEARCHER_FINAL"
     ],
     "FOUNDATION_STEWARD": [
       "STEWARD_AUTHORITY_SEPARATE_FROM_IDENTITY",
@@ -194,7 +243,8 @@
       "MIGRATION_REGISTRY_BEFORE_MIXED_SEMANTIC_FILE_EDIT",
       "UNCERTAIN_SEMANTICS_TO_NONEXECUTABLE_VERIFICATION_REQUEST_NOT_SELF_PUBLISHED_TASK",
       "LARGE_JSON_POINTER_CHANGE_USES_EXACT_SPAN_APPLIER_NOT_WHOLE_FILE_RESERIALIZATION",
-      "REMOTE_MANUAL_PUBLICATION_DOES_NOT_BYPASS_CANONICAL_PREFLIGHT"
+      "REMOTE_MANUAL_PUBLICATION_DOES_NOT_BYPASS_CANONICAL_PREFLIGHT",
+      "EXTERNAL_SUPERVISOR_CANNOT_GRANT_CLAIM_OR_MATHEMATICAL_AUTHORITY"
     ]
   }
 }

@@ -1,0 +1,132 @@
+name: cloudflare-supervisor-access-probe
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    environment: cloudflare-supervisor
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - name: Probe Access and token capabilities without mutation
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$CLOUDFLARE_API_TOKEN" || -z "$CLOUDFLARE_ACCOUNT_ID" ]]; then
+            echo "ACCESS_PROBE=BLOCKED_CLOUDFLARE_DEPLOYMENT_IDENTITY_MISSING"
+            exit 1
+          fi
+
+          root="https://api.cloudflare.com/client/v4"
+          api="$root/accounts/$CLOUDFLARE_ACCOUNT_ID/access"
+          auth=(-H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Accept: application/json")
+
+          verify_body="$(mktemp)"
+          verify_status="$(curl -sS -o "$verify_body" -w '%{http_code}' "${auth[@]}" "$root/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens/verify")"
+          echo "CF_TOKEN_VERIFY_HTTP=$verify_status"
+          if [[ "$verify_status" == "200" && "$(jq -r '.success // false' "$verify_body")" == "true" ]]; then
+            token_id="$(jq -r '.result.id // empty' "$verify_body")"
+            echo "CF_TOKEN_ACTIVE=$(jq -r '.result.status == "active"' "$verify_body")"
+            if [[ -n "$token_id" ]]; then
+              token_body="$(mktemp)"
+              token_status="$(curl -sS -o "$token_body" -w '%{http_code}' "${auth[@]}" "$root/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens/$token_id")"
+              echo "CF_TOKEN_DETAILS_HTTP=$token_status"
+              if [[ "$token_status" == "200" && "$(jq -r '.success // false' "$token_body")" == "true" ]]; then
+                # Permission-group names are capability metadata, not secret values.
+                jq -r '.result.policies[]?.permission_groups[]?.name // empty' "$token_body" | sort -u | sed 's/^/CF_TOKEN_PERMISSION_GROUP=/'
+                if jq -e '[.result.policies[]?.permission_groups[]?.name] | any(. == "Access: Apps and Policies Write" or . == "Access: Apps and Policies Edit")' "$token_body" >/dev/null; then
+                  echo "ACCESS_WRITE_CAPABILITY=YES"
+                else
+                  echo "ACCESS_WRITE_CAPABILITY=NO"
+                fi
+              elif [[ "$token_status" == "403" ]]; then
+                echo "CF_TOKEN_DETAILS=TOKEN_INTROSPECTION_PERMISSION_DENIED"
+              else
+                echo "CF_TOKEN_DETAILS=UNAVAILABLE"
+              fi
+              rm -f "$token_body"
+            fi
+          else
+            echo "CF_TOKEN_VERIFY=UNAVAILABLE"
+          fi
+
+          org_body="$(mktemp)"
+          org_status="$(curl -sS -o "$org_body" -w '%{http_code}' "${auth[@]}" "$api/organizations")"
+          echo "ACCESS_ORGANIZATION_HTTP=$org_status"
+          if [[ "$org_status" == "200" ]]; then
+            success="$(jq -r '.success // false' "$org_body")"
+            auth_domain="$(jq -r '.result.auth_domain // empty' "$org_body")"
+            if [[ "$success" == "true" && -n "$auth_domain" ]]; then
+              echo "ACCESS_ORGANIZATION=READY"
+              echo "ACCESS_TEAM_DOMAIN=https://$auth_domain"
+            else
+              echo "ACCESS_ORGANIZATION=NOT_CONFIGURED"
+            fi
+          elif [[ "$org_status" == "403" ]]; then
+            echo "ACCESS_ORGANIZATION=TOKEN_PERMISSION_DENIED"
+          else
+            echo "ACCESS_ORGANIZATION=UNAVAILABLE"
+          fi
+
+          apps_body="$(mktemp)"
+          apps_status="$(curl -sS -o "$apps_body" -w '%{http_code}' "${auth[@]}" "$api/apps?per_page=100")"
+          echo "ACCESS_APPS_HTTP=$apps_status"
+          if [[ "$apps_status" == "200" ]]; then
+            success="$(jq -r '.success // false' "$apps_body")"
+            if [[ "$success" != "true" ]]; then
+              echo "ACCESS_APPS=API_ERROR"
+            else
+              match_count="$(jq '[.result[] | select(.domain == "181131.xyz/em/mcp" or (.self_hosted_domains // [] | index("181131.xyz/em/mcp")))] | length' "$apps_body")"
+              echo "ACCESS_MCP_APP_MATCH_COUNT=$match_count"
+              if [[ "$match_count" == "1" ]]; then
+                jq -r '.result[] | select(.domain == "181131.xyz/em/mcp" or (.self_hosted_domains // [] | index("181131.xyz/em/mcp"))) | "ACCESS_MCP_APP_ID=\(.id)\nACCESS_MCP_APP_AUD=\(.aud // empty)\nACCESS_MCP_MANAGED_OAUTH=\(.oauth_configuration.enabled // false)\nACCESS_MCP_APP_TYPE=\(.type // empty)"' "$apps_body"
+              elif [[ "$match_count" -gt 1 ]]; then
+                echo "ACCESS_MCP_APP=AMBIGUOUS_MULTIPLE_MATCHES"
+              else
+                echo "ACCESS_MCP_APP=NOT_FOUND"
+              fi
+            fi
+          elif [[ "$apps_status" == "403" ]]; then
+            echo "ACCESS_APPS=TOKEN_PERMISSION_DENIED"
+          else
+            echo "ACCESS_APPS=UNAVAILABLE"
+          fi
+
+          policy_body="$(mktemp)"
+          policy_status="$(curl -sS -o "$policy_body" -w '%{http_code}' "${auth[@]}" "$api/policies?per_page=100")"
+          echo "ACCESS_REUSABLE_POLICIES_HTTP=$policy_status"
+          if [[ "$policy_status" == "200" && "$(jq -r '.success // false' "$policy_body")" == "true" ]]; then
+            echo "ACCESS_REUSABLE_POLICY_COUNT=$(jq '.result | length' "$policy_body")"
+            jq -r '.result[] | [
+              "ACCESS_POLICY_ID=" + (.id // ""),
+              "ACCESS_POLICY_NAME=" + (.name // ""),
+              "ACCESS_POLICY_DECISION=" + (.decision // ""),
+              "ACCESS_POLICY_INCLUDE_TYPES=" + (([.include[]? | keys[]?] | unique | join(","))),
+              "ACCESS_POLICY_REQUIRE_TYPES=" + (([.require[]? | keys[]?] | unique | join(","))),
+              "ACCESS_POLICY_EXCLUDE_TYPES=" + (([.exclude[]? | keys[]?] | unique | join(","))),
+              "ACCESS_POLICY_EMAIL_SELECTOR_COUNT=" + (([.include[]? | .email? | select(. != null)] | length) | tostring)
+            ] | join("\n")' "$policy_body"
+          elif [[ "$policy_status" == "403" ]]; then
+            echo "ACCESS_REUSABLE_POLICIES=TOKEN_PERMISSION_DENIED"
+          else
+            echo "ACCESS_REUSABLE_POLICIES=UNAVAILABLE"
+          fi
+
+          idp_body="$(mktemp)"
+          idp_status="$(curl -sS -o "$idp_body" -w '%{http_code}' "${auth[@]}" "$api/identity_providers")"
+          echo "ACCESS_IDPS_HTTP=$idp_status"
+          if [[ "$idp_status" == "200" && "$(jq -r '.success // false' "$idp_body")" == "true" ]]; then
+            echo "ACCESS_IDP_COUNT=$(jq '.result | length' "$idp_body")"
+            jq -r '.result[] | "ACCESS_IDP_TYPE=" + (.type // "unknown")' "$idp_body" | sort -u
+          elif [[ "$idp_status" == "403" ]]; then
+            echo "ACCESS_IDPS=TOKEN_PERMISSION_DENIED"
+          else
+            echo "ACCESS_IDPS=UNAVAILABLE"
+          fi
+
+          rm -f "$verify_body" "$org_body" "$apps_body" "$policy_body" "$idp_body"
