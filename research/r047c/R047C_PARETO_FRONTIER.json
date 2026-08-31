@@ -1,0 +1,45 @@
+{
+  "schema": "R047C_PARETO_FRONTIER_V1",
+  "researcher_id": "EM-R047C-7E31A4",
+  "task_id": "RS-R047C-FROZEN-NATIVE-MECHANISM-CALIBRATION-ENGINEERING-SUCCESS",
+  "dominance_rule": "DOMINATES_ON_DECLARED_CALIBRATION_AXES requires strictly higher target/E4 coverage, no higher bridge debt, no higher fitted-parameter debt, and no leakage.",
+  "e4_coverage_by_candidate": {
+    "R047P-M1-CUT-XOR": 0,
+    "R047P-M2-RELATIONAL-REFINEMENT": 0,
+    "R047P-M3-CONTACT-PARITY-PROPAGATOR": 0,
+    "R047P-M4-BRANCH-RECOALESCE": 0,
+    "R047P-M5-AUTOMORPHISM-ORBIT-COLLAPSE": 0,
+    "R047P-M6-INCIDENCE-BALANCE-FLOW": 0,
+    "R047I-C01": 0,
+    "R047I-C02": 0,
+    "R047I-C03": 0,
+    "R047I-C04": 0,
+    "R047I-C05": 0,
+    "R047I-C06": 0
+  },
+  "strict_dominance_pairs": [],
+  "strict_winner": null,
+  "winner_selected": false,
+  "pareto_frontier_declared_axes": [
+    "R047P-M1-CUT-XOR",
+    "R047P-M2-RELATIONAL-REFINEMENT",
+    "R047P-M3-CONTACT-PARITY-PROPAGATOR",
+    "R047P-M4-BRANCH-RECOALESCE",
+    "R047P-M5-AUTOMORPHISM-ORBIT-COLLAPSE",
+    "R047P-M6-INCIDENCE-BALANCE-FLOW",
+    "R047I-C01",
+    "R047I-C02",
+    "R047I-C03",
+    "R047I-C04",
+    "R047I-C05",
+    "R047I-C06"
+  ],
+  "reason": "All candidates have E4 coverage 0. Because the task dominance rule requires strictly higher target coverage, no strict dominance relation fires even when bridge debts differ.",
+  "secondary_diagnostic_nonselection_family": [
+    "R047P-M3-CONTACT-PARITY-PROPAGATOR",
+    "R047P-M6-INCIDENCE-BALANCE-FLOW",
+    "R047I-C03",
+    "R047I-C06"
+  ],
+  "secondary_family_reason": "Distinct low-debt structural directions only (finite linear recurrence, conservation/transfer, exact reversible recurrence, explicit refinement). This is not a winner declaration and is not used as selection loss."
+}
