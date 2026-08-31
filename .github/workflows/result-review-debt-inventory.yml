@@ -2,6 +2,8 @@ name: result-review-debt-inventory
 
 on:
   workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches:
       - control/perfect-prime-publication-quarantine-resolution-20260831
@@ -13,6 +15,7 @@ permissions:
 
 jobs:
   inventory:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -36,13 +39,9 @@ jobs:
 
           from control_plane import research_result_review_binding_fault_isolation as binding
           from control_plane import research_result_records_impl as impl
-          from control_plane import research_result_records_compat_runtime as compat
-          from control_plane import research_control_bootstrap
-          from tools import research_task_records
           import research_operational_publications
           import research_result_control_replacements
 
-          # Match the step-26 fault-isolated view before collecting the remaining errors.
           binding.install(ROOT)
           from tools import research_result_records
           errors = research_result_records.audit(ROOT)
@@ -98,7 +97,6 @@ jobs:
                   out.append({"path":rel,"kind":kind,"exists":exists,"declared_git_blob":pin,"actual_git_blob":actual,"primary_blob_matches":bool(exists and same_blob(actual,pin))})
               return out
 
-          # Current operational publication IDs where resolvable.
           current_pub = {}
           try:
               for task_id, sel in research_operational_publications.selections(ROOT).items():
@@ -106,7 +104,6 @@ jobs:
           except Exception as exc:
               global_errors.append(f"CURRENT_PUBLICATION_SELECTION:{exc}")
 
-          # Control replacement topology.
           try:
               raw_map={str(x.get("result_id")):x for x in raw_results if isinstance(x.get("result_id"),str)}
               repl=research_result_control_replacements.replacement_edges(raw_map,ROOT)
@@ -116,7 +113,6 @@ jobs:
           repl_sources=set(repl)
           repl_targets={str(x.get("corrected_result_id")) for x in repl.values() if isinstance(x,dict)}
 
-          # Same-task/publication alternatives sorted by frozen_at/result_id.
           groups=defaultdict(list)
           for r in raw_results:
               groups[(r.get("task_id"),r.get("publication_id"))].append(r)
@@ -153,7 +149,7 @@ jobs:
                   rid=str(item.get("result_id")); res=result_by_id.get(rid)
                   for s in suffixes:
                       m=re.fullmatch(r"invalid (disposition|destination_class)",s)
-                      if m: enum_values[m.group(1)][str(item.get(m.group(1))] += 1
+                      if m: enum_values[m.group(1)][str(item.get(m.group(1)))] += 1
                   art=item.get("review_path")
                   artinfo=None
                   if isinstance(art,str) and art:
