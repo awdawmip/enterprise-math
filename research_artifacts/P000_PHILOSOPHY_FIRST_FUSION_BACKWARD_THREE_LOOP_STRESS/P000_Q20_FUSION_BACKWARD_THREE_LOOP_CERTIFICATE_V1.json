@@ -1,0 +1,120 @@
+{
+  "schema": "P000_Q20_FUSION_BACKWARD_THREE_LOOP_CERTIFICATE_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-FUSION-BACKWARD-THREE-LOOP-STRESS",
+  "publication_id": "TP2-644D14321153816527CF",
+  "researcher_id": "EM-PHQ20-6D31AF",
+  "claim_id": "chatgpt-phq20-20260831-1052-6d31af",
+  "source_result": "RR-8A7F3C29D14E6B50C2F1",
+  "terminal_class": "THREE_LOOP_COHERENCE_LEAVES_BACKWARD_REFLECTION_INDEPENDENT",
+  "hard_target": "P000_FUSION_BACKWARD_THREE_LOOP_STABILITY_OR_INDEPENDENCE_CLASSIFIED",
+  "finite_objects": {
+    "U": "C2^0",
+    "L": "C2^1",
+    "P": "C2^2",
+    "T": "C2^3"
+  },
+  "category": {
+    "generated_morphism_count": 144,
+    "hom_matrix_sources_U_L_P_T_targets_U_L_P_T": [[1,1,1,1],[1,2,3,4],[1,4,9,16],[1,8,27,64]],
+    "normal_form": "For f:C2^m->C2^n, each input coordinate is independently discarded or assigned to exactly one output coordinate; each output is the XOR of its assigned inputs.",
+    "hom_count_formula": "|Hom(C2^m,C2^n)|=(n+1)^m for 0<=m,n<=3",
+    "zero_preserving": true,
+    "copying_present": false,
+    "associativity": "(a XOR b) XOR c = a XOR (b XOR c) = a XOR b XOR c"
+  },
+  "effectivity_variables": {
+    "bit_count": 15,
+    "assignment_count": 32768,
+    "layout": ["EU", "E1[0:2]", "E2[00,01,10,11]", "E3[000,001,010,011,100,101,110,111]"]
+  },
+  "law_atoms": ["ROT_PERM","RESTRICTION","GLUE","NEUTRAL_REFINEMENT","FUSION_FORWARD_2","FUSION_FORWARD_3_PAIR","FUSION_FORWARD_3_TOTAL","UNIT_NATURALITY","UNIT_TRUE","FUSION_BACKWARD_2","FUSION_BACKWARD_3_PAIR","FUSION_BACKWARD_3_TOTAL"],
+  "law_subset_count": 4096,
+  "exact_satisfaction_masks_realized": 314,
+  "lower_bundle": ["ROT_PERM","RESTRICTION","GLUE","NEUTRAL_REFINEMENT","FUSION_FORWARD_2","FUSION_FORWARD_3_PAIR","FUSION_FORWARD_3_TOTAL","UNIT_NATURALITY","UNIT_TRUE"],
+  "matched_lower_models": {
+    "TRIVIAL_ZERO_ONLY": {
+      "assignment_number": 139,
+      "signature": "EU=1;E1=10;E2=1000;E3=10000000",
+      "semantic_rule": "effective iff every holonomy coordinate is 0",
+      "all_144_morphisms_forward_natural": true,
+      "backward2": false,
+      "backward3_pair": false,
+      "backward3_total": false
+    },
+    "ALL_EFFECTIVE": {
+      "assignment_number": 32767,
+      "signature": "EU=1;E1=11;E2=1111;E3=11111111",
+      "semantic_rule": "every state is effective",
+      "all_144_morphisms_forward_natural": true,
+      "backward2": true,
+      "backward3_pair": true,
+      "backward3_total": true
+    }
+  },
+  "named_bundle_counts": {
+    "LOWER_WITHOUT_ANY_BACKWARD": 2,
+    "LOWER_PLUS_FUSION_BACKWARD_2": 1,
+    "LOWER_PLUS_FUSION_BACKWARD_3_PAIR": 1,
+    "LOWER_PLUS_FUSION_BACKWARD_3_TOTAL": 1,
+    "FULL_12_ATOM_BUNDLE": 1
+  },
+  "backward_free_lattice": {
+    "subset_count": 512,
+    "subsets_forcing_one_loop_selector_11": 0,
+    "reason": "TRIVIAL_ZERO_ONLY satisfies the full nine-atom backward-free bundle, hence survives every subset."
+  },
+  "selector_family_counts_over_4096_subsets": {
+    "00|10|01|11": 1032,
+    "00|10|11": 744,
+    "10|11": 592,
+    "00|11": 1296,
+    "11": 432
+  },
+  "minimal_one_loop_11_forcing_cores": [
+    ["RESTRICTION","UNIT_NATURALITY","UNIT_TRUE","FUSION_BACKWARD_2"],
+    ["RESTRICTION","GLUE","UNIT_NATURALITY","UNIT_TRUE","FUSION_BACKWARD_3_PAIR"],
+    ["RESTRICTION","NEUTRAL_REFINEMENT","UNIT_NATURALITY","UNIT_TRUE","FUSION_BACKWARD_3_PAIR"],
+    ["RESTRICTION","UNIT_NATURALITY","UNIT_TRUE","FUSION_BACKWARD_3_TOTAL"]
+  ],
+  "deletion_witnesses": {
+    "RESTRICTION + UNIT_NATURALITY + UNIT_TRUE + FUSION_BACKWARD_2": {
+      "RESTRICTION": "EU=1;E1=10;E2=1001;E3=00000000",
+      "UNIT_NATURALITY": "EU=1;E1=00;E2=0000;E3=00000000",
+      "UNIT_TRUE": "EU=0;E1=00;E2=0000;E3=00000000",
+      "FUSION_BACKWARD_2": "EU=1;E1=10;E2=0000;E3=00000000"
+    },
+    "RESTRICTION + GLUE + UNIT_NATURALITY + UNIT_TRUE + FUSION_BACKWARD_3_PAIR": {
+      "RESTRICTION": "EU=1;E1=10;E2=1000;E3=10010110",
+      "GLUE": "EU=1;E1=10;E2=0000;E3=00000000",
+      "UNIT_NATURALITY": "EU=1;E1=00;E2=0000;E3=00000000",
+      "UNIT_TRUE": "EU=0;E1=00;E2=0000;E3=00000000",
+      "FUSION_BACKWARD_3_PAIR": "EU=1;E1=10;E2=1000;E3=10000000"
+    },
+    "RESTRICTION + NEUTRAL_REFINEMENT + UNIT_NATURALITY + UNIT_TRUE + FUSION_BACKWARD_3_PAIR": {
+      "RESTRICTION": "EU=1;E1=10;E2=1001;E3=10010110",
+      "NEUTRAL_REFINEMENT": "EU=1;E1=10;E2=0000;E3=00000000",
+      "UNIT_NATURALITY": "EU=1;E1=00;E2=0000;E3=00000000",
+      "UNIT_TRUE": "EU=0;E1=00;E2=0000;E3=00000000",
+      "FUSION_BACKWARD_3_PAIR": "EU=1;E1=10;E2=1000;E3=10000000"
+    },
+    "RESTRICTION + UNIT_NATURALITY + UNIT_TRUE + FUSION_BACKWARD_3_TOTAL": {
+      "RESTRICTION": "EU=1;E1=10;E2=0000;E3=10010110",
+      "UNIT_NATURALITY": "EU=1;E1=00;E2=0000;E3=00000000",
+      "UNIT_TRUE": "EU=0;E1=00;E2=0000;E3=00000000",
+      "FUSION_BACKWARD_3_TOTAL": "EU=1;E1=10;E2=0000;E3=00000000"
+    }
+  },
+  "structural_interpretation": {
+    "decisive_obstruction": "All declared lower structural morphisms preserve the zero vector. Therefore the zero-support effectivity predicate is closed under every forward structural operation and survives all three-loop associativity/permutation/refinement coherence.",
+    "what_backward_adds": "Backward fusion reflects effectivity from an image to every declared preimage of a non-injective XOR map. The split 0=1 XOR 1 crosses a nonzero kernel and is exactly the new information that kills the zero-support model.",
+    "three_loop_effect": "The richer T=C2^3 diagram adds no automatic reflection principle. Parenthesization and permutation are coherent, but coherence is equality of forward maps, not a converse implication on effectivity.",
+    "stability_when_postulated": "The all-effective model satisfies all 12 atoms, so backward reflection is consistent on the declared three-loop grammar. Its independence, not inconsistency, is the terminal finding."
+  },
+  "no_overclaim": [
+    "No bare-P000 ontology promotion.",
+    "No claim that all possible higher-loop or non-XOR refinement grammars have the same law lattice.",
+    "No claim that FUSION_BACKWARD is globally unnatural; only that it is not derived by the declared three-loop lower coherence.",
+    "No external prior-art or novelty claim."
+  ],
+  "checker_expected_summary": "PASS P000_Q20_FUSION_BACKWARD_THREE_LOOP; checks=27; category_morphisms=144; hom_matrix=1,1,1,1/1,2,3,4/1,4,9,16/1,8,27,64; normal_form=(target_dimension+1)^source_dimension; assignments=32768; law_subsets=4096; exact_law_masks=314; lower_models=2(trivial_zero_only,all_effective); backward_free_subsets=512_none_force_11; lower_plus_each_backward=1; full_bundle=1; minimal_11_forcing_cores=4; selector_family_counts=all4:1032,00-10-11:744,10-11:592,00-11:1296,11:432; terminal=THREE_LOOP_COHERENCE_LEAVES_BACKWARD_REFLECTION_INDEPENDENT"
+}
