@@ -1,0 +1,22 @@
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_AUTHORITY_COMPATIBILITY_V1",
+  "status": "ACTIVE",
+  "purpose": "Exact immutable-record compatibility for legacy derived authority_record_id values only. Each alias is byte-pinned and the normalized value must equal the current deterministic ID formula over the unchanged driver/event/source-comment tuple. No authority event, source provenance, scope, or mathematical authority is created or changed.",
+  "id_aliases": [
+    {
+      "record_path": "research_driver_authority_records/EM-DVR-WLE3X6/DA-1777A3A95BF833B09D89.json",
+      "record_blob_sha1": "sha1:6ab6190c68bea85b5508024e71a9e942b7389f2f",
+      "raw_authority_record_id": "DA-1777A3A95BF833B09D89",
+      "normalized_authority_record_id": "DA-803327D358259BD24CBF"
+    },
+    {
+      "record_path": "research_driver_authority_records/EM-DVR-WLE3X6/DA-EAF1E73D03C9718462CA.json",
+      "record_blob_sha1": "sha1:ce273abe53145c45b6454fdbb1b06948a4c14bf4",
+      "raw_authority_record_id": "DA-EAF1E73D03C9718462CA",
+      "normalized_authority_record_id": "DA-B2DEFD1316B5469FF58B"
+    }
+  ],
+  "working_truth_granted": false,
+  "foundation_authority_granted": false,
+  "canonical_promotion_granted": false
+}
