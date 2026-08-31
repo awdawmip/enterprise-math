@@ -6,11 +6,17 @@ from math import prod
 def main() -> None:
     checks = []
 
-    # Frozen Hermitian model over Q(i).
+    # Frozen Hermitian homology model over Q(i).
     diag = [1, 1, 1, -1, -1, -3]
     det_h = prod(diag)
     checks.append(("hermitian_determinant", det_h == -3))
     checks.append(("hermitian_signature", sum(x > 0 for x in diag) == 3 and sum(x < 0 for x in diag) == 3))
+
+    # Passing to the dual inverts the determinant; the quotient class is unchanged
+    # because (-1/3)/(-3)=1/9=Nm_{Q(i)/Q}(1/3).
+    det_dual = Fraction(1, det_h)
+    dual_ratio = det_dual / Fraction(det_h, 1)
+    checks.append(("dual_discriminant_same_norm_class", det_dual == Fraction(-1, 3) and dual_ratio == Fraction(1, 9)))
 
     # Exact elementary certificate that 3 is not a rational Gaussian norm.
     # If x^2+y^2=3z^2 with coprime integers, reduction mod 3 forces x,y divisible by 3,
@@ -29,7 +35,7 @@ def main() -> None:
     positivity = [c * s for c, s in zip(diag, j_sign)]
     checks.append(("riemann_positivity_at_J0", all(v > 0 for v in positivity)))
 
-    # Weil determinant line dimension and Hodge type.
+    # Weil determinant line dimension and Hodge type on cohomology V=H^1.
     dim_K_V = 6
     degree_K_Q = 2
     dim_Q_W = degree_K_Q * 1  # top K-exterior power is one-dimensional over K
