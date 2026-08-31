@@ -209,7 +209,7 @@
       "history_preserved": true,
       "allowed_review_audit_errors": [
         "result record digest drift",
-        "review artifact digest drift"
+        "review artifact missing"
       ],
       "reason": "Exact immutable review bytes fail the current V1 review-record audit. CONTROL_PLANE_MAINTENANCE preserves the review as nonoperational history and removes only this invalid review record from operational Driver-review authority; it does not infer or repair any disposition.",
       "working_truth_granted": false,
