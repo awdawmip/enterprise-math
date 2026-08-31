@@ -100,8 +100,8 @@ jobs:
               raise SystemExit("validator cardinality mismatch")
           print(f"REVIEW_AUDIT_QUARANTINE_EXACT=PASS count={len(entries)}")
           PY
-          test "$(git diff --name-only)" = "research_result_review_audit_quarantines.json"
-          git diff --check
+          changed="$(git status --porcelain | awk '{print $2}')"
+          test "$changed" = "research_result_review_audit_quarantines.json"
       - name: Commit exact invalid-review registry
         if: github.event_name == 'push'
         shell: bash
@@ -110,5 +110,6 @@ jobs:
           git config user.name "enterprise-math-control-bot"
           git config user.email "enterprise-math-control-bot@users.noreply.github.com"
           git add research_result_review_audit_quarantines.json
+          git diff --cached --check
           git commit -m "[CONTROL] isolate exact invalid historical reviews"
           git push origin HEAD:control/perfect-prime-publication-quarantine-resolution-20260831
