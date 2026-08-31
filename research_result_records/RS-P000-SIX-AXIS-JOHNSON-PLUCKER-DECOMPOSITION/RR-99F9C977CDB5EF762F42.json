@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-99F9C977CDB5EF762F42",
+  "task_id": "RS-P000-SIX-AXIS-JOHNSON-PLUCKER-DECOMPOSITION",
+  "publication_id": "TP2-FDC95F823029B5829F3B",
+  "execution_record_id": "ER-DC14F5C4CAB1798573D4",
+  "claim_id": "chatgpt-p000jp2-20260830-1643-6f2c91",
+  "taskbook_path": "research_tasks/P000_SIX_AXIS_JOHNSON_PLUCKER_DECOMPOSITION_REVISION_V2_20260830.md",
+  "taskbook_blob_sha1": "sha1:4aa5b641445759c46160c172d9b4b94400425a77",
+  "execution_branch": "research/p000-six-axis-johnson-plucker-revision-v2-em-p000jp2-d2c2ae",
+  "execution_branch_base": "9dac612533d1dc93ce2839df3e1dbdd29a39b6aa",
+  "return_path": "research_returns/P000_SIX_AXIS_JOHNSON_PLUCKER_DECOMPOSITION_REVISION_V2_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:23436a14dc08491c84fa35bfcf9c8d6dd140cc38",
+  "return_sha256": "sha256:2905b4f6f91d448b8de776188e636613c8e4792441e723a688977c181182044a",
+  "owner_head": "74e56d52e3c3a9a50e08bd15c77a1c7a873b2ea8",
+  "researcher_id": "EM-P000JP2-D2C2AE",
+  "frozen_at": "2026-08-30T08:56:00+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "P000_JOHNSON_PLUCKER_REVISION_V2_EXTERIOR_QUADRATIC_BOUNDARY_COMPLETE_AND_RESULT_CHAIN_VALID",
+  "unresolved_residue": "No bare-P000 dimension reduction, native-rotation promotion, Full-Cell lift, or characteristic-zero identification C=H is claimed. In characteristic 2 only, sign collapse gives H=C inside the representation facade; the polar form remains perfect alternating while Q is a non-unique quadratic refinement. Q_orb and the index-24 Johnson residue rho remain the safe downstream arithmetic data.",
+  "output_manifest": [
+    {
+      "path": "research_returns/P000_SIX_AXIS_JOHNSON_PLUCKER_DECOMPOSITION_REVISION_V2_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:23436a14dc08491c84fa35bfcf9c8d6dd140cc38",
+      "sha256": "sha256:2905b4f6f91d448b8de776188e636613c8e4792441e723a688977c181182044a"
+    },
+    {
+      "path": "research_checks/P000_SIX_AXIS_JOHNSON_PLUCKER_DECOMPOSITION_REVISION_V2_CHECK_20260830.py",
+      "git_blob_sha1": "sha1:7c1401e016177029949637bdcc56680e8ac1e09a",
+      "sha256": "sha256:e36eb97d3d852b02325dbd6b84a33fb2f59519a5234ab6d3dfbca7ce13c947e8"
+    },
+    {
+      "path": "research_artifacts/P000_SIX_AXIS_JOHNSON_PLUCKER_DECOMPOSITION_REVISION_V2/regression_table_20260830.json",
+      "git_blob_sha1": "sha1:56353c109b1206407f149bbe9da055b6fd03ec65",
+      "sha256": "sha256:2b12eb306d7e97efc72c298e20628cd7ef5613f7fccf4a03a21fbc73c2f36642"
+    },
+    {
+      "path": "research_execution_records/RS-P000-SIX-AXIS-JOHNSON-PLUCKER-DECOMPOSITION/ER-DC14F5C4CAB1798573D4.json",
+      "git_blob_sha1": "sha1:42283b908489f7e87186534d9d43ce59e2447c91",
+      "sha256": "sha256:134886fe29f252711309d411f792e6dc1d64893f4e6e9bb70cc7b1c8ab1626f3"
+    }
+  ],
+  "method_harvest": "REUSE_APPLIED / TASK_LOCAL_CERTIFICATE",
+  "independence_status": "NOT_APPLICABLE",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review this new immutable revision result directly against PR #876's REQUEST_REVISION. If accepted, preserve the characteristic-aware Pfaffian/Hodge boundary, the materialized generator regression table, Q_orb, and the index-24 rho residue as derived representation-level data only. Do not mutate RR-5E7D2DB7840E5D2F8A57 and do not auto-publish a downstream successor from the researcher lane.",
+  "driver_review_required": true
+}
