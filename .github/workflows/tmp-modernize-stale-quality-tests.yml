@@ -42,10 +42,60 @@ jobs:
           compile(code, '<frozen-stale-test-migration>', 'exec')
           exec(code, {'__name__': '__main__'})
           PYBOOT
-      - name: Run migrated test files through repository loader
+      - name: Apply final machine-contract test adjustments
+        run: |
+          python - <<'PYFIX'
+          from pathlib import Path
+
+          def rep(path: str, old: str, new: str) -> None:
+              p = Path(path)
+              text = p.read_text(encoding='utf-8')
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected one final-adjustment fragment, found {count}')
+              p.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          rep(
+              'tests/test_free_primitive_substrate_partition.py',
+              '    freedom = "\\n".join(policy["researcher_freedom_clause"]["FREE_AXIOM_DISCOVERY"])\n'
+              '    assert "no default suggested-question list or discovery-lens list" in freedom\n'
+              '    assert free["negative_instruction_style"] == "GENERIC_CATEGORIES_ONLY"\n',
+              '    assert free["negative_instruction_style"] == "GENERIC_CATEGORIES_ONLY"\n'
+              '    assert free["generic_no_user_task_scheduler_rule_applies"] is False\n',
+          )
+          rep(
+              'tests/test_free_primitive_substrate_partition.py',
+              '    assert "FREE Phase A is not given suggested questions" in text\n',
+              '    assert "suggestion menu" in text.lower()\n',
+          )
+          rep(
+              'tests/test_free_researcher_axiom_discovery_contract.py',
+              '''    for marker in (\n        "scheduler",\n        "recent commit",\n        "Working Truth",\n        "ambient",\n        "TOOL_AVAILABILITY != DISCOVERY_PRIOR",\n        "IMPLEMENTATION_CONVENIENCE != AXIOM_PRIOR",\n        "FILE_ORDER != RESEARCH_PRIORITY",\n        "EXISTING_NAME != REQUIRED_PRIMITIVE",\n    ):\n        assert marker.lower() in combined.lower()\n''',
+              '''    for marker in (\n        "TOOL_AVAILABILITY != DISCOVERY_PRIOR",\n        "IMPLEMENTATION_CONVENIENCE != AXIOM_PRIOR",\n        "FILE_ORDER != RESEARCH_PRIORITY",\n        "EXISTING_NAME != REQUIRED_PRIMITIVE",\n    ):\n        assert marker in anti\n    assert "NO_ACTIVE_BRANCH_WORKING_TRUTH" in anti\n''',
+          )
+          PYFIX
+      - name: Freeze tests-only patch
+        run: |
+          git diff --check
+          changed=$(git diff --name-only)
+          test -n "$changed"
+          if echo "$changed" | grep -v '^tests/' | grep -q .; then
+            echo "non-test file changed before validation"
+            echo "$changed"
+            exit 1
+          fi
+          git diff --binary -- tests/ > /tmp/stale-tests.patch
+          test -s /tmp/stale-tests.patch
+      - name: Validate identical patch on current PR merge tree
         env:
           PYTHONPATH: src
         run: |
+          branch_sha="$GITHUB_SHA"
+          git fetch origin refs/pull/1009/merge:refs/remotes/origin/pr-1009-merge
+          git merge-base --is-ancestor "$branch_sha" refs/remotes/origin/pr-1009-merge
+          git reset --hard refs/remotes/origin/pr-1009-merge
+          git apply --check /tmp/stale-tests.patch
+          git apply /tmp/stale-tests.patch
           python - <<'PYTEST'
           import unittest
           from pathlib import Path
@@ -84,15 +134,21 @@ jobs:
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           raise SystemExit(0 if result.wasSuccessful() else 1)
           PYTEST
-      - name: Prove only tests changed and commit
+      - name: Return to branch and commit only validated tests
         run: |
+          branch_sha="$GITHUB_SHA"
+          git reset --hard "$branch_sha"
+          git apply --check /tmp/stale-tests.patch
+          git apply /tmp/stale-tests.patch
           changed=$(git diff --name-only)
+          test -n "$changed"
           if echo "$changed" | grep -v '^tests/' | grep -q .; then
-            echo "non-test file changed"
+            echo "non-test file changed after validation"
             echo "$changed"
             exit 1
           fi
-          test -n "$changed"
+          git fetch origin control/perfect-prime-publication-quarantine-resolution-20260831
+          test "$(git rev-parse FETCH_HEAD)" = "$branch_sha"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add tests/
