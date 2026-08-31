@@ -1,0 +1,186 @@
+name: cloudflare-supervisor-access-provision
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-supervisor-access-provision
+  cancel-in-progress: false
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: cloudflare-supervisor
+    defaults:
+      run:
+        working-directory: infrastructure/cloudflare-supervisor
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      SUPERVISOR_API_TOKEN: ${{ secrets.SUPERVISOR_API_TOKEN }}
+      SUPERVISOR_BASE_URL: https://181131.xyz/em
+      SUPERVISOR_SMOKE_REF: ${{ github.sha }}
+      SUPERVISOR_DRIVE_SMOKE_FILE_ID: 1-5LpZSR-iPLF1qwyVuwSro1IWCw_7w3suus3B_v_yKc
+      ACCESS_USER_POLICY_ID: 26b00797-bb80-424e-b9d1-a87451a1e0aa
+      ACCESS_CI_POLICY_NAME: EnterpriseMath Supervisor CI Service Auth
+      ACCESS_APP_DOMAIN: 181131.xyz/em/mcp
+      ACCESS_APP_NAME: EnterpriseMath Supervisor MCP
+      ACCESS_PROVISION_REVISION: service-token-subject-v3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install --ignore-scripts
+
+      - name: Provision and certify path-scoped Managed OAuth
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ -n "$CLOUDFLARE_API_TOKEN" && -n "$CLOUDFLARE_ACCOUNT_ID" && -n "$SUPERVISOR_API_TOKEN" ]]
+
+          api="https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access"
+          auth=(-H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json" -H "Accept: application/json")
+          created_app=false
+          created_ci_policy=false
+          access_secrets_installed=false
+          service_token_id=""
+          ci_policy_id=""
+          app_id=""
+
+          rollback() {
+            status=$?
+            set +e
+            if [[ -n "$service_token_id" ]]; then
+              curl -sS -X DELETE "${auth[@]}" "$api/service_tokens/$service_token_id" >/dev/null
+              echo "ACCESS_PROVISION_EPHEMERAL_TOKEN=CLEANED"
+            fi
+            if [[ "$status" -ne 0 && "$created_app" == "true" ]]; then
+              if [[ "$access_secrets_installed" == "true" ]]; then
+                printf '%s' '{"ACCESS_TEAM_DOMAIN":null,"ACCESS_AUD":null}' | npx wrangler secret bulk >/dev/null 2>&1
+                echo "ACCESS_PROVISION_ROLLBACK_WORKER_AUTH=BOOTSTRAP_BEARER"
+              fi
+              [[ -z "$app_id" ]] || curl -sS -X DELETE "${auth[@]}" "$api/apps/$app_id" >/dev/null
+              echo "ACCESS_PROVISION_ROLLBACK_APP=DELETED"
+              if [[ "$created_ci_policy" == "true" && -n "$ci_policy_id" ]]; then
+                curl -sS -X DELETE "${auth[@]}" "$api/policies/$ci_policy_id" >/dev/null
+                echo "ACCESS_PROVISION_ROLLBACK_CI_POLICY=DELETED"
+              fi
+            fi
+            exit "$status"
+          }
+          trap rollback EXIT
+
+          apps="$(curl -fsS "${auth[@]}" "$api/apps?per_page=100")"
+          app_count="$(jq --arg d "$ACCESS_APP_DOMAIN" '[.result[] | select(.domain == $d)] | length' <<<"$apps")"
+          [[ "$app_count" == "0" ]] || { echo "ACCESS_PROVISION_REQUIRES_ABSENT_APP count=$app_count"; exit 1; }
+
+          user_policy="$(curl -fsS "${auth[@]}" "$api/policies/$ACCESS_USER_POLICY_ID")"
+          [[ "$(jq -r '.success // false' <<<"$user_policy")" == "true" ]]
+          [[ "$(jq -r '.result.decision // empty' <<<"$user_policy")" == "allow" ]]
+          [[ "$(jq '[.result.include[]? | .email? | select(. != null)] | length' <<<"$user_policy")" == "1" ]]
+          [[ "$(jq '.result.include | length' <<<"$user_policy")" == "1" ]]
+          [[ "$(jq '[.result.include[]? | .everyone? | select(. != null)] | length' <<<"$user_policy")" == "0" ]]
+          echo "ACCESS_USER_POLICY=VERIFIED_SINGLE_EMAIL_ALLOW"
+
+          idps="$(curl -fsS "${auth[@]}" "$api/identity_providers")"
+          [[ "$(jq '.result | length' <<<"$idps")" == "1" ]]
+          [[ "$(jq '[.result[] | select(.type == "onetimepin")] | length' <<<"$idps")" == "1" ]]
+          idp_id="$(jq -r '.result[0].id' <<<"$idps")"
+          echo "ACCESS_IDP=VERIFIED_SINGLE_OTP"
+
+          token_response="$(curl -fsS -X POST "${auth[@]}" "$api/service_tokens" \
+            --data "$(jq -nc --arg name "enterprise-math-supervisor-provision-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" '{name:$name,duration:"1h",enabled:true}')")"
+          service_token_id="$(jq -r '.result.id // empty' <<<"$token_response")"
+          service_client_id="$(jq -r '.result.client_id // empty' <<<"$token_response")"
+          service_client_secret="$(jq -r '.result.client_secret // empty' <<<"$token_response")"
+          [[ -n "$service_token_id" && -n "$service_client_id" && -n "$service_client_secret" ]]
+          echo "::add-mask::$service_client_id"
+          echo "::add-mask::$service_client_secret"
+          export ACCESS_SERVICE_CLIENT_ID="$service_client_id"
+          export ACCESS_SERVICE_CLIENT_SECRET="$service_client_secret"
+
+          policies="$(curl -fsS "${auth[@]}" "$api/policies?per_page=100")"
+          ci_count="$(jq --arg n "$ACCESS_CI_POLICY_NAME" '[.result[] | select(.name == $n)] | length' <<<"$policies")"
+          ci_payload="$(jq -nc --arg n "$ACCESS_CI_POLICY_NAME" --arg t "$service_token_id" '{name:$n,decision:"non_identity",include:[{service_token:{token_id:$t}}],exclude:[],require:[]}')"
+          if [[ "$ci_count" == "0" ]]; then
+            ci_response="$(curl -fsS -X POST "${auth[@]}" "$api/policies" --data "$ci_payload")"
+            ci_policy_id="$(jq -r '.result.id // empty' <<<"$ci_response")"
+            created_ci_policy=true
+          elif [[ "$ci_count" == "1" ]]; then
+            ci_policy_id="$(jq -r --arg n "$ACCESS_CI_POLICY_NAME" '.result[] | select(.name == $n) | .id' <<<"$policies")"
+            ci_response="$(curl -fsS -X PUT "${auth[@]}" "$api/policies/$ci_policy_id" --data "$ci_payload")"
+          else
+            echo "ACCESS_CI_POLICY_AMBIGUOUS count=$ci_count"; exit 1
+          fi
+          [[ -n "$ci_policy_id" && "$(jq -r '.success // false' <<<"$ci_response")" == "true" ]]
+          echo "ACCESS_CI_POLICY=READY"
+
+          app_payload="$(jq -nc \
+            --arg name "$ACCESS_APP_NAME" --arg domain "$ACCESS_APP_DOMAIN" --arg idp "$idp_id" \
+            --arg user_policy "$ACCESS_USER_POLICY_ID" --arg ci_policy "$ci_policy_id" \
+            '{name:$name,domain:$domain,type:"self_hosted",session_duration:"24h",app_launcher_visible:false,
+              allowed_idps:[$idp],auto_redirect_to_identity:true,
+              policies:[{id:$user_policy,precedence:1},{id:$ci_policy,precedence:2}],
+              oauth_configuration:{enabled:true,dynamic_client_registration:{enabled:true,
+                allow_any_on_localhost:false,allow_any_on_loopback:false,
+                allowed_uris:["https://chatgpt.com/connector/oauth/*","https://chatgpt.com/connector_platform_oauth_redirect"]},
+                grant:{access_token_lifetime:"15m",session_duration:"336h"}}}')"
+          app_file="$(mktemp)"
+          app_status="$(curl -sS -o "$app_file" -w '%{http_code}' -X POST "${auth[@]}" "$api/apps" --data "$app_payload")"
+          if [[ "$app_status" != "200" && "$app_status" != "201" ]]; then
+            echo "ACCESS_APP_CREATE_FAILED http=$app_status"; jq '{success,errors}' "$app_file" || true; exit 1
+          fi
+          [[ "$(jq -r '.success // false' "$app_file")" == "true" ]]
+          app_id="$(jq -r '.result.id // empty' "$app_file")"
+          app_aud="$(jq -r '.result.aud // empty' "$app_file")"
+          [[ -n "$app_id" && -n "$app_aud" ]]
+          created_app=true
+          echo "ACCESS_APP=CREATED_EXACT_EM_MCP_PATH"
+          echo "ACCESS_APP_ID=$app_id"
+          echo "ACCESS_APP_AUD=$app_aud"
+
+          org="$(curl -fsS "${auth[@]}" "$api/organizations")"
+          auth_domain="$(jq -r '.result.auth_domain // empty' <<<"$org")"
+          [[ -n "$auth_domain" ]]
+          team_domain="https://$auth_domain"
+
+          pre_status="$(curl -sS -o /tmp/access-pre.json -w '%{http_code}' -X POST \
+            -H "CF-Access-Client-Id: $service_client_id" -H "CF-Access-Client-Secret: $service_client_secret" \
+            -H "Authorization: Bearer $SUPERVISOR_API_TOKEN" -H "Content-Type: application/json" \
+            --data '{"jsonrpc":"2.0","id":1,"method":"ping"}' "$SUPERVISOR_BASE_URL/mcp")"
+          [[ "$pre_status" != "302" && "$pre_status" != "401" && "$pre_status" != "403" ]]
+          echo "ACCESS_SERVICE_POLICY_PRE_SWITCH=PASS http=$pre_status"
+
+          printf '%s' "$(jq -nc --arg team "$team_domain" --arg aud "$app_aud" '{ACCESS_TEAM_DOMAIN:$team,ACCESS_AUD:$aud}')" \
+            | npx wrangler secret bulk >/dev/null
+          access_secrets_installed=true
+          echo "WORKER_ACCESS_JWT_VERIFICATION=INSTALLED"
+
+          npx wrangler deploy --var DEPLOYMENT_SHA:${GITHUB_SHA}
+          npm run smoke:live
+
+          headers="$(mktemp)"
+          challenge="$(curl -sS -D "$headers" -o /tmp/access-unauth.txt -w '%{http_code}' -X POST \
+            -H 'Content-Type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"ping"}' "$SUPERVISOR_BASE_URL/mcp")"
+          [[ "$challenge" == "401" ]]
+          grep -qi '^www-authenticate:.*Bearer' "$headers"
+          echo "ACCESS_MANAGED_OAUTH_CHALLENGE=PASS"
+
+          final_app="$(curl -fsS "${auth[@]}" "$api/apps/$app_id")"
+          [[ "$(jq -r '.result.domain' <<<"$final_app")" == "$ACCESS_APP_DOMAIN" ]]
+          [[ "$(jq -r '.result.type' <<<"$final_app")" == "self_hosted" ]]
+          [[ "$(jq -r '.result.oauth_configuration.enabled // false' <<<"$final_app")" == "true" ]]
+          [[ "$(jq -r '.result.oauth_configuration.dynamic_client_registration.enabled // false' <<<"$final_app")" == "true" ]]
+          [[ "$(jq '[.result.oauth_configuration.dynamic_client_registration.allowed_uris[]? | select(. == "https://chatgpt.com/connector/oauth/*" or . == "https://chatgpt.com/connector_platform_oauth_redirect")] | length' <<<"$final_app")" == "2" ]]
+          [[ "$(jq -r '.result.oauth_configuration.grant.access_token_lifetime // empty' <<<"$final_app")" == "15m" ]]
+          [[ "$(jq -r '.result.oauth_configuration.grant.session_duration // empty' <<<"$final_app")" == "336h" ]]
+
+          echo "ACCESS_PROVISION_SUCCESS revision=$ACCESS_PROVISION_REVISION"
+          echo "ACCESS_APP_DOMAIN=$ACCESS_APP_DOMAIN"
+          echo "ACCESS_APP_TYPE=SELF_HOSTED_PATH_SCOPED"
+          echo "ACCESS_MANAGED_OAUTH=ENABLED"
+          echo "ACCESS_DCR_CHATGPT_REDIRECTS=PINNED"
+          echo "ACCESS_TOKEN_LIFETIME=15m"
+          echo "ACCESS_GRANT_SESSION=336h"

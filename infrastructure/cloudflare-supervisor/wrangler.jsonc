@@ -1,0 +1,43 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "enterprise-math-supervisor",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-30",
+  "workers_dev": false,
+  "preview_urls": false,
+  "route": {
+    "pattern": "181131.xyz/em/*",
+    "zone_name": "181131.xyz"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "OWNER_SCOPES",
+        "class_name": "OwnerScope"
+      }
+    ]
+  },
+  "exports": {
+    "OwnerScope": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  },
+  "workflows": [
+    {
+      "name": "enterprise-math-recovery",
+      "binding": "RECOVERY_WORKFLOW",
+      "class_name": "RecoveryWorkflow"
+    }
+  ],
+  "vars": {
+    "DEFAULT_TURN_LEASE_MS": "300000",
+    "STALE_RECOVERY_THRESHOLD_MS": "600000",
+    "ENTERPRISE_MATH_REPOSITORY": "awdawmip/enterprise-math",
+    "GITHUB_HANDOFF_REPOSITORIES": "awdawmip/enterprise-math",
+    "GOOGLE_DRIVE_HANDOFF_ROOT_ID": "1IJ8iAXY5laK1lj-Y4NGWKEOdLofieHLa"
+  }
+}

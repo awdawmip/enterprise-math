@@ -1,0 +1,274 @@
+name: cloudflare-supervisor
+
+on:
+  pull_request:
+    paths:
+      - "infrastructure/cloudflare-supervisor/**"
+      - ".github/workflows/cloudflare-supervisor.yml"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - infrastructure/cloudflare-supervisor-v1-20260830
+    paths:
+      - "infrastructure/cloudflare-supervisor/**"
+      - ".github/workflows/cloudflare-supervisor.yml"
+
+concurrency:
+  group: cloudflare-supervisor-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infrastructure/cloudflare-supervisor
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install --ignore-scripts
+      - run: npm run check
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/infrastructure/cloudflare-supervisor-v1-20260830'
+    needs: validate
+    runs-on: ubuntu-latest
+    environment: cloudflare-supervisor
+    defaults:
+      run:
+        working-directory: infrastructure/cloudflare-supervisor
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      SUPERVISOR_API_TOKEN: ${{ secrets.SUPERVISOR_API_TOKEN }}
+
+      GITHUB_APP_ID: ${{ secrets.GITHUB_APP_ID }}
+      GITHUB_APP_INSTALLATION_ID: ${{ secrets.GITHUB_APP_INSTALLATION_ID }}
+      GITHUB_APP_PRIVATE_KEY: ${{ secrets.GITHUB_APP_PRIVATE_KEY }}
+      GITHUB_READ_TOKEN: ${{ secrets.GITHUB_READ_TOKEN }}
+
+      GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
+      GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY }}
+      GOOGLE_DRIVE_BEARER_TOKEN: ${{ secrets.GOOGLE_DRIVE_BEARER_TOKEN }}
+
+      SUPERVISOR_BASE_URL: https://181131.xyz/em
+      SUPERVISOR_SMOKE_REF: ${{ github.sha }}
+      SUPERVISOR_DRIVE_SMOKE_FILE_ID: 1-5LpZSR-iPLF1qwyVuwSro1IWCw_7w3suus3B_v_yKc
+      ACCESS_CI_POLICY_NAME: EnterpriseMath Supervisor CI Service Auth
+      ACCESS_CI_TOKEN_PREFIX: enterprise-math-supervisor-ci-
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install --ignore-scripts
+      - name: Check account-side deployment authorization
+        id: auth
+        shell: bash
+        run: |
+          if [[ -n "$CLOUDFLARE_API_TOKEN" && -n "$CLOUDFLARE_ACCOUNT_ID" && -n "$SUPERVISOR_API_TOKEN" ]]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare deployment authorization is present."
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare deployment authorization is not yet present; deployment is safely skipped."
+          fi
+
+      - name: Prepare rotating Access CI identity when MCP Access app exists
+        id: access
+        if: steps.auth.outputs.ready == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access"
+          auth=(-H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json" -H "Accept: application/json")
+
+          apps="$(curl -fsS "${auth[@]}" "$api/apps?per_page=100")"
+          match_count="$(jq '[.result[] | select(.domain == "181131.xyz/em/mcp")] | length' <<<"$apps")"
+          if [[ "$match_count" == "0" ]]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "MCP_AUTH_TARGET=BOOTSTRAP_BEARER"
+            exit 0
+          fi
+          if [[ "$match_count" != "1" ]]; then
+            echo "ACCESS_MCP_APP_AMBIGUOUS count=$match_count"
+            exit 1
+          fi
+
+          app_json="$(jq -c '.result[] | select(.domain == "181131.xyz/em/mcp")' <<<"$apps")"
+          app_id="$(jq -r '.id' <<<"$app_json")"
+          app_aud="$(jq -r '.aud // empty' <<<"$app_json")"
+          if [[ -z "$app_id" || -z "$app_aud" ]]; then
+            echo "ACCESS_MCP_APP_MISSING_ID_OR_AUD"
+            exit 1
+          fi
+
+          org="$(curl -fsS "${auth[@]}" "$api/organizations")"
+          auth_domain="$(jq -r '.result.auth_domain // empty' <<<"$org")"
+          if [[ -z "$auth_domain" ]]; then
+            echo "ACCESS_TEAM_DOMAIN_UNAVAILABLE"
+            exit 1
+          fi
+          team_domain="https://$auth_domain"
+
+          policies="$(curl -fsS "${auth[@]}" "$api/policies?per_page=100")"
+          ci_policy_count="$(jq --arg name "$ACCESS_CI_POLICY_NAME" '[.result[] | select(.name == $name)] | length' <<<"$policies")"
+          if [[ "$ci_policy_count" != "1" ]]; then
+            echo "ACCESS_CI_REUSABLE_POLICY_COUNT_INVALID count=$ci_policy_count"
+            exit 1
+          fi
+          ci_policy_id="$(jq -r --arg name "$ACCESS_CI_POLICY_NAME" '.result[] | select(.name == $name) | .id' <<<"$policies")"
+          linked="$(jq --arg id "$ci_policy_id" '[.policies[]? | select((.id // .) == $id)] | length' <<<"$app_json")"
+          if [[ "$linked" != "1" ]]; then
+            echo "ACCESS_CI_REUSABLE_POLICY_NOT_LINKED"
+            exit 1
+          fi
+
+          service_token_name="${ACCESS_CI_TOKEN_PREFIX}${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          token_response="$(curl -fsS -X POST "${auth[@]}" "$api/service_tokens" \
+            --data "$(jq -nc --arg name "$service_token_name" '{name:$name,duration:"1h",enabled:true}')")"
+          service_token_id="$(jq -r '.result.id // empty' <<<"$token_response")"
+          client_id="$(jq -r '.result.client_id // empty' <<<"$token_response")"
+          client_secret="$(jq -r '.result.client_secret // empty' <<<"$token_response")"
+          if [[ -z "$service_token_id" || -z "$client_id" || -z "$client_secret" ]]; then
+            echo "ACCESS_EPHEMERAL_SERVICE_TOKEN_CREATION_FAILED"
+            exit 1
+          fi
+          echo "::add-mask::$client_id"
+          echo "::add-mask::$client_secret"
+
+          policy_payload="$(jq -nc --arg name "$ACCESS_CI_POLICY_NAME" --arg token "$service_token_id" '{name:$name,decision:"non_identity",include:[{service_token:{token_id:$token}}],exclude:[],require:[]}')"
+          policy_status="$(curl -sS -o /tmp/access-ci-policy-update.json -w '%{http_code}' -X PUT "${auth[@]}" "$api/policies/$ci_policy_id" --data "$policy_payload")"
+          if [[ "$policy_status" != "200" || "$(jq -r '.success // false' /tmp/access-ci-policy-update.json)" != "true" ]]; then
+            current_disable="$(jq -nc --arg name "$service_token_name" '{name:$name,enabled:false}')"
+            curl -fsS -X PUT "${auth[@]}" "$api/service_tokens/$service_token_id" --data "$current_disable" >/dev/null || true
+            echo "ACCESS_CI_REUSABLE_POLICY_UPDATE_FAILED http=$policy_status"
+            exit 1
+          fi
+
+          stale_tokens="$(curl -fsS "${auth[@]}" "$api/service_tokens?per_page=100")"
+          while IFS=$'\t' read -r stale_id stale_name; do
+            [[ -z "$stale_id" || "$stale_id" == "$service_token_id" || -z "$stale_name" ]] && continue
+            disable_file="$(mktemp)"
+            disable_payload="$(jq -nc --arg name "$stale_name" '{name:$name,enabled:false}')"
+            disable_status="$(curl -sS -o "$disable_file" -w '%{http_code}' -X PUT "${auth[@]}" "$api/service_tokens/$stale_id" --data "$disable_payload")"
+            if [[ "$disable_status" != "200" || "$(jq -r '.success // false' "$disable_file")" != "true" ]]; then
+              echo "ACCESS_STALE_CI_TOKEN_DISABLE_FAILED id=$stale_id http=$disable_status"
+              exit 1
+            fi
+            verify_file="$(mktemp)"
+            verify_status="$(curl -sS -o "$verify_file" -w '%{http_code}' "${auth[@]}" "$api/service_tokens/$stale_id")"
+            if [[ "$verify_status" != "200" ]] || ! jq -e '.success == true and .result.enabled == false' "$verify_file" >/dev/null; then
+              echo "ACCESS_STALE_CI_TOKEN_DISABLE_NOT_VERIFIED id=$stale_id http=$verify_status"
+              jq '{success,result:{id:.result.id,name:.result.name,enabled:.result.enabled},errors}' "$verify_file" || true
+              exit 1
+            fi
+            delete_file="$(mktemp)"
+            delete_status="$(curl -sS -o "$delete_file" -w '%{http_code}' -X DELETE "${auth[@]}" "$api/service_tokens/$stale_id")"
+            if [[ "$delete_status" == "200" && "$(jq -r '.success // false' "$delete_file")" == "true" ]]; then
+              echo "ACCESS_STALE_CI_TOKEN=DELETED id=$stale_id"
+            else
+              echo "ACCESS_STALE_CI_TOKEN=DISABLED_RETAINED id=$stale_id delete_http=$delete_status"
+            fi
+          done < <(jq -r --arg prefix "$ACCESS_CI_TOKEN_PREFIX" '.result[]? | select((.name // "") | startswith($prefix)) | [.id,.name] | @tsv' <<<"$stale_tokens")
+
+          {
+            echo "ACCESS_APP_ID=$app_id"
+            echo "ACCESS_APP_AUD=$app_aud"
+            echo "ACCESS_TEAM_DOMAIN=$team_domain"
+            echo "ACCESS_SERVICE_CLIENT_ID=$client_id"
+            echo "ACCESS_SERVICE_CLIENT_SECRET=$client_secret"
+            echo "ACCESS_EPHEMERAL_SERVICE_TOKEN_ID=$service_token_id"
+            echo "ACCESS_EPHEMERAL_SERVICE_TOKEN_NAME=$service_token_name"
+            echo "ACCESS_CI_POLICY_ID=$ci_policy_id"
+          } >> "$GITHUB_ENV"
+          echo "enabled=true" >> "$GITHUB_OUTPUT"
+          echo "MCP_AUTH_TARGET=CLOUDFLARE_ACCESS"
+          echo "ACCESS_EPHEMERAL_CI_IDENTITY=READY"
+
+      - name: Install Cloudflare Access MCP verification identity
+        if: steps.auth.outputs.ready == 'true' && steps.access.outputs.enabled == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s' "$ACCESS_TEAM_DOMAIN" | npx wrangler secret put ACCESS_TEAM_DOMAIN >/dev/null
+          printf '%s' "$ACCESS_APP_AUD" | npx wrangler secret put ACCESS_AUD >/dev/null
+          echo "Installed exact Access team-domain and application audience verification secrets."
+
+      - name: Deploy Worker code
+        if: steps.auth.outputs.ready == 'true'
+        run: npx wrangler deploy --var DEPLOYMENT_SHA:${GITHUB_SHA}
+
+      - name: Install Supervisor operator bearer secret
+        if: steps.auth.outputs.ready == 'true'
+        shell: bash
+        run: printf '%s' "$SUPERVISOR_API_TOKEN" | npx wrangler secret put SUPERVISOR_API_TOKEN
+
+      - name: Install scoped Phase-2 external read identities
+        if: steps.auth.outputs.ready == 'true'
+        shell: bash
+        run: |
+          put_secret() {
+            local name="$1"
+            local value="$2"
+            printf '%s' "$value" | npx wrangler secret put "$name" >/dev/null
+            echo "Installed Worker secret $name"
+          }
+
+          if [[ -n "$GITHUB_APP_ID" && -n "$GITHUB_APP_INSTALLATION_ID" && -n "$GITHUB_APP_PRIVATE_KEY" ]]; then
+            put_secret GITHUB_APP_ID "$GITHUB_APP_ID"
+            put_secret GITHUB_APP_INSTALLATION_ID "$GITHUB_APP_INSTALLATION_ID"
+            put_secret GITHUB_APP_PRIVATE_KEY "$GITHUB_APP_PRIVATE_KEY"
+            echo "PHASE2_GITHUB_IDENTITY=GITHUB_APP"
+          elif [[ -n "$GITHUB_READ_TOKEN" ]]; then
+            put_secret GITHUB_READ_TOKEN "$GITHUB_READ_TOKEN"
+            echo "PHASE2_GITHUB_IDENTITY=COMPAT_READ_TOKEN"
+          else
+            echo "PHASE2_GITHUB_IDENTITY=NOT_CONFIGURED"
+          fi
+
+          if [[ -n "$GOOGLE_SERVICE_ACCOUNT_EMAIL" && -n "$GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY" ]]; then
+            put_secret GOOGLE_SERVICE_ACCOUNT_EMAIL "$GOOGLE_SERVICE_ACCOUNT_EMAIL"
+            put_secret GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY "$GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY"
+            echo "PHASE2_DRIVE_IDENTITY=SERVICE_ACCOUNT"
+          elif [[ -n "$GOOGLE_DRIVE_BEARER_TOKEN" ]]; then
+            put_secret GOOGLE_DRIVE_BEARER_TOKEN "$GOOGLE_DRIVE_BEARER_TOKEN"
+            echo "PHASE2_DRIVE_IDENTITY=COMPAT_BEARER_TOKEN"
+          else
+            echo "PHASE2_DRIVE_IDENTITY=NOT_CONFIGURED"
+          fi
+
+      - name: Verify live /em route, MCP auth, lifecycle, and durable handoff
+        if: steps.auth.outputs.ready == 'true'
+        run: npm run smoke:live
+
+      - name: Revoke current Access CI identity
+        if: always() && steps.auth.outputs.ready == 'true' && steps.access.outputs.enabled == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access"
+          auth=(-H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json" -H "Accept: application/json")
+          disable_file="$(mktemp)"
+          disable_payload="$(jq -nc --arg name "$ACCESS_EPHEMERAL_SERVICE_TOKEN_NAME" '{name:$name,enabled:false}')"
+          disable_status="$(curl -sS -o "$disable_file" -w '%{http_code}' -X PUT "${auth[@]}" "$api/service_tokens/$ACCESS_EPHEMERAL_SERVICE_TOKEN_ID" --data "$disable_payload")"
+          if [[ "$disable_status" != "200" || "$(jq -r '.success // false' "$disable_file")" != "true" ]]; then
+            echo "ACCESS_EPHEMERAL_TOKEN_REVOKE_FAILED http=$disable_status"
+            jq '{success,errors}' "$disable_file" || true
+            exit 1
+          fi
+          verify_file="$(mktemp)"
+          verify_status="$(curl -sS -o "$verify_file" -w '%{http_code}' "${auth[@]}" "$api/service_tokens/$ACCESS_EPHEMERAL_SERVICE_TOKEN_ID")"
+          if [[ "$verify_status" != "200" ]] || ! jq -e '.success == true and .result.enabled == false' "$verify_file" >/dev/null; then
+            echo "ACCESS_EPHEMERAL_TOKEN_REVOKE_NOT_VERIFIED http=$verify_status"
+            jq '{success,result:{id:.result.id,name:.result.name,enabled:.result.enabled},errors}' "$verify_file" || true
+            exit 1
+          fi
+          echo "ACCESS_EPHEMERAL_CI_IDENTITY=DISABLED"
+
+      - name: Record authorization blocker
+        if: steps.auth.outputs.ready != 'true'
+        run: echo "DEPLOYMENT_BLOCKED_ACCOUNT_AUTHORIZATION_MISSING"
