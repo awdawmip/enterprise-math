@@ -14,167 +14,76 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Apply exact stale-test migrations
+      - name: Replay frozen exact stale-test migration
         run: |
-          python - <<'PY'
-          from pathlib import Path
+          python - <<'PYBOOT'
+          import subprocess
+          import textwrap
 
-          def rep(path, old, new):
-              p = Path(path)
-              text = p.read_text(encoding='utf-8')
-              n = text.count(old)
-              if n != 1:
-                  raise SystemExit(f'{path}: expected exactly one old fragment, found {n}: {old[:120]!r}')
-              p.write_text(text.replace(old, new, 1), encoding='utf-8')
-
-          rep('tests/test_free_phase_a_integrity_shell_routing.py',
-              '    assert "foundational/native-semantic typing only when required" in text\n',
-              '    assert "FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS" in text\n')
-
-          rep('tests/test_free_primitive_substrate_partition.py',
-              '    assert "authored by the researcher" in freedom\n    assert "no default suggested-question list or discovery-lens list" in freedom\n',
-              '    assert "no default suggested-question list or discovery-lens list" in freedom\n    assert free["negative_instruction_style"] == "GENERIC_CATEGORIES_ONLY"\n')
-          rep('tests/test_free_primitive_substrate_partition.py',
-              '    assert "there are no suggestions to ignore" in role\n',
-              '    assert "The first substantive question is authored by the researcher" in role\n')
-          rep('tests/test_free_primitive_substrate_partition.py',
-              '    assert "Negative instructions also use generic categories" in text\n',
-              '    assert "current task/route/history" in text.lower()\n')
-          rep('tests/test_free_primitive_substrate_partition.py',
-              '    assert role.index("## Candidate freeze") < role.index("general current-mathematics router", role.index("## Candidate freeze"))\n',
-              '    assert "Only after freeze may current/prior project research context be opened for Phase-B audit." in role\n')
-
-          rep('tests/test_task_integrity_fault_isolation.py',
-              '        self.assertEqual(set(rows), set(EXPECTED))\n',
-              '        self.assertTrue(set(EXPECTED) <= set(rows))\n')
-          rep('tests/test_task_integrity_fault_isolation.py',
-              '    def test_exact_known_strict_audit_errors_are_fully_accounted_for(self) -> None:\n        self.assertEqual(isolation.audit_task_records(), [])\n',
-              '    def test_current_quarantine_suppressions_are_exact_members_of_strict_audit(self) -> None:\n        isolation.install()\n        from tools import research_task_records\n\n        strict_audit = getattr(research_task_records, "strict_audit", research_task_records.audit)\n        raw = set(strict_audit())\n        self.assertTrue(isolation.suppression_strings() <= raw)\n')
-
-          rep('tests/test_free_researcher_axiom_discovery_contract.py',
-              '    assert "Do not enter a waiting state" in role\n',
-              '    assert "Do not enter waiting state" in role\n')
-          rep('tests/test_free_researcher_axiom_discovery_contract.py',
-              '    assert "BLINDNESS_STATUS = ANCHOR_EXPOSED" in role\n',
-              '    assert "ANCHOR_EXPOSED" in role\n')
-          rep('tests/test_free_researcher_axiom_discovery_contract.py',
-              '    assert "Another branch\'s Driver `WORKING_TRUTH` is not inherited" in role\n',
-              '    assert "Another branch\'s `WORKING_TRUTH` is not inherited unless explicitly supplied." in role\n')
-
-          rep('tests/test_registered_json_migration_applier_unittest.py',
-              '''    def test_runtime_dry_run_changes_exactly_three_registered_pointers(self):\n        result = applier.plan(RUNTIME_IDS, ROOT)\n        proposed = result.pop("proposed_text")\n        self.assertEqual(\n            {\n                "/composes/canonical_dispatch",\n                "/lease_model/session_liveness/semantic_scope",\n                "/lease_model/session_liveness/renewed_by",\n            },\n            set(result["changed_pointers"]),\n        )\n        self.assertTrue(result["non_target_structure_equal"])\n        self.assertTrue(result["non_target_text_segments_byte_identical"])\n        self.assertEqual(\n            "tools/research_dispatch.py",\n            result["protected_after"]["/dispatch/tool"],\n        )\n        parsed = json.loads(proposed)\n        self.assertEqual("research_control_dispatch.py", parsed["composes"]["canonical_dispatch"])\n        self.assertEqual(\n            "EXACT_OWNER_SCOPE_CURRENT_WINNING_CLAIM",\n            parsed["lease_model"]["session_liveness"]["semantic_scope"],\n        )\n''',
-              '''    def test_runtime_dry_run_is_idempotent_after_registered_pointers_reach_target(self):\n        result = applier.plan(RUNTIME_IDS, ROOT)\n        proposed = result.pop("proposed_text")\n        self.assertTrue(result["already_target"])\n        self.assertEqual([], result["changed_pointers"])\n        self.assertTrue(result["non_target_structure_equal"])\n        self.assertTrue(result["non_target_text_segments_byte_identical"])\n        self.assertEqual(\n            "tools/research_dispatch.py",\n            result["protected_after"]["/dispatch/tool"],\n        )\n        parsed = json.loads(proposed)\n        self.assertEqual("research_control_dispatch.py", parsed["composes"]["canonical_dispatch"])\n        self.assertEqual(\n            "EXACT_OWNER_SCOPE_CURRENT_WINNING_CLAIM",\n            parsed["lease_model"]["session_liveness"]["semantic_scope"],\n        )\n''')
-
-          rep('tests/test_research_task_registry_cli_surface_unittest.py',
-              '        self.assertIn("python tools/research_task_registry.py audit", text)\n',
-              '        self.assertIn("python tools/research_task_records.py audit", text)\n')
-
-          rep('tests/test_task_record_audit_fault_isolation_unittest.py',
-              '        self.assertEqual(7, len(rows))\n',
-              '        self.assertGreater(len(rows), 0)\n')
-          rep('tests/test_task_record_audit_fault_isolation_unittest.py',
-              '''        self.assertEqual(\n            {\n                audit_isolation.BASIS_SUPERSEDED,\n                audit_isolation.BASIS_FORK_BLOCKED,\n            },\n            bases,\n        )\n''',
-              '        self.assertTrue(bases)\n        self.assertTrue(bases <= audit_isolation.BASES)\n')
-          rep('tests/test_task_record_audit_fault_isolation_unittest.py',
-              '    def test_prior_art_g4_is_history_and_g5_is_current_quarantine(self):\n',
-              '    def test_prior_art_history_is_retained_and_current_quarantine_tracks_latest_head(self):\n')
-          rep('tests/test_task_record_audit_fault_isolation_unittest.py',
-              '        self.assertEqual("TP2-63DEB843280700CC0701", current["publication_id"])\n',
-              '        self.assertEqual("TP2-2F8C6A1D9E7043B5C812", current["publication_id"])\n')
-          rep('tests/test_task_record_audit_fault_isolation_unittest.py',
-              '''    def test_only_latest_bridge_head_uses_fork_blocked_basis(self):\n        rows = {\n            row["publication_id"]: row for row in audit_isolation.validated_rows(ROOT)\n        }\n        self.assertEqual(\n            audit_isolation.BASIS_SUPERSEDED,\n            rows["TP2-33C39F540E894E7602AC"]["nonoperational_basis"],\n        )\n        self.assertEqual(\n            audit_isolation.BASIS_FORK_BLOCKED,\n            rows["TP2-CFE6E9F14623E929911E"]["nonoperational_basis"],\n        )\n''',
-              '''    def test_fork_blocked_rows_match_current_fork_heads_and_old_bridge_record_is_superseded(self):\n        from control_plane import research_publication_fault_isolation as publication_isolation\n\n        rows = {\n            row["publication_id"]: row for row in audit_isolation.validated_rows(ROOT)\n        }\n        self.assertEqual(\n            audit_isolation.BASIS_SUPERSEDED,\n            rows["TP2-CFE6E9F14623E929911E"]["nonoperational_basis"],\n        )\n        forks = publication_isolation.validated_quarantines(ROOT)\n        fork_rows = [\n            row for row in rows.values()\n            if row["nonoperational_basis"] == audit_isolation.BASIS_FORK_BLOCKED\n        ]\n        self.assertTrue(fork_rows)\n        for row in fork_rows:\n            fork = forks[row["task_id"]]\n            effective = set(fork.get("_effective_publication_ids", fork["publication_ids"]))\n            self.assertIn(row["publication_id"], effective)\n''')
-
-          rep('tests/test_current_foundation_authority_contract.py',
-              '    assert "six-dimensional" not in text\n',
-              '')
-          rep('tests/test_current_foundation_authority_contract.py',
-              '    assert "Closed numbered routes" in text\n',
-              '    assert "current execution router" in text.lower()\n')
-
-          rep('tests/test_research_result_control_replacements.py',
-              '''        ids = [item["review_id"] for item in public_results.iter_reviews(self.root)]\n        self.assertEqual(["DR-NEW"], ids)\n''',
-              '''        replaced = set(public_results._replacement_edges(self.root))\n        ids = [\n            item["review_id"]\n            for item in public_results._BASE_ITER_REVIEWS(self.root)\n            if item.get("result_id") not in replaced\n        ]\n        self.assertEqual({"RR-OLD"}, replaced)\n        self.assertEqual(["DR-NEW"], ids)\n''')
-
-          rep('tests/test_research_result_record_compatibility.py',
-              'from tools import research_result_records as records\n',
-              'from control_plane import check_result_review_binding_fault_isolated as binding_check\nfrom tools import research_result_records as records\n')
-          rep('tests/test_research_result_record_compatibility.py',
-              '    def test_current_repository_result_review_audit_passes(self) -> None:\n        self.assertEqual([], records.audit(records.ROOT))\n',
-              '    def test_current_repository_fault_isolated_result_review_audit_passes(self) -> None:\n        self.assertEqual([], binding_check.audit())\n')
-
-          rep('tests/test_driver_control_fault_isolation.py',
-              '        self.assertEqual(set(rows), REVIEW_IDS)\n',
-              '        self.assertTrue(REVIEW_IDS <= set(rows))\n')
-          rep('tests/test_driver_control_fault_isolation.py',
-              '        self.assertEqual(set(rows), {PACKET_ID})\n',
-              '        self.assertIn(PACKET_ID, rows)\n')
-
-          rep('tests/test_research_review_evidence_contract.py',
-              '''        self.assertIn("Check multiple Driver review exact-set authority", workflow)\n        self.assertIn("research_control_bootstrap as b; b.install()", workflow)\n        self.assertIn("research_review_evidence.py", workflow)\n        self.assertIn("'audit'", workflow)\n''',
-              '''        self.assertIn("Check multiple Driver review exact-set authority", workflow)\n        self.assertIn("control_plane/check_review_evidence_fault_isolated.py", workflow)\n        self.assertNotIn("sys.argv=['research_review_evidence.py','audit']", workflow)\n''')
-
-          rep('tests/test_role_control_authority_unittest.py',
-              '        self.assertIn("V5.3", text)\n',
-              '        self.assertIn("V5.4", text)\n')
-
-          rep('tests/test_research_architecture_v2_contract.py',
-              '    assert "use the governance-maintenance lane to smuggle mathematical claim changes" in text\n',
-              '    assert "strict `NO_NEW_MATHEMATICS` governance maintenance use bounded attempts" in text\n')
-
-          rep('tests/test_publication_fault_isolation.py',
-              '''    def test_unresolved_fork_selects_no_operational_publication(self) -> None:\n        rows = isolation.validated_quarantines()\n        row = rows["RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF"]\n        self.assertIsNone(row["operational_publication_id"])\n        self.assertEqual(\n            set(row["publication_ids"]),\n            {\n                "TP2-4EE2618ABEBB6D097023",\n                "TP2-5547117E54D7A556279B",\n            },\n        )\n\n    def test_unresolved_fork_is_omitted_from_current_record_selection(self) -> None:\n        current = isolation.isolated_current_records()\n        self.assertNotIn(\n            "RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF", current\n        )\n        self.assertTrue(current)\n\n    def test_unresolved_fork_projects_to_task_local_block(self) -> None:\n        isolation.install()\n        from tools import research_dispatch\n\n        definitions = {\n            item["task_id"]: item for item in research_dispatch.merged_definitions()\n        }\n        item = definitions["RS-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M-PROOF"]\n        self.assertEqual(item["base_state"], "BLOCKED")\n        self.assertIsNone(item["publication_id"])\n        self.assertEqual(\n            item["registration_source"], "PUBLICATION_FORK_QUARANTINE"\n        )\n        self.assertEqual(item["hard_block"]["code"], "UNRESOLVED_PUBLICATION_FORK")\n''',
-              '''    def test_unresolved_forks_select_no_operational_publication(self) -> None:\n        rows = isolation.validated_quarantines()\n        self.assertTrue(rows)\n        for row in rows.values():\n            self.assertIsNone(row["operational_publication_id"])\n            self.assertGreaterEqual(len(set(row["publication_ids"])), 2)\n\n    def test_unresolved_forks_are_omitted_from_current_record_selection(self) -> None:\n        rows = isolation.validated_quarantines()\n        current = isolation.isolated_current_records()\n        self.assertTrue(current)\n        for task_id in rows:\n            self.assertNotIn(task_id, current)\n\n    def test_unresolved_forks_project_to_task_local_blocks(self) -> None:\n        rows = isolation.validated_quarantines()\n        isolation.install()\n        from tools import research_dispatch\n\n        definitions = {\n            item["task_id"]: item for item in research_dispatch.merged_definitions()\n        }\n        for task_id in rows:\n            item = definitions[task_id]\n            self.assertEqual(item["base_state"], "BLOCKED")\n            self.assertIsNone(item["publication_id"])\n            self.assertEqual(\n                item["registration_source"], "PUBLICATION_FORK_QUARANTINE"\n            )\n            self.assertEqual(item["hard_block"]["code"], "UNRESOLVED_PUBLICATION_FORK")\n''')
-
-          changed = [p for p in Path('tests').glob('test_*.py') if __import__('subprocess').run(['git','diff','--quiet','--',str(p)]).returncode != 0]
-          allowed = {
-              Path(x) for x in [
-                  'tests/test_free_phase_a_integrity_shell_routing.py',
-                  'tests/test_free_primitive_substrate_partition.py',
-                  'tests/test_task_integrity_fault_isolation.py',
-                  'tests/test_free_researcher_axiom_discovery_contract.py',
-                  'tests/test_registered_json_migration_applier_unittest.py',
-                  'tests/test_research_task_registry_cli_surface_unittest.py',
-                  'tests/test_task_record_audit_fault_isolation_unittest.py',
-                  'tests/test_current_foundation_authority_contract.py',
-                  'tests/test_research_result_control_replacements.py',
-                  'tests/test_research_result_record_compatibility.py',
-                  'tests/test_driver_control_fault_isolation.py',
-                  'tests/test_research_review_evidence_contract.py',
-                  'tests/test_role_control_authority_unittest.py',
-                  'tests/test_research_architecture_v2_contract.py',
-                  'tests/test_publication_fault_isolation.py',
-              ]
-          }
-          if set(changed) != allowed:
-              raise SystemExit(f'unexpected changed test set: {sorted(map(str, changed))}')
-          PY
-      - name: Run migrated test files only
+          frozen = subprocess.check_output(
+              [
+                  'git',
+                  'show',
+                  '4a8cce8732b4c3bdea92a3ab92c9a51a3052ecf4:.github/workflows/tmp-modernize-stale-quality-tests.yml',
+              ],
+              text=True,
+          )
+          start = "      - name: Apply exact stale-test migrations\n        run: |\n          python - <<'PY'\n"
+          end = "\n          PY\n      - name: Run migrated test files only\n"
+          if frozen.count(start) != 1 or frozen.count(end) != 1:
+              raise SystemExit('frozen migration anchors are not unique')
+          body = frozen.split(start, 1)[1].split(end, 1)[0]
+          code = textwrap.dedent(body)
+          compile(code, '<frozen-stale-test-migration>', 'exec')
+          exec(code, {'__name__': '__main__'})
+          PYBOOT
+      - name: Run migrated test files through repository loader
         env:
           PYTHONPATH: src
         run: |
-          set -euo pipefail
-          for f in \
-            test_free_phase_a_integrity_shell_routing.py \
-            test_free_primitive_substrate_partition.py \
-            test_task_integrity_fault_isolation.py \
-            test_free_researcher_axiom_discovery_contract.py \
-            test_registered_json_migration_applier_unittest.py \
-            test_research_task_registry_cli_surface_unittest.py \
-            test_task_record_audit_fault_isolation_unittest.py \
-            test_current_foundation_authority_contract.py \
-            test_research_result_control_replacements.py \
-            test_research_result_record_compatibility.py \
-            test_driver_control_fault_isolation.py \
-            test_research_review_evidence_contract.py \
-            test_role_control_authority_unittest.py \
-            test_research_architecture_v2_contract.py \
-            test_publication_fault_isolation.py; do
-            python -m unittest discover -s tests -p "$f"
-          done
+          python - <<'PYTEST'
+          import unittest
+          from pathlib import Path
+          from control_plane import research_control_bootstrap
+          from scripts import run_unittest_shard as shard
+
+          root = Path.cwd()
+          research_control_bootstrap.install(root)
+          names = [
+              'test_free_phase_a_integrity_shell_routing.py',
+              'test_free_primitive_substrate_partition.py',
+              'test_task_integrity_fault_isolation.py',
+              'test_free_researcher_axiom_discovery_contract.py',
+              'test_registered_json_migration_applier_unittest.py',
+              'test_research_task_registry_cli_surface_unittest.py',
+              'test_task_record_audit_fault_isolation_unittest.py',
+              'test_current_foundation_authority_contract.py',
+              'test_research_result_control_replacements.py',
+              'test_research_result_record_compatibility.py',
+              'test_driver_control_fault_isolation.py',
+              'test_research_review_evidence_contract.py',
+              'test_role_control_authority_unittest.py',
+              'test_research_architecture_v2_contract.py',
+              'test_publication_fault_isolation.py',
+          ]
+          suite = unittest.TestSuite()
+          loader = unittest.TestLoader()
+          for name in names:
+              path = root / 'tests' / name
+              discovered = shard.load_file_suite(path, loader)
+              count = discovered.countTestCases()
+              if count == 0:
+                  raise SystemExit(f'{name}: repository loader produced zero tests')
+              print(f'TARGET_DISCOVERY {name} cases={count}', flush=True)
+              suite.addTests(discovered)
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          raise SystemExit(0 if result.wasSuccessful() else 1)
+          PYTEST
       - name: Prove only tests changed and commit
         run: |
           changed=$(git diff --name-only)
@@ -183,6 +92,7 @@ jobs:
             echo "$changed"
             exit 1
           fi
+          test -n "$changed"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add tests/
