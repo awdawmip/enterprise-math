@@ -11,12 +11,16 @@ This layer is deliberately separate from current-task integrity quarantine:
   that is itself locally BLOCKED by publication-fork quarantine.
 
 Every suppression pins exact record bytes, exact taskbook bytes and exact error
-suffixes.  It grants no dispatch, publication selection, Working Truth,
-Foundation, canonical-promotion or successor authority.
+suffixes. A malformed immutable record may itself omit or drift its taskbook blob
+pin only when that exact defect is one of the pinned strict-audit suffixes; the
+quarantine still pins the actual taskbook Git blob independently. It grants no
+dispatch, publication selection, Working Truth, Foundation, canonical-promotion
+or successor authority.
 """
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -31,6 +35,7 @@ STATE = "NONOPERATIONAL_IMMUTABLE_RECORD_INTEGRITY_FAULT"
 BASIS_SUPERSEDED = "DIRECTLY_SUPERSEDED_SAME_TASK"
 BASIS_FORK_BLOCKED = "TASK_BLOCKED_BY_PUBLICATION_FORK_QUARANTINE"
 BASES = {BASIS_SUPERSEDED, BASIS_FORK_BLOCKED}
+SHA1 = re.compile(r"^sha1:[0-9a-f]{40}$")
 
 
 class TaskRecordAuditIsolationError(ValueError):
@@ -119,6 +124,16 @@ def quarantine_rows(root: Path = ROOT) -> list[dict[str, Any]]:
     return out
 
 
+def _declared_taskbook_pin_defect(record: dict[str, Any], actual_pin: str) -> str | None:
+    """Return the exact strict-audit suffix represented by a bad record-side pin."""
+    declared = record.get("taskbook_blob_sha1")
+    if not isinstance(declared, str) or not SHA1.fullmatch(declared):
+        return "missing/invalid taskbook_blob_sha1"
+    if declared != actual_pin:
+        return f"taskbook Git blob drift: declared {declared}, actual {actual_pin}"
+    return None
+
+
 def validated_rows(root: Path = ROOT) -> list[dict[str, Any]]:
     from control_plane import research_publication_fault_isolation as fork_isolation
     from control_plane import research_task_records_impl as core
@@ -156,8 +171,6 @@ def validated_rows(root: Path = ROOT) -> list[dict[str, Any]]:
             )
         if record.get("taskbook_path") != row["taskbook_path"]:
             raise TaskRecordAuditIsolationError(f"{qid}: taskbook_path drift")
-        if record.get("taskbook_blob_sha1") != row["taskbook_blob_sha1"]:
-            raise TaskRecordAuditIsolationError(f"{qid}: taskbook blob pin mismatch")
         taskbook_path = root / row["taskbook_path"]
         if not taskbook_path.is_file():
             raise TaskRecordAuditIsolationError(f"{qid}: taskbook path missing")
@@ -166,6 +179,12 @@ def validated_rows(root: Path = ROOT) -> list[dict[str, Any]]:
             raise TaskRecordAuditIsolationError(
                 f"{qid}: taskbook blob drift; declared={row['taskbook_blob_sha1']} "
                 f"actual={actual_taskbook_blob}"
+            )
+        record_pin_defect = _declared_taskbook_pin_defect(record, actual_taskbook_blob)
+        if record_pin_defect is not None and record_pin_defect not in row["allowed_task_record_audit_errors"]:
+            raise TaskRecordAuditIsolationError(
+                f"{qid}: record-side taskbook pin defect is not exactly quarantined: "
+                f"{record_pin_defect}"
             )
 
         basis = row["nonoperational_basis"]
